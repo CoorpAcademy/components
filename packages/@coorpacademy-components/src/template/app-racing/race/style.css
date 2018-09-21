@@ -5,17 +5,6 @@
 @value positive from colors;
 @value negative from colors;
 
-.layoutSection {
-  width: 100%;
-}
-
-.sectionCTA {
-  display: flex;
-  height: 15%;
-  align-items: center;
-  justify-content: center;
-}
-
 .screen {
   display: flex;
   width: 100%;
@@ -101,6 +90,20 @@
 
 .sectionRace {
   height: 85%;
+}
+
+.sectionTeam {
+  position: relative;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  position: absolute;
+  top: 20px;
 }
 
 /* ----------------------------------------------------------------- */

@@ -1,4 +1,4 @@
-import fiveTowers from '../../../common-fixtures/five-towers';
+import noTower from '../../../common-fixtures/no-tower';
 import spreadTeam from '../../../common-fixtures/spread-team';
 
 export default {
@@ -6,9 +6,9 @@ export default {
     info: {
       title: null,
       success: null,
-      gameOver: true
+      gameOver: false
     },
-    race: fiveTowers,
+    race: noTower,
     cta: null,
     team: spreadTeam
   }

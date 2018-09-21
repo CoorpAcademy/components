@@ -53,13 +53,6 @@
   justify-content: center;
 }
 
-.myAvatar {
-  composes: avatar;
-  width: 55px;
-  height: 55px;
-  margin-top: -5px;
-}
-
 .correct {
   border: 3px solid positive;
 }
@@ -150,8 +143,24 @@
   0% {
     opacity:0;
   }
-  
-  75% {
+
+  25% {
+    top: 0px;
+    opacity:0;
+  }
+
+  100% {
+    opacity:1;
+    top: -6px;
+  }
+}
+
+@keyframes popAfterAWhile {
+  0% {
+    opacity:0;
+  }
+
+  95% {
     top: 0px;
     opacity:0;
   }
@@ -163,7 +172,7 @@
 }
 
 .icon {
-  animation: pop 4s;
+  animation: popAfterAWhile 2.4s;
   position: absolute;
   top: -6px;
   left: -4px;
@@ -174,6 +183,7 @@
 }
 
 .iconWait {
+  animation: pop 1s;
   composes: icon;
 }
 

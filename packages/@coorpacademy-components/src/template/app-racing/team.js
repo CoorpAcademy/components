@@ -11,6 +11,19 @@ import animation from '../../atom/css-animations/fade-in.css';
 import BLOCKS from './blocks';
 import style from './team.css';
 
+const TeamTitle = ({type, num}) => {
+  if (type === 'race') {
+    return null;
+  }
+
+  return (
+    <div className={style.teamTitle}>
+      <img src={BLOCKS[num]} />
+      <span>Team {num}</span>
+    </div>
+  );
+};
+
 const ResponseResult = ({isCorrect, color}) => {
   const textStyle = isCorrect === true ? style.textCorrect : style.textNotCorrect;
 
@@ -41,7 +54,7 @@ const Player = ({name, isMe, avatar, isCorrect}) => {
   return (
     <div
       title={name}
-      className={classnames(isMe ? style.myAvatar : style.avatar, borderStyle, animation.fadeIn)}
+      className={classnames(style.avatar, borderStyle, animation.fadeIn)}
       key={name}
       style={{
         backgroundImage: `url(${avatar})`
@@ -54,22 +67,25 @@ const Player = ({name, isMe, avatar, isCorrect}) => {
 };
 
 const Team = props => {
-  const middleY = 10;
-  const sideY = 50;
+  const {members, num, type} = props;
+  const middleY = type === 'race' ? 15 : 10;
+  const sideY = type === 'race' ? 15 : 50;
   const count = {
     nbNull: 0,
     nbCorrect: 0,
     nbWrong: 0
   };
 
-  const players = sortBy(member => !!member.isMe, props.members);
+  const players = sortBy(member => !!member.isMe, members);
 
   return (
-    <div className={style.team}>
-      <div className={style.teamTitle}>
-        <img src={BLOCKS[props.num]} />
-        <span>Team {props.num}</span>
-      </div>
+    <div
+      className={style.team}
+      style={{
+        backgroundColor: type === 'race' ? 'rgba(5.5%, 22.7%, 23.9%, 0.2)' : 'none'
+      }}
+    >
+      <TeamTitle type={type} num={num} />
       {map(({name, isMe, avatar, isCorrect}) => {
         if (isNull(isCorrect)) {
           count.nbNull++;
@@ -80,7 +96,7 @@ const Team = props => {
         }
 
         const score = !isNull(isCorrect) ? (
-          <ResponseResult key={`result-${name}`} isCorrect={isCorrect} color={props.num} />
+          <ResponseResult key={`result-${name}`} isCorrect={isCorrect} color={num} />
         ) : null;
 
         // eslint-disable-next-line no-nested-ternary
@@ -102,13 +118,15 @@ const Team = props => {
                 y: sideY
               };
 
+        const options = {stiffness: 100, damping: 31};
+
         return (
           <Motion
             defaultStyle={{xPercent: 50, xOffset: 25, y: middleY}}
             style={{
-              xPercent: spring(position.xPercent, {stiffness: 40, damping: 22}),
-              xOffset: spring(position.xOffset, {stiffness: 40, damping: 22}),
-              y: spring(position.y, {stiffness: 40, damping: 22})
+              xPercent: spring(position.xPercent, options),
+              xOffset: spring(position.xOffset, options),
+              y: spring(position.y, options)
             }}
           >
             {({xPercent, xOffset, y}) => {
