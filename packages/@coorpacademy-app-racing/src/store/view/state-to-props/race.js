@@ -17,7 +17,7 @@ const raceProps = (options, {dispatch}) => state => {
   const spectate = isSpectator(state);
   const success = gameOver ? null : isLastAnswerCorrect(state);
   const title = gameOver ? null : `${success ? 'Good' : 'Bad'} answer`;
-  const team = currentTeam(state);
+  const members = currentTeam(state);
 
   return {
     info: {
@@ -28,15 +28,18 @@ const raceProps = (options, {dispatch}) => state => {
       goal: config.goal,
       towers: getCurrentRace(state)
     },
-    cta: spectate
-      ? null
-      : {
-          submitValue: 'Next question',
-          disabled: gameOver || !allUsersHaveAnswered(state),
-          primary: true,
-          onClick: () => dispatch(seeQuestion)
-        },
-    team
+    cta:
+      spectate || gameOver || !allUsersHaveAnswered(state)
+        ? null
+        : {
+            submitValue: 'Next question',
+            primary: true,
+            onClick: () => dispatch(seeQuestion)
+          },
+    team: {
+      members,
+      num: 2
+    }
   };
 };
 

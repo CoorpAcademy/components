@@ -89,7 +89,7 @@
 }
 
 .sectionRace {
-  height: 85%;
+  height: calc(100% - 80px);
 }
 
 .sectionTeam {
