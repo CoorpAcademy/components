@@ -1,4 +1,6 @@
 import Answer from '../../../../../molecule/answer/test/fixtures/default';
+import spreadTeam from '../../../common-fixtures/spread-team';
+import fiveTowers from '../../../common-fixtures/five-towers';
 
 const {props: answerType} = Answer;
 
@@ -20,60 +22,7 @@ export default {
         disabled: false
       }
     },
-    team: {
-      num: 1,
-      members: [
-        {
-          name: 'Katrine',
-          avatar: 'https://api.adorable.io/avatars/150/Katrine.png',
-          isCorrect: true
-        },
-        {name: 'Bob', avatar: 'https://api.adorable.io/avatars/150/bob.png', isCorrect: false},
-        {
-          name: 'Tim',
-          avatar: 'https://api.adorable.io/avatars/150/Tim.png',
-          isCorrect: false,
-          isMe: true
-        },
-        {name: 'Joe', avatar: 'https://api.adorable.io/avatars/150/Joe.png', isCorrect: false},
-        {name: 'Kim', avatar: 'https://api.adorable.io/avatars/150/Kim.png', isCorrect: null}
-      ]
-    },
-    race: {
-      goal: 8,
-      towers: [
-        ['removed', 'lost', 'new', 'new', 'new'],
-        ['placed', 'placed', 'placed', 'placed', 'new', 'new', 'new'],
-        ['removed', 'lost', 'lost', 'lost', 'placed', 'placed'],
-        ['placed', 'placed'],
-        [
-          'lost',
-          'lost',
-          'lost',
-          'lost',
-          'lost',
-          'lost',
-          'lost',
-          'lost',
-          'lost',
-          'lost',
-          'lost',
-          'lost',
-          'lost',
-          'lost',
-          'lost',
-          'lost',
-          'lost',
-          'new',
-          'new',
-          'new',
-          'new',
-          'new',
-          'new',
-          'new',
-          'new'
-        ]
-      ]
-    }
+    team: spreadTeam,
+    race: fiveTowers
   }
 };

@@ -647,6 +647,8 @@ import TemplateAppRacingQuestionFixtureAllInMiddle from '../src/template/app-rac
 import TemplateAppRacingQuestionFixtureDefault from '../src/template/app-racing/question/test/fixtures/default';
 import TemplateAppRacingRaceFixtureDefault from '../src/template/app-racing/race/test/fixtures/default';
 import TemplateAppRacingRaceFixtureGameOver from '../src/template/app-racing/race/test/fixtures/game-over';
+import TemplateAppRacingRaceFixtureNoTower from '../src/template/app-racing/race/test/fixtures/no-tower';
+import TemplateAppRacingRaceFixtureReadyToAnswer from '../src/template/app-racing/race/test/fixtures/ready-to-answer';
 import TemplateBackOfficeBrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import TemplateBackOfficeBrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import TemplateBackOfficeBrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -1680,7 +1682,9 @@ export const fixtures = {
     },
     TemplateAppRacingRace: {
       Default: TemplateAppRacingRaceFixtureDefault,
-      GameOver: TemplateAppRacingRaceFixtureGameOver
+      GameOver: TemplateAppRacingRaceFixtureGameOver,
+      NoTower: TemplateAppRacingRaceFixtureNoTower,
+      ReadyToAnswer: TemplateAppRacingRaceFixtureReadyToAnswer
     }
   },
   TemplateBackOffice: {
