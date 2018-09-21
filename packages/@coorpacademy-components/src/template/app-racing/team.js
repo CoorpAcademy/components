@@ -122,6 +122,7 @@ const Team = props => {
 
         return (
           <Motion
+            key={name}
             defaultStyle={{xPercent: 50, xOffset: 25, y: middleY}}
             style={{
               xPercent: spring(position.xPercent, options),
@@ -136,13 +137,7 @@ const Team = props => {
                   style={{left: `calc(${xPercent}% - ${xOffset}px)`, top: `${y}px`}}
                 >
                   {score}
-                  <Player
-                    key={name}
-                    isMe={isMe}
-                    name={name}
-                    avatar={avatar}
-                    isCorrect={isCorrect}
-                  />
+                  <Player isMe={isMe} name={name} avatar={avatar} isCorrect={isCorrect} />
                 </div>
               );
             }}
