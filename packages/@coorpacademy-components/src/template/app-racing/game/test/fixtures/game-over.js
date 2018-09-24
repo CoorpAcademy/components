@@ -10,7 +10,7 @@ export default {
     info: {
       title: 'Bonne réponse !',
       success: true,
-      gameOver: false
+      gameOver: true
     }
   }
 };

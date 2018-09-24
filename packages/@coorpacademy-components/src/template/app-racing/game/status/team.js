@@ -119,7 +119,7 @@ const Team = props => {
                 y: sideY
               };
 
-        const options = {stiffness: 100, damping: 31};
+        const options = {stiffness: 600, damping: 40};
 
         return (
           <Motion
