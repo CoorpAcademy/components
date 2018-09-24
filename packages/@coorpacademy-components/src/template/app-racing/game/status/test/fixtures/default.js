@@ -3,13 +3,8 @@ import fiveTowers from '../../../common-fixtures/five-towers';
 
 export default {
   props: {
-    info: {
-      title: 'Bonne réponse !',
-      success: true,
-      gameOver: false
-    },
-    race: fiveTowers,
-    cta: null,
-    team: allInMiddleTeam
+    team: allInMiddleTeam,
+    towers: fiveTowers,
+    goal: 8
   }
 };

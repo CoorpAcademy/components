@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import isNull from 'lodash/fp/isNull';
 import sortBy from 'lodash/fp/sortBy';
@@ -7,8 +8,8 @@ import classnames from 'classnames';
 import MoreIcon from '@coorpacademy/nova-icons/composition/navigation/more';
 import Check from '@coorpacademy/nova-icons/composition/coorpacademy/check';
 import Timer from '@coorpacademy/nova-icons/composition/coorpacademy/timer';
-import animation from '../../atom/css-animations/fade-in.css';
-import BLOCKS from './blocks';
+import animation from '../../../../atom/css-animations/fade-in.css';
+import BLOCKS from '../common-fixtures/blocks';
 import style from './team.css';
 
 const TeamTitle = ({type, num}) => {
@@ -146,6 +147,18 @@ const Team = props => {
       }, players)}
     </div>
   );
+};
+
+Team.propTypes = {
+  num: PropTypes.number,
+  members: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      avatar: PropTypes.string,
+      isCorrect: PropTypes.bool,
+      isMe: PropTypes.bool
+    })
+  )
 };
 
 export default Team;

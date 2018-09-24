@@ -2,13 +2,10 @@ import countBy from 'lodash/fp/countBy';
 import defer from 'lodash/fp/defer';
 import identity from 'lodash/fp/identity';
 import map from 'lodash/fp/map';
-import sumBy from 'lodash/fp/sumBy';
-import includes from 'lodash/fp/includes';
 import React, {Component} from 'react';
 import {Motion, spring} from 'react-motion';
 import PropTypes from 'prop-types';
-import TeamScore from '../team-score';
-import BLOCKS from '../blocks';
+import BLOCKS from '../common-fixtures/blocks';
 import style from './towers.css';
 
 const _map = map.convert({cap: false});
@@ -78,7 +75,6 @@ Block.propTypes = {
 };
 
 const Tower = ({team, goal, blocks, blockSize, maxStiffness}) => {
-  const points = sumBy(block => includes(block, ['new', 'placed']), blocks);
   return (
     <div className={style.tower}>
       {_map((value, index) => {
@@ -100,9 +96,6 @@ const Tower = ({team, goal, blocks, blockSize, maxStiffness}) => {
           />
         );
       }, blocks)}
-      <div className={style.teamAvatarWrapper}>
-        <TeamScore key={`team-avatar-${team}`} team={team} points={points} goal={goal} />
-      </div>
     </div>
   );
 };

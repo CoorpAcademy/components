@@ -1,27 +1,3 @@
-@value breakpoints: "../../../variables/breakpoints.css";
-@value colors: "../../../variables/colors.css";
-@value desktop from breakpoints;
-@value mobile from breakpoints;
-@value positive from colors;
-@value negative from colors;
-
-.screen {
-  display: flex;
-  width: 100%;
-  height: 100vh;
-  flex-flow: column;
-}
-
-.screenWrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
 @keyframes fadeInDown {
   0% {
     opacity: 0;
@@ -82,34 +58,4 @@
   top: 20%;
   left: 50%;
   animation: fadeIn 3s;
-}
-
-.sectionBody {
-  flex: 1 1;
-}
-
-.sectionRace {
-  height: calc(100% - 80px);
-}
-
-.sectionTeam {
-  position: relative;
-}
-
-.buttonWrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.button {
-  position: absolute;
-  top: 20px;
-}
-
-/* ----------------------------------------------------------------- */
-
-@media mobile {
-  .screen {
-    width: 100%;
-  }
 }

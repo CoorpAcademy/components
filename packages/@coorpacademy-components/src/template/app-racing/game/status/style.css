@@ -1,0 +1,18 @@
+.gameStatus {
+  background: rgba(195, 195, 195, 0.3);
+}
+
+.scoresWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.buttonWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  position: absolute;
+  top: 20px;
+}
