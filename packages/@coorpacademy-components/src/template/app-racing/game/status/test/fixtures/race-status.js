@@ -5,6 +5,8 @@ export default {
   props: {
     team: allInMiddleTeam,
     towers: fiveTowers,
-    goal: 8
+    goal: 8,
+    hideTeams: true,
+    cta: null
   }
 };

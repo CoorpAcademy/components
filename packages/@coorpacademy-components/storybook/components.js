@@ -646,7 +646,9 @@ import TemplateAppPlayerPopinHeaderFixtureSuccess from '../src/template/app-play
 import TemplateAppRacingAdminFixtureDefault from '../src/template/app-racing/admin/test/fixtures/default';
 import TemplateAppRacingGameRaceFixtureDefault from '../src/template/app-racing/game/race/test/fixtures/default';
 import TemplateAppRacingGameRaceFixtureNoTower from '../src/template/app-racing/game/race/test/fixtures/no-tower';
-import TemplateAppRacingGameStatusFixtureDefault from '../src/template/app-racing/game/status/test/fixtures/default';
+import TemplateAppRacingGameStatusFixtureQuestionStatus from '../src/template/app-racing/game/status/test/fixtures/question-status';
+import TemplateAppRacingGameStatusFixtureRaceStatus from '../src/template/app-racing/game/status/test/fixtures/race-status';
+import TemplateAppRacingGameStatusFixtureReadyToAnswer from '../src/template/app-racing/game/status/test/fixtures/ready-to-answer';
 import TemplateAppRacingGameFixtureGameOver from '../src/template/app-racing/game/test/fixtures/game-over';
 import TemplateAppRacingGameFixtureNoTower from '../src/template/app-racing/game/test/fixtures/no-tower';
 import TemplateAppRacingGameFixtureQuestionAllInMiddle from '../src/template/app-racing/game/test/fixtures/question-all-in-middle';
@@ -1696,7 +1698,9 @@ export const fixtures = {
       NoTower: TemplateAppRacingGameRaceFixtureNoTower
     },
     TemplateAppRacingGameStatus: {
-      Default: TemplateAppRacingGameStatusFixtureDefault
+      QuestionStatus: TemplateAppRacingGameStatusFixtureQuestionStatus,
+      RaceStatus: TemplateAppRacingGameStatusFixtureRaceStatus,
+      ReadyToAnswer: TemplateAppRacingGameStatusFixtureReadyToAnswer
     }
   },
   TemplateBackOffice: {

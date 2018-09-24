@@ -8,8 +8,6 @@ export default {
     towers: noTower,
     goal: 8,
     info: {
-      title: 'Bonne réponse !',
-      success: true,
       gameOver: false
     }
   }

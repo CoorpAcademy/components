@@ -25,7 +25,7 @@
     {
       "name": "Kim",
       "avatar": "https://api.adorable.io/avatars/150/Kim.png",
-      "isCorrect": null
+      "isCorrect": true
     }
   ]
 }

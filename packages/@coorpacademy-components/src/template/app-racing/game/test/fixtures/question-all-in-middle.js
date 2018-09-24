@@ -25,6 +25,7 @@ export default {
     },
     team: allInMiddleTeam,
     towers: fiveTowers,
-    goal: 8
+    goal: 8,
+    cta: null
   }
 };
