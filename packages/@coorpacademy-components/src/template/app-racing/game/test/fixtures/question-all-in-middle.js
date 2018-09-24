@@ -1,11 +1,12 @@
 import Answer from '../../../../../molecule/answer/test/fixtures/default';
-import allInMiddleTeam from '../../../common-fixtures/all-in-middle-team';
-import fiveTowers from '../../../common-fixtures/five-towers';
+import allInMiddleTeam from '../../common-fixtures/all-in-middle-team';
+import fiveTowers from '../../common-fixtures/five-towers';
 
 const {props: answerType} = Answer;
 
 export default {
   props: {
+    view: 'question',
     slide: {
       typeClue: 'answer',
       question:
@@ -23,6 +24,7 @@ export default {
       }
     },
     team: allInMiddleTeam,
-    race: fiveTowers
+    towers: fiveTowers,
+    goal: 8
   }
 };

@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
+import BLOCKS from '../common-fixtures/blocks';
 import style from './team-score.css';
-import BLOCKS from './blocks';
 
 const TeamScore = ({team, isMyTeam, points, goal}) => (
   <div className={classnames(style.teamAvatar, isMyTeam ? style.myTeam : null)}>

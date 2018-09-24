@@ -1,12 +1,19 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
-import SlidesPlayer from '../../app-player/player/slides/slides-player';
-import Team from '../team';
-import TeamScore from '../team-score';
+import classnames from 'classnames';
+import Cta from '../../../../atom/cta';
+import animation from '../../../../atom/css-animations/fade-in.css';
+import Team from './team';
+import TeamScore from './team-score';
 import style from './style.css';
 
-const GameStatus = ({team, towers, goal}) => (
+const Button = cta => {
+  if (!cta) return null;
+
+  return <Cta className={classnames(style.button, animation.fadeIn)} {...cta} />;
+};
+
+const GameStatus = ({team, towers, goal, cta}) => (
   <div className={style.gameStatus}>
     <Team {...team} />
     <div className={style.scoresWrapper}>
@@ -24,18 +31,8 @@ const GameStatus = ({team, towers, goal}) => (
         );
       }, towers)}
     </div>
+    <Button cta={cta} />
   </div>
 );
 
-const Question = props => (
-  <div className={style.wrapper}>
-    <SlidesPlayer questionBackgroundColor="transparent" {...props.slide} />
-    <GameStatus team={props.team} goal={props.race.goal} towers={props.race.towers} />
-  </div>
-);
-
-Question.propTypes = {
-  player: PropTypes.shape(SlidesPlayer.propTypes)
-};
-
-export default Question;
+export default GameStatus;
