@@ -2,17 +2,9 @@ import cond from 'lodash/fp/cond';
 import constant from 'lodash/fp/constant';
 import isNil from 'lodash/fp/isNil';
 import pipe from 'lodash/fp/pipe';
-import {
-  getCurrentProgression,
-  isSpectator,
-  showGameOver,
-  showLoading,
-  showQuestion,
-  showRace
-} from '../utils/state-extract';
-import createQuestionStateToProps from './state-to-props/question';
+import {getCurrentProgression, showLoading} from '../utils/state-extract';
+import createGameStateToProps from './state-to-props/game';
 import loadingStateToProps from './state-to-props/loading';
-import createRaceStateToProps from './state-to-props/race';
 
 const hasNotProgression = pipe(getCurrentProgression, isNil);
 
@@ -20,10 +12,6 @@ const hasNotProgression = pipe(getCurrentProgression, isNil);
 export const selectMapStateToVNode = (options, store, views, createStateToVNode) =>
   cond([
     [hasNotProgression, createStateToVNode(views.loading, loadingStateToProps)],
-    [showGameOver, createStateToVNode(views.race, createRaceStateToProps(options, store))],
-    [isSpectator, createStateToVNode(views.race, createRaceStateToProps(options, store))],
     [showLoading, createStateToVNode(views.loading, loadingStateToProps)],
-    [showQuestion, createStateToVNode(views.question, createQuestionStateToProps(options, store))],
-    [showRace, createStateToVNode(views.race, createRaceStateToProps(options, store))],
-    [constant(true), createStateToVNode(views.race, createRaceStateToProps(options, store))]
+    [constant(true), createStateToVNode(views.game, createGameStateToProps(options, store))]
   ]);

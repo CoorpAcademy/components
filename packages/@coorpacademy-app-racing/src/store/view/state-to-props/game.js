@@ -1,16 +1,22 @@
 import get from 'lodash/fp/get';
 import {getConfigForProgression} from '@coorpacademy/progression-engine';
 import {
+  allUsersHaveAnswered,
   currentTeam,
   getCurrentProgression,
   getCurrentRace,
   getAnswerValues,
   getCurrentProgressionId,
   getCurrentSlide,
-  getQuestionMedia
+  getQuestionMedia,
+  isLastAnswerCorrect,
+  isSpectator,
+  showGameOver,
+  showQuestion
 } from '../../utils/state-extract';
 import {selectProgression} from '../../actions/ui/progressions';
 import {validateAnswer} from '../../actions/ui/answers';
+import {seeQuestion} from '../../actions/ui/location';
 import {createGetAnswerProps} from './answer';
 
 const createCTAHandler = (dispatch, state) => async () => {
@@ -27,7 +33,7 @@ const createCTAHandler = (dispatch, state) => async () => {
   return dispatch(selectProgression(progressionId));
 };
 
-const playerProps = (options, store) => state => {
+const gameProps = (options, store) => state => {
   const {translate} = options;
   const {dispatch} = store;
   const slide = getCurrentSlide(state);
@@ -38,7 +44,22 @@ const playerProps = (options, store) => state => {
   const config = getConfigForProgression(progression);
   const members = currentTeam(state);
 
+  const gameOver = showGameOver(state);
+  const spectate = isSpectator(state);
+
+  const success = gameOver ? null : isLastAnswerCorrect(state);
+  const title = gameOver ? null : `${success ? 'Good' : 'Bad'} answer`;
+  const view = showQuestion(state) ? 'question' : 'race';
+
+  const hideNextQuestionButton =
+    view === 'question' || spectate || gameOver || !allUsersHaveAnswered(state);
+
   return {
+    view,
+    info: {
+      title: spectate ? 'Spectating' : title,
+      gameOver
+    },
     slide: {
       typeClue: 'answer',
       question: get('question.header')(slide),
@@ -61,11 +82,16 @@ const playerProps = (options, store) => state => {
       members,
       num: 2
     },
-    race: {
-      goal: config.goal,
-      towers: getCurrentRace(state)
-    }
+    goal: config.goal,
+    towers: getCurrentRace(state),
+    cta: hideNextQuestionButton
+      ? null
+      : {
+          submitValue: 'Next question',
+          primary: true,
+          onClick: () => dispatch(seeQuestion)
+        }
   };
 };
 
-export default playerProps;
+export default gameProps;
