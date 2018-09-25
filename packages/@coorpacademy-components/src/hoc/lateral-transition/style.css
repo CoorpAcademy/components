@@ -1,0 +1,9 @@
+.start {
+  margin-left: 100%;
+  transition: all 3s linear;
+}
+
+.end {
+  composes: start;
+  margin-left: 50%;
+}
