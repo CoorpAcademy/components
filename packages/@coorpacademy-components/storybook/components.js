@@ -38,6 +38,7 @@ import AtomTitle from './../src/atom/title';
 import AtomVideoUpload from './../src/atom/video-upload';
 import HocAnimation from './../src/hoc/animation';
 import HocAnimationScheduler from './../src/hoc/animation-scheduler';
+import HocLateralTransition from './../src/hoc/lateral-transition';
 import HocSwapper from './../src/hoc/swapper';
 import HocTransition from './../src/hoc/transition';
 import MoleculeAnswer from './../src/molecule/answer';
@@ -90,6 +91,7 @@ import MoleculeSetupSection from './../src/molecule/setup-section';
 import MoleculeSetupSections from './../src/molecule/setup-sections';
 import MoleculeSetupSlide from './../src/molecule/setup-slide';
 import MoleculeSetupSlider from './../src/molecule/setup-slider';
+import MoleculeSideNotification from './../src/molecule/side-notification';
 import MoleculeSsmenuList from './../src/molecule/ssmenu-list';
 import MoleculeSubscriptionFreemium from './../src/molecule/subscription-freemium';
 import MoleculeSubscriptionPremium from './../src/molecule/subscription-premium';
@@ -286,6 +288,7 @@ import HocAnimationFixtureStart from '../src/hoc/animation/test/fixtures/start';
 import HocAnimationFixtureStop from '../src/hoc/animation/test/fixtures/stop';
 import HocAnimationSchedulerFixtureParallel from '../src/hoc/animation-scheduler/test/fixtures/parallel';
 import HocAnimationSchedulerFixtureSeries from '../src/hoc/animation-scheduler/test/fixtures/series';
+import HocLateralTransitionFixtureDefault from '../src/hoc/lateral-transition/test/fixtures/default';
 import HocSwapperFixtureDefault from '../src/hoc/swapper/test/fixtures/default';
 import HocTransitionFixtureFlipSquare from '../src/hoc/transition/test/fixtures/flip-square';
 import MoleculeAnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
@@ -459,6 +462,7 @@ import MoleculeSetupSectionsFixtureDefault from '../src/molecule/setup-sections/
 import MoleculeSetupSectionsFixtureLoading from '../src/molecule/setup-sections/test/fixtures/loading';
 import MoleculeSetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
 import MoleculeSetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
+import MoleculeSideNotificationFixtureDefault from '../src/molecule/side-notification/test/fixtures/default';
 import MoleculeSsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
 import MoleculeSsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
 import MoleculeSsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
@@ -750,6 +754,7 @@ export const components = {
   Hoc: {
     HocAnimation,
     HocAnimationScheduler,
+    HocLateralTransition,
     HocSwapper,
     HocTransition
   },
@@ -790,6 +795,7 @@ export const components = {
     MoleculeSetupSections,
     MoleculeSetupSlide,
     MoleculeSetupSlider,
+    MoleculeSideNotification,
     MoleculeSsmenuList,
     MoleculeSubscriptionFreemium,
     MoleculeSubscriptionPremium,
@@ -1113,6 +1119,9 @@ export const fixtures = {
       Parallel: HocAnimationSchedulerFixtureParallel,
       Series: HocAnimationSchedulerFixtureSeries
     },
+    HocLateralTransition: {
+      Default: HocLateralTransitionFixtureDefault
+    },
     HocSwapper: {
       Default: HocSwapperFixtureDefault
     },
@@ -1321,6 +1330,9 @@ export const fixtures = {
     },
     MoleculeSetupSlider: {
       Default: MoleculeSetupSliderFixtureDefault
+    },
+    MoleculeSideNotification: {
+      Default: MoleculeSideNotificationFixtureDefault
     },
     MoleculeSsmenuList: {
       Coorpacademy: MoleculeSsmenuListFixtureCoorpacademy,
