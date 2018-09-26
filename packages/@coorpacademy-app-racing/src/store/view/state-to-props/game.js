@@ -48,7 +48,7 @@ const gameProps = (options, store) => state => {
   const spectate = isSpectator(state);
 
   const success = gameOver ? null : isLastAnswerCorrect(state);
-  const title = gameOver ? null : `${success ? 'Good' : 'Bad'} answer`;
+  const title = gameOver || success === undefined ? null : `${success ? 'Good' : 'Bad'} answer`;
   const view = showQuestion(state) ? 'question' : 'race';
 
   const hideNextQuestionButton =
