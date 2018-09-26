@@ -26,6 +26,13 @@ const Messages = ({info}) => {
 const TopScreen = props => {
   const position = props.view === 'race' ? -100 : 0;
   const options = {stiffness: 500, damping: 30};
+  const slide = (
+    <div className={style.movingViewPart}>
+      {props.slide !== null && (
+        <SlidesPlayer questionBackgroundColor="transparent" {...props.slide} />
+      )}
+    </div>
+  );
 
   return (
     <div className={style.topScreen}>
@@ -43,9 +50,7 @@ const TopScreen = props => {
                 left: `${x}%`
               }}
             >
-              <div className={style.movingViewPart}>
-                <SlidesPlayer questionBackgroundColor="transparent" {...props.slide} />
-              </div>
+              {slide}
               <div className={style.movingViewPart}>
                 <Race {...props} />
               </div>

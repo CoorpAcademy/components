@@ -108,12 +108,12 @@ export const showGameOver = state => {
 
 // -----------------------------------------------------------------------------
 
-export const allUsersHaveAnswered = state => {
+export const allTeammatesHaveAnswered = state => {
   const progression = getCurrentProgression(state);
   const userState = getCurrentUserState(state);
   const userQuestionNum = get('questionNum', userState);
   const team = get('team', userState);
-  const players = get(['state', 'teams', team, 'players'], progression);
+  const teammates = get(['state', 'teams', team, 'players'], progression);
 
   return reduce(
     (result, playerId) => {
@@ -123,7 +123,7 @@ export const allUsersHaveAnswered = state => {
       return result && userQuestionNum <= questionNum;
     },
     true,
-    players
+    teammates
   );
 };
 
@@ -155,6 +155,8 @@ export const currentTeam = state => {
     };
   }, players);
 };
+
+export const isTimerOn = type => get(['ui', 'timer', type]);
 
 // -----------------------------------------------------------------------------
 

@@ -1,7 +1,7 @@
 import get from 'lodash/fp/get';
 import {getConfigForProgression} from '@coorpacademy/progression-engine';
 import {
-  allUsersHaveAnswered,
+  allTeammatesHaveAnswered,
   currentTeam,
   getCurrentProgression,
   getCurrentRace,
@@ -12,7 +12,8 @@ import {
   isLastAnswerCorrect,
   isSpectator,
   showGameOver,
-  showQuestion
+  showQuestion,
+  isTimerOn
 } from '../../utils/state-extract';
 import {selectProgression} from '../../actions/ui/progressions';
 import {validateAnswer} from '../../actions/ui/answers';
@@ -33,12 +34,39 @@ const createCTAHandler = (dispatch, state) => async () => {
   return dispatch(selectProgression(progressionId));
 };
 
-const gameProps = (options, store) => state => {
+const getSlideProps = (options, store, state) => {
   const {translate} = options;
   const {dispatch} = store;
   const slide = getCurrentSlide(state);
   const answer = createGetAnswerProps(options, store)(state, slide);
   const mediaQuestion = getQuestionMedia(state);
+
+  if (isTimerOn('me')(state)) {
+    return null;
+  }
+
+  return {
+    typeClue: 'answer',
+    question: get('question.header')(slide),
+    help: 'Select something below',
+    answerType: {
+      model: answer,
+      media: mediaQuestion
+    },
+    cta: {
+      submitValue: translate('Validate'),
+      onClick: createCTAHandler(dispatch, state),
+      light: false,
+      small: false,
+      name: 'validateAnswerCTA',
+      secondary: false,
+      disabled: false
+    }
+  };
+};
+
+const gameProps = (options, store) => state => {
+  const {dispatch} = store;
 
   const progression = getCurrentProgression(state);
   const config = getConfigForProgression(progression);
@@ -52,7 +80,9 @@ const gameProps = (options, store) => state => {
   const view = showQuestion(state) ? 'question' : 'race';
 
   const hideNextQuestionButton =
-    view === 'question' || spectate || gameOver || !allUsersHaveAnswered(state);
+    view === 'question' || spectate || gameOver || !allTeammatesHaveAnswered(state);
+
+  const slide = getSlideProps(options, store, state);
 
   return {
     view,
@@ -60,24 +90,7 @@ const gameProps = (options, store) => state => {
       title: spectate ? 'Spectating' : title,
       gameOver
     },
-    slide: {
-      typeClue: 'answer',
-      question: get('question.header')(slide),
-      help: 'Select something below',
-      answerType: {
-        model: answer,
-        media: mediaQuestion
-      },
-      cta: {
-        submitValue: translate('Validate'),
-        onClick: createCTAHandler(dispatch, state),
-        light: false,
-        small: false,
-        name: 'validateAnswerCTA',
-        secondary: false,
-        disabled: false
-      }
-    },
+    slide,
     team: {
       members,
       num: 2
