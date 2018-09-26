@@ -1,9 +1,9 @@
-import spreadTeam from '../../../common-fixtures/spread-team';
+import allInMiddleTeam from '../../../common-fixtures/all-in-middle-team';
 import fiveTowers from '../../../common-fixtures/five-towers';
 
 export default {
   props: {
-    team: spreadTeam,
+    team: allInMiddleTeam,
     towers: fiveTowers,
     goal: 8,
     hideTeams: true,

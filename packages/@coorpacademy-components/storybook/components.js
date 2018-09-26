@@ -648,13 +648,16 @@ import TemplateAppRacingGameRaceFixtureDefault from '../src/template/app-racing/
 import TemplateAppRacingGameRaceFixtureNoTower from '../src/template/app-racing/game/race/test/fixtures/no-tower';
 import TemplateAppRacingGameStatusFixtureQuestionStatus from '../src/template/app-racing/game/status/test/fixtures/question-status';
 import TemplateAppRacingGameStatusFixtureRaceStatus from '../src/template/app-racing/game/status/test/fixtures/race-status';
+import TemplateAppRacingGameStatusFixtureReadyToAnswerAllInMiddle from '../src/template/app-racing/game/status/test/fixtures/ready-to-answer-all-in-middle';
+import TemplateAppRacingGameStatusFixtureReadyToAnswerSpread from '../src/template/app-racing/game/status/test/fixtures/ready-to-answer-spread';
 import TemplateAppRacingGameStatusFixtureReadyToAnswer from '../src/template/app-racing/game/status/test/fixtures/ready-to-answer';
 import TemplateAppRacingGameFixtureGameOver from '../src/template/app-racing/game/test/fixtures/game-over';
 import TemplateAppRacingGameFixtureNoTower from '../src/template/app-racing/game/test/fixtures/no-tower';
 import TemplateAppRacingGameFixtureQuestionAllInMiddle from '../src/template/app-racing/game/test/fixtures/question-all-in-middle';
 import TemplateAppRacingGameFixtureQuestionTimerMe from '../src/template/app-racing/game/test/fixtures/question-timer-me';
 import TemplateAppRacingGameFixtureRaceAllInMiddle from '../src/template/app-racing/game/test/fixtures/race-all-in-middle';
-import TemplateAppRacingGameFixtureReadyToAnswer from '../src/template/app-racing/game/test/fixtures/ready-to-answer';
+import TemplateAppRacingGameFixtureReadyToAnswerAllInMiddle from '../src/template/app-racing/game/test/fixtures/ready-to-answer-all-in-middle';
+import TemplateAppRacingGameFixtureReadyToAnswerSpread from '../src/template/app-racing/game/test/fixtures/ready-to-answer-spread';
 import TemplateBackOfficeBrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import TemplateBackOfficeBrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import TemplateBackOfficeBrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -1691,7 +1694,8 @@ export const fixtures = {
       QuestionAllInMiddle: TemplateAppRacingGameFixtureQuestionAllInMiddle,
       QuestionTimerMe: TemplateAppRacingGameFixtureQuestionTimerMe,
       RaceAllInMiddle: TemplateAppRacingGameFixtureRaceAllInMiddle,
-      ReadyToAnswer: TemplateAppRacingGameFixtureReadyToAnswer
+      ReadyToAnswerAllInMiddle: TemplateAppRacingGameFixtureReadyToAnswerAllInMiddle,
+      ReadyToAnswerSpread: TemplateAppRacingGameFixtureReadyToAnswerSpread
     }
   },
   TemplateAppRacingGame: {
@@ -1702,6 +1706,8 @@ export const fixtures = {
     TemplateAppRacingGameStatus: {
       QuestionStatus: TemplateAppRacingGameStatusFixtureQuestionStatus,
       RaceStatus: TemplateAppRacingGameStatusFixtureRaceStatus,
+      ReadyToAnswerAllInMiddle: TemplateAppRacingGameStatusFixtureReadyToAnswerAllInMiddle,
+      ReadyToAnswerSpread: TemplateAppRacingGameStatusFixtureReadyToAnswerSpread,
       ReadyToAnswer: TemplateAppRacingGameStatusFixtureReadyToAnswer
     }
   },

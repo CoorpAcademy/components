@@ -12,8 +12,6 @@ export default {
       success: true,
       gameOver: false
     },
-    cta: {
-      submitValue: 'Question suivante'
-    }
+    cta: null
   }
 };
