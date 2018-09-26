@@ -127,13 +127,15 @@ export const allTeammatesHaveAnswered = state => {
   );
 };
 
+export const isTimerOn = type => get(['ui', 'timer', type]);
+
 export const currentTeam = state => {
   const progression = getCurrentProgression(state);
   const userState = getCurrentUserState(state);
 
   const team = get('team', userState);
   const players = get(['state', 'teams', team, 'players'], progression);
-  const questionNumToWaitFor = reduce(
+  let questionNumToWaitFor = reduce(
     (result, playerId) => {
       const player = getUserState(playerId, state);
       const questionNum = get('questionNum', player);
@@ -143,6 +145,10 @@ export const currentTeam = state => {
     1000000,
     players
   );
+
+  if (isTimerOn('last')(state)) {
+    questionNumToWaitFor -= 1;
+  }
 
   return map(playerId => {
     const player = getUserState(playerId, state);
@@ -155,8 +161,6 @@ export const currentTeam = state => {
     };
   }, players);
 };
-
-export const isTimerOn = type => get(['ui', 'timer', type]);
 
 // -----------------------------------------------------------------------------
 

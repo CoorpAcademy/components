@@ -6,6 +6,8 @@ import {selectRoute} from './route';
 export const TIMER_ME_ON = '@@timer/me/on';
 export const TIMER_ME_OFF = '@@timer/me/off';
 
+const TRANSITION_TIME_FOR_MY_ANSWER = 700;
+
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
   qcmGraphic: '@@answer/EDIT_QCM_GRAPHIC',
@@ -52,12 +54,14 @@ export const editAnswer = (state, questionType, progressionId, newValue) => {
 };
 
 export const validateAnswer = (progressionId, body) => async (dispatch, getState, {services}) => {
-  // await dispatch(selectRoute('loading'));
-  await dispatch(createAnswer(progressionId, body.answer));
+  await dispatch(selectRoute('race'));
+  await dispatch({type: TIMER_ME_ON});
 
-  dispatch({type: TIMER_ME_ON});
-  setTimeout(() => {
-    dispatch({type: TIMER_ME_OFF});
-    return dispatch(selectRoute('race'));
-  }, 5000);
+  return new Promise(function(resolve) {
+    setTimeout(async () => {
+      await dispatch({type: TIMER_ME_OFF});
+      await dispatch(createAnswer(progressionId, body.answer));
+      resolve(true);
+    }, TRANSITION_TIME_FOR_MY_ANSWER);
+  });
 };

@@ -14,6 +14,8 @@ export const POLL_FAILURE = '@@polling/failure';
 export const TIMER_LAST_ON = '@@timer/last/on';
 export const TIMER_LAST_OFF = '@@timer/last/off';
 
+const TRANSITION_TIME_ON_LAST = 2500;
+
 const pollingReceived = (progressionId, currentView, payload) => ({
   type: POLL_RECEPTION,
   meta: {progressionId, currentView},
@@ -78,7 +80,7 @@ function createWorker({services}) {
           const isLast = lastTeammateJustAnswered(progression, teamIndex);
           if (isLast) {
             yield put({type: TIMER_LAST_ON});
-            yield call(delay, 5000);
+            yield call(delay, TRANSITION_TIME_ON_LAST);
             yield put({type: TIMER_LAST_OFF});
           }
         } catch (err) {

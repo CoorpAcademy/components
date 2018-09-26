@@ -76,11 +76,19 @@ const gameProps = (options, store) => state => {
   const spectate = isSpectator(state);
 
   const success = gameOver ? null : isLastAnswerCorrect(state);
-  const title = gameOver || success === undefined ? null : `${success ? 'Good' : 'Bad'} answer`;
   const view = showQuestion(state) ? 'question' : 'race';
+  const title =
+    isTimerOn('me')(state) || view === 'question' || gameOver || success === undefined
+      ? null
+      : `${success ? 'Good' : 'Bad'} answer`;
 
   const hideNextQuestionButton =
-    view === 'question' || spectate || gameOver || !allTeammatesHaveAnswered(state);
+    view === 'question' ||
+    spectate ||
+    gameOver ||
+    !allTeammatesHaveAnswered(state) ||
+    isTimerOn('me')(state) ||
+    isTimerOn('last')(state);
 
   const slide = getSlideProps(options, store, state);
 
