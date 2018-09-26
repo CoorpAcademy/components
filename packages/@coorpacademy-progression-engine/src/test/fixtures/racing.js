@@ -1,6 +1,7 @@
 // @flow
 import {type RacingState} from '../../types';
 
+// eslint-disable-next-line import/prefer-default-export
 export const initialState: RacingState = {
   goal: 20,
   teams: {
@@ -16,6 +17,8 @@ export const initialState: RacingState = {
   users: {
     user_1: {
       id: 'user_1',
+      avatar: '',
+      name: 'user1',
       team: 0,
       isCorrect: true,
       questionNum: 1,
@@ -28,6 +31,8 @@ export const initialState: RacingState = {
     },
     user_2: {
       id: 'user_2',
+      avatar: '',
+      name: 'user2',
       team: 0,
       isCorrect: true,
       questionNum: 1,
@@ -40,6 +45,8 @@ export const initialState: RacingState = {
     },
     user_3: {
       id: 'user_3',
+      avatar: '',
+      name: 'user3',
       team: 1,
       isCorrect: true,
       questionNum: 1,
@@ -52,6 +59,8 @@ export const initialState: RacingState = {
     },
     user_4: {
       id: 'user_4',
+      avatar: '',
+      name: 'user4',
       team: 1,
       isCorrect: true,
       questionNum: 1,

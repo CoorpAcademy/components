@@ -3,8 +3,8 @@ import test from 'ava';
 import isEqual from 'lodash/fp/isEqual';
 import updateState from '../update-state-racing';
 import {getConfig} from '../config';
-import {initialState} from './fixtures/racing';
 import type {AnswerAction, Config, RacingState} from '../types';
+import {initialState} from './fixtures/racing';
 
 const engine = {
   ref: 'racing',
@@ -87,6 +87,8 @@ test('should update user_1 state when answering the first question correctly', t
 
   t.deepEqual(newState.users.user_1, {
     id: 'user_1',
+    avatar: '',
+    name: 'user1',
     team: 0,
     questionNum: 2,
     content: {ref: 'slideRef1', type: 'slide'},
@@ -111,6 +113,8 @@ test('should update both user_1 and user_2 state when answering the first questi
 
   t.deepEqual(newState.users.user_2, {
     id: 'user_2',
+    avatar: '',
+    name: 'user2',
     team: 0,
     questionNum: 2,
     content: {ref: 'slideRef2', type: 'slide'},
@@ -135,6 +139,8 @@ test('should replace the first "placed" block by a "removed" one when a user has
 
   t.deepEqual(newState.users.user_2, {
     id: 'user_2',
+    avatar: '',
+    name: 'user2',
     team: 0,
     questionNum: 2,
     content: {ref: 'slideRef2', type: 'slide'},
@@ -159,6 +165,8 @@ test('should not replace empty block by a "removed" one', t => {
 
   t.deepEqual(newState.users.user_3, {
     id: 'user_3',
+    avatar: '',
+    name: 'user3',
     team: 1,
     questionNum: 2,
     content: {ref: 'slideRef2', type: 'slide'},
