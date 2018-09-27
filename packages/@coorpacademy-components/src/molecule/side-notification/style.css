@@ -6,11 +6,8 @@
   font-family: "Open sans", serif;
   color: light;
   position: relative;
-
   display: flex;
-
   border: 1px solid light;
-
   height: 91px;
   max-width: 375px;
   background-color: white;
@@ -31,20 +28,19 @@
   height: 40px;
 }
 
-.closeCross {
+.closingCross {
   position: absolute;
   top: 0px;
   right: 9px;
   color: grey;
 }
 
-.closeCross::before {
+.closingCross::before {
   content: "x";
 }
 
 .content {
   margin: auto;
-
   padding: 10px;
   max-width: 75%;
   white-space: nowrap;
