@@ -148,6 +148,7 @@ export const currentTeam = state => {
     const player = getUserState(playerId, state);
 
     return {
+      isMe: playerId === userState.id,
       name: get('name', player),
       avatar: get('avatar', player),
       isCorrect: getOr(null, `allAnswers[${questionNumToWaitFor - 1}].isCorrect`, player)

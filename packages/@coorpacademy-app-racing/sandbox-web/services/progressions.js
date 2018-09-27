@@ -47,10 +47,7 @@ export const save = progression => {
 const addActionAndSaveProgression = (progression, action) => {
   const newProgression = update('actions', actions => actions.concat(action), progression);
   const newState = createState(newProgression);
-  return pipe(
-    set('state', newState),
-    save
-  )(newProgression);
+  return pipe(set('state', newState), save)(newProgression);
 };
 
 export const findById = id => {
@@ -82,11 +79,9 @@ const getAvailableContent = async content => {
 };
 
 const createSlidePools = () => {
-  return pipe(
-    groupBy('chapter_id'),
-    toPairs,
-    map(([chapterId, slides]) => ({chapterId, slides}))
-  )(slidesData);
+  return pipe(groupBy('chapter_id'), toPairs, map(([chapterId, slides]) => ({chapterId, slides})))(
+    slidesData
+  );
 };
 
 export const postAnswer = async (progressionId, payload, forcedUser, godMode = false) => {
@@ -126,20 +121,26 @@ export const postAnswer = async (progressionId, payload, forcedUser, godMode = f
 };
 
 export const waitForRefresh = async progressionId => {
-  await delay(300);
+  await delay(8000);
 
-  const userId = 'user_2';
   const teamIndex = 0;
   const isCorrect = true;
 
   const progression = progressionStore.get(progressionId);
-  const content = progression.state.users[userId].nextContent;
+  const user1QuestionNum = progression.state.users.user_1.questionNum;
+  const user2QuestionNum = progression.state.users.user_2.questionNum;
 
-  const nextProgression = await postAnswer(progressionId, {content}, userId, true);
+  if (user1QuestionNum < user2QuestionNum) {
+    return;
+  }
+
+  const content = progression.state.users.user_2.nextContent;
+
+  const nextProgression = await postAnswer(progressionId, {content}, 'user_2', true);
 
   return {
     progression: nextProgression,
-    userId,
+    userId: 'user_2',
     teamIndex,
     isCorrect
   };

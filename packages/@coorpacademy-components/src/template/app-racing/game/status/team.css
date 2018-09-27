@@ -1,0 +1,197 @@
+@value colors: "../../../../variables/colors.css";
+@value positive from colors;
+@value negative from colors;
+
+.team {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 0px;
+  padding: 30px 5px 0;
+  height: 50px;
+}
+
+/* -------------------------------------------- */
+
+.teamTitle {
+  position: absolute;
+  top: 3px;
+  display: flex;
+  align-items: center;
+}
+
+.teamTitle > span {
+  font-family: 'Open Sans';
+  font-size: 15px;
+  font-weight: 400;
+  margin-left: 5px;
+  color: #fff;
+}
+
+.teamTitle > img {
+  width: 25px;
+  height: 25px;
+}
+
+/* -------------------------------------------- */
+
+.player {
+  position: absolute;
+}
+
+.avatar {
+  left: 20px;
+  width: 45px;
+  height: 45px;
+  margin-right: -10px;
+  border: 3px solid white;
+  border-radius: 50%;
+  background-size: contain;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+
+  display: flex;
+  justify-content: center;
+}
+
+.correct {
+  border: 3px solid positive;
+}
+
+.notCorrect {
+  border: 3px solid negative;
+}
+
+@keyframes upAndOut {
+  0% {
+    opacity:0;
+    transform: scale(0);
+  }
+
+  13% {
+    opacity:1;
+    transform: scale(1.2);
+  }
+
+  17% {
+    opacity:1;
+    transform: scale(1.2);
+  }
+
+  60% {
+    opacity:1;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity:0;
+    top: -30px;
+    transform: scale(1);
+  }
+}
+
+.responseResult {
+  animation: upAndOut 3.3s;
+  opacity: 0;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  z-index: 10;
+  background: #ffff;
+  border: 1px solid #0e3a3d;
+  border-radius: 50%;
+  padding: 2px;
+  width: 32px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.text {
+  font-family: 'Open Sans';
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.textResult {
+  composes: text;
+  color: #0e3a3d;
+}
+
+.textCorrect {
+  color: positive;
+}
+
+.textNotCorrect {
+  color: negative;
+}
+
+.textMe {
+  position: absolute;
+  composes: text;
+  color: #fff;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  bottom: -10px;
+  background-color: rgba(255, 255, 255, 0.36);
+  font-size: 11px;
+  font-weight: 400;
+  padding: 0px 5px;
+}
+
+/* -------------------------------------------- */
+
+@keyframes pop {
+  0% {
+    opacity:0;
+  }
+
+  25% {
+    top: 0px;
+    opacity:0;
+  }
+
+  100% {
+    opacity:1;
+    top: -6px;
+  }
+}
+
+@keyframes popAfterAWhile {
+  0% {
+    opacity:0;
+  }
+
+  95% {
+    top: 0px;
+    opacity:0;
+  }
+
+  100% {
+    opacity:1;
+    top: -6px;
+  }
+}
+
+.icon {
+  animation: popAfterAWhile 2.4s;
+  position: absolute;
+  top: -6px;
+  left: -4px;
+  background: #fff;
+  padding: 3px;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.iconWait {
+  animation: pop 1s;
+  composes: icon;
+}
+
+.iconCorrect {
+  composes: icon;
+}
+
+.iconWrong {
+  composes: icon;
+  transform: rotate(45deg);
+}
