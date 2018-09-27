@@ -1,3 +1,4 @@
+import EventEmitter from 'events'; // eslint-disable-line fp/no-events
 import {
   createProgression,
   createState,
@@ -5,6 +6,7 @@ import {
   getConfig,
   getConfigForProgression
 } from '@coorpacademy/progression-engine';
+import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import map from 'lodash/fp/map';
 import toPairs from 'lodash/fp/toPairs';
@@ -20,11 +22,9 @@ import {find as findContent} from './content';
 import progressionsData from './fixtures/progressions';
 import slidesData from './fixtures/slides';
 
-const delay = (t, v) => {
-  return new Promise(function(resolve) {
-    setTimeout(resolve.bind(null, v), t);
-  });
-};
+const messageBus = new EventEmitter();
+messageBus.setMaxListeners(100);
+let robotIsAnswering = false;
 
 const slideStore = reduce(
   (slideMap, slide) => slideMap.set(slide._id, slide),
@@ -47,10 +47,7 @@ export const save = progression => {
 const addActionAndSaveProgression = (progression, action) => {
   const newProgression = update('actions', actions => actions.concat(action), progression);
   const newState = createState(newProgression);
-  return pipe(
-    set('state', newState),
-    save
-  )(newProgression);
+  return pipe(set('state', newState), save)(newProgression);
 };
 
 export const findById = id => {
@@ -82,11 +79,9 @@ const getAvailableContent = async content => {
 };
 
 const createSlidePools = () => {
-  return pipe(
-    groupBy('chapter_id'),
-    toPairs,
-    map(([chapterId, slides]) => ({chapterId, slides}))
-  )(slidesData);
+  return pipe(groupBy('chapter_id'), toPairs, map(([chapterId, slides]) => ({chapterId, slides})))(
+    slidesData
+  );
 };
 
 export const postAnswer = async (progressionId, payload, forcedUser, godMode = false) => {
@@ -122,27 +117,15 @@ export const postAnswer = async (progressionId, payload, forcedUser, godMode = f
   }
 
   const nextProgression = addActionAndSaveProgression(progression, action);
-  return nextProgression;
-};
 
-export const waitForRefresh = async progressionId => {
-  await delay(300);
-
-  const userId = 'user_2';
-  const teamIndex = 0;
-  const isCorrect = true;
-
-  const progression = progressionStore.get(progressionId);
-  const content = progression.state.users[userId].nextContent;
-
-  const nextProgression = await postAnswer(progressionId, {content}, userId, true);
-
-  return {
+  messageBus.emit(`'progression-refreshed-'${progressionId}`, {
     progression: nextProgression,
     userId,
-    teamIndex,
-    isCorrect
-  };
+    teamIndex: get(['state', 'users', userId, 'team'], nextProgression),
+    isCorrect: action.payload.isCorrect
+  });
+
+  return nextProgression;
 };
 
 // eslint-disable-next-line require-await
@@ -162,5 +145,52 @@ export const create = async progression => {
   return save({
     _id,
     ...newProgression
+  });
+};
+
+// ------------------------------------------------------------------------------
+
+const delay = (t, v) => {
+  return new Promise(function(resolve) {
+    setTimeout(resolve.bind(null, v), t);
+  });
+};
+
+const robotAnswer = async progressionId => {
+  await delay(8000);
+  const teamIndex = 0;
+  const isCorrect = true;
+
+  const progression = progressionStore.get(progressionId);
+  const user1QuestionNum = progression.state.users.user_1.questionNum;
+  const user2QuestionNum = progression.state.users.user_2.questionNum;
+
+  if (user1QuestionNum < user2QuestionNum) {
+    return robotAnswer(progressionId);
+  }
+
+  const content = progression.state.users.user_2.nextContent;
+  const nextProgression = await postAnswer(progressionId, {content}, 'user_2', true);
+
+  messageBus.emit(`'progression-refreshed-'${progressionId}`, {
+    progression: nextProgression,
+    userId: 'user_2',
+    teamIndex,
+    isCorrect
+  });
+
+  robotAnswer(progressionId);
+};
+
+export const waitForRefresh = progressionId => {
+  if (!robotIsAnswering) {
+    robotAnswer(progressionId);
+    robotIsAnswering = true;
+  }
+
+  return new Promise(function(resolve, reject) {
+    messageBus.once(`'progression-refreshed-'${progressionId}`, updatedProgression => {
+      resolve(updatedProgression);
+    });
   });
 };
