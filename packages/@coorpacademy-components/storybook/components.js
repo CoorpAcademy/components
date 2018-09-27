@@ -130,8 +130,9 @@ import TemplateAppPlayerPopinCorrection from './../src/template/app-player/popin
 import TemplateAppPlayerPopinEnd from './../src/template/app-player/popin-end';
 import TemplateAppPlayerPopinHeader from './../src/template/app-player/popin-header';
 import TemplateAppRacingAdmin from './../src/template/app-racing/admin';
-import TemplateAppRacingQuestion from './../src/template/app-racing/question';
-import TemplateAppRacingRace from './../src/template/app-racing/race';
+import TemplateAppRacingGameRace from './../src/template/app-racing/game/race';
+import TemplateAppRacingGameStatus from './../src/template/app-racing/game/status';
+import TemplateAppRacingGame from './../src/template/app-racing/game';
 import TemplateBackOfficeBrandCreate from './../src/template/back-office/brand-create';
 import TemplateBackOfficeBrandList from './../src/template/back-office/brand-list';
 import TemplateBackOfficeBrandUpdate from './../src/template/back-office/brand-update';
@@ -643,9 +644,20 @@ import TemplateAppPlayerPopinHeaderFixtureNextChapter from '../src/template/app-
 import TemplateAppPlayerPopinHeaderFixtureStarsRank from '../src/template/app-player/popin-header/test/fixtures/stars-rank';
 import TemplateAppPlayerPopinHeaderFixtureSuccess from '../src/template/app-player/popin-header/test/fixtures/success';
 import TemplateAppRacingAdminFixtureDefault from '../src/template/app-racing/admin/test/fixtures/default';
-import TemplateAppRacingQuestionFixtureDefault from '../src/template/app-racing/question/test/fixtures/default';
-import TemplateAppRacingRaceFixtureDefault from '../src/template/app-racing/race/test/fixtures/default';
-import TemplateAppRacingRaceFixtureGameOver from '../src/template/app-racing/race/test/fixtures/game-over';
+import TemplateAppRacingGameRaceFixtureDefault from '../src/template/app-racing/game/race/test/fixtures/default';
+import TemplateAppRacingGameRaceFixtureNoTower from '../src/template/app-racing/game/race/test/fixtures/no-tower';
+import TemplateAppRacingGameStatusFixtureQuestionStatus from '../src/template/app-racing/game/status/test/fixtures/question-status';
+import TemplateAppRacingGameStatusFixtureRaceStatus from '../src/template/app-racing/game/status/test/fixtures/race-status';
+import TemplateAppRacingGameStatusFixtureReadyToAnswerAllInMiddle from '../src/template/app-racing/game/status/test/fixtures/ready-to-answer-all-in-middle';
+import TemplateAppRacingGameStatusFixtureReadyToAnswerSpread from '../src/template/app-racing/game/status/test/fixtures/ready-to-answer-spread';
+import TemplateAppRacingGameStatusFixtureReadyToAnswer from '../src/template/app-racing/game/status/test/fixtures/ready-to-answer';
+import TemplateAppRacingGameFixtureGameOver from '../src/template/app-racing/game/test/fixtures/game-over';
+import TemplateAppRacingGameFixtureNoTower from '../src/template/app-racing/game/test/fixtures/no-tower';
+import TemplateAppRacingGameFixtureQuestionAllInMiddle from '../src/template/app-racing/game/test/fixtures/question-all-in-middle';
+import TemplateAppRacingGameFixtureQuestionTimerMe from '../src/template/app-racing/game/test/fixtures/question-timer-me';
+import TemplateAppRacingGameFixtureRaceAllInMiddle from '../src/template/app-racing/game/test/fixtures/race-all-in-middle';
+import TemplateAppRacingGameFixtureReadyToAnswerAllInMiddle from '../src/template/app-racing/game/test/fixtures/ready-to-answer-all-in-middle';
+import TemplateAppRacingGameFixtureReadyToAnswerSpread from '../src/template/app-racing/game/test/fixtures/ready-to-answer-spread';
 import TemplateBackOfficeBrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import TemplateBackOfficeBrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import TemplateBackOfficeBrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -859,8 +871,11 @@ export const components = {
   },
   TemplateAppRacing: {
     TemplateAppRacingAdmin,
-    TemplateAppRacingQuestion,
-    TemplateAppRacingRace
+    TemplateAppRacingGame
+  },
+  TemplateAppRacingGame: {
+    TemplateAppRacingGameRace,
+    TemplateAppRacingGameStatus
   },
   TemplateBackOffice: {
     TemplateBackOfficeBrandCreate,
@@ -1673,12 +1688,27 @@ export const fixtures = {
     TemplateAppRacingAdmin: {
       Default: TemplateAppRacingAdminFixtureDefault
     },
-    TemplateAppRacingQuestion: {
-      Default: TemplateAppRacingQuestionFixtureDefault
+    TemplateAppRacingGame: {
+      GameOver: TemplateAppRacingGameFixtureGameOver,
+      NoTower: TemplateAppRacingGameFixtureNoTower,
+      QuestionAllInMiddle: TemplateAppRacingGameFixtureQuestionAllInMiddle,
+      QuestionTimerMe: TemplateAppRacingGameFixtureQuestionTimerMe,
+      RaceAllInMiddle: TemplateAppRacingGameFixtureRaceAllInMiddle,
+      ReadyToAnswerAllInMiddle: TemplateAppRacingGameFixtureReadyToAnswerAllInMiddle,
+      ReadyToAnswerSpread: TemplateAppRacingGameFixtureReadyToAnswerSpread
+    }
+  },
+  TemplateAppRacingGame: {
+    TemplateAppRacingGameRace: {
+      Default: TemplateAppRacingGameRaceFixtureDefault,
+      NoTower: TemplateAppRacingGameRaceFixtureNoTower
     },
-    TemplateAppRacingRace: {
-      Default: TemplateAppRacingRaceFixtureDefault,
-      GameOver: TemplateAppRacingRaceFixtureGameOver
+    TemplateAppRacingGameStatus: {
+      QuestionStatus: TemplateAppRacingGameStatusFixtureQuestionStatus,
+      RaceStatus: TemplateAppRacingGameStatusFixtureRaceStatus,
+      ReadyToAnswerAllInMiddle: TemplateAppRacingGameStatusFixtureReadyToAnswerAllInMiddle,
+      ReadyToAnswerSpread: TemplateAppRacingGameStatusFixtureReadyToAnswerSpread,
+      ReadyToAnswer: TemplateAppRacingGameStatusFixtureReadyToAnswer
     }
   },
   TemplateBackOffice: {
