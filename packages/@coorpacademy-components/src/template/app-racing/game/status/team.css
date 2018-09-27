@@ -15,18 +15,25 @@
 
 .player {
   position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+}
+
+.loader {
+  position: absolute;
 }
 
 .avatar {
-  left: 20px;
-  width: 45px;
-  height: 45px;
-  margin-right: -10px;
+  width: 100%;
+  height: 100%;
   border: 3px solid white;
   border-radius: 50%;
   background-size: contain;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-
+  box-sizing: border-box;
   display: flex;
   justify-content: center;
 }
@@ -101,11 +108,6 @@
   padding: 3px;
   border-radius: 50%;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-.iconWait {
-  animation: pop 1s;
-  composes: icon;
 }
 
 .iconCorrect {
