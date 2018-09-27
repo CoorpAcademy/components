@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import Link from '../../atom/link';
-import {container, content, closeCross, redirectionLink, imageContainer} from './style.css';
+import {container, content, closingCross, redirectionLink, imageContainer} from './style.css';
 
 const SideNotification = ({header, body, imageURL, onClick, onClose}, context) => {
   const {skin} = context;
@@ -10,9 +10,9 @@ const SideNotification = ({header, body, imageURL, onClick, onClose}, context) =
   const color = getOr('#00b0ff', 'common.primary', skin);
 
   return (
-    <div onClick={() => onClick()} className={container}>
+    <div onClick={onClick} className={container}>
       <span
-        className={closeCross}
+        className={closingCross}
         onClick={e => {
           e.stopPropagation();
           onClose();
@@ -24,7 +24,13 @@ const SideNotification = ({header, body, imageURL, onClick, onClose}, context) =
 
       <div className={content}>
         <h5 style={{color}}> {header} </h5>
-        <Link className={redirectionLink} onClick={onClick}>
+        <Link
+          className={redirectionLink}
+          onClick={e => {
+            e.stopPropagation();
+            onClick();
+          }}
+        >
           {body}
         </Link>
       </div>

@@ -119,6 +119,7 @@ import OrganismPopin from './../src/organism/popin';
 import OrganismResourceBrowser from './../src/organism/resource-browser';
 import OrganismSettings from './../src/organism/settings';
 import OrganismSetupHeader from './../src/organism/setup-header';
+import OrganismSideNotifications from './../src/organism/side-notifications';
 import OrganismSidebar from './../src/organism/sidebar';
 import OrganismSlider from './../src/organism/slider';
 import OrganismUserPreferences from './../src/organism/user-preferences';
@@ -542,6 +543,7 @@ import OrganismSettingsFixturePremium from '../src/organism/settings/test/fixtur
 import OrganismSettingsFixturePromoCode from '../src/organism/settings/test/fixtures/promo-code';
 import OrganismSetupHeaderFixtureDefault from '../src/organism/setup-header/test/fixtures/default';
 import OrganismSetupHeaderFixtureFromDashboards from '../src/organism/setup-header/test/fixtures/from-dashboards';
+import OrganismSideNotificationsFixtureDefault from '../src/organism/side-notifications/test/fixtures/default';
 import OrganismSidebarFixtureAnalytics from '../src/organism/sidebar/test/fixtures/analytics';
 import OrganismSidebarFixtureCustom from '../src/organism/sidebar/test/fixtures/custom';
 import OrganismSidebarFixtureDashboards from '../src/organism/sidebar/test/fixtures/dashboards';
@@ -846,6 +848,7 @@ export const components = {
     OrganismResourceBrowser,
     OrganismSettings,
     OrganismSetupHeader,
+    OrganismSideNotifications,
     OrganismSidebar,
     OrganismSlider,
     OrganismUserPreferences
@@ -1542,6 +1545,9 @@ export const fixtures = {
     OrganismSetupHeader: {
       Default: OrganismSetupHeaderFixtureDefault,
       FromDashboards: OrganismSetupHeaderFixtureFromDashboards
+    },
+    OrganismSideNotifications: {
+      Default: OrganismSideNotificationsFixtureDefault
     },
     OrganismSidebar: {
       Analytics: OrganismSidebarFixtureAnalytics,
