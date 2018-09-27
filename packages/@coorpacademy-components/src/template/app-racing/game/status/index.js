@@ -20,38 +20,40 @@ const Button = ({cta}) => {
 };
 
 const Teams = ({team, goal, towers, bottom}) => (
-  <div
-    className={style.scoresWrapper}
-    style={{
-      bottom: `${bottom}px`
-    }}
-  >
-    {map.convert({cap: false})((tower, index) => {
-      const count = countBy(identity, tower);
-      const newPoints = (count.new || 0) - (count.lost || 0);
-      const points = (count.placed || 0) + (count.new || 0);
-      const isMyTeam = index === team.num;
-      return (
-        <TeamScore
-          key={`team-avatar-${index}`}
-          team={index}
-          points={points}
-          goal={goal}
-          nbToNotify={newPoints}
-          isMyTeam={isMyTeam}
-        />
-      );
-    }, towers)}
+  <div className={style.scoresPositioner}>
+    <div
+      className={style.scores}
+      style={{
+        bottom: `${bottom}px`
+      }}
+    >
+      {map.convert({cap: false})((tower, index) => {
+        const count = countBy(identity, tower);
+        const newPoints = (count.new || 0) - (count.lost || 0);
+        const points = (count.placed || 0) + (count.new || 0);
+        const isMyTeam = index === team.num;
+        return (
+          <TeamScore
+            key={`team-avatar-${index}`}
+            team={index}
+            points={points}
+            goal={goal}
+            nbToNotify={newPoints}
+            isMyTeam={isMyTeam}
+          />
+        );
+      }, towers)}
+    </div>
   </div>
 );
 
-const GameStatus = ({team, towers, goal, cta, hideTeams = false}) => {
+const GameStatus = ({team, towers, goal, cta, hideTeams = false, popUpMaxHeight = 200}) => {
   const position = hideTeams ? -100 : 0;
   const options = {stiffness: 500, damping: 30};
 
   return (
     <div className={style.gameStatus}>
-      <Team {...team} />
+      <Team {...team} popUpMaxHeight={popUpMaxHeight} />
       <Motion
         defaultStyle={{y: -100}}
         style={{

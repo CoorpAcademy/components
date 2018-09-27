@@ -6,7 +6,7 @@ import {selectRoute} from './route';
 export const TIMER_ME_ON = '@@timer/me/on';
 export const TIMER_ME_OFF = '@@timer/me/off';
 
-const TRANSITION_TIME_FOR_MY_ANSWER = 700;
+const TRANSITION_TIME_FOR_MY_ANSWER = 2500;
 
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
