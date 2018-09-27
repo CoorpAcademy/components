@@ -656,7 +656,6 @@ import TemplateAppRacingGameStatusFixtureQuestionStatus from '../src/template/ap
 import TemplateAppRacingGameStatusFixtureRaceStatus from '../src/template/app-racing/game/status/test/fixtures/race-status';
 import TemplateAppRacingGameStatusFixtureReadyToAnswerAllInMiddle from '../src/template/app-racing/game/status/test/fixtures/ready-to-answer-all-in-middle';
 import TemplateAppRacingGameStatusFixtureReadyToAnswerSpread from '../src/template/app-racing/game/status/test/fixtures/ready-to-answer-spread';
-import TemplateAppRacingGameStatusFixtureReadyToAnswer from '../src/template/app-racing/game/status/test/fixtures/ready-to-answer';
 import TemplateAppRacingGameFixtureGameOver from '../src/template/app-racing/game/test/fixtures/game-over';
 import TemplateAppRacingGameFixtureNoTower from '../src/template/app-racing/game/test/fixtures/no-tower';
 import TemplateAppRacingGameFixtureQuestionAllInMiddle from '../src/template/app-racing/game/test/fixtures/question-all-in-middle';
@@ -1725,8 +1724,7 @@ export const fixtures = {
       QuestionStatus: TemplateAppRacingGameStatusFixtureQuestionStatus,
       RaceStatus: TemplateAppRacingGameStatusFixtureRaceStatus,
       ReadyToAnswerAllInMiddle: TemplateAppRacingGameStatusFixtureReadyToAnswerAllInMiddle,
-      ReadyToAnswerSpread: TemplateAppRacingGameStatusFixtureReadyToAnswerSpread,
-      ReadyToAnswer: TemplateAppRacingGameStatusFixtureReadyToAnswer
+      ReadyToAnswerSpread: TemplateAppRacingGameStatusFixtureReadyToAnswerSpread
     }
   },
   TemplateBackOffice: {

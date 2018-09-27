@@ -1,4 +1,6 @@
 import React from 'react';
+import countBy from 'lodash/fp/countBy';
+import identity from 'lodash/fp/identity';
 import map from 'lodash/fp/map';
 import classnames from 'classnames';
 import {Motion, spring} from 'react-motion';
@@ -25,7 +27,9 @@ const Teams = ({team, goal, towers, bottom}) => (
     }}
   >
     {map.convert({cap: false})((tower, index) => {
-      const points = 3;
+      const count = countBy(identity, tower);
+      const newPoints = (count.new || 0) - (count.lost || 0);
+      const points = (count.placed || 0) + (count.new || 0);
       const isMyTeam = index === team.num;
       return (
         <TeamScore
@@ -33,6 +37,7 @@ const Teams = ({team, goal, towers, bottom}) => (
           team={index}
           points={points}
           goal={goal}
+          nbToNotify={newPoints}
           isMyTeam={isMyTeam}
         />
       );
