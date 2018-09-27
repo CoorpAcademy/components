@@ -9,22 +9,8 @@ import MoreIcon from '@coorpacademy/nova-icons/composition/navigation/more';
 import Check from '@coorpacademy/nova-icons/composition/coorpacademy/check';
 import Timer from '@coorpacademy/nova-icons/composition/coorpacademy/timer';
 import animation from '../../../../atom/css-animations/fade-in.css';
-import BLOCKS from '../common-fixtures/blocks';
 import ScoreNotification from './score-notification';
 import style from './team.css';
-
-const TeamTitle = ({type, num}) => {
-  if (type === 'race') {
-    return null;
-  }
-
-  return (
-    <div className={style.teamTitle}>
-      <img src={BLOCKS[num]} />
-      <span>Team {num}</span>
-    </div>
-  );
-};
 
 const Player = ({name, isMe, avatar, isCorrect}) => {
   // eslint-disable-next-line no-nested-ternary
@@ -57,7 +43,7 @@ const Player = ({name, isMe, avatar, isCorrect}) => {
 };
 
 const Team = props => {
-  const {members, num, type} = props;
+  const {members, type} = props;
   const middleY = type === 'race' ? 15 : 10;
   const sideY = type === 'race' ? 15 : 50;
   const count = {
@@ -75,7 +61,6 @@ const Team = props => {
         backgroundColor: type === 'race' ? 'rgba(5.5%, 22.7%, 23.9%, 0.2)' : 'none'
       }}
     >
-      <TeamTitle type={type} num={num} />
       {map(({name, isMe, avatar, isCorrect}) => {
         if (isNull(isCorrect)) {
           count.nbNull++;
@@ -139,7 +124,6 @@ const Team = props => {
 };
 
 Team.propTypes = {
-  num: PropTypes.number,
   members: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
