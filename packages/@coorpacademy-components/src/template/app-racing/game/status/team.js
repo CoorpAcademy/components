@@ -7,8 +7,8 @@ import {Motion, spring} from 'react-motion';
 import classnames from 'classnames';
 import MoreIcon from '@coorpacademy/nova-icons/composition/navigation/more';
 import Check from '@coorpacademy/nova-icons/composition/coorpacademy/check';
-import Timer from '@coorpacademy/nova-icons/composition/coorpacademy/timer';
 import animation from '../../../../atom/css-animations/fade-in.css';
+import LoaderTarget from '../../../../atom/loader-target';
 import ScoreNotification from './score-notification';
 import style from './team.css';
 
@@ -19,9 +19,7 @@ const Player = ({name, isMe, avatar, isCorrect}) => {
     : isCorrect === true ? style.correct : style.notCorrect;
 
   // eslint-disable-next-line no-nested-ternary
-  const icon = isNull(isCorrect) ? (
-    <Timer className={style.iconWait} color="#FF7043" />
-  ) : isCorrect === true ? (
+  const icon = isNull(isCorrect) ? null : isCorrect === true ? (
     <Check className={style.iconCorrect} color="#3EC483" />
   ) : (
     <MoreIcon className={style.iconWrong} color="#F73F52" />
@@ -75,6 +73,17 @@ const Team = props => {
           <ScoreNotification key={`result-${name}`} positive={isCorrect} number={1} />
         ) : null;
 
+        const loader = isNull(isCorrect) ? (
+          <LoaderTarget
+            width="56px"
+            height="56px"
+            className={style.loader}
+            color="#FF7043"
+            strokeDasharray="18 35"
+            animationDuration="3.5s"
+          />
+        ) : null;
+
         // eslint-disable-next-line no-nested-ternary
         const position = isNull(isCorrect)
           ? {
@@ -119,6 +128,7 @@ const Team = props => {
                   }}
                 >
                   {score}
+                  {loader}
                   <Player isMe={isMe} name={name} avatar={avatar} isCorrect={isCorrect} />
                 </div>
               );

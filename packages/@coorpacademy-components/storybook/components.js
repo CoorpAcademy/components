@@ -20,6 +20,7 @@ import AtomLabel from './../src/atom/label';
 import AtomLife from './../src/atom/life';
 import AtomLink from './../src/atom/link';
 import AtomLoader from './../src/atom/loader';
+import AtomLoaderTarget from './../src/atom/loader-target';
 import AtomNotification from './../src/atom/notification';
 import AtomPicture from './../src/atom/picture';
 import AtomPictureBackground from './../src/atom/picture-background';
@@ -229,6 +230,8 @@ import AtomLinkFixtureDownload from '../src/atom/link/test/fixtures/download';
 import AtomLinkFixtureHref from '../src/atom/link/test/fixtures/href';
 import AtomLinkFixtureStyledLink from '../src/atom/link/test/fixtures/styled-link';
 import AtomLoaderFixtureDefault from '../src/atom/loader/test/fixtures/default';
+import AtomLoaderTargetFixtureBig from '../src/atom/loader-target/test/fixtures/big';
+import AtomLoaderTargetFixtureDefault from '../src/atom/loader-target/test/fixtures/default';
 import AtomNotificationFixtureDefault from '../src/atom/notification/test/fixtures/default';
 import AtomNotificationFixtureError from '../src/atom/notification/test/fixtures/error';
 import AtomNotificationFixtureWarning from '../src/atom/notification/test/fixtures/warning';
@@ -741,6 +744,7 @@ export const components = {
     AtomLife,
     AtomLink,
     AtomLoader,
+    AtomLoaderTarget,
     AtomNotification,
     AtomPicture,
     AtomPictureBackground,
@@ -1028,6 +1032,10 @@ export const fixtures = {
     },
     AtomLoader: {
       Default: AtomLoaderFixtureDefault
+    },
+    AtomLoaderTarget: {
+      Big: AtomLoaderTargetFixtureBig,
+      Default: AtomLoaderTargetFixtureDefault
     },
     AtomNotification: {
       Default: AtomNotificationFixtureDefault,
