@@ -43,9 +43,10 @@ const Player = ({name, isMe, avatar, isCorrect}) => {
 };
 
 const Team = props => {
-  const {members, type} = props;
+  const {members, type, popUpMaxHeight} = props;
   const middleY = type === 'race' ? 15 : 10;
   const sideY = type === 'race' ? 15 : 50;
+  const middleScreenY = -popUpMaxHeight * 0.45;
   const count = {
     nbNull: 0,
     nbCorrect: 0,
@@ -61,7 +62,7 @@ const Team = props => {
         backgroundColor: type === 'race' ? 'rgba(5.5%, 22.7%, 23.9%, 0.2)' : 'none'
       }}
     >
-      {map(({name, isMe, avatar, isCorrect}) => {
+      {map(({name, isMe, isWaitingAnswer, avatar, isCorrect}) => {
         if (isNull(isCorrect)) {
           count.nbNull++;
         } else if (isCorrect) {
@@ -78,8 +79,8 @@ const Team = props => {
         const position = isNull(isCorrect)
           ? {
               xPercent: 50,
-              xOffset: 25 - (count.nbNull - 1) * 15,
-              y: middleY
+              xOffset: isWaitingAnswer ? 25 : 25 - (count.nbNull - 1) * 15,
+              y: isWaitingAnswer ? middleScreenY : middleY
             }
           : isCorrect === true
             ? {
@@ -93,23 +94,29 @@ const Team = props => {
                 y: sideY
               };
 
-        const options = {stiffness: 600, damping: 40};
+        const avatarScale = isWaitingAnswer ? 2 : 1;
+        const options = {stiffness: 120, damping: 30};
 
         return (
           <Motion
             key={name}
-            defaultStyle={{xPercent: 50, xOffset: 25, y: middleY}}
+            defaultStyle={{xPercent: 50, xOffset: 25, y: middleY, scale: 1}}
             style={{
               xPercent: spring(position.xPercent, options),
               xOffset: spring(position.xOffset, options),
-              y: spring(position.y, options)
+              y: spring(position.y, options),
+              scale: spring(avatarScale, options)
             }}
           >
-            {({xPercent, xOffset, y}) => {
+            {({xPercent, xOffset, y, scale}) => {
               return (
                 <div
                   className={style.player}
-                  style={{left: `calc(${xPercent}% - ${xOffset}px)`, top: `${y}px`}}
+                  style={{
+                    left: `calc(${xPercent}% - ${xOffset}px)`,
+                    top: `${y}px`,
+                    transform: `scale(${scale})`
+                  }}
                 >
                   {score}
                   <Player isMe={isMe} name={name} avatar={avatar} isCorrect={isCorrect} />

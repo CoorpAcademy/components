@@ -2,6 +2,7 @@ import reduce from 'lodash/fp/reduce';
 import get from 'lodash/fp/get';
 import {delay} from 'redux-saga';
 import {showGameOver} from '../utils/state-extract';
+import {seeQuestion} from '../actions/ui/location';
 import {put, call, race, take, select} from 'redux-saga/effects';
 
 export const POLL_START = '@@polling/start';
@@ -82,6 +83,7 @@ function createWorker({services}) {
             yield put({type: TIMER_LAST_ON});
             yield call(delay, TRANSITION_TIME_ON_LAST);
             yield put({type: TIMER_LAST_OFF});
+            yield put(seeQuestion);
           }
         } catch (err) {
           if (err.status === -1) {

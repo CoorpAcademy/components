@@ -1,10 +1,10 @@
 import get from 'lodash/fp/get';
 import {getConfigForProgression} from '@coorpacademy/progression-engine';
 import {
-  allTeammatesHaveAnswered,
   currentTeam,
   getCurrentProgression,
   getCurrentRace,
+  getCurrentUserState,
   getAnswerValues,
   getCurrentProgressionId,
   getCurrentSlide,
@@ -12,12 +12,11 @@ import {
   isLastAnswerCorrect,
   isSpectator,
   showGameOver,
-  showQuestion,
+  showRace,
   isTimerOn
 } from '../../utils/state-extract';
 import {selectProgression} from '../../actions/ui/progressions';
 import {validateAnswer} from '../../actions/ui/answers';
-import {seeQuestion} from '../../actions/ui/location';
 import {createGetAnswerProps} from './answer';
 
 const createCTAHandler = (dispatch, state) => async () => {
@@ -66,7 +65,7 @@ const getSlideProps = (options, store, state) => {
 };
 
 const gameProps = (options, store) => state => {
-  const {dispatch} = store;
+  // const {dispatch} = store;
 
   const progression = getCurrentProgression(state);
   const config = getConfigForProgression(progression);
@@ -76,24 +75,28 @@ const gameProps = (options, store) => state => {
   const spectate = isSpectator(state);
 
   const success = gameOver ? null : isLastAnswerCorrect(state);
-  const view = showQuestion(state) ? 'question' : 'race';
+  const view = showRace(state) ? 'race' : 'question';
   const title =
     isTimerOn('me')(state) || view === 'question' || gameOver || success === undefined
       ? null
       : `${success ? 'Good' : 'Bad'} answer`;
 
-  const hideNextQuestionButton =
-    view === 'question' ||
-    spectate ||
-    gameOver ||
-    !allTeammatesHaveAnswered(state) ||
-    isTimerOn('me')(state) ||
-    isTimerOn('last')(state);
+  // const hideNextQuestionButton =
+  //   view === 'question' ||
+  //   spectate ||
+  //   gameOver ||
+  //   !allTeammatesHaveAnswered(state) ||
+  //   isTimerOn('me')(state) ||
+  //   isTimerOn('last')(state);
 
   const slide = getSlideProps(options, store, state);
 
+  const userState = getCurrentUserState(state);
+  const teamNum = get('team', userState);
+
   return {
     view,
+    blur: isTimerOn('me')(state),
     info: {
       title: spectate ? 'Spectating' : title,
       gameOver
@@ -101,17 +104,11 @@ const gameProps = (options, store) => state => {
     slide,
     team: {
       members,
-      num: 2
+      num: teamNum
     },
     goal: config.goal,
     towers: getCurrentRace(state),
-    cta: hideNextQuestionButton
-      ? null
-      : {
-          submitValue: 'Next question',
-          primary: true,
-          onClick: () => dispatch(seeQuestion)
-        }
+    cta: null
   };
 };
 
