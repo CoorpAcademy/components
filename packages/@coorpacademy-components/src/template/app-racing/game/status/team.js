@@ -10,6 +10,7 @@ import Check from '@coorpacademy/nova-icons/composition/coorpacademy/check';
 import Timer from '@coorpacademy/nova-icons/composition/coorpacademy/timer';
 import animation from '../../../../atom/css-animations/fade-in.css';
 import BLOCKS from '../common-fixtures/blocks';
+import ScoreNotification from './score-notification';
 import style from './team.css';
 
 const TeamTitle = ({type, num}) => {
@@ -21,18 +22,6 @@ const TeamTitle = ({type, num}) => {
     <div className={style.teamTitle}>
       <img src={BLOCKS[num]} />
       <span>Team {num}</span>
-    </div>
-  );
-};
-
-const ResponseResult = ({isCorrect, color}) => {
-  const textStyle = isCorrect === true ? style.textCorrect : style.textNotCorrect;
-
-  return (
-    <div className={style.responseResult}>
-      <span className={classnames(style.textResult, textStyle)}>
-        {`${isCorrect ? '+' : '-'} 1`}
-      </span>
     </div>
   );
 };
@@ -97,7 +86,7 @@ const Team = props => {
         }
 
         const score = !isNull(isCorrect) ? (
-          <ResponseResult key={`result-${name}`} isCorrect={isCorrect} color={num} />
+          <ScoreNotification key={`result-${name}`} positive={isCorrect} number={1} />
         ) : null;
 
         // eslint-disable-next-line no-nested-ternary
