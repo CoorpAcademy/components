@@ -47,25 +47,55 @@ const Teams = ({team, goal, towers, bottom}) => (
   </div>
 );
 
-const GameStatus = ({team, towers, goal, cta, hideTeams = false, popUpMaxHeight = 200}) => {
-  const position = hideTeams ? -100 : 0;
-  const options = {stiffness: 500, damping: 30};
+const GameStatus = ({
+  team,
+  towers,
+  goal,
+  cta,
+  hideTeams = false,
+  popUpMaxHeight = 200,
+  gray = false
+}) => {
+  const options = {stiffness: 120, damping: 22};
 
   return (
-    <div className={style.gameStatus}>
-      <Team {...team} popUpMaxHeight={popUpMaxHeight} />
-      <Motion
-        defaultStyle={{y: -100}}
-        style={{
-          y: spring(position, options)
-        }}
-      >
-        {({y}) => {
-          return <Teams team={team} towers={towers} goal={goal} bottom={y} />;
-        }}
-      </Motion>
-      <Button cta={cta} />
-    </div>
+    <Motion
+      defaultStyle={{
+        r: 14,
+        g: 58,
+        b: 61
+      }}
+      style={{
+        r: spring(gray ? 158 : 14, options),
+        g: spring(gray ? 158 : 58, options),
+        b: spring(gray ? 158 : 61, options)
+      }}
+    >
+      {({r, g, b}) => {
+        const position = hideTeams ? -100 : 0;
+        return (
+          <div
+            className={style.gameStatus}
+            style={{
+              background: `rgba(${r}, ${g}, ${b}, 0.88)`
+            }}
+          >
+            <Team {...team} popUpMaxHeight={popUpMaxHeight} />
+            <Motion
+              defaultStyle={{y: -100}}
+              style={{
+                y: spring(position, options)
+              }}
+            >
+              {({y}) => {
+                return <Teams team={team} towers={towers} goal={goal} bottom={y} />;
+              }}
+            </Motion>
+            <Button cta={cta} />
+          </div>
+        );
+      }}
+    </Motion>
   );
 };
 
