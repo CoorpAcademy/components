@@ -102,6 +102,7 @@ class Game extends Component {
       <div className={style.game} ref={this.initWrapper}>
         <TopScreen {...this.props} />
         <GameStatus
+          gray={this.props.blur}
           team={team}
           goal={goal}
           towers={towers}
