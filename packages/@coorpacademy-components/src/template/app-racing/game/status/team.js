@@ -73,17 +73,6 @@ const Team = props => {
           <ScoreNotification key={`result-${name}`} positive={isCorrect} number={1} />
         ) : null;
 
-        const loader = isNull(isCorrect) ? (
-          <LoaderTarget
-            width="56px"
-            height="56px"
-            className={style.loader}
-            color="#FF7043"
-            strokeDasharray="18 35"
-            animationDuration="3.5s"
-          />
-        ) : null;
-
         // eslint-disable-next-line no-nested-ternary
         const position = isNull(isCorrect)
           ? {
@@ -104,20 +93,33 @@ const Team = props => {
               };
 
         const avatarScale = isWaitingAnswer ? 2 : 1;
+        const speed = isWaitingAnswer ? 5 : 1;
         const options = {stiffness: 120, damping: 30};
 
         return (
           <Motion
             key={name}
-            defaultStyle={{xPercent: 50, xOffset: 25, y: middleY, scale: 1}}
+            defaultStyle={{xPercent: 50, xOffset: 25, y: middleY, scale: 1, loaderSpeed: 1}}
             style={{
               xPercent: spring(position.xPercent, options),
               xOffset: spring(position.xOffset, options),
               y: spring(position.y, options),
-              scale: spring(avatarScale, options)
+              scale: spring(avatarScale, options),
+              loaderSpeed: spring(speed, options)
             }}
           >
-            {({xPercent, xOffset, y, scale}) => {
+            {({xPercent, xOffset, y, scale, loaderSpeed}) => {
+              const loader = isNull(isCorrect) ? (
+                <LoaderTarget
+                  width="56px"
+                  height="56px"
+                  className={style.loader}
+                  color="#FF7043"
+                  strokeDasharray="18 35"
+                  animationDuration={`${3.5 / loaderSpeed}s`}
+                />
+              ) : null;
+
               return (
                 <div
                   className={style.player}
