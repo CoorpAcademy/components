@@ -20,6 +20,7 @@ import AtomLabel from './../src/atom/label';
 import AtomLife from './../src/atom/life';
 import AtomLink from './../src/atom/link';
 import AtomLoader from './../src/atom/loader';
+import AtomLoaderTarget from './../src/atom/loader-target';
 import AtomNotification from './../src/atom/notification';
 import AtomPicture from './../src/atom/picture';
 import AtomPictureBackground from './../src/atom/picture-background';
@@ -38,6 +39,7 @@ import AtomTitle from './../src/atom/title';
 import AtomVideoUpload from './../src/atom/video-upload';
 import HocAnimation from './../src/hoc/animation';
 import HocAnimationScheduler from './../src/hoc/animation-scheduler';
+import HocLateralTransition from './../src/hoc/lateral-transition';
 import HocSwapper from './../src/hoc/swapper';
 import HocTransition from './../src/hoc/transition';
 import MoleculeAnswer from './../src/molecule/answer';
@@ -90,6 +92,7 @@ import MoleculeSetupSection from './../src/molecule/setup-section';
 import MoleculeSetupSections from './../src/molecule/setup-sections';
 import MoleculeSetupSlide from './../src/molecule/setup-slide';
 import MoleculeSetupSlider from './../src/molecule/setup-slider';
+import MoleculeSideNotification from './../src/molecule/side-notification';
 import MoleculeSsmenuList from './../src/molecule/ssmenu-list';
 import MoleculeSubscriptionFreemium from './../src/molecule/subscription-freemium';
 import MoleculeSubscriptionPremium from './../src/molecule/subscription-premium';
@@ -113,6 +116,7 @@ import OrganismHeader from './../src/organism/header';
 import OrganismHero from './../src/organism/hero';
 import OrganismMoocImageSlider from './../src/organism/mooc/image-slider';
 import OrganismMoocHeader from './../src/organism/mooc-header';
+import OrganismNotifications from './../src/organism/notifications';
 import OrganismPopin from './../src/organism/popin';
 import OrganismResourceBrowser from './../src/organism/resource-browser';
 import OrganismSettings from './../src/organism/settings';
@@ -130,8 +134,9 @@ import TemplateAppPlayerPopinCorrection from './../src/template/app-player/popin
 import TemplateAppPlayerPopinEnd from './../src/template/app-player/popin-end';
 import TemplateAppPlayerPopinHeader from './../src/template/app-player/popin-header';
 import TemplateAppRacingAdmin from './../src/template/app-racing/admin';
-import TemplateAppRacingQuestion from './../src/template/app-racing/question';
-import TemplateAppRacingRace from './../src/template/app-racing/race';
+import TemplateAppRacingGameRace from './../src/template/app-racing/game/race';
+import TemplateAppRacingGameStatus from './../src/template/app-racing/game/status';
+import TemplateAppRacingGame from './../src/template/app-racing/game';
 import TemplateBackOfficeBrandCreate from './../src/template/back-office/brand-create';
 import TemplateBackOfficeBrandList from './../src/template/back-office/brand-list';
 import TemplateBackOfficeBrandUpdate from './../src/template/back-office/brand-update';
@@ -225,6 +230,8 @@ import AtomLinkFixtureDownload from '../src/atom/link/test/fixtures/download';
 import AtomLinkFixtureHref from '../src/atom/link/test/fixtures/href';
 import AtomLinkFixtureStyledLink from '../src/atom/link/test/fixtures/styled-link';
 import AtomLoaderFixtureDefault from '../src/atom/loader/test/fixtures/default';
+import AtomLoaderTargetFixtureBig from '../src/atom/loader-target/test/fixtures/big';
+import AtomLoaderTargetFixtureDefault from '../src/atom/loader-target/test/fixtures/default';
 import AtomNotificationFixtureDefault from '../src/atom/notification/test/fixtures/default';
 import AtomNotificationFixtureError from '../src/atom/notification/test/fixtures/error';
 import AtomNotificationFixtureWarning from '../src/atom/notification/test/fixtures/warning';
@@ -285,6 +292,7 @@ import HocAnimationFixtureStart from '../src/hoc/animation/test/fixtures/start';
 import HocAnimationFixtureStop from '../src/hoc/animation/test/fixtures/stop';
 import HocAnimationSchedulerFixtureParallel from '../src/hoc/animation-scheduler/test/fixtures/parallel';
 import HocAnimationSchedulerFixtureSeries from '../src/hoc/animation-scheduler/test/fixtures/series';
+import HocLateralTransitionFixtureDefault from '../src/hoc/lateral-transition/test/fixtures/default';
 import HocSwapperFixtureDefault from '../src/hoc/swapper/test/fixtures/default';
 import HocTransitionFixtureFlipSquare from '../src/hoc/transition/test/fixtures/flip-square';
 import MoleculeAnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
@@ -458,6 +466,7 @@ import MoleculeSetupSectionsFixtureDefault from '../src/molecule/setup-sections/
 import MoleculeSetupSectionsFixtureLoading from '../src/molecule/setup-sections/test/fixtures/loading';
 import MoleculeSetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
 import MoleculeSetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
+import MoleculeSideNotificationFixtureDefault from '../src/molecule/side-notification/test/fixtures/default';
 import MoleculeSsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
 import MoleculeSsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
 import MoleculeSsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
@@ -522,6 +531,7 @@ import OrganismMoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fi
 import OrganismMoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
 import OrganismMoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
 import OrganismMoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
+import OrganismNotificationsFixtureDefault from '../src/organism/notifications/test/fixtures/default';
 import OrganismPopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
 import OrganismResourceBrowserFixtureJwplayerWithOverlay from '../src/organism/resource-browser/test/fixtures/jwplayer-with-overlay';
 import OrganismResourceBrowserFixtureJwplayer from '../src/organism/resource-browser/test/fixtures/jwplayer';
@@ -643,9 +653,21 @@ import TemplateAppPlayerPopinHeaderFixtureNextChapter from '../src/template/app-
 import TemplateAppPlayerPopinHeaderFixtureStarsRank from '../src/template/app-player/popin-header/test/fixtures/stars-rank';
 import TemplateAppPlayerPopinHeaderFixtureSuccess from '../src/template/app-player/popin-header/test/fixtures/success';
 import TemplateAppRacingAdminFixtureDefault from '../src/template/app-racing/admin/test/fixtures/default';
-import TemplateAppRacingQuestionFixtureDefault from '../src/template/app-racing/question/test/fixtures/default';
-import TemplateAppRacingRaceFixtureDefault from '../src/template/app-racing/race/test/fixtures/default';
-import TemplateAppRacingRaceFixtureGameOver from '../src/template/app-racing/race/test/fixtures/game-over';
+import TemplateAppRacingGameRaceFixtureDefault from '../src/template/app-racing/game/race/test/fixtures/default';
+import TemplateAppRacingGameRaceFixtureNoTower from '../src/template/app-racing/game/race/test/fixtures/no-tower';
+import TemplateAppRacingGameStatusFixtureQuestionStatus from '../src/template/app-racing/game/status/test/fixtures/question-status';
+import TemplateAppRacingGameStatusFixtureRaceStatus from '../src/template/app-racing/game/status/test/fixtures/race-status';
+import TemplateAppRacingGameStatusFixtureReadyToAnswerAllInMiddle from '../src/template/app-racing/game/status/test/fixtures/ready-to-answer-all-in-middle';
+import TemplateAppRacingGameStatusFixtureReadyToAnswerSpread from '../src/template/app-racing/game/status/test/fixtures/ready-to-answer-spread';
+import TemplateAppRacingGameStatusFixtureWaitingAnswer from '../src/template/app-racing/game/status/test/fixtures/waiting-answer';
+import TemplateAppRacingGameFixtureGameOver from '../src/template/app-racing/game/test/fixtures/game-over';
+import TemplateAppRacingGameFixtureNoTower from '../src/template/app-racing/game/test/fixtures/no-tower';
+import TemplateAppRacingGameFixtureQuestionAllInMiddle from '../src/template/app-racing/game/test/fixtures/question-all-in-middle';
+import TemplateAppRacingGameFixtureQuestionTimerMe from '../src/template/app-racing/game/test/fixtures/question-timer-me';
+import TemplateAppRacingGameFixtureRaceAllInMiddle from '../src/template/app-racing/game/test/fixtures/race-all-in-middle';
+import TemplateAppRacingGameFixtureReadyToAnswerAllInMiddle from '../src/template/app-racing/game/test/fixtures/ready-to-answer-all-in-middle';
+import TemplateAppRacingGameFixtureReadyToAnswerSpread from '../src/template/app-racing/game/test/fixtures/ready-to-answer-spread';
+import TemplateAppRacingGameFixtureWaitingAnswer from '../src/template/app-racing/game/test/fixtures/waiting-answer';
 import TemplateBackOfficeBrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import TemplateBackOfficeBrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import TemplateBackOfficeBrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -722,6 +744,7 @@ export const components = {
     AtomLife,
     AtomLink,
     AtomLoader,
+    AtomLoaderTarget,
     AtomNotification,
     AtomPicture,
     AtomPictureBackground,
@@ -742,6 +765,7 @@ export const components = {
   Hoc: {
     HocAnimation,
     HocAnimationScheduler,
+    HocLateralTransition,
     HocSwapper,
     HocTransition
   },
@@ -782,6 +806,7 @@ export const components = {
     MoleculeSetupSections,
     MoleculeSetupSlide,
     MoleculeSetupSlider,
+    MoleculeSideNotification,
     MoleculeSsmenuList,
     MoleculeSubscriptionFreemium,
     MoleculeSubscriptionPremium,
@@ -828,6 +853,7 @@ export const components = {
     OrganismHeader,
     OrganismHero,
     OrganismMoocHeader,
+    OrganismNotifications,
     OrganismPopin,
     OrganismResourceBrowser,
     OrganismSettings,
@@ -859,8 +885,11 @@ export const components = {
   },
   TemplateAppRacing: {
     TemplateAppRacingAdmin,
-    TemplateAppRacingQuestion,
-    TemplateAppRacingRace
+    TemplateAppRacingGame
+  },
+  TemplateAppRacingGame: {
+    TemplateAppRacingGameRace,
+    TemplateAppRacingGameStatus
   },
   TemplateBackOffice: {
     TemplateBackOfficeBrandCreate,
@@ -1004,6 +1033,10 @@ export const fixtures = {
     AtomLoader: {
       Default: AtomLoaderFixtureDefault
     },
+    AtomLoaderTarget: {
+      Big: AtomLoaderTargetFixtureBig,
+      Default: AtomLoaderTargetFixtureDefault
+    },
     AtomNotification: {
       Default: AtomNotificationFixtureDefault,
       Error: AtomNotificationFixtureError,
@@ -1101,6 +1134,9 @@ export const fixtures = {
     HocAnimationScheduler: {
       Parallel: HocAnimationSchedulerFixtureParallel,
       Series: HocAnimationSchedulerFixtureSeries
+    },
+    HocLateralTransition: {
+      Default: HocLateralTransitionFixtureDefault
     },
     HocSwapper: {
       Default: HocSwapperFixtureDefault
@@ -1311,6 +1347,9 @@ export const fixtures = {
     MoleculeSetupSlider: {
       Default: MoleculeSetupSliderFixtureDefault
     },
+    MoleculeSideNotification: {
+      Default: MoleculeSideNotificationFixtureDefault
+    },
     MoleculeSsmenuList: {
       Coorpacademy: MoleculeSsmenuListFixtureCoorpacademy,
       Empty: MoleculeSsmenuListFixtureEmpty,
@@ -1497,6 +1536,9 @@ export const fixtures = {
       Slider: OrganismMoocHeaderFixtureSlider,
       UserChangePassword: OrganismMoocHeaderFixtureUserChangePassword
     },
+    OrganismNotifications: {
+      Default: OrganismNotificationsFixtureDefault
+    },
     OrganismPopin: {
       Default: OrganismPopinFixtureDefault
     },
@@ -1673,12 +1715,28 @@ export const fixtures = {
     TemplateAppRacingAdmin: {
       Default: TemplateAppRacingAdminFixtureDefault
     },
-    TemplateAppRacingQuestion: {
-      Default: TemplateAppRacingQuestionFixtureDefault
+    TemplateAppRacingGame: {
+      GameOver: TemplateAppRacingGameFixtureGameOver,
+      NoTower: TemplateAppRacingGameFixtureNoTower,
+      QuestionAllInMiddle: TemplateAppRacingGameFixtureQuestionAllInMiddle,
+      QuestionTimerMe: TemplateAppRacingGameFixtureQuestionTimerMe,
+      RaceAllInMiddle: TemplateAppRacingGameFixtureRaceAllInMiddle,
+      ReadyToAnswerAllInMiddle: TemplateAppRacingGameFixtureReadyToAnswerAllInMiddle,
+      ReadyToAnswerSpread: TemplateAppRacingGameFixtureReadyToAnswerSpread,
+      WaitingAnswer: TemplateAppRacingGameFixtureWaitingAnswer
+    }
+  },
+  TemplateAppRacingGame: {
+    TemplateAppRacingGameRace: {
+      Default: TemplateAppRacingGameRaceFixtureDefault,
+      NoTower: TemplateAppRacingGameRaceFixtureNoTower
     },
-    TemplateAppRacingRace: {
-      Default: TemplateAppRacingRaceFixtureDefault,
-      GameOver: TemplateAppRacingRaceFixtureGameOver
+    TemplateAppRacingGameStatus: {
+      QuestionStatus: TemplateAppRacingGameStatusFixtureQuestionStatus,
+      RaceStatus: TemplateAppRacingGameStatusFixtureRaceStatus,
+      ReadyToAnswerAllInMiddle: TemplateAppRacingGameStatusFixtureReadyToAnswerAllInMiddle,
+      ReadyToAnswerSpread: TemplateAppRacingGameStatusFixtureReadyToAnswerSpread,
+      WaitingAnswer: TemplateAppRacingGameStatusFixtureWaitingAnswer
     }
   },
   TemplateBackOffice: {

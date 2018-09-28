@@ -3,10 +3,12 @@ import answers from './answers';
 import current from './current';
 import route from './route';
 import races from './races';
+import timer from './timer';
 
 export default combineReducers({
   answers,
   current,
   races,
-  route
+  route,
+  timer
 });

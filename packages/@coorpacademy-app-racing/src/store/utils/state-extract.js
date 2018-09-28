@@ -108,12 +108,12 @@ export const showGameOver = state => {
 
 // -----------------------------------------------------------------------------
 
-export const allUsersHaveAnswered = state => {
+export const allTeammatesHaveAnswered = state => {
   const progression = getCurrentProgression(state);
   const userState = getCurrentUserState(state);
   const userQuestionNum = get('questionNum', userState);
   const team = get('team', userState);
-  const players = get(['state', 'teams', team, 'players'], progression);
+  const teammates = get(['state', 'teams', team, 'players'], progression);
 
   return reduce(
     (result, playerId) => {
@@ -123,9 +123,11 @@ export const allUsersHaveAnswered = state => {
       return result && userQuestionNum <= questionNum;
     },
     true,
-    players
+    teammates
   );
 };
+
+export const isTimerOn = type => get(['ui', 'timer', type]);
 
 export const currentTeam = state => {
   const progression = getCurrentProgression(state);
@@ -133,7 +135,7 @@ export const currentTeam = state => {
 
   const team = get('team', userState);
   const players = get(['state', 'teams', team, 'players'], progression);
-  const questionNumToWaitFor = reduce(
+  let questionNumToWaitFor = reduce(
     (result, playerId) => {
       const player = getUserState(playerId, state);
       const questionNum = get('questionNum', player);
@@ -144,10 +146,16 @@ export const currentTeam = state => {
     players
   );
 
+  if (isTimerOn('last')(state)) {
+    questionNumToWaitFor -= 1;
+  }
+
   return map(playerId => {
     const player = getUserState(playerId, state);
 
     return {
+      isMe: playerId === userState.id,
+      isWaitingAnswer: playerId === userState.id && isTimerOn('me')(state),
       name: get('name', player),
       avatar: get('avatar', player),
       isCorrect: getOr(null, `allAnswers[${questionNumToWaitFor - 1}].isCorrect`, player)
