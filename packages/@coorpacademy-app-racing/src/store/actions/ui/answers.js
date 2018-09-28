@@ -2,7 +2,11 @@ import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
 import {createAnswer} from '../api/progressions';
 import {selectRoute} from './route';
-import {progressionUpdated} from './progressions';
+
+export const TIMER_ME_ON = '@@timer/me/on';
+export const TIMER_ME_OFF = '@@timer/me/off';
+
+const TRANSITION_TIME_FOR_MY_ANSWER = 2500;
 
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
@@ -50,7 +54,14 @@ export const editAnswer = (state, questionType, progressionId, newValue) => {
 };
 
 export const validateAnswer = (progressionId, body) => async (dispatch, getState, {services}) => {
-  await dispatch(selectRoute('loading'));
-  await dispatch(createAnswer(progressionId, body.answer));
-  return dispatch(selectRoute('race'));
+  await dispatch(selectRoute('race'));
+  await dispatch({type: TIMER_ME_ON});
+
+  return new Promise(function(resolve) {
+    setTimeout(async () => {
+      await dispatch({type: TIMER_ME_OFF});
+      await dispatch(createAnswer(progressionId, body.answer));
+      resolve(true);
+    }, TRANSITION_TIME_FOR_MY_ANSWER);
+  });
 };

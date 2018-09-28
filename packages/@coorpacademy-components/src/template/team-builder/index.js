@@ -6,6 +6,8 @@ import Provider from '../../atom/provider';
 import Team from './team';
 import style from './style.css';
 
+const _map = map.convert({cap: false});
+
 const TeamBuilder = (props, context) => {
   const {skin} = context;
   const {teams, cta, title} = props;
@@ -35,7 +37,9 @@ const TeamBuilder = (props, context) => {
     <div className={style.teamBuilder}>
       {Title}
       {button}
-      <div className={style.teams}>{map(team => <Team key={team.name} {...team} />, teams)}</div>
+      <div className={style.teams}>
+        {_map((team, index) => <Team num={index} key={team.name} {...team} />, teams)}
+      </div>
     </div>
   );
 };
