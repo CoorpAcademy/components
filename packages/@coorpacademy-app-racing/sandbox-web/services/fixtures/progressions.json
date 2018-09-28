@@ -43,7 +43,7 @@
               "name": "user_1",
               "avatar": "https://api.adorable.io/avatars/120/user_1.png",
               "team": 0,
-              "isCorrect": false,
+              "isCorrect": null,
               "slides": [],
               "questionNum": 1,
               "nextContent": {
@@ -56,7 +56,7 @@
               "name": "user_2",
               "avatar": "https://api.adorable.io/avatars/120/user_2.png",
               "team": 0,
-              "isCorrect": false,
+              "isCorrect": null,
               "slides": [],
               "questionNum": 1,
               "nextContent": {
@@ -69,7 +69,7 @@
               "name": "user_3",
               "avatar": "https://api.adorable.io/avatars/120/user_3.png",
               "team": 1,
-              "isCorrect": false,
+              "isCorrect": null,
               "slides": [],
               "questionNum": 1,
               "nextContent": {
@@ -82,7 +82,7 @@
               "name": "user_4",
               "avatar": "https://api.adorable.io/avatars/120/user_4.png",
               "team": 1,
-              "isCorrect": false,
+              "isCorrect": null,
               "slides": [],
               "questionNum": 1,
               "nextContent": {
@@ -117,7 +117,7 @@
           "name": "user_1",
           "avatar": "https://api.adorable.io/avatars/120/user_1.png",
           "team": 0,
-          "isCorrect": false,
+          "isCorrect": null,
           "slides": [],
           "questionNum": 1,
           "nextContent": {
@@ -130,7 +130,7 @@
           "name": "user_2",
           "avatar": "https://api.adorable.io/avatars/120/user_2.png",
           "team": 0,
-          "isCorrect": false,
+          "isCorrect": null,
           "slides": [],
           "questionNum": 1,
           "nextContent": {
@@ -143,7 +143,7 @@
           "name": "user_3",
           "avatar": "https://api.adorable.io/avatars/120/user_3.png",
           "team": 1,
-          "isCorrect": false,
+          "isCorrect": null,
           "slides": [],
           "questionNum": 1,
           "nextContent": {
@@ -156,7 +156,7 @@
           "name": "user_4",
           "avatar": "https://api.adorable.io/avatars/120/user_4.png",
           "team": 1,
-          "isCorrect": false,
+          "isCorrect": null,
           "slides": [],
           "questionNum": 1,
           "nextContent": {

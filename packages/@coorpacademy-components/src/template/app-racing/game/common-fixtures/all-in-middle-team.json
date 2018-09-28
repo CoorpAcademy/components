@@ -1,0 +1,21 @@
+{
+  "num": 1,
+  "members": [
+    {
+      "name": "Katrine",
+      "avatar": "https://api.adorable.io/avatars/150/Katrine.png",
+      "isCorrect": null
+    },
+    {
+      "name": "Joe",
+      "avatar": "https://api.adorable.io/avatars/150/Joe.png",
+      "isCorrect": null,
+      "isMe": true
+    },
+    {
+      "name": "Kim",
+      "avatar": "https://api.adorable.io/avatars/150/Kim.png",
+      "isCorrect": null
+    }
+  ]
+}

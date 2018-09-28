@@ -49,6 +49,7 @@ const appendUser = (nextContent, initialTeams) => (users, user): RacingUsers => 
       ...user,
       nextContent,
       questionNum: 1,
+      isCorrect: null,
       team
     }
   };
