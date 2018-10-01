@@ -15,18 +15,26 @@
   position: relative;
   flex-grow: 1;
   overflow: hidden;
+  overflow-y: scroll;
 }
 
 .movingView {
   position: absolute;
   display: flex;
-  height: 100%;
   width: 200%;
 }
 
 .movingViewPart {
-  height: 100%;
   width: 100%;
   flex-grow: 1;
   display: flex;
+}
+
+.slide {
+  composes: movingViewPart;
+}
+
+.towers {
+  composes: movingViewPart;
+  height: 100%;
 }

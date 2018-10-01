@@ -96,7 +96,7 @@ const gameProps = (options, store) => state => {
 
   return {
     view,
-    blur: isTimerOn('me')(state),
+    // blur: isTimerOn('me')(state),
     info: {
       title: spectate ? 'Spectating' : title,
       gameOver

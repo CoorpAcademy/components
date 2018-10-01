@@ -78,12 +78,17 @@ function createWorker({services}) {
             yield put({type: POLL_STOP});
           }
 
-          const isLast = lastTeammateJustAnswered(progression, teamIndex);
-          if (isLast) {
-            yield put({type: TIMER_LAST_ON});
-            yield call(delay, TRANSITION_TIME_ON_LAST);
-            yield put({type: TIMER_LAST_OFF});
-            yield put(seeQuestion);
+          const currentUser = get(['state', 'users', currentUserId], progression);
+          const currentTeam = get('team', currentUser);
+
+          if (currentTeam === teamIndex) {
+            const isLast = lastTeammateJustAnswered(progression, teamIndex);
+            if (isLast) {
+              yield put({type: TIMER_LAST_ON});
+              yield call(delay, TRANSITION_TIME_ON_LAST);
+              yield put({type: TIMER_LAST_OFF});
+              yield put(seeQuestion);
+            }
           }
         } catch (err) {
           if (err.status === -1) {

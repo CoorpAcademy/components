@@ -82,19 +82,20 @@ const Team = props => {
             }
           : isCorrect === true
             ? {
-                xPercent: 100,
+                xPercent: 97,
                 xOffset: 55 + (count.nbCorrect - 1) * 35,
                 y: sideY
               }
             : {
-                xPercent: 0,
+                xPercent: 3,
                 xOffset: -5 - (count.nbWrong - 1) * 35,
                 y: sideY
               };
 
         const avatarScale = isWaitingAnswer ? 2 : 1;
         const speed = isWaitingAnswer ? 5 : 1;
-        const options = {stiffness: 120, damping: 30};
+        const options = {stiffness: 120, damping: 16};
+        const optionsY = {stiffness: 120, damping: 13};
 
         return (
           <Motion
@@ -103,7 +104,7 @@ const Team = props => {
             style={{
               xPercent: spring(position.xPercent, options),
               xOffset: spring(position.xOffset, options),
-              y: spring(position.y, options),
+              y: spring(position.y, optionsY),
               scale: spring(avatarScale, options),
               loaderSpeed: spring(speed, options)
             }}

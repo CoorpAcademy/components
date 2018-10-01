@@ -60,8 +60,8 @@ const TopScreen = props => {
                 left: `${x}%`
               }}
             >
-              <div className={style.movingViewPart}>{slide}</div>
-              <div className={style.movingViewPart}>
+              <div className={style.slide}>{slide}</div>
+              <div className={style.towers}>
                 <Race {...props} />
               </div>
             </div>
