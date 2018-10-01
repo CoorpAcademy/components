@@ -81,10 +81,6 @@ export const isSpectator = state => {
   }
 };
 
-export const showRace = state => {
-  return getRoute(state) === 'race';
-};
-
 export const showLoading = state => {
   return getRoute(state) === 'loading';
 };

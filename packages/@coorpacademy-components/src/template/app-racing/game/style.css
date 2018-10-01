@@ -30,6 +30,12 @@
   display: flex;
 }
 
+.slideWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
 .slide {
   composes: movingViewPart;
   overflow-y: scroll;
@@ -37,4 +43,15 @@
 
 .towers {
   composes: movingViewPart;
+}
+
+/*-------------------------------------------------*/
+
+.answerPopin {
+  width: 400px;
+  height: 250px;
+  position: absolute;
+  background: #d4d4d4;
+  left: 50%;
+  transform: translateX(-50%);
 }

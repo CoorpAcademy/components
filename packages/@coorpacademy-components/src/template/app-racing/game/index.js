@@ -8,27 +8,12 @@ import GameStatus from './status';
 import Team from './status/team';
 import Race from './race';
 import style from './style.css';
-import messagesStyle from './messages.css';
-
-const Messages = ({info}) => {
-  if (!info) return null;
-
-  const message = info.title && <p className={messagesStyle.message}>{info.title}</p>;
-  const gameOver = info.gameOver && <p className={messagesStyle.gameOver}>Game Over!</p>;
-
-  return (
-    <div>
-      {message}
-      {gameOver}
-    </div>
-  );
-};
 
 const TopScreen = props => {
   const position = props.view === 'race' ? -100 : 0;
   const options = {stiffness: 120, damping: 22};
   const slide = props.slide !== null && (
-    <div>
+    <div className={style.slideWrapper}>
       <SlidesPlayer questionBackgroundColor="transparent" {...props.slide} />
     </div>
   );
@@ -98,7 +83,13 @@ class Game extends Component {
   }
 
   render() {
-    const {team, goal, towers, cta, view, info} = this.props;
+    const {team, goal, towers, cta, info, view} = this.props;
+
+    const answerPopin = view === 'show-answer' && (
+      <div className={style.answerPopin}>
+        <span>{info.success ? 'good' : 'bad'}</span>
+      </div>
+    );
 
     return (
       <div className={style.game} ref={this.initWrapper}>
@@ -109,17 +100,16 @@ class Game extends Component {
           goal={goal}
           towers={towers}
           cta={cta}
-          hideTeams={view === 'race'}
           popUpMaxHeight={this.state.height}
         />
-        <Messages info={info} />
+        {answerPopin}
       </div>
     );
   }
 }
 
 Game.propTypes = {
-  view: PropTypes.oneOf(['question', 'race']),
+  view: PropTypes.oneOf(['question', 'race', 'show-answer']),
   blur: PropTypes.bool,
   slide: PropTypes.shape(SlidesPlayer.propTypes),
   towers: PropTypes.arrayOf(
@@ -129,7 +119,6 @@ Game.propTypes = {
   goal: PropTypes.number,
   team: PropTypes.shape(Team.propTypes),
   info: PropTypes.shape({
-    title: PropTypes.string,
     success: PropTypes.bool,
     gameOver: PropTypes.bool
   })

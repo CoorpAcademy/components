@@ -9,10 +9,10 @@ import {
   getCurrentProgressionId,
   getCurrentSlide,
   getQuestionMedia,
+  getRoute,
   isLastAnswerCorrect,
   isSpectator,
   showGameOver,
-  showRace,
   isTimerOn
 } from '../../utils/state-extract';
 import {selectProgression} from '../../actions/ui/progressions';
@@ -72,14 +72,14 @@ const gameProps = (options, store) => state => {
   const members = currentTeam(state);
 
   const gameOver = showGameOver(state);
-  const spectate = isSpectator(state);
+  // const spectate = isSpectator(state);
 
   const success = gameOver ? null : isLastAnswerCorrect(state);
-  const view = showRace(state) ? 'race' : 'question';
-  const title =
-    isTimerOn('me')(state) || view === 'question' || gameOver || success === undefined
-      ? null
-      : `${success ? 'Good' : 'Bad'} answer`;
+  const view = getRoute(state);
+  // const title =
+  //   isTimerOn('me')(state) || view === 'question' || gameOver || success === undefined
+  //     ? null
+  //     : `${success ? 'Good' : 'Bad'} answer`;
 
   // const hideNextQuestionButton =
   //   view === 'question' ||
@@ -96,9 +96,9 @@ const gameProps = (options, store) => state => {
 
   return {
     view,
-    // blur: isTimerOn('me')(state),
+    blur: gameOver || view === 'show-answer',
     info: {
-      title: spectate ? 'Spectating' : title,
+      success,
       gameOver
     },
     slide,

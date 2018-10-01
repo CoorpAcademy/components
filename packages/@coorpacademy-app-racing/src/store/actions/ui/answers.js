@@ -6,7 +6,7 @@ import {selectRoute} from './route';
 export const TIMER_ME_ON = '@@timer/me/on';
 export const TIMER_ME_OFF = '@@timer/me/off';
 
-const TRANSITION_TIME_FOR_MY_ANSWER = 2000;
+const TRANSITION_TIME_FOR_MY_ANSWER = 4000;
 
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
@@ -54,13 +54,14 @@ export const editAnswer = (state, questionType, progressionId, newValue) => {
 };
 
 export const validateAnswer = (progressionId, body) => async (dispatch, getState, {services}) => {
-  await dispatch(selectRoute('race'));
   await dispatch({type: TIMER_ME_ON});
+  await dispatch(createAnswer(progressionId, body.answer));
+  await dispatch({type: TIMER_ME_OFF});
+  await dispatch(selectRoute('show-answer'));
 
   return new Promise(function(resolve) {
     setTimeout(async () => {
-      await dispatch(createAnswer(progressionId, body.answer));
-      await dispatch({type: TIMER_ME_OFF});
+      await dispatch(selectRoute('race'));
       resolve(true);
     }, TRANSITION_TIME_FOR_MY_ANSWER);
   });

@@ -667,6 +667,7 @@ import TemplateAppRacingGameFixtureQuestionTimerMe from '../src/template/app-rac
 import TemplateAppRacingGameFixtureRaceAllInMiddle from '../src/template/app-racing/game/test/fixtures/race-all-in-middle';
 import TemplateAppRacingGameFixtureReadyToAnswerAllInMiddle from '../src/template/app-racing/game/test/fixtures/ready-to-answer-all-in-middle';
 import TemplateAppRacingGameFixtureReadyToAnswerSpread from '../src/template/app-racing/game/test/fixtures/ready-to-answer-spread';
+import TemplateAppRacingGameFixtureShowAnswer from '../src/template/app-racing/game/test/fixtures/show-answer';
 import TemplateAppRacingGameFixtureWaitingAnswer from '../src/template/app-racing/game/test/fixtures/waiting-answer';
 import TemplateBackOfficeBrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import TemplateBackOfficeBrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
@@ -1723,6 +1724,7 @@ export const fixtures = {
       RaceAllInMiddle: TemplateAppRacingGameFixtureRaceAllInMiddle,
       ReadyToAnswerAllInMiddle: TemplateAppRacingGameFixtureReadyToAnswerAllInMiddle,
       ReadyToAnswerSpread: TemplateAppRacingGameFixtureReadyToAnswerSpread,
+      ShowAnswer: TemplateAppRacingGameFixtureShowAnswer,
       WaitingAnswer: TemplateAppRacingGameFixtureWaitingAnswer
     }
   },
