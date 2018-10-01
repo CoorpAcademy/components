@@ -4,8 +4,8 @@ import size from 'lodash/fp/size';
 import isEqual from 'lodash/fp/isEqual';
 import isNumber from 'lodash/fp/isNumber';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import createMiddleware from '../../../middlewares/index';
-import createReducer from '../../../../store/reducers';
+import createMiddleware from '../../../middlewares';
+import createReducer from '../../../reducers';
 
 const reducer = createReducer({});
 

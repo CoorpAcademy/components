@@ -1,20 +1,20 @@
 import set from 'lodash/fp/set';
-import {TIMER_LAST_ON, TIMER_LAST_OFF} from '../../middlewares/polling-saga';
-import {TIMER_ME_ON, TIMER_ME_OFF} from '../../actions/ui/answers';
+import {TIMER_NEXT_QUESTION_ON, TIMER_NEXT_QUESTION_OFF} from '../../middlewares/polling-saga';
+import {TIMER_HIGHLIGHT_ON, TIMER_HIGHLIGHT_OFF} from '../../actions/ui/answers';
 
-const uiTimerReducer = (state = {me: false, last: false}, action) => {
+const uiTimerReducer = (state = {highlight: false, nextQuestion: false}, action) => {
   switch (action.type) {
-    case TIMER_ME_ON: {
-      return set('me', true, state);
+    case TIMER_HIGHLIGHT_ON: {
+      return set('highlight', true, state);
     }
-    case TIMER_ME_OFF: {
-      return set('me', false, state);
+    case TIMER_HIGHLIGHT_OFF: {
+      return set('highlight', false, state);
     }
-    case TIMER_LAST_ON: {
-      return set('last', true, state);
+    case TIMER_NEXT_QUESTION_ON: {
+      return set('nextQuestion', true, state);
     }
-    case TIMER_LAST_OFF: {
-      return set('last', false, state);
+    case TIMER_NEXT_QUESTION_OFF: {
+      return set('nextQuestion', false, state);
     }
     default:
       return state;

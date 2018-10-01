@@ -87,7 +87,7 @@ const gameProps = (options, store) => state => {
   //   gameOver ||
   //   !allTeammatesHaveAnswered(state) ||
   //   isTimerOn('me')(state) ||
-  //   isTimerOn('last')(state);
+  //   isTimerOn('nextQuestion')(state);
 
   const slide = getSlideProps(options, store, state);
 

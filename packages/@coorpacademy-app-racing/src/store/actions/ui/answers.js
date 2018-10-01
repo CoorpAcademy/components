@@ -1,12 +1,18 @@
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
+import {haveAllMyTeammatesAnswered} from '../../utils/state-extract';
 import {createAnswer} from '../api/progressions';
+import {seeQuestion} from './location';
 import {selectRoute} from './route';
 
-export const TIMER_ME_ON = '@@timer/me/on';
-export const TIMER_ME_OFF = '@@timer/me/off';
+export const TIMER_NEXT_QUESTION_ON = '@@timer/next-question/on';
+export const TIMER_NEXT_QUESTION_OFF = '@@timer/next-question/off';
 
-const TRANSITION_TIME_FOR_MY_ANSWER = 4000;
+export const TIMER_HIGHLIGHT_ON = '@@timer/highlight/on';
+export const TIMER_HIGHLIGHT_OFF = '@@timer/highlight/off';
+
+const TRANSITION_TIME_BEFORE_NEXT_QUESTION = 3000;
+const TRANSITION_TIME_SHOW_RESULT = 4000;
 
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
@@ -53,16 +59,32 @@ export const editAnswer = (state, questionType, progressionId, newValue) => {
   };
 };
 
+export const checkIfNextQuestionIsAvailable = async (dispatch, getState, {services}) => {
+  const state = getState();
+  const nextQuestion = haveAllMyTeammatesAnswered(state);
+
+  if (nextQuestion) {
+    await dispatch({type: TIMER_NEXT_QUESTION_ON});
+    return new Promise(function(resolve) {
+      setTimeout(async () => {
+        await dispatch({type: TIMER_NEXT_QUESTION_OFF});
+        await dispatch(seeQuestion);
+        resolve(true);
+      }, TRANSITION_TIME_BEFORE_NEXT_QUESTION);
+    });
+  }
+};
+
 export const validateAnswer = (progressionId, body) => async (dispatch, getState, {services}) => {
-  await dispatch({type: TIMER_ME_ON});
   await dispatch(createAnswer(progressionId, body.answer));
-  await dispatch({type: TIMER_ME_OFF});
-  await dispatch(selectRoute('show-answer'));
+  await dispatch(selectRoute('race'));
+  await dispatch({type: TIMER_HIGHLIGHT_ON});
 
   return new Promise(function(resolve) {
     setTimeout(async () => {
-      await dispatch(selectRoute('race'));
+      await dispatch({type: TIMER_HIGHLIGHT_OFF});
+      await dispatch(checkIfNextQuestionIsAvailable);
       resolve(true);
-    }, TRANSITION_TIME_FOR_MY_ANSWER);
+    }, TRANSITION_TIME_SHOW_RESULT);
   });
 };
