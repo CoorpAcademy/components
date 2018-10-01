@@ -28,7 +28,9 @@ const TopScreen = props => {
   const position = props.view === 'race' ? -100 : 0;
   const options = {stiffness: 120, damping: 22};
   const slide = props.slide !== null && (
-    <SlidesPlayer questionBackgroundColor="transparent" {...props.slide} />
+    <div>
+      <SlidesPlayer questionBackgroundColor="transparent" {...props.slide} />
+    </div>
   );
 
   return (
