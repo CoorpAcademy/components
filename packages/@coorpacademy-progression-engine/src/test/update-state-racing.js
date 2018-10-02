@@ -159,7 +159,7 @@ test('should replace the first "placed" block by a "removed" one when a user has
   t.is(isEqual(newState.teams['0'].tower, ['removed', 'placed']), true);
 });
 
-test('should not replace empty block by a "removed" one', t => {
+test('should add a "removed" block whenever there is no "placed" ones to replace', t => {
   const state: RacingState = Object.freeze(initialState);
   const newState = updateState(config, state, [user3Answer(false)]);
 
@@ -182,5 +182,5 @@ test('should not replace empty block by a "removed" one', t => {
     slides: ['slideRef2']
   });
 
-  t.is(isEqual(newState.teams['1'].tower, []), true);
+  t.is(isEqual(newState.teams['1'].tower, ['removed']), true);
 });
