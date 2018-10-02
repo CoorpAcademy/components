@@ -3,6 +3,7 @@ import set from 'lodash/fp/set';
 import {allTeammatesHaveAnswered} from '../../utils/state-extract';
 import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
 import {UI_SELECT_USER} from '../../actions/ui/users';
+import {UI_SEE_QUESTION} from '../../actions/ui/location';
 import {PROGRESSION_CREATE_ANSWER_SUCCESS} from '../../actions/api/progressions';
 
 const uiCurrentReducer = (
@@ -25,6 +26,9 @@ const uiCurrentReducer = (
       const currenUserId = get('userId', state);
       const readyForNextQuestion = allTeammatesHaveAnswered(progression, currenUserId);
       return set('readyForNextQuestion', readyForNextQuestion, state);
+    }
+    case UI_SEE_QUESTION: {
+      return set('readyForNextQuestion', false, state);
     }
     default:
       return state;

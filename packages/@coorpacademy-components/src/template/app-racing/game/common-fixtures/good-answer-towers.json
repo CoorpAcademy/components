@@ -1,7 +1,7 @@
 [
   [
     "removed",
-    "lost"
+    "placed"
   ],
   [
     "placed",
@@ -12,9 +12,9 @@
   ],
   [
     "removed",
-    "lost",
-    "lost",
-    "lost",
+    "removed",
+    "removed",
+    "placed",
     "placed",
     "placed"
   ],
@@ -23,22 +23,9 @@
     "placed"
   ],
   [
-    "lost",
-    "lost",
-    "lost",
-    "lost",
-    "lost",
-    "lost",
-    "lost",
-    "lost",
-    "lost",
-    "lost",
-    "lost",
-    "lost",
-    "lost",
-    "lost",
-    "lost",
-    "lost",
-    "lost"
+    "removed",
+    "placed",
+    "placed",
+    "placed"
   ]
 ]

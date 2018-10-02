@@ -1,6 +1,11 @@
+import get from 'lodash/fp/get';
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
-import {haveAllMyTeammatesAnswered} from '../../utils/state-extract';
+import {
+  getCurrentUserState,
+  haveAllMyTeammatesAnswered,
+  isLastAnswerCorrect
+} from '../../utils/state-extract';
 import {createAnswer} from '../api/progressions';
 import {seeQuestion} from './location';
 import {selectRoute} from './route';
@@ -77,8 +82,19 @@ export const checkIfNextQuestionIsAvailable = async (dispatch, getState, {servic
 
 export const validateAnswer = (progressionId, body) => async (dispatch, getState, {services}) => {
   await dispatch(createAnswer(progressionId, body.answer));
+  const stateAfterCorrection = getState();
+  const userState = getCurrentUserState(stateAfterCorrection);
+  const team = get('team', userState);
+
+  await dispatch({
+    type: TIMER_HIGHLIGHT_ON,
+    meta: {
+      progressionId,
+      team,
+      isCorrect: isLastAnswerCorrect(stateAfterCorrection)
+    }
+  });
   await dispatch(selectRoute('race'));
-  await dispatch({type: TIMER_HIGHLIGHT_ON});
 
   return new Promise(function(resolve) {
     setTimeout(async () => {

@@ -119,7 +119,7 @@ const Block = ({image, index, num, type, height, bottom, maxStiffness}) => {
 };
 
 Block.propTypes = {
-  type: PropTypes.oneOf(['new', 'lost', 'placed', 'placedAndMoved', 'removed'])
+  type: PropTypes.oneOf(['new', 'lost', 'placed', 'removed', 'bad', 'good'])
 };
 
 const Tower = ({highlight, myTeam, team, goal, blocks, blockSize, maxStiffness}) => {
