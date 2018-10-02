@@ -26,10 +26,10 @@ const uiTimerReducer = (state = {highlight: false, nextQuestion: false}, action)
       return set('nextQuestion', false, state);
     }
     case PROGRESSION_CREATE_ANSWER_REQUEST: {
-      return set('waiting-correction', true, state);
+      return set('waitingCorrection', true, state);
     }
     case PROGRESSION_CREATE_ANSWER_SUCCESS: {
-      return set('waiting-correction', false, state);
+      return set('waitingCorrection', false, state);
     }
     default:
       return state;

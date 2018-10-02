@@ -23,7 +23,8 @@ const Square = ({image, type, index, height, bottom, motionStyle, scaleValue = 1
   />
 );
 
-const Block = ({image, index, num, type, height, bottom, maxStiffness}) => {
+const Block = ({image, index, num, type, size, bottom, maxStiffness}) => {
+  const height = `${type === ('removed' || 'lost') ? null : size}px`;
   switch (type) {
     case 'good':
       return (
@@ -83,6 +84,16 @@ const Block = ({image, index, num, type, height, bottom, maxStiffness}) => {
         </Motion>
       );
 
+    case 'drop':
+      return (
+        <Motion
+          defaultStyle={{y: bottom + size}}
+          style={{y: spring(bottom, {stiffness: maxStiffness - num * 10, damping: 22})}}
+        >
+          {({y}) => <Square image={image} bottom={y} height={height} type={type} index={index} />}
+        </Motion>
+      );
+
     case 'placed':
       return <Square image={image} bottom={bottom} height={height} type={type} index={index} />;
 
@@ -119,7 +130,7 @@ const Block = ({image, index, num, type, height, bottom, maxStiffness}) => {
 };
 
 Block.propTypes = {
-  type: PropTypes.oneOf(['new', 'lost', 'placed', 'removed', 'bad', 'good'])
+  type: PropTypes.oneOf(['new', 'lost', 'placed', 'removed', 'bad', 'good', 'drop'])
 };
 
 const Tower = ({highlight, myTeam, team, goal, blocks, blockSize, maxStiffness}) => {
@@ -158,7 +169,7 @@ const Tower = ({highlight, myTeam, team, goal, blocks, blockSize, maxStiffness})
                 <Block
                   type={value}
                   image={BLOCKS[team]}
-                  height={`${value === ('removed' || 'lost') ? null : blockSize}px`}
+                  size={blockSize}
                   bottom={bottom}
                   index={index}
                   num={num}

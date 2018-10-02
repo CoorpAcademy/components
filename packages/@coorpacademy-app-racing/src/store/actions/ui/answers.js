@@ -3,8 +3,9 @@ import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
 import {
   getCurrentUserState,
-  haveAllMyTeammatesAnswered,
-  isLastAnswerCorrect
+  isLastAnswerCorrect,
+  isReadyForNextQuestion,
+  isTimerOn
 } from '../../utils/state-extract';
 import {createAnswer} from '../api/progressions';
 import {seeQuestion} from './location';
@@ -16,8 +17,11 @@ export const TIMER_NEXT_QUESTION_OFF = '@@timer/next-question/off';
 export const TIMER_HIGHLIGHT_ON = '@@timer/highlight/on';
 export const TIMER_HIGHLIGHT_OFF = '@@timer/highlight/off';
 
-const TRANSITION_TIME_BEFORE_NEXT_QUESTION = 3000;
-const TRANSITION_TIME_SHOW_RESULT = 4000;
+export const TIMER_DISPLAY_BAD_ON = '@@timer/keep-bad-block';
+export const TIMER_DISPLAY_BAD_OFF = '@@timer/bad-block-becomes-lost';
+
+const TRANSITION_TIME_BEFORE_NEXT_QUESTION = 1500;
+const TRANSITION_TIME_SHOW_RESULT = 2000;
 
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
@@ -66,7 +70,11 @@ export const editAnswer = (state, questionType, progressionId, newValue) => {
 
 export const checkIfNextQuestionIsAvailable = async (dispatch, getState, {services}) => {
   const state = getState();
-  const nextQuestion = haveAllMyTeammatesAnswered(state);
+  if (isTimerOn('nextQuestion')(state)) {
+    return;
+  }
+
+  const nextQuestion = isReadyForNextQuestion(state);
 
   if (nextQuestion) {
     await dispatch({type: TIMER_NEXT_QUESTION_ON});
@@ -85,16 +93,31 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
   const stateAfterCorrection = getState();
   const userState = getCurrentUserState(stateAfterCorrection);
   const team = get('team', userState);
+  const isCorrect = isLastAnswerCorrect(stateAfterCorrection);
 
   await dispatch({
     type: TIMER_HIGHLIGHT_ON,
     meta: {
       progressionId,
       team,
-      isCorrect: isLastAnswerCorrect(stateAfterCorrection)
+      isCorrect
     }
   });
+
   await dispatch(selectRoute('race'));
+
+  if (!isCorrect) {
+    await dispatch({type: TIMER_DISPLAY_BAD_ON});
+    await new Promise(function(resolve) {
+      setTimeout(async () => {
+        await dispatch({
+          type: TIMER_DISPLAY_BAD_OFF,
+          meta: {id: progressionId}
+        });
+        resolve(true);
+      }, 1000);
+    });
+  }
 
   return new Promise(function(resolve) {
     setTimeout(async () => {

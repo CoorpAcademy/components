@@ -40,7 +40,7 @@ const getSlideProps = (options, store, state) => {
   const answer = createGetAnswerProps(options, store)(state, slide);
   const mediaQuestion = getQuestionMedia(state);
 
-  if (isTimerOn('waiting-correction')(state)) {
+  if (isTimerOn('waitingCorrection')(state)) {
     return null;
   }
 

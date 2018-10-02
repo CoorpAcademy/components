@@ -11,9 +11,9 @@ import {
   PROGRESSION_FETCH_REQUEST
 } from '../../actions/api/progressions';
 
-import {TIMER_HIGHLIGHT_ON} from '../../actions/ui/answers';
+import {TIMER_HIGHLIGHT_ON, TIMER_DISPLAY_BAD_OFF} from '../../actions/ui/answers';
 import {UI_SEE_QUESTION} from '../../actions/ui/location';
-import {POLL_RECEPTION} from '../../middlewares/polling-saga';
+import {POLL_RECEPTION_OTHERS, POLL_RECEPTION_MY_TEAM} from '../../middlewares/polling-saga';
 
 const dynamiseTower = (previousTower, newTower) =>
   map.convert({cap: 0})((block, index) => {
@@ -45,7 +45,8 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
       return set(['entities', id], towers, state);
     }
 
-    case POLL_RECEPTION: {
+    case POLL_RECEPTION_OTHERS:
+    case POLL_RECEPTION_MY_TEAM: {
       const {payload, meta} = action;
       const {progressionId} = meta;
       const {progression, teamIndex} = payload;
@@ -67,13 +68,9 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
     }
 
     case PROGRESSION_CREATE_ANSWER_SUCCESS: {
-      console.log('-------------------------->> racesPROGRESSION_CREATE_ANSWER_SUCCESS ');
       const {payload: progression, meta} = action;
       const {progressionId} = meta;
       const newTowers = map(team => team.tower, progression.state.teams);
-      console.log('---------     newTowers');
-      console.log(newTowers[0]);
-      console.log('---------');
       return set(['entities', progressionId], newTowers, state);
     }
 
@@ -81,15 +78,34 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
       const {meta} = action;
       const {progressionId, isCorrect, team} = meta;
       const tower = get(['entities', progressionId, team], state);
-      console.log('---> 1', tower);
+      const newTower = [...tower];
+
       if (isCorrect) {
-        tower.splice(lastIndexOf('placed', tower), 1, 'good');
+        newTower.splice(lastIndexOf('placed', newTower), 1, 'good');
       } else {
-        tower.splice(lastIndexOf('removed', tower), 1, 'bad');
+        newTower.splice(lastIndexOf('removed', newTower), 1, 'bad');
       }
 
-      console.log('---> 2', tower);
-      return set(['entities', progressionId, team], tower, state);
+      return set(['entities', progressionId, team], newTower, state);
+    }
+
+    case TIMER_DISPLAY_BAD_OFF: {
+      const {meta} = action;
+      const {id} = meta;
+
+      const refreshTowers = map(
+        map(block => {
+          if (block === 'bad') {
+            return 'lost';
+          } else if (block === 'placed') {
+            return 'drop';
+          } else {
+            return block;
+          }
+        })
+      );
+
+      return update(['entities', id], refreshTowers, state);
     }
 
     case UI_SEE_QUESTION: {
@@ -98,9 +114,9 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
 
       const refreshTowers = map(
         map(block => {
-          if (block === 'lost' || block === 'bad') {
+          if (block === 'lost') {
             return 'removed';
-          } else if (block === 'new' || block === 'good') {
+          } else if (block === 'new' || block === 'good' || block === 'drop') {
             return 'placed';
           } else {
             return block;

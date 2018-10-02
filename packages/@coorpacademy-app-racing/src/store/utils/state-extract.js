@@ -94,7 +94,11 @@ export const showGameOver = state => {
   return reduce(
     (result, tower) => {
       const towerCount = countBy(identity, tower);
-      const nbBlocks = (towerCount.new || 0) + (towerCount.placed || 0);
+      const nbBlocks =
+        (towerCount.new || 0) +
+        (towerCount.placed || 0) +
+        (towerCount.good || 0) +
+        (towerCount.drop || 0);
 
       return result || nbBlocks >= goal;
     },
@@ -122,12 +126,6 @@ export const allTeammatesHaveAnswered = (progression, currentUserId) => {
   );
 
   return _allTeammatesHaveAnswered;
-};
-
-export const haveAllMyTeammatesAnswered = state => {
-  const progression = getCurrentProgression(state);
-  const currentUserId = getCurrentUserId(state);
-  return allTeammatesHaveAnswered(progression, currentUserId);
 };
 
 export const isTimerOn = type => get(['ui', 'timer', type]);

@@ -6,13 +6,20 @@ import {put, call, race, take, select} from 'redux-saga/effects';
 export const POLL_START = '@@polling/start';
 export const POLL_STOP = '@@polling/stop';
 export const POLL_TIMEOUT = '@@polling/timeout';
-export const POLL_RECEPTION = '@@polling/reception';
 export const POLL_RECEPTION_MYSELF = '@@polling/reception-myself';
+export const POLL_RECEPTION_MY_TEAM = '@@polling/reception-my-team';
+export const POLL_RECEPTION_OTHERS = '@@polling/reception-others';
 export const POLL_FAILURE = '@@polling/failure';
 
-const pollingReceived = (progressionId, currentView, payload) => ({
-  type: POLL_RECEPTION,
-  meta: {progressionId, currentView},
+const pollingReceivedForMyTeam = (progressionId, currentUserId, currentView, payload) => ({
+  type: POLL_RECEPTION_MY_TEAM,
+  meta: {progressionId, currentUserId, currentView},
+  payload
+});
+
+const pollingReceivedForOthers = (progressionId, currentUserId, currentView, payload) => ({
+  type: POLL_RECEPTION_OTHERS,
+  meta: {progressionId, currentUserId, currentView},
   payload
 });
 
@@ -44,19 +51,26 @@ function createWorker({services}) {
           if (currentUserId === userId) {
             yield put({type: POLL_RECEPTION_MYSELF});
           } else {
-            const currentView = yield select(get(['ui', 'route', progressionId]));
-            yield put(pollingReceived(progressionId, currentView, payload));
-
             const currentUser = get(['state', 'users', currentUserId], progression);
             const currentTeam = get('team', currentUser);
+            const currentView = yield select(get(['ui', 'route', progressionId]));
 
             if (currentTeam === teamIndex) {
+              yield put(
+                pollingReceivedForMyTeam(progressionId, currentUserId, currentView, payload)
+              );
+
               yield put(checkIfNextQuestionIsAvailable);
+            } else {
+              yield put(
+                pollingReceivedForOthers(progressionId, currentUserId, currentView, payload)
+              );
             }
           }
 
           const state = yield select();
           const gameOver = showGameOver(state);
+          console.log('gameOver', gameOver);
           if (gameOver) {
             yield put({type: POLL_STOP});
           }

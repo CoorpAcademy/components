@@ -109,7 +109,7 @@ Game.propTypes = {
   highlight: PropTypes.bool,
   slide: PropTypes.shape(SlidesPlayer.propTypes),
   towers: PropTypes.arrayOf(
-    PropTypes.arrayOf(PropTypes.oneOf(['placed', 'removed', 'new', 'lost', 'bad', 'good']))
+    PropTypes.arrayOf(PropTypes.oneOf(['placed', 'removed', 'new', 'lost', 'bad', 'good', 'drop']))
   ),
   cta: PropTypes.shape(Cta.propTypes),
   goal: PropTypes.number,
