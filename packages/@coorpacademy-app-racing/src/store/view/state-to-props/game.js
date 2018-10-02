@@ -40,7 +40,7 @@ const getSlideProps = (options, store, state) => {
   const answer = createGetAnswerProps(options, store)(state, slide);
   const mediaQuestion = getQuestionMedia(state);
 
-  if (isTimerOn('me')(state)) {
+  if (isTimerOn('waiting-correction')(state)) {
     return null;
   }
 
@@ -96,7 +96,8 @@ const gameProps = (options, store) => state => {
 
   return {
     view,
-    blur: gameOver || view === 'show-answer',
+    blur: gameOver,
+    highlight: isTimerOn('highlight')(state),
     info: {
       success,
       gameOver

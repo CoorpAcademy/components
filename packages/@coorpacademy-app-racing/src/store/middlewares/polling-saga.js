@@ -46,19 +46,19 @@ function createWorker({services}) {
           } else {
             const currentView = yield select(get(['ui', 'route', progressionId]));
             yield put(pollingReceived(progressionId, currentView, payload));
+
+            const currentUser = get(['state', 'users', currentUserId], progression);
+            const currentTeam = get('team', currentUser);
+
+            if (currentTeam === teamIndex) {
+              yield put(checkIfNextQuestionIsAvailable);
+            }
           }
 
           const state = yield select();
           const gameOver = showGameOver(state);
           if (gameOver) {
             yield put({type: POLL_STOP});
-          }
-
-          const currentUser = get(['state', 'users', currentUserId], progression);
-          const currentTeam = get('team', currentUser);
-
-          if (currentTeam === teamIndex) {
-            yield put(checkIfNextQuestionIsAvailable);
           }
         } catch (err) {
           if (err.status === -1) {

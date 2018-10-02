@@ -1,13 +1,13 @@
 import allInMiddleTeam from '../../common-fixtures/all-in-middle-team';
-import fiveTowers from '../../common-fixtures/five-towers';
+import goodAnswerTowers from '../../common-fixtures/good-answer-towers';
 
 export default {
   props: {
-    view: 'show-answer',
+    view: 'race',
+    highlight: true,
     team: allInMiddleTeam,
-    towers: fiveTowers,
+    towers: goodAnswerTowers,
     goal: 8,
-    blur: true,
     info: {
       success: true,
       gameOver: false

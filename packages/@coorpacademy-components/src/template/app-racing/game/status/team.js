@@ -41,7 +41,7 @@ const Player = ({name, isMe, avatar, isCorrect}) => {
 };
 
 const Team = props => {
-  const {members, type, popUpMaxHeight} = props;
+  const {num, members, type, popUpMaxHeight} = props;
   const middleY = type === 'race' ? 15 : 10;
   const sideY = type === 'race' ? 15 : 50;
   const middleScreenY = -popUpMaxHeight * 0.45;
@@ -144,6 +144,7 @@ const Team = props => {
 };
 
 Team.propTypes = {
+  num: PropTypes.number,
   members: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,

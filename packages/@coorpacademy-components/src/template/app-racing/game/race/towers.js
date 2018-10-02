@@ -10,14 +10,14 @@ import style from './towers.css';
 
 const _map = map.convert({cap: false});
 
-const Square = ({image, type, index, height, bottom, motionStyle}) => (
+const Square = ({image, type, index, height, bottom, motionStyle, scaleValue = 1}) => (
   <div
     className={style.block}
     style={{
       height,
       bottom,
       backgroundImage: `url(${image}`,
-      transform: `rotate(${90 * index}deg)`,
+      transform: `rotate(${90 * index}deg) scale3d(${scaleValue}, ${scaleValue}, 1)`,
       ...motionStyle
     }}
   />
@@ -25,6 +25,54 @@ const Square = ({image, type, index, height, bottom, motionStyle}) => (
 
 const Block = ({image, index, num, type, height, bottom, maxStiffness}) => {
   switch (type) {
+    case 'good':
+      return (
+        <Motion
+          defaultStyle={{y: 1000, scaleValue: 5}}
+          style={{
+            y: spring(bottom, {stiffness: 60, damping: 12}),
+            scaleValue: spring(1, {stiffness: 10, damping: 7})
+          }}
+        >
+          {({y, scaleValue}) => (
+            <Square
+              image={image}
+              bottom={y}
+              height={height}
+              type={type}
+              index={index}
+              scaleValue={scaleValue}
+            />
+          )}
+        </Motion>
+      );
+
+    case 'bad':
+      return (
+        <Motion
+          defaultStyle={{scaleValue: 1, opacity: 5000}}
+          style={{
+            scaleValue: spring(100, {stiffness: 70, damping: 32}),
+            opacity: spring(0, {stiffness: 70, damping: 32})
+          }}
+        >
+          {({scaleValue, opacity}) => (
+            <Square
+              image={image}
+              bottom={bottom}
+              height={height}
+              type={type}
+              index={index}
+              motionStyle={{
+                pointerEvents: 'none',
+                opacity: `${opacity / 100}`,
+                transform: `scale(${scaleValue / 50})`
+              }}
+            />
+          )}
+        </Motion>
+      );
+
     case 'new':
       return (
         <Motion
@@ -41,13 +89,13 @@ const Block = ({image, index, num, type, height, bottom, maxStiffness}) => {
     case 'lost':
       return (
         <Motion
-          defaultStyle={{scale: 1, opacity: 100}}
+          defaultStyle={{scaleValue: 1, opacity: 5000}}
           style={{
-            scale: spring(100, {stiffness: 200, damping: 32}),
-            opacity: spring(0, {stiffness: 30, damping: 12})
+            scaleValue: spring(100, {stiffness: 110, damping: 32}),
+            opacity: spring(0, {stiffness: 110, damping: 32})
           }}
         >
-          {({scale, opacity}) => (
+          {({scaleValue, opacity}) => (
             <Square
               image={image}
               bottom={0}
@@ -57,7 +105,7 @@ const Block = ({image, index, num, type, height, bottom, maxStiffness}) => {
               motionStyle={{
                 pointerEvents: 'none',
                 opacity: `${opacity / 100}`,
-                transform: `scale(${scale / 30})`
+                transform: `scale(${scaleValue / 50})`
               }}
             />
           )}
@@ -74,29 +122,55 @@ Block.propTypes = {
   type: PropTypes.oneOf(['new', 'lost', 'placed', 'placedAndMoved', 'removed'])
 };
 
-const Tower = ({team, goal, blocks, blockSize, maxStiffness}) => {
-  return (
-    <div className={style.tower}>
-      {_map((value, index) => {
-        const count = countBy(identity, blocks);
-        const nbRemoved = (count.removed || 0) + (count.lost || 0);
-        const num = index - nbRemoved;
-        const bottom = num * blockSize;
+const Tower = ({highlight, myTeam, team, goal, blocks, blockSize, maxStiffness}) => {
+  const applyBlur = myTeam.num !== team && highlight;
+  const options = {stiffness: 120, damping: 22};
 
+  return (
+    <Motion
+      defaultStyle={{
+        x: 0,
+        blurValue: 0,
+        grayValue: 0
+      }}
+      style={{
+        blurValue: spring(100, options),
+        grayValue: spring(100, options)
+      }}
+    >
+      {({x, blurValue, grayValue}) => {
         return (
-          <Block
-            type={value}
-            image={BLOCKS[team]}
-            height={`${value === ('removed' || 'lost') ? null : blockSize}px`}
-            bottom={bottom}
-            index={index}
-            num={num}
-            key={`block-${team}-${index}`}
-            maxStiffness={maxStiffness}
-          />
+          <div
+            className={style.tower}
+            style={{
+              filter: applyBlur
+                ? `blur(${3 * blurValue / 100}px) grayscale(${grayValue / 100})`
+                : null
+            }}
+          >
+            {_map((value, index) => {
+              const count = countBy(identity, blocks);
+              const nbRemoved = (count.removed || 0) + (count.lost || 0);
+              const num = index - nbRemoved;
+              const bottom = num * (blockSize - 1);
+
+              return (
+                <Block
+                  type={value}
+                  image={BLOCKS[team]}
+                  height={`${value === ('removed' || 'lost') ? null : blockSize}px`}
+                  bottom={bottom}
+                  index={index}
+                  num={num}
+                  key={`block-${team}-${index}`}
+                  maxStiffness={maxStiffness}
+                />
+              );
+            }, blocks)}
+          </div>
         );
-      }, blocks)}
-    </div>
+      }}
+    </Motion>
   );
 };
 
@@ -125,7 +199,7 @@ class Towers extends Component {
   }
 
   render() {
-    const {goal, towers} = this.props;
+    const {goal, towers, highlight, myTeam} = this.props;
     return (
       <div ref={this.initWrapper} className={style.towers}>
         {_map(
@@ -133,6 +207,8 @@ class Towers extends Component {
             <Tower
               key={`tower-${index}`}
               team={index}
+              highlight={highlight}
+              myTeam={myTeam}
               goal={goal}
               blocks={blocks}
               blockSize={this.state.height / goal}
@@ -147,22 +223,19 @@ class Towers extends Component {
 }
 
 const Race = props => {
-  const {goal, towers} = props;
+  const {myTeam, goal, towers, highlight} = props;
 
   return (
     <div className={style.race}>
       <div className={style.arrival} />
-      <Towers towers={towers} goal={goal} />
+      <Towers myTeam={myTeam} towers={towers} goal={goal} highlight={highlight} />
       <div className={style.start} />
     </div>
   );
 };
 
 Race.propTypes = {
-  goal: PropTypes.number.isRequired
-};
-
-Race.propTypes = {
+  highlight: PropTypes.bool,
   goal: PropTypes.number.isRequired
 };
 

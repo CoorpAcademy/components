@@ -21,26 +21,15 @@ const TopScreen = props => {
   return (
     <Motion
       defaultStyle={{
-        x: 0,
-        blurValue: 0,
-        grayValue: 0
+        x: 0
       }}
       style={{
-        x: spring(position, options),
-        blurValue: spring(100, options),
-        grayValue: spring(100, options)
+        x: spring(position, options)
       }}
     >
       {({x, blurValue, grayValue}) => {
         return (
-          <div
-            className={style.topScreen}
-            style={{
-              filter: props.blur
-                ? `blur(${3 * blurValue / 100}px) grayscale(${grayValue / 100})`
-                : null
-            }}
-          >
+          <div className={style.topScreen}>
             <div
               className={style.movingView}
               style={{
@@ -49,7 +38,12 @@ const TopScreen = props => {
             >
               <div className={style.slide}>{slide}</div>
               <div className={style.towers}>
-                <Race {...props} />
+                <Race
+                  towers={props.towers}
+                  goal={props.goal}
+                  highlight={props.highlight}
+                  myTeam={props.team}
+                />
               </div>
             </div>
           </div>
@@ -85,7 +79,8 @@ class Game extends Component {
   render() {
     const {team, goal, towers, cta, info, view} = this.props;
 
-    const answerPopin = view === 'show-answer' && (
+    // finalement pas utilisé pour la reponse, tu peux peut etre reprendre ca pour gameOver @Bertrand
+    const popin = view === 'show-answer' && (
       <div className={style.answerPopin}>
         <span>{info.success ? 'good' : 'bad'}</span>
       </div>
@@ -102,15 +97,16 @@ class Game extends Component {
           cta={cta}
           popUpMaxHeight={this.state.height}
         />
-        {answerPopin}
+        {popin}
       </div>
     );
   }
 }
 
 Game.propTypes = {
-  view: PropTypes.oneOf(['question', 'race', 'show-answer']),
+  view: PropTypes.oneOf(['question', 'race']),
   blur: PropTypes.bool,
+  highlight: PropTypes.bool,
   slide: PropTypes.shape(SlidesPlayer.propTypes),
   towers: PropTypes.arrayOf(
     PropTypes.arrayOf(PropTypes.oneOf(['placed', 'removed', 'new', 'lost']))
