@@ -40,6 +40,11 @@ const getSlideProps = (options, store, state) => {
   const answer = createGetAnswerProps(options, store)(state, slide);
   const mediaQuestion = getQuestionMedia(state);
 
+  const gameOver = showGameOver(state);
+  if (gameOver) {
+    return null;
+  }
+
   if (isTimerOn('waitingCorrection')(state)) {
     return null;
   }

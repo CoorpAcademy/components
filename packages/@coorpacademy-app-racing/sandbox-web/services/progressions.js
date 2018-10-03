@@ -160,7 +160,7 @@ const delay = (t, v) => {
 };
 
 const robotAnswer = (userId, team) => async progressionId => {
-  await delay(random(6000, 8000));
+  await delay(random(3000, 5000));
   const teamIndex = 0;
   const isCorrect = true;
 

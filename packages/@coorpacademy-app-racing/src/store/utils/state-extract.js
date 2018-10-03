@@ -164,6 +164,15 @@ export const currentTeam = state => {
   }, players);
 };
 
+export const shouldStartTimerNextQuestion = state => {
+  if (isTimerOn('nextQuestion')(state) || isTimerOn('teammateHighlight')(state)) {
+    return false;
+  }
+
+  const nextQuestion = isReadyForNextQuestion(state);
+  return !!nextQuestion;
+};
+
 // -----------------------------------------------------------------------------
 
 export const getAnswers = state => {

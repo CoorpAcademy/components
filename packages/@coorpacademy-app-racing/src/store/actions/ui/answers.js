@@ -4,8 +4,8 @@ import includes from 'lodash/fp/includes';
 import {
   getCurrentUserState,
   isLastAnswerCorrect,
-  isReadyForNextQuestion,
-  isTimerOn
+  showGameOver,
+  shouldStartTimerNextQuestion
 } from '../../utils/state-extract';
 import {createAnswer} from '../api/progressions';
 import {seeQuestion} from './location';
@@ -20,8 +20,8 @@ export const TIMER_HIGHLIGHT_OFF = '@@timer/highlight/off';
 export const TIMER_DISPLAY_BAD_ON = '@@timer/keep-bad-block';
 export const TIMER_DISPLAY_BAD_OFF = '@@timer/bad-block-becomes-lost';
 
-const TRANSITION_TIME_BEFORE_NEXT_QUESTION = 1500;
-const TRANSITION_TIME_SHOW_RESULT = 2000;
+export const TIMING_HIGHLIGHT = 2000;
+const TIMING_NEXT_QUESTION = 1500;
 
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
@@ -68,24 +68,18 @@ export const editAnswer = (state, questionType, progressionId, newValue) => {
   };
 };
 
-export const checkIfNextQuestionIsAvailable = async (dispatch, getState, {services}) => {
-  const state = getState();
-  if (isTimerOn('nextQuestion')(state)) {
-    return;
-  }
-
-  const nextQuestion = isReadyForNextQuestion(state);
-
-  if (nextQuestion) {
-    await dispatch({type: TIMER_NEXT_QUESTION_ON});
-    return new Promise(function(resolve) {
-      setTimeout(async () => {
-        await dispatch({type: TIMER_NEXT_QUESTION_OFF});
+export const startNextQuestionTimer = async (dispatch, getState, {services}) => {
+  await dispatch({type: TIMER_NEXT_QUESTION_ON});
+  return new Promise(function(resolve) {
+    setTimeout(async () => {
+      await dispatch({type: TIMER_NEXT_QUESTION_OFF});
+      const gameOver = showGameOver(getState());
+      if (!gameOver) {
         await dispatch(seeQuestion);
-        resolve(true);
-      }, TRANSITION_TIME_BEFORE_NEXT_QUESTION);
-    });
-  }
+      }
+      resolve(true);
+    }, TIMING_NEXT_QUESTION);
+  });
 };
 
 export const validateAnswer = (progressionId, body) => async (dispatch, getState, {services}) => {
@@ -112,7 +106,7 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
       setTimeout(async () => {
         await dispatch({
           type: TIMER_DISPLAY_BAD_OFF,
-          meta: {id: progressionId}
+          meta: {progressionId, team}
         });
         resolve(true);
       }, 1000);
@@ -122,8 +116,10 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
   return new Promise(function(resolve) {
     setTimeout(async () => {
       await dispatch({type: TIMER_HIGHLIGHT_OFF});
-      await dispatch(checkIfNextQuestionIsAvailable);
+      if (shouldStartTimerNextQuestion(getState())) {
+        await dispatch(startNextQuestionTimer);
+      }
       resolve(true);
-    }, TRANSITION_TIME_SHOW_RESULT);
+    }, TIMING_HIGHLIGHT);
   });
 };

@@ -10,7 +10,7 @@ import {
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_FETCH_FAILURE
 } from '../../actions/api/progressions';
-import {POLL_RECEPTION_MY_TEAM, POLL_RECEPTION_OTHERS} from '../../middlewares/polling-saga';
+import {POLL_RECEPTION} from '../../middlewares/polling-saga';
 
 const dataProgressionsReducer = (state = {entities: {}}, action) => {
   switch (action.type) {
@@ -19,8 +19,7 @@ const dataProgressionsReducer = (state = {entities: {}}, action) => {
       const {id} = meta;
       return set(['entities', id], payload, state);
     }
-    case POLL_RECEPTION_OTHERS:
-    case POLL_RECEPTION_MY_TEAM: {
+    case POLL_RECEPTION: {
       const {payload, meta} = action;
       const {progression} = payload;
       const {progressionId} = meta;

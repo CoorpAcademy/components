@@ -13,7 +13,7 @@ import {
 
 import {TIMER_HIGHLIGHT_ON, TIMER_DISPLAY_BAD_OFF} from '../../actions/ui/answers';
 import {UI_SEE_QUESTION} from '../../actions/ui/location';
-import {POLL_RECEPTION_OTHERS, POLL_RECEPTION_MY_TEAM} from '../../middlewares/polling-saga';
+import {POLL_RECEPTION} from '../../middlewares/polling-saga';
 
 const dynamiseTower = (previousTower, newTower) =>
   map.convert({cap: 0})((block, index) => {
@@ -45,8 +45,7 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
       return set(['entities', id], towers, state);
     }
 
-    case POLL_RECEPTION_OTHERS:
-    case POLL_RECEPTION_MY_TEAM: {
+    case POLL_RECEPTION: {
       const {payload, meta} = action;
       const {progressionId} = meta;
       const {progression, teamIndex} = payload;
@@ -91,21 +90,19 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
 
     case TIMER_DISPLAY_BAD_OFF: {
       const {meta} = action;
-      const {id} = meta;
+      const {progressionId, team} = meta;
 
-      const refreshTowers = map(
-        map(block => {
-          if (block === 'bad') {
-            return 'lost';
-          } else if (block === 'placed') {
-            return 'drop';
-          } else {
-            return block;
-          }
-        })
-      );
+      const refreshedTower = map(block => {
+        if (block === 'bad') {
+          return 'lost';
+        } else if (block === 'placed') {
+          return 'drop';
+        } else {
+          return block;
+        }
+      });
 
-      return update(['entities', id], refreshTowers, state);
+      return update(['entities', progressionId, team], refreshedTower, state);
     }
 
     case UI_SEE_QUESTION: {

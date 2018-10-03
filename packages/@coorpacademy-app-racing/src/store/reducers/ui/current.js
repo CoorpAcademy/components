@@ -5,7 +5,7 @@ import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
 import {UI_SELECT_USER} from '../../actions/ui/users';
 import {UI_SEE_QUESTION} from '../../actions/ui/location';
 import {PROGRESSION_CREATE_ANSWER_SUCCESS} from '../../actions/api/progressions';
-import {POLL_RECEPTION_MY_TEAM} from '../../middlewares/polling-saga';
+import {CHECK_READY_FOR_NEXT_QUESTION} from '../../middlewares/polling-saga';
 
 const uiCurrentReducer = (
   state = {progressionId: null, userId: null, readyForNextQuestion: false},
@@ -28,7 +28,7 @@ const uiCurrentReducer = (
       const readyForNextQuestion = allTeammatesHaveAnswered(progression, currentUserId);
       return set('readyForNextQuestion', readyForNextQuestion, state);
     }
-    case POLL_RECEPTION_MY_TEAM: {
+    case CHECK_READY_FOR_NEXT_QUESTION: {
       const {payload, meta} = action;
       const {progression} = payload;
       const {currentUserId, currentView} = meta;

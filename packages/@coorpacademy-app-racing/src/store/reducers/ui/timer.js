@@ -7,6 +7,11 @@ import {
 } from '../../actions/ui/answers';
 
 import {
+  TIMER_TEAMMATE_HIGHLIGHT_ON,
+  TIMER_TEAMMATE_HIGHLIGHT_OFF
+} from '../../middlewares/polling-saga';
+
+import {
   PROGRESSION_CREATE_ANSWER_REQUEST,
   PROGRESSION_CREATE_ANSWER_SUCCESS
 } from '../../actions/api/progressions';
@@ -18,6 +23,12 @@ const uiTimerReducer = (state = {highlight: false, nextQuestion: false}, action)
     }
     case TIMER_HIGHLIGHT_OFF: {
       return set('highlight', false, state);
+    }
+    case TIMER_TEAMMATE_HIGHLIGHT_ON: {
+      return set('teammateHighlight', true, state);
+    }
+    case TIMER_TEAMMATE_HIGHLIGHT_OFF: {
+      return set('teammateHighlight', false, state);
     }
     case TIMER_NEXT_QUESTION_ON: {
       return set('nextQuestion', true, state);
