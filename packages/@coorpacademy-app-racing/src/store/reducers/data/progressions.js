@@ -5,6 +5,7 @@ import get from 'lodash/fp/get';
 import unset from 'lodash/fp/unset';
 import pipe from 'lodash/fp/pipe';
 import {
+  PROGRESSION_CREATE_ANSWER_SUCCESS,
   PROGRESSION_FETCH_SUCCESS,
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_FETCH_FAILURE
@@ -21,6 +22,11 @@ const dataProgressionsReducer = (state = {entities: {}}, action) => {
     case POLL_RECEPTION: {
       const {payload, meta} = action;
       const {progression} = payload;
+      const {progressionId} = meta;
+      return set(['entities', progressionId], progression, state);
+    }
+    case PROGRESSION_CREATE_ANSWER_SUCCESS: {
+      const {payload: progression, meta} = action;
       const {progressionId} = meta;
       return set(['entities', progressionId], progression, state);
     }

@@ -1,6 +1,20 @@
 import set from 'lodash/fp/set';
-import {TIMER_NEXT_QUESTION_ON, TIMER_NEXT_QUESTION_OFF} from '../../middlewares/polling-saga';
-import {TIMER_HIGHLIGHT_ON, TIMER_HIGHLIGHT_OFF} from '../../actions/ui/answers';
+import {
+  TIMER_HIGHLIGHT_ON,
+  TIMER_HIGHLIGHT_OFF,
+  TIMER_NEXT_QUESTION_ON,
+  TIMER_NEXT_QUESTION_OFF
+} from '../../actions/ui/answers';
+
+import {
+  TIMER_TEAMMATE_HIGHLIGHT_ON,
+  TIMER_TEAMMATE_HIGHLIGHT_OFF
+} from '../../middlewares/polling-saga';
+
+import {
+  PROGRESSION_CREATE_ANSWER_REQUEST,
+  PROGRESSION_CREATE_ANSWER_SUCCESS
+} from '../../actions/api/progressions';
 
 const uiTimerReducer = (state = {highlight: false, nextQuestion: false}, action) => {
   switch (action.type) {
@@ -10,11 +24,23 @@ const uiTimerReducer = (state = {highlight: false, nextQuestion: false}, action)
     case TIMER_HIGHLIGHT_OFF: {
       return set('highlight', false, state);
     }
+    case TIMER_TEAMMATE_HIGHLIGHT_ON: {
+      return set('teammateHighlight', true, state);
+    }
+    case TIMER_TEAMMATE_HIGHLIGHT_OFF: {
+      return set('teammateHighlight', false, state);
+    }
     case TIMER_NEXT_QUESTION_ON: {
       return set('nextQuestion', true, state);
     }
     case TIMER_NEXT_QUESTION_OFF: {
       return set('nextQuestion', false, state);
+    }
+    case PROGRESSION_CREATE_ANSWER_REQUEST: {
+      return set('waitingCorrection', true, state);
+    }
+    case PROGRESSION_CREATE_ANSWER_SUCCESS: {
+      return set('waitingCorrection', false, state);
     }
     default:
       return state;

@@ -29,8 +29,8 @@ const Teams = ({team, goal, towers, bottom}) => (
     >
       {map.convert({cap: false})((tower, index) => {
         const count = countBy(identity, tower);
-        const newPoints = (count.new || 0) - (count.lost || 0);
-        const points = (count.placed || 0) + (count.new || 0);
+        const newPoints = (count.new || 0) - (count.lost || 0) - (count.bad || 0);
+        const points = (count.placed || 0) + (count.new || 0) + (count.good || 0);
         const isMyTeam = index === team.num;
         return (
           <TeamScore

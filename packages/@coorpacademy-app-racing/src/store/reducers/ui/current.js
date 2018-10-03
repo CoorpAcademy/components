@@ -3,7 +3,9 @@ import set from 'lodash/fp/set';
 import {allTeammatesHaveAnswered} from '../../utils/state-extract';
 import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
 import {UI_SELECT_USER} from '../../actions/ui/users';
+import {UI_SEE_QUESTION} from '../../actions/ui/location';
 import {PROGRESSION_CREATE_ANSWER_SUCCESS} from '../../actions/api/progressions';
+import {CHECK_READY_FOR_NEXT_QUESTION} from '../../middlewares/polling-saga';
 
 const uiCurrentReducer = (
   state = {progressionId: null, userId: null, readyForNextQuestion: false},
@@ -22,9 +24,20 @@ const uiCurrentReducer = (
     }
     case PROGRESSION_CREATE_ANSWER_SUCCESS: {
       const {payload: progression} = action;
-      const currenUserId = get('userId', state);
-      const readyForNextQuestion = allTeammatesHaveAnswered(progression, currenUserId);
+      const currentUserId = get('userId', state);
+      const readyForNextQuestion = allTeammatesHaveAnswered(progression, currentUserId);
       return set('readyForNextQuestion', readyForNextQuestion, state);
+    }
+    case CHECK_READY_FOR_NEXT_QUESTION: {
+      const {payload, meta} = action;
+      const {progression} = payload;
+      const {currentUserId, currentView} = meta;
+      const readyForNextQuestion =
+        currentView === 'race' && allTeammatesHaveAnswered(progression, currentUserId);
+      return set('readyForNextQuestion', readyForNextQuestion, state);
+    }
+    case UI_SEE_QUESTION: {
+      return set('readyForNextQuestion', false, state);
     }
     default:
       return state;
