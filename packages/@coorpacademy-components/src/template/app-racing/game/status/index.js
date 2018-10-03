@@ -34,7 +34,7 @@ const Counters = ({team, goal, towers, bottom}) => (
   </div>
 );
 
-const GameStatus = ({team, towers, goal, cta, hideTeams = false, gray = false}) => {
+const GameStatus = ({team, towers, goal, cta, hideTeams = false, gray = false, start = false}) => {
   return (
     <Motion
       defaultStyle={{

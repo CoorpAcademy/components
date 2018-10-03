@@ -1,4 +1,4 @@
-import team from '../../common-fixtures/waiting-answer-team';
+import allInMiddleTeam from '../../common-fixtures/all-in-middle-team';
 import noTower from '../../common-fixtures/no-tower';
 
 export default {
@@ -7,7 +7,7 @@ export default {
     blur: false,
     slide: null,
     view: 'race',
-    team,
+    team: allInMiddleTeam,
     towers: noTower,
     goal: 8,
     cta: null

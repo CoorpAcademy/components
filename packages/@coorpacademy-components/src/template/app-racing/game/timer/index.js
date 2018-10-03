@@ -1,34 +1,28 @@
+import React from 'react';
+import style from './style.css';
+
 class Timer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {count: 1};
+    this.state = {count: 4};
   }
 
-  componentWillUnmount() {
-    clearInterval(this.timer);
+  componentDidMount() {
+    this.tick();
   }
 
   tick() {
-    this.setState({count: this.state.count + 1});
-  }
-
-  startTimer() {
     clearInterval(this.timer);
-    this.timer = setInterval(this.tick.bind(this), 1000);
-  }
-
-  stopTimer() {
-    clearInterval(this.timer);
+    this.setState({count: this.state.count - 1});
+    if (this.state.count > 0) {
+      this.timer = setInterval(this.tick.bind(this), 1000);
+    }
   }
 
   render() {
     return (
-      <div className="timer">
-        <h1>{this.state.count}</h1>
-        <div>
-          <button onClick={this.startTimer.bind(this)}>Start</button>
-          <button onClick={this.stopTimer.bind(this)}>Stop</button>
-        </div>
+      <div className={style.timer}>
+        <h1>{this.state.count > 0 ? this.state.count : 'Start!'}</h1>
       </div>
     );
   }
