@@ -29,10 +29,10 @@ const Block = ({image, index, num, type, size, bottom, maxStiffness}) => {
     case 'good':
       return (
         <Motion
-          defaultStyle={{y: 1000, scaleValue: 5}}
+          defaultStyle={{y: 1000, scaleValue: 4}}
           style={{
-            y: spring(bottom, {stiffness: 60, damping: 12}),
-            scaleValue: spring(1, {stiffness: 10, damping: 7})
+            y: spring(bottom, {stiffness: 40, damping: 13}),
+            scaleValue: spring(1, {stiffness: 60, damping: 7})
           }}
         >
           {({y, scaleValue}) => (
