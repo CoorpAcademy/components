@@ -236,13 +236,7 @@ class Towers extends Component {
 const Race = props => {
   const {myTeam, goal, towers, highlight} = props;
 
-  return (
-    <div className={style.race}>
-      <div className={style.arrival} />
-      <Towers myTeam={myTeam} towers={towers} goal={goal} highlight={highlight} />
-      <div className={style.start} />
-    </div>
-  );
+  return <Towers myTeam={myTeam} towers={towers} goal={goal} highlight={highlight} />;
 };
 
 Race.propTypes = {
