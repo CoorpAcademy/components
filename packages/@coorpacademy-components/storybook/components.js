@@ -148,6 +148,7 @@ import TemplateCommonCoorpHeader from './../src/template/common/coorp-header';
 import TemplateCommonDashboard from './../src/template/common/dashboard';
 import TemplateCommonDiscipline from './../src/template/common/discipline';
 import TemplateCommonSearchPage from './../src/template/common/search-page';
+import TemplateTeamBuilderTeamAvatar from './../src/template/team-builder/teamAvatar';
 import TemplateTeamBuilder from './../src/template/team-builder';
 import AtomButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import AtomButtonFixtureClassName from '../src/atom/button/test/fixtures/class-name';
@@ -724,8 +725,10 @@ import TemplateCommonDisciplineFixtureWithOnclick from '../src/template/common/d
 import TemplateCommonSearchPageFixtureDefault from '../src/template/common/search-page/test/fixtures/default';
 import TemplateCommonSearchPageFixtureNoResultWithRecommendations from '../src/template/common/search-page/test/fixtures/no-result-with-recommendations';
 import TemplateCommonSearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
+import TemplateTeamBuilderTeamAvatarFixtureDefault from '../src/template/team-builder/teamAvatar/test/fixtures/default';
 import TemplateTeamBuilderFixtureDefault from '../src/template/team-builder/test/fixtures/default';
 import TemplateTeamBuilderFixtureReadyToStart from '../src/template/team-builder/test/fixtures/ready-to-start';
+import TemplateTeamBuilderFixtureTeamSelected from '../src/template/team-builder/test/fixtures/team-selected';
 import TemplateTeamBuilderFixtureWaitForOthers from '../src/template/team-builder/test/fixtures/wait-for-others';
 
 export const components = {
@@ -913,6 +916,9 @@ export const components = {
     TemplateCommonDashboard,
     TemplateCommonDiscipline,
     TemplateCommonSearchPage
+  },
+  TemplateTeamBuilder: {
+    TemplateTeamBuilderTeamAvatar
   }
 };
 
@@ -1599,6 +1605,7 @@ export const fixtures = {
     TemplateTeamBuilder: {
       Default: TemplateTeamBuilderFixtureDefault,
       ReadyToStart: TemplateTeamBuilderFixtureReadyToStart,
+      TeamSelected: TemplateTeamBuilderFixtureTeamSelected,
       WaitForOthers: TemplateTeamBuilderFixtureWaitForOthers
     }
   },
@@ -1827,6 +1834,11 @@ export const fixtures = {
       Default: TemplateCommonSearchPageFixtureDefault,
       NoResultWithRecommendations: TemplateCommonSearchPageFixtureNoResultWithRecommendations,
       NoResult: TemplateCommonSearchPageFixtureNoResult
+    }
+  },
+  TemplateTeamBuilder: {
+    TemplateTeamBuilderTeamAvatar: {
+      Default: TemplateTeamBuilderTeamAvatarFixtureDefault
     }
   }
 };

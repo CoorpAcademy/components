@@ -1,0 +1,41 @@
+@value colors: "../../../variables/colors.css";
+@value dark from colors;
+@value light from colors;
+@value medium from colors;
+
+.team {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+  overflow: hidden;
+  background-color: light;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.team > header > h1 {
+  font-family: "Open Sans";
+  font-size: 0.8em;
+  font-weight: normal;
+  padding: auto;
+  margin: auto;
+  color: white;
+  text-align: center;
+}
+
+.members {
+  display: flex;
+  justify-content: space-evenly;
+  min-height: 70px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 3px;
+}
+
+.avatar {
+  width: 23px;
+  height: 23px;
+  border: 1px solid light;
+  border-radius: 50%;
+  background-size: contain;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}

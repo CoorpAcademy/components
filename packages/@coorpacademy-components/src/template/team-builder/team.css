@@ -7,9 +7,8 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-  width: 300px;
+  width: 100%;
   height: auto;
-  margin: 30px;
   border-radius: 5px;
   overflow: hidden;
   background-color: light;
@@ -24,7 +23,7 @@
 }
 
 .team > header > h1 {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-size: 20px;
   font-weight: normal;
   padding: 0;
