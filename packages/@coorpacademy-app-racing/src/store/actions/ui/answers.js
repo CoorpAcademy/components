@@ -20,8 +20,8 @@ export const TIMER_HIGHLIGHT_OFF = '@@timer/highlight/off';
 export const TIMER_DISPLAY_BAD_ON = '@@timer/keep-bad-block';
 export const TIMER_DISPLAY_BAD_OFF = '@@timer/bad-block-becomes-lost';
 
-export const TIMING_HIGHLIGHT = 2000;
-const TIMING_NEXT_QUESTION = 1500;
+const TIMING_HIGHLIGHT = 1000;
+const TIMING_NEXT_QUESTION = 3000;
 
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
@@ -68,8 +68,18 @@ export const editAnswer = (state, questionType, progressionId, newValue) => {
   };
 };
 
-export const startNextQuestionTimer = async (dispatch, getState, {services}) => {
-  await dispatch({type: TIMER_NEXT_QUESTION_ON});
+export const startNextQuestionTimer = (addHighlightTime = false) => async (
+  dispatch,
+  getState,
+  {services}
+) => {
+  const time = TIMING_NEXT_QUESTION + (addHighlightTime ? TIMING_HIGHLIGHT : 0);
+  await dispatch({
+    type: TIMER_NEXT_QUESTION_ON,
+    meta: {
+      time
+    }
+  });
   return new Promise(function(resolve) {
     setTimeout(async () => {
       await dispatch({type: TIMER_NEXT_QUESTION_OFF});
@@ -78,7 +88,7 @@ export const startNextQuestionTimer = async (dispatch, getState, {services}) => 
         await dispatch(seeQuestion);
       }
       resolve(true);
-    }, TIMING_NEXT_QUESTION);
+    }, time);
   });
 };
 
@@ -117,7 +127,7 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
     setTimeout(async () => {
       await dispatch({type: TIMER_HIGHLIGHT_OFF});
       if (shouldStartTimerNextQuestion(getState())) {
-        await dispatch(startNextQuestionTimer);
+        await dispatch(startNextQuestionTimer());
       }
       resolve(true);
     }, TIMING_HIGHLIGHT);

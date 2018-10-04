@@ -68,12 +68,10 @@ export const isLastAnswerCorrect = pipe(
   get('isCorrect')
 );
 
-export const showQuestion = state => {
+export const isStarter = state => {
   const userState = getCurrentUserState(state);
   const questionNum = get('questionNum', userState);
-  const ctaWasClicked = getRoute(state) === 'question';
-
-  return questionNum === 1 || ctaWasClicked;
+  return questionNum === 1;
 };
 
 export const isSpectator = state => {

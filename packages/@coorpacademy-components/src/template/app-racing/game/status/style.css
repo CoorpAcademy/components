@@ -3,7 +3,7 @@
 
 .gameStatus {
   position: relative;
-  height: 75px;
+  height: 85px;
   width: 100%;
 }
 
@@ -20,8 +20,28 @@
   justify-content: space-between;
   box-sizing: border-box;
   display: flex;
-  margin-top: -29px;
 }
+
+/*-------------------------------------------------*/
+
+.timer {
+  position: absolute;
+  left: 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.timer > h1 {
+  font-family: 'Open Sans';
+  font-size: 45px;
+  font-weight: 300;
+  color: #fff;
+  margin: 0;
+}
+
+/*-------------------------------------------------*/
+
 
 @media mobile {
   .counters {
