@@ -53,7 +53,7 @@ const TopScreen = props => {
   );
 };
 const Game = props => {
-  const {blur: gray, start, team, goal, towers, cta, info, view} = props;
+  const {blur: gray, start = false, team, goal, towers, cta, info, view, getReadyTime = 0} = props;
 
   // finalement pas utilisé pour la reponse, tu peux peut etre reprendre ca pour gameOver @Bertrand
   const popin = view === 'show-answer' && (
@@ -65,15 +65,24 @@ const Game = props => {
   return (
     <div className={style.game}>
       <TopScreen {...props} />
-      <GameStatus gray={gray} team={team} goal={goal} towers={towers} cta={cta} start={start} />
+      <GameStatus
+        gray={gray}
+        team={team}
+        goal={goal}
+        towers={towers}
+        cta={cta}
+        start={start}
+        getReadyTime={getReadyTime}
+      />
       {popin}
-      {start && <Timer />}
+      {start && <Timer className={style.timer} start={3} delay={1000} />}
     </div>
   );
 };
 
 Game.propTypes = {
   view: PropTypes.oneOf(['question', 'race']),
+  getReadyTime: PropTypes.number,
   start: PropTypes.bool,
   blur: PropTypes.bool,
   highlight: PropTypes.bool,

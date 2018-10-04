@@ -670,10 +670,10 @@ import TemplateAppRacingGameFixtureRaceAllInMiddle from '../src/template/app-rac
 import TemplateAppRacingGameFixtureRaceHighlightBadAnswer from '../src/template/app-racing/game/test/fixtures/race-highlight-bad-answer';
 import TemplateAppRacingGameFixtureRaceHighlightBadFirstAnswer from '../src/template/app-racing/game/test/fixtures/race-highlight-bad-first-answer';
 import TemplateAppRacingGameFixtureRaceHighlightGoodAnswer from '../src/template/app-racing/game/test/fixtures/race-highlight-good-answer';
-import TemplateAppRacingGameFixtureReadyToAnswerAllInMiddle from '../src/template/app-racing/game/test/fixtures/ready-to-answer-all-in-middle';
 import TemplateAppRacingGameFixtureReadyToAnswerSpread from '../src/template/app-racing/game/test/fixtures/ready-to-answer-spread';
 import TemplateAppRacingGameFixtureStart from '../src/template/app-racing/game/test/fixtures/start';
 import TemplateAppRacingGameFixtureWaitingAnswer from '../src/template/app-racing/game/test/fixtures/waiting-answer';
+import TemplateAppRacingGameFixtureWaitingForAllInMiddle from '../src/template/app-racing/game/test/fixtures/waiting-for-all-in-middle';
 import TemplateBackOfficeBrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import TemplateBackOfficeBrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import TemplateBackOfficeBrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -1731,10 +1731,10 @@ export const fixtures = {
       RaceHighlightBadAnswer: TemplateAppRacingGameFixtureRaceHighlightBadAnswer,
       RaceHighlightBadFirstAnswer: TemplateAppRacingGameFixtureRaceHighlightBadFirstAnswer,
       RaceHighlightGoodAnswer: TemplateAppRacingGameFixtureRaceHighlightGoodAnswer,
-      ReadyToAnswerAllInMiddle: TemplateAppRacingGameFixtureReadyToAnswerAllInMiddle,
       ReadyToAnswerSpread: TemplateAppRacingGameFixtureReadyToAnswerSpread,
       Start: TemplateAppRacingGameFixtureStart,
-      WaitingAnswer: TemplateAppRacingGameFixtureWaitingAnswer
+      WaitingAnswer: TemplateAppRacingGameFixtureWaitingAnswer,
+      WaitingForAllInMiddle: TemplateAppRacingGameFixtureWaitingForAllInMiddle
     }
   },
   TemplateAppRacingGame: {

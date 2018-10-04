@@ -17,7 +17,7 @@ const Counter = ({team, isMyTeam, points, nbToNotify = 0}) => {
       }}
     >
       {/* {notification} */}
-      <span className={isMyTeam && style.textMyTeam}>{points}</span>
+      <span className={isMyTeam ? style.textMyTeam : null}>{points}</span>
     </div>
   );
 };

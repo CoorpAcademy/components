@@ -1,6 +1,6 @@
 import get from 'lodash/fp/get';
 import {showGameOver, shouldStartTimerNextQuestion} from '../utils/state-extract';
-import {startNextQuestionTimer, TIMING_HIGHLIGHT} from '../actions/ui/answers';
+import {startNextQuestionTimer} from '../actions/ui/answers';
 import {all, put, call, race, take, select} from 'redux-saga/effects';
 
 export const POLL_START = '@@polling/start';
@@ -11,9 +11,6 @@ export const CHECK_READY_FOR_NEXT_QUESTION = '@@polling/check-ready-for-next-que
 export const POLL_RECEPTION = '@@polling/reception';
 export const POLL_FAILURE = '@@polling/failure';
 export const POLL_RECEPTION_NOT_USEFULL = '@@polling/reception-not-useful';
-
-export const TIMER_TEAMMATE_HIGHLIGHT_ON = '@@timer/teammate-highlight/on';
-export const TIMER_TEAMMATE_HIGHLIGHT_OFF = '@@timer/teammate-highlight/off';
 
 const checkReadyForNextQuestion = (progressionId, currentUserId, currentView, payload) => ({
   type: CHECK_READY_FOR_NEXT_QUESTION,
@@ -37,8 +34,6 @@ const pollingTimeout = progressionId => ({
   type: POLL_TIMEOUT,
   meta: {progressionId, info: 'polling will restart automatically'}
 });
-
-const delay = ms => new Promise(resolve => setTimeout(resolve, ms));
 
 function createWorker({services}) {
   const {Progressions} = services;
@@ -104,10 +99,7 @@ function createWorker({services}) {
             if (gameOver) {
               yield put({type: POLL_STOP});
             } else if (requireNextQuestionTiming) {
-              yield put({type: TIMER_TEAMMATE_HIGHLIGHT_ON});
-              yield delay(TIMING_HIGHLIGHT);
-              yield put({type: TIMER_TEAMMATE_HIGHLIGHT_OFF});
-              yield put(startNextQuestionTimer);
+              yield put(startNextQuestionTimer(true));
             }
           }
         } catch (err) {

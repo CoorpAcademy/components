@@ -45,6 +45,10 @@ const getSlideProps = (options, store, state) => {
     return null;
   }
 
+  if (isTimerOn('startAnimation')(state)) {
+    return null;
+  }
+
   if (isTimerOn('waitingCorrection')(state)) {
     return null;
   }
@@ -100,7 +104,9 @@ const gameProps = (options, store) => state => {
   const teamNum = get('team', userState);
 
   return {
-    view,
+    view: gameOver || isSpectator(state) ? 'race' : view,
+    start: isTimerOn('startAnimation')(state),
+    getReadyTime: isTimerOn('nextQuestion')(state),
     blur: gameOver,
     highlight: isTimerOn('highlight')(state),
     info: {

@@ -1,14 +1,17 @@
 import React from 'react';
-import style from './style.css';
 
 class Timer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {count: 4};
+    const initialCount = props.start + 1 || 4;
+    this.state = {
+      initialCount,
+      count: initialCount
+    };
   }
 
   componentDidMount() {
-    this.tick();
+    setTimeout(this.tick.bind(this), this.props.delay || 0);
   }
 
   tick() {
@@ -20,9 +23,9 @@ class Timer extends React.Component {
   }
 
   render() {
-    return (
-      <div className={style.timer}>
-        <h1>{this.state.count > 0 ? this.state.count : 'Start!'}</h1>
+    return this.state.count === this.state.initialCount ? null : (
+      <div className={this.props.className}>
+        <h1>{this.state.count > 0 ? this.state.count : this.props.text || 'Start!'}</h1>
       </div>
     );
   }
