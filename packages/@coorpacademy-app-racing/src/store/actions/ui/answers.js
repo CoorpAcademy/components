@@ -22,6 +22,7 @@ export const TIMER_DISPLAY_BAD_OFF = '@@timer/bad-block-becomes-lost';
 
 const TIMING_HIGHLIGHT = 1000;
 const TIMING_NEXT_QUESTION = 3000;
+const TIMING_BEFORE_DROP = 1500;
 
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
@@ -119,7 +120,7 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
           meta: {progressionId, team}
         });
         resolve(true);
-      }, 1000);
+      }, TIMING_BEFORE_DROP);
     });
   }
 

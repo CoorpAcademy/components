@@ -4,7 +4,7 @@ import badAnswerTowers from '../../common-fixtures/bad-answer-towers';
 export default {
   props: {
     view: 'race',
-    highlight: true,
+    blurType: 'all-but-mine',
     team: allInMiddleTeam,
     towers: badAnswerTowers,
     goal: 8,

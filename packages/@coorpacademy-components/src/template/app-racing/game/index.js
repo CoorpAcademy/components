@@ -10,41 +10,41 @@ import Timer from './timer';
 import style from './style.css';
 
 const TopScreen = props => {
-  const position = props.view === 'race' ? -100 : 0;
+  const position = props.view === 'question' ? 0 : -100;
   const options = {stiffness: 120, damping: 22};
   const slide = props.slide !== null && (
     <div className={style.slideWrapper}>
-      <SlidesPlayer questionBackgroundColor="transparent" {...props.slide} />
+      <SlidesPlayer questionBackgroundColor="#ffffffdb" {...props.slide} />
     </div>
   );
 
   return (
     <Motion
       defaultStyle={{
-        x: 0
+        y: 0
       }}
       style={{
-        x: spring(position, options)
+        y: spring(position, options)
       }}
     >
-      {({x, blurValue, grayValue}) => {
+      {({y, blurValue, grayValue}) => {
         return (
           <div className={style.topScreen}>
+            <div className={style.towers}>
+              <Race
+                towers={props.towers}
+                goal={props.goal}
+                blurType={props.blurType}
+                myTeam={props.team}
+              />
+            </div>
             <div
-              className={style.movingView}
+              className={style.slide}
               style={{
-                left: `${x}%`
+                top: `${y}%`
               }}
             >
-              <div className={style.slide}>{slide}</div>
-              <div className={style.towers}>
-                <Race
-                  towers={props.towers}
-                  goal={props.goal}
-                  highlight={props.highlight}
-                  myTeam={props.team}
-                />
-              </div>
+              {slide}
             </div>
           </div>
         );
@@ -53,7 +53,18 @@ const TopScreen = props => {
   );
 };
 const Game = props => {
-  const {blur: gray, start = false, team, goal, towers, cta, info, view, getReadyTime = 0} = props;
+  const {
+    blurType,
+    grayBottom = false,
+    start = false,
+    team,
+    goal,
+    towers,
+    cta,
+    info,
+    view,
+    getReadyTime = 0
+  } = props;
 
   // finalement pas utilisé pour la reponse, tu peux peut etre reprendre ca pour gameOver @Bertrand
   const popin = view === 'show-answer' && (
@@ -66,7 +77,7 @@ const Game = props => {
     <div className={style.game}>
       <TopScreen {...props} />
       <GameStatus
-        gray={gray}
+        gray={grayBottom}
         team={team}
         goal={goal}
         towers={towers}
@@ -84,8 +95,8 @@ Game.propTypes = {
   view: PropTypes.oneOf(['question', 'race']),
   getReadyTime: PropTypes.number,
   start: PropTypes.bool,
-  blur: PropTypes.bool,
-  highlight: PropTypes.bool,
+  blurType: PropTypes.oneOf(['all', 'all-but-mine']),
+  grayBottom: PropTypes.bool,
   slide: PropTypes.shape(SlidesPlayer.propTypes),
   towers: PropTypes.arrayOf(
     PropTypes.arrayOf(PropTypes.oneOf(['placed', 'removed', 'new', 'lost', 'bad', 'good', 'drop']))

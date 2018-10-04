@@ -84,7 +84,7 @@ const gameProps = (options, store) => state => {
   // const spectate = isSpectator(state);
 
   const success = gameOver ? null : isLastAnswerCorrect(state);
-  const view = getRoute(state);
+  const view = gameOver || isSpectator(state) ? 'race' : getRoute(state);
   // const title =
   //   isTimerOn('me')(state) || view === 'question' || gameOver || success === undefined
   //     ? null
@@ -104,11 +104,11 @@ const gameProps = (options, store) => state => {
   const teamNum = get('team', userState);
 
   return {
-    view: gameOver || isSpectator(state) ? 'race' : view,
+    view,
     start: isTimerOn('startAnimation')(state),
     getReadyTime: isTimerOn('nextQuestion')(state),
-    blur: gameOver,
-    highlight: isTimerOn('highlight')(state),
+    blurType: view === 'question' ? 'all' : isTimerOn('highlight')(state) ? 'all-but-mine' : null, // eslint-disable-line no-nested-ternary
+    grayBottom: gameOver,
     info: {
       success,
       gameOver

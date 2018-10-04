@@ -7,6 +7,7 @@ const {props: answerType} = Answer;
 export default {
   props: {
     view: 'question',
+    blurType: 'all',
     slide: {
       typeClue: 'answer',
       question:
