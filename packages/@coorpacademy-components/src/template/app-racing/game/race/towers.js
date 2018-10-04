@@ -90,13 +90,12 @@ const Block = ({image, index, num, type, size, bottom, maxStiffness}) => {
     case 'lost':
       return (
         <Motion
-          defaultStyle={{scaleValue: 1, opacity: 5000}}
+          defaultStyle={{scaleValue: 120}}
           style={{
-            scaleValue: spring(100, {stiffness: 110, damping: 32}),
-            opacity: spring(0, {stiffness: 110, damping: 32})
+            scaleValue: spring(0, {stiffness: 120, damping: 32})
           }}
         >
-          {({scaleValue, opacity}) => (
+          {({scaleValue}) => (
             <Square
               image={image}
               bottom={0}
@@ -105,8 +104,7 @@ const Block = ({image, index, num, type, size, bottom, maxStiffness}) => {
               index={index}
               motionStyle={{
                 pointerEvents: 'none',
-                opacity: `${opacity / 100}`,
-                transform: `scale(${scaleValue / 50})`
+                transform: `scale(${scaleValue / 100})`
               }}
             />
           )}

@@ -94,7 +94,7 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
 
       const refreshedTower = map(block => {
         if (block === 'bad') {
-          return 'lost';
+          return 'removed';
         } else if (block === 'placed') {
           return 'drop';
         } else {
