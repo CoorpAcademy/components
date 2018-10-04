@@ -29,31 +29,21 @@ const Block = ({image, index, num, type, size, bottom, maxStiffness}) => {
     case 'good':
       return (
         <Motion
-          defaultStyle={{y: 1000, scaleValue: 4}}
+          defaultStyle={{y: 1000}}
           style={{
-            y: spring(bottom, {stiffness: 40, damping: 13}),
-            scaleValue: spring(1, {stiffness: 60, damping: 7})
+            y: spring(bottom, {stiffness: 40, damping: 13})
           }}
         >
-          {({y, scaleValue}) => (
-            <Square
-              image={image}
-              bottom={y}
-              height={height}
-              type={type}
-              index={index}
-              scaleValue={scaleValue}
-            />
-          )}
+          {({y}) => <Square image={image} bottom={y} height={height} type={type} index={index} />}
         </Motion>
       );
 
     case 'bad':
       return (
         <Motion
-          defaultStyle={{scaleValue: 1, opacity: 5000}}
+          defaultStyle={{scaleValue: 120, opacity: 5000}}
           style={{
-            scaleValue: spring(100, {stiffness: 70, damping: 32}),
+            scaleValue: spring(0, {stiffness: 120, damping: 32}),
             opacity: spring(0, {stiffness: 70, damping: 32})
           }}
         >
@@ -67,7 +57,7 @@ const Block = ({image, index, num, type, size, bottom, maxStiffness}) => {
               motionStyle={{
                 pointerEvents: 'none',
                 opacity: `${opacity / 100}`,
-                transform: `scale(${scaleValue / 50})`
+                transform: `scale(${scaleValue / 100})`
               }}
             />
           )}
