@@ -44,9 +44,22 @@
   width: 400px;
   height: 250px;
   position: absolute;
-  background: #d4d4d4;
+  background: #ffffffdb;
   left: 50%;
+  border-radius: 15px;
   transform: translateX(-50%);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.answerPopin > span {
+  font-family: 'Open Sans';
+  font-size: 65px;
+  font-weight: 300;
+  color: #0e3a3d;
+  margin: 0;
 }
 
 /*-------------------------------------------------*/

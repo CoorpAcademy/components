@@ -54,7 +54,6 @@ const TopScreen = props => {
 };
 const Game = props => {
   const {
-    blurType,
     grayBottom = false,
     start = false,
     team,
@@ -62,14 +61,12 @@ const Game = props => {
     towers,
     cta,
     info,
-    view,
     getReadyTime = 0
   } = props;
 
-  // finalement pas utilisé pour la reponse, tu peux peut etre reprendre ca pour gameOver @Bertrand
-  const popin = view === 'show-answer' && (
+  const popin = info.gameOver && (
     <div className={style.answerPopin}>
-      <span>{info.success ? 'good' : 'bad'}</span>
+      <span>Game Over!</span>
     </div>
   );
 
