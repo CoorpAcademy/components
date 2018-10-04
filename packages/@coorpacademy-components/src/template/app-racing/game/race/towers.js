@@ -133,14 +133,13 @@ Block.propTypes = {
   type: PropTypes.oneOf(['new', 'lost', 'placed', 'removed', 'bad', 'good', 'drop'])
 };
 
-const Tower = ({highlight, myTeam, team, goal, blocks, blockSize, maxStiffness}) => {
-  const applyBlur = myTeam.num !== team && highlight;
-  const options = {stiffness: 120, damping: 22};
+const Tower = ({blurType, myTeam, team, goal, blocks, blockSize, maxStiffness}) => {
+  const applyBlur = blurType === 'all' || (myTeam.num !== team && blurType === 'all-but-mine');
+  const options = {stiffness: 90, damping: 30};
 
   return (
     <Motion
       defaultStyle={{
-        x: 0,
         blurValue: 0,
         grayValue: 0
       }}
@@ -149,7 +148,7 @@ const Tower = ({highlight, myTeam, team, goal, blocks, blockSize, maxStiffness})
         grayValue: spring(100, options)
       }}
     >
-      {({x, blurValue, grayValue}) => {
+      {({blurValue, grayValue}) => {
         return (
           <div
             className={style.tower}
@@ -210,7 +209,7 @@ class Towers extends Component {
   }
 
   render() {
-    const {goal, towers, highlight, myTeam} = this.props;
+    const {goal, towers, blurType, myTeam} = this.props;
     return (
       <div ref={this.initWrapper} className={style.towers}>
         {_map(
@@ -218,7 +217,7 @@ class Towers extends Component {
             <Tower
               key={`tower-${index}`}
               team={index}
-              highlight={highlight}
+              blurType={blurType}
               myTeam={myTeam}
               goal={goal}
               blocks={blocks}
@@ -234,13 +233,13 @@ class Towers extends Component {
 }
 
 const Race = props => {
-  const {myTeam, goal, towers, highlight} = props;
+  const {myTeam, goal, towers, blurType} = props;
 
-  return <Towers myTeam={myTeam} towers={towers} goal={goal} highlight={highlight} />;
+  return <Towers myTeam={myTeam} towers={towers} goal={goal} blurType={blurType} />;
 };
 
 Race.propTypes = {
-  highlight: PropTypes.bool,
+  blurType: PropTypes.oneOf(['all', 'all-but-mine']),
   goal: PropTypes.number.isRequired
 };
 

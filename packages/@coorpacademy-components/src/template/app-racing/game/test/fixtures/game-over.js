@@ -4,6 +4,7 @@ import fiveTowers from '../../common-fixtures/five-towers';
 export default {
   props: {
     view: 'race',
+    grayBottom: true,
     team: allInMiddleTeam,
     towers: fiveTowers,
     goal: 8,
