@@ -11,6 +11,7 @@ import style from './style.css';
 
 const Counters = ({team, goal, towers, start = false}) => (
   <Motion
+    key={new Date().getTime()}
     defaultStyle={{
       marginTop: start ? -1300 : -29
     }}

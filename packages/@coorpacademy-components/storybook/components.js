@@ -666,11 +666,12 @@ import TemplateAppRacingGameTimerFixtureDefault from '../src/template/app-racing
 import TemplateAppRacingGameFixtureGameOver from '../src/template/app-racing/game/test/fixtures/game-over';
 import TemplateAppRacingGameFixtureNoTower from '../src/template/app-racing/game/test/fixtures/no-tower';
 import TemplateAppRacingGameFixtureQuestionAllInMiddle from '../src/template/app-racing/game/test/fixtures/question-all-in-middle';
-import TemplateAppRacingGameFixtureQuestionTimerMe from '../src/template/app-racing/game/test/fixtures/question-timer-me';
 import TemplateAppRacingGameFixtureRaceAllInMiddle from '../src/template/app-racing/game/test/fixtures/race-all-in-middle';
 import TemplateAppRacingGameFixtureRaceHighlightBadAnswer from '../src/template/app-racing/game/test/fixtures/race-highlight-bad-answer';
 import TemplateAppRacingGameFixtureRaceHighlightBadFirstAnswer from '../src/template/app-racing/game/test/fixtures/race-highlight-bad-first-answer';
 import TemplateAppRacingGameFixtureRaceHighlightGoodAnswer from '../src/template/app-racing/game/test/fixtures/race-highlight-good-answer';
+import TemplateAppRacingGameFixtureRaceLostAndNew from '../src/template/app-racing/game/test/fixtures/race-lost-and-new';
+import TemplateAppRacingGameFixtureReadyForQuestion from '../src/template/app-racing/game/test/fixtures/ready-for-question';
 import TemplateAppRacingGameFixtureReadyToAnswerSpread from '../src/template/app-racing/game/test/fixtures/ready-to-answer-spread';
 import TemplateAppRacingGameFixtureStart from '../src/template/app-racing/game/test/fixtures/start';
 import TemplateAppRacingGameFixtureWaitingAnswer from '../src/template/app-racing/game/test/fixtures/waiting-answer';
@@ -1733,11 +1734,12 @@ export const fixtures = {
       GameOver: TemplateAppRacingGameFixtureGameOver,
       NoTower: TemplateAppRacingGameFixtureNoTower,
       QuestionAllInMiddle: TemplateAppRacingGameFixtureQuestionAllInMiddle,
-      QuestionTimerMe: TemplateAppRacingGameFixtureQuestionTimerMe,
       RaceAllInMiddle: TemplateAppRacingGameFixtureRaceAllInMiddle,
       RaceHighlightBadAnswer: TemplateAppRacingGameFixtureRaceHighlightBadAnswer,
       RaceHighlightBadFirstAnswer: TemplateAppRacingGameFixtureRaceHighlightBadFirstAnswer,
       RaceHighlightGoodAnswer: TemplateAppRacingGameFixtureRaceHighlightGoodAnswer,
+      RaceLostAndNew: TemplateAppRacingGameFixtureRaceLostAndNew,
+      ReadyForQuestion: TemplateAppRacingGameFixtureReadyForQuestion,
       ReadyToAnswerSpread: TemplateAppRacingGameFixtureReadyToAnswerSpread,
       Start: TemplateAppRacingGameFixtureStart,
       WaitingAnswer: TemplateAppRacingGameFixtureWaitingAnswer,

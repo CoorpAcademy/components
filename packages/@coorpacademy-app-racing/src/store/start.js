@@ -11,13 +11,13 @@ const start = async ({progressionId}, {getState, dispatch}) => {
   }
 
   await dispatch(selectCurrentUser());
-  await dispatch(selectProgression(progressionId));
   await dispatch(selectRoute('race'));
+  await dispatch(selectProgression(progressionId));
+  await dispatch(launchStartTimer);
 
-  const state = getState();
-  if (isStarter(state)) {
-    await dispatch(launchStartTimer);
-  }
+  // const state = getState();
+  // if (isStarter(state)) {
+  // }
 
   return dispatch({type: POLL_START, meta: {progressionId}});
 };

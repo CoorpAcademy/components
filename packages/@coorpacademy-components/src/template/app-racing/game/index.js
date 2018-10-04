@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/fp/get';
 import {Motion, spring} from 'react-motion';
 import SlidesPlayer from '../../app-player/player/slides/slides-player';
 import Cta from '../../../atom/cta';
@@ -60,11 +61,11 @@ const Game = props => {
     goal,
     towers,
     cta,
-    info,
+    info = {},
     getReadyTime = 0
   } = props;
 
-  const popin = info.gameOver && (
+  const popin = get('gameOver', info) && (
     <div className={style.answerPopin}>
       <span>Game Over!</span>
     </div>
