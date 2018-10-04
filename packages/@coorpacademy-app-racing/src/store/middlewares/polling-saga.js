@@ -30,7 +30,7 @@ const pollingReceived = (progressionId, currentUserId, currentView, payload) => 
 const pollingFailed = (progressionId, err) => ({
   type: POLL_FAILURE,
   meta: {progressionId},
-  payload: err
+  payload: {err}
 });
 
 const pollingTimeout = progressionId => ({
@@ -114,6 +114,7 @@ function createWorker({services}) {
           if (err.status === -1) {
             yield put(pollingTimeout(progressionId));
           } else {
+            console.error(err);
             yield put(pollingFailed(progressionId, err));
           }
         }

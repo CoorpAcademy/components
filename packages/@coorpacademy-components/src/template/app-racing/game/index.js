@@ -1,12 +1,12 @@
-import React, {Component} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {Motion, spring} from 'react-motion';
-import defer from 'lodash/fp/defer';
 import SlidesPlayer from '../../app-player/player/slides/slides-player';
 import Cta from '../../../atom/cta';
 import GameStatus from './status';
 import Team from './status/team';
 import Race from './race';
+import Timer from './timer';
 import style from './style.css';
 
 const TopScreen = props => {
@@ -52,59 +52,29 @@ const TopScreen = props => {
     </Motion>
   );
 };
-class Game extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {height: 0};
-    this.initWrapper = this.initWrapper.bind(this);
-  }
+const Game = props => {
+  const {blur: gray, start, team, goal, towers, cta, info, view} = props;
 
-  componentDidMount() {
-    this.deferOpen();
-  }
+  // finalement pas utilisé pour la reponse, tu peux peut etre reprendre ca pour gameOver @Bertrand
+  const popin = view === 'show-answer' && (
+    <div className={style.answerPopin}>
+      <span>{info.success ? 'good' : 'bad'}</span>
+    </div>
+  );
 
-  deferOpen() {
-    clearTimeout(this.deferedOpen);
-
-    this.deferedOpen = defer(() => {
-      const height = this.element.clientHeight;
-      this.setState({height});
-    });
-  }
-
-  initWrapper(element) {
-    this.element = element;
-  }
-
-  render() {
-    const {team, goal, towers, cta, info, view} = this.props;
-
-    // finalement pas utilisé pour la reponse, tu peux peut etre reprendre ca pour gameOver @Bertrand
-    const popin = view === 'show-answer' && (
-      <div className={style.answerPopin}>
-        <span>{info.success ? 'good' : 'bad'}</span>
-      </div>
-    );
-
-    return (
-      <div className={style.game} ref={this.initWrapper}>
-        <TopScreen {...this.props} />
-        <GameStatus
-          gray={this.props.blur}
-          team={team}
-          goal={goal}
-          towers={towers}
-          cta={cta}
-          popUpMaxHeight={this.state.height}
-        />
-        {popin}
-      </div>
-    );
-  }
-}
+  return (
+    <div className={style.game}>
+      <TopScreen {...props} />
+      <GameStatus gray={gray} team={team} goal={goal} towers={towers} cta={cta} start={start} />
+      {popin}
+      {start && <Timer />}
+    </div>
+  );
+};
 
 Game.propTypes = {
   view: PropTypes.oneOf(['question', 'race']),
+  start: PropTypes.bool,
   blur: PropTypes.bool,
   highlight: PropTypes.bool,
   slide: PropTypes.shape(SlidesPlayer.propTypes),

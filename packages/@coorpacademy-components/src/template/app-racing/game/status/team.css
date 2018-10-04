@@ -5,21 +5,21 @@
 .team {
   position: relative;
   display: flex;
-  justify-content: space-between;
   margin: 0px;
-  padding: 30px 5px 0;
-  height: 50px;
+  justify-content: center;
+  margin-top: 5px;
 }
 
 /* -------------------------------------------- */
 
 .player {
-  position: absolute;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 45px;
   height: 45px;
+  margin: 8px 12px;
 }
 
 .loader {
@@ -81,40 +81,4 @@
     opacity:1;
     top: -6px;
   }
-}
-
-@keyframes popAfterAWhile {
-  0% {
-    opacity:0;
-  }
-
-  95% {
-    top: 0px;
-    opacity:0;
-  }
-
-  100% {
-    opacity:1;
-    top: -6px;
-  }
-}
-
-.icon {
-  animation: popAfterAWhile 2.4s;
-  position: absolute;
-  top: -6px;
-  left: -4px;
-  background: #fff;
-  padding: 3px;
-  border-radius: 50%;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-}
-
-.iconCorrect {
-  composes: icon;
-}
-
-.iconWrong {
-  composes: icon;
-  transform: rotate(45deg);
 }
