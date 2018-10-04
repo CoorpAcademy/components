@@ -9,7 +9,7 @@ export default {
         name: 'Team 1',
         number: 0,
         isMyTeam: false,
-        members: []
+        members: [{}, {}]
       },
       {
         name: 'Team 2',

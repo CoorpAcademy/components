@@ -1,6 +1,7 @@
 import React from 'react';
 import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
+import isEmpty from 'lodash/fp/isEmpty';
 import {Motion, spring} from 'react-motion';
 
 import Button from '../../atom/button';
@@ -8,13 +9,12 @@ import Provider from '../../atom/provider';
 import TeamAvatar from './teamAvatar';
 import Team from './team';
 import style from './style.css';
-import gameStatuses from './game-statuses';
 
 const _map = map.convert({cap: false});
 
 const TeamBuilder = (props, context) => {
   const {skin} = context;
-  const {teams, cta, title, gameStatus, myTeam} = props;
+  const {teams, cta, title, myTeam} = props;
 
   const primary = get('racing.primary', skin);
 
@@ -59,12 +59,10 @@ const TeamBuilder = (props, context) => {
   const MotionnedOtherTeams = ({team}) => {
     const computedWidth = 100 / teams.length;
 
-    console.log(team);
-
     return (
       <Motion
         defaultStyle={{scale: 1, width: computedWidth}}
-        style={{scale: team.isMyTeam ? spring(0) : 1, width: spring(0)}}
+        style={{scale: team.isMyTeam ? spring(0) : 1}}
       >
         {interpolatedStyle => {
           return (
@@ -91,7 +89,9 @@ const TeamBuilder = (props, context) => {
 
       <MotionnedMyTeam />
       <div className={style.teams}>
-        {_map((team, index) => <MotionnedOtherTeams key={index} team={team} />, teams)}
+        {_map((team, index) => {
+          return <MotionnedOtherTeams key={index} team={team} />;
+        }, teams)}
       </div>
     </div>
   );

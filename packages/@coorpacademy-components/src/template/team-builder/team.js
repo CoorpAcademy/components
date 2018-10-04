@@ -1,5 +1,5 @@
 import React from 'react';
-import get from 'lodash/fp/get';
+
 import map from 'lodash/fp/map';
 import Provider from '../../atom/provider';
 import colors from '../app-racing/game/common-fixtures/colors';
@@ -9,9 +9,6 @@ import style from './team.css';
 const Team = (props, context) => {
   const {skin} = context;
   const {name, members, number} = props;
-  const primary = get('racing.primary', skin);
-
-  console.log(number);
 
   return (
     <div className={style.team}>

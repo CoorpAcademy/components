@@ -6,6 +6,12 @@ const Member = props => {
 
   return (
     <div className={style.member}>
+      <div
+        className={style.avatar}
+        style={{
+          backgroundImage: `url(${avatar})`
+        }}
+      />
       <h1
         style={{
           fontWeight: isMe ? '800' : '200'
@@ -13,12 +19,6 @@ const Member = props => {
       >
         {name}
       </h1>
-      <div
-        className={style.avatar}
-        style={{
-          backgroundImage: `url(${avatar})`
-        }}
-      />
     </div>
   );
 };

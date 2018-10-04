@@ -1,6 +1,7 @@
 import React from 'react';
-import {get, map} from 'lodash/fp';
+import {map} from 'lodash/fp';
 
+import isEmpty from 'lodash/fp/isEmpty';
 import Provider from '../../../atom/provider';
 import colors from '../../app-racing/game/common-fixtures/colors';
 
@@ -27,7 +28,10 @@ const TeamAvatar = (props, context) => {
         <h1>{name}</h1>
       </header>
       <div className={style.members}>
-        {map(member => <Avatar key={member.name + member.avatar} url={member.avatar} />, members)}
+        {map(member => {
+          if (isEmpty(member)) return null;
+          return <Avatar key={member.name + member.avatar} url={member.avatar} />;
+        }, members)}
       </div>
     </div>
   );
