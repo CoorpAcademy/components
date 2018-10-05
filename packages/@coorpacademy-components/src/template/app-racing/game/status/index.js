@@ -13,10 +13,10 @@ const Counters = ({team, goal, towers, start = false}) => (
   <Motion
     key={new Date().getTime()}
     defaultStyle={{
-      marginTop: start ? -1300 : -29
+      marginTop: start ? -1300 : -24
     }}
     style={{
-      marginTop: spring(-29)
+      marginTop: spring(-24)
     }}
   >
     {({marginTop}) => {
@@ -71,7 +71,6 @@ const GameStatus = ({
       }}
     >
       {({grayValue, marginTop}) => {
-        console.log('time -> ', getReadyTime);
         return (
           <div
             className={style.gameStatus}
@@ -79,6 +78,7 @@ const GameStatus = ({
               filter: `grayscale(${grayValue})`
             }}
           >
+            <Counters team={team} towers={towers} goal={goal} start={start} />
             <div
               className={style.bg}
               style={{
@@ -91,7 +91,6 @@ const GameStatus = ({
                 <Timer start={getReadyTime / 1000} className={style.timer} text=" " />
               )}
             </div>
-            <Counters team={team} towers={towers} goal={goal} start={start} />
           </div>
         );
       }}
