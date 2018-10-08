@@ -9,7 +9,8 @@ export default {
     goal: 8,
     info: {
       success: true,
-      gameOver: false
-    }
+      message: 'Good answer'
+    },
+    victors: []
   }
 };

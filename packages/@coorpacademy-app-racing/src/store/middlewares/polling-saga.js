@@ -1,5 +1,5 @@
 import get from 'lodash/fp/get';
-import {showGameOver, shouldStartTimerNextQuestion} from '../utils/state-extract';
+import {getVictors, shouldStartTimerNextQuestion} from '../utils/state-extract';
 import {startNextQuestionTimer} from '../actions/ui/answers';
 import {fetchProgression} from '../actions/api/progressions';
 import {all, put, call, race, take, select} from 'redux-saga/effects';
@@ -115,7 +115,7 @@ function createWorker({services}) {
 
             const state = yield select();
             const requireNextQuestionTiming = shouldStartTimerNextQuestion(state);
-            const gameOver = showGameOver(state);
+            const gameOver = getVictors(state) !== null;
 
             if (gameOver) {
               yield put({type: POLL_STOP});

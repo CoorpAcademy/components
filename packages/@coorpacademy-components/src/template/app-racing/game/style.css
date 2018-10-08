@@ -64,6 +64,20 @@
 
 /*-------------------------------------------------*/
 
+.message {
+  position: absolute;
+  font-family: 'Open Sans';
+  font-size: 35px;
+  font-weight: 500;
+  color: #0e3a3d;
+  top: 25%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/*-------------------------------------------------*/
+
 .timer {
   position: absolute;
   width: 100%;

@@ -4,13 +4,31 @@ import fiveTowers from '../../common-fixtures/five-towers';
 export default {
   props: {
     view: 'race',
-    grayBottom: true,
     team: allInMiddleTeam,
     towers: fiveTowers,
     goal: 8,
     info: {
-      success: true,
-      gameOver: true
-    }
+      success: true
+    },
+    victors: [
+      {
+        id: 'user_2',
+        name: 'Katrine',
+        avatar: 'https://api.adorable.io/avatars/150/Katrine.png',
+        team: 4
+      },
+      {
+        id: 'user_3',
+        name: 'Joe',
+        avatar: 'https://api.adorable.io/avatars/150/Joe.png',
+        team: 4
+      },
+      {
+        id: 'user_4',
+        name: 'Kim',
+        avatar: 'https://api.adorable.io/avatars/150/Katrine.png',
+        team: 4
+      }
+    ]
   }
 };

@@ -1,4 +1,5 @@
 import get from 'lodash/fp/get';
+import map from 'lodash/fp/map';
 import {getConfigForProgression} from '@coorpacademy/progression-engine';
 import {
   currentTeam,
@@ -10,15 +11,16 @@ import {
   getCurrentSlide,
   getQuestionMedia,
   getRoute,
+  getUserState,
   isLastAnswerCorrect,
   isSpectator,
-  showGameOver,
+  getVictors,
   isTimerOn
 } from '../../utils/state-extract';
 import {validateAnswer} from '../../actions/ui/answers';
 import {createGetAnswerProps} from './answer';
 
-const createCTAHandler = (dispatch, state) => async () => {
+const createCTAHandler = (dispatch, state) => () => {
   const slide = getCurrentSlide(state);
   const progressionId = getCurrentProgressionId(state);
 
@@ -37,7 +39,7 @@ const getSlideProps = (options, store, state) => {
   const answer = createGetAnswerProps(options, store)(state, slide);
   const mediaQuestion = getQuestionMedia(state);
 
-  const gameOver = showGameOver(state);
+  const gameOver = getVictors(state) !== null;
   if (gameOver) {
     return null;
   }
@@ -77,15 +79,20 @@ const gameProps = (options, store) => state => {
   const config = getConfigForProgression(progression);
   const members = currentTeam(state);
 
-  const gameOver = showGameOver(state);
+  const victorIds = getVictors(state);
+  const gameOver = !!victorIds;
+  const victors = map(id => getUserState(id, state), victorIds);
   // const spectate = isSpectator(state);
 
   const success = gameOver ? null : isLastAnswerCorrect(state);
   const view = gameOver || isSpectator(state) ? 'race' : getRoute(state);
-  // const title =
-  //   isTimerOn('me')(state) || view === 'question' || gameOver || success === undefined
-  //     ? null
-  //     : `${success ? 'Good' : 'Bad'} answer`;
+  const message =
+    isTimerOn('waitingCorrection')(state) ||
+    view === 'question' ||
+    gameOver ||
+    success === undefined
+      ? null
+      : `${success ? 'Good' : 'Bad'} answer`;
 
   // const hideNextQuestionButton =
   //   view === 'question' ||
@@ -105,16 +112,16 @@ const gameProps = (options, store) => state => {
     start: isTimerOn('startAnimation')(state),
     getReadyTime: isTimerOn('nextQuestion')(state),
     blurType: view === 'question' ? 'all' : isTimerOn('highlight')(state) ? 'all-but-mine' : null, // eslint-disable-line no-nested-ternary
-    grayBottom: gameOver,
     info: {
       success,
-      gameOver
+      message
     },
     slide,
     team: {
       members,
       num: teamNum
     },
+    victors,
     goal: config.goal,
     towers: getCurrentRace(state),
     cta: null

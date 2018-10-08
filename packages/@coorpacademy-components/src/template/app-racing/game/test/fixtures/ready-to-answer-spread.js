@@ -9,9 +9,9 @@ export default {
     towers: fiveTowers,
     goal: 8,
     info: {
-      success: true,
-      gameOver: false
+      success: true
     },
-    cta: null
+    cta: null,
+    victors: []
   }
 };
