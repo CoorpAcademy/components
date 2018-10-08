@@ -1,9 +1,11 @@
 import get from 'lodash/fp/get';
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {Motion, spring} from 'react-motion';
 import SlidesPlayer from '../../app-player/player/slides/slides-player';
 import Cta from '../../../atom/cta';
+import animation from '../../../atom/css-animations/fade-out.css';
 import TeamList from '../../team-builder/motionned-team';
 import GameStatus from './status';
 import Team from './status/team';
@@ -68,15 +70,17 @@ const Game = props => {
     getReadyTime = 0
   } = props;
 
+  // eslint-disable-next-line no-nested-ternary
+  const _title = victors.length > 0 ? (get('success', info) ? 'You win' : 'You lose') : '';
   const popin = victors.length > 0 && (
     <div className={style.answerPopin}>
-      <span>Game Over!</span>
+      <span>{_title}</span>
       <TeamList members={victors} isMyTeam />
     </div>
   );
 
   const message = get('message', info) && (
-    <div className={style.message}>
+    <div className={classnames(style.message, animation.fadeOut)}>
       <span>{get('message', info)}</span>
     </div>
   );
