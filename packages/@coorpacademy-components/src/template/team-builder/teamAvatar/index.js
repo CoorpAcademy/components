@@ -24,9 +24,9 @@ const TeamAvatar = (props, context) => {
         {map(member => {
           if (isEmpty(member)) return null;
           return (
-            <div className={style.avatar}>
+            <div className={style.avatar} key={member.name + member.avatar}>
               {' '}
-              <Avatar key={member.name + member.avatar} avatarURL={member.avatar} />{' '}
+              <Avatar avatarURL={member.avatar} />{' '}
             </div>
           );
         }, members)}
