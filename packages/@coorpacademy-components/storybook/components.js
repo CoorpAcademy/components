@@ -730,6 +730,7 @@ import TemplateCommonSearchPageFixtureNoResultWithRecommendations from '../src/t
 import TemplateCommonSearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
 import TemplateTeamBuilderAvatarFixtureDefault from '../src/template/team-builder/avatar/test/fixtures/default';
 import TemplateTeamBuilderMotionnedTeamFixtureDefault from '../src/template/team-builder/motionned-team/test/fixtures/default';
+import TemplateTeamBuilderMotionnedTeamFixtureEmptyProps from '../src/template/team-builder/motionned-team/test/fixtures/empty-props';
 import TemplateTeamBuilderTeamAvatarFixtureDefault from '../src/template/team-builder/teamAvatar/test/fixtures/default';
 import TemplateTeamBuilderFixtureDefault from '../src/template/team-builder/test/fixtures/default';
 import TemplateTeamBuilderFixtureReadyToStart from '../src/template/team-builder/test/fixtures/ready-to-start';
@@ -1849,7 +1850,8 @@ export const fixtures = {
       Default: TemplateTeamBuilderAvatarFixtureDefault
     },
     TemplateTeamBuilderMotionnedTeam: {
-      Default: TemplateTeamBuilderMotionnedTeamFixtureDefault
+      Default: TemplateTeamBuilderMotionnedTeamFixtureDefault,
+      EmptyProps: TemplateTeamBuilderMotionnedTeamFixtureEmptyProps
     },
     TemplateTeamBuilderTeamAvatar: {
       Default: TemplateTeamBuilderTeamAvatarFixtureDefault
