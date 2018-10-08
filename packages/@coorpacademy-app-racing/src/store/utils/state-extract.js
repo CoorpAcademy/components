@@ -84,13 +84,17 @@ export const showLoading = state => {
   return getRoute(state) === 'loading';
 };
 
-export const showGameOver = state => {
+export const getVictors = state => {
   const race = getCurrentRace(state);
   const progression = getCurrentProgression(state);
   const goal = get('engineOptions.goal', progression);
 
-  return reduce(
-    (result, tower) => {
+  return reduce.convert({cap: false})(
+    (victors, tower, index) => {
+      if (victors) {
+        return victors;
+      }
+
       const towerCount = countBy(identity, tower);
       const nbBlocks =
         (towerCount.new || 0) +
@@ -98,9 +102,15 @@ export const showGameOver = state => {
         (towerCount.good || 0) +
         (towerCount.drop || 0);
 
-      return result || nbBlocks >= goal;
+      const isGameOver = nbBlocks >= goal;
+      if (isGameOver) {
+        const playerIds = get(['state', 'teams', index, 'players'], progression);
+        return playerIds;
+      }
+
+      return null;
     },
-    false,
+    null,
     race
   );
 };

@@ -1,9 +1,12 @@
+import get from 'lodash/fp/get';
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/fp/get';
+import classnames from 'classnames';
 import {Motion, spring} from 'react-motion';
 import SlidesPlayer from '../../app-player/player/slides/slides-player';
 import Cta from '../../../atom/cta';
+import animation from '../../../atom/css-animations/fade-out.css';
+import TeamList from '../../team-builder/motionned-team';
 import GameStatus from './status';
 import Team from './status/team';
 import Race from './race';
@@ -53,6 +56,7 @@ const TopScreen = props => {
     </Motion>
   );
 };
+
 const Game = props => {
   const {
     grayBottom = false,
@@ -62,12 +66,22 @@ const Game = props => {
     towers,
     cta,
     info = {},
+    victors = [],
     getReadyTime = 0
   } = props;
 
-  const popin = get('gameOver', info) && (
+  // eslint-disable-next-line no-nested-ternary
+  const _title = victors.length > 0 ? (get('success', info) ? 'You win' : 'You lose') : '';
+  const popin = victors.length > 0 && (
     <div className={style.answerPopin}>
-      <span>Game Over!</span>
+      <span>{_title}</span>
+      <TeamList members={victors} isMyTeam />
+    </div>
+  );
+
+  const message = get('message', info) && (
+    <div className={classnames(style.message, animation.fadeOut)}>
+      <span>{get('message', info)}</span>
     </div>
   );
 
@@ -84,6 +98,7 @@ const Game = props => {
         getReadyTime={getReadyTime}
       />
       {popin}
+      {message}
       {start && <Timer className={style.timer} start={3} delay={1000} />}
     </div>
   );
@@ -99,12 +114,20 @@ Game.propTypes = {
   towers: PropTypes.arrayOf(
     PropTypes.arrayOf(PropTypes.oneOf(['placed', 'removed', 'new', 'lost', 'bad', 'good', 'drop']))
   ),
+  victors: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      avatar: PropTypes.string,
+      isMe: PropTypes.bool,
+      team: PropTypes.number
+    })
+  ),
   cta: PropTypes.shape(Cta.propTypes),
   goal: PropTypes.number,
   team: PropTypes.shape(Team.propTypes),
   info: PropTypes.shape({
     success: PropTypes.bool,
-    gameOver: PropTypes.bool
+    message: PropTypes.string
   })
 };
 

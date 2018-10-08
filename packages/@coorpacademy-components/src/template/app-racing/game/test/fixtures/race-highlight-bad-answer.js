@@ -9,8 +9,9 @@ export default {
     towers: badAnswerTowers,
     goal: 8,
     info: {
-      success: true,
-      gameOver: false
-    }
+      success: false,
+      message: 'Bad answer'
+    },
+    victors: []
   }
 };

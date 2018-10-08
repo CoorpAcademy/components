@@ -8,11 +8,12 @@ export default {
     towers: fiveTowers,
     goal: 8,
     info: {
-      success: true,
-      gameOver: false
+      success: false,
+      message: 'Bad answer'
     },
     cta: {
       submitValue: 'Question suivante'
-    }
+    },
+    victors: []
   }
 };
