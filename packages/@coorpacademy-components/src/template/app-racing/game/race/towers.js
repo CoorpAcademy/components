@@ -47,7 +47,7 @@ const Block = ({image, index, num, type, size, bottom, maxStiffness}) => {
             opacity: spring(0, {stiffness: 70, damping: 32})
           }}
         >
-          {({scaleValue, opacity}) => (
+          {({scaleValue = 0, opacity = 0}) => (
             <Square
               image={image}
               bottom={bottom}
