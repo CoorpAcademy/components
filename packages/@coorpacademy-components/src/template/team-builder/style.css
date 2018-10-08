@@ -12,7 +12,7 @@
   justify-content: center;
   flex-flow: column;
   justify-content: space-evenly;
-  background-image: url('https://user-images.githubusercontent.com/910636/46425210-5fdb3700-c73b-11e8-96d5-e685f3037191.jpg');
+  background-image: url("https://user-images.githubusercontent.com/910636/46425210-5fdb3700-c73b-11e8-96d5-e685f3037191.jpg");
   background-size: cover;
 }
 
@@ -22,7 +22,7 @@
   font-size: 36px;
 }
 
-.floor {
-  position: fixed;
-  bottom: 0;
+.avatar {
+  width: 25px;
+  height: 25px;
 }
