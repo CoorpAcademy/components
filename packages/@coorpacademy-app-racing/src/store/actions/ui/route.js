@@ -1,4 +1,4 @@
-import {getCurrentProgressionId, getRoute} from '../../utils/state-extract';
+import {getCurrentProgression, getCurrentProgressionId, getRoute} from '../../utils/state-extract';
 
 export const UI_SELECT_ROUTE = '@@ui/SELECT_ROUTE';
 export const TIMER_START_ON = '@@timer/start/on';
@@ -20,7 +20,10 @@ export const selectRoute = route => (dispatch, getState) => {
 
 export const launchStartTimer = async (dispatch, getState) => {
   await dispatch({
-    type: TIMER_START_ON
+    type: TIMER_START_ON,
+    meta: {
+      progression: getCurrentProgression(getState())
+    }
   });
 
   return new Promise(function(resolve) {

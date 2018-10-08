@@ -14,7 +14,7 @@ import Timer from './timer';
 import style from './style.css';
 
 const TopScreen = props => {
-  const position = props.view === 'question' ? 0 : -100;
+  const position = props.view === 'race' ? -100 : 0;
   const options = {stiffness: 120, damping: 22};
   const slide = props.slide !== null && (
     <div className={style.slideWrapper}>
@@ -25,7 +25,7 @@ const TopScreen = props => {
   return (
     <Motion
       defaultStyle={{
-        y: 0
+        y: -100
       }}
       style={{
         y: spring(position, options)
@@ -58,17 +58,7 @@ const TopScreen = props => {
 };
 
 const Game = props => {
-  const {
-    grayBottom = false,
-    start = false,
-    team,
-    goal,
-    towers,
-    cta,
-    info = {},
-    victors = [],
-    getReadyTime = 0
-  } = props;
+  const {start = false, team, goal, towers, cta, info = {}, victors = [], getReadyTime = 0} = props;
 
   // eslint-disable-next-line no-nested-ternary
   const _title = victors.length > 0 ? (get('success', info) ? 'You win' : 'You lose') : '';
@@ -88,18 +78,12 @@ const Game = props => {
   return (
     <div className={style.game}>
       <TopScreen {...props} />
-      <GameStatus
-        gray={grayBottom}
-        team={team}
-        goal={goal}
-        towers={towers}
-        cta={cta}
-        start={start}
-        getReadyTime={getReadyTime}
-      />
+      <GameStatus team={team} goal={goal} towers={towers} cta={cta} start={start} />
       {popin}
       {message}
-      {start && <Timer className={style.timer} start={3} delay={1000} />}
+      {(start || getReadyTime > 0) && (
+        <Timer className={style.timer} start={3} delay={1000} text={start ? 'Start!' : null} />
+      )}
     </div>
   );
 };

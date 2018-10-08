@@ -21,7 +21,7 @@ import {UI_SEE_QUESTION} from '../../actions/ui/location';
 import {POLL_RECEPTION} from '../../middlewares/polling-saga';
 
 const dynamiseTower = (previousTower, newTower) =>
-  map.convert({cap: 0})((block, index) => {
+  map.convert({cap: false})((block, index) => {
     const previousBlock = previousTower[index];
 
     if (block === 'removed' && previousBlock !== 'removed') {
@@ -36,7 +36,7 @@ const dynamiseTower = (previousTower, newTower) =>
   }, newTower);
 
 const dynamiseTowers = (previousTowers, newTowers) =>
-  map.convert({cap: 0})((tower, index) => {
+  map.convert({cap: false})((tower, index) => {
     return dynamiseTower(previousTowers[index], tower);
   }, newTowers);
 
@@ -46,7 +46,12 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
       const {meta, payload: progression} = action;
       const {id} = meta;
 
-      const lastDisplay = concat([], get(['entities', id], state));
+      let lastDisplay = concat([], get(['entities', id], state));
+      if (lastDisplay.length === 0) {
+        const emptyTowers = map(team => [], progression.state.teams);
+        lastDisplay = emptyTowers;
+      }
+
       const newDisplay = dynamiseTowers(
         lastDisplay,
         map(team => team.tower, progression.state.teams)
