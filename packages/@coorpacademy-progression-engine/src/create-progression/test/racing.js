@@ -84,7 +84,7 @@ test('should create a new progression with the latest version of the engine and 
   const teams = action.payload.teams;
 
   t.deepEqual(teams, {
-    '0': {players: ['user_1', 'user_2'], tower: []},
-    '1': {players: ['user_3', 'user_4'], tower: []}
+    '0': {players: ['user_1', 'user_2'], tower: ['placed', 'placed', 'placed', 'placed', 'placed']},
+    '1': {players: ['user_3', 'user_4'], tower: ['placed', 'placed', 'placed', 'placed', 'placed']}
   });
 });
