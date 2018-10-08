@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import {Motion, spring} from 'react-motion';
 import SlidesPlayer from '../../app-player/player/slides/slides-player';
 import Cta from '../../../atom/cta';
+import TeamList from '../../team-builder/motionned-team';
 import GameStatus from './status';
 import Team from './status/team';
 import Race from './race';
@@ -70,7 +71,7 @@ const Game = props => {
   const popin = victors.length > 0 && (
     <div className={style.answerPopin}>
       <span>Game Over!</span>
-      {/* <TeamList members={victors} /> */}
+      <TeamList members={victors} isMyTeam />
     </div>
   );
 
