@@ -1,8 +1,7 @@
-import {POLL_START} from './middlewares/polling-saga';
 import {selectRoute, launchStartTimer} from './actions/ui/route';
 import {selectProgression} from './actions/ui/progressions';
 import {selectCurrentUser} from './actions/ui/users';
-import {isStarter} from './utils/state-extract';
+import {startPolling} from './middlewares/polling-saga';
 
 const start = async ({progressionId}, {getState, dispatch}) => {
   /* istanbul ignore if  */
@@ -13,13 +12,8 @@ const start = async ({progressionId}, {getState, dispatch}) => {
   await dispatch(selectCurrentUser());
   await dispatch(selectRoute('race'));
   await dispatch(selectProgression(progressionId));
-  await dispatch(launchStartTimer);
-
-  // const state = getState();
-  // if (isStarter(state)) {
-  // }
-
-  return dispatch({type: POLL_START, meta: {progressionId}});
+  await dispatch(startPolling(progressionId));
+  return dispatch(launchStartTimer);
 };
 
 export default start;

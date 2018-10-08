@@ -23,7 +23,7 @@ export const launchStartTimer = async (dispatch, getState) => {
     type: TIMER_START_ON
   });
 
-  await new Promise(function(resolve) {
+  return new Promise(function(resolve) {
     setTimeout(async () => {
       await dispatch({type: TIMER_START_OFF});
       await dispatch(selectRoute('question'));

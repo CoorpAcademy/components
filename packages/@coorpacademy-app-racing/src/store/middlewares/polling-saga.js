@@ -1,16 +1,37 @@
 import get from 'lodash/fp/get';
 import {showGameOver, shouldStartTimerNextQuestion} from '../utils/state-extract';
 import {startNextQuestionTimer} from '../actions/ui/answers';
+import {fetchProgression} from '../actions/api/progressions';
 import {all, put, call, race, take, select} from 'redux-saga/effects';
 
-export const POLL_START = '@@polling/start';
-export const POLL_STOP = '@@polling/stop';
-export const POLL_TIMEOUT = '@@polling/timeout';
-export const POLL_RECEPTION_MYSELF = '@@polling/reception-myself';
+const POLL_START = '@@polling/start';
+const POLL_STOP = '@@polling/stop';
+const POLL_TIMEOUT = '@@polling/timeout';
+const POLL_FAILURE = '@@polling/failure';
+const POLL_RECEPTION_MYSELF = '@@polling/reception-myself';
+const POLL_RECEPTION_NOT_USEFULL = '@@polling/reception-not-useful';
+
 export const CHECK_READY_FOR_NEXT_QUESTION = '@@polling/check-ready-for-next-question';
 export const POLL_RECEPTION = '@@polling/reception';
-export const POLL_FAILURE = '@@polling/failure';
-export const POLL_RECEPTION_NOT_USEFULL = '@@polling/reception-not-useful';
+
+export const SYNC_AND_POLL_REQUEST = '@@polling/SYNC_AND_POLL_REQUEST';
+export const SYNC_AND_POLL_SUCCESS = '@@polling/SYNC_AND_POLL_SUCCESS';
+export const SYNC_AND_POLL_FAILURE = '@@polling/SYNC_AND_POLL_FAILURE';
+
+export const startPolling = progressionId => ({
+  type: POLL_START,
+  meta: {progressionId}
+});
+
+export const stopPolling = progressionId => ({
+  type: POLL_STOP,
+  meta: {progressionId}
+});
+
+export const syncAndPoll = progressionId => async (dispatch, getState, {services}) => {
+  await dispatch(fetchProgression(progressionId));
+  return dispatch(startPolling(progressionId));
+};
 
 const checkReadyForNextQuestion = (progressionId, currentUserId, currentView, payload) => ({
   type: CHECK_READY_FOR_NEXT_QUESTION,
@@ -109,6 +130,9 @@ function createWorker({services}) {
             console.error(err);
             yield put(pollingFailed(progressionId, err));
           }
+
+          yield put(POLL_STOP);
+          yield put(syncAndPoll(progressionId));
         }
       }
     };

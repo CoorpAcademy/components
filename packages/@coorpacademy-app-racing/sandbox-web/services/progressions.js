@@ -159,26 +159,21 @@ const delay = (t, v) => {
   });
 };
 
-const robotAnswer = (userId, team) => async progressionId => {
-  await delay(random(3000, 5000));
+const robotAnswer = (userId, team, answer, isCorrect) => async progressionId => {
+  await delay(5000);
   const teamIndex = 0;
-  const isCorrect = true;
 
   const progression = progressionStore.get(progressionId);
   const [teammateId] = pull(userId, progression.state.teams[team].players);
   const user1QuestionNum = progression.state.users[teammateId].questionNum;
   const user2QuestionNum = progression.state.users[userId].questionNum;
 
-  if (user1QuestionNum === user2QuestionNum) {
-    await delay(random(5000, 6000));
-  }
-
   if (user1QuestionNum < user2QuestionNum) {
-    return robotAnswer(userId, team)(progressionId);
+    return robotAnswer(userId, team, answer, isCorrect)(progressionId);
   }
 
   const content = progression.state.users[userId].nextContent;
-  const nextProgression = await postAnswer(progressionId, {content}, userId, true);
+  const nextProgression = await postAnswer(progressionId, {content, answer}, userId, true);
 
   messageBus.emit(`'progression-refreshed-'${progressionId}`, {
     progression: nextProgression,
@@ -187,7 +182,8 @@ const robotAnswer = (userId, team) => async progressionId => {
     isCorrect
   });
 
-  robotAnswer(userId, team)(progressionId);
+  const nextIsCorrect = isCorrect === undefined ? true : random(1, 10) > 5;
+  robotAnswer(userId, team, answer, nextIsCorrect)(progressionId);
 };
 
 export const waitForRefresh = progressionId => {
@@ -195,12 +191,12 @@ export const waitForRefresh = progressionId => {
     robotAnswer('user_2', 0)(progressionId);
 
     setTimeout(function() {
-      robotAnswer('user_3', 1)(progressionId);
+      robotAnswer('user_3', 1, ['plop', 'plip', 'plup'], random(1, 10) > 5)(progressionId);
     }, 1000);
 
     setTimeout(function() {
-      robotAnswer('user_4', 1)(progressionId);
-    }, 2000);
+      robotAnswer('user_4', 1, ['ploup', 'pliup', 'pluup'], random(1, 10) > 5)(progressionId);
+    }, 1010);
 
     robotIsAnswering = true;
   }
