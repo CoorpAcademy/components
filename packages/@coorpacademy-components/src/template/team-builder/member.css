@@ -25,8 +25,4 @@
   left: 7px;
   width: 30px;
   height: 30px;
-  border: 3px solid white;
-  border-radius: 50%;
-  background-size: contain;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }

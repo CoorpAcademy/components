@@ -5,16 +5,9 @@ import isEmpty from 'lodash/fp/isEmpty';
 import Provider from '../../../atom/provider';
 import colors from '../../app-racing/game/common-fixtures/colors';
 
-import style from './style.css';
+import Avatar from '../avatar';
 
-const Avatar = ({url}) => (
-  <div
-    className={style.avatar}
-    style={{
-      backgroundImage: `url(${url})`
-    }}
-  />
-);
+import style from './style.css';
 
 const TeamAvatar = (props, context) => {
   const {name, members, number} = props;
@@ -30,7 +23,12 @@ const TeamAvatar = (props, context) => {
       <div className={style.members}>
         {map(member => {
           if (isEmpty(member)) return null;
-          return <Avatar key={member.name + member.avatar} url={member.avatar} />;
+          return (
+            <div className={style.avatar}>
+              {' '}
+              <Avatar key={member.name + member.avatar} avatarURL={member.avatar} />{' '}
+            </div>
+          );
         }, members)}
       </div>
     </div>
