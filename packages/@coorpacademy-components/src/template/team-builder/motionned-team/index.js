@@ -2,7 +2,7 @@ import {Motion, spring} from 'react-motion';
 import React from 'react';
 import Team from '../team';
 
-const MotionnedMyTeam = ({myTeam}) => (
+const MotionnedMyTeam = props => (
   <Motion defaultStyle={{scale: 0}} style={{scale: spring(1)}}>
     {interpolatedStyle => {
       return (
@@ -14,7 +14,7 @@ const MotionnedMyTeam = ({myTeam}) => (
             transform: `scale(${interpolatedStyle.scale})`
           }}
         >
-          {myTeam ? <Team {...myTeam} /> : null}{' '}
+          {props ? <Team {...props} /> : null}{' '}
         </div>
       );
     }}

@@ -64,7 +64,7 @@ const TeamBuilder = (props, context) => {
     <div className={style.teamBuilder}>
       {Title}
       {button}
-      <MotionnedTeam myTeam={myTeam} />
+      <MotionnedTeam {...myTeam} />
       <div className={style.teams}>
         {_map((team, index) => {
           return <MotionnedOtherTeams key={`OtherTeam${index}`} team={team} />;

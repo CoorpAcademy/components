@@ -149,7 +149,7 @@ import TemplateCommonDashboard from './../src/template/common/dashboard';
 import TemplateCommonDiscipline from './../src/template/common/discipline';
 import TemplateCommonSearchPage from './../src/template/common/search-page';
 import TemplateTeamBuilderAvatar from './../src/template/team-builder/avatar';
-import TemplateTeamBuilderMotionnedMyTeam from './../src/template/team-builder/motionned-my-team';
+import TemplateTeamBuilderMotionnedTeam from './../src/template/team-builder/motionned-team';
 import TemplateTeamBuilderTeamAvatar from './../src/template/team-builder/teamAvatar';
 import TemplateTeamBuilder from './../src/template/team-builder';
 import AtomButtonFixtureA from '../src/atom/button/test/fixtures/a';
@@ -729,7 +729,7 @@ import TemplateCommonSearchPageFixtureDefault from '../src/template/common/searc
 import TemplateCommonSearchPageFixtureNoResultWithRecommendations from '../src/template/common/search-page/test/fixtures/no-result-with-recommendations';
 import TemplateCommonSearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
 import TemplateTeamBuilderAvatarFixtureDefault from '../src/template/team-builder/avatar/test/fixtures/default';
-import TemplateTeamBuilderMotionnedMyTeamFixtureDefault from '../src/template/team-builder/motionned-my-team/test/fixtures/default';
+import TemplateTeamBuilderMotionnedTeamFixtureDefault from '../src/template/team-builder/motionned-team/test/fixtures/default';
 import TemplateTeamBuilderTeamAvatarFixtureDefault from '../src/template/team-builder/teamAvatar/test/fixtures/default';
 import TemplateTeamBuilderFixtureDefault from '../src/template/team-builder/test/fixtures/default';
 import TemplateTeamBuilderFixtureReadyToStart from '../src/template/team-builder/test/fixtures/ready-to-start';
@@ -924,7 +924,7 @@ export const components = {
   },
   TemplateTeamBuilder: {
     TemplateTeamBuilderAvatar,
-    TemplateTeamBuilderMotionnedMyTeam,
+    TemplateTeamBuilderMotionnedTeam,
     TemplateTeamBuilderTeamAvatar
   }
 };
@@ -1848,8 +1848,8 @@ export const fixtures = {
     TemplateTeamBuilderAvatar: {
       Default: TemplateTeamBuilderAvatarFixtureDefault
     },
-    TemplateTeamBuilderMotionnedMyTeam: {
-      Default: TemplateTeamBuilderMotionnedMyTeamFixtureDefault
+    TemplateTeamBuilderMotionnedTeam: {
+      Default: TemplateTeamBuilderMotionnedTeamFixtureDefault
     },
     TemplateTeamBuilderTeamAvatar: {
       Default: TemplateTeamBuilderTeamAvatarFixtureDefault
