@@ -5,12 +5,12 @@ import {
   getCurrentUserState,
   getStepContent,
   isLastAnswerCorrect,
-  getVictors,
-  shouldStartTimerNextQuestion
+  getVictors
 } from '../../utils/state-extract';
 import {fetchContent} from '../api/contents';
 import {createAnswer} from '../api/progressions';
-import {stopPolling, syncAndPoll} from '../../middlewares/polling-saga';
+import {stopPolling} from '../../middlewares/polling-saga';
+import {syncProgression} from './progressions';
 import {seeQuestion} from './location';
 import {selectRoute} from './route';
 
@@ -82,6 +82,7 @@ export const startNextQuestionTimer = (addHighlightTime = false) => async (
   {services}
 ) => {
   const time = TIMING_NEXT_QUESTION + (addHighlightTime ? TIMING_HIGHLIGHT : 0);
+  console.log('startNextQuestionTimer: time ---> ', time);
   await dispatch({
     type: TIMER_NEXT_QUESTION_ON,
     meta: {
@@ -106,6 +107,7 @@ export const startNextQuestionTimer = (addHighlightTime = false) => async (
 
 export const validateAnswer = (progressionId, body) => async (dispatch, getState, {services}) => {
   await dispatch(stopPolling(progressionId));
+  await dispatch(selectRoute('race'));
   await dispatch(createAnswer(progressionId, body.answer));
 
   const stateAfterCorrection = getState();
@@ -113,7 +115,6 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
   const team = get('team', userState);
   const isCorrect = isLastAnswerCorrect(stateAfterCorrection);
 
-  await dispatch(selectRoute('race'));
   await dispatch({
     type: TIMER_HIGHLIGHT_ON,
     meta: {
@@ -159,10 +160,7 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
         }
       });
 
-      await dispatch(syncAndPoll(progressionId));
-      if (shouldStartTimerNextQuestion(getState())) {
-        await dispatch(startNextQuestionTimer());
-      }
+      await dispatch(syncProgression(progressionId));
       resolve(true);
     }, highlightTime);
   });

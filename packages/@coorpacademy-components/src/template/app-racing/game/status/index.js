@@ -4,7 +4,6 @@ import identity from 'lodash/fp/identity';
 import map from 'lodash/fp/map';
 import {Motion, spring} from 'react-motion';
 import Colors from '../common-fixtures/colors';
-import Timer from '../timer';
 import Team from './team';
 import Counter from './counter';
 import style from './style.css';

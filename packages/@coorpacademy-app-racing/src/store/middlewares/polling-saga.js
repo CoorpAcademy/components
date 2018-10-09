@@ -1,7 +1,7 @@
 import get from 'lodash/fp/get';
-import {getVictors, shouldStartTimerNextQuestion} from '../utils/state-extract';
-import {startNextQuestionTimer} from '../actions/ui/answers';
-import {fetchProgression} from '../actions/api/progressions';
+import {getVictors} from '../utils/state-extract';
+import {syncWithTeammates} from '../actions/ui/route';
+import {syncProgression} from '../actions/ui/progressions';
 import {all, put, call, race, take, select} from 'redux-saga/effects';
 
 const POLL_START = '@@polling/start';
@@ -28,15 +28,9 @@ export const stopPolling = progressionId => ({
   meta: {progressionId}
 });
 
-export const syncAndPoll = progressionId => async (dispatch, getState, {services}) => {
-  await dispatch(fetchProgression(progressionId));
-  return dispatch(startPolling(progressionId));
-};
-
-const checkReadyForNextQuestion = (progressionId, currentUserId, currentView, payload) => ({
+export const checkReadyForNextQuestion = (currentUserId, currentView, progression) => ({
   type: CHECK_READY_FOR_NEXT_QUESTION,
-  meta: {progressionId, currentUserId, currentView},
-  payload
+  meta: {currentUserId, currentView, progression}
 });
 
 const pollingReceived = (progressionId, currentUserId, currentView, payload) => ({
@@ -80,7 +74,7 @@ function createWorker({services}) {
             const newActions = progression.actions.slice(currentProgression.actions.length);
 
             let requireProgressionSync = true;
-            let requireCheckReadyForNextQuestion = false;
+            let mayRequireTeamSync = false;
 
             yield all(
               // eslint-disable-next-line no-loop-func
@@ -97,30 +91,25 @@ function createWorker({services}) {
                   const authorTeam = get('team', author);
 
                   if (currentTeam === authorTeam) {
-                    requireCheckReadyForNextQuestion = true;
+                    mayRequireTeamSync = true;
                   }
                 }
               })
             );
-
-            if (requireCheckReadyForNextQuestion) {
-              yield put(
-                checkReadyForNextQuestion(progressionId, currentUserId, currentView, payload)
-              );
-            }
 
             if (requireProgressionSync) {
               yield put(pollingReceived(progressionId, currentUserId, currentView, payload));
             }
 
             const state = yield select();
-            const requireNextQuestionTiming = shouldStartTimerNextQuestion(state);
             const gameOver = getVictors(state) !== null;
 
             if (gameOver) {
-              yield put({type: POLL_STOP});
-            } else if (requireNextQuestionTiming) {
-              yield put(startNextQuestionTimer(true));
+              yield put({type: POLL_STOP}); // race loop exit
+            }
+
+            if (mayRequireTeamSync) {
+              yield put(syncWithTeammates(payload.progression, true));
             }
           }
         } catch (err) {
@@ -131,8 +120,7 @@ function createWorker({services}) {
             yield put(pollingFailed(progressionId, err));
           }
 
-          yield put(POLL_STOP);
-          yield put(syncAndPoll(progressionId));
+          yield put(syncProgression(progressionId));
         }
       }
     };

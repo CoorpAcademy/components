@@ -1,4 +1,12 @@
-import {getCurrentProgression, getCurrentProgressionId, getRoute} from '../../utils/state-extract';
+import {
+  getCurrentProgression,
+  getCurrentProgressionId,
+  getCurrentUserId,
+  getRoute,
+  shouldStartTimerNextQuestion
+} from '../../utils/state-extract';
+import {checkReadyForNextQuestion} from '../../middlewares/polling-saga';
+import {startNextQuestionTimer} from './answers';
 
 export const UI_SELECT_ROUTE = '@@ui/SELECT_ROUTE';
 export const TIMER_START_ON = '@@timer/start/on';
@@ -33,4 +41,18 @@ export const launchStartTimer = async (dispatch, getState) => {
       resolve(true);
     }, 5000);
   });
+};
+
+export const syncWithTeammates = (progression, addHighlightTime = false) => async (
+  dispatch,
+  getState
+) => {
+  const state = getState();
+  const currentView = getRoute(state);
+  const currentUserId = getCurrentUserId(state);
+
+  await dispatch(checkReadyForNextQuestion(currentUserId, currentView, progression));
+  if (shouldStartTimerNextQuestion(getState())) {
+    await dispatch(startNextQuestionTimer(addHighlightTime));
+  }
 };
