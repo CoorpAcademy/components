@@ -26,7 +26,7 @@ const TeamAvatar = (props, context) => {
           return (
             <div className={style.avatar} key={member.name + member.avatar}>
               {' '}
-              <Avatar avatarURL={member.avatar} />{' '}
+              <Avatar key={member.name} color={colors[number]} initial={member.initial}/>{' '}
             </div>
           );
         }, members)}

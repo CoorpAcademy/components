@@ -1,5 +1,7 @@
 export default {
   props: {
-    avatarURL: 'https://api.adorable.io/avatars/150/Eric.png'
+    color : '#b44b79',
+    name: 'silouane galinou',
+    initial: 'SG'
   }
 };

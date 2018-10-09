@@ -8,14 +8,13 @@ export default {
       number: 0,
       members: [
         {
-          name: 'Joe De la Mortega y arrogon',
-          avatar: 'https://api.adorable.io/avatars/150/Joe.png',
+          name: 'Joe eoj',
           isMe: false
         },
-        {name: 'Abott', avatar: 'https://api.adorable.io/avatars/150/abott.png', isMe: true},
-        {name: 'John', avatar: 'https://api.adorable.io/avatars/150/john.png', isMe: false},
-        {name: 'Paul', avatar: 'https://api.adorable.io/avatars/150/Paul.png', isMe: false},
-        {name: 'Jack', avatar: 'https://api.adorable.io/avatars/150/Jack.png', isMe: false}
+        {name: 'Abott ttoba', initial: 'AT', isMe: true},
+        {name: 'John nhoj', initial: 'JN', isMe: false},
+        {name: 'Paul luap', initial: 'PL', isMe: false},
+        {name: 'Jack kcaj', initial: 'JK', isMe: false}
       ]
     },
     teams: [
@@ -24,11 +23,11 @@ export default {
         number: 0,
         isMyTeam: true,
         members: [
-          {name: 'Joe', avatar: 'https://api.adorable.io/avatars/150/Joe.png', isMe: false},
-          {name: 'Abott', avatar: 'https://api.adorable.io/avatars/150/abott.png', isMe: false},
-          {name: 'John', avatar: 'https://api.adorable.io/avatars/150/john.png', isMe: false},
-          {name: 'Paul', avatar: 'https://api.adorable.io/avatars/150/Paul.png', isMe: false},
-          {name: 'Jack', avatar: 'https://api.adorable.io/avatars/150/Jack.png', isMe: false}
+          {name: 'Joe eoj', initial: 'JE', isMe: false},
+          {name: 'Abott ttoba', initial: 'AT', isMe: false},
+          {name: 'John nhoj', initial: 'JN', isMe: false},
+          {name: 'Paul luap', initial: 'PL', isMe: false},
+          {name: 'Jack kcaj', initial: 'JK', isMe: false}
         ]
       },
       {
@@ -36,8 +35,8 @@ export default {
         number: 1,
         isMyTeam: false,
         members: [
-          {name: 'Katrine', avatar: 'https://api.adorable.io/avatars/150/Katrine.png', isMe: false},
-          {name: 'Doug', avatar: 'https://api.adorable.io/avatars/150/Doug.png', isMe: false}
+          {name: 'Katrine enirtak', initial: 'KE', isMe: false},
+          {name: 'Doug guod', initial: 'DG', isMe: false}
         ]
       },
       {
@@ -45,8 +44,8 @@ export default {
         isMyTeam: false,
         number: 2,
         members: [
-          {name: 'Eric', avatar: 'https://api.adorable.io/avatars/150/Eric.png', isMe: false},
-          {name: 'Mark', avatar: 'https://api.adorable.io/avatars/150/Mark.png', isMe: false}
+          {name: 'Eric cire', initial: 'EC', isMe: false},
+          {name: 'Mark kram', initial: 'MK', isMe: false}
         ]
       },
       {
@@ -54,8 +53,8 @@ export default {
         isMyTeam: false,
         number: 3,
         members: [
-          {name: 'Sarah', avatar: 'https://api.adorable.io/avatars/150/Sarah.png', isMe: false},
-          {name: 'Jordan', avatar: 'https://api.adorable.io/avatars/150/Jordan.png', isMe: false}
+          {name: 'Sarah haras', initial: 'SH', isMe: false},
+          {name: 'Jordan nadroj', initial: 'JN', isMe: false}
         ]
       }
     ],

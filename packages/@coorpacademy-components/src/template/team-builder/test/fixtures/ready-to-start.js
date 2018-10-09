@@ -6,32 +6,32 @@ export default {
         number: 0,
         isMyTeam: false,
         members: [
-          {name: 'Joe', avatar: 'https://api.adorable.io/avatars/150/Joe.png'},
-          {name: 'Kim', avatar: 'https://api.adorable.io/avatars/150/Kim.png'}
+          {name: 'Joe eoj', initial: 'JE'},
+          {name: 'Kim mik', initial: 'KM'}
         ]
       },
       {
         name: 'Team 2',
         number: 1,
         members: [
-          {name: 'Katrine', avatar: 'https://api.adorable.io/avatars/150/Katrine.png'},
-          {name: 'Doug', avatar: 'https://api.adorable.io/avatars/150/Doug.png'}
+          {name: 'Katrine enirtak', initial: 'KE'},
+          {name: 'Doug goud', initial: 'DG'}
         ]
       },
       {
         name: 'Team 3',
         number: 2,
         members: [
-          {name: 'Eric', avatar: 'https://api.adorable.io/avatars/150/Eric.png'},
-          {name: 'Mark', avatar: 'https://api.adorable.io/avatars/150/Mark.png'}
+          {name: 'Eric cire', initial: 'EC'},
+          {name: 'Mark kram', initial: 'MK'}
         ]
       },
       {
         name: 'Team 4',
         number: 3,
         members: [
-          {name: 'Sarah', avatar: 'https://api.adorable.io/avatars/150/Sarah.png'},
-          {name: 'Jordan', avatar: 'https://api.adorable.io/avatars/150/Jordan.png'}
+          {name: 'Sarah haras', initial: 'SH'},
+          {name: 'Jordan nadroj', initial: 'JN'}
         ]
       }
     ],
