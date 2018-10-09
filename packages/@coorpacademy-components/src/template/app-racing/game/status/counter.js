@@ -3,7 +3,7 @@ import Colors from '../common-fixtures/colors';
 import style from './counter.css';
 // import ScoreNotification from './score-notification';
 
-const Counter = ({team, isMyTeam, points, nbToNotify = 0}) => {
+const Counter = ({team, isMyTeam, points, goal, nbToNotify = 0}) => {
   // const notification =
   //   nbToNotify !== 0 ? (
   //     <ScoreNotification key={nbToNotify} positive={nbToNotify > 0} number={nbToNotify} />
@@ -17,7 +17,9 @@ const Counter = ({team, isMyTeam, points, nbToNotify = 0}) => {
       }}
     >
       {/* {notification} */}
-      <span className={isMyTeam ? style.textMyTeam : null}>{points}</span>
+      <span className={isMyTeam ? style.textMyTeam : null}>
+        {points} / {goal}
+      </span>
     </div>
   );
 };
