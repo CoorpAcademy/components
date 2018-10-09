@@ -1,3 +1,6 @@
+@value breakpoints: "../../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
 .game {
   width: 100%;
   min-height: 100%;
@@ -92,4 +95,13 @@
   font-weight: 300;
   color: #0e3a3d;
   margin: 0;
+}
+
+/*-------------------------------------------------*/
+
+@media mobile {
+  .slideWrapper {
+    display: block;
+    margin: auto 0;
+  }
 }

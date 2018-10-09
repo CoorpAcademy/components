@@ -111,7 +111,8 @@ const gameProps = (options, store) => state => {
     view,
     start: isTimerOn('startAnimation')(state),
     getReadyTime: isTimerOn('nextQuestion')(state),
-    blurType: view === 'question' ? 'all' : isTimerOn('highlight')(state) ? 'all-but-mine' : null, // eslint-disable-line no-nested-ternary
+    // blurType: view === 'question' ? 'all' : isTimerOn('highlight')(state) ? 'all-but-mine' : null, // eslint-disable-line no-nested-ternary
+    blurType: isTimerOn('highlight')(state) ? 'all-but-mine' : null,
     info: {
       success,
       message

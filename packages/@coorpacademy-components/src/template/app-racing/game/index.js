@@ -18,7 +18,7 @@ const TopScreen = props => {
   const options = {stiffness: 120, damping: 22};
   const slide = props.slide !== null && (
     <div className={style.slideWrapper}>
-      <SlidesPlayer questionBackgroundColor="#ffffffdb" {...props.slide} />
+      <SlidesPlayer questionBackgroundColor="#ffffffbb" {...props.slide} />
     </div>
   );
 
