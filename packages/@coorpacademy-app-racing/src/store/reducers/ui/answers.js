@@ -10,7 +10,7 @@ const ANSWER_EDIT_ACTIONS = values(ANSWER_EDIT);
 const uiAnswersReducer = (state = {}, {type, payload, meta}) => {
   switch (type) {
     case PROGRESSION_CREATE_ANSWER_SUCCESS: {
-      const {id: progressionId} = payload;
+      const {progressionId} = meta;
       return unset([progressionId], state);
     }
   }
