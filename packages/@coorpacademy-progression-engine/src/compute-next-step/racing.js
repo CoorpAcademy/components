@@ -79,8 +79,9 @@ export default function computeRacingSetup(
   availableContent: AvailableContent,
   teamsList: Teams
 ): RacingSetupAction {
+  const starter = config.starter || 0;
   const users = createUsers(config, availableContent, teamsList);
-  const teams = createTeams(teamsList, config.starter || Math.floor(config.goal / 2));
+  const teams = createTeams(teamsList, starter);
 
   return {
     type: 'racing-setup',
