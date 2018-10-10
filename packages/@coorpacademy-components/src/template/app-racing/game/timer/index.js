@@ -25,7 +25,7 @@ class Timer extends React.Component {
   render() {
     return this.state.count === this.state.initialCount ? null : (
       <div className={this.props.className}>
-        <h1>{this.state.count > 0 ? this.state.count : this.props.text || 'Start!'}</h1>
+        <h1>{this.state.count > 0 ? this.state.count : this.props.text}</h1>
       </div>
     );
   }

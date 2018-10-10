@@ -1,5 +1,5 @@
 import allInMiddleTeam from '../../common-fixtures/all-in-middle-team';
-import noTower from '../../common-fixtures/no-tower';
+import startTower from '../../common-fixtures/start-towers';
 
 export default {
   props: {
@@ -8,7 +8,7 @@ export default {
     slide: null,
     view: 'race',
     team: allInMiddleTeam,
-    towers: noTower,
+    towers: startTower,
     goal: 8,
     cta: null,
     victors: []

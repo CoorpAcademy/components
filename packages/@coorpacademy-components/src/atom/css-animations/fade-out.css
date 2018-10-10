@@ -16,4 +16,5 @@
 
 .fadeOut {
   animation: fadeOut 2s;
+  opacity: 0;
 }

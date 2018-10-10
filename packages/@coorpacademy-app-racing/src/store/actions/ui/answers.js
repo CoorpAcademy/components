@@ -5,12 +5,12 @@ import {
   getCurrentUserState,
   getStepContent,
   isLastAnswerCorrect,
-  getVictors,
-  shouldStartTimerNextQuestion
+  getVictors
 } from '../../utils/state-extract';
 import {fetchContent} from '../api/contents';
 import {createAnswer} from '../api/progressions';
-import {stopPolling, syncAndPoll} from '../../middlewares/polling-saga';
+import {stopPolling} from '../../middlewares/polling-saga';
+import {syncProgression} from './progressions';
 import {seeQuestion} from './location';
 import {selectRoute} from './route';
 
@@ -20,16 +20,19 @@ export const TIMER_NEXT_QUESTION_OFF = '@@timer/next-question/off';
 export const TIMER_HIGHLIGHT_ON = '@@timer/highlight/on';
 export const TIMER_HIGHLIGHT_OFF = '@@timer/highlight/off';
 
+const TIMER_TEAMMATE_HIGHLIGHT_ON = '@@timer/teammate-highlight/on';
+const TIMER_TEAMMATE_HIGHLIGHT_OFF = '@@timer/teammate-highlight/off';
+
 export const TIMER_DISPLAY_BAD_ON = '@@timer/bad-on';
 export const TIMER_DISPLAY_BAD_OFF = '@@timer/bad-off';
 
 export const TIMER_DISPLAY_DROP_ON = '@@timer/drop-on';
 export const TIMER_DISPLAY_DROP_OFF = '@@timer/drop-off';
 
-const TIMING_HIGHLIGHT = 1000;
 const TIMING_NEXT_QUESTION = 3000;
 const TIMING_BEFORE_DROP = 1500;
 const TIMING_DROP = 700;
+const TIMING_HIGHLIGHT = TIMING_BEFORE_DROP + TIMING_DROP;
 
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
@@ -81,12 +84,23 @@ export const startNextQuestionTimer = (addHighlightTime = false) => async (
   getState,
   {services}
 ) => {
-  const time = TIMING_NEXT_QUESTION + (addHighlightTime ? TIMING_HIGHLIGHT : 0);
+  if (addHighlightTime) {
+    await dispatch({
+      type: TIMER_TEAMMATE_HIGHLIGHT_ON,
+      meta: {time: TIMING_HIGHLIGHT}
+    });
+
+    await new Promise(function(resolve) {
+      setTimeout(async () => {
+        await dispatch({type: TIMER_TEAMMATE_HIGHLIGHT_OFF});
+        resolve(true);
+      }, TIMING_HIGHLIGHT);
+    });
+  }
+
   await dispatch({
     type: TIMER_NEXT_QUESTION_ON,
-    meta: {
-      time
-    }
+    meta: {time: TIMING_NEXT_QUESTION}
   });
 
   return new Promise(async function(resolve) {
@@ -97,7 +111,7 @@ export const startNextQuestionTimer = (addHighlightTime = false) => async (
         await dispatch(seeQuestion);
       }
       resolve(true);
-    }, time);
+    }, TIMING_NEXT_QUESTION);
 
     const {ref: slideRef} = getStepContent(getState());
     await dispatch(fetchContent('slide', slideRef));
@@ -106,6 +120,7 @@ export const startNextQuestionTimer = (addHighlightTime = false) => async (
 
 export const validateAnswer = (progressionId, body) => async (dispatch, getState, {services}) => {
   await dispatch(stopPolling(progressionId));
+  await dispatch(selectRoute('race'));
   await dispatch(createAnswer(progressionId, body.answer));
 
   const stateAfterCorrection = getState();
@@ -113,7 +128,6 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
   const team = get('team', userState);
   const isCorrect = isLastAnswerCorrect(stateAfterCorrection);
 
-  await dispatch(selectRoute('race'));
   await dispatch({
     type: TIMER_HIGHLIGHT_ON,
     meta: {
@@ -159,10 +173,7 @@ export const validateAnswer = (progressionId, body) => async (dispatch, getState
         }
       });
 
-      await dispatch(syncAndPoll(progressionId));
-      if (shouldStartTimerNextQuestion(getState())) {
-        await dispatch(startNextQuestionTimer());
-      }
+      await dispatch(syncProgression(progressionId));
       resolve(true);
     }, highlightTime);
   });

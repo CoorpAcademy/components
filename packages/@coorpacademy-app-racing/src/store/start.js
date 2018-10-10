@@ -11,9 +11,9 @@ const start = async ({progressionId}, {getState, dispatch}) => {
 
   await dispatch(selectCurrentUser());
   await dispatch(selectRoute('race'));
+  dispatch(launchStartTimer);
   await dispatch(selectProgression(progressionId));
-  await dispatch(startPolling(progressionId));
-  return dispatch(launchStartTimer);
+  return dispatch(startPolling(progressionId));
 };
 
 export default start;

@@ -29,9 +29,8 @@ const uiCurrentReducer = (
       return set('readyForNextQuestion', readyForNextQuestion, state);
     }
     case CHECK_READY_FOR_NEXT_QUESTION: {
-      const {payload, meta} = action;
-      const {progression} = payload;
-      const {currentUserId, currentView} = meta;
+      const {meta} = action;
+      const {currentUserId, currentView, progression} = meta;
       const readyForNextQuestion =
         currentView === 'race' && allTeammatesHaveAnswered(progression, currentUserId);
       return set('readyForNextQuestion', readyForNextQuestion, state);
