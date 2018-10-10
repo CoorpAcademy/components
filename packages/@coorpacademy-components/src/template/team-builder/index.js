@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
 import {Motion, spring} from 'react-motion';
@@ -34,45 +34,62 @@ const MotionnedOtherTeams = ({team}) => {
   );
 };
 
-const TeamBuilder = (props, context) => {
-  const {skin} = context;
-  const {teams, cta, title, myTeam} = props;
+class TeamBuilder extends Component {
+  constructor(props) {
+    super(props);
 
-  const primary = get('racing.primary', skin);
+    this.state = {
+      disabledButton: false
+    };
+  }
 
-  const button = cta ? (
-    <Button
-      {...cta}
-      style={{
-        backgroundColor: primary
-      }}
-    />
-  ) : null;
+  render() {
+    const {skin} = this.context;
+    const {teams, cta, title, myTeam} = this.props;
+    const {disabledButton} = this.state;
 
-  const Title = title ? (
-    <h1
-      className={style.title}
-      style={{
-        color: primary
-      }}
-    >
-      {title}
-    </h1>
-  ) : null;
+    const primary = get('racing.primary', skin);
 
-  return (
-    <div className={style.teamBuilder}>
-      {Title}
-      {button}
-      <MotionnedTeam {...myTeam} />
-      <div className={style.teams}>
-        {_map((team, index) => {
-          return <MotionnedOtherTeams key={`OtherTeam${index}`} team={team} />;
-        }, teams)}
+    const button = cta ? (
+      <Button
+        onClick={() => {
+          this.setState({
+            disabledButton: true
+          });
+          cta.onClick();
+        }}
+        style={{
+          backgroundColor: disabledButton ? 'rgb(182, 179, 179)' : primary
+        }}
+        disabled={disabledButton}
+      />
+    ) : null;
+
+    const Title = title ? (
+      <h1
+        className={style.title}
+        style={{
+          color: primary
+        }}
+      >
+        {title}
+      </h1>
+    ) : null;
+
+    return (
+      <div className={style.teamBuilder}>
+        {Title}
+        {button}
+        <MotionnedTeam {...myTeam} />
+        <div className={style.teams}>
+          {_map((team, index) => {
+            return <MotionnedOtherTeams key={`OtherTeam${index}`} team={team} />;
+          }, teams)}
+        </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 TeamBuilder.contextTypes = {
   skin: Provider.childContextTypes.skin
