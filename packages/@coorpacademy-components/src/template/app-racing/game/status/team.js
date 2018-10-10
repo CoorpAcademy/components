@@ -8,7 +8,6 @@ import {Motion, spring} from 'react-motion';
 import classnames from 'classnames';
 import animation from '../../../../atom/css-animations/fade-in.css';
 import LoaderTarget from '../../../../atom/loader-target';
-import colors from '../common-fixtures/colors';
 import ScoreNotification from './score-notification';
 import style from './team.css';
 
