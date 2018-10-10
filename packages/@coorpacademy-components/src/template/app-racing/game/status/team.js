@@ -11,7 +11,7 @@ import LoaderTarget from '../../../../atom/loader-target';
 import ScoreNotification from './score-notification';
 import style from './team.css';
 
-const Player = ({name, avatar, isCorrect}) => {
+const Player = ({name, initial, color, isCorrect}) => {
   // eslint-disable-next-line no-nested-ternary
   const borderStyle = isNull(isCorrect)
     ? null
@@ -22,10 +22,9 @@ const Player = ({name, avatar, isCorrect}) => {
       title={name}
       className={classnames(style.avatar, borderStyle, animation.fadeIn)}
       key={name}
-      style={{
-        backgroundImage: `url(${avatar})`
-      }}
+      style={{backgroundColor: color}}
     >
+      <div className={style.initial}>{initial}</div>
       {isNull(isCorrect) ? <span className={style.status}>{'Answering...'}</span> : null}
     </div>
   );
@@ -48,7 +47,7 @@ const Team = props => {
 
   return (
     <div className={style.team}>
-      {map(({name, isMe, isWaitingAnswer, avatar, isCorrect}) => {
+      {map(({name, initial, color, isWaitingAnswer, isCorrect}) => {
         if (isNull(isCorrect)) {
           count.nbNull++;
         } else if (isCorrect) {
@@ -117,7 +116,7 @@ const Team = props => {
                 <div className={style.player}>
                   {score}
                   {loader}
-                  <Player name={name} avatar={avatar} isCorrect={isCorrect} />
+                  <Player name={name} initial={initial} color={color} isCorrect={isCorrect} />
                 </div>
               );
             }}
@@ -133,7 +132,7 @@ Team.propTypes = {
   members: PropTypes.arrayOf(
     PropTypes.shape({
       name: PropTypes.string,
-      avatar: PropTypes.string,
+      initial: PropTypes.string,
       isCorrect: PropTypes.bool,
       isMe: PropTypes.bool
     })

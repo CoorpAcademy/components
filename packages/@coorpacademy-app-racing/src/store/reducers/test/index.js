@@ -1,5 +1,5 @@
 import test from 'ava';
-import createReducer from '../index';
+import createReducer from '..';
 import macro from './helpers/macro';
 
 test(

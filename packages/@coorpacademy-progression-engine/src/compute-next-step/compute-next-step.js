@@ -345,7 +345,7 @@ const computeNextStep = (
         }
       : state;
 
-    // todo --> config racing to random chaptercontent here
+    // _todo --> config racing to random chaptercontent here
     const nextContent = computeNextSlide(config, nextChapterContent, stateWithDecrementedLives);
     return {
       nextContent,

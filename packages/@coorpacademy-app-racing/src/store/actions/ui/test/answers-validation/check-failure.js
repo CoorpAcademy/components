@@ -4,7 +4,7 @@ import set from 'lodash/fp/set';
 import flatten from 'lodash/fp/flatten';
 import macro from '../../../test/helpers/macro';
 import {validateAnswer} from '../../answers';
-import {UI_TOGGLE_ACCORDION} from '../../../ui/corrections';
+import {UI_TOGGLE_ACCORDION} from '../../corrections';
 import {
   PROGRESSION_CREATE_ANSWER_REQUEST,
   PROGRESSION_CREATE_ANSWER_SUCCESS,

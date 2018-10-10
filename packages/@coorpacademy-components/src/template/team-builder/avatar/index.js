@@ -2,13 +2,15 @@ import React from 'react';
 
 import style from './style.css';
 
-const Avatar = ({avatarURL}) => (
+const Avatar = ({color, initial}) => (
   <div
     className={style.avatar}
     style={{
-      backgroundImage: `url(${avatarURL})`
+      backgroundColor: `${color}`
     }}
-  />
+  >
+    <div className={style.initial}>{initial}</div>
+  </div>
 );
 
 export default Avatar;

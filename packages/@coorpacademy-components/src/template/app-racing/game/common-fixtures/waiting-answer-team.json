@@ -2,20 +2,20 @@
   "num": 1,
   "members": [
     {
-      "name": "Katrine",
-      "avatar": "https://api.adorable.io/avatars/150/Katrine.png",
+      "name": "Katrine enirtak",
+      "intitial": "KE",
       "isCorrect": null
     },
     {
-      "name": "Joe",
-      "avatar": "https://api.adorable.io/avatars/150/Joe.png",
+      "name": "Joe eoj",
+      "intitial": "JE",
       "isCorrect": null,
       "isMe": true,
       "isWaitingAnswer": true
     },
     {
-      "name": "Kim",
-      "avatar": "https://api.adorable.io/avatars/150/Kim.png",
+      "name": "Kim mik",
+      "intitial": "KM",
       "isCorrect": null
     }
   ]

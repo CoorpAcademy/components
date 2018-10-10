@@ -48,7 +48,7 @@
             "user_1": {
               "id": "user_1",
               "name": "user_1",
-              "avatar": "https://api.adorable.io/avatars/120/user_1.png",
+              "initial": "U1",
               "team": 0,
               "isCorrect": null,
               "slides": [],
@@ -61,7 +61,7 @@
             "user_2": {
               "id": "user_2",
               "name": "user_2",
-              "avatar": "https://api.adorable.io/avatars/120/user_2.png",
+              "initial": "U2",
               "team": 0,
               "isCorrect": null,
               "slides": [],
@@ -74,7 +74,7 @@
             "user_3": {
               "id": "user_3",
               "name": "user_3",
-              "avatar": "https://api.adorable.io/avatars/120/user_3.png",
+              "initial": "U3",
               "team": 1,
               "isCorrect": null,
               "slides": [],
@@ -87,7 +87,7 @@
             "user_4": {
               "id": "user_4",
               "name": "user_4",
-              "avatar": "https://api.adorable.io/avatars/120/user_4.png",
+              "initial": "U4",
               "team": 1,
               "isCorrect": null,
               "slides": [],
@@ -128,7 +128,7 @@
         "user_1": {
           "id": "user_1",
           "name": "user_1",
-          "avatar": "https://api.adorable.io/avatars/120/user_1.png",
+          "initial": "U1",
           "team": 0,
           "isCorrect": null,
           "slides": [],
@@ -141,7 +141,7 @@
         "user_2": {
           "id": "user_2",
           "name": "user_2",
-          "avatar": "https://api.adorable.io/avatars/120/user_2.png",
+          "initial": "U2",
           "team": 0,
           "isCorrect": null,
           "slides": [],
@@ -154,7 +154,7 @@
         "user_3": {
           "id": "user_3",
           "name": "user_3",
-          "avatar": "https://api.adorable.io/avatars/120/user_3.png",
+          "initial": "U3",
           "team": 1,
           "isCorrect": null,
           "slides": [],
@@ -167,7 +167,7 @@
         "user_4": {
           "id": "user_4",
           "name": "user_4",
-          "avatar": "https://api.adorable.io/avatars/120/user_4.png",
+          "initial": "U4",
           "team": 1,
           "isCorrect": null,
           "slides": [],
