@@ -6,6 +6,7 @@ import identity from 'lodash/fp/identity';
 import last from 'lodash/fp/last';
 import pipe from 'lodash/fp/pipe';
 import map from 'lodash/fp/map';
+import toUpper from 'lodash/fp/toUpper';
 import reduce from 'lodash/fp/reduce';
 import _toString from 'lodash/fp/toString';
 
@@ -14,6 +15,7 @@ const getId = get('_id');
 export const getChapterId = get('chapter_id');
 export const getChoices = get('question.content.choices');
 export const getCurrentProgressionId = get('ui.current.progressionId');
+export const isReadyForNextQuestion = get('ui.current.readyForNextQuestion');
 export const getCurrentUserId = get(['ui', 'current', 'userId']);
 
 export const getQuestionType = get('question.type');
@@ -67,12 +69,10 @@ export const isLastAnswerCorrect = pipe(
   get('isCorrect')
 );
 
-export const showQuestion = state => {
+export const isStarter = state => {
   const userState = getCurrentUserState(state);
   const questionNum = get('questionNum', userState);
-  const ctaWasClicked = getRoute(state) === 'question';
-
-  return questionNum === 1 || ctaWasClicked;
+  return questionNum === 1;
 };
 
 export const isSpectator = state => {
@@ -81,53 +81,81 @@ export const isSpectator = state => {
   }
 };
 
-export const showRace = state => {
-  return getRoute(state) === 'race';
-};
-
 export const showLoading = state => {
   return getRoute(state) === 'loading';
 };
 
-export const showGameOver = state => {
+export const getVictorMembers = state => {
   const race = getCurrentRace(state);
   const progression = getCurrentProgression(state);
   const goal = get('engineOptions.goal', progression);
 
-  return reduce(
-    (result, tower) => {
-      const towerCount = countBy(identity, tower);
-      const nbBlocks = (towerCount.new || 0) + (towerCount.placed || 0);
+  const ids = reduce.convert({cap: false})(
+    (members, tower, index) => {
+      if (members) {
+        return members;
+      }
 
-      return result || nbBlocks >= goal;
+      const towerCount = countBy(identity, tower);
+      const nbBlocks =
+        (towerCount.new || 0) +
+        (towerCount.placed || 0) +
+        (towerCount.good || 0) +
+        (towerCount.drop || 0);
+
+      const gameOver = nbBlocks >= goal;
+      if (gameOver) {
+        const playerIds = get(['state', 'teams', index, 'players'], progression);
+        return playerIds;
+      }
+
+      return null;
     },
-    false,
+    null,
     race
   );
+
+  const victors = ids && map(id => getUserState(id, state), ids);
+  return victors;
 };
+
+export const isGameOver = state => !!getVictorMembers(state);
 
 // -----------------------------------------------------------------------------
 
-export const allTeammatesHaveAnswered = state => {
-  const progression = getCurrentProgression(state);
-  const userState = getCurrentUserState(state);
-  const userQuestionNum = get('questionNum', userState);
-  const team = get('team', userState);
+export const allTeammatesHaveAnswered = (progression, currentUserId) => {
+  const currentUser = get(['state', 'users', currentUserId], progression);
+  const team = get('team', currentUser);
   const teammates = get(['state', 'teams', team, 'players'], progression);
+  const myQuestionNum = get(['state', 'users', currentUserId, 'questionNum'], progression);
 
-  return reduce(
+  const _allTeammatesHaveAnswered = reduce(
     (result, playerId) => {
-      const player = getUserState(playerId, state);
-      const questionNum = get('questionNum', player);
-
-      return result && userQuestionNum <= questionNum;
+      const player = get(['state', 'users', playerId], progression);
+      const teammateQuestionNum = get('questionNum', player);
+      return result && myQuestionNum <= teammateQuestionNum;
     },
     true,
     teammates
   );
+
+  return _allTeammatesHaveAnswered;
 };
 
 export const isTimerOn = type => get(['ui', 'timer', type]);
+
+const getInitial = name => {
+  const init = name.split(' ');
+  const firstName = toUpper(init[0].slice(0, 1));
+  const lastName = toUpper(init[1].slice(0, 1));
+  const initial = firstName + lastName;
+  return initial;
+};
+
+const getColor = team => {
+  const color = ['#42c02f', '#b44b79', '#0fb9c4', '#ffcc00', '#cc3300'];
+  return color[team];
+};
 
 export const currentTeam = state => {
   const progression = getCurrentProgression(state);
@@ -135,7 +163,7 @@ export const currentTeam = state => {
 
   const team = get('team', userState);
   const players = get(['state', 'teams', team, 'players'], progression);
-  let questionNumToWaitFor = reduce(
+  let questionNumDisplayed = reduce(
     (result, playerId) => {
       const player = getUserState(playerId, state);
       const questionNum = get('questionNum', player);
@@ -146,10 +174,9 @@ export const currentTeam = state => {
     players
   );
 
-  if (isTimerOn('last')(state)) {
-    questionNumToWaitFor -= 1;
+  if (isReadyForNextQuestion(state)) {
+    questionNumDisplayed -= 1;
   }
-
   return map(playerId => {
     const player = getUserState(playerId, state);
 
@@ -157,10 +184,20 @@ export const currentTeam = state => {
       isMe: playerId === userState.id,
       isWaitingAnswer: playerId === userState.id && isTimerOn('me')(state),
       name: get('name', player),
-      avatar: get('avatar', player),
-      isCorrect: getOr(null, `allAnswers[${questionNumToWaitFor - 1}].isCorrect`, player)
+      initial: getInitial(get('name', player)),
+      color: getColor(player.team),
+      isCorrect: getOr(null, `allAnswers[${questionNumDisplayed - 1}].isCorrect`, player)
     };
   }, players);
+};
+
+export const shouldStartTimerNextQuestion = state => {
+  if (isTimerOn('nextQuestion')(state) || isTimerOn('teammateHighlight')(state)) {
+    return false;
+  }
+
+  const nextQuestion = isReadyForNextQuestion(state);
+  return !!nextQuestion;
 };
 
 // -----------------------------------------------------------------------------

@@ -8,7 +8,6 @@ import type {
   ExtraLifeAcceptedAction,
   ExtraLifeRefusedAction,
   MoveAction,
-  RacingUser,
   State,
   Slide
 } from '../types';

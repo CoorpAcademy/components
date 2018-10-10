@@ -7,6 +7,7 @@ const {props: answerType} = Answer;
 export default {
   props: {
     view: 'question',
+    blurType: 'all',
     slide: {
       typeClue: 'answer',
       question:
@@ -26,6 +27,7 @@ export default {
     team: allInMiddleTeam,
     towers: fiveTowers,
     goal: 8,
-    cta: null
+    cta: null,
+    victors: null
   }
 };

@@ -157,11 +157,7 @@ ContextMedia.propTypes = {
 };
 
 const ContextContent = ({slideContext}) => {
-  const descriptionParagraphs = pipe(
-    getOr('', 'description'),
-    split('\n'),
-    compact
-  )(slideContext);
+  const descriptionParagraphs = pipe(getOr('', 'description'), split('\n'), compact)(slideContext);
   const paragraphs = descriptionParagraphs.map((paragraph, index) => (
     <p
       key={index}
@@ -203,7 +199,7 @@ const Bar = ({total, color, current}) => {
     return null;
   }
 
-  const stepWidth = (_current / total) * 100;
+  const stepWidth = _current / total * 100;
 
   return (
     <div
@@ -269,13 +265,7 @@ ValidateButton.propTypes = {
 };
 
 const ContentLayout = (props, context) => {
-  const {
-    typeClue,
-    answerType: {model: {type} = {}} = {},
-    question,
-    questionBackgroundColor,
-    help
-  } = props;
+  const {typeClue, answerType: {model: {type} = {}} = {}, question, help} = props;
   const ContentType = CONTENT_TYPE[typeClue];
   const noPaddingRessources =
     ContentType === MediaContent ? `${style.contentWrapperNoPadding}` : `${style.contentWrapper}`;
@@ -353,7 +343,13 @@ const SlidesPlayer = (props, context) => {
   const mediaButton = find({type: 'media'}, buttons) || {};
   const {onClick = identity} = mediaButton;
   return (
-    <div className={style.wrapper} data-name="slidesPlayer">
+    <div
+      className={style.wrapper}
+      data-name="slidesPlayer"
+      style={{
+        backgroundColor: props.questionBackgroundColor || '#fff'
+      }}
+    >
       {step ? <Step step={step} color={stepColor} /> : null}
       {showNewMedia ? <NewMedia onClick={onClick} /> : null}
       <Content {...props} />

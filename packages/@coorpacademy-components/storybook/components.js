@@ -136,6 +136,7 @@ import TemplateAppPlayerPopinHeader from './../src/template/app-player/popin-hea
 import TemplateAppRacingAdmin from './../src/template/app-racing/admin';
 import TemplateAppRacingGameRace from './../src/template/app-racing/game/race';
 import TemplateAppRacingGameStatus from './../src/template/app-racing/game/status';
+import TemplateAppRacingGameTimer from './../src/template/app-racing/game/timer';
 import TemplateAppRacingGame from './../src/template/app-racing/game';
 import TemplateBackOfficeBrandCreate from './../src/template/back-office/brand-create';
 import TemplateBackOfficeBrandList from './../src/template/back-office/brand-list';
@@ -147,6 +148,9 @@ import TemplateCommonCoorpHeader from './../src/template/common/coorp-header';
 import TemplateCommonDashboard from './../src/template/common/dashboard';
 import TemplateCommonDiscipline from './../src/template/common/discipline';
 import TemplateCommonSearchPage from './../src/template/common/search-page';
+import TemplateTeamBuilderAvatar from './../src/template/team-builder/avatar';
+import TemplateTeamBuilderMotionnedTeam from './../src/template/team-builder/motionned-team';
+import TemplateTeamBuilderTeamAvatar from './../src/template/team-builder/teamAvatar';
 import TemplateTeamBuilder from './../src/template/team-builder';
 import AtomButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import AtomButtonFixtureClassName from '../src/atom/button/test/fixtures/class-name';
@@ -660,14 +664,21 @@ import TemplateAppRacingGameStatusFixtureRaceStatus from '../src/template/app-ra
 import TemplateAppRacingGameStatusFixtureReadyToAnswerAllInMiddle from '../src/template/app-racing/game/status/test/fixtures/ready-to-answer-all-in-middle';
 import TemplateAppRacingGameStatusFixtureReadyToAnswerSpread from '../src/template/app-racing/game/status/test/fixtures/ready-to-answer-spread';
 import TemplateAppRacingGameStatusFixtureWaitingAnswer from '../src/template/app-racing/game/status/test/fixtures/waiting-answer';
+import TemplateAppRacingGameTimerFixtureDefault from '../src/template/app-racing/game/timer/test/fixtures/default';
+import TemplateAppRacingGameFixtureGameOverWinners from '../src/template/app-racing/game/test/fixtures/game-over-winners';
 import TemplateAppRacingGameFixtureGameOver from '../src/template/app-racing/game/test/fixtures/game-over';
 import TemplateAppRacingGameFixtureNoTower from '../src/template/app-racing/game/test/fixtures/no-tower';
 import TemplateAppRacingGameFixtureQuestionAllInMiddle from '../src/template/app-racing/game/test/fixtures/question-all-in-middle';
-import TemplateAppRacingGameFixtureQuestionTimerMe from '../src/template/app-racing/game/test/fixtures/question-timer-me';
 import TemplateAppRacingGameFixtureRaceAllInMiddle from '../src/template/app-racing/game/test/fixtures/race-all-in-middle';
-import TemplateAppRacingGameFixtureReadyToAnswerAllInMiddle from '../src/template/app-racing/game/test/fixtures/ready-to-answer-all-in-middle';
+import TemplateAppRacingGameFixtureRaceHighlightBadAnswer from '../src/template/app-racing/game/test/fixtures/race-highlight-bad-answer';
+import TemplateAppRacingGameFixtureRaceHighlightBadFirstAnswer from '../src/template/app-racing/game/test/fixtures/race-highlight-bad-first-answer';
+import TemplateAppRacingGameFixtureRaceHighlightGoodAnswer from '../src/template/app-racing/game/test/fixtures/race-highlight-good-answer';
+import TemplateAppRacingGameFixtureRaceLostAndNew from '../src/template/app-racing/game/test/fixtures/race-lost-and-new';
+import TemplateAppRacingGameFixtureReadyForQuestion from '../src/template/app-racing/game/test/fixtures/ready-for-question';
 import TemplateAppRacingGameFixtureReadyToAnswerSpread from '../src/template/app-racing/game/test/fixtures/ready-to-answer-spread';
+import TemplateAppRacingGameFixtureStart from '../src/template/app-racing/game/test/fixtures/start';
 import TemplateAppRacingGameFixtureWaitingAnswer from '../src/template/app-racing/game/test/fixtures/waiting-answer';
+import TemplateAppRacingGameFixtureWaitingForAllInMiddle from '../src/template/app-racing/game/test/fixtures/waiting-for-all-in-middle';
 import TemplateBackOfficeBrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import TemplateBackOfficeBrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import TemplateBackOfficeBrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -718,8 +729,13 @@ import TemplateCommonDisciplineFixtureWithOnclick from '../src/template/common/d
 import TemplateCommonSearchPageFixtureDefault from '../src/template/common/search-page/test/fixtures/default';
 import TemplateCommonSearchPageFixtureNoResultWithRecommendations from '../src/template/common/search-page/test/fixtures/no-result-with-recommendations';
 import TemplateCommonSearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
+import TemplateTeamBuilderAvatarFixtureDefault from '../src/template/team-builder/avatar/test/fixtures/default';
+import TemplateTeamBuilderMotionnedTeamFixtureDefault from '../src/template/team-builder/motionned-team/test/fixtures/default';
+import TemplateTeamBuilderMotionnedTeamFixtureEmptyProps from '../src/template/team-builder/motionned-team/test/fixtures/empty-props';
+import TemplateTeamBuilderTeamAvatarFixtureDefault from '../src/template/team-builder/teamAvatar/test/fixtures/default';
 import TemplateTeamBuilderFixtureDefault from '../src/template/team-builder/test/fixtures/default';
 import TemplateTeamBuilderFixtureReadyToStart from '../src/template/team-builder/test/fixtures/ready-to-start';
+import TemplateTeamBuilderFixtureTeamSelected from '../src/template/team-builder/test/fixtures/team-selected';
 import TemplateTeamBuilderFixtureWaitForOthers from '../src/template/team-builder/test/fixtures/wait-for-others';
 
 export const components = {
@@ -889,7 +905,8 @@ export const components = {
   },
   TemplateAppRacingGame: {
     TemplateAppRacingGameRace,
-    TemplateAppRacingGameStatus
+    TemplateAppRacingGameStatus,
+    TemplateAppRacingGameTimer
   },
   TemplateBackOffice: {
     TemplateBackOfficeBrandCreate,
@@ -906,6 +923,11 @@ export const components = {
     TemplateCommonDashboard,
     TemplateCommonDiscipline,
     TemplateCommonSearchPage
+  },
+  TemplateTeamBuilder: {
+    TemplateTeamBuilderAvatar,
+    TemplateTeamBuilderMotionnedTeam,
+    TemplateTeamBuilderTeamAvatar
   }
 };
 
@@ -1592,6 +1614,7 @@ export const fixtures = {
     TemplateTeamBuilder: {
       Default: TemplateTeamBuilderFixtureDefault,
       ReadyToStart: TemplateTeamBuilderFixtureReadyToStart,
+      TeamSelected: TemplateTeamBuilderFixtureTeamSelected,
       WaitForOthers: TemplateTeamBuilderFixtureWaitForOthers
     }
   },
@@ -1716,14 +1739,20 @@ export const fixtures = {
       Default: TemplateAppRacingAdminFixtureDefault
     },
     TemplateAppRacingGame: {
+      GameOverWinners: TemplateAppRacingGameFixtureGameOverWinners,
       GameOver: TemplateAppRacingGameFixtureGameOver,
       NoTower: TemplateAppRacingGameFixtureNoTower,
       QuestionAllInMiddle: TemplateAppRacingGameFixtureQuestionAllInMiddle,
-      QuestionTimerMe: TemplateAppRacingGameFixtureQuestionTimerMe,
       RaceAllInMiddle: TemplateAppRacingGameFixtureRaceAllInMiddle,
-      ReadyToAnswerAllInMiddle: TemplateAppRacingGameFixtureReadyToAnswerAllInMiddle,
+      RaceHighlightBadAnswer: TemplateAppRacingGameFixtureRaceHighlightBadAnswer,
+      RaceHighlightBadFirstAnswer: TemplateAppRacingGameFixtureRaceHighlightBadFirstAnswer,
+      RaceHighlightGoodAnswer: TemplateAppRacingGameFixtureRaceHighlightGoodAnswer,
+      RaceLostAndNew: TemplateAppRacingGameFixtureRaceLostAndNew,
+      ReadyForQuestion: TemplateAppRacingGameFixtureReadyForQuestion,
       ReadyToAnswerSpread: TemplateAppRacingGameFixtureReadyToAnswerSpread,
-      WaitingAnswer: TemplateAppRacingGameFixtureWaitingAnswer
+      Start: TemplateAppRacingGameFixtureStart,
+      WaitingAnswer: TemplateAppRacingGameFixtureWaitingAnswer,
+      WaitingForAllInMiddle: TemplateAppRacingGameFixtureWaitingForAllInMiddle
     }
   },
   TemplateAppRacingGame: {
@@ -1737,6 +1766,9 @@ export const fixtures = {
       ReadyToAnswerAllInMiddle: TemplateAppRacingGameStatusFixtureReadyToAnswerAllInMiddle,
       ReadyToAnswerSpread: TemplateAppRacingGameStatusFixtureReadyToAnswerSpread,
       WaitingAnswer: TemplateAppRacingGameStatusFixtureWaitingAnswer
+    },
+    TemplateAppRacingGameTimer: {
+      Default: TemplateAppRacingGameTimerFixtureDefault
     }
   },
   TemplateBackOffice: {
@@ -1813,6 +1845,18 @@ export const fixtures = {
       Default: TemplateCommonSearchPageFixtureDefault,
       NoResultWithRecommendations: TemplateCommonSearchPageFixtureNoResultWithRecommendations,
       NoResult: TemplateCommonSearchPageFixtureNoResult
+    }
+  },
+  TemplateTeamBuilder: {
+    TemplateTeamBuilderAvatar: {
+      Default: TemplateTeamBuilderAvatarFixtureDefault
+    },
+    TemplateTeamBuilderMotionnedTeam: {
+      Default: TemplateTeamBuilderMotionnedTeamFixtureDefault,
+      EmptyProps: TemplateTeamBuilderMotionnedTeamFixtureEmptyProps
+    },
+    TemplateTeamBuilderTeamAvatar: {
+      Default: TemplateTeamBuilderTeamAvatarFixtureDefault
     }
   }
 };

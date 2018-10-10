@@ -1,20 +1,44 @@
 import set from 'lodash/fp/set';
-import {TIMER_LAST_ON, TIMER_LAST_OFF} from '../../middlewares/polling-saga';
-import {TIMER_ME_ON, TIMER_ME_OFF} from '../../actions/ui/answers';
+import {TIMER_START_ON, TIMER_START_OFF} from '../../actions/ui/route';
 
-const uiTimerReducer = (state = {me: false, last: false}, action) => {
+import {
+  TIMER_HIGHLIGHT_ON,
+  TIMER_HIGHLIGHT_OFF,
+  TIMER_NEXT_QUESTION_ON,
+  TIMER_NEXT_QUESTION_OFF
+} from '../../actions/ui/answers';
+
+import {
+  PROGRESSION_CREATE_ANSWER_REQUEST,
+  PROGRESSION_CREATE_ANSWER_SUCCESS
+} from '../../actions/api/progressions';
+
+const uiTimerReducer = (state = {highlight: false, nextQuestion: 0}, action) => {
   switch (action.type) {
-    case TIMER_ME_ON: {
-      return set('me', true, state);
+    case TIMER_HIGHLIGHT_ON: {
+      return set('highlight', true, state);
     }
-    case TIMER_ME_OFF: {
-      return set('me', false, state);
+    case TIMER_HIGHLIGHT_OFF: {
+      return set('highlight', false, state);
     }
-    case TIMER_LAST_ON: {
-      return set('last', true, state);
+    case TIMER_NEXT_QUESTION_ON: {
+      const {time} = action.meta;
+      return set('nextQuestion', time, state);
     }
-    case TIMER_LAST_OFF: {
-      return set('last', false, state);
+    case TIMER_NEXT_QUESTION_OFF: {
+      return set('nextQuestion', 0, state);
+    }
+    case PROGRESSION_CREATE_ANSWER_REQUEST: {
+      return set('waitingCorrection', true, state);
+    }
+    case PROGRESSION_CREATE_ANSWER_SUCCESS: {
+      return set('waitingCorrection', false, state);
+    }
+    case TIMER_START_ON: {
+      return set('startAnimation', true, state);
+    }
+    case TIMER_START_OFF: {
+      return set('startAnimation', false, state);
     }
     default:
       return state;

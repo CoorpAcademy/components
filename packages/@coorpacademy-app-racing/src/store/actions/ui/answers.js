@@ -1,12 +1,38 @@
+import get from 'lodash/fp/get';
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
+import {
+  getCurrentUserState,
+  getStepContent,
+  isLastAnswerCorrect,
+  isGameOver
+} from '../../utils/state-extract';
+import {fetchContent} from '../api/contents';
 import {createAnswer} from '../api/progressions';
+import {stopPolling} from '../../middlewares/polling-saga';
+import {syncProgression} from './progressions';
+import {seeQuestion} from './location';
 import {selectRoute} from './route';
 
-export const TIMER_ME_ON = '@@timer/me/on';
-export const TIMER_ME_OFF = '@@timer/me/off';
+export const TIMER_NEXT_QUESTION_ON = '@@timer/next-question/on';
+export const TIMER_NEXT_QUESTION_OFF = '@@timer/next-question/off';
 
-const TRANSITION_TIME_FOR_MY_ANSWER = 2500;
+export const TIMER_HIGHLIGHT_ON = '@@timer/highlight/on';
+export const TIMER_HIGHLIGHT_OFF = '@@timer/highlight/off';
+
+const TIMER_TEAMMATE_HIGHLIGHT_ON = '@@timer/teammate-highlight/on';
+const TIMER_TEAMMATE_HIGHLIGHT_OFF = '@@timer/teammate-highlight/off';
+
+export const TIMER_DISPLAY_BAD_ON = '@@timer/bad-on';
+export const TIMER_DISPLAY_BAD_OFF = '@@timer/bad-off';
+
+export const TIMER_DISPLAY_DROP_ON = '@@timer/drop-on';
+export const TIMER_DISPLAY_DROP_OFF = '@@timer/drop-off';
+
+const TIMING_NEXT_QUESTION = 3000;
+const TIMING_BEFORE_DROP = 1500;
+const TIMING_DROP = 700;
+const TIMING_HIGHLIGHT = TIMING_BEFORE_DROP + TIMING_DROP;
 
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
@@ -53,15 +79,102 @@ export const editAnswer = (state, questionType, progressionId, newValue) => {
   };
 };
 
+export const startNextQuestionTimer = (addHighlightTime = false) => async (
+  dispatch,
+  getState,
+  {services}
+) => {
+  if (addHighlightTime) {
+    await dispatch({
+      type: TIMER_TEAMMATE_HIGHLIGHT_ON,
+      meta: {time: TIMING_HIGHLIGHT}
+    });
+
+    await new Promise(function(resolve) {
+      setTimeout(async () => {
+        await dispatch({type: TIMER_TEAMMATE_HIGHLIGHT_OFF});
+        resolve(true);
+      }, TIMING_HIGHLIGHT);
+    });
+  }
+
+  await dispatch({
+    type: TIMER_NEXT_QUESTION_ON,
+    meta: {time: TIMING_NEXT_QUESTION}
+  });
+
+  return new Promise(async function(resolve) {
+    setTimeout(async () => {
+      await dispatch({type: TIMER_NEXT_QUESTION_OFF});
+      const gameOver = isGameOver(getState());
+      if (!gameOver) {
+        await dispatch(seeQuestion);
+      }
+      resolve(true);
+    }, TIMING_NEXT_QUESTION);
+
+    const {ref: slideRef} = getStepContent(getState());
+    await dispatch(fetchContent('slide', slideRef));
+  });
+};
+
 export const validateAnswer = (progressionId, body) => async (dispatch, getState, {services}) => {
+  await dispatch(stopPolling(progressionId));
   await dispatch(selectRoute('race'));
-  await dispatch({type: TIMER_ME_ON});
+  await dispatch(createAnswer(progressionId, body.answer));
+
+  const stateAfterCorrection = getState();
+  const userState = getCurrentUserState(stateAfterCorrection);
+  const team = get('team', userState);
+  const isCorrect = isLastAnswerCorrect(stateAfterCorrection);
+
+  await dispatch({
+    type: TIMER_HIGHLIGHT_ON,
+    meta: {
+      progressionId,
+      team,
+      isCorrect
+    }
+  });
+
+  const highlightTime = isCorrect ? TIMING_HIGHLIGHT : 0;
+
+  if (!isCorrect) {
+    await dispatch({type: TIMER_DISPLAY_BAD_ON});
+    await new Promise(function(resolve) {
+      setTimeout(async () => {
+        await dispatch({
+          type: TIMER_DISPLAY_BAD_OFF,
+          meta: {progressionId, team}
+        });
+        resolve(true);
+      }, TIMING_BEFORE_DROP);
+    });
+
+    await dispatch({type: TIMER_DISPLAY_DROP_ON});
+    await new Promise(function(resolve) {
+      setTimeout(async () => {
+        await dispatch({
+          type: TIMER_DISPLAY_DROP_OFF,
+          meta: {progressionId, team}
+        });
+        resolve(true);
+      }, TIMING_DROP);
+    });
+  }
 
   return new Promise(function(resolve) {
     setTimeout(async () => {
-      await dispatch({type: TIMER_ME_OFF});
-      await dispatch(createAnswer(progressionId, body.answer));
+      await dispatch({
+        type: TIMER_HIGHLIGHT_OFF,
+        meta: {
+          progressionId,
+          team
+        }
+      });
+
+      await dispatch(syncProgression(progressionId));
       resolve(true);
-    }, TRANSITION_TIME_FOR_MY_ANSWER);
+    }, highlightTime);
   });
 };

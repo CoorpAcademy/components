@@ -5,6 +5,7 @@ import find from 'lodash/fp/find';
 import keys from 'lodash/fp/keys';
 import findIndex from 'lodash/fp/findIndex';
 import map from 'lodash/fp/map';
+import range from 'lodash/fp/range';
 import reduce from 'lodash/fp/reduce';
 
 import type {
@@ -18,12 +19,15 @@ import type {
 } from '../types';
 import {computeInitialStep} from '.';
 
-const createTeams = (teams: Teams): RacingTeams => {
+const createTeams = (teams: Teams, starter: number): RacingTeams => {
   return _reduce(
     teams,
     (acc, team, index): RacingTeams => {
       return {
-        [index]: {players: map(user => user.id, team), tower: []},
+        [index]: {
+          players: map(user => user.id, team),
+          tower: map(() => 'placed', range(0, starter))
+        },
         ...acc
       };
     },
@@ -75,8 +79,9 @@ export default function computeRacingSetup(
   availableContent: AvailableContent,
   teamsList: Teams
 ): RacingSetupAction {
+  const starter = config.starter || 0;
   const users = createUsers(config, availableContent, teamsList);
-  const teams = createTeams(teamsList);
+  const teams = createTeams(teamsList, starter);
 
   return {
     type: 'racing-setup',

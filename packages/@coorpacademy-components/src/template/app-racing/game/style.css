@@ -1,32 +1,120 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
+@value colors: "../../../variables/colors.css";
+@value positive from colors;
+@value negative from colors;
+
 .game {
   width: 100%;
   min-height: 100%;
   display: flex;
   flex-direction: column;
   flex-grow: inherit;
-  background-color: transparent;
   justify-content: space-around;
+  background-image: url("https://user-images.githubusercontent.com/910636/46425210-5fdb3700-c73b-11e8-96d5-e685f3037191.jpg");
   background-size: cover;
 }
 
 .topScreen {
-  background-image: url('https://user-images.githubusercontent.com/1039076/37212425-643044ba-23af-11e8-9c0f-37488f7c5f84.png');
-  background-size: cover;
   position: relative;
   flex-grow: 1;
   overflow: hidden;
 }
 
-.movingView {
+.view {
   position: absolute;
   display: flex;
+  width: 100%;
   height: 100%;
-  width: 200%;
 }
 
-.movingViewPart {
-  height: 100%;
-  width: 100%;
-  flex-grow: 1;
+.slide {
+  composes: view;
+  overflow-y: scroll;
+}
+
+.slideWrapper {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.towers {
+  composes: view;
+}
+
+/*-------------------------------------------------*/
+
+.answerPopin {
+  width: 400px;
+  position: absolute;
+  left: 50%;
+  border-radius: 15px;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.answerPopin > span {
+  font-family: 'Open Sans';
+  margin: 10px auto;
+}
+
+.win {
+  color: positive;
+  font-size: 95px;
+  font-weight: 700;
+}
+
+.lose {
+  color: negative;
+  font-size: 85px;
+  font-weight: 500;
+}
+
+/*-------------------------------------------------*/
+
+.message {
+  position: absolute;
+  font-family: "Open Sans";
+  font-size: 35px;
+  font-weight: 500;
+  color: #0e3a3d;
+  top: 25%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/*-------------------------------------------------*/
+
+.timer {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 30%;
+  left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.timer > h1 {
+  font-family: "Open Sans";
+  font-size: 65px;
+  font-weight: 300;
+  color: #0e3a3d;
+  margin: 0;
+}
+
+/*-------------------------------------------------*/
+
+@media mobile {
+  .slideWrapper {
+    display: block;
+    margin: auto 0;
+  }
 }

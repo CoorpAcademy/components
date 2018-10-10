@@ -14,7 +14,8 @@ const configurations: Array<RacingConfig> = [
     starsPerCorrectAnswer: 0,
     starsPerResourceViewed: 0,
     remainingLifeRequests: 0,
-    goal: 25
+    goal: 25,
+    starter: 5
   }
 ];
 

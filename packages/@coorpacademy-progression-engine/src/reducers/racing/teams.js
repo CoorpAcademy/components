@@ -30,9 +30,8 @@ export default function _teams(config: Config): (RacingTeams, Action, State) => 
           newTower.push('placed');
         } else {
           const index = findIndex(isEqual('placed'), currentTower);
-          if (index !== -1) {
-            newTower.splice(index, 1, 'removed');
-          }
+          const position = index === -1 ? 0 : index;
+          newTower.splice(position, 1, 'removed');
         }
 
         return set([teamToUpdate, 'tower'], newTower, teams);

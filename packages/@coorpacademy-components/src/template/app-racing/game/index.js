@@ -1,69 +1,54 @@
-import React, {Component} from 'react';
+import get from 'lodash/fp/get';
+import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {Motion, spring} from 'react-motion';
-import defer from 'lodash/fp/defer';
 import SlidesPlayer from '../../app-player/player/slides/slides-player';
 import Cta from '../../../atom/cta';
+import animation from '../../../atom/css-animations/fade-out.css';
+import TeamList from '../../team-builder/motionned-team';
 import GameStatus from './status';
 import Team from './status/team';
 import Race from './race';
+import Timer from './timer';
 import style from './style.css';
-import messagesStyle from './messages.css';
-
-const Messages = ({info}) => {
-  if (!info) return null;
-
-  const message = info.title && <p className={messagesStyle.message}>{info.title}</p>;
-  const gameOver = info.gameOver && <p className={messagesStyle.gameOver}>Game Over!</p>;
-
-  return (
-    <div>
-      {message}
-      {gameOver}
-    </div>
-  );
-};
 
 const TopScreen = props => {
   const position = props.view === 'race' ? -100 : 0;
   const options = {stiffness: 120, damping: 22};
   const slide = props.slide !== null && (
-    <SlidesPlayer questionBackgroundColor="transparent" {...props.slide} />
+    <div className={style.slideWrapper}>
+      <SlidesPlayer questionBackgroundColor="#ffffffbb" {...props.slide} />
+    </div>
   );
 
   return (
     <Motion
       defaultStyle={{
-        x: 0,
-        blurValue: 0,
-        grayValue: 0
+        y: -100
       }}
       style={{
-        x: spring(position, options),
-        blurValue: spring(100, options),
-        grayValue: spring(100, options)
+        y: spring(position, options)
       }}
     >
-      {({x, blurValue, grayValue}) => {
+      {({y, blurValue, grayValue}) => {
         return (
-          <div
-            className={style.topScreen}
-            style={{
-              filter: props.blur
-                ? `blur(${3 * blurValue / 100}px) grayscale(${grayValue / 100})`
-                : null
-            }}
-          >
+          <div className={style.topScreen}>
+            <div className={style.towers}>
+              <Race
+                towers={props.towers}
+                goal={props.goal}
+                blurType={props.blurType}
+                myTeam={props.team}
+              />
+            </div>
             <div
-              className={style.movingView}
+              className={style.slide}
               style={{
-                left: `${x}%`
+                top: `${y}%`
               }}
             >
-              <div className={style.movingViewPart}>{slide}</div>
-              <div className={style.movingViewPart}>
-                <Race {...props} />
-              </div>
+              {slide}
             </div>
           </div>
         );
@@ -71,65 +56,61 @@ const TopScreen = props => {
     </Motion>
   );
 };
-class Game extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {height: 0};
-    this.initWrapper = this.initWrapper.bind(this);
-  }
 
-  componentDidMount() {
-    this.deferOpen();
-  }
+const Game = props => {
+  const {start = false, team, goal, towers, cta, info = {}, victors = [], getReadyTime = 0} = props;
 
-  deferOpen() {
-    clearTimeout(this.deferedOpen);
+  // eslint-disable-next-line no-nested-ternary
+  const popin = victors && (
+    <div className={style.answerPopin}>
+      <span className={victors.isVictory ? style.win : style.lose}>{victors.message}</span>
+      <TeamList {...victors} />
+    </div>
+  );
 
-    this.deferedOpen = defer(() => {
-      const height = this.element.clientHeight;
-      this.setState({height});
-    });
-  }
+  const message = get('message', info) && (
+    <div className={classnames(style.message, animation.fadeOut)}>
+      <span>{get('message', info)}</span>
+    </div>
+  );
 
-  initWrapper(element) {
-    this.element = element;
-  }
-
-  render() {
-    const {team, goal, towers, cta, view, info} = this.props;
-
-    return (
-      <div className={style.game} ref={this.initWrapper}>
-        <TopScreen {...this.props} />
-        <GameStatus
-          gray={this.props.blur}
-          team={team}
-          goal={goal}
-          towers={towers}
-          cta={cta}
-          hideTeams={view === 'race'}
-          popUpMaxHeight={this.state.height}
-        />
-        <Messages info={info} />
-      </div>
-    );
-  }
-}
+  return (
+    <div className={style.game}>
+      <TopScreen {...props} />
+      <GameStatus team={team} goal={goal} towers={towers} cta={cta} start={start} />
+      {popin}
+      {message}
+      {(start || getReadyTime > 0) && (
+        <Timer className={style.timer} start={3} delay={1000} text={start ? 'Start!' : null} />
+      )}
+    </div>
+  );
+};
 
 Game.propTypes = {
   view: PropTypes.oneOf(['question', 'race']),
-  blur: PropTypes.bool,
+  getReadyTime: PropTypes.number,
+  start: PropTypes.bool,
+  blurType: PropTypes.oneOf(['all', 'all-but-mine']),
+  grayBottom: PropTypes.bool,
   slide: PropTypes.shape(SlidesPlayer.propTypes),
   towers: PropTypes.arrayOf(
-    PropTypes.arrayOf(PropTypes.oneOf(['placed', 'removed', 'new', 'lost']))
+    PropTypes.arrayOf(PropTypes.oneOf(['placed', 'removed', 'new', 'lost', 'bad', 'good', 'drop']))
+  ),
+  victors: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      avatar: PropTypes.string,
+      isMe: PropTypes.bool,
+      team: PropTypes.number
+    })
   ),
   cta: PropTypes.shape(Cta.propTypes),
   goal: PropTypes.number,
   team: PropTypes.shape(Team.propTypes),
   info: PropTypes.shape({
-    title: PropTypes.string,
     success: PropTypes.bool,
-    gameOver: PropTypes.bool
+    message: PropTypes.string
   })
 };
 

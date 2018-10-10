@@ -1,4 +1,5 @@
 import get from 'lodash/fp/get';
+import findIndex from 'lodash/fp/findIndex';
 import {getConfigForProgression} from '@coorpacademy/progression-engine';
 import {
   currentTeam,
@@ -9,28 +10,26 @@ import {
   getCurrentProgressionId,
   getCurrentSlide,
   getQuestionMedia,
+  getRoute,
   isLastAnswerCorrect,
   isSpectator,
-  showGameOver,
-  showRace,
-  isTimerOn
+  isTimerOn,
+  isGameOver,
+  getVictorMembers
 } from '../../utils/state-extract';
-import {selectProgression} from '../../actions/ui/progressions';
 import {validateAnswer} from '../../actions/ui/answers';
 import {createGetAnswerProps} from './answer';
 
-const createCTAHandler = (dispatch, state) => async () => {
+const createCTAHandler = (dispatch, state) => () => {
   const slide = getCurrentSlide(state);
   const progressionId = getCurrentProgressionId(state);
 
-  await dispatch(
+  return dispatch(
     validateAnswer(progressionId, {
       answer: getAnswerValues(slide, state),
       slideId: slide._id
     })
   );
-
-  return dispatch(selectProgression(progressionId));
 };
 
 const getSlideProps = (options, store, state) => {
@@ -40,7 +39,16 @@ const getSlideProps = (options, store, state) => {
   const answer = createGetAnswerProps(options, store)(state, slide);
   const mediaQuestion = getQuestionMedia(state);
 
-  if (isTimerOn('me')(state)) {
+  const gameOver = isGameOver(state);
+  if (gameOver) {
+    return null;
+  }
+
+  if (isTimerOn('startAnimation')(state)) {
+    return null;
+  }
+
+  if (isTimerOn('waitingCorrection')(state)) {
     return null;
   }
 
@@ -71,13 +79,32 @@ const gameProps = (options, store) => state => {
   const config = getConfigForProgression(progression);
   const members = currentTeam(state);
 
-  const gameOver = showGameOver(state);
-  const spectate = isSpectator(state);
+  const slide = getSlideProps(options, store, state);
+  const userState = getCurrentUserState(state);
+  const teamNum = get('team', userState);
+
+  const victorMembers = getVictorMembers(state);
+  const gameOver = !!victorMembers;
+  const isVictory = findIndex({id: userState.id}, victorMembers) !== -1;
+  const victors = victorMembers
+    ? {
+        isVictory,
+        message: isVictory ? 'You win' : 'You lose',
+        name: 'Winners',
+        members: victorMembers,
+        number: get('0.team', victorMembers)
+      }
+    : null;
+
+  // const spectate = isSpectator(state);
 
   const success = gameOver ? null : isLastAnswerCorrect(state);
-  const view = showRace(state) ? 'race' : 'question';
-  const title =
-    isTimerOn('me')(state) || view === 'question' || gameOver || success === undefined
+  const view = gameOver || isSpectator(state) ? 'race' : getRoute(state);
+  const message =
+    isTimerOn('waitingCorrection')(state) ||
+    view === 'question' ||
+    gameOver ||
+    success === undefined
       ? null
       : `${success ? 'Good' : 'Bad'} answer`;
 
@@ -87,25 +114,24 @@ const gameProps = (options, store) => state => {
   //   gameOver ||
   //   !allTeammatesHaveAnswered(state) ||
   //   isTimerOn('me')(state) ||
-  //   isTimerOn('last')(state);
-
-  const slide = getSlideProps(options, store, state);
-
-  const userState = getCurrentUserState(state);
-  const teamNum = get('team', userState);
+  //   isTimerOn('nextQuestion')(state);
 
   return {
     view,
-    blur: isTimerOn('me')(state),
+    start: isTimerOn('startAnimation')(state),
+    getReadyTime: isTimerOn('nextQuestion')(state),
+    // blurType: view === 'question' ? 'all' : isTimerOn('highlight')(state) ? 'all-but-mine' : null, // eslint-disable-line no-nested-ternary
+    blurType: isTimerOn('highlight')(state) ? 'all-but-mine' : null,
     info: {
-      title: spectate ? 'Spectating' : title,
-      gameOver
+      success,
+      message
     },
     slide,
     team: {
       members,
       num: teamNum
     },
+    victors,
     goal: config.goal,
     towers: getCurrentRace(state),
     cta: null

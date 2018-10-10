@@ -41,7 +41,9 @@ export const PROGRESSION_CREATE_ANSWER_FAILURE = '@@progression/CREATE_ANSWER_FA
 export const createAnswer = (progressionId, answer) => (dispatch, getState, {services}) => {
   const {Progressions} = services;
   const state = getState();
-  const nextContent = getCurrentUserState(state).nextContent;
+  const user = getCurrentUserState(state);
+  const nextContent = user.nextContent;
+  const team = user.team;
   const author = getCurrentUserId(state);
 
   const action = buildTask({
@@ -55,7 +57,7 @@ export const createAnswer = (progressionId, answer) => (dispatch, getState, {ser
         content: nextContent,
         answer
       }),
-    meta: {progressionId, author}
+    meta: {progressionId, author, team}
   });
 
   return dispatch(action);

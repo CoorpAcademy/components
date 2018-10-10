@@ -8,9 +8,33 @@ export default {
     towers: fiveTowers,
     goal: 8,
     info: {
-      title: 'Bonne réponse !',
-      success: true,
-      gameOver: true
+      success: true
+    },
+    victors: {
+      isVictory: false,
+      message: 'You lose',
+      name: 'Winners',
+      number: 2,
+      members: [
+        {
+          id: 'user_2',
+          name: 'Katrine',
+          avatar: 'https://api.adorable.io/avatars/150/Katrine.png',
+          team: 4
+        },
+        {
+          id: 'user_3',
+          name: 'Joe',
+          avatar: 'https://api.adorable.io/avatars/150/Joe.png',
+          team: 4
+        },
+        {
+          id: 'user_4',
+          name: 'Kim',
+          avatar: 'https://api.adorable.io/avatars/150/Katrine.png',
+          team: 4
+        }
+      ]
     }
   }
 };

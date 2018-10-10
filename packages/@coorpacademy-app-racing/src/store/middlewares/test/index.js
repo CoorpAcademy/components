@@ -1,6 +1,6 @@
 import test from 'ava';
 import {createStore} from 'redux';
-import createMiddleware from '../index';
+import createMiddleware from '..';
 
 const appOptions = {
   services: {

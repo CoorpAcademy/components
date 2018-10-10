@@ -292,7 +292,8 @@ export type Slide = {
 };
 
 export type RacingConfig = Config & {
-  goal: number
+  goal: number,
+  starter: number
 };
 
 export type GenericConfig = Config | RacingConfig;

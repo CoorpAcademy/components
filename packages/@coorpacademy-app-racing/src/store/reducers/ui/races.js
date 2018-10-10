@@ -1,5 +1,6 @@
 import concat from 'lodash/fp/concat';
 import get from 'lodash/fp/get';
+import lastIndexOf from 'lodash/fp/lastIndexOf';
 import map from 'lodash/fp/map';
 import set from 'lodash/fp/set';
 import update from 'lodash/fp/update';
@@ -10,11 +11,17 @@ import {
   PROGRESSION_FETCH_REQUEST
 } from '../../actions/api/progressions';
 
+import {
+  TIMER_HIGHLIGHT_ON,
+  TIMER_DISPLAY_DROP_OFF,
+  TIMER_DISPLAY_BAD_OFF
+} from '../../actions/ui/answers';
+
 import {UI_SEE_QUESTION} from '../../actions/ui/location';
 import {POLL_RECEPTION} from '../../middlewares/polling-saga';
 
 const dynamiseTower = (previousTower, newTower) =>
-  map.convert({cap: 0})((block, index) => {
+  map.convert({cap: false})((block, index) => {
     const previousBlock = previousTower[index];
 
     if (block === 'removed' && previousBlock !== 'removed') {
@@ -29,7 +36,7 @@ const dynamiseTower = (previousTower, newTower) =>
   }, newTower);
 
 const dynamiseTowers = (previousTowers, newTowers) =>
-  map.convert({cap: 0})((tower, index) => {
+  map.convert({cap: false})((tower, index) => {
     return dynamiseTower(previousTowers[index], tower);
   }, newTowers);
 
@@ -39,13 +46,18 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
       const {meta, payload: progression} = action;
       const {id} = meta;
 
-      const currentDisplay = get(['entities', id], state);
-      if (currentDisplay) {
-        return state;
+      let lastDisplay = concat([], get(['entities', id], state));
+      if (lastDisplay.length === 0) {
+        const emptyTowers = map(team => [], progression.state.teams);
+        lastDisplay = emptyTowers;
       }
 
-      const towers = map(team => team.tower, progression.state.teams);
-      return set(['entities', id], towers, state);
+      const newDisplay = dynamiseTowers(
+        lastDisplay,
+        map(team => team.tower, progression.state.teams)
+      );
+
+      return set(['entities', id], newDisplay, state);
     }
 
     case POLL_RECEPTION: {
@@ -66,20 +78,72 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
     case PROGRESSION_FETCH_REQUEST: {
       const {meta} = action;
       const {id} = meta;
-      return update(['entities', id], race => race || null, state);
+
+      const refreshedTower = map(block => {
+        if (block === 'drop') {
+          return 'placed';
+        } else {
+          return block;
+        }
+      });
+
+      return update(['entities', id], refreshedTower, state);
     }
 
     case PROGRESSION_CREATE_ANSWER_SUCCESS: {
       const {payload: progression, meta} = action;
-      const {progressionId} = meta;
+      const {progressionId, team} = meta;
+      const latestTower = progression.state.teams[team].tower;
+      return set(['entities', progressionId, team], latestTower, state);
+    }
 
-      const lastDisplay = concat([], get(['entities', progressionId], state));
-      const newDisplay = dynamiseTowers(
-        lastDisplay,
-        map(team => team.tower, progression.state.teams)
-      );
+    case TIMER_DISPLAY_DROP_OFF: {
+      const {meta} = action;
+      const {progressionId, team} = meta;
 
-      return set(['entities', progressionId], newDisplay, state);
+      const refreshedTower = map(block => {
+        if (block === 'drop') {
+          return 'placed';
+        } else {
+          return block;
+        }
+      });
+
+      return update(['entities', progressionId, team], refreshedTower, state);
+    }
+
+    case TIMER_HIGHLIGHT_ON: {
+      const {meta} = action;
+      const {progressionId, isCorrect, team} = meta;
+      const tower = get(['entities', progressionId, team], state);
+      const newTower = [...tower];
+
+      if (isCorrect) {
+        newTower.splice(lastIndexOf('placed', newTower), 1, 'good');
+      } else {
+        newTower.splice(lastIndexOf('removed', newTower), 1, 'bad');
+      }
+
+      return set(['entities', progressionId, team], newTower, state);
+    }
+
+    case TIMER_DISPLAY_BAD_OFF: {
+      const {meta} = action;
+      const {progressionId, team} = meta;
+
+      const refreshedTower = map(block => {
+        if (block === 'bad') {
+          return 'removed';
+        } else if (block === 'good') {
+          return 'placed';
+        } else if (block === 'placed') {
+          return 'drop';
+        } else {
+          return block;
+        }
+      });
+
+      return update(['entities', progressionId, team], refreshedTower, state);
     }
 
     case UI_SEE_QUESTION: {
@@ -90,7 +154,7 @@ const uiRacesReducer = (state = {entities: {}}, action) => {
         map(block => {
           if (block === 'lost') {
             return 'removed';
-          } else if (block === 'new') {
+          } else if (block === 'new' || block === 'good' || block === 'drop') {
             return 'placed';
           } else {
             return block;

@@ -4,13 +4,12 @@ import fiveTowers from '../../common-fixtures/five-towers';
 export default {
   props: {
     view: 'race',
+    getReadyTime: 3000,
     team: spreadTeam,
     towers: fiveTowers,
     goal: 8,
     info: {
-      title: 'Bonne réponse !',
-      success: true,
-      gameOver: false
+      success: true
     },
     cta: null
   }

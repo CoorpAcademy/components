@@ -1,19 +1,15 @@
 import allInMiddleTeam from '../../common-fixtures/all-in-middle-team';
-import fiveTowers from '../../common-fixtures/five-towers';
+import towers from '../../common-fixtures/lost-and-new-towers';
 
 export default {
   props: {
     view: 'race',
     team: allInMiddleTeam,
-    towers: fiveTowers,
+    towers,
     goal: 8,
     info: {
-      title: 'Bonne réponse !',
       success: true,
-      gameOver: false
-    },
-    cta: {
-      submitValue: 'Question suivante'
+      message: 'Good answer'
     }
   }
 };

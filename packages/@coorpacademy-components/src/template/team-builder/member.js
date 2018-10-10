@@ -2,17 +2,18 @@ import React from 'react';
 import style from './member.css';
 
 const Member = props => {
-  const {avatar, name} = props;
+  const {name, isMe} = props;
 
   return (
     <div className={style.member}>
-      <h1>{name}</h1>
-      <div
-        className={style.avatar}
+      <div className={style.avatar} />
+      <h1
         style={{
-          backgroundImage: `url(${avatar})`
+          fontWeight: isMe ? '800' : '200'
         }}
-      />
+      >
+        {name}
+      </h1>
     </div>
   );
 };

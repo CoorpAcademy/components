@@ -9,6 +9,7 @@ import {
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import map from 'lodash/fp/map';
+import pull from 'lodash/fp/pull';
 import toPairs from 'lodash/fp/toPairs';
 import groupBy from 'lodash/fp/groupBy';
 import uniqueId from 'lodash/fp/uniqueId';
@@ -150,41 +151,53 @@ export const create = async progression => {
 
 // ------------------------------------------------------------------------------
 
+const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+
 const delay = (t, v) => {
   return new Promise(function(resolve) {
     setTimeout(resolve.bind(null, v), t);
   });
 };
 
-const robotAnswer = async progressionId => {
-  await delay(8000);
+const robotAnswer = (userId, team, answer, isCorrect) => async progressionId => {
+  await delay(5000);
   const teamIndex = 0;
-  const isCorrect = true;
 
   const progression = progressionStore.get(progressionId);
-  const user1QuestionNum = progression.state.users.user_1.questionNum;
-  const user2QuestionNum = progression.state.users.user_2.questionNum;
+  const [teammateId] = pull(userId, progression.state.teams[team].players);
+  const user1QuestionNum = progression.state.users[teammateId].questionNum;
+  const user2QuestionNum = progression.state.users[userId].questionNum;
 
   if (user1QuestionNum < user2QuestionNum) {
-    return robotAnswer(progressionId);
+    return robotAnswer(userId, team, answer, isCorrect)(progressionId);
   }
 
-  const content = progression.state.users.user_2.nextContent;
-  const nextProgression = await postAnswer(progressionId, {content}, 'user_2', true);
+  const content = progression.state.users[userId].nextContent;
+  const nextProgression = await postAnswer(progressionId, {content, answer}, userId, true);
 
   messageBus.emit(`'progression-refreshed-'${progressionId}`, {
     progression: nextProgression,
-    userId: 'user_2',
+    userId,
     teamIndex,
     isCorrect
   });
 
-  robotAnswer(progressionId);
+  const nextIsCorrect = isCorrect === undefined ? true : random(1, 10) > 5;
+  robotAnswer(userId, team, answer, nextIsCorrect)(progressionId);
 };
 
 export const waitForRefresh = progressionId => {
   if (!robotIsAnswering) {
-    robotAnswer(progressionId);
+    robotAnswer('user_2', 0)(progressionId);
+
+    setTimeout(function() {
+      robotAnswer('user_3', 1, ['plop', 'plip', 'plup'], random(1, 10) > 5)(progressionId);
+    }, 1000);
+
+    setTimeout(function() {
+      robotAnswer('user_4', 1, ['ploup', 'pliup', 'pluup'], random(1, 10) > 5)(progressionId);
+    }, 1010);
+
     robotIsAnswering = true;
   }
 

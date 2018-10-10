@@ -266,7 +266,8 @@ const computeNextStep = (
   const action = extendPartialAction(partialAction, _state);
   const isCorrect = !!action && action.type === 'answer' && !!action.payload.isCorrect;
   const answer = (!!action && action.type === 'answer' && action.payload.answer) || [];
-  const state: State | null = !_state || !action ? _state : updateStateLearner(config, _state, [action]);
+  const state: State | null =
+    !_state || !action ? _state : updateStateLearner(config, _state, [action]);
   const chapterContent = getChapterContent(config, availableContent, state);
 
   if (!chapterContent) {
@@ -276,7 +277,6 @@ const computeNextStep = (
   const {currentChapterContent, nextChapterContent, temporaryNextContent} = chapterContent;
   const hasRules = hasRulesToApply(nextChapterContent);
   const livesDisabled = config.livesDisabled;
-  console.log('----> livesDisabled', livesDisabled);
 
   if (!hasRules && !livesDisabled) {
     if (state && hasNoMoreLives(config, state)) {
@@ -345,12 +345,8 @@ const computeNextStep = (
         }
       : state;
 
-
-    console.log('----> computeNextSlide');
-    console.log({stateWithDecrementedLives});
+    // _todo --> config racing to random chaptercontent here
     const nextContent = computeNextSlide(config, nextChapterContent, stateWithDecrementedLives);
-    console.log({nextContent});
-    console.log('computeNextSlide   <------');
     return {
       nextContent,
       instructions: null,
