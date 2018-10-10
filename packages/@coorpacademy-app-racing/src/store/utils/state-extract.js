@@ -6,6 +6,7 @@ import identity from 'lodash/fp/identity';
 import last from 'lodash/fp/last';
 import pipe from 'lodash/fp/pipe';
 import map from 'lodash/fp/map';
+import toUpper from 'lodash/fp/toUpper';
 import reduce from 'lodash/fp/reduce';
 import _toString from 'lodash/fp/toString';
 
@@ -138,6 +139,14 @@ export const allTeammatesHaveAnswered = (progression, currentUserId) => {
 
 export const isTimerOn = type => get(['ui', 'timer', type]);
 
+const getInitial = (name) => {
+  const init = name.split(' ');
+  const firstName = toUpper(init[0].slice(0, 1));
+  const lastName = toUpper(init[1].slice(0, 1));
+  const initial = firstName + lastName;
+  return initial;
+};
+
 export const currentTeam = state => {
   const progression = getCurrentProgression(state);
   const userState = getCurrentUserState(state);
@@ -162,11 +171,11 @@ export const currentTeam = state => {
   return map(playerId => {
     const player = getUserState(playerId, state);
 
-    return {
+ return {
       isMe: playerId === userState.id,
       isWaitingAnswer: playerId === userState.id && isTimerOn('me')(state),
       name: get('name', player),
-      avatar: get('avatar', player),
+      initial: getInitial(get('name',player)),
       isCorrect: getOr(null, `allAnswers[${questionNumDisplayed - 1}].isCorrect`, player)
     };
   }, players);
