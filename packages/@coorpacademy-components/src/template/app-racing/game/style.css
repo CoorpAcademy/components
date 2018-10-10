@@ -1,4 +1,4 @@
-@value breakpoints: "../../../../variables/breakpoints.css";
+@value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 
 .game {
@@ -8,7 +8,7 @@
   flex-direction: column;
   flex-grow: inherit;
   justify-content: space-around;
-  background-image: url('https://user-images.githubusercontent.com/910636/46425210-5fdb3700-c73b-11e8-96d5-e685f3037191.jpg');
+  background-image: url("https://user-images.githubusercontent.com/910636/46425210-5fdb3700-c73b-11e8-96d5-e685f3037191.jpg");
   background-size: cover;
 }
 
@@ -56,7 +56,7 @@
 }
 
 .answerPopin > span {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-size: 65px;
   font-weight: 300;
   color: #0e3a3d;
@@ -67,7 +67,7 @@
 
 .message {
   position: absolute;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-size: 35px;
   font-weight: 500;
   color: #0e3a3d;
@@ -86,11 +86,11 @@
   top: 30%;
   left: 0;
   display: flex;
-  justify-content: center
+  justify-content: center;
 }
 
 .timer > h1 {
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-size: 65px;
   font-weight: 300;
   color: #0e3a3d;

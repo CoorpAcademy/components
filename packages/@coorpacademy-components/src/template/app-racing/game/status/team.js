@@ -11,7 +11,7 @@ import LoaderTarget from '../../../../atom/loader-target';
 import ScoreNotification from './score-notification';
 import style from './team.css';
 
-const Player = ({name, isMe, avatar, isCorrect}) => {
+const Player = ({name, avatar, isCorrect}) => {
   // eslint-disable-next-line no-nested-ternary
   const borderStyle = isNull(isCorrect)
     ? null
@@ -26,7 +26,7 @@ const Player = ({name, isMe, avatar, isCorrect}) => {
         backgroundImage: `url(${avatar})`
       }}
     >
-      {isMe && <span className={style.textMe}>me</span>}
+      {isNull(isCorrect) ? <span className={style.status}>{'Answering...'}</span> : null}
     </div>
   );
 };
@@ -104,12 +104,12 @@ const Team = props => {
             {({loaderSpeed}) => {
               const loader = isNull(isCorrect) ? (
                 <LoaderTarget
-                  width="56px"
-                  height="56px"
+                  width="70px"
+                  height="70px"
                   className={style.loader}
                   color="#FF7043"
-                  strokeDasharray="18 35"
-                  animationDuration={`${3.5 / loaderSpeed}s`}
+                  strokeDasharray="35%"
+                  animationDuration={`${3 / loaderSpeed}s`}
                 />
               ) : null;
 
@@ -117,7 +117,7 @@ const Team = props => {
                 <div className={style.player}>
                   {score}
                   {loader}
-                  <Player isMe={isMe} name={name} avatar={avatar} isCorrect={isCorrect} />
+                  <Player name={name} avatar={avatar} isCorrect={isCorrect} />
                 </div>
               );
             }}

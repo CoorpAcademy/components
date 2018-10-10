@@ -1,6 +1,6 @@
 import React from 'react';
-import style from './style.css';
 import classnames from 'classnames';
+import style from './style.css';
 
 const LoaderTarget = props => {
   const {
