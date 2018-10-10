@@ -7,6 +7,6 @@ export default {
     team: allInMiddleTeam,
     towers: noTower,
     goal: 8,
-    victors: []
+    victors: null
   }
 };

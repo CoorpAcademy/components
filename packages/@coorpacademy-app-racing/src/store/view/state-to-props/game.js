@@ -1,5 +1,5 @@
 import get from 'lodash/fp/get';
-import map from 'lodash/fp/map';
+import findIndex from 'lodash/fp/findIndex';
 import {getConfigForProgression} from '@coorpacademy/progression-engine';
 import {
   currentTeam,
@@ -11,11 +11,11 @@ import {
   getCurrentSlide,
   getQuestionMedia,
   getRoute,
-  getUserState,
   isLastAnswerCorrect,
   isSpectator,
-  getVictors,
-  isTimerOn
+  isTimerOn,
+  isGameOver,
+  getVictorMembers
 } from '../../utils/state-extract';
 import {validateAnswer} from '../../actions/ui/answers';
 import {createGetAnswerProps} from './answer';
@@ -39,7 +39,7 @@ const getSlideProps = (options, store, state) => {
   const answer = createGetAnswerProps(options, store)(state, slide);
   const mediaQuestion = getQuestionMedia(state);
 
-  const gameOver = getVictors(state) !== null;
+  const gameOver = isGameOver(state);
   if (gameOver) {
     return null;
   }
@@ -79,9 +79,23 @@ const gameProps = (options, store) => state => {
   const config = getConfigForProgression(progression);
   const members = currentTeam(state);
 
-  const victorIds = getVictors(state);
-  const gameOver = !!victorIds;
-  const victors = map(id => getUserState(id, state), victorIds);
+  const slide = getSlideProps(options, store, state);
+  const userState = getCurrentUserState(state);
+  const teamNum = get('team', userState);
+
+  const victorMembers = getVictorMembers(state);
+  const gameOver = !!victorMembers;
+  const isVictory = findIndex({id: userState.id}, victorMembers) !== -1;
+  const victors = victorMembers
+    ? {
+        isVictory,
+        message: isVictory ? 'You win' : 'You lose',
+        name: 'Winners',
+        members: victorMembers,
+        number: get('0.team', victorMembers)
+      }
+    : null;
+
   // const spectate = isSpectator(state);
 
   const success = gameOver ? null : isLastAnswerCorrect(state);
@@ -101,11 +115,6 @@ const gameProps = (options, store) => state => {
   //   !allTeammatesHaveAnswered(state) ||
   //   isTimerOn('me')(state) ||
   //   isTimerOn('nextQuestion')(state);
-
-  const slide = getSlideProps(options, store, state);
-
-  const userState = getCurrentUserState(state);
-  const teamNum = get('team', userState);
 
   return {
     view,

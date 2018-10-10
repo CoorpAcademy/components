@@ -665,6 +665,7 @@ import TemplateAppRacingGameStatusFixtureReadyToAnswerAllInMiddle from '../src/t
 import TemplateAppRacingGameStatusFixtureReadyToAnswerSpread from '../src/template/app-racing/game/status/test/fixtures/ready-to-answer-spread';
 import TemplateAppRacingGameStatusFixtureWaitingAnswer from '../src/template/app-racing/game/status/test/fixtures/waiting-answer';
 import TemplateAppRacingGameTimerFixtureDefault from '../src/template/app-racing/game/timer/test/fixtures/default';
+import TemplateAppRacingGameFixtureGameOverWinners from '../src/template/app-racing/game/test/fixtures/game-over-winners';
 import TemplateAppRacingGameFixtureGameOver from '../src/template/app-racing/game/test/fixtures/game-over';
 import TemplateAppRacingGameFixtureNoTower from '../src/template/app-racing/game/test/fixtures/no-tower';
 import TemplateAppRacingGameFixtureQuestionAllInMiddle from '../src/template/app-racing/game/test/fixtures/question-all-in-middle';
@@ -1738,6 +1739,7 @@ export const fixtures = {
       Default: TemplateAppRacingAdminFixtureDefault
     },
     TemplateAppRacingGame: {
+      GameOverWinners: TemplateAppRacingGameFixtureGameOverWinners,
       GameOver: TemplateAppRacingGameFixtureGameOver,
       NoTower: TemplateAppRacingGameFixtureNoTower,
       QuestionAllInMiddle: TemplateAppRacingGameFixtureQuestionAllInMiddle,

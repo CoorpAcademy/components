@@ -5,7 +5,7 @@ import {
   getCurrentProgression,
   getEngine,
   getStepContent,
-  getVictors,
+  isGameOver,
   isSpectator
 } from '../../utils/state-extract';
 import {syncWithTeammates} from './route';
@@ -38,7 +38,7 @@ export const syncProgression = progressionId => async (dispatch, getState) => {
   await dispatch(stopPolling(progressionId));
   await dispatch(fetchProgression(progressionId));
   const state = getState();
-  const gameOver = getVictors(state) !== null;
+  const gameOver = isGameOver(state);
   if (!gameOver) {
     await dispatch(startPolling(progressionId));
     const progression = getCurrentProgression(state);

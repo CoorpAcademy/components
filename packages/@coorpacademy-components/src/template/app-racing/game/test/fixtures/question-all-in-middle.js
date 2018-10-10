@@ -28,6 +28,6 @@ export default {
     towers: fiveTowers,
     goal: 8,
     cta: null,
-    victors: []
+    victors: null
   }
 };

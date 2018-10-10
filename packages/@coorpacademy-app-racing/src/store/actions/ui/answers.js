@@ -5,7 +5,7 @@ import {
   getCurrentUserState,
   getStepContent,
   isLastAnswerCorrect,
-  getVictors
+  isGameOver
 } from '../../utils/state-extract';
 import {fetchContent} from '../api/contents';
 import {createAnswer} from '../api/progressions';
@@ -106,7 +106,7 @@ export const startNextQuestionTimer = (addHighlightTime = false) => async (
   return new Promise(async function(resolve) {
     setTimeout(async () => {
       await dispatch({type: TIMER_NEXT_QUESTION_OFF});
-      const gameOver = getVictors(getState()) !== null;
+      const gameOver = isGameOver(getState());
       if (!gameOver) {
         await dispatch(seeQuestion);
       }

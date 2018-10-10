@@ -85,15 +85,15 @@ export const showLoading = state => {
   return getRoute(state) === 'loading';
 };
 
-export const getVictors = state => {
+export const getVictorMembers = state => {
   const race = getCurrentRace(state);
   const progression = getCurrentProgression(state);
   const goal = get('engineOptions.goal', progression);
 
-  return reduce.convert({cap: false})(
-    (victors, tower, index) => {
-      if (victors) {
-        return victors;
+  const ids = reduce.convert({cap: false})(
+    (members, tower, index) => {
+      if (members) {
+        return members;
       }
 
       const towerCount = countBy(identity, tower);
@@ -103,8 +103,8 @@ export const getVictors = state => {
         (towerCount.good || 0) +
         (towerCount.drop || 0);
 
-      const isGameOver = nbBlocks >= goal;
-      if (isGameOver) {
+      const gameOver = nbBlocks >= goal;
+      if (gameOver) {
         const playerIds = get(['state', 'teams', index, 'players'], progression);
         return playerIds;
       }
@@ -114,7 +114,12 @@ export const getVictors = state => {
     null,
     race
   );
+
+  const victors = ids && map(id => getUserState(id, state), ids);
+  return victors;
 };
+
+export const isGameOver = state => !!getVictorMembers(state);
 
 // -----------------------------------------------------------------------------
 

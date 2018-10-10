@@ -61,11 +61,10 @@ const Game = props => {
   const {start = false, team, goal, towers, cta, info = {}, victors = [], getReadyTime = 0} = props;
 
   // eslint-disable-next-line no-nested-ternary
-  const _title = victors.length > 0 ? (get('success', info) ? 'You win' : 'You lose') : '';
-  const popin = victors.length > 0 && (
+  const popin = victors && (
     <div className={style.answerPopin}>
-      <span>{_title}</span>
-      <TeamList members={victors} isMyTeam />
+      <span className={victors.isVictory ? style.win : style.lose}>{victors.message}</span>
+      <TeamList {...victors} />
     </div>
   );
 
