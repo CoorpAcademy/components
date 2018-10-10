@@ -1,6 +1,6 @@
-import {UI_TOGGLE_ACCORDION} from '../../../../ui/corrections';
+import {UI_TOGGLE_ACCORDION} from '../../../corrections';
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../../../api/answers';
-import {UI_PROGRESSION_UPDATED} from '../../../../ui/progressions';
+import {UI_PROGRESSION_UPDATED} from '../../../progressions';
 import {
   SEND_PROGRESSION_ANALYTICS_REQUEST,
   SEND_PROGRESSION_ANALYTICS_SUCCESS

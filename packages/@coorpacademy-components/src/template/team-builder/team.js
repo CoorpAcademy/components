@@ -9,7 +9,6 @@ import style from './team.css';
 
 const Team = (props, context) => {
   const {name, members, number} = props;
-
   return (
     <div className={style.team}>
       <header

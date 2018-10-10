@@ -14,4 +14,4 @@ export default (reduceAction: ReduceAction): UpdateStateLearner => {
     }
     return reduce(reduceAction(config), state, actions);
   };
-}
+};

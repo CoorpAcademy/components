@@ -8,10 +8,11 @@ import {Motion, spring} from 'react-motion';
 import classnames from 'classnames';
 import animation from '../../../../atom/css-animations/fade-in.css';
 import LoaderTarget from '../../../../atom/loader-target';
+import colors from '../common-fixtures/colors';
 import ScoreNotification from './score-notification';
 import style from './team.css';
 
-const Player = ({name, initial, isCorrect}) => {
+const Player = ({name, initial, color, isCorrect}) => {
   // eslint-disable-next-line no-nested-ternary
   const borderStyle = isNull(isCorrect)
     ? null
@@ -22,7 +23,7 @@ const Player = ({name, initial, isCorrect}) => {
       title={name}
       className={classnames(style.avatar, borderStyle, animation.fadeIn)}
       key={name}
-      // style= {{ backgroundColor: colors[number]}}
+      style={{backgroundColor: color}}
     >
       <div className={style.initial}>{initial}</div>
       {isNull(isCorrect) ? <span className={style.status}>{'Answering...'}</span> : null}
@@ -47,7 +48,7 @@ const Team = props => {
 
   return (
     <div className={style.team}>
-      {map(({name, isMe, initial, isWaitingAnswer, isCorrect}) => {
+      {map(({name, initial, color, isWaitingAnswer, isCorrect}) => {
         if (isNull(isCorrect)) {
           count.nbNull++;
         } else if (isCorrect) {
@@ -116,7 +117,7 @@ const Team = props => {
                 <div className={style.player}>
                   {score}
                   {loader}
-                  <Player name={name} initial={initial} isCorrect={isCorrect} />
+                  <Player name={name} initial={initial} color={color} isCorrect={isCorrect} />
                 </div>
               );
             }}

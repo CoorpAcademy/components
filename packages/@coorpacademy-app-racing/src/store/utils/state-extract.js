@@ -139,12 +139,17 @@ export const allTeammatesHaveAnswered = (progression, currentUserId) => {
 
 export const isTimerOn = type => get(['ui', 'timer', type]);
 
-const getInitial = (name) => {
+const getInitial = name => {
   const init = name.split(' ');
   const firstName = toUpper(init[0].slice(0, 1));
   const lastName = toUpper(init[1].slice(0, 1));
   const initial = firstName + lastName;
   return initial;
+};
+
+const getColor = team => {
+  const color = ['#42c02f', '#b44b79', '#0fb9c4', '#ffcc00', '#cc3300'];
+  return color[team];
 };
 
 export const currentTeam = state => {
@@ -167,15 +172,15 @@ export const currentTeam = state => {
   if (isReadyForNextQuestion(state)) {
     questionNumDisplayed -= 1;
   }
-
   return map(playerId => {
     const player = getUserState(playerId, state);
 
- return {
+    return {
       isMe: playerId === userState.id,
       isWaitingAnswer: playerId === userState.id && isTimerOn('me')(state),
       name: get('name', player),
-      initial: getInitial(get('name',player)),
+      initial: getInitial(get('name', player)),
+      color: getColor(player.team),
       isCorrect: getOr(null, `allAnswers[${questionNumDisplayed - 1}].isCorrect`, player)
     };
   }, players);

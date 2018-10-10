@@ -6,9 +6,7 @@ const Member = props => {
 
   return (
     <div className={style.member}>
-      <div
-        className={style.avatar}
-      />
+      <div className={style.avatar} />
       <h1
         style={{
           fontWeight: isMe ? '800' : '200'
