@@ -13,7 +13,6 @@ export default {
     },
     cta: {
       submitValue: 'Question suivante'
-    },
-    victors: []
+    }
   }
 };

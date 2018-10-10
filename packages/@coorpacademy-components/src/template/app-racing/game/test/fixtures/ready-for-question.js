@@ -9,7 +9,6 @@ export default {
     team: spreadTeam,
     towers: fiveTowers,
     goal: 8,
-    cta: null,
-    victors: []
+    cta: null
   }
 };

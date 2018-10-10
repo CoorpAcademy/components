@@ -11,7 +11,6 @@ export default {
     info: {
       success: true,
       message: 'Good answer'
-    },
-    victors: []
+    }
   }
 };

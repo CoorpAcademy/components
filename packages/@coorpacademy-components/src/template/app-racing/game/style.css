@@ -1,6 +1,10 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 
+@value colors: "../../../variables/colors.css";
+@value positive from colors;
+@value negative from colors;
+
 .game {
   width: 100%;
   min-height: 100%;
@@ -56,11 +60,20 @@
 }
 
 .answerPopin > span {
-  font-family: "Open Sans";
-  font-size: 65px;
-  font-weight: 300;
-  color: #0e3a3d;
+  font-family: 'Open Sans';
   margin: 10px auto;
+}
+
+.win {
+  color: positive;
+  font-size: 95px;
+  font-weight: 700;
+}
+
+.lose {
+  color: negative;
+  font-size: 85px;
+  font-weight: 500;
 }
 
 /*-------------------------------------------------*/

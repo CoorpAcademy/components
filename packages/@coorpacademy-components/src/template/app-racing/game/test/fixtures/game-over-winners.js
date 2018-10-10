@@ -11,8 +11,8 @@ export default {
       success: true
     },
     victors: {
-      isVictory: false,
-      message: 'You lose',
+      isVictory: true,
+      message: 'You win',
       name: 'Winners',
       number: 2,
       members: [
@@ -24,6 +24,7 @@ export default {
         },
         {
           id: 'user_3',
+          isMe: true,
           name: 'Joe',
           avatar: 'https://api.adorable.io/avatars/150/Joe.png',
           team: 4

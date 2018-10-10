@@ -11,7 +11,6 @@ export default {
     info: {
       success: true
     },
-    cta: null,
-    victors: []
+    cta: null
   }
 };

@@ -1,5 +1,5 @@
 import get from 'lodash/fp/get';
-import {getVictors} from '../utils/state-extract';
+import {isGameOver} from '../utils/state-extract';
 import {syncWithTeammates} from '../actions/ui/route';
 import {syncProgression} from '../actions/ui/progressions';
 import {all, put, call, race, take, select} from 'redux-saga/effects';
@@ -102,7 +102,7 @@ function createWorker({services}) {
             }
 
             const state = yield select();
-            const gameOver = getVictors(state) !== null;
+            const gameOver = isGameOver(state);
 
             if (gameOver) {
               yield put({type: POLL_STOP}); // race loop exit
