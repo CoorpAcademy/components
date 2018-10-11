@@ -35,10 +35,8 @@
 }
 
 .slideWrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
+  display: block;
+  margin: auto;
 }
 
 .towers {
@@ -111,10 +109,3 @@
 }
 
 /*-------------------------------------------------*/
-
-@media mobile {
-  .slideWrapper {
-    display: block;
-    margin: auto 0;
-  }
-}
