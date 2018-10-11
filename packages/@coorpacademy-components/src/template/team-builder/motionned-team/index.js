@@ -2,6 +2,7 @@ import {Motion, spring} from 'react-motion';
 import React from 'react';
 import isEmpty from 'lodash/fp/isEmpty';
 import Team from '../team';
+import style from './style.css';
 
 const MotionnedMyTeam = props => {
   return (
@@ -10,9 +11,8 @@ const MotionnedMyTeam = props => {
         return (
           <div
             key={'MyTeam'}
+            className={style.default}
             style={{
-              minWidth: '300px',
-              minHeight: '300px',
               transform: `scale(${interpolatedStyle.scale})`
             }}
           >
