@@ -6,7 +6,7 @@ const configurations: Array<Config> = [
     version: '1',
     lives: 3,
     livesDisabled: false,
-    infiniteSlides: false,
+    overallRandomSlides: false,
     maxTypos: 2,
     slidesToComplete: 4,
     answerBoundaryLimit: 5,

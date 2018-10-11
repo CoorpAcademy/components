@@ -9,7 +9,7 @@ import type {
   RacingConfig,
   Teams
 } from '../types';
-import computeRacingSetup from '../compute-next-step/racing';
+import {computeRacingSetup} from '../compute-next-step/racing';
 
 const createRacing = (
   engine: Engine,

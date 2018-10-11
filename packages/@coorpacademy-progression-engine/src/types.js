@@ -190,7 +190,7 @@ export type Engine = {
 export type Config = {
   version: string,
   livesDisabled: boolean,
-  infiniteSlides: boolean,
+  overallRandomSlides: boolean,
   lives: number,
   maxTypos: number,
   slidesToComplete: number,
