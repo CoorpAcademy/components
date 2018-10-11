@@ -62,6 +62,7 @@ class TeamBuilder extends Component {
           backgroundColor: disabledButton ? 'rgb(182, 179, 179)' : primary
         }}
         disabled={disabledButton}
+        submitValue={cta.submitValue}
       />
     ) : null;
 
