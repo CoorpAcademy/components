@@ -6,7 +6,10 @@
   width: 100%;
   align-items: center;
   border-radius: 22px 22px 0px 0px;
-  background-image: url('https://user-images.githubusercontent.com/910636/46426384-b9913080-c73e-11e8-831f-c6c947a9e924.png');
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center top;
+  /* background-image: url('https://user-images.githubusercontent.com/910636/46426384-b9913080-c73e-11e8-831f-c6c947a9e924.png'); */
   /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
 }
 

@@ -73,8 +73,6 @@ const getSlideProps = (options, store, state) => {
 };
 
 const gameProps = (options, store) => state => {
-  // const {dispatch} = store;
-
   const progression = getCurrentProgression(state);
   const config = getConfigForProgression(progression);
   const members = currentTeam(state);
@@ -106,14 +104,6 @@ const gameProps = (options, store) => state => {
     success === undefined
       ? null
       : `${success ? 'Good' : 'Bad'} answer`;
-
-  // const hideNextQuestionButton =
-  //   view === 'question' ||
-  //   spectate ||
-  //   gameOver ||
-  //   !allTeammatesHaveAnswered(state) ||
-  //   isTimerOn('me')(state) ||
-  //   isTimerOn('nextQuestion')(state);
 
   return {
     view,

@@ -3,6 +3,10 @@ import Colors from '../common-fixtures/colors';
 import style from './counter.css';
 // import ScoreNotification from './score-notification';
 
+const BASES = [
+  'https://user-images.githubusercontent.com/910636/46875057-01990d00-ce3b-11e8-9ebc-4544a86b18d6.png'
+];
+
 const Counter = ({team, isMyTeam, points, goal, nbToNotify = 0}) => {
   // const notification =
   //   nbToNotify !== 0 ? (
@@ -13,6 +17,7 @@ const Counter = ({team, isMyTeam, points, goal, nbToNotify = 0}) => {
     <div
       className={style.counter}
       style={{
+        backgroundImage: `url('${BASES[0]}')`,
         backgroundColor: Colors[team]
       }}
     >

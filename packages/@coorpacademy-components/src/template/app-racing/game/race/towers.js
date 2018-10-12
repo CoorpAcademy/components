@@ -5,26 +5,53 @@ import map from 'lodash/fp/map';
 import React, {Component} from 'react';
 import {Motion, spring} from 'react-motion';
 import PropTypes from 'prop-types';
-import BLOCKS from '../common-fixtures/blocks';
+import colors from '../common-fixtures/colors';
 import style from './towers.css';
+
+const NORMAL_TOTEMS_WIDTH = 283;
+const NORMAL_TOTEMS_HEIGHT = 383;
+const NORMAL_TOTEMS_PADDING_PERCENT = 15;
+
+const NORMAL_TOTEMS = [
+  'https://user-images.githubusercontent.com/910636/46871482-d958e080-ce31-11e8-9573-43bc5f8fd83e.png'
+];
 
 const _map = map.convert({cap: false});
 
-const Square = ({image, type, index, height, bottom, motionStyle, scaleValue = 1}) => (
-  <div
-    className={style.block}
-    style={{
-      height,
-      bottom,
-      backgroundImage: `url(${image}`,
-      transform: `rotate(${90 * index}deg) scale3d(${scaleValue}, ${scaleValue}, 1)`,
-      ...motionStyle
-    }}
-  />
-);
+const Square = ({color, type, index, height, bottom, motionStyle, scaleValue = 1}) => {
+  const imageHeight = height * 1.2;
+  const diffHeights = imageHeight - height;
+  const imageWidth = NORMAL_TOTEMS_WIDTH * imageHeight / NORMAL_TOTEMS_HEIGHT;
 
-const Block = ({image, index, num, type, size, bottom, maxStiffness}) => {
-  const height = `${type === ('removed' || 'lost') ? null : size}px`;
+  return (
+    <div
+      className={style.block}
+      style={{
+        height: `${height}px`,
+        width: `${imageWidth - imageWidth * NORMAL_TOTEMS_PADDING_PERCENT / 100}px`,
+        bottom,
+        backgroundColor: scaleValue === 1 ? color : null,
+        transform: `scale3d(${scaleValue}, ${scaleValue}, 1)`,
+        ...motionStyle
+      }}
+    >
+      <div
+        className={style.blockImage}
+        style={{
+          width: `${imageWidth}px`,
+          height: `${imageHeight}px`,
+          left: `-${imageWidth * NORMAL_TOTEMS_PADDING_PERCENT / 200}px`,
+          top: `-${diffHeights / 2}px`,
+          backgroundImage: `url('${NORMAL_TOTEMS[0]}')`,
+          ...motionStyle
+        }}
+      />
+    </div>
+  );
+};
+
+const Block = ({color, index, num, type, size, bottom, maxStiffness}) => {
+  const height = type === ('removed' || 'lost') ? 0 : size;
   switch (type) {
     case 'good':
       return (
@@ -34,7 +61,9 @@ const Block = ({image, index, num, type, size, bottom, maxStiffness}) => {
             y: spring(bottom, {stiffness: 40, damping: 13})
           }}
         >
-          {({y}) => <Square image={image} bottom={y} height={height} type={type} index={index} />}
+          {({y}) => (
+            <Square color={colors[color]} bottom={y} height={height} type={type} index={index} />
+          )}
         </Motion>
       );
 
@@ -49,7 +78,7 @@ const Block = ({image, index, num, type, size, bottom, maxStiffness}) => {
         >
           {({scaleValue = 0, opacity = 0}) => (
             <Square
-              image={image}
+              color={colors[color]}
               bottom={bottom}
               height={height}
               type={type}
@@ -70,7 +99,9 @@ const Block = ({image, index, num, type, size, bottom, maxStiffness}) => {
           defaultStyle={{y: 1000}}
           style={{y: spring(bottom, {stiffness: maxStiffness - num * 10, damping: 22})}}
         >
-          {({y}) => <Square image={image} bottom={y} height={height} type={type} index={index} />}
+          {({y}) => (
+            <Square color={colors[color]} bottom={y} height={height} type={type} index={index} />
+          )}
         </Motion>
       );
 
@@ -80,12 +111,16 @@ const Block = ({image, index, num, type, size, bottom, maxStiffness}) => {
           defaultStyle={{y: bottom + size}}
           style={{y: spring(bottom, {stiffness: maxStiffness - num * 10, damping: 22})}}
         >
-          {({y}) => <Square image={image} bottom={y} height={height} type={type} index={index} />}
+          {({y}) => (
+            <Square color={colors[color]} bottom={y} height={height} type={type} index={index} />
+          )}
         </Motion>
       );
 
     case 'placed':
-      return <Square image={image} bottom={bottom} height={height} type={type} index={index} />;
+      return (
+        <Square color={colors[color]} bottom={bottom} height={height} type={type} index={index} />
+      );
 
     case 'lost':
       return (
@@ -97,7 +132,7 @@ const Block = ({image, index, num, type, size, bottom, maxStiffness}) => {
         >
           {({scaleValue}) => (
             <Square
-              image={image}
+              color={colors[color]}
               bottom={0}
               height={height}
               type={type}
@@ -155,7 +190,7 @@ const Tower = ({blurType, myTeam, team, goal, blocks, blockSize, maxStiffness}) 
               return (
                 <Block
                   type={value}
-                  image={BLOCKS[team]}
+                  color={team}
                   size={blockSize}
                   bottom={bottom}
                   index={index}
