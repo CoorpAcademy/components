@@ -735,6 +735,7 @@ import TemplateTeamBuilderMotionnedTeamFixtureEmptyProps from '../src/template/t
 import TemplateTeamBuilderTeamAvatarFixtureDefault from '../src/template/team-builder/teamAvatar/test/fixtures/default';
 import TemplateTeamBuilderFixtureDefault from '../src/template/team-builder/test/fixtures/default';
 import TemplateTeamBuilderFixtureReadyToStart from '../src/template/team-builder/test/fixtures/ready-to-start';
+import TemplateTeamBuilderFixtureShowSomeTooltips from '../src/template/team-builder/test/fixtures/show-some-tooltips';
 import TemplateTeamBuilderFixtureTeamSelected from '../src/template/team-builder/test/fixtures/team-selected';
 import TemplateTeamBuilderFixtureWaitForOthers from '../src/template/team-builder/test/fixtures/wait-for-others';
 
@@ -1614,6 +1615,7 @@ export const fixtures = {
     TemplateTeamBuilder: {
       Default: TemplateTeamBuilderFixtureDefault,
       ReadyToStart: TemplateTeamBuilderFixtureReadyToStart,
+      ShowSomeTooltips: TemplateTeamBuilderFixtureShowSomeTooltips,
       TeamSelected: TemplateTeamBuilderFixtureTeamSelected,
       WaitForOthers: TemplateTeamBuilderFixtureWaitForOthers
     }

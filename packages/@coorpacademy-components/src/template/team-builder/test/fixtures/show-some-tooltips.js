@@ -4,7 +4,7 @@ export default {
       {
         name: 'Team 1',
         number: 0,
-        members: [{name: 'Joe eoj', initial: 'JE'}, {name: 'Kim mik', initial: 'KM'}]
+        members: [{name: 'Joe eoj', initial: 'JE'}, {name: 'Kim mik', initial: 'KM', show: true}]
       },
       {
         name: 'Team 2',
@@ -14,7 +14,10 @@ export default {
       {
         name: 'Team 3',
         number: 2,
-        members: [{name: 'Eric cire', initial: 'EC'}, {name: 'Mark kram', initial: 'MK'}]
+        members: [
+          {name: 'Eric cire', initial: 'EC', show: true},
+          {name: 'Mark kram', initial: 'MK'}
+        ]
       },
       {
         name: 'Team 4',

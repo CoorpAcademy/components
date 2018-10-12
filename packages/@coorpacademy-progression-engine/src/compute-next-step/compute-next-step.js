@@ -139,7 +139,8 @@ export const computeNextSlide = (
     chapterContent.slides
   );
 
-  const slidesToPick = remainingSlides;
+  const restartPicking = config.overallRandomSlides && remainingSlides.length === 0;
+  const slidesToPick = restartPicking ? chapterContent.slides : remainingSlides;
 
   return {
     type: 'slide',

@@ -25,8 +25,7 @@ const MotionnedOtherTeams = ({team}) => {
               margin: '0 10px'
             }}
           >
-            {' '}
-            <TeamAvatar key={team.name} {...team} />{' '}
+            <TeamAvatar key={team.name} {...team} />
           </div>
         );
       }}

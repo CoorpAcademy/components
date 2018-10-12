@@ -32,8 +32,8 @@ export default {
         members: [
           {name: 'Katrine enirtak', initial: 'KE', isMe: false},
           {name: 'Doug guod', initial: 'DG', isMe: false},
-          {name: 'Paul luap', initial: 'PL', isMe: false},
-          {name: 'Jack kcaj', initial: 'JK', isMe: false}
+          {name: 'Paul plop', initial: 'PP', isMe: false},
+          {name: 'Jack joe', initial: 'JJ', isMe: false}
         ]
       },
       {

@@ -8,7 +8,7 @@ import Member from './member';
 import style from './team.css';
 
 const Team = (props, context) => {
-  const {name, members, initial, number} = props;
+  const {name, members, number} = props;
   return (
     <div className={style.team}>
       <header
@@ -21,7 +21,7 @@ const Team = (props, context) => {
       <div className={style.members}>
         {map(member => {
           if (isEmpty(member)) return null;
-          return <Member key={member.name} intiial={initial} number={number} {...member} />;
+          return <Member key={member.name} {...member} color={colors[number]} />;
         }, members)}
       </div>
     </div>
