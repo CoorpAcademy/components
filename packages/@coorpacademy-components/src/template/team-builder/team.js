@@ -21,7 +21,7 @@ const Team = (props, context) => {
       <div className={style.members}>
         {map(member => {
           if (isEmpty(member)) return null;
-          return <Member key={member.name} {...member} />;
+          return <Member key={member.name} number={number} {...member} />;
         }, members)}
       </div>
     </div>
