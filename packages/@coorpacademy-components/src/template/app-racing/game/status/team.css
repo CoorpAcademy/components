@@ -27,6 +27,7 @@
 
 .loader {
   position: absolute;
+  overflow: hidden;
 }
 
 .initial {
