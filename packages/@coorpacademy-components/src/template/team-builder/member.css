@@ -10,7 +10,7 @@
   width: 100%;
   border: 1px solid medium;
   border-bottom: none;
-  height: 45px;
+  height: 55px;
 }
 
 .member > h1 {
@@ -23,6 +23,6 @@
 .avatar {
   position: absolute;
   left: 7px;
-  width: 30px;
-  height: 30px;
+  width: 45px;
+  height: 45px;
 }

@@ -7,10 +7,6 @@ export default {
       name: 'Team 1',
       number: 0,
       members: [
-        {
-          name: 'Joe eoj',
-          isMe: false
-        },
         {name: 'Abott ttoba', initial: 'AT', isMe: true},
         {name: 'John nhoj', initial: 'JN', isMe: false},
         {name: 'Paul luap', initial: 'PL', isMe: false},
@@ -23,7 +19,6 @@ export default {
         number: 0,
         isMyTeam: true,
         members: [
-          {name: 'Joe eoj', initial: 'JE', isMe: false},
           {name: 'Abott ttoba', initial: 'AT', isMe: false},
           {name: 'John nhoj', initial: 'JN', isMe: false},
           {name: 'Paul luap', initial: 'PL', isMe: false},
@@ -36,7 +31,9 @@ export default {
         isMyTeam: false,
         members: [
           {name: 'Katrine enirtak', initial: 'KE', isMe: false},
-          {name: 'Doug guod', initial: 'DG', isMe: false}
+          {name: 'Doug guod', initial: 'DG', isMe: false},
+          {name: 'Paul luap', initial: 'PL', isMe: false},
+          {name: 'Jack kcaj', initial: 'JK', isMe: false}
         ]
       },
       {

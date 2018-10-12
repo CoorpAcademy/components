@@ -18,20 +18,20 @@ export default {
       members: [
         {
           id: 'user_2',
-          name: 'Katrine',
-          avatar: 'https://api.adorable.io/avatars/150/Katrine.png',
+          name: 'Katrine enirtak',
+          initial: 'KE',
           team: 4
         },
         {
           id: 'user_3',
-          name: 'Joe',
-          avatar: 'https://api.adorable.io/avatars/150/Joe.png',
+          name: 'Joe eoj',
+          initial: 'JE',
           team: 4
         },
         {
           id: 'user_4',
-          name: 'Kim',
-          avatar: 'https://api.adorable.io/avatars/150/Katrine.png',
+          name: 'Kim mik',
+          initial: 'KM',
           team: 4
         }
       ]
