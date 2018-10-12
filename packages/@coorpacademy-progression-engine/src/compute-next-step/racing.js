@@ -118,12 +118,7 @@ export const getRandomSlide = (
   const action = extendPartialAction(partialAction, state);
   const isCorrect = !!action && action.type === 'answer' && !!action.payload.isCorrect;
   const chapterContent = availableContent[random(0, availableContent.length - 1)];
-  console.log('---------- getRandomSlide chapterContent');
-  console.log(chapterContent);
-  console.log('----  from availableContent:');
-  console.log(availableContent);
-  console.log('/---------- getRandomSlide chapterContent');
-
+  // _todo: switch chapter if all slides are already gotten from this chapterContent
   const nextContent = computeNextSlide(config, chapterContent, state);
 
   return {
