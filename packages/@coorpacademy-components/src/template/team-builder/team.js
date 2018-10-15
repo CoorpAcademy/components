@@ -8,6 +8,7 @@ import style from './team.css';
 
 const Team = (props, context) => {
   const {name, members, numberSlotTaken, number} = props;
+  const infoJoinTeam =  `You've joined ${name} : ${numberSlotTaken} / ${members.length}`;
   return (
     <div className={style.team}>
       <header
@@ -15,7 +16,7 @@ const Team = (props, context) => {
           backgroundColor: colors[number]
         }}
       >
-        <h1> You've joined : {name}  :  {numberSlotTaken}  /  {members.length} </h1>
+        <h1> {infoJoinTeam} </h1>
       </header>
       <div className={style.members}>
         {map(member => {
