@@ -11,6 +11,7 @@ import style from './style.css';
 
 const TeamAvatar = (props, context) => {
   const {name, members, numberSlotTaken, number} = props;
+  const title = `${name}: ${numberSlotTaken}/${members.length}`;
   return (
     <div className={style.team}>
       <header
@@ -18,7 +19,7 @@ const TeamAvatar = (props, context) => {
           backgroundColor: colors[number]
         }}
       >
-        <h1>{name}  :  {numberSlotTaken}  /  {members.length} </h1>
+        <h1>{title}</h1>
       </header>
       <div className={style.members}>
         {map(member => {

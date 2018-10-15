@@ -8,7 +8,7 @@ import style from './team.css';
 
 const Team = (props, context) => {
   const {name, members, numberSlotTaken, number} = props;
-  const infoJoinTeam =  `You've joined ${name} : ${numberSlotTaken} / ${members.length}`;
+  const infoJoinTeam = `You've joined ${name}: ${numberSlotTaken}/${members.length}`;
   return (
     <div className={style.team}>
       <header
