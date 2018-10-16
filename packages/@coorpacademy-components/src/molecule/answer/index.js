@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import omit from 'lodash/fp/omit';
-import Picture from '../../atom/picture';
 import VideoPlayer from '../video-player';
 import DropDown from '../questions/drop-down';
 import FreeText from '../questions/free-text';
@@ -20,9 +19,12 @@ const MediaView = ({media}) => {
   switch (type) {
     case TYPE_IMAGE:
       return (
-        <div className={style.media}>
-          <Picture src={media.url} />
-        </div>
+        <div
+          className={style.media}
+          style={{
+            backgroundImage: `url(${media.url})`
+          }}
+        />
       );
     case TYPE_VIDEO:
       return (
