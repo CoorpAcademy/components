@@ -80,7 +80,9 @@ AnswerContent.propTypes = {
 const MediaContent = (props, context) => {
   const {resources, starsDiff} = props;
   const {translate} = context;
-  const starsToWin = translate('media_stars_to_win', {count: Math.abs(starsDiff)});
+  const starsToWin = translate('media_stars_to_win', {
+    count: Math.abs(starsDiff)
+  });
 
   return (
     <div className={style.resourcesWrapper}>
@@ -222,8 +224,7 @@ const Step = ({step, color}) => {
   return (
     <div data-name="step">
       <div data-name="counter" className={style.stepCount}>
-        <span style={{color}}>{step.current}</span>
-        /{step.total}
+        <span style={{color}}>{step.current}</span>/{step.total}
       </div>
       <div className={style.stepWrapper}>
         <Swapper color={color} {...step} current={step.current - 1}>

@@ -12,11 +12,12 @@
 }
 
 .media {
-  max-width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 835px;
+  height: 400px;
   margin: 25px auto;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .video {
@@ -35,6 +36,8 @@
 
   .media {
     margin: 0 auto 25px;
+    width: 100%;
+    height: 300px;
   }
 
   .video {

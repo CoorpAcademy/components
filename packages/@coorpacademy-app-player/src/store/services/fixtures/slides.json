@@ -91,18 +91,28 @@
         "placeholder": " ",
         "maxTypos": null,
         "choices": [],
-        "answers": [
-          [
-            "Text"
-          ]
-        ],
+        "answers": [["Text"]],
         "media": {
           "subtitles": [],
           "posters": [],
           "src": []
         }
       },
-      "medias": []
+      "medias": [
+        {
+          "type": "img",
+          "_id": "593eb72a187bd18c01283591",
+          "subtitles": [],
+          "posters": [],
+          "src": [
+            {
+              "mimeType": "image/jpeg",
+              "url": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-minds-and-more/cockpit-minds-and-more/default/shutterstock_701165035-1518620484928.jpg&h=400&w=835&q=80&m=contain",
+              "_id": "593eb72a187bd18c01283592"
+            }
+          ]
+        }
+      ]
     }
   },
   "sli_VkcAWR-ZQ": {
@@ -197,11 +207,7 @@
             }
           }
         ],
-        "answers": [
-          [
-            "Bonne réponse"
-          ]
-        ],
+        "answers": [["Bonne réponse"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -319,11 +325,7 @@
             }
           }
         ],
-        "answers": [
-          [
-            "Free Run"
-          ]
-        ],
+        "answers": [["Free Run"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -411,11 +413,7 @@
       "explanation": "Sélectionnez la (les) bonne(s) réponse(s).",
       "content": {
         "maxTypos": null,
-        "answers": [
-          [
-            "Vrai"
-          ]
-        ],
+        "answers": [["Vrai"]],
         "choices": [
           {
             "_id": "59307529a2b39d0024eebfed",
@@ -560,11 +558,7 @@
             }
           }
         ],
-        "answers": [
-          [
-            "2"
-          ]
-        ],
+        "answers": [["2"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -636,11 +630,7 @@
             }
           }
         ],
-        "answers": [
-          [
-            "4"
-          ]
-        ],
+        "answers": [["4"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -715,11 +705,7 @@
             }
           }
         ],
-        "answers": [
-          [
-            "Boulevard Poissonnière"
-          ]
-        ],
+        "answers": [["Boulevard Poissonnière"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -819,11 +805,7 @@
             }
           }
         ],
-        "answers": [
-          [
-            "C'est Paris !"
-          ]
-        ],
+        "answers": [["C'est Paris !"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -910,11 +892,7 @@
             }
           }
         ],
-        "answers": [
-          [
-            "Faux"
-          ]
-        ],
+        "answers": [["Faux"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -939,12 +917,7 @@
         "template": "The answer is {{inp81438}} and {{sel31191}}",
         "matchOrder": true,
         "maxTypos": null,
-        "answers": [
-          [
-            "Text",
-            "Select"
-          ]
-        ],
+        "answers": [["Text", "Select"]],
         "choices": [
           {
             "type": "text",
@@ -1046,12 +1019,7 @@
             "value": "sli_NkaegcmAY~o.choice_05"
           }
         ],
-        "answers": [
-          [
-            "Vrai 2",
-            "Vrai 1"
-          ]
-        ],
+        "answers": [["Vrai 2", "Vrai 1"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -1116,13 +1084,7 @@
             "value": "sli_VyZmMYQCFWj.choice_05"
           }
         ],
-        "answers": [
-          [
-            "Vrai 1",
-            "Vrai 2",
-            "Vrai 3"
-          ]
-        ]
+        "answers": [["Vrai 1", "Vrai 2", "Vrai 3"]]
       }
     }
   },
@@ -1189,36 +1151,16 @@
           "src": []
         },
         "answers": [
-          [
-            "100"
-          ],
-          [
-            "200"
-          ],
-          [
-            "300"
-          ],
-          [
-            "400"
-          ],
-          [
-            "500"
-          ],
-          [
-            "600"
-          ],
-          [
-            "700"
-          ],
-          [
-            "800"
-          ],
-          [
-            "900"
-          ],
-          [
-            "1000"
-          ]
+          ["100"],
+          ["200"],
+          ["300"],
+          ["400"],
+          ["500"],
+          ["600"],
+          ["700"],
+          ["800"],
+          ["900"],
+          ["1000"]
         ]
       },
       "medias": []
@@ -1267,11 +1209,7 @@
         "placeholder": " ",
         "maxTypos": null,
         "choices": [],
-        "answers": [
-          [
-            "Text"
-          ]
-        ],
+        "answers": [["Text"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -1343,11 +1281,7 @@
         "placeholder": " ",
         "maxTypos": null,
         "choices": [],
-        "answers": [
-          [
-            "Text"
-          ]
-        ],
+        "answers": [["Text"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -1419,11 +1353,7 @@
         "placeholder": " ",
         "maxTypos": null,
         "choices": [],
-        "answers": [
-          [
-            "Text"
-          ]
-        ],
+        "answers": [["Text"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -1491,11 +1421,7 @@
         "placeholder": " ",
         "maxTypos": null,
         "choices": [],
-        "answers": [
-          [
-            "Text"
-          ]
-        ],
+        "answers": [["Text"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -1567,11 +1493,7 @@
         "placeholder": " ",
         "maxTypos": null,
         "choices": [],
-        "answers": [
-          [
-            "Text"
-          ]
-        ],
+        "answers": [["Text"]],
         "media": {
           "subtitles": [],
           "posters": [],
@@ -1612,9 +1534,7 @@
             "value": "sli_41SKtnyqM.choice_EkAb531qf"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -1643,9 +1563,7 @@
             "value": "sli_41b4cs8tf.choice_4JkWToLYM"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -1693,9 +1611,7 @@
             "value": "sli_41mswoIKG.choice_4ytpwj8Yz"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -1738,9 +1654,7 @@
             "value": "sli_41rMkNrKM.choice_VyT41NSYM"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -1788,9 +1702,7 @@
             "value": "sli_41zl0FLKG.choice_EymwCKIYf"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -1838,9 +1750,7 @@
             "value": "sli_4JAILP8Fz.choice_EJy6LP8Kz"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -1888,9 +1798,7 @@
             "value": "sli_4JKjVY8Kz.choice_EJe~JBYLYG"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -1928,9 +1836,7 @@
             "value": "sli_4k26mv8KG.choice_VkdMVwLtz"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -1983,9 +1889,7 @@
             "value": "sli_4kIFWvUFG.choice_Nyq7zP8Kf"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2023,9 +1927,7 @@
             "value": "sli_4kmHuoIFz.choice_Nkf6-j8KG"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2073,9 +1975,7 @@
             "value": "sli_4y1Zct8Kf.choice_NJ44cFLYG"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2128,9 +2028,7 @@
             "value": "sli_4y68-VrYM.choice_EJgx5dVBYf"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2168,9 +2066,7 @@
             "value": "sli_4yHKRmBtz.choice_4JukJ4HtM"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2218,9 +2114,7 @@
             "value": "sli_E11-JBrFz.choice_4ygdnkrHKf"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2268,9 +2162,7 @@
             "value": "sli_E1NpkPItM.choice_4ksOxPUYz"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2318,9 +2210,7 @@
             "value": "sli_EkVzFFLYG.choice_4kPIKKUFM"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2368,9 +2258,7 @@
             "value": "sli_Ey5u3ULYG.choice_V1YR38IYf"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2418,9 +2306,7 @@
             "value": "sli_EyQmVVHYf.choice_4kgLE4Stz"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2468,9 +2354,7 @@
             "value": "sli_EyoeviUYG.choice_N1f4PsIYf"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2523,9 +2407,7 @@
             "value": "sli_EyolUFUYz.choice_V1cJPFLKz"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2573,9 +2455,7 @@
             "value": "sli_EywU6LIKM.choice_V1xYa8UFG"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2613,9 +2493,7 @@
             "value": "sli_N10Yv21cG.choice_4JBFOnk9z"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2668,9 +2546,7 @@
             "value": "sli_N154j4SYM.choice_4krDjNSYf"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2718,9 +2594,7 @@
             "value": "sli_NJDaVErKf.choice_Ek21rNHtz"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2768,9 +2642,7 @@
             "value": "sli_NJhVLoLKG.choice_4ylHdUo8FG"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2808,9 +2680,7 @@
             "value": "sli_NkRzsKLFf.choice_NJTLiYItG"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2863,9 +2733,7 @@
             "value": "sli_V11S8VStf.choice_NyS9I4BYG"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2903,9 +2771,7 @@
             "value": "sli_V1Iv-YUKf.choice_EydK-YLKf"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2943,9 +2809,7 @@
             "value": "sli_V1alSsVjf.choice_EJz4HsNiM"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -2983,9 +2847,7 @@
             "value": "sli_V1pXrDIFG.choice_VJROrPUFG"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -3033,9 +2895,7 @@
             "value": "sli_VJ2hk58tM.choice_4JUJe58Ff"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -3088,9 +2948,7 @@
             "value": "sli_VkPKMPUYG.choice_VkFBXDUYf"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -3138,9 +2996,7 @@
             "value": "sli_VkTR~HrFG.choice_NklFXzHBtf"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -3188,9 +3044,7 @@
             "value": "sli_VkncTNSFz.choice_EybR64Htz"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -3238,9 +3092,7 @@
             "value": "sli_Vkxrri8tf.choice_Vy01IsLFG"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -3288,9 +3140,7 @@
             "value": "sli_Vy5-xBBtz.choice_Ek9mbHBYG"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -3338,9 +3188,7 @@
             "value": "sli_VyEpFHBFf.choice_NyEZg8Stz"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -3393,9 +3241,7 @@
             "value": "sli_VyuQDwIFz.choice_NJxf8vvUKf"
           }
         ],
-        "answers": [
-          []
-        ]
+        "answers": [[]]
       }
     },
     "context": {
@@ -3458,12 +3304,7 @@
         "template": "Pour faciliter {{sel57083}}, les équipes travaillant en mode projet peuvent utiliser des outils informatiques tels que Trello, Slack ou encore Wunderlist. Ces outils pourront leur permettre de remplir leurs objectifs de façon {{sel80320}}.",
         "matchOrder": true,
         "maxTypos": null,
-        "answers": [
-          [
-            "la collaboration",
-            "agile"
-          ]
-        ],
+        "answers": [["la collaboration", "agile"]],
         "choices": [
           {
             "_id": "5b03eb74e9103612bffbcfe1",
@@ -3583,12 +3424,7 @@
         "template": "Elles sont {{sel75097}} pour permettre une approche {{sel41605}}",
         "matchOrder": true,
         "maxTypos": null,
-        "answers": [
-          [
-            "pluridisciplinaires",
-            "transversale"
-          ]
-        ],
+        "answers": [["pluridisciplinaires", "transversale"]],
         "choices": [
           {
             "_id": "5b03eb74e9103612bffbcfec",
@@ -3696,12 +3532,7 @@
         "template": "Un {{sel10569}} est assigné à une étape. À la fin, l'équipe fait un point et des {{sel39510}} peuvent être redéployées.",
         "matchOrder": true,
         "maxTypos": null,
-        "answers": [
-          [
-            "objectif",
-            "ressources"
-          ]
-        ],
+        "answers": [["objectif", "ressources"]],
         "choices": [
           {
             "_id": "5b03eb74e9103612bffbd013",
@@ -3819,12 +3650,7 @@
       "explanation": "Sélectionnez les bonnes réponses.",
       "content": {
         "maxTypos": null,
-        "answers": [
-          [
-            "Un capitaine de bateau",
-            "Un animateur"
-          ]
-        ],
+        "answers": [["Un capitaine de bateau", "Un animateur"]],
         "choices": [
           {
             "_id": "5b03eb74e9103612bffbd07d",
@@ -3928,11 +3754,7 @@
         "template": "{{sel71823}}",
         "matchOrder": true,
         "maxTypos": null,
-        "answers": [
-          [
-            "Horizontal"
-          ]
-        ],
+        "answers": [["Horizontal"]],
         "choices": [
           {
             "_id": "5b03eb74e9103612bffbd090",
@@ -4179,9 +4001,7 @@
       "content": {
         "maxTypos": null,
         "answers": [
-          [
-            "La prise de décision est collective au sein de l'équipe"
-          ]
+          ["La prise de décision est collective au sein de l'équipe"]
         ],
         "choices": [
           {
@@ -4272,11 +4092,7 @@
       "explanation": "Sélectionnez la bonne réponse.",
       "content": {
         "maxTypos": null,
-        "answers": [
-          [
-            "Être le plus réactif possible et générer de la vitesse"
-          ]
-        ],
+        "answers": [["Être le plus réactif possible et générer de la vitesse"]],
         "choices": [
           {
             "_id": "5b03eb75e9103612bffbd178",
