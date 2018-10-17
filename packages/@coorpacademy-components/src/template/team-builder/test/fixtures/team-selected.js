@@ -63,10 +63,6 @@ export default {
           {}
         ]
       }
-    ],
-    cta: {
-      submitValue: 'Click to start',
-      onClick: () => console.log('Joined !')
-    }
+    ]
   }
 };

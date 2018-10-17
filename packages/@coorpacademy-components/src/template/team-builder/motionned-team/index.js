@@ -1,6 +1,5 @@
 import {Motion, spring} from 'react-motion';
 import React from 'react';
-import isEmpty from 'lodash/fp/isEmpty';
 import Team from '../team';
 import style from './style.css';
 
@@ -16,7 +15,7 @@ const MotionnedMyTeam = props => {
               transform: `scale(${interpolatedStyle.scale})`
             }}
           >
-            {!isEmpty(props) ? <Team {...props} /> : null}{' '}
+            {props.members ? <Team {...props} /> : null}
           </div>
         );
       }}

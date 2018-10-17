@@ -12,32 +12,12 @@
   justify-content: center;
   flex-flow: column;
   justify-content: space-evenly;
-  background-image: url("https://user-images.githubusercontent.com/910636/46425210-5fdb3700-c73b-11e8-96d5-e685f3037191.jpg");
+  background-image: url('https://user-images.githubusercontent.com/910636/46425210-5fdb3700-c73b-11e8-96d5-e685f3037191.jpg');
   background-size: cover;
 }
 
 .title {
-  font-family: "Open Sans";
+  font-family: 'Open Sans';
   font-weight: 300;
   font-size: 36px;
-}
-
-.avatar {
-  width: 100%;
-  height: 100%;
-  border: 3px solid white;
-  border-radius: 50%;
-  background-size: contain;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-}
-
-.initial {
-  font-family:  "Open Sans";
-  font-size: 18px;
-  color: white;
-  font-weight: 600;
-  margin: auto;
 }

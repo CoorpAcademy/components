@@ -76,11 +76,14 @@ class TeamBuilder extends Component {
       </h1>
     ) : null;
 
+    const infoJoinTeam =
+      myTeam && `You've joined ${myTeam.name}: ${myTeam.numberSlotTaken}/${myTeam.members.length}`;
+
     return (
       <div className={style.teamBuilder}>
         {Title}
         {button}
-        <MotionnedTeam {...myTeam} />
+        <MotionnedTeam {...myTeam} title={infoJoinTeam} />
         <div className={style.teams}>
           {_map((team, index) => {
             return <MotionnedOtherTeams key={`OtherTeam${index}`} team={team} />;

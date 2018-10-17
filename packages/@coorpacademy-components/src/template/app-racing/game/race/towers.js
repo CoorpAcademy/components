@@ -42,7 +42,7 @@ const NORMAL_TOTEMS = [
   {
     url:
       'https://user-images.githubusercontent.com/13415878/47073739-3a4d3380-d1f9-11e8-9135-9e846cde84b9.png',
-    colorWidth: 330,
+    colorWidth: 340,
     width: 446,
     height: 660
   },
@@ -123,8 +123,7 @@ class Square extends Component {
             height: `${imageHeight}px`,
             left: `-${diffWidths / 2}px`,
             top: `-${diffHeights * (isLast ? 0.8 : 0.5)}px`,
-            backgroundImage: `url('${asset.url}')`,
-            ...motionStyle
+            backgroundImage: `url('${asset.url}')`
           }}
         />
       </div>

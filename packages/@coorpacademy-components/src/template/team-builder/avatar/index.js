@@ -39,7 +39,7 @@ class Avatar extends Component {
         function() {
           ReactTooltip.hide(this.element);
         }.bind(this),
-        3000
+        2000
       );
     }
   }

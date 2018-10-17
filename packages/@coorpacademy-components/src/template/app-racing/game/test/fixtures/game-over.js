@@ -14,24 +14,24 @@ export default {
       isVictory: false,
       message: 'You lose',
       name: 'Winners',
-      number: 2,
+      number: 4,
       members: [
         {
           id: 'user_2',
-          name: 'Katrine enirtak',
-          initial: 'KE',
+          name: 'Bob enirtak',
+          initial: 'BE',
           team: 4
         },
         {
           id: 'user_3',
-          name: 'Joe eoj',
+          name: 'John eoj',
           initial: 'JE',
           team: 4
         },
         {
           id: 'user_4',
-          name: 'Kim mik',
-          initial: 'KM',
+          name: 'Kim Emik',
+          initial: 'KE',
           team: 4
         }
       ]

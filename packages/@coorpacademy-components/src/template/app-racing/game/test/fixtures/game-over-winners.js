@@ -4,7 +4,10 @@ import fiveTowers from '../../common-fixtures/five-towers';
 export default {
   props: {
     view: 'race',
-    team: allInMiddleTeam,
+    team: {
+      ...allInMiddleTeam,
+      num: 4
+    },
     towers: fiveTowers,
     goal: 8,
     info: {
@@ -14,7 +17,7 @@ export default {
       isVictory: true,
       message: 'You win',
       name: 'Winners',
-      number: 2,
+      number: 4,
       members: [
         {
           id: 'user_2',

@@ -64,7 +64,7 @@ const Game = props => {
   const popin = victors && (
     <div className={style.answerPopin}>
       <span className={victors.isVictory ? style.win : style.lose}>{victors.message}</span>
-      <TeamList {...victors} />
+      <TeamList {...victors} title="Winners" />
     </div>
   );
 
