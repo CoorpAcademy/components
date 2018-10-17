@@ -8,49 +8,131 @@ import PropTypes from 'prop-types';
 import colors from '../common-fixtures/colors';
 import style from './towers.css';
 
-const NORMAL_TOTEMS_WIDTH = 283;
-const NORMAL_TOTEMS_HEIGHT = 383;
-const NORMAL_TOTEMS_PADDING_PERCENT = 15;
+const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
 const NORMAL_TOTEMS = [
-  'https://user-images.githubusercontent.com/910636/46871482-d958e080-ce31-11e8-9573-43bc5f8fd83e.png'
+  {
+    url:
+      'https://user-images.githubusercontent.com/13415878/47073735-39b49d00-d1f9-11e8-9f4e-3fdc9bb2c4c4.png',
+    colorWidth: 370,
+    width: 450,
+    height: 660
+  },
+  {
+    url:
+      'https://user-images.githubusercontent.com/13415878/47073736-39b49d00-d1f9-11e8-845e-7987bf3824a0.png',
+    colorWidth: 310,
+    width: 508,
+    height: 660
+  },
+  {
+    url:
+      'https://user-images.githubusercontent.com/13415878/47073737-39b49d00-d1f9-11e8-9c93-60de7bb0320d.png',
+    colorWidth: 350,
+    width: 450,
+    height: 660
+  },
+  {
+    url:
+      'https://user-images.githubusercontent.com/13415878/47073738-3a4d3380-d1f9-11e8-941c-5c6f64053d82.png',
+    colorWidth: 325,
+    width: 410,
+    height: 660
+  },
+  {
+    url:
+      'https://user-images.githubusercontent.com/13415878/47073739-3a4d3380-d1f9-11e8-9135-9e846cde84b9.png',
+    colorWidth: 330,
+    width: 446,
+    height: 660
+  },
+  {
+    url:
+      'https://user-images.githubusercontent.com/13415878/47073740-3a4d3380-d1f9-11e8-9e97-aabdd7e1a67b.png',
+    colorWidth: 300,
+    width: 394,
+    height: 660
+  }
+];
+
+const TOP_TOTEMS = [
+  {
+    url:
+      'https://user-images.githubusercontent.com/13415878/47073743-3ae5ca00-d1f9-11e8-83bf-60ce8b6351cd.png',
+    colorWidth: 250,
+    width: 1218,
+    height: 940
+  }
 ];
 
 const _map = map.convert({cap: false});
 
-const Square = ({color, type, index, height, bottom, motionStyle, scaleValue = 1}) => {
-  const imageHeight = height * 1.2;
-  const diffHeights = imageHeight - height;
-  const imageWidth = NORMAL_TOTEMS_WIDTH * imageHeight / NORMAL_TOTEMS_HEIGHT;
+class Square extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      asset: null
+    };
+  }
 
-  return (
-    <div
-      className={style.block}
-      style={{
-        height: `${height}px`,
-        width: `${imageWidth - imageWidth * NORMAL_TOTEMS_PADDING_PERCENT / 100}px`,
-        bottom,
-        backgroundColor: scaleValue === 1 ? color : null,
-        transform: `scale3d(${scaleValue}, ${scaleValue}, 1)`,
-        ...motionStyle
-      }}
-    >
+  componentDidMount() {
+    this.deferOpen();
+  }
+
+  deferOpen() {
+    clearTimeout(this.deferedOpen);
+
+    this.deferedOpen = defer(() => {
+      const asset = this.props.isLast
+        ? TOP_TOTEMS[0]
+        : NORMAL_TOTEMS[random(0, NORMAL_TOTEMS.length - 1)];
+      this.setState({asset});
+    });
+  }
+
+  render() {
+    const {color, height, bottom, motionStyle, scaleValue = 1, isLast = false} = this.props;
+    const asset = this.state.asset;
+    if (!asset) {
+      return null;
+    }
+
+    const imageHeight = height * (isLast ? 1.9 : 1.1);
+    const colorWidth = asset.colorWidth * imageHeight / asset.height;
+    const imageWidth = asset.width * imageHeight / asset.height;
+
+    const diffHeights = imageHeight - height;
+    const diffWidths = imageWidth - colorWidth;
+
+    return (
       <div
-        className={style.blockImage}
+        className={style.block}
         style={{
-          width: `${imageWidth}px`,
-          height: `${imageHeight}px`,
-          left: `-${imageWidth * NORMAL_TOTEMS_PADDING_PERCENT / 200}px`,
-          top: `-${diffHeights / 2}px`,
-          backgroundImage: `url('${NORMAL_TOTEMS[0]}')`,
+          height: `${height}px`,
+          width: `${colorWidth}px`,
+          bottom,
+          backgroundColor: scaleValue === 1 ? color : null,
+          transform: `scale3d(${scaleValue}, ${scaleValue}, 1)`,
           ...motionStyle
         }}
-      />
-    </div>
-  );
-};
+      >
+        <div
+          className={style.blockImage}
+          style={{
+            width: `${imageWidth}px`,
+            height: `${imageHeight}px`,
+            left: `-${diffWidths / 2}px`,
+            top: `-${diffHeights * (isLast ? 0.8 : 0.5)}px`,
+            backgroundImage: `url('${asset.url}')`,
+            ...motionStyle
+          }}
+        />
+      </div>
+    );
+  }
+}
 
-const Block = ({color, index, num, type, size, bottom, maxStiffness}) => {
+const Block = ({color, index, num, isLast, type, size, bottom, maxStiffness}) => {
   const height = type === ('removed' || 'lost') ? 0 : size;
   switch (type) {
     case 'good':
@@ -62,7 +144,14 @@ const Block = ({color, index, num, type, size, bottom, maxStiffness}) => {
           }}
         >
           {({y}) => (
-            <Square color={colors[color]} bottom={y} height={height} type={type} index={index} />
+            <Square
+              color={colors[color]}
+              bottom={y}
+              height={height}
+              type={type}
+              index={index}
+              isLast={isLast}
+            />
           )}
         </Motion>
       );
@@ -97,10 +186,22 @@ const Block = ({color, index, num, type, size, bottom, maxStiffness}) => {
       return (
         <Motion
           defaultStyle={{y: 1000}}
-          style={{y: spring(bottom, {stiffness: maxStiffness - num * 10, damping: 22})}}
+          style={{
+            y: spring(bottom, {
+              stiffness: maxStiffness - num * 10,
+              damping: 22
+            })
+          }}
         >
           {({y}) => (
-            <Square color={colors[color]} bottom={y} height={height} type={type} index={index} />
+            <Square
+              color={colors[color]}
+              bottom={y}
+              height={height}
+              type={type}
+              index={index}
+              isLast={isLast}
+            />
           )}
         </Motion>
       );
@@ -109,17 +210,36 @@ const Block = ({color, index, num, type, size, bottom, maxStiffness}) => {
       return (
         <Motion
           defaultStyle={{y: bottom + size}}
-          style={{y: spring(bottom, {stiffness: maxStiffness - num * 10, damping: 22})}}
+          style={{
+            y: spring(bottom, {
+              stiffness: maxStiffness - num * 10,
+              damping: 22
+            })
+          }}
         >
           {({y}) => (
-            <Square color={colors[color]} bottom={y} height={height} type={type} index={index} />
+            <Square
+              color={colors[color]}
+              bottom={y}
+              height={height}
+              type={type}
+              index={index}
+              isLast={isLast}
+            />
           )}
         </Motion>
       );
 
     case 'placed':
       return (
-        <Square color={colors[color]} bottom={bottom} height={height} type={type} index={index} />
+        <Square
+          color={colors[color]}
+          bottom={bottom}
+          height={height}
+          type={type}
+          index={index}
+          isLast={isLast}
+        />
       );
 
     case 'lost':
@@ -172,6 +292,8 @@ const Tower = ({blurType, myTeam, team, goal, blocks, blockSize, maxStiffness}) 
       }}
     >
       {({blurValue, grayValue}) => {
+        const count = countBy(identity, blocks);
+        const nbRemoved = (count.removed || 0) + (count.lost || 0);
         return (
           <div
             className={style.tower}
@@ -182,10 +304,9 @@ const Tower = ({blurType, myTeam, team, goal, blocks, blockSize, maxStiffness}) 
             }}
           >
             {_map((value, index) => {
-              const count = countBy(identity, blocks);
-              const nbRemoved = (count.removed || 0) + (count.lost || 0);
               const num = index - nbRemoved;
               const bottom = num * (blockSize - 1);
+              const isLast = num === goal - 1;
 
               return (
                 <Block
@@ -195,6 +316,7 @@ const Tower = ({blurType, myTeam, team, goal, blocks, blockSize, maxStiffness}) 
                   bottom={bottom}
                   index={index}
                   num={num}
+                  isLast={isLast}
                   key={`block-${team}-${index}`}
                   maxStiffness={maxStiffness}
                 />

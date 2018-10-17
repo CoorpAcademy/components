@@ -26,10 +26,10 @@
   width: 100%;
   position: absolute;
   background-size: 50%;
+  border-radius: 15px;
 }
 
 .blockImage {
-  height: 120%;
   background-size: cover;
   background-position: center;
   position: absolute;
