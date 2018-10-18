@@ -152,11 +152,6 @@ const getInitial = name => {
   return initial;
 };
 
-const getColor = team => {
-  const color = ['#42c02f', '#b44b79', '#0fb9c4', '#ffcc00', '#cc3300'];
-  return color[team];
-};
-
 export const currentTeam = state => {
   const progression = getCurrentProgression(state);
   const userState = getCurrentUserState(state);
@@ -185,7 +180,7 @@ export const currentTeam = state => {
       isWaitingAnswer: playerId === userState.id && isTimerOn('me')(state),
       name: get('name', player),
       initial: getInitial(get('name', player)),
-      color: getColor(player.team),
+      color: player.team,
       isCorrect: getOr(null, `allAnswers[${questionNumDisplayed - 1}].isCorrect`, player)
     };
   }, players);

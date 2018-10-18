@@ -83,7 +83,7 @@ class Square extends Component {
     this.deferedOpen = defer(() => {
       const asset = this.props.isLast
         ? TOP_TOTEMS[0]
-        : NORMAL_TOTEMS[(this.props.num + this.props.team) % (NORMAL_TOTEMS.length - 1)];
+        : NORMAL_TOTEMS[(this.props.index + this.props.team) % (NORMAL_TOTEMS.length - 1)];
       this.setState({asset});
     });
   }
@@ -144,7 +144,6 @@ const Block = ({team, index, num, isLast, type, size, bottom, maxStiffness}) => 
         >
           {({y}) => (
             <Square
-              num={num}
               team={team}
               bottom={y}
               height={height}
@@ -167,7 +166,6 @@ const Block = ({team, index, num, isLast, type, size, bottom, maxStiffness}) => 
         >
           {({scaleValue = 0, opacity = 0}) => (
             <Square
-              num={num}
               team={team}
               bottom={bottom}
               height={height}
@@ -196,7 +194,6 @@ const Block = ({team, index, num, isLast, type, size, bottom, maxStiffness}) => 
         >
           {({y}) => (
             <Square
-              num={num}
               team={team}
               bottom={y}
               height={height}
@@ -221,7 +218,6 @@ const Block = ({team, index, num, isLast, type, size, bottom, maxStiffness}) => 
         >
           {({y}) => (
             <Square
-              num={num}
               team={team}
               bottom={y}
               height={height}
@@ -236,7 +232,6 @@ const Block = ({team, index, num, isLast, type, size, bottom, maxStiffness}) => 
     case 'placed':
       return (
         <Square
-          num={num}
           team={team}
           bottom={bottom}
           height={height}
@@ -256,7 +251,6 @@ const Block = ({team, index, num, isLast, type, size, bottom, maxStiffness}) => 
         >
           {({scaleValue}) => (
             <Square
-              num={num}
               team={team}
               bottom={0}
               height={height}

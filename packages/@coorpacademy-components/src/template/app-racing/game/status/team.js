@@ -8,6 +8,7 @@ import {Motion, spring} from 'react-motion';
 import classnames from 'classnames';
 import animation from '../../../../atom/css-animations/fade-in.css';
 import LoaderTarget from '../../../../atom/loader-target';
+import Colors from '../common-fixtures/colors';
 import ScoreNotification from './score-notification';
 import style from './team.css';
 
@@ -22,7 +23,7 @@ const Player = ({name, initial, color, isCorrect}) => {
       title={name}
       className={classnames(style.avatar, borderStyle, animation.fadeIn)}
       key={name}
-      style={{backgroundColor: color}}
+      style={{backgroundColor: Colors[color]}}
     >
       <div className={style.initial}>{initial}</div>
       {isNull(isCorrect) ? <span className={style.status}>{'Answering...'}</span> : null}
@@ -91,7 +92,13 @@ const Team = props => {
         return (
           <Motion
             key={name}
-            defaultStyle={{xPercent: 50, xOffset: 25, y: middleY, scale: 1, loaderSpeed: 1}}
+            defaultStyle={{
+              xPercent: 50,
+              xOffset: 25,
+              y: middleY,
+              scale: 1,
+              loaderSpeed: 1
+            }}
             style={{
               // xPercent: spring(position.xPercent, options),
               // xOffset: spring(position.xOffset, options),
@@ -131,6 +138,7 @@ Team.propTypes = {
   num: PropTypes.number, // eslint-disable-line react/no-unused-prop-types
   members: PropTypes.arrayOf(
     PropTypes.shape({
+      color: PropTypes.number,
       name: PropTypes.string,
       initial: PropTypes.string,
       isCorrect: PropTypes.bool,
