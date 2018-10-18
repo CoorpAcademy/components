@@ -1,7 +1,7 @@
 export default {
   props: {
     choice: {
-      checked: true,
+      selected: true,
       name: 'foo',
       value: 'foo'
     },
