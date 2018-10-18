@@ -13,6 +13,12 @@ import Race from './race';
 import Timer from './timer';
 import style from './style.css';
 
+const BACKGROUNDS = [
+  'https://user-images.githubusercontent.com/13415878/47143117-c0827c00-d2c4-11e8-9a06-3ebdc45431d4.jpg',
+  'https://user-images.githubusercontent.com/13415878/47143118-c0827c00-d2c4-11e8-9dcf-649d04f52a55.jpg',
+  'https://user-images.githubusercontent.com/13415878/47145025-10fbd880-d2c9-11e8-85df-0ec1cac8dc59.jpg'
+];
+
 const TopScreen = props => {
   const position = props.view === 'race' ? -100 : 0;
   const options = {stiffness: 120, damping: 22};
@@ -57,6 +63,8 @@ const TopScreen = props => {
   );
 };
 
+const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+
 const Game = props => {
   const {start = false, team, goal, towers, cta, info = {}, victors = [], getReadyTime = 0} = props;
 
@@ -75,7 +83,12 @@ const Game = props => {
   );
 
   return (
-    <div className={style.game}>
+    <div
+      className={style.game}
+      style={{
+        backgroundImage: `url('${BACKGROUNDS[random(0, BACKGROUNDS.length - 1)]}')`
+      }}
+    >
       <TopScreen {...props} />
       <GameStatus team={team} goal={goal} towers={towers} cta={cta} start={start} />
       {popin}

@@ -8,8 +8,6 @@ import PropTypes from 'prop-types';
 import colors from '../common-fixtures/colors';
 import style from './towers.css';
 
-const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
-
 const NORMAL_TOTEMS = [
   {
     url:
@@ -85,13 +83,15 @@ class Square extends Component {
     this.deferedOpen = defer(() => {
       const asset = this.props.isLast
         ? TOP_TOTEMS[0]
-        : NORMAL_TOTEMS[random(0, NORMAL_TOTEMS.length - 1)];
+        : NORMAL_TOTEMS[(this.props.num + this.props.team) % (NORMAL_TOTEMS.length - 1)];
       this.setState({asset});
     });
   }
 
   render() {
-    const {color, height, bottom, motionStyle, scaleValue = 1, isLast = false} = this.props;
+    const {team, height, bottom, motionStyle, scaleValue = 1, isLast = false} = this.props;
+    const color = colors[team];
+
     const asset = this.state.asset;
     if (!asset) {
       return null;
@@ -131,7 +131,7 @@ class Square extends Component {
   }
 }
 
-const Block = ({color, index, num, isLast, type, size, bottom, maxStiffness}) => {
+const Block = ({team, index, num, isLast, type, size, bottom, maxStiffness}) => {
   const height = type === ('removed' || 'lost') ? 0 : size;
   switch (type) {
     case 'good':
@@ -144,7 +144,8 @@ const Block = ({color, index, num, isLast, type, size, bottom, maxStiffness}) =>
         >
           {({y}) => (
             <Square
-              color={colors[color]}
+              num={num}
+              team={team}
               bottom={y}
               height={height}
               type={type}
@@ -166,7 +167,8 @@ const Block = ({color, index, num, isLast, type, size, bottom, maxStiffness}) =>
         >
           {({scaleValue = 0, opacity = 0}) => (
             <Square
-              color={colors[color]}
+              num={num}
+              team={team}
               bottom={bottom}
               height={height}
               type={type}
@@ -194,7 +196,8 @@ const Block = ({color, index, num, isLast, type, size, bottom, maxStiffness}) =>
         >
           {({y}) => (
             <Square
-              color={colors[color]}
+              num={num}
+              team={team}
               bottom={y}
               height={height}
               type={type}
@@ -218,7 +221,8 @@ const Block = ({color, index, num, isLast, type, size, bottom, maxStiffness}) =>
         >
           {({y}) => (
             <Square
-              color={colors[color]}
+              num={num}
+              team={team}
               bottom={y}
               height={height}
               type={type}
@@ -232,7 +236,8 @@ const Block = ({color, index, num, isLast, type, size, bottom, maxStiffness}) =>
     case 'placed':
       return (
         <Square
-          color={colors[color]}
+          num={num}
+          team={team}
           bottom={bottom}
           height={height}
           type={type}
@@ -251,7 +256,8 @@ const Block = ({color, index, num, isLast, type, size, bottom, maxStiffness}) =>
         >
           {({scaleValue}) => (
             <Square
-              color={colors[color]}
+              num={num}
+              team={team}
               bottom={0}
               height={height}
               type={type}
@@ -310,7 +316,7 @@ const Tower = ({blurType, myTeam, team, goal, blocks, blockSize, maxStiffness}) 
               return (
                 <Block
                   type={value}
-                  color={team}
+                  team={team}
                   size={blockSize}
                   bottom={bottom}
                   index={index}

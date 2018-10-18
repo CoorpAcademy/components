@@ -1,16 +1,16 @@
 .admin {
   padding: 10px;
-  background-image: url('https://user-images.githubusercontent.com/910636/46425210-5fdb3700-c73b-11e8-96d5-e685f3037191.jpg');
+  background-image: url('https://user-images.githubusercontent.com/13415878/47146582-aa78b980-d2cc-11e8-9ac3-2e12fb48f070.jpg');
   background-size: cover;
 }
 
-.title {
-  font-family: 'Open Sans';
-  font-size: 25px;
-  font-weight: 700;
-  color: #0e3a3d;
-  margin: 0;
-  padding: 0;
+.logo {
+  height: 127px;
+  width: 100%;
+  background-image: url('https://user-images.githubusercontent.com/13415878/47146528-8321ec80-d2cc-11e8-9f4a-fab41d5db4eb.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 
 .sliders {
@@ -44,5 +44,5 @@
 .description {
   font-family: 'Open Sans';
   font-size: 15px;
-  color: #0e3a3d;
+  color: #fff;
 }

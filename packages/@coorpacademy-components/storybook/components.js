@@ -673,6 +673,7 @@ import TemplateAppRacingGameFixtureRaceAllInMiddle from '../src/template/app-rac
 import TemplateAppRacingGameFixtureRaceHighlightBadAnswer from '../src/template/app-racing/game/test/fixtures/race-highlight-bad-answer';
 import TemplateAppRacingGameFixtureRaceHighlightBadFirstAnswer from '../src/template/app-racing/game/test/fixtures/race-highlight-bad-first-answer';
 import TemplateAppRacingGameFixtureRaceHighlightGoodAnswer from '../src/template/app-racing/game/test/fixtures/race-highlight-good-answer';
+import TemplateAppRacingGameFixtureRaceLostAndNewThreeTeams from '../src/template/app-racing/game/test/fixtures/race-lost-and-new-three-teams';
 import TemplateAppRacingGameFixtureRaceLostAndNew from '../src/template/app-racing/game/test/fixtures/race-lost-and-new';
 import TemplateAppRacingGameFixtureReadyForQuestion from '../src/template/app-racing/game/test/fixtures/ready-for-question';
 import TemplateAppRacingGameFixtureReadyToAnswerSpread from '../src/template/app-racing/game/test/fixtures/ready-to-answer-spread';
@@ -1749,6 +1750,7 @@ export const fixtures = {
       RaceHighlightBadAnswer: TemplateAppRacingGameFixtureRaceHighlightBadAnswer,
       RaceHighlightBadFirstAnswer: TemplateAppRacingGameFixtureRaceHighlightBadFirstAnswer,
       RaceHighlightGoodAnswer: TemplateAppRacingGameFixtureRaceHighlightGoodAnswer,
+      RaceLostAndNewThreeTeams: TemplateAppRacingGameFixtureRaceLostAndNewThreeTeams,
       RaceLostAndNew: TemplateAppRacingGameFixtureRaceLostAndNew,
       ReadyForQuestion: TemplateAppRacingGameFixtureReadyForQuestion,
       ReadyToAnswerSpread: TemplateAppRacingGameFixtureReadyToAnswerSpread,
