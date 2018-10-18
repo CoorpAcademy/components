@@ -1,3 +1,6 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
 .logo {
   position: absolute;
   height: 127px;
@@ -8,6 +11,15 @@
   background-position: center;
   background-size: contain;
   background-repeat: no-repeat;
+}
+
+@media mobile {
+  .logo {
+    top: 5px;
+    left: 0px;
+    height: 57px;
+    width: 50px;
+  }
 }
 
 .teams {
