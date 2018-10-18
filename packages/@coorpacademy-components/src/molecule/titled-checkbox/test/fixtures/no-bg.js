@@ -1,8 +1,9 @@
 export default {
   props: {
-    state: {
+    choice: {
       checked: true,
-      label: 'foo'
+      name: 'foo',
+      value: 'foo'
     },
     onToggle: () => null
   }

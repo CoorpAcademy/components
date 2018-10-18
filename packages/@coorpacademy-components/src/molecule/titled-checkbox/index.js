@@ -8,12 +8,12 @@ import style from './style.css';
 
 const TitledCheckbox = (props, context) => {
   const {skin} = context;
-  const {state, background, onToggle} = props;
+  const {choice, background, onToggle} = props;
 
   const iconSuccess = String.fromCharCode(getOr('v', 'icons.success', skin));
-  const label = state.label;
-  const icon = state.checked ? iconSuccess : '';
-  const handleChange = () => onToggle(state);
+  const label = choice.name;
+  const icon = choice.selected ? iconSuccess : '';
+  const handleChange = () => onToggle(choice);
 
   return (
     <div className={style.default}>
@@ -31,7 +31,7 @@ const TitledCheckbox = (props, context) => {
         >
           {icon}
         </span>
-        <Checkbox className={style.input} checked={state.checked} onChange={handleChange} />
+        <Checkbox className={style.input} checked={choice.selected} onChange={handleChange} />
       </label>
       <span title={label}>{label}</span>
     </div>
@@ -43,9 +43,10 @@ TitledCheckbox.contextTypes = {
 };
 
 TitledCheckbox.propTypes = {
-  state: PropTypes.shape({
-    checked: PropTypes.bool,
-    label: PropTypes.string.isRequired
+  choice: PropTypes.shape({
+    selected: PropTypes.bool.isRequired,
+    name: PropTypes.string.isRequired,
+    value: PropTypes.string
   }).isRequired,
   background: ColorPropType,
   onToggle: PropTypes.func.isRequired
