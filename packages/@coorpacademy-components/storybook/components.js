@@ -591,6 +591,7 @@ import TemplateAppPlayerPlayerFixtureDropDown from '../src/template/app-player/p
 import TemplateAppPlayerPlayerFixtureEmpty from '../src/template/app-player/player/test/fixtures/empty';
 import TemplateAppPlayerPlayerFixtureError from '../src/template/app-player/player/test/fixtures/error';
 import TemplateAppPlayerPlayerFixtureFreeText from '../src/template/app-player/player/test/fixtures/free-text';
+import TemplateAppPlayerPlayerFixtureMediaImage from '../src/template/app-player/player/test/fixtures/media-image';
 import TemplateAppPlayerPlayerFixtureMedia from '../src/template/app-player/player/test/fixtures/media';
 import TemplateAppPlayerPlayerFixtureNoClue from '../src/template/app-player/player/test/fixtures/no-clue';
 import TemplateAppPlayerPlayerFixtureOnlyClue from '../src/template/app-player/player/test/fixtures/only-clue';
@@ -1546,6 +1547,7 @@ export const fixtures = {
       Empty: TemplateAppPlayerPlayerFixtureEmpty,
       Error: TemplateAppPlayerPlayerFixtureError,
       FreeText: TemplateAppPlayerPlayerFixtureFreeText,
+      MediaImage: TemplateAppPlayerPlayerFixtureMediaImage,
       Media: TemplateAppPlayerPlayerFixtureMedia,
       NoClue: TemplateAppPlayerPlayerFixtureNoClue,
       OnlyClue: TemplateAppPlayerPlayerFixtureOnlyClue,
