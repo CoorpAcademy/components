@@ -13,7 +13,7 @@ const _map = map.convert({cap: false});
 
 const Logo = () => <div className={style.logo} />;
 
-const Cta = ({cta, disabledButton}) => {
+const Cta = ({cta, disabledButton, onClick}) => {
   if (!cta) {
     return null;
   }
@@ -25,12 +25,7 @@ const Cta = ({cta, disabledButton}) => {
   return (
     <Button
       className={style.button}
-      onClick={() => {
-        this.setState({
-          disabledButton: true
-        });
-        cta.onClick();
-      }}
+      onClick={onClick}
       disabled={disabledButton}
       submitValue={cta.submitValue}
     />
@@ -81,7 +76,16 @@ class TeamBuilder extends Component {
       <div className={style.teamBuilder}>
         <Logo />
         {Title}
-        <Cta disabledButton={disabledButton} cta={cta} />
+        <Cta
+          disabledButton={disabledButton}
+          cta={cta}
+          onClick={() => {
+            this.setState({
+              disabledButton: true
+            });
+            cta.onClick();
+          }}
+        />
         <MotionnedTeam {...myTeam} title={infoJoinTeam} />
         <div className={style.teams}>
           {_map((team, index) => {
