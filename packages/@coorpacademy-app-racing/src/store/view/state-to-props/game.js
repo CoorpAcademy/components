@@ -88,7 +88,7 @@ const gameProps = (options, store) => state => {
   const victors = victorMembers
     ? {
         isVictory,
-        message: isVictory ? 'You win' : 'You lose',
+        message: spectate ? 'Game over!' : isVictory ? 'You win' : 'You lose', // eslint-disable-line no-nested-ternary
         name: 'Winners',
         members: victorMembers,
         number: get('0.team', victorMembers)
@@ -96,7 +96,7 @@ const gameProps = (options, store) => state => {
     : null;
 
   const success = gameOver ? null : isLastAnswerCorrect(state);
-  const view = gameOver || isSpectator(state) ? 'race' : getRoute(state);
+  const view = gameOver || spectate ? 'race' : getRoute(state);
   const message =
     isTimerOn('waitingCorrection')(state) ||
     view === 'question' ||
