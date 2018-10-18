@@ -63,8 +63,6 @@ const TopScreen = props => {
   );
 };
 
-const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
-
 const Game = props => {
   const {start = false, team, goal, towers, cta, info = {}, victors = [], getReadyTime = 0} = props;
 
@@ -86,7 +84,7 @@ const Game = props => {
     <div
       className={style.game}
       style={{
-        backgroundImage: `url('${BACKGROUNDS[random(0, BACKGROUNDS.length - 1)]}')`
+        backgroundImage: `url('${BACKGROUNDS[goal % BACKGROUNDS.length]}')`
       }}
     >
       <TopScreen {...props} />
