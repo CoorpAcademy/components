@@ -11,7 +11,7 @@ import createProgression, {createRacing} from './create-progression';
 import {getConfig, getConfigForProgression} from './config';
 import ERRORS from './errors';
 
-import computeRacingSetup from './compute-next-step/racing';
+import {computeRacingSetup} from './compute-next-step/racing';
 
 export {
   checkAnswer,

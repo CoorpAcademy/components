@@ -13,19 +13,18 @@
 }
 
 .team > header {
-  height: 25px;
   display: flex;
 }
 
 .team > header > h1 {
-  font-family: "Open Sans";
-  font-size: 1em;
+  font-family: 'Open Sans';
+  font-size: 13px;
   font-weight: bold;
   font-weight: normal;
-  padding: auto;
+  padding: 0 5px;
   margin: auto;
   color: white;
-  text-align: center;
+  text-align: left;
 }
 
 .members {
@@ -40,4 +39,5 @@
 .avatar {
   width: 45px;
   height: 45px;
+  margin: 2px;
 }

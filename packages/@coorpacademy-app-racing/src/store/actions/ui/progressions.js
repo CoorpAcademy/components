@@ -8,7 +8,7 @@ import {
   isGameOver,
   isSpectator
 } from '../../utils/state-extract';
-import {syncWithTeammates} from './route';
+import {selectRoute, syncWithTeammates} from './route';
 
 export const UI_SELECT_PROGRESSION = '@@ui/SELECT_PROGRESSION';
 
@@ -19,6 +19,8 @@ export const selectProgression = id => async (dispatch, getState) => {
       id
     }
   });
+
+  await dispatch(selectRoute('race'));
 
   const response = await dispatch(fetchProgression(id));
   if (response.error) return response;

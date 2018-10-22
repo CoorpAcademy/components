@@ -673,6 +673,7 @@ import TemplateAppRacingGameFixtureRaceAllInMiddle from '../src/template/app-rac
 import TemplateAppRacingGameFixtureRaceHighlightBadAnswer from '../src/template/app-racing/game/test/fixtures/race-highlight-bad-answer';
 import TemplateAppRacingGameFixtureRaceHighlightBadFirstAnswer from '../src/template/app-racing/game/test/fixtures/race-highlight-bad-first-answer';
 import TemplateAppRacingGameFixtureRaceHighlightGoodAnswer from '../src/template/app-racing/game/test/fixtures/race-highlight-good-answer';
+import TemplateAppRacingGameFixtureRaceLostAndNewThreeTeams from '../src/template/app-racing/game/test/fixtures/race-lost-and-new-three-teams';
 import TemplateAppRacingGameFixtureRaceLostAndNew from '../src/template/app-racing/game/test/fixtures/race-lost-and-new';
 import TemplateAppRacingGameFixtureReadyForQuestion from '../src/template/app-racing/game/test/fixtures/ready-for-question';
 import TemplateAppRacingGameFixtureReadyToAnswerSpread from '../src/template/app-racing/game/test/fixtures/ready-to-answer-spread';
@@ -735,6 +736,7 @@ import TemplateTeamBuilderMotionnedTeamFixtureEmptyProps from '../src/template/t
 import TemplateTeamBuilderTeamAvatarFixtureDefault from '../src/template/team-builder/teamAvatar/test/fixtures/default';
 import TemplateTeamBuilderFixtureDefault from '../src/template/team-builder/test/fixtures/default';
 import TemplateTeamBuilderFixtureReadyToStart from '../src/template/team-builder/test/fixtures/ready-to-start';
+import TemplateTeamBuilderFixtureShowSomeTooltips from '../src/template/team-builder/test/fixtures/show-some-tooltips';
 import TemplateTeamBuilderFixtureTeamSelected from '../src/template/team-builder/test/fixtures/team-selected';
 import TemplateTeamBuilderFixtureWaitForOthers from '../src/template/team-builder/test/fixtures/wait-for-others';
 
@@ -1614,6 +1616,7 @@ export const fixtures = {
     TemplateTeamBuilder: {
       Default: TemplateTeamBuilderFixtureDefault,
       ReadyToStart: TemplateTeamBuilderFixtureReadyToStart,
+      ShowSomeTooltips: TemplateTeamBuilderFixtureShowSomeTooltips,
       TeamSelected: TemplateTeamBuilderFixtureTeamSelected,
       WaitForOthers: TemplateTeamBuilderFixtureWaitForOthers
     }
@@ -1747,6 +1750,7 @@ export const fixtures = {
       RaceHighlightBadAnswer: TemplateAppRacingGameFixtureRaceHighlightBadAnswer,
       RaceHighlightBadFirstAnswer: TemplateAppRacingGameFixtureRaceHighlightBadFirstAnswer,
       RaceHighlightGoodAnswer: TemplateAppRacingGameFixtureRaceHighlightGoodAnswer,
+      RaceLostAndNewThreeTeams: TemplateAppRacingGameFixtureRaceLostAndNewThreeTeams,
       RaceLostAndNew: TemplateAppRacingGameFixtureRaceLostAndNew,
       ReadyForQuestion: TemplateAppRacingGameFixtureReadyForQuestion,
       ReadyToAnswerSpread: TemplateAppRacingGameFixtureReadyToAnswerSpread,

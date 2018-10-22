@@ -14,8 +14,7 @@ const RacingAdmin = (props, context) => {
 
   return (
     <div className={style.admin}>
-      <p className={style.title}>Create a Race</p>
-
+      <div className={style.logo} />
       <section className={style.sliders}>
         <span className={style.description}>{nbTeams} teams</span>
         <div className={style.slider}>
@@ -25,7 +24,10 @@ const RacingAdmin = (props, context) => {
         <div className={style.slider}>
           <Range {...playersSlider} />
         </div>
-        <span className={style.description}>goal: {goal}pts (min 3)</span>
+        <span className={style.description}>
+          goal: {goal}
+          pts (min 3)
+        </span>
         <div className={style.slider}>
           <Range {...goalSlider} />
         </div>

@@ -1,15 +1,36 @@
 import React, {Component} from 'react';
-import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
 import {Motion, spring} from 'react-motion';
 
 import Button from '../../atom/button';
+import Loader from '../../atom/loader';
 import Provider from '../../atom/provider';
 import TeamAvatar from './teamAvatar';
 import MotionnedTeam from './motionned-team';
 import style from './style.css';
 
 const _map = map.convert({cap: false});
+
+const Logo = () => <div className={style.logo} />;
+
+const Cta = ({cta, disabledButton, onClick}) => {
+  if (!cta) {
+    return null;
+  }
+
+  if (disabledButton) {
+    return <Loader className={style.loader} />;
+  }
+
+  return (
+    <Button
+      className={style.button}
+      onClick={onClick}
+      disabled={disabledButton}
+      submitValue={cta.submitValue}
+    />
+  );
+};
 
 const MotionnedOtherTeams = ({team}) => {
   const computedWidth = 100 / 4;
@@ -25,8 +46,7 @@ const MotionnedOtherTeams = ({team}) => {
               margin: '0 10px'
             }}
           >
-            {' '}
-            <TeamAvatar key={team.name} {...team} />{' '}
+            <TeamAvatar key={team.name} {...team} />
           </div>
         );
       }}
@@ -44,43 +64,29 @@ class TeamBuilder extends Component {
   }
 
   render() {
-    const {skin} = this.context;
     const {teams, cta, title, myTeam} = this.props;
     const {disabledButton} = this.state;
 
-    const primary = get('racing.primary', skin);
+    const Title = title ? <h1 className={style.title}>{title}</h1> : null;
 
-    const button = cta ? (
-      <Button
-        onClick={() => {
-          this.setState({
-            disabledButton: true
-          });
-          cta.onClick();
-        }}
-        style={{
-          backgroundColor: disabledButton ? 'rgb(182, 179, 179)' : primary
-        }}
-        disabled={disabledButton}
-      />
-    ) : null;
-
-    const Title = title ? (
-      <h1
-        className={style.title}
-        style={{
-          color: primary
-        }}
-      >
-        {title}
-      </h1>
-    ) : null;
+    const infoJoinTeam =
+      myTeam && `You've joined ${myTeam.name}: ${myTeam.numberSlotTaken}/${myTeam.members.length}`;
 
     return (
       <div className={style.teamBuilder}>
+        <Logo />
         {Title}
-        {button}
-        <MotionnedTeam {...myTeam} />
+        <Cta
+          disabledButton={disabledButton}
+          cta={cta}
+          onClick={() => {
+            this.setState({
+              disabledButton: true
+            });
+            cta.onClick();
+          }}
+        />
+        <MotionnedTeam {...myTeam} title={infoJoinTeam} />
         <div className={style.teams}>
           {_map((team, index) => {
             return <MotionnedOtherTeams key={`OtherTeam${index}`} team={team} />;

@@ -4,6 +4,7 @@ import includes from 'lodash/fp/includes';
 import {
   getCurrentUserState,
   getStepContent,
+  getVictorMembers,
   isLastAnswerCorrect,
   isGameOver
 } from '../../utils/state-extract';
@@ -121,6 +122,13 @@ export const startNextQuestionTimer = (addHighlightTime = false) => async (
 export const validateAnswer = (progressionId, body) => async (dispatch, getState, {services}) => {
   await dispatch(stopPolling(progressionId));
   await dispatch(selectRoute('race'));
+
+  const victorMembers = getVictorMembers(getState());
+  const gameOver = !!victorMembers;
+  if (gameOver) {
+    return;
+  }
+
   await dispatch(createAnswer(progressionId, body.answer));
 
   const stateAfterCorrection = getState();

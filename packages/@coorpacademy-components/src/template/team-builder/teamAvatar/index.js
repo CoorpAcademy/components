@@ -10,7 +10,8 @@ import Avatar from '../avatar';
 import style from './style.css';
 
 const TeamAvatar = (props, context) => {
-  const {name, members, number} = props;
+  const {name, members, numberSlotTaken, number} = props;
+  const title = `${name}: ${numberSlotTaken}/${members.length}`;
   return (
     <div className={style.team}>
       <header
@@ -18,15 +19,14 @@ const TeamAvatar = (props, context) => {
           backgroundColor: colors[number]
         }}
       >
-        <h1>{name}</h1>
+        <h1>{title}</h1>
       </header>
       <div className={style.members}>
         {map(member => {
           if (isEmpty(member)) return null;
           return (
-            <div className={style.avatar} key={member.name + member.avatar}>
-              {' '}
-              <Avatar key={member.name} color={colors[number]} initial={member.initial} />{' '}
+            <div className={style.avatar} key={`${number}_${member.name}`}>
+              <Avatar {...member} color={colors[number]} />
             </div>
           );
         }, members)}

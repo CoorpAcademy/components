@@ -41,6 +41,7 @@ export const PROGRESSION_CREATE_ANSWER_FAILURE = '@@progression/CREATE_ANSWER_FA
 export const createAnswer = (progressionId, answer) => (dispatch, getState, {services}) => {
   const {Progressions} = services;
   const state = getState();
+
   const user = getCurrentUserState(state);
   const nextContent = user.nextContent;
   const team = user.team;

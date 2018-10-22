@@ -8,7 +8,6 @@
   height: 100%;
   bottom: 0;
   display: flex;
-  margin: 10px;
 
   justify-content: center;
   align-items: center;
@@ -23,11 +22,12 @@
   justify-content: center;
   width: 45px;
   height: 45px;
-  margin: 8px 50px;
+  margin: 0 40px;
 }
 
 .loader {
   position: absolute;
+  overflow: hidden;
 }
 
 .initial {

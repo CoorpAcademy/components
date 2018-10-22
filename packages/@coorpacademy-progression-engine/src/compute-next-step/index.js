@@ -12,10 +12,9 @@ import type {
   Slide
 } from '../types';
 import checkAnswer from '../check-answer';
-import computeNextStep, {
-  type PartialAnswerActionWithIsCorrect,
-  type PartialExtraLifeAcceptedAction
-} from './compute-next-step';
+import computeNextStep from './compute-next-step';
+import {type PartialAnswerActionWithIsCorrect, type PartialExtraLifeAcceptedAction} from './types';
+import {getRandomSlide} from './racing';
 
 export type PartialAnswerAction = $ReadOnly<{
   type: 'answer',
@@ -67,7 +66,8 @@ export const computeNextStepAfterAnswer = (
     }
   };
 
-  const stepResult = computeNextStep(config, state, availableContent, actionWithIsCorrect);
+  const nextStepFunc = config.overallRandomSlides ? getRandomSlide : computeNextStep;
+  const stepResult = nextStepFunc(config, state, availableContent, actionWithIsCorrect);
   if (!stepResult) {
     return null;
   }

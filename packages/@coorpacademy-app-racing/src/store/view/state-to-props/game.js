@@ -73,11 +73,10 @@ const getSlideProps = (options, store, state) => {
 };
 
 const gameProps = (options, store) => state => {
-  // const {dispatch} = store;
-
   const progression = getCurrentProgression(state);
   const config = getConfigForProgression(progression);
   const members = currentTeam(state);
+  const spectate = isSpectator(state);
 
   const slide = getSlideProps(options, store, state);
   const userState = getCurrentUserState(state);
@@ -85,21 +84,19 @@ const gameProps = (options, store) => state => {
 
   const victorMembers = getVictorMembers(state);
   const gameOver = !!victorMembers;
-  const isVictory = findIndex({id: userState.id}, victorMembers) !== -1;
+  const isVictory = !spectate && findIndex({id: userState.id}, victorMembers) !== -1;
   const victors = victorMembers
     ? {
         isVictory,
-        message: isVictory ? 'You win' : 'You lose',
+        message: spectate ? 'Game over!' : isVictory ? 'You win' : 'You lose', // eslint-disable-line no-nested-ternary
         name: 'Winners',
         members: victorMembers,
         number: get('0.team', victorMembers)
       }
     : null;
 
-  // const spectate = isSpectator(state);
-
   const success = gameOver ? null : isLastAnswerCorrect(state);
-  const view = gameOver || isSpectator(state) ? 'race' : getRoute(state);
+  const view = gameOver || spectate ? 'race' : getRoute(state);
   const message =
     isTimerOn('waitingCorrection')(state) ||
     view === 'question' ||
@@ -108,17 +105,9 @@ const gameProps = (options, store) => state => {
       ? null
       : `${success ? 'Good' : 'Bad'} answer`;
 
-  // const hideNextQuestionButton =
-  //   view === 'question' ||
-  //   spectate ||
-  //   gameOver ||
-  //   !allTeammatesHaveAnswered(state) ||
-  //   isTimerOn('me')(state) ||
-  //   isTimerOn('nextQuestion')(state);
-
   return {
     view,
-    start: isTimerOn('startAnimation')(state),
+    start: !spectate && !gameOver && isTimerOn('startAnimation')(state),
     getReadyTime: isTimerOn('nextQuestion')(state),
     // blurType: view === 'question' ? 'all' : isTimerOn('highlight')(state) ? 'all-but-mine' : null, // eslint-disable-line no-nested-ternary
     blurType: isTimerOn('highlight')(state) ? 'all-but-mine' : null,

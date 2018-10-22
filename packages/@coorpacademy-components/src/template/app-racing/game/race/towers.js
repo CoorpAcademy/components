@@ -5,26 +5,134 @@ import map from 'lodash/fp/map';
 import React, {Component} from 'react';
 import {Motion, spring} from 'react-motion';
 import PropTypes from 'prop-types';
-import BLOCKS from '../common-fixtures/blocks';
+import colors from '../common-fixtures/colors';
 import style from './towers.css';
+
+const NORMAL_TOTEMS = [
+  {
+    url:
+      'https://user-images.githubusercontent.com/13415878/47073735-39b49d00-d1f9-11e8-9f4e-3fdc9bb2c4c4.png',
+    colorWidth: 370,
+    width: 450,
+    height: 660
+  },
+  {
+    url:
+      'https://user-images.githubusercontent.com/13415878/47073736-39b49d00-d1f9-11e8-845e-7987bf3824a0.png',
+    colorWidth: 310,
+    width: 508,
+    height: 660
+  },
+  {
+    url:
+      'https://user-images.githubusercontent.com/13415878/47073737-39b49d00-d1f9-11e8-9c93-60de7bb0320d.png',
+    colorWidth: 350,
+    width: 450,
+    height: 660
+  },
+  {
+    url:
+      'https://user-images.githubusercontent.com/13415878/47073738-3a4d3380-d1f9-11e8-941c-5c6f64053d82.png',
+    colorWidth: 325,
+    width: 410,
+    height: 660
+  },
+  {
+    url:
+      'https://user-images.githubusercontent.com/13415878/47073739-3a4d3380-d1f9-11e8-9135-9e846cde84b9.png',
+    colorWidth: 340,
+    width: 446,
+    height: 660
+  },
+  {
+    url:
+      'https://user-images.githubusercontent.com/13415878/47073740-3a4d3380-d1f9-11e8-9e97-aabdd7e1a67b.png',
+    colorWidth: 300,
+    width: 394,
+    height: 660
+  }
+];
+
+const TOP_TOTEMS = [
+  {
+    url:
+      'https://user-images.githubusercontent.com/13415878/47073743-3ae5ca00-d1f9-11e8-83bf-60ce8b6351cd.png',
+    colorWidth: 250,
+    width: 1218,
+    height: 940
+  }
+];
 
 const _map = map.convert({cap: false});
 
-const Square = ({image, type, index, height, bottom, motionStyle, scaleValue = 1}) => (
-  <div
-    className={style.block}
-    style={{
-      height,
-      bottom,
-      backgroundImage: `url(${image}`,
-      transform: `rotate(${90 * index}deg) scale3d(${scaleValue}, ${scaleValue}, 1)`,
-      ...motionStyle
-    }}
-  />
-);
+class Square extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      asset: null
+    };
+  }
 
-const Block = ({image, index, num, type, size, bottom, maxStiffness}) => {
-  const height = `${type === ('removed' || 'lost') ? null : size}px`;
+  componentDidMount() {
+    this.deferOpen();
+  }
+
+  deferOpen() {
+    clearTimeout(this.deferedOpen);
+
+    this.deferedOpen = defer(() => {
+      const asset = this.props.isLast
+        ? TOP_TOTEMS[0]
+        : NORMAL_TOTEMS[(this.props.index + this.props.team) % (NORMAL_TOTEMS.length - 1)];
+      this.setState({asset});
+    });
+  }
+
+  render() {
+    const {team, height, bottom, motionStyle, scaleValue = 1, isLast = false} = this.props;
+    const color = colors[team];
+
+    const asset = this.state.asset;
+    if (!asset) {
+      return null;
+    }
+
+    const imageHeight = height * (isLast ? 1.9 : 1.1);
+    const colorWidth = asset.colorWidth * imageHeight / asset.height;
+    const imageWidth = asset.width * imageHeight / asset.height;
+
+    const diffHeights = imageHeight - height;
+    const diffWidths = imageWidth - colorWidth;
+
+    return (
+      <div
+        className={style.block}
+        style={{
+          height: `${height}px`,
+          width: `${colorWidth}px`,
+          bottom,
+          backgroundColor: scaleValue === 1 ? color : null,
+          transform: `scale3d(${scaleValue}, ${scaleValue}, 1)`,
+          ...motionStyle
+        }}
+      >
+        <div
+          className={style.blockImage}
+          style={{
+            width: `${imageWidth}px`,
+            height: `${imageHeight}px`,
+            left: `-${diffWidths / 2}px`,
+            top: `-${diffHeights * (isLast ? 0.8 : 0.5)}px`,
+            backgroundImage: `url('${asset.url}')`
+          }}
+        />
+      </div>
+    );
+  }
+}
+
+const Block = ({team, index, num, isLast, type, size, bottom, maxStiffness}) => {
+  const height = type === ('removed' || 'lost') ? 0 : size;
   switch (type) {
     case 'good':
       return (
@@ -34,7 +142,16 @@ const Block = ({image, index, num, type, size, bottom, maxStiffness}) => {
             y: spring(bottom, {stiffness: 40, damping: 13})
           }}
         >
-          {({y}) => <Square image={image} bottom={y} height={height} type={type} index={index} />}
+          {({y}) => (
+            <Square
+              team={team}
+              bottom={y}
+              height={height}
+              type={type}
+              index={index}
+              isLast={isLast}
+            />
+          )}
         </Motion>
       );
 
@@ -49,7 +166,7 @@ const Block = ({image, index, num, type, size, bottom, maxStiffness}) => {
         >
           {({scaleValue = 0, opacity = 0}) => (
             <Square
-              image={image}
+              team={team}
               bottom={bottom}
               height={height}
               type={type}
@@ -68,9 +185,23 @@ const Block = ({image, index, num, type, size, bottom, maxStiffness}) => {
       return (
         <Motion
           defaultStyle={{y: 1000}}
-          style={{y: spring(bottom, {stiffness: maxStiffness - num * 10, damping: 22})}}
+          style={{
+            y: spring(bottom, {
+              stiffness: maxStiffness - num * 10,
+              damping: 22
+            })
+          }}
         >
-          {({y}) => <Square image={image} bottom={y} height={height} type={type} index={index} />}
+          {({y}) => (
+            <Square
+              team={team}
+              bottom={y}
+              height={height}
+              type={type}
+              index={index}
+              isLast={isLast}
+            />
+          )}
         </Motion>
       );
 
@@ -78,14 +209,37 @@ const Block = ({image, index, num, type, size, bottom, maxStiffness}) => {
       return (
         <Motion
           defaultStyle={{y: bottom + size}}
-          style={{y: spring(bottom, {stiffness: maxStiffness - num * 10, damping: 22})}}
+          style={{
+            y: spring(bottom, {
+              stiffness: maxStiffness - num * 10,
+              damping: 22
+            })
+          }}
         >
-          {({y}) => <Square image={image} bottom={y} height={height} type={type} index={index} />}
+          {({y}) => (
+            <Square
+              team={team}
+              bottom={y}
+              height={height}
+              type={type}
+              index={index}
+              isLast={isLast}
+            />
+          )}
         </Motion>
       );
 
     case 'placed':
-      return <Square image={image} bottom={bottom} height={height} type={type} index={index} />;
+      return (
+        <Square
+          team={team}
+          bottom={bottom}
+          height={height}
+          type={type}
+          index={index}
+          isLast={isLast}
+        />
+      );
 
     case 'lost':
       return (
@@ -97,7 +251,7 @@ const Block = ({image, index, num, type, size, bottom, maxStiffness}) => {
         >
           {({scaleValue}) => (
             <Square
-              image={image}
+              team={team}
               bottom={0}
               height={height}
               type={type}
@@ -137,6 +291,8 @@ const Tower = ({blurType, myTeam, team, goal, blocks, blockSize, maxStiffness}) 
       }}
     >
       {({blurValue, grayValue}) => {
+        const count = countBy(identity, blocks);
+        const nbRemoved = (count.removed || 0) + (count.lost || 0);
         return (
           <div
             className={style.tower}
@@ -147,19 +303,19 @@ const Tower = ({blurType, myTeam, team, goal, blocks, blockSize, maxStiffness}) 
             }}
           >
             {_map((value, index) => {
-              const count = countBy(identity, blocks);
-              const nbRemoved = (count.removed || 0) + (count.lost || 0);
               const num = index - nbRemoved;
               const bottom = num * (blockSize - 1);
+              const isLast = num === goal - 1;
 
               return (
                 <Block
                   type={value}
-                  image={BLOCKS[team]}
+                  team={team}
                   size={blockSize}
                   bottom={bottom}
                   index={index}
                   num={num}
+                  isLast={isLast}
                   key={`block-${team}-${index}`}
                   maxStiffness={maxStiffness}
                 />

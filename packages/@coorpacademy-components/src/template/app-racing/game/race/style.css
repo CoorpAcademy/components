@@ -4,3 +4,7 @@
   flex-direction: column;
   margin-bottom: 24px;
 }
+
+.finishLine {
+  height: 60px;
+}

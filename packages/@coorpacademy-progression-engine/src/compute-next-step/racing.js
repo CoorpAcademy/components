@@ -7,17 +7,21 @@ import findIndex from 'lodash/fp/findIndex';
 import map from 'lodash/fp/map';
 import range from 'lodash/fp/range';
 import reduce from 'lodash/fp/reduce';
-
 import type {
   AvailableContent,
+  Config,
   Content,
   RacingConfig,
   RacingSetupAction,
   Teams,
   RacingTeams,
-  RacingUsers
+  RacingUsers,
+  State
 } from '../types';
-import {computeInitialStep} from '.';
+import type {PartialAction, Result} from './types';
+import {computeNextSlide, extendPartialAction} from './compute-next-step';
+
+const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
 
 const createTeams = (teams: Teams, starter: number): RacingTeams => {
   return _reduce(
@@ -35,11 +39,18 @@ const createTeams = (teams: Teams, starter: number): RacingTeams => {
   );
 };
 
-const getNextContent = (config: RacingConfig, availableContent: AvailableContent): Content => {
-  const initialAction = computeInitialStep(config, availableContent);
-  if (!initialAction) {
-    throw new Error('Could not setup user first slide');
-  }
+const getInitialNextContent = (
+  config: RacingConfig,
+  availableContent: AvailableContent
+): Content => {
+  const chapterContent = availableContent[0];
+  const initialAction = {
+    type: 'move',
+    payload: {
+      instructions: null,
+      nextContent: computeNextSlide(config, chapterContent, null)
+    }
+  };
 
   const nextContent = initialAction.payload.nextContent;
   return nextContent;
@@ -66,7 +77,7 @@ const createUsers = (
 ): RacingUsers => {
   return reduce(
     (teams, team): RacingUsers => {
-      const nextContent = getNextContent(config, availableContent);
+      const nextContent = getInitialNextContent(config, availableContent);
       return reduce(appendUser(nextContent, initialTeams), teams, team);
     },
     {},
@@ -74,11 +85,11 @@ const createUsers = (
   );
 };
 
-export default function computeRacingSetup(
+export const computeRacingSetup = (
   config: RacingConfig,
   availableContent: AvailableContent,
   teamsList: Teams
-): RacingSetupAction {
+): RacingSetupAction => {
   const starter = config.starter || 0;
   const users = createUsers(config, availableContent, teamsList);
   const teams = createTeams(teamsList, starter);
@@ -91,4 +102,23 @@ export default function computeRacingSetup(
       users
     }
   };
-}
+};
+
+export const getRandomSlide = (
+  config: Config,
+  state: State | null,
+  availableContent: AvailableContent,
+  partialAction: PartialAction
+): Result => {
+  const action = extendPartialAction(partialAction, state);
+  const isCorrect = !!action && action.type === 'answer' && !!action.payload.isCorrect;
+  const chapterContent = availableContent[random(0, availableContent.length - 1)];
+  // _todo: switch chapter if all slides are already gotten from this chapterContent
+  const nextContent = computeNextSlide(config, chapterContent, state);
+
+  return {
+    nextContent,
+    instructions: null,
+    isCorrect
+  };
+};

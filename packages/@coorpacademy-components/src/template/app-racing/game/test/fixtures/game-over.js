@@ -14,24 +14,24 @@ export default {
       isVictory: false,
       message: 'You lose',
       name: 'Winners',
-      number: 2,
+      number: 4,
       members: [
         {
           id: 'user_2',
-          name: 'Katrine',
-          avatar: 'https://api.adorable.io/avatars/150/Katrine.png',
+          name: 'Bob enirtak',
+          initial: 'BE',
           team: 4
         },
         {
           id: 'user_3',
-          name: 'Joe',
-          avatar: 'https://api.adorable.io/avatars/150/Joe.png',
+          name: 'John eoj',
+          initial: 'JE',
           team: 4
         },
         {
           id: 'user_4',
-          name: 'Kim',
-          avatar: 'https://api.adorable.io/avatars/150/Katrine.png',
+          name: 'Kim Emik',
+          initial: 'KE',
           team: 4
         }
       ]
