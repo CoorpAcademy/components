@@ -44,11 +44,6 @@ const getInitialNextContent = (
   availableContent: AvailableContent
 ): Content => {
   const chapterContent = availableContent[0];
-  console.log('---------- initial chapterContent');
-  console.log(chapterContent);
-  console.log('----  from availableContent:');
-  console.log(availableContent);
-  console.log('/---------- initial chapterContent');
   const initialAction = {
     type: 'move',
     payload: {
