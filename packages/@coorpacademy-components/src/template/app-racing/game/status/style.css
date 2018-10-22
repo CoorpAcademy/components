@@ -1,0 +1,34 @@
+@value breakpoints: "../../../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
+.gameStatus {
+  position: relative;
+  height: 85px;
+  width: 100%;
+}
+
+.bg {
+  background-image: url('https://user-images.githubusercontent.com/910636/46426384-b9913080-c73e-11e8-831f-c6c947a9e924.png');
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+.counters {
+  width: 100%;
+  padding: 0 20%;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  height: 24px;
+  margin-top: -24px;
+}
+
+/*-------------------------------------------------*/
+
+@media mobile {
+  .counters {
+    padding: 0;
+  }
+}

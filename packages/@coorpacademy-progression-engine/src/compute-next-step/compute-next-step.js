@@ -15,7 +15,6 @@ import findIndex from 'lodash/fp/findIndex';
 import intersection from 'lodash/fp/intersection';
 import type {
   Action,
-  Answer,
   AnswerRecord,
   AvailableContent,
   ChapterContent,
@@ -24,10 +23,11 @@ import type {
   Slide,
   State
 } from '../types';
-import type {ChapterRule, Instruction, Condition} from '../rule-engine/types';
+import type {ChapterRule, Condition} from '../rule-engine/types';
 import selectRule from '../rule-engine/select-rule';
 import updateVariables from '../rule-engine/apply-instructions';
-import updateState from '../update-state';
+import updateStateLearner from '../update-state-learner';
+import type {ChapterContentSelection, PartialAction, Result} from './types';
 
 const hasNoMoreLives = (config: Config, state: State): boolean =>
   !config.livesDisabled && state.lives <= 0;
@@ -41,27 +41,6 @@ const hasRulesToApply = (chapterContent: ChapterContent | null): boolean => {
     Array.isArray(chapterContent.rules) &&
     !isEmpty(chapterContent.rules)
   );
-};
-
-export type PartialAnswerActionWithIsCorrect = {
-  type: 'answer',
-  payload: {
-    answer: Answer,
-    content: Content,
-    godMode: boolean,
-    isCorrect: boolean
-  }
-};
-export type PartialExtraLifeAcceptedAction = {
-  type: 'extraLifeAccepted'
-};
-
-type PartialAction = PartialAnswerActionWithIsCorrect | PartialExtraLifeAcceptedAction | null;
-
-type ChapterContentSelection = {
-  currentChapterContent: ChapterContent | null,
-  nextChapterContent: ChapterContent | null,
-  temporaryNextContent: Content
 };
 
 export const nextSlidePool = (
@@ -150,13 +129,7 @@ const getIsCorrect = (isCorrect: boolean, chapterRule: ChapterRule): ?boolean =>
   return null;
 };
 
-type Result = {
-  nextContent: Content,
-  instructions: Array<Instruction> | null,
-  isCorrect: ?boolean
-} | null;
-
-const computeNextSlide = (
+export const computeNextSlide = (
   config: Config,
   chapterContent: ChapterContent,
   state: State | null
@@ -165,9 +138,13 @@ const computeNextSlide = (
     pipe(get('_id'), (slideId: string) => !state || !includes(slideId, state.slides)),
     chapterContent.slides
   );
+
+  const restartPicking = config.overallRandomSlides && remainingSlides.length === 0;
+  const slidesToPick = restartPicking ? chapterContent.slides : remainingSlides;
+
   return {
     type: 'slide',
-    ref: pickNextSlide(remainingSlides)._id
+    ref: pickNextSlide(slidesToPick)._id
   };
 };
 
@@ -210,7 +187,7 @@ export const computeNextStepForNewChapter = (
   };
 };
 
-const extendPartialAction = (action: PartialAction, state: State | null): Action | null => {
+export const extendPartialAction = (action: PartialAction, state: State | null): Action | null => {
   if (!action) {
     return null;
   }
@@ -221,6 +198,7 @@ const extendPartialAction = (action: PartialAction, state: State | null): Action
         action.payload.content || (state ? state.nextContent : {ref: '', type: 'node'});
       return {
         type: 'answer',
+        authors: action.authors,
         payload: {
           answer: action.payload.answer,
           godMode: action.payload.godMode,
@@ -258,7 +236,8 @@ const computeNextStep = (
   const action = extendPartialAction(partialAction, _state);
   const isCorrect = !!action && action.type === 'answer' && !!action.payload.isCorrect;
   const answer = (!!action && action.type === 'answer' && action.payload.answer) || [];
-  const state = !_state || !action ? _state : updateState(config, _state, [action]);
+  const state: State | null =
+    !_state || !action ? _state : updateStateLearner(config, _state, [action]);
   const chapterContent = getChapterContent(config, availableContent, state);
 
   if (!chapterContent) {
@@ -267,8 +246,9 @@ const computeNextStep = (
 
   const {currentChapterContent, nextChapterContent, temporaryNextContent} = chapterContent;
   const hasRules = hasRulesToApply(nextChapterContent);
+  const livesDisabled = config.livesDisabled;
 
-  if (!hasRules) {
+  if (!hasRules && !livesDisabled) {
     if (state && hasNoMoreLives(config, state)) {
       return {
         nextContent:
@@ -335,6 +315,7 @@ const computeNextStep = (
         }
       : state;
 
+    // _todo --> config racing to random chaptercontent here
     const nextContent = computeNextSlide(config, nextChapterContent, stateWithDecrementedLives);
     return {
       nextContent,

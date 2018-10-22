@@ -1,0 +1,28 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value medium from colors;
+
+.member {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  border: 1px solid medium;
+  border-bottom: none;
+  height: 55px;
+}
+
+.member > h1 {
+  font-family: "Open Sans";
+  font-size: 15px;
+  font-weight: normal;
+  color: dark;
+}
+
+.avatar {
+  position: absolute;
+  left: 7px;
+  width: 45px;
+  height: 45px;
+}

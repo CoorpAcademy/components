@@ -1,0 +1,57 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
+.logo {
+  position: absolute;
+  height: 127px;
+  width: 100px;
+  top: 10px;
+  left: 10px;
+  background-image: url('https://user-images.githubusercontent.com/13415878/47146528-8321ec80-d2cc-11e8-9f4a-fab41d5db4eb.png');
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+@media mobile {
+  .logo {
+    top: 5px;
+    left: 0px;
+    height: 57px;
+    width: 50px;
+  }
+}
+
+.teams {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.teamBuilder {
+  display: flex;
+  flex-grow: 1;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-flow: column;
+  justify-content: space-evenly;
+  background-image: url('https://user-images.githubusercontent.com/13415878/47146582-aa78b980-d2cc-11e8-9ac3-2e12fb48f070.jpg');
+  background-size: cover;
+}
+
+.title {
+  font-family: 'Open Sans';
+  font-weight: 300;
+  font-size: 36px;
+  color: #fff;
+}
+
+.loader {
+  top: 30px;
+}
+
+.button {
+  background-color: #52432b;
+  border: 1px solid #fff;
+}

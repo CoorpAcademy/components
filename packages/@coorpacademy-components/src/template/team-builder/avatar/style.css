@@ -1,0 +1,44 @@
+@value colors: "../../../variables/colors.css";
+@value light from colors;
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border: 3px solid white;
+  border-radius: 50%;
+  background-size: contain;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.initial {
+  font-family:  "Open Sans";
+  font-size: 18px;
+  color: white;
+  font-weight: 600;
+  margin: auto;
+}
+
+.toolTip {
+  opacity: 1 !important;
+  padding: 0;
+  pointer-events: all;
+}
+
+.toolTipContent {
+  display: flex;
+  align-items: center;
+  white-space: pre;
+  justify-content: center;
+  padding: 10px;
+  margin: 0;
+  border-radius: 3px;
+  font-family: 'Open Sans';
+  font-size: 20px;
+  font-weight: 400;
+  background-color: white;
+  border: 1px solid white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 8px 3px 10px rgba(0, 0, 0, 0.23);
+}

@@ -1,4 +1,5 @@
-// @flow
+// @flow strict
+
 import {
   computeNextStepAfterAnswer,
   computeNextStepOnAcceptExtraLife,
@@ -7,7 +8,7 @@ import {
 import checkAnswer from './check-answer';
 import checkAnswerCorrectness from './check-answer-correctness';
 import createState from './create-state';
-import createProgression from './create-progression';
+import createProgression, {createRacing} from './create-progression';
 import {getConfig, getConfigForProgression} from './config';
 import ERRORS from './errors';
 
@@ -38,6 +39,7 @@ import type {
 } from './types';
 
 import type {Instruction, ChapterRule} from './rule-engine/types';
+import {computeRacingSetup} from './compute-next-step/racing';
 
 export type {
   CHAPTER,
@@ -73,7 +75,9 @@ export {
   computeNextStepAfterAnswer,
   computeNextStepOnAcceptExtraLife,
   computeNextStepOnRefuseExtraLife,
+  computeRacingSetup,
   createState,
+  createRacing,
   createProgression,
   getConfig,
   getConfigForProgression,

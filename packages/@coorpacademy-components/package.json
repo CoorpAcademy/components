@@ -50,10 +50,12 @@
     "@coorpacademy/nova-icons": "2.2.1",
     "autoprefixer": "^8.4.1",
     "classnames": "^2.2.5",
+    "color": "^3.0.0",
     "css-color-function": "^1.3.0",
     "cubic-bezier": "^0.1.2",
     "extended-proptypes": "^1.3.0",
     "hammerjs": "^2.0.8",
+    "konva": "^1.7.6",
     "lodash": "^4.17.4",
     "postcss-calc": "^6.0.0",
     "postcss-color-function": "^4.0.0",
@@ -62,6 +64,7 @@
     "qs": "6.5.2",
     "react": "^16.3.2",
     "react-jw-player": "1.18.0",
+    "react-motion": "^0.5.2",
     "react-tooltip": "^3.6.1"
   },
   "devDependencies": {

@@ -12,13 +12,13 @@ import type {
   Slide
 } from '../types';
 import checkAnswer from '../check-answer';
-import computeNextStep, {
-  type PartialAnswerActionWithIsCorrect,
-  type PartialExtraLifeAcceptedAction
-} from './compute-next-step';
+import computeNextStep from './compute-next-step';
+import {type PartialAnswerActionWithIsCorrect, type PartialExtraLifeAcceptedAction} from './types';
+import {getRandomSlide} from './racing';
 
 export type PartialAnswerAction = $ReadOnly<{
   type: 'answer',
+  authors: Array<string>,
   payload: {
     answer: Answer,
     content: Content,
@@ -57,6 +57,7 @@ export const computeNextStepAfterAnswer = (
 
   const actionWithIsCorrect: PartialAnswerActionWithIsCorrect = {
     type: 'answer',
+    authors: action.authors,
     payload: {
       answer: action.payload.answer,
       content: action.payload.content,
@@ -65,7 +66,8 @@ export const computeNextStepAfterAnswer = (
     }
   };
 
-  const stepResult = computeNextStep(config, state, availableContent, actionWithIsCorrect);
+  const nextStepFunc = config.overallRandomSlides ? getRandomSlide : computeNextStep;
+  const stepResult = nextStepFunc(config, state, availableContent, actionWithIsCorrect);
   if (!stepResult) {
     return null;
   }
@@ -73,6 +75,7 @@ export const computeNextStepAfterAnswer = (
   const {nextContent, instructions, isCorrect} = stepResult;
   return {
     type: 'answer',
+    authors: action.authors,
     payload: {
       answer: action.payload.answer,
       content: action.payload.content,
@@ -87,9 +90,13 @@ export const computeNextStepAfterAnswer = (
 export const computeNextStepOnAcceptExtraLife = (
   config: Config,
   state: State,
-  availableContent: AvailableContent
+  availableContent: AvailableContent,
+  authors: Array<string>
 ): ExtraLifeAcceptedAction | null => {
-  const partialAction: PartialExtraLifeAcceptedAction = {type: 'extraLifeAccepted'};
+  const partialAction: PartialExtraLifeAcceptedAction = {
+    type: 'extraLifeAccepted',
+    authors
+  };
 
   const stepResult = computeNextStep(config, state, availableContent, partialAction);
 
@@ -100,6 +107,7 @@ export const computeNextStepOnAcceptExtraLife = (
   const {nextContent, instructions} = stepResult;
   return {
     type: 'extraLifeAccepted',
+    authors,
     payload: {
       content: {ref: 'extraLife', type: 'node'},
       nextContent,
@@ -110,10 +118,12 @@ export const computeNextStepOnAcceptExtraLife = (
 
 export const computeNextStepOnRefuseExtraLife = (
   config: Config,
-  state: State
+  state: State,
+  authors: Array<string>
 ): ExtraLifeRefusedAction => {
   return {
     type: 'extraLifeRefused',
+    authors,
     payload: {
       content: {ref: 'extraLife', type: 'node'},
       nextContent: {ref: 'failExitNode', type: 'failure'}

@@ -9,6 +9,7 @@ import type {
   EngineOptions
 } from '../types';
 import {computeInitialStep} from '../compute-next-step';
+import createRacing from './racing';
 
 const createProgression = (
   engine: Engine,
@@ -37,4 +38,5 @@ const createProgression = (
   };
 };
 
+export {createRacing};
 export default createProgression;

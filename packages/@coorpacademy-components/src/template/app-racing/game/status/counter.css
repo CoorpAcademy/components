@@ -1,0 +1,33 @@
+.counter {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: 2px;
+  height: 24px;
+  box-sizing: border-box;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  border-radius: 22px 22px 0px 0px;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  background-position: center top;
+  /* border-bottom: 2px #fff dotted; */
+  /* background-image: url('https://user-images.githubusercontent.com/910636/46426384-b9913080-c73e-11e8-831f-c6c947a9e924.png'); */
+  /* box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); */
+}
+
+.counter > span {
+  font-family: 'Open Sans';
+  font-size: 13px;
+  color: #fff;
+  transition: all 1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  background-color: #1515156e;
+  border-radius: 15px;
+  padding: 0 8px;
+}
+
+.textMyTeam {
+  font-weight: 700;
+  font-size: 17px;
+}

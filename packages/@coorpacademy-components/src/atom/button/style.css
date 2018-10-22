@@ -11,14 +11,17 @@
   border-radius: 2px;
   line-height: 52px;
   cursor: pointer;
+  background-color: orange;
+  color: white;
 }
 
 .buttonContent {
   padding: 0 30px;
   display: block;
+  cursor: pointer;
   text-transform: inherit;
-  background-color: orange;
-  color: white;
+  background-color: inherit;
+  color: inherit;
   font-family: Open Sans, sans-serif;
   font-weight: 600;
   font-size: 13px;

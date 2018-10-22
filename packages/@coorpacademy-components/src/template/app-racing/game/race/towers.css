@@ -1,0 +1,44 @@
+@value breakpoints: "../../../../variables/breakpoints.css";
+@value colors: "../../../../variables/colors.css";
+@value dark from colors;
+@value medium from colors;
+@value mobile from breakpoints;
+
+.tower {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.towers {
+  display: flex;
+  padding: 0 20%;
+  box-sizing: border-box;
+  align-items: flex-end;
+  justify-content: space-around;
+  flex-grow: 1;
+  z-index: 1;
+}
+
+.block {
+  width: 100%;
+  position: absolute;
+  background-size: 50%;
+  border-radius: 24%;
+}
+
+.blockImage {
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+}
+
+/*----------------------------------------------------------------------------*/
+
+@media mobile {
+  .towers {
+    padding: 0;
+  }
+}

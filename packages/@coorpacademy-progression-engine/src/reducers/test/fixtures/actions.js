@@ -10,6 +10,7 @@ import type {
 
 export const answerAction: AnswerAction = Object.freeze({
   type: 'answer',
+  authors: ['bar'],
   payload: {
     answer: ['foo'],
     content: {
@@ -28,6 +29,7 @@ export const answerAction: AnswerAction = Object.freeze({
 
 export const askClueAction: AskClueAction = Object.freeze({
   type: 'clue',
+  authors: ['bar'],
   payload: {
     content: {
       ref: '1.A1.2',
@@ -38,6 +40,7 @@ export const askClueAction: AskClueAction = Object.freeze({
 
 export const extraLifeAcceptedAction: ExtraLifeAcceptedAction = Object.freeze({
   type: 'extraLifeAccepted',
+  authors: ['bar'],
   payload: {
     content: {
       type: 'node',
@@ -53,6 +56,7 @@ export const extraLifeAcceptedAction: ExtraLifeAcceptedAction = Object.freeze({
 
 export const extraLifeRefusedAction: ExtraLifeRefusedAction = Object.freeze({
   type: 'extraLifeRefused',
+  authors: ['bar'],
   payload: {
     content: {
       type: 'node',
@@ -67,6 +71,7 @@ export const extraLifeRefusedAction: ExtraLifeRefusedAction = Object.freeze({
 
 export const moveAction: MoveAction = Object.freeze({
   type: 'move',
+  authors: ['bar'],
   payload: {
     instructions: null,
     nextContent: {
@@ -78,6 +83,7 @@ export const moveAction: MoveAction = Object.freeze({
 
 export const resourceAction: Action = Object.freeze({
   type: 'resource',
+  authors: ['bar'],
   payload: {
     resource: {
       ref: 'les_1',

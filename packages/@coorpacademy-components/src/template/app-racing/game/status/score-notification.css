@@ -1,0 +1,51 @@
+@value colors: "../../../../variables/colors.css";
+@value positive from colors;
+@value negative from colors;
+
+@keyframes popAfterAWhile {
+  0% {
+    opacity:0;
+    transform: scale3d(0.1, 0.1, 1);
+  }
+
+  25% {
+    opacity:0.7;
+    transform: scale3d(1.4, 1.4, 1);
+  }
+
+  100% {
+    opacity:1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.notification {
+  animation: popAfterAWhile 0.6s;
+  position: absolute;
+  background: #fff;
+  top: -8px;
+  left: -8px;
+  z-index: 10;
+  padding: 2px 6px;
+  border-radius: 50%;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.text {
+  font-family: 'Open Sans';
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.textResult {
+  composes: text;
+  color: #0e3a3d;
+}
+
+.textCorrect {
+  color: positive;
+}
+
+.textNotCorrect {
+  color: negative;
+}

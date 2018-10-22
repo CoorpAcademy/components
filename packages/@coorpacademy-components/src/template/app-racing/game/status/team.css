@@ -1,0 +1,95 @@
+@value colors: "../../../../variables/colors.css";
+@value positive from colors;
+@value negative from colors;
+
+.team {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  bottom: 0;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+/* -------------------------------------------- */
+
+.player {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 45px;
+  margin: 0 40px;
+}
+
+.loader {
+  position: absolute;
+  overflow: hidden;
+}
+
+.initial {
+  font-family:  "Open Sans";
+  font-size: 18px;
+  color: white;
+  font-weight: 600;
+  margin: auto;
+}
+
+.avatar {
+  width: 100%;
+  height: 100%;
+  border: 3px solid white;
+  border-radius: 50%;
+  background-size: contain;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+}
+
+.correct {
+  border: 3px solid positive;
+}
+
+.notCorrect {
+  border: 3px solid negative;
+}
+
+.text {
+  font-family: "Open Sans";
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.status {
+  position: absolute;
+  composes: text;
+  color: #fff;
+  border-radius: 5px;
+  bottom: -20px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 0px 5px;
+  text-align: center;
+}
+
+/* -------------------------------------------- */
+
+@keyframes pop {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    top: 0px;
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+    top: -6px;
+  }
+}

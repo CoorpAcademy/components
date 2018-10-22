@@ -1,0 +1,21 @@
+{
+  "num": 1,
+  "members": [
+    {
+      "name": "Katrine enirtak",
+      "initial": "KE",
+      "isCorrect": null
+    },
+    {
+      "name": "Joe eoj",
+      "initial": "JE",
+      "isCorrect": null,
+      "isMe": true
+    },
+    {
+      "name": "Kim mik",
+      "initial": "KM",
+      "isCorrect": null
+    }
+  ]
+}
