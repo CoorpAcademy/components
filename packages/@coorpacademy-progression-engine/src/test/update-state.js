@@ -16,8 +16,7 @@ import type {
 import {
   stateForFirstSlide,
   stateForSecondSlide,
-  extraLifeProgressionState,
-  noRemainingLifeRequestsState
+  extraLifeProgressionState
 } from './fixtures/states';
 
 const engine = {
@@ -459,28 +458,6 @@ test('should add one life when using extra life', t => {
   t.is(newState.nextContent.type, 'slide');
   t.is(get('content.ref', newState), 'extraLife');
   t.is(newState.hasViewedAResourceAtThisStep, false);
-});
-
-test('should not be able to accept extra life if has no remaining life request', t => {
-  const state: State = Object.freeze(noRemainingLifeRequestsState);
-  const action: ExtraLifeAcceptedAction = Object.freeze({
-    type: 'extraLifeAccepted',
-    payload: {
-      content: {
-        type: 'node',
-        ref: 'extraLife'
-      },
-      instructions: [],
-      nextContent: {
-        ref: '1.A1.1',
-        type: 'slide'
-      }
-    }
-  });
-
-  const newState = updateState(config, state, [action]);
-
-  t.deepEqual(newState, state);
 });
 
 test('should not add a life when accepting an extraLife when lives are disabled', t => {

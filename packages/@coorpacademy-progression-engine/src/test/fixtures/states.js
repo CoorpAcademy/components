@@ -73,28 +73,3 @@ export const extraLifeProgressionState: State = {
   allAnswers: [],
   variables: {}
 };
-
-export const noRemainingLifeRequestsState: State = {
-  content: {
-    ref: '1.A1.2',
-    type: 'slide'
-  },
-  nextContent: {
-    type: 'node',
-    ref: 'extraLife'
-  },
-  lives: 0,
-  livesDisabled: false,
-  isCorrect: false,
-  hasViewedAResourceAtThisStep: false,
-  slides: ['1.A1.1', '1.A1.2'],
-  step: {
-    current: 3
-  },
-  allAnswers: [],
-  variables: {},
-  requestedClues: [],
-  viewedResources: [],
-  stars: 4,
-  remainingLifeRequests: 0
-};
