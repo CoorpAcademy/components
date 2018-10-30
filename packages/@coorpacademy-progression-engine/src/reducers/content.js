@@ -6,12 +6,11 @@ import type {
   Config,
   Content,
   ExtraLifeAcceptedAction,
-  ExtraLifeRefusedAction,
-  State
+  ExtraLifeRefusedAction
 } from '../types';
 
-export default function content(config: Config): (Content, Action, State) => Content {
-  return (c: Content, action: Action, state: State): Content => {
+export default function content(config: Config): (Content, Action) => Content {
+  return (c: Content, action: Action): Content => {
     switch (action.type) {
       case 'answer': {
         const answerAction = (action: AnswerAction);
@@ -19,7 +18,7 @@ export default function content(config: Config): (Content, Action, State) => Con
       }
       case 'extraLifeAccepted': {
         const acceptAction = (action: ExtraLifeAcceptedAction);
-        return state.remainingLifeRequests > 0 ? acceptAction.payload.content : c;
+        return acceptAction.payload.content;
       }
       case 'extraLifeRefused': {
         const refuseAction = (action: ExtraLifeRefusedAction);

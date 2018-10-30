@@ -9,7 +9,6 @@ import {
   askClueAction
 } from './fixtures/actions';
 import {microlearning} from './fixtures/engines';
-import {stateForSecondSlide} from './fixtures/states';
 
 const _content = {
   ref: '1.A1',
@@ -18,7 +17,7 @@ const _content = {
 const config = getConfig(microlearning);
 
 test('should return content when action type is answer', t => {
-  const result = content(config)(_content, answerAction, stateForSecondSlide);
+  const result = content(config)(_content, answerAction);
   t.deepEqual(result, {
     ref: '1.A1.2',
     type: 'slide'
@@ -26,7 +25,7 @@ test('should return content when action type is answer', t => {
 });
 
 test('should return content when action type is extraLifeAccepted', t => {
-  const result = content(config)(_content, extraLifeAcceptedAction, stateForSecondSlide);
+  const result = content(config)(_content, extraLifeAcceptedAction);
   t.deepEqual(result, {
     type: 'node',
     ref: 'extraLife'
@@ -34,7 +33,7 @@ test('should return content when action type is extraLifeAccepted', t => {
 });
 
 test('should return content when action type is extraLifeRefused', t => {
-  const result = content(config)(_content, extraLifeRefusedAction, stateForSecondSlide);
+  const result = content(config)(_content, extraLifeRefusedAction);
   t.deepEqual(result, {
     type: 'node',
     ref: 'extraLife'
@@ -42,6 +41,6 @@ test('should return content when action type is extraLifeRefused', t => {
 });
 
 test('should return input content when action type is not answer', t => {
-  const result = content(config)(_content, askClueAction, stateForSecondSlide);
+  const result = content(config)(_content, askClueAction);
   t.deepEqual(result, _content);
 });
