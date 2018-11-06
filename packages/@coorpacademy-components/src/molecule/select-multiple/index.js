@@ -21,13 +21,17 @@ class SelectMultiple extends React.Component {
   }
 
   componentWillMount() {
-    document.addEventListener('click', this.closeHandle);
-    document.addEventListener('touchstart', this.closeHandle);
+    if (typeof document !== 'undefined') {
+      document.addEventListener('click', this.closeHandle);
+      document.addEventListener('touchstart', this.closeHandle);
+    }
   }
 
   componentWillUnmount() {
-    document.removeEventListener('click', this.closeHandle);
-    document.removeEventListener('touchstart', this.closeHandle);
+    if (typeof document !== 'undefined') {
+      document.removeEventListener('click', this.closeHandle);
+      document.removeEventListener('touchstart', this.closeHandle);
+    }
   }
 
   handleOnClick(e) {
