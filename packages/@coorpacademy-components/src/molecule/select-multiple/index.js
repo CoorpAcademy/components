@@ -17,22 +17,17 @@ class SelectMultiple extends React.Component {
       opened: false
     };
     this.handleOnClick = this.handleOnClick.bind(this);
-    this.setSelect = this.setSelect.bind(this);
+    this.closeHandle = this.closeHandle.bind(this);
   }
 
-  componentWillUpdate() {
-    const closeHandle = function(clickEvent) {
-      if (this.select && !this.select.contains(clickEvent.target)) {
-        this.setState({opened: false});
-      }
-    }.bind(this);
-    if (this.state.opened) {
-      document.addEventListener('click', closeHandle);
-      document.addEventListener('touchstart', closeHandle);
-    } else {
-      document.removeEventListener('click', closeHandle);
-      document.removeEventListener('touchstart', closeHandle);
-    }
+  componentWillMount() {
+    document.addEventListener('click', this.closeHandle);
+    document.addEventListener('touchstart', this.closeHandle);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('click', this.closeHandle);
+    document.removeEventListener('touchstart', this.closeHandle);
   }
 
   handleOnClick(e) {
@@ -41,8 +36,10 @@ class SelectMultiple extends React.Component {
     this.setState({opened: !this.state.opened});
   }
 
-  setSelect(el) {
-    this.select = el;
+  closeHandle(e) {
+    if (!this.node.contains(e.target)) {
+      this.setState({opened: false});
+    }
   }
 
   render() {
@@ -64,7 +61,7 @@ class SelectMultiple extends React.Component {
     const titleView = title && <span className={style.title}>{title}</span>;
     const isActive = this.state.opened === true;
     return (
-      <div className={style.default} ref={this.setSelect}>
+      <div className={style.default} ref={node => (this.node = node)}>
         {titleView}
         <div className={style.select} title={selection} onClick={this.handleOnClick}>
           {selection}

@@ -56,3 +56,32 @@ test('should select choice', t => {
   t.is(wrapper.state().opened, true);
   wrapper.update();
 });
+
+test('should click outside', t => {
+  t.plan(10);
+  const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
+  const props = defaultFixture.props;
+  const wrapper = mount(<SelectMultiple {...props} />);
+  wrapper.update();
+  t.is(wrapper.state().opened, false);
+
+  const selectWrapper = wrapper.find('.select-multiple__select');
+  t.is(selectWrapper.exists(), true);
+  selectWrapper.simulate('click', clickEvent);
+  wrapper.update();
+  t.is(wrapper.state().opened, true);
+
+  wrapper.instance().closeHandle({target: null});
+  t.is(wrapper.state().opened, false);
+
+  selectWrapper.simulate('click', clickEvent);
+  wrapper.update();
+  t.is(wrapper.state().opened, true);
+
+  wrapper.instance().closeHandle({target: selectWrapper.getDOMNode()});
+  t.is(wrapper.state().opened, true);
+
+  wrapper.update();
+
+  wrapper.unmount();
+});
