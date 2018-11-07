@@ -8,7 +8,7 @@ import {getStepContent, getCurrentProgression, getRoute} from '../utils/state-ex
 import {popinCorrectionStateToProps} from './state-to-props/popin-correction';
 import popinEndStateToProps from './state-to-props/popin-end';
 import loadingStateToProps from './state-to-props/loading';
-import {createSlideStateToProps} from './state-to-props/slide';
+import createPlayerStateToProps from './state-to-props/player';
 
 const hasNotProgression = pipe(getCurrentProgression, isNil);
 const hasNoContent = pipe(getStepContent, isNil);
@@ -31,7 +31,7 @@ export const selectMapStateToVNode = (options, store, views, createStateToVNode)
     ],
     [
       matchContentType('slide'),
-      createStateToVNode(views.player, createSlideStateToProps(options, store))
+      createStateToVNode(views.player, createPlayerStateToProps(options, store))
     ],
     [
       matchContentType('success'),

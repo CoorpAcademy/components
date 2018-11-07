@@ -5,8 +5,11 @@ import PopinEnd from '@coorpacademy/components/es/template/app-player/popin-end'
 import pipe from 'lodash/fp/pipe';
 import {createElement} from 'react';
 
-export const createStateToVNode = (template, mapStateToProps) =>
-  pipe(mapStateToProps, props => createElement(template, props));
+export const createStateToVNode = (template, mapStateToProps) => {
+  debugger;
+
+  return pipe(mapStateToProps, props => createElement(template, props));
+};
 
 export const views = {
   loading: Loading,
