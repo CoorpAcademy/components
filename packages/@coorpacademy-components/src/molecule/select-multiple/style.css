@@ -1,0 +1,89 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value black from colors;
+@value light from colors;
+@value xtraLightGrey from colors;
+
+.default {
+  display: block;
+  position: relative;
+  font-family: "Open Sans";
+  user-select: none;
+}
+
+.select {
+  display: block;
+  width: auto;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Open Sans";
+  position: relative;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: light;
+  border: 0;
+  font-weight: 700;
+  color: dark;
+  padding: 0 30px 0 15px;
+  font-size: 14px;
+  line-height: 35px;
+  height: 35px;
+}
+
+.title {
+  font-family: Open Sans;
+  font-size: 13px;
+  color: dark;
+  margin-bottom: 10px;
+}
+
+.choices {
+  display: none;
+}
+
+.activeChoices {
+  display: block;
+  width: 100%;
+  height: auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+  background: white;
+  position: absolute;
+  z-index: 4;
+  top: 100%;
+  left: 0;
+  border: 1px solid light;
+  user-select: none;
+}
+
+.choice {
+  list-style: none;
+  margin: 15px 0;
+  padding: 0;
+}
+
+.choice div {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 13px;
+  font-weight: bold;
+  user-select: none;
+}
+
+.arrow {
+  position: absolute;
+  right: 10px;
+  margin-top: -4px;
+  top: 50%;
+  pointer-events: none;
+  width: 12px;
+  height: 12px;
+}
+
+.list {
+  margin: 0;
+  padding: 0;
+}

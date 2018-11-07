@@ -4,8 +4,12 @@ export default {
       [
         {
           title: 'Provider',
-          type: 'select',
-          onChange: value => console.log('NEW provider', value),
+          type: 'multi-select',
+          onChange: value => {
+            console.log('NEW provider', value);
+            value.selected = !value.selected;
+            return value;
+          },
           options: [
             {
               name: 'ALL',

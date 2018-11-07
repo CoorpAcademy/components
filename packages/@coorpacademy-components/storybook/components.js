@@ -86,6 +86,7 @@ import MoleculeScopeContent from './../src/molecule/scope-content';
 import MoleculeScopeTabs from './../src/molecule/scope-tabs';
 import MoleculeSearch from './../src/molecule/search';
 import MoleculeSearchForm from './../src/molecule/search-form';
+import MoleculeSelectMultiple from './../src/molecule/select-multiple';
 import MoleculeSetupSection from './../src/molecule/setup-section';
 import MoleculeSetupSections from './../src/molecule/setup-sections';
 import MoleculeSetupSlide from './../src/molecule/setup-slide';
@@ -441,6 +442,8 @@ import MoleculeScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtu
 import MoleculeSearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
 import MoleculeSearchFixtureWithValue from '../src/molecule/search/test/fixtures/with-value';
 import MoleculeSearchFormFixtureDefault from '../src/molecule/search-form/test/fixtures/default';
+import MoleculeSelectMultipleFixtureChecked from '../src/molecule/select-multiple/test/fixtures/checked';
+import MoleculeSelectMultipleFixtureDefault from '../src/molecule/select-multiple/test/fixtures/default';
 import MoleculeSetupSectionFixtureAnalyticsBoutique from '../src/molecule/setup-section/test/fixtures/analytics-boutique';
 import MoleculeSetupSectionFixtureAnalyticsBranch from '../src/molecule/setup-section/test/fixtures/analytics-branch';
 import MoleculeSetupSectionFixtureAnalyticsRegion from '../src/molecule/setup-section/test/fixtures/analytics-region';
@@ -768,6 +771,7 @@ export const components = {
     MoleculeScopeTabs,
     MoleculeSearch,
     MoleculeSearchForm,
+    MoleculeSelectMultiple,
     MoleculeSetupSection,
     MoleculeSetupSections,
     MoleculeSetupSlide,
@@ -1273,6 +1277,10 @@ export const fixtures = {
     },
     MoleculeSearchForm: {
       Default: MoleculeSearchFormFixtureDefault
+    },
+    MoleculeSelectMultiple: {
+      Checked: MoleculeSelectMultipleFixtureChecked,
+      Default: MoleculeSelectMultipleFixtureDefault
     },
     MoleculeSetupSection: {
       AnalyticsBoutique: MoleculeSetupSectionFixtureAnalyticsBoutique,

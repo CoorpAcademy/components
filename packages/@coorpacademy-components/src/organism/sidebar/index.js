@@ -6,6 +6,7 @@ import getOr from 'lodash/fp/getOr';
 import Link from '../../atom/link';
 import Provider from '../../atom/provider';
 import Select from '../../atom/select';
+import SelectMultiple from '../../molecule/select-multiple';
 import style from './style.css';
 
 export const InputTextItem = props => {
@@ -40,7 +41,14 @@ export const SelectItem = props => {
     </li>
   );
 };
-
+export const MultiSelectItem = props => {
+  return (
+    <li data-name={props.name || `select-item-${props.index}`} className={style.selectItem}>
+      <span className={style.sidebarTitle}>{props.title}</span>
+      <SelectMultiple onChange={props.onChange} options={props.options} />
+    </li>
+  );
+};
 export const LinkItem = props => {
   const handleOnClick = e => {
     props.onClick && props.onClick(e);
@@ -117,6 +125,17 @@ const SidebarItem = ({item, color, index}) => {
     case 'select':
       return (
         <SelectItem
+          title={item.title}
+          name={item.name}
+          index={index}
+          options={item.options}
+          onChange={handleOnChange}
+          color={color}
+        />
+      );
+    case 'multi-select':
+      return (
+        <MultiSelectItem
           title={item.title}
           name={item.name}
           index={index}
@@ -203,7 +222,8 @@ const SectionProptype = PropTypes.oneOfType([
   PropTypes.shape({...InfoItemSchema, type: PropTypes.oneOf(['info']).isRequired}),
   PropTypes.shape({...LinkItemSchema, type: PropTypes.oneOf(['link']).isRequired}),
   PropTypes.shape({...InputTextItemSchema, type: PropTypes.oneOf(['inputtext']).isRequired}),
-  PropTypes.shape({...SelectItemSchema, type: PropTypes.oneOf(['select']).isRequired})
+  PropTypes.shape({...SelectItemSchema, type: PropTypes.oneOf(['select']).isRequired}),
+  PropTypes.shape({...SelectItemSchema, type: PropTypes.oneOf(['multi-select']).isRequired})
 ]);
 Sidebar.propTypes = {
   items: PropTypes.arrayOf(

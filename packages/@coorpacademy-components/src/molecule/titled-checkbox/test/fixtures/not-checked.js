@@ -1,9 +1,10 @@
 export default {
   props: {
     background: '#776655',
-    state: {
-      checked: false,
-      label: 'foo'
+    choice: {
+      selected: false,
+      name: 'foo',
+      value: 'foo'
     },
     onToggle: () => null
   }
