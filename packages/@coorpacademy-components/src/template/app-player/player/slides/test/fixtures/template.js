@@ -1,12 +1,12 @@
-import Answer from '../../../../../../../molecule/answer/test/fixtures/qcm-short-video';
+import Answer from '../../../../../../molecule/answer/test/fixtures/template';
 import Default from './default';
 
 const answerType = Answer.props;
 
 export default {
   props: {
-    ...Default.props,
     typeClue: 'answer',
+    ...Default.props,
     answerType
   }
 };

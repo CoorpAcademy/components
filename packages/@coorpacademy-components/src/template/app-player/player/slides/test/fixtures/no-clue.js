@@ -1,9 +1,11 @@
-import Cta from '../../../../../../../atom/cta/test/fixtures/primary';
-import Footer from '../../../slides-footer/test/fixtures/media-selected';
-import ResourceBrowser from '../../../../../../../organism/resource-browser/test/fixtures/vimeo';
+import Cta from '../../../../../../atom/cta/test/fixtures/primary';
+import Footer from '../../footer/test/fixtures/no-clue';
+import Header from '../../header/test/fixtures/learner';
+import ResourceBrowser from '../../../../../../organism/resource-browser/test/fixtures/vimeo';
 
 const {props} = Cta;
 const footerProps = Footer.props;
+const headerProps = Header.props;
 const resourceProps = ResourceBrowser.props;
 
 export default {
@@ -21,7 +23,8 @@ export default {
       ...props,
       submitValue: 'Back to Question'
     },
+    header: headerProps,
     ...resourceProps,
-    ...footerProps
+    ...footerProps,
   }
 };

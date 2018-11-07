@@ -1,9 +1,11 @@
-import Cta from '../../../../../../../atom/cta/test/fixtures/primary';
-import Footer from '../../../slides-footer/test/fixtures/default';
-import Answer from '../../../../../../../molecule/answer/test/fixtures/default';
+import Cta from '../../../../../../atom/cta/test/fixtures/primary';
+import Footer from '../../footer/test/fixtures/default';
+import Header from '../../header/test/fixtures/learner';
+import Answer from '../../../../../../molecule/answer/test/fixtures/default';
 
 const {props} = Cta;
 const footerProps = Footer.props;
+const headerProps = Header.props;
 const answerType = Answer.props;
 
 export default {
@@ -20,6 +22,7 @@ export default {
       submitValue: 'Validate'
     },
     answerType,
-    ...footerProps
+    header: headerProps,
+    ...footerProps,
   }
 };

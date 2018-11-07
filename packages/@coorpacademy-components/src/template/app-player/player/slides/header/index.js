@@ -1,13 +1,13 @@
 import isNil from 'lodash/fp/isNil';
 import React from 'react';
 import PropTypes from 'prop-types';
-import Link from '../../../../atom/link';
-import Life from '../../../../atom/life';
+import Link from '../../../../../atom/link';
+import Life from '../../../../../atom/life';
 import Learner from './learner';
 import Microlearning from './microlearning';
 import style from './style.css'; // eslint-disable-line css-modules/no-unused-class
 
-const PlayerHeaders = {
+const SlidesHeaders = {
   learner: Learner,
   microlearning: Microlearning
 };
@@ -30,9 +30,9 @@ Lives.propTypes = {
   })
 };
 
-const PlayerHeader = (props, context) => {
+const SlidesHeader = (props, context) => {
   const {type} = props;
-  const Header = PlayerHeaders[type];
+  const Header = SlidesHeaders[type];
 
   return (
     <div data-name="slidesHeader" className={style.wrapper}>
@@ -42,7 +42,7 @@ const PlayerHeader = (props, context) => {
   );
 };
 
-PlayerHeader.propTypes = {
+SlidesHeader.propTypes = {
   type: PropTypes.oneOf(['learner', 'microlearning']),
   content: PropTypes.shape({
     href: Link.propTypes.href,
@@ -56,4 +56,4 @@ PlayerHeader.propTypes = {
   lives: Lives.propTypes.lives
 };
 
-export default PlayerHeader;
+export default SlidesHeader;

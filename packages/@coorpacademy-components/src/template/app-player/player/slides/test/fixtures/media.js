@@ -1,14 +1,15 @@
-import Cta from '../../../../../../../atom/cta/test/fixtures/primary';
-import Footer from '../../../slides-footer/test/fixtures/only-clue';
-import Clue from '../../../../../../../atom/clue/test/fixtures/default';
+import Cta from '../../../../../../atom/cta/test/fixtures/primary';
+import Footer from '../../footer/test/fixtures/media-selected';
+import ResourceBrowser from '../../../../../../organism/resource-browser/test/fixtures/vimeo';
 
 const {props} = Cta;
 const footerProps = Footer.props;
-const clueProps = Clue.props;
+const resourceProps = ResourceBrowser.props;
 
 export default {
   props: {
-    typeClue: 'clue',
+    typeClue: 'media',
+    starsDiff: 4,
     step: {
       current: 2,
       total: 6
@@ -20,8 +21,7 @@ export default {
       ...props,
       submitValue: 'Back to Question'
     },
-    help: 'En regardant cet indice, vous perdez 1 étoile',
-    ...clueProps,
+    ...resourceProps,
     ...footerProps
   }
 };

@@ -1,4 +1,4 @@
-import SlidesHeader from '../../../player/player-header/test/fixtures/learner';
+import SlidesHeader from '../../../player/slides/header/test/fixtures/learner';
 
 const headerProps = SlidesHeader.props;
 

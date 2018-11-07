@@ -1,12 +1,7 @@
-import SlidesHeader from '../../player-header/test/fixtures/learner';
-import SlideError from '../../slides/slides-player/test/fixtures/error';
+import SlideError from '../../slides/test/fixtures/error';
 
-const headerProps = SlidesHeader.props;
 const playerProps = SlideError.props;
 
 export default {
-  props: {
-    header: headerProps,
-    player: playerProps
-  }
+  props: playerProps
 };

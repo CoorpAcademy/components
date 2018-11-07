@@ -9,18 +9,19 @@ import identity from 'lodash/fp/identity';
 import max from 'lodash/fp/max';
 import pipe from 'lodash/fp/pipe';
 import split from 'lodash/fp/split';
-import {ColorPropType, SrcPropType} from '../../../../../util/proptypes';
-import Cta from '../../../../../atom/cta';
-import Picture from '../../../../../atom/picture';
-import Provider from '../../../../../atom/provider';
-import Clue from '../../../../../atom/clue';
-import Answer from '../../../../../molecule/answer';
-import Loader from '../../../../../atom/loader';
-import Swapper from '../../../../../hoc/swapper';
-import VideoPlayer from '../../../../../molecule/video-player';
-import PDF from '../../../../../molecule/pdf';
-import ResourceBrowser from '../../../../../organism/resource-browser';
-import SlidesFooter from '../slides-footer';
+import {ColorPropType, SrcPropType} from '../../../../util/proptypes';
+import Cta from '../../../../atom/cta';
+import Picture from '../../../../atom/picture';
+import Provider from '../../../../atom/provider';
+import Clue from '../../../../atom/clue';
+import Answer from '../../../../molecule/answer';
+import Loader from '../../../../atom/loader';
+import Swapper from '../../../../hoc/swapper';
+import VideoPlayer from '../../../../molecule/video-player';
+import PDF from '../../../../molecule/pdf';
+import ResourceBrowser from '../../../../organism/resource-browser';
+import Footer from './footer';
+import Header from './header';
 import style from './style.css';
 
 const MediaView = ({media}) => {
@@ -338,17 +339,20 @@ Content.propTypes = {
  */
 
 const SlidesPlayer = (props, context) => {
-  const {step, buttons, showNewMedia = false} = props;
+  const {header, step, buttons, showNewMedia = false} = props;
   const {skin} = context;
   const stepColor = get('common.primary', skin);
   const mediaButton = find({type: 'media'}, buttons) || {};
   const {onClick = identity} = mediaButton;
   return (
     <div className={style.wrapper} data-name="slidesPlayer">
-      {step ? <Step step={step} color={stepColor} /> : null}
-      {showNewMedia ? <NewMedia onClick={onClick} /> : null}
-      <Content {...props} />
-      <SlidesFooter buttons={buttons} />
+      <Header {...header} />
+      <div className={style.contentProgression}>
+        {step ? <Step step={step} color={stepColor} /> : null}
+        {showNewMedia ? <NewMedia onClick={onClick} /> : null}
+        <Content {...props} />
+      </div>
+      <Footer buttons={buttons} />
     </div>
   );
 };
@@ -363,7 +367,8 @@ SlidesPlayer.contextTypes = {
 SlidesPlayer.propTypes = {
   cta: ValidateButton.propTypes.cta,
   step: Step.propTypes.step,
-  buttons: SlidesFooter.propTypes.buttons,
+  buttons: Footer.propTypes.buttons,
+  header: Header.propTypes,
   showNewMedia: PropTypes.bool,
   backgroundUrl: SrcPropType
 };
