@@ -23,6 +23,6 @@ export default {
     },
     answerType,
     header: headerProps,
-    ...footerProps,
+    ...footerProps
   }
 };

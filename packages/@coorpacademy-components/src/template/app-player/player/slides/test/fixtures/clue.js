@@ -23,6 +23,6 @@ export default {
     },
     header: headerProps,
     ...clueProps,
-    ...footerProps,
+    ...footerProps
   }
 };

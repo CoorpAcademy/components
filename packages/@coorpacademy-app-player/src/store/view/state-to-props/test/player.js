@@ -154,10 +154,7 @@ test('should create player props for basic question and show coaches', t => {
   t.is(props.buttons.length, 4);
   t.is(props.buttons[3].title, '__Coach');
   t.is(props.buttons[3].type, 'coach');
-  t.deepEqual(
-    omit('content.onClick', props.header),
-    omit('content.onClick', headerProps),
-  );
+  t.deepEqual(omit('content.onClick', props.header), omit('content.onClick', headerProps));
   t.true(isFunction(props.header.content.onClick));
 });
 test('should enable the validate button when there is an answer', t => {

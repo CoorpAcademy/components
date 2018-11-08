@@ -74,7 +74,7 @@ test('should display learner header with no chapter nums', t => {
 test('should display slide', async t => {
   const vNode = mapStateToVNode(stateSlide);
   testRendering(vNode);
-  const {props: {player: playerProps}} = vNode;
+  const {props: playerProps} = vNode;
 
   t.is(playerProps.typeClue, 'answer');
   t.is(playerProps.text, null);
@@ -126,7 +126,7 @@ test('should display slide', async t => {
 test('should display loading clue', async t => {
   const vNode = mapStateToVNode(stateLoadingClue);
   testRendering(vNode);
-  const {props: {player: playerProps}} = vNode;
+  const {props: playerProps} = vNode;
 
   t.is(playerProps.typeClue, 'clue');
   t.is(playerProps.text, null);
@@ -178,7 +178,7 @@ test('should display loading clue', async t => {
 test('should display clue', async t => {
   const vNode = mapStateToVNode(stateClue);
   testRendering(vNode);
-  const {props: {player: playerProps}} = vNode;
+  const {props: playerProps} = vNode;
 
   t.is(playerProps.typeClue, 'clue');
   t.is(playerProps.text, 'Clue');
@@ -230,7 +230,7 @@ test('should display clue', async t => {
 test('should disable clue button if slide has no clue', t => {
   const vNode = mapStateToVNode(stateNoClue);
   testRendering(vNode);
-  const {props: {player: playerProps}} = vNode;
+  const {props: playerProps} = vNode;
 
   t.deepEqual(map(omit('onClick'), playerProps.buttons), [
     {

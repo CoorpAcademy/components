@@ -25,6 +25,6 @@ export default {
     },
     header: headerProps,
     ...resourceProps,
-    ...footerProps,
+    ...footerProps
   }
 };

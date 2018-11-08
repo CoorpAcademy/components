@@ -25,6 +25,6 @@ export default {
     help: 'En regardant cet indice, vous perdez 1 étoile',
     header: headerProps,
     ...clueProps,
-    ...footerProps,
+    ...footerProps
   }
 };
