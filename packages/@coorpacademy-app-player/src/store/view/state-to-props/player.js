@@ -125,7 +125,6 @@ const playerProps = (options, store) => state => {
     }
   ];
   const headerProps = createHeaderStateToProps(options, store)(state);
-  debugger;
 
   const answers = getAnswerValues(slide, state);
   const ctaDisabled =
