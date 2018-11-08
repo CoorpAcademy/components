@@ -1,49 +1,30 @@
-import isNil from 'lodash/fp/isNil';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Link from '../../../../../atom/link';
-import Life from '../../../../../atom/life';
 import Learner from './learner';
 import Microlearning from './microlearning';
+import Lives from './lives';
 import style from './style.css'; // eslint-disable-line css-modules/no-unused-class
 
-const SlidesHeaders = {
-  learner: Learner,
-  microlearning: Microlearning
+const HEADER_TYPE = {
+  LEARNER: 'learner',
+  MICROLEARNING: 'microlearning'
 };
 
-const Lives = ({lives}, context) => {
-  if (isNil(lives)) {
-    return null;
-  }
-
-  return (
-    <div className={style.livesWrapper}>
-      <Life {...lives} className={style.life} mode="small" />
-    </div>
-  );
-};
-
-Lives.propTypes = {
-  lives: PropTypes.shape({
-    count: PropTypes.number.isRequired
-  })
-};
-
-const SlidesHeader = (props, context) => {
-  const {type} = props;
-  const Header = SlidesHeaders[type];
+const SlidesHeader = (props = {}, context) => {
+  const {type, content, subcontent, lives = {}} = props;
 
   return (
     <div data-name="slidesHeader" className={style.wrapper}>
-      <Header {...props} />
-      <Lives {...props} />
+      {type === HEADER_TYPE.LEARNER && <Learner content={content} subcontent={subcontent} />}
+      {type === HEADER_TYPE.MICROLEARNING && <Microlearning content={content} />}
+      <Lives count={lives.count || 0} />
     </div>
   );
 };
 
 SlidesHeader.propTypes = {
-  type: PropTypes.oneOf(['learner', 'microlearning']),
+  type: PropTypes.oneOf([HEADER_TYPE.LEARNER, HEADER_TYPE.MICROLEARNING]),
   content: PropTypes.shape({
     href: Link.propTypes.href,
     title: PropTypes.string.isRequired,
@@ -53,7 +34,7 @@ SlidesHeader.propTypes = {
     title: PropTypes.string,
     details: PropTypes.string
   }),
-  lives: Lives.propTypes.lives
+  lives: Lives.propTypes
 };
 
 export default SlidesHeader;

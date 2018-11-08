@@ -346,7 +346,7 @@ const SlidesPlayer = (props, context) => {
   const {onClick = identity} = mediaButton;
   return (
     <div className={style.wrapper} data-name="slidesPlayer">
-      <Header {...header} />
+      {header && <Header {...header} />}
       <div className={style.contentProgression}>
         {step ? <Step step={step} color={stepColor} /> : null}
         {showNewMedia ? <NewMedia onClick={onClick} /> : null}
