@@ -567,7 +567,6 @@ import TemplateAppPlayerPlayerSlidesFixtureContextWithVideo from '../src/templat
 import TemplateAppPlayerPlayerSlidesFixtureContext from '../src/template/app-player/player/slides/test/fixtures/context';
 import TemplateAppPlayerPlayerSlidesFixtureDefault from '../src/template/app-player/player/slides/test/fixtures/default';
 import TemplateAppPlayerPlayerSlidesFixtureDropDown from '../src/template/app-player/player/slides/test/fixtures/drop-down';
-import TemplateAppPlayerPlayerSlidesFixtureEmpty from '../src/template/app-player/player/slides/test/fixtures/empty';
 import TemplateAppPlayerPlayerSlidesFixtureError from '../src/template/app-player/player/slides/test/fixtures/error';
 import TemplateAppPlayerPlayerSlidesFixtureFreeText from '../src/template/app-player/player/slides/test/fixtures/free-text';
 import TemplateAppPlayerPlayerSlidesFixtureLoading from '../src/template/app-player/player/slides/test/fixtures/loading';
@@ -1639,7 +1638,6 @@ export const fixtures = {
       Context: TemplateAppPlayerPlayerSlidesFixtureContext,
       Default: TemplateAppPlayerPlayerSlidesFixtureDefault,
       DropDown: TemplateAppPlayerPlayerSlidesFixtureDropDown,
-      Empty: TemplateAppPlayerPlayerSlidesFixtureEmpty,
       Error: TemplateAppPlayerPlayerSlidesFixtureError,
       FreeText: TemplateAppPlayerPlayerSlidesFixtureFreeText,
       Loading: TemplateAppPlayerPlayerSlidesFixtureLoading,

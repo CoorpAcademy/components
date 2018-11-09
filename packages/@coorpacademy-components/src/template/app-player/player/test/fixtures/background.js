@@ -4,7 +4,9 @@ const playerProps = Context.props;
 
 export default {
   props: {
-    ...playerProps,
-    backgroundUrl: 'http://imagizer.imageshack.us/a/img924/9120/zxtxPV.jpg'
+    player: {
+      ...playerProps,
+      backgroundUrl: 'http://imagizer.imageshack.us/a/img924/9120/zxtxPV.jpg'
+    }
   }
 };

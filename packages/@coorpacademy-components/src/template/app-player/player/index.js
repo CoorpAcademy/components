@@ -4,17 +4,20 @@ import SlidesPlayer from './slides';
 import style from './style.css';
 
 const SlidePlayer = props => {
-  const backgroundImage = props.backgroundUrl ? `url(${props.backgroundUrl})` : null;
+  const {player} = props;
+  const backgroundImage = player.backgroundUrl ? `url(${player.backgroundUrl})` : null;
   return (
     <div data-name="slidePlayer" className={style.wrapper}>
       <div className={style.playerWrapper}>
         <div className={style.playerBackground} style={{backgroundImage}} />
-        <SlidesPlayer {...props} />
+        <SlidesPlayer {...player} />
       </div>
     </div>
   );
 };
 
-SlidePlayer.propTypes = PropTypes.shape(SlidesPlayer.propTypes);
+SlidePlayer.propTypes = {
+  player: PropTypes.shape(SlidesPlayer.propTypes)
+};
 
 export default SlidePlayer;
