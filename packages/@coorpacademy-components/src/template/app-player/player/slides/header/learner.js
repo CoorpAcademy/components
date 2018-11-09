@@ -58,11 +58,11 @@ LearnerHeader.propTypes = {
     onClick: Link.propTypes.onClick,
     title: PropTypes.string.isRequired,
     details: PropTypes.string
-  }).isRequired,
+  }),
   subcontent: PropTypes.shape({
     title: PropTypes.string.isRequired,
     details: PropTypes.string
-  }).isRequired
+  })
 };
 
 export default LearnerHeader;

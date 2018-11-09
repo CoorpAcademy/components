@@ -22,7 +22,7 @@ MicrolearningHeader.propTypes = {
   content: PropTypes.shape({
     onClick: Link.propTypes.onClick,
     title: PropTypes.string.isRequired
-  }).isRequired
+  })
 };
 
 export default MicrolearningHeader;

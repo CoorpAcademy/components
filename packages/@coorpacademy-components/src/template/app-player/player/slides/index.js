@@ -368,7 +368,7 @@ SlidesPlayer.propTypes = {
   cta: ValidateButton.propTypes.cta,
   step: Step.propTypes.step,
   buttons: Footer.propTypes.buttons,
-  header: Header.propTypes,
+  header: PropTypes.shape(Header.propTypes),
   showNewMedia: PropTypes.bool,
   backgroundUrl: SrcPropType
 };
