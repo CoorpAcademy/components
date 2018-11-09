@@ -34,7 +34,7 @@ SlidesHeader.propTypes = {
     title: PropTypes.string,
     details: PropTypes.string
   }),
-  lives: Lives.propTypes
+  lives: PropTypes.shape(Lives.propTypes)
 };
 
 export default SlidesHeader;
