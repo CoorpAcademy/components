@@ -1,9 +1,11 @@
-import Cta from '../../../../../../../atom/cta/test/fixtures/primary';
-import Footer from '../../../slides-footer/test/fixtures/clue-selected';
-import Clue from '../../../../../../../atom/clue/test/fixtures/default';
+import Cta from '../../../../../../atom/cta/test/fixtures/primary';
+import Footer from '../../footer/test/fixtures/clue-selected';
+import Header from '../../header/test/fixtures/learner';
+import Clue from '../../../../../../atom/clue/test/fixtures/default';
 
 const {props} = Cta;
 const footerProps = Footer.props;
+const headerProps = Header.props;
 const clueProps = Clue.props;
 
 export default {
@@ -19,6 +21,7 @@ export default {
       ...props,
       submitValue: 'Back to Question'
     },
+    header: headerProps,
     ...clueProps,
     ...footerProps
   }

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import BackIcon from '@coorpacademy/nova-icons/composition/navigation/arrow-left';
-import Link from '../../../../atom/link';
-import Provider from '../../../../atom/provider';
+import Link from '../../../../../atom/link';
+import Provider from '../../../../../atom/provider';
 import style from './learner.css';
 
 const Content = ({onClick, title, details}, context) => {

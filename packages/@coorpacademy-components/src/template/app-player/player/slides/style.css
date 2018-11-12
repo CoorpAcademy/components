@@ -1,6 +1,6 @@
-@value breakpoints: "../../../../../variables/breakpoints.css";
+@value breakpoints: "../../../../variables/breakpoints.css";
 @value mobile, tablet from breakpoints;
-@value colors: "../../../../../variables/colors.css";
+@value colors: "../../../../variables/colors.css";
 @value medium from colors;
 @value dark from colors;
 @value light from colors;
@@ -13,6 +13,7 @@
   position: relative;
   box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.04);
   border-radius: 3px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
@@ -21,6 +22,12 @@
   align-self: center;
   margin: 0 auto;
   margin-bottom: 80px;
+}
+
+.contentProgression {
+  display: flex;
+  flex-grow: 1;
+  position: relative;
 }
 
 .contentWrapper {
@@ -32,7 +39,6 @@
   padding: 36px 32px 32px;
   width: 100%;
   box-sizing: border-box;
-  border-radius: 3px;
 }
 
 .contentWrapperNoPadding {
@@ -65,8 +71,6 @@
   width: 100%;
   height: 4px;
   background-color: light;
-  border-top-left-radius: 3px;
-  border-top-right-radius: 3px;
   overflow: hidden;
 }
 
@@ -75,8 +79,8 @@
   z-index: 1;
   height: 4px;
   width: 0;
-  border-radius: 3px;
-  border-bottom-left-radius: 0;
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
   transition: width 0.3s ease-out;
   transition-delay: 0.5s;
 }
@@ -97,7 +101,6 @@
   right: 0;
   padding: 4px 5px 4px 10px;
   border-bottom-left-radius: 12px;
-  border-top-right-radius: 3px;
 }
 
 .guideWrapper {

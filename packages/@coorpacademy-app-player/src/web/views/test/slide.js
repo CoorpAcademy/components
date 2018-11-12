@@ -20,7 +20,7 @@ const mapStateToVNode = stateToVNode(options, store);
 test('should display microlearning header', t => {
   const vNode = mapStateToVNode(microlearningHeader);
   testRendering(vNode);
-  const {props: {header: headerProps}} = vNode;
+  const {props: {player: {header: headerProps}}} = vNode;
 
   t.is(headerProps.type, 'microlearning');
   t.is(headerProps.content.title, 'Les réseaux sociaux au service du crowdfunding');
@@ -36,7 +36,7 @@ test('should display microlearning header', t => {
 test('should display learner header with chapter num', t => {
   const vNode = mapStateToVNode(learnerHeader);
   testRendering(vNode);
-  const {props: {header: headerProps}} = vNode;
+  const {props: {player: {header: headerProps}}} = vNode;
 
   t.is(headerProps.type, 'learner');
   t.is(headerProps.content.title, 'level1');
@@ -56,7 +56,7 @@ test('should display learner header with no chapter nums', t => {
 
   const vNode = mapStateToVNode(state);
   testRendering(vNode);
-  const {props: {header: headerProps}} = vNode;
+  const {props: {player: {header: headerProps}}} = vNode;
 
   t.is(headerProps.type, 'learner');
   t.is(headerProps.content.title, 'level1');

@@ -1,4 +1,4 @@
-@value colors: "../../../../variables/colors.css";
+@value colors: "../../../../../variables/colors.css";
 @value light from colors;
 
 .wrapper {
@@ -18,18 +18,4 @@
   stroke-width: 1px;
   transition: all 0.3s;
   min-width: 16px;
-}
-
-.livesWrapper {
-  background-color: light;
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  margin-left: 16px;
-}
-
-.life {
-  margin-right: 16px;
 }

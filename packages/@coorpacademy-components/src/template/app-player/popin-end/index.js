@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Header from '../player/player-header';
+import Header from '../player/slides/header';
 import Summary from './summary';
 import style from './style.css';
 

@@ -7,8 +7,10 @@ import pipe from 'lodash/fp/pipe';
 import fromPairs from 'lodash/fp/fromPairs';
 import isFunction from 'lodash/fp/isFunction';
 import identity from 'lodash/fp/identity';
+import omit from 'lodash/fp/omit';
 import {mockTranslate} from '@coorpacademy/translate';
 import createPlayer from '../player';
+import createHeader from '../header';
 import {UI_SELECT_ROUTE} from '../../../actions/ui/route';
 import learnerProgressionStateFixture from '../../test/fixtures/progression-learner';
 import basicSlide from './fixtures/slides/basic';
@@ -20,7 +22,8 @@ import qcmGraphicSlide from './fixtures/slides/qcm-graphic';
 
 const options = {translate: mockTranslate};
 const store = {dispatch: identity};
-const playerProps = createPlayer(options, store);
+const createPlayerProps = createPlayer(options, store);
+const createHeaderProps = createHeader(options, store);
 
 const availableSlides = pipe(map(slide => [slide._id, slide]), fromPairs)([
   basicSlide,
@@ -92,7 +95,7 @@ const data = {
 const isDisabledFor = (slide, isConditional, answer) => {
   const progressionId = 'progression';
   const chapterId = 'chapter';
-  return playerProps({
+  return createPlayerProps({
     data: {
       contents: {
         slide: {
@@ -133,7 +136,8 @@ test('should create player props for basic question and show coaches', t => {
     }
   };
 
-  const props = playerProps(state);
+  const props = createPlayerProps(state);
+  const headerProps = createHeaderProps(state);
 
   t.deepEqual(props.answerType.media, {
     type: 'img',
@@ -150,6 +154,8 @@ test('should create player props for basic question and show coaches', t => {
   t.is(props.buttons.length, 4);
   t.is(props.buttons[3].title, '__Coach');
   t.is(props.buttons[3].type, 'coach');
+  t.deepEqual(omit('content.onClick', props.header), omit('content.onClick', headerProps));
+  t.true(isFunction(props.header.content.onClick));
 });
 test('should enable the validate button when there is an answer', t => {
   t.true(isDisabledFor(basicSlide, false, []));
@@ -193,7 +199,7 @@ test('should disable the validate button when there the text answer has been del
     }
   };
 
-  const props = playerProps(state);
+  const props = createPlayerProps(state);
 
   t.true(props.cta.disabled);
 });
@@ -208,7 +214,7 @@ test('should disable the validate button when no answer is provided', t => {
     }
   };
 
-  const props = playerProps(state);
+  const props = createPlayerProps(state);
 
   t.true(props.cta.disabled);
 });
@@ -223,7 +229,7 @@ test('should disable the validate button when a previous selected answer has bee
     }
   };
 
-  const props = playerProps(state);
+  const props = createPlayerProps(state);
 
   t.true(props.cta.disabled);
 });
@@ -238,7 +244,7 @@ test('should disable the validate button when some answer fields are empty', t =
     }
   };
 
-  const props = playerProps(state);
+  const props = createPlayerProps(state);
 
   t.true(props.cta.disabled);
 });
@@ -252,7 +258,7 @@ test('should disable the validate button when no answer has been selected by use
     }
   };
 
-  const props = playerProps(state);
+  const props = createPlayerProps(state);
 
   t.true(props.cta.disabled);
 });
@@ -303,14 +309,16 @@ test('should display "Back to question" for the cta in the tabs', t => {
     }
   };
 
-  t.is(playerProps(state).cta.submitValue, '__Back to question');
+  const props = createPlayerProps(state);
+
+  t.is(props.cta.submitValue, '__Back to question');
 
   state.ui.route.foo = 'clue';
 
-  t.is(typeof playerProps(state).onClickSeeClue, 'function');
-  playerProps(state).onClickSeeClue();
+  t.is(typeof props.onClickSeeClue, 'function');
+  props.onClickSeeClue();
 
-  t.is(playerProps(state).cta.submitValue, '__Back to question');
+  t.is(props.cta.submitValue, '__Back to question');
 });
 
 test('should display "Go to question" for the context tab cta', t => {
@@ -324,7 +332,7 @@ test('should display "Go to question" for the context tab cta', t => {
     }
   };
 
-  const props = playerProps(state);
+  const props = createPlayerProps(state);
   t.is(props.cta.submitValue, '__Go to question');
 });
 
@@ -352,7 +360,7 @@ test('should display new media notification when user has not seen any media for
     }
   };
 
-  const props = playerProps(state);
+  const props = createPlayerProps(state);
   t.true(props.showNewMedia);
 });
 
@@ -373,12 +381,12 @@ test('should display new media notification for the answer/undefined route when 
   };
 
   [undefined].forEach(route => {
-    const props = playerProps(set('ui.route.basic', route, state));
+    const props = createPlayerProps(set('ui.route.basic', route, state));
     t.true(isEmpty(props));
   });
 
   ['media', 'clue', 'context', 'answer'].forEach(route => {
-    const props = playerProps(set('ui.route.basic', route, state));
+    const props = createPlayerProps(set('ui.route.basic', route, state));
     t.false(isEmpty(props));
   });
 });
@@ -400,7 +408,7 @@ test('should not display new media notification for the other routes when user h
   };
 
   ['media', 'clue'].forEach(route => {
-    const props = playerProps(set('ui.route.basic', route, state));
+    const props = createPlayerProps(set('ui.route.basic', route, state));
     t.false(props.showNewMedia);
   });
 });
@@ -431,7 +439,7 @@ test('should not display new media notification when user has seen at least one 
     }
   };
 
-  const props = playerProps(state);
+  const props = createPlayerProps(state);
   t.false(props.showNewMedia);
 });
 
@@ -441,7 +449,7 @@ test('should feed step prop in non-adaptive mode', t => {
     12,
     learnerProgressionStateFixture
   );
-  const props = playerProps(state);
+  const props = createPlayerProps(state);
 
   t.deepEqual(props.step, {current: 0, total: 12});
 });
@@ -452,13 +460,13 @@ test('should not feed step prop in adaptive mode', t => {
     set('data.contents.chapter.entities.chapter2.isConditional', true)
   )(learnerProgressionStateFixture);
 
-  const props = playerProps(state);
+  const props = createPlayerProps(state);
 
   t.falsy(props.step);
 });
 
 test('should not send an id prop in resources', t => {
-  const props = playerProps(learnerProgressionStateFixture);
+  const props = createPlayerProps(learnerProgressionStateFixture);
 
   t.is(get('resources.0.id', props), undefined);
 });
@@ -491,7 +499,7 @@ test('should allow multi answers on adaptive level if the current chapter is not
     const progressionId = 'progression';
     const levelId = 'level';
     const chapterId = 'chapter';
-    return playerProps({
+    return createPlayerProps({
       data: {
         contents: {
           slide: {

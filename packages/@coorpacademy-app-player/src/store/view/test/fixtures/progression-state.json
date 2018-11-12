@@ -37,6 +37,7 @@
     }
   },
   "ui": {
+    "route": {"0": "answer"},
     "current": {
       "progressionId": "0"
     }

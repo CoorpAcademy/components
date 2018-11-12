@@ -1,9 +1,11 @@
-import Cta from '../../../../../../../atom/cta/test/fixtures/primary';
-import Footer from '../../../slides-footer/test/fixtures/only-clue';
-import Clue from '../../../../../../../atom/clue/test/fixtures/default';
+import Cta from '../../../../../../atom/cta/test/fixtures/primary';
+import Footer from '../../footer/test/fixtures/only-clue';
+import Header from '../../header/test/fixtures/learner';
+import Clue from '../../../../../../atom/clue/test/fixtures/default';
 
 const {props} = Cta;
 const footerProps = Footer.props;
+const headerProps = Header.props;
 const clueProps = Clue.props;
 
 export default {
@@ -21,6 +23,7 @@ export default {
       submitValue: 'Back to Question'
     },
     help: 'En regardant cet indice, vous perdez 1 étoile',
+    header: headerProps,
     ...clueProps,
     ...footerProps
   }

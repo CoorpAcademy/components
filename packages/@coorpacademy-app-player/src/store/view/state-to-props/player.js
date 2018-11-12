@@ -24,6 +24,7 @@ import {selectRoute} from '../../actions/ui/route';
 import {selectClue, getClue} from '../../actions/ui/clues';
 import {startChat} from '../../actions/ui/coaches';
 import {createGetAnswerProps, createGetHelp} from './answer';
+import createHeaderStateToProps from './header';
 import getResourcesProps from './resources';
 
 const ROUTES = ['media', 'clue', 'context', 'answer'];
@@ -123,6 +124,7 @@ const playerProps = (options, store) => state => {
       onClick: () => dispatch(startChat())
     }
   ];
+  const headerProps = createHeaderStateToProps(options, store)(state);
 
   const answers = getAnswerValues(slide, state);
   const ctaDisabled =
@@ -173,7 +175,8 @@ const playerProps = (options, store) => state => {
       media: mediaQuestion
     },
     showNewMedia: (isNil(route) || route === 'answer') && notifyNewMedia,
-    buttons
+    buttons,
+    header: headerProps
   };
 };
 

@@ -123,9 +123,9 @@ import OrganismSlider from './../src/organism/slider';
 import OrganismUserPreferences from './../src/organism/user-preferences';
 import TemplateActivity from './../src/template/activity';
 import TemplateAppPlayerLoading from './../src/template/app-player/loading';
-import TemplateAppPlayerPlayerPlayerHeader from './../src/template/app-player/player/player-header';
-import TemplateAppPlayerPlayerSlidesSlidesFooter from './../src/template/app-player/player/slides/slides-footer';
-import TemplateAppPlayerPlayerSlidesSlidesPlayer from './../src/template/app-player/player/slides/slides-player';
+import TemplateAppPlayerPlayerSlidesFooter from './../src/template/app-player/player/slides/footer';
+import TemplateAppPlayerPlayerSlidesHeader from './../src/template/app-player/player/slides/header';
+import TemplateAppPlayerPlayerSlides from './../src/template/app-player/player/slides';
 import TemplateAppPlayerPlayer from './../src/template/app-player/player';
 import TemplateAppPlayerPopinCorrection from './../src/template/app-player/popin-correction';
 import TemplateAppPlayerPopinEnd from './../src/template/app-player/popin-end';
@@ -548,42 +548,42 @@ import TemplateActivityFixtureDefault from '../src/template/activity/test/fixtur
 import TemplateActivityFixtureEmpty from '../src/template/activity/test/fixtures/empty';
 import TemplateActivityFixtureNoEngines from '../src/template/activity/test/fixtures/no-engines';
 import TemplateAppPlayerLoadingFixtureDefault from '../src/template/app-player/loading/test/fixtures/default';
-import TemplateAppPlayerPlayerPlayerHeaderFixtureLearner from '../src/template/app-player/player/player-header/test/fixtures/learner';
-import TemplateAppPlayerPlayerPlayerHeaderFixtureMicrolearning from '../src/template/app-player/player/player-header/test/fixtures/microlearning';
-import TemplateAppPlayerPlayerPlayerHeaderFixtureNoLives from '../src/template/app-player/player/player-header/test/fixtures/no-lives';
-import TemplateAppPlayerPlayerSlidesSlidesFooterFixtureClueSelected from '../src/template/app-player/player/slides/slides-footer/test/fixtures/clue-selected';
-import TemplateAppPlayerPlayerSlidesSlidesFooterFixtureDefault from '../src/template/app-player/player/slides/slides-footer/test/fixtures/default';
-import TemplateAppPlayerPlayerSlidesSlidesFooterFixtureDisabled from '../src/template/app-player/player/slides/slides-footer/test/fixtures/disabled';
-import TemplateAppPlayerPlayerSlidesSlidesFooterFixtureHighlighted from '../src/template/app-player/player/slides/slides-footer/test/fixtures/highlighted';
-import TemplateAppPlayerPlayerSlidesSlidesFooterFixtureMediaSelected from '../src/template/app-player/player/slides/slides-footer/test/fixtures/media-selected';
-import TemplateAppPlayerPlayerSlidesSlidesFooterFixtureNoClue from '../src/template/app-player/player/slides/slides-footer/test/fixtures/no-clue';
-import TemplateAppPlayerPlayerSlidesSlidesFooterFixtureNotify from '../src/template/app-player/player/slides/slides-footer/test/fixtures/notify';
-import TemplateAppPlayerPlayerSlidesSlidesFooterFixtureOnlyClue from '../src/template/app-player/player/slides/slides-footer/test/fixtures/only-clue';
-import TemplateAppPlayerPlayerSlidesSlidesFooterFixtureWithContext from '../src/template/app-player/player/slides/slides-footer/test/fixtures/with-context';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureClue from '../src/template/app-player/player/slides/slides-player/test/fixtures/clue';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureContextWithImage from '../src/template/app-player/player/slides/slides-player/test/fixtures/context-with-image';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureContextWithPdf from '../src/template/app-player/player/slides/slides-player/test/fixtures/context-with-pdf';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureContextWithVideo from '../src/template/app-player/player/slides/slides-player/test/fixtures/context-with-video';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureContext from '../src/template/app-player/player/slides/slides-player/test/fixtures/context';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureDefault from '../src/template/app-player/player/slides/slides-player/test/fixtures/default';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureDropDown from '../src/template/app-player/player/slides/slides-player/test/fixtures/drop-down';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureError from '../src/template/app-player/player/slides/slides-player/test/fixtures/error';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureFreeText from '../src/template/app-player/player/slides/slides-player/test/fixtures/free-text';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureLoading from '../src/template/app-player/player/slides/slides-player/test/fixtures/loading';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureMedia from '../src/template/app-player/player/slides/slides-player/test/fixtures/media';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureNoClue from '../src/template/app-player/player/slides/slides-player/test/fixtures/no-clue';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureNoQuestion from '../src/template/app-player/player/slides/slides-player/test/fixtures/no-question';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureNoStep from '../src/template/app-player/player/slides/slides-player/test/fixtures/no-step';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureNoTotal from '../src/template/app-player/player/slides/slides-player/test/fixtures/no-total';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureOnlyClue from '../src/template/app-player/player/slides/slides-player/test/fixtures/only-clue';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcmDrag from '../src/template/app-player/player/slides/slides-player/test/fixtures/qcm-drag';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcmGraphic from '../src/template/app-player/player/slides/slides-player/test/fixtures/qcm-graphic';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcmShort from '../src/template/app-player/player/slides/slides-player/test/fixtures/qcm-short';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcmTemplate from '../src/template/app-player/player/slides/slides-player/test/fixtures/qcm-template';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcm from '../src/template/app-player/player/slides/slides-player/test/fixtures/qcm';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureRange from '../src/template/app-player/player/slides/slides-player/test/fixtures/range';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureTemplate from '../src/template/app-player/player/slides/slides-player/test/fixtures/template';
-import TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureWithMinHeight from '../src/template/app-player/player/slides/slides-player/test/fixtures/with-min-height';
+import TemplateAppPlayerPlayerSlidesFooterFixtureClueSelected from '../src/template/app-player/player/slides/footer/test/fixtures/clue-selected';
+import TemplateAppPlayerPlayerSlidesFooterFixtureDefault from '../src/template/app-player/player/slides/footer/test/fixtures/default';
+import TemplateAppPlayerPlayerSlidesFooterFixtureDisabled from '../src/template/app-player/player/slides/footer/test/fixtures/disabled';
+import TemplateAppPlayerPlayerSlidesFooterFixtureHighlighted from '../src/template/app-player/player/slides/footer/test/fixtures/highlighted';
+import TemplateAppPlayerPlayerSlidesFooterFixtureMediaSelected from '../src/template/app-player/player/slides/footer/test/fixtures/media-selected';
+import TemplateAppPlayerPlayerSlidesFooterFixtureNoClue from '../src/template/app-player/player/slides/footer/test/fixtures/no-clue';
+import TemplateAppPlayerPlayerSlidesFooterFixtureNotify from '../src/template/app-player/player/slides/footer/test/fixtures/notify';
+import TemplateAppPlayerPlayerSlidesFooterFixtureOnlyClue from '../src/template/app-player/player/slides/footer/test/fixtures/only-clue';
+import TemplateAppPlayerPlayerSlidesFooterFixtureWithContext from '../src/template/app-player/player/slides/footer/test/fixtures/with-context';
+import TemplateAppPlayerPlayerSlidesHeaderFixtureLearner from '../src/template/app-player/player/slides/header/test/fixtures/learner';
+import TemplateAppPlayerPlayerSlidesHeaderFixtureMicrolearning from '../src/template/app-player/player/slides/header/test/fixtures/microlearning';
+import TemplateAppPlayerPlayerSlidesHeaderFixtureNoLives from '../src/template/app-player/player/slides/header/test/fixtures/no-lives';
+import TemplateAppPlayerPlayerSlidesFixtureClue from '../src/template/app-player/player/slides/test/fixtures/clue';
+import TemplateAppPlayerPlayerSlidesFixtureContextWithImage from '../src/template/app-player/player/slides/test/fixtures/context-with-image';
+import TemplateAppPlayerPlayerSlidesFixtureContextWithPdf from '../src/template/app-player/player/slides/test/fixtures/context-with-pdf';
+import TemplateAppPlayerPlayerSlidesFixtureContextWithVideo from '../src/template/app-player/player/slides/test/fixtures/context-with-video';
+import TemplateAppPlayerPlayerSlidesFixtureContext from '../src/template/app-player/player/slides/test/fixtures/context';
+import TemplateAppPlayerPlayerSlidesFixtureDefault from '../src/template/app-player/player/slides/test/fixtures/default';
+import TemplateAppPlayerPlayerSlidesFixtureDropDown from '../src/template/app-player/player/slides/test/fixtures/drop-down';
+import TemplateAppPlayerPlayerSlidesFixtureError from '../src/template/app-player/player/slides/test/fixtures/error';
+import TemplateAppPlayerPlayerSlidesFixtureFreeText from '../src/template/app-player/player/slides/test/fixtures/free-text';
+import TemplateAppPlayerPlayerSlidesFixtureLoading from '../src/template/app-player/player/slides/test/fixtures/loading';
+import TemplateAppPlayerPlayerSlidesFixtureMedia from '../src/template/app-player/player/slides/test/fixtures/media';
+import TemplateAppPlayerPlayerSlidesFixtureNoClue from '../src/template/app-player/player/slides/test/fixtures/no-clue';
+import TemplateAppPlayerPlayerSlidesFixtureNoQuestion from '../src/template/app-player/player/slides/test/fixtures/no-question';
+import TemplateAppPlayerPlayerSlidesFixtureNoStep from '../src/template/app-player/player/slides/test/fixtures/no-step';
+import TemplateAppPlayerPlayerSlidesFixtureNoTotal from '../src/template/app-player/player/slides/test/fixtures/no-total';
+import TemplateAppPlayerPlayerSlidesFixtureOnlyClue from '../src/template/app-player/player/slides/test/fixtures/only-clue';
+import TemplateAppPlayerPlayerSlidesFixtureQcmDrag from '../src/template/app-player/player/slides/test/fixtures/qcm-drag';
+import TemplateAppPlayerPlayerSlidesFixtureQcmGraphic from '../src/template/app-player/player/slides/test/fixtures/qcm-graphic';
+import TemplateAppPlayerPlayerSlidesFixtureQcmShort from '../src/template/app-player/player/slides/test/fixtures/qcm-short';
+import TemplateAppPlayerPlayerSlidesFixtureQcmTemplate from '../src/template/app-player/player/slides/test/fixtures/qcm-template';
+import TemplateAppPlayerPlayerSlidesFixtureQcm from '../src/template/app-player/player/slides/test/fixtures/qcm';
+import TemplateAppPlayerPlayerSlidesFixtureRange from '../src/template/app-player/player/slides/test/fixtures/range';
+import TemplateAppPlayerPlayerSlidesFixtureTemplate from '../src/template/app-player/player/slides/test/fixtures/template';
+import TemplateAppPlayerPlayerSlidesFixtureWithMinHeight from '../src/template/app-player/player/slides/test/fixtures/with-min-height';
 import TemplateAppPlayerPlayerFixtureBackground from '../src/template/app-player/player/test/fixtures/background';
 import TemplateAppPlayerPlayerFixtureClue from '../src/template/app-player/player/test/fixtures/clue';
 import TemplateAppPlayerPlayerFixtureContextWithImage from '../src/template/app-player/player/test/fixtures/context-with-image';
@@ -843,12 +843,12 @@ export const components = {
     TemplateAppPlayerPopinEnd,
     TemplateAppPlayerPopinHeader
   },
-  TemplateAppPlayerPlayer: {
-    TemplateAppPlayerPlayerPlayerHeader
-  },
   TemplateAppPlayerPlayerSlides: {
-    TemplateAppPlayerPlayerSlidesSlidesFooter,
-    TemplateAppPlayerPlayerSlidesSlidesPlayer
+    TemplateAppPlayerPlayerSlidesFooter,
+    TemplateAppPlayerPlayerSlidesHeader
+  },
+  TemplateAppPlayerPlayer: {
+    TemplateAppPlayerPlayerSlides
   },
   TemplateBackOffice: {
     TemplateBackOfficeBrandCreate,
@@ -1611,50 +1611,50 @@ export const fixtures = {
       Success: TemplateAppPlayerPopinHeaderFixtureSuccess
     }
   },
-  TemplateAppPlayerPlayer: {
-    TemplateAppPlayerPlayerPlayerHeader: {
-      Learner: TemplateAppPlayerPlayerPlayerHeaderFixtureLearner,
-      Microlearning: TemplateAppPlayerPlayerPlayerHeaderFixtureMicrolearning,
-      NoLives: TemplateAppPlayerPlayerPlayerHeaderFixtureNoLives
+  TemplateAppPlayerPlayerSlides: {
+    TemplateAppPlayerPlayerSlidesFooter: {
+      ClueSelected: TemplateAppPlayerPlayerSlidesFooterFixtureClueSelected,
+      Default: TemplateAppPlayerPlayerSlidesFooterFixtureDefault,
+      Disabled: TemplateAppPlayerPlayerSlidesFooterFixtureDisabled,
+      Highlighted: TemplateAppPlayerPlayerSlidesFooterFixtureHighlighted,
+      MediaSelected: TemplateAppPlayerPlayerSlidesFooterFixtureMediaSelected,
+      NoClue: TemplateAppPlayerPlayerSlidesFooterFixtureNoClue,
+      Notify: TemplateAppPlayerPlayerSlidesFooterFixtureNotify,
+      OnlyClue: TemplateAppPlayerPlayerSlidesFooterFixtureOnlyClue,
+      WithContext: TemplateAppPlayerPlayerSlidesFooterFixtureWithContext
+    },
+    TemplateAppPlayerPlayerSlidesHeader: {
+      Learner: TemplateAppPlayerPlayerSlidesHeaderFixtureLearner,
+      Microlearning: TemplateAppPlayerPlayerSlidesHeaderFixtureMicrolearning,
+      NoLives: TemplateAppPlayerPlayerSlidesHeaderFixtureNoLives
     }
   },
-  TemplateAppPlayerPlayerSlides: {
-    TemplateAppPlayerPlayerSlidesSlidesFooter: {
-      ClueSelected: TemplateAppPlayerPlayerSlidesSlidesFooterFixtureClueSelected,
-      Default: TemplateAppPlayerPlayerSlidesSlidesFooterFixtureDefault,
-      Disabled: TemplateAppPlayerPlayerSlidesSlidesFooterFixtureDisabled,
-      Highlighted: TemplateAppPlayerPlayerSlidesSlidesFooterFixtureHighlighted,
-      MediaSelected: TemplateAppPlayerPlayerSlidesSlidesFooterFixtureMediaSelected,
-      NoClue: TemplateAppPlayerPlayerSlidesSlidesFooterFixtureNoClue,
-      Notify: TemplateAppPlayerPlayerSlidesSlidesFooterFixtureNotify,
-      OnlyClue: TemplateAppPlayerPlayerSlidesSlidesFooterFixtureOnlyClue,
-      WithContext: TemplateAppPlayerPlayerSlidesSlidesFooterFixtureWithContext
-    },
-    TemplateAppPlayerPlayerSlidesSlidesPlayer: {
-      Clue: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureClue,
-      ContextWithImage: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureContextWithImage,
-      ContextWithPdf: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureContextWithPdf,
-      ContextWithVideo: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureContextWithVideo,
-      Context: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureContext,
-      Default: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureDefault,
-      DropDown: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureDropDown,
-      Error: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureError,
-      FreeText: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureFreeText,
-      Loading: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureLoading,
-      Media: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureMedia,
-      NoClue: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureNoClue,
-      NoQuestion: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureNoQuestion,
-      NoStep: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureNoStep,
-      NoTotal: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureNoTotal,
-      OnlyClue: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureOnlyClue,
-      QcmDrag: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcmDrag,
-      QcmGraphic: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcmGraphic,
-      QcmShort: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcmShort,
-      QcmTemplate: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcmTemplate,
-      Qcm: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureQcm,
-      Range: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureRange,
-      Template: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureTemplate,
-      WithMinHeight: TemplateAppPlayerPlayerSlidesSlidesPlayerFixtureWithMinHeight
+  TemplateAppPlayerPlayer: {
+    TemplateAppPlayerPlayerSlides: {
+      Clue: TemplateAppPlayerPlayerSlidesFixtureClue,
+      ContextWithImage: TemplateAppPlayerPlayerSlidesFixtureContextWithImage,
+      ContextWithPdf: TemplateAppPlayerPlayerSlidesFixtureContextWithPdf,
+      ContextWithVideo: TemplateAppPlayerPlayerSlidesFixtureContextWithVideo,
+      Context: TemplateAppPlayerPlayerSlidesFixtureContext,
+      Default: TemplateAppPlayerPlayerSlidesFixtureDefault,
+      DropDown: TemplateAppPlayerPlayerSlidesFixtureDropDown,
+      Error: TemplateAppPlayerPlayerSlidesFixtureError,
+      FreeText: TemplateAppPlayerPlayerSlidesFixtureFreeText,
+      Loading: TemplateAppPlayerPlayerSlidesFixtureLoading,
+      Media: TemplateAppPlayerPlayerSlidesFixtureMedia,
+      NoClue: TemplateAppPlayerPlayerSlidesFixtureNoClue,
+      NoQuestion: TemplateAppPlayerPlayerSlidesFixtureNoQuestion,
+      NoStep: TemplateAppPlayerPlayerSlidesFixtureNoStep,
+      NoTotal: TemplateAppPlayerPlayerSlidesFixtureNoTotal,
+      OnlyClue: TemplateAppPlayerPlayerSlidesFixtureOnlyClue,
+      QcmDrag: TemplateAppPlayerPlayerSlidesFixtureQcmDrag,
+      QcmGraphic: TemplateAppPlayerPlayerSlidesFixtureQcmGraphic,
+      QcmShort: TemplateAppPlayerPlayerSlidesFixtureQcmShort,
+      QcmTemplate: TemplateAppPlayerPlayerSlidesFixtureQcmTemplate,
+      Qcm: TemplateAppPlayerPlayerSlidesFixtureQcm,
+      Range: TemplateAppPlayerPlayerSlidesFixtureRange,
+      Template: TemplateAppPlayerPlayerSlidesFixtureTemplate,
+      WithMinHeight: TemplateAppPlayerPlayerSlidesFixtureWithMinHeight
     }
   },
   TemplateBackOffice: {
