@@ -1,0 +1,63 @@
+{
+  "env": {
+    "browser": true,
+    "commonjs": true,
+    "es6": true,
+    "node": true
+  },
+  "plugins": [
+    "@coorpacademy/coorpacademy",
+    "flowtype",
+    "flowtype-errors",
+    "css-modules"
+  ],
+  "extends": [
+    "plugin:@coorpacademy/coorpacademy/core",
+    "plugin:@coorpacademy/coorpacademy/ava",
+    "plugin:@coorpacademy/coorpacademy/es20XX",
+    "plugin:@coorpacademy/coorpacademy/lodash-fp",
+    "plugin:@coorpacademy/coorpacademy/react",
+    "plugin:@coorpacademy/coorpacademy/prettier"
+  ],
+  "parser": "babel-eslint",
+  "rules": {
+    "@coorpacademy/coorpacademy/no-overwriting-spread": "off",
+    "ava/no-ignored-test-files": ["error", {"files": ["**/test/**/*.js"]}],
+    "css-modules/no-undef-class": "error",
+    "css-modules/no-unused-class": "error",
+    "flowtype-errors/show-errors": "error",
+    "flowtype/boolean-style": ["error", "boolean"],
+    "flowtype/define-flow-type": "error",
+    "flowtype/no-primitive-constructor-types": "error",
+    "flowtype/no-types-missing-file-annotation": "error",
+    "flowtype/no-weak-types": "error",
+    "flowtype/require-parameter-type": ["error", {"excludeArrowFunctions": true}],
+    "flowtype/require-return-type": ["error", "always", {"excludeArrowFunctions": "expressionsOnly"}],
+    "flowtype/type-id-match": ["error", "^([A-Z][a-z0-9]*)+$"],
+    "flowtype/use-flow-type": "error",
+    "fp/no-class": "off",
+    "import/no-extraneous-dependencies": "off",
+    "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["Promise", "history", "location", "find", "name", "Notification", "Animation", "T"]}],
+    "promise/no-native": "off",
+    "react/jsx-no-bind": "off",
+    "react/no-deprecated": "warn",
+    "react/prop-types": "off"
+  },
+  "settings": {
+    "import/ignore": ["node_modules", "\\.css$"],
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": true
+    }
+  },
+  "overrides": [
+    {
+      "files": [
+        "packages/@coorpacademy-components/src/**/test/fixtures/*.js",
+        "packages/@coorpacademy-components/scripts/**/*.js"
+      ],
+      "rules": {
+        "no-console": "off"
+      }
+    }
+  ]
+}

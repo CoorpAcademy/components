@@ -9,6 +9,11 @@
     "composition/"
   ],
   "scripts": {
+    "ava": "cross-env NODE_ENV=test ava",
+    "nyc": "cross-env NODE_ENV=test nyc  --check-coverage --lines 100  npm run ava",
+    "test": "npm run lint",
+    "lint": "npm run eslint",
+    "eslint": "eslint ./ *.js *.json --ext .js,.json",
     "clean": "rm -rf src solid line composition",
     "generate-icons": "node scripts/generate-icons.js",
     "build": "cross-env BABEL_ENV=commonjs babel src/solid --out-dir solid && cross-env BABEL_ENV=commonjs babel src/line --out-dir line && cross-env BABEL_ENV=commonjs babel src/composition --out-dir composition",

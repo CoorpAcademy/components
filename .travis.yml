@@ -15,16 +15,48 @@ cache:
     - packages/@coorpacademy-treantjs-adapter-angular/node_modules
     - packages/@coorpacademy-treantjs-adapter-dust/node_modules
     - packages/@coorpacademy-webpack-config/node_modules
+
+env:
+  global:
+    - CXX=g++-5
+    - CYAN='\033[0;36m'
+    - NC='\033[0m
+  matrix:
+    - PACKAGE_NAME=@coorpacademy/app-player
+    - PACKAGE_NAME=@coorpacademy/components
+    - PACKAGE_NAME=@coorpacademy/css-modules-require-hook
+    - PACKAGE_NAME=@coorpacademy/history
+    - PACKAGE_NAME=@coorpacademy/nova-icons
+    - PACKAGE_NAME=@coorpacademy/progression-engine
+    - PACKAGE_NAME=@coorpacademy/redux-history
+    - PACKAGE_NAME=@coorpacademy/redux-router
+    - PACKAGE_NAME=@coorpacademy/redux-task
+    - PACKAGE_NAME=@coorpacademy/translate
+    - PACKAGE_NAME=@coorpacademy/treantjs-adapter-angular
+    - PACKAGE_NAME=@coorpacademy/treantjs-adapter-dust
+    - PACKAGE_NAME=@coorpacademy/webpack-config
+
 install:
   - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "^1.2.1"'`
-  - 'npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN'
-  - 'npm config set @coorpacademy:registry http://registry.npmjs.org/'
-  - 'yarn config set registry https://registry.npmjs.org/'
-  - yarn --frozen-lockfile
-script:
-  - npm test && npm run codecov
-env:
-  - CXX=g++-5
+  - "npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN"
+  - "npm config set @coorpacademy:registry http://registry.npmjs.org/"
+  - "yarn config set registry https://registry.npmjs.org/"
+
+before_script: >-
+  for i in $(lerna updated --loglevel=silent); do
+    if [ "$i" = "$PACKAGE_NAME" ]; then
+      echo -e "${CYAN} $PACKAGE_NAME has changed, bootstraping ${NC}";
+      yarn lerna bootstrap --scope $i  -—include-filtered-dependencies;
+  fi
+  done
+
+script: >-
+  for i in $(yarn lerna updated --loglevel=silent); do
+    if [ "$i" = "$PACKAGE_NAME" ]; then
+      echo -e "${CYAN} $PACKAGE_NAME has changed, tesing ${NC}";
+      yarn lerna run test --scope $i --stream;
+    fi
+  done
 addons:
   apt:
     sources:
@@ -35,13 +67,13 @@ deploy:
   - provider: script
     skip_cleanup: true
     script: npm run static
-    'on':
+    "on":
       branch: master
   - provider: pages
     skip_cleanup: true
     github_token: $GH_TOKEN
     local_dir: static
-    'on':
+    "on":
       branch: master
   - provider: script
     skip_cleanup: true
@@ -50,7 +82,7 @@ deploy:
       --package ./package.json --travis ./.travis.yml --repo_slug
       $TRAVIS_REPO_SLUG --team_reviewers $TEAM_REVIEWERS --branch
       "upgrade-nodejs" --base $TRAVIS_BRANCH --github_token $GH_TOKEN
-    'on':
+    "on":
       branch: master
   - provider: script
     skip_cleanup: true
@@ -59,7 +91,7 @@ deploy:
       application/json" -H "Travis-API-Version: 3" -H "Authorization: token
       $TRAVIS_TOKEN" -d '{"request":{"branch":"deploy-production"}}'
       https://api.travis-ci.com/repo/CoorpAcademy%2Fcoorpacademy/requests
-    'on':
+    "on":
       tags: true
   - provider: script
     skip_cleanup: true
@@ -68,7 +100,7 @@ deploy:
       application/json" -H "Travis-API-Version: 3" -H "Authorization: token
       $TRAVIS_TOKEN" -d '{"request":{"branch":"master"}}'
       https://api.travis-ci.com/repo/CoorpAcademy%2Fcoorpacademy-cockpit/requests
-    'on':
+    "on":
       tags: true
   - provider: script
     skip_cleanup: true
@@ -77,7 +109,7 @@ deploy:
       application/json" -H "Travis-API-Version: 3" -H "Authorization: token
       $TRAVIS_TOKEN" -d '{"request":{"branch":"master"}}'
       https://api.travis-ci.com/repo/CoorpAcademy%2Fapp-backoffice/requests
-    'on':
+    "on":
       tags: true
   - provider: script
     skip_cleanup: true
@@ -86,7 +118,7 @@ deploy:
       application/json" -H "Travis-API-Version: 3" -H "Authorization: token
       $TRAVIS_TOKEN" -d '{"request":{"branch":"master"}}'
       https://api.travis-ci.com/repo/CoorpAcademy%2Fcoorpacademy-store/requests
-    'on':
+    "on":
       tags: true
   - provider: script
     skip_cleanup: true
@@ -95,5 +127,5 @@ deploy:
       application/json" -H "Travis-API-Version: 3" -H "Authorization: token
       $TRAVIS_TOKEN" -d '{"request":{"branch":"master"}}'
       https://api.travis-ci.com/repo/CoorpAcademy%2Fapi-progression/requests
-    'on':
+    "on":
       tags: true
