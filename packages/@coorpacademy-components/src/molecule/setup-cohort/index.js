@@ -1,20 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
-import SetupSlide from '../setup-slide';
+import SetupSlide from '../setup-cohort-item';
 import Accordion from '../../organism/accordion/toggler';
-
 const SetupSlider = props => {
   const {tabProps, slides = []} = props;
   const slidesView = map.convert({cap: false})(
     (slide, key) => <SetupSlide key={key} {...slide} />,
     slides
   );
-
   return (
-    <Accordion tabProps={tabProps} type={'all'}>
-      {slidesView}
-    </Accordion>
+    <div>
+      <Accordion tabProps={tabProps} type={'all'}>
+        {slidesView}
+      </Accordion>
+    </div>
+    
   );
 };
 

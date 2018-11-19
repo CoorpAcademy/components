@@ -13,7 +13,7 @@ export default {
     content: {
       type: 'form',
       groups,
-      onSubmit: () => {},
+      onSubmit: () => {}, 
       submitValue: 'Save changes'
     }
   })

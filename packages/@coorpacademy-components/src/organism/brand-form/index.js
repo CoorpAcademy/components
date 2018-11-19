@@ -20,7 +20,6 @@ function BrandForm(props, context) {
     resetValue,
     back
   } = props;
-
   const {skin} = context;
   const darkColor = get('common.dark', skin);
 
