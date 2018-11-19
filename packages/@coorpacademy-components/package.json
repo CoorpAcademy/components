@@ -105,7 +105,16 @@
       "babel-polyfill",
       "../../test/helpers/throw-warning"
     ],
-    "babel": "inherit"
+    "babel": {
+      "presets": [
+        "@ava/stage-4",
+        "flow",
+        "react"
+      ],
+      "plugins": [
+        "transform-object-rest-spread"
+      ]
+    }
   },
   "author": "CoorpAcademy"
 }
