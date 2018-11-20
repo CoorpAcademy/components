@@ -11,8 +11,7 @@ export default {
     tabs,
     content: {
       type: 'form',
-      groups,
+      groups
     }
   })
 };
- 

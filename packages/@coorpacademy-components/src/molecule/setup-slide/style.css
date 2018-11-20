@@ -21,12 +21,13 @@
   width: 50%;
 }
 .buttonGroup{
-  margin-left: 22%;
-  margin-right: auto
+
 }
 .buttonGroup>.wrapper{
-  display: inline-flex;
+  display: flex;
+  justify-content: center;
 }
 .button{
-  margin-right: 20px
+  margin-right: 10px;
+  margin-left: 10px;
 }

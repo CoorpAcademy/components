@@ -4,7 +4,7 @@ export default {
       {
         type: 'text',
         title: 'Name',
-        value:"value",
+        value: 'value',
         required: true
       },
       {
@@ -13,7 +13,7 @@ export default {
           {
             type: 'checkbox',
             title: 'Provider 1',
-            checked: true,
+            checked: true
           },
           {
             type: 'checkbox',
@@ -39,13 +39,13 @@ export default {
             type: 'checkbox',
             title: 'Provider 6',
             checked: true
-          },
+          }
         ],
         groups: [
           {
             type: 'checkbox',
             title: 'them_XXXX 1',
-            checked: true,
+            checked: true
           },
           {
             type: 'checkbox',
@@ -71,27 +71,26 @@ export default {
             type: 'checkbox',
             title: 'them_XXXX 6',
             checked: true
-          },
+          }
         ]
       },
       {
-        type:"buttonGroup",
-        buttonGroup:[
+        type: 'buttonGroup',
+        buttonGroup: [
           {
             type: 'button',
-            typeAction:"submit",
-            submitValue:"SUBMIT",
+            typeAction: 'submit',
+            submitValue: 'SUBMIT'
           },
           {
             type: 'button',
-            submitValue:"DELELE",
-            style:{
-              backgroundColor:"#F73F52"
+            submitValue: 'DELELE',
+            style: {
+              backgroundColor: '#F73F52'
             }
           }
         ]
       }
-      
     ]
   }
 };

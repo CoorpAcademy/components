@@ -3,25 +3,24 @@ import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import Select from '../../atom/select';
 import InputText from '../../atom/input-text';
-import InputCheckbox from '../../atom/input-checkbox'; 
+import InputCheckbox from '../../atom/input-checkbox';
 import InputSwitch from '../../atom/input-switch';
 import ImageUpload from '../../atom/image-upload';
 import Button from '../../atom/button';
 import style from './style.css';
 
-
-const InputSplitSreen = props =>{
-  const {conditions=[],groups=[]} = props
-  let dataCriterias = {
-    fields:{
-      fields:conditions
+const InputSplitSreen = props => {
+  const {conditions = [], groups = []} = props;
+  const dataCriterias = {
+    fields: {
+      fields: conditions
     }
-  }
-  let dataContent = {
-    fields:{
-      fields:groups
+  };
+  const dataContent = {
+    fields: {
+      fields: groups
     }
-  } 
+  };
   const criteriasList = map.convert({cap: false})(
     (slide, key) => <SetupSlide key={key} {...slide} />,
     dataCriterias
@@ -30,7 +29,7 @@ const InputSplitSreen = props =>{
     (slide, key) => <SetupSlide key={key} {...slide} />,
     dataContent
   );
-  return(
+  return (
     <div className={style.split}>
       <div className={style.splitLeft}>
         <div>
@@ -39,32 +38,28 @@ const InputSplitSreen = props =>{
         </div>
       </div>
       <div className={style.splitLeft}>
-        <div >
+        <div>
           <p>Content</p>
           {contentList}
         </div>
       </div>
     </div>
-  )   
-}
+  );
+};
 
-const ButtonGroup = props =>{
-  const {buttonGroup} = props
-  let data = {
-    fields:{
-      fields:buttonGroup
+const ButtonGroup = props => {
+  const {buttonGroup} = props;
+  const data = {
+    fields: {
+      fields: buttonGroup
     }
-  }
+  };
   const buttons = map.convert({cap: false})(
     (slide, key) => <SetupSlide key={key} {...slide} />,
     data
   );
-  return (
-    <div className={style.buttonGroup}>
-      {buttons}
-    </div>
-  )
-}
+  return <div className={style.buttonGroup}>{buttons}</div>;
+};
 
 const SetupSlide = props => {
   const {fields = []} = props;
@@ -82,9 +77,13 @@ const SetupSlide = props => {
       case 'splitSreen':
         return <InputSplitSreen {...field} />;
       case 'button':
-        return <div className={style.button}><Button {...field}/></div>
+        return (
+          <div className={style.button}>
+            <Button {...field} />
+          </div>
+        );
       case 'buttonGroup':
-        return <ButtonGroup {...field}/>
+        return <ButtonGroup {...field} />;
       default:
         return <InputText {...field} />;
     }
