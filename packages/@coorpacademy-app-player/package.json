@@ -29,7 +29,7 @@
     "poststatic": "cp sandbox-web/index.html static/index.html",
     "start": "cross-env BABEL_ENV=es webpack-dev-server --config sandbox-web/webpack.config.js --content-base sandbox-web --host 0.0.0.0 --history-api-fallback true --hot true"
   },
-  "homepage": "https://github.com/CoorpAcademy/components/@coorpacademy-app-player#readme",
+  "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-app-player#readme",
   "devDependencies": {
     "@coorpacademy/progression-engine": "9.2.0",
     "babel-cli": "^6.24.1",
