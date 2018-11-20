@@ -25,7 +25,8 @@ import {
   getResourceToPlay,
   getNextContent,
   hasViewedAResourceAtThisStep,
-  getQuestionMedia
+  getQuestionMedia,
+  isContentAdaptive
 } from '../state-extract';
 
 test('getChoices should get choices from state', t => {
@@ -366,4 +367,24 @@ test('getQuestionMedia should return video media from state', t => {
     mimeType: 'application/vimeo',
     videoId: '231095700'
   });
+});
+
+test('isContentAdaptive should return if content is adaptive or not', t => {
+  const slide = {_id: 42, chapter_id: 1337};
+  const nextContent = {ref: 42, type: 'slide'};
+  const progression = {state: {nextContent}};
+
+  const getState = isConditional => {
+    const chapter = {_id: 1337, isConditional};
+
+    return pipe(
+      set('ui.current.progressionId', 12),
+      set('data.progressions.entities', {12: progression}),
+      set('data.contents.chapter.entities', {1337: chapter}),
+      set('data.contents.slide.entities', {42: slide})
+    )({});
+  };
+
+  t.true(isContentAdaptive(getState(true)));
+  t.false(isContentAdaptive(getState(false)));
 });
