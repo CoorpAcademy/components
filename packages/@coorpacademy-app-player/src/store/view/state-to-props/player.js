@@ -2,12 +2,10 @@ import includes from 'lodash/fp/includes';
 import isEmpty from 'lodash/fp/isEmpty';
 import some from 'lodash/fp/some';
 import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
 import isNil from 'lodash/fp/isNil';
 import {
   getCoaches,
   getCurrentContent,
-  getCurrentChapter,
   getCurrentProgression,
   getCurrentSlide,
   getCurrentProgressionId,
@@ -16,7 +14,8 @@ import {
   getCurrentClue,
   getRoute,
   getQuestionMedia,
-  getNbSlides
+  getNbSlides,
+  isContentAdaptive
 } from '../../utils/state-extract';
 import hasSeenLesson from '../../utils/has-seen-lesson';
 import {validateAnswer} from '../../actions/ui/answers';
@@ -32,11 +31,6 @@ const ROUTES = ['media', 'clue', 'context', 'answer'];
 const STARS_DIFF = {
   media: 'starsPerResourceViewed',
   clue: 'starsPerAskingClue'
-};
-
-const isContentAdaptive = state => {
-  const chapter = getCurrentChapter(state);
-  return getOr(false, 'isConditional', chapter);
 };
 
 const getProgressionStep = state => {
