@@ -7,4 +7,3 @@ static
 coverage
 storybook/components.js
 src/**/test/fixtures.js
-**/fixtures.js

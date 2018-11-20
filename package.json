@@ -29,7 +29,7 @@
     "prestatic": "rimraf static",
     "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/app-player static -- --production",
     "poststatic": "mkdirp static && cp -r packages/@coorpacademy-components/static static/components && cp -r packages/@coorpacademy-app-player/static static/app-player",
-    "test": "npm run lint && npm run flow && npm run nyc"
+    "test": "npm run lint && npm run generate && npm run flow && npm run nyc"
   },
   "engines": {
     "node": "^8.12.0",
