@@ -33,7 +33,7 @@
     "storybook:export": "cross-env BABEL_ENV=es build-storybook -c .storybook -o static",
     "ava": "cross-env NODE_ENV=test ava",
     "nyc": "cross-env NODE_ENV=test nyc npm run ava",
-    "test": " npm run lint && npm run generate && npm run flow && npm run nyc",
+    "test": " npm run lint && npm run generate && npm run nyc",
     "lint": "npm run eslint",
     "eslint": "eslint ./ *.js *.json --ext .js,.json"
   },
@@ -112,7 +112,6 @@
     "babel": {
       "presets": [
         "@ava/stage-4",
-        "flow",
         "react"
       ],
       "plugins": [

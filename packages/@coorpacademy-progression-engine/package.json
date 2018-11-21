@@ -13,7 +13,7 @@
     "ava": "cross-env NODE_ENV=test ava",
     "nyc": "cross-env NODE_ENV=test nyc npm run ava",
     "test": "npm run lint && npm run flow && npm run nyc",
-    "flow" : "flow",
+    "flow": "flow",
     "lint": "npm run eslint",
     "eslint": "eslint ./ *.js *.json --ext .js,.json",
     "build:commonjs": "npm run build:babel:commonjs && npm run build:types:commonjs",
