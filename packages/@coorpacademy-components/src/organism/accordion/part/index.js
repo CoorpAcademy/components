@@ -2,24 +2,32 @@ import React from 'react';
 import noop from 'lodash/fp/noop';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
-import MoreIcon from '@coorpacademy/nova-icons/composition/navigation/more';
+import MoreNovaIcon from '@coorpacademy/nova-icons/composition/navigation/more';
 import KeyIcon from '@coorpacademy/nova-icons/line/login/key-1';
 import VideoIcon from '@coorpacademy/nova-icons/line/videos/video-clip-3';
 import LightBulbIcon from '@coorpacademy/nova-icons/solid/lights/lightbulb-4';
-import LessIcon from '@coorpacademy/nova-icons/composition/navigation/less';
+import LessNovaIcon from '@coorpacademy/nova-icons/composition/navigation/less';
+import ArrowDownIcon from '@coorpacademy/nova-icons/composition/navigation/arrow-down';
+import ArrowUpIcon from '@coorpacademy/nova-icons/composition/navigation/arrow-top';
 import Provider from '../../../atom/provider';
 import style from './style.css';
 
 const ICON_TYPES = {
   resources: VideoIcon,
   klf: KeyIcon,
-  tips: LightBulbIcon
+  tips: LightBulbIcon,
+  plus: MoreNovaIcon,
+  minus: LessNovaIcon,
+  arrowUp: ArrowUpIcon,
+  arrowDown: ArrowDownIcon,
 };
-
+ 
 const AccordionPart = (props, context) => {
   const {skin} = context;
-  const {title, content, iconType, onClick = noop, isOpen = false} = props;
+  const {title, content, iconType, onClick = noop, isOpen = false, moreIconType = 'plus', lessIconType = 'minus'} = props;
   const TitleIcon = ICON_TYPES[iconType];
+  const MoreIcon = ICON_TYPES[moreIconType];
+  const LessIcon = ICON_TYPES[lessIconType];
   const darkColor = get('common.dark', skin);
   const mediumColor = get('common.medium', skin);
   const openIconClassName = isOpen ? style.openIconActivated : style.openIcon;
@@ -46,6 +54,11 @@ const AccordionPart = (props, context) => {
 
 AccordionPart.contextTypes = {
   skin: Provider.childContextTypes.skin
+};
+
+AccordionPart.defaultProps = {
+  moreIconType: 'plus',
+  lessIconType: 'minus',
 };
 
 AccordionPart.propTypes = {

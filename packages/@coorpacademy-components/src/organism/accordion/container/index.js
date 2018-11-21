@@ -7,7 +7,7 @@ import Part from '../part';
 import style from './style.css';
 
 const Accordion = props => {
-  const {tabProps, children = [], onClick = noop} = props;
+  const {tabProps, children = [], onClick = noop, moreIconType, lessIconType} = props;
 
   const accordion = map.convert({cap: false})((child, key) => {
     const title = get([key, 'title'], tabProps);
@@ -22,6 +22,8 @@ const Accordion = props => {
           title={title}
           content={child}
           isOpen={isOpen}
+          moreIconType={moreIconType}
+          lessIconType={lessIconType}
           onClick={handleOnClick}
         />
       </div>

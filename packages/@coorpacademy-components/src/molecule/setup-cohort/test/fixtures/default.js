@@ -4,6 +4,7 @@ const {props} = Slide;
 
 export default {
   props: {
+    formatTitle: (title, rowNumber) => `Cohort ${rowNumber} : ${title}`,
     tabProps: [
       {
         title: 'IT DE'
