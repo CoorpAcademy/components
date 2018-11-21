@@ -10,6 +10,7 @@
   flex-wrap: nowrap;
   align-items: center;
   align-content: center;
+  margin-top: 10px;
 }
 
 .error {

@@ -10,15 +10,15 @@ import Button from '../../atom/button';
 import style from './style.css';
 
 const InputSplitSreen = props => {
-  const {conditions = [], groups = []} = props;
+  const {conditions = {}, groups = {}} = props;
   const dataCriterias = {
     fields: {
-      fields: conditions
+      fields: conditions.values
     }
   };
   const dataContent = {
     fields: {
-      fields: groups
+      fields: groups.values
     }
   };
   const criteriasList = map.convert({cap: false})(
@@ -33,13 +33,13 @@ const InputSplitSreen = props => {
     <div className={style.split}>
       <div className={style.splitLeft}>
         <div>
-          <p>Criterias</p>
+          <p  className={style.title}>{conditions.title}</p>
           {criteriasList}
         </div>
       </div>
       <div className={style.splitLeft}>
         <div>
-          <p>Content</p>
+          <p  className={style.title}>{groups.title}</p>
           {contentList}
         </div>
       </div>
