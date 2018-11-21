@@ -75,6 +75,10 @@ export const getCurrentChapter = state => {
   const chapterId = getCurrentChapterId(state);
   return getContent('chapter', chapterId)(state);
 };
+export const isContentAdaptive = state => {
+  const chapter = getCurrentChapter(state);
+  return getOr(false, 'isConditional', chapter);
+};
 export const hasViewedAResourceAtThisStep = pipe(
   getCurrentProgression,
   get('state.hasViewedAResourceAtThisStep')

@@ -1,7 +1,13 @@
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import indexOf from 'lodash/fp/indexOf';
-import {getCurrentChapter, getEngine, getLives, getCurrentContent} from '../../utils/state-extract';
+import {
+  getCurrentChapter,
+  getEngine,
+  getLives,
+  getCurrentContent,
+  isContentAdaptive
+} from '../../utils/state-extract';
 import {back} from '../../actions/ui/location';
 
 const headerContent = (engineRef, state) => {
@@ -46,6 +52,10 @@ const headerSubcontent = (engineRef, state) => {
 const headerProps = (options, {dispatch}) => state => {
   const engine = getEngine(state);
   const {ref: engineRef} = engine;
+  const lives = !isContentAdaptive(state) && {
+    count: getLives(state)
+  };
+
   return {
     type: engineRef,
     content: {
@@ -53,9 +63,7 @@ const headerProps = (options, {dispatch}) => state => {
       ...headerContent(engineRef, state)
     },
     subcontent: headerSubcontent(engineRef, state),
-    lives: {
-      count: getLives(state)
-    }
+    lives
   };
 };
 
