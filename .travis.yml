@@ -19,6 +19,8 @@ cache:
 env:
   global:
     - CXX=g++-5
+    - CYAN='\033[0;36m'
+    - NC='\033[0m
   matrix:
     - PACKAGE_NAME=@coorpacademy/app-player
     - PACKAGE_NAME=@coorpacademy/components
@@ -40,14 +42,22 @@ install:
   - "npm config set @coorpacademy:registry http://registry.npmjs.org/"
   - "yarn config set registry https://registry.npmjs.org/"
   - yarn
-  - yarn lerna bootstrap --scope $PACKAGE_NAME  -—include-filtered-dependencies
 
-before_script:
-  - yarn lerna run prepare --scope $PACKAGE_NAME
+before_script: >-
+  for i in $(lerna updated --loglevel=silent); do
+    if [ "$i" = "$PACKAGE_NAME" ]; then
+      echo -e "${CYAN} $PACKAGE_NAME has changed, bootstraping ${NC}";
+      yarn lerna bootstrap --scope $i  -—include-filtered-dependencies;
+  fi
+  done
 
-script:
-  - yarn lerna run test --scope $PACKAGE_NAME
-
+script: >-
+  for i in $(yarn lerna updated --loglevel=silent); do
+    if [ "$i" = "$PACKAGE_NAME" ]; then
+      echo -e "${CYAN} $PACKAGE_NAME has changed, tesing ${NC}";
+      yarn lerna run test --scope $i --stream;
+    fi
+  done
 addons:
   apt:
     sources:
