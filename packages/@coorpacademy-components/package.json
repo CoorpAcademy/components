@@ -112,7 +112,6 @@
     "babel": {
       "presets": [
         "@ava/stage-4",
-        "flow",
         "react"
       ],
       "plugins": [
