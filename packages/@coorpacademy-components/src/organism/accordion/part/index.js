@@ -7,7 +7,6 @@ import KeyIcon from '@coorpacademy/nova-icons/line/login/key-1';
 import VideoIcon from '@coorpacademy/nova-icons/line/videos/video-clip-3';
 import LightBulbIcon from '@coorpacademy/nova-icons/solid/lights/lightbulb-4';
 import LessNovaIcon from '@coorpacademy/nova-icons/composition/navigation/less';
-import ArrowDownIcon from '@coorpacademy/nova-icons/composition/navigation/arrow-down';
 import ArrowUpIcon from '@coorpacademy/nova-icons/composition/navigation/arrow-top';
 import Provider from '../../../atom/provider';
 import style from './style.css';
@@ -19,7 +18,7 @@ const ICON_TYPES = {
   plus: MoreNovaIcon,
   minus: LessNovaIcon,
   arrowUp: ArrowUpIcon,
-  arrowDown: ArrowDownIcon,
+  arrowDown: ArrowUpIcon,
 };
  
 const AccordionPart = (props, context) => {

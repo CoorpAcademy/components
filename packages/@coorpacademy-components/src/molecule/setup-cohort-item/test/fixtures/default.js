@@ -5,7 +5,8 @@ export default {
         type: 'text',
         title: 'Name',
         value: 'value',
-        required: true
+        required: true,
+        autoFocus:true
       },
       {
         type: 'splitSreen',

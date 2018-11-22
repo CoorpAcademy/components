@@ -4,7 +4,6 @@ const {props} = Slide;
 
 export default {
   props: {
-    formatTitle: (title, rowNumber) => `Cohort ${rowNumber} : ${title}`,
     tabProps: [
       {
         title: 'IT DE'
@@ -14,8 +13,12 @@ export default {
       },
       {
         title: 'Sales ES'
+      },
+      {
+        title: 'Creat a new cohort'
       }
     ],
-    slides: [props, props, props]
+    formatTitle: (title, rowNumber,tabPropsLength) =>`${rowNumber!==tabPropsLength?`Cohort ${rowNumber} : ${title}`:title}`,
+    slides: [props, props, props,props],
   }
 };

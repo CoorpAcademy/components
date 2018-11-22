@@ -15,6 +15,7 @@ class AccordionToggler extends React.Component {
   }
 
   handleOnClick(key) {
+    this.props.handleToFetch && this.props.handleToFetch();
     this.setState(prevState => {
       const newState = {...prevState};
 
@@ -49,7 +50,8 @@ class AccordionToggler extends React.Component {
 
 AccordionToggler.propTypes = {
   tabProps: PropTypes.arrayOf(PropTypes.shape(Accordion.PropTypes)),
-  oneTabOnly: PropTypes.bool
+  oneTabOnly: PropTypes.bool,
+  handleToFetch: PropTypes.func
 };
 
 export default AccordionToggler;
