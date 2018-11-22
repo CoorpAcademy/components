@@ -6,38 +6,41 @@
 .field {
   margin-bottom: 20px;
 }
+
 .field:last-child {
   margin-bottom: 0;
 }
+
 .split {
   display: flex;
 }
-.splitLeft{
+
+.splitLeft {
   width: 50%;
   border-right: 1px solid lightgray;
-  
 }
-.splitRight{
+
+.splitRight {
   width: 50%;
 }
-.buttonGroup{
 
-}
-.buttonGroup>.wrapper{
+.buttonGroup > .wrapper {
   display: flex;
   justify-content: center;
 }
-.button{
+
+.button {
   margin-right: 10px;
   margin-left: 10px;
 }
+
 .title {
   font-family: "Open Sans";
   font-size: 15px;
   text-transform: none;
-  color: #546e7a;
+  color: grey;
   margin-right: 20px;
   min-height: 50px;
   align-items: center;
-  font-weight: bold
+  font-weight: bold;
 }
