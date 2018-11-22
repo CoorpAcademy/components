@@ -21,8 +21,8 @@ import {
   getCurrentProgressionId,
   getQuestionType,
   getAnswerValues
-} from '../../utils/state-extract';
-import {editAnswer} from '../../actions/ui/answers';
+} from '@coorpacademy/player-store/es/utils/state-extract';
+import {editAnswer} from '@coorpacademy/player-store/es/actions/ui/answers';
 
 const editAnswerAction = (options, {dispatch}) => (state, slide) => newValue => {
   return dispatch(

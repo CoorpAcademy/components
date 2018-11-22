@@ -2,11 +2,11 @@ import {render, unmountComponentAtNode} from 'react-dom';
 import {createElement} from 'react';
 import pipe from 'lodash/fp/pipe';
 import Provider from '@coorpacademy/components/es/atom/provider';
-import {selectMapStateToVNode} from '../store/view';
-import {selectProgression} from '../store/actions/ui/progressions';
-import {updateCoaches} from '../store/actions/ui/coaches';
-import start from '../store/start';
-import createStore from '../store';
+import {selectProgression} from '@coorpacademy/player-store/es/actions/ui/progressions';
+import {updateCoaches} from '@coorpacademy/player-store/es/actions/ui/coaches';
+import start from '@coorpacademy/player-store/es/start';
+import createStore from '@coorpacademy/player-store/es';
+import {selectMapStateToVNode} from './map-state-to-props';
 import {createStateToVNode, views} from './views';
 
 const createUpdate = (container, store, options) => _selectMapStateToVNode => {
@@ -30,14 +30,14 @@ const create = options => {
 
   /* istanbul ignore if  */
   if (module.hot) {
-    module.hot.accept('../store/view', () => {
+    module.hot.accept('@coorpacademy/player-store/es/view', () => {
       unsubscribe();
-      update = createUpdate(container, store, options)(require('../store/view').default);
+      update = createUpdate(container, store, options)(require('@coorpacademy/player-store/es/view').default);
       update();
       unsubscribe = store.subscribe(update);
     });
-    module.hot.accept('../store/reducers', () => {
-      const reducers = require('../store/reducers').default(options);
+    module.hot.accept('@coorpacademy/player-store/es/reducers', () => {
+      const reducers = require('@coorpacademy/player-store/es/reducers').default(options);
       store.replaceReducer(reducers);
     });
   }

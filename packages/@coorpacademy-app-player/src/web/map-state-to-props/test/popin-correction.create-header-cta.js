@@ -18,44 +18,44 @@ import {
   PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
   PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
   PROGRESSION_EXTRALIFEACCEPTED_SUCCESS
-} from '../../../actions/api/progressions';
+} from '../@coorpacademy/player-store/es/actions/api/progressions';
 import {
   RANK_FETCH_START_REQUEST,
   RANK_FETCH_START_SUCCESS,
   RANK_FETCH_END_REQUEST,
   RANK_FETCH_END_SUCCESS
-} from '../../../actions/api/rank';
+} from '../@coorpacademy/player-store/es/actions/api/rank';
 import {
   SEND_PROGRESSION_ANALYTICS_REQUEST,
   SEND_PROGRESSION_ANALYTICS_SUCCESS
-} from '../../../actions/api/analytics';
-import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../../actions/api/answers';
+} from '../@coorpacademy/player-store/es/actions/api/analytics';
+import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../@coorpacademy/player-store/es/actions/api/answers';
 import {
   CONTENT_FETCH_REQUEST,
   CONTENT_FETCH_SUCCESS,
   CONTENT_INFO_FETCH_REQUEST,
   CONTENT_INFO_FETCH_SUCCESS
-} from '../../../actions/api/contents';
-import {EXIT_NODE_FETCH_REQUEST, EXIT_NODE_FETCH_SUCCESS} from '../../../actions/api/exit-nodes';
-import {RECO_FETCH_REQUEST, RECO_FETCH_SUCCESS} from '../../../actions/api/recommendations';
+} from '../@coorpacademy/player-store/es/actions/api/contents';
+import {EXIT_NODE_FETCH_REQUEST, EXIT_NODE_FETCH_SUCCESS} from '../@coorpacademy/player-store/es/actions/api/exit-nodes';
+import {RECO_FETCH_REQUEST, RECO_FETCH_SUCCESS} from '../@coorpacademy/player-store/es/actions/api/recommendations';
 import {
   NEXT_CONTENT_FETCH_REQUEST,
   NEXT_CONTENT_FETCH_SUCCESS
-} from '../../../actions/api/next-content';
+} from '../@coorpacademy/player-store/es/actions/api/next-content';
 import {
   UI_SELECT_PROGRESSION,
   UI_PROGRESSION_UPDATED,
   OPEN_ASSISTANCE_REQUEST,
   OPEN_ASSISTANCE_SUCCESS
-} from '../../../actions/ui/progressions';
-import {UI_SELECT_ROUTE} from '../../../actions/ui/route';
+} from '../@coorpacademy/player-store/es/actions/ui/progressions';
+import {UI_SELECT_ROUTE} from '../@coorpacademy/player-store/es/actions/ui/route';
 import popinExtraLife from '../../test/fixtures/popin-correction/popin-extra-life';
 import popinFailure from '../../test/fixtures/popin-correction/popin-failure';
 import popinRevival from '../../test/fixtures/popin-correction/popin-revival';
 import popinSuccess from '../../test/fixtures/popin-correction/popin-success';
 import popinSuccessNode from '../../test/fixtures/popin-correction/popin-success-node';
 import popinNextLevel from '../../test/fixtures/popin-correction/popin-next-level';
-import {getCurrentProgressionId} from '../../../utils/state-extract';
+import {getCurrentProgressionId} from '../@coorpacademy/player-store/es/utils/state-extract';
 
 const services = {
   Answers: {

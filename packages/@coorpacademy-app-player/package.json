@@ -31,7 +31,10 @@
   },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-app-player#readme",
   "devDependencies": {
+<<<<<<< HEAD
     "@coorpacademy/progression-engine": "9.2.2",
+=======
+>>>>>>> split services and store as packages
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-plugin-istanbul": "^4.1.4",
@@ -46,15 +49,22 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@coorpacademy/components": "8.2.3",
     "@coorpacademy/redux-task": "0.0.9",
     "@coorpacademy/translate": "5.3.14",
     "@coorpacademy/webpack-config": "7.0.3",
+=======
+    "@coorpacademy/components": "8.2.1",
+    "@coorpacademy/player-services": "1.0.0",
+    "@coorpacademy/player-store": "1.0.0",
+    "@coorpacademy/redux-task": "0.0.7",
+    "@coorpacademy/translate": "5.3.12",
+    "@coorpacademy/webpack-config": "7.0.1",
+>>>>>>> split services and store as packages
     "lodash": "^4.17.4",
     "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "redux": "^4.0.0",
-    "redux-thunk": "^2.2.0"
+    "react-dom": "^16.3.2"
   },
   "ava": {
     "concurrency": 8,

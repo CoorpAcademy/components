@@ -16,12 +16,12 @@ import {
   getQuestionMedia,
   getNbSlides,
   isContentAdaptive
-} from '../../utils/state-extract';
-import hasSeenLesson from '../../utils/has-seen-lesson';
-import {validateAnswer} from '../../actions/ui/answers';
-import {selectRoute} from '../../actions/ui/route';
-import {selectClue, getClue} from '../../actions/ui/clues';
-import {startChat} from '../../actions/ui/coaches';
+} from '@coorpacademy/player-store/es/utils/state-extract';
+import hasSeenLesson from '@coorpacademy/player-store/es/utils/has-seen-lesson';
+import {validateAnswer} from '@coorpacademy/player-store/es/actions/ui/answers';
+import {selectRoute} from '@coorpacademy/player-store/es/actions/ui/route';
+import {selectClue, getClue} from '@coorpacademy/player-store/es/actions/ui/clues';
+import {startChat} from '@coorpacademy/player-store/es/actions/ui/coaches';
 import {createGetAnswerProps, createGetHelp} from './answer';
 import createHeaderStateToProps from './header';
 import getResourcesProps from './resources';

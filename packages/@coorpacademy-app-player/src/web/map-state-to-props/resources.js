@@ -5,9 +5,9 @@ import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import some from 'lodash/fp/some';
 import omit from 'lodash/fp/omit';
-import {getResourceToPlay} from '../../utils/state-extract';
-import {selectResource} from '../../actions/ui/corrections';
-import {play, pause, resume, ended} from '../../actions/ui/video';
+import {getResourceToPlay} from '@coorpacademy/player-store/es/utils/state-extract';
+import {selectResource} from '@coorpacademy/player-store/es/actions/ui/corrections';
+import {play, pause, resume, ended} from '@coorpacademy/player-store/es/actions/ui/video';
 
 const getResourcesProps = (options, store) => (state, slide) => {
   const {dispatch} = store;

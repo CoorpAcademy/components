@@ -7,15 +7,15 @@ import identity from 'lodash/fp/identity';
 import isFunction from 'lodash/fp/isFunction';
 import {mockTranslate} from '@coorpacademy/translate';
 import popinEnd from '../popin-end';
-import {getCurrentProgressionId} from '../../../utils/state-extract';
+import {getCurrentProgressionId} from '../@coorpacademy/player-store/es/utils/state-extract';
 import {
   LOCATION_NEXT_CONTENT_REQUEST,
   LOCATION_NEXT_CONTENT_SUCCESS,
   LOCATION_SEE_COMMENT_REQUEST,
   LOCATION_SEE_COMMENT_SUCCESS
-} from '../../../actions/ui/location';
-import {UI_EDIT_COMMENT} from '../../../actions/ui/comments';
-import {SEND_POST_COMMENT_REQUEST, SEND_POST_COMMENT_SUCCESS} from '../../../actions/api/comments';
+} from '../@coorpacademy/player-store/es/actions/ui/location';
+import {UI_EDIT_COMMENT} from '../@coorpacademy/player-store/es/actions/ui/comments';
+import {SEND_POST_COMMENT_REQUEST, SEND_POST_COMMENT_SUCCESS} from '../@coorpacademy/player-store/es/actions/api/comments';
 
 import popinLearnerSuccess from '../../test/fixtures/popin-end/learner-success';
 import popinLearnerFailure from '../../test/fixtures/popin-end/learner-failure';

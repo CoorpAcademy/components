@@ -1,19 +1,29 @@
+import {
+  Analytics as AnalyticsService,
+  Answers as AnswersService,
+  Clues as CluesService,
+  Coach as CoachService,
+  Comments as CommentsService,
+  Content as ContentService,
+  ExitNodes as ExitNodesService,
+  LeaderBoard as LeaderBoardService,
+  Location as LocationService,
+  Progressions as ProgressionsService,
+  Recommendations as RecommendationsService
+} from '@coorpacademy/player-services/es';
+import curryN from 'lodash/fp/curryN';
 import mapValues from 'lodash/fp/mapValues';
-import addTimeout from '../utils/add-timeout';
-
-import * as AnalyticsService from './analytics';
-import * as AnswersService from './answers';
-import * as CoachService from './coach';
-import * as CommentsService from './comments';
-import * as ContentService from './content';
-import * as CluesService from './clues';
-import * as ExitNodesService from './exit-nodes';
-import * as LeaderBoardService from './leaderboard';
-import * as LocationService from './location';
-import * as ProgressionsService from './progressions';
-import * as RecommendationsService from './recommendations';
 
 const TIMEOUT = 0;
+
+const addTimeout = curryN(2, (timeout, fun) => (...args) =>
+  new Promise(resolve =>
+    setTimeout(() => {
+      resolve(fun(...args));
+    }, timeout)
+  )
+);
+
 const addTimeoutToService = mapValues(addTimeout(TIMEOUT));
 
 export const Analytics = addTimeoutToService(AnalyticsService);

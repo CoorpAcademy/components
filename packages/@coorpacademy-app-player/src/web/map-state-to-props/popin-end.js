@@ -9,9 +9,14 @@ import pick from 'lodash/fp/pick';
 import pipe from 'lodash/fp/pipe';
 import omit from 'lodash/fp/omit';
 import isNull from 'lodash/fp/isNull';
-import {retry, exit, nextLevel, seeComment} from '../../actions/ui/location';
-import {editComment} from '../../actions/ui/comments';
-import {postComment} from '../../actions/api/comments';
+import {
+  retry,
+  exit,
+  nextLevel,
+  seeComment
+} from '@coorpacademy/player-store/es/actions/ui/location';
+import {editComment} from '@coorpacademy/player-store/es/actions/ui/comments';
+import {postComment} from '@coorpacademy/player-store/es/actions/api/comments';
 import {
   getCurrentContent,
   getCurrentExitNode,
@@ -26,7 +31,7 @@ import {
   isCommentSent,
   isCurrentEngineMicrolearning,
   isCurrentEngineLearner
-} from '../../utils/state-extract';
+} from '@coorpacademy/player-store/es/utils/state-extract';
 import headerProps from './header';
 
 const extractRank = state => {
