@@ -87,7 +87,7 @@ export default {
           {
             type: 'button',
             typeAction: 'submit',
-            submitValue: 'SUBMIT'
+            submitValue: 'SUBMIT',
           },
           {
             type: 'button',

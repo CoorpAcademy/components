@@ -66,7 +66,7 @@ const ButtonContent = props => {
           }}
         />
       );
-  }
+  } 
 };
 
 const Button = ({children, ...props}) => {
