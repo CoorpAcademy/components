@@ -52,8 +52,9 @@ const headerSubcontent = (engineRef, state) => {
 const headerProps = (options, {dispatch}) => state => {
   const engine = getEngine(state);
   const {ref: engineRef} = engine;
-  const lives = !isContentAdaptive(state) && {
-    count: getLives(state)
+  const livesCount = getLives(state);
+  const lives = !isContentAdaptive(state) && livesCount !== null && {
+    count: livesCount
   };
 
   return {
