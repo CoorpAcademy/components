@@ -22,11 +22,11 @@ const InputSplitSreen = props => {
     }
   };
   const criteriasList = map.convert({cap: false})(
-    (slide, key) => <SetupCohort key={key} {...slide} />,
+    (slide, key) => <SetupCohortItem key={key} {...slide} />,
     dataCriterias
   );
   const contentList = map.convert({cap: false})(
-    (slide, key) => <SetupCohort key={key} {...slide} />,
+    (slide, key) => <SetupCohortItem key={key} {...slide} />,
     dataContent
   );
   return (
@@ -55,13 +55,13 @@ const ButtonGroup = props => {
     }
   };
   const buttons = map.convert({cap: false})(
-    (slide, key) => <SetupCohort key={key} {...slide} />,
+    (slide, key) => <SetupCohortItem key={key} {...slide} />,
     data
   );
   return <div className={style.buttonGroup}>{buttons}</div>;
 };
 
-const SetupCohort = props => {
+const SetupCohortItem = props => {
   const {fields = []} = props;
   const buildInput = field => {
     const {type} = field;
@@ -103,11 +103,11 @@ const SetupCohort = props => {
   return <div className={style.wrapper}>{fieldsList}</div>;
 };
 
-SetupCohort.propTypes = {
+SetupCohortItem.propTypes = {
   fields: PropTypes.arrayOf(
     PropTypes.shape({
       type: PropTypes.string.isRequired
     })
   )
 };
-export default SetupCohort;
+export default SetupCohortItem;

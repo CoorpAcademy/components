@@ -20,7 +20,6 @@ export default {
     ],
     formatTitle: (title, rowNumber, tabPropsLength) =>
       `${rowNumber !== tabPropsLength ? `Cohort ${rowNumber} : ${title}` : title}`,
-    slides: [props, props, props, props],
-    handleToFetch:()=>{console.log("handleToFetch")}
+    slides: [props, props, props, props]
   }
 };
