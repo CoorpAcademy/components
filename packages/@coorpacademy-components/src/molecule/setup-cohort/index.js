@@ -9,20 +9,21 @@ const SetupSlider = props => {
   const slidesView = map.convert({cap: false})(
     (slide, key) => <SetupSlide key={key} {...slide} />,
     slides
-  );  
+  );
   return (
     <div>
-      <Accordion tabProps={map.convert({cap: false})(
-        (tab, idx) => ({
-          ...tab,
-          title: formatTitle(tab.title, idx + 1,tabProps.length),
-        }),
-        tabProps
-      )}
-
-      moreIconType={'arrowDown'}
-      lessIconType={'arrowUp'}
-      type={'all'}>
+      <Accordion
+        tabProps={map.convert({cap: false})(
+          (tab, idx) => ({
+            ...tab,
+            title: formatTitle(tab.title, idx + 1, tabProps.length)
+          }),
+          tabProps
+        )}
+        moreIconType={'arrowDown'}
+        lessIconType={'arrowUp'}
+        type={'all'}
+      >
         {slidesView}
       </Accordion>
     </div>
@@ -30,13 +31,14 @@ const SetupSlider = props => {
 };
 
 SetupSlider.defaultProps = {
-  formatTitle: (title, rowNumber,tabPropsLength) =>`${rowNumber!==tabPropsLength?`Cohort ${rowNumber} : ${title}`:title}`,
-}
+  formatTitle: (title, rowNumber, tabPropsLength) =>
+    `${rowNumber !== tabPropsLength ? `Cohort ${rowNumber} : ${title}` : title}`
+};
 
 SetupSlider.propTypes = {
   tabProps: PropTypes.arrayOf(PropTypes.shape(Accordion.PropTypes)),
   slides: PropTypes.arrayOf(PropTypes.shape(SetupSlide.propTypes)),
-  formatTitle: PropTypes.func,
+  formatTitle: PropTypes.func
 };
 
 export default SetupSlider;

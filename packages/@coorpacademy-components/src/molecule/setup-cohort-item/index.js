@@ -37,7 +37,7 @@ const InputSplitSreen = props => {
           {criteriasList}
         </div>
       </div>
-      <div className={style.splitLeft}>
+      <div className={style.splitRight}>
         <div>
           <p className={style.title}>{groups.title}</p>
           {contentList}

@@ -6,14 +6,13 @@ export default {
         title: 'Name',
         value: 'value',
         required: true,
-        autoFocus:true
+        autoFocus: true
       },
       {
         type: 'splitSreen',
         conditions: {
-          title: "The Provider", 
-          values:
-          [
+          title: 'The Provider',
+          values: [
             {
               type: 'checkbox',
               title: 'Provider 1',
@@ -47,8 +46,8 @@ export default {
           ]
         },
         groups: {
-          title: "Country", 
-          values:[
+          title: 'Country',
+          values: [
             {
               type: 'checkbox',
               title: 'them_XXXX 1',

@@ -18,12 +18,20 @@ const ICON_TYPES = {
   plus: MoreNovaIcon,
   minus: LessNovaIcon,
   arrowUp: ArrowUpIcon,
-  arrowDown: ArrowUpIcon,
+  arrowDown: ArrowUpIcon
 };
- 
+
 const AccordionPart = (props, context) => {
   const {skin} = context;
-  const {title, content, iconType, onClick = noop, isOpen = false, moreIconType = 'plus', lessIconType = 'minus'} = props;
+  const {
+    title,
+    content,
+    iconType,
+    onClick = noop,
+    isOpen = false,
+    moreIconType,
+    lessIconType
+  } = props;
   const TitleIcon = ICON_TYPES[iconType];
   const MoreIcon = ICON_TYPES[moreIconType];
   const LessIcon = ICON_TYPES[lessIconType];
@@ -51,13 +59,13 @@ const AccordionPart = (props, context) => {
   );
 };
 
-AccordionPart.contextTypes = {
-  skin: Provider.childContextTypes.skin
-};
-
 AccordionPart.defaultProps = {
   moreIconType: 'plus',
-  lessIconType: 'minus',
+  lessIconType: 'minus'
+};
+
+AccordionPart.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 
 AccordionPart.propTypes = {
@@ -65,7 +73,9 @@ AccordionPart.propTypes = {
   title: PropTypes.string,
   content: PropTypes.node,
   onClick: PropTypes.func,
-  isOpen: PropTypes.bool
+  isOpen: PropTypes.bool,
+  moreIconType: PropTypes.string,
+  lessIconType: PropTypes.string
 };
 
 export default AccordionPart;

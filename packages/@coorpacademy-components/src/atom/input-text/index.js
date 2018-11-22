@@ -8,7 +8,7 @@ import style from './style.css';
 
 const InputText = props => {
   const {
-    autoFocus=false,
+    autoFocus = false,
     placeholder = '',
     value,
     defaultValue,
@@ -47,7 +47,7 @@ const InputText = props => {
 };
 
 InputText.propTypes = {
-  autoFocus:PropTypes.bool,
+  autoFocus: PropTypes.bool,
   title: PropTypes.string,
   placeholder: PropTypes.string,
   defaultValue: PropTypes.string,

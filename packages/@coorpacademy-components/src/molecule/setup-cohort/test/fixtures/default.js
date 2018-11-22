@@ -18,7 +18,8 @@ export default {
         title: 'Creat a new cohort'
       }
     ],
-    formatTitle: (title, rowNumber,tabPropsLength) =>`${rowNumber!==tabPropsLength?`Cohort ${rowNumber} : ${title}`:title}`,
-    slides: [props, props, props,props],
+    formatTitle: (title, rowNumber, tabPropsLength) =>
+      `${rowNumber !== tabPropsLength ? `Cohort ${rowNumber} : ${title}` : title}`,
+    slides: [props, props, props, props]
   }
 };
