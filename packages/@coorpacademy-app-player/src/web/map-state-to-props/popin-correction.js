@@ -15,10 +15,16 @@ import {
   getPreviousSlide,
   getCurrentSlide,
   hasViewedAResourceAtThisStep
-} from '../../utils/state-extract';
-import {acceptExtraLifeAndReset, refuseExtraLifeAndReset} from '../../actions/ui/extra-life';
-import {toggleAccordion} from '../../actions/ui/corrections';
-import {selectProgression, openAssistance} from '../../actions/ui/progressions';
+} from '@coorpacademy/player-store/es/utils/state-extract';
+import {
+  acceptExtraLifeAndReset,
+  refuseExtraLifeAndReset
+} from '@coorpacademy/player-store/es/actions/ui/extra-life';
+import {toggleAccordion} from '@coorpacademy/player-store/es/actions/ui/corrections';
+import {
+  selectProgression,
+  openAssistance
+} from '@coorpacademy/player-store/es/actions/ui/progressions';
 import getResourcesProps from './resources';
 
 const isNewChapter = (state, progression) => {

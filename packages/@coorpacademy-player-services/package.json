@@ -1,0 +1,44 @@
+{
+  "name": "@coorpacademy/player-services",
+  "version": "1.0.0",
+  "description": "Implements reactions to redux actions from player-store",
+  "main": "lib/web/index.js",
+  "module": "es/web/index.js",
+  "files": [
+    "es",
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
+    "build": "npm run build:commonjs && npm run build:es",
+    "clean:build:commonjs": "rimraf lib",
+    "clean:build:es": "rimraf es",
+    "clean": "npm run clean:build:commonjs && npm run clean:build:es",
+    "prepare": "npm run clean && npm run build --production"
+  },
+  "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-player-services#readme",
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-plugin-istanbul": "^4.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "cross-env": "^5.0.0",
+    "rimraf": "^2.6.1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
+  "ava": {
+    "files": [
+      "src/**/test/**/*.js"
+    ],
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ],
+    "babel": "inherit"
+  }
+}

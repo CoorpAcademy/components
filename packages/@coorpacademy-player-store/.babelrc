@@ -1,0 +1,47 @@
+{
+  "presets": ["flow"],
+  "plugins": ["transform-object-rest-spread"],
+  "env": {
+    "commonjs": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": true
+            },
+            "loose": true
+          }
+        ]
+      ]
+    },
+    "test": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": true
+            },
+            "loose": true
+          }
+        ]
+      ],
+      "plugins": ["istanbul"]
+    },
+    "es": {
+      "presets": [
+        [
+          "env",
+          {
+            "targets": {
+              "node": true
+            },
+            "modules": false,
+            "loose": true
+          }
+        ]
+      ]
+    }
+  }
+}

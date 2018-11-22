@@ -7,8 +7,8 @@ import {
   getLives,
   getCurrentContent,
   isContentAdaptive
-} from '../../utils/state-extract';
-import {back} from '../../actions/ui/location';
+} from '@coorpacademy/player-store/es/utils/state-extract';
+import {back} from '@coorpacademy/player-store/es/actions/ui/location';
 
 const headerContent = (engineRef, state) => {
   const content = getCurrentContent(state);

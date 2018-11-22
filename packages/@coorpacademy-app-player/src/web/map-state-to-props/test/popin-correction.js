@@ -6,7 +6,7 @@ import {mockTranslate} from '@coorpacademy/translate';
 import {popinCorrectionStateToProps} from '../popin-correction';
 import popinExtraLife from '../../test/fixtures/popin-correction/popin-extra-life';
 import popinFailure from '../../test/fixtures/popin-correction/popin-failure';
-import {getCurrentProgressionId} from '../../../utils/state-extract';
+import {getCurrentProgressionId} from '../@coorpacademy/player-store/es/utils/state-extract';
 
 test('should put revival to true if current step is extra life and a lesson has been viewed', t => {
   const progressionId = getCurrentProgressionId(popinExtraLife);

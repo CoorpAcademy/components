@@ -11,7 +11,7 @@ import omit from 'lodash/fp/omit';
 import {mockTranslate} from '@coorpacademy/translate';
 import createPlayer from '../player';
 import createHeader from '../header';
-import {UI_SELECT_ROUTE} from '../../../actions/ui/route';
+import {UI_SELECT_ROUTE} from '../@coorpacademy/player-store/es/actions/ui/route';
 import learnerProgressionStateFixture from '../../test/fixtures/progression-learner';
 import basicSlide from './fixtures/slides/basic';
 import contextSlide from './fixtures/slides/with-context';
