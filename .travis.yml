@@ -56,10 +56,7 @@ before_script: >-
 
 script: >-
   for i in $(yarn lerna updated --loglevel=silent); do
-    if [ "$i" = "$PACKAGE_NAME" ]; then
-      echo -e "${CYAN} $PACKAGE_NAME has changed, testing ${NC}";
-      yarn lerna run test --scope $i --stream;
-    fi
+    yarn lerna run test --scope $i --stream;
   done
 
 after_script: yarn codecov
