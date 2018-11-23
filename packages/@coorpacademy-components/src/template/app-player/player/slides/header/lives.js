@@ -17,7 +17,7 @@ const Lives = ({count}, context) => {
 };
 
 Lives.propTypes = {
-  count: PropTypes.number.isRequired
+  count: PropTypes.number
 };
 
 export default Lives;

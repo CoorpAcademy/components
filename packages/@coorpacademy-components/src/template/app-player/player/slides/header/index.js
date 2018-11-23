@@ -18,7 +18,7 @@ const SlidesHeader = (props = {}, context) => {
     <div data-name="slidesHeader" className={style.wrapper}>
       {type === HEADER_TYPE.LEARNER && <Learner content={content} subcontent={subcontent} />}
       {type === HEADER_TYPE.MICROLEARNING && <Microlearning content={content} />}
-      {lives && <Lives count={lives.count || 0} />}
+      {lives && <Lives count={lives.count} />}
     </div>
   );
 };

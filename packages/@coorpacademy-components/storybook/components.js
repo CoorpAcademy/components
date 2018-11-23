@@ -557,9 +557,10 @@ import TemplateAppPlayerPlayerSlidesFooterFixtureNoClue from '../src/template/ap
 import TemplateAppPlayerPlayerSlidesFooterFixtureNotify from '../src/template/app-player/player/slides/footer/test/fixtures/notify';
 import TemplateAppPlayerPlayerSlidesFooterFixtureOnlyClue from '../src/template/app-player/player/slides/footer/test/fixtures/only-clue';
 import TemplateAppPlayerPlayerSlidesFooterFixtureWithContext from '../src/template/app-player/player/slides/footer/test/fixtures/with-context';
+import TemplateAppPlayerPlayerSlidesHeaderFixtureAdaptive from '../src/template/app-player/player/slides/header/test/fixtures/adaptive';
+import TemplateAppPlayerPlayerSlidesHeaderFixtureInfiniteLives from '../src/template/app-player/player/slides/header/test/fixtures/infinite-lives';
 import TemplateAppPlayerPlayerSlidesHeaderFixtureLearner from '../src/template/app-player/player/slides/header/test/fixtures/learner';
 import TemplateAppPlayerPlayerSlidesHeaderFixtureMicrolearning from '../src/template/app-player/player/slides/header/test/fixtures/microlearning';
-import TemplateAppPlayerPlayerSlidesHeaderFixtureNoLives from '../src/template/app-player/player/slides/header/test/fixtures/no-lives';
 import TemplateAppPlayerPlayerSlidesFixtureClue from '../src/template/app-player/player/slides/test/fixtures/clue';
 import TemplateAppPlayerPlayerSlidesFixtureContextWithImage from '../src/template/app-player/player/slides/test/fixtures/context-with-image';
 import TemplateAppPlayerPlayerSlidesFixtureContextWithPdf from '../src/template/app-player/player/slides/test/fixtures/context-with-pdf';
@@ -619,12 +620,14 @@ import TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithVideoAndOverl
 import TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithVideoExtralifeGranted from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources-with-video-extralife-granted';
 import TemplateAppPlayerPopinCorrectionFixtureFailOpenTips from '../src/template/app-player/popin-correction/test/fixtures/fail-open-tips';
 import TemplateAppPlayerPopinCorrectionFixtureLoading from '../src/template/app-player/popin-correction/test/fixtures/loading';
+import TemplateAppPlayerPopinEndFixtureAdaptive from '../src/template/app-player/popin-end/test/fixtures/adaptive';
 import TemplateAppPlayerPopinEndFixtureCommentIsLoading from '../src/template/app-player/popin-end/test/fixtures/comment-is-loading';
 import TemplateAppPlayerPopinEndFixtureCommentSent from '../src/template/app-player/popin-end/test/fixtures/comment-sent';
 import TemplateAppPlayerPopinEndFixtureComment from '../src/template/app-player/popin-end/test/fixtures/comment';
 import TemplateAppPlayerPopinEndFixtureCorrect from '../src/template/app-player/popin-end/test/fixtures/correct';
 import TemplateAppPlayerPopinEndFixtureDefault from '../src/template/app-player/popin-end/test/fixtures/default';
 import TemplateAppPlayerPopinEndFixtureFail from '../src/template/app-player/popin-end/test/fixtures/fail';
+import TemplateAppPlayerPopinEndFixtureInfiniteLives from '../src/template/app-player/popin-end/test/fixtures/infinite-lives';
 import TemplateAppPlayerPopinEndFixtureLoading from '../src/template/app-player/popin-end/test/fixtures/loading';
 import TemplateAppPlayerPopinEndFixtureNegativeRank from '../src/template/app-player/popin-end/test/fixtures/negative-rank';
 import TemplateAppPlayerPopinEndFixtureNextCourse from '../src/template/app-player/popin-end/test/fixtures/next-course';
@@ -1584,12 +1587,14 @@ export const fixtures = {
       Loading: TemplateAppPlayerPopinCorrectionFixtureLoading
     },
     TemplateAppPlayerPopinEnd: {
+      Adaptive: TemplateAppPlayerPopinEndFixtureAdaptive,
       CommentIsLoading: TemplateAppPlayerPopinEndFixtureCommentIsLoading,
       CommentSent: TemplateAppPlayerPopinEndFixtureCommentSent,
       Comment: TemplateAppPlayerPopinEndFixtureComment,
       Correct: TemplateAppPlayerPopinEndFixtureCorrect,
       Default: TemplateAppPlayerPopinEndFixtureDefault,
       Fail: TemplateAppPlayerPopinEndFixtureFail,
+      InfiniteLives: TemplateAppPlayerPopinEndFixtureInfiniteLives,
       Loading: TemplateAppPlayerPopinEndFixtureLoading,
       NegativeRank: TemplateAppPlayerPopinEndFixtureNegativeRank,
       NextCourse: TemplateAppPlayerPopinEndFixtureNextCourse,
@@ -1624,9 +1629,10 @@ export const fixtures = {
       WithContext: TemplateAppPlayerPlayerSlidesFooterFixtureWithContext
     },
     TemplateAppPlayerPlayerSlidesHeader: {
+      Adaptive: TemplateAppPlayerPlayerSlidesHeaderFixtureAdaptive,
+      InfiniteLives: TemplateAppPlayerPlayerSlidesHeaderFixtureInfiniteLives,
       Learner: TemplateAppPlayerPlayerSlidesHeaderFixtureLearner,
-      Microlearning: TemplateAppPlayerPlayerSlidesHeaderFixtureMicrolearning,
-      NoLives: TemplateAppPlayerPlayerSlidesHeaderFixtureNoLives
+      Microlearning: TemplateAppPlayerPlayerSlidesHeaderFixtureMicrolearning
     }
   },
   TemplateAppPlayerPlayer: {
