@@ -7,6 +7,8 @@ import chaptersData from './fixtures/chapters';
 import levelsData from './fixtures/levels';
 import {findById} from './slides';
 
+console.dir({chaptersData}, {depth: 10});
+
 const mayBy = key =>
   pipe(values, reduce((map, object) => map.set(get(key, object), object), new Map()));
 const toMapById = mayBy('_id');
