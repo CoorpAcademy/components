@@ -1,31 +1,12 @@
 {
   "private": true,
   "scripts": {
-    "lerna": "lerna",
-    "build": "lerna run build",
-    "test": "lerna run test",
-    "eslint": "lerna run eslint",
-    "nyc": "lerna run nyc",
-    "eslint:fix": "lerna run eslint --fix",
-    "clean": "lerna run clean && lerna clean --yes",
     "prestatic": "rimraf static",
     "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/app-player static -- --production",
     "poststatic": "mkdirp static && cp -r packages/@coorpacademy-components/static static/components && cp -r packages/@coorpacademy-app-player/static static/app-player",
-    "codecov": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
-    "doc": "lerna run --scope @coorpacademy/components doc",
-    "generate": "lerna exec --scope @coorpacademy/components -- npm run generate",
-    "generate:fixtures": "lerna exec --scope @coorpacademy/components -- npm run generate:fixtures",
-    "generate:types": "node flow-typed/custom/lodash-fp.build.js",
-    "lint": "npm run eslint && npm run stylelint",
-    "lint:fix": "npm run eslint:fix && npm run stylelint:fix",
-    "stylelint": "stylelint '**/*.css'",
-    "stylelint:fix": "npm run stylelint -- --fix",
     "publish:beta": "lerna publish --npm-tag beta --exact",
     "publish:canary": "lerna publish --canary --exact --cd-version=patch --skip-git",
-    "publish:latest": "lerna publish --exact",
-    "start:angular": "lerna exec --scope @coorpacademy/treantjs-adapter-angular -- npm start",
-    "start:components": "lerna run --parallel --scope @coorpacademy/components start",
-    "start:app-player": "concurrently \"lerna exec --scope @coorpacademy/components -- npm run build:es -- --watch\" \"lerna exec --scope @coorpacademy/progression-engine -- npm run build:babel:es -- --watch\" \"lerna run --scope @coorpacademy/app-player start\""
+    "publish:latest": "lerna publish --exact"
   },
   "engines": {
     "node": "^8.12.0",
@@ -35,70 +16,10 @@
   "workspaces": [
     "packages/*"
   ],
-  "devDependencies": {
-    "@ava/babel-preset-stage-4": "^1.1.0",
-    "@coorpacademy/eslint-plugin-coorpacademy": "^8.1.0",
-    "ava": "^0.25.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-polyfill": "^6.26.0",
-    "babel-preset-flow": "^6.23.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-register": "^6.26.0",
-    "codecov": "^3.0.2",
-    "concurrently": "^3.5.1",
-    "cross-env": "^5.0.0",
-    "eslint": "^4.18.2",
-    "estraverse-fb": "^1.3.2",
-    "flow-bin": "^0.72.0",
-    "lerna": "^2.1.1",
+  "dependencies": {
+    "codecov": "^3.1.0",
+    "lerna": "^3.4.3",
     "mkdirp": "^0.5.1",
-    "nyc": "^11.1.0",
-    "rimraf": "^2.6.1",
-    "stylelint": "^9.2.0"
-  },
-  "ava": {
-    "concurrency": 8,
-    "files": [
-      "**/test/**/*.js"
-    ],
-    "require": [
-      "babel-register",
-      "babel-polyfill",
-      "./test/helpers/throw-warning"
-    ],
-    "babel": {
-      "presets": [
-        "@ava/stage-4",
-        "flow",
-        "react"
-      ],
-      "plugins": [
-        "transform-object-rest-spread"
-      ]
-    }
-  },
-  "nyc": {
-    "include": [
-      "packages/**/src/**"
-    ],
-    "reporter": [
-      "lcov",
-      "text-summary"
-    ],
-    "exclude": [
-      "packages/**/test/**",
-      "packages/**/dist/**",
-      "packages/**/es/**",
-      "packages/**/lib/**",
-      "packages/**/static/**",
-      "static/**",
-      "packages/@coorpacademy-nova-icons/**",
-      "flow-typed/**"
-    ],
-    "cache": true,
-    "require": "babel-register",
-    "sourceMap": false,
-    "instrument": false,
-    "all": true
+    "rimraf": "^2.6.2"
   }
 }
