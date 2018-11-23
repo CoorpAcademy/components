@@ -1,18 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
+import Check from '@coorpacademy/nova-icons/composition/coorpacademy/check';
 import {ColorPropType} from '../../util/proptypes';
 import Provider from '../../atom/provider';
 import Checkbox from '../../atom/checkbox';
 import style from './style.css';
 
 const TitledCheckbox = (props, context) => {
-  const {skin} = context;
   const {choice, background, onToggle} = props;
-
-  const iconSuccess = String.fromCharCode(getOr('v', 'icons.success', skin));
   const label = choice.name;
-  const icon = choice.selected ? iconSuccess : '';
   const handleChange = () => onToggle(choice);
 
   return (
@@ -23,14 +19,7 @@ const TitledCheckbox = (props, context) => {
           background: background || '#3d3d3d'
         }}
       >
-        <span
-          className={style.icon}
-          style={{
-            color: 'white'
-          }}
-        >
-          {icon}
-        </span>
+        {choice.selected && <Check className={style.icon} color="white" />}
         <Checkbox className={style.input} checked={choice.selected} onChange={handleChange} />
       </label>
       <span title={label}>{label}</span>

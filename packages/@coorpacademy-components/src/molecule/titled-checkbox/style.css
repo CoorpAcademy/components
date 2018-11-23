@@ -1,25 +1,26 @@
 .default {
   line-height: 25px;
   font-family: Open Sans;
+  display: flex;
 }
 
 .box {
   position: relative;
-  float: right;
+  margin-left: auto;
   width: 22px;
   height: 22px;
   border-radius: 3px;
   cursor: pointer;
+  order: 1;
 }
 
 .icon {
-  font-family: 'icons-default';
   position: absolute;
-  font-size: 12px;
-  width: 22px;
-  height: 22px;
-  text-align: center;
-  line-height: 22px;
+  display: flex;
+  width: 16px;
+  left: 2px;
+  top: 2px;
+  height: 16px;
 }
 
 .input {

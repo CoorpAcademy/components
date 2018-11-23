@@ -26,6 +26,11 @@ export default {
         title: 'Default field',
         value: '',
         type: 'unknow'
+      },
+      {
+        title: 'Select Multiple',
+        value: '',
+        type: 'selectMultiple'
       }
     ]
   }

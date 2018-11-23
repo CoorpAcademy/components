@@ -12,13 +12,13 @@ const HEADER_TYPE = {
 };
 
 const SlidesHeader = (props = {}, context) => {
-  const {type, content, subcontent, lives = {}} = props;
+  const {type, content, subcontent, lives} = props;
 
   return (
     <div data-name="slidesHeader" className={style.wrapper}>
       {type === HEADER_TYPE.LEARNER && <Learner content={content} subcontent={subcontent} />}
       {type === HEADER_TYPE.MICROLEARNING && <Microlearning content={content} />}
-      <Lives count={lives.count || 0} />
+      {lives && <Lives count={lives.count || 0} />}
     </div>
   );
 };
