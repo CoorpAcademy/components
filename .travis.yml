@@ -55,8 +55,10 @@ before_script: >-
   done
 
 script: >-
-  for i in $(yarn lerna updated --loglevel=silent); do
-    yarn lerna run test --scope $i --stream;
+  for i in $(yarn lerna ls --loglevel=silent); do
+    if [ "$i" = "$PACKAGE_NAME" ]; then
+      yarn lerna run test --stream;
+    fi
   done
 
 after_script: yarn codecov
