@@ -23,18 +23,18 @@ env:
     - NC='\033[0m
   matrix:
     - PACKAGE_NAME=@coorpacademy/app-player
-    - PACKAGE_NAME=@coorpacademy/components
-    - PACKAGE_NAME=@coorpacademy/css-modules-require-hook
-    - PACKAGE_NAME=@coorpacademy/history
-    - PACKAGE_NAME=@coorpacademy/nova-icons
-    - PACKAGE_NAME=@coorpacademy/progression-engine
-    - PACKAGE_NAME=@coorpacademy/redux-history
-    - PACKAGE_NAME=@coorpacademy/redux-router
-    - PACKAGE_NAME=@coorpacademy/redux-task
-    - PACKAGE_NAME=@coorpacademy/translate
-    - PACKAGE_NAME=@coorpacademy/treantjs-adapter-angular
-    - PACKAGE_NAME=@coorpacademy/treantjs-adapter-dust
-    - PACKAGE_NAME=@coorpacademy/webpack-config
+    # - PACKAGE_NAME=@coorpacademy/components
+    # - PACKAGE_NAME=@coorpacademy/css-modules-require-hook
+    # - PACKAGE_NAME=@coorpacademy/history
+    # - PACKAGE_NAME=@coorpacademy/nova-icons
+    # - PACKAGE_NAME=@coorpacademy/progression-engine
+    # - PACKAGE_NAME=@coorpacademy/redux-history
+    # - PACKAGE_NAME=@coorpacademy/redux-router
+    # - PACKAGE_NAME=@coorpacademy/redux-task
+    # - PACKAGE_NAME=@coorpacademy/translate
+    # - PACKAGE_NAME=@coorpacademy/treantjs-adapter-angular
+    # - PACKAGE_NAME=@coorpacademy/treantjs-adapter-dust
+    # - PACKAGE_NAME=@coorpacademy/webpack-config
 
 install:
   - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "^1.2.1"'`
