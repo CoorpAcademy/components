@@ -13,8 +13,8 @@ const Accordion = props => {
     const title = get([key, 'title'], tabProps);
     const isOpen = get([key, 'isOpen'], tabProps);
     const iconType = get([key, 'iconType'], tabProps);
+    const checkLastRow = get([key, 'lastRow'], tabProps);
     const handleOnClick = () => onClick(key);
-
     return child ? (
       <div data-name="accordion" key={key} className={style.wrapper}>
         <Part
@@ -22,8 +22,8 @@ const Accordion = props => {
           title={title}
           content={child}
           isOpen={isOpen}
-          moreIconType={moreIconType}
-          lessIconType={lessIconType}
+          moreIconType={checkLastRow ? undefined : moreIconType}
+          lessIconType={checkLastRow ? undefined : lessIconType}
           onClick={handleOnClick}
         />
       </div>

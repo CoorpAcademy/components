@@ -1,46 +1,43 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
-import Select from '../../atom/select';
 import InputText from '../../atom/input-text';
 import InputCheckbox from '../../atom/input-checkbox';
-import InputSwitch from '../../atom/input-switch';
-import ImageUpload from '../../atom/image-upload';
 import Button from '../../atom/button';
 import style from './style.css';
 
-const InputSplitSreen = props => {
+const InputSplitScreen = props => {
   const {conditions = {}, groups = {}} = props;
-  const dataCriterias = {
-    fields: {
+  const dataCriteria = {
+    groups: {
       fields: conditions.values
     }
   };
-  const dataContent = {
-    fields: {
+  const dataCollection = {
+    groups: {
       fields: groups.values
     }
   };
-  const criteriasList = map.convert({cap: false})(
-    (slide, key) => <SetupCohortItem key={key} {...slide} />,
-    dataCriterias
+  const criteriaList = map.convert({cap: false})(
+    (criterion, key) => <SetupCohortItem key={key} {...criterion} />,
+    dataCriteria
   );
-  const contentList = map.convert({cap: false})(
-    (slide, key) => <SetupCohortItem key={key} {...slide} />,
-    dataContent
+  const collectionList = map.convert({cap: false})(
+    (collection, key) => <SetupCohortItem key={key} {...collection} />,
+    dataCollection
   );
   return (
     <div className={style.split}>
       <div className={style.splitLeft}>
         <div>
           <p className={style.title}>{conditions.title}</p>
-          {criteriasList}
+          {criteriaList}
         </div>
       </div>
       <div className={style.splitRight}>
         <div>
           <p className={style.title}>{groups.title}</p>
-          {contentList}
+          {collectionList}
         </div>
       </div>
     </div>
@@ -55,7 +52,7 @@ const ButtonGroup = props => {
     }
   };
   const buttons = map.convert({cap: false})(
-    (slide, key) => <SetupCohortItem key={key} {...slide} />,
+    (buttonProps, key) => <SetupCohortItem key={key} {...buttonProps} />,
     data
   );
   return <div className={style.buttonGroup}>{buttons}</div>;
@@ -66,16 +63,10 @@ const SetupCohortItem = props => {
   const buildInput = field => {
     const {type} = field;
     switch (type) {
-      case 'switch':
-        return <InputSwitch {...field} />;
-      case 'select':
-        return <Select {...field} />;
       case 'checkbox':
         return <InputCheckbox {...field} />;
-      case 'image':
-        return <ImageUpload {...field} />;
-      case 'splitSreen':
-        return <InputSplitSreen {...field} />;
+      case 'splitScreen':
+        return <InputSplitScreen {...field} />;
       case 'button':
         return (
           <div className={style.button}>

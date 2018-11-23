@@ -17,8 +17,10 @@ const SetupCohort = props => {
         tabProps={map.convert({cap: false})(
           (tab, idx) => ({
             ...tab,
+            lastRow: idx + 1 === tabProps.length,
             title: formatTitle(tab.title, idx + 1, tabProps.length)
           }),
+
           tabProps
         )}
         moreIconType={'arrowDown'}
@@ -33,7 +35,8 @@ const SetupCohort = props => {
 
 SetupCohort.defaultProps = {
   formatTitle: (title, rowNumber, tabPropsLength) =>
-    `${rowNumber !== tabPropsLength ? `Cohort ${rowNumber} : ${title}` : title}`
+    `${rowNumber !== tabPropsLength ? `Cohort ${rowNumber} : ${title}` : title}`,
+  handleToFetch: key => {}
 };
 
 SetupCohort.propTypes = {

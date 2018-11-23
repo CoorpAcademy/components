@@ -1,6 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value dark from colors;
-@value xtraLightGrey from colors;
+@value light from colors;
 @value orange from colors;
 @value brand from colors;
 @value battle from colors;
@@ -53,8 +53,8 @@
 }
 
 .default label {
-  border: solid 2px xtraLightGrey;
-  background-color: xtraLightGrey;
+  border: solid 2px light;
+  background-color: light;
   width: 23px;
   height: 23px;
   border-radius: 2px;

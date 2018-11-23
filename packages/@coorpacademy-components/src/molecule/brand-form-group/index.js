@@ -132,6 +132,10 @@ BrandFormGroup.propTypes = {
         ...SetupSlider.propTypes
       }),
       PropTypes.shape({
+        type: PropTypes.oneOf(['sliderCohort']),
+        ...SetupSliderCohort.propTypes
+      }),
+      PropTypes.shape({
         type: PropTypes.oneOf(['sections']),
         ...SetupSections.propTypes
       }),

@@ -1,7 +1,8 @@
-import Slide from '../../../setup-cohort-item/test/fixtures/default';
+import CohortItem from '../../../setup-cohort-item/test/fixtures/default';
+import CohortItemCreate from '../../../setup-cohort-item/test/fixtures/create-new';
 
-const {props} = Slide;
-
+const {props} = CohortItem;
+const propsCreate = CohortItemCreate.props;
 export default {
   props: {
     tabProps: [
@@ -20,6 +21,6 @@ export default {
     ],
     formatTitle: (title, rowNumber, tabPropsLength) =>
       `${rowNumber !== tabPropsLength ? `Cohort ${rowNumber} : ${title}` : title}`,
-    slides: [props, props, props, props]
+    slides: [props, props, props, propsCreate]
   }
 };

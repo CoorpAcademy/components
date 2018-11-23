@@ -10,37 +10,3 @@
 .field:last-child {
   margin-bottom: 0;
 }
-
-.split {
-  display: flex;
-}
-
-.splitLeft {
-  width: 50%;
-  border-right: 1px solid lightgray;
-}
-
-.splitRight {
-  width: 50%;
-}
-
-.buttonGroup > .wrapper {
-  display: flex;
-  justify-content: center;
-}
-
-.button {
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-.title {
-  font-family: "Open Sans";
-  font-size: 15px;
-  text-transform: none;
-  color: grey;
-  margin-right: 20px;
-  min-height: 50px;
-  align-items: center;
-  font-weight: bold;
-}
