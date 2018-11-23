@@ -11,7 +11,7 @@
     "prestatic": "rimraf static",
     "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/app-player static -- --production",
     "poststatic": "mkdirp static && cp -r packages/@coorpacademy-components/static static/components && cp -r packages/@coorpacademy-app-player/static static/app-player",
-    "codecov": "nyc report --reporter=text-lcov > coverage.lcov && codecov",
+    "codecov": "codecov",
     "doc": "lerna run --scope @coorpacademy/components doc",
     "generate": "lerna exec --scope @coorpacademy/components -- npm run generate",
     "generate:fixtures": "lerna exec --scope @coorpacademy/components -- npm run generate:fixtures",

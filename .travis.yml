@@ -6,11 +6,14 @@ cache:
   directories:
     - node_modules
     - packages/@coorpacademy-app-player/node_modules
-    - packages/@coorpacademy-components-bundler/node_modules
     - packages/@coorpacademy-components/node_modules
+    - packages/@coorpacademy-css-modules-require-hook/node_modules
     - packages/@coorpacademy-history/node_modules
+    - packages/@coorpacademy-nova-icons/node_modules
     - packages/@coorpacademy-progression-engine/node_modules
     - packages/@coorpacademy-redux-history/node_modules
+    - packages/@coorpacademy-redux-router/node_modules/node_modules
+    - packages/@coorpacademy-redux-task/node_modules
     - packages/@coorpacademy-translate/node_modules
     - packages/@coorpacademy-treantjs-adapter-angular/node_modules
     - packages/@coorpacademy-treantjs-adapter-dust/node_modules
@@ -23,18 +26,18 @@ env:
     - NC='\033[0m
   matrix:
     - PACKAGE_NAME=@coorpacademy/app-player
-    # - PACKAGE_NAME=@coorpacademy/components
-    # - PACKAGE_NAME=@coorpacademy/css-modules-require-hook
-    # - PACKAGE_NAME=@coorpacademy/history
-    # - PACKAGE_NAME=@coorpacademy/nova-icons
-    # - PACKAGE_NAME=@coorpacademy/progression-engine
-    # - PACKAGE_NAME=@coorpacademy/redux-history
-    # - PACKAGE_NAME=@coorpacademy/redux-router
-    # - PACKAGE_NAME=@coorpacademy/redux-task
-    # - PACKAGE_NAME=@coorpacademy/translate
-    # - PACKAGE_NAME=@coorpacademy/treantjs-adapter-angular
-    # - PACKAGE_NAME=@coorpacademy/treantjs-adapter-dust
-    # - PACKAGE_NAME=@coorpacademy/webpack-config
+    - PACKAGE_NAME=@coorpacademy/components
+    - PACKAGE_NAME=@coorpacademy/css-modules-require-hook
+    - PACKAGE_NAME=@coorpacademy/history
+    - PACKAGE_NAME=@coorpacademy/nova-icons
+    - PACKAGE_NAME=@coorpacademy/progression-engine
+    - PACKAGE_NAME=@coorpacademy/redux-history
+    - PACKAGE_NAME=@coorpacademy/redux-router
+    - PACKAGE_NAME=@coorpacademy/redux-task
+    - PACKAGE_NAME=@coorpacademy/translate
+    - PACKAGE_NAME=@coorpacademy/treantjs-adapter-angular
+    - PACKAGE_NAME=@coorpacademy/treantjs-adapter-dust
+    - PACKAGE_NAME=@coorpacademy/webpack-config
 
 install:
   - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "^1.2.1"'`
@@ -53,10 +56,13 @@ before_script: >-
 script: >-
   for i in $(yarn lerna updated --loglevel=silent); do
     if [ "$i" = "$PACKAGE_NAME" ]; then
-      echo -e "${CYAN} $PACKAGE_NAME has changed, tesing ${NC}";
+      echo -e "${CYAN} $PACKAGE_NAME has changed, testing ${NC}";
       yarn lerna run test --scope $i --stream;
     fi
   done
+
+after_script: yarn codecov
+
 addons:
   apt:
     sources:
