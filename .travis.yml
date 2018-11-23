@@ -43,7 +43,7 @@ install:
   - "yarn config set registry https://registry.npmjs.org/"
 
 before_script: >-
-  for i in $(lerna updated --loglevel=silent); do
+  for i in $(yarn lerna updated --loglevel=silent); do
     if [ "$i" = "$PACKAGE_NAME" ]; then
       echo -e "${CYAN} $PACKAGE_NAME has changed, bootstraping ${NC}";
       yarn lerna bootstrap --scope $i  -—include-filtered-dependencies;
