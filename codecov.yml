@@ -41,18 +41,3 @@ coverage:
       webpackConfig:
         target: 100%
         paths: "packages/@coorpacademy-webpack-config"
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
