@@ -15,42 +15,10 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
 import maxBy from 'lodash/fp/maxBy';
-import reduce from 'lodash/fp/reduce';
 import map from 'lodash/fp/map';
 import {find as findContent} from './content';
-import progressionsData from './fixtures/progressions';
-import chapterRulesData from './fixtures/chapter-rules';
-import slidesData from './fixtures/slides';
-
-const slideStore = reduce(
-  (slideMap, slide) => slideMap.set(slide._id, slide),
-  new Map(),
-  slidesData
-);
-
-const toMapByChapterRef = reduce((m, object) => m.set(object.chapterRef, object));
-const chapterRules = toMapByChapterRef(new Map(), chapterRulesData);
-
-const getChapterRulesByContent = ref => {
-  return get('rules', chapterRules.get(ref));
-};
 
 const generateId = () => uniqueId('progression');
-const progressionStore = reduce(
-  (progressionMap, progression) => {
-    const newState = createState(progression);
-    progressionMap.set(progression._id, set('state', newState, progression));
-    return progressionMap;
-  },
-  new Map(),
-  progressionsData
-);
-
-// eslint-disable-next-line require-await
-export const findById = async id => {
-  if (!progressionStore.has(id)) throw new Error('Progression not found');
-  return progressionStore.get(id);
-};
 
 // eslint-disable-next-line require-await
 export const getEngineConfig = async engine => {
@@ -63,7 +31,8 @@ export const openAssistance = progression => {
   return progression;
 };
 
-const getAvailableContent = async content => {
+const getAvailableContent = fixtures => async content => {
+  const {getChapterRulesByContent, findSlideByChapter} = fixtures;
   const chapters =
     content.type === 'level'
       ? map(
@@ -75,14 +44,15 @@ const getAvailableContent = async content => {
   return Promise.all(
     chapters.map(async chapter => ({
       ref: chapter.ref,
-      slides: filter({chapter_id: chapter.ref}, slidesData),
+      slides: findSlideByChapter(chapter.ref),
       rules: await getChapterRulesByContent(chapter.ref)
     }))
   );
 };
 
-export const save = progression => {
-  progressionStore.set(progression._id, progression);
+const save = fixtures => progression => {
+  const {saveProgression} = fixtures;
+  saveProgression(fixtures);
   return progression;
 };
 
@@ -100,11 +70,12 @@ const addActionAndSaveProgression = (progression, action) => {
   return pipe(set('state', newState), save)(newProgression);
 };
 
-export const postAnswer = async (progressionId, payload) => {
+const postAnswer = fixtures => async (progressionId, payload) => {
+  const {findSlideById, findProgressionById} = fixtures;
   const userAnswer = getOr([''], 'answer', payload);
   const slideId = payload.content.ref;
-  const slide = slideStore.get(slideId);
-  const progression = await findById(progressionId);
+  const slide = findSlideById(slideId);
+  const progression = await findProgressionById(progressionId);
   const state = progression.state;
 
   const partialAnswerAction = {
@@ -183,3 +154,9 @@ export const markResourceAsViewed = async (progressionId, payload) => {
 
   return addActionAndSaveProgression(progression, action);
 };
+
+export const ProgressionsService = fixtures => ({
+  getAvailableContent: getAvailableContent(fixtures),
+  postAnswer: postAnswer(fixtures),
+  save: save(fixtures)
+});
