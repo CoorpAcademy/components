@@ -44,6 +44,7 @@ install:
   - "npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN"
   - "npm config set @coorpacademy:registry http://registry.npmjs.org/"
   - "yarn config set registry https://registry.npmjs.org/"
+  - yarn
 
 before_script: >-
   for i in $(yarn lerna updated --loglevel=silent); do
