@@ -65,6 +65,7 @@
     "react-tooltip": "^3.6.1"
   },
   "devDependencies": {
+    "ava": "^0.25.0",
     "@coorpacademy/css-modules-require-hook": "1.0.0",
     "@coorpacademy/translate": "5.3.12",
     "@coorpacademy/webpack-config": "7.0.1",

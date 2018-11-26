@@ -9,7 +9,6 @@
     "composition/"
   ],
   "scripts": {
-    "ava": "cross-env NODE_ENV=test ava",
     "test": "npm run lint",
     "lint": "npm run eslint",
     "eslint": "eslint ./ *.js *.json --ext .js,.json",

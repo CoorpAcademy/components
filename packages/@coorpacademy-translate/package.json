@@ -10,10 +10,10 @@
     "README.md"
   ],
   "scripts": {
-    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
-    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
     "ava": "cross-env NODE_ENV=test ava",
     "nyc": "cross-env NODE_ENV=test nyc npm run ava",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
     "test": "npm run lint && npm run nyc",
     "lint": "npm run eslint",
     "eslint": "eslint . *.js *.json --ext .js,.json",
@@ -47,6 +47,7 @@
     "nyc": "^13.1.0",
     "rimraf": "^2.6.1"
   },
+  "author": "CoorpAcademy",
   "ava": {
     "files": [
       "src/**/test/**/*.js"
@@ -55,6 +56,5 @@
       "babel-register"
     ],
     "babel": "inherit"
-  },
-  "author": "CoorpAcademy"
+  }
 }
