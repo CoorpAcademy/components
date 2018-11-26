@@ -20,5 +20,5 @@ export const findById = fixtures => async (progressionId, slideId, givenAnswers 
   return {
     correctAnswer,
     corrections
-  };
+  }; 
 };
