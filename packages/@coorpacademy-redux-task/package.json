@@ -9,8 +9,6 @@
     "es"
   ],
   "scripts": {
-    "ava": "cross-env NODE_ENV=test ava",
-    "nyc": "cross-env NODE_ENV=test nyc npm run ava",
     "test": "npm run lint",
     "lint": "npm run eslint",
     "eslint": "eslint ./ *.js *.json --ext .js,.json",
