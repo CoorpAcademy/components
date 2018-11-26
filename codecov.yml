@@ -10,17 +10,12 @@ coverage:
     project:
       default: false
       appPlayer:
-        target: 100%
         paths: "packages/@coorpacademy-app-player"
       components:
-        target: 94%
         paths: "packages/@coorpacademy-components"
       progressionEngine:
-        target: 99%
         paths: "packages/@coorpacademy-progression-engine"
       translate:
-        target: 100%
         paths: "packages/@coorpacademy-translate"
       webpackConfig:
-        target: 100%
         paths: "packages/@coorpacademy-webpack-config"
