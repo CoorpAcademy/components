@@ -46,21 +46,12 @@ install:
   - "yarn config set registry https://registry.npmjs.org/"
   - yarn
 
-before_script: >-
-  for i in $(yarn lerna updated --loglevel=silent); do
-    if [ "$i" = "$PACKAGE_NAME" ]; then
-      echo -e "${CYAN} $PACKAGE_NAME has changed, bootstraping ${NC}";
-      yarn lerna bootstrap --scope $i  -—include-filtered-dependencies;
-  fi
-  done
+before_script:
+  - npx lerna bootstrap --scope $PACKAGE_NAME --include-filtered-dependencies
+  - npx lerna run prepare --scope $PACKAGE_NAME --include-filtered-dependencies
 
-script: >-
-  for i in $(yarn lerna updated --loglevel=silent); do
-    if [ "$i" = "$PACKAGE_NAME" ]; then
-      echo -e "${CYAN} $PACKAGE_NAME has changed, testing ${NC}";
-      yarn lerna run test --scope $i --stream;
-    fi
-  done
+script:
+  - npx lerna run test --since --scope $PACKAGE_NAME
 
 after_script: yarn codecov
 
