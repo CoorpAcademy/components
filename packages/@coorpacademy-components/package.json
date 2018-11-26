@@ -32,7 +32,7 @@
     "storybook:run": "cross-env BABEL_ENV=es start-storybook -p 3004 -c .storybook",
     "storybook:export": "cross-env BABEL_ENV=es build-storybook -c .storybook -o static",
     "ava": "cross-env NODE_ENV=test ava",
-    "nyc": "cross-env NODE_ENV=test nyc --check-coverage --lines 94 npm run ava",
+    "nyc": "cross-env NODE_ENV=test nyc npm run ava",
     "test": " npm run lint && npm run nyc",
     "lint": "npm run eslint",
     "eslint": "eslint ./ *.js *.json --ext .js,.json"
