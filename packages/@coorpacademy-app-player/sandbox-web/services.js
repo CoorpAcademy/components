@@ -26,8 +26,6 @@ const addTimeout = curryN(2, (timeout, fun) => (...args) =>
 
 const addTimeoutToService = mapValues(addTimeout(TIMEOUT));
 
-// export const Analytics = addTimeoutToService(AnalyticsService);
-// export const Answers = addTimeoutToService(AnswersService);
 // export const Clues = addTimeoutToService(CluesService);
 // export const Coach = addTimeoutToService(CoachService);
 // export const Comments = addTimeoutToService(CommentsService);
@@ -41,6 +39,7 @@ const addTimeoutToService = mapValues(addTimeout(TIMEOUT));
 
 const Services = fixtures => {
   return {
+    Analytics: addTimeoutToService(AnalyticsService(fixtures)),
     Answers: addTimeoutToService(AnswersService(fixtures)),
     Content: addTimeoutToService(ContentService(fixtures)),
     Progressions: addTimeoutToService(ProgressionsService(fixtures))
