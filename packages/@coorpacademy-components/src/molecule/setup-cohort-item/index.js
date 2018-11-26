@@ -47,7 +47,7 @@ const InputSplitScreen = props => {
 const ButtonGroup = props => {
   const {buttonGroup} = props;
   const data = {
-    fields: {
+    groups: {
       fields: buttonGroup
     }
   };
@@ -97,7 +97,11 @@ const SetupCohortItem = props => {
 SetupCohortItem.propTypes = {
   fields: PropTypes.arrayOf(
     PropTypes.shape({
-      type: PropTypes.string.isRequired
+      type: PropTypes.string.isRequired,
+      title: PropTypes.string,
+      values: PropTypes.array,
+      value: PropTypes.string,
+      checked: PropTypes.bool
     })
   )
 };

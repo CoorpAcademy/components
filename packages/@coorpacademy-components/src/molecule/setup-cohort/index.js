@@ -5,7 +5,7 @@ import SetupCohortItem from '../setup-cohort-item';
 import Accordion from '../../organism/accordion/toggler';
 
 const SetupCohort = props => {
-  const {tabProps, slides = [], formatTitle, handleToFetch} = props;
+  const {tabProps, slides = [], formatTitle} = props;
   const slidesView = map.convert({cap: false})(
     (slide, key) => <SetupCohortItem key={key} {...slide} />,
     slides
@@ -13,7 +13,6 @@ const SetupCohort = props => {
   return (
     <div>
       <Accordion
-        handleToFetch={handleToFetch}
         tabProps={map.convert({cap: false})(
           (tab, idx) => ({
             ...tab,
@@ -35,15 +34,13 @@ const SetupCohort = props => {
 
 SetupCohort.defaultProps = {
   formatTitle: (title, rowNumber, tabPropsLength) =>
-    `${rowNumber !== tabPropsLength ? `Cohort ${rowNumber} : ${title}` : title}`,
-  handleToFetch: key => {}
+    `${rowNumber !== tabPropsLength ? `Cohort ${rowNumber} : ${title}` : title}`
 };
 
 SetupCohort.propTypes = {
   tabProps: PropTypes.arrayOf(PropTypes.shape(Accordion.PropTypes)),
   slides: PropTypes.arrayOf(PropTypes.shape(SetupCohortItem.propTypes)),
-  formatTitle: PropTypes.func,
-  handleToFetch: PropTypes.func
+  formatTitle: PropTypes.func
 };
 
 export default SetupCohort;
