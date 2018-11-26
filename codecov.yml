@@ -10,34 +10,12 @@ coverage:
     project:
       default: false
       appPlayer:
-        target: 100%
         paths: "packages/@coorpacademy-app-player"
       components:
-        target: auto
         paths: "packages/@coorpacademy-components"
-      history:
-        target: 100%
-        paths: "packages/@coorpacademy-history"
       progressionEngine:
-        target: auto
         paths: "packages/@coorpacademy-progression-engine"
-      reduxHistory:
-        target: 100%
-        paths: "packages/@coorpacademy-redux-history"
-      reduxRouter:
-        target: 100%
-        paths: "packages/@coorpacademy-redux-router"
-      reduxTask:
-        paths: "packages/@coorpacademy-redux-task"
       translate:
-        target: 100%
         paths: "packages/@coorpacademy-translate"
-      treantjsAdapterAngular:
-        target: 100%
-        paths: "packages/@coorpacademy-treantjs-adapter-angular"
-      treantjsAdapterDust:
-        target: 100%
-        paths: "packages/@coorpacademy-treantjs-adapter-dust"
       webpackConfig:
-        target: 100%
         paths: "packages/@coorpacademy-webpack-config"

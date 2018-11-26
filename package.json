@@ -4,6 +4,7 @@
     "prestatic": "rimraf static",
     "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/app-player static -- --production",
     "poststatic": "mkdirp static && cp -r packages/@coorpacademy-components/static static/components && cp -r packages/@coorpacademy-app-player/static static/app-player",
+    "codecov": "codecov",
     "publish:beta": "lerna publish --npm-tag beta --exact",
     "publish:canary": "lerna publish --canary --exact --cd-version=patch --skip-git",
     "publish:latest": "lerna publish --exact"
