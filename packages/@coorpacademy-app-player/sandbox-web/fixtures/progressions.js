@@ -13,7 +13,7 @@ const progressionStore = reduce(
   progressionsData
 );
 
-// eslint-disable-next-line import/prefer-default-export, require-await
+// eslint-disable-next-line require-await
 const findById = async id => {
   if (!progressionStore.has(id)) throw new Error('Progression not found');
   return progressionStore.get(id);
