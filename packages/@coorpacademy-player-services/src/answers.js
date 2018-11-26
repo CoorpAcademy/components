@@ -1,30 +1,16 @@
 import assign from 'lodash/fp/assign';
-import find from 'lodash/fp/find';
-import head from 'lodash/fp/head';
 import includes from 'lodash/fp/includes';
-import reduce from 'lodash/fp/reduce';
-import pipe from 'lodash/fp/pipe';
-import values from 'lodash/fp/values';
 import {checkAnswerCorrectness, getConfigForProgression} from '@coorpacademy/progression-engine';
-import slidesData from './fixtures/slides';
-import * as ProgressionsService from './progressions';
-
-const answerStore = pipe(
-  values,
-  reduce(
-    (clueMap, slide) => clueMap.set(slide._id, head(slide.question.content.answers)),
-    new Map()
-  )
-)(slidesData);
 
 // eslint-disable-next-line import/prefer-default-export
-export const findById = async (progressionId, slideId, givenAnswers = []) => {
-  const progression = await ProgressionsService.findById(progressionId);
-  const slide = pipe(values, find({_id: slideId}))(slidesData);
+export const findById = fixtures => async (progressionId, slideId, givenAnswers = []) => {
+  const {findProgressionById, findSlideById, getCorrectAnswer} = fixtures;
+  const slide = await findSlideById(slideId);
+  const progression = await findProgressionById(progressionId);
 
   if (!includes(slideId, progression.state.slides)) throw new Error('Answer is not available');
   const config = getConfigForProgression(progression);
-  const correctAnswer = answerStore.get(slideId);
+  const correctAnswer = await getCorrectAnswer(slideId);
   const question = assign(slide.question, {
     answers: [correctAnswer]
   });
