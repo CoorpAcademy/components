@@ -14,11 +14,17 @@ const progressionStore = reduce(
 );
 
 // eslint-disable-next-line import/prefer-default-export, require-await
-export const findById = async id => {
+const findById = async id => {
   if (!progressionStore.has(id)) throw new Error('Progression not found');
   return progressionStore.get(id);
 };
 
-export const saveProgression = progression => {
+const getAll = () => {
+  return [...progressionStore.values()];
+};
+
+const save = progression => {
   progressionStore.set(progression._id, progression);
 };
+
+export {save, getAll, findById};
