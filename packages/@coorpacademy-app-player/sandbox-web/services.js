@@ -41,6 +41,7 @@ const addTimeoutToService = mapValues(addTimeout(TIMEOUT));
 
 const Services = fixtures => {
   return {
+    Content: addTimeoutToService(ContentService(fixtures)),
     Progressions: addTimeoutToService(ProgressionsService(fixtures))
   };
 };

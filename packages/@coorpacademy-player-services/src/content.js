@@ -1,60 +1,38 @@
 import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
-import reduce from 'lodash/fp/reduce';
-import values from 'lodash/fp/values';
 import {getConfig} from '@coorpacademy/progression-engine';
-import chaptersData from './fixtures/chapters';
-import levelsData from './fixtures/levels';
-import {findById} from './slides';
 
-console.dir({chaptersData}, {depth: 10});
-
-const mayBy = key =>
-  pipe(values, reduce((map, object) => map.set(get(key, object), object), new Map()));
-const toMapById = mayBy('_id');
-const toMapByRef = mayBy('ref');
-
-const chapters = toMapById(chaptersData);
-const levels = toMapByRef(levelsData);
-
-// eslint-disable-next-line import/prefer-default-export
-export const find = (type, ref) => {
-  switch (type) {
-    case 'chapter':
-      if (chapters.has(ref)) return Promise.resolve(chapters.get(ref));
-      return Promise.reject(new Error(`Chapter ${ref} not found`));
-
-    case 'level':
-      if (levels.has(ref)) return Promise.resolve(levels.get(ref));
-      return Promise.reject(new Error(`Level ${ref} not found`));
-
-    case 'slide':
-      return findById(ref);
-
-    default:
-      return Promise.reject(new Error(`unknown content type ${type}`));
-  }
+const find = fixtures => (type, ref) => {
+  const {findContent} = fixtures;
+  return findContent(type, ref);
 };
 
-function getNbSlides(contentRef, engineRef, version) {
+const getNbSlides = fixtures => (contentRef, engineRef, version) => {
+  const {findChapterById, findLevelById} = fixtures;
   const maxNbSlides = pipe(getConfig, get('slidesToComplete'))({
     ref: engineRef,
     version
   });
 
-  if (levels.get(contentRef)) {
-    const content = levels.get(contentRef);
-    return content.chapterIds.length * maxNbSlides;
+  const level = findLevelById(contentRef);
+
+  if (level) {
+    return level.chapterIds.length * maxNbSlides;
   }
 
-  if (chapters.get(contentRef)) {
+  const chapter = findChapterById(contentRef);
+
+  if (chapter) {
     return maxNbSlides;
   }
 
   return -1;
-}
+};
 
-export const getInfo = (contentRef, engineRef, version) => {
-  const nbSlides = getNbSlides(contentRef, engineRef, version);
+const getInfo = fixtures => (contentRef, engineRef, version) => {
+  const nbSlides = getNbSlides(fixtures)(contentRef, engineRef, version);
   return {nbSlides};
 };
+
+// eslint-disable-next-line import/prefer-default-export
+export {find, getInfo};
