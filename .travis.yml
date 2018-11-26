@@ -22,8 +22,6 @@ cache:
 env:
   global:
     - CXX=g++-5
-    - CYAN='\033[0;36m'
-    - NC='\033[0m
   matrix:
     - PACKAGE_NAME=@coorpacademy/app-player
     - PACKAGE_NAME=@coorpacademy/components
