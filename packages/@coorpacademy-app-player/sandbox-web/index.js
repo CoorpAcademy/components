@@ -3,7 +3,7 @@ import localesComponents from '@coorpacademy/components/locales/en/global';
 import localesAppPlayer from '../locales/en/player';
 import {create as createApp} from '../src/web';
 import Services from './services';
-import fixtures from './fixtures';
+import * as fixtures from './fixtures';
 
 // eslint-disable-next-line import/prefer-default-export
 export const create = options => {

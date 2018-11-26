@@ -10,12 +10,19 @@
     "README.md"
   ],
   "scripts": {
-    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
-    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
-    "build": "npm run build:commonjs && npm run build:es",
+    "build:commonjs": "npm run build:babel:commonjs && npm run build:types:commonjs",
+    "build:es": "npm run build:babel:es && npm run build:types:es",
+    "build": "concurrently \"npm run build:commonjs\" \"npm run build:es\"",
+    "build:babel:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
+    "build:babel:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
+    "build:babel": "concurrently \"npm run build:babel:commonjs\" \"npm run build:babel:es\"",
+    "build:types:commonjs": "npx flow gen-flow-files src --out-dir lib",
+    "build:types:es": "npx flow gen-flow-files src --out-dir es",
+    "build:types": "concurrently \"npm run build:types:commonjs\" \"npm run build:types:es\"",
     "clean:build:commonjs": "rimraf lib",
     "clean:build:es": "rimraf es",
-    "clean": "npm run clean:build:commonjs && npm run clean:build:es",
+    "clean:build": "concurrently \"npm run clean:build:commonjs\" \"npm run clean:build:es\"",
+    "clean": "npm run clean:build",
     "prepare": "npm run clean && npm run build --production"
   },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-player-store#readme",
@@ -27,7 +34,9 @@
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.5.2",
     "browser-env": "^3.2.5",
+    "concurrently": "^3.5.1",
     "cross-env": "^5.0.0",
+    "flow-bin": "^0.72.0",
     "rimraf": "^2.6.1"
   },
   "dependencies": {

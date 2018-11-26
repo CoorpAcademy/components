@@ -21,11 +21,11 @@ import {find as findContent} from './content';
 const generateId = () => uniqueId('progression');
 
 // eslint-disable-next-line require-await
-export const getEngineConfig = async engine => {
+const getEngineConfig = async engine => {
   return getConfig(engine);
 };
 
-export const openAssistance = progression => {
+const openAssistance = progression => {
   // eslint-disable-next-line no-console
   console.log('test progression', progression);
   return progression;
@@ -56,11 +56,14 @@ const save = fixtures => progression => {
   return progression;
 };
 
-export const findBestOf = (engineRef, contentRef, progressionId = null) => {
+const findBestOf = fixtures => (engineRef, contentRef, progressionId = null) => {
+  const {getAllProgressions} = fixtures;
+  const progressions = getAllProgressions();
+
   const bestProgression = pipe(
     filter(p => get('content.ref', p) === contentRef && get('_id', p) !== progressionId),
     maxBy(p => p.state.stars || 0)
-  )([...progressionStore.values()]);
+  )(progressions);
   return bestProgression || set('state.stars', 0, {});
 };
 
@@ -99,8 +102,9 @@ const postAnswer = fixtures => async (progressionId, payload) => {
   return addActionAndSaveProgression(progression, action);
 };
 
-export const requestClue = async (progressionId, payload) => {
-  const progression = await findById(progressionId);
+const requestClue = fixtures => async (progressionId, payload) => {
+  const {findProgressionById} = fixtures;
+  const progression = await findProgressionById(progressionId);
 
   const action = {
     type: 'clue',
@@ -110,8 +114,9 @@ export const requestClue = async (progressionId, payload) => {
   return addActionAndSaveProgression(progression, action);
 };
 
-export const acceptExtraLife = async (progressionId, payload) => {
-  const progression = await findById(progressionId);
+const acceptExtraLife = fixtures => async (progressionId, payload) => {
+  const {findProgressionById} = fixtures;
+  const progression = await findProgressionById(progressionId);
   const config = getConfigForProgression(progression);
   const action = computeNextStepOnAcceptExtraLife(
     config,
@@ -122,19 +127,20 @@ export const acceptExtraLife = async (progressionId, payload) => {
   return addActionAndSaveProgression(progression, action);
 };
 
-export const refuseExtraLife = async (progressionId, payload) => {
-  const progression = await findById(progressionId);
+const refuseExtraLife = fixtures => async (progressionId, payload) => {
+  const {findProgressionById} = fixtures;
+  const progression = await findProgressionById(progressionId);
   const config = getConfigForProgression(progression);
   const action = computeNextStepOnRefuseExtraLife(config, progression.state);
 
   return addActionAndSaveProgression(progression, action);
 };
 
-export const create = async (engine, content) => {
+const create = async (engine, content, engineOptions = {}) => {
   const _id = generateId();
 
   const availableContent = await getAvailableContent(content);
-  const newProgression = createProgression(engine, content, {}, availableContent);
+  const newProgression = createProgression(engine, content, engineOptions, availableContent);
   const state = createState(newProgression);
 
   return save({
@@ -144,8 +150,9 @@ export const create = async (engine, content) => {
   });
 };
 
-export const markResourceAsViewed = async (progressionId, payload) => {
-  const progression = await findById(progressionId);
+const markResourceAsViewed = fixtures => async (progressionId, payload) => {
+  const {findProgressionById} = fixtures;
+  const progression = await findProgressionById(progressionId);
 
   const action = {
     type: 'resource',
@@ -155,8 +162,17 @@ export const markResourceAsViewed = async (progressionId, payload) => {
   return addActionAndSaveProgression(progression, action);
 };
 
+// eslint-disable-next-line import/prefer-default-export
 export const ProgressionsService = fixtures => ({
+  acceptExtraLife: acceptExtraLife(fixtures),
+  create: create(fixtures),
+  findBestOf: findBestOf(fixtures),
   getAvailableContent: getAvailableContent(fixtures),
+  getEngineConfig,
+  markResourceAsViewed: markResourceAsViewed(fixtures),
+  openAssistance,
   postAnswer: postAnswer(fixtures),
+  refuseExtraLife: refuseExtraLife(fixtures),
+  requestClue: requestClue(fixtures),
   save: save(fixtures)
 });

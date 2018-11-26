@@ -1,3 +1,5 @@
+// @flow
+
 import filter from 'lodash/fp/filter';
 import reduce from 'lodash/fp/reduce';
 import slidesData from './data/slides';
@@ -8,7 +10,7 @@ const slideStore = reduce(
   slidesData
 );
 
-const findByChapter = chapterRef => filter({chapter_id: chapterRef}, slidesData);
+const findByChapter = (chapterRef: string) => filter({chapter_id: chapterRef}, slidesData);
 const findById = slideStore.get;
 
 export {findById, findByChapter};
