@@ -1,5 +1,6 @@
 // @flow
 
+import {getCorrectAnswer} from './answers';
 import {find as findContent} from './content';
 import {findById as findSlideById, findByChapter as findSlideByChapter} from './slides';
 import {findById as findChapterById} from './chapters';
@@ -12,8 +13,9 @@ import {
 } from './progressions';
 
 export {
-  getChapterRulesByContent,
   getAllProgressions,
+  getChapterRulesByContent,
+  getCorrectAnswer,
   findChapterById,
   findContent,
   findLevelById,
