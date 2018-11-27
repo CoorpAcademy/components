@@ -105,6 +105,9 @@ import MoleculeVideoPlayer from './../src/molecule/video-player';
 import OrganismAccordionContainer from './../src/organism/accordion/container';
 import OrganismAccordionPart from './../src/organism/accordion/part';
 import OrganismAccordionToggler from './../src/organism/accordion/toggler';
+import OrganismAccordionCohortContainer from './../src/organism/accordion-cohort/container';
+import OrganismAccordionCohortPart from './../src/organism/accordion-cohort/part';
+import OrganismAccordionCohortToggler from './../src/organism/accordion-cohort/toggler';
 import OrganismBrandForm from './../src/organism/brand-form';
 import OrganismBrandTable from './../src/organism/brand-table';
 import OrganismBrandUpload from './../src/organism/brand-upload';
@@ -448,7 +451,7 @@ import MoleculeSearchFixtureWithValue from '../src/molecule/search/test/fixtures
 import MoleculeSearchFormFixtureDefault from '../src/molecule/search-form/test/fixtures/default';
 import MoleculeSelectMultipleFixtureChecked from '../src/molecule/select-multiple/test/fixtures/checked';
 import MoleculeSelectMultipleFixtureDefault from '../src/molecule/select-multiple/test/fixtures/default';
-import MoleculeSetupCohortFixtureDataEmty from '../src/molecule/setup-cohort/test/fixtures/data-emty';
+import MoleculeSetupCohortFixtureCreateNew from '../src/molecule/setup-cohort/test/fixtures/create-new';
 import MoleculeSetupCohortFixtureDefault from '../src/molecule/setup-cohort/test/fixtures/default';
 import MoleculeSetupCohortItemFixtureCreateNew from '../src/molecule/setup-cohort-item/test/fixtures/create-new';
 import MoleculeSetupCohortItemFixtureDefault from '../src/molecule/setup-cohort-item/test/fixtures/default';
@@ -496,6 +499,11 @@ import OrganismAccordionPartFixtureDefault from '../src/organism/accordion/part/
 import OrganismAccordionPartFixtureOpen from '../src/organism/accordion/part/test/fixtures/open';
 import OrganismAccordionTogglerFixtureAllAreOpenable from '../src/organism/accordion/toggler/test/fixtures/all-are-openable';
 import OrganismAccordionTogglerFixtureOnlyOne from '../src/organism/accordion/toggler/test/fixtures/only-one';
+import OrganismAccordionCohortContainerFixtureDefault from '../src/organism/accordion-cohort/container/test/fixtures/default';
+import OrganismAccordionCohortPartFixtureDefault from '../src/organism/accordion-cohort/part/test/fixtures/default';
+import OrganismAccordionCohortPartFixtureOpen from '../src/organism/accordion-cohort/part/test/fixtures/open';
+import OrganismAccordionCohortTogglerFixtureAllAreOpenable from '../src/organism/accordion-cohort/toggler/test/fixtures/all-are-openable';
+import OrganismAccordionCohortTogglerFixtureOnlyOne from '../src/organism/accordion-cohort/toggler/test/fixtures/only-one';
 import OrganismBrandFormFixtureAnalytics from '../src/organism/brand-form/test/fixtures/analytics';
 import OrganismBrandFormFixtureCohort from '../src/organism/brand-form/test/fixtures/cohort';
 import OrganismBrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
@@ -823,6 +831,11 @@ export const components = {
     OrganismAccordionContainer,
     OrganismAccordionPart,
     OrganismAccordionToggler
+  },
+  OrganismAccordionCohort: {
+    OrganismAccordionCohortContainer,
+    OrganismAccordionCohortPart,
+    OrganismAccordionCohortToggler
   },
   Organism: {
     OrganismBrandForm,
@@ -1298,7 +1311,7 @@ export const fixtures = {
       Default: MoleculeSelectMultipleFixtureDefault
     },
     MoleculeSetupCohort: {
-      DataEmty: MoleculeSetupCohortFixtureDataEmty,
+      CreateNew: MoleculeSetupCohortFixtureCreateNew,
       Default: MoleculeSetupCohortFixtureDefault
     },
     MoleculeSetupCohortItem: {
@@ -1458,6 +1471,19 @@ export const fixtures = {
     OrganismAccordionToggler: {
       AllAreOpenable: OrganismAccordionTogglerFixtureAllAreOpenable,
       OnlyOne: OrganismAccordionTogglerFixtureOnlyOne
+    }
+  },
+  OrganismAccordionCohort: {
+    OrganismAccordionCohortContainer: {
+      Default: OrganismAccordionCohortContainerFixtureDefault
+    },
+    OrganismAccordionCohortPart: {
+      Default: OrganismAccordionCohortPartFixtureDefault,
+      Open: OrganismAccordionCohortPartFixtureOpen
+    },
+    OrganismAccordionCohortToggler: {
+      AllAreOpenable: OrganismAccordionCohortTogglerFixtureAllAreOpenable,
+      OnlyOne: OrganismAccordionCohortTogglerFixtureOnlyOne
     }
   },
   Organism: {

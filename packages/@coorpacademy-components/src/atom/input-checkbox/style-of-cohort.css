@@ -1,0 +1,23 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value light from colors;
+
+.default {
+  display: flex;
+}
+
+.default input {
+  display: none;
+}
+
+.default label {
+  border: solid 2px light;
+  background-color: light;
+  width: 23px;
+  height: 23px;
+  border-radius: 2px;
+  font-size: 14px;
+  color: dark;
+  margin-left: 20px;
+  position: relative;
+}

@@ -14,13 +14,15 @@ export default {
       },
       {
         title: 'Sales ES'
-      },
-      {
-        title: 'Creat a new cohort'
       }
     ],
-    formatTitle: (title, rowNumber, tabPropsLength) =>
-      `${rowNumber !== tabPropsLength ? `Cohort ${rowNumber} : ${title}` : title}`,
-    slides: [props, props, props, propsCreate]
+    formatTitle: (title, rowNumber) => `Cohort ${rowNumber} : ${title}`,
+    slides: [props, props, props],
+    tabNew: [
+      {
+        title: 'Create a new cohort'
+      }
+    ],
+    slidesNew: [propsCreate]
   }
 };

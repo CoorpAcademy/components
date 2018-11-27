@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import forEach from 'lodash/fp/forEach';
-import Accordion from '../container';
+import AccordionCohort from '../container';
 
-class AccordionToggler extends React.Component {
+class AccordionCohortToggler extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -33,15 +33,15 @@ class AccordionToggler extends React.Component {
   render() {
     const {children = []} = this.props;
     return (
-      <Accordion tabProps={this.state.tabProps} onClick={this.handleOnClick}>
+      <AccordionCohort tabProps={this.state.tabProps} onClick={this.handleOnClick}>
         {children}
-      </Accordion>
+      </AccordionCohort>
     );
   }
 }
-AccordionToggler.propTypes = {
-  tabProps: PropTypes.arrayOf(PropTypes.shape(Accordion.PropTypes)),
+AccordionCohortToggler.propTypes = {
+  tabProps: PropTypes.arrayOf(PropTypes.shape(AccordionCohort.PropTypes)),
   oneTabOnly: PropTypes.bool
 };
 
-export default AccordionToggler;
+export default AccordionCohortToggler;

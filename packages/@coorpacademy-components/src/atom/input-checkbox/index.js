@@ -4,14 +4,29 @@ import noop from 'lodash/fp/noop';
 import uniqueId from 'lodash/fp/uniqueId';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
+import styleOfCohort from './style-of-cohort.css';
 
 const InputCheckbox = props => {
-  const {checked, onChange = noop, error, disabled, required, modified = false} = props;
+  const {
+    checked,
+    onChange = noop,
+    error,
+    disabled,
+    required,
+    modified = false,
+    cohortCheckbox = false
+  } = props;
 
   const idCheckbox = uniqueId('input-checkbox-');
   const title = `${props.title}${required ? '*' : ''}`;
   const handleChange = e => onChange(e.target.checked);
-  const className = getClassState(style.default, style.modified, style.error, modified, error);
+  const className = getClassState(
+    cohortCheckbox ? styleOfCohort.default : style.default,
+    style.modified,
+    style.error,
+    modified,
+    error
+  );
 
   return (
     <div className={className}>
@@ -37,7 +52,8 @@ InputCheckbox.propTypes = {
   checked: PropTypes.bool,
   error: PropTypes.bool,
   onChange: PropTypes.func,
-  modified: PropTypes.bool
+  modified: PropTypes.bool,
+  cohortCheckbox: PropTypes.bool
 };
 
 export default InputCheckbox;

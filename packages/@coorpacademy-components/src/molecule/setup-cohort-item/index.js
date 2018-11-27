@@ -46,16 +46,18 @@ const InputSplitScreen = props => {
 
 const ButtonGroup = props => {
   const {buttonGroup} = props;
-  const data = {
-    groups: {
-      fields: buttonGroup
-    }
-  };
-  const buttons = map.convert({cap: false})(
-    (buttonProps, key) => <SetupCohortItem key={key} {...buttonProps} />,
-    data
+  return (
+    <div className={style.buttonGroup}>
+      {map.convert({cap: false})(
+        (button, key) => (
+          <div key={key} className={style.button}>
+            <Button {...button} />
+          </div>
+        ),
+        buttonGroup
+      )}
+    </div>
   );
-  return <div className={style.buttonGroup}>{buttons}</div>;
 };
 
 const SetupCohortItem = props => {
@@ -64,15 +66,9 @@ const SetupCohortItem = props => {
     const {type} = field;
     switch (type) {
       case 'checkbox':
-        return <InputCheckbox {...field} />;
+        return <InputCheckbox {...field} cohortCheckbox />;
       case 'splitScreen':
         return <InputSplitScreen {...field} />;
-      case 'button':
-        return (
-          <div className={style.button}>
-            <Button {...field} />
-          </div>
-        );
       case 'buttonGroup':
         return <ButtonGroup {...field} />;
       default:
