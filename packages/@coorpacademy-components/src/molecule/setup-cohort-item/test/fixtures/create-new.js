@@ -10,7 +10,7 @@ export default {
       },
       {
         type: 'splitScreen',
-        conditions: {
+        providerCondition: {
           title: 'The Provider',
           values: [
             {
@@ -51,7 +51,7 @@ export default {
             }
           ]
         },
-        groups: {
+        groupSelection: {
           title: 'Country',
           values: [
             {

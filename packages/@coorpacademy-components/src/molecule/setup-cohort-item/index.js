@@ -7,15 +7,15 @@ import Button from '../../atom/button';
 import style from './style.css';
 
 const InputSplitScreen = props => {
-  const {conditions = {}, groups = {}} = props;
+  const {providerCondition = {}, groupSelection = {}} = props;
   const dataCriteria = {
     groups: {
-      fields: conditions.values
+      fields: providerCondition.values
     }
   };
   const dataCollection = {
     groups: {
-      fields: groups.values
+      fields: groupSelection.values
     }
   };
   const criteriaList = map.convert({cap: false})(
@@ -30,19 +30,24 @@ const InputSplitScreen = props => {
     <div className={style.split}>
       <div className={style.splitLeft}>
         <div>
-          <p className={style.title}>{conditions.title}</p>
+          <p className={style.title}>{providerCondition.title}</p>
           {criteriaList}
         </div>
       </div>
       <div className={style.splitRight}>
         <div>
-          <p className={style.title}>{groups.title}</p>
+          <p className={style.title}>{groupSelection.title}</p>
           {collectionList}
         </div>
       </div>
     </div>
   );
 };
+
+InputSplitScreen.propTypes = {
+  providerCondition: PropTypes.object,
+  groupSelection: PropTypes.object
+}
 
 const ButtonGroup = props => {
   const {buttonGroup} = props;
@@ -59,6 +64,10 @@ const ButtonGroup = props => {
     </div>
   );
 };
+
+ButtonGroup.propTypes = {
+  buttonGroup: PropTypes.array
+}
 
 const SetupCohortItem = props => {
   const {fields = []} = props;
@@ -92,13 +101,20 @@ const SetupCohortItem = props => {
 
 SetupCohortItem.propTypes = {
   fields: PropTypes.arrayOf(
-    PropTypes.shape({
-      type: PropTypes.string.isRequired,
-      title: PropTypes.string,
-      values: PropTypes.array,
-      value: PropTypes.string,
-      checked: PropTypes.bool
-    })
+    PropTypes.oneOfType([
+      PropTypes.shape({
+        type: PropTypes.oneOf(['checkbox']),
+        ...InputCheckbox.PropTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['splitScreen']),
+        ...InputSplitScreen.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['buttonGroup']),
+        ...ButtonGroup.propTypes
+      })
+    ])
   )
 };
 export default SetupCohortItem;
