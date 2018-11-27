@@ -30,7 +30,12 @@
     "start": "npm run storybook:run",
     "static": "npm run storybook:export",
     "storybook:run": "cross-env BABEL_ENV=es start-storybook -p 3004 -c .storybook",
-    "storybook:export": "cross-env BABEL_ENV=es build-storybook -c .storybook -o static"
+    "storybook:export": "cross-env BABEL_ENV=es build-storybook -c .storybook -o static",
+    "ava": "cross-env NODE_ENV=test ava",
+    "nyc": "cross-env NODE_ENV=test nyc npm run ava",
+    "test": " npm run lint && npm run nyc",
+    "lint": "npm run eslint",
+    "eslint": "eslint ./ *.js *.json --ext .js,.json"
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",
@@ -60,6 +65,7 @@
     "react-tooltip": "^3.6.1"
   },
   "devDependencies": {
+    "ava": "^0.25.0",
     "@coorpacademy/css-modules-require-hook": "1.0.0",
     "@coorpacademy/translate": "5.3.12",
     "@coorpacademy/webpack-config": "7.0.1",
@@ -104,7 +110,15 @@
       "babel-polyfill",
       "../../test/helpers/throw-warning"
     ],
-    "babel": "inherit"
+    "babel": {
+      "presets": [
+        "@ava/stage-4",
+        "react"
+      ],
+      "plugins": [
+        "transform-object-rest-spread"
+      ]
+    }
   },
   "author": "CoorpAcademy"
 }

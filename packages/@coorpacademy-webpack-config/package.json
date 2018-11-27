@@ -9,6 +9,11 @@
   ],
   "scripts": {
     "build": "cross-env babel src --out-dir lib -s --ignore test --copy-files",
+    "ava": "cross-env NODE_ENV=test ava",
+    "nyc": "cross-env NODE_ENV=test nyc npm run ava",
+    "test": "npm run lint",
+    "lint": "npm run eslint",
+    "eslint": "eslint ./ *.js *.json --ext .js,.json",
     "clean:build": "rimraf lib",
     "clean": "npm run clean:build",
     "prepare": "npm run clean && npm run build --production"

@@ -1,0 +1,19 @@
+{
+  "include": [
+    "src/**"
+  ],
+  "reporter": [
+    "lcov",
+    "text-summary"
+  ],
+  "check-coverage": true,
+  "lines": 60,
+  "statements": 80,
+  "functions": 64,
+  "branches": 54,
+  "cache": true,
+  "require": "babel-register",
+  "sourceMap": false,
+  "instrument": false,
+  "all": true
+}

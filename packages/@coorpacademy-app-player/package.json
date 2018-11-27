@@ -11,6 +11,11 @@
     "README.md"
   ],
   "scripts": {
+    "ava": "cross-env NODE_ENV=test ava",
+    "nyc": "cross-env NODE_ENV=test nyc npm run ava",
+    "test": "npm run lint && npm run nyc",
+    "lint": "npm run eslint",
+    "eslint": "eslint ./ *.js *.json --ext .js,.json",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
     "build": "npm run build:commonjs && npm run build:es",
@@ -52,6 +57,7 @@
     "redux-thunk": "^2.2.0"
   },
   "ava": {
+    "concurrency": 8,
     "files": [
       "src/**/test/**/*.js"
     ],
@@ -59,6 +65,15 @@
       "babel-register",
       "babel-polyfill"
     ],
-    "babel": "inherit"
+    "babel": {
+      "presets": [
+        "@ava/stage-4",
+        "flow",
+        "react"
+      ],
+      "plugins": [
+        "transform-object-rest-spread"
+      ]
+    }
   }
 }

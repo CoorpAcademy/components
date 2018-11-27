@@ -11,7 +11,10 @@
     "build": "cross-env babel src --out-dir lib -s --ignore test --copy-files",
     "clean:build": "rimraf lib",
     "clean": "npm run clean:build",
-    "prepare": "npm run clean && npm run build --production"
+    "prepare": "npm run clean && npm run build --production",
+    "test": "npm run lint",
+    "lint": "npm run eslint",
+    "eslint": "eslint ./ *.js *.json --ext .js,.json"
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",
