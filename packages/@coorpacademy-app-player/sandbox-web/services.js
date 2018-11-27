@@ -41,6 +41,7 @@ const Services = fixtures => {
   return {
     Analytics: addTimeoutToService(AnalyticsService(fixtures)),
     Answers: addTimeoutToService(AnswersService(fixtures)),
+    Clues: addTimeoutToService(CluesService(fixtures)),
     Content: addTimeoutToService(ContentService(fixtures)),
     Progressions: addTimeoutToService(ProgressionsService(fixtures))
   };
