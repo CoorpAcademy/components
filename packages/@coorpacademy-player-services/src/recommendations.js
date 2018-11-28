@@ -1,29 +1,14 @@
-import reduce from 'lodash/fp/reduce';
-import _find from 'lodash/fp/find';
-import recommendations from './fixtures/recommendations';
-import levelsData from './fixtures/levels';
-
-const levels = reduce((map, object) => map.set(object.ref, object), new Map(), levelsData);
-
-export const find = (type, ref) => {
+export const find = (fixtures, {onFindRecommendations}) => (type, ref) => {
+  const {findRecommendations} = fixtures;
+  const _recommendations = findRecommendations(type, ref);
+  const recommendations = onFindRecommendations
+    ? onFindRecommendations(_recommendations)
+    : _recommendations;
   return Promise.resolve(recommendations);
 };
 
-const getNextLevel = ref => {
-  const {name, level} = levels.get(ref);
-  if (level === 'coach') {
-    return undefined;
-  }
-  return _find(
-    {
-      name,
-      level: level === 'base' ? 'advanced' : 'coach'
-    },
-    levelsData
-  );
-};
-
-export const getNext = (type, ref) => {
+export const getNext = fixtures => (type, ref) => {
+  const {getNextLevel} = fixtures;
   switch (type) {
     case 'chapter':
       return Promise.resolve(undefined);

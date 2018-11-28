@@ -26,11 +26,9 @@ const addTimeout = curryN(2, (timeout, fun) => (...args) =>
 
 const addTimeoutToService = mapValues(addTimeout(TIMEOUT));
 
-// export const Logger = console; // eslint-disable-line no-console
-// export const Recommendations = addTimeoutToService(RecommendationsService);
 // export const Slides = addTimeoutToService(SlidesService);
 
-const Services = fixtures => {
+const Services = (fixtures, extension) => {
   return {
     Analytics: addTimeoutToService(AnalyticsService),
     Answers: addTimeoutToService(AnswersService(fixtures)),
@@ -41,7 +39,9 @@ const Services = fixtures => {
     ExitNodes: addTimeoutToService(ExitNodesService(fixtures)),
     LeaderBoard: addTimeoutToService(LeaderBoardService),
     Location: addTimeoutToService(LocationService),
-    Progressions: addTimeoutToService(ProgressionsService(fixtures))
+    Logger: console,
+    Progressions: addTimeoutToService(ProgressionsService(fixtures)),
+    Recommendations: addTimeoutToService(RecommendationsService(fixtures))
   };
 };
 
