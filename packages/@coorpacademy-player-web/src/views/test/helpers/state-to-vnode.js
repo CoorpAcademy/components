@@ -1,5 +1,5 @@
 import {createStateToVNode, views} from '../..';
-import {selectMapStateToVNode} from '../../../../store/view';
+import {selectMapStateToVNode} from '../../../map-state-to-props';
 
 const stateToVNode = (options, store) =>
   selectMapStateToVNode(options, store, views, createStateToVNode);

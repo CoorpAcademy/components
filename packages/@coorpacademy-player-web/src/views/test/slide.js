@@ -4,12 +4,12 @@ import map from 'lodash/fp/map';
 import omit from 'lodash/fp/omit';
 import isFunction from 'lodash/fp/isFunction';
 import {mockTranslate} from '@coorpacademy/translate';
-import microlearningHeader from '../../../store/view/test/fixtures/progression-state';
-import learnerHeader from '../../../store/view/test/fixtures/progression-learner';
-import stateSlide from '../../../store/view/test/fixtures/player/slide';
-import stateNoClue from '../../../store/view/test/fixtures/player/no-clue';
-import stateClue from '../../../store/view/test/fixtures/player/clue';
-import stateLoadingClue from '../../../store/view/test/fixtures/player/loading-clue';
+import microlearningHeader from '../../map-state-to-props/test/fixtures/progression-state';
+import learnerHeader from '../../map-state-to-props/test/fixtures/progression-learner';
+import stateSlide from '../../map-state-to-props/test/fixtures/player/slide';
+import stateNoClue from '../../map-state-to-props/test/fixtures/player/no-clue';
+import stateClue from '../../map-state-to-props/test/fixtures/player/clue';
+import stateLoadingClue from '../../map-state-to-props/test/fixtures/player/loading-clue';
 import stateToVNode from './helpers/state-to-vnode';
 import testRendering from './helpers/render';
 

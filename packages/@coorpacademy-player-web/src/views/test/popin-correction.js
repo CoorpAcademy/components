@@ -6,13 +6,20 @@ import isFunction from 'lodash/fp/isFunction';
 import set from 'lodash/fp/set';
 import omit from 'lodash/fp/omit';
 import {mockTranslate} from '@coorpacademy/translate';
-import {UI_TOGGLE_ACCORDION, selectResource} from '../../../store/actions/ui/corrections';
-import {UI_VIDEO_RESUME, UI_VIDEO_PAUSE, UI_VIDEO_ENDED} from '../../../store/actions/ui/video';
-import statePopinFailure from '../../../store/view/test/fixtures/popin-correction/popin-failure';
-import statePopinSuccess from '../../../store/view/test/fixtures/popin-correction/popin-success';
-import statePopinFailureMultipleAnswers from '../../../store/view/test/fixtures/popin-correction/state-fail-multiple-answers';
-import statePopinExtraLife from '../../../store/view/test/fixtures/popin-correction/popin-extra-life';
-import statePopinRevival from '../../../store/view/test/fixtures/popin-correction/popin-revival';
+import {
+  UI_TOGGLE_ACCORDION,
+  selectResource
+} from '@coorpacademy/player-store/es/actions/ui/corrections';
+import {
+  UI_VIDEO_RESUME,
+  UI_VIDEO_PAUSE,
+  UI_VIDEO_ENDED
+} from '@coorpacademy/player-store/es/actions/ui/video';
+import statePopinFailure from '../../map-state-to-props/test/fixtures/popin-correction/popin-failure';
+import statePopinSuccess from '../../map-state-to-props/test/fixtures/popin-correction/popin-success';
+import statePopinFailureMultipleAnswers from '../../map-state-to-props/test/fixtures/popin-correction/state-fail-multiple-answers';
+import statePopinExtraLife from '../../map-state-to-props/test/fixtures/popin-correction/popin-extra-life';
+import statePopinRevival from '../../map-state-to-props/test/fixtures/popin-correction/popin-revival';
 import stateToVNode from './helpers/state-to-vnode';
 import testRendering from './helpers/render';
 
