@@ -5,8 +5,9 @@ import {getClue} from './clues';
 import {find as findContent} from './content';
 import {findById as findSlideById, findByChapter as findSlideByChapter} from './slides';
 import {findById as findChapterById} from './chapters';
-import {findById as findLevelById} from './levels';
 import {getChapterRulesByContent} from './chapter-rules';
+import {findById as findLevelById} from './levels';
+import {find as findRecommendations} from './recommendations';
 import {
   findById as findProgressionById,
   getAll as getAllProgressions,
@@ -22,6 +23,7 @@ export {
   findContent,
   findLevelById,
   findProgressionById,
+  findRecommendations,
   findSlideByChapter,
   findSlideById,
   saveProgression
