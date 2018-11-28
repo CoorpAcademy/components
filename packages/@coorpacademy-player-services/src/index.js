@@ -1,14 +1,14 @@
 import * as AnalyticsService from './analytics';
-import * as AnswersService from './answers';
+import AnswersService from './answers';
+import CluesService from './clues';
 import * as CoachService from './coach';
 import * as CommentsService from './comments';
-import * as ContentService from './content';
-import * as CluesService from './clues';
-import * as ExitNodesService from './exit-nodes';
+import ContentService from './content';
+import ExitNodesService from './exit-nodes';
 import * as LeaderBoardService from './leaderboard';
 import * as LocationService from './location';
-import * as ProgressionsService from './progressions';
-import * as RecommendationsService from './recommendations';
+import ProgressionsService from './progressions';
+import RecommendationsService from './recommendations';
 
 export const Analytics = AnalyticsService;
 export const Answers = AnswersService;

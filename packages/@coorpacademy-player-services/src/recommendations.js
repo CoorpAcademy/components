@@ -1,4 +1,4 @@
-export const find = (fixtures, {onFindRecommendations}) => (type, ref) => {
+const find = (fixtures, {onFindRecommendations} = {}) => (type, ref) => {
   const {findRecommendations} = fixtures;
   const _recommendations = findRecommendations(type, ref);
   const recommendations = onFindRecommendations
@@ -7,7 +7,7 @@ export const find = (fixtures, {onFindRecommendations}) => (type, ref) => {
   return Promise.resolve(recommendations);
 };
 
-export const getNext = fixtures => (type, ref) => {
+const getNext = fixtures => (type, ref) => {
   const {getNextLevel} = fixtures;
   switch (type) {
     case 'chapter':
@@ -16,3 +16,10 @@ export const getNext = fixtures => (type, ref) => {
       return Promise.resolve(getNextLevel(ref));
   }
 };
+
+const Recommendations = fixtures => ({
+  find: find(fixtures),
+  getNext: getNext(fixtures)
+});
+
+export default Recommendations;

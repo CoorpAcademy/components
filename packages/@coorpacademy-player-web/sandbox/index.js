@@ -1,7 +1,7 @@
 import createTranslate from '@coorpacademy/translate';
 import localesComponents from '@coorpacademy/components/locales/en/global';
 import localesAppPlayer from '../locales/en/player';
-import {create as createApp} from '../src/web';
+import {create as createApp} from '../src';
 import Services from './services';
 import * as fixtures from './fixtures';
 
