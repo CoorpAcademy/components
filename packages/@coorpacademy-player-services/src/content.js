@@ -34,5 +34,9 @@ const getInfo = fixtures => (contentRef, engineRef, version) => {
   return {nbSlides};
 };
 
-// eslint-disable-next-line import/prefer-default-export
-export {find, getInfo};
+const Content = fixtures => ({
+  find: find(fixtures),
+  getInfo: getInfo(fixtures)
+});
+
+export default Content;

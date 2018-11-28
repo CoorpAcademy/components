@@ -16,9 +16,15 @@ import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
 import maxBy from 'lodash/fp/maxBy';
 import map from 'lodash/fp/map';
-import {find as findContent} from './content';
+import Content from './content';
 
 const generateId = () => uniqueId('progression');
+
+const findById = fixtures => async id => {
+  const {findProgressionById} = fixtures;
+  const progression = await findProgressionById(id);
+  return progression;
+};
 
 // eslint-disable-next-line require-await
 const getEngineConfig = async engine => {
@@ -33,6 +39,7 @@ const openAssistance = progression => {
 
 const getAvailableContent = fixtures => async content => {
   const {getChapterRulesByContent, findSlideByChapter} = fixtures;
+  const {findContent} = Content(fixtures);
   const chapters =
     content.type === 'level'
       ? map(
@@ -50,9 +57,9 @@ const getAvailableContent = fixtures => async content => {
   );
 };
 
-const save = fixtures => progression => {
+const createSave = fixtures => progression => {
   const {saveProgression} = fixtures;
-  saveProgression(fixtures);
+  saveProgression(progression);
   return progression;
 };
 
@@ -67,9 +74,10 @@ const findBestOf = fixtures => (engineRef, contentRef, progressionId = null) => 
   return bestProgression || set('state.stars', 0, {});
 };
 
-const addActionAndSaveProgression = (progression, action) => {
+const addActionAndSaveProgression = fixtures => (progression, action) => {
   const newProgression = update('actions', actions => actions.concat(action), progression);
   const newState = createState(newProgression);
+  const save = createSave(fixtures);
   return pipe(set('state', newState), save)(newProgression);
 };
 
@@ -77,7 +85,7 @@ const postAnswer = fixtures => async (progressionId, payload) => {
   const {findSlideById, findProgressionById} = fixtures;
   const userAnswer = getOr([''], 'answer', payload);
   const slideId = payload.content.ref;
-  const slide = findSlideById(slideId);
+  const slide = await findSlideById(slideId);
   const progression = await findProgressionById(progressionId);
   const state = progression.state;
 
@@ -89,7 +97,9 @@ const postAnswer = fixtures => async (progressionId, payload) => {
       godMode: false
     }
   };
-  const availableContent = await getAvailableContent(progression.content);
+
+  const _getAvailableContent = getAvailableContent(fixtures);
+  const availableContent = await _getAvailableContent(progression.content);
   const config = getConfigForProgression(progression);
   const action = computeNextStepAfterAnswer(
     config,
@@ -99,7 +109,7 @@ const postAnswer = fixtures => async (progressionId, payload) => {
     partialAnswerAction
   );
 
-  return addActionAndSaveProgression(progression, action);
+  return addActionAndSaveProgression(fixtures)(progression, action);
 };
 
 const requestClue = fixtures => async (progressionId, payload) => {
@@ -111,20 +121,19 @@ const requestClue = fixtures => async (progressionId, payload) => {
     payload
   };
 
-  return addActionAndSaveProgression(progression, action);
+  return addActionAndSaveProgression(fixtures)(progression, action);
 };
 
 const acceptExtraLife = fixtures => async (progressionId, payload) => {
   const {findProgressionById} = fixtures;
   const progression = await findProgressionById(progressionId);
   const config = getConfigForProgression(progression);
-  const action = computeNextStepOnAcceptExtraLife(
-    config,
-    progression.state,
-    await getAvailableContent(progression.content)
-  );
 
-  return addActionAndSaveProgression(progression, action);
+  const _getAvailableContent = getAvailableContent(fixtures);
+  const availableContent = await _getAvailableContent(progression.content);
+  const action = computeNextStepOnAcceptExtraLife(config, progression.state, availableContent);
+
+  return addActionAndSaveProgression(fixtures)(progression, action);
 };
 
 const refuseExtraLife = fixtures => async (progressionId, payload) => {
@@ -133,16 +142,19 @@ const refuseExtraLife = fixtures => async (progressionId, payload) => {
   const config = getConfigForProgression(progression);
   const action = computeNextStepOnRefuseExtraLife(config, progression.state);
 
-  return addActionAndSaveProgression(progression, action);
+  return addActionAndSaveProgression(fixtures)(progression, action);
 };
 
-const create = async (engine, content, engineOptions = {}) => {
+const create = fixtures => async (engine, content, engineOptions = {}) => {
   const _id = generateId();
 
-  const availableContent = await getAvailableContent(content);
+  const _getAvailableContent = getAvailableContent(fixtures);
+  const availableContent = await _getAvailableContent(content);
+
   const newProgression = createProgression(engine, content, engineOptions, availableContent);
   const state = createState(newProgression);
 
+  const save = createSave(fixtures);
   return save({
     ...newProgression,
     _id,
@@ -159,14 +171,14 @@ const markResourceAsViewed = fixtures => async (progressionId, payload) => {
     payload
   };
 
-  return addActionAndSaveProgression(progression, action);
+  return addActionAndSaveProgression(fixtures)(progression, action);
 };
 
-// eslint-disable-next-line import/prefer-default-export
-export const ProgressionsService = fixtures => ({
+const Progressions = fixtures => ({
   acceptExtraLife: acceptExtraLife(fixtures),
   create: create(fixtures),
   findBestOf: findBestOf(fixtures),
+  findById: findById(fixtures),
   getAvailableContent: getAvailableContent(fixtures),
   getEngineConfig,
   markResourceAsViewed: markResourceAsViewed(fixtures),
@@ -174,5 +186,7 @@ export const ProgressionsService = fixtures => ({
   postAnswer: postAnswer(fixtures),
   refuseExtraLife: refuseExtraLife(fixtures),
   requestClue: requestClue(fixtures),
-  save: save(fixtures)
+  save: createSave(fixtures)
 });
+
+export default Progressions;

@@ -1,5 +1,3 @@
-// @flow
-
 import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 import reduce from 'lodash/fp/reduce';
@@ -13,7 +11,7 @@ const mayBy = key =>
 const toMapById = mayBy('_id');
 const chapters = toMapById(chaptersData);
 
-const findById = chapters.get;
+const findById = ref => chapters.get(ref);
 
 // eslint-disable-next-line import/prefer-default-export
 export {findById};

@@ -2,8 +2,7 @@ import assign from 'lodash/fp/assign';
 import includes from 'lodash/fp/includes';
 import {checkAnswerCorrectness, getConfigForProgression} from '@coorpacademy/progression-engine';
 
-// eslint-disable-next-line import/prefer-default-export
-export const findById = fixtures => async (progressionId, slideId, givenAnswers = []) => {
+const findById = fixtures => async (progressionId, slideId, givenAnswers = []) => {
   const {findProgressionById, findSlideById, getCorrectAnswer} = fixtures;
   const slide = await findSlideById(slideId);
   const progression = await findProgressionById(progressionId);
@@ -20,5 +19,11 @@ export const findById = fixtures => async (progressionId, slideId, givenAnswers 
   return {
     correctAnswer,
     corrections
-  }; 
+  };
 };
+
+const Answers = fixtures => ({
+  findById: findById(fixtures)
+});
+
+export default Answers;

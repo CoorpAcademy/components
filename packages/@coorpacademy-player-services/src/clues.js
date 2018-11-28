@@ -10,5 +10,8 @@ const findById = fixtures => async (progressionId, slideId) => {
   return getClue(slideId);
 };
 
-// eslint-disable-next-line import/prefer-default-export
-export {findById};
+const Clues = fixtures => ({
+  findById: findById(fixtures)
+});
+
+export default Clues;
