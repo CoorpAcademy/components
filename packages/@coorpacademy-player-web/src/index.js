@@ -32,7 +32,9 @@ const create = options => {
   if (module.hot) {
     module.hot.accept('@coorpacademy/player-store/es/view', () => {
       unsubscribe();
-      update = createUpdate(container, store, options)(require('@coorpacademy/player-store/es/view').default);
+      update = createUpdate(container, store, options)(
+        require('@coorpacademy/player-store/es/view').default
+      );
       update();
       unsubscribe = store.subscribe(update);
     });

@@ -6,7 +6,7 @@ const concat = require('lodash/fp/concat');
 const {default: generateConfig} = require('@coorpacademy/webpack-config');
 
 const entry = {
-  Player: ['./src/web']
+  Player: ['./src']
 };
 
 const output = {

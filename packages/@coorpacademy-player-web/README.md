@@ -1,4 +1,4 @@
-# Coorpacademy player
+# Coorpacademy web player
 
 - freerun
 - learner

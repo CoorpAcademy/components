@@ -2,8 +2,8 @@ import test from 'ava';
 import set from 'lodash/fp/set';
 import identity from 'lodash/fp/identity';
 import {mockTranslate} from '@coorpacademy/translate';
-import success from '../../../store/view/test/fixtures/popin-end/success';
-import fail from '../../../store/view/test/fixtures/popin-end/fail';
+import success from '../../map-state-to-props/test/fixtures/popin-end/success';
+import fail from '../../map-state-to-props/test/fixtures/popin-end/fail';
 import stateToVNode from './helpers/state-to-vnode';
 import testRendering from './helpers/render';
 
