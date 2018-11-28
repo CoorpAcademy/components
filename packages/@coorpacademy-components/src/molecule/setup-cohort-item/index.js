@@ -45,9 +45,9 @@ const InputSplitScreen = props => {
 };
 
 InputSplitScreen.propTypes = {
-  providerCondition: PropTypes.object,
-  groupSelection: PropTypes.object
-}
+  providerCondition: PropTypes.shape({}),
+  groupSelection: PropTypes.shape({})
+};
 
 const ButtonGroup = props => {
   const {buttonGroup} = props;
@@ -66,8 +66,8 @@ const ButtonGroup = props => {
 };
 
 ButtonGroup.propTypes = {
-  buttonGroup: PropTypes.array
-}
+  ...Button.propTypes
+};
 
 const SetupCohortItem = props => {
   const {fields = []} = props;
@@ -113,6 +113,9 @@ SetupCohortItem.propTypes = {
       PropTypes.shape({
         type: PropTypes.oneOf(['buttonGroup']),
         ...ButtonGroup.propTypes
+      }),
+      PropTypes.shape({
+        ...InputText.propTypes
       })
     ])
   )

@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import SetupCohortItem from '../setup-cohort-item';
-import AccordionCohort from '../../organism/accordion-cohort/toggler';
 import Accordion from '../../organism/accordion/toggler';
 
 const SetupCohort = props => {
@@ -18,7 +17,7 @@ const SetupCohort = props => {
   return (
     <div>
       {tabProps.length > 0 ? (
-        <AccordionCohort
+        <Accordion
           tabProps={map.convert({cap: false})(
             (tab, idx) => ({
               ...tab,
@@ -29,7 +28,7 @@ const SetupCohort = props => {
           type={'all'}
         >
           {slidesView}
-        </AccordionCohort>
+        </Accordion>
       ) : (
         ''
       )}
@@ -45,7 +44,7 @@ SetupCohort.defaultProps = {
 };
 
 SetupCohort.propTypes = {
-  tabProps: PropTypes.arrayOf(PropTypes.shape(AccordionCohort.PropTypes)),
+  tabProps: PropTypes.arrayOf(PropTypes.shape(Accordion.PropTypes)),
   slides: PropTypes.arrayOf(PropTypes.shape(SetupCohortItem.propTypes)),
   tabNew: PropTypes.arrayOf(PropTypes.shape(Accordion.PropTypes)),
   slidesNew: PropTypes.arrayOf(PropTypes.shape(SetupCohortItem.propTypes)),
