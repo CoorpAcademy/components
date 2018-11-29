@@ -1,8 +1,12 @@
 import test from 'ava';
 import find from 'lodash/fp/find';
-import {findById} from '../answers';
-import * as Progressions from '../progressions';
-import slidesData from '../fixtures/slides';
+import AnswersService from '../answers';
+import ProgressionsService from '../progressions';
+import slidesData from './fixtures/data/slides';
+import * as fixtures from './fixtures';
+
+const Progressions = ProgressionsService(fixtures);
+const {findById} = AnswersService(fixtures);
 
 const engine = {
   ref: 'microlearning',

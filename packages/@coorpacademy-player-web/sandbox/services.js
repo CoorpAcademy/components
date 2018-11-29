@@ -9,7 +9,8 @@ import {
   LeaderBoard as LeaderBoardService,
   Location as LocationService,
   Progressions as ProgressionsService,
-  Recommendations as RecommendationsService
+  Recommendations as RecommendationsService,
+  Slides as SlidesService
 } from '@coorpacademy/player-services/es';
 import curryN from 'lodash/fp/curryN';
 import mapValues from 'lodash/fp/mapValues';
@@ -26,8 +27,6 @@ const addTimeout = curryN(2, (timeout, fun) => (...args) =>
 
 const addTimeoutToService = mapValues(addTimeout(TIMEOUT));
 
-// export const Slides = addTimeoutToService(SlidesService);
-
 const Services = (fixtures, extension) => {
   return {
     Analytics: addTimeoutToService(AnalyticsService),
@@ -41,7 +40,8 @@ const Services = (fixtures, extension) => {
     Location: addTimeoutToService(LocationService),
     Logger: console,
     Progressions: addTimeoutToService(ProgressionsService(fixtures)),
-    Recommendations: addTimeoutToService(RecommendationsService(fixtures))
+    Recommendations: addTimeoutToService(RecommendationsService(fixtures)),
+    Slides: addTimeoutToService(SlidesService(fixtures))
   };
 };
 

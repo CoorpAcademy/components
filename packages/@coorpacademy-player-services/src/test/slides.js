@@ -2,12 +2,16 @@ import test from 'ava';
 import head from 'lodash/fp/head';
 import pipe from 'lodash/fp/pipe';
 import values from 'lodash/fp/values';
-import unset from 'lodash/fp/unset';
-import slidesData from '../fixtures/slides';
-import {findById} from '../slides';
+import SlidesService from '../slides';
+
+import slidesData from './fixtures/data/slides';
+import * as fixtures from './fixtures';
+
+const Slides = SlidesService(fixtures);
+const {findById} = Slides;
 
 test('should findById', async t => {
-  const slide = pipe(values, head, unset('clue'), unset('question.content.answers'))(slidesData);
+  const slide = pipe(values, head)(slidesData);
   t.deepEqual(await findById(slide._id), slide);
 });
 

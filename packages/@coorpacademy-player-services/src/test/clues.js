@@ -3,9 +3,14 @@ import find from 'lodash/fp/find';
 import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
-import {findById} from '../clues';
-import * as Progressions from '../progressions';
-import slidesData from '../fixtures/slides';
+import CluesService from '../clues';
+
+import ProgressionsService from '../progressions';
+import * as fixtures from './fixtures';
+import slidesData from './fixtures/data/slides';
+
+const Progressions = ProgressionsService(fixtures);
+const {findById} = CluesService(fixtures);
 
 const engine = {
   ref: 'microlearning',

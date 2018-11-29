@@ -1,14 +1,17 @@
 import test from 'ava';
 import get from 'lodash/fp/get';
 import head from 'lodash/fp/head';
-import unset from 'lodash/fp/unset';
 import pipe from 'lodash/fp/pipe';
 import values from 'lodash/fp/values';
 import {getConfig} from '@coorpacademy/progression-engine';
-import chaptersData from '../fixtures/chapters';
-import slidesData from '../fixtures/slides';
-import levelsData from '../fixtures/levels';
-import {find, getInfo} from '../content';
+import ContentService from '../content';
+import chaptersData from './fixtures/data/chapters';
+import slidesData from './fixtures/data/slides';
+import levelsData from './fixtures/data/levels';
+
+import * as fixtures from './fixtures';
+
+const {find, getInfo} = ContentService(fixtures);
 
 const first = pipe(values, head);
 
@@ -37,7 +40,7 @@ test('should tell when a chapter is not found', async t => {
 });
 
 test('should find a slide', async t => {
-  const slide = pipe(first, unset('clue'), unset('question.content.answers'))(slidesData);
+  const slide = first(slidesData);
   t.deepEqual(await find('slide', slide._id), slide);
 });
 
