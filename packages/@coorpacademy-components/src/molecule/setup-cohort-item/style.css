@@ -46,3 +46,8 @@
   align-items: center;
   font-weight: bold;
 }
+
+.wrapmessage {
+  position: relative;
+  width: 100%;
+}

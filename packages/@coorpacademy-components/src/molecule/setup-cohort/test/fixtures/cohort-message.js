@@ -1,10 +1,6 @@
-import CohortItem from '../../../setup-cohort-item/test/fixtures/default';
-import CohortItemCreate from '../../../setup-cohort-item/test/fixtures/create-new';
 import CohortItemMessage from '../../../setup-cohort-item/test/fixtures/cohort-message';
 
-const {props} = CohortItem;
 const propsCohortMessage = CohortItemMessage.props;
-const propsCreate = CohortItemCreate.props;
 export default {
   props: {
     tabProps: [
@@ -19,12 +15,6 @@ export default {
       }
     ],
     formatTitle: (title, rowNumber) => `Cohort ${rowNumber} : ${title}`,
-    slides: [props, props, propsCohortMessage],
-    tabNew: [
-      {
-        title: 'Create a new cohort'
-      }
-    ],
-    slidesNew: [propsCreate]
+    slides: [propsCohortMessage, propsCohortMessage, propsCohortMessage]
   }
 };

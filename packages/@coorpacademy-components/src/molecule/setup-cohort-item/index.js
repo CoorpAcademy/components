@@ -5,6 +5,7 @@ import InputText from '../../atom/input-text';
 import InputCheckbox from '../../atom/input-checkbox';
 import Button from '../../atom/button';
 import style from './style.css';
+import SetupCohortItemPopin from './setup-cohort-item-popin';
 
 const InputSplitScreen = props => {
   const {providerCondition = {}, groupSelection = {}} = props;
@@ -70,18 +71,18 @@ ButtonGroup.propTypes = {
 };
 
 const SetupCohortItem = props => {
-  const {fields = []} = props;
+  const {fields = [], cohortMessage} = props;
   const buildInput = field => {
     const {type} = field;
     switch (type) {
       case 'checkbox':
-        return <InputCheckbox {...field} cohortCheckbox />;
+        return <InputCheckbox {...field} />;
       case 'splitScreen':
         return <InputSplitScreen {...field} />;
       case 'buttonGroup':
         return <ButtonGroup {...field} />;
       default:
-        return <InputText {...field} />;
+        return <InputText {...field} disabled={!!cohortMessage} />;
     }
   };
 
@@ -96,10 +97,24 @@ const SetupCohortItem = props => {
 
   const fieldsList = map.convert({cap: false})(buildField, fields);
 
-  return <div className={style.wrapper}>{fieldsList}</div>;
+  return (
+    <div className={style.wrapper}>
+      {fieldsList}
+      {cohortMessage ? (
+        <div className={style.wrapmessage}>
+          <SetupCohortItemPopin header="{cohortMessage.title}" content="{cohortMessage.subtitle}" />
+        </div>
+      ) : (
+        ''
+      )}
+    </div>
+  );
 };
 
 SetupCohortItem.propTypes = {
+  cohortMessage: PropTypes.shape({
+    ...SetupCohortItemPopin.PropTypes
+  }),
   fields: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.shape({

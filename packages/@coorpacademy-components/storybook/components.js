@@ -448,8 +448,10 @@ import MoleculeSearchFixtureWithValue from '../src/molecule/search/test/fixtures
 import MoleculeSearchFormFixtureDefault from '../src/molecule/search-form/test/fixtures/default';
 import MoleculeSelectMultipleFixtureChecked from '../src/molecule/select-multiple/test/fixtures/checked';
 import MoleculeSelectMultipleFixtureDefault from '../src/molecule/select-multiple/test/fixtures/default';
+import MoleculeSetupCohortFixtureCohortMessage from '../src/molecule/setup-cohort/test/fixtures/cohort-message';
 import MoleculeSetupCohortFixtureCreateNew from '../src/molecule/setup-cohort/test/fixtures/create-new';
 import MoleculeSetupCohortFixtureDefault from '../src/molecule/setup-cohort/test/fixtures/default';
+import MoleculeSetupCohortItemFixtureCohortMessage from '../src/molecule/setup-cohort-item/test/fixtures/cohort-message';
 import MoleculeSetupCohortItemFixtureCreateNew from '../src/molecule/setup-cohort-item/test/fixtures/create-new';
 import MoleculeSetupCohortItemFixtureDefault from '../src/molecule/setup-cohort-item/test/fixtures/default';
 import MoleculeSetupSectionFixtureAnalyticsBoutique from '../src/molecule/setup-section/test/fixtures/analytics-boutique';
@@ -1298,10 +1300,12 @@ export const fixtures = {
       Default: MoleculeSelectMultipleFixtureDefault
     },
     MoleculeSetupCohort: {
+      CohortMessage: MoleculeSetupCohortFixtureCohortMessage,
       CreateNew: MoleculeSetupCohortFixtureCreateNew,
       Default: MoleculeSetupCohortFixtureDefault
     },
     MoleculeSetupCohortItem: {
+      CohortMessage: MoleculeSetupCohortItemFixtureCohortMessage,
       CreateNew: MoleculeSetupCohortItemFixtureCreateNew,
       Default: MoleculeSetupCohortItemFixtureDefault
     },
