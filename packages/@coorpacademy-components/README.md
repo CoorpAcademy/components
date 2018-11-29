@@ -26,6 +26,20 @@ npm start
 
 Then open `http://localhost:3004`
 
+### Analyse your component
+
+The `props` is the contract your app should fill in order to use the component.
+If the `props` are not properly set, it is not the role of you component to change them in order to render somehow.
+The `propTypes` are the representation of this contract.
+
+Keep this workflow in mind:
+
+```sh
+props -> propTypes -> fixtures -> component
+```
+
+Then your app will just have to read `propTypes` to know which `props` to provide to render a view.
+
 ### Adding a component
 
 - choose your atomic folder depending your component: `template`, `organism`, `molecule`, `atom`
