@@ -2,14 +2,20 @@
   "name": "@coorpacademy/player-services",
   "version": "1.0.0",
   "description": "Implements reactions to redux actions from player-store",
-  "main": "lib/web/index.js",
-  "module": "es/web/index.js",
+  "main": "lib/index.js",
+  "module": "es/index.js",
   "files": [
     "es",
     "lib",
     "README.md"
   ],
   "scripts": {
+    "ava": "cross-env NODE_ENV=test ava",
+    "nyc": "cross-env NODE_ENV=test nyc npm run ava",
+    "test": "npm run lint && npm run flow && npm run nyc",
+    "flow": "flow",
+    "lint": "npm run eslint",
+    "eslint": "eslint ./ *.js *.json --ext .js,.json",
     "build:commonjs": "npm run build:babel:commonjs && npm run build:types:commonjs",
     "build:es": "npm run build:babel:es && npm run build:types:es",
     "build": "concurrently \"npm run build:commonjs\" \"npm run build:es\"",
@@ -27,6 +33,7 @@
   },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-player-services#readme",
   "devDependencies": {
+    "ava": "^0.25.0",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-plugin-istanbul": "^4.1.4",
@@ -34,13 +41,16 @@
     "babel-polyfill": "^6.26.0",
     "concurrently": "^3.5.1",
     "cross-env": "^5.0.0",
+    "eslint": "^4.18.2",
     "flow-bin": "^0.72.0",
+    "nyc": "^11.1.0",
     "rimraf": "^2.6.1"
   },
   "dependencies": {
     "lodash": "^4.17.4"
   },
   "ava": {
+    "concurrency": 8,
     "files": [
       "src/**/test/**/*.js"
     ],
@@ -48,6 +58,14 @@
       "babel-register",
       "babel-polyfill"
     ],
-    "babel": "inherit"
+    "babel": {
+      "presets": [
+        "@ava/stage-4",
+        "flow"
+      ],
+      "plugins": [
+        "transform-object-rest-spread"
+      ]
+    }
   }
 }

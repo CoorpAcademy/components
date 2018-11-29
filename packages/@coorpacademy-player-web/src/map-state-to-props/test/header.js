@@ -4,7 +4,7 @@ import identity from 'lodash/fp/identity';
 import omit from 'lodash/fp/omit';
 import pipe from 'lodash/fp/pipe';
 import {mockTranslate} from '@coorpacademy/translate';
-import createHeader from '../state-to-props/header';
+import createHeader from '../header';
 import basicSlide from './fixtures/slides/basic';
 
 const options = {translate: mockTranslate};

@@ -5,11 +5,13 @@ node_js:
 cache:
   directories:
     - node_modules
-    - packages/@coorpacademy-app-player/node_modules
     - packages/@coorpacademy-components/node_modules
     - packages/@coorpacademy-css-modules-require-hook/node_modules
     - packages/@coorpacademy-history/node_modules
     - packages/@coorpacademy-nova-icons/node_modules
+    - packages/@coorpacademy-player-services/node_modules
+    - packages/@coorpacademy-player-store/node_modules
+    - packages/@coorpacademy-player-web/node_modules
     - packages/@coorpacademy-progression-engine/node_modules
     - packages/@coorpacademy-redux-history/node_modules
     - packages/@coorpacademy-redux-router/node_modules/node_modules
@@ -23,11 +25,13 @@ env:
   global:
     - CXX=g++-5
   matrix:
-    - PACKAGE_NAME=@coorpacademy/app-player
     - PACKAGE_NAME=@coorpacademy/components
     - PACKAGE_NAME=@coorpacademy/css-modules-require-hook
     - PACKAGE_NAME=@coorpacademy/history
     - PACKAGE_NAME=@coorpacademy/nova-icons
+    - PACKAGE_NAME=@coorpacademy/player-services
+    - PACKAGE_NAME=@coorpacademy/player-store
+    - PACKAGE_NAME=@coorpacademy/player-web
     - PACKAGE_NAME=@coorpacademy/progression-engine
     - PACKAGE_NAME=@coorpacademy/redux-history
     - PACKAGE_NAME=@coorpacademy/redux-router
@@ -39,9 +43,9 @@ env:
 
 install:
   - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "^1.2.1"'`
-  - "npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN"
-  - "npm config set @coorpacademy:registry http://registry.npmjs.org/"
-  - "yarn config set registry https://registry.npmjs.org/"
+  - 'npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN'
+  - 'npm config set @coorpacademy:registry http://registry.npmjs.org/'
+  - 'yarn config set registry https://registry.npmjs.org/'
   - yarn
 
 before_script:
@@ -63,13 +67,13 @@ deploy:
   - provider: script
     skip_cleanup: true
     script: npm run static
-    "on":
+    'on':
       branch: master
   - provider: pages
     skip_cleanup: true
     github_token: $GH_TOKEN
     local_dir: static
-    "on":
+    'on':
       branch: master
   - provider: script
     skip_cleanup: true
@@ -78,7 +82,7 @@ deploy:
       --package ./package.json --travis ./.travis.yml --repo_slug
       $TRAVIS_REPO_SLUG --team_reviewers $TEAM_REVIEWERS --branch
       "upgrade-nodejs" --base $TRAVIS_BRANCH --github_token $GH_TOKEN
-    "on":
+    'on':
       branch: master
   - provider: script
     skip_cleanup: true
@@ -87,7 +91,7 @@ deploy:
       application/json" -H "Travis-API-Version: 3" -H "Authorization: token
       $TRAVIS_TOKEN" -d '{"request":{"branch":"deploy-production"}}'
       https://api.travis-ci.com/repo/CoorpAcademy%2Fcoorpacademy/requests
-    "on":
+    'on':
       tags: true
   - provider: script
     skip_cleanup: true
@@ -96,7 +100,7 @@ deploy:
       application/json" -H "Travis-API-Version: 3" -H "Authorization: token
       $TRAVIS_TOKEN" -d '{"request":{"branch":"master"}}'
       https://api.travis-ci.com/repo/CoorpAcademy%2Fcoorpacademy-cockpit/requests
-    "on":
+    'on':
       tags: true
   - provider: script
     skip_cleanup: true
@@ -105,7 +109,7 @@ deploy:
       application/json" -H "Travis-API-Version: 3" -H "Authorization: token
       $TRAVIS_TOKEN" -d '{"request":{"branch":"master"}}'
       https://api.travis-ci.com/repo/CoorpAcademy%2Fapp-backoffice/requests
-    "on":
+    'on':
       tags: true
   - provider: script
     skip_cleanup: true
@@ -114,7 +118,7 @@ deploy:
       application/json" -H "Travis-API-Version: 3" -H "Authorization: token
       $TRAVIS_TOKEN" -d '{"request":{"branch":"master"}}'
       https://api.travis-ci.com/repo/CoorpAcademy%2Fcoorpacademy-store/requests
-    "on":
+    'on':
       tags: true
   - provider: script
     skip_cleanup: true
@@ -123,5 +127,5 @@ deploy:
       application/json" -H "Travis-API-Version: 3" -H "Authorization: token
       $TRAVIS_TOKEN" -d '{"request":{"branch":"master"}}'
       https://api.travis-ci.com/repo/CoorpAcademy%2Fapi-progression/requests
-    "on":
+    'on':
       tags: true

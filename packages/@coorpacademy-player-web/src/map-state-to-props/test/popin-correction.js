@@ -3,10 +3,10 @@ import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
 import identity from 'lodash/fp/identity';
 import {mockTranslate} from '@coorpacademy/translate';
+import {getCurrentProgressionId} from '@coorpacademy/player-store/es/utils/state-extract';
 import {popinCorrectionStateToProps} from '../popin-correction';
-import popinExtraLife from '../../test/fixtures/popin-correction/popin-extra-life';
-import popinFailure from '../../test/fixtures/popin-correction/popin-failure';
-import {getCurrentProgressionId} from '../@coorpacademy/player-store/es/utils/state-extract';
+import popinExtraLife from './fixtures/popin-correction/popin-extra-life';
+import popinFailure from './fixtures/popin-correction/popin-failure';
 
 test('should put revival to true if current step is extra life and a lesson has been viewed', t => {
   const progressionId = getCurrentProgressionId(popinExtraLife);

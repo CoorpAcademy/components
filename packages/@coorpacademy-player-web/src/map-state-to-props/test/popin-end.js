@@ -6,21 +6,24 @@ import pipe from 'lodash/fp/pipe';
 import identity from 'lodash/fp/identity';
 import isFunction from 'lodash/fp/isFunction';
 import {mockTranslate} from '@coorpacademy/translate';
-import popinEnd from '../popin-end';
-import {getCurrentProgressionId} from '../@coorpacademy/player-store/es/utils/state-extract';
+import {getCurrentProgressionId} from '@coorpacademy/player-store/es/utils/state-extract';
 import {
   LOCATION_NEXT_CONTENT_REQUEST,
   LOCATION_NEXT_CONTENT_SUCCESS,
   LOCATION_SEE_COMMENT_REQUEST,
   LOCATION_SEE_COMMENT_SUCCESS
-} from '../@coorpacademy/player-store/es/actions/ui/location';
-import {UI_EDIT_COMMENT} from '../@coorpacademy/player-store/es/actions/ui/comments';
-import {SEND_POST_COMMENT_REQUEST, SEND_POST_COMMENT_SUCCESS} from '../@coorpacademy/player-store/es/actions/api/comments';
+} from '@coorpacademy/player-store/es/actions/ui/location';
+import {UI_EDIT_COMMENT} from '@coorpacademy/player-store/es/actions/ui/comments';
+import {
+  SEND_POST_COMMENT_REQUEST,
+  SEND_POST_COMMENT_SUCCESS
+} from '@coorpacademy/player-store/es/actions/api/comments';
+import popinEnd from '../popin-end';
 
-import popinLearnerSuccess from '../../test/fixtures/popin-end/learner-success';
-import popinLearnerFailure from '../../test/fixtures/popin-end/learner-failure';
-import popinLearnerAdaptiveFailure from '../../test/fixtures/popin-end/learner-adaptive-failure';
-import popinMicrolearningFailure from '../../test/fixtures/popin-end/fail';
+import popinLearnerSuccess from './fixtures/popin-end/learner-success';
+import popinLearnerFailure from './fixtures/popin-end/learner-failure';
+import popinLearnerAdaptiveFailure from './fixtures/popin-end/learner-adaptive-failure';
+import popinMicrolearningFailure from './fixtures/popin-end/fail';
 
 const services = {
   Comments: {
