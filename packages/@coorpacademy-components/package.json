@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "8.2.2",
+  "version": "8.2.3",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -47,7 +47,7 @@
     "Adrien Becchis <adrien.becchis@coorpacademy.com>"
   ],
   "dependencies": {
-    "@coorpacademy/nova-icons": "1.2.7",
+    "@coorpacademy/nova-icons": "1.2.8",
     "autoprefixer": "^8.4.1",
     "classnames": "^2.2.5",
     "css-color-function": "^1.3.0",
@@ -65,9 +65,9 @@
     "react-tooltip": "^3.6.1"
   },
   "devDependencies": {
-    "@coorpacademy/css-modules-require-hook": "1.0.1",
-    "@coorpacademy/translate": "5.3.13",
-    "@coorpacademy/webpack-config": "7.0.2",
+    "@coorpacademy/css-modules-require-hook": "1.0.2",
+    "@coorpacademy/translate": "5.3.14",
+    "@coorpacademy/webpack-config": "7.0.3",
     "@storybook/addon-knobs": "^3.3.0",
     "@storybook/addons": "^4.0.0-alpha.4",
     "@storybook/react": "^4.0.0-alpha.4",

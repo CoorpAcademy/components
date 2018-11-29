@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/app-player",
-  "version": "12.4.2",
+  "version": "12.4.3",
   "description": "CoorpAcademy player [freerun, learner, battles]",
   "main": "lib/web/index.js",
   "module": "es/web/index.js",
@@ -31,7 +31,7 @@
   },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-app-player#readme",
   "devDependencies": {
-    "@coorpacademy/progression-engine": "9.2.1",
+    "@coorpacademy/progression-engine": "9.2.2",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-plugin-istanbul": "^4.1.4",
@@ -46,10 +46,10 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
-    "@coorpacademy/components": "8.2.2",
-    "@coorpacademy/redux-task": "0.0.8",
-    "@coorpacademy/translate": "5.3.13",
-    "@coorpacademy/webpack-config": "7.0.2",
+    "@coorpacademy/components": "8.2.3",
+    "@coorpacademy/redux-task": "0.0.9",
+    "@coorpacademy/translate": "5.3.14",
+    "@coorpacademy/webpack-config": "7.0.3",
     "lodash": "^4.17.4",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
