@@ -1,0 +1,71 @@
+{
+  "5.C7": {
+    "_id": "5.C7",
+    "stars": 20,
+    "backgroundUrl": "http://imagizer.imageshack.us/a/img924/9120/zxtxPV.jpg",
+    "name": "Les réseaux sociaux au service du crowdfunding",
+    "meta": {
+      "updatedAt": "2017-01-26T09:19:06.874Z",
+      "createdAt": "2017-01-26T09:19:05.667Z"
+    },
+    "poster": {
+      "subtitles": [],
+      "posters": [],
+      "src": []
+    },
+    "isConditional": false,
+    "time": 8
+  },
+  "5.C8": {
+    "_id": "5.C8",
+    "stars": 20,
+    "name": "Le chapter 2",
+    "meta": {
+      "updatedAt": "2017-01-26T09:19:06.874Z",
+      "createdAt": "2017-01-26T09:19:05.667Z"
+    },
+    "poster": {
+      "subtitles": [],
+      "posters": [],
+      "src": []
+    },
+    "isConditional": false,
+    "time": 8
+  },
+  "cha_N19MiQrYG": {
+    "_id": "cha_N19MiQrYG",
+    "universalRef": "cha_N19MiQrYG",
+    "name": "Êtes-vous prêt à devenir un entrepreneur digital ?",
+    "stars": 20,
+    "isConditional": true,
+    "freeRun": true,
+    "poster": {
+      "type": "img",
+      "mimeType": "image/jpeg",
+      "mediaUrl": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/default/shutterstock_574921243-1503407575413.jpg&h=400&w=400&q=90"
+    }
+  },
+  "cha_EyK53knwf": {
+    "_id": "cha_EyK53knwf",
+    "universalRef": "cha_EyK53knwf",
+    "name": "Le mode projet",
+    "stars": 20,
+    "freeRun": true,
+    "__v": 0,
+    "meta": {
+      "updatedAt": "2018-05-22T10:05:38.355Z",
+      "createdAt": "2018-05-22T10:05:38.355Z"
+    },
+    "poster": {
+      "type": "img",
+      "mimeType": "image/jpeg",
+      "mediaUrl": "//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-fabernovel/cockpit-fabernovel/default/1c1_le-mode-projet-1503395460615.jpg",
+      "subtitles": [],
+      "posters": [],
+      "src": []
+    },
+    "isConditional": false,
+    "time": 8,
+    "version": "1"
+  }
+}

@@ -1,5 +1,10 @@
 import test from 'ava';
-import {getNext} from '../recommendations';
+
+import RecommendationsService from '../recommendations';
+import * as fixtures from './fixtures';
+
+const Recommendations = RecommendationsService(fixtures);
+const {getNext} = Recommendations;
 
 test('should find recommendations for free run', async t => {
   t.deepEqual(await getNext('chapter'), undefined);

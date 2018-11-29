@@ -1,6 +1,11 @@
 import test from 'ava';
-import recommendations from '../fixtures/recommendations';
-import {find} from '../recommendations';
+
+import RecommendationsService from '../recommendations';
+import recommendations from './fixtures/data/recommendations';
+import * as fixtures from './fixtures';
+
+const Recommendations = RecommendationsService(fixtures);
+const {find} = Recommendations;
 
 test('should find recommendations for free run', async t => {
   t.deepEqual(await find('chapter'), recommendations);

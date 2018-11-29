@@ -2,15 +2,20 @@
   "include": [
     "src/**"
   ],
+  "exclude" : [
+    "**/test/",
+    "**/es/",
+    "**/lib/"
+  ],
   "reporter": [
     "lcov",
     "text-summary"
   ],
   "check-coverage": true,
-  "lines": 100,
-  "statements": 100,
+  "lines": 97,
+  "statements": 97,
   "functions": 100,
-  "branches": 100,
+  "branches": 93,
   "cache": true,
   "require": "babel-register",
   "sourceMap": false,

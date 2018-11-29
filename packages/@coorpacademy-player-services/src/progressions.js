@@ -32,14 +32,12 @@ const getEngineConfig = async engine => {
 };
 
 const openAssistance = progression => {
-  // eslint-disable-next-line no-console
-  console.log('test progression', progression);
   return progression;
 };
 
 const getAvailableContent = fixtures => async content => {
   const {getChapterRulesByContent, findSlideByChapter} = fixtures;
-  const {findContent} = Content(fixtures);
+  const {find: findContent} = Content(fixtures);
   const chapters =
     content.type === 'level'
       ? map(

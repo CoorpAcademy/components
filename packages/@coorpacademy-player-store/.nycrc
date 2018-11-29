@@ -2,6 +2,11 @@
   "include": [
     "src/**"
   ],
+  "exclude" : [
+    "**/test/",
+    "**/es/",
+    "**/lib/"
+  ],
   "reporter": [
     "lcov",
     "text-summary"

@@ -16,7 +16,6 @@
     "plugin:@coorpacademy/coorpacademy/ava",
     "plugin:@coorpacademy/coorpacademy/es20XX",
     "plugin:@coorpacademy/coorpacademy/lodash-fp",
-    "plugin:@coorpacademy/coorpacademy/react",
     "plugin:@coorpacademy/coorpacademy/prettier"
   ],
   "parser": "babel-eslint",
@@ -38,10 +37,7 @@
     "fp/no-class": "off",
     "import/no-extraneous-dependencies": "off",
     "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["Promise", "history", "location", "find", "name", "Notification", "Animation", "T"]}],
-    "promise/no-native": "off",
-    "react/jsx-no-bind": "off",
-    "react/no-deprecated": "warn",
-    "react/prop-types": "off"
+    "promise/no-native": "off"
   },
   "settings": {
     "import/ignore": ["node_modules", "\\.css$"],

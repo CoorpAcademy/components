@@ -3,7 +3,12 @@ import omit from 'lodash/fp/omit';
 import isObject from 'lodash/fp/isObject';
 import isString from 'lodash/fp/isString';
 import {getConfig} from '@coorpacademy/progression-engine';
-import {
+
+import ProgressionsService from '../progressions';
+import * as fixtures from './fixtures';
+
+const Progressions = ProgressionsService(fixtures);
+const {
   create,
   findById,
   postAnswer,
@@ -11,7 +16,7 @@ import {
   markResourceAsViewed,
   getEngineConfig,
   openAssistance
-} from '../progressions';
+} = Progressions;
 
 const engine = {
   ref: 'microlearning',
