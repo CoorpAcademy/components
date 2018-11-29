@@ -23,7 +23,6 @@
   border-left: 1px solid light;
   border-right: 1px solid light;
   transform: translateX(-50%);
-  overflow: hidden;
   box-sizing: border-box;
 }
 
@@ -98,7 +97,7 @@
 
 .title {
   margin-top: 4px;
-  font-family: 'Open Sans';
+  font-family: "Open Sans";
   font-weight: 700;
   font-size: 13px;
   color: black;
