@@ -1,8 +1,8 @@
 import path from 'path';
 import test from 'ava';
 import glob from 'glob';
-import locales from '../../../locales/en/player';
-import localesUseMacro from '../../../../../test/helpers/locales';
+import locales from '../../locales/en/player';
+import localesUseMacro from '../../../../test/helpers/locales';
 
 const files = glob
   .sync(path.join(__dirname, '../**/*.js'))
