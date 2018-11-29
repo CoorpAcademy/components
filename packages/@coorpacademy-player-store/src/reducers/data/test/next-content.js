@@ -8,8 +8,8 @@ import {
 } from '../../../actions/api/next-content';
 import macro from '../../test/helpers/macro';
 
-import chapterRecommendations from '../../../view/test/fixtures/recommendations/chapter-recommendations';
-import levelRecommendations from '../../../view/test/fixtures/recommendations/level-recommendations';
+import chapterRecommendations from './fixtures/chapter-recommendations';
+import levelRecommendations from './fixtures/level-recommendations';
 
 test('should have initial value', macro, reducer, undefined, {}, {entities: {}});
 

@@ -3,7 +3,7 @@ import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import hasSeenAnyLesson from '../has-seen-lesson';
 import {getCurrentSlide} from '../state-extract';
-import slideFixture from '../../view/test/fixtures/player/slide';
+import slideFixture from './slide';
 
 const setViewedResources = (lessonId, chapterId) => state =>
   set(

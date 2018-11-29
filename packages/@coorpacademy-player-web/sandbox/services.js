@@ -17,7 +17,7 @@ import mapValues from 'lodash/fp/mapValues';
 
 const TIMEOUT = 0;
 
-const addTimeout = curryN(2, (timeout, fun) => (...args) =>
+export const addTimeout = curryN(2, (timeout, fun) => (...args) =>
   new Promise(resolve =>
     setTimeout(() => {
       resolve(fun(...args));
