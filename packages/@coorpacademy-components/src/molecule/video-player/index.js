@@ -1,26 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isEqual from 'lodash/fp/isEqual';
+import {isEqual} from 'lodash/fp';
 import {SrcPropType} from '../../util/proptypes';
 import VideoIframe from '../video-iframe';
 import JWPlayer from './jwplayer';
 import Vimeo from './vimeo';
 import style from './style.css';
 
+// eslint-disable-next-line react/no-deprecated
 class VideoPlayer extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      played: false
-    };
-    this.handleOnPlay = this.handleOnPlay.bind(this);
-  }
+  state = {
+    played: false
+  };
 
   componentWillReceiveProps(nextProps) {
     if (!isEqual(nextProps.id, this.props.id)) this.setState(() => ({played: false}));
   }
 
-  handleOnPlay(e) {
+  handleOnPlay = e => {
     if (this.state.played) {
       this.props.onResume && this.props.onResume(e);
     } else {
@@ -29,14 +26,15 @@ class VideoPlayer extends React.Component {
     this.setState({
       played: true
     });
-  }
+  };
 
-  renderPlayer() {
+  renderPlayer = () => {
     const {mimeType, id, url, width = '100%', height = '400px', onPause, onEnded} = this.props;
     switch (mimeType) {
       case 'application/vimeo':
         return (
           <Vimeo
+            key={id}
             {...this.props}
             width={width}
             height={height}
@@ -52,6 +50,7 @@ class VideoPlayer extends React.Component {
       case 'application/jwplayer':
         return (
           <VideoIframe
+            key={id}
             type={mimeType.split('application/')[1]}
             id={id}
             url={url}
@@ -64,15 +63,14 @@ class VideoPlayer extends React.Component {
             onEnded={onEnded}
           />
         );
-
       case 'video/mp4':
-        return <JWPlayer {...this.props} />;
+        return <JWPlayer {...this.props} key={id} />;
     }
-  }
+  };
 
   render() {
     return (
-      <div data-name="video-player" className={style.wrapper}>
+      <div data-name="video-player" className={style.wrapper} key={this.props.id}>
         {this.renderPlayer()}
       </div>
     );
