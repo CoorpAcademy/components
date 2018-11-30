@@ -16,7 +16,7 @@
 }
 
 .popin {
-  top: 30%;
+  top: calc(30vh);
   position: absolute;
   width: 50%;
   overflow: auto;
