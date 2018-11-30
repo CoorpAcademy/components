@@ -3,7 +3,7 @@ import test from 'ava';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import withLivesFixture from './fixtures/learner';
+import withLivesFixture from './fixtures/default';
 import adaptiveFixture from './fixtures/adaptive';
 import infiniteLivesFixture from './fixtures/infinite-lives';
 import Header from '..';
@@ -12,7 +12,7 @@ browserEnv();
 configure({adapter: new Adapter()});
 
 const livesVisible = (t, Component, fixture) => {
-  const {lives} = fixture.props;
+  const {lives} = fixture.props.header;
 
   t.true(fixture.props !== undefined, `${lives ? 'should' : 'should not'} display lives icon`);
 
