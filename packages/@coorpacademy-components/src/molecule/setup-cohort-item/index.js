@@ -102,7 +102,7 @@ const SetupCohortItem = props => {
       {fieldsList}
       {cohortMessage ? (
         <div className={style.wrapmessage}>
-          <SetupCohortItemPopin header="{cohortMessage.title}" content="{cohortMessage.subtitle}" />
+          <SetupCohortItemPopin header={cohortMessage.title} content={cohortMessage.subtitle} />
         </div>
       ) : (
         ''
