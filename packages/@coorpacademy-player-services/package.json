@@ -47,6 +47,7 @@
     "rimraf": "^2.6.1"
   },
   "dependencies": {
+    "@coorpacademy/progression-engine": "9.2.2",
     "lodash": "^4.17.4"
   },
   "ava": {

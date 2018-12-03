@@ -236,6 +236,20 @@
     prettier "1.11.1"
     requireindex "^1.2.0"
 
+"@coorpacademy/redux-task@0.0.7":
+  version "0.0.7"
+  resolved "https://registry.npmjs.org/@coorpacademy/redux-task/-/redux-task-0.0.7.tgz#b3df728f85b3d09da383010f16f63d6442a5e7dd"
+  integrity sha1-s99yj4Wz0J2jgwEPFvY9ZEKl590=
+  dependencies:
+    lodash "^4.17.4"
+
+"@coorpacademy/translate@5.3.12":
+  version "5.3.12"
+  resolved "https://registry.npmjs.org/@coorpacademy/translate/-/translate-5.3.12.tgz#a9322a91755a8c5b0bce410274b2ee627c512430"
+  integrity sha512-BW8YxtTunM782xEoRzXsHUpc8YC4OmfTrUT7EVgE//jp/9jDJ4lHx4OhAdJAyX68+ehJMK6lElHK5YsfHf1OOw==
+  dependencies:
+    lodash "^4.17.4"
+
 "@ladjs/time-require@^0.1.4":
   version "0.1.4"
   resolved "https://registry.npmjs.org/@ladjs/time-require/-/time-require-0.1.4.tgz#5c615d75fd647ddd5de9cf6922649558856b21a1"
