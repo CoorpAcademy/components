@@ -28,7 +28,7 @@ const InputSplitScreen = props => {
     dataCollection
   );
   return (
-    <div className={cohortMessage?style.splitMessage:style.splitDefault}>
+    <div className={cohortMessage ? style.splitMessage : style.splitDefault}>
       <div className={style.splitLeft}>
         <div>
           <p className={style.title}>{providerCondition.title}</p>
@@ -78,7 +78,7 @@ const SetupCohortItem = props => {
       case 'checkbox':
         return <InputCheckbox {...field} />;
       case 'splitScreen':
-        return <InputSplitScreen {...field} cohortMessage={cohortMessage}/>;
+        return <InputSplitScreen {...field} cohortMessage={cohortMessage} />;
       case 'buttonGroup':
         return <ButtonGroup {...field} />;
       default:
