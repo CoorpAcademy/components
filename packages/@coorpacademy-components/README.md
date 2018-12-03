@@ -24,7 +24,7 @@ npm install
 npm start
 ```
 
-Then open `http://localhost:3004`
+Then open `http://localhost:3004`.
 
 ### Adding a component
 

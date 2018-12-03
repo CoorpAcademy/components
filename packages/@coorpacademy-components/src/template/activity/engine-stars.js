@@ -14,7 +14,6 @@ import Link from '../../atom/link';
 import style from './engine-stars.css';
 
 const ICONS = {
-  
   microlearning: TimerIcon,
   learner: LearnerIcon,
   battle: BoltIcon,
