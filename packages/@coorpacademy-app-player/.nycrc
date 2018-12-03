@@ -5,7 +5,7 @@
   "exclude" : [
     "**/test/",
     "**/es/",
-    "**/lib/",
+    "**/lib/"
   ],
   "reporter": [
     "lcov",

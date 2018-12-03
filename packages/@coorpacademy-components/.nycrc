@@ -6,16 +6,16 @@
     "lcov",
     "text-summary"
   ],
-    "exclude" : [
+  "exclude" : [
     "**/test/",
     "**/es/",
-    "**/lib/",
+    "**/lib/"
   ],
   "check-coverage": true,
-  "lines": 60,
-  "statements": 80,
-  "functions": 64,
-  "branches": 54,
+  "lines": 54,
+  "statements": 54,
+  "functions": 53,
+  "branches": 43,
   "cache": true,
   "require": "babel-register",
   "sourceMap": false,

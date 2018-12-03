@@ -9,7 +9,7 @@
     "exclude" : [
     "**/test/",
     "**/es/",
-    "**/lib/",
+    "**/lib/"
   ],
   "check-coverage": true,
   "lines": 100,

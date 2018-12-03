@@ -4,12 +4,12 @@
   ],
   "reporter": [
     "lcov",
-    "text-summary",
+    "text-summary"
   ],
-    "exclude" : [
+  "exclude" : [
     "**/test/",
     "**/es/",
-    "**/lib/",
+    "**/lib/"
   ],
   "check-coverage": true,
   "lines": 99,
