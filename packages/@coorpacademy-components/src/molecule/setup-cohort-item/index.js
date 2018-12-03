@@ -8,7 +8,7 @@ import style from './style.css';
 import SetupCohortItemPopin from './setup-cohort-item-popin';
 
 const InputSplitScreen = props => {
-  const {providerCondition = {}, groupSelection = {}} = props;
+  const {providerCondition = {}, groupSelection = {}, cohortMessage} = props;
   const dataCriteria = {
     groups: {
       fields: providerCondition.values
@@ -28,7 +28,7 @@ const InputSplitScreen = props => {
     dataCollection
   );
   return (
-    <div className={style.split}>
+    <div className={cohortMessage?style.splitMessage:style.splitDefault}>
       <div className={style.splitLeft}>
         <div>
           <p className={style.title}>{providerCondition.title}</p>
@@ -78,7 +78,7 @@ const SetupCohortItem = props => {
       case 'checkbox':
         return <InputCheckbox {...field} />;
       case 'splitScreen':
-        return <InputSplitScreen {...field} />;
+        return <InputSplitScreen {...field} cohortMessage={cohortMessage}/>;
       case 'buttonGroup':
         return <ButtonGroup {...field} />;
       default:

@@ -13,11 +13,14 @@
   margin-bottom: 0;
 }
 
-.split {
+.splitMessage {
   display: flex;
-  max-height: 50vh;
-  min-height: 30vh;
+  height: 40vh;
   overflow: auto;
+}
+
+.splitDefault {
+  display: flex;
 }
 
 .splitLeft {
