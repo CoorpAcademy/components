@@ -51,6 +51,7 @@
     "@coorpacademy/components": "8.2.3",
     "@coorpacademy/player-services": "1.0.0",
     "@coorpacademy/player-store": "1.0.0",
+    "@coorpacademy/progression-engine": "9.2.2",
     "@coorpacademy/redux-task": "0.0.9",
     "@coorpacademy/translate": "5.3.14",
     "@coorpacademy/webpack-config": "7.0.3",
