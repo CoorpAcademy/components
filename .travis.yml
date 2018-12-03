@@ -65,12 +65,14 @@ deploy:
     script: npm run static
     "on":
       branch: master
+      condition: $PACKAGE_NAME = "@coorpacademy/app-player"
   - provider: pages
     skip_cleanup: true
     github_token: $GH_TOKEN
     local_dir: static
     "on":
       branch: master
+      condition: $PACKAGE_NAME = "@coorpacademy/app-player"
   - provider: script
     skip_cleanup: true
     script: >-
@@ -80,6 +82,7 @@ deploy:
       "upgrade-nodejs" --base $TRAVIS_BRANCH --github_token $GH_TOKEN
     "on":
       branch: master
+      condition: $PACKAGE_NAME = "@coorpacademy/app-player"
   - provider: script
     skip_cleanup: true
     script: >-
@@ -89,6 +92,7 @@ deploy:
       https://api.travis-ci.com/repo/CoorpAcademy%2Fcoorpacademy/requests
     "on":
       tags: true
+      condition: $PACKAGE_NAME = "@coorpacademy/app-player"
   - provider: script
     skip_cleanup: true
     script: >-
@@ -98,6 +102,7 @@ deploy:
       https://api.travis-ci.com/repo/CoorpAcademy%2Fcoorpacademy-cockpit/requests
     "on":
       tags: true
+      condition: $PACKAGE_NAME = "@coorpacademy/app-player"
   - provider: script
     skip_cleanup: true
     script: >-
@@ -107,6 +112,7 @@ deploy:
       https://api.travis-ci.com/repo/CoorpAcademy%2Fapp-backoffice/requests
     "on":
       tags: true
+      condition: $PACKAGE_NAME = "@coorpacademy/app-player"
   - provider: script
     skip_cleanup: true
     script: >-
@@ -116,6 +122,7 @@ deploy:
       https://api.travis-ci.com/repo/CoorpAcademy%2Fcoorpacademy-store/requests
     "on":
       tags: true
+      condition: $PACKAGE_NAME = "@coorpacademy/app-player"
   - provider: script
     skip_cleanup: true
     script: >-
@@ -124,4 +131,5 @@ deploy:
       $TRAVIS_TOKEN" -d '{"request":{"branch":"master"}}'
       https://api.travis-ci.com/repo/CoorpAcademy%2Fapi-progression/requests
     "on":
-tags: true
+      tags: true
+      condition: $PACKAGE_NAME = "@coorpacademy/app-player"

@@ -6,6 +6,11 @@
     "lcov",
     "text-summary"
   ],
+    "exclude" : [
+    "**/test/",
+    "**/es/",
+    "**/lib/",
+  ],
   "check-coverage": true,
   "lines": 60,
   "statements": 80,
