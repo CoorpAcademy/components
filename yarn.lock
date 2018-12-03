@@ -236,6 +236,14 @@
     prettier "1.11.1"
     requireindex "^1.2.0"
 
+"@coorpacademy/progression-engine@9.2.2":
+  version "9.2.2"
+  resolved "https://registry.npmjs.org/@coorpacademy/progression-engine/-/progression-engine-9.2.2.tgz#240f637f76b1e21e0914fcb0a60486d66e30bf79"
+  integrity sha512-IixNq72y6hxxsOODFQdibuQBNblpTv8b+7gFZxHloGS7xab6BkJ/J58AZ+94kzVdsVVDV2rpb+8oJOH0eRGWOA==
+  dependencies:
+    fuzzy-matching "^0.4.3"
+    lodash "^4.17.4"
+
 "@coorpacademy/redux-task@0.0.7":
   version "0.0.7"
   resolved "https://registry.npmjs.org/@coorpacademy/redux-task/-/redux-task-0.0.7.tgz#b3df728f85b3d09da383010f16f63d6442a5e7dd"
