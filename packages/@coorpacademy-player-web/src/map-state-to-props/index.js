@@ -8,7 +8,7 @@ import {
   getStepContent,
   getCurrentProgression,
   getRoute
-} from '@coorpacademy/player-store/src/utils/state-extract';
+} from '@coorpacademy/player-store/es/utils/state-extract';
 import {popinCorrectionStateToProps} from './popin-correction';
 import popinEndStateToProps from './popin-end';
 import loadingStateToProps from './loading';
