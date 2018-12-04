@@ -5,12 +5,17 @@ import Link from '../../atom/link';
 import style from './style.css';
 
 const buildTab = (tab, index) => {
-  const {title, href, selected} = tab;
+  const {title, href, selected, onClick} = tab;
 
   const className = selected ? style.selected : style.tab;
 
   return (
-    <div data-name={`brand_tab_${snakeCase(title)}`} className={className} key={index}>
+    <div
+      data-name={`brand_tab_${snakeCase(title)}`}
+      className={className}
+      key={index}
+      onClick={onClick}
+    >
       <Link href={href}>{title}</Link>
     </div>
   );
@@ -29,7 +34,8 @@ BrandTabs.propTypes = {
     PropTypes.shape({
       title: Link.propTypes.children,
       href: Link.propTypes.href,
-      selected: PropTypes.bool
+      selected: PropTypes.bool,
+      onClick: PropTypes.func
     })
   )
 };

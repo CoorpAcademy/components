@@ -14,7 +14,9 @@ export default {
       {
         title: 'SSO',
         href: '#brand/samsung/sso',
-        selected: false
+        selected: false,
+        // eslint-disable-next-line no-alert
+        onClick: () => alert('Fear the SSO!')
       },
       {
         title: 'Users',
