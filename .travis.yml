@@ -24,20 +24,39 @@ cache:
 env:
   global:
     - CXX=g++-5
-  matrix:
-    - PACKAGE_NAME=@coorpacademy/app-player
-    - PACKAGE_NAME=@coorpacademy/components
-    - PACKAGE_NAME=@coorpacademy/css-modules-require-hook
-    - PACKAGE_NAME=@coorpacademy/history
-    - PACKAGE_NAME=@coorpacademy/nova-icons
-    - PACKAGE_NAME=@coorpacademy/progression-engine
-    - PACKAGE_NAME=@coorpacademy/redux-history
-    - PACKAGE_NAME=@coorpacademy/redux-router
-    - PACKAGE_NAME=@coorpacademy/redux-task
-    - PACKAGE_NAME=@coorpacademy/translate
-    - PACKAGE_NAME=@coorpacademy/treantjs-adapter-angular
-    - PACKAGE_NAME=@coorpacademy/treantjs-adapter-dust
-    - PACKAGE_NAME=@coorpacademy/webpack-config
+
+matrix:
+  include:
+    - name: 'React components'
+      env: PACKAGE_NAME=@coorpacademy/components
+    - name: 'CSS-modules require hook'
+      env: PACKAGE_NAME=@coorpacademy/css-modules-require-hook
+    - name: 'History'
+      env: PACKAGE_NAME=@coorpacademy/history
+    - name: 'Nova icons'
+      env: PACKAGE_NAME=@coorpacademy/nova-icons
+    - name: 'Player store'
+      env: PACKAGE_NAME=@coorpacademy/player-store
+    - name: 'Player services'
+      env: PACKAGE_NAME=@coorpacademy/player-services
+    - name: 'Player web'
+      env: PACKAGE_NAME=@coorpacademy/player-web
+    - name: 'Progression engine'
+      env: PACKAGE_NAME=@coorpacademy/progression-engine
+    - name: 'Redux history'
+      env: PACKAGE_NAME=@coorpacademy/redux-history
+    - name: 'Redux router'
+      env: PACKAGE_NAME=@coorpacademy/redux-router
+    - name: 'Redux task'
+      env: PACKAGE_NAME=@coorpacademy/redux-task
+    - name: 'Translate'
+      env: PACKAGE_NAME=@coorpacademy/translate
+    - name: 'Angular adapter'
+      env: PACKAGE_NAME=@coorpacademy/treantjs-adapter-angular
+    - name: 'Dust adapter'
+      env: PACKAGE_NAME=@coorpacademy/treantjs-adapter-dust
+    - name: 'Common webpack config'
+      env: PACKAGE_NAME=@coorpacademy/webpack-config
 
 install:
   - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "^1.2.1"'`
