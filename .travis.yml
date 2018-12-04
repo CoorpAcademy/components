@@ -22,6 +22,20 @@ cache:
 env:
   global:
     - CXX=g++-5
+  matrix:
+    - PACKAGE_NAME=@coorpacademy/app-player
+    - PACKAGE_NAME=@coorpacademy/components
+    - PACKAGE_NAME=@coorpacademy/css-modules-require-hook
+    - PACKAGE_NAME=@coorpacademy/history
+    - PACKAGE_NAME=@coorpacademy/nova-icons
+    - PACKAGE_NAME=@coorpacademy/progression-engine
+    - PACKAGE_NAME=@coorpacademy/redux-history
+    - PACKAGE_NAME=@coorpacademy/redux-router
+    - PACKAGE_NAME=@coorpacademy/redux-task
+    - PACKAGE_NAME=@coorpacademy/translate
+    - PACKAGE_NAME=@coorpacademy/treantjs-adapter-angular
+    - PACKAGE_NAME=@coorpacademy/treantjs-adapter-dust
+    - PACKAGE_NAME=@coorpacademy/webpack-config
 
 install:
   - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "^1.2.1"'`
@@ -31,11 +45,11 @@ install:
   - yarn
 
 before_script:
-  - npx lerna bootstrap
-  - npx lerna run prepare
+  - npx lerna bootstrap --scope $PACKAGE_NAME --include-filtered-dependencies
+  - npx lerna run prepare --scope $PACKAGE_NAME --include-filtered-dependencies
 
 script:
-  - npx lerna run test --since
+  - npx lerna run test --since --scope $PACKAGE_NAME
 
 after_script: yarn codecov
 
@@ -51,12 +65,14 @@ deploy:
     script: npm run static
     "on":
       branch: master
+      condition: $PACKAGE_NAME = "@coorpacademy/app-player"
   - provider: pages
     skip_cleanup: true
     github_token: $GH_TOKEN
     local_dir: static
     "on":
       branch: master
+      condition: $PACKAGE_NAME = "@coorpacademy/app-player"
   - provider: script
     skip_cleanup: true
     script: >-
@@ -66,6 +82,7 @@ deploy:
       "upgrade-nodejs" --base $TRAVIS_BRANCH --github_token $GH_TOKEN
     "on":
       branch: master
+      condition: $PACKAGE_NAME = "@coorpacademy/app-player"
   - provider: script
     skip_cleanup: true
     script: >-
@@ -75,6 +92,7 @@ deploy:
       https://api.travis-ci.com/repo/CoorpAcademy%2Fcoorpacademy/requests
     "on":
       tags: true
+      condition: $PACKAGE_NAME = "@coorpacademy/app-player"
   - provider: script
     skip_cleanup: true
     script: >-
@@ -84,6 +102,7 @@ deploy:
       https://api.travis-ci.com/repo/CoorpAcademy%2Fcoorpacademy-cockpit/requests
     "on":
       tags: true
+      condition: $PACKAGE_NAME = "@coorpacademy/app-player"
   - provider: script
     skip_cleanup: true
     script: >-
@@ -93,6 +112,7 @@ deploy:
       https://api.travis-ci.com/repo/CoorpAcademy%2Fapp-backoffice/requests
     "on":
       tags: true
+      condition: $PACKAGE_NAME = "@coorpacademy/app-player"
   - provider: script
     skip_cleanup: true
     script: >-
@@ -102,6 +122,7 @@ deploy:
       https://api.travis-ci.com/repo/CoorpAcademy%2Fcoorpacademy-store/requests
     "on":
       tags: true
+      condition: $PACKAGE_NAME = "@coorpacademy/app-player"
   - provider: script
     skip_cleanup: true
     script: >-
@@ -111,3 +132,4 @@ deploy:
       https://api.travis-ci.com/repo/CoorpAcademy%2Fapi-progression/requests
     "on":
       tags: true
+      condition: $PACKAGE_NAME = "@coorpacademy/app-player"
