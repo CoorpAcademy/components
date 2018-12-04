@@ -1,3 +1,9 @@
+import providerConditionProps from './default-provider';
+import groupSelectionProps from './default-groups';
+
+const providerCondition = providerConditionProps.props.fields[1].providerCondition;
+const groupSelection = groupSelectionProps.props.fields[1].groupSelection;
+
 export default {
   props: {
     fields: [
@@ -10,82 +16,8 @@ export default {
       },
       {
         type: 'splitScreen',
-        providerCondition: {
-          title: 'The Provider',
-          values: [
-            {
-              type: 'checkbox',
-              title: 'Provider 1',
-              checked: true,
-              value: 'them_cascsa'
-            },
-            {
-              type: 'checkbox',
-              title: 'Provider 2',
-              checked: true,
-              value: 'them_3r2fwc'
-            },
-            {
-              type: 'checkbox',
-              title: 'Provider 3',
-              checked: true,
-              value: 'them_wefewgweb'
-            },
-            {
-              type: 'checkbox',
-              title: 'Provider 4',
-              checked: true,
-              value: 'them_bwegwegwe'
-            },
-            {
-              type: 'checkbox',
-              title: 'Provider 5',
-              checked: true,
-              value: 'them_gwegwevfwe'
-            },
-            {
-              type: 'checkbox',
-              title: 'Provider 6',
-              checked: true,
-              value: 'them_ewgwebh'
-            }
-          ]
-        },
-        groupSelection: {
-          title: 'Country',
-          values: [
-            {
-              type: 'checkbox',
-              title: 'them_XXXX 1',
-              checked: true
-            },
-            {
-              type: 'checkbox',
-              title: 'them_XXXX 2',
-              checked: true
-            },
-            {
-              type: 'checkbox',
-              title: 'them_XXXX 3',
-              checked: true
-            },
-            {
-              type: 'checkbox',
-              title: 'them_XXXX 4',
-              checked: true
-            },
-            {
-              type: 'checkbox',
-              title: 'them_XXXX 5',
-              checked: true
-            },
-            {
-              type: 'checkbox',
-              title: 'them_XXXX 6',
-              checked: true
-            }
-          ]
-        }
+        providerCondition,
+        groupSelection
       },
       {
         type: 'buttonGroup',

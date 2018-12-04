@@ -453,6 +453,8 @@ import MoleculeSetupCohortFixtureCreateNew from '../src/molecule/setup-cohort/te
 import MoleculeSetupCohortFixtureDefault from '../src/molecule/setup-cohort/test/fixtures/default';
 import MoleculeSetupCohortItemFixtureCohortMessage from '../src/molecule/setup-cohort-item/test/fixtures/cohort-message';
 import MoleculeSetupCohortItemFixtureCreateNew from '../src/molecule/setup-cohort-item/test/fixtures/create-new';
+import MoleculeSetupCohortItemFixtureDefaultGroups from '../src/molecule/setup-cohort-item/test/fixtures/default-groups';
+import MoleculeSetupCohortItemFixtureDefaultProvider from '../src/molecule/setup-cohort-item/test/fixtures/default-provider';
 import MoleculeSetupCohortItemFixtureDefault from '../src/molecule/setup-cohort-item/test/fixtures/default';
 import MoleculeSetupSectionFixtureAnalyticsBoutique from '../src/molecule/setup-section/test/fixtures/analytics-boutique';
 import MoleculeSetupSectionFixtureAnalyticsBranch from '../src/molecule/setup-section/test/fixtures/analytics-branch';
@@ -1310,6 +1312,8 @@ export const fixtures = {
     MoleculeSetupCohortItem: {
       CohortMessage: MoleculeSetupCohortItemFixtureCohortMessage,
       CreateNew: MoleculeSetupCohortItemFixtureCreateNew,
+      DefaultGroups: MoleculeSetupCohortItemFixtureDefaultGroups,
+      DefaultProvider: MoleculeSetupCohortItemFixtureDefaultProvider,
       Default: MoleculeSetupCohortItemFixtureDefault
     },
     MoleculeSetupSection: {
