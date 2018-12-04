@@ -50,3 +50,21 @@ test('should send a `finishProgression` event to the tag manager when failing a 
 
   sendProgressionAnalytics(currentProgression, engineConfig);
 });
+
+test('should do nothing if neither success nor failure', t => {
+  global.window = {
+    dataLayer: {
+      push: evt => {
+        t.fail();
+      }
+    }
+  };
+
+  const currentProgression = pipe(
+    set('engine.ref', 'microlearning'),
+    set('state.nextContent.type', 'foo')
+  )({});
+
+  const res = sendProgressionAnalytics(currentProgression, engineConfig);
+  t.is(global.window.dataLayer, res);
+});

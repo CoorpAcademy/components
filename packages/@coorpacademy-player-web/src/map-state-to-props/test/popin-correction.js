@@ -52,6 +52,7 @@ test('should put revival to false if current step is not extra life, even if les
 
   t.false(get('extraLifeGranted', props));
   t.is(props.header.type, 'popinCorrection');
+  t.is(props.gameOver, true);
   t.is(props.quit, undefined);
   t.is(props.overlay, undefined);
 });

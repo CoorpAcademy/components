@@ -11,7 +11,9 @@ import {
   LOCATION_NEXT_CONTENT_REQUEST,
   LOCATION_NEXT_CONTENT_SUCCESS,
   LOCATION_SEE_COMMENT_REQUEST,
-  LOCATION_SEE_COMMENT_SUCCESS
+  LOCATION_SEE_COMMENT_SUCCESS,
+  LOCATION_OPEN_RECOMMENDATION_REQUEST,
+  LOCATION_OPEN_RECOMMENDATION_SUCCESS
 } from '@coorpacademy/player-store/es/actions/ui/location';
 import {UI_EDIT_COMMENT} from '@coorpacademy/player-store/es/actions/ui/comments';
 import {
@@ -30,6 +32,7 @@ const services = {
     post: identity
   },
   Location: {
+    openRecommendation: identity,
     nextLevel: identity,
     seeComment: identity
   }
@@ -202,6 +205,19 @@ test('should create a "Retry Level" CTA after failure on learner progression', t
 
   const buttonCta = action.button;
   t.is(buttonCta.title, '__Retry level');
+});
+
+test('should open recommendation', async t => {
+  const dispatch = createDispatch(popinLearnerSuccess);
+  const props = popinEnd(options, {dispatch})(popinLearnerSuccess);
+
+  const recommendations = props.summary.recommendation;
+
+  const dispatchedOpenRecommmendation = await recommendations.cards[0].onClick();
+  t.deepEqual(actionTypes(dispatchedOpenRecommmendation), [
+    LOCATION_OPEN_RECOMMENDATION_REQUEST,
+    LOCATION_OPEN_RECOMMENDATION_SUCCESS
+  ]);
 });
 
 test('should create a "Retry Chapter" CTA after failure on microlearning progression', t => {

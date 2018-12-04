@@ -80,6 +80,13 @@
         }
       }
     },
+    "configs": {
+      "entities": {
+        "microlearning@1": {
+          "remainingLifeRequests": 1
+        }
+      }
+    },
     "progressions": {
       "entities": {
         "0": {
@@ -99,6 +106,7 @@
               "type": "failure"
             },
             "lives": 0,
+            "remainingLifeRequests": 0,
             "step": {
               "current": 2
             },
