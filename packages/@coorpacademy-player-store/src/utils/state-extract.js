@@ -136,7 +136,6 @@ export const getCurrentClue = state => {
 
 export const getRoute = state => {
   const progressionId = getCurrentProgressionId(state);
-
   return get(['ui', 'route', progressionId], state);
 };
 

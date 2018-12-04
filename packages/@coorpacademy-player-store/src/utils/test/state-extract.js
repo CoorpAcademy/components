@@ -10,11 +10,16 @@ import {
   getCorrection,
   getCurrentContent,
   getCurrentCorrection,
+  getCurrentEngine,
+  isCommentSent,
+  isCurrentEngineLearner,
+  isCurrentEngineMicrolearning,
   getCurrentExitNode,
   getCurrentProgression,
   getCurrentProgressionId,
   getCurrentSlide,
   getEngine,
+  getEngineConfig,
   getLives,
   getPreviousSlide,
   getQuestionType,
@@ -24,6 +29,8 @@ import {
   getBestScore,
   getResourceToPlay,
   getNextContent,
+  getRecommendations,
+  getRoute,
   hasViewedAResourceAtThisStep,
   getQuestionMedia,
   isContentAdaptive
@@ -40,6 +47,79 @@ test("getCurrentProgressionId should get current progression's id from state", t
   const plop = set('ui.current.progressionId', progressionId, {});
   t.is(getCurrentProgressionId(plop), progressionId);
   t.is(getCurrentProgressionId({}), undefined);
+});
+
+test("getCurrentEngine should get current progression's engine from state", t => {
+  const engine = {ref: 'microlearning'};
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': {engine}})
+  )({});
+
+  t.deepEqual(getCurrentEngine(state), engine);
+});
+
+test("isCurrentEngineLearner should return true for engine.ref='learner'", t => {
+  const engine = {ref: 'learner'};
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': {engine}})
+  )({});
+
+  t.is(isCurrentEngineLearner(state), true);
+});
+
+test("isCurrentEngineMicrolearning should return true for engine.ref='learner'", t => {
+  const engine = {ref: 'microlearning'};
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': {engine}})
+  )({});
+
+  t.is(isCurrentEngineMicrolearning(state), true);
+});
+
+test('getEngineConfig should return proper engine string', t => {
+  const engine = {ref: 'microlearning', version: '1.0.0'};
+  const tag = `${engine.ref}@${engine.version}`;
+
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': {engine}}),
+    set('data.configs.entities', {[tag]: 'plop'})
+  )({});
+
+  t.is(getEngineConfig(state), 'plop');
+});
+
+test('isCommentSent should return comment status for current progression', t => {
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': {}}),
+    set('data.comments.entities.0.isSent', 'plop')
+  )({});
+
+  t.is(isCommentSent(state), 'plop');
+});
+
+test('getRoute should return current route for current progression', t => {
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': {}}),
+    set('ui.route.0', 'plop')
+  )({});
+
+  t.is(getRoute(state), 'plop');
+});
+
+test('getRecommendations should return recommendations for current progression', t => {
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': {}}),
+    set('data.recommendations.entities.0', 'plop')
+  )({});
+
+  t.is(getRecommendations(state), 'plop');
 });
 
 test('getCurrentProgression should get current progression from state', t => {
@@ -310,6 +390,21 @@ test('getNextContent should return nextChapter if learner progression', t => {
   )({});
 
   t.deepEqual(getNextContent(state), {ref: '1.A'});
+});
+
+test('getQuestionMedia should return nothing if media is not provided', t => {
+  const slide = {
+    _id: '0',
+    question: {}
+  };
+  const progression = {state: {nextContent: {ref: '0'}}};
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': progression}),
+    set('data.contents.slide.entities', {'0': slide})
+  )({});
+
+  t.is(getQuestionMedia(state), undefined);
 });
 
 test('getQuestionMedia should return image media from state', t => {

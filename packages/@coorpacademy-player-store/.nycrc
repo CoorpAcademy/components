@@ -3,6 +3,8 @@
     "src/**"
   ],
   "exclude" : [
+    "src/index.js",
+    "src/start.js",
     "**/test/",
     "**/es/",
     "**/lib/"
@@ -12,10 +14,10 @@
     "text-summary"
   ],
   "check-coverage": true,
-  "lines": 97,
-  "statements": 97,
-  "functions": 95,
-  "branches": 96,
+  "lines": 100,
+  "statements": 100,
+  "functions": 100,
+  "branches": 100,
   "cache": true,
   "require": "babel-register",
   "sourceMap": false,

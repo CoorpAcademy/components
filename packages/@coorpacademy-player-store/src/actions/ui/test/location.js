@@ -22,7 +22,11 @@ import {
   nextLevel,
   LOCATION_NEXT_CONTENT_REQUEST,
   LOCATION_NEXT_CONTENT_SUCCESS,
-  LOCATION_NEXT_CONTENT_FAILURE
+  LOCATION_NEXT_CONTENT_FAILURE,
+  openRecommendation,
+  LOCATION_OPEN_RECOMMENDATION_REQUEST,
+  LOCATION_OPEN_RECOMMENDATION_SUCCESS,
+  LOCATION_OPEN_RECOMMENDATION_FAILURE
 } from '../location';
 
 test(
@@ -360,4 +364,60 @@ test(
     }
   ],
   2
+);
+
+test(
+  'should call openRecommendation and dispatch FAILURE action on error',
+  macro,
+  {},
+  t => ({
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
+    Location: {
+      openRecommendation: reco => {
+        t.is(reco, 'bar');
+        throw new Error('some error');
+      }
+    }
+  }),
+  openRecommendation('bar'),
+  [
+    {
+      type: LOCATION_OPEN_RECOMMENDATION_REQUEST
+    },
+    {
+      type: LOCATION_OPEN_RECOMMENDATION_FAILURE,
+      error: true,
+      payload: new Error('some error')
+    }
+  ],
+  2
+);
+
+test(
+  'should call openRecommendation location service and dispatch SUCCESS action',
+  macro,
+  {},
+  t => ({
+    Location: {
+      openRecommendation: reco => {
+        t.is(reco, 'foo');
+        return 'bar';
+      }
+    }
+  }),
+  openRecommendation('foo'),
+  [
+    {
+      type: LOCATION_OPEN_RECOMMENDATION_REQUEST
+    },
+    {
+      type: LOCATION_OPEN_RECOMMENDATION_SUCCESS,
+      payload: 'bar'
+    }
+  ],
+  1
 );

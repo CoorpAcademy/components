@@ -7,6 +7,7 @@ import {
   OPEN_ASSISTANCE_REQUEST,
   OPEN_ASSISTANCE_SUCCESS
 } from '../progressions';
+import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS, ANSWER_FETCH_FAILURE} from '../../api/answers';
 import {
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_FETCH_SUCCESS,
@@ -729,4 +730,146 @@ test(
     }
   ],
   16
+);
+
+test(
+  'should select progression on node extralife, fetching previous content',
+  macro,
+  {},
+  t => ({
+    Answers: {
+      findById: (progressionId, slideId, givenAnswers) => {
+        t.is(slideId, slide._id);
+        t.is(progressionId, 'xtralife');
+        t.deepEqual(givenAnswers, []);
+        return ['a', 'n', 's', 'w', 'e', 'r', 's'];
+      }
+    },
+    Progressions: {
+      findById: id => {
+        t.is(id, 'xtralife');
+        return {
+          _id: 'xtralife',
+          state: {
+            content: {type: 'slide', ref: 'bar'},
+            nextContent: {type: 'node', ref: 'extraLife'}
+          },
+          content: {type: 'chapter', ref: 'baz'},
+          engine: {ref: 'qux', version: 'quux'}
+        };
+      },
+      findBestOf: (type, contentType, ref, id) => {
+        t.is(contentType, 'chapter');
+        t.is(ref, 'baz');
+        return 16;
+      },
+      getEngineConfig: () => {
+        t.pass();
+        return 42;
+      }
+    },
+    ExitNodes: {
+      findById: id => {
+        t.is(id, 'bar');
+        return 'bar';
+      }
+    },
+    LeaderBoard: {
+      getRank: () => {
+        t.pass();
+        return 1;
+      }
+    },
+    Content: ContentService(t, false),
+    Recommendations: {
+      find: () => 'plop',
+      getNext: () => 'plip'
+    }
+  }),
+  selectProgression('xtralife'),
+  [
+    {
+      type: UI_SELECT_PROGRESSION,
+      payload: {id: 'xtralife'}
+    },
+    {
+      type: PROGRESSION_FETCH_REQUEST,
+      meta: {id: 'xtralife'}
+    },
+    {
+      type: PROGRESSION_FETCH_SUCCESS,
+      meta: {id: 'xtralife'},
+      payload: {
+        _id: 'xtralife',
+        state: {
+          content: {type: 'slide', ref: 'bar'},
+          nextContent: {type: 'node', ref: 'extraLife'}
+        },
+        content: {type: 'chapter', ref: 'baz'},
+        engine: {ref: 'qux', version: 'quux'}
+      }
+    },
+    {
+      type: RANK_FETCH_START_REQUEST
+    },
+    {
+      type: RANK_FETCH_START_SUCCESS,
+      payload: 1
+    },
+    {
+      type: CONTENT_FETCH_REQUEST,
+      meta: {type: 'chapter', ref: 'baz'}
+    },
+    {
+      type: CONTENT_FETCH_SUCCESS,
+      meta: {type: 'chapter', ref: 'baz'},
+      payload: {_id: 'baz', foo: 3}
+    },
+    {
+      type: PROGRESSION_FETCH_BESTOF_REQUEST,
+      meta: {type: 'chapter', ref: 'baz'}
+    },
+    {
+      type: PROGRESSION_FETCH_BESTOF_SUCCESS,
+      meta: {type: 'chapter', ref: 'baz'},
+      payload: 16
+    },
+    {
+      type: ENGINE_CONFIG_FETCH_REQUEST,
+      meta: {engine: {ref: 'qux', version: 'quux'}}
+    },
+    {
+      type: ENGINE_CONFIG_FETCH_SUCCESS,
+      meta: {engine: {ref: 'qux', version: 'quux'}},
+      payload: 42
+    },
+    {
+      type: CONTENT_INFO_FETCH_REQUEST,
+      meta: {type: 'chapter', ref: 'baz'}
+    },
+    {
+      type: CONTENT_INFO_FETCH_SUCCESS,
+      meta: {type: 'chapter', ref: 'baz'},
+      payload: 'info'
+    },
+    {
+      type: CONTENT_FETCH_REQUEST,
+      meta: {type: 'slide', ref: 'bar'}
+    },
+    {
+      type: CONTENT_FETCH_SUCCESS,
+      meta: {type: 'slide', ref: 'bar'},
+      payload: slide
+    },
+    {
+      type: ANSWER_FETCH_REQUEST,
+      meta: {progressionId: 'xtralife', slideId: 'bar'}
+    },
+    {
+      type: ANSWER_FETCH_SUCCESS,
+      meta: {progressionId: 'xtralife', slideId: 'bar'},
+      payload: ['a', 'n', 's', 'w', 'e', 'r', 's']
+    }
+  ],
+  13
 );
