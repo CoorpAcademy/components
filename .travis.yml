@@ -29,12 +29,6 @@ matrix:
   include:
     - name: 'React components'
       env: PACKAGE_NAME=@coorpacademy/components
-    - name: 'CSS-modules require hook'
-      env: PACKAGE_NAME=@coorpacademy/css-modules-require-hook
-    - name: 'History'
-      env: PACKAGE_NAME=@coorpacademy/history
-    - name: 'Nova icons'
-      env: PACKAGE_NAME=@coorpacademy/nova-icons
     - name: 'Player store'
       env: PACKAGE_NAME=@coorpacademy/player-store
     - name: 'Player services'
@@ -43,6 +37,10 @@ matrix:
       env: PACKAGE_NAME=@coorpacademy/player-web
     - name: 'Progression engine'
       env: PACKAGE_NAME=@coorpacademy/progression-engine
+    - name: 'CSS-modules require hook'
+      env: PACKAGE_NAME=@coorpacademy/history
+    - name: 'Nova icons'
+      env: PACKAGE_NAME=@coorpacademy/nova-icons
     - name: 'Redux history'
       env: PACKAGE_NAME=@coorpacademy/redux-history
     - name: 'Redux router'
@@ -56,6 +54,8 @@ matrix:
     - name: 'Dust adapter'
       env: PACKAGE_NAME=@coorpacademy/treantjs-adapter-dust
     - name: 'Common webpack config'
+      env: PACKAGE_NAME=@coorpacademy/css-modules-require-hook
+    - name: 'History'
       env: PACKAGE_NAME=@coorpacademy/webpack-config
 
 install:
