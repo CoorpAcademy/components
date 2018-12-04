@@ -5,6 +5,7 @@ import getOr from 'lodash/fp/getOr';
 import isArray from 'lodash/fp/isArray';
 import isEqual from 'lodash/fp/isEqual';
 import isEmpty from 'lodash/fp/isEmpty';
+import map from 'lodash/fp/map';
 import pick from 'lodash/fp/pick';
 import pipe from 'lodash/fp/pipe';
 import omit from 'lodash/fp/omit';
@@ -13,7 +14,8 @@ import {
   retry,
   exit,
   nextLevel,
-  seeComment
+  seeComment,
+  openRecommendation
 } from '@coorpacademy/player-store/es/actions/ui/location';
 import {editComment} from '@coorpacademy/player-store/es/actions/ui/comments';
 import {postComment} from '@coorpacademy/player-store/es/actions/api/comments';
@@ -131,15 +133,26 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
   ]);
 };
 
-const extractRecommendation = ({translate}, store) => state => {
-  const recommendations = getRecommendations(state);
-  const hasRecommendations = isNull(recommendations) || isArray(recommendations);
+const extractRecommendation = ({translate}, {dispatch}) => state => {
+  const _recommendations = getRecommendations(state);
+  const hasRecommendations = isNull(_recommendations) || isArray(_recommendations);
 
-  if (hasRecommendations)
-    return {
-      title: translate('Related subjects'),
-      cards: recommendations
-    };
+  if (!hasRecommendations) {
+    return null;
+  }
+
+  const recommendations = map(
+    recommendation => ({
+      ...recommendation,
+      onClick: () => dispatch(openRecommendation(recommendation))
+    }),
+    _recommendations
+  );
+
+  return {
+    title: translate('Related subjects'),
+    cards: recommendations
+  };
 };
 
 const extractAction = ({translate}, {dispatch}) => state => {

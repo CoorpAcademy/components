@@ -1,9 +1,6 @@
-const find = (fixtures, {onFindRecommendations} = {}) => (type, ref) => {
+const find = fixtures => (type, ref) => {
   const {findRecommendations} = fixtures;
-  const _recommendations = findRecommendations(type, ref);
-  const recommendations = onFindRecommendations
-    ? onFindRecommendations(_recommendations)
-    : _recommendations;
+  const recommendations = findRecommendations(type, ref);
   return Promise.resolve(recommendations);
 };
 

@@ -82,3 +82,23 @@ export const nextLevel = (dispatch, getState, {services}) => {
     return dispatch(action);
   }
 };
+
+export const LOCATION_OPEN_RECOMMENDATION_REQUEST =
+  '@@location/LOCATION_OPEN_RECOMMENDATION_REQUEST';
+export const LOCATION_OPEN_RECOMMENDATION_SUCCESS =
+  '@@location/LOCATION_OPEN_RECOMMENDATION_SUCCESS';
+export const LOCATION_OPEN_RECOMMENDATION_FAILURE =
+  '@@location/LOCATION_OPEN_RECOMMENDATION_FAILURE';
+
+export const openRecommendation = recommendation => (dispatch, getState, {services}) => {
+  const action = buildTask({
+    types: [
+      LOCATION_OPEN_RECOMMENDATION_REQUEST,
+      LOCATION_OPEN_RECOMMENDATION_SUCCESS,
+      LOCATION_OPEN_RECOMMENDATION_FAILURE
+    ],
+    task: () => services.Location.openRecommendation(recommendation)
+  });
+
+  return dispatch(action);
+};

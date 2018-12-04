@@ -1,10 +1,6 @@
 {
-  "presets": [
-    "flow"
-  ],
-  "plugins": [
-    "transform-object-rest-spread"
-  ],
+  "presets": ["flow"],
+  "plugins": ["transform-object-rest-spread"],
   "env": {
     "commonjs": {
       "presets": [
@@ -31,9 +27,7 @@
           }
         ]
       ],
-      "plugins": [
-        "istanbul"
-      ]
+      "plugins": ["istanbul"]
     },
     "es": {
       "presets": [
