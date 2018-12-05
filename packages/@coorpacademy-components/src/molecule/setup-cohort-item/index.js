@@ -90,8 +90,7 @@ const SetupCohortItem = props => {
 };
 
 SetupCohortItem.defaultProps = {
-  fields: [],
-  cohortMessage: ''
+  fields: []
 };
 
 SetupCohortItem.propTypes = {

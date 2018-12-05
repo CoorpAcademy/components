@@ -6,7 +6,7 @@ import SetupCohortItem from '../setup-cohort-item';
 import Accordion from '../../organism/accordion/toggler';
 
 const SetupSlider = props => {
-  const {tabProps = [], slides = [], formatTitle, tabNew, slidesNew = [], type = 'slider'} = props;
+  const {tabProps, slides, formatTitle, tabNew, slidesNew, type} = props;
   let slidesView = [];
   type === 'sliderCohort'
     ? (slidesView = map.convert({cap: false})(
@@ -23,22 +23,18 @@ const SetupSlider = props => {
   );
   return (
     <div>
-      {tabProps.length > 0 ? (
-        <Accordion
-          tabProps={map.convert({cap: false})(
-            (tab, idx) => ({
-              ...tab,
-              title: formatTitle(tab.title, idx + 1)
-            }),
-            tabProps
-          )}
-          type={'all'}
-        >
-          {slidesView}
-        </Accordion>
-      ) : (
-        ''
-      )}
+      <Accordion
+        tabProps={map.convert({cap: false})(
+          (tab, idx) => ({
+            ...tab,
+            title: formatTitle(tab.title, idx + 1)
+          }),
+          tabProps
+        )}
+        type={'all'}
+      >
+        {slidesView}
+      </Accordion>
       <Accordion tabProps={tabNew} type={'all'}>
         {slidesViewNew}
       </Accordion>
@@ -47,7 +43,12 @@ const SetupSlider = props => {
 };
 
 SetupSlider.defaultProps = {
-  formatTitle: (title, rowNumber) => `${title}`
+  formatTitle: (title, rowNumber) => `${title}`,
+  tabNew: [],
+  tabProps: [],
+  slides: [],
+  slidesNew: [],
+  type: 'slider'
 };
 
 SetupSlider.propTypes = {
