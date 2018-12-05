@@ -8,66 +8,48 @@ import style from './style.css';
 import SetupCohortItemPopin from './setup-cohort-item-popin';
 
 const InputSplitScreen = props => {
-  const {providerCondition = {}, groupSelection = {}, cohortMessage} = props;
-  const dataCriteria = {
-    groups: {
-      fields: providerCondition.values
-    }
-  };
-  const dataCollection = {
-    groups: {
-      fields: groupSelection.values
-    }
-  };
-  const criteriaList = map.convert({cap: false})(
-    (criterion, key) => <SetupCohortItem key={key} {...criterion} />,
-    dataCriteria
-  );
-  const collectionList = map.convert({cap: false})(
-    (collection, key) => <SetupCohortItem key={key} {...collection} />,
-    dataCollection
-  );
+  const {leftSection = {}, rightSection = {}, cohortMessage, buttons} = props;
+  const criteriaList = map.convert({cap: false})((criterion, key) => {
+    return (
+      <div className={style.field} key={key}>
+        <InputCheckbox {...criterion} />
+      </div>
+    );
+  }, leftSection.values);
+  const collectionList = map.convert({cap: false})((collection, key) => {
+    return (
+      <div className={style.field} key={key}>
+        <InputCheckbox {...collection} />
+      </div>
+    );
+  }, rightSection.values);
+  const buttonList = map.convert({cap: false})((button, key) => {
+    return (
+      <div className={style.button} key={key}>
+        <Button {...button} />
+      </div>
+    );
+  }, buttons);
   return (
-    <div className={cohortMessage ? style.splitMessage : style.splitDefault}>
-      <div className={style.splitLeft}>
-        <div>
-          <p className={style.title}>{providerCondition.title}</p>
+    <div>
+      <div className={cohortMessage ? style.splitMessage : style.splitDefault}>
+        <div className={style.splitLeft}>
+          <p className={style.title}>{leftSection.title}</p>
           {criteriaList}
         </div>
-      </div>
-      <div className={style.splitRight}>
-        <div>
-          <p className={style.title}>{groupSelection.title}</p>
+        <div className={style.splitRight}>
+          <p className={style.title}>{rightSection.title}</p>
           {collectionList}
         </div>
       </div>
+      <div className={style.buttonGroup}>{buttonList}</div>
     </div>
   );
 };
 
 InputSplitScreen.propTypes = {
-  providerCondition: PropTypes.shape({}),
-  groupSelection: PropTypes.shape({})
-};
-
-const ButtonGroup = props => {
-  const {buttonGroup} = props;
-  return (
-    <div className={style.buttonGroup}>
-      {map.convert({cap: false})(
-        (button, key) => (
-          <div key={key} className={style.button}>
-            <Button {...button} />
-          </div>
-        ),
-        buttonGroup
-      )}
-    </div>
-  );
-};
-
-ButtonGroup.propTypes = {
-  ...Button.propTypes
+  leftSection: PropTypes.shape({}),
+  rightSection: PropTypes.shape({})
 };
 
 const SetupCohortItem = props => {
@@ -75,12 +57,8 @@ const SetupCohortItem = props => {
   const buildInput = field => {
     const {type} = field;
     switch (type) {
-      case 'checkbox':
-        return <InputCheckbox {...field} />;
-      case 'splitScreen':
+      case 'splitForm':
         return <InputSplitScreen {...field} cohortMessage={cohortMessage} />;
-      case 'buttonGroup':
-        return <ButtonGroup {...field} />;
       default:
         return <InputText {...field} disabled={!!cohortMessage} />;
     }
@@ -122,12 +100,8 @@ SetupCohortItem.propTypes = {
         ...InputCheckbox.PropTypes
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['splitScreen']),
+        type: PropTypes.oneOf(['splitForm']),
         ...InputSplitScreen.propTypes
-      }),
-      PropTypes.shape({
-        type: PropTypes.oneOf(['buttonGroup']),
-        ...ButtonGroup.propTypes
       }),
       PropTypes.shape({
         ...InputText.propTypes

@@ -3,6 +3,7 @@
   box-sizing: border-box;
   padding-top: 10px;
   padding-bottom: 10px;
+  position: relative;
 }
 
 .field {
@@ -35,6 +36,7 @@
 .buttonGroup {
   display: flex;
   justify-content: center;
+  margin-top: 20px;
 }
 
 .button {
@@ -54,6 +56,9 @@
 }
 
 .wrapmessage {
-  position: relative;
+  position: absolute;
   width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
 }

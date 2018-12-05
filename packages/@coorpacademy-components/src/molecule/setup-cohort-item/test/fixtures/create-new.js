@@ -9,8 +9,8 @@ export default {
         autoFocus: true
       },
       {
-        type: 'splitScreen',
-        providerCondition: {
+        type: 'splitForm',
+        leftSection: {
           title: 'The Provider',
           values: [
             {
@@ -51,7 +51,7 @@ export default {
             }
           ]
         },
-        groupSelection: {
+        rightSection: {
           title: 'Country',
           values: [
             {
@@ -85,11 +85,8 @@ export default {
               checked: false
             }
           ]
-        }
-      },
-      {
-        type: 'buttonGroup',
-        buttonGroup: [
+        },
+        buttons: [
           {
             type: 'button',
             typeAction: 'submit',

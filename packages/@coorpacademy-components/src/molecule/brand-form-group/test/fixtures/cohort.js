@@ -1,4 +1,4 @@
-import SetupCohort from '../../../setup-cohort/test/fixtures/default';
+import SetupCohort from '../../../setup-slider/test/fixtures/default-cohort';
 
 const {props} = SetupCohort;
 

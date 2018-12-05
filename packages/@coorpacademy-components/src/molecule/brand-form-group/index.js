@@ -18,7 +18,6 @@ import InputHTML from '../../atom/input-html';
 import InputDoublestep from '../../atom/input-doublestep';
 import ImageUpload from '../../atom/image-upload';
 import SetupSlider from '../setup-slider';
-import SetupSliderCohort from '../setup-cohort';
 import SetupSections from '../setup-sections';
 import style from './style.css';
 
@@ -49,7 +48,7 @@ const buildInput = field => {
     case 'slider':
       return <SetupSlider {...field} />;
     case 'sliderCohort':
-      return <SetupSliderCohort {...field} />;
+      return <SetupSlider {...field} />;
     case 'sections':
       return <SetupSections {...field} />;
     case 'text':
@@ -138,10 +137,6 @@ BrandFormGroup.propTypes = {
       PropTypes.shape({
         type: PropTypes.oneOf(['slider']),
         ...SetupSlider.propTypes
-      }),
-      PropTypes.shape({
-        type: PropTypes.oneOf(['sliderCohort']),
-        ...SetupSliderCohort.propTypes
       }),
       PropTypes.shape({
         type: PropTypes.oneOf(['sections']),

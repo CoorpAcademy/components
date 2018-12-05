@@ -13,49 +13,49 @@ export default {
         autoFocus: true
       },
       {
-        type: 'splitScreen',
-        providerCondition: {
+        type: 'splitForm',
+        leftSection: {
           title: 'The Provider',
           values: [
             {
               type: 'checkbox',
               title: 'Provider 1',
-              checked: true,
+              checked: false,
               value: 'them_cascsa'
             },
             {
               type: 'checkbox',
               title: 'Provider 2',
-              checked: true,
+              checked: false,
               value: 'them_3r2fwc'
             },
             {
               type: 'checkbox',
               title: 'Provider 3',
-              checked: true,
+              checked: false,
               value: 'them_wefewgweb'
             },
             {
               type: 'checkbox',
               title: 'Provider 4',
-              checked: true,
+              checked: false,
               value: 'them_bwegwegwe'
             },
             {
               type: 'checkbox',
               title: 'Provider 5',
-              checked: true,
+              checked: false,
               value: 'them_gwegwevfwe'
             },
             {
               type: 'checkbox',
               title: 'Provider 6',
-              checked: true,
+              checked: false,
               value: 'them_ewgwebh'
             }
           ]
         },
-        groupSelection: {
+        rightSection: {
           title: 'Country',
           values: [
             {
@@ -66,34 +66,31 @@ export default {
             {
               type: 'checkbox',
               title: 'them_XXXX 2',
-              checked: true
+              checked: false
             },
             {
               type: 'checkbox',
               title: 'them_XXXX 3',
-              checked: true
+              checked: false
             },
             {
               type: 'checkbox',
               title: 'them_XXXX 4',
-              checked: true
+              checked: false
             },
             {
               type: 'checkbox',
               title: 'them_XXXX 5',
-              checked: true
+              checked: false
             },
             {
               type: 'checkbox',
               title: 'them_XXXX 6',
-              checked: true
+              checked: false
             }
           ]
-        }
-      },
-      {
-        type: 'buttonGroup',
-        buttonGroup: [
+        },
+        buttons: [
           {
             type: 'button',
             typeAction: 'submit',

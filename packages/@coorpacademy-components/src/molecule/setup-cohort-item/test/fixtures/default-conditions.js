@@ -4,20 +4,20 @@ export default {
       {
         type: 'text',
         title: 'Name',
-        value: '',
+        value: 'value',
         required: true,
         autoFocus: true
       },
       {
-        type: 'splitScreen',
-        providerCondition: {},
-        groupSelection: {
+        type: 'splitForm',
+        leftSection: {},
+        rightSection: {
           title: 'Country',
           values: [
             {
               type: 'checkbox',
               title: 'them_XXXX 1',
-              checked: false
+              checked: true
             },
             {
               type: 'checkbox',
@@ -45,11 +45,8 @@ export default {
               checked: false
             }
           ]
-        }
-      },
-      {
-        type: 'buttonGroup',
-        buttonGroup: [
+        },
+        buttons: [
           {
             type: 'button',
             typeAction: 'submit',

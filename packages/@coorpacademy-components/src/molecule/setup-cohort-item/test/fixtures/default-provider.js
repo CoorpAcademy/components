@@ -4,13 +4,13 @@ export default {
       {
         type: 'text',
         title: 'Name',
-        value: '',
+        value: 'value',
         required: true,
         autoFocus: true
       },
       {
-        type: 'splitScreen',
-        providerCondition: {
+        type: 'splitForm',
+        leftSection: {
           title: 'The Provider',
           values: [
             {
@@ -51,11 +51,8 @@ export default {
             }
           ]
         },
-        groupSelection: {}
-      },
-      {
-        type: 'buttonGroup',
-        buttonGroup: [
+        rightSection: {},
+        buttons: [
           {
             type: 'button',
             typeAction: 'submit',

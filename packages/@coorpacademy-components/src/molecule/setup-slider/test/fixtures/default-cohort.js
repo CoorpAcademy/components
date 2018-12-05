@@ -19,7 +19,7 @@ export default {
       }
     ],
     formatTitle: (title, rowNumber) => `Cohort ${rowNumber} : ${title}`,
-    slides: [props, props, propsCohortMessage],
+    slides: [props, propsCohortMessage, propsCohortMessage],
     tabNew: [
       {
         title: 'Create a new cohort'

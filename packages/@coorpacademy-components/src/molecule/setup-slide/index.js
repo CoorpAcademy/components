@@ -6,6 +6,7 @@ import InputText from '../../atom/input-text';
 import InputCheckbox from '../../atom/input-checkbox';
 import InputSwitch from '../../atom/input-switch';
 import ImageUpload from '../../atom/image-upload';
+import SetupCohortItem from '../setup-cohort-item';
 import style from './style.css';
 
 const SetupSlide = props => {
@@ -21,6 +22,8 @@ const SetupSlide = props => {
         return <InputCheckbox {...field} />;
       case 'image':
         return <ImageUpload {...field} />;
+      case 'splitForm':
+        return <SetupCohortItem fields={field} />;
       default:
         return <InputText {...field} />;
     }

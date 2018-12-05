@@ -2,8 +2,8 @@
 @value dark from colors;
 
 .disable {
-  top: calc(-70vh);
-  position: absolute;
+  top: 0px;
+  position: relative;
   width: 100%;
   margin: 0;
   padding: 15% 25%;
@@ -12,11 +12,11 @@
   justify-content: center;
   box-sizing: border-box;
   overflow: hidden;
-  height: calc(100vh);
+  height: 100%;
 }
 
 .popin {
-  top: calc(30vh);
+  top: 30%;
   position: absolute;
   width: 50%;
   overflow: auto;
