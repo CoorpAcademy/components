@@ -30,11 +30,9 @@ const create = options => {
 
   /* istanbul ignore if  */
   if (module.hot) {
-    module.hot.accept('@coorpacademy/player-store/es/view', () => {
+    module.hot.accept('./views', () => {
       unsubscribe();
-      update = createUpdate(container, store, options)(
-        require('@coorpacademy/player-store/es/view').default
-      );
+      update = createUpdate(container, store, options)(require('./views').default);
       update();
       unsubscribe = store.subscribe(update);
     });

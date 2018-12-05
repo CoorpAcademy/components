@@ -9,6 +9,7 @@ import * as LeaderBoardService from './leaderboard';
 import * as LocationService from './location';
 import ProgressionsService from './progressions';
 import RecommendationsService from './recommendations';
+import SlidesService from './slides';
 
 export const Analytics = AnalyticsService;
 export const Answers = AnswersService;
@@ -22,3 +23,4 @@ export const Location = LocationService; // eslint-disable-line no-shadow
 export const Logger = console; // eslint-disable-line no-console
 export const Progressions = ProgressionsService;
 export const Recommendations = RecommendationsService;
+export const Slides = SlidesService;
