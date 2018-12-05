@@ -11,7 +11,7 @@ import Layout from '../layout';
 import style from './style.css';
 
 const BrandUpdate = Layout(props => {
-  const {notifications = [], links, breadcrumbs, tabs, content} = props;
+  const {notifications, links, breadcrumbs, tabs, content} = props;
   const formattedTabs = tabs.map(({title, name, href, selected}) => ({
     title,
     type: 'link',
@@ -58,6 +58,10 @@ const BrandUpdate = Layout(props => {
     </div>
   );
 });
+
+BrandUpdate.defaultProps = {
+  notifications: []
+};
 
 BrandUpdate.propTypes = {
   notifications: PropTypes.arrayOf(PropTypes.shape(Notification.propTypes)),

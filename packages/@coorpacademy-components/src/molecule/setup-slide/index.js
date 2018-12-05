@@ -10,7 +10,7 @@ import SetupCohortItem from '../setup-cohort-item';
 import style from './style.css';
 
 const SetupSlide = props => {
-  const {fields = []} = props;
+  const {fields} = props;
   const buildInput = field => {
     const {type} = field;
     switch (type) {
@@ -41,6 +41,10 @@ const SetupSlide = props => {
   const fieldsList = map.convert({cap: false})(buildField, fields);
 
   return <div className={style.wrapper}>{fieldsList}</div>;
+};
+
+SetupSlide.defaultProps = {
+  fields: []
 };
 
 SetupSlide.propTypes = {

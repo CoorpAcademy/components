@@ -464,6 +464,7 @@ import MoleculeSetupSectionsFixtureAnalytics from '../src/molecule/setup-section
 import MoleculeSetupSectionsFixtureDashboard from '../src/molecule/setup-sections/test/fixtures/dashboard';
 import MoleculeSetupSectionsFixtureDefault from '../src/molecule/setup-sections/test/fixtures/default';
 import MoleculeSetupSectionsFixtureLoading from '../src/molecule/setup-sections/test/fixtures/loading';
+import MoleculeSetupSlideFixtureCheckbox from '../src/molecule/setup-slide/test/fixtures/checkbox';
 import MoleculeSetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
 import MoleculeSetupSliderFixtureDefaultCohort from '../src/molecule/setup-slider/test/fixtures/default-cohort';
 import MoleculeSetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
@@ -1325,6 +1326,7 @@ export const fixtures = {
       Loading: MoleculeSetupSectionsFixtureLoading
     },
     MoleculeSetupSlide: {
+      Checkbox: MoleculeSetupSlideFixtureCheckbox,
       Default: MoleculeSetupSlideFixtureDefault
     },
     MoleculeSetupSlider: {
