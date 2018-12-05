@@ -2,13 +2,6 @@ export default {
   props: {
     fields: [
       {
-        type: 'text',
-        title: 'Name',
-        value: 'value',
-        required: true,
-        autoFocus: true
-      },
-      {
         type: 'splitForm',
         leftSection: {},
         rightSection: {
@@ -22,44 +15,31 @@ export default {
             {
               type: 'checkbox',
               title: 'them_XXXX 2',
-              checked: false
+              checked: true
             },
             {
               type: 'checkbox',
               title: 'them_XXXX 3',
-              checked: false
+              checked: true
             },
             {
               type: 'checkbox',
               title: 'them_XXXX 4',
-              checked: false
+              checked: true
             },
             {
               type: 'checkbox',
               title: 'them_XXXX 5',
-              checked: false
+              checked: true
             },
             {
               type: 'checkbox',
               title: 'them_XXXX 6',
-              checked: false
+              checked: true
             }
           ]
         },
-        buttons: [
-          {
-            type: 'button',
-            typeAction: 'submit',
-            submitValue: 'SUBMIT'
-          },
-          {
-            type: 'button',
-            submitValue: 'DELELE',
-            style: {
-              backgroundColor: '#F73F52'
-            }
-          }
-        ]
+        buttons: []
       }
     ]
   }

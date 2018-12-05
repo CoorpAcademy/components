@@ -8,7 +8,7 @@ import style from './style.css';
 import SetupCohortItemPopin from './setup-cohort-item-popin';
 
 const InputSplitScreen = props => {
-  const {leftSection = {}, rightSection = {}, cohortMessage, buttons} = props;
+  const {leftSection, rightSection, cohortMessage, buttons} = props;
   const criteriaList = map.convert({cap: false})((criterion, key) => {
     return (
       <div className={style.field} key={key}>
@@ -53,7 +53,7 @@ InputSplitScreen.propTypes = {
 };
 
 const SetupCohortItem = props => {
-  const {fields = [], cohortMessage} = props;
+  const {fields, cohortMessage} = props;
   const buildInput = field => {
     const {type} = field;
     switch (type) {
@@ -87,6 +87,11 @@ const SetupCohortItem = props => {
       )}
     </div>
   );
+};
+
+SetupCohortItem.defaultProps = {
+  fields: [],
+  cohortMessage: ''
 };
 
 SetupCohortItem.propTypes = {

@@ -449,6 +449,7 @@ import MoleculeSelectMultipleFixtureChecked from '../src/molecule/select-multipl
 import MoleculeSelectMultipleFixtureDefault from '../src/molecule/select-multiple/test/fixtures/default';
 import MoleculeSetupCohortItemFixtureCohortMessage from '../src/molecule/setup-cohort-item/test/fixtures/cohort-message';
 import MoleculeSetupCohortItemFixtureCreateNew from '../src/molecule/setup-cohort-item/test/fixtures/create-new';
+import MoleculeSetupCohortItemFixtureDataEmpty from '../src/molecule/setup-cohort-item/test/fixtures/data-empty';
 import MoleculeSetupCohortItemFixtureDefaultConditions from '../src/molecule/setup-cohort-item/test/fixtures/default-conditions';
 import MoleculeSetupCohortItemFixtureDefaultProvider from '../src/molecule/setup-cohort-item/test/fixtures/default-provider';
 import MoleculeSetupCohortItemFixtureDefault from '../src/molecule/setup-cohort-item/test/fixtures/default';
@@ -1303,6 +1304,7 @@ export const fixtures = {
     MoleculeSetupCohortItem: {
       CohortMessage: MoleculeSetupCohortItemFixtureCohortMessage,
       CreateNew: MoleculeSetupCohortItemFixtureCreateNew,
+      DataEmpty: MoleculeSetupCohortItemFixtureDataEmpty,
       DefaultConditions: MoleculeSetupCohortItemFixtureDefaultConditions,
       DefaultProvider: MoleculeSetupCohortItemFixtureDefaultProvider,
       Default: MoleculeSetupCohortItemFixtureDefault
