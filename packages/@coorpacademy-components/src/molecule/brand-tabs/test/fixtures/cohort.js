@@ -4,7 +4,7 @@ export default {
       {
         title: 'General Settings',
         href: '#brand/samsung/settings',
-        selected: true
+        selected: false
       },
       {
         title: 'Look & Feel',
@@ -29,7 +29,7 @@ export default {
       {
         title: 'Cohort',
         href: '#brand/samsung/cohort',
-        selected: false
+        selected: true
       }
     ]
   }

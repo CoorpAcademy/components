@@ -17,7 +17,6 @@ class AccordionToggler extends React.Component {
   handleOnClick(key) {
     this.setState(prevState => {
       const newState = {...prevState};
-
       forEach.convert({cap: false})((part, index) => {
         part.isOpen = this.newOpenState(index === key, part.isOpen);
       }, newState.tabProps);
@@ -33,7 +32,6 @@ class AccordionToggler extends React.Component {
 
   render() {
     const {children = []} = this.props;
-
     return (
       <Accordion tabProps={this.state.tabProps} onClick={this.handleOnClick}>
         {children}
@@ -41,7 +39,6 @@ class AccordionToggler extends React.Component {
     );
   }
 }
-
 AccordionToggler.propTypes = {
   tabProps: PropTypes.arrayOf(PropTypes.shape(Accordion.PropTypes)),
   oneTabOnly: PropTypes.bool

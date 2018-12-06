@@ -27,6 +27,11 @@ export default {
         title: 'Analytics',
         href: '#brand/samsung/analytics',
         selected: true
+      },
+      {
+        title: 'Cohort',
+        href: '#brand/samsung/cohort',
+        selected: false
       }
     ]
   }

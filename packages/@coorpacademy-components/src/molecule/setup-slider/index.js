@@ -5,18 +5,23 @@ import SetupSlide from '../setup-slide';
 import Accordion from '../../organism/accordion/toggler';
 
 const SetupSlider = props => {
-  const {tabProps, slides = []} = props;
-
+  const {tabProps, slides} = props;
   const slidesView = map.convert({cap: false})(
     (slide, key) => <SetupSlide key={key} {...slide} />,
     slides
   );
-
   return (
-    <Accordion tabProps={tabProps} type={'all'}>
-      {slidesView}
-    </Accordion>
+    <div>
+      <Accordion tabProps={tabProps} type={'all'}>
+        {slidesView}
+      </Accordion>
+    </div>
   );
+};
+
+SetupSlider.defaultProps = {
+  tabProps: [],
+  slides: []
 };
 
 SetupSlider.propTypes = {

@@ -1,0 +1,51 @@
+.wrapper {
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.splitDefault {
+  display: flex;
+}
+
+.splitLeft {
+  width: 50%;
+  border-right: 1px solid lightgray;
+}
+
+.splitRight {
+  width: 50%;
+}
+
+.buttonGroup {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.button {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.title {
+  font-family: "Open Sans";
+  font-size: 15px;
+  text-transform: none;
+  color: grey;
+  margin-right: 20px;
+  min-height: 50px;
+  align-items: center;
+  font-weight: bold;
+}
+

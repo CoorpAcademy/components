@@ -7,14 +7,13 @@ import Part from '../part';
 import style from './style.css';
 
 const Accordion = props => {
-  const {tabProps, children = [], onClick = noop} = props;
+  const {tabProps, children, onClick = noop} = props;
 
   const accordion = map.convert({cap: false})((child, key) => {
     const title = get([key, 'title'], tabProps);
     const isOpen = get([key, 'isOpen'], tabProps);
     const iconType = get([key, 'iconType'], tabProps);
     const handleOnClick = () => onClick(key);
-
     return child ? (
       <div data-name="accordion" key={key} className={style.wrapper}>
         <Part
@@ -31,6 +30,10 @@ const Accordion = props => {
   }, children);
 
   return <div>{accordion}</div>;
+};
+
+Accordion.defaultProps = {
+  children: []
 };
 
 Accordion.propTypes = {

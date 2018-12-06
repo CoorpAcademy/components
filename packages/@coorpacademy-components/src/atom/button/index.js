@@ -19,7 +19,6 @@ const ButtonContent = props => {
     type
   } = props;
   const dataName = props['data-name'];
-
   switch (type) {
     case 'link':
       return (
@@ -72,7 +71,6 @@ const ButtonContent = props => {
 
 const Button = ({children, ...props}) => {
   const {className, type = 'submit'} = props;
-
   return (
     <div className={classnames([style.button, className])}>
       <ButtonContent

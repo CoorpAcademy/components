@@ -66,6 +66,7 @@ import MoleculeForumForumComment from './../src/molecule/forum/forum-comment';
 import MoleculeForumForumPost from './../src/molecule/forum/forum-post';
 import MoleculeForumForumThread from './../src/molecule/forum/forum-thread';
 import MoleculeMenuList from './../src/molecule/menu-list';
+import MoleculeMessagePopin from './../src/molecule/message-popin';
 import MoleculeModuleBubble from './../src/molecule/module-bubble';
 import MoleculeModuleCard from './../src/molecule/module-card';
 import MoleculeNews from './../src/molecule/news';
@@ -87,6 +88,7 @@ import MoleculeScopeTabs from './../src/molecule/scope-tabs';
 import MoleculeSearch from './../src/molecule/search';
 import MoleculeSearchForm from './../src/molecule/search-form';
 import MoleculeSelectMultiple from './../src/molecule/select-multiple';
+import MoleculeSetupCohortItem from './../src/molecule/setup-cohort-item';
 import MoleculeSetupSection from './../src/molecule/setup-section';
 import MoleculeSetupSections from './../src/molecule/setup-sections';
 import MoleculeSetupSlide from './../src/molecule/setup-slide';
@@ -305,6 +307,7 @@ import MoleculeBrandDownloadBoxFixtureDefault from '../src/molecule/brand-downlo
 import MoleculeBrandDownloadBoxFixtureDownloadOneLoginTokens from '../src/molecule/brand-download-box/test/fixtures/download-one-login-tokens';
 import MoleculeBrandDownloadBoxFixtureSso from '../src/molecule/brand-download-box/test/fixtures/sso';
 import MoleculeBrandFormGroupFixtureAnalytics from '../src/molecule/brand-form-group/test/fixtures/analytics';
+import MoleculeBrandFormGroupFixtureCohort from '../src/molecule/brand-form-group/test/fixtures/cohort';
 import MoleculeBrandFormGroupFixtureDashboard from '../src/molecule/brand-form-group/test/fixtures/dashboard';
 import MoleculeBrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/fixtures/default';
 import MoleculeBrandFormGroupFixtureDoublefield from '../src/molecule/brand-form-group/test/fixtures/doublefield';
@@ -314,6 +317,7 @@ import MoleculeBrandFormGroupFixtureRoles from '../src/molecule/brand-form-group
 import MoleculeBrandFormGroupFixtureSlider from '../src/molecule/brand-form-group/test/fixtures/slider';
 import MoleculeBrandFormGroupFixtureSso from '../src/molecule/brand-form-group/test/fixtures/sso';
 import MoleculeBrandTabsFixtureAnalytics from '../src/molecule/brand-tabs/test/fixtures/analytics';
+import MoleculeBrandTabsFixtureCohort from '../src/molecule/brand-tabs/test/fixtures/cohort';
 import MoleculeBrandTabsFixtureDefault from '../src/molecule/brand-tabs/test/fixtures/default';
 import MoleculeBrandTabsFixtureLookandfeel from '../src/molecule/brand-tabs/test/fixtures/lookandfeel';
 import MoleculeBrandTabsFixtureSso from '../src/molecule/brand-tabs/test/fixtures/sso';
@@ -395,6 +399,7 @@ import MoleculeForumForumThreadFixtureDeepAnswers from '../src/molecule/forum/fo
 import MoleculeForumForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
 import MoleculeForumForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
 import MoleculeMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
+import MoleculeMessagePopinFixtureDefault from '../src/molecule/message-popin/test/fixtures/default';
 import MoleculeModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
 import MoleculeModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
 import MoleculeModuleCardFixtureActive from '../src/molecule/module-card/test/fixtures/active';
@@ -444,6 +449,8 @@ import MoleculeSearchFixtureWithValue from '../src/molecule/search/test/fixtures
 import MoleculeSearchFormFixtureDefault from '../src/molecule/search-form/test/fixtures/default';
 import MoleculeSelectMultipleFixtureChecked from '../src/molecule/select-multiple/test/fixtures/checked';
 import MoleculeSelectMultipleFixtureDefault from '../src/molecule/select-multiple/test/fixtures/default';
+import MoleculeSetupCohortItemFixtureCreateNew from '../src/molecule/setup-cohort-item/test/fixtures/create-new';
+import MoleculeSetupCohortItemFixtureDefault from '../src/molecule/setup-cohort-item/test/fixtures/default';
 import MoleculeSetupSectionFixtureAnalyticsBoutique from '../src/molecule/setup-section/test/fixtures/analytics-boutique';
 import MoleculeSetupSectionFixtureAnalyticsBranch from '../src/molecule/setup-section/test/fixtures/analytics-branch';
 import MoleculeSetupSectionFixtureAnalyticsRegion from '../src/molecule/setup-section/test/fixtures/analytics-region';
@@ -455,7 +462,13 @@ import MoleculeSetupSectionsFixtureAnalytics from '../src/molecule/setup-section
 import MoleculeSetupSectionsFixtureDashboard from '../src/molecule/setup-sections/test/fixtures/dashboard';
 import MoleculeSetupSectionsFixtureDefault from '../src/molecule/setup-sections/test/fixtures/default';
 import MoleculeSetupSectionsFixtureLoading from '../src/molecule/setup-sections/test/fixtures/loading';
+import MoleculeSetupSlideFixtureAlertMessage from '../src/molecule/setup-slide/test/fixtures/alert-message';
+import MoleculeSetupSlideFixtureCheckbox from '../src/molecule/setup-slide/test/fixtures/checkbox';
+import MoleculeSetupSlideFixtureCohort from '../src/molecule/setup-slide/test/fixtures/cohort';
+import MoleculeSetupSlideFixtureCreateNewCohort from '../src/molecule/setup-slide/test/fixtures/create-new-cohort';
 import MoleculeSetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
+import MoleculeSetupSlideFixtureSplitForm from '../src/molecule/setup-slide/test/fixtures/split-form';
+import MoleculeSetupSliderFixtureDefaultCohort from '../src/molecule/setup-slider/test/fixtures/default-cohort';
 import MoleculeSetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
 import MoleculeSsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
 import MoleculeSsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
@@ -490,6 +503,7 @@ import OrganismAccordionPartFixtureOpen from '../src/organism/accordion/part/tes
 import OrganismAccordionTogglerFixtureAllAreOpenable from '../src/organism/accordion/toggler/test/fixtures/all-are-openable';
 import OrganismAccordionTogglerFixtureOnlyOne from '../src/organism/accordion/toggler/test/fixtures/only-one';
 import OrganismBrandFormFixtureAnalytics from '../src/organism/brand-form/test/fixtures/analytics';
+import OrganismBrandFormFixtureCohort from '../src/organism/brand-form/test/fixtures/cohort';
 import OrganismBrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import OrganismBrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import OrganismBrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
@@ -653,6 +667,8 @@ import TemplateBackOfficeBrandCreateFixtureModified from '../src/template/back-o
 import TemplateBackOfficeBrandListFixtureDefault from '../src/template/back-office/brand-list/test/fixtures/default';
 import TemplateBackOfficeBrandListFixtureLoading from '../src/template/back-office/brand-list/test/fixtures/loading';
 import TemplateBackOfficeBrandUpdateFixtureAnalytics from '../src/template/back-office/brand-update/test/fixtures/analytics';
+import TemplateBackOfficeBrandUpdateFixtureCohortError from '../src/template/back-office/brand-update/test/fixtures/cohort-error';
+import TemplateBackOfficeBrandUpdateFixtureCohort from '../src/template/back-office/brand-update/test/fixtures/cohort';
 import TemplateBackOfficeBrandUpdateFixtureDashboard from '../src/template/back-office/brand-update/test/fixtures/dashboard';
 import TemplateBackOfficeBrandUpdateFixtureDefault from '../src/template/back-office/brand-update/test/fixtures/default';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess from '../src/template/back-office/brand-update/test/fixtures/general-settings-success';
@@ -762,6 +778,7 @@ export const components = {
     MoleculeFeedback,
     MoleculeFilters,
     MoleculeMenuList,
+    MoleculeMessagePopin,
     MoleculeModuleBubble,
     MoleculeModuleCard,
     MoleculeNews,
@@ -776,6 +793,7 @@ export const components = {
     MoleculeSearch,
     MoleculeSearchForm,
     MoleculeSelectMultiple,
+    MoleculeSetupCohortItem,
     MoleculeSetupSection,
     MoleculeSetupSections,
     MoleculeSetupSlide,
@@ -1136,6 +1154,7 @@ export const fixtures = {
     },
     MoleculeBrandFormGroup: {
       Analytics: MoleculeBrandFormGroupFixtureAnalytics,
+      Cohort: MoleculeBrandFormGroupFixtureCohort,
       Dashboard: MoleculeBrandFormGroupFixtureDashboard,
       Default: MoleculeBrandFormGroupFixtureDefault,
       Doublefield: MoleculeBrandFormGroupFixtureDoublefield,
@@ -1147,6 +1166,7 @@ export const fixtures = {
     },
     MoleculeBrandTabs: {
       Analytics: MoleculeBrandTabsFixtureAnalytics,
+      Cohort: MoleculeBrandTabsFixtureCohort,
       Default: MoleculeBrandTabsFixtureDefault,
       Lookandfeel: MoleculeBrandTabsFixtureLookandfeel,
       Sso: MoleculeBrandTabsFixtureSso,
@@ -1223,6 +1243,9 @@ export const fixtures = {
     MoleculeMenuList: {
       Default: MoleculeMenuListFixtureDefault
     },
+    MoleculeMessagePopin: {
+      Default: MoleculeMessagePopinFixtureDefault
+    },
     MoleculeModuleBubble: {
       Default: MoleculeModuleBubbleFixtureDefault,
       Disabled: MoleculeModuleBubbleFixtureDisabled
@@ -1286,6 +1309,10 @@ export const fixtures = {
       Checked: MoleculeSelectMultipleFixtureChecked,
       Default: MoleculeSelectMultipleFixtureDefault
     },
+    MoleculeSetupCohortItem: {
+      CreateNew: MoleculeSetupCohortItemFixtureCreateNew,
+      Default: MoleculeSetupCohortItemFixtureDefault
+    },
     MoleculeSetupSection: {
       AnalyticsBoutique: MoleculeSetupSectionFixtureAnalyticsBoutique,
       AnalyticsBranch: MoleculeSetupSectionFixtureAnalyticsBranch,
@@ -1302,9 +1329,15 @@ export const fixtures = {
       Loading: MoleculeSetupSectionsFixtureLoading
     },
     MoleculeSetupSlide: {
-      Default: MoleculeSetupSlideFixtureDefault
+      AlertMessage: MoleculeSetupSlideFixtureAlertMessage,
+      Checkbox: MoleculeSetupSlideFixtureCheckbox,
+      Cohort: MoleculeSetupSlideFixtureCohort,
+      CreateNewCohort: MoleculeSetupSlideFixtureCreateNewCohort,
+      Default: MoleculeSetupSlideFixtureDefault,
+      SplitForm: MoleculeSetupSlideFixtureSplitForm
     },
     MoleculeSetupSlider: {
+      DefaultCohort: MoleculeSetupSliderFixtureDefaultCohort,
       Default: MoleculeSetupSliderFixtureDefault
     },
     MoleculeSsmenuList: {
@@ -1445,6 +1478,7 @@ export const fixtures = {
   Organism: {
     OrganismBrandForm: {
       Analytics: OrganismBrandFormFixtureAnalytics,
+      Cohort: OrganismBrandFormFixtureCohort,
       Dashboard: OrganismBrandFormFixtureDashboard,
       Default: OrganismBrandFormFixtureDefault,
       GeneralSettings: OrganismBrandFormFixtureGeneralSettings,
@@ -1678,6 +1712,8 @@ export const fixtures = {
     },
     TemplateBackOfficeBrandUpdate: {
       Analytics: TemplateBackOfficeBrandUpdateFixtureAnalytics,
+      CohortError: TemplateBackOfficeBrandUpdateFixtureCohortError,
+      Cohort: TemplateBackOfficeBrandUpdateFixtureCohort,
       Dashboard: TemplateBackOfficeBrandUpdateFixtureDashboard,
       Default: TemplateBackOfficeBrandUpdateFixtureDefault,
       GeneralSettingsSuccess: TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess,

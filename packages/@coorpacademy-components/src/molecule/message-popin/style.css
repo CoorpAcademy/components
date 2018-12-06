@@ -1,0 +1,59 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+
+.disable {
+  top: 0px;
+  position: relative;
+  width: 100%;
+  margin: 0;
+  padding: 15% 25%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  height: 100%;
+}
+
+.popin {
+  top: 30%;
+  position: absolute;
+  width: 50%;
+  overflow: auto;
+  background: white;
+  text-align: center;
+  box-shadow: 0 0 15px 0 rgba(166, 166, 166, 0.84);
+  border-radius: 3px;
+}
+
+.header {
+  font-family: 'Open Sans';
+  font-size: 17px;
+  font-weight: 700;
+  color: dark;
+  display: flex;
+  width: 100%;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.content {
+  font-family: 'Open Sans';
+  font-size: 13px;
+  font-weight: 400;
+  color: dark;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+}
+
+.wrapmessage {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1;
+}

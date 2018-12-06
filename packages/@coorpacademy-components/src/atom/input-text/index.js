@@ -8,6 +8,7 @@ import style from './style.css';
 
 const InputText = props => {
   const {
+    autoFocus = false,
     placeholder = '',
     value,
     defaultValue,
@@ -28,6 +29,7 @@ const InputText = props => {
       <label>
         <span className={style.title}>{title}</span>
         <input
+          autoFocus={autoFocus}
           type="text"
           name={title}
           className={style.input}
@@ -45,6 +47,7 @@ const InputText = props => {
 };
 
 InputText.propTypes = {
+  autoFocus: PropTypes.bool,
   title: PropTypes.string,
   placeholder: PropTypes.string,
   defaultValue: PropTypes.string,
