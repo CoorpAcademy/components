@@ -5,7 +5,7 @@ import {
   getAnswers,
   getAnswerValues,
   getChoices,
-  getClue,
+  extractClue,
   getCurrentClue,
   getCorrection,
   getCurrentContent,
@@ -281,11 +281,11 @@ test('getCurrentCorrection should get current correction from state', t => {
   t.is(getCurrentCorrection(state), correction);
 });
 
-test('getClue should get clue from state', t => {
+test('extractClue should get clue from state', t => {
   const clue = 'Indice';
   const state = set('data.clues.entities.foo.bar', clue)({});
 
-  t.is(getClue('foo', 'bar')(state), clue);
+  t.is(extractClue('foo', 'bar')(state), clue);
 });
 
 test('getStartRank should get rank.start from state', t => {

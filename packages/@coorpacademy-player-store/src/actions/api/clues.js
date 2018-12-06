@@ -1,5 +1,5 @@
 import buildTask from '@coorpacademy/redux-task';
-import {getClue} from '../../utils/state-extract';
+import {extractClue} from '../../utils/state-extract';
 
 export const CLUE_FETCH_REQUEST = '@@clue/CREATE_REQUEST';
 export const CLUE_FETCH_SUCCESS = '@@clue/CREATE_SUCCESS';
@@ -12,7 +12,7 @@ export const fetchClue = (progressionId, slideId) => (dispatch, getState, {servi
     types: [CLUE_FETCH_REQUEST, CLUE_FETCH_SUCCESS, CLUE_FETCH_FAILURE],
     task: () => Clues.findById(progressionId, slideId),
     meta: {progressionId, slideId},
-    bailout: getClue(progressionId, slideId)
+    bailout: extractClue(progressionId, slideId)
   });
 
   return dispatch(action);

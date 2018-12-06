@@ -9,8 +9,6 @@ import {fetchSlideChapter} from '../api/contents';
 import {progressionUpdated, selectProgression} from './progressions';
 import {toggleAccordion, ACCORDION_KLF, ACCORDION_TIPS, ACCORDION_LESSON} from './corrections';
 
-export const back = () => {}
-
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
   qcmGraphic: '@@answer/EDIT_QCM_GRAPHIC',

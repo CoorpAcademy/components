@@ -123,7 +123,7 @@ export const isCommentSent = state => {
   return get(['data', 'comments', 'entities', progressionId, 'isSent'], state);
 };
 
-export const getClue = (progressionId, slideId) => state => {
+export const extractClue = (progressionId, slideId) => state => {
   return get(['data', 'clues', 'entities', progressionId, slideId], state);
 };
 
@@ -131,7 +131,7 @@ export const getCurrentClue = state => {
   const progression = getCurrentProgression(state);
   const slide = getCurrentSlide(state);
 
-  return getClue(getId(progression), getId(slide))(state);
+  return extractClue(getId(progression), getId(slide))(state);
 };
 
 export const getRoute = state => {
