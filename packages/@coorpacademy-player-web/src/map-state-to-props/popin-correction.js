@@ -7,36 +7,22 @@ import omitBy from 'lodash/fp/omitBy';
 import isUndefined from 'lodash/fp/isUndefined';
 import includes from 'lodash/fp/includes';
 import {
-  getCurrentCorrection,
-  getCurrentProgression,
-  getCurrentProgressionId,
-  getEngineConfig,
-  getLives,
-  getPreviousSlide,
-  getCurrentSlide,
-  hasViewedAResourceAtThisStep, extractors} from '@coorpacademy/player-store';
-
-import {
   acceptExtraLifeAndReset,
-  refuseExtraLifeAndReset
-} from '@coorpacademy/player-store/es/actions/ui/extra-life';
-import {toggleAccordion} from '@coorpacademy/player-store/es/actions/ui/corrections';
-import {
-  selectProgression,
-  openAssistance
-} from '@coorpacademy/player-store/es/actions/ui/progressions';
-import getResourcesProps from './resources';
-
-const {
   getCurrentCorrection,
   getCurrentProgression,
   getCurrentProgressionId,
+  getCurrentSlide,
   getEngineConfig,
   getLives,
   getPreviousSlide,
-  getCurrentSlide,
-  hasViewedAResourceAtThisStep
-} = extractors;
+  hasViewedAResourceAtThisStep,
+  openAssistance,
+  refuseExtraLifeAndReset,
+  selectProgression,
+  toggleAccordion
+} from '@coorpacademy/player-store';
+
+import getResourcesProps from './resources';
 
 const isNewChapter = (state, progression) => {
   if (

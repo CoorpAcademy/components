@@ -6,20 +6,18 @@ import pipe from 'lodash/fp/pipe';
 import identity from 'lodash/fp/identity';
 import isFunction from 'lodash/fp/isFunction';
 import {mockTranslate} from '@coorpacademy/translate';
-import {getCurrentProgressionId} from '@coorpacademy/player-store/es/utils/state-extract';
 import {
+  getCurrentProgressionId,
   LOCATION_NEXT_CONTENT_REQUEST,
   LOCATION_NEXT_CONTENT_SUCCESS,
+  LOCATION_OPEN_RECOMMENDATION_REQUEST,
+  LOCATION_OPEN_RECOMMENDATION_SUCCESS,
   LOCATION_SEE_COMMENT_REQUEST,
   LOCATION_SEE_COMMENT_SUCCESS,
-  LOCATION_OPEN_RECOMMENDATION_REQUEST,
-  LOCATION_OPEN_RECOMMENDATION_SUCCESS
-} from '@coorpacademy/player-store/es/actions/ui/location';
-import {UI_EDIT_COMMENT} from '@coorpacademy/player-store/es/actions/ui/comments';
-import {
   SEND_POST_COMMENT_REQUEST,
-  SEND_POST_COMMENT_SUCCESS
-} from '@coorpacademy/player-store/es/actions/api/comments';
+  SEND_POST_COMMENT_SUCCESS,
+  UI_EDIT_COMMENT
+} from '@coorpacademy/player-store';
 import popinEnd from '../popin-end';
 
 import popinLearnerSuccess from './fixtures/popin-end/learner-success';

@@ -1,6 +1,11 @@
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import pipe from 'lodash/fp/pipe';
+import any from 'lodash/fp/any';
+import find from 'lodash/fp/find';
+import includes from 'lodash/fp/includes';
+import isEmpty from 'lodash/fp/isEmpty';
+import map from 'lodash/fp/map';
 import _toString from 'lodash/fp/toString';
 
 const getId = get('_id');
@@ -183,3 +188,21 @@ export const getLives = state => {
 };
 
 export const getCoaches = getOr(0, 'ui.coaches.availableCoaches');
+
+export const hasSeenLesson = state => {
+  const progression = getCurrentProgression(state);
+  const slide = getCurrentSlide(state) || getPreviousSlide(state);
+  const lessons = get('lessons', slide);
+  const viewedResources = getOr([], ['state', 'viewedResources'], progression);
+  const chapterContent = {
+    type: 'chapter',
+    ref: get('chapter_id', slide)
+  };
+  const viewedResourcesForContent = pipe(find(chapterContent), getOr([], 'resources'))(
+    viewedResources
+  );
+
+  return (
+    isEmpty(lessons) || any(ref => includes(ref, map('ref', lessons)), viewedResourcesForContent)
+  );
+};

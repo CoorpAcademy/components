@@ -1,5 +1,4 @@
 import test from 'ava';
-import keys from 'lodash/fp/keys';
 import start from '../start';
 
 test('it should start app', t => {
@@ -7,8 +6,8 @@ test('it should start app', t => {
     progression: {
       id: 'foo'
     }
-  }
-  
+  };
+
   const store = {
     dispatch: action => {
       t.is(action.constructor.name, 'AsyncFunction');
@@ -17,5 +16,5 @@ test('it should start app', t => {
   };
 
   const app = start(options, store);
-  t.is(app, 'bar'); 
+  t.is(app, 'bar');
 });

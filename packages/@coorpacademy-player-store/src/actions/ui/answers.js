@@ -2,7 +2,7 @@ import get from 'lodash/fp/get';
 import isNull from 'lodash/fp/isNull';
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
-import hasSeenLesson from '../../utils/has-seen-lesson';
+import {hasSeenLesson} from '../../utils/state-extract';
 import {createAnswer} from '../api/progressions';
 import {fetchAnswer} from '../api/answers';
 import {fetchSlideChapter} from '../api/contents';

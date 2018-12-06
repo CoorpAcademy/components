@@ -1,8 +1,15 @@
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import indexOf from 'lodash/fp/indexOf';
-import {getCurrentChapter, getEngine, getLives, getCurrentContent, isContentAdaptive, back} from '@coorpacademy/player-store';
-console.log(back)
+import {
+  getCurrentChapter,
+  getEngine,
+  getLives,
+  getCurrentContent,
+  isContentAdaptive,
+  back
+} from '@coorpacademy/player-store';
+
 const headerContent = (engineRef, state) => {
   const content = getCurrentContent(state);
 

@@ -11,29 +11,27 @@ import pipe from 'lodash/fp/pipe';
 import omit from 'lodash/fp/omit';
 import isNull from 'lodash/fp/isNull';
 import {
-  retry,
+  editComment,
   exit,
-  nextLevel,
-  seeComment,
-  openRecommendation
-} from '@coorpacademy/player-store/es/actions/ui/location';
-import {editComment} from '@coorpacademy/player-store/es/actions/ui/comments';
-import {postComment} from '@coorpacademy/player-store/es/actions/api/comments';
-import {
+  getBestScore,
   getCurrentContent,
   getCurrentExitNode,
   getCurrentProgression,
-  getNextContent,
-  getRecommendations,
-  getBestScore,
   getCurrentProgressionId,
-  getStartRank,
   getEndRank,
   getLives,
+  getNextContent,
+  getRecommendations,
+  getStartRank,
   isCommentSent,
+  isCurrentEngineLearner,
   isCurrentEngineMicrolearning,
-  isCurrentEngineLearner
-} from '@coorpacademy/player-store/es/utils/state-extract';
+  nextLevel,
+  openRecommendation,
+  postComment,
+  retry,
+  seeComment
+} from '@coorpacademy/player-store';
 import headerProps from './header';
 
 const extractRank = state => {

@@ -32,9 +32,12 @@ import {
   getRecommendations,
   getRoute,
   hasViewedAResourceAtThisStep,
+  hasSeenLesson,
   getQuestionMedia,
   isContentAdaptive
 } from '../state-extract';
+
+import slideFixture from './slide';
 
 test('getChoices should get choices from state', t => {
   const choices = ['foo', 'bar'];
@@ -482,4 +485,69 @@ test('isContentAdaptive should return if content is adaptive or not', t => {
 
   t.true(isContentAdaptive(getState(true)));
   t.false(isContentAdaptive(getState(false)));
+});
+
+const setViewedResources = (lessonId, chapterId) => state =>
+  set(
+    ['data', 'progressions', 'entities', 0, 'state', 'viewedResources'],
+    [
+      {
+        type: 'chapter',
+        ref: chapterId,
+        resources: [lessonId]
+      }
+    ],
+    state
+  );
+
+test('should return false if no lesson has been seen', t => {
+  const state = Object.freeze(slideFixture);
+  const result = hasSeenLesson(state);
+
+  return t.is(result, false);
+});
+
+test('should return true if slide lessons is undefined', t => {
+  const state = Object.freeze(slideFixture);
+  const slide = getCurrentSlide(state);
+  const result = hasSeenLesson(
+    set(['data', 'contents', 'slide', 'entities', slide._id, 'lessons'], undefined, state)
+  );
+
+  return t.is(result, true);
+});
+
+test('should return true if slide lessons is an empty array', t => {
+  const state = Object.freeze(slideFixture);
+  const slide = getCurrentSlide(state);
+  const result = hasSeenLesson(
+    set(['data', 'contents', 'slide', 'entities', slide._id, 'lessons'], [], state)
+  );
+
+  return t.is(result, true);
+});
+
+test('should return true if at least one lesson has been seen', t => {
+  const state = Object.freeze(slideFixture);
+  const slide = getCurrentSlide(state);
+  const result = hasSeenLesson(setViewedResources(slide.lessons[0].ref, slide.chapter_id)(state));
+
+  return t.is(result, true);
+});
+
+test('should return true if side is at previous step and at least one lesson has been seen', t => {
+  const state = Object.freeze(slideFixture);
+  const slide = getCurrentSlide(state);
+  const result = hasSeenLesson(
+    pipe(
+      set(['data', 'progressions', 'entities', 0, 'state', 'nextContent'], {type: 'node', ref: 0}),
+      set(['data', 'progressions', 'entities', 0, 'state', 'content'], {
+        type: 'slide',
+        ref: slide._id
+      }),
+      setViewedResources(slide.lessons[0].ref, slide.chapter_id)
+    )(state)
+  );
+
+  return t.is(result, true);
 });

@@ -3,7 +3,7 @@ import omit from 'lodash/fp/omit';
 import isFunction from 'lodash/fp/isFunction';
 import identity from 'lodash/fp/identity';
 import {mockTranslate} from '@coorpacademy/translate';
-import {ANSWER_EDIT} from '@coorpacademy/player-store/es/actions/ui/answers';
+import {ANSWER_EDIT} from '@coorpacademy/player-store';
 import {createGetAnswerProps, createGetHelp} from '../answer';
 import basic from './fixtures/slides/basic';
 import qcm from './fixtures/slides/qcm';

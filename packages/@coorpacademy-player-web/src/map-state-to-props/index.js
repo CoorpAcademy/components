@@ -4,13 +4,11 @@ import get from 'lodash/fp/get';
 import isNil from 'lodash/fp/isNil';
 import isEqual from 'lodash/fp/isEqual';
 import pipe from 'lodash/fp/pipe';
-import {extractors} from '@coorpacademy/player-store';
+import {getStepContent, getCurrentProgression, getRoute} from '@coorpacademy/player-store';
 import {popinCorrectionStateToProps} from './popin-correction';
 import popinEndStateToProps from './popin-end';
 import loadingStateToProps from './loading';
 import createSlideStateToProps from './slide';
-
-const {getStepContent, getCurrentProgression, getRoute} = extractors;
 
 const hasNotProgression = pipe(getCurrentProgression, isNil);
 const hasNoContent = pipe(getStepContent, isNil);

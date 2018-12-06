@@ -8,56 +8,40 @@ import {mockTranslate} from '@coorpacademy/translate';
 import cloneDeep from 'lodash/fp/cloneDeep';
 import isFunction from 'lodash/fp/isFunction';
 import {
-  PROGRESSION_FETCH_REQUEST,
-  PROGRESSION_FETCH_BESTOF_REQUEST,
-  PROGRESSION_FETCH_BESTOF_SUCCESS,
-  ENGINE_CONFIG_FETCH_REQUEST,
-  ENGINE_CONFIG_FETCH_SUCCESS,
-  PROGRESSION_EXTRALIFEREFUSED_REQUEST,
-  PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
-  PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
-  PROGRESSION_EXTRALIFEACCEPTED_SUCCESS
-} from '@coorpacademy/player-store/es/actions/api/progressions';
-import {
-  RANK_FETCH_START_REQUEST,
-  RANK_FETCH_START_SUCCESS,
-  RANK_FETCH_END_REQUEST,
-  RANK_FETCH_END_SUCCESS
-} from '@coorpacademy/player-store/es/actions/api/rank';
-import {
-  SEND_PROGRESSION_ANALYTICS_REQUEST,
-  SEND_PROGRESSION_ANALYTICS_SUCCESS
-} from '@coorpacademy/player-store/es/actions/api/analytics';
-import {
   ANSWER_FETCH_REQUEST,
-  ANSWER_FETCH_SUCCESS
-} from '@coorpacademy/player-store/es/actions/api/answers';
-import {
+  ANSWER_FETCH_SUCCESS,
   CONTENT_FETCH_REQUEST,
   CONTENT_FETCH_SUCCESS,
   CONTENT_INFO_FETCH_REQUEST,
-  CONTENT_INFO_FETCH_SUCCESS
-} from '@coorpacademy/player-store/es/actions/api/contents';
-import {
+  CONTENT_INFO_FETCH_SUCCESS,
+  ENGINE_CONFIG_FETCH_REQUEST,
+  ENGINE_CONFIG_FETCH_SUCCESS,
   EXIT_NODE_FETCH_REQUEST,
-  EXIT_NODE_FETCH_SUCCESS
-} from '@coorpacademy/player-store/es/actions/api/exit-nodes';
-import {
-  RECO_FETCH_REQUEST,
-  RECO_FETCH_SUCCESS
-} from '@coorpacademy/player-store/es/actions/api/recommendations';
-import {
+  EXIT_NODE_FETCH_SUCCESS,
+  getCurrentProgressionId,
   NEXT_CONTENT_FETCH_REQUEST,
-  NEXT_CONTENT_FETCH_SUCCESS
-} from '@coorpacademy/player-store/es/actions/api/next-content';
-import {
-  UI_SELECT_PROGRESSION,
-  UI_PROGRESSION_UPDATED,
+  NEXT_CONTENT_FETCH_SUCCESS,
   OPEN_ASSISTANCE_REQUEST,
-  OPEN_ASSISTANCE_SUCCESS
-} from '@coorpacademy/player-store/es/actions/ui/progressions';
-import {UI_SELECT_ROUTE} from '@coorpacademy/player-store/es/actions/ui/route';
-import {getCurrentProgressionId} from '@coorpacademy/player-store/es/utils/state-extract';
+  OPEN_ASSISTANCE_SUCCESS,
+  PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
+  PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
+  PROGRESSION_EXTRALIFEREFUSED_REQUEST,
+  PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
+  PROGRESSION_FETCH_BESTOF_REQUEST,
+  PROGRESSION_FETCH_BESTOF_SUCCESS,
+  PROGRESSION_FETCH_REQUEST,
+  RANK_FETCH_END_REQUEST,
+  RANK_FETCH_END_SUCCESS,
+  RANK_FETCH_START_REQUEST,
+  RANK_FETCH_START_SUCCESS,
+  RECO_FETCH_REQUEST,
+  RECO_FETCH_SUCCESS,
+  SEND_PROGRESSION_ANALYTICS_REQUEST,
+  SEND_PROGRESSION_ANALYTICS_SUCCESS,
+  UI_PROGRESSION_UPDATED,
+  UI_SELECT_PROGRESSION,
+  UI_SELECT_ROUTE
+} from '@coorpacademy/player-store';
 import {createHeaderCTA, openPopinAssistance} from '../popin-correction';
 import popinExtraLife from './fixtures/popin-correction/popin-extra-life';
 import popinFailure from './fixtures/popin-correction/popin-failure';

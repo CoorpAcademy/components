@@ -9,7 +9,7 @@ import isFunction from 'lodash/fp/isFunction';
 import identity from 'lodash/fp/identity';
 import omit from 'lodash/fp/omit';
 import {mockTranslate} from '@coorpacademy/translate';
-import {UI_SELECT_ROUTE} from '@coorpacademy/player-store/es/actions/ui/route';
+import {UI_SELECT_ROUTE} from '@coorpacademy/player-store';
 import createPlayer from '../player';
 import createHeader from '../header';
 import learnerProgressionStateFixture from './fixtures/progression-learner';
