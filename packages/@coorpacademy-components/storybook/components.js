@@ -66,6 +66,7 @@ import MoleculeForumForumComment from './../src/molecule/forum/forum-comment';
 import MoleculeForumForumPost from './../src/molecule/forum/forum-post';
 import MoleculeForumForumThread from './../src/molecule/forum/forum-thread';
 import MoleculeMenuList from './../src/molecule/menu-list';
+import MoleculeMessagePopin from './../src/molecule/message-popin';
 import MoleculeModuleBubble from './../src/molecule/module-bubble';
 import MoleculeModuleCard from './../src/molecule/module-card';
 import MoleculeNews from './../src/molecule/news';
@@ -398,6 +399,7 @@ import MoleculeForumForumThreadFixtureDeepAnswers from '../src/molecule/forum/fo
 import MoleculeForumForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
 import MoleculeForumForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
 import MoleculeMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
+import MoleculeMessagePopinFixtureDefault from '../src/molecule/message-popin/test/fixtures/default';
 import MoleculeModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
 import MoleculeModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
 import MoleculeModuleCardFixtureActive from '../src/molecule/module-card/test/fixtures/active';
@@ -775,6 +777,7 @@ export const components = {
     MoleculeFeedback,
     MoleculeFilters,
     MoleculeMenuList,
+    MoleculeMessagePopin,
     MoleculeModuleBubble,
     MoleculeModuleCard,
     MoleculeNews,
@@ -1238,6 +1241,9 @@ export const fixtures = {
     },
     MoleculeMenuList: {
       Default: MoleculeMenuListFixtureDefault
+    },
+    MoleculeMessagePopin: {
+      Default: MoleculeMessagePopinFixtureDefault
     },
     MoleculeModuleBubble: {
       Default: MoleculeModuleBubbleFixtureDefault,

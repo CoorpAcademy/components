@@ -7,7 +7,7 @@ import InputCheckbox from '../../atom/input-checkbox';
 import InputSwitch from '../../atom/input-switch';
 import ImageUpload from '../../atom/image-upload';
 import SetupCohortItem from '../setup-cohort-item';
-import SetupCohortItemPopin from './setup-cohort-item-popin';
+import MessagePopin from '../message-popin';
 import style from './style.css';
 
 const SetupSlide = props => {
@@ -26,7 +26,7 @@ const SetupSlide = props => {
       case 'splitForm':
         return <SetupCohortItem field={field} />;
       case 'alert':
-        return <SetupCohortItemPopin header={field.title} content={field.subtitle} />;
+        return <MessagePopin header={field.title} content={field.subtitle} />;
       default:
         return <InputText {...field} />;
     }

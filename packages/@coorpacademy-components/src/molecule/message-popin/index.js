@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import style from './popinstyle.css';
+import style from './style.css';
 
-const SetupCohortItemPopin = props => {
+const MessagePopin = props => {
   const {header, content} = props;
 
   return (
@@ -21,9 +21,9 @@ const SetupCohortItemPopin = props => {
   );
 };
 
-SetupCohortItemPopin.propTypes = {
+MessagePopin.propTypes = {
   header: PropTypes.string,
   content: PropTypes.string
 };
 
-export default SetupCohortItemPopin;
+export default MessagePopin;
