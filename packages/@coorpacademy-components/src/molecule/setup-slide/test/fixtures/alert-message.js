@@ -1,16 +1,17 @@
 export default {
   props: {
-    cohortMessage: {
-      title: 'This cohort cannot be edited in setup',
-      subtitle: 'These criteria are not supported'
-    },
     fields: [
+      {
+        type: 'alert',
+        title: 'This cohort cannot be edited in setup',
+        subtitle: 'These criteria are not supported'
+      },
       {
         type: 'text',
         title: 'Name',
         value: 'value',
         required: true,
-        autoFocus: true
+        autoFocus: false
       },
       {
         type: 'splitForm',

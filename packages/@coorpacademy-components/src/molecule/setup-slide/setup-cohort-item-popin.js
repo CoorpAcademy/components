@@ -6,13 +6,15 @@ const SetupCohortItemPopin = props => {
   const {header, content} = props;
 
   return (
-    <div className={style.disable}>
-      <div className={style.popin}>
-        <div className={style.header} data-name="popin-header">
-          {header}
-        </div>
-        <div className={style.content}>
-          <p>{content}</p>
+    <div className={style.wrapmessage}>
+      <div className={style.disable}>
+        <div className={style.popin}>
+          <div className={style.header} data-name="popin-header">
+            {header}
+          </div>
+          <div className={style.content}>
+            <p>{content}</p>
+          </div>
         </div>
       </div>
     </div>

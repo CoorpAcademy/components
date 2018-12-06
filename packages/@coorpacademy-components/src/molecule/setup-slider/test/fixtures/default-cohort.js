@@ -1,6 +1,6 @@
 import CohortItemMessage from '../../../setup-slide/test/fixtures/alert-message';
-import CohortItem from './cohort';
-import CohortItemCreate from './create-new';
+import CohortItem from '../../../setup-slide/test/fixtures/cohort';
+import CohortItemCreate from '../../../setup-slide/test/fixtures/create-new-cohort';
 
 const {props} = CohortItem;
 const propsCohortMessage = CohortItemMessage.props;
@@ -9,22 +9,18 @@ export default {
   props: {
     tabProps: [
       {
-        title: 'IT DE'
+        title: 'Cohort 1: IT DE'
       },
       {
-        title: 'Sales FR'
+        title: 'Cohort 2: Sales FR'
       },
       {
-        title: 'Sales ES'
-      }
-    ],
-    formatTitle: (title, rowNumber) => `Cohort ${rowNumber} : ${title}`,
-    slides: [props, propsCohortMessage, propsCohortMessage],
-    tabNew: [
+        title: 'Cohort 3: Sales ES'
+      },
       {
-        title: 'Create a new cohort'
+        title: 'Create a new Cohort'
       }
     ],
-    slidesNew: [propsCreate]
+    slides: [props, propsCohortMessage, propsCohortMessage, propsCreate]
   }
 };

@@ -52,6 +52,7 @@ InputSplitScreen.propTypes = {
 
 const SetupCohortItem = props => {
   const {field} = props;
+
   return (
     <div className={style.wrapper}>
       <InputSplitScreen {...field} />

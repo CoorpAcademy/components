@@ -11,7 +11,7 @@ import SetupCohortItemPopin from './setup-cohort-item-popin';
 import style from './style.css';
 
 const SetupSlide = props => {
-  const {fields, cohortMessage} = props;
+  const {fields} = props;
   const buildInput = field => {
     const {type} = field;
     switch (type) {
@@ -25,6 +25,8 @@ const SetupSlide = props => {
         return <ImageUpload {...field} />;
       case 'splitForm':
         return <SetupCohortItem field={field} />;
+      case 'alert':
+        return <SetupCohortItemPopin header={field.title} content={field.subtitle} />;
       default:
         return <InputText {...field} />;
     }
@@ -41,29 +43,14 @@ const SetupSlide = props => {
 
   const fieldsList = map.convert({cap: false})(buildField, fields);
 
-  return (
-    <div className={style.wrapper}>
-      {fieldsList}
-      {cohortMessage.title ? (
-        <div className={style.wrapmessage}>
-          <SetupCohortItemPopin header={cohortMessage.title} content={cohortMessage.subtitle} />
-        </div>
-      ) : (
-        ''
-      )}
-    </div>
-  );
+  return <div className={style.wrapper}>{fieldsList}</div>;
 };
 
 SetupSlide.defaultProps = {
-  fields: [],
-  cohortMessage: {}
+  fields: []
 };
 
 SetupSlide.propTypes = {
-  cohortMessage: PropTypes.shape({
-    ...SetupCohortItemPopin.PropTypes
-  }),
   fields: PropTypes.arrayOf(
     PropTypes.shape({
       type: PropTypes.string.isRequired

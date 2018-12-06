@@ -462,14 +462,11 @@ import MoleculeSetupSectionsFixtureDefault from '../src/molecule/setup-sections/
 import MoleculeSetupSectionsFixtureLoading from '../src/molecule/setup-sections/test/fixtures/loading';
 import MoleculeSetupSlideFixtureAlertMessage from '../src/molecule/setup-slide/test/fixtures/alert-message';
 import MoleculeSetupSlideFixtureCheckbox from '../src/molecule/setup-slide/test/fixtures/checkbox';
+import MoleculeSetupSlideFixtureCohort from '../src/molecule/setup-slide/test/fixtures/cohort';
+import MoleculeSetupSlideFixtureCreateNewCohort from '../src/molecule/setup-slide/test/fixtures/create-new-cohort';
 import MoleculeSetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
 import MoleculeSetupSlideFixtureSplitForm from '../src/molecule/setup-slide/test/fixtures/split-form';
-import MoleculeSetupSliderFixtureCohort from '../src/molecule/setup-slider/test/fixtures/cohort';
-import MoleculeSetupSliderFixtureCreateNew from '../src/molecule/setup-slider/test/fixtures/create-new';
-import MoleculeSetupSliderFixtureDataEmpty from '../src/molecule/setup-slider/test/fixtures/data-empty';
 import MoleculeSetupSliderFixtureDefaultCohort from '../src/molecule/setup-slider/test/fixtures/default-cohort';
-import MoleculeSetupSliderFixtureDefaultConditions from '../src/molecule/setup-slider/test/fixtures/default-conditions';
-import MoleculeSetupSliderFixtureDefaultProvider from '../src/molecule/setup-slider/test/fixtures/default-provider';
 import MoleculeSetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
 import MoleculeSsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
 import MoleculeSsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
@@ -1327,16 +1324,13 @@ export const fixtures = {
     MoleculeSetupSlide: {
       AlertMessage: MoleculeSetupSlideFixtureAlertMessage,
       Checkbox: MoleculeSetupSlideFixtureCheckbox,
+      Cohort: MoleculeSetupSlideFixtureCohort,
+      CreateNewCohort: MoleculeSetupSlideFixtureCreateNewCohort,
       Default: MoleculeSetupSlideFixtureDefault,
       SplitForm: MoleculeSetupSlideFixtureSplitForm
     },
     MoleculeSetupSlider: {
-      Cohort: MoleculeSetupSliderFixtureCohort,
-      CreateNew: MoleculeSetupSliderFixtureCreateNew,
-      DataEmpty: MoleculeSetupSliderFixtureDataEmpty,
       DefaultCohort: MoleculeSetupSliderFixtureDefaultCohort,
-      DefaultConditions: MoleculeSetupSliderFixtureDefaultConditions,
-      DefaultProvider: MoleculeSetupSliderFixtureDefaultProvider,
       Default: MoleculeSetupSliderFixtureDefault
     },
     MoleculeSsmenuList: {

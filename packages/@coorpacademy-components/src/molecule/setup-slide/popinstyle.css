@@ -48,3 +48,12 @@
   padding-bottom: 20px;
   box-sizing: border-box;
 }
+
+.wrapmessage {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
+  z-index: 1;
+}

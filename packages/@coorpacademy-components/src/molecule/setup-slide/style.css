@@ -13,11 +13,3 @@
 .field:last-child {
   margin-bottom: 0;
 }
-
-.wrapmessage {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
-  height: 100%;
-}
