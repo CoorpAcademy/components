@@ -8,7 +8,7 @@ export default {
     subtitle: 'Explanation about',
     fields: [
       {
-        type: 'sliderCohort',
+        type: 'slider',
         ...props
       }
     ]

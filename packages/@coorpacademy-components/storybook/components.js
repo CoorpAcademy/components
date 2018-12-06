@@ -447,11 +447,7 @@ import MoleculeSearchFixtureWithValue from '../src/molecule/search/test/fixtures
 import MoleculeSearchFormFixtureDefault from '../src/molecule/search-form/test/fixtures/default';
 import MoleculeSelectMultipleFixtureChecked from '../src/molecule/select-multiple/test/fixtures/checked';
 import MoleculeSelectMultipleFixtureDefault from '../src/molecule/select-multiple/test/fixtures/default';
-import MoleculeSetupCohortItemFixtureCohortMessage from '../src/molecule/setup-cohort-item/test/fixtures/cohort-message';
 import MoleculeSetupCohortItemFixtureCreateNew from '../src/molecule/setup-cohort-item/test/fixtures/create-new';
-import MoleculeSetupCohortItemFixtureDataEmpty from '../src/molecule/setup-cohort-item/test/fixtures/data-empty';
-import MoleculeSetupCohortItemFixtureDefaultConditions from '../src/molecule/setup-cohort-item/test/fixtures/default-conditions';
-import MoleculeSetupCohortItemFixtureDefaultProvider from '../src/molecule/setup-cohort-item/test/fixtures/default-provider';
 import MoleculeSetupCohortItemFixtureDefault from '../src/molecule/setup-cohort-item/test/fixtures/default';
 import MoleculeSetupSectionFixtureAnalyticsBoutique from '../src/molecule/setup-section/test/fixtures/analytics-boutique';
 import MoleculeSetupSectionFixtureAnalyticsBranch from '../src/molecule/setup-section/test/fixtures/analytics-branch';
@@ -464,9 +460,16 @@ import MoleculeSetupSectionsFixtureAnalytics from '../src/molecule/setup-section
 import MoleculeSetupSectionsFixtureDashboard from '../src/molecule/setup-sections/test/fixtures/dashboard';
 import MoleculeSetupSectionsFixtureDefault from '../src/molecule/setup-sections/test/fixtures/default';
 import MoleculeSetupSectionsFixtureLoading from '../src/molecule/setup-sections/test/fixtures/loading';
+import MoleculeSetupSlideFixtureAlertMessage from '../src/molecule/setup-slide/test/fixtures/alert-message';
 import MoleculeSetupSlideFixtureCheckbox from '../src/molecule/setup-slide/test/fixtures/checkbox';
 import MoleculeSetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
+import MoleculeSetupSlideFixtureSplitForm from '../src/molecule/setup-slide/test/fixtures/split-form';
+import MoleculeSetupSliderFixtureCohort from '../src/molecule/setup-slider/test/fixtures/cohort';
+import MoleculeSetupSliderFixtureCreateNew from '../src/molecule/setup-slider/test/fixtures/create-new';
+import MoleculeSetupSliderFixtureDataEmpty from '../src/molecule/setup-slider/test/fixtures/data-empty';
 import MoleculeSetupSliderFixtureDefaultCohort from '../src/molecule/setup-slider/test/fixtures/default-cohort';
+import MoleculeSetupSliderFixtureDefaultConditions from '../src/molecule/setup-slider/test/fixtures/default-conditions';
+import MoleculeSetupSliderFixtureDefaultProvider from '../src/molecule/setup-slider/test/fixtures/default-provider';
 import MoleculeSetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
 import MoleculeSsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
 import MoleculeSsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
@@ -1303,11 +1306,7 @@ export const fixtures = {
       Default: MoleculeSelectMultipleFixtureDefault
     },
     MoleculeSetupCohortItem: {
-      CohortMessage: MoleculeSetupCohortItemFixtureCohortMessage,
       CreateNew: MoleculeSetupCohortItemFixtureCreateNew,
-      DataEmpty: MoleculeSetupCohortItemFixtureDataEmpty,
-      DefaultConditions: MoleculeSetupCohortItemFixtureDefaultConditions,
-      DefaultProvider: MoleculeSetupCohortItemFixtureDefaultProvider,
       Default: MoleculeSetupCohortItemFixtureDefault
     },
     MoleculeSetupSection: {
@@ -1326,11 +1325,18 @@ export const fixtures = {
       Loading: MoleculeSetupSectionsFixtureLoading
     },
     MoleculeSetupSlide: {
+      AlertMessage: MoleculeSetupSlideFixtureAlertMessage,
       Checkbox: MoleculeSetupSlideFixtureCheckbox,
-      Default: MoleculeSetupSlideFixtureDefault
+      Default: MoleculeSetupSlideFixtureDefault,
+      SplitForm: MoleculeSetupSlideFixtureSplitForm
     },
     MoleculeSetupSlider: {
+      Cohort: MoleculeSetupSliderFixtureCohort,
+      CreateNew: MoleculeSetupSliderFixtureCreateNew,
+      DataEmpty: MoleculeSetupSliderFixtureDataEmpty,
       DefaultCohort: MoleculeSetupSliderFixtureDefaultCohort,
+      DefaultConditions: MoleculeSetupSliderFixtureDefaultConditions,
+      DefaultProvider: MoleculeSetupSliderFixtureDefaultProvider,
       Default: MoleculeSetupSliderFixtureDefault
     },
     MoleculeSsmenuList: {

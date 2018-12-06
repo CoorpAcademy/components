@@ -47,8 +47,6 @@ const buildInput = field => {
       return <ImageUpload {...field} />;
     case 'slider':
       return <SetupSlider {...field} />;
-    case 'sliderCohort':
-      return <SetupSlider {...field} />;
     case 'sections':
       return <SetupSections {...field} />;
     case 'text':

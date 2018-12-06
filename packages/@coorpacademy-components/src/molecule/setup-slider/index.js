@@ -6,19 +6,13 @@ import SetupCohortItem from '../setup-cohort-item';
 import Accordion from '../../organism/accordion/toggler';
 
 const SetupSlider = props => {
-  const {tabProps, slides, formatTitle, tabNew, slidesNew, type} = props;
-  let slidesView = [];
-  type === 'sliderCohort'
-    ? (slidesView = map.convert({cap: false})(
-        (slide, key) => <SetupCohortItem key={key} {...slide} />,
-        slides
-      ))
-    : (slidesView = map.convert({cap: false})(
-        (slide, key) => <SetupSlide key={key} {...slide} />,
-        slides
-      ));
+  const {tabProps, slides, formatTitle, tabNew, slidesNew} = props;
+  const slidesView = map.convert({cap: false})(
+    (slide, key) => <SetupSlide key={key} {...slide} />,
+    slides
+  );
   const slidesViewNew = map.convert({cap: false})(
-    (slidenew, key) => <SetupCohortItem key={key} {...slidenew} />,
+    (slidenew, key) => <SetupSlide key={key} {...slidenew} />,
     slidesNew
   );
   return (
@@ -47,8 +41,7 @@ SetupSlider.defaultProps = {
   tabNew: [],
   tabProps: [],
   slides: [],
-  slidesNew: [],
-  type: 'slider'
+  slidesNew: []
 };
 
 SetupSlider.propTypes = {
@@ -56,8 +49,7 @@ SetupSlider.propTypes = {
   slides: PropTypes.arrayOf(PropTypes.shape(SetupSlide.propTypes)),
   tabNew: PropTypes.arrayOf(PropTypes.shape(Accordion.PropTypes)),
   slidesNew: PropTypes.arrayOf(PropTypes.shape(SetupCohortItem.propTypes)),
-  formatTitle: PropTypes.func,
-  type: PropTypes.string
+  formatTitle: PropTypes.func
 };
 
 export default SetupSlider;

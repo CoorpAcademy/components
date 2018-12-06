@@ -14,12 +14,6 @@
   margin-bottom: 0;
 }
 
-.splitMessage {
-  display: flex;
-  height: 40vh;
-  overflow: auto;
-}
-
 .splitDefault {
   display: flex;
 }
@@ -55,10 +49,3 @@
   font-weight: bold;
 }
 
-.wrapmessage {
-  position: absolute;
-  width: 100%;
-  top: 0;
-  left: 0;
-  height: 100%;
-}

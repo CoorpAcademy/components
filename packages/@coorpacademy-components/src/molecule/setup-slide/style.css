@@ -1,6 +1,9 @@
 .wrapper {
   width: 100%;
   box-sizing: border-box;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  position: relative;
 }
 
 .field {
@@ -9,4 +12,12 @@
 
 .field:last-child {
   margin-bottom: 0;
+}
+
+.wrapmessage {
+  position: absolute;
+  width: 100%;
+  top: 0;
+  left: 0;
+  height: 100%;
 }

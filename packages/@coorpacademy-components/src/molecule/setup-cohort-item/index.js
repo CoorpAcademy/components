@@ -1,14 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
-import InputText from '../../atom/input-text';
 import InputCheckbox from '../../atom/input-checkbox';
 import Button from '../../atom/button';
 import style from './style.css';
-import SetupCohortItemPopin from './setup-cohort-item-popin';
 
 const InputSplitScreen = props => {
-  const {leftSection, rightSection, cohortMessage, buttons} = props;
+  const {leftSection, rightSection, buttons} = props;
   const criteriaList = map.convert({cap: false})((criterion, key) => {
     return (
       <div className={style.field} key={key}>
@@ -32,7 +30,7 @@ const InputSplitScreen = props => {
   }, buttons);
   return (
     <div>
-      <div className={cohortMessage ? style.splitMessage : style.splitDefault}>
+      <div className={style.splitDefault}>
         <div className={style.splitLeft}>
           <p className={style.title}>{leftSection.title}</p>
           {criteriaList}
@@ -53,64 +51,21 @@ InputSplitScreen.propTypes = {
 };
 
 const SetupCohortItem = props => {
-  const {fields, cohortMessage} = props;
-  const buildInput = field => {
-    const {type} = field;
-    switch (type) {
-      case 'splitForm':
-        return <InputSplitScreen {...field} cohortMessage={cohortMessage} />;
-      default:
-        return <InputText {...field} disabled={!!cohortMessage} />;
-    }
-  };
-
-  const buildField = (field, index) => {
-    const input = buildInput(field);
-    return (
-      <div className={style.field} key={index}>
-        {input}
-      </div>
-    );
-  };
-
-  const fieldsList = map.convert({cap: false})(buildField, fields);
-
+  const {field} = props;
   return (
     <div className={style.wrapper}>
-      {fieldsList}
-      {cohortMessage ? (
-        <div className={style.wrapmessage}>
-          <SetupCohortItemPopin header={cohortMessage.title} content={cohortMessage.subtitle} />
-        </div>
-      ) : (
-        ''
-      )}
+      <InputSplitScreen {...field} />
     </div>
   );
 };
 
 SetupCohortItem.defaultProps = {
-  fields: []
+  field: {}
 };
 
 SetupCohortItem.propTypes = {
-  cohortMessage: PropTypes.shape({
-    ...SetupCohortItemPopin.PropTypes
-  }),
-  fields: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.shape({
-        type: PropTypes.oneOf(['checkbox']),
-        ...InputCheckbox.PropTypes
-      }),
-      PropTypes.shape({
-        type: PropTypes.oneOf(['splitForm']),
-        ...InputSplitScreen.propTypes
-      }),
-      PropTypes.shape({
-        ...InputText.propTypes
-      })
-    ])
-  )
+  field: PropTypes.shape({
+    ...InputSplitScreen.propTypes
+  })
 };
 export default SetupCohortItem;
