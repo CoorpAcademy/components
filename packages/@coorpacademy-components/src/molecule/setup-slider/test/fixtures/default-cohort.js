@@ -1,6 +1,6 @@
+import CohortItemMessage from '../../../setup-slide/test/fixtures/alert-message';
 import CohortItem from './cohort';
 import CohortItemCreate from './create-new';
-import CohortItemMessage from '../../../setup-slide/test/fixtures/alert-message';
 
 const {props} = CohortItem;
 const propsCohortMessage = CohortItemMessage.props;
