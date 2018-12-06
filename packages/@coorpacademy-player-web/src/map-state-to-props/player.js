@@ -3,7 +3,17 @@ import isEmpty from 'lodash/fp/isEmpty';
 import some from 'lodash/fp/some';
 import get from 'lodash/fp/get';
 import isNil from 'lodash/fp/isNil';
-import {
+import {extractors} from '@coorpacademy/player-store';
+import hasSeenLesson from '@coorpacademy/player-store/es/utils/has-seen-lesson';
+import {validateAnswer} from '@coorpacademy/player-store/es/actions/ui/answers';
+import {selectRoute} from '@coorpacademy/player-store/es/actions/ui/route';
+import {selectClue, getClue} from '@coorpacademy/player-store/es/actions/ui/clues';
+import {startChat} from '@coorpacademy/player-store/es/actions/ui/coaches';
+import {createGetAnswerProps, createGetHelp} from './answer';
+import createHeaderStateToProps from './header';
+import getResourcesProps from './resources';
+
+const {
   getCoaches,
   getCurrentContent,
   getCurrentProgression,
@@ -16,15 +26,7 @@ import {
   getQuestionMedia,
   getNbSlides,
   isContentAdaptive
-} from '@coorpacademy/player-store/es/utils/state-extract';
-import hasSeenLesson from '@coorpacademy/player-store/es/utils/has-seen-lesson';
-import {validateAnswer} from '@coorpacademy/player-store/es/actions/ui/answers';
-import {selectRoute} from '@coorpacademy/player-store/es/actions/ui/route';
-import {selectClue, getClue} from '@coorpacademy/player-store/es/actions/ui/clues';
-import {startChat} from '@coorpacademy/player-store/es/actions/ui/coaches';
-import {createGetAnswerProps, createGetHelp} from './answer';
-import createHeaderStateToProps from './header';
-import getResourcesProps from './resources';
+} = extractors;
 
 const ROUTES = ['media', 'clue', 'context', 'answer'];
 

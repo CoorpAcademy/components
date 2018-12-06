@@ -16,13 +16,7 @@ import isNil from 'lodash/fp/isNil';
 import rangeStep from 'lodash/fp/rangeStep';
 import _toString from 'lodash/fp/toString';
 import indexOf from 'lodash/fp/indexOf';
-import {
-  getChoices,
-  getCurrentProgressionId,
-  getQuestionType,
-  getAnswerValues
-} from '@coorpacademy/player-store/es/utils/state-extract';
-import {editAnswer} from '@coorpacademy/player-store/es/actions/ui/answers';
+import {getChoices, getCurrentProgressionId, getQuestionType, getAnswerValues, editAnswer} from '@coorpacademy/player-store';
 
 const editAnswerAction = (options, {dispatch}) => (state, slide) => newValue => {
   return dispatch(

@@ -14,8 +14,8 @@ import {
   getLives,
   getPreviousSlide,
   getCurrentSlide,
-  hasViewedAResourceAtThisStep
-} from '@coorpacademy/player-store/es/utils/state-extract';
+  hasViewedAResourceAtThisStep, extractors} from '@coorpacademy/player-store';
+
 import {
   acceptExtraLifeAndReset,
   refuseExtraLifeAndReset
@@ -26,6 +26,17 @@ import {
   openAssistance
 } from '@coorpacademy/player-store/es/actions/ui/progressions';
 import getResourcesProps from './resources';
+
+const {
+  getCurrentCorrection,
+  getCurrentProgression,
+  getCurrentProgressionId,
+  getEngineConfig,
+  getLives,
+  getPreviousSlide,
+  getCurrentSlide,
+  hasViewedAResourceAtThisStep
+} = extractors;
 
 const isNewChapter = (state, progression) => {
   if (
