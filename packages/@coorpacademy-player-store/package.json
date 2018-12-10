@@ -1,0 +1,77 @@
+{
+  "name": "@coorpacademy/player-store",
+  "version": "1.1.0",
+  "description": "Redux store for slide players",
+  "main": "lib",
+  "module": "es",
+  "files": [
+    "es",
+    "lib",
+    "README.md"
+  ],
+  "scripts": {
+    "ava": "cross-env NODE_ENV=test ava",
+    "nyc": "cross-env NODE_ENV=test nyc npm run ava",
+    "test": "npm run lint && npm run flow && npm run nyc",
+    "flow": "flow",
+    "lint": "npm run eslint",
+    "eslint": "eslint ./ *.js *.json --ext .js,.json",
+    "build:commonjs": "npm run build:babel:commonjs && npm run build:types:commonjs",
+    "build:es": "npm run build:babel:es && npm run build:types:es",
+    "build": "concurrently \"npm run build:commonjs\" \"npm run build:es\"",
+    "build:babel:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
+    "build:babel:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
+    "build:babel": "concurrently \"npm run build:babel:commonjs\" \"npm run build:babel:es\"",
+    "build:types:commonjs": "npx flow gen-flow-files src --out-dir lib",
+    "build:types:es": "npx flow gen-flow-files src --out-dir es",
+    "build:types": "concurrently \"npm run build:types:commonjs\" \"npm run build:types:es\"",
+    "clean:build:commonjs": "rimraf lib",
+    "clean:build:es": "rimraf es",
+    "clean:build": "concurrently \"npm run clean:build:commonjs\" \"npm run clean:build:es\"",
+    "clean": "npm run clean:build",
+    "prepare": "npm run clean && npm run build --production"
+  },
+  "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-player-store#readme",
+  "devDependencies": {
+    "ava": "^0.25.0",
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-plugin-istanbul": "^4.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-polyfill": "^6.26.0",
+    "babel-preset-env": "^1.5.2",
+    "browser-env": "^3.2.5",
+    "concurrently": "^3.5.1",
+    "cross-env": "^5.0.0",
+    "eslint": "^4.18.2",
+    "flow-bin": "^0.72.0",
+    "nyc": "^11.1.0",
+    "rimraf": "^2.6.1"
+  },
+  "dependencies": {
+    "@coorpacademy/redux-task": "0.0.7",
+    "@coorpacademy/translate": "5.3.12",
+    "lodash": "^4.17.4",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.2.0"
+  },
+  "ava": {
+    "concurrency": 8,
+    "files": [
+      "src/**/test/**/*.js"
+    ],
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ],
+    "babel": {
+      "presets": [
+        "@ava/stage-4",
+        "flow"
+      ],
+      "plugins": [
+        "transform-object-rest-spread"
+      ]
+    }
+  }
+}

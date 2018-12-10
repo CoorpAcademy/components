@@ -1,0 +1,111 @@
+{
+  "data": {
+    "contents": {
+      "slide": {
+        "entities": {
+          "1.B2.4": {
+            "_id": "1.B2.4",
+            "klf": "Some KLF",
+            "tips": "XXX",
+            "hasClue": true,
+            "chapter_id": "cha_Ny1BTxRp~",
+            "authors": [],
+            "context": {
+              "media": {
+                "subtitles": [],
+                "posters": [],
+                "src": []
+              }
+            },
+            "info": {
+              "nbSlides": 4
+            },
+            "lessons": [
+              {
+                "type": "video",
+                "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
+                "description": "Anatomie d'une page de résultats",
+                "mimeType": "application/vimeo",
+                "videoId": "88393119\n",
+                "_id": "590b862e2e967f64333ad456",
+                "subtitles": [],
+                "posters": [],
+                "src": []
+              }
+            ],
+            "question": {
+              "type": "basic",
+              "header": "Écrivez le mot Text dans l'input.\n",
+              "explanation": "Saisissez votre réponse.",
+              "content": {
+                "label": "Saisissez votre réponse.",
+                "placeholder": " ",
+                "maxTypos": null,
+                "choices": [],
+                "answers": [["Text"]],
+                "media": {
+                  "subtitles": [],
+                  "posters": [],
+                  "src": []
+                }
+              },
+              "medias": []
+            }
+          }
+        }
+      }
+    },
+    "progressions": {
+      "entities": {
+        "0": {
+          "_id": "0",
+          "engine": {
+            "ref": "microlearning",
+            "version": "1"
+          },
+          "content": {
+            "ref": "1.B2.4",
+            "type": "slide"
+          },
+          "state": {
+            "slides": ["1.B2.3"],
+            "content": {
+              "ref": "1.B2.3",
+              "type": "slide"
+            },
+            "nextContent": {
+              "ref": "1.B2.4",
+              "type": "slide"
+            },
+            "lives": 1,
+            "step": {
+              "current": 2
+            },
+            "isCorrect": false,
+            "stars": 0,
+            "requestedClues": [],
+            "viewedResources": []
+          }
+        }
+      }
+    },
+    "exitNodes": {
+      "entities": {}
+    }
+  },
+  "ui": {
+    "route": {
+      "0": "answer"
+    },
+    "answers": {
+      "0": {
+        "isCorrect": false,
+        "correction": [["Text"]]
+      }
+    },
+    "current": {
+      "progressionId": "0"
+    },
+    "corrections": {}
+  }
+}
