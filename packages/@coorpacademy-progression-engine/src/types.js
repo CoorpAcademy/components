@@ -5,7 +5,7 @@ import type {Instruction, ChapterRule} from './rule-engine/types';
 export type Step = {
   current: number
 };
-
+ 
 export type Answer = Array<string>;
 
 export type GenericContent = {
