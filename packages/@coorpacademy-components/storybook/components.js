@@ -451,6 +451,7 @@ import MoleculeSelectMultipleFixtureChecked from '../src/molecule/select-multipl
 import MoleculeSelectMultipleFixtureDefault from '../src/molecule/select-multiple/test/fixtures/default';
 import MoleculeSetupCohortItemFixtureCreateNew from '../src/molecule/setup-cohort-item/test/fixtures/create-new';
 import MoleculeSetupCohortItemFixtureDefault from '../src/molecule/setup-cohort-item/test/fixtures/default';
+import MoleculeSetupCohortItemFixtureDisabledSubmit from '../src/molecule/setup-cohort-item/test/fixtures/disabled-submit';
 import MoleculeSetupSectionFixtureAnalyticsBoutique from '../src/molecule/setup-section/test/fixtures/analytics-boutique';
 import MoleculeSetupSectionFixtureAnalyticsBranch from '../src/molecule/setup-section/test/fixtures/analytics-branch';
 import MoleculeSetupSectionFixtureAnalyticsRegion from '../src/molecule/setup-section/test/fixtures/analytics-region';
@@ -1311,7 +1312,8 @@ export const fixtures = {
     },
     MoleculeSetupCohortItem: {
       CreateNew: MoleculeSetupCohortItemFixtureCreateNew,
-      Default: MoleculeSetupCohortItemFixtureDefault
+      Default: MoleculeSetupCohortItemFixtureDefault,
+      DisabledSubmit: MoleculeSetupCohortItemFixtureDisabledSubmit
     },
     MoleculeSetupSection: {
       AnalyticsBoutique: MoleculeSetupSectionFixtureAnalyticsBoutique,

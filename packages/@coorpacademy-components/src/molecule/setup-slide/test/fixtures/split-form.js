@@ -45,7 +45,7 @@ export default {
           ]
         },
         rightSection: {
-          title: 'Country',
+          title: 'Content',
           values: [
             {
               type: 'checkbox',

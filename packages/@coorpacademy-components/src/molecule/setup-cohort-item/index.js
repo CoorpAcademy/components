@@ -32,15 +32,18 @@ const InputSplitScreen = props => {
     <div>
       <div className={style.splitDefault}>
         <div className={style.splitLeft}>
-          <p className={style.title}>{leftSection.title}</p>
+          <p className={style.title}>{leftSection.title}*</p>
           {criteriaList}
         </div>
         <div className={style.splitRight}>
-          <p className={style.title}>{rightSection.title}</p>
+          <p className={style.title}>{rightSection.title}*</p>
           {collectionList}
         </div>
       </div>
-      <div className={style.buttonGroup}>{buttonList}</div>
+      <div className={style.rowBottom}>
+        <div className={style.buttonGroup}>{buttonList}</div>
+        <p className={style.mandatoryFields}>*Mandatory fields</p>
+      </div>
     </div>
   );
 };

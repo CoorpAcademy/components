@@ -49,3 +49,12 @@
   font-weight: bold;
 }
 
+.rowBottom {
+  text-align: center;
+}
+
+.mandatoryFields {
+  font-size: 12px;
+  font-style: italic;
+  color: grey;
+}
