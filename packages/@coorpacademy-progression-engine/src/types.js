@@ -5,7 +5,7 @@ import type {Instruction, ChapterRule} from './rule-engine/types';
 export type Step = {
   current: number
 };
- 
+
 export type Answer = Array<string>;
 
 export type GenericContent = {
@@ -150,6 +150,7 @@ export type EngineOptions = {
 
 export type Progression = {
   content: Content,
+  state?: State,
   engine: Engine,
   engineOptions: EngineOptions,
   actions: Array<Action>

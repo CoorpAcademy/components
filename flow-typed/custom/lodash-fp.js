@@ -1,5 +1,5 @@
 // @flow
-
+ 
 declare module 'lodash/fp/templateSettings' {
   declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'templateSettings'>;
 }

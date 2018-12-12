@@ -1,6 +1,9 @@
 // @flow
 
-import type {Progression, Resource} from './types';
+import type {Config, Progression, State} from '@coorpacademy/progression-engine';
+import type {Resource} from './types';
+
+declare var window: {dataLayer: Array<any>}; // eslint-disable-line no-shadow, flowtype/no-weak-types
 
 // eslint-disable-next-line import/prefer-default-export
 export const sendViewedMediaAnalytics = (resource: Resource, location: string) => {
@@ -12,8 +15,12 @@ export const sendViewedMediaAnalytics = (resource: Resource, location: string) =
   });
 };
 
-export const sendProgressionAnalytics = (currentProgression, engineConfig) => {
-  const state = currentProgression.state;
+export const sendProgressionAnalytics = (currentProgression: Progression, engineConfig: Config) => {
+  if (!currentProgression.state) {
+    return;
+  }
+
+  const state: State = currentProgression.state;
   /* istanbul ignore next */
   window.dataLayer = window.dataLayer || [];
 

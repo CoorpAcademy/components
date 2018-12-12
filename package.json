@@ -7,7 +7,9 @@
     "codecov": "codecov",
     "publish:beta": "lerna publish --npm-tag beta --exact",
     "publish:canary": "lerna publish --canary --exact --cd-version=patch --skip-git",
-    "publish:latest": "lerna publish --exact"
+    "publish:latest": "lerna publish --exact",
+    "flow-mono:symlinks": "flow-mono create-symlinks packages/**/.flowconfig",
+    "postinstall": "npm run flow-mono:symlinks"
   },
   "engines": {
     "node": "^8.12.0",
@@ -19,9 +21,10 @@
   ],
   "dependencies": {
     "codecov": "^3.1.0",
+    "estraverse-fb": "1.3.2",
+    "flow-mono-cli": "^1.4.3",
     "lerna": "^3.4.3",
     "mkdirp": "^0.5.1",
-    "rimraf": "^2.6.2",
-    "estraverse-fb": "1.3.2"
+    "rimraf": "^2.6.2"
   }
 }

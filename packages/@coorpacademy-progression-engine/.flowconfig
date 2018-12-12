@@ -2,9 +2,9 @@
 .*/lib
 .*/es
 
-[include] 
+[include]
 .*/src
 .*/test
 
 [libs]
-flow-typed/
+../../flow-typed/
