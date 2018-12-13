@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import ArrowLeft from '@coorpacademy/nova-icons/composition/navigation/arrow-left';
+import ReactTooltip from 'react-tooltip';
 import BrandFormGroup from '../../molecule/brand-form-group';
 import Provider from '../../atom/provider';
 import Button from '../../atom/button';
@@ -18,7 +19,8 @@ function BrandForm(props, context) {
     submitValue,
     onReset,
     resetValue,
-    back
+    back,
+    tooltip
   } = props;
   const {skin} = context;
   const darkColor = get('common.dark', skin);
@@ -42,7 +44,18 @@ function BrandForm(props, context) {
 
   const disabledSubmit = disabled || isPending || !isModified;
   const submitButton = onSubmit ? (
-    <div className={style.saveButton}>
+    <div
+      data-tip={tooltip && tooltip.title ? tooltip.title : ''}
+      data-for="submitButton"
+      className={style.saveButton}
+    >
+      <ReactTooltip
+        type="light"
+        effect="solid"
+        className={style.toolTipContent}
+        place={tooltip && tooltip.place ? tooltip.place : ''}
+        id="submitButton"
+      />
       <Button type="submit" disabled={disabledSubmit} submitValue={submitValue} />
     </div>
   ) : null;
@@ -93,6 +106,10 @@ BrandForm.propTypes = {
   back: PropTypes.shape({
     desc: Link.propTypes.children,
     link: Link.propTypes.href
+  }),
+  tooltip: PropTypes.shape({
+    title: PropTypes.string,
+    place: PropTypes.string
   })
 };
 
