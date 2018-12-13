@@ -37,7 +37,7 @@ const InputSplitScreen = (props, context) => {
           <p className={style.title}>{`${leftSection.title}${leftSection.required ? '*' : ''}`}</p>
           {criteriaList}
         </div>
-        <div className={style.splitRight}>
+        <div className={style.splitRight}> 
           <p className={style.title}>
             {`${rightSection.title}${rightSection.required ? '*' : ''}`}
           </p>
@@ -52,17 +52,15 @@ const InputSplitScreen = (props, context) => {
   );
 };
 
+sectionProp.propTypes = {
+  title: PropTypes.string.isRequired,
+  values: PropTypes.array.isRequired,
+  required: PropTypes.bool
+} 
+
 InputSplitScreen.propTypes = {
-  leftSection: PropTypes.shape({
-    title: PropTypes.string,
-    values: PropTypes.array,
-    required: PropTypes.bool
-  }),
-  rightSection: PropTypes.shape({
-    title: PropTypes.string,
-    values: PropTypes.array,
-    required: PropTypes.bool
-  })
+  leftSection: sectionProp.propTypes,
+  rightSection: sectionProp.propTypes,
 };
 
 InputSplitScreen.contextTypes = {
