@@ -44,16 +44,12 @@ function BrandForm(props, context) {
 
   const disabledSubmit = disabled || isPending || !isModified;
   const submitButton = onSubmit ? (
-    <div
-      data-tip={tooltip && tooltip.title ? tooltip.title : ''}
-      data-for="submitButton"
-      className={style.saveButton}
-    >
+    <div data-tip={tooltip.title} data-for="submitButton" className={style.saveButton}>
       <ReactTooltip
         type="light"
         effect="solid"
         className={style.toolTipContent}
-        place={tooltip && tooltip.place ? tooltip.place : ''}
+        place={tooltip.place}
         id="submitButton"
       />
       <Button type="submit" disabled={disabledSubmit} submitValue={submitValue} />
@@ -92,6 +88,13 @@ function BrandForm(props, context) {
 
 BrandForm.contextTypes = {
   skin: Provider.childContextTypes.skin
+};
+
+BrandForm.defaultProps = {
+  tooltip: {
+    title: '',
+    place: 'top'
+  }
 };
 
 BrandForm.propTypes = {
