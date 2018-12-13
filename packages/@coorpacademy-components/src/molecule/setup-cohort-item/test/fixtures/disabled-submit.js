@@ -4,7 +4,6 @@ export default {
       type: 'splitForm',
       leftSection: {
         title: 'The Provider',
-        required: true,
         values: [
           {
             type: 'checkbox',
@@ -46,7 +45,6 @@ export default {
       },
       rightSection: {
         title: 'Content',
-        required: true,
         values: [
           {
             type: 'checkbox',
@@ -86,6 +84,13 @@ export default {
           typeAction: 'submit',
           submitValue: 'SUBMIT',
           disabled: true
+        },
+        {
+          type: 'button',
+          submitValue: 'DELELE',
+          style: {
+            backgroundColor: '#F73F52'
+          }
         }
       ]
     }

@@ -5,6 +5,7 @@ export default {
         type: 'splitForm',
         leftSection: {
           title: 'The Provider',
+          required: true,
           values: [
             {
               type: 'checkbox',
@@ -45,7 +46,8 @@ export default {
           ]
         },
         rightSection: {
-          title: 'Country',
+          title: 'Content',
+          required: true,
           values: [
             {
               type: 'checkbox',

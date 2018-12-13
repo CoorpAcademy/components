@@ -63,5 +63,6 @@
   "Wait_creation": "The platform is being created. This can take several seconds. Please wait...",
   "Write something here": "Write something here",
   "zuora_discount_code_submit": "Apply",
-  "zuora_discount_code": "Promo code"
+  "zuora_discount_code": "Promo code",
+  "mandatory_fields": "*Mandatory fields"
 }
