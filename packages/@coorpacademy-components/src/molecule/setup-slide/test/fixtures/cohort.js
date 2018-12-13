@@ -12,11 +12,12 @@ export default {
         type: 'splitForm',
         leftSection: {
           title: 'The Provider',
+          required: true,
           values: [
             {
               type: 'checkbox',
               title: 'Provider 1',
-              checked: false,
+              checked: true,
               value: 'them_cascsa'
             },
             {
@@ -53,6 +54,7 @@ export default {
         },
         rightSection: {
           title: 'Content',
+          required: true,
           values: [
             {
               type: 'checkbox',

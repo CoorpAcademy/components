@@ -4,17 +4,18 @@ export default {
       type: 'splitForm',
       leftSection: {
         title: 'The Provider',
+        required: true,
         values: [
           {
             type: 'checkbox',
             title: 'Provider 1',
-            checked: false,
+            checked: true,
             value: 'them_cascsa'
           },
           {
             type: 'checkbox',
             title: 'Provider 2',
-            checked: false,
+            checked: true,
             value: 'them_3r2fwc'
           },
           {
@@ -45,16 +46,17 @@ export default {
       },
       rightSection: {
         title: 'Content',
+        required: true,
         values: [
           {
             type: 'checkbox',
             title: 'them_XXXX 1',
-            checked: false
+            checked: true
           },
           {
             type: 'checkbox',
             title: 'them_XXXX 2',
-            checked: false
+            checked: true
           },
           {
             type: 'checkbox',
@@ -82,15 +84,7 @@ export default {
         {
           type: 'button',
           typeAction: 'submit',
-          submitValue: 'SUBMIT',
-          disabled: true
-        },
-        {
-          type: 'button',
-          submitValue: 'DELELE',
-          style: {
-            backgroundColor: '#F73F52'
-          }
+          submitValue: 'SUBMIT'
         }
       ]
     }

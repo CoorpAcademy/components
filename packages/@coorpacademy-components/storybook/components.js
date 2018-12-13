@@ -449,6 +449,7 @@ import MoleculeSearchFixtureWithValue from '../src/molecule/search/test/fixtures
 import MoleculeSearchFormFixtureDefault from '../src/molecule/search-form/test/fixtures/default';
 import MoleculeSelectMultipleFixtureChecked from '../src/molecule/select-multiple/test/fixtures/checked';
 import MoleculeSelectMultipleFixtureDefault from '../src/molecule/select-multiple/test/fixtures/default';
+import MoleculeSetupCohortItemFixtureCreateNewValid from '../src/molecule/setup-cohort-item/test/fixtures/create-new-valid';
 import MoleculeSetupCohortItemFixtureCreateNew from '../src/molecule/setup-cohort-item/test/fixtures/create-new';
 import MoleculeSetupCohortItemFixtureDefault from '../src/molecule/setup-cohort-item/test/fixtures/default';
 import MoleculeSetupCohortItemFixtureDisabledSubmit from '../src/molecule/setup-cohort-item/test/fixtures/disabled-submit';
@@ -1311,6 +1312,7 @@ export const fixtures = {
       Default: MoleculeSelectMultipleFixtureDefault
     },
     MoleculeSetupCohortItem: {
+      CreateNewValid: MoleculeSetupCohortItemFixtureCreateNewValid,
       CreateNew: MoleculeSetupCohortItemFixtureCreateNew,
       Default: MoleculeSetupCohortItemFixtureDefault,
       DisabledSubmit: MoleculeSetupCohortItemFixtureDisabledSubmit

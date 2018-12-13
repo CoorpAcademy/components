@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import InputCheckbox from '../../atom/input-checkbox';
 import Button from '../../atom/button';
+import Provider from '../../atom/provider';
 import style from './style.css';
 
 const InputSplitScreen = (props, context) => {
@@ -33,15 +34,13 @@ const InputSplitScreen = (props, context) => {
     <div>
       <div className={style.splitDefault}>
         <div className={style.splitLeft}>
-          <p className={style.title}>{`${leftSection.title}${
-            leftSection.required ? '*'
-            : ''}`}</p>
+          <p className={style.title}>{`${leftSection.title}${leftSection.required ? '*' : ''}`}</p>
           {criteriaList}
         </div>
         <div className={style.splitRight}>
-          <p className={style.title}>{`${rightSection.title}${
-            rightSection.required ? '*'
-            : ''}`}</p>
+          <p className={style.title}>
+            {`${rightSection.title}${rightSection.required ? '*' : ''}`}
+          </p>
           {collectionList}
         </div>
       </div>
@@ -64,6 +63,10 @@ InputSplitScreen.propTypes = {
     values: PropTypes.array,
     required: PropTypes.bool
   })
+};
+
+InputSplitScreen.contextTypes = {
+  translate: Provider.childContextTypes.translate
 };
 
 const SetupCohortItem = props => {
