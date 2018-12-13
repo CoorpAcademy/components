@@ -421,3 +421,15 @@ test(
   ],
   1
 );
+
+test(
+  'should not call openRecommendation if no implementation is found within services',
+  macro,
+  {},
+  t => ({
+    Location: {}
+  }),
+  openRecommendation('foo'),
+  [],
+  0
+);

@@ -1,16 +1,23 @@
-// @flow
+// @flow strict
 
 import type {Config, Progression, State} from '@coorpacademy/progression-engine';
-import type {Resource} from './types';
+import type {Resource, ResourceType} from './types';
 
-declare var window: {dataLayer: Array<any>}; // eslint-disable-line no-shadow, flowtype/no-weak-types
+// eslint-disable-next-line no-shadow
+declare var window: {|
+  dataLayer: Array<{
+    event: string,
+    mediaType?: string,
+    location?: string
+  }>
+|};
 
 // eslint-disable-next-line import/prefer-default-export
 export const sendViewedMediaAnalytics = (resource: Resource, location: string) => {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event: 'mediaViewed',
-    mediaType: resource.type,
+    mediaType: (resource.type: ResourceType),
     location
   });
 };

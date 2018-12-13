@@ -1,11 +1,11 @@
-// @flow
-import type {Action, Content} from '@coorpacademy/progression-engine';
+// @flow strict
 
 type Url = string;
+type AspectRatio = '16:9' | '4:3';
 
-type JwpOptions = {
+type JwPlayerOptions = {|
   customProps: {
-    aspectratio: '16:9' | '4:3',
+    aspectratio: AspectRatio,
     autostart: boolean,
     skin: {
       name: string
@@ -16,37 +16,23 @@ type JwpOptions = {
   licenseKey: string,
   playerId: string,
   playerScript: Url
-};
+|};
 
-type Resource = {
-  ref: string,
-  type: 'video' | 'pdf',
-  mimeType: 'video/mp4' | 'application/vimeo',
-  mediaUrl: Url,
-  description: string,
-  poster: Url,
+type ResourceMimeType = 'video/mp4' | 'application/vimeo';
+type ResourceType = 'video' | 'pdf';
+
+type Resource = {|
   _id: string,
-  subtitles: Array<string>,
-  posters: Array<Url>,
-  src: Array<Url>,
-  jwpOptions: JwpOptions
-};
-
-type Engine = {
   ref: string,
-  version: string
-};
+  type: ResourceType,
+  mimeType: ResourceMimeType,
+  mediaUrl: Url,
+  src?: Array<Url>,
+  description?: string,
+  poster?: Url,
+  subtitles?: Array<string>,
+  posters?: Array<Url>,
+  jwpOptions?: JwPlayerOptions
+|};
 
-type EngineOptions = {
-  livesDisabled?: boolean,
-  lives?: number
-};
-
-type Progression = {
-  content: Content,
-  engine: Engine,
-  engineOptions: EngineOptions,
-  actions: Array<Action>
-};
-
-export type {Progression, Resource, Url};
+export type {Resource, ResourceType, Url};
