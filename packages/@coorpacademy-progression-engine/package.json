@@ -13,8 +13,7 @@
     "ava": "cross-env NODE_ENV=test ava",
     "nyc": "cross-env NODE_ENV=test nyc npm run ava",
     "test": "npm run lint && npm run flow && npm run nyc",
-    "killflow": "pkill flow",
-    "flow": "npm run killflow --silent ; flow",
+    "flow": "flow",
     "lint": "npm run eslint",
     "eslint": "eslint ./ *.js *.json --ext .js,.json",
     "build:commonjs": "npm run build:babel:commonjs && npm run build:types:commonjs",
@@ -56,7 +55,7 @@
     "cross-env": "^5.0.0",
     "eslint": "^4.18.2",
     "flow-bin": "^0.72.0",
-    "nyc": "^11.1.0",
+    "nyc": "^13.1.0",
     "rimraf": "^2.6.1"
   },
   "ava": {

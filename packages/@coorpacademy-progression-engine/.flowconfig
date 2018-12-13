@@ -3,8 +3,10 @@
 .*/es
 
 [include]
-.*/src
-.*/test
+src
 
 [libs]
 ../../flow-typed/
+
+[options]
+module.name_mapper='^@coorpacademy/\(.*\)$' -> '<PROJECT_ROOT>/../@coorpacademy-\1/src'

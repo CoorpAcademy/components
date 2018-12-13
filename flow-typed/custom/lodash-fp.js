@@ -1,7 +1,10 @@
 // @flow
- 
+
 declare module 'lodash/fp/templateSettings' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'templateSettings'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'templateSettings'
+  >;
 }
 
 declare module 'lodash/fp/after' {
@@ -121,7 +124,10 @@ declare module 'lodash/fp/differenceBy' {
 }
 
 declare module 'lodash/fp/differenceWith' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'differenceWith'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'differenceWith'
+  >;
 }
 
 declare module 'lodash/fp/drop' {
@@ -133,7 +139,10 @@ declare module 'lodash/fp/dropRight' {
 }
 
 declare module 'lodash/fp/dropRightWhile' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'dropRightWhile'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'dropRightWhile'
+  >;
 }
 
 declare module 'lodash/fp/dropWhile' {
@@ -209,11 +218,17 @@ declare module 'lodash/fp/intersection' {
 }
 
 declare module 'lodash/fp/intersectionBy' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'intersectionBy'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'intersectionBy'
+  >;
 }
 
 declare module 'lodash/fp/intersectionWith' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'intersectionWith'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'intersectionWith'
+  >;
 }
 
 declare module 'lodash/fp/invert' {
@@ -261,7 +276,10 @@ declare module 'lodash/fp/matches' {
 }
 
 declare module 'lodash/fp/matchesProperty' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'matchesProperty'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'matchesProperty'
+  >;
 }
 
 declare module 'lodash/fp/memoize' {
@@ -457,7 +475,10 @@ declare module 'lodash/fp/takeRight' {
 }
 
 declare module 'lodash/fp/takeRightWhile' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'takeRightWhile'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'takeRightWhile'
+  >;
 }
 
 declare module 'lodash/fp/takeWhile' {
@@ -801,7 +822,10 @@ declare module 'lodash/fp/isArrayLike' {
 }
 
 declare module 'lodash/fp/isArrayLikeObject' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'isArrayLikeObject'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'isArrayLikeObject'
+  >;
 }
 
 declare module 'lodash/fp/isBoolean' {
@@ -1105,15 +1129,24 @@ declare module 'lodash/fp/sortedIndexOf' {
 }
 
 declare module 'lodash/fp/sortedLastIndex' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'sortedLastIndex'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'sortedLastIndex'
+  >;
 }
 
 declare module 'lodash/fp/sortedLastIndexBy' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'sortedLastIndexBy'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'sortedLastIndexBy'
+  >;
 }
 
 declare module 'lodash/fp/sortedLastIndexOf' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'sortedLastIndexOf'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'sortedLastIndexOf'
+  >;
 }
 
 declare module 'lodash/fp/startCase' {
@@ -1237,7 +1270,10 @@ declare module 'lodash/fp/defaultsAll' {
 }
 
 declare module 'lodash/fp/defaultsDeepAll' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'defaultsDeepAll'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'defaultsDeepAll'
+  >;
 }
 
 declare module 'lodash/fp/mergeAll' {
@@ -1253,7 +1289,10 @@ declare module 'lodash/fp/assignAllWith' {
 }
 
 declare module 'lodash/fp/assignInAllWith' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'assignInAllWith'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'assignInAllWith'
+  >;
 }
 
 declare module 'lodash/fp/curryN' {
@@ -1285,7 +1324,10 @@ declare module 'lodash/fp/trimCharsEnd' {
 }
 
 declare module 'lodash/fp/trimCharsStart' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'trimCharsStart'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'trimCharsStart'
+  >;
 }
 
 declare module 'lodash/fp/findFrom' {
@@ -1301,7 +1343,10 @@ declare module 'lodash/fp/findLastFrom' {
 }
 
 declare module 'lodash/fp/findLastIndexFrom' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'findLastIndexFrom'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'findLastIndexFrom'
+  >;
 }
 
 declare module 'lodash/fp/getOr' {
@@ -1325,7 +1370,10 @@ declare module 'lodash/fp/invokeArgsMap' {
 }
 
 declare module 'lodash/fp/lastIndexOfFrom' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'lastIndexOfFrom'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'lastIndexOfFrom'
+  >;
 }
 
 declare module 'lodash/fp/padChars' {
@@ -1345,7 +1393,10 @@ declare module 'lodash/fp/rangeStep' {
 }
 
 declare module 'lodash/fp/rangeStepRight' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'rangeStepRight'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'rangeStepRight'
+  >;
 }
 
 declare module 'lodash/fp/convert' {
@@ -1477,15 +1528,24 @@ declare module 'lodash/fp/dissocPath' {
 }
 
 declare module 'lodash/fp/symmetricDifference' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'symmetricDifference'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'symmetricDifference'
+  >;
 }
 
 declare module 'lodash/fp/symmetricDifferenceBy' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'symmetricDifferenceBy'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'symmetricDifferenceBy'
+  >;
 }
 
 declare module 'lodash/fp/symmetricDifferenceWith' {
-  declare module.exports: $PropertyType<$Exports<'lodash/fp'>, 'symmetricDifferenceWith'>;
+  declare module.exports: $PropertyType<
+    $Exports<'lodash/fp'>,
+    'symmetricDifferenceWith'
+  >;
 }
 
 declare module 'lodash/fp/zipObj' {

@@ -1,10 +1,9 @@
 [ignore]
 .*/lib
-.*/es 
-
-[include]
-.*/src
-.*/test
+.*/es
 
 [libs]
 ../../flow-typed/
+
+[options]
+module.name_mapper='^@coorpacademy/\(.*\)$' -> '<PROJECT_ROOT>/../@coorpacademy-\1/src'
