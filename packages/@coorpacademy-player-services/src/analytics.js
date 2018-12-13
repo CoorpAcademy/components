@@ -28,7 +28,6 @@ export const sendProgressionAnalytics = (currentProgression: Progression, engine
   }
 
   const state: State = currentProgression.state;
-  /* istanbul ignore next */
   window.dataLayer = window.dataLayer || [];
 
   if (state.nextContent.type === 'success' || state.nextContent.type === 'failure') {
