@@ -11,7 +11,15 @@ export default {
     tabs,
     content: {
       type: 'form',
-      groups
+      groups,
+      onSubmit: () => {},
+      submitValue: 'Refresh population',
+      isModified: true,
+      disabled: false,
+      tooltip: {
+        title: 'If you want to assign all users to their new cohorts',
+        place: 'top'
+      }
     }
   })
 };
