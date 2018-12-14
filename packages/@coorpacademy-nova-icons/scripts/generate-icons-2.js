@@ -14,8 +14,13 @@ shelljs.mkdir('-p', outputPath);
 
 const generateComponent = ({name, content}, native) => {
   const options = {
-    noSemi: true,
     plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx', '@svgr/plugin-prettier'],
+    noSemi: true,
+    icon: true,
+    dimensions: false,
+    replaceAttrValues: {
+      '#757575': 'currentColor'
+    },
     native
   };
   return svgr(content, options).then(jsCode => {
