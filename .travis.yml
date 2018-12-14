@@ -5,6 +5,7 @@ node_js:
 cache:
   directories:
     - node_modules
+    - packages/@coorpacademy-app-racing/node_modules
     - packages/@coorpacademy-components/node_modules
     - packages/@coorpacademy-css-modules-require-hook/node_modules
     - packages/@coorpacademy-history/node_modules
@@ -29,6 +30,8 @@ matrix:
   include:
     - name: 'React components'
       env: PACKAGE_NAME=@coorpacademy/components
+    - name: 'Totem Redux'
+      env: PACKAGE_NAME=@coorpacademy/app-racing
     - name: 'Player store'
       env: PACKAGE_NAME=@coorpacademy/player-store
     - name: 'Player services'
