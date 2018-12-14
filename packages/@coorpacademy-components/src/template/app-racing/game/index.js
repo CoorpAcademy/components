@@ -3,7 +3,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {Motion, spring} from 'react-motion';
-import SlidesPlayer from '../../app-player/player/slides/slides-player';
+import Snow from 'react-snow-effect';
+import SlidesPlayer from '../../app-player/player/slides';
 import Cta from '../../../atom/cta';
 import animation from '../../../atom/css-animations/fade-out.css';
 import TeamList from '../../team-builder/motionned-team';
@@ -14,10 +15,14 @@ import Timer from './timer';
 import style from './style.css';
 
 const BACKGROUNDS = [
-  'https://user-images.githubusercontent.com/13415878/47143117-c0827c00-d2c4-11e8-9a06-3ebdc45431d4.jpg',
-  'https://user-images.githubusercontent.com/13415878/47143118-c0827c00-d2c4-11e8-9dcf-649d04f52a55.jpg',
-  'https://user-images.githubusercontent.com/13415878/47145025-10fbd880-d2c9-11e8-85df-0ec1cac8dc59.jpg'
+  'https://user-images.githubusercontent.com/910636/50009756-06ec1280-ffb8-11e8-8301-55e2e5437ca6.jpg'
 ];
+
+// const BACKGROUNDS = [
+//   'https://user-images.githubusercontent.com/13415878/47143117-c0827c00-d2c4-11e8-9a06-3ebdc45431d4.jpg',
+//   'https://user-images.githubusercontent.com/13415878/47143118-c0827c00-d2c4-11e8-9dcf-649d04f52a55.jpg',
+//   'https://user-images.githubusercontent.com/13415878/47145025-10fbd880-d2c9-11e8-85df-0ec1cac8dc59.jpg'
+// ];
 
 const TopScreen = props => {
   const position = props.view === 'race' ? -100 : 0;
@@ -94,6 +99,7 @@ const Game = props => {
       {(start || getReadyTime > 0) && (
         <Timer className={style.timer} start={3} delay={1000} text={start ? 'Start!' : null} />
       )}
+      <Snow />
     </div>
   );
 };

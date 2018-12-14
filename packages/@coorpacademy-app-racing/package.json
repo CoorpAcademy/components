@@ -1,7 +1,7 @@
 {
   "name": "@coorpacademy/app-racing",
   "version": "0.0.1",
-  "description": "CoorpAcademy racing game",
+  "description": "Totem",
   "main": "lib/web/index.js",
   "module": "es/web/index.js",
   "files": [
@@ -11,6 +11,11 @@
     "README.md"
   ],
   "scripts": {
+    "ava": "cross-env NODE_ENV=test ava",
+    "nyc": "cross-env NODE_ENV=test nyc npm run ava",
+    "test": "npm run lint && npm run nyc",
+    "lint": "npm run eslint",
+    "eslint": "eslint ./ *.js *.json --ext .js,.json",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
     "build": "npm run build:commonjs && npm run build:es",
@@ -26,7 +31,6 @@
   },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-app-racing#readme",
   "devDependencies": {
-    "@coorpacademy/progression-engine": "9.1.17",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-plugin-istanbul": "^4.1.4",
@@ -35,16 +39,19 @@
     "babel-preset-env": "^1.5.2",
     "browser-env": "^3.2.5",
     "cross-env": "^5.0.0",
+    "eslint": "^4.18.2",
+    "nyc": "^13.1.0",
     "rimraf": "^2.6.1",
     "webpack": "^4.8.2",
-    "webpack-cli": "^2.1.3",
+    "webpack-cli": "^3.1.1",
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
-    "@coorpacademy/components": "8.0.2",
-    "@coorpacademy/redux-task": "0.0.7",
-    "@coorpacademy/translate": "5.3.12",
-    "@coorpacademy/webpack-config": "7.0.1",
+    "@coorpacademy/components": "8.6.2",
+    "@coorpacademy/progression-engine": "9.2.3",
+    "@coorpacademy/redux-task": "0.0.10",
+    "@coorpacademy/translate": "5.3.16",
+    "@coorpacademy/webpack-config": "7.0.4",
     "lodash": "^4.17.4",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",

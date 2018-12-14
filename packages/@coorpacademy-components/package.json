@@ -65,6 +65,7 @@
     "react": "^16.3.2",
     "react-jw-player": "1.18.0",
     "react-motion": "^0.5.2",
+    "react-snow-effect": "^1.2.0",
     "react-tooltip": "^3.6.1"
   },
   "devDependencies": {
@@ -125,5 +126,6 @@
       ]
     }
   },
-  "author": "CoorpAcademy"
+  "author": "CoorpAcademy",
+  "gitHead": "f33c50c4becd8eef2b1705ce92400f925084afc5"
 }

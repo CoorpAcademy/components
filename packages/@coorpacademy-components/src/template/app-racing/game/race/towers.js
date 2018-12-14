@@ -11,6 +11,37 @@ import style from './towers.css';
 const NORMAL_TOTEMS = [
   {
     url:
+      'https://user-images.githubusercontent.com/910636/50008911-d30fed80-ffb5-11e8-8874-0f6378ee52d6.png',
+    colorWidth: 70,
+    width: 194,
+    height: 237
+  },
+  {
+    url:
+      'https://user-images.githubusercontent.com/910636/50009173-998bb200-ffb6-11e8-8726-ebed8bbcd1b5.png',
+    colorWidth: 80,
+    width: 182,
+    height: 215
+  },
+  {
+    url:
+      'https://user-images.githubusercontent.com/910636/50009393-32bac880-ffb7-11e8-8c6e-371697acacba.png',
+    colorWidth: 120,
+    width: 234,
+    height: 277
+  },
+  {
+    url:
+      'https://user-images.githubusercontent.com/13415878/47073738-3a4d3380-d1f9-11e8-941c-5c6f64053d82.png',
+    colorWidth: 325,
+    width: 410,
+    height: 660
+  }
+];
+
+const NORMAL_TOTEMS_CLASSIC = [
+  {
+    url:
       'https://user-images.githubusercontent.com/13415878/47073735-39b49d00-d1f9-11e8-9f4e-3fdc9bb2c4c4.png',
     colorWidth: 370,
     width: 450,
