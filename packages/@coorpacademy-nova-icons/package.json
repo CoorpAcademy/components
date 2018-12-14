@@ -20,10 +20,12 @@
   "author": "CoorpAcademy",
   "dependencies": {
     "async": "^2.4.1",
-    "react": "^16.3.2",
-    "react-icon-base": "^2.0.8"
+    "react": "^16.3.2"
   },
   "devDependencies": {
+    "@svgr/core": "^4.1.0",
+    "@svgr/plugin-prettier": "^4.0.3",
+    "@svgr/plugin-svgo": "^4.0.3",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
@@ -32,8 +34,8 @@
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-plugin-transform-react-remove-prop-types": "^0.4.5",
     "babel-preset-env": "^1.5.2",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-1": "^6.24.1",
+    "babel-preset-react-native": "^4.0.1",
+    "chalk": "^2.4.1",
     "change-case": "^3.0.1",
     "cross-env": "^5.0.0",
     "fs-extra": "^6.0.1",
