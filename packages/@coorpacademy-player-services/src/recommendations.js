@@ -1,4 +1,8 @@
-const find = fixtures => (type, ref) => {
+// @flow
+
+import type {Recommendation} from './types';
+
+const find = fixtures => (type, ref): Recommendation => {
   const {findRecommendations} = fixtures;
   const recommendations = findRecommendations(type, ref);
   return Promise.resolve(recommendations);

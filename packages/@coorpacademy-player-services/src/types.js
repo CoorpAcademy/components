@@ -21,13 +21,19 @@ type JwPlayerOptions = {|
 type ResourceMimeType = 'video/mp4' | 'application/vimeo';
 type ResourceType = 'video' | 'pdf';
 
+type Source = {|
+  _id: string,
+  mimeType: ResourceMimeType,
+  url: Url
+|};
+
 type Resource = {|
   _id: string,
   ref: string,
   type: ResourceType,
   mimeType: ResourceMimeType,
   mediaUrl: Url,
-  src?: Array<Url>,
+  src?: Array<Source>,
   description?: string,
   poster?: Url,
   subtitles?: Array<string>,
@@ -72,7 +78,7 @@ type Media = {|
   mediaUrl: Url,
   subtitles?: Array<string>,
   posters?: Array<Url>,
-  src?: Array<Url>
+  src?: Array<Source>
 |};
 
 type Context = {|
@@ -91,7 +97,7 @@ type Lesson = {|
   videoId: string,
   subtitles: Array<string>,
   posters: Array<Url>,
-  src: Array<Url>
+  src: Array<Source>
 |};
 
 type Meta = {|
@@ -137,4 +143,106 @@ type Slide = {|
   question: Question
 |};
 
-export type {DataEvent, Resource, ResourceType, Slide, Url, Window};
+type Recommendation = {|
+  view: string,
+  image: Url,
+  time: string,
+  type: string,
+  title: string,
+  author: string,
+  cta: string,
+  href: string
+|};
+
+type ExitNode = {|
+  ref: string,
+  type: string,
+  title: string,
+  description: string,
+  media: Media
+|};
+
+type SucessExitNode = {|
+  ...ExitNode,
+  meta: Meta
+|};
+
+type FailureExitNode = {|
+  ...ExitNode,
+  meta: Meta
+|};
+
+type Poster = {|
+  type?: string,
+  mimeType?: ResourceMimeType,
+  mediaUrl?: Url,
+  subtitles?: Array<string>,
+  posters?: Array<Url>,
+  src?: Array<Source>
+|};
+
+type Chapter = {|
+  _id: string,
+  __v: number,
+  universalRef: string,
+  name: string,
+  stars: number,
+  freeRun: boolean,
+  meta: Meta,
+  poster: Poster,
+  isConditional: boolean,
+  time: number,
+  version: string
+|};
+
+type Level = {|
+  ref: string,
+  name: string,
+  level: string,
+  meta: Meta,
+  poster: Poster,
+  chapterIds: Array<string>
+|};
+
+type Stats = {|
+  userTriesCoun: number,
+  userDoneCoun: number
+|};
+
+type Module = {|
+  _id: string,
+  disciplineRef: string,
+  name: string,
+  levelTranslation: string,
+  mediaUrl: Url,
+  timeAlloted: number,
+  level: string,
+  universalRef: string,
+  ref: string,
+  eligibleBattle: boolean,
+  creditsToAccess: number,
+  infiniteLives: boolean,
+  isConditional: boolean,
+  data: Array<?string>,
+  stats: Stats,
+  chapterIds: Array<string>,
+  acquiredSkills: Array<string>,
+  version: string,
+  external_refs: Array<?string>
+|};
+
+export type {
+  Chapter,
+  DataEvent,
+  ExitNode,
+  FailureExitNode,
+  Level,
+  Module,
+  Recommendation,
+  Resource,
+  ResourceType,
+  Slide,
+  SucessExitNode,
+  Url,
+  Window
+};
