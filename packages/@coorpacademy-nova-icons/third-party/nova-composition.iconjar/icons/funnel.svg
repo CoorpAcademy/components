@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="19px" height="19px" viewBox="0 0 19 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch Beta 45 (43276) - http://www.bohemiancoding.com/sketch -->
+    <title>Artboard</title>
+    <desc>Created with Sketch Beta.</desc>
+    <defs></defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Artboard">
+            <g id="Group" transform="translate(2.000000, 0.000000)">
+                <path fill-rule="nonzero" fill="#757575" d="M0,3 L0,4 C0,4.256 0.098,4.512 0.293,4.707 L6,10.415 L6,18 C6,18.404 6.244,18.769 6.617,18.924 C6.741,18.976 6.871,19 7,19 C7.26,19 7.516,18.898 7.707,18.707 L9.707,16.707 C9.894,16.52 10,16.266 10,16 L10,10.414 L15.707,4.707 C15.902,4.512 16,4.257 16,4.001 L16,3 L0,3 Z" id="Shape"></path>
+                <path fill-rule="nonzero" fill="#757575" d="M14,0.001 L2,0.001 C0.896,0.001 0,0.899 0,2.001 L16,2.001 C16,0.898 15.104,0.001 14,0.001 Z" id="Shape"></path>
+            </g>
+        </g>
+    </g>
+</svg>
