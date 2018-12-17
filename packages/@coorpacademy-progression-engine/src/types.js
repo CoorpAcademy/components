@@ -94,7 +94,7 @@ export type MoveAction = {
   type: 'move',
   payload: {
     nextContent: Content,
-    instructions: Array<Instruction> | null
+    instructions?: Array<Instruction> | null
   }
 };
 
@@ -117,7 +117,6 @@ export type ExtraLifeRefusedAction = {
 
 export type Action =
   | InitAction
-  | MoveAction
   | AnswerAction
   | AskClueAction
   | ExtraLifeAcceptedAction
@@ -149,11 +148,12 @@ export type EngineOptions = {
 };
 
 export type Progression = {
+  _id?: string,
   content: Content,
   state?: State,
   engine: Engine,
   engineOptions: EngineOptions,
-  actions: Array<Action>
+  actions?: Array<Action>
 };
 
 export type PartialCorrection = {

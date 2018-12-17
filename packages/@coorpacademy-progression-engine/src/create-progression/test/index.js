@@ -1,23 +1,15 @@
 // @flow
 import test from 'ava';
-import map from 'lodash/fp/map';
-import omit from 'lodash/fp/omit';
-import type {AvailableContent, Content, Engine, EngineOptions} from '../../types';
+import type {
+  Action,
+  AvailableContent,
+  Content,
+  Engine,
+  EngineOptions,
+  MoveAction
+} from '../../types';
 import createProgression from '..';
 import allSlides from '../../compute-next-step/test/fixtures/slides';
-
-const availableContentWithSlides: AvailableContent = [
-  {
-    ref: '1.A1',
-    slides: allSlides.filter(slide => slide.chapter_id === '1.A1'),
-    rules: []
-  },
-  {
-    ref: '2.A1',
-    slides: allSlides.filter(slide => slide.chapter_id === '2.A1'),
-    rules: []
-  }
-];
 
 const initialRule = {
   source: {
@@ -131,23 +123,34 @@ test('progression should have "move" action that links to a random slide from th
   const engineOptions: EngineOptions = {
     livesDisabled: true
   };
-  const progression = createProgression(engine, content, engineOptions, availableContentWithSlides);
+
+  const availableContent: AvailableContent = [
+    {
+      ref: '1.A1',
+      slides: [allSlides.filter(slide => slide.chapter_id === '1.A1')[0]],
+      rules: []
+    }
+  ];
+
+  const progression = createProgression(engine, content, engineOptions, availableContent);
   if (!progression) {
     throw new Error('progression should not be falsy');
   }
-  t.deepEqual(map(omit(['payload.nextContent.ref']), progression.actions), [
-    {
-      type: 'move',
-      payload: {
-        instructions: null,
-        nextContent: {
-          type: 'slide'
-        }
+
+  const actions: Array<Action> = progression.actions || [];
+
+  const action: MoveAction = {
+    type: 'move',
+    payload: {
+      instructions: null,
+      nextContent: {
+        ref: '1.A1.1',
+        type: 'slide'
       }
     }
-  ]);
-  // $FlowFixMe
-  t.regex(progression.actions[0].payload.nextContent.ref, /^1\.A1\.[1-9]+$/);
+  };
+
+  t.deepEqual(actions, [action]);
 });
 
 test('should return null if no there is no available content', t => {

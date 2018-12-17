@@ -231,6 +231,23 @@ type Module = {|
   external_refs: Array<?string>
 |};
 
+// type Fixtures = {|
+//   getAllProgressions,
+//   getChapterRulesByContent,
+//   getClue,
+//   getCorrectAnswer,
+//   getExitNode,
+//   getNextLevel,
+//   findChapterById,
+//   findContent,
+//   findLevelById,
+//   findProgressionById,
+//   findRecommendations,
+//   findSlideByChapter,
+//   findSlideById,
+//   saveProgression
+// |}
+
 export type {
   Chapter,
   DataEvent,
