@@ -1,4 +1,8 @@
-const findById = fixtures => async slideId => {
+// @flow
+
+import type {Slide} from './types';
+
+const findById = fixtures => async (slideId): Slide => {
   const {findSlideById} = fixtures;
   const slide = await findSlideById(slideId);
   return slide;
