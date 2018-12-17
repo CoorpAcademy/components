@@ -1,0 +1,13 @@
+import React from "react";
+
+const SvgComponent = props => (
+  <svg viewBox="0 0 24 24" {...props}>
+    <path fill="none" d="M0 0h24v24H0z" />
+    <g fill="currentColor">
+      <path d="M3.023 17.218A1 1 0 0 0 4 18h12c.469 0 .875-.326.977-.783L18.58 10H1.42l1.603 7.218zM20 7.001h-3.42L12.868.504l-1.736.992 3.145 5.505H5.723l3.145-5.505L7.132.504 3.42 7.001H0V9h20zM20 14h2v6h-2z" />
+      <circle cx={21} cy={22} r={1} />
+    </g>
+  </svg>
+);
+
+export default SvgComponent;

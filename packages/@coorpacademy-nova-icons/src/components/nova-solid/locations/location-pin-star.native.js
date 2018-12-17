@@ -1,0 +1,14 @@
+import React from "react";
+import Svg, { Path } from "react-native-svg";
+
+const SvgComponent = props => (
+  <Svg viewBox="0 0 24 24" {...props}>
+    <Path fill="none" d="M.001.001h24v24.001h-24z" />
+    <Path
+      fill="currentColor"
+      d="M18 3H6c-1.1 0-2 .9-2 2v11c0 1.1.9 2 2 2h2.875L12 23l3.125-5H18c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-4 8l1 4-3-2.5L9 15l1-4-3-2h3.75L12 5l1.25 4H17l-3 2z"
+    />
+  </Svg>
+);
+
+export default SvgComponent;
