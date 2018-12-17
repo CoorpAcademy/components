@@ -1,15 +1,11 @@
 // @flow strict
 
 import type {Config, Progression, State} from '@coorpacademy/progression-engine';
-import type {Resource, ResourceType} from './types';
+import type {DataEvent, Resource, ResourceType} from './types';
 
 // eslint-disable-next-line no-shadow
 declare var window: {|
-  dataLayer: Array<{
-    event: string,
-    mediaType?: string,
-    location?: string
-  }>
+  dataLayer: Array<DataEvent>
 |};
 
 // eslint-disable-next-line import/prefer-default-export

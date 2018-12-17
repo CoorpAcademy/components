@@ -35,4 +35,33 @@ type Resource = {|
   jwpOptions?: JwPlayerOptions
 |};
 
-export type {Resource, ResourceType, Url};
+type MediaViewedEvent = {|
+  event: 'mediaViewed',
+  mediaType: string,
+  location: string
+|};
+
+type StartProgressionEvent = {|
+  event: 'startProgression',
+  startProgression: {
+    type: string
+  }
+|};
+
+type FinishProgressionEvent = {|
+  event: 'finishProgression',
+  progression?: {
+    type: string,
+    state: string,
+    extraLife: number
+  }
+|};
+
+type DataEvent = MediaViewedEvent | StartProgressionEvent | FinishProgressionEvent;
+
+// eslint-disable-next-line no-shadow
+type Window = {|
+  dataLayer?: Array<DataEvent>
+|};
+
+export type {DataEvent, Resource, ResourceType, Url, Window};

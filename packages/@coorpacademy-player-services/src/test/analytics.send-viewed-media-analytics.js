@@ -2,24 +2,15 @@
 
 import test from 'ava';
 import {sendViewedMediaAnalytics} from '../analytics';
-import type {Resource} from '../types';
-
-type DataEvent = {|
-  event: string,
-  mediaType: string,
-  location: string
-|};
 
 // eslint-disable-next-line no-shadow
-type Window = {
-  dataLayer?: Array<DataEvent>
-};
+import type {Resource, Window} from '../types';
 
 // eslint-disable-next-line no-shadow
 declare var global: {|window: Window|};
 
 test('should push an event even if dataLayer is not defined previously', t => {
-  global.window = {};
+  global.window = {dataLayer: undefined};
 
   const resource: Resource = {
     _id: '_foo',

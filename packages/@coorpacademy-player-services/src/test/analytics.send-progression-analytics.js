@@ -4,18 +4,13 @@ import test from 'ava';
 import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
 import type {Config} from '@coorpacademy/progression-engine';
+import type {DataEvent} from '../types';
 import {sendProgressionAnalytics} from '../analytics';
 
-type DataEvent = {|
-  event: string,
-  mediaType: string,
-  location: string
-|};
-
 // eslint-disable-next-line no-shadow
-type Window = {
+type Window = {|
   dataLayer?: {push: (event: DataEvent) => void}
-};
+|};
 
 // eslint-disable-next-line no-shadow
 declare var global: {|window: Window|};
@@ -34,7 +29,7 @@ const engineConfig: Config = {
 };
 
 test('should push an event even if dataLayer is not defined previously', t => {
-  global.window = {};
+  global.window = {dataLayer: undefined};
 
   const currentProgression = pipe(
     set('engine.ref', 'microlearning'),
