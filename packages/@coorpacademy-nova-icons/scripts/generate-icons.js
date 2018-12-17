@@ -8,7 +8,8 @@ import globby from 'globby';
 import svgr from '@svgr/core';
 import mkdirp from 'mkdirp';
 
-import {parseMeta, parseSVGFile} from '../src/modules/iconjar-reader';
+import whiteList from '../icons';
+import {parseMeta, getSVGFilePath} from '../src/modules/iconjar-reader';
 import type {Meta, Item} from '../src/modules/iconjar-reader';
 import {formatKebabCase} from '../src/modules/string-formatter';
 
@@ -46,6 +47,11 @@ const generateComponent = (fileContent: Buffer, fileName: string, native: boolea
     .catch(e => console.log(`- ${chalk.red(extendedFileName)}`));
 };
 
+const wrongFiles = whiteList.filter(filePath => !fs.existsSync(filePath));
+if (wrongFiles.length) {
+  throw new Error(chalk.red('Invalid icons:', wrongFiles.map(filePath => `\n - ${filePath}`)));
+}
+
 globby
   .sync('**/*.iconjar', {
     cwd: iconsPath,
@@ -67,18 +73,28 @@ globby
     const setArray: Array<Set> = Object.values(sets);
 
     setArray.forEach(({name: setName, identifier: setIdentifier}) => {
-      console.log(chalk.underline('Set name:'), setName);
+      const itemArrayFiltered = itemArray
+        .filter(item => item.parent === setIdentifier)
+        .map(item => ({
+          item,
+          filePath: getSVGFilePath(iconJarFileName, item.file)
+        }))
+        .filter(({filePath}) => whiteList.findIndex(whiteListFilePath => whiteListFilePath === filePath) > 0);
+      if (itemArrayFiltered.length) {
+        console.log('Set name:', setName, `(${itemArrayFiltered.length})`);
 
-      itemArray.filter(item => item.parent === setIdentifier).map(item => {
-        const content = parseSVGFile(iconJarFileName, item.file);
-        const outputFileName = path.join(
-          formatKebabCase(iconJarFileName.replace('.iconjar', '')),
-          formatKebabCase(setName),
-          formatKebabCase(item.file)
-        );
+        itemArrayFiltered
+          .map(({item, filePath}) => {
+            const content = fs.readFileSync(filePath);
+            const outputFileName = path.join(
+              formatKebabCase(iconJarFileName.replace('.iconjar', '')),
+              formatKebabCase(setName),
+              formatKebabCase(item.file)
+            );
 
-        generateComponent(content, outputFileName);
-        generateComponent(content, outputFileName, true);
-      });
+            generateComponent(content, outputFileName);
+            generateComponent(content, outputFileName, true);
+          });
+      }
     });
   });

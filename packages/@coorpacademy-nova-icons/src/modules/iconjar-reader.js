@@ -47,7 +47,5 @@ export const parseMeta = (iconJar: string): Meta => {
   return JSON.parse(zlib.gunzipSync(file));
 };
 
-export const parseSVGFile = (iconJar: string, fileName: string): Buffer => {
-  const filePath = path.join(getIconJarPath(iconJar), 'icons', fileName);
-  return fs.readFileSync(filePath);
-};
+export const getSVGFilePath = (iconJar: string, fileName: string): string =>
+  path.join(getIconJarPath(iconJar), 'icons', fileName);
