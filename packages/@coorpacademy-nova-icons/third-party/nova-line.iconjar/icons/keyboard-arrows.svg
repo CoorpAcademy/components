@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
+	 height="24px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<g id="Frame_-_24px">
+	<rect style="fill:none;" width="24" height="24"/>
+</g>
+<g id="Line_Icons">
+	<g>
+		<polygon style="fill:#757575;" points="11,10 13,10 13,7 15,7 12,4 9,7 11,7 		"/>
+		<polygon style="fill:#757575;" points="9,16 6,16 6,14 3,17 6,20 6,18 9,18 		"/>
+		<polygon style="fill:#757575;" points="15,16 15,18 18,18 18,20 21,17 18,14 18,16 		"/>
+		<path style="fill:#757575;" d="M23,11h-5V2c0-0.552-0.448-1-1-1H7C6.448,1,6,1.448,6,2v9H1c-0.552,0-1,0.448-1,1v10
+			c0,0.552,0.448,1,1,1h22c0.552,0,1-0.448,1-1V12C24,11.448,23.552,11,23,11z M16,3v8H8V3H16z M2,13h9v8H2V13z M22,21h-9v-8h9V21z"
+			/>
+	</g>
+</g>
+</svg>

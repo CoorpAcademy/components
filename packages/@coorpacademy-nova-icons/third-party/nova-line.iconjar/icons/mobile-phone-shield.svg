@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
+	 height="24px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<g id="Frame_-_24px">
+	<rect y="-0.003" style="fill:none;" width="24" height="24"/>
+</g>
+<g id="Line_Icons">
+	<g>
+		<path style="fill:#757575;" d="M10,18H2v-2h8h0v-2H2V6h8v3h2V2c0-1.104-0.897-2-2-2H2C0.897,0,0,0.896,0,2v16c0,1.104,0.897,2,2,2
+			h8V18z M2,2h8v2H2V2z"/>
+		<g>
+			<path style="fill:#757575;" d="M12,10.98v7c0,3.813,3.796,5.578,5.804,5.98L18,24l0.196-0.039C20.204,23.559,24,21.793,24,17.98
+				v-7H12z M22,17.98c0,2.762-3.154,3.756-3.998,3.973C17.175,21.736,14,20.729,14,17.98v-5h8V17.98z"/>
+			<polygon style="fill:#757575;" points="17,19.98 19,19.98 19,17.98 21,17.98 21,15.98 19,15.98 19,13.98 17,13.98 17,15.98 
+				15,15.98 15,17.98 17,17.98 			"/>
+		</g>
+	</g>
+</g>
+</svg>

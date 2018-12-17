@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
+	 height="24px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<g id="Frame_-_24px">
+	<rect style="fill:none;" width="24" height="24"/>
+</g>
+<g id="Line_Icons">
+	<g>
+		<path style="fill:#757575;" d="M6,14.417l2-2l1.293,1.293c0.391,0.392,1.023,0.392,1.414,0l3-3l-1.414-1.414L10,11.59
+			l-1.293-1.294c-0.391-0.39-1.023-0.39-1.414,0L6,11.59V8.003H4v9h10v-2H6V14.417z"/>
+		<path style="fill:#757575;" d="M2,2h10v4h4l0,8.009h2V4.586L13.414,0H2C0.897,0,0,0.897,0,2v18.002c0,1.102,0.897,2,2,2h12v-2H2V2
+			z"/>
+		<polygon style="fill:#757575;" points="21,19.002 21,16.002 19,16.002 19,19.002 16,19.002 16,21.002 19,21.002 19,24.002 
+			21,24.002 21,21.002 24,21.002 24,19.002 		"/>
+	</g>
+</g>
+</svg>

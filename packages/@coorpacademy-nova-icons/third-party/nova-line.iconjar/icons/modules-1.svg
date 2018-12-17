@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
+	 height="24px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<g id="Frame_-_24px">
+	<rect style="fill:none;" width="24" height="24"/>
+</g>
+<g id="Line_Icons">
+	<g>
+		<path style="fill:#757575;" d="M21.584,9.189C21.323,9,20.987,8.95,20.684,9.051L12,11.946L3.316,9.051
+			C3.011,8.95,2.676,9,2.416,9.189C2.154,9.377,2,9.679,2,10v8c0,0.431,0.275,0.813,0.684,0.949l9,3C11.787,21.983,11.893,22,12,22
+			s0.213-0.017,0.316-0.051l9-3C21.725,18.813,22,18.431,22,18v-8C22,9.679,21.846,9.377,21.584,9.189z M4,11.387l7,2.333v5.892
+			l-7-2.333V11.387z M20,17.279l-7,2.333v-5.892l7-2.333V17.279z"/>
+		<ellipse style="fill:#757575;" cx="12" cy="8.5" rx="3" ry="1.5"/>
+		<ellipse style="fill:#757575;" cx="6" cy="6.5" rx="3" ry="1.5"/>
+		<ellipse style="fill:#757575;" cx="18" cy="6.5" rx="3" ry="1.5"/>
+		<ellipse style="fill:#757575;" cx="12" cy="4.5" rx="3" ry="1.5"/>
+	</g>
+</g>
+</svg>

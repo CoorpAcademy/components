@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
+	 height="24px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<g id="Frame_-_24px">
+	<rect x="0" style="fill:none;" width="24" height="24"/>
+</g>
+<g id="Line_Icons">
+	<g>
+		<path style="fill:#757575;" d="M14,19c0.552,0,1-0.447,1-1v-3h3c0.552,0,1-0.447,1-1v-1h3v-2h-3c0-0.553-0.448-1-1-1h-5
+			c1.103,0,2-0.897,2-2V6h3l-6-4L6,6h3v2c0,1.103,0.897,2,2,2H6c-0.552,0-1,0.447-1,1H2v2h3v1c0,0.553,0.448,1,1,1h3v3
+			c0,0.553,0.448,1,1,1h1v2.5L10,23h4l-1-1.5V19H14z M13,6l0.001,2H11V6H13z M10,13H7v-1h10v1h-3c-0.552,0-1,0.447-1,1v3h-2v-3
+			C11,13.447,10.552,13,10,13z"/>
+		<polygon style="fill:#757575;" points="2,23 6,23 4,20 		"/>
+		<polygon style="fill:#757575;" points="6,23 10,23 8,20 		"/>
+		<polygon style="fill:#757575;" points="16,20 14,23 18,23 		"/>
+		<polygon style="fill:#757575;" points="20,20 18,23 22,23 		"/>
+	</g>
+</g>
+</svg>

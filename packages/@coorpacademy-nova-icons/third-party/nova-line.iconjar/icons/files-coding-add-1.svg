@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
+	 height="24px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<g id="Frame_-_24px">
+	<rect style="fill:none;" width="24" height="24"/>
+</g>
+<g id="Line_Icons">
+	<g>
+		<rect x="4" y="8" style="fill:#757575;" width="2" height="4"/>
+		<rect x="11" y="8" style="fill:#757575;" width="2" height="4"/>
+		<rect x="8" y="13" style="fill:#757575;" width="2" height="4"/>
+		<rect x="11" y="13" style="fill:#757575;" width="2" height="4"/>
+		<rect x="7" y="8" style="fill:#757575;" width="3" height="4"/>
+		<rect x="4" y="13" style="fill:#757575;" width="3" height="4"/>
+		<path style="fill:#757575;" d="M2,1.998h10v4h4L16,14h2V4.583l-4.586-4.585H2c-1.103,0-2,0.896-2,2v18c0,1.102,0.897,2,2,2h12v-2
+			H2V1.998z"/>
+		<polygon style="fill:#757575;" points="21,19 21,16 19,16 19,19 16,19 16,21 19,21 19,24 21,24 21,21 24,21 24,19 		"/>
+	</g>
+</g>
+</svg>

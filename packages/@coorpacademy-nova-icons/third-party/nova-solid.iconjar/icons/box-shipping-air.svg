@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
+	 height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<g id="Frame_-_24px">
+	<rect fill="none" width="24" height="24"/>
+</g>
+<g id="Filled_Icons">
+	<g>
+		<path fill="#767676" d="M9,0H5C4.666,0,4.353,0.167,4.168,0.445L0.465,6H9V0z"/>
+		<path fill="#767676" d="M15.832,0.445C15.646,0.167,15.334,0,15,0h-4v6h8.535L15.832,0.445z"/>
+		<path fill="#767676" d="M19,12c0.34,0,0.672,0.033,1,0.08V8H0v11c0,0.553,0.447,1,1,1h11.08C12.033,19.673,12,19.341,12,19
+			C12,15.134,15.134,12,19,12z"/>
+		<polygon fill="#767676" points="23.707,15.707 22.293,14.293 20.586,16 15,16 15,18 18.586,18 17.586,19 14,19 14,21 17,21 17,24 
+			19,24 19,20.414 20,19.414 20,23 22,23 22,17.414 		"/>
+	</g>
+</g>
+</svg>

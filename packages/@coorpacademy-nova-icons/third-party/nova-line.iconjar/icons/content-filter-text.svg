@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
+	 height="24px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<g id="Frame_-_24px">
+	<rect y="0.002" style="fill:none;" width="24" height="24"/>
+</g>
+<g id="Line_Icons">
+	<g>
+		<g>
+			<path style="fill:#757575;" d="M14,0H2C0.896,0,0,0.898,0,2v3c0,0.256,0.098,0.512,0.293,0.707L5,10.415V19
+				c0,0.404,0.244,0.769,0.617,0.924C5.741,19.976,5.871,20,6,20c0.26,0,0.516-0.102,0.707-0.293l4-4C10.895,15.52,11,15.266,11,15
+				v-4.586l4.707-4.707C15.902,5.512,16,5.257,16,5V2C16,0.898,15.104,0,14,0z M9.293,9.293C9.105,9.481,9,9.735,9,10v4.586l-2,2V10
+				c0-0.265-0.105-0.52-0.293-0.707L2,4.586V2h12v2.586L9.293,9.293z"/>
+		</g>
+		<g>
+			<path style="fill:#757575;" d="M23,24H13c-0.553,0-1-0.448-1-1V11c0-0.552,0.447-1,1-1h10c0.553,0,1,0.448,1,1v12
+				C24,23.553,23.553,24,23,24z M14,22h8V12h-8V22z"/>
+		</g>
+		<g>
+			<rect x="15" y="16" style="fill:#757575;" width="6" height="2"/>
+		</g>
+		<g>
+			<rect x="17" y="13" style="fill:#757575;" width="4" height="2"/>
+		</g>
+		<g>
+			<rect x="15" y="19" style="fill:#757575;" width="6" height="2"/>
+		</g>
+	</g>
+</g>
+</svg>

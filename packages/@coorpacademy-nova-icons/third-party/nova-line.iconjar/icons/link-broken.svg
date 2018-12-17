@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
+	 height="24px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve">
+<g id="Frame_-_24px">
+	<rect style="fill:none;" width="24" height="24"/>
+</g>
+<g id="Line_Icons">
+	<g>
+		<g>
+			<path style="fill:#757575;" d="M16.243,3.515L16.243,3.515c-1.17-1.17-3.073-1.169-4.243,0L8.465,7.051l1.414,1.414l3.535-3.536
+				c0.389-0.389,1.024-0.389,1.415,0L16.243,3.515z"/>
+			<path style="fill:#757575;" d="M19.071,9.171c0.39,0.39,0.39,1.025,0,1.415l-3.536,3.536l1.414,1.414L20.485,12
+				c1.169-1.168,1.169-3.072,0-4.243L19.071,9.171z"/>
+		</g>
+		<g>
+			<path style="fill:#757575;" d="M3.515,16.243l1.414-1.414c-0.39-0.391-0.39-1.024,0-1.415L8.464,9.88L7.05,8.465L3.515,12
+				C2.345,13.17,2.345,15.073,3.515,16.243L3.515,16.243z"/>
+			<path style="fill:#757575;" d="M14.122,15.536l-3.536,3.535c-0.389,0.389-1.024,0.39-1.415,0l-1.414,1.415
+				c0.585,0.584,1.353,0.876,2.121,0.876c0.769,0,1.537-0.292,2.122-0.876l3.536-3.535L14.122,15.536z"/>
+		</g>
+		<g>
+			
+				<rect x="15.95" y="2.051" transform="matrix(0.7071 0.7071 -0.7071 0.7071 9.9501 -9.9201)" style="fill:#757575;" width="2" height="10"/>
+		</g>
+		<g>
+			
+				<rect x="6.05" y="11.95" transform="matrix(0.7071 0.7071 -0.7071 0.7071 14.0506 -0.0207)" style="fill:#757575;" width="2" height="10"/>
+		</g>
+		<g>
+			<rect x="19.778" y="14.536" style="fill:#757575;" width="2.828" height="2"/>
+		</g>
+		<g>
+			<rect x="14.536" y="19.778" style="fill:#757575;" width="2" height="2.828"/>
+		</g>
+		<g>
+			<rect x="7.464" y="1.394" style="fill:#757575;" width="2" height="2.828"/>
+		</g>
+		<g>
+			<rect x="1.394" y="7.464" style="fill:#757575;" width="2.828" height="2"/>
+		</g>
+	</g>
+</g>
+</svg>

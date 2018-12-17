@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
+	 height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<g id="Frame_-_24px">
+	<rect y="-0.001" fill="none" width="24" height="24"/>
+</g>
+<g id="Filled_Icons">
+	<g>
+		<path fill="#757575" d="M4,16V8h7V6.369C11,5.266,10.104,4,9,4H4C2.895,4,2,5.266,2,6.369v12C2,19.475,2.895,20,4,20h5
+			c1.104,0,2-0.525,2-1.631V16H4z"/>
+		<path fill="#757575" d="M20.001,4H15c-1.104,0-2,1.266-2,2.369V8h7v8h-7v2.369C13,19.475,13.896,20,15,20h5
+			c1.104,0,2-0.525,2-1.631v-12C22,5.264,21.105,4,20.001,4z"/>
+		<polygon fill="#757575" points="14.707,11.077 13.293,9.662 12,10.955 10.707,9.662 9.293,11.077 10.586,12.369 9.293,13.662 
+			10.707,15.077 12,13.783 13.293,15.077 14.707,13.662 13.414,12.369 		"/>
+	</g>
+</g>
+</svg>

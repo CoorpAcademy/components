@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 17.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="24px"
+	 height="24px" viewBox="0 0 24 24" enable-background="new 0 0 24 24" xml:space="preserve">
+<g id="Frame_-_24px">
+	<rect fill="none" width="24" height="24"/>
+</g>
+<g id="Filled_Icons">
+	<g>
+		<polygon fill="#767676" points="16.742,2 14,4.899 14,16.543 22.555,7.498 		"/>
+		<path fill="#767676" d="M10,2.028H4c-1.103,0-2,0.898-2,2v16c0,1.103,0.897,2,2,2h6c1.103,0,2-0.897,2-2v-16
+			C12,2.926,11.103,2.028,10,2.028z M4,20.028v-16h6l0.002,16H4z"/>
+		<rect x="5" y="6.028" fill="#767676" width="4" height="4"/>
+		<rect x="5" y="12.028" fill="#767676" width="4" height="4"/>
+		<circle fill="#767676" cx="7" cy="18.028" r="1"/>
+		<polygon fill="#767676" points="22.518,12.966 18.312,13.44 14,17.999 14,20.971 23.283,19.925 		"/>
+	</g>
+</g>
+</svg>
