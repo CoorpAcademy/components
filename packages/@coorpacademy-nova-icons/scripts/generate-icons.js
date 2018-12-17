@@ -6,7 +6,7 @@ import fs from 'fs';
 import chalk from 'chalk';
 import globby from 'globby';
 import svgr from '@svgr/core';
-import mkdirp from 'mkdirp';
+import mkdirp from 'mkdirp-promise';
 
 import whiteList from '../icons';
 import {parseMeta, getSVGFilePath} from '../src/modules/iconjar-reader';
@@ -38,8 +38,8 @@ const generateComponent = (fileContent: Buffer, fileName: string, native: boolea
   const outputPath = path.join(componentsPath, extendedFileName);
 
   svgr(fileContent, options)
-    .then(jsCode => {
-      mkdirp(path.dirname(outputPath));
+    .then(async jsCode => {
+      await mkdirp(path.dirname(outputPath));
       fs.writeFileSync(outputPath, jsCode);
 
       console.log(`- ${chalk.green(extendedFileName)}`);
@@ -88,7 +88,7 @@ globby
             const content = fs.readFileSync(filePath);
             const outputFileName = path.join(
               formatKebabCase(iconJarFileName.replace('.iconjar', '')),
-              formatKebabCase(setName),
+              formatKebabCase(setName, true),
               formatKebabCase(item.file)
             );
 
