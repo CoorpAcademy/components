@@ -13,7 +13,7 @@
     "lint": "npm run eslint",
     "eslint": "eslint ./ *.js *.json --ext .js,.json",
     "clean": "rm -rf src solid line composition",
-    "generate-icons": "node scripts/generate-icons.js",
+    "generate-icons": "babel-node scripts/generate-icons.js",
     "build:babel:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
     "build:babel:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
     "build:babel": "concurrently \"npm run build:babel:commonjs\" \"npm run build:babel:es\"",
