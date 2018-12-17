@@ -4,9 +4,9 @@
   "description": "React components bank based on Nova SVG icons",
   "main": "index.js",
   "files": [
-    "line/",
-    "solid/",
-    "composition/"
+    "lib",
+    "es",
+    "src"
   ],
   "scripts": {
     "test": "npm run lint",
@@ -14,7 +14,12 @@
     "eslint": "eslint ./ *.js *.json --ext .js,.json",
     "clean": "rm -rf src solid line composition",
     "generate-icons": "node scripts/generate-icons.js",
-    "build": "cross-env BABEL_ENV=commonjs babel src/components/nova-solid --out-dir solid && cross-env BABEL_ENV=commonjs babel src/components/nova-line --out-dir line",
+    "build:babel:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
+    "build:babel:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
+    "build:babel": "concurrently \"npm run build:babel:commonjs\" \"npm run build:babel:es\"",
+    "clean:build:commonjs": "rimraf lib",
+    "clean:build:es": "rimraf es",
+    "clean:build": "concurrently \"npm run clean:build:commonjs\" \"npm run clean:build:es\"",
     "prepare": "npm run generate-icons && npm run build"
   },
   "author": "CoorpAcademy",
@@ -36,6 +41,7 @@
     "babel-preset-env": "^1.5.2",
     "babel-preset-react-native": "^4.0.1",
     "chalk": "^2.4.1",
+    "concurrently": "^4.1.0",
     "cross-env": "^5.0.0",
     "mkdirp": "^0.5.1"
   }
