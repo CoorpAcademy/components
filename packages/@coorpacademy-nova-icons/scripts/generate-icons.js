@@ -79,7 +79,7 @@ globby
           item,
           filePath: getSVGFilePath(iconJarFileName, item.file)
         }))
-        .filter(({filePath}) => whiteList.findIndex(whiteListFilePath => whiteListFilePath === filePath) > 0);
+        .filter(({filePath}) => whiteList.find(whiteListFilePath => whiteListFilePath === filePath));
       if (itemArrayFiltered.length) {
         console.log('Set name:', setName, `(${itemArrayFiltered.length})`);
 

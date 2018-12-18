@@ -12,15 +12,14 @@
     "test": "npm run lint",
     "lint": "npm run eslint",
     "eslint": "eslint ./ *.js *.json --ext .js,.json",
-    "clean": "rm -rf src solid line composition",
-    "generate-icons": "babel-node scripts/generate-icons.js",
+    "pregenerate:icons": "rm -rf src/components",
+    "generate:icons": "babel-node scripts/generate-icons.js",
+    "prebuild:babel:commonjs": "rm -rf lib",
     "build:babel:commonjs": "cross-env BABEL_ENV=commonjs babel src/components --out-dir lib -s --ignore test --copy-files",
+    "prebuild:babel:es": "rm -rf es",
     "build:babel:es": "cross-env BABEL_ENV=es babel src/components --out-dir es -s --ignore test --copy-files",
     "build:babel": "concurrently \"npm run build:babel:commonjs\" \"npm run build:babel:es\"",
-    "clean:build:commonjs": "rimraf lib",
-    "clean:build:es": "rimraf es",
-    "clean:build": "concurrently \"npm run clean:build:commonjs\" \"npm run clean:build:es\"",
-    "prepare": "npm run generate-icons && npm run build"
+    "prepare": "npm run generate:icons && npm run build:babel"
   },
   "author": "CoorpAcademy",
   "dependencies": {
@@ -28,7 +27,6 @@
     "react": "^16.3.2"
   },
   "devDependencies": {
-    "@babel/cli": "^7.2.0",
     "@svgr/core": "^4.1.0",
     "@svgr/plugin-prettier": "^4.0.3",
     "@svgr/plugin-svgo": "^4.0.3",
