@@ -22,15 +22,15 @@ type IconJar = {|
   meta: Meta
 |};
 
+const colors = ['#757575', '#14171A', '#607d8b'];
+
 const generateComponent = (fileContent: Buffer, fileName: string, native: boolean) => {
   const options = {
     plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx', '@svgr/plugin-prettier'],
     noSemi: true,
     icon: true,
     dimensions: false,
-    replaceAttrValues: {
-      '#757575': 'currentColor'
-    },
+    replaceAttrValues: colors.reduce((result, color) => ({...result, [color]: 'currentColor'}), {}),
     native
   };
   const extension = (native && 'native') || 'web';
