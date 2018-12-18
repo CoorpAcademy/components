@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
 import getOr from 'lodash/fp/getOr';
-import PreviewIcon from '@coorpacademy/nova-icons/line/business/circle-view';
-import PencilIcon from '@coorpacademy/nova-icons/line/content-edition/pencil-2';
+import PreviewIcon from '@coorpacademy/nova-icons/lib/nova-line/business/circle-view.web';
+import PencilIcon from '@coorpacademy/nova-icons/lib/nova-line/content-edition/pencil-2.web';
 import InputPreview from './input-preview';
 import style from './style.css';
 

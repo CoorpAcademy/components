@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BackIcon from '@coorpacademy/nova-icons/composition/navigation/arrow-left';
+import BackIcon from '@coorpacademy/nova-icons/lib/nova-composition/navigation/arrow-left.web';
 import Link from '../../../../../atom/link';
 import style from './microlearning.css';
 

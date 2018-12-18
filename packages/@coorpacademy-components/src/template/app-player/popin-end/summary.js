@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import keys from 'lodash/fp/keys';
-import CheckIcon from '@coorpacademy/nova-icons/solid/status/check-circle-2';
+import CheckIcon from '@coorpacademy/nova-icons/lib/nova-solid/status/check-circle-2.web';
 import Provider from '../../../atom/provider';
 import Button from '../../../atom/button';
 import Link from '../../../atom/link';

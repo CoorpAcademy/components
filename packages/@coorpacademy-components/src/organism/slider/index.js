@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import _map from 'lodash/fp/map';
-import ArrowRight from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
-import ArrowLeft from '@coorpacademy/nova-icons/composition/navigation/arrow-left';
+import ArrowRight from '@coorpacademy/nova-icons/lib/nova-composition/navigation/arrow-right.web';
+import ArrowLeft from '@coorpacademy/nova-icons/lib/nova-composition/navigation/arrow-left.web';
 import style from './style.css';
 
 const map = _map.convert({cap: false});

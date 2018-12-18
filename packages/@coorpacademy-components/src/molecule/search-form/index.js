@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
-import ClearIcon from '@coorpacademy/nova-icons/composition/navigation/more';
+import ClearIcon from '@coorpacademy/nova-icons/lib/nova-composition/navigation/more.web';
 import Search from '../search';
 import style from './style.css';
 
