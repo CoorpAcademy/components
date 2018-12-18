@@ -1,18 +1,26 @@
+// @flow
+
 import buildTask from '@coorpacademy/redux-task';
 import {getStartRank} from '../../utils/state-extract';
+import type {Dispatch, RankActions, GetState} from '../../types';
 
-export const RANK_FETCH_START_REQUEST = '@@rank/FETCH_START_REQUEST';
-export const RANK_FETCH_START_SUCCESS = '@@rank/FETCH_START_SUCCESS';
-export const RANK_FETCH_START_FAILURE = '@@rank/FETCH_START_FAILURE';
+export const RANK_FETCH_START_REQUEST: string = '@@rank/FETCH_START_REQUEST';
+export const RANK_FETCH_START_SUCCESS: string = '@@rank/FETCH_START_SUCCESS';
+export const RANK_FETCH_START_FAILURE: string = '@@rank/FETCH_START_FAILURE';
 
-export const RANK_FETCH_END_REQUEST = '@@rank/FETCH_END_REQUEST';
-export const RANK_FETCH_END_SUCCESS = '@@rank/FETCH_END_SUCCESS';
-export const RANK_FETCH_END_FAILURE = '@@rank/FETCH_END_FAILURE';
+export const RANK_FETCH_END_REQUEST: string = '@@rank/FETCH_END_REQUEST';
+export const RANK_FETCH_END_SUCCESS: string = '@@rank/FETCH_END_SUCCESS';
+export const RANK_FETCH_END_FAILURE: string = '@@rank/FETCH_END_FAILURE';
 
-const fetchRank = (dispatch, getState, {services}, {types, bailout}) => {
+const fetchRank = (
+  dispatch: Dispatch,
+  getState: GetState,
+  {services},
+  {types, bailout}
+): Dispatch => {
   const {LeaderBoard} = services;
 
-  const action = buildTask({
+  const action: RankActions = buildTask({
     types,
     task: () => LeaderBoard.getRank(),
     bailout
@@ -21,7 +29,7 @@ const fetchRank = (dispatch, getState, {services}, {types, bailout}) => {
   return dispatch(action);
 };
 
-export const fetchStartRank = () => (dispatch, getState, {services}) => {
+export const fetchStartRank = () => (dispatch: Dispatch, getState: GetState, {services}): void => {
   return fetchRank(
     dispatch,
     getState,
@@ -33,7 +41,7 @@ export const fetchStartRank = () => (dispatch, getState, {services}) => {
   );
 };
 
-export const fetchEndRank = () => (dispatch, getState, {services}) => {
+export const fetchEndRank = () => (dispatch: Dispatch, getState: GetState, {services}): void => {
   return fetchRank(
     dispatch,
     getState,

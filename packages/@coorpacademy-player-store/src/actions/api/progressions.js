@@ -1,7 +1,10 @@
+// @flow
+
 import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 import includes from 'lodash/fp/includes';
 import buildTask from '@coorpacademy/redux-task';
+import type {Content, Engine, Progression, State} from '@coorpacademy/progression-engine';
 import {
   getProgression,
   getBestScore,
@@ -10,15 +13,20 @@ import {
   getCurrentSlide,
   getPreviousSlide
 } from '../../utils/state-extract';
+import type {Dispatch, ProgressionsActions, GetState, Slide} from '../../types';
 
-export const PROGRESSION_FETCH_REQUEST = '@@progression/FETCH_REQUEST';
-export const PROGRESSION_FETCH_SUCCESS = '@@progression/FETCH_SUCCESS';
-export const PROGRESSION_FETCH_FAILURE = '@@progression/FETCH_FAILURE';
+export const PROGRESSION_FETCH_REQUEST: string = '@@progression/FETCH_REQUEST';
+export const PROGRESSION_FETCH_SUCCESS: string = '@@progression/FETCH_SUCCESS';
+export const PROGRESSION_FETCH_FAILURE: string = '@@progression/FETCH_FAILURE';
 
-export const fetchProgression = id => (dispatch, getState, {services}) => {
+export const fetchProgression = (id: string) => (
+  dispatch: Dispatch,
+  getState: GetState,
+  {services}
+): Dispatch => {
   const {Progressions} = services;
 
-  const action = buildTask({
+  const action: ProgressionsActions = buildTask({
     types: [PROGRESSION_FETCH_REQUEST, PROGRESSION_FETCH_SUCCESS, PROGRESSION_FETCH_FAILURE],
     task: () => Progressions.findById(id),
     meta: {id},
@@ -28,14 +36,18 @@ export const fetchProgression = id => (dispatch, getState, {services}) => {
   return dispatch(action);
 };
 
-export const ENGINE_CONFIG_FETCH_REQUEST = '@@progression/CONFIG_REQUEST';
-export const ENGINE_CONFIG_FETCH_SUCCESS = '@@progression/CONFIG_SUCCESS';
-export const ENGINE_CONFIG_FETCH_FAILURE = '@@progression/CONFIG_FAILURE';
+export const ENGINE_CONFIG_FETCH_REQUEST: string = '@@progression/CONFIG_REQUEST';
+export const ENGINE_CONFIG_FETCH_SUCCESS: string = '@@progression/CONFIG_SUCCESS';
+export const ENGINE_CONFIG_FETCH_FAILURE: string = '@@progression/CONFIG_FAILURE';
 
-export const fetchEngineConfig = engine => (dispatch, getState, {services}) => {
+export const fetchEngineConfig = (engine: Engine) => (
+  dispatch: Dispatch,
+  getState: GetState,
+  {services}
+): Dispatch => {
   const {Progressions} = services;
 
-  const action = buildTask({
+  const action: ProgressionsActions = buildTask({
     types: [ENGINE_CONFIG_FETCH_REQUEST, ENGINE_CONFIG_FETCH_SUCCESS, ENGINE_CONFIG_FETCH_FAILURE],
     task: () => Progressions.getEngineConfig(engine),
     meta: {engine},
@@ -45,16 +57,20 @@ export const fetchEngineConfig = engine => (dispatch, getState, {services}) => {
   return dispatch(action);
 };
 
-export const PROGRESSION_CREATE_ANSWER_REQUEST = '@@progression/CREATE_ANSWER_REQUEST';
-export const PROGRESSION_CREATE_ANSWER_SUCCESS = '@@progression/CREATE_ANSWER_SUCCESS';
-export const PROGRESSION_CREATE_ANSWER_FAILURE = '@@progression/CREATE_ANSWER_FAILURE';
+export const PROGRESSION_CREATE_ANSWER_REQUEST: string = '@@progression/CREATE_ANSWER_REQUEST';
+export const PROGRESSION_CREATE_ANSWER_SUCCESS: string = '@@progression/CREATE_ANSWER_SUCCESS';
+export const PROGRESSION_CREATE_ANSWER_FAILURE: string = '@@progression/CREATE_ANSWER_FAILURE';
 
-export const createAnswer = (progressionId, answer) => (dispatch, getState, {services}) => {
+export const createAnswer = (progressionId: string, answer) => (
+  dispatch: Dispatch,
+  getState: GetState,
+  {services}
+): Dispatch => {
   const {Progressions} = services;
-  const progression = getProgression(progressionId)(getState());
-  const nextContent = progression.state.nextContent;
+  const progression: Progression = getProgression(progressionId)(getState());
+  const nextContent: Content = progression.state.nextContent;
 
-  const action = buildTask({
+  const action: ProgressionsActions = buildTask({
     types: [
       PROGRESSION_CREATE_ANSWER_REQUEST,
       PROGRESSION_CREATE_ANSWER_SUCCESS,
@@ -75,17 +91,21 @@ export const createAnswer = (progressionId, answer) => (dispatch, getState, {ser
   return dispatch(action);
 };
 
-export const PROGRESSION_REQUEST_CLUE_REQUEST = '@@progression/REQUEST_CLUE_REQUEST';
-export const PROGRESSION_REQUEST_CLUE_SUCCESS = '@@progression/REQUEST_CLUE_SUCCESS';
-export const PROGRESSION_REQUEST_CLUE_FAILURE = '@@progression/REQUEST_CLUE_FAILURE';
+export const PROGRESSION_REQUEST_CLUE_REQUEST: string = '@@progression/REQUEST_CLUE_REQUEST';
+export const PROGRESSION_REQUEST_CLUE_SUCCESS: string = '@@progression/REQUEST_CLUE_SUCCESS';
+export const PROGRESSION_REQUEST_CLUE_FAILURE: string = '@@progression/REQUEST_CLUE_FAILURE';
 
-export const requestClue = (progressionId, slideId) => (dispatch, getState, {services}) => {
+export const requestClue = (progressionId: string, slideId: string) => (
+  dispatch: Dispatch,
+  getState: GetState,
+  {services}
+): Dispatch => {
   const {Progressions} = services;
-  const state = getState();
-  const progression = getProgression(progressionId)(state);
+  const state: State = getState();
+  const progression: Progression = getProgression(progressionId)(state);
   const requestedClues = get('state.requestedClues', progression);
 
-  const action = buildTask({
+  const action: ProgressionsActions = buildTask({
     types: [
       PROGRESSION_REQUEST_CLUE_REQUEST,
       PROGRESSION_REQUEST_CLUE_SUCCESS,
@@ -105,16 +125,23 @@ export const requestClue = (progressionId, slideId) => (dispatch, getState, {ser
   return dispatch(action);
 };
 
-export const PROGRESSION_EXTRALIFEREFUSED_REQUEST = '@@progression/EXTRALIFEREFUSED_REQUEST';
-export const PROGRESSION_EXTRALIFEREFUSED_SUCCESS = '@@progression/EXTRALIFEREFUSED_SUCCESS';
-export const PROGRESSION_EXTRALIFEREFUSED_FAILURE = '@@progression/EXTRALIFEREFUSED_FAILURE';
+export const PROGRESSION_EXTRALIFEREFUSED_REQUEST: string =
+  '@@progression/EXTRALIFEREFUSED_REQUEST';
+export const PROGRESSION_EXTRALIFEREFUSED_SUCCESS: string =
+  '@@progression/EXTRALIFEREFUSED_SUCCESS';
+export const PROGRESSION_EXTRALIFEREFUSED_FAILURE: string =
+  '@@progression/EXTRALIFEREFUSED_FAILURE';
 
-export const refuseExtraLife = progressionId => (dispatch, getState, {services}) => {
+export const refuseExtraLife = (progressionId: string) => (
+  dispatch: Dispatch,
+  getState: GetState,
+  {services}
+): Dispatch => {
   const {Progressions} = services;
-  const progression = getProgression(progressionId)(getState());
-  const nextContent = get('state.nextContent', progression);
+  const progression: Progression = getProgression(progressionId)(getState());
+  const nextContent: Content = get('state.nextContent', progression);
 
-  const action = buildTask({
+  const action: ProgressionsActions = buildTask({
     types: [
       PROGRESSION_EXTRALIFEREFUSED_REQUEST,
       PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
@@ -130,16 +157,23 @@ export const refuseExtraLife = progressionId => (dispatch, getState, {services})
   return dispatch(action);
 };
 
-export const PROGRESSION_EXTRALIFEACCEPTED_REQUEST = '@@progression/EXTRALIFEACCEPTED_REQUEST';
-export const PROGRESSION_EXTRALIFEACCEPTED_SUCCESS = '@@progression/EXTRALIFEACCEPTED_SUCCESS';
-export const PROGRESSION_EXTRALIFEACCEPTED_FAILURE = '@@progression/EXTRALIFEACCEPTED_FAILURE';
+export const PROGRESSION_EXTRALIFEACCEPTED_REQUEST: string =
+  '@@progression/EXTRALIFEACCEPTED_REQUEST';
+export const PROGRESSION_EXTRALIFEACCEPTED_SUCCESS: string =
+  '@@progression/EXTRALIFEACCEPTED_SUCCESS';
+export const PROGRESSION_EXTRALIFEACCEPTED_FAILURE: string =
+  '@@progression/EXTRALIFEACCEPTED_FAILURE';
 
-export const acceptExtraLife = progressionId => (dispatch, getState, {services}) => {
+export const acceptExtraLife = (progressionId: string) => (
+  dispatch: Dispatch,
+  getState: GetState,
+  {services}
+): Dispatch => {
   const {Progressions} = services;
-  const progression = getProgression(progressionId)(getState());
-  const nextContent = get('state.nextContent', progression);
+  const progression: Progression = getProgression(progressionId)(getState());
+  const nextContent: Content = get('state.nextContent', progression);
 
-  const action = buildTask({
+  const action: ProgressionsActions = buildTask({
     types: [
       PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
       PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
@@ -155,20 +189,20 @@ export const acceptExtraLife = progressionId => (dispatch, getState, {services})
   return dispatch(action);
 };
 
-export const PROGRESSION_FETCH_BESTOF_REQUEST = '@@progression/FETCH_BESTOF_REQUEST';
-export const PROGRESSION_FETCH_BESTOF_SUCCESS = '@@progression/FETCH_BESTOF_SUCCESS';
-export const PROGRESSION_FETCH_BESTOF_FAILURE = '@@progression/FETCH_BESTOF_FAILURE';
+export const PROGRESSION_FETCH_BESTOF_REQUEST: string = '@@progression/FETCH_BESTOF_REQUEST';
+export const PROGRESSION_FETCH_BESTOF_SUCCESS: string = '@@progression/FETCH_BESTOF_SUCCESS';
+export const PROGRESSION_FETCH_BESTOF_FAILURE: string = '@@progression/FETCH_BESTOF_FAILURE';
 
-export const fetchBestProgression = (progressionContent, progressionId) => (
-  dispatch,
-  getState,
+export const fetchBestProgression = (progressionContent, progressionId: string) => (
+  dispatch: Dispatch,
+  getState: GetState,
   {services}
-) => {
+): Dispatch => {
   const {Progressions} = services;
   const {type, ref} = progressionContent;
-  const engine = getEngine(getState());
+  const engine: Engine = getEngine(getState());
 
-  const action = buildTask({
+  const action: ProgressionsActions = buildTask({
     types: [
       PROGRESSION_FETCH_BESTOF_REQUEST,
       PROGRESSION_FETCH_BESTOF_SUCCESS,
@@ -182,19 +216,19 @@ export const fetchBestProgression = (progressionContent, progressionId) => (
   return dispatch(action);
 };
 
-export const PROGRESSION_RESOURCE_VIEWED_REQUEST = '@@progression/RESOURCE_VIEWED_REQUEST';
-export const PROGRESSION_RESOURCE_VIEWED_SUCCESS = '@@progression/RESOURCE_VIEWED_SUCCESS';
-export const PROGRESSION_RESOURCE_VIEWED_FAILURE = '@@progression/RESOURCE_VIEWED_FAILURE';
+export const PROGRESSION_RESOURCE_VIEWED_REQUEST: string = '@@progression/RESOURCE_VIEWED_REQUEST';
+export const PROGRESSION_RESOURCE_VIEWED_SUCCESS: string = '@@progression/RESOURCE_VIEWED_SUCCESS';
+export const PROGRESSION_RESOURCE_VIEWED_FAILURE: string = '@@progression/RESOURCE_VIEWED_FAILURE';
 
-export const markResourceAsViewed = (progressionId, resource) => (
-  dispatch,
-  getState,
+export const markResourceAsViewed = (progressionId: string, resource: Resource) => (
+  dispatch: Dispatch,
+  getState: GetState,
   {services}
-) => {
+): Dispatch => {
   const {Progressions} = services;
-  const state = getState();
+  const state: State = getState();
   const {_id, ref = _id, type} = resource;
-  const slide = getCurrentSlide(state) || getPreviousSlide(state);
+  const slide: Slide = getCurrentSlide(state) || getPreviousSlide(state);
 
   const payload = {
     resource: {
@@ -208,7 +242,7 @@ export const markResourceAsViewed = (progressionId, resource) => (
     }
   };
 
-  const action = buildTask({
+  const action: ProgressionsActions = buildTask({
     types: [
       PROGRESSION_RESOURCE_VIEWED_REQUEST,
       PROGRESSION_RESOURCE_VIEWED_SUCCESS,

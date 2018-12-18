@@ -1,18 +1,23 @@
+// @flow
+
 import buildTask from '@coorpacademy/redux-task';
 import {getExitNode} from '../../utils/state-extract';
+import type {Dispatch, ExitNodesActions, GetState} from '../../types';
 
-export const EXIT_NODE_FETCH_REQUEST = '@@exit_node/FETCH_REQUEST';
-export const EXIT_NODE_FETCH_SUCCESS = '@@exit_node/FETCH_SUCCESS';
-export const EXIT_NODE_FETCH_FAILURE = '@@exit_node/FETCH_FAILURE';
+export const EXIT_NODE_FETCH_REQUEST: string = '@@exit_node/FETCH_REQUEST';
+export const EXIT_NODE_FETCH_SUCCESS: string = '@@exit_node/FETCH_SUCCESS';
+export const EXIT_NODE_FETCH_FAILURE: string = '@@exit_node/FETCH_FAILURE';
 
-export const fetchExitNode = id => (dispatch, getState, {services}) => {
+export const fetchExitNode = id => (
+  dispatch: Dispatch,
+  getState: GetState,
+  {services}
+): Dispatch => {
   const {ExitNodes} = services;
 
-  const action = buildTask({
+  const action: ExitNodesActions = buildTask({
     types: [EXIT_NODE_FETCH_REQUEST, EXIT_NODE_FETCH_SUCCESS, EXIT_NODE_FETCH_FAILURE],
-    task: () => {
-      return ExitNodes.findById(id);
-    },
+    task: () => ExitNodes.findById(id),
     meta: {id},
     bailout: getExitNode(id)
   });

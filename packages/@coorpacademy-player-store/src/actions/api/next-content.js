@@ -1,15 +1,22 @@
+// @flow
+
 import buildTask from '@coorpacademy/redux-task';
 import {getProgressionContent, getNextContent} from '../../utils/state-extract';
+import type {Dispatch, NextContentActions, GetState} from '../../types';
 
-export const NEXT_CONTENT_FETCH_REQUEST = '@@next-content/FETCH_REQUEST';
-export const NEXT_CONTENT_FETCH_SUCCESS = '@@next-content/FETCH_SUCCESS';
-export const NEXT_CONTENT_FETCH_FAILURE = '@@next-content/FETCH_FAILURE';
+export const NEXT_CONTENT_FETCH_REQUEST: string = '@@next-content/FETCH_REQUEST';
+export const NEXT_CONTENT_FETCH_SUCCESS: string = '@@next-content/FETCH_SUCCESS';
+export const NEXT_CONTENT_FETCH_FAILURE: string = '@@next-content/FETCH_FAILURE';
 
-export const fetchNext = progressionId => (dispatch, getState, {services}) => {
+export const fetchNext = (progressionId: string) => (
+  dispatch: Dispatch,
+  getState: GetState,
+  {services}
+): Dispatch => {
   const {Recommendations} = services;
   const {type, ref} = getProgressionContent(getState());
 
-  const action = buildTask({
+  const action: NextContentActions = buildTask({
     types: [NEXT_CONTENT_FETCH_REQUEST, NEXT_CONTENT_FETCH_SUCCESS, NEXT_CONTENT_FETCH_FAILURE],
     task: () => Recommendations.getNext(type, ref),
     meta: {id: progressionId},
