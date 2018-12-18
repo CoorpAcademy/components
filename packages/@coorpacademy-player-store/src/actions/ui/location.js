@@ -91,6 +91,9 @@ export const LOCATION_OPEN_RECOMMENDATION_FAILURE =
   '@@location/LOCATION_OPEN_RECOMMENDATION_FAILURE';
 
 export const openRecommendation = recommendation => (dispatch, getState, {services}) => {
+  if (!services.Location.openRecommendation) {
+    return;
+  }
   const action = buildTask({
     types: [
       LOCATION_OPEN_RECOMMENDATION_REQUEST,

@@ -1,5 +1,3 @@
-// @flow
-
 import {getCorrectAnswer} from './answers';
 import {findById as findChapterById} from './chapters';
 import {getChapterRulesByContent} from './chapter-rules';

@@ -1,17 +1,29 @@
+// @flow strict
+
+import type {Config, Progression, State} from '@coorpacademy/progression-engine';
+import type {DataEvent, Resource, ResourceType} from './types';
+
+// eslint-disable-next-line no-shadow
+declare var window: {|
+  dataLayer: Array<DataEvent>
+|};
+
 // eslint-disable-next-line import/prefer-default-export
-export const sendViewedMediaAnalytics = (resource, location) => {
+export const sendViewedMediaAnalytics = (resource: Resource, location: string) => {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event: 'mediaViewed',
-    mediaType: resource.type,
+    mediaType: (resource.type: ResourceType),
     location
   });
-  return window.dataLayer;
 };
 
-export const sendProgressionAnalytics = (currentProgression, engineConfig) => {
-  const state = currentProgression.state;
-  /* istanbul ignore next */
+export const sendProgressionAnalytics = (currentProgression: Progression, engineConfig: Config) => {
+  if (!currentProgression.state) {
+    return;
+  }
+
+  const state: State = currentProgression.state;
   window.dataLayer = window.dataLayer || [];
 
   if (state.nextContent.type === 'success' || state.nextContent.type === 'failure') {
@@ -24,5 +36,4 @@ export const sendProgressionAnalytics = (currentProgression, engineConfig) => {
       }
     });
   }
-  return window.dataLayer;
 };

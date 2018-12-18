@@ -150,6 +150,7 @@ export type EngineOptions = {
 
 export type Progression = {
   content: Content,
+  state?: State,
   engine: Engine,
   engineOptions: EngineOptions,
   actions: Array<Action>

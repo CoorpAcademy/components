@@ -12,7 +12,7 @@
   "scripts": {
     "ava": "cross-env NODE_ENV=test ava",
     "nyc": "cross-env NODE_ENV=test nyc npm run ava",
-    "test": "npm run lint && npm run flow && npm run nyc",
+    "test": "npm run lint && npm run flow && npm run flow -- stop && npm run nyc",
     "flow": "flow",
     "lint": "npm run eslint",
     "eslint": "eslint ./ *.js *.json --ext .js,.json",
@@ -43,11 +43,11 @@
     "cross-env": "^5.0.0",
     "eslint": "^4.18.2",
     "flow-bin": "^0.72.0",
-    "nyc": "^11.1.0",
+    "nyc": "^13.1.0",
     "rimraf": "^2.6.1"
   },
   "dependencies": {
-    "@coorpacademy/progression-engine": "9.2.2",
+    "@coorpacademy/progression-engine": "9.2.3",
     "lodash": "^4.17.4"
   },
   "ava": {

@@ -1,22 +1,56 @@
+// @flow strict
+
 import test from 'ava';
 import {sendViewedMediaAnalytics} from '../analytics';
 
-test('populate dataLayer when empty', t => {
-  global.window = {};
+// eslint-disable-next-line no-shadow
+import type {Resource, Window} from '../types';
 
-  const dataLayer = sendViewedMediaAnalytics({type: 'video'}, 'media');
-  t.deepEqual(dataLayer[0], {event: 'mediaViewed', mediaType: 'video', location: 'media'});
-});
+// eslint-disable-next-line no-shadow
+declare var global: {|window: Window|};
 
-test('should send a `mediaViewed` event to the tag manager', t => {
-  t.plan(1);
-  global.window = {
-    dataLayer: {
-      push: evt => {
-        t.deepEqual(evt, {event: 'mediaViewed', mediaType: 'video', location: 'media'});
-      }
-    }
+test('should push an event even if dataLayer is not defined previously', t => {
+  global.window = {dataLayer: undefined};
+
+  const resource: Resource = {
+    _id: '_foo',
+    ref: 'foo',
+    mediaUrl: '',
+    mimeType: 'video/mp4',
+    type: 'video'
   };
 
-  sendViewedMediaAnalytics({type: 'video'}, 'media');
+  sendViewedMediaAnalytics(resource, 'media');
+  t.deepEqual(global.window.dataLayer, [
+    {
+      event: 'mediaViewed',
+      mediaType: 'video',
+      location: 'media'
+    }
+  ]);
+});
+
+test('push data to window.dataLayer', t => {
+  global.window = {dataLayer: []};
+  const resource: Resource = {
+    _id: '_foo',
+    ref: 'foo',
+    mediaUrl: '',
+    mimeType: 'video/mp4',
+    type: 'video'
+  };
+
+  sendViewedMediaAnalytics(resource, 'media');
+
+  if (global.window.dataLayer === undefined) {
+    t.fail();
+  }
+
+  t.deepEqual(global.window.dataLayer, [
+    {
+      event: 'mediaViewed',
+      mediaType: 'video',
+      location: 'media'
+    }
+  ]);
 });
