@@ -82,7 +82,7 @@ export type AnswerAction = {
     answer: Answer,
     isCorrect: ?boolean,
     godMode: ?boolean,
-    instructions: Array<Instruction> | null
+    instructions?: Array<Instruction> | null
   }
 };
 

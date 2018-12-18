@@ -11,7 +11,6 @@ const progressionStore = reduce(
     progressionMap: Map<string, Progression>,
     progression: Progression
   ): Map<string, Progression> => {
-    console.dir({progression}, {depth: 10});
     const newState: State = createState(progression);
     if (!progression._id) {
       return progressionMap;
@@ -23,10 +22,6 @@ const progressionStore = reduce(
   new Map(),
   progressionsData
 );
-
-console.log('-----------------------------------------');
-console.log(progressionStore);
-console.log('-----------------------------------------');
 
 // eslint-disable-next-line require-await
 const findById = async (id: string): Promise<Progression | void> => {
