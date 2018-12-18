@@ -42,7 +42,7 @@ export default [
   path.resolve('./third-party/nova-solid.iconjar/icons/interface-alert-circle.svg'),
   path.resolve('./third-party/nova-solid.iconjar/icons/lightbulb-4.svg'),
   path.resolve('./third-party/nova-solid.iconjar/icons/compass-3.svg'),
-  path.resolve('./third-party/nova-solid.iconjar/icons/lock-1.svg'),
+  path.resolve('./third-party/nova-solid.iconjar/icons/lock-1.1.svg'),
   path.resolve('./third-party/nova-solid.iconjar/icons/lock-unlock-1.svg'),
   path.resolve('./third-party/nova-solid.iconjar/icons/key-1.svg'),
   path.resolve('./third-party/nova-solid.iconjar/icons/chat-bubbles-circle.svg'),
