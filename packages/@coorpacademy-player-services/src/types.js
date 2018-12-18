@@ -1,5 +1,7 @@
 // @flow strict
 
+import type {Progression, Slide} from '@coorpacademy/progression-engine';
+
 type Url = string;
 type AspectRatio = '16:9' | '4:3';
 
@@ -70,78 +72,40 @@ type Window = {|
   dataLayer?: Array<DataEvent>
 |};
 
-type Media = {|
-  type: string,
-  description: string,
-  mimeType: ResourceMimeType,
-  _id: string,
-  mediaUrl: Url,
-  subtitles?: Array<string>,
-  posters?: Array<Url>,
-  src?: Array<Source>
-|};
+// type Media = {|
+//   type: string,
+//   description: string,
+//   mimeType: ResourceMimeType,
+//   _id: string,
+//   mediaUrl: Url,
+//   subtitles?: Array<string>,
+//   posters?: Array<Url>,
+//   src?: Array<Source>
+// |};
 
-type Context = {|
-  title: string,
-  description: string,
-  media: Media
-|};
-
-type Lesson = {|
-  _id: string,
-  ref: string,
-  type: string,
-  poster: Url,
-  description: string,
-  mimeType: ResourceMimeType,
-  videoId: string,
-  subtitles: Array<string>,
-  posters: Array<Url>,
-  src: Array<Source>
-|};
+// type Context = {|
+//   title: string,
+//   description: string,
+//   media: Media
+// |};
 
 type Meta = {|
   updatedAt: string,
   createdAt: string
 |};
 
-type Choice = {|
-  _id: string,
-  value: string,
-  label: string,
-  items: Array<?string>,
-  media: Media
-|};
-
-type Answers = Array<Array<string>>;
-
-type Content = {|
-  maxTypos: ?boolean,
-  choices: Choice,
-  answers: Answers,
-  media: Media
-|};
-
-type Question = {|
-  type: string,
-  header: string,
-  explanation: string,
-  content: Content,
-  medias: Array<Media>
-|};
-
-type Slide = {|
-  _id: string,
-  klf: string,
-  tips: string,
-  hasClue: boolean,
-  chapter_id: string,
-  authors: Array<string>,
-  context: Context,
-  meta: Meta,
-  lessons: Array<Lesson>,
-  question: Question
-|};
+// type Slide = {|
+//   _id: string,
+//   klf: string,
+//   tips: string,
+//   hasClue: boolean,
+//   chapter_id: string,
+//   authors: Array<string>,
+//   context: Context,
+//   meta: Meta,
+//   lessons: Array<Lesson>,
+//   question: Question
+// |};
 
 type Recommendation = {|
   view: string,
@@ -152,24 +116,6 @@ type Recommendation = {|
   author: string,
   cta: string,
   href: string
-|};
-
-type ExitNode = {|
-  ref: string,
-  type: string,
-  title: string,
-  description: string,
-  media: Media
-|};
-
-type SucessExitNode = {|
-  ...ExitNode,
-  meta: Meta
-|};
-
-type FailureExitNode = {|
-  ...ExitNode,
-  meta: Meta
 |};
 
 type Poster = {|
@@ -196,12 +142,22 @@ type Chapter = {|
 |};
 
 type Level = {|
+  universalRef?: string,
+  disciplineRef?: string,
   ref: string,
   name: string,
   level: string,
   meta: Meta,
   poster: Poster,
-  chapterIds: Array<string>
+  chapterIds: Array<string>,
+  levelTranslation?: string,
+  mediaUrl?: Url,
+  timeAlloted?: number,
+  eligibleBattle?: boolean,
+  creditsToAccess?: number,
+  infiniteLives?: boolean,
+  isConditional?: boolean,
+  acquiredSkills?: Array<string>
 |};
 
 type Stats = {|
@@ -231,35 +187,32 @@ type Module = {|
   external_refs: Array<?string>
 |};
 
-// type Fixtures = {|
-//   getAllProgressions,
-//   getChapterRulesByContent,
-//   getClue,
-//   getCorrectAnswer,
-//   getExitNode,
-//   getNextLevel,
-//   findChapterById,
-//   findContent,
-//   findLevelById,
-//   findProgressionById,
-//   findRecommendations,
-//   findSlideByChapter,
-//   findSlideById,
-//   saveProgression
-// |}
+type Fixtures = {|
+  getAllProgressions: () => Array<Progression>,
+  //   getChapterRulesByContent,
+  //   getClue,
+  //   getCorrectAnswer,
+  //   getExitNode,
+  getNextLevel: (ref: string) => Level | void,
+  //   findChapterById,
+  //   findContent,
+  //   findLevelById,
+  findProgressionById: (id: string) => Promise<Progression | void>,
+  findRecommendations: (type: string, ref: string) => Promise<Array<Recommendation>>,
+  //   findSlideByChapter,
+  findSlideById: (id: string) => Promise<Slide>,
+  saveProgression: Progression => void
+|};
 
 export type {
   Chapter,
   DataEvent,
-  ExitNode,
-  FailureExitNode,
+  Fixtures,
   Level,
   Module,
   Recommendation,
   Resource,
   ResourceType,
-  Slide,
-  SucessExitNode,
   Url,
   Window
 };

@@ -10,7 +10,7 @@ export default function validate(config: Config): (State, Action) => void {
       case 'extraLifeAccepted':
       case 'extraLifeRefused': {
         if (
-          state.nextContent.ref !== action.payload.content.ref &&
+          state.nextContent.ref !== action.payload.content.ref ||
           state.nextContent.type !== action.payload.content.type
         ) {
           throw createStateValidationError(

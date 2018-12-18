@@ -1,15 +1,15 @@
-// @flow
+// @flow strict
 
-import type {Slide} from './types';
+import type {Slide} from '@coorpacademy/progression-engine';
+import type {Fixtures} from './types';
 
-const findById = fixtures => async (slideId: string): Promise<Slide> => {
+const findById = (fixtures: Fixtures) => async (slideId: string): Promise<Slide> => {
   const {findSlideById} = fixtures;
   const slide = await findSlideById(slideId);
   return slide;
 };
 
-// $FlowFixMe
-const Slides = fixtures => ({
+const Slides = (fixtures: Fixtures) => ({
   findById: findById(fixtures)
 });
 

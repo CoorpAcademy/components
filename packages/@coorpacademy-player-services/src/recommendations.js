@@ -1,25 +1,31 @@
 // @flow
 
-import type {Recommendation} from './types';
+import type {Fixtures, Level, Recommendation} from './types';
 
-const find = fixtures => (type: string, ref: string): Promise<Recommendation> => {
+const find = (fixtures: Fixtures) => (
+  type: string,
+  ref: string
+): Promise<Array<Recommendation>> => {
   const {findRecommendations} = fixtures;
   const recommendations = findRecommendations(type, ref);
   return Promise.resolve(recommendations);
 };
 
-const getNext = fixtures => (type: string, ref: string) => {
+const getNext = (fixtures: Fixtures) => (
+  type: 'chapter' | 'level',
+  ref: string
+): Promise<void | Level> => {
   const {getNextLevel} = fixtures;
   switch (type) {
-    case 'chapter':
-      return Promise.resolve(undefined);
     case 'level':
       return Promise.resolve(getNextLevel(ref));
+    case 'chapter':
+    default:
+      return Promise.resolve(undefined);
   }
 };
 
-// $FlowFixMe
-const Recommendations = fixtures => ({
+const Recommendations = (fixtures: Fixtures) => ({
   find: find(fixtures),
   getNext: getNext(fixtures)
 });
