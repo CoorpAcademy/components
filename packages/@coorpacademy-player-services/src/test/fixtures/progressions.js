@@ -11,6 +11,7 @@ const progressionStore = reduce(
     progressionMap: Map<string, Progression>,
     progression: Progression
   ): Map<string, Progression> => {
+    console.dir({progression}, {depth: 10});
     const newState: State = createState(progression);
     if (!progression._id) {
       return progressionMap;
