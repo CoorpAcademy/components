@@ -1,6 +1,7 @@
 // @flow
 
-import type {ContentType, Fixtures, Level, Recommendation} from './definitions';
+import type {ContentType} from '@coorpacademy/progression-engine';
+import type {Fixtures, Level, Recommendation} from './definitions';
 import {CONTENT_TYPE} from './definitions';
 
 const find = (fixtures: Fixtures) => (

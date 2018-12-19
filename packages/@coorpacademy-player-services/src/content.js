@@ -26,7 +26,7 @@ const getNbSlides = (fixtures: Fixtures) => (
     version
   });
 
-  const level: Level = findLevelById(contentRef);
+  const level = findLevelById(contentRef);
 
   if (level) {
     return level.chapterIds.length * maxNbSlides;

@@ -4,14 +4,10 @@ import type {
   Answer,
   ChapterRule,
   Content,
+  ContentType,
   Progression,
   Slide
 } from '@coorpacademy/progression-engine';
-
-type SLIDE = 'slide';
-type LEVEL = 'level';
-type CHAPTER = 'chapter';
-type ContentType = CHAPTER | LEVEL | SLIDE;
 
 type Url = string;
 type AspectRatio = '16:9' | '4:3';
@@ -203,13 +199,6 @@ type UserAnswer = {|
   content: Content
 |};
 
-type ContentSlide = {|
-  content: {
-    type: SLIDE,
-    ref: string
-  }
-|};
-
 type Fixtures = {|
   getAllProgressions: () => Array<Progression>,
   getChapterRulesByContent: (ref: string) => Array<ChapterRule>,
@@ -235,8 +224,6 @@ export const CONTENT_TYPE: {[string]: ContentType} = {
 
 export type {
   Chapter,
-  ContentType,
-  ContentSlide,
   DataEvent,
   Fixtures,
   JwPlayerOptions,

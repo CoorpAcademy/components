@@ -23,12 +23,15 @@ import type {
   AvailableContent,
   Config,
   Content,
+  ContentSlide,
   Engine,
   EngineOptions,
-  Progression
+  Instruction,
+  Progression,
+  ResourceContent
 } from '@coorpacademy/progression-engine';
 import {CONTENT_TYPE} from './definitions';
-import type {ContentSlide, Fixtures, UserAnswer} from './definitions';
+import type {Fixtures, UserAnswer} from './definitions';
 
 const generateId = () => uniqueId('progression');
 
@@ -153,7 +156,7 @@ const postAnswer = (fixtures: Fixtures) => async (
 
 const requestClue = (fixtures: Fixtures) => async (
   progressionId: string,
-  payload: ContentSlide
+  payload: {content: ContentSlide}
 ): Promise<Progression> => {
   const {findProgressionById} = fixtures;
   const progression = await findProgressionById(progressionId);
@@ -172,27 +175,59 @@ const requestClue = (fixtures: Fixtures) => async (
 
 const acceptExtraLife = (fixtures: Fixtures) => async (
   progressionId: string,
-  payload
+  payload: {
+    content: Content,
+    nextContent: Content,
+    instructions: Array<Instruction> | null
+  }
 ): Promise<Progression> => {
   const {findProgressionById} = fixtures;
   const progression = await findProgressionById(progressionId);
-  const config = getConfigForProgression(progression);
 
+  if (!progression) {
+    throw new Error(`progression ${progressionId} not found`);
+  }
+
+  const state = progression.state;
+
+  if (!state) {
+    throw new Error(`progression ${progressionId} has not state`);
+  }
+
+  const config = getConfigForProgression(progression);
   const _getAvailableContent = getAvailableContent(fixtures);
   const availableContent = await _getAvailableContent(progression.content);
-  const action = computeNextStepOnAcceptExtraLife(config, progression.state, availableContent);
+  const action = computeNextStepOnAcceptExtraLife(config, state, availableContent);
+
+  if (!action) {
+    throw new Error(`computeNextStepOnAcceptExtraLife failed`);
+  }
 
   return addActionAndSaveProgression(fixtures)(progression, action);
 };
 
 const refuseExtraLife = (fixtures: Fixtures) => async (
   progressionId: string,
-  payload
+  payload: {
+    content: Content,
+    nextContent: Content
+  }
 ): Promise<Progression> => {
   const {findProgressionById} = fixtures;
   const progression = await findProgressionById(progressionId);
+
+  if (!progression) {
+    throw new Error(`progression ${progressionId} not found`);
+  }
+
+  const state = progression.state;
+
+  if (!state) {
+    throw new Error(`progression ${progressionId} has not state`);
+  }
+
   const config = getConfigForProgression(progression);
-  const action = computeNextStepOnRefuseExtraLife(config, progression.state);
+  const action = computeNextStepOnRefuseExtraLife(config, state);
 
   return addActionAndSaveProgression(fixtures)(progression, action);
 };
@@ -208,6 +243,11 @@ const create = (fixtures: Fixtures) => async (
   const availableContent = await _getAvailableContent(content);
 
   const newProgression = createProgression(engine, content, engineOptions, availableContent);
+
+  if (!newProgression) {
+    throw new Error(`progression could not be created properly`);
+  }
+
   const state = createState(newProgression);
 
   const save = createSave(fixtures);
@@ -220,10 +260,17 @@ const create = (fixtures: Fixtures) => async (
 
 const markResourceAsViewed = (fixtures: Fixtures) => async (
   progressionId: string,
-  payload
+  payload: {
+    resource: ResourceContent,
+    content: Content
+  }
 ): Promise<Progression> => {
   const {findProgressionById} = fixtures;
   const progression = await findProgressionById(progressionId);
+
+  if (!progression) {
+    throw new Error(`progression ${progressionId} not found`);
+  }
 
   const action = {
     type: 'resource',

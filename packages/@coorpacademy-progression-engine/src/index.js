@@ -23,10 +23,13 @@ import type {
   AvailableContent,
   Config,
   Content,
+  ContentType,
+  ContentSlide,
   Engine,
   EngineOptions,
   Progression,
   Question,
+  ResourceContent,
   Slide,
   State
 } from './types';
@@ -46,11 +49,14 @@ export type {
   ChapterRule,
   Config,
   Content,
+  ContentType,
+  ContentSlide,
   Engine,
   EngineOptions,
   Instruction,
   Progression,
   Question,
+  ResourceContent,
   Slide,
   State
 };

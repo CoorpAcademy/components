@@ -16,6 +16,11 @@ export type FAILURE = 'failure';
 export type SUCCESS = 'success';
 export type ContentType = CHAPTER | LEVEL | SLIDE | NODE | FAILURE | SUCCESS;
 
+export type ContentSlide = {|
+  type: SLIDE,
+  ref: string
+|};
+
 export type GenericContent = {
   ref: string,
   type: ContentType,
@@ -70,7 +75,7 @@ export type State = {
 export type AskClueAction = {
   type: 'clue',
   payload: {
-    content: Content
+    content: ContentSlide
   }
 };
 
