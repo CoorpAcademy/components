@@ -34,6 +34,7 @@ export default [
   path.resolve('./third-party/nova-line.iconjar/icons/key-1.svg'),
   path.resolve('./third-party/nova-line.iconjar/icons/video-clip-3.svg'),
   path.resolve('./third-party/nova-line.iconjar/icons/bookmark-5.svg'),
+  path.resolve('./third-party/nova-line.iconjar/icons/interface-alert-circle.svg'),
   path.resolve('./third-party/nova-solid.iconjar/icons/bookmark-3.svg'),
   path.resolve('./third-party/nova-solid.iconjar/icons/bookmark-5.svg'),
   path.resolve('./third-party/nova-solid.iconjar/icons/audio-control-play.svg'),
