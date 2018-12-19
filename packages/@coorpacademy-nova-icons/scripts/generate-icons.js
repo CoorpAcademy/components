@@ -1,4 +1,6 @@
-// @flow strict
+// @flow
+
+/* eslint-disable no-console */
 
 import path from 'path';
 import fs from 'fs';
@@ -24,7 +26,7 @@ type IconJar = {|
 
 const colors = ['#757575', '#14171A', '#607d8b'];
 
-const generateComponent = (fileContent: Buffer, fileName: string, native: boolean) => {
+const generateComponent = (fileContent: Buffer, fileName: string, native?: boolean = false) => {
   const options = {
     plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx', '@svgr/plugin-prettier'],
     noSemi: true,
@@ -35,27 +37,30 @@ const generateComponent = (fileContent: Buffer, fileName: string, native: boolea
   };
   const extension = (native && 'native') || 'web';
   const extendedFileName = fileName.replace('.svg', `.${extension}.js`);
+  // $FlowFixMe path.join() is defined
   const outputPath = path.join(componentsPath, extendedFileName);
 
   svgr(fileContent, options)
-    .then(async jsCode => {
+    .then(async (jsCode): Promise<string> => {
       await mkdirp(path.dirname(outputPath));
       fs.writeFileSync(outputPath, jsCode);
 
       console.log(`- ${chalk.green(extendedFileName)}`);
+      return jsCode;
     })
     .catch(e => console.log(`- ${chalk.red(extendedFileName)}`));
 };
 
 const wrongFiles = whiteList.filter(filePath => !fs.existsSync(filePath));
-if (wrongFiles.length) {
-  throw new Error(chalk.red('Invalid icons:', wrongFiles.map(filePath => `\n - ${filePath}`)));
+if (wrongFiles.length > 0) {
+  throw new Error(chalk.red('Invalid icons:', ...wrongFiles.map(filePath => `\n - ${filePath}`)));
 }
 
 globby
   .sync('**/*.iconjar', {
     cwd: iconsPath,
-    absolute: true
+    absolute: true,
+    onlyFiles: false
   })
   .sort()
   .map((file): IconJar => {
@@ -69,7 +74,9 @@ globby
   .forEach(({fileName: iconJarFileName, meta: {sets, groups, items}}) => {
     console.log(chalk.underline('Iconjar:'), iconJarFileName);
 
+    // $FlowFixMe Object.values() returns mixed
     const itemArray: Array<Item> = Object.values(items);
+    // $FlowFixMe Object.values() returns mixed
     const setArray: Array<Set> = Object.values(sets);
 
     setArray.forEach(({name: setName, identifier: setIdentifier}) => {
@@ -79,22 +86,24 @@ globby
           item,
           filePath: getSVGFilePath(iconJarFileName, item.file)
         }))
-        .filter(({filePath}) => whiteList.find(whiteListFilePath => whiteListFilePath === filePath));
-      if (itemArrayFiltered.length) {
+        .filter(({filePath}) =>
+          whiteList.find(whiteListFilePath => whiteListFilePath === filePath)
+        );
+      if (itemArrayFiltered.length > 0) {
         console.log('Set name:', setName, `(${itemArrayFiltered.length})`);
 
-        itemArrayFiltered
-          .map(({item, filePath}) => {
-            const content = fs.readFileSync(filePath);
-            const outputFileName = path.join(
-              formatKebabCase(iconJarFileName.replace('.iconjar', '')),
-              formatKebabCase(setName, true),
-              formatKebabCase(item.file)
-            );
+        itemArrayFiltered.forEach(({item, filePath}) => {
+          const content = fs.readFileSync(filePath);
+          // $FlowFixMe path.join() is defined
+          const outputFileName = path.join(
+            formatKebabCase(iconJarFileName.replace('.iconjar', '')),
+            formatKebabCase(setName, true),
+            formatKebabCase(item.file)
+          );
 
-            generateComponent(content, outputFileName);
-            generateComponent(content, outputFileName, true);
-          });
+          generateComponent(content, outputFileName);
+          generateComponent(content, outputFileName, true);
+        });
       }
     });
   });
