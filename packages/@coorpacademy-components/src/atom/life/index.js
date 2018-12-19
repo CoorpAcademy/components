@@ -5,6 +5,7 @@ import get from 'lodash/fp/get';
 import keys from 'lodash/fp/keys';
 import HeartIcon from '@coorpacademy/nova-icons/lib/nova-solid/vote-rewards/vote-heart.web';
 import HeartBrokenIcon from '@coorpacademy/nova-icons/lib/nova-composition/coorpacademy/broken-heart.web';
+import HeartIconOutline from '@coorpacademy/nova-icons/lib/nova-composition/coorpacademy/vote-heart-outline.web';
 import Provider from '../provider';
 import style from './style.css';
 
@@ -78,7 +79,7 @@ const Life = (props, context) => {
         <span className={style.operator}>{operator}</span>
       </div>
       <div className={classnames(heartWrapper, bounceClass)} style={heartCustomStyle}>
-        <HeartIcon outline={white} outlineWidth={5} className={style.heartOutline} color={white} />
+        <HeartIconOutline className={style.heartOutline} color={white} />
         <HeartIcon
           className={pickStyle(
             style.heartNormalDefault,
