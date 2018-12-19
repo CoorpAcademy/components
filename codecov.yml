@@ -9,13 +9,17 @@ coverage:
     patch: off
     project:
       default: false
-      appPlayer:
-        paths: "packages/@coorpacademy-app-player"
+      player-store:
+        paths: 'packages/@coorpacademy-player-store'
+      player-services:
+        paths: 'packages/@coorpacademy-player-services'
+      player-web:
+        paths: 'packages/@coorpacademy-player-web'
       components:
-        paths: "packages/@coorpacademy-components"
+        paths: 'packages/@coorpacademy-components'
       progressionEngine:
-        paths: "packages/@coorpacademy-progression-engine"
+        paths: 'packages/@coorpacademy-progression-engine'
       translate:
-        paths: "packages/@coorpacademy-translate"
+        paths: 'packages/@coorpacademy-translate'
       webpackConfig:
-        paths: "packages/@coorpacademy-webpack-config"
+        paths: 'packages/@coorpacademy-webpack-config'

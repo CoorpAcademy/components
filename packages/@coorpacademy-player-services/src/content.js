@@ -1,26 +1,38 @@
+// @flow strict
+
 import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 import {getConfig} from '@coorpacademy/progression-engine';
 
-const find = fixtures => (type, ref) => {
+import type {Slide} from '@coorpacademy/progression-engine';
+import type {Chapter, Fixtures, Level} from './types';
+
+const find = (fixtures: Fixtures) => (
+  type: string,
+  ref: string
+): Promise<Chapter | Level | Slide> => {
   const {findContent} = fixtures;
   return findContent(type, ref);
 };
 
-const getNbSlides = fixtures => (contentRef, engineRef, version) => {
+const getNbSlides = (fixtures: Fixtures) => (
+  contentRef: string,
+  engineRef: string,
+  version: string
+): number => {
   const {findChapterById, findLevelById} = fixtures;
   const maxNbSlides = pipe(getConfig, get('slidesToComplete'))({
     ref: engineRef,
     version
   });
 
-  const level = findLevelById(contentRef);
+  const level: Level = findLevelById(contentRef);
 
   if (level) {
     return level.chapterIds.length * maxNbSlides;
   }
 
-  const chapter = findChapterById(contentRef);
+  const chapter: Chapter = findChapterById(contentRef);
 
   if (chapter) {
     return maxNbSlides;
@@ -29,12 +41,16 @@ const getNbSlides = fixtures => (contentRef, engineRef, version) => {
   return -1;
 };
 
-const getInfo = fixtures => (contentRef, engineRef, version) => {
+const getInfo = (fixtures: Fixtures) => (
+  contentRef: string,
+  engineRef: string,
+  version: string
+): {nbSlides: number} => {
   const nbSlides = getNbSlides(fixtures)(contentRef, engineRef, version);
   return {nbSlides};
 };
 
-const Content = fixtures => ({
+const Content = (fixtures: Fixtures) => ({
   find: find(fixtures),
   getInfo: getInfo(fixtures)
 });

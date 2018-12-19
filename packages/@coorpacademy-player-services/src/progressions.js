@@ -16,6 +16,8 @@ import getOr from 'lodash/fp/getOr';
 import set from 'lodash/fp/set';
 import maxBy from 'lodash/fp/maxBy';
 import map from 'lodash/fp/map';
+// import type {Slide} from '@coorpacademy/progression-engine';
+// import type {Chapter, Fixtures, Level} from './types';
 import Content from './content';
 
 const generateId = () => uniqueId('progression');
