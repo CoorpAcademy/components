@@ -2,8 +2,8 @@
   "private": true,
   "scripts": {
     "prestatic": "rimraf static",
-    "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/app-player static -- --production",
-    "poststatic": "mkdirp static && cp -r packages/@coorpacademy-components/static static/components && cp -r packages/@coorpacademy-app-player/static static/app-player",
+    "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/player-web static -- --production",
+    "poststatic": "mkdirp static && cp -r packages/@coorpacademy-components/static static/components && cp -r packages/@coorpacademy-player-web/static static/app-player",
     "preflow": "sh scripts/links-for-nested-flow.sh",
     "flow": "lerna run flow",
     "codecov": "codecov",

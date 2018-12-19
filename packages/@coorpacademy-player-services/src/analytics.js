@@ -1,7 +1,7 @@
 // @flow strict
 
 import type {Config, Progression, State} from '@coorpacademy/progression-engine';
-import type {DataEvent, Resource, ResourceType} from './types';
+import type {DataEvent, Resource, ResourceType} from './definitions';
 
 // eslint-disable-next-line no-shadow
 declare var window: {|

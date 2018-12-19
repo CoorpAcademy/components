@@ -4,7 +4,7 @@ import test from 'ava';
 import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
 import type {Config} from '@coorpacademy/progression-engine';
-import type {DataEvent} from '../types';
+import type {DataEvent} from '../definitions';
 import {sendProgressionAnalytics} from '../analytics';
 
 // eslint-disable-next-line no-shadow

@@ -4,7 +4,7 @@ import test from 'ava';
 import {sendViewedMediaAnalytics} from '../analytics';
 
 // eslint-disable-next-line no-shadow
-import type {Resource, Window} from '../types';
+import type {Resource, Window} from '../definitions';
 
 // eslint-disable-next-line no-shadow
 declare var global: {|window: Window|};

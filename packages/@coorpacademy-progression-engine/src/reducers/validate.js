@@ -1,7 +1,5 @@
 // @flow
 
-import isEqual from 'lodash/fp/isEqual';
-import getOr from 'lodash/fp/getOr';
 import {createStateValidationError} from '../errors';
 import type {Action, Config, State} from '../types';
 
@@ -11,19 +9,16 @@ export default function validate(config: Config): (State, Action) => void {
       case 'answer':
       case 'extraLifeAccepted':
       case 'extraLifeRefused': {
-        if (!isEqual(state.nextContent, action.payload.content)) {
+        if (
+          state.nextContent.ref !== action.payload.content.ref ||
+          state.nextContent.type !== action.payload.content.type
+        ) {
           throw createStateValidationError(
-            `The content of the progression state does not match the given ${
+            `The content of the progression state does not match the ${
               action.type
-            } action. State content: (${getOr(
-              '',
-              'nextContent.ref',
-              state
-            )}) vs action (content - ${getOr(
-              '',
-              'payload.content.ref',
-              action
-            )} / nextContent - ${getOr('', 'payload.nextContent.ref', action)})`
+            } action: state.nextContent: ${JSON.stringify(
+              state.nextContent
+            )} | action.payload.content: ${JSON.stringify(action.payload.content)}`
           );
         }
         break;
