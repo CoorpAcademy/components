@@ -8,9 +8,17 @@ export type Step = {
 
 export type Answer = Array<string>;
 
+export type CHAPTER = 'chapter';
+export type LEVEL = 'level';
+export type SLIDE = 'slide';
+export type NODE = 'node';
+export type FAILURE = 'failure';
+export type SUCCESS = 'success';
+export type ContentType = CHAPTER | LEVEL | SLIDE | NODE | FAILURE | SUCCESS;
+
 export type GenericContent = {
   ref: string,
-  type: string,
+  type: ContentType,
   version?: string
 };
 

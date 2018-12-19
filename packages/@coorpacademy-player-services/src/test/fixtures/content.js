@@ -1,11 +1,16 @@
+// @flow strict
+
+import type {Slide} from '@coorpacademy/progression-engine';
+import {CONTENT_TYPE} from '../../definitions';
+import type {Chapter, Level} from '../../definitions';
 import {findById as findChapterById} from './chapters';
 import {findById as findLevelById} from './levels';
 import {findById as findSlideById} from './slides';
 
 // eslint-disable-next-line import/prefer-default-export
-export const find = (type, ref) => {
+export const find = (type: string, ref: string): Promise<Chapter | Level | Slide> => {
   switch (type) {
-    case 'chapter': {
+    case CONTENT_TYPE.CHAPTER: {
       const chapter = findChapterById(ref);
       if (!chapter) {
         return Promise.reject(new Error(`Chapter ${ref} not found`));
@@ -13,7 +18,7 @@ export const find = (type, ref) => {
       return Promise.resolve(chapter);
     }
 
-    case 'level': {
+    case CONTENT_TYPE.LEVEL: {
       const level = findLevelById(ref);
       if (!level) {
         return Promise.reject(new Error(`Level ${ref} not found`));
@@ -21,7 +26,7 @@ export const find = (type, ref) => {
       return Promise.resolve(level);
     }
 
-    case 'slide':
+    case CONTENT_TYPE.SLIDE:
       return Promise.resolve(findSlideById(ref));
 
     default:

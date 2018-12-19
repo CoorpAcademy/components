@@ -12,9 +12,18 @@ import {getConfig, getConfigForProgression} from './config';
 import ERRORS from './errors';
 
 import type {
+  CHAPTER,
+  LEVEL,
+  SLIDE,
+  NODE,
+  FAILURE,
+  SUCCESS,
   Action,
+  Answer,
+  AvailableContent,
   Config,
   Content,
+  Engine,
   EngineOptions,
   Progression,
   Question,
@@ -22,7 +31,29 @@ import type {
   State
 } from './types';
 
-export type {Action, Config, Content, EngineOptions, Progression, Question, Slide, State};
+import type {Instruction, ChapterRule} from './rule-engine/types';
+
+export type {
+  CHAPTER,
+  LEVEL,
+  SLIDE,
+  NODE,
+  FAILURE,
+  SUCCESS,
+  Action,
+  Answer,
+  AvailableContent,
+  ChapterRule,
+  Config,
+  Content,
+  Engine,
+  EngineOptions,
+  Instruction,
+  Progression,
+  Question,
+  Slide,
+  State
+};
 
 export {
   checkAnswer,

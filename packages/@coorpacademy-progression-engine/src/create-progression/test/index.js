@@ -61,7 +61,7 @@ test('should create a new progression with the latest version of the engine and 
   };
   const content: Content = {
     ref: '1.A1',
-    type: 'module'
+    type: 'level'
   };
   const engineOptions: EngineOptions = {
     livesDisabled: true
@@ -91,7 +91,7 @@ test("progression should have 'move' action that links to the initial rule's des
   };
   const content: Content = {
     ref: '1.A1',
-    type: 'module'
+    type: 'level'
   };
   const engineOptions: EngineOptions = {
     livesDisabled: true
@@ -118,7 +118,7 @@ test('progression should have "move" action that links to a random slide from th
   };
   const content: Content = {
     ref: '1.A1',
-    type: 'module'
+    type: 'level'
   };
   const engineOptions: EngineOptions = {
     livesDisabled: true
@@ -160,7 +160,7 @@ test('should return null if no there is no available content', t => {
   };
   const content: Content = {
     ref: '1.A1',
-    type: 'module'
+    type: 'level'
   };
   const engineOptions: EngineOptions = {
     livesDisabled: true

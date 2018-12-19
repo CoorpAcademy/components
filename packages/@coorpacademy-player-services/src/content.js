@@ -5,7 +5,7 @@ import pipe from 'lodash/fp/pipe';
 import {getConfig} from '@coorpacademy/progression-engine';
 
 import type {Slide} from '@coorpacademy/progression-engine';
-import type {Chapter, Fixtures, Level} from './types';
+import type {Chapter, Fixtures, Level} from './definitions';
 
 const find = (fixtures: Fixtures) => (
   type: string,
@@ -50,9 +50,9 @@ const getInfo = (fixtures: Fixtures) => (
   return {nbSlides};
 };
 
-const Content = (fixtures: Fixtures) => ({
+const ContentService = (fixtures: Fixtures) => ({
   find: find(fixtures),
   getInfo: getInfo(fixtures)
 });
 
-export default Content;
+export default ContentService;
