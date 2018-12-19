@@ -1,6 +1,6 @@
 // @flow strict
 
-import type {Recommendation} from '../../../types';
+import type {Recommendation} from '../../../definitions';
 
 const recommendations: Array<Recommendation> = [
   {

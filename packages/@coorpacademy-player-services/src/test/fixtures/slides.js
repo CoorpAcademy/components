@@ -23,7 +23,7 @@ const findById = async (id: string): Promise<Slide> => {
   if (!slideStore.has(id)) throw new Error(`Slide ${id} not found`);
   const slide = slideStore.get(id);
 
-  // $FlowFixMe
+  // $FlowFixMe (typing postponed for this section)
   return pipe(
     update('lessons', map(appendJWPOptions(''))),
     update('question.medias', map(appendJWPOptions('src.0.'))),

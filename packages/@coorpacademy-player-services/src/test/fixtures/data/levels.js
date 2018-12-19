@@ -1,6 +1,6 @@
 // @flow strict
 
-import type {Level} from '../../../types';
+import type {Level} from '../../../definitions';
 
 const levels: Array<Level> = [
   {

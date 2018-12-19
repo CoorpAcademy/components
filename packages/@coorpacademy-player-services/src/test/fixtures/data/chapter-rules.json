@@ -205,7 +205,7 @@
             "operator": "IN",
             "values": [
               [
-                "En optant pour une solution hybride, utilisant les deux types de référencement"
+                "En optant pour une solution hybride, utilisant les deux /definitions de référencement"
               ]
             ],
             "target": {
@@ -307,7 +307,7 @@
             "operator": "IN",
             "values": [
               [
-                "En optant pour une solution hybride, utilisant les deux types de référencement"
+                "En optant pour une solution hybride, utilisant les deux /definitions de référencement"
               ]
             ],
             "target": {

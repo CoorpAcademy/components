@@ -7,7 +7,7 @@ const variables = (config: Config) => (_state: State, action: Action): State => 
   switch (action.type) {
     case 'answer':
     case 'move': {
-      const {instructions = null} = action.payload;
+      const {instructions} = action.payload;
       if (!instructions) return state;
       return updateVariables(instructions)(state);
     }

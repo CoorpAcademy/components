@@ -3,7 +3,7 @@
 import reduce from 'lodash/fp/reduce';
 import _find from 'lodash/fp/find';
 
-import type {Level, Recommendation} from '../../types';
+import type {Level, Recommendation} from '../../definitions';
 import levelsData from './data/levels';
 import recommendations from './data/recommendations';
 
@@ -18,7 +18,7 @@ const find = (type: string, ref: string): Promise<Array<Recommendation>> => {
 };
 
 const getNextLevel = (ref: string): Level | void => {
-  const _level: Level | void = levels.get(ref);
+  const _level = levels.get(ref);
   if (!_level) {
     return undefined;
   }

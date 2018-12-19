@@ -2,6 +2,8 @@
 
 import type {Progression, Slide} from '@coorpacademy/progression-engine';
 
+type ContentType = 'chapter' | 'level' | 'slide';
+
 type Url = string;
 type AspectRatio = '16:9' | '4:3';
 
@@ -204,8 +206,15 @@ type Fixtures = {|
   saveProgression: Progression => void
 |};
 
+export const CONTENT_TYPE: {[string]: ContentType} = {
+  CHAPTER: 'chapter',
+  LEVEL: 'level',
+  SLIDE: 'slide'
+};
+
 export type {
   Chapter,
+  ContentType,
   DataEvent,
   Fixtures,
   Level,
