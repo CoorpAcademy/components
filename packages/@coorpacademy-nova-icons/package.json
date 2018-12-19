@@ -9,7 +9,7 @@
     "src"
   ],
   "scripts": {
-    "test": "npm run lint",
+    "test": "npm run lint && npm run flow",
     "lint": "npm run eslint",
     "lint:fix": "npm run eslint -- --fix",
     "eslint": "eslint ./ *.js *.json --ext .js,.json",
