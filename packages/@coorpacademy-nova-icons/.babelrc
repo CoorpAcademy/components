@@ -1,6 +1,7 @@
 {
   "presets": [
-    "react-native"
+    "react",
+    "env"
   ],
   "plugins": [
     "transform-object-rest-spread"
