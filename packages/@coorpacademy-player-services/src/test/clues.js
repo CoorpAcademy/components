@@ -5,11 +5,11 @@ import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import CluesService from '../clues';
 
-import ProgressionsService from '../progressions';
+import createProgressionsService from '../progressions';
 import * as fixtures from './fixtures';
 import slidesData from './fixtures/data/slides';
 
-const Progressions = ProgressionsService(fixtures);
+const Progressions = createProgressionsService(fixtures);
 const {findById} = CluesService(fixtures);
 
 const engine = {
@@ -30,6 +30,10 @@ test('should findById', async t => {
 
   const expected = pipe(find({_id: nextContent.ref}), get('clue'))(slidesData);
   t.deepEqual(clue, expected);
+});
+
+test('should fail for wrong progressionId', t => {
+  return t.throws(Progressions.requestClue('wrongId', {}), 'progression "wrongId" not found');
 });
 
 test("should throw error if slide doesn't exist", async t => {

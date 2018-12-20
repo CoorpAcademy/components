@@ -1,9 +1,18 @@
 // @flow
 
-import type {ContentType, Fixtures, Level, Recommendation} from './definitions';
+import type {ContentType} from '@coorpacademy/progression-engine';
+import type {Fixtures, Level, Recommendation} from './definitions';
 import {CONTENT_TYPE} from './definitions';
 
-const find = (fixtures: Fixtures) => (
+type FindRecommendations = (type: ContentType, ref: string) => Promise<Array<Recommendation>>;
+type GetNextRecommendation = (type: ContentType, ref: string) => Promise<void | Level>;
+
+type RecommendationsService = {|
+  find: FindRecommendations,
+  getNext: GetNextRecommendation
+|};
+
+const find = (fixtures: Fixtures): FindRecommendations => (
   type: ContentType,
   ref: string
 ): Promise<Array<Recommendation>> => {
@@ -12,7 +21,10 @@ const find = (fixtures: Fixtures) => (
   return Promise.resolve(recommendations);
 };
 
-const getNext = (fixtures: Fixtures) => (type: ContentType, ref: string): Promise<void | Level> => {
+const getNext = (fixtures: Fixtures): GetNextRecommendation => (
+  type: ContentType,
+  ref: string
+): Promise<void | Level> => {
   const {getNextLevel} = fixtures;
   switch (type) {
     case CONTENT_TYPE.LEVEL:
@@ -23,9 +35,10 @@ const getNext = (fixtures: Fixtures) => (type: ContentType, ref: string): Promis
   }
 };
 
-const Recommendations = (fixtures: Fixtures) => ({
+const createRecommendationsService = (fixtures: Fixtures): RecommendationsService => ({
   find: find(fixtures),
   getNext: getNext(fixtures)
 });
 
-export default Recommendations;
+export type {RecommendationsService};
+export default createRecommendationsService;

@@ -16,7 +16,8 @@ const slideStore = reduce(
   slidesData
 );
 
-const findByChapter = (chapterRef: string) => filter({chapter_id: chapterRef}, slidesData);
+const findByChapter = (chapterRef: string): Array<Slide> =>
+  filter({chapter_id: chapterRef}, slidesData);
 
 // eslint-disable-next-line import/prefer-default-export,require-await
 const findById = async (id: string): Promise<Slide> => {

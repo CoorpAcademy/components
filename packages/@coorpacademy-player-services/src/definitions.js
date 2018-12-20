@@ -1,8 +1,13 @@
 // @flow strict
 
-import type {Progression, Slide} from '@coorpacademy/progression-engine';
-
-type ContentType = 'chapter' | 'level' | 'slide';
+import type {
+  Answer,
+  ChapterRule,
+  Content,
+  ContentType,
+  Progression,
+  Slide
+} from '@coorpacademy/progression-engine';
 
 type Url = string;
 type AspectRatio = '16:9' | '4:3';
@@ -189,19 +194,24 @@ type Module = {|
   external_refs: Array<?string>
 |};
 
+type UserAnswer = {|
+  answer: Answer,
+  content: Content
+|};
+
 type Fixtures = {|
   getAllProgressions: () => Array<Progression>,
-  //   getChapterRulesByContent,
+  getChapterRulesByContent: (ref: string) => Array<ChapterRule>,
   //   getClue,
   //   getCorrectAnswer,
   //   getExitNode,
   getNextLevel: (ref: string) => Level | void,
-  //   findChapterById,
-  //   findContent,
-  //   findLevelById,
+  findChapterById: (contentRef: string) => Chapter,
+  findContent: (type: string, ref: string) => Promise<Chapter | Level | Slide>,
+  findLevelById: (contentRef: string) => Level | void,
   findProgressionById: (id: string) => Promise<Progression | void>,
   findRecommendations: (type: string, ref: string) => Promise<Array<Recommendation>>,
-  //   findSlideByChapter,
+  findSlideByChapter: (chapterRef: string) => Array<Slide>,
   findSlideById: (id: string) => Promise<Slide>,
   saveProgression: Progression => void
 |};
@@ -214,14 +224,16 @@ export const CONTENT_TYPE: {[string]: ContentType} = {
 
 export type {
   Chapter,
-  ContentType,
   DataEvent,
   Fixtures,
+  JwPlayerOptions,
   Level,
   Module,
   Recommendation,
   Resource,
+  ResourceMimeType,
   ResourceType,
   Url,
+  UserAnswer,
   Window
 };

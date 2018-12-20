@@ -1,9 +1,9 @@
 import test from 'ava';
 
-import RecommendationsService from '../recommendations';
+import createRecommendationsService from '../recommendations';
 import * as fixtures from './fixtures';
 
-const Recommendations = RecommendationsService(fixtures);
+const Recommendations = createRecommendationsService(fixtures);
 const {getNext} = Recommendations;
 
 test('should find recommendations for free run', async t => {
