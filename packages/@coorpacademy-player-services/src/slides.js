@@ -2,16 +2,22 @@
 
 import type {Slide} from '@coorpacademy/progression-engine';
 import type {Fixtures} from './definitions';
-import type {SlidesService} from '.';
 
-const findById = (fixtures: Fixtures) => async (slideId: string): Promise<Slide> => {
+type FindSlideById = (slideId: string) => Promise<Slide>;
+
+type SlidesService = {|
+  findById: FindSlideById
+|};
+
+const findById = (fixtures: Fixtures): FindSlideById => async (slideId: string): Promise<Slide> => {
   const {findSlideById} = fixtures;
   const slide = await findSlideById(slideId);
   return slide;
 };
 
-const Slides = (fixtures: Fixtures): SlidesService => ({
+const createSlidesService = (fixtures: Fixtures): SlidesService => ({
   findById: findById(fixtures)
 });
 
-export default Slides;
+export type {SlidesService};
+export default createSlidesService;

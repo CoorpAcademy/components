@@ -7,7 +7,16 @@ import {getConfig} from '@coorpacademy/progression-engine';
 import type {Slide} from '@coorpacademy/progression-engine';
 import type {Chapter, Fixtures, Level} from './definitions';
 
-const find = (fixtures: Fixtures) => (
+type FindContent = (type: string, ref: string) => Promise<Chapter | Level | Slide>;
+type GetNbSlides = (contentRef: string, engineRef: string, version: string) => number;
+type GetInfo = (contentRef: string, engineRef: string, version: string) => {nbSlides: number};
+
+type ContentService = {|
+  find: FindContent,
+  getInfo: GetInfo
+|};
+
+const find = (fixtures: Fixtures): FindContent => (
   type: string,
   ref: string
 ): Promise<Chapter | Level | Slide> => {
@@ -15,7 +24,7 @@ const find = (fixtures: Fixtures) => (
   return findContent(type, ref);
 };
 
-const getNbSlides = (fixtures: Fixtures) => (
+const getNbSlides = (fixtures: Fixtures): GetNbSlides => (
   contentRef: string,
   engineRef: string,
   version: string
@@ -41,7 +50,7 @@ const getNbSlides = (fixtures: Fixtures) => (
   return -1;
 };
 
-const getInfo = (fixtures: Fixtures) => (
+const getInfo = (fixtures: Fixtures): GetInfo => (
   contentRef: string,
   engineRef: string,
   version: string
@@ -50,9 +59,10 @@ const getInfo = (fixtures: Fixtures) => (
   return {nbSlides};
 };
 
-const ContentService = (fixtures: Fixtures) => ({
+const createContentService = (fixtures: Fixtures): ContentService => ({
   find: find(fixtures),
   getInfo: getInfo(fixtures)
 });
 
-export default ContentService;
+export type {ContentService};
+export default createContentService;

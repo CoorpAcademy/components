@@ -32,11 +32,63 @@ import type {
 } from '@coorpacademy/progression-engine';
 import {CONTENT_TYPE} from './definitions';
 import type {Fixtures, UserAnswer} from './definitions';
-import type {ProgressionsService} from '.';
+
+type AcceptExtraLife = (
+  progressionId: string,
+  payload: {
+    content: Content,
+    nextContent: Content,
+    instructions: Array<Instruction> | null
+  }
+) => Promise<Progression>;
+
+type CreateProgression = (Engine, Content, EngineOptions) => Promise<Progression>;
+
+type FindBestOf = (engineRef: string, contentRef: string, progressionId: string) => Progression;
+type FindById = (id: string) => Promise<Progression | void>;
+type GetAvailableContent = Content => Promise<AvailableContent>;
+type MarkResourceAsViewed = (
+  progressionId: string,
+  payload: {
+    resource: ResourceContent,
+    content: Content
+  }
+) => Promise<Progression>;
+
+type PostAnswer = (progressionId: string, payload: UserAnswer) => Promise<Progression>;
+type RefuseExtraLife = (
+  progressionId: string,
+  payload: {
+    content: Content,
+    nextContent: Content
+  }
+) => Promise<Progression>;
+
+type RequestClue = (
+  progressionId: string,
+  payload: {content: ContentSlide}
+) => Promise<Progression>;
+
+type ProgressionsService = {|
+  acceptExtraLife: AcceptExtraLife,
+  create: CreateProgression,
+  findBestOf: FindBestOf,
+  findById: FindById,
+  getAvailableContent: GetAvailableContent,
+  getEngineConfig: Engine => Promise<Config>,
+  markResourceAsViewed: MarkResourceAsViewed,
+  openAssistance: Progression => Progression,
+  postAnswer: PostAnswer,
+  refuseExtraLife: RefuseExtraLife,
+  requestClue: RequestClue,
+  save: Progression => Progression
+|};
 
 const generateId = () => uniqueId('progression');
 
-const findById = (fixtures: Fixtures) => async (id: string): Promise<Progression | void> => {
+const findById = (fixtures: Fixtures): FindById => async (
+  id: string
+): Promise<Progression | void> => {
   const {findProgressionById} = fixtures;
   const progression = await findProgressionById(id);
   return progression;
@@ -51,7 +103,7 @@ const openAssistance = (progression: Progression): Progression => {
   return progression;
 };
 
-const getAvailableContent = (fixtures: Fixtures) => async (
+const getAvailableContent = (fixtures: Fixtures): GetAvailableContent => async (
   content: Content
 ): Promise<AvailableContent> => {
   const {getChapterRulesByContent, findSlideByChapter} = fixtures;
@@ -77,13 +129,15 @@ const getAvailableContent = (fixtures: Fixtures) => async (
   );
 };
 
-const createSave = (fixtures: Fixtures) => (progression: Progression): Progression => {
+const createSave = (fixtures: Fixtures): (Progression => Progression) => (
+  progression: Progression
+): Progression => {
   const {saveProgression} = fixtures;
   saveProgression(progression);
   return progression;
 };
 
-const findBestOf = (fixtures: Fixtures) => (
+const findBestOf = (fixtures: Fixtures): FindBestOf => (
   engineRef: string,
   contentRef: string,
   progressionId: string = ''
@@ -98,7 +152,9 @@ const findBestOf = (fixtures: Fixtures) => (
   return bestProgression || set('state.stars', 0, {});
 };
 
-const addActionAndSaveProgression = (fixtures: Fixtures) => (
+const addActionAndSaveProgression = (
+  fixtures: Fixtures
+): ((Progression, Action) => Progression) => (
   progression: Progression,
   action: Action
 ): Progression => {
@@ -108,7 +164,7 @@ const addActionAndSaveProgression = (fixtures: Fixtures) => (
   return pipe(set('state', newState), save)(newProgression);
 };
 
-const postAnswer = (fixtures: Fixtures) => async (
+const postAnswer = (fixtures: Fixtures): PostAnswer => async (
   progressionId: string,
   payload: UserAnswer
 ): Promise<Progression> => {
@@ -157,7 +213,7 @@ const postAnswer = (fixtures: Fixtures) => async (
   return addActionAndSaveProgression(fixtures)(progression, action);
 };
 
-const requestClue = (fixtures: Fixtures) => async (
+const requestClue = (fixtures: Fixtures): RequestClue => async (
   progressionId: string,
   payload: {content: ContentSlide}
 ): Promise<Progression> => {
@@ -176,7 +232,7 @@ const requestClue = (fixtures: Fixtures) => async (
   return addActionAndSaveProgression(fixtures)(progression, action);
 };
 
-const acceptExtraLife = (fixtures: Fixtures) => async (
+const acceptExtraLife = (fixtures: Fixtures): AcceptExtraLife => async (
   progressionId: string,
   payload: {
     content: Content,
@@ -210,7 +266,7 @@ const acceptExtraLife = (fixtures: Fixtures) => async (
   return addActionAndSaveProgression(fixtures)(progression, action);
 };
 
-const refuseExtraLife = (fixtures: Fixtures) => async (
+const refuseExtraLife = (fixtures: Fixtures): RefuseExtraLife => async (
   progressionId: string,
   payload: {
     content: Content,
@@ -236,7 +292,7 @@ const refuseExtraLife = (fixtures: Fixtures) => async (
   return addActionAndSaveProgression(fixtures)(progression, action);
 };
 
-const create = (fixtures: Fixtures) => async (
+const create = (fixtures: Fixtures): CreateProgression => async (
   engine: Engine,
   content: Content,
   engineOptions: EngineOptions = {}
@@ -262,7 +318,7 @@ const create = (fixtures: Fixtures) => async (
   });
 };
 
-const markResourceAsViewed = (fixtures: Fixtures) => async (
+const markResourceAsViewed = (fixtures: Fixtures): MarkResourceAsViewed => async (
   progressionId: string,
   payload: {
     resource: ResourceContent,
@@ -284,7 +340,7 @@ const markResourceAsViewed = (fixtures: Fixtures) => async (
   return addActionAndSaveProgression(fixtures)(progression, action);
 };
 
-const Progressions = (fixtures: Fixtures): ProgressionsService => ({
+const createProgressionsService = (fixtures: Fixtures): ProgressionsService => ({
   acceptExtraLife: acceptExtraLife(fixtures),
   create: create(fixtures),
   findBestOf: findBestOf(fixtures),
@@ -299,4 +355,5 @@ const Progressions = (fixtures: Fixtures): ProgressionsService => ({
   save: createSave(fixtures)
 });
 
-export default Progressions;
+export type {ProgressionsService};
+export default createProgressionsService;
