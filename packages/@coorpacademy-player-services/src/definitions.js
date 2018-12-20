@@ -7,6 +7,7 @@ import type {
   ChapterRule,
   Content,
   ContentType,
+  PartialCorrection,
   Progression,
   Slide
 } from '@coorpacademy/progression-engine';
@@ -196,6 +197,11 @@ type Module = {|
   external_refs: Array<?string>
 |};
 
+type Correction = {
+  correctAnswer: Array<Answer>,
+  corrections: Array<PartialCorrection>
+};
+
 type UserAnswer = {|
   answer: Answer,
   content: Content
@@ -217,7 +223,7 @@ type Fixtures = {|
   getAllProgressions: () => Array<Progression>,
   getChapterRulesByContent: (ref: string) => Array<ChapterRule>,
   //   getClue,
-  //   getCorrectAnswer,
+  getCorrectAnswer: (slideId: string) => Array<Answer>,
   getExitNode: (ref: string) => ExitNode,
   getNextLevel: (ref: string) => Level | void,
   findChapterById: (contentRef: string) => Chapter,
@@ -238,6 +244,7 @@ export const CONTENT_TYPE: {[string]: ContentType} = {
 
 export type {
   Chapter,
+  Correction,
   DataEvent,
   ExitNode,
   ExitNodeRef,

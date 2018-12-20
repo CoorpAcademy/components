@@ -1,6 +1,7 @@
 // @flow strict
 
 import type {Fixtures} from './definitions';
+import type {AnswersService} from './answers';
 import type {ContentService} from './content';
 import type {ProgressionsService} from './progressions';
 import type {RecommendationsService} from './recommendations';
@@ -8,7 +9,7 @@ import type {SlidesService} from './slides';
 import type {ExitNodesService} from './exit-nodes';
 
 import * as AnalyticsService from './analytics';
-import AnswersService from './answers';
+import createAnswersService from './answers';
 import CluesService from './clues';
 import * as CoachService from './coach';
 import * as CommentsService from './comments';
@@ -23,7 +24,7 @@ import createSlidesService from './slides';
 export type {ContentService, ProgressionsService, RecommendationsService, SlidesService};
 
 export const Analytics = AnalyticsService;
-export const Answers = AnswersService;
+export const Answers: Fixtures => AnswersService = createAnswersService;
 export const Clues = CluesService;
 export const Coach = CoachService;
 export const Comments = CommentsService;
