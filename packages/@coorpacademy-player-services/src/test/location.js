@@ -50,3 +50,13 @@ test('should reload page on seeComment', t => {
   };
   Location.seeComment();
 });
+
+test('should reload page on openRecommendation', t => {
+  t.plan(1);
+  global.window = {
+    location: {
+      reload: () => t.pass()
+    }
+  };
+  Location.openRecommendation();
+});

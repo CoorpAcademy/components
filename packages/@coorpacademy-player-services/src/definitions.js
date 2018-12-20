@@ -1,6 +1,8 @@
 // @flow strict
 
 import type {
+  FAILURE,
+  SUCCESS,
   Answer,
   ChapterRule,
   Content,
@@ -79,16 +81,16 @@ type Window = {|
   dataLayer?: Array<DataEvent>
 |};
 
-// type Media = {|
-//   type: string,
-//   description: string,
-//   mimeType: ResourceMimeType,
-//   _id: string,
-//   mediaUrl: Url,
-//   subtitles?: Array<string>,
-//   posters?: Array<Url>,
-//   src?: Array<Source>
-// |};
+type Media = {|
+  type: string,
+  description: string,
+  mimeType: ResourceMimeType,
+  _id: string,
+  mediaUrl: Url,
+  subtitles?: Array<string>,
+  posters?: Array<Url>,
+  src?: Array<Source>
+|};
 
 // type Context = {|
 //   title: string,
@@ -199,12 +201,24 @@ type UserAnswer = {|
   content: Content
 |};
 
+type ExitNodeRef = 'successExitNode' | 'failureExitNode';
+type ExitNodeType = SUCCESS | FAILURE;
+
+type ExitNode = {|
+  ref: ExitNodeRef,
+  type: ExitNodeType,
+  meta: Meta,
+  title: string,
+  description: string,
+  media: Media
+|};
+
 type Fixtures = {|
   getAllProgressions: () => Array<Progression>,
   getChapterRulesByContent: (ref: string) => Array<ChapterRule>,
   //   getClue,
   //   getCorrectAnswer,
-  //   getExitNode,
+  getExitNode: (ref: string) => ExitNode,
   getNextLevel: (ref: string) => Level | void,
   findChapterById: (contentRef: string) => Chapter,
   findContent: (type: string, ref: string) => Promise<Chapter | Level | Slide>,
@@ -225,6 +239,8 @@ export const CONTENT_TYPE: {[string]: ContentType} = {
 export type {
   Chapter,
   DataEvent,
+  ExitNode,
+  ExitNodeRef,
   Fixtures,
   JwPlayerOptions,
   Level,
