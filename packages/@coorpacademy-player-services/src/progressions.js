@@ -32,6 +32,7 @@ import type {
 } from '@coorpacademy/progression-engine';
 import {CONTENT_TYPE} from './definitions';
 import type {Fixtures, UserAnswer} from './definitions';
+import type {ProgressionsService} from '.';
 
 const generateId = () => uniqueId('progression');
 
@@ -283,7 +284,7 @@ const markResourceAsViewed = (fixtures: Fixtures) => async (
   return addActionAndSaveProgression(fixtures)(progression, action);
 };
 
-const Progressions = (fixtures: Fixtures) => ({
+const Progressions = (fixtures: Fixtures): ProgressionsService => ({
   acceptExtraLife: acceptExtraLife(fixtures),
   create: create(fixtures),
   findBestOf: findBestOf(fixtures),
