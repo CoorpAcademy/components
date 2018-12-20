@@ -3,6 +3,7 @@
 import type {ContentType} from '@coorpacademy/progression-engine';
 import type {Fixtures, Level, Recommendation} from './definitions';
 import {CONTENT_TYPE} from './definitions';
+import type {RecommendationsService} from '.';
 
 const find = (fixtures: Fixtures) => (
   type: ContentType,
@@ -24,7 +25,7 @@ const getNext = (fixtures: Fixtures) => (type: ContentType, ref: string): Promis
   }
 };
 
-const Recommendations = (fixtures: Fixtures) => ({
+const Recommendations = (fixtures: Fixtures): RecommendationsService => ({
   find: find(fixtures),
   getNext: getNext(fixtures)
 });

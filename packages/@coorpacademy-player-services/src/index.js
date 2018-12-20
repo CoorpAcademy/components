@@ -5,6 +5,7 @@ import type {
   Config,
   Content as _Content,
   ContentSlide,
+  ContentType,
   Engine,
   EngineOptions,
   Instruction,
@@ -13,7 +14,7 @@ import type {
   Slide
 } from '@coorpacademy/progression-engine';
 
-import type {Fixtures, UserAnswer} from './definitions';
+import type {Fixtures, Level, Recommendation, UserAnswer} from './definitions';
 
 import * as AnalyticsService from './analytics';
 import AnswersService from './answers';
@@ -25,7 +26,7 @@ import ExitNodesService from './exit-nodes';
 import * as LeaderBoardService from './leaderboard';
 import * as LocationService from './location';
 import createProgressionsService from './progressions';
-import RecommendationsService from './recommendations';
+import createRecommendationsService from './recommendations';
 import createSlidesService from './slides';
 
 type ProgressionsService = {|
@@ -66,7 +67,12 @@ type SlidesService = {|
   findById: (slideId: string) => Promise<Slide>
 |};
 
-export type {ProgressionsService, SlidesService};
+type RecommendationsService = {|
+  find: (type: ContentType, ref: string) => Promise<Array<Recommendation>>,
+  getNext: (type: ContentType, ref: string) => Promise<void | Level>
+|};
+
+export type {ProgressionsService, RecommendationsService, SlidesService};
 
 export const Analytics = AnalyticsService;
 export const Answers = AnswersService;
@@ -79,5 +85,5 @@ export const LeaderBoard = LeaderBoardService;
 export const Location = LocationService; // eslint-disable-line no-shadow
 export const Logger = console; // eslint-disable-line no-console
 export const Progressions: Fixtures => ProgressionsService = createProgressionsService;
-export const Recommendations = RecommendationsService;
+export const Recommendations: Fixtures => RecommendationsService = createRecommendationsService;
 export const Slides: Fixtures => SlidesService = createSlidesService;
