@@ -112,20 +112,21 @@ const postAnswer = (fixtures: Fixtures) => async (
   payload: UserAnswer
 ): Promise<Progression> => {
   const {findSlideById, findProgressionById} = fixtures;
-  const answer = getOr([''], 'answer', payload);
-  const slideId = payload.content.ref;
-  const slide = await findSlideById(slideId);
   const progression = await findProgressionById(progressionId);
 
   if (!progression) {
-    throw new Error(`progression ${progressionId} not found`);
+    throw new Error(`progression "${progressionId}" not found`);
   }
 
   const state = progression.state;
 
   if (!state) {
-    throw new Error(`progression ${progressionId} has not state`);
+    throw new Error(`progression "${progressionId}" has no state`);
   }
+
+  const answer = getOr([''], 'answer', payload);
+  const slideId = payload.content.ref;
+  const slide = await findSlideById(slideId);
 
   const partialAnswerAction = {
     type: 'answer',
@@ -147,6 +148,7 @@ const postAnswer = (fixtures: Fixtures) => async (
     partialAnswerAction
   );
 
+  /* istanbul ignore if */
   if (!action) {
     throw new Error(`computeNextStepAfterAnswer failed`);
   }
@@ -162,7 +164,7 @@ const requestClue = (fixtures: Fixtures) => async (
   const progression = await findProgressionById(progressionId);
 
   if (!progression) {
-    throw new Error(`progression ${progressionId} not found`);
+    throw new Error(`progression "${progressionId}" not found`);
   }
 
   const action = {
@@ -185,13 +187,13 @@ const acceptExtraLife = (fixtures: Fixtures) => async (
   const progression = await findProgressionById(progressionId);
 
   if (!progression) {
-    throw new Error(`progression ${progressionId} not found`);
+    throw new Error(`progression "${progressionId}" not found`);
   }
 
   const state = progression.state;
 
   if (!state) {
-    throw new Error(`progression ${progressionId} has not state`);
+    throw new Error(`progression "${progressionId}" has no state`);
   }
 
   const config = getConfigForProgression(progression);
@@ -199,6 +201,7 @@ const acceptExtraLife = (fixtures: Fixtures) => async (
   const availableContent = await _getAvailableContent(progression.content);
   const action = computeNextStepOnAcceptExtraLife(config, state, availableContent);
 
+  /* istanbul ignore if */
   if (!action) {
     throw new Error(`computeNextStepOnAcceptExtraLife failed`);
   }
@@ -217,13 +220,13 @@ const refuseExtraLife = (fixtures: Fixtures) => async (
   const progression = await findProgressionById(progressionId);
 
   if (!progression) {
-    throw new Error(`progression ${progressionId} not found`);
+    throw new Error(`progression "${progressionId}" not found`);
   }
 
   const state = progression.state;
 
   if (!state) {
-    throw new Error(`progression ${progressionId} has not state`);
+    throw new Error(`progression "${progressionId}" has no state`);
   }
 
   const config = getConfigForProgression(progression);
@@ -269,7 +272,7 @@ const markResourceAsViewed = (fixtures: Fixtures) => async (
   const progression = await findProgressionById(progressionId);
 
   if (!progression) {
-    throw new Error(`progression ${progressionId} not found`);
+    throw new Error(`progression "${progressionId}" not found`);
   }
 
   const action = {

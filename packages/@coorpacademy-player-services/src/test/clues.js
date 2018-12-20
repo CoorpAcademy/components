@@ -32,6 +32,10 @@ test('should findById', async t => {
   t.deepEqual(clue, expected);
 });
 
+test('should fail for wrong progressionId', t => {
+  return t.throws(Progressions.requestClue('wrongId', {}), 'progression "wrongId" not found');
+});
+
 test("should throw error if slide doesn't exist", async t => {
   const progression = await Progressions.create(engine, {
     type: 'chapter',
