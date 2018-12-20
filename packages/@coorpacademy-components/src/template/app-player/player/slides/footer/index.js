@@ -100,7 +100,7 @@ class Button extends React.Component {
               color: colorIcon
             }}
             color={colorIcon}
-            size={30}
+            width={30}
           />
         </div>
         <div data-name="title" className={style.title}>
