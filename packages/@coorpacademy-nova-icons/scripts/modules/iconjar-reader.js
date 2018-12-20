@@ -4,7 +4,7 @@ import path from 'path';
 import fs from 'fs';
 import zlib from 'zlib';
 
-export type Set = {|
+export type IconSet = {|
   date: string,
   parent: string,
   licence: string,
@@ -13,13 +13,13 @@ export type Set = {|
   identifier: string
 |};
 
-export type Group = {|
+export type IconSetGroup = {|
   name: string,
   sort: number,
   identifier: number
 |};
 
-export type Item = {|
+export type IconSetGroupItem = {|
   height: number,
   parent: string,
   licence: string,
@@ -34,13 +34,14 @@ export type Item = {|
 |};
 
 export type Meta = {|
-  sets: {[string]: Set},
-  groups: {[string]: Group},
-  items: {[string]: Item}
+  sets: {[string]: IconSet},
+  groups: {[string]: IconSetGroup},
+  items: {[string]: IconSetGroupItem}
 |};
 
-// $FlowFixMe path.join is defined
-const getIconJarPath = (iconJar: string): string => path.join(__dirname, '../../third-party', iconJar);
+const getIconJarPath = (iconJar: string): string =>
+  // $FlowFixMe path.join is defined
+  path.join(__dirname, '../../third-party', iconJar);
 
 export const parseMeta = (iconJar: string): Meta => {
   // $FlowFixMe path.join is defined

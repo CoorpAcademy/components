@@ -12,11 +12,12 @@ import mkdirp from 'mkdirp-promise';
 
 import whiteList from '../icons';
 import {parseMeta, getSVGFilePath} from './modules/iconjar-reader';
-import type {Meta, Item} from './modules/iconjar-reader';
-import {formatKebabCase} from './modules/string-formatter';
+import type {Meta, IconSetGroupItem} from './modules/iconjar-reader';
+import {formatKebabCase, formatPascalCase} from './modules/string-formatter';
 
 const iconsPath = path.resolve(`${__dirname}/../third-party`);
-const componentsPath = path.resolve(`${__dirname}/../src/components`);
+const srcPath = path.resolve(`${__dirname}/../src`);
+const componentsPath = path.resolve(`${srcPath}/components`);
 mkdirp(componentsPath);
 
 type IconJar = {|
@@ -26,7 +27,11 @@ type IconJar = {|
 
 const colors = ['#757575', '#14171A', '#607d8b'];
 
-const generateComponent = (fileContent: Buffer, fileName: string, native?: boolean = false) => {
+const generateComponent = (
+  fileContent: Buffer,
+  fileName: string,
+  native?: boolean = false
+): string => {
   const options = {
     plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx', '@svgr/plugin-prettier'],
     noSemi: true,
@@ -35,8 +40,8 @@ const generateComponent = (fileContent: Buffer, fileName: string, native?: boole
     replaceAttrValues: colors.reduce((result, color) => ({...result, [color]: 'currentColor'}), {}),
     native
   };
-  const extension = (native && 'native') || 'web';
-  const extendedFileName = fileName.replace('.svg', `.${extension}.js`);
+  const extensionSuffix = (native && '.native') || '';
+  const extendedFileName = fileName.replace('.svg', `${extensionSuffix}.js`);
   // $FlowFixMe path.join() is defined
   const outputPath = path.join(componentsPath, extendedFileName);
 
@@ -46,9 +51,11 @@ const generateComponent = (fileContent: Buffer, fileName: string, native?: boole
       fs.writeFileSync(outputPath, jsCode);
 
       console.log(`- ${chalk.green(extendedFileName)}`);
-      return jsCode;
+      return outputPath;
     })
     .catch(e => console.log(`- ${chalk.red(extendedFileName)}`));
+
+  return extendedFileName;
 };
 
 const wrongFiles = whiteList.filter(filePath => !fs.existsSync(filePath));
@@ -56,7 +63,12 @@ if (wrongFiles.length > 0) {
   throw new Error(chalk.red('Invalid icons:', ...wrongFiles.map(filePath => `\n - ${filePath}`)));
 }
 
-globby
+type OutputFile = {|
+  name: string,
+  path: string
+|};
+
+const files: Array<OutputFile> = globby
   .sync('**/*.iconjar', {
     cwd: iconsPath,
     absolute: true,
@@ -71,39 +83,69 @@ globby
       meta: parseMeta(fileName)
     };
   })
-  .forEach(({fileName: iconJarFileName, meta: {sets, groups, items}}) => {
+  .map(({fileName: iconJarFileName, meta: {sets, groups, items}}): Array<string> => {
     console.log(chalk.underline('Iconjar:'), iconJarFileName);
 
     // $FlowFixMe Object.values() returns mixed
-    const itemArray: Array<Item> = Object.values(items);
+    const itemArray: Array<IconSetGroupItem> = Object.values(items);
     // $FlowFixMe Object.values() returns mixed
     const setArray: Array<Set> = Object.values(sets);
 
-    setArray.forEach(({name: setName, identifier: setIdentifier}) => {
-      const itemArrayFiltered = itemArray
-        .filter(item => item.parent === setIdentifier)
-        .map(item => ({
-          item,
-          filePath: getSVGFilePath(iconJarFileName, item.file)
-        }))
-        .filter(({filePath}) =>
-          whiteList.find(whiteListFilePath => whiteListFilePath === filePath)
-        );
-      if (itemArrayFiltered.length > 0) {
-        console.log('Set name:', setName, `(${itemArrayFiltered.length})`);
-
-        itemArrayFiltered.forEach(({item, filePath}) => {
-          const content = fs.readFileSync(filePath);
-          // $FlowFixMe path.join() is defined
-          const outputFileName = path.join(
-            formatKebabCase(iconJarFileName.replace('.iconjar', '')),
-            formatKebabCase(setName, true),
-            formatKebabCase(item.file)
+    return setArray
+      .map(({name: setName, identifier: setIdentifier}): Array<string> => {
+        const itemArrayFiltered = itemArray
+          .filter(item => item.parent === setIdentifier)
+          .map(item => ({
+            item,
+            filePath: getSVGFilePath(iconJarFileName, item.file)
+          }))
+          .filter(({filePath}) =>
+            whiteList.find(whiteListFilePath => whiteListFilePath === filePath)
           );
 
-          generateComponent(content, outputFileName);
-          generateComponent(content, outputFileName, true);
-        });
-      }
-    });
-  });
+        return itemArrayFiltered
+          .map(({item, filePath}): Array<string> => {
+            const content = fs.readFileSync(filePath);
+            // $FlowFixMe path.join() is defined
+            const outputFileName = path.join(
+              formatKebabCase(iconJarFileName.replace('.iconjar', '')),
+              formatKebabCase(setName, true),
+              formatKebabCase(item.file)
+            );
+
+            return [
+              generateComponent(content, outputFileName),
+              generateComponent(content, outputFileName, true)
+            ];
+          })
+          .reduce((result, outputFileNames) => result.concat(outputFileNames), []);
+      })
+      .reduce((result, outputFileNames) => result.concat(outputFileNames), []);
+  })
+  .reduce((result, outputFileNames) => result.concat(outputFileNames), [])
+  .filter(outputFileName => !outputFileName.includes('.native'))
+  .map(outputFileName => ({
+    name: formatPascalCase(outputFileName),
+    path: outputFileName.replace('.js', '')
+  }));
+
+const imports = files
+  .map(({name, path: filePath}) => `import ${name} from './components/${filePath}';`)
+  .join('\n');
+const componentsNames = files.map(({name}) => `${name},`).join('\n\t');
+
+fs.writeFileSync(
+  // $FlowFixMe path.join() is defined
+  path.join(srcPath, 'index.js'),
+  `// @flow strict
+
+// THIS FILE IS AUTOGENERATED
+
+/* eslint-disable import/max-dependencies */
+
+${imports}
+
+export {
+  ${componentsNames}
+};`
+);
