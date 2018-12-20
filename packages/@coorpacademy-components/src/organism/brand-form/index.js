@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
-import ArrowLeft from '@coorpacademy/nova-icons/lib/nova-composition/navigation/arrow-left.web';
+import {NovaCompositionNavigationArrowLeft as ArrowLeft} from '@coorpacademy/nova-icons';
 import ReactTooltip from 'react-tooltip';
 import BrandFormGroup from '../../molecule/brand-form-group';
 import Provider from '../../atom/provider';

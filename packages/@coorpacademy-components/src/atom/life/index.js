@@ -3,9 +3,11 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import get from 'lodash/fp/get';
 import keys from 'lodash/fp/keys';
-import HeartIcon from '@coorpacademy/nova-icons/lib/nova-solid/vote-rewards/vote-heart.web';
-import HeartBrokenIcon from '@coorpacademy/nova-icons/lib/nova-composition/coorpacademy/broken-heart.web';
-import HeartIconOutline from '@coorpacademy/nova-icons/lib/nova-composition/coorpacademy/vote-heart-outline.web';
+import {
+  NovaSolidVoteRewardsVoteHeart as HeartIcon,
+  NovaCompositionCoorpacademyBrokenHeart as HeartBrokenIcon,
+  NovaCompositionCoorpacademyVoteHeartOutline as HeartIconOutline
+} from '@coorpacademy/nova-icons';
 import Provider from '../provider';
 import style from './style.css';
 

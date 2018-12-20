@@ -10,9 +10,11 @@ import zip from 'lodash/fp/zip';
 import round from 'lodash/fp/round';
 import _parseInt from 'lodash/fp/parseInt';
 import multiply from 'lodash/fp/multiply';
-import ArrowRight from '@coorpacademy/nova-icons/lib/nova-composition/navigation/arrow-right.web';
-import ChartsIcon from '@coorpacademy/nova-icons/lib/nova-composition/coorpacademy/charts.web';
-import StarIcon from '@coorpacademy/nova-icons/lib/nova-composition/coorpacademy/star.web';
+import {
+  NovaCompositionNavigationArrowRight as ArrowRight,
+  NovaCompositionCoorpacademyCharts as ChartsIcon,
+  NovaCompositionCoorpacademyStar as StarIcon
+} from '@coorpacademy/nova-icons';
 import classnames from 'classnames';
 import Loader from '../../../atom/loader';
 import Life from '../../../atom/life';

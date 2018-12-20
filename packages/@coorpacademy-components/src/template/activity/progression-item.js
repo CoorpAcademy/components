@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import noop from 'lodash/fp/noop';
-import ArrowRightIcon from '@coorpacademy/nova-icons/lib/nova-composition/navigation/arrow-right.web';
-import StarIcon from '@coorpacademy/nova-icons/lib/nova-composition/coorpacademy/star.web';
-import TimerIcon from '@coorpacademy/nova-icons/lib/nova-composition/coorpacademy/timer.web';
-import AdaptiveIcon from '@coorpacademy/nova-icons/lib/nova-composition/coorpacademy/adaptive.web';
-import LearnerIcon from '@coorpacademy/nova-icons/lib/nova-solid/content/content-book-1.web';
+import {
+  NovaCompositionNavigationArrowRight as ArrowRightIcon,
+  NovaCompositionCoorpacademyStar as StarIcon,
+  NovaCompositionCoorpacademyTimer as TimerIcon,
+  NovaCompositionCoorpacademyAdaptive as AdaptiveIcon,
+  NovaSolidContentContentBook1 as LearnerIcon
+} from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import ProgressBar from '../../molecule/progress-bar';
 import Link from '../../atom/link';

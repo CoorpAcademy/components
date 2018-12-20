@@ -3,11 +3,13 @@ import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import get from 'lodash/fp/get';
 import isEmpty from 'lodash/fp/isEmpty';
-import ArrowDown from '@coorpacademy/nova-icons/lib/nova-composition/navigation/arrow-down.web';
-import StarIcon from '@coorpacademy/nova-icons/lib/nova-composition/coorpacademy/star.web';
-import ChartsIcon from '@coorpacademy/nova-icons/lib/nova-composition/coorpacademy/charts.web';
-import TrophyIcon from '@coorpacademy/nova-icons/lib/nova-solid/vote-rewards/rewards-trophy-5.web';
-import CogIcon from '@coorpacademy/nova-icons/lib/nova-composition/coorpacademy/cog.web';
+import {
+  NovaCompositionNavigationArrowDown as ArrowDown,
+  NovaCompositionCoorpacademyStar as StarIcon,
+  NovaCompositionCoorpacademyCharts as ChartsIcon,
+  NovaSolidVoteRewardsRewardsTrophy5 as TrophyIcon,
+  NovaCompositionCoorpacademyCog as CogIcon
+} from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import Cta from '../../atom/cta';
 import Select from '../../atom/select';

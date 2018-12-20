@@ -4,7 +4,7 @@ import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isEmpty from 'lodash/fp/isEmpty';
 import map from 'lodash/fp/map';
-import ArrowRight from '@coorpacademy/nova-icons/lib/nova-composition/navigation/arrow-right.web';
+import {NovaCompositionNavigationArrowRight as ArrowRight} from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
 import SocialLink from '../../atom/social-link';
 import Provider from '../../atom/provider';

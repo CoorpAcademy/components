@@ -6,8 +6,10 @@ import isEmpty from 'lodash/fp/isEmpty';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import omit from 'lodash/fp/omit';
-import CheckIcon from '@coorpacademy/nova-icons/lib/nova-composition/coorpacademy/check.web';
-import AlertIcon from '@coorpacademy/nova-icons/lib/nova-line/interface-feedback/interface-alert-circle.web';
+import {
+  NovaCompositionCoorpacademyCheck as CheckIcon,
+  NovaLineInterfaceFeedbackInterfaceAlertCircle as AlertIcon
+} from '@coorpacademy/nova-icons';
 import Loader from '../../../atom/loader';
 import Link from '../../../atom/link';
 import Provider from '../../../atom/provider';

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import PlayIcon from '@coorpacademy/nova-icons/lib/nova-line/audio/audio-control-play.web';
+import {NovaLineAudioAudioControlPlay as PlayIcon} from '@coorpacademy/nova-icons';
 import Button from '../../atom/button';
 import Link from '../../atom/link';
 import Provider from '../../atom/provider';

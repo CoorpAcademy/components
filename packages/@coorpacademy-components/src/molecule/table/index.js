@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
-import ArrowDown from '@coorpacademy/nova-icons/lib/nova-composition/navigation/arrow-down.web';
-import FunnelIcon from '@coorpacademy/nova-icons/lib/nova-composition/coorpacademy/funnel.web';
-import PencilIcon from '@coorpacademy/nova-icons/lib/nova-solid/content-edition/pencil-1.web';
+import {
+  NovaCompositionNavigationArrowDown as ArrowDown,
+  NovaCompositionCoorpacademyFunnel as FunnelIcon,
+  NovaSolidCOntentEditionPencil1 as PencilIcon
+} from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import Checkbox from '../../atom/checkbox';
 import Link from '../../atom/link';

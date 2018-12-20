@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Check from '@coorpacademy/nova-icons/lib/nova-composition/coorpacademy/check.web';
+import {NovaCompositionCoorpacademyCheck as Check} from '@coorpacademy/nova-icons';
 import {ColorPropType} from '../../util/proptypes';
 import Provider from '../../atom/provider';
 import Checkbox from '../../atom/checkbox';

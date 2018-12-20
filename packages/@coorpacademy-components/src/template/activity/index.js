@@ -1,5 +1,5 @@
 import React from 'react';
-import StarIcon from '@coorpacademy/nova-icons/lib/nova-composition/coorpacademy/star.web';
+import {NovaCompositionCoorpacademyStar as StarIcon} from '@coorpacademy/nova-icons';
 import get from 'lodash/fp/get';
 import omit from 'lodash/fp/omit';
 import isEmpty from 'lodash/fp/isEmpty';

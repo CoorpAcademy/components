@@ -2,11 +2,13 @@ import React from 'react';
 import noop from 'lodash/fp/noop';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
-import MoreIcon from '@coorpacademy/nova-icons/lib/nova-composition/navigation/more.web';
-import KeyIcon from '@coorpacademy/nova-icons/lib/nova-line/login/key-1.web';
-import VideoIcon from '@coorpacademy/nova-icons/lib/nova-line/videos/video-clip-3.web';
-import LightBulbIcon from '@coorpacademy/nova-icons/lib/nova-solid/lights/lightbulb-4.web';
-import LessIcon from '@coorpacademy/nova-icons/lib/nova-composition/navigation/less.web';
+import {
+  NovaCompositionNavigationMore as MoreIcon,
+  NovaLienLoginKey1 as KeyIcon,
+  NovaLineVideosVideoClip3 as VideoIcon,
+  NovaSolidLightsLightBulb4 as LightBulbIcon,
+  NovaCompositionNavigationLess as LessIcon
+} from '@coorpacademy/nova-icons';
 import Provider from '../../../atom/provider';
 import style from './style.css';
 

@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import omit from 'lodash/fp/omit';
-import Play from '@coorpacademy/nova-icons/lib/nova-solid/videos/video-control-play.web';
+import {NovaSolidVideosVideoControlPlay as Play} from '@coorpacademy/nova-icons';
 import Pdf from '../pdf';
 import VideoPlayer from '../video-player';
 import Life from '../../atom/life';
