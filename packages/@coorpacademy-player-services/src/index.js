@@ -9,7 +9,8 @@ import type {
   EngineOptions,
   Instruction,
   Progression,
-  ResourceContent
+  ResourceContent,
+  Slide
 } from '@coorpacademy/progression-engine';
 
 import type {Fixtures, UserAnswer} from './definitions';
@@ -25,9 +26,9 @@ import * as LeaderBoardService from './leaderboard';
 import * as LocationService from './location';
 import createProgressionsService from './progressions';
 import RecommendationsService from './recommendations';
-import SlidesService from './slides';
+import createSlidesService from './slides';
 
-type ProgressionsService = {
+type ProgressionsService = {|
   acceptExtraLife: (
     progressionId: string,
     payload: {
@@ -59,9 +60,13 @@ type ProgressionsService = {
   ) => Promise<Progression>,
   requestClue: (progressionId: string, payload: {content: ContentSlide}) => Promise<Progression>,
   save: Progression => Progression
-};
+|};
 
-export type {ProgressionsService};
+type SlidesService = {|
+  findById: (slideId: string) => Promise<Slide>
+|};
+
+export type {ProgressionsService, SlidesService};
 
 export const Analytics = AnalyticsService;
 export const Answers = AnswersService;
@@ -75,4 +80,4 @@ export const Location = LocationService; // eslint-disable-line no-shadow
 export const Logger = console; // eslint-disable-line no-console
 export const Progressions: Fixtures => ProgressionsService = createProgressionsService;
 export const Recommendations = RecommendationsService;
-export const Slides = SlidesService;
+export const Slides: Fixtures => SlidesService = createSlidesService;
