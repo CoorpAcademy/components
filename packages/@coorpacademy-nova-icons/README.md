@@ -1,43 +1,33 @@
-# nova-icons
+# @Coorpacademy/nova-icons
 
-Components bank based on nova svg icons
+Components bank (react and react-native) based on Nova SVG icons (through [Iconjar](https://geticonjar.com) files)
 
 ## Adding an icon
 
-- find your `.svg` path within `/third-party`:
-```
-/third-party/Nova-Icons/SVG/Solid icons/07-Users/user-shield-1.svg
-```
-- add the correponding path within `icons.json`:
-```
-  "@coorpacademy/nova-icons/solid/users/user-shield-1"
-```
-- generate the `.js`
-```
-npm run prepare
-```
-- by now your js file should be added within `/solid`, `/composition` or `/line` depending on your svg path.
+- Open the Iconjar collection in the `third-party` folder or add a new one
+- Drag and drop your SVG file into the collection (be careful of having a SVG without any custom color)
+- Add the path into the `icons.js` file at root
+- Generate the component using `yarn prepare`
 
 ## Usage
 
 ```jsx
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Beard from 'nova-icons/solid/beauty-and-spa/beard';
-import Hat from 'nova-icons/solid/clothes/hat-1';
+import React from 'react';
+import { NovaCompositionCoorpacademyCog } from '@coorpacademy/nova-icons';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <Beard width={100} height={100} />
-        <Hat width={100} height={100} />
-      </div>
-    );
-  }
-}
+const MyComponent = () => (
+  <NovaCompositionCoorpacademyCog width={32} height={32} color="#123456" />
+);
 
-
-export default App;
+export default MyComponent;
 ```
+
+**Note**: React-Native component will automatically be resolved as [Metro](https://github.com/facebook/metro) supports `.native.js` extension.
+
+## Props
+
+You can use the props supported by [svg](https://developer.mozilla.org/docs/Web/SVG/Attribute) and [react-native-svg](https://github.com/react-native-community/react-native-svg) `<SVG />` component with camel case format (ie: strokeColor).
+
+## Contributing
+
+Please, run `yarn test` before submitting a pull request.
