@@ -1,20 +1,29 @@
-const find = fixtures => (type, ref) => {
+// @flow
+
+import type {ContentType, Fixtures, Level, Recommendation} from './definitions';
+import {CONTENT_TYPE} from './definitions';
+
+const find = (fixtures: Fixtures) => (
+  type: ContentType,
+  ref: string
+): Promise<Array<Recommendation>> => {
   const {findRecommendations} = fixtures;
   const recommendations = findRecommendations(type, ref);
   return Promise.resolve(recommendations);
 };
 
-const getNext = fixtures => (type, ref) => {
+const getNext = (fixtures: Fixtures) => (type: ContentType, ref: string): Promise<void | Level> => {
   const {getNextLevel} = fixtures;
   switch (type) {
-    case 'chapter':
-      return Promise.resolve(undefined);
-    case 'level':
+    case CONTENT_TYPE.LEVEL:
       return Promise.resolve(getNextLevel(ref));
+    case CONTENT_TYPE.CHAPTER:
+    default:
+      return Promise.resolve(undefined);
   }
 };
 
-const Recommendations = fixtures => ({
+const Recommendations = (fixtures: Fixtures) => ({
   find: find(fixtures),
   getNext: getNext(fixtures)
 });

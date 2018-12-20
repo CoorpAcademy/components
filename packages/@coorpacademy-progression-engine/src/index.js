@@ -11,9 +11,18 @@ import createProgression from './create-progression';
 import {getConfig, getConfigForProgression} from './config';
 import ERRORS from './errors';
 
-import type {Action, Config, Content, Progression, State} from './types';
+import type {
+  Action,
+  Config,
+  Content,
+  EngineOptions,
+  Progression,
+  Question,
+  Slide,
+  State
+} from './types';
 
-export type {Action, Config, Content, Progression, State};
+export type {Action, Config, Content, EngineOptions, Progression, Question, Slide, State};
 
 export {
   checkAnswer,
