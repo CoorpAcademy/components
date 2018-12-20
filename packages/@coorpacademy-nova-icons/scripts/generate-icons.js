@@ -11,9 +11,9 @@ import svgr from '@svgr/core';
 import mkdirp from 'mkdirp-promise';
 
 import whiteList from '../icons';
-import {parseMeta, getSVGFilePath} from '../src/modules/iconjar-reader';
-import type {Meta, Item} from '../src/modules/iconjar-reader';
-import {formatKebabCase} from '../src/modules/string-formatter';
+import {parseMeta, getSVGFilePath} from './modules/iconjar-reader';
+import type {Meta, Item} from './modules/iconjar-reader';
+import {formatKebabCase} from './modules/string-formatter';
 
 const iconsPath = path.resolve(`${__dirname}/../third-party`);
 const componentsPath = path.resolve(`${__dirname}/../src/components`);
