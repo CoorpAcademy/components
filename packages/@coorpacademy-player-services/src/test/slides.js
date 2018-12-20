@@ -2,12 +2,12 @@ import test from 'ava';
 import head from 'lodash/fp/head';
 import pipe from 'lodash/fp/pipe';
 import values from 'lodash/fp/values';
-import SlidesService from '../slides';
+import createSlidesService from '../slides';
 
 import slidesData from './fixtures/data/slides';
 import * as fixtures from './fixtures';
 
-const Slides = SlidesService(fixtures);
+const Slides = createSlidesService(fixtures);
 const {findById} = Slides;
 
 test('should findById', async t => {

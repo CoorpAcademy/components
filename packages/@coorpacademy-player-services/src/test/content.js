@@ -4,14 +4,14 @@ import head from 'lodash/fp/head';
 import pipe from 'lodash/fp/pipe';
 import values from 'lodash/fp/values';
 import {getConfig} from '@coorpacademy/progression-engine';
-import ContentService from '../content';
+import createContentService from '../content';
 import chaptersData from './fixtures/data/chapters';
 import slidesData from './fixtures/data/slides';
 import levelsData from './fixtures/data/levels';
 
 import * as fixtures from './fixtures';
 
-const {find, getInfo} = ContentService(fixtures);
+const {find, getInfo} = createContentService(fixtures);
 
 const first = pipe(values, head);
 

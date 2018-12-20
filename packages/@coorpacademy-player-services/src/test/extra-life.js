@@ -1,8 +1,8 @@
 import test from 'ava';
-import ProgressionsService from '../progressions';
+import createContentService from '../progressions';
 import * as fixtures from './fixtures';
 
-const Progressions = ProgressionsService(fixtures);
+const Progressions = createContentService(fixtures);
 
 const engine = {
   ref: 'microlearning',

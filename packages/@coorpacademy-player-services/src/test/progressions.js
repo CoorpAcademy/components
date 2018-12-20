@@ -4,10 +4,10 @@ import isObject from 'lodash/fp/isObject';
 import isString from 'lodash/fp/isString';
 import {getConfig} from '@coorpacademy/progression-engine';
 
-import ProgressionsService from '../progressions';
+import createProgressionsService from '../progressions';
 import * as fixtures from './fixtures';
 
-const Progressions = ProgressionsService(fixtures);
+const Progressions = createProgressionsService(fixtures);
 const {
   create,
   findById,
@@ -53,8 +53,8 @@ test('should create progression for a non-adaptive chapter', async t => {
     omit(['_id', 'state', ['actions', 0, 'payload', 'nextContent', 'ref']], progression),
     {
       engine,
+      engineOptions: undefined,
       content: {type: 'chapter', ref: '5.C7'},
-      engineOptions: {},
       actions: [{type: 'move', payload: {instructions: null, nextContent: {type: 'slide'}}}]
     }
   );
@@ -67,8 +67,8 @@ test('should create progression for an adaptive chapter', async t => {
   t.is(progression.state.nextContent.ref, progression.actions[0].payload.nextContent.ref);
   t.deepEqual(omit(['_id', 'state'], progression), {
     engine,
+    engineOptions: undefined,
     content: {type: 'chapter', ref: 'cha_N19MiQrYG'},
-    engineOptions: {},
     actions: [
       {
         type: 'move',
@@ -101,7 +101,7 @@ test('should create progression for a level', async t => {
     {
       engine: learnerEngine,
       content: {type: 'level', ref: '1.A'},
-      engineOptions: {},
+      engineOptions: undefined,
       actions: [
         {
           type: 'move',

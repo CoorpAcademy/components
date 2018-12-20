@@ -20,8 +20,7 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'slide',
-            ref: '1.B2.4',
-            instructions: null
+            ref: '1.B2.4'
           }
         }
       }
@@ -44,8 +43,7 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'slide',
-            ref: 'sli_VkcAWR-ZQ',
-            instructions: null
+            ref: 'sli_VkcAWR-ZQ'
           }
         }
       },
@@ -85,8 +83,7 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'slide',
-            ref: 'sli_41GXTiG8X',
-            instructions: null
+            ref: 'sli_41GXTiG8X'
           }
         }
       }
@@ -109,8 +106,7 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'slide',
-            ref: 'sli_VkcAWR-ZQ',
-            instructions: null
+            ref: 'sli_VkcAWR-ZQ'
           }
         }
       },
@@ -201,8 +197,7 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'failure',
-            ref: 'failExitNode',
-            instructions: null
+            ref: 'failExitNode'
           }
         }
       }
@@ -225,8 +220,7 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             ref: 'sli_Nk2vje~E~',
-            type: 'slide',
-            instructions: null
+            type: 'slide'
           }
         }
       }
@@ -249,8 +243,7 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             ref: '1.B2.9',
-            type: 'slide',
-            instructions: null
+            type: 'slide'
           }
         }
       }
@@ -273,8 +266,7 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             ref: '1.B2.10',
-            type: 'slide',
-            instructions: null
+            type: 'slide'
           }
         }
       }
@@ -297,8 +289,7 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             ref: '1.B2.11',
-            type: 'slide',
-            instructions: null
+            type: 'slide'
           }
         }
       }
@@ -321,8 +312,7 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             ref: '1.B2.12',
-            type: 'slide',
-            instructions: null
+            type: 'slide'
           }
         }
       }
@@ -345,8 +335,7 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             ref: '1.B2.13',
-            type: 'slide',
-            instructions: null
+            type: 'slide'
           }
         }
       }
@@ -369,8 +358,7 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'slide',
-            ref: 'sli_41GXTiG8',
-            instructions: null
+            ref: 'sli_41GXTiG8'
           }
         }
       },
@@ -446,8 +434,7 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'slide',
-            ref: 'sli_41GXTiG8X',
-            instructions: null
+            ref: 'sli_41GXTiG8X'
           }
         }
       }
@@ -470,8 +457,7 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'slide',
-            ref: 'sli_VkcAWR-ZQ',
-            instructions: null
+            ref: 'sli_VkcAWR-ZQ'
           }
         }
       },
@@ -511,8 +497,7 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'slide',
-            ref: 'sli_4yHKRmBtz',
-            instructions: null
+            ref: 'sli_4yHKRmBtz'
           }
         }
       }
@@ -536,8 +521,7 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'slide',
-            ref: 'sli_4JE0EO73M',
-            instructions: null
+            ref: 'sli_4JE0EO73M'
           },
           instructions: null
         }

@@ -295,7 +295,7 @@ const refuseExtraLife = (fixtures: Fixtures): RefuseExtraLife => async (
 const create = (fixtures: Fixtures): CreateProgression => async (
   engine: Engine,
   content: Content,
-  engineOptions: EngineOptions = {}
+  engineOptions: EngineOptions
 ): Promise<Progression> => {
   const _id = generateId();
 

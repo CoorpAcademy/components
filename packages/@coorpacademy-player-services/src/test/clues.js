@@ -5,11 +5,11 @@ import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import CluesService from '../clues';
 
-import ProgressionsService from '../progressions';
+import createProgressionsService from '../progressions';
 import * as fixtures from './fixtures';
 import slidesData from './fixtures/data/slides';
 
-const Progressions = ProgressionsService(fixtures);
+const Progressions = createProgressionsService(fixtures);
 const {findById} = CluesService(fixtures);
 
 const engine = {
