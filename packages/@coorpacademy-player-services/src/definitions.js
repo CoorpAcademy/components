@@ -246,6 +246,7 @@ export const CONTENT_TYPE: {[string]: ContentType} = {
 
 export type {
   Chapter,
+  Clue,
   Correction,
   DataEvent,
   ExitNode,

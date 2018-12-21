@@ -2,6 +2,7 @@
 
 import type {Fixtures} from './definitions';
 import type {AnswersService} from './answers';
+import type {CluesService} from './clues';
 import type {ContentService} from './content';
 import type {ProgressionsService} from './progressions';
 import type {RecommendationsService} from './recommendations';
@@ -10,7 +11,7 @@ import type {ExitNodesService} from './exit-nodes';
 
 import * as AnalyticsService from './analytics';
 import createAnswersService from './answers';
-import CluesService from './clues';
+import createCluesService from './clues';
 import * as CoachService from './coach';
 import * as CommentsService from './comments';
 import createContentService from './content';
@@ -21,11 +22,18 @@ import createProgressionsService from './progressions';
 import createRecommendationsService from './recommendations';
 import createSlidesService from './slides';
 
-export type {ContentService, ProgressionsService, RecommendationsService, SlidesService};
+export type {
+  AnswersService,
+  CluesService,
+  ContentService,
+  ProgressionsService,
+  RecommendationsService,
+  SlidesService
+};
 
 export const Analytics = AnalyticsService;
 export const Answers: Fixtures => AnswersService = createAnswersService;
-export const Clues = CluesService;
+export const Clues: Fixtures => CluesService = createCluesService;
 export const Coach = CoachService;
 export const Comments = CommentsService;
 export const Content = createContentService;
