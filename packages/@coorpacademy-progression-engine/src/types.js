@@ -2,11 +2,11 @@
 
 import type {Instruction, ChapterRule} from './rule-engine/types';
 
-export type User = {
+export type User = {|
   id: string,
   name: string,
   avatar: string
-};
+|};
 
 export type Team = Array<User>;
 export type Teams = Array<Team>;
@@ -28,22 +28,22 @@ export type VIDEO = 'video';
 export type PDF = 'pdf';
 export type ContentType = CHAPTER | LEVEL | SLIDE | NODE | FAILURE | SUCCESS | VIDEO | PDF;
 
-export type ContentSlide = {
+export type ContentSlide = {|
   type: SLIDE,
   ref: string
-};
+|};
 
-export type GenericContent = {
+export type GenericContent = {|
   ref: string,
   type: ContentType,
   version?: string
-};
+|};
 
-export type ResourceContent = {
+export type ResourceContent = {|
   ref: string,
   type: VIDEO | PDF,
   version?: string
-};
+|};
 
 export type Content = GenericContent | ResourceContent;
 
@@ -199,10 +199,10 @@ export type Action =
       authors?: Array<string> | void
     });
 
-export type Engine = {
+export type Engine = {|
   ref: string,
   version: string
-};
+|};
 
 export type Config = {
   version: string,
@@ -232,7 +232,7 @@ export type Progression = {|
   engine: Engine,
   engineOptions: EngineOptions,
   actions?: Array<Action>
-};
+|};
 
 export type PartialCorrection = {
   answer: string | void,
@@ -246,58 +246,58 @@ export type AnswerCorrection = {
 
 export type AcceptedAnswers = Array<Answer>;
 
-type QuestionCommon = {
+type QuestionCommon = {|
   explanation?: string,
   header?: string,
   medias?: Array<string>
-};
+|};
 
-export type QCMQuestion = {
-  ...{
+export type QCMQuestion = {|
+  ...{|
     type: 'qcm',
     content: {
       answers: AcceptedAnswers
     }
-  } & QuestionCommon
-};
+  |} & QuestionCommon
+|};
 
-export type QCMGraphicQuestion = {
+export type QCMGraphicQuestion = {|
   type: 'qcmGraphic',
   content: {
     answers: AcceptedAnswers
   }
-};
+|};
 
-export type SliderQuestion = {
+export type SliderQuestion = {|
   type: 'slider',
   content: {
     answers: AcceptedAnswers
   }
-};
+|};
 
-export type QCMDragQuestion = {
-  ...{
+export type QCMDragQuestion = {|
+  ...{|
     type: 'qcmDrag',
     content: {
       matchOrder: boolean,
       answers: AcceptedAnswers
     }
-  } & QuestionCommon
-};
+  |} & QuestionCommon
+|};
 
-export type BasicQuestion = {
+export type BasicQuestion = {|
   type: 'basic',
   content: {
     maxTypos?: ?number,
     answers: AcceptedAnswers
   }
-};
+|};
 
-type TemplateChoice = {
+type TemplateChoice = {|
   type: 'text' | 'select'
-};
+|};
 
-export type TemplateQuestion = {
+export type TemplateQuestion = {|
   type: 'template',
   content: {
     matchOrder: boolean,
@@ -305,7 +305,7 @@ export type TemplateQuestion = {
     choices: Array<TemplateChoice>,
     answers: AcceptedAnswers
   }
-};
+|};
 
 export type Question =
   | QCMQuestion

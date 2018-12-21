@@ -60,6 +60,10 @@ test('should create a new progression with the latest version of the engine and 
   t.is(progression.engineOptions, engineOptions);
   t.true(Array.isArray(progression.actions));
 
+  if (!progression.actions) {
+    throw new Error('progression should have actions');
+  }
+
   const action = progression.actions[0];
   if (action.type !== 'racing-setup') throw new Error('not a racing-setup');
 

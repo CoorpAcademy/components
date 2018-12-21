@@ -35,9 +35,30 @@ export default function validate(config: Config): (AnyState, Action) => void {
         const states = getOwnerStates(state, action);
 
         forEach(_state => {
-          if (!action.payload || !action.payload.content) {
+          // note: if for flow....
+          if (
+            action.type !== 'answer' &&
+            action.type !== 'extraLifeAccepted' &&
+            action.type !== 'extraLifeRefused'
+          ) {
+            return;
+          }
+
+          if (!action.payload) {
+            throw new Error(`no payload in this action of type ${action.type}`);
+          }
+
+          if (!action.payload.content) {
+            throw new Error(`no payload.content in this action of type ${action.type}`);
+          }
+
+          if (
+            !action.payload.content ||
+            !action.payload.content.ref ||
+            !action.payload.content.type
+          ) {
             throw new Error(
-              `no payload or no payload.content in this action of type ${action.type}`
+              `payload.content ref and type are required in this action of type ${action.type}`
             );
           }
 
@@ -47,14 +68,14 @@ export default function validate(config: Config): (AnyState, Action) => void {
           }
 
           if (
-            state.nextContent.ref !== action.payload.content.ref ||
-            state.nextContent.type !== action.payload.content.type
+            _state.nextContent.ref !== action.payload.content.ref ||
+            _state.nextContent.type !== action.payload.content.type
           ) {
             throw createStateValidationError(
               `The content of the progression state does not match the ${
                 action.type
               } action: state.nextContent: ${JSON.stringify(
-                state.nextContent
+                _state.nextContent
               )} | action.payload.content: ${JSON.stringify(action.payload.content)}`
             );
           }

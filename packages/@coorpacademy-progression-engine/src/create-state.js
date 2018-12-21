@@ -15,6 +15,10 @@ type Updater = {
 const getUpdater = (progression: Progression): Updater => {
   switch (progression.engine.ref) {
     case 'racing': {
+      if (!progression.actions) {
+        throw new Error(`racing progression should have actions`);
+      }
+
       const action = progression.actions[0];
       if (action.type !== 'racing-setup') throw new Error('not a racing-setup');
 
