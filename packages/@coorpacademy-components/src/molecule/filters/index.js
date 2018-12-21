@@ -93,7 +93,7 @@ class Filters extends React.Component {
           <div className={style.title} data-name="filterButton" onClick={this.handleOpenFilter}>
             {filterTabLabel}
             <div className={style.arrow}>
-              <ArrowDown color={darkColor} />
+              <ArrowDown color={darkColor} height={14} />
             </div>
           </div>
         </div>
@@ -105,7 +105,7 @@ class Filters extends React.Component {
           <div className={style.title} data-name="sortButton" onClick={this.handleOpenSort}>
             {sortTabLabel}
             <div className={style.arrow}>
-              <ArrowDown color={darkColor} />
+              <ArrowDown color={darkColor} height={14} />
             </div>
           </div>
         </div>

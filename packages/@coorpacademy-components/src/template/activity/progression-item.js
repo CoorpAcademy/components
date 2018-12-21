@@ -28,7 +28,7 @@ const ProgressionItem = (props, context) => {
         backgroundColor: primary
       }}
     >
-      <AdaptiveIcon color={white} />
+      <AdaptiveIcon color={white} height={14} />
     </div>
   ) : null;
 
@@ -76,7 +76,7 @@ const ProgressionItem = (props, context) => {
           data-progression-state={state}
         >
           <span className={style.cta}>
-            {state} <ArrowRightIcon color={primary} />
+            {state} <ArrowRightIcon color={primary} height={12} />
           </span>
         </Link>
         <span className={style.level}>{level}</span>

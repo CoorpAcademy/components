@@ -4,9 +4,9 @@ import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import {
   NovaCompositionNavigationMore as MoreIcon,
-  NovaLienLoginKey1 as KeyIcon,
+  NovaLineLoginKey1 as KeyIcon,
   NovaLineVideosVideoClip3 as VideoIcon,
-  NovaSolidLightsLightBulb4 as LightBulbIcon,
+  NovaSolidLightsLightbulb4 as LightBulbIcon,
   NovaCompositionNavigationLess as LessIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../../atom/provider';

@@ -54,10 +54,12 @@ const Card = (props, context) => {
   const emptyIcon = empty ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
   const adaptivIcon = adaptiv ? (
     <div className={style.adaptiv}>
-      <AdaptivIcon color={whiteColor} />
+      <AdaptivIcon color={whiteColor} height={25} />
     </div>
   ) : null;
-  const lock = disabled ? <LockIcon className={style.lockIcon} color={whiteColor} /> : null;
+  const lock = disabled ? (
+    <LockIcon className={style.lockIcon} color={whiteColor} height={40} />
+  ) : null;
 
   const inlineBadgeStyle = {color: primaryColor};
   const inlineProgressValueStyle = {

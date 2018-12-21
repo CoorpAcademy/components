@@ -2,10 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import omit from 'lodash/fp/omit';
+import get from 'lodash/fp/get';
 import {NovaSolidVideosVideoControlPlay as Play} from '@coorpacademy/nova-icons';
 import Pdf from '../pdf';
 import VideoPlayer from '../video-player';
 import Life from '../../atom/life';
+import Provider from '../../atom/provider';
 import style from './style.css';
 
 export const TYPE_IMAGE = 'img';
@@ -60,13 +62,15 @@ ResourceElement.propTypes = {
   autoplay: PropTypes.bool
 };
 
-const OverlayElement = (props = {}) => {
+const OverlayElement = (props = {}, context) => {
   const {title, text, lifeAmount, onClick} = props;
+  const {skin} = context;
+  const dark = get('common.dark', skin);
 
   return (
     <div className={style.overlay} onClick={onClick} data-name="overlay">
       <div className={style.icons}>
-        <Play className={style.playButton} />
+        <Play className={style.playButton} color={dark} />
         <Life
           count={lifeAmount}
           operator="+"
@@ -82,6 +86,10 @@ const OverlayElement = (props = {}) => {
       <p className={style.overlayText}>{text}</p>
     </div>
   );
+};
+
+OverlayElement.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 
 OverlayElement.propTypes = {

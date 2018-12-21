@@ -32,7 +32,7 @@ class Favorite extends React.Component {
           color: primaryColor
         }}
       >
-        <BookmarkIcon className={style.bookmarkIcon} color={null} stroke={null} />
+        <BookmarkIcon className={style.bookmarkIcon} height={30} color={null} stroke={null} />
       </div>
     );
   }

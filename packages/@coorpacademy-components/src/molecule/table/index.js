@@ -46,7 +46,14 @@ const Table = (props, context) => {
           <label htmlFor={title}>{title}</label>
           {options.length > 0 ? createOptionsView(options) : null}
           <div className={style.optionsIconWrapper}>
-            {hasOptions ? <OptionsIcon color={mediumColor} className={style.optionsIcon} /> : null}
+            {hasOptions ? (
+              <OptionsIcon
+                color={mediumColor}
+                height={16}
+                width={16}
+                className={style.optionsIcon}
+              />
+            ) : null}
           </div>
         </div>
       </th>
@@ -69,7 +76,7 @@ const Table = (props, context) => {
     tableRows.unshift(
       <td key="header">
         <Link href={editHref}>
-          <PencilIcon color={mediumColor} hoverColor={brandColor} />
+          <PencilIcon color={mediumColor} hoverColor={brandColor} height={16} width={16} />
         </Link>
       </td>
     );

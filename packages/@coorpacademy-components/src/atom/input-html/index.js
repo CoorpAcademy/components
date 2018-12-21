@@ -50,9 +50,9 @@ class InputHtml extends React.Component {
       }));
     };
     const iconContent = !this.state.preview ? (
-      <PreviewIcon color={mediumColor} />
+      <PreviewIcon color={mediumColor} height={16} />
     ) : (
-      <PencilIcon color={mediumColor} />
+      <PencilIcon color={mediumColor} height={16} />
     );
     return (
       <div className={className}>
