@@ -197,6 +197,8 @@ type Module = {|
   external_refs: Array<?string>
 |};
 
+type Clue = string;
+
 type Correction = {
   correctAnswer: Array<Answer>,
   corrections: Array<PartialCorrection>
@@ -222,7 +224,7 @@ type ExitNode = {|
 type Fixtures = {|
   getAllProgressions: () => Array<Progression>,
   getChapterRulesByContent: (ref: string) => Array<ChapterRule>,
-  //   getClue,
+  getClue: (slideId: string) => Clue,
   getCorrectAnswer: (slideId: string) => Array<Answer>,
   getExitNode: (ref: string) => ExitNode,
   getNextLevel: (ref: string) => Level | void,
