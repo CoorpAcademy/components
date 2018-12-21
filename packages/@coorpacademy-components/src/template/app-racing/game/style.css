@@ -2,6 +2,7 @@
 @value mobile from breakpoints;
 
 @value colors: "../../../variables/colors.css";
+@value white from colors;
 @value positive from colors;
 @value negative from colors;
 
@@ -37,6 +38,7 @@
 .slideWrapper {
   display: block;
   margin: auto;
+  background-color: white;
 }
 
 .towers {

@@ -19,9 +19,9 @@ const NORMAL_TOTEMS = [
   {
     url:
       'https://user-images.githubusercontent.com/910636/50009173-998bb200-ffb6-11e8-8726-ebed8bbcd1b5.png',
-    colorWidth: 80,
-    width: 182,
-    height: 215
+    colorWidth: 100,
+    width: 215,
+    height: 184
   },
   {
     url:
