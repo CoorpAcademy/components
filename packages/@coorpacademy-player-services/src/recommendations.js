@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import type {ContentType} from '@coorpacademy/progression-engine';
 import type {Fixtures, Level, Recommendation} from './definitions';

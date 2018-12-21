@@ -1,12 +1,12 @@
 import test from 'ava';
 import find from 'lodash/fp/find';
-import AnswersService from '../answers';
+import createAnswersService from '../answers';
 import createProgressionsService from '../progressions';
 import slidesData from './fixtures/data/slides';
 import * as fixtures from './fixtures';
 
 const ProgressionsService = createProgressionsService(fixtures);
-const {findById} = AnswersService(fixtures);
+const {findById} = createAnswersService(fixtures);
 
 const engine = {
   ref: 'microlearning',
@@ -45,4 +45,16 @@ test("findById should throw error if slide doesn't exist", async t => {
     findById(progression._id, progression.state.nextContent.ref, ['foo', 'bar']),
     'Answer is not available'
   );
+});
+
+test('should fail with wrong progressionId', t => {
+  return t.throws(findById('wrongId', {}), 'progression "wrongId" not found');
+});
+
+test('should fail to acceptExtraLife with progression without state', async t => {
+  const progression = await ProgressionsService.create(engine, {type: 'chapter', ref: '5.C7'});
+  delete progression.state;
+  ProgressionsService.save(progression);
+
+  return t.throws(findById(progression._id, {}), `progression "${progression._id}" has no state`);
 });
