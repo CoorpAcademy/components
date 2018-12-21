@@ -7,7 +7,11 @@ import {checkAnswerCorrectness, getConfigForProgression} from '@coorpacademy/pro
 import type {Answer} from '@coorpacademy/progression-engine';
 import type {Correction, Fixtures} from './definitions';
 
-type FindById = (progressionId: string, slideId: string, givenAnswers: Answer) => Answers;
+type FindById = (
+  progressionId: string,
+  slideId: string,
+  givenAnswers: Answer
+) => Promise<Correction>;
 type AnswersService = {|
   findById: FindById
 |};
@@ -19,17 +23,17 @@ const findById = (fixtures: Fixtures): FindById => async (
 ): Promise<Correction> => {
   const {findProgressionById, findSlideById, getCorrectAnswer} = fixtures;
   const progression = await findProgressionById(progressionId);
-  
+
   if (!progression) {
     throw new Error(`progression "${progressionId}" not found`);
   }
-  
+
   const state = progression.state;
-  
+
   if (!state) {
     throw new Error(`progression "${progressionId}" has no state`);
   }
-  
+
   const slide = await findSlideById(slideId);
 
   if (!includes(slideId, state.slides)) throw new Error('Answer is not available');

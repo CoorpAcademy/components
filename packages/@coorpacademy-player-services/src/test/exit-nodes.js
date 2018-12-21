@@ -2,12 +2,12 @@ import test from 'ava';
 import head from 'lodash/fp/head';
 import pipe from 'lodash/fp/pipe';
 import values from 'lodash/fp/values';
-import ExitNodesService from '../exit-nodes';
+import createExitNodesService from '../exit-nodes';
 import exitNodesData from './fixtures/data/exit-nodes';
 
 import * as fixtures from './fixtures';
 
-const ExitNodes = ExitNodesService(fixtures);
+const ExitNodes = createExitNodesService(fixtures);
 const {findById} = ExitNodes;
 
 const first = pipe(values, head);
