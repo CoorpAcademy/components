@@ -4,9 +4,7 @@
     "transform-object-rest-spread",
     "transform-class-properties"
   ],
-  "presets": [
-    "react"
-  ],
+  "presets": ["react"],
   "env": {
     "commonjs": {
       "presets": [

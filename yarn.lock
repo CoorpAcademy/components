@@ -1057,10 +1057,10 @@
     prettier "1.11.1"
     requireindex "^1.2.0"
 
-"@coorpacademy/progression-engine@9.2.3":
-  version "9.2.3"
-  resolved "https://registry.npmjs.org/@coorpacademy/progression-engine/-/progression-engine-9.2.3.tgz#012622fb66eb121b81a9df81e8b72cb5ed8cc6de"
-  integrity sha512-533+DIjAXC7iHt2O5hXPKFIxNKXvO5rN8OBhTahmkixPJGXatCDIl+cX8keSlv4MbuVAjCNFR/D77p8JaZcRCw==
+"@coorpacademy/progression-engine@9.2.5":
+  version "9.2.5"
+  resolved "https://registry.npmjs.org/@coorpacademy/progression-engine/-/progression-engine-9.2.5.tgz#21efe57d17498eaa534a08d645143787bb828261"
+  integrity sha512-rCaD/AUacENydWAEQD04xdR8r+TKVvpBxHaC30wDgS5XChgGd6WL8BlGjT9WnQHrMTvQ7S1IghJEox7IePUtoA==
   dependencies:
     fuzzy-matching "^0.4.3"
     lodash "^4.17.4"
