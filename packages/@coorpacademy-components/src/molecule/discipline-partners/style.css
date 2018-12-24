@@ -32,7 +32,7 @@
 .linkicon {
   position: relative;
   margin-left: 6px;
-  top: -1px;
+  top: 1px;
   box-sizing: border-box;
   width: 10px;
   height: 10px;
