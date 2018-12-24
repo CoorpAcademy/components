@@ -9,6 +9,7 @@
 .field {
   margin-bottom: 20px;
   margin-left: 20%;
+  text-align: left;
 }
 
 .field:last-child {
