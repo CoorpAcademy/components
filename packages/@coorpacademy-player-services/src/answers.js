@@ -5,6 +5,7 @@ import includes from 'lodash/fp/includes';
 import {checkAnswerCorrectness, getConfigForProgression} from '@coorpacademy/progression-engine';
 
 import type {Answer} from '@coorpacademy/progression-engine';
+import type {Fixtures} from './definitions';
 import type {Correction, Fixtures} from './definitions';
 
 type FindById = (
@@ -12,6 +13,7 @@ type FindById = (
   slideId: string,
   givenAnswers: Answer
 ) => Promise<Correction>;
+
 type AnswersService = {|
   findById: FindById
 |};

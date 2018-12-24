@@ -7,7 +7,6 @@ import type {
   ChapterRule,
   Content,
   ContentType,
-  PartialCorrection,
   Progression,
   Slide
 } from '@coorpacademy/progression-engine';
@@ -93,29 +92,10 @@ type Media = {|
   src?: Array<Source>
 |};
 
-// type Context = {|
-//   title: string,
-//   description: string,
-//   media: Media
-// |};
-
 type Meta = {|
   updatedAt: string,
   createdAt: string
 |};
-
-// type Slide = {|
-//   _id: string,
-//   klf: string,
-//   tips: string,
-//   hasClue: boolean,
-//   chapter_id: string,
-//   authors: Array<string>,
-//   context: Context,
-//   meta: Meta,
-//   lessons: Array<Lesson>,
-//   question: Question
-// |};
 
 type Recommendation = {|
   view: string,
@@ -151,58 +131,7 @@ type Chapter = {|
   version: string
 |};
 
-type Level = {|
-  universalRef?: string,
-  disciplineRef?: string,
-  ref: string,
-  name: string,
-  level: string,
-  meta: Meta,
-  poster: Poster,
-  chapterIds: Array<string>,
-  levelTranslation?: string,
-  mediaUrl?: Url,
-  timeAlloted?: number,
-  eligibleBattle?: boolean,
-  creditsToAccess?: number,
-  infiniteLives?: boolean,
-  isConditional?: boolean,
-  acquiredSkills?: Array<string>
-|};
-
-type Stats = {|
-  userTriesCoun: number,
-  userDoneCoun: number
-|};
-
-type Module = {|
-  _id: string,
-  disciplineRef: string,
-  name: string,
-  levelTranslation: string,
-  mediaUrl: Url,
-  timeAlloted: number,
-  level: string,
-  universalRef: string,
-  ref: string,
-  eligibleBattle: boolean,
-  creditsToAccess: number,
-  infiniteLives: boolean,
-  isConditional: boolean,
-  data: Array<?string>,
-  stats: Stats,
-  chapterIds: Array<string>,
-  acquiredSkills: Array<string>,
-  version: string,
-  external_refs: Array<?string>
-|};
-
 type Clue = string;
-
-type Correction = {
-  correctAnswer: Array<Answer>,
-  corrections: Array<PartialCorrection>
-};
 
 type UserAnswer = {|
   answer: Answer,
@@ -247,14 +176,11 @@ export const CONTENT_TYPE: {[string]: ContentType} = {
 export type {
   Chapter,
   Clue,
-  Correction,
   DataEvent,
   ExitNode,
   ExitNodeRef,
   Fixtures,
   JwPlayerOptions,
-  Level,
-  Module,
   Recommendation,
   Resource,
   ResourceMimeType,

@@ -3,7 +3,8 @@
 import reduce from 'lodash/fp/reduce';
 import _find from 'lodash/fp/find';
 
-import type {Level, Recommendation} from '../../definitions';
+import type {Level} from '@coorpacademy/player-store';
+import type {Recommendation} from '../../definitions';
 import levelsData from './data/levels';
 import recommendations from './data/recommendations';
 

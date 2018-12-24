@@ -1,11 +1,18 @@
+// @flow strict
+
 import ReduxThunkMemoized from './middlewares/redux-thunk-memoized';
 import ErrorLogger from './middlewares/error-logger';
 
 import data from './reducers/data';
 import ui from './reducers/ui';
 
+import type {FindById, AnswersService} from './definitions/services/answers';
+import type {Level, Correction} from './definitions/models';
+
 const reducers = {data, ui};
 const middlewares = {ErrorLogger, ReduxThunkMemoized};
+
+export type {FindById, AnswersService, Level, Correction};
 
 export * from './utils/state-extract';
 export * from './actions/api/analytics';

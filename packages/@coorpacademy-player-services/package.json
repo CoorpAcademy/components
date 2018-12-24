@@ -47,6 +47,7 @@
     "rimraf": "^2.6.1"
   },
   "dependencies": {
+    "@coorpacademy/player-store": "1.2.2",
     "@coorpacademy/progression-engine": "9.3.0",
     "lodash": "^4.17.4"
   },
