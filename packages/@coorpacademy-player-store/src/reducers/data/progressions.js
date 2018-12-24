@@ -6,9 +6,6 @@ import get from 'lodash/fp/get';
 import unset from 'lodash/fp/unset';
 import pipe from 'lodash/fp/pipe';
 import {
-  PROGRESSION_FETCH_SUCCESS,
-  PROGRESSION_FETCH_REQUEST,
-  PROGRESSION_FETCH_FAILURE,
   PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
   PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
   PROGRESSION_CREATE_ANSWER_REQUEST,
@@ -17,7 +14,13 @@ import {
   PROGRESSION_RESOURCE_VIEWED_SUCCESS
 } from '../../actions/api/progressions';
 
-const dataProgressionsReducer = (state = {entities: {}}, action) => {
+import {
+  PROGRESSION_FETCH_SUCCESS,
+  PROGRESSION_FETCH_REQUEST,
+  PROGRESSION_FETCH_FAILURE
+} from '../../middlewares/progressions';
+
+const fetchProgressionsReducer = action => state => {
   switch (action.type) {
     case PROGRESSION_FETCH_SUCCESS: {
       const {payload, meta} = action;
@@ -29,6 +32,19 @@ const dataProgressionsReducer = (state = {entities: {}}, action) => {
       const {id} = meta;
       return update(['entities', id], progression => progression || null, state);
     }
+    case PROGRESSION_FETCH_FAILURE: {
+      const {meta} = action;
+      const {id} = meta;
+      if (pipe(get(['entities', id]), isNull)(state)) return unset(['entities', id], state);
+      return state;
+    }
+    default:
+      return state;
+  }
+};
+
+const dataProgressionsReducer = action => state => {
+  switch (action.type) {
     case PROGRESSION_CREATE_ANSWER_REQUEST: {
       const {meta} = action;
       const {progressionId} = meta;
@@ -48,15 +64,13 @@ const dataProgressionsReducer = (state = {entities: {}}, action) => {
         state
       );
     }
-    case PROGRESSION_FETCH_FAILURE: {
-      const {meta} = action;
-      const {id} = meta;
-      if (pipe(get(['entities', id]), isNull)(state)) return unset(['entities', id], state);
-      return state;
-    }
     default:
       return state;
   }
 };
 
-export default dataProgressionsReducer;
+const defaultProgressionsReducer = (state = {entities: {}}, action) =>
+  pipe(fetchProgressionsReducer(action), dataProgressionsReducer(action))(state);
+
+export {fetchProgressionsReducer, dataProgressionsReducer};
+export default defaultProgressionsReducer;

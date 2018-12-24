@@ -2,7 +2,7 @@ import get from 'lodash/fp/get';
 import last from 'lodash/fp/last';
 import isNil from 'lodash/fp/isNil';
 import buildTask from '@coorpacademy/redux-task';
-import {fetchProgression, fetchEngineConfig, fetchBestProgression} from '../api/progressions';
+import {fetchEngineConfig, fetchBestProgression} from '../api/progressions';
 import {fetchEndRank, fetchStartRank} from '../api/rank';
 import {fetchExitNode} from '../api/exit-nodes';
 import {fetchContent, fetchContentInfo, fetchSlideChapter} from '../api/contents';
@@ -18,6 +18,7 @@ import {
   getPrevStepContent,
   getSlide
 } from '../../utils/state-extract';
+import {PROGRESSION_FETCH_REQUEST} from '../../middlewares/progressions';
 import {selectRoute} from './route';
 
 export const UI_PROGRESSION_UPDATED = '@@ui/UI_PROGRESSION_UPDATED';
@@ -43,8 +44,11 @@ export const selectProgression = id => async (dispatch, getState) => {
   });
 
   const progressionId = getCurrentProgressionId(getState());
-  const response = await dispatch(fetchProgression(progressionId));
-  if (response.error) return response;
+
+  await dispatch({
+    type: PROGRESSION_FETCH_REQUEST,
+    meta: {id}
+  });
 
   await dispatch(fetchStartRank());
   const progressionContent = getProgressionContent(getState());

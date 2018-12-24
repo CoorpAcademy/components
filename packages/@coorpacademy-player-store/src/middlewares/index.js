@@ -5,6 +5,7 @@ import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
 import memoizeTask from '../utils/memoize-task';
 import ErrorLogger from './error-logger';
+import ProgressionFetcher from './progression-fetcher';
 
 const memoizeService = (options, keyPath) => {
   const service = get(keyPath, options);
@@ -25,7 +26,8 @@ const middlewares = options => {
   return compose(
     applyMiddleware(
       ReduxThunk.withExtraArgument(optionsWithMemoizedServices),
-      ErrorLogger(options)
+      ErrorLogger(options),
+      ProgressionFetcher(options)
     ),
     typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__
       ? window.__REDUX_DEVTOOLS_EXTENSION__()

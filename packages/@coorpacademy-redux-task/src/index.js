@@ -11,14 +11,20 @@ const reduxTask = ({bailout = constant(false), meta, task, types}) => async (
   getState,
   options
 ) => {
-  const [REQUEST, SUCCESS, FAILURE] = types;
+  let REQUEST, SUCCESS, FAILURE;
 
-  const request = await pipe(setMeta(meta), dispatch)({
-    type: REQUEST
-  });
+  if (types.length === 3) {
+    [REQUEST, SUCCESS, FAILURE] = types;
+
+    await pipe(setMeta(meta), dispatch)({
+      type: REQUEST
+    });
+  } else {
+    [SUCCESS, FAILURE] = types;
+  }
 
   if (bailout(getState())) {
-    return request;
+    return true;
   }
 
   try {
