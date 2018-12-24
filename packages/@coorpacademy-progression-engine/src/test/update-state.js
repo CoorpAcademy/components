@@ -9,6 +9,7 @@ import type {
   AnswerAction,
   AskClueAction,
   State,
+  ContentType,
   ContentResourceViewedAction,
   ExtraLifeAcceptedAction,
   ExtraLifeRefusedAction
@@ -26,7 +27,7 @@ const engine = {
 const config = getConfig(engine);
 
 function contentResourceViewedAction(
-  contentType: string,
+  contentType: ContentType,
   contentRef: string,
   lessonRef: string
 ): ContentResourceViewedAction {

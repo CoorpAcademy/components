@@ -1,8 +1,16 @@
 // @flow strict
 
-import type {Progression, Slide} from '@coorpacademy/progression-engine';
-
-type ContentType = 'chapter' | 'level' | 'slide';
+import type {
+  FAILURE,
+  SUCCESS,
+  Answer,
+  ChapterRule,
+  Content,
+  ContentType,
+  PartialCorrection,
+  Progression,
+  Slide
+} from '@coorpacademy/progression-engine';
 
 type Url = string;
 type AspectRatio = '16:9' | '4:3';
@@ -74,16 +82,16 @@ type Window = {|
   dataLayer?: Array<DataEvent>
 |};
 
-// type Media = {|
-//   type: string,
-//   description: string,
-//   mimeType: ResourceMimeType,
-//   _id: string,
-//   mediaUrl: Url,
-//   subtitles?: Array<string>,
-//   posters?: Array<Url>,
-//   src?: Array<Source>
-// |};
+type Media = {|
+  type: string,
+  description: string,
+  mimeType: ResourceMimeType,
+  _id: string,
+  mediaUrl: Url,
+  subtitles?: Array<string>,
+  posters?: Array<Url>,
+  src?: Array<Source>
+|};
 
 // type Context = {|
 //   title: string,
@@ -189,19 +197,43 @@ type Module = {|
   external_refs: Array<?string>
 |};
 
+type Clue = string;
+
+type Correction = {
+  correctAnswer: Array<Answer>,
+  corrections: Array<PartialCorrection>
+};
+
+type UserAnswer = {|
+  answer: Answer,
+  content: Content
+|};
+
+type ExitNodeRef = 'successExitNode' | 'failureExitNode';
+type ExitNodeType = SUCCESS | FAILURE;
+
+type ExitNode = {|
+  ref: ExitNodeRef,
+  type: ExitNodeType,
+  meta: Meta,
+  title: string,
+  description: string,
+  media: Media
+|};
+
 type Fixtures = {|
   getAllProgressions: () => Array<Progression>,
-  //   getChapterRulesByContent,
-  //   getClue,
-  //   getCorrectAnswer,
-  //   getExitNode,
+  getChapterRulesByContent: (ref: string) => Array<ChapterRule>,
+  getClue: (slideId: string) => Clue,
+  getCorrectAnswer: (slideId: string) => Array<Answer>,
+  getExitNode: (ref: string) => ExitNode,
   getNextLevel: (ref: string) => Level | void,
-  //   findChapterById,
-  //   findContent,
-  //   findLevelById,
+  findChapterById: (contentRef: string) => Chapter,
+  findContent: (type: string, ref: string) => Promise<Chapter | Level | Slide>,
+  findLevelById: (contentRef: string) => Level | void,
   findProgressionById: (id: string) => Promise<Progression | void>,
   findRecommendations: (type: string, ref: string) => Promise<Array<Recommendation>>,
-  //   findSlideByChapter,
+  findSlideByChapter: (chapterRef: string) => Array<Slide>,
   findSlideById: (id: string) => Promise<Slide>,
   saveProgression: Progression => void
 |};
@@ -214,14 +246,20 @@ export const CONTENT_TYPE: {[string]: ContentType} = {
 
 export type {
   Chapter,
-  ContentType,
+  Clue,
+  Correction,
   DataEvent,
+  ExitNode,
+  ExitNodeRef,
   Fixtures,
+  JwPlayerOptions,
   Level,
   Module,
   Recommendation,
   Resource,
+  ResourceMimeType,
   ResourceType,
   Url,
+  UserAnswer,
   Window
 };

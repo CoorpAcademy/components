@@ -1,26 +1,46 @@
+// @flow strict
+
+import type {Fixtures} from './definitions';
+import type {AnswersService} from './answers';
+import type {CluesService} from './clues';
+import type {ContentService} from './content';
+import type {ProgressionsService} from './progressions';
+import type {RecommendationsService} from './recommendations';
+import type {SlidesService} from './slides';
+import type {ExitNodesService} from './exit-nodes';
+
 import * as AnalyticsService from './analytics';
-import AnswersService from './answers';
-import CluesService from './clues';
+import createAnswersService from './answers';
+import createCluesService from './clues';
 import * as CoachService from './coach';
 import * as CommentsService from './comments';
-import ContentService from './content';
-import ExitNodesService from './exit-nodes';
+import createContentService from './content';
+import createExitNodesService from './exit-nodes';
 import * as LeaderBoardService from './leaderboard';
 import * as LocationService from './location';
-import ProgressionsService from './progressions';
-import RecommendationsService from './recommendations';
-import SlidesService from './slides';
+import createProgressionsService from './progressions';
+import createRecommendationsService from './recommendations';
+import createSlidesService from './slides';
+
+export type {
+  AnswersService,
+  CluesService,
+  ContentService,
+  ProgressionsService,
+  RecommendationsService,
+  SlidesService
+};
 
 export const Analytics = AnalyticsService;
-export const Answers = AnswersService;
-export const Clues = CluesService;
+export const Answers: Fixtures => AnswersService = createAnswersService;
+export const Clues: Fixtures => CluesService = createCluesService;
 export const Coach = CoachService;
 export const Comments = CommentsService;
-export const Content = ContentService;
-export const ExitNodes = ExitNodesService;
+export const Content = createContentService;
+export const ExitNodes: Fixtures => ExitNodesService = createExitNodesService;
 export const LeaderBoard = LeaderBoardService;
 export const Location = LocationService; // eslint-disable-line no-shadow
 export const Logger = console; // eslint-disable-line no-console
-export const Progressions = ProgressionsService;
-export const Recommendations = RecommendationsService;
-export const Slides = SlidesService;
+export const Progressions: Fixtures => ProgressionsService = createProgressionsService;
+export const Recommendations: Fixtures => RecommendationsService = createRecommendationsService;
+export const Slides: Fixtures => SlidesService = createSlidesService;

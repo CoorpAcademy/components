@@ -3,14 +3,14 @@ import find from 'lodash/fp/find';
 import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
-import CluesService from '../clues';
+import createCluesService from '../clues';
 
-import ProgressionsService from '../progressions';
+import createProgressionsService from '../progressions';
 import * as fixtures from './fixtures';
 import slidesData from './fixtures/data/slides';
 
-const Progressions = ProgressionsService(fixtures);
-const {findById} = CluesService(fixtures);
+const Progressions = createProgressionsService(fixtures);
+const {findById} = createCluesService(fixtures);
 
 const engine = {
   ref: 'microlearning',
@@ -32,6 +32,10 @@ test('should findById', async t => {
   t.deepEqual(clue, expected);
 });
 
+test('should fail for wrong progressionId', t => {
+  return t.throws(Progressions.requestClue('wrongId', {}), 'progression "wrongId" not found');
+});
+
 test("should throw error if slide doesn't exist", async t => {
   const progression = await Progressions.create(engine, {
     type: 'chapter',
@@ -49,4 +53,16 @@ test("should throw error if clue haven't been requested", async t => {
     ref: '5.C7'
   });
   return t.throws(findById(progression._id, 'unknown'), 'Clue is not available');
+});
+
+test('should fail with wrong progressionId', t => {
+  return t.throws(findById('wrongId', {}), 'progression "wrongId" not found');
+});
+
+test('should fail to acceptExtraLife with progression without state', async t => {
+  const progression = await Progressions.create(engine, {type: 'chapter', ref: '5.C7'});
+  delete progression.state;
+  Progressions.save(progression);
+
+  return t.throws(findById(progression._id, {}), `progression "${progression._id}" has no state`);
 });

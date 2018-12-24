@@ -25,7 +25,6 @@ const progressionStore = reduce(
 
 // eslint-disable-next-line require-await
 const findById = async (id: string): Promise<Progression | void> => {
-  if (!progressionStore.has(id)) throw new Error('Progression not found');
   return progressionStore.get(id);
 };
 

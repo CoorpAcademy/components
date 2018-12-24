@@ -4,16 +4,17 @@ import isObject from 'lodash/fp/isObject';
 import isString from 'lodash/fp/isString';
 import {getConfig} from '@coorpacademy/progression-engine';
 
-import ProgressionsService from '../progressions';
+import createProgressionsService from '../progressions';
 import * as fixtures from './fixtures';
 
-const Progressions = ProgressionsService(fixtures);
+const Progressions = createProgressionsService(fixtures);
 const {
   create,
   findById,
   postAnswer,
   findBestOf,
   markResourceAsViewed,
+  getAvailableContent,
   getEngineConfig,
   openAssistance
 } = Progressions;
@@ -28,6 +29,21 @@ test('should call openAssistance function', t => {
   t.deepEqual(result, {});
 });
 
+test('should call getAvailableContent function', t =>
+  t.throws(
+    getAvailableContent({
+      type: 'level',
+      ref: 'plop'
+    }),
+    'level plop has no chapterIds'
+  ));
+
+test('should fail to create a progression', t =>
+  t.throws(
+    create(engine, {type: 'chapter', ref: 'bad'}),
+    'progression could not be created properly'
+  ));
+
 test('should create progression for a non-adaptive chapter', async t => {
   const progression = await create(engine, {type: 'chapter', ref: '5.C7'});
   t.true(isString(progression._id));
@@ -37,8 +53,8 @@ test('should create progression for a non-adaptive chapter', async t => {
     omit(['_id', 'state', ['actions', 0, 'payload', 'nextContent', 'ref']], progression),
     {
       engine,
+      engineOptions: undefined,
       content: {type: 'chapter', ref: '5.C7'},
-      engineOptions: {},
       actions: [{type: 'move', payload: {instructions: null, nextContent: {type: 'slide'}}}]
     }
   );
@@ -51,8 +67,8 @@ test('should create progression for an adaptive chapter', async t => {
   t.is(progression.state.nextContent.ref, progression.actions[0].payload.nextContent.ref);
   t.deepEqual(omit(['_id', 'state'], progression), {
     engine,
+    engineOptions: undefined,
     content: {type: 'chapter', ref: 'cha_N19MiQrYG'},
-    engineOptions: {},
     actions: [
       {
         type: 'move',
@@ -85,7 +101,7 @@ test('should create progression for a level', async t => {
     {
       engine: learnerEngine,
       content: {type: 'level', ref: '1.A'},
-      engineOptions: {},
+      engineOptions: undefined,
       actions: [
         {
           type: 'move',
@@ -127,8 +143,14 @@ test('should add answer action', async t => {
   t.true(isString(progressionWithAnswer.state.nextContent.ref));
 });
 
-test("should throw error if progression doesn't exist", t => {
-  return t.throws(findById('unknown'));
+test('should fail to postAnswer for wrong progressionId', t => {
+  return t.throws(postAnswer('wrongId', {}), 'progression "wrongId" not found');
+});
+
+test('should fail for progression with no state', async t => {
+  const progression = await create(engine, {type: 'chapter', ref: '5.C7'});
+  delete progression.state;
+  return t.throws(postAnswer(progression._id, {}), `progression "${progression._id}" has no state`);
 });
 
 test('should mark a resource as viewed', async t => {
@@ -145,6 +167,10 @@ test('should mark a resource as viewed', async t => {
       resources: ['foo']
     }
   ]);
+});
+
+test('should fail to markResourceAsViewed with wrong progressionId', t => {
+  return t.throws(markResourceAsViewed('wrongId', {}), 'progression "wrongId" not found');
 });
 
 test('getEngineConfig should return the value from progression-engine', async t => {
