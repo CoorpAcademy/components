@@ -1,226 +1,151 @@
-const fs = require('fs');
-const path = require('path');
-const stream = require('stream');
-const sax = require('sax');
-const SVGO = require('svgo');
-const {queue} = require('async');
-const minimist = require('minimist');
-const walk = require('walk-promise');
-const mkdirp = require('mkdirp-promise');
-const {camelCase, pascalCase} = require('change-case');
-const whiteList = require('../icons');
+// @flow
 
-const MAX_SIMULTANEOUS_HANDLES = 100;
+/* eslint-disable no-console */
 
-const readQueue = queue(
-  ({fileName}, done) => fs.readFile(fileName, 'utf8', done),
-  MAX_SIMULTANEOUS_HANDLES
-);
+import path from 'path';
+import fs from 'fs';
 
-const writeQueue = queue(
-  ({fileName, data}, done) => fs.writeFile(fileName, data, done),
-  MAX_SIMULTANEOUS_HANDLES
-);
+import chalk from 'chalk';
+import globby from 'globby';
+import svgr from '@svgr/core';
+import mkdirp from 'mkdirp-promise';
 
-const writeFile = (fileName, data) =>
-  new Promise((resolve, reject) =>
-    writeQueue.push({fileName, data}, err => {
-      if (err) reject(err);
+import whiteList from '../icons';
+import {parseMeta, getSVGFilePath} from './modules/iconjar-reader';
+import type {Meta, IconSetGroupItem} from './modules/iconjar-reader';
+import {formatKebabCase, formatPascalCase} from './modules/string-formatter';
 
-      resolve();
-    })
-  );
+const iconsPath = path.resolve(`${__dirname}/../third-party`);
+const srcPath = path.resolve(`${__dirname}/../src`);
+const componentsPath = path.resolve(`${srcPath}/components`);
+mkdirp(componentsPath);
 
-const formatAsFillColor = () => 'fill={activeColor}';
-const formatAsOutline = () => 'stroke={activeOutline} strokeWidth={activeOutlineWidth}';
-const keepOriginalFormat = (key, value) => `${camelCase(key)}="${value}"`;
+type IconJar = {|
+  fileName: string,
+  meta: Meta
+|};
 
-const formatAttributes = (attributes, outlineBlock = false) => {
-  const formatAttribute = (key, value) => {
-    const formatter =
-      (key === 'fill' && value !== 'none' && !outlineBlock && formatAsFillColor) ||
-      (key === 'fill' && value !== 'none' && outlineBlock && formatAsOutline) ||
-      keepOriginalFormat;
+const colors = ['#757575', '#14171A', '#607d8b'];
 
-    return formatter(key, value);
+const generateComponent = (
+  fileContent: Buffer,
+  fileName: string,
+  native?: boolean = false
+): string => {
+  const options = {
+    plugins: ['@svgr/plugin-svgo', '@svgr/plugin-jsx', '@svgr/plugin-prettier'],
+    noSemi: true,
+    icon: true,
+    dimensions: false,
+    replaceAttrValues: colors.reduce((result, color) => ({...result, [color]: 'currentColor'}), {}),
+    native
   };
+  const extensionSuffix = (native && '.native') || '';
+  const extendedFileName = fileName.replace('.svg', `${extensionSuffix}.js`);
+  // $FlowFixMe path.join() is defined
+  const outputPath = path.join(componentsPath, extendedFileName);
 
-  const expressions = Object.keys(attributes)
-    .filter(key => key !== 'id')
-    .map(key => formatAttribute(key, attributes[key]))
-    .join(' ');
+  svgr(fileContent, options)
+    .then(async (jsCode): Promise<string> => {
+      await mkdirp(path.dirname(outputPath));
+      fs.writeFileSync(outputPath, jsCode);
 
-  return expressions.length > 0 ? ` ${expressions}` : '';
+      console.log(`- ${chalk.green(extendedFileName)}`);
+      return outputPath;
+    })
+    .catch(e => console.log(`- ${chalk.red(extendedFileName)}`));
+
+  return extendedFileName;
 };
 
-const componentize = (basename, svgData) => {
-  const inputStream = new stream.Readable();
-  const componentName = `Nova${pascalCase(basename).replace('_', '')}`;
-  const saxStream = sax.createStream(true, {lowercase: true});
-  const meta = {
-    indent: 12,
-    open: false,
-    done: false,
-    data: '',
-    svgContent: []
-  };
-
-  const writeLine = line => {
-    meta.data += `${line || ''}\n`;
-  };
-
-  const writeIndentedLine = line =>
-    writeLine(`${new Array(meta.indent).fill(' ').join('')}${line}`);
-
-  const writeSVGTag = opts => {
-    // eslint-disable-next-line no-shadow
-    const {name, attributes, closing = false, autoclosing = false, outlineBlock = false} = opts;
-
-    if (autoclosing) {
-      writeIndentedLine(`<${name}${formatAttributes(attributes, outlineBlock)} />`);
-    } else if (closing) {
-      meta.indent -= 2;
-      writeIndentedLine(`</${name}>`);
-    } else {
-      writeIndentedLine(`<${name}${formatAttributes(attributes, outlineBlock)}>`);
-      meta.indent += 2;
-    }
-
-    if (outlineBlock) meta.svgContent.push(opts);
-  };
-
-  // eslint-disable-next-line no-shadow
-  saxStream.on('opentag', ({name, attributes}) => {
-    if (name === 'svg' && !meta.done) {
-      writeLine(`import React, {Component} from 'react';
-import IconBase from 'react-icon-base';
-
-class ${componentName} extends Component {
-
-  constructor(props) {
-    super(props);
-    this.state = {hovering: false};
-    this.handleMouseEnter = () => this.setState({hovering: true});
-    this.handleMouseLeave = () => this.setState({hovering: false});
-  }
-
-  render() {
-    const {color = '#757575', outline = null, outlineWidth = 1, hoverColor = color, ...baseProps} = this.props;
-    const {hoverOutline = outline, hoverOutlineWidth = outlineWidth} = this.props;
-    const activeColor = this.state.hovering ? hoverColor : color;
-    const activeOutline = this.state.hovering ? hoverOutline : outline;
-    const activeOutlineWidth = this.state.hovering ? hoverOutlineWidth : outlineWidth;
-
-    return (
-      <IconBase viewBox="${
-        attributes.viewBox
-      }" {...baseProps} onMouseEnter={this.handleMouseEnter} onMouseLeave={this.handleMouseLeave}>
-        {activeOutline ? (
-          <g>`);
-
-      meta.open = true;
-    } else if (meta.open) {
-      if (name === 'g') {
-        writeSVGTag({name, attributes, outlineBlock: true});
-      } else {
-        writeSVGTag({name, attributes, outlineBlock: true, autoclosing: true});
-      }
-    }
-  });
-
-  // eslint-disable-next-line no-shadow
-  saxStream.on('closetag', name => {
-    if (name === 'svg') {
-      meta.open = false;
-      meta.done = true;
-      meta.indent = 8;
-      writeLine(`          </g>
-        ) : null}`);
-      meta.svgContent.forEach(opts => writeSVGTag(Object.assign(opts, {outlineBlock: false})));
-      writeLine(`      </IconBase>
-    );
-  }
+const wrongFiles = whiteList.filter(filePath => !fs.existsSync(filePath));
+if (wrongFiles.length > 0) {
+  throw new Error(chalk.red('Invalid icons:', ...wrongFiles.map(filePath => `\n - ${filePath}`)));
 }
 
-export default ${componentName};`);
-    } else if (meta.open) {
-      if (name === 'g') {
-        writeSVGTag({name, closing: true, outlineBlock: true});
-      }
-    }
-  });
+type OutputFile = {|
+  name: string,
+  path: string
+|};
 
-  inputStream.pipe(saxStream);
-  inputStream.push(svgData);
-  inputStream.push(null);
+const files: Array<OutputFile> = globby
+  .sync('**/*.iconjar', {
+    cwd: iconsPath,
+    absolute: true,
+    onlyFiles: false
+  })
+  .sort()
+  .map((file): IconJar => {
+    const fileName = file.split(/[\\/]/).pop();
 
-  return new Promise(resolve => inputStream.on('end', () => resolve(meta.data)));
-};
+    return {
+      fileName,
+      meta: parseMeta(fileName)
+    };
+  })
+  .map(({fileName: iconJarFileName, meta: {sets, groups, items}}): Array<string> => {
+    console.log(chalk.underline('Iconjar:'), iconJarFileName);
 
-const optimizeSVG = fileName =>
-  new Promise((resolve, reject) =>
-    readQueue.push({fileName}, (err, input) => {
-      const svgo = new SVGO({
-        plugins: [
-          {
-            removeViewBox: false
-          }
-        ]
-      });
+    // $FlowFixMe Object.values() returns mixed
+    const itemArray: Array<IconSetGroupItem> = Object.values(items);
+    // $FlowFixMe Object.values() returns mixed
+    const setArray: Array<Set> = Object.values(sets);
 
-      svgo
-        .optimize(input)
-        .then(({data}) => resolve(data))
-        .catch(reject);
-    })
-  );
+    return setArray
+      .map(({name: setName, identifier: setIdentifier}): Array<string> => {
+        const itemArrayFiltered = itemArray
+          .filter(item => item.parent === setIdentifier)
+          .map(item => ({
+            item,
+            filePath: getSVGFilePath(iconJarFileName, item.file)
+          }))
+          .filter(({filePath}) =>
+            whiteList.find(whiteListFilePath => whiteListFilePath === filePath)
+          );
 
-const generateComponent = async ({destDir, dest, src, basename}) => {
-  const optimizedSVG = await optimizeSVG(src);
-  const componentFeed = await componentize(basename, optimizedSVG);
+        return itemArrayFiltered
+          .map(({item, filePath}): Array<string> => {
+            const content = fs.readFileSync(filePath);
+            // $FlowFixMe path.join() is defined
+            const outputFileName = path.join(
+              formatKebabCase(iconJarFileName.replace('.iconjar', '')),
+              formatKebabCase(setName, true),
+              formatKebabCase(item.file)
+            );
 
-  await mkdirp(destDir);
-  await writeFile(dest, componentFeed);
-};
-
-const generateComponents = async ({novaPath, category}) => {
-  const srcPath = path.join(novaPath, 'SVG', category.src);
-  const files = await walk(srcPath);
-  // eslint-disable-next-line no-shadow
-  const tasks = files.filter(({name}) => name.match(/\.svg$/)).map(({root, name}) => {
-    const src = path.join(root, name);
-    const subcat = path
-      .basename(path.dirname(src))
-      .match(/^(\d+-)?(.*)$/)[2]
-      .toLowerCase()
-      .replace('&', '-and-');
-    const destDir = path.join(__dirname, '..', 'src', category.dest, subcat);
-    const basename = path.basename(src, '.svg');
-    const dest = path.join(destDir, `${basename}.js`);
-    const importName = path.join(`@coorpacademy/nova-icons/${category.dest}/${subcat}/${basename}`);
-    const isWhiteListed = whiteList.indexOf(importName) >= 0;
-
-    return isWhiteListed ? generateComponent({destDir, dest, src, basename}) : null;
-  });
-
-  return Promise.all(tasks);
-};
-
-const runScript = () => {
-  const argv = minimist(process.argv.slice(2));
-  const [novaPath = path.join(__dirname, '..', 'third-party', 'Nova-Icons')] = argv._;
-
-  return Promise.all(
-    ['Solid icons', 'Line icons', 'Composition icons'].map(src =>
-      generateComponents({
-        novaPath,
-        category: {
-          src,
-          dest: src.split(' ')[0].toLowerCase()
-        }
+            return [
+              generateComponent(content, outputFileName),
+              generateComponent(content, outputFileName, true)
+            ];
+          })
+          .reduce((result, outputFileNames) => result.concat(outputFileNames), []);
       })
-    )
-  );
-};
+      .reduce((result, outputFileNames) => result.concat(outputFileNames), []);
+  })
+  .reduce((result, outputFileNames) => result.concat(outputFileNames), [])
+  .filter(outputFileName => !outputFileName.includes('.native'))
+  .map(outputFileName => ({
+    name: formatPascalCase(outputFileName),
+    path: outputFileName.replace('.js', '')
+  }));
 
-runScript();
+const imports = files
+  .map(({name, path: filePath}) => `import ${name} from './components/${filePath}';`)
+  .join('\n');
+const componentsNames = files.map(({name}) => `${name},`).join('\n\t');
+
+fs.writeFileSync(
+  // $FlowFixMe path.join() is defined
+  path.join(srcPath, 'index.js'),
+  `// @flow
+
+// THIS FILE IS AUTOGENERATED
+
+/* eslint-disable import/max-dependencies */
+
+${imports}
+
+export {
+  ${componentsNames}
+};`
+);

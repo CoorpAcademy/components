@@ -8,10 +8,12 @@ import sumBy from 'lodash/fp/sumBy';
 import last from 'lodash/fp/last';
 import isEqual from 'lodash/fp/isEqual';
 import PropTypes from 'prop-types';
-import ArrowLeft from '@coorpacademy/nova-icons/composition/navigation/arrow-left';
-import ArrowRight from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
-import LearnerIcon from '@coorpacademy/nova-icons/solid/content/content-book-1';
-import TimerIcon from '@coorpacademy/nova-icons/composition/coorpacademy/timer';
+import {
+  NovaCompositionNavigationArrowLeft as ArrowLeft,
+  NovaCompositionNavigationArrowRight as ArrowRight,
+  NovaSolidContentContentBook1 as LearnerIcon,
+  NovaCompositionCoorpacademyTimer as TimerIcon
+} from '@coorpacademy/nova-icons';
 import Provider from '../../../atom/provider';
 import Card from '../../card';
 import style from './style.css';

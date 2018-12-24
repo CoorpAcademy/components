@@ -1,7 +1,7 @@
 import React from 'react';
 import get from 'lodash/fp/get';
 import PropTypes from 'prop-types';
-import PDFIcon from '@coorpacademy/nova-icons/line/files-office/file-office-pdf';
+import {NovaLineFilesOfficeFileOfficePdf as PDFIcon} from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
 import Provider from '../../atom/provider';
 import style from './style.css';

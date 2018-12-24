@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import get from 'lodash/fp/get';
-import BookmarkIcon from '@coorpacademy/nova-icons/solid/bookmarks-and-tags/bookmark-5';
+import {NovaSolidBookmarksTagsBookmark5 as BookmarkIcon} from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import style from './favorite.css';
 
@@ -32,7 +32,7 @@ class Favorite extends React.Component {
           color: primaryColor
         }}
       >
-        <BookmarkIcon className={style.bookmarkIcon} color={null} stroke={null} />
+        <BookmarkIcon className={style.bookmarkIcon} height={30} color={null} stroke={null} />
       </div>
     );
   }

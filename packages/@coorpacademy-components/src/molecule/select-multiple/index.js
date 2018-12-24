@@ -7,7 +7,7 @@ import join from 'lodash/fp/join';
 import filter from 'lodash/fp/filter';
 import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
-import ArrowDown from '@coorpacademy/nova-icons/composition/navigation/arrow-down';
+import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
 import TitledCheckbox from '../titled-checkbox';
 import Provider from '../../atom/provider';
 import style from './style.css';

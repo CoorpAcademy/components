@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ArrowDownIcon from '@coorpacademy/nova-icons/composition/navigation/arrow-down';
-import ArrowUpIcon from '@coorpacademy/nova-icons/composition/navigation/arrow-top';
+import {
+  NovaCompositionNavigationArrowDown as ArrowDownIcon,
+  NovaCompositionNavigationArrowTop as ArrowUpIcon
+} from '@coorpacademy/nova-icons';
 import get from 'lodash/fp/get';
 import Provider from '../../atom/provider';
 import InputSwitch from '../../atom/input-switch';

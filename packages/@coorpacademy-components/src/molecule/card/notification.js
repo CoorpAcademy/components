@@ -3,10 +3,12 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import get from 'lodash/fp/get';
 import keys from 'lodash/fp/keys';
-import AddBookmarkIcon from '@coorpacademy/nova-icons/solid/bookmarks-and-tags/bookmark-5';
-import RemoveBookmarkIcon from '@coorpacademy/nova-icons/line/bookmarks-and-tags/bookmark-5';
-import LockIcon from '@coorpacademy/nova-icons/solid/locks/lock-1';
-import UnlockIcon from '@coorpacademy/nova-icons/solid/locks/lock-unlock-1';
+import {
+  NovaSolidBookmarksTagsBookmark5 as AddBookmarkIcon,
+  NovaLineBookmarksTagsBookmarks5 as RemoveBookmarkIcon,
+  NovaSolidLocksLock11 as LockIcon,
+  NovaSolidLocksLockUnlock1 as UnlockIcon
+} from '@coorpacademy/nova-icons';
 import style from './notification.css';
 
 const NOTIFICATION_ICON = {

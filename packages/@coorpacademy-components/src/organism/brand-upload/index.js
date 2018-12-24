@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import keys from 'lodash/fp/keys';
 import get from 'lodash/fp/get';
-import ArrowLeft from '@coorpacademy/nova-icons/composition/navigation/arrow-left';
+import {NovaCompositionNavigationArrowLeft as ArrowLeft} from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import ProgressBar from '../../molecule/progress-bar';
 import UploadBox from '../../molecule/brand-upload-box';

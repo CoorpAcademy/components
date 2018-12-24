@@ -2,28 +2,37 @@
   "name": "@coorpacademy/nova-icons",
   "version": "1.2.8",
   "description": "React components bank based on Nova SVG icons",
-  "main": "index.js",
+  "main": "lib/index.js",
+  "module": "es/index.js",
   "files": [
-    "line/",
-    "solid/",
-    "composition/"
+    "lib",
+    "es",
+    "src"
   ],
   "scripts": {
-    "test": "npm run lint",
+    "test": "npm run lint && npm run flow",
     "lint": "npm run eslint",
+    "lint:fix": "npm run eslint -- --fix",
     "eslint": "eslint ./ *.js *.json --ext .js,.json",
-    "clean": "rm -rf src solid line composition",
-    "generate-icons": "node scripts/generate-icons.js",
-    "build": "cross-env BABEL_ENV=commonjs babel src/solid --out-dir solid && cross-env BABEL_ENV=commonjs babel src/line --out-dir line && cross-env BABEL_ENV=commonjs babel src/composition --out-dir composition",
-    "prepare": "npm run generate-icons && npm run build"
+    "flow": "flow",
+    "pregenerate:icons": "rm -rf src/components",
+    "generate:icons": "babel-node scripts/generate-icons.js",
+    "prebuild:babel:commonjs": "rm -rf lib",
+    "build:babel:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
+    "prebuild:babel:es": "rm -rf es",
+    "build:babel:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
+    "build:babel": "concurrently \"npm run build:babel:commonjs\" \"npm run build:babel:es\"",
+    "prepare": "npm run generate:icons && npm run build:babel"
   },
   "author": "CoorpAcademy",
   "dependencies": {
     "async": "^2.4.1",
-    "react": "^16.3.2",
-    "react-icon-base": "^2.0.8"
+    "react": "^16.3.2"
   },
   "devDependencies": {
+    "@svgr/core": "^4.1.0",
+    "@svgr/plugin-prettier": "^4.0.3",
+    "@svgr/plugin-svgo": "^4.0.3",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
@@ -33,14 +42,11 @@
     "babel-plugin-transform-react-remove-prop-types": "^0.4.5",
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-1": "^6.24.1",
-    "change-case": "^3.0.1",
+    "chalk": "^2.4.1",
+    "concurrently": "^4.1.0",
     "cross-env": "^5.0.0",
-    "fs-extra": "^6.0.1",
-    "minimist": "^1.2.0",
-    "mkdirp-promise": "^5.0.1",
-    "sax": "^1.2.2",
-    "svgo": "^1.0.5",
-    "walk-promise": "^0.2.0"
+    "flow-bin": "^0.72.0",
+    "globby": "^8.0.1",
+    "mkdirp-promise": "^5.0.1"
   }
 }

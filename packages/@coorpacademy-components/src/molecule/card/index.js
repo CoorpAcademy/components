@@ -5,10 +5,12 @@ import get from 'lodash/fp/get';
 import isEmpty from 'lodash/fp/isEmpty';
 import isUndefined from 'lodash/fp/isUndefined';
 import pick from 'lodash/fp/pick';
-import LockIcon from '@coorpacademy/nova-icons/solid/locks/lock-1';
-import AdaptivIcon from '@coorpacademy/nova-icons/composition/coorpacademy/adaptive';
-import CheckIcon from '@coorpacademy/nova-icons/solid/status/check-circle-2';
-import PicturesIcon from '@coorpacademy/nova-icons/composition/coorpacademy/pictures';
+import {
+  NovaSolidLocksLock11 as LockIcon,
+  NovaCompositionCoorpacademyAdaptive as AdaptivIcon,
+  NovaSolidStatusCheckCircle2 as CheckIcon,
+  NovaCompositionCoorpacademyPictures as PicturesIcon
+} from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import Customer from './customer';
 import Favorite from './favorite';
@@ -52,10 +54,12 @@ const Card = (props, context) => {
   const emptyIcon = empty ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
   const adaptivIcon = adaptiv ? (
     <div className={style.adaptiv}>
-      <AdaptivIcon color={whiteColor} />
+      <AdaptivIcon color={whiteColor} height={25} />
     </div>
   ) : null;
-  const lock = disabled ? <LockIcon className={style.lockIcon} color={whiteColor} /> : null;
+  const lock = disabled ? (
+    <LockIcon className={style.lockIcon} color={whiteColor} height={40} />
+  ) : null;
 
   const inlineBadgeStyle = {color: primaryColor};
   const inlineProgressValueStyle = {

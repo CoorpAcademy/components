@@ -3,12 +3,14 @@ import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
-import StarIcon from '@coorpacademy/nova-icons/composition/coorpacademy/star';
-import TimerIcon from '@coorpacademy/nova-icons/composition/coorpacademy/timer';
-import BoltIcon from '@coorpacademy/nova-icons/composition/coorpacademy/bolt';
-import CertificationIcon from '@coorpacademy/nova-icons/solid/school-and-science/graduation-hat';
-import LearnerIcon from '@coorpacademy/nova-icons/solid/content/content-book-1';
-import BonusIcon from '@coorpacademy/nova-icons/solid/vote-and-rewards/rewards-badge-1';
+import {
+  NovaCompositionCoorpacademyStar as StarIcon,
+  NovaCompositionCoorpacademyTimer as TimerIcon,
+  NovaCompositionCoorpacademyBolt as BoltIcon,
+  NovaSolidSchoolScienceGraduationHat as CertificationIcon,
+  NovaSolidContentContentBook1 as LearnerIcon,
+  NovaSolidVoteRewardsRewardsBadge1 as BonusIcon
+} from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import Link from '../../atom/link';
 import style from './engine-stars.css';

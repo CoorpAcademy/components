@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
-import PlayIcon from '@coorpacademy/nova-icons/solid/audio/audio-control-play';
-import PDFIcon from '@coorpacademy/nova-icons/line/files-office/file-office-pdf';
+import {
+  NovaSolidAudioAudioControlPlay as PlayIcon,
+  NovaLineFilesOfficeFileOfficePdf as PDFIcon
+} from '@coorpacademy/nova-icons';
 import Provider from '../provider';
 import style from './style.css';
 

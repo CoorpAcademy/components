@@ -68,6 +68,10 @@
   margin-left: 14px;
 }
 
+.arrow svg {
+  vertical-align: middle;
+}
+
 .activeDefault .arrow,
 .activeWrapperSortBy .arrow {
   transform: rotate(180deg);

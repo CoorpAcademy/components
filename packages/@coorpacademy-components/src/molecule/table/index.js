@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
-import ArrowDown from '@coorpacademy/nova-icons/composition/navigation/arrow-down';
-import FunnelIcon from '@coorpacademy/nova-icons/composition/coorpacademy/funnel';
-import PencilIcon from '@coorpacademy/nova-icons/solid/content-edition/pencil-1';
+import {
+  NovaCompositionNavigationArrowDown as ArrowDown,
+  NovaCompositionCoorpacademyFunnel as FunnelIcon,
+  NovaSolidCOntentEditionPencil1 as PencilIcon
+} from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import Checkbox from '../../atom/checkbox';
 import Link from '../../atom/link';
@@ -44,7 +46,14 @@ const Table = (props, context) => {
           <label htmlFor={title}>{title}</label>
           {options.length > 0 ? createOptionsView(options) : null}
           <div className={style.optionsIconWrapper}>
-            {hasOptions ? <OptionsIcon color={mediumColor} className={style.optionsIcon} /> : null}
+            {hasOptions ? (
+              <OptionsIcon
+                color={mediumColor}
+                height={16}
+                width={16}
+                className={style.optionsIcon}
+              />
+            ) : null}
           </div>
         </div>
       </th>
@@ -67,7 +76,7 @@ const Table = (props, context) => {
     tableRows.unshift(
       <td key="header">
         <Link href={editHref}>
-          <PencilIcon color={mediumColor} hoverColor={brandColor} />
+          <PencilIcon color={mediumColor} hoverColor={brandColor} height={16} width={16} />
         </Link>
       </td>
     );

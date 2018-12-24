@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import noop from 'lodash/fp/noop';
 import getOr from 'lodash/fp/getOr';
-import PreviewIcon from '@coorpacademy/nova-icons/line/business/circle-view';
-import PencilIcon from '@coorpacademy/nova-icons/line/content-edition/pencil-2';
+import {
+  NovaLineBusinessCircleView as PreviewIcon,
+  NovaLineContentEditionPencil2 as PencilIcon
+} from '@coorpacademy/nova-icons';
 import InputPreview from './input-preview';
 import style from './style.css';
 
@@ -48,9 +50,9 @@ class InputHtml extends React.Component {
       }));
     };
     const iconContent = !this.state.preview ? (
-      <PreviewIcon color={mediumColor} />
+      <PreviewIcon color={mediumColor} height={16} />
     ) : (
-      <PencilIcon color={mediumColor} />
+      <PencilIcon color={mediumColor} height={16} />
     );
     return (
       <div className={className}>

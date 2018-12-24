@@ -6,9 +6,10 @@ import isEmpty from 'lodash/fp/isEmpty';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import omit from 'lodash/fp/omit';
-import {convert} from 'css-color-function';
-import CheckIcon from '@coorpacademy/nova-icons/composition/coorpacademy/check';
-import AlertIcon from '@coorpacademy/nova-icons/solid/interface-feedback/interface-alert-circle';
+import {
+  NovaCompositionCoorpacademyCheck as CheckIcon,
+  NovaLineInterfaceFeedbackInterfaceAlertCircle as AlertIcon
+} from '@coorpacademy/nova-icons';
 import Loader from '../../../atom/loader';
 import Link from '../../../atom/link';
 import Provider from '../../../atom/provider';
@@ -46,17 +47,10 @@ const AssistanceLink = (props, context) => {
   const {title, onClick} = props;
   const {skin} = context;
   const white = get('common.white', skin);
-  const dark = get('common.dark', skin);
-  const lightenDarkColor = convert(`color(${dark} lightness(30%))`);
 
   return (
     <div className={style.wrapperAssistance} onClick={onClick}>
-      <AlertIcon
-        className={style.alertIcon}
-        color={lightenDarkColor}
-        outline={white}
-        outlineWidth={3}
-      />
+      <AlertIcon className={style.alertIcon} color={white} />
       <span className={style.titleLink}> {title} </span>
     </div>
   );

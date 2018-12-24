@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
-import BoltIcon from '@coorpacademy/nova-icons/composition/coorpacademy/bolt';
-import ArrowRightIcon from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
+import {
+  NovaCompositionCoorpacademyBolt as BoltIcon,
+  NovaCompositionNavigationArrowRight as ArrowRightIcon
+} from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
 import Provider from '../../atom/provider';
 import style from './style.css';

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
-import ArrowDown from '@coorpacademy/nova-icons/composition/navigation/arrow-down';
+import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
 import Select from '../../atom/select';
 import Provider from '../../atom/provider';
 import style from './style.css';
@@ -93,7 +93,7 @@ class Filters extends React.Component {
           <div className={style.title} data-name="filterButton" onClick={this.handleOpenFilter}>
             {filterTabLabel}
             <div className={style.arrow}>
-              <ArrowDown color={darkColor} />
+              <ArrowDown color={darkColor} height={14} />
             </div>
           </div>
         </div>
@@ -105,7 +105,7 @@ class Filters extends React.Component {
           <div className={style.title} data-name="sortButton" onClick={this.handleOpenSort}>
             {sortTabLabel}
             <div className={style.arrow}>
-              <ArrowDown color={darkColor} />
+              <ArrowDown color={darkColor} height={14} />
             </div>
           </div>
         </div>

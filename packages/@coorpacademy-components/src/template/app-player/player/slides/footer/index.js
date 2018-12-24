@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import keys from 'lodash/fp/keys';
-import MediaIcon from '@coorpacademy/nova-icons/composition/coorpacademy/filter-video2';
-import ClueIcon from '@coorpacademy/nova-icons/composition/coorpacademy/clue';
-import ContextIcon from '@coorpacademy/nova-icons/composition/coorpacademy/map';
-import CoachIcon from '@coorpacademy/nova-icons/composition/coorpacademy/chat';
-import QuestionIcon from '@coorpacademy/nova-icons/composition/coorpacademy/list-bullets-3';
+import {
+  NovaCompositionCoorpacademyFilterVideo2 as MediaIcon,
+  NovaCompositionCoorpacademyClue as ClueIcon,
+  NovaCompositionCoorpacademyMap as ContextIcon,
+  NovaCompositionCoorpacademyChat as CoachIcon,
+  NovaCompositionCoorpacademyListBullets3 as QuestionIcon
+} from '@coorpacademy/nova-icons';
 import get from 'lodash/fp/get';
 import Provider from '../../../../../atom/provider';
 import style from './style.css';
@@ -100,7 +102,7 @@ class Button extends React.Component {
               color: colorIcon
             }}
             color={colorIcon}
-            size={30}
+            height={30}
           />
         </div>
         <div data-name="title" className={style.title}>

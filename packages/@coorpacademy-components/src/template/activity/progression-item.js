@@ -2,11 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import noop from 'lodash/fp/noop';
-import ArrowRightIcon from '@coorpacademy/nova-icons/composition/navigation/arrow-right';
-import StarIcon from '@coorpacademy/nova-icons/composition/coorpacademy/star';
-import TimerIcon from '@coorpacademy/nova-icons/composition/coorpacademy/timer';
-import AdaptiveIcon from '@coorpacademy/nova-icons/composition/coorpacademy/adaptive';
-import LearnerIcon from '@coorpacademy/nova-icons/solid/content/content-book-1';
+import {
+  NovaCompositionNavigationArrowRight as ArrowRightIcon,
+  NovaCompositionCoorpacademyStar as StarIcon,
+  NovaCompositionCoorpacademyTimer as TimerIcon,
+  NovaCompositionCoorpacademyAdaptive as AdaptiveIcon,
+  NovaSolidContentContentBook1 as LearnerIcon
+} from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import ProgressBar from '../../molecule/progress-bar';
 import Link from '../../atom/link';
@@ -26,7 +28,7 @@ const ProgressionItem = (props, context) => {
         backgroundColor: primary
       }}
     >
-      <AdaptiveIcon color={white} />
+      <AdaptiveIcon color={white} height={14} />
     </div>
   ) : null;
 
@@ -74,7 +76,7 @@ const ProgressionItem = (props, context) => {
           data-progression-state={state}
         >
           <span className={style.cta}>
-            {state} <ArrowRightIcon color={primary} />
+            {state} <ArrowRightIcon color={primary} height={12} />
           </span>
         </Link>
         <span className={style.level}>{level}</span>

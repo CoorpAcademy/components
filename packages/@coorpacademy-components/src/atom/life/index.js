@@ -3,8 +3,11 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import get from 'lodash/fp/get';
 import keys from 'lodash/fp/keys';
-import HeartIcon from '@coorpacademy/nova-icons/solid/vote-and-rewards/vote-heart';
-import HeartBrokenIcon from '@coorpacademy/nova-icons/composition/coorpacademy/broken-heart';
+import {
+  NovaSolidVoteRewardsVoteHeart as HeartIcon,
+  NovaCompositionCoorpacademyBrokenHeart as HeartBrokenIcon,
+  NovaCompositionCoorpacademyVoteHeartOutline as HeartIconOutline
+} from '@coorpacademy/nova-icons';
 import Provider from '../provider';
 import style from './style.css';
 
@@ -78,7 +81,7 @@ const Life = (props, context) => {
         <span className={style.operator}>{operator}</span>
       </div>
       <div className={classnames(heartWrapper, bounceClass)} style={heartCustomStyle}>
-        <HeartIcon outline={white} outlineWidth={5} className={style.heartOutline} color={white} />
+        <HeartIconOutline className={style.heartOutline} color={white} />
         <HeartIcon
           className={pickStyle(
             style.heartNormalDefault,
