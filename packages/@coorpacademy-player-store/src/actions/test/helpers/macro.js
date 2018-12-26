@@ -1,13 +1,23 @@
-import {createStore} from 'redux';
+import {applyMiddleware, combineReducers, createStore} from 'redux';
 import last from 'lodash/fp/last';
 import size from 'lodash/fp/size';
 import isEqual from 'lodash/fp/isEqual';
 import isNumber from 'lodash/fp/isNumber';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import createMiddleware from '../../../middlewares';
-import createReducer from '../../../reducers';
 
-const reducer = createReducer({});
+import ReduxThunkMemoized from '../../../middlewares/redux-thunk-memoized';
+import ErrorLogger from '../../../middlewares/error-logger';
+
+import data from '../../../reducers/data';
+import ui from '../../../reducers/ui';
+
+const createMiddlewares = options =>
+  applyMiddleware(ReduxThunkMemoized(options), ErrorLogger(options));
+
+const reducer = combineReducers({
+  data,
+  ui
+});
 
 const actionMacro = async (
   t,
@@ -51,7 +61,7 @@ const actionMacro = async (
       return reducer(state, action);
     },
     initialState,
-    createMiddleware(options)
+    createMiddlewares(options)
   );
 
   const result = await dispatch(actionCreator);

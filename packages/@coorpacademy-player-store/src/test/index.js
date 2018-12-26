@@ -1,15 +1,12 @@
 import test from 'ava';
 import keys from 'lodash/fp/keys';
-import create, * as api from '..';
-
-test('it should expose create factory', t => {
-  const store = create({});
-  t.deepEqual(keys(store), ['dispatch', 'subscribe', 'getState', 'replaceReducer']);
-});
+import * as api from '..';
 
 test('it should expose all api', t => {
   t.deepEqual(keys(api), [
     '__esModule',
+    'middlewares',
+    'reducers',
     'getChapterId',
     'getChoices',
     'getCurrentProgressionId',
@@ -198,7 +195,6 @@ test('it should expose all api', t => {
     'play',
     'pause',
     'resume',
-    'ended',
-    'default'
+    'ended'
   ]);
 });
