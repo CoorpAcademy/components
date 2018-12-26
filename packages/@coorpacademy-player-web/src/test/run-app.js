@@ -1,7 +1,7 @@
 import test from 'ava';
-import start from '../start';
+import runApp from '../run-app';
 
-test('it should start app', t => {
+test('it should run app', t => {
   const options = {
     progression: {
       id: 'foo'
@@ -15,6 +15,6 @@ test('it should start app', t => {
     }
   };
 
-  const app = start(options, store);
+  const app = runApp(options, store);
   t.is(app, 'bar');
 });

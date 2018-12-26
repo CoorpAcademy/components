@@ -4,7 +4,7 @@ import pipe from 'lodash/fp/pipe';
 import Provider from '@coorpacademy/components/es/atom/provider';
 import {selectProgression} from '@coorpacademy/player-store/es/actions/ui/progressions';
 import {updateCoaches} from '@coorpacademy/player-store/es/actions/ui/coaches';
-import start from './start';
+import runApp from './run-app';
 import createStore from './store';
 import {selectMapStateToVNode} from './map-state-to-props';
 import {createStateToVNode, views} from './views';
@@ -42,7 +42,7 @@ const create = options => {
     });
   }
 
-  start(options, store);
+  runApp(options, store);
 
   const {dispatch} = store;
   return {
