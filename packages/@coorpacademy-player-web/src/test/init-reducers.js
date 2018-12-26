@@ -1,11 +1,11 @@
 import test from 'ava';
-import createReducer from '../../../@coorpacademy-player-store/src/reducers';
+import {createReducers} from '../store';
 import macro from './helpers/macro';
 
 test(
   'should have initial value',
   macro,
-  createReducer(),
+  createReducers(),
   undefined,
   {},
   {

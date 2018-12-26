@@ -20,4 +20,5 @@ const createMiddlewares = options => {
 };
 
 const create = options => createStore(createReducers(), {}, createMiddlewares(options));
+export {createMiddlewares, createReducers};
 export default create;

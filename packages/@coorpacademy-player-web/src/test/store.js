@@ -1,8 +1,6 @@
 import test from 'ava';
-import {applyMiddleware, createStore} from 'redux';
-import ReduxThunkMemoized from '../redux-thunk-memoized';
-
-const createMiddlewares = options => applyMiddleware(ReduxThunkMemoized(options));
+import {createStore} from 'redux';
+import {createMiddlewares} from '../store';
 
 const appOptions = {
   services: {
@@ -32,4 +30,16 @@ test('should apply redux-thunk', async t => {
       type: 2
     });
   });
+});
+
+test('should enable devtools', t => {
+  t.plan(1);
+  global.window = {
+    __REDUX_DEVTOOLS_EXTENSION__: () => {
+      t.pass();
+      return f => f;
+    }
+  };
+
+  createStore(state => state, 'state', createMiddlewares(appOptions));
 });
