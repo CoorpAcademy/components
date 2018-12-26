@@ -1,5 +1,5 @@
 import test from 'ava';
-import createReducer from '..';
+import createReducer from '../../../@coorpacademy-player-store/src/reducers';
 import macro from './helpers/macro';
 
 test(

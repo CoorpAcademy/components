@@ -1,10 +1,8 @@
-import {applyMiddleware, compose} from 'redux';
 import ReduxThunk from 'redux-thunk';
 import reduce from 'lodash/fp/reduce';
 import get from 'lodash/fp/get';
 import set from 'lodash/fp/set';
 import memoizeTask from '../utils/memoize-task';
-import ErrorLogger from './error-logger';
 
 const memoizeService = (options, keyPath) => {
   const service = get(keyPath, options);
@@ -19,18 +17,9 @@ const memoizeMoveTypeServices = options =>
     'services.Progressions.postAnswer'
   ]);
 
-const middlewares = options => {
+const ReduxThunkMemoized = options => {
   const optionsWithMemoizedServices = memoizeMoveTypeServices(options);
-
-  return compose(
-    applyMiddleware(
-      ReduxThunk.withExtraArgument(optionsWithMemoizedServices),
-      ErrorLogger(options)
-    ),
-    typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__
-      ? window.__REDUX_DEVTOOLS_EXTENSION__()
-      : f => f
-  );
+  return ReduxThunk.withExtraArgument(optionsWithMemoizedServices);
 };
 
-export default middlewares;
+export default ReduxThunkMemoized;

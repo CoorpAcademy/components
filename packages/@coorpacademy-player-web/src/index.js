@@ -5,7 +5,7 @@ import Provider from '@coorpacademy/components/es/atom/provider';
 import {selectProgression} from '@coorpacademy/player-store/es/actions/ui/progressions';
 import {updateCoaches} from '@coorpacademy/player-store/es/actions/ui/coaches';
 import start from '@coorpacademy/player-store/es/start';
-import createStore from '@coorpacademy/player-store/es';
+import createStore from './store';
 import {selectMapStateToVNode} from './map-state-to-props';
 import {createStateToVNode, views} from './views';
 

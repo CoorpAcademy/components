@@ -1,6 +1,11 @@
-import {createStore} from 'redux';
-import createReducer from './reducers';
-import createMiddleware from './middlewares';
+import ReduxThunkMemoized from './middlewares/redux-thunk-memoized';
+import ErrorLogger from './middlewares/error-logger';
+
+import data from './reducers/data';
+import ui from './reducers/ui';
+
+const reducers = {data, ui};
+const middlewares = {ErrorLogger, ReduxThunkMemoized};
 
 export * from './utils/state-extract';
 export * from './actions/api/analytics';
@@ -24,6 +29,4 @@ export * from './actions/ui/progressions';
 export * from './actions/ui/route';
 export * from './actions/ui/video';
 
-const create = options => createStore(createReducer(options), {}, createMiddleware(options));
-
-export default create;
+export {middlewares, reducers};
