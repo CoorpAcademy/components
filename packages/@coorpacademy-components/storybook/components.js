@@ -542,6 +542,7 @@ import OrganismPopinFixtureDefault from '../src/organism/popin/test/fixtures/def
 import OrganismResourceBrowserFixtureJwplayerWithOverlay from '../src/organism/resource-browser/test/fixtures/jwplayer-with-overlay';
 import OrganismResourceBrowserFixtureJwplayer from '../src/organism/resource-browser/test/fixtures/jwplayer';
 import OrganismResourceBrowserFixtureKontiki from '../src/organism/resource-browser/test/fixtures/kontiki';
+import OrganismResourceBrowserFixtureMp4 from '../src/organism/resource-browser/test/fixtures/mp4';
 import OrganismResourceBrowserFixtureOneVideo from '../src/organism/resource-browser/test/fixtures/one-video';
 import OrganismResourceBrowserFixturePdfWithOverlay from '../src/organism/resource-browser/test/fixtures/pdf-with-overlay';
 import OrganismResourceBrowserFixturePdf from '../src/organism/resource-browser/test/fixtures/pdf';
@@ -1539,6 +1540,7 @@ export const fixtures = {
       JwplayerWithOverlay: OrganismResourceBrowserFixtureJwplayerWithOverlay,
       Jwplayer: OrganismResourceBrowserFixtureJwplayer,
       Kontiki: OrganismResourceBrowserFixtureKontiki,
+      Mp4: OrganismResourceBrowserFixtureMp4,
       OneVideo: OrganismResourceBrowserFixtureOneVideo,
       PdfWithOverlay: OrganismResourceBrowserFixturePdfWithOverlay,
       Pdf: OrganismResourceBrowserFixturePdf,
