@@ -11,7 +11,8 @@ export default {
         title: 'Name',
         value: 'value',
         required: true,
-        autoFocus: false
+        autoFocus: false,
+        disabled: true
       },
       {
         type: 'splitForm',
