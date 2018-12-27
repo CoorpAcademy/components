@@ -36,10 +36,6 @@ const create = options => {
       update();
       unsubscribe = store.subscribe(update);
     });
-    module.hot.accept('@coorpacademy/player-store/es/reducers', () => {
-      const reducers = require('@coorpacademy/player-store/es/reducers').default(options);
-      store.replaceReducer(reducers);
-    });
   }
 
   runApp(options, store);
