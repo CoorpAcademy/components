@@ -1,18 +1,21 @@
 export default {
   props: {
-    mimeType: 'video/mp4',
+    mimeType: 'application/jwplayer',
     jwpOptions: {
       playerId: '12345',
-      file: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-      playerScript: 'https://up-staging.coorpacademy.com/libs/jwplayer/7.10.7/jwplayer.js',
-      licenseKey: 'yI8rSuuJ+fs7VdJzWjY4zGZU48UcOn+Gjg+FXZag16o=',
+      file: 'https://content.jwplatform.com/videos/nTXhramY-720.mp4',
+      playerScript:
+        'https://s3-eu-west-1.amazonaws.com/static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
+      licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8=',
       customProps: {
-        tracks: {
-          file: 'https://assets-jpcust.jwpsrv.com/tracks/I5yJ1bwE.vtt',
-          label: 'English',
-          kind: 'captions',
-          default: true
-        },
+        tracks: [
+          {
+            file: 'https://s3.eu-west-2.amazonaws.com/kickassstarter/-.txt',
+            label: 'English',
+            kind: 'captions',
+            default: true
+          }
+        ],
         autostart: false,
         width: '100%',
         height: '100%'

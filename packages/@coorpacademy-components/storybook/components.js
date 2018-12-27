@@ -492,10 +492,10 @@ import MoleculeVideoIframeFixtureImagePlaceholder from '../src/molecule/video-if
 import MoleculeVideoIframeFixtureJwplayer from '../src/molecule/video-iframe/test/fixtures/jwplayer';
 import MoleculeVideoIframeFixtureUptale from '../src/molecule/video-iframe/test/fixtures/uptale';
 import MoleculeVideoIframeFixtureYoutube from '../src/molecule/video-iframe/test/fixtures/youtube';
-import MoleculeVideoPlayerFixtureJwplayerRegular from '../src/molecule/video-player/test/fixtures/jwplayer-regular';
 import MoleculeVideoPlayerFixtureJwplayerWithSubtitles from '../src/molecule/video-player/test/fixtures/jwplayer-with-subtitles';
 import MoleculeVideoPlayerFixtureJwplayer from '../src/molecule/video-player/test/fixtures/jwplayer';
 import MoleculeVideoPlayerFixtureKontiki from '../src/molecule/video-player/test/fixtures/kontiki';
+import MoleculeVideoPlayerFixtureMp4 from '../src/molecule/video-player/test/fixtures/mp4';
 import MoleculeVideoPlayerFixtureUptale from '../src/molecule/video-player/test/fixtures/uptale';
 import MoleculeVideoPlayerFixtureVimeo from '../src/molecule/video-player/test/fixtures/vimeo';
 import MoleculeVideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
@@ -1381,10 +1381,10 @@ export const fixtures = {
       Youtube: MoleculeVideoIframeFixtureYoutube
     },
     MoleculeVideoPlayer: {
-      JwplayerRegular: MoleculeVideoPlayerFixtureJwplayerRegular,
       JwplayerWithSubtitles: MoleculeVideoPlayerFixtureJwplayerWithSubtitles,
       Jwplayer: MoleculeVideoPlayerFixtureJwplayer,
       Kontiki: MoleculeVideoPlayerFixtureKontiki,
+      Mp4: MoleculeVideoPlayerFixtureMp4,
       Uptale: MoleculeVideoPlayerFixtureUptale,
       Vimeo: MoleculeVideoPlayerFixtureVimeo,
       Youtube: MoleculeVideoPlayerFixtureYoutube
