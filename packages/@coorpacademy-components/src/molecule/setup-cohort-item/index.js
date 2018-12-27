@@ -63,8 +63,12 @@ const sectionPropTypes = {
 };
 
 InputSplitScreen.propTypes = {
-  leftSection: sectionPropTypes,
-  rightSection: sectionPropTypes
+  leftSection: PropTypes.shape({
+    ...sectionPropTypes
+  }),
+  rightSection: PropTypes.shape({
+    ...sectionPropTypes
+  })
 };
 
 InputSplitScreen.contextTypes = {

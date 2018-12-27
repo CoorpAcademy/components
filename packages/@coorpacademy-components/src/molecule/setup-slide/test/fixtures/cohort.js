@@ -6,7 +6,8 @@ export default {
         title: 'Name',
         value: 'value',
         required: true,
-        autoFocus: true
+        autoFocus: true,
+        disabled: true
       },
       {
         type: 'splitForm',
@@ -17,7 +18,7 @@ export default {
             {
               type: 'checkbox',
               title: 'Provider 1',
-              checked: true,
+              checked: false,
               value: 'them_cascsa'
             },
             {
@@ -59,7 +60,7 @@ export default {
             {
               type: 'checkbox',
               title: 'them_XXXX 1',
-              checked: true
+              checked: false
             },
             {
               type: 'checkbox',
@@ -92,7 +93,8 @@ export default {
           {
             type: 'button',
             typeAction: 'submit',
-            submitValue: 'SUBMIT'
+            submitValue: 'SUBMIT',
+            disabled: true
           },
           {
             type: 'button',
