@@ -3,7 +3,8 @@
 import buildTask from '@coorpacademy/redux-task';
 import type {Content as ContentType, Engine} from '@coorpacademy/progression-engine';
 import {getContent, getContentInfo, getSlide} from '../../utils/state-extract';
-import type {Dispatch, ContentsActions, GetState} from '../../types';
+import type {Services} from '../../definitions/services';
+import type {Dispatch, ContentsActions, GetState} from '../../definitions/redux';
 
 export const CONTENT_FETCH_REQUEST: string = '@@content/FETCH_REQUEST';
 export const CONTENT_FETCH_SUCCESS: string = '@@content/FETCH_SUCCESS';
@@ -12,7 +13,7 @@ export const CONTENT_FETCH_FAILURE: string = '@@content/FETCH_FAILURE';
 export const fetchContent = (type: string, ref: string) => (
   dispatch: Dispatch,
   getState: GetState,
-  {services}
+  {services}: {services: Services}
 ): Dispatch => {
   const {Content} = services;
 
@@ -33,7 +34,7 @@ export const CONTENT_INFO_FETCH_FAILURE: string = '@@content-info/FETCH_FAILURE'
 export const fetchContentInfo = (content: ContentType, engine: Engine) => (
   dispatch: Dispatch,
   getState: GetState,
-  {services}
+  {services}: {services: Services}
 ): Dispatch => {
   const {Content} = services;
 
@@ -50,7 +51,7 @@ export const fetchContentInfo = (content: ContentType, engine: Engine) => (
 export const fetchSlideChapter = (slideRef: string) => async (
   dispatch: Dispatch,
   getState: GetState,
-  {services}
+  {services}: {services: Services}
 ): Dispatch => {
   const slideFetchResult = await dispatch(fetchContent('slide', slideRef));
   if (slideFetchResult.error) {

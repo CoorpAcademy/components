@@ -2,7 +2,8 @@
 
 import buildTask from '@coorpacademy/redux-task';
 import {getExitNode} from '../../utils/state-extract';
-import type {Dispatch, ExitNodesActions, GetState} from '../../types';
+import type {Services} from '../../definitions/services';
+import type {Dispatch, ExitNodesActions, GetState} from '../../definitions/redux';
 
 export const EXIT_NODE_FETCH_REQUEST: string = '@@exit_node/FETCH_REQUEST';
 export const EXIT_NODE_FETCH_SUCCESS: string = '@@exit_node/FETCH_SUCCESS';
@@ -11,7 +12,7 @@ export const EXIT_NODE_FETCH_FAILURE: string = '@@exit_node/FETCH_FAILURE';
 export const fetchExitNode = id => (
   dispatch: Dispatch,
   getState: GetState,
-  {services}
+  {services}: {services: Services}
 ): Dispatch => {
   const {ExitNodes} = services;
 

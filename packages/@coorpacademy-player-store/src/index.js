@@ -6,8 +6,44 @@ import ErrorLogger from './middlewares/error-logger';
 import data from './reducers/data';
 import ui from './reducers/ui';
 
-import type {FindById, AnswersService} from './definitions/services/answers';
-import type {Level, Correction} from './definitions/models';
+import type {
+  Chapter,
+  Correction,
+  ExitNode,
+  Level,
+  Recommendation,
+  Resource,
+  Slide,
+  UserAnswer
+} from './definitions/models';
+// @flow strict
+
+import type {FindCorrection, AnswersService} from './definitions/services/answers';
+import type {FindById as FindClueById, CluesService} from './definitions/services/clues';
+import type {GetInfo, ContentService} from './definitions/services/content';
+import type {
+  FindById as FindExitNodeById,
+  ExitNodesService
+} from './definitions/services/exit-nodes';
+import type {
+  AcceptExtraLife,
+  CreateProgression,
+  FindBestOf,
+  FindById as FindProgressionById,
+  GetAvailableContent,
+  MarkResourceAsViewed,
+  PostAnswer,
+  RefuseExtraLife,
+  RequestClue,
+  ProgressionsService
+} from './definitions/services/progressions';
+import type {
+  FindRecommendations,
+  GetNextRecommendation,
+  RecommendationsService
+} from './definitions/services/recommendations';
+import type {FindById as FindSlideById, SlidesService} from './definitions/services/slides';
+import type {Services} from './definitions/services';
 
 const reducers = {data, ui};
 const middlewares = {ErrorLogger, ReduxThunkMemoized};
@@ -37,3 +73,38 @@ export * from './actions/ui/route';
 export * from './actions/ui/video';
 
 export {middlewares, reducers};
+
+export type {
+  AcceptExtraLife,
+  AnswersService,
+  Chapter,
+  CluesService,
+  ContentService,
+  Correction,
+  CreateProgression,
+  ExitNode,
+  ExitNodesService,
+  FindBestOf,
+  FindClueById,
+  FindCorrection,
+  FindExitNodeById,
+  FindProgressionById,
+  FindRecommendations,
+  FindSlideById,
+  GetAvailableContent,
+  GetInfo,
+  GetNextRecommendation,
+  Level,
+  MarkResourceAsViewed,
+  PostAnswer,
+  ProgressionsService,
+  Recommendation,
+  RecommendationsService,
+  RefuseExtraLife,
+  RequestClue,
+  Resource,
+  Services,
+  Slide,
+  SlidesService,
+  UserAnswer
+};

@@ -1,16 +1,18 @@
 // @flow
 
 import buildTask from '@coorpacademy/redux-task';
-import type {Dispatch, AnswersActions, GetState} from '../../types';
+import type {UserAnswer} from '../../definitions/models';
+import type {Services} from '../../definitions/services';
+import type {Dispatch, AnswersActions, GetState} from '../../definitions/redux';
 
 export const ANSWER_FETCH_REQUEST: string = '@@answer/FETCH_REQUEST';
 export const ANSWER_FETCH_SUCCESS: string = '@@answer/FETCH_SUCCESS';
 export const ANSWER_FETCH_FAILURE: string = '@@answer/FETCH_FAILURE';
 
-export const fetchAnswer = (progressionId: string, slideId: string, givenAnswers) => (
+export const fetchAnswer = (progressionId: string, slideId: string, givenAnswers: UserAnswer) => (
   dispatch: Dispatch,
   getState: GetState,
-  {services}
+  {services}: {services: Services}
 ): Dispatch => {
   const {Answers} = services;
 

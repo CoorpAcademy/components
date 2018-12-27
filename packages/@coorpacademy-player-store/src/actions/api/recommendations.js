@@ -2,7 +2,8 @@
 
 import buildTask from '@coorpacademy/redux-task';
 import {getProgressionContent, getRecommendations} from '../../utils/state-extract';
-import type {Dispatch, RecommendationsActions, GetState} from '../../types';
+import type {Services} from '../../definitions/services';
+import type {Dispatch, RecommendationsActions, GetState} from '../../definitions/redux';
 
 export const RECO_FETCH_REQUEST: string = '@@recommendation/FETCH_REQUEST';
 export const RECO_FETCH_SUCCESS: string = '@@recommendation/FETCH_SUCCESS';
@@ -11,7 +12,7 @@ export const RECO_FETCH_FAILURE: string = '@@recommendation/FETCH_FAILURE';
 export const fetchRecommendations = (progressionId: string) => (
   dispatch: Dispatch,
   getState: GetState,
-  {services}
+  {services}: {services: Services}
 ): Dispatch => {
   const {Recommendations} = services;
   const {type, ref} = getProgressionContent(getState());

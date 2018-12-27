@@ -3,11 +3,6 @@
 import includes from 'lodash/fp/includes';
 import type {Clue, Fixtures} from './definitions';
 
-type FindById = (progressionId: string, slideId: string) => Promise<Clue>;
-type CluesService = {|
-  findById: FindById
-|};
-
 const findById = (fixtures: Fixtures): FindById => async (
   progressionId,
   slideId

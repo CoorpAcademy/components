@@ -5,6 +5,8 @@ import pipe from 'lodash/fp/pipe';
 import includes from 'lodash/fp/includes';
 import buildTask from '@coorpacademy/redux-task';
 import type {Content, Engine, Progression, State} from '@coorpacademy/progression-engine';
+import type {Services} from '../../definitions/services';
+
 import {
   getProgression,
   getBestScore,
@@ -13,7 +15,7 @@ import {
   getCurrentSlide,
   getPreviousSlide
 } from '../../utils/state-extract';
-import type {Dispatch, ProgressionsActions, GetState, Slide} from '../../types';
+import type {Dispatch, ProgressionsActions, GetState, Slide} from '../../definitions/redux';
 
 export const PROGRESSION_FETCH_REQUEST: string = '@@progression/FETCH_REQUEST';
 export const PROGRESSION_FETCH_SUCCESS: string = '@@progression/FETCH_SUCCESS';
@@ -22,7 +24,7 @@ export const PROGRESSION_FETCH_FAILURE: string = '@@progression/FETCH_FAILURE';
 export const fetchProgression = (id: string) => (
   dispatch: Dispatch,
   getState: GetState,
-  {services}
+  {services}: {services: Services}
 ): Dispatch => {
   const {Progressions} = services;
 
@@ -43,7 +45,7 @@ export const ENGINE_CONFIG_FETCH_FAILURE: string = '@@progression/CONFIG_FAILURE
 export const fetchEngineConfig = (engine: Engine) => (
   dispatch: Dispatch,
   getState: GetState,
-  {services}
+  {services}: {services: Services}
 ): Dispatch => {
   const {Progressions} = services;
 
@@ -64,7 +66,7 @@ export const PROGRESSION_CREATE_ANSWER_FAILURE: string = '@@progression/CREATE_A
 export const createAnswer = (progressionId: string, answer) => (
   dispatch: Dispatch,
   getState: GetState,
-  {services}
+  {services}: {services: Services}
 ): Dispatch => {
   const {Progressions} = services;
   const progression: Progression = getProgression(progressionId)(getState());
@@ -98,7 +100,7 @@ export const PROGRESSION_REQUEST_CLUE_FAILURE: string = '@@progression/REQUEST_C
 export const requestClue = (progressionId: string, slideId: string) => (
   dispatch: Dispatch,
   getState: GetState,
-  {services}
+  {services}: {services: Services}
 ): Dispatch => {
   const {Progressions} = services;
   const state: State = getState();
@@ -135,7 +137,7 @@ export const PROGRESSION_EXTRALIFEREFUSED_FAILURE: string =
 export const refuseExtraLife = (progressionId: string) => (
   dispatch: Dispatch,
   getState: GetState,
-  {services}
+  {services}: {services: Services}
 ): Dispatch => {
   const {Progressions} = services;
   const progression: Progression = getProgression(progressionId)(getState());
@@ -167,7 +169,7 @@ export const PROGRESSION_EXTRALIFEACCEPTED_FAILURE: string =
 export const acceptExtraLife = (progressionId: string) => (
   dispatch: Dispatch,
   getState: GetState,
-  {services}
+  {services}: {services: Services}
 ): Dispatch => {
   const {Progressions} = services;
   const progression: Progression = getProgression(progressionId)(getState());
@@ -196,7 +198,7 @@ export const PROGRESSION_FETCH_BESTOF_FAILURE: string = '@@progression/FETCH_BES
 export const fetchBestProgression = (progressionContent, progressionId: string) => (
   dispatch: Dispatch,
   getState: GetState,
-  {services}
+  {services}: {services: Services}
 ): Dispatch => {
   const {Progressions} = services;
   const {type, ref} = progressionContent;
@@ -223,7 +225,7 @@ export const PROGRESSION_RESOURCE_VIEWED_FAILURE: string = '@@progression/RESOUR
 export const markResourceAsViewed = (progressionId: string, resource: Resource) => (
   dispatch: Dispatch,
   getState: GetState,
-  {services}
+  {services}: {services: Services}
 ): Dispatch => {
   const {Progressions} = services;
   const state: State = getState();

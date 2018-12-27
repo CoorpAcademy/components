@@ -1,11 +1,6 @@
 // @flow strict
 
-import type {Answer, PartialCorrection} from '@coorpacademy/progression-engine';
-
-type Correction = {
-  correctAnswer: Array<Answer>,
-  corrections: Array<PartialCorrection>
-};
+import type {Answer, Content, PartialCorrection} from '@coorpacademy/progression-engine';
 
 type Url = string;
 
@@ -67,22 +62,15 @@ type Meta = {|
   createdAt: string
 |};
 
-type Choice = {|
-  _id: string,
-  value: string,
-  label: string,
-  items: Array<?string>,
-  media: Media
-|};
+// type Choice = {|
+//   _id: string,
+//   value: string,
+//   label: string,
+//   items: Array<?string>,
+//   media: Media
+// |};
 
-type Answers = Array<Array<string>>;
-
-type Content = {|
-  maxTypos: ?boolean,
-  choices: Choice,
-  answers: Answers,
-  media: Media
-|};
+// type Answers = Array<Array<string>>;
 
 type Question = {|
   type: string,
@@ -116,22 +104,16 @@ type Recommendation = {|
   href: string
 |};
 
+type ExitNodeRef = 'successExitNode' | 'failureExitNode';
+type ExitNodeType = SUCCESS | FAILURE;
+
 type ExitNode = {|
-  ref: string,
-  type: string,
+  ref: ExitNodeRef,
+  type: ExitNodeType,
+  meta: Meta,
   title: string,
   description: string,
   media: Media
-|};
-
-type SuccessExitNode = {|
-  ...ExitNode,
-  meta: Meta
-|};
-
-type FailureExitNode = {|
-  ...ExitNode,
-  meta: Meta
 |};
 
 type Poster = {|
@@ -186,13 +168,14 @@ type Level = {|
   external_refs: Array<?string>
 |};
 
-export type {
-  Chapter,
-  Correction,
-  FailureExitNode,
-  Level,
-  Recommendation,
-  Resource,
-  Slide,
-  SuccessExitNode
+type UserAnswer = {|
+  answer: Answer,
+  content: Content
+|};
+
+type Correction = {
+  correctAnswer: Array<Answer>,
+  corrections: Array<PartialCorrection>
 };
+
+export type {Chapter, Correction, ExitNode, Level, Recommendation, Resource, Slide, UserAnswer};

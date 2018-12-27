@@ -38,7 +38,7 @@ type Source = {|
   url: Url
 |};
 
-type Resource = {|
+type ResourceAPI = {|
   _id: string,
   ref: string,
   type: ResourceType,
@@ -97,7 +97,7 @@ type Meta = {|
   createdAt: string
 |};
 
-type Recommendation = {|
+type RecommendationAPI = {|
   view: string,
   image: Url,
   time: string,
@@ -117,7 +117,7 @@ type Poster = {|
   src?: Array<Source>
 |};
 
-type Chapter = {|
+type ChapterAPI = {|
   _id: string,
   __v: number,
   universalRef: string,
@@ -131,9 +131,9 @@ type Chapter = {|
   version: string
 |};
 
-type Clue = string;
+type ClueAPI = string;
 
-type UserAnswer = {|
+type UserAnswerAPI = {|
   answer: Answer,
   content: Content
 |};
@@ -141,7 +141,7 @@ type UserAnswer = {|
 type ExitNodeRef = 'successExitNode' | 'failureExitNode';
 type ExitNodeType = SUCCESS | FAILURE;
 
-type ExitNode = {|
+type ExitNodeAPI = {|
   ref: ExitNodeRef,
   type: ExitNodeType,
   meta: Meta,
@@ -174,18 +174,18 @@ export const CONTENT_TYPE: {[string]: ContentType} = {
 };
 
 export type {
-  Chapter,
-  Clue,
+  ChapterAPI,
+  ClueAPI,
   DataEvent,
-  ExitNode,
+  ExitNodeAPI,
   ExitNodeRef,
   Fixtures,
   JwPlayerOptions,
-  Recommendation,
-  Resource,
+  RecommendationAPI,
+  ResourceAPI,
   ResourceMimeType,
   ResourceType,
   Url,
-  UserAnswer,
+  UserAnswerAPI,
   Window
 };

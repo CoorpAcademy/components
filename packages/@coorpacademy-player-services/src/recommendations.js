@@ -4,14 +4,6 @@ import type {ContentType} from '@coorpacademy/progression-engine';
 import type {Fixtures, Level, Recommendation} from './definitions';
 import {CONTENT_TYPE} from './definitions';
 
-type FindRecommendations = (type: ContentType, ref: string) => Promise<Array<Recommendation>>;
-type GetNextRecommendation = (type: ContentType, ref: string) => Promise<void | Level>;
-
-type RecommendationsService = {|
-  find: FindRecommendations,
-  getNext: GetNextRecommendation
-|};
-
 const find = (fixtures: Fixtures): FindRecommendations => (
   type: ContentType,
   ref: string

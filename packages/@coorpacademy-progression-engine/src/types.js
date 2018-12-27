@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import type {Instruction, ChapterRule} from './rule-engine/types';
 

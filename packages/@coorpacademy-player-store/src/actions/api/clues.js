@@ -2,7 +2,8 @@
 
 import buildTask from '@coorpacademy/redux-task';
 import {extractClue} from '../../utils/state-extract';
-import type {Dispatch, CluesActions, GetState} from '../../types';
+import type {Services} from '../../definitions/services';
+import type {Dispatch, CluesActions, GetState} from '../../definitions/redux';
 
 export const CLUE_FETCH_REQUEST: string = '@@clue/CREATE_REQUEST';
 export const CLUE_FETCH_SUCCESS: string = '@@clue/CREATE_SUCCESS';
@@ -11,7 +12,7 @@ export const CLUE_FETCH_FAILURE: string = '@@clue/CREATE_FAILURE';
 export const fetchClue = (progressionId: string, slideId: string) => (
   dispatch: Dispatch,
   getState: GetState,
-  {services}
+  {services}: {services: Services}
 ): Dispatch => {
   const {Clues} = services;
 

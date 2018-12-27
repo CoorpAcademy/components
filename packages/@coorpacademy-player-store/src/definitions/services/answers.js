@@ -3,7 +3,7 @@
 import type {Answer} from '@coorpacademy/progression-engine';
 import type {Correction} from '../models';
 
-type FindById = (
+type FindCorrection = (
   progressionId: string,
   slideId: string,
   givenAnswers: Answer
@@ -13,4 +13,4 @@ type AnswersService = {|
   findById: FindById
 |};
 
-export type {FindById, AnswersService};
+export type {FindCorrection, AnswersService};

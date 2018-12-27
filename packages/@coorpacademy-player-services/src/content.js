@@ -7,14 +7,7 @@ import {getConfig} from '@coorpacademy/progression-engine';
 import type {Slide} from '@coorpacademy/progression-engine';
 import type {Chapter, Fixtures, Level} from './definitions';
 
-type FindContent = (type: string, ref: string) => Promise<Chapter | Level | Slide>;
 type GetNbSlides = (contentRef: string, engineRef: string, version: string) => number;
-type GetInfo = (contentRef: string, engineRef: string, version: string) => {nbSlides: number};
-
-type ContentService = {|
-  find: FindContent,
-  getInfo: GetInfo
-|};
 
 const find = (fixtures: Fixtures): FindContent => (
   type: string,

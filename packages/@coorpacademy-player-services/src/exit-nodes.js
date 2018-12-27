@@ -2,11 +2,6 @@
 
 import type {ExitNode, ExitNodeRef, Fixtures} from './definitions';
 
-type FindById = (id: ExitNodeRef) => Promise<ExitNode>;
-type ExitNodesService = {|
-  findById: FindById
-|};
-
 // eslint-disable-next-line import/prefer-default-export
 export const findById = (fixtures: Fixtures): FindById => async (
   id: ExitNodeRef

@@ -82,28 +82,18 @@ type Dispatch = (
 
 export type {
   AnalyticsActions,
-  Answers,
   AnswersActions,
-  Chapter,
   CluesActions,
   CommentsActions,
   ContentsActions,
   Dispatch,
   ExitNode,
   ExitNodesActions,
-  FailureExitNode,
   GetState,
-  Lesson,
-  Level,
-  Media,
   NextContentActions,
   ProgressionsActions,
   RankActions,
   Recommendation,
   RecommendationsActions,
-  Resource,
-  ResourceType,
-  Slide,
-  SucessExitNode,
-  Url
+  Resource
 };

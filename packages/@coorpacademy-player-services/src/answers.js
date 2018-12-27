@@ -5,18 +5,8 @@ import includes from 'lodash/fp/includes';
 import {checkAnswerCorrectness, getConfigForProgression} from '@coorpacademy/progression-engine';
 
 import type {Answer} from '@coorpacademy/progression-engine';
+import type {Correction, FindById, AnswersService} from '@coorpacademy/player-store';
 import type {Fixtures} from './definitions';
-import type {Correction, Fixtures} from './definitions';
-
-type FindById = (
-  progressionId: string,
-  slideId: string,
-  givenAnswers: Answer
-) => Promise<Correction>;
-
-type AnswersService = {|
-  findById: FindById
-|};
 
 const findById = (fixtures: Fixtures): FindById => async (
   progressionId: string,

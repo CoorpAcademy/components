@@ -1,9 +1,11 @@
-// @flow
+// @flow strict
 
 import buildTask from '@coorpacademy/redux-task';
 import type {State, Progression, Engine} from '@coorpacademy/progression-engine';
 import {getRoute, getCurrentProgression, getEngineConfig} from '../../utils/state-extract';
-import type {Resource, Dispatch, AnalyticsActions, GetState} from '../../types';
+import type {Resource} from '../../definitions/models';
+import type {Services} from '../../definitions/services';
+import type {Dispatch, AnalyticsActions, GetState} from '../../definitions/redux';
 
 export const MEDIA_VIEWED_ANALYTICS_REQUEST: string = '@@analytics/MEDIA_VIEWED_REQUEST';
 export const MEDIA_VIEWED_ANALYTICS_SUCCESS: string = '@@analytics/MEDIA_VIEWED_SUCCESS';
@@ -12,7 +14,7 @@ export const MEDIA_VIEWED_ANALYTICS_FAILURE: string = '@@analytics/MEDIA_VIEWED_
 export const sendMediaViewed = (resource: Resource) => (
   dispatch: Dispatch,
   getState: GetState,
-  {services}
+  {services}: {services: Services}
 ): Dispatch => {
   const {Analytics} = services;
   const state: State = getState();
@@ -38,7 +40,7 @@ export const SEND_PROGRESSION_ANALYTICS_FAILURE: string = '@@analytics/SEND_PROG
 export const sendProgressionAnalytics = (progressionId: string) => (
   dispatch: Dispatch,
   getState: GetState,
-  {services}
+  {services}: {services: Services}
 ): Dispatch => {
   const {Analytics} = services;
   const state: State = getState();
