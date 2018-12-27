@@ -47,11 +47,11 @@ class VideoPlayer extends React.Component {
       case 'application/youtube':
       case 'application/kontiki':
       case 'application/uptale':
-      case 'application/jwplayer':
+      case 'video/mp4':
         return (
           <VideoIframe
             key={id}
-            type={mimeType.split('application/')[1]}
+            type={mimeType}
             id={id}
             url={url}
             width={width}
@@ -63,7 +63,7 @@ class VideoPlayer extends React.Component {
             onEnded={onEnded}
           />
         );
-      case 'video/mp4':
+      case 'application/jwplayer':
         return <JWPlayer {...this.props} key={id} />;
     }
   };
