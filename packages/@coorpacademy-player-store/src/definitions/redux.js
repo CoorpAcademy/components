@@ -1,8 +1,9 @@
 // @flow strict
 
 import type {State} from '@coorpacademy/progression-engine';
+import type {Resource} from './models';
 
-type Task = () => ?void | Content | ExitNode;
+type Task = Function;
 
 type GetState = () => State;
 
@@ -62,8 +63,7 @@ type RankActions = {|
 |};
 type RecommendationsActions = {|
   ...Action,
-  // eslint-disable-next-line flowtype/no-weak-types
-  bailout?: () => void | ?Recommendation
+  bailout?: State => boolean
 |};
 
 type Dispatch = (
@@ -87,13 +87,11 @@ export type {
   CommentsActions,
   ContentsActions,
   Dispatch,
-  ExitNode,
   ExitNodesActions,
   GetState,
   NextContentActions,
   ProgressionsActions,
   RankActions,
-  Recommendation,
   RecommendationsActions,
   Resource
 };

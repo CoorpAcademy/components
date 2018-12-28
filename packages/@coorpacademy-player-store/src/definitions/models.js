@@ -1,6 +1,12 @@
 // @flow strict
 
-import type {Answer, Content, PartialCorrection} from '@coorpacademy/progression-engine';
+import type {
+  FAILURE,
+  SUCCESS,
+  Answer,
+  Content,
+  PartialCorrection
+} from '@coorpacademy/progression-engine';
 
 type Url = string;
 
@@ -12,6 +18,17 @@ type Source = {|
   _id: string,
   mimeType: ResourceMimeType,
   url: Url
+|};
+
+type Media = {|
+  type: string,
+  description: string,
+  mimeType: ResourceMimeType,
+  _id: string,
+  mediaUrl: Url,
+  subtitles?: Array<string>,
+  posters?: Array<Url>,
+  src?: Array<Source>
 |};
 
 type Resource = {|
@@ -27,23 +44,6 @@ type Resource = {|
   dataLayer?: Array<DataEvent>
 |};
 
-type Media = {|
-  type: string,
-  description: string,
-  mimeType: ResourceMimeType,
-  _id: string,
-  mediaUrl: Url,
-  subtitles?: Array<string>,
-  posters?: Array<Url>,
-  src?: Array<Source>
-|};
-
-type Context = {|
-  title: string,
-  description: string,
-  media: Media
-|};
-
 type Lesson = {|
   _id: string,
   ref: string,
@@ -56,6 +56,8 @@ type Lesson = {|
   posters: Array<Url>,
   src: Array<Source>
 |};
+
+type Clue = string;
 
 type Meta = {|
   updatedAt: string,
@@ -71,27 +73,6 @@ type Meta = {|
 // |};
 
 // type Answers = Array<Array<string>>;
-
-type Question = {|
-  type: string,
-  header: string,
-  explanation: string,
-  content: Content,
-  medias: Array<Media>
-|};
-
-type Slide = {|
-  _id: string,
-  klf: string,
-  tips: string,
-  hasClue: boolean,
-  chapter_id: string,
-  authors: Array<string>,
-  context: Context,
-  meta: Meta,
-  lessons: Array<Lesson>,
-  question: Question
-|};
 
 type Recommendation = {|
   view: string,
@@ -178,4 +159,16 @@ type Correction = {
   corrections: Array<PartialCorrection>
 };
 
-export type {Chapter, Correction, ExitNode, Level, Recommendation, Resource, Slide, UserAnswer};
+export type {
+  Chapter,
+  Clue,
+  Correction,
+  ExitNode,
+  ExitNodeRef,
+  Lesson,
+  Level,
+  Media,
+  Recommendation,
+  Resource,
+  UserAnswer
+};

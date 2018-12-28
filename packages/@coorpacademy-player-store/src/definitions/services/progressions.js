@@ -1,5 +1,18 @@
 // @flow strict
 
+import type {
+  AvailableContent,
+  Config,
+  Content,
+  ContentSlide,
+  Engine,
+  EngineOptions,
+  Instruction,
+  Progression,
+  ResourceContent
+} from '@coorpacademy/progression-engine';
+import type {UserAnswer} from '../models';
+
 type AcceptExtraLife = (
   progressionId: string,
   payload: {

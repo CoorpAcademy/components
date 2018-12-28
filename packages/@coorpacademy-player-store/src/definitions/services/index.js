@@ -11,6 +11,7 @@ import type {SlidesService} from './slides';
 type Services = {
   Analytics: any,
   Comments: any,
+  Leaderboard: any,
   Answers: AnswersService,
   Clues: CluesService,
   Content: ContentService,

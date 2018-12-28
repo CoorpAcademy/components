@@ -13,7 +13,6 @@ import type {
   Level,
   Recommendation,
   Resource,
-  Slide,
   UserAnswer
 } from './definitions/models';
 // @flow strict
@@ -47,8 +46,6 @@ import type {Services} from './definitions/services';
 
 const reducers = {data, ui};
 const middlewares = {ErrorLogger, ReduxThunkMemoized};
-
-export type {FindById, AnswersService, Level, Correction};
 
 export * from './utils/state-extract';
 export * from './actions/api/analytics';
@@ -104,7 +101,6 @@ export type {
   RequestClue,
   Resource,
   Services,
-  Slide,
   SlidesService,
   UserAnswer
 };

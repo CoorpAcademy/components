@@ -4,7 +4,14 @@ import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 import includes from 'lodash/fp/includes';
 import buildTask from '@coorpacademy/redux-task';
-import type {Content, Engine, Progression, State} from '@coorpacademy/progression-engine';
+import type {
+  Answer,
+  Content,
+  Engine,
+  Progression,
+  Slide,
+  State
+} from '@coorpacademy/progression-engine';
 import type {Services} from '../../definitions/services';
 
 import {
@@ -15,7 +22,7 @@ import {
   getCurrentSlide,
   getPreviousSlide
 } from '../../utils/state-extract';
-import type {Dispatch, ProgressionsActions, GetState, Slide} from '../../definitions/redux';
+import type {Dispatch, ProgressionsActions, GetState} from '../../definitions/redux';
 
 export const PROGRESSION_FETCH_REQUEST: string = '@@progression/FETCH_REQUEST';
 export const PROGRESSION_FETCH_SUCCESS: string = '@@progression/FETCH_SUCCESS';
@@ -63,7 +70,7 @@ export const PROGRESSION_CREATE_ANSWER_REQUEST: string = '@@progression/CREATE_A
 export const PROGRESSION_CREATE_ANSWER_SUCCESS: string = '@@progression/CREATE_ANSWER_SUCCESS';
 export const PROGRESSION_CREATE_ANSWER_FAILURE: string = '@@progression/CREATE_ANSWER_FAILURE';
 
-export const createAnswer = (progressionId: string, answer) => (
+export const createAnswer = (progressionId: string, answer: Answer) => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
@@ -195,7 +202,7 @@ export const PROGRESSION_FETCH_BESTOF_REQUEST: string = '@@progression/FETCH_BES
 export const PROGRESSION_FETCH_BESTOF_SUCCESS: string = '@@progression/FETCH_BESTOF_SUCCESS';
 export const PROGRESSION_FETCH_BESTOF_FAILURE: string = '@@progression/FETCH_BESTOF_FAILURE';
 
-export const fetchBestProgression = (progressionContent, progressionId: string) => (
+export const fetchBestProgression = (progressionContent: Content, progressionId: string) => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}

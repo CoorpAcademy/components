@@ -1,9 +1,11 @@
 // @flow strict
 
-type FindSlideById = (slideId: string) => Promise<Slide>;
+import type {Slide} from '@coorpacademy/progression-engine';
+
+type FindById = (slideId: string) => Promise<Slide>;
 
 type SlidesService = {|
-  findById: FindSlideById
+  findById: FindById
 |};
 
-export type {FindSlideById, SlidesService};
+export type {FindById, SlidesService};

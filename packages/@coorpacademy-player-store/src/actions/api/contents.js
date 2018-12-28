@@ -1,7 +1,7 @@
 // @flow
 
 import buildTask from '@coorpacademy/redux-task';
-import type {Content as ContentType, Engine} from '@coorpacademy/progression-engine';
+import type {Content as ContentType, Engine, Slide} from '@coorpacademy/progression-engine';
 import {getContent, getContentInfo, getSlide} from '../../utils/state-extract';
 import type {Services} from '../../definitions/services';
 import type {Dispatch, ContentsActions, GetState} from '../../definitions/redux';

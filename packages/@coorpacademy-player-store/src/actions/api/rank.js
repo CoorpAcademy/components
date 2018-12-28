@@ -47,6 +47,7 @@ export const fetchEndRank = () => (
   {services}: {services: Services}
 ): void => {
   return fetchRank(dispatch, getState, ({services}: {services: Services}), {
-    types: [RANK_FETCH_END_REQUEST, RANK_FETCH_END_SUCCESS, RANK_FETCH_END_FAILURE]
+    types: [RANK_FETCH_END_REQUEST, RANK_FETCH_END_SUCCESS, RANK_FETCH_END_FAILURE],
+    bailout: undefined
   });
 };
