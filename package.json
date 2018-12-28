@@ -1,6 +1,7 @@
 {
   "private": true,
   "scripts": {
+    "bootstrap": "lerna run prepare",
     "prestatic": "rimraf static",
     "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/player-web static -- --production",
     "poststatic": "mkdirp static && cp -r packages/@coorpacademy-components/static static/components && cp -r packages/@coorpacademy-player-web/static static/app-player",

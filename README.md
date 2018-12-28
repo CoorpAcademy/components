@@ -14,6 +14,13 @@
 
 # How to
 
+### Start
+
+```
+yarn
+yarn bootstrap
+```
+
 ### Publish: [doc](./doc/publish.md)
 
 ### Add a new dependency:

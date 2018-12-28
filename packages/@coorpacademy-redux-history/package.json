@@ -34,6 +34,7 @@
     "lodash": "^4.17.4"
   },
   "devDependencies": {
+    "eslint": "^4.18.2",
     "@coorpacademy/history": "5.3.13",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
