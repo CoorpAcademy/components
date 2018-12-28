@@ -65,6 +65,7 @@
     "react-tooltip": "^3.6.1"
   },
   "devDependencies": {
+    "nyc": "^13.1.0",
     "eslint": "^4.18.2",
     "@coorpacademy/css-modules-require-hook": "1.0.2",
     "@coorpacademy/translate": "5.3.15",
