@@ -7,6 +7,7 @@ import type {
   ChapterRule,
   Content,
   ContentType,
+  PartialCorrection,
   Progression,
   Slide
 } from '@coorpacademy/progression-engine';
@@ -117,6 +118,35 @@ type Poster = {|
   src?: Array<Source>
 |};
 
+type Stats = {|
+  userTriesCoun: number,
+  userDoneCoun: number
+|};
+
+type LevelAPI = {
+  _id: string,
+  universalRef?: string,
+  disciplineRef?: string,
+  ref: string,
+  name: string,
+  level: string,
+  meta: Meta,
+  poster: Poster,
+  chapterIds: Array<string>,
+  levelTranslation?: string,
+  mediaUrl?: Url,
+  timeAlloted?: number,
+  eligibleBattle?: boolean,
+  creditsToAccess?: number,
+  infiniteLives?: boolean,
+  isConditional?: boolean,
+  acquiredSkills?: Array<string>,
+  data: Array<?string>,
+  stats: Stats,
+  version: string,
+  external_refs: Array<?string>
+};
+
 type ChapterAPI = {|
   _id: string,
   __v: number,
@@ -138,6 +168,11 @@ type UserAnswerAPI = {|
   content: Content
 |};
 
+type CorrectionAPI = {
+  correctAnswer: Array<Answer>,
+  corrections: Array<PartialCorrection>
+};
+
 type ExitNodeRef = 'successExitNode' | 'failureExitNode';
 type ExitNodeType = SUCCESS | FAILURE;
 
@@ -153,15 +188,15 @@ type ExitNodeAPI = {|
 type Fixtures = {|
   getAllProgressions: () => Array<Progression>,
   getChapterRulesByContent: (ref: string) => Array<ChapterRule>,
-  getClue: (slideId: string) => Clue,
+  getClue: (slideId: string) => ClueAPI,
   getCorrectAnswer: (slideId: string) => Array<Answer>,
-  getExitNode: (ref: string) => ExitNode,
-  getNextLevel: (ref: string) => Level | void,
-  findChapterById: (contentRef: string) => Chapter,
-  findContent: (type: string, ref: string) => Promise<Chapter | Level | Slide>,
-  findLevelById: (contentRef: string) => Level | void,
+  getExitNode: (ref: string) => ExitNodeAPI,
+  getNextLevel: (ref: string) => LevelAPI | void,
+  findChapterById: (contentRef: string) => ChapterAPI,
+  findContent: (type: string, ref: string) => Promise<ChapterAPI | LevelAPI | Slide>,
+  findLevelById: (contentRef: string) => LevelAPI | void,
   findProgressionById: (id: string) => Promise<Progression | void>,
-  findRecommendations: (type: string, ref: string) => Promise<Array<Recommendation>>,
+  findRecommendations: (type: string, ref: string) => Promise<Array<RecommendationAPI>>,
   findSlideByChapter: (chapterRef: string) => Array<Slide>,
   findSlideById: (id: string) => Promise<Slide>,
   saveProgression: Progression => void
@@ -176,11 +211,13 @@ export const CONTENT_TYPE: {[string]: ContentType} = {
 export type {
   ChapterAPI,
   ClueAPI,
+  CorrectionAPI,
   DataEvent,
   ExitNodeAPI,
   ExitNodeRef,
   Fixtures,
   JwPlayerOptions,
+  LevelAPI,
   RecommendationAPI,
   ResourceAPI,
   ResourceMimeType,

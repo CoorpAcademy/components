@@ -9,8 +9,8 @@ import type {RecommendationsService} from './recommendations';
 import type {SlidesService} from './slides';
 
 type Services = {
-  Analytics: any, // eslint-disable-line flowtype/no-weak-types
-  Comments: any, // eslint-disable-line flowtype/no-weak-types
+  Analytics: any,
+  Comments: any,
   Answers: AnswersService,
   Clues: CluesService,
   Content: ContentService,

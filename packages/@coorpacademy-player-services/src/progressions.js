@@ -31,7 +31,58 @@ import type {
   ResourceContent
 } from '@coorpacademy/progression-engine';
 import {CONTENT_TYPE} from './definitions';
-import type {Fixtures, UserAnswer} from './definitions';
+import type {Fixtures, UserAnswerAPI} from './definitions';
+
+type AcceptExtraLife = (
+  progressionId: string,
+  payload: {
+    content: Content,
+    nextContent: Content,
+    instructions: Array<Instruction> | null
+  }
+) => Promise<Progression>;
+
+type CreateProgression = (Engine, Content, EngineOptions) => Promise<Progression>;
+
+type FindBestOf = (engineRef: string, contentRef: string, progressionId: string) => Progression;
+type FindById = (id: string) => Promise<Progression | void>;
+type GetAvailableContent = Content => Promise<AvailableContent>;
+type MarkResourceAsViewed = (
+  progressionId: string,
+  payload: {
+    resource: ResourceContent,
+    content: Content
+  }
+) => Promise<Progression>;
+
+type PostAnswer = (progressionId: string, payload: UserAnswerAPI) => Promise<Progression>;
+type RefuseExtraLife = (
+  progressionId: string,
+  payload: {
+    content: Content,
+    nextContent: Content
+  }
+) => Promise<Progression>;
+
+type RequestClue = (
+  progressionId: string,
+  payload: {content: ContentSlide}
+) => Promise<Progression>;
+
+type ProgressionsService = {|
+  acceptExtraLife: AcceptExtraLife,
+  create: CreateProgression,
+  findBestOf: FindBestOf,
+  findById: FindById,
+  getAvailableContent: GetAvailableContent,
+  getEngineConfig: Engine => Promise<Config>,
+  markResourceAsViewed: MarkResourceAsViewed,
+  openAssistance: Progression => Progression,
+  postAnswer: PostAnswer,
+  refuseExtraLife: RefuseExtraLife,
+  requestClue: RequestClue,
+  save: Progression => Progression
+|};
 
 const generateId = () => uniqueId('progression');
 
@@ -115,7 +166,7 @@ const addActionAndSaveProgression = (
 
 const postAnswer = (fixtures: Fixtures): PostAnswer => async (
   progressionId: string,
-  payload: UserAnswer
+  payload: UserAnswerAPI
 ): Promise<Progression> => {
   const {findSlideById, findProgressionById} = fixtures;
   const progression = await findProgressionById(progressionId);

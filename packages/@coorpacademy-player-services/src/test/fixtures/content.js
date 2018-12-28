@@ -2,13 +2,13 @@
 
 import type {Slide} from '@coorpacademy/progression-engine';
 import {CONTENT_TYPE} from '../../definitions';
-import type {Chapter, Level} from '../../definitions';
+import type {ChapterAPI, LevelAPI} from '../../definitions';
 import {findById as findChapterById} from './chapters';
 import {findById as findLevelById} from './levels';
 import {findById as findSlideById} from './slides';
 
 // eslint-disable-next-line import/prefer-default-export
-export const find = (type: string, ref: string): Promise<Chapter | Level | Slide> => {
+export const find = (type: string, ref: string): Promise<ChapterAPI | LevelAPI | Slide> => {
   switch (type) {
     case CONTENT_TYPE.CHAPTER: {
       const chapter = findChapterById(ref);

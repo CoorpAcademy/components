@@ -1,12 +1,17 @@
 // @flow strict
 
-import type {ExitNode, ExitNodeRef, Fixtures} from './definitions';
+import type {ExitNodeAPI, ExitNodeRef, Fixtures} from './definitions';
+
+type FindById = (id: ExitNodeRef) => Promise<ExitNodeAPI>;
+type ExitNodesService = {|
+  findById: FindById
+|};
 
 // eslint-disable-next-line import/prefer-default-export
 export const findById = (fixtures: Fixtures): FindById => async (
   id: ExitNodeRef
   // eslint-disable-next-line require-await
-): Promise<ExitNode> => {
+): Promise<ExitNodeAPI> => {
   const {getExitNode} = fixtures;
   const exitNode = getExitNode(id);
   return exitNode;

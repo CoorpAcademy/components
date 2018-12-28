@@ -1,7 +1,7 @@
 // @flow strict
 
 import type {Content} from '@coorpacademy/progression-engine';
-import type {Recommendation} from './definitions';
+import type {RecommendationAPI} from './definitions';
 
 export const exit = () => {
   window.location.reload();
@@ -23,6 +23,6 @@ export const seeComment = (content: Content) => {
   window.location.reload();
 };
 
-export const openRecommendation = (recommendation: Recommendation) => {
+export const openRecommendation = (recommendation: RecommendationAPI) => {
   window.location.reload();
 };

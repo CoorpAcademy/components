@@ -1,8 +1,4 @@
-// @flow strict
-
-import type {Level} from '../../../definitions';
-
-const levels: Array<Level> = [
+const levels = [
   {
     ref: '1.B',
     name: 'Level1',

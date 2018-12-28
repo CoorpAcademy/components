@@ -1,12 +1,17 @@
 // @flow strict
 
 import includes from 'lodash/fp/includes';
-import type {Clue, Fixtures} from './definitions';
+import type {ClueAPI, Fixtures} from './definitions';
+
+type FindById = (progressionId: string, slideId: string) => Promise<ClueAPI>;
+type CluesService = {|
+  findById: FindById
+|};
 
 const findById = (fixtures: Fixtures): FindById => async (
   progressionId,
   slideId
-): Promise<Clue> => {
+): Promise<ClueAPI> => {
   const {findProgressionById, getClue} = fixtures;
   const progression = await findProgressionById(progressionId);
 
