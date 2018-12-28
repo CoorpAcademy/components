@@ -15,8 +15,9 @@ export type SLIDE = 'slide';
 export type NODE = 'node';
 export type FAILURE = 'failure';
 export type SUCCESS = 'success';
-export type GenericContentType = CHAPTER | LEVEL | SLIDE | NODE | FAILURE | SUCCESS;
-export type ResourceContentType = 'video' | 'pdf';
+export type VIDEO = 'video';
+export type PDF = 'pdf';
+export type ContentType = CHAPTER | LEVEL | SLIDE | NODE | FAILURE | SUCCESS | VIDEO | PDF;
 
 export type ContentSlide = {|
   type: SLIDE,
@@ -25,18 +26,17 @@ export type ContentSlide = {|
 
 export type GenericContent = {|
   ref: string,
-  type: GenericContentType,
+  type: ContentType,
   version?: string
 |};
 
 export type ResourceContent = {|
   ref: string,
-  type: ResourceContentType,
+  type: VIDEO | PDF,
   version?: string
 |};
 
 export type Content = GenericContent | ResourceContent;
-export type ContentType =  GenericContentType | ResourceContentType;
 
 export type ViewedResource = {|
   type: $PropertyType<Content, 'type'>,

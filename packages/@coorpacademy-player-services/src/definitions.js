@@ -1,15 +1,15 @@
 // @flow strict
 
 import type {
-  FAILURE,
-  SUCCESS,
   Answer,
   ChapterRule,
   Content,
   ContentType,
+  FAILURE,
   PartialCorrection,
   Progression,
-  Slide
+  Slide,
+  SUCCESS
 } from '@coorpacademy/progression-engine';
 
 type Url = string;
