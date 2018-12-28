@@ -27,6 +27,7 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
+    "nyc": "^13.1.0",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
     "babel-loader": "^7.0.0",
