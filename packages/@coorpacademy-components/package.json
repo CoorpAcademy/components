@@ -49,7 +49,6 @@
   "dependencies": {
     "@coorpacademy/nova-icons": "2.0.0",
     "autoprefixer": "^8.4.1",
-    "babel-plugin-transform-react-remove-prop-types": "0.4.19",
     "classnames": "^2.2.5",
     "css-color-function": "^1.3.0",
     "cubic-bezier": "^0.1.2",
