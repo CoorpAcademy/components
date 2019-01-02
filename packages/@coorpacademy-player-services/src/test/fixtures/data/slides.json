@@ -129,7 +129,7 @@
       "media": {
         "type": "video",
         "description": "mp4 description",
-        "mimeType": "aaplication/jwplayer",
+        "mimeType": "aplication/jwplayer",
         "_id": "5980934b7dfebe01618a57df",
         "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4",
         "subtitles": [],
