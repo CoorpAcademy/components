@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/css-modules-require-hook",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "lib/index.js",
   "files": [
@@ -33,10 +33,10 @@
     "lodash": "^4.17.4"
   },
   "devDependencies": {
-    "eslint": "^4.18.2",
     "babel-plugin-istanbul": "^4.1.4",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "cross-env": "^5.0.0",
+    "eslint": "^4.18.2",
     "rimraf": "^2.6.1"
   },
   "author": "CoorpAcademy"

@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/nova-icons",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "React components bank based on Nova SVG icons",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -30,7 +30,6 @@
     "react": "^16.3.2"
   },
   "devDependencies": {
-    "eslint": "^4.18.2",
     "@svgr/core": "^4.1.0",
     "@svgr/plugin-prettier": "^4.0.3",
     "@svgr/plugin-svgo": "^4.0.3",
@@ -46,6 +45,7 @@
     "chalk": "^2.4.1",
     "concurrently": "^4.1.0",
     "cross-env": "^5.0.0",
+    "eslint": "^4.18.2",
     "flow-bin": "^0.72.0",
     "globby": "^8.0.1",
     "mkdirp-promise": "^5.0.1"
