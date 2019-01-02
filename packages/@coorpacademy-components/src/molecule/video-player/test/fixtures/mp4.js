@@ -1,6 +1,6 @@
 export default {
   props: {
-    mimeType: 'application/jwplayer',
+    mimeType: 'video/mp4',
     jwpOptions: {
       playerId: '12345',
       file: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
@@ -10,7 +10,10 @@ export default {
       customProps: {
         autostart: false,
         width: '100%',
-        height: '100%'
+        height: '100%',
+        skin: {
+          name: 'bekle'
+        }
       }
     },
     onPlay: () => console.log('onPlay jwp'),

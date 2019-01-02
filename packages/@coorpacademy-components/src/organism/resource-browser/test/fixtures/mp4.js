@@ -1,28 +1,19 @@
-import JWPlayer from '../../../../molecule/video-player/test/fixtures/jwplayer-with-subtitles';
+import mp4 from '../../../../molecule/video-player/test/fixtures/mp4';
 
 export default {
   props: {
-    overlay: {
-      title: 'Bonus !',
-      text: 'Récupérez une vie en regardant la leçon !',
-      lifeAmount: 1
-    },
     resources: [
       {
         type: 'video',
         poster: '//static.coorpacademy.com/content/digital/miniatures_cours/avance/1A1.png',
-        description: 'Le concept de Knowledge Graph',
+        description: 'Big Buck Bunny video',
         _id: '590b862e2e967f64333ad45f',
         subtitles: [],
         posters: [],
         src: [],
         onClick: () => {},
-        onPlay: () => console.log('play'),
-        onPause: () => console.log('pause'),
-        onResume: () => console.log('resume'),
-        onEnded: () => console.log('end'),
         selected: true,
-        ...JWPlayer.props
+        ...mp4.props
       },
       {
         type: 'video',
