@@ -40,28 +40,39 @@ type JSXElement = {|
   attributes?: Array<JSXAttribute>
 |};
 
-const isFillWithColorAttribute = ({name: {name}, value: {value}}: JSXAttribute): boolean => name === 'fill' && value && value !== 'none';
+const isFillWithColorAttribute = ({name: {name}, value: {value} = {}}: JSXAttribute): boolean =>
+  name === 'fill' && value !== 'none';
 
-const findElementAndRemoveAttributes = ({openingElement, children, attributes, ...properties}: JSXElement): JSXElement => ({
+const findElementAndRemoveAttributes = ({
+  openingElement,
+  children,
+  attributes,
+  ...properties
+}: JSXElement): JSXElement => ({
   ...properties,
-  openingElement: openingElement !== undefined ? findElementAndRemoveAttributes(openingElement) : undefined,
+  openingElement:
+    openingElement !== undefined ? findElementAndRemoveAttributes(openingElement) : undefined,
   children: children !== undefined ? children.map(findElementAndRemoveAttributes) : undefined,
-  attributes: attributes !== undefined ? attributes.filter((attribute: JSXAttribute) => !isFillWithColorAttribute(attribute)) : undefined
+  attributes:
+    attributes !== undefined
+      ? attributes.filter((attribute: JSXAttribute) => !isFillWithColorAttribute(attribute))
+      : undefined
 });
 
 const template = (
-  { template },
+  {template: templateAlias},
   opts,
-  { imports, componentName, props, jsx, exports }
-) => {
+  {imports: importsAlias, componentName, props, jsx, exports: exportsAlias}
+): // eslint-disable-next-line flowtype/no-weak-types
+Object => {
   let component = jsx;
   if (opts.native) {
     component = findElementAndRemoveAttributes(component);
   }
-  return template.ast`
-  ${imports}
-  const ${componentName} = props => ${component}
-  ${exports}
+  return templateAlias.ast`
+    ${importsAlias}
+    const ${componentName} = props => ${component}
+    ${exportsAlias}
   `;
 };
 
