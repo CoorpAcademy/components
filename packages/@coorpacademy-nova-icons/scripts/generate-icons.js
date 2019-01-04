@@ -25,7 +25,75 @@ type IconJar = {|
   meta: Meta
 |};
 
-const colors = ['#757575', '#14171A', '#607d8b'];
+type JSXAttribute = {|
+  name: {
+    name: string
+  },
+  value?: {
+    value: string
+  }
+|};
+
+type JSXElement = {|
+  openingElement?: JSXElement,
+  children?: Array<JSXElement>,
+  attributes?: Array<JSXAttribute>
+|};
+
+const isFillAttribute = ({name: {name}, value: {value} = {}}: JSXAttribute): boolean =>
+  name === 'fill' && value !== 'none';
+
+const replaceWithPropValue = types => types.jsxExpressionContainer(types.identifier('props.color'));
+
+const replaceWithCurrentColor = types => types.stringLiteral('currentColor');
+
+const findElementAndReplaceAttributes = (
+  {openingElement, children, attributes, ...properties}: JSXElement,
+  native: boolean,
+  types
+): JSXElement => {
+  let newAttributes;
+  if (attributes) {
+    newAttributes = attributes.map(
+      (attribute: JSXAttribute) =>
+        isFillAttribute(attribute)
+          ? {
+              ...attribute,
+              value: native ? replaceWithPropValue(types) : replaceWithCurrentColor(types)
+            }
+          : attribute
+    );
+  }
+
+  return {
+    ...properties,
+    openingElement:
+      openingElement !== undefined
+        ? findElementAndReplaceAttributes(openingElement, native, types)
+        : undefined,
+    children:
+      children !== undefined
+        ? children.map(child => findElementAndReplaceAttributes(child, native, types))
+        : undefined,
+    attributes: newAttributes
+  };
+};
+
+const template = (
+  {template: templateAlias, types},
+  opts,
+  {imports: importsAlias, componentName, props, jsx, exports: exportsAlias}
+): // eslint-disable-next-line flowtype/no-weak-types
+Object => {
+  const jsxWithoutFillColors = findElementAndReplaceAttributes(jsx, opts.native, types);
+
+  // @todo add flow type
+  return templateAlias.ast`
+    ${importsAlias}
+    const ${componentName} = props => ${jsxWithoutFillColors}
+    ${exportsAlias}
+  `;
+};
 
 const generateComponent = (
   fileContent: Buffer,
@@ -37,8 +105,8 @@ const generateComponent = (
     noSemi: true,
     icon: true,
     dimensions: false,
-    replaceAttrValues: colors.reduce((result, color) => ({...result, [color]: 'currentColor'}), {}),
-    native
+    native,
+    template
   };
   const extensionSuffix = (native && '.native') || '';
   const extendedFileName = fileName.replace('.svg', `${extensionSuffix}.js`);
@@ -53,7 +121,7 @@ const generateComponent = (
       console.log(`- ${chalk.green(extendedFileName)}`);
       return outputPath;
     })
-    .catch(e => console.log(`- ${chalk.red(extendedFileName)}`));
+    .catch(e => console.log(`- ${chalk.red(extendedFileName)}\n`, e));
 
   return extendedFileName;
 };

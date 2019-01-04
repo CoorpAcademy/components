@@ -4,7 +4,7 @@ import Svg, { Path, G, Circle } from "react-native-svg";
 const SvgComponent = props => (
   <Svg viewBox="0 0 24 24" {...props}>
     <Path fill="none" d="M0 0h24v24H0z" />
-    <G fill="currentColor">
+    <G fill={props.color}>
       <Circle cx={5} cy={5} r={3} />
       <Circle cx={5} cy={12} r={3} />
       <Circle cx={5} cy={19} r={3} />
