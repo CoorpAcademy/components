@@ -13,7 +13,6 @@ const SvgComponent = props => (
   >
     <G id="prefix__Page-1">
       <Path
-        fill="currentColor"
         d="M0 6.5l3-2.9 7 6.9 7-6.9 3 2.9-10 9.9z"
         id="prefix__arrow_down"
       />

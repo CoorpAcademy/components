@@ -25,6 +25,46 @@ type IconJar = {|
   meta: Meta
 |};
 
+type JSXAttribute = {|
+  name: {
+    name: string
+  },
+  value?: {
+    value: string
+  }
+|};
+
+type JSXElement = {|
+  openingElement?: JSXElement,
+  children?: Array<JSXElement>,
+  attributes?: Array<JSXAttribute>
+|};
+
+const isFillWithColorAttribute = ({name: {name}, value: {value}}: JSXAttribute): boolean => name === 'fill' && value && value !== 'none';
+
+const findElementAndRemoveAttributes = ({openingElement, children, attributes, ...properties}: JSXElement): JSXElement => ({
+  ...properties,
+  openingElement: openingElement !== undefined ? findElementAndRemoveAttributes(openingElement) : undefined,
+  children: children !== undefined ? children.map(findElementAndRemoveAttributes) : undefined,
+  attributes: attributes !== undefined ? attributes.filter((attribute: JSXAttribute) => !isFillWithColorAttribute(attribute)) : undefined
+});
+
+const template = (
+  { template },
+  opts,
+  { imports, componentName, props, jsx, exports }
+) => {
+  let component = jsx;
+  if (opts.native) {
+    component = findElementAndRemoveAttributes(component);
+  }
+  return template.ast`
+  ${imports}
+  const ${componentName} = props => ${component}
+  ${exports}
+  `;
+};
+
 const colors = ['#757575', '#14171A', '#607d8b'];
 
 const generateComponent = (
@@ -38,7 +78,8 @@ const generateComponent = (
     icon: true,
     dimensions: false,
     replaceAttrValues: colors.reduce((result, color) => ({...result, [color]: 'currentColor'}), {}),
-    native
+    native,
+    template
   };
   const extensionSuffix = (native && '.native') || '';
   const extendedFileName = fileName.replace('.svg', `${extensionSuffix}.js`);
