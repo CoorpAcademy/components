@@ -12,7 +12,11 @@ const SvgComponent = props => (
     {...props}
   >
     <G id="prefix__Page-1">
-      <Path d="M7 20l-3-3 6.9-7L4 3l3-3 9.8 10z" id="prefix__arrow_right" />
+      <Path
+        fill={props.color}
+        d="M7 20l-3-3 6.9-7L4 3l3-3 9.8 10z"
+        id="prefix__arrow_right"
+      />
     </G>
   </Svg>
 );

@@ -40,43 +40,61 @@ type JSXElement = {|
   attributes?: Array<JSXAttribute>
 |};
 
-const isFillWithColorAttribute = ({name: {name}, value: {value} = {}}: JSXAttribute): boolean =>
+const isFillAttribute = ({name: {name}, value: {value} = {}}: JSXAttribute): boolean =>
   name === 'fill' && value !== 'none';
 
-const findElementAndRemoveAttributes = ({
-  openingElement,
-  children,
-  attributes,
-  ...properties
-}: JSXElement): JSXElement => ({
-  ...properties,
-  openingElement:
-    openingElement !== undefined ? findElementAndRemoveAttributes(openingElement) : undefined,
-  children: children !== undefined ? children.map(findElementAndRemoveAttributes) : undefined,
-  attributes:
-    attributes !== undefined
-      ? attributes.filter((attribute: JSXAttribute) => !isFillWithColorAttribute(attribute))
-      : undefined
-});
+const replaceWithPropValue = types =>
+  types.jsxExpressionContainer(types.identifier('props.color'));
+
+const replaceWithCurrentColor = types => types.stringLiteral('currentColor');
+
+const findElementAndReplaceAttributes = (
+  {openingElement, children, attributes, ...properties}: JSXElement,
+  native: boolean,
+  types
+): JSXElement => {
+  let newAttributes;
+  if (attributes) {
+    newAttributes = attributes.map(
+      (attribute: JSXAttribute) =>
+        isFillAttribute(attribute)
+          ? {
+              ...attribute,
+              value: native ? replaceWithPropValue(types) : replaceWithCurrentColor(types)
+            }
+          : attribute
+    );
+  }
+
+  return {
+    ...properties,
+    openingElement:
+      openingElement !== undefined
+        ? findElementAndReplaceAttributes(openingElement, native, types)
+        : undefined,
+    children:
+      children !== undefined
+        ? children.map(child => findElementAndReplaceAttributes(child, native, types))
+        : undefined,
+    attributes: newAttributes
+  };
+};
 
 const template = (
-  {template: templateAlias},
+  {template: templateAlias, types},
   opts,
   {imports: importsAlias, componentName, props, jsx, exports: exportsAlias}
 ): // eslint-disable-next-line flowtype/no-weak-types
 Object => {
-  let component = jsx;
-  if (opts.native) {
-    component = findElementAndRemoveAttributes(component);
-  }
+  const jsxWithoutFillColors = findElementAndReplaceAttributes(jsx, opts.native, types);
+
+  // @todo add flow type
   return templateAlias.ast`
     ${importsAlias}
-    const ${componentName} = props => ${component}
+    const ${componentName} = props => ${jsxWithoutFillColors}
     ${exportsAlias}
   `;
 };
-
-const colors = ['#757575', '#14171A', '#607d8b'];
 
 const generateComponent = (
   fileContent: Buffer,
@@ -88,7 +106,6 @@ const generateComponent = (
     noSemi: true,
     icon: true,
     dimensions: false,
-    replaceAttrValues: colors.reduce((result, color) => ({...result, [color]: 'currentColor'}), {}),
     native,
     template
   };
@@ -105,7 +122,7 @@ const generateComponent = (
       console.log(`- ${chalk.green(extendedFileName)}`);
       return outputPath;
     })
-    .catch(e => console.log(`- ${chalk.red(extendedFileName)}`));
+    .catch(e => console.log(`- ${chalk.red(extendedFileName)}\n`, e));
 
   return extendedFileName;
 };
