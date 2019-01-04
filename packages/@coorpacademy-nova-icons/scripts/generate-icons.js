@@ -43,8 +43,7 @@ type JSXElement = {|
 const isFillAttribute = ({name: {name}, value: {value} = {}}: JSXAttribute): boolean =>
   name === 'fill' && value !== 'none';
 
-const replaceWithPropValue = types =>
-  types.jsxExpressionContainer(types.identifier('props.color'));
+const replaceWithPropValue = types => types.jsxExpressionContainer(types.identifier('props.color'));
 
 const replaceWithCurrentColor = types => types.stringLiteral('currentColor');
 
