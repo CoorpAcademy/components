@@ -10,6 +10,8 @@ import type {
 
 type Url = string;
 type AspectRatio = '16:9' | '4:3';
+type ResourceMimeType = 'video/mp4' | 'application/vimeo';
+type ResourceType = 'video' | 'pdf';
 
 type JwPlayerOptions = {|
   customProps: {
@@ -26,10 +28,6 @@ type JwPlayerOptions = {|
   playerScript: Url
 |};
 
-type ResourceMimeType = 'video/mp4' | 'application/vimeo';
-
-type ResourceType = 'video' | 'pdf';
-
 type Source = {|
   _id: string,
   mimeType: ResourceMimeType,
@@ -41,6 +39,7 @@ type Media = {|
   description: string,
   mimeType: ResourceMimeType,
   _id: string,
+  url?: Url,
   mediaUrl: Url,
   subtitles?: Array<string>,
   posters?: Array<Url>,
