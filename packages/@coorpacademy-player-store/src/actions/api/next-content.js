@@ -19,7 +19,8 @@ export const fetchNext = (progressionId: string): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): DispatchedAction => {
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   const {Recommendations} = services;
   const {type, ref} = getProgressionContent(getState());
 

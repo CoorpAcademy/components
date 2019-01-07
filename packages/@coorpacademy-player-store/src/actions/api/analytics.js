@@ -21,7 +21,8 @@ export const sendMediaViewed = (resource: Resource): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): DispatchedAction => {
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   const {Analytics} = services;
   const state: State = getState();
   const location: string = getRoute(state);
@@ -47,7 +48,8 @@ export const sendProgressionAnalytics = (progressionId: string): ThunkAction => 
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): DispatchedAction => {
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   const {Analytics} = services;
   const state: State = getState();
   const currentProgression: Progression = getCurrentProgression(state);

@@ -1,14 +1,14 @@
-// @flow
+// @flow strict
 
 import buildTask from '@coorpacademy/redux-task';
 import {extractClue} from '../../utils/state-extract';
-import type {Services} from '../../definitions/services';
 import type {
   Dispatch,
   DispatchedAction,
   Action,
   GetState,
-  ThunkAction
+  ThunkAction,
+  Options
 } from '../../definitions/redux';
 
 export const CLUE_FETCH_REQUEST: string = '@@clue/CREATE_REQUEST';
@@ -18,8 +18,9 @@ export const CLUE_FETCH_FAILURE: string = '@@clue/CREATE_FAILURE';
 export const fetchClue = (progressionId: string, slideId: string): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
-  {services}: {services: Services}
-): DispatchedAction => {
+  {services}: Options
+): // $FlowFixMe
+DispatchedAction => {
   const {Clues} = services;
 
   const action: Action = buildTask({

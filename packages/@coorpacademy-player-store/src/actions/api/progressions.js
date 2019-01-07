@@ -39,7 +39,8 @@ export const fetchProgression = (id: string): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): DispatchedAction => {
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   const {Progressions} = services;
 
   const action: Action = buildTask({
@@ -60,7 +61,8 @@ export const fetchEngineConfig = (engine: Engine): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): DispatchedAction => {
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   const {Progressions} = services;
 
   const action: Action = buildTask({
@@ -81,7 +83,8 @@ export const createAnswer = (progressionId: string, answer: Answer): ThunkAction
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): DispatchedAction => {
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   const {Progressions} = services;
   const progression: Progression = getProgression(progressionId)(getState());
 
@@ -120,7 +123,8 @@ export const requestClue = (progressionId: string, slideId: string): ThunkAction
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): DispatchedAction => {
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   const {Progressions} = services;
   const state: State = getState();
   const progression: Progression = getProgression(progressionId)(state);
@@ -157,7 +161,8 @@ export const refuseExtraLife = (progressionId: string): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): DispatchedAction => {
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   const {Progressions} = services;
   const progression: Progression = getProgression(progressionId)(getState());
   const nextContent: Content = get('state.nextContent', progression);
@@ -189,7 +194,8 @@ export const acceptExtraLife = (progressionId: string): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): DispatchedAction => {
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   const {Progressions} = services;
   const progression: Progression = getProgression(progressionId)(getState());
   const nextContent: Content = get('state.nextContent', progression);
@@ -221,7 +227,8 @@ export const fetchBestProgression = (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): DispatchedAction => {
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   const {Progressions} = services;
   const {type, ref} = progressionContent;
   const engine: Engine = getEngine(getState());
@@ -248,7 +255,8 @@ export const markResourceAsViewed = (progressionId: string, resource: Resource):
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): DispatchedAction => {
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   const {Progressions} = services;
   const state: State = getState();
   const {_id, ref = _id, type} = resource;

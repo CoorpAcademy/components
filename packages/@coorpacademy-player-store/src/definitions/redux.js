@@ -30,12 +30,22 @@ type Options = {
   services: Services
 };
 
-/* eslint-disable no-use-before-define */
-type PromiseAction = Promise<Action | ThunkAction>;
-type ThunkAction = (dispatch: Dispatch, getState: GetState, Options) => DispatchedAction;
+type PromiseAction = Promise<Action>;
+type ThunkAction = (Function, GetState, Options) => Action | PromiseAction;
 type DispatchedAction = Action | ThunkAction | PromiseAction;
 type Dispatch = (action: Action | ThunkAction | PromiseAction) => DispatchedAction;
 
+/* eslint-disable no-use-before-define */
+// type ThunkAction = (dispatch: Dispatch, getState: GetState, Options) => DispatchedAction;
 /* eslint-enable no-use-before-define */
 
-export type {Action, DispatchedAction, Dispatch, GetState, Resource, ThunkAction};
+export type {
+  Action,
+  DispatchedAction,
+  Dispatch,
+  GetState,
+  PromiseAction,
+  Options,
+  Resource,
+  ThunkAction
+};

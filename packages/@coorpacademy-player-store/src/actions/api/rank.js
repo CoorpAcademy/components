@@ -24,7 +24,8 @@ const fetchRank = (
   getState: GetState,
   {services}: {services: Services},
   {types, bailout}
-): DispatchedAction => {
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   const {LeaderBoard} = services;
 
   const action: Action = buildTask({
@@ -40,7 +41,8 @@ export const fetchStartRank = (): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): DispatchedAction => {
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   return fetchRank(dispatch, getState, ({services}: {services: Services}), {
     bailout: getStartRank,
     types: [RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS, RANK_FETCH_START_FAILURE]
@@ -51,7 +53,8 @@ export const fetchEndRank = (): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): DispatchedAction => {
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   return fetchRank(dispatch, getState, ({services}: {services: Services}), {
     types: [RANK_FETCH_END_REQUEST, RANK_FETCH_END_SUCCESS, RANK_FETCH_END_FAILURE],
     bailout: undefined

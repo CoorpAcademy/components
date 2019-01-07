@@ -20,7 +20,8 @@ export const fetchExitNode = (id: ExitNodeRef): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): DispatchedAction => {
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   const {ExitNodes} = services;
 
   const action: Action = buildTask({
