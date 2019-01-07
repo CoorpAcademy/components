@@ -9,6 +9,22 @@ import type {
 } from '@coorpacademy/progression-engine';
 
 type Url = string;
+type AspectRatio = '16:9' | '4:3';
+
+type JwPlayerOptions = {|
+  customProps: {
+    aspectratio: AspectRatio,
+    autostart: boolean,
+    skin: {
+      name: string
+    },
+    width: string
+  },
+  file: Url,
+  licenseKey: string,
+  playerId: string,
+  playerScript: Url
+|};
 
 type ResourceMimeType = 'video/mp4' | 'application/vimeo';
 
@@ -41,7 +57,8 @@ type Resource = {|
   description?: string,
   poster?: Url,
   subtitles?: Array<string>,
-  dataLayer?: Array<DataEvent>
+  posters?: Array<Url>,
+  jwpOptions?: JwPlayerOptions
 |};
 
 type Lesson = {|

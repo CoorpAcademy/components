@@ -23,10 +23,10 @@ import type {
   AvailableContent,
   Config,
   Content,
+  ContentType,
   ContentSlide,
   Engine,
   EngineOptions,
-  Instruction,
   Progression,
   ResourceContent
 } from '@coorpacademy/progression-engine';
@@ -36,15 +36,18 @@ import type {Fixtures, UserAnswerAPI} from './definitions';
 type AcceptExtraLife = (
   progressionId: string,
   payload: {
-    content: Content,
-    nextContent: Content,
-    instructions: Array<Instruction> | null
+    content: Content
   }
 ) => Promise<Progression>;
 
 type CreateProgression = (Engine, Content, EngineOptions) => Promise<Progression>;
 
-type FindBestOf = (engineRef: string, contentRef: string, progressionId: string) => Progression;
+type FindBestOf = (
+  engineRef: string,
+  contentType: ContentType,
+  contentRef: string,
+  progressionId: string
+) => Progression;
 type FindById = (id: string) => Promise<Progression | void>;
 type GetAvailableContent = Content => Promise<AvailableContent>;
 type MarkResourceAsViewed = (
@@ -59,8 +62,7 @@ type PostAnswer = (progressionId: string, payload: UserAnswerAPI) => Promise<Pro
 type RefuseExtraLife = (
   progressionId: string,
   payload: {
-    content: Content,
-    nextContent: Content
+    content: Content
   }
 ) => Promise<Progression>;
 
@@ -139,6 +141,7 @@ const createSave = (fixtures: Fixtures): (Progression => Progression) => (
 
 const findBestOf = (fixtures: Fixtures): FindBestOf => (
   engineRef: string,
+  contentType: ContentType,
   contentRef: string,
   progressionId: string = ''
 ): Progression => {
@@ -235,9 +238,7 @@ const requestClue = (fixtures: Fixtures): RequestClue => async (
 const acceptExtraLife = (fixtures: Fixtures): AcceptExtraLife => async (
   progressionId: string,
   payload: {
-    content: Content,
-    nextContent: Content,
-    instructions: Array<Instruction> | null
+    content: Content
   }
 ): Promise<Progression> => {
   const {findProgressionById} = fixtures;
@@ -269,8 +270,7 @@ const acceptExtraLife = (fixtures: Fixtures): AcceptExtraLife => async (
 const refuseExtraLife = (fixtures: Fixtures): RefuseExtraLife => async (
   progressionId: string,
   payload: {
-    content: Content,
-    nextContent: Content
+    content: Content
   }
 ): Promise<Progression> => {
   const {findProgressionById} = fixtures;

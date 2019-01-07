@@ -4,10 +4,10 @@ import type {
   AvailableContent,
   Config,
   Content,
+  ContentType,
   ContentSlide,
   Engine,
   EngineOptions,
-  Instruction,
   Progression,
   ResourceContent
 } from '@coorpacademy/progression-engine';
@@ -16,15 +16,18 @@ import type {UserAnswer} from '../models';
 type AcceptExtraLife = (
   progressionId: string,
   payload: {
-    content: Content,
-    nextContent: Content,
-    instructions: Array<Instruction> | null
+    content: Content
   }
 ) => Promise<Progression>;
 
 type CreateProgression = (Engine, Content, EngineOptions) => Promise<Progression>;
 
-type FindBestOf = (engineRef: string, contentRef: string, progressionId: string) => Progression;
+type FindBestOf = (
+  engineRef: string,
+  contentType: ContentType,
+  contentRef: string,
+  progressionId: string
+) => Progression;
 type FindById = (id: string) => Promise<Progression | void>;
 type GetAvailableContent = Content => Promise<AvailableContent>;
 type MarkResourceAsViewed = (
@@ -39,8 +42,7 @@ type PostAnswer = (progressionId: string, payload: UserAnswer) => Promise<Progre
 type RefuseExtraLife = (
   progressionId: string,
   payload: {
-    content: Content,
-    nextContent: Content
+    content: Content
   }
 ) => Promise<Progression>;
 

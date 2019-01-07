@@ -2,7 +2,9 @@
 
 import type {State} from '@coorpacademy/progression-engine';
 import type {Resource} from './models';
+import type {Services} from './services';
 
+// eslint-disable-next-line flowtype/no-weak-types
 type Task = Function;
 
 type GetState = () => State;
@@ -10,6 +12,8 @@ type GetState = () => State;
 type Action = {|
   types: Array<string>,
   task: Task,
+  // eslint-disable-next-line flowtype/no-weak-types
+  bailout?: Function,
   meta: {
     id?: string,
     resource?: Resource,
@@ -22,76 +26,16 @@ type Action = {|
   }
 |};
 
-type AnalyticsActions = {|
-  ...Action
-|};
-
-type AnswersActions = {|
-  ...Action
-|};
-
-type CluesActions = {|
-  ...Action,
-  bailout: () => string
-|};
-
-type CommentsActions = {|
-  ...Action
-|};
-
-type ContentsActions = {|
-  ...Action,
-  bailout: () => string
-|};
-
-type ExitNodesActions = {|
-  ...Action,
-  bailout: () => string
-|};
-type NextContentActions = {|
-  ...Action,
-  bailout: () => string
-|};
-type ProgressionsActions = {|
-  ...Action,
-  bailout?: () => number
-|};
-type RankActions = {|
-  ...Action,
-  // eslint-disable-next-line flowtype/no-weak-types
-  bailout?: () => any
-|};
-type RecommendationsActions = {|
-  ...Action,
-  bailout?: State => boolean
-|};
-
-type Dispatch = (
-  action: | Action
-  | AnswersActions
-  | CluesActions
-  | CommentsActions
-  | ContentsActions
-  | ExitNodesActions
-  | NextContentActions
-  | ProgressionsActions
-  | RankActions
-  | RecommendationsActions
-  // eslint-disable-next-line flowtype/no-weak-types
-) => any;
-
-export type {
-  AnalyticsActions,
-  AnswersActions,
-  CluesActions,
-  CommentsActions,
-  ContentsActions,
-  Dispatch,
-  ExitNodesActions,
-  GetState,
-  NextContentActions,
-  ProgressionsActions,
-  RankActions,
-  RecommendationsActions,
-  Resource
+type Options = {
+  services: Services
 };
+
+/* eslint-disable no-use-before-define */
+type PromiseAction = Promise<Action | ThunkAction>;
+type ThunkAction = (dispatch: Dispatch, getState: GetState, Options) => DispatchedAction;
+type DispatchedAction = Action | ThunkAction | PromiseAction;
+type Dispatch = (action: Action | ThunkAction | PromiseAction) => DispatchedAction;
+
+/* eslint-enable no-use-before-define */
+
+export type {Action, DispatchedAction, Dispatch, GetState, Resource, ThunkAction};

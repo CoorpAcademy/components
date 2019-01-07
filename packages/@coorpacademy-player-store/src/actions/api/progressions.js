@@ -13,6 +13,7 @@ import type {
   State
 } from '@coorpacademy/progression-engine';
 import type {Services} from '../../definitions/services';
+import type {Resource} from '../../definitions/models';
 
 import {
   getProgression,
@@ -22,20 +23,26 @@ import {
   getCurrentSlide,
   getPreviousSlide
 } from '../../utils/state-extract';
-import type {Dispatch, ProgressionsActions, GetState} from '../../definitions/redux';
+import type {
+  Action,
+  Dispatch,
+  DispatchedAction,
+  GetState,
+  ThunkAction
+} from '../../definitions/redux';
 
 export const PROGRESSION_FETCH_REQUEST: string = '@@progression/FETCH_REQUEST';
 export const PROGRESSION_FETCH_SUCCESS: string = '@@progression/FETCH_SUCCESS';
 export const PROGRESSION_FETCH_FAILURE: string = '@@progression/FETCH_FAILURE';
 
-export const fetchProgression = (id: string) => (
+export const fetchProgression = (id: string): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): Dispatch => {
+): DispatchedAction => {
   const {Progressions} = services;
 
-  const action: ProgressionsActions = buildTask({
+  const action: Action = buildTask({
     types: [PROGRESSION_FETCH_REQUEST, PROGRESSION_FETCH_SUCCESS, PROGRESSION_FETCH_FAILURE],
     task: () => Progressions.findById(id),
     meta: {id},
@@ -49,14 +56,14 @@ export const ENGINE_CONFIG_FETCH_REQUEST: string = '@@progression/CONFIG_REQUEST
 export const ENGINE_CONFIG_FETCH_SUCCESS: string = '@@progression/CONFIG_SUCCESS';
 export const ENGINE_CONFIG_FETCH_FAILURE: string = '@@progression/CONFIG_FAILURE';
 
-export const fetchEngineConfig = (engine: Engine) => (
+export const fetchEngineConfig = (engine: Engine): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): Dispatch => {
+): DispatchedAction => {
   const {Progressions} = services;
 
-  const action: ProgressionsActions = buildTask({
+  const action: Action = buildTask({
     types: [ENGINE_CONFIG_FETCH_REQUEST, ENGINE_CONFIG_FETCH_SUCCESS, ENGINE_CONFIG_FETCH_FAILURE],
     task: () => Progressions.getEngineConfig(engine),
     meta: {engine},
@@ -70,16 +77,21 @@ export const PROGRESSION_CREATE_ANSWER_REQUEST: string = '@@progression/CREATE_A
 export const PROGRESSION_CREATE_ANSWER_SUCCESS: string = '@@progression/CREATE_ANSWER_SUCCESS';
 export const PROGRESSION_CREATE_ANSWER_FAILURE: string = '@@progression/CREATE_ANSWER_FAILURE';
 
-export const createAnswer = (progressionId: string, answer: Answer) => (
+export const createAnswer = (progressionId: string, answer: Answer): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): Dispatch => {
+): DispatchedAction => {
   const {Progressions} = services;
   const progression: Progression = getProgression(progressionId)(getState());
+
+  if (!progression.state) {
+    throw new Error(`progression "${progressionId}" has no state.`);
+  }
+
   const nextContent: Content = progression.state.nextContent;
 
-  const action: ProgressionsActions = buildTask({
+  const action: Action = buildTask({
     types: [
       PROGRESSION_CREATE_ANSWER_REQUEST,
       PROGRESSION_CREATE_ANSWER_SUCCESS,
@@ -104,17 +116,17 @@ export const PROGRESSION_REQUEST_CLUE_REQUEST: string = '@@progression/REQUEST_C
 export const PROGRESSION_REQUEST_CLUE_SUCCESS: string = '@@progression/REQUEST_CLUE_SUCCESS';
 export const PROGRESSION_REQUEST_CLUE_FAILURE: string = '@@progression/REQUEST_CLUE_FAILURE';
 
-export const requestClue = (progressionId: string, slideId: string) => (
+export const requestClue = (progressionId: string, slideId: string): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): Dispatch => {
+): DispatchedAction => {
   const {Progressions} = services;
   const state: State = getState();
   const progression: Progression = getProgression(progressionId)(state);
   const requestedClues = get('state.requestedClues', progression);
 
-  const action: ProgressionsActions = buildTask({
+  const action: Action = buildTask({
     types: [
       PROGRESSION_REQUEST_CLUE_REQUEST,
       PROGRESSION_REQUEST_CLUE_SUCCESS,
@@ -141,16 +153,16 @@ export const PROGRESSION_EXTRALIFEREFUSED_SUCCESS: string =
 export const PROGRESSION_EXTRALIFEREFUSED_FAILURE: string =
   '@@progression/EXTRALIFEREFUSED_FAILURE';
 
-export const refuseExtraLife = (progressionId: string) => (
+export const refuseExtraLife = (progressionId: string): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): Dispatch => {
+): DispatchedAction => {
   const {Progressions} = services;
   const progression: Progression = getProgression(progressionId)(getState());
   const nextContent: Content = get('state.nextContent', progression);
 
-  const action: ProgressionsActions = buildTask({
+  const action: Action = buildTask({
     types: [
       PROGRESSION_EXTRALIFEREFUSED_REQUEST,
       PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
@@ -173,16 +185,16 @@ export const PROGRESSION_EXTRALIFEACCEPTED_SUCCESS: string =
 export const PROGRESSION_EXTRALIFEACCEPTED_FAILURE: string =
   '@@progression/EXTRALIFEACCEPTED_FAILURE';
 
-export const acceptExtraLife = (progressionId: string) => (
+export const acceptExtraLife = (progressionId: string): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): Dispatch => {
+): DispatchedAction => {
   const {Progressions} = services;
   const progression: Progression = getProgression(progressionId)(getState());
   const nextContent: Content = get('state.nextContent', progression);
 
-  const action: ProgressionsActions = buildTask({
+  const action: Action = buildTask({
     types: [
       PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
       PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
@@ -202,16 +214,19 @@ export const PROGRESSION_FETCH_BESTOF_REQUEST: string = '@@progression/FETCH_BES
 export const PROGRESSION_FETCH_BESTOF_SUCCESS: string = '@@progression/FETCH_BESTOF_SUCCESS';
 export const PROGRESSION_FETCH_BESTOF_FAILURE: string = '@@progression/FETCH_BESTOF_FAILURE';
 
-export const fetchBestProgression = (progressionContent: Content, progressionId: string) => (
+export const fetchBestProgression = (
+  progressionContent: Content,
+  progressionId: string
+): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): Dispatch => {
+): DispatchedAction => {
   const {Progressions} = services;
   const {type, ref} = progressionContent;
   const engine: Engine = getEngine(getState());
 
-  const action: ProgressionsActions = buildTask({
+  const action: Action = buildTask({
     types: [
       PROGRESSION_FETCH_BESTOF_REQUEST,
       PROGRESSION_FETCH_BESTOF_SUCCESS,
@@ -229,11 +244,11 @@ export const PROGRESSION_RESOURCE_VIEWED_REQUEST: string = '@@progression/RESOUR
 export const PROGRESSION_RESOURCE_VIEWED_SUCCESS: string = '@@progression/RESOURCE_VIEWED_SUCCESS';
 export const PROGRESSION_RESOURCE_VIEWED_FAILURE: string = '@@progression/RESOURCE_VIEWED_FAILURE';
 
-export const markResourceAsViewed = (progressionId: string, resource: Resource) => (
+export const markResourceAsViewed = (progressionId: string, resource: Resource): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): Dispatch => {
+): DispatchedAction => {
   const {Progressions} = services;
   const state: State = getState();
   const {_id, ref = _id, type} = resource;
@@ -251,7 +266,7 @@ export const markResourceAsViewed = (progressionId: string, resource: Resource) 
     }
   };
 
-  const action: ProgressionsActions = buildTask({
+  const action: Action = buildTask({
     types: [
       PROGRESSION_RESOURCE_VIEWED_REQUEST,
       PROGRESSION_RESOURCE_VIEWED_SUCCESS,
