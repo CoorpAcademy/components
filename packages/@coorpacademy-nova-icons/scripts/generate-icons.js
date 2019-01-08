@@ -43,7 +43,11 @@ type JSXElement = {|
 const isFillAttribute = ({name: {name}, value: {value} = {}}: JSXAttribute): boolean =>
   name === 'fill' && value !== 'none';
 
-const replaceWithPropValue = types => types.jsxExpressionContainer(types.identifier('props.color'));
+const isStrokeAttribute = ({name: {name}, value: {value} = {}}: JSXAttribute): boolean =>
+  name === 'stroke' && value !== 'none';
+
+const replaceWithPropValue = (types, identifier: string) =>
+  types.jsxExpressionContainer(types.identifier(identifier));
 
 const replaceWithCurrentColor = types => types.stringLiteral('currentColor');
 
@@ -54,15 +58,17 @@ const findElementAndReplaceAttributes = (
 ): JSXElement => {
   let newAttributes;
   if (attributes) {
-    newAttributes = attributes.map(
-      (attribute: JSXAttribute) =>
-        isFillAttribute(attribute)
-          ? {
-              ...attribute,
-              value: native ? replaceWithPropValue(types) : replaceWithCurrentColor(types)
-            }
-          : attribute
-    );
+    newAttributes = attributes.map((attribute: JSXAttribute): JSXAttribute => {
+      if (isFillAttribute(attribute) || isStrokeAttribute(attribute)) {
+        return {
+          ...attribute,
+          value: native
+            ? replaceWithPropValue(types, 'props.color')
+            : replaceWithCurrentColor(types)
+        };
+      }
+      return attribute;
+    });
   }
 
   return {
