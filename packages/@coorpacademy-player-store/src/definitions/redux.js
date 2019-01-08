@@ -1,6 +1,7 @@
 // @flow strict
 
-import type {State} from '@coorpacademy/progression-engine';
+import type {Progression, State} from '@coorpacademy/progression-engine';
+import type {SelectProgressionSuccessPayload} from '../reducers/ui/current';
 import type {Resource} from './models';
 import type {Services} from './services';
 
@@ -9,11 +10,14 @@ type Task = Function;
 
 type GetState = () => State;
 
+type Payload = any;
+
 type Action = {|
   types: Array<string>,
   task: Task,
-  // eslint-disable-next-line flowtype/no-weak-types
   bailout?: Function,
+  payload: Payload,
+  type: string,
   meta: {
     id?: string,
     resource?: Resource,

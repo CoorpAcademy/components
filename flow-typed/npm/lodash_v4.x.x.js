@@ -2962,12 +2962,12 @@ declare module "lodash/fp" {
       accumulator: any,
       collection: Object | Array<any>
     ): any;
-    unset(path: Array<string> | string): (object: Object) => boolean;
-    unset(path: Array<string> | string, object: Object): boolean;
-    dissoc(path: Array<string> | string): (object: Object) => boolean;
-    dissoc(path: Array<string> | string, object: Object): boolean;
-    dissocPath(path: Array<string> | string): (object: Object) => boolean;
-    dissocPath(path: Array<string> | string, object: Object): boolean;
+    unset(path: Array<string> | string): (object: Object) => Object;
+    unset(path: Array<string> | string, object: Object): Object;
+    dissoc(path: Array<string> | string): (object: Object) => Object;
+    dissoc(path: Array<string> | string, object: Object): Object;
+    dissocPath(path: Array<string> | string): (object: Object) => Object;
+    dissocPath(path: Array<string> | string, object: Object): Object;
     update(
       path: string[] | string
     ): ((updater: Function) => (object: Object) => Object) &

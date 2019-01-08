@@ -44,6 +44,9 @@ import type {
 import type {FindById as FindSlideById, SlidesService} from './definitions/services/slides';
 import type {Services} from './definitions/services';
 
+import type {UiCurrentState} from './reducers/ui/current';
+import type {DataProgressionState} from './reducers/data/progressions';
+
 const reducers = {data, ui};
 const middlewares = {ErrorLogger, ReduxThunkMemoized};
 
@@ -79,6 +82,7 @@ export type {
   ContentService,
   Correction,
   CreateProgression,
+  DataProgressionState,
   ExitNode,
   ExitNodesService,
   FindBestOf,
@@ -102,5 +106,6 @@ export type {
   Resource,
   Services,
   SlidesService,
+  UiCurrentState,
   UserAnswer
 };

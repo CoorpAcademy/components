@@ -165,8 +165,9 @@ export type EngineOptions = {|
   maxTypos?: number
 |};
 
+export type ProgressionId = string;
 export type Progression = {|
-  _id?: string,
+  _id?: ProgressionId,
   content: Content,
   state?: State,
   engine: Engine,
