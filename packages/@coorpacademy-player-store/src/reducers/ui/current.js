@@ -2,14 +2,10 @@
 
 import set from 'lodash/fp/set';
 import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
-import type {Action} from '../../definitions/redux';
+import type {SelectAction} from '../../actions/ui/progressions';
 
 type UiCurrentState = {
   progressionId: string | null
-};
-
-type SelectProgressionSuccessPayload = {
-  id: string
 };
 
 const uiCurrentReducer = (
@@ -18,7 +14,8 @@ const uiCurrentReducer = (
 ): UiCurrentState => {
   switch (action.type) {
     case UI_SELECT_PROGRESSION: {
-      const payload: SelectProgressionSuccessPayload = action.payload;
+      const selectAction = (action: SelectAction);
+      const payload = selectAction.payload;
       const {id} = payload;
       return set('progressionId', id, state);
     }
@@ -27,5 +24,5 @@ const uiCurrentReducer = (
   }
 };
 
-export type {SelectProgressionSuccessPayload, UiCurrentState};
+export type {UiCurrentState};
 export default uiCurrentReducer;

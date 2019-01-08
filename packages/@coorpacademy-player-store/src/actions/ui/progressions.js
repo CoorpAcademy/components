@@ -1,7 +1,10 @@
+// @flow strict
+
 import get from 'lodash/fp/get';
 import last from 'lodash/fp/last';
 import isNil from 'lodash/fp/isNil';
 import buildTask from '@coorpacademy/redux-task';
+import type {ProgressionId} from '@coorpacademy/progression-engine';
 import {fetchProgression, fetchEngineConfig, fetchBestProgression} from '../api/progressions';
 import {fetchEndRank, fetchStartRank} from '../api/rank';
 import {fetchExitNode} from '../api/exit-nodes';
@@ -18,13 +21,45 @@ import {
   getPrevStepContent,
   getSlide
 } from '../../utils/state-extract';
+import type {
+  Dispatch,
+  DispatchedAction,
+  GetState,
+  Options,
+  ThunkAction
+} from '../../definitions/redux';
 import {selectRoute} from './route';
 
-export const UI_PROGRESSION_UPDATED = '@@ui/UI_PROGRESSION_UPDATED';
+/* eslint-disable flowtype/type-id-match */
+type UI_PROGRESSION_UPDATED = '@@ui/UI_PROGRESSION_UPDATED';
+type UI_SELECT_PROGRESSION = '@@ui/SELECT_PROGRESSION';
+type OPEN_ASSISTANCE_REQUEST = '@@progression/OPEN_ASSISTANCE_REQUEST';
+type OPEN_ASSISTANCE_SUCCESS = '@@progression/OPEN_ASSISTANCE_SUCCESS';
+type OPEN_ASSISTANCE_FAILURE = '@@progression/OPEN_ASSISTANCE_FAILURE';
 
-export const progressionUpdated = id => async (dispatch, getState) => {
+type UI_PROGRESSION_ACTIONS =
+  | UI_SELECT_PROGRESSION
+  | UI_PROGRESSION_UPDATED
+  | OPEN_ASSISTANCE_REQUEST
+  | OPEN_ASSISTANCE_SUCCESS
+  | OPEN_ASSISTANCE_FAILURE;
+/* eslint-enable flowtype/type-id-match */
+
+export const UI_PROGRESSION_ACTION_TYPES: {[string]: UI_PROGRESSION_ACTIONS} = {
+  SELECT_PROGRESSION: '@@ui/SELECT_PROGRESSION',
+  PROGRESSION_UPDATED: '@@ui/UI_PROGRESSION_UPDATED',
+  OPEN_ASSISTANCE_REQUEST: '@@progression/OPEN_ASSISTANCE_REQUEST',
+  OPEN_ASSISTANCE_SUCCESS: '@@progression/OPEN_ASSISTANCE_SUCCESS',
+  OPEN_ASSISTANCE_FAILURE: '@@progression/OPEN_ASSISTANCE_FAILURE'
+};
+
+export const progressionUpdated = (id: ProgressionId): ThunkAction => async (
+  dispatch: Function,
+  getState: GetState
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   await dispatch({
-    type: UI_PROGRESSION_UPDATED,
+    type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
     meta: {
       id
     }
@@ -32,15 +67,27 @@ export const progressionUpdated = id => async (dispatch, getState) => {
   return dispatch(sendProgressionAnalytics(id));
 };
 
-export const UI_SELECT_PROGRESSION = '@@ui/SELECT_PROGRESSION';
+type SelectProgressionPayload = {
+  id: ProgressionId
+};
 
-export const selectProgression = id => async (dispatch, getState) => {
-  await dispatch({
-    type: UI_SELECT_PROGRESSION,
+export type SelectAction = {
+  type: UI_SELECT_PROGRESSION,
+  payload: SelectProgressionPayload
+};
+
+export const selectProgression = (id: ProgressionId) => async (
+  dispatch: Function,
+  getState: GetState
+): DispatchedAction => {
+  const selectAction: SelectAction = {
+    type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
     payload: {
       id
     }
-  });
+  };
+
+  await dispatch(selectAction);
 
   const progressionId = getCurrentProgressionId(getState());
   const response = await dispatch(fetchProgression(progressionId));
@@ -87,15 +134,19 @@ export const selectProgression = id => async (dispatch, getState) => {
   }
 };
 
-export const OPEN_ASSISTANCE_REQUEST = '@@progression/OPEN_ASSISTANCE_REQUEST';
-export const OPEN_ASSISTANCE_SUCCESS = '@@progression/OPEN_ASSISTANCE_SUCCESS';
-export const OPEN_ASSISTANCE_FAILURE = '@@progression/OPEN_ASSISTANCE_FAILURE';
-
-export const openAssistance = progression => (dispatch, getState, {services}) => {
+export const openAssistance = progression => (
+  dispatch: Function,
+  getState: GetState,
+  {services}: Options
+): DispatchedAction => {
   const {Progressions} = services;
 
   const action = buildTask({
-    types: [OPEN_ASSISTANCE_REQUEST, OPEN_ASSISTANCE_SUCCESS, OPEN_ASSISTANCE_FAILURE],
+    types: [
+      UI_PROGRESSION_ACTION_TYPES.OPEN_ASSISTANCE_REQUEST,
+      UI_PROGRESSION_ACTION_TYPES.OPEN_ASSISTANCE_SUCCESS,
+      UI_PROGRESSION_ACTION_TYPES.OPEN_ASSISTANCE_FAILURE
+    ],
     task: () => Progressions.openAssistance(progression),
     meta: {progression}
   });

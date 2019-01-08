@@ -1,7 +1,6 @@
 // @flow strict
 
-import type {Progression, State} from '@coorpacademy/progression-engine';
-import type {SelectProgressionSuccessPayload} from '../reducers/ui/current';
+import type {State} from '@coorpacademy/progression-engine';
 import type {Resource} from './models';
 import type {Services} from './services';
 
@@ -13,10 +12,9 @@ type GetState = () => State;
 type Payload = any;
 
 type Action = {|
-  types: Array<string>,
-  task: Task,
+  task?: Task,
   bailout?: Function,
-  payload: Payload,
+  payload?: Payload,
   type: string,
   meta: {
     id?: string,
