@@ -1,7 +1,8 @@
 // @flow strict
 
 import set from 'lodash/fp/set';
-import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
+import {UI_PROGRESSION_ACTION_TYPES} from '../../actions/ui/progressions';
+import type {Action} from '../../definitions/redux';
 import type {SelectAction} from '../../actions/ui/progressions';
 
 type UiCurrentState = {
@@ -12,15 +13,14 @@ const uiCurrentReducer = (
   state: UiCurrentState = {progressionId: null},
   action: Action
 ): UiCurrentState => {
-  switch (action.type) {
-    case UI_SELECT_PROGRESSION: {
-      const selectAction = (action: SelectAction);
-      const payload = selectAction.payload;
-      const {id} = payload;
-      return set('progressionId', id, state);
-    }
-    default:
-      return state;
+  if (action.type === UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION) {
+    // $FlowFixMe with this type, this is a SelectAction
+    const selectAction = (action: SelectAction);
+    const payload = selectAction.payload;
+    const {id} = payload;
+    return set('progressionId', id, state);
+  } else {
+    return state;
   }
 };
 

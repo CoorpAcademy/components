@@ -20,6 +20,7 @@ import {
   PROGRESSION_RESOURCE_VIEWED_SUCCESS
 } from '../../actions/api/progressions';
 import type {Action} from '../../definitions/redux';
+import type {ProgressionAction, FetchSuccessAction} from '../../actions/api/progressions';
 
 type DataProgressionState = {
   entities: {
@@ -33,13 +34,15 @@ const dataProgressionsReducer = (
 ): DataProgressionState => {
   switch (action.type) {
     case PROGRESSION_FETCH_SUCCESS: {
-      const payload: Progression = action.payload;
+      // $FlowFixMe with this type, this is a FetchSuccessAction
+      const _action = (action: FetchSuccessAction);
+      const payload: Progression = _action.payload;
 
-      if (!action.meta || !action.meta.id) {
-        throw new Error(`${action.type} requires action.meta.id:ProgressionId`);
+      if (!_action.meta || !_action.meta.id) {
+        throw new Error(`${_action.type} requires action.meta.id:ProgressionId`);
       }
 
-      const id: ProgressionId = action.meta.id;
+      const id: ProgressionId = _action.meta.id;
       return set(['entities', id], payload, state);
     }
 
@@ -69,7 +72,8 @@ const dataProgressionsReducer = (
     case PROGRESSION_EXTRALIFEREFUSED_SUCCESS:
     case PROGRESSION_EXTRALIFEACCEPTED_SUCCESS:
     case PROGRESSION_CREATE_ANSWER_SUCCESS: {
-      const payload: Progression = action.payload;
+      // $FlowFixMe with these types, this is a ProgressionAction
+      const payload: Progression = (action: ProgressionAction).payload;
       if (!action.meta || !action.meta.progressionId) {
         throw new Error(`${action.type} requires action.meta.id:ProgressionId`);
       }

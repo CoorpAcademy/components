@@ -9,14 +9,11 @@ type Task = Function;
 
 type GetState = () => State;
 
-type Payload = any;
-
 type Action = {|
   task?: Task,
   bailout?: Function,
-  payload?: Payload,
   type: string,
-  meta: {
+  meta?: {
     id?: string,
     resource?: Resource,
     location?: string,
