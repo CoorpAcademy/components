@@ -57,14 +57,14 @@ DispatchedAction => {
 };
 
 export const fetchSlideChapter = (slideRef: string): ThunkAction => async (
-  dispatch: Dispatch,
+  dispatch: Function,
   getState: GetState,
   {services}: {services: Services}
 ): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
 DispatchedAction => {
   const slideFetchResult = await dispatch(fetchContent('slide', slideRef));
   if (slideFetchResult.error) {
-    throw new Error(slideFetchResult.error);
+    return slideFetchResult;
   }
   const slide: Slide = getSlide(slideRef)(getState());
 
