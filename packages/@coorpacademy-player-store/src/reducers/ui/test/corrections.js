@@ -1,7 +1,7 @@
 import test from 'ava';
 import reducer from '../corrections';
 import {UI_TOGGLE_ACCORDION, UI_SELECT_RESOURCE_IN_POPIN} from '../../../actions/ui/corrections';
-import {UI_SELECT_PROGRESSION} from '../../../actions/ui/progressions';
+import {UI_PROGRESSION_ACTION_TYPES} from '../../../actions/ui/progressions';
 import macro from '../../test/helpers/macro';
 
 test(
@@ -10,7 +10,7 @@ test(
   reducer,
   {},
   {
-    type: UI_SELECT_PROGRESSION
+    type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION
   },
   {
     accordion: [false, false, false],

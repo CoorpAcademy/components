@@ -1,10 +1,10 @@
 import set from 'lodash/fp/set';
 import {SEND_POST_COMMENT_REQUEST} from '../../actions/api/comments';
-import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
+import {UI_PROGRESSION_ACTION_TYPES} from '../../actions/ui/progressions';
 
 const dataCommentsReducer = (state = {entities: {}}, action) => {
   switch (action.type) {
-    case UI_SELECT_PROGRESSION: {
+    case UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION: {
       const {payload} = action;
       const {id} = payload;
       return set(['entities', id, 'isSent'], false, state);

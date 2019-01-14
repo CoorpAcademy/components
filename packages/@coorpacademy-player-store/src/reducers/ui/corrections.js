@@ -2,7 +2,7 @@ import getOr from 'lodash/fp/getOr';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import {UI_TOGGLE_ACCORDION, UI_SELECT_RESOURCE_IN_POPIN} from '../../actions/ui/corrections';
-import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
+import {UI_PROGRESSION_ACTION_TYPES} from '../../actions/ui/progressions';
 
 const uiCorrectionsReducer = (state = {}, {type, payload, meta}) => {
   switch (type) {
@@ -17,7 +17,7 @@ const uiCorrectionsReducer = (state = {}, {type, payload, meta}) => {
       return set('playResource', resourceId, state);
     }
 
-    case UI_SELECT_PROGRESSION: {
+    case UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION: {
       return pipe(set('accordion', [false, false, false]), set('playResource', ''))(state);
     }
   }

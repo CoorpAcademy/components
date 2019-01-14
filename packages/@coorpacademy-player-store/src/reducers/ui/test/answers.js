@@ -1,7 +1,7 @@
 import test from 'ava';
 import reducer from '../answers';
 import {ANSWER_EDIT} from '../../../actions/ui/answers';
-import {UI_SELECT_PROGRESSION} from '../../../actions/ui/progressions';
+import {UI_PROGRESSION_ACTION_TYPES} from '../../../actions/ui/progressions';
 import macro from '../../test/helpers/macro';
 
 test('should have initial value', macro, reducer, undefined, {}, {});
@@ -27,7 +27,7 @@ test(
   reducer,
   {foo: {value: 'foo'}},
   {
-    type: UI_SELECT_PROGRESSION,
+    type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
     payload: {
       id: 'foo'
     }

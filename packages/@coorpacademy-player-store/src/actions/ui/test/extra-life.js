@@ -4,7 +4,7 @@ import set from 'lodash/fp/set';
 import macro from '../../test/helpers/macro';
 import mockContentService from '../../test/helpers/mock-content-service';
 import {acceptExtraLifeAndReset, refuseExtraLifeAndReset} from '../extra-life';
-import {UI_SELECT_PROGRESSION, UI_PROGRESSION_UPDATED} from '../progressions';
+import {UI_PROGRESSION_ACTION_TYPES} from '../progressions';
 import {
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
@@ -101,7 +101,7 @@ test(
       }
     },
     {
-      type: UI_PROGRESSION_UPDATED,
+      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
       meta: {
         id: 'foo'
       }
@@ -120,7 +120,7 @@ test(
       payload: 'sent'
     },
     {
-      type: UI_SELECT_PROGRESSION,
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
       payload: {id: 'foo'}
     },
     {
@@ -264,7 +264,7 @@ test(
       }
     },
     {
-      type: UI_PROGRESSION_UPDATED,
+      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
       meta: {
         id: 'foo'
       }
@@ -283,7 +283,7 @@ test(
       payload: 'sent'
     },
     {
-      type: UI_SELECT_PROGRESSION,
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
       payload: {id: 'foo'}
     },
     {

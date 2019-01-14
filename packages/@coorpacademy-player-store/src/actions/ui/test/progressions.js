@@ -1,12 +1,6 @@
 import test from 'ava';
 import macro from '../../test/helpers/macro';
-import {
-  selectProgression,
-  openAssistance,
-  UI_SELECT_PROGRESSION,
-  OPEN_ASSISTANCE_REQUEST,
-  OPEN_ASSISTANCE_SUCCESS
-} from '../progressions';
+import {selectProgression, openAssistance, UI_PROGRESSION_ACTION_TYPES} from '../progressions';
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../api/answers';
 import {
   PROGRESSION_FETCH_REQUEST,
@@ -78,13 +72,13 @@ test(
   openAssistance({foo: 'foo'}),
   [
     {
-      type: OPEN_ASSISTANCE_REQUEST,
+      type: UI_PROGRESSION_ACTION_TYPES.OPEN_ASSISTANCE_REQUEST,
       meta: {
         progression: {foo: 'foo'}
       }
     },
     {
-      type: OPEN_ASSISTANCE_SUCCESS,
+      type: UI_PROGRESSION_ACTION_TYPES.OPEN_ASSISTANCE_SUCCESS,
       meta: {
         progression: {foo: 'foo'}
       },
@@ -114,7 +108,7 @@ test(
   selectProgression('foo'),
   [
     {
-      type: UI_SELECT_PROGRESSION,
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
       payload: {id: 'foo'}
     },
     {
@@ -169,7 +163,7 @@ test(
   selectProgression('foo'),
   [
     {
-      type: UI_SELECT_PROGRESSION,
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
       payload: {id: 'foo'}
     },
     {
@@ -291,7 +285,7 @@ test(
   selectProgression('foo'),
   [
     {
-      type: UI_SELECT_PROGRESSION,
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
       payload: {id: 'foo'}
     },
     {
@@ -426,7 +420,7 @@ test(
   selectProgression('foo'),
   [
     {
-      type: UI_SELECT_PROGRESSION,
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
       payload: {id: 'foo'}
     },
     {
@@ -632,7 +626,7 @@ test(
   selectProgression('foo'),
   [
     {
-      type: UI_SELECT_PROGRESSION,
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
       payload: {id: 'foo'}
     },
     {
@@ -789,7 +783,7 @@ test(
   selectProgression('xtralife'),
   [
     {
-      type: UI_SELECT_PROGRESSION,
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
       payload: {id: 'xtralife'}
     },
     {
