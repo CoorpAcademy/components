@@ -20,6 +20,7 @@ import {
   getCurrentSlide,
   getEngine,
   getEngineConfig,
+  getLevel,
   getLives,
   getPreviousSlide,
   getQuestionType,
@@ -93,6 +94,11 @@ test('getEngineConfig should return proper engine string', t => {
   )({});
 
   t.is(getEngineConfig(state), 'plop');
+});
+
+test('getLevel', t => {
+  const state = set('data.contents.level.entities.foo', 'plop', {});
+  t.is(getLevel('foo')(state), 'plop');
 });
 
 test('isCommentSent should return comment status for current progression', t => {
@@ -365,6 +371,16 @@ test('getLives should return null if lives are disabled for the current progress
   )({});
 
   t.is(getLives(state), null);
+});
+
+test('getLives should throw error if progression.state is not defined', t => {
+  const progression = {};
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': progression})
+  )({});
+
+  t.throws(() => getLives(state), 'progression has no state.');
 });
 
 test('getNextContent should return nextChapter if microlearning progression', t => {
