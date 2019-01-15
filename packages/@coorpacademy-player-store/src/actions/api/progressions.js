@@ -91,7 +91,7 @@ export const PROGRESSION_CREATE_ANSWER_SUCCESS: string = '@@progression/CREATE_A
 export const PROGRESSION_CREATE_ANSWER_FAILURE: string = '@@progression/CREATE_ANSWER_FAILURE';
 
 export const createAnswer = (progressionId: string, answer: Answer): ThunkAction => (
-  dispatch: Dispatch,
+  dispatch: Function,
   getState: GetState,
   {services}: {services: Services}
 ): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
@@ -100,7 +100,10 @@ DispatchedAction => {
   const progression: Progression = getProgression(progressionId)(getState());
 
   if (!progression.state) {
-    throw new Error(`progression "${progressionId}" has no state.`);
+    return dispatch({
+      type: PROGRESSION_CREATE_ANSWER_FAILURE,
+      payload: `progression "${progressionId}" has no state.`
+    });
   }
 
   const nextContent: Content = progression.state.nextContent;
