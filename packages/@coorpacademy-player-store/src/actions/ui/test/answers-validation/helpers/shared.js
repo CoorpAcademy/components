@@ -1,6 +1,6 @@
 import {UI_TOGGLE_ACCORDION} from '../../../corrections';
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../../../api/answers';
-import {UI_PROGRESSION_UPDATED} from '../../../progressions';
+import {UI_PROGRESSION_ACTION_TYPES} from '../../../progressions';
 import {
   SEND_PROGRESSION_ANALYTICS_REQUEST,
   SEND_PROGRESSION_ANALYTICS_SUCCESS
@@ -8,7 +8,7 @@ import {
 
 export const progressionUpdated = [
   {
-    type: UI_PROGRESSION_UPDATED,
+    type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
     meta: {
       id: 'foo'
     }

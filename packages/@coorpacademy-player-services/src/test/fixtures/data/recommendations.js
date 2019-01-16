@@ -1,8 +1,8 @@
 // @flow strict
 
-import type {Recommendation} from '../../../definitions';
+import type {RecommendationAPI} from '../../../definitions';
 
-const recommendations: Array<Recommendation> = [
+const recommendations: Array<RecommendationAPI> = [
   {
     view: 'list',
     image: 'https://placehold.it/380x600/1d1d1d',

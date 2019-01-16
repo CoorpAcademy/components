@@ -15,6 +15,29 @@ const getState = pipe(
 );
 
 test(
+  'should throw error if progression has no state',
+  macro,
+  set('data.progressions.entities.foo._id', 'foo', {}),
+  t => ({
+    Progressions: {
+      postAnswer: (id, payload) => {
+        t.is(id, 'foo');
+        t.deepEqual(payload, {content: 'bar', answer: ['baz']});
+        return {state: {}};
+      }
+    }
+  }),
+  createAnswer('foo', ['baz']),
+  [
+    {
+      type: PROGRESSION_CREATE_ANSWER_FAILURE,
+      payload: 'progression "foo" has no state.'
+    }
+  ],
+  0
+);
+
+test(
   'should post answer',
   macro,
   getState({}),

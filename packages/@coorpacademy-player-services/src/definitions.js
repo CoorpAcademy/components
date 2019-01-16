@@ -1,15 +1,15 @@
 // @flow strict
 
 import type {
-  FAILURE,
-  SUCCESS,
   Answer,
   ChapterRule,
   Content,
   ContentType,
+  FAILURE,
   PartialCorrection,
   Progression,
-  Slide
+  Slide,
+  SUCCESS
 } from '@coorpacademy/progression-engine';
 
 type Url = string;
@@ -39,7 +39,7 @@ type Source = {|
   url: Url
 |};
 
-type Resource = {|
+type ResourceAPI = {|
   _id: string,
   ref: string,
   type: ResourceType,
@@ -93,31 +93,12 @@ type Media = {|
   src?: Array<Source>
 |};
 
-// type Context = {|
-//   title: string,
-//   description: string,
-//   media: Media
-// |};
-
 type Meta = {|
   updatedAt: string,
   createdAt: string
 |};
 
-// type Slide = {|
-//   _id: string,
-//   klf: string,
-//   tips: string,
-//   hasClue: boolean,
-//   chapter_id: string,
-//   authors: Array<string>,
-//   context: Context,
-//   meta: Meta,
-//   lessons: Array<Lesson>,
-//   question: Question
-// |};
-
-type Recommendation = {|
+type RecommendationAPI = {|
   view: string,
   image: Url,
   time: string,
@@ -137,21 +118,13 @@ type Poster = {|
   src?: Array<Source>
 |};
 
-type Chapter = {|
-  _id: string,
-  __v: number,
-  universalRef: string,
-  name: string,
-  stars: number,
-  freeRun: boolean,
-  meta: Meta,
-  poster: Poster,
-  isConditional: boolean,
-  time: number,
-  version: string
+type Stats = {|
+  userTriesCoun: number,
+  userDoneCoun: number
 |};
 
-type Level = {|
+type LevelAPI = {
+  _id: string,
   universalRef?: string,
   disciplineRef?: string,
   ref: string,
@@ -167,52 +140,43 @@ type Level = {|
   creditsToAccess?: number,
   infiniteLives?: boolean,
   isConditional?: boolean,
-  acquiredSkills?: Array<string>
-|};
-
-type Stats = {|
-  userTriesCoun: number,
-  userDoneCoun: number
-|};
-
-type Module = {|
-  _id: string,
-  disciplineRef: string,
-  name: string,
-  levelTranslation: string,
-  mediaUrl: Url,
-  timeAlloted: number,
-  level: string,
-  universalRef: string,
-  ref: string,
-  eligibleBattle: boolean,
-  creditsToAccess: number,
-  infiniteLives: boolean,
-  isConditional: boolean,
+  acquiredSkills?: Array<string>,
   data: Array<?string>,
   stats: Stats,
-  chapterIds: Array<string>,
-  acquiredSkills: Array<string>,
   version: string,
   external_refs: Array<?string>
-|};
-
-type Clue = string;
-
-type Correction = {
-  correctAnswer: Array<Answer>,
-  corrections: Array<PartialCorrection>
 };
 
-type UserAnswer = {|
+type ChapterAPI = {|
+  _id: string,
+  __v: number,
+  universalRef: string,
+  name: string,
+  stars: number,
+  freeRun: boolean,
+  meta: Meta,
+  poster: Poster,
+  isConditional: boolean,
+  time: number,
+  version: string
+|};
+
+type ClueAPI = string;
+
+type UserAnswerAPI = {|
   answer: Answer,
   content: Content
 |};
 
+type CorrectionAPI = {
+  correctAnswer: Array<Answer>,
+  corrections: Array<PartialCorrection>
+};
+
 type ExitNodeRef = 'successExitNode' | 'failureExitNode';
 type ExitNodeType = SUCCESS | FAILURE;
 
-type ExitNode = {|
+type ExitNodeAPI = {|
   ref: ExitNodeRef,
   type: ExitNodeType,
   meta: Meta,
@@ -224,15 +188,15 @@ type ExitNode = {|
 type Fixtures = {|
   getAllProgressions: () => Array<Progression>,
   getChapterRulesByContent: (ref: string) => Array<ChapterRule>,
-  getClue: (slideId: string) => Clue,
+  getClue: (slideId: string) => ClueAPI,
   getCorrectAnswer: (slideId: string) => Array<Answer>,
-  getExitNode: (ref: string) => ExitNode,
-  getNextLevel: (ref: string) => Level | void,
-  findChapterById: (contentRef: string) => Chapter,
-  findContent: (type: string, ref: string) => Promise<Chapter | Level | Slide>,
-  findLevelById: (contentRef: string) => Level | void,
+  getExitNode: (ref: string) => ExitNodeAPI,
+  getNextLevel: (ref: string) => LevelAPI | void,
+  findChapterById: (contentRef: string) => ChapterAPI,
+  findContent: (type: string, ref: string) => Promise<ChapterAPI | LevelAPI | Slide>,
+  findLevelById: (contentRef: string) => LevelAPI | void,
   findProgressionById: (id: string) => Promise<Progression | void>,
-  findRecommendations: (type: string, ref: string) => Promise<Array<Recommendation>>,
+  findRecommendations: (type: string, ref: string) => Promise<Array<RecommendationAPI>>,
   findSlideByChapter: (chapterRef: string) => Array<Slide>,
   findSlideById: (id: string) => Promise<Slide>,
   saveProgression: Progression => void
@@ -245,21 +209,20 @@ export const CONTENT_TYPE: {[string]: ContentType} = {
 };
 
 export type {
-  Chapter,
-  Clue,
-  Correction,
+  ChapterAPI,
+  ClueAPI,
+  CorrectionAPI,
   DataEvent,
-  ExitNode,
+  ExitNodeAPI,
   ExitNodeRef,
   Fixtures,
   JwPlayerOptions,
-  Level,
-  Module,
-  Recommendation,
-  Resource,
+  LevelAPI,
+  RecommendationAPI,
+  ResourceAPI,
   ResourceMimeType,
   ResourceType,
   Url,
-  UserAnswer,
+  UserAnswerAPI,
   Window
 };

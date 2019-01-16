@@ -1,12 +1,6 @@
 import test from 'ava';
 import macro from '../../test/helpers/macro';
-import {
-  selectProgression,
-  openAssistance,
-  UI_SELECT_PROGRESSION,
-  OPEN_ASSISTANCE_REQUEST,
-  OPEN_ASSISTANCE_SUCCESS
-} from '../progressions';
+import {selectProgression, openAssistance, UI_PROGRESSION_ACTION_TYPES} from '../progressions';
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../api/answers';
 import {
   PROGRESSION_FETCH_REQUEST,
@@ -78,13 +72,13 @@ test(
   openAssistance({foo: 'foo'}),
   [
     {
-      type: OPEN_ASSISTANCE_REQUEST,
+      type: UI_PROGRESSION_ACTION_TYPES.OPEN_ASSISTANCE_REQUEST,
       meta: {
         progression: {foo: 'foo'}
       }
     },
     {
-      type: OPEN_ASSISTANCE_SUCCESS,
+      type: UI_PROGRESSION_ACTION_TYPES.OPEN_ASSISTANCE_SUCCESS,
       meta: {
         progression: {foo: 'foo'}
       },
@@ -114,7 +108,7 @@ test(
   selectProgression('foo'),
   [
     {
-      type: UI_SELECT_PROGRESSION,
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
       payload: {id: 'foo'}
     },
     {
@@ -129,6 +123,119 @@ test(
     }
   ],
   2
+);
+
+test(
+  'should select progression and dispatch a failure if contentType is not handled',
+  macro,
+  {},
+  t => ({
+    Content: ContentService(t, false),
+    LeaderBoard: {
+      getRank: () => {
+        t.pass();
+        return 1;
+      }
+    },
+    Logger: {
+      error(err) {
+        t.is(err.message, 'some error');
+      }
+    },
+    Progressions: {
+      findBestOf: (type, contentType, ref, id) => {
+        t.is(contentType, 'chapter');
+        t.is(ref, 'baz');
+        return 16;
+      },
+      getEngineConfig: () => {
+        t.pass();
+        return 42;
+      },
+      findById: id => {
+        t.is(id, 'foo');
+        return {
+          _id: 'foo',
+          state: {
+            nextContent: {type: 'plop', ref: 'bar'}
+          },
+          content: {type: 'chapter', ref: 'baz'},
+          engine: {ref: 'qux', version: 'quux'}
+        };
+      }
+    }
+  }),
+  selectProgression('foo'),
+  [
+    {
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
+      payload: {id: 'foo'}
+    },
+    {
+      type: PROGRESSION_FETCH_REQUEST,
+      meta: {id: 'foo'}
+    },
+    {
+      type: PROGRESSION_FETCH_SUCCESS,
+      meta: {id: 'foo'},
+      payload: {
+        _id: 'foo',
+        state: {
+          nextContent: {type: 'plop', ref: 'bar'}
+        },
+        content: {type: 'chapter', ref: 'baz'},
+        engine: {ref: 'qux', version: 'quux'}
+      }
+    },
+    {
+      type: RANK_FETCH_START_REQUEST
+    },
+    {
+      type: RANK_FETCH_START_SUCCESS,
+      payload: 1
+    },
+    {
+      type: CONTENT_FETCH_REQUEST,
+      meta: {type: 'chapter', ref: 'baz'}
+    },
+    {
+      type: CONTENT_FETCH_SUCCESS,
+      meta: {type: 'chapter', ref: 'baz'},
+      payload: {_id: 'baz', foo: 3}
+    },
+    {
+      type: PROGRESSION_FETCH_BESTOF_REQUEST,
+      meta: {type: 'chapter', ref: 'baz'}
+    },
+    {
+      type: PROGRESSION_FETCH_BESTOF_SUCCESS,
+      meta: {type: 'chapter', ref: 'baz'},
+      payload: 16
+    },
+    {
+      type: ENGINE_CONFIG_FETCH_REQUEST,
+      meta: {engine: {ref: 'qux', version: 'quux'}}
+    },
+    {
+      type: ENGINE_CONFIG_FETCH_SUCCESS,
+      meta: {engine: {ref: 'qux', version: 'quux'}},
+      payload: 42
+    },
+    {
+      type: CONTENT_INFO_FETCH_REQUEST,
+      meta: {type: 'chapter', ref: 'baz'}
+    },
+    {
+      type: CONTENT_INFO_FETCH_SUCCESS,
+      meta: {type: 'chapter', ref: 'baz'},
+      payload: 'info'
+    },
+    {
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
+      payload: 'content.type must be either slide, node, success or failure'
+    }
+  ],
+  9
 );
 
 test(
@@ -169,7 +276,7 @@ test(
   selectProgression('foo'),
   [
     {
-      type: UI_SELECT_PROGRESSION,
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
       payload: {id: 'foo'}
     },
     {
@@ -291,7 +398,7 @@ test(
   selectProgression('foo'),
   [
     {
-      type: UI_SELECT_PROGRESSION,
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
       payload: {id: 'foo'}
     },
     {
@@ -426,7 +533,7 @@ test(
   selectProgression('foo'),
   [
     {
-      type: UI_SELECT_PROGRESSION,
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
       payload: {id: 'foo'}
     },
     {
@@ -632,7 +739,7 @@ test(
   selectProgression('foo'),
   [
     {
-      type: UI_SELECT_PROGRESSION,
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
       payload: {id: 'foo'}
     },
     {
@@ -789,7 +896,7 @@ test(
   selectProgression('xtralife'),
   [
     {
-      type: UI_SELECT_PROGRESSION,
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
       payload: {id: 'xtralife'}
     },
     {

@@ -1,18 +1,32 @@
+// @flow strict
+
 import buildTask from '@coorpacademy/redux-task';
 import {getExitNode} from '../../utils/state-extract';
+import type {ExitNodeRef} from '../../definitions/models';
+import type {Services} from '../../definitions/services';
+import type {
+  Dispatch,
+  DispatchedAction,
+  Action,
+  GetState,
+  ThunkAction
+} from '../../definitions/redux';
 
-export const EXIT_NODE_FETCH_REQUEST = '@@exit_node/FETCH_REQUEST';
-export const EXIT_NODE_FETCH_SUCCESS = '@@exit_node/FETCH_SUCCESS';
-export const EXIT_NODE_FETCH_FAILURE = '@@exit_node/FETCH_FAILURE';
+export const EXIT_NODE_FETCH_REQUEST: string = '@@exit_node/FETCH_REQUEST';
+export const EXIT_NODE_FETCH_SUCCESS: string = '@@exit_node/FETCH_SUCCESS';
+export const EXIT_NODE_FETCH_FAILURE: string = '@@exit_node/FETCH_FAILURE';
 
-export const fetchExitNode = id => (dispatch, getState, {services}) => {
+export const fetchExitNode = (id: ExitNodeRef): ThunkAction => (
+  dispatch: Dispatch,
+  getState: GetState,
+  {services}: {services: Services}
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   const {ExitNodes} = services;
 
-  const action = buildTask({
+  const action: Action = buildTask({
     types: [EXIT_NODE_FETCH_REQUEST, EXIT_NODE_FETCH_SUCCESS, EXIT_NODE_FETCH_FAILURE],
-    task: () => {
-      return ExitNodes.findById(id);
-    },
+    task: () => ExitNodes.findById(id),
     meta: {id},
     bailout: getExitNode(id)
   });

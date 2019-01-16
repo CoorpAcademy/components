@@ -3,21 +3,21 @@
 import reduce from 'lodash/fp/reduce';
 import _find from 'lodash/fp/find';
 
-import type {Level, Recommendation} from '../../definitions';
+import type {LevelAPI, RecommendationAPI} from '../../definitions';
 import levelsData from './data/levels';
 import recommendations from './data/recommendations';
 
-const levels: Map<string, Level> = reduce(
+const levels: Map<string, LevelAPI> = reduce(
   (map, object) => map.set(object.ref, object),
   new Map(),
   levelsData
 );
 
-const find = (type: string, ref: string): Promise<Array<Recommendation>> => {
+const find = (type: string, ref: string): Promise<Array<RecommendationAPI>> => {
   return Promise.resolve(recommendations);
 };
 
-const getNextLevel = (ref: string): Level | void => {
+const getNextLevel = (ref: string): LevelAPI | void => {
   const _level = levels.get(ref);
   if (!_level) {
     return undefined;

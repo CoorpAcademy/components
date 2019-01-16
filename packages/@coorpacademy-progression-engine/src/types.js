@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import type {Instruction, ChapterRule} from './rule-engine/types';
 
@@ -15,7 +15,9 @@ export type SLIDE = 'slide';
 export type NODE = 'node';
 export type FAILURE = 'failure';
 export type SUCCESS = 'success';
-export type ContentType = CHAPTER | LEVEL | SLIDE | NODE | FAILURE | SUCCESS;
+export type VIDEO = 'video';
+export type PDF = 'pdf';
+export type ContentType = CHAPTER | LEVEL | SLIDE | NODE | FAILURE | SUCCESS | VIDEO | PDF;
 
 export type ContentSlide = {|
   type: SLIDE,
@@ -30,7 +32,7 @@ export type GenericContent = {|
 
 export type ResourceContent = {|
   ref: string,
-  type: 'video' | 'pdf',
+  type: VIDEO | PDF,
   version?: string
 |};
 
@@ -163,8 +165,9 @@ export type EngineOptions = {|
   maxTypos?: number
 |};
 
+export type ProgressionId = string;
 export type Progression = {|
-  _id?: string,
+  _id?: ProgressionId,
   content: Content,
   state?: State,
   engine: Engine,
