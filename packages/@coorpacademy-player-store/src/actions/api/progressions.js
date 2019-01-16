@@ -1,5 +1,7 @@
 // @flow
 
+import keys from 'lodash/fp/keys';
+import last from 'lodash/fp/last';
 import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 import includes from 'lodash/fp/includes';
@@ -8,13 +10,14 @@ import type {
   Answer,
   Content,
   Engine,
+  EngineOptions,
   Progression,
   Slide,
   State
 } from '@coorpacademy/progression-engine';
 import type {Services} from '../../definitions/services';
 import type {Resource} from '../../definitions/models';
-
+import {selectProgression} from '../ui/progressions';
 import {
   getProgression,
   getBestScore,
@@ -31,10 +34,6 @@ import type {
   ThunkAction
 } from '../../definitions/redux';
 
-export const PROGRESSION_FETCH_REQUEST: string = '@@progression/FETCH_REQUEST';
-export const PROGRESSION_FETCH_SUCCESS: string = '@@progression/FETCH_SUCCESS';
-export const PROGRESSION_FETCH_FAILURE: string = '@@progression/FETCH_FAILURE';
-
 export type ProgressionAction = {
   ...Action,
   payload: Progression
@@ -45,6 +44,39 @@ export type FetchSuccessAction = {
   payload: Progression,
   type: '@@progression/FETCH_SUCCESS'
 };
+
+export const PROGRESSION_CREATE_REQUEST: string = '@@progression/CREATE_REQUEST';
+export const PROGRESSION_CREATE_SUCCESS: string = '@@progression/CREATE_SUCCESS';
+export const PROGRESSION_CREATE_FAILURE: string = '@@progression/CREATE_FAILURE';
+
+export const createProgression = (
+  engine: Engine,
+  content: Content,
+  engineOptions: EngineOptions
+): ThunkAction => async (
+  dispatch: Function,
+  getState: GetState,
+  {services}: {services: Services}
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
+  const {Progressions} = services;
+
+  const action: Action = buildTask({
+    types: [PROGRESSION_CREATE_REQUEST, PROGRESSION_CREATE_SUCCESS, PROGRESSION_CREATE_FAILURE],
+    task: () => Progressions.create(engine, content, engineOptions),
+    meta: {}
+  });
+
+  await dispatch(action);
+  const state = getState();
+  // $FlowFixMe todo move local reducer within player-store
+  const progressionId = last(keys(state.local.progressions.entities));
+  return dispatch(selectProgression(progressionId));
+};
+
+export const PROGRESSION_FETCH_REQUEST: string = '@@progression/FETCH_REQUEST';
+export const PROGRESSION_FETCH_SUCCESS: string = '@@progression/FETCH_SUCCESS';
+export const PROGRESSION_FETCH_FAILURE: string = '@@progression/FETCH_FAILURE';
 
 export const fetchProgression = (id: string): ThunkAction => (
   dispatch: Dispatch,
