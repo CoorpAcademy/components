@@ -12,8 +12,8 @@ import type {
   Engine,
   EngineOptions,
   Progression,
-  Slide,
-  State
+  ProgressionId,
+  Slide
 } from '@coorpacademy/progression-engine';
 import type {Services} from '../../definitions/services';
 import type {Resource} from '../../definitions/models';
@@ -26,23 +26,15 @@ import {
   getCurrentSlide,
   getPreviousSlide
 } from '../../utils/state-extract';
-import type {
-  Action,
-  Dispatch,
-  DispatchedAction,
-  GetState,
-  ThunkAction
-} from '../../definitions/redux';
+import type {Dispatch, DispatchedAction, GetState, ThunkAction} from '../../definitions/redux';
 
-export type ProgressionAction = {
-  ...Action,
-  payload: Progression
-};
-
-export type FetchSuccessAction = {
-  ...Action,
+export type Action = {
+  type: '@@progression/FETCH_SUCCESS' | '@@progression/CREATE_SUCCESS',
   payload: Progression,
-  type: '@@progression/FETCH_SUCCESS'
+  meta?: {
+    id?: ProgressionId,
+    progressionId?: ProgressionId
+  }
 };
 
 export const PROGRESSION_CREATE_REQUEST: string = '@@progression/CREATE_REQUEST';
@@ -61,7 +53,7 @@ export const createProgression = (
 DispatchedAction => {
   const {Progressions} = services;
 
-  const action: Action = buildTask({
+  const action = buildTask({
     types: [PROGRESSION_CREATE_REQUEST, PROGRESSION_CREATE_SUCCESS, PROGRESSION_CREATE_FAILURE],
     task: () => Progressions.create(engine, content, engineOptions),
     meta: {}
@@ -69,8 +61,7 @@ DispatchedAction => {
 
   await dispatch(action);
   const state = getState();
-  // $FlowFixMe todo move local reducer within player-store
-  const progressionId = last(keys(state.local.progressions.entities));
+  const progressionId = last(keys(state.data.progressions.entities));
   return dispatch(selectProgression(progressionId));
 };
 
@@ -86,7 +77,7 @@ export const fetchProgression = (id: string): ThunkAction => (
 DispatchedAction => {
   const {Progressions} = services;
 
-  const action: Action = buildTask({
+  const action = buildTask({
     types: [PROGRESSION_FETCH_REQUEST, PROGRESSION_FETCH_SUCCESS, PROGRESSION_FETCH_FAILURE],
     task: () => Progressions.findById(id),
     meta: {id},
@@ -108,7 +99,7 @@ export const fetchEngineConfig = (engine: Engine): ThunkAction => (
 DispatchedAction => {
   const {Progressions} = services;
 
-  const action: Action = buildTask({
+  const action = buildTask({
     types: [ENGINE_CONFIG_FETCH_REQUEST, ENGINE_CONFIG_FETCH_SUCCESS, ENGINE_CONFIG_FETCH_FAILURE],
     task: () => Progressions.getEngineConfig(engine),
     meta: {engine},
@@ -140,7 +131,7 @@ DispatchedAction => {
 
   const nextContent: Content = progression.state.nextContent;
 
-  const action: Action = buildTask({
+  const action = buildTask({
     types: [
       PROGRESSION_CREATE_ANSWER_REQUEST,
       PROGRESSION_CREATE_ANSWER_SUCCESS,
@@ -172,11 +163,11 @@ export const requestClue = (progressionId: string, slideId: string): ThunkAction
 ): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
 DispatchedAction => {
   const {Progressions} = services;
-  const state: State = getState();
+  const state = getState();
   const progression: Progression = getProgression(progressionId)(state);
   const requestedClues = get('state.requestedClues', progression);
 
-  const action: Action = buildTask({
+  const action = buildTask({
     types: [
       PROGRESSION_REQUEST_CLUE_REQUEST,
       PROGRESSION_REQUEST_CLUE_SUCCESS,
@@ -213,7 +204,7 @@ DispatchedAction => {
   const progression: Progression = getProgression(progressionId)(getState());
   const nextContent: Content = get('state.nextContent', progression);
 
-  const action: Action = buildTask({
+  const action = buildTask({
     types: [
       PROGRESSION_EXTRALIFEREFUSED_REQUEST,
       PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
@@ -246,7 +237,7 @@ DispatchedAction => {
   const progression: Progression = getProgression(progressionId)(getState());
   const nextContent: Content = get('state.nextContent', progression);
 
-  const action: Action = buildTask({
+  const action = buildTask({
     types: [
       PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
       PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
@@ -279,7 +270,7 @@ DispatchedAction => {
   const {type, ref} = progressionContent;
   const engine: Engine = getEngine(getState());
 
-  const action: Action = buildTask({
+  const action = buildTask({
     types: [
       PROGRESSION_FETCH_BESTOF_REQUEST,
       PROGRESSION_FETCH_BESTOF_SUCCESS,
@@ -304,7 +295,7 @@ export const markResourceAsViewed = (progressionId: string, resource: Resource):
 ): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
 DispatchedAction => {
   const {Progressions} = services;
-  const state: State = getState();
+  const state = getState();
   const {_id, ref = _id, type} = resource;
   const slide: Slide = getCurrentSlide(state) || getPreviousSlide(state);
 
@@ -320,7 +311,7 @@ DispatchedAction => {
     }
   };
 
-  const action: Action = buildTask({
+  const action = buildTask({
     types: [
       PROGRESSION_RESOURCE_VIEWED_REQUEST,
       PROGRESSION_RESOURCE_VIEWED_SUCCESS,

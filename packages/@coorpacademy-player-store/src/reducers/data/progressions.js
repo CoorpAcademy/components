@@ -9,6 +9,7 @@ import unset from 'lodash/fp/unset';
 import pipe from 'lodash/fp/pipe';
 import type {Progression, ProgressionId} from '@coorpacademy/progression-engine';
 import {
+  PROGRESSION_CREATE_SUCCESS,
   PROGRESSION_FETCH_SUCCESS,
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_FETCH_FAILURE,
@@ -19,8 +20,7 @@ import {
   PROGRESSION_REQUEST_CLUE_SUCCESS,
   PROGRESSION_RESOURCE_VIEWED_SUCCESS
 } from '../../actions/api/progressions';
-import type {Action} from '../../definitions/redux';
-import type {ProgressionAction, FetchSuccessAction} from '../../actions/api/progressions';
+import type {Action} from '../../actions/api/progressions';
 
 type DataProgressionState = {
   entities: {
@@ -34,21 +34,19 @@ const dataProgressionsReducer = (
 ): DataProgressionState => {
   switch (action.type) {
     case PROGRESSION_FETCH_SUCCESS: {
-      // $FlowFixMe with this type, this is a FetchSuccessAction
-      const _action = (action: FetchSuccessAction);
-      const payload: Progression = _action.payload;
+      const payload: Progression = action.payload;
 
-      if (!_action.meta || !_action.meta.id) {
-        throw new Error(`${_action.type} requires action.meta.id:ProgressionId`);
+      if (!action.meta || !action.meta.id) {
+        return state;
       }
 
-      const id: ProgressionId = _action.meta.id;
+      const id: ProgressionId = action.meta.id;
       return set(['entities', id], payload, state);
     }
 
     case PROGRESSION_FETCH_REQUEST: {
       if (!action.meta || !action.meta.id) {
-        throw new Error(`${action.type} requires action.meta.id:ProgressionId`);
+        return state;
       }
 
       const id: ProgressionId = action.meta.id;
@@ -61,19 +59,28 @@ const dataProgressionsReducer = (
 
     case PROGRESSION_CREATE_ANSWER_REQUEST: {
       if (!action.meta || !action.meta.progressionId) {
-        throw new Error(`${action.type} requires action.meta.id:ProgressionId`);
+        return state;
       }
 
       const progressionId: ProgressionId = action.meta.progressionId;
       return set(['entities', progressionId, 'state', 'isCorrect'], null, state);
+    }
+    case PROGRESSION_CREATE_SUCCESS: {
+      const progression: Progression = action.payload;
+      const id: ProgressionId = progression._id || '_no-id';
+      return {
+        ...state,
+        entities: {
+          [id]: progression
+        }
+      };
     }
     case PROGRESSION_REQUEST_CLUE_SUCCESS:
     case PROGRESSION_RESOURCE_VIEWED_SUCCESS:
     case PROGRESSION_EXTRALIFEREFUSED_SUCCESS:
     case PROGRESSION_EXTRALIFEACCEPTED_SUCCESS:
     case PROGRESSION_CREATE_ANSWER_SUCCESS: {
-      // $FlowFixMe with these types, this is a ProgressionAction
-      const payload: Progression = (action: ProgressionAction).payload;
+      const payload: Progression = action.payload;
       if (!action.meta || !action.meta.progressionId) {
         throw new Error(`${action.type} requires action.meta.id:ProgressionId`);
       }
