@@ -20,6 +20,19 @@
     },
     "lessons": [
       {
+        "_id": "5c3f5ab1f986220036efd2b2",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-auchan-sante/cockpit-auchan/default/capture-decran-2018-12-21-a-144310-1545399879958.png",
+        "description": "Os fatores individuais que favorecem as LME (Lesões MusculoEsqueléticas)",
+        "videoId": "BfFUBZiH",
+        "mimeType": "application/jwplayer",
+        "ref": "les_NyBevvQxU",
+        "type": "video",
+        "subtitles": [],
+        "posters": [],
+        "src": [],
+        "id": "5c3f5ab1f986220036efd2b2"
+      },
+      {
         "ref": "88393119",
         "type": "video",
         "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
@@ -68,18 +81,6 @@
           "playerId": "5980934b7dfebe01618a57df",
           "playerScript": "https://up-staging.coorpacademy.com/libs/jwplayer/7.10.7/jwplayer.js"
         }
-      },
-      {
-        "ref": "1481283409059",
-        "description": "La gestion du stress",
-        "mediaUrl": "https://www.performances.fr/formation-gestion-stress.html",
-        "mimeType": "application/pdf",
-        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-institut-bocquet/cockpit-partner-institut-bocquet/poster/bocquet-1481283409059.jpg",
-        "posters": [],
-        "src": [],
-        "subtitles": [],
-        "type": "pdf",
-        "_id": "59a43ef725571101b488f1bb"
       }
     ],
     "question": {
@@ -141,6 +142,19 @@
       "createdAt": "2017-06-06T13:49:35.198Z"
     },
     "lessons": [
+      {
+        "_id": "5c3f5ab1f986220036efd2b2",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-auchan-sante/cockpit-auchan/default/capture-decran-2018-12-21-a-144310-1545399879958.png",
+        "description": "Os fatores individuais que favorecem as LME (Lesões MusculoEsqueléticas)",
+        "videoId": "BfFUBZiH",
+        "mimeType": "application/jwplayer",
+        "ref": "les_NyBevvQxU",
+        "type": "video",
+        "subtitles": [],
+        "posters": [],
+        "src": [],
+        "id": "5c3f5ab1f986220036efd2b2"
+      },
       {
         "ref": "88393119",
         "type": "video",
@@ -260,6 +274,19 @@
     },
     "lessons": [
       {
+        "_id": "5c3f5ab1f986220036efd2b2",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-auchan-sante/cockpit-auchan/default/capture-decran-2018-12-21-a-144310-1545399879958.png",
+        "description": "Os fatores individuais que favorecem as LME (Lesões MusculoEsqueléticas)",
+        "videoId": "BfFUBZiH",
+        "mimeType": "application/jwplayer",
+        "ref": "les_NyBevvQxU",
+        "type": "video",
+        "subtitles": [],
+        "posters": [],
+        "src": [],
+        "id": "5c3f5ab1f986220036efd2b2"
+      },
+      {
         "ref": "88393119",
         "type": "video",
         "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
@@ -372,6 +399,19 @@
     },
     "lessons": [
       {
+        "_id": "5c3f5ab1f986220036efd2b2",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-auchan-sante/cockpit-auchan/default/capture-decran-2018-12-21-a-144310-1545399879958.png",
+        "description": "Os fatores individuais que favorecem as LME (Lesões MusculoEsqueléticas)",
+        "videoId": "BfFUBZiH",
+        "mimeType": "application/jwplayer",
+        "ref": "les_NyBevvQxU",
+        "type": "video",
+        "subtitles": [],
+        "posters": [],
+        "src": [],
+        "id": "5c3f5ab1f986220036efd2b2"
+      },
+      {
         "ref": "88393119",
         "type": "video",
         "poster": "//static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
@@ -482,6 +522,19 @@
     },
     "lessons": [
       {
+        "_id": "5c3f5ab1f986220036efd2b2",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-auchan-sante/cockpit-auchan/default/capture-decran-2018-12-21-a-144310-1545399879958.png",
+        "description": "Os fatores individuais que favorecem as LME (Lesões MusculoEsqueléticas)",
+        "videoId": "BfFUBZiH",
+        "mimeType": "application/jwplayer",
+        "ref": "les_NyBevvQxU",
+        "type": "video",
+        "subtitles": [],
+        "posters": [],
+        "src": [],
+        "id": "5c3f5ab1f986220036efd2b2"
+      },
+      {
         "ref": "88393119",
         "type": "video",
         "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
@@ -588,7 +641,21 @@
       "updatedAt": "2017-06-06T13:49:35.297Z",
       "createdAt": "2017-06-06T13:49:35.297Z"
     },
-    "lessons": [],
+    "lessons": [
+      {
+        "_id": "5c3f5ab1f986220036efd2b2",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-auchan-sante/cockpit-auchan/default/capture-decran-2018-12-21-a-144310-1545399879958.png",
+        "description": "Os fatores individuais que favorecem as LME (Lesões MusculoEsqueléticas)",
+        "videoId": "BfFUBZiH",
+        "mimeType": "application/jwplayer",
+        "ref": "les_NyBevvQxU",
+        "type": "video",
+        "subtitles": [],
+        "posters": [],
+        "src": [],
+        "id": "5c3f5ab1f986220036efd2b2"
+      }
+    ],
     "question": {
       "type": "qcm",
       "header": "Répondez à cette question si difficile... 2 x 2 ?",
@@ -674,7 +741,21 @@
       "updatedAt": "2017-06-06T13:49:35.330Z",
       "createdAt": "2017-06-06T13:49:35.330Z"
     },
-    "lessons": [],
+    "lessons": [
+      {
+        "_id": "5c3f5ab1f986220036efd2b2",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-auchan-sante/cockpit-auchan/default/capture-decran-2018-12-21-a-144310-1545399879958.png",
+        "description": "Os fatores individuais que favorecem as LME (Lesões MusculoEsqueléticas)",
+        "videoId": "BfFUBZiH",
+        "mimeType": "application/jwplayer",
+        "ref": "les_NyBevvQxU",
+        "type": "video",
+        "subtitles": [],
+        "posters": [],
+        "src": [],
+        "id": "5c3f5ab1f986220036efd2b2"
+      }
+    ],
     "question": {
       "type": "qcm",
       "header": "Où se trouve Coorpacademy France ?",
@@ -751,28 +832,17 @@
     },
     "lessons": [
       {
-        "ref": "88393119",
+        "_id": "5c3f5ab1f986220036efd2b2",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-auchan-sante/cockpit-auchan/default/capture-decran-2018-12-21-a-144310-1545399879958.png",
+        "description": "Os fatores individuais que favorecem as LME (Lesões MusculoEsqueléticas)",
+        "videoId": "BfFUBZiH",
+        "mimeType": "application/jwplayer",
+        "ref": "les_NyBevvQxU",
         "type": "video",
-        "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B2.png",
-        "description": "Anatomie d'une page de résultats",
-        "mimeType": "application/vimeo",
-        "videoId": "88393119\n",
-        "_id": "590b862e2e967f64333ad456",
         "subtitles": [],
-        "posters": [],
-        "src": []
-      },
-      {
-        "ref": "88546728",
-        "description": "Historique des moteurs de recherche",
-        "mimeType": "application/vimeo",
-        "poster": "https://api-staging.coorpacademy.com/api-service/medias?h=230&w=230&q=90&url=https://static.coorpacademy.com/content/digital/miniatures_cours/base/1B1.png",
         "posters": [],
         "src": [],
-        "subtitles": [],
-        "type": "video",
-        "videoId": "88546728\n",
-        "_id": "590b862e2e967f64333ad4fc"
+        "id": "5c3f5ab1f986220036efd2b2"
       }
     ],
     "question": {
@@ -836,16 +906,17 @@
     },
     "lessons": [
       {
-        "ref": "189601796",
-        "_id": "59311efb7b2f920056a8ed5f",
-        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-partnerships-women-up/cockpit-partner-women-up/poster/vignette_womenup-1478108216371.png",
-        "description": "La révolution numérique",
-        "videoId": "189601796",
-        "mimeType": "application/vimeo",
+        "_id": "5c3f5ab1f986220036efd2b2",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-auchan-sante/cockpit-auchan/default/capture-decran-2018-12-21-a-144310-1545399879958.png",
+        "description": "Os fatores individuais que favorecem as LME (Lesões MusculoEsqueléticas)",
+        "videoId": "BfFUBZiH",
+        "mimeType": "application/jwplayer",
+        "ref": "les_NyBevvQxU",
         "type": "video",
         "subtitles": [],
         "posters": [],
-        "src": []
+        "src": [],
+        "id": "5c3f5ab1f986220036efd2b2"
       }
     ],
     "question": {
@@ -974,19 +1045,17 @@
     },
     "lessons": [
       {
-        "ref": "127157752",
+        "_id": "5c3f5ab1f986220036efd2b2",
+        "poster": "//static.coorpacademy.com/content/CoorpAcademy/content-auchan-sante/cockpit-auchan/default/capture-decran-2018-12-21-a-144310-1545399879958.png",
+        "description": "Os fatores individuais que favorecem as LME (Lesões MusculoEsqueléticas)",
+        "videoId": "BfFUBZiH",
+        "mimeType": "application/jwplayer",
+        "ref": "les_NyBevvQxU",
         "type": "video",
-        "mimeType": "application/vimeo",
-        "videoId": "127157752",
-        "description": "Le paiment dématérialisé : dernière étape du rapprochement virtuel/réel",
-        "poster": "//static.coorpacademy.com/content/digital/fr/miniatures/video_miniature.jpg",
-        "_id": "5978690a48a0ff240092f3a5",
         "subtitles": [],
         "posters": [],
-        "views": {
-          "fromLesson": 4
-        },
-        "src": []
+        "src": [],
+        "id": "5c3f5ab1f986220036efd2b2"
       }
     ],
     "question": {
@@ -1038,20 +1107,30 @@
     "authors": [],
     "lessons": [
       {
-        "ref": "127718777",
+        "ref": "159363386",
         "type": "video",
-        "mimeType": "application/vimeo",
-        "videoId": "127718777",
-        "description": "Chiffres-clés du multi-écran",
-        "poster": "//static.coorpacademy.com/content/digital/fr/miniatures/video_miniature.jpg",
-        "_id": "5978690b48a0ff240092f4a3",
+        "mimeType": "video/mp4",
+        "mediaUrl": "https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4",
+        "description": "Qu'est-ce que la Data Science ?",
+        "poster": "https://api-staging.coorpacademy.com/api-service-dev/medias?url=https://simoocdigital.credit-agricole.fr/media/content/bigdata/11.jpg&h=250&w=250&q=90",
+        "_id": "5980934b7dfebe01618a57df",
         "subtitles": [],
         "posters": [],
-        "views": {
-          "fromList": 63,
-          "fromLesson": 20
-        },
-        "src": []
+        "src": [],
+        "jwpOptions": {
+          "customProps": {
+            "aspectratio": "16:9",
+            "autostart": false,
+            "skin": {
+              "name": "bekle"
+            },
+            "width": "100%"
+          },
+          "file": "https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4",
+          "licenseKey": "yI8rSuuJ+fs7VdJzWjY4zGZU48UcOn+Gjg+FXZag16o=",
+          "playerId": "5980934b7dfebe01618a57df",
+          "playerScript": "https://up.coorpacademy.com/libs/jwplayer/7.10.7/jwplayer.js"
+        }
       }
     ],
     "question": {
