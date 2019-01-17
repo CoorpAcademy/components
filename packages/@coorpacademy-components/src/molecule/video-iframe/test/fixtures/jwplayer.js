@@ -1,6 +1,7 @@
 export default {
   props: {
     type: 'jwplayer',
-    id: 'LisUL8N2'
+    id: 'UApLczH1',
+    onPlay: () => console.log('play Iframe JWPlayer')
   }
 };

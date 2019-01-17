@@ -21,16 +21,13 @@ const getUrl = ({url, type, id, query = {}, opts = {}}) => {
 
 class VideoIframe extends React.Component {
   componentDidMount() {
-    const {type} = this.props;
-    if (type === 'kontiki') {
-      const {onPlay = noop} = this.props;
-      onPlay();
-    }
+    const {onPlay = noop} = this.props;
+    onPlay();
   }
 
   render() {
-    const {type, id, url, autoplay = false, width = '100%', height = '400px'} = this.props;
-    const src = getUrl({url, type, id, autoplay});
+    const {type, id, url, width = '100%', height = '400px'} = this.props;
+    const src = getUrl({url, type, id});
 
     return (
       <iframe
@@ -57,7 +54,6 @@ VideoIframe.propTypes = {
   height: PropTypes.string,
   url: SrcPropType,
   id: PropTypes.string,
-  autoplay: PropTypes.bool,
   onPlay: PropTypes.func
 };
 
