@@ -227,7 +227,6 @@ export const getQuestionMedia = (state: State): void | Media => {
 };
 
 export const getResourceToPlay: State => Resource = get('ui.corrections.playResource');
-
 export const getLives = (state: State): null | number => {
   const progression: Progression = getCurrentProgression(state);
 

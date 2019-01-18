@@ -2,6 +2,10 @@ import test from 'ava';
 import keys from 'lodash/fp/keys';
 import * as api from '..';
 
+// this test is somehow a snapshot;
+// use this to update the test according to your changes:
+// console.dir({k: keys(api)}, {depth: 10, maxArrayLength: null, colors: true});
+
 test('it should expose all api', t => {
   t.deepEqual(keys(api), [
     '__esModule',
@@ -91,6 +95,10 @@ test('it should expose all api', t => {
     'NEXT_CONTENT_FETCH_SUCCESS',
     'NEXT_CONTENT_FETCH_FAILURE',
     'fetchNext',
+    'PROGRESSION_CREATE_REQUEST',
+    'PROGRESSION_CREATE_SUCCESS',
+    'PROGRESSION_CREATE_FAILURE',
+    'createProgression',
     'PROGRESSION_FETCH_REQUEST',
     'PROGRESSION_FETCH_SUCCESS',
     'PROGRESSION_FETCH_FAILURE',
