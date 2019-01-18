@@ -1,6 +1,6 @@
 # @Coorpacademy/Components
 
-This library provide sharable components for web applications, either :
+This library provide sharable components for web applications, either:
 
 - as CommonJS components
 - as a minified library
