@@ -1,18 +1,30 @@
-# preparing a canary version for staging
+# Publish packages
 
-## app-player + components
+you'll find doc about 2 way to publish packages here:
+
+- 1 - canary
+- 2 - latest
+
+## 1 - Canary
+
+### app-player + components
+
 go to the lerna root, checkout your branch
+
 ```
 git checkout wip
 ```
+
 then run
+
 ```
 npm run publish:canary
 ```
- a prompt will ask you to confirm
 
- ```
- > lerna publish --canary --exact --cd-version=patch --skip-git
+a prompt will ask you to confirm
+
+```
+> lerna publish --canary --exact --cd-version=patch --skip-git
 
 lerna info version 2.1.1
 lerna info versioning independent
@@ -21,20 +33,20 @@ lerna info Checking for updated packages...
 lerna info Comparing with d6fba416^..d6fba416.
 
 Changes:
- - @coorpacademy/app-player: 12.1.24 => 12.1.25-alpha.d6fba416
- - @coorpacademy/app-template: 5.3.36 => 5.3.37-alpha.d6fba416
- - @coorpacademy/components: 7.1.19 => 7.1.20-alpha.d6fba416
- - @coorpacademy/css-modules-require-hook: 0.0.2 => 0.0.3-alpha.d6fba416
- - @coorpacademy/history: 5.3.10 => 5.3.11-alpha.d6fba416
- - @coorpacademy/nova-icons: 1.1.19 => 1.1.20-alpha.d6fba416
- - @coorpacademy/progression-engine: 9.1.9 => 9.1.10-alpha.d6fba416
- - @coorpacademy/redux-history: 5.3.11 => 5.3.12-alpha.d6fba416
- - @coorpacademy/redux-router: 5.4.5 => 5.4.6-alpha.d6fba416
- - @coorpacademy/redux-task: 0.0.5 => 0.0.6-alpha.d6fba416
- - @coorpacademy/translate: 5.3.11 => 5.3.12-alpha.d6fba416
- - @coorpacademy/treantjs-adapter-angular: 7.0.1 => 7.0.2-alpha.d6fba416
- - @coorpacademy/treantjs-adapter-dust: 7.0.0 => 7.0.1-alpha.d6fba416
- - @coorpacademy/webpack-config: 6.2.2 => 6.2.3-alpha.d6fba416
+- @coorpacademy/app-player: 12.1.24 => 12.1.25-alpha.d6fba416
+- @coorpacademy/app-template: 5.3.36 => 5.3.37-alpha.d6fba416
+- @coorpacademy/components: 7.1.19 => 7.1.20-alpha.d6fba416
+- @coorpacademy/css-modules-require-hook: 0.0.2 => 0.0.3-alpha.d6fba416
+- @coorpacademy/history: 5.3.10 => 5.3.11-alpha.d6fba416
+- @coorpacademy/nova-icons: 1.1.19 => 1.1.20-alpha.d6fba416
+- @coorpacademy/progression-engine: 9.1.9 => 9.1.10-alpha.d6fba416
+- @coorpacademy/redux-history: 5.3.11 => 5.3.12-alpha.d6fba416
+- @coorpacademy/redux-router: 5.4.5 => 5.4.6-alpha.d6fba416
+- @coorpacademy/redux-task: 0.0.5 => 0.0.6-alpha.d6fba416
+- @coorpacademy/translate: 5.3.11 => 5.3.12-alpha.d6fba416
+- @coorpacademy/treantjs-adapter-angular: 7.0.1 => 7.0.2-alpha.d6fba416
+- @coorpacademy/treantjs-adapter-dust: 7.0.0 => 7.0.1-alpha.d6fba416
+- @coorpacademy/webpack-config: 6.2.2 => 6.2.3-alpha.d6fba416
 ```
 
 then wait for the success message
@@ -59,10 +71,12 @@ Successfully published:
 lerna success publish finished
 ```
 
-## mooc
+### mooc
+
 deps are now ready to be used for the mooc.
 
 checkout your branch:
+
 ```
 git checkout wip
 ```
@@ -82,23 +96,35 @@ info Direct dependencies
 
 Your branch is now ready to be deployed.
 
-## canary know issues
+### canary know issues
+
 hashes issues https://github.com/lerna/lerna/issues/277
 
-# publish a release
+## 1 - Canary
+
 once your PR is merged on `master` your can publish a release
 
 go to the lerna root, checkout and pull master
+
 ```
 > git checkout master
 > git pull origin master
 ```
 
+**warning:** if you have conflicts, be sure to reset your branch to `origin/master` before proceeding!
+
+```
+> git reset --hard origin/master
+```
+
 call lerna publish
+
 ```
 > npm run publish:latest
 ```
+
 lerna will prompt for the version
+
 ```
 > lerna publish --exact
 
@@ -119,6 +145,7 @@ lerna info Comparing with @coorpacademy/app-player@12.1.21.
 
 An automatic PR will be open on the mooc, but you may have changes to apply.
 If you do, manually add the deps on your branch:
+
 ```
 > yarn add @coorpacademy/app-player@12.1.25
 > yarn add @coorpacademy/components@7.1.24
@@ -131,11 +158,36 @@ now you can push your branch and PR the bump.
 sometimes the publishing fails but the git tags are already created.
 you have to revert the commit and delete the tags before to run the publish again:
 
-```
+```sh
 > git reset --soft HEAD~1
 > git checkout HEAD .
 > git tag -d @coorpacademy/package1@x.x.x
 > git tag -d @coorpacademy/package2@x.x.x
 > git tag -d @coorpacademy/package3@x.x.x
 > npm run publish:latest
+```
+
+## issues with tags
+
+you can check the versions using
+
+```sh
+> npm info @coorpacademy/components dist-tags
+{ latest: '8.6.2',
+  beta: '7.0.0-next.4',
+  next: '7.0.0-next.1',
+  canary: '8.6.3-alpha2.6' }
+```
+
+sometimes you need to republish a new canary with the same semver.
+If so, you may need to remove the current tag (be sure to play with `canary` only!!!):
+
+```
+> npm dist-tag rm @coorpacademy/player-web canary
+```
+
+then publish with a new `preid`
+
+```
+> npx lerna publish --canary --exact --cd-version=patch --skip-git --npm-client npm --preid alpha2
 ```
