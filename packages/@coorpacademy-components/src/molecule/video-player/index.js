@@ -64,7 +64,7 @@ class VideoPlayer extends React.Component {
         );
       case 'application/jwplayer':
       case 'video/mp4':
-        return <JWPlayer {...this.props} key={id} />;
+        return <JWPlayer {...this.props} onPlay={this.handleOnPlay} key={id} />;
     }
   };
 
