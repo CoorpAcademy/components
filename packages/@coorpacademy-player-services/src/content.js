@@ -5,9 +5,9 @@ import pipe from 'lodash/fp/pipe';
 import {getConfig} from '@coorpacademy/progression-engine';
 
 import type {Slide} from '@coorpacademy/progression-engine';
-import type {Chapter, Fixtures, Level} from './definitions';
+import type {ChapterAPI, Fixtures, LevelAPI} from './definitions';
 
-type FindContent = (type: string, ref: string) => Promise<Chapter | Level | Slide>;
+type FindContent = (type: string, ref: string) => Promise<ChapterAPI | LevelAPI | Slide>;
 type GetNbSlides = (contentRef: string, engineRef: string, version: string) => number;
 type GetInfo = (contentRef: string, engineRef: string, version: string) => {nbSlides: number};
 
@@ -19,7 +19,7 @@ type ContentService = {|
 const find = (fixtures: Fixtures): FindContent => (
   type: string,
   ref: string
-): Promise<Chapter | Level | Slide> => {
+): Promise<ChapterAPI | LevelAPI | Slide> => {
   const {findContent} = fixtures;
   return findContent(type, ref);
 };
@@ -41,7 +41,7 @@ const getNbSlides = (fixtures: Fixtures): GetNbSlides => (
     return level.chapterIds.length * maxNbSlides;
   }
 
-  const chapter: Chapter = findChapterById(contentRef);
+  const chapter: ChapterAPI = findChapterById(contentRef);
 
   if (chapter) {
     return maxNbSlides;

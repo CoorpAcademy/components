@@ -8,7 +8,7 @@ import {
   PROGRESSION_REQUEST_CLUE_REQUEST,
   PROGRESSION_REQUEST_CLUE_SUCCESS
 } from '../../api/progressions';
-import {UI_PROGRESSION_UPDATED} from '../progressions';
+import {UI_PROGRESSION_ACTION_TYPES} from '../progressions';
 import {CLUE_FETCH_REQUEST, CLUE_FETCH_SUCCESS} from '../../api/clues';
 import {
   SEND_PROGRESSION_ANALYTICS_REQUEST,
@@ -108,7 +108,7 @@ test(
       payload: ['Clue']
     },
     {
-      type: UI_PROGRESSION_UPDATED,
+      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
       meta: {
         id: 'foo'
       }

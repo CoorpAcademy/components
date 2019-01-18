@@ -11,7 +11,7 @@ import {
   resume,
   ended
 } from '../video';
-import {UI_PROGRESSION_UPDATED} from '../progressions';
+import {UI_PROGRESSION_ACTION_TYPES} from '../progressions';
 
 import {
   MEDIA_VIEWED_ANALYTICS_REQUEST,
@@ -138,7 +138,7 @@ test(
       payload: set('state.viewedResources', [content.ref], {})
     },
     {
-      type: UI_PROGRESSION_UPDATED,
+      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
       meta: {id: 'foo'}
     },
     {
@@ -214,7 +214,7 @@ test(
       payload: 'foo'
     },
     {
-      type: UI_PROGRESSION_UPDATED,
+      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
       meta: {id: 'foo'}
     },
     {

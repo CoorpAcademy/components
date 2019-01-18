@@ -1,15 +1,18 @@
 import test from 'ava';
 import reducer from '../progressions';
 import {
-  PROGRESSION_FETCH_REQUEST,
-  PROGRESSION_FETCH_SUCCESS,
-  PROGRESSION_FETCH_FAILURE,
   PROGRESSION_CREATE_ANSWER_REQUEST,
   PROGRESSION_CREATE_ANSWER_SUCCESS,
+  PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
+  PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
+  PROGRESSION_FETCH_FAILURE,
+  PROGRESSION_FETCH_REQUEST,
+  PROGRESSION_FETCH_SUCCESS,
   PROGRESSION_REQUEST_CLUE_SUCCESS,
   PROGRESSION_RESOURCE_VIEWED_SUCCESS
 } from '../../../actions/api/progressions';
 import macro from '../../test/helpers/macro';
+import macroThrow from '../../test/helpers/macro-throw';
 
 test('should have initial value', macro, reducer, undefined, {}, {entities: {}});
 
@@ -140,3 +143,15 @@ test(
   },
   {entities: {foo: {foo: 'foo', bar: 'bar'}}}
 );
+
+test('should throw error when meta.id is not defined', macroThrow, reducer, {}, [
+  PROGRESSION_FETCH_SUCCESS,
+  PROGRESSION_FETCH_REQUEST,
+  PROGRESSION_CREATE_ANSWER_REQUEST,
+  PROGRESSION_REQUEST_CLUE_SUCCESS,
+  PROGRESSION_RESOURCE_VIEWED_SUCCESS,
+  PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
+  PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
+  PROGRESSION_CREATE_ANSWER_SUCCESS,
+  PROGRESSION_FETCH_FAILURE
+]);

@@ -18,7 +18,7 @@ import {
 } from '../../../api/progressions';
 import {UI_SELECT_ROUTE} from '../../route';
 import {RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS} from '../../../api/rank';
-import {UI_SELECT_PROGRESSION} from '../../progressions';
+import {UI_PROGRESSION_ACTION_TYPES} from '../../progressions';
 import {
   CONTENT_FETCH_REQUEST,
   CONTENT_FETCH_SUCCESS,
@@ -243,7 +243,7 @@ test(
     answer(set('state.isCorrect', null, adaptiveNoAnswer)),
     contentFetchActions,
     {
-      type: UI_SELECT_PROGRESSION,
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
       payload: {id: 'foo'}
     },
     {

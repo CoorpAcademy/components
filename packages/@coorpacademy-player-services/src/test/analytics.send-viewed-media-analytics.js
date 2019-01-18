@@ -4,7 +4,7 @@ import test from 'ava';
 import {sendViewedMediaAnalytics} from '../analytics';
 
 // eslint-disable-next-line no-shadow
-import type {Resource, Window} from '../definitions';
+import type {ResourceAPI, Window} from '../definitions';
 
 // eslint-disable-next-line no-shadow
 declare var global: {|window: Window|};
@@ -12,7 +12,7 @@ declare var global: {|window: Window|};
 test('should push an event even if dataLayer is not defined previously', t => {
   global.window = {dataLayer: undefined};
 
-  const resource: Resource = {
+  const resource: ResourceAPI = {
     _id: '_foo',
     ref: 'foo',
     mediaUrl: '',
@@ -32,7 +32,7 @@ test('should push an event even if dataLayer is not defined previously', t => {
 
 test('push data to window.dataLayer', t => {
   global.window = {dataLayer: []};
-  const resource: Resource = {
+  const resource: ResourceAPI = {
     _id: '_foo',
     ref: 'foo',
     mediaUrl: '',

@@ -1,18 +1,34 @@
+// @flow
+
 import buildTask from '@coorpacademy/redux-task';
 import {getStartRank} from '../../utils/state-extract';
+import type {Services} from '../../definitions/services';
+import type {
+  Action,
+  Dispatch,
+  DispatchedAction,
+  GetState,
+  ThunkAction
+} from '../../definitions/redux';
 
-export const RANK_FETCH_START_REQUEST = '@@rank/FETCH_START_REQUEST';
-export const RANK_FETCH_START_SUCCESS = '@@rank/FETCH_START_SUCCESS';
-export const RANK_FETCH_START_FAILURE = '@@rank/FETCH_START_FAILURE';
+export const RANK_FETCH_START_REQUEST: string = '@@rank/FETCH_START_REQUEST';
+export const RANK_FETCH_START_SUCCESS: string = '@@rank/FETCH_START_SUCCESS';
+export const RANK_FETCH_START_FAILURE: string = '@@rank/FETCH_START_FAILURE';
 
-export const RANK_FETCH_END_REQUEST = '@@rank/FETCH_END_REQUEST';
-export const RANK_FETCH_END_SUCCESS = '@@rank/FETCH_END_SUCCESS';
-export const RANK_FETCH_END_FAILURE = '@@rank/FETCH_END_FAILURE';
+export const RANK_FETCH_END_REQUEST: string = '@@rank/FETCH_END_REQUEST';
+export const RANK_FETCH_END_SUCCESS: string = '@@rank/FETCH_END_SUCCESS';
+export const RANK_FETCH_END_FAILURE: string = '@@rank/FETCH_END_FAILURE';
 
-const fetchRank = (dispatch, getState, {services}, {types, bailout}) => {
+const fetchRank = (
+  dispatch: Dispatch,
+  getState: GetState,
+  {services}: {services: Services},
+  {types, bailout}
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   const {LeaderBoard} = services;
 
-  const action = buildTask({
+  const action: Action = buildTask({
     types,
     task: () => LeaderBoard.getRank(),
     bailout
@@ -21,25 +37,26 @@ const fetchRank = (dispatch, getState, {services}, {types, bailout}) => {
   return dispatch(action);
 };
 
-export const fetchStartRank = () => (dispatch, getState, {services}) => {
-  return fetchRank(
-    dispatch,
-    getState,
-    {services},
-    {
-      bailout: getStartRank,
-      types: [RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS, RANK_FETCH_START_FAILURE]
-    }
-  );
+export const fetchStartRank = (): ThunkAction => (
+  dispatch: Dispatch,
+  getState: GetState,
+  {services}: {services: Services}
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
+  return fetchRank(dispatch, getState, ({services}: {services: Services}), {
+    bailout: getStartRank,
+    types: [RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS, RANK_FETCH_START_FAILURE]
+  });
 };
 
-export const fetchEndRank = () => (dispatch, getState, {services}) => {
-  return fetchRank(
-    dispatch,
-    getState,
-    {services},
-    {
-      types: [RANK_FETCH_END_REQUEST, RANK_FETCH_END_SUCCESS, RANK_FETCH_END_FAILURE]
-    }
-  );
+export const fetchEndRank = (): ThunkAction => (
+  dispatch: Dispatch,
+  getState: GetState,
+  {services}: {services: Services}
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
+  return fetchRank(dispatch, getState, ({services}: {services: Services}), {
+    types: [RANK_FETCH_END_REQUEST, RANK_FETCH_END_SUCCESS, RANK_FETCH_END_FAILURE],
+    bailout: undefined
+  });
 };

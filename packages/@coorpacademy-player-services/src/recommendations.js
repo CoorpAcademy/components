@@ -1,11 +1,11 @@
 // @flow strict
 
 import type {ContentType} from '@coorpacademy/progression-engine';
-import type {Fixtures, Level, Recommendation} from './definitions';
+import type {Fixtures, LevelAPI, RecommendationAPI} from './definitions';
 import {CONTENT_TYPE} from './definitions';
 
-type FindRecommendations = (type: ContentType, ref: string) => Promise<Array<Recommendation>>;
-type GetNextRecommendation = (type: ContentType, ref: string) => Promise<void | Level>;
+type FindRecommendations = (type: ContentType, ref: string) => Promise<Array<RecommendationAPI>>;
+type GetNextRecommendation = (type: ContentType, ref: string) => Promise<void | LevelAPI>;
 
 type RecommendationsService = {|
   find: FindRecommendations,
@@ -15,7 +15,7 @@ type RecommendationsService = {|
 const find = (fixtures: Fixtures): FindRecommendations => (
   type: ContentType,
   ref: string
-): Promise<Array<Recommendation>> => {
+): Promise<Array<RecommendationAPI>> => {
   const {findRecommendations} = fixtures;
   const recommendations = findRecommendations(type, ref);
   return Promise.resolve(recommendations);
@@ -24,7 +24,7 @@ const find = (fixtures: Fixtures): FindRecommendations => (
 const getNext = (fixtures: Fixtures): GetNextRecommendation => (
   type: ContentType,
   ref: string
-): Promise<void | Level> => {
+): Promise<void | LevelAPI> => {
   const {getNextLevel} = fixtures;
   switch (type) {
     case CONTENT_TYPE.LEVEL:

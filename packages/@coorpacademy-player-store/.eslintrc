@@ -21,7 +21,7 @@
   "parser": "babel-eslint",
   "rules": {
     "@coorpacademy/coorpacademy/no-overwriting-spread": "off",
-    "ava/no-ignored-test-files": ["error", {"files": ["**/test/**/*.js"]}],
+    "ava/no-ignored-test-files": ["error", { "files": ["**/test/**/*.js"] }],
     "css-modules/no-undef-class": "error",
     "css-modules/no-unused-class": "error",
     "flowtype-errors/show-errors": "error",
@@ -29,14 +29,37 @@
     "flowtype/define-flow-type": "error",
     "flowtype/no-primitive-constructor-types": "error",
     "flowtype/no-types-missing-file-annotation": "error",
-    "flowtype/no-weak-types": "error",
-    "flowtype/require-parameter-type": ["error", {"excludeArrowFunctions": true}],
-    "flowtype/require-return-type": ["error", "always", {"excludeArrowFunctions": "expressionsOnly"}],
+    "flowtype/no-weak-types": "warn",
+    "flowtype/require-parameter-type": [
+      "error",
+      { "excludeArrowFunctions": true }
+    ],
+    "flowtype/require-return-type": [
+      "error",
+      "always",
+      { "excludeArrowFunctions": "expressionsOnly" }
+    ],
     "flowtype/type-id-match": ["error", "^([A-Z][a-z0-9]*)+$"],
     "flowtype/use-flow-type": "error",
     "fp/no-class": "off",
     "import/no-extraneous-dependencies": "off",
-    "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["Promise", "history", "location", "find", "name", "Notification", "Animation", "T"]}],
+    "no-shadow": [
+      "error",
+      {
+        "builtinGlobals": true,
+        "hoist": "all",
+        "allow": [
+          "Promise",
+          "history",
+          "location",
+          "find",
+          "name",
+          "Notification",
+          "Animation",
+          "T"
+        ]
+      }
+    ],
     "promise/no-native": "off"
   },
   "settings": {

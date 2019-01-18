@@ -1,16 +1,32 @@
+// @flow
+
 import buildTask from '@coorpacademy/redux-task';
+import type {Content, ContentType, Engine, Slide} from '@coorpacademy/progression-engine';
 import {getContent, getContentInfo, getSlide} from '../../utils/state-extract';
+import type {Services} from '../../definitions/services';
+import type {
+  Action,
+  Dispatch,
+  DispatchedAction,
+  GetState,
+  ThunkAction
+} from '../../definitions/redux';
 
-export const CONTENT_FETCH_REQUEST = '@@content/FETCH_REQUEST';
-export const CONTENT_FETCH_SUCCESS = '@@content/FETCH_SUCCESS';
-export const CONTENT_FETCH_FAILURE = '@@content/FETCH_FAILURE';
+export const CONTENT_FETCH_REQUEST: string = '@@content/FETCH_REQUEST';
+export const CONTENT_FETCH_SUCCESS: string = '@@content/FETCH_SUCCESS';
+export const CONTENT_FETCH_FAILURE: string = '@@content/FETCH_FAILURE';
 
-export const fetchContent = (type, ref) => (dispatch, getState, {services}) => {
-  const {Content} = services;
+export const fetchContent = (type: ContentType, ref: string): ThunkAction => (
+  dispatch: Dispatch,
+  getState: GetState,
+  {services}: {services: Services}
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
+  const {Content: ContentService} = services;
 
-  const action = buildTask({
+  const action: Action = buildTask({
     types: [CONTENT_FETCH_REQUEST, CONTENT_FETCH_SUCCESS, CONTENT_FETCH_FAILURE],
-    task: () => Content.find(type, ref),
+    task: () => ContentService.find(type, ref),
     meta: {type, ref},
     bailout: getContent(type, ref)
   });
@@ -18,16 +34,21 @@ export const fetchContent = (type, ref) => (dispatch, getState, {services}) => {
   return dispatch(action);
 };
 
-export const CONTENT_INFO_FETCH_REQUEST = '@@content-info/FETCH_REQUEST';
-export const CONTENT_INFO_FETCH_SUCCESS = '@@content-info/FETCH_SUCCESS';
-export const CONTENT_INFO_FETCH_FAILURE = '@@content-info/FETCH_FAILURE';
+export const CONTENT_INFO_FETCH_REQUEST: string = '@@content-info/FETCH_REQUEST';
+export const CONTENT_INFO_FETCH_SUCCESS: string = '@@content-info/FETCH_SUCCESS';
+export const CONTENT_INFO_FETCH_FAILURE: string = '@@content-info/FETCH_FAILURE';
 
-export const fetchContentInfo = (content, engine) => (dispatch, getState, {services}) => {
-  const {Content} = services;
+export const fetchContentInfo = (content: Content, engine: Engine): ThunkAction => (
+  dispatch: Dispatch,
+  getState: GetState,
+  {services}: {services: Services}
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
+  const {Content: ContentService} = services;
 
-  const action = buildTask({
+  const action: Action = buildTask({
     types: [CONTENT_INFO_FETCH_REQUEST, CONTENT_INFO_FETCH_SUCCESS, CONTENT_INFO_FETCH_FAILURE],
-    task: () => Content.getInfo(content.ref, engine.ref, engine.version),
+    task: () => ContentService.getInfo(content.ref, engine.ref, engine.version),
     meta: content,
     bailout: getContentInfo
   });
@@ -35,11 +56,18 @@ export const fetchContentInfo = (content, engine) => (dispatch, getState, {servi
   return dispatch(action);
 };
 
-export const fetchSlideChapter = slideRef => async (dispatch, getState, {services}) => {
+export const fetchSlideChapter = (slideRef: string): ThunkAction => async (
+  dispatch: Function,
+  getState: GetState,
+  {services}: {services: Services}
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   const slideFetchResult = await dispatch(fetchContent('slide', slideRef));
   if (slideFetchResult.error) {
     return slideFetchResult;
   }
-  const slide = getSlide(slideRef)(getState());
+  const slide: Slide = getSlide(slideRef)(getState());
+
+  // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
   return dispatch(fetchContent('chapter', slide.chapter_id));
 };

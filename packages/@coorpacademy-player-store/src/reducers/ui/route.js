@@ -6,7 +6,7 @@ import {
   PROGRESSION_CREATE_ANSWER_SUCCESS
 } from '../../actions/api/progressions';
 import {UI_SELECT_ROUTE} from '../../actions/ui/route';
-import {UI_SELECT_PROGRESSION} from '../../actions/ui/progressions';
+import {UI_PROGRESSION_ACTION_TYPES} from '../../actions/ui/progressions';
 
 const uiRouteReducer = (state = {}, {type, payload, meta}) => {
   switch (type) {
@@ -21,7 +21,7 @@ const uiRouteReducer = (state = {}, {type, payload, meta}) => {
       const {progressionId} = meta;
       return set(progressionId, 'correction', state);
     }
-    case UI_SELECT_PROGRESSION: {
+    case UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION: {
       const {id: progressionId} = payload;
       return unset(progressionId, state);
     }
