@@ -1057,14 +1057,6 @@
     prettier "1.11.1"
     requireindex "^1.2.0"
 
-"@coorpacademy/progression-engine@9.2.5":
-  version "9.2.5"
-  resolved "https://registry.npmjs.org/@coorpacademy/progression-engine/-/progression-engine-9.2.5.tgz#21efe57d17498eaa534a08d645143787bb828261"
-  integrity sha512-rCaD/AUacENydWAEQD04xdR8r+TKVvpBxHaC30wDgS5XChgGd6WL8BlGjT9WnQHrMTvQ7S1IghJEox7IePUtoA==
-  dependencies:
-    fuzzy-matching "^0.4.3"
-    lodash "^4.17.4"
-
 "@emotion/cache@^0.8.8":
   version "0.8.8"
   resolved "https://registry.npmjs.org/@emotion/cache/-/cache-0.8.8.tgz#2c3bd1aa5fdb88f1cc2325176a3f3201739e726c"

@@ -180,8 +180,8 @@ https://github.com/CoorpAcademy/components/pull/1226
 ```
 
 - may require `pkill flow`
-- used by $mooc/core/lib/engine/\*
-- used by $api-progression/app/lib/progressions.js
+- used by \$mooc/core/lib/engine/\*
+- used by \$api-progression/app/lib/progressions.js
 
 ```
 [@coorpacademy-components] npm run build:es
@@ -197,4 +197,19 @@ https://github.com/CoorpAcademy/components/pull/1226
 
 [api-progression] node app/index.js
 [mooc] PORT=3000 NODE_ENV=development node core/web.js
+```
+
+# troubleshooting
+
+```
+error: "Unknown engine racing"
+```
+
+progression-engine version must be the same within app-racing and other packages
+
+```js
+var engineConfigurations = {
+  microlearning: _microlearning__WEBPACK_IMPORTED_MODULE_1__['default'],
+  learner: _learner__WEBPACK_IMPORTED_MODULE_2__['default']
+};
 ```
