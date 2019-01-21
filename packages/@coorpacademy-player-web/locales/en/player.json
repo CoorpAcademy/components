@@ -11,6 +11,7 @@
   "Congratulations!": "Congratulations!",
   "Context": "Context",
   "Correct answer": "Correct answer:",
+  "Correction": "Correction",
   "Did you know that?": "Did you know that?",
   "Game over": "Game over",
   "Go to question": "Go to question",
@@ -42,5 +43,7 @@
   "Validate": "Validate",
   "Wrong answer": "Wrong answer",
   "You are out of lives!": "You are out of lives!",
+  "Your answer:": "Your answer:",
+  "Your answers:": "Your answers:",
   "Need help? Found a bug? Report it here": "Need help? Found a bug? Report it here"
 }
