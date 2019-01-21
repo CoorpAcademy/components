@@ -51,7 +51,6 @@
   "dependencies": {
     "@coorpacademy/progression-engine": "9.3.2",
     "@coorpacademy/redux-task": "0.0.10",
-    "@coorpacademy/translate": "5.3.16",
     "lodash": "^4.17.4",
     "redux": "^4.0.0",
     "redux-thunk": "^2.2.0"
