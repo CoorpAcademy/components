@@ -1,13 +1,23 @@
 // @flow strict
 
-import type {State} from '@coorpacademy/progression-engine';
+import type {Progression, ProgressionId} from '@coorpacademy/progression-engine';
 import type {Resource} from './models';
 import type {Services} from './services';
 
 // eslint-disable-next-line flowtype/no-weak-types
 type Task = Function;
 
-type GetState = () => State;
+type ReduxState = {
+  data: {
+    progressions: {
+      entities: {
+        [id: ProgressionId]: Progression
+      }
+    }
+  },
+  ui: any
+};
+type GetState = () => ReduxState;
 
 type Action = {|
   task?: Task,
@@ -45,6 +55,7 @@ export type {
   GetState,
   PromiseAction,
   Options,
+  ReduxState,
   Resource,
   ThunkAction
 };

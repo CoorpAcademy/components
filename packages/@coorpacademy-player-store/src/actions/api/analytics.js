@@ -1,7 +1,7 @@
 // @flow strict
 
 import buildTask from '@coorpacademy/redux-task';
-import type {State, Progression, Engine} from '@coorpacademy/progression-engine';
+import type {Progression, Engine} from '@coorpacademy/progression-engine';
 import {getRoute, getCurrentProgression, getEngineConfig} from '../../utils/state-extract';
 import type {Resource} from '../../definitions/models';
 import type {Services} from '../../definitions/services';
@@ -24,7 +24,7 @@ export const sendMediaViewed = (resource: Resource): ThunkAction => (
 ): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
 DispatchedAction => {
   const {Analytics} = services;
-  const state: State = getState();
+  const state = getState();
   const location: string = getRoute(state);
 
   const action: Action = buildTask({
@@ -51,7 +51,7 @@ export const sendProgressionAnalytics = (progressionId: string): ThunkAction => 
 ): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
 DispatchedAction => {
   const {Analytics} = services;
-  const state: State = getState();
+  const state = getState();
   const currentProgression: Progression = getCurrentProgression(state);
   const engineConfig: Engine = getEngineConfig(state);
 

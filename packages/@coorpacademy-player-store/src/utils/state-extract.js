@@ -16,8 +16,7 @@ import type {
   Engine,
   GenericContent,
   Progression,
-  Slide,
-  State
+  Slide
 } from '@coorpacademy/progression-engine';
 import type {
   Chapter,
@@ -28,6 +27,7 @@ import type {
   Media,
   Lesson
 } from '../definitions/models';
+import type {ReduxState as State} from '../definitions/redux';
 
 const getId: (Progression | Slide) => string = get('_id');
 
@@ -227,7 +227,6 @@ export const getQuestionMedia = (state: State): void | Media => {
 };
 
 export const getResourceToPlay: State => Resource = get('ui.corrections.playResource');
-
 export const getLives = (state: State): null | number => {
   const progression: Progression = getCurrentProgression(state);
 
