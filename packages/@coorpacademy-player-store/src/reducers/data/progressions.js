@@ -82,7 +82,7 @@ const dataProgressionsReducer = (
     case PROGRESSION_CREATE_ANSWER_SUCCESS: {
       const payload: Progression = action.payload;
       if (!action.meta || !action.meta.progressionId) {
-        throw new Error(`${action.type} requires action.meta.id:ProgressionId`);
+        return state;
       }
 
       const progressionId: ProgressionId = action.meta.progressionId;
@@ -95,7 +95,7 @@ const dataProgressionsReducer = (
     }
     case PROGRESSION_FETCH_FAILURE: {
       if (!action.meta || !action.meta.id) {
-        throw new Error(`${action.type} requires action.meta.id:ProgressionId`);
+        return state;
       }
 
       const id: ProgressionId = action.meta.id;

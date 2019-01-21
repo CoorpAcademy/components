@@ -1,4 +1,4 @@
-// @flow
+// @flow strict
 
 import keys from 'lodash/fp/keys';
 import last from 'lodash/fp/last';
@@ -28,14 +28,14 @@ import {
 } from '../../utils/state-extract';
 import type {Dispatch, DispatchedAction, GetState, ThunkAction} from '../../definitions/redux';
 
-export type Action = {
+export type Action = {|
   type: '@@progression/FETCH_SUCCESS' | '@@progression/CREATE_SUCCESS',
   payload: Progression,
   meta?: {
     id?: ProgressionId,
     progressionId?: ProgressionId
   }
-};
+|};
 
 export const PROGRESSION_CREATE_REQUEST: string = '@@progression/CREATE_REQUEST';
 export const PROGRESSION_CREATE_SUCCESS: string = '@@progression/CREATE_SUCCESS';
