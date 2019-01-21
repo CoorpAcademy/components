@@ -10,5 +10,5 @@ source_file=packages/@coorpacademy-components/locales/en/global.json
 [components.player]
 source_lang=en
 type=KEYVALUEJSON
-file_filter=packages/@coorpacademy-app-player/locales/<lang>/player.json
-source_file=packages/@coorpacademy-app-player/locales/en/player.json
+file_filter=packages/@coorpacademy-player-web/locales/<lang>/player.json
+source_file=packages/@coorpacademy-player-web/locales/en/player.json
