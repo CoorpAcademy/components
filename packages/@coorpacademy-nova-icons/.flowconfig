@@ -1,6 +1,5 @@
 [ignore]
-.*/lib
-.*/es
+.*\.js\.flow
 
 [include]
 src
