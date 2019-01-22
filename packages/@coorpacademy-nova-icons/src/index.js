@@ -55,6 +55,8 @@ import NovaSolidStatusCheckCircle2 from './components/nova-solid/status/check-ci
 import NovaSolidLoginKey1 from './components/nova-solid/login/key-1';
 import NovaSolidBookmarksTagsBookmark5 from './components/nova-solid/bookmarks-tags/bookmark-5';
 import NovaSolidBookmarksTagsBookmark3 from './components/nova-solid/bookmarks-tags/bookmark-3';
+import NovaSolidResizeMoveExpandDiagonal3 from './components/nova-solid/resize-move/expand-diagonal-3';
+import NovaSolidResizeMoveShrinkDiagonal1 from './components/nova-solid/resize-move/shrink-diagonal-1';
 import NovaSolidContentContentBook1 from './components/nova-solid/content/content-book-1';
 import NovaSolidMessagesChatChatBubblesCircle from './components/nova-solid/messages-chat/chat-bubbles-circle';
 import NovaSolidContentEditionPencil1 from './components/nova-solid/content-edition/pencil-1';
@@ -116,6 +118,8 @@ export {
 	NovaSolidLoginKey1,
 	NovaSolidBookmarksTagsBookmark5,
 	NovaSolidBookmarksTagsBookmark3,
+	NovaSolidResizeMoveExpandDiagonal3,
+	NovaSolidResizeMoveShrinkDiagonal1,
 	NovaSolidContentContentBook1,
 	NovaSolidMessagesChatChatBubblesCircle,
 	NovaSolidContentEditionPencil1,
