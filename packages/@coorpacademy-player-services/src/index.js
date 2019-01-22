@@ -26,6 +26,7 @@ export type {
   AnswersService,
   CluesService,
   ContentService,
+  Fixtures,
   ProgressionsService,
   RecommendationsService,
   SlidesService
