@@ -21,8 +21,6 @@ import {
   getCurrentProgressionId,
   NEXT_CONTENT_FETCH_REQUEST,
   NEXT_CONTENT_FETCH_SUCCESS,
-  OPEN_ASSISTANCE_REQUEST,
-  OPEN_ASSISTANCE_SUCCESS,
   PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
   PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
   PROGRESSION_EXTRALIFEREFUSED_REQUEST,
@@ -38,8 +36,7 @@ import {
   RECO_FETCH_SUCCESS,
   SEND_PROGRESSION_ANALYTICS_REQUEST,
   SEND_PROGRESSION_ANALYTICS_SUCCESS,
-  UI_PROGRESSION_UPDATED,
-  UI_SELECT_PROGRESSION,
+  UI_PROGRESSION_ACTION_TYPES,
   UI_SELECT_ROUTE
 } from '@coorpacademy/player-store';
 import {createHeaderCTA, openPopinAssistance} from '../popin-correction';
@@ -117,7 +114,10 @@ test('should open Assistance', async t => {
   const linkAssistance = openPopinAssistance(dispatch, {});
 
   const dispatched = await linkAssistance();
-  t.deepEqual(actionTypes(dispatched), [OPEN_ASSISTANCE_REQUEST, OPEN_ASSISTANCE_SUCCESS]);
+  t.deepEqual(actionTypes(dispatched), [
+    UI_PROGRESSION_ACTION_TYPES.OPEN_ASSISTANCE_REQUEST,
+    UI_PROGRESSION_ACTION_TYPES.OPEN_ASSISTANCE_SUCCESS
+  ]);
 });
 
 test('should create a "Next" CTA when entering a success popin', async t => {
@@ -131,7 +131,7 @@ test('should create a "Next" CTA when entering a success popin', async t => {
   });
   const dispatched = await cta.onClick();
   t.deepEqual(actionTypes(dispatched), [
-    UI_SELECT_PROGRESSION,
+    UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
     PROGRESSION_FETCH_REQUEST,
     RANK_FETCH_START_REQUEST,
     RANK_FETCH_START_SUCCESS,
@@ -162,7 +162,7 @@ test('should create a "Next" CTA when entering a success exit popin', async t =>
   });
   const dispatched = await cta.onClick();
   t.deepEqual(actionTypes(dispatched), [
-    UI_SELECT_PROGRESSION,
+    UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
     PROGRESSION_FETCH_REQUEST,
     RANK_FETCH_START_REQUEST,
     RANK_FETCH_START_SUCCESS,
@@ -199,7 +199,7 @@ test('should create a "Game over" CTA when entering a failure exit popin', async
   });
   const dispatched = await cta.onClick();
   t.deepEqual(actionTypes(dispatched), [
-    UI_SELECT_PROGRESSION,
+    UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
     PROGRESSION_FETCH_REQUEST,
     RANK_FETCH_START_REQUEST,
     RANK_FETCH_START_SUCCESS,
@@ -236,10 +236,10 @@ test('should create a "Quit" CTA when entering an extra-life popin', async t => 
   t.deepEqual(actions, [
     PROGRESSION_EXTRALIFEREFUSED_REQUEST,
     PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
-    UI_PROGRESSION_UPDATED,
+    UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
     SEND_PROGRESSION_ANALYTICS_REQUEST,
     SEND_PROGRESSION_ANALYTICS_SUCCESS,
-    UI_SELECT_PROGRESSION,
+    UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
     PROGRESSION_FETCH_REQUEST,
     RANK_FETCH_START_REQUEST,
     RANK_FETCH_START_SUCCESS,
@@ -271,10 +271,10 @@ test('should create an "Accept" CTA when entering a revival popin', async t => {
   t.deepEqual(actionTypes(dispatched), [
     PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
     PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
-    UI_PROGRESSION_UPDATED,
+    UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
     SEND_PROGRESSION_ANALYTICS_REQUEST,
     SEND_PROGRESSION_ANALYTICS_SUCCESS,
-    UI_SELECT_PROGRESSION,
+    UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
     PROGRESSION_FETCH_REQUEST,
     RANK_FETCH_START_REQUEST,
     RANK_FETCH_START_SUCCESS,

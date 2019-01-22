@@ -140,6 +140,8 @@ test('should create player props for basic question and show coaches', t => {
   const headerProps = createHeaderProps(state);
 
   t.deepEqual(props.answerType.media, {
+    _id: '593eb72a187bd18c01283592',
+    mimeType: 'image/jpeg',
     type: 'img',
     url: '//static.coorpacademy.com/content/ijoinchanel/en/slides/1B2_Q6/1B2-Q6-canap-v1.jpg'
   });
