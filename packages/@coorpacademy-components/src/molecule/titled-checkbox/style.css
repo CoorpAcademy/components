@@ -12,6 +12,7 @@
   border-radius: 3px;
   cursor: pointer;
   order: 1;
+  flex: 0 22px;
 }
 
 .icon {
@@ -26,4 +27,12 @@
 .input {
   position: absolute;
   left: -9999px;
+}
+
+.label {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  user-select: none;
+  flex: 1;
 }

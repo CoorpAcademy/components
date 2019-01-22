@@ -22,7 +22,9 @@ const TitledCheckbox = (props, context) => {
         {choice.selected && <Check className={style.icon} color="white" />}
         <Checkbox className={style.input} checked={choice.selected} onChange={handleChange} />
       </label>
-      <span title={label}>{label}</span>
+      <span title={label} className={style.label}>
+        {label}
+      </span>
     </div>
   );
 };
