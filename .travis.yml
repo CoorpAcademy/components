@@ -1,7 +1,7 @@
 language: node_js
 sudo: false
 node_js:
-  - 8.12.0
+  - 8.15.0
 cache:
   directories:
     - node_modules
@@ -20,60 +20,53 @@ cache:
     - packages/@coorpacademy-treantjs-adapter-angular/node_modules
     - packages/@coorpacademy-treantjs-adapter-dust/node_modules
     - packages/@coorpacademy-webpack-config/node_modules
-
 env:
   global:
     - CXX=g++-5
-
 matrix:
   include:
-    - name: 'React components'
+    - name: React components
       env: PACKAGE_NAME=@coorpacademy/components
-    - name: 'Player store'
+    - name: Player store
       env: PACKAGE_NAME=@coorpacademy/player-store
-    - name: 'Player services'
+    - name: Player services
       env: PACKAGE_NAME=@coorpacademy/player-services
-    - name: 'Player web'
+    - name: Player web
       env: PACKAGE_NAME=@coorpacademy/player-web
-    - name: 'Progression engine'
+    - name: Progression engine
       env: PACKAGE_NAME=@coorpacademy/progression-engine
-    - name: 'CSS-modules require hook'
+    - name: CSS-modules require hook
       env: PACKAGE_NAME=@coorpacademy/history
-    - name: 'Nova icons'
+    - name: Nova icons
       env: PACKAGE_NAME=@coorpacademy/nova-icons
-    - name: 'Redux history'
+    - name: Redux history
       env: PACKAGE_NAME=@coorpacademy/redux-history
-    - name: 'Redux router'
+    - name: Redux router
       env: PACKAGE_NAME=@coorpacademy/redux-router
-    - name: 'Redux task'
+    - name: Redux task
       env: PACKAGE_NAME=@coorpacademy/redux-task
-    - name: 'Translate'
+    - name: Translate
       env: PACKAGE_NAME=@coorpacademy/translate
-    - name: 'Angular adapter'
+    - name: Angular adapter
       env: PACKAGE_NAME=@coorpacademy/treantjs-adapter-angular
-    - name: 'Dust adapter'
+    - name: Dust adapter
       env: PACKAGE_NAME=@coorpacademy/treantjs-adapter-dust
-    - name: 'Common webpack config'
+    - name: Common webpack config
       env: PACKAGE_NAME=@coorpacademy/css-modules-require-hook
-    - name: 'History'
+    - name: History
       env: PACKAGE_NAME=@coorpacademy/webpack-config
-
 install:
   - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "^1.2.1"'`
   - 'npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN'
   - 'npm config set @coorpacademy:registry http://registry.npmjs.org/'
   - 'yarn config set registry https://registry.npmjs.org/'
   - yarn
-
 before_script:
   - npx lerna bootstrap --scope $PACKAGE_NAME --include-filtered-dependencies
   - npx lerna run prepare --scope $PACKAGE_NAME --include-filtered-dependencies
-
 script:
   - npx lerna run test --since --scope $PACKAGE_NAME
-
 after_script: yarn codecov
-
 addons:
   apt:
     sources:
