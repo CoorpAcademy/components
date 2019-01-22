@@ -1,6 +1,3 @@
-[ignore]
-.*\.js\.flow
-
 [libs]
 ../../flow-typed/
 
