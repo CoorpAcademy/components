@@ -58,8 +58,9 @@ const getInfo = (fixtures: Fixtures): GetInfo => async (
   contentRef: string,
   engineRef: string,
   version: string
-): {nbSlides: number} => {
-  const nbSlides = await getNbSlides(fixtures)(contentRef, engineRef, version);
+): Promise<{nbSlides: number}> => {
+  const getNbSlideFunction = getNbSlides(fixtures);
+  const nbSlides = await getNbSlideFunction(contentRef, engineRef, version);
   return {nbSlides};
 };
 
