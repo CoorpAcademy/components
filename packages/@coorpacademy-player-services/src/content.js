@@ -38,16 +38,16 @@ const getNbSlides = (fixtures: Fixtures): GetNbSlides => async (
   const level = await findLevelById(contentRef);
 
   if (level) {
-    return level.chapterIds.length * maxNbSlides;
+    return Promise.resolve(level.chapterIds.length * maxNbSlides);
   }
 
   const chapter: ChapterAPI = await findChapterById(contentRef);
 
   if (chapter) {
-    return maxNbSlides;
+    return Promise.resolve(maxNbSlides);
   }
 
-  return -1;
+  return Promise.resolve(-1);
 };
 
 const getInfo = (fixtures: Fixtures): GetInfo => (
