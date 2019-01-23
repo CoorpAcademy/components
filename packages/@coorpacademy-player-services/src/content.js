@@ -8,7 +8,7 @@ import type {Slide} from '@coorpacademy/progression-engine';
 import type {ChapterAPI, Fixtures, LevelAPI} from './definitions';
 
 type FindContent = (type: string, ref: string) => Promise<ChapterAPI | LevelAPI | Slide>;
-type GetNbSlides = (contentRef: string, engineRef: string, version: string) => number;
+type GetNbSlides = (contentRef: string, engineRef: string, version: string) => Promise<number>;
 type GetInfo = (contentRef: string, engineRef: string, version: string) => {nbSlides: number};
 
 type ContentService = {|
@@ -38,16 +38,16 @@ const getNbSlides = (fixtures: Fixtures): GetNbSlides => async (
   const level = await findLevelById(contentRef);
 
   if (level) {
-    return Promise.resolve(level.chapterIds.length * maxNbSlides);
+    return level.chapterIds.length * maxNbSlides;
   }
 
   const chapter: ChapterAPI = await findChapterById(contentRef);
 
   if (chapter) {
-    return Promise.resolve(maxNbSlides);
+    return maxNbSlides;
   }
 
-  return Promise.resolve(-1);
+  return -1;
 };
 
 const getInfo = (fixtures: Fixtures): GetInfo => (
