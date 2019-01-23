@@ -7,7 +7,7 @@ import type {
   ContentType,
   ContentSlide,
   Engine,
-  EngineOptions,
+  EngineConfig,
   Progression,
   ResourceContent
 } from '@coorpacademy/progression-engine';
@@ -20,7 +20,7 @@ type AcceptExtraLife = (
   }
 ) => Promise<Progression>;
 
-type CreateProgression = (Engine, Content, EngineOptions) => Promise<Progression>;
+type CreateProgression = (Engine, Content, EngineConfig) => Promise<Progression>;
 
 type FindBestOf = (
   engineRef: string,

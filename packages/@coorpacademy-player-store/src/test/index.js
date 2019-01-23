@@ -12,7 +12,6 @@ test('it should expose all api', t => {
     'middlewares',
     'reducers',
     'getChapterId',
-    'getChoices',
     'getCurrentProgressionId',
     'getQuestionType',
     'getProgression',

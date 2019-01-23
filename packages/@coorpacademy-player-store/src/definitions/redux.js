@@ -1,21 +1,71 @@
 // @flow strict
 
-import type {Progression, ProgressionId} from '@coorpacademy/progression-engine';
-import type {Resource} from './models';
+import type {
+  Answer,
+  EngineConfig,
+  Progression,
+  ProgressionId,
+  Slide
+} from '@coorpacademy/progression-engine';
+import type {Chapter, Level, Resource} from './models';
 import type {Services} from './services';
 
 // eslint-disable-next-line flowtype/no-weak-types
 type Task = Function;
 
-type ReduxState = {
-  data: {
-    progressions: {
-      entities: {
-        [id: ProgressionId]: Progression
-      }
+type Data = {
+  progressions: {
+    entities: {
+      [id: ProgressionId]: Progression
     }
   },
-  ui: any
+  configs: {
+    entities: {
+      [id: string]: EngineConfig
+    }
+  },
+  contents: {
+    chapter: {
+      entities: {
+        [id: string]: Chapter
+      }
+    },
+    level: {
+      entities: {
+        [id: string]: Level
+      }
+    },
+    slide: {
+      entities: {
+        [id: string]: Slide
+      }
+    }
+  }
+};
+
+type Ui = {
+  answers: Array<Answer>,
+  coaches: {
+    availableCoaches: number
+  },
+  comments: {
+    text: string
+  },
+  corrections: {
+    accordion: Array<boolean>,
+    playResource: string
+  },
+  current: {
+    progressionId: ProgressionId
+  },
+  route: {
+    [id: ProgressionId]: 'answer' | 'correction'
+  }
+};
+
+type ReduxState = {
+  data: Data,
+  ui: Ui
 };
 type GetState = () => ReduxState;
 
@@ -50,6 +100,7 @@ type Dispatch = (action: Action | ThunkAction | PromiseAction) => DispatchedActi
 
 export type {
   Action,
+  Data,
   DispatchedAction,
   Dispatch,
   GetState,
@@ -57,5 +108,6 @@ export type {
   Options,
   ReduxState,
   Resource,
-  ThunkAction
+  ThunkAction,
+  Ui
 };

@@ -9,7 +9,8 @@ const progression: Progression = {
     version: '1'
   },
   engineOptions: {
-    livesDisabled: false
+    livesDisabled: false,
+    version: '1'
   },
   content: {
     type: 'chapter',
