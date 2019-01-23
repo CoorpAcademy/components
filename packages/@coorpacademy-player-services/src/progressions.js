@@ -125,7 +125,7 @@ const getAvailableContent = (fixtures: Fixtures): GetAvailableContent => async (
   return Promise.all(
     chapters.map(async chapter => ({
       ref: chapter.ref,
-      slides: findSlideByChapter(chapter.ref),
+      slides: await findSlideByChapter(chapter.ref),
       rules: await getChapterRulesByContent(chapter.ref)
     }))
   );

@@ -13,7 +13,7 @@ const answerStore = pipe(
   )
 )(slidesData);
 
-const getCorrectAnswer = slideId => answerStore.get(slideId);
+const getCorrectAnswer = slideId => Promise.resolve(answerStore.get(slideId));
 
 // eslint-disable-next-line import/prefer-default-export
 export {getCorrectAnswer};

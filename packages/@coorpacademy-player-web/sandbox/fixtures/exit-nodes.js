@@ -12,9 +12,9 @@ const exitNodeStore = pipe(
 )(exitNodesData);
 
 const getExitNode = id => {
-  if (!exitNodeStore.has(id)) throw new Error('ExitNode not found');
+  if (!exitNodeStore.has(id)) return Promise.reject(new Error('ExitNode not found'));
   const exitNode = exitNodeStore.get(id);
-  return update('media', appendJWPOptions('src.0.'), exitNode);
+  return Promise.resolve(update('media', appendJWPOptions('src.0.'), exitNode));
 };
 
 // eslint-disable-next-line import/prefer-default-export

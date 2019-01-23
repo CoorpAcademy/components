@@ -15,8 +15,8 @@ const progressionStore = reduce(
 
 // eslint-disable-next-line require-await
 const findById = async id => {
-  if (!progressionStore.has(id)) throw new Error('Progression not found');
-  return progressionStore.get(id);
+  if (!progressionStore.has(id)) return Promise.reject(new Error('Progression not found'));
+  return Promise.resolve(progressionStore.get(id));
 };
 
 const getAll = () => {
@@ -24,7 +24,7 @@ const getAll = () => {
 };
 
 const save = progression => {
-  progressionStore.set(progression._id, progression);
+  return Promise.resolve(progressionStore.set(progression._id, progression));
 };
 
 export {save, getAll, findById};

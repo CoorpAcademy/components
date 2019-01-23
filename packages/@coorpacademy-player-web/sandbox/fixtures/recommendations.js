@@ -13,14 +13,16 @@ const find = (type, ref) => {
 const getNextLevel = ref => {
   const {name, level} = levels.get(ref);
   if (level === 'coach') {
-    return undefined;
+    return Promise.resolve(undefined);
   }
-  return _find(
-    {
-      name,
-      level: level === 'base' ? 'advanced' : 'coach'
-    },
-    levelsData
+  return Promise.resolve(
+    _find(
+      {
+        name,
+        level: level === 'base' ? 'advanced' : 'coach'
+      },
+      levelsData
+    )
   );
 };
 

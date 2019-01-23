@@ -9,8 +9,8 @@ const clueStore = reduce(
 );
 
 const getClue = slideId => {
-  if (!clueStore.has(slideId)) throw new Error('Clue not found');
-  return clueStore.get(slideId);
+  if (!clueStore.has(slideId)) return Promise.reject(new Error('Clue not found'));
+  return Promise.resolve(clueStore.get(slideId));
 };
 
 // eslint-disable-next-line import/prefer-default-export

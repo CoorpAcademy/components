@@ -11,7 +11,7 @@ const mayBy = key =>
 const toMapById = mayBy('_id');
 const chapters = toMapById(chaptersData);
 
-const findById = ref => chapters.get(ref);
+const findById = ref => Promise.resolve(chapters.get(ref));
 
 // eslint-disable-next-line import/prefer-default-export
 export {findById};
