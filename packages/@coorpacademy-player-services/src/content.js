@@ -24,7 +24,7 @@ const find = (fixtures: Fixtures): FindContent => (
   return findContent(type, ref);
 };
 
-const getNbSlides = (fixtures: Fixtures): GetNbSlides => (
+const getNbSlides = (fixtures: Fixtures): GetNbSlides => async (
   contentRef: string,
   engineRef: string,
   version: string
@@ -35,13 +35,13 @@ const getNbSlides = (fixtures: Fixtures): GetNbSlides => (
     version
   });
 
-  const level = findLevelById(contentRef);
+  const level = await findLevelById(contentRef);
 
   if (level) {
     return level.chapterIds.length * maxNbSlides;
   }
 
-  const chapter: ChapterAPI = findChapterById(contentRef);
+  const chapter: ChapterAPI = await findChapterById(contentRef);
 
   if (chapter) {
     return maxNbSlides;
