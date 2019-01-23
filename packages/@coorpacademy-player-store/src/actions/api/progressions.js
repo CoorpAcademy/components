@@ -10,10 +10,9 @@ import type {
   Answer,
   Content,
   Engine,
-  EngineOptions,
+  EngineConfig,
   Progression,
-  ProgressionId,
-  Slide
+  ProgressionId
 } from '@coorpacademy/progression-engine';
 import type {Services} from '../../definitions/services';
 import type {Resource} from '../../definitions/models';
@@ -44,7 +43,7 @@ export const PROGRESSION_CREATE_FAILURE: string = '@@progression/CREATE_FAILURE'
 export const createProgression = (
   engine: Engine,
   content: Content,
-  engineOptions: EngineOptions
+  config: EngineConfig
 ): ThunkAction => async (
   dispatch: Function,
   getState: GetState,
@@ -55,7 +54,7 @@ DispatchedAction => {
 
   const action = buildTask({
     types: [PROGRESSION_CREATE_REQUEST, PROGRESSION_CREATE_SUCCESS, PROGRESSION_CREATE_FAILURE],
-    task: () => Progressions.create(engine, content, engineOptions),
+    task: () => Progressions.create(engine, content, config),
     meta: {}
   });
 
@@ -261,14 +260,21 @@ export const fetchBestProgression = (
   progressionContent: Content,
   progressionId: string
 ): ThunkAction => (
-  dispatch: Dispatch,
+  dispatch: Function,
   getState: GetState,
   {services}: {services: Services}
 ): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
 DispatchedAction => {
   const {Progressions} = services;
   const {type, ref} = progressionContent;
-  const engine: Engine = getEngine(getState());
+  const engine = getEngine(getState());
+
+  if (!engine) {
+    return dispatch({
+      type: PROGRESSION_FETCH_BESTOF_FAILURE,
+      payload: `progression "${progressionId}" has no engine.`
+    });
+  }
 
   const action = buildTask({
     types: [
@@ -277,7 +283,7 @@ DispatchedAction => {
       PROGRESSION_FETCH_BESTOF_FAILURE
     ],
     task: () => Progressions.findBestOf(engine.ref, type, ref, progressionId),
-    bailout: pipe(getBestScore, score => score >= 0),
+    bailout: pipe(getBestScore, score => score && score >= 0),
     meta: {type, ref}
   });
 
@@ -289,7 +295,7 @@ export const PROGRESSION_RESOURCE_VIEWED_SUCCESS: string = '@@progression/RESOUR
 export const PROGRESSION_RESOURCE_VIEWED_FAILURE: string = '@@progression/RESOURCE_VIEWED_FAILURE';
 
 export const markResourceAsViewed = (progressionId: string, resource: Resource): ThunkAction => (
-  dispatch: Dispatch,
+  dispatch: Function,
   getState: GetState,
   {services}: {services: Services}
 ): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
@@ -297,7 +303,14 @@ DispatchedAction => {
   const {Progressions} = services;
   const state = getState();
   const {_id, ref = _id, type} = resource;
-  const slide: Slide = getCurrentSlide(state) || getPreviousSlide(state);
+  const slide = getCurrentSlide(state) || getPreviousSlide(state);
+
+  if (!slide) {
+    return dispatch({
+      type: PROGRESSION_RESOURCE_VIEWED_FAILURE,
+      payload: 'slide no found.'
+    });
+  }
 
   const payload = {
     resource: {

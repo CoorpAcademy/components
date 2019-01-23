@@ -26,7 +26,8 @@ import type {
   ContentType,
   ContentSlide,
   Engine,
-  EngineOptions,
+  EngineConfig,
+  GenericContent,
   Progression,
   ResourceContent
 } from '@coorpacademy/progression-engine';
@@ -40,7 +41,7 @@ type AcceptExtraLife = (
   }
 ) => Promise<Progression>;
 
-type CreateProgression = (Engine, Content, EngineOptions) => Promise<Progression>;
+type CreateProgression = (Engine, GenericContent, EngineConfig) => Promise<Progression>;
 
 type FindBestOf = (
   engineRef: string,
@@ -294,8 +295,8 @@ const refuseExtraLife = (fixtures: Fixtures): RefuseExtraLife => async (
 
 const create = (fixtures: Fixtures): CreateProgression => async (
   engine: Engine,
-  content: Content,
-  engineOptions: EngineOptions
+  content: GenericContent,
+  engineOptions: EngineConfig
 ): Promise<Progression> => {
   const _id = generateId();
 

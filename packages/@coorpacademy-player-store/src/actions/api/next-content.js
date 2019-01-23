@@ -3,26 +3,29 @@
 import buildTask from '@coorpacademy/redux-task';
 import {getProgressionContent, getNextContent} from '../../utils/state-extract';
 import type {Services} from '../../definitions/services';
-import type {
-  Action,
-  Dispatch,
-  DispatchedAction,
-  GetState,
-  ThunkAction
-} from '../../definitions/redux';
+import type {Action, DispatchedAction, GetState, ThunkAction} from '../../definitions/redux';
 
 export const NEXT_CONTENT_FETCH_REQUEST: string = '@@next-content/FETCH_REQUEST';
 export const NEXT_CONTENT_FETCH_SUCCESS: string = '@@next-content/FETCH_SUCCESS';
 export const NEXT_CONTENT_FETCH_FAILURE: string = '@@next-content/FETCH_FAILURE';
 
 export const fetchNext = (progressionId: string): ThunkAction => (
-  dispatch: Dispatch,
+  dispatch: Function,
   getState: GetState,
   {services}: {services: Services}
 ): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
 DispatchedAction => {
   const {Recommendations} = services;
-  const {type, ref} = getProgressionContent(getState());
+  const content = getProgressionContent(getState());
+
+  if (!content) {
+    return dispatch({
+      type: NEXT_CONTENT_FETCH_FAILURE,
+      payload: `progression "${progressionId}" has no content.`
+    });
+  }
+
+  const {type, ref} = content;
 
   const action: Action = buildTask({
     types: [NEXT_CONTENT_FETCH_REQUEST, NEXT_CONTENT_FETCH_SUCCESS, NEXT_CONTENT_FETCH_FAILURE],

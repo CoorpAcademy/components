@@ -99,13 +99,38 @@ export const selectProgression = (id: ProgressionId) => async (
 
   await dispatch(fetchStartRank());
   const progressionContent = getProgressionContent(getState());
+
+  if (!progressionContent) {
+    return dispatch({
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
+      payload: `progression "${progressionId}" has no content.`
+    });
+  }
+
   const engine = getEngine(getState());
+
+  if (!engine) {
+    return dispatch({
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
+      payload: `progression "${progressionId}" has no engine.`
+    });
+  }
+
   await dispatch(fetchContent(progressionContent.type, progressionContent.ref));
   await dispatch(fetchBestProgression(progressionContent, progressionId));
   await dispatch(fetchEngineConfig(engine));
   await dispatch(fetchContentInfo(progressionContent, engine));
 
-  const {ref, type} = getStepContent(getState());
+  const nextContent = getStepContent(getState());
+
+  if (!nextContent) {
+    return dispatch({
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
+      payload: `progression "${progressionId}" has no state.nextContent.`
+    });
+  }
+
+  const {ref, type} = nextContent;
 
   switch (type) {
     case 'slide': {
@@ -121,6 +146,14 @@ export const selectProgression = (id: ProgressionId) => async (
       switch (ref) {
         case 'extraLife': {
           const prevContent = getPrevStepContent(getState());
+
+          if (!prevContent) {
+            return dispatch({
+              type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
+              payload: `progression "${progressionId}" has no state.content.`
+            });
+          }
+
           await dispatch(fetchContent(prevContent.type, prevContent.ref));
           return dispatch(fetchAnswer(progressionId, get('ref', prevContent), []));
         }

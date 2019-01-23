@@ -5,6 +5,9 @@ import type {
   SUCCESS,
   Answer,
   Content,
+  ContentInfo,
+  ContentType,
+  Engines,
   PartialCorrection
 } from '@coorpacademy/progression-engine';
 
@@ -131,6 +134,8 @@ type Chapter = {|
   freeRun: boolean,
   meta: Meta,
   poster: Poster,
+  info?: ContentInfo,
+  bestScore?: number,
   isConditional: boolean,
   time: number,
   version: string
@@ -162,7 +167,9 @@ type Level = {|
   data: Array<?string>,
   stats: Stats,
   version: string,
-  external_refs: Array<?string>
+  external_refs: Array<?string>,
+  info?: ContentInfo,
+  bestScore?: number
 |};
 
 type UserAnswer = {|
@@ -173,6 +180,17 @@ type UserAnswer = {|
 type Correction = {
   correctAnswer: Array<Answer>,
   corrections: Array<PartialCorrection>
+};
+
+export const CONTENT_TYPE: {[string]: ContentType} = {
+  CHAPTER: 'chapter',
+  LEVEL: 'level',
+  SLIDE: 'slide'
+};
+
+export const ENGINES: {[string]: Engines} = {
+  MICROLEARNING: 'microlearning',
+  LEARNER: 'learner'
 };
 
 export type {

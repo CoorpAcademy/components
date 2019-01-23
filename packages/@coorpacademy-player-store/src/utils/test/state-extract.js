@@ -4,7 +4,6 @@ import pipe from 'lodash/fp/pipe';
 import {
   getAnswers,
   getAnswerValues,
-  getChoices,
   extractClue,
   getCurrentClue,
   getCorrection,
@@ -39,12 +38,6 @@ import {
 } from '../state-extract';
 
 import slideFixture from './slide';
-
-test('getChoices should get choices from state', t => {
-  const choices = ['foo', 'bar'];
-  const plop = set('question.content.choices', choices, {});
-  t.is(getChoices(plop), choices);
-});
 
 test("getCurrentProgressionId should get current progression's id from state", t => {
   const progressionId = '1234';

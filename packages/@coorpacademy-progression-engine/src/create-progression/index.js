@@ -2,18 +2,18 @@
 import {getConfig} from '../config';
 import type {
   AvailableContent,
-  Content,
+  GenericContent,
   MoveAction,
   Progression,
   Engine,
-  EngineOptions
+  EngineConfig
 } from '../types';
 import {computeInitialStep} from '../compute-next-step';
 
 const createProgression = (
   engine: Engine,
-  content: Content,
-  engineOptions: EngineOptions,
+  content: GenericContent,
+  engineOptions: EngineConfig,
   availableContent: AvailableContent
 ): Progression | null => {
   const config = {

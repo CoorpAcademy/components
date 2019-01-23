@@ -9,6 +9,11 @@ export type Step = {|
 
 export type Answer = Array<string>;
 
+export type MICROLEARNING = 'microlearning';
+export type LEARNER = 'learner';
+
+export type Engines = MICROLEARNING | LEARNER;
+
 export type CHAPTER = 'chapter';
 export type LEVEL = 'level';
 export type SLIDE = 'slide';
@@ -22,6 +27,10 @@ export type ContentType = CHAPTER | LEVEL | SLIDE | NODE | FAILURE | SUCCESS | V
 export type ContentSlide = {|
   type: SLIDE,
   ref: string
+|};
+
+export type ContentInfo = {|
+  nbSlides: number
 |};
 
 export type GenericContent = {|
@@ -159,19 +168,26 @@ export type Config = {|
   remainingLifeRequests: number
 |};
 
-export type EngineOptions = {|
+export type EngineConfig = {|
   livesDisabled?: boolean,
   lives?: number,
-  maxTypos?: number
+  maxTypos?: number,
+  version: string,
+  slidesToComplete?: number,
+  answerBoundaryLimit?: number,
+  starsPerAskingClue?: number,
+  starsPerCorrectAnswer?: number,
+  starsPerResourceViewed?: number,
+  remainingLifeRequests?: number
 |};
 
 export type ProgressionId = string;
 export type Progression = {|
   _id?: ProgressionId,
-  content: Content,
+  content: GenericContent,
   state?: State,
   engine: Engine,
-  engineOptions: EngineOptions,
+  engineOptions: EngineConfig,
   actions?: Array<Action>
 |};
 
