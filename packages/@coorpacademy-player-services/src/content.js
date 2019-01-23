@@ -9,7 +9,11 @@ import type {ChapterAPI, Fixtures, LevelAPI} from './definitions';
 
 type FindContent = (type: string, ref: string) => Promise<ChapterAPI | LevelAPI | Slide>;
 type GetNbSlides = (contentRef: string, engineRef: string, version: string) => Promise<number>;
-type GetInfo = (contentRef: string, engineRef: string, version: string) => {nbSlides: number};
+type GetInfo = (
+  contentRef: string,
+  engineRef: string,
+  version: string
+) => Promise<{nbSlides: number}>;
 
 type ContentService = {|
   find: FindContent,
@@ -50,12 +54,12 @@ const getNbSlides = (fixtures: Fixtures): GetNbSlides => async (
   return -1;
 };
 
-const getInfo = (fixtures: Fixtures): GetInfo => (
+const getInfo = (fixtures: Fixtures): GetInfo => async (
   contentRef: string,
   engineRef: string,
   version: string
 ): {nbSlides: number} => {
-  const nbSlides = getNbSlides(fixtures)(contentRef, engineRef, version);
+  const nbSlides = await getNbSlides(fixtures)(contentRef, engineRef, version);
   return {nbSlides};
 };
 
