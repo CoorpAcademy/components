@@ -50,6 +50,7 @@ import NovaSolidLocksLock11 from './components/nova-solid/locks/lock-1.1';
 import NovaSolidUsersUserShield1 from './components/nova-solid/users/user-shield-1';
 import NovaSolidVideosVideoControlPlay from './components/nova-solid/videos/video-control-play';
 import NovaSolidVideosVideoClip3 from './components/nova-solid/videos/video-clip-3';
+import NovaSolidDesignActionsRedo from './components/nova-solid/design-actions/redo';
 import NovaSolidInterfaceFeedbackInterfaceAlertCircle from './components/nova-solid/interface-feedback/interface-alert-circle';
 import NovaSolidStatusCheckCircle2 from './components/nova-solid/status/check-circle-2';
 import NovaSolidLoginKey1 from './components/nova-solid/login/key-1';
@@ -113,6 +114,7 @@ export {
 	NovaSolidUsersUserShield1,
 	NovaSolidVideosVideoControlPlay,
 	NovaSolidVideosVideoClip3,
+	NovaSolidDesignActionsRedo,
 	NovaSolidInterfaceFeedbackInterfaceAlertCircle,
 	NovaSolidStatusCheckCircle2,
 	NovaSolidLoginKey1,
