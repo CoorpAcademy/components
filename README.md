@@ -47,10 +47,24 @@ npm test
 
 ### Troubleshooting
 
-#### lerna
+#### dependencies
 
 Lerna is used to plug and publish all the packages in this repo.
 You may have to reset all `node_modules` : use `lerna clean` before performing `npm i` again.
+
+#### publishing
+
+Be sure your packages are public, or you'll end up with errors on CI like
+
+```error
+Extracting tar content of undefined failed, the file appears to be corrupt: "Unexpected end of data"
+```
+
+set your public access:
+
+```sh
+> npm access public @coorpacademy/progression-engine
+```
 
 #### flow
 
