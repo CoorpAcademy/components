@@ -11,6 +11,7 @@
   "Congratulations!": "Proficiat!",
   "Context": "Context",
   "Correct answer": "Het juiste antwoord:",
+  "Correction": "Correctie",
   "Did you know that?": "Wist je dat?",
   "Game over": "Game over",
   "Go to question": "Naar de vraag",
@@ -42,5 +43,7 @@
   "Validate": "Valideren",
   "Wrong answer": "Verkeerd antwoord",
   "You are out of lives!": "Je heb geen levens meer!",
+  "Your answer_": "Your answer:",
+  "Your answers_": "Your answers:",
   "Need help? Found a bug? Report it here": "Hulp nodig? Een bug gevonden? Meld het hier"
 }

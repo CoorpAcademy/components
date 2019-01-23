@@ -16,6 +16,7 @@
   "cookies_details": "This website uses cookies so that we can provide you with the best possible learner experience. To read more about the cookies we use and about how we use your data, please read our",
   "cookies_policy": "Privacy and Cookies Policy.",
   "cookies_title": "How we use cookies:",
+  "Create a new cohort": "Create a new cohort",
   "Delete": "Delete",
   "Edit": "Edit",
   "keep_subscription": "Keep my subscription",
@@ -62,5 +63,6 @@
   "Wait_creation": "The platform is being created. This can take several seconds. Please wait...",
   "Write something here": "Write something here",
   "zuora_discount_code_submit": "Apply",
-  "zuora_discount_code": "Promo code"
+  "zuora_discount_code": "Promo code",
+  "mandatory_fields": "*Mandatory fields"
 }

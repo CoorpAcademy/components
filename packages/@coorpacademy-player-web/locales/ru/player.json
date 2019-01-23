@@ -11,6 +11,7 @@
   "Congratulations!": "Поздравляем!",
   "Context": "Контекст",
   "Correct answer": "Верный ответ:",
+  "Correction": "Исправление",
   "Did you know that?": "Вы знали это?",
   "Game over": "Конец игры",
   "Go to question": "Перейти к вопросу",
@@ -42,5 +43,7 @@
   "Validate": "Подтвердить",
   "Wrong answer": "Неверный ответ",
   "You are out of lives!": "У вас закончились жизни!",
+  "Your answer_": "Your answer:",
+  "Your answers_": "Your answers:",
   "Need help? Found a bug? Report it here": "Нужна помощь? Нашли ошибку? Сообщите о ней здесь"
 }

@@ -11,6 +11,7 @@
   "Congratulations!": "축하합니다!",
   "Context": "문맥",
   "Correct answer": "정답:",
+  "Correction": "수정",
   "Did you know that?": "귀하는 그것을 알았습니까?",
   "Game over": "게임 종료",
   "Go to question": "질문으로 이동",
@@ -42,5 +43,7 @@
   "Validate": "인증하기",
   "Wrong answer": "오답",
   "You are out of lives!": "귀하의 생명이 다했습니다!",
+  "Your answer_": "Your answer:",
+  "Your answers_": "Your answers:",
   "Need help? Found a bug? Report it here": "도움이 필요한가요?버그를 발견했나요?여기에서 보고하세요"
 }

@@ -11,6 +11,7 @@
   "Congratulations!": "恭喜！",
   "Context": "背景知识",
   "Correct answer": "正确的答案：",
+  "Correction": "修改",
   "Did you know that?": "你知道吗？",
   "Game over": "游戏结束",
   "Go to question": "访问问题",
@@ -42,5 +43,7 @@
   "Validate": "确认",
   "Wrong answer": "错误的答案",
   "You are out of lives!": "你已经没有生命了！",
+  "Your answer_": "Your answer:",
+  "Your answers_": "Your answers:",
   "Need help? Found a bug? Report it here": "需要帮助？发现了漏洞？在这里报告"
 }

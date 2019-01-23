@@ -11,6 +11,7 @@
   "Congratulations!": "Felicitări!",
   "Context": "Context",
   "Correct answer": "Răspunsul corect:",
+  "Correction": "Corectură",
   "Did you know that?": "Știați asta?",
   "Game over": "Jocul s-a terminat",
   "Go to question": "Salt la întrebare",
@@ -42,5 +43,7 @@
   "Validate": "Validează",
   "Wrong answer": "Răspuns incorect",
   "You are out of lives!": "Nu mai aveți vieți!",
+  "Your answer_": "Your answer:",
+  "Your answers_": "Your answers:",
   "Need help? Found a bug? Report it here": "Aveți nevoie de autor? Ați detectat o eroare? Anunțați-o aici"
 }

@@ -11,6 +11,7 @@
   "Congratulations!": "Félicitations !",
   "Context": "Contexte",
   "Correct answer": "La bonne réponse :",
+  "Correction": "Correction",
   "Did you know that?": "Le saviez-vous ?",
   "Game over": "Game over",
   "Go to question": "Accès à la question",
@@ -18,7 +19,6 @@
   "Good job": "Bravo !",
   "Key point": "Point-clé",
   "Media": "Leçon",
-  "Need help? Found a bug? Report it here": "Besoin d'aide ? Un bug ? Signalez-le ici",
   "Next chapter": "Chapitre suivant ",
   "Next chapter_": "Chapitre suivant :",
   "Next level": "Niveau suivant",
@@ -26,8 +26,8 @@
   "Next": "Continuer",
   "Nice try!": "Bien tenté !",
   "Ooops": "Oups...",
-  "Ouch": "Aïe...",
   "Question": "Question",
+  "Ouch": "Aïe...",
   "Quit": "Quitter",
   "Related subjects": "Recommandé pour vous : ",
   "Retry chapter": "Réessayez ce chapitre",
@@ -42,5 +42,8 @@
   "Type here": "Saisissez ici",
   "Validate": "Valider",
   "Wrong answer": "Mauvaise réponse",
-  "You are out of lives!": "Vous n'avez plus de vies !"
+  "You are out of lives!": "Vous n'avez plus de vies !",
+  "Your answer_": "Your answer:",
+  "Your answers_": "Your answers:",
+  "Need help? Found a bug? Report it here": "Besoin d'aide ? Un bug ? Signalez-le ici"
 }

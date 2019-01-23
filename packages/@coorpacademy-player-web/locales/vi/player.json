@@ -11,6 +11,7 @@
   "Congratulations!": "Chúc mừng bạn!",
   "Context": "Bối cảnh",
   "Correct answer": "Câu trả lời đúng:",
+  "Correction": "Chỉnh sửa",
   "Did you know that?": "Bạn đã biết điều đó?",
   "Game over": "Thua cuộc",
   "Go to question": "Đi đến câu hỏi",
@@ -42,5 +43,7 @@
   "Validate": "Xác nhận",
   "Wrong answer": "Câu trả lời sai",
   "You are out of lives!": "Bạn đã hết mạng!",
+  "Your answer_": "Your answer:",
+  "Your answers_": "Your answers:",
   "Need help? Found a bug? Report it here": "Cần trợ giúp? Tìm thấy lỗi? Báo cáo ở đây"
 }

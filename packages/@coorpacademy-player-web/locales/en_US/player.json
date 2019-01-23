@@ -11,6 +11,7 @@
   "Congratulations!": "Congratulations!",
   "Context": "Context",
   "Correct answer": "Correct answer:",
+  "Correction": "Correction",
   "Did you know that?": "Did you know that?",
   "Game over": "Game over",
   "Go to question": "Go to question",
@@ -18,7 +19,6 @@
   "Good job": "Good job!",
   "Key point": "Key point",
   "Media": "Lesson",
-  "Need help? Found a bug? Report it here": "Need help? Found a bug? Report it here",
   "Next chapter": "Next chapter",
   "Next chapter_": "Next chapter:",
   "Next level": "Next level",
@@ -26,8 +26,8 @@
   "Next": "Next",
   "Nice try!": "Nice try!",
   "Ooops": "Ooops...",
-  "Ouch": "Ouch...",
   "Question": "Question",
+  "Ouch": "Ouch...",
   "Quit": "Quit",
   "Related subjects": "Recommended for you:",
   "Retry chapter": "Retry chapter",
@@ -42,5 +42,8 @@
   "Type here": "Type here",
   "Validate": "Validate",
   "Wrong answer": "Wrong answer",
-  "You are out of lives!": "You are out of lives!"
+  "You are out of lives!": "You are out of lives!",
+  "Your answer_": "Your answer:",
+  "Your answers_": "Your answers:",
+  "Need help? Found a bug? Report it here": "Need help? Found a bug? Report it here"
 }

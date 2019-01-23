@@ -16,6 +16,7 @@
   "cookies_details": "Bu internet sitesinde kullanılan çerezler sayesinde size mümkün olan en iyi öğrenci deneyimini sunabilmekteyiz. Kullandığımız çerezler ve verilerinizi nasıl kullandığımız hakkında daha fazla bilgi edinmek için, lütfen ________mızı okuyun",
   "cookies_policy": "Gizlilik ve Çerez Politikası.",
   "cookies_title": "Çerezleri nasıl kullanıyoruz:",
+  "Create a new cohort": "Create a new cohort",
   "Delete": "Sil",
   "Edit": "Düzenle",
   "keep_subscription": "Aboneliğimi sürdür",
@@ -62,5 +63,6 @@
   "Wait_creation": "Platform yaratılıyor. Bu birkaç saniye sürebilir. Lütfen bekleyin...",
   "Write something here": "Buraya bir şey yazın",
   "zuora_discount_code_submit": "Uygula",
-  "zuora_discount_code": "Promosyon kodu"
+  "zuora_discount_code": "Promosyon kodu",
+  "mandatory_fields": "*Mandatory fields"
 }

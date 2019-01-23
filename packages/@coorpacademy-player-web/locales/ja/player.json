@@ -11,6 +11,7 @@
   "Congratulations!": "おめでとうございます!",
   "Context": "コンテキスト",
   "Correct answer": "正解:",
+  "Correction": "解答",
   "Did you know that?": "ご存知でしたか。",
   "Game over": "ゲームは終わりました",
   "Go to question": "質問に行く",
@@ -42,5 +43,7 @@
   "Validate": "回答",
   "Wrong answer": "不正解",
   "You are out of lives!": "ライフがなくなりました。",
+  "Your answer_": "Your answer:",
+  "Your answers_": "Your answers:",
   "Need help? Found a bug? Report it here": "お手伝いが必要ですか? バグを発見しましたか? こちらで報告しましょう"
 }

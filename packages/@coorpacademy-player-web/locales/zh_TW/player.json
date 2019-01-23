@@ -11,6 +11,7 @@
   "Congratulations!": "恭喜！",
   "Context": "背景",
   "Correct answer": "正確答案：",
+  "Correction": "正確解答",
   "Did you know that?": "您知道嗎？",
   "Game over": "遊戲結束",
   "Go to question": "回答問題",
@@ -42,5 +43,7 @@
   "Validate": "驗證",
   "Wrong answer": "錯誤答案",
   "You are out of lives!": "你沒有生命了！",
+  "Your answer_": "Your answer:",
+  "Your answers_": "Your answers:",
   "Need help? Found a bug? Report it here": "需要幫忙嗎？發現錯誤？在此報告"
 }

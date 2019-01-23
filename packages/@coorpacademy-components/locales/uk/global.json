@@ -16,6 +16,7 @@
   "cookies_details": "Цей сайт використовує файли cookie, щоб забезпечити вам якомога зручніший інтерфейс навчання. Детальніше про файли cookie та про те, як ми використовуємо ваші дані, читайте в ",
   "cookies_policy": "Політика конфіденційності та використання файлів cookie.",
   "cookies_title": "Як користуватися файлами cookies:",
+  "Create a new cohort": "Create a new cohort",
   "Delete": "Видалити",
   "Edit": "Редагувати",
   "keep_subscription": "Зберегти мою підписку",
@@ -62,5 +63,6 @@
   "Wait_creation": "Платформу створено. Це може забрати кілька секунд. Почекайте, будь ласка...",
   "Write something here": "Напишіть щось тут",
   "zuora_discount_code_submit": "Застосувати",
-  "zuora_discount_code": "Промокод"
+  "zuora_discount_code": "Промокод",
+  "mandatory_fields": "*Mandatory fields"
 }

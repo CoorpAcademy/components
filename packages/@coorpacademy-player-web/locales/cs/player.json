@@ -11,6 +11,7 @@
   "Congratulations!": "Blahopřejeme!",
   "Context": "Kontext",
   "Correct answer": "Správná odpověď:",
+  "Correction": "Oprava",
   "Did you know that?": "Věděli jste to?",
   "Game over": "Hra skončila",
   "Go to question": "Přejděte k otázce",
@@ -42,5 +43,7 @@
   "Validate": "Potvrdit",
   "Wrong answer": "Chybná odpověď",
   "You are out of lives!": "Už nemáte životy",
+  "Your answer_": "Your answer:",
+  "Your answers_": "Your answers:",
   "Need help? Found a bug? Report it here": "Potřebujete pmoc? Našli jste chybu? Oznamte ji zde"
 }

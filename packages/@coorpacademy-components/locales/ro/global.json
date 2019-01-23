@@ -16,6 +16,7 @@
   "cookies_details": "Acest site folosește module cookie pentru a vă oferi cea mai bună experiență de învățare. Dacă doriți să aflați mai multe despre modulele cookie folosite și despre cum sunt utilizate datele dumneavoastră personale, vă rugăm să citiți",
   "cookies_policy": "Politica de confidențialitate și de utilizare a modulelor cookie",
   "cookies_title": "Cum folosim modulele cookie:",
+  "Create a new cohort": "Create a new cohort",
   "Delete": "Ștergere",
   "Edit": "Editare",
   "keep_subscription": "Vreau să-mi păstrez abonamentul",
@@ -62,5 +63,6 @@
   "Wait_creation": "Se creează platforma. Poate dura câteva secunde. Vă rugăm, așteptați...",
   "Write something here": "Scrieți ceva aici",
   "zuora_discount_code_submit": "Aplică",
-  "zuora_discount_code": "Cod promoțional"
+  "zuora_discount_code": "Cod promoțional",
+  "mandatory_fields": "*Mandatory fields"
 }

@@ -11,6 +11,7 @@
   "Congratulations!": "Gratulálunk!",
   "Context": "Kontextus",
   "Correct answer": "A helyes válasz:",
+  "Correction": "Javítás",
   "Did you know that?": "Tudta?",
   "Game over": "A játéknak vége",
   "Go to question": "Menjen a kérdéshez",
@@ -42,5 +43,7 @@
   "Validate": "Érvényesít",
   "Wrong answer": "Rossz válasz",
   "You are out of lives!": "Önnek nincs több élete!",
+  "Your answer_": "Your answer:",
+  "Your answers_": "Your answers:",
   "Need help? Found a bug? Report it here": "Segítségre van szüksége? Hibát talált? Itt jelentheti:"
 }

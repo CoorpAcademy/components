@@ -11,6 +11,7 @@
   "Congratulations!": "Gratulacje!",
   "Context": "Kontekst",
   "Correct answer": "Prawidłowa odpowiedź:",
+  "Correction": "Korekta",
   "Did you know that?": "Czy wiedziałeś(-łaś) o tym?",
   "Game over": "Koniec gry",
   "Go to question": "Przejdź do pytania",
@@ -42,5 +43,7 @@
   "Validate": "Zweryfikuj",
   "Wrong answer": "Błędna odpowiedź",
   "You are out of lives!": "Nie masz już więcej żyć!",
+  "Your answer_": "Your answer:",
+  "Your answers_": "Your answers:",
   "Need help? Found a bug? Report it here": "Potrzebujesz pomocy? Znaleziono błąd? Zgłoś go tutaj"
 }

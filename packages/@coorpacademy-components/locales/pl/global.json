@@ -16,6 +16,7 @@
   "cookies_details": "Niniejsza witryna wykorzystuje pliki cookie w celu zapewnienia użytkownikowi możliwie najlepszego środowiska do uczenia się. Aby dowiedzieć się więcej na temat używanych przez nas plików cookie oraz sposobu, w jaki wykorzystujemy Twoje dane, przeczytaj naszą",
   "cookies_policy": "Polityka prywatności i plików cookie",
   "cookies_title": "W jaki sposób wykorzystujemy pliki cookie:",
+  "Create a new cohort": "Create a new cohort",
   "Delete": "Usuń",
   "Edit": "Edycja",
   "keep_subscription": "Zachowaj subkrypcję",
@@ -62,5 +63,6 @@
   "Wait_creation": "Platforma jest w trakcie tworzenia. Może to potrwać kilkanaście sekund. Proszcę czekać...",
   "Write something here": "Wpisz tutaj coś",
   "zuora_discount_code_submit": "Zastosuj",
-  "zuora_discount_code": "Kod promocyjny"
+  "zuora_discount_code": "Kod promocyjny",
+  "mandatory_fields": "*Mandatory fields"
 }

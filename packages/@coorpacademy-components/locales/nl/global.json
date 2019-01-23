@@ -16,6 +16,7 @@
   "cookies_details": "Deze website maakt gebruik van cookies, zodat wij jou de best mogelijke leerervaring kunnen bieden. Voor meer informatie over de cookies die we gebruiken voor je gegevens, lees ons ",
   "cookies_policy": "Privacy- en cookiesbeleid",
   "cookies_title": "Hoe we cookies gebruiken",
+  "Create a new cohort": "Create a new cohort",
   "Delete": "Verwijderen",
   "Edit": "Bewerken",
   "keep_subscription": "Behoud mijn registratie",
@@ -62,5 +63,6 @@
   "Wait_creation": "Het platform wordt aangemaakt. Dit kan enkele seconden duren. Even geduld a.u.b...",
   "Write something here": "Schrijf iets hier",
   "zuora_discount_code_submit": "Toepassen",
-  "zuora_discount_code": "Promo-code"
+  "zuora_discount_code": "Promo-code",
+  "mandatory_fields": "*Mandatory fields"
 }

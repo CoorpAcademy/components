@@ -16,6 +16,7 @@
   "cookies_details": "本网站使用 cookie，因此我们可以为你提供最好的学习体验。若要阅读更多关于我们使用的 cookie 以及我们如何处理你的数据，请阅读我们的",
   "cookies_policy": "隐私和 cookie 政策。",
   "cookies_title": "我们如何使用 cookies：",
+  "Create a new cohort": "Create a new cohort",
   "Delete": "删除",
   "Edit": "编辑",
   "keep_subscription": "继续订阅",
@@ -62,5 +63,6 @@
   "Wait_creation": "该平台正在被创建中。订阅这可能需要几秒。请等待……",
   "Write something here": "在这里填写内容",
   "zuora_discount_code_submit": "应用",
-  "zuora_discount_code": "促销码"
+  "zuora_discount_code": "促销码",
+  "mandatory_fields": "*Mandatory fields"
 }
