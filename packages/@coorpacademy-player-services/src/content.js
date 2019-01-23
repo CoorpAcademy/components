@@ -28,7 +28,7 @@ const getNbSlides = (fixtures: Fixtures): GetNbSlides => async (
   contentRef: string,
   engineRef: string,
   version: string
-): number => {
+): Promise<number> => {
   const {findChapterById, findLevelById} = fixtures;
   const maxNbSlides = pipe(getConfig, get('slidesToComplete'))({
     ref: engineRef,
