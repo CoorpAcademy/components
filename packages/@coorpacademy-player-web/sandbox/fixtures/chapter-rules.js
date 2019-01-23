@@ -6,7 +6,7 @@ const toMapByChapterRef = reduce((m, object) => m.set(object.chapterRef, object)
 const chapterRules = toMapByChapterRef(new Map(), chapterRulesData);
 
 const getChapterRulesByContent = ref => {
-  return get('rules', chapterRules.get(ref));
+  return Promise.resolve(get('rules', chapterRules.get(ref)));
 };
 
 export {getChapterRulesByContent}; // eslint-disable-line import/prefer-default-export

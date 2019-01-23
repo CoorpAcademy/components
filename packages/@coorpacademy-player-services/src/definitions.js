@@ -191,15 +191,15 @@ type Fixtures = {|
   getClue: (slideId: string) => Promise<ClueAPI>,
   getCorrectAnswer: (slideId: string) => Promise<Array<Answer>>,
   getExitNode: (ref: string) => Promise<ExitNodeAPI>,
-  getNextLevel: (ref: string) => LevelAPI | void,
+  getNextLevel: (ref: string) => Promise<LevelAPI | void>,
   findChapterById: (contentRef: string) => Promise<ChapterAPI>,
   findContent: (type: string, ref: string) => Promise<ChapterAPI | LevelAPI | Slide>,
-  findLevelById: (contentRef: string) => LevelAPI | void,
+  findLevelById: (contentRef: string) => Promise<LevelAPI | void>,
   findProgressionById: (id: string) => Promise<Progression | void>,
   findRecommendations: (type: string, ref: string) => Promise<Array<RecommendationAPI>>,
   findSlideByChapter: (chapterRef: string) => Promise<Array<Slide>>,
   findSlideById: (id: string) => Promise<Slide>,
-  saveProgression: Progression => void
+  saveProgression: Progression => Promise<void>
 |};
 
 export const CONTENT_TYPE: {[string]: ContentType} = {

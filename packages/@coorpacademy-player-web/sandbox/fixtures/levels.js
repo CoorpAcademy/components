@@ -12,7 +12,7 @@ const toMapByRef = mayBy('ref');
 
 const levels = toMapByRef(levelsData);
 
-const findById = ref => levels.get(ref);
+const findById = ref => Promise.resolve(levels.get(ref));
 
 // eslint-disable-next-line import/prefer-default-export
 export {findById};
