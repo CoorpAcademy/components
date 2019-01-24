@@ -13,8 +13,7 @@ import {
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_FETCH_BESTOF_REQUEST,
   PROGRESSION_FETCH_BESTOF_SUCCESS,
-  ENGINE_CONFIG_FETCH_REQUEST,
-  ENGINE_CONFIG_FETCH_SUCCESS
+  ENGINE_CONFIG_FETCH_REQUEST
 } from '../../../api/progressions';
 import {UI_SELECT_ROUTE} from '../../route';
 import {RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS} from '../../../api/rank';
@@ -65,6 +64,9 @@ const extraLifeAndViewedThreeLessons = set(
 
 const stateWithSlideAndManyResources = pipe(
   set('ui.current.progressionId', 'foo'),
+  set('data.configs.entities.microlearning@1', {
+    version: '1'
+  }),
   set('data.progressions.entities.foo.engine', {version: '1', ref: 'microlearning'}),
   set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'}),
   set('data.progressions.entities.foo.content', {type: 'chapter', ref: 'chapId'}),
@@ -276,11 +278,6 @@ test(
       meta: {engine: {ref: 'microlearning', version: '1'}}
     },
     {
-      type: ENGINE_CONFIG_FETCH_SUCCESS,
-      meta: {engine: {ref: 'microlearning', version: '1'}},
-      payload: 42
-    },
-    {
       type: CONTENT_INFO_FETCH_REQUEST,
       meta: {type: 'chapter', ref: 'chapId'}
     },
@@ -303,5 +300,5 @@ test(
       meta: {progressionId: 'foo'}
     }
   ]),
-  9
+  8
 );

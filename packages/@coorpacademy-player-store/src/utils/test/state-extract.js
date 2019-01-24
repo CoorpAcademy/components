@@ -43,7 +43,6 @@ test("getCurrentProgressionId should get current progression's id from state", t
   const progressionId = '1234';
   const plop = set('ui.current.progressionId', progressionId, {});
   t.is(getCurrentProgressionId(plop), progressionId);
-  t.is(getCurrentProgressionId({}), undefined);
 });
 
 test("getCurrentEngine should get current progression's engine from state", t => {
@@ -373,7 +372,7 @@ test('getLives should throw error if progression.state is not defined', t => {
     set('data.progressions.entities', {'0': progression})
   )({});
 
-  t.throws(() => getLives(state), 'progression has no state.');
+  t.is(getLives(state), 0);
 });
 
 test('getNextContent should return nextChapter if microlearning progression', t => {

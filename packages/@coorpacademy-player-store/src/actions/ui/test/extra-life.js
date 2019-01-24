@@ -13,8 +13,7 @@ import {
   PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
   PROGRESSION_FETCH_BESTOF_REQUEST,
   PROGRESSION_FETCH_BESTOF_SUCCESS,
-  ENGINE_CONFIG_FETCH_REQUEST,
-  ENGINE_CONFIG_FETCH_SUCCESS
+  ENGINE_CONFIG_FETCH_REQUEST
 } from '../../api/progressions';
 import {UI_SELECT_ROUTE} from '../route';
 import {RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS} from '../../api/rank';
@@ -35,6 +34,9 @@ test(
   pipe(
     set('ui.current.progressionId', 'foo'),
     set('data.progressions.entities.foo._id', 'foo'),
+    set('data.configs.entities.microlearning@1', {
+      version: '1'
+    }),
     set('data.progressions.entities.foo.engine', {ref: 'microlearning', version: '1'}),
     set('data.progressions.entities.foo.state.nextContent', {type: 'node', ref: 'extraLife'}),
     set('data.progressions.entities.foo.state.content', {type: 'slide', ref: '1.A2.1'})
@@ -157,11 +159,6 @@ test(
       meta: {engine: {ref: 'microlearning', version: '1'}}
     },
     {
-      type: ENGINE_CONFIG_FETCH_SUCCESS,
-      meta: {engine: {ref: 'microlearning', version: '1'}},
-      payload: {foo: 'engine'}
-    },
-    {
       type: CONTENT_INFO_FETCH_REQUEST,
       meta: {type: 'chapter', ref: 'chapId'}
     },
@@ -193,7 +190,7 @@ test(
       meta: {progressionId: 'foo'}
     }
   ],
-  13
+  12
 );
 
 test(
@@ -202,6 +199,9 @@ test(
   pipe(
     set('ui.current.progressionId', 'foo'),
     set('data.progressions.entities.foo._id', 'foo'),
+    set('data.configs.entities.microlearning@1', {
+      version: '1'
+    }),
     set('data.progressions.entities.foo.engine', {ref: 'microlearning', version: '1'}),
     set('data.progressions.entities.foo.state.nextContent', {type: 'node', ref: 'extraLife'}),
     set('data.progressions.entities.foo.state.content', {type: 'slide', ref: '1.A2.1'})
@@ -320,11 +320,6 @@ test(
       meta: {engine: {ref: 'microlearning', version: '1'}}
     },
     {
-      type: ENGINE_CONFIG_FETCH_SUCCESS,
-      meta: {engine: {ref: 'microlearning', version: '1'}},
-      payload: {foo: 'engine'}
-    },
-    {
       type: CONTENT_INFO_FETCH_REQUEST,
       meta: {type: 'chapter', ref: 'chapId'}
     },
@@ -356,5 +351,5 @@ test(
       meta: {progressionId: 'foo'}
     }
   ],
-  13
+  12
 );

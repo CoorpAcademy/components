@@ -106,7 +106,6 @@ export const selectProgression = (id: ProgressionId) => async (
       payload: `progression "${progressionId}" has no content.`
     });
   }
-
   const engine = getEngine(getState());
 
   if (!engine) {
