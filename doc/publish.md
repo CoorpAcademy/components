@@ -100,7 +100,7 @@ Your branch is now ready to be deployed.
 
 hashes issues https://github.com/lerna/lerna/issues/277
 
-## 1 - Canary
+## 2 - Release
 
 once your PR is merged on `master` your can publish a release
 
