@@ -34,17 +34,21 @@ import type {ReduxState as State} from '../definitions/redux';
 import {CONTENT_TYPE, ENGINES} from '../definitions/models';
 
 export const getChapterId = (slide: Slide): string => slide.chapter_id;
-export const getCurrentProgressionId = (state: State): ProgressionId =>
-  state.ui.current.progressionId;
+export const getCurrentProgressionId = (state: State): ProgressionId | void =>
+  state && state.ui && state.ui.current && state.ui.current.progressionId; // eslint-disable-line lodash-fp/prefer-get
 
 export const getQuestionType: State => string = get('question.type');
 
 export const getProgression = (id: ProgressionId): (State => Progression) => (
   state: State
-): Progression => state.data.progressions.entities[id];
+): Progression =>
+  state && state.data && state.data.progressions.entities && state.data.progressions.entities[id];
 
 export const getCurrentProgression = (state: State): Progression | void => {
   const id = getCurrentProgressionId(state);
+  if (!id) {
+    return;
+  }
   return getProgression(id)(state);
 };
 
@@ -90,6 +94,10 @@ export const getAnswerValues = (slide: Slide, state: State): Answer => {
 };
 
 export const getSlide = (id: string): (State => Slide) => (state: State): Slide =>
+  state &&
+  state.data &&
+  state.data.contents &&
+  state.data.contents.slide.entities &&
   state.data.contents.slide.entities[id];
 
 export const getCurrentSlide = (state: State): Slide | void => {
@@ -103,11 +111,21 @@ export const getCurrentSlide = (state: State): Slide | void => {
   return getSlide(slideId)(state);
 };
 
-export const getChapter: (ref: string) => State => Chapter = (ref: string): (State => Chapter) =>
-  get(['data', 'contents', 'chapter', 'entities', ref]);
+export const getChapter = (ref: string): (State => Chapter | void) => (
+  state: State
+): Chapter | void =>
+  state &&
+  state.data &&
+  state.data.contents &&
+  state.data.contents.chapter.entities &&
+  state.data.contents.chapter.entities[ref];
 
-export const getLevel: (ref: string) => State => Level = (ref: string): (State => Level) =>
-  get(['data', 'contents', 'level', 'entities', ref]);
+export const getLevel = (ref: string): (State => Level | void) => (state: State): Level | void =>
+  state &&
+  state.data &&
+  state.data.contents &&
+  state.data.contents.level.entities &&
+  state.data.contents.level.entities[ref];
 
 export const getProgressionContent = (state: State): GenericContent | void => {
   const progression = getCurrentProgression(state);
@@ -149,13 +167,15 @@ export const getContentInfo = (state: State): ContentInfo | void => {
 
   if (type === CONTENT_TYPE.LEVEL) {
     const level = getLevel(ref)(state);
-    return level.info;
+    return level && level.info;
   }
 
   if (type === CONTENT_TYPE.CHAPTER) {
     const chapter = getChapter(ref)(state);
-    return chapter.info;
+    return chapter && chapter.info;
   }
+
+  return;
 };
 
 export const getNbSlides = (state: State): number => {
@@ -348,12 +368,12 @@ export const getBestScore = (state: State): number | void => {
 
   if (type === CONTENT_TYPE.LEVEL) {
     const level = getLevel(ref)(state);
-    return level.bestScore;
+    return level && level.bestScore;
   }
 
   if (type === CONTENT_TYPE.CHAPTER) {
     const chapter = getChapter(ref)(state);
-    return chapter.bestScore;
+    return chapter && chapter.bestScore;
   }
 };
 

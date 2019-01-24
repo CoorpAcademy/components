@@ -21,6 +21,7 @@ DispatchedAction => {
   if (!content) {
     return dispatch({
       type: NEXT_CONTENT_FETCH_FAILURE,
+      meta: {id: progressionId},
       payload: `progression "${progressionId}" has no content.`
     });
   }

@@ -71,6 +71,20 @@ test(
 );
 
 test(
+  'should dispatch failure if no slide is found',
+  macro,
+  pipe(initState, set('data.contents.slide.entities', {}))({}),
+  t => ({}),
+  markResourceAsViewed('foo', resource),
+  [
+    {
+      type: PROGRESSION_RESOURCE_VIEWED_FAILURE,
+      payload: 'slide not found.'
+    }
+  ]
+);
+
+test(
   'should use resource._id as the ref if the resource has no ref',
   macro,
   initState(set('ui.route.foo', 'media', {})),

@@ -308,7 +308,7 @@ DispatchedAction => {
   if (!slide) {
     return dispatch({
       type: PROGRESSION_RESOURCE_VIEWED_FAILURE,
-      payload: 'slide no found.'
+      payload: 'slide not found.'
     });
   }
 
