@@ -85,6 +85,9 @@ test(
       version: '1',
       ref: 'microlearning'
     }),
+    set('data.configs.entities.microlearning@1', {
+      version: '1'
+    }),
     set('data.progressions.entities.foo.content', content),
     set('data.contents.slide.entities.slideRef.chapter_id', 'chapter')
   )({}),
@@ -172,6 +175,9 @@ test(
     set('data.progressions.entities.foo.engine', {
       version: '1',
       ref: 'microlearning'
+    }),
+    set('data.configs.entities.microlearning@1', {
+      version: '1'
     }),
     set('data.progressions.entities.foo.content', content),
     set('data.contents.slide.entities.slideRef._id', 'slide')

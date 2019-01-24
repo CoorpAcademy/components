@@ -50,6 +50,9 @@ test(
     set('ui.current.progressionId', 'foo'),
     set('data.progressions.entities.foo.engine', {ref: 'microlearning', version: 1}),
     setNextContent,
+    set('data.configs.entities.microlearning@1', {
+      version: '1'
+    }),
     set('data.contents.slide.entities.bar._id', 'bar')
   )({}),
   t => ({

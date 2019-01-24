@@ -53,8 +53,8 @@ test(
   macro,
   pipe(
     set('ui.current.progressionId', 'foo'),
-    set('data.progressions.entities.foo', {engine, content: {type: 'chapter', ref: 'bar'}}),
-    set('data.contents.chapter.entities.bar.bestScore', 0)
+    set('data.progressions.entities.foo', {engine, content: {type: 'chapter', ref: 'plop'}}),
+    set('data.contents.chapter.entities.plop.bestScore', 0)
   )({}),
   t => ({
     Progressions: {

@@ -33,8 +33,6 @@ import type {
 import type {ReduxState as State} from '../definitions/redux';
 import {CONTENT_TYPE, ENGINES} from '../definitions/models';
 
-const getId = (item: Progression | Slide): string | void => item && item._id;
-
 export const getChapterId = (slide: Slide): string => slide.chapter_id;
 export const getCurrentProgressionId = (state: State): ProgressionId =>
   state.ui.current.progressionId;
@@ -243,7 +241,7 @@ export const getEngineConfig = (state: State): EngineConfig | void => {
   }
 
   const config = `${engine.ref}@${engine.version}`;
-  return state.data.configs.entities[config];
+  return state.data.configs && state.data.configs.entities && state.data.configs.entities[config];
 };
 
 export const getPreviousSlide = (state: State): Slide | void => {
@@ -395,7 +393,7 @@ export const getLives = (state: State): null | number => {
     return 0;
   }
 
-  return progression.state.livesDisabled ? null : get('state.lives', progression);
+  return progression.state.livesDisabled ? null : progression.state.lives;
 };
 
 export const getCoaches: State => number = getOr(0, 'ui.coaches.availableCoaches');
