@@ -982,6 +982,42 @@ test(
 );
 
 test(
+  'should dispatch error if no progressionId is found',
+  macro,
+  {},
+  t => ({
+    Progressions: {
+      findById: id => {
+        t.is(id, 'foo');
+        return {};
+      },
+      getEngineConfig: () => {
+        t.pass();
+        return 42;
+      }
+    },
+    LeaderBoard: {
+      getRank: () => {
+        t.pass();
+        return 1;
+      }
+    }
+  }),
+  selectProgression(),
+  [
+    {
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
+      payload: {id: undefined}
+    },
+    {
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
+      payload: 'progressionId must be defined.'
+    }
+  ],
+  0
+);
+
+test(
   'should dispatch error if no content is found',
   macro,
   {},

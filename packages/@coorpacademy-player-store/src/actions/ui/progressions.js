@@ -94,6 +94,14 @@ export const selectProgression = (id: ProgressionId) => async (
   await dispatch(selectAction);
 
   const progressionId = getCurrentProgressionId(getState());
+
+  if (!progressionId) {
+    return dispatch({
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
+      payload: `progressionId must be defined.`
+    });
+  }
+
   const response = await dispatch(fetchProgression(progressionId));
   if (response.error) return response;
 

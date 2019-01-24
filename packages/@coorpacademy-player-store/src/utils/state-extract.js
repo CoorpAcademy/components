@@ -79,7 +79,10 @@ export const isCurrentEngineLearner = (state: State): boolean => {
 };
 
 export const getAnswers = (state: State): Answer => {
-  const progressionId: string = getCurrentProgressionId(state);
+  const progressionId = getCurrentProgressionId(state);
+  if (!progressionId) {
+    return [''];
+  }
   return getOr({}, ['ui', 'answers', progressionId])(state);
 };
 
@@ -312,7 +315,10 @@ export const getCurrentCorrection = (state: State): string => {
 };
 
 export const isCommentSent = (state: State): boolean => {
-  const progressionId: string = getCurrentProgressionId(state);
+  const progressionId = getCurrentProgressionId(state);
+  if (!progressionId) {
+    return false;
+  }
   return get(['data', 'comments', 'entities', progressionId, 'isSent'], state);
 };
 
@@ -338,17 +344,26 @@ export const getCurrentClue = (state: State): string => {
 };
 
 export const getRoute = (state: State): string => {
-  const progressionId: string = getCurrentProgressionId(state);
+  const progressionId = getCurrentProgressionId(state);
+  if (!progressionId) {
+    return '';
+  }
   return get(['ui', 'route', progressionId], state);
 };
 
 export const getRecommendations = (state: State): Array<Recommendation> => {
-  const id: string = getCurrentProgressionId(state);
+  const id = getCurrentProgressionId(state);
+  if (!id) {
+    return [];
+  }
   return get(`data.recommendations.entities.${id}`, state);
 };
 
-export const getNextContent = (state: State): Content => {
-  const id: string = getCurrentProgressionId(state);
+export const getNextContent = (state: State): Content | void => {
+  const id = getCurrentProgressionId(state);
+  if (!id) {
+    return;
+  }
   return get(`data.nextContent.entities.${id}`, state);
 };
 
