@@ -7,11 +7,13 @@ type ExitNodesService = {|
   findById: FindById
 |};
 
+// eslint-disable-next-line import/prefer-default-export
 export const findById = (fixtures: Fixtures): FindById => async (
   id: ExitNodeRef
+  // eslint-disable-next-line require-await
 ): Promise<ExitNodeAPI> => {
   const {getExitNode} = fixtures;
-  const exitNode = await getExitNode(id);
+  const exitNode = getExitNode(id);
   return exitNode;
 };
 
