@@ -7,6 +7,13 @@ export type Step = {|
   total?: number
 |};
 
+export type ResourceMimeType =
+  | 'video/mp4'
+  | 'image/jpeg'
+  | 'image/png'
+  | 'application/pdf'
+  | 'application/vimeo';
+
 export type Answer = Array<string>;
 
 export type CHAPTER = 'chapter';
@@ -256,12 +263,64 @@ export type Question =
   | BasicQuestion
   | TemplateQuestion;
 
-export type Slide = {
+type Meta = {
+  taggedNewUntil?: string,
+  updatedAt: string,
+  createdAt: string
+};
+
+type Author = string;
+type Url = string;
+
+type Source = {|
   _id: string,
+  mimeType: MimeTypee,
+  url: Url
+|};
+
+type LessonType = 'pdf' | 'video';
+type Subtitle = string;
+
+type Lesson = {|
+  _id: string,
+  videoId?: string,
+  mediaUrl?: string,
+  poster: string,
+  description: string,
+  mimeType: MimeTypee,
+  ref: string,
+  type: LessonType,
+  subtitles: Array<Subtitle>,
+  posters: Array<string>,
+  src: Array<string>
+|};
+
+type Media = {
+  type?: string,
+  description?: string,
+  mimeType?: MimeTypee,
+  _id?: string,
+  mediaUrl?: Url,
+  subtitles?: Array<string>,
+  posters?: Array<Url>,
+  src?: Array<Source>
+};
+
+export type Slide = {|
+  _id: string,
+  klf: string,
   chapter_id: string,
   question: Question,
-  position?: ?number
-};
+  position?: ?number,
+  authors: Array<Author>,
+  context?: {
+    media: Media
+  },
+  clue?: string,
+  meta: Meta,
+  tips: string,
+  lessons: Array<Lesson>
+|};
 
 export type ChapterContent = {|
   ref: string,

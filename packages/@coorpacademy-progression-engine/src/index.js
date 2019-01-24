@@ -31,10 +31,12 @@ import type {
   PartialCorrection,
   Progression,
   ProgressionId,
-  Question,
   ResourceContent,
+  ResourceMimeType,
   Slide,
-  State
+  Question,
+  State,
+  Meta
 } from './types';
 
 import type {Instruction, ChapterRule} from './rule-engine/types';
@@ -44,9 +46,11 @@ export type {
   LEVEL,
   SLIDE,
   NODE,
+  ERRORS,
   FAILURE,
   SUCCESS,
   Action,
+  ResourceMimeType,
   Answer,
   AvailableContent,
   ChapterRule,
@@ -64,7 +68,8 @@ export type {
   Question,
   ResourceContent,
   Slide,
-  State
+  State,
+  Meta
 };
 
 export {
@@ -76,6 +81,5 @@ export {
   createState,
   createProgression,
   getConfig,
-  getConfigForProgression,
-  ERRORS
+  getConfigForProgression
 };

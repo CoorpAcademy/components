@@ -10,11 +10,16 @@ import type {
   Progression,
   Slide,
   SUCCESS,
-  Question
+  Question,
+  Meta,
+  SUCCESS,
+  ResourceMimeType
 } from '@coorpacademy/progression-engine';
 
 type Url = string;
 type AspectRatio = '16:9' | '4:3';
+
+type SlideAPI = Slide;
 
 type JwPlayerOptions = {|
   customProps: {
@@ -31,7 +36,6 @@ type JwPlayerOptions = {|
   playerScript: Url
 |};
 
-type ResourceMimeType = 'video/mp4' | 'application/vimeo';
 type ResourceType = 'video' | 'pdf';
 
 type Source = {|
@@ -83,21 +87,16 @@ type Window = {|
   dataLayer?: Array<DataEvent>
 |};
 
-type Media = {|
-  type: string,
-  description: string,
-  mimeType: ResourceMimeType,
-  _id: string,
-  mediaUrl: Url,
+type Media = {
+  type?: string,
+  description?: string,
+  mimeType?: ResourceMimeType,
+  _id?: string,
+  mediaUrl?: Url,
   subtitles?: Array<string>,
   posters?: Array<Url>,
   src?: Array<Source>
-|};
-
-type Meta = {|
-  updatedAt: string,
-  createdAt: string
-|};
+};
 
 type RecommendationAPI = {|
   view: string,
@@ -174,7 +173,7 @@ type CorrectionAPI = {
   corrections: Array<PartialCorrection>
 };
 
-type ExitNodeRef = 'successExitNode' | 'failureExitNode';
+type ExitNodeRef = 'successExitNode' | 'failureExitNode' | string;
 type ExitNodeType = SUCCESS | FAILURE;
 
 type ExitNodeAPI = {|
@@ -186,15 +185,20 @@ type ExitNodeAPI = {|
   media: Media
 |};
 
+export type RestrictedResourceType = 'level' | 'chapter' | 'slide';
+
 type Fixtures = {|
   getAllProgressions: () => Array<Progression>,
   getChapterRulesByContent: (ref: string) => Array<ChapterRule>,
-  getClue: (slideId: string) => Promise<ClueAPI>,
+  getClue: (slideId: string) => Promise<ClueAPI | void>,
   getCorrectAnswer: (slideId: string) => Promise<Array<Answer>>,
   getExitNode: (ref: string) => Promise<ExitNodeAPI>,
   getNextLevel: (ref: string) => Promise<LevelAPI | void>,
   findChapterById: (contentRef: string) => Promise<ChapterAPI>,
-  findContent: (type: string, ref: string) => Promise<ChapterAPI | LevelAPI | Slide>,
+  findContent: (
+    type: RestrictedResourceType,
+    ref: string
+  ) => Promise<ChapterAPI | LevelAPI | Slide>,
   findLevelById: (contentRef: string) => Promise<LevelAPI | void>,
   findProgressionById: (id: string) => Promise<Progression | void>,
   findRecommendations: (type: string, ref: string) => Promise<Array<RecommendationAPI>>,
@@ -210,6 +214,7 @@ export const CONTENT_TYPE: {[string]: ContentType} = {
 };
 
 export type {
+  Answer,
   ChapterAPI,
   Answer,
   ClueAPI,
@@ -217,6 +222,7 @@ export type {
   DataEvent,
   ExitNodeAPI,
   ExitNodeRef,
+  Question,
   Fixtures,
   ChapterRule,
   FAILURE,
@@ -224,10 +230,13 @@ export type {
   SUCCESS,
   JwPlayerOptions,
   LevelAPI,
+  SlideAPI,
+  ChapterRule,
   RecommendationAPI,
   ResourceAPI,
   ResourceMimeType,
   ResourceType,
+  Media,
   Url,
   UserAnswerAPI,
   Window

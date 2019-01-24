@@ -1,6 +1,17 @@
 // @flow strict
 
-import type {Fixtures} from './definitions';
+import type {
+  Fixtures,
+  SlideAPI,
+  ChapterAPI,
+  ExitNodeAPI,
+  Media,
+  LevelAPI,
+  ChapterRule,
+  Question,
+  Answer
+} from './definitions';
+
 import type {AnswersService} from './answers';
 import type {CluesService} from './clues';
 import type {ContentService} from './content';
@@ -23,13 +34,21 @@ import createRecommendationsService from './recommendations';
 import createSlidesService from './slides';
 
 export type {
+  SlideAPI,
+  ChapterAPI,
+  Media,
+  LevelAPI,
+  ExitNodeAPI,
   AnswersService,
+  Answer,
   CluesService,
   ContentService,
   Fixtures,
   ProgressionsService,
   RecommendationsService,
-  SlidesService
+  SlidesService,
+  Question,
+  ChapterRule
 };
 
 export const Analytics = AnalyticsService;
