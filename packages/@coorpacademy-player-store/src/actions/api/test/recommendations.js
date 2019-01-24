@@ -65,6 +65,22 @@ test(
 );
 
 test(
+  'should dispatch error if no content is found',
+  macro,
+  {},
+  t => ({}),
+  fetchRecommendations('foo'),
+  [
+    {
+      type: RECO_FETCH_FAILURE,
+      meta: {id: 'foo'},
+      payload: 'progression "foo" has no content.'
+    }
+  ],
+  0
+);
+
+test(
   'should return error if request failed',
   macro,
   initState({}),
