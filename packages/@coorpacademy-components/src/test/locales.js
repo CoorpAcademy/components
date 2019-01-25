@@ -1,7 +1,7 @@
 import path from 'path';
 import test from 'ava';
 import glob from 'glob';
-import locales from '../../locales/en/global';
+import locales from '@coorpacademy/translations/components/en/global';
 import localesUseMacro from '../../../../test/helpers/locales';
 
 const files = glob
