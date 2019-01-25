@@ -1,0 +1,120 @@
+{
+    "cms": {
+        "add": "Ajouter un item",
+        "title": "Ajouter une nouvelle page",
+        "lang": "Langue de saisie :",
+        "name": "Nom* :",
+        "scope": "Périmètre :",
+        "target": {
+            "title": "Cible :",
+            "empty": "Pas de cible",
+            "discipline": "Discipline",
+            "learningTree": "Catalogue"
+        },
+        "type": "Type :",
+        "order": "Ordre :",
+        "active": "Actif :",
+        "populations": "Populations :",
+        "rmd": "Markdown",
+        "save": "Enregistrer",
+        "delete": "Supprimer",
+        "test": "Tester",
+        "deploy": "Envoyer",
+        "delete_confirm": "Êtes-vous sûr de vouloir supprimer cette page ?",
+        "markdown": "Syntaxe Markdown",
+        "quick": "Référence rapide",
+        "path": "URL suffixe* :",
+        "full": "Documentation complète",
+        "preview": "Preview",
+        "edit": "Édit",
+        "notifications": "Notifications Custom",
+        "content": "Contenu:",
+        "config": "Configuration générale",
+        "targetBlank": "Ouvrir un nouvel onglet :",
+        "forum_xid": "Forum Id",
+        "navigation": {
+            "label": "Bloc à découvrir :",
+            "none": "Page sans bloc"
+        },
+        "provider": {
+            "none": "Tous les users :"
+        },
+        "status": {
+            "ok": {
+                "title": "Succès",
+                "save": "Votre page a bien été sauvegardée",
+                "del": "Votre page a bien été supprimée"
+            },
+            "test": {
+                "title": "Job lancé. La notification apparaitra bientot."
+            },
+            "deploy": {
+                "title": "Job lancé. Suivez l'éxécution dans l'espace jobs."
+            },
+            "ko": {
+                "title": "Erreur",
+                "save": "Une erreur s'est produite lors de la sauvegarde: {{err}}",
+                "del": "Une erreur s'est produite lors de la suppression: {{err}}"
+            }
+        },
+        "title_content": "Titre :",
+        "category": "Categorie",
+        "select_all": "Sélectionner tout",
+        "language_info": "Chacun de la langue d’entrée doit être rempli pour chaque pays activé",
+        "imageURL": "URL Image",
+        "page": "Page :",
+        "link": "Lien :",
+        "link_placeholder": "(ex: http://www.google.fr)",
+        "partner": "Partenaire :",
+        "discipline_ref": "discipline.ref",
+        "cancel": "Annuler",
+        "date": "Date :",
+        "image": "Image :",
+        "upload": "Télécharger",
+        "modify": "Modifier",
+        "countries": "Pays"
+    },
+    "success": "Vos modifications ont été enregistrées.",
+    "error": {
+        "mandatory": "Champs manquants"
+    },
+    "tabs": {
+        "pages": "Pages",
+        "news": "News",
+        "notification": "Notifications Custom"
+    },
+    "page": {
+        "name": "{{name}}"
+    },
+    "notification": {
+        "new": "Cette notification n’a pas encore été créée. Remplir et enregistrer le formulaire pour le créer.",
+        "name": "{{name}}",
+        "provider": "Provider :",
+        "expires": "Date d'expiration* :",
+        "message": "Message",
+        "link": {
+            "show": "Bouton 'En savoir plus' :",
+            "url": "Lien :",
+            "target": "Ouvrir le lien dans une nouvelle page : "
+        },
+        "status": {
+            "title": "Statut",
+            "created": "Créé",
+            "sending": "Envoi : Un travail est de créer les notifications à envoyer aux utilisateurs.",
+            "tested": "Testé",
+            "sent": "Envoyé aux utilisateurs sélectionnés.",
+            "pending": {
+                "deploy": "Envoi de demande de création de notification pour les utilisateurs sélectionnés.",
+                "testing": "En attente de notification qui doit paraître.",
+                "delete": "Veuillez patienter, s’il vous plaît, la notification va être supprimé.",
+                "save": "Veuillez patienter, s’il vous plaît, la notification est en cours d'enregistrement"
+            },
+            "ok": {
+                "save": "Notification enregistrée",
+                "testing": "Testé",
+                "deploy": "Le travail pour envoyer des notifications aux utilisateurs est lancé"
+            }
+        }
+    },
+    "text": "<h2>Basiques</h2> <p> Retour à la ligne : Terminer la ligne par deux espaces<br /> Insérer directement du html : Commencer la ligne par 4 espaces<br /> </p> <h2>Headers</h2> <p> # H1<br /> ## H2<br /> ### H3<br /> </p> <h2>Emphasis</h2> <p> Mot en italique: *astérisques* ou _underscores_.<br /> Mot en gras: **double astérisques** ou __double underscores__.<br /> </p> <h2>Lists</h2> <p> 1. First ordered list item<br /> 2. Another item<br /> ⋅⋅* Unordered sub-list.<br /> 1. Actual numbers don't matter, just that it's a number<br /> ⋅⋅1. Ordered sub-list<br /> 4. And another item.<br /> <br /> ⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).<br /> <br /> ⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅<br /> ⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅<br /> ⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)<br /> <br /> * Unordered list can use asterisks<br /> - Or minuses<br /> + Or pluses<br /> </p> <h2>Liens</h2> <p> [I'm an inline-style link](https://www.google.com)<br /><br /> [I'm an inline-style link with title](https://www.google.com \"Google's Homepage\")<br /><br /> [I'm a reference-style link][Arbitrary case-insensitive reference text]<br /><br /> [I'm a relative reference to a repository file](../blob/master/LICENSE)<br /><br /> [You can use numbers for reference-style link definitions][1]<br /><br /> Or leave it empty and use the [link text itself]<br /><br /> Some text to show that the reference links can follow later. </p> <h2>Ancres</h2> <p> <h3>Poser l'ancre</h3> Il faut utiliser la syntaxe HTML pour créer des ids sur les balises où on veut poser l'ancre. <br/></br> Exemple :</br> S'il s'agit d'un titre, alors : <b>&lt;h1 id=\"mon_ancre\"&gt;Texte de l'header&lt;/h1&gt;</b> <br/></br> <h3>Referencer l'ancre</h3> Avec une balise a, il faut utiliser le href avec <b>/pages/[l_url_de_la_page]#[l_ancre]</b>.<br/><br/> <li><b>l_url_de_la_page</b> où on a posé les ancres, est le premier champ de texte qu'on renseigne lorsqu'on crée une page et que permet de generer l'url.</li> <li><b>l_ancre</b> l'id de l'élément où on a posé l'ancre.</li> <br/></br> Exemple :</br> Pour referencer le titre d'avant : <b>&lt;a href=\"/pages/url_page#mon_ancre\"&gt;Texte du lien&lt;/a&gt;</b></br> ou <b>[Texte du lien](/pages/url_page#mon_ancre)</b> </p> <h2>Images</h2> <p> Here's our logo (hover to see the title text):<br /><br /> Inline-style:<br /> ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png \"Logo Title Text 1\")<br /> <br /> Reference-style:<br /> ![alt text][logo]<br /> </p> <h2>Tableaux</h2> <p> Colons can be used to align columns.<br /> <br /> | Tables | Are | Cool |<br /> | ------------- |:-------------:| -----:|<br /> | col 3 is | right-aligned | $1600 |<br /> | col 2 is | centered | $12 |<br /> | zebra stripes | are neat | $1 |<br /> <br /> The outer pipes (|) are optional, and you don't need to make the raw Markdown line up prettily. You can also use inline Markdown.<br /> <br /> Markdown | Less | Pretty<br /> --- | --- | ---<br /> *Still* | `renders` | **nicely**<br /> 1 | 2 | 3<br /> </p> <h2>Inline HTML</h2> <p> <dl> <dt>Definition list</dt><br /> <dd>Is something people use sometimes.</dd><br /><br /> <dt>Markdown in HTML</dt><br /> <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd><br /> </dl> </p>"
+}

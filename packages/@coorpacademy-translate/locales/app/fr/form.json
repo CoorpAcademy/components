@@ -1,0 +1,23 @@
+{
+    "submit": "Valider",
+    "print": "Imprimer",
+    "share": "Partager",
+    "delete": "Supprimer",
+    "start": "Go",
+    "loadMore": "Charger plus...",
+    "download": "Télécharger",
+    "ok": "Ok",
+    "cancel": "Annuler",
+    "sso": "Authentification unique",
+    "connect": "Connect",
+    "signup": "S'inscrire",
+    "signup_pre": "Vous n'avez pas de compte ?",
+    "custom": {
+        "chanel": {
+            "signup": "S'INSCRIRE"
+        },
+        "ilearn": {
+            "signup": "S'inscrire"
+        }
+    }
+}

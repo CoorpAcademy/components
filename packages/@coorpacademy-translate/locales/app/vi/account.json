@@ -1,0 +1,565 @@
+{
+    "firstConnection": {
+        "title": "<span>Chào mừng</span> <span class='name'>{{name}}!</span>"
+    },
+    "changePassword": {
+        "title": "<span>Chào mừng</span> <span class='name'>{{name}}!</span>",
+        "intro": "Vui lòng tạo mật khẩu của bạn. Hãy lưu lại để tham khảo trong tương lai!",
+        "errors": {
+            "mustChangePassword": "Mật khẩu mới cần khác biệt với mật khẩu hiện tại của bạn",
+            "incorrectPassword": "Mật khẩu hiện tại của bạn không đúng"
+        }
+    },
+    "footer": {
+        "title": "Tại sao sử dụng nền tảng “{{platformName}}”?",
+        "features": {
+            "videos": {
+                "title": "Video",
+                "description": "Xem video bài học để học tập và tiến bộ"
+            },
+            "quizzes": {
+                "title": "Câu đố",
+                "description": "Kiểm tra kiến thức của bạn qua hàng trăm câu hỏi"
+            },
+            "battles": {
+                "title": "$t(menu:header.mainNav.battles)",
+                "description": "Đánh giá bằng cách thách đấu người khác trong các cuộc tranh tài"
+            },
+            "certificates": {
+                "title": "$t(menu:header.mainNav.certifications)",
+                "description": "Lấy chứng chỉ để chứng minh kỹ năng của bạn"
+            }
+        },
+        "pillars": {
+            "learnAtYourOwnPace": {
+                "title": "Học theo cách của bạn",
+                "description": "<li>Tham gia các phiên ngắn</li><li>Dừng và khởi động lại bất kỳ lúc nào</li><li>Sử dụng mọi thiết bị</li>"
+            },
+            "adapted": {
+                "title": "Học tập thích nghi với bạn",
+                "description": "<li>Một hệ thống thích nghi với những gì bạn đã biết</li><li>Chọn lộ trình học tập của riêng bạn</li> <li>Nội dung riêng biệt</li>"
+            },
+            "haveFun": {
+                "title": "Chơi vui vẻ",
+                "description": "<li>Một môi trường học tập được trò chơi hóa</li><li>Lấy cảm hứng từ các trò chơi video</li><li>Chứng năng «Stop & Go»</li>"
+            },
+            "learningCommunity": {
+                "title": "Cộng đồng Học tập",
+                "description": "<li>Huấn luyện ngang hàng</li><li>Diễn đàn thảo luận</li><li>Thách đấu cho nhiều người học</li><li>Hạng</li>"
+            }
+        },
+        "gotoform": "Điền vào biểu mẫu để truy cập nền tảng"
+    },
+    "edit": {
+        "oldPassword": "Mật khẩu cũ",
+        "password": "Mật khẩu",
+        "password_confirmation": "Xác nhận mật khẩu của bạn"
+    },
+    "myaccount": {
+        "title": "TÀI KHOẢN CỦA TÔI",
+        "subtitle": "Quản lí dữ liệu cá nhân của bạn!",
+        "modify": "Sửa đổi",
+        "status": "Trạng thái",
+        "save": "Lưu",
+        "carriere": "Nghề nghiệp",
+        "hobbie": "Sở thích",
+        "abonnement": "Đăng ký nhận tin bằng email",
+        "allowed_mail": "Tôi muốn nhận email hoặc lời nhắc thông tin",
+        "not_allowed_mail": "Tôi không muốn nhận email thông tin hay lời nhắc ",
+        "avatar": {
+            "update": "Ảnh của bạn đã được tải lên thành công. Ảnh sẽ xuất hiện trong vòng 24 giờ.",
+            "no_image": "Tập tin được chọn không có định dạng đúng. Hãy chọn một trong các định dạng .png, .jpg hoặc .gif"
+        },
+        "profile": {
+            "updated": "Hồ sơ của bạn đã được cập nhật."
+        },
+        "reset": "Đặt lại",
+        "updatedAccount": "Tài khoản của bạn đã được cập nhật",
+        "accountUpdate": "Cập nhật mật khẩu của bạn",
+        "password": "Mật khẩu",
+        "updatePassword": "Gửi",
+        "newPassword": "Mật khẩu mới",
+        "actualPassword": "Mật khẩu Hiện tại",
+        "passwordConfirmation": "Xác nhận mật khẩu mới",
+        "updatePasswordSuccess": "Mật khẩu của bạn đã được cập nhật thành công",
+        "updatePasswordError": "Không thể thay đổi mật khẩu, vui lòng kiểm tra biểu mẫu của bạn.",
+        "privateAccount": {
+            "title": "Hồ sơ Riêng",
+            "label": "Ẩn họ của tôi."
+        },
+        "emailSettings": {
+            "core": "Tin nhắn hệ thống (các chứng nhận, \"Ai đó đã thử thách tôi tham gia một trận đấu\"...)",
+            "user": "Thông báo (\"Các khóa học được khuyến nghị\", \"Xem khoá học thịnh hành nhất\"...)",
+            "mailchimp": "Tổng hợp hàng tháng"
+        }
+    },
+    "error": {
+        "oldPasswordRequired": "Cần có mật khẩu hiện tại.",
+        "newPasswordRequired": "Mật khẩu mới là bắt buộc.",
+        "confirmPasswordRequired": "Yêu cầu xác nhận mật khẩu của bạn.",
+        "incorrectMinLength": "Mật khẩu của bạn phải chứa ít nhất {{minLength}} ký tự.",
+        "different_password": "Mật khẩu của bạn không khớp!",
+        "wrong_password": "Mật khẩu của bạn không chính xác."
+    },
+    "menu": {
+        "info": {
+            "title": "HỒ SƠ CỦA TÔI",
+            "modify_avatar": "Cập nhật ảnh hồ sơ của tôi",
+            "modify_password": "Thay đổi mật khẩu của tôi"
+        },
+        "alerts": {
+            "title": "CẢNH BÁO CỦA TÔI",
+            "email": "Cài đặt email của tôi",
+            "modify_email": "Thay đổi cài đặt email của tôi",
+            "notifications": "Thông báo của tôi",
+            "modify_notifications": "Thay đổi thông báo của tôi",
+            "wish_notifications": "Tôi muốn nhận thông báo",
+            "blocked_notifications": "Cài đặt hiện tại của bạn không cho phép thông báo. Vui lòng thay đổi thiết lập trình duyệt của bạn và làm mới trang này."
+        },
+        "bills": {
+            "title": "ĐƠN HÀNG CỦA TÔI"
+        },
+        "custom": {
+            "modify_account_title": "TÀI KHOẢN CỦA TÔI",
+            "modify_account_informations": "Cập nhật tài khoản của bạn"
+        },
+        "subscription": {
+            "title": "Đăng ký của tôi",
+            "subtitle": "Coorpacademy Premium Subscription is no longer available",
+            "info": "If you have already signed up and you wish to cancel your Premium subscription please send a mail with your details to:",
+            "update": "Quản lý đăng ký của tôi"
+        }
+    },
+    "go": {
+        "to": {
+            "sso": "Đi tới SSO",
+            "connect": "Đi đến Kết nối"
+        }
+    },
+    "custom": {
+        "corporateonlineopencourse": {
+            "changePassword": {
+                "title": "'CẤU HÌNH' MẬT KHẨU CỦA BẠN ĐỂ KẾT NỐI VỚI ĐIỆN THOẠI THÔNG MINH/MÁY TÍNH BẢNG CỦA BẠN",
+                "intro": "<span>Xin chào,</span><br><br>Bạn vừa đăng nhập vào ĐẠI SỨ THƯƠNG HIỆU MOOC thông qua Campus lần đầu tiên.<br><br>Chúng tôi mời bạn cấu hình mật khẩu đa thiết bị cụ thể của bạn ở bên dưới đây. Nếu bạn muốn, mật khẩu này sẽ cho bạn khả năng truy cập MOOC từ điện thoại thông minh hoặc máy tính bảng của bạn.<br>Một khi đã cấu hình xong, một email xác nhận sẽ được gửi đến cho bạn."
+            },
+            "myaccount": {
+                "updatePassword": "Xác thực"
+            }
+        },
+        "gdf": {
+            "edit": {
+                "title": "Đây là kết nối đầu tiên của bạn",
+                "lastName": "Họ*",
+                "firstName": "Tên chính*",
+                "branch": "Ngành*",
+                "password_title": "Hãy nhập mật khẩu mới",
+                "oldPassword": "Mật khẩu hiện tại*",
+                "password": "Mật khẩu mới*",
+                "password_confirmation": "Xác nhận*",
+                "personnal_title": "Vui lòng nhập thông tin cá nhân",
+                "businessUnit": "Đơn vị kinh doanh*",
+                "age": "Nhóm tuổi*",
+                "workingCountry": "Quốc gia nơi bạn làm việc*",
+                "gender": "Giới tính*",
+                "save": "Xác thực",
+                "mandatory": "* các trường bắt buộc",
+                "male": "Nam",
+                "female": "Nữ",
+                "saving": "Vui lòng đợi trong lúc lưu thông tin của bạn. Bạn sẽ được chuyển hướng đến trang chủ khi lưu xong."
+            },
+            "error": {
+                "different_password": "Mật khẩu và mật khẩu xác nhận của bạn không khớp",
+                "mandatory": "Tất cả các trường này đều bắt buộc",
+                "incorrectPassword": "Mật khẩu hiện tại không hợp lệ"
+            },
+            "branch": {
+                "centre": "Trung tâm",
+                "energy_europe": "Năng lượng châu Âu",
+                "energy_international": "Energy International",
+                "energy_services": "Dịch vụ Năng lượng",
+                "global_gas_lng": "Khí đốt & Khí Thiên nhiên Hóa lỏng Toàn cầu",
+                "infrastructures": "Hạ tầng",
+                "entreprises_collectivites": "Công ty và cơ quan công quyền"
+            },
+            "business_unit": {
+                "centre_bxl": "Trung tâm-BXL",
+                "centre_paris": "Trung tâm Paris",
+                "generation": "Thế hệ",
+                "renewable_energies": "Năng lượng Tái tạo",
+                "marketing_sales": "Marketing & Bán hàng",
+                "emt": "EMT",
+                "support_lines_corporate": "Đường dây hỗ trợ / Doanh nghiệp",
+                "asia_pacific": "Châu Á-Thái Bình Dương",
+                "latin_america": "Châu Mỹ Latin",
+                "north_america": "Bắc Mỹ",
+                "samea": "Nam Á, Trung Đông và Châu Phi (SAMEA)",
+                "uk_turkey": "Anh-Thổ Nhĩ Kỳ",
+                "benelux_division": "Đội ngũ Benelux",
+                "engineering_division": "Bộ phận Kỹ thuật",
+                "support": "Hỗ trợ chức năng / Các Đoàn thể khác",
+                "international_division": "Bộ phận Quốc tế",
+                "pole_services": "Bộ phận Dịch vụ Năng lượng Pháp",
+                "pole_system": "Bộ phận Hệ thống, chuyên về lắp đặt và bảo trì",
+                "pole_network": "Pôle Réseaux / Bộ Phận Phụ Trách Năng Lượng Tòa Nhà",
+                "ep": "E&P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "Phân phối",
+                "storage": "Lưu trữ",
+                "methane": "Kho Khí Thiên nhiên Hóa lỏng",
+                "business_line_energies": "Lĩnh vực Kinh doanh Năng lượng",
+                "business_line_services": "Lĩnh vực Kinh doanh Năng lượng",
+                "delegation_relation_clients": "Délégation Relation Clients",
+                "direction_finance": "Ban Tài chính",
+                "direction_rh": "Phòng Nhân sự về Sức khoẻ và An toàn",
+                "etat_major": "Etat Major",
+                "direction_ventes": "Quản lý Bán hàng",
+                "marche_eld": "Marché ELD",
+                "marche_prive": "Thị trường Nhà Tư nhân",
+                "marche_public": "Thị trường Khách hàng Công",
+                "marche_industrie": "Marché Industrie et Grand Tertiaire\n",
+                "marche_multisites": "Marché Multisites\n",
+                "marche_pme_pmi": "Thị trường SME/SMI",
+                "marketing_marche_clients": "Tiếp thị Thị trường/Khách hàng",
+                "systeme_information": "Hệ thống Thông tin Kinh doanh"
+            },
+            "country": {
+                "algeria": "Algeria",
+                "argentina": "Argentina",
+                "australia": "Úc",
+                "bahrein": "Bahrain",
+                "belgium": "Bỉ",
+                "brazil": "Brazil",
+                "cameroun": "Cameroon",
+                "canada": "Canada",
+                "chili": "Chile",
+                "china": "Trung Quốc",
+                "costarica": "Costa Rica",
+                "cz": "Cộng hoà Séc",
+                "egypt": "Ai Cập",
+                "france": "Pháp",
+                "germany": "Đức",
+                "greece": "Hy Lạp",
+                "hungary": "Hungary",
+                "indonesia": "Indonesia",
+                "italy": "Ý",
+                "laos": "Lào",
+                "libya": "Libya",
+                "luxembourg": "Luxembourg",
+                "mexico": "Mexico",
+                "monaco": "Monaco",
+                "morocco": "Maroc",
+                "netherland": "Hà Lan",
+                "norway": "Na Uy",
+                "nouvellecaledonie": "New Caledonia",
+                "oman": "Oman",
+                "pakistan": "Pakistan",
+                "panama": "Panama",
+                "peru": "Peru",
+                "poland": "Ba Lan",
+                "polynesie": " Polynesia thuộc Pháp",
+                "qatar": "Qatar",
+                "reunion": "Réunion",
+                "romania": "Romania",
+                "saudiarabia": "Ả Rập Xê Út",
+                "singapore": "Singapore",
+                "slovakia": "Slovakia",
+                "spain": "Tây Ban Nha",
+                "swiss": "Thụy Sĩ",
+                "thailand": "Thái Lan",
+                "turkey": "Thổ Nhĩ Kỳ",
+                "uk": "UK (nước Anh thống nhất)",
+                "arabemirates": "Các Tiểu vương quốc Ả Rập Thống nhất",
+                "usa": "Mỹ",
+                "vanuatu": "Vanuatu",
+                "waliisfutuna": "Wallis & Futuna",
+                "other": "Khác"
+            },
+            "ages": {
+                "minus-34": "34 trở xuống",
+                "35-44": "từ 35 đến 44",
+                "45-54": "từ 45 đến 54",
+                "more-55": "từ 55 trở lên"
+            }
+        },
+        "gdfec": {
+            "edit": {
+                "title": "Đây là kết nối lần đầu của bạn",
+                "lastName": "Họ*",
+                "firstName": "Họ*",
+                "branch": "Chi nhánh*",
+                "password_title": "Vui lòng nhập mật khẩu mới",
+                "oldPassword": "Mật khẩu hiện tại*",
+                "password": "Mật khẩu mới*",
+                "password_confirmation": "Xác nhận*",
+                "personnal_title": "Vui lòng nhập thông tin cá nhân của bạn",
+                "businessUnit": "Đơn vị Kinh doanh*",
+                "age": "Độ tuổi*",
+                "workingCountry": "Quốc gia nơi bạn làm việc*",
+                "gender": "Giới tính*",
+                "save": "Xác thực",
+                "mandatory": "* ô bắt buộc",
+                "male": "Nam",
+                "female": "Nữ",
+                "saving": "Vui lòng đợi trong khi lưu thông tin của bạn. Bạn sẽ được chuyển hướng đến trang chủ một khi hoàn tất."
+            },
+            "error": {
+                "different_password": "Mật khẩu của bạn không khớp với mật khẩu xác nhận",
+                "mandatory": "Tất cả các trường này là bắt buộc",
+                "incorrectPassword": "Mật khẩu hiện tại không hợp lệ"
+            },
+            "branch": {
+                "centre": "Trung tâm",
+                "energy_europe": "Năng lượng châu Âu",
+                "energy_international": "Energy International",
+                "energy_services": "Các dịch vụ Năng lượng",
+                "global_gas_lng": "Khí & Khi Thiên nhiên Hóa lỏng Toàn cầu",
+                "infrastructures": "Cơ sở hạ tầng",
+                "entreprises_collectivites": "Các công ty và cơ quan công quyền"
+            },
+            "business_unit": {
+                "centre_bxl": "Trung tâm-BXL",
+                "centre_paris": "Trung tâm Paris",
+                "generation": "Thế hệ",
+                "renewable_energies": "Năng lượng tái tạo",
+                "marketing_sales": "Tiếp thị và Bán hàng",
+                "emt": "EMT",
+                "support_lines_corporate": "Đường dây Hỗ trợ / Doanh nghiệp",
+                "asia_pacific": "Châu Á-Thái Bình Dương",
+                "latin_america": "Châu Mỹ La tinh",
+                "north_america": "Bắc Mỹ",
+                "samea": "Nam Á, Trung Đông & Châu Phi (SAMEA)",
+                "uk_turkey": "Anh-Thổ Nhĩ Kỳ",
+                "benelux_division": "Benelux Division",
+                "engineering_division": "Bộ phận Kỹ thuật",
+                "support": "Hỗ trợ chức năng / Doanh nghiệp & Khác",
+                "international_division": "Khoa Quốc tế",
+                "pole_services": "Bộ phận Dịch vụ Năng lượng Pháp",
+                "pole_system": "Ban hệ thống, Bộ phận Lắp đặt và Bảo trì",
+                "pole_network": "Bộ phận mạng / Phòng năng lượng huyện",
+                "ep": "E&P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "Phân phối",
+                "storage": "Dung lượng",
+                "methane": "Terminaux Méthaniers",
+                "business_line_energies": "Lĩnh vực Kinh doanh Năng lượng",
+                "business_line_services": "Dịch vụ Kinh doanh",
+                "delegation_relation_clients": "Nhóm Quan hệ Khách hàng",
+                "direction_finance": "Định hướng Hoạt động Tài chính",
+                "direction_rh": "Direction Ressources Humaines Prévention Santé Sécurité",
+                "etat_major": "Etat Major",
+                "direction_ventes": "Quản lý Kinh doanh",
+                "marche_eld": "Thị trường Các Quốc gia Kém Phát triển Nhất",
+                "marche_prive": "Marché Résidentiel Privé",
+                "marche_public": "Marché Clients Publics",
+                "marche_industrie": "Thị trường Công nghiệp và Lớn Bậc ba",
+                "marche_multisites": "Marché Multisites",
+                "marche_pme_pmi": "Thị trường SME/SMI",
+                "marketing_marche_clients": "Thị trường/Khách hàng Marketing",
+                "systeme_information": "Système d'Information Métier"
+            },
+            "country": {
+                "algeria": "Algeria",
+                "argentina": "Argentina",
+                "australia": "Úc",
+                "bahrein": "Bahrain",
+                "belgium": "Bỉ",
+                "brazil": "Bra-xin",
+                "cameroun": "Cameroon",
+                "canada": "Canada",
+                "chili": "Chile",
+                "china": "Trung Quốc",
+                "costarica": "Costa Rica",
+                "cz": "Cộng hoà Séc",
+                "egypt": "Ai Cập",
+                "france": "Pháp",
+                "germany": "Đức",
+                "greece": "Hy Lạp",
+                "hungary": "Hungary",
+                "indonesia": "Indonesia",
+                "italy": "Italy",
+                "laos": "Lào",
+                "libya": "Libya",
+                "luxembourg": "Luxembourg",
+                "mexico": "Mexico",
+                "monaco": "Monaco",
+                "morocco": "Morocco",
+                "netherland": "Hà Lan",
+                "norway": "Na Uy",
+                "nouvellecaledonie": "New Caledonia",
+                "oman": "Oman",
+                "pakistan": "Pakistan",
+                "panama": "Panama",
+                "peru": "Peru",
+                "poland": "Ba Lan",
+                "polynesie": "Polynesie thuộc Pháp",
+                "qatar": "Qatar",
+                "reunion": "Réunion",
+                "romania": "Romania",
+                "saudiarabia": "Ả Rập Xê Út",
+                "singapore": "Singapore",
+                "slovakia": "Slovakia",
+                "spain": "Tây Ban Nha",
+                "swiss": "Thụy Sĩ",
+                "thailand": "Thái Lan",
+                "turkey": "Thổ Nhĩ Kỳ",
+                "uk": "Anh",
+                "arabemirates": "Các Tiểu Vương Quốc Ả Rập Thống Nhất",
+                "usa": "Hoa Kỳ",
+                "vanuatu": "Vanuatu",
+                "waliisfutuna": "Wallis & Futuna",
+                "other": "Khác"
+            },
+            "ages": {
+                "minus-34": "34 hoặc nhỏ hơn",
+                "35-44": "từ 35 đến 44",
+                "45-54": "từ 45 đến 54",
+                "more-55": "từ 55 trở lên"
+            }
+        },
+        "nespresso": {
+            "changePassword": {
+                "title": "Chào mừng!",
+                "intro": "Vui lòng đổi mật khẩu của bạn. Hãy lưu nó để tham khảo sau này!"
+            }
+        },
+        "pwc": {
+            "footer": {
+                "title": "Discover our PwC Digital Academy platform"
+            }
+        },
+        "renaultcare": {
+            "changePassword": {
+                "intro": "<span>Xin chào,</span><br><br>Để tạo quyền truy cập vào Trải nghiệm Khách hàng MOOC cho Điện thoại thông minh của bạn, bạn cần cấu hình mật khẩu của bạn bên dưới.<br>Sau đó, chúng tôi sẽ gửi cho bạn một email xác nhận có liên kết cụ thể để kết nối đến MOOC từ Điện thoại thông minh của bạn.<br><br> Xin nhắc lại, ID của bạn để kết nối đến nền tảng C@re 2.0 là: <b>{{login}}</b> <br><br> Bây giờ, vui lòng xác định mật khẩu của bạn:"
+            },
+            "myaccount": {
+                "updatePassword": "Xác thực"
+            }
+        },
+        "samsung": {
+            "edit": {
+                "title": "Đây là kết nối đầu tiên của bạn",
+                "lastName": "Họ*",
+                "firstName": "Tên*",
+                "email": "Email*",
+                "branch": "Cơ quan*",
+                "password_title": "Hãy nhập mật khẩu mới",
+                "password": "Mật khẩu*",
+                "password_confirmation": "Xác nhận mật khẩu*",
+                "personnal_title": "Vui lòng nhập thông tin cá nhân của bạn",
+                "age": "Năm sinh*",
+                "workingCountry": "Quốc gia*",
+                "save": "Xác thực",
+                "mandatory": "* các trường bắt buộc",
+                "saving": "Vui lòng chờ trong khi lưu thông tin của bạn. Bạn sẽ được chuyển hướng đến trang chủ sau khi hoàn thành."
+            },
+            "error": {
+                "different_password": "Mật khẩu của bạn không khớp với mật khẩu xác nhận",
+                "mandatory": "Tất cả các trường này là bắt buộc"
+            },
+            "branch": {
+                "centre": "Trung tâm",
+                "energy_europe": "Năng lượng châu Âu",
+                "energy_international": "Năng lượng quốc tế",
+                "energy_services": "Dịch vụ Năng lượng",
+                "global_gas_lng": "Khí & Khí Thiên nhiên Hóa lỏng Toàn cầu",
+                "infrastructures": "Hạ tầng"
+            },
+            "business_unit": {
+                "centre_bxl": "Trung tâm-BXL",
+                "centre_paris": "Trung tâm Paris",
+                "generation": "Thế hệ",
+                "renewable_energies": "Năng lượng Tái tạo",
+                "marketing_sales": "Tiếp thị & Bán hàng",
+                "emt": "EMT",
+                "support_lines_corporate": "Đường dây Hỗ trợ / Doanh nghiệp",
+                "asia_pacific": "Châu Á-Thái Bình Dương",
+                "latin_america": "Châu Mỹ Latin",
+                "north_america": "Bắc Mỹ",
+                "samea": "Nam Á, Trung Đông & Châu Phi (SAMEA)",
+                "uk_turkey": "Anh-Thổ Nhĩ Kỳ",
+                "benelux_division": "Benelux Division",
+                "engineering_division": "Phòng Kỹ thuật",
+                "support": "Bộ phận Hỗ trợ / Doanh nghiệp & Khác",
+                "international_division": "Phòng Quốc tế",
+                "pole_services": "Bộ phận Dịch vụ Năng lượng Pháp",
+                "pole_system": "Pôle France Systèmes, Lắp đặt & Bảo trì",
+                "pole_network": "Bộ phận mạng / Phòng năng lượng huyện",
+                "ep": "E&P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "Phân bố",
+                "storage": "Dung lượng",
+                "methane": "Terminaux Méthaniers"
+            },
+            "country": {
+                "algeria": "Algeria",
+                "argentina": "Argentina",
+                "australia": "Úc",
+                "bahrein": "Bahrain",
+                "belgium": "Bỉ",
+                "brazil": "Brasil",
+                "cameroun": "Cameroon",
+                "canada": "Canada",
+                "chili": "Chile",
+                "china": "Trung Quốc",
+                "costarica": "Costa Rica",
+                "cz": "Cộng hoà Séc",
+                "egypt": "Ai Cập",
+                "france": "Pháp",
+                "germany": "Đức",
+                "greece": "Hy Lạp",
+                "hungary": "Hungary",
+                "indonesia": "Indonesia",
+                "italy": "Ý",
+                "laos": "Lào",
+                "libya": "Libya",
+                "luxembourg": "Luxembourg",
+                "mexico": "Mexico",
+                "monaco": "Monaco",
+                "morocco": "Morocco",
+                "netherland": "Hà Lan",
+                "norway": "Na uy",
+                "nouvellecaledonie": "New Caledonia",
+                "oman": "Oman",
+                "pakistan": "Pakistan",
+                "panama": "Panama",
+                "peru": "Peru",
+                "poland": "Ba Lan",
+                "polynesie": "Polynesia thuộc Pháp",
+                "qatar": "Qatar",
+                "reunion": "Réunion",
+                "romania": "Romania",
+                "saudiarabia": "Ả Rập Xê Út",
+                "singapore": "Singapore",
+                "slovakia": "Slovakia",
+                "spain": "Tây Ban Nha",
+                "swiss": "Thụy Sĩ",
+                "thailand": "Thái Lan",
+                "turkey": "Thổ Nhĩ Kỳ",
+                "uk": "UK (nước Anh thống nhất)",
+                "arabemirates": "Các Tiểu vương quốc Ả Rập Thống nhất ",
+                "usa": "Mỹ",
+                "vanuatu": "Vanuatu",
+                "waliisfutuna": "Quần đảo Wallis & Futuna",
+                "other": "Khác"
+            },
+            "ages": {
+                "minus-34": "từ 34 trở xuống",
+                "35-44": "từ 35 đến 44",
+                "45-54": "từ 45 đến 54",
+                "more-55": "từ 55 trở lên"
+            }
+        },
+        "up": {
+            "myaccount": {
+                "noModulesUnlocked": "Không mua trình độ nào",
+                "unlockedModules": "Trình độ đã mua:"
+            }
+        },
+        "digitlearning": {
+            "passwordHint": "Dài tối thiểu 8 ký tự. Mật khẩu phải bao gồm ít nhất một ký tự viết hoa, một con số và một ký tự đặc biệt ( ~!@#$%^&*_-+=`|(){}[]:;“’<>,.? )"
+        }
+    }
+}

@@ -1,0 +1,147 @@
+{
+    "tabs": {
+        "import": "Importazione",
+        "achievement": "Reset",
+        "cms": "CMS",
+        "loginEvents": "Eventi Login post",
+        "replay": "Importazione di contenuto storia",
+        "partners": "Partner di notizie",
+        "buildReport": "Generazione di report"
+    },
+    "import": {
+        "help": "guida",
+        "help_content": "<h2>Importare un intero tema o disciplina</h2> <p>Importare un tema, è necessario fornire un file zip che soddisfi i seguenti requisiti: \n<ul>\n<li>il nome della disciplina deve essere univoco</li>\n<li>tutte le discipline devono essere in origine la zip</li> \n<li>ogni disciplina la cartella deve contenere un file. JSON singolo della disciplina deve essere creato</li>\n<li>ogni disciplina la cartella deve contenere tre cartelle modulo importate in ordine A – Z</li>\n<li>ogni cartella modulo deve contenere diverse cartelle di domanda</li> \n<li>cartella ogni domanda deve contenere un file. JSON singolo corrispondente alla domanda deve essere creato</li> <li>NEW: un capitolo o un modulo può contenere un campo Rimuovi: true per eliminarlo</li>\n<li>NEW: un modulo o un capitolo può cambiare posti se ha un swap: indice archiviato dove INDEX è il numero della posizione di prendere (inizio con 0)</li>\n</ul>\n</p> <h2>importare una zip di utente</h2> <p>per importare un gruppo di utenti, è necessario fornire un file zip rispettando le seguenti regole : <ul>\n<li>L'account di accesso di ogni utente deve essere univoco</li> a <li>tutti gli utenti devono essere all'origine di. zip</li>\n</ul></p> <a href=\"/assets/samples/import.zip\"> Download un file zip di esempio</a>",
+        "disciplines": {
+            "title": "Discipline",
+            "zero": "Non c'è nessuna disciplina"
+        },
+        "send_job": "Inviare file tramite il job"
+    },
+    "delete": {
+        "disciplines": {
+            "404": "Nessuna disciplina trovata",
+            "title": "Elimina tutte le discipline",
+            "button": "Elimina",
+            "confirm": "Si prega di inserire \"{{word}}\" per confermare l'eliminazione di tutti i soggetti",
+            "confirm_word": "discipline",
+            "success": "Discipline eliminati"
+        },
+        "users": {
+            "404": "Nessun utente trovato",
+            "title": "Eliminare tutti gli utenti",
+            "help": "Eliminare gli utenti di un provider (per cancellare tutto, lasciare vuoto)",
+            "button": "Elimina",
+            "confirm": "Si prega di inserire \"{{word}}\" per confermare l'eliminazione di utenti",
+            "confirm_word": "utenti",
+            "success": "{{count}} utente eliminato",
+            "success_plural": "{{count}} utente eliminato",
+            "provider": "provider:"
+        },
+        "tuto": {
+            "404": "Nessun utente trovato",
+            "title": "Reimpostare il tutorial",
+            "button": "Cancellare",
+            "confirm": "Si prega di selezionare \"{{word}}\" per confermare il reset completo del tutorial.",
+            "confirm_word": "tutorial",
+            "success": "Tutorial reset"
+        },
+        "achievements": {
+            "404": "Nessun corso trovato",
+            "title": "Cancellare la tua intera progressione",
+            "button": "Cancellare",
+            "confirm": "Si prega di inserire \"{{word}}\" per confermare l'eliminazione della vostra progressione",
+            "confirm_word": "progressione",
+            "success": "Progressione eliminato"
+        }
+    },
+    "console": {
+        "status": "Codice di stato HTTP:",
+        "exception": "ID di eccezione:",
+        "error": "Messaggio di errore:"
+    },
+    "update": {
+        "goals": {
+            "title": "Obiettivi di aggiornamento",
+            "button": "Aggiornare gli obiettivi attraverso un lavoro",
+            "success": "Richiesta inviata"
+        }
+    },
+    "create": "Aggiungere",
+    "save": "Salva",
+    "remove": "Elimina",
+    "test": "Prova",
+    "edit": "Modificare",
+    "back": "Indietro",
+    "table": {
+        "button": {
+            "prev": "<<",
+            "next": ">>",
+            "first": "Prima pagina",
+            "last": "Ultima pagina"
+        }
+    },
+    "loginEvent": {
+        "subtitle": "Eventi Login post",
+        "config": "Informazioni generali",
+        "content": "Configurazione aggiuntiva",
+        "eventName": "Nome dell'evento",
+        "type": "Type",
+        "active": "Active",
+        "mandatory": "Mandatory",
+        "cmsPagePath": "CMS Path",
+        "redirectTo": "Link di ridirezione ",
+        "title": "Title",
+        "text": "Main Text",
+        "redirectButton": "Etichetta del bottone di reindirizzamento",
+        "button": "Etichetta del bottone",
+        "checkboxText": "Checkbox Label",
+        "footerText": "Testo del piè di pagina (opzionale)",
+        "order": "Ordine"
+    },
+    "status": {
+        "ok": {
+            "title": "Successo"
+        },
+        "saving": {
+            "title": "Salvataggio..."
+        },
+        "removing": {
+            "title": "Removing..."
+        }
+    },
+    "version": "Attuale versione della piattaforma: {{appVersion}}",
+    "job": {
+        "import": {
+            "replay": "Apply",
+            "username": "Gestito da",
+            "createdAt": "Execution date",
+            "elapsedTime": "Execution time",
+            "status": "Status",
+            "uploadedFile": "File on S3",
+            "seeLogs": "Vedere i registri"
+        }
+    },
+    "partner": {
+        "name": "Nome",
+        "link": "Link",
+        "createdAt": "Creato a",
+        "logo": "Logo",
+        "config": "Informazioni",
+        "upload": "Upload",
+        "linkLabel": "Link dell'etichetta",
+        "description": "Descrizione"
+    },
+    "buildReport": {
+        "help": "Guida",
+        "send_job": "Inviare File tramite lambda",
+        "title": "Generazione di Report di Pernod",
+        "help_content": "Caricare lo Zip con il vostro eccelle e specificare la posta dove si desidera ricevere il risultato",
+        "email": "Indirizzo di posta elettronica",
+        "file": "Eccelle in Zip",
+        "email_missing": "Posta elettronica dovrà essere fornita",
+        "email_not_coorp": "Posta elettronica deve essere da coorpacademy",
+        "file_missing": "File dovrà essere forniti",
+        "upload_in_progress": "Viene caricato il tuo file. L'elaborazione potrebbe richiedere alcuni minuti.\nRiceverai il risultato per posta",
+        "file_received": "File è stato ricevuto dal server ed è attualmente gestita senza errori.\nRiceverai un'email con il risultato in pochi minuti."
+    }
+}

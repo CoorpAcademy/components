@@ -1,0 +1,120 @@
+{
+    "cms": {
+        "add": "Eşya Ekle",
+        "title": "Yeni Safya Ekle",
+        "lang": "Giriş Dili",
+        "name": "Adı* :",
+        "scope": "Alan:",
+        "target": {
+            "title": "Hedef:",
+            "empty": "Hedef yok",
+            "discipline": "Disiplin",
+            "learningTree": "Katalog"
+        },
+        "type": "Tip:",
+        "order": "Sıra:",
+        "active": "Aktif:",
+        "populations": "Nüfus:",
+        "rmd": "Markdown",
+        "save": "Kaydet",
+        "delete": "Sil",
+        "test": "Test et",
+        "deploy": "Gönder",
+        "delete_confirm": "Bu sayfayı silmek istediğinizden emin misiniz? ",
+        "markdown": "İndirim Kodlaması",
+        "quick": "Hızlı Başvuru",
+        "path": "URL ön ek*:",
+        "full": "Tam Belgelendirme",
+        "preview": "Ön izleme",
+        "edit": "Düzenle",
+        "notifications": "Özel Bildirimler",
+        "content": "İçerik:",
+        "config": "Küresel Kurulum",
+        "targetBlank": "Yeni Sekmede Aç:",
+        "forum_xid": "Forum ID",
+        "navigation": {
+            "label": "Bloğu keşfetmek için:",
+            "none": "Bloksuz sayfa"
+        },
+        "provider": {
+            "none": "Tüm kullanıcılar:"
+        },
+        "status": {
+            "ok": {
+                "title": "Başarı",
+                "save": "Sayfanız başarıyla kaydedildi",
+                "del": "Sayfanız başarıyla silindi"
+            },
+            "test": {
+                "title": "İş başlatıldı. Bildirim yakında görünür olacak."
+            },
+            "deploy": {
+                "title": "İş başladı. İşler sayfasından gelişimini takip edin."
+            },
+            "ko": {
+                "title": "Hata",
+                "save": "Kaydederken bir hata oluştu: {{err}}",
+                "del": "Silerken bir hata oluştu: {{err}}"
+            }
+        },
+        "title_content": "Başlık:",
+        "category": "Kategori",
+        "select_all": "Tümünü Seç",
+        "language_info": "Her giriş dili aktif her ülke için doldurulması gerekir",
+        "imageURL": "URL Görsel",
+        "page": "Sayfa:",
+        "link": "Bağlantı:",
+        "link_placeholder": "(Örn.: http://www.google.fr)",
+        "partner": "Çalışma ortağı:",
+        "discipline_ref": "disiplin.ref",
+        "cancel": "İptal",
+        "date": "Tarih:",
+        "image": "Görsel:",
+        "upload": "Karşıya yükle",
+        "modify": "Değiştir",
+        "countries": "Ülke"
+    },
+    "success": "Değişiklikleriniz kaydedildi.",
+    "error": {
+        "mandatory": "Eksik Alanlar"
+    },
+    "tabs": {
+        "pages": "Sayfalar",
+        "news": "Haberler",
+        "notification": "Özel Bildirimler"
+    },
+    "page": {
+        "name": "{{name}}"
+    },
+    "notification": {
+        "new": "Bu bildirim henüz oluşturulmadı. Doldurun ve bunu oluşturmak için formu kaydedin.",
+        "name": "{{name}}",
+        "provider": "Hizmet sağlayıcı:",
+        "expires": "Sona Erme Tarihi",
+        "message": "Mesaj",
+        "link": {
+            "show": "''daha fazla bilgi'' göster butonu",
+            "url": "Link:",
+            "target": "Bağlantıyı Yeni Sayfada Aç:"
+        },
+        "status": {
+            "title": "Durumu",
+            "created": "Oluşturulan",
+            "sending": "Gönderen: İş kullanıcılara gönderilecek bildirimler oluşturma.",
+            "tested": "Test",
+            "sent": "Seçili kullanıcılara gönderilen.",
+            "pending": {
+                "deploy": "Seçili kullanıcılar için bildirim oluşturmak için isteği gönderiliyor.",
+                "testing": "Bildirim almak için bekliyor.",
+                "delete": "Lütfen bekle, silinmek üzere bildirim gidiyor.",
+                "save": "Lütfen bekle, bildirim kaydediliyor"
+            },
+            "ok": {
+                "save": "Kaydedilen bildirim",
+                "testing": "Test",
+                "deploy": "Bildirimleri kullanıcılara göndermek için başlatılan iş"
+            }
+        }
+    },
+    "text": "<h2>Temeller</h2> <p>\n    Sert dönüş: Satırı  iki boşlukla bitirin<br />\n    html'yi direk ekleyin : Satıra 4 boşlukla başlayın<br />\n</p> <h2>Başlıklar</h2> <p>\n    # B1<br />\n    ## B2<br />\n    ### B3<br />\n</p> <h2>Vurgular</h2> <p>\n    İtalik kelimeler: *yıldızlar* veya _altçizgiler_.<br />\n    Koyu kelimeler:  **çift yıldız** veya __çift altçizgi__.<br />\n</p> <h2>Listeler</h2> <p>\n    1. İlk düzenlenen liste maddesi<br />\n    2. Diğer madde<br />\n    ⋅⋅* Düzenlenmemiş alt-liste.<br />\n    1. Gerçek numaralar önemli değil, bunlar sadece bir numara<br />\n    ⋅⋅1. Düzenlemiş alt liste<br />\n    4. ve diğer madde.<br />\n    <br />\n    ⋅⋅⋅Liste maddeleri içinde paragraflar düzgünce girintili olabilir. Yukarıdaki boş satıra, ve önündeki boşluğa dikkat edin (en azından bir tanesi, ama burada ham Markdown'ları hizalamak için üç tane kullanacağız).<br />\n    <br />\n    ⋅⋅⋅Paragraf olmadan bir satır sonu için, iki satır sonu boşluk kullanmalısınız.⋅⋅<br />\n    ⋅⋅⋅Bu satırların ayrı, ama aynı paragraf içinde olmasına dikkat edilmelidir.⋅⋅<br />\n    ⋅⋅⋅(Bu boşluklar, tipik GFM satır sonu davranışından aykırı olması gerekli değildir.)<br />\n    <br />\n    * Sırasız listelerde yıldız işaretleri kullanabilirsiniz<br />\n    - veya eksi işaretleri<br />\n    + veya artı işaretleri<br />\n</p> <h2>Linkler</h2> <p>\n    [Bir satır içi stili bağlantısıyım](https://www.google.com)<br /><br />\n    [Bir başlıklı satır içi stili bağlantısıyım](https://www.google.com \"Google Anasayfası\")<br /><br />\n    [Bir referans tarzı bağlantı değilim][büyük/küçük harf önemsiz rastgele referans metni]<br /><br />\n    [Bir depo dosyasıyla ilgili referansım](../blob/master/LICENSE)<br /><br />\n    [Referans tarzı bağlantıları tanımak için numaraları kullanabilirsiniz][1]<br /><br />\n    Veya boş bırakın ve [metnin içindeki linki] kullanın<br /><br />\n    Bazı metinler, referans bağlantıları daha sonra takip edebileceğinizi gösterir.\n</p> <h2>Bağlantılar</h2> <p>\n    <h3>Bağlantıyı ayarlayın</h3>\n    Etikete bir kimlik yaratmak için bağlantıyı görmek istediğiniz yere HTML sözdizimi kullanmalısınız.<br/></br>\n    Örnek:</br>\n    H1 etiketine bir bağlantı ayarlamak istiyorsanız, kullacağınız bağlantı: <b>&lt;h1 id=\"my_anchor\"&gt;Anchor Text&lt;/h1&gt;</b>\n    <br/></br>\n    <h3>Bağlantıyı kullan</h3>\n    <b>a</b> etiketiyle, bunun gibi bir değer ile referans ayarlamalısınız: <b>/pages/[url_suffix_page]#[the_anchor]</b>.<br/><br/>\n    <li><b>url_sayfa_sonu</b> bağlantısının ayarlanmış olduğu yerdeki kimlik değeri. Bu, url oluşturmak için sayfa yaratıldığında doldurulmuş ilk girdi metnidir.</li>\n    <li><b>bağlantı</b> bağlantının ayarlandığı yerdeki etiketin kimlik değeri.</li>\n    <br/></br>\n    Örnek :</br>\n    Bağlantıyı ayarlamadan önce, bunları kullanmalısınız : <b>&lt;a href=\"/pages/page_url#my_anchor\"&gt;Link Text&lt;/a&gt;</b></br>\n    veya <b>[Link Text](/pages/page_url#my_anchor)</b>\n</p> <h2>Resimler</h2> <p>\n    İşte logomuz (başlığın üzerinde görünen):<br /><br />\n    Satır stili:<br />\n    ![tüm metin](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png \"Logo Title Text 1\")<br />\n    <br />\n    Referans stil:<br />\n    ![tüm metin][logo]<br />\n</p> <h2>Tablolar</h2> <p>\n   Kolonlar, sütunları hizalamak için kullanılabilir.<br />\n    <br />\n    | Tablolar     |                | Havalıdır  |<br />\n    | -------------- |:--------------:| -------------:|<br />\n    | kol 3          | sağdan hizalanmış| $1600 |<br />\n    | kol 2          | ortalı      |   $12 |<br />\n    | zebra çizgileri | düzgündür      |    $1 |<br />\n    <br />\n    Dış şeritler (|) opsiyoneldir, ve ham Markdown'ları düzgünce hizaya sokmanıza gerek yoktur. Ayrıca satır içi kısaltma kullanabilirsiniz.<br />\n    <br />\n    Markdown | Daha az | Sevimli<br />\n    --- | --- | ---<br />\n    *Hala* | `imgeler` | **çok hoş**<br />\n    1 | 2 | 3<br />\n</p> <h2>Satıriçi HTML</h2> <p> <dl>\n    <dt>Tanımlama list</dt><br />\n    <dd>Bazı insanların bazen kullandıkları.</dd><br /><br />\n\n    <dt>HTML'deki Markdown</dt><br />\n    <dd>**Çok** iyi çalış*m*ıyor. HTML'yi kullan <em>etiketler</em>.</dd><br />\n</dl> </p>"
+}

@@ -1,0 +1,23 @@
+{
+    "submit": "驗證",
+    "print": "列印",
+    "share": "分享",
+    "delete": "刪除",
+    "start": "開始",
+    "loadMore": "載入更多 ...",
+    "download": "下載",
+    "ok": "好的",
+    "cancel": "取消",
+    "sso": "單一登入",
+    "connect": "連線",
+    "signup": "註冊",
+    "signup_pre": "還沒有帳戶嗎？",
+    "custom": {
+        "chanel": {
+            "signup": "註冊"
+        },
+        "ilearn": {
+            "signup": "註冊"
+        }
+    }
+}

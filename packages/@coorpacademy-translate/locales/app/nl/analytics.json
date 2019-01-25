@@ -1,0 +1,316 @@
+{
+    "message": "<p>Voor toegang tot gedetailleerde informatie per gebruiker, gebruik onze <a href=\"{{user}}\"> door analytics gebruikerspagina</a>.</p> <p>Voor toegang tot gedetailleerde informatie voor alle gebruikers, kunt u <a href=\"{{export}}\"> alle gebruikers op aanvraag exporteren</a>.</p>",
+    "export": {
+        "global": {
+            "first_name": "Voornaam",
+            "last_name": "Achternaam",
+            "email": "E-mail",
+            "provider": "Provider",
+            "stars": "Score",
+            "providerinfos_company": "Bedrijf",
+            "providerinfos_city": "Stad",
+            "providerinfos_country": "Land",
+            "providerinfos_department": "Afdeling",
+            "providerinfos_title": "Titel",
+            "providerinfos_chorusID": "ChorusID",
+            "ageRange": "Leeftijdsgroep",
+            "personalEmail": "E-mail (persoonlijk)",
+            "role": "Rol",
+            "brandName": "Bedrijf",
+            "boutique": "Winkel",
+            "billable": "Billable",
+            "postalCode": "Postcode",
+            "moduleLevel": "$t(dashboard:badges.module.name) - niveau",
+            "moduleCount": "$t(dashboard:badges.module.name) - aantal",
+            "moduleUpdate": "$t(dashboard:badges.module.name) - laatste update",
+            "battleLevel": "$t(dashboard:badges.battle.name) - niveau",
+            "battleCount": "$t(dashboard:badges.battle.name) - aantal",
+            "battleUpdate": "$t(dashboard:badges.battle.name) - laatste update",
+            "coachLevel": "$t(dashboard:badges.coach.name) - niveau",
+            "coachCount": "$t(dashboard:badges.coach.name) - aantal",
+            "coachUpdate": "$t(dashboard:badges.coach.name) - laatste update",
+            "lessonLevel": "$t(dashboard:badges.lesson.name) - niveau",
+            "lessonCount": "$t(dashboard:badges.lesson.name) - aantal",
+            "lessonUpdate": "$t(dashboard:badges.lesson.name) - laatste update",
+            "questionLevel": "$t(dashboard:badges.question.name) - niveau",
+            "questionCount": "$t(dashboard:badges.question.name) - aantal",
+            "questionUpdate": "$t(dashboard:badges.question.name) - laatste update",
+            "badges": "badges",
+            "lastConnectionDate": "Datum van de laatste verbinding",
+            "state": "Staat",
+            "login": "Aanmelden",
+            "firstConnectionDate": "Datum van de eerste verbinding",
+            "certificate": "{{label}} certificaat",
+            "certifications": "Certificaten",
+            "entity": "Entiteit",
+            "grade": "Rang",
+            "region": "Regio",
+            "validatedTimeProgression": "Gevalideerde tijd",
+            "totalTimeProgression": "Totale tijd",
+            "populations": "Populaties",
+            "deactivationDate": "Datum van deactivering",
+            "organization_branch": "Bedrijfstak",
+            "organization_businessunit": "Bedrijfseenheid",
+            "organization_workingCountry": "Land van bedrijf",
+            "organization_role": "Bedrijfsrol",
+            "organization_boutique": "Bedrijfswinkel",
+            "organization_address1": "Bedrijfsadres 1",
+            "organization_address2": "Bedijfsadres 2",
+            "organization_zipcode": "Postcode van bedrijf",
+            "organization_workingCity": "Plaats van bedrijf",
+            "organization_company": "Bedrijf",
+            "organization_ambassador": "Ambassadeur",
+            "birthday": "Verjaardag"
+        },
+        "battles": {
+            "disciplineName": "Naam van discipline",
+            "disciplineStatus": "Discipline Status",
+            "disciplineStatus_hidden": "Verborgen",
+            "disciplineStatus_visible": "Zichtbaar",
+            "moduleLevel": "Moduleniveau",
+            "createdAt": "Gemaakt op",
+            "answeredAt": "Beantwoorden op",
+            "createdBy": "Naam van uitdager",
+            "opponent": "Naam van tegenstander",
+            "winner": "Winnaar",
+            "winnerScore": "Score van winnaar",
+            "userLogin": "Aanmeldingsgegevens van uitdager",
+            "opponentLogin": "Aanmeldingsgegevens van tegenstander",
+            "looserScore": "Score van verliezer"
+        },
+        "moduleStart": {
+            "brand": "Merk",
+            "discipline": "De naam van de discipline",
+            "module": "Moduleniveau",
+            "author": "Auteur",
+            "count": "Graaf",
+            "userCount": "Aantal gebruikers"
+        }
+    },
+    "dashboard": {
+        "serenetics-error": "Vergissing geschied bij het ophalen van de url van de nieuwe dashboard.",
+        "behavioral": {
+            "upgrade": {
+                "title": "Dit dashboard is alleen beschikbaar in de enterprise-tariefplan.",
+                "subtitle": "Neem contact op met Coorpacademy om te upgraden van uw account en toegang krijgen tot de gedrags inzichten van uw platform"
+            }
+        }
+    },
+    "custom": {
+        "7steps": {
+            "export": {
+                "global": {
+                    "organization_role": "Baan",
+                    "organization_title": "Soort winkel",
+                    "organization_ambassador": "L'Oréal werknemer?",
+                    "organization_branch": "L'Oréal divisie",
+                    "entity": "L'Oréal merken",
+                    "organization_grade": "Gebruik van beeldrechten",
+                    "organization_boutiqueReferent": "Detailhandelaar/ketting",
+                    "organization_boutique": "Naam/code opslaan"
+                }
+            }
+        },
+        "achat-habitat": {
+            "export": {
+                "global": {
+                    "organization_ambassador": "Nieuwsbrief"
+                }
+            }
+        },
+        "adidas-fr": {
+            "export": {
+                "global": {
+                    "organization_businessunit": "Departement",
+                    "organization_grade": "Leeftijd",
+                    "organization_boutique": "Werkplek",
+                    "organization_branch": "Geslacht"
+                }
+            }
+        },
+        "capgemini": {
+            "export": {
+                "global": {
+                    "organization_grade": "GGID"
+                }
+            }
+        },
+        "chanel": {
+            "export": {
+                "global": {
+                    "boutique": "Boetiek",
+                    "organization_workingCountry": "Land",
+                    "region": "Regio",
+                    "role": "Rol",
+                    "startContract": "Begin van Contract"
+                }
+            }
+        },
+        "cofpart-learning": {
+            "export": {
+                "global": {
+                    "brandName": "Direction",
+                    "entity": "Job",
+                    "organization_branch": "Manager"
+                }
+            }
+        },
+        "corporateonlineopencourse": {
+            "export": {
+                "global": {
+                    "region": "Regio",
+                    "organization_workingCountry": "Land",
+                    "role": "Functie"
+                }
+            }
+        },
+        "edenred-talents": {
+            "export": {
+                "global": {
+                    "organization_company": "Richting",
+                    "entity": "Sous-direction",
+                    "organization_branch": "Service - Secteur",
+                    "organization_boutiqueReferent": "Afdelingsverantwoordelijke",
+                    "organization_role": "Fonction",
+                    "organization_grade": "Statut"
+                }
+            }
+        },
+        "gdf": {
+            "export": {
+                "global": {
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - niveau",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - graaf",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - laatste Update"
+                }
+            }
+        },
+        "gdfec": {
+            "export": {
+                "global": {
+                    "organization_zipcode": "GAIA",
+                    "organization_businessunit": "Team",
+                    "organization_boutique": "De naam van Manager",
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - niveau",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - graaf",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - laatste Update"
+                }
+            }
+        },
+        "ilearn": {
+            "export": {
+                "global": {
+                    "boutique": "Winkel",
+                    "organization_workingCountry": "Land",
+                    "region": "Regio",
+                    "role": "Rol",
+                    "startContract": "Opdracht Start"
+                }
+            }
+        },
+        "life-auchan": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Activiteitenniveau",
+                    "organization_region": "Privéleven",
+                    "organization_workingCountry": "Land"
+                }
+            }
+        },
+        "metro": {
+            "export": {
+                "global": {
+                    "organization_boutique": "City",
+                    "organization_branch": "ID",
+                    "organization_businessunit": "Role"
+                }
+            }
+        },
+        "monoprix": {
+            "export": {
+                "global": {
+                    "organization_branch": "Richting"
+                }
+            }
+        },
+        "nespresso": {
+            "export": {
+                "global": {
+                    "organization_branch": "Departement",
+                    "organization_businessunit": "Positie"
+                }
+            }
+        },
+        "pru": {
+            "export": {
+                "global": {
+                    "providerCompany": "Bedrijf",
+                    "providerCountry": "Land",
+                    "providerDepartment": "Departement"
+                }
+            }
+        },
+        "redoute": {
+            "boutique": "Boetiek"
+        },
+        "securite": {
+            "export": {
+                "global": {
+                    "organization_grade": "ID"
+                }
+            }
+        },
+        "up": {
+            "export": {
+                "battles": {
+                    "disciplineName": "De naam van de cursus",
+                    "moduleLevel": "Niveau"
+                }
+            }
+        },
+        "tagheuer": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Point of sales code"
+                }
+            }
+        },
+        "thelem": {
+            "export": {
+                "global": {
+                    "organization_role": "Werkgelegenheid",
+                    "language": "Taal",
+                    "organization_boutique": "Locatie",
+                    "organization_title": "Titel service",
+                    "organization_boutiqueReferent": "Registratienummer",
+                    "startContract": "Datum ingehuurd bedrijf",
+                    "organization_contractType": "Soort Contract",
+                    "organization_grade": "Kwalificatie"
+                }
+            }
+        },
+        "yahoo": {
+            "export": {
+                "global": {
+                    "organization_title": "Baan",
+                    "organization_workingCountry": "Land",
+                    "region": "Taal"
+                }
+            }
+        },
+        "who": {
+            "export": {
+                "global": {
+                    "organization_workingCountry": "Land/staat",
+                    "region": "Staten/gebieden",
+                    "provider": "Aansluiting",
+                    "organization_role": "Achtergrond/ervaring",
+                    "organization_grade": "Toegangs Code",
+                    "organization_boutiqueReferent": "Niveau van het onderwijs"
+                }
+            }
+        }
+    }
+}

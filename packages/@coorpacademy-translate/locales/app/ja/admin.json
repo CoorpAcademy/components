@@ -1,0 +1,147 @@
+{
+    "tabs": {
+        "import": "インポートする",
+        "achievement": "リセットする",
+        "cms": "CMS",
+        "loginEvents": "ログイン後のイベント",
+        "replay": "コンテンツインポート履歴",
+        "partners": "ニュースパートナー",
+        "buildReport": "レポートの生成"
+    },
+    "import": {
+        "help": "ヘルプ",
+        "help_content": "<h2>全てのテーマと分野をインポート</h2> <p>テーマをインポートするためには、以下の必須事項を満たした .zip形式のファイルを提供しなければなりません:\n    <ul>\n <li>分野の名前はユニークなものである</li>\n <li> 全ての分野が.zipファイルの元となったフォルダ内にある</li>\n        <li>分野を作成するためには、各分野フォルダに作成希望の分野の .jsonファイルが1ファイルが含まれている</li>\n        <li>各分野フォルダにはAからZ順にインポートされた3つのモジュールフォルダが含まれている</li>\n <li>各モジュールフォルダには複数の質問フォルダが含まれている</li>\n        <li>各質問フォルダには作成希望の質問に関連される1つの .jsonファイルが含まれている</li>\n        <li>新規: モジュールまたはチャプターは削除のための remove:true フィールドを含むことが出来る</li>\n  <li>新規: swap:INDEX フィールドが含まれていて、INDEXが置き換えるポジションの数字(0から数え始めて)を示している場合には、モジュールまたはチャプターは位置を変更することができる</li>\n    </ul>\n</p> <h2>ユーザーzipのインポート</h2> <p>ユーザーのグループをインポートするためには、以下の規則に従った .zip ファイルを提供しなければなりません:\n    <ul>\n        <li>各ユーザーのログインがユニークなものである</li>\n        <li>全てのユーザーが .zipの開始部にある</li>\n    </ul>\n</p> <a href=\"/assets/samples/import.zip\"> .zip例をダウンロード</a>",
+        "disciplines": {
+            "title": "訓練",
+            "zero": "分野がありません"
+        },
+        "send_job": "ジョブを通じてファイルを送る"
+    },
+    "delete": {
+        "disciplines": {
+            "404": "分野が見つかりません",
+            "title": "全ての分野",
+            "button": "削除する",
+            "confirm": "全ての件名の削除を確認するために\"{{word}}\"を入力してください",
+            "confirm_word": "訓練",
+            "success": "削除された分野"
+        },
+        "users": {
+            "404": "ユーザーが見つかりませんでした。",
+            "title": "すべてのユーザーを削除する",
+            "help": "一定のプロバイダーのユーザーを削除 (全てのユーザーを削除するには、空白のまま残しておいてください)",
+            "button": "削除",
+            "confirm": "ユーザー削除の確認に「{{word}}」と入力してください",
+            "confirm_word": "ユーザー",
+            "success": "{{count}} 削除されたユーザー",
+            "success_plural": "{{count}}のユーザーが削除されました",
+            "provider": "プロバイダー:"
+        },
+        "tuto": {
+            "404": "ユーザーが見つかりません",
+            "title": "チュートリアルをリセット",
+            "button": "消去",
+            "confirm": "\"{{word}}\"を選択して、チュートリアルの完全なリセットを確認して下さい。",
+            "confirm_word": "チュートリアル",
+            "success": "チュートリアルのリセット"
+        },
+        "achievements": {
+            "404": "進捗が見つかりません",
+            "title": "これまでの経過をすべて消去する",
+            "button": "消去する",
+            "confirm": "あなたのprogression削除を確認するため、\"{{word}}\" を入力してください。",
+            "confirm_word": "進捗",
+            "success": "進行状況が削除されました"
+        }
+    },
+    "console": {
+        "status": "HTTPステータス:",
+        "exception": "例外ID:",
+        "error": "エラーメッセージ:"
+    },
+    "update": {
+        "goals": {
+            "title": "目的を更新する",
+            "button": "仕事を通じて目標を更新する",
+            "success": "リクエストが送付されました"
+        }
+    },
+    "create": "追加",
+    "save": "保存する",
+    "remove": "削除する",
+    "test": "テスト",
+    "edit": "変更",
+    "back": "戻る",
+    "table": {
+        "button": {
+            "prev": "<<",
+            "next": ">>",
+            "first": "最初のページ",
+            "last": "最後のページ"
+        }
+    },
+    "loginEvent": {
+        "subtitle": "ログイン イベントを投稿する",
+        "config": "一般情報",
+        "content": "追加コンフィグレーション",
+        "eventName": "イベント名",
+        "type": "タイプ",
+        "active": "アクティブ",
+        "mandatory": "必須",
+        "cmsPagePath": "CMS パス",
+        "redirectTo": "リダイレクションリンク",
+        "title": "タイトル",
+        "text": "メインのテキスト",
+        "redirectButton": "ボタンレーベルをリダイレクト",
+        "button": "ボタンラベル",
+        "checkboxText": "チェックボックスのラベル",
+        "footerText": "フッター テキスト (オプション)",
+        "order": "注文"
+    },
+    "status": {
+        "ok": {
+            "title": "成功"
+        },
+        "saving": {
+            "title": "保存中…"
+        },
+        "removing": {
+            "title": "削除中…"
+        }
+    },
+    "version": "現在のプラットフォームのバージョン: {{appVersion}}",
+    "job": {
+        "import": {
+            "replay": "適用する",
+            "username": "運営される",
+            "createdAt": "実施日",
+            "elapsedTime": "実行時間",
+            "status": "ステータス",
+            "uploadedFile": "S3 のファイル",
+            "seeLogs": "ログを参照してください。"
+        }
+    },
+    "partner": {
+        "name": "名前",
+        "link": "リンク",
+        "createdAt": "作成された",
+        "logo": "ロゴ",
+        "config": "情報",
+        "upload": "アップロード",
+        "linkLabel": "レーベルリンク",
+        "description": "説明"
+    },
+    "buildReport": {
+        "help": "ヘルプ",
+        "send_job": "ラムダを介してファイルを送信します。",
+        "title": "ペルノのレポートの生成",
+        "help_content": "Zip ファイルをアップロードあなたが優れているし、結果を受信しメールを指定",
+        "email": "メール アドレス",
+        "file": "Zip に優れています",
+        "email_missing": "メールを提供する必要があります。",
+        "email_not_coorp": "Coorpacademy からメールする必要があります。",
+        "file_missing": "ファイルを提供する必要があります。",
+        "upload_in_progress": "あなたのファイルをアップロード中です。処理は数分をかかる場合があります。\n郵送にて結果が届きます",
+        "file_received": "ファイルは、サーバーによって受信された、現在エラーなしに処理されています。\n数分で結果をメールを受信する必要があります。"
+    }
+}

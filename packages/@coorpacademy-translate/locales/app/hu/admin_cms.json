@@ -1,0 +1,120 @@
+{
+    "cms": {
+        "add": "Elem hozzáadása",
+        "title": "Új oldal hozzáadása",
+        "lang": "Nyelv megadása:",
+        "name": "Név:",
+        "scope": "Kerület:",
+        "target": {
+            "title": "Cél: ",
+            "empty": "Nincs Célpont",
+            "discipline": "Téma",
+            "learningTree": "Katalógus"
+        },
+        "type": "Típus:",
+        "order": "Sorrend:",
+        "active": "Aktív:",
+        "populations": "Lakosság:",
+        "rmd": "Megjelölés",
+        "save": "Mentés",
+        "delete": "Törlés",
+        "test": "Teszt",
+        "deploy": "Küldés",
+        "delete_confirm": "Biztosan törölni akarod ezt az oldalt? ",
+        "markdown": "Leárazási Szintaxis",
+        "quick": "Gyors hivatkozás",
+        "path": "URL kiterjesztés*:",
+        "full": "Teljes Dokumentáció",
+        "preview": "Előnézet",
+        "edit": "Módosítás",
+        "notifications": "Egyedi értesítések",
+        "content": "Tartalom:",
+        "config": "Globális telepítés",
+        "targetBlank": "Megnyitás új fülben: ",
+        "forum_xid": "Fórum azonosító",
+        "navigation": {
+            "label": "A tiltás felfedéséhez",
+            "none": "Tiltás nélküli oldal"
+        },
+        "provider": {
+            "none": "Mindeki"
+        },
+        "status": {
+            "ok": {
+                "title": "Siker",
+                "save": "Az oldala sikeresen mentésre került",
+                "del": "Az oldalát sikeresen töröltük"
+            },
+            "test": {
+                "title": "Munka elkezdve. Az értesítés hamarosan látható lesz."
+            },
+            "deploy": {
+                "title": "Munka elkezdve. Kövesse az előremenetelt a Munkák oldalon."
+            },
+            "ko": {
+                "title": "Hiba",
+                "save": "Hiba történt a következő mentése közben: {{err}}",
+                "del": "Hiba történt a törlés során: {{err}}"
+            }
+        },
+        "title_content": "Cím:",
+        "category": "Kategória",
+        "select_all": "Jelölje ki az összes",
+        "language_info": "Minden szövegbeviteli nyelv kell kitölteni az egyes országok aktivált",
+        "imageURL": "Kép URL",
+        "page": "Oldal:",
+        "link": "Link:",
+        "link_placeholder": "(pl: http://www.google.com)",
+        "partner": "Partner:",
+        "discipline_ref": "discipline.ref",
+        "cancel": "Mégse",
+        "date": "Dátum:",
+        "image": "Kép:",
+        "upload": "Feltöltés",
+        "modify": "Módosítás",
+        "countries": "Országok"
+    },
+    "success": "A módosítások mentve.",
+    "error": {
+        "mandatory": "Hiányzó mezők"
+    },
+    "tabs": {
+        "pages": "Oldalak",
+        "news": "Hírek",
+        "notification": "Egyedi értesítések"
+    },
+    "page": {
+        "name": "{{name}}"
+    },
+    "notification": {
+        "new": "Ez az értesítés még nincs létrehozva. Töltse ki és mentse az űrlapot létrehozni.",
+        "name": "{{name}}",
+        "provider": "Szolgáltató:",
+        "expires": "Lejárati időpont*:",
+        "message": "Üzenet",
+        "link": {
+            "show": "\"Több infó\" gomb megjelenítése:",
+            "url": "Link: ",
+            "target": "Link Megnyitása Új Lapon:"
+        },
+        "status": {
+            "title": "Állapot",
+            "created": "Készítette:",
+            "sending": "Küld: Állást teremt az értesítéseket a felhasználóknak.",
+            "tested": "Tesztelt",
+            "sent": "Kijelölt felhasználóknak küldött.",
+            "pending": {
+                "deploy": "Kérelmet létrehozására kijelölt felhasználók értesítést küld.",
+                "testing": "Arra vár, hogy a bejelentés megjelenjen.",
+                "delete": "Kérjük várjon, értesítést fog el kell hagyni.",
+                "save": "Kérjük várjon, hirdetés van lét megtakarított-"
+            },
+            "ok": {
+                "save": "Értesítés mentett",
+                "testing": "Tesztelt",
+                "deploy": "Feladat indított, hogy értesítések küldése a felhasználóknak"
+            }
+        }
+    },
+    "text": "<h2>Alapok</h2> <p>\n   Hard return: Sor végén két szóköz<br />\n   Html közvetlen beszúrása: Sor elején 4 szóköz<br />\n</p> <h2>Fejlécek</h2> <p>\n    # H1<br />\n    ## H2<br />\n    ### H3<br />\n</p> <h2>Nyomatékosítás</h2> <p>\nItalic betűtípussal írt szó: *csillag* vagy _aláhúzás_.<br />\nVastag betűkkel írt szó: **dupla csillag** vagy __dupla aláhúzás__.<br />\n</p> <h2>Listák</h2> <p>\n   1. Első rendezett lista tétel<br />\n   2. Más tétel<br />\n   ⋅⋅* Rendezetlen allista.<br />\n   1. A tényleges számok nem mérvadóak, csak az, hogy szám legyen<br />\n   ⋅⋅1. Rendezett allista<br />\n4. És egy másik tétel.<br />\n<br />\n   ⋅⋅⋅A lista tételeiben megfelelően behúzott bekezdései lehetnek. Figyelje meg a fenti üres sort és a bevezető szóközöket (legalább egy, de itt hármat fogunk használni, hogy a eredeti Markdownhoz is igazodjon). <br />\n<br />\n   ⋅⋅⋅Bekezdés nélküli sortöréshez két záró szóközt kell használnia. ⋅⋅<br />\n   ⋅⋅⋅Figyelje meg, hogy ez a sor különálló, de ugyanabban a bekezdésben található.⋅⋅<br />\n   ⋅⋅⋅(Ez ellentéte a tipikus GFM sortörésnek, ahol a záró szóközökre nincs szükség).<br />\n   <br />\n   * Rendezetlen listák használhatnak csillagot<br />\n   - Vagy mínuszokat<br />\n   + Vagy Plusszokat<br />\n</p> <h2>Linkek</h2> <p>\n   [szövegszinti stílusú link vagyok](https://www.google.com)<br /><br />\n    [szövegszinti stílusú link vagyok címmel](https://www.google.com \"Google's Homepage\")<br /><br />\n    [Referencia stílusú link vagyok][Tetszőleges kis-és nagybetűs referencia szöveg]<br /><br />\n    [Adattári fájl relatív referenciája vagyok](../blob/master/LICENSE)<br /><br />\n    [Használhat számokat a referencia stílusú link definíciókhoz][1]<br /><br />\n   Vagy hagyja üresen és használja a linket [maga a link szövege]<br /><br />\n   Valamilyen szöveg, ami rámutat, hogy a referencia link később következhet.\n</p> <h2>Horgonyok</h2> <p>\n   <h3>Horgony beállítása</h3>\n   Használja a HTML szintaxist, hogy készítsen egy azonosítót a címkéről ahová a horgonyt szeretné kivetni.<br/></br>\n   Példa: </br>\n   Ha a H1 címkén szeretne horgonyt beállítani:  <b>&lt;h1 id=\"horgonyom\"&gt;Horgony Szöveg&lt;/h1&gt;</b>\n   <br/></br>\n   <h3>Használja a horgonyt</h3>\n   Egy <b>a</b> címkével állítsa be a href értéket, ehhez hasonlóan: <b>/oldalak/[url_képző_oldal]#[a_horgony]</b>.<br/><br/>\n    <li><b>url_képző_oldal</b> arról az odalról, ahol a horgonyok be lettek állítva. Ez az első kitöltött beviteli szöveg amikor egy oldal készül, így generálva az url-t.</li>\n   <li><b>a_horgony</b>annak a címkének az azonosítójának értéke, ahol a horgony be lett állítva.</li>\n   <br/></br>\n   Példa :</br>\n   Az előbb beállított horgony használatához használja : <b>&lt;a href=\"/oldalak/oldal_url#horgonyom\"&gt;Link Szöveg&lt;/a&gt;</b></br>\n   vagy <b>[Link Szöveg](/oldalak/oldal_url#horgonyom)</b>\n</p> <h2>Képek</h2> <p>\n     Itt található a logónk (vigye fölé, hogy láthassa a cím szöveget):<br /><br />\n    Szövegszint  stílus:<br />\n    ![alt szöveg](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png \"Logo Cím Szöveg 1\")<br />\n    <br />\n    Referencia stílus:<br />\n    ![alt szöveg][logó]<br />\n</p> <h2>Tableaux</h2> <p>\n   Az oszlopok használhatók az oszlopok igazításához.<br />\n    <br />\n    | A| Táblázatok| Menők  |<br />\n    | ------------- |:-------------:| -----:|<br />\n    | col 3 is      | jobbra igazított | $1600 |<br />\n    | col 2 is      | középre igazított|   $12 |<br />\n    |a zebracsíkok | szépek      |    $1 |<br />\n     <br />\na külső vezetékek(|) opcionálisak, és nem kell a nyers Markdown szépen illeszkedjen. Használhat szövegszintű Markdownt is.<br />\n    <br />\n    Markdown | Kevésbé| Szép<br />\n    --- | --- | ---<br />\n    *Mégis* | `Szépen` | **illeszkedik**<br />\n    1 | 2 | 3<br />\n</p> <h2>Szövegszintű HTML</h2> <p> <dl>\n    <dt>Definíció lista</dt><br />\n    <dd>Valami, amit az emberek használnak néha.</dd><br /><br />\n\n    <dt>Markdown HTML-ben</dt><br />\n    <dd>Nem *működik* valami **jól. Használjon HTML <em>címkéket</em>.</dd><br />\n</dl> </p>"
+}

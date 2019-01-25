@@ -1,0 +1,147 @@
+{
+    "tabs": {
+        "import": "Import",
+        "achievement": "Resetowanie",
+        "cms": "CMS",
+        "loginEvents": "Zdarzenia po zalogowaniu",
+        "replay": "Historia importowania zawartości",
+        "partners": "Partnerzy w dziedzinie aktualności",
+        "buildReport": "Generowanie raportów"
+    },
+    "import": {
+        "help": "pomoc",
+        "help_content": "<h2>Importowanie całej kompozycji lub dyscypliny</h2> <p>Aby zaimportować kompozycję, należy dostarczyć plik zip, który spełnia następujące wymagania:\n<ul>\n<li>Nazwa dyscypliny musi być unikatowa.</li> \n<li>Wszystkie dyscypliny muszą znajdować się w pliku, z którego utworzono .zip.</li>\n<li>Folder każdej dyscypliny musi zawierać jeden plik .json dyscypliny, która ma zostać utworzona.</li>\n<li>Folder każdej dyscypliny musi zawierać trzy foldery modułu zaimportowane w kolejności alfabetycznej.</li>\n<li>Każdy folder modułu musi zawierać kilka folderów z pytaniami.</li>\n<li>Każdy folder z pytaniami musi zawierać jeden plik .json odpowiadający tworzonemu pytaniu.</li>\n<li>NOWOŚĆ: moduł lub rozdział może zawierać pole usuń:prawda, umożliwiający jego usunięcie.</li>\n<li>NOWOŚĆ: moduł lub rozdział może zmienić miejsce, jeśli ma wprowadzoną wartość zmiana:INDEKS, gdzie wartość INDEKS jest numerem pozycji, która zostanie zajęta (począwszy od 0).</li>\n</ul>\n</p> <h2>Importowanie pliku .zip użytkownika</h2> <p>Aby zaimportować grupę użytkowników, należy podać plik .zip, uwzględniając następujące reguły:\n<ul>\n<li>Login każdego użytkownika musi być unikatowy.</li>\n<li>Wszyscy użytkownicy muszą znajdować się w miejscu pliku, z którego utworzono plik .zip.</li>\n</ul>\n</p> <a href=\"/assets/samples/import.zip\"> Pobierz przykładowy plik .zip</a>",
+        "disciplines": {
+            "title": "Dyscypliny",
+            "zero": "Brak dyscyplin"
+        },
+        "send_job": "Wysyłanie pliku za pośrednictwem zadania"
+    },
+    "delete": {
+        "disciplines": {
+            "404": "Nie znaleziono dyscypliny",
+            "title": "Usuwanie wszystkich dyscyplin",
+            "button": "Usuń",
+            "confirm": "Wpisz \"{{word}}\", aby potwierdzić usunięcie wszystkich tematów",
+            "confirm_word": "dyscypliny",
+            "success": "Usunięte dyscypliny"
+        },
+        "users": {
+            "404": "Nie znaleziono użytkownika",
+            "title": "Usuń wszystkich użytkowników",
+            "help": "Usuń użytkowników dostawcy (aby usunąć wszystko, pozostaw puste pole)",
+            "button": "Usuń",
+            "confirm": "Wpisz \"{{word}}\", aby potwierdzić usunięcie użytkowników",
+            "confirm_word": "użytkownicy",
+            "success": "Liczba usuniętych użytkowników: {{count}}",
+            "success_plural": "Liczba usuniętych użytkowników: {{count}}",
+            "provider": "dostawca:"
+        },
+        "tuto": {
+            "404": "Nie znaleziono żadnego użytkownika",
+            "title": "Resetuj samouczek",
+            "button": "Skasuj",
+            "confirm": "Zaznacz \"{{word}}\", aby potwierdzić kompletne resetowanie samouczka.",
+            "confirm_word": "samouczek",
+            "success": "Resetowanie samouczka"
+        },
+        "achievements": {
+            "404": "Nie znaleziono postępu",
+            "title": "Skasuj cały postęp",
+            "button": "Skasuj",
+            "confirm": "Wpisz \"{{word}}\", aby potwierdzić usunięcie swojego postępu",
+            "confirm_word": "postęp",
+            "success": "Postęp usunięty"
+        }
+    },
+    "console": {
+        "status": "Stan HTTP:",
+        "exception": "Identyfikator wyjątku:",
+        "error": "Komunikat o błędzie:"
+    },
+    "update": {
+        "goals": {
+            "title": "Cele aktualizowania",
+            "button": "Aktualizacja celów poprzez pracę",
+            "success": "Żądanie wysłane"
+        }
+    },
+    "create": "Dodaj",
+    "save": "Zapisz",
+    "remove": "Usuń",
+    "test": "Test",
+    "edit": "Zmodyfikuj",
+    "back": "Wstecz",
+    "table": {
+        "button": {
+            "prev": "<<",
+            "next": ">>",
+            "first": "Pierwsza strona",
+            "last": "Ostatnia strona"
+        }
+    },
+    "loginEvent": {
+        "subtitle": "Zdarzenia po zalogowaniu",
+        "config": "Informacje ogólne",
+        "content": "Dodatkowa konfiguracja",
+        "eventName": "Nazwa zdarzenia",
+        "type": "Typ",
+        "active": "Aktywne",
+        "mandatory": "Obowiązkowe",
+        "cmsPagePath": "Ścieżka CMS",
+        "redirectTo": "Łącze przekierowania",
+        "title": "Tytuł",
+        "text": "Tekst główny",
+        "redirectButton": "Etykieta przycisku przekierowania",
+        "button": "Etykieta przycisku",
+        "checkboxText": "Etykieta pola wyboru",
+        "footerText": "Tekst stopki (opcjonalnie)",
+        "order": "Zamówienia"
+    },
+    "status": {
+        "ok": {
+            "title": "Sukces"
+        },
+        "saving": {
+            "title": "Zapisywanie..."
+        },
+        "removing": {
+            "title": "Usuwanie..."
+        }
+    },
+    "version": "Aktualna wersja platformy: {{appVersion}}",
+    "job": {
+        "import": {
+            "replay": "Zastosuj",
+            "username": "Prowadzony przez",
+            "createdAt": "Data wykonania",
+            "elapsedTime": "Czas wykonania",
+            "status": "Stan",
+            "uploadedFile": "Plik na S3",
+            "seeLogs": "Zobacz dzienniki"
+        }
+    },
+    "partner": {
+        "name": "Nazwa",
+        "link": "Łącze",
+        "createdAt": "Utworzony w",
+        "logo": "Logo",
+        "config": "Informacje",
+        "upload": "Prześlij",
+        "linkLabel": "Łącze do etykiety",
+        "description": "Opis"
+    },
+    "buildReport": {
+        "help": "Pomoc",
+        "send_job": "Wyślij plik przez lambda",
+        "title": "Generowanie raportu Pernod",
+        "help_content": "Wgraj Zip z Twoim wyróżnia się i określić poczty, w którym chcesz otrzymać wynik",
+        "email": "Adres e-mail",
+        "file": "Wyróżnia się w Zip",
+        "email_missing": "E-mail należy podać",
+        "email_not_coorp": "Poczty e-mail musi być z coorpacademy",
+        "file_missing": "Plik musi być dostarczone",
+        "upload_in_progress": "Plik jest przesyłane. Przetwarzanie może potrwać kilka minut.\nPocztą otrzymasz wynik",
+        "file_received": "Plik ma zostały odebrane przez serwer i jest obecnie obsługiwane bez błędu.\nOtrzymasz e-mail z wynikiem w ciągu kilku minut."
+    }
+}

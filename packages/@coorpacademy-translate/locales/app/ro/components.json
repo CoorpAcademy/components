@@ -1,0 +1,203 @@
+{
+    "video_player": {
+        "jw": "Se încarcă playerul video...",
+        "fileCouldNotBePlayedTitle": "Eroare la redarea videoclipului",
+        "flashInstallUrl": "https://get.adobe.com/en/flashplayer/",
+        "MEDIA_ERR_UNKNOWN": {
+            "title": "A intervenit o eroare necunoscută",
+            "description": "Am detectat o eroare la redarea videoclipului. Am fost anunțați de această eroare și vom cerceta problema în detaliu."
+        },
+        "MEDIA_ERR_ABORTED": {
+            "title": "Procesul de atragere a resursei media a fost anulat.",
+            "description": "Vă rugăm să verificați conexiunea la internet și încercați să reîncărcați videoclipul."
+        },
+        "MEDIA_ERR_NETWORK": {
+            "title": "O eroare de rețea a oprit agentul utilizator să mai atragă resursa media.",
+            "description": "Te rugăm să verifici conexiunea la internet și să reîncerci încărcarea videoului."
+        },
+        "MEDIA_ERR_DECODE": {
+            "title": "A avut loc o eroare în procesul de decodificare a resursei media.",
+            "description": "Acest clip video nu este acceptat de acest browser. Browser-ul sau sistemul dvs. de operare constituie problema."
+        },
+        "MEDIA_ERR_SRC_NOT_SUPPORTED": {
+            "title": "Sursa media nu este utilizabilă",
+            "description": "Acest videoclip este indisponibil sau nu este acceptat în acest browser, vă rugăm încercați cu un alt browser sau instalați Flash Player ca o variantă de rezervă și reîncărcați această pagină."
+        }
+    },
+    "account_menu": {
+        "badge": "Insigne",
+        "account": "Contulmeu",
+        "objectif": "Certificări",
+        "activity": "Activitate",
+        "competence_win": "Aptitudini Dobândite",
+        "timeline": "Progres în timp",
+        "discussion": "Discuții",
+        "conseil": "Sfaturi și indicii",
+        "coach": "Profesori",
+        "battle": "Mod bătălie",
+        "modification": "Modifică Informațiile mele"
+    },
+    "chat_room": {
+        "button_wrapper": "Trimiteți",
+        "placeholder": "Mesajul dvs.",
+        "connexion": "{{displayName}} > s-a alăturat acestei conversații",
+        "deconnexion": "{{displayName}} a ieșit din conversație"
+    },
+    "badgesLabel": {
+        "battle": {
+            "detail": "{{detail}} război încheiat",
+            "detail_plural": "{{detail}} războaie finalizate"
+        },
+        "module": {
+            "detail": "Modulul {{detail}} a fost terminat fără a pierde vieți!",
+            "detail_plural": "{{detail}} module finalizate fără a pierde o viață!"
+        },
+        "lesson": {
+            "detail": "{{detail}} lecție vizualizată!",
+            "detail_plural": "{{detail}} lecții vizualizate!"
+        },
+        "question": {
+            "detail": "{{detail}} întrebare a răspuns corect!",
+            "detail_plural": "{{detail}} întrebări răspuns corect!"
+        },
+        "coach": {
+            "detail": "{{detail}} interacțiuni cu antrenorii!",
+            "detail_plural": "{{detail}} interacțiuni cu antrenori!"
+        }
+    },
+    "notificationMenu": {
+        "god_mode": "Activați Modul Dumnezeu",
+        "notification": "Activare notificări desktop",
+        "title": "Notificări ({{nb}})",
+        "forum": "Un utilizator a răspuns comentariului dumneavoastră cu privire la {{name}} module {{level}} nivel",
+        "badge_title": "Felicitări!",
+        "badge": "Ați obținut insigna {{name}} {{level}}",
+        "module_title": "Felicitări!",
+        "module": "Ați completat nivelul {{level}} al modulului {{name}}!",
+        "battle": {
+            "new": "{{name}} dorește să vă provoace la modulul {{module}} nivel {{level}}!",
+            "accepted": "Provocarea ta la luptă a fost acceptată",
+            "win": "Ați câștigat bătălia împotriva {{looser}} în nivelul {{level}} al modulului {{modul}}!",
+            "loose": "Ai pierdut lupta împotriva {{winner}} pe {{module}} modulul {{level}} nivel..."
+        },
+        "link": "Vizualizare toate",
+        "challenge_reminder": "Nu uita, {{name}} te-a provocat la modulul {{module}}, nivelul {{level}}, și așteaptă răspunsul tău!",
+        "coach": "Bravo! Ați devenit profesor pentru disciplina {{name}}!",
+        "start_aim": "Ai selectat {{name}} certificare. Începe!",
+        "goal_as_reward": "Ai deblocat certificarea {{name}}. Începe!",
+        "half_achieved": "Felicitări! Ești la jumătatea drumului către certificarea {{name}}! Spor la lucru în continuare!",
+        "three_third_achieved": "Felicitări! Ați obținut certificarea {{name}}! Împărtășiți succesul cu rețeaua dvs. profesională.",
+        "continue_goals": "Felicitări! Ai obținut certificarea {{name}}! Începe alta!",
+        "continue": "Te descurcai atât de bine, de ce să te oprești acum? Continuă cu certificarea {{name}}!",
+        "mandatory": "Pentru a câștiga {{name}}, va trebui să finalizezi modulele {{levels}}!",
+        "mandatory_plural": "Pentru a câștiga {{name}}, trebuie să încheiați modulele {{levels}}!",
+        "mandatory_achieved": "Felicitări! Ai obținut certificarea pentru {{name}}!",
+        "toggleCoach": "Disponibil pentru instruire",
+        "reward_title": "Bravo! Ați câștigat o recompensă!",
+        "reward_description": {
+            "bonusStars": "Aveți {{stars}} stele noi bonus."
+        }
+    },
+    "custom": {
+        "armeedeterre": {
+            "account_menu": {
+                "battle": "Modul de luptă"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "Bătălia {{detail}} completat",
+                    "detail_plural": "{{detail}} bătălii completat"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "S-a acceptat de luptă",
+                    "win": "Au câştigat bătălia împotriva {{looser}} la nivelul {{module}} modulul {{level}}!",
+                    "loose": "Au pierdut lupta împotriva {{winner}} la nivelul {{module}} modulul de {{level}}..."
+                }
+            }
+        },
+        "gdf": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "Tema {{detail}} a fost terminată",
+                    "detail_plural": "{{detail}} teme finalizate"
+                }
+            }
+        },
+        "gdfec": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} temă terminată",
+                    "detail_plural": "{{detail}} teme finalizate"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "assistance": {
+                "title": "Feedback"
+            }
+        },
+        "pernod": {
+            "notificationMenu": {
+                "start_aim": "Ați selectat obiectivul {{name}}. Începeți!",
+                "goal_as_reward": "Ai deblocat obiectivul {{mame}}. Începe!",
+                "half_achieved": "Bună treabă! Ați atins 50% din obiectiv {{name}}!",
+                "three_third_achieved": "Felicitări! Ai atins obiectivul {{name}}!",
+                "continue_goals": "Felicitări! Ați atins obiectivul {{name}}! Începeți un altul!",
+                "continue": "Vă descurcați foarte bine, de ce să vă opriți? Continuați cu obiectivul {{name}}!",
+                "mandatory": "Pentru a vă finaliza formarea, trebuie să atingeți obiectivul {{name}}: să începem!",
+                "mandatory_achieved": "Felicitări! Aţi atins obiectivul {{name}}!"
+            }
+        },
+        "up": {
+            "badgesLabel": {
+                "module": {
+                    "detail": "Nivelul {{detail}} a fost terminat fără a pierde o viață!",
+                    "detail_plural": "{{detail}} nivele finalizate fără a pierde o viață!"
+                }
+            },
+            "notificationMenu": {
+                "forum": "Un utilizator a răspuns la comentariul dvs. referitor la cursul {{name}}, nivelul {{level}}",
+                "module": "Ai trecut cursul {{name}} de nivel {{level}}!",
+                "battle": {
+                    "new": "{{name}} dorește să vă provoace la cursul {{module}} nivel {{level}}!",
+                    "win": "Ai câştigat lupta împotriva {{looser}} pe {{module}} curs {{level}} nivel!",
+                    "loose": "Ați pierdut bătălia împotriva lui {{winner}} în cursul {{module}} nivel {{level}}..."
+                },
+                "challenge_reminder": "Reține, {{name}} te-a provocat la cursul {{module}}, nivelul  {{level}}, și așteaptă răspunsul tău!",
+                "coach": "Bravo! Ați devenit antrenorul cursului  {{name}}!"
+            }
+        },
+        "who": {
+            "account_menu": {
+                "battle": "Mod provocare"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "Provocarea {{detail}} terminată",
+                    "detail_plural": "{{detail}} provocări finalizate"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "Provocarea dvs. a fost acceptată",
+                    "win": "Ai câștigat provocarea împotriva {{looser}} pe {{module}} nivelul {{level}} modul!",
+                    "loose": "Ați pierdut provocarea împotriva lui {{winner}} pe modulul {{module}} nivel{{level}}..."
+                },
+                "continue_goals": "Felicitări! Aţi obţinut dumneavoastră certificare {{name}}!"
+            }
+        }
+    },
+    "assistance": {
+        "title": "Asistență",
+        "object": "Subiect",
+        "message": "Mesaj",
+        "send": "Trimite",
+        "thanks": "Vă mulțumim pentru mesaj!",
+        "next": "Următorul"
+    },
+    "cards": {
+        "allCategories": "Toate categoriile"
+    }
+}

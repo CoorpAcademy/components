@@ -1,0 +1,63 @@
+{
+    "battle": {
+        "incoming": "대기 중인 배틀 요청이 {{count}}개 있습니다. ",
+        "incoming_plural": "대기 중인 배틀 요청이 {{count}}개 있습니다.",
+        "you_win": "님이 승리하셨습니다",
+        "you_lose": "배틀에서 패배하셨습니다."
+    },
+    "badge": {
+        "won": "{{name}} 배지를 적립하셨습니다"
+    },
+    "module": {
+        "won": "모듈을 통과했습니다."
+    },
+    "reward": {
+        "won": "축하드립니다! 노력이 보상 되었네요!"
+    },
+    "coach": {
+        "unlocked": "코치가 되셨습니다"
+    },
+    "incoming": "새로운 알림이 있습니다",
+    "chatrequest": "새로운 채팅 요청",
+    "goal": {
+        "progress": "자격증 목표에 더 가까이 가셨습니다",
+        "select": "자격증을 선택하셨습니다",
+        "reward": "자격증을 취득하셨습니다"
+    },
+    "forum": "어느 사용자가 당신의 질문에 대답하였습니다",
+    "new_version": {
+        "title": "새 버전",
+        "message": "이 플랫폼의 새로운 버전이 출시 되었습니다.",
+        "action": "새로 고침"
+    },
+    "welcome": "환영 <b>{{user}}</b>, 지금 모든 코스에 액세스할 수 있습니다.",
+    "personal_note": "귀하의 노트는 이메일 주소로 보내졌습니다.",
+    "bonusStars": "축하합니다! 추가 별을 획득하셨습니다!",
+    "rewardStars": "축하합니다! 추가 별을 획득하셨습니다!",
+    "custom": {
+        "armeedeterre": {
+            "battle": {
+                "incoming": "당신은 전투 중인 {{count}}.",
+                "incoming_plural": "당신은 전투 중인 {{count}}.",
+                "you_win": "전투 원",
+                "you_lose": "전투를 잃 었"
+            }
+        },
+        "pernod": {
+            "goal": {
+                "progress": "목표를 수정한",
+                "select": "목표 선택",
+                "reward": "목표를 차단 했습니다."
+            }
+        },
+        "up": {
+            "module": {
+                "won": "레벨을 완료하셨습니다"
+            }
+        },
+        "racing": {
+            "header": "A new Tower Quizz live is happening!",
+            "body": "Click here to join"
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "notCompatible": {
+        "os": "Версия вашей ОС устарела для использования платформы. Мы рекомендуем обновить ее.",
+        "explanation": "Возможно в вашем браузере включен просмотр в режиме совместимости. О том, как его выключить.",
+        "explanationLink": "https://static.coorpacademy.com/content/help/compatibility_view/Help_Compatibility_view_EN.pdf",
+        "explanationLinkLabel": "здесь.",
+        "header": "Слишком старая версия браузера для доступа к тренировочной платформе.",
+        "suggestion_text": "BrowseHappy",
+        "suggestion_href": "http://browsehappy.com",
+        "suggestion_text_pre": "Перейти к",
+        "suggestion_text_post": "для того, чтобы узнать больше о браузерах Evergreen",
+        "different_user_agent": "Было найдено два различных пользовательских агента, в результате чего платформа получила ограниченный доступ."
+    },
+    "custom": {
+        "fff": {
+            "notCompatible": {
+                "os": "Версия ОС является слишком стар, чтобы получить доступ к платформе. Мы рекомендуем обновление.",
+                "suggestion_text": "Хром",
+                "suggestion_href": "HTTPS://www.Google.com/intl/fr/Chrome/Browser/",
+                "suggestion_text_pre": "Предлагаемые скачать",
+                "suggestion_text_post": "."
+            }
+        }
+    }
+}

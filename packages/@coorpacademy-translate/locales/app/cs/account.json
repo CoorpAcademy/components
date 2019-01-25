@@ -1,0 +1,565 @@
+{
+    "firstConnection": {
+        "title": "<span>Vítejte</span> <span class='name'> {{name}}!</span>"
+    },
+    "changePassword": {
+        "title": "<span>Vítejte</span> <span class='name'> {{name}}!</span>",
+        "intro": "Vytvořte heslo. Uschovejte ji pro budoucí použití!",
+        "errors": {
+            "mustChangePassword": "Nové heslo se musí lišit od aktuálního",
+            "incorrectPassword": "Vaše současné heslo není správné"
+        }
+    },
+    "footer": {
+        "title": "Proč používat platformu “{{platformName}}”?",
+        "features": {
+            "videos": {
+                "title": "Videa",
+                "description": "Sledujte video lekce se učit a pokroku"
+            },
+            "quizzes": {
+                "title": "Kvízy",
+                "description": "Otestujte si své znalosti prostřednictvím stovky kvízy"
+            },
+            "battles": {
+                "title": "$t(menu:header.mainNav.battles)",
+                "description": "Recenze ostatní náročné bitvy"
+            },
+            "certificates": {
+                "title": "$t(menu:header.mainNav.certifications)",
+                "description": "Získat certifikáty prokázat své dovednosti"
+            }
+        },
+        "pillars": {
+            "learnAtYourOwnPace": {
+                "title": "Učit se vlastním tempem",
+                "description": "<li>Vzít krátké sezení</li> <li>Stop a znovu kdykoli</li> <li>Použít jakékoliv zařízení</li>"
+            },
+            "adapted": {
+                "title": "Učení přizpůsobené pro vás",
+                "description": "<li>Systém, který přizpůsobuje co už znáte</li> <li>Zvolte vlastní učení cestu</li> <li>Na zakázku obsah</li>"
+            },
+            "haveFun": {
+                "title": "Bav se",
+                "description": "<li>Okořenil výukové prostředí</li> <li>Inspirovány videohry</li> <li>«Stop & Go» funkce</li>"
+            },
+            "learningCommunity": {
+                "title": "Učící se komunita",
+                "description": "<li>Peer coaching</li> <li>Diskusní fórum</li> <li>Výzvy pro více studentů</li> <li>Pořadí</li>"
+            }
+        },
+        "gotoform": "Vyplňte formulář pro přístup platformy"
+    },
+    "edit": {
+        "oldPassword": "Staré heslo",
+        "password": "Heslo",
+        "password_confirmation": "Potvrzení hesla"
+    },
+    "myaccount": {
+        "title": "MŮJ ÚČET",
+        "subtitle": "Spravujte své osobní údaje!",
+        "modify": "Upravit",
+        "status": "Status",
+        "save": "Uložit",
+        "carriere": "Kariéra",
+        "hobbie": "Zájmy",
+        "abonnement": "Odběr e-mailů",
+        "allowed_mail": "Přeji si dostávat informační e-maily nebo připomenutí",
+        "not_allowed_mail": "Nepřeji si dostávat informační e-maily nebo připomenutí",
+        "avatar": {
+            "update": "Váš obrázek byl úspěšně nahrán. Objeví se za 24 hodin.",
+            "no_image": "Vybraný soubor není ve správném formátu. Vyberte prosím .png, .jpg nebo .gif."
+        },
+        "profile": {
+            "updated": "Váš profil byl aktualizován"
+        },
+        "reset": "Resetovat",
+        "updatedAccount": "Váš účet byl aktualizován.",
+        "accountUpdate": "Aktualizujte si účet",
+        "password": "Heslo",
+        "updatePassword": "Odeslat",
+        "newPassword": "Nové heslo",
+        "actualPassword": "Aktuální heslo",
+        "passwordConfirmation": "Potvrdit nové heslo",
+        "updatePasswordSuccess": "Vaše heslo bylo úspěšně aktualizováno",
+        "updatePasswordError": "Nelze změnit vaše heslo, zkontrolujte, zda formulář.",
+        "privateAccount": {
+            "title": "Soukromý profil",
+            "label": "Skrýt moje příjmení."
+        },
+        "emailSettings": {
+            "core": "Systémové zprávy (certifikáty, „Někdo vás vyzval k boji“...)",
+            "user": "Oznámení („Doporučené kurzy“, „Prohlédněte si nejoblíbenější kurz“...)",
+            "mailchimp": "Měsíční přehled"
+        }
+    },
+    "error": {
+        "oldPasswordRequired": "Je vyžadováno aktuální heslo.",
+        "newPasswordRequired": "Je vyžadováno nové heslo.",
+        "confirmPasswordRequired": "Vyžaduje se potvrzení vašeho hesla.",
+        "incorrectMinLength": "Heslo musí obsahovat nejmíň {{minLength}} znaků.",
+        "different_password": "Hesla si neodpovídají!",
+        "wrong_password": "Vyše heslo není správné"
+    },
+    "menu": {
+        "info": {
+            "title": "MŮJ PROFIL",
+            "modify_avatar": "Aktualizujte svůj profilový obrázek",
+            "modify_password": "Změnit heslo"
+        },
+        "alerts": {
+            "title": "MÁ UPOZORNĚNÍ",
+            "email": "Nastavení mého e-mailu",
+            "modify_email": "Změnit má nastavení e-mailu",
+            "notifications": "Má oznámení",
+            "modify_notifications": "Změnit oznamování",
+            "wish_notifications": "Chci přijímat oznámení",
+            "blocked_notifications": "Aktuální nastavení neumožňují oznámení. Prosím, změňte nastavení prohlížeče a obnovte tuto stránku."
+        },
+        "bills": {
+            "title": "MÉ OBJEDNÁVKY"
+        },
+        "custom": {
+            "modify_account_title": "MŮJ ÚČET",
+            "modify_account_informations": "Aktualizace účtu"
+        },
+        "subscription": {
+            "title": "Moje předplatné",
+            "subtitle": "Coorpacademy Premium předplatné již není k dispozici",
+            "info": "If you have already signed up and you wish to cancel your Premium subscription please send a mail with your details to:",
+            "update": "Spravovat předplatné"
+        }
+    },
+    "go": {
+        "to": {
+            "sso": "Přejít na SSO",
+            "connect": "Přejít k připojení"
+        }
+    },
+    "custom": {
+        "corporateonlineopencourse": {
+            "changePassword": {
+                "title": "\"KONFIGURACE\" VAŠE HESLO PRO PŘIPOJENÍ VAŠEHO SMARTPHONU/PAD",
+                "intro": "<span>Dobrý den,</span> <br><br>Jen pro první přihlášení do značka VELVYSLANEC MOOC přes kampus. <br> <br>Zveme vás k nakonfigurovat konkrétní heslo Multi-Device tady dole. Toto heslo vám dá možnost, pokud chcete přistupovat MOOC ze svého smartphonu nebo tabletu. <br>Jednou nakonfigurován, potvrzující email zašleme k vám."
+            },
+            "myaccount": {
+                "updatePassword": "Ověřit"
+            }
+        },
+        "gdf": {
+            "edit": {
+                "title": "To je vaše první připojení",
+                "lastName": "Poslední jméno *",
+                "firstName": "Křestní jméno *",
+                "branch": "Pobočka *",
+                "password_title": "Zadejte nové heslo",
+                "oldPassword": "Aktuální heslo *",
+                "password": "Nové heslo *",
+                "password_confirmation": "Potvrzení *",
+                "personnal_title": "Zadejte prosím své osobní údaje",
+                "businessUnit": "Obchodní jednotka *",
+                "age": "Věkové rozmezí *",
+                "workingCountry": "Země kde práce *",
+                "gender": "Rod *",
+                "save": "Ověřit",
+                "mandatory": "* povinná pole",
+                "male": "Muž",
+                "female": "Žena",
+                "saving": "Počkejte, prosím, při ukládání vašich informací. Budete přesměrováni na domovskou stránku, po dokončení."
+            },
+            "error": {
+                "different_password": "Vaše heslo se neshoduje s jeho potvrzení",
+                "mandatory": "Všechna tato pole jsou povinná",
+                "incorrectPassword": "Aktuální heslo je neplatné."
+            },
+            "branch": {
+                "centre": "Centrum",
+                "energy_europe": "Energie pro Evropu",
+                "energy_international": "Mezinárodní energetické",
+                "energy_services": "Energetické služby",
+                "global_gas_lng": "Globální plyn & LNG",
+                "infrastructures": "Infrastruktura",
+                "entreprises_collectivites": "Podniky a orgány veřejné moci"
+            },
+            "business_unit": {
+                "centre_bxl": "Centrum BXL",
+                "centre_paris": "Paříž centrum",
+                "generation": "Generace",
+                "renewable_energies": "Obnovitelné zdroje energie",
+                "marketing_sales": "Marketing & prodej",
+                "emt": "EMT",
+                "support_lines_corporate": "Podporují linky / firemní",
+                "asia_pacific": "Asie Pacifik",
+                "latin_america": "Latinská Amerika",
+                "north_america": "Severní Amerika",
+                "samea": "Jižní Asie, Střední východ & Afrika (SAMEA)",
+                "uk_turkey": "UK-Turecko",
+                "benelux_division": "Divize Benelux",
+                "engineering_division": "Technická divize",
+                "support": "Fonctions podpora / Corporate & ostatní",
+                "international_division": "Zahraniční oddělení",
+                "pole_services": "Pôle Francie služby Energétiques",
+                "pole_system": "Pôle Francie Systèmes, instalace & údržba",
+                "pole_network": "Pôle Réseaux / District divize energetiky",
+                "ep": "E & P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "Distribuce",
+                "storage": "Skladování",
+                "methane": "Terminaux Méthaniers",
+                "business_line_energies": "Obchodní linie energie",
+                "business_line_services": "Obchodní služby",
+                "delegation_relation_clients": "Délégation vztah klientů",
+                "direction_finance": "Směr finanční výkonnosti",
+                "direction_rh": "Směr Ressources Humaines Prévention Santé Sécurité",
+                "etat_major": "Etat hlavní",
+                "direction_ventes": "Směr des Ventes",
+                "marche_eld": "Marché ELD",
+                "marche_prive": "Marché Résidentiel Privé",
+                "marche_public": "Marché klienty veřejnost",
+                "marche_industrie": "Marché Industrie et Grand Tertiaire",
+                "marche_multisites": "Marché Multisites",
+                "marche_pme_pmi": "Marché PME/PMI",
+                "marketing_marche_clients": "Marketingové Marché/klienti",
+                "systeme_information": "Système d'Information Métier"
+            },
+            "country": {
+                "algeria": "Alžírsko",
+                "argentina": "Argentina",
+                "australia": "Austrálie",
+                "bahrein": "Bahreïn",
+                "belgium": "Belgie",
+                "brazil": "Brazílie",
+                "cameroun": "Kamerun",
+                "canada": "Kanada",
+                "chili": "Chile",
+                "china": "Čína",
+                "costarica": "Kostarika",
+                "cz": "Česká republika",
+                "egypt": "Egypt",
+                "france": "Francie",
+                "germany": "Německo",
+                "greece": "Řecko",
+                "hungary": "Maďarsko",
+                "indonesia": "Indonésie",
+                "italy": "Itálie",
+                "laos": "Laos",
+                "libya": "Libye",
+                "luxembourg": "Lucembursko",
+                "mexico": "Mexiko",
+                "monaco": "Monako",
+                "morocco": "Maroko",
+                "netherland": "Nizozemsko",
+                "norway": "Norsko",
+                "nouvellecaledonie": "Nová Kaledonie",
+                "oman": "Omán",
+                "pakistan": "Pákistán",
+                "panama": "Panama",
+                "peru": "Peru",
+                "poland": "Polsko",
+                "polynesie": "Francouzská Polynésie",
+                "qatar": "Katar",
+                "reunion": "Réunion",
+                "romania": "Rumunsko",
+                "saudiarabia": "Saúdský Honza",
+                "singapore": "Singapur",
+                "slovakia": "Slovensko",
+                "spain": "Španělsko",
+                "swiss": "Švýcarský",
+                "thailand": "Thaïland",
+                "turkey": "Turecko",
+                "uk": "VELKÁ BRITÁNIE",
+                "arabemirates": "Spojené arabské emiráty",
+                "usa": "SPOJENÉ STÁTY AMERICKÉ",
+                "vanuatu": "Vanuatu",
+                "waliisfutuna": "Wallis & Futuna",
+                "other": "Ostatní"
+            },
+            "ages": {
+                "minus-34": "34 a méně",
+                "35-44": "od 35 do 44",
+                "45-54": "od 45 až 54",
+                "more-55": "55 a více"
+            }
+        },
+        "gdfec": {
+            "edit": {
+                "title": "To je vaše první připojení",
+                "lastName": "Poslední jméno *",
+                "firstName": "Křestní jméno *",
+                "branch": "Pobočka *",
+                "password_title": "Zadejte nové heslo",
+                "oldPassword": "Aktuální heslo *",
+                "password": "Nové heslo *",
+                "password_confirmation": "Potvrzení *",
+                "personnal_title": "Zadejte prosím své osobní údaje",
+                "businessUnit": "Obchodní jednotka *",
+                "age": "Věkové rozmezí *",
+                "workingCountry": "Země kde práce *",
+                "gender": "Rod *",
+                "save": "Ověřit",
+                "mandatory": "* povinná pole",
+                "male": "Muž",
+                "female": "Žena",
+                "saving": "Počkejte, prosím, při ukládání vašich informací. Budete přesměrováni na domovskou stránku, po dokončení."
+            },
+            "error": {
+                "different_password": "Vaše heslo se neshoduje s jeho potvrzení",
+                "mandatory": "Všechna tato pole jsou povinná",
+                "incorrectPassword": "Aktuální heslo je neplatné."
+            },
+            "branch": {
+                "centre": "Centrum",
+                "energy_europe": "Energie pro Evropu",
+                "energy_international": "Mezinárodní energetické",
+                "energy_services": "Energetické služby",
+                "global_gas_lng": "Globální plyn & LNG",
+                "infrastructures": "Infrastruktura",
+                "entreprises_collectivites": "Podniky a orgány veřejné moci"
+            },
+            "business_unit": {
+                "centre_bxl": "Centrum BXL",
+                "centre_paris": "Paříž centrum",
+                "generation": "Generace",
+                "renewable_energies": "Obnovitelné zdroje energie",
+                "marketing_sales": "Marketing & prodej",
+                "emt": "EMT",
+                "support_lines_corporate": "Podporují linky / firemní",
+                "asia_pacific": "Asie Pacifik",
+                "latin_america": "Latinská Amerika",
+                "north_america": "Severní Amerika",
+                "samea": "Jižní Asie, Střední východ & Afrika (SAMEA)",
+                "uk_turkey": "UK-Turecko",
+                "benelux_division": "Divize Benelux",
+                "engineering_division": "Technická divize",
+                "support": "Fonctions podpora / Corporate & ostatní",
+                "international_division": "Zahraniční oddělení",
+                "pole_services": "Pôle Francie služby Energétiques",
+                "pole_system": "Pôle Francie Systèmes, instalace & údržba",
+                "pole_network": "Pôle Réseaux / District divize energetiky",
+                "ep": "E & P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "Distribuce",
+                "storage": "Skladování",
+                "methane": "Terminaux Méthaniers",
+                "business_line_energies": "Obchodní linie energie",
+                "business_line_services": "Obchodní služby",
+                "delegation_relation_clients": "Délégation vztah klientů",
+                "direction_finance": "Směr finanční výkonnosti",
+                "direction_rh": "Směr Ressources Humaines Prévention Santé Sécurité",
+                "etat_major": "Etat hlavní",
+                "direction_ventes": "Směr des Ventes",
+                "marche_eld": "Marché ELD",
+                "marche_prive": "Marché Résidentiel Privé",
+                "marche_public": "Marché klienty veřejnost",
+                "marche_industrie": "Marché Industrie et Grand Tertiaire",
+                "marche_multisites": "Marché Multisites",
+                "marche_pme_pmi": "Marché PME/PMI",
+                "marketing_marche_clients": "Marketingové Marché/klienti",
+                "systeme_information": "Système d'Information Métier"
+            },
+            "country": {
+                "algeria": "Alžírsko",
+                "argentina": "Argentina",
+                "australia": "Austrálie",
+                "bahrein": "Bahreïn",
+                "belgium": "Belgie",
+                "brazil": "Brazílie",
+                "cameroun": "Kamerun",
+                "canada": "Kanada",
+                "chili": "Chile",
+                "china": "Čína",
+                "costarica": "Kostarika",
+                "cz": "Česká republika",
+                "egypt": "Egypt",
+                "france": "Francie",
+                "germany": "Německo",
+                "greece": "Řecko",
+                "hungary": "Maďarsko",
+                "indonesia": "Indonésie",
+                "italy": "Itálie",
+                "laos": "Laos",
+                "libya": "Libye",
+                "luxembourg": "Lucembursko",
+                "mexico": "Mexiko",
+                "monaco": "Monako",
+                "morocco": "Maroko",
+                "netherland": "Nizozemsko",
+                "norway": "Norsko",
+                "nouvellecaledonie": "Nová Kaledonie",
+                "oman": "Omán",
+                "pakistan": "Pákistán",
+                "panama": "Panama",
+                "peru": "Peru",
+                "poland": "Polsko",
+                "polynesie": "Francouzská Polynésie",
+                "qatar": "Katar",
+                "reunion": "Réunion",
+                "romania": "Rumunsko",
+                "saudiarabia": "Saúdský Honza",
+                "singapore": "Singapur",
+                "slovakia": "Slovensko",
+                "spain": "Španělsko",
+                "swiss": "Švýcarský",
+                "thailand": "Thaïland",
+                "turkey": "Turecko",
+                "uk": "VELKÁ BRITÁNIE",
+                "arabemirates": "Spojené arabské emiráty",
+                "usa": "SPOJENÉ STÁTY AMERICKÉ",
+                "vanuatu": "Vanuatu",
+                "waliisfutuna": "Wallis & Futuna",
+                "other": "Ostatní"
+            },
+            "ages": {
+                "minus-34": "34 a méně",
+                "35-44": "od 35 do 44",
+                "45-54": "od 45 až 54",
+                "more-55": "55 a více"
+            }
+        },
+        "nespresso": {
+            "changePassword": {
+                "title": "Vítej!",
+                "intro": "Změňte své heslo. Uschovejte ji pro budoucí použití!"
+            }
+        },
+        "pwc": {
+            "footer": {
+                "title": "Discover our PwC Digital Academy platform"
+            }
+        },
+        "renaultcare": {
+            "changePassword": {
+                "intro": "<span>Dobrý den,</span> <br><br>k vytvoření váš Smartphone přístup k zákazníkům MOOC, musíte konfigurovat heslo níže. <br> Vám zašleme vaši poté potvrzovací e-mail s odkazem konkrétní připojení k MOOC z vašeho smartphonu. <br><br>Jako připomínku, je vaše ID pro připojení k C@re 2.0 plateform: <b>{{login}}</b> <br><br>nyní zadejte své heslo:"
+            },
+            "myaccount": {
+                "updatePassword": "Ověřit"
+            }
+        },
+        "samsung": {
+            "edit": {
+                "title": "To je vaše první připojení",
+                "lastName": "Poslední jméno *",
+                "firstName": "Křestní jméno *",
+                "email": "E-mail *",
+                "branch": "Subjekt *",
+                "password_title": "Zadejte nové heslo",
+                "password": "Heslo *",
+                "password_confirmation": "Potvrdit heslo *",
+                "personnal_title": "Zadejte prosím své osobní údaje",
+                "age": "Rok narození *",
+                "workingCountry": "Země *",
+                "save": "Ověřit",
+                "mandatory": "* povinná pole",
+                "saving": "Počkejte, prosím, při ukládání vašich informací. Budete přesměrováni na domovskou stránku, po dokončení."
+            },
+            "error": {
+                "different_password": "Vaše heslo se neshoduje s jeho potvrzení",
+                "mandatory": "Všechna tato pole jsou povinná"
+            },
+            "branch": {
+                "centre": "Centrum",
+                "energy_europe": "Energie pro Evropu",
+                "energy_international": "Mezinárodní energetické",
+                "energy_services": "Energetické služby",
+                "global_gas_lng": "Globální plyn & LNG",
+                "infrastructures": "Infrastruktura"
+            },
+            "business_unit": {
+                "centre_bxl": "Centrum BXL",
+                "centre_paris": "Paříž centrum",
+                "generation": "Generace",
+                "renewable_energies": "Obnovitelné zdroje energie",
+                "marketing_sales": "Marketing & prodej",
+                "emt": "EMT",
+                "support_lines_corporate": "Podporují linky / firemní",
+                "asia_pacific": "Asie Pacifik",
+                "latin_america": "Latinská Amerika",
+                "north_america": "Severní Amerika",
+                "samea": "Jižní Asie, Střední východ & Afrika (SAMEA)",
+                "uk_turkey": "UK-Turecko",
+                "benelux_division": "Divize Benelux",
+                "engineering_division": "Technická divize",
+                "support": "Fonctions podpora / Corporate & ostatní",
+                "international_division": "Zahraniční oddělení",
+                "pole_services": "Pôle Francie služby Energétiques",
+                "pole_system": "Pôle Francie Systèmes, instalace & údržba",
+                "pole_network": "Pôle Réseaux / District divize energetiky",
+                "ep": "E & P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "Distribuce",
+                "storage": "Skladování",
+                "methane": "Terminaux Méthaniers"
+            },
+            "country": {
+                "algeria": "Alžírsko",
+                "argentina": "Argentina",
+                "australia": "Austrálie",
+                "bahrein": "Bahreïn",
+                "belgium": "Belgie",
+                "brazil": "Brazílie",
+                "cameroun": "Kamerun",
+                "canada": "Kanada",
+                "chili": "Chile",
+                "china": "Čína",
+                "costarica": "Kostarika",
+                "cz": "Česká republika",
+                "egypt": "Egypt",
+                "france": "Francie",
+                "germany": "Německo",
+                "greece": "Řecko",
+                "hungary": "Maďarsko",
+                "indonesia": "Indonésie",
+                "italy": "Itálie",
+                "laos": "Laos",
+                "libya": "Libye",
+                "luxembourg": "Lucembursko",
+                "mexico": "Mexiko",
+                "monaco": "Monako",
+                "morocco": "Maroko",
+                "netherland": "Nizozemsko",
+                "norway": "Norsko",
+                "nouvellecaledonie": "Nová Kaledonie",
+                "oman": "Omán",
+                "pakistan": "Pákistán",
+                "panama": "Panama",
+                "peru": "Peru",
+                "poland": "Polsko",
+                "polynesie": "Francouzská Polynésie",
+                "qatar": "Katar",
+                "reunion": "Réunion",
+                "romania": "Rumunsko",
+                "saudiarabia": "Saúdský Honza",
+                "singapore": "Singapur",
+                "slovakia": "Slovensko",
+                "spain": "Španělsko",
+                "swiss": "Švýcarský",
+                "thailand": "Thaïland",
+                "turkey": "Turecko",
+                "uk": "VELKÁ BRITÁNIE",
+                "arabemirates": "Spojené arabské emiráty",
+                "usa": "SPOJENÉ STÁTY AMERICKÉ",
+                "vanuatu": "Vanuatu",
+                "waliisfutuna": "Wallis & Futuna",
+                "other": "Ostatní"
+            },
+            "ages": {
+                "minus-34": "34 a méně",
+                "35-44": "od 35 do 44",
+                "45-54": "od 45 až 54",
+                "more-55": "55 a více"
+            }
+        },
+        "up": {
+            "myaccount": {
+                "noModulesUnlocked": "Žádná úroveň koupil",
+                "unlockedModules": "Úrovně si koupil:"
+            }
+        },
+        "digitlearning": {
+            "passwordHint": "Minimálně 8 znaků dlouhé. Heslo musí obsahovat nejméně jeden znak velká písmena, číslice a speciální znak (~! @# $%^&*_-+='|() {} []:; “’ <>,.? )"
+        }
+    }
+}

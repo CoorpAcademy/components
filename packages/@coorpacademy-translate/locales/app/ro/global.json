@@ -1,0 +1,435 @@
+{
+    "content": {
+        "types": {
+            "course": "curs",
+            "course_plural": "cursuri",
+            "adaptive_chapter": "Adaptive 5' Learning",
+            "adaptive_course": "Adaptive de învăţare",
+            "adaptive_course_plural": "Adaptive de învăţare",
+            "cursus": "cursus",
+            "cursus_plural": "cursus",
+            "chapter": "5' Learning",
+            "chapter_plural": "5' Learning"
+        },
+        "sorts": {
+            "title": "Sortează după:",
+            "cta": "Sortare",
+            "tab": "Sorteaza dupa",
+            "pertinence": "Relevanță",
+            "newest": "Cele mai noi",
+            "duration": "Mai scurt"
+        },
+        "filters": {
+            "cta": "Filtru",
+            "tab": "Filtru",
+            "authors": "Autori:",
+            "authorTypes": "Categoriile de conținut:",
+            "skills": "Abilități:",
+            "type": "Tip:",
+            "themes": "Colecţii:",
+            "goals": "Certificari:",
+            "time": "Timp:",
+            "learning_paths": "Căi de învățare:",
+            "all_authors": "Toți autori",
+            "all_author_types": "Toate categoriile",
+            "all_skills": "Toate abilitățile",
+            "all_themes": "Toate colecțiile",
+            "all_goals": "Toate certificările",
+            "all_courses": "Toate Cursurile",
+            "microlearning": "5' Learning",
+            "all": "Toate",
+            "courses": "Cursuri",
+            "my_favorites": "Lista mea:"
+        },
+        "notification": {
+            "addFavorite": "Element adăugat în listă",
+            "removeFavorite": "Element șters din listă"
+        },
+        "search": {
+            "placeholder": "Ce vrei să înveţi?"
+        },
+        "catalog": "Catalog",
+        "result": "{{title}}: {{count}} rezultat",
+        "result_plural": "{{title}}: {{count}} rezultatele",
+        "noresultsfound": "Ne pare rau nici un rezultat disponibil",
+        "clearFilters": "Resetare",
+        "recommended": "Descopera cursurile recomandate pentru tine:",
+        "new": "noi"
+    },
+    "author": {
+        "socialTitle": "Social:",
+        "cardsTitle": "Toate cursurile de la {{author}}",
+        "website": "Site web:",
+        "notFound": "Autor ({{authorRef}}) negăsit",
+        "more": "Detalii despre autor",
+        "customCustomer": "{{name}} Creation",
+        "types": {
+            "coorp": "Coorp Originals",
+            "verified": "Verified by Coorp",
+            "marketplace": "Altele",
+            "custom": "{{name}} Creation"
+        }
+    },
+    "unit": {
+        "duration_minutes_set": "{{m}} min",
+        "duration_minutes_set_plural": "{{m}} min",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}} ora $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}} hours $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "shortUnit": {
+        "duration_minutes_set": "{{m}}m",
+        "duration_minutes_set_plural": "{{m}}m",
+        "duration_minutes_with_hours_set": "{{m}}",
+        "duration_minutes_with_hours_set_plural": "{{m}}",
+        "duration_minutes_with_hours_none": "‌",
+        "duration_minutes_with_hours_none_plural": "‌",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}}h$t(shortUnit.duration_minutes_with_hours, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}}h$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "module_level": {
+        "1": "$t(global:module_level.base)",
+        "2": "$t(global:module_level.advanced)",
+        "3": "$t(global:module_level.coach)",
+        "base": "De bază",
+        "advanced": "Avansat",
+        "coach": "Antrenor"
+    },
+    "progression_status": {
+        "not_started": "Neînceput",
+        "in_progress": "În curs de desfăşurare",
+        "completed": "Finalizat"
+    },
+    "close": "Închidere",
+    "skipIntro": "Treci peste intro",
+    "route": {
+        "initialized": "Această afișare este setată acum.",
+        "error": {
+            "401": "Se pare că nu mai sunteți conectat/ă.",
+            "402": "Plata este necesară",
+            "403": "Nu aveți voie să faceți acest lucru.",
+            "404": "Știați? Un cod de eroare 404 înseamnă că o pagină nu a fost găsită.",
+            "409": "ştii? Un cod de eroare 409 înseamnă că din cauza unor date care nu este până la data de cerere nu poate fi rezolvată.",
+            "500": "Ştiai? O eroare cu cod 500 înseamnă că a apărut o problemă la server.",
+            "api": "A apărut o eroare. Serverul este activ dar aplicația nu funcționează corect.",
+            "default": "A survenit o eroare."
+        }
+    },
+    "loading": "Se încarcă...",
+    "htmlTitle": "CoorpAcademy",
+    "hero": {
+        "cta": "Începe să înveți"
+    },
+    "cookiesDisabled": {
+        "title": "Cookie-urile desactivated",
+        "error": "Modulele cookie sunt dezactivate sau blocat. Vă rugăm să re-activa sau configura AdBlocker dumneavoastră"
+    },
+    "chatbot": {
+        "welcome": {
+            "default": "Welcome on Coorpacademy. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin.",
+            "facebook": "Hello and welcome to Coorpacademy! I can ask you question of our online courses. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin. If you're looking for some other informations you can contact us at communication@coorpacademy.com."
+        },
+        "ask_question": {
+            "repeat_header_1": "Sigur! {{question}}.",
+            "repeat_header_2": "desigur! {{question}}.",
+            "repeat_header_3": "ok! Aici este problema din nou: {{question}}.",
+            "repeat_header_4": "nicio problemă. {{question}}.",
+            "repeat_header_5": "Repet: {{question}}."
+        },
+        "next_action": {
+            "question_next": "Cere 'următoarea întrebare' pentru a continua.",
+            "answer_next": "Care este răspunsul?",
+            "wrong_answer_next": "Spun \"de ce\" pentru a obţine unele explicaţii sau 'următorul' pentru a continua."
+        },
+        "answer_question": {
+            "is_valid": {
+                "title_1": "Bravo!",
+                "title_2": "Asta e corect!",
+                "title_3": "Răspuns bun!",
+                "title_4": "da!",
+                "title_5": "bine lucrat!"
+            },
+            "is_invalid": {
+                "title_1": "deloc! Răspunsul a fost: {{answer}}.",
+                "title_2": "Asta nu e bine! Răspunsul a fost: {{answer}}.",
+                "title_3": "Răspunsul rău! Ar trebui să spun: {{answer}}.",
+                "title_4": "Aoleu! Raspunsul corect era: {{answer}}.",
+                "title_5": "Imi pare rau, dar asta-i drept! Raspunsul corect era: {{answer}}."
+            }
+        },
+        "error": {
+            "not_found": "Imi pare rau, nu a întemeia orice problemă. Vă rugăm să încercaţi cu orice alt subiect."
+        }
+    },
+    "demo": {
+        "url": "https://www.coorpacademy.com/en/request-a-demo/?utm_source=Up&utm_medium={{medium}}"
+    },
+    "custom": {
+        "7steps": {
+            "module_level": {
+                "base": "Why",
+                "advanced": "Empathy",
+                "coach": "Show me"
+            }
+        },
+        "loreal-retail-v2": {
+            "module_level": {
+                "base": "de ce",
+                "advanced": "Empatie",
+                "coach": "arată-mi"
+            }
+        },
+        "accueil": {
+            "htmlTitle": "MOOC Bun venit Franța"
+        },
+        "achat-habitat": {
+            "htmlTitle": "Mooc Achat Habitat",
+            "module_level": {
+                "base": "Intro",
+                "advanced": "Părți bune",
+                "coach": "Antrenor"
+            }
+        },
+        "adeo": {
+            "htmlTitle": "Adeo Training CPL"
+        },
+        "auchan-retail": {
+            "htmlTitle": "Auchan Retail QUIZZ"
+        },
+        "architas-powercircle": {
+            "htmlTitle": "POWERCIRCLE | FOCUS"
+        },
+        "bnp": {
+            "htmlTitle": "MOOC BNP Paribas Factor"
+        },
+        "bestwesternuniversity": {
+            "htmlTitle": "Best Western University"
+        },
+        "capgemini": {
+            "htmlTitle": "COOC"
+        },
+        "cd78": {
+            "htmlTitle": "MOOC rSa"
+        },
+        "chanel": {
+            "htmlTitle": "iJoinCHANEL"
+        },
+        "clarins-digital": {
+            "htmlTitle": "Clarins Digital"
+        },
+        "crt": {
+            "htmlTitle": "CRT"
+        },
+        "coravin": {
+            "htmlTitle": "Coravin"
+        },
+        "corporateonlineopencourse": {
+            "module_level": {
+                "base": "ELEMENTELE DE BAZĂ"
+            },
+            "progression_status": {
+                "not_started": "Înregistrat",
+                "in_progress": "Înregistrat",
+                "completed": "Finalizat"
+            }
+        },
+        "dolce": {
+            "htmlTitle": "Persoane fizice"
+        },
+        "eacampus": {
+            "htmlTitle": "EAcampus"
+        },
+        "ecolenumerique-sncf": {
+            "content": {
+                "filters": {
+                    "goals": "Insigne Jedi:"
+                }
+            }
+        },
+        "edenred-talents": {
+            "htmlTitle": "Edenred talentele",
+            "module_level": {
+                "coach": "Ambasadorul"
+            }
+        },
+        "ganprevoyance": {
+            "content": {
+                "filters": {
+                    "goals": "Universuri:"
+                }
+            }
+        },
+        "faurecia": {
+            "htmlTitle": "Learning Lab"
+        },
+        "gdf": {
+            "htmlTitle": "WeTransform"
+        },
+        "gdfec": {
+            "htmlTitle": "Întreprinderi și Comunități"
+        },
+        "hr-ac": {
+            "htmlTitle": "HR Academy"
+        },
+        "ilearn": {
+            "htmlTitle": "CHANEL iLearn",
+            "module_level": {
+                "1": "Esenţial",
+                "2": "Avansat",
+                "3": "Expert",
+                "base": "Esențial",
+                "advanced": "Avansat",
+                "coach": "Expert"
+            }
+        },
+        "learnnrj": {
+            "htmlTitle": "Învăț energie"
+        },
+        "logisacademie": {
+            "htmlTitle": "Logis Académie"
+        },
+        "linxea": {
+            "htmlTitle": "Academia LinXea"
+        },
+        "manpower": {
+            "htmlTitle": "Efectul de lider",
+            "module_level": {
+                "1": "Fundamente",
+                "2": "Expert",
+                "3": "Instructor",
+                "base": "Elementar",
+                "advanced": "Expert",
+                "coach": "Autocar"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "htmlTitle": "Digital MOOC ATF"
+        },
+        "mooc-socgen": {
+            "htmlTitle": "Marijana Socgen",
+            "module_level": {
+                "base": "Nivel 1",
+                "advanced": "Nivel 2",
+                "coach": "Nivel 3"
+            }
+        },
+        "natixis": {
+            "htmlTitle": "Think Digital"
+        },
+        "nespresso": {
+            "module_level": {
+                "3": "Expert",
+                "coach": "Expert"
+            }
+        },
+        "nespressodigital": {
+            "htmlTitle": "Academia digitală"
+        },
+        "paca": {
+            "htmlTitle": "MOOC Paca"
+        },
+        "online-academy-klubschule": {
+            "module_level": {
+                "base": "Incepator",
+                "advanced": "Avansate",
+                "coach": "Expert"
+            }
+        },
+        "petite": {
+            "htmlTitle": "Înscriere Chanel Petite",
+            "module_level": {
+                "base": "Modulul 1",
+                "advanced": "Modulul 2",
+                "coach": "Modulul 3"
+            }
+        },
+        "quizz-auchan": {
+            "htmlTitle": "QUIZZ AUCHAN RETAIL"
+        },
+        "renaultrh": {
+            "module_level": {
+                "base": "Pasul 1",
+                "advanced": "Pasul 2",
+                "coach": "Pasul 3"
+            }
+        },
+        "renaultcare": {
+            "module_level": {
+                "base": "Elemente de bază"
+            }
+        },
+        "rexel": {
+            "htmlTitle": "Orientarea către clienți de Rexel"
+        },
+        "schneider": {
+            "module_level": {
+                "base": "Sezon 1",
+                "advanced": "Sezonul 2",
+                "coach": "Sezon 3"
+            }
+        },
+        "tagheuer": {
+            "module_level": {
+                "base": "Titaniu",
+                "advanced": "Bronz",
+                "coach": "Argint"
+            }
+        },
+        "tagheuercon": {
+            "module_level": {
+                "base": "Titan",
+                "advanced": "Bronz",
+                "coach": "Argint"
+            }
+        },
+        "theglenlivet-academy": {
+            "htmlTitle": "The Glenlivet | ザ・グレンリベット アカデミー"
+        },
+        "tourism": {
+            "htmlTitle": "Academia de Turism"
+        },
+        "tourismdigital": {
+            "htmlTitle": "Turism Digital"
+        },
+        "tourisme-hautsdefrance": {
+            "htmlTitle": "Tourisme Hauts-de-France"
+        },
+        "yahoo": {
+            "module_level": {
+                "base": "Rookie",
+                "advanced": "La mijlocul",
+                "coach": "Pro"
+            }
+        },
+        "ey": {
+            "htmlTitle": "Academia Digitală"
+        },
+        "thelem": {
+            "htmlTitle": "DigiPass#"
+        },
+        "letsgetdigital": {
+            "htmlTitle": "Let's get digital 2.0",
+            "module_level": {
+                "base": "Începător",
+                "advanced": "EXPERT",
+                "coach": "MASTER"
+            }
+        },
+        "who": {
+            "htmlTitle": "Drepturi de calitate",
+            "module_level": {
+                "advanced": "Analiză de caz"
+            }
+        },
+        "triptorelin": {
+            "htmlTitle": "Triptorelină"
+        }
+    }
+}

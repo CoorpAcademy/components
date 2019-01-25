@@ -1,0 +1,201 @@
+{
+    "title": "My Certifications.",
+    "subtitle_head1": "Select one or more certifications and complete them to improve your skills on a selected area or topic.",
+    "subtitle_head2": "Start a certification module.",
+    "how_to": "To validate a certification, you must complete every module. Let's get started!",
+    "button_choose_goal": "Choose a Certification.",
+    "selected_goals_title": "{{goals}} Current Certification",
+    "selected_goals_title_plural": "{{goals}} Current Certifications",
+    "selected_goals_no_item": "No Certification is selected. Please choose one!",
+    "finished_goals_title": "{{goals}}  Cleared Certification",
+    "finished_goals_title_plural": "{{goals}}  Cleared Certifications",
+    "finished_goal_label": "{{goalLabel}} {{star}}",
+    "finished_goals_no_item": "You haven't completed any certifications yet.",
+    "button_module_access": "Start Now",
+    "minutes_label": "min",
+    "status_label": "Status:",
+    "stars_label": "{{stars}} star",
+    "stars_label_plural": "{{stars}} stars",
+    "popover": {
+        "title": "Be Careful!",
+        "module_blocked_pre": "This module is not available:",
+        "module_blocked_post": "{{pre}} To achieve it you must first validate level {{level}}",
+        "select_goal": {
+            "title": "Please Choose a Certification",
+            "available_module": "{{total}} Available Certification",
+            "available_module_plural": "{{total}} Available Certifications",
+            "module_done": "This module has already been cleared. You are on your way to validating the Certification.",
+            "module_blocked": "This module isn't available yet. To unlock it you must first clear the Basic or Advanced levels.",
+            "button_add_goal": "Confirm my Certification."
+        }
+    },
+    "condition_progress": {
+        "information": "You have completed {{done}} of {{total}} proposed modules."
+    },
+    "certification": {
+        "title": "Certification",
+        "title_plural": "Certification",
+        "subtitle": "Validate your learning here",
+        "subtitle_plural": "Validate your learning here",
+        "rewards": {
+            "subtitle": "Your Rewards",
+            "see_detail": "See",
+            "congratulations": "congratulations on your success",
+            "you_can_win": "Win",
+            "download_resource": "Click here to download",
+            "see_diploma": "See Certificate",
+            "access_your_diploma": "Access your certificate"
+        },
+        "stars": {
+            "description_pre": "Get",
+            "description_post": "stars"
+        },
+        "state": {
+            "done": "Done!",
+            "inProgress": "In progress"
+        },
+        "condition_description": {
+            "progress": "Target: {{count}} module",
+            "progress_plural": "Target: {{count}} modules"
+        },
+        "certificationDone": "Congratulations! You have obtained the {{certificationName}} certification!"
+    },
+    "diploma": {
+        "certificate": "certificate",
+        "date": "Date: {{date}}",
+        "message": "has completed all the modules relevant to this certificate in:"
+    },
+    "custom": {
+        "ecolenumerique-sncf": {
+            "certification": {
+                "title": "Jedi Badge",
+                "title_plural": "Jedi Badges",
+                "certificationDone": "Congratulations! You have obtained the {{certificationName}} Badge!",
+                "subtitle": "Validate your Jedi Badge here",
+                "subtitle_plural": "Validate your Jedi Badges here"
+            }
+        },
+        "ganprevoyance": {
+            "certification": {
+                "title": "Universe",
+                "title_plural": "Universes",
+                "certificationDone": "Congratulations! You have validated the {{certificationName}} Universe!",
+                "subtitle": "Validate your Universe here",
+                "subtitle_plural": "Validate your Universes here"
+            }
+        },
+        "cnp": {
+            "certification": {
+                "title": "Certificate",
+                "title_plural": "Certificates",
+                "certificationDone": "Congratulations! You have validated the {{certificationName}} Certificate!",
+                "subtitle": "Validate your Certificate here",
+                "subtitle_plural": "Validate your Certificates here"
+            }
+        },
+        "pernod": {
+            "title": "My Objectives.",
+            "subtitle_head1": "Select one or more Objectives and complete them to improve your skills on a selected area and topic.",
+            "subtitle_head2": "Start a module among those included in an Objective.",
+            "how_to": "To validate an Objective, you must complete every module. Let's get started!",
+            "button_choose_goal": "Choose an Objective.",
+            "selected_goals_title": "{{goals}} Current Objective",
+            "selected_goals_title_plural": "{{goals}} Current Objectives",
+            "selected_goals_no_item": "No Objective is selected. Please choose one!",
+            "finished_goals_title": "{{goals}}  Cleared Objective",
+            "finished_goals_title_plural": "{{goals}}  Cleared Objectives",
+            "finished_goal_label": "{{goalLabel}} {{star}}",
+            "finished_goals_no_item": "You haven't cleared any Objectives yet.",
+            "button_module_access": "Start Now",
+            "minutes_label": "min",
+            "status_label": "Status:",
+            "stars_label": "{{stars}} star",
+            "stars_label_plural": "{{stars}} stars",
+            "popover": {
+                "title": "Be Careful!",
+                "module_blocked_pre": "This module is not available:",
+                "module_blocked_post": "{{pre}} To achieve it you must first validate level {{level}}",
+                "select_goal": {
+                    "title": "Please choose an Objective",
+                    "available_module": "{{total}} Available Objective",
+                    "available_module_plural": "{{total}} Available Objectives",
+                    "module_done": "This module has already been cleared. You are on your way to achieving the Objective.",
+                    "module_blocked": "This module isn't available yet. To unlock it you must first clear the Basic or Advanced levels.",
+                    "button_add_goal": "Confirm my Objective."
+                }
+            },
+            "condition_progress": {
+                "information": "You have completed {{done}} of {{total}} proposed modules."
+            },
+            "certification": {
+                "title": "Your Objectives",
+                "subtitle": "Valide your skills having these Objectives",
+                "rewards": {
+                    "subtitle": "Your rewards",
+                    "see_detail": "See",
+                    "congratulations_pre": "And our",
+                    "congratulations": "congralutations",
+                    "congratulations_post": "for all your efforts"
+                },
+                "stars": {
+                    "description_pre": "We are giving you",
+                    "description_post": "stars"
+                },
+                "state": {
+                    "done": "Done",
+                    "inProgress": "In progress"
+                },
+                "condition_description": {
+                    "progress": "{{nbDone}} completed modules"
+                },
+                "certificationDone": "Congratulations! You have obtained the {{certificationName}} objective!"
+            }
+        },
+        "sgmgt": {
+            "diploma": {
+                "message": "All the steps of the proficiencies required have been completed within the framework of project management awareness"
+            }
+        },
+        "securite": {
+            "diploma": {
+                "message": "has completed all the modules relevant to this certificate in:"
+            }
+        },
+        "projet": {
+            "diploma": {
+                "message": "All the steps of the proficiencies required have been completed within the framework of project management awareness"
+            }
+        },
+        "tagheuer": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "This module isn't available yet. To unlock it you must first clear the Titanium or Bronze levels."
+                }
+            }
+        },
+        "tagheuercon": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "This module isn't available yet. To unlock it you must first clear the Titanium or Bronze levels."
+                }
+            }
+        },
+        "up": {
+            "subtitle_head2": "Start a level among those included in an Objective.",
+            "how_to": "To validate an Objective, you must complete every level. Let's get started!",
+            "popover": {
+                "module_blocked_pre": "This level is not available:",
+                "select_goal": {
+                    "module_done": "This level has already been cleared. You are on your way to achieving the Objective.",
+                    "module_blocked": "This level isn't available yet. To unlock it you must first clear the Basic or Advanced levels."
+                }
+            },
+            "certification": {
+                "condition_description": {
+                    "progress": "Target: {{count}} discipline",
+                    "progress_plural": "Target: {{count}} disciplines"
+                }
+            }
+        }
+    }
+}

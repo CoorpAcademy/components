@@ -1,0 +1,1569 @@
+{
+    "hello": "Welkom, {{displayname}}!",
+    "show_more": "Alles tonen",
+    "registered": {
+        "score": "Jouw score:",
+        "new_score": "Je nieuwe score van {{newscore}}",
+        "badge": {
+            "new": "1 badge",
+            "new_post": "gewonnen",
+            "award_pre": "Brons",
+            "award": "- 3 battles",
+            "award_post": "klaar",
+            "name": "Brons"
+        },
+        "next_player": "Je tegenstander is aan de beurt...",
+        "button_back": "Terug"
+    },
+    "slides_battle": "Vraag {{count}}",
+    "slides_battle_check": "Goedkeuren",
+    "success_battle": {
+        "title": "Battle beeindigd!",
+        "result": {
+            "win": "Gefeliciteerd, je hebt gewonnen!",
+            "win_fast": "Gefeliciteerd, je was de snelste en wint de battle!",
+            "win_first": "Proficiat!",
+            "win_second": "je hebt gewonnen",
+            "loose": "Oeps, je hebt verloren!",
+            "loose_first": "Oeps",
+            "loose_second": "je hebt verloren!",
+            "loose_against": "Jammer, je hebt verloren. {{name}} was sneller!",
+            "winStars": "Je hebt {{count}} extra ster met deze wedstrijd gewonnen!",
+            "winStars_plural": "Je hebt {{count}} extra sterren gewonnen met deze battle!"
+        },
+        "badge_user": {
+            "text": "1 badge",
+            "text_post": "gewonnen",
+            "award_pre": "Brons",
+            "award": "- 3 battles",
+            "award_post": "klaar",
+            "name": "Brons"
+        },
+        "badge_opponent": {
+            "text": "1 badge",
+            "text_post": "gewonnen",
+            "award_pre": "Brons",
+            "award": "- 3 battles",
+            "award_post": "klaar",
+            "name": "Brons"
+        },
+        "footer": "Terug"
+    },
+    "notificationCard": {
+        "request_title": "{{title}}verzoek",
+        "request": "Module {{module}} niveau {{level}}",
+        "aim": {
+            "text": "1 nieuw antwoord",
+            "text_post": "op jouw vraag",
+            "name": "Voornaam/achternaam",
+            "link": "Bekijken"
+        },
+        "badge": {
+            "text": "Gefeliciteerd! Je hebt 1 nieuwe badge verdiend",
+            "text_post": "gewonnen",
+            "link": "Bekijken"
+        },
+        "battle": {
+            "text": "Je hebt 1 nieuw battleverzoek",
+            "text_post": "uitdaging",
+            "link": "Bekijken",
+            "demand_accept": "Jouw battle-uitdaging",
+            "demand_accept_post": "is aanvaard",
+            "win_against_title": "Je hebt de battle gewonnen!",
+            "loose_against_title": "Je hebt de battle verloren!",
+            "against": "{{module}} module {{level}} level",
+            "versus": "tegen"
+        },
+        "forum_text": "Er is 1 nieuw antwoord op uw opmerking over het {{module}} module {{level}} niveau",
+        "forum_text_page": "Er is 1 nieuw antwoord op je reactie op het forum",
+        "module": {
+            "text": {
+                "bravo": "Gefeliciteerd!",
+                "pre": "Je bent geslaagd",
+                "detail": "de module ",
+                "base": "Niveau Beginner",
+                "advanced": "Niveau Gevorderde",
+                "coach": "Niveau Coach"
+            },
+            "link": "Bekijken"
+        },
+        "reward": {
+            "bonusStars": {
+                "title": "Gefeliciteerd! Je hebt extra sterren verdiend!",
+                "goal": {
+                    "description": "Je hebt het {{goal}}-doel bereikt. Daarmee heb je {{stars}} extra sterren verdiend."
+                },
+                "rh": {
+                    "description": "Je hebt {{stars}} extra sterren verdiend als beloning."
+                }
+            },
+            "rewardStars": {
+                "title": "Gefeliciteerd! Je hebt extra sterren verdiend!",
+                "goal": {
+                    "description": "Je hebt het {{goal}}-doel bereikt. Hiermee heb je {{stars}} extra sterren verdiend."
+                }
+            },
+            "resource": {
+                "title": "Gefeliciteerd! Je hebt toegang gekregen tot een nieuw onderdeel!",
+                "description": "Je hebt het {{goal}}- doel bereikt. Hiermee heb je toegang tot {{label}} gekregen."
+            },
+            "diploma": {
+                "title": "Certificaat",
+                "description": "Je hebt het doel {{goal}} bereikt en je certificaat verdiend. Gefeliciteerd! "
+            }
+        },
+        "coach": {
+            "bravo": "Gefeliciteerd!",
+            "text": "Je bent een coach in de discipline {{disciplineName}} geworden."
+        },
+        "title": {
+            "text": "{{title}} Verzoek",
+            "Battle": "Battle",
+            "Module": "Module",
+            "Badge": "Badge",
+            "Forum": "Discussie",
+            "Coach": "Coach",
+            "cmsNotification": "Informatie",
+            "welcome": "Welkom",
+            "resetModule": "Update inhoud!"
+        },
+        "type": {
+            "module": "Module",
+            "badge": "Badge",
+            "battle": "Battle",
+            "forum": "Discussie",
+            "Coach": "Coach",
+            "objectif": "Certificatie",
+            "cmsNotification": "Informatie",
+            "reward": "Beloning",
+            "welcome": "Welkom",
+            "resetModule": "Inhoud bijgwerkt!"
+        }
+    },
+    "achievement": {
+        "helper": "Overzicht van jouw succes! Zal het je lukken om platinum te bereiken voor elk van deze badges?",
+        "titre": "Jouw badges"
+    },
+    "navigation": {
+        "text": "Via jouw navigatiemenu heb je toegang tot alle functies van jouw platform",
+        "my_board": "Mijn dashboard",
+        "population": "Mijn doelgroepen",
+        "learningTree": {
+            "helper": "Toegang tot alle disciplines van jouw traject in 1 klik",
+            "push": "Toegang tot al jouw disciplines",
+            "push_post": "in 1 klik"
+        },
+        "account_helper": "Blader door je persoonlijke ruimte, vind je resultaten, bekijk je voortgang, neem deel aan discussies of volg de lessen voordat je aan de modules begint.",
+        "account": "Mijn account",
+        "language": "Taal",
+        "notification": "Meldingen",
+        "badge": "Mijn badges",
+        "objectif": "Mijn certificaties",
+        "activity": "Activiteit",
+        "discussion": "Discussies",
+        "conseil": "Tips & hints",
+        "coach": "Coaches",
+        "lessons": "Bibliotheek",
+        "battle_helper": "Zodra je klaar bent met een module, kun je degenen uitdagen die zich op hetzelfde niveau bevinden voor een korte partij van 10 vragen!",
+        "battle_pre": "Battlemodus",
+        "battle": "Daag je collega's uit in de 'Battlemodus': beantwoord de vragen zo snel mogelijk!",
+        "battle_post": "Klik hier!",
+        "assistance": "Helpdesk",
+        "home": "Startpagina",
+        "certifications": "Mijn certificaten"
+    },
+    "personal_selection": {
+        "text_helper": "3 modules voorgesteld, afhankelijk van jouw traject!",
+        "title": "Onze aanbeveling voor jou",
+        "acces_module": "Start nu",
+        "payment_required": "Nu kopen",
+        "popular_module_helper": "Inspiratie nodig? Bekijk wat iedereen doet door de meest populaire te selecteren.",
+        "last_discussion": "Laatste discussies",
+        "no_discussion": "Geen discussie",
+        "last_module": "Laatst gespeelde module",
+        "no_module": "Er is geen module gespeeld",
+        "level": {
+            "pre": "Niveau",
+            "base": "Beginner,",
+            "advanced": "Gevorderde,",
+            "coach": "Coach,",
+            "post": "{{stars}}/{{maxstars}}"
+        },
+        "popular_module": "Meest gespeelde disciplines",
+        "easiest_disciplines": "Gemakkelijkste disciplines",
+        "hardest_disciplines": "Moeilijkste disciplines",
+        "no_popular_module": "Er is geen module gespeeld",
+        "module_name": {
+            "pre": "niveau",
+            "base": "Beginner",
+            "advanced": "Gevorderde",
+            "coach": "Coach"
+        }
+    },
+    "activity": {
+        "title": "Activiteit",
+        "progression_text_pre": "Hoe gaat het in jouw disciplines?",
+        "progression_text": "Boek je voortuitgang met betrekking tot de doelstellingen?",
+        "progression_subtext": "Tijd voor een controle...",
+        "discipline_title": "Discipline",
+        "disciplines": {
+            "title": "Discipline",
+            "score": "Score",
+            "actual_level": "Huidig niveau"
+        },
+        "module_title": "Modules",
+        "avancement": "Voortgang",
+        "caption-started": "Begonnen module",
+        "caption-done": "Afgewerkte module"
+    },
+    "myactivity": {
+        "title": "Activiteit:",
+        "subtitle": "Boek je vooruitgang in je cursussen?",
+        "total": "Totaal:",
+        "engines": {
+            "learner": "Cursussen",
+            "microlearning": "5' Learning",
+            "battle": "Battles",
+            "certifications": "Certificeringen",
+            "bonus": "Bonus"
+        },
+        "recommendation": {
+            "title": "Hallo {{displayName}}, verhoog je score!",
+            "subtitle": "Wij raden aan:"
+        },
+        "starsToolTip": {
+            "preMessage": "Deze functie is momenteel niet beschikbaar op uw platform. Als u het wilt activeren, neem dan contact op met uw manager of",
+            "linkMessage": "klik hier",
+            "endMessage": "en wij zullen het bericht doorgeven."
+        }
+    },
+    "goals": {
+        "title": "Vooruitgang in je certificaten"
+    },
+    "badges": {
+        "title": "Al mijn badges",
+        "subtitle": "Ontdek al je badges",
+        "title-1-0": "Mijn badges",
+        "subtitle-1-0": "Bekijk alle badges die je hebt ontvangen of die je nog moet bemachtigen om de digitale 'Koning' te worden! ;-)",
+        "newBadgeWon": "Je hebt:",
+        "newBadgeWon_plural": "Je hebt:",
+        "seeYourBadges": "Jouw badges weergeven",
+        "battle": {
+            "name": "Battle Warrior",
+            "details": "{{count}} battle",
+            "details_plural": "{{count}} battles",
+            "details_post": "klaar!",
+            "details_post_plural": "klaar!"
+        },
+        "module": {
+            "name": "Overlevingsmodule",
+            "details": "{{count}} module",
+            "details_plural": "{{count}} modules",
+            "success": "voltooid",
+            "success_plural": "voltooid",
+            "details_pre_1": "zonder verlies",
+            "details_pre_2": "van een leven!"
+        },
+        "lesson": {
+            "name": "Eerste van de klas",
+            "details": "{{count}} les",
+            "details_plural": "{{count}} lessen",
+            "details_post": "volledig bekeken!",
+            "details_post_plural": "volledig bekeken!"
+        },
+        "question": {
+            "name": "Vragen voor een kampioen",
+            "details": "{{count}} vraag",
+            "details_plural": "{{count}} vragen",
+            "details_post": "beantwoord!",
+            "details_post_plural": "beantwoord!"
+        },
+        "coach": {
+            "name": "Eerste prijs in vriendschap",
+            "details": "{{count}} interactie",
+            "details_plural": "{{count}} interacties",
+            "details_pre_1": "met",
+            "details_pre_2": "de coaches!"
+        },
+        "level": {
+            "bronze": "Brons",
+            "silver": "Zilver",
+            "gold": "Goud",
+            "platinum": "Platina"
+        }
+    },
+    "battle": {
+        "title": "Battles",
+        "create": "Battle opstarten",
+        "requests": {
+            "title": "Battleverzoeken",
+            "no_requests_found": "Je hebt nog geen battleverzoeken",
+            "sendBattle": "{{opponentName}} daagt je uit"
+        },
+        "history": {
+            "title": "Historiek battles",
+            "message": {
+                "pending": "Deze battle wacht op goedkeuring van de tegenstander",
+                "win": "Je hebt de battle gewonnen!",
+                "lost": "Je hebt de battle verloren!",
+                "win_byTime": "Je was de snelste!",
+                "lost_byTime": "Je was te traag!"
+            },
+            "no_history_found": "Je hebt nog geen battlehistoriek"
+        },
+        "start": {
+            "cta": "Start <span class=\"bold\">battle </span>",
+            "new_cta": "Een nieuwe <span class=\"bold\">battle</span> opstarten",
+            "cancel": "Negeren",
+            "body_pre": "Snelheid is van belang:",
+            "bodyText": "Bij een gelijkspel wint de snelste!",
+            "me": "Me",
+            "inProgress": "In uitvoering"
+        },
+        "steps": {
+            "1": "1. Kies het gewenste niveau",
+            "2": "2. Selecteer een tegenstander",
+            "3": "3. Start battle"
+        },
+        "select_module": {
+            "title": "Kies een niveau:",
+            "placeholder": "Voer de naam van een module in",
+            "no_module_available": "Je kan enkel een battle starten in een afgewerkte module.",
+            "no_module_found": "Geen module gevonden"
+        },
+        "select_theme": {
+            "title": "Kies een collectie:"
+        },
+        "select_opponent": {
+            "title": "Kies je tegenstander",
+            "placeholder": "Voer een naam in",
+            "no_opponent_found": "Geen tegenstander gevonden",
+            "random": "Willekeurige tegenstander"
+        },
+        "subtitle": "Daag je collega's uit!",
+        "button": {
+            "create": "Een nieuwe battle maken",
+            "cancel": "Annuleren"
+        },
+        "score": "10",
+        "no_battle_progress": "Je hebt geen lopende battles.",
+        "block": {
+            "title": "Battleverzoeken"
+        },
+        "accept_button": "Accepteren",
+        "no_proposition": "Je hebt nog geen battleverzoeken ontvangen.",
+        "completed": {
+            "title": "voltooide battles",
+            "subtitle_pre": "Je hebt deelgenomen aan",
+            "subtitle_pre_plural": "Je hebt deelgenomen aan",
+            "subtitle": "{{count}} battles, {{nb}} gewonnen",
+            "subtitle_plural": "{{count}} wedstrijden, winnen {{nb}}"
+        },
+        "block_empty": "Je hebt geen afgewerkte battles.",
+        "create_title": "Battle opstarten",
+        "active_title_intro": "Battlemodus",
+        "active_title_active": "geactiveerd",
+        "start_discipline": "Start een discipline",
+        "no_opponent": "Geen tegenstander beschikbaar voor dit niveau",
+        "coming_soon_random": "Begin aan een willekeurige wedstrijd"
+    },
+    "dashboard": {
+        "text": "De ruimterace! Je kunt winnen door de vragen correct te beantwoorden, door de lessen te volgen of door te socializen (via wedstrijden en trainingen)!",
+        "title": "Jouw score",
+        "data": {
+            "intro": "Je staat aan kop",
+            "value": "15%",
+            "wording": "hoogste scores"
+        },
+        "data_dev_hidden": {
+            "question": {
+                "title": "Vragen:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "Je bent onderdeel van de",
+                    "level": "{{level}}",
+                    "wording": "met de meeste sterren"
+                }
+            },
+            "cours": {
+                "title": "Les:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "Je bent onderdeel van",
+                    "level": "{{level}}",
+                    "wording": "die de meeste lessen hebben bekeken."
+                }
+            },
+            "extra": {
+                "title": "Extra's:",
+                "stat": {
+                    "intro": "Je bent onderdeel van",
+                    "level": "{{level}}",
+                    "wording": "met de beste resultaten."
+                }
+            },
+            "total_title": "Totaal:"
+        }
+    },
+    "lessons": {
+        "title": "Alle lessen en video's",
+        "subtitle": "Wil je iets bekijken of bestuderen voordat je aan de vragen begint? Deze pagina is voor jou. Hier zijn alle lessen te vinden, ingedeeld per thema.",
+        "subtitle_up": "Wil je iets bekijken of bestuderen voor je aan de vragen begint? ",
+        "empty": "Geen bron gevonden voor deze cursus."
+    },
+    "notifications": {
+        "title": "Meldingen",
+        "infos": "<b>{{count}}</b> melding!",
+        "infos_plural": "<b>{{count}}</b> meldingen!",
+        "filter": "Filteren op...",
+        "close": "Sluiten",
+        "myNotifications": "Mijn meldingen weergeven",
+        "deleteAll": "Verwijder alles",
+        "filters": {
+            "module": "Filteren op niveau",
+            "badge": "Filteren op badge",
+            "forum": "Filteren op discussie",
+            "battle": "Filteren op battle",
+            "coach": "Filteren op coach",
+            "objectif": "Filteren op doel",
+            "reward": "Filteren op beloning",
+            "welcome": "Filter op welkomstbericht",
+            "resetModule": "Filteren op bijgewerkte inhoud"
+        }
+    },
+    "block_push": {
+        "tree": {
+            "title": "Door alle inhoud bladeren",
+            "content": "Klik hier voor een snelle start",
+            "link": "Klik hier"
+        },
+        "battle": {
+            "title": "Daag anderen uit!",
+            "content": "Start een \"battle\". Je vaardigheden ontwikkelen is nog nooit zo leuk geweest!",
+            "link": "Klik hier"
+        }
+    },
+    "welcomePopin": {
+        "title": "Welkom",
+        "text": "Om van MOOC te profiteren, ga je naar de pagina voor de eerste keer.",
+        "button": "Ontdekken"
+    },
+    "global_notification": {
+        "button": {
+            "show_more": "Meer info"
+        }
+    },
+    "filters": {
+        "all": "Alles",
+        "coorpers": "Coorpers",
+        "courses": "Mijn lessen"
+    },
+    "sections": {
+        "most-popular": "Meest populaire",
+        "most-recent": "Nieuwe releases",
+        "my-list": "Lijst van {{name}}",
+        "news": "Nieuws",
+        "recommended": "Aanbevolen voor jou",
+        "load_more": "Meer laden",
+        "certification": "Certificaat: {{name}}",
+        "prefix_chapter": "5' Learning: {{title}}"
+    },
+    "continueLesson": "Mijn cursus hervatten",
+    "widgets": {
+        "read_more": "Meer"
+    },
+    "discussion": {
+        "title": "Alle discussies",
+        "subtitle": "Bekijk alle berichten in de community voor de verschillende disciplines"
+    },
+    "slider": {
+        "start": {
+            "surtitle": "Welkom {{displayName}},",
+            "surtitle_anonymous": "Welkom,",
+            "title": "Ontdek de nieuwe cursussen",
+            "cta": "Zie catalogus"
+        },
+        "resume": {
+            "surtitle_learner": "Welkom terug {{displayName}}, ga verder:",
+            "surtitle_microlearning": "Welkom terug {{displayName}}, ga verder:",
+            "surtitle_learner_anonymous": "Welkom terug, ga verder:",
+            "surtitle_microlearning_anonymous": "Welkom terug, ga verder:",
+            "title": "{{courseName}}",
+            "cta": "Ga verder met leren"
+        },
+        "battle": {
+            "surtitle": "Welkom terug {{displayName}}, check je battleverzoeken",
+            "title": "Je hebt {{count}} battleverzoek!",
+            "title_plural": "Je hebt {{count}} battleverzoeken!",
+            "cta": "Start battle"
+        }
+    },
+    "custom": {
+        "7steps": {
+            "achievement": {
+                "helper": "Overzicht van je successen! Zal je erin slagen om het hoogste niveau te bereiken voor elk van deze badges?"
+            },
+            "badges": {
+                "level": {
+                    "platinum": "Boven"
+                }
+            },
+            "block_push": {
+                "tree": {
+                    "content": "Beginnen met het leren van nu!"
+                }
+            }
+        },
+        "accueil": {
+            "filters": {
+                "coorpers": "mooc'ers"
+            },
+            "badges": {
+                "battle": {
+                    "name": "Challenger",
+                    "details_3": "40"
+                },
+                "module": {
+                    "name": "Superheld",
+                    "details_1": {
+                        "number": "2"
+                    },
+                    "details_2": {
+                        "number": "4"
+                    },
+                    "details_3": {
+                        "number": "6"
+                    }
+                },
+                "lesson": {
+                    "name": "Prijs van de toelating",
+                    "details_0": "5",
+                    "details_1": "15",
+                    "details_2": "30",
+                    "details_3": "60"
+                },
+                "question": {
+                    "name": "Vraag voor een kampioen",
+                    "details_3": "360"
+                },
+                "coach": {
+                    "name": "Fellowship Award"
+                }
+            }
+        },
+        "architas-powercircle": {
+            "filters": {
+                "coorpers": "Investeringen superhelden"
+            }
+        },
+        "armeedeterre": {
+            "slider": {
+                "battle": {
+                    "surtitle": "Welkom terug {{displayName}}, check je battleverzoeken",
+                    "title": "Je hebt {{count}} battleverzoek!",
+                    "title_plural": "Je hebt {{count}} battleverzoeken!",
+                    "cta": "Start vechten"
+                }
+            },
+            "battle_start": {
+                "title": "Je battle start zo meteen."
+            },
+            "select_module": {
+                "no_module_available": "Je kan enkel een battle starten in een afgewerkte module."
+            },
+            "success_battle": {
+                "title": "strijd over!",
+                "badge_user": {
+                    "award": "-3 gevechten"
+                },
+                "badge_opponent": {
+                    "award": "-3 gevechten"
+                },
+                "winStars": "Je {{count}} extra ster met deze slag gewonnen!",
+                "winStars_plural": "U gewonnen {{count}} extra sterren met deze strijd!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "Slag bij"
+                },
+                "battle": {
+                    "text": "U hebt 1 nieuw slag ontvangen",
+                    "demand_accept": "Uw strijd",
+                    "win_against_title": "U de slag gewonnen!",
+                    "loose_against_title": "U verloor de slag!"
+                },
+                "type": {
+                    "battle": "Slag bij"
+                }
+            },
+            "navigation": {
+                "battle_pre": "Battle modus",
+                "battle": "Daag uw collega's in de \"Battle\"-modus: de vragen zo snel mogelijk beantwoorden!"
+            },
+            "filters": {
+                "battles": "MIJN GEVECHTEN"
+            },
+            "badges": {
+                "battle": {
+                    "name": "SLAG BIJ SEEKER",
+                    "details": "{{count}} slag",
+                    "details_plural": "{{count}} slagen"
+                }
+            },
+            "battle": {
+                "title": "Slag bij modus",
+                "create": "Maken van een gevecht",
+                "requests": {
+                    "title": "Slag bij aanvragen",
+                    "no_requests_found": "U hebt nog geen verzoek"
+                },
+                "history": {
+                    "title": "Geschiedenis van de slag",
+                    "message": {
+                        "pending": "Deze slag wacht op goedkeuring van de tegenstander",
+                        "win": "U de slag gewonnen!",
+                        "lost": "U verloor de slag!"
+                    },
+                    "no_history_found": "U hebt nog geen geschiedenis van de slag"
+                },
+                "start": {
+                    "cta": "<span class=\"bold\"> slag bij</span> starten",
+                    "new_cta": "Een nieuwe <span class=\"bold\"> slag</span> maken"
+                },
+                "steps": {
+                    "3": "3. start de strijd"
+                },
+                "select_module": {
+                    "no_module_available": "U kunt alleen een gevecht in een afgewerkte niveau."
+                },
+                "button": {
+                    "create": "Een nieuwe slag maken"
+                },
+                "no_battle_progress": "U hebt geen gevechten in vooruitgang.",
+                "block": {
+                    "title": "Slag bij aanvragen"
+                },
+                "no_proposition": "U hebt niet ontvangen verzoeken van de slag.",
+                "completed": {
+                    "title": "voltooide gevechten",
+                    "subtitle": "{{count}} slag, winnende {{nb}}",
+                    "subtitle_plural": "{{count}} gevechten, winnende {{nb}}"
+                },
+                "block_empty": "U hebt geen klaar gevechten.",
+                "create_title": "Slag bij maken",
+                "active_title_intro": "Slag bij modus",
+                "coming_soon_random": "Start een willekeurige strijd"
+            }
+        },
+        "bigdata": {
+            "navigation": {
+                "lessons": "Alle cursussen"
+            },
+            "filters": {
+                "news": "Uw opleiding",
+                "coorpers": "MOOCers"
+            }
+        },
+        "bnp": {
+            "filters": {
+                "coorpers": "Factiors"
+            }
+        },
+        "bnpp-legal": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Master"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Master"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Master,"
+                },
+                "module_name": {
+                    "coach": "Master"
+                }
+            },
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "casa": {
+            "filters": {
+                "news": "Uw opleiding",
+                "coorpers": "MOOCers"
+            }
+        },
+        "challenge48htechno": {
+            "slider": {
+                "start": {
+                    "title": "Ontdek de nieuwe quizz"
+                },
+                "resume": {
+                    "surtitle": "Welkom terug {{displayName}}, blijven uw quizz"
+                }
+            }
+        },
+        "chanel": {
+            "block_push": {
+                "tree": {
+                    "title": "START",
+                    "content": "Ontdek de CHANEL-essentials in de catalogus.",
+                    "link": "Klik hier"
+                },
+                "battle": {
+                    "title": "UITDAGING VAN DE GEMEENSCHAP",
+                    "content": "Daag uw collega's in de \"Battle mode\". Beantwoord de vragen zo snel als je kunt!",
+                    "link": "Klik hier"
+                }
+            },
+            "filters": {
+                "coorpers": "Mijn Gemeenschap"
+            }
+        },
+        "crisis": {
+            "filters": {
+                "coorpers": "Pernod Ricard Gemeenschap"
+            }
+        },
+        "dolce": {
+            "filters": {
+                "coorpers": "Gemeenschap"
+            }
+        },
+        "edenred-talents": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Ambassadeur"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Ambassadeur"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Ambassadeur,"
+                },
+                "module_name": {
+                    "coach": "Ambassadeur"
+                }
+            }
+        },
+        "ey": {
+            "filters": {
+                "coorpers": "Digitale helden"
+            }
+        },
+        "fff": {
+            "activity": {
+                "caption-started": "Discipline begonnen maar nog niet voltooid",
+                "caption-done": "Discipline gevalideerd"
+            }
+        },
+        "gdf": {
+            "badges": {
+                "transformer": {
+                    "name": "Transformator",
+                    "details_0": {
+                        "number": "1",
+                        "details": "thema",
+                        "details_post": "voltooid"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "thema 's",
+                        "details_post": "voltooid"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "thema 's",
+                        "details_post": "voltooid"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "thema 's",
+                        "details_post": "voltooid"
+                    }
+                }
+            }
+        },
+        "gdfec": {
+            "badges": {
+                "transformer": {
+                    "name": "Transformator",
+                    "details_0": {
+                        "number": "1",
+                        "details": "thema",
+                        "details_post": "voltooid"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "thema 's",
+                        "details_post": "voltooid"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "thema 's",
+                        "details_post": "voltooid"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "thema 's",
+                        "details_post": "voltooid"
+                    }
+                }
+            },
+            "filters": {
+                "coorpers": "Gemeenschap"
+            }
+        },
+        "ilearn": {
+            "filters": {
+                "coorpers": "Mijn Gemeenschap"
+            }
+        },
+        "learnnrj": {
+            "filters": {
+                "coorpers": "Gemeenschap"
+            }
+        },
+        "letsgetdigital": {
+            "badges": {
+                "battle": {
+                    "name": "Challenger"
+                },
+                "module": {
+                    "name": "Held"
+                }
+            }
+        },
+        "linxea": {
+            "filters": {
+                "coorpers": "MOOCers"
+            },
+            "navigation": {
+                "lessons": "Alle video 's"
+            }
+        },
+        "loreal-retail-v2": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Waarom filteren",
+                    "advanced": "Filteren op empathie",
+                    "coach": "Filteren op Toon me"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Waarom",
+                        "advanced": "Empathie",
+                        "coach": "Laat zien"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Waarom",
+                    "advanced": "Empathie",
+                    "coach": "Laat zien"
+                },
+                "module_name": {
+                    "base": "Waarom",
+                    "advanced": "Empathie",
+                    "coach": "Laat zien"
+                }
+            }
+        },
+        "martell": {
+            "badges": {
+                "subtitle-1-0": "Bekijk alle van de badges die u hebt ontvangen of die u nog moet krijgen om een expert Martell"
+            },
+            "filters": {
+                "coorpers": "Martell-vrienden"
+            }
+        },
+        "michelin": {
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "mooc-socgen": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filteren op niveau 1",
+                    "advanced": "Filteren op niveau 2",
+                    "coach": "Filteren op niveau 3"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Niveau 1",
+                        "advanced": "Niveau 2",
+                        "coach": "Niveau 3"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Niveau 1,",
+                    "advanced": "Niveau 2,",
+                    "coach": "Niveau 3,"
+                },
+                "module_name": {
+                    "base": "Niveau 1",
+                    "advanced": "Niveau 2",
+                    "coach": "Niveau 3"
+                }
+            }
+        },
+        "nespresso": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Deskundige"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Deskundige"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Deskundige,"
+                },
+                "module_name": {
+                    "coach": "Deskundige"
+                }
+            },
+            "filters": {
+                "coorpers": "Gemeenschap"
+            }
+        },
+        "online-academy-klubschule": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filteren op Beginner",
+                    "advanced": "Filter door Advanced",
+                    "coach": "Filteren op Expert"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "niveau Beginner",
+                        "advanced": "Geavanceerd niveau",
+                        "coach": "niveau van Expert"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Beginner,",
+                    "advanced": "Gevorderde,",
+                    "coach": "Deskundige,"
+                },
+                "module_name": {
+                    "base": "Beginner",
+                    "advanced": "Gevorderde",
+                    "coach": "Deskundige"
+                }
+            }
+        },
+        "paca": {
+            "filters": {
+                "coorpers": "MOOC'ers"
+            },
+            "badges": {
+                "battle": {
+                    "name": "Challenger"
+                },
+                "module": {
+                    "name": "Superheld"
+                },
+                "lesson": {
+                    "name": "Prijs van de toelating"
+                },
+                "question": {
+                    "name": "Vraag voor een kampioen"
+                },
+                "coach": {
+                    "name": "Fellowship Award"
+                }
+            }
+        },
+        "pernodci": {
+            "filters": {
+                "coorpers": "Pernod Ricard Gemeenschap"
+            }
+        },
+        "pernod": {
+            "notificationCard": {
+                "type": {
+                    "objectif": "Doelstelling"
+                }
+            },
+            "goals": {
+                "title": "Vooruitgang naar uw doelstellingen"
+            },
+            "navigation": {
+                "objectif": "Mijn doelstellingen"
+            }
+        },
+        "petite": {
+            "filters": {
+                "coorpers": "Mijn Gemeenschap"
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Module 1,",
+                    "advanced": "Module 2,",
+                    "coach": "Module 3,"
+                },
+                "module_name": {
+                    "base": "Module 1",
+                    "advanced": "Module 2",
+                    "coach": "Module 3"
+                }
+            }
+        },
+        "pru": {
+            "block_push": {
+                "tree": {
+                    "content": "Beginnen met het leren van nu!"
+                },
+                "battle": {
+                    "title": "Daag uw collega's en de praktijk!",
+                    "content": "Daag uw collega's in een \"Battle\": Probeer sneller te zijn dan hen!"
+                }
+            },
+            "badges": {
+                "subtitle-1-0": "Bekijk alle van de badges die u hebt verdiend of die u nog moet om geld te verdienen om een compliance-meester!"
+            }
+        },
+        "quizz-auchan": {
+            "slider": {
+                "start": {
+                    "title": "Ontdek de blauwe leven Quizz!"
+                }
+            }
+        },
+        "renault": {
+            "badges": {
+                "subtitle": "Bekijk alle de badges die u hebt verdiend of die u nodig hebt om geld te verdienen om te worden van de \"koning\" van de vorige Clio RS! ;-)",
+                "lessons_seen": {
+                    "details_0": "2",
+                    "details_1": "4",
+                    "details_2": "8",
+                    "details_3": "10"
+                },
+                "answer": {
+                    "details_0": "20",
+                    "details_1": "36",
+                    "details_2": "72",
+                    "details_3": "120"
+                },
+                "perfect": {
+                    "details_2": {
+                        "number": "5"
+                    },
+                    "details_3": {
+                        "number": "8"
+                    }
+                }
+            }
+        },
+        "renaultrh": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filteren op stap 1",
+                    "advanced": "Filteren op stap 2",
+                    "coach": "Filteren op stap 3"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "niveau stap 1",
+                        "advanced": "niveau stap 2",
+                        "coach": "niveau stap 3"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Stap 1,",
+                    "advanced": "Stap 2,",
+                    "coach": "Stap 3,"
+                },
+                "module_name": {
+                    "base": "Stap 1",
+                    "advanced": "Stap 2",
+                    "coach": "Stap 3"
+                }
+            }
+        },
+        "renaultcare": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filteren van Basics"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "niveau Basics"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Basics,"
+                },
+                "module_name": {
+                    "base": "Basics"
+                }
+            }
+        },
+        "rexel": {
+            "filters": {
+                "coorpers": "Klant Centricity Gemeenschap"
+            }
+        },
+        "samsung": {
+            "block_push": {
+                "tree": {
+                    "content": "Start hier!"
+                },
+                "battle": {
+                    "content": "Daag uw collega's in de \"Battle\"-modus: de vragen zo snel mogelijk beantwoorden!"
+                }
+            }
+        },
+        "schneider": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filteren op seizoen 1",
+                    "advanced": "Filteren op seizoen 2",
+                    "coach": "Filteren op seizoen 3"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "niveau seizoen 1",
+                        "advanced": "niveau seizoen 2",
+                        "coach": "niveau seizoen 3"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Seizoen 1,",
+                    "advanced": "Seizoen 2,",
+                    "coach": "Seizoen 3,"
+                },
+                "module_name": {
+                    "base": "Seizoen 1",
+                    "advanced": "Seizoen 2",
+                    "coach": "Seizoen 3"
+                }
+            },
+            "filters": {
+                "all": "Alle",
+                "battles": "Mijn gevechten",
+                "coorpers": "IQ-ers",
+                "news": "Nieuws",
+                "courses": "Mijn lessen",
+                "continueLesson": "Hervatten van mijn cursus"
+            }
+        },
+        "securite": {
+            "navigation": {
+                "lessons": "Alle cursussen"
+            },
+            "filters": {
+                "news": "Uw vorming",
+                "coorpers": "MOOCers"
+            }
+        },
+        "silca": {
+            "navigation": {
+                "lessons": "Alle cursussen"
+            },
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "sgmgt": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "societegenerale": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "sqy": {
+            "navigation": {
+                "lessons": "Alle cursussen"
+            },
+            "filters": {
+                "news": "Uw vorming",
+                "coorpers": "MOOCers"
+            }
+        },
+        "tourismdigital": {
+            "filters": {
+                "coorpers": "Leden"
+            }
+        },
+        "tagheuer": {
+            "badges": {
+                "level": {
+                    "bronze": "1E VERSNELLING",
+                    "silver": "3E VERSNELLING",
+                    "gold": "5E VERSNELLING",
+                    "platinum": "7E VERSNELLING"
+                }
+            },
+            "filters": {
+                "coorpers": "TAG Heuer Gemeenschap"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "niveau Titanium",
+                        "advanced": "brons niveau",
+                        "coach": "niveau Zilver"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "Filteren op Titanium",
+                    "advanced": "Filteren op brons",
+                    "coach": "Filteren op zilver"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Titanium,",
+                    "advanced": "Brons,",
+                    "coach": "Zilver,"
+                },
+                "module_name": {
+                    "base": "Titanium",
+                    "advanced": "Brons",
+                    "coach": "Zilver"
+                }
+            }
+        },
+        "tagheuercon": {
+            "badges": {
+                "level": {
+                    "bronze": "1E VERSNELLING",
+                    "silver": "3E VERSNELLING",
+                    "gold": "5E VERSNELLING",
+                    "platinum": "7E VERSNELLING"
+                }
+            },
+            "filters": {
+                "coorpers": "Gemeenschap van leerlingen"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "niveau Titanium",
+                        "advanced": "niveau brons",
+                        "coach": "niveau Zilver"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "Filteren op Titanium",
+                    "advanced": "Filteren op brons",
+                    "coach": "Filteren op zilver"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Titanium,",
+                    "advanced": "Brons,",
+                    "coach": "Zilver,"
+                },
+                "module_name": {
+                    "base": "Titanium",
+                    "advanced": "Brons",
+                    "coach": "Zilver"
+                }
+            }
+        },
+        "tourism": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "up": {
+            "personal_selection": {
+                "text_helper": "3 niveaus voorgesteld, afhankelijk van uw pad!",
+                "popular_module_helper": "Inspiratie nodig? Bekijk wat iedereen doet door het selecteren van de meest populaire.",
+                "last_module": "Laatste niveau gespeeld",
+                "no_module": "Geen module heeft gespeeld",
+                "popular_module": "Meest gespeelde cursussen",
+                "easiest_disciplines": "Gemakkelijkste cursussen",
+                "hardest_disciplines": "Moeilijkste cursussen",
+                "no_popular_module": "Geen niveau heeft gespeeld"
+            },
+            "select_module": {
+                "title": "Kies het gewenste niveau",
+                "availability": "{{count}} niveau beschikbaar",
+                "availability_plural": "{{count}} niveau beschikbaar",
+                "no_module_available": "U kunt alleen een strijd op een afgewerkte niveau."
+            },
+            "notificationCard": {
+                "request": "{{module}} {{level}} cursus moduleniveau",
+                "battle": {
+                    "against": "{{module}} {{level}} cursus moduleniveau"
+                },
+                "forum_text": "Er is 1 nieuw antwoord op uw opmerking met betrekking tot het niveau van de cursus op {{level}} {{module}}",
+                "module": {
+                    "text": {
+                        "detail": "het niveau"
+                    }
+                },
+                "coach": {
+                    "text": "U kunt een Coach in de cursus {{disciplineName}} zijn geworden."
+                },
+                "title": {
+                    "Module": "Niveau"
+                },
+                "type": {
+                    "module": "Niveau"
+                }
+            },
+            "navigation": {
+                "learningTree": {
+                    "helper": "Toegang tot alle cursussen van uw leertraject in 1 klik",
+                    "push": "Toegang tot al uw cursussen",
+                    "push_post": "in 1 klik"
+                },
+                "account_helper": "Bladeren van uw persoonlijke ruimte, uw zoekresultaten, beheren van uw vooruitgang, deelnemen aan discussies of volg de lessen voordat u start van de cursus.",
+                "battle_helper": "Zodra u klaar met een cursus bent, daag al degenen die op hetzelfde niveau als u in een kleine 10-betrokken-spel!"
+            },
+            "activity": {
+                "progression_text_pre": "Hoe gaat uw vooruitgang in uw cursus?",
+                "discipline_title": "Cursus",
+                "disciplines": {
+                    "title": "Cursus"
+                },
+                "module_title": "Niveaus",
+                "caption-started": "Niveau gestart",
+                "caption-done": "Afgewerkte niveau"
+            },
+            "badges": {
+                "module": {
+                    "name": "Survivor",
+                    "details_0": {
+                        "module": "Niveau"
+                    },
+                    "details_1": {
+                        "module": "Niveaus"
+                    },
+                    "details_2": {
+                        "module": "Niveaus"
+                    },
+                    "details_3": {
+                        "module": "Niveaus"
+                    }
+                }
+            },
+            "battle": {
+                "start_discipline": "Een cursus beginnen",
+                "no_opponent": "Geen tegenstander beschikbaar voor dit niveau"
+            },
+            "notifications": {
+                "filters": {
+                    "module": "Filteren op cursus"
+                }
+            }
+        },
+        "yahoo": {
+            "badges": {
+                "subtitle-1-0": "Uw voortgang weergeven bij het verkrijgen van verschillende badges."
+            },
+            "filters": {
+                "coorpers": "Gemeenschap"
+            }
+        },
+        "capgemini": {
+            "navigation": {
+                "certifications": "Mijn Digicertif'"
+            }
+        },
+        "cnp": {
+            "navigation": {
+                "certifications": "Certificate"
+            },
+            "sections": {
+                "certification": "Certificaat: {{name}}"
+            }
+        },
+        "ecolenumerique-sncf": {
+            "navigation": {
+                "certifications": "Jedi Badges"
+            },
+            "sections": {
+                "certification": "Jedi Badge: {{name}}"
+            }
+        },
+        "ganprevoyance": {
+            "navigation": {
+                "certifications": "Universa"
+            },
+            "sections": {
+                "certification": "Universe: {{name}}"
+            }
+        },
+        "who": {
+            "slider": {
+                "battle": {
+                    "surtitle": "Welkomstgroet weerom {{displayName}}, check uw uitdaging aanvragen",
+                    "title": "U hebt {{count}} uitdaging verzoek!",
+                    "title_plural": "Je hebt de {{count}} uitdaging aanvragen!",
+                    "cta": "Start uitdagend"
+                }
+            },
+            "discussion": {
+                "title": "Module Feedback",
+                "subtitle": "Zie alle berichten links door de Gemeenschap op de verschillende Modules"
+            },
+            "battle_start": {
+                "title": "Uw uitdaging is ongeveer te beginnen."
+            },
+            "select_module": {
+                "no_module_available": "U kunt alleen een uitdaging in een klaar module."
+            },
+            "success_battle": {
+                "title": "Uitdaging!",
+                "badge_user": {
+                    "award": "-3 uitdagingen"
+                },
+                "badge_opponent": {
+                    "award": "-3 uitdagingen"
+                },
+                "winStars": "U gewonnen {{count}} extra ster met deze uitdaging!",
+                "winStars_plural": "U gewonnen {{count}} extra sterren met deze uitdaging!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "Uitdaging"
+                },
+                "coach": {
+                    "text": "U hebt de cursus {{disciplineName}} voltooid."
+                },
+                "battle": {
+                    "text": "U hebt 1 nieuwe uitdaging ontvangen",
+                    "demand_accept": "Uw uitdaging",
+                    "win_against_title": "U won de uitdaging!",
+                    "loose_against_title": "Je verloren de uitdaging!"
+                },
+                "reward": {
+                    "resource": {
+                        "title": "Gefeliciteerd! Kunt u een nieuwe badge!"
+                    }
+                },
+                "type": {
+                    "battle": "Uitdaging"
+                },
+                "forum_text_page": "Er is 1 nieuw antwoord op uw reactie"
+            },
+            "navigation": {
+                "battle_pre": "Wijze van de uitdaging",
+                "battle": "Daag uw collega's in de \"Uitdaging\" modus: antwoord op de vragen zo snel mogelijk!"
+            },
+            "filters": {
+                "battles": "MIJN UITDAGINGEN",
+                "coorpers": "QR VERDEDIGERS"
+            },
+            "badges": {
+                "battle": {
+                    "name": "UITDAGING SEEKER",
+                    "details": "{{count}} Uitdaging",
+                    "details_plural": "{{count}} Uitdagingen"
+                },
+                "module": {
+                    "name": "Ster"
+                },
+                "coach": {
+                    "name": "CONNECTOR"
+                },
+                "question": {
+                    "name": "QUIZ MASTER"
+                }
+            },
+            "battle": {
+                "title": "Wijze van de uitdaging",
+                "create": "Maak een uitdaging",
+                "requests": {
+                    "title": "Uitdaging aanvragen",
+                    "no_requests_found": "Hebt u nog geen verzoeken van de uitdaging"
+                },
+                "history": {
+                    "title": "Geschiedenis van de uitdaging",
+                    "message": {
+                        "pending": "Deze uitdaging wacht op goedkeuring van de tegenstander",
+                        "win": "U won de uitdaging!",
+                        "lost": "Je verloren de uitdaging!"
+                    },
+                    "no_history_found": "U hebt nog geen uitdaging-geschiedenis"
+                },
+                "start": {
+                    "cta": "Start <span class=\"bold\"> uitdaging</span>",
+                    "new_cta": "Maken van een nieuwe <span class=\"bold\"> uitdaging</span>"
+                },
+                "steps": {
+                    "3": "3. Start de uitdaging"
+                },
+                "select_module": {
+                    "no_module_available": "U kunt alleen een uitdaging in een klaar module."
+                },
+                "button": {
+                    "create": "Maken van een nieuwe uitdaging"
+                },
+                "no_battle_progress": "U hebt geen uitdagingen in vooruitgang.",
+                "block": {
+                    "title": "Uitdaging aanvragen"
+                },
+                "no_proposition": "U hebt niet ontvangen verzoeken van de uitdaging.",
+                "completed": {
+                    "title": "voltooide uitdagingen",
+                    "subtitle": "{{count}} uitdaging, winnen {{nb}}",
+                    "subtitle_plural": "{{count}} uitdagingen, winnen {{nb}}"
+                },
+                "block_empty": "U hebt geen klaar uitdagingen.",
+                "create_title": "Maken van uitdaging",
+                "active_title_intro": "Wijze van de uitdaging",
+                "coming_soon_random": "Start een willekeurige uitdaging"
+            },
+            "dashboard": {
+                "text": "De ruimtewedloop! Je kunt winnen door de vragen correct te beantwoorden, door het volgen van de lessen of door gezelligheid (via uitdagingen en opleiding)!"
+            }
+        }
+    }
+}

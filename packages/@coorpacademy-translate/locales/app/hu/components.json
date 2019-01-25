@@ -1,0 +1,203 @@
+{
+    "video_player": {
+        "jw": "Videólejátszó töltődik...",
+        "fileCouldNotBePlayedTitle": "Videólejátszási hiba",
+        "flashInstallUrl": "https://get.adobe.com/en/flashplayer/",
+        "MEDIA_ERR_UNKNOWN": {
+            "title": "Egy ismeretlen hiba történt",
+            "description": "Hibát észleltünk a videó lejátszásakor. Értesítettek erről és kivizsgáljuk."
+        },
+        "MEDIA_ERR_ABORTED": {
+            "title": "Megszakították a médiaforrás beszerzési folyamatát.",
+            "description": "Kérjük, ellenőrizd az internetkapcsolatot, és próbáld meg újra betölteni a videót."
+        },
+        "MEDIA_ERR_NETWORK": {
+            "title": "Egy hálózati hiba megállította a felhasználói ügynököt a média források beszerzésében.",
+            "description": "Kérjük, ellenőrizd az internetkapcsolatot, és próbáld meg újra betölteni a videót."
+        },
+        "MEDIA_ERR_DECODE": {
+            "title": "Hiba történt a média foprrásának dekódolása közben.",
+            "description": "Ezt a videót ez a böngésző nem támogatja. Ez a böngészővel vagy az operációs rendszerrel kapcsolatos probléma."
+        },
+        "MEDIA_ERR_SRC_NOT_SUPPORTED": {
+            "title": "Ez a médiaforrás nem használható",
+            "description": "Ez a videó vagy nem elérhető, vagy nem támogatott a böngésző által, kérjük próbáljon meg egy másik böngészőt, vagy telepítse a Flash Player-t és frissítse az oldalt."
+        }
+    },
+    "account_menu": {
+        "badge": "Kitűzők",
+        "account": "Saját fiókom",
+        "objectif": "Hitelesítések",
+        "activity": "Tevékenység",
+        "competence_win": "Szükséges képzettség",
+        "timeline": "Előrehaladás az idő során",
+        "discussion": "Beszélgetések",
+        "conseil": "Tippek és trükkök",
+        "coach": "Oktatók",
+        "battle": "Csata mód",
+        "modification": "Adataim módosítása"
+    },
+    "chat_room": {
+        "button_wrapper": "Elküldés",
+        "placeholder": "Az Ön Üzenete",
+        "connexion": "{{displayName}} > belépett a beszélgetésbe",
+        "deconnexion": "{{displayName}} kilépett a beszélgetésből"
+    },
+    "badgesLabel": {
+        "battle": {
+            "detail": "{{detail}} csata befejezve",
+            "detail_plural": "{{detail}} megharcolt csata"
+        },
+        "module": {
+            "detail": "{{detail}} modul elvégezve életvesztés nélkül!",
+            "detail_plural": "{{detail}} teljesítve, élet elvesztése nélkül!"
+        },
+        "lesson": {
+            "detail": "{{detail}} lecke látogatóink!",
+            "detail_plural": "{{detail}} tanulságok látogatóink!"
+        },
+        "question": {
+            "detail": "{{detail}} kérdés helyesen válaszolt!",
+            "detail_plural": "{{detail}} kérdés helyesen válaszolt!"
+        },
+        "coach": {
+            "detail": "{{detail}} interakció az edzőkkel!",
+            "detail_plural": "{{detail}} interakció az oktatókkal!"
+        }
+    },
+    "notificationMenu": {
+        "god_mode": "Isten Mód Aktiválása",
+        "notification": "Aktív asztali értesítések",
+        "title": "Értesítések  ({{nb}})",
+        "forum": "Egy felhasználó válaszolt a {{name}} modul {{level} szintjével kapcsolatos hozzászólására.",
+        "badge_title": "Gratulálunk!",
+        "badge": "Elnyerted a {{name}} jelvény {{level}}",
+        "module_title": "Gratulálunk",
+        "module": "Teljesítette a {{name}} modul {{level}} szintjét!",
+        "battle": {
+            "new": "{{name}} szeretné kihívni önt a {{module}} modulban {{level}} szinten!",
+            "accepted": "Kihívásod a csatára elfogadták",
+            "win": "Megnyerte a csatát {{looser}} ellen a {{module}} modul {{level}} szintjén!",
+            "loose": "Elveszítette a csatát {{winner}} ellen a {{module}} modul {{level}} szintjén..."
+        },
+        "link": "Összes megtekintése",
+        "challenge_reminder": "Ne feledd, {{name}} kihívott a {{module}} modulban a {{level}} szinten, és várja válaszod!",
+        "coach": "Gratulálunk! A {{name}} büntetés oktatója lett!",
+        "start_aim": "A {{name}} igazolást választotta Kezdjen most!",
+        "goal_as_reward": "Elérte a {{name}} igazolást. Kezdjen most!",
+        "half_achieved": "Gratulálunk! Félig megszerezte a {{name}} minősítést. Folytassa a szép munkát.",
+        "three_third_achieved": "Gratulálunk! Megszerezted a {{name}} tanúsítványt! Oszd meg sikered a munka hálózatoddal!",
+        "continue_goals": "Gratulálunk! Megszerezted a(z) {{name}} oklevelet! Kezd el egy újat!",
+        "continue": "Olyan jól teljesítetél, miért állnál meg itt? Folytasd a név {{name}} bizonyítvánnyal!",
+        "mandatory": "{{name}} megszerzéséhez be kell fejeznie a {{levels}} modulokat!",
+        "mandatory_plural": "A {{name}} elnyeréséhez be kell fejeznie a {{levels}} modult!",
+        "mandatory_achieved": "Gratulálunk! Megszerezted a(z) {{name}} oklevelet!",
+        "toggleCoach": "Elérhető edzőnek",
+        "reward_title": "Bravó! Elért egy jutalmat!",
+        "reward_description": {
+            "bonusStars": "Önnek van {{stars}} új csillaga bónuszban."
+        }
+    },
+    "custom": {
+        "armeedeterre": {
+            "account_menu": {
+                "battle": "Battle módban"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} csata befejezése",
+                    "detail_plural": "{{detail}} csaták befejeződött"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "Elfogadták a csata",
+                    "win": "A {{module}} modul {{level}} szinten {{looser}} csatát nyert!",
+                    "loose": "Elvesztette a csatát a {{module}} modul {{level}} szinten {{winner}}..."
+                }
+            }
+        },
+        "gdf": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} téma befejezve",
+                    "detail_plural": "{{detail}} teljesített témák"
+                }
+            }
+        },
+        "gdfec": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} téma kész",
+                    "detail_plural": "{{detail}} téma kész"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "assistance": {
+                "title": "Visszajelzés"
+            }
+        },
+        "pernod": {
+            "notificationMenu": {
+                "start_aim": "Ön kiválasztotta a {{name}} feladatot. Fogjon neki!",
+                "goal_as_reward": "Elérte a {{name}} célt. Kezdjen most!",
+                "half_achieved": "Szép munka! A cél {{name}} 50%-át elérte!",
+                "three_third_achieved": "Gratulálunk! Teljesítette a {{name}} célkitűzést!",
+                "continue_goals": "Gratulálunk! Elérted a {{name}} célkitúzést! Kezdj egy újhoz!",
+                "continue": "Jól halad, miért állna meg? Folytassa a {{name}} céllal!",
+                "mandatory": "Oktatása befejezéséhez teljesítenie kell a {{name}} célt: kezdjük!",
+                "mandatory_achieved": "Gratulálunk! Teljesítette a {{name}} célkitűzést!"
+            }
+        },
+        "up": {
+            "badgesLabel": {
+                "module": {
+                    "detail": "{{detail}} szint befejezve egyetlen élet elveszítése nélkül",
+                    "detail_plural": "{{detail}} szint teljesítve életvesztés nélkül"
+                }
+            },
+            "notificationMenu": {
+                "forum": "Egy felhasználó válaszolt a kérdésedre a(z) {{name}} pálya {{name}}  szintjével kapcsolatban.",
+                "module": "Teljesítetted a {{name}} pálya {{level}}. szintjét!",
+                "battle": {
+                    "new": "{{name}} szeretné kihívni önt a {{module}} képzés {{level}} szinten!",
+                    "win": "Megnyerte a csatát {{looser}} ellen a {{module}} kurzus {{level}} szintjén!",
+                    "loose": "Elvesztetted a csatát {{winner}} ellen a(z) {{module}} modul {{level}} szintjén..."
+                },
+                "challenge_reminder": "Ne feledd, {{name}} kihívott a {{module}} modulban a {{level}} szinten, és várja válaszod!",
+                "coach": "Bravó! A {{name}} kurzus edője lett!"
+            }
+        },
+        "who": {
+            "account_menu": {
+                "battle": "Kihívás Mód"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} kihívás kész",
+                    "detail_plural": "{{detail}} tett kihívások teljesí"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "Az ön kihívását elfogadták",
+                    "win": "Megnyerte a kihívást {{looser}} ellen a {{module}} modulban {{level}} szinten!",
+                    "loose": "Ön elvesztette a kihívást a {winner}} ellen a {{module}} modulon {{level}} szinten ..."
+                },
+                "continue_goals": "Gratulálok! Beszerezte a {{name}} minősítés!"
+            }
+        }
+    },
+    "assistance": {
+        "title": "Támogatás",
+        "object": "Tárgy",
+        "message": "Üzenet",
+        "send": "Küldés",
+        "thanks": "Köszönjük az üzenetedet!",
+        "next": "Következő"
+    },
+    "cards": {
+        "allCategories": "Minden kategória"
+    }
+}

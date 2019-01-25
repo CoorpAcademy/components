@@ -1,0 +1,23 @@
+{
+    "submit": "验证",
+    "print": "打印",
+    "share": "共享",
+    "delete": "删除",
+    "start": "开始",
+    "loadMore": "装载更多 ...",
+    "download": "下载",
+    "ok": "确定",
+    "cancel": "取消",
+    "sso": "单一登录",
+    "connect": "连接",
+    "signup": "登录",
+    "signup_pre": "没有账号？",
+    "custom": {
+        "chanel": {
+            "signup": "注册"
+        },
+        "ilearn": {
+            "signup": "注册"
+        }
+    }
+}

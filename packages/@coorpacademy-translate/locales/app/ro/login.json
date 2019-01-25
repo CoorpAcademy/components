@@ -1,0 +1,392 @@
+{
+    "welcome": "Bună!",
+    "goodby": "La revedere!",
+    "sorry": "Ne pare rău!",
+    "welcome_message": "Pentru a vă autentifica, introduceți informațiile de autentificare furnizate de către",
+    "welcome_message_coorp": "Coorpacademy",
+    "grant_credentials": "Nu aveţi autorizare suficientă pentru a efectua această operaţie.",
+    "sso_connect": "Vă puteți conecta prin contul dvs. corporativ.",
+    "connect_connect": "Te poți conecta prin Connect.",
+    "forgotten_credentials_pre": "Pentru întrebări referitoare la Mooc, vă rugăm să contactați administratorul platformei:",
+    "forgotten_credentials_href": "mailto:assistance@coorpacademy.com?subject=Am%20nevoie%20de%20ajutor%20pentru%20conectarea%20la%20{{platform}}",
+    "forgotten_credentials": "assistance@coorpacademy.com",
+    "forgotten_credentials_post": "&nbsp;",
+    "instruction": "&nbsp;",
+    "logged_out": "Ați fost deconectat.",
+    "form": {
+        "user": "E-mail",
+        "password": "Parola"
+    },
+    "error": {
+        "incorrect_credentials": "Date de autentificare incorecte",
+        "password_check": "Nu am putut să îți verificăm parola. Te rugăm să îl contactezi pe administratorul nostru tehnic.",
+        "too_many_failed_attempts": "Prea multe încercări nereușite de logare. Vă rugăm să încercați din nou în câteva minute.",
+        "no_population": "Nu întruniți criteriile pentru a accesa platforma. Vă rugăm să vă contactați administratorul.",
+        "auth": {
+            "_sso_vendor_vendor_authentication_failed_connect_econnrefused": "[sso.vendor] autentificare furnizor eșuată: conectare ECONNREFUSED",
+            "_sso_corporate_authenticate_person_failed_connect_econnrefused": "[sso.corporate] autentificarePersoană eșuată: conectați ECONNREFUSED"
+        },
+        "token_invalid": "Această legătură a expirat, vă rugăm să folosiţi datele de conectare şi parola"
+    },
+    "reset_password": "Ați uitat parola?",
+    "forgot": {
+        "welcome": "Resetare parolă",
+        "new_password": "Parolă nouă",
+        "forgotten_welcome_message": "Vă rugăm să introduceţi login-ul sau e-mail.",
+        "forgotten_placeholder": "login sau e-mail",
+        "reset_welcome_message": "Te rugăm să introduci parola nouă.",
+        "password_updated": "Parolă actualizată",
+        "your_login_is": "Numele de utilizator curent este:",
+        "reset_query_not_found": "Link invalid. Cererea ta de actualizare a parolei nu mai există sau nu mai este valabilă.",
+        "incorrect_credentials": "Nume de utilizator sau parola sunt incorecte",
+        "password_reset_query_created": "Cererea dvs. a fost înregistrată.",
+        "password_reset_mail_sent": "Dacă aţi introdus corect e-mail utilizaţi pentru această platformă, ne au trimis doar un e-mail. Vă rugăm să urmaţi instrucţiunile pentru a actualiza parola.\nDacă nu primiţi un e-mail în termen de următoarele câteva minute, <b>s-a introdus gresit e-mail</b>. Vă rugăm să încercaţi din nou cu o altă adresă.",
+        "sign": {
+            "in": "Conectează"
+        },
+        "error": {
+            "missing_login": "Autentificare obligatorie.",
+            "login_not_found": "Detaliile de autentificare nu au fost găsite",
+            "forgotten_missing_login": "Login sau e-mail obligatoriu",
+            "weak_password": "Parola nouă nu este suficient de puternic",
+            "reset_query_not_saved": "A survenit o eroare în timpul procesării solicitării de resetare a parolei. Vă rugăm să încercați din nou mai târziu."
+        }
+    },
+    "unsubscribe": {
+        "title": "Dezabonare",
+        "confirmation_unsubscribe_message": "Cererea de dezabonare a fost înregistrată cu succes.",
+        "confirmation_subscribe_message": "Abonamentul tău a fost înregistrat.",
+        "question_message": "Nu doresc să primesc emailuri cu informații sau memento-uri"
+    },
+    "bad_access": {
+        "title": "Ne pare rău!",
+        "sub_title": "Acest MOOC este accesibil doar de către persoanele autorizate"
+    },
+    "inactive": {
+        "title": "Scuze",
+        "sub_title": "<p>Nu este activ contul dvs.</p> <p>$t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a></p>"
+    },
+    "deactivated": {
+        "title": "Ne pare rău.",
+        "warning": "Conturile dezactivate pot fi accesate până în prima zi a lunii următoare. Conturile dezactivate nu mai pot fi activate din nou. A fi utilizat cu atenție.",
+        "sub_title": "<p>Contul dumneavoastră a fost dezactivat de către angajator. E trist, dar ne luăm rămas bun!</p>"
+    },
+    "anonymous_notification": "Deja membru? <a href=\"/sso/connect\" target=\"_self\"> <b>conecteaza-te acum</b></a> sau <a href=\"$t(global:demo.url, {\"medium\":\"notification\"})\" target=\"_blank\"> <b>carte un demo</b></a> pentru compania ta",
+    "connect_dialog": {
+        "need_signup": {
+            "title": "Aproape ați ajuns!",
+            "message": "Înregistraţi-vă acum pentru a debloca următorul capitol"
+        },
+        "feature_locked": {
+            "title": "Funcţie blocată!",
+            "message": "Alăturați-vă acum pentru a debloca această funcție"
+        },
+        "login_with": {
+            "facebook": "Autentificare prin Facebook",
+            "google": "Autentificare cu Google",
+            "linkedin": "Autentificare prin Linkedin"
+        },
+        "signup_with": {
+            "email": "Înregistrați-vă prin e-mail"
+        },
+        "or": "sau",
+        "signup": "Înregistrare",
+        "signup_exist": "Am deja un cont",
+        "login": "Autentificare"
+    },
+    "custom": {
+        "accueil": {
+            "forgotten_credentials_href": "trimiteţi e-mail către:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "architas-powercircle": {
+            "reset_password": "Ați uitat parola?",
+            "forgotten_credentials_pre": "<p>Am o întrebare cu privire la această platformă e-learning?</p> <p>Nu ezita - trimite-ne un mesaj acum!</p>",
+            "forgotten_credentials_href": "mailto:powercircle@architas.com",
+            "forgotten_credentials": "powercircle@architas.com"
+        },
+        "bestwesternuniversity": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "bigdata": {
+            "forgotten_credentials_pre": "Pentru a te autentifica, te rugăm să introduci informațiile de autentificare primite prin email.</br> </br> Pentru întrebări referitoare la MOOC, te rugăm să contactezi administratorul platformei:",
+            "form": {
+                "user": "Adresa dvs. de e-mail"
+            }
+        },
+        "bpifrance-academie": {
+            "forgotten_credentials": "formation-drhinvest@bpifrance.fr",
+            "forgotten_credentials_href": "mailto:formation-drhinvest@bpifrance.fr"
+        },
+        "breguet": {
+            "form": {
+                "user": "Login"
+            }
+        },
+        "chanel": {
+            "welcome": "BINE AI VENIT",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "cd78": {
+            "forgotten_credentials": "DSIdemande@yvelines.fr",
+            "forgotten_credentials_href": "mailto:DSIdemande@yvelines.fr"
+        },
+        "el": {
+            "form": {
+                "user": "RAISON SOCIALE. NUMERO"
+            }
+        },
+        "faurecia": {
+            "welcome_message": "Pentru autentificare, te rugăm să introduci informațiile de autentificare primite prin",
+            "welcome_message_coorp": "email"
+        },
+        "fdj": {
+            "form": {
+                "user": "e-mail cu litere mici"
+            }
+        },
+        "fff": {
+            "bad_access": {
+                "title": "Scuze",
+                "sub_title": "Acest MOOC poate fi accesat doar de persoanele autorizate. <br/><br/> Dacă ești profesor sau tehnician, conectează-te la <a href=\"https://www.fff.fr/myfff\"> https://www.fff.fr/myfff</a> pentru a accesa platforma."
+            }
+        },
+        "forco": {
+            "form": {
+                "user": "e-mail cu litere mici"
+            }
+        },
+        "gdf": {
+            "welcome_message": "Pentru a te conecta, introdu adresa de email profesională<br/> (cu minuscule) și parola.",
+            "welcome_message_coorp": "<br> <br> Prima conectare? Introduceți parola furnizată prin e-mail.",
+            "forgotten_credentials_pre": "Nu aveți acces? Probleme cu conexiunea? <a href=\"https://docs.google.com/forms/d/1M9Wxq3h8ukgZZHgD8MXknduRIpbNns9rYZNA3bEiiM4/viewform?usp=send_form\">Faceți click aici</a><br><br>Pentru întrebări referitoare la MOOC, vă rugăm contactați administratorul platformei:"
+        },
+        "gdfec": {
+            "welcome_message": "Pentru a te conecta, te rugăm să introduci adresa ta de lucru<br/> (cu caractere minuscule) și parola.",
+            "welcome_message_coorp": "<br><br> Prima conectare? Introduceţi parola trimisă prin e-mail.",
+            "forgotten_credentials_pre": "Nu aveți acces? Probleme cu conectarea? <a href=\"https://docs.google.com/forms/d/1M9Wxq3h8ukgZZHgD8MXknduRIpbNns9rYZNA3bEiiM4/viewform?usp=send_form\">Faceți click aici</a><br><br> Pentru întrebări referitoare la Mooc, vă rugăm să contactați administratorul platformei:"
+        },
+        "ilearn": {
+            "welcome": "Bine aţi venit"
+        },
+        "jardiland": {
+            "form": {
+                "user": "numéro de matricule"
+            }
+        },
+        "letsgetdigital": {
+            "form": {
+                "user": "E-mail"
+            }
+        },
+        "linxea": {
+            "form": {
+                "user": "Email-ul dumneavoastră"
+            }
+        },
+        "logisacademie": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "metro": {
+            "form": {
+                "user": "name.lastname"
+            }
+        },
+        "mooc-parischarlesdegaulle": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "nespresso": {
+            "form": {
+                "user": "Nespresso Email address (case-sensitive)"
+            }
+        },
+        "nestlehealthscience": {
+            "form": {
+                "user": "e-mail cu litere mici"
+            }
+        },
+        "natixis": {
+            "forgotten_credentials_pre": "For any question, please contact the platform administrator:"
+        },
+        "michelin": {
+            "inactive": {
+                "sub_title": "<p>We have missed you. Your account has been deactivated by your DCAD departement (Contact: <a href=\"mailto:compte-fonction.digital-transformation@michelin.com\">compte-fonction.digital-transformation@michelin.com</a>)"
+            }
+        },
+        "moocandfeel": {
+            "welcome_message": "Pentru a vă autentifica, vă rugăm să introduceți informațiile de autentificare furnizate de Comundi.",
+            "forgotten_credentials_pre": "Pentru întrebări referitoare la MOOC, vă rugăm să contactați administratorul platformei:",
+            "forgotten_credentials_href": "mailto:assistance-moocandfeel@coorpacademy.com",
+            "forgotten_credentials": "assistance-moocandfeel@coorpacademy.com",
+            "forgotten_credentials_post": "&nbsp;"
+        },
+        "online-academy-klubschule": {
+            "forgotten_credentials_href": "mailto:support@online-academy.klubschule.ch",
+            "forgotten_credentials": "support@online-academy.klubschule.ch"
+        },
+        "paca": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "panzani": {
+            "form": {
+                "user": "e-mail cu litere mici"
+            }
+        },
+        "pernod": {
+            "bad_access": {
+                "title": "Ne pare rău",
+                "sub_title": "Acest MOOC este accesibil numai persoanelor autorizate. Pentru a accesa platforma, conectați-vă la <a href='http://digifit-pernodricard-university.com'>digifit-pernodricard-university.com</a>"
+            }
+        },
+        "pmf": {
+            "form": {
+                "user": "e-mail cu litere mici"
+            }
+        },
+        "pru": {
+            "bad_access": {
+                "title": "Ne pare rău,",
+                "sub_title": "Acest MOOC este accesibil doar persoanelor autorizate."
+            }
+        },
+        "quizz-auchan": {
+            "form": {
+                "user": "NUMĂRUL de identificare (exemplu: XXX0000000)"
+            }
+        },
+        "redoute": {
+            "form": {
+                "user": "Login"
+            }
+        },
+        "renault": {
+            "welcome_message": "Pentru a te conecta, te rugăm să îți introduci datele de conectare.",
+            "forgotten_credentials_pre": "Pentru întrebări referitoare la MOOC, vă rugăm să îl contactați pe administratorul platformei:",
+            "forgotten_credentials_href": "e-mailcătre:gerardo.talavera-farias@renault.com",
+            "forgotten_credentials": "gerardo.talavera-farias@renault.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "welcome_message_coorp": "&nbsp;"
+        },
+        "samsung": {
+            "forgotten_credentials_pre": "Pentru întrebări referitoare la MOOC, vă rugăm să îl contactați pe administratorul platformei:",
+            "forgotten_credentials_href": "e-mailcătre:assistance@coorpacademy.com",
+            "forgotten_credentials": "assistance@coorpacademy.com",
+            "hotline_assistance_pre": "Pentru întrebări privitoare înregistrări contului, vă rugăm contactați linia fierbinte Academia Samsung",
+            "hotline_assistance_href": "mailto:hotline.samsungacademy@gmail.com",
+            "hotline_assistance": "hotline.samsungacademy@gmail.com",
+            "inactive": {
+                "title": "Ne pare rău",
+                "sub_title": "Contul dvs. nu este activ</br></br> $t(login:hotline_assistance_pre) <a href=\"$t(login:hotline_assistance_href)\"> $t(login:hotline_assistance)</a></br></br> $t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a>"
+            }
+        },
+        "securite": {
+            "forgotten_credentials_pre": "Pentru a te conecta, te rugăm să introduci informațiile de conectare primite pe email.</br></br> Pentru întrebări despre MOOC, te rugăm să îl contactezi pe administratorul platformei:",
+            "form": {
+                "user": "Adresa ta de email"
+            }
+        },
+        "societegenerale": {
+            "welcome_message": "Pentru a te loga, te rugăm să introduci informația de logare oferită de SGLearning.",
+            "forgotten_credentials_pre": "Pentru întrebări legate de MOOC, te rugăm să contactezi administratorul platformei.",
+            "forgotten_credentials_href": "mailto:sglearning.communication@socgen.com",
+            "forgotten_credentials": "sglearning.communication@socgen.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "welcome_message_coorp": "&nbsp;"
+        },
+        "schmidt-groupe": {
+            "form": {
+                "user": "e-mail sau firstNameInitial + nume de familie"
+            }
+        },
+        "sqy": {
+            "welcome_message_coorp": "mail",
+            "forgotten_credentials_pre": "Pentru a vă conecta, introduceți informațiile de conectare pe care le-ați primit prin e-mail.</br> </br> Pentru întrebări referitoare la MOOC, vă rugăm să contactați administratorul platformei:",
+            "form": {
+                "user": "Adresa dumneavoastră de e-mail"
+            }
+        },
+        "tagheuer": {
+            "forgotten_credentials_pre": "Pentru întrebări legate de Platforma de antrenament TAG Heuer, te rugăm să contactezi administratorul de platformă:",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "thelem": {
+            "forgotten_credentials_href": "tel:11-11",
+            "forgotten_credentials": "Nr. de telefon: 11-11"
+        },
+        "total": {
+            "instruction": "Parola a fost trimisă către contul tău de email. Vei putea să o schimbi la prima conectare.",
+            "form": {
+                "user": "IGG",
+                "password": "Parolă"
+            }
+        },
+        "tourism": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "tourisme-hautsdefrance": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "tourismdigital": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "who": {
+            "forgotten_credentials_pre": "Pentru orice întrebări, vă rugăm să contactaţi",
+            "forgotten_credentials_href": "mailto:assistance@coorpacademy.com",
+            "forgotten_credentials": "assistance@coorpacademy.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "inactive": {
+                "sub_title": "<p>Nu este activ contul dvs.</p> <p>În cazul în care aţi terminat deja formularul de inregistrare, veti primi la scurt timp confirmarea şi acces la platforma. În caz contrar, vă rugăm să trimiteţi formularul de înregistrare <a href=\"/signup\" target=\"_self\"> <b>(“Înscrie-Up”)</b></a>.</p> <p>$t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a></p>"
+            }
+        },
+        "wme-img": {
+            "form": {
+                "user": "firstNameInitial + nume de familie"
+            }
+        },
+        "yahoo": {
+            "welcome_message_coorp": "email"
+        }
+    }
+}

@@ -1,0 +1,155 @@
+{
+    "header": {
+        "title": "CoorpAcademy",
+        "mainNav": {
+            "helper": "瀏覽學習內容的替代方法",
+            "menu": "選單",
+            "dashboard": "我的面板頁面",
+            "home": "首頁",
+            "learningTree": "學習主題",
+            "lessons": "所有課程和影片",
+            "medias": "影音區",
+            "battles": "挑戰",
+            "explore": "學習主題",
+            "discussions": "討論區",
+            "badges": "徽章",
+            "certifications": "認證"
+        },
+        "mainNav_user": {
+            "helper": "尋找有關您及您作品的另一種方法！"
+        },
+        "account_menu": {
+            "title": "選單",
+            "logout": "登出",
+            "notifications": "我的通知",
+            "language": "語言",
+            "cohorts": "人口：",
+            "account": "帳戶",
+            "godmode": "上帝模式",
+            "fastslides": "快速投影片",
+            "newlearner": "新遊戲界面",
+            "livenotifications": "即時通知",
+            "close": "關閉"
+        }
+    },
+    "content": "這是基本內容。",
+    "footer": {
+        "assistance": "支援",
+        "admin_link": {
+            "jobs": "工作",
+            "admin": "管理員",
+            "analytics": "分析",
+            "changelog": "變更日誌",
+            "cms": "CMS",
+            "manual": "手冊"
+        },
+        "data_privacy_policy": "數據隱私政策",
+        "data_privacy_policy_link": "http://www.privacy.coorpacademy.com",
+        "dev_link": {
+            "api": "API 文件"
+        },
+        "by": "Coorpacademy 技術支援",
+        "title": "公司學院 (Coorpacademy)",
+        "changelog": {
+            "title": "更新日誌",
+            "subtitle": "這是本網站之發佈歷史"
+        }
+    },
+    "custom": {
+        "accueil": {
+            "footer": {
+                "by": "旅遊學院與 Atout France",
+                "copyright": "旅遊學院與法國旅遊發展署"
+            }
+        },
+        "armeedeterre": {
+            "header": {
+                "mainNav": {
+                    "battles": "對決"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "footer": {
+                "assistance": "給予回饋"
+            }
+        },
+        "capgemini": {
+            "header": {
+                "mainNav": {
+                    "certifications": "DigiCertif'"
+                }
+            }
+        },
+        "cnp": {
+            "header": {
+                "mainNav": {
+                    "certifications": "證書"
+                }
+            }
+        },
+        "chanel": {
+            "footer": {
+                "by": "© CHANEL。僅供內部使用",
+                "copyright": "© 香奈兒。只限內用"
+            }
+        },
+        "ganprevoyance": {
+            "header": {
+                "mainNav": {
+                    "certifications": "宇宙"
+                }
+            }
+        },
+        "ecolenumerique-sncf": {
+            "header": {
+                "mainNav": {
+                    "certifications": "絕地徽章"
+                }
+            }
+        },
+        "ilearn": {
+            "footer": {
+                "by": "© CHANEL.僅共內部使用",
+                "copyright": "© CHANEL。僅供內部使用"
+            }
+        },
+        "paca": {
+            "footer": {
+                "by": "TOURISM ACADEMY 製作",
+                "copyright": "旅遊學院的製作"
+            }
+        },
+        "tourism": {
+            "footer": {
+                "by": "旅遊學院",
+                "copyright": "觀光學院"
+            }
+        },
+        "tourismdigital": {
+            "footer": {
+                "by": "一個旅遊學院產品",
+                "copyright": "一個旅遊學院產品"
+            }
+        },
+        "ey": {
+            "footer": {
+                "by": "EY 數位學院",
+                "copyright": "EY 數位學院"
+            }
+        },
+        "up": {
+            "footer": {
+                "data_privacy_policy_link": "http://www.privacy.coorpacademy.com/up"
+            }
+        },
+        "who": {
+            "header": {
+                "mainNav": {
+                    "battles": "挑戰",
+                    "discussions": "回饋"
+                }
+            }
+        }
+    }
+}

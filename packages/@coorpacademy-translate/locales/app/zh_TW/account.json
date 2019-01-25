@@ -1,0 +1,565 @@
+{
+    "firstConnection": {
+        "title": "<span> 歡迎 </span><span class='name'> {{name}}! </span>"
+    },
+    "changePassword": {
+        "title": "<span> 歡迎 </span><span class='name'> {{name}}! </span>",
+        "intro": "請創建您的密碼。保存它以供將來參考!",
+        "errors": {
+            "mustChangePassword": "新密碼應與你現在的密碼不同",
+            "incorrectPassword": "你現在的密碼不正確"
+        }
+    },
+    "footer": {
+        "title": "為什麼使用 “{{platformName}}” 平臺？",
+        "features": {
+            "videos": {
+                "title": "視頻",
+                "description": "觀看視頻課程以學習和取得進展"
+            },
+            "quizzes": {
+                "title": "測驗",
+                "description": "通過數以百計的測驗測試你的知識"
+            },
+            "battles": {
+                "title": "$t (menu:header.mainNav.battles)",
+                "description": "通過挑戰他人的戰鬥來複習"
+            },
+            "certificates": {
+                "title": "$t (menu:header.mainNav.certifications)",
+                "description": "獲取證書以證明您的技能"
+            }
+        },
+        "pillars": {
+            "learnAtYourOwnPace": {
+                "title": "按自己的步調學習",
+                "description": "<li> 進行簡短會話 </li><li> 在任何時候停止並重新啟動 </li><li> 使用任何設備 </li>"
+            },
+            "adapted": {
+                "title": "適合你的學習",
+                "description": "<li> 適應您已知道的內容的系統 </li><li> 選擇您自己的學習路徑 </li><li> 定制內容 </li>"
+            },
+            "haveFun": {
+                "title": "玩得愉快",
+                "description": "<li> gamified 學習環境 </li><li> 受視頻遊戲啟發 </li><li> «Stop 和 Go»函數 </li>"
+            },
+            "learningCommunity": {
+                "title": "學習社區",
+                "description": "<li> 對等教練 </li><li> 討論論壇 </li><li> 對多個學習者的挑戰 </li><li> 排名 </li>"
+            }
+        },
+        "gotoform": "填寫表單以訪問平臺"
+    },
+    "edit": {
+        "oldPassword": "舊密碼",
+        "password": "密碼",
+        "password_confirmation": "確認您的密碼"
+    },
+    "myaccount": {
+        "title": "我的帳戶",
+        "subtitle": "管理你的個人資料！",
+        "modify": "更改",
+        "status": "狀態",
+        "save": "儲存",
+        "carriere": "職業",
+        "hobbie": "興趣",
+        "abonnement": "電子郵件訂閱",
+        "allowed_mail": "我希望能收到提供資訊的電子郵件或提醒",
+        "not_allowed_mail": "我不希望收到資訊電子郵件或提醒",
+        "avatar": {
+            "update": "你的照片已成功上傳。它將會在 24 小時內顯示。",
+            "no_image": "所選檔案的格式不正確。請從 .png、.jpg 或 .gif 中選擇。"
+        },
+        "profile": {
+            "updated": "你的基本資料已更新。"
+        },
+        "reset": "重設",
+        "updatedAccount": "您的帳戶已更新。",
+        "accountUpdate": "更新你的帳戶",
+        "password": "密碼",
+        "updatePassword": "提交",
+        "newPassword": "新密碼",
+        "actualPassword": "現在密碼",
+        "passwordConfirmation": "確認新密碼",
+        "updatePasswordSuccess": "您的密碼已成功更新",
+        "updatePasswordError": "無法更改您的密碼，請檢查您的表單。",
+        "privateAccount": {
+            "title": "私人資料",
+            "label": "隱藏我的姓氏。"
+        },
+        "emailSettings": {
+            "core": "系統消息（證明，“有人對你提出戰鬥挑戰”...）",
+            "user": "通知（“推薦課程”，“查閱最受歡迎的課程”...）",
+            "mailchimp": "每月摘要"
+        }
+    },
+    "error": {
+        "oldPasswordRequired": "需要現行密碼。",
+        "newPasswordRequired": "需要一個新的密碼。",
+        "confirmPasswordRequired": "需要您的密碼確認。",
+        "incorrectMinLength": "你的密碼必須至少包含 {{minLength}} 個字符。",
+        "different_password": "你的密碼不一致！",
+        "wrong_password": "你的密碼不正確"
+    },
+    "menu": {
+        "info": {
+            "title": "我的資料",
+            "modify_avatar": "更新我的檔案照片",
+            "modify_password": "變更我的密碼"
+        },
+        "alerts": {
+            "title": "我的通知",
+            "email": "我的電子郵件設定",
+            "modify_email": "更改我的電子郵件設定",
+            "notifications": "我的通知",
+            "modify_notifications": "更改我的通知",
+            "wish_notifications": "我希望收到通知",
+            "blocked_notifications": "你目前的設定並不允許通知。請變更你的瀏覽器設定並重新整理此頁面。"
+        },
+        "bills": {
+            "title": "我的訂購"
+        },
+        "custom": {
+            "modify_account_title": "我的帳戶",
+            "modify_account_informations": "更新您的帳戶"
+        },
+        "subscription": {
+            "title": "我的訂閱",
+            "subtitle": "Coorpacademy 溢價訂閱不再可用",
+            "info": "If you have already signed up and you wish to cancel your Premium subscription please send a mail with your details to:",
+            "update": "管理我的訂閱"
+        }
+    },
+    "go": {
+        "to": {
+            "sso": "前往 SSO",
+            "connect": "進入連結"
+        }
+    },
+    "custom": {
+        "corporateonlineopencourse": {
+            "changePassword": {
+                "title": "配置您的密碼以連接您的SMARTPHONE / PAD",
+                "intro": "<span>您好</span> <br> <br>您剛剛通過校園登錄了MOOC BRAND AMBASSADOR。<br> <br>我們邀請您在此配置您的特定多設備密碼 下面。 如果您願意，此密碼可以讓您通過智能手機或平板電腦訪問MOOC。<br>配置完成後，系統會向您發送確認電子郵件。"
+            },
+            "myaccount": {
+                "updatePassword": "驗證"
+            }
+        },
+        "gdf": {
+            "edit": {
+                "title": "這是您第一次連線",
+                "lastName": "姓*",
+                "firstName": "名*",
+                "branch": "分行*",
+                "password_title": "請輸入一個新的密碼",
+                "oldPassword": "現行的密碼*",
+                "password": "新密碼*",
+                "password_confirmation": "確認*",
+                "personnal_title": "請輸入你的個人資料",
+                "businessUnit": "業務部門*",
+                "age": "年齡範圍*",
+                "workingCountry": "您工作的國家*",
+                "gender": "性別*",
+                "save": "驗證",
+                "mandatory": "* 必填項目",
+                "male": "男性",
+                "female": "女性",
+                "saving": "你的資訊儲存中，請等待。一待完成後將重新導向至首頁。"
+            },
+            "error": {
+                "different_password": "您的密碼與其確認不符",
+                "mandatory": "所有這些欄位都是必填的",
+                "incorrectPassword": "現在的密碼無效"
+            },
+            "branch": {
+                "centre": "中心",
+                "energy_europe": "能量歐洲",
+                "energy_international": "能量國際",
+                "energy_services": "能源服務",
+                "global_gas_lng": "全球天然氣與液化天然氣",
+                "infrastructures": "基礎設施",
+                "entreprises_collectivites": "公司與公共當局"
+            },
+            "business_unit": {
+                "centre_bxl": "BXL 中心",
+                "centre_paris": "巴黎中心",
+                "generation": "世代",
+                "renewable_energies": "可再生能源",
+                "marketing_sales": "市場行銷與銷售",
+                "emt": "EMT",
+                "support_lines_corporate": "幫助管道／公司",
+                "asia_pacific": "亞太",
+                "latin_america": "拉丁美洲",
+                "north_america": "北美",
+                "samea": "南亞、中東與非洲（SAMEA）",
+                "uk_turkey": "英國 - 土耳其",
+                "benelux_division": "比荷盧分部",
+                "engineering_division": "工程部",
+                "support": "支持功能／企業與其他",
+                "international_division": "國際部",
+                "pole_services": "法國能源服務中心",
+                "pole_system": "Pôle France Systèmes 安裝與維護",
+                "pole_network": "網路中心 / 地區能源部",
+                "ep": "E&P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "分配",
+                "storage": "儲存空間",
+                "methane": "Terminaux Méthaniers",
+                "business_line_energies": "業務線能量",
+                "business_line_services": "業務線服務",
+                "delegation_relation_clients": "關係代表客戶",
+                "direction_finance": "方向金融表現",
+                "direction_rh": "人力資源局健康安全預防",
+                "etat_major": "工作人員",
+                "direction_ventes": "分公司銷售部",
+                "marche_eld": "ELD 市場",
+                "marche_prive": "私人住宅市場",
+                "marche_public": "公共市場客戶",
+                "marche_industrie": "工業和大型第三產業市場",
+                "marche_multisites": "多網站市場",
+                "marche_pme_pmi": "PME/PMI 市場",
+                "marketing_marche_clients": "市場行銷／客戶",
+                "systeme_information": "資訊業系統"
+            },
+            "country": {
+                "algeria": "阿爾及利亞",
+                "argentina": "阿根廷",
+                "australia": "澳洲",
+                "bahrein": "巴林",
+                "belgium": "比利時",
+                "brazil": "巴西",
+                "cameroun": "喀麥隆",
+                "canada": "加拿大",
+                "chili": "智利",
+                "china": "中國",
+                "costarica": "哥斯達黎加",
+                "cz": "捷克共和國",
+                "egypt": "埃及",
+                "france": "法國",
+                "germany": "德國",
+                "greece": "希臘",
+                "hungary": "匈牙利",
+                "indonesia": "印尼",
+                "italy": "義大利",
+                "laos": "寮國",
+                "libya": "利比亞",
+                "luxembourg": "盧森堡",
+                "mexico": "墨西哥",
+                "monaco": "摩納哥",
+                "morocco": "摩洛哥",
+                "netherland": "荷蘭",
+                "norway": "挪威",
+                "nouvellecaledonie": "新喀里多尼亞",
+                "oman": "阿曼",
+                "pakistan": "巴基斯坦",
+                "panama": "巴拿馬",
+                "peru": "秘魯",
+                "poland": "波蘭",
+                "polynesie": "法屬玻里尼西亞",
+                "qatar": "卡達",
+                "reunion": "聚會",
+                "romania": "羅馬尼亞",
+                "saudiarabia": "沙烏地阿拉伯",
+                "singapore": "新加坡",
+                "slovakia": "斯洛伐克",
+                "spain": "西班牙",
+                "swiss": "瑞士",
+                "thailand": "泰國",
+                "turkey": "土耳其",
+                "uk": "英國",
+                "arabemirates": "阿拉伯聯合大公國",
+                "usa": "美國",
+                "vanuatu": "萬那杜",
+                "waliisfutuna": "瓦利斯和富圖納群島",
+                "other": "其他"
+            },
+            "ages": {
+                "minus-34": "34 或以下",
+                "35-44": "從 35 到 44",
+                "45-54": "從 45 到 54",
+                "more-55": "55 或更多"
+            }
+        },
+        "gdfec": {
+            "edit": {
+                "title": "這是您第一次連線",
+                "lastName": "姓 *",
+                "firstName": "名字*",
+                "branch": "分支*",
+                "password_title": "請輸入一個新的密碼",
+                "oldPassword": "當前密碼*",
+                "password": "新密碼*",
+                "password_confirmation": "確認*",
+                "personnal_title": "請輸入您的個人資訊",
+                "businessUnit": "業務部門＊",
+                "age": "年齡範圍*",
+                "workingCountry": "您工作的國家*",
+                "gender": "性別*",
+                "save": "認證",
+                "mandatory": "* 必填欄位",
+                "male": "男性",
+                "female": "女性",
+                "saving": "正在儲存你的資訊，請稍等。完成後會轉到首頁。"
+            },
+            "error": {
+                "different_password": "你的密碼與確認不符",
+                "mandatory": "所有的這些欄位都是必填的",
+                "incorrectPassword": "現在的密碼無效"
+            },
+            "branch": {
+                "centre": "中心",
+                "energy_europe": "能量歐洲",
+                "energy_international": "能源國際",
+                "energy_services": "能源服務",
+                "global_gas_lng": "全球汽油＆液態天然氣",
+                "infrastructures": "基礎設施",
+                "entreprises_collectivites": "公司和政府當局"
+            },
+            "business_unit": {
+                "centre_bxl": "布魯塞爾中心",
+                "centre_paris": "巴黎中心",
+                "generation": "世代",
+                "renewable_energies": "可再生能源",
+                "marketing_sales": "營銷與銷售",
+                "emt": "EMT",
+                "support_lines_corporate": "支援線路 / 公司",
+                "asia_pacific": "亞太",
+                "latin_america": "拉丁美洲",
+                "north_america": "北美洲",
+                "samea": "南亞、中東與非洲（SAMEA）",
+                "uk_turkey": "英國土耳其",
+                "benelux_division": "比荷盧部門",
+                "engineering_division": "工程部門",
+                "support": "功能支持 / 企業及其他",
+                "international_division": "國際部",
+                "pole_services": "法國能源服務中心",
+                "pole_system": "法國系統、安裝與維修中心",
+                "pole_network": "Pôle Réseaux /地區能源部",
+                "ep": "E&P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "分配",
+                "storage": "儲存空間",
+                "methane": "液化天然氣油輪碼頭",
+                "business_line_energies": "業務線能量",
+                "business_line_services": "業務線服務",
+                "delegation_relation_clients": "客服代表",
+                "direction_finance": "方向金融表現",
+                "direction_rh": "人力資源局健康安全預防",
+                "etat_major": "總参謀部",
+                "direction_ventes": "分公司銷售部",
+                "marche_eld": "ELD 商場",
+                "marche_prive": "私人住宅市場",
+                "marche_public": "公開市場客戶",
+                "marche_industrie": "產業市場與大型第三產業",
+                "marche_multisites": "多位市場",
+                "marche_pme_pmi": "PME/PMI 市場",
+                "marketing_marche_clients": "市場行銷/客戶",
+                "systeme_information": "信息系統"
+            },
+            "country": {
+                "algeria": "阿爾及利亞",
+                "argentina": "阿根廷",
+                "australia": "澳大利亞",
+                "bahrein": "巴林",
+                "belgium": "比利時",
+                "brazil": "巴西",
+                "cameroun": "喀麥隆",
+                "canada": "加拿大",
+                "chili": "智利",
+                "china": "中國",
+                "costarica": "哥斯大黎加",
+                "cz": "捷克共和國",
+                "egypt": "埃及",
+                "france": "法國",
+                "germany": "德國",
+                "greece": "希臘",
+                "hungary": "匈牙利",
+                "indonesia": "印尼",
+                "italy": "義大利",
+                "laos": "寮國",
+                "libya": "利比亞",
+                "luxembourg": "盧森堡",
+                "mexico": "墨西哥",
+                "monaco": "摩納哥",
+                "morocco": "摩洛哥",
+                "netherland": "荷蘭",
+                "norway": "挪威",
+                "nouvellecaledonie": "新喀裡多尼亞",
+                "oman": "阿曼",
+                "pakistan": "巴基斯坦",
+                "panama": "巴拿馬",
+                "peru": "秘魯",
+                "poland": "波蘭",
+                "polynesie": "法屬玻里尼西亞",
+                "qatar": "卡達爾",
+                "reunion": "團聚",
+                "romania": "羅馬尼亞",
+                "saudiarabia": "沙烏地阿拉伯",
+                "singapore": "新加坡",
+                "slovakia": "斯洛伐克",
+                "spain": "西班牙",
+                "swiss": "瑞士",
+                "thailand": "泰國",
+                "turkey": "土耳其",
+                "uk": "英國",
+                "arabemirates": "阿拉伯聯合大公國",
+                "usa": "美國",
+                "vanuatu": "萬那杜",
+                "waliisfutuna": "瓦利斯和富圖納",
+                "other": "其他"
+            },
+            "ages": {
+                "minus-34": "34 或更少",
+                "35-44": "從 35 到 44 ",
+                "45-54": "從 45 到 54",
+                "more-55": "55 或更多"
+            }
+        },
+        "nespresso": {
+            "changePassword": {
+                "title": "歡迎!",
+                "intro": "請更改您的密碼。保存它以供將來參考!"
+            }
+        },
+        "pwc": {
+            "footer": {
+                "title": "Discover our PwC Digital Academy platform"
+            }
+        },
+        "renaultcare": {
+            "changePassword": {
+                "intro": "<span>您好，</span><br><br>欲創建您的慕課客戶體驗的智慧型手機存取，您只要在下面設定您的密碼即可。<br>我們將會發送一封確認電子郵件，內含特定連結來讓您從您的智慧型手機連結到慕課。<br><br>提醒一下，您連結到 C@re 2.0 平台的 ID 為：<b>{{login}}</b> <br><br>請現在定義您的密碼："
+            },
+            "myaccount": {
+                "updatePassword": "驗證"
+            }
+        },
+        "samsung": {
+            "edit": {
+                "title": "這是您的首次連結",
+                "lastName": "姓氏*",
+                "firstName": "名字*",
+                "email": "電子郵件*",
+                "branch": "實體*",
+                "password_title": "請輸入新密碼",
+                "password": "密碼*",
+                "password_confirmation": "確認密碼*",
+                "personnal_title": "請輸入您的個人資訊",
+                "age": "出生年份*",
+                "workingCountry": "國家*",
+                "save": "驗證",
+                "mandatory": "*必填欄位",
+                "saving": "儲存您的資訊時請稍待。一旦完成，您將被重新導向至主頁。"
+            },
+            "error": {
+                "different_password": "您的密碼與確認不符",
+                "mandatory": "所有這些欄位均為必填"
+            },
+            "branch": {
+                "centre": "中心",
+                "energy_europe": "能源歐洲",
+                "energy_international": "國際能源",
+                "energy_services": "能量服務",
+                "global_gas_lng": "全球天然氣與液化天然氣",
+                "infrastructures": "基礎設施"
+            },
+            "business_unit": {
+                "centre_bxl": "BXL 中心",
+                "centre_paris": "巴黎中心",
+                "generation": "代",
+                "renewable_energies": "可再生能源",
+                "marketing_sales": "行銷與銷售",
+                "emt": "EMT",
+                "support_lines_corporate": "支持線／公司",
+                "asia_pacific": "亞太地區",
+                "latin_america": "拉丁美洲",
+                "north_america": "北美",
+                "samea": "南亞、中東與非洲（SAMEA）",
+                "uk_turkey": "英國-土耳其",
+                "benelux_division": "比荷盧部門",
+                "engineering_division": "工程部門",
+                "support": "功能支援 / 公司及其他",
+                "international_division": "國際部",
+                "pole_services": "法國能源服務中心",
+                "pole_system": "極圈法國系統，安裝與維護",
+                "pole_network": "Pôle Réseaux /地區能源部 (District Energy Division)",
+                "ep": "E&P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "分配",
+                "storage": "儲藏室",
+                "methane": "液化天然氣油輪碼頭"
+            },
+            "country": {
+                "algeria": "阿爾及利亞",
+                "argentina": "阿根廷",
+                "australia": "澳洲",
+                "bahrein": "巴林",
+                "belgium": "比利時",
+                "brazil": "巴西",
+                "cameroun": "喀麥隆",
+                "canada": "加拿大",
+                "chili": "智利",
+                "china": "中國",
+                "costarica": "哥斯大黎加",
+                "cz": "捷克共和國",
+                "egypt": "埃及",
+                "france": "法國",
+                "germany": "德國",
+                "greece": "希臘",
+                "hungary": "匈牙利",
+                "indonesia": "印尼",
+                "italy": "義大利",
+                "laos": "寮國",
+                "libya": "利比亞",
+                "luxembourg": "盧森堡",
+                "mexico": "墨西哥",
+                "monaco": "摩納哥",
+                "morocco": "摩洛哥",
+                "netherland": "荷蘭",
+                "norway": "挪威",
+                "nouvellecaledonie": "新喀里多尼亞",
+                "oman": "阿曼",
+                "pakistan": "巴基斯坦",
+                "panama": "巴拿馬",
+                "peru": "秘魯",
+                "poland": "波蘭",
+                "polynesie": "法屬玻里尼西亞",
+                "qatar": "卡達",
+                "reunion": "團聚",
+                "romania": "羅馬尼亞",
+                "saudiarabia": "沙烏地阿拉伯",
+                "singapore": "新加坡",
+                "slovakia": "斯洛伐克",
+                "spain": "西班牙",
+                "swiss": "瑞士",
+                "thailand": "泰國",
+                "turkey": "土耳其",
+                "uk": "英國",
+                "arabemirates": "阿拉伯聯合大公國",
+                "usa": "美國",
+                "vanuatu": "萬那杜",
+                "waliisfutuna": "瓦利斯和富圖納",
+                "other": "其他"
+            },
+            "ages": {
+                "minus-34": "34 或更少",
+                "35-44": "從 35 到 44",
+                "45-54": "從 45 到 54",
+                "more-55": "55 或更多"
+            }
+        },
+        "up": {
+            "myaccount": {
+                "noModulesUnlocked": "沒有購買任何等級",
+                "unlockedModules": "買過的層級："
+            }
+        },
+        "digitlearning": {
+            "passwordHint": "最少8個字符 密碼必須至少包含大寫字母，數字和特殊字符（〜！@＃$％^＆* _- + =`|（）{} []：;“'<>，。？）"
+        }
+    }
+}

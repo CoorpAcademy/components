@@ -1,0 +1,189 @@
+{
+    "not_a_number": "<not available>",
+    "target": "Țintă:",
+    "export": {
+        "csv": "CSV",
+        "pdf": "PDF",
+        "excel": "Excel"
+    },
+    "info": {
+        "launch_date": "Dată lansare",
+        "targeted_users": "Populație țintă"
+    },
+    "navigation": {
+        "every": "Toate",
+        "every-except-coorp": "Toate, cu excepţia Coorpacademy",
+        "engagement": "logodna",
+        "dashboard": "vedere generală",
+        "users": "de utilizator",
+        "content": "conţinut",
+        "battles": "după bătălii",
+        "exports": "exporturi",
+        "behavioral": "comportamentul"
+    },
+    "since": {
+        "last_week": "Ultimele 7 zile",
+        "last_month": "ultimele 30 de zile",
+        "beginning": "lansare"
+    },
+    "users": {
+        "roles": {
+            "header": "Roluri",
+            "button": "Salvare",
+            "saved": "Roluri actualizate cu succes pentru {{displayName}}.",
+            "cms": "Cms",
+            "moderator": "Moderator Forum",
+            "rh": "Rh",
+            "godmode": "Modul Dumnezeu",
+            "supercoach": "Supercoach"
+        },
+        "tab": {
+            "ranking": "Clasament utilizator",
+            "activity": "Activitate"
+        },
+        "back": "Înapoi la căutare",
+        "entity": "Companie",
+        "title": "Funcţie",
+        "cnx": {
+            "first": "data primei conectări",
+            "last": "Ultima conectare"
+        },
+        "general": {
+            "header": "Activitate generală",
+            "total_cnx": "Numărul total de conexiuni",
+            "total_validated_disciplines": "Total discipline realizate",
+            "total_validated_modules": "Total module arhivate",
+            "modules_validated_per_total": "# module realizate / # module totale",
+            "ranking": "Clasificare",
+            "never": "Niciodată"
+        },
+        "sociability": {
+            "header": "Sociabilitate",
+            "posts": {
+                "count": "{{nb}} postare",
+                "count_plural": "{{nb}} postări",
+                "answers": "incl. {{nb}} răspundeți altui utilizator",
+                "answers_plural": "inclusiv {{nb}} răspunsuri către alt utilizator"
+            },
+            "battles": {
+                "count": "{{nb}} bătălii",
+                "count_plural": "{{nb}} bătălii",
+                "won": "incl. bătălia {{nb}} câștigată",
+                "won_plural": "incl. bătălia {{nb}} câștigată"
+            },
+            "coach": {
+                "disciplines": "Profesor pentru disciplina {{nb}}",
+                "disciplines_plural": "Profesor de {{nb}} discipline",
+                "interactions": "{{nb}} interacțiune cu antrenorii",
+                "interactions_plural": "{{nb}} interacțiuni cu antrenori"
+            },
+            "completion": {
+                "total_label": "Finalizare totală:",
+                "total": "{{ratio}}%",
+                "modules_tried_label": "Module încercate:",
+                "modules_tried": "{{totalTriedModules}}/{{nbModules}}",
+                "average_completion_label": "Finalizare/încercare:",
+                "average_completion": "{{ratio}}%"
+            }
+        },
+        "progression": {
+            "filter": "Filtru discipline",
+            "filterPlaceholder": "Cuvinte cheie pentru a filtru de discipline",
+            "th": {
+                "discipline": "Disciplină",
+                "hidden": "Ascunse",
+                "level": "Nivel",
+                "module_progression": "% succes",
+                "status": "Stare",
+                "score": "Scor"
+            }
+        },
+        "time": {
+            "header": "durată conexiune",
+            "totalTime": "Durata cumulata",
+            "validatedTime": "Durata validate"
+        },
+        "license": {
+            "label": "Licență",
+            "button": "Dezactivare",
+            "active": "Activ",
+            "inactive": "Inactiv"
+        },
+        "deactivate": {
+            "confirm": "Vă rugăm să introduceți „da” pentru a confirma dezactivarea contului",
+            "confirm_word": "da",
+            "account_deactivated": "Contul a fost dezactivat"
+        },
+        "connectAs": "Conectare ca",
+        "bonusStars": {
+            "buttonPositive": "Adăugaţi",
+            "buttonNegative": "Eliminați",
+            "required": "Te rugăm să introduci stele pentru a adăuga",
+            "notANumber": "Stelele trebuie să fie un întreg",
+            "confirm": "Introduceți „bonus” pentru a confirma adunarea sau scăderea stelelor",
+            "confirm_word": "bonus",
+            "starsAdded": "Ai adăugat {{count}} stele utilizatorului {{displayName}}",
+            "starsAdded_plural": "Tocmai i-ați adăugat {{count}} stele utilizatorului {{displayName}}",
+            "starsRemoved": "Tocmai ai îndepărtat {{count}} steaua utilizatorului {{displayName}}",
+            "starsRemoved_plural": "Ai eliminat {{count}} (de) stele de la utilizatorul {{displayName}}"
+        }
+    },
+    "exports": {
+        "export": "Exportă",
+        "querySent": "Se pregătește raportul. Ar trebui să îl primiți curând prin e-mail.",
+        "global": {
+            "title": "Utilizatorii exportă la Cerere",
+            "introduction": "Această trăsătură îți permite să exporți toate datele despre utilizatorii de pe platformă."
+        },
+        "battles": {
+            "title": "Exportați bătălia la Cerere",
+            "introduction": "Această funcție permite exportarea tuturor datelor despre luptele de pe platformă."
+        },
+        "history": {
+            "title": "Istoric exporturi",
+            "introduction": "Această caracteristică vă permite să recuperați toate datele zilnice",
+            "users": "utilizatori",
+            "battle": "bătălie",
+            "analytics": "progres",
+            "filter_by": "filtrare după"
+        }
+    },
+    "custom": {
+        "up": {
+            "navigation": {
+                "modules": "în funcție de nivel"
+            },
+            "modules": {
+                "header": {
+                    "discipline": "Curs"
+                },
+                "module": {
+                    "media_views": {
+                        "title": "Rata de vizualizare a suportului media al lecțiilor per nivel"
+                    }
+                }
+            },
+            "users": {
+                "general": {
+                    "total_validated_disciplines": "Total cursuri încheiate",
+                    "total_validated_modules": "Total niveluri atinse",
+                    "modules_validated_per_total": "# niveluri atinse / # niveluri total"
+                },
+                "sociability": {
+                    "coach": {
+                        "disciplines": "Autocar în  {{nb}} cursuri",
+                        "disciplines_plural": "Profesor pentru {{nb}} cursuri"
+                    },
+                    "completion": {
+                        "modules_tried_label": "nivele încercate:"
+                    }
+                },
+                "progression": {
+                    "th": {
+                        "discipline": "Cursa"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "submit": "확인",
+    "print": "인쇄",
+    "share": "공유",
+    "delete": "삭제",
+    "start": "바로가기",
+    "loadMore": "더 보기",
+    "download": "다운로드",
+    "ok": "OK",
+    "cancel": "취소",
+    "sso": "통합 인증",
+    "connect": "연결",
+    "signup": "회원가입",
+    "signup_pre": "계정이 없으십니까?",
+    "custom": {
+        "chanel": {
+            "signup": "회원가입"
+        },
+        "ilearn": {
+            "signup": "회원가입"
+        }
+    }
+}

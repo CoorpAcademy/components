@@ -1,0 +1,107 @@
+{
+    "indice": {
+        "title": "Potrzebujesz pomocy?",
+        "sub_title": "Wymień gwiazdkę na podpowiedź!",
+        "content": "Zdobądź podpowiedź"
+    },
+    "lesson": {
+        "title": "Tutaj znajdziesz odpowiedzi!",
+        "sub_title": "Obejrzyj kurs i zdobądź 4 dodatkowe gwiazdki!",
+        "resources": "Aby przejść dalej",
+        "title_video": "Materiał wideo o kursie",
+        "title_pdf": "Plik PDF kursu",
+        "look_at_the_course": "Obejrzyj kurs"
+    },
+    "without_coach": {
+        "title": "Brak dostępnych trenerów"
+    },
+    "with_coach": {
+        "title": "Rozpocznij dyskusję",
+        "content": "Dostępni trenerzy: {{nb}}"
+    },
+    "is_valid": {
+        "state": "<span class=\"label1\"> Prawidłowa</span> <span class=\"label2\"> odpowiedź</span>",
+        "title": "Brawo!",
+        "correctAnswer": "Dobra odpowiedź:"
+    },
+    "is_invalid": {
+        "state": "<span class=\"label1\"> Błędna</span> <span class=\"label2\"> odpowiedź</span>",
+        "title": "Ojej...",
+        "goodAnswer": "Poprawna odpowiedź brzmi:"
+    },
+    "signup_finish_chapter": "Zarejestruj się, aby zakończyć rozdział",
+    "available_shots_pre": "Nadal masz",
+    "available_shots": "Liczba pozostałych szans: {{count}}",
+    "available_shots_plural": "Liczba pozostałych szans: {{count}}",
+    "available_shots_post": "&nbsp;",
+    "klf": "Czy wiesz, że...?",
+    "to_know": "Kluczowy punkt",
+    "footer": {
+        "lesson": {
+            "title": "Możesz przejrzeć tę lekcję",
+            "button": "Uzyskaj dostęp do lekcji"
+        },
+        "result": {
+            "title": "Możesz wrócić do swojego wyniku",
+            "button": "Powrót do wyniku"
+        },
+        "next_question": "Dalej"
+    },
+    "check_answer": "Sprawdź odpowiedź",
+    "adaptive_check_answer": "Następny",
+    "next_question": "Następne pytanie",
+    "next_level": "Następny poziom",
+    "author": "Autorem tego rozdziału jest:",
+    "button_tree": "Przejdź do katalogu",
+    "comments": {
+        "title": "Dyskutuj",
+        "title_for_module": "Dyskutować - poziom {{name}}"
+    },
+    "slideNotFound": "Wątpliwości, Znalezione w odniesieniu {{slideId}}",
+    "forbidden": "Nie masz prawo dostępu do treści z {{contentRef}} odniesienia.",
+    "showContext": "Uzyskaj ponownie dostęp do kontekstu",
+    "context": "Kontekst",
+    "custom": {
+        "hr-ac": {
+            "footer": {
+                "lesson": {
+                    "button": "Dostęp do dokumentu"
+                }
+            }
+        },
+        "nespresso": {
+            "without_coach": {
+                "title": "Nie dostępnych ekspertów"
+            },
+            "with_coach": {
+                "content": "{{nb}} ekspert Narodowy dostępne"
+            }
+        },
+        "renaultcare": {
+            "is_valid": {
+                "state": "<span class=\"label1\"> Bravo</span>"
+            },
+            "is_invalid": {
+                "state": "<span class=\"label1\"> naprawdę nie</span>",
+                "title": "Ojej..."
+            }
+        },
+        "schneider": {
+            "comments": {
+                "title_for_module": "Dyskutować - {{name}} poziom <br/> prosimy o kontakt z <a href=\"http://2929it.schneider-electric.com/\" target=\"_blank\"> 2929 wsparcie</a> dla wszelkie problemy związane z wideo"
+            }
+        },
+        "who": {
+            "is_valid": {
+                "state": "<span class=\"label1\"> odpowiednie</span> <span class=\"label2\"> odpowiedź</span>",
+                "correctAnswer": "Prawidłowa odpowiedź:"
+            },
+            "to_know": "Aby zrozumieć",
+            "lesson": {
+                "resources": "Zanurz się w temat",
+                "look_at_the_course": "Plik PDF z kursu"
+            },
+            "showContext": "Dostęp do kontekstu ponownie"
+        }
+    }
+}

@@ -1,0 +1,201 @@
+{
+    "title": "Certificările mele.",
+    "subtitle_head1": "Selectează una sau mai multe certificări și finalizează-le pentru a-ți îmbunătăți aptitudinile într-un domeniu sau o materie selectată.",
+    "subtitle_head2": "Începeţi un modul de certificare",
+    "how_to": "Pentru a valida certificarea, trebuie să completați fiecare modul. Să începem!",
+    "button_choose_goal": "Alegeți o certificare.",
+    "selected_goals_title": "Certificare curentă {{goals}}",
+    "selected_goals_title_plural": "Certificări curente {{goals}}",
+    "selected_goals_no_item": "Niciun certificat nu a fost selectat. Alege unul!",
+    "finished_goals_title": "{{goals}}  Certificare realizată",
+    "finished_goals_title_plural": "{{goals}}  Certificări Eliberate",
+    "finished_goal_label": "{{goalLabel}} {{star}}",
+    "finished_goals_no_item": "Nu ai finalizat nici o certificare încă.",
+    "button_module_access": "Începe acum",
+    "minutes_label": "min",
+    "status_label": "Stare:",
+    "stars_label": "{{stars}} stea",
+    "stars_label_plural": "{{stars}} stele",
+    "popover": {
+        "title": "Aveți grijă!",
+        "module_blocked_pre": "Acest modul nu este disponibil:",
+        "module_blocked_post": "{{pre}} Pentru a-l atinge trebuie să validați mai întâi nivelul {{level}}",
+        "select_goal": {
+            "title": "Vă rugăm să alegeți o certificare",
+            "available_module": "{{total}} Certificări disponibile",
+            "available_module_plural": "{{total}} de certificări disponibile",
+            "module_done": "Acest modul a fost deja completat. Ești pe cale să validezi certificarea.",
+            "module_blocked": "Acest modul nu este încă disponibil. Pentru a-l debloca trebuie să treci mai întâi de nivelul  Basic sau Avansat. ",
+            "button_add_goal": "Confirmă certificarea mea."
+        }
+    },
+    "condition_progress": {
+        "information": "Ați completat {{done}} din {{total}} module propuse."
+    },
+    "certification": {
+        "title": "Certificatul tău",
+        "title_plural": "Certificările tale",
+        "subtitle": "Validați-vă Abilitățile cu Această Certificare",
+        "subtitle_plural": "Validează-ți abilitățile cu aceste certificări",
+        "rewards": {
+            "subtitle": "Recompensele dvs.",
+            "see_detail": "Vizualizați",
+            "congratulations": "Felicitări pentru succesul dumneavoastră",
+            "you_can_win": "Victorie",
+            "download_resource": "Apasă aici pentru a descărca",
+            "see_diploma": "Vezi diploma",
+            "access_your_diploma": "Accesare diplomă"
+        },
+        "stars": {
+            "description_pre": "Obținere",
+            "description_post": "stele"
+        },
+        "state": {
+            "done": "Gata!",
+            "inProgress": "În desfășurare"
+        },
+        "condition_description": {
+            "progress": "Ținta: {{count}} modul",
+            "progress_plural": "Țintă: {{count}} module"
+        },
+        "certificationDone": "Felicitări! Ați obținut certificarea {{certificationName}}!"
+    },
+    "diploma": {
+        "certificate": "certificat",
+        "date": "Data: {{date}}",
+        "message": "de validat competentele necesare pentru certificare:"
+    },
+    "custom": {
+        "ecolenumerique-sncf": {
+            "certification": {
+                "title": "Insigna de Jedi",
+                "title_plural": "Jedi insigne",
+                "certificationDone": "Felicitări! Aţi obţinut {{certificationName}} insigna!",
+                "subtitle": "Valida insigna de Jedi",
+                "subtitle_plural": "Valida dumneavoastră insigne Jedi aici"
+            }
+        },
+        "ganprevoyance": {
+            "certification": {
+                "title": "Universul",
+                "title_plural": "Universuri",
+                "certificationDone": "Felicitări! Au validat {{certificationName}} univers!",
+                "subtitle": "Valida universul tău aici",
+                "subtitle_plural": "Valida universuri dumneavoastră aici"
+            }
+        },
+        "cnp": {
+            "certification": {
+                "title": "Certificat",
+                "title_plural": "Certificate",
+                "certificationDone": "Felicitări! Au validat {{certificationName}} certificat!",
+                "subtitle": "Validaţi certificatul aici",
+                "subtitle_plural": "Validarea certificatelor de aici"
+            }
+        },
+        "pernod": {
+            "title": "Obiectivele mele",
+            "subtitle_head1": "Selectați unul sau mai multe Obiective și finalizați-le pentru a vă îmbunătăți aptitudinile într-un domeniu sau subiect selectat.",
+            "subtitle_head2": "Începeți un modul dintre cele incluse într-un Obiectiv.",
+            "how_to": "Pentru a valida un Obiectiv, trebuie să completați fiecare modul. Să începem!",
+            "button_choose_goal": "Alege un obiectiv.",
+            "selected_goals_title": "{{goals}} Obiectivul actual",
+            "selected_goals_title_plural": "Obiective curente {{goals}}",
+            "selected_goals_no_item": "Nu a fost selectat niciun obiectiv! Vă rugăm să alegeți unul!",
+            "finished_goals_title": "{{goals}} Obiectiv atins",
+            "finished_goals_title_plural": "{{goals}}  Obiective îndeplinite",
+            "finished_goal_label": "{{star}} {{goalLabel}} ",
+            "finished_goals_no_item": "Nu ai îndeplinit niciun Obiectiv deocamdată.",
+            "button_module_access": "Începe acum",
+            "minutes_label": "min",
+            "status_label": "Status:",
+            "stars_label": "{{stars}} stele",
+            "stars_label_plural": "{{stars}} stele",
+            "popover": {
+                "title": "Aveți grijă!",
+                "module_blocked_pre": "Acest modul nu este disponibil:",
+                "module_blocked_post": "{{pre}} Pentru a obține acest lucru, trebuie mai întâi să validați nivelul {{level}}",
+                "select_goal": {
+                    "title": "Vă rugăm alegeți un Obiectiv",
+                    "available_module": "{{total}} Obiective Disponibile",
+                    "available_module_plural": "{{total}} Obiective Disponibile",
+                    "module_done": "Acest modul a fost completat deja. Sunteți pe drumul cel bun pentru a atinge Obiectivul.",
+                    "module_blocked": "Acest modul nu este încă disponibil. Pentru a-l debloca, trebuie întâi să terminați întâi nivelul de bază și cel avansat.",
+                    "button_add_goal": "Confirmați Obiectivul meu."
+                }
+            },
+            "condition_progress": {
+                "information": "Ai terminat {{done}} din {{total}} module propuse."
+            },
+            "certification": {
+                "title": "Obiectivele tale",
+                "subtitle": "Validează-ți abilitățile având aceste Obiective",
+                "rewards": {
+                    "subtitle": "Recompensele tale",
+                    "see_detail": "Vezi",
+                    "congratulations_pre": "Și a noastră",
+                    "congratulations": "felicitări",
+                    "congratulations_post": "pentru toate eforturile dvs."
+                },
+                "stars": {
+                    "description_pre": "Îți dăm",
+                    "description_post": "stele"
+                },
+                "state": {
+                    "done": "Gata",
+                    "inProgress": "În desfășurare"
+                },
+                "condition_description": {
+                    "progress": "{{nbDone}} module finalizate"
+                },
+                "certificationDone": "Felicitări! A atins obiectivul {{certificationName}}!"
+            }
+        },
+        "sgmgt": {
+            "diploma": {
+                "message": "Toți pașii pentru competențele necesare au fost completați în contextul conștientizării privind administrarea proiectului"
+            }
+        },
+        "securite": {
+            "diploma": {
+                "message": "de validat competentele necesare pentru certificare:"
+            }
+        },
+        "projet": {
+            "diploma": {
+                "message": "Toți pașii ceruți de aceste competențe au fost făcuți în cadrul sensibilizare management de proiect"
+            }
+        },
+        "tagheuer": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Acest modul nu este disponibil încă. Pentru a-l accesa trebuie întâi să treceţi nivelele de Titaniu sau Bronz."
+                }
+            }
+        },
+        "tagheuercon": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Acest modul nu este disponibil încă. Pentru a-l debloca mai întâi trebuie să treci de nivelurile Titan sau Bronz."
+                }
+            }
+        },
+        "up": {
+            "subtitle_head2": "Începe un nivel dintre cele incluse într-un Obiectiv.",
+            "how_to": "Pentru a valida un obiectiv, trebuie să completezi nivelul de început.  Hai să începem!",
+            "popover": {
+                "module_blocked_pre": "Acest nivel nu este disponibil:",
+                "select_goal": {
+                    "module_done": "Acest nivel a fost deja eliminat. Sunteți pe cale să atingeți Obiectivul.",
+                    "module_blocked": "Acest nivel nu este încă disponibil. Pentru a-l debloca trebuie să treceți mai întâi de nivelurile Începător și Avansat."
+                }
+            },
+            "certification": {
+                "condition_description": {
+                    "progress": "Obiectiv: {{count}} discipline",
+                    "progress_plural": "Obiectiv {{count}} discipline"
+                }
+            }
+        }
+    }
+}

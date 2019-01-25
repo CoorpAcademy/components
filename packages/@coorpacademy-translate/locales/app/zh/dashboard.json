@@ -1,0 +1,1569 @@
+{
+    "hello": "欢迎你，{{displayname}}！",
+    "show_more": "查看全部",
+    "registered": {
+        "score": "你的得分：",
+        "new_score": "您的新比分 {{newscore}}",
+        "badge": {
+            "new": "1 个徽章",
+            "new_post": "赢了",
+            "award_pre": "青铜",
+            "award": "- 3 项竞赛",
+            "award_post": "完成",
+            "name": "青铜"
+        },
+        "next_player": "轮到你的对手……",
+        "button_back": "返回"
+    },
+    "slides_battle": "问题 {{count}}",
+    "slides_battle_check": "验证",
+    "success_battle": {
+        "title": "战役结束！",
+        "result": {
+            "win": "恭喜你，你胜利了！",
+            "win_fast": "恭喜，你在最短时间内赢了！",
+            "win_first": "恭喜！",
+            "win_second": "你赢了",
+            "loose": "哎，你输了！",
+            "loose_first": "哎呦",
+            "loose_second": "你输了！",
+            "loose_against": "哎呦，你输了。{{name}}比你更快！",
+            "winStars": "你利用这场战斗赢得了 {{count}} 额外的星星！",
+            "winStars_plural": "您在这场对战中获得了 {{count}} 颗额外的星！"
+        },
+        "badge_user": {
+            "text": "1 徽章",
+            "text_post": "赢得",
+            "award_pre": "青铜",
+            "award": "- 3 次战斗",
+            "award_post": "完成",
+            "name": "青铜"
+        },
+        "badge_opponent": {
+            "text": "1 个徽章",
+            "text_post": "赢了",
+            "award_pre": "青铜",
+            "award": "- 3 次对战",
+            "award_post": "完成",
+            "name": "青铜"
+        },
+        "footer": "返回"
+    },
+    "notificationCard": {
+        "request_title": "{{title}} 请求",
+        "request": "{{module}} 模块 {{level}} 等级",
+        "aim": {
+            "text": "1 个新的答案",
+            "text_post": "针对你的问题",
+            "name": "名 姓",
+            "link": "查看"
+        },
+        "badge": {
+            "text": "恭喜！您赢得了 1 枚新徽章",
+            "text_post": "赢",
+            "link": "查看"
+        },
+        "battle": {
+            "text": "你已收到 1 场新的战斗",
+            "text_post": "挑战",
+            "link": "查看",
+            "demand_accept": "你的战斗挑战",
+            "demand_accept_post": "被接受",
+            "win_against_title": "你赢得了胜利！",
+            "loose_against_title": "你输了这场战斗！",
+            "against": "{{module}} 模块 {{level}} 等级",
+            "versus": "对"
+        },
+        "forum_text": "There is 1 new answer to your comment regarding the {{module}} module {{level}} level",
+        "forum_text_page": "有一个新的回复您对论坛的评论",
+        "module": {
+            "text": {
+                "bravo": "恭喜！",
+                "pre": "你已经通过",
+                "detail": "模块 ",
+                "base": "基础等级",
+                "advanced": "高级等级",
+                "coach": "教练员等级"
+            },
+            "link": "查看"
+        },
+        "reward": {
+            "bonusStars": {
+                "title": "祝贺您！您赢得了额外的奖章！",
+                "goal": {
+                    "description": "您已达到了{{goal}} 目标。这可使您获得 {{stars}} 额外的星星。"
+                },
+                "rh": {
+                    "description": "你已经赢得了 {{stars}} 额外的星星作为奖励。"
+                }
+            },
+            "rewardStars": {
+                "title": "Congratulations! You have won additional stars!",
+                "goal": {
+                    "description": "You have reached the {{goal}} goal. It allowed you to earn {{stars}} additional stars."
+                }
+            },
+            "resource": {
+                "title": "恭喜！您可以访问一项新内容！",
+                "description": "你已经达到{{goal}} 目标。授予你{{label}}。"
+            },
+            "diploma": {
+                "title": "文凭。",
+                "description": "你已经实现了 {{goal}} 目标。你获得了文凭。恭喜！"
+            }
+        },
+        "coach": {
+            "bravo": "恭喜！",
+            "text": "您已成为此{{disciplineName}}科目的教练员。"
+        },
+        "title": {
+            "text": "{{title}} 请求",
+            "Battle": "战斗",
+            "Module": "模块",
+            "Badge": "徽章",
+            "Forum": "讨论",
+            "Coach": "教练",
+            "cmsNotification": "信息",
+            "welcome": "欢迎",
+            "resetModule": "内容更新！"
+        },
+        "type": {
+            "module": "模块",
+            "badge": "徽章",
+            "battle": "战役",
+            "forum": "讨论",
+            "Coach": "教练",
+            "objectif": "认证",
+            "cmsNotification": "信息",
+            "reward": "奖励",
+            "welcome": "欢迎",
+            "resetModule": "内容更新！"
+        }
+    },
+    "achievement": {
+        "helper": "纵观你的成功！你会设法获得所有这些徽章的白金级吗？",
+        "titre": "您的徽章"
+    },
+    "navigation": {
+        "text": "在导航菜单中，访问平台的所有功能。",
+        "my_board": "我的工作板",
+        "population": "我的人群",
+        "learningTree": {
+            "helper": "点击 1 次即可访问所有途径学科",
+            "push": "访问您所有的学科",
+            "push_post": "点击一下"
+        },
+        "account_helper": "查看你的个人空间、查找你的结果、管理你的进度、参与讨论或者仅仅在开始模块之前学习课程。",
+        "account": "我的账号",
+        "language": "语言",
+        "notification": "通知",
+        "badge": "我的徽章",
+        "objectif": "我的认证",
+        "activity": "活动",
+        "discussion": "讨论",
+        "conseil": "建议&提示 ",
+        "coach": "教练",
+        "lessons": "图书馆",
+        "battle_helper": "一旦你完成一个模块，用一个有十个问题的小游戏，去挑战那些和你相同级别的所有人！",
+        "battle_pre": "对战模式",
+        "battle": "以“战斗”模式挑战你的同事：尽可能快地回答问题！",
+        "battle_post": "点击此处！",
+        "assistance": "援助",
+        "home": "主页",
+        "certifications": "我的认证"
+    },
+    "personal_selection": {
+        "text_helper": "根据你的路径推荐了 3 个模块！",
+        "title": "我们给您的建议",
+        "acces_module": "立即开始",
+        "payment_required": "立即购买",
+        "popular_module_helper": "需要启发？通过选择最受欢迎选项，看看其他人正在做什么。",
+        "last_discussion": "之前的讨论",
+        "no_discussion": "无讨论",
+        "last_module": "已经玩过最后一个模块",
+        "no_module": "未播放任何模块",
+        "level": {
+            "pre": "等级",
+            "base": "基本，",
+            "advanced": "高级，",
+            "coach": "教练，",
+            "post": "{{stars}}/{{maxstars}}"
+        },
+        "popular_module": "多数完成的科目",
+        "easiest_disciplines": "最简单的规则",
+        "hardest_disciplines": "最难的指标",
+        "no_popular_module": "无完成模式",
+        "module_name": {
+            "pre": "等级",
+            "base": "基础",
+            "advanced": "高级",
+            "coach": "教练"
+        }
+    },
+    "activity": {
+        "title": "活动",
+        "progression_text_pre": "你的科目进展如何？",
+        "progression_text": "关于你设定的目标，你有在进步吗？",
+        "progression_subtext": "现在是检查的时候……",
+        "discipline_title": "惩罚",
+        "disciplines": {
+            "title": "科目",
+            "score": "分数",
+            "actual_level": "当前等级"
+        },
+        "module_title": "组件",
+        "avancement": "进度",
+        "caption-started": "已开始的组件",
+        "caption-done": "已完成模块"
+    },
+    "myactivity": {
+        "title": "活动:",
+        "subtitle": "你的课程进展如何？",
+        "total": "总计：",
+        "engines": {
+            "learner": "赛跑",
+            "microlearning": "微型学习",
+            "battle": "战役",
+            "certifications": "证书",
+            "bonus": "奖金"
+        },
+        "recommendation": {
+            "title": "您好！{{displayName}}，提高您的分数！",
+            "subtitle": "我们推荐："
+        },
+        "starsToolTip": {
+            "preMessage": "该功能目前在您的平台上无法使用。如果您想要激活该功能，敬请联络您的经理，或者您可以",
+            "linkMessage": "点击此处",
+            "endMessage": "然后由我们来为您传达这一信息。"
+        }
+    },
+    "goals": {
+        "title": "你的认证进展"
+    },
+    "badges": {
+        "title": "我所有的徽章",
+        "subtitle": "发现您的所有徽章",
+        "title-1-0": "我的徽章",
+        "subtitle-1-0": "查看您所获得的所有勋章，或成为数码“国王”所需获得的其它勋章！;-)",
+        "newBadgeWon": "您得到：",
+        "newBadgeWon_plural": "您已获得：",
+        "seeYourBadges": "查看您的徽章",
+        "battle": {
+            "name": "战斗勇士",
+            "details": "{{count}} 次对战",
+            "details_plural": "{{count}} 场对战",
+            "details_post": "完成！",
+            "details_post_plural": "完成！"
+        },
+        "module": {
+            "name": "生存模式",
+            "details": "{{count}} 模块",
+            "details_plural": "{{count}} 模块",
+            "success": "已完成",
+            "success_plural": "已完成",
+            "details_pre_1": "没有失去",
+            "details_pre_2": "一生！"
+        },
+        "lesson": {
+            "name": "班里第一名",
+            "details": "{{count}} 课程",
+            "details_plural": "{{count}} 课程",
+            "details_post": "完整地查看！",
+            "details_post_plural": "完全查看！"
+        },
+        "question": {
+            "name": "冠军需要回答的问题",
+            "details": "{{count}} 问题",
+            "details_plural": "{{count}} 问题",
+            "details_post": "已解决！",
+            "details_post_plural": "已解答！"
+        },
+        "coach": {
+            "name": "友谊一等奖",
+            "details": "{{count}}交互",
+            "details_plural": "{{count}} 互动",
+            "details_pre_1": "和",
+            "details_pre_2": "导师！"
+        },
+        "level": {
+            "bronze": "青铜",
+            "silver": "银牌",
+            "gold": "金",
+            "platinum": "铂"
+        }
+    },
+    "battle": {
+        "title": "战斗",
+        "create": "创建一个战斗",
+        "requests": {
+            "title": "战斗请求",
+            "no_requests_found": "你还没有任何战斗请求",
+            "sendBattle": "{{opponentName}} 正在挑战你"
+        },
+        "history": {
+            "title": "战斗史",
+            "message": {
+                "pending": "这场战斗等待对手的批准",
+                "win": "你赢了！",
+                "lost": "你输了！",
+                "win_byTime": "你是最快的！",
+                "lost_byTime": "你太慢了！"
+            },
+            "no_history_found": "你还没有任何战斗历史"
+        },
+        "start": {
+            "cta": "开始<span class =“bold”>战斗</ span>",
+            "new_cta": "创建新的 <span class=\"bold\">挑战</span>",
+            "cancel": "忽视",
+            "body_pre": "速优者胜:",
+            "bodyText": "在平局的情况下，最快的胜利！",
+            "me": "我",
+            "inProgress": "进行中"
+        },
+        "steps": {
+            "1": "1. 选择一个等级",
+            "2": "2. 选择您的对手",
+            "3": "3. 开始战斗"
+        },
+        "select_module": {
+            "title": "选择一个等级:",
+            "placeholder": "输入模块名称",
+            "no_module_available": "您只能在已完成的模块中创建一个战斗。",
+            "no_module_found": "未找到模块"
+        },
+        "select_theme": {
+            "title": "选择一个集合："
+        },
+        "select_opponent": {
+            "title": "选择您的对手",
+            "placeholder": "输入名称",
+            "no_opponent_found": "没有发现对手",
+            "random": "随机对手"
+        },
+        "subtitle": "挑战你的同事！",
+        "button": {
+            "create": "创建新的挑战",
+            "cancel": "取消"
+        },
+        "score": "10",
+        "no_battle_progress": "你没有正在进行中的比赛。",
+        "block": {
+            "title": "战斗邀请"
+        },
+        "accept_button": "接受",
+        "no_proposition": "您还没有收到任何战斗请求。",
+        "completed": {
+            "title": "已完成的战斗",
+            "subtitle_pre": "您已参与",
+            "subtitle_pre_plural": "您参与了",
+            "subtitle": "{{count}} 次对战，赢 {{nb}}",
+            "subtitle_plural": "{{count}} 战役, 获胜 {{nb}}"
+        },
+        "block_empty": "你尚未结束战斗。",
+        "create_title": "创建战斗",
+        "active_title_intro": "战斗模式",
+        "active_title_active": "已激活",
+        "start_discipline": "开始一门学科",
+        "no_opponent": "没有适用于本级别的对手",
+        "coming_soon_random": "开始一场随机竞赛"
+    },
+    "dashboard": {
+        "text": "太空竞赛！你可以通过正确回答问题、通过以下课程或社会实践获得胜利（通过战斗和训练）！",
+        "title": "你的分数",
+        "data": {
+            "intro": "您名列前茅",
+            "value": "15%",
+            "wording": "最高分数"
+        },
+        "data_dev_hidden": {
+            "question": {
+                "title": "问题：",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "你是以下的一部分",
+                    "level": "{{level}}",
+                    "wording": "有着最多的星星"
+                }
+            },
+            "cours": {
+                "title": "课程：",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "你是其中一员",
+                    "level": "{{level}}",
+                    "wording": "谁观看了最多课程。"
+                }
+            },
+            "extra": {
+                "title": "其他：",
+                "stat": {
+                    "intro": "你成了_的一部分",
+                    "level": "{{level}}",
+                    "wording": "有着最好的结果"
+                }
+            },
+            "total_title": "总计："
+        }
+    },
+    "lessons": {
+        "title": "所有课程和视频",
+        "subtitle": "你想要在测验之前复习或学习吗？该页面是专为你准备的。这里有按主题分类的全部课程。",
+        "subtitle_up": "在开始小测验之前，是否要复习或学习？",
+        "empty": "找不到此课程的资源。"
+    },
+    "notifications": {
+        "title": "通知",
+        "infos": "<b>{{count}}</b> 条通知！",
+        "infos_plural": "<b>{{count}}</b> 条通知！",
+        "filter": "筛选标准",
+        "close": "接近",
+        "myNotifications": "查看我的通知",
+        "deleteAll": "全部删除",
+        "filters": {
+            "module": "按级别过滤",
+            "badge": "按徽章筛选",
+            "forum": "按讨论筛选",
+            "battle": "按战役筛选",
+            "coach": "按教练筛选",
+            "objectif": "按目标筛选",
+            "reward": "按奖励筛选",
+            "welcome": "按欢迎消息过滤",
+            "resetModule": "按更新内容过滤"
+        }
+    },
+    "block_push": {
+        "tree": {
+            "title": "浏览所有内容",
+            "content": "快速启动请点击这里",
+            "link": "点击此处"
+        },
+        "battle": {
+            "title": "挑战你的同行！",
+            "content": "启动一项“竞赛”。提高技能的过程从未如此有趣！",
+            "link": "点击此处"
+        }
+    },
+    "welcomePopin": {
+        "title": "欢迎",
+        "text": "享受 MOOC，访问第一次页面。",
+        "button": "发现"
+    },
+    "global_notification": {
+        "button": {
+            "show_more": "更多信息"
+        }
+    },
+    "filters": {
+        "all": "全部",
+        "coorpers": "Coorpers",
+        "courses": "我的课程"
+    },
+    "sections": {
+        "most-popular": "最受欢迎",
+        "most-recent": "新上架",
+        "my-list": "{{name}}清单",
+        "news": "新闻",
+        "recommended": "为你推荐",
+        "load_more": "装载更多",
+        "certification": "认证: {{name}}",
+        "prefix_chapter": "微型学习: {{title}}"
+    },
+    "continueLesson": "继续我的课程",
+    "widgets": {
+        "read_more": "更多"
+    },
+    "discussion": {
+        "title": "所有课程评论",
+        "subtitle": "您可在此浏览社群成员的全部留言"
+    },
+    "slider": {
+        "start": {
+            "surtitle": "您好{{displayName}}，",
+            "surtitle_anonymous": "欢迎,",
+            "title": "探索新课程",
+            "cta": "目录"
+        },
+        "resume": {
+            "surtitle_learner": "欢迎回来{{displayName}}，继续：",
+            "surtitle_microlearning": "欢迎回来{{displayName}}，继续：",
+            "surtitle_learner_anonymous": "欢迎回来, 继续：",
+            "surtitle_microlearning_anonymous": "欢迎回来, 继续：",
+            "title": "{{courseName}}",
+            "cta": "继续学习"
+        },
+        "battle": {
+            "surtitle": "欢迎回来{{displayName}}，检查您的战斗请求",
+            "title": "您有{{count}}次战斗请求！",
+            "title_plural": "您有{{count}}次战斗请求！",
+            "cta": "开始战斗"
+        }
+    },
+    "custom": {
+        "7steps": {
+            "achievement": {
+                "helper": "查看你的胜利！你是否会尝试获得所有徽章的最高等级？"
+            },
+            "badges": {
+                "level": {
+                    "platinum": "最高"
+                }
+            },
+            "block_push": {
+                "tree": {
+                    "content": "现在开始学习！"
+                }
+            }
+        },
+        "accueil": {
+            "filters": {
+                "coorpers": "在线课程学生"
+            },
+            "badges": {
+                "battle": {
+                    "name": "挑战者",
+                    "details_3": "40"
+                },
+                "module": {
+                    "name": "超级英雄",
+                    "details_1": {
+                        "number": "2"
+                    },
+                    "details_2": {
+                        "number": "4"
+                    },
+                    "details_3": {
+                        "number": "6"
+                    }
+                },
+                "lesson": {
+                    "name": "入场价格",
+                    "details_0": "5",
+                    "details_1": "15",
+                    "details_2": "30",
+                    "details_3": "60"
+                },
+                "question": {
+                    "name": "求冠军的发问",
+                    "details_3": "360"
+                },
+                "coach": {
+                    "name": "奖学金奖励"
+                }
+            }
+        },
+        "architas-powercircle": {
+            "filters": {
+                "coorpers": "投资超级英雄"
+            }
+        },
+        "armeedeterre": {
+            "slider": {
+                "battle": {
+                    "surtitle": "欢迎回来{{displayName}}，检查您的战斗请求",
+                    "title": "您有{{count}}次战斗请求！",
+                    "title_plural": "您有{{count}}次战斗请求！",
+                    "cta": "开始战斗"
+                }
+            },
+            "battle_start": {
+                "title": "你的战斗即将开始。"
+            },
+            "select_module": {
+                "no_module_available": "你只能在完成的等级上创造一场战斗。"
+            },
+            "success_battle": {
+                "title": "战役结束！",
+                "badge_user": {
+                    "award": "- 3 次战斗"
+                },
+                "badge_opponent": {
+                    "award": "- 3 次战斗"
+                },
+                "winStars": "你利用这场战斗赢得了 {{count}} 额外的星星！",
+                "winStars_plural": "您在这场对战中获得了 {{count}} 颗额外的星！"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "战役"
+                },
+                "battle": {
+                    "text": "你已收到 1 场新的战斗",
+                    "demand_accept": "战斗",
+                    "win_against_title": "你赢得了胜利！",
+                    "loose_against_title": "你输了这场战斗！"
+                },
+                "type": {
+                    "battle": "战役"
+                }
+            },
+            "navigation": {
+                "battle_pre": "对战模式",
+                "battle": "在“战斗”模块挑战你的同事：尽可能快的回答问题！"
+            },
+            "filters": {
+                "battles": "我的屁股"
+            },
+            "badges": {
+                "battle": {
+                    "name": "挑战SEEKER",
+                    "details": "{{count}} 次对战",
+                    "details_plural": "{{count}} 场对战"
+                }
+            },
+            "battle": {
+                "title": "战斗模式",
+                "create": "创建一个战斗",
+                "requests": {
+                    "title": "战斗请求",
+                    "no_requests_found": "你还没有任何战斗请求"
+                },
+                "history": {
+                    "title": "战斗史",
+                    "message": {
+                        "pending": "这场战斗等待对手的批准",
+                        "win": "你赢得了胜利！",
+                        "lost": "你输了这场战斗！"
+                    },
+                    "no_history_found": "你还没有任何战斗历史"
+                },
+                "start": {
+                    "cta": "开始<span class =“bold”>战斗</span>",
+                    "new_cta": "创建新的 <span class=\"bold\">挑战</span>"
+                },
+                "steps": {
+                    "3": "3. 开始战斗"
+                },
+                "select_module": {
+                    "no_module_available": "你只能在完成的等级上创造一场战斗。"
+                },
+                "button": {
+                    "create": "创建新的挑战"
+                },
+                "no_battle_progress": "你没有正在进行中的比赛。",
+                "block": {
+                    "title": "战斗邀请"
+                },
+                "no_proposition": "您还没有收到任何战斗请求。",
+                "completed": {
+                    "title": "已完成的战斗",
+                    "subtitle": "{{count}} 次对战，赢 {{nb}}",
+                    "subtitle_plural": "{{count}} 战役, 获胜 {{nb}}"
+                },
+                "block_empty": "你尚未结束战斗。",
+                "create_title": "创建战斗",
+                "active_title_intro": "对战模式",
+                "coming_soon_random": "开始一场随机竞赛"
+            }
+        },
+        "bigdata": {
+            "navigation": {
+                "lessons": "全部课程"
+            },
+            "filters": {
+                "news": "你的训练",
+                "coorpers": "MOOC 人"
+            }
+        },
+        "bnp": {
+            "filters": {
+                "coorpers": "因素"
+            }
+        },
+        "bnpp-legal": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Master"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Master"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Master,"
+                },
+                "module_name": {
+                    "coach": "Master"
+                }
+            },
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "casa": {
+            "filters": {
+                "news": "你的训练",
+                "coorpers": "慕课学员"
+            }
+        },
+        "challenge48htechno": {
+            "slider": {
+                "start": {
+                    "title": "探索新的测验"
+                },
+                "resume": {
+                    "surtitle": "欢迎回来 {{displayName}}，继续您的测验"
+                }
+            }
+        },
+        "chanel": {
+            "block_push": {
+                "tree": {
+                    "title": "开始",
+                    "content": "发现目录中的CHANEL必需品。",
+                    "link": "点击这里"
+                },
+                "battle": {
+                    "title": "挑战社区",
+                    "content": "在“战斗模式”下挑战你的同事。尽可能快地回答问题！",
+                    "link": "点击此处"
+                }
+            },
+            "filters": {
+                "coorpers": "我的社区"
+            }
+        },
+        "crisis": {
+            "filters": {
+                "coorpers": "Pernod Ricard 社区"
+            }
+        },
+        "dolce": {
+            "filters": {
+                "coorpers": "社区"
+            }
+        },
+        "edenred-talents": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "大使"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "大使"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "大使,"
+                },
+                "module_name": {
+                    "coach": "大使"
+                }
+            }
+        },
+        "ey": {
+            "filters": {
+                "coorpers": "数字英雄"
+            }
+        },
+        "fff": {
+            "activity": {
+                "caption-started": "一开始但未完成科目",
+                "caption-done": "验证科目"
+            }
+        },
+        "gdf": {
+            "badges": {
+                "transformer": {
+                    "name": "Transformer",
+                    "details_0": {
+                        "number": "1",
+                        "details": "主题",
+                        "details_post": "已完成"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "主题",
+                        "details_post": "完成"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "主题",
+                        "details_post": "已完成"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "主题",
+                        "details_post": "已完成"
+                    }
+                }
+            }
+        },
+        "gdfec": {
+            "badges": {
+                "transformer": {
+                    "name": "Transformer",
+                    "details_0": {
+                        "number": "1",
+                        "details": "主题",
+                        "details_post": "已完成"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "主题",
+                        "details_post": "完成"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "主题",
+                        "details_post": "已完成"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "主题",
+                        "details_post": "完成"
+                    }
+                }
+            },
+            "filters": {
+                "coorpers": "社区"
+            }
+        },
+        "ilearn": {
+            "filters": {
+                "coorpers": "我的社区"
+            }
+        },
+        "learnnrj": {
+            "filters": {
+                "coorpers": "社区"
+            }
+        },
+        "letsgetdigital": {
+            "badges": {
+                "battle": {
+                    "name": "挑战者"
+                },
+                "module": {
+                    "name": "英雄"
+                }
+            }
+        },
+        "linxea": {
+            "filters": {
+                "coorpers": "MOOC 人"
+            },
+            "navigation": {
+                "lessons": "所有视频"
+            }
+        },
+        "loreal-retail-v2": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filter by Why",
+                    "advanced": "Filter by Empathy",
+                    "coach": "Filter by Show me"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Why",
+                        "advanced": "Empathy",
+                        "coach": "Show me"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Why",
+                    "advanced": "Empathy",
+                    "coach": "Show me"
+                },
+                "module_name": {
+                    "base": "Why",
+                    "advanced": "Empathy",
+                    "coach": "Show me"
+                }
+            }
+        },
+        "martell": {
+            "badges": {
+                "subtitle-1-0": "查看您获得的所有徽章，或者您仍需要获得才能成为 Martell 专家的徽章"
+            },
+            "filters": {
+                "coorpers": "马爹利朋友"
+            }
+        },
+        "michelin": {
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "mooc-socgen": {
+            "select_module": {
+                "filter_by": {
+                    "base": "通过第 1 步的筛选",
+                    "advanced": "由步骤 2 过滤",
+                    "coach": "按级别过滤3"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "1级",
+                        "advanced": "2级",
+                        "coach": "3级"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "1级，",
+                    "advanced": "2级，",
+                    "coach": "3级,"
+                },
+                "module_name": {
+                    "base": "1级",
+                    "advanced": "2级",
+                    "coach": "3级"
+                }
+            }
+        },
+        "nespresso": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "专家"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "专家"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "专家，"
+                },
+                "module_name": {
+                    "coach": "专家"
+                }
+            },
+            "filters": {
+                "coorpers": "社区"
+            }
+        },
+        "online-academy-klubschule": {
+            "select_module": {
+                "filter_by": {
+                    "base": "按初学者筛选",
+                    "advanced": "按高级筛选",
+                    "coach": "按专家过滤"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "一级初级",
+                        "advanced": "级高级",
+                        "coach": "级专家"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "初学者，",
+                    "advanced": "高级，",
+                    "coach": "专家,"
+                },
+                "module_name": {
+                    "base": "初学者",
+                    "advanced": "高级",
+                    "coach": "专家"
+                }
+            }
+        },
+        "paca": {
+            "filters": {
+                "coorpers": "MOOC 人"
+            },
+            "badges": {
+                "battle": {
+                    "name": "挑战者"
+                },
+                "module": {
+                    "name": "超级英雄"
+                },
+                "lesson": {
+                    "name": "学费"
+                },
+                "question": {
+                    "name": "冠军问题"
+                },
+                "coach": {
+                    "name": "奖学金"
+                }
+            }
+        },
+        "pernodci": {
+            "filters": {
+                "coorpers": "Pernod Ricard 社区"
+            }
+        },
+        "pernod": {
+            "notificationCard": {
+                "type": {
+                    "objectif": "目标"
+                }
+            },
+            "goals": {
+                "title": "朝你的目标的进度"
+            },
+            "navigation": {
+                "objectif": "我的目标"
+            }
+        },
+        "petite": {
+            "filters": {
+                "coorpers": "我的社区"
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "模块 1,",
+                    "advanced": "模块 2,",
+                    "coach": "模块 3,"
+                },
+                "module_name": {
+                    "base": "模块 1",
+                    "advanced": "模块 2",
+                    "coach": "模块 3"
+                }
+            }
+        },
+        "pru": {
+            "block_push": {
+                "tree": {
+                    "content": "现在开始学习！"
+                },
+                "battle": {
+                    "title": "藐视你的同行并练习！",
+                    "content": "在“战斗”中挑战同龄人：尝试比他们更快！"
+                }
+            },
+            "badges": {
+                "subtitle-1-0": "查看你获得的所有徽章，或称为合规大师仍需获得的徽章！"
+            }
+        },
+        "quizz-auchan": {
+            "slider": {
+                "start": {
+                    "title": "欢迎体验Quizz蓝色生活"
+                }
+            }
+        },
+        "renault": {
+            "badges": {
+                "subtitle": "查看你所获得的勋章或成为最后的 Clio RS“国王”需要获得的勋章 ! ;-）",
+                "lessons_seen": {
+                    "details_0": "2",
+                    "details_1": "4",
+                    "details_2": "8",
+                    "details_3": "10"
+                },
+                "answer": {
+                    "details_0": "20",
+                    "details_1": "36",
+                    "details_2": "72",
+                    "details_3": "120"
+                },
+                "perfect": {
+                    "details_2": {
+                        "number": "5"
+                    },
+                    "details_3": {
+                        "number": "8"
+                    }
+                }
+            }
+        },
+        "renaultrh": {
+            "select_module": {
+                "filter_by": {
+                    "base": "通过第 1 步的筛选",
+                    "advanced": "由步骤 2 过滤",
+                    "coach": "通过第 3 步进行筛选"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "等级第 1 步",
+                        "advanced": "级别步骤 2",
+                        "coach": "等级第 3 步"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "步骤 1，",
+                    "advanced": "步骤 2，",
+                    "coach": "步骤3，"
+                },
+                "module_name": {
+                    "base": "步骤 1",
+                    "advanced": "步骤 2",
+                    "coach": "第3步"
+                }
+            }
+        },
+        "renaultcare": {
+            "select_module": {
+                "filter_by": {
+                    "base": "按基础知识筛选"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "基础知识级别"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "基础知识，"
+                },
+                "module_name": {
+                    "base": "基础知识"
+                }
+            }
+        },
+        "rexel": {
+            "filters": {
+                "coorpers": "客户中心社区"
+            }
+        },
+        "samsung": {
+            "block_push": {
+                "tree": {
+                    "content": "从这里开始！"
+                },
+                "battle": {
+                    "content": "在“战斗”模块挑战你的同事：尽可能快的回答问题！"
+                }
+            }
+        },
+        "schneider": {
+            "select_module": {
+                "filter_by": {
+                    "base": "按赛季 1 筛选",
+                    "advanced": "用第 2 季过滤",
+                    "coach": "筛选第 3 季"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "级别 第 1 季",
+                        "advanced": "等级第 2 季",
+                        "coach": "等级第 3 季"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "第 1 季，",
+                    "advanced": "第 2 季，",
+                    "coach": "第 3 季，"
+                },
+                "module_name": {
+                    "base": "第1季",
+                    "advanced": "第 2 季",
+                    "coach": "第 3 季"
+                }
+            },
+            "filters": {
+                "all": "全部",
+                "battles": "我的战斗",
+                "coorpers": "有智商者",
+                "news": "新闻",
+                "courses": "我的课程",
+                "continueLesson": "恢复我的进程"
+            }
+        },
+        "securite": {
+            "navigation": {
+                "lessons": "所有课程"
+            },
+            "filters": {
+                "news": "你的编队",
+                "coorpers": "MOOCers"
+            }
+        },
+        "silca": {
+            "navigation": {
+                "lessons": "全部课程"
+            },
+            "filters": {
+                "coorpers": "MOOC 人"
+            }
+        },
+        "sgmgt": {
+            "filters": {
+                "coorpers": " MOOC 人"
+            }
+        },
+        "societegenerale": {
+            "filters": {
+                "coorpers": "MOOC 人"
+            }
+        },
+        "sqy": {
+            "navigation": {
+                "lessons": "所有课程"
+            },
+            "filters": {
+                "news": "您的阵型",
+                "coorpers": "在线课程的学生"
+            }
+        },
+        "tourismdigital": {
+            "filters": {
+                "coorpers": "会员"
+            }
+        },
+        "tagheuer": {
+            "badges": {
+                "level": {
+                    "bronze": "1 档齿轮",
+                    "silver": "3 档齿轮",
+                    "gold": "第 5 个装备",
+                    "platinum": "第 7 档"
+                }
+            },
+            "filters": {
+                "coorpers": "豪雅表社区"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "铂金级",
+                        "advanced": "青铜级别",
+                        "coach": "银奖"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "用铂金级过滤",
+                    "advanced": "按铜牌筛选",
+                    "coach": "银过滤器"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "钛金牌，",
+                    "advanced": "铜，",
+                    "coach": "银，"
+                },
+                "module_name": {
+                    "base": "钛",
+                    "advanced": "铜",
+                    "coach": "银质奖章"
+                }
+            }
+        },
+        "tagheuercon": {
+            "badges": {
+                "level": {
+                    "bronze": "第1档",
+                    "silver": "3 档齿轮",
+                    "gold": "第5档",
+                    "platinum": "7 档"
+                }
+            },
+            "filters": {
+                "coorpers": "学习者社区"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "钛量",
+                        "advanced": "铜牌等级",
+                        "coach": "银牌级别"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "按钛合金筛选",
+                    "advanced": "根据青铜过滤",
+                    "coach": "筛选银质"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "钛，",
+                    "advanced": "铜牌，",
+                    "coach": "银，"
+                },
+                "module_name": {
+                    "base": "钛",
+                    "advanced": "铜牌",
+                    "coach": "银"
+                }
+            }
+        },
+        "tourism": {
+            "filters": {
+                "coorpers": "大规模在线开放课程讲师"
+            }
+        },
+        "up": {
+            "personal_selection": {
+                "text_helper": "我们推荐了3 个级别，这取决于你的职业轨迹！",
+                "popular_module_helper": "需要灵感吗？通过选择最受欢迎的，来看看别人在做什么。",
+                "last_module": "最后比赛的级别",
+                "no_module": "无完成模块",
+                "popular_module": "播放最多的课程",
+                "easiest_disciplines": "最简单的课程",
+                "hardest_disciplines": "难度最大的课程",
+                "no_popular_module": "尚未参加任何等级游戏"
+            },
+            "select_module": {
+                "title": "选择一个等级",
+                "availability": "{{count}} 个等级可用",
+                "availability_plural": "{{count}} 可用级别",
+                "no_module_available": "你只能在以达到的级别上创建一场战斗。"
+            },
+            "notificationCard": {
+                "request": "{{module}}课程{{level}}等级",
+                "battle": {
+                    "against": "{{module}} 课程 {{level}} 等级"
+                },
+                "forum_text": "有关  {{module}} 课程 {{level}} 级别，您的评论有 1 个新的回答。",
+                "module": {
+                    "text": {
+                        "detail": "等级"
+                    }
+                },
+                "coach": {
+                    "text": "你已成为{{disciplineName}}的课程教练。"
+                },
+                "title": {
+                    "Module": "等级"
+                },
+                "type": {
+                    "module": "级别"
+                }
+            },
+            "navigation": {
+                "learningTree": {
+                    "helper": "点击 1 次，访问你路径中的所有课程",
+                    "push": "访问您的全部课程",
+                    "push_post": "1 次点击"
+                },
+                "account_helper": "浏览你的私人空间，查看你的结果，管理你的进度，参与讨论，或者只是在开始课程之前赶上学习进度。",
+                "battle_helper": "一旦您完成了某门课程，就可通过包含10个问题的游戏挑战同一级别的所有用户！"
+            },
+            "activity": {
+                "progression_text_pre": "你的课程进展如何？",
+                "discipline_title": "课程",
+                "disciplines": {
+                    "title": "课程"
+                },
+                "module_title": "等级",
+                "caption-started": "开始水平",
+                "caption-done": "完成的等级"
+            },
+            "badges": {
+                "module": {
+                    "name": "幸存者",
+                    "details_0": {
+                        "module": "级别"
+                    },
+                    "details_1": {
+                        "module": "级别"
+                    },
+                    "details_2": {
+                        "module": "级别"
+                    },
+                    "details_3": {
+                        "module": "等级"
+                    }
+                }
+            },
+            "battle": {
+                "start_discipline": "开始一门课程",
+                "no_opponent": "没有适用于本级别的对手"
+            },
+            "notifications": {
+                "filters": {
+                    "module": "按课程筛选"
+                }
+            }
+        },
+        "yahoo": {
+            "badges": {
+                "subtitle-1-0": "查看您获得不同徽章的进度。"
+            },
+            "filters": {
+                "coorpers": "社区"
+            }
+        },
+        "capgemini": {
+            "navigation": {
+                "certifications": "我的Digicert'"
+            }
+        },
+        "cnp": {
+            "navigation": {
+                "certifications": "文凭。"
+            },
+            "sections": {
+                "certification": "认证: {{name}}"
+            }
+        },
+        "ecolenumerique-sncf": {
+            "navigation": {
+                "certifications": "Jedi Badges"
+            },
+            "sections": {
+                "certification": "Jedi Badge: {{name}}"
+            }
+        },
+        "ganprevoyance": {
+            "navigation": {
+                "certifications": "Universes"
+            },
+            "sections": {
+                "certification": "Universe: {{name}}"
+            }
+        },
+        "who": {
+            "slider": {
+                "battle": {
+                    "surtitle": "欢迎回来{{displayName}}，查看您的挑战要求",
+                    "title": "您有{{count}}个挑战要求！",
+                    "title_plural": "您有{{count}}个挑战要求！",
+                    "cta": "开始挑战"
+                }
+            },
+            "discussion": {
+                "title": "模块反馈",
+                "subtitle": "您可在此浏览社群成员的全部留言"
+            },
+            "battle_start": {
+                "title": "你的挑战即将开始。"
+            },
+            "select_module": {
+                "no_module_available": "您只能在已完成的模块中创建质询。"
+            },
+            "success_battle": {
+                "title": "挑战！",
+                "badge_user": {
+                    "award": "- 3挑战"
+                },
+                "badge_opponent": {
+                    "award": "- 3挑战"
+                },
+                "winStars": "您赢得了{{count}}个额外的星！",
+                "winStars_plural": "你赢得{{count}}个额外的星星与这个挑战！"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "挑战"
+                },
+                "coach": {
+                    "text": "You have completed the course {{disciplineName}}."
+                },
+                "battle": {
+                    "text": "您已收到1个新挑战",
+                    "demand_accept": "你的挑战",
+                    "win_against_title": "你赢了挑战！",
+                    "loose_against_title": "你失去了挑战！"
+                },
+                "reward": {
+                    "resource": {
+                        "title": "恭喜！ 您可以访问新的徽章！"
+                    }
+                },
+                "type": {
+                    "battle": "挑战"
+                },
+                "forum_text_page": "There is 1 new reply to your comment"
+            },
+            "navigation": {
+                "battle_pre": "挑战模式",
+                "battle": "以“挑战”模式挑战你的同事：尽快回答问题！"
+            },
+            "filters": {
+                "battles": "我的挑战",
+                "coorpers": "QR守护者"
+            },
+            "badges": {
+                "battle": {
+                    "name": "挑战SEEKER",
+                    "details": "{{count}}挑战",
+                    "details_plural": "{{count}}挑战"
+                },
+                "module": {
+                    "name": "星"
+                },
+                "coach": {
+                    "name": "连接器"
+                },
+                "question": {
+                    "name": "测试主"
+                }
+            },
+            "battle": {
+                "title": "挑战模式",
+                "create": "创建挑战",
+                "requests": {
+                    "title": "挑战请求",
+                    "no_requests_found": "您还没有任何质询请求"
+                },
+                "history": {
+                    "title": "挑战历史",
+                    "message": {
+                        "pending": "这个挑战等待对手的批准",
+                        "win": "你赢了挑战！",
+                        "lost": "你失去了挑战！"
+                    },
+                    "no_history_found": "你还没有任何挑战历史"
+                },
+                "start": {
+                    "cta": "开始<span class =“bold”>挑战</ span>",
+                    "new_cta": "创建新的<span class =“bold”>挑战</ span>"
+                },
+                "steps": {
+                    "3": "3.开始挑战"
+                },
+                "select_module": {
+                    "no_module_available": "您只能在已完成的模块中创建质询。"
+                },
+                "button": {
+                    "create": "创建新挑战"
+                },
+                "no_battle_progress": "你没有进步的挑战。",
+                "block": {
+                    "title": "挑战请求"
+                },
+                "no_proposition": "您尚未收到任何质询要求。",
+                "completed": {
+                    "title": "完成挑战",
+                    "subtitle": "{{count}}挑战，获胜{{nb}}",
+                    "subtitle_plural": "{{count}}次挑战，获胜{{nb}}"
+                },
+                "block_empty": "你没有完成的挑战。",
+                "create_title": "创建挑战",
+                "active_title_intro": "挑战模式",
+                "coming_soon_random": "开始随机挑战"
+            },
+            "dashboard": {
+                "text": "太空竞赛！ 你可以通过正确回答问题，跟随课程或社交（通过挑战和培训）赢得！"
+            }
+        }
+    }
+}

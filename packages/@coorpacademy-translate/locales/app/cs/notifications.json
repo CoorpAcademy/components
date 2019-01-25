@@ -1,0 +1,63 @@
+{
+    "battle": {
+        "incoming": "Máte {{count}} nedokončenou bitvu.",
+        "incoming_plural": "Čeká Vás {{count}} bitev.",
+        "you_win": "Vyhrál/a jste bitvu",
+        "you_lose": "Prohráli jste bitvu"
+    },
+    "badge": {
+        "won": "Vyhráli jste odznak {{name}}"
+    },
+    "module": {
+        "won": "Prošli jste modulem"
+    },
+    "reward": {
+        "won": "Gratulujeme! Vaše úsilí bylo odměněno!"
+    },
+    "coach": {
+        "unlocked": "Stal/a jste se trenérem"
+    },
+    "incoming": "Máte novou zprávu",
+    "chatrequest": "Nová žádost chatu",
+    "goal": {
+        "progress": "Ve své certifikaci jste pokročili",
+        "select": "Vybrali jste certifikát",
+        "reward": "Vydělali jste si certifikaci"
+    },
+    "forum": "Uživatel odpověděl na vaši otázku",
+    "new_version": {
+        "title": "Nová verze",
+        "message": "Byla uvedena nová verze této platformy",
+        "action": "Obnovit"
+    },
+    "welcome": "Vítejte <b>{{user}}</b>, nyní přístup ke všem kurzům",
+    "personal_note": "Vaše poznámka byl odeslána na vaši e-mailovou adresu.",
+    "bonusStars": "Gratulujeme! Vyhráli jste {{stars}} dalších hvězdiček!",
+    "rewardStars": "Gratulujeme! Vyhráli jste dalších {{stars}} hvězd!",
+    "totem": {
+        "header": "Nový Totem živých se děje!",
+        "body": "Chcete-li připojit"
+    },
+    "custom": {
+        "armeedeterre": {
+            "battle": {
+                "incoming": "Máte {{count}} do bitvy.",
+                "incoming_plural": "Máte {{count}} do bitvy.",
+                "you_win": "Vyhrál bitvu",
+                "you_lose": "Ztratil jsi bitvu"
+            }
+        },
+        "pernod": {
+            "goal": {
+                "progress": "Změnili jste cíl",
+                "select": "Jste vybrali cíl",
+                "reward": "Jste odblokování cíl"
+            }
+        },
+        "up": {
+            "module": {
+                "won": "Jste dokončili úroveň"
+            }
+        }
+    }
+}

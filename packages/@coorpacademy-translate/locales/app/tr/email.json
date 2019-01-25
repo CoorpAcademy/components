@@ -1,0 +1,550 @@
+{
+    "welcome": "Merhaba {{name}}!",
+    "team": "{{team}} Takımı",
+    "passwordFooter": "<br><br>Bağlantı bilgileri: <br>- IP adresi: {{ip}} <br>-işletim sistemi: {{os}} <br>-tarayıcı: {{browser}} <br><br><b>sen değildin?</b> Şimdi, <a href=\"{{passwordReset}}\"> Parolayı</a> değiştirmeniz gerekir.",
+    "unsubscribe": "Aboneliği iptal et",
+    "personalHooks_timeReferenceObjects": {
+        "510min": "New York'tan Paris'e uçuşlar",
+        "420min": "Game of Thrones sezonları",
+        "360min": "Fransız Sahneleri Turu",
+        "120min": "Alaca Karanlık filmleri",
+        "100min": "Kung Fu filmleri",
+        "90min": "Futbol maçları",
+        "60min": "yönetim kurulu toplantıları",
+        "25min": "en sevdiğin TV şovunun bölümleri"
+    },
+    "body": {
+        "accountCode": "{{label}} hesabınızı onaylamak için, lütfen bu kodu girin: <strong>{{code}}</strong> İnternet sitesi üzerinde.",
+        "battleWaitingOpponent": "Unutma, {{opponentName}}, $t({{disciplineName}}) kurs $t({{level}}) seviyesinde sana bir \"savaş\" için meydan okudu ve yanıtını bekliyor! <br/> Meydan okumayı kabul etmek ve oynamak için <a href=\"{{redirectionUrl}}\">burayı</a> tıklayın!<br/> <br/> İyi olan kazansın!",
+        "coachUnlocked": "Tebrikler! Sen tamamen doğrulanmış disiplin \"$t({{completedDiscipline}})\" at arabasıyla olmuştur! <br/> <br/> Şimdi diğerleri bu konuda rakipsiz olmuştur beri bu tema öğrenme yardımcı olabilir! <br/> Sadece <b>canlı bildirimleri</b> ayarlarınızı hatırlamak ve sadece bir konuşma için çağrısı öğrenenler için tepki —-onlara sadece onlara cevap doğru rehberlik sağlamaktır. <br/> <br/> Unutma, “İşte dayanışma olmadan hiçbir uzun vadeli veya onurlu performans!” <br/> <font size=\"2\"> <i>(Proust)</i></font> <br/> <br/>",
+        "contentUpdated": "Az önce platforma yeni bir disiplin eklendi!<br/>",
+        "contentUpdatedEnd": "Şimdi başlayın: <a href=\"{{redirectionUrl}}\">burada</a>!<br/> <br/> Mutlu eğitimler!",
+        "contentUpdated_plural": "Yeni disiplin platforma henüz yüklendi!<br/>",
+        "contentUpdatedEnd_plural": "{{label}}platformuna git ve birine başla! İşte <a href=\"{{redirectionUrl}}\"> burada.</a>!<br/> <br/> Mutlu çalışmalar!",
+        "lastAnsweredQuestion": "Bir haftadır hiçbir soruya cevap vermediğini fark ettik. <br/> <br/> Zorluk yaşıyorsan, bir koçla iletişime geçmekten çekinme.",
+        "lastConnection": "Uzun zamandır {{label}}  platformuna giriş yapmadın ve sizi özledik! <br/> <br/>  Daha hala keşfedilecek modüller, geliştirilecek skorlar, meydan okunacak kişiler (arkadaşça) var... Geri gel ve öğrenme yolculuğuna devam et! <br/> <br/>  Bu linke tıklayarak platforma eriş: <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/>  Mutlu çalışmalar!",
+        "lastModuleDone": "{{label}} platformu üzerinde bir haftadan beri modül tamamlamadınız, pes etmeyin!<br/><br/> Zorlanıyorsanız, bir koçtan veya Sohbet forumları üzerinden topluluktan yardım istemekten çekinmeyin.<br/> <br/> Bu bağlantıya tıklayarak platforma erişim sağlayabilirsiniz: <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> Keyifli bir eğitim dileriz!",
+        "passwordReset": "Hesabınızdan bir şifre kurtarma isteği aldık. <br/> <br/> Bir hatırlatma giriş 's: {{login}} <br/> (Büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/> Aşağıdaki linke tıklayarak parolanızı sıfırlayabilirsiniz: <a href=\"{{resetLink}}\"> {{resetLink}}</a>. <br/> <br/> Lütfen dikkat, bu bağlantı sadece çok uzun süre tıkırtı belgili tanımlık bağlantı için bekleme {{ttl}} saat için geçerli olduğunu! <br/> <br/> Bu isteği yapmadıysanız varsa, bu e-posta lütfen dikkate almayın. <br/> <br/> Mutlu eğitim!",
+        "personalHooks": {
+            "trendingCourse": "<p> <b>{{courseName}}</b> kursu tam şimdi {{platform}}'da alışılmışların dışında! Son zamanlarda {{activeUsersOnCourse}}'nin üzerinde insan onu yapıyor.</p> <p> Neyi bekliyorsun? </p>",
+            "recommendedCourse": "<p>{{platform}}'daki aktivitilerine göre  sana önerdiğimiz kursları vermeyi düşünebiliriz.</p><p> Bizim için en iyisi, <b>{{courseName}}</b> 'in doğru yolda olmasıdır.Neden denemiyorsun?</p>",
+            "onboarding": "<p> <b>{{platform}} </b>'a başarıyla bağlandın. Becerilerini geliştirmeye hazır olduğunu görmek harika!</p> <p>Tamamlamak üzeresin! Sadece sevdiğin bir konu seç veya bizim tavsiyelerimizden birini takip et ve öğrenmeye veya bir savaşta iş arkadaşlarına meydan okumaya başla!</p>",
+            "finishCourse": "<p>Tamamlamak üzeresin! Başarıyla {{platform}}'daki <b>{{courseName}}</b>'e başladın. </p> Şimdi bitir! <p>azladan yıldız kazanmak için seviyeyi tamamla ve ilerleme çubuğunu %100'e doldur.</p>",
+            "doBattle": "<p>Hepimizin, diğerlerinden daha fazlasını bildiğini söyleyen bir meslektaşı vardır.<br> Onlara {{platform}}'da</p><p> yanıldıklarını göster.Bir <b>savaşta</b> onlara meydan oku. Beğendiğiniz bir konuyu seçin ve yıldızları kazanmak, sıralamada yükselmek  için onları yen ve kafeteryada bunu onların yüzüne vur!</p>",
+            "doBattleOnCourse": "<p> <b>{{courseName}}</b> artık senin için herhangi bir sır tutmuyor.</p> <p> İş arkadaşlarından hangisi artık sana bu konuda meydan okuyacak kadar cesur olabilir? Kimse mi...? </p><p>Devam et ve onlara {{platform}} 'da savaş modunda kendin meydan oku!</p>",
+            "othersProgress": "<p> İş arkadaşların son zamanlarda {{platform}}'da baya aktiflerdi!</p><p>Geçtiğimiz ayda, birçok şey oldu:<ul><li><span style=\\\"font-weight: bold;color:{{primaryColor}}\\\">{{connectedUsers}} insanlar</span> bağlandı</li><li><span style=\\\"font-weight: bold;color:{{primaryColor}}\\\"> {{answeredQuestions}} sorular</span> cevaplandı</li><li><span style=\\\"font-weight: bold;color:{{primaryColor}}\\\"> {{viewedLessons}} dersler</span> görüntülendi</li><li>...bu ortaya konan {{numberTimes}} {{timeReferenceObject}}ının karşılığıdır.</li></ul></p><p> Geride kalma!</p>",
+            "weMissYou": "<p>Seni bir süredir <b> {{platform}} </b>'da görmedik. O zamandan beri, platforma yeni içerik ve yeni özellikler eklendi. Daha fazlasını keşfetmek için geri gelin!</p>",
+            "weMissYou_footer": "Görüşlerini çok takdir ediyoruz. Lütfen <a href=\"mailto:assistance@coorpacademy.com\">bize </a>olumsuz da olsa deneyimlerinden bahset, böylece onlardan ders çıkarabilelim!",
+            "generic_footer": "‌"
+        },
+        "sendBattle": "{{opponentName}} size $t({{disciplineName}}) disiplininde ''düello'' da meydan okuyor,$t({{level}}) seviye ve sabırsızlıkla yanıtınızı bekliyor!<br/><br/>Meydan okumayı kabl etmek ve oynamak için burayı<a href=\"{{redirectionUrl}}\"> tıklatıyın </a>!<br/><br/>En iyi Öğrenci kazansın!",
+        "signupSelfValidation": "Kaydolduğunuz için teşekkür ederiz! Başlamak için son adım: lütfen <a href=\"{{validateLink}}\"> aşağıdaki linke</a> tıklayarak hesabınızı aktive. <br/> <br/>, Oturum açma: {{login}} <br/> (Büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/> Eğitim tadını çıkarın!",
+        "signupValidation": "Biz {{firstName}} {{lastName}} bir kayıt isteği almış olan (giriş: {{login}} e-posta: {{email}}) <br/> Bu hesabı doğrulamak için lütfen aşağıdaki linke tıklayın: <a href=\"{{validateLink}}\">{{validateLink}}</a> <br/>. <br/> Bu kişi olduğunu bilmiyorsanız, lütfen hesap kaldırmak için aşağıdaki linke tıklayın: <a href=\"{{rejectLink}}\">{{rejectLink}}</a>. <br/> Mutlu eğitim!",
+        "signupComplete": "Hesabınızı şimdi doğrulanır! <br/> <br/>, Oturum açma: {{login}} <br/> (Büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/> Giriş yapın ve öğrenmeye başlamak için aşağıdaki düğmeyi tıklayın!",
+        "commentReply": "{{replierName}}, az önce {{label}} üzerinde yayınınıza cevap verdi: <p>{{originalCommentContent}}</p> --- <p>{{newCommentContent}}</p> Konuşmayı görüntülemek ve takip etmek için, bu <a href=\"{{newCommentLink}}\">bağlantıya</a> tıklayın. Yakında görüşmek üzere!",
+        "certification_header": "Size $t({{certification}})  sertifikasını vermekten gurur duyuyoruz. Çalışmalarınızı ödüllendirmek için size şunu teklif ediyoruz:",
+        "certification_content_stars": "ilave {{stars}} yıldız!<br/>",
+        "certification_content_diploma": "Bu <a target='_blank' href=\"$t({{diplomaLink}})\">bağlantıya</a> tıklayarak, sertifikanıza erişim sağlayabilirsiniz.",
+        "certification_content_resource": "$t({{rewardLabel}}) ödülüne erişmek için, bu <a target='_blank' download href=\"$t({{resourceLink}})\">bağlantıya</a> tıklayın",
+        "certification_content_end": "Ve bu yeni sertifika ile birlikte Özgeçmişinizi ve profesyonel profilinizi güncellemeyi unutmayın.",
+        "assistance": {
+            "object": "Hedef: {{object}}",
+            "message": "{{message}}",
+            "displayName": "ekranAdı: {{displayName}}",
+            "email": "e-posta: {{email}}",
+            "url": "url: <a href=\"{{url}}\"> {{url}}</a>",
+            "discipline": "disiplin: {{discipline}}",
+            "module": "modül: {{module}}",
+            "chapter": "bölüm: {{chapter}}",
+            "slideRef": "slideRef: {{slideRef}}"
+        },
+        "createdPassword": {
+            "top": "Tebrikler! <br><br>Sadece {{label}} hesabınıza bağlı bir parola oluşturduğunuz. <br> <br>Şunları yapabilirsiniz şimdi mantık-e doğru giriş ve bu yeni şifreyi kullanarak platformu. <br>Hatırlatma, giriş bilgilerinizi var: <b>{{login}}</b> (büyük küçük harf duyarlı). <br>",
+            "bottom": "<br>Öğrenme vakti!"
+        },
+        "updatedPassword": {
+            "top": "Tebrikler! <br>{{label}} hesabınız için parolanızı başarıyla güncellediniz. <br>Sen şimdi kütük-içinde yeni parolanızı ve her zamanki giriş bilgilerinizi kullanarak platformu <br>. <br> Uyarı mektubudur, giriş bilgilerinizi: <b>{{login}}</b> (büyük küçük harf duyarlı). <br>",
+            "bottom": "<br>Öğrenme vakti!"
+        }
+    },
+    "subject": {
+        "accountCode": "Lütfen, CoorpAcademy hesabınızı onaylayın.",
+        "battleWaitingOpponent": "{{opponentName}} sizi sabırsızlıkla bekliyor",
+        "coachUnlocked": "Tebrikler, koç oldunuz",
+        "contentUpdated": "{{label}} platformunda yeni",
+        "lastAnsweredQuestion": "{{name}}, artık oynamıyorsunuz",
+        "lastConnection": "{{label}} platformunda ilerleme kaydetmeye devam edin",
+        "lastModuleDone": "Gelişiminize {{label}} platformu üzerinden devam edin",
+        "passwordReset": "Parolanız yenileniyor",
+        "personalHooks": {
+            "trendingCourse": "En popüler kursa göz at",
+            "recommendedCourse": "Önerilen kurslar: senin için en iyi seçimimiz",
+            "onboarding": "{{platform}} üzerinden becerilerini nasıl geliştirirsin?",
+            "finishCourse": "Bahse girerim yapabilirsin, {{courseName}}'i bitir",
+            "doBattle": "{{platform}}'da iş arkadaşlarına meydan oku!",
+            "doBattleOnCourse": "Son kursunda bir savaş oyna!",
+            "othersProgress": "{{platform}}'daki aktivitelerden uzak kalma",
+            "weMissYou": "Uzun bir süre oldu!"
+        },
+        "sendBattle": "{{opponentName}} size meydan okuyor",
+        "test": "{{name}}, artık oynamıyorsunuz",
+        "signupSelfValidation": "Hesabınızı aktif hale getirmek",
+        "signupValidation": "Hesabınızı onaylayın",
+        "signupComplete": "Hesap doğrulandı!",
+        "commentReply": "{{replierName}} yorumunuza cevap verdi",
+        "certification": "$t({{certification}}) sertifikanız için sizi tebrik ederiz {{name}}",
+        "assistance": "[{{brand}}] {{object}}",
+        "createdPassword": "Oturum açma / parola bağlantı {{label}}",
+        "updatedPassword": "Oturum açma / parola bağlantı {{label}}"
+    },
+    "call2action": {
+        "coachUnlocked": "Platforma erişim sağla",
+        "sendBattle": "Meydan okumayı kabul et",
+        "battleWaitingOpponent": "Meydan okumayı kabul et",
+        "commentReply": "Sohbeti görüntüle",
+        "passwordReset": "Parolanızı yenileyin",
+        "personalHooks": {
+            "trendingCourse": "Onlar gibi öğren",
+            "recommendedCourse": "Öğrenmeye şimdi başla",
+            "onboarding": "Öğrenmekten zevk al!",
+            "finishCourse": "Bu kursu bitir",
+            "doBattle": "Bir iş arkadaşına meydan oku",
+            "doBattleOnCourse": "Savaşa başlayın!",
+            "othersProgress": "Öğrenenler arasına katıl",
+            "weMissYou": "Neler Oluyor"
+        },
+        "contentUpdated": "Platforma erişim sağla",
+        "lastConnection": "Platforma erişim sağla",
+        "lastModuleDone": "Platforma erişim sağla",
+        "lastAnsweredQuestion": "Platforma erişim sağla",
+        "accountCode": "Platforma erişim sağla",
+        "signupValidation": "Bu hesabı onaylayın",
+        "certificationDone": "Platforma erişim sağla",
+        "signupSelfValidation": "Hesabınızı doğrulamak",
+        "signupComplete": "Platformu",
+        "assistance": "Bu sayfaya gitmek",
+        "createdPassword": "Eğitimine başlamak",
+        "updatedPassword": "Eğitimine başlamak"
+    },
+    "custom": {
+        "7steps": {
+            "team": "‌",
+            "body": {
+                "signupSelfValidation": "Seçilmiş perakende yeteneklerinden oluşan ailemize katıldığın için teşekkür ederiz.<br/><br/>Satışta 7 Adım MOOC eğitimini keşfet ve servis uzmanlığında en üst düzey sertifikayı almaya hak kazan.<br/><br/>Senin giriş: {{login}} <br/>(büyük ve küçük harf karakterleri ile dikkatli olun) <br/><br/>hesabınızı etkinleştirmek için aşağıdaki bağlantıyı tıklatın. Hesabını aktifleştirmek için aşağıdaki linke tıkla.<br/><br/>Eğer bu mesajı yanlışlıkla görüntülüyorsanız, silebilirsiniz. Eğer aşağıdaki onaylama linkine tıklamazsanız hesabınız aktifleşmeycektir. SRA MOOC hakkındaki sorularınız için , iletişime geçebilirsiniz: <a href=\"mailto:serviceretailacademy@loreal.com\">serviceretailacademy@loreal.com</a>"
+            },
+            "call2action": {
+                "signupSelfValidation": "Onayla"
+            },
+            "subject": {
+                "signupSelfValidation": "SRA MOOC: Lütfen hesabınızı doğrulayın"
+            }
+        },
+        "achat-habitat": {
+            "team": "Achat Habitat takım",
+            "body": {
+                "signupSelfValidation": "Achat Habitat üzerinde kaydolduğunuz için teşekkür ederiz! Başlamak için son adım: Lütfen bu bağlantıya tıklayarak hesabınızı etkinleştirmek: <br><a href=\"{{validateLink}}\"> {{validateLink}}</a> <br><br>, oturum açma: {{login}} <br/> (büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/> içeriği 5 Nisan sonra geçerli olacak ve sen-ecek almak a posta ile öğrenme sefer de yol göstermesi için tüm pratik bilgiler. <br><br>İçin erişim ile ilgili herhangi bir soru / Achat Habitat gibi çalışır, <a href=\"mailto:assistance@coorpacademy.com\"> assistance@coorpacademy.com</a> için dışarı ulaşabilirsiniz. <br>Enjoy eğitim!"
+            },
+            "subject": {
+                "signupSelfValidation": "Achat Habitat hesap etkinleştirme"
+            }
+        },
+        "air": {
+            "body": {
+                "coachUnlocked": "Tebrikler! $t({{completedDiscipline}}) konusunu başarıyla tamamladınız ve Koç Seviyesine ulaştınız!<br/><br/>Şimdi diğer kaşifler için bir hakem olarak hareket edebilir ve elde ettiğiniz bilgileri paylaşabilirsiniz.<br/> <br/> Başka bir kaşif tarafından destek talep edildiğinde, lütfen doğru cevap için ona rehberlik edin ama doğrudan cevabı vermeyin.<br/> <br/> İlginiz için teşekkür ederim ve bir sonraki Konak'da görüşürüz!<br/> <br/>Dijital olarak,"
+            },
+            "subject": {
+                "coachUnlocked": "Air Liquide Dijital Serüveni - Artık bir Koç'sunuz!"
+            }
+        },
+        "bigdata": {
+            "team": "SI'Academy takım",
+            "body": {
+                "certification_header": "Size $t({{certification}}) belgesini vermekten gurur duymaktayız. Bu sizi şununla mükafatlandıracak:",
+                "certification_content_stars": "{{stars}}bonus yıldızlar<br/>",
+                "certification_content_diploma": "<a target='_blank' href=\"$t({{diplomaLink}})\">Bu linkten</a> $t({{certification}}) sertifikanıza erişin",
+                "certification_content_resource": "Bu adresten <a target='_blank' download href=\"$t({{resourceLink}})\">link</a> $t({{rewardLabel}}) rozetinize erişin",
+                "certification_content_end": "Yeni sertifikanı göstermek için SI'tizen profilini ve e-posta imzanı güncellemeyi unutma"
+            }
+        },
+        "capgemini": {
+            "welcome": "Sevgili {{name}},",
+            "body": {
+                "certification_header": "Tüm COOCs $t({{certification}}) için gerekli yaşadın. Tebrikler! <br>Çok teşekkür ederim ve COOC platformu üzerinde çok yakında görüşmek üzere!",
+                "certification_content_stars": "‌",
+                "certification_content_resource": "Başkan Yardımcısı DigiCertif daha da geliştirmek için bize destek için ' deneyim, biz-ebil sen pay senin geribildirim bu linki üzerinden eğer minnettar olacaktır: <br>VP lütfen <a href=\"https://www.surveygizmo.com/s3/4299114/VP-COOC-platform\"> buraya</a> tıklayınız",
+                "certification_content_end": "Saygılar,"
+            }
+        },
+        "challenge48htechno": {
+            "body": {
+                "signupSelfValidation": "48 h Techno kaydolduğunuz için teşekkür ederiz! Başlamak için son adım: Lütfen bu bağlantıya tıklayarak hesabınızı etkinleştirmek: <br><a href=\"{{validateLink}}\"> {{validateLink}}</a> <br><br>, oturum açma: {{login}} <br/> (büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/>, erişim ile ilgili herhangi bir soru için / Techno gibi 48 saat çalışır, <a href=\"mailto:assistance@coorpacademy.com\"> assistance@coorpacademy.com</a> için dışarı ulaşabilirsiniz. <br>Enjoy eğitim!"
+            },
+            "subject": {
+                "signupSelfValidation": "48h Techno hesap etkinleştirme"
+            }
+        },
+        "chanel": {
+            "body": {
+                "certification_content_end": "Ve unutma: bilgini tazelemek, ders ve video izlemek ve tabii ki eşlerine meydan okumak için istediğin zaman geri gelebilirsin!"
+            }
+        },
+        "cnp": {
+            "body": {
+                "certification_header": "$t({{certification}}) sertifika danışmam gurur duyuyoruz. Çabalarını ödüllendirmek için biz sunuyoruz:"
+            }
+        },
+        "crisis": {
+            "team": "Pernod Ricard Üniversitesi"
+        },
+        "corporateonlineopencourse": {
+            "body": {
+                "battleWaitingOpponent": "Unutma, {{opponentName}} $t({{disciplineName}}) ders $t({{level}}) düzeyde bir \"savaş\" meydan okudu ve sizden yanıt bekliyor! <br/> Meydan okuma ve oyun kabul etmek için tıklatın <a href=\"https://idp.renault.com/nidp/saml2/idpsend?id=campus\"> burada</a>! <br/> <br/> En iyi kişi kazanmak olabilir!",
+                "sendBattle": "{{opponentName}} $t({{disciplineName}}) disiplin, $t({{level}}) düzey bir “battle” meydan okuyor ve hevesle Cevabınızı bekliyor! <br/> <br/> Meydan okuma ve oyun kabul etmek için tıklatın <a href=\"https://idp.renault.com/nidp/saml2/idpsend?id=campus\"> burada</a>! <br/> <br/> En iyi öğrenci kazansın!",
+                "createdPassword": {
+                    "top": "Merhaba! Tebrikler! Çoklu cihazlar parolanızı yapılandırdığınız <br>. Bu yüzden eğer sen dilek, adil tıkırtı üstünde smartphone veya tablet ve bağlantı için MOOC marka elçisi kullanarak aşağıda bağlantı senin yeni yapılandırılmış birden çok aygıt şifre https://corporateonlineopencourse.coorpacademy.com/login <br><br>ucu ile kurulur, <br>: bağlantı kurulduktan sonra oluşturmak değil neden bir bağlantı daha da kolay erişim için akıllı telefonundaki ;-) <br>Lütfen Not: kampüs ile bağlantı herhangi bir belirli şifre olmadan kullanılabilir durumda kalır. Birden çok aygıt erişimi sadece bir seçenektir.",
+                    "bottom": "<br>Öğrenme vakti!"
+                }
+            }
+        },
+        "cofpart-learning": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "digitalls2e": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "faurecia": {
+            "body": {
+                "coachUnlocked": "Tebrikler! Şimdi $t({{completedDiscipline}}) ders için bir koç olarak nitelenir. <br/> <br/> Bu konuda rakipsiz olmuştur bu yana, şimdi başkalarının kendi öğrenme yolculukta yardım yapabiliyor musunuz. <br/> <br/> Lütfen bilgini paylaş ve öğrenme Lab. bir sohbet için çağrı Faurecians cevap <br/> <br/> Ama unutma, onları sadece onlara cevap doğru yönlendirmek için amaçtır. <br/> <br/> \"Ayrıntılı bilgi bir özel iz öğretim güç olduğunu\" unutma <br/> <font size=\"2\"> <i>(Aristo)</i></font> <br/> <br/>",
+                "certification_header": "$t({{certification}}) sertifika elde etmek için Tebrikler! <br/> Bu başarı tanımak için size sunuyoruz:",
+                "certification_content_stars": "Ek bir {{stars}} <b>Faurecia Üniversitesi Star puan | Laboratuvar öğrenme</b> <br/>",
+                "certification_content_diploma": "Bir sertifika karşıdan yüklemesini ve yazdırmasını, bu <a target='_blank' href=\"$t({{diplomaLink}})\"> bağlantıyı</a> takip",
+                "certification_content_resource": "Sen-ecek almak bu <a target='_blank' download href=\"$t({{resourceLink}})\"> bağlantıyı</a> takip ederek özel bir ödül",
+                "certification_content_end": "Ve bu yeni sertifika sosyal profil ekleme hakkında düşünüyorum!"
+            }
+        },
+        "fdj": {
+            "body": {
+                "certification_content_end": "And do not forget to continue your learning journey by testing yourself on the Digilearn application from your mobile.<br/>You do not have the app yet? Go to the apple store or google store and then activate your notifications!"
+            }
+        },
+        "ecolenumerique-sncf": {
+            "body": {
+                "certification_header": "Rozet $t({{certification}}) elde etmek için Tebrikler! <br/> Bu başarı tanımak için size sunuyoruz:",
+                "certification_content_stars": "Star puan ek bir {{stars}} <br/>",
+                "certification_content_resource": "Sen-ecek almak bu <a target='_blank' download href=\"$t({{resourceLink}})\"> bağlantıyı</a> takip ederek özel bir ödül",
+                "certification_content_end": "Ve bu yeni Jedi rozet sosyal profil ekleme hakkında düşünüyorum!"
+            }
+        },
+        "el": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "ganprevoyance": {
+            "body": {
+                "certification_header": "Evren $t({{certification}}) doğrulamak için Tebrikler! <br/> Bu başarı tanımak için size sunuyoruz:",
+                "certification_content_stars": "Star puan ek bir {{stars}} <br/>",
+                "certification_content_resource": "Sen-ecek almak bu <a target='_blank' download href=\"$t({{resourceLink}})\"> bağlantıyı</a> takip ederek özel bir ödül",
+                "certification_content_end": "Ve bu yeni evren sosyal profil ekleme hakkında düşünüyorum!"
+            }
+        },
+        "gdf": {
+            "urlHowTo": "* Masaüstündeki WeTransform simgesine kolayca çift tıklayın ve bu url'yi adres çubuğuna kopyala/yapıştırın",
+            "body": {
+                "battleWaitingOpponent": "Unutma, {{opponentName}} sana $t({{disciplineName}}) dersi $t({{level}}) seviyede bir \"mücadele\" için meydan okudu ve sabırsızca cevabını bekliyor!<br/> Meydan okumayı kabul etmek ve oynamak için buraya tıkla*:<br/> <br/> <a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/> <br/> En iyi olan kazansın!<br/> $t(email:urlHowTo)",
+                "coachUnlocked": "Tebrikler! Tamamını doğruladığınız $t({{completedDiscipline}}) alanında koç oldunuz! <br/> <br/>Bu alanda yenilmez olduğunuz için artık başka öğrenenlere yardımcı olabilirsiniz! Size sohbet aracılığıyla ulaşan menajerlere kolayca cevap verin: amaç onları cevaba yönlendirmek, doğrudan onlara söylemek değil. Eğer ulaşılmayı tercih etmiyorsanız, bu seçeneği ekranınızın sağ üstündeki menü aracılığıyla BizDönüştürürüz<br/> <br/> <br/>den kaldırabilirsiniz.",
+                "passwordReset": "Bize şifrenizi unuttuğunuzu bildirdiniz. Bu bağlantıya tıklayarak şifrenizi sıfırlayabilirsiniz*:<br/> <br/> <a href=\"{{resetLink}}\">{{resetLink}}</a><br/> <br/> Unutmayın ki bu bağlantı sadece {{ttl}} saat için geçerlidir, bağlantıya gitmek için çok beklemeyin! <br/> <br/> Saygılarımızla<br/> $t(email:urlHowTo)",
+                "sendBattle": "{{opponentName}}, $t({{disciplineName}}) modülünde, $t({{level}}). seviyede sizinle kapışmakl istiyor!<br/> <br/> Mücadeleyi kabul ederek oynamak için burayı tıklayın*:<br/> <br/> <a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/> <br/> İyi olan kazansın! <br/> $t(email:urlHowTo)"
+            }
+        },
+        "gdfec": {
+            "urlHowTo": "* Masaüstünüzden kolayca WeTransform ikonuna çift tıklayın ve adres çubuğuna bu url'yi koyalayıp yapıştırın",
+            "body": {
+                "battleWaitingOpponent": "Unutma, {{opponentName}} seni $t({{discipleName}}) kursu $t({{level}}) seviyede sana meydan okudu ve cevabını sabırsızca bekliyor. <br/> Meydan okumasını kabul etmek ve oynamak için, buraya tıklayın*: <br/> <br/> <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}}</a><br/><br/> En iyi olan kazansın!  <br/> $t(email:urlHowTo)",
+                "coachUnlocked": "Tebrikler! Resmen $t({{completedDiscipline}}) disiplininde bir antrenör oldunuz!<br/> <br/> Bu disiplinde yenilmez olduğunuzdan, şimdi diğer öğrencilere yardım edebilirsiniz! Sadece, sohbet yoluyla sizle iletişime geçen yöneticilere yanıt verin: amaç sadece yanıt vermek değil, onları cevaba doğru yönlendirmek. Eğer hiç temasa geçilmek istemiyorsanız, bu seçeneği WeTransform'daki ekranınızın sağ üst köşesindeki menüden devre dışı bırakabilirsiniz<br/> <br/> <br/> Saygılarımızla,",
+                "passwordReset": "Bize parolanızı unuttuğunuzu söylediniz. Aşağıdaki linki tıklayarak sıfırlayın*:<br/> <br/> <a href=\"{{resetLink}}\">{{resetLink}}</a><br/><br/> Dikkat edin, bu link sadece {{ttl}} saat geçerlidir, bu yüzden linke gitmek için çok beklemeyin!<br/> <br/> Saygılarımızla, <br/> $t(email:urlHowTo)",
+                "sendBattle": "{{opponentName}}, $t({{disciplineName}}) disiplin modülü $t({{level}}) seviyesinde sizle savaş yapmak istiyor!<br/> <br/> Meydan okumayı kabul etmek ve oynamak için burayı tıklayın:<br/> <br/> <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}}</a><br/> <br/> İyi olan kazansın! <br/> $t(email:urlHowTo)",
+                "certification_content_end": "Sadece 'Verimliliği' ders bitmiş daha iyi sonraki Semineri hazırlamak ve en iyi uygulamaları paylaşmak için <a target='_blank' download href=\"https://www.getfeedback.com/r/bjNmfx11\"> Bu bağlantıyı</a> izleyin. (10 dakika max.) <br><br>Ve bu yeni sertifika ile özgeçmiş yanı sıra profesyonel profilinizi güncelleştirmek unutma."
+            }
+        },
+        "hr-ac": {
+            "body": {
+                "signupSelfValidation": "İK Akademisi kaydolduğunuz için teşekkür ederiz! Başlamak için son adım: lütfen <a href=\"{{validateLink}}\"> aşağıdaki linke</a> tıklayarak hesabınızı aktive. <br/> <br/>, Oturum açma: {{login}} <br/> (Büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/> Eğitim tadını çıkarın!",
+                "signupComplete": "Hesabınızı şimdi doğrulanır! <br/> <br/>, Oturum açma: {{login}} <br/> (Büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/> Giriş yapın ve öğrenmeye başlamak için aşağıdaki düğmeyi tıklayın!"
+            },
+            "subject": {
+                "signupSelfValidation": "İK Akademi hesap etkinleştirme"
+            }
+        },
+        "linxea": {
+            "team": "LinXea Akademisi ekibi",
+            "body": {
+                "signupSelfValidation": "Bize katıldığınız için teşekkür ederiz! Hayat sigortası bilginizi test başlamadan önce son adım bu linke tıklayarak hesabınızı aktive etmektir: <br><a href=\"{{validateLink}}\"> {{validateLink}}</a> <br><br>, oturum açma: {{login}} <br/> (büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/> için erişim ile ilgili herhangi bir soru / yol inşaat LinXea Akademi peron, <a href=\"mailto:assistance@coorpacademy.com\"> assistance@coorpacademy.com</a> irtibata geçebilirsiniz. <br>, LinXea sözleşmeler ya da hayat sigortası hakkında herhangi bir sorunuz varsa lütfen <a href=\"mailto:contact@linxea.com\"> contact@linxea.com</a> <br>yazmak var güzel bir eğitim!",
+                "signupComplete": "Yahoo dijital pazarlama Akademisi, yazıt doğrulandı. <br/> <br/>, Oturum açma: {{login}} <br/> (Büyük ve küçük harf karakterleri ile dikkatli olun)"
+            },
+            "subject": {
+                "signupSelfValidation": "LinXea Akademi hesap etkinleştirme"
+            }
+        },
+        "learnnrj": {
+            "body": {
+                "signupSelfValidation": "Kaydolduğunuz için teşekkür ederiz. Gitmeye hazırız! <br/> <br/>, Oturum açma: {{login}} <br/> (Büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/> Hesabınızı etkinleştirmek için bu linki tıklayınız: <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Herhangi bir sorunuz varsa veya konular hakkında daha fazla bilgi edinmek istiyorsanız, sizin temsilcisiyle veya assistance@coorpacademy.com başvurun",
+                "signupComplete": "Kaydolduğunuz için teşekkür ederiz. Gitmeye hazırız! <br/> <br/>, Oturum açma: {{login}} <br/> (Büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/> Hesabınızı etkinleştirmek için bu linki tıklayınız: <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Herhangi bir sorunuz varsa veya konular hakkında daha fazla bilgi edinmek istiyorsanız, sizin temsilcisiyle veya assistance@coorpacademy.com başvurun"
+            }
+        },
+        "letsgetdigital": {
+            "team": "Let's Get Digital 2.0",
+            "body": {
+                "signupSelfValidation": "Hadi Al dijital 2.0 üzerinde kaydolduğunuz için teşekkür ederiz! Başlamak için son adım: lütfen <a href=\"{{validateLink}}\"> aşağıdaki linke</a> tıklayarak hesabınızı aktive. <br/> <br/>, Oturum açma: {{login}} <br/> (Büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/>, Erişim ile ilgili herhangi bir soru için / contact.letsgetdigital@bnpparibas.com Enjoy eğitimin da Hadi olsun dijital 2.0 böyle ulaşabilirsiniz!",
+                "signupComplete": "Hesabınızı şimdi doğrulanır! <br/> <br/>, Oturum açma: {{login}} <br/> (Büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/> Giriş yapın ve öğrenmeye başlamak için aşağıdaki düğmeyi tıklayın!"
+            },
+            "subject": {
+                "signupSelfValidation": "Dijital hesap etkinleştirme alalım"
+            }
+        },
+        "michelin": {
+            "body": {
+                "certification_header": "$t({{certification}}) sertifika göndermek ve çabaları biz size sunmaktan mutluluk duyuyoruz tanımak için gurur duyuyoruz:",
+                "certification_content_stars": "{{stars}} daha fazla yıldız! <br/>",
+                "certification_content_resource": "Olasılık pasaport logo indirmek için <a target='_blank' download href=\"$t({{resourceLink}})\"> buraya</a>",
+                "certification_content_end": "Bibspace üzerinde profesyonel profil güncelleme unutmayın (\"Profil\" / \"Eğitim\") ve bu yeni sertifika gösterir."
+            }
+        },
+        "mooc-socgen": {
+            "body": {
+                "personalHooks": {
+                    "generic_footer": "The above link is only accessible using a device outside of SG network. In order to access it via your SG workstation, please use the <a href=\"https://secure-browsing.eur.socgen.com\">MOOC Portal</a>."
+                }
+            }
+        },
+        "nespresso": {
+            "body": {
+                "coachUnlocked": "Tebrikler! Sen tamamen doğrulanmış disiplin $t({{completedDiscipline}}) bir uzman haline gelmiştir! <br/> <br/>"
+            },
+            "subject": {
+                "coachUnlocked": "Aferin, bir uzman haline gelmiştir"
+            }
+        },
+        "openlab-cb": {
+            "body": {
+                "signupComplete": "Hesap doğrulandı! Artık Openlab Platform zevk başlayabilirsiniz! <br/> <br/>, Oturum açma: {{login}} <br/> (Büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/> Platformu burada ziyaret edin: <a href=\"{{plateform}}\"> {{plateform}}</a>"
+            },
+            "subject": {
+                "signupValidation": "Openlab hesabı için doğrulama",
+                "signupComplete": "Openlab hesap doğrulama"
+            }
+        },
+        "pernod": {
+            "body": {
+                "battleWaitingOpponent": "Unutmayın,{{opponentName}} sizi $t({{disciplineName}}) disiplini $t({{level}}) seviyesinde \"mücadele\"ye çağırdı ve yanıtınızı hevesle bekliyor!<br/> Mücadeleyi kabul etmek ve oynamak için<a href=\"{{redirectionUrl}}\">buraya tıklayın</a>!<br/> <br/>Digifitness'inizi gösterin!",
+                "sendBattle": "{{opponentName}} sizi $t({{disciplineName}}) disiplini $t({{level}}) seviyesinde \"mücadele\"ye çağırıyor ve yanıtınızı hevesle bekliyor!<br/> <br/> Mücadeleyi kabul etmek ve oynama için <a href=\"{{redirectionUrl}}\">buraya</a> tıklayın!<br/> <br/> Digifitness'inizi gösterin!"
+            },
+            "team": "Pernod Ricard Üniversitesi"
+        },
+        "pru": {
+            "body": {
+                "coachUnlocked": "Tebrikler! $t({{completedDiscipline}}) disiplinindeki \"İleri\" seviyeyi bitirdiniz. Bu seviyeyi tamamladınız ve artık bu seviyede koç olarak nitelendirilebilirsiniz! <br/> Bu konuda yenilemez olduğunuz için artık diğerlerinin bu temayı öğrenmelerine yardım edebilirsiniz!<br/> Sadece sizinle konuşmak için arayan öğrencilere cevap verin: hedef onları cevaba doğru yönlendirmek, cevabı direk vermek değil. <br/><br/> Unutmayın ki \"Dayanışma olmadan uzun vadeli ya da onurlu bir performans olmaz!\"<br/><font size=\"2\"><i> (François Proust)</i></font><br/><br/>",
+                "sendBattle": "{{opponentName}}, sizi $t({{disciplineName}}) disiplini $t({{level}}). seviyedeki bir \"savaş\"a davet ediyor ve şevkle yanıtınızı bekliyor!<br/><br/>\nMeydan okumayı kabul edip oynamak için, <a href=\"{{redirectionUrl}}\">buraya</a> tıklayın! <br/><br/> İş Ahlakınızı gösterin!",
+                "battleWaitingOpponent": "Unutma, $t({{disciplineName}}) kurs $t({{level}}) seviyesinde sana bir \"savaş\" için meydan okuyan {{opponentName}} bir yanıt bekliyor! <br/> Meydan okumayı kabul etmek ve oynamak için <a href=\"{{redirectionUrl}}\">burayı</a> tıklayın!<br/> <br/> İş Yöneticiliğini göster!"
+            },
+            "team": "Pernod Ricard Üniversitesi"
+        },
+        "quizz-auchan": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "rexel": {
+            "team": "Rexel Academy"
+        },
+        "renaultcare": {
+            "subject": {
+                "createdPassword": "MOOC müşteri deneyimi bir akıllı telefon ile erişim"
+            },
+            "passwordFooter": "&nbsp;",
+            "body": {
+                "createdPassword": {
+                    "top": "Sadece MOOC müşteri deneyimi Smartphone erişmek için parolanızı oluşturduk.",
+                    "bottom": "<br><br>Buraya tıklayarak MOOC için şimdi erişebilirsiniz:"
+                }
+            },
+            "call2action": {
+                "createdPassword": "Eğitimine başlamak"
+            }
+        },
+        "samsung": {
+            "team": "{{team}} ekibi",
+            "body": {
+                "signupValidation": "Bir başvuru kaydı {{firstName}} {{lastName}} adına aldığınız (giriş: {{login}}). İletişim bilgileri aşağıdaki gibidir: <ul><li>{{company}}</li> <li>{{role}}</li> <li>{{boutique}}</li> <li>{{postalCode}}</li></ul> bu hesabı doğrulamak için aşağıdaki linke tıklayınız: <a href=\"{{validateLink}}\"> {{validateLink}}</a> <br/> Bu kişi olduğunu bilmiyorsanız, bu verileri silmek için aşağıdaki linke tıklayınız: <a href=\"{{rejectLink}}\"> {{rejectLink}}</a>. <br/> Çok teşekkür ederim!",
+                "signupComplete": "Hesabınızı şimdi <a href=\"{{plateform}}\"> {{plateform}}</a> üzerinde etkin <br/> <br/>, oturum açma: {{login}} <br/> (büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/> Şimdi en son Samsung TV, en son yenilikleri keşfedebilirsiniz ve en iyi satan Puan müşteriler kazanmak için ya da Fransa tüm arkadaşlarınızla paylaşmak için! <br><br>İyi bir ziyaret ve yakında görüşürüz."
+            },
+            "subject": {
+                "signupValidation": "Samsung Akademi hesabı için onaylama",
+                "signupComplete": "Samsung Akademi hesabınızın onayı"
+            },
+            "call2action": {
+                "signupComplete": "Platformu ziyaret et"
+            }
+        },
+        "schneider": {
+            "welcome": "Merhaba, {{name}}!",
+            "team": "MOOC ekibi",
+            "lastModuleDone": "Schneider IQ platformunda bir modüle giriş yapmayalı bir hafta oldu, vazgeçmeyin!<br/> <br/> Zorluklarla karşılaşıyorsanız, bir antrenörle irtibata geçmekten ya da tartışma forumları aracılığıyla topluluğa sormaktan çekinmeyin.<br/> <br/> Şu linke tıklayarak platforma erişebilirsiniz:<a href=\"{{redirectionUrl}}\">{{redirectionUrl}} </a><br/> <br/> Mutlu çalışmalar!",
+            "body": {
+                "personalHooks": {
+                    "generic_footer": "You are receiving Coorpacademy emails as you are a member on Schneider IQ.</br>CoorpAcademy uses your email only in correlation with Schneider IQ. If you do not want to receive these emails anymore, please Unsubscribe using the link below."
+                }
+            }
+        },
+        "seb": {
+            "team": "SEB Üniversite Grubu Eğitim Takımı"
+        },
+        "societegenerale": {
+            "body": {
+                "certification_header": "Tebrikler! $t({{certification}}) sertifikanı açtın. Bu, Grubun Dijital Dönüşümüne dahil olduğunun kanıtı. Sertifikanı geliştirmek için sana bunu veriyoruz:",
+                "certification_content_stars": "{{stars}} ekstra yıldızlar<br/>",
+                "certification_content_diploma": "<a target='_blank' href=\"$t({{diplomaLink}})\">Burayı</a> tıklayarak diplomanıza erişin",
+                "certification_content_resource": "$t({{rewardLabel}})'e erişim <a target='_blank' download href=\"$t({{resourceLink}})\">buradan</a>",
+                "certification_content_end": "Outlook imzanıza bu logoyu ekleyerek başarınızı paylaşın. <br/><br/> MOOC'un keyfini çıkarın! <br/><br/>  Dijital dersiniz ile {totalGoals}} sertifikaları kazanabilirsiniz."
+            }
+        },
+        "securite": {
+            "team": "SI'Academy takım",
+            "body": {
+                "certification_header": "Biz $t({{certification}}) ile sizi ödüllendirmekten gurur duyuyoruz ,ödüllendirmeyle birlikte:",
+                "certification_content_stars": "{{stars}} bonus yıldızları<br/>",
+                "certification_content_diploma": "<a target='_blank' href=\"$t({{diplomaLink}})\">Buradaki</a> linkten $t({{certification}}) sertifikanıza ulaşın",
+                "certification_content_resource": "Bu link ile link<a target='_blank' download href=\"$t({{resourceLink}})\">link</a> $t({{rewardLabel}}) rozetine giriş yap",
+                "certification_content_end": "‌"
+            }
+        },
+        "sqy": {
+            "team": "SI'Academy takım",
+            "body": {
+                "certification_header": "Sizi $t({{certification}}) vermekten ve şu ile ödüllendirmekten gurur duyuyoruz:",
+                "certification_content_stars": "{{stars}}bonus yıldızları<br/>",
+                "certification_content_diploma": "$t({{certification}}) sertifikanıza <a target='_blank' href=\"$t({{diplomaLink}})\">bu linkten</a> erişin.",
+                "certification_content_resource": "Bu linkten <a target='_blank' download href=\"$t({{resourceLink}})\">link</a> $t({{rewardLabel}}) rozetinize erişin",
+                "certification_content_end": "Yeni sertifikanı göstermek için, SI'tizen profilini ve e-posta imzanı güncellemeyi unutma"
+            }
+        },
+        "monoprix": {
+            "body": {
+                "signupSelfValidation": "Dijital kültür bilginiz iyileştirmek için kaydolduğunuz için teşekkür ederiz. Gitmeye hazırız. <br/> <br/>, Oturum açma: {{login}} <br/> (Büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/> Hesabınızı etkinleştirmek için bu linki tıklayınız: <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Herhangi bir sorunuz varsa veya konular hakkında daha fazla bilgi edinmek istiyorsanız, sizin MONOPRIX temsilcisiyle veya assistance@coorpacademy.com başvurun",
+                "signupComplete": "Dijital kültür bilginiz iyileştirmek için kaydolduğunuz için teşekkür ederiz. Gitmeye hazırız. <br/> <br/>, Oturum açma: {{login}} <br/> (Büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/> Hesabınızı etkinleştirmek için bu linki tıklayınız: <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Herhangi bir sorunuz varsa veya konular hakkında daha fazla bilgi edinmek istiyorsanız, sizin MONOPRIX temsilcisiyle veya assistance@coorpacademy.com başvurun"
+            },
+            "subject": {
+                "signupSelfValidation": "L'Académie senin hesabı etkinleştirmek dijital",
+                "signupComplete": "L'Académie senin hesabı etkinleştirmek dijital"
+            }
+        },
+        "redoute": {
+            "body": {
+                "signupSelfValidation": "MOOC La Redoute öğrenme laboratuvar yetenek için kaydolduğunuz için teşekkür ederiz. Gitmeye hazırız! <br/> <br/>, Oturum açma: {{login}} <br/> (Büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/> 'Hesabınızı doğrulamak' butonuna tıklayınız hesabını etkinleştirmek için.\n Eğer herhangi bir sorunuz veya konular hakkında daha fazla bilgi edinmek istiyorsanız, sizin temsilcisiyle veya bize de eğer: assistance@coorpacademy.com",
+                "signupComplete": "Teşekkür ederim, şimdi MOOC öğrenme laboratuara kayıtlıdır! <br/> <br/>, Oturum açma: {{login}} <br/> Büyük ve küçük harf karakterleri ile dikkat <br/> <br/> kısa zamanda etkinleştirme bağlantısını içeren bir e-posta alacaksınız."
+            },
+            "subject": {
+                "signupSelfValidation": "La Redoute öğrenme Lab, hesabınızı etkinleştirmek",
+                "signupComplete": "La Redoute öğrenme Lab, hesabınızı etkinleştirmek"
+            }
+        },
+        "tagheuer": {
+            "body": {
+                "signupValidation": "TAG Heuer çevrimiçi eğitim için yeni bir istek oldu: <ul><li>Soyadı: {{lastName}}</li> <li>isim: {{firstName}}</li> <li>giriş: {{login}}</li> <li>Şirket: {{company}}</li> <li>mağaza: {{boutique}}</li> <li>Ülke: {{country}}</li> <li> Büyükelçi: {{ambassador}}</li></ul> lütfen buraya tıklayarak isteği onaylayın: <a href=\"{{validateLink}}\"> {{validateLink}}</a> <br/> <br/> buraya tıklayarak bu isteği reddedin: <a href=\"{{rejectLink}}\"> {{rejectLink}}</a> <br/>",
+                "signupComplete": "Hesap doğrulandı! Şimdi TAG Heuer eğitim platformu zevk başlayabilirsiniz! <br/> <br/>, Oturum açma: {{login}} <br/> (Büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/> Platformu burada ziyaret edin: <a href=\"{{plateform}}\"> {{plateform}}</a>",
+                "certification_content_end": "‌"
+            },
+            "subject": {
+                "signupValidation": "TAG Heuer eğitimi için yeni talep",
+                "signupComplete": "TAG Heuer Basınç Laboratuvarı kaydınız doğrulandı."
+            },
+            "call2action": {
+                "signupComplete": "Platformu Ziyaret Et"
+            }
+        },
+        "tagheuercon": {
+            "body": {
+                "signupValidation": "TAG Heuer online eğitimi için yeni bir istek var. <ul>\n    <li>{{lastName}}</li>\n    <li>{{firstName}}</li>\n    <li>{{login}}</li>\n    <li>{{company}}</li>\n    <li>{{boutique}}</li>\n    <li>{{country}}</li>\n</ul> buraya tıklayarak isteği onaylayın:  <a href=\"{{validateLink}}\">{{validateLink}}</a> <br/> <br/> buraya tıklayarak bu isteği reddedin: <a href=\"{{rejectLink}}\">{{rejectLink}}</a> <br/>",
+                "signupComplete": "Hesap doğrulandı! Şimdi TAG Heuer eğitim platformu zevk başlayabilirsiniz! <br/> <br/>, Oturum açma: {{login}} <br/> (Büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/> Platformu burada ziyaret edin: <a href=\"{{plateform}}\"> {{plateform}}</a>"
+            },
+            "subject": {
+                "signupValidation": "MOOC için yeni bir istek",
+                "signupComplete": "TAG Heuer"
+            },
+            "call2action": {
+                "signupComplete": "Platformu ziyaret et"
+            }
+        },
+        "thelem": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "up": {
+            "body": {
+                "battleWaitingOpponent": "Unutma, {{opponentName}} sana $t({{disciplineName}}) dersi $t({{level}}) seviyede bir \"mücadele\" için meydan okudu ve sabırsızca cevabını bekliyor!<br/> Meydan okumayı kabul etmek ve oynamak için <a href=\"{{redirectionUrl}}\"> buraya</a> tıkla!:<br/> <br/> En iyi olan kazansın!",
+                "coachUnlocked": "Tebrikler! Tamamen onaylandığınız $t({{completedDiscipline}}) dersinde bir eğitmen oldunuz! <br/> <br/> Bu konuda rakipsiz olduğunuzdan dolayı artık diğerlerine bu konuyu öğrenmelerinde yardımcı olabilirsiniz!<br/> Şimdi sizi sohbet için arayan öğrencilerin aramalarına yanıt verin--amaç onları cevaba yönlendirmek, direkt cevabı vermek değil.<br/> <br/> Unutmayın ki \"Dayanışma olmadan uzun vadeli veya onurlu bir performans olmaz!\"<br/><font size=\"2\"><i>(François Proust)</i></font><br/> <br/>",
+                "contentUpdated": "Az önce platforma yeni bir disiplin eklendi!<br/>",
+                "contentUpdated_plural": "Yeni dersler platforma az önce eklendi!<br/>",
+                "lastConnection": "Bir süredir {{label}} platformuna giriş yapmadınız ve sizi özledik!<br/> <br/> Keşfedeceğiniz kurslar, geliştireceğiniz skorlar, mücadele edeceğiniz insanlar (arkadaşça) var.... Geri dönün ve öğrenme serüveninize devam edin!<br/> <br/>  Şu linke tıklayarak platforma erişebilirsiniz: <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> İyi öğrenmeler!",
+                "lastModuleDone": "{{label}} platformunda bir derse girdiğinden beri bir hafta geçti, vazgeçme!<br/> <br/> Zorluklarla karşılaşıyorsan, bir koçla iletişim kurmaktan ya da tartışma forumlarında topluluğa soru sormaktan çekinme.<br/> <br/> Aşağıdaki bağlantıya tıklayarak platforma erişebilirsin:\n<a href=\"{{redirectionUrl}}\"> {{redirectionUrl}}</a><br/> <br/> İyi eğitimler!",
+                "sendBattle": "{{opponentName}} sizi $t({{disciplineName}}) disiplini $t({{level}}) seviyesinde \"mücadele\"ye çağırıyor ve yanıtınızı hevesle bekliyor!<br/> <br/>Mücadeleyi kabul etmek ve oynamak için <a href=\"{{redirectionUrl}}\">buraya tıklayın</a>!<br/> <br/> İyi olan kazansın!"
+            }
+        },
+        "who": {
+            "subject": {
+                "signupValidation": "Bu hesabın doğrulanmasında",
+                "coachUnlocked": "Well done, you have completed the course {{completedDiscipline}}"
+            },
+            "body": {
+                "signupValidation": "<b>{{firstName}} {{lastName}}</b> bir kayıt isteği almış olan <br/> giriş: <b>{{login}}</b> <br/> Ülke: <b>{{country}}</b> <br/> devlet: <b>{{region}}</b> <br/> eğilimleri: <b>{{provider}}</b> <br/> arka plan deneyimi: <b>{{role}}</b> <br/> erişim kodu: <b>{{grade}}</b> <br/> <br/> Bu hesabı doğrulamak için lütfen aşağıdaki linke tıklayın: <a href=\"{{validateLink}}\"> {{validateLink}}</a> <br/>. <br/> Bu kişi olduğunu bilmiyorsanız, lütfen hesap kaldırmak için aşağıdaki linke tıklayın: <a href=\"{{rejectLink}}\"> {{rejectLink}}</a>. <br/> Mutlu eğitim!",
+                "signupComplete": "DSÖ QualityRights e-eğitim için kayıt tamamlanmıştır. <br/> <br/> Eğitim erişmeden önce <a href=\"https://extranet.who.int/dataform/236824?lang=en\"> öncesi eğitim Anketi</a> tamamlamış emin olun. <br/> <br/> <b>Başlatmak hazırsınız!</b> <br><br/> Bu <a href=\"https://humanrights-etrain-qualityrights.coorpacademy.com/login\"> linki</a> e-eğitim platformu erişmek. Senin giriş: (büyük ve küçük harf karakterleri ile dikkatli olun) {{login}}. <br/> <br/> E-eğitim (akıllı telefon, tablet, dizüstü bilgisayar, masaüstü bilgisayar) herhangi bir internet aygıttan erişebilirsiniz. E-eğitim en sık kullanılan tarayıcılar, örneğin, Internet Explorer 11 ve daha yüksek sürümleri, yanı sıra, krom, krom Android, Firefox, Safari ve kayanın (ya da hemen önce en son sürüm) en son sürümlerinde çalıştırabilirsiniz. <br/> <br/> E-eğitim zevk alırsınız!",
+                "signupSelfValidation": "<br/> Kim QualityRights e-eğitim için kaydolma için teşekkür ederiz! Bir adım daha başlamadan-tıklayınız hesabınızı doğrulamak için bağlantısının altında. <br/> <br/>, Oturum açma: {{login}} <br/> (izlemek için belgili tanımlık büyük harfler ve lowercases) <br/> <br/> Eğitim tadını çıkarın!",
+                "battleWaitingOpponent": "Unutma, {{opponentName}} $t({{disciplineName}}) sahası $t({{level}}) düzeyde meydan okudu ve sizden yanıt bekliyor! <br/> Meydan okuma ve oyun kabul etmek için tıklatın <a href=\"{{redirectionUrl}}\"> burada</a>! <br/> <br/> En iyi kişi kazanmak olabilir!",
+                "sendBattle": "{{opponentName}} sizi $t({{disciplineName}}) eğitiminde ''yarış''a davet ediyor, $t({{level}}) seviye ve sabırsızlıkla yanıtınızı bekliyor!<br/><br/> Yarışta meydan okumayı kabul etmek ve oynamak için burayı<a href=\\\"{{redirectionUrl}}\\\"> tıklayın </a>!<br/><br/>En iyi öğrenci kazansın!",
+                "coachUnlocked": "Congratulations on completing \"How to play on the platform?\".  Now you are ready to start one of the modules of the e-training!",
+                "certification_header": "Tebrikler! QualityRights e-eğitim kursu \"geliştirilmiş ve kim zihinsel sağlık politikası ve hizmet geliştirme tarafından sağlanan temel ruh sağlığı, insan hakları ve kalkınma\", başarılı bir şekilde tamamladınız.",
+                "certification_content_stars": "‌",
+                "certification_content_diploma": "Sertifikanızı indirebilirsiniz <a target='_blank' href=\"$t({{diplomaLink}})\"> burada</a>",
+                "certification_content_resource": "Sonrası değerlendirme <a href=\"https://extranet.who.int/dataform/772112?lang=en\"> soru formu</a> doldurunuz",
+                "certification_content_end": "Tekrar, kurs eğitim materyalleri ve videoları erişmek ve tartışmalarına için yapmak için herhangi bir zamanda e-eğitim tekrar edebilirsiniz unutmayın. <br/> <br/> E-eğitim zevk umuyoruz!"
+            }
+        },
+        "yahoo": {
+            "welcome": "Merhaba {{name}}!",
+            "urlHowTo": "&nbsp;",
+            "happyTraining": "Teşekkür ederim!",
+            "team": "Yahoo ve Coorpacademy Ekibi",
+            "unsubscribetext": "Çok fazla eposta mı? Yapabilirsiniz",
+            "body": {
+                "certification_header": "Yahoo online dijital Eğitim Akademisi $t({{certification}}) modülü tamamlamak için tebrikler! $t({{certification}}) hakkında olağanüstü bilgi göstermek kullanıcılardan oluşan elit bir grubun parçası oldular. Çok gurur duymalısın!\n\nOlarak bir ödül olarak biz sunuyoruz:",
+                "certification_content_resource": "Bu <a href=\"{{certificationPage}}/\"> bağlantıyı</a> takip $t({{certification}}) rozet erişim",
+                "certification_content_end": "Sosyal medya ve ağ siteleri rozetini gururla koymak öneririz.\n\nNeden şimdi durdurabilir mi? Öğrenme devam etmek için geri Yahoo online dijital Eğitim Akademisi oturum.",
+                "coachUnlocked": "Tebrikler! Artık $t({{completedDiscipline}})<br/> <br/>  disiplininde pro oldun. Bu disiplinle ya da genel olarak dijital pazarlamayla ilgili sorun varsa lütfen <a href=\"mailto:info-yahoo@yahoo-inc.com\"> info-yahoo@yahoo-inc.com</a> <br/> <br/> ile iletişim kur. Selamlar, <br/>",
+                "signupValidation": "MOOC için yeni bir talep var:  <br> <ul>\n  <li>{{firstName}}</li>\n  <li>{{lastName}}</li>\n  <li>{{email}}</li>\n  <li>{{company}}</li>\n  <li>{{jobTitle}}</li>\n</ul> <br> Lütfen buraya tıklayarak talebi kabul edin: <br> <a href=\"{{validateLink}}\">{{validateLink}}</a> <br> <br> Buraya tıklayarak talebi reddedin: <br> <a href=\"{{rejectLink}}\">{{rejectLink}}</a>",
+                "signupSelfValidation": "Dijital pazarlama bilginizi geliştirmek için kaydolduğunuz için teşekkür ederiz. Gitmeye hazırız! <br/> <br/>, Oturum açma: {{login}} <br/> (Büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/> Hesabınızı etkinleştirmek için bu linki tıklayınız: <br><a href=\"{{validateLink}}\"> {{validateLink}}</a> <br><br>oturum açmak için profesyonel e-posta ve şifre giriniz. <br> Herhangi bir sorunuz varsa veya konular hakkında daha fazla bilgi edinmek istiyorsanız, Yahoo temsilcisi veya ilgili kişi <br><a href=\"info-yahoo@yahoo-inc.com\"> info-yahoo@yahoo-inc.com</a> konuşmak",
+                "signupComplete": "Dijital pazarlama bilginizi geliştirmek gösterdiğiniz ilgi için teşekkür ederiz. İsteğinizi onayladı. <br/> <br/>, Oturum açma: {{login}} <br/> (Büyük ve küçük harf karakterleri ile dikkatli olun) <br/> <br/> Platform ziyaret etmek için buraya tıklayın <br><a href=\"{{plateform}}\"> {{plateform}}</a> <br><br>oturum açmak için profesyonel e-posta ve şifre giriniz. <br> Eğer herhangi bir sorunuz varsa veya gibi konular hakkında daha fazla bilgi bulmak için senin Yahoo temsilcisiyle ya da <br><a href=\"mailto:info-yahoo@yahoo-inc.com\"> info-yahoo@yahoo-inc.com</a> iletişim <br>"
+            },
+            "subject": {
+                "coachUnlocked": "Tebrikler, artık $t({{completedDiscipline}}) disiplininde prosunuz",
+                "signupValidation": "Yahoo Digital'de bir kullanıcıdan yeni bir istek",
+                "signupSelfValidation": "Hesabınızı Yahoo Dijital Pazarlama üzerinden aktive edin",
+                "signupComplete": "Yahoo Dijital Pazarlama Akademisine yazınız onaylanmıştır."
+            },
+            "call2action": {
+                "signupValidation": "Bu Hesabı Doğrulayın",
+                "signupSelfValidation": "Hesabınızı Doğrulayın",
+                "signupComplete": "Platformu ziyaret et"
+            }
+        },
+        "zenithcommunity": {
+            "body": {
+                "signupValidation": "There has been a new request for Zenith online training: <ul>\n    <li>Last name: {{lastName}}</li>\n    <li>First name: {{firstName}}</li>\n    <li>Login: {{login}}</li>\n    <li>Point of Sale Business Unit: {{provider}}</li>\n    <li>Point of Sale Name: {{company}}</li>\n    <li>Country: {{country}}</li>\n <li>City: {{city}}</li>\n <li>Job Title: {{jobTitle}}</li>\n <li>Grade (how long...): {{grade}}</li>\n</ul> Please approve the request by clicking here: <a href=\"{{validateLink}}\">{{validateLink}}</a><br/><br/> Decline this request by clicking here: <a href=\"{{rejectLink}}\">{{rejectLink}}</a><br/>"
+            }
+        }
+    }
+}

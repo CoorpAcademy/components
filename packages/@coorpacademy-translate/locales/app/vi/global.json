@@ -1,0 +1,435 @@
+{
+    "content": {
+        "types": {
+            "course": "khóa học",
+            "course_plural": "khóa học",
+            "adaptive_chapter": "phương pháp 5' Learning thích ứng",
+            "adaptive_course": "học tập thích nghi",
+            "adaptive_course_plural": "học tập thích ứng",
+            "cursus": "khóa học",
+            "cursus_plural": "Các khóa học",
+            "chapter": "phương pháp 5' Learning",
+            "chapter_plural": "học vi mô"
+        },
+        "sorts": {
+            "title": "Sắp xếp theo:",
+            "cta": "Sắp xếp",
+            "tab": "Sắp xếp theo",
+            "pertinence": "Độ liên quan",
+            "newest": "Mới nhất",
+            "duration": "Ngắn nhất"
+        },
+        "filters": {
+            "cta": "Chọn lọc",
+            "tab": "Chọn lọc",
+            "authors": "Các tác giả:",
+            "authorTypes": "Danh mục nội dung",
+            "skills": "Kỹ năng:",
+            "type": "Loại:",
+            "themes": "Bộ sưu tập:",
+            "goals": "Chứng nhận:",
+            "time": "Thời gian:",
+            "learning_paths": "Lộ tình Học tập:",
+            "all_authors": "Tất cả Tác giả",
+            "all_author_types": "Tất cả hạng mục",
+            "all_skills": "Tất cả kỹ năng",
+            "all_themes": "Mọi Bộ sưu tập",
+            "all_goals": "Tất cả chứng nhận",
+            "all_courses": "Tất cả Khóa học",
+            "microlearning": "5' Learning",
+            "all": "Tất cả",
+            "courses": "Các khóa học",
+            "my_favorites": "Danh sách của tôi:"
+        },
+        "notification": {
+            "addFavorite": "Đã thêm vào Danh sách của tôi",
+            "removeFavorite": "Đã xóa khỏi Danh sách của tôi"
+        },
+        "search": {
+            "placeholder": "Bạn muốn tìm hiểu những gì?"
+        },
+        "catalog": "Danh mục",
+        "result": "{{title}} : {{count}} kết quả",
+        "result_plural": "{{title}}: {{count}} kết quả",
+        "noresultsfound": "Rất tiếc, không có kết quả nào",
+        "clearFilters": "Đặt lại",
+        "recommended": "Khám phá các khoá học được đề xuất cho bạn:",
+        "new": "new"
+    },
+    "author": {
+        "socialTitle": "Xã hội:",
+        "cardsTitle": "Tất cả khóa học từ {{author}}",
+        "website": "Trang web:",
+        "notFound": "Không tìm thấy tác giả ({{authorRef}})",
+        "more": "Thông tin tác giả",
+        "customCustomer": "{{name}} Creation",
+        "types": {
+            "coorp": "Coorp Originals",
+            "verified": "Verified by Coorp",
+            "marketplace": "Những người khác",
+            "custom": "{{name}} Creation"
+        }
+    },
+    "unit": {
+        "duration_minutes_set": "{{m}} phút",
+        "duration_minutes_set_plural": "{{m}} phút",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}} giờ $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}} hours $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})\n"
+    },
+    "shortUnit": {
+        "duration_minutes_set": "{{m}}m",
+        "duration_minutes_set_plural": "{{m}}m",
+        "duration_minutes_with_hours_set": "{{m}}",
+        "duration_minutes_with_hours_set_plural": "{{m}}",
+        "duration_minutes_with_hours_none": "‌",
+        "duration_minutes_with_hours_none_plural": "‌",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}}h$t(shortUnit.duration_minutes_with_hours, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}}h$t(shortUnit.duration_minutes, {\"bộ đếm\": {{minutes}}, \"bối cảnh\": \"{{contextMin}}\", \"ph\": \"{{m}}\"})",
+        "duration_none": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(shortUnit.duration_minutes, {\"bộ đếm\": {{minutes}}, \"bối cảnh\": \"{{contextMin}}\", \"ph\": \"{{m}}\"})"
+    },
+    "module_level": {
+        "1": "$t(global:module_level.base)",
+        "2": "$t(global:module_level.advanced)",
+        "3": "$t(global:module_level.coach)",
+        "base": "Cơ bản",
+        "advanced": "Nâng cao",
+        "coach": "Huấn luyện viên"
+    },
+    "progression_status": {
+        "not_started": "Chưa bắt đầu",
+        "in_progress": "Đang tiến hành",
+        "completed": "Đã hoàn thành!"
+    },
+    "close": "Đóng",
+    "skipIntro": "Bỏ qua giới thiệu",
+    "route": {
+        "initialized": "Bây giờ, màn hình này đã được thiết lập.",
+        "error": {
+            "401": "Có vẻ như bạn không còn được kết nối.",
+            "402": "Thanh toán là bắt buộc",
+            "403": "Bạn không được phép làm điều này.",
+            "404": "Bạn có biết không? Mã lỗi 404 có nghĩa là không tìm thấy trang đó.",
+            "409": "Bạn có biết không? Lỗi 409 nghĩa là một vài dữ liệu không có cập nhật nên không thể xử lý yêu cầu của bạn.",
+            "500": "Bạn có biết? Mã lỗi 500 có nghĩa là sự cố xảy ra trên máy chủ.",
+            "api": "Đã xảy ra lỗi. Máy chủ đang hoạt động nhưng ứng dụng không hoạt động đúng cách.",
+            "default": "Có lỗi xảy ra."
+        }
+    },
+    "loading": "Đang tải...",
+    "htmlTitle": "CoorpAcademy",
+    "hero": {
+        "cta": "Bắt đầu học"
+    },
+    "cookiesDisabled": {
+        "title": "Cookie đã tắt",
+        "error": "Cookie của bạn đã bị tắt hoặc bị chặn. Hãy bật lại hoặc cấu hình AdBlocker của bạn"
+    },
+    "chatbot": {
+        "welcome": {
+            "default": "Welcome on Coorpacademy. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin.",
+            "facebook": "Hello and welcome to Coorpacademy! I can ask you question of our online courses. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin. If you're looking for some other informations you can contact us at communication@coorpacademy.com."
+        },
+        "ask_question": {
+            "repeat_header_1": "Chắc chắn! {{question}}.",
+            "repeat_header_2": "Tất nhiên! {{question}}.",
+            "repeat_header_3": "Ok! Đây là câu hỏi lần nữa: {{question}}.",
+            "repeat_header_4": "Không vấn đề gì. {{question}}.",
+            "repeat_header_5": "Tôi lặp lại: {{question}}."
+        },
+        "next_action": {
+            "question_next": "Yêu cầu 'câu hỏi tiếp theo' để tiếp tục.",
+            "answer_next": "Đáp án là gì?",
+            "wrong_answer_next": "Chọn 'lý do' để nhận được giải thích hoặc 'tiếp theo' để tiếp tục."
+        },
+        "answer_question": {
+            "is_valid": {
+                "title_1": "Hoan hô!",
+                "title_2": "Chính xác!",
+                "title_3": "Câu trả lời hay !",
+                "title_4": "Có!",
+                "title_5": "Làm tốt lắm!"
+            },
+            "is_invalid": {
+                "title_1": "Không hề! Đáp án là: {{answer}}.",
+                "title_2": "Không chính xác! Đáp án là: {{answer}}. ",
+                "title_3": "Đáp án sai! Bạn nên nói: {{answer}}.",
+                "title_4": "Ôi! Đáp án đúng là: {{answer}}.",
+                "title_5": "Tôi rất tiếc nhưng đáp án đó không đúng! Đáp án đúng là: {{answer}}."
+            }
+        },
+        "error": {
+            "not_found": "Xin lỗi, tôi không tìm thấy bất kỳ câu hỏi nào. Hãy thử với bất kỳ chủ đề nào khác."
+        }
+    },
+    "demo": {
+        "url": "https://www.coorpacademy.com/en/request-a-demo/?utm_source=Up&utm_medium={{medium}}"
+    },
+    "custom": {
+        "7steps": {
+            "module_level": {
+                "base": "Tại sao",
+                "advanced": "Đồng cảm",
+                "coach": "Chỉ cho tôi"
+            }
+        },
+        "loreal-retail-v2": {
+            "module_level": {
+                "base": "Tại sao",
+                "advanced": "Đồng cảm",
+                "coach": "Chỉ cho tôi"
+            }
+        },
+        "accueil": {
+            "htmlTitle": "MOOC Accueil Pháp"
+        },
+        "achat-habitat": {
+            "htmlTitle": "Mooc Achat Habitat",
+            "module_level": {
+                "base": "Giới thiệu",
+                "advanced": "Lợi thế",
+                "coach": "Huấn luyện viên"
+            }
+        },
+        "adeo": {
+            "htmlTitle": "Adeo Training CPL"
+        },
+        "auchan-retail": {
+            "htmlTitle": "Auchan Retail QUIZZ"
+        },
+        "architas-powercircle": {
+            "htmlTitle": "POWERCIRCLE | FOCUS"
+        },
+        "bnp": {
+            "htmlTitle": "Yếu tố MOOC BNP Paribas"
+        },
+        "bestwesternuniversity": {
+            "htmlTitle": "Đại học Best Western"
+        },
+        "capgemini": {
+            "htmlTitle": "COOC"
+        },
+        "cd78": {
+            "htmlTitle": "MOOC rSa"
+        },
+        "chanel": {
+            "htmlTitle": "iJoinCHANEL"
+        },
+        "clarins-digital": {
+            "htmlTitle": "Clarins Digital"
+        },
+        "crt": {
+            "htmlTitle": "CRT"
+        },
+        "coravin": {
+            "htmlTitle": "Coravin"
+        },
+        "corporateonlineopencourse": {
+            "module_level": {
+                "base": "CƠ BẢN"
+            },
+            "progression_status": {
+                "not_started": "Đã đăng ký",
+                "in_progress": "Đã đăng ký",
+                "completed": "Đã hoàn thành"
+            }
+        },
+        "dolce": {
+            "htmlTitle": "Cá nhân"
+        },
+        "eacampus": {
+            "htmlTitle": "EAcampus"
+        },
+        "ecolenumerique-sncf": {
+            "content": {
+                "filters": {
+                    "goals": "Huy hiệu Jedi:"
+                }
+            }
+        },
+        "edenred-talents": {
+            "htmlTitle": "Tài năng Edenred",
+            "module_level": {
+                "coach": "Đại sứ"
+            }
+        },
+        "ganprevoyance": {
+            "content": {
+                "filters": {
+                    "goals": "Đại học:"
+                }
+            }
+        },
+        "faurecia": {
+            "htmlTitle": "Learning Lab"
+        },
+        "gdf": {
+            "htmlTitle": "WeTransform"
+        },
+        "gdfec": {
+            "htmlTitle": "Doanh nghiệp và Cộng đồng"
+        },
+        "hr-ac": {
+            "htmlTitle": "Học viện HR"
+        },
+        "ilearn": {
+            "htmlTitle": "CHANEL iLearn",
+            "module_level": {
+                "1": "Thiết yếu",
+                "2": "Nâng cao",
+                "3": "Chuyên gia",
+                "base": "Thiết yếu",
+                "advanced": "Nâng cao",
+                "coach": "Chuyên gia"
+            }
+        },
+        "learnnrj": {
+            "htmlTitle": "Tôi Học Năng lượng"
+        },
+        "logisacademie": {
+            "htmlTitle": "Logis Académie"
+        },
+        "linxea": {
+            "htmlTitle": "LinXea Academy"
+        },
+        "manpower": {
+            "htmlTitle": "Hiệu ứng Lãnh đạo",
+            "module_level": {
+                "1": "Cơ bản",
+                "2": "Chuyên gia",
+                "3": "Người huấn luyện",
+                "base": "Cơ bản",
+                "advanced": "Chuyên gia",
+                "coach": "Huấn luyện viên"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "htmlTitle": "Digital MOOC ATF"
+        },
+        "mooc-socgen": {
+            "htmlTitle": "Mooc Socgen",
+            "module_level": {
+                "base": "Cấp độ 1",
+                "advanced": "Trình độ 2",
+                "coach": "Cấp độ 3"
+            }
+        },
+        "natixis": {
+            "htmlTitle": "Think Digital"
+        },
+        "nespresso": {
+            "module_level": {
+                "3": "Chuyên gia",
+                "coach": "Chuyên gia"
+            }
+        },
+        "nespressodigital": {
+            "htmlTitle": "Học viện Kỹ thuật số"
+        },
+        "paca": {
+            "htmlTitle": "MOOC Paca"
+        },
+        "online-academy-klubschule": {
+            "module_level": {
+                "base": "Người mới bắt đầu",
+                "advanced": "Nâng cao",
+                "coach": "Chuyên gia"
+            }
+        },
+        "petite": {
+            "htmlTitle": "Đào tạo nhân viên mới của Chanel Petite",
+            "module_level": {
+                "base": "Mô-đun 1",
+                "advanced": "Mô-đun 2",
+                "coach": "Mô-đun 3"
+            }
+        },
+        "quizz-auchan": {
+            "htmlTitle": "QUIZZ AUCHAN RETAIL"
+        },
+        "renaultrh": {
+            "module_level": {
+                "base": "Bước 1",
+                "advanced": "Bước 2",
+                "coach": "Bước 3"
+            }
+        },
+        "renaultcare": {
+            "module_level": {
+                "base": "Cơ bản"
+            }
+        },
+        "rexel": {
+            "htmlTitle": "Lấy Khách hàng làm Trung tâm bởi Rexel"
+        },
+        "schneider": {
+            "module_level": {
+                "base": "Mùa 1",
+                "advanced": "Mùa 2",
+                "coach": "Mùa 3"
+            }
+        },
+        "tagheuer": {
+            "module_level": {
+                "base": "Titanium",
+                "advanced": "Đồng",
+                "coach": "Bạc"
+            }
+        },
+        "tagheuercon": {
+            "module_level": {
+                "base": "Titanium",
+                "advanced": "Đồng",
+                "coach": "Bạc"
+            }
+        },
+        "theglenlivet-academy": {
+            "htmlTitle": "The Glenlivet | ザ・グレンリベット アカデミー"
+        },
+        "tourism": {
+            "htmlTitle": "Tourism Academy"
+        },
+        "tourismdigital": {
+            "htmlTitle": "Du lịch kỹ thuật số"
+        },
+        "tourisme-hautsdefrance": {
+            "htmlTitle": "Du lịch Hauts-de-France"
+        },
+        "yahoo": {
+            "module_level": {
+                "base": "Tân binh",
+                "advanced": "Giữa",
+                "coach": "Chuyên nghiệp"
+            }
+        },
+        "ey": {
+            "htmlTitle": "Học viện Kỹ thuật số"
+        },
+        "thelem": {
+            "htmlTitle": "DigiPass#"
+        },
+        "letsgetdigital": {
+            "htmlTitle": "Let's get digital 2.0",
+            "module_level": {
+                "base": "HỌC VIÊN",
+                "advanced": "CHUYÊN GIA",
+                "coach": "BẬC THẦY"
+            }
+        },
+        "who": {
+            "htmlTitle": "QualityRights",
+            "module_level": {
+                "advanced": "Phân tích Tình huống"
+            }
+        },
+        "triptorelin": {
+            "htmlTitle": "Triptorelin"
+        }
+    }
+}

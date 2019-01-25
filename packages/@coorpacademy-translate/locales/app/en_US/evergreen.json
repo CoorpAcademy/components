@@ -1,0 +1,25 @@
+{
+    "notCompatible": {
+        "os": "The version of your OS is too old to access the platform. We recommend an update.",
+        "explanation": "The compatibility view of your browser may be turned on. More info to turn it off",
+        "explanationLink": "https://static.coorpacademy.com/content/help/compatibility_view/Help_Compatibility_view_EN.pdf",
+        "explanationLinkLabel": "here.",
+        "header": "The browser version is too old to access the platform.",
+        "suggestion_text": "BrowseHappy",
+        "suggestion_href": "http://browsehappy.com",
+        "suggestion_text_pre": "Go to",
+        "suggestion_text_post": "for more information on Evergreen browsers.",
+        "different_user_agent": "Two different user agents were found, resulting in platform restriction access."
+    },
+    "custom": {
+        "fff": {
+            "notCompatible": {
+                "os": "The version of your OS is too old to access the platform. We recommend an update.",
+                "suggestion_text": "Chrome",
+                "suggestion_href": "https://www.google.com/intl/fr/chrome/browser/",
+                "suggestion_text_pre": "Suggested download",
+                "suggestion_text_post": "."
+            }
+        }
+    }
+}

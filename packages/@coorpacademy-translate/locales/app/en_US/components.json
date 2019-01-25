@@ -1,0 +1,203 @@
+{
+    "video_player": {
+        "jw": "Loading video player...",
+        "fileCouldNotBePlayedTitle": "Playing video error",
+        "flashInstallUrl": "https://get.adobe.com/en/flashplayer/",
+        "MEDIA_ERR_UNKNOWN": {
+            "title": "An unknown error occured",
+            "description": "We have detected a failure playing video. We have been notified of this failure and we will investigate further."
+        },
+        "MEDIA_ERR_ABORTED": {
+            "title": "The fetching process for the media resource was aborted.",
+            "description": "Please verify you Internet connection and try to reload the video."
+        },
+        "MEDIA_ERR_NETWORK": {
+            "title": "A network error has caused the user agent to stop fetching the media resource.",
+            "description": "Please verify you Internet connection and try to reload the video."
+        },
+        "MEDIA_ERR_DECODE": {
+            "title": "An error has occurred in the decoding of the media resource.",
+            "description": "This video is not supported in this browser. It's an issue within you browser or operating system."
+        },
+        "MEDIA_ERR_SRC_NOT_SUPPORTED": {
+            "title": "The media source is not usable",
+            "description": "This video is either unavailable or not supported in this browser, please try with another browser or install Flash Player as a fallback and reload this page."
+        }
+    },
+    "account_menu": {
+        "badge": "Badges",
+        "account": "My Account",
+        "objectif": "Certifications",
+        "activity": "Activity",
+        "competence_win": "Skills Acquired",
+        "timeline": "Progress Over Time",
+        "discussion": "Discussions",
+        "conseil": "Tips & Hints",
+        "coach": "Coaches",
+        "battle": "Battle Mode",
+        "modification": "Modify My Info"
+    },
+    "chat_room": {
+        "button_wrapper": "Send",
+        "placeholder": "Your Message",
+        "connexion": "{{displayName}} > has joined this conversation",
+        "deconnexion": "{{displayName}} has left this conversation"
+    },
+    "badgesLabel": {
+        "battle": {
+            "detail": "{{detail}} battle completed",
+            "detail_plural": "{{detail}} battles completed"
+        },
+        "module": {
+            "detail": "{{detail}} module completed without losing a life!",
+            "detail_plural": "{{detail}} modules completed without losing a life!"
+        },
+        "lesson": {
+            "detail": "{{detail}} lesson viewed!",
+            "detail_plural": "{{detail}} lessons viewed!"
+        },
+        "question": {
+            "detail": "{{detail}} question answered correctly!",
+            "detail_plural": "{{detail}} questions answered correctly!"
+        },
+        "coach": {
+            "detail": "{{detail}} interaction with the coaches!",
+            "detail_plural": "{{detail}} interactions with the coaches!"
+        }
+    },
+    "notificationMenu": {
+        "god_mode": "Activate God Mode",
+        "notification": "Activate Desktop Notifications",
+        "title": "Notifications ({{nb}})",
+        "forum": "A user has replied to your comment regarding to the {{name}} module {{level}} level",
+        "badge_title": "Congratulations!",
+        "badge": "You have earned the {{name}} badge {{level}}",
+        "module_title": "Congratulations!",
+        "module": "You have completed the {{name}} module level {{level}}!",
+        "battle": {
+            "new": "{{name}} would like to challenge you on the {{module}} module {{level}} level!",
+            "accepted": "Your battle challenge has been accepted",
+            "win": "You have won the battle against {{looser}} on the {{module}} module {{level}} level!",
+            "loose": "You have lost the battle against {{winner}} on the {{module}} module {{level}} level..."
+        },
+        "link": "See all",
+        "challenge_reminder": "Don’t forget, {{name}} challenged you on the {{module}} module {{level}} level and is awaiting your response!",
+        "coach": "Bravo! You have become a coach in the discipline {{name}}!",
+        "start_aim": "You have selected {{name}} certification. Get started!",
+        "goal_as_reward": "You have unlocked {{name}} certification. Get started!",
+        "half_achieved": "Congratulations! You are halfway through your {{name}} certification! Keep up the good work.",
+        "three_third_achieved": "Congratulations! You have fulfilled the requirements for certification in {{name}}! Share your success with your professional network.",
+        "continue_goals": "Congratulations! You reached {{name}} certification! Start another!",
+        "continue": "You were doing so well, why stop now? Continue with the {{name}} certification!",
+        "mandatory": "To earn the {{name}} certificate, you need to finish {{levels}} modules!",
+        "mandatory_plural": "To earn the {{name}} certificate, you need to finish {{levels}} modules!",
+        "mandatory_achieved": "Congratulations! You achieved {{name}} certification!",
+        "toggleCoach": "Available for coach",
+        "reward_title": "Bravo! You have earned a reward!",
+        "reward_description": {
+            "bonusStars": "You have {{stars}} new stars in bonus."
+        }
+    },
+    "custom": {
+        "armeedeterre": {
+            "account_menu": {
+                "battle": "Battle Mode"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} battle completed",
+                    "detail_plural": "{{detail}} battles completed"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "Your battle has been accepted",
+                    "win": "You have won the battle against {{looser}} on the {{module}} module {{level}} level!",
+                    "loose": "You have lost the battle against {{winner}} on the {{module}} module {{level}} level..."
+                }
+            }
+        },
+        "gdf": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} theme completed",
+                    "detail_plural": "{{detail}} themes completed"
+                }
+            }
+        },
+        "gdfec": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} theme completed",
+                    "detail_plural": "{{detail}} themes completed"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "assistance": {
+                "title": "Feedback"
+            }
+        },
+        "pernod": {
+            "notificationMenu": {
+                "start_aim": "You have selected the {{name}} objective. Get started!",
+                "goal_as_reward": "You have unblocked the {{name}} objective. Get started!",
+                "half_achieved": "Good job! You achieved 50% of the objective {{name}}!",
+                "three_third_achieved": "Congratulations! You achieved the {{name}} objective!",
+                "continue_goals": "Congratulations! You achieved objective {{name}}! Start another!",
+                "continue": "You are doing so well, why stop? Continue with the {{name}} objective!",
+                "mandatory": "To complete your training, you must achieve the objective {{name}}: let's get started!",
+                "mandatory_achieved": "Congratulations! You achieved objective {{name}}!"
+            }
+        },
+        "up": {
+            "badgesLabel": {
+                "module": {
+                    "detail": "{{detail}} level completed without losing a life!",
+                    "detail_plural": "{{detail}} levels completed without losing a life!"
+                }
+            },
+            "notificationMenu": {
+                "forum": "A user has replied to your comment regarding to the {{name}} course {{level}} level",
+                "module": "You have passed the {{name}} course level {{level}}!",
+                "battle": {
+                    "new": "{{name}} would like to challenge you on the {{module}} course {{level}} level!",
+                    "win": "You have won the battle against {{looser}} on the {{module}} course {{level}} level!",
+                    "loose": "You lost the battle against {{winner}} on the {{module}} course {{level}} level..."
+                },
+                "challenge_reminder": "Don’t forget, {{name}} challenged you on the {{module}} course {{level}} level and awaits your response!",
+                "coach": "Bravo! You have become a coach in the course {{name}}!"
+            }
+        },
+        "who": {
+            "account_menu": {
+                "battle": "Challenge Mode"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} challenge completed",
+                    "detail_plural": "{{detail}} challenges completed"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "Your challenge has been accepted",
+                    "win": "You have won the challenge against {{looser}} on the {{module}} module {{level}} level!",
+                    "loose": "You have lost the challenge against {{winner}} on the {{module}} module {{level}} level..."
+                },
+                "continue_goals": "Congratulations! You have obtained your {{name}} certification!"
+            }
+        }
+    },
+    "assistance": {
+        "title": "Assistance",
+        "object": "Subject",
+        "message": "Message",
+        "send": "Send",
+        "thanks": "Thank you for your message!",
+        "next": "Next"
+    },
+    "cards": {
+        "allCategories": "All categories"
+    }
+}

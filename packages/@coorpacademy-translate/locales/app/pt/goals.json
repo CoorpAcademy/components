@@ -1,0 +1,201 @@
+{
+    "title": "Minhas certificações",
+    "subtitle_head1": "Escolha as certificações e realize-as a fim de controlar a progressão da sua capacitação, de desafiar-se e de adquirir novos conhecimentos e habilidades!",
+    "subtitle_head2": "Inicie um módulo entre os oferecidos dentro de suas certificações.",
+    "how_to": "Para confirmar uma certificação, você deve terminar todos os módulos oferecidos. Ao trabalho!",
+    "button_choose_goal": "Escolher uma certificação",
+    "selected_goals_title": "{{goals}} Certificação em andamento",
+    "selected_goals_title_plural": "{{goals}} Certificações em andamento",
+    "selected_goals_no_item": "Você não tem nenhuma certificação em andamento. Selecione uma!",
+    "finished_goals_title": "{{goals}} certificação concluída",
+    "finished_goals_title_plural": "{{goals}} certificações concluídas",
+    "finished_goal_label": "{{goalLabel}} {{star}}",
+    "finished_goals_no_item": "Você ainda não terminou a certificação",
+    "button_module_access": "Iniciar",
+    "minutes_label": "min",
+    "status_label": "Status:",
+    "stars_label": "{{stars}} estrela",
+    "stars_label_plural": "{{stars}} estrelas",
+    "popover": {
+        "title": "Atenção!",
+        "module_blocked_pre": "Este módulo não está acessível:",
+        "module_blocked_post": "{{pre}} Para realizá-lo, você deve antes confirmar o nível {{level}}",
+        "select_goal": {
+            "title": "Escolha uma certificação",
+            "available_module": "{{total}} certificação disponível",
+            "available_module_plural": "{{total}} certificações disponíveis",
+            "module_done": "O módulo já foi confirmado. Você preencheu uma parte da certificação!",
+            "module_blocked": "O módulo ainda não está acessível: para desbloqueá-lo, você deve confirmar o nível inferior básico ou avançado",
+            "button_add_goal": "Confirmar minha certificação"
+        }
+    },
+    "condition_progress": {
+        "information": "Você deve concluir {{done}} des {{total}} módulos oferecidos."
+    },
+    "certification": {
+        "title": "Minhas certificações",
+        "title_plural": "Suas certificações",
+        "subtitle": "Confirme seus conhecimentos iniciando as certificações",
+        "subtitle_plural": "Valide as suas competências com estas certificações",
+        "rewards": {
+            "subtitle": "Suas recompensas",
+            "see_detail": "Ver",
+            "congratulations": "parabéns pelo seu sucesso",
+            "you_can_win": "Ganhe",
+            "download_resource": "Clique aqui para baixar",
+            "see_diploma": "Ver Diploma",
+            "access_your_diploma": "Acessar seu diploma"
+        },
+        "stars": {
+            "description_pre": "Inicie",
+            "description_post": "estrelas"
+        },
+        "state": {
+            "done": "Confirmado!",
+            "inProgress": "Em andamento"
+        },
+        "condition_description": {
+            "progress": "Objetivo: {{count}} módulo",
+            "progress_plural": "Objetivo: {{count}} módulos"
+        },
+        "certificationDone": "Parabéns! Você iniciou a certificação {{certificationName}}"
+    },
+    "diploma": {
+        "certificate": "certificado",
+        "date": "Data: {{date}}",
+        "message": "validou as competências requeridas para a certificação:"
+    },
+    "custom": {
+        "ecolenumerique-sncf": {
+            "certification": {
+                "title": "Distintivo de Jedi",
+                "title_plural": "Emblemas de Jedi",
+                "certificationDone": "Parabéns! Você obteve o {{certificationName}} distintivo!",
+                "subtitle": "Validar o seu distintivo de Jedi aqui",
+                "subtitle_plural": "Validar seus distintivos de Jedi aqui"
+            }
+        },
+        "ganprevoyance": {
+            "certification": {
+                "title": "Universo",
+                "title_plural": "Universos",
+                "certificationDone": "Parabéns! Você ter validado o universo {{certificationName}}!",
+                "subtitle": "Validar seu universo aqui",
+                "subtitle_plural": "Validar seus universos aqui"
+            }
+        },
+        "cnp": {
+            "certification": {
+                "title": "Certificado",
+                "title_plural": "Certificados",
+                "certificationDone": "Parabéns! Você ter validado o certificado {{certificationName}}!",
+                "subtitle": "Validar seu certificado aqui",
+                "subtitle_plural": "Validar seus certificados aqui"
+            }
+        },
+        "pernod": {
+            "title": "Meus objetivos.",
+            "subtitle_head1": "Selecione um ou mais objectivos e concluí-las para melhorar suas habilidades em uma área selecionada e tópico.",
+            "subtitle_head2": "Começa um módulo entre aqueles incluídos em um objetivo.",
+            "how_to": "Para validar um objetivo, você deverá concluir cada módulo. Vamos começar!",
+            "button_choose_goal": "Escolha um objectivo.",
+            "selected_goals_title": "{{goals}} Objetivo atual",
+            "selected_goals_title_plural": "{{goals}} Objetivos atuais",
+            "selected_goals_no_item": "O objectivo não é selecionado. Por favor, escolha um!",
+            "finished_goals_title": "{{goals}}  Objetivo apurado",
+            "finished_goals_title_plural": "{{goals}}  Objectivos apurados",
+            "finished_goal_label": "{{goalLabel}} {{star}}",
+            "finished_goals_no_item": "Você ainda não fecharam quaisquer objectivos.",
+            "button_module_access": "Comece agora",
+            "minutes_label": "min",
+            "status_label": "Status:",
+            "stars_label": "{{stars}} estrela",
+            "stars_label_plural": "{{stars}} estrelas",
+            "popover": {
+                "title": "Atenção!",
+                "module_blocked_pre": "Este módulo não está acessível:",
+                "module_blocked_post": "{{pre}} Para realizá-lo, você deve antes confirmar o nível {{level}}",
+                "select_goal": {
+                    "title": "Por favor, escolha um objetivo",
+                    "available_module": "{{total}} Objetivo disponível",
+                    "available_module_plural": "{{total}} Objetivos disponíveis",
+                    "module_done": "Este módulo já foi desmarcado. Você está no seu caminho para alcançar o objetivo.",
+                    "module_blocked": "Este módulo ainda não está disponível. Para desbloqueá-lo você deve primeiro limpar o Basic ou níveis avançados.",
+                    "button_add_goal": "Confirme o meu objetivo."
+                }
+            },
+            "condition_progress": {
+                "information": "Você tem concluído {{done}} de {{total}} módulos propostos."
+            },
+            "certification": {
+                "title": "Seus objetivos",
+                "subtitle": "Valide suas habilidades tendo estes objectivos",
+                "rewards": {
+                    "subtitle": "Suas recompensas",
+                    "see_detail": "Ver",
+                    "congratulations_pre": "E nosso",
+                    "congratulations": "congralutations",
+                    "congratulations_post": "para todos os seus esforços"
+                },
+                "stars": {
+                    "description_pre": "Vamos te dar",
+                    "description_post": "estrelas"
+                },
+                "state": {
+                    "done": "Feito",
+                    "inProgress": "Em andamento"
+                },
+                "condition_description": {
+                    "progress": "{{nbDone}} completou módulos"
+                },
+                "certificationDone": "Parabéns! Você obteve o objectivo de {{certificationName}}!"
+            }
+        },
+        "sgmgt": {
+            "diploma": {
+                "message": "Completaram-se todas as etapas da proficiência necessária no âmbito da consciência de gestão de projeto"
+            }
+        },
+        "securite": {
+            "diploma": {
+                "message": "validou as competências requeridas para a certificação:"
+            }
+        },
+        "projet": {
+            "diploma": {
+                "message": "Completaram-se todas as etapas da proficiência necessária no âmbito da consciência de gestão de projeto"
+            }
+        },
+        "tagheuer": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Este módulo ainda não está disponível. Para o desbloquear deve primeiro completar os níveis Titânio ou Bronze."
+                }
+            }
+        },
+        "tagheuercon": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Este módulo ainda não está disponível. Para o desbloquear deve completar primeiro os níveis Titânio ou Bronze."
+                }
+            }
+        },
+        "up": {
+            "subtitle_head2": "Inicie um nível entre os incluídos em um objetivo.",
+            "how_to": "Para validar um objetivo, você deve completar todos os níveis. Vamos começar!",
+            "popover": {
+                "module_blocked_pre": "Este nível não está disponível:",
+                "select_goal": {
+                    "module_done": "Este nível já foi desmarcado. Você está no seu caminho para alcançar o objetivo.",
+                    "module_blocked": "Este nível não está disponível ainda. Para desbloqueá-lo você deve primeiro limpar o Basic ou níveis avançados."
+                }
+            },
+            "certification": {
+                "condition_description": {
+                    "progress": "Alvo: {{count}} disciplina",
+                    "progress_plural": "Alvo: {{count}} disciplina"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,565 @@
+{
+    "firstConnection": {
+        "title": "<span>Bem-vindo</span> <span class='name'> {{name}}!</span>"
+    },
+    "changePassword": {
+        "title": "<span>Bem-vindo</span> <span class='name'> {{name}}!</span>",
+        "intro": "Por favor, crie a sua senha. Guarde para referência futura!",
+        "errors": {
+            "mustChangePassword": "A nova senha deve ser diferente de sua senha atual",
+            "incorrectPassword": "Sua senha atual está incorreta"
+        }
+    },
+    "footer": {
+        "title": "Por que usar a plataforma de “{{platformName}}”?",
+        "features": {
+            "videos": {
+                "title": "Vídeos",
+                "description": "Assista vídeo aulas para aprender e progredir"
+            },
+            "quizzes": {
+                "title": "Quizzes",
+                "description": "Teste os seus conhecimentos através de centenas de quizzes"
+            },
+            "battles": {
+                "title": "$t(menu:header.mainNav.battles)",
+                "description": "Revisão por desafiando outros para batalhas"
+            },
+            "certificates": {
+                "title": "$t(menu:header.mainNav.certifications)",
+                "description": "Obter certificados para provar suas habilidades"
+            }
+        },
+        "pillars": {
+            "learnAtYourOwnPace": {
+                "title": "Aprenda no seu próprio ritmo",
+                "description": "<li>Sessões curtas de tomar</li> <li>Parar e reiniciar a qualquer momento</li> <li>Usar qualquer dispositivo</li>"
+            },
+            "adapted": {
+                "title": "Aprendizagem adaptada para você",
+                "description": "<li>Um sistema que se adapta ao que você já sabe</li> <li>Escolha seu próprio aprendizado caminho</li> <li>Bespoke conteúdo</li>"
+            },
+            "haveFun": {
+                "title": "Divertir-se",
+                "description": "<li>Um ambiente de aprendizagem gamified</li> <li>Inspirado em jogos de vídeo</li> <li>Função de «stop & Go»</li>"
+            },
+            "learningCommunity": {
+                "title": "Comunidade de aprendizagem",
+                "description": "<li>Peer coaching</li> <li>Fórum de discussão</li> <li>Desafios para os estudantes de vários</li> <li>Classificação</li>"
+            }
+        },
+        "gotoform": "Preencha o formulário para acessar a plataforma"
+    },
+    "edit": {
+        "oldPassword": "Senha antiga",
+        "password": "Senha",
+        "password_confirmation": "Confirme sua senha"
+    },
+    "myaccount": {
+        "title": "MINHA CONTA",
+        "subtitle": "Administre suas informações pessoais!",
+        "modify": "Alterar",
+        "status": "Estatuto",
+        "save": "Salvar",
+        "carriere": "Carreira",
+        "hobbie": "Áreas de interesse",
+        "abonnement": "E-mails de inscrição",
+        "allowed_mail": "Desejo receber e-mails informativos ou de lembrete",
+        "not_allowed_mail": "Não desejo receber e-mails informativos ou de lembrete",
+        "avatar": {
+            "update": "Sua foto foi carregada com sucesso. Ela será atualizada em 24 horas.",
+            "no_image": "O arquivo escolhido não tem a extensão correta. Escolha um arquivo png, jpg ou gif."
+        },
+        "profile": {
+            "updated": "Seu perfil foi atualizado"
+        },
+        "reset": "Reinicialização",
+        "updatedAccount": "Sua conta foi atualizada.",
+        "accountUpdate": "Atualizar sua conta",
+        "password": "Senha",
+        "updatePassword": "Enviar",
+        "newPassword": "Nova senha",
+        "actualPassword": "Senha atual",
+        "passwordConfirmation": "Confirmação da senha",
+        "updatePasswordSuccess": "Sua senha foi corretamente alterada",
+        "updatePasswordError": "Não poderia alterar sua senha, por favor, verifique o seu formulário.",
+        "privateAccount": {
+            "title": "Perfil privado",
+            "label": "Ocultar meu sobrenome"
+        },
+        "emailSettings": {
+            "core": "Mensagens do sistema (certificações, \"Alguém desafiou-o para uma batalha\" ...)",
+            "user": "Notificações (\"Cursos recomendados\", \"Veja qual é o curso mais popular\" ...)",
+            "mailchimp": "Resumo do mês"
+        }
+    },
+    "error": {
+        "oldPasswordRequired": "A senha atual é obrigatória.",
+        "newPasswordRequired": "A nova senha é obrigatória",
+        "confirmPasswordRequired": "A confirmação da senha é obrigatória",
+        "incorrectMinLength": "Sua senha deve ter, no mínimo, {{minLength}} caracteres.",
+        "different_password": "Sua senha corresponde à sua confirmação.",
+        "wrong_password": "Senha incorreta."
+    },
+    "menu": {
+        "info": {
+            "title": "MINHAS INFORMAÇÕES",
+            "modify_avatar": "Alterar minha foto de perfil",
+            "modify_password": "Alterar minha senha"
+        },
+        "alerts": {
+            "title": "MEUS ALERTAS",
+            "email": "Meu e-mail de inscrição",
+            "modify_email": "Alterar meu e-mail de inscrição",
+            "notifications": "Minhas notificações",
+            "modify_notifications": "Alterar minhas notificações",
+            "wish_notifications": "Desejo receber notificações",
+            "blocked_notifications": "Você bloqueou, explicitamente, as notificações do seu navegador. Queira alterar as configurações do seu navegador e, em seguida, recarregar esta página."
+        },
+        "bills": {
+            "title": "MEUS COMANDOS"
+        },
+        "custom": {
+            "modify_account_title": "MY ACCOUNT",
+            "modify_account_informations": "Update your account"
+        },
+        "subscription": {
+            "title": "Minha assinatura",
+            "subtitle": "Coorpacademy Premium Subscription is no longer available",
+            "info": "If you have already signed up and you wish to cancel your Premium subscription please send a mail with your details to:",
+            "update": "Gerenciar minha assinatura"
+        }
+    },
+    "go": {
+        "to": {
+            "sso": "Link para SSO",
+            "connect": "Link para Conectar"
+        }
+    },
+    "custom": {
+        "corporateonlineopencourse": {
+            "changePassword": {
+                "title": "'CONFIGURE' SUA SENHA PARA SE CONECTAR COM SEU SMARTPHONE/PAD",
+                "intro": "<span>Olá,</span> <br><br>Você tem apenas pela primeira vez logado para o embaixador da marca MOOC via Campus. <br> <br>Convidamos você a configurar sua senha multi-dispositivo específica aqui embaixo. Esta senha lhe dará a possibilidade de, se desejar, acesse o MOOC de seu smartphone ou tablet. <br>Uma vez configurado, um e-mail de confirmação será enviado para você."
+            },
+            "myaccount": {
+                "updatePassword": "Validar"
+            }
+        },
+        "gdf": {
+            "edit": {
+                "title": "Esta é sua primeira conexão",
+                "lastName": "Último nome *",
+                "firstName": "Primeiro nome *",
+                "branch": "Filial *",
+                "password_title": "Por favor, digite uma nova senha",
+                "oldPassword": "Senha atual *",
+                "password": "Nova senha *",
+                "password_confirmation": "Confirmação *",
+                "personnal_title": "Por favor, digite suas informações pessoais",
+                "businessUnit": "Unidade de negócio *",
+                "age": "Faixa de idade *",
+                "workingCountry": "País onde você trabalho *",
+                "gender": "Gênero *",
+                "save": "Validar",
+                "mandatory": "* os campos obrigatórios",
+                "male": "Macho",
+                "female": "Fêmea",
+                "saving": "Por favor espere enquanto salvando suas informações. Você será redirecionado para a página inicial uma vez concluída."
+            },
+            "error": {
+                "different_password": "Sua senha não coincide com sua confirmação",
+                "mandatory": "Todos estes campos são obrigatórios",
+                "incorrectPassword": "Senha atual é inválida"
+            },
+            "branch": {
+                "centre": "Centro",
+                "energy_europe": "Europa de energia",
+                "energy_international": "Internacional de energia",
+                "energy_services": "Serviços de energia",
+                "global_gas_lng": "Gás global & LNG",
+                "infrastructures": "Infra-estruturas",
+                "entreprises_collectivites": "Empresas e entidades públicas"
+            },
+            "business_unit": {
+                "centre_bxl": "Centro-BXL",
+                "centre_paris": "Centro de Paris",
+                "generation": "Geração",
+                "renewable_energies": "Energias renováveis",
+                "marketing_sales": "Marketing e vendas",
+                "emt": "EMT",
+                "support_lines_corporate": "Linhas de apoio / corporativa",
+                "asia_pacific": "Ásia-Pacífico",
+                "latin_america": "América Latina",
+                "north_america": "América do Norte",
+                "samea": "Sul da Ásia, Oriente Médio e África (SAMEA)",
+                "uk_turkey": "UK-Turquia",
+                "benelux_division": "Divisão de Benelux",
+                "engineering_division": "Divisão de engenharia",
+                "support": "Suporte de fonctions / Corporate & outros",
+                "international_division": "Divisão internacional",
+                "pole_services": "Pôle França serviços Energétiques",
+                "pole_system": "Pôle França Systèmes, instalações e manutenção",
+                "pole_network": "Pôle Réseaux distrito, divisão de energia",
+                "ep": "E & P",
+                "lng": "GNL",
+                "gtt": "GTT",
+                "distribution": "Distribuição",
+                "storage": "Armazenamento",
+                "methane": "Terminaux Méthaniers",
+                "business_line_energies": "Energias de linha de negócios",
+                "business_line_services": "Serviços de linha de negócios",
+                "delegation_relation_clients": "Délégation relação clientes",
+                "direction_finance": "Desempenho de finanças de direção",
+                "direction_rh": "Direção Ressources Humaines Prévention Santé Sécurité",
+                "etat_major": "Etat Major",
+                "direction_ventes": "Direção des Ventes",
+                "marche_eld": "Marché ELD",
+                "marche_prive": "Marché Résidentiel Privé",
+                "marche_public": "Marché clientes públicos",
+                "marche_industrie": "Marché Industrie et Grand Tertiaire",
+                "marche_multisites": "Marché Multisites",
+                "marche_pme_pmi": "Marché PME/PMI",
+                "marketing_marche_clients": "Comercialização de Marché/clientes",
+                "systeme_information": "Système d'Information profissão"
+            },
+            "country": {
+                "algeria": "Argélia",
+                "argentina": "Argentina",
+                "australia": "Austrália",
+                "bahrein": "Bahreïn",
+                "belgium": "Bélgica",
+                "brazil": "Brasil",
+                "cameroun": "República dos Camarões",
+                "canada": "Canadá",
+                "chili": "Chile",
+                "china": "China",
+                "costarica": "Costa Rica",
+                "cz": "República Tcheca",
+                "egypt": "Egito",
+                "france": "França",
+                "germany": "Alemanha",
+                "greece": "Grécia",
+                "hungary": "Hungria",
+                "indonesia": "Indonésia",
+                "italy": "Itália",
+                "laos": "Laos",
+                "libya": "Líbia",
+                "luxembourg": "Luxemburgo",
+                "mexico": "México",
+                "monaco": "Monaco",
+                "morocco": "Marrocos",
+                "netherland": "Países Baixos",
+                "norway": "Noruega",
+                "nouvellecaledonie": "Nova Caledônia",
+                "oman": "Omã",
+                "pakistan": "Paquistão",
+                "panama": "Panamá",
+                "peru": "Peru",
+                "poland": "Polônia",
+                "polynesie": "Polinésia francesa",
+                "qatar": "Catar",
+                "reunion": "Ilha da reunião",
+                "romania": "Romênia",
+                "saudiarabia": "Arábia Saudita Aradia",
+                "singapore": "Cingapura",
+                "slovakia": "Eslováquia",
+                "spain": "Espanha",
+                "swiss": "Suíço",
+                "thailand": "Nigeriano",
+                "turkey": "Turquia",
+                "uk": "REINO UNIDO",
+                "arabemirates": "Emirados Árabes Unidos",
+                "usa": "ESTADOS UNIDOS DA AMÉRICA",
+                "vanuatu": "Vanuatu",
+                "waliisfutuna": "Wallis e Futuna",
+                "other": "Outros"
+            },
+            "ages": {
+                "minus-34": "34 ou menos",
+                "35-44": "35 a 44",
+                "45-54": "de 45 a 54",
+                "more-55": "55 ou mais"
+            }
+        },
+        "gdfec": {
+            "edit": {
+                "title": "Esta é sua primeira conexão",
+                "lastName": "Último nome *",
+                "firstName": "Primeiro nome *",
+                "branch": "Filial *",
+                "password_title": "Por favor, digite uma nova senha",
+                "oldPassword": "Senha atual *",
+                "password": "Nova senha *",
+                "password_confirmation": "Confirmação *",
+                "personnal_title": "Por favor, digite suas informações pessoais",
+                "businessUnit": "Unidade de negócio *",
+                "age": "Faixa de idade *",
+                "workingCountry": "País onde você trabalho *",
+                "gender": "Gênero *",
+                "save": "Validar",
+                "mandatory": "* os campos obrigatórios",
+                "male": "Macho",
+                "female": "Fêmea",
+                "saving": "Por favor espere enquanto salvando suas informações. Você será redirecionado para a página inicial uma vez concluída."
+            },
+            "error": {
+                "different_password": "Sua senha não coincide com sua confirmação",
+                "mandatory": "Todos estes campos são obrigatórios",
+                "incorrectPassword": "Senha atual é inválida"
+            },
+            "branch": {
+                "centre": "Centro",
+                "energy_europe": "Europa de energia",
+                "energy_international": "Internacional de energia",
+                "energy_services": "Serviços de energia",
+                "global_gas_lng": "Gás global & LNG",
+                "infrastructures": "Infra-estruturas",
+                "entreprises_collectivites": "Empresas e entidades públicas"
+            },
+            "business_unit": {
+                "centre_bxl": "Centro-BXL",
+                "centre_paris": "Centro de Paris",
+                "generation": "Geração",
+                "renewable_energies": "Energias renováveis",
+                "marketing_sales": "Marketing e vendas",
+                "emt": "EMT",
+                "support_lines_corporate": "Linhas de apoio / corporativa",
+                "asia_pacific": "Ásia-Pacífico",
+                "latin_america": "América Latina",
+                "north_america": "América do Norte",
+                "samea": "Sul da Ásia, Oriente Médio e África (SAMEA)",
+                "uk_turkey": "UK-Turquia",
+                "benelux_division": "Divisão de Benelux",
+                "engineering_division": "Divisão de engenharia",
+                "support": "Suporte de fonctions / Corporate & outros",
+                "international_division": "Divisão internacional",
+                "pole_services": "Pôle França serviços Energétiques",
+                "pole_system": "Pôle França Systèmes, instalações e manutenção",
+                "pole_network": "Pôle Réseaux distrito, divisão de energia",
+                "ep": "E & P",
+                "lng": "GNL",
+                "gtt": "GTT",
+                "distribution": "Distribuição",
+                "storage": "Armazenamento",
+                "methane": "Terminaux Méthaniers",
+                "business_line_energies": "Energias de linha de negócios",
+                "business_line_services": "Serviços de linha de negócios",
+                "delegation_relation_clients": "Délégation relação clientes",
+                "direction_finance": "Desempenho de finanças de direção",
+                "direction_rh": "Direção Ressources Humaines Prévention Santé Sécurité",
+                "etat_major": "Etat Major",
+                "direction_ventes": "Direção des Ventes",
+                "marche_eld": "Marché ELD",
+                "marche_prive": "Marché Résidentiel Privé",
+                "marche_public": "Marché clientes públicos",
+                "marche_industrie": "Marché Industrie et Grand Tertiaire",
+                "marche_multisites": "Marché Multisites",
+                "marche_pme_pmi": "Marché PME/PMI",
+                "marketing_marche_clients": "Comercialização de Marché/clientes",
+                "systeme_information": "Système d'Information profissão"
+            },
+            "country": {
+                "algeria": "Argélia",
+                "argentina": "Argentina",
+                "australia": "Austrália",
+                "bahrein": "Bahreïn",
+                "belgium": "Bélgica",
+                "brazil": "Brasil",
+                "cameroun": "República dos Camarões",
+                "canada": "Canadá",
+                "chili": "Chile",
+                "china": "China",
+                "costarica": "Costa Rica",
+                "cz": "República Tcheca",
+                "egypt": "Egito",
+                "france": "França",
+                "germany": "Alemanha",
+                "greece": "Grécia",
+                "hungary": "Hungria",
+                "indonesia": "Indonésia",
+                "italy": "Itália",
+                "laos": "Laos",
+                "libya": "Líbia",
+                "luxembourg": "Luxemburgo",
+                "mexico": "México",
+                "monaco": "Monaco",
+                "morocco": "Marrocos",
+                "netherland": "Países Baixos",
+                "norway": "Noruega",
+                "nouvellecaledonie": "Nova Caledônia",
+                "oman": "Omã",
+                "pakistan": "Paquistão",
+                "panama": "Panamá",
+                "peru": "Peru",
+                "poland": "Polônia",
+                "polynesie": "Polinésia francesa",
+                "qatar": "Catar",
+                "reunion": "Ilha da reunião",
+                "romania": "Romênia",
+                "saudiarabia": "Arábia Saudita Aradia",
+                "singapore": "Cingapura",
+                "slovakia": "Eslováquia",
+                "spain": "Espanha",
+                "swiss": "Suíço",
+                "thailand": "Nigeriano",
+                "turkey": "Turquia",
+                "uk": "REINO UNIDO",
+                "arabemirates": "Emirados Árabes Unidos",
+                "usa": "ESTADOS UNIDOS DA AMÉRICA",
+                "vanuatu": "Vanuatu",
+                "waliisfutuna": "Wallis e Futuna",
+                "other": "Outros"
+            },
+            "ages": {
+                "minus-34": "34 ou menos",
+                "35-44": "35 a 44",
+                "45-54": "de 45 a 54",
+                "more-55": "55 ou mais"
+            }
+        },
+        "nespresso": {
+            "changePassword": {
+                "title": "Bem-vindo!",
+                "intro": "Por favor, altere sua senha. Guarde para referência futura!"
+            }
+        },
+        "pwc": {
+            "footer": {
+                "title": "Discover our PwC Digital Academy platform"
+            }
+        },
+        "renaultcare": {
+            "changePassword": {
+                "intro": "<span>Olá,</span> <br><br>Para criar seu Smartphone acesso à experiência do cliente MOOC, você só precisa configurar sua senha abaixo. <br> Nós enviaremos seu depois um email de confirmação com um link específico para conectar para o MOOC de seu Smartphone. <br><br>Como um lembrete, sua ID para se conectar a C@re 2.0 plateform é: <b>{{login}}</b> <br><br>por favor agora defina sua senha:"
+            },
+            "myaccount": {
+                "updatePassword": "Validar"
+            }
+        },
+        "samsung": {
+            "edit": {
+                "title": "Esta é sua primeira conexão",
+                "lastName": "Último nome *",
+                "firstName": "Primeiro nome *",
+                "email": "E-mail *",
+                "branch": "Entidade *",
+                "password_title": "Por favor, digite uma nova senha",
+                "password": "Senha *",
+                "password_confirmation": "Confirmar senha *",
+                "personnal_title": "Por favor, digite suas informações pessoais",
+                "age": "Ano de nascimento *",
+                "workingCountry": "País *",
+                "save": "Validar",
+                "mandatory": "* os campos obrigatórios",
+                "saving": "Por favor espere enquanto salvando suas informações. Você será redirecionado para a página inicial uma vez concluída."
+            },
+            "error": {
+                "different_password": "Sua senha não coincide com sua confirmação",
+                "mandatory": "Todos estes campos são obrigatórios"
+            },
+            "branch": {
+                "centre": "Centro",
+                "energy_europe": "Europa de energia",
+                "energy_international": "Internacional de energia",
+                "energy_services": "Serviços de energia",
+                "global_gas_lng": "Gás global & LNG",
+                "infrastructures": "Infra-estruturas"
+            },
+            "business_unit": {
+                "centre_bxl": "Centro-BXL",
+                "centre_paris": "Centro de Paris",
+                "generation": "Geração",
+                "renewable_energies": "Energias renováveis",
+                "marketing_sales": "Marketing e vendas",
+                "emt": "EMT",
+                "support_lines_corporate": "Linhas de apoio / corporativa",
+                "asia_pacific": "Ásia-Pacífico",
+                "latin_america": "América Latina",
+                "north_america": "América do Norte",
+                "samea": "Sul da Ásia, Oriente Médio e África (SAMEA)",
+                "uk_turkey": "UK-Turquia",
+                "benelux_division": "Divisão de Benelux",
+                "engineering_division": "Divisão de engenharia",
+                "support": "Suporte de fonctions / Corporate & outros",
+                "international_division": "Divisão internacional",
+                "pole_services": "Pôle França serviços Energétiques",
+                "pole_system": "Pôle França Systèmes, instalações e manutenção",
+                "pole_network": "Pôle Réseaux distrito, divisão de energia",
+                "ep": "E & P",
+                "lng": "GNL",
+                "gtt": "GTT",
+                "distribution": "Distribuição",
+                "storage": "Armazenamento",
+                "methane": "Terminaux Méthaniers"
+            },
+            "country": {
+                "algeria": "Argélia",
+                "argentina": "Argentina",
+                "australia": "Austrália",
+                "bahrein": "Bahreïn",
+                "belgium": "Bélgica",
+                "brazil": "Brasil",
+                "cameroun": "República dos Camarões",
+                "canada": "Canadá",
+                "chili": "Chile",
+                "china": "China",
+                "costarica": "Costa Rica",
+                "cz": "República Tcheca",
+                "egypt": "Egito",
+                "france": "França",
+                "germany": "Alemanha",
+                "greece": "Grécia",
+                "hungary": "Hungria",
+                "indonesia": "Indonésia",
+                "italy": "Itália",
+                "laos": "Laos",
+                "libya": "Líbia",
+                "luxembourg": "Luxemburgo",
+                "mexico": "México",
+                "monaco": "Monaco",
+                "morocco": "Marrocos",
+                "netherland": "Países Baixos",
+                "norway": "Noruega",
+                "nouvellecaledonie": "Nova Caledônia",
+                "oman": "Omã",
+                "pakistan": "Paquistão",
+                "panama": "Panamá",
+                "peru": "Peru",
+                "poland": "Polônia",
+                "polynesie": "Polinésia francesa",
+                "qatar": "Catar",
+                "reunion": "Ilha da reunião",
+                "romania": "Romênia",
+                "saudiarabia": "Arábia Saudita Aradia",
+                "singapore": "Cingapura",
+                "slovakia": "Eslováquia",
+                "spain": "Espanha",
+                "swiss": "Suíço",
+                "thailand": "Nigeriano",
+                "turkey": "Turquia",
+                "uk": "REINO UNIDO",
+                "arabemirates": "Emirados Árabes Unidos",
+                "usa": "ESTADOS UNIDOS DA AMÉRICA",
+                "vanuatu": "Vanuatu",
+                "waliisfutuna": "Wallis e Futuna",
+                "other": "Outros"
+            },
+            "ages": {
+                "minus-34": "34 ou menos",
+                "35-44": "35 a 44",
+                "45-54": "de 45 a 54",
+                "more-55": "55 ou mais"
+            }
+        },
+        "up": {
+            "myaccount": {
+                "noModulesUnlocked": "Não comprei nenhum nível",
+                "unlockedModules": "Níveis que comprei:"
+            }
+        },
+        "digitlearning": {
+            "passwordHint": "Mínimo 8 caracteres. Senha deve conter pelo menos um caracter maiusculo, um dígito e um caractere especial (~! @# $%^&*_-+='|() {} []:; “’ <>,.? )"
+        }
+    }
+}

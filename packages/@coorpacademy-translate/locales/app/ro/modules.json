@@ -1,0 +1,153 @@
+{
+    "loose": {
+        "title": "Acasă",
+        "end_try": "Nu mai ai nicio încercare disponibilă!",
+        "echec_title": "Hopa...",
+        "new_badges": "{{number}} nouă insignă câștigată",
+        "new_badges_plural": "{{number}} ecusoane noi câștigate",
+        "footer": {
+            "joker": {
+                "video": {
+                    "pre": "Vezi clipul video ",
+                    "text": "al lecției",
+                    "win": "pentru a câștiga 1",
+                    "heart": "Viață suplimentară",
+                    "post": "și continuați nivelul"
+                },
+                "pdf": {
+                    "pre": "Citește lecția",
+                    "win": "pentru a câștiga 1",
+                    "heart": "viață suplimentară",
+                    "post": "și continuați nivelul"
+                },
+                "without": "Ți-ai folosit jokerul"
+            },
+            "new_try": {
+                "title_pre": "Încercaţi acest nivel din nou.",
+                "title": "Sunteți motivat, ",
+                "title_post": "și se vede!",
+                "button": "Reîncearcă acest nivel"
+            },
+            "new_module": {
+                "title_pre": "Acces la un alt nivel.",
+                "title": "Veți ajunge din urmă!",
+                "button": "Schimbă cursul"
+            }
+        },
+        "type_badges": {
+            "init": "init",
+            "bronze": "Bronz",
+            "argent": "Argint",
+            "or": "Aur",
+            "platine": "Platină"
+        }
+    },
+    "question_title": "Întrebare: {{question}}",
+    "progression": "Întrebarea {{nb}} / {{ref}}",
+    "success": {
+        "home": "Acasă",
+        "title": "Felicitări!",
+        "subtitle": "Ai încheiat un nivel",
+        "body": {
+            "new_star": "Stele {{newStars}}",
+            "new_score": "Noul tău scor {{newScore}}"
+        },
+        "new_badges": "{{new}} nouă insignă câștigată",
+        "new_badges_plural": "{{new}} ecusoane noi câștigate",
+        "reported": "Mulțumită acestui modul ai primit:",
+        "win": "Acum ai:",
+        "footer": {
+            "title": "Ai început cu dreptul! Ține-o tot așa!",
+            "new_module": "Accesați acest nivel",
+            "duration_unit": "min",
+            "battle": "Începe Lupta"
+        },
+        "type_badges": {
+            "init": "init",
+            "bronze": "Bronz",
+            "argent": "Argint",
+            "or": "Aur",
+            "platine": "Platină"
+        },
+        "yourRanking": "Rangul dumneavoastră:",
+        "rankWin": "(+ {{count}} rank)",
+        "rankWin_plural": "(+ {{count}} ranguri)"
+    },
+    "duration": "{{nb}}",
+    "duration_post": "min",
+    "duration_post_plural": "mins",
+    "assistance": "Raportează o eroare",
+    "buy_next": "Cumpără următorul modul",
+    "moduleNotFound": "Nu s-a găsit niciun nivel cu referința {{module Ref}} pentru cursul {{disciplineName}}",
+    "custom": {
+        "armeedeterre": {
+            "success": {
+                "footer": {
+                    "battle": "Începe Lupta"
+                }
+            }
+        },
+        "7steps": {
+            "loose": {
+                "type_badges": {
+                    "platine": "Top"
+                }
+            },
+            "success": {
+                "type_badges": {
+                    "platine": "Vârf "
+                }
+            }
+        },
+        "fdj": {
+            "loose": {
+                "echec_title": "terminat",
+                "end_try": "Aţi terminat testul!"
+            }
+        },
+        "letsgetdigital": {
+            "assistance": "Da-ți părerea "
+        },
+        "up": {
+            "loose": {
+                "footer": {
+                    "joker": {
+                        "video": {
+                            "post": "și continuați nivelul"
+                        },
+                        "pdf": {
+                            "post": "și continuă nivelul"
+                        }
+                    },
+                    "new_try": {
+                        "title_pre": "Încearcă acest nivel din nou.",
+                        "button": "Reîncearcă acest nivel"
+                    },
+                    "new_module": {
+                        "title_pre": "Accesează alt nivel.",
+                        "button": "Schimbă cursul"
+                    }
+                }
+            },
+            "success": {
+                "subtitle": "Ai trecut de acest nivel",
+                "reported": "Acest nivel ți-a obținut",
+                "footer": {
+                    "new_module": "Accesați acest nivel"
+                }
+            },
+            "memo": {
+                "module_title": "Curs: {{disciplineName}} - {{moduleName}}",
+                "from": "din cursul {{disciplineName}} - {{name}}"
+            },
+            "buy_next": "Cumpărați următorul curs"
+        },
+        "who": {
+            "success": {
+                "footer": {
+                    "battle": "Începere provocare"
+                }
+            }
+        }
+    }
+}

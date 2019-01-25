@@ -1,0 +1,189 @@
+{
+    "not_a_number": "<niet beschikbaar>",
+    "target": "Doel:",
+    "export": {
+        "csv": "CSV",
+        "pdf": "PDF",
+        "excel": "Excel"
+    },
+    "info": {
+        "launch_date": "Lanceerdatum",
+        "targeted_users": "Doelgroep"
+    },
+    "navigation": {
+        "every": "Alle",
+        "every-except-coorp": "Alles behalve Coorpacademy",
+        "engagement": "betrokkenheid",
+        "dashboard": "algemeen beeld",
+        "users": "door gebruiker",
+        "content": "inhoud",
+        "battles": "door wedstrijden",
+        "exports": "exports",
+        "behavioral": "gedrag"
+    },
+    "since": {
+        "last_week": "afgelopen 7 dagen",
+        "last_month": "afgelopen 30 dagen",
+        "beginning": "lancering"
+    },
+    "users": {
+        "roles": {
+            "header": "Rollen",
+            "button": "Opslaan",
+            "saved": "Rollen met succes voor {{displayName}} bijgewerkt.",
+            "cms": "CMS",
+            "moderator": "Forummoderator",
+            "rh": "Rh",
+            "godmode": "Godmodus",
+            "supercoach": "Supercoach"
+        },
+        "tab": {
+            "ranking": "Stand van gebruiker",
+            "activity": "Activiteit"
+        },
+        "back": "Terug naar zoekopdracht",
+        "entity": "Bedrijf",
+        "title": "Functie",
+        "cnx": {
+            "first": "datum van 1ste verbinding",
+            "last": "Datum van de laatste verbinding"
+        },
+        "general": {
+            "header": "Algemene activiteit",
+            "total_cnx": "Totaal aantal verbindingen",
+            "total_validated_disciplines": "Totale disciplines bereikt",
+            "total_validated_modules": "Totale modules bereikt",
+            "modules_validated_per_total": "aantal bereikte modules / totaal aantal modules",
+            "ranking": "Stand",
+            "never": "Nooit"
+        },
+        "sociability": {
+            "header": "Gezelligheid",
+            "posts": {
+                "count": "{{nb}} bericht",
+                "count_plural": "{{nb}} berichten",
+                "answers": "incl. {{nb}} antwoord op een andere gebruiker",
+                "answers_plural": "incl. {{nb}} antwoorden op een andere gebruiker"
+            },
+            "battles": {
+                "count": "{{nb}} wedstrijd",
+                "count_plural": "{{nb}} wedstrijden",
+                "won": "incl. {{nb}} wedstrijd gewonnen",
+                "won_plural": "incl. {{nb}} wedstrijden gewonnen"
+            },
+            "coach": {
+                "disciplines": "Coach voor discipline {{nb}} ",
+                "disciplines_plural": "Coach voor {{nb}} disciplines",
+                "interactions": "{{nb}} interactie met de coaches",
+                "interactions_plural": "{{nb}} interacties met coaches"
+            },
+            "completion": {
+                "total_label": "Totale voltooiing:",
+                "total": "{{ratio}}%",
+                "modules_tried_label": "Modules geprobeerd:",
+                "modules_tried": "{{totalTriedModules}}/{{nbModules}}",
+                "average_completion_label": "Voltooiing/poging:",
+                "average_completion": "{{ratio}}%"
+            }
+        },
+        "progression": {
+            "filter": "Filtrování disciplín",
+            "filterPlaceholder": "Klíčová slova pro filtrování disciplín",
+            "th": {
+                "discipline": "Discipline",
+                "hidden": "Verborgen",
+                "level": "Niveau",
+                "module_progression": "% succes",
+                "status": "Status",
+                "score": "Score"
+            }
+        },
+        "time": {
+            "header": "verbindingsduur",
+            "totalTime": "cumulatieve tijd",
+            "validatedTime": "gevalideerde tijd"
+        },
+        "license": {
+            "label": "Licentie",
+            "button": "Deactiveren",
+            "active": "Actief",
+            "inactive": "Inactief"
+        },
+        "deactivate": {
+            "confirm": "Voer 'ja' in om te bevestigen dat je de account wilt deactiveren",
+            "confirm_word": "ja",
+            "account_deactivated": "De account is gedeactiveerd"
+        },
+        "connectAs": "Verbinden als",
+        "bonusStars": {
+            "buttonPositive": "Toevoegen",
+            "buttonNegative": "Verwijderen",
+            "required": "Voer sterren in om toe te voegen",
+            "notANumber": "Sterren moeten een geheel getal zijn",
+            "confirm": "Voer 'bonus' in om te bevestigen dat je sterren wilt optellen of aftrekken",
+            "confirm_word": "bonus",
+            "starsAdded": "Je hebt net {{count}} sterren toegevoegd aan de gebruiker {{displayName}}",
+            "starsAdded_plural": "Je hebt net {{count}} sterren toegevoegd aan de gebruiker {{displayName}}",
+            "starsRemoved": "Je hebt net {{count}} sterren verwijderd bij de gebruiker {{displayName}}",
+            "starsRemoved_plural": "Je hebt net {{count}} sterren verwijderd bij de gebruiker {{displayName}}"
+        }
+    },
+    "exports": {
+        "export": "Exporteren",
+        "querySent": "Jouw verslag is voorbereid. Als het goed is, ontvang je het binnenkort per e-mail.",
+        "global": {
+            "title": "Gebruikers exporteren op aanvraag",
+            "introduction": "Met dit ondereel kun je alle gegevens over de gebruikers van het platform exporteren."
+        },
+        "battles": {
+            "title": "Slag bij uitvoer op aanvraag",
+            "introduction": "Met deze functie kun je alle gegevens over wedstrijden op het platform exporteren."
+        },
+        "history": {
+            "title": "Geschiedenis van de uitvoer",
+            "introduction": "Met deze functie kunt u alle dagelijkse gegevens ophalen",
+            "users": "gebruikers",
+            "battle": "Slag bij",
+            "analytics": "voortgang",
+            "filter_by": "filteren op"
+        }
+    },
+    "custom": {
+        "up": {
+            "navigation": {
+                "modules": "per niveau"
+            },
+            "modules": {
+                "header": {
+                    "discipline": "Cursus"
+                },
+                "module": {
+                    "media_views": {
+                        "title": "Les media bekijken tarief per niveau"
+                    }
+                }
+            },
+            "users": {
+                "general": {
+                    "total_validated_disciplines": "Totale cursussen bereikt",
+                    "total_validated_modules": "Totaal niveaus bereikt",
+                    "modules_validated_per_total": "# bereikt niveaus / # totaal niveaus"
+                },
+                "sociability": {
+                    "coach": {
+                        "disciplines": "Coach op {{nb}} cursussen",
+                        "disciplines_plural": "Coach op {{nb}} cursussen"
+                    },
+                    "completion": {
+                        "modules_tried_label": "niveaus geprobeerd:"
+                    }
+                },
+                "progression": {
+                    "th": {
+                        "discipline": "Cursus"
+                    }
+                }
+            }
+        }
+    }
+}

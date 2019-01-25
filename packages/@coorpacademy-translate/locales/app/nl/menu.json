@@ -1,0 +1,155 @@
+{
+    "header": {
+        "title": "CoorpAcademy",
+        "mainNav": {
+            "helper": "Een alternatieve manier om je pedagogisch materiaal te doorzoeken",
+            "menu": "Menu",
+            "dashboard": "Mijn dashboard",
+            "home": "Startpagina",
+            "learningTree": "Catalogus",
+            "lessons": "Alle lessen en video's",
+            "medias": "Bibliotheek",
+            "battles": "Battles",
+            "explore": "Catalogus",
+            "discussions": "Forum",
+            "badges": "Badges",
+            "certifications": "Certificaten"
+        },
+        "mainNav_user": {
+            "helper": "Een alternatieve manier om informatie over jou en je werk te vinden!"
+        },
+        "account_menu": {
+            "title": "Menu",
+            "logout": "Afmelden",
+            "notifications": "Mijn meldingen",
+            "language": "Taal",
+            "cohorts": "Bevolking:",
+            "account": "Mijn account",
+            "godmode": "Wijze van de God",
+            "fastslides": "Snel dia 's",
+            "newlearner": "Nieuwe spelinterface",
+            "livenotifications": "Live meldingen",
+            "close": "Sluiten"
+        }
+    },
+    "content": "Dit is het fundamentele materiaal.",
+    "footer": {
+        "assistance": "Helpdesk",
+        "admin_link": {
+            "jobs": "Jobs",
+            "admin": "Admin",
+            "analytics": "Analytics",
+            "changelog": "Changelog",
+            "cms": "CMS",
+            "manual": "Handleiding"
+        },
+        "data_privacy_policy": "Privacybeleid voor gegevens",
+        "data_privacy_policy_link": "http://www.privacy.coorpacademy.com",
+        "dev_link": {
+            "api": "API-doc"
+        },
+        "by": "Powered by Coorpacademy",
+        "title": "Coorpacademy",
+        "changelog": {
+            "title": "Changelog",
+            "subtitle": "Dit is de release-geschiedenis van de website"
+        }
+    },
+    "custom": {
+        "accueil": {
+            "footer": {
+                "by": "Toerisme Academy & Atout France",
+                "copyright": "Toerisme Academy & Atout France"
+            }
+        },
+        "armeedeterre": {
+            "header": {
+                "mainNav": {
+                    "battles": "Gevechten"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "footer": {
+                "assistance": "Feedback geven"
+            }
+        },
+        "capgemini": {
+            "header": {
+                "mainNav": {
+                    "certifications": "DigiCertif'"
+                }
+            }
+        },
+        "cnp": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Certificaten"
+                }
+            }
+        },
+        "chanel": {
+            "footer": {
+                "by": "© CHANEL. Alleen voor intern gebruik",
+                "copyright": "© CHANEL. Alleen voor intern gebruik"
+            }
+        },
+        "ganprevoyance": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Universa"
+                }
+            }
+        },
+        "ecolenumerique-sncf": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Jedi Badges"
+                }
+            }
+        },
+        "ilearn": {
+            "footer": {
+                "by": "© CHANEL. Alleen voor intern gebruik",
+                "copyright": "© CHANEL. Alleen voor intern gebruik"
+            }
+        },
+        "paca": {
+            "footer": {
+                "by": "Een productie van toerisme ACADEMY",
+                "copyright": "Een productie van toerisme ACADEMY"
+            }
+        },
+        "tourism": {
+            "footer": {
+                "by": "Toerisme Academy",
+                "copyright": "Toerisme Academy"
+            }
+        },
+        "tourismdigital": {
+            "footer": {
+                "by": "Een productie van toerisme Academie",
+                "copyright": "Een productie van toerisme Academie"
+            }
+        },
+        "ey": {
+            "footer": {
+                "by": "EY digitale Academy",
+                "copyright": "EY digitale Academy"
+            }
+        },
+        "up": {
+            "footer": {
+                "data_privacy_policy_link": "http://www.privacy.coorpacademy.com/up"
+            }
+        },
+        "who": {
+            "header": {
+                "mainNav": {
+                    "battles": "Uitdagingen",
+                    "discussions": "Feedback"
+                }
+            }
+        }
+    }
+}

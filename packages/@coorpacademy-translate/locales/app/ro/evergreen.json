@@ -1,0 +1,25 @@
+{
+    "notCompatible": {
+        "os": "Versiunea sistemului tău de operare este prea veche pentru a accesa platforma. Îți recomandăm o actualizare.",
+        "explanation": "Este posibil ca vizualizarea în mod compatibilitate a browser-ului dvs. să fie activată. Mai multe informații cu privire la dezactivarea ei",
+        "explanationLink": "https://static.coorpacademy.com/content/help/compatibility_view/Help_Compatibility_view_EN.pdf",
+        "explanationLinkLabel": "aici.",
+        "header": "Versiunea browser-ului este prea veche pentru a accesa platforma",
+        "suggestion_text": "BrowseHappy",
+        "suggestion_href": "http://browsehappy.com",
+        "suggestion_text_pre": "Mergi la",
+        "suggestion_text_post": "pentru mai multe informații despre browser-ele Evergreen.",
+        "different_user_agent": "Au fost  găsiți doi agenți utilizatori diferiți, rezultând în restricția accesului pe platformă."
+    },
+    "custom": {
+        "fff": {
+            "notCompatible": {
+                "os": "Versiunea sistemului tău de operare este prea veche pentru a accesa platforma. Îți recomandăm actualizarea.",
+                "suggestion_text": "Crom",
+                "suggestion_href": "https://www.google.com/intl/fr/chrome/browser/",
+                "suggestion_text_pre": "Descărcare sugerată",
+                "suggestion_text_post": "."
+            }
+        }
+    }
+}

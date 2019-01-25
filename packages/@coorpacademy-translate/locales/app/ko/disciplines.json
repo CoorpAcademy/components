@@ -1,0 +1,90 @@
+{
+    "disciplines": {
+        "book_demo": "데모 예약",
+        "payment_required": "coorpacademy 가입",
+        "free_start": "학습 시작"
+    },
+    "modules": {
+        "button": {
+            "start": "{{name}} 수준 시작",
+            "access": "{{name}} 액세스 수준",
+            "continue": "{{name}} 수준 계속",
+            "again": "{{name}} 레벨을 다시 시작",
+            "locked": "잠긴 모듈",
+            "payment_required": "계속 구독"
+        },
+        "skill": {
+            "valid": "이 레벨을 마치면...",
+            "invalid": "이 모듈 후에, 이것들을 할 수 있을 것입니다."
+        },
+        "chapters": {
+            "title": "장"
+        },
+        "stars": "총 적립된 별 "
+    },
+    "chapters": {
+        "button": {
+            "start": "시작 5' Learning",
+            "access": "액세스 5' Learning",
+            "continue": "5' Learning를 계속",
+            "again": "5' Learning 다시 시작",
+            "locked": "잠겨 장"
+        }
+    },
+    "presentation": {
+        "total": "{{nb}}",
+        "total_post": "모듈",
+        "total_post_plural": "모듈",
+        "video_title": "모든 교재 검색",
+        "popularity": "인기:",
+        "trainer": "Trainer",
+        "trainer_plural": "Trainers",
+        "by": "By",
+        "and": "&"
+    },
+    "author": "본 컨텐츠 제작사",
+    "disciplineNotFound": "{{disciplineRef}} 와 일치하는 과목 없음",
+    "forbidden": {
+        "unknown_in_group": "이 콘텐츠에 대 한 액세스를 하지 않아도",
+        "previous_level": "이전 수준이이 수준 시도 하기 전에 완료 될 필요가",
+        "conditions": "다음 코스는이 것을 시도 하기 전에 완료 될 필요가: {{contents}}",
+        "subscription_required": "Coorpacademy 구독이 콘텐츠를 시작 해야 합니다."
+    },
+    "custom": {
+        "up": {
+            "disciplines": {
+                "payment_required": "coorpacademy 가입"
+            },
+            "modules": {
+                "button": {
+                    "locked": "잠긴 모듈"
+                },
+                "skill": {
+                    "valid": "이 레벨을 마치면...",
+                    "invalid": "이 레벨 후에, 이것들을 할 수 있을 것입니다."
+                }
+            },
+            "presentation": {
+                "total_post": "레벨",
+                "total_post_plural": "레벨"
+            }
+        },
+        "silca": {
+            "modules": {
+                "skill": {
+                    "invalid": "이 모듈의 끝에, 당신은 당신의 능력을 측정할 수 있을 것입니다."
+                }
+            }
+        },
+        "mooc-socgen": {
+            "modules": {
+                "button": {
+                    "start": "시작 {{name}}",
+                    "access": "액세스 {{name}}",
+                    "continue": "{{name}}를 계속",
+                    "again": "{{name}} 다시 시작"
+                }
+            }
+        }
+    }
+}

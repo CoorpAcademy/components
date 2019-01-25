@@ -1,0 +1,153 @@
+{
+    "loose": {
+        "title": "Nhà",
+        "end_try": "Bạn không còn lượt thử nào nữa!",
+        "echec_title": "Ô ô i i i ...",
+        "new_badges": "giành được {{number}} huy hiệu mới",
+        "new_badges_plural": "{{number}} huy hiệu mới kiếm được",
+        "footer": {
+            "joker": {
+                "video": {
+                    "pre": "Xem video",
+                    "text": "của bài học",
+                    "win": "để thắng 1",
+                    "heart": "thêm mạng",
+                    "post": "và tiếp tục cấp độ."
+                },
+                "pdf": {
+                    "pre": "Đọc bài học",
+                    "win": "để thắng 1",
+                    "heart": "thêm mạng",
+                    "post": "và tiếp tục trình độ."
+                },
+                "without": "Bạn đã dùng quân bài jocker của mình"
+            },
+            "new_try": {
+                "title_pre": "Thử lại cấp độ này.",
+                "title": "Bạn hăng hái,",
+                "title_post": "và nó cho thấy!",
+                "button": "Thử lại trình độ này"
+            },
+            "new_module": {
+                "title_pre": "Truy cập cấp bậc khác",
+                "title": "Bạn sẽ bắt kịp!",
+                "button": "Đổi khóa học"
+            }
+        },
+        "type_badges": {
+            "init": "init",
+            "bronze": "Đồng",
+            "argent": "Bạc",
+            "or": "Vàng",
+            "platine": "Bạch Kim"
+        }
+    },
+    "question_title": "Câu hỏi: {{question}} ",
+    "progression": "Câu hỏi {{nb}} / {{ref}}",
+    "success": {
+        "home": "Trang chủ",
+        "title": "Xin chúc mừng!",
+        "subtitle": "Bạn đã hoàn thành trình độ này",
+        "body": {
+            "new_star": "Sao  {{newStars}}",
+            "new_score": "Điểm mới của bạn {{newScore}}"
+        },
+        "new_badges": "đã giành được {{new}} huy hiệu mới",
+        "new_badges_plural": "{{new}} huy hiệu mới kiếm được",
+        "reported": "Nhờ có mô-đun này bạn đã đạt được:",
+        "win": "Bây giờ bạn có:",
+        "footer": {
+            "title": "Bạn có một khởi đầu tốt! Tiếp tục phát huy nhé!",
+            "new_module": "Truy cập trình độ này",
+            "duration_unit": "phút",
+            "battle": "Bắt đầu Trận đấu"
+        },
+        "type_badges": {
+            "init": "init",
+            "bronze": "Đồng",
+            "argent": "Bạc",
+            "or": "Vàng",
+            "platine": "Platinum"
+        },
+        "yourRanking": "Hạng của Bạn:",
+        "rankWin": "(+ {{count}} rank)",
+        "rankWin_plural": "(+ {{count}} ranks)"
+    },
+    "duration": "{{nb}}",
+    "duration_post": "phút",
+    "duration_post_plural": "phút",
+    "assistance": "Báo cáo lỗi",
+    "buy_next": "Mua mô-đun tiếp theo",
+    "moduleNotFound": "Không tìm thấy cấp bậc nào với tham chiếu {{moduleRef}} cho khóa học {{disciplineName}}",
+    "custom": {
+        "armeedeterre": {
+            "success": {
+                "footer": {
+                    "battle": "Bắt đầu Trận đấu"
+                }
+            }
+        },
+        "7steps": {
+            "loose": {
+                "type_badges": {
+                    "platine": "Đứng đầu"
+                }
+            },
+            "success": {
+                "type_badges": {
+                    "platine": "Đầu trang"
+                }
+            }
+        },
+        "fdj": {
+            "loose": {
+                "echec_title": "đã hoàn thành",
+                "end_try": "Bạn đã hoàn thành bài kiểm tra!"
+            }
+        },
+        "letsgetdigital": {
+            "assistance": "Phản hồi ý kiến"
+        },
+        "up": {
+            "loose": {
+                "footer": {
+                    "joker": {
+                        "video": {
+                            "post": "Và tiếp tục cấp độ"
+                        },
+                        "pdf": {
+                            "post": "và tiếp tục cấp độ"
+                        }
+                    },
+                    "new_try": {
+                        "title_pre": "Thử lại trình độ này.",
+                        "button": "Thử lại cấp độ này"
+                    },
+                    "new_module": {
+                        "title_pre": "Truy cập một cấp độ khác.",
+                        "button": "Thay đổi khóa học"
+                    }
+                }
+            },
+            "success": {
+                "subtitle": "Bạn đã vượt qua cấp bậc này",
+                "reported": "Bạn đã đạt được trình độ này",
+                "footer": {
+                    "new_module": "Truy cập cấp độ này"
+                }
+            },
+            "memo": {
+                "module_title": "Khoá học: {{disciplineName}} - {{moduleName}}",
+                "from": "từ khóa học {{disciplineName}} - {{name}}"
+            },
+            "buy_next": "Mua khóa học tiếp theo"
+        },
+        "who": {
+            "success": {
+                "footer": {
+                    "battle": "Bắt đầu Thách thức"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,147 @@
+{
+    "tabs": {
+        "import": "进口",
+        "achievement": "重置",
+        "cms": "CMS",
+        "loginEvents": "推送登录新闻",
+        "replay": "内容导入历史记录",
+        "partners": "新闻合作伙伴",
+        "buildReport": "Report Generation"
+    },
+    "import": {
+        "help": "帮助",
+        "help_content": "<h2>导入整个主题或学科</h2> <p>若要导入主题，您必须提供满足以下要求的 .zip 文件：\n    <ul>    \n <li>学科名称必须唯一</li>\n <li>所有学科必须在该 .zip 的来源中</li>\n        <li>每个学科文件夹必须包含要创建的学科的单个 .json 文件</li>\n        <li>每个学科文件夹必须包含三个按 A–Z 顺序导入的模块文件夹</li>\n        <li>每个模块文件夹必须包含若干个问题文件夹</li>\n        <li>每个问题文件夹必须包含对应于要创建的问题的单个 .json 文件</li>\n        <li>新增：一个模块或篇章可以包含一个 remove:true 字段以便将其删除</li>\n        <li>新増：如果模块或篇章有 swap:INDEX 字段（其中 INDEX 是要占用的位置编号，以 0 开头），则该模块或篇章可以更改位置。</li>\n    </ul>\n</p> <h2>导入用户 zip</h2> <p>若要导入一组用户，则必须提供遵守以下规则的 .zip 文件：\n    <ul>\n        <li>每个用户的登录名必须唯一</li>\n        <li>所有用户必须在该 .zip 的来源上</li>\n    </ul>\n</p> <a href=\"/assets/samples/import.zip\">下载示例 .zip</a>",
+        "disciplines": {
+            "title": "科目",
+            "zero": "没有科目"
+        },
+        "send_job": "通过工作发送文件"
+    },
+    "delete": {
+        "disciplines": {
+            "404": "没有发现纪律",
+            "title": "删除所有学科",
+            "button": "删除",
+            "confirm": "请输入\"{{word}}\"，以确认删除所有主题",
+            "confirm_word": "指标",
+            "success": "删除的学科"
+        },
+        "users": {
+            "404": "未找到用户",
+            "title": "删除所有用户",
+            "help": "删除一个提供者的用户（留出空白来删除所有用户）",
+            "button": "删除",
+            "confirm": "请输入\"{{word}}\"确认用户删除",
+            "confirm_word": "用户",
+            "success": "{{count}} 用户已删除",
+            "success_plural": "删除了 {{count}} 个用户",
+            "provider": "提供方："
+        },
+        "tuto": {
+            "404": "未发现用户",
+            "title": "重置课程指导",
+            "button": "清除",
+            "confirm": "请选择 \"{{word}}\" 以确认个别指导的完整重置。",
+            "confirm_word": "教程",
+            "success": "教程重置"
+        },
+        "achievements": {
+            "404": "无进展",
+            "title": "清除你的所有进展",
+            "button": "删除",
+            "confirm": "请输入 \"{{word}}\" 以确认删除你的进展",
+            "confirm_word": "连续",
+            "success": "进展已删除"
+        }
+    },
+    "console": {
+        "status": "服务器状态：",
+        "exception": "异常 ID:",
+        "error": "错误信息："
+    },
+    "update": {
+        "goals": {
+            "title": "更新目标",
+            "button": "通过一项工作更新目标",
+            "success": "请求已发送"
+        }
+    },
+    "create": "添加",
+    "save": "保存",
+    "remove": "删除",
+    "test": "测试",
+    "edit": "修改",
+    "back": "返回",
+    "table": {
+        "button": {
+            "prev": "<<",
+            "next": ">>",
+            "first": "第一页",
+            "last": "最后一页"
+        }
+    },
+    "loginEvent": {
+        "subtitle": "推送登录事项",
+        "config": "基本资料",
+        "content": "扩展配置",
+        "eventName": "事件名称",
+        "type": "类型",
+        "active": "活跃",
+        "mandatory": "托管",
+        "cmsPagePath": "CMS路径",
+        "redirectTo": "重定向链接",
+        "title": "标题",
+        "text": "正文",
+        "redirectButton": "重新定向按钮标签",
+        "button": "按钮名称",
+        "checkboxText": "复选框标签",
+        "footerText": "页脚文本（可选）",
+        "order": "命令："
+    },
+    "status": {
+        "ok": {
+            "title": "成功"
+        },
+        "saving": {
+            "title": "正在保存..."
+        },
+        "removing": {
+            "title": "移除……"
+        }
+    },
+    "version": "当前平台版本：{{appVersion}}",
+    "job": {
+        "import": {
+            "replay": "应用",
+            "username": "运营",
+            "createdAt": "执行日期",
+            "elapsedTime": "执行时间",
+            "status": "状态",
+            "uploadedFile": "关于S3的文件",
+            "seeLogs": "See logs"
+        }
+    },
+    "partner": {
+        "name": "名字",
+        "link": "链接",
+        "createdAt": "创建时间",
+        "logo": "标识语",
+        "config": "信息",
+        "upload": "上传",
+        "linkLabel": "标签链接",
+        "description": "描述"
+    },
+    "buildReport": {
+        "help": "Help",
+        "send_job": "Send File via lambda",
+        "title": "Pernod Report Generation",
+        "help_content": "Upload the Zip with your excels and specify the mail where you want to receive the result",
+        "email": "Email Address",
+        "file": "Excels in Zip",
+        "email_missing": "Email must be provided",
+        "email_not_coorp": "Email must be from coorpacademy",
+        "file_missing": "File must be provided",
+        "upload_in_progress": "Your file is being uploaded. Processing might take few minutes.\nYou'll receive result by mail",
+        "file_received": "File has been received by the server and is currently being handled without error.\nYou should receive an email with the result in a few minutes."
+    }
+}

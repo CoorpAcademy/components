@@ -1,0 +1,203 @@
+{
+    "video_player": {
+        "jw": "Videoplayer ist am Laden...",
+        "fileCouldNotBePlayedTitle": "Fehler des Videoplayers",
+        "flashInstallUrl": "https://get.adobe.com/en/flashplayer/",
+        "MEDIA_ERR_UNKNOWN": {
+            "title": "Ein unbekannter Fehler ist aufgetreten",
+            "description": "Wir haben einen Fehler beim Video Abspielen entdeckt. Wir werden den Fehler untersuchen."
+        },
+        "MEDIA_ERR_ABORTED": {
+            "title": "Der Prozess zum Aufrufen der Medien-Ressource wurde abgebrochen.",
+            "description": "Bitte überprüfen Sie die Internetverbindung und versuchen Sie, das Video neu zu laden."
+        },
+        "MEDIA_ERR_NETWORK": {
+            "title": "Ein Netzwerkfehler führte zum Ende des Aufrufs der Medien-Ressource.",
+            "description": "Bitte überprüfen Sie die Internetverbindung und versuchen Sie, das Video neu zu laden."
+        },
+        "MEDIA_ERR_DECODE": {
+            "title": "Fehler bei der Entschlüsselung der Medien-Ressource.",
+            "description": "Dieses Video ist in diesem Browser nicht unterstützt. Es liegt am Browser oder Betriebssystem."
+        },
+        "MEDIA_ERR_SRC_NOT_SUPPORTED": {
+            "title": "Die Medienquelle ist nicht verwendbar",
+            "description": "Dieses Video ist entweder nicht verfügbar oder wird nicht unterstützt in diesem Browser. Bitte versuchen Sie es mit einem anderen Browser oder installieren Sie Flash Player als Fallback und aktualisieren Sie diese Seite."
+        }
+    },
+    "account_menu": {
+        "badge": "Lernabzeichen",
+        "account": "Mein Konto",
+        "objectif": "Meine Zertifizierungen",
+        "activity": "Aktivität",
+        "competence_win": "Erworbene Kompetenzen",
+        "timeline": "Zeitlicher Fortschritt",
+        "discussion": "Diskussionen",
+        "conseil": "Tipps",
+        "coach": "Coaches",
+        "battle": "Battle-Modus",
+        "modification": "Meine Daten ändern"
+    },
+    "chat_room": {
+        "button_wrapper": "Senden",
+        "placeholder": "Ihre Nachricht",
+        "connexion": "{{displayName}} ist dieser Unterhaltung beigetreten.",
+        "deconnexion": "{{displayName}} hat diese Unterhaltung verlassen."
+    },
+    "badgesLabel": {
+        "battle": {
+            "detail": "{{detail}} Battle gespielt",
+            "detail_plural": "{{detail}} Battles gespielt"
+        },
+        "module": {
+            "detail": "{{detail}} Kurs abgeschlossen, ohne ein Leben zu verlieren!",
+            "detail_plural": "{{detail}} Kurse abgeschlossen, ohne ein Leben zu verlieren!"
+        },
+        "lesson": {
+            "detail": "{{detail}} Gesehene Lektion!",
+            "detail_plural": "{{detail}} Gesehene Lektionen!"
+        },
+        "question": {
+            "detail": "{{detail}} Frage korrekt beantwortet!",
+            "detail_plural": "{{detail}} Fragen korrekt beantwortet!"
+        },
+        "coach": {
+            "detail": "{{detail}} Interaktion mit den Coaches!",
+            "detail_plural": "{{detail}} Interaktionen mit den Coaches!"
+        }
+    },
+    "notificationMenu": {
+        "god_mode": "God Mode aktivieren",
+        "notification": "Desktop-Benachrichtigungen aktivieren",
+        "title": "Benachrichtigungen ({{nb}})",
+        "forum": "Ein Benutzer hat auf Ihren Kommentar zu Kurs {{name}} Level {{level}} geantwortet.",
+        "badge_title": "Herzlichen Glückwunsch!",
+        "badge": "Sie haben das Lernabzeichen {{name}} {{level}} erworben",
+        "module_title": "Herzlichen Glückwunsch!",
+        "module": "Sie haben den Kurs {{name}} Level {{level}} erfolgreich abgeschlossen!",
+        "battle": {
+            "new": "{{name}} möchte Sie zu dem Kurs {{module}} Level {{level}} herausfordern!",
+            "accepted": "Ihre Battle-Anfrage wurde akzeptiert.",
+            "win": "Sie haben die Battle gegen {{looser}} zu Kurs {{module}} Level {{level}} gewonnen!",
+            "loose": "Sie haben die Battle gegen {{winner}} zu Kurs {{module}} Level {{level}} verloren ..."
+        },
+        "link": "Alles anzeigen",
+        "challenge_reminder": "Vergessen Sie nicht, dass {{name}} Sie zu Kurs {{module}} Level {{level}} herausgefordert hat und auf Ihre Antwort wartet!",
+        "coach": "Herzlichen Glückwunsch! Sie sind jetzt Coach für den Kurs {{name}}!",
+        "start_aim": "Sie haben die Zertifizierung {{name}} gewählt, starten Sie sie!",
+        "goal_as_reward": "Sie haben die neue Zertifizierung {{name}} freigeschaltet. Starten Sie sie!",
+        "half_achieved": "Herzlichen Glückwunsch! Sie haben 50 % Ihrer Zertifizierung {{name}} abgeschlossen! Machen Sie weiter so!",
+        "three_third_achieved": "Glückwunsch! Sie haben die Zertifizierung {{name}} erhalten! Teilen Sie Ihren Erfolg in Ihrem professionellen Netzwerk.",
+        "continue_goals": "Herzlichen Glückwunsch! Sie haben die Zertifizierung {{name}} erreicht! Starten Sie eine weitere!",
+        "continue": "Geben Sie jetzt, wo Sie auf einem so guten Weg sind, nicht auf. Arbeiten Sie weiter an der Zertifizierung {{name}}!",
+        "mandatory": "Bestätigen Sie das Level {{levels}}, um die Zertifizierung {{name}} zu erwerben!",
+        "mandatory_plural": "Bestätigen Sie die Levels {{levels}}, um die Zertifizierung {{name}} zu erwerben!",
+        "mandatory_achieved": "Herzlichen Glückwunsch! Sie haben die Zertifizierung {{name}} erreicht!",
+        "toggleCoach": "Als Coach verfügbar",
+        "reward_title": "Herzlichen Glückwunsch! Sie haben sich eine Belohnung verdient!",
+        "reward_description": {
+            "bonusStars": "Sie haben {{stars}} zusätzliche Sterne erworben!"
+        }
+    },
+    "custom": {
+        "armeedeterre": {
+            "account_menu": {
+                "battle": "Battle-Modus"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} Battle abgeschlossen",
+                    "detail_plural": "{{detail}} Battles abgeschlossen"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "Ihre Battle wurde angenommen",
+                    "win": "Sie haben die Battle gegen {{looser}} auf dem Kurslevel {{level}} {{module}} gewonnen!",
+                    "loose": "Sie haben die Battle gegen {{winner}} auf dem Kurslevel {{level}} {{module}} verloren..."
+                }
+            }
+        },
+        "gdf": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} theme completed",
+                    "detail_plural": "{{detail}} themes completed"
+                }
+            }
+        },
+        "gdfec": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} theme completed",
+                    "detail_plural": "{{detail}} themes completed"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "assistance": {
+                "title": "Feedback"
+            }
+        },
+        "pernod": {
+            "notificationMenu": {
+                "start_aim": "You have selected the {{name}} objective. Get started!",
+                "goal_as_reward": "Sie haben das Ziel {{name}} entsperrt. Starten Sie!",
+                "half_achieved": "Gut Gemacht! Sie haben 50 % des Ziels {{name}}erreicht !",
+                "three_third_achieved": "Herzlichen Glückwunsch! Sie haben das Ziel {{name}} erreicht!",
+                "continue_goals": "Herzlichen Glückwunsch! Sie haben das Ziel {{name}}erreicht! Starten Sie ein neues!",
+                "continue": "You are doing so well, why stop? Continue with the {{name}} objective!",
+                "mandatory": "Um Ihr Training abzuschließen, müssen Sie das Ziel {{name}} erreichen: Los geht's!",
+                "mandatory_achieved": "Herzlichen Glückwunsch! Sie haben das Ziel {{name}}erreicht !"
+            }
+        },
+        "up": {
+            "badgesLabel": {
+                "module": {
+                    "detail": "{{detail}} Level abgeschlossen, ohne ein Leben zu verlieren!",
+                    "detail_plural": "{{detail}} Levels abgeschlossen, ohne ein Leben zu verlieren!"
+                }
+            },
+            "notificationMenu": {
+                "forum": "Ein Benutzer hat auf Ihren Kommentar zu Kurs {{name}} Level {{level}} geantwortet",
+                "module": "Sie haben das Level der {{name}} {{level}} erreicht!",
+                "battle": {
+                    "new": "{{name}} möchte Sie zu dem Kurs {{module}} Level {{level}} herausfordern!",
+                    "win": "Sie haben die Battle gegen {{looser}} zu Kurs {{module}} Level {{level}} gewonnen!",
+                    "loose": "Sie haben die Battle gegen {{winner}} im Kurs {{module}} Level {{level}} verloren..."
+                },
+                "challenge_reminder": "Vergessen Sie nicht, dass {{name}} Sie zu Kurs {{module}} Level {{level}} herausgefordert hat und auf Ihre Antwort wartet!",
+                "coach": "Bravo! Sie sind jetzt Coach im Kurs {{name}}!"
+            }
+        },
+        "who": {
+            "account_menu": {
+                "battle": "Herausforderungs-Modus"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} Herausforderung abgeschlossen",
+                    "detail_plural": "{{detail}} Herausforderungen abgeschlossen"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "Ihre Herausforderung wurde angenommen",
+                    "win": "Sie haben die Herausforderung gegen {{looser}} auf dem Level {{module}} {{level}} gewonnen!",
+                    "loose": "Sie haben die Battle gegen {{winner}} im Kurs {{module}}  Level {{level}} verloren ..."
+                },
+                "continue_goals": "Herzlichen Glückwunsch! Sie haben das Zertifikat {{name}} erreicht!"
+            }
+        }
+    },
+    "assistance": {
+        "title": "Hilfe",
+        "object": "Betreff",
+        "message": "Nachricht",
+        "send": "Senden",
+        "thanks": "Danke für Ihre Nachricht! ",
+        "next": "Weiter"
+    },
+    "cards": {
+        "allCategories": "Alle Kategorien"
+    }
+}

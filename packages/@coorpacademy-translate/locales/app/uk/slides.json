@@ -1,0 +1,107 @@
+{
+    "indice": {
+        "title": "Потрібна допомога?",
+        "sub_title": "Обміняйте зірочку на підказку!",
+        "content": "Отримати підказку"
+    },
+    "lesson": {
+        "title": "Знайдіть відповіді тут!",
+        "sub_title": "Перегляньте курс і заробіть 4 додаткові зірки!",
+        "resources": "Пройти далі",
+        "title_video": "Відео курсу",
+        "title_pdf": "PDF курсу",
+        "look_at_the_course": "Переглянути курс"
+    },
+    "without_coach": {
+        "title": "Тренери недоступні"
+    },
+    "with_coach": {
+        "title": "Почати обговорення",
+        "content": "{{nb}} тренер(и) доступні"
+    },
+    "is_valid": {
+        "state": "<span class=\"label1\">Правильна</span> <span class=\"label2\">відповідь</span>",
+        "title": "Браво!",
+        "correctAnswer": "Правильна відповідь:"
+    },
+    "is_invalid": {
+        "state": "<span class=\"label1\">Неправильна</span> <span class=\"label2\">відповідь</span>",
+        "title": "Упс...",
+        "goodAnswer": "Правильна відповідь:"
+    },
+    "signup_finish_chapter": "Зареєструватись, щоб закінчити цей розділ",
+    "available_shots_pre": "У вас ще є",
+    "available_shots": "залишається {{count}} шансів",
+    "available_shots_plural": "Залишилось {{count}} спроб",
+    "available_shots_post": "&nbsp;",
+    "klf": "Чи знали ви?",
+    "to_know": "Ключова ідея",
+    "footer": {
+        "lesson": {
+            "title": "Ви можете вирішити переглянути заняття ще раз",
+            "button": "Доступ до заняття"
+        },
+        "result": {
+            "title": "Ви можете повернутися до Вашого результату",
+            "button": "Повернутися до результатів"
+        },
+        "next_question": "Наступний"
+    },
+    "check_answer": "Перевірте відповідь",
+    "adaptive_check_answer": "Наступний",
+    "next_question": "Наступне питання",
+    "next_level": "Наступний рівень",
+    "author": "Цей розділ зроблено:",
+    "button_tree": "Перейти до каталогу",
+    "comments": {
+        "title": "Обговорювати",
+        "title_for_module": "Обговорити - {{name}} рівня"
+    },
+    "slideNotFound": "Не знайдено запитання з даними {{slideId}}",
+    "forbidden": "Ви не маєте права на доступ до вмісту з посиланням {{contentRef}}.",
+    "showContext": "Знову отримати доступ до контексту",
+    "context": "Контекст",
+    "custom": {
+        "hr-ac": {
+            "footer": {
+                "lesson": {
+                    "button": "Доступ до документа"
+                }
+            }
+        },
+        "nespresso": {
+            "without_coach": {
+                "title": "Не експерт доступні"
+            },
+            "with_coach": {
+                "content": "{{nb}} expert(s) доступні"
+            }
+        },
+        "renaultcare": {
+            "is_valid": {
+                "state": "<span class=\"label1\">Браво</span>"
+            },
+            "is_invalid": {
+                "state": "<span class=\"label1\">Не зовсім</span>",
+                "title": "Ой..."
+            }
+        },
+        "schneider": {
+            "comments": {
+                "title_for_module": "Обговорити - {{name}} рівня <br/> будь ласка, звертайтеся <a href=\"http://2929it.schneider-electric.com/\" target=\"_blank\"> 2929 підтримки</a> для будь-якого відео питання"
+            }
+        },
+        "who": {
+            "is_valid": {
+                "state": "<span class=\"label1\">Правильна</span> <span class=\"label2\">відповідь</span>",
+                "correctAnswer": "Правильна відповідь:"
+            },
+            "to_know": "Необхідно знати",
+            "lesson": {
+                "resources": "Поринути в предмет",
+                "look_at_the_course": "PDF цього курсу"
+            },
+            "showContext": "Знову отримати доступ до вмісту "
+        }
+    }
+}

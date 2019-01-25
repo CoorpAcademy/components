@@ -1,0 +1,90 @@
+{
+    "disciplines": {
+        "book_demo": "book a demo",
+        "payment_required": "předplatné coorpacademy",
+        "free_start": "začít s učením"
+    },
+    "modules": {
+        "button": {
+            "start": "Úrovně spuštění {{name}}",
+            "access": " Přístupu úroveň {{name}}",
+            "continue": "Pokračovat úroveň {{name}} ",
+            "again": "Restart úrovně {{name}} ",
+            "locked": "Modul byl uzamknut",
+            "payment_required": "Přihlásit se k pokračování"
+        },
+        "skill": {
+            "valid": "Díky tomuto modulu můžete:",
+            "invalid": "Na konci tohoto modulu budete schopni:"
+        },
+        "chapters": {
+            "title": "Kapitol"
+        },
+        "stars": "Získaný celkový počet hvězdiček"
+    },
+    "chapters": {
+        "button": {
+            "start": "Spustit 5' Learning",
+            "access": "Přístup 5' Learning",
+            "continue": "Pokračovat v 5' Learning",
+            "again": "Restartujte 5' Learning",
+            "locked": "5' Learning uzamčen"
+        }
+    },
+    "presentation": {
+        "total": "{{nb}}",
+        "total_post": "modul",
+        "total_post_plural": "moduly",
+        "video_title": "Procházet materiály kurzu",
+        "popularity": "Oblíbenost:",
+        "trainer": "Trenér",
+        "trainer_plural": "Trenéři",
+        "by": "Autor:",
+        "and": "a"
+    },
+    "author": "Tento kurz vytvořil(a):",
+    "disciplineNotFound": "Podle reference {{disciplineRef}} nebyl nalezen žádný kurz",
+    "forbidden": {
+        "unknown_in_group": "Nemáte přístup k tomuto obsahu",
+        "previous_level": "Na předchozí úroveň musí být dokončen před pokusem o tuto úroveň",
+        "conditions": "Následující kurzy musí být dokončeny před pokusem o tento: {{contents}}",
+        "subscription_required": "Coorpacademy odběr je nutný ke spuštění tohoto obsahu."
+    },
+    "custom": {
+        "up": {
+            "disciplines": {
+                "payment_required": "coorpacademy odběr"
+            },
+            "modules": {
+                "button": {
+                    "locked": "Úroveň uzamčení"
+                },
+                "skill": {
+                    "valid": "Díky této úrovně můžete:",
+                    "invalid": "Na konci této úrovně bude schopen:"
+                }
+            },
+            "presentation": {
+                "total_post": "úroveň",
+                "total_post_plural": "úrovně"
+            }
+        },
+        "silca": {
+            "modules": {
+                "skill": {
+                    "invalid": "Na konci tohoto modulu budete schopni měřit vaši schopnost:"
+                }
+            }
+        },
+        "mooc-socgen": {
+            "modules": {
+                "button": {
+                    "start": "Spustit {{name}}",
+                    "access": "Přístup {{name}}",
+                    "continue": "Pokračovat v {{name}}",
+                    "again": "Restartujte {{name}}"
+                }
+            }
+        }
+    }
+}

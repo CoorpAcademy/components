@@ -1,0 +1,56 @@
+{
+    "http": {
+        "401": "Accesso non autorizzato",
+        "403": "Accesso vietato",
+        "404": "Pagina non trovata",
+        "412": "Precondizione fallita",
+        "500": "Errore interno del server",
+        "503": "Servizio non disponibile",
+        "500_message_pre": "L’URL",
+        "500_message": "ha riscontrato un errore sconosciuto di tipo",
+        "500_message_post": ".",
+        "503_message": "Il servizio non è disponibile. Si prega di riprovare fra qualche secondo.",
+        "404_message_pre": "L’URL",
+        "404_message": "non ha trovato un percorso corrispondente.",
+        "412_message": "La condizione specificato da uno o più ... Se intestazioni nella richiesta valutato su false.",
+        "409_progressions_content_conflict": "Sembra che hai già risposto a questa domanda durante la sessione corrente. Cosa te ne fai aprire un'altra scheda da qualche altra parte, forse? <br/> Fare clic su 'Ricarica la pagina' qui sotto per aggiornare i tuoi dati, carichiamo la domanda giusta per voi."
+    },
+    "infos": "Info",
+    "auth": {
+        "header": "Ops! {{status}}",
+        "reload": "Login"
+    },
+    "modal": {
+        "header": "Errore {{status}}",
+        "body": {
+            "title": "Prendi nota delle informazioni riportate qui in basso e tienile a portata di mano per quando parlerai con l’assistenza tecnica",
+            "url": "Url: {{err}}",
+            "id": "Id: {{id}}",
+            "message": "{{message}}"
+        },
+        "footer": {
+            "assistance": "Assistenza",
+            "back_home": "Torna alla Home",
+            "reload": "Ricaricare la pagina",
+            "continue": "Continua"
+        },
+        "assistance": "Errore domanda"
+    },
+    "defaultMessage": "Si è verificato un errore nell’applicazione. Si prega di riprovare.",
+    "achievementContext": "Sembra che il modulo sia già stato iniziato. Ricarica la pagina per proseguire con il modulo.",
+    "custom": {
+        "chanel": {
+            "http": {
+                "412_message": "Manca l'indirizzo email. Contatta l'amministratore o registrati qui."
+            }
+        },
+        "ilearn": {
+            "http": {
+                "412_message": "Indirizzo e-mail mancante. Si prega di contattare l'amministratore o iscriviti qui."
+            }
+        },
+        "up": {
+            "achievementContext": "Sembra che questo livello è già stato avviato. Si prega di ricaricare la pagina per continuare il livello."
+        }
+    }
+}

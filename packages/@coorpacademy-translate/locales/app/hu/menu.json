@@ -1,0 +1,155 @@
+{
+    "header": {
+        "title": "CoorpAcademy",
+        "mainNav": {
+            "helper": "Egy alternatív mód az oktatási anyagok böngészéséhez.",
+            "menu": "Menü",
+            "dashboard": "Főoldal",
+            "home": "Kezdőlap",
+            "learningTree": "Katalógus",
+            "lessons": "Az összes óra és videó",
+            "medias": "Könyvtár",
+            "battles": "Battles",
+            "explore": "Katalógus",
+            "discussions": "Megbeszélések",
+            "badges": "Jelvények",
+            "certifications": "Minősítések"
+        },
+        "mainNav_user": {
+            "helper": "Alternatív módja annak, hogy információkat találj magadról és a munkádról!"
+        },
+        "account_menu": {
+            "title": "Menü",
+            "logout": "Kijelentkezés",
+            "notifications": "Értesítéseim",
+            "language": "Nyelv",
+            "cohorts": "Lakosság:",
+            "account": "Számla",
+            "godmode": "Isten mód",
+            "fastslides": "Gyors diák",
+            "newlearner": "Új játék indításához",
+            "livenotifications": "Valós idejű értesítéseket",
+            "close": "zár"
+        }
+    },
+    "content": "Ez az alapvető tartalom.",
+    "footer": {
+        "assistance": "Támogatás",
+        "admin_link": {
+            "jobs": "Munkák",
+            "admin": "Admin",
+            "analytics": "Adatelemzés",
+            "changelog": "Changelog",
+            "cms": "CMS",
+            "manual": "Használati utasítás"
+        },
+        "data_privacy_policy": "Adatvédelmi irányelvek",
+        "data_privacy_policy_link": "http://www.privacy.coorpacademy.com",
+        "dev_link": {
+            "api": "API doc"
+        },
+        "by": "Coorpacademy által biztosítva",
+        "title": "Coorpacademy\n",
+        "changelog": {
+            "title": "Fejlesztési napló",
+            "subtitle": "Itt találhatók a honlap publikálási előzményei"
+        }
+    },
+    "custom": {
+        "accueil": {
+            "footer": {
+                "by": "Tourism Academy & Atout France",
+                "copyright": "Tourism Academy & Atout France"
+            }
+        },
+        "armeedeterre": {
+            "header": {
+                "mainNav": {
+                    "battles": "Battles"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "footer": {
+                "assistance": "Visszajelzés küldése"
+            }
+        },
+        "capgemini": {
+            "header": {
+                "mainNav": {
+                    "certifications": "DigiCertif'"
+                }
+            }
+        },
+        "cnp": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Tanúsítványok"
+                }
+            }
+        },
+        "chanel": {
+            "footer": {
+                "by": "© CHANEL. Csak belső használatra",
+                "copyright": "© CHANEL. Csak belső használatra"
+            }
+        },
+        "ganprevoyance": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Világok"
+                }
+            }
+        },
+        "ecolenumerique-sncf": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Jedi jelvények"
+                }
+            }
+        },
+        "ilearn": {
+            "footer": {
+                "by": "© CHANEL. Kizárólag belső használatra",
+                "copyright": "© CHANEL. Csak belső használatra"
+            }
+        },
+        "paca": {
+            "footer": {
+                "by": "A TOURISM ACADEMY Rendezésében",
+                "copyright": "Egy TOURISM ACADEMY produkció"
+            }
+        },
+        "tourism": {
+            "footer": {
+                "by": "Turizmus akadémia",
+                "copyright": "Tourism Academy"
+            }
+        },
+        "tourismdigital": {
+            "footer": {
+                "by": "Egy turizmus akadémia produkció",
+                "copyright": "Készítette a turizmus akadémia "
+            }
+        },
+        "ey": {
+            "footer": {
+                "by": "EY Digital Academy",
+                "copyright": "EY Digital Academy"
+            }
+        },
+        "up": {
+            "footer": {
+                "data_privacy_policy_link": "http://www.privacy.coorpacademy.com/up"
+            }
+        },
+        "who": {
+            "header": {
+                "mainNav": {
+                    "battles": "Kihívások",
+                    "discussions": "Visszajelzés"
+                }
+            }
+        }
+    }
+}

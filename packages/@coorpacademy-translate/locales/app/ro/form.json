@@ -1,0 +1,23 @@
+{
+    "submit": "Validează",
+    "print": "Imprimare",
+    "share": "Distribuie",
+    "delete": "Șterge",
+    "start": "Mergi",
+    "loadMore": "Încarcă mai multe...",
+    "download": "Descărcare",
+    "ok": "OK",
+    "cancel": "Anulează",
+    "sso": "Înregistrare Unică",
+    "connect": "Conectare",
+    "signup": "Înregistrare",
+    "signup_pre": "Nu ai un cont?",
+    "custom": {
+        "chanel": {
+            "signup": "ÎNREGISTREAZĂ-TE"
+        },
+        "ilearn": {
+            "signup": "Înscrieți-vă"
+        }
+    }
+}

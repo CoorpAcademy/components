@@ -1,0 +1,565 @@
+{
+    "firstConnection": {
+        "title": "<span>Hoş geldiniz</span> <span class='name'> {{name}}!</span>"
+    },
+    "changePassword": {
+        "title": "<span>Hoş geldiniz</span> <span class='name'> {{name}}!</span>",
+        "intro": "Lütfen parolanızı oluşturun. İçin gelecek bahsetme kurtarmak!",
+        "errors": {
+            "mustChangePassword": "Yeni şifre geçerli şifrenizi farklı olmalıdır",
+            "incorrectPassword": "Geçerli parolanızı yanlış"
+        }
+    },
+    "footer": {
+        "title": "Neden “{{platformName}}” platformu kullanmak?",
+        "features": {
+            "videos": {
+                "title": "Videolar",
+                "description": "Öğrenmek ve ilerleme sağlamak için video ders izle"
+            },
+            "quizzes": {
+                "title": "Sınavlar",
+                "description": "Sınavlar yüzlerce bilginizi sınayın"
+            },
+            "battles": {
+                "title": "$t(menu:header.mainNav.battles)",
+                "description": "Diğerleri savaşlar için zorlu tarafından gözden geçirin"
+            },
+            "certificates": {
+                "title": "$t(menu:header.mainNav.certifications)",
+                "description": "Yeteneklerinizi kanıtlayın sertifikaları almak"
+            }
+        },
+        "pillars": {
+            "learnAtYourOwnPace": {
+                "title": "Kendi hızınızda öğrenin",
+                "description": "<li>Kısa oturumları al</li> <li>Durdurmak ve istediğiniz zaman yeniden</li> <li>Herhangi bir cihaz kullanın</li>"
+            },
+            "adapted": {
+                "title": "Öğrenme için uyarlanmış",
+                "description": "<li>Bir sistem bunu zaten bildiklerini için uyum sağlar</li> <li>Seç kendi öğrenme yolu</li> <li>İçerik ısmarlama</li>"
+            },
+            "haveFun": {
+                "title": "İyi eğlenceler",
+                "description": "<li>Gamified öğrenme ortamı</li> <li>Inspired by video oyunları</li> <li>«Dur ve git» işlevi</li>"
+            },
+            "learningCommunity": {
+                "title": "Öğrenme topluluğu",
+                "description": "<li>Eş koçluk</li> <li>Tartışma forumu</li> <li>Birden çok öğrenenler için sorunlar</li> <li>Sıralama</li>"
+            }
+        },
+        "gotoform": "Platform erişmek için formu doldurun"
+    },
+    "edit": {
+        "oldPassword": "Eski parola",
+        "password": "Şifre",
+        "password_confirmation": "Parolanızı onaylayın"
+    },
+    "myaccount": {
+        "title": "Hesabım",
+        "subtitle": "Kişisel verilerinizi yönetin!",
+        "modify": "Değiştir",
+        "status": "Durum",
+        "save": "Kaydet",
+        "carriere": "Kariyer",
+        "hobbie": "İlgi alanları",
+        "abonnement": "E-posta aboneliği",
+        "allowed_mail": "Bilgi epostaları ve hatırlatmaları almak istiyorum.",
+        "not_allowed_mail": "Bilgi epostaları ya da hatırlatıcılar almak istemiyorum",
+        "avatar": {
+            "update": "Fotoğrafınız başarıyla yüklendi. 24 saat içinde görünecek.",
+            "no_image": "Seçilen dosya doğru formatta değil.Lütfen .png, .jpg yada .gif formatlarıyla değiştirin."
+        },
+        "profile": {
+            "updated": "Profiliniz güncellendi"
+        },
+        "reset": "Yeniden başlatılıyor",
+        "updatedAccount": "Hesabınız güncellendi.",
+        "accountUpdate": "Hesap güncelleme",
+        "password": "Parola",
+        "updatePassword": "Gönder",
+        "newPassword": "Yeni parola",
+        "actualPassword": "Güncel parola",
+        "passwordConfirmation": "Parola onayı",
+        "updatePasswordSuccess": "Parolanız başarıyla değiştirildi",
+        "updatePasswordError": "Şifrenizi değiştirmek değil, formunuzun gözden geçirin.",
+        "privateAccount": {
+            "title": "Özel profil",
+            "label": "Soyadımı gizle."
+        },
+        "emailSettings": {
+            "core": "Sistem mesajları (sertifikalar, \"Birisi sizi bir dövüşe davet etti\"...)",
+            "user": "Bildirimler (\"Önerilen kurslar\", \"En popüler kursu inceleyin\"...)",
+            "mailchimp": "Aylık özet"
+        }
+    },
+    "error": {
+        "oldPasswordRequired": "Geçerli bir şifre gereklidir.",
+        "newPasswordRequired": "Yeni bir şifre gerekiyor.",
+        "confirmPasswordRequired": "Parola onayı isteniyor.",
+        "incorrectMinLength": "Parolanız en az {{minLength}} haneli olmalıdır.",
+        "different_password": "Şifreleriniz eşleşmiyor!",
+        "wrong_password": "Parolanız yanlış."
+    },
+    "menu": {
+        "info": {
+            "title": "BİLGİLERİM",
+            "modify_avatar": "Profil fotoğrafını değiştir",
+            "modify_password": "Parolamı değiştir"
+        },
+        "alerts": {
+            "title": "UYARILARIM",
+            "email": "Abonelik e-postam",
+            "modify_email": "Abonelik e-postamda değişiklik yap",
+            "notifications": "Bildirimlerim",
+            "modify_notifications": "Bildirimlerimde değişiklik yap",
+            "wish_notifications": "Bildirimleri almak istiyordim. ",
+            "blocked_notifications": "Mevcut ayarların bildirimlere izin vermiyor. Lütfen tarayıcı ayarlarını değiştir ve bu sayfayı yenile. "
+        },
+        "bills": {
+            "title": "SİPARİŞLERİM"
+        },
+        "custom": {
+            "modify_account_title": "HESABIM",
+            "modify_account_informations": "Hesap güncelleme"
+        },
+        "subscription": {
+            "title": "Benim abonelik",
+            "subtitle": "Coorpacademy Premium Subscription is no longer available",
+            "info": "If you have already signed up and you wish to cancel your Premium subscription please send a mail with your details to:",
+            "update": "Benim abonelik Yönet"
+        }
+    },
+    "go": {
+        "to": {
+            "sso": "SSO bağlantısı",
+            "connect": "Connect bağlantısı"
+        }
+    },
+    "custom": {
+        "corporateonlineopencourse": {
+            "changePassword": {
+                "title": "'SENİN SMARTPHONE/YASTIK İLE BAĞLANMAK İÇİN PAROLANIZI YAPILANDIRMA'",
+                "intro": "<span>Merhaba,</span> <br><br>Sen sadece ilk kez giriş yolu ile kampüs MOOC marka elçisi. <br> Belirli çoklu aygıt parolanızı yapılandırmak için sizi davet ediyoruz <br>burada aşağıda. İsterseniz, akıllı telefon veya tablet MOOC erişmek için bu parola-ecek vermek sen olasılığı. <br>Bir kez yapılandırıldıktan sonra bir onay e-postası için gönderilir."
+            },
+            "myaccount": {
+                "updatePassword": "Doğrulamak"
+            }
+        },
+        "gdf": {
+            "edit": {
+                "title": "Bu senin ilk bağlantın",
+                "lastName": "Soyadı*",
+                "firstName": "Ad*",
+                "branch": "Branş*",
+                "password_title": "Lütfen yeni bir şifre girin",
+                "oldPassword": "Geçerli şifre*",
+                "password": "Yeni şifre*",
+                "password_confirmation": "Onay*",
+                "personnal_title": "Lütfen personel bilginizi girin",
+                "businessUnit": "İş Birimi*",
+                "age": "Yaş aralığı*",
+                "workingCountry": "Çalıştığınız ülke*",
+                "gender": "Cinsiyet*",
+                "save": "Onayla",
+                "mandatory": "* gerekli alanlar",
+                "male": "Erkek",
+                "female": "Bayan",
+                "saving": "Bilgilerinizi kaydederken lütfen bekleyin. Tamamlandığında ana sayfaya yönlendirileceksiniz."
+            },
+            "error": {
+                "different_password": "Şifreniz onun doğrulamasıyla eşleşmedi",
+                "mandatory": "Bu alanların tümü gereklidir.",
+                "incorrectPassword": "Mevcut şifre geçersiz"
+            },
+            "branch": {
+                "centre": "Merkez",
+                "energy_europe": "Enerji Avrupa",
+                "energy_international": "Uluslararası Enerji",
+                "energy_services": "Enerji Hizmetleri",
+                "global_gas_lng": "Global Gas & LNG",
+                "infrastructures": "Altyapılar",
+                "entreprises_collectivites": "Şirketler ve kamu yetkilileri"
+            },
+            "business_unit": {
+                "centre_bxl": "Merkez-BXL",
+                "centre_paris": "Paris Merkez",
+                "generation": "Nesil",
+                "renewable_energies": "Yenilenebilir enerjiler",
+                "marketing_sales": "Pazarlama & Satış",
+                "emt": "EMT",
+                "support_lines_corporate": "Destek Hatları / Şirket",
+                "asia_pacific": "Asya-Pasifik",
+                "latin_america": "Latin Amerika",
+                "north_america": "Kuzey Amerika",
+                "samea": "Güney Asya, Orta Doğu & Afrika (GAODA)",
+                "uk_turkey": "Birleşik Krallık-Türkiye",
+                "benelux_division": "Benelüks Bölgesi",
+                "engineering_division": "Mühendislik Bölümü",
+                "support": "Fonksiyon Desteği / Kurumsal & diğerleri",
+                "international_division": "Uluslararası Bölüm",
+                "pole_services": "Pôle France Services Energétiques",
+                "pole_system": "Pôle France Systèmes, Kurulum & Bakım",
+                "pole_network": "Pôle Réseaux / Bölge Enerji Ayrımı",
+                "ep": "E&P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "Dağıtım",
+                "storage": "Depolama",
+                "methane": "LNG terminali",
+                "business_line_energies": "İş Kolu Enerjileri",
+                "business_line_services": "İşle İlgili Hizmetler",
+                "delegation_relation_clients": "Delegasyon Müşteri İlişkileri",
+                "direction_finance": "Finans Performansı Talimatları",
+                "direction_rh": "İnsan Kaynakları Sağlık Güvenliği Koruma Departmanı",
+                "etat_major": "Etat Major\n",
+                "direction_ventes": "Direction des Ventes",
+                "marche_eld": "Marché ELD",
+                "marche_prive": "Marché Résidentiel Privé",
+                "marche_public": "Kamu Pazarı Müşteriler",
+                "marche_industrie": "Marché Industrie et Grand Tertiaire",
+                "marche_multisites": "Marché Çokluyerleri",
+                "marche_pme_pmi": "PME/PMI Pazarı",
+                "marketing_marche_clients": "Pazarlama Marketi/Müşteriler",
+                "systeme_information": "Système d'Information Métier\n"
+            },
+            "country": {
+                "algeria": "Cezayir",
+                "argentina": "Arjantin",
+                "australia": "Avustralya",
+                "bahrein": "Bahreyn",
+                "belgium": "Belçika",
+                "brazil": "Brazilya",
+                "cameroun": "Kamerun",
+                "canada": "Kanada",
+                "chili": "Şili",
+                "china": "Çin",
+                "costarica": "Kosta Rika",
+                "cz": "Çek Cumhuriyeti",
+                "egypt": "Mısır",
+                "france": "Fransa",
+                "germany": "Almanya",
+                "greece": "Yunanistan",
+                "hungary": "Macaristan",
+                "indonesia": "Endonezya ",
+                "italy": "İtalya",
+                "laos": "Laos",
+                "libya": "Libya",
+                "luxembourg": "Lüksemburg",
+                "mexico": "Meksika",
+                "monaco": "Monako",
+                "morocco": "Fas",
+                "netherland": "Hollanda",
+                "norway": "Norveç",
+                "nouvellecaledonie": "Yeni Kaledonya",
+                "oman": "Umman",
+                "pakistan": "Pakistan",
+                "panama": "Panama",
+                "peru": "Peru",
+                "poland": "Polonya",
+                "polynesie": "Fransız Polinezyası",
+                "qatar": "Katar",
+                "reunion": "Toplantı",
+                "romania": "Romanya",
+                "saudiarabia": "Suudi Arabistan",
+                "singapore": "Singapur",
+                "slovakia": "Slovakya",
+                "spain": "İspanya",
+                "swiss": "İsviçre",
+                "thailand": "Tayland",
+                "turkey": "Türkiye",
+                "uk": "İngiltere",
+                "arabemirates": "Birleşik Arap Emirlikleri",
+                "usa": "ABD",
+                "vanuatu": "Vanuatu",
+                "waliisfutuna": "Wallis & Futuna",
+                "other": "Diğer"
+            },
+            "ages": {
+                "minus-34": "34 veya daha az",
+                "35-44": "35’Ten 44’e",
+                "45-54": "45'den 54'e",
+                "more-55": "55 ya da daha fazla"
+            }
+        },
+        "gdfec": {
+            "edit": {
+                "title": "Bu sizin ilk bağlantınız",
+                "lastName": "Soyadı*",
+                "firstName": "İsim*",
+                "branch": "Şube*",
+                "password_title": "Lütfen yeni bir şifre gir",
+                "oldPassword": "Mevcut şifre*",
+                "password": "Yeni Şifre*",
+                "password_confirmation": "Konfirmasyon*",
+                "personnal_title": "Lütfen kişisel bilgilerinizi giriniz",
+                "businessUnit": "İşletme Birimi*",
+                "age": "Yaş aralığı*",
+                "workingCountry": "Çalıştığınız ülke*",
+                "gender": "Cinsiyet*",
+                "save": "Onayla",
+                "mandatory": "*gerekli alanlar",
+                "male": "Erkek",
+                "female": "Dişi",
+                "saving": "Bilgilerinizi kaydederken lütfen bekleyin. Tamamlanınca ana sayfaya yönlendirileceksiniz."
+            },
+            "error": {
+                "different_password": "Şifreniz onay şifresi ile uyuşmuyor",
+                "mandatory": "Tüm alanlar zorunludur",
+                "incorrectPassword": "Mevcut şifre geçersiz"
+            },
+            "branch": {
+                "centre": "Merkez",
+                "energy_europe": "Energy Europe",
+                "energy_international": "Energy International",
+                "energy_services": "Enerji Servisleri",
+                "global_gas_lng": "Küresel Gas & LNG",
+                "infrastructures": "Altyapılar",
+                "entreprises_collectivites": "Şirketler ve kamu yetkilileri"
+            },
+            "business_unit": {
+                "centre_bxl": "Merkez-BXL",
+                "centre_paris": "Merkez Paris",
+                "generation": "Nesil",
+                "renewable_energies": "Yenilenebilir Enerji",
+                "marketing_sales": "Pazarlama & Satış",
+                "emt": "EMT",
+                "support_lines_corporate": "Destek Hatları / Kurumsal",
+                "asia_pacific": "Asya-Pasifik",
+                "latin_america": "Latin Amerika",
+                "north_america": "Kuzey Amerika ",
+                "samea": "Güney Asya, Orta Doğu & Afrika (SAMEA)",
+                "uk_turkey": "UK-Türkiye",
+                "benelux_division": "Benelux Ayrımı",
+                "engineering_division": "Mühendislik Bölümü",
+                "support": "İşlev Desteği / Kurumsal ve diğerleri",
+                "international_division": "Uluslararası Ayrım",
+                "pole_services": "Fransa Kutup Enerji Servisleri",
+                "pole_system": "Pôle France Systèmes, Tesisat ve Bakım",
+                "pole_network": "Pôle Réseaux / Bölge Enerji Bölümü",
+                "ep": "E&P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "Dağıtım",
+                "storage": "Depolama",
+                "methane": "Terminaux Méthaniers",
+                "business_line_energies": "İş Hattı Enerji",
+                "business_line_services": "İş Hattı Hizmetleri",
+                "delegation_relation_clients": "Délégation İlişkileri Müşterileri",
+                "direction_finance": "Finans Performansı Yönetimi",
+                "direction_rh": "Direction Ressources Humaines Prévention Santé Sécurité",
+                "etat_major": "Genelkurmay",
+                "direction_ventes": "Satış Yönetimi",
+                "marche_eld": "Marché ELD\n",
+                "marche_prive": "Marché Résidentiel Privé",
+                "marche_public": "Müşteri Marketi ",
+                "marche_industrie": "Marché Industrie et Grand Tertiaire",
+                "marche_multisites": "Çoklu market siteleri",
+                "marche_pme_pmi": "Marché PME/PMI",
+                "marketing_marche_clients": "Pazarlama Pazarı/Müşteriler",
+                "systeme_information": "İş Bilişim Sistemi"
+            },
+            "country": {
+                "algeria": "Cezayir",
+                "argentina": "Arjantin",
+                "australia": "Avustralya",
+                "bahrein": "Bahreyn",
+                "belgium": "Belçika",
+                "brazil": "Brezilya",
+                "cameroun": "Kamerun",
+                "canada": "Kanada",
+                "chili": "Şili",
+                "china": "Çin",
+                "costarica": "Kostarika",
+                "cz": "Çek Cumhuriyeti",
+                "egypt": "Mısır",
+                "france": "Fransa",
+                "germany": "Almanya",
+                "greece": "Yunanistan",
+                "hungary": "Macaristan",
+                "indonesia": "Endonezya",
+                "italy": "İtalya",
+                "laos": "Laos",
+                "libya": "Libya",
+                "luxembourg": "Lüksemburg",
+                "mexico": "Meksika",
+                "monaco": "Monaco",
+                "morocco": "Morokko ",
+                "netherland": "Hollanda",
+                "norway": "Norveç",
+                "nouvellecaledonie": "Yeni Kaledonya",
+                "oman": "Umman",
+                "pakistan": "Pakistan",
+                "panama": "Panama",
+                "peru": "Peru",
+                "poland": "Polonya",
+                "polynesie": "Fransız Polinezyası",
+                "qatar": "Katar",
+                "reunion": "Réunion",
+                "romania": "Romanya",
+                "saudiarabia": "Suudi Arabistan",
+                "singapore": "Singapur",
+                "slovakia": "Slovakya",
+                "spain": "İspanya",
+                "swiss": "İsviçreli",
+                "thailand": "Tayland",
+                "turkey": "Türkiye",
+                "uk": "Birleşik Krallık",
+                "arabemirates": "Birleşik Arap Emirlikleri",
+                "usa": "ABD",
+                "vanuatu": "Vanuatu",
+                "waliisfutuna": "Wallis ve Futuna Adaları",
+                "other": "Diğer"
+            },
+            "ages": {
+                "minus-34": "34 ya da daha az",
+                "35-44": "35'ten 44'e kadar",
+                "45-54": "45'ten 54'e kadar",
+                "more-55": "55 ya da daha fazla"
+            }
+        },
+        "nespresso": {
+            "changePassword": {
+                "title": "Hoş geldiniz!",
+                "intro": "Mutlu etmek değişmek senin parola. İçin gelecek bahsetme kurtarmak!"
+            }
+        },
+        "pwc": {
+            "footer": {
+                "title": "Discover our PwC Digital Academy platform"
+            }
+        },
+        "renaultcare": {
+            "changePassword": {
+                "intro": "<span>Merhaba,</span> <br><br>Smartphone erişiminizi MOOC müşteri deneyimi oluşturmak için sadece parolanızı aşağıya yapılandırmak gerekir. <br> Biz göndereceğiz, daha sonra bir onay e-posta MOOC için Smartphone bağlanmak için belirli bir bağlantı ile. <br><br>Bir hatırlatma olarak, C@re 2.0 plateform için bağlanmak için Kimliğinizi değil: <b>{{login}}</b> <br><br>Lütfen şimdi şifrenizi tanımlayın:"
+            },
+            "myaccount": {
+                "updatePassword": "Doğrulamak"
+            }
+        },
+        "samsung": {
+            "edit": {
+                "title": "Bu ilk bağlantınız",
+                "lastName": "Soyisim*",
+                "firstName": "Ad*",
+                "email": "E-posta*",
+                "branch": "Bölüm*",
+                "password_title": "Lütfen yeni bir şifre girin",
+                "password": "Şifre*",
+                "password_confirmation": "Parolayı onayla*",
+                "personnal_title": "Lütfen kişisel bilgilerinizi girin",
+                "age": "Doğum yılı *",
+                "workingCountry": "Ülke*",
+                "save": "Onayla",
+                "mandatory": "* gerekli alanlar",
+                "saving": "Bilgileriniz kaydedilirken lütfen bekleyin. Tamamlanır tamamlanmaz anasayfaya yönlendirileceksiniz."
+            },
+            "error": {
+                "different_password": "Şifreniz, onayıyla eşleşmiyor",
+                "mandatory": "Bu alanların hepsi gerekli"
+            },
+            "branch": {
+                "centre": "Merkez",
+                "energy_europe": "Energy Europe",
+                "energy_international": "Energy International",
+                "energy_services": "Enerji Hizmetleri",
+                "global_gas_lng": "Küresel Gaz &  LNG",
+                "infrastructures": "Altyapılar"
+            },
+            "business_unit": {
+                "centre_bxl": "Merkez-BXL",
+                "centre_paris": "Paris Merkez",
+                "generation": "Nesil",
+                "renewable_energies": "Yenilenebilir Enerjiler",
+                "marketing_sales": "Pazarlama & Satış ",
+                "emt": "EMT",
+                "support_lines_corporate": "Destek Hatları / Kurumsal",
+                "asia_pacific": "Asya-Pasifik",
+                "latin_america": "Latin Amerika",
+                "north_america": "Kuzey Amerika",
+                "samea": "Güney Asya, Orta Doğu & Afrika (SAMEA) ",
+                "uk_turkey": "İngiltere-Türkiye",
+                "benelux_division": "Benelüks Ayrımı",
+                "engineering_division": "Mühendislik Bölümü",
+                "support": "Fonctions Destek / Kurumsal ve diğerleri",
+                "international_division": "Uluslararası Ayrım",
+                "pole_services": "Fransa Kutup Enerji Servisleri",
+                "pole_system": "Pôle Fransa Sistemleri, Montaj ve Bakım",
+                "pole_network": "Pôle Réseaux / Bölge Enerji Bölümü",
+                "ep": "E&P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "Dağıtım",
+                "storage": "Depolama",
+                "methane": "Terminaux Méthaniers"
+            },
+            "country": {
+                "algeria": "Cezayir",
+                "argentina": "Arjantin",
+                "australia": "Avustralya",
+                "bahrein": "Bahreyn",
+                "belgium": "Belçika",
+                "brazil": "Brezilya",
+                "cameroun": "Kamerun",
+                "canada": "Kanada",
+                "chili": "Şili",
+                "china": "Çin",
+                "costarica": "Kosta Rika",
+                "cz": "Çek Cumhuriyeti",
+                "egypt": "Mısır ",
+                "france": "Fransa",
+                "germany": "Almanya",
+                "greece": "Yunanistan",
+                "hungary": "Macaristan",
+                "indonesia": "Endonezya",
+                "italy": "İtalya",
+                "laos": "Laos",
+                "libya": "Libya",
+                "luxembourg": "Lüksemburg",
+                "mexico": "Meksika",
+                "monaco": "Monako",
+                "morocco": "Fas",
+                "netherland": "Hollanda",
+                "norway": "Norveç",
+                "nouvellecaledonie": "Yeni Kaledonya",
+                "oman": "Umman",
+                "pakistan": "Pakistan",
+                "panama": "Panama",
+                "peru": "Peru ",
+                "poland": "Polonya",
+                "polynesie": "Fransız Polinezyası",
+                "qatar": "Katar",
+                "reunion": "Toplantı",
+                "romania": "Romanya",
+                "saudiarabia": "Suudi Arabistan",
+                "singapore": "Singapur",
+                "slovakia": "Slovakya ",
+                "spain": "İspanya",
+                "swiss": "Swiss",
+                "thailand": "Tayland",
+                "turkey": "Türkiye",
+                "uk": "BK",
+                "arabemirates": "Birleşik Arap Emirlikleri",
+                "usa": "ABD",
+                "vanuatu": "Vanuatu",
+                "waliisfutuna": "Wallis ve Futuna Adaları",
+                "other": "Diğer"
+            },
+            "ages": {
+                "minus-34": "34 ya da daha az",
+                "35-44": "35'den 44'e",
+                "45-54": "45'den 54'e ",
+                "more-55": "55 ya da daha fazla"
+            }
+        },
+        "up": {
+            "myaccount": {
+                "noModulesUnlocked": "Hiç seviye alınmadı",
+                "unlockedModules": "Alınan seviyeler :"
+            }
+        },
+        "digitlearning": {
+            "passwordHint": "En az 8 karakter uzunluğunda. Şifre en az bir büyük harf karakter, bir basamak ve özel bir karakter içermesi gerekir (~! @# $%^&*_-+='|() {} []:; “’ <>,.? )"
+        }
+    }
+}

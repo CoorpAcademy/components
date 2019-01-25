@@ -1,0 +1,550 @@
+{
+    "welcome": "Bonjour {{name}} !",
+    "team": "L'équipe {{team}}",
+    "passwordFooter": "<br><br>Informations de connexion : <br>- Adresse IP : {{ip}} <br>- Système d'exploitation : {{os}} <br>- Navigateur : {{browser}} <br><br><b>Ce n'était pas vous ?</b> Vous devez modifier votre <a href=\"{{passwordReset}}\"> mot de passe</a> maintenant.",
+    "unsubscribe": "Se désabonner",
+    "personalHooks_timeReferenceObjects": {
+        "510min": "vols Paris-New York",
+        "420min": "saisons de Game of Thrones",
+        "360min": "étapes du Tour de France",
+        "120min": "films Twilight",
+        "100min": "films de Kung Fu",
+        "90min": "matchs de football",
+        "60min": "réunions de conseil d'administration",
+        "25min": "épisodes de votre série TV préférée"
+    },
+    "body": {
+        "accountCode": "Afin de valider votre compte {{label}}, merci de saisir ce code: <strong>{{code}}</strong> sur le site.",
+        "battleWaitingOpponent": "N’oubliez pas, {{opponentName}} vous propose une « battle » sur le cours $t({{disciplineName}}) niveau $t({{level}}) et attend impatiemment votre réponse !<br/> Pour accepter le défi et jouer votre tour, cliquez <a href=\"{{redirectionUrl}}\">ici</a> !<br/> <br/> Que le meilleur gagne !",
+        "coachUnlocked": "Félicitations ! Vous êtes devenu Coach dans le cours \"$t({{completedDiscipline}})\", que vous avez intégralement validé ! <br/> <br/>  Vous pouvez désormais aider d’autres apprenants sur cette thématique puisque vous êtes devenu imbattable sur le sujet  ! <br/> N’oubliez pas d' <b>activer les notifications en live</b> dans vos paramètres et simplement répondre aux apprenants qui vous sollicitent sur le chat : l’objectif est de les orienter vers la réponse, et non de la leur divulguer. <br/> <br/> N’oubliez pas que “ Sans solidarité, performances ni durables ni honorables  !”   <br/> <font size=\"2\"> <i>(Proust)</i></font> <br/> <br/>",
+        "contentUpdated": "Une nouvelle discipline vient d’être ajoutée sur la plate-forme !<br/>",
+        "contentUpdatedEnd": "Démarrez-la dès à présent : c’est par <a href=\"{{redirectionUrl}}\">ici</a> !<br/> <br/> Bonne formation !",
+        "contentUpdated_plural": "Des nouvelles disciplines viennent d’être ajoutées sur la plate-forme !<br/>",
+        "contentUpdatedEnd_plural": "Rendez vous sur la plate-forme {{label}} et démarrez-en une ! C’est par <a href=\"{{redirectionUrl}}\">ici</a> !<br/> <br/> Bonne formation !",
+        "lastAnsweredQuestion": "Nous avons noté que vous n'avez pas réussi de question depuis une semaine.<br/> <br/> Si vous rencontrez des difficultés n'hesitez pas à faire appel à un coach.",
+        "lastConnection": "Vous ne vous êtes pas connecté à la plate-forme {{label}} depuis trois jours et vous nous manquez !<br/> <br/> Pour capitaliser sur vos acquis, vous devriez y revenir au plus vite ! Vous avez encore des modules à découvrir, des scores à améliorer, des personnes à défier (amicalement)…<br/> <br/> Vous pouvez accéder à la plateforme au clic sur le lien suivant : <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> Bonne formation !",
+        "lastModuleDone": "Vous n’avez pas validé de module depuis une semaine sur la plate-forme {{label}}, ne baissez pas les bras !<br/><br/> Si vous rencontrez des difficultés, n’hésitez pas à faire appel à un coach ou à solliciter la communauté via les Forums de discussion.<br/> <br/> Vous pouvez accéder à la plateforme au clic sur le lien suivant : <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> Bonne formation !",
+        "passwordReset": "Nous avons bien enregistré votre demande concernant l’oubli de votre mot de passe. <br/> <br/> Rappel, votre nom d’utilisateur est : {{login}} <br/> (Attention aux caractères majuscules et minuscules) <br/> <br/> Vous pouvez réinitialiser votre mot de passe en cliquant sur le lien suivant : <a href=\"{{resetLink}}\"> {{resetLink}}</a>. <br/> <br/> Attention, ce lien n’est valable que {{ttl}} heure (s), ne tardez pas à réaliser la manipulation !<br/> <br/> Si vous n’avez pas fait cette demande, s’il vous plaît ignorez ce message. <br/> <br/> Bonne formation !",
+        "personalHooks": {
+            "trendingCourse": "<p>Le cours <b>{{courseName}}</b> a un succès fou en ce moment sur {{platform}}! Plus de {{activeUsersOnCourse}} personnes l'ont suivi récemment.</p><p>Et vous ?</p>",
+            "recommendedCourse": "<p>D'après votre activité sur {{platform}}, nous avons pensé à vous, car plusieurs cours pourraient vous plaire !</p><p>Notre meilleur choix : <b>{{courseName}}</b>. Alors, pourquoi ne pas se laisser tenter ?</p>",
+            "onboarding": "<p>Vous vous êtes récemment connecté(e) à votre plateforme <b>{{platform}}</b>. Vous êtes maintenant prêt(e) à améliorer vos compétences ! </p><p>Choisissez un sujet qui vous plaît ou suivez une de nos recommandations, et commencez à apprendre. </p><p>Vous pouvez aussi défier vos collègues en \"battle\" !</p>",
+            "finishCourse": "<p>Vous avez commencé le cours <b>{{courseName}}</b> sur la plateforme {{platform}} mais vous ne l'avez pas encore terminé.</p><p>Finissez-le et gagnez des étoiles supplémentaires. Vous n'aimeriez pas voir la barre de progression atteindre les 100% ?</p>",
+            "doBattle": "<p>On a tous un collègue qui pense tout savoir. <br>Surprenez-le sur la plateforme {{platform}} !</p><p>Défiez-le en <b>battle</b>. Choisissez un sujet que vous connaissez et gagnez le défi pour remporter des étoiles et des places dans le classement ! </p> <p>Alors, qui aura le dernier mot à la pause café ?</p>",
+            "doBattleOnCourse": "<p>Le cours <b>{{courseName}}</b> n'a maintenant plus de secrets pour vous.</p><p>Qui parmi vos collègues osera vous défier sur ce sujet ? Personne... ?</p><p> Prenez les devants ! Challengez-les en mode \"battle\" sur {{platform}} !</p>",
+            "othersProgress": "<p>Vos collègues ont été très actifs sur la plateforme {{platform}} ces derniers temps !</p><p>Ce mois-ci :<ul><li><span style=\"font-weight: bold;color:{{primaryColor}}\">{{connectedUsers}} personnes</span> se sont connectées</li><li><span style=\"font-weight: bold;color:{{primaryColor}}\">{{answeredQuestions}} réponses</span> ont été données</li><li><span style=\"font-weight: bold;color:{{primaryColor}}\">{{viewedLessons}} vidéos</span> ont été visionnées</li><li>...le tout mis bout à bout, cela représente {{numberTimes}} {{timeReferenceObject}} en temps d'apprentissage !</li></ul></p><p>Continuez à vous connecter !</p>",
+            "weMissYou": "<p>Vous nous manquez sur la plateforme <b>{{platform}}</b> ! Depuis, de nouveaux cours et de nouvelles fonctionnalités sont sortis. Rendez-vous sur la plateforme pour les découvrir !</p>",
+            "weMissYou_footer": "Nous apprécions beaucoup vos retours d'expérience. N'hésitez pas à <a href=\"mailto:assistance@coorpacademy.com\"> nous donner votre avis</a>, même négatif, afin que nous puissions nous améliorer !",
+            "generic_footer": "‌"
+        },
+        "sendBattle": "{{opponentName}} vous propose une « battle » sur le cours $t({{disciplineName}}) niveau $t({{level}}) et attend impatiemment votre réponse !<br/> <br/> Pour accepter le défi et jouer votre tour, cliquez <a href=\"{{redirectionUrl}}\">ici</a> !<br/> <br/> Que le meilleur gagne !",
+        "signupSelfValidation": "Merci de votre inscription! Plus qu'une dernière étape avant de pouvoir commencer, il suffit de cliquer sur <a href=\"{{validateLink}}\">le lien ci-dessous</a>. <br/> <br/> Votre identifiant est : {{login}} <br/> (Attention aux caractères majuscules et minuscules) <br/> <br/> Bonne formation!",
+        "signupValidation": "Nous avons reçu une demande d’enregistrement de la part de  {{firstName}} {{lastName}} (login : {{login}} e-mail : {{email}}) <br/> pour valider ce compte, veuillez cliquer sur le lien suivant : <a href=\"{{validateLink}}\">{{validateLink}}</a> <br/>. <br/> Si vous ne connaissez pas cette personne, veuillez cliquer sur le lien suivant pour supprimer le compte : <a href=\"{{rejectLink}}\">{{rejectLink}}</a>. <br/> Bonne formation!",
+        "signupComplete": "Votre compte est maintenant validé ! <br/> <br/> Votre identifiant est : {{login}} <br/> (Attention aux caractères majuscules et minuscules) <br/> <br/> Cliquez sur le bouton ci-dessous pour vous connecter et commencer à apprendre !",
+        "commentReply": "{{replierName}} vient de répondre à votre publication sur {{label}} : <p>{{originalCommentContent}}</p> --- <p>{{newCommentContent}}</p> Cliquez sur ce <a href=\"{{newCommentLink}}\">lien</a> pour afficher la conversation et poursuivre votre échange. À bientôt !",
+        "certification_header": "Nous sommes fiers de vous décerner le certificat $t({{certification}}), et pour récompenser vos efforts nous vous offrons :",
+        "certification_content_stars": "{{stars}} étoiles supplémentaires !<br/>",
+        "certification_content_diploma": "L'accès à votre certificat en cliquant sur ce <a target='_blank' href=\"$t({{diplomaLink}})\">lien</a>",
+        "certification_content_resource": "L'accès à $t({{rewardLabel}}) sur ce <a target='_blank' download href=\"$t({{resourceLink}})\">lien</a>",
+        "certification_content_end": "Et n’oubliez pas de mettre à jour votre C.V. ainsi que votre profil professionnel en indiquant cette nouvelle certification.",
+        "assistance": {
+            "object": "Objet : {{object}}",
+            "message": "{{message}}",
+            "displayName": "displayName: {{displayName}}",
+            "email": "email: {{email}}",
+            "url": "url: <a href=\"{{url}}\">{{url}}</a>",
+            "discipline": "discipline : {{discipline}}",
+            "module": "module : {{module}}",
+            "chapter": "chapitre : {{chapter}}",
+            "slideRef": "slideRef: {{slideRef}}"
+        },
+        "createdPassword": {
+            "top": "Félicitations ! <br><br>Vous venez de créer un mot de passe associé à votre compte de {{label}}. <br> <br>Vous pouvez maintenant vous connecter à la plateforme avec votre identifiant et ce nouveau mot de passe. <br>Rappel, votre identifiant est : <b>{{login}}</b> (sensible à la casse). <br>",
+            "bottom": "<br>Lancez-vous !"
+        },
+        "updatedPassword": {
+            "top": "Félicitations ! <br>Vous avez correctement mis à jour votre mot de passe pour votre compte de{{label}}. <br><br>Vous pouvez maintenant vous connectez à la plateforme avec votre nouveau mot de passe et votre identifiant habituel. <br> Pour rappel, votre identifiant est : <b>{{login}}</b> (sensible à la casse). <br>",
+            "bottom": "<br>Lancez-vous !"
+        }
+    },
+    "subject": {
+        "accountCode": "Merci de valider votre compte Coorpacademy.",
+        "battleWaitingOpponent": "{{opponentName}}  vous attend impatiemment",
+        "coachUnlocked": "Bravo, vous êtes devenu(e) coach",
+        "contentUpdated": "Du nouveau sur la plate-forme {{label}}",
+        "lastAnsweredQuestion": "{{name}}, vous ne jouez plus",
+        "lastConnection": "Continuez votre progression sur la plate-forme {{label}}",
+        "lastModuleDone": "Continuez votre progression sur la plate-forme {{label}}",
+        "passwordReset": "Réinitialisation de votre mot de passe",
+        "personalHooks": {
+            "trendingCourse": "Essayez le cours le plus populaire",
+            "recommendedCourse": "Cours recommandés : notre meilleur choix pour vous",
+            "onboarding": "Comment améliorer vos compétences sur {{platform}} ?",
+            "finishCourse": "Vous y êtes presque ! Finissez le cours {{courseName}}",
+            "doBattle": "Défiez vos collègues sur {{platform}} !",
+            "doBattleOnCourse": "Faites une battle sur votre dernier cours !",
+            "othersProgress": "Résumé de l'activité sur {{platform}}",
+            "weMissYou": "Cela fait un moment que l'on ne vous a pas vu !"
+        },
+        "sendBattle": "{{opponentName}} vous défie",
+        "test": "{{name}}, vous ne jouez plus",
+        "signupSelfValidation": "Activer votre compte",
+        "signupValidation": "Validez votre compte",
+        "signupComplete": "Votre compte a été validé !",
+        "commentReply": "{{replierName}} a répondu à votre commentaire",
+        "certification": "Félicitations {{name}} pour votre certificat $t({{certification}})",
+        "assistance": "[{{brand}}] {{object}}",
+        "createdPassword": "Création de mot de passe pour {{label}}",
+        "updatedPassword": "Modification de mot de passe pour {{label}}"
+    },
+    "call2action": {
+        "coachUnlocked": "Accéder à la plateforme",
+        "sendBattle": "Accepter le défi",
+        "battleWaitingOpponent": "Accepter le défi",
+        "commentReply": "Afficher la conversation",
+        "passwordReset": "Réinitialiser votre mot de passe",
+        "personalHooks": {
+            "trendingCourse": "Apprenez comme eux",
+            "recommendedCourse": "Commencez à apprendre",
+            "onboarding": "Commencez à apprendre !",
+            "finishCourse": "Finissez ce cours",
+            "doBattle": "Défiez un collègue",
+            "doBattleOnCourse": "Chargez !",
+            "othersProgress": "Rejoignez-les tous",
+            "weMissYou": "Découvrez les nouveautés"
+        },
+        "contentUpdated": "Accéder à la plateforme",
+        "lastConnection": "Accéder à la plateforme",
+        "lastModuleDone": "Accéder à la plateforme",
+        "lastAnsweredQuestion": "Accéder à la plateforme",
+        "accountCode": "Accéder à la plateforme",
+        "signupValidation": "Valider ce compte",
+        "certificationDone": "Accéder à la plateforme",
+        "signupSelfValidation": "Valider votre compte",
+        "signupComplete": "Accéder à la platforme",
+        "assistance": "Accédez à cette page",
+        "createdPassword": "Commencer la formation",
+        "updatedPassword": "Commencer la formation"
+    },
+    "custom": {
+        "7steps": {
+            "team": "‌",
+            "body": {
+                "signupSelfValidation": "Merci d’avoir rejoint la communauté des talents Retail !<br/> <br/> Découvrez le 7 Selling Steps MOOC et obtenez votre certificat License to sell ! <br/> <br/> Votre identifiant est : {{login}} <br/> (Attention aux caractères majuscules et minuscules) <br/> <br/>Cliquez sur le lien ci-dessous pour activer votre compte. <br/> <br/> Si vous recevez cet email par erreur, supprimez-le simplement. Votre compte ne sera pas activé si vous ne cliquez par sur le lien de confirmation ci-dessous. Pour toute question concernant le MOOC SRA, merci de contacter: <a href=\"mailto:serviceretailacademy@loreal.com\"> serviceretailacademy@loreal.com</a>"
+            },
+            "call2action": {
+                "signupSelfValidation": "Confirmation"
+            },
+            "subject": {
+                "signupSelfValidation": "SRA MOOC : Merci de valider votre compte"
+            }
+        },
+        "achat-habitat": {
+            "team": "L'équipe Achat Habitat",
+            "body": {
+                "signupSelfValidation": "Nous vous remercions de votre inscription au MOOC « Achat Habitat » et sommes ravis de vous accompagner dans cette aventure. Dernière étape, il suffit de cliquer sur ce lien pour activer votre compte <br> <a href=\"{{validateLink}}\">{{validateLink}}</a><br><br>Votre identifiant est: {{login}}<br/>(Attention aux caractères majuscules et minuscules)<br/><br/>Le 5 avril, jour d’ouverture du MOOC, vous recevrez un email avec toutes les informations pratiques pour vous guider dans votre parcours.<br><br>Pour toute question concernant votre accès ou la façon dont la plateforme fonctionne, vous pouvez contacter <a href=\"mailto:assistance@coorpacademy.com\">assistance@coorpacademy.com</a>.\n\n Dans l'attente de vous retrouver très prochainement  sur le MOOC Achat Habitat\n<br>A bientôt"
+            },
+            "subject": {
+                "signupSelfValidation": "Confirmation de votre inscription au Mooc Achat Habitat"
+            }
+        },
+        "air": {
+            "body": {
+                "coachUnlocked": "Félicitations ! Vous venez de terminer la discipline $t({{completedDiscipline}}) et d'atteindre le niveau Coach correspondant.<br/><br/>Vous pouvez désormais jouer le rôle de référent pour les autres explorateurs, en partageant les connaissances que vous avez démontrées.<br/><br/>Lorsque vous êtes sollicité pour de l'aide, veillez à orienter vers la réponse sans donner celle-ci directement.<br/><br/>Merci pour votre implication et rendez-vous au prochain Bivouac !<br/><br/>Numériquement,"
+            },
+            "subject": {
+                "coachUnlocked": "Air Liquide Digital Expedition - Bravo, vous êtes maintenant coach"
+            }
+        },
+        "bigdata": {
+            "team": "L’équipe SI’Academy",
+            "body": {
+                "certification_header": "Nous sommes fiers de vous décerner le certificat $t({{certification}}), et pour récompenser vos efforts nous vous offrons :",
+                "certification_content_stars": "{{stars}} étoiles supplémentaires !<br/>",
+                "certification_content_diploma": "L'accès à votre certificat $t({{certification}}) en cliquant sur ce <a target='_blank' href=\"$t({{diplomaLink}})\">lien</a>",
+                "certification_content_resource": "L'accès à votre badge $t({{rewardLabel}}) sur ce <a target='_blank' download href=\"$t({{resourceLink}})\">lien</a>",
+                "certification_content_end": "Et n’oubliez pas de mettre à jour votre mettre à jour votre profil SI’tizen ainsi que votre signature mail en indiquant cette nouvelle certification."
+            }
+        },
+        "capgemini": {
+            "welcome": "Bonjour {{name}} !",
+            "body": {
+                "certification_header": "Vous avez complété tous les modules requis pour $t({{certification}}). Felicitations!<br>Merci beaucoup et à bientôt sur la plateforme COOC !",
+                "certification_content_stars": "‌",
+                "certification_content_resource": "Dans le but de nous aider à optimiser l'experience VP DigiCertif’, nous serions reconnaissants si vous pouviez donner votre feedback via le lien suivant:<br>VP cliquez s'il vous plaît <a href=\"https://www.surveygizmo.com/s3/4299114/VP-COOC-platform\">ICI</a>",
+                "certification_content_end": "Cordialement,"
+            }
+        },
+        "challenge48htechno": {
+            "body": {
+                "signupSelfValidation": "Nous vous remercions de votre inscription au Challenge des 48hTechno 2018 ! Dernière étape, il suffit de cliquer sur ce lien pour activer votre compte <br> <a href=\"{{validateLink}}\">{{validateLink}}</a><br><br>Votre identifiant est: {{login}}<br/>(Attention aux caractères majuscules et minuscules)<br/><br/> Pour toute question concernant votre accès ou le fonctionnement de la plateforme, vous pouvez contacter <a href=\"mailto:assistance@coorpacademy.com\">assistance@coorpacademy.com</a>. <br> Bonne chance !"
+            },
+            "subject": {
+                "signupSelfValidation": "Activation de compte 48hTechno 2018"
+            }
+        },
+        "chanel": {
+            "body": {
+                "certification_content_end": "Et n'oubliez pas : vous pouvez revenir indéfiniment sur ​​la plateforme pour parfaire vos connaissances, visionner des leçons et des vidéos, et bien sûr défier vos pairs !"
+            }
+        },
+        "cnp": {
+            "body": {
+                "certification_header": "Nous sommes fiers de vous décerner le certificat $t({{certification}}) Et pour récompenser vos efforts nous vous offrons :"
+            }
+        },
+        "crisis": {
+            "team": "Pernod Ricard University"
+        },
+        "corporateonlineopencourse": {
+            "body": {
+                "battleWaitingOpponent": "N’oubliez pas, {{opponentName}} vous propose une « battle » sur le cours $t({{disciplineName}}) niveau $t({{level}}) et attend impatiemment votre réponse !<br/> Pour accepter le défi et jouer votre tour, cliquez <a href=\"https://idp.renault.com/nidp/saml2/idpsend?id=campus\">ici</a> !<br/> <br/> Que le meilleur gagne !",
+                "sendBattle": "{{opponentName}} vous propose une « battle » sur le cours $t({{disciplineName}}) niveau $t({{level}}) et attend impatiemment votre réponse !<br/> <br/> Pour accepter le défi et jouer votre tour, cliquez <a href=\"https://idp.renault.com/nidp/saml2/idpsend?id=campus\">ici</a> !<br/> <br/> Que le meilleur gagne !",
+                "createdPassword": {
+                    "top": "Bonjour ! Toutes nos félicitations!<br>Vous venez de configurer votre mot de passe multi-devices.<br>Donc, si vous le souhaitez, cliquez simplement sur le lien ci-dessous à l'aide de votre smartphone ou de votre tablette et la connexion à MOOC BRAND AMBASSADOR sera établie avec votre nouveau mot de passe multi-devices. https://corporateonlineopencourse.coorpacademy.com/login<br><br>Conseil: Une fois connecté, pourquoi ne pas créer un lien sur votre smartphone pour un accès plus facile ;-)<br>Remarque: La connexion via le Campus reste disponible sans aucun mot de passe spécifique. L'accès multi-périphérique est juste une option.",
+                    "bottom": "<br>\"It's time to learn!\""
+                }
+            }
+        },
+        "cofpart-learning": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "digitalls2e": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "faurecia": {
+            "body": {
+                "coachUnlocked": "Félicitations ! Vous êtes désormais qualifié comme coach pour le cours de $t({{completedDiscipline}}). <br/> <br/> Puisque vous êtes devenu imbattable à ce sujet, vous êtes maintenant en mesure d’aider les autres dans leur parcours d’apprentissage. <br/> <br/> S’il vous plaît partagez vos connaissances et répondez aux Faurecians qui appellent à un chat dans l’apprentissage Lab. <br/> <br/> Mais n’oubliez pas, le but est de les orienter vers la réponse et pas répondre à leurs place. <br/> <br/> N’oubliez pas que « La marque distinctive du savant, c'est la capacité d’enseigner» <br/> <font size=\"2\"> <i>(Aristote)</i></font> <br/> <br/>",
+                "certification_header": "Félicitations, vous venez d’obtenir la Certification $t({{certification}})  ! <br/>Pour célébrer cette réussite, nous vous offrons :",
+                "certification_content_stars": "{{stars}} points ★ supplémentaires sur <b>Faurecia University | Learning Lab</b><br/>",
+                "certification_content_diploma": "Votre diplôme personnalisé, à télécharger et imprimer en cliquant sur ce <a target='_blank' href=\"$t({{diplomaLink}})\">lien</a>",
+                "certification_content_resource": "Une récompense spéciale qui vous attend <a target='_blank' download href=\"$t({{resourceLink}})\">ici</a>",
+                "certification_content_end": "Et pensez à ajouter cette nouvelle Certification à votre profil social !"
+            }
+        },
+        "fdj": {
+            "body": {
+                "certification_content_end": "Et n’oubliez pas de continuer votre parcours apprenant en vous testant sur l'application Digilearn depuis votre mobile.<br/>Vous n'avez pas encore l’appli ? Rendez-vous sur l’apple store ou le google store et surtout activez ensuite vos notifications !"
+            }
+        },
+        "ecolenumerique-sncf": {
+            "body": {
+                "certification_header": "Félicitations, vous venez d’obtenir le badge $t({{certification}})  ! <br/>Pour célébrer cette réussite, nous vous offrons :",
+                "certification_content_stars": "{{stars}} étoiles supplémentaires !<br/>",
+                "certification_content_resource": "L'accès à votre badge sur ce <a target='_blank' download href=\"$t({{resourceLink}})\">lien</a>",
+                "certification_content_end": "Et pensez à ajouter ce nouveau Badge Jedi  à votre profil social !"
+            }
+        },
+        "el": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "ganprevoyance": {
+            "body": {
+                "certification_header": "Félicitations, vous venez de valider l'Univers $t({{certification}})  ! <br/>Pour célébrer cette réussite, nous vous offrons :",
+                "certification_content_stars": "{{stars}} étoiles supplémentaires !<br/>",
+                "certification_content_resource": "L'accès à votre badge sur ce <a target='_blank' download href=\"$t({{resourceLink}})\">lien</a>",
+                "certification_content_end": "Et pensez à ajouter ce nouveau Univers à votre profil social !"
+            }
+        },
+        "gdf": {
+            "urlHowTo": "* Pour les utilisateurs concernés, merci de double-cliquer sur l’icône WeTransform installée sur votre bureau puis collez cette url dans la barre d’adresse.",
+            "body": {
+                "battleWaitingOpponent": "N’oubliez pas, {{opponentName}} vous propose une « battle » sur le cours $t({{disciplineName}}) niveau $t({{level}}) et attend impatiemment votre réponse !<br/> Pour accepter le défi et jouer votre tour, cliquez ici* :<br/> <br/> <a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/> <br/> Que le meilleur gagne !<br/> <br/> $t(email:urlHowTo)",
+                "coachUnlocked": "Félicitations ! Vous êtes devenu Coach du thème $t({{completedDiscipline}}), que vous avez intégralement validée !<br/> <br/> Puisque vous êtes devenu imbattable sur le sujet, vous pouvez désormais aider d’autres apprenants ! Il vous suffit de répondre aux managers qui vous sollicitent sur le chat : l’objectif est de les orienter vers la réponse, et non de la leur divulguer. Si jamais vous ne souhaitez pas être sollicité, vous pouvez désactiver cette option via le menu situé en haut à droite de votre écran sur WeTransform.<br/> <br/> <br/> A bientôt,",
+                "passwordReset": "Nous avons bien enregistré votre demande concernant l’oubli de votre mot de passe. Vous pouvez le réinitialiser en cliquant sur le lien suivant* :<br/> <br/> <a href=\"{{resetLink}}\">{{resetLink}}</a><br/> <br/> Attention, ce lien n’est valable que {{ttl}}h, ne tardez pas à réaliser la manipulation !<br/> <br/> A bientôt !<br/> <br/> $t(email:urlHowTo)",
+                "sendBattle": "{{opponentName}} vous propose une « battle » sur le cours $t({{disciplineName}}) niveau $t({{level}})<br/> <br/> Pour accepter le défi et jouer votre tour, cliquez ici* :<br/> <br/> <a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/> <br/> Que le meilleur gagne !<br/> <br/> $t(email:urlHowTo)"
+            }
+        },
+        "gdfec": {
+            "urlHowTo": "* Pour les utilisateurs concernés, merci de double-cliquer sur l’icône WeTransform installée sur votre bureau puis collez cette url dans la barre d’adresse.",
+            "body": {
+                "battleWaitingOpponent": "N’oubliez pas, {{opponentName}} vous propose une « battle » sur le cours $t({{disciplineName}}) niveau $t({{level}}) et attend impatiemment votre réponse !<br/> Pour accepter le défi et jouer votre tour, cliquez ici* :<br/> <br/> <a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/> <br/> Que le meilleur gagne !<br/> <br/> $t(email:urlHowTo)",
+                "coachUnlocked": "Félicitations ! Vous êtes devenu Coach de la discipline $t({{completedDiscipline}}) que vous avez intégralement validée ! <br/> <br/> Puisque vous êtes devenu(e) imbattable sur le sujet, vous pouvez désormais aider d’autres apprenants ! Il vous suffit de répondre aux managers qui vous sollicitent sur le chat : l’objectif est de les orienter vers la réponse, et non de la leur divulguer. Si jamais vous ne souhaitez pas être sollicité(e), vous pouvez désactiver cette option via le menu situé en haut à droite de votre écran sur WeTransform.<br/><br/> <br/> A bientôt,",
+                "passwordReset": "Nous avons bien enregistré votre demande concernant l’oubli de votre mot de passe. Vous pouvez le réinitialiser en cliquant sur le lien suivant* :<br/> <br/> <a href=\"{{resetLink}}\">{{resetLink}}</a><br/> <br/> Attention, ce lien n’est valable que {{ttl}}h, ne tardez pas à réaliser la manipulation !<br/> <br/> A bientôt !<br/> <br/> $t(email:urlHowTo)",
+                "sendBattle": "{{opponentName}} vous propose une « battle » sur le cours $t({{disciplineName}}) niveau $t({{level}})<br/> <br/> Pour accepter le défi et jouer votre tour, cliquez ici* :<br/> <br/> <a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/> <br/> Que le meilleur gagne !<br/> <br/> $t(email:urlHowTo)",
+                "certification_content_end": "Si vous venez de terminer la formation \"Rentabilité\", la suite de votre parcours pour préparer le séminaire du 28 juin se fait en cliquant <a target='_blank' download href=\"https://www.getfeedback.com/r/bjNmfx11\">sur ce lien (10 minutes max)</a><br><br>Et n'oubliez pas de mettre à jour votre Curriculum Vitae tout comme votre profile professionnel en ligne avec cette nouvelle certification !"
+            }
+        },
+        "hr-ac": {
+            "body": {
+                "signupSelfValidation": "Merci de votre inscription sur HR Academy ! Plus qu'une dernière étape avant de pouvoir commencer, il suffit de cliquer sur ce lien pour activer votre compte <a href=\"{{validateLink}}\"> le lien ci-dessous</a>. <br/> <br/> Votre identifiant est : {{login}} <br/> (Attention aux caractères majuscules et minuscules) <br/> <br/> Bonne formation !",
+                "signupComplete": "Votre compte est maintenant validé ! <br/> <br/> Votre identifiant est : {{login}} <br/> (Attention aux caractères majuscules et minuscules) <br/> <br/> Cliquez sur le bouton ci-dessous pour vous connecter et commencer à apprendre !"
+            },
+            "subject": {
+                "signupSelfValidation": "Activation du compte HR Academy"
+            }
+        },
+        "linxea": {
+            "team": "L'équipe LinXea Academy",
+            "body": {
+                "signupSelfValidation": "Merci de votre inscription ! Plus qu’une dernière étape avant de pouvoir tester vos connaissances sur l’assurance vie et l’épargne en général, il suffit de cliquer sur ce lien pour activer votre compte : <br><a href=\"{{validateLink}}\"> {{validateLink}}</a> <br><br>Votre identifiant est: {{login}}<br/>(Attention aux caractères majuscules et minuscules)<br/><br/>Pour toute question concernant votre accès ou la façon dont la plate-forme LinXea Academy fonctionne, vous pouvez contacter  <a href=\"mailto:assistance@coorpacademy.com\"> assistance@coorpacademy.com</a>. <br>Si vous avez des questions concernant les contrats de LinXea ou d'assurance vie, merci d'écrire à <a href=\"mailto:contact@linxea.com\"> contact@linxea.com</a> <br>Bonne formation !",
+                "signupComplete": "Votre inscription à Yahoo Digital Marketing Academy a été validée. <br/> <br/> Votre nom d’utilisateur est : {{login}} <br/> (Attention aux caractères majuscules et minuscules)"
+            },
+            "subject": {
+                "signupSelfValidation": "Activation du compte LinXea Academy"
+            }
+        },
+        "learnnrj": {
+            "body": {
+                "signupSelfValidation": "Merci pour l’enregistrement. Vous voilà prêt à partir ! <br/><br/>Votre identifiant est: {{login}}<br/>(Attention aux caractères majuscules et minuscules)<br/><br/>Veuillez cliquer sur ce lien pour activer votre compte : <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Si vous avez des questions ou désirez en savoir plus sur les sujets abordés, parlez à votre représentant ou contactez assistance@coorpacademy.com",
+                "signupComplete": "Merci pour l’enregistrement. Vous voilà prêt à partir ! <br/> <br/> Votre nom d’utilisateur est : {{login}} <br/> (Attention aux caractères majuscules et minuscules) <br/> <br/> S’il vous plaît cliquer sur ce lien pour activer votre compte : <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Si vous avez des questions ou désirez en savoir plus sur les sujets abordés, parlez à votre représentant ou contactez assistance@coorpacademy.com"
+            }
+        },
+        "letsgetdigital": {
+            "team": "Let's Get Digital 2.0",
+            "body": {
+                "signupSelfValidation": "Merci de votre inscription sur Let's Get Digital 2.0 ! Dernière étape avant de commencer : s’il vous plaît activer votre compte en cliquant sur <a href=\"{{validateLink}}\">le lien ci-dessous</a>.<br/><br/>Votre identifiant est: {{login}}<br/>(Attention aux caractères majuscules et minuscules)<br/><br/>Pour toute question concernant votre accès / la façon dont fonctionne le Let's Get Digital 2.0, vous pouvez contacter contact.letsgetdigital@bnpparibas.com.\nBonne formation !",
+                "signupComplete": "Votre compte est maintenant validé ! <br/> <br/> Votre identifiant est : {{login}} <br/> Attention aux caractères majuscules et minuscules) <br/> <br/> Cliquez sur le bouton ci-dessous pour vous connecter et commencer à apprendre !"
+            },
+            "subject": {
+                "signupSelfValidation": "Activation de votre compte Let's Get Digital 2.0"
+            }
+        },
+        "michelin": {
+            "body": {
+                "certification_header": "Nous sommes fiers de vous envoyer le certificat de $t({{certification}}) et, en reconnaissance de vos efforts, nous sommes heureux de vous offrir :",
+                "certification_content_stars": "{{stars}} étoiles en plus ! <br/>",
+                "certification_content_resource": "La possibilité de télécharger le logo de passeport <a target='_blank' download href=\"$t({{resourceLink}})\"> ici</a>",
+                "certification_content_end": "N’oubliez pas de mettre à jour votre profil professionnel sur Bibspace (« Votre profil » / « Éducation ») et indiquer cette nouvelle Certification."
+            }
+        },
+        "mooc-socgen": {
+            "body": {
+                "personalHooks": {
+                    "generic_footer": "Le lien ci-dessus est uniquement accessible depuis un device hors réseau SG. Pour vous connecter à partir de votre poste de travail Société Générale, merci d’utiliser le Portail MOOC avec <a href=\"https://secure-browsing.eur.socgen.com\">ce lien</a>."
+                }
+            }
+        },
+        "nespresso": {
+            "body": {
+                "coachUnlocked": "Félicitations ! Tu es devenu un Expert dans la discipline $t({{completedDiscipline}}), qui vous avez totalement validés ! <br/> <br/>"
+            },
+            "subject": {
+                "coachUnlocked": "Bravo, tu es devenu un Expert"
+            }
+        },
+        "openlab-cb": {
+            "body": {
+                "signupComplete": "Votre compte a été validé ! Vous pouvez maintenant commencer à apprendre sur la plateforme Openlab ! <br/> <br/> Votre identifiant est : {{login}} <br/> (Attention aux caractères majuscules et minuscules) <br/> <br/> Visitez la plateforme ici : <a href=\"{{plateform}}\"> {{plateform}}</a>"
+            },
+            "subject": {
+                "signupValidation": "Validation pour le compte Openlab",
+                "signupComplete": "Validation de votre compte Openlab"
+            }
+        },
+        "pernod": {
+            "body": {
+                "battleWaitingOpponent": "N’oubliez pas, {{opponentName}} vous propose une « battle » sur le cours $t({{disciplineName}}) niveau $t({{level}}) et attend impatiemment votre réponse !<br/> Pour accepter le défi et jouer votre tour, cliquez <a href=\"{{redirectionUrl}}\">ici</a> !<br/> <br/> Que le meilleur gagne !",
+                "sendBattle": "{{opponentName}} vous propose une « battle » sur le cours $t({{disciplineName}}) niveau $t({{level}}) et attend impatiemment votre réponse !<br/> <br/> Pour accepter le défi et jouer votre tour, cliquez <a href=\"{{redirectionUrl}}\">ici</a> !<br/> <br/> Que le meilleur gagne !"
+            },
+            "team": "Pernod Ricard University"
+        },
+        "pru": {
+            "body": {
+                "coachUnlocked": "Félicitations ! Vous avez validé le niveau Avancé de la discipline ... Vous êtes désormais un vrai coach sur cette thématique et vous pouvez aider d’autres apprenants ! <br/> Il vous suffit de répondre aux apprenants qui vous sollicitent sur le chat : l’objectif est de les orienter vers la réponse, et non de la leur divulguer. <br/> N’oubliez pas que « Sans solidarité, performances ni durables ni honorables » ! <br/><font size=\"2\"><i>(François Proust)</i></font><br/> <br/>",
+                "sendBattle": "{{opponentName}} vous propose sans plus attendre une « battle » sur le cours $t({{disciplineName}}) niveau $t({{level}})! <br/> <br/> Pour accepter le défi et jouer votre tour, cliquez <a href=\"{{redirectionUrl}}\">ici</a> !<br/> <br/> Montrez que vous maîtrisez le code de conduite Pernod Ricard !",
+                "battleWaitingOpponent": "N’oubliez pas, {{opponentName}} vous propose une « battle » sur le cours $t({{disciplineName}}) niveau $t({{level}}) et attend impatiemment votre réponse !<br/> Pour accepter le défi et jouer votre tour, cliquez <a href=\"{{redirectionUrl}}\">ici</a> !<br/> <br/> Que le meilleur gagne !"
+            },
+            "team": "Pernod Ricard University"
+        },
+        "quizz-auchan": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "rexel": {
+            "team": "Rexel Academy"
+        },
+        "renaultcare": {
+            "subject": {
+                "createdPassword": "Accès au MOOC Customer Experience via smartphone"
+            },
+            "passwordFooter": "&nbsp;",
+            "body": {
+                "createdPassword": {
+                    "top": "Vous avez bien configuré votre mot de passe pour accéder au MOOC Customer Experience depuis votre Smartphone.",
+                    "bottom": "Vous pouvez dès à présent vous connecter en cliquant ici :"
+                }
+            },
+            "call2action": {
+                "createdPassword": "Commencer la formation"
+            }
+        },
+        "samsung": {
+            "team": "L'équipe {{team}}",
+            "body": {
+                "signupValidation": "Vous avez reçu une demande d’enregistrement de la part de {{firstName}} {{lastName}} (login: {{login}}). Leur information de contact est le suivant : <ul><li>{{company}}</li> <li>{{role}}</li> <li>{{boutique}}</li> <li>{{postalCode}}</li></ul>. Pour valider ce compte, veuillez cliquer sur le lien suivant: <a href=\"{{validateLink}}\"> {{validateLink}}</a> <br/>. Si vous ne connaissez pas cette personne, veuillez cliquer sur le lien suivant pour supprimer ces données: <a href=\"{{rejectLink}}\"> {{rejectLink}}</a>. <br/> Merci beaucoup!",
+                "signupComplete": "Votre compte est désormais actif sur <a href=\"{{plateform}}\">{{plateform}}</a><br/><br/>Votre identifiant est: {{login}}<br/>(Attention aux caractères majuscules et minuscules)<br/><br> Venez donc découvrir les derniers téléviseurs Samsung, les dernières innovations, les meilleurs arguments de vente pour convaincre vos clients ou encore échanger avec vos collègues de la France entière!<br><br> Bonne visite et à très bientôt,"
+            },
+            "subject": {
+                "signupValidation": "Validation de compte Samsung Academy",
+                "signupComplete": "Validation de compte Samsung Academy"
+            },
+            "call2action": {
+                "signupComplete": "Accéder à la platforme"
+            }
+        },
+        "schneider": {
+            "welcome": "Bonjour, {{name}}!",
+            "team": "L'equipe Schneider IQ",
+            "lastModuleDone": "Cela fait une semaine que vous avez commencé ce module sur Schneider IQ. Ne perdez plus de temps pour le finir !<br/> <br/> Un probleme, une question ? Contactez un coach ou postez un commentaire dans les forums situes dans chaque discipline.<br/> <br/> Vous pouvez acceder a Schneider IQ en cliquant sur le lien suivant : <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> Parce que se former, c'est se developper !",
+            "body": {
+                "personalHooks": {
+                    "generic_footer": "You are receiving Coorpacademy emails as you are a member on Schneider IQ.</br>CoorpAcademy uses your email only in correlation with Schneider IQ. If you do not want to receive these emails anymore, please Unsubscribe using the link below."
+                }
+            }
+        },
+        "seb": {
+            "team": "L'équipe universitaire du groupe SEB"
+        },
+        "societegenerale": {
+            "body": {
+                "certification_header": "Félicitations ! Vous venez d’obtenir votre certificat $t({{certification}}). Celui-ci concrétise votre engagement dans la stratégie Transition Numérique au sein du Groupe. Pour valoriser votre certificat, nous vous offrons :",
+                "certification_content_stars": "{{stars}} étoiles supplémentaires !<br/>",
+                "certification_content_diploma": "L'accès à votre certificat en cliquant sur ce <a target='_blank' href=\"$t({{diplomaLink}})\">lien</a>",
+                "certification_content_resource": "L'accès à $t({{rewardLabel}}) sur ce <a target='_blank' download href=\"$t({{resourceLink}})\">lien</a>",
+                "certification_content_end": "Partagez dès maintenant votre réussite en ajoutant ce logo à votre signature Outloook.<br/><br/> Bon MOOC !<br/><br/> {{totalGoals}} certificats sont à débloquer dans votre parcours Digital."
+            }
+        },
+        "securite": {
+            "team": "L’équipe SI’Academy",
+            "body": {
+                "certification_header": "Nous sommes fiers de vous décerner le certificat $t({{certification}}), et pour récompenser vos efforts nous vous offrons :",
+                "certification_content_stars": "{{stars}} étoiles supplémentaires !<br/>",
+                "certification_content_diploma": "L'accès à votre certificat $t({{certification}}) en cliquant sur ce <a target='_blank' href=\"$t({{diplomaLink}})\">lien</a>",
+                "certification_content_resource": "L'accès à votre badge $t({{rewardLabel}}) en cliquant sur ce <a target='_blank' download href=\"$t({{resourceLink}})\">lien</a>",
+                "certification_content_end": "‌"
+            }
+        },
+        "sqy": {
+            "team": "L’équipe SI’Academy",
+            "body": {
+                "certification_header": "Nous sommes fiers de vous décerner le certificat $t({{certification}}), et pour récompenser vos efforts nous vous offrons :",
+                "certification_content_stars": "{{stars}} étoiles supplémentaires !<br/>",
+                "certification_content_diploma": "L'accès à votre certificat $t({{certification}}) en cliquant sur ce <a target='_blank' href=\"$t({{diplomaLink}})\">lien</a>",
+                "certification_content_resource": "L'accès à votre badge $t({{rewardLabel}}) en cliquant sur ce <a target='_blank' download href=\"$t({{resourceLink}})\">lien</a>",
+                "certification_content_end": "Et n’oubliez pas de mettre à jour votre mettre à jour votre profil SI’tizen ainsi que votre signature mail en indiquant cette nouvelle certification."
+            }
+        },
+        "monoprix": {
+            "body": {
+                "signupSelfValidation": "Merci pour l’enregistrement afin d’améliorer vos connaissances de la culture numérique. Vous voilà prêt à partir. <br/> <br/> Votre identifiant est : {{login}} <br/> (Attention aux caractères majuscules et minuscules) <br/> <br/> S’il vous plaît cliquer sur ce lien pour activer votre compte : <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Si vous avez des questions ou désirez en savoir plus sur les sujets abordés, parlez à votre représentant de Monoprix ou contactez assistance@coorpacademy.com",
+                "signupComplete": "Merci pour l’enregistrement afin d’améliorer vos connaissances de la culture numérique. Vous voilà prêt à partir. <br/> <br/> Votre identifiant est : {{login}} <br/> (Attention aux caractères majuscules et minuscules) <br/> <br/> S’il vous plaît cliquer sur ce lien pour activer votre compte : <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Si vous avez des questions ou désirez en savoir plus sur les sujets abordés, parlez à votre représentant de Monoprix ou contactez assistance@coorpacademy.com"
+            },
+            "subject": {
+                "signupSelfValidation": "Activer votre compte sur l’Académie Digitale",
+                "signupComplete": "Activer votre compte sur l'Académie Digitale"
+            }
+        },
+        "redoute": {
+            "body": {
+                "signupSelfValidation": "Merci de votre inscription sur le Learning Lab Talent de La Redoute. <br/><br/>Votre identifiant est: {{login}}<br/>(Attention aux caractères majuscules et minuscules)<br/><br/>Cliquer sur le bouton \"Valider votre Compte\" pour activer votre compte.\nSi vous avez des questions ou si vous voulez en savoir plus sur les sujets traités vous pouvez vous adresser à votre contact La Redoute ou écrire à cette adresse: assistance@coorpacademy.com",
+                "signupComplete": "Vous venez de finir votre inscription sur le Learning Lab Talent de La Redoute! <br/> <br/> Votre identifiant est : {{login}} <br/> (Attention aux caractères majuscules et minuscules) <br/><br/>Nous venons de vous envoyer un email de confirmation, merci de suivre les instructions pour accéder à la plateforme de formation."
+            },
+            "subject": {
+                "signupSelfValidation": "Activez votre compte sur le Learning Lab La Redoute",
+                "signupComplete": "Activez votre compte sur le Learning Lab La Redoute"
+            }
+        },
+        "tagheuer": {
+            "body": {
+                "signupValidation": "Il y a une nouvelle demande d'inscription au TAG Heuer online training: <ul>\n    <li>Nom: {{lastName}}</li>\n    <li>Prénom: {{firstName}}</li>\n    <li>Login: {{login}}</li>\n    <li>Société: {{company}}</li>\n    <li>Boutique: {{boutique}}</li>\n    <li>Pays: {{country}}</li>\n <li>Ambassadeur: {{ambassador}}</li>\n</ul>Pour accepter cette demande, veuillez cliquer ici: <a href=\"{{validateLink}}\">{{validateLink}}</a><br/><br/> Pour la rejeter, veuillez alors cliquer ici: <a href=\"{{rejectLink}}\">{{rejectLink}}</a><br/>",
+                "signupComplete": "Votre compte a été validé! Vous pouvez désormais profiter de la plateforme de formation TAG Heuer ! <br/><br/>Votre identifiant est: {{login}}<br/>(Attention aux caractères majuscules et minuscules)<br/><br/>Vous pouvez visiter la plateforme ici: <a href=\"{{plateform}}\">{{plateform}}</a>",
+                "certification_content_end": "‌"
+            },
+            "subject": {
+                "signupValidation": "Nouvelle requête pour la formation TAG Heuer",
+                "signupComplete": "Votre inscription au MOOC TAG Heuer Connected a été validée."
+            },
+            "call2action": {
+                "signupComplete": "Accéder à la platforme"
+            }
+        },
+        "tagheuercon": {
+            "body": {
+                "signupValidation": "Vous avez reçu une nouvelle demande d'inscription au TAG Heuer online training. <ul> <li>{{lastName}}</li> <li>{{firstName}}</li> <li>{{login}}</li> <li>{{company}}</li> <li>{{boutique}}</li> <li>{{country}}</li> </ul> Pour accepter cette demande, veuillez cliquer ici: <a href=\"{{validateLink}}\">{{validateLink}}</a><br/><br/> Pour la rejeter, veuillez alors cliquer ici: <a href=\"{{rejectLink}}\">{{rejectLink}}</a><br/>",
+                "signupComplete": "Votre compte a été validé! Vous pouvez désormais profiter de la plateforme de formation TAG Heuer! <br/><br/>Votre identifiant est: {{login}}<br/>(Attention aux caractères majuscules et minuscules)<br/><br/>Vous pouvez visiter la plateforme ici: <a href=\"{{plateform}}\">{{plateform}}</a>"
+            },
+            "subject": {
+                "signupValidation": "Une nouvelle demande d'inscription au MOOC TAG Heuer",
+                "signupComplete": "Votre inscription au MOOC TAG Heuer Connected a été validée."
+            },
+            "call2action": {
+                "signupComplete": "Accéder à la platforme"
+            }
+        },
+        "thelem": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "up": {
+            "body": {
+                "battleWaitingOpponent": "N’oubliez pas, {{opponentName}} vous propose une « battle » sur le cours $t({{disciplineName}}) niveau $t({{level}}) et attend impatiemment votre réponse !<br/> Pour accepter le défi et jouer votre tour, cliquez <a href=\"{{redirectionUrl}}\">ici</a> !<br/> <br/> Que le meilleur gagne !",
+                "coachUnlocked": "Félicitations ! Vous êtes devenu Coach du cours $t({{completedDiscipline}}) que vous avez intégralement validé !<br/> <br/> Vous pouvez désormais aider d’autres apprenants sur cette thématique puisque vous êtes devenu imbattable sur le sujet !<br/> Il vous suffit de répondre aux apprenants qui vous sollicitent sur le chat : l’objectif est de les orienter vers la réponse, et non de la leur divulguer.<br/> <br/> N’oubliez pas que « Sans solidarité, performances ni durables ni honorables » ! <br/><font size=\"2\"><i>François Proust</i></font><br/> <br/> A bientôt,",
+                "contentUpdated": "Un nouveau cours vient d’être ajouté sur la plate-forme !<br/>",
+                "contentUpdated_plural": "Des nouveaux cours viennent d’être ajoutés sur la plate-forme !<br/>",
+                "lastConnection": "Vous ne vous êtes pas connecté à la plate-forme {{label}} depuis trois jours et vous nous manquez !<br/> <br/> Pour capitaliser sur vos acquis, vous devriez y revenir au plus vite ! Vous avez encore des cours à découvrir, des scores à améliorer, des personnes à défier (amicalement)…<br/> <br/> Vous pouvez accéder à la plateforme au clic sur le lien suivant : <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> Bonne formation !",
+                "lastModuleDone": "Vous n’avez pas validé de cours depuis une semaine sur la plate-forme {{label}}, ne baissez pas les bras !<br/><br/> Si vous rencontrez des difficultés, n’hésitez pas à faire appel à un coach ou à solliciter la communauté via les Forums de discussion.<br/> <br/> Vous pouvez accéder à la plateforme au clic sur le lien suivant : <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> Bonne formation !",
+                "sendBattle": "{{opponentName}} vous propose une « battle » sur le cours $t({{disciplineName}}) niveau $t({{level}}) et attend impatiemment votre réponse !<br/> <br/> Pour accepter le défi et jouer votre tour, cliquez <a href=\"{{redirectionUrl}}\">ici</a> !<br/> <br/> Que le meilleur gagne !"
+            }
+        },
+        "who": {
+            "subject": {
+                "signupValidation": "Valider ce compte",
+                "coachUnlocked": "Well done, you have completed the course {{completedDiscipline}}"
+            },
+            "body": {
+                "signupValidation": "Vous avez reçu une demande d'enregistrement de la part de <b>{{firstName}}{{lastName}}</b><br/>Login:<b>{{login}}</b><br/>Country: <b>{{country}}</b><br/>State: <b>{{region}}</b><br/>Affiliation:<b>{{provider}}</b><br/>Background Experience: <b>{{role}}</b><br/>Access Code: <b>{{grade}}</b><br/><br/>Afin de valider ce compte, veuillez cliquer sur le lien suivant : <a href=\"{{validateLink}}\">{{validateLink}}</a><br/>.<br/>Si vous ne connaissez pas cette personne, veuillez cliquer sur le lien suivant pour effacer ces données : <a href=\"{{rejectLink}}\">{{rejectLink}}</a>.<br/>Merci beaucoup !",
+                "signupComplete": "Votre inscription pour la formation en ligne QualityRights de l’OMS est maintenant terminée. <br/> <br/> Avant d’accéder à la formation, assurez-vous que vous avez complété le <a href=\"https://extranet.who.int/dataform/236824?lang=en\"> questionnaire de pré-formation</a>. <br/> <br/> <b>Vous êtes maintenant prêt à commencer !</b> <br><br/> Accéder à la plateforme de formation en ligne à ce <a href=\"https://humanrights-etrain-qualityrights.coorpacademy.com/login\"> lien</a>. Votre nom d’utilisateur est : {{login}} (attention aux caractères majuscules et minuscules). <br/> <br/> Vous pouvez accéder à la formation en ligne depuis n’importe quel appareil internet (smartphone, tablette, ordinateur portable, ordinateur de bureau). La formation en ligne peut être exécutée sur les navigateurs les plus couramment utilisés, par exemple, Internet Explorer 11 et les versions ultérieures, ainsi que sur les dernières versions de Chrome, Android Chrome, Firefox, Safari et IEdge (ou la version précédant la plus récente). <br/> <br/> Nous espérons que vous apprécierez la e-formation !",
+                "signupSelfValidation": "<br/> Merci pour vous inscrire à la e-formation de QualityRights de l’OMS ! Un pas de plus avant de commencer, veuillez cliquer sur le lien ci-dessous pour valider votre compte. <br/> <br/> Votre nom d’utilisateur est : {{login}} <br/> (attention les majuscules et en petit caractère) <br/> <br/> Profiter de votre formation !",
+                "battleWaitingOpponent": "N’oubliez pas que {{opponentName}} vous a lancé un défi sur $t({{level}}) de cours $t({{disciplineName}}) et attend votre réponse ! <br/> Pour accepter le défi et jouer, cliquez <a href=\"{{redirectionUrl}}\"> ici</a> ! <br/> <br/> Que la meilleure personne gagne!",
+                "sendBattle": "{{opponentName}} vous lance un défi sur  $t({{disciplineName}}), $t({{level}}) niveau et attend avec impatience votre réponse! <br/> <br/> Pour accepter le défi et jouer, cliquez <a href=\"{{redirectionUrl}}\"> ici</a>! <br/> <br/> Que le meilleur apprenant gagne!",
+                "coachUnlocked": "Congratulations on completing \"How to play on the platform?\".  Now you are ready to start one of the modules of the e-training!",
+                "certification_header": "Félicitations ! Vous avez terminé le cours de formation en ligne QualityRights « Fondation en santé mentale, de droits de l’homme et de récupération », développé et fourni par qui politique de la santé mentale et le développement des services.",
+                "certification_content_stars": "‌",
+                "certification_content_diploma": "Vous pouvez télécharger votre certificat <a target='_blank' href=\"$t({{diplomaLink}})\"> ici</a>",
+                "certification_content_resource": "Veuillez remplir le <a href=\"https://extranet.who.int/dataform/772112?lang=en\"> questionnaire</a> d’évaluation de poste",
+                "certification_content_end": "N’oubliez pas que vous pouvez revenir sur la e-formation à tout moment pour faire le cours encore une fois, pour accéder aux supports de formation et vidéos et de contribuer aux discussions. <br/> <br/> Nous espérons que vous avez apprécié la formation en ligne !"
+            }
+        },
+        "yahoo": {
+            "welcome": "Bonjour {{name}}!",
+            "urlHowTo": "&nbsp;",
+            "happyTraining": "Merci !",
+            "team": "Yahoo et Coorpacademy",
+            "unsubscribetext": "Trop d’emails ? Vous pouvez vous",
+            "body": {
+                "certification_header": "Félicitations ! Vous avez terminé le module $t({{certification}}) sur la plateforme digitale de la Yahoo Academy ! Vous êtes désormais membre du cercle très fermé des personnes ayant démontrées des connaissances exceptionnelles sur le sujet suivant : $t({{certification}}).\n\nVous pouvez être fier de vous ! Pour vous récompenser, nous vous offrons ce badge :",
+                "certification_content_resource": "Retrouver votre badge $t({{certification}}) en cliquant sur ce lien : <a href=\"{{certificationPage}}/\"> lien </a>",
+                "certification_content_end": "Nous vous encourageons à le mettre en ligne sur vos réseaux sociaux et professionnels. \n\nNe vous arrêtez pas en si bon chemin ! Venez en apprendre plus sur la plateforme digitale de la Yahoo Academy.",
+                "coachUnlocked": "Bravo, vous êtes devenu expert dans la discipline $t({{completedDiscipline}}) que vous avez intégralement validée !<br/> <br/> Pour toute question sur cette discipline ou sur le marketing digital en general vous pouvez nous contacter à cette adresse <a href=\"mailto:info-yahoo@yahoo-inc.com\">info-yahoo@yahoo-inc.com</a> <br/> A bientôt,",
+                "signupValidation": "Une nouvelle demande d'inscription au MOOC viens d'arriver : <br> <ul> <li>{{firstName}}</li> <li>{{lastName}}</li> <li>{{email}}</li> <li>{{company}}</li> <li>{{jobTitle}}</li> </ul> <br> Vous pouvez valider cette requête en cliquant ici : <br> <a href=\"{{validateLink}}\">{{validateLink}}</a><br><br>  Ou rejeter cette requête en cliquant ici : <br> <a href=\"{{rejectLink}}\">{{rejectLink}}</a>",
+                "signupSelfValidation": "Merci de votre inscription. <br/><br/>Votre identifiant est: {{login}}<br/>(Attention aux caractères majuscules et minuscules)<br/><br/>Plus qu’une dernière étape avant de pouvoir tester vos connaissances en marketing digital, il suffit de cliquer sur ce lien pour activer votre compte : <br> <a href=\"{{validateLink}}\">{{validateLink}}</a> <br><br> Pour vous connecter, veuillez entrer votre e-mail professionnel et mot de passe. <br>Si vous avez des questions ou si vous voulez en savoir plus sur les sujets traités vous pouvez vous adresser à votre contact Yahoo ou écrire à cette adresse :  <br><a href=\"info-yahoo@yahoo-inc.com\">info-yahoo@yahoo-inc.com</a>",
+                "signupComplete": "Votre demande d'inscription a été validée. <br/><br/>Votre identifiant est: {{login}}<br/>(Attention aux caractères majuscules et minuscules)<br/><br/>Pour tester vos connaissances en marketing digital, il vous suffit maintenant de vous connecter ici<br><a href=\"{{plateform}}\"> {{plateform}}</a><br><br> Pour vous connecter, veuillez entrer votre e-mail professionnel et mot de passe.<br><br> Si vous avez des questions ou si vous voulez en savoir plus sur les sujets traités vous pouvez vous adresser à votre contact Yahoo ou écrire à cette adresse : <br> <a href=\"mailto:info-yahoo@yahoo-inc.com\">info-yahoo@yahoo-inc.com</a>"
+            },
+            "subject": {
+                "coachUnlocked": "Bravo, vous êtes devenu expert dans la discipline $t({{completedDiscipline}})",
+                "signupValidation": "Nouvelle demande de compte sur Yahoo Digital",
+                "signupSelfValidation": "Activer votre compte sur la Yahoo Digital Marketing",
+                "signupComplete": "Votre inscription à la Yahoo Digital Marketing Academy a été validée"
+            },
+            "call2action": {
+                "signupValidation": "Validez ce compte",
+                "signupSelfValidation": "Validez votre compte",
+                "signupComplete": "Accéder à la platforme"
+            }
+        },
+        "zenithcommunity": {
+            "body": {
+                "signupValidation": "Il y a une nouvelle demande d'inscription à la plateforme d'apprentissage Zenithcommunity : <ul>\n    <li>Last name: {{lastName}}</li>\n    <li>First name: {{firstName}}</li>\n    <li>Login: {{login}}</li>\n    <li>Point of Sale Business Unit: {{provider}}</li>\n    <li>Point of Sale Name: {{company}}</li>\n    <li>Country: {{country}}</li>\n <li>City: {{city}}</li>\n <li>Job Title: {{jobTitle}}</li>\n <li>Grade (how long...): {{grade}}</li>\n</ul> Pour accepter cette demande, veuillez cliquer ici : <a href=\"{{validateLink}}\">{{validateLink}}</a><br/><br/> Pour la rejeter, veuillez alors cliquer ici : <a href=\"{{rejectLink}}\">{{rejectLink}}</a><br/>"
+            }
+        }
+    }
+}

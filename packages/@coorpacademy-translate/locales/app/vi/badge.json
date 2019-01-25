@@ -1,0 +1,29 @@
+{
+    "level_0": "Init",
+    "level_1": "Đồng",
+    "level_2": "Bạc",
+    "level_3": "Vàng",
+    "level_4": "Bạch kim",
+    "custom": {
+        "7steps": {
+            "level_4": "Trên cùng"
+        },
+        "renault": {
+            "my_badges_intro": "Xem tất cả huy hiệu bạn đã giành được hoặc cái còn lại để bạn trở thành \"vua\" của Clio RS mới nhất! ;-)"
+        },
+        "tagheuer": {
+            "level_0": "Init",
+            "level_1": "PHỤ KIỆN ĐẦU TIÊN",
+            "level_2": "VÒNG THỨ 3",
+            "level_3": "PHỤ KIỆN THỨ 5",
+            "level_4": "VÒNG THỨ 7"
+        },
+        "tagheuercon": {
+            "level_0": "Khởi tạo",
+            "level_1": "PHỤ KIỆN ĐẦU TIÊN",
+            "level_2": "VÒNG THỨ 3",
+            "level_3": "PHỤ KIỆN THỨ 5",
+            "level_4": "VÒNG THỨ 7"
+        }
+    }
+}

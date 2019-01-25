@@ -1,0 +1,201 @@
+{
+    "title": "Képesítések",
+    "subtitle_head1": "Adjon meg egy vagy több igazolást és végezze el őket tudása fejelsztéséhez az adott területen vagy témában.",
+    "subtitle_head2": "Minősítési modul megkezdése",
+    "how_to": "Ahhoz, hogy érvényesítsen egy tanúsítványt, be kell fejeznie minden modult. Lásson neki!",
+    "button_choose_goal": "Válasszon igazolást.",
+    "selected_goals_title": "{{goals}} Jelenlegi minősítés",
+    "selected_goals_title_plural": "{{goals}} Jelenlegi Tanúsítványok",
+    "selected_goals_no_item": "Nincs Tanúsítvány kiválasztva. Kérjük, válasszon egyet!",
+    "finished_goals_title": "{{goals}}  Létrehozott minősítés",
+    "finished_goals_title_plural": "{{goals}}  Teljesített hitelesítések",
+    "finished_goal_label": "{{goalLabel}} {{star}}",
+    "finished_goals_no_item": "Még nem szereztél egy oklevelet sem.",
+    "button_module_access": "Start",
+    "minutes_label": "min",
+    "status_label": "Állapot",
+    "stars_label": "{{stars}} csillag",
+    "stars_label_plural": "{{stars}} csillag",
+    "popover": {
+        "title": "Vigyázzon!",
+        "module_blocked_pre": "Ez a modul nem elérhető:",
+        "module_blocked_post": "{{pre}} Az eléréshez először aktiválnod kell a szintet {{level}}",
+        "select_goal": {
+            "title": "Válasszon egy minősítést.",
+            "available_module": "{{total}} megszerezhető oklevél",
+            "available_module_plural": "{{total}} Elérhető tanúsítványok",
+            "module_done": "Ezt a modult már frissítették. Közel jársz a Bizonyítvány megszerzéséhez.",
+            "module_blocked": "Ez a modul még nem elérhető. a megnyitáshoz végezze el az Alap és Haladó szinteket.",
+            "button_add_goal": "Hitelesítésem Megerősítése"
+        }
+    },
+    "condition_progress": {
+        "information": "Ön befejezett {done}} a {{total}} tervezett modulok közül"
+    },
+    "certification": {
+        "title": "Okleveled",
+        "title_plural": "Az ön minősítései",
+        "subtitle": "Bizonyítsd képességeid az alábbi tanúsítvánnyal",
+        "subtitle_plural": "Hitelesítse képességeit ezekkel az igazolásokkal",
+        "rewards": {
+            "subtitle": "Jutalmai",
+            "see_detail": "Megtekint",
+            "congratulations": "gratulálunk sikeréhez",
+            "you_can_win": "Győzelem",
+            "download_resource": "Kattintson ide a letöltéshez",
+            "see_diploma": "Diploma megtekintése",
+            "access_your_diploma": "Hozzáférés a diplomához"
+        },
+        "stars": {
+            "description_pre": "Nyertél",
+            "description_post": "csillag"
+        },
+        "state": {
+            "done": "Kész!",
+            "inProgress": "Folyamatban"
+        },
+        "condition_description": {
+            "progress": "Cél: {{count}} modul",
+            "progress_plural": "Cél: {{count}} modul"
+        },
+        "certificationDone": "Gratulálunk! Megszerezte a {{certificationName}} minősítést!"
+    },
+    "diploma": {
+        "certificate": "tanúsítvány",
+        "date": "Dátum: {{date}}",
+        "message": "megszerezte az tanúsítványhoz szükséges ismereteket a témakörben:"
+    },
+    "custom": {
+        "ecolenumerique-sncf": {
+            "certification": {
+                "title": "Jedi jelvény",
+                "title_plural": "Jedi jelvények",
+                "certificationDone": "Gratulálok! Beszerezte a {{certificationName}} jelvényt!",
+                "subtitle": "Itt a Jedi jelvény érvényesítése",
+                "subtitle_plural": "Itt a Jedi jelvényeinek érvényesítése"
+            }
+        },
+        "ganprevoyance": {
+            "certification": {
+                "title": "Világegyetem",
+                "title_plural": "Világok",
+                "certificationDone": "Gratulálok! Elvégezte a világegyetem {{certificationName}}!",
+                "subtitle": "Érvényesíti az univerzum itt",
+                "subtitle_plural": "A világegyetemek itt érvényesítése"
+            }
+        },
+        "cnp": {
+            "certification": {
+                "title": "Tanúsítvány",
+                "title_plural": "Tanúsítványok",
+                "certificationDone": "Gratulálok! Elvégezte az {{certificationName}} tanúsítványt!",
+                "subtitle": "A tanúsítvány itt",
+                "subtitle_plural": "Itt a tanúsítványok ellenőrzéséhez"
+            }
+        },
+        "pernod": {
+            "title": "Céljaim.",
+            "subtitle_head1": "Válassz ki egy vagy több Célt és teljesítsd őket, hogy a készségeidet fejleszd egy adott területen vagy témában.",
+            "subtitle_head2": "Indítson el egy modult amely egy Feladatba belefoglaltak közé tartozik.",
+            "how_to": "Egy Feladat érvényesítése érdekében teljesítenie kell minden modult. Lásson neki!",
+            "button_choose_goal": "Cél kiválasztása",
+            "selected_goals_title": "{{goals}} jelenlegi cél",
+            "selected_goals_title_plural": "{{goals}} Jelenlegi Célkitűzések",
+            "selected_goals_no_item": "Nincs cél kiválasztva. Válasszon egyet!",
+            "finished_goals_title": "{{goals}} Teljesített célok",
+            "finished_goals_title_plural": "{{goals}}  Befejezett célok",
+            "finished_goal_label": "{{goalLabel}} {{star}}",
+            "finished_goals_no_item": "Még nem végezte el céljait.",
+            "button_module_access": "Kezdés most",
+            "minutes_label": "min",
+            "status_label": "Állapot:",
+            "stars_label": "{{stars}} csillag",
+            "stars_label_plural": "{{stars}} csillag",
+            "popover": {
+                "title": "Legyen óvatos!",
+                "module_blocked_pre": "Ez a modul nem elérhető:",
+                "module_blocked_post": "{{pre}} A teljesítéséhez előbb hitelesítenie kell a {{level}} szintet",
+                "select_goal": {
+                    "title": "Kérjük válasszon célt",
+                    "available_module": "{{total}} Érvényes Feladat",
+                    "available_module_plural": "{{total}} Rendelkezésre álló objektumok",
+                    "module_done": "Ez a modul már teljesítésre került. Egyre közelebb kerül a kitűzött cél eléréséhez.",
+                    "module_blocked": "Ez a modul még nem elérhető. A feloldásához először teljesítenie kell a Kezdő vagy Haladó szinteket.",
+                    "button_add_goal": "Cél megerősjtése."
+                }
+            },
+            "condition_progress": {
+                "information": "Elvégzett {{done}} kijelölt modult a {{total}}-ből."
+            },
+            "certification": {
+                "title": "Az ön céljai",
+                "subtitle": "Hitelesítse képességeit ezekkel a célokkal",
+                "rewards": {
+                    "subtitle": "Jutalmaid",
+                    "see_detail": "Lásd",
+                    "congratulations_pre": "És a mi",
+                    "congratulations": "gratulálunk",
+                    "congratulations_post": "az összes erőfeszítéséért"
+                },
+                "stars": {
+                    "description_pre": "Adunk",
+                    "description_post": "csillagok"
+                },
+                "state": {
+                    "done": "Kész",
+                    "inProgress": "Folyamatban"
+                },
+                "condition_description": {
+                    "progress": "{{nbDone}} teljesített modulok"
+                },
+                "certificationDone": "Gratulálunk! Elérted a(z) {{certificationName}} célt!"
+            }
+        },
+        "sgmgt": {
+            "diploma": {
+                "message": "Az összes szükséges jártassághoz kapcsolódó lépés teljesítésre került a projekt menedzsment tudatossági keretkörnyezetben."
+            }
+        },
+        "securite": {
+            "diploma": {
+                "message": "megszerezte az tanúsítványhoz szükséges ismereteket a témakörben:"
+            }
+        },
+        "projet": {
+            "diploma": {
+                "message": "A szükséges ismeretek összes lépését elvégezték a projekt menedzsment felügyelete alatt"
+            }
+        },
+        "tagheuer": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Ez a modul még nem áll rendelkezésre. A feloldáshoz először törölje a Titán vagy a Bronz szinteket."
+                }
+            }
+        },
+        "tagheuercon": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "A modul még nem érhető el. A megnyitáshoz végezze el a titánium és bronz szinteket."
+                }
+            }
+        },
+        "up": {
+            "subtitle_head2": "Indítson el egy szintet amely egy Feladatba belefoglaltak közé tartozik.",
+            "how_to": "Egy Cél érvényesítéséhez minden szintet be kell fejeznie. Kezdjük el!",
+            "popover": {
+                "module_blocked_pre": "Ez a szint nem elérhető:",
+                "select_goal": {
+                    "module_done": "Ez a szint már teljesítve volt. Nemsokára eléri Kitűzött Célt.",
+                    "module_blocked": "Ez a szint még nem érhető el. A feloldásához először teljesítenie kell a Kezdő vagy Haladó szinteket."
+                }
+            },
+            "certification": {
+                "condition_description": {
+                    "progress": "Cél: {{count}} terület",
+                    "progress_plural": "Cél: {{count}} terület"
+                }
+            }
+        }
+    }
+}

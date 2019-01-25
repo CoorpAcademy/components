@@ -1,0 +1,201 @@
+{
+    "title": "Chứng chỉ của tôi.",
+    "subtitle_head1": "Chọn một hoặc nhiều chứng nhận hơn và hoàn thành chúng để cải thiện kỹ năng của bạn về một lĩnh vực hoặc chủ đề được chọn.",
+    "subtitle_head2": "Bắt đầu một học phần chứng nhận.",
+    "how_to": "Để xác thực một chứng nhận, bạn phải hoàn thành mọi học phần. Bắt đầu nào!",
+    "button_choose_goal": "Chọn một Chứng nhận.",
+    "selected_goals_title": "{{goals}} Chứng nhận hiện tại",
+    "selected_goals_title_plural": "{{goals}} Các chứng nhận hiện tại",
+    "selected_goals_no_item": "Bạn chưa lựa chọn Chứng chỉ nào. Hãy ấn chọn một chứng chỉ!",
+    "finished_goals_title": "{{goals}} Chứng nhận đã Hoàn thành",
+    "finished_goals_title_plural": "{{goals}} Giấy chứng nhận đã xóa",
+    "finished_goal_label": "{{goalLabel}} {{star}}",
+    "finished_goals_no_item": "Bạn chưa hoàn thành chứng nhận nào.",
+    "button_module_access": "Bắt đầu ngay",
+    "minutes_label": "tối thiểu",
+    "status_label": "Trạng thái:",
+    "stars_label": "{{stars}} ngôi sao",
+    "stars_label_plural": "{{stars}} sao",
+    "popover": {
+        "title": "Hãy Cẩn thận!",
+        "module_blocked_pre": "Mô-đun này không khả dụng:",
+        "module_blocked_post": "{{pre}} Để đạt được nó thì trước tiên bạn phải xác thực trình độ {{level}}",
+        "select_goal": {
+            "title": "Vui lòng Chọn một Chứng nhận",
+            "available_module": "{{total}} Chứng nhận Có sẵn",
+            "available_module_plural": "{{total}} Chứng nhận Có sẵn",
+            "module_done": "Học phần này đã được hoàn thành. Bạn đang trên đường xác thực Chứng nhận.",
+            "module_blocked": "Mô-đun này chưa khả dụng. Để mở khóa nó trước tiên bạn phải vượt qua cấp độ cơ bản hoặc Nâng cao.",
+            "button_add_goal": "Xác nhận Chứng nhận của tôi."
+        }
+    },
+    "condition_progress": {
+        "information": "Bạn đã hoàn thành {{done}}} trong tổng số {{total}} mô-đun được đề xuất."
+    },
+    "certification": {
+        "title": "Chứng nhận",
+        "title_plural": "Chứng nhận",
+        "subtitle": "Xác thực việc học của bạn ở đây",
+        "subtitle_plural": "Xác thực việc học tập của bạn tại đây",
+        "rewards": {
+            "subtitle": "Phần thưởng của Bạn",
+            "see_detail": "Nhìn thấy",
+            "congratulations": "chúc mừng thành công của bạn",
+            "you_can_win": "Thắng",
+            "download_resource": "Nhấp vào đây để tải về",
+            "see_diploma": "Xem Chứng chỉ",
+            "access_your_diploma": "Truy cập chứng chỉ của bạn"
+        },
+        "stars": {
+            "description_pre": "Lấy",
+            "description_post": "sao"
+        },
+        "state": {
+            "done": "Hoàn tất",
+            "inProgress": "Đang tiến hành"
+        },
+        "condition_description": {
+            "progress": "Mục tiêu: {{count}} mô-đun",
+            "progress_plural": "Mục tiêu: {{count}} học phần"
+        },
+        "certificationDone": "Xin chúc mừng! Bạn đã lấy được chứng nhận {{certificationName}}!"
+    },
+    "diploma": {
+        "certificate": "chứng nhận",
+        "date": "Ngày tháng: {{date}}",
+        "message": "đã hoàn thành tất cả các mô-đun thích hợp cho chứng chỉ này trong:"
+    },
+    "custom": {
+        "ecolenumerique-sncf": {
+            "certification": {
+                "title": "Huy hiệu Jedi",
+                "title_plural": "Jedi Badges",
+                "certificationDone": "Chúc mừng! Bạn đã thu được {{certificationName}} huy hiệu!",
+                "subtitle": "Xác thực Huy hiệu Jedi của bạn tại đây",
+                "subtitle_plural": "Xác thực Huy hiệu Jedi của bạn ở đây"
+            }
+        },
+        "ganprevoyance": {
+            "certification": {
+                "title": "Vũ trụ",
+                "title_plural": "Vũ trụ",
+                "certificationDone": "Chúc mừng! Bạn đã phê chuẩn {{certificationName}} Vũ trụ!",
+                "subtitle": "Xác thực Vũ trụ của bạn ở đây",
+                "subtitle_plural": "Phê chuẩn Universe của bạn tại đây"
+            }
+        },
+        "cnp": {
+            "certification": {
+                "title": "Giấy chứng nhận",
+                "title_plural": "Giấy chứng nhận",
+                "certificationDone": "Chúc mừng! Bạn có xác nhận {{certificationName}} chứng nhận!",
+                "subtitle": "Xác nhận chứng chỉ của bạn ở đây",
+                "subtitle_plural": "Xác nhận chứng chỉ của bạn ở đây"
+            }
+        },
+        "pernod": {
+            "title": "Các mục tiêu của tôi.",
+            "subtitle_head1": "Chọn một hoặc nhiều Mục tiêu và hoàn thành chúng để cải thiện kỹ năng của bạn trên lĩnh vực và chủ đề được chọn.",
+            "subtitle_head2": "Bắt đầu một mô-đun trong số những mô-đun được bao gồm trong một Mục tiêu.",
+            "how_to": "Để xác nhận một Mục tiêu, bạn phải hoàn thành mọi mô-đun. Hãy bắt đầu!",
+            "button_choose_goal": "Chọn một Mục tiêu.",
+            "selected_goals_title": "{{goals}} Mục tiêu Hiện tại",
+            "selected_goals_title_plural": "{{goals}} Mục tiêu Hiện tại",
+            "selected_goals_no_item": "Không có mục tiêu nào được lựa chọn. Vui lòng chọn một mục tiêu!",
+            "finished_goals_title": "{{goals}} Mục tiêu Hoàn thành",
+            "finished_goals_title_plural": "{{goals}} Mục tiêu Hoàn thành",
+            "finished_goal_label": "{{goalLabel}} {{star}}",
+            "finished_goals_no_item": "Bạn vẫn chưa hoàn thành Mục tiêu nào.",
+            "button_module_access": "Bắt đầu Ngay bây giờ",
+            "minutes_label": "min",
+            "status_label": "Trạng thái:",
+            "stars_label": "{{stars}} ngôi sao",
+            "stars_label_plural": "{{stars}} sao",
+            "popover": {
+                "title": "Hãy Cẩn thận!",
+                "module_blocked_pre": "Phần module này không có sẵn:",
+                "module_blocked_post": "{{pre}} Để đạt được trước hết bạn phải xác nhận cấp độ {{level}}",
+                "select_goal": {
+                    "title": "Hãy chọn một Mục tiêu",
+                    "available_module": "{{total}} Mục tiêu sẵn có",
+                    "available_module_plural": "{{total}} Mục tiêu Khả dụng",
+                    "module_done": "Mô-đun này đã bị xóa. Bạn đang sắp đạt được Mục tiêu.",
+                    "module_blocked": "Đơn thể này chưa có sẵn. Để mở khoá, trước hết bạn phải vượt qua cấp độ Cơ bản hoặc Nâng cao.",
+                    "button_add_goal": "Xác nhận Mục tiêu của tôi."
+                }
+            },
+            "condition_progress": {
+                "information": "Bạn đã hoàn thành {{done}} trên {{total}} học phần được đề xuất."
+            },
+            "certification": {
+                "title": "Mục tiêu của bạn",
+                "subtitle": "Xác nhận mục tiêu của các kỹ năng của bạn",
+                "rewards": {
+                    "subtitle": "Phần thưởng của bạn",
+                    "see_detail": "Xem",
+                    "congratulations_pre": "Và của chúng tôi",
+                    "congratulations": "chúng mừng",
+                    "congratulations_post": "cho mọi nỗ lực của bạn"
+                },
+                "stars": {
+                    "description_pre": "Chúng tôi trao cho bạn",
+                    "description_post": "những ngôi sao"
+                },
+                "state": {
+                    "done": "Xong",
+                    "inProgress": "Đang tiến hành"
+                },
+                "condition_description": {
+                    "progress": "{{nbDone}} học phần hoàn thành"
+                },
+                "certificationDone": "Xin chúc mừng! Bạn đã đạt được mục tiêu {{certificationName}}!"
+            }
+        },
+        "sgmgt": {
+            "diploma": {
+                "message": "Tất cả các bước về khả năng thông thạo được yêu cầu đã được hoàn thành trong khuôn khổ nhận biết về quản lý dự án"
+            }
+        },
+        "securite": {
+            "diploma": {
+                "message": "đã hoàn thành tất cả các mô-đun thích hợp cho chứng chỉ này trong:"
+            }
+        },
+        "projet": {
+            "diploma": {
+                "message": "Tất cả các bước của trình độ cần thiết đã được hoàn thành trong khuôn khổ của nhận biết quản lý dự án"
+            }
+        },
+        "tagheuer": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Mô-đun này chưa khả dụng. Để mở khóa, trước tiên bạn phải xóa các cấp độ Titan hoặc Đồng."
+                }
+            }
+        },
+        "tagheuercon": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Học phần này chưa có sẵn. Để mở khóa, bạn trước tiên phải hoàn thành các trình độ Bạch Kim và Đồng."
+                }
+            }
+        },
+        "up": {
+            "subtitle_head2": "Bắt đầu một trong số những trình độ có trong một Mục tiêu.",
+            "how_to": "Để xác thực một Mục tiêu, bạn phải hoàn thành mỗi trình độ! Bắt đầu nào!",
+            "popover": {
+                "module_blocked_pre": "Cấp độ này không có sẵn:",
+                "select_goal": {
+                    "module_done": "Cấp độ này đã được vượt qua. Bạn đang trên đường thực hiện Mục tiêu.",
+                    "module_blocked": "Trình độ này vẫn chưa có sẵn. Để mở khóa nó bạn phải hoàn thành các trình độ Cơ bản và Nâng cao trước."
+                }
+            },
+            "certification": {
+                "condition_description": {
+                    "progress": "Mục tiêu: {{count}} môn học",
+                    "progress_plural": "Đích: {{count}} môn"
+                }
+            }
+        }
+    }
+}

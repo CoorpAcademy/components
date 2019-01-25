@@ -1,0 +1,153 @@
+{
+    "loose": {
+        "title": "Home",
+        "end_try": "You have no more tries available!",
+        "echec_title": "O o o p s ...",
+        "new_badges": "{{number}} new badge earned",
+        "new_badges_plural": "{{number}} new badges earned",
+        "footer": {
+            "joker": {
+                "video": {
+                    "pre": "Watch the video",
+                    "text": "of the lesson",
+                    "win": "to win 1",
+                    "heart": "extra life",
+                    "post": "and continue the level."
+                },
+                "pdf": {
+                    "pre": "Read the lesson",
+                    "win": "to win 1",
+                    "heart": "extra life",
+                    "post": "and continue the level."
+                },
+                "without": "You have used your joker"
+            },
+            "new_try": {
+                "title_pre": "Try this level again.",
+                "title": "You are motivated,",
+                "title_post": "and it shows!",
+                "button": "Try this level again"
+            },
+            "new_module": {
+                "title_pre": "Access another level.",
+                "title": "You are going to catch up!",
+                "button": "Change course"
+            }
+        },
+        "type_badges": {
+            "init": "init",
+            "bronze": "Bronze",
+            "argent": "Silver",
+            "or": "Gold",
+            "platine": "Platinum"
+        }
+    },
+    "question_title": "Question: {{question}}",
+    "progression": "Question {{nb}} / {{ref}}",
+    "success": {
+        "home": "Home",
+        "title": "Congratulations!",
+        "subtitle": "You have completed this level",
+        "body": {
+            "new_star": "Stars  {{newStars}}",
+            "new_score": "Your new score {{newScore}}"
+        },
+        "new_badges": "{{new}} new badge earned",
+        "new_badges_plural": "{{new}} new badges earned",
+        "reported": "Thanks to this module you earned:",
+        "win": "You now have:",
+        "footer": {
+            "title": "You are off to a good start! Keep it up!",
+            "new_module": "Access this level",
+            "duration_unit": "min",
+            "battle": "Start Battle"
+        },
+        "type_badges": {
+            "init": "init",
+            "bronze": "Bronze",
+            "argent": "Silver",
+            "or": "Gold",
+            "platine": "Platinum"
+        },
+        "yourRanking": "Your Ranking:",
+        "rankWin": "(+ {{count}} rank)",
+        "rankWin_plural": "(+ {{count}} ranks)"
+    },
+    "duration": "{{nb}}",
+    "duration_post": "min",
+    "duration_post_plural": "mins",
+    "assistance": "Report an error",
+    "buy_next": "Buy next module",
+    "moduleNotFound": "No level found with the reference {{moduleRef}} for course {{disciplineName}}",
+    "custom": {
+        "armeedeterre": {
+            "success": {
+                "footer": {
+                    "battle": "Start Battle"
+                }
+            }
+        },      
+        "7steps": {
+            "loose": {
+                "type_badges": {
+                    "platine": "Top"
+                }
+            },
+            "success": {
+                "type_badges": {
+                    "platine": "Top"
+                }
+            }
+        },
+        "fdj": {
+            "loose": {
+                "echec_title": "finished",
+                "end_try": "You have finished the quiz!"
+            }
+        },
+        "letsgetdigital": {
+            "assistance": "Give feedback"
+        },       
+        "up": {
+            "loose": {
+                "footer": {
+                    "joker": {
+                        "video": {
+                            "post": "and continue the level"
+                        },
+                        "pdf": {
+                            "post": "and continue the level"
+                        }
+                    },
+                    "new_try": {
+                        "title_pre": "Try this level again.",
+                        "button": "Try this level again"
+                    },
+                    "new_module": {
+                        "title_pre": "Access another level.",
+                        "button": "Change course"
+                    }
+                }
+            },
+            "success": {
+                "subtitle": "You have passed this level",
+                "reported": "This level had you earned",
+                "footer": {
+                    "new_module": "Access this level"
+                }
+            },
+            "memo": {
+                "module_title": "Course: {{disciplineName}} - {{moduleName}}",
+                "from": "from the course {{disciplineName}} - {{name}}"
+            },
+            "buy_next": "Buy next course"
+        },
+        "who": {
+            "success": {
+                "footer": {
+                    "battle": "Start Challenge"
+                }
+            }
+        }
+    }
+}

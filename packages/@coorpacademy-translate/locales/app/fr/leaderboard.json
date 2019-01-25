@@ -1,0 +1,31 @@
+{
+    "rankPos": "&nbsp;",
+    "rankPos_plural": "ème",
+    "title": "Mon classement",
+    "title_caps": "Mon Classement",
+    "subtitle_head": "Visualisez votre position par rapport aux 20 apprenants ayant obtenu le plus grand nombre d'étoiles.",
+    "subtitle_core_pre": "Vous êtes",
+    "subtitle_core_post": "sur l'ensemble des apprenants !",
+    "subtitle_tail": "Continuez sur votre lancée afin d'améliorer encore votre score.",
+    "subtitle_no_rank": "Faites des modules afin de faire votre entrée dans le classement.",
+    "custom": {
+        "bnp": {
+            "subtitle_head": "Visualisez votre position par rapport au top 20 des Factiors."
+        },
+        "gdf": {
+            "subtitle_tail": "À la fin de la saison 1, les 20 premiers collaborateurs du classement général seront invités à participer au comité éditorial de la saison suivante de WeTransform pour réfléchir aux contenus des prochaines thématiques."
+        },
+        "gdfec": {
+            "subtitle_tail": "À la fin de la saison 1, les 20 premiers collaborateurs du classement général seront invités à participer au comité éditorial de la saison suivante de WeTransform pour réfléchir aux contenus des prochaines thématiques."
+        },
+        "up": {
+            "subtitle_no_rank": "Faites des cours afin de faire votre entrée dans le classement."
+        },
+        "yahoo": {
+            "subtitle_tail": "&nbsp;"
+        },
+        "linxea": {
+            "subtitle_head": "Visualisez votre position par rapport aux 20 premiers LinXéens ayant obtenu le plus grand nombre d'étoiles."
+        }
+    }
+}

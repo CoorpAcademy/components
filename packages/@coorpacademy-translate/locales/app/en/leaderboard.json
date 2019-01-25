@@ -1,0 +1,31 @@
+{
+    "rankPos": "&nbsp;",
+    "rankPos_plural": "&nbsp;",
+    "title": "My Ranking",
+    "title_caps": "My Ranking",
+    "subtitle_head": "View your position in relation to the top-20 star earners.",
+    "subtitle_core_pre": "You are ranked",
+    "subtitle_core_post": "out of all the learners!",
+    "subtitle_tail": "Keep up the momentum to further improve your score.",
+    "subtitle_no_rank": "Complete more modules to move up in the rankings.",
+    "custom": {
+        "bnp": {
+            "subtitle_head": "View your position in relation to the top-20 star Factiors."
+        },
+        "gdf": {
+            "subtitle_tail": "At the end of Season 1, the top-20 employees in the general ranking will be invited to the editorial committee to choose the subject content for the next WeTransform season."
+        },
+        "gdfec": {
+            "subtitle_tail": "At the end of Season 1, the top-20 employees in the general ranking will be invited to the editorial committee to choose the subject content for the next WeTransform season."
+        },
+        "up": {
+            "subtitle_no_rank": "Complete more levels to move up in the rankings."
+        },
+        "yahoo": {
+            "subtitle_tail": "&nbsp;"
+        },
+        "linxea": {
+            "subtitle_head": "View your position in relation to the top-20 star earners."
+        }
+    }
+}

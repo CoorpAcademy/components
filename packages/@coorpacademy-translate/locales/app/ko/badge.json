@@ -1,0 +1,29 @@
+{
+    "level_0": "초기",
+    "level_1": "브론즈",
+    "level_2": "실버",
+    "level_3": "골드",
+    "level_4": "플래티넘",
+    "custom": {
+        "7steps": {
+            "level_4": "맨 위로"
+        },
+        "renault": {
+            "my_badges_intro": "당신이 적립 모든 배지 보거나 마지막 클리오 RS의 \"왕\"이 될 수 있습니다 남아 있는! ;-)"
+        },
+        "tagheuer": {
+            "level_0": "초기",
+            "level_1": "기어 1",
+            "level_2": "기어 3",
+            "level_3": "기어 5",
+            "level_4": "기어 7"
+        },
+        "tagheuercon": {
+            "level_0": "초기",
+            "level_1": "기어 1",
+            "level_2": "기어 3",
+            "level_3": "기어 5",
+            "level_4": "기어 7"
+        }
+    }
+}

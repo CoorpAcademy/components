@@ -1,0 +1,29 @@
+{
+    "level_0": "birim",
+    "level_1": "Bronz",
+    "level_2": "Gümüş",
+    "level_3": "Altın",
+    "level_4": "Platin",
+    "custom": {
+        "7steps": {
+            "level_4": "Üst"
+        },
+        "renault": {
+            "my_badges_intro": "Kazandığınız tüm rozetleri ya da son Clio RS'nin \"kralı\" olmak için bekleyen rozetlerinizi gösterin ;-)"
+        },
+        "tagheuer": {
+            "level_0": "Birim",
+            "level_1": "1. VİTES",
+            "level_2": "3. VİTES",
+            "level_3": "5. VİTES",
+            "level_4": "7. VİTES"
+        },
+        "tagheuercon": {
+            "level_0": "İnit",
+            "level_1": "1. VİTES",
+            "level_2": "3. VİTES",
+            "level_3": "5. VİTES",
+            "level_4": "7. VİTES"
+        }
+    }
+}

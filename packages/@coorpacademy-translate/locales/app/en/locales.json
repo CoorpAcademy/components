@@ -1,0 +1,29 @@
+{
+    "en-US": "English",
+    "fr-FR": "Français",
+    "en": "English",
+    "en_US": "English (United States)",
+    "fr": "Français",
+    "es": "Español",
+    "hu": "Magyar",
+    "de": "Deutsch",
+    "it": "Italiano",
+    "pt": "Português",
+    "ru": "Русский",
+    "zh": "简体中文",
+    "zh_TW": "繁體中文",
+    "ja": "日本語",
+    "tr": "Türkçe",
+    "nl": "Dutch",
+    "pl": "Polski",
+    "ko": "한국어",
+    "cs": "český",
+    "uk": "Український",
+    "ro": "Românesc",
+    "vi": "Tiếng Việt",
+    "custom": {
+        "digitlearning": {
+            "nl": "Nederlands"
+        }
+    }
+}

@@ -1,0 +1,153 @@
+{
+    "loose": {
+        "title": "Home",
+        "end_try": "Non ci sono più tentativi disponibili!",
+        "echec_title": "O o o p s...",
+        "new_badges": "{{number}} nuovo distintivo appena conquistato",
+        "new_badges_plural": "{{number}} nuovi distintivi appena conquistati",
+        "footer": {
+            "joker": {
+                "video": {
+                    "pre": "Guarda il video",
+                    "text": "del corso per",
+                    "win": "ottenere 1",
+                    "heart": "cuore",
+                    "post": "e continuare il livello."
+                },
+                "pdf": {
+                    "pre": "Leggi il corso",
+                    "win": "per ottenere 1",
+                    "heart": "cuore",
+                    "post": "e continuare il livello."
+                },
+                "without": "Hai già usato il jolly."
+            },
+            "new_try": {
+                "title_pre": "Provare di nuovo questo livello.",
+                "title": "Sei motivato,",
+                "title_post": "si vede!",
+                "button": "Provare di nuovo questo livello"
+            },
+            "new_module": {
+                "title_pre": "Accedere a un altro livello.",
+                "title": "Non rimanere indietro!",
+                "button": "Cambiare il corso"
+            }
+        },
+        "type_badges": {
+            "init": "inizia",
+            "bronze": "Bronzo",
+            "argent": "Argento",
+            "or": "Oro",
+            "platine": "Platino"
+        }
+    },
+    "question_title": "Domanda: {{question}}",
+    "progression": "Domanda {{nb}} / {{ref}}",
+    "success": {
+        "home": "Home",
+        "title": "Congratulazioni!",
+        "subtitle": "Hai completato questo livello",
+        "body": {
+            "new_star": "Stelle {{newStars}}",
+            "new_score": "Nuovo punteggio {{newScore}}"
+        },
+        "new_badges": "{{new}} nuovo distintivo conquistato",
+        "new_badges_plural": "{{new}} nuovi distintivi conquistati",
+        "reported": "Il modulo ti ha fatto guadagnare",
+        "win": "Ora hai:",
+        "footer": {
+            "title": "Stai iniziando bene! Continua così!",
+            "new_module": "Questo livello di accesso",
+            "duration_unit": "min",
+            "battle": "Cominciare la battaglia"
+        },
+        "type_badges": {
+            "init": "inizia",
+            "bronze": "Bronzo",
+            "argent": "Argento",
+            "or": "Oro",
+            "platine": "Platino"
+        },
+        "yourRanking": "La tua posizione in classifica:",
+        "rankWin": "(+ rank di {{count}})",
+        "rankWin_plural": "(+ ranghi di {{count}})"
+    },
+    "duration": "{{nb}}",
+    "duration_post": "min",
+    "duration_post_plural": "min",
+    "assistance": "Segnala un errore",
+    "buy_next": "Acquista il corso modulo",
+    "moduleNotFound": "Nessun livello trovato con il codice di riferimento {{moduleRef}} per il corso {{disciplineName}}",
+    "custom": {
+        "armeedeterre": {
+            "success": {
+                "footer": {
+                    "battle": "Cominciare la battaglia"
+                }
+            }
+        },
+        "7steps": {
+            "loose": {
+                "type_badges": {
+                    "platine": "In alto"
+                }
+            },
+            "success": {
+                "type_badges": {
+                    "platine": "In alto"
+                }
+            }
+        },
+        "fdj": {
+            "loose": {
+                "echec_title": "finito",
+                "end_try": "È terminata il quiz!"
+            }
+        },
+        "letsgetdigital": {
+            "assistance": "Dare un feedback"
+        },
+        "up": {
+            "loose": {
+                "footer": {
+                    "joker": {
+                        "video": {
+                            "post": "e continuare il livello"
+                        },
+                        "pdf": {
+                            "post": "e continuare il livello"
+                        }
+                    },
+                    "new_try": {
+                        "title_pre": "Provare di nuovo questo livello.",
+                        "button": "Provare di nuovo questo livello"
+                    },
+                    "new_module": {
+                        "title_pre": "Accedere a un altro livello.",
+                        "button": "Cambiare il corso"
+                    }
+                }
+            },
+            "success": {
+                "subtitle": "Avete superato questo livello",
+                "reported": "Questo livello ha avuto hai guadagnato",
+                "footer": {
+                    "new_module": "Questo livello di accesso"
+                }
+            },
+            "memo": {
+                "module_title": "Corso: {{disciplineName}} - {{moduleName}}",
+                "from": "il campo da {{disciplineName}} - {{name}}"
+            },
+            "buy_next": "Acquistare il prossimo corso"
+        },
+        "who": {
+            "success": {
+                "footer": {
+                    "battle": "Inizia la sfida"
+                }
+            }
+        }
+    }
+}

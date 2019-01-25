@@ -1,0 +1,203 @@
+{
+    "video_player": {
+        "jw": "Videospeler laden...",
+        "fileCouldNotBePlayedTitle": "Fout bij het afspelen ",
+        "flashInstallUrl": "https://get.adobe.com/en/flashplayer/",
+        "MEDIA_ERR_UNKNOWN": {
+            "title": "Er is een onbekende fout opgetreden.",
+            "description": "We hebben een fout vastgesteld bij het afspelen van de video. We zullen het probleem onderzoeken ."
+        },
+        "MEDIA_ERR_ABORTED": {
+            "title": "Het ophaalproces voor de mediabron is onderbroken.",
+            "description": "Controleer je internetverbinding en probeer de video opnieuw te laden."
+        },
+        "MEDIA_ERR_NETWORK": {
+            "title": "Door een netwerkfout kon de video niet geladen worden.",
+            "description": "Controleer je internetverbinding en probeer de video opnieuw te laden."
+        },
+        "MEDIA_ERR_DECODE": {
+            "title": "Er is een fout opgetreden in de decodering van de mediabron.",
+            "description": "Deze video wordt niet ondersteund in deze browser. Het is een probleem binnen je browser of besturingssysteem."
+        },
+        "MEDIA_ERR_SRC_NOT_SUPPORTED": {
+            "title": "De mediabron is niet bruikbaar",
+            "description": "Deze video is niet beschikbaar of wordt niet ondersteund in deze browser. Je kunt het proberen met een andere browser of Flash Player installeren en deze pagina opnieuw laden."
+        }
+    },
+    "account_menu": {
+        "badge": "Badges",
+        "account": "Mijn account",
+        "objectif": "Certificaten",
+        "activity": "Activiteit",
+        "competence_win": "Verworven vaardigheden",
+        "timeline": "Overzicht vooruitgang",
+        "discussion": "Forum",
+        "conseil": "Tips & hints",
+        "coach": "Coaches",
+        "battle": "Battle modus",
+        "modification": "Mijn informatie bewerken"
+    },
+    "chat_room": {
+        "button_wrapper": "Verzenden",
+        "placeholder": "Jouw bericht",
+        "connexion": "{{displayName}} > doet ook mee met dit gesprek",
+        "deconnexion": "{{displayName}} heeft dit gesprek verlaten"
+    },
+    "badgesLabel": {
+        "battle": {
+            "detail": "{{detail}} battle voltooid",
+            "detail_plural": "{{detail}} battles voltooid"
+        },
+        "module": {
+            "detail": "{{detail}}module voltooid zonder een leven te verliezen!",
+            "detail_plural": "{{detail}} modules voltooid zonder een leven te verliezen!"
+        },
+        "lesson": {
+            "detail": "{{detail}} les bekeken!",
+            "detail_plural": "{{detail}} lessen bekeken!"
+        },
+        "question": {
+            "detail": "{{detail}} vraag correct beantwoord!",
+            "detail_plural": "{{detail}} vragen correct beantwoord!"
+        },
+        "coach": {
+            "detail": "{{detail}} interactie met de coaches!",
+            "detail_plural": "{{detail}} interacties met de coaches!"
+        }
+    },
+    "notificationMenu": {
+        "god_mode": "Godmodus activeren",
+        "notification": "Bureaubladmeldingen activeren",
+        "title": "({{nb}}) meldingen ",
+        "forum": "Een gebruiker heeft gereageerd op je commentaar met betrekking tot het niveau van module {{name}}, niveau {{level}}",
+        "badge_title": "Gefeliciteerd!",
+        "badge": "Je hebt de badge {{name}} {{level}} verdiend",
+        "module_title": "Gefeliciteerd!",
+        "module": "Je hebt de module {{name}} op niveau {{level}} voltooid!",
+        "battle": {
+            "new": "{{name}} wil je uitdagen voor de module {{module}} op niveau {{level}}!",
+            "accepted": "Je uitdaging is aanvaard",
+            "win": "Je hebt de wedstrijd tegen {{looser}} gewonnen voor module {{module}}, niveau {{level}}!",
+            "loose": "Je hebt de battle tegen {{winner}} verloren voor module {{module}} niveau {{level}}..."
+        },
+        "link": "Alles laten zien",
+        "challenge_reminder": "Vergeet niet dat {{name}} je heeft uitgedaagd voor de  module {{module}} op niveau {{level}} en op jouw reactie wacht!",
+        "coach": "Bravo! Je bent een coach in de discipline {{name}} geworden!",
+        "start_aim": "Je hebt het {{name}}-certificaat geselecteerd. Laten we beginnen!",
+        "goal_as_reward": "Je hebt het {{name}}-certificaat ontgrendeld. Let's go!",
+        "half_achieved": "Gefeliciteerd! Je bent halverwege met jouw {{name}}-certificatie! Ga zo door.",
+        "three_third_achieved": "Gefeliciteerd! Je hebt het {{name}}-certificaat verdiend! Deel je succes met je netwerk.",
+        "continue_goals": "Gefeliciteerd! Je hebt het {{name}}-certificaat behaald! Begin met een nieuw certificaat!",
+        "continue": "Je bent goed bezig, waarom stoppen? Ga verder met het {{name}}-certificaat!",
+        "mandatory": "Om het {{name}} certificaat te behalen, moet je {{levels}} modules afronden!",
+        "mandatory_plural": "Om het{{name}} certificaat te behalen, moet je {{levels}} modules afronden!",
+        "mandatory_achieved": "Proficiat! Je hebt het {{name}}-certificaat behaald!",
+        "toggleCoach": "Beschikbaar voor coach",
+        "reward_title": "Bravo! Je hebt een beloning verdiend!",
+        "reward_description": {
+            "bonusStars": "Je hebt als bonus {{stars}} nieuwe sterren verdiend."
+        }
+    },
+    "custom": {
+        "armeedeterre": {
+            "account_menu": {
+                "battle": "Battle modus"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} battle voltooid",
+                    "detail_plural": "{{detail}} battles voltooid"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "Je battle werd aanvaard",
+                    "win": "Je hebt de battle tegen {{looser}} gewonnen voor de module {{module}}, niveau {{level}} !",
+                    "loose": "Je hebt de battle tegen {{winner}} verloren voor de module {{module}}, niveau {{level}} ..."
+                }
+            }
+        },
+        "gdf": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} thema voltooid",
+                    "detail_plural": "{{detail}} thema's voltooid"
+                }
+            }
+        },
+        "gdfec": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} thema voltooid",
+                    "detail_plural": "{{detail}} thema's voltooid"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "assistance": {
+                "title": "Feedback"
+            }
+        },
+        "pernod": {
+            "notificationMenu": {
+                "start_aim": "U hebt de doelstelling {{name}}. Aan de slag!",
+                "goal_as_reward": "U hebt de {{name}} doelstelling gedeblokkeerd. Aan de slag!",
+                "half_achieved": "Goed gedaan! Je hebt 50% van de doelstelling {{name}} behaald!",
+                "three_third_achieved": "Gefeliciteerd! Je hebt doelstelling \"{{name}}\" bereikt!",
+                "continue_goals": "Gefeliciteerd! Je hebt het objectief \"{{name}}\" bereikt! Start een volgend objectief!",
+                "continue": "Je bent goed bezig, waarom stoppen? Ga verder met de doelstelling {{name}}!",
+                "mandatory": "Als je je training wil voltooien, moet je doelstelling {{name}} bereiken: laten we eraan beginnen!",
+                "mandatory_achieved": "Proficiat! Je hebt doelstelling {{name}}bereikt!"
+            }
+        },
+        "up": {
+            "badgesLabel": {
+                "module": {
+                    "detail": "{{detail}} detailniveau voltooid zonder verlies van een leven!",
+                    "detail_plural": "{{detail}} niveaus voltooid zonder een leven te verliezen!"
+                }
+            },
+            "notificationMenu": {
+                "forum": "Een gebruiker heeft gereageerd op je commentaar met betrekking tot het niveau {{level}}van de cursus {{name}}",
+                "module": "Je bent geslaagd voor les {{name}} niveau {{level}}!",
+                "battle": {
+                    "new": "{{name}} daagt je uit op het niveau {{level}}van de cursus {{module}}!",
+                    "win": "Je hebt de battle tegen {{looser}} gewonnen in de module {{module}}, niveau {{level}} !",
+                    "loose": "Je hebt de battle tegen {{winner}} verloren voor module {{module}} niveau {{level}} ..."
+                },
+                "challenge_reminder": "Vergeet niet dat {{name}} je heeft uitgedaagd voor de module {{module}}, niveau{{level}} en op je reactie wacht!",
+                "coach": "Bravo! Je bent nu coach in de cursus {{name}}!"
+            }
+        },
+        "who": {
+            "account_menu": {
+                "battle": "Challenge modus"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} uitdaging voltooid",
+                    "detail_plural": "{{detail}} uitdagingen voltooid"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "Je uitdaging is aanvaard",
+                    "win": "Je hebt de uitdaging tegen {{looser}} gewonnen voor de module {{module}}, niveau {{level}}!",
+                    "loose": "Je hebt de uitdaging tegen {{winner}} verloren voor module {{module}}niveau {{level}} ..."
+                },
+                "continue_goals": "Proficiat! Je hebt je {{name}} certificaat verkregen!"
+            }
+        }
+    },
+    "assistance": {
+        "title": "Helpdesk",
+        "object": "Onderwerp",
+        "message": "Bericht",
+        "send": "Verzenden",
+        "thanks": "Bedankt voor je bericht!",
+        "next": "Volgende"
+    },
+    "cards": {
+        "allCategories": "Alle categorieën"
+    }
+}

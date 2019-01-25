@@ -1,0 +1,1569 @@
+{
+    "hello": "Üdvözöljük, {{displayname}}!",
+    "show_more": "Összes",
+    "registered": {
+        "score": "Az Ön pontszáma",
+        "new_score": "Új pontszámod {{newscore}}",
+        "badge": {
+            "new": "1 jelvény",
+            "new_post": "nyert",
+            "award_pre": "Bronz",
+            "award": "- 3 csata",
+            "award_post": "kész",
+            "name": "Bronz"
+        },
+        "next_player": "Az ellenfél köre...",
+        "button_back": "Vissza"
+    },
+    "slides_battle": "{{count}}. kérdés",
+    "slides_battle_check": "Érvényesítés",
+    "success_battle": {
+        "title": "Csata vége!",
+        "result": {
+            "win": "Gratulálunk, nyerél!",
+            "win_fast": "Gratulálunk, te nyertél a legkevesebb idő alattl!",
+            "win_first": "Gratulálunk!",
+            "win_second": "nyert",
+            "loose": "Jaj, vesztett!",
+            "loose_first": "Jaj",
+            "loose_second": "vesztett!",
+            "loose_against": "Sajnos vesztettél, {{name}} gyorsabb volt! ",
+            "winStars": "Ezzel a csatával további {{count}} csillagot nyert!",
+            "winStars_plural": "Ön nyert {{count}} további csillagot ezzel a csatával!"
+        },
+        "badge_user": {
+            "text": "1 jelvény",
+            "text_post": "nyert",
+            "award_pre": "Bronz",
+            "award": "- 3 csata",
+            "award_post": "kész",
+            "name": "Bronz"
+        },
+        "badge_opponent": {
+            "text": "1 jelvény",
+            "text_post": "megnyert",
+            "award_pre": "Bronz",
+            "award": "- 3 csata",
+            "award_post": "kész",
+            "name": "Bronz"
+        },
+        "footer": "Visszatérés"
+    },
+    "notificationCard": {
+        "request_title": "{{title}} Lekérés",
+        "request": "{{module}} Modul {{level}} szint",
+        "aim": {
+            "text": "1 új válasz",
+            "text_post": "a kérdésére",
+            "name": "Keresztnév Vezetéknév",
+            "link": "Lásd"
+        },
+        "badge": {
+            "text": "Gratulálunk! 1 új kitűzőt nyert",
+            "text_post": "nyeremény",
+            "link": "Megtekintés"
+        },
+        "battle": {
+            "text": "1 új csatát kapott",
+            "text_post": "kihívás",
+            "link": "Lásd",
+            "demand_accept": "Csata kihívásod",
+            "demand_accept_post": "el lett fogadva",
+            "win_against_title": "Egy csatát nyert!",
+            "loose_against_title": "Elvesztette a csatát!",
+            "against": "{{module}} modul {{level}} szint",
+            "versus": "ellen"
+        },
+        "forum_text": "Van 1 új választ a megjegyzést a {{module}} modul {{level}} szint",
+        "forum_text_page": "1 új érkezik válasz, a megjegyzést a fórum",
+        "module": {
+            "text": {
+                "bravo": "Gratulálunk!",
+                "pre": "Ön átment",
+                "detail": "a modul ",
+                "base": "Kezdő szint",
+                "advanced": "Haladó szint",
+                "coach": "Edző szint"
+            },
+            "link": "Lásd"
+        },
+        "reward": {
+            "bonusStars": {
+                "title": "Gratulálunk! További csillagokat nyert!",
+                "goal": {
+                    "description": "Elérted a {{goal}} célt. Ezzel {{stars}} additional csillagot nyertél."
+                },
+                "rh": {
+                    "description": " {{stars}} további csillagot nyertél díjként. "
+                }
+            },
+            "rewardStars": {
+                "title": "Gratulálunk! Újabb csillagot szerzett!",
+                "goal": {
+                    "description": "Ön elérte a {{goal}} célt. Ez lehetővé tette, hogy nyerjen {{stars}} további csillagot."
+                }
+            },
+            "resource": {
+                "title": "Gratulálunk! Mostantól elérsz egy új elemet!",
+                "description": "Ön elérte a {{goal}} célt. Ez hozzáférést biztosít a {{label}}."
+            },
+            "diploma": {
+                "title": "Diploma",
+                "description": "Elérte a {{goal}} célt. Megszerezte diplomáját. Gratulálunk!"
+            }
+        },
+        "coach": {
+            "bravo": "Gratulálunk!",
+            "text": "Képzésvezető lett a {{disciplineName} tárgyból"
+        },
+        "title": {
+            "text": "{{title}} Kérés",
+            "Battle": "Csata",
+            "Module": "Modul",
+            "Badge": "Kitűző",
+            "Forum": "Hozzászólások",
+            "Coach": "Oktató",
+            "cmsNotification": "Információ",
+            "welcome": "Üdvözöljük",
+            "resetModule": "Tartalom frissítve!"
+        },
+        "type": {
+            "module": "Modul",
+            "badge": "Jelvény",
+            "battle": "Csata",
+            "forum": "Beszélgetés",
+            "Coach": "Edző",
+            "objectif": "Hitelesítés",
+            "cmsNotification": "Információ",
+            "reward": "Jutalom",
+            "welcome": "Üdvözlet",
+            "resetModule": "Tartalom frissítve!"
+        }
+    },
+    "achievement": {
+        "helper": "Tekintse át a sikereit! Képes lesz elérni a platinum szintet az összes jelvényéhez?",
+        "titre": "Az ön kitüntetései"
+    },
+    "navigation": {
+        "text": "A navigációs menüdben a platformod összes funkcióját eléred",
+        "my_board": "Portál",
+        "population": "Népességeim",
+        "learningTree": {
+            "helper": "Érje el összes útját 1 kattintással",
+            "push": "Hozzáférés összes büntetéséhez",
+            "push_post": "1 kattintással"
+        },
+        "account_helper": "Böngéssze át a személyes felületet, nézze meg eredményeit, menedzselje az előrehaladását, vegyen részt beszélgetésekben, vagy csak kövesse a leckéket a modulok megkezdése előtt.",
+        "account": "Fiókom",
+        "language": "Nyelv",
+        "notification": "Értesítések",
+        "badge": "Jelvényeim",
+        "objectif": "Igazolásaim",
+        "activity": "Tevékenység",
+        "discussion": "Beszélgetések",
+        "conseil": "Tippek és trükkök",
+        "coach": "Edzők",
+        "lessons": "Könyvtár",
+        "battle_helper": "Ha végzett egy modullal, hívjon ki másokat akik ugyanazon a szinten vannak egy gyors, 10 kérdéses játékra!",
+        "battle_pre": "Csata mód",
+        "battle": "Hívja ki a kollégáit \"Csata\" módban: válaszoljon a kérdésekre a lehető leggyorsabban!",
+        "battle_post": "Kattints ide!",
+        "assistance": "Támogatás",
+        "home": "Kezdőlap",
+        "certifications": "Okleveleim"
+    },
+    "personal_selection": {
+        "text_helper": "Az irányától függően 3 modul javasolt!",
+        "title": "Ajánlataink önnek",
+        "acces_module": "Kezdés most",
+        "payment_required": "Vásárlás most",
+        "popular_module_helper": "Kell egy kis ösztönzés? A legnépszerűbb kategória kiválasztásával megnézheted, mit csinálnak a többiek.",
+        "last_discussion": "Legutóbbi beszélgetések",
+        "no_discussion": "Nincs beszélgetés",
+        "last_module": "Utolsó játszott modul",
+        "no_module": "Nincs lejátszott modul ",
+        "level": {
+            "pre": "Szint",
+            "base": "Alap,",
+            "advanced": "Fejlett,",
+            "coach": "Oktató,",
+            "post": "{{stars}}/{{maxstars}}"
+        },
+        "popular_module": "Legtöbbször játszott területek",
+        "easiest_disciplines": "Legkorábbi büntetések",
+        "hardest_disciplines": "Legnehezebb Tárgyak",
+        "no_popular_module": "Egy modullal sem játszott",
+        "module_name": {
+            "pre": "szint",
+            "base": "Alap",
+            "advanced": "Fejlett",
+            "coach": "Edző"
+        }
+    },
+    "activity": {
+        "title": "Tevékenység",
+        "progression_text_pre": "Hogy megy a tárgy?",
+        "progression_text": "Haladsz a céljaid elérése felé? ",
+        "progression_subtext": "Most itt az idő megnézni...",
+        "discipline_title": "Téma",
+        "disciplines": {
+            "title": "Fegyelmez",
+            "score": "Pontszám",
+            "actual_level": "Jelenlegi szint"
+        },
+        "module_title": "Modulok",
+        "avancement": "Előremenetel",
+        "caption-started": "Modul elkezdve",
+        "caption-done": "befejezett modul"
+    },
+    "myactivity": {
+        "title": "Tevékenység:",
+        "subtitle": "Hogyan történik a fejlődés a tanfolyamok?",
+        "total": "Összesen:",
+        "engines": {
+            "learner": "Tanfolyamok",
+            "microlearning": "5' Learning",
+            "battle": "Battles",
+            "certifications": "Minősítések",
+            "bonus": "Bonus"
+        },
+        "recommendation": {
+            "title": "Hello {{displayName}}, növeli a pontszámot!",
+            "subtitle": "Ajánljuk:"
+        },
+        "starsToolTip": {
+            "preMessage": "Ez a funkció jelenleg nem elérthető az ön platformján. Ha aktiválni szeretné, vegye fel a kapcsolatot a vezetőjével, vagy",
+            "linkMessage": "kattintson ide,",
+            "endMessage": "és továbbítjuk az üzenetet."
+        }
+    },
+    "goals": {
+        "title": "Továbblépés a Tanúsítványai felé"
+    },
+    "badges": {
+        "title": "Az Összes Jelvényem",
+        "subtitle": "Összes kitüntetése megismerése",
+        "title-1-0": "Jelvényeim",
+        "subtitle-1-0": "Itt megnézheted az összes eddig megszerzett kitűződet, és hogy miket kell még megszerezned, hogy te lehess a digitális \"Király\"! ;-)",
+        "newBadgeWon": "Ennyi mindened van:",
+        "newBadgeWon_plural": "A következőket szerezte meg:",
+        "seeYourBadges": "Jelvények megtekintése",
+        "battle": {
+            "name": "Csata Harcos",
+            "details": "{{count}} harc",
+            "details_plural": "{{count}} Csaták",
+            "details_post": "kész!",
+            "details_post_plural": "kész!"
+        },
+        "module": {
+            "name": "Túlélő Mód",
+            "details": "{{count}} Modul",
+            "details_plural": "{{count}} modul",
+            "success": "kész",
+            "success_plural": "kész",
+            "details_pre_1": "vesztés nélkül",
+            "details_pre_2": "életet!"
+        },
+        "lesson": {
+            "name": "Első az Osztályban",
+            "details": "{{count}} lecke",
+            "details_plural": "{{count}} óra",
+            "details_post": "teljesen megtekintve",
+            "details_post_plural": "teljesen megnézve!"
+        },
+        "question": {
+            "name": "Kérdések a bajnokhoz",
+            "details": "{{count}} kérdés",
+            "details_plural": "{{count}} Kérdések",
+            "details_post": "megválaszolt!",
+            "details_post_plural": "megválaszolva!"
+        },
+        "coach": {
+            "name": "Első díj bajtársiasságban",
+            "details": "{{count}} interakció",
+            "details_plural": "{{count}} Interakció",
+            "details_pre_1": "-vel",
+            "details_pre_2": "az edzők!"
+        },
+        "level": {
+            "bronze": "Bronz",
+            "silver": "Ezüst",
+            "gold": "Arany",
+            "platinum": "Platina"
+        }
+    },
+    "battle": {
+        "title": "Csaták",
+        "create": "Hozzon létre egy csatát",
+        "requests": {
+            "title": "Csata felkérések",
+            "no_requests_found": "Még nincs csatára szóló kihívásod",
+            "sendBattle": "{{opponentName}} kihívta önt"
+        },
+        "history": {
+            "title": "Csataelőzmények",
+            "message": {
+                "pending": "Ez a csata az ellenfél megerősítésére vár",
+                "win": "Megnyerted a csatát!",
+                "lost": "Elveszítette a csatát!",
+                "win_byTime": "Te voltál a leggyorsabb!",
+                "lost_byTime": "Túl lassú volt!"
+            },
+            "no_history_found": "Még nincsenek csataelőzményei"
+        },
+        "start": {
+            "cta": "<span class=\"bold\">Csata</span> indítása",
+            "new_cta": "Új <span class=\"bold\">csata</span> létrehozása",
+            "cancel": "Elutasítás",
+            "body_pre": "Sebesség számít:",
+            "bodyText": "Ha a döntetlen, a leggyorsabb nyer!",
+            "me": "Én ",
+            "inProgress": "Folyamatban"
+        },
+        "steps": {
+            "1": "1. Válassza ki a szint",
+            "2": "2. Válassza ki az ellenfél",
+            "3": "3. Indítsa el a csata"
+        },
+        "select_module": {
+            "title": "Válassza ki a szintet:",
+            "placeholder": "Adjon meg egy modulnevet",
+            "no_module_available": "Csak egy befejezett modulban hozhat létre egy csatát.",
+            "no_module_found": "Nem található modul"
+        },
+        "select_theme": {
+            "title": "Válassza ki a gyűjtemény:"
+        },
+        "select_opponent": {
+            "title": "Válassza ki ellenfelét",
+            "placeholder": "Írj be egy nevet",
+            "no_opponent_found": "Nem található ellenfél",
+            "random": "Véletlenszerű ellenféllel"
+        },
+        "subtitle": "Hívja ki kollégiáit!",
+        "button": {
+            "create": "Új Csata Létrehozása",
+            "cancel": "Töröl"
+        },
+        "score": "10",
+        "no_battle_progress": "Nincs folyamatban lévő csatád. ",
+        "block": {
+            "title": "Felhívás csatára"
+        },
+        "accept_button": "Elfogadás",
+        "no_proposition": "Még nem kapott egy csata felkérést sem",
+        "completed": {
+            "title": "befejezett Csaták",
+            "subtitle_pre": "Részt vett a ",
+            "subtitle_pre_plural": "Részt vett",
+            "subtitle": "{{count}} csata, megnyerve {{nb}}",
+            "subtitle_plural": "{{count}} csata, nyerés {{nb}}"
+        },
+        "block_empty": "Nincs befejezett csatád.",
+        "create_title": "Csata létrehozása",
+        "active_title_intro": "Csatamód",
+        "active_title_active": "aktiválva",
+        "start_discipline": "Egy tudományág indítása",
+        "no_opponent": "Nem ezen a szinten rendelkezésre álló ellenfél",
+        "coming_soon_random": "Csata indítása véletlenszerűen"
+    },
+    "dashboard": {
+        "text": "Az Űr Verseny! Megnyerheted a kérdések helyes megválaszolásával, az órák követésével, vagy a közösséggel (csatákon és oktatáson keresztül)!",
+        "title": "Eredményed",
+        "data": {
+            "intro": "Ön a topon van",
+            "value": "15%",
+            "wording": "legmagasabb pontszámok"
+        },
+        "data_dev_hidden": {
+            "question": {
+                "title": "Kérdések:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "Ön része a",
+                    "level": "{{level}}",
+                    "wording": "a legtöbb csillagos"
+                }
+            },
+            "cours": {
+                "title": "Lecke:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "Ide tartozol: ",
+                    "level": "{{level}}",
+                    "wording": "ki nézte meg a legtöbb leckét"
+                }
+            },
+            "extra": {
+                "title": "Extrák:",
+                "stat": {
+                    "intro": "Ön része a ",
+                    "level": "{{level}}",
+                    "wording": "a legjobb eredménnyel."
+                }
+            },
+            "total_title": "Összesen:"
+        }
+    },
+    "lessons": {
+        "title": "Minden Lecke és Videó",
+        "subtitle": "Szeretnél tanulni még, vagy átnézni a dolgokat a kvíz előtt? Ezt az oldalt neked hozták létre. Itt van minden anyag  téma szerint csoportosítva.",
+        "subtitle_up": "Át akarja nézni a tanulmányt a kérdőívek elkezdése előtt?",
+        "empty": "Nincs forrás a kurzus található."
+    },
+    "notifications": {
+        "title": "Értesítések",
+        "infos": "<b>{{count}}</b> értesítés!",
+        "infos_plural": "<b>{{count}}</b> értesítés!",
+        "filter": "Szűrés...",
+        "close": "Bezárás",
+        "myNotifications": "Értesítéseim megtekintése",
+        "deleteAll": "Összes Törlése",
+        "filters": {
+            "module": "Szintjén szűrni",
+            "badge": "Szűrés jelvény alapján",
+            "forum": "Szűrés beszélgetés szerint",
+            "battle": "Szűrés csata szerint",
+            "coach": "Szűrés Edző alapján",
+            "objectif": "Szűrés Célkitűzés szerint",
+            "reward": "Szűrés jutalom szerint",
+            "welcome": "Üdvözlő üzenetek szűrése",
+            "resetModule": "Frissített tartalom szűrés"
+        }
+    },
+    "block_push": {
+        "tree": {
+            "title": "Összes tartalom böngészése",
+            "content": "Gyors indításhoz kattints ide",
+            "link": "Kattints ide"
+        },
+        "battle": {
+            "title": "Hívd ki társaid!",
+            "content": "Indíts egy „csatát”. A képességed fejlesztése még sosem volt ekkora móka!",
+            "link": "Kattintson ide"
+        }
+    },
+    "welcomePopin": {
+        "title": "Üdvözlünk!",
+        "text": "A MOOC kipróbálásához menj az Első Alkalom oldalra.",
+        "button": "Fedezzen fel"
+    },
+    "global_notification": {
+        "button": {
+            "show_more": "További Információk"
+        }
+    },
+    "filters": {
+        "all": "Összes",
+        "coorpers": "Coorpers",
+        "courses": "Leckéim"
+    },
+    "sections": {
+        "most-popular": "Legnépszerűbb",
+        "most-recent": "Új kiadások",
+        "my-list": "{{name}} listája",
+        "news": "Hírek",
+        "recommended": "Ajánlott",
+        "load_more": "Terhelés több",
+        "certification": "Minősítés: {{name}}",
+        "prefix_chapter": "5' Learning: {{title}}"
+    },
+    "continueLesson": "Kurzus folytatása",
+    "widgets": {
+        "read_more": "Tovább"
+    },
+    "discussion": {
+        "title": "Az összes kurzushozzászólás",
+        "subtitle": "Tekintse meg a közösség összes üzenetét a különböző témákban"
+    },
+    "slider": {
+        "start": {
+            "surtitle": "Üdvözöljük  {{displayName}},",
+            "surtitle_anonymous": "üdvözlet,",
+            "title": "Fedezze fel az új tanfolyamok",
+            "cta": "Lásd a katalógus"
+        },
+        "resume": {
+            "surtitle_learner": "Üdvözöljük újra {{displayName}}, továbbra is:",
+            "surtitle_microlearning": "Üdvözöljük újra {{displayName}}, továbbra is:",
+            "surtitle_learner_anonymous": "Üdvözöljük újra, továbbra is:",
+            "surtitle_microlearning_anonymous": "Üdvözöljük újra, továbbra is:",
+            "title": "{{courseName}}",
+            "cta": "Folytatni a tanulást"
+        },
+        "battle": {
+            "surtitle": "Üdvözöljük újra {{displayName}}, ellenőrizze a csata kérések",
+            "title": "{{count}} csata kérés van!",
+            "title_plural": "{{count}} csata kívánsága van!",
+            "cta": "Indítsa el a harcoló"
+        }
+    },
+    "custom": {
+        "7steps": {
+            "achievement": {
+                "helper": "Sikereid áttekintése! Képes vagy arra, hogy a csúcsra törj az összes jelvénynél?"
+            },
+            "badges": {
+                "level": {
+                    "platinum": "Teteje"
+                }
+            },
+            "block_push": {
+                "tree": {
+                    "content": "Kezdj el tanulni most!"
+                }
+            }
+        },
+        "accueil": {
+            "filters": {
+                "coorpers": "mooc-erezők"
+            },
+            "badges": {
+                "battle": {
+                    "name": "Kihívó",
+                    "details_3": "40"
+                },
+                "module": {
+                    "name": "Szuperhős",
+                    "details_1": {
+                        "number": "2"
+                    },
+                    "details_2": {
+                        "number": "4"
+                    },
+                    "details_3": {
+                        "number": "6"
+                    }
+                },
+                "lesson": {
+                    "name": "Tandíj költsége",
+                    "details_0": "5",
+                    "details_1": "15",
+                    "details_2": "30",
+                    "details_3": "60"
+                },
+                "question": {
+                    "name": "Kérdések egy Bajnokhoz",
+                    "details_3": "360"
+                },
+                "coach": {
+                    "name": "Követési Díj"
+                }
+            }
+        },
+        "architas-powercircle": {
+            "filters": {
+                "coorpers": "Befektetési szuperhősök"
+            }
+        },
+        "armeedeterre": {
+            "slider": {
+                "battle": {
+                    "surtitle": "Üdvözöljük újra {{displayName}}, ellenőrizze a csata kérelmeket",
+                    "title": "{{count}} csata kérés van!",
+                    "title_plural": "{{count}} csata kívánsága van!",
+                    "cta": "Indítsa el a harcoló"
+                }
+            },
+            "battle_start": {
+                "title": "A csata szó, hogy kezdődik."
+            },
+            "select_module": {
+                "no_module_available": "Csak akkor hozhat egy csatát egy kész szint."
+            },
+            "success_battle": {
+                "title": "harc!",
+                "badge_user": {
+                    "award": "-3 csaták"
+                },
+                "badge_opponent": {
+                    "award": "-3 csaták"
+                },
+                "winStars": "Ön nyert {{count}} további csillag ebben a csatában!",
+                "winStars_plural": "Ön nyert {{count}} további csillagok ebben a csatában!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "Csata"
+                },
+                "battle": {
+                    "text": "Kapott 1 új csata",
+                    "demand_accept": "A csata",
+                    "win_against_title": "Ön nyerte meg a csatát!",
+                    "loose_against_title": "Elvesztette a csatát!"
+                },
+                "type": {
+                    "battle": "Csata"
+                }
+            },
+            "navigation": {
+                "battle_pre": "Battle módban",
+                "battle": "Kihívást jelent a kollégák, a \"Harc\" módban: válaszoljon a kérdésekre a lehető leggyorsabban!"
+            },
+            "filters": {
+                "battles": "A CSATÁK"
+            },
+            "badges": {
+                "battle": {
+                    "name": "CSATA KERESŐ",
+                    "details": "{{count}} csata",
+                    "details_plural": "{{count}} csaták"
+                }
+            },
+            "battle": {
+                "title": "Battle módban",
+                "create": "Hozzon létre egy csata",
+                "requests": {
+                    "title": "Csata kérelmek",
+                    "no_requests_found": "Nincs még minden csata kérés"
+                },
+                "history": {
+                    "title": "Történelmi csata",
+                    "message": {
+                        "pending": "Ez a csata ellenfél jóváhagyásra vár",
+                        "win": "Ön nyerte meg a csatát!",
+                        "lost": "Elvesztette a csatát!"
+                    },
+                    "no_history_found": "Nincs még minden csata története"
+                },
+                "start": {
+                    "cta": "Start <span class=\"bold\"> csata</span>",
+                    "new_cta": "Hozzon létre egy új <span class=\"bold\"> csata</span>"
+                },
+                "steps": {
+                    "3": "3. Indítsa el a csata"
+                },
+                "select_module": {
+                    "no_module_available": "Csak akkor hozhat egy csatát egy kész szint."
+                },
+                "button": {
+                    "create": "Hozzon létre egy új csata"
+                },
+                "no_battle_progress": "Nincs a csatákat van folyamatban.",
+                "block": {
+                    "title": "Csata kérelmek"
+                },
+                "no_proposition": "Minden csata kérelmek nem kaptak.",
+                "completed": {
+                    "title": "befejezett csaták",
+                    "subtitle": "{{count}} csata, győztes {{nb}}",
+                    "subtitle_plural": "{{count}} csaták, győztes {{nb}}"
+                },
+                "block_empty": "Akkor nincs kész csaták.",
+                "create_title": "Csata létrehozása",
+                "active_title_intro": "Battle módban",
+                "coming_soon_random": "Indítsa el a véletlenszerű csata"
+            }
+        },
+        "bigdata": {
+            "navigation": {
+                "lessons": "Minden tanfolyam"
+            },
+            "filters": {
+                "news": "Az Ön Képzése",
+                "coorpers": "MOOCrs"
+            }
+        },
+        "bnp": {
+            "filters": {
+                "coorpers": "Factiors"
+            }
+        },
+        "bnpp-legal": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Mester"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Mester"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Mester,"
+                },
+                "module_name": {
+                    "coach": "Mester"
+                }
+            },
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "casa": {
+            "filters": {
+                "news": "Training",
+                "coorpers": "MOOCers"
+            }
+        },
+        "challenge48htechno": {
+            "slider": {
+                "start": {
+                    "title": "Fedezze fel az új quizz"
+                },
+                "resume": {
+                    "surtitle": "Üdvözöljük újra {{displayName}}, továbbra is a quizz"
+                }
+            }
+        },
+        "chanel": {
+            "block_push": {
+                "tree": {
+                    "title": "START",
+                    "content": "Fedezze fel a CHANEL lényegét a katalógusban.",
+                    "link": "ide kattintson"
+                },
+                "battle": {
+                    "title": "HÍVD KI A KÖZÖSSÉGET",
+                    "content": "Hívja ki munkatársait a \"Csata módban\". Válaszolja meg a kérdéseket a lehető leggyorsabban.",
+                    "link": "Kattints ide"
+                }
+            },
+            "filters": {
+                "coorpers": "Közösségem"
+            }
+        },
+        "crisis": {
+            "filters": {
+                "coorpers": "Pernod Ricard Közösség"
+            }
+        },
+        "dolce": {
+            "filters": {
+                "coorpers": "Közösség"
+            }
+        },
+        "edenred-talents": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Nagykövet"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Nagykövet"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Nagykövet,"
+                },
+                "module_name": {
+                    "coach": "Nagykövet"
+                }
+            }
+        },
+        "ey": {
+            "filters": {
+                "coorpers": "Digitális hősök"
+            }
+        },
+        "fff": {
+            "activity": {
+                "caption-started": "A tárgy elkezdődött de még nem fejeződött be",
+                "caption-done": "Terület hitelesítve"
+            }
+        },
+        "gdf": {
+            "badges": {
+                "transformer": {
+                    "name": "Transzformer",
+                    "details_0": {
+                        "number": "1",
+                        "details": "téma",
+                        "details_post": "befejezve"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "témák",
+                        "details_post": "teljesített"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "témák",
+                        "details_post": "befejezett"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "témák",
+                        "details_post": "befejezve"
+                    }
+                }
+            }
+        },
+        "gdfec": {
+            "badges": {
+                "transformer": {
+                    "name": "Transzformátor",
+                    "details_0": {
+                        "number": "1",
+                        "details": "téma",
+                        "details_post": "befejezve"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "témák",
+                        "details_post": "befejezett"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "témák",
+                        "details_post": "befejezve"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "témák",
+                        "details_post": "befejezett"
+                    }
+                }
+            },
+            "filters": {
+                "coorpers": "Közösség"
+            }
+        },
+        "ilearn": {
+            "filters": {
+                "coorpers": "Közösség"
+            }
+        },
+        "learnnrj": {
+            "filters": {
+                "coorpers": "Közösség"
+            }
+        },
+        "letsgetdigital": {
+            "badges": {
+                "battle": {
+                    "name": "Challenger"
+                },
+                "module": {
+                    "name": "Hero"
+                }
+            }
+        },
+        "linxea": {
+            "filters": {
+                "coorpers": "MOOC-olók"
+            },
+            "navigation": {
+                "lessons": "Összes videó"
+            }
+        },
+        "loreal-retail-v2": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Miért szűrés",
+                    "advanced": "Empátia szűrés",
+                    "coach": "Szűrni Show nekem"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "miért",
+                        "advanced": "Empátia",
+                        "coach": "mutasd"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "miért",
+                    "advanced": "Empátia",
+                    "coach": "mutasd"
+                },
+                "module_name": {
+                    "base": "miért",
+                    "advanced": "Empátia",
+                    "coach": "mutasd"
+                }
+            }
+        },
+        "martell": {
+            "badges": {
+                "subtitle-1-0": "tekintse meg az elért kitűzőket vagy a Martell-szakértőséghez szükséges kitűzőket"
+            },
+            "filters": {
+                "coorpers": "Martell barátok"
+            }
+        },
+        "michelin": {
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "mooc-socgen": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Szűrés a Level 1",
+                    "advanced": "2 szintjén szűrni",
+                    "coach": "3-as szintű szűrés"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Level 1",
+                        "advanced": "Level 2",
+                        "coach": "3-as szintű"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Level 1,",
+                    "advanced": "Level 2,",
+                    "coach": "3-as szintű,"
+                },
+                "module_name": {
+                    "base": "Level 1",
+                    "advanced": "Level 2",
+                    "coach": "3-as szintű"
+                }
+            }
+        },
+        "nespresso": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Szakértő"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Szakértő"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Szakértő,"
+                },
+                "module_name": {
+                    "coach": "Szakértő"
+                }
+            },
+            "filters": {
+                "coorpers": "Közösség"
+            }
+        },
+        "online-academy-klubschule": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Kezdő szűrő",
+                    "advanced": "Speciális szűrő",
+                    "coach": "Szűrő-szakértő"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Kezdő szint",
+                        "advanced": "Haladó szinten",
+                        "coach": "Szakértői szinten"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Kezdő,",
+                    "advanced": "Speciális,",
+                    "coach": "Szakértő,"
+                },
+                "module_name": {
+                    "base": "Kezdő",
+                    "advanced": "Speciális",
+                    "coach": "Szakértő"
+                }
+            }
+        },
+        "paca": {
+            "filters": {
+                "coorpers": "MOOC'ers"
+            },
+            "badges": {
+                "battle": {
+                    "name": "Kihívó"
+                },
+                "module": {
+                    "name": "Szuperhős"
+                },
+                "lesson": {
+                    "name": "Belépés költsége"
+                },
+                "question": {
+                    "name": "Kérdés a bajnoknak"
+                },
+                "coach": {
+                    "name": "Közösség díj"
+                }
+            }
+        },
+        "pernodci": {
+            "filters": {
+                "coorpers": "Pernod Ricard közösség"
+            }
+        },
+        "pernod": {
+            "notificationCard": {
+                "type": {
+                    "objectif": "Cél"
+                }
+            },
+            "goals": {
+                "title": "Haladás céljai felé"
+            },
+            "navigation": {
+                "objectif": "Céljaim"
+            }
+        },
+        "petite": {
+            "filters": {
+                "coorpers": "Az én közösségem"
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "1. modul,",
+                    "advanced": "2. Modul,",
+                    "coach": "Modul 3,"
+                },
+                "module_name": {
+                    "base": "1 Modul",
+                    "advanced": "2. Modul",
+                    "coach": "3. Modul"
+                }
+            }
+        },
+        "pru": {
+            "block_push": {
+                "tree": {
+                    "content": "Kezdjen el tanulni most!"
+                },
+                "battle": {
+                    "title": "Tagadja meg az önnel egy szinten lévőket és gyakoroljon!",
+                    "content": "Hívja ki a többieket egy \"Csatában\": próbáljon meg gyorsabb lenni mint ők!"
+                }
+            },
+            "badges": {
+                "subtitle-1-0": "Tekints meg minden jelvényt, amelyet elértél, vagy amelyet még el kell érned, hogy teljesítmény mesterré válhass."
+            }
+        },
+        "quizz-auchan": {
+            "slider": {
+                "start": {
+                    "title": "Fedezze fel az élet kék Quizz játékot!"
+                }
+            }
+        },
+        "renault": {
+            "badges": {
+                "subtitle": "Nézd meg az eddig megszerzett kitűzőket, és hogy miket kell még megszerezned, hogy te lehess az utolsó Clio RS \"királya\"! ;-)",
+                "lessons_seen": {
+                    "details_0": "2",
+                    "details_1": "4",
+                    "details_2": "8",
+                    "details_3": "10"
+                },
+                "answer": {
+                    "details_0": "20",
+                    "details_1": "36",
+                    "details_2": "72",
+                    "details_3": "120"
+                },
+                "perfect": {
+                    "details_2": {
+                        "number": "5"
+                    },
+                    "details_3": {
+                        "number": "8"
+                    }
+                }
+            }
+        },
+        "renaultrh": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Szűrés 1. Lépés szerint",
+                    "advanced": "Szűrés a 2. Lépés szerint",
+                    "coach": "3. lépés szerinti szűrés"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Szint 1. lépés",
+                        "advanced": "szint 2. Lépés",
+                        "coach": "szint lépés 3"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "1. lépés,",
+                    "advanced": "2. lépés,",
+                    "coach": "3. Lépés"
+                },
+                "module_name": {
+                    "base": "Első lépés",
+                    "advanced": "2. Lépés",
+                    "coach": "3. lépés"
+                }
+            }
+        },
+        "renaultcare": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Szűrés alapok alapján"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Alapok szint"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Alapok,"
+                },
+                "module_name": {
+                    "base": "Alapok"
+                }
+            }
+        },
+        "rexel": {
+            "filters": {
+                "coorpers": "Ügyfélközpontú Közösség"
+            }
+        },
+        "samsung": {
+            "block_push": {
+                "tree": {
+                    "content": "Kezdje Itt!"
+                },
+                "battle": {
+                    "content": "Hívd ki kollégáidat \"Csata\" módban: a kérdéseket válaszold meg olyan gyorsan, ahogy csak tudod!"
+                }
+            }
+        },
+        "schneider": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Szűrés 1. évad alapján",
+                    "advanced": "Szűrés 2. évad alapján",
+                    "coach": "Szűrés 3. évad alapján"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "szint 1. évad",
+                        "advanced": "szint Évszak 2",
+                        "coach": "3. Szezon szint"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "1. évad,",
+                    "advanced": "2. évad,",
+                    "coach": "3. Évad"
+                },
+                "module_name": {
+                    "base": "1. évad",
+                    "advanced": "2. évad",
+                    "coach": "3. évad"
+                }
+            },
+            "filters": {
+                "all": "Minden",
+                "battles": "Csatáim",
+                "coorpers": "IQ-sok",
+                "news": "Hírek",
+                "courses": "Leckéim",
+                "continueLesson": "Kurzus folytatása"
+            }
+        },
+        "securite": {
+            "navigation": {
+                "lessons": "Az összes tanfolyam"
+            },
+            "filters": {
+                "news": "Formációd",
+                "coorpers": "MOOCerek"
+            }
+        },
+        "silca": {
+            "navigation": {
+                "lessons": "Összes tanfolyam"
+            },
+            "filters": {
+                "coorpers": "MOOCerek"
+            }
+        },
+        "sgmgt": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "societegenerale": {
+            "filters": {
+                "coorpers": "MOOCerek"
+            }
+        },
+        "sqy": {
+            "navigation": {
+                "lessons": "Összes tanfolyam"
+            },
+            "filters": {
+                "news": "Formáció",
+                "coorpers": "MOOCerek"
+            }
+        },
+        "tourismdigital": {
+            "filters": {
+                "coorpers": "Tagok"
+            }
+        },
+        "tagheuer": {
+            "badges": {
+                "level": {
+                    "bronze": "Első sebesség",
+                    "silver": "3. SEBESSÉGFOKOZAT",
+                    "gold": "5 SEBESSÉGFOKOZAT",
+                    "platinum": "7 SEBESSÉGFOKOZAT"
+                }
+            },
+            "filters": {
+                "coorpers": "TAG Heuer közösség"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Titán Szint",
+                        "advanced": "Bronz szint",
+                        "coach": "Ezüst szint"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "Szűrés titán alapján",
+                    "advanced": "Szűrés bronz alapján",
+                    "coach": "Szűrés ezüstök alapján"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Titán,",
+                    "advanced": "Bronz,",
+                    "coach": "Ezüst,"
+                },
+                "module_name": {
+                    "base": "Titán",
+                    "advanced": "Bronz",
+                    "coach": "Ezüst"
+                }
+            }
+        },
+        "tagheuercon": {
+            "badges": {
+                "level": {
+                    "bronze": "1 SEBESSÉGFOKOZAT",
+                    "silver": "3 SEBESSÉGFOKOZAT",
+                    "gold": "5 SEBESSÉGFOKOZAT",
+                    "platinum": "7 SEBESSÉGFOKOZAT"
+                }
+            },
+            "filters": {
+                "coorpers": "Tanulók Közössége"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Titánium szint",
+                        "advanced": "Bronz szint",
+                        "coach": "Ezüst szint"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "Szürés titánium szerint",
+                    "advanced": "Szűrés bronz szerint",
+                    "coach": "Szűrés Ezüst alapján"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Titánium,",
+                    "advanced": "Bronz,",
+                    "coach": "Ezüst,"
+                },
+                "module_name": {
+                    "base": "Titánium",
+                    "advanced": "Bronz",
+                    "coach": "Ezüst"
+                }
+            }
+        },
+        "tourism": {
+            "filters": {
+                "coorpers": "MOOCerek"
+            }
+        },
+        "up": {
+            "personal_selection": {
+                "text_helper": "3 szint javasolt, az útvonalától függően!",
+                "popular_module_helper": "Inspirációra van szüksége? Tekintse meg mit csinálnak mások a legnépszerűbb kiválasztásával.",
+                "last_module": "Utolsó játékszint",
+                "no_module": "Még nem játszottak le modult",
+                "popular_module": "Legtöbbet játszott kurzusok",
+                "easiest_disciplines": "A legkönnyebb kurzusok",
+                "hardest_disciplines": "Legnehezebb Tanfolyamok",
+                "no_popular_module": "Még nem játszottak szintet"
+            },
+            "select_module": {
+                "title": "Válasszon szintet",
+                "availability": "{{count}} szitn elérhető",
+                "availability_plural": "{{count}} szint áll rendelkezésre",
+                "no_module_available": "Csak befejezett szinten lehet csatát indítani."
+            },
+            "notificationCard": {
+                "request": "{{module}} modul {{level}} szint",
+                "battle": {
+                    "against": "{{module}} kurzus {{level}} szint"
+                },
+                "forum_text": "1 új válasz van a {{module}} kurzus {{level}} szintjével kapcsolatos hozzászólására",
+                "module": {
+                    "text": {
+                        "detail": "a szint"
+                    }
+                },
+                "coach": {
+                    "text": "Edző lett a {{disciplineName}} kurzusban."
+                },
+                "title": {
+                    "Module": "Szint"
+                },
+                "type": {
+                    "module": "Szint"
+                }
+            },
+            "navigation": {
+                "learningTree": {
+                    "helper": "Férjen hozzá az útvonala összes kurzusához 1 kattintással",
+                    "push": "Hozzáférés az összes kurzushoz",
+                    "push_post": "egy klikkel"
+                },
+                "account_helper": "Itt átnézheted a személyes beállításaidat,  eredményeidet, kezelheted az előremeneteled, részt vehetsz beszélgetésekben, vagy egyszerűen csak követheted a leckét, mielőtt megkezded a pályát. ",
+                "battle_helper": "A kurzus elvégzése után hívjon ki mindenkit, aki önnel azonos szinten áll, egy kis 10 kérdéses játékra!"
+            },
+            "activity": {
+                "progression_text_pre": "Hogyan halad a kurzusban?",
+                "discipline_title": "Kurzus",
+                "disciplines": {
+                    "title": "Pálya"
+                },
+                "module_title": "Szintek",
+                "caption-started": "Elkezdett Szint",
+                "caption-done": "Szint kész"
+            },
+            "badges": {
+                "module": {
+                    "name": "Túlélő",
+                    "details_0": {
+                        "module": "Szint"
+                    },
+                    "details_1": {
+                        "module": "Szintek"
+                    },
+                    "details_2": {
+                        "module": "Szintek"
+                    },
+                    "details_3": {
+                        "module": "Szintek"
+                    }
+                }
+            },
+            "battle": {
+                "start_discipline": "Pálya elkezdése",
+                "no_opponent": "Nincs rendelkezésre álló ellenfél erre a szintre"
+            },
+            "notifications": {
+                "filters": {
+                    "module": "Szűrés kurzus szerint"
+                }
+            }
+        },
+        "yahoo": {
+            "badges": {
+                "subtitle-1-0": "Tekintse meg a haladását a különböző jelvények elérésében."
+            },
+            "filters": {
+                "coorpers": "Közösség"
+            }
+        },
+        "capgemini": {
+            "navigation": {
+                "certifications": "Az Én Digicertifem"
+            }
+        },
+        "cnp": {
+            "navigation": {
+                "certifications": "Certificate"
+            },
+            "sections": {
+                "certification": "Bizonyítvány: {{name}}"
+            }
+        },
+        "ecolenumerique-sncf": {
+            "navigation": {
+                "certifications": "Jedi jelvények"
+            },
+            "sections": {
+                "certification": "Jedi Badge: {{name}}"
+            }
+        },
+        "ganprevoyance": {
+            "navigation": {
+                "certifications": "Világok"
+            },
+            "sections": {
+                "certification": "Univerzum: {{name}}"
+            }
+        },
+        "who": {
+            "slider": {
+                "battle": {
+                    "surtitle": "Üdvözöljük újra {{displayName}}, ellenőrizze a kihívás kérések",
+                    "title": "{{count}} kihívás kérés van!",
+                    "title_plural": "{{count}} kihívás kívánsága van!",
+                    "cta": "Indítsa el a kihívást"
+                }
+            },
+            "discussion": {
+                "title": "Modul-visszajelzés",
+                "subtitle": "Lásd az üzenetek maradt a Közösség által a különböző modulok"
+            },
+            "battle_start": {
+                "title": "A kihívás mindjárt kezdődik."
+            },
+            "select_module": {
+                "no_module_available": "Csak egy befejezett modulban hozhat létre egy kihívást."
+            },
+            "success_battle": {
+                "title": "Kihívás felett!",
+                "badge_user": {
+                    "award": "- 3 kihívások"
+                },
+                "badge_opponent": {
+                    "award": "- 3 kihívások"
+                },
+                "winStars": "Ezzel a kihívással {{count}} további csillagot nyert!",
+                "winStars_plural": "Nyert {{count}} további csillagot ezzel a kihívással!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "Kihívás"
+                },
+                "coach": {
+                    "text": "Befejezte a kurzus {{disciplineName}}."
+                },
+                "battle": {
+                    "text": "1 új kihívást kapott",
+                    "demand_accept": "A te kihívásod",
+                    "win_against_title": "Megnyerte a kihívást!",
+                    "loose_against_title": "Elvesztettél eegy kihívást!"
+                },
+                "reward": {
+                    "resource": {
+                        "title": "Gratulálok! Tudod belépés egy új jelvényt!"
+                    }
+                },
+                "type": {
+                    "battle": "Kihívás"
+                },
+                "forum_text_page": "Van 1 új válasz a hozzászólásra"
+            },
+            "navigation": {
+                "battle_pre": "Kihívás mód",
+                "battle": "Hívd ki kollégáidat a „Kihívás” módban: válaszolj a kérdésekre amilyen gyorsan csak lehet!"
+            },
+            "filters": {
+                "battles": "Kihívásaim",
+                "coorpers": "QR VÉDŐK"
+            },
+            "badges": {
+                "battle": {
+                    "name": "KIHÍVÁSKERESŐ",
+                    "details": "{{count}} Kihívás",
+                    "details_plural": "{{count}} Kihívás"
+                },
+                "module": {
+                    "name": "Csillag"
+                },
+                "coach": {
+                    "name": "ÖSSZEKÖTŐ"
+                },
+                "question": {
+                    "name": "Kvíz mester"
+                }
+            },
+            "battle": {
+                "title": "Kihívó mód",
+                "create": "Próba létrehozása",
+                "requests": {
+                    "title": "Kihívás követelményei",
+                    "no_requests_found": "Még nincs kihívás felkérés"
+                },
+                "history": {
+                    "title": "Kihívás előzmények",
+                    "message": {
+                        "pending": "Ez a kihívás az ellenfél jóváhagyására vár",
+                        "win": "Megnyerted a kihívást!",
+                        "lost": "Elvesztette a kihívást!"
+                    },
+                    "no_history_found": "Még nincs semmilyen kihíváselőzménye"
+                },
+                "start": {
+                    "cta": "<span class=\"bold\">Kihívás</span> kezdése",
+                    "new_cta": "Egy új <span class=\"bold\">Kihívás</span> létrehozása"
+                },
+                "steps": {
+                    "3": "3. Kihívás elkezdése"
+                },
+                "select_module": {
+                    "no_module_available": "Kihívást csak befejezett modulban lehet létrehozni."
+                },
+                "button": {
+                    "create": "Egy új kihívás létrehozása"
+                },
+                "no_battle_progress": "Nincsenek folyamatban levő kihívásai.",
+                "block": {
+                    "title": "Kihívás Felkérések"
+                },
+                "no_proposition": "Még nem kapott kihívás felkéréseket.",
+                "completed": {
+                    "title": "kész kihívások",
+                    "subtitle": "{{count}} kihívás, nyerés {{nb}}",
+                    "subtitle_plural": "{{count}} kihívások, győzelem {{nb}}"
+                },
+                "block_empty": "Nincs befejezett kihívása",
+                "create_title": "Kihívás létrehozása",
+                "active_title_intro": "Kihívás mód",
+                "coming_soon_random": "Random kihívás kezdése"
+            },
+            "dashboard": {
+                "text": "Űrverseny! Győzhetsz, ha jól válaszolsz a kérdésekre, követed a leckéket, vagy ha barátokat keresel (kihívásokkal és edzésekkel)! "
+            }
+        }
+    }
+}

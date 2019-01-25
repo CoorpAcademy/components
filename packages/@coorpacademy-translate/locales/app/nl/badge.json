@@ -1,0 +1,29 @@
+{
+    "level_0": "Init",
+    "level_1": "Brons",
+    "level_2": "Zilver",
+    "level_3": "Goud",
+    "level_4": "Platina",
+    "custom": {
+        "7steps": {
+            "level_4": "Boven"
+        },
+        "renault": {
+            "my_badges_intro": "Bekijk alle de badges die u hebt verdiend of die blijven voor u om de \"koning\" van de vorige Clio RS te worden! ;-)"
+        },
+        "tagheuer": {
+            "level_0": "Init",
+            "level_1": "1E VERSNELLING",
+            "level_2": "3E VERSNELLING",
+            "level_3": "5E VERSNELLING",
+            "level_4": "7E VERSNELLING"
+        },
+        "tagheuercon": {
+            "level_0": "Init",
+            "level_1": "1E VERSNELLING",
+            "level_2": "3E VERSNELLING",
+            "level_3": "5E VERSNELLING",
+            "level_4": "7E VERSNELLING"
+        }
+    }
+}

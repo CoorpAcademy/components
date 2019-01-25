@@ -1,0 +1,147 @@
+{
+    "tabs": {
+        "import": "載入",
+        "achievement": "重設",
+        "cms": "CMS",
+        "loginEvents": "張貼登入活動",
+        "replay": "內容導入歷史",
+        "partners": "新夥伴",
+        "buildReport": "報告生成"
+    },
+    "import": {
+        "help": "協助",
+        "help_content": "<h2>導入整個主題或學科</h2> <p>欲導入主題，必須提供滿足以下要求的 .zip 檔：\n    <ul>\n <li>學科名稱必須是獨特的</li>\n <li>所有學科都必須在 .zip 的起源中</li>\n        <li>每個學科資料夾都必須包含單一欲創建學科的 .json 檔</li>\n        <li>每個學科資料夾都必須包含依 A - Z 順序導入的三個單元資料夾</li>\n        <li>每個單元資料夾都必須包含幾個問題資料夾</li>\n        <li>每個問題資料夾都必須包含單一與欲創建問題相應的 .json 檔</li>\n        <li>最新：一個單元或章節可以包含一個 remove:true 欄位以刪除之</li>\n        <li>最新：如果一單元或章節有一個 swap:INDEX 欄位，且其中的 INDEX 為欲放置的位置編號（由 0 開始），則其可更改位置</li>\n    </ul>\n</p> <h2>導入一個使用者 zip</h2> <p>欲導入一組使用者，您必須提供一個遵守以下規則的 .zip：\n    <ul>\n        <li>每位使用者的登入名稱都必須是獨特的</li>\n        <li>所有使用者都必須在 .zip 的起源</li>\n    </ul>\n</p> <a href=\"/assets/samples/import.zip\">下載一個範例 .zip</a>",
+        "disciplines": {
+            "title": "學科",
+            "zero": "沒有學科"
+        },
+        "send_job": "通過工作發送文件"
+    },
+    "delete": {
+        "disciplines": {
+            "404": "找不到學科",
+            "title": "刪除所有學科",
+            "button": "刪除",
+            "confirm": "請輸入 \"{{word}}\" 來確認刪除所有物件",
+            "confirm_word": "學科",
+            "success": "已刪除的學科"
+        },
+        "users": {
+            "404": "找不到用戶",
+            "title": "刪除所有使用者",
+            "help": "刪除一供應者的使用者（全部刪除、留白）",
+            "button": "刪除",
+            "confirm": "請輸入\"{{word}}\" 以確認刪除使用者",
+            "confirm_word": "使用者",
+            "success": "{{count}}使用者已刪除",
+            "success_plural": "{{count}}用戶刪除",
+            "provider": "供應商："
+        },
+        "tuto": {
+            "404": "找不到用戶",
+            "title": "重置教學",
+            "button": "消除",
+            "confirm": "請選擇 \"{{word}}\" 以完成剩下的教學",
+            "confirm_word": "個別指導教程",
+            "success": "教學重置"
+        },
+        "achievements": {
+            "404": "未發現進度",
+            "title": "消除您的整個進度",
+            "button": "刪除",
+            "confirm": "請輸入\"{{word}}\" 以確認刪除你的進度",
+            "confirm_word": "進展",
+            "success": "已刪除的進展"
+        }
+    },
+    "console": {
+        "status": "HTTP 狀態：",
+        "exception": "例外 ID：",
+        "error": "錯誤資訊："
+    },
+    "update": {
+        "goals": {
+            "title": "更新目標",
+            "button": "透過工作來更新目標",
+            "success": "要求發送了"
+        }
+    },
+    "create": "添加",
+    "save": "儲存",
+    "remove": "刪除",
+    "test": "測驗",
+    "edit": "修改",
+    "back": "返回",
+    "table": {
+        "button": {
+            "prev": "<<",
+            "next": ">>",
+            "first": "第一頁",
+            "last": "最後一頁"
+        }
+    },
+    "loginEvent": {
+        "subtitle": "張貼登入活動",
+        "config": "一般資訊",
+        "content": "額外配置",
+        "eventName": "活動名稱",
+        "type": "種類",
+        "active": "啟用的",
+        "mandatory": "強制性的",
+        "cmsPagePath": "CMS 路徑",
+        "redirectTo": "重新導向連結",
+        "title": "標題",
+        "text": "主要文字",
+        "redirectButton": "重新導向按鈕標籤",
+        "button": "按鍵標籤",
+        "checkboxText": "複選框標籤",
+        "footerText": "頁尾文字（選填）",
+        "order": "訂單："
+    },
+    "status": {
+        "ok": {
+            "title": "成功"
+        },
+        "saving": {
+            "title": "存款"
+        },
+        "removing": {
+            "title": "移除..."
+        }
+    },
+    "version": "現在平台版本：{{appVersion}}",
+    "job": {
+        "import": {
+            "replay": "申請",
+            "username": "說明",
+            "createdAt": "執行日期",
+            "elapsedTime": "執行時間",
+            "status": "狀態",
+            "uploadedFile": "歸檔至 S3",
+            "seeLogs": "See logs"
+        }
+    },
+    "partner": {
+        "name": "名稱",
+        "link": "連結",
+        "createdAt": "創建於",
+        "logo": "商標",
+        "config": "資訊",
+        "upload": "上傳",
+        "linkLabel": "標籤連結",
+        "description": "描述"
+    },
+    "buildReport": {
+        "help": "幫助",
+        "send_job": "透過 lambda 傳送檔案",
+        "title": "保樂報告生成",
+        "help_content": "上傳含你的 Excel 檔之 Zip 檔，並指定你想用哪一個郵件收取結果",
+        "email": "電子郵件位址",
+        "file": "壓縮的 Excel 檔",
+        "email_missing": "必須提供電子郵件",
+        "email_not_coorp": "電子郵件必須是來自 coorpacademy",
+        "file_missing": "必須提供檔案",
+        "upload_in_progress": "你的檔案正在上傳。可能需要幾分鐘處理。\n你將透過郵件收到結果",
+        "file_received": "伺服器已接收檔案，目前正無誤處理中。\n您應該會在幾分鐘後收到一封內含結果的電子郵件。"
+    }
+}

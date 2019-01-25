@@ -1,0 +1,316 @@
+{
+    "message": "<p>Для получения подробной информации по каждому пользователю, используйте нашу <a href=\"{{user}}\"> страницу аналитики по пользователю</a>.</p> <p>Для получения подробной информации по всем пользователям, вы можете <a href=\"{{export}}\"> при помощи экспорта по требованию всех пользователей </a>.</p>",
+    "export": {
+        "global": {
+            "first_name": "Имя",
+            "last_name": "Фамилия",
+            "email": "Электронная почта",
+            "provider": "Провайдер",
+            "stars": "Баллы",
+            "providerinfos_company": "Компания",
+            "providerinfos_city": "Город",
+            "providerinfos_country": "Страна",
+            "providerinfos_department": "Отдел",
+            "providerinfos_title": "Название",
+            "providerinfos_chorusID": "ChorusID",
+            "ageRange": "Возрастная Группа",
+            "personalEmail": "Эл. почта (личная)",
+            "role": "Роль",
+            "brandName": "Бизнес-компания",
+            "boutique": "Магазин",
+            "billable": "Billable",
+            "postalCode": "Почтовый индекс",
+            "moduleLevel": "$t(панельуправления:значки.модуль.имя) - Уровень",
+            "moduleCount": "$t(dashboard:badges.module.name) - Подсчет",
+            "moduleUpdate": "$t(dashboard:badges.module.name) - Последнее обновление",
+            "battleLevel": "$t(dashboard:badges.battle.name) — Уровень",
+            "battleCount": "$t(dashboard:badges.battle.name) - Счет",
+            "battleUpdate": "$t(панель управления:беджи.битва.имя) - Последнее обновление",
+            "coachLevel": "$t(dashboard:badges.coach.name) - Уровень",
+            "coachCount": "$t(dashboard:badges.coach.name) - Счет",
+            "coachUpdate": "$t(dashboard:badges.coach.name) - Последнее обновление",
+            "lessonLevel": "$t(dashboard:badges.lesson.name) - Уровень",
+            "lessonCount": "$t(паоенльуправления:значки.урок.название) - Значение",
+            "lessonUpdate": "$t(панель управления:беджи.урок.имя) - Последнее обновление",
+            "questionLevel": "$t(dashboard:badges.question.name) - Уровень",
+            "questionCount": "$t(dashboard:badges.question.name) - Подсчет",
+            "questionUpdate": "t(dashboard:badges.question.name) - Последнее Обновление",
+            "badges": "награды",
+            "lastConnectionDate": "Дата последнего подключения",
+            "state": "Статус",
+            "login": "Вход в систему",
+            "firstConnectionDate": "Дата первого подключения",
+            "certificate": "сертификат {{label}}",
+            "certifications": "Сертификаты",
+            "entity": "Организация",
+            "grade": "Оценка",
+            "region": "Регион",
+            "validatedTimeProgression": "Засчитанное время",
+            "totalTimeProgression": "Общее время",
+            "populations": "Сегмент(ы)",
+            "deactivationDate": "Дата дезактивации",
+            "organization_branch": "Бизнес филиал",
+            "organization_businessunit": "Бизнес-единица",
+            "organization_workingCountry": "Бизнес страна",
+            "organization_role": "Бизнес Роль",
+            "organization_boutique": "Бизнес магазин",
+            "organization_address1": "Бизнес адрес 1",
+            "organization_address2": "Бизнес адрес 2",
+            "organization_zipcode": "Бизнес Почтовый индекс",
+            "organization_workingCity": "Бизнес Город",
+            "organization_company": "Бизнес компания",
+            "organization_ambassador": "Посол",
+            "birthday": "Дата рождения"
+        },
+        "battles": {
+            "disciplineName": "Название дисциплины",
+            "disciplineStatus": "Статус дисциплины",
+            "disciplineStatus_hidden": "Скрытый",
+            "disciplineStatus_visible": "Видимый",
+            "moduleLevel": "Уровень модуля",
+            "createdAt": "Создано",
+            "answeredAt": "Ответ получен",
+            "createdBy": "Имя претендента",
+            "opponent": "Имя оппонента",
+            "winner": "Победитель",
+            "winnerScore": "Результат победителя",
+            "userLogin": "Вход для Претендента",
+            "opponentLogin": "Учетная запись оппонента",
+            "looserScore": "Результат проигравшего"
+        },
+        "moduleStart": {
+            "brand": "Бренд",
+            "discipline": "Наименование дисциплины",
+            "module": "Уровень модуля",
+            "author": "Автор",
+            "count": "Счетчик",
+            "userCount": "Количество пользователей"
+        }
+    },
+    "dashboard": {
+        "serenetics-error": "Произошла ошибка при получении URL-адреса новой панели управления.",
+        "behavioral": {
+            "upgrade": {
+                "title": "Эта панель мониторинга доступна только для тарифного плана предприятие.",
+                "subtitle": "Пожалуйста, свяжитесь с Coorpacademy для обновления вашей учетной записи и получения доступа к поведенческой панели вашей платформы"
+            }
+        }
+    },
+    "custom": {
+        "7steps": {
+            "export": {
+                "global": {
+                    "organization_role": "Должность",
+                    "organization_title": "Тип магазина",
+                    "organization_ambassador": "Сотрудник L'Oréal ?",
+                    "organization_branch": "Отдел L'Oréal",
+                    "entity": "L'Oréal бренды",
+                    "organization_grade": "Использование права на изображения",
+                    "organization_boutiqueReferent": "Розничная торговля/сеть",
+                    "organization_boutique": "Наименование/код магазина"
+                }
+            }
+        },
+        "achat-habitat": {
+            "export": {
+                "global": {
+                    "organization_ambassador": "Почтовая рассылка"
+                }
+            }
+        },
+        "adidas-fr": {
+            "export": {
+                "global": {
+                    "organization_businessunit": "Отдел",
+                    "organization_grade": "Возраст",
+                    "organization_boutique": "Рабочее место",
+                    "organization_branch": "Пол"
+                }
+            }
+        },
+        "capgemini": {
+            "export": {
+                "global": {
+                    "organization_grade": "GGID"
+                }
+            }
+        },
+        "chanel": {
+            "export": {
+                "global": {
+                    "boutique": "Бутик",
+                    "organization_workingCountry": "Страна",
+                    "region": "Регион",
+                    "role": "Роль",
+                    "startContract": "Начало контракта"
+                }
+            }
+        },
+        "cofpart-learning": {
+            "export": {
+                "global": {
+                    "brandName": "Direction",
+                    "entity": "Должность",
+                    "organization_branch": "Manager"
+                }
+            }
+        },
+        "corporateonlineopencourse": {
+            "export": {
+                "global": {
+                    "region": "Регион",
+                    "organization_workingCountry": "Страна",
+                    "role": "Функция"
+                }
+            }
+        },
+        "edenred-talents": {
+            "export": {
+                "global": {
+                    "organization_company": "Направление",
+                    "entity": "Подразделение",
+                    "organization_branch": "Сервис - Secteur",
+                    "organization_boutiqueReferent": "Ответственный",
+                    "organization_role": "Должность",
+                    "organization_grade": "Статус"
+                }
+            }
+        },
+        "gdf": {
+            "export": {
+                "global": {
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - уровень",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - Счет",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - последние обновления"
+                }
+            }
+        },
+        "gdfec": {
+            "export": {
+                "global": {
+                    "organization_zipcode": "GAIA",
+                    "organization_businessunit": "Команда",
+                    "organization_boutique": "Имя руководителя",
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - уровень",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - Счет",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - последние обновления"
+                }
+            }
+        },
+        "ilearn": {
+            "export": {
+                "global": {
+                    "boutique": "Магазин",
+                    "organization_workingCountry": "Страна",
+                    "region": "Регион",
+                    "role": "Роль",
+                    "startContract": "Начало контракта"
+                }
+            }
+        },
+        "life-auchan": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Уровень активности",
+                    "organization_region": "Жизненный баланс",
+                    "organization_workingCountry": "Страна"
+                }
+            }
+        },
+        "metro": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Город",
+                    "organization_branch": "ID",
+                    "organization_businessunit": "Роль"
+                }
+            }
+        },
+        "monoprix": {
+            "export": {
+                "global": {
+                    "organization_branch": "Направление"
+                }
+            }
+        },
+        "nespresso": {
+            "export": {
+                "global": {
+                    "organization_branch": "Отдел",
+                    "organization_businessunit": "Позиция"
+                }
+            }
+        },
+        "pru": {
+            "export": {
+                "global": {
+                    "providerCompany": "Компания",
+                    "providerCountry": "Страна",
+                    "providerDepartment": "Отдел"
+                }
+            }
+        },
+        "redoute": {
+            "boutique": "Магазин"
+        },
+        "securite": {
+            "export": {
+                "global": {
+                    "organization_grade": "ID"
+                }
+            }
+        },
+        "up": {
+            "export": {
+                "battles": {
+                    "disciplineName": "Название курса",
+                    "moduleLevel": "Уровень"
+                }
+            }
+        },
+        "tagheuer": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Point of sales code"
+                }
+            }
+        },
+        "thelem": {
+            "export": {
+                "global": {
+                    "organization_role": "Должность",
+                    "language": "Язык",
+                    "organization_boutique": "Расположение",
+                    "organization_title": "Наименование отдела",
+                    "organization_boutiqueReferent": "Регистрационный номер",
+                    "startContract": "Дата начала работы в компании",
+                    "organization_contractType": "Тип контракта",
+                    "organization_grade": "Квалификация"
+                }
+            }
+        },
+        "yahoo": {
+            "export": {
+                "global": {
+                    "organization_title": "Работа",
+                    "organization_workingCountry": "Страна",
+                    "region": "Язык"
+                }
+            }
+        },
+        "who": {
+            "export": {
+                "global": {
+                    "organization_workingCountry": "Страна/штат",
+                    "region": "Территория/государство",
+                    "provider": "Принадлежность",
+                    "organization_role": "Фон/опыт",
+                    "organization_grade": "Код доступа",
+                    "organization_boutiqueReferent": "Уровень образования"
+                }
+            }
+        }
+    }
+}

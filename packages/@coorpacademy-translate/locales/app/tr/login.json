@@ -1,0 +1,392 @@
+{
+    "welcome": "Hoş geldiniz",
+    "goodby": "Hoşça kal!",
+    "sorry": "Üzgünüz!",
+    "welcome_message": "Bağlanmak için, lütfen Coorpacademy tarafından verilen bağlantı bilgilerini girin",
+    "welcome_message_coorp": "CoorpAcademy",
+    "grant_credentials": "Bu operasyonu yürütmek için yeterli yetkin yok.",
+    "sso_connect": "Şirket hesabınızdan bağlanabilirsiniz.",
+    "connect_connect": "Connect üzerinden bağlanabilirsiniz.",
+    "forgotten_credentials_pre": "MOOC ile alakalı sorular için lütfem platform yöneticisiyle iletişime geçin:",
+    "forgotten_credentials_href": "mailto:assistance@coorpacademy.com?subject={{platform}}'a%20bağlanma%20konusunda%20yardıma%20ihtiyacım%20var",
+    "forgotten_credentials": "assistance@coorpacademy.com",
+    "forgotten_credentials_post": "&nbsp;",
+    "instruction": "&nbsp;",
+    "logged_out": "Sen bağlantısı kesilmiş.",
+    "form": {
+        "user": "E-posta",
+        "password": "Parola"
+    },
+    "error": {
+        "incorrect_credentials": "Kullanıcı adı veya parola yanlış",
+        "password_check": "Parolanız doğrulanamıyor. Lütfen, sitenin yöneticisine başvurun.",
+        "too_many_failed_attempts": "Çok fazla başarısız giriş denemesi. Lütfen birkaç dakika sonra tekrar deneyin.",
+        "no_population": "Platform erişimi için ölçütlere uyan değil. Lütfen yöneticinize başvurun.",
+        "auth": {
+            "_sso_vendor_vendor_authentication_failed_connect_econnrefused": "[sso.vendor] vendor authentication failed: connect ECONNREFUSED",
+            "_sso_corporate_authenticate_person_failed_connect_econnrefused": "[sso.corporate] authenticatePerson failed: connect ECONNREFUSED"
+        },
+        "token_invalid": "Bu bağlantının süresi doldu, lütfen giriş bilgilerinizi ve parolanızı kullanın"
+    },
+    "reset_password": "Şifreni mi unuttun?",
+    "forgot": {
+        "welcome": "Parolanızı yenileyin",
+        "new_password": "Yeni parola",
+        "forgotten_welcome_message": "Lütfen giriş veya e-posta girin.",
+        "forgotten_placeholder": "oturum açma veya e-posta",
+        "reset_welcome_message": "Lütfen, yeni parolanızı girin.",
+        "password_updated": "Parolanız güncellendi!",
+        "your_login_is": "Güncel kullanıcı adınız:",
+        "reset_query_not_found": "Bağlantı geçersiz. Parola yenileme talebiniz yok veya artık geçerli değil.",
+        "incorrect_credentials": "Kullanıcı adı veya parola yanlış",
+        "password_reset_query_created": "Talebiniz başarıyla kaydedildi.",
+        "password_reset_mail_sent": "Bu platform için kullandığınız doğru e-posta girdiyseniz, size sadece bir e-posta gönderdik. Lütfen şifrenizi güncellemek için yönergeleri izleyin.\nBirkaç dakika içinde <b>yanlış e-posta girdiğiniz</b> e-posta almazsanız. Lütfen farklı bir adres ile yeniden deneyin.",
+        "sign": {
+            "in": "Bağlan"
+        },
+        "error": {
+            "missing_login": "Kullanıcı adı zorunludur.",
+            "login_not_found": "Kullanıcı adı bulunamadı",
+            "forgotten_missing_login": "Oturum açma veya e-posta zorunlu",
+            "weak_password": "Yeni parola yeterince güçlü değil",
+            "reset_query_not_saved": "Şifre sıfırlama talebi işleme alınırken bir hata oluştu. Lütfen daha sonra tekrar deneyin."
+        }
+    },
+    "unsubscribe": {
+        "title": "Abonelik iptali",
+        "confirmation_unsubscribe_message": "Abonelik iptaliniz dikkate alındı.",
+        "confirmation_subscribe_message": "Aboneliğiniz dikkate alındı.",
+        "question_message": "Bilgilendirme veya hatırlatma e-postaları almak istemiyorum."
+    },
+    "bad_access": {
+        "title": "Üzgünüz!",
+        "sub_title": "Bu MOOC sadece yetki verilmiş kimselerin erişimine açıktır."
+    },
+    "inactive": {
+        "title": "Üzgünüz!",
+        "sub_title": "<p>Hesap etkin değil.</p> <p>$t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a></p>"
+    },
+    "deactivated": {
+        "title": "Üzgünüz",
+        "warning": "Tüm kullanıcı devre dışı bırakma işlemleri bir sonraki ayın ilk gününden itibaren geçerli olacaktır. Kullanıcılar, hesapları devre dışı bırakıldıktan sonra hesaplarını tekrar etkinleştiremezler. Dikkatli kullanın.",
+        "sub_title": "<p>Firmanız hesabınızı devre dışı bırakmıştır. Gittiğinizi görmek bizi üzüyor!</p>"
+    },
+    "anonymous_notification": "Zaten üye misiniz? <a href=\"/sso/connect\" target=\"_self\"> <b>giriş şimdi</b></a> veya şirketiniz için <a href=\"$t(global:demo.url, {\"medium\":\"notification\"})\" target=\"_blank\"> <b>kitap bir demo</b></a>",
+    "connect_dialog": {
+        "need_signup": {
+            "title": "Neredeyse bitti!",
+            "message": "Şimdi bir sonraki bölümde kilidini açmak için kayıt"
+        },
+        "feature_locked": {
+            "title": "Özellik kilitli!",
+            "message": "Şimdi bu özelliği kilidini açmak için kayıt"
+        },
+        "login_with": {
+            "facebook": "Facebook ile giriş",
+            "google": "Google ile giriş",
+            "linkedin": "LinkedIn ile giriş"
+        },
+        "signup_with": {
+            "email": "E-posta ile kayıt olun"
+        },
+        "or": "veya",
+        "signup": "Kaydol",
+        "signup_exist": "Zaten bir hesabınız var",
+        "login": "Oturum aç"
+    },
+    "custom": {
+        "accueil": {
+            "forgotten_credentials_href": "e-posta:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Oturum açma"
+            }
+        },
+        "architas-powercircle": {
+            "reset_password": "Şifreni mi unuttun?",
+            "forgotten_credentials_pre": "<p>Bu e-öğrenme platformu ile ilgili bir sorum var?</p> <p>Tereddüt don't - bize şimdi bir mesaj!</p>",
+            "forgotten_credentials_href": "mailto:powercircle@architas.com",
+            "forgotten_credentials": "powercircle@architas.com"
+        },
+        "bestwesternuniversity": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Oturum açma"
+            }
+        },
+        "bigdata": {
+            "forgotten_credentials_pre": "Giriş yapmak için lütfen eposta'da aldığınız giriş bilgilerini giriniz.</br></br> KÇAD hakkındaki sorularınız için lütfen platform yöneticisi ile iletişime geçiniz.",
+            "form": {
+                "user": "Eposta adresiniz"
+            }
+        },
+        "bpifrance-academie": {
+            "forgotten_credentials": "formation-drhinvest@bpifrance.fr",
+            "forgotten_credentials_href": "mailto:formation-drhinvest@bpifrance.fr"
+        },
+        "breguet": {
+            "form": {
+                "user": "Oturum açma"
+            }
+        },
+        "chanel": {
+            "welcome": "HOŞGELDİNİZ",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "cd78": {
+            "forgotten_credentials": "DSIdemande@yvelines.fr",
+            "forgotten_credentials_href": "mailto:DSIdemande@yvelines.fr"
+        },
+        "el": {
+            "form": {
+                "user": "VAROLUŞ SOCIALE. NUMERO"
+            }
+        },
+        "faurecia": {
+            "welcome_message": "Giriş yapmak için, lütfen aldığınız giriş bilgilerini girin",
+            "welcome_message_coorp": "eposta"
+        },
+        "fdj": {
+            "form": {
+                "user": "harflerle e-posta"
+            }
+        },
+        "fff": {
+            "bad_access": {
+                "title": "Üzgünüz!",
+                "sub_title": "Bu MOOC'a sadece yetkili kişilerce erişilebilir. <br/> <br/> Eğer öğretmen ya da teknisyenseniz,  platforma erişmek için <a href=\"https://www.fff.fr/myfff\"> https://www.fff.fr/myfff</a> adresine giriş yapın."
+            }
+        },
+        "forco": {
+            "form": {
+                "user": "harflerle e-posta"
+            }
+        },
+        "gdf": {
+            "welcome_message": "Giriş yapmak için lütfen profesyonel eposta adresinizi<br/> (küçük harflerle) ve şifrenizi giriniz.",
+            "welcome_message_coorp": "<br><br>İlk bağlantı ? Eposta aracılığıyla size sağlanan şifreyi girin.",
+            "forgotten_credentials_pre": "Erişim yok?Bağlantı prolemi?<a href=\"https://docs.google.com/forms/d/1M9Wxq3h8ukgZZHgD8MXknduRIpbNns9rYZNA3bEiiM4/viewform?usp=send_form\">Buraya tıklayın</a><br><br>MOOC ile ilgili sorularınız için lütfen platform yöneticisiyle iletişime geçin:"
+        },
+        "gdfec": {
+            "welcome_message": "Giriş yapmak için, lütfen profesyonel eposta adresinizi <br/> (küçük harfle) ve şifrenizi girin.",
+            "welcome_message_coorp": "<br><br>İlk bağlantı?Size epostayla verilen şifrenizi giriniz.",
+            "forgotten_credentials_pre": "Erişim yok mu? Bağlantı sorunu mu? <a href=\"https://docs.google.com/forms/d/1M9Wxq3h8ukgZZHgD8MXknduRIpbNns9rYZNA3bEiiM4/viewform?usp=send_form\">Buraya tıklayın</a><br><br> MOOC ile ilgili sorularınız için lütfen platform yöneticisiyle iletişime geçin:"
+        },
+        "ilearn": {
+            "welcome": "Platforma hoş geldiniz"
+        },
+        "jardiland": {
+            "form": {
+                "user": "numéro de matricule"
+            }
+        },
+        "letsgetdigital": {
+            "form": {
+                "user": "Posta"
+            }
+        },
+        "linxea": {
+            "form": {
+                "user": "E-posta"
+            }
+        },
+        "logisacademie": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Oturum açma"
+            }
+        },
+        "metro": {
+            "form": {
+                "user": "name.lastname"
+            }
+        },
+        "mooc-parischarlesdegaulle": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Oturum açma"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Oturum açma"
+            }
+        },
+        "nespresso": {
+            "form": {
+                "user": "Nespresso Email address (case-sensitive)"
+            }
+        },
+        "nestlehealthscience": {
+            "form": {
+                "user": "harflerle e-posta"
+            }
+        },
+        "natixis": {
+            "forgotten_credentials_pre": "For any question, please contact the platform administrator:"
+        },
+        "michelin": {
+            "inactive": {
+                "sub_title": "<p>We have missed you. Your account has been deactivated by your DCAD departement (Contact: <a href=\"mailto:compte-fonction.digital-transformation@michelin.com\">compte-fonction.digital-transformation@michelin.com</a>)"
+            }
+        },
+        "moocandfeel": {
+            "welcome_message": "Girmek için,Lütfen Comundi tarafından sağlanan giriş bilgilerinizle giriş yapın.",
+            "forgotten_credentials_pre": "KÇAD hakkındaki sorularınız için lütfen platform yöneticisi ile iletişime geçiniz.",
+            "forgotten_credentials_href": "Mail:assistance-moocandfeel@coorpacademy.com",
+            "forgotten_credentials": "assistance-moocandfeel@coorpacademy.com",
+            "forgotten_credentials_post": "&nbsp;"
+        },
+        "online-academy-klubschule": {
+            "forgotten_credentials_href": "mailto:support@online-academy.klubschule.ch",
+            "forgotten_credentials": "support@online-academy.klubschule.ch"
+        },
+        "paca": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Oturum açma"
+            }
+        },
+        "panzani": {
+            "form": {
+                "user": "harflerle e-posta"
+            }
+        },
+        "pernod": {
+            "bad_access": {
+                "title": "Üzgünüz!",
+                "sub_title": "Bu MOOC sadece yetkili kişilerce ulaşılabilir. Bu platforma erişmek için, lütfen <a href='http://digifit-pernodricard-university.com'>digifit-pernodricard-university.com</a> a giriş yapın."
+            }
+        },
+        "pmf": {
+            "form": {
+                "user": "harflerle e-posta"
+            }
+        },
+        "pru": {
+            "bad_access": {
+                "title": "Üzgünüz!",
+                "sub_title": "Bu MOOC'a yalnızca yetkili kişiler erişebilir."
+            }
+        },
+        "quizz-auchan": {
+            "form": {
+                "user": "KİMLİK numarası (örnek: XXX0000000)"
+            }
+        },
+        "redoute": {
+            "form": {
+                "user": "Login"
+            }
+        },
+        "renault": {
+            "welcome_message": "Giriş yapmak için lütfen bilgileri girin.",
+            "forgotten_credentials_pre": "MOOC ile ilgili sorular için lütfen platform yöneticisiyle iletişime geçin:",
+            "forgotten_credentials_href": "mailto:gerardo.talavera-farias@renault.com",
+            "forgotten_credentials": "gerardo.talavera-farias@renault.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "welcome_message_coorp": "&nbsp;"
+        },
+        "samsung": {
+            "forgotten_credentials_pre": "KÇAD hakkındaki sorularınız için lütfen platform yöneticisi ile iletişime geçiniz.",
+            "forgotten_credentials_href": "mailto:assistance@coorpacademy.com",
+            "forgotten_credentials": "assistance@coorpacademy.com",
+            "hotline_assistance_pre": "Kayıt olmanız ile ilgili sorular için, lütfen Samsung Academy yardım hattı ile iletişime geçin:",
+            "hotline_assistance_href": "mailto:hotline.samsungacademy@gmail.com",
+            "hotline_assistance": "hotline.samsungacademy@gmail.com",
+            "inactive": {
+                "title": "Üzgünüz!",
+                "sub_title": "Hesabınız aktif değil. </br></br> $t(login:hotline_assistance_pre) <a href=\"$t(login:hotline_assistance_href)\"> $t(login:hotline_assistance)</a></br></br> $t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a>"
+            }
+        },
+        "securite": {
+            "forgotten_credentials_pre": "Giriş yapmak için, lütfen e-postanıza kutunuza gelen bilgileri girin. </br> </br>  MOOC hakkındaki sorularınız için lütfen platform yöneticisi ile iletişime geçin:",
+            "form": {
+                "user": "Eposta adresiniz"
+            }
+        },
+        "societegenerale": {
+            "welcome_message": "Giriş yapmak için, lütfen SGLearning tarafından sağlanan bilgileri girin.",
+            "forgotten_credentials_pre": "MOOC ile alakalı sorular için lütfem platform yöneticisiyle iletişime geçin:",
+            "forgotten_credentials_href": "mailto:sglearning.communication@socgen.com",
+            "forgotten_credentials": "sglearning.communication@socgen.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "welcome_message_coorp": "&nbsp;"
+        },
+        "schmidt-groupe": {
+            "form": {
+                "user": "e-posta ya da firstNameInitial + Soyad"
+            }
+        },
+        "sqy": {
+            "welcome_message_coorp": "posta",
+            "forgotten_credentials_pre": "Giriş yapmak için,lütfen e-posta ile aldığınız giriş bilgilerinizi giriniz.</br> </br> MOOC ile ilgili sorularınız için,lütfen platform yöneticisiyle iletişime geçiniz",
+            "form": {
+                "user": "Eposta adresiniz"
+            }
+        },
+        "tagheuer": {
+            "forgotten_credentials_pre": "TAG Heuer Eğitim Platformu'na ilişkin sorular için, lütfen platform yöneticisiyle iletişim kurun:",
+            "form": {
+                "user": "Oturum açma"
+            }
+        },
+        "thelem": {
+            "forgotten_credentials_href": "tel:11-11",
+            "forgotten_credentials": "Telefon: 11-11"
+        },
+        "total": {
+            "instruction": "Parolanızı gönderildi size e-posta ile. İlk bağlantı değiştirmek için davet edilecektir.",
+            "form": {
+                "user": "IGG",
+                "password": "Şifre"
+            }
+        },
+        "tourism": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Oturum açma"
+            }
+        },
+        "tourisme-hautsdefrance": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Oturum açma"
+            }
+        },
+        "tourismdigital": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Oturum açma"
+            }
+        },
+        "who": {
+            "forgotten_credentials_pre": "Sorularınız için lütfen irtibata geçiniz",
+            "forgotten_credentials_href": "mailto:assistance@coorpacademy.com",
+            "forgotten_credentials": "assistance@coorpacademy.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "inactive": {
+                "sub_title": "<p>Hesap etkin değil.</p> Eğer zaten kayıt formu tamamlamış <p>, onayı ve erişim platformu için kısa zamanda alacaksınız. Aksi takdirde, <a href=\"/signup\" target=\"_self\"> <b>(“kayıt”)</b></a> kayıt formu gönderin.</p> <p>$t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a></p>"
+            }
+        },
+        "wme-img": {
+            "form": {
+                "user": "firstNameInitial + Soyad"
+            }
+        },
+        "yahoo": {
+            "welcome_message_coorp": "eposta"
+        }
+    }
+}

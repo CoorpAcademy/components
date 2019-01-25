@@ -1,0 +1,63 @@
+{
+    "battle": {
+        "incoming": "Je hebt {{count}} battle klaar staan.",
+        "incoming_plural": "Je hebt {{count}} battles klaar staan.",
+        "you_win": "Je hebt een battle gewonnen",
+        "you_lose": "Je hebt een battle verloren"
+    },
+    "badge": {
+        "won": "Je hebt badge {{name}} verdiend"
+    },
+    "module": {
+        "won": "Je hebt een module behaald"
+    },
+    "reward": {
+        "won": "Bravo! Je inspanningen zijn beloond!"
+    },
+    "coach": {
+        "unlocked": "Je bent nu een Coach"
+    },
+    "incoming": "Je hebt een nieuwe melding",
+    "chatrequest": "Nieuw chatverzoek",
+    "goal": {
+        "progress": "Je hebt vooruitgang geboekt in je certificaten",
+        "select": "Je hebt een certificaat geselecteerd",
+        "reward": "Je hebt een certificaat verdiend"
+    },
+    "forum": "Iemand heeft jouw vraag beantwoord",
+    "new_version": {
+        "title": "Nieuwe versie",
+        "message": "Er is een nieuwe versie van dit platform gelanceerd.",
+        "action": "Vernieuwen"
+    },
+    "welcome": "Welkom <b>{{user}}</b>, je hebt nu toegang tot alle cursussen",
+    "personal_note": "Jouw bericht is verzonden naar je e-mailadres.",
+    "bonusStars": "Gefeliciteerd! Je hebt {{stars}} extra sterren verdiend!",
+    "rewardStars": "Gefeliciteerd! Je hebt {{stars}} extra sterren verdiend!",
+    "totem": {
+        "header": "Een nieuwe Totem live gebeurt!",
+        "body": "Klik hier om lid te"
+    },
+    "custom": {
+        "armeedeterre": {
+            "battle": {
+                "incoming": "Hebt u {{count}} in afwachting van slag.",
+                "incoming_plural": "Hebt u {{count}} in afwachting van de gevechten.",
+                "you_win": "U een slag gewonnen",
+                "you_lose": "U een gevecht verloren"
+            }
+        },
+        "pernod": {
+            "goal": {
+                "progress": "U hebt een doel gewijzigd",
+                "select": "U hebt een doel",
+                "reward": "U hebt een doel gedeblokkeerd"
+            }
+        },
+        "up": {
+            "module": {
+                "won": "U hebt een niveau voltooid"
+            }
+        }
+    }
+}

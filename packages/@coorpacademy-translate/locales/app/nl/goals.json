@@ -1,0 +1,201 @@
+{
+    "title": "Mijn certificaten.",
+    "subtitle_head1": "Selecteer een of meer certificaten en vul ze in om jouw vaardigheden binnen een bepaald gebied of onderwerp te verbeteren.",
+    "subtitle_head2": "Start een certificatiemodule.",
+    "how_to": "Voor het valideren van een certificaat, moet je iedere module afronden. Laten we beginnen!",
+    "button_choose_goal": "Kies een certificaat.",
+    "selected_goals_title": "{{goals}} Huidig certificaat",
+    "selected_goals_title_plural": "{{goals}} Huidige certificaten",
+    "selected_goals_no_item": "Geen certificaat geselecteerd. Kies er eentje!",
+    "finished_goals_title": "{{goals}} Behaald certificaat",
+    "finished_goals_title_plural": "{{goals}} Behaalde certificaten",
+    "finished_goal_label": "{{goalLabel}} {{star}}",
+    "finished_goals_no_item": "Je hebt nog geen certificaten voltooid.",
+    "button_module_access": "Start nu",
+    "minutes_label": "min",
+    "status_label": "Status:",
+    "stars_label": "{{stars}} ster",
+    "stars_label_plural": "{{stars}} sterren",
+    "popover": {
+        "title": "Wees voorzichtig!",
+        "module_blocked_pre": "Deze module is niet beschikbaar:",
+        "module_blocked_post": "{{pre}} Om dit te bereiken moet je eerst het niveau {{level}} valideren",
+        "select_goal": {
+            "title": "Kies een certificaat",
+            "available_module": "{{total}} beschikbaar certificaat",
+            "available_module_plural": "{{total}} beschikbare certificaten",
+            "module_done": "Deze module is al afgerond. Je bent op weg om het certificaat te valideren.",
+            "module_blocked": "Deze module is nog niet beschikbaar. Om hem te ontgrendelen, moet je eerst het niveau Basis of Geavanceerde afronden.",
+            "button_add_goal": "Bevestig mijn certificaat."
+        }
+    },
+    "condition_progress": {
+        "information": "Je hebt {{done}} van {{total}} voorgestelde modules voltooid."
+    },
+    "certification": {
+        "title": "Jouw certificaat",
+        "title_plural": "Jouw certificaten",
+        "subtitle": "Valideer jouw vaardigheden met deze certificatie",
+        "subtitle_plural": "Valideer je kennis hier",
+        "rewards": {
+            "subtitle": "Jouw beloningen",
+            "see_detail": "Weergeven",
+            "congratulations": "gefeliciteerd met je succes",
+            "you_can_win": "Win",
+            "download_resource": "Klik hier om te downloaden",
+            "see_diploma": "Diploma weergeven",
+            "access_your_diploma": "Toegang tot jouw diploma"
+        },
+        "stars": {
+            "description_pre": "Toevoegen",
+            "description_post": "sterren"
+        },
+        "state": {
+            "done": "Klaar!",
+            "inProgress": "Bezig"
+        },
+        "condition_description": {
+            "progress": "Doel: {{count}} module",
+            "progress_plural": "Doel: {{count}} modules"
+        },
+        "certificationDone": "Gefeliciteerd! Je hebt het {{certificationName}}-certificaat behaald!"
+    },
+    "diploma": {
+        "certificate": "certificaat",
+        "date": "Datum: {{date}}",
+        "message": "heeft alle modules die relevant zijn voor dit certificaat voltooid in:"
+    },
+    "custom": {
+        "ecolenumerique-sncf": {
+            "certification": {
+                "title": "Jedi Badge",
+                "title_plural": "Jedi Badges",
+                "certificationDone": "Gefeliciteerd! U hebt de {{certificationName}} Badge verkregen!",
+                "subtitle": "Valideren van uw Jedi Badge hier",
+                "subtitle_plural": "Valideren van uw Jedi Badges hier"
+            }
+        },
+        "ganprevoyance": {
+            "certification": {
+                "title": "Universe",
+                "title_plural": "Universa",
+                "certificationDone": "Gefeliciteerd! Je hebt de {{certificationName}} Universe valideren!",
+                "subtitle": "Valideren van uw Universe hier",
+                "subtitle_plural": "Valideren van uw universa hier"
+            }
+        },
+        "cnp": {
+            "certification": {
+                "title": "Certificaat",
+                "title_plural": "Certificaten",
+                "certificationDone": "Gefeliciteerd! U hebt de {{certificationName}} certificaat gevalideerd!",
+                "subtitle": "Valideren van uw certificaat hier",
+                "subtitle_plural": "Valideren van uw certificaten hier"
+            }
+        },
+        "pernod": {
+            "title": "Mijn doelen.",
+            "subtitle_head1": "Selecteer een of meer doelstellingen en vul hen ter verbetering van uw vaardigheden op een geselecteerd gebied en onderwerp.",
+            "subtitle_head2": "Starten van een module onder deze die zijn opgenomen in een doelstelling.",
+            "how_to": "Voor het valideren van een doelstelling, vult u in elke module. Laten we beginnen!",
+            "button_choose_goal": "Kies een doel.",
+            "selected_goals_title": "{{goals}} Huidige doelstelling",
+            "selected_goals_title_plural": "{{goals}} Huidige doelstellingen",
+            "selected_goals_no_item": "Geen doel geselecteerd. Kies er een!",
+            "finished_goals_title": "{{goals}} Behaalde doelstelling",
+            "finished_goals_title_plural": "{{goals}} Behaalde doelstellingen",
+            "finished_goal_label": "{{goalLabel}} {{star}}",
+            "finished_goals_no_item": "Je hebt nog geen doelstellingen voltooid.",
+            "button_module_access": "Start nu",
+            "minutes_label": "min",
+            "status_label": "Status:",
+            "stars_label": "{{stars}} ster",
+            "stars_label_plural": "{{stars}} sterren",
+            "popover": {
+                "title": "Wees voorzichtig!",
+                "module_blocked_pre": "Deze module is niet beschikbaar:",
+                "module_blocked_post": "{{pre}} Om dit te bereiken moet je eerst het niveau {{level}} valideren",
+                "select_goal": {
+                    "title": "Kies een doel",
+                    "available_module": "{{total}} beschikbare doelstelling",
+                    "available_module_plural": "{{total}} beschikbare doelstellingen",
+                    "module_done": "Deze module is al uitgeschakeld. U bent op uw weg naar de verwezenlijking van de doelstelling.",
+                    "module_blocked": "Deze module is niet beschikbaar nog. Om te ontgrendelen moet u eerst het wissen van de Basic- of geavanceerde niveaus.",
+                    "button_add_goal": "Mijn doelstelling bevestigen."
+                }
+            },
+            "condition_progress": {
+                "information": "Je hebt {{done}} van {{total}} voorgestelde modules voltooid."
+            },
+            "certification": {
+                "title": "Uw doelstellingen",
+                "subtitle": "Valide je vaardigheden met deze doelstellingen",
+                "rewards": {
+                    "subtitle": "Uw beloningen",
+                    "see_detail": "Zie",
+                    "congratulations_pre": "En onze",
+                    "congratulations": "Felicitaties",
+                    "congratulations_post": "voor al uw inspanningen"
+                },
+                "stars": {
+                    "description_pre": "Wij geven u",
+                    "description_post": "sterren"
+                },
+                "state": {
+                    "done": "Gedaan",
+                    "inProgress": "Bezig"
+                },
+                "condition_description": {
+                    "progress": "{{nbDone}} voltooide modules"
+                },
+                "certificationDone": "Gefeliciteerd! Je hebt de {{certificationName}} doelstelling behaald!"
+            }
+        },
+        "sgmgt": {
+            "diploma": {
+                "message": "All the steps of the proficiencies required have been completed within the framework of project management awareness"
+            }
+        },
+        "securite": {
+            "diploma": {
+                "message": "alle modules die relevant zijn voor dit certificaat in heeft voltooid:"
+            }
+        },
+        "projet": {
+            "diploma": {
+                "message": "All the steps of the proficiencies required have been completed within the framework of project management awareness"
+            }
+        },
+        "tagheuer": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Deze module is nog niet beschikbaar. Om hem te ontgrendelen, moet je eerst de niveaus titanium of brons afronden."
+                }
+            }
+        },
+        "tagheuercon": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Deze module is nog niet beschikbaar. Om hem te ontgrendelen, moet je eerst de niveaus titanium of brons afronden."
+                }
+            }
+        },
+        "up": {
+            "subtitle_head2": "Start één van de niveaus binnen dit doel.",
+            "how_to": "Om een doel te valideren, moet je elk niveau voltooien. Laten we beginnen!",
+            "popover": {
+                "module_blocked_pre": "Dit niveau is niet beschikbaar:",
+                "select_goal": {
+                    "module_done": "Dit niveau is al voltooid. Je bent goed op weg om je doelstelling te halen.",
+                    "module_blocked": "Dit niveau is niet nog beschikbaar. Om het te ontgrendelen moet je eerst het niveau Basic of Geavanceerde behalen."
+                }
+            },
+            "certification": {
+                "condition_description": {
+                    "progress": "Doel: {{count}} discipline",
+                    "progress_plural": "Doel: {{count}} disciplines"
+                }
+            }
+        }
+    }
+}

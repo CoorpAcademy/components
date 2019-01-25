@@ -1,0 +1,107 @@
+{
+    "indice": {
+        "title": "需要帮助？",
+        "sub_title": "用星星交易换取线索！",
+        "content": "获得线索"
+    },
+    "lesson": {
+        "title": "在这里找到答案！",
+        "sub_title": "查看课程，获取额外的 4 颗星！",
+        "resources": "走得更远",
+        "title_video": "课程视频",
+        "title_pdf": "课程的PDF文件",
+        "look_at_the_course": "查看课程"
+    },
+    "without_coach": {
+        "title": "无在线辅导"
+    },
+    "with_coach": {
+        "title": "开始一个讨论",
+        "content": "{{nb}} 个教练有空"
+    },
+    "is_valid": {
+        "state": "<span class=\"label1\"> 回答 </span> <span class=\"label2\"> 正确 </span>",
+        "title": "好极啦！",
+        "correctAnswer": "回答正确："
+    },
+    "is_invalid": {
+        "state": "<span class=\"label1\"> 错误的 </span> <span class=\"label2\"> 回答 </span>",
+        "title": "哎哟......",
+        "goodAnswer": "正确答案是："
+    },
+    "signup_finish_chapter": "注册完成本章",
+    "available_shots_pre": "你仍然拥有",
+    "available_shots": "剩下{{count}} 机会",
+    "available_shots_plural": "剩余{{count}}次机会",
+    "available_shots_post": "&nbsp;",
+    "klf": "你知道吗？",
+    "to_know": "关键",
+    "footer": {
+        "lesson": {
+            "title": "你可以决定对课程进行复习",
+            "button": "获取课程"
+        },
+        "result": {
+            "title": "你可以返回到你的结果",
+            "button": "返回结果"
+        },
+        "next_question": "下一个"
+    },
+    "check_answer": "检查答案",
+    "adaptive_check_answer": "下一个",
+    "next_question": "下一个问题",
+    "next_level": "下个等级",
+    "author": "这一章由……组成：",
+    "button_tree": "去目录",
+    "comments": {
+        "title": "讨论",
+        "title_for_module": "讨论- {{name}} Level"
+    },
+    "slideNotFound": "找不到参考文件{{slideId}}的问题",
+    "forbidden": "您没有参考{{contentRef}}访问内容的权利。",
+    "showContext": "再次访问上下文",
+    "context": "上下文",
+    "custom": {
+        "hr-ac": {
+            "footer": {
+                "lesson": {
+                    "button": "访问文档"
+                }
+            }
+        },
+        "nespresso": {
+            "without_coach": {
+                "title": "无在线辅导"
+            },
+            "with_coach": {
+                "content": "{{nb}} 个教练有空"
+            }
+        },
+        "renaultcare": {
+            "is_valid": {
+                "state": "<span class=\"label1\">好极了</span>"
+            },
+            "is_invalid": {
+                "state": "<span class=\"label1\">不见得</span>",
+                "title": "哎哟..."
+            }
+        },
+        "schneider": {
+            "comments": {
+                "title_for_module": "讨论 - {{name}} 水平 <br/>请联系<a href=\"http://2929it.schneider-electric.com/\" target=\"_blank\">2929 支持</a> 对于任何视频问题"
+            }
+        },
+        "who": {
+            "is_valid": {
+                "state": "<span class =“label1”>正确</ span> <span class =“label2”> 回答 </ span>",
+                "correctAnswer": "正确答案："
+            },
+            "to_know": "了解",
+            "lesson": {
+                "resources": "潜入主题",
+                "look_at_the_course": "PDF的课程"
+            },
+            "showContext": "再次访问上下文"
+        }
+    }
+}

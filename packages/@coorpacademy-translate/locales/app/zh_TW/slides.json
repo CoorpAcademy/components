@@ -1,0 +1,107 @@
+{
+    "indice": {
+        "title": "需要幫忙嗎？",
+        "sub_title": "用一個星星換取一個提示！",
+        "content": "取得一個線索"
+    },
+    "lesson": {
+        "title": "在這裡找到答案！",
+        "sub_title": "觀看課程並賺取 4 個額外的星星！",
+        "resources": "更進一步",
+        "title_video": "課程影片",
+        "title_pdf": "課程 PDF",
+        "look_at_the_course": "看看課程"
+    },
+    "without_coach": {
+        "title": "無可選的教練"
+    },
+    "with_coach": {
+        "title": "開始討論",
+        "content": "{{nb}}位可選教練"
+    },
+    "is_valid": {
+        "state": "<span class=\"label1\">好的</span> <span class=\"label2\">答案</span>",
+        "title": "做得好！",
+        "correctAnswer": "好答案："
+    },
+    "is_invalid": {
+        "state": "<span class=\"label1\">錯誤</span>的<span class=\"label2\">回答</span>",
+        "title": "哎喲...",
+        "goodAnswer": "正確答案是："
+    },
+    "signup_finish_chapter": "報名完成本章節",
+    "available_shots_pre": "你仍然擁有",
+    "available_shots": "剩下{{count}}個機會",
+    "available_shots_plural": "剩下 {{count}} 次機會",
+    "available_shots_post": "&nbsp;",
+    "klf": "您知道嗎？",
+    "to_know": "重點",
+    "footer": {
+        "lesson": {
+            "title": "您可以決定檢視課目",
+            "button": "進入本課程"
+        },
+        "result": {
+            "title": "您可以回到您的結果",
+            "button": "回到結果"
+        },
+        "next_question": "下一個"
+    },
+    "check_answer": "勾選答案",
+    "adaptive_check_answer": "下一個",
+    "next_question": "下一個問題",
+    "next_level": "新層級",
+    "author": "此章節由以下所製作：",
+    "button_tree": "前往目錄",
+    "comments": {
+        "title": "留言/發問",
+        "title_for_module": "討論- {{name}} Level"
+    },
+    "slideNotFound": "找不到與參考相關的問題{{slideId}}",
+    "forbidden": "您沒有參考{{contentRef}}訪問內容的權利。",
+    "showContext": "重新取得上下文內容",
+    "context": "脈絡",
+    "custom": {
+        "hr-ac": {
+            "footer": {
+                "lesson": {
+                    "button": "訪問文檔"
+                }
+            }
+        },
+        "nespresso": {
+            "without_coach": {
+                "title": "無可選的教練"
+            },
+            "with_coach": {
+                "content": "{{nb}}位可選教練"
+            }
+        },
+        "renaultcare": {
+            "is_valid": {
+                "state": "<span class=\"label1\"> 好棒 </span>"
+            },
+            "is_invalid": {
+                "state": "<span class=\"label1\">不見得</span>",
+                "title": "噢不……"
+            }
+        },
+        "schneider": {
+            "comments": {
+                "title_for_module": "討論 - {{name}} 級別 <br/>級別 請聯繫 <a href=\"http://2929it.schneider-electric.com/\" target=\"_blank\">2929 支援</a> 進行任何視頻問題"
+            }
+        },
+        "who": {
+            "is_valid": {
+                "state": "<span class=\"label1\"> 正確 </span> <span class=\"label2\"> 回答 </span>",
+                "correctAnswer": "正確答案："
+            },
+            "to_know": "以暸解",
+            "lesson": {
+                "resources": "躍入主題",
+                "look_at_the_course": "課程的 PDF"
+            },
+            "showContext": "再次存取上下文"
+        }
+    }
+}

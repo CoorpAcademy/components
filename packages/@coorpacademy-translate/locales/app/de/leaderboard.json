@@ -1,0 +1,31 @@
+{
+    "rankPos": "&nbsp;",
+    "rankPos_plural": "&nbsp;",
+    "title": "Mein Ranking",
+    "title_caps": "Mein Ranking",
+    "subtitle_head": "Sehen Sie sich Ihre Position an im Vergleich zu den 20 Lernenden mit den meisten Sternen.",
+    "subtitle_core_pre": "Sie sind",
+    "subtitle_core_post": "von allen Lernenden!",
+    "subtitle_tail": "Machen Sie weiter so, um Ihre Punktzahl noch weiter zu verbessern.",
+    "subtitle_no_rank": "Schließen Sie Kurse ab, um es im Ranking hoch zu klettern.",
+    "custom": {
+        "bnp": {
+            "subtitle_head": "Zeigen Sie Ihrer Position im Verhältnis zu den Top-20-Stern Factiors an."
+        },
+        "gdf": {
+            "subtitle_tail": "Am Ende von Staffel 1 werden die Top-20 Mitarbeiter in der Gesamtwertung auf dem Redaktionsausschuss eingeladen, den Betreffinhalt für die nächste Saison WeTransform zu wählen."
+        },
+        "gdfec": {
+            "subtitle_tail": "Am Ende von Staffel 1 werden die Top-20 Mitarbeiter in der Gesamtwertung auf dem Redaktionsausschuss eingeladen, den Betreffinhalt für die nächste Saison WeTransform zu wählen."
+        },
+        "up": {
+            "subtitle_no_rank": "Schließen Sie Kurse ab, um es im Ranking hoch zu klettern."
+        },
+        "yahoo": {
+            "subtitle_tail": ".&nbsp;"
+        },
+        "linxea": {
+            "subtitle_head": "Sehen Sie sich Ihre Position an im Vergleich zu den 20 Lernenden mit den meisten Sternen."
+        }
+    }
+}

@@ -1,0 +1,550 @@
+{
+    "welcome": "Dobrý den, {{name}}!",
+    "team": "Tím {{team}}",
+    "passwordFooter": "<br><br>Informace o připojení: <br>- IP adresa: {{ip}} <br>operační systém: {{os}} <br>-Browser: {{browser}} <br><br><b>to jste nebyl vy?</b> Nyní změňte své <a href=\"{{passwordReset}}\"> heslo</a>.",
+    "unsubscribe": "Odhlásit odběr",
+    "personalHooks_timeReferenceObjects": {
+        "510min": "Lety z New Yorku do Paříže",
+        "420min": "řada Her o trůny",
+        "360min": "Etapy Tour de France",
+        "120min": "Filmy Stmívání",
+        "100min": "Kung Fu filmy",
+        "90min": "Fotbalové zápasy",
+        "60min": "meeting v zasedací místnosti",
+        "25min": "epizody vašeho oblíbeného televizního pořadu"
+    },
+    "body": {
+        "accountCode": "Pro ověření vašeho účtu {{label}} prosím jděte na tuto adresu azadejte tento kód: <strong>{{code}}</strong>.",
+        "battleWaitingOpponent": "Nezapomeňte, {{opponentName}} vás vyzval(a) na „bitvu“ v kurzu $t({{disciplineName}}) na úrovni $t({{level}}) a čeká na vaši odpověď!<br/> Chcete-li výzvu přijmout a hrát, klikněte <a href=\"{{redirectionUrl}}\">sem</a>!<br/> <br/> Ať vyhraje ten lepší!",
+        "coachUnlocked": "Blahopřejeme! Stali jste se trenér v \"$t({{completedDiscipline}})\" kurz, které mají zcela ověřit! <br/> <br/> Můžete nyní pomáhat ostatním učení toto téma, protože jste se stali bezkonkurenční na téma! <br/> Jen pamatujte, že <b>živé oznámení zapnout</b> v nastavení a jednoduše reagovat na studenty, kteří žádají chat –-cílem je dovést je ke odpověď, ne jen proto, aby jim ji dám. <br/> <br/> Nezapomeňte, že “Neexistuje žádný dlouhodobý či čestné výkon bez solidarity!” <br/> <font size=\"2\"> <i>(Proust)</i></font> <br/> <br/>",
+        "contentUpdated": "Na platformu byl přidán nový kurz!<br/>",
+        "contentUpdatedEnd": "Začněte s ním teď: je <a href=\"{{redirectionUrl}}\">tady</a>.<br/> <br/> Příjemné školení!",
+        "contentUpdated_plural": "Na platformu byly právě přidány nové disciplíny!<br/>",
+        "contentUpdatedEnd_plural": "Přejděte na platformu {{label}} a jeden začněte! Musíte <a href=\"{{redirectionUrl}}\">tudy.</a>!<br/> <br/> Příjemný trénink!",
+        "lastAnsweredQuestion": "Všimli jsme si, že jste neodpověděl/a na žádné otázky po dobu jednoho týdne.<br/> <br/> Pokud máte potíže, neváhejte kontaktovat trenéra.",
+        "lastConnection": "Už jste se dlouho nepřihlásili k platformě {{label}} a chybíte nám!<br/> <br/> Stále jsou zde moduly k objevování, skóre ke zlepšení, lidé, které můžete vyzvat (přátelským způsobem)... Vraťte se zpět a pokračujte na své cestě za vzděláním!<br/> <br/> K platformě můžete přistupovat kliknutím na následující odkaz: <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> Přejeme šťastný trénink!",
+        "lastModuleDone": "Už je to týden, co jste se naposledy přihlásili do modulu na {{label}} platformě, nevzdávejte to!<br/> <br/> Pokud se setkáváte s obtížemi, neváhejte kontaktovat trenéra nebo požádat o pomoc komunitu prostřednictvím diskusních fór.<br/> <br/> Můžete vstoupit do platformy kliknutím na následující odkaz: <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a> <br/> <br/> Šťastný trénink!",
+        "passwordReset": "Jsme obdrželi žádost o obnovení hesla z vašeho účtu. <br/> <br/> Jako připomínka, vaše přihlašovací jméno je: {{login}} <br/> (Opatrně s velká a malá písmena) <br/> <br/> Své heslo můžete resetovat kliknutím na následující odkaz: <a href=\"{{resetLink}}\"> {{resetLink}}</a>. <br/> <br/> Prosím na vědomí, tento odkaz je platný pouze pro {{ttl}} hodin, takže se nemusíte čekat příliš dlouho klepnout odkaz! <br/> <br/> Pokud jste neprovedli tento požadavek, prosím ignorujte tento e-mail. <br/> <br/> Happy školení!",
+        "personalHooks": {
+            "trendingCourse": "<p>Kurz <b>{{courseName}}</b> je teď na {{platform}} populární! Za poslední dobu ho zkoušelo více než {{activeUsersOnCourse}} lidí.</p><p> Na co čekáte?</p>",
+            "recommendedCourse": "<p>Podle vaší aktivity na {{platform}} nás napadá několik kurzů, které bychom vám rádi doporučili.</p><p>Naše první volba, <b>{{courseName}}</b>, by měla být přesně podle vašeho gusta! Proč pto nevyzkoušet?</p>",
+            "onboarding": "<p>Úspěšně jste se připojili k <b>{{platform}}</b>. Velmi rádi vidíme, že jste připraveni naučit se něco nového!</p><p> Už to skoro máte! Stačí vybrat téma, které vás zajímá, nebo se můžete řídit podle jednoho z našich doporučení. Začněte se učit a vyzvěte své kolegy na zápas!</p>",
+            "finishCourse": "<p>Už to skoro máte! Úspěšně jste začali <b>{{courseName}}</b> na {{platform}}.</p><p>Dokončete jej nyní! Dokončete úroveň a získejte extra hvězdičky a vyplňte lištu s pokrokem na 100 %.</p>",
+            "doBattle": "<p>Všichni známe kolegu, který neustále tvrdí, že je lepší než ostatní.<br> Dokažte jim na {{platform}}, že se mýlí!</p><p>Vyzvěte je na <b>souboj</b>. Vyberte si oblíbené téma a poražením kolegů vyhrávejte hvězdy, stoupejte v žebříčku a vmeťte jim to na obědě do obličeje!</p>",
+            "doBattleOnCourse": "<p><b>{{courseName}}</b> už před vámi neskrývá žádná tajemství.</p><p>Který z vašich kolegů je natolik odvážný, že by vás v tomto tématu vyzval? Nikdo...?</p><p>Tak pokračujte a vyzvěte je v režimu soubojů na {{platform}}!</p>",
+            "othersProgress": "<p>Vaši kolegové byli na {{platform}} v poslední době docela aktivní!</p><p>Za poslední měsíc se toho stalo hodně:<ul><li><span style=\"font-weight: bold;color:{{primaryColor}}\">{{connectedUsers}} lidí</span> se přidalo</li><li><span style=\"font-weight: bold;color:{{primaryColor}}\">{{answeredQuestions}} otázek</span> bylo zodpovězeno</li><li><span style=\"font-weight: bold;color:{{primaryColor}}\">{{viewedLessons}} lekcí</span> bylo zobrazeno</li><li>... to je ekvivalent {{numberTimes}} {{timeReferenceObject}} času učení dohromady!</li></ul></p><p>Nezůstávejte pozadu!</p>",
+            "weMissYou": "<p>Už jsme vás chvíli neviděli na <b>{{platform}}</b>. Od vaší poslední návštěvy jsme na platformu přidali zbrusu nový obsah a funkce. Pojďte zpět k nám a objevte je! </p>",
+            "weMissYou_footer": "Vaší zpětné vazby si velmi vážíme. <a href=\"mailto:assistance@coorpacademy.com\">Povězte nám</a> prosím o vašich zkušenostech. Mohou být i negativní, ať se můžeme pro příště poučit!",
+            "generic_footer": "‌"
+        },
+        "sendBattle": "Uživatel {{opponentName}} vás vyzval na souboj v disciplíně $t({{disciplineName}}) na úrovni $t({{level}}) a netrpělivě čeká na vaši reakci!<br/> <br/> Chcete-li výzvu přijmout a hrát, klikněte <a href=\"{{redirectionUrl}}\">sem</a>!<br/> <br/> Ať zvítězí ten nejlepší student!",
+        "signupSelfValidation": "Děkujeme za registraci! Posledním krokem začít: Aktivujte svůj účet kliknutím na <a href=\"{{validateLink}}\"> níže uvedený odkaz</a>. <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> (Opatrně s velká a malá písmena) <br/> <br/> Si svůj trénink!",
+        "signupValidation": "Jsme obdrželi žádost o registraci od {{firstName}} {{lastName}} (login: {{login}} email: {{email}}) <br/> k ověření tohoto účtu, klikněte prosím na následující odkaz: <a href=\"{{validateLink}}\">{{validateLink}}</a> <br/>. <br/> Pokud tuto osobu neznáte, klikněte prosím na následující odkaz odstranit účet: <a href=\"{{rejectLink}}\">{{rejectLink}}</a>. <br/> Happy trénink!",
+        "signupComplete": "Váš účet je nyní ověřen! <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> (Opatrně s velká a malá písmena) <br/> <br/> Klikněte na tlačítko přihlásit a začít se učit!",
+        "commentReply": "{{replierName}} zrovna odpověděl na váš příspěvek v {{label}}: <p>{{originalCommentContent}}</p> --- <p>{{newCommentContent}}</p> Klikněte na tento <a href=\"{{newCommentLink}}\">odkaz</a> pro zobrazení diskuze a pokračování. Mějte se!",
+        "certification_header": "Jsme šťastní, že vám můžeme udělit certifikaci $t({{certification}}). Jako odměnu za vaše úsilí vám nabízíme:",
+        "certification_content_stars": "{{stars}} další hvězdičky!<br/>",
+        "certification_content_diploma": "Vaše certifikace, kterou si můžete stáhnout <a target='_blank' href=\"$t({{diplomaLink}})\">zde</a>",
+        "certification_content_resource": "Přejděte k položce $t({{rewardLabel}}) kliknutím na následující <a target='_blank' download href=\"$t({{resourceLink}})\">odkaz</a>",
+        "certification_content_end": "A nezapomeňte aktualizovat svůj životopis, stejně jako váš profesní profil a přidat tuto novou certifikaci.",
+        "assistance": {
+            "object": "Objekt: {{object}}",
+            "message": "{{message}}",
+            "displayName": "zobrazitNázev: {{displayName}}",
+            "email": "email: {{email}}",
+            "url": "URL: <a href=\"{{url}}\"> {{url}}</a>",
+            "discipline": "disciplína: {{discipline}}",
+            "module": "modul: {{module}}",
+            "chapter": "kapitola: {{chapter}}",
+            "slideRef": "Odkaz na snímek: {{slideRef}}"
+        },
+        "createdPassword": {
+            "top": "Blahopřejeme! <br><br>Jste právě vytvořili heslo spojené s účtem {{label}}. <br> <br>Nyní můžete přihlásit do platformy pomocí přihlašovací jméno a nové heslo. <br>Připomenutí, vaše přihlašovací jméno je: <b>{{login}}</b> (malá a velká písmena). <br>",
+            "bottom": "<br>Je čas se učit!"
+        },
+        "updatedPassword": {
+            "top": "Blahopřejeme! Úspěšně jste aktualizovali své heslo pro svůj účet {{label}} <br>. <br><br>Si můžete nyní přihlásit do platformy pomocí nového hesla a vaše obvyklé přihlášení. <br> Připomenutí, vaše přihlašovací jméno je: <b>{{login}}</b> (malá a velká písmena). <br>",
+            "bottom": "<br>Je čas se učit!"
+        }
+    },
+    "subject": {
+        "accountCode": "Potvrďte si prosím účet CoorpAcademy.",
+        "battleWaitingOpponent": "{{opponentName}}  na vás čeká",
+        "coachUnlocked": "Výborně, stal jste se trenérem",
+        "contentUpdated": "Co je nového na {{label}} platformě",
+        "lastAnsweredQuestion": "{{name}}, již nehrajete",
+        "lastConnection": "Pokračujte dále na platformě {{label}}",
+        "lastModuleDone": "Pokračujte s postupem na platformě {{label}}",
+        "passwordReset": "Obnovit heslo",
+        "personalHooks": {
+            "trendingCourse": "Podívejte se na nejpopulárnější kurz",
+            "recommendedCourse": "Doporučené kurzy: náš nejlepší výběr pro vás",
+            "onboarding": "Jak vylepšit schopnosti na {{platform}}?",
+            "finishCourse": "Vsadíme se, že to zvládnete. Dokončete {{courseName}}",
+            "doBattle": "Vyzvěte své kolegy na {{platform}}!",
+            "doBattleOnCourse": "Vyzkoušejte souboj z vašeho posledního tématu!",
+            "othersProgress": "Držte tempo v aktivitě na {{platform}}",
+            "weMissYou": "Už je to nějaká doba!"
+        },
+        "sendBattle": "Uživatel {{opponentName}} vás vyzval",
+        "test": "{{name}}, již nehrajete",
+        "signupSelfValidation": "Aktivujte svůj účet",
+        "signupValidation": "Potvrďte si účet",
+        "signupComplete": "Váš účet byl potvrzen!",
+        "commentReply": "{{replierName}} odpověděl(a) na váš komentář",
+        "certification": "Blahopřejeme vám, {{name}}, získal(a) jste certifikaci $t({{certification}})",
+        "assistance": "[{{brand}}] {{object}}",
+        "createdPassword": "Login / heslo připojení k {{label}}",
+        "updatedPassword": "Login / heslo připojení k {{label}}"
+    },
+    "call2action": {
+        "coachUnlocked": "Přejít na web",
+        "sendBattle": "Přijmout výzvu",
+        "battleWaitingOpponent": "Přijmout výzvu",
+        "commentReply": "Sledovat diskuzi",
+        "passwordReset": "Obnovit heslo",
+        "personalHooks": {
+            "trendingCourse": "Učte se jako oni",
+            "recommendedCourse": "Začnete s učením nyní",
+            "onboarding": "Užijte si učení!",
+            "finishCourse": "Dokončete tento kurz",
+            "doBattle": "Vyzvat kolegu",
+            "doBattleOnCourse": "Vyrazte do boje!",
+            "othersProgress": "Přidejte se ke studentům",
+            "weMissYou": "Podívejte se, co je nového"
+        },
+        "contentUpdated": "Jít na stránky",
+        "lastConnection": "Přejděte na webovou stránku",
+        "lastModuleDone": "Přejít na web",
+        "lastAnsweredQuestion": "Přejít na stránky",
+        "accountCode": "Přejít na web",
+        "signupValidation": "Ověřit tento účet",
+        "certificationDone": "Jít na stránky",
+        "signupSelfValidation": "Ověřit účet",
+        "signupComplete": "Navštívit platformu",
+        "assistance": "Přejděte na tuto stránku",
+        "createdPassword": "Zahájení školení",
+        "updatedPassword": "Zahájení školení"
+    },
+    "custom": {
+        "7steps": {
+            "team": "‌",
+            "body": {
+                "signupSelfValidation": "Děkujeme za naše Společenství vybraných maloobchodních nadání! <br/> <br/> Objevte SRA 7 prodejních kroků MOOC a získejte nejvyšší certifikaci v služby vysoké odborné kvality! <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> (opatrně s velká a malá písmena) <br/> <br/> klikněte na níže uvedený odkaz pro aktivaci účtu. <br/> <br/> Pokud tento e-mail jste obdrželi omylem, jednoduše odstraňte. Váš účet nebude aktivován, pokud Neklepejte na odkaz pro potvrzení. Pro dotazy týkající se této MOOC SRA, kontaktujte prosím: <a href=\"mailto:serviceretailacademy@loreal.com\"> serviceretailacademy@loreal.com</a>"
+            },
+            "call2action": {
+                "signupSelfValidation": "Potvrdit"
+            },
+            "subject": {
+                "signupSelfValidation": "SRA MOOC: Potvrďte prosím svůj účet"
+            }
+        },
+        "achat-habitat": {
+            "team": "Tým The Achat Habitat",
+            "body": {
+                "signupSelfValidation": "Děkujeme vám za registraci na Achat stanoviště! Posledním krokem začít: Aktivujte svůj účet kliknutím na tento odkaz: <br><a href=\"{{validateLink}}\"> {{validateLink}}</a> <br><br>přihlašovací jméno je: {{login}} <br/> (opatrně s velká a malá písmena) <br/> <br/> obsah bude k dispozici po 5. dubna a obdržíte mail s všechny praktické informace, aby vás učení výpravy. <br><br>Pro jakýkoliv dotaz ohledně vašeho přístupu / způsob Achat stanoviště funguje, lze natáhnout na <a href=\"mailto:assistance@coorpacademy.com\"> assistance@coorpacademy.com</a>. <br>Obdivujeme váš trénink!"
+            },
+            "subject": {
+                "signupSelfValidation": "Aktivace účtu Achat Habitat"
+            }
+        },
+        "air": {
+            "body": {
+                "coachUnlocked": "Blahopřejeme! Pokud jste úspěšně dokončili téma $t({{completedDiscipline}}) a dosáhl úrovně trenér! <br/> <br/> Nyní působí jako rozhodčí pro ostatní průzkumníci a sdílení znalostí je dosaženo. <br/> <br/> Když požádal o podporu další Explorer, prosím, veď ní/něj na správnou odpověď, ale nedávají odpověď přímo. <br/> <br/> Děkujeme vám za vaši účast a uvidíme se na příštím bivak! <br/> <br/> Digitálně,"
+            },
+            "subject": {
+                "coachUnlocked": "Air Liquide Digital expedice - nyní jste trenér!"
+            }
+        },
+        "bigdata": {
+            "team": "Tým SI'Academy",
+            "body": {
+                "certification_header": "Jsme hrdí na to award $t({{certification}}), odměňující vás s:",
+                "certification_content_stars": "{{stars}} bonusové hvězdy <br/>",
+                "certification_content_diploma": "Přístup k vaši $t({{certification}}) certifikátu prostřednictvím tohoto odkazu <a target='_blank' href=\"$t({{diplomaLink}})\"> zde</a>",
+                "certification_content_resource": "Přístup k odznak $t({{rewardLabel}}) prostřednictvím tohoto odkazu <a target='_blank' download href=\"$t({{resourceLink}})\"> odkaz</a>",
+                "certification_content_end": "Nezapomeňte aktualizovat váš profil SI'tizen, jakož i podpis elektronické pošty, zobrazí vaše nové certifikace"
+            }
+        },
+        "capgemini": {
+            "welcome": "Vážený {{name}},",
+            "body": {
+                "certification_header": "Jste prošli všechny vaše COOCs pro $t({{certification}}). Blahopřejeme! <br>Velice Děkuji a velmi brzy se uvidíme na platformě COOC!",
+                "certification_content_stars": "‌",
+                "certification_content_resource": "Podpořila nás k dalšímu zlepšení VP DigiCertif' zkušenosti, budeme rádi, pokud byste mohli sdílet své názory prostřednictvím tohoto odkazu: <br>VP klikněte prosím <a href=\"https://www.surveygizmo.com/s3/4299114/VP-COOC-platform\"> zde</a>",
+                "certification_content_end": "S pozdravem"
+            }
+        },
+        "challenge48htechno": {
+            "body": {
+                "signupSelfValidation": "Děkujeme vám za registraci na 48h Techno! Posledním krokem začít: Aktivujte svůj účet kliknutím na tento odkaz: <br><a href=\"{{validateLink}}\"> {{validateLink}}</a> <br><br>přihlašovací jméno je: {{login}} <br/> (opatrně s velká a malá písmena) <br/> <br/> pro veškeré otázky týkající se vašeho přístupu / způsob 48 h Techno funguje, lze natáhnout na <a href=\"mailto:assistance@coorpacademy.com\"> assistance@coorpacademy.com</a>. <br>Obdivujeme váš trénink!"
+            },
+            "subject": {
+                "signupSelfValidation": "48h aktivace účtu Techno"
+            }
+        },
+        "chanel": {
+            "body": {
+                "certification_content_end": "A nezapomeňte: můžete vrátit neomezeně na platformě aktualizovat své znalosti, hodinky ponaučení a videí a samozřejmě vyzvat své kolegy!"
+            }
+        },
+        "cnp": {
+            "body": {
+                "certification_header": "Jsme hrdí na to, udělit vám certifikát $t({{certification}}). Chcete-li ocenit vaše úsilí, vám nabízíme:"
+            }
+        },
+        "crisis": {
+            "team": "Pernod Ricard univerzita"
+        },
+        "corporateonlineopencourse": {
+            "body": {
+                "battleWaitingOpponent": "Nezapomeňte, že {{opponentName}} má vyzval k \"boji\" na úrovni $t({{level}}) kurz $t({{disciplineName}}) a čeká na vaši odpověď! <br/> Chcete-li přijmout výzvu a přehrát, klepněte <a href=\"https://idp.renault.com/nidp/saml2/idpsend?id=campus\"> sem</a>! <br/> <br/> Možná nejlepší osoba win!",
+                "sendBattle": "{{opponentName}} je náročné “bitva” o $t({{disciplineName}}) kázni, $t({{level}}) úroveň a dychtivě čeká na vaše reakce! <br/> <br/> Výzvou a přehrát, klepněte na tlačítko <a href=\"https://idp.renault.com/nidp/saml2/idpsend?id=campus\"> tady</a>! <br/> <br/> Může vyhrát nejlepší žák!",
+                "createdPassword": {
+                    "top": "Dobrý den! Blahopřejeme! <br>Jste nakonfigurovali heslo multifunkční zařízení. <br>, Takže pokud budete chtít, stačí kliknout na odkaz níže pomocí smartphonu nebo tabletu a připojení k MOOC značka VELVYSLANEC bude vytvořen s vaší nově konfigurované multi zařízení heslo https://corporateonlineopencourse.coorpacademy.com/login <br><br>Tip: po připojení, proč ne vytvořit odkaz na váš smartphone pro další snadný přístup ;-) <br>prosím Poznámka: připojení přes kampus zůstává k dispozici bez jakékoli konkrétní hesla. Přístup k zařízení multi je jen možnost.",
+                    "bottom": "<br>Je čas se učit!"
+                }
+            }
+        },
+        "cofpart-learning": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "digitalls2e": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "faurecia": {
+            "body": {
+                "coachUnlocked": "Blahopřejeme! Nyní jsou kvalifikovány jako trenér pro kurz $t({{completedDiscipline}}). <br/> <br/> Vzhledem k tomu, jste se stali bezkonkurenční na toto téma, nyní jste schopni pomáhat ostatním na jejich cestě učení. <br/> <br/> Prosím sdílet své znalosti a reagovat na Faurecians, kteří volají na chat v Learning Lab. <br/> <br/> Ale pamatujte si, že cílem je orientace odpověď, ne jen proto, aby jim ji dám na. <br/> <br/> Nezapomeňte, že \"jeden exkluzivní projevem důkladnou znalostí je moc výuky\" <br/> <font size=\"2\"> <i>(Aristoteles)</i></font> <br/> <br/>",
+                "certification_header": "Blahopřejeme k dosažení $t({{certification}}) certifikace! <br/> K rozpoznání tohoto úspěchu, vám nabízíme:",
+                "certification_content_stars": "Další {{stars}} Star body na <b>Faurecia univerzity | Výukové laboratoře</b> <br/>",
+                "certification_content_diploma": "Certifikát, který lze stáhnout a vytisknout, tento <a target='_blank' href=\"$t({{diplomaLink}})\"> odkaz</a>",
+                "certification_content_resource": "Zvláštní odměna, kterou se dostanete kliknutím na tento <a target='_blank' download href=\"$t({{resourceLink}})\"> odkaz</a>",
+                "certification_content_end": "A přemýšlet o přidání tohoto nového osvědčení do vašeho profilu v sociální síti!"
+            }
+        },
+        "fdj": {
+            "body": {
+                "certification_content_end": "And do not forget to continue your learning journey by testing yourself on the Digilearn application from your mobile.<br/>You do not have the app yet? Go to the apple store or google store and then activate your notifications!"
+            }
+        },
+        "ecolenumerique-sncf": {
+            "body": {
+                "certification_header": "Blahopřejeme k získání $t({{certification}}) odznak! <br/> K rozpoznání tohoto úspěchu, vám nabízíme:",
+                "certification_content_stars": "Další {{stars}} Star body <br/>",
+                "certification_content_resource": "Zvláštní odměna, kterou se dostanete kliknutím na tento <a target='_blank' download href=\"$t({{resourceLink}})\"> odkaz</a>",
+                "certification_content_end": "A přemýšlet o přidání této nové Jedi odznak do vašeho profilu v sociální síti!"
+            }
+        },
+        "el": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "ganprevoyance": {
+            "body": {
+                "certification_header": "Blahopřejeme k ověřování vesmír $t({{certification}})! <br/> K rozpoznání tohoto úspěchu, vám nabízíme:",
+                "certification_content_stars": "Další {{stars}} Star body <br/>",
+                "certification_content_resource": "Zvláštní odměna, kterou se dostanete kliknutím na tento <a target='_blank' download href=\"$t({{resourceLink}})\"> odkaz</a>",
+                "certification_content_end": "A přemýšlet o přidání tohoto nového vesmíru do vašeho profilu v sociální síti!"
+            }
+        },
+        "gdf": {
+            "urlHowTo": "* Jednoduše poklepejte na WeTransform ikonu na pracovní ploše a kopírovat/vložit tuto adresu url do adresního řádku",
+            "body": {
+                "battleWaitingOpponent": "Nezapomeňte, že {{opponentName}} má vyzval k \"boji\" na úrovni $t({{level}}) kurz $t({{disciplineName}}) a netrpělivě čeká na odpověď! <br/> Přijměte výzvu a přehrát, klepněte na tlačítko zde *: <br/> <br/> <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}}</a> <br/> <br/> možná nejlepší osoba win! <br/> $t(email:urlHowTo)",
+                "coachUnlocked": "Blahopřejeme! Stali jste se trenér v disciplíně $t({{completedDiscipline}}), která jsou ověřena v plné výši! <br/> <br/> Jak jste se stali neporazitelný v této disciplíně, můžete nyní pomoci jiné učící se osoby! Stačí odpovědět na manažery, kteří vás kontaktovat prostřednictvím chatu: cílem je vést je k odpovědi a ne jen jim to řekni. Pokud si nepřejete být kontaktováni, můžete deaktivovat tuto možnost přes menu v horní části obrazovky na WeTransform <br/> <br/> <br/> pozdravem,",
+                "passwordReset": "Řekli jste nám, že jste zapomněli své heslo. Obnovit klepnutím na následující odkaz *: <br/> <br/> <a href=\"{{resetLink}}\"> {{resetLink}}</a> <br/> <br/> Upozorňujeme, tento odkaz je pouze platné pro {{ttl}} hod, nečekej příliš dlouho přejdete na odkaz! <br/> <br/> Pozdravem <br/> $t(email:urlHowTo)",
+                "sendBattle": "{{opponentName}} chce utkáte se s vámi na úrovni modulu $t({{disciplineName}}) disciplíny $t({{level}})! <br/> <br/> Výzvou a přehrát, klepněte na tlačítko zde *: <br/> <br/> <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}}</a> <br/> <br/> Možná nejlepší osoba win! <br/> $t(email:urlHowTo)"
+            }
+        },
+        "gdfec": {
+            "urlHowTo": "* Jednoduše poklepejte na WeTransform ikonu na pracovní ploše a kopírovat/vložit tuto adresu url do adresního řádku",
+            "body": {
+                "battleWaitingOpponent": "Nezapomeňte, že {{opponentName}} má vyzval k \"boji\" na úrovni $t({{level}}) kurz $t({{disciplineName}}) a netrpělivě čeká na odpověď! <br/> Přijměte výzvu a přehrát, klepněte na tlačítko zde *: <br/> <br/> <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}}</a> <br/> <br/> možná nejlepší osoba win! <br/> $t(email:urlHowTo)",
+                "coachUnlocked": "Blahopřejeme! Stali jste se trenér v disciplíně $t({{completedDiscipline}}), která jsou ověřena v plné výši! <br/> <br/> Jak jste se stali neporazitelný v této disciplíně, můžete nyní pomoci jiné učící se osoby! Stačí odpovědět na manažery, kteří vás kontaktovat prostřednictvím chatu: cílem je dovést je ke odpověď, ne jen proto, aby jim ji dám. Pokud nechcete být kontaktováni, můžete deaktivovat tuto možnost přes menu v horní části obrazovky na WeTransform <br/> <br/> <br/> pozdravem,",
+                "passwordReset": "Řekli jste nám, že jste zapomněli své heslo. Obnovit klepnutím na následující odkaz *: <br/> <br/> <a href=\"{{resetLink}}\"> {{resetLink}}</a> <br/> <br/> prosím na vědomí, tento odkaz je platný pouze pro {{ttl}} hodin, takže se nemusíte čekat příliš dlouho jít na odkaz! <br/> <br/> S pozdravem, <br/> $t(email:urlHowTo)",
+                "sendBattle": "{{opponentName}} chce utkáte se s vámi na úrovni modulu $t({{disciplineName}}) disciplíny $t({{level}})! <br/> <br/> Přijmout výzvu a play, klikněte sem: <br/> <br/> <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}}</a> <br/> <br/> Možná nejlepší osoba win! <br/> $t(email:urlHowTo)",
+                "certification_content_end": "Pokud jste právě dokončili kurz \"Návratnost investice\", použijte <a target='_blank' download href=\"https://www.getfeedback.com/r/bjNmfx11\"> Tento odkaz</a> lépe připravit naši další seminář a sdílet své osvědčené postupy. (max. 10 minut) <br><br>a nezapomeňte aktualizovat váš životopis, stejně jako váš profesionální profil této nové certifikace."
+            }
+        },
+        "hr-ac": {
+            "body": {
+                "signupSelfValidation": "Děkujeme vám za registraci na HR akademie! Posledním krokem začít: Aktivujte svůj účet kliknutím na <a href=\"{{validateLink}}\"> níže uvedený odkaz</a>. <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> (Opatrně s velká a malá písmena) <br/> <br/> Si svůj trénink!",
+                "signupComplete": "Váš účet je nyní ověřen! <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> (Opatrně s velká a malá písmena) <br/> <br/> Klikněte na tlačítko přihlásit a začít se učit!"
+            },
+            "subject": {
+                "signupSelfValidation": "Aktivace účtu HR akademie"
+            }
+        },
+        "linxea": {
+            "team": "Tým akademie LinXea",
+            "body": {
+                "signupSelfValidation": "Děkujeme vám za námi! Poslední krok dříve, než mohou začít testovat své znalosti o životním pojištění, je váš účet aktivovat kliknutím na tento odkaz: <br><a href=\"{{validateLink}}\"> {{validateLink}}</a> <br><br>přihlašovací jméno je: {{login}} <br/> (opatrně s velká a malá písmena) <br/> <br/> pro veškeré otázky týkající se vašeho přístupu / způsob LinXea akademie platforma funguje, můžete kontaktovat <a href=\"mailto:assistance@coorpacademy.com\"> assistance@coorpacademy.com</a>. <br>, Pokud máte jakýkoliv dotaz ohledně LinXea smluv nebo životní pojištění, prosím pište na <a href=\"mailto:contact@linxea.com\"> contact@linxea.com</a> <br>mají pěkný trénink!",
+                "signupComplete": "Nápis na Yahoo Digital Marketing akademie byl ověřen. <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> (Opatrně s velká a malá písmena)"
+            },
+            "subject": {
+                "signupSelfValidation": "Aktivace účtu LinXea akademie"
+            }
+        },
+        "learnnrj": {
+            "body": {
+                "signupSelfValidation": "Děkujeme za registraci. Jste dobré jít! <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> (Opatrně s velká a malá písmena) <br/> <br/> Prosím klikněte na tento odkaz, kterým aktivujete váš účet: <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Pokud máte jakékoliv otázky nebo chcete se dozvědět více o tématech, které se vztahují, promluvte si s vaším zástupcem nebo se obraťte na assistance@coorpacademy.com",
+                "signupComplete": "Děkujeme za registraci. Jste dobré jít! <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> (Opatrně s velká a malá písmena) <br/> <br/> Prosím klikněte na tento odkaz, kterým aktivujete váš účet: <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Pokud máte jakékoliv otázky nebo chcete se dozvědět více o tématech, které se vztahují, promluvte si s vaším zástupcem nebo se obraťte na assistance@coorpacademy.com"
+            }
+        },
+        "letsgetdigital": {
+            "team": "Let's Get Digital 2.0",
+            "body": {
+                "signupSelfValidation": "Děkujeme vám za registraci na Let's Get Digital 2.0! Posledním krokem začít: Aktivujte svůj účet kliknutím na <a href=\"{{validateLink}}\"> níže uvedený odkaz</a>. <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> (Opatrně s velká a malá písmena) <br/> <br/> Pro veškeré otázky týkající se vašeho přístupu / způsob, jakým Let's Get digitální 2.0 funguje, si můžete oslovit contact.letsgetdigital@bnpparibas.com obdivujeme váš trénink!",
+                "signupComplete": "Váš účet je nyní ověřen! <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> (Opatrně s velká a malá písmena) <br/> <br/> Klikněte na tlačítko přihlásit a začít se učit!"
+            },
+            "subject": {
+                "signupSelfValidation": "Let's Get Digital aktivace účtu"
+            }
+        },
+        "michelin": {
+            "body": {
+                "certification_header": "Jsme hrdí, zašleme certifikát $t({{certification}}) a rozpoznat vaše úsilí, jsme rádi, že vám nabídnout:",
+                "certification_content_stars": "{{stars}} více hvězd! <br/>",
+                "certification_content_resource": "Možnost stáhnout logo služby passport <a target='_blank' download href=\"$t({{resourceLink}})\"> sem</a>",
+                "certification_content_end": "Nezapomeňte aktualizovat svůj profesní profil na Bibspace (\"Váš profil\" / \"Vzdělávání\") a uvést tento nový certifikát."
+            }
+        },
+        "mooc-socgen": {
+            "body": {
+                "personalHooks": {
+                    "generic_footer": "The above link is only accessible using a device outside of SG network. In order to access it via your SG workstation, please use the <a href=\"https://secure-browsing.eur.socgen.com\">MOOC Portal</a>."
+                }
+            }
+        },
+        "nespresso": {
+            "body": {
+                "coachUnlocked": "Blahopřejeme! Stali jste se odborníka v $t({{completedDiscipline}}) disciplíny, které mají zcela ověřit! <br/> <br/>"
+            },
+            "subject": {
+                "coachUnlocked": "Dobrá práce, stali jste se odborníka"
+            }
+        },
+        "openlab-cb": {
+            "body": {
+                "signupComplete": "Váš účet byl potvrzen! Nyní můžete začít se těší Openlab platforma! <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> (Opatrně s velká a malá písmena) <br/> <br/> Navštivte platformu zde: <a href=\"{{plateform}}\"> {{plateform}}</a>"
+            },
+            "subject": {
+                "signupValidation": "Ověření účtu Openlab",
+                "signupComplete": "Ověření vašeho účtu Openlab"
+            }
+        },
+        "pernod": {
+            "body": {
+                "battleWaitingOpponent": "Nezapomeňte, že {{opponentName}} má vyzval k \"boji\" na úrovni $t({{level}}) kurz $t({{disciplineName}}) a čeká na vaše reakce! <br/> Chcete-li přijmout výzvu a přehrát, klepněte <a href=\"{{redirectionUrl}}\"> sem</a>! <br/> <br/> Ukázat své Digifitness!",
+                "sendBattle": "{{opponentName}} je náročné na \"boj\" na úrovni $t({{level}}) $t({{disciplineName}}) disciplíny a dychtivě čeká na vaše reakce! <br/> <br/> Výzvou a přehrát, klepněte na tlačítko <a href=\"{{redirectionUrl}}\"> tady</a>! <br/> <br/> Ukázat své Digifitness!"
+            },
+            "team": "Pernod Ricard univerzita"
+        },
+        "pru": {
+            "body": {
+                "coachUnlocked": "Blahopřejeme! Právě jste dokončili úroveň \"Upřesnit\" v oboru $t({{completedDiscipline}}). Dokončili jste tuto disciplínu a ty lze nyní považovat jako trenér na toto téma! <br/> Můžete nyní pomáhat ostatním učení toto téma, protože jste se stali bezkonkurenční na téma! <br/> Reaguje jen na studenty, kteří žádají chat: cílem je orientace odpověď, ne jen proto, aby jim ji dám na. <br/> <br/> Nezapomeňte, že \"neexistuje žádný dlouhodobý či čestné výkon bez solidarity!\" <br/> <font size=\"2\"> <i>(François Proust)</i></font> <br/> <br/>",
+                "sendBattle": "{{opponentName}} je náročné na \"boj\" na úrovni $t({{level}}) $t({{disciplineName}}) disciplíny a dychtivě čeká na vaše reakce! <br/> <br/> Výzvou a přehrát, klepněte na tlačítko <a href=\"{{redirectionUrl}}\"> tady</a>! <br/> <br/> Zobrazit vaše podnikání Conductness!",
+                "battleWaitingOpponent": "Nezapomeňte, že {{opponentName}} má napadnout, pro \"boj\" na úrovni $t({{level}}) kurz $t({{disciplineName}}) čeká na vaše reakce! <br/> Chcete-li přijmout výzvu a přehrát, klepněte <a href=\"{{redirectionUrl}}\"> sem</a>! <br/> <br/> Zobrazit vaše podnikání Conductness!"
+            },
+            "team": "Pernod Ricard univerzita"
+        },
+        "quizz-auchan": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "rexel": {
+            "team": "Rexel akademie"
+        },
+        "renaultcare": {
+            "subject": {
+                "createdPassword": "Právě jste vytvořili vaše heslo pro přístup k MOOC zkušenosti zákazníků pomocí smartphonu."
+            },
+            "passwordFooter": "&nbsp;",
+            "body": {
+                "createdPassword": {
+                    "top": "Yo Wave strom st c reate D, takže r balíček s chtějí, rd a Asse je také spíše než vaše C s zastávku r e x Periense f filtrát m, takže r S nebo RTP kosti.",
+                    "bottom": "Yo chtějí a plechovek w Asse to také Hereford vaše C o c I c zlato g:"
+                }
+            },
+            "call2action": {
+                "createdPassword": "Zahájení školení"
+            }
+        },
+        "samsung": {
+            "team": "{{Týmu}} tým",
+            "body": {
+                "signupValidation": "Jste obdrželi žádost o registraci ze strany {{firstName}} {{lastName}} (login: {{login}}). Jejich kontaktní údaje jsou následující: <ul><li>{{company}}</li> <li>{{roli}}</li> <li>{{boutique}}</li> <li>{{postalCode}}</li></ul> Chcete-li ověřit tento účet, klepněte na následující odkaz: <a href=\"{{validateLink}}\"> {{validateLink}}</a> <br/> Pokud neznáte tuto osobu, klikněte prosím na následující odkaz na tato data: <a href=\"{{rejectLink}}\"> {{rejectLink}}</a>. <br/> Mockrát děkuju!",
+                "signupComplete": "Váš účet je nyní aktivní na <a href=\"{{plateform}}\"> {{plateform}}</a> <br/> <br/> přihlašovací jméno je: {{login}} <br/> (opatrně s velká a malá písmena) <br/> <br/> zjistit nejnovější televizory Samsung, nejnovější novinky a nejprodávanější body k vítězství nad zákazníky nebo sdílet s kolegy po celé Francii! <br><br>Mají dobrou návštěvu a brzy se uvidíme."
+            },
+            "subject": {
+                "signupValidation": "Ověření účtu Samsung Academy",
+                "signupComplete": "Ověření vašeho účtu Samsung Academy"
+            },
+            "call2action": {
+                "signupComplete": "Navštivte platformu"
+            }
+        },
+        "schneider": {
+            "welcome": "Dobrý den, {{name}}!",
+            "team": "MOOC tým",
+            "lastModuleDone": "Už je týden, co jste přihlášeni do modulu na platformě Schneider IQ, nevzdávej se! <br/> <br/> Pokud zjistíte potíže, neváhejte a obraťte se na trenéra nebo požádat Společenství prostřednictvím diskusních fór. <br/> <br/> Platformu můžete přistupovat klepnutím na následující odkaz: <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}}</a> <br/> <br/> Happy trénink!",
+            "body": {
+                "personalHooks": {
+                    "generic_footer": "You are receiving Coorpacademy emails as you are a member on Schneider IQ.</br>CoorpAcademy uses your email only in correlation with Schneider IQ. If you do not want to receive these emails anymore, please Unsubscribe using the link below."
+                }
+            }
+        },
+        "seb": {
+            "team": "Školící tým univerzity Groupe SEB"
+        },
+        "societegenerale": {
+            "body": {
+                "certification_header": "Blahopřejeme! Právě jste odemknuli certifikát $t({{certification}}). To je důkaz o své účasti v strategii digitální transformace skupiny. Chcete-li zvýšit váš certifikát, nabízíme vám:",
+                "certification_content_stars": "{{stars}} další hvězdy <br/>",
+                "certification_content_diploma": "Přístup k diplomu klepnutím <a target='_blank' href=\"$t({{diplomaLink}})\"> sem</a>",
+                "certification_content_resource": "Přístup k $t({{rewardLabel}}), <a target='_blank' download href=\"$t({{resourceLink}})\"> zde</a>",
+                "certification_content_end": "Přidáním tohoto loga k podpisu aplikace Outlook sdílet svůj úspěch. <br/> <br/> Užijte si vaše MOOC! <br/> <br/> {{TotalGoals}} certifikáty můžete vyhrát po kurzu digitální."
+            }
+        },
+        "securite": {
+            "team": "Tým SI'Academy",
+            "body": {
+                "certification_header": "Jsme hrdí na to award $t({{certification}}), odměňující vás s:",
+                "certification_content_stars": "{{stars}} bonusové hvězdy <br/>",
+                "certification_content_diploma": "Přístup k vaši $t({{certification}}) certifikátu prostřednictvím tohoto odkazu <a target='_blank' href=\"$t({{diplomaLink}})\"> zde</a>",
+                "certification_content_resource": "Přístup k odznak $t({{rewardLabel}}) prostřednictvím tohoto odkazu <a target='_blank' download href=\"$t({{resourceLink}})\"> odkaz</a>",
+                "certification_content_end": "‌"
+            }
+        },
+        "sqy": {
+            "team": "Tým SI'Academy",
+            "body": {
+                "certification_header": "Jsme hrdí na to award $t({{certification}}), odměňující vás s:",
+                "certification_content_stars": "{{stars}} bonusové hvězdy <br/>",
+                "certification_content_diploma": "Přístup k vaši $t({{certification}}) certifikátu prostřednictvím tohoto odkazu <a target='_blank' href=\"$t({{diplomaLink}})\"> zde</a>",
+                "certification_content_resource": "Přístup k odznak $t({{rewardLabel}}) prostřednictvím tohoto odkazu <a target='_blank' download href=\"$t({{resourceLink}})\"> odkaz</a>",
+                "certification_content_end": "Nezapomeňte aktualizovat váš profil SI'tizen, jakož i podpis elektronické pošty, zobrazí vaše nové certifikace"
+            }
+        },
+        "monoprix": {
+            "body": {
+                "signupSelfValidation": "Děkujeme, že jste registraci zlepšit své znalosti digitální kultury. Jste dobré jít. <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> (Opatrně s velká a malá písmena) <br/> <br/> Prosím klikněte na tento odkaz, kterým aktivujete váš účet: <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Pokud máte jakékoliv otázky nebo chcete se dozvědět více o tématech, které se vztahují, Monoprix zástupce nebo se obraťte na assistance@coorpacademy.com",
+                "signupComplete": "Děkujeme, že jste registraci zlepšit své znalosti digitální kultury. Jste dobré jít. <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> (Opatrně s velká a malá písmena) <br/> <br/> Prosím klikněte na tento odkaz, kterým aktivujete váš účet: <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Pokud máte jakékoliv otázky nebo chcete se dozvědět více o tématech, které se vztahují, Monoprix zástupce nebo se obraťte na assistance@coorpacademy.com"
+            },
+            "subject": {
+                "signupSelfValidation": "Aktivujte svůj účet na l'Académie Digitale",
+                "signupComplete": "Aktivujte svůj účet na l'Académie Digitale"
+            }
+        },
+        "redoute": {
+            "body": {
+                "signupSelfValidation": "Děkujeme vám za registraci na MOOC La Redoute Learning Lab Talent. Jste dobré jít! <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> (Opatrně s velká a malá písmena) <br/> <br/> Prosím klikněte na tlačítko \"Ověřit účet\" účet aktivovat.\n Pokud máte jakékoliv otázky nebo pokud chcete se dozvědět více o tématech, které se vztahuje, promluvte si s vaším zástupcem nebo nás kontaktujte na: assistance@coorpacademy.com",
+                "signupComplete": "Děkuji, jsou nyní registrovány na studijní laboratoř MOOC! <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> Pozor na velká a malá písmena <br/> <br/> krátce poté obdržíte e-mail s aktivačním odkazem."
+            },
+            "subject": {
+                "signupSelfValidation": "Aktivujte svůj účet na La Redoute Learning Lab",
+                "signupComplete": "Aktivujte svůj účet na La Redoute Learning Lab"
+            }
+        },
+        "tagheuer": {
+            "body": {
+                "signupValidation": "Je tu novou žádost o školení online TAG Heuer: <ul><li>příjmení: {{lastName}}</li> <li>jméno: {{firstName}}</li> <li>Login: {{login}}</li> <li>Společnost: {{company}}</li> <li>Store: {{boutique}}</li> <li>země: {{country}}</li> <li> Video velvyslanec: {{ambassador}}</li></ul> prosím žádost schválit kliknutím zde: <a href=\"{{validateLink}}\"> {{validateLink}}</a> <br/> <br/> tuto žádost zamítnout kliknutím zde: <a href=\"{{rejectLink}}\"> {{rejectLink}}</a> <br/>",
+                "signupComplete": "Váš účet byl potvrzen! Nyní můžete začít se těší TAG Heuer výcvikovou platformu! <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> (Opatrně s velká a malá písmena) <br/> <br/> Navštivte platformu zde: <a href=\"{{plateform}}\"> {{plateform}}</a>",
+                "certification_content_end": "‌"
+            },
+            "subject": {
+                "signupValidation": "Nový požadavek na trénink TAG Heuer",
+                "signupComplete": "Váš zápis do TAG Heuer Pressure Lab byl schválen"
+            },
+            "call2action": {
+                "signupComplete": "Navštívit platformu"
+            }
+        },
+        "tagheuercon": {
+            "body": {
+                "signupValidation": "Byl vydán požadavek na online školení TAG Heuer: <ul>\n    <li>{{lastName}}</li>\n    <li>{{firstName}}</li>\n    <li>{{login}}</li>\n    <li>{{company}}</li>\n    <li>{{boutique}}</li>\n    <li>{{country}}</li>\n</ul> Kliknutím na následující odkaz školení schválíte: <a href=\"{{validateLink}}\">{{validateLink}}</a><br/><br/> Školení odmítnete kliknutím sem: <a href=\"{{rejectLink}}\">{{rejectLink}}</a><br/>",
+                "signupComplete": "Váš účet byl potvrzen! Nyní můžete začít se těší TAG Heuer výcvikovou platformu! <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> (Opatrně s velká a malá písmena) <br/> <br/> Navštivte platformu zde: <a href=\"{{plateform}}\"> {{plateform}}</a>"
+            },
+            "subject": {
+                "signupValidation": "Nový dotaz na MOOC",
+                "signupComplete": "Váš zápis do TAG Heuer Connected byl potvrzen"
+            },
+            "call2action": {
+                "signupComplete": "Navštívit platformu"
+            }
+        },
+        "thelem": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "up": {
+            "body": {
+                "battleWaitingOpponent": "Nezapomeňte, že {{opponentName}} má vyzval k \"boji\" na úrovni $t({{level}}) kurz $t({{disciplineName}}) a čeká na vaše reakce! <br/> Přijmout výzvu a přehrát, klepněte na tlačítko <a href=\"{{redirectionUrl}}\"> zde.</a>! <br/> <br/> Možná nejlepší osoba win!",
+                "coachUnlocked": "Blahopřejeme! Stali jste se trenér v $t({{completedDiscipline}}) kurzu, který jste zcela ověřen! <br/> <br/> Můžete nyní pomáhat ostatním učení toto téma, protože jste se stali bezkonkurenční na téma! <br/> Jen reagovat na studenty, kteří žádají chat – cílem je dovést je ke odpověď, ne jen proto, aby jim ji dám. <br/> <br/> Nezapomeňte, že \"Neexistuje žádný dlouhodobý či čestné výkon bez solidarity!\" <br/> <font size=\"2\"> <i>(François Proust)</i></font> <br/> <br/>",
+                "contentUpdated": "Právě byl přidán nový kurz na platformě! <br/>",
+                "contentUpdated_plural": "Právě byl přidán nový kurz na platformě! <br/>",
+                "lastConnection": "Jste nejsou přihlášeni k platformě {{popis}} za chvíli a Chybíš nám! <br/> <br/> Máte stále kurzy objevit, výsledky zlepšit, lidé zpochybnit (v přátelském způsob)... Vrať se a pokračovat v cestě učení! <br/> <br/> Platformu můžete přistupovat klepnutím na následující odkaz: <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}}</a> <br/> <br/> Happy trénink!",
+                "lastModuleDone": "Už je týden, co se přihlásíte do kurzu na platformě {{popis}}, nevzdávej se! <br/> <br/> Pokud zjistíte potíže, neváhejte a obraťte se na trenéra nebo požádat Společenství prostřednictvím diskusních fór. <br/> <br/> Platformu můžete přistupovat klepnutím na následující odkaz: <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}}</a> <br/> <br/> Happy trénink!",
+                "sendBattle": "{{opponentName}} je náročné na \"boj\" na úrovni $t({{level}}) kurz $t({{disciplineName}}) a dychtivě čeká na vaše reakce! <br/> <br/> Výzvou a přehrát, klepněte na tlačítko <a href=\"{{redirectionUrl}}\"> tady</a>! <br/> <br/> Možná nejlepší osoba win!"
+            }
+        },
+        "who": {
+            "subject": {
+                "signupValidation": "Ověřit tento účet",
+                "coachUnlocked": "Well done, you have completed the course {{completedDiscipline}}"
+            },
+            "body": {
+                "signupValidation": "Jsme obdrželi žádost o registraci od <b>{{firstName}} {{lastName}}</b> <br/> Login: <b>{{login}}</b> <br/> země: <b>{{country}}</b> <br/> stát: <b>{{region}}</b> <br/> příslušnost: <b>{{provider}}</b> <br/> pozadí zkušenosti: <b>{{role}}</b> <br/> přístupový kód: <b>{{grade}}</b> <br/> <br/> k ověření tohoto účtu, klikněte prosím na následující odkaz: <a href=\"{{validateLink}}\"> {{validateLink}}</a> <br/>. <br/> Pokud tuto osobu neznáte, klikněte prosím na následující odkaz odstranit účet: <a href=\"{{rejectLink}}\"> {{rejectLink}}</a>. <br/> Happy trénink!",
+                "signupComplete": "Vaše registrace pro WHO QualityRights e školení je nyní dokončena. <br/> <br/> Před přístupu výcviku, přesvědčte se, zda jste dokončili <a href=\"https://extranet.who.int/dataform/236824?lang=en\"> dotazník předtréninkový</a>. <br/> <br/> <b>Nyní jste připraveni začít!</b> <br><br/> e školení platforma na tomto <a href=\"https://humanrights-etrain-qualityrights.coorpacademy.com/login\"> odkazu</a>. Vaše přihlašovací jméno je: {{login}} (opatrně s velká a malá písmena). <br/> <br/> e školení můžete přistupovat z libovolné internetové zařízení (smartphone, tablet, notebook, stolní počítač). E školení může probíhat na nejčastěji používané prohlížeče, například Internet Explorer 11 a vyšší verze, jakož i na nejnovější verze Chrome, Chrome Android, Firefox, Safari a IEdge (nebo bezprostředně před poslední verze). <br/> <br/> Doufáme, že se vám e školení!",
+                "signupSelfValidation": "<br/> Děkuji za přihlášení se k WHO QualityRights e školení! Ještě jeden krok před zahájením – klepněte na následující odkaz k ověření účtu. <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> (pozor na velká písmena a lowercases) <br/> <br/> Si svůj trénink!",
+                "battleWaitingOpponent": "Nezapomeňte, že {{opponentName}} má napadnout vás na úrovni $t({{level}}) kurz $t({{disciplineName}}) a čeká na vaši odpověď! <br/> Chcete-li přijmout výzvu a přehrát, klepněte <a href=\"{{redirectionUrl}}\"> sem</a>! <br/> <br/> Možná nejlepší osoba žák!!",
+                "sendBattle": "{{opponentName}} je náročné na $t({{disciplineName}}) disciplíny, $t({{level}}) úroveň a dychtivě čeká na vaše reakce! <br/> <br/> Výzvou a přehrát, klepněte na tlačítko <a href=\"{{redirectionUrl}}\"> tady</a>! <br/> <br/> Může vyhrát nejlepší žák!",
+                "coachUnlocked": "Congratulations on completing \"How to play on the platform?\".  Now you are ready to start one of the modules of the e-training!",
+                "certification_header": "Blahopřejeme! Úspěšně jste dokončili e výcvikový kurz QualityRights “Nadace v oblasti duševního zdraví, lidských práv a zotavení”, vyvinuté a poskytované kdo duševní zdraví politiky a rozvoje služeb.",
+                "certification_content_stars": "‌",
+                "certification_content_diploma": "Váš certifikát můžete stáhnout <a target='_blank' href=\"$t({{diplomaLink}})\"> zde</a>",
+                "certification_content_resource": "Vyplňte prosím post vyhodnocení <a href=\"https://extranet.who.int/dataform/772112?lang=en\"> dotazníku</a>",
+                "certification_content_end": "Pamatujte, že e školení můžete vrátit kdykoli udělat kurz znovu, školicí materiály a videí a přispívat do diskusí. <br/> <br/> Doufáme, že se že vám líbila e školení!"
+            }
+        },
+        "yahoo": {
+            "welcome": "Dobrý den {{jméno}}!",
+            "urlHowTo": "&nbsp;",
+            "happyTraining": "Děkuju!",
+            "team": "Yahoo a Coorpacademy tým",
+            "unsubscribetext": "Příliš mnoho e-mailů? Můžeš",
+            "body": {
+                "certification_header": "Gratulujeme k dokončení modulu $t({{certification}}) na Yahoo online digitálního školení akademie! Jste nyní součástí elitní skupiny uživatelů, kteří prokazují výjimečné znalosti o $t({{certification}}). Měli byste být velmi hrdí!\n\nJako odměnou vám nabízíme:",
+                "certification_content_resource": "Přístup k $t({{certification}}) odznak, tento <a href=\"{{certificationPage}}/\"> odkaz</a>",
+                "certification_content_end": "Doporučujeme, aby hrdě odznak na sociálních sítích a sítích.\n\nProč přestat? Přihlaste se do akademie školení online digitální Yahoo pokračovat v učení.",
+                "coachUnlocked": "Blahopřejeme! Nyní jste profík v oboru $t({{completedDiscipline}}) <br/> <br/> Pokud máte nějaké dotazy ohledně této disciplíny nebo digitálního marketingu obecně, obraťte se na <a href=\"mailto:info-yahoo@yahoo-inc.com\"> info-yahoo@yahoo-inc.com</a>. <br/> <br/> S pozdravem, <br/>",
+                "signupValidation": "Je tu nová žádost MOOC: <br><ul><li>{{firstName}}</li> <li>{{lastName}}</li> <li>{{email}}</li> <li>{{company}}</li> <li>{{jobTitle}}</li></ul> <br>prosím schválit žádost kliknutím zde: <br><a href=\"{{validateLink}}\"> {{validateLink}}</a> <br><br>tuto žádost zamítnout kliknutím zde: <br><a href=\"{{rejectLink}}\"> {{rejectLink}}</a>",
+                "signupSelfValidation": "Děkujeme vám za registraci pro zlepšení své digitální marketingové znalosti. Jste dobré jít! <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> (Opatrně s velká a malá písmena) <br/> <br/> Prosím klikněte na tento odkaz, kterým aktivujete váš účet: <br><a href=\"{{validateLink}}\"> {{validateLink}}</a> <br><br>přihlásit, zadejte své profesionální e-mail a heslo. <br> Pokud máte jakékoliv otázky nebo chcete se dozvědět více o tématech, které se vztahují, obraťte se na Yahoo zástupce nebo kontaktní <br><a href=\"info-yahoo@yahoo-inc.com\"> info-yahoo@yahoo-inc.com</a>",
+                "signupComplete": "Děkujeme vám za váš zájem o zlepšení své digitální marketingové znalosti. Váš požadavek byl schválen. <br/> <br/> Vaše přihlašovací jméno je: {{login}} <br/> (Opatrně s velká a malá písmena) <br/> <br/> Navštívit platformu, klikněte sem <br><a href=\"{{plateform}}\"> {{plateform}}</a> <br><br>přihlásit, zadejte své profesionální e-mail a heslo. <br> <br>Pokud máte jakékoliv otázky nebo by jako chcete dozvědět více o tématech, které se vztahují, mluvit s vaším zástupcem Yahoo nebo obraťte se na <br><a href=\"mailto:info-yahoo@yahoo-inc.com\"> info-yahoo@yahoo-inc.com</a>"
+            },
+            "subject": {
+                "coachUnlocked": "Blahopřejeme nyní jste profík v oboru $t({{completedDiscipline}})",
+                "signupValidation": "Nový požadavek od uživatele na Yahoo digitální",
+                "signupSelfValidation": "Aktivujte svůj účet na Yahoo Digitální Marketing",
+                "signupComplete": "Nápis na Yahoo Digital Marketing akademie byl ověřen."
+            },
+            "call2action": {
+                "signupValidation": "Ověřit tento účet",
+                "signupSelfValidation": "Ověřit váš účet",
+                "signupComplete": "Navštivte platformu"
+            }
+        },
+        "zenithcommunity": {
+            "body": {
+                "signupValidation": "There has been a new request for Zenith online training: <ul>\n    <li>Last name: {{lastName}}</li>\n    <li>First name: {{firstName}}</li>\n    <li>Login: {{login}}</li>\n    <li>Point of Sale Business Unit: {{provider}}</li>\n    <li>Point of Sale Name: {{company}}</li>\n    <li>Country: {{country}}</li>\n <li>City: {{city}}</li>\n <li>Job Title: {{jobTitle}}</li>\n <li>Grade (how long...): {{grade}}</li>\n</ul> Please approve the request by clicking here: <a href=\"{{validateLink}}\">{{validateLink}}</a><br/><br/> Decline this request by clicking here: <a href=\"{{rejectLink}}\">{{rejectLink}}</a><br/>"
+            }
+        }
+    }
+}

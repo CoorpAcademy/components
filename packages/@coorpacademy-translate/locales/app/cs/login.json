@@ -1,0 +1,392 @@
+{
+    "welcome": "Dobrý den!",
+    "goodby": "Na shledanou!",
+    "sorry": "Promiňte!",
+    "welcome_message": "Pro přihlášení zadejte přihlašovací informace poskytnuté",
+    "welcome_message_coorp": "Coorpacademy",
+    "grant_credentials": "Nemáte dostatečné oprávnění k provedení této operace.",
+    "sso_connect": "Můžete se připojit prostřednictvím svého firemního účtu.",
+    "connect_connect": "Můžete se připojit přes připojení.",
+    "forgotten_credentials_pre": "S dotazy týkajícími se MOOC se prosím obraťte na správce platformy:",
+    "forgotten_credentials_href": "mailto:assistance@coorpacademy.com?subject=Potřebujete%20pomoc%20při%20připojení%20k%20{{platform}}",
+    "forgotten_credentials": "assistance@coorpacademy.com",
+    "forgotten_credentials_post": "&nbsp;",
+    "instruction": "&nbsp;",
+    "logged_out": "Byl/a jste odpojen/a.",
+    "form": {
+        "user": "E-mail",
+        "password": "Heslo"
+    },
+    "error": {
+        "incorrect_credentials": "Nesprávné identifikační údaje",
+        "password_check": "Vaše heslo nelze zkontrolovat. Obraťte se prosím na našeho technického správce.",
+        "too_many_failed_attempts": "Příliš mnoho nezdařených pokusů o přihlášení. Opakujte akci za několik minut.",
+        "no_population": "Nesplňujete požadavky na přístup k této platformě. Kontaktujte prosím svého správce.",
+        "auth": {
+            "_sso_vendor_vendor_authentication_failed_connect_econnrefused": "[sso.vendor] ověření prodejce se nezdařilo: připojení ECONNREFUSED",
+            "_sso_corporate_authenticate_person_failed_connect_econnrefused": "[sso.corporate] authenticatePerson se nezdařilo: připojit ECONNREFUSED"
+        },
+        "token_invalid": "Tento odkaz vypršela, použijte prosím své přihlašovací jméno a heslo"
+    },
+    "reset_password": "Zapomněli jste své heslo?",
+    "forgot": {
+        "welcome": "Obnovit heslo",
+        "new_password": "Nové heslo",
+        "forgotten_welcome_message": "Zadejte prosím vaše přihlašovací jméno nebo e-mailem.",
+        "forgotten_placeholder": "přihlašovací jméno nebo e-mail",
+        "reset_welcome_message": "Prosím, zadejte své nové heslo.",
+        "password_updated": "Heslo bylo aktualizováno",
+        "your_login_is": "Vaše současné uživatelské jméno je:",
+        "reset_query_not_found": "Neplatný odkaz. Váš požadavek na aktualizaci hesla už neexistuje nebo je neplatný.",
+        "incorrect_credentials": "Neplatné přihlašovací jméno nebo heslo",
+        "password_reset_query_created": "Váš požadavek byl zaregistrován.",
+        "password_reset_mail_sent": "Pokud jste zadali správný e-mail, který používáte pro tuto platformu, právě poslali jsme vám e-mailem. Postupujte podle pokynů pro aktualizaci hesla.\nPokud e-mail neobdržíte během několika minut, <b>Možná jste zadali špatnou e-mailovou</b>. Zopakujte akci s jinou adresou.",
+        "sign": {
+            "in": "Připojit"
+        },
+        "error": {
+            "missing_login": "Přihlášení je povinné.",
+            "login_not_found": "Přihlašovací údaje nenalezeny",
+            "forgotten_missing_login": "Přihlašovací jméno nebo e-mail povinné",
+            "weak_password": "Nové heslo není dostatečně silná",
+            "reset_query_not_saved": "V průběhu zpracování požadavky o obnovení hesla došlo k chybě. Prosím zkuste to znovu později."
+        }
+    },
+    "unsubscribe": {
+        "title": "Zrušit odběr",
+        "confirmation_unsubscribe_message": "Váš požadavek na zrušení přihlášení byl úspěšně zaregistrován.",
+        "confirmation_subscribe_message": "Vaše přihlášení bylo úspěšně zaregistrováno",
+        "question_message": "Nepřeji si dostávat informační e-maily nebo připomenutí"
+    },
+    "bad_access": {
+        "title": "Promiňte!",
+        "sub_title": "Tento MOOC je přístupný pouze oprávněným osobám"
+    },
+    "inactive": {
+        "title": "Je nám líto",
+        "sub_title": "<p>Váš účet není aktivní.</p> <p>$t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a></p>"
+    },
+    "deactivated": {
+        "title": "Mrzí nás to",
+        "warning": "Všechny deaktivace uživatelů vstupí v platnost první den následujícího měsíce. Jakmile je uživatel deaktivován, není možné jej znovu aktivovat. Používejte s opatrností.",
+        "sub_title": "<p>Vaše společnost váš účet deaktivovala. Mrzní nás, že nás opouštíte!</p>"
+    },
+    "anonymous_notification": "Již členem? <a href=\"/sso/connect\" target=\"_self\"> <b>přihlaš</b></a> se nebo <a href=\"$t(global:demo.url, {\"medium\":\"notification\"})\" target=\"_blank\"> <b>Kniha demo</b></a> pro vaši firmu",
+    "connect_dialog": {
+        "need_signup": {
+            "title": "Jste už skoro na místě!",
+            "message": "Zaregistrujte se nyní odemknout další kapitola"
+        },
+        "feature_locked": {
+            "title": "Funkce uzamknuta!",
+            "message": "Pro odemčení této funkce se zaregistrujte nyní"
+        },
+        "login_with": {
+            "facebook": "Přihlásit se přes Facebook",
+            "google": "Přihlášení přes účet Google",
+            "linkedin": "Přihlásit se přes Linkedin"
+        },
+        "signup_with": {
+            "email": "Přihlašte se pomocí e-mailu"
+        },
+        "or": "nebo",
+        "signup": "Zaregistrovat se",
+        "signup_exist": "Již mám účet",
+        "login": "Přihlásit"
+    },
+    "custom": {
+        "accueil": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Přihlášení"
+            }
+        },
+        "architas-powercircle": {
+            "reset_password": "Zapomněli jste heslo?",
+            "forgotten_credentials_pre": "<p>Dotaz ohledně tento e-learningový?</p> <p>Ne váhat - pošlete nám zprávu!</p>",
+            "forgotten_credentials_href": "mailto:powercircle@architas.com",
+            "forgotten_credentials": "powercircle@architas.com"
+        },
+        "bestwesternuniversity": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Přihlášení"
+            }
+        },
+        "bigdata": {
+            "forgotten_credentials_pre": "K přihlášení, zadejte přihlašovací údaje jste obdrželi e-mailem.</br> </br> Dotazy týkající se hromadného, kontaktujte prosím správce platformy:",
+            "form": {
+                "user": "Vaše emailová adresa"
+            }
+        },
+        "bpifrance-academie": {
+            "forgotten_credentials": "formation-drhinvest@bpifrance.fr",
+            "forgotten_credentials_href": "mailto:formation-drhinvest@bpifrance.fr"
+        },
+        "breguet": {
+            "form": {
+                "user": "Přihlášení"
+            }
+        },
+        "chanel": {
+            "welcome": "Vítej",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "cd78": {
+            "forgotten_credentials": "DSIdemande@yvelines.fr",
+            "forgotten_credentials_href": "mailto:DSIdemande@yvelines.fr"
+        },
+        "el": {
+            "form": {
+                "user": "RAISON SOCIALE. NUMERO"
+            }
+        },
+        "faurecia": {
+            "welcome_message": "K přihlášení, zadejte přihlašovací informace, které jste obdrželi od",
+            "welcome_message_coorp": "e-mail"
+        },
+        "fdj": {
+            "form": {
+                "user": "e-mail malými písmeny"
+            }
+        },
+        "fff": {
+            "bad_access": {
+                "title": "Promiň",
+                "sub_title": "Tento MOOC je přístupná pouze pro oprávněné osoby. <br/> <br/> Pokud jste učitel nebo technik, přihlaste se k <a href=\"https://www.fff.fr/myfff\"> https://www.fff.fr/myfff</a> pro přístup platformy."
+            }
+        },
+        "forco": {
+            "form": {
+                "user": "e-mail malými písmeny"
+            }
+        },
+        "gdf": {
+            "welcome_message": "Přihlásit, zadejte prosím vaši profesionální e-mailovou adresu <br/> (v malými písmeny) a vaše heslo.",
+            "welcome_message_coorp": "<br><br>První připojení? Zadejte heslo, které vám e-mailem.",
+            "forgotten_credentials_pre": "Žádný přístup? Problém s připojením? <a href=\"https://docs.google.com/forms/d/1M9Wxq3h8ukgZZHgD8MXknduRIpbNns9rYZNA3bEiiM4/viewform?usp=send_form\"> Klepnutím sem</a> <br><br>Pro otázky týkající se hromadného, kontaktujte prosím správce platformy:"
+        },
+        "gdfec": {
+            "welcome_message": "Přihlásit, zadejte prosím vaši profesionální e-mailovou adresu <br/> (v malými písmeny) a vaše heslo.",
+            "welcome_message_coorp": "<br><br>První připojení? Zadejte heslo, které vám e-mailem.",
+            "forgotten_credentials_pre": "Žádný přístup? Problém s připojením? <a href=\"https://docs.google.com/forms/d/1M9Wxq3h8ukgZZHgD8MXknduRIpbNns9rYZNA3bEiiM4/viewform?usp=send_form\"> Klepnutím sem</a> <br><br>Pro otázky týkající se hromadného, kontaktujte prosím správce platformy:"
+        },
+        "ilearn": {
+            "welcome": "Vítej"
+        },
+        "jardiland": {
+            "form": {
+                "user": "numéro de matricule"
+            }
+        },
+        "letsgetdigital": {
+            "form": {
+                "user": "Pošta"
+            }
+        },
+        "linxea": {
+            "form": {
+                "user": "Váš email"
+            }
+        },
+        "logisacademie": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Přihlášení"
+            }
+        },
+        "metro": {
+            "form": {
+                "user": "name.lastname"
+            }
+        },
+        "mooc-parischarlesdegaulle": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Přihlášení"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Přihlášení"
+            }
+        },
+        "nespresso": {
+            "form": {
+                "user": "Nespresso Email address (case-sensitive)"
+            }
+        },
+        "nestlehealthscience": {
+            "form": {
+                "user": "e-mail malými písmeny"
+            }
+        },
+        "natixis": {
+            "forgotten_credentials_pre": "For any question, please contact the platform administrator:"
+        },
+        "michelin": {
+            "inactive": {
+                "sub_title": "<p>We have missed you. Your account has been deactivated by your DCAD departement (Contact: <a href=\"mailto:compte-fonction.digital-transformation@michelin.com\">compte-fonction.digital-transformation@michelin.com</a>)"
+            }
+        },
+        "moocandfeel": {
+            "welcome_message": "K přihlášení, zadejte přihlašovací informace poskytované Comundi.",
+            "forgotten_credentials_pre": "Pro otázky týkající se hromadného obraťte se na správce platformy:",
+            "forgotten_credentials_href": "mailto:Assistance-moocandfeel@coorpacademy.com",
+            "forgotten_credentials": "Assistance-moocandfeel@coorpacademy.com",
+            "forgotten_credentials_post": "&nbsp;"
+        },
+        "online-academy-klubschule": {
+            "forgotten_credentials_href": "mailto:support@online-academy.klubschule.ch",
+            "forgotten_credentials": "support@online-academy.klubschule.ch"
+        },
+        "paca": {
+            "forgotten_credentials_href": "mailto:Assistance@Tourism-Academy.com",
+            "forgotten_credentials": "Assistance@Tourism-Academy.com",
+            "form": {
+                "user": "Přihlášení"
+            }
+        },
+        "panzani": {
+            "form": {
+                "user": "e-mail malými písmeny"
+            }
+        },
+        "pernod": {
+            "bad_access": {
+                "title": "Promiň",
+                "sub_title": "Tento MOOC je přístupná pouze pro oprávněné osoby. Chcete-li získat přístup k platformě, přihlaste se na <a href='http://digifit-pernodricard-university.com'> digifit-pernodricard-university.com</a>"
+            }
+        },
+        "pmf": {
+            "form": {
+                "user": "e-mail malými písmeny"
+            }
+        },
+        "pru": {
+            "bad_access": {
+                "title": "Promiň",
+                "sub_title": "Tento MOOC je přístupná pouze pro oprávněné osoby."
+            }
+        },
+        "quizz-auchan": {
+            "form": {
+                "user": "IDENTIFIKAČNÍ číslo (příklad: XXX0000000)"
+            }
+        },
+        "redoute": {
+            "form": {
+                "user": "Login"
+            }
+        },
+        "renault": {
+            "welcome_message": "Chcete-li se přihlásit, zadejte své přihlašovací údaje.",
+            "forgotten_credentials_pre": "Pro otázky týkající se hromadného obraťte se na správce platformy:",
+            "forgotten_credentials_href": "mailto:Gerardo.Talavera-Farias@Renault.com",
+            "forgotten_credentials": "Gerardo.Talavera-Farias@Renault.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "welcome_message_coorp": "&nbsp;"
+        },
+        "samsung": {
+            "forgotten_credentials_pre": "Pro otázky týkající se hromadného obraťte se na správce platformy:",
+            "forgotten_credentials_href": "mailto:Assistance@coorpacademy.com",
+            "forgotten_credentials": "Assistance@coorpacademy.com",
+            "hotline_assistance_pre": "Pro dotazy týkající se registrace obraťte se na linku Samsung akademie:",
+            "hotline_assistance_href": "mailto:hotline.samsungacademy@gmail.com",
+            "hotline_assistance": "Hotline.samsungacademy@gmail.com",
+            "inactive": {
+                "title": "Promiň",
+                "sub_title": "Váš účet není aktivní</br></br> $t(login:hotline_assistance_pre) <a href=\"$t(login:hotline_assistance_href)\"> $t(login:hotline_assistance)</a></br></br> $t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a>"
+            }
+        },
+        "securite": {
+            "forgotten_credentials_pre": "K přihlášení, zadejte přihlašovací údaje jste obdrželi e-mailem.</br> </br> Dotazy týkající se hromadného, kontaktujte prosím správce platformy:",
+            "form": {
+                "user": "Vaše emailová adresa"
+            }
+        },
+        "societegenerale": {
+            "welcome_message": "K přihlášení, zadejte přihlašovací informace poskytované SGLearning.",
+            "forgotten_credentials_pre": "Pro otázky týkající se hromadného obraťte se na správce platformy:",
+            "forgotten_credentials_href": "mailto:sglearning.Communication@socgen.com",
+            "forgotten_credentials": "sglearning.Communication@socgen.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "welcome_message_coorp": "&nbsp;"
+        },
+        "schmidt-groupe": {
+            "form": {
+                "user": "e-mail nebo firstNameInitial + příjmení"
+            }
+        },
+        "sqy": {
+            "welcome_message_coorp": "pošta",
+            "forgotten_credentials_pre": "K přihlášení, zadejte přihlašovací údaje jste obdrželi e-mailem.</br> </br> Dotazy týkající se hromadného, kontaktujte prosím správce platformy:",
+            "form": {
+                "user": "Vaše emailová adresa"
+            }
+        },
+        "tagheuer": {
+            "forgotten_credentials_pre": "Máte-li otázky týkající se školicí platformy TAG Heuer, kontaktujte prosím jejího správce:",
+            "form": {
+                "user": "Přihlášení"
+            }
+        },
+        "thelem": {
+            "forgotten_credentials_href": "tel:11-11",
+            "forgotten_credentials": "Telefon: 11-11"
+        },
+        "total": {
+            "instruction": "Vaše heslo mají byly zaslány prostřednictvím e-mailu. Při prvním připojení budete vyzváni, aby jej změnit.",
+            "form": {
+                "user": "IGG",
+                "password": "Heslo"
+            }
+        },
+        "tourism": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Přihlášení"
+            }
+        },
+        "tourisme-hautsdefrance": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Přihlášení"
+            }
+        },
+        "tourismdigital": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Přihlášení"
+            }
+        },
+        "who": {
+            "forgotten_credentials_pre": "Pro jakékoliv dotazy kontaktujte prosím",
+            "forgotten_credentials_href": "mailto:assistance@coorpacademy.com",
+            "forgotten_credentials": "assistance@coorpacademy.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "inactive": {
+                "sub_title": "<p>Váš účet není aktivní.</p> <p>, Pokud jste již dokončili registrační formulář, krátce zobrazí potvrzení a přístup na nástupiště. Případně odešlete registrační formulář <a href=\"/signup\" target=\"_self\"> <b>(“Sign Up”)</b></a>.</p> <p>$t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a></p>"
+            }
+        },
+        "wme-img": {
+            "form": {
+                "user": "firstNameInitial + příjmení"
+            }
+        },
+        "yahoo": {
+            "welcome_message_coorp": "e-mail"
+        }
+    }
+}

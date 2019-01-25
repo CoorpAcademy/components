@@ -1,0 +1,153 @@
+{
+    "loose": {
+        "title": "主页",
+        "end_try": "您的尝试机会已用完！",
+        "echec_title": "糟糕…",
+        "new_badges": "{{number}} 获取的新徽章",
+        "new_badges_plural": "获得了 {{number}} 枚新徽章",
+        "footer": {
+            "joker": {
+                "video": {
+                    "pre": "观看视频",
+                    "text": "课程",
+                    "win": "赢得1",
+                    "heart": "额外的生命",
+                    "post": "并且继续保持这个级别"
+                },
+                "pdf": {
+                    "pre": "朗读课文",
+                    "win": "赢得 1",
+                    "heart": "额外生命",
+                    "post": "并且继续保持这个级别"
+                },
+                "without": "你已经使用了王牌"
+            },
+            "new_try": {
+                "title_pre": "再次尝试这个级别。",
+                "title": "你很上进，",
+                "title_post": "它会显示！",
+                "button": "再次尝试该等级"
+            },
+            "new_module": {
+                "title_pre": "访问另一个等级。",
+                "title": "你将追赶上！",
+                "button": "改变课程"
+            }
+        },
+        "type_badges": {
+            "init": "初始化",
+            "bronze": "青铜",
+            "argent": "银奖",
+            "or": "黄金",
+            "platine": "白金"
+        }
+    },
+    "question_title": "问: {{question}}",
+    "progression": "问题 {{nb}} / {{ref}}",
+    "success": {
+        "home": "主页",
+        "title": "恭喜！",
+        "subtitle": "你通过了这个等级",
+        "body": {
+            "new_star": "星 {{newStars}}",
+            "new_score": "您的新分数{{newScore}}"
+        },
+        "new_badges": "{{new}} 赢得新徽章",
+        "new_badges_plural": "获得了 {{new}} 枚新徽章",
+        "reported": "由于您赢得这个模块：",
+        "win": "您现在拥有：",
+        "footer": {
+            "title": "开局很好！继续保持！",
+            "new_module": "访问该等级",
+            "duration_unit": "分钟",
+            "battle": "开始战斗"
+        },
+        "type_badges": {
+            "init": "初始化",
+            "bronze": "铜",
+            "argent": "银",
+            "or": "金",
+            "platine": "白金"
+        },
+        "yourRanking": "您的排名：",
+        "rankWin": "（排名上升 {{count}} 位）",
+        "rankWin_plural": "（排名上升 {{count}} 位）"
+    },
+    "duration": "{{nb}}",
+    "duration_post": "分钟",
+    "duration_post_plural": "分钟",
+    "assistance": "报告错误",
+    "buy_next": "购买下一个模块",
+    "moduleNotFound": "没有发现课程 {{disciplineName}} 参考书 {{moduleRef}} 相关级别",
+    "custom": {
+        "armeedeterre": {
+            "success": {
+                "footer": {
+                    "battle": "开始战斗"
+                }
+            }
+        },
+        "7steps": {
+            "loose": {
+                "type_badges": {
+                    "platine": "首位"
+                }
+            },
+            "success": {
+                "type_badges": {
+                    "platine": "顶部"
+                }
+            }
+        },
+        "fdj": {
+            "loose": {
+                "echec_title": "完",
+                "end_try": "你已经完成了测验！"
+            }
+        },
+        "letsgetdigital": {
+            "assistance": "给予反馈"
+        },
+        "up": {
+            "loose": {
+                "footer": {
+                    "joker": {
+                        "video": {
+                            "post": "并且继续保持此水平"
+                        },
+                        "pdf": {
+                            "post": "并且继续保持这个级别"
+                        }
+                    },
+                    "new_try": {
+                        "title_pre": "再次尝试这个级别。",
+                        "button": "再次尝试该等级"
+                    },
+                    "new_module": {
+                        "title_pre": "访问另一个等级。",
+                        "button": "改变课程"
+                    }
+                }
+            },
+            "success": {
+                "subtitle": "你通过了这个等级",
+                "reported": "您赢得的级别",
+                "footer": {
+                    "new_module": "访问该等级"
+                }
+            },
+            "memo": {
+                "module_title": "课程：{{disciplineName}} - {{moduleName}}",
+                "from": "从课程 {{disciplineName}} - {{name}}"
+            },
+            "buy_next": "购买下一课程"
+        },
+        "who": {
+            "success": {
+                "footer": {
+                    "battle": "开始挑战"
+                }
+            }
+        }
+    }
+}

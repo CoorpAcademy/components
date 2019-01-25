@@ -1,0 +1,201 @@
+{
+    "title": "Mes Certifications",
+    "subtitle_head1": "Sélectionnez une ou plusieurs certifications et terminez-les pour améliorer vos compétences sur un domaine.",
+    "subtitle_head2": "Démarrer un module de certification.",
+    "how_to": "Pour valider une certification, vous devez compléter tous les modules. Commencez dès maintenant !",
+    "button_choose_goal": "Choisir une certification",
+    "selected_goals_title": "{{goals}} Certification en cours",
+    "selected_goals_title_plural": "{{goals}} Certifications en cours",
+    "selected_goals_no_item": "Aucune Certification n'est sélectionnée !",
+    "finished_goals_title": "{{goals}} certification terminée",
+    "finished_goals_title_plural": "{{goals}} certifications terminées",
+    "finished_goal_label": "{{goalLabel}} {{star}}",
+    "finished_goals_no_item": "Vous n'avez pas encore complété toutes les certifications.",
+    "button_module_access": "Commencez dès maintenant",
+    "minutes_label": "min",
+    "status_label": "Statut :",
+    "stars_label": "{{stars}} star",
+    "stars_label_plural": "{{stars}} étoiles",
+    "popover": {
+        "title": "Attention !",
+        "module_blocked_pre": "Ce module n'est pas accessible :",
+        "module_blocked_post": "{{pre}} Pour pouvoir le réaliser, vous devez d'abord valider le niveau {{level}}",
+        "select_goal": {
+            "title": "Veuillez choisir une Certification",
+            "available_module": "{{total}} certification disponible",
+            "available_module_plural": "{{total}} certifications disponibles",
+            "module_done": "Ce module a déjà été réussi. Vous êtes en bonne voie pour la Certification.",
+            "module_blocked": "Ce module n'est pas encore disponible. Pour le débloquer, vous devez tout d'abord réussir les niveaux Base ou Avancé.",
+            "button_add_goal": "Valider ma certification"
+        }
+    },
+    "condition_progress": {
+        "information": "Vous avez réussi {{done}} des {{total}} modules proposés."
+    },
+    "certification": {
+        "title": "Votre Certification",
+        "title_plural": "Vos Certifications",
+        "subtitle": "Valider vos compétences avec cette Certification",
+        "subtitle_plural": "Validez vos connaissances en décrochant ces certifications",
+        "rewards": {
+            "subtitle": "Vos récompenses",
+            "see_detail": "Voir",
+            "congratulations": "félicitations pour votre succès",
+            "you_can_win": "Vous avez gagné",
+            "download_resource": "Cliquez ici pour télécharger",
+            "see_diploma": "Voir mon diplôme",
+            "access_your_diploma": "Accédez à votre diplôme"
+        },
+        "stars": {
+            "description_pre": "Vous avez gagné",
+            "description_post": "étoiles"
+        },
+        "state": {
+            "done": "Complété !",
+            "inProgress": "En cours"
+        },
+        "condition_description": {
+            "progress": "Objectif : {{count}} module",
+            "progress_plural": "Objectif : {{count}} modules"
+        },
+        "certificationDone": "Félicitations ! Vous avez décroché la certification {{certificationName}}"
+    },
+    "diploma": {
+        "certificate": "certificat",
+        "date": "Date : {{date}}",
+        "message": "a validé les compétences requises pour la certification"
+    },
+    "custom": {
+        "ecolenumerique-sncf": {
+            "certification": {
+                "title": "Badges Jedi",
+                "title_plural": "Badges Jedi",
+                "certificationDone": "Félicitations ! Vous avez obtenu le Badge {{certificationName}} !",
+                "subtitle": "Validez votre Badge Jedi",
+                "subtitle_plural": "Validez vos Badges Jedi"
+            }
+        },
+        "ganprevoyance": {
+            "certification": {
+                "title": "Univers",
+                "title_plural": "Univers",
+                "certificationDone": "Félicitations ! Vous avez validé l'Univers {{certificationName}} !",
+                "subtitle": "Validez votre Univers",
+                "subtitle_plural": "Validez vos Univers"
+            }
+        },
+        "cnp": {
+            "certification": {
+                "title": "Certificat",
+                "title_plural": "Certificats",
+                "certificationDone": "Félicitations ! Vous avez validé le certificat {{certificationName}} !",
+                "subtitle": "Validez vos compétences avec ce Certificat",
+                "subtitle_plural": "Validez vos compétences avec ces Certificats"
+            }
+        },
+        "pernod": {
+            "title": "Mes Objectifs",
+            "subtitle_head1": "Sélectionnez un ou plusieurs objectifs et complétez les afin d'améliorer vos compétences sur un domaine.",
+            "subtitle_head2": "Démarrez un module parmi ceux proposés au sein de vos objectifs.",
+            "how_to": "Pour valider un objectif, vous devez compléter tous les modules. Commencez dès maintenant !",
+            "button_choose_goal": "Choisir un objectif.",
+            "selected_goals_title": "{{goals}} Objectif en cours",
+            "selected_goals_title_plural": "{{goals}} Objectifs en cours",
+            "selected_goals_no_item": "Veuillez sélectionner un objectif.",
+            "finished_goals_title": "{{goals}} Objectif terminé",
+            "finished_goals_title_plural": "{{goals}} Objectifs terminés",
+            "finished_goal_label": "{{goalLabel}} {{star}}",
+            "finished_goals_no_item": "Vous n'avez pas encore réussi d'objectif.",
+            "button_module_access": "Commencez dès maintenant",
+            "minutes_label": "min",
+            "status_label": "Statut :",
+            "stars_label": "{{stars}} étoile",
+            "stars_label_plural": "{{stars}} étoiles",
+            "popover": {
+                "title": "Attention !",
+                "module_blocked_pre": "Ce module n'est pas accessible :",
+                "module_blocked_post": "{{pre}} Pour pouvoir le réaliser, vous devez d'abord valider le niveau {{level}}",
+                "select_goal": {
+                    "title": "Veuillez sélectionner un objectif",
+                    "available_module": "{{total}} Objectif disponible",
+                    "available_module_plural": "{{total}} Objectifs disponibles",
+                    "module_done": "Ce module a déjà été réussi. Vous êtes en bonne voie pour atteindre l'objectif.",
+                    "module_blocked": "Ce module n'est pas encore disponible. Pour le débloquer, vous devez tout d'abord réussir les niveaux Base ou Avancé.",
+                    "button_add_goal": "Valider mon objectif"
+                }
+            },
+            "condition_progress": {
+                "information": "Vous avez réussi {{done}} des {{total}} modules proposés."
+            },
+            "certification": {
+                "title": "Mes certificats",
+                "subtitle": "validez vos connaissances en décrochant des certificats",
+                "rewards": {
+                    "subtitle": "Vos récompenses",
+                    "see_detail": "Voir",
+                    "congratulations_pre": "Et notre",
+                    "congratulations": "félicitations",
+                    "congratulations_post": "pour tous vos efforts"
+                },
+                "stars": {
+                    "description_pre": "Nous vous offrons",
+                    "description_post": "étoiles"
+                },
+                "state": {
+                    "done": "validé",
+                    "inProgress": "En cours"
+                },
+                "condition_description": {
+                    "progress": "{{nbDone}} modules réussis"
+                },
+                "certificationDone": "Félicitations ! Vous avez décroché la certification $t({{certificationName}})"
+            }
+        },
+        "sgmgt": {
+            "diploma": {
+                "message": "a validé les compétences requises pour cette certification dans le cadre du"
+            }
+        },
+        "securite": {
+            "diploma": {
+                "message": "a validé les modules requis par cette certification dans le :"
+            }
+        },
+        "projet": {
+            "diploma": {
+                "message": "a validé les compétences requises pour cette certification dans le cadre du"
+            }
+        },
+        "tagheuer": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Ce module n'est pas encore disponible. Pour le débloquer, vous devez tout d'abord réussir les niveaux Titane ou Bronze."
+                }
+            }
+        },
+        "tagheuercon": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Ce module n'est pas encore disponible. Pour le débloquer, vous devez tout d'abord réussir les niveaux Titane ou Bronze."
+                }
+            }
+        },
+        "up": {
+            "subtitle_head2": "Démarrez un niveau parmi ceux proposés au sein de vos objectifs.",
+            "how_to": "Pour valider un objectif, vous devez terminer tous les niveaux. Commencez dès maintenant !",
+            "popover": {
+                "module_blocked_pre": "Ce niveau n'est pas accessible :",
+                "select_goal": {
+                    "module_done": "Ce niveau a déjà été réussi. Vous êtes en bonne voie pour atteindre l'objectif.",
+                    "module_blocked": "Ce niveau n'est pas encore disponible. Pour le débloquer, vous devez tout d'abord réussir les niveaux Base ou Avancé."
+                }
+            },
+            "certification": {
+                "condition_description": {
+                    "progress": "Objectif : {{count}} discipline",
+                    "progress_plural": "Objectif : {{count}} disciplines"
+                }
+            }
+        }
+    }
+}

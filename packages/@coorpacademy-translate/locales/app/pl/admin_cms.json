@@ -1,0 +1,120 @@
+{
+    "cms": {
+        "add": "Dodaj element",
+        "title": "Dodaj nową stronę",
+        "lang": "Język wprowadzania:",
+        "name": "Nazwa:",
+        "scope": "Obszar:",
+        "target": {
+            "title": "Cel:",
+            "empty": "Brak celu",
+            "discipline": "Dyscypliny",
+            "learningTree": "Katalog"
+        },
+        "type": "Typ:",
+        "order": "Zamówienie:",
+        "active": "Aktywne:",
+        "populations": "Populacje:",
+        "rmd": "Obniżka",
+        "save": "Zapisz",
+        "delete": "Usuń",
+        "test": "Test",
+        "deploy": "Wyślij",
+        "delete_confirm": "Czy na pewno chcesz usunąć tę stronę?",
+        "markdown": "Markdown Syntax",
+        "quick": "Podręczny wykaz",
+        "path": "Sufiks adresu URL*:",
+        "full": "Pełna dokumentacja",
+        "preview": "Podgląd",
+        "edit": "Edycja",
+        "notifications": "Powiadomienia niestandardowe",
+        "content": "Zawartość:",
+        "config": "Ustawienia globalne",
+        "targetBlank": "Otwórz w nowej karcie:",
+        "forum_xid": "Identyfikator forum",
+        "navigation": {
+            "label": "Aby odkryć blok:",
+            "none": "Strona bez bloku"
+        },
+        "provider": {
+            "none": "Wszyscy"
+        },
+        "status": {
+            "ok": {
+                "title": "Sukces",
+                "save": "Strona została pomyślnie zapisana",
+                "del": "Twoja strona została pomyślnie usunięta"
+            },
+            "test": {
+                "title": "Zadanie rozpoczęte. Wkrótce będzie widoczne powiadomienie."
+            },
+            "deploy": {
+                "title": "Zadanie rozpoczęte. Śledź jego postęp na stronie Zadania."
+            },
+            "ko": {
+                "title": "Błąd",
+                "save": "Wystąpił błąd podczas zapisywania: {{err}}",
+                "del": "Wystąpił błąd podczas usuwania: {{err}}"
+            }
+        },
+        "title_content": "Tytuł:",
+        "category": "Kategoria",
+        "select_all": "Zaznacz wszystkie",
+        "language_info": "Każdego języka musi być wypełnione dla każdego kraju aktywowany",
+        "imageURL": "Adres URL obrazu",
+        "page": "Strona:",
+        "link": "Łącze:",
+        "link_placeholder": "(ex: http://www.google.com)",
+        "partner": "Partner:",
+        "discipline_ref": "discipline.ref",
+        "cancel": "Anuluj",
+        "date": "Data:",
+        "image": "Obraz:",
+        "upload": "Prześlij",
+        "modify": "Zmodyfikuj",
+        "countries": "Kraje"
+    },
+    "success": "Modyfikacje zostały zapisane.",
+    "error": {
+        "mandatory": "Brakujące pola"
+    },
+    "tabs": {
+        "pages": "Strony",
+        "news": "Aktualności",
+        "notification": "Powiadomienia niestandardowe"
+    },
+    "page": {
+        "name": "{{name}}"
+    },
+    "notification": {
+        "new": "To powiadomienie nie zostało jeszcze utworzone. Wypełnić i zapisać formularz, aby go utworzyć.",
+        "name": "{{name}}",
+        "provider": "Dostawca:",
+        "expires": "Data wygaśnięcia*:",
+        "message": "Komunikat",
+        "link": {
+            "show": "Pokaż przycisk „Więcej informacji”:",
+            "url": "Łącze",
+            "target": "Otwórz łącze na nowej stronie:"
+        },
+        "status": {
+            "title": "Stanu",
+            "created": "Stworzone",
+            "sending": "Wysyłanie: Zadanie jest tworzenie powiadomienia były wysyłane do użytkowników.",
+            "tested": "Testowane",
+            "sent": "Wysłana do wybranych użytkowników.",
+            "pending": {
+                "deploy": "Wysyłając żądanie utworzenia powiadomienia dla wybranych użytkowników.",
+                "testing": "Czekam do powiadomienia mają być wyświetlane.",
+                "delete": "Proszę czekać, powiadomienie będzie do usunięcia.",
+                "save": "Proszę czekać, powiadomienie, jest zapisywany"
+            },
+            "ok": {
+                "save": "Zapisano na powiadomienia",
+                "testing": "Testowane",
+                "deploy": "Praca rozpoczęła się do wysyłania powiadomień do użytkowników"
+            }
+        }
+    },
+    "text": "<h2>Podstawy</h2> <p>\n    Wymuszony koniec wiersza: Zakończ wiersz dwiema spacjami<br />\n    Wprowadź HTML bezpośrednio: Rozpocznij wiersz 4 spacjami<br />\n</p> <h2>Nagłówki</h2> <p>\n    # H1<br />\n    ## H2<br />\n    ### H3<br />\n</p> <h2>Wyróżnienie</h2> <p>\n    Słowo pisane kursywą: *asteryski* lub _podkreślniki_.<br />\n    Słowo pisane pogrubioną czcionką:  **podwójne asteryski** lub __podwójne podkreślniki__.<br />\n</p> <h2>Listy</h2> <p>\n    1. Pierwsza pozycja listy numerowanej<br />\n    2. Kolejna pozycja<br />\n    ⋅⋅* Nienumerowana podlista.<br />\n    1. Konkretne liczby nie mają znaczenia, chodzi o to, żeby były liczby<br />\n    ⋅⋅1. Numerowana podlista<br />\n    4. I kolejna pozycja.<br />\n    <br />\n    ⋅⋅⋅Dzięki pozycjom listy można uzyskać akapity z odpowiednim wcięciem. Zauważ pusty wiersz powyżej i spacje wiodące (przynajmniej jedna, ale użyjemy tu trzech, aby wyrównać surowy Markdown).<br />\n    <br />\n    ⋅⋅⋅Aby wykonać podział wiersza bez akapitu, trzeba użyć dwóch spacji końcowych.⋅⋅<br />\n    ⋅⋅⋅Zwróć uwagę, że ten wiersz jest osobno, ale znajduje się w ramach tego samego akapitu.⋅⋅<br />\n    ⋅⋅⋅(W przeciwieństwie do typowego podziału wiersza GFM, gdzie spacje końcowe nie są wymagane.)<br />\n    <br />\n    * Listy nienumerowane mogą wykorzystywać asteryski<br />\n    - Albo minusy<br />\n    + Albo plusy<br />\n</p> <h2>Linki</h2> <p>\n    [Jestem linkiem typu inline](https://www.google.com)<br /><br />\n    [Jestem linkiem typu inline z tytułem](https://www.google.com „Strona główna Google”)<br /><br />\n    [Jestem linkiem typu odsyłacz][Dowolny tekst bez uwzględniania wielkości liter]<br /><br />\n    [Jestem odwołaniem względnym do repozytorium](../blob/master/LICENSE)<br /><br />\n    [Do definicji w linkach typu odsyłacze można używać liczb][1]<br /><br />\n    Lub zostawić je pustymi i użyć [samego linku]<br /><br />\n    Jakiś tekst, aby pokazać, że odnośniki mogą później do niego prowadzić.\n</p> <h2>Etykiety</h2> <p>\n    <h3>Ustaw etykietę</h3>\n    Należy używać składni HTML, aby utworzyć ID na tagu, gdzie ma być ustawiona etykieta.<br/></br>\n    Przykład:</br>\n    Jeśli chcesz ustawić etykietę na tagu H1, musisz zastosować: <b>&lt;h1 id=\"my_anchor\"&gt;Tekst etykiety&lt;/h1&gt;</b>\n    <br/></br>\n    <h3>Użyj etykiety</h3>\n    Z tagiem <b>a</b> musisz zastosować href z taką wartością jak ta: <b>/pages/[url_sufiks_strona]#[etykieta]</b>.<br/><br/>\n    <li><b>url_sufiks_strona</b> strony, gdzie zastosowano etykiety. To pierwszy tekst wprowadzany przy tworzeniu strony, aby wygenerować url.</li>\n    <li><b>etykieta</b> wartość ID tagu, gdzie zastosowano etykietę.</li>\n    <br/></br>\n    Przykład:</br>\n    Aby użyć wcześniej ustawionej etykiety, musisz zastosować: <b>&lt;a href=\"/pages/page_url#my_anchor\"&gt;Tekst linku&lt;/a&gt;</b></br>\n    lub <b>[Tekst linku](/pages/page_url#my_anchor)</b>\n</p> <h2>Obrazy</h2> <p>\n    Oto nasze logo (najedź kursorem, aby zobaczyć tekst tytułu):<br /><br />\n    Typ inline:<br />\n    ![tekst alternatywny](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png „Tekst tytułu logo 1”)<br />\n    <br />\n    Typ odsyłacz:<br />\n    ![tekst alternatywny][logo]<br />\n</p> <h2>Tableau</h2> <p>\n    Dwukropków można używać do wyrównania kolumn.<br />\n    <br />\n    | Tabele        | Są           | Fajne  |<br />\n    | ------------- |:-------------:| -----:|<br />\n    | kol. 3 jest      | wyrównana do prawej | 1600 $ |<br />\n    | kol. 2 jest      | wyśrodkowana      |   12 $  |<br />\n    | paski zebry | są odjazdowe      |    1 $ |<br />\n    <br />\n    Zewnętrzne kreski pionowe (|) są opcjonalne i nie musisz ładnie układać surowego Markdownu. Możesz używać też Markdownu inline.<br />\n    <br />\n    Markdown | Nie tak | Ładny<br />\n    --- | --- | ---<br />\n    *Ciągle* | `działa` | **dobrze**<br />\n    1 | 2 | 3<br />\n</p> <h2>HTML inline</h2> <p> <dl>\n    <dt>Lista definicji</dt><br />\n    <dd>To coś, czego ludzie czasem używają.</dd><br /><br />\n\n    <dt>Markdown w HTML</dt><br />\n    <dd>Nie *zawsze* dobrze **się** sprawdza. Używaj tagów <em>HTML</em>.</dd><br />\n</dl> </p>"
+}

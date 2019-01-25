@@ -1,0 +1,29 @@
+{
+    "level_0": "Init",
+    "level_1": "Bronz",
+    "level_2": "Ezüst",
+    "level_3": "Arany",
+    "level_4": "Platinum",
+    "custom": {
+        "7steps": {
+            "level_4": "Teteje"
+        },
+        "renault": {
+            "my_badges_intro": "Tekintsd meg az összes jelvényt, amit nyertél vagy ami hátra van ahhoz, hogy az utolsó Clio RS „királya” legyél! ;-)"
+        },
+        "tagheuer": {
+            "level_0": "Inicializálás",
+            "level_1": "1 SEBESSÉGFOKOZAT",
+            "level_2": "3 SEBESSÉGFOKOZAT",
+            "level_3": "5 SEBESSÉGFOKOZAT",
+            "level_4": "7 SEBESSÉGFOKOZAT"
+        },
+        "tagheuercon": {
+            "level_0": "Kezdés",
+            "level_1": "1 SEBESSÉGFOKOZAT",
+            "level_2": "3 SEBESSÉGFOKOZAT",
+            "level_3": "5 SEBESSÉGFOKOZAT",
+            "level_4": "7 SEBESSÉGFOKOZAT"
+        }
+    }
+}

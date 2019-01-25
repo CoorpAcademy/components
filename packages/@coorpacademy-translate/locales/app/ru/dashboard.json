@@ -1,0 +1,1569 @@
+{
+    "hello": "Добро пожаловать, {{displayname}}!",
+    "show_more": "Смотреть все",
+    "registered": {
+        "score": "Ваши баллы:",
+        "new_score": "Ваш новый результат {{newscore}}",
+        "badge": {
+            "new": "1 награда",
+            "new_post": "победил",
+            "award_pre": "Бронза",
+            "award": "- 3 битвы",
+            "award_post": "завершено",
+            "name": "Бронза"
+        },
+        "next_player": "Ход вашего оппонента",
+        "button_back": "Вернуться"
+    },
+    "slides_battle": "Вопрос {{count}}",
+    "slides_battle_check": "Подтвердить",
+    "success_battle": {
+        "title": "Битва окончена!",
+        "result": {
+            "win": "Поздравляем, Вы выиграли!",
+            "win_fast": "Поздравляем, Вы одержали победу в кратчайший срок!",
+            "win_first": "Поздравляем!",
+            "win_second": "вы выиграли",
+            "loose": "Ой, вы проиграли!",
+            "loose_first": "Ой",
+            "loose_second": "вы проиграли!",
+            "loose_against": "Упс, вы проиграли. {{name}} оказался быстрее!",
+            "winStars": "Вы выиграли {{count}} дополнительную звезду в этой битве!",
+            "winStars_plural": "Вы выиграли {{count}} дополнительных звезд в этой битве!"
+        },
+        "badge_user": {
+            "text": "1 награда",
+            "text_post": "победил",
+            "award_pre": "Бронза",
+            "award": "- 3 битвы",
+            "award_post": "завершено",
+            "name": "Бронза"
+        },
+        "badge_opponent": {
+            "text": "1 награда",
+            "text_post": "победил",
+            "award_pre": "Бронза",
+            "award": "- 3 битвы",
+            "award_post": "завершено",
+            "name": "Бронза"
+        },
+        "footer": "Вернуться"
+    },
+    "notificationCard": {
+        "request_title": "Запрос {{title}}",
+        "request": "{{module}} Модуль {{level}} уровень",
+        "aim": {
+            "text": "1 новый ответ",
+            "text_post": "к Вашему вопросу",
+            "name": "Имя Фамилия",
+            "link": "Смотреть"
+        },
+        "badge": {
+            "text": "Поздравляем! Вы получили 1 новую награду",
+            "text_post": "победил",
+            "link": "Посмотреть"
+        },
+        "battle": {
+            "text": "Вы получили вызов на 1 новую битву",
+            "text_post": "вызов",
+            "link": "просмотреть",
+            "demand_accept": "Ваш вызов на битву",
+            "demand_accept_post": "принято",
+            "win_against_title": "Вы победили в битве!",
+            "loose_against_title": "Вы проиграли битву!",
+            "against": "модуль {{module}} уровень {{level}}",
+            "versus": "против"
+        },
+        "forum_text": "Существует 1 новый ответ на ваш комментарий по поводу уровня {{level}} модуль {{module}}",
+        "forum_text_page": "1 новый ответ на ваш комментарий на форуме",
+        "module": {
+            "text": {
+                "bravo": "Поздравляем!",
+                "pre": "Вы прошли",
+                "detail": "модуль",
+                "base": "Начальный уровень",
+                "advanced": "Продвинутый уровень",
+                "coach": "Уровень коуча"
+            },
+            "link": "Посмотреть"
+        },
+        "reward": {
+            "bonusStars": {
+                "title": "Поздравляем! Вы выиграли дополнительные звезды!",
+                "goal": {
+                    "description": "Вы достигли цели {{goal}}. Это позволило вам получить {{stars}} дополнительных звезд."
+                },
+                "rh": {
+                    "description": "Вы выиграли дополнительные звёзды. Количество: {{stars}}"
+                }
+            },
+            "rewardStars": {
+                "title": "Поздравляем! Вы выиграли дополнительные звезды!",
+                "goal": {
+                    "description": "Вы достигли цели {{goal}}. Это позволило вам заработать {{stars}} дополнительныx звезд."
+                }
+            },
+            "resource": {
+                "title": "Поздравляем! Вы получили доступ к новому элементу!",
+                "description": "Вы достигли цели {{goal}}. Это дает вам доступ к {{label}}."
+            },
+            "diploma": {
+                "title": "Свидетельство",
+                "description": "Вы достигли цели {{goal}} и получили диплом. Поздравляем!"
+            }
+        },
+        "coach": {
+            "bravo": "Поздравляем!",
+            "text": "Вы стали Коучем по дисциплине {{disciplineName}}."
+        },
+        "title": {
+            "text": "{{title}} Запрос",
+            "Battle": "Битва",
+            "Module": "Модуль",
+            "Badge": "Награда",
+            "Forum": "Обсуждение",
+            "Coach": "Коуч",
+            "cmsNotification": "Информация",
+            "welcome": "Добро пожаловать",
+            "resetModule": "Обновление содержания!"
+        },
+        "type": {
+            "module": "Модуль",
+            "badge": "Награда",
+            "battle": "Битва",
+            "forum": "Обсуждение",
+            "Coach": "Коуч",
+            "objectif": "Сертификат",
+            "cmsNotification": "Информация",
+            "reward": "Награда",
+            "welcome": "Добро пожаловать",
+            "resetModule": "Обновление содержания!"
+        }
+    },
+    "achievement": {
+        "helper": "Обзор ваших достижений! Удастся ли вам получить платиновый уровень каждого их этих значков?",
+        "titre": "Ваши награды"
+    },
+    "navigation": {
+        "text": "Получите доступ ко всем функциям вашей платформы в навигационном меню",
+        "my_board": "Мой личный кабинет",
+        "population": "Мое население",
+        "learningTree": {
+            "helper": "Получите доступ ко всем специальностям своего направления за 1 клик",
+            "push": "Перейти ко всем вашим специальностям",
+            "push_post": "одним щелчком мыши"
+        },
+        "account_helper": "Просматривайте свой личный кабинет, находите свои результаты, управляйте своим прогрессом, участвуйте в обсуждениях или просто проходите уроки, прежде чем запустить модули.",
+        "account": "Мой аккаунт",
+        "language": "Язык",
+        "notification": "Уведомления",
+        "badge": "Мои Награды",
+        "objectif": "Мои Сертификаты",
+        "activity": "Деятельность",
+        "discussion": "Обсуждения",
+        "conseil": "Советы и подсказки",
+        "coach": "Коучи",
+        "lessons": "Библиотека",
+        "battle_helper": "Завершив модуль, вызовите всех оппонентов одного с Вами уровня на маленькую игру из 10 вопросов!",
+        "battle_pre": "Режим битвы",
+        "battle": "Бросьте вызов своим коллегам в режиме \"Боя\": отвечайте на вопросы как можно быстрее!",
+        "battle_post": "Нажмите здесь!",
+        "assistance": "Помощь",
+        "home": "Главная",
+        "certifications": "Мои сертификаты"
+    },
+    "personal_selection": {
+        "text_helper": "На основании вашего пути рекомендуются 3 модуля!",
+        "title": "Мы рекомендуем:",
+        "acces_module": "Начать сейчас",
+        "payment_required": "Купить Сейчас",
+        "popular_module_helper": "Нужно вдохновение? Посмотрите, что делают другие, выбрав самых популярных.",
+        "last_discussion": "Последние обсуждения",
+        "no_discussion": "Нет обсуждения",
+        "last_module": "Последний играемый модуль",
+        "no_module": "Ни один модуль не был сыгран",
+        "level": {
+            "pre": "Уровень",
+            "base": "Базовый,",
+            "advanced": "Продвинутый,",
+            "coach": "Коуч,",
+            "post": "{{stars}}/{{maxstars}}"
+        },
+        "popular_module": "Самые популярные дисциплины",
+        "easiest_disciplines": "Самые простые дисциплины",
+        "hardest_disciplines": "Сложнейшие дисциплины",
+        "no_popular_module": "Не было игры ни в одном модуле",
+        "module_name": {
+            "pre": "уровень",
+            "base": "Базовый",
+            "advanced": "Продвинутый",
+            "coach": "Коуч"
+        }
+    },
+    "activity": {
+        "title": "Процесс обучения",
+        "progression_text_pre": "Выполнение программы",
+        "progression_text": "Как ваши успехи по направлению к поставленным целям?",
+        "progression_subtext": "Теперь время проверить...",
+        "discipline_title": "Специальность",
+        "disciplines": {
+            "title": "Дисциплина",
+            "score": "Счёт",
+            "actual_level": "Текущий уровень"
+        },
+        "module_title": "Модули",
+        "avancement": "Прогресс",
+        "caption-started": "Начатый уровень",
+        "caption-done": "Законченный модуль"
+    },
+    "myactivity": {
+        "title": "Активность:",
+        "subtitle": "Какие у вас успехи в изучении вашего курса?",
+        "total": "Итого:",
+        "engines": {
+            "learner": "Курсы",
+            "microlearning": "5' Learning",
+            "battle": "Битвы",
+            "certifications": "Сертификаты",
+            "bonus": "Бонус"
+        },
+        "recommendation": {
+            "title": "Здравствуйте {{displayName}}, увеличьте количество ваших очков !",
+            "subtitle": "Мы рекомендуем:"
+        },
+        "starsToolTip": {
+            "preMessage": "Эта функция в настоящее время недоступна на вашей платформе. Если вы хотите активировать ее, свяжитесь с вашим руководителем или",
+            "linkMessage": "Нажмите сюда",
+            "endMessage": "и мы передадим сообщение."
+        }
+    },
+    "goals": {
+        "title": "Продвижение к получению сертификатов"
+    },
+    "badges": {
+        "title": "Мои награды",
+        "subtitle": "Просмотреть Все Ваши Награды",
+        "title-1-0": "Мои Награды",
+        "subtitle-1-0": "Посмотреть все награды, которые вы получили или должны получить чтобы стать цифровым \"Королем\"! ;-)",
+        "newBadgeWon": "У вас есть:",
+        "newBadgeWon_plural": "У вас есть:",
+        "seeYourBadges": "Просмотреть свои награды",
+        "battle": {
+            "name": "Воин",
+            "details": "{{count}} Битв",
+            "details_plural": "{{count}} Бои",
+            "details_post": "завершено!",
+            "details_post_plural": "завершено!"
+        },
+        "module": {
+            "name": "Мастер выживания",
+            "details": "{{count}} Модулей",
+            "details_plural": "{{count}} Модулей",
+            "success": "завершено",
+            "success_plural": "завершено",
+            "details_pre_1": "с сохранением",
+            "details_pre_2": "жизни!"
+        },
+        "lesson": {
+            "name": "Первый в классе",
+            "details": "{{count}} уроков",
+            "details_plural": "{{count}} уроков",
+            "details_post": "полностью просмотрено!",
+            "details_post_plural": "полностью просмотрено!"
+        },
+        "question": {
+            "name": "Вопросы к Чемпиону",
+            "details": "{{count}} Вопросов",
+            "details_plural": "{{count}} Вопросов",
+            "details_post": "принято!",
+            "details_post_plural": "решено!"
+        },
+        "coach": {
+            "name": "Лучший товарищ",
+            "details": "{{count}} Контактов",
+            "details_plural": "{{count}} Контактов",
+            "details_pre_1": "с",
+            "details_pre_2": "тренерами!"
+        },
+        "level": {
+            "bronze": "Бронза",
+            "silver": "Серебро",
+            "gold": "Золото",
+            "platinum": "Платина"
+        }
+    },
+    "battle": {
+        "title": "Битвы",
+        "create": "Создать битву",
+        "requests": {
+            "title": "Запросы на поединки",
+            "no_requests_found": "У вас пока нет запросов на поединок",
+            "sendBattle": "{{opponentName}} вызывает вас на битву"
+        },
+        "history": {
+            "title": "История битв",
+            "message": {
+                "pending": "Эта битва в ожидании подтверждения оппонетном",
+                "win": "Вы выиграли битву!",
+                "lost": "Вы проиграли битву!",
+                "win_byTime": "Вы были самый быстрый!",
+                "lost_byTime": "Вы были слишком медлительны!"
+            },
+            "no_history_found": "У вас пока нет истории битв"
+        },
+        "start": {
+            "cta": "Начать <span class=\"bold\"> битву</span>",
+            "new_cta": "Создать новую <span class=\"bold\"> битву</span>",
+            "cancel": "Игнорировать",
+            "body_pre": "Скорость имеет значение:",
+            "bodyText": "В случае ничьи, победит самый быстрый!",
+            "me": "Я",
+            "inProgress": "В процессе"
+        },
+        "steps": {
+            "1": "1. Выбрать уровень",
+            "2": "2. Выбрать соперника",
+            "3": "3. Начать битву"
+        },
+        "select_module": {
+            "title": "Выбрать уровень",
+            "placeholder": "Введите название модуля",
+            "no_module_available": "Только можно создать сражение в разблокирован уровне.",
+            "no_module_found": "Модуль не найден"
+        },
+        "select_theme": {
+            "title": "Выбрать коллекцию:"
+        },
+        "select_opponent": {
+            "title": "Выберите вашего оппонента",
+            "placeholder": "Введите имя",
+            "no_opponent_found": "Противник не найден",
+            "random": "Случайный оппонент"
+        },
+        "subtitle": "Бросьте вызов вашим коллегам!",
+        "button": {
+            "create": "Создать Новую Битву",
+            "cancel": "Отменить"
+        },
+        "score": "10",
+        "no_battle_progress": "У вас нет текущих сражений.",
+        "block": {
+            "title": "Вызовы на дуэль"
+        },
+        "accept_button": "Принять",
+        "no_proposition": "Вы не получили никаких запросов на поединок.",
+        "completed": {
+            "title": "завершенные поединки",
+            "subtitle_pre": "Вы приняли участие в",
+            "subtitle_pre_plural": "Вы приняли участие в",
+            "subtitle": "{{count}} сражение, победа {{nb}}",
+            "subtitle_plural": "{{count}} битв, побед {{nb}}"
+        },
+        "block_empty": "У вас нет незавершенных сражений",
+        "create_title": "Создать Битву",
+        "active_title_intro": "Режим битвы",
+        "active_title_active": "активированный",
+        "start_discipline": "Начать изучение дисциплины",
+        "no_opponent": "Не противников, доступных на данном уровне",
+        "coming_soon_random": "Начать Случайную Битву"
+    },
+    "dashboard": {
+        "text": "Космическая гонка! Вы можете выиграть, правильно отвечая на вопросы, проходя уроки или общаясь с другими участниками (в битвах и на тренировках)!",
+        "title": "Ваши баллы",
+        "data": {
+            "intro": "Вы наверху",
+            "value": "15%",
+            "wording": "высочайшие показатели"
+        },
+        "data_dev_hidden": {
+            "question": {
+                "title": "Вопросы:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "Вы являетесь частью",
+                    "level": "{{level}}",
+                    "wording": "с большинством звезд"
+                }
+            },
+            "cours": {
+                "title": "Урок:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "Вы являетесь частью",
+                    "level": "{{level}}",
+                    "wording": "кто просмотрел больше всех уроков."
+                }
+            },
+            "extra": {
+                "title": "Дополнительно:",
+                "stat": {
+                    "intro": "Вы – часть",
+                    "level": "{{level}}",
+                    "wording": "с наилучшими результатами"
+                }
+            },
+            "total_title": "Итого:"
+        }
+    },
+    "lessons": {
+        "title": "Все уроки и видео",
+        "subtitle": "Вы хотите вспомнить пройденный материал, прежде чем перейдете к тестам? Эта страница предназначена для вас. Здесь находятся все уроки, отсортированные по темам.",
+        "subtitle_up": "Вы хотите вспомнить пройденный материал, прежде чем перейдете к тестам?",
+        "empty": "Не найдено ресурсов для этого курса."
+    },
+    "notifications": {
+        "title": "Уведомления",
+        "infos": "<b>{{count}}</b> уведомления(ий)!",
+        "infos_plural": "<b> {{count}}</b>уведомления(ий)!",
+        "filter": "Фильтровать по...",
+        "close": "Закрыть",
+        "myNotifications": "Посмотреть мои уведомления",
+        "deleteAll": "Удалить все",
+        "filters": {
+            "module": "Фильтровать по уровню",
+            "badge": "наградам",
+            "forum": "обсуждениям",
+            "battle": "битвам",
+            "coach": "коучам",
+            "objectif": "задаче",
+            "reward": "наградам",
+            "welcome": "приветствиям",
+            "resetModule": "обновлениям"
+        }
+    },
+    "block_push": {
+        "tree": {
+            "title": "Смотреть всё содержимое",
+            "content": "Для быстрого старта, нажмите здесь",
+            "link": "Нажмите здесь"
+        },
+        "battle": {
+            "title": "Бросьте вызов коллегам!",
+            "content": "Начните \"битву\". Закрепление знаний еще никогда не было таким веселым!",
+            "link": "Нажмите сюда"
+        }
+    },
+    "welcomePopin": {
+        "title": "Добро пожаловать!",
+        "text": "Чтобы получить удовольствие от работы с МООК, начните со страницы \"Вы здесь впервые\".",
+        "button": "Откройте"
+    },
+    "global_notification": {
+        "button": {
+            "show_more": "Подробнее"
+        }
+    },
+    "filters": {
+        "all": "Все",
+        "coorpers": "Coorpers",
+        "courses": "Мои уроки"
+    },
+    "sections": {
+        "most-popular": "Самые популярные",
+        "most-recent": "Новые релизы",
+        "my-list": "Список {{name}}",
+        "news": "Новости",
+        "recommended": "Рекомендовано для вас",
+        "load_more": "Загрузить еще",
+        "certification": "Сертификация: {{name}}",
+        "prefix_chapter": "5' Learning: {{title}}"
+    },
+    "continueLesson": "Продолжить мое обучение",
+    "widgets": {
+        "read_more": "Больше"
+    },
+    "discussion": {
+        "title": "Все комментарии курса",
+        "subtitle": "Просмотреть Все Сообщения, Оставленные Сообществом по Различным Дисциплинам"
+    },
+    "slider": {
+        "start": {
+            "surtitle": "Добро пожаловать {{displayName}},",
+            "surtitle_anonymous": "Добро пожаловать,",
+            "title": "Просмотрите новые курсы",
+            "cta": "Посмотреть каталог"
+        },
+        "resume": {
+            "surtitle_learner": "С возвращением {{displayName}}, продолжайте:",
+            "surtitle_microlearning": "С возвращением {{displayName}}, продолжайте:",
+            "surtitle_learner_anonymous": "С возвращением, продолжайте:",
+            "surtitle_microlearning_anonymous": "С возвращением, продолжайте:",
+            "title": "{{courseName}}",
+            "cta": "Продолжить обучение"
+        },
+        "battle": {
+            "surtitle": "С возвращением {{displayName}}, проверьте ваши запросы на битвы",
+            "title": "У вас есть {{count}} запрос на битву!",
+            "title_plural": "У вас есть {{count}} запросов на битву!",
+            "cta": "Начать битву"
+        }
+    },
+    "custom": {
+        "7steps": {
+            "achievement": {
+                "helper": "Обзор вашего успеха! Удастся ли вам достигнуть высшего уровня для каждого из этих значков?"
+            },
+            "badges": {
+                "level": {
+                    "platinum": "Вверх"
+                }
+            },
+            "block_push": {
+                "tree": {
+                    "content": "Начните обучение сейчас!"
+                }
+            }
+        },
+        "accueil": {
+            "filters": {
+                "coorpers": "mooc'ers"
+            },
+            "badges": {
+                "battle": {
+                    "name": "Челенджер",
+                    "details_3": "40"
+                },
+                "module": {
+                    "name": "Супергерой",
+                    "details_1": {
+                        "number": "2"
+                    },
+                    "details_2": {
+                        "number": "4"
+                    },
+                    "details_3": {
+                        "number": "6"
+                    }
+                },
+                "lesson": {
+                    "name": "Цена входного билета",
+                    "details_0": "5",
+                    "details_1": "15",
+                    "details_2": "30",
+                    "details_3": "60"
+                },
+                "question": {
+                    "name": "Вопрос для чемпиона",
+                    "details_3": "360"
+                },
+                "coach": {
+                    "name": "Стипендия"
+                }
+            }
+        },
+        "architas-powercircle": {
+            "filters": {
+                "coorpers": "Инвестиционные супергерои"
+            }
+        },
+        "armeedeterre": {
+            "slider": {
+                "battle": {
+                    "surtitle": "Добро пожаловать обратно {{displayName}}, проверьте ваши запросы битвы",
+                    "title": "У вас есть {{count}} Битва запрос!",
+                    "title_plural": "У вас есть {{count}} Битва запросы!",
+                    "cta": "Начать борьбу"
+                }
+            },
+            "battle_start": {
+                "title": "Ваш битва собирается начать."
+            },
+            "select_module": {
+                "no_module_available": "Вы можете создать битву только пройдя уровень."
+            },
+            "success_battle": {
+                "title": "Битва за!",
+                "badge_user": {
+                    "award": "-3 сражения"
+                },
+                "badge_opponent": {
+                    "award": "-3 сражения"
+                },
+                "winStars": "Вы выиграли {{count}} дополнительные звезда с этой битвы!",
+                "winStars_plural": "Вы выиграли {{count}} дополнительные звезды с этой битвы!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "Битва"
+                },
+                "battle": {
+                    "text": "Вы получили 1 новая битва",
+                    "demand_accept": "Ваш бой",
+                    "win_against_title": "Вы выиграли битву!",
+                    "loose_against_title": "Вы проиграли сражение!"
+                },
+                "type": {
+                    "battle": "Битва"
+                }
+            },
+            "navigation": {
+                "battle_pre": "Боевой режим",
+                "battle": "Проблема ваших коллег в режиме «Сражение»: ответить на вопросы как можно быстрее!"
+            },
+            "filters": {
+                "battles": "МОИ БОИ"
+            },
+            "badges": {
+                "battle": {
+                    "name": "ИСКАТЕЛЬ БИТВЫ",
+                    "details": "{{count}} сражение",
+                    "details_plural": "{{count}} битвы"
+                }
+            },
+            "battle": {
+                "title": "Боевой режим",
+                "create": "Создание битвы",
+                "requests": {
+                    "title": "Битва запросы",
+                    "no_requests_found": "У вас еще нет любой запрос битвы"
+                },
+                "history": {
+                    "title": "Журнал битвы",
+                    "message": {
+                        "pending": "Эта битва, ожидающих утверждения противника",
+                        "win": "Вы выиграли битву!",
+                        "lost": "Вы проиграли сражение!"
+                    },
+                    "no_history_found": "У вас еще нет любой истории битвы"
+                },
+                "start": {
+                    "cta": "Начать <span class=\"bold\"> битву</span>",
+                    "new_cta": "Создать новую<span class=\"bold\"> битву</span>"
+                },
+                "steps": {
+                    "3": "3. Начало битвы"
+                },
+                "select_module": {
+                    "no_module_available": "Вы можете создать битву только пройдя уровень."
+                },
+                "button": {
+                    "create": "Создание новой битве"
+                },
+                "no_battle_progress": "У вас нет сражений в прогресс.",
+                "block": {
+                    "title": "Битва запросы"
+                },
+                "no_proposition": "Вы не получили запросы любого сражения.",
+                "completed": {
+                    "title": "Завершенные бои",
+                    "subtitle": "{{count}} сражение, победы {{nb}}",
+                    "subtitle_plural": "{{count}} бои, победы {{nb}}"
+                },
+                "block_empty": "У вас нет готовой сражений.",
+                "create_title": "Создание битвы",
+                "active_title_intro": "Боевой режим",
+                "coming_soon_random": "Начало случайный бой"
+            }
+        },
+        "bigdata": {
+            "navigation": {
+                "lessons": "Все курсы"
+            },
+            "filters": {
+                "news": "Ваше обучение",
+                "coorpers": "MOOCers"
+            }
+        },
+        "bnp": {
+            "filters": {
+                "coorpers": "Факторы"
+            }
+        },
+        "bnpp-legal": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Мастер"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Мастер"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Мастер,"
+                },
+                "module_name": {
+                    "coach": "Мастер"
+                }
+            },
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "casa": {
+            "filters": {
+                "news": "Ваше обучение",
+                "coorpers": "MOOCers"
+            }
+        },
+        "challenge48htechno": {
+            "slider": {
+                "start": {
+                    "title": "Изучите новый курс"
+                },
+                "resume": {
+                    "surtitle": "С возвращением {{displayName}}, продолжайте свой курс"
+                }
+            }
+        },
+        "chanel": {
+            "block_push": {
+                "tree": {
+                    "title": "НАЧАТЬ",
+                    "content": "Откройте для себя мир CHANEL в каталоге.",
+                    "link": "Нажмите сюда"
+                },
+                "battle": {
+                    "title": "БРОСЬТЕ ВЫЗОВ СООБЩЕСТВУ",
+                    "content": "Бросайте вызов вашим коллегам в \"Режиме битвы\". Отвечайте на вопросы как можно быстрее!",
+                    "link": "Нажмите сюда"
+                }
+            },
+            "filters": {
+                "coorpers": "Мое Сообщество"
+            }
+        },
+        "crisis": {
+            "filters": {
+                "coorpers": "Pernod Ricard сообщество"
+            }
+        },
+        "dolce": {
+            "filters": {
+                "coorpers": "Сообщество"
+            }
+        },
+        "edenred-talents": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Амбассадор"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Амбассадор"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Амбассадор,"
+                },
+                "module_name": {
+                    "coach": "Амбассадор"
+                }
+            }
+        },
+        "ey": {
+            "filters": {
+                "coorpers": "Цифровые герои"
+            }
+        },
+        "fff": {
+            "activity": {
+                "caption-started": "Дисциплина начата, но еще не завершена",
+                "caption-done": "Подтвержденные Дисциплины"
+            }
+        },
+        "gdf": {
+            "badges": {
+                "transformer": {
+                    "name": "Трансформатор",
+                    "details_0": {
+                        "number": "1",
+                        "details": "Тема",
+                        "details_post": "завершено"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "темы",
+                        "details_post": "завершено"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "темы",
+                        "details_post": "завершено"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "темы",
+                        "details_post": "завершено"
+                    }
+                }
+            }
+        },
+        "gdfec": {
+            "badges": {
+                "transformer": {
+                    "name": "Трансформатор",
+                    "details_0": {
+                        "number": "1",
+                        "details": "Тема",
+                        "details_post": "завершено"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "темы",
+                        "details_post": "завершено"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "темы",
+                        "details_post": "завершено"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "темы",
+                        "details_post": "завершено"
+                    }
+                }
+            },
+            "filters": {
+                "coorpers": "Сообщество"
+            }
+        },
+        "ilearn": {
+            "filters": {
+                "coorpers": "Мое сообщество"
+            }
+        },
+        "learnnrj": {
+            "filters": {
+                "coorpers": "Сообщество"
+            }
+        },
+        "letsgetdigital": {
+            "badges": {
+                "battle": {
+                    "name": "Челенджер"
+                },
+                "module": {
+                    "name": "Герой"
+                }
+            }
+        },
+        "linxea": {
+            "filters": {
+                "coorpers": "MOOCers"
+            },
+            "navigation": {
+                "lessons": "Все видео"
+            }
+        },
+        "loreal-retail-v2": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Фильтр по почему",
+                    "advanced": "Фильтр по сопереживание",
+                    "coach": "Фильтр по показать мне"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Почему",
+                        "advanced": "Эмпатия",
+                        "coach": "Показать"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Почему",
+                    "advanced": "Эмпатия",
+                    "coach": "Показать"
+                },
+                "module_name": {
+                    "base": "Почему",
+                    "advanced": "Эмпатия",
+                    "coach": "Показать"
+                }
+            }
+        },
+        "martell": {
+            "badges": {
+                "subtitle-1-0": "Просмотреть все значки, которые вы получили или которые еще нужно получить, чтобы стать экспертом Martell"
+            },
+            "filters": {
+                "coorpers": "Друзья Martell"
+            }
+        },
+        "michelin": {
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "mooc-socgen": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Фильтр по уровню 1",
+                    "advanced": "Фильтр по уровню 2",
+                    "coach": "Фильтр по уровню 3"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Уровень 1",
+                        "advanced": "Уровень 2",
+                        "coach": "Уровень 3"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Уровень 1,",
+                    "advanced": "Уровень 2,",
+                    "coach": "Уровень 3,"
+                },
+                "module_name": {
+                    "base": "Уровень 1",
+                    "advanced": "Уровень 2",
+                    "coach": "Уровень 3"
+                }
+            }
+        },
+        "nespresso": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Эксперт"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Эксперт"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Эксперт,"
+                },
+                "module_name": {
+                    "coach": "Эксперт"
+                }
+            },
+            "filters": {
+                "coorpers": "Сообщество"
+            }
+        },
+        "online-academy-klubschule": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Фильтр по начинающим",
+                    "advanced": "Фильтр по Продвинутым",
+                    "coach": "Фильтр по экспертам"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "уровень Начинающий",
+                        "advanced": "Продвинутый уровень",
+                        "coach": "уровень эксперт"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Новичок,",
+                    "advanced": "Продвинутый,",
+                    "coach": "Эксперт,"
+                },
+                "module_name": {
+                    "base": "Новичок",
+                    "advanced": "Продвинутый",
+                    "coach": "Эксперт"
+                }
+            }
+        },
+        "paca": {
+            "filters": {
+                "coorpers": "MOOC'ers"
+            },
+            "badges": {
+                "battle": {
+                    "name": "Челенджер"
+                },
+                "module": {
+                    "name": "Супергерой"
+                },
+                "lesson": {
+                    "name": "Цена входного билета"
+                },
+                "question": {
+                    "name": "Вопрос для чемпиона"
+                },
+                "coach": {
+                    "name": "Стипендия"
+                }
+            }
+        },
+        "pernodci": {
+            "filters": {
+                "coorpers": "Pernod Ricard сообщество"
+            }
+        },
+        "pernod": {
+            "notificationCard": {
+                "type": {
+                    "objectif": "Цель"
+                }
+            },
+            "goals": {
+                "title": "Прогресс в достижении ваших целей"
+            },
+            "navigation": {
+                "objectif": "Мои цели"
+            }
+        },
+        "petite": {
+            "filters": {
+                "coorpers": "Мое сообщество"
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Модуль 1,",
+                    "advanced": "Модуль 2,",
+                    "coach": "Модуль 3,"
+                },
+                "module_name": {
+                    "base": "Модуль 1",
+                    "advanced": "Модуль 2",
+                    "coach": "Модуль 3"
+                }
+            }
+        },
+        "pru": {
+            "block_push": {
+                "tree": {
+                    "content": "Начните обучение сейчас!"
+                },
+                "battle": {
+                    "title": "Брось вызов своим коллегам и практикуй!",
+                    "content": "Проблема ваших коллег в «Бою»: стараюсь быть быстрее, чем их!"
+                }
+            },
+            "badges": {
+                "subtitle-1-0": "Просмотреть все значки, которые вы заработали или которые еще нужно заработать, чтобы стать мастером!"
+            }
+        },
+        "quizz-auchan": {
+            "slider": {
+                "start": {
+                    "title": "Изучите курсы программы ЖИВИ ЛЕГКО!"
+                }
+            }
+        },
+        "renault": {
+            "badges": {
+                "subtitle": "Просмотреть все значки, что вы заработали или которые еще нужно заработать, чтобы стать «королем» последнего Clio RS! ;-)",
+                "lessons_seen": {
+                    "details_0": "2",
+                    "details_1": "4",
+                    "details_2": "8",
+                    "details_3": "10"
+                },
+                "answer": {
+                    "details_0": "20",
+                    "details_1": "36",
+                    "details_2": "72",
+                    "details_3": "120"
+                },
+                "perfect": {
+                    "details_2": {
+                        "number": "5"
+                    },
+                    "details_3": {
+                        "number": "8"
+                    }
+                }
+            }
+        },
+        "renaultrh": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Фильтр по шагу 1",
+                    "advanced": "Фильтр по шагу 2",
+                    "coach": "Фильтр по шагу 3"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "уровень 1 шаг",
+                        "advanced": "Шаг 2-го уровня",
+                        "coach": "Шаг 3 уровня"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Шаг 1,",
+                    "advanced": "Шаг 2,",
+                    "coach": "Шаг 3,"
+                },
+                "module_name": {
+                    "base": "Шаг 1",
+                    "advanced": "Шаг 2",
+                    "coach": "Шаг 3"
+                }
+            }
+        },
+        "renaultcare": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Фильтр по основам"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Базовый уровень"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Основы,"
+                },
+                "module_name": {
+                    "base": "Основы"
+                }
+            }
+        },
+        "rexel": {
+            "filters": {
+                "coorpers": "Клиент ориентированное сообщество"
+            }
+        },
+        "samsung": {
+            "block_push": {
+                "tree": {
+                    "content": "Начать здесь!"
+                },
+                "battle": {
+                    "content": "Вызовите ваших коллег в режиме «Сражение»: ответьте на вопросы как можно быстрее!"
+                }
+            }
+        },
+        "schneider": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Фильтр по сезону 1",
+                    "advanced": "Фильтр по 2 сезону",
+                    "coach": "Фильтр по 3 сезону"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "уровень 1 сезон",
+                        "advanced": "уровень 2 сезон",
+                        "coach": "уровень 3 сезон"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Сезон 1,",
+                    "advanced": "Сезон 2,",
+                    "coach": "Сезон 3,"
+                },
+                "module_name": {
+                    "base": "Сезон 1",
+                    "advanced": "Сезон 2",
+                    "coach": "Сезон 3"
+                }
+            },
+            "filters": {
+                "all": "Все",
+                "battles": "Мои бои",
+                "coorpers": "IQ-ers",
+                "news": "Новости",
+                "courses": "Мои уроки",
+                "continueLesson": "Продолжить мое обучение"
+            }
+        },
+        "securite": {
+            "navigation": {
+                "lessons": "Все курсы"
+            },
+            "filters": {
+                "news": "Ваше обучение",
+                "coorpers": "MOOCers"
+            }
+        },
+        "silca": {
+            "navigation": {
+                "lessons": "Все курсы"
+            },
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "sgmgt": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "societegenerale": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "sqy": {
+            "navigation": {
+                "lessons": "Все курсы"
+            },
+            "filters": {
+                "news": "Ваше обучение",
+                "coorpers": "MOOCers"
+            }
+        },
+        "tourismdigital": {
+            "filters": {
+                "coorpers": "Члены"
+            }
+        },
+        "tagheuer": {
+            "badges": {
+                "level": {
+                    "bronze": "1-Я СКОРОСТЬ",
+                    "silver": "3-Я СКОРОСТЬ",
+                    "gold": "5-Я СКОРОСТЬ",
+                    "platinum": "7-Я СКОРОСТЬ"
+                }
+            },
+            "filters": {
+                "coorpers": "Сообщество TAG Heuer"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "уровень Титан",
+                        "advanced": "уровень Бронза",
+                        "coach": "уровень Серебро"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "отфильтровать по Титану",
+                    "advanced": "Фильтр по Бронзе",
+                    "coach": "Фильтр по Серебру"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Титан,",
+                    "advanced": "Бронза,",
+                    "coach": "Серебро,"
+                },
+                "module_name": {
+                    "base": "Титан",
+                    "advanced": "Бронза",
+                    "coach": "Серебро"
+                }
+            }
+        },
+        "tagheuercon": {
+            "badges": {
+                "level": {
+                    "bronze": "1-Я СКОРОСТЬ",
+                    "silver": "3-Я СКОРОСТЬ",
+                    "gold": "5-Я СКОРОСТЬ",
+                    "platinum": "7-Я СКОРОСТЬ"
+                }
+            },
+            "filters": {
+                "coorpers": "Сообщество учащихся"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "уровень Титан",
+                        "advanced": "уровень Бронза",
+                        "coach": "уровень Серебро"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "Фильтровать по титану",
+                    "advanced": "Фильтровать по бронзе",
+                    "coach": "Фильтровать по серебру"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Титан,",
+                    "advanced": "Бронза,",
+                    "coach": "Серебро,"
+                },
+                "module_name": {
+                    "base": "Титановый",
+                    "advanced": "Бронза",
+                    "coach": "Серебро"
+                }
+            }
+        },
+        "tourism": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "up": {
+            "personal_selection": {
+                "text_helper": "предложены 3 уровня в зависимости от вашего пути!",
+                "popular_module_helper": "Нужно вдохновение? Проверьте, что делают все остальное, выбрав самых популярных.",
+                "last_module": "Последний пройденный уровень",
+                "no_module": "Ни одного пройденного модуля",
+                "popular_module": "Самые популярные курсы",
+                "easiest_disciplines": "Самые простые курсы",
+                "hardest_disciplines": "Самые сложные курсы",
+                "no_popular_module": "Нет пройденных уровней"
+            },
+            "select_module": {
+                "title": "Выбрать уровень",
+                "availability": "доступно {{count}} уровень",
+                "availability_plural": "{{count}} уровней доступно",
+                "no_module_available": "Вы можете создать битву только пройдя уровень."
+            },
+            "notificationCard": {
+                "request": "{{module}} курс {{level}} уровень",
+                "battle": {
+                    "against": "{{module}} курс {{level}} уровень"
+                },
+                "forum_text": "1 новый ответ на ваш комментарий относительно курса {{module}} уровня {{level}}",
+                "module": {
+                    "text": {
+                        "detail": "уровень"
+                    }
+                },
+                "coach": {
+                    "text": "Вы стали Коучем в курсе {{disciplineName}}."
+                },
+                "title": {
+                    "Module": "Уровень"
+                },
+                "type": {
+                    "module": "Уровень"
+                }
+            },
+            "navigation": {
+                "learningTree": {
+                    "helper": "Доступ ко всем курсам вашего пути в 1 клик",
+                    "push": "Доступ ко всем вашим курсам",
+                    "push_post": "в 1 клик"
+                },
+                "account_helper": "Просмотрите Ваше личное пространство, найдите ваши результаты, управляйте вашим прогрессом, участвуйте в обсуждениях или просто проходите уроки перед началом курса.",
+                "battle_helper": "После того как вы закончили курс, вызовите на поединок всех тех, которые находятся на одном с вами уровне, в виде небольшой игры из 10 вопросов!"
+            },
+            "activity": {
+                "progression_text_pre": "Какие у вас успехи в изучении вашего курса?",
+                "discipline_title": "Курс",
+                "disciplines": {
+                    "title": "Курс"
+                },
+                "module_title": "Уровни",
+                "caption-started": "Начатый уровень",
+                "caption-done": "Законченный уровень"
+            },
+            "badges": {
+                "module": {
+                    "name": "Оставшийся в живых",
+                    "details_0": {
+                        "module": "Уровень"
+                    },
+                    "details_1": {
+                        "module": "Уровни"
+                    },
+                    "details_2": {
+                        "module": "Уровни"
+                    },
+                    "details_3": {
+                        "module": "Уровни"
+                    }
+                }
+            },
+            "battle": {
+                "start_discipline": "Начать курс",
+                "no_opponent": "Не противников, доступных на этом уровне"
+            },
+            "notifications": {
+                "filters": {
+                    "module": "Фильтр по курсу"
+                }
+            }
+        },
+        "yahoo": {
+            "badges": {
+                "subtitle-1-0": "Просмотрите ваш прогресс в получении различных наград."
+            },
+            "filters": {
+                "coorpers": "Сообщество"
+            }
+        },
+        "capgemini": {
+            "navigation": {
+                "certifications": "Мой цифровой сертификат"
+            }
+        },
+        "cnp": {
+            "navigation": {
+                "certifications": "Certificate"
+            },
+            "sections": {
+                "certification": "Сертификат: {{name}}"
+            }
+        },
+        "ecolenumerique-sncf": {
+            "navigation": {
+                "certifications": "Джедаи значки"
+            },
+            "sections": {
+                "certification": "Jedi Badge: {{name}}"
+            }
+        },
+        "ganprevoyance": {
+            "navigation": {
+                "certifications": "Вселенные"
+            },
+            "sections": {
+                "certification": "Вселенная: {{name}}"
+            }
+        },
+        "who": {
+            "slider": {
+                "battle": {
+                    "surtitle": "С возвращением {{displayName}}, проверьте ваши вызовы на поединки",
+                    "title": "У вас есть {{count}} вызов на поединок!",
+                    "title_plural": "У вас есть {{count}} запросы вызов!",
+                    "cta": "Начать поединок"
+                }
+            },
+            "discussion": {
+                "title": "Модуль обратной связи",
+                "subtitle": "Просмотреть все сообщения, оставленные членами сообщества на различных модулях"
+            },
+            "battle_start": {
+                "title": "Ваш поединок начнется с минуты на минуту."
+            },
+            "select_module": {
+                "no_module_available": "Вы можете создать поединок только в законченном модуле."
+            },
+            "success_battle": {
+                "title": "Поединок закончен!",
+                "badge_user": {
+                    "award": "- 3 вызова"
+                },
+                "badge_opponent": {
+                    "award": "- 3 вызова"
+                },
+                "winStars": "Вы выиграли {{count}} дополнительную звезду в результате этого поединка!",
+                "winStars_plural": "Вы выиграли {{count}} дополнительных звезд в результате этого поединка!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "Поединок"
+                },
+                "coach": {
+                    "text": "Вы завершили курс {{disciplineName}}."
+                },
+                "battle": {
+                    "text": "Вы получили 1 новый вызов на поединок",
+                    "demand_accept": "Ваш поединок",
+                    "win_against_title": "Вы выиграли вызов!",
+                    "loose_against_title": "Вы проиграли поединок!"
+                },
+                "reward": {
+                    "resource": {
+                        "title": "Поздравляем! Вы можете получить доступ к новой награде!"
+                    }
+                },
+                "type": {
+                    "battle": "Поединок"
+                },
+                "forum_text_page": "1 новый ответ на ваш комментарий"
+            },
+            "navigation": {
+                "battle_pre": "Режим поединка",
+                "battle": "Бросьте вызов своим коллегам в режиме «Вызов на поединок»: отвечайте на вопросы как можно быстрее!"
+            },
+            "filters": {
+                "battles": "МОИ ВЫЗОВЫ",
+                "coorpers": "ЗАЩИТНИКИ QR"
+            },
+            "badges": {
+                "battle": {
+                    "name": "ИСКАТЕЛЬ ВЫЗОВОВ",
+                    "details": "{{count}} Поединок",
+                    "details_plural": "{{count}} Поединков"
+                },
+                "module": {
+                    "name": "Звезда"
+                },
+                "coach": {
+                    "name": "СОЕДИНИТЕЛЬ"
+                },
+                "question": {
+                    "name": "МАСТЕР ВИКТОРИНА"
+                }
+            },
+            "battle": {
+                "title": "Режим вызова",
+                "create": "Создать поединок",
+                "requests": {
+                    "title": "Вызовы на поединок",
+                    "no_requests_found": "У вас еще нет вызовов на поединок"
+                },
+                "history": {
+                    "title": "История поединков",
+                    "message": {
+                        "pending": "Этот поединок ожидает подтверждения противника",
+                        "win": "Вы выиграли поединок!",
+                        "lost": "Вы проиграли поединок!"
+                    },
+                    "no_history_found": "У вас еще нет истории поединков"
+                },
+                "start": {
+                    "cta": "Начать <span class=\"bold\">Поединок</span>",
+                    "new_cta": "Создайте новый <span class=\"bold\">Поединок</span>"
+                },
+                "steps": {
+                    "3": "3. Вызов на поединок"
+                },
+                "select_module": {
+                    "no_module_available": "Поединок можно создать только в пройденном модуле."
+                },
+                "button": {
+                    "create": "Бросьте новый вызов на поединок"
+                },
+                "no_battle_progress": "У вас нет поединков в процессе",
+                "block": {
+                    "title": "Вызовы на поединок"
+                },
+                "no_proposition": "У вас нет вызовов на поединок",
+                "completed": {
+                    "title": "Завершенные поединки",
+                    "subtitle": "{{count}} поединок, выиграно {{nb}}",
+                    "subtitle_plural": "{{count}} вызовы, выиграв {{nb}}"
+                },
+                "block_empty": "У вас нет завершенных поединков.",
+                "create_title": "Создать вызов на поединок",
+                "active_title_intro": "Режим поединка",
+                "coming_soon_random": "Бросить случайный вызов на поединок"
+            },
+            "dashboard": {
+                "text": "Космическая гонка! Вы можете выиграть, правильно отвечая на вопросы, изучая уроки или посредством общения (через поединки и обучение)!"
+            }
+        }
+    }
+}

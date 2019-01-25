@@ -1,0 +1,189 @@
+{
+    "not_a_number": "<not available> ",
+    "target": "Мета:",
+    "export": {
+        "csv": "CSV",
+        "pdf": "PDF",
+        "excel": "Excel"
+    },
+    "info": {
+        "launch_date": "Дата запуску",
+        "targeted_users": "Цільове населення"
+    },
+    "navigation": {
+        "every": "Всі",
+        "every-except-coorp": "Всі, крім Coorpacademy",
+        "engagement": "зобо'вязання",
+        "dashboard": "загальний вигляд",
+        "users": "за користувачем",
+        "content": "зміст",
+        "battles": "за битвами",
+        "exports": "експорт",
+        "behavioral": "поведінка"
+    },
+    "since": {
+        "last_week": "останні 7 днів",
+        "last_month": "останні 30 днів",
+        "beginning": "запустити"
+    },
+    "users": {
+        "roles": {
+            "header": "Ролі",
+            "button": "Зберегти",
+            "saved": "Успішно оновлені ролі для {{displayName}}.",
+            "cms": "Cms",
+            "moderator": "Модератор форуму",
+            "rh": "Rh",
+            "godmode": "Режим Бога",
+            "supercoach": "Супертренер"
+        },
+        "tab": {
+            "ranking": "Рейтинг користувача",
+            "activity": "Діяльність"
+        },
+        "back": "Назад до пошуку",
+        "entity": "Компанія",
+        "title": "Функція",
+        "cnx": {
+            "first": "Дата першого зв'язку",
+            "last": "Дата останнього підключення"
+        },
+        "general": {
+            "header": "Загальна активність",
+            "total_cnx": "Загальна кількість зв'язків",
+            "total_validated_disciplines": "Загальна кількість пройдених дисциплін",
+            "total_validated_modules": "Цілі модулі заархівовано",
+            "modules_validated_per_total": "# досягнуто модулів / # всього модулів",
+            "ranking": "Ранжування",
+            "never": "Ніколи"
+        },
+        "sociability": {
+            "header": "Комунікабельність",
+            "posts": {
+                "count": "{{nb}} повідомлення",
+                "count_plural": "{{nb}} записи",
+                "answers": "Відповідь {{nb}} зараховано іншому користувачу",
+                "answers_plural": "вкл. {{nb}} відповіді іншому користувачу"
+            },
+            "battles": {
+                "count": "{{nb}} поєдинок",
+                "count_plural": "{{nb}} битви",
+                "won": "вкл. {{nb}} виграну битву",
+                "won_plural": "включ. {{nb}} виграні битви"
+            },
+            "coach": {
+                "disciplines": "Тренер з дисципліни {{nb}}",
+                "disciplines_plural": "Тренери з {{nb}} дисциплін",
+                "interactions": "{{nb}} взаємодія з тренерами",
+                "interactions_plural": "{{nb}} взаємодій з тренерами"
+            },
+            "completion": {
+                "total_label": "Усього виконано:",
+                "total": "{{ratio}}%",
+                "modules_tried_label": "Спроб завершити модулі:",
+                "modules_tried": "{{totalTriedModules}}/{{nbModules}}",
+                "average_completion_label": "Завершення/спроба:",
+                "average_completion": "{{ratio}}%"
+            }
+        },
+        "progression": {
+            "filter": "Filtrování disciplín",
+            "filterPlaceholder": "Klíčová slova pro filtrování disciplín",
+            "th": {
+                "discipline": "Дисципліна",
+                "hidden": "Приховані",
+                "level": "Рівень",
+                "module_progression": "% успіх",
+                "status": "Статус",
+                "score": "Рахунок"
+            }
+        },
+        "time": {
+            "header": "підключення протягом",
+            "totalTime": "загальний час",
+            "validatedTime": "підтверджений час"
+        },
+        "license": {
+            "label": "Ліцензія",
+            "button": "Деактивувати",
+            "active": "Активний",
+            "inactive": "Неактивний"
+        },
+        "deactivate": {
+            "confirm": "Введіть «так» для підтвердження деактивації облікового запису",
+            "confirm_word": "так",
+            "account_deactivated": "Аккаунт було деактивовано"
+        },
+        "connectAs": "Як підключити",
+        "bonusStars": {
+            "buttonPositive": "Додати",
+            "buttonNegative": "Видалити",
+            "required": "Будь ласка, введіть зірки, які хочете додати",
+            "notANumber": "Зірки повинні бути цілим числом",
+            "confirm": "Щоб підтвердити додавання або віднімання зірок, будь ласка, введіть «bonus»",
+            "confirm_word": "бонус",
+            "starsAdded": "Ви тільки що додали {{count}} зірок користувачеві {{displayName}}",
+            "starsAdded_plural": "Ви тільки що додали {{count}} зірок користувачу {{displayName}}",
+            "starsRemoved": "Ви щойно забрали {{count}} зірку у користувача {{displayName}}",
+            "starsRemoved_plural": "Ви щойно забрали {{count}} зірок у користувача {{displayName}}"
+        }
+    },
+    "exports": {
+        "export": "Експортувати",
+        "querySent": "Ми готуємо ваш звіт. Ви отримаєте його скоро електронною поштою.",
+        "global": {
+            "title": "Експорт користувачів на вимогу",
+            "introduction": "Ця функція дозволяє Вам експортувати всі дані про користувачів платформи."
+        },
+        "battles": {
+            "title": "Експорт битви на вимогу",
+            "introduction": "Ця функція дозволяє експортувати усі дані про бої на платформі."
+        },
+        "history": {
+            "title": "Історія експортів",
+            "introduction": "Ця функція дозволяє отримати всі щоденні дані",
+            "users": "користувачі",
+            "battle": "битва",
+            "analytics": "прогрес",
+            "filter_by": "сортувати за"
+        }
+    },
+    "custom": {
+        "up": {
+            "navigation": {
+                "modules": "за рівнем"
+            },
+            "modules": {
+                "header": {
+                    "discipline": "Курс"
+                },
+                "module": {
+                    "media_views": {
+                        "title": "Перегляд матеріалів уроку за рівнями"
+                    }
+                }
+            },
+            "users": {
+                "general": {
+                    "total_validated_disciplines": "Всього пройдено курсів",
+                    "total_validated_modules": "Всього рівнів досягнуто",
+                    "modules_validated_per_total": "№ досягнутих рівнів / № рівнів всього"
+                },
+                "sociability": {
+                    "coach": {
+                        "disciplines": "Тренер на {{nb}} курсах",
+                        "disciplines_plural": "Тренер на {{nb}} курсах "
+                    },
+                    "completion": {
+                        "modules_tried_label": "рівні, які пробував пройти:"
+                    }
+                },
+                "progression": {
+                    "th": {
+                        "discipline": "Курс"
+                    }
+                }
+            }
+        }
+    }
+}

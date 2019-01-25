@@ -1,0 +1,90 @@
+{
+    "disciplines": {
+        "book_demo": "book a demo",
+        "payment_required": "abbonamento coorpacademy",
+        "free_start": "iniziare l'apprendimento"
+    },
+    "modules": {
+        "button": {
+            "start": "Livello di partenza {{name}}",
+            "access": "Livello di accesso {{name}}",
+            "continue": "Continuare il livello {{name}}",
+            "again": "Riavvia il livello {{name}}",
+            "locked": "Modulo bloccato",
+            "payment_required": "Iscriviti per continuare"
+        },
+        "skill": {
+            "valid": "Grazie a questo modulo, potrai:",
+            "invalid": "Alla fine di questo modulo, saprai:"
+        },
+        "chapters": {
+            "title": "Capitoli"
+        },
+        "stars": "Totale stelle guadagnati"
+    },
+    "chapters": {
+        "button": {
+            "start": "Inizio 5' Learning",
+            "access": "Accesso 5' Learning",
+            "continue": "Continuare 5' Learning",
+            "again": "Riavviare il 5' Learning",
+            "locked": "5' Learning bloccato"
+        }
+    },
+    "presentation": {
+        "total": "{{nb}}",
+        "total_post": "modulo",
+        "total_post_plural": "moduli",
+        "video_title": "Rivedere i corsi",
+        "popularity": "Popolarità:",
+        "trainer": "Trainer",
+        "trainer_plural": "Trainers",
+        "by": "By",
+        "and": "&"
+    },
+    "author": "Questo capitolo è stato creato da:",
+    "disciplineNotFound": "Nessun corso con il codice {{disciplineRef}}",
+    "forbidden": {
+        "unknown_in_group": "Non avete accesso a questo contenuto",
+        "previous_level": "Livello precedente deve essere completato prima di tentare questo livello",
+        "conditions": "I seguenti corsi devono essere completati prima di tentare questo uno: {{contents}}",
+        "subscription_required": "Coorpacademy abbonamento è necessaria per avviare questo contenuto."
+    },
+    "custom": {
+        "up": {
+            "disciplines": {
+                "payment_required": "abbonamento coorpacademy"
+            },
+            "modules": {
+                "button": {
+                    "locked": "Livello bloccato"
+                },
+                "skill": {
+                    "valid": "Grazie a questo livello, è possibile:",
+                    "invalid": "Alla fine di questo livello, sarà in grado di:"
+                }
+            },
+            "presentation": {
+                "total_post": "livello",
+                "total_post_plural": "livelli"
+            }
+        },
+        "silca": {
+            "modules": {
+                "skill": {
+                    "invalid": "Alla fine di questo modulo, sarete in grado di misurare la tua capacità di:"
+                }
+            }
+        },
+        "mooc-socgen": {
+            "modules": {
+                "button": {
+                    "start": "Inizio {{name}}",
+                    "access": "Accesso {{name}}",
+                    "continue": "Continuare {{name}}",
+                    "again": "Riavviare {{name}}"
+                }
+            }
+        }
+    }
+}

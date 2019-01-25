@@ -1,0 +1,155 @@
+{
+    "header": {
+        "title": "CoorpAcademy",
+        "mainNav": {
+            "helper": "Альтернативный способ просмотра учебного материала",
+            "menu": "Меню",
+            "dashboard": "Моя панель управления",
+            "home": "Главная",
+            "learningTree": "Каталог",
+            "lessons": "Все уроки и видео",
+            "medias": "Библиотека",
+            "battles": "Битвы",
+            "explore": "Каталог",
+            "discussions": "Обсуждения",
+            "badges": "Награды",
+            "certifications": "Сертификаты"
+        },
+        "mainNav_user": {
+            "helper": "Альтернативные способы нахождения информации о Вас и вашей работе!"
+        },
+        "account_menu": {
+            "title": "Меню",
+            "logout": "Выйти",
+            "notifications": "Мои уведомления",
+            "language": "Язык",
+            "cohorts": "Население:",
+            "account": "Учетная запись",
+            "godmode": "Режим Бога",
+            "fastslides": "Быстрые слайды",
+            "newlearner": "Новый интерфейс игры",
+            "livenotifications": "Уведомления в режиме он-лайн",
+            "close": "закрыть"
+        }
+    },
+    "content": "Это основное содержание.",
+    "footer": {
+        "assistance": "Помощь",
+        "admin_link": {
+            "jobs": "Вакансии",
+            "admin": "Администратор",
+            "analytics": "Аналитика",
+            "changelog": "Журнал изменений",
+            "cms": "CMS",
+            "manual": "Руководство"
+        },
+        "data_privacy_policy": "Политика конфиденциальности данных",
+        "data_privacy_policy_link": "http://www.privacy.coorpacademy.com",
+        "dev_link": {
+            "api": "Документация API"
+        },
+        "by": "Разработано Coorpacademy",
+        "title": "Coorpacademy",
+        "changelog": {
+            "title": "Журнал изменений",
+            "subtitle": "История релизов сайта"
+        }
+    },
+    "custom": {
+        "accueil": {
+            "footer": {
+                "by": "Tourism Academy & Atout France",
+                "copyright": "Tourism Academy & Atout France"
+            }
+        },
+        "armeedeterre": {
+            "header": {
+                "mainNav": {
+                    "battles": "Битвы"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "footer": {
+                "assistance": "Обратная связь"
+            }
+        },
+        "capgemini": {
+            "header": {
+                "mainNav": {
+                    "certifications": "DigiCertif'"
+                }
+            }
+        },
+        "cnp": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Сертификаты"
+                }
+            }
+        },
+        "chanel": {
+            "footer": {
+                "by": "© CHANEL. Для внутреннего использования",
+                "copyright": "© CHANEL. Только для внутреннего пользования"
+            }
+        },
+        "ganprevoyance": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Вселенные"
+                }
+            }
+        },
+        "ecolenumerique-sncf": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Джедаи значки"
+                }
+            }
+        },
+        "ilearn": {
+            "footer": {
+                "by": "© CHANEL. Только для внутреннего использования",
+                "copyright": "© CHANEL. Только для внутреннего использования"
+            }
+        },
+        "paca": {
+            "footer": {
+                "by": "Производство академии туризма",
+                "copyright": "Производство академии туризма"
+            }
+        },
+        "tourism": {
+            "footer": {
+                "by": "Академия туризма",
+                "copyright": "Академия туризма"
+            }
+        },
+        "tourismdigital": {
+            "footer": {
+                "by": "Разработано академией туризма",
+                "copyright": "Разработано академией туризма"
+            }
+        },
+        "ey": {
+            "footer": {
+                "by": "ЕУ цифровая академия",
+                "copyright": "ЕУ цифровая академия"
+            }
+        },
+        "up": {
+            "footer": {
+                "data_privacy_policy_link": "http://www.privacy.coorpacademy.com/up"
+            }
+        },
+        "who": {
+            "header": {
+                "mainNav": {
+                    "battles": "Поединки",
+                    "discussions": "Обратная связь"
+                }
+            }
+        }
+    }
+}

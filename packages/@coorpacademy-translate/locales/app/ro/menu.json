@@ -1,0 +1,155 @@
+{
+    "header": {
+        "title": "CoorpAcademy",
+        "mainNav": {
+            "helper": "Un mod alternativ de a căuta prin conținutul tău pedagogic",
+            "menu": "Meniu",
+            "dashboard": "Panoul meu de control",
+            "home": "Acasă",
+            "learningTree": "Catalog",
+            "lessons": "Toate lecțiile și videoclipurile",
+            "medias": "Bibliotecă",
+            "battles": "Lupte",
+            "explore": "Catalog",
+            "discussions": "Discuții",
+            "badges": "Insigne",
+            "certifications": "Certificari"
+        },
+        "mainNav_user": {
+            "helper": "O modalitate alternativă de a găsi informații despre tine și munca ta!"
+        },
+        "account_menu": {
+            "title": "Meniu",
+            "logout": "Deconectați-vă",
+            "notifications": "Notificările mele",
+            "language": "Limbă",
+            "cohorts": "Populații:",
+            "account": "Cont",
+            "godmode": "God mode",
+            "fastslides": "Diapozitive rapide",
+            "newlearner": "Noua interfata de joc",
+            "livenotifications": "Notificări în direct",
+            "close": "închide"
+        }
+    },
+    "content": "Acest este conținutul de bază.",
+    "footer": {
+        "assistance": "Asistență",
+        "admin_link": {
+            "jobs": "Locuri de muncă",
+            "admin": "Administrator",
+            "analytics": "Statistici",
+            "changelog": "Jurnal modificări",
+            "cms": "CMS",
+            "manual": "Manual"
+        },
+        "data_privacy_policy": "Politica de confidențialitate a datelor",
+        "data_privacy_policy_link": "http://www.privacy.coorpacademy.com",
+        "dev_link": {
+            "api": "API doc"
+        },
+        "by": "Cu sprijinul Coorpacademy",
+        "title": "Coorpacademy",
+        "changelog": {
+            "title": "Changelog",
+            "subtitle": "Acesta este istoricul de versiuni al site-ului"
+        }
+    },
+    "custom": {
+        "accueil": {
+            "footer": {
+                "by": "Tourism Academy & Atout France",
+                "copyright": "Tourism Academy & Atout France"
+            }
+        },
+        "armeedeterre": {
+            "header": {
+                "mainNav": {
+                    "battles": "Bătălii"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "footer": {
+                "assistance": "Oferă Feedback"
+            }
+        },
+        "capgemini": {
+            "header": {
+                "mainNav": {
+                    "certifications": "DigiCertif'"
+                }
+            }
+        },
+        "cnp": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Certificate"
+                }
+            }
+        },
+        "chanel": {
+            "footer": {
+                "by": "© CHANEL. Numai pentru uz intern",
+                "copyright": "© CHANEL. Doar pentru utilizare internă"
+            }
+        },
+        "ganprevoyance": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Universuri"
+                }
+            }
+        },
+        "ecolenumerique-sncf": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Jedi insigne"
+                }
+            }
+        },
+        "ilearn": {
+            "footer": {
+                "by": "© CHANEL. Doar pentru utilizare internă",
+                "copyright": "© CHANEL. Doar uz intern"
+            }
+        },
+        "paca": {
+            "footer": {
+                "by": "O producție TOURISM ACADEMY",
+                "copyright": "O producție Academia de Turism"
+            }
+        },
+        "tourism": {
+            "footer": {
+                "by": "Academia de Turism",
+                "copyright": "Academia de Turism"
+            }
+        },
+        "tourismdigital": {
+            "footer": {
+                "by": "O producție a academiei de turism",
+                "copyright": "O producție a academiei de turism"
+            }
+        },
+        "ey": {
+            "footer": {
+                "by": "Academia EY Digital",
+                "copyright": "Academia Digitală EY"
+            }
+        },
+        "up": {
+            "footer": {
+                "data_privacy_policy_link": "http://www.privacy.coorpacademy.com/up"
+            }
+        },
+        "who": {
+            "header": {
+                "mainNav": {
+                    "battles": "Provocări",
+                    "discussions": "Feedback-ul"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,430 @@
+{
+    "content": {
+        "types": {
+            "course": "курс",
+            "course_plural": "курсы",
+            "adaptive_chapter": "Адаптивное 5' Learning",
+            "adaptive_course": "адаптивное обучение",
+            "adaptive_course_plural": "адаптивное обучение",
+            "cursus": "Курсус",
+            "cursus_plural": "cursuses",
+            "chapter": "5' Learning",
+            "chapter_plural": "5' Learning"
+        },
+        "sorts": {
+            "title": "Сортировать по:",
+            "cta": "Сортировать",
+            "tab": "Сортировать по",
+            "pertinence": "Актуальность",
+            "newest": "Самые новые",
+            "duration": "Самый короткий"
+        },
+        "filters": {
+            "cta": "Фильтр",
+            "tab": "Фильтр",
+            "authors": "Авторы:",
+            "authorTypes": "Категории контента:",
+            "type": "Тип:",
+            "themes": "Коллекции:",
+            "goals": "Сертификаты:",
+            "time": "Время:",
+            "learning_paths": "Программа обучения:",
+            "all_authors": "Все авторы",
+            "all_author_types": "Все категории",
+            "all_themes": "Все коллекции",
+            "all_goals": "Все сертификаты",
+            "all_courses": "Все курсы",
+            "microlearning": "5' Learning",
+            "all": "Все",
+            "courses": "Курсы",
+            "my_favorites": "Мой список:"
+        },
+        "notification": {
+            "addFavorite": "Добавлено в ваш список",
+            "removeFavorite": "Удалено из вашего списка"
+        },
+        "search": {
+            "placeholder": "Что вы хотите узнать?"
+        },
+        "catalog": "Каталог",
+        "result": "{{title}}: {{count}} результат",
+        "result_plural": "{{title}}: {{count}} результаты",
+        "noresultsfound": "Извините, нет результатов по вашему запросу",
+        "clearFilters": "Сбросить",
+        "recommended": "Просмотрите рекомендуемые для вас курсы:",
+        "new": "Новые"
+    },
+    "author": {
+        "socialTitle": "Социальные сети:",
+        "cardsTitle": "Все курсы от {{author}}",
+        "website": "Веб-сайт:",
+        "notFound": "Автор ({{authorRef}}) не найден",
+        "more": "Подробнее об авторе",
+        "customCustomer": "{{name}} Creation",
+        "types": {
+            "coorp": "Coorp Originals",
+            "verified": "Verified by Coorp",
+            "marketplace": "Другие",
+            "custom": "{{name}} Creation"
+        }
+    },
+    "unit": {
+        "duration_minutes_set": "{{m}} мин",
+        "duration_minutes_set_plural": "{{m}} мин",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}} ч $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}} часов $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "shortUnit": {
+        "duration_minutes_set": "{{m}}m",
+        "duration_minutes_set_plural": "{{m}}m",
+        "duration_minutes_with_hours_set": "{{m}}",
+        "duration_minutes_with_hours_set_plural": "{{m}}",
+        "duration_minutes_with_hours_none": "‌",
+        "duration_minutes_with_hours_none_plural": "‌",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}}ч$t(shortUnit.duration_minutes_with_hours, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}}ч$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "module_level": {
+        "1": "$t(global:module_level.base)",
+        "2": "$t(global:module_level.advanced)",
+        "3": "$t(global:module_level.coach)",
+        "base": "Основной",
+        "advanced": "Продвинутый",
+        "coach": "Эксперт"
+    },
+    "progression_status": {
+        "not_started": "Не начато",
+        "in_progress": "В процессе",
+        "completed": "Завершено"
+    },
+    "close": "Закрыть",
+    "skipIntro": "Пропустить заставку",
+    "route": {
+        "initialized": "Дисплей установлен.",
+        "error": {
+            "401": "Кажется, связь с вами прервана.",
+            "402": "Требуется оплата",
+            "403": "Вам не разрешено это делать.",
+            "404": "Знаете ли вы? Код ошибки 404 означает, что страница не найдена.",
+            "409": "Вы знаете? Код ошибки 409  означает, что из-за некоторых данных, которые не обновлены в базе, ваш запрос не может быть выполнен.",
+            "500": "Знали ли вы? Код ошибки \"500\" означает, что на сервере произошел сбой.",
+            "api": "Ошибка. Сервер работает нормально; по всей видимости, возникли трудности с приложением.",
+            "default": "Произошла ошибка"
+        }
+    },
+    "loading": "Загрузка...",
+    "htmlTitle": "Coorpacademy",
+    "hero": {
+        "cta": "Начните обучение"
+    },
+    "cookiesDisabled": {
+        "title": "Cookies дезактивированы",
+        "error": "Cookies отключены или заблокированы. Пожалуйста, активируйте их или настройте ваш AdBlocker"
+    },
+    "chatbot": {
+        "welcome": {
+            "default": "Welcome on Coorpacademy. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin.",
+            "facebook": "Hello and welcome to Coorpacademy! I can ask you question of our online courses. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin. If you're looking for some other informations you can contact us at communication@coorpacademy.com."
+        },
+        "ask_question": {
+            "repeat_header_1": "Обязательно! {{question}}.",
+            "repeat_header_2": "Конечно! {{question}}.",
+            "repeat_header_3": "Хорошо! Вот снова вопрос: {{question}}.",
+            "repeat_header_4": "Ничего. {{question}}.",
+            "repeat_header_5": "Я повторяю: {{question}}."
+        },
+        "next_action": {
+            "question_next": "Скажите «следующий вопрос» для продолжения.",
+            "answer_next": "Какой же ответ?",
+            "wrong_answer_next": "Скажите «почему» для получения объяснений или «далее» для продолжения."
+        },
+        "answer_question": {
+            "is_valid": {
+                "title_1": "Браво!",
+                "title_2": "Правильно!",
+                "title_3": "Хороший ответ!",
+                "title_4": "Да!",
+                "title_5": "Прекрасно!"
+            },
+            "is_invalid": {
+                "title_1": "Конечно, нет! Ответ был: {{answer}}.",
+                "title_2": "Это не правильно! Ответ был: {{answer}}.",
+                "title_3": "Плохой ответ! Вы должны сказать: {{answer}}.",
+                "title_4": "Ой! Правильный ответ был: {{answer}}.",
+                "title_5": "Мне очень жаль, но это не правильно! Правильный ответ был: {{answer}}."
+            }
+        },
+        "error": {
+            "not_found": "К сожалению, вопросы не найдены. Пожалуйста, повторите запрос с другим ключевым словом."
+        }
+    },
+    "demo": {
+        "url": "https://www.coorpacademy.com/en/request-a-demo/?utm_source=Up&utm_medium={{medium}}"
+    },
+    "custom": {
+        "7steps": {
+            "module_level": {
+                "base": "Why",
+                "advanced": "Empathy",
+                "coach": "Show me"
+            }
+        },
+        "loreal-retail-v2": {
+            "module_level": {
+                "base": "Почему",
+                "advanced": "Эмпатия",
+                "coach": "Показать"
+            }
+        },
+        "accueil": {
+            "htmlTitle": "MOOC Accueil Франции"
+        },
+        "achat-habitat": {
+            "htmlTitle": "Mooc Achat Habitat",
+            "module_level": {
+                "base": "Базовый уровень",
+                "advanced": "Продвинутый уровень",
+                "coach": "Коуч"
+            }
+        },
+        "adeo": {
+            "htmlTitle": "Adeo Training CPL"
+        },
+        "auchan-retail": {
+            "htmlTitle": "Auchan Retail QUIZZ"
+        },
+        "architas-powercircle": {
+            "htmlTitle": "POWERCIRCLE | FOCUS"
+        },
+        "bnp": {
+            "htmlTitle": "BNP Paribas Factor MOOC"
+        },
+        "bestwesternuniversity": {
+            "htmlTitle": "Best Western University"
+        },
+        "capgemini": {
+            "htmlTitle": "COOC"
+        },
+        "cd78": {
+            "htmlTitle": "MOOC rSa"
+        },
+        "chanel": {
+            "htmlTitle": "iJoinCHANEL"
+        },
+        "clarins-digital": {
+            "htmlTitle": "Clarins Digital"
+        },
+        "crt": {
+            "htmlTitle": "CRT"
+        },
+        "coravin": {
+            "htmlTitle": "Coravin"
+        },
+        "corporateonlineopencourse": {
+            "module_level": {
+                "base": "ОСНОВЫ"
+            },
+            "progression_status": {
+                "not_started": "Зарегистрировано",
+                "in_progress": "Зарегистрировано",
+                "completed": "Завершено"
+            }
+        },
+        "dolce": {
+            "htmlTitle": "Лица"
+        },
+        "eacampus": {
+            "htmlTitle": "EAcampus"
+        },
+        "ecolenumerique-sncf": {
+            "content": {
+                "filters": {
+                    "goals": "Джедаи значки:"
+                }
+            }
+        },
+        "edenred-talents": {
+            "htmlTitle": "Таланты Edenred",
+            "module_level": {
+                "coach": "Амбассадор"
+            }
+        },
+        "ganprevoyance": {
+            "content": {
+                "filters": {
+                    "goals": "Вселенных:"
+                }
+            }
+        },
+        "faurecia": {
+            "htmlTitle": "Learning Lab"
+        },
+        "gdf": {
+            "htmlTitle": "WeTransform"
+        },
+        "gdfec": {
+            "htmlTitle": "Предприятий и общин"
+        },
+        "hr-ac": {
+            "htmlTitle": "Академия HR"
+        },
+        "ilearn": {
+            "htmlTitle": "ILearn Шанель",
+            "module_level": {
+                "1": "Основной",
+                "2": "Продвинутый",
+                "3": "Эксперт",
+                "base": "Основной",
+                "advanced": "Продвинутый",
+                "coach": "Эксперт"
+            }
+        },
+        "learnnrj": {
+            "htmlTitle": "Я изучаю энергию"
+        },
+        "linxea": {
+            "htmlTitle": "LinXea Academy"
+        },
+        "manpower": {
+            "htmlTitle": "Лидер эффект",
+            "module_level": {
+                "1": "Базовый",
+                "2": "Эксперт",
+                "3": "Коуч",
+                "base": "Базовый",
+                "advanced": "Эксперт",
+                "coach": "Коуч"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "htmlTitle": "Digital MOOC ATF"
+        },
+        "mooc-socgen": {
+            "htmlTitle": "Mooc Socgen",
+            "module_level": {
+                "base": "Уровень 1",
+                "advanced": "Уровень 2",
+                "coach": "Уровень 3"
+            }
+        },
+        "natixis": {
+            "htmlTitle": "Think Digital"
+        },
+        "nespresso": {
+            "module_level": {
+                "3": "Эксперт",
+                "coach": "Эксперт"
+            }
+        },
+        "nespressodigital": {
+            "htmlTitle": "Цифровая Академия"
+        },
+        "paca": {
+            "htmlTitle": "MOOC Paca"
+        },
+        "online-academy-klubschule": {
+            "module_level": {
+                "base": "Новичок",
+                "advanced": "Продвинутый",
+                "coach": "Эксперт"
+            }
+        },
+        "petite": {
+            "htmlTitle": "Chanel Petite Onboarding",
+            "module_level": {
+                "base": "Модуль 1",
+                "advanced": "Модуль 2",
+                "coach": "Модуль 3"
+            }
+        },
+        "quizz-auchan": {
+            "htmlTitle": "QUIZZ AUCHAN RETAIL"
+        },
+        "renaultrh": {
+            "module_level": {
+                "base": "Шаг 1",
+                "advanced": "Шаг 2",
+                "coach": "Шаг 3"
+            }
+        },
+        "renaultcare": {
+            "module_level": {
+                "base": "Основы"
+            }
+        },
+        "rexel": {
+            "htmlTitle": "Клиент – в центре внимания по Rexel"
+        },
+        "schneider": {
+            "module_level": {
+                "base": "Сезон 1",
+                "advanced": "Сезон 2",
+                "coach": "Сезон 3"
+            }
+        },
+        "tagheuer": {
+            "module_level": {
+                "base": "Титан",
+                "advanced": "Бронза",
+                "coach": "Серебро"
+            }
+        },
+        "tagheuercon": {
+            "module_level": {
+                "base": "Титан",
+                "advanced": "Бронза",
+                "coach": "Серебро"
+            }
+        },
+        "theglenlivet-academy": {
+            "htmlTitle": "The Glenlivet | ザ・グレンリベット アカデミー"
+        },
+        "tourism": {
+            "htmlTitle": "Академия туризма"
+        },
+        "tourismdigital": {
+            "htmlTitle": "Цифровой туризм"
+        },
+        "tourisme-hautsdefrance": {
+            "htmlTitle": "Tourisme Hauts-de-France"
+        },
+        "yahoo": {
+            "module_level": {
+                "base": "Новичок",
+                "advanced": "Продвинутый",
+                "coach": "Эксперт"
+            }
+        },
+        "ey": {
+            "htmlTitle": "Цифровая Академия"
+        },
+        "thelem": {
+            "htmlTitle": "DigiPass#"
+        },
+        "letsgetdigital": {
+            "htmlTitle": "Let's get digital 2.0",
+            "module_level": {
+                "base": "LEARNER",
+                "advanced": "EXPERT",
+                "coach": "MASTER"
+            }
+        },
+        "who": {
+            "htmlTitle": "QualityRights",
+            "module_level": {
+                "advanced": "Анализ ситуации"
+            }
+        },
+        "triptorelin": {
+            "htmlTitle": "Triptorelin"
+        }
+    }
+}

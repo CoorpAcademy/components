@@ -1,0 +1,90 @@
+{
+    "disciplines": {
+        "book_demo": "預訂演示",
+        "payment_required": "coorpacademy 註冊",
+        "free_start": "開始學習"
+    },
+    "modules": {
+        "button": {
+            "start": "開始{{name}}級別",
+            "access": "存取{{name}}級別",
+            "continue": "繼續 {{name}} 級別",
+            "again": "重新開始 {{name}} 級別",
+            "locked": "模組已上鎖",
+            "payment_required": "訂閱以繼續"
+        },
+        "skill": {
+            "valid": "歸功於這模組，您可以：",
+            "invalid": "在本單元的最後，您將能夠："
+        },
+        "chapters": {
+            "title": "章節"
+        },
+        "stars": "獲得的總星星數"
+    },
+    "chapters": {
+        "button": {
+            "start": "開始 5' Learning",
+            "access": "訪問 5' Learning",
+            "continue": "繼續 5' Learning",
+            "again": "重新開機 5' Learning",
+            "locked": "5' Learning 鎖定"
+        }
+    },
+    "presentation": {
+        "total": "{{nb}}",
+        "total_post": "模組",
+        "total_post_plural": "模組",
+        "video_title": "瀏覽課程資料",
+        "popularity": "熱門度：",
+        "trainer": "訓練員",
+        "trainer_plural": "訓練員",
+        "by": "用",
+        "and": "與"
+    },
+    "author": "本課程的製作人為：",
+    "disciplineNotFound": "找不到與參考相關的課程{{disciplineRef}}",
+    "forbidden": {
+        "unknown_in_group": "您無法訪問此內容",
+        "previous_level": "以前的級別需要在嘗試此級別之前完成",
+        "conditions": "在嘗試這一項之前, 需要完成以下課程: {{contents}}",
+        "subscription_required": "啟動此內容需要 Coorpacademy 訂閱。"
+    },
+    "custom": {
+        "up": {
+            "disciplines": {
+                "payment_required": "Coorpacademy 訂閱"
+            },
+            "modules": {
+                "button": {
+                    "locked": "級別鎖定"
+                },
+                "skill": {
+                    "valid": "由於這個級別，你可以：",
+                    "invalid": "在此級別最後，你將得以："
+                }
+            },
+            "presentation": {
+                "total_post": "級別",
+                "total_post_plural": "等級"
+            }
+        },
+        "silca": {
+            "modules": {
+                "skill": {
+                    "invalid": "在此模組的結尾，你將可以衡量你以下能力："
+                }
+            }
+        },
+        "mooc-socgen": {
+            "modules": {
+                "button": {
+                    "start": "開始{{name}}級別",
+                    "access": "存取{{name}}級別",
+                    "continue": "繼續 {{name}} 級別",
+                    "again": "重新開始 {{name}} 級別"
+                }
+            }
+        }
+    }
+}

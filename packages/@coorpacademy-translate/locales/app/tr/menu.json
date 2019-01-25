@@ -1,0 +1,155 @@
+{
+    "header": {
+        "title": "CoorpAcademy",
+        "mainNav": {
+            "helper": "Pedagojik içeriklere göz atmak için alternatif bir yol",
+            "menu": "Menü",
+            "dashboard": "Kontrol Panelim",
+            "home": "Ana sayfa",
+            "learningTree": "Katalog",
+            "lessons": "Tüm Dersler ve Videolar",
+            "medias": "Kütüphane",
+            "battles": "Mücadeleler",
+            "explore": "Katalog",
+            "discussions": "Tartışmalar",
+            "badges": "Rozetleri",
+            "certifications": "Sertifikalarım"
+        },
+        "mainNav_user": {
+            "helper": "Siz ve işiniz hakkında bilgi bulmak için alternatif yol"
+        },
+        "account_menu": {
+            "title": "Menü",
+            "logout": "Bağlantıyı kes",
+            "notifications": "Bildirimlerim",
+            "language": "Dil",
+            "cohorts": "Nüfus:",
+            "account": "Hesap",
+            "godmode": "Tanrı modu",
+            "fastslides": "Hızlı slaytlar",
+            "newlearner": "Yeni oyun arayüzü",
+            "livenotifications": "Canlı bildirimleri",
+            "close": "Kapat"
+        }
+    },
+    "content": "Temel içerik budur.",
+    "footer": {
+        "assistance": "Destek",
+        "admin_link": {
+            "jobs": "İşler",
+            "admin": "Yönetici",
+            "analytics": "Analitik",
+            "changelog": "Changelog",
+            "cms": "CMS",
+            "manual": "Kullanım kılavuzu"
+        },
+        "data_privacy_policy": "Veri Gizlilik Politikası",
+        "data_privacy_policy_link": "http://www.privacy.coorpacademy.com",
+        "dev_link": {
+            "api": "API bel."
+        },
+        "by": "Coorpacademy tarafından desteklenmektedir",
+        "title": "CoorpAcademy",
+        "changelog": {
+            "title": "Changelog",
+            "subtitle": "Burada, siteye ilişkin geçmişi bulabilirsiniz"
+        }
+    },
+    "custom": {
+        "accueil": {
+            "footer": {
+                "by": "Turizm Akademisi & Atout France",
+                "copyright": "Tourism Academy & Atout France"
+            }
+        },
+        "armeedeterre": {
+            "header": {
+                "mainNav": {
+                    "battles": "Mücadeleler"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "footer": {
+                "assistance": "Geribildirim vermek"
+            }
+        },
+        "capgemini": {
+            "header": {
+                "mainNav": {
+                    "certifications": "DigiCertif'"
+                }
+            }
+        },
+        "cnp": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Sertifikalar"
+                }
+            }
+        },
+        "chanel": {
+            "footer": {
+                "by": "© CHANEL.Sadece iç kullanım için",
+                "copyright": "© CHANEL. Sadece iç kullanım için"
+            }
+        },
+        "ganprevoyance": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Evrenler"
+                }
+            }
+        },
+        "ecolenumerique-sncf": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Jedi rozetleri"
+                }
+            }
+        },
+        "ilearn": {
+            "footer": {
+                "by": "© CHANEL. Yalnızca iç kullanım",
+                "copyright": "© CHANEL. Sadece iç kullanım"
+            }
+        },
+        "paca": {
+            "footer": {
+                "by": "BİR TURİZM AKADEMİSİ yapımı",
+                "copyright": "Bir TOURISM ACADEMY prodüksiyonu"
+            }
+        },
+        "tourism": {
+            "footer": {
+                "by": "Turizm Akademisi",
+                "copyright": "Turizm Akademisi"
+            }
+        },
+        "tourismdigital": {
+            "footer": {
+                "by": "Bir turizm Akademisi üretim",
+                "copyright": "Bir turizm Akademisi üretim"
+            }
+        },
+        "ey": {
+            "footer": {
+                "by": "EY dijital Akademi",
+                "copyright": "EY dijital Akademi"
+            }
+        },
+        "up": {
+            "footer": {
+                "data_privacy_policy_link": "http://www.privacy.coorpacademy.com/up"
+            }
+        },
+        "who": {
+            "header": {
+                "mainNav": {
+                    "battles": "Zorluklar",
+                    "discussions": "Geri bildirim"
+                }
+            }
+        }
+    }
+}

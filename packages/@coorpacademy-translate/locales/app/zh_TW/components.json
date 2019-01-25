@@ -1,0 +1,203 @@
+{
+    "video_player": {
+        "jw": "載入影片播放器...",
+        "fileCouldNotBePlayedTitle": "播放影片錯誤",
+        "flashInstallUrl": "https://get.adobe.com/en/flashplayer/",
+        "MEDIA_ERR_UNKNOWN": {
+            "title": "發生未知錯誤",
+            "description": "我們在撥放影片時偵測到錯誤。我們已獲知此錯誤，並會進一步進行調查。"
+        },
+        "MEDIA_ERR_ABORTED": {
+            "title": "媒體資源的獲取過程已中止。",
+            "description": "請檢查你的網路連接，並嘗試重新載入影片。"
+        },
+        "MEDIA_ERR_NETWORK": {
+            "title": "網路錯誤讓使用者無法獲得媒體資源。",
+            "description": "請驗證你的網路連線並嘗試重載影片。"
+        },
+        "MEDIA_ERR_DECODE": {
+            "title": "解鎖媒體資源發生錯誤。",
+            "description": "該瀏覽器不支援此影片。此為您的瀏覽器或操作系統之問題。"
+        },
+        "MEDIA_ERR_SRC_NOT_SUPPORTED": {
+            "title": "媒體來源不能使用",
+            "description": "這影片也許不能觀看，或是本瀏覽器不支援，請用另一種瀏覽器試試看，或安裝 Flash Player 為基礎，再重新載入本頁。"
+        }
+    },
+    "account_menu": {
+        "badge": "徽章",
+        "account": "我的帳戶",
+        "objectif": "認證",
+        "activity": "活動",
+        "competence_win": "習得技能",
+        "timeline": "隨著時間的推移進步成長",
+        "discussion": "討論",
+        "conseil": "技巧＆提示",
+        "coach": "教練",
+        "battle": "對戰模式",
+        "modification": "修改我的資訊"
+    },
+    "chat_room": {
+        "button_wrapper": "送出",
+        "placeholder": "你的訊息",
+        "connexion": "{{displayName}} > 已加入本會話",
+        "deconnexion": "{{displayName}}已離開本對話"
+    },
+    "badgesLabel": {
+        "battle": {
+            "detail": "{{detail}} 戰鬥完成",
+            "detail_plural": "{{detail}}戰鬥完成"
+        },
+        "module": {
+            "detail": "{{detail}} 沒有失去任何命而完成的模組！",
+            "detail_plural": "完成{{detail}}單元且沒有失去任何生命！"
+        },
+        "lesson": {
+            "detail": "{{detail}} 課程查看過了！",
+            "detail_plural": "已看過 {{detail}} 課程！"
+        },
+        "question": {
+            "detail": "{{detail}} 問題正確回答！",
+            "detail_plural": "{{detail}} 問題回答正確！"
+        },
+        "coach": {
+            "detail": "{{detail}}與教練互動！",
+            "detail_plural": "{{detail}}與教練團互動！"
+        }
+    },
+    "notificationMenu": {
+        "god_mode": "啟動上帝模式",
+        "notification": "開啟桌面通知",
+        "title": "通知 ({{nb}})",
+        "forum": "有一位使用者回覆了您對{{name}}單元{{level}}級別的評論",
+        "badge_title": "恭喜！",
+        "badge": "您已掙得 {{name}} 標章 {{level}}",
+        "module_title": "恭喜！",
+        "module": "你完成了 {{name}} 模組等級 {{level}}！",
+        "battle": {
+            "new": "{{name}} 在 {{module}} 課程 {{level}} 等級向你提出挑戰!",
+            "accepted": "你的對決挑戰已被接受",
+            "win": "你在 {{module}} 模組 {{level}} 等級的挑戰贏過了 {{looser}}！",
+            "loose": "您已在{{module}}單元{{level}}級別的戰鬥上輸給了{{winner}}..."
+        },
+        "link": "觀看全部",
+        "challenge_reminder": "不要忘了，{{name}} 在 {{module}}  課程 {{level}} 等級向你提出挑戰並且等待你的回應！",
+        "coach": "好樣的！您已成為這門學科的教練了{{name}}！",
+        "start_aim": "你已選擇 {{name}} 認證，開始吧！",
+        "goal_as_reward": "您已解鎖{{name}}認證。馬上開始吧！",
+        "half_achieved": "恭喜！你已經完成 {{name}} 認證的一半了！繼續努力。",
+        "three_third_achieved": "恭喜你！你已獲得 {{name}} 證書！請透過你的職業社交網路分享你的成就。",
+        "continue_goals": "恭喜！你已達成 {{name}} 認證！開始另一個！",
+        "continue": "您做得很好啊，為什麼現在停下來呢？繼續{{name}}認證！",
+        "mandatory": "要得到 {{name}}，你必須完成 {{levels}} 模組！",
+        "mandatory_plural": "欲獲得{{name}}，您需要完成{{levels}}單元！",
+        "mandatory_achieved": "恭喜你！獲得了 {{name}} 證書！",
+        "toggleCoach": "開放給教練",
+        "reward_title": "太棒了！你獲得一個獎賞！",
+        "reward_description": {
+            "bonusStars": "你有 {{stars}} 個新的星星在額外獎金裡"
+        }
+    },
+    "custom": {
+        "armeedeterre": {
+            "account_menu": {
+                "battle": "對決模式"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} 戰鬥完成",
+                    "detail_plural": "{{detail}}戰鬥完成"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "你的對決挑戰已被接受",
+                    "win": "你在 {{module}} 模組 {{level}} 等級的挑戰贏過了 {{looser}}！",
+                    "loose": "您已在{{module}}單元{{level}}級別的戰鬥上輸給了{{winner}}..."
+                }
+            }
+        },
+        "gdf": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} 主題已完成",
+                    "detail_plural": "{{detail}}主題完成"
+                }
+            }
+        },
+        "gdfec": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}}主題已完成",
+                    "detail_plural": "{{detail}}主題已完成"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "assistance": {
+                "title": "回饋"
+            }
+        },
+        "pernod": {
+            "notificationMenu": {
+                "start_aim": "你已經選擇 {{name}} 目標，開始吧！",
+                "goal_as_reward": "您已解鎖 {{name}} 目標。馬上開始吧！",
+                "half_achieved": "做得好！你達成了百分之 50 的目標  {{name}}！",
+                "three_third_achieved": "恭喜！你達成 {{name}} 目標！",
+                "continue_goals": "恭喜你！你已達成 {{name}}目標！繼續挑戰下個目標！",
+                "continue": "你做得很好，為什麼要停下來呢？繼續 {{name}}  目標！",
+                "mandatory": "若要完成您的訓練，您必須達成{{name}}目標：讓我們開始吧！",
+                "mandatory_achieved": "恭喜！您達到{{name}}目標了！"
+            }
+        },
+        "up": {
+            "badgesLabel": {
+                "module": {
+                    "detail": "破除{{detail}}等級完全無損失一條命！",
+                    "detail_plural": "{{detail}} 沒有失去任何命而完成的級別！"
+                }
+            },
+            "notificationMenu": {
+                "forum": "有一位使用者回覆你在 {{name}} 課程 {{level}} 級別的評論",
+                "module": "您已通過{{name}}課程級別{{level}}！",
+                "battle": {
+                    "new": "{{name}} 在 {{module}} 課程 {{level}} 等級向你提出挑戰!",
+                    "win": "你已經在 {{module}} 課程 {{level}} 級別贏得對抗 {{looser}} 的戰鬥！",
+                    "loose": "你在 {{module}} 課程 {{level}} 等級輸給了 {{winner}}"
+                },
+                "challenge_reminder": "不要忘了，{{name}} 在 {{module}}  課程 {{level}} 等級向你提出挑戰並且等待你的回應！",
+                "coach": "太棒了！您已成為{{name}}課程的教練！"
+            }
+        },
+        "who": {
+            "account_menu": {
+                "battle": "挑戰模式"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} 挑戰完成",
+                    "detail_plural": "{{detail}} 挑戰已完成"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "你的挑戰已被接受",
+                    "win": "您已在{{module}}單元{{level}}級別上戰勝了對{{looser}}的挑戰！",
+                    "loose": "你在 {{module}} 模組 {{level}} 等級的挑戰輸給了 {{winner}}..."
+                },
+                "continue_goals": "恭喜！ 您已獲得{{name}}認證！"
+            }
+        }
+    },
+    "assistance": {
+        "title": "支援",
+        "object": "主題",
+        "message": "訊息",
+        "send": "傳送",
+        "thanks": "感謝您發來的訊息！",
+        "next": "下一個"
+    },
+    "cards": {
+        "allCategories": "所有類別"
+    }
+}

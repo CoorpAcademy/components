@@ -1,0 +1,31 @@
+{
+    "rankPos": "&nbsp;",
+    "rankPos_plural": "&nbsp;",
+    "title": "我的排名",
+    "title_caps": "我的排名",
+    "subtitle_head": "來看看排行榜上，前二十名是哪些人!",
+    "subtitle_core_pre": "你被排名",
+    "subtitle_core_post": "在所有的學習者中！",
+    "subtitle_tail": "維持你的動力來提升你的分數。",
+    "subtitle_no_rank": "完成更多單元以提升排名。",
+    "custom": {
+        "bnp": {
+            "subtitle_head": "查看你在前 20 位明星的排名"
+        },
+        "gdf": {
+            "subtitle_tail": "在第 1 季結束時，一般排名的前 20 名的員工將被邀請至編輯委員會來選擇下一季 WeTransform 的主題內容。"
+        },
+        "gdfec": {
+            "subtitle_tail": "在第 1 季的結束，在一般排名中前 20 名的員工將會被邀請到編輯委員會來選擇下一季 WeTransform 的科目內容。"
+        },
+        "up": {
+            "subtitle_no_rank": "完成更多級別以提升排名。"
+        },
+        "yahoo": {
+            "subtitle_tail": "&nbsp;"
+        },
+        "linxea": {
+            "subtitle_head": "來看看排行榜上，前二十名是哪些人!"
+        }
+    }
+}

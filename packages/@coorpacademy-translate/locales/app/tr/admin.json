@@ -1,0 +1,147 @@
+{
+    "tabs": {
+        "import": "İçe aktar",
+        "achievement": "Yeniden başlatılıyor",
+        "cms": "CMS",
+        "loginEvents": "Post Login Hareketleri",
+        "replay": "İçerik geçmişi",
+        "partners": "Çalışma ortakları",
+        "buildReport": "Rapor oluşturma"
+    },
+    "import": {
+        "help": "Yardım",
+        "help_content": "<h2>Bir temanın veya eğitimin tamamını getir</h2>\n<p>Bir tema getirmek için aşağıdaki koşullara uyan bir .zip dosyası temin etmelisiniz:\n    <ul>\n <li>Eğitimin adı kendine özgü olmalı</li>\n <li>Tüm eğitimler .zip dosyasının başlangıcında olmalı</li>\n        <li>Her bir eğitim klasörü, yaratılacak eğitimin tek bir .json dosyası içermeli</li>\n        <li>Her bir eğitim klasörü, A-Z sırası ile getirilmiş üç modül dosyası içermeli</li>\n        <li>Her bir modül klasörü birçok soru kalsörü içermeli</li>\n        <li>Her soru klasörü, yaratılacak soruya tekabül eden bir .json dosyası içermeli</li>\n        <li>YENİ: bir modül veya bir bölüm, silinmesi için bir remove:true alanı içerebilir</li>\n        <li>YENİ: bir modül veya bir bölüm, INDEX'in (sıfırdan başlayarak) alınması gereken pozisyonun olduğu bir swap:INDEX alanına sahip ise yer değiştirebilir</li>\n    </ul>\n</p> <h2>Bir kullanıcı zip'i getir</h2> <p>Bir kullanıcı grubu getirebilmek için, aşağıdaki kurallara uyan bir .zip dosyası temin etmelisiniz:\n    <ul>\n        <li>Her kullanıcının giriş bilgileri kendine özgü olmalı</li>\n        <li>Tüm kullanıcılar .zip dosyasının başlangıcında olmalı</li>\n    </ul>\n</p> <a href=\"/assets/samples/import.zip\">Örnek bir .zip indir</a>",
+        "disciplines": {
+            "title": "Disiplinler",
+            "zero": "Hiç disiplin yok"
+        },
+        "send_job": "Bir kob üzerinden dosyayı gönder"
+    },
+    "delete": {
+        "disciplines": {
+            "404": "Hiçbir disiplin bulunamadı",
+            "title": "Tüm disiplinleri sil",
+            "button": "Sil",
+            "confirm": "Tüm disiplinlerin silinmesini onaylamak için, lütfen \"{{word}}\\ girişi gerçekleştirin",
+            "confirm_word": "disiplinler",
+            "success": "Silinen disiplinler"
+        },
+        "users": {
+            "404": "Hiçbir kullanıcı bulunamadı",
+            "title": "Tüm kullanıcıları sil",
+            "help": "Bir sağlayıcının kullanıcılarını sil (hepsini silmek için boş bırakınız)",
+            "button": "Sil",
+            "confirm": "Kullanıcıların silinmesini onaylamak için,  \"{{word}}\" girişi gerçekleştirin",
+            "confirm_word": "kullanıcılar",
+            "success": "{{count}} kullanıcı silindi",
+            "success_plural": "{{count}} kullanıcı silindi",
+            "provider": "Hizmet sağlayıcı:"
+        },
+        "tuto": {
+            "404": "Hiçbir kullanıcı bulunamadı",
+            "title": "Eğitimi sıfırla",
+            "button": "Sil",
+            "confirm": "Eğitimin silinmesini onaylamak için,  \"{{word}}\" girişi gerçekleştirin",
+            "confirm_word": "Eğitim",
+            "success": "Eğitici sıfırlama"
+        },
+        "achievements": {
+            "404": "Hiçbir ilerleme bulunamadı",
+            "title": "İlerlemenizi silin",
+            "button": "Sil",
+            "confirm": "Gelişiminizin silinmesi için lütfen kelimeyi giriniz: \"{{word}}\"",
+            "confirm_word": "İlerleme",
+            "success": "İlerleme silindi"
+        }
+    },
+    "console": {
+        "status": "HTTP Durumu:",
+        "exception": "Özel Durum ID:",
+        "error": "Hata mesajı:"
+    },
+    "update": {
+        "goals": {
+            "title": "Sertifikaları güncelle",
+            "button": "Bir job üzerinden sertifikaları güncelle",
+            "success": "Talep gönderildi"
+        }
+    },
+    "create": "Ekle",
+    "save": "Kaydet",
+    "remove": "Sil",
+    "test": "Test et",
+    "edit": "Değiştir",
+    "back": "Döndür",
+    "table": {
+        "button": {
+            "prev": "<<",
+            "next": ">>",
+            "first": "İlk sayfa",
+            "last": "Son sayfa"
+        }
+    },
+    "loginEvent": {
+        "subtitle": "Post Login Hareketleri",
+        "config": "Genel Bilgilendirme",
+        "content": "Ek konfigürasyon",
+        "eventName": "Hareketin adı",
+        "type": "Tip",
+        "active": "Aktif",
+        "mandatory": "Zorunlu",
+        "cmsPagePath": "CMS sayfasının yolu",
+        "redirectTo": "Yeniden Yönlendirme Bağlantısı",
+        "title": "Başlık",
+        "text": "Metin",
+        "redirectButton": "Yeniden Yönlendirme Buton Etiketi",
+        "button": "Düğme Etiketi",
+        "checkboxText": "checkbox için açıklama yazısı",
+        "footerText": "Altbilgi Metni (Opsiyonel)",
+        "order": "Sipariş"
+    },
+    "status": {
+        "ok": {
+            "title": "Başarı"
+        },
+        "saving": {
+            "title": "Kaydediliyor..."
+        },
+        "removing": {
+            "title": "Siliniyor..."
+        }
+    },
+    "version": "Platform sürümü: {{appVersion}}",
+    "job": {
+        "import": {
+            "replay": "Uygula",
+            "username": "Düzenleyen",
+            "createdAt": "Uygulama tarihi",
+            "elapsedTime": "Uygulama süresi",
+            "status": "Durumlar",
+            "uploadedFile": "S3 üzerinde dosya",
+            "seeLogs": "Günlükleri Bkz:"
+        }
+    },
+    "partner": {
+        "name": "İsim",
+        "link": "Link",
+        "createdAt": "Oluşturulma zamanı",
+        "logo": "Logo",
+        "config": "Bilgi",
+        "upload": "Karşıya yükle",
+        "linkLabel": "Etiket Link",
+        "description": "Açıklama"
+    },
+    "buildReport": {
+        "help": "Yardım",
+        "send_job": "Lambda dosya gönderme",
+        "title": "Pernod rapor oluşturma",
+        "help_content": "Zip ile upload senin öne çıkmaktadır ve sonuç almak istediğiniz posta belirtin",
+        "email": "E-posta adresi",
+        "file": "Zip öne çıkmaktadır",
+        "email_missing": "E-posta sağlanmalıdır",
+        "email_not_coorp": "E-posta coorpacademy olmalıdır",
+        "file_missing": "Dosya sağlanmalıdır",
+        "upload_in_progress": "Senin dosya yüklenir. İşlem birkaç dakika alabilir.\nPosta yoluyla sonuç alırsınız",
+        "file_received": "Dosya sunucusu tarafından alınır ve şu anda hatasız olarak ele alınır.\nSen-meli almak an email sonucu ile birkaç dakika içinde."
+    }
+}

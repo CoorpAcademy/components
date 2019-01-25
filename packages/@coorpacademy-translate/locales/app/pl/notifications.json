@@ -1,0 +1,63 @@
+{
+    "battle": {
+        "incoming": "Masz oczekującą bitwę: {{count}}.",
+        "incoming_plural": "Masz oczekujące bitwy: {{count}}.",
+        "you_win": "Wygrałeś/-łaś bitwę",
+        "you_lose": "Przegrałeś/-łaś bitwę"
+    },
+    "badge": {
+        "won": "Masz odznakę {{name}}"
+    },
+    "module": {
+        "won": "Ukończyłeś/-łaś moduł z wynikiem pozytywnym"
+    },
+    "reward": {
+        "won": "Gratulacje! Twoje wysiłki zostały nagrodzone!"
+    },
+    "coach": {
+        "unlocked": "Jesteś trenerem"
+    },
+    "incoming": "Masz nowe powiadomienie",
+    "chatrequest": "Nowe zaproszenie do czatu",
+    "goal": {
+        "progress": "Robisz postępy w zdobywaniu certyfikatu",
+        "select": "Wybrałeś/-łaś certyfikat",
+        "reward": "Uzyskałeś/-łaś certyfikat"
+    },
+    "forum": "Użytkownik odpowiedział na Twoje pytanie",
+    "new_version": {
+        "title": "Nowa wersja",
+        "message": "Jest dostępna nowa wersja tej platformy.",
+        "action": "Odśwież"
+    },
+    "welcome": "Witamy <b>{{user}}</b>, teraz można uzyskać dostęp wszystkie kursy",
+    "personal_note": "Na Twój adres e-mail zostało wysłane powiadomienie.",
+    "bonusStars": "Gratulacje! Masz dodatkowe gwiazdki ({{stars}})!",
+    "rewardStars": "Gratulacje! Masz dodatkowe gwiazdki ({{stars}})!",
+    "totem": {
+        "header": "Dzieje się nowy Totem na żywo!",
+        "body": "Kliknij tutaj, aby dołączyć"
+    },
+    "custom": {
+        "armeedeterre": {
+            "battle": {
+                "incoming": "Masz {{count}} do czasu bitwy.",
+                "incoming_plural": "Masz {{count}} do czasu bitwy.",
+                "you_win": "Wygrałeś bitwę",
+                "you_lose": "Stracili w bitwie"
+            }
+        },
+        "pernod": {
+            "goal": {
+                "progress": "Zmodyfikowany w celu",
+                "select": "Wybrano cel",
+                "reward": "Masz odblokowane cel"
+            }
+        },
+        "up": {
+            "module": {
+                "won": "Ukończysz poziom"
+            }
+        }
+    }
+}

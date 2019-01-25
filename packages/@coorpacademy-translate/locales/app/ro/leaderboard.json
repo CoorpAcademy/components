@@ -1,0 +1,31 @@
+{
+    "rankPos": "&nbsp;",
+    "rankPos_plural": "&nbsp;",
+    "title": "Rangul meu",
+    "title_caps": "Rangul meu",
+    "subtitle_head": "Vizualizează-ți poziția în relație cu câștigătorii de stele top - 20. ",
+    "subtitle_core_pre": "Sunteți clasat/ă",
+    "subtitle_core_post": "din toți studenții!",
+    "subtitle_tail": "Păstrează impulsul în viitor pentru a-ti îmbunătăți scorul ",
+    "subtitle_no_rank": "Finalizează mai multe module pentru a urca în clasament.",
+    "custom": {
+        "bnp": {
+            "subtitle_head": "Vezi poziția ta raportată la top-20 Factiori vedete."
+        },
+        "gdf": {
+            "subtitle_tail": "La sfârșitul Sezonului 1, angajații de top 20 a clasamentului general, vor fi invitați la comitetul editorial pentru a alege conținutul subiectului pentru următorul sezon WeTransform."
+        },
+        "gdfec": {
+            "subtitle_tail": "La finalul Sezonului 1, primii 20 de angajați din clasamentul general vor fi invitați la comitetul editorial pentru a alege conținutul următorului sezon WeTransform."
+        },
+        "up": {
+            "subtitle_no_rank": "Finalizează mai multe nivele pentru a urca în clasificare"
+        },
+        "yahoo": {
+            "subtitle_tail": "&nbsp;"
+        },
+        "linxea": {
+            "subtitle_head": "Vizualizați poziția dvs. în raport cu câștigătorii de top de 20 de stele."
+        }
+    }
+}

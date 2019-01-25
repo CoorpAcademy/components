@@ -1,0 +1,153 @@
+{
+    "loose": {
+        "title": "Kezdőlap",
+        "end_try": "Nincs több lehetősége!",
+        "echec_title": "Hoppá...",
+        "new_badges": "{{number}} új jelvények",
+        "new_badges_plural": "{{number}} új kitüntetést szerzett",
+        "footer": {
+            "joker": {
+                "video": {
+                    "pre": "Videó megtekintése ",
+                    "text": "a leckéből",
+                    "win": "1 nyeréshez",
+                    "heart": "extra élet",
+                    "post": "és továbbra is a szintet."
+                },
+                "pdf": {
+                    "pre": "Lecke elolvasása",
+                    "win": "hogy nyerjen egy",
+                    "heart": "extra élet",
+                    "post": "és továbbra is a szintet."
+                },
+                "without": "Használta a jokerét"
+            },
+            "new_try": {
+                "title_pre": "Ismételje meg ezt a szintet.",
+                "title": "Ön motivált",
+                "title_post": "és megjelenik!",
+                "button": "Ismételje meg ezt a szintet"
+            },
+            "new_module": {
+                "title_pre": "Hozzáférni egy másik szintre.",
+                "title": "Be fogja hozni a lemaradást!",
+                "button": "Változás tanfolyam"
+            }
+        },
+        "type_badges": {
+            "init": "init",
+            "bronze": "Bronz",
+            "argent": "Ezüst",
+            "or": "Arany",
+            "platine": "Platinum"
+        }
+    },
+    "question_title": "Kérdés: {{question}}",
+    "progression": "{{nb}} / {{ref}} kérdés",
+    "success": {
+        "home": "Kezdőlap",
+        "title": "Gratulálunk!",
+        "subtitle": "Ez a szint befejezése",
+        "body": {
+            "new_star": "Csillagok {{newStars}}",
+            "new_score": "Új pontszámod {{newScore}}"
+        },
+        "new_badges": "{{new}} új kitűző megszerezve",
+        "new_badges_plural": "{{new}} új kitüntetés megszerezve",
+        "reported": "Ennek a modulnak köszönhetően megtanulta a következőt:",
+        "win": "Jelenleg ezzel rendelkezik:",
+        "footer": {
+            "title": "Ügyesen kezdtél, csak így tovább!",
+            "new_module": "Elérni ezt a szintet",
+            "duration_unit": "perc",
+            "battle": "Csata indítása"
+        },
+        "type_badges": {
+            "init": "Betöltés",
+            "bronze": "Bronz",
+            "argent": "Ezüst",
+            "or": "Arany",
+            "platine": "Platinum"
+        },
+        "yourRanking": "Az Ön Helyezése:",
+        "rankWin": "(+ {{count}} rang)",
+        "rankWin_plural": "(+ {{count}} osztályok)"
+    },
+    "duration": "{{nb}}",
+    "duration_post": "min.",
+    "duration_post_plural": "perc",
+    "assistance": "Hiba bejelentése",
+    "buy_next": "Következő modul megvásárlása",
+    "moduleNotFound": "Nem található szint {{moduleRef}} referenciával a {{disciplineName}} kurzusnál",
+    "custom": {
+        "armeedeterre": {
+            "success": {
+                "footer": {
+                    "battle": "Csata indítása"
+                }
+            }
+        },
+        "7steps": {
+            "loose": {
+                "type_badges": {
+                    "platine": "A tetejéhez"
+                }
+            },
+            "success": {
+                "type_badges": {
+                    "platine": "Eleje"
+                }
+            }
+        },
+        "fdj": {
+            "loose": {
+                "echec_title": "kész",
+                "end_try": "Befejezte a kvízt!"
+            }
+        },
+        "letsgetdigital": {
+            "assistance": "Visszajelzés küldése"
+        },
+        "up": {
+            "loose": {
+                "footer": {
+                    "joker": {
+                        "video": {
+                            "post": "és folytassa a szintet"
+                        },
+                        "pdf": {
+                            "post": "továbblépés a következő szintre: "
+                        }
+                    },
+                    "new_try": {
+                        "title_pre": "Próbálja meg a szintet újra.",
+                        "button": "Próbálja újra ezt a szintet"
+                    },
+                    "new_module": {
+                        "title_pre": "Másik szint elérése.",
+                        "button": "Változás tanfolyam"
+                    }
+                }
+            },
+            "success": {
+                "subtitle": "Teljesítette ezt a szintet.",
+                "reported": "Ez a szint szerzett önnek",
+                "footer": {
+                    "new_module": "Szint elérése"
+                }
+            },
+            "memo": {
+                "module_title": "Tanfolyam: {{disciplineName}} - {{moduleName}}",
+                "from": "a kurzusból {{disciplineName}} - {{name}}"
+            },
+            "buy_next": "Következő kurzus megvásárlása"
+        },
+        "who": {
+            "success": {
+                "footer": {
+                    "battle": "Kihívás elkezdése"
+                }
+            }
+        }
+    }
+}

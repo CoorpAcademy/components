@@ -1,0 +1,23 @@
+{
+    "submit": "Confirmar",
+    "print": "Impressão",
+    "share": "Compartilhar",
+    "delete": "Excluir",
+    "start": "Ir",
+    "loadMore": "Carrega mais...",
+    "download": "Baixar",
+    "ok": "OK",
+    "cancel": "Cancelar",
+    "sso": "Single Sign On",
+    "connect": "Conectar-se",
+    "signup": "Inscrever-se",
+    "signup_pre": "Você não tem uma conta?",
+    "custom": {
+        "chanel": {
+            "signup": "Inscrição"
+        },
+        "ilearn": {
+            "signup": "Inscrição"
+        }
+    }
+}

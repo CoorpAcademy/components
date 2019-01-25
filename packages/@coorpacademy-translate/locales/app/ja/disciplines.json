@@ -1,0 +1,90 @@
+{
+    "disciplines": {
+        "book_demo": "book a demo",
+        "payment_required": "coorpacademy サブスクリプション",
+        "free_start": "次へ"
+    },
+    "modules": {
+        "button": {
+            "start": "{{name}}レベルを開始する",
+            "access": "{{name}}レベルアクセス",
+            "continue": "{{name}}レベルを続行する",
+            "again": "{{name}}レベルを再起動 ",
+            "locked": "ロックされているコース",
+            "payment_required": "購読を継続するには"
+        },
+        "skill": {
+            "valid": "このコースのおかげで、以下のことが可能となります:",
+            "invalid": "このコースを終えると、あなたは以下のことを学べるようになります。"
+        },
+        "chapters": {
+            "title": "Chapter"
+        },
+        "stars": "獲得したスターの合計"
+    },
+    "chapters": {
+        "button": {
+            "start": "5' Learning を開始します。",
+            "access": "アクセス 5' Learning",
+            "continue": "5' Learning を続ける",
+            "again": "5' Learning を再起動します。",
+            "locked": "ロックされている章"
+        }
+    },
+    "presentation": {
+        "total": "{{nb}}",
+        "total_post": "コース",
+        "total_post_plural": "コース",
+        "video_title": "コース資料を閲覧する",
+        "popularity": "人気:",
+        "trainer": "Trainer",
+        "trainer_plural": "Trainers",
+        "by": "By",
+        "and": "&"
+    },
+    "author": "このコースは次の人によって作成されました:",
+    "disciplineNotFound": " レファレンス{{disciplineRef}}に関連したコースは見つかりませんでした",
+    "forbidden": {
+        "unknown_in_group": "このコンテンツへのアクセスを必要はありません。",
+        "previous_level": "前のレベルがこのレベルを実行する前に完了する必要があります。",
+        "conditions": "次のコースはこの 1 つを試みる前に完了する必要があります: {{contents}}",
+        "subscription_required": "このコンテンツを起動するには、Coorpacademy のサブスクリプションが必要。"
+    },
+    "custom": {
+        "up": {
+            "disciplines": {
+                "payment_required": "coorpacademy サブスクリプション"
+            },
+            "modules": {
+                "button": {
+                    "locked": "レベル ロック"
+                },
+                "skill": {
+                    "valid": "このレベルのおかげで次の操作を実行できます。",
+                    "invalid": "このレベルの最後に、することができます。"
+                }
+            },
+            "presentation": {
+                "total_post": "レベル",
+                "total_post_plural": "レベル"
+            }
+        },
+        "silca": {
+            "modules": {
+                "skill": {
+                    "invalid": "このモジュールの最後に、あなたの能力を測定することができます。"
+                }
+            }
+        },
+        "mooc-socgen": {
+            "modules": {
+                "button": {
+                    "start": "{{name}} を開始します。",
+                    "access": "アクセス {{name}}",
+                    "continue": "{{name}} を続ける",
+                    "again": "{{name}} を再起動します。"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "http": {
+        "401": "Accès non autorisé",
+        "403": "Accès interdit",
+        "404": "Page introuvable",
+        "412": "Précondition échouée",
+        "500": "Erreur serveur Interne",
+        "503": "Service non disponible",
+        "500_message_pre": "L'URL",
+        "500_message": "a rencontré une erreur inconnue de type",
+        "500_message_post": ".",
+        "503_message": "Le service est indisponible. Merci de réessayer dans quelques instants.",
+        "404_message_pre": "L'URL",
+        "404_message": "n'a pas trouvé de route correspondante.",
+        "412_message": "Les conditions spécifiées dans la requête ne sont pas remplies.",
+        "409_progressions_content_conflict": "Il semble que vous ayiez déjà répondu à cette question au cours de la session en cours. L’avez-vous ouvert sur un autre onglet, peut-être ? <br/> Cliquez sur « Recharger la Page » ci-dessous pour actualiser vos données, nous allons charger la bonne question pour vous."
+    },
+    "infos": "Infos",
+    "auth": {
+        "header": "Oups ! {{status}}",
+        "reload": "Se connecter"
+    },
+    "modal": {
+        "header": "Erreur {{status}}",
+        "body": {
+            "title": "Veuillez noter les informations ci dessous et les fournir à notre support technique",
+            "paymentRequired": "Pour accéder à ce cours, vous devez d’abord l’acheter.",
+            "url": "Url : {{err}}",
+            "id": "Id : {{id}}",
+            "message": "{{message}}"
+        },
+        "footer": {
+            "paymentRequired": "Description du cours",
+            "assistance": "Assistance",
+            "back_home": "Retour à la page d'accueil",
+            "reload": "Recharger la page",
+            "continue": "Continuer"
+        },
+        "assistance": "Erreur question"
+    },
+    "defaultMessage": "Une erreur est survenue dans l'application. Veuillez réessayer ultérieurement.",
+    "achievementContext": "Il semblerait que vous ayez déjà commencé ce module.. Veuillez recharger la page pour le poursuivre.",
+    "custom": {
+        "chanel": {
+            "http": {
+                "412_message": "Adresse email manquante. Veuillez contacter un administrateur ou vous inscrire ici."
+            }
+        },
+        "ilearn": {
+            "http": {
+                "412_message": "Adresse email manquante. Veuillez contacter un administrateur ou vous inscrire ici."
+            }
+        },
+        "up": {
+            "modal": {
+                "body": {
+                    "paymentRequired": "Pour accéder à ce cours, vous devez d’abord l’acheter."
+                }
+            },
+            "achievementContext": "Il semblerait que vous ayez déjà commencé ce module.. Veuillez recharger la page pour le poursuivre."
+        }
+    }
+}

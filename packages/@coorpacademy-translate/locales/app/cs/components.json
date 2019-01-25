@@ -1,0 +1,203 @@
+{
+    "video_player": {
+        "jw": "Načítání přehrávače videa...",
+        "fileCouldNotBePlayedTitle": "Chyba přehrání videa",
+        "flashInstallUrl": "https://get.adobe.com/en/flashplayer/",
+        "MEDIA_ERR_UNKNOWN": {
+            "title": "Objevila se neznámá chyba",
+            "description": "Při přehrávání videa došlo k selhání. Víme o něm a budeme na něm pracovat."
+        },
+        "MEDIA_ERR_ABORTED": {
+            "title": "Proces načítání zdroje médií byl přerušen.",
+            "description": "Zkontrolujte své internetové připojení, prosím, a pokuste se znovu načíst video."
+        },
+        "MEDIA_ERR_NETWORK": {
+            "title": "Chyba sítě způsobila, že uživatelský agent přestal načítat zdroj média.",
+            "description": "Zkontrolujte své internetové připojení, prosím, a pokuste se znovu načíst video."
+        },
+        "MEDIA_ERR_DECODE": {
+            "title": "Při dekódování zdroje média došlo k chybě.",
+            "description": "Tento prohlížeč video nepodporuje. Jedná se o chybu vašeho prohlížeče či operačního systému."
+        },
+        "MEDIA_ERR_SRC_NOT_SUPPORTED": {
+            "title": "Mediální zdroj není použitelný",
+            "description": "Toto video buď není k dispozici, nebo není v tomto prohlížeči podporováno. Zkuste se přihlásit v jiném prohlížeči nebo nainstalovat Flash Player a obnovit tuto stránku."
+        }
+    },
+    "account_menu": {
+        "badge": "Odznaky",
+        "account": "Můj účet",
+        "objectif": "Certifikace",
+        "activity": "Aktivita",
+        "competence_win": "Získané dovednosti",
+        "timeline": "Pokroku v průběhu času",
+        "discussion": "Diskuse",
+        "conseil": "Tipy a rady",
+        "coach": "Trenéři",
+        "battle": "Bitevní mód",
+        "modification": "Upravit mé informace"
+    },
+    "chat_room": {
+        "button_wrapper": "Odeslat",
+        "placeholder": "Vaše zpráva",
+        "connexion": "{{displayName}} > se připojil k této konverzaci",
+        "deconnexion": "{{displayName}} opustil tuto konverzaci"
+    },
+    "badgesLabel": {
+        "battle": {
+            "detail": "{{detail}} dokončená bitva",
+            "detail_plural": "Počet dokončených bitev: {{detail}}"
+        },
+        "module": {
+            "detail": "{{detail}} modul dokončen bez ztráty života!",
+            "detail_plural": "{{detail}} moduly dokončené bez ztráty života!"
+        },
+        "lesson": {
+            "detail": "{{detail}} lekce zajímalo!",
+            "detail_plural": "{{detail}} lekce zajímalo!"
+        },
+        "question": {
+            "detail": "{{detail}} otázku odpověděli správně!",
+            "detail_plural": "{{detail}} otázek odpověděli správně!"
+        },
+        "coach": {
+            "detail": "{{detail}} interakce s trenéry!",
+            "detail_plural": "{{detail}} interakce s trenéry!"
+        }
+    },
+    "notificationMenu": {
+        "god_mode": "Aktivovat God Mode",
+        "notification": "Aktivovat upozornění na ploše",
+        "title": "Oznámení ({{nb}})",
+        "forum": "Uživatel odpověděl na váš komentář ohledně úrovně {{level}} modulu {{name}}",
+        "badge_title": "Gratulujeme!",
+        "badge": "Získali jste odznak {{name}} úrovně {{level}}",
+        "module_title": "Blahopřejeme!",
+        "module": "Dokončili jste {{level}} úroveň modulu {{name}}!",
+        "battle": {
+            "new": "{{name}} by vás chtěl vyzvat na {{module}} modulu {{level}} úrovně!",
+            "accepted": "Vaše výzva na bitvu byla přijata",
+            "win": "Zvítězili jste v bitvě proti {{looser}} v modulu {{module}} {{level}} úrovně!",
+            "loose": "Prohráli jste bitvu s {{winner}} v modulu {{module}} úrovně {{level}}..."
+        },
+        "link": "Zobrazit vše",
+        "challenge_reminder": "Nezapomeňte, uživatel {{name}} vás vyzval v modulu {{module}} úrovně {{level}} a čeká na vaši odpověď!",
+        "coach": "Bravo! Stali jste se trenérem v disciplíně {{name}}!",
+        "start_aim": "Vybral/a jste {{name}} kvalifikaci. Pojďme začít!",
+        "goal_as_reward": "Odemkli jste osvědčení {{name}}. Začněte!",
+        "half_achieved": "Gratulujeme! Jste na půl cestě za Vaší {{name}} certifikací! Nepřestávejte v dobré práci.",
+        "three_third_achieved": "Gratulujeme! Získal/a jste {{name}} oprávnění! Podělte se o svůj úspěch s vaší profesionální sítí.",
+        "continue_goals": "Gratulujeme! Získali jste {{name}} certifikát! Začněte další!",
+        "continue": "Byli jste tak dobří, proč teď přestávat? Pokračujte s {{name}} certifikací!",
+        "mandatory": "Pro zisk {{name}} musíte dokončit  moduly {{levels}}!",
+        "mandatory_plural": "Abyste získali {{name}}, musíte dokončit {{levels}} moduly!",
+        "mandatory_achieved": "Gratulujeme! Získali jste {{name}} certifikaci!",
+        "toggleCoach": "Dostupné pro trenéra",
+        "reward_title": "Výborně! Získal/a jste odměnu!",
+        "reward_description": {
+            "bonusStars": "Máte {{stars}} nových hvězd v bonusu."
+        }
+    },
+    "custom": {
+        "armeedeterre": {
+            "account_menu": {
+                "battle": "Režim bitvy"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "bitvy o {{detail}}",
+                    "detail_plural": "{{detail}} bitvy dokončen"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "Byla přijata vaše bitva",
+                    "win": "Jste vyhráli bitvu proti {{looser}} na úrovni {{level}} modulu {{module}}!",
+                    "loose": "Jste ztratili v boji proti {{winner}} na úrovni {{level}} modulu {{module}}..."
+                }
+            }
+        },
+        "gdf": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} téma dokončeno",
+                    "detail_plural": "{{detail}} motivy dokončena"
+                }
+            }
+        },
+        "gdfec": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} téma dokončeno",
+                    "detail_plural": "{{detail}} motivy dokončena"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "assistance": {
+                "title": "Zpětná vazba"
+            }
+        },
+        "pernod": {
+            "notificationMenu": {
+                "start_aim": "Jste vybrali cíl {{jméno}}. Začněte!",
+                "goal_as_reward": "Mít odblokovaný cíle {{jméno}}. Začněte!",
+                "half_achieved": "Dobrá práce! Dosaženo 50 % cíle {{jméno}}!",
+                "three_third_achieved": "Blahopřejeme! Jste dosáhli cíle {{jméno}}!",
+                "continue_goals": "Blahopřejeme! Jste dosáhli cíle {{jméno}}! Začněte další!",
+                "continue": "Děláte tak dobře, proč přestat? Pokračujte s cílem {{jméno}}!",
+                "mandatory": "Chcete-li dokončit své vzdělání, je třeba dosáhnout cíle {{jméno}}: můžeme začít!",
+                "mandatory_achieved": "Blahopřejeme! Jste dosáhli cíle {{jméno}}!"
+            }
+        },
+        "up": {
+            "badgesLabel": {
+                "module": {
+                    "detail": "{{detail}} úroveň dokončena bez ztráty života!",
+                    "detail_plural": "{{detail}} úrovně obejde bez ztráty života!"
+                }
+            },
+            "notificationMenu": {
+                "forum": "Uživatel odpověděl na váš komentář týkající se úrovně kurzu {{úroveň}} {{název}}",
+                "module": "Prošli jste kurz úrovně {{jméno}} {{úroveň}}!",
+                "battle": {
+                    "new": "{{název}} by chtěl vyzvat vás na úrovni kurzu {{úroveň}} {{modul}}!",
+                    "win": "Jste vyhráli bitvu proti {{volnější}} na úrovni kurzu {{úroveň}} {{modul}}!",
+                    "loose": "Ztratil v boji proti {{vítěz}} na úrovni kurzu {{úroveň}} {{modul}}..."
+                },
+                "challenge_reminder": "Nezapomeňte, že napadnout vás na úrovni kurzu {{úroveň}} {{modul}} {{jméno}} a čeká na vaši odpověď!",
+                "coach": "Výborně! Stali jste se trenér v kurzu {{jméno}}!"
+            }
+        },
+        "who": {
+            "account_menu": {
+                "battle": "Režim výzva"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} výzva dokončena",
+                    "detail_plural": "{{detail}} výzvy byla dokončena"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "Byla přijata výzva",
+                    "win": "Tažení proti vyhráli {{looserí}} na úrovni modulu {{module}} {{level}}!",
+                    "loose": "Ztratili jste výzvu proti {{winner}} na úrovni modulu {{module}} {{level}}..."
+                },
+                "continue_goals": "Blahopřejeme! Jste obdrželi certifikaci {{name}}!"
+            }
+        }
+    },
+    "assistance": {
+        "title": "Pomoc",
+        "object": "Předmět",
+        "message": "Zpráva",
+        "send": "Odeslat",
+        "thanks": "Děkujeme za vaši zprávu!",
+        "next": "Další"
+    },
+    "cards": {
+        "allCategories": "Všechny kategorie"
+    }
+}

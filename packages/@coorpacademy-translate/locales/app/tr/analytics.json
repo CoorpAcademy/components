@@ -1,0 +1,316 @@
+{
+    "message": "<p>Kullanıcı başına detaylı bilgiye ulaşmak için bizim <a href=\"{{user}}\"> kullanıcı analitik sayfası tarafından</a> kullanın.</p> <p>Tüm kullanıcılar için detaylı bilgiye ulaşmak için <a href=\"{{export}}\"> isteğe bağlı tüm kullanıcıları vermek</a> yapabilirsiniz.</p>",
+    "export": {
+        "global": {
+            "first_name": "İsim",
+            "last_name": "Soyadı",
+            "email": "E-posta",
+            "provider": "Sağlayıcı",
+            "stars": "Skor",
+            "providerinfos_company": "Şirket",
+            "providerinfos_city": "Şehir",
+            "providerinfos_country": "Ülke",
+            "providerinfos_department": "Bölüm",
+            "providerinfos_title": "Başlık",
+            "providerinfos_chorusID": "ChorusID",
+            "ageRange": "Yaş Grubu",
+            "personalEmail": "Email (kişisel)",
+            "role": "Rol",
+            "brandName": "Işletme şirketi",
+            "boutique": "Mağaza",
+            "billable": "Billable",
+            "postalCode": "Posta Kodu",
+            "moduleLevel": "$t(dashboard:badges.module.name) - Seviye",
+            "moduleCount": "$t(dashboard:badges.module.name) - Toplam",
+            "moduleUpdate": "$t(dashboard:badges.module.name) - Son Değişiklik",
+            "battleLevel": "$t(dashboard:badges.battle.name) - Seviye",
+            "battleCount": "$t(dashboard:badges.battle.name) - Toplam",
+            "battleUpdate": "$t(dashboard:badges.battle.name) -  Son Değişiklik",
+            "coachLevel": "$t(dashboard:badges.coach.name) - Seviye",
+            "coachCount": "$t(dashboard:badges.coach.name) -Toplam",
+            "coachUpdate": "$t(dashboard:badges.coach.name) -  Son Değişiklik",
+            "lessonLevel": "$t(dashboard:badges.lesson.name) -  Seviye",
+            "lessonCount": "$t(dashboard:badges.lesson.name) - Toplam",
+            "lessonUpdate": "$t(dashboard:badges.lesson.name) - Son Değişiklik",
+            "questionLevel": "$t(dashboard:badges.question.name) - Seviye",
+            "questionCount": "$t(dashboard:badges.question.name) - Toplam",
+            "questionUpdate": "$t(dashboard:badges.question.name) - Son Değişiklik",
+            "badges": "rozetler",
+            "lastConnectionDate": "Son Bağlantı Tarihi",
+            "state": "Devlet",
+            "login": "Giriş",
+            "firstConnectionDate": "İlk Bağlantı Zamanı",
+            "certificate": "{{label}} sertifika",
+            "certifications": "Sertifikalar",
+            "entity": "Bölüm",
+            "grade": "Derece",
+            "region": "Bölge",
+            "validatedTimeProgression": "Doğrulanan saat",
+            "totalTimeProgression": "Toplam süre",
+            "populations": "Population(s)",
+            "deactivationDate": "Deaktivasyon Tarihi",
+            "organization_branch": "İş dalı",
+            "organization_businessunit": "İş Birimi",
+            "organization_workingCountry": "İş ülke",
+            "organization_role": "İş rolü",
+            "organization_boutique": "İş deposu",
+            "organization_address1": "İş adresi 1",
+            "organization_address2": "İş adresi 2",
+            "organization_zipcode": "İş posta kodu",
+            "organization_workingCity": "İş şehir",
+            "organization_company": "İş firma",
+            "organization_ambassador": "Büyükelçi",
+            "birthday": "Doğum günü"
+        },
+        "battles": {
+            "disciplineName": "Disiplin Adı",
+            "disciplineStatus": "Disiplin durumu",
+            "disciplineStatus_hidden": "Gizli",
+            "disciplineStatus_visible": "Görünür",
+            "moduleLevel": "Modül Düzeyi",
+            "createdAt": "Oluşturulma tarihi",
+            "answeredAt": "Cevap tarihi",
+            "createdBy": "Meydan okuyanın adı",
+            "opponent": "Rakibin adı",
+            "winner": "Kazanan",
+            "winnerScore": "Galip Skoru",
+            "userLogin": "Meydan Okuyan Kişi Girişi",
+            "opponentLogin": "Rakip Girişi",
+            "looserScore": "Kaybeden Skoru"
+        },
+        "moduleStart": {
+            "brand": "Marka",
+            "discipline": "Disiplin adı",
+            "module": "Modül düzeyi",
+            "author": "Yazar",
+            "count": "Count",
+            "userCount": "Kullanıcı sayısı"
+        }
+    },
+    "dashboard": {
+        "serenetics-error": "Yeni Gösterge paneli url alınırken hata oluştu.",
+        "behavioral": {
+            "upgrade": {
+                "title": "Bu pano yalnızca kurumsal oranı planında kullanılabilir.",
+                "subtitle": "Lütfen hesabınızı yükseltin ve platformunuz davranış anlayışlar erişmek için Coorpacademy başvurun"
+            }
+        }
+    },
+    "custom": {
+        "7steps": {
+            "export": {
+                "global": {
+                    "organization_role": "Meslek",
+                    "organization_title": "Mağaza Türü",
+                    "organization_ambassador": "L’Oréal Çalışanı",
+                    "organization_branch": "L’Oréal Bölümü",
+                    "entity": "L’Oréal Markası",
+                    "organization_grade": "Görüntü haklarının kullanımı",
+                    "organization_boutiqueReferent": "Perakende/Zincir",
+                    "organization_boutique": "Mağaza Adı / Kodu"
+                }
+            }
+        },
+        "achat-habitat": {
+            "export": {
+                "global": {
+                    "organization_ambassador": "Haber bülteni"
+                }
+            }
+        },
+        "adidas-fr": {
+            "export": {
+                "global": {
+                    "organization_businessunit": "Bölümü",
+                    "organization_grade": "Yaş",
+                    "organization_boutique": "Çalışma alanı",
+                    "organization_branch": "Cinsiyet"
+                }
+            }
+        },
+        "capgemini": {
+            "export": {
+                "global": {
+                    "organization_grade": "GGID"
+                }
+            }
+        },
+        "chanel": {
+            "export": {
+                "global": {
+                    "boutique": "Butik",
+                    "organization_workingCountry": "Ülke",
+                    "region": "Bölge",
+                    "role": "Rol",
+                    "startContract": "Anlaşmanın Başlangıcı"
+                }
+            }
+        },
+        "cofpart-learning": {
+            "export": {
+                "global": {
+                    "brandName": "Direction",
+                    "entity": "Job",
+                    "organization_branch": "Manager"
+                }
+            }
+        },
+        "corporateonlineopencourse": {
+            "export": {
+                "global": {
+                    "region": "Bölge",
+                    "organization_workingCountry": "Ülke",
+                    "role": "İşlevi"
+                }
+            }
+        },
+        "edenred-talents": {
+            "export": {
+                "global": {
+                    "organization_company": "Yön",
+                    "entity": "Sous-yönü",
+                    "organization_branch": "Hizmet - Secteur",
+                    "organization_boutiqueReferent": "Responsable",
+                    "organization_role": "NOISY",
+                    "organization_grade": "Statut"
+                }
+            }
+        },
+        "gdf": {
+            "export": {
+                "global": {
+                    "transformer": "$t(dashboard:badges.transformer.name)\n",
+                    "transformerLevel": "$t(pano:rozetler.dönüştürücü.isim)-Seviye",
+                    "transformerCount": "$t(kontrol paneli:rozetler.transformatör.ad) - Say",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - Son Güncelleme"
+                }
+            }
+        },
+        "gdfec": {
+            "export": {
+                "global": {
+                    "organization_zipcode": "GAIA",
+                    "organization_businessunit": "Takım",
+                    "organization_boutique": "Yöneticinin adı",
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - Seviye",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - Say",
+                    "transformerUpdate": "$T(dashboard:badges.transformer.name) - Son Güncelleme"
+                }
+            }
+        },
+        "ilearn": {
+            "export": {
+                "global": {
+                    "boutique": "Mağaza",
+                    "organization_workingCountry": "Ülke",
+                    "region": "Bölge",
+                    "role": "Rol",
+                    "startContract": "Sözleşme Başlama"
+                }
+            }
+        },
+        "life-auchan": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Faaliyet düzeyi",
+                    "organization_region": "Yaşam dengesi",
+                    "organization_workingCountry": "Ülke"
+                }
+            }
+        },
+        "metro": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Şehir",
+                    "organization_branch": "KİMLİĞİ",
+                    "organization_businessunit": "Rolü"
+                }
+            }
+        },
+        "monoprix": {
+            "export": {
+                "global": {
+                    "organization_branch": "Yön"
+                }
+            }
+        },
+        "nespresso": {
+            "export": {
+                "global": {
+                    "organization_branch": "Bölümü",
+                    "organization_businessunit": "Pozisyon"
+                }
+            }
+        },
+        "pru": {
+            "export": {
+                "global": {
+                    "providerCompany": "Başlık",
+                    "providerCountry": "Ülke",
+                    "providerDepartment": "Bölüm"
+                }
+            }
+        },
+        "redoute": {
+            "boutique": "Dükkan"
+        },
+        "securite": {
+            "export": {
+                "global": {
+                    "organization_grade": "ID"
+                }
+            }
+        },
+        "up": {
+            "export": {
+                "battles": {
+                    "disciplineName": "Ders İsmi",
+                    "moduleLevel": "Seviye"
+                }
+            }
+        },
+        "tagheuer": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Point of sales code"
+                }
+            }
+        },
+        "thelem": {
+            "export": {
+                "global": {
+                    "organization_role": "İstihdam",
+                    "language": "Dil",
+                    "organization_boutique": "Konumu",
+                    "organization_title": "Başlık hizmet",
+                    "organization_boutiqueReferent": "Kayıt numarası",
+                    "startContract": "Tarihi işe şirket",
+                    "organization_contractType": "Sözleşme türü",
+                    "organization_grade": "Elemeleri"
+                }
+            }
+        },
+        "yahoo": {
+            "export": {
+                "global": {
+                    "organization_title": "İş",
+                    "organization_workingCountry": "Ülke",
+                    "region": "Dil"
+                }
+            }
+        },
+        "who": {
+            "export": {
+                "global": {
+                    "organization_workingCountry": "Ülke/devlet",
+                    "region": "Birleşik/bölgeler",
+                    "provider": "Üyelik",
+                    "organization_role": "Arka plan/deneyimi",
+                    "organization_grade": "Erişim kodu",
+                    "organization_boutiqueReferent": "Eğitim durumu"
+                }
+            }
+        }
+    }
+}

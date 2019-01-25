@@ -1,0 +1,189 @@
+{
+    "not_a_number": "<kullanılamıyor>",
+    "target": "Hedef:",
+    "export": {
+        "csv": "CSV",
+        "pdf": "PDF",
+        "excel": "Excel"
+    },
+    "info": {
+        "launch_date": "Başlama Tarihi",
+        "targeted_users": "Hedef Nüfus"
+    },
+    "navigation": {
+        "every": "Tüm",
+        "every-except-coorp": "Tüm Coorpacademy dışında",
+        "engagement": "nişan",
+        "dashboard": "Genel görünüm",
+        "users": "kullanıcıya göre",
+        "content": "içerik",
+        "battles": "dövüşler",
+        "exports": "Dışa aktarımlar",
+        "behavioral": "davranış"
+    },
+    "since": {
+        "last_week": "Son 7 gün",
+        "last_month": "Son  30 gün",
+        "beginning": "Lansman"
+    },
+    "users": {
+        "roles": {
+            "header": "Roller",
+            "button": "Kaydet",
+            "saved": "{{displayName}} rollerinde değişiklik başarıyla gerçekleştirildi.",
+            "cms": "Cms",
+            "moderator": "Forum Moderatörü",
+            "rh": "Rh",
+            "godmode": "Tanrı Modu",
+            "supercoach": "Süper koç"
+        },
+        "tab": {
+            "ranking": "Kullanıcıların klasmanı",
+            "activity": "AKTİVİTE"
+        },
+        "back": "Arayama geri dön",
+        "entity": "Başlık",
+        "title": "Fonksiyon",
+        "cnx": {
+            "first": "İlk bağlanma tarihi",
+            "last": "Son bağlanma tarihi"
+        },
+        "general": {
+            "header": "Genel AKTİVİTE",
+            "total_cnx": "Toplam bağlanma sayısı",
+            "total_validated_disciplines": "Toplam tamamlanan disiplin sayısı",
+            "total_validated_modules": "Toplam tamamlanan modül sayısı",
+            "modules_validated_per_total": "#onaylanan modüller / #toplam modül",
+            "ranking": "Klasman",
+            "never": "Asla"
+        },
+        "sociability": {
+            "header": "Sosyallik",
+            "posts": {
+                "count": "{{nb}} Yayın",
+                "count_plural": "{{nb}} Yayın",
+                "answers": "Bunun içinden {{nb}} cevap başka bir kullanıcıya verildi.",
+                "answers_plural": "Bunun içinden {{nb}} cevap başka bir kullanıcıya verildi."
+            },
+            "battles": {
+                "count": "{{nb}} dövüş",
+                "count_plural": "{{nb}} dövüş",
+                "won": "kazanılan {{nb}} savaş dâhil",
+                "won_plural": "incl. {{nb}} mücadele kazanıldı"
+            },
+            "coach": {
+                "disciplines": "{{nb}} disiplini için koç",
+                "disciplines_plural": "{{nb}} disiplinleri koçu",
+                "interactions": "Koç ile {{nb}} karşılıklı etkileşim",
+                "interactions_plural": "antrenörler ile {{nb}} etkileşimleri"
+            },
+            "completion": {
+                "total_label": "Toplam tamamlama oranı:",
+                "total": "%{{ratio}}",
+                "modules_tried_label": "Denenen modül sayısı:",
+                "modules_tried": "{{totalTriedModules}}/{{nbModules}}",
+                "average_completion_label": "Denemelere göre tamamlanma oranı:",
+                "average_completion": "%{{ratio}}"
+            }
+        },
+        "progression": {
+            "filter": "Filtre disiplinler",
+            "filterPlaceholder": "Filtre disiplinleri anahtar kelimeler",
+            "th": {
+                "discipline": "Disiplin",
+                "hidden": "Gizli",
+                "level": "Seviye",
+                "module_progression": "Başarı %",
+                "status": "Durum",
+                "score": "Skor"
+            }
+        },
+        "time": {
+            "header": "Bağlantı süresi",
+            "totalTime": "Yıpranmaları süresi",
+            "validatedTime": "Doğrulanmış süresi"
+        },
+        "license": {
+            "label": "Lisans",
+            "button": "Kapat",
+            "active": "Aktif",
+            "inactive": "Kapalı"
+        },
+        "deactivate": {
+            "confirm": "Hesap deaktivasyonunu onaylamak için \"evet\" girin.",
+            "confirm_word": "Evet",
+            "account_deactivated": "Hesap kapatıldı"
+        },
+        "connectAs": "Olarak bağlanmak",
+        "bonusStars": {
+            "buttonPositive": "Ekle",
+            "buttonNegative": "Geri çek",
+            "required": "Lütfen eklenecek yıldızları gir",
+            "notANumber": "Yıldız sayısı tam sayı olmalıdır",
+            "confirm": "Yıldızların eklenmesi veya silinmesini onaylamak için, lütfen \"bonus\" girişi gerçekleştirin",
+            "confirm_word": "Bonus",
+            "starsAdded": "{{displayName}} adlı kullanıcıya {{count}} yıldız eklediniz",
+            "starsAdded_plural": "{{displayName}} adlı kullanıcıya {{count}} yıldız eklediniz",
+            "starsRemoved": "{{displayName}} kullanıcısından {{count}} yıldız sildiniz",
+            "starsRemoved_plural": "{{displayName}} kullanıcısından {{count}} yıldız aldınız."
+        }
+    },
+    "exports": {
+        "export": "Dışa aktar",
+        "querySent": "Raporunuz hazırlanıyor. Kısa bir süre içerisinde e-postanıza iletilecektir.",
+        "global": {
+            "title": "Kullanıcılar isteğe bağlı olarak verme",
+            "introduction": "Bu fonksiyon, platformun kullanıcılarına ilişkin tüm bilgilerin dışa aktarımını sağlar."
+        },
+        "battles": {
+            "title": "Savaş verme isteğe bağlı",
+            "introduction": "Bu fonksiyon, platformun dövüşlerine ilişkin tüm bilgilerin dışa aktarımını sağlar."
+        },
+        "history": {
+            "title": "Tarih verir",
+            "introduction": "Bu özellik tüm günlük veri almanıza olanak sağlar",
+            "users": "kullanıcılar",
+            "battle": "savaş",
+            "analytics": "İlerleme",
+            "filter_by": "Filtre ölçütü"
+        }
+    },
+    "custom": {
+        "up": {
+            "navigation": {
+                "modules": "seviyeyle"
+            },
+            "modules": {
+                "header": {
+                    "discipline": "Ders"
+                },
+                "module": {
+                    "media_views": {
+                        "title": "Seviyeye göre ders medya gösterim oranı"
+                    }
+                }
+            },
+            "users": {
+                "general": {
+                    "total_validated_disciplines": "Başarılan toplam ders",
+                    "total_validated_modules": "Kazanılan toplam seviye",
+                    "modules_validated_per_total": "# bitirilen seviyeler / # toplam seviyeler"
+                },
+                "sociability": {
+                    "coach": {
+                        "disciplines": "{{nb}} kursları eğitmenliği",
+                        "disciplines_plural": "Özel ders ver {{nb}} dersler"
+                    },
+                    "completion": {
+                        "modules_tried_label": "denenen seviyeler:"
+                    }
+                },
+                "progression": {
+                    "th": {
+                        "discipline": "Kurs"
+                    }
+                }
+            }
+        }
+    }
+}

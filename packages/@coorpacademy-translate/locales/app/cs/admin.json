@@ -1,0 +1,147 @@
+{
+    "tabs": {
+        "import": "Import",
+        "achievement": "Obnovit",
+        "cms": "CMS",
+        "loginEvents": "Zveřejnit přihlašovací události",
+        "replay": "Historie importu obsahu",
+        "partners": "Mediální partneři",
+        "buildReport": "Generování sestav"
+    },
+    "import": {
+        "help": "nápověda",
+        "help_content": "<h2>Importovat celý motiv nebo disciplínu</h2> <p>Chcete-li importovat motiv, musíte poskytnout soubor ZIP, který splňuje následující požadavky:\n    <ul>\n <li>Název disciplíny musí být jedinečný</li>\n <li>Všechny disciplíny musí být původně soubory ZIP</li>\n        <li>Aby mohla být složka disciplíny vytvořena, musí obsahovat jeden soubor disciplíny JSON</li>\n        <li>Každá disciplína složka musí obsahovat tři modulové složky importované v pořadí A-Z</li>\n        <li>Každá modulová složka musí obsahovat několik složek s otazníkem</li>\n        <li>Aby mohla být složka s otazníkem vytvořena, musí obsahovat jeden soubor JSON shodující se s otázkou</li>\n        <li>NOVÉ: modul nebo kapitola mohou obsahovat pole odebrat:pravda za účelem odstranění</li>\n        <li>NOVÉ: modul nebo kapitola si mohou vyměnit místo, pokud je přítomno pole vyměnit:INDEX, kde INDEX znamená číslo pozice (začínající na 0)</li>\n    </ul>\n</p> <h2>Importovat uživatelský ZIP</h2> <p>Chcete-li importovat skupinu uživatelů, musíte poskytnout soubor ZIP a respektovat následující pravidla:\n    <ul>\n        <li>Přihlašování každého uživatele musí být jedinečné</li>\n        <li>Všichni uživatelé musí být původně v souboru ZIP</li>\n    </ul>\n</p> <a href=\"/assets/samples/import.zip\">Stáhněte si příklad souboru ZIP</a>",
+        "disciplines": {
+            "title": "Disciplíny",
+            "zero": "Není žádná disciplína"
+        },
+        "send_job": "Odeslat soubor pomocí úlohy"
+    },
+    "delete": {
+        "disciplines": {
+            "404": "Žádná disciplína nebyla nalezena",
+            "title": "Smazat všechny disciplíny",
+            "button": "Odstranit",
+            "confirm": "Potvrďte prosím odstranění všech předmětů zadáním slova „{{word}}“",
+            "confirm_word": "disciplíny",
+            "success": "Vymazané disciplíny"
+        },
+        "users": {
+            "404": "Nebyl nalezen žádný uživatel",
+            "title": "Odstranit všechny odesílatele",
+            "help": "Vymazat uživatele poskytovala (chcete-li vymazat všechny, nechte prázdné)",
+            "button": "Vymazat",
+            "confirm": "Prosím, zadejte „{{word}}“ pro potvrzení smazání uživatelů",
+            "confirm_word": "uživatelé",
+            "success": "{{count}} uživatelů vymazáno",
+            "success_plural": "{{count}} uživatel(ů) smazáno",
+            "provider": "poskytovatel:"
+        },
+        "tuto": {
+            "404": "Žádný uživatel nebyl nalezen",
+            "title": "Resetovat tutoriál",
+            "button": "Vymazat",
+            "confirm": "Zvolte prosím „{{word}}“ pro potvrzení úplného resetování výukového programu.",
+            "confirm_word": "návod",
+            "success": "Resetování výukového programu"
+        },
+        "achievements": {
+            "404": "Nebyl nalezen žádný postup",
+            "title": "Smazat celý váš postup",
+            "button": "Smazat",
+            "confirm": "Pro potvrzení odstranění postupu prosím zadejte „{{word}}“",
+            "confirm_word": "postup",
+            "success": "Postup vymazán"
+        }
+    },
+    "console": {
+        "status": "Stav HTTP:",
+        "exception": "ID výjimky:",
+        "error": "Chybová zpráva:"
+    },
+    "update": {
+        "goals": {
+            "title": "Aktualizovat úkoly",
+            "button": "Aktualizovat cíle prostřednictvím práce",
+            "success": "Žádost byla odeslána"
+        }
+    },
+    "create": "Přidat",
+    "save": "Uložit",
+    "remove": "Smazat",
+    "test": "Test",
+    "edit": "Upravit",
+    "back": "Zpět",
+    "table": {
+        "button": {
+            "prev": "<<",
+            "next": ">>",
+            "first": "První stránka",
+            "last": "Poslední strana"
+        }
+    },
+    "loginEvent": {
+        "subtitle": "Publikovat záznamy o přihlášení",
+        "config": "Obecné informace",
+        "content": "Další konfigurace",
+        "eventName": "Název události",
+        "type": "Pište",
+        "active": "Aktivní",
+        "mandatory": "Povinné",
+        "cmsPagePath": "CMS cesta",
+        "redirectTo": "Odkaz na přesměrování",
+        "title": "Titul",
+        "text": "Hlavní text",
+        "redirectButton": "Označení tlačítka přesměrování",
+        "button": "Označení tlačítka",
+        "checkboxText": "Označení zaškrtávacího políčka",
+        "footerText": "Text zápatí (volitelné)",
+        "order": "Řád:"
+    },
+    "status": {
+        "ok": {
+            "title": "Úspěch"
+        },
+        "saving": {
+            "title": "Ukládání..."
+        },
+        "removing": {
+            "title": "Odstraňování..."
+        }
+    },
+    "version": "Aktuální verze platformy: {{appVersion}}",
+    "job": {
+        "import": {
+            "replay": "Použít",
+            "username": "Spuštěno pomocí",
+            "createdAt": "Datum provedení",
+            "elapsedTime": "Doba provedení",
+            "status": "Stav",
+            "uploadedFile": "Soubor na S3",
+            "seeLogs": "Viz protokoly"
+        }
+    },
+    "partner": {
+        "name": "Jméno",
+        "link": "Odkaz",
+        "createdAt": "Vytvořeno",
+        "logo": "Logo",
+        "config": "Informace",
+        "upload": "Nahrát",
+        "linkLabel": "Označit odkaz",
+        "description": "Popis"
+    },
+    "buildReport": {
+        "help": "Pomoc",
+        "send_job": "Odeslat soubor přes lambda",
+        "title": "Generování sestav Pernod",
+        "help_content": "Nahrát Zip s vaší exceluje a zadejte e-mail, kam chcete výsledek",
+        "email": "E-mailová adresa",
+        "file": "Vyniká v archivu Zip",
+        "email_missing": "E-mail musí být poskytnuty",
+        "email_not_coorp": "E-mail musí být od coorpacademy",
+        "file_missing": "Soubor musí být poskytnuty",
+        "upload_in_progress": "Váš soubor nahráván. Zpracování může trvat několik minut.\nVýsledek budete dostávat poštou",
+        "file_received": "Soubor byla přijata serverem a v současné době zpracován bez chyby.\nZa pár minut byste měli obdržet e-mail s výsledkem."
+    }
+}

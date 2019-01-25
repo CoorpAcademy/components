@@ -1,0 +1,120 @@
+{
+    "cms": {
+        "add": "Aggiungi articolo",
+        "title": "Aggiungere una nuova pagina",
+        "lang": "Lingua di input :",
+        "name": "Nome*:",
+        "scope": "Portata:",
+        "target": {
+            "title": "Obiettivo:",
+            "empty": "Nessun Obiettivo",
+            "discipline": "Disciplina",
+            "learningTree": "Catalogo"
+        },
+        "type": "Tipo:",
+        "order": "Ordine:",
+        "active": "Attivo:",
+        "populations": "Popolazioni:",
+        "rmd": "Markdown",
+        "save": "Registrati",
+        "delete": "Elimina",
+        "test": "Prova",
+        "deploy": "Invia",
+        "delete_confirm": "Sei sicuro di voler cancellare questa pagina?",
+        "markdown": "Sintassi di Markdown",
+        "quick": "Riferimento rapido",
+        "path": "Suffisso* URL:",
+        "full": "Documentazione completa",
+        "preview": "Preview",
+        "edit": "Modifica",
+        "notifications": "Notifiche personalizzate",
+        "content": "Contenuto:",
+        "config": "Installazione globale",
+        "targetBlank": "Apri in una nuova scheda:",
+        "forum_xid": "Id Forum",
+        "navigation": {
+            "label": "Blocco da scoprire:",
+            "none": "Pagina senza blocco"
+        },
+        "provider": {
+            "none": "Tutti gli utenti:"
+        },
+        "status": {
+            "ok": {
+                "title": "Ci sei riuscito",
+                "save": "La pagina è stata salvata",
+                "del": "La pagina è stata eliminata"
+            },
+            "test": {
+                "title": "Job avviato. La notifica apparirà presto."
+            },
+            "deploy": {
+                "title": "Lavoro iniziato. Segui i suoi progressi sulla pagina Lavori."
+            },
+            "ko": {
+                "title": "Errore",
+                "save": "Si è verificato un errore durante il salvataggio: {{err}}",
+                "del": "Si è verificato un errore durante l'eliminazione: {{err}}"
+            }
+        },
+        "title_content": "Titolo:",
+        "category": "Categoria",
+        "select_all": "Seleziona tutto",
+        "language_info": "Ognuna della lingua di input deve essere compilato per ciascun paese attivato",
+        "imageURL": "Immagine URL",
+        "page": "Page:",
+        "link": "Link:",
+        "link_placeholder": "(ex: http://www.google.it)",
+        "partner": "Partner:",
+        "discipline_ref": "discipline.ref",
+        "cancel": "Annulla",
+        "date": "Data:",
+        "image": "Immagine:",
+        "upload": "Caricare",
+        "modify": "Cambiamento",
+        "countries": "Paese"
+    },
+    "success": "Le modifiche sono state salvate.",
+    "error": {
+        "mandatory": "Campi da compilare"
+    },
+    "tabs": {
+        "pages": "Pagine",
+        "news": "News",
+        "notification": "Notifiche personalizzate"
+    },
+    "page": {
+        "name": "{{name}}"
+    },
+    "notification": {
+        "new": "Questa notifica non è stato ancora creata. Compilare e salvare il modulo per crearla.",
+        "name": "{{name}}",
+        "provider": "Provider:",
+        "expires": "Data di scadenza*:",
+        "message": "Messaggio",
+        "link": {
+            "show": "Mostrare il bottone \"Ulteriori informazioni\":",
+            "url": "Link: ",
+            "target": "Aprire il link in un'altra pagina:"
+        },
+        "status": {
+            "title": "Stato",
+            "created": "Creato",
+            "sending": "Invio: Un lavoro sta creando le notifiche da inviare agli utenti.",
+            "tested": "Testato",
+            "sent": "Inviato a utenti selezionati.",
+            "pending": {
+                "deploy": "Invio richiesta di creazione di notifica per gli utenti selezionati.",
+                "testing": "In attesa di notifica per essere mostrato.",
+                "delete": "Per favore aspetta, notifica sta per essere eliminato.",
+                "save": "Per favore aspetta, notifica viene salvato"
+            },
+            "ok": {
+                "save": "Notifica salvato",
+                "testing": "Testato",
+                "deploy": "Lavoro lanciato per inviare notifiche agli utenti"
+            }
+        }
+    },
+    "text": "<h2>Informazioni di base</h2><p>\n  Hard return: Finisci la riga con due spazi<br />\n  Inserisci direttamente il codice html: Inizia la riga con 4 spazi<br />\n</p> <h2>Intestazioni</h2> <p>\n  # H 1 <br />\n  ## H 2 <br />\n  ### H 3 <br />\n</p> <h2> Enfasi </h2> <p>\n   Parole in corsivo: *asterischi* o _trattini bassi_.<br />\n   Parole in grassetto: **doppi asterischi** o __doppi trattini bassi__.<br />\n</p> <h2>Liste</h2> <p>\n  1. Primo elemento di una lista ordinata <br />\n  2. Un altro elemento<br />\n  ..* Sottolista non ordinata.<br />\n  1. I numeri effettivi non hanno importanza, se non per il fatto che sono numeri<br />\n  ..1. Sottolista ordinata<br />\n  4. E un altro elemento. <br />\n  <br />\n  ⋅⋅⋅All'interno degli elementi di una lista puoi avere paragrafi con la giusta formattazione. Nota la linea vuota sopra, e gli spazi all'inizio (almeno uno, ma ne useremo tre qui anche per allineare il Markdown puro.<br />\n   <br />\n   ⋅⋅⋅Per fare una interruzione di riga senza un paragrafo, dovrai usare due spazi in fondo.⋅⋅<br />\n   ⋅⋅⋅Nota che questa riga è separata ma all'interno dello stesso paragrafo.⋅⋅<br />\n   ⋅⋅⋅(Questo è il contrario del solito comportamento di interruzione di riga di GFM, dove gli spazi in fondo non sono richiesti.)<br />\n   <br />\n   * Le liste non ordinate possono usare asterischi <br />\n   - O segni meno<br />\n   + O segni più<br />\n</p> <h2>Collegamenti</h2> <p>\n   [Sono un collegamento di tipo in linea]\n(https://www.google.com)<br /><br />\n   [Sono un collegamento di tipo in linea con titolo]\n(https://www.google.com \"Homepage di Google\")<br /><br />\n   [Sono un collegamento di tipo riferimento][Testo di riferimento arbitrario senza distinzione tra maiuscole e minuscole]<br /><br />\n   [Sono un riferimento relativo a un file di un repository](../blob/master/LICENSE)<br /><br />\n   [Puoi usare i numeri per le definizioni dei collegamenti di tipo riferimento][1]<br /><br />\n   Oppure lasciarle vuote e usare il [testo del collegamento stesso]<br /><br />\n   Del testo per mostrare che i collegamenti di riferimento possono venire in seguito.\n</p> <h2>Ancore</h2> <p>\n   <h3>Imposta l'ancora</h3>\n   Dovresti usare la sintassi HTML per creare un identificativo sul tag dove vuoi mettere l'ancora.<br/></br>\n   Esempio:</br>\n   Se vuoi mettere un'ancora su un tag H1, dovresti: <b>&lt;h1 id=\"my_anchor\"&gt;Testo dell'ancora&lt;/h1&gt;</b>\n   <br/></br>\n   <h3>Utilizzo dell'ancora</h3>\n   Con un tag <b>a</b>, devi impostare l'href con un valore come questo:\n<b>/pages/[url_suffisso_pagina]#[ancora]</b>.<br/><br/>\n   <li><b>url_suffisso_pagina</b> della pagina dove le ancore sono state impostate. Questo è il primo testo di input riempito quando una pagina è creata per generare un url.</li>\n   <li><b>ancora</b> il valore identificativo del tag dove l'ancora è stata impostata.\n</li>\n   <br/></br>\n   Esempio :</br>\n   Per usare l'ancora impostata in precedenza, dovresti usare : <b>&lt;a href=\"/pages/page_url#my_anchor\"&gt;Testo Collegamento&lt;/a&gt;</b></br>\n   oppure <b>[Testo del Collegamento](/pages/page_url#my_anchor)</b>\n</p> <h2>Immagini</h2> <p>\n   Qui c'è il nostro logo (passaci il mouse sopra per vedere il testo del titolo):<br /><br />\n   Tipo in linea:<br />\n ![testo alternativo](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png \"Logo Title Text 1\")<br />\n   <br />\n   Tipo riferimento:<br />\n    ![testo alternativo][logo]<br />\n</p> <h2>Tabelle</h2> <p>\n   I due punti possono essere utilizzati per allineare le colonne.\n<br />\n   <br />\n   |Le Tabelle      |Sono        |Belle   |<br />\n   | ------------- |:-------------:| -----:|<br />\n    | col 3 è      | allineata a destra | $1600 |<br />\n    | col 2 is      | centrata      |   $12 |<br />\n    | tabelle a righe alterne | sono ordinate      |    $1 |<br />\n   <br />\n   Le barre verticali esterne (|) sono opzionali e non hai bisogno di allineare il Markdown puro in maniera esteticamente bella. Puoi anche usare Markdown in linea.<br /> \n   <br />\n   Markdown | Meno | Bello<br />\n   --- | --- | ---<br />\n    *Comunque* | `si vede` | **bene**<br />\n    1 | 2 | 3<br />\n</p> <h2>HTML in linea</h2> <p> <dl>\n   <dt>La lista di definizione</dt><br />\n   <dd>è a volte usata dalla gente.</dd><br /><br />\n\n   <dt>Il Markdown in HTML</dt><br />\n  <dd>*non* funziona **molto** bene. Usa i <em>tags</em> HTML.</dd><br />\n</dl> </p>\n   \n\n\n   \n    "
+}

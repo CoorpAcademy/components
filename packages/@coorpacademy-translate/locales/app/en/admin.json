@@ -1,0 +1,136 @@
+{
+    "tabs": {
+        "import": "Import",
+        "achievement": "Reset",
+        "cms": "CMS",
+        "loginEvents": "Post Login Events",
+        "replay": "Content Import History",
+        "buildReport": "Report Generation"
+    },
+    "import": {
+        "help": "help",
+        "help_content": "<h2>Import an entire theme or discipline</h2> <p>To import a theme, you must provide a .zip file that meets the following requirements:\n    <ul>\n <li>The name of the discipline must be unique</li>\n <li>All the disciplines must be in the origin of the .zip</li>\n        <li>Each discipline folder must contain a single .json file of the discipline to be created</li>\n        <li>Each discipline folder must contain three module folders imported in A–Z order</li>\n        <li>Each module folder must contain several question folders</li>\n        <li>Each question folder must contain a single .json file corresponding to the question to be created</li>\n        <li>NEW: a module or a chapter can contain a remove:true field to delete it</li>\n        <li>NEW: a module or a chapter can change places if it has a swap:INDEX filed where INDEX is the number of the position to take (beginning with 0)</li>\n    </ul>\n</p> <h2>Import a user zip</h2> <p>To import a group of users, you must provIDe a .zip respecting the following rules:\n    <ul>\n        <li>The login of each user must be unique</li>\n        <li>All users must be at the origin of the .zip</li>\n    </ul>\n</p> <a href=\"/assets/samples/import.zip\">Download an example .zip</a>",
+        "disciplines": {
+            "title": "Disciplines",
+            "zero": "There is no discipline"
+        },
+        "send_job": "Send file via job"
+    },
+    "delete": {
+        "disciplines": {
+            "404": "No discipline found",
+            "title": "Delete all the disciplines",
+            "button": "Delete",
+            "confirm": "Please enter \"{{word}}\" to confirm deletion of all subjects",
+            "confirm_word": "disciplines",
+            "success": "Deleted disciplines"
+        },
+        "users": {
+            "404": "No user found",
+            "title": "Delete all users",
+            "help": "Delete the users of a provider (to delete all, leave blank)",
+            "button": "Delete",
+            "confirm": "Please enter \"{{word}}\" to confirm deletion of users",
+            "confirm_word": "users",
+            "success": "{{count}} user deleted",
+            "success_plural": "{{count}} users deleted",
+            "provider": "provider:"
+        },
+        "tuto": {
+            "404": "No user found",
+            "title": "Reset the tutorial",
+            "button": "Erase",
+            "confirm": "Please select \"{{word}}\" to confirm complete reset of the tutorial.",
+            "confirm_word": "tutorial",
+            "success": "Tutorial reset"
+        },
+        "achievements": {
+            "404": "No progress found",
+            "title": "Erase your whole progression",
+            "button": "Erase",
+            "confirm": "Please enter \"{{word}}\" to confirm deletion of your progression",
+            "confirm_word": "progression",
+            "success": "Progression deleted "
+        }
+    },
+    "console": {
+        "status": "HTTP Status:",
+        "exception": "Exception ID:",
+        "error": "Error message:"
+    },
+    "update": {
+        "goals": {
+            "title": "Update Objectives",
+            "button": "Update Objectives through a job",
+            "success": "Request sent"
+        }
+    },
+    "create": "Add",
+    "save": "Save",
+    "remove": "Delete",
+    "test": "Test",
+    "edit": "Modify",
+    "back": "Back",
+    "table": {
+        "button": {
+            "prev": "<<",
+            "next": ">>",
+            "first": "First page",
+            "last": "Last page"
+        }
+    },
+    "loginEvent": {
+        "subtitle": "Post Login Events",
+        "config": "General Information",
+        "content": "Additional Configuration",
+        "eventName": "Event Name",
+        "type": "Type",
+        "active": "Active",
+        "mandatory": "Mandatory",
+        "cmsPagePath": "CMS Path",
+        "redirectTo": "Redirection Link",
+        "title": "Title",
+        "text": "Main Text",
+        "redirectButton": "Redirect Button Label",
+        "button": "Button Label",
+        "checkboxText": "Checkbox Label",
+        "footerText": "Footer Text (optional)",
+        "order": "Order"
+    },
+    "status": {
+        "ok": {
+            "title": "Success"
+        },
+        "saving": {
+            "title": "Saving..."
+        },
+        "removing": {
+            "title": "Removing..."
+        }
+    },
+    "version": "Current platform version: {{appVersion}}",
+    "job": {
+        "import": {
+            "replay": "Apply",
+            "username": "Run by",
+            "createdAt": "Execution date",
+            "elapsedTime": "Execution time",
+            "status": "Status",
+            "uploadedFile": "File on S3",
+            "seeLogs": "See logs"
+        }
+    },
+    "buildReport":{
+        "help": "Help",
+        "send_job": "Send File via lambda",
+        "title": "Pernod Report Generation",
+        "help_content": "Upload the Zip with your excels and specify the mail where you want to receive the result",
+        "email": "Email Address",
+        "file": "Excels in Zip",
+        "email_missing": "Email must be provided",
+        "email_not_coorp":"Email must be from coorpacademy",
+        "file_missing": "File must be provided",
+        "upload_in_progress": "Your file is being uploaded. Processing might take few minutes.\nYou'll receive result by mail",
+        "file_received": "File has been received by the server and is currently being handled without error.\nYou should receive an email with the result in a few minutes."
+    }
+}

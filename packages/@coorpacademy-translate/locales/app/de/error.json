@@ -1,0 +1,56 @@
+{
+    "http": {
+        "401": "Zugriff nicht autorisiert",
+        "403": "Zugriff verboten",
+        "404": "Seite nicht gefunden",
+        "412": "Voraussetzung ist fehlgeschlagen",
+        "500": "Interner Server-Fehler",
+        "503": "Dienst nicht verfügbar",
+        "500_message_pre": "Für die URL",
+        "500_message": "ist ein unbekannter Fehler aufgetreten. Typ:",
+        "500_message_post": ".",
+        "503_message": "Der Dienst ist nicht verfügbar. Bitte versuchen Sie es in Kürze noch einmal.",
+        "404_message_pre": "Für die URL",
+        "404_message": "konnte keine entsprechende Route gefunden werden.",
+        "412_message": "The condition specified by one or more If... headers in the request evaluated to false.",
+        "409_progressions_content_conflict": "Es scheint, dass Sie diese Frage während der aktuellen Sitzung bereits beantwortet haben. Haben Sie es vielleicht auf einer anderen Registerkarte geöffnet? <br/> Klicken Sie auf \"Reload Page\" unten um Ihre Daten zu aktualisieren, so laden wir die richtige Frage für Sie."
+    },
+    "infos": "Info",
+    "auth": {
+        "header": "Hoppla! {{status}}",
+        "reload": "Anmelden"
+    },
+    "modal": {
+        "header": "Fehler {{status}}",
+        "body": {
+            "title": "Bitte notieren Sie sich die nachstehenden Informationen und leiten Sie sie an unseren technischen Support weiter.",
+            "url": "URL: {{err}}",
+            "id": "ID: {{id}}",
+            "message": "{{message}}"
+        },
+        "footer": {
+            "assistance": "Support",
+            "back_home": "Zurück zur Startseite",
+            "reload": "Seite neu laden",
+            "continue": "Fortfahren"
+        },
+        "assistance": "Fehler berichten"
+    },
+    "defaultMessage": "In der Anwendung ist ein Fehler aufgetreten. Bitte versuchen Sie es später noch einmal.",
+    "achievementContext": "Anscheinend wurde dieses Modul bereits begonnen. Bitte laden Sie die Seite neu, um mit diesem Modul fortzufahren.",
+    "custom": {
+        "chanel": {
+            "http": {
+                "412_message": "Fehlende e-Mail-Adresse. Bitte kontaktieren Sie Ihren Administrator oder melden Sie sich hier an."
+            }
+        },
+        "ilearn": {
+            "http": {
+                "412_message": "Fehlende e-Mail-Adresse. Bitte kontaktieren Sie Ihren Administrator oder melden Sie sich hier an."
+            }
+        },
+        "up": {
+            "achievementContext": "Es scheint, dass dieses Level bereits gestartet wurde. Bitte aktualisieren Sie Seite, um das Level weiterzuführen."
+        }
+    }
+}

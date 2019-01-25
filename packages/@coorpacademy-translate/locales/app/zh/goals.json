@@ -1,0 +1,201 @@
+{
+    "title": "我的证书。",
+    "subtitle_head1": "选择并完成一个或多个认证，来提高你在选定区域及主题的技能。",
+    "subtitle_head2": "开始一个认证模块。",
+    "how_to": "要验证一个认证，你必须完成每个模块。我们开始吧！",
+    "button_choose_goal": "选择一个认证。",
+    "selected_goals_title": "{{goals}} 当前认证 ",
+    "selected_goals_title_plural": "{{goals}} 目前的认证",
+    "selected_goals_no_item": "没有认证被选中。请选择一个！",
+    "finished_goals_title": "{{goals}} 已通过的认证",
+    "finished_goals_title_plural": "{{goals}} 已清除证书",
+    "finished_goal_label": "{{goalLabel}} {{star}}",
+    "finished_goals_no_item": "你还没有完成任何认证。",
+    "button_module_access": " 现在开始",
+    "minutes_label": "最小值",
+    "status_label": "状态：",
+    "stars_label": "{{stars}}星星",
+    "stars_label_plural": "{{stars}} 星",
+    "popover": {
+        "title": "小心！",
+        "module_blocked_pre": "此模块不可用：",
+        "module_blocked_post": "{{pre}} 要完成它，你必须先验证级别 {{level}}",
+        "select_goal": {
+            "title": "请选择一个认证",
+            "available_module": "{{total}}可用验证",
+            "available_module_plural": "{{total}} 可行认证",
+            "module_done": "该模块已被清除。你正以你的方式进行认证。",
+            "module_blocked": "该模块尚未启用。要解锁，请先清除基础或高级级别。",
+            "button_add_goal": "确认我的证书。"
+        }
+    },
+    "condition_progress": {
+        "information": "你已完成{{done}}{{total}} 计划模块。"
+    },
+    "certification": {
+        "title": "您的认证",
+        "title_plural": "您的认证",
+        "subtitle": "通过该证书对您的技能进行核实",
+        "subtitle_plural": "使用这些证书验证你的技能",
+        "rewards": {
+            "subtitle": "你的奖励",
+            "see_detail": "查看",
+            "congratulations": "祝贺你取得成功",
+            "you_can_win": "获胜",
+            "download_resource": "按这里下载",
+            "see_diploma": "查看文凭",
+            "access_your_diploma": "查看您的文凭"
+        },
+        "stars": {
+            "description_pre": "得到",
+            "description_post": "星星"
+        },
+        "state": {
+            "done": "完成！",
+            "inProgress": "进行中"
+        },
+        "condition_description": {
+            "progress": "目标：{{count}} 模块",
+            "progress_plural": "目标：{{count}} 组件"
+        },
+        "certificationDone": "恭喜！您已经获得了 {{certificationName}} 认证！"
+    },
+    "diploma": {
+        "certificate": "专属证书",
+        "date": "日期：{{date}}",
+        "message": "认证获得能力主题："
+    },
+    "custom": {
+        "ecolenumerique-sncf": {
+            "certification": {
+                "title": "Jedi Badge",
+                "title_plural": "Jedi Badges",
+                "certificationDone": "Congratulations! You have obtained the {{certificationName}}Badge!",
+                "subtitle": "Validate your Jedi Badge here",
+                "subtitle_plural": "Validate your Jedi Badges here"
+            }
+        },
+        "ganprevoyance": {
+            "certification": {
+                "title": "Universe",
+                "title_plural": "Universes",
+                "certificationDone": "Congratulations! You have validated the {{certificationName}} Universe!",
+                "subtitle": "Validate your Universe here",
+                "subtitle_plural": "Validate your Universes here"
+            }
+        },
+        "cnp": {
+            "certification": {
+                "title": "文凭。",
+                "title_plural": "证书",
+                "certificationDone": "恭喜！您已经获得了 {{certificationName}} 认证！",
+                "subtitle": "通过该证书对您的技能进行核实",
+                "subtitle_plural": "通过该证书对您的技能进行核实"
+            }
+        },
+        "pernod": {
+            "title": "我的目标。",
+            "subtitle_head1": "选择 1 个或以上多的目标，并且完成这些目标以此提高你在所选领域和话题方面的技能。",
+            "subtitle_head2": "在包括于目标中的那些模块中选择一个模块开始。",
+            "how_to": "要验证一个目标，你必须完成每个模块。我们开始吧！",
+            "button_choose_goal": "选择一个目标。",
+            "selected_goals_title": "{{goals}} 当前目标",
+            "selected_goals_title_plural": "{{goals}} 当前的目标",
+            "selected_goals_no_item": "未选中目标。请选择 1 个！",
+            "finished_goals_title": "{{goals}} 明确目标",
+            "finished_goals_title_plural": "{{goals}} 已完成目标",
+            "finished_goal_label": "{{goalLabel}} {{star}}",
+            "finished_goals_no_item": "您尚未清除任何对象。",
+            "button_module_access": "现在开始",
+            "minutes_label": "分钟",
+            "status_label": "状态：",
+            "stars_label": "{{stars}} 星星",
+            "stars_label_plural": "{{stars}} 颗星",
+            "popover": {
+                "title": "小心！",
+                "module_blocked_pre": "此模块不可用：",
+                "module_blocked_post": "{{pre}}获取前，您需要首先验证等级{{level}}",
+                "select_goal": {
+                    "title": "请选择一个目标",
+                    "available_module": "{{total}} 可用目标",
+                    "available_module_plural": "{{total}} 可用目标",
+                    "module_done": "本模块已被清除。你在实现目标的路上。",
+                    "module_blocked": "该模块还不可用。想要解锁该模块，你必须先完成基础或者高级等级。",
+                    "button_add_goal": "确认我的目标。"
+                }
+            },
+            "condition_progress": {
+                "information": "你已完成了  {{done}} / {{total}} 推荐模块。 "
+            },
+            "certification": {
+                "title": "你的目标",
+                "subtitle": "验证具有这些目标的技能",
+                "rewards": {
+                    "subtitle": "你的奖励",
+                    "see_detail": "看见",
+                    "congratulations_pre": "和我们的",
+                    "congratulations": "恭喜",
+                    "congratulations_post": "对您的所有努力"
+                },
+                "stars": {
+                    "description_pre": "我们为您提供",
+                    "description_post": "星"
+                },
+                "state": {
+                    "done": "完成",
+                    "inProgress": "进行中"
+                },
+                "condition_description": {
+                    "progress": "{{nbDone}} 完成的模块"
+                },
+                "certificationDone": "恭喜！你已经获得{{certificationName}}目标！"
+            }
+        },
+        "sgmgt": {
+            "diploma": {
+                "message": "需要熟练的所有步骤已经被项目管理意识的框架内完成"
+            }
+        },
+        "securite": {
+            "diploma": {
+                "message": "认证获得能力主题："
+            }
+        },
+        "projet": {
+            "diploma": {
+                "message": "需要熟练的所有步骤已经被项目管理意识的框架内完成"
+            }
+        },
+        "tagheuer": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "本模块尚不可用。要打开它，你必须首先通过钛或青铜级别。"
+                }
+            }
+        },
+        "tagheuercon": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "此模块尚不可用。要解锁此模块，您必须先完成“钛金牌”和“铜牌”等级。"
+                }
+            }
+        },
+        "up": {
+            "subtitle_head2": "从目标包含的等级中选择一个开始。",
+            "how_to": "想要实现一个目标，您必须完成所有等级。我们开始吧！",
+            "popover": {
+                "module_blocked_pre": "此等级不可进入：",
+                "select_goal": {
+                    "module_done": "该级别已被清除。你正以你的方式达成此目标。",
+                    "module_blocked": "此等级尚不可用。要解锁此等级，您必须先完成“基本”和“高级”等级。"
+                }
+            },
+            "certification": {
+                "condition_description": {
+                    "progress": "目标：{{count}} 项科目",
+                    "progress_plural": "目标：{{count}} 项科目"
+                }
+            }
+        }
+    }
+}

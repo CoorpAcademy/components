@@ -1,0 +1,433 @@
+{
+    "content": {
+        "types": {
+            "course": "코스",
+            "course_plural": "코스",
+            "adaptive_chapter": "적응 5' Learning",
+            "adaptive_course": "적응 과정",
+            "adaptive_course_plural": "적응 과정",
+            "cursus": "쿠르수스",
+            "cursus_plural": "cursuses",
+            "chapter": "5' Learning",
+            "chapter_plural": "5' Learning"
+        },
+        "sorts": {
+            "title": "정렬 기준:",
+            "cta": "정렬",
+            "tab": "정렬 기준",
+            "pertinence": "관련성",
+            "newest": "최신",
+            "duration": "가장 짧은"
+        },
+        "filters": {
+            "cta": "필터",
+            "tab": "필터",
+            "authors": "저자:",
+            "authorTypes": "콘텐츠 카테고리:",
+            "type": "유형:",
+            "themes": "컬렉션:",
+            "goals": "인증:",
+            "time": "시간:",
+            "learning_paths": "학습 경로:",
+            "all_authors": "모든 저자",
+            "all_author_types": "모든 카테고리",
+            "all_themes": "모든 컬렉션",
+            "all_goals": "모든 인증",
+            "all_courses": "모든 과목",
+            "microlearning": "5' Learning",
+            "all": "모든",
+            "courses": "코스",
+            "my_favorites": "내 리스트:"
+        },
+        "notification": {
+            "addFavorite": "내 리스트에 추가됨",
+            "removeFavorite": "내 리스트에서 삭제됨"
+        },
+        "search": {
+            "placeholder": "무엇을 배우고 싶습니까?"
+        },
+        "catalog": "카탈로그",
+        "result": "{{title}}: {{count}} 결과",
+        "result_plural": "{{title}}: {{count}} 결과",
+        "noresultsfound": "죄송 합니다 사용 가능한 결과",
+        "clearFilters": "리셋",
+        "recommended": "당신을 위해 권장 하는 과정을 발견:",
+        "new": "새로운"
+    },
+    "author": {
+        "socialTitle": "사회:",
+        "cardsTitle": "{{author}}에서 모든 과정",
+        "website": "웹사이트:",
+        "notFound": "저자 ({{authorRef}}) 찾을 수 없습니다",
+        "more": "저자 정보",
+        "customCustomer": "{{name}} Creation",
+        "types": {
+            "coorp": "Coorp Originals",
+            "verified": "Verified by Coorp",
+            "marketplace": "다른 사람",
+            "custom": "{{name}} Creation"
+        }
+    },
+    "unit": {
+        "duration_minutes_set": "{{m}} 분",
+        "duration_minutes_set_plural": "{{m}} 분",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}} 시간 $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}} 시간 $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "shortUnit": {
+        "duration_minutes_set": "{{m}}m",
+        "duration_minutes_set_plural": "{{m}}m",
+        "duration_minutes_with_hours_set": "{{m}}",
+        "duration_minutes_with_hours_set_plural": "{{m}}",
+        "duration_minutes_with_hours_none": "‌",
+        "duration_minutes_with_hours_none_plural": "‌",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}}h$t(shortUnit.duration_minutes_with_hours, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}}h$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "module_level": {
+        "1": "$t(global:module_level.base)",
+        "2": "$t(global:module_level.advanced)",
+        "3": "$t(global:module_level.coach)",
+        "base": "기본",
+        "advanced": "고급",
+        "coach": "코치"
+    },
+    "progression_status": {
+        "not_started": "시작 되지",
+        "in_progress": "진행 중",
+        "completed": "완료"
+    },
+    "close": "닫기",
+    "skipIntro": "건너뛰기 소개",
+    "route": {
+        "initialized": "이 디스플레이 지금 설정 됩니다.",
+        "error": {
+            "401": "더 이상 연결 되어 있어 보이지 않습니다.",
+            "402": "지불 필요",
+            "403": "이 작업을 수행할 수 없습니다.",
+            "404": "아셨습니까? 404 오류 코드는 페이지를 발견 하지 않은 것을 의미 합니다.",
+            "409": "아셨습니까? 409 오류 코드는 데이터에 발생한 충돌을 의미 합니다.",
+            "500": "아셨습니까? 500 오류 코드는 서버에서 발생한 문제를 의미 합니다.",
+            "api": "오류가 발생 했습니다. 서버는 작동 중 이지만 응용 프로그램이 제대로 작동 하지 않습니다.",
+            "default": "오류가 발생 했습니다."
+        }
+    },
+    "loading": "로딩중입니다...",
+    "htmlTitle": "CoorpAcademy",
+    "hero": {
+        "cta": "학습 시작하기"
+    },
+    "cookiesDisabled": {
+        "title": "쿠키가 비활성 상태입니다",
+        "error": "쿠키를 비활성화 또는 차단. 제발 다시 사용 하거나 당신의 AdBlocker 구성"
+    },
+    "chatbot": {
+        "welcome": {
+            "default": "Welcome on Coorpacademy. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin.",
+            "facebook": "Hello and welcome to Coorpacademy! I can ask you question of our online courses. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin. If you're looking for some other informations you can contact us at communication@coorpacademy.com."
+        },
+        "ask_question": {
+            "repeat_header_1": "확실히! {{question}}입니다.",
+            "repeat_header_2": "물론! {{question}}입니다.",
+            "repeat_header_3": "그래! 여기에 다시 질문은: {{question}}.",
+            "repeat_header_4": "문제 없어요. {{question}}입니다.",
+            "repeat_header_5": "나는 반복 한다: {{question}}."
+        },
+        "next_action": {
+            "question_next": "'다음 질문'에 대 한 질문을 계속.",
+            "answer_next": "대답은 무엇입니까?",
+            "wrong_answer_next": "일부 설명 또는 '다음' 계속 ' 왜' 라고."
+        },
+        "answer_question": {
+            "is_valid": {
+                "title_1": "브라 보!",
+                "title_2": "정확해요!",
+                "title_3": "좋은 답변을!",
+                "title_4": "예!",
+                "title_5": "잘 했어요!"
+            },
+            "is_invalid": {
+                "title_1": "천만에요! 대답은: {{answer}}.",
+                "title_2": "맞습니다! 대답은: {{answer}}.",
+                "title_3": "나쁜 대답! 말해야 한다: {{answer}}.",
+                "title_4": "아야! 정답은: {{answer}}.",
+                "title_5": "미안 하지만 그건 바로! 정답은: {{answer}}."
+            }
+        },
+        "error": {
+            "not_found": "미안 해요, 내가 어떤 질문을 발견 하지 않았다. 다른 주제와 시도 하십시오."
+        }
+    },
+    "demo": {
+        "url": "https://www.coorpacademy.com/en/request-a-demo/?utm_source=Up&utm_medium={{medium}}"
+    },
+    "custom": {
+        "7steps": {
+            "module_level": {
+                "base": "Why",
+                "advanced": "Empathy",
+                "coach": "Show me"
+            }
+        },
+        "loreal-retail-v2": {
+            "module_level": {
+                "base": "왜",
+                "advanced": "공감",
+                "coach": "보여 주세요"
+            }
+        },
+        "accueil": {
+            "htmlTitle": "MOOC Accueil France"
+        },
+        "achat-habitat": {
+            "htmlTitle": "Mooc Achat Habitat",
+            "module_level": {
+                "base": "소개",
+                "advanced": "프로",
+                "coach": "코치"
+            }
+        },
+        "adeo": {
+            "htmlTitle": "Adeo Training CPL"
+        },
+        "auchan-retail": {
+            "htmlTitle": "Auchan Retail QUIZZ"
+        },
+        "architas-powercircle": {
+            "htmlTitle": "POWERCIRCLE | FOCUS"
+        },
+        "bnp": {
+            "htmlTitle": "MOOC BNP Paribas Factor"
+        },
+        "bestwesternuniversity": {
+            "htmlTitle": "Best Western University"
+        },
+        "capgemini": {
+            "htmlTitle": "COOC"
+        },
+        "cd78": {
+            "htmlTitle": "MOOC rSa"
+        },
+        "chanel": {
+            "htmlTitle": "iJoinCHANEL"
+        },
+        "clarins-digital": {
+            "htmlTitle": "Clarins Digital"
+        },
+        "crt": {
+            "htmlTitle": "CRT"
+        },
+        "coravin": {
+            "htmlTitle": "Coravin"
+        },
+        "corporateonlineopencourse": {
+            "module_level": {
+                "base": "기본 사항"
+            },
+            "progression_status": {
+                "not_started": "등록",
+                "in_progress": "등록",
+                "completed": "완료"
+            }
+        },
+        "dolce": {
+            "htmlTitle": "개인"
+        },
+        "eacampus": {
+            "htmlTitle": "EAcampus"
+        },
+        "ecolenumerique-sncf": {
+            "content": {
+                "filters": {
+                    "goals": "제다이 배지:"
+                }
+            }
+        },
+        "edenred-talents": {
+            "htmlTitle": "Edenred Talents",
+            "module_level": {
+                "coach": "대사"
+            }
+        },
+        "ganprevoyance": {
+            "content": {
+                "filters": {
+                    "goals": "우주:"
+                }
+            }
+        },
+        "faurecia": {
+            "htmlTitle": "Learning Lab"
+        },
+        "gdf": {
+            "htmlTitle": "WeTransform"
+        },
+        "gdfec": {
+            "htmlTitle": "기업 및 지역 사회"
+        },
+        "hr-ac": {
+            "htmlTitle": "HR Academy"
+        },
+        "ilearn": {
+            "htmlTitle": "CHANEL iLearn",
+            "module_level": {
+                "1": "필수",
+                "2": "고급",
+                "3": "전문가",
+                "base": "필수",
+                "advanced": "고급",
+                "coach": "전문가"
+            }
+        },
+        "learnnrj": {
+            "htmlTitle": "에너지를 배웁니다"
+        },
+        "logisacademie": {
+            "htmlTitle": "Logis Académie"
+        },
+        "linxea": {
+            "htmlTitle": "LinXea Academy"
+        },
+        "manpower": {
+            "htmlTitle": "리더 효과",
+            "module_level": {
+                "1": "기초,",
+                "2": "전문가",
+                "3": "코치",
+                "base": "기초",
+                "advanced": "전문가",
+                "coach": "코치"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "htmlTitle": "Digital MOOC ATF"
+        },
+        "mooc-socgen": {
+            "htmlTitle": "Mooc Socgen",
+            "module_level": {
+                "base": "레벨 1",
+                "advanced": "레벨 2",
+                "coach": "레벨 3"
+            }
+        },
+        "natixis": {
+            "htmlTitle": "Think Digital"
+        },
+        "nespresso": {
+            "module_level": {
+                "3": "전문가",
+                "coach": "전문가"
+            }
+        },
+        "nespressodigital": {
+            "htmlTitle": "디지털 아카데미"
+        },
+        "paca": {
+            "htmlTitle": "MOOC Paca"
+        },
+        "online-academy-klubschule": {
+            "module_level": {
+                "base": "초급",
+                "advanced": "고급",
+                "coach": "전문가"
+            }
+        },
+        "petite": {
+            "htmlTitle": "Chanel Petite Onboarding",
+            "module_level": {
+                "base": "모듈 1",
+                "advanced": "모듈 2",
+                "coach": "모듈 3"
+            }
+        },
+        "quizz-auchan": {
+            "htmlTitle": "QUIZZ AUCHAN RETAIL"
+        },
+        "renaultrh": {
+            "module_level": {
+                "base": "1 단계",
+                "advanced": "2 단계",
+                "coach": "3 단계"
+            }
+        },
+        "renaultcare": {
+            "module_level": {
+                "base": "기본 사항"
+            }
+        },
+        "rexel": {
+            "htmlTitle": "Rexel에 의해 고객 중심"
+        },
+        "schneider": {
+            "module_level": {
+                "base": "시즌 1",
+                "advanced": "시즌 2",
+                "coach": "시즌 3"
+            }
+        },
+        "tagheuer": {
+            "module_level": {
+                "base": "티타늄",
+                "advanced": "브론즈",
+                "coach": "실버"
+            }
+        },
+        "tagheuercon": {
+            "module_level": {
+                "base": "티타늄",
+                "advanced": "브론즈",
+                "coach": "실버"
+            }
+        },
+        "theglenlivet-academy": {
+            "htmlTitle": "The Glenlivet | ザ・グレンリベット アカデミー"
+        },
+        "tourism": {
+            "htmlTitle": "Tourism Academy"
+        },
+        "tourismdigital": {
+            "htmlTitle": "디지털 관광"
+        },
+        "tourisme-hautsdefrance": {
+            "htmlTitle": "Tourisme Hauts-de-France"
+        },
+        "yahoo": {
+            "module_level": {
+                "base": "신인",
+                "advanced": "중간",
+                "coach": "프로"
+            }
+        },
+        "ey": {
+            "htmlTitle": "디지털 아카데미"
+        },
+        "thelem": {
+            "htmlTitle": "DigiPass#"
+        },
+        "letsgetdigital": {
+            "htmlTitle": "Let's get digital 2.0",
+            "module_level": {
+                "base": "LEARNER",
+                "advanced": "EXPERT",
+                "coach": "MASTER"
+            }
+        },
+        "who": {
+            "htmlTitle": "QualityRights",
+            "module_level": {
+                "advanced": "사례 분석"
+            }
+        },
+        "triptorelin": {
+            "htmlTitle": "Triptorelin"
+        }
+    }
+}

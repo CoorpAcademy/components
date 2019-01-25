@@ -1,0 +1,25 @@
+{
+    "notCompatible": {
+        "os": "Verze operačního systému je pro přístup na platformu příliš stará. Doporučujeme aktualizaci.",
+        "explanation": "Může být zapnut kompatibilní pohled prohlížeče. Více informací o jeho vypnutí",
+        "explanationLink": "https://static.coorpacademy.com/content/help/compatibility_view/Help_Compatibility_view_EN.pdf",
+        "explanationLinkLabel": "zde.",
+        "header": "Verze prohlížeče je pro přístup k platformě příliš stará.",
+        "suggestion_text": "BrowseHappy",
+        "suggestion_href": "http://browsehappy.com",
+        "suggestion_text_pre": "Jděte na",
+        "suggestion_text_post": "více informací o prohlížeči Evergreen.",
+        "different_user_agent": "Byly nalezeni dva různí uživatelští agenti, což má za následek omezený přístup k platformě."
+    },
+    "custom": {
+        "fff": {
+            "notCompatible": {
+                "os": "Verze OS je příliš stará pro přístup platformy. Doporučujeme aktualizaci.",
+                "suggestion_text": "Chrom",
+                "suggestion_href": "https://www.Google.com/intl/fr/Chrome/Browser/",
+                "suggestion_text_pre": "Doporučené ke stažení",
+                "suggestion_text_post": "."
+            }
+        }
+    }
+}

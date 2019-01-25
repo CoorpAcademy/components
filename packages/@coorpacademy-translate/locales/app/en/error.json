@@ -1,0 +1,56 @@
+{
+    "http": {
+        "401": "Unauthorized access",
+        "403": "Forbidden access",
+        "404": "Page not found",
+        "412": "Precondition failed",
+        "500": "Internal server error",
+        "503": "Service unavailable",
+        "500_message_pre": "The URL",
+        "500_message": "had the following error",
+        "500_message_post": ".",
+        "503_message": "The service is unavailable. Please try back shortly.",
+        "404_message_pre": "The URL",
+        "404_message": "did not resolve to a route.",
+        "412_message": "The condition specified by one or more If... headers in the request evaluated to false.",
+        "409_progressions_content_conflict": "It seems you've already answered this question during the current session. Do you have it open on another tab somewhere else, perhaps?<br/>Click on 'Reload Page' below to refresh your data, we'll load the right question for you."
+    },
+    "infos": "Info",
+    "auth": {
+        "header": "Oops! {{status}}",
+        "reload": "Log in"
+    },
+    "modal": {
+        "header": "Error {{status}}",
+        "body": {
+            "title": "Please note the information below and provide it to our technical support",
+            "url": "Url: {{err}}",
+            "id": "Id: {{id}}",
+            "message": "{{message}}"
+        },
+        "footer": {
+            "assistance": "Assistance",
+            "back_home": "Return Home",
+            "reload": "Reload Page",
+            "continue": "Continue"
+        },
+        "assistance": "Report an error"
+    },
+    "defaultMessage": "An error has occured. We apologize. Please retry later",
+    "achievementContext": "It seems that this module has already been started. Please reload page to continue the module.",
+    "custom": {
+        "chanel": {
+            "http": {
+                "412_message": "Missing email address. Please contact your administrator or sign up here."
+            }
+        },
+        "ilearn": {
+            "http": {
+                "412_message": "Missing email address. Please contact your administrator or sign up here."
+            }
+        },
+        "up": {
+            "achievementContext": "It seems that this level has already been started. Please reload page to continue the level."
+        }
+    }
+}

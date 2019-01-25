@@ -1,0 +1,31 @@
+{
+    "rankPos": "&nbsp;",
+    "rankPos_plural": "&nbsp;",
+    "title": "Thứ hạng của tôi",
+    "title_caps": "Thứ hạng của tôi",
+    "subtitle_head": "Xem vị trí của bạn trong tương quan với tốp 20 người đạt sao hàng đầu.",
+    "subtitle_core_pre": "Bạn được xếp hạng",
+    "subtitle_core_post": "trong số tất cả những người học!",
+    "subtitle_tail": "Hãy giữ nhịp độ để cải thiện điểm số của bạn hơn nữa.",
+    "subtitle_no_rank": "Hoàn thành thêm các mô-đun để leo lên trong bảng xếp hạng.",
+    "custom": {
+        "bnp": {
+            "subtitle_head": "Xem vị trí của bạn trong mối tương quan với 20 Factior ngôi sao dẫn đầu"
+        },
+        "gdf": {
+            "subtitle_tail": "Vào cuối Mùa thứ nhất, 20 nhân viên giỏi nhất trong bảng xếp hạng chung sẽ được ủy ban biên tập mời chọn nội dung chủ đề cho mùa WeTransform tiếp theo."
+        },
+        "gdfec": {
+            "subtitle_tail": "Vào cuối Mùa 1, 20 nhân viên hàng đầu trong bảng xếp hạng chung sẽ được mời vào ủy ban biên tập để chọn nội dung chủ đề cho mùa WeTransform tiếp theo."
+        },
+        "up": {
+            "subtitle_no_rank": "Hoàn thành thêm trình độ để lên hạng."
+        },
+        "yahoo": {
+            "subtitle_tail": "&nbsp;"
+        },
+        "linxea": {
+            "subtitle_head": "Hãy nhìn vị trí của bạn so với 20 ngôi sao kiếm tiền nhiều nhất"
+        }
+    }
+}

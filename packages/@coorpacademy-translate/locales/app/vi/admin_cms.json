@@ -1,0 +1,120 @@
+{
+    "cms": {
+        "add": "Thêm Mục",
+        "title": "Thêm một trang mới",
+        "lang": "Ngôn ngữ Đầu vào:",
+        "name": "Tên:",
+        "scope": "Chu vi:",
+        "target": {
+            "title": "Mục tiêu:",
+            "empty": "Không có Mục tiêu",
+            "discipline": "Môn học",
+            "learningTree": "Danh mục"
+        },
+        "type": "Loại:",
+        "order": "Đơn hàng:",
+        "active": "Hoạt động:",
+        "populations": "Dân số:",
+        "rmd": "Đánh dấu",
+        "save": "Lưu",
+        "delete": "Xóa",
+        "test": "Kiểm tra",
+        "deploy": "Gửi",
+        "delete_confirm": "Bạn có chắc muốn xóa trang này?",
+        "markdown": "Markdown Syntax (Cú pháp Markdown)",
+        "quick": "Tham khảo nhanh",
+        "path": "Hậu tố URL*:",
+        "full": "Trọn bộ tài liệu",
+        "preview": "Xem trước",
+        "edit": "Chỉnh sửa",
+        "notifications": "Thông báo Tuỳ chỉnh",
+        "content": "Nội dung:",
+        "config": "Global Setup",
+        "targetBlank": "Mở trong Thẻ Mới:",
+        "forum_xid": "Id Diễn đàn",
+        "navigation": {
+            "label": "Để khám phá khối:",
+            "none": "Trang không bị chặn"
+        },
+        "provider": {
+            "none": "Mọi người"
+        },
+        "status": {
+            "ok": {
+                "title": "Thành công",
+                "save": "Trang của bạn đã được lưu thành công",
+                "del": "Trang của bạn đã được xóa thành công"
+            },
+            "test": {
+                "title": "Công việc đã bắt đầu. Thông báo sẽ sớm hiển thị."
+            },
+            "deploy": {
+                "title": "Công việc đã bắt đầu. Theo dõi tiến trình của nó tại trang Công việc."
+            },
+            "ko": {
+                "title": "Lỗi",
+                "save": "Có lỗi xảy ra khi lưu: {{err}}",
+                "del": "Xảy ra lỗi khi xóa: {{err}}"
+            }
+        },
+        "title_content": "Tiêu đề:",
+        "category": "Hạng mục",
+        "select_all": "Chọn tất cả",
+        "language_info": "Phải điền mỗi ngôn ngữ đầu vào cho mỗi quốc gia được kích hoạt",
+        "imageURL": "Đường dẫn hình ảnh",
+        "page": "Trang:",
+        "link": "Đường link:",
+        "link_placeholder": "(vd: http://www.google.com)",
+        "partner": "Đối tác:",
+        "discipline_ref": "discipline.ref",
+        "cancel": "Hủy",
+        "date": "Ngày:",
+        "image": "Hình ảnh:",
+        "upload": "Tải lên",
+        "modify": "Sửa đổi",
+        "countries": "Quốc gia"
+    },
+    "success": "Các thay đổi của bạn đã được lưu.",
+    "error": {
+        "mandatory": "Trường bị Thiếu"
+    },
+    "tabs": {
+        "pages": "Trang",
+        "news": "Tin tức",
+        "notification": "Thông báo Tùy chỉnh"
+    },
+    "page": {
+        "name": "{{name}}"
+    },
+    "notification": {
+        "new": "Thông báo này chưa được tạo. Hãy điền và lưu biểu mẫu để tạo thông báo.",
+        "name": "{{name}}",
+        "provider": "Nhà cung cấp :",
+        "expires": "Ngày hết hạn*:",
+        "message": "Tin nhắn",
+        "link": {
+            "show": "Hiện Nút \"Thêm Thông tin\":",
+            "url": "Đường dẫn:",
+            "target": "Mở Đường link trong Trang Mới:"
+        },
+        "status": {
+            "title": "Trạng thái",
+            "created": "Đã tạo",
+            "sending": "Đang gửi: Một công việc đang tạo thông báo để gửi đến người dùng.",
+            "tested": "Đã kiểm tra",
+            "sent": "Đã gửi đến những người dùng được chọn.",
+            "pending": {
+                "deploy": "Đang gửi yêu cầu để tạo thông báo cho người dùng được chọn.",
+                "testing": "Chờ thông báo hiển thị.",
+                "delete": "Vui lòng đợi, thông báo sẽ bị xóa.",
+                "save": "Vui lòng đợi, thông báo đang được lưu"
+            },
+            "ok": {
+                "save": "Đã lưu Thông báo",
+                "testing": "Đã kiểm tra",
+                "deploy": "Công việc đã được chạy để gửi thông báo cho người dùng"
+            }
+        }
+    },
+    "text": "<h2>Cơ bản</h2> <p>\n    Ngắt đoạn: Kết thúc dòng với hai khoảng trắng<br />\n    Chèn html trực tiếp: Bắt đầu dòng với 4 khoảng trắng<br />\n</p> <h2>Tiêu đề</h2> <p>\n    # H1<br />\n    ## H2<br />\n    ### H3<br />\n</p> <h2>Nhấn mạnh</h2> <p>\n    Chữ in nghiêng: *hoa thị* hoặc _gạch dưới_.<br />\n    Chữ in đậm:  **hoa thị đôi** hoặc __gạch dưới đôi__.<br />\n</p> <h2>Danh sách</h2> <p>\n    1. Mục thứ nhất trong danh sách<br />\n    2. Một mục khác<br />\n    ⋅⋅* Danh sách phụ không theo thứ tự.<br />\n    1. Các con số thực không quan trọng, chỉ là con số<br />\n    ⋅⋅1. Danh sách phụ theo thứ tự<br />\n    4. Và một mục khác nữa.<br />\n    <br />\n    ⋅⋅⋅Bạn có thể có các đoạn văn được thụt lề đúng cách trong các mục của danh sách. Chú ý dòng trắng bên trên, và các khoảng trắng ở phía trước (ít nhất là một khoảng trắng, nhưng ở đây chúng tôi dùng 3 khoảng trắng để giống với ngôn ngữ đánh dấu Markdown thô).<br />\n    <br />\n    ⋅⋅⋅Để có ngắt dòng chứ không phải là ngắt đoạn, bạn cần dùng hai khoảng trắng phía sau.⋅⋅<br />\n    ⋅⋅⋅Chú ý rằng dòng này đứng riêng, nhưng trong cùng một đoạn văn.⋅⋅<br />\n    ⋅⋅⋅(Điều này ngược với cách ngắt dòng GFM điển hình, khi mà khoảng trắng phía sau không cần thiết.)<br />\n    <br />\n    * Danh sách không theo thứ tự có thể dùng dấu hoa thị<br />\n    - Hoặc dấu trừ<br />\n    + Hoặc dấu cộng<br />\n</p> <h2>Đường dẫn</h2> <p>\n    [Tôi là một đường dẫn kiểu nội dòng](https://www.google.com)<br /><br />\n    [Tôi là một đường dẫn kiểu nội dòng với tiêu đề](https://www.google.com \"Trang chủ Google\")<br /><br />\n    [Tôi là một đường dẫn kiểu tham chiếu][Văn bản tham chiếu không phân biệt chữ hoa, chữ thường]<br /><br />\n    [Tôi là một tham chiếu tương đối đến một tập tin lưu trữ](../blob/master/LICENSE)<br /><br />\n    [Bạn có thể sử dụng số cho định nghĩa đường dẫn kiểu tham chiếu][1]<br /><br />\n    Hoặc để trống và sử dụng [chính văn bản đường dẫn]<br /><br />\n    Một số văn bản để cho biết các đường dẫn tham chiếu có thể theo sau đó.\n</p> <h2>Neo</h2> <p>\n    <h3>Đặt neo</h3>\n    Bạn nên sử dụng cú pháp HTML để tạo id trên thẻ nơi mà bạn muốn đặt neo.<br/></br>\n    Ví dụ:</br>\n    Nếu bạn muốn đặt neo ở thẻ H1, bạn nên dùng: <b>&lt;h1 id=\"my_anchor\"&gt;Văn bản Neo&lt;/h1&gt;</b>\n    <br/></br>\n    <h3>Sử dụng neo</h3>\n    Với thẻ <b>a</b>, bạn nên đặt giá trị của href giống thế này: <b>/pages/[url_suffix_page]#[the_anchor]</b>.<br/><br/>\n    <li><b>url_suffix_page</b> của trang nơi neo được đặt. Đây là văn bản đầu vào đầu tiên được điền khi một trang được tạo để tạo ra một url.</li>\n    <li><b>the_anchor</b> giá trị id của thẻ nơi đặt neo.</li>\n    <br/></br>\n    Ví dụ:</br>\n    Để sử dụng neo được đặt trước đó, chúng ta nên sử dụng: <b>&lt;a href=\"/pages/page_url#my_anchor\"&gt;Văn bản Đường dẫn&lt;/a&gt;</b></br>\n    or <b>[Văn bản Đường dẫn](/pages/page_url#my_anchor)</b>\n</p> <h2>Hình ảnh</h2> <p>\n    Đây là logo của chúng tôi (di chuột để xem văn bản tiêu đề):<br /><br />\n    Kiểu nội dòng:<br />\n    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png \"Văn bản Tiêu đề Logo 1\")<br />\n    <br />\n    Kiểu tham chiếu:<br />\n    ![alt text][logo]<br />\n</p> <h2>Bảng</h2> <p>\n    Có thể dùng dấu hai chấm để căn chỉnh các cột<br />\n    <br />\n    | Bảng        | Thật           | Ngầu  |<br />\n    | ------------- |:-------------:| -----:|<br />\n    | cột 3 được      | căn phải | $1600 |<br />\n    | cột 2 được      | căn giữa      |   $12 |<br />\n    | đường sọc | thật gọn      |    $1 |<br />\n    <br />\n    Các dấu ở bên ngoài (|) không bắt buộc, và bạn không cần phải làm cho ngôn ngữ đánh dấu Markdown thô trông đẹp mắt. Bạn cũng có thể sử dụng Markdown nội dòng.<br />\n    <br />\n    Markdown | Ít | Đẹp mắt<br />\n    --- | --- | ---<br />\n    *Nhưng* | `hiển thị` | **đẹp**<br />\n    1 | 2 | 3<br />\n</p> <h2>HTML Nội dòng</h2> <p> <dl>\n    <dt>Danh sách định nghĩa</dt><br />\n    <dd>Là điều người ta đôi khi dùng.</dd><br /><br />\n\n    <dt>Markdown trong HTML</dt><br />\n    <dd>Thì *không* hoạt động **tốt** lắm. Hãy sử dụng <em>các thẻ</em> HTML.</dd><br />\n</dl> </p>"
+}

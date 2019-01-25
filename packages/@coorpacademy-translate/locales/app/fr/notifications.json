@@ -1,0 +1,63 @@
+{
+    "battle": {
+        "incoming": "Vous avez {{count}} demande de battle en attente",
+        "incoming_plural": "Vous avez {{count}} demandes de battle en attente",
+        "you_win": "Vous avez gagné la battle",
+        "you_lose": "Vous avez perdu la battle"
+    },
+    "badge": {
+        "won": "Vous avez gagné un badge {{name}}"
+    },
+    "module": {
+        "won": "Vous avez réussi un module"
+    },
+    "reward": {
+        "won": "Bravo ! Vos efforts sont récompensés !"
+    },
+    "coach": {
+        "unlocked": "Vous devenez coach"
+    },
+    "incoming": "Vous avez une nouvelle notification",
+    "chatrequest": "Demande de chat",
+    "goal": {
+        "progress": "Vous avez progressé dans votre certification",
+        "select": "Vous avez sélectionné une certification",
+        "reward": "Vous avez obtenu une certification"
+    },
+    "forum": "Un utilisateur a répondu à votre question",
+    "new_version": {
+        "title": "Nouvelle version",
+        "message": "Une mise à jour technique vient d'être publiée. Cliquez sur « Rafraîchir » pour un fonctionnement correct.",
+        "action": "Rafraîchir"
+    },
+    "welcome": "Bienvenue <b>{{user}}</b>,  vous avez désormais accès à tous les cours.",
+    "personal_note": "Votre mémo a bien été envoyé à votre adresse email.",
+    "bonusStars": "Bravo ! Vous avez gagné {{stars}} étoiles supplementaires !",
+    "rewardStars": "Félicitations ! Vous avez gagné {{stars}} étoiles supplémentaires !",
+    "totem": {
+        "header": "Une nouvelle partie de Totem commence !",
+        "body": "Cliquez ici pour la rejoindre"
+    },
+    "custom": {
+        "armeedeterre": {
+            "battle": {
+                "incoming": "Vous avez {{count}} demande de bataille en attente",
+                "incoming_plural": "Vous avez {{count}} demandes de batailles en attente",
+                "you_win": "Vous avez gagné la bataille",
+                "you_lose": "Vous avez perdu la bataille"
+            }
+        },
+        "pernod": {
+            "goal": {
+                "progress": "Vous avez modifié un objectif",
+                "select": "Vous avez sélectionné un objectif",
+                "reward": "Vous avez débloqué un objectif"
+            }
+        },
+        "up": {
+            "module": {
+                "won": "Vous avez réussi un niveau"
+            }
+        }
+    }
+}

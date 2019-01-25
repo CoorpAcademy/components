@@ -1,0 +1,90 @@
+{
+    "disciplines": {
+        "book_demo": "Boek een demo",
+        "payment_required": "coorpacademy abonnement",
+        "free_start": "begin met leren"
+    },
+    "modules": {
+        "button": {
+            "start": "Start niveau {{name}}",
+            "access": "Ga naar niveau {{name}}",
+            "continue": "Ga verder met niveau {{name}}",
+            "again": "Niveau {{name}} overdoen",
+            "locked": "Module vergrendeld",
+            "payment_required": "Abonneren om verder te gaan"
+        },
+        "skill": {
+            "valid": "Dankzij deze module kun je het volgende doen:",
+            "invalid": "Aan het einde van deze module kun je het volgende:"
+        },
+        "chapters": {
+            "title": "Hoofdstukken"
+        },
+        "stars": "Totaal aantal sterren verdiend"
+    },
+    "chapters": {
+        "button": {
+            "start": "Start 5' Learning",
+            "access": "Toegang 5' Learning",
+            "continue": "Ga verder met 5' Learning",
+            "again": "5' Learning opnieuw starten",
+            "locked": "5' Learning vergrendeld"
+        }
+    },
+    "presentation": {
+        "total": "{{nb}}",
+        "total_post": "module",
+        "total_post_plural": "modules",
+        "video_title": "Door cursusmateriaal bladeren",
+        "popularity": "Populariteit:",
+        "trainer": "Trainer",
+        "trainer_plural": "Trainers",
+        "by": "By",
+        "and": "&"
+    },
+    "author": "Deze cursus is gemaakt door:",
+    "disciplineNotFound": "Geen cursus gevonden met referentie {{disciplineRef}}",
+    "forbidden": {
+        "unknown_in_group": "Je hebt geen toegang tot deze inhoud",
+        "previous_level": "Het vorige niveau moet worden voltooid alvorens je dit niveau kan proberen",
+        "conditions": "De volgende cursussen moeten worden voltooid vooraleer je deze kan proberen: {{contents}}",
+        "subscription_required": "Coorpacademy-abonnement is nodig om te starten van deze inhoud."
+    },
+    "custom": {
+        "up": {
+            "disciplines": {
+                "payment_required": "coorpacademy abonnement"
+            },
+            "modules": {
+                "button": {
+                    "locked": "Niveau vergrendeld"
+                },
+                "skill": {
+                    "valid": "Dankzij dit niveau ben je in staat om te:",
+                    "invalid": "Aan het einde van dit niveau ben je in staat om te:"
+                }
+            },
+            "presentation": {
+                "total_post": "niveau",
+                "total_post_plural": "niveaus"
+            }
+        },
+        "silca": {
+            "modules": {
+                "skill": {
+                    "invalid": "Aan het einde van deze module, zal je in staat zijn je vermogen te meten om te:"
+                }
+            }
+        },
+        "mooc-socgen": {
+            "modules": {
+                "button": {
+                    "start": "Start {{name}}",
+                    "access": "Ga naar {{name}}",
+                    "continue": "Ga verder {{name}}",
+                    "again": "Opnieuw {{name}}"
+                }
+            }
+        }
+    }
+}

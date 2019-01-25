@@ -1,0 +1,201 @@
+{
+    "title": "我的證書。",
+    "subtitle_head1": "選擇 1 或更多證照並完成他們來提升你在選擇的領域或主題上的技巧。",
+    "subtitle_head2": "開始一個認證單元。",
+    "how_to": "欲驗證認證，您必須先完成每個單元。讓我們開始吧！",
+    "button_choose_goal": "選擇一項認證。",
+    "selected_goals_title": "{{goals}}目前認證",
+    "selected_goals_title_plural": "{{goals}} 目前的證書",
+    "selected_goals_no_item": "尚未選擇證書。請選擇 1 個！",
+    "finished_goals_title": "{{goals}} 通過的認證",
+    "finished_goals_title_plural": "{{goals}}清除認證",
+    "finished_goal_label": "{{goalLabel}} {{star}}",
+    "finished_goals_no_item": "你尚未完成任何認證。",
+    "button_module_access": "現在就開始",
+    "minutes_label": "分鐘",
+    "status_label": "狀態：",
+    "stars_label": "{{stars}} 星星",
+    "stars_label_plural": "{{stars}} 星星",
+    "popover": {
+        "title": "小心！",
+        "module_blocked_pre": "這個模組不可使用：",
+        "module_blocked_post": "{{pre}}要達成它，您必須先驗證層級{{level}}",
+        "select_goal": {
+            "title": "請選擇一項認證",
+            "available_module": "{{total}}個可用認證",
+            "available_module_plural": "{{total}}個可用認證",
+            "module_done": "已通過此模組。你在向驗證認證前進了。",
+            "module_blocked": "此學程尚未開放。若要解鎖此學程，請先完成基礎級與進階級。",
+            "button_add_goal": "確認我的認證"
+        }
+    },
+    "condition_progress": {
+        "information": "你完成了 {{total}} 之中的 {{done}} 個提出的模組。"
+    },
+    "certification": {
+        "title": "你的證書",
+        "title_plural": "您的證書",
+        "subtitle": "用這份證書驗證您的技能",
+        "subtitle_plural": "透過這些證書認證你的技能",
+        "rewards": {
+            "subtitle": "您的獎勵",
+            "see_detail": "查看詳情",
+            "congratulations": "祝賀您的成功",
+            "you_can_win": "獲勝",
+            "download_resource": "點此下載",
+            "see_diploma": "看文憑",
+            "access_your_diploma": "取得你的文憑"
+        },
+        "stars": {
+            "description_pre": "取得",
+            "description_post": "星"
+        },
+        "state": {
+            "done": "完成！",
+            "inProgress": "進行中"
+        },
+        "condition_description": {
+            "progress": "目標：{{count}} 模組",
+            "progress_plural": "目標：{{count}} 個模組"
+        },
+        "certificationDone": "祝賀！您已獲得 {{certificationName}} 認證!"
+    },
+    "diploma": {
+        "certificate": "證書",
+        "date": "日期：{{date}}",
+        "message": "已完成與此證書相關的所有模塊："
+    },
+    "custom": {
+        "ecolenumerique-sncf": {
+            "certification": {
+                "title": "絕地徽章",
+                "title_plural": "絕地徽章",
+                "certificationDone": "祝賀！你已經獲得了 {{certificationName}} 徽章!",
+                "subtitle": "在這裡驗證你的絕地武士徽章",
+                "subtitle_plural": "在這裡驗證你的絕地武士徽章"
+            }
+        },
+        "ganprevoyance": {
+            "certification": {
+                "title": "宇宙",
+                "title_plural": "宇宙",
+                "certificationDone": "祝賀！你已經驗證了 {{certificationName}} 宇宙!",
+                "subtitle": "在這裡驗證你的宇宙",
+                "subtitle_plural": "在這裡驗證你的宇宙"
+            }
+        },
+        "cnp": {
+            "certification": {
+                "title": "證書",
+                "title_plural": "證書",
+                "certificationDone": "祝賀！您已經驗證了 {{certificationName}} 證書!",
+                "subtitle": "在此處驗證您的證書",
+                "subtitle_plural": "在此處驗證您的證書"
+            }
+        },
+        "pernod": {
+            "title": "我的目標。",
+            "subtitle_head1": "選擇一個以上的目標，完成目標，在所選領域及主題提升你的技能。",
+            "subtitle_head2": "在包含在目標中的模組之間選一個開始。",
+            "how_to": "要證實目標，你必須完成每一個模組。開始吧！",
+            "button_choose_goal": "選擇目標",
+            "selected_goals_title": "{{goals}} 現在的目標",
+            "selected_goals_title_plural": "{{goals}} 當前目標",
+            "selected_goals_no_item": "未選擇目標。請選擇一個！",
+            "finished_goals_title": "{{goals}} 已清除的目標",
+            "finished_goals_title_plural": "{{goals}}  達成目標",
+            "finished_goal_label": "{{goalLabel}} {{star}}",
+            "finished_goals_no_item": "您還沒有清除任何目標。",
+            "button_module_access": "現在開始",
+            "minutes_label": "分鐘",
+            "status_label": "狀態：",
+            "stars_label": "{{stars}}星星",
+            "stars_label_plural": "{{stars}} 星星",
+            "popover": {
+                "title": "小心！",
+                "module_blocked_pre": "本單元不開放：",
+                "module_blocked_post": "{{pre}} 要實現它，你必須先驗證級別 {{level}}",
+                "select_goal": {
+                    "title": "請選擇一個目標",
+                    "available_module": "{{total}} 可用目標",
+                    "available_module_plural": "{{total}} 可使用的目標",
+                    "module_done": "這個模組已被完成。你正在邁向達到目標的陸上了",
+                    "module_blocked": "此模組尚不可使用。要解鎖它，你必須先通過基本或進階級別。",
+                    "button_add_goal": "確認我的目標。"
+                }
+            },
+            "condition_progress": {
+                "information": "您已完成 {{done}} 個建議模組中的 {{total}} 個模組。"
+            },
+            "certification": {
+                "title": "你的目標",
+                "subtitle": "使你達成目標的技能生效",
+                "rewards": {
+                    "subtitle": "您的獎勵",
+                    "see_detail": "查看詳情",
+                    "congratulations_pre": "以及我們的",
+                    "congratulations": "恭喜",
+                    "congratulations_post": "為了您所有的努力"
+                },
+                "stars": {
+                    "description_pre": "我們要給你",
+                    "description_post": "星星"
+                },
+                "state": {
+                    "done": "完成",
+                    "inProgress": "進行中"
+                },
+                "condition_description": {
+                    "progress": "{{nbDone}} 已完成模組"
+                },
+                "certificationDone": "恭喜！您已達到{{certificationName}}目標！"
+            }
+        },
+        "sgmgt": {
+            "diploma": {
+                "message": "要求的所有精通步驟都已在計畫管理意識的框架內完成"
+            }
+        },
+        "securite": {
+            "diploma": {
+                "message": "已完成與此證書相關的所有模塊："
+            }
+        },
+        "projet": {
+            "diploma": {
+                "message": "所有必要的精通技能步驟都已在計畫管理意識的架構內完成了"
+            }
+        },
+        "tagheuer": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "此模組尚無法使用。要打開它之前你首先必須完成鈦金與青銅等級。"
+                }
+            }
+        },
+        "tagheuercon": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "本單元尚不開放。欲解鎖之，您必須完成鈦或銅級。"
+                }
+            }
+        },
+        "up": {
+            "subtitle_head2": "從包含在目標中的其中一個等級開始。",
+            "how_to": "為了證實目標，你必須完成每一個等級。開始吧！",
+            "popover": {
+                "module_blocked_pre": "本級別不開放：",
+                "select_goal": {
+                    "module_done": "此級已經通過。你正在朝達成目標前進。",
+                    "module_blocked": "此等級尚不可用。欲解鎖它，您必須先完成基礎或進階等級。"
+                }
+            },
+            "certification": {
+                "condition_description": {
+                    "progress": "目標：{{count}} 學科",
+                    "progress_plural": "目標：{{count}} 學科"
+                }
+            }
+        }
+    }
+}

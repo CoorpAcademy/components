@@ -1,0 +1,392 @@
+{
+    "welcome": "哈囉！",
+    "goodby": "再見！",
+    "sorry": "抱歉！",
+    "welcome_message": "欲登入，請輸入提供之登入訊息",
+    "welcome_message_coorp": "企業學院",
+    "grant_credentials": "你沒有足夠的授權來執行此動作。",
+    "sso_connect": "你可以透過公司帳戶連結。",
+    "connect_connect": "您可以通過連線進行連接。",
+    "forgotten_credentials_pre": "有關 MOOC 的問題，請洽詢該平台管理員：",
+    "forgotten_credentials_href": "mailto:assistance@coorpacademy.com?subject=需要幫助才能連接到{{platform}}",
+    "forgotten_credentials": "assistance@coorpacademy.com",
+    "forgotten_credentials_post": "&nbsp;",
+    "instruction": "&nbsp;",
+    "logged_out": "你已失去連結。",
+    "form": {
+        "user": "電子郵件",
+        "password": "密碼"
+    },
+    "error": {
+        "incorrect_credentials": "不正確的資格",
+        "password_check": "無法檢查您的密碼。請聯繫我們的技術管理員。",
+        "too_many_failed_attempts": "多次登入失敗，請在幾分鐘後再嘗試一次。",
+        "no_population": "你毋須達成標準以造訪此平台。請聯繫你的管理員。",
+        "auth": {
+            "_sso_vendor_vendor_authentication_failed_connect_econnrefused": "[sso.vendor] 供應商身份驗證失敗：\n連接被拒絕",
+            "_sso_corporate_authenticate_person_failed_connect_econnrefused": "［單一登入公司］身份認證失敗：連結被伺服器拒絕"
+        },
+        "token_invalid": "此連結已過期, 請使用您的登錄名和密碼"
+    },
+    "reset_password": "忘記密碼？",
+    "forgot": {
+        "welcome": "重設你的密碼",
+        "new_password": "新密碼",
+        "forgotten_welcome_message": "請輸入您的登錄名或電子郵件。",
+        "forgotten_placeholder": "登錄或電子郵件",
+        "reset_welcome_message": "請輸入您的新密碼。",
+        "password_updated": "密碼已更新",
+        "your_login_is": "您當前的使用者名稱為：",
+        "reset_query_not_found": "無效的連結。您更新密碼的請求已不存在或不再有效。",
+        "incorrect_credentials": "登入帳號或密碼不正確",
+        "password_reset_query_created": "您的請求已經被登記了。",
+        "password_reset_mail_sent": "如果您輸入的是用於此平台的正確電子郵件，我們剛剛向您發送了一封電子郵件。 請按照說明更新您的密碼\n如果您在接下來幾分鐘內沒有收到電子郵件，<b>您可能輸入了錯誤的電子郵件</b>。 請用另一個地址再試一次。",
+        "sign": {
+            "in": "連線"
+        },
+        "error": {
+            "missing_login": "強制登入。",
+            "login_not_found": "登入未找到",
+            "forgotten_missing_login": "登錄或電子郵件必須",
+            "weak_password": "新密碼不夠強大",
+            "reset_query_not_saved": "在處理密碼重設的要求中發生錯誤。請稍後再試一次。"
+        }
+    },
+    "unsubscribe": {
+        "title": "取消訂閱",
+        "confirmation_unsubscribe_message": "你取消訂閱的請求已登記成功。",
+        "confirmation_subscribe_message": "你的訂閱已成功登陸。",
+        "question_message": "我不想要收到訊息電子郵件或提醒"
+    },
+    "bad_access": {
+        "title": "抱歉！",
+        "sub_title": "該慕課僅開放授權人員存取"
+    },
+    "inactive": {
+        "title": "很抱歉",
+        "sub_title": "<p>您的帳戶無效。</p> <p>$t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\">$t(login:forgotten_credentials)</a> </p>"
+    },
+    "deactivated": {
+        "title": "很抱歉",
+        "warning": "所有使用者帳戶停用都將於下個月的第一天生效。停用後，使用者無法再次啟用。請謹慎使用。",
+        "sub_title": "<p>您的公司已停用您的帳戶。我們很遺憾您的離開！</p>"
+    },
+    "anonymous_notification": "已經是會員？<a href=\"/sso/connect\" target=\"_self\"><b>現在登錄</b></a> 要么<a href=\"$t(global:demo.url, {\"medium\": \"notification\"})\" target=\"_blank\"><b>預訂演示</b></a> 為你的公司",
+    "connect_dialog": {
+        "need_signup": {
+            "title": "您就快要到了!",
+            "message": "現在註冊解鎖下一章"
+        },
+        "feature_locked": {
+            "title": "功能已鎖定！",
+            "message": "現在註冊以解鎖此功能"
+        },
+        "login_with": {
+            "facebook": "用臉書登入",
+            "google": "以 Google 帳戶登入",
+            "linkedin": "以 Linkedin 登入"
+        },
+        "signup_with": {
+            "email": "用電子郵件註冊"
+        },
+        "or": "或",
+        "signup": "註冊",
+        "signup_exist": "我已經有帳號了",
+        "login": "登入"
+    },
+    "custom": {
+        "accueil": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "登錄"
+            }
+        },
+        "architas-powercircle": {
+            "reset_password": "忘記密碼？",
+            "forgotten_credentials_pre": "<p>有關這個電子學習平台的問題？ </p> <p>不要猶豫 - 現在給我們一個消息！</p>",
+            "forgotten_credentials_href": "mailto:powercircle@architas.com",
+            "forgotten_credentials": "powercircle@architas.com"
+        },
+        "bestwesternuniversity": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "登錄"
+            }
+        },
+        "bigdata": {
+            "forgotten_credentials_pre": "欲登入，請輸入您從電子郵件收到的登入資訊。</br></br>有關慕課的問題，請聯繫平台管理員：",
+            "form": {
+                "user": "你的電子郵件"
+            }
+        },
+        "bpifrance-academie": {
+            "forgotten_credentials": "formation-drhinvest@bpifrance.fr",
+            "forgotten_credentials_href": "mailto:formation-drhinvest@bpifrance.fr"
+        },
+        "breguet": {
+            "form": {
+                "user": "登錄"
+            }
+        },
+        "chanel": {
+            "welcome": "歡迎",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "cd78": {
+            "forgotten_credentials": "DSIdemande@yvelines.fr",
+            "forgotten_credentials_href": "郵件傳至: DSIdemande@yvelines.fr"
+        },
+        "el": {
+            "form": {
+                "user": "存在社會。第一"
+            }
+        },
+        "faurecia": {
+            "welcome_message": "如要登入，請輸入你於 ... 收到的登入資訊。",
+            "welcome_message_coorp": "電子郵件"
+        },
+        "fdj": {
+            "form": {
+                "user": "電子郵件小寫"
+            }
+        },
+        "fff": {
+            "bad_access": {
+                "title": "抱歉",
+                "sub_title": "此 MOOC 只有已核可之人員可存取。<br/><br/> 如你為教師或技術人員，請至 <a href=\"https://www.fff.fr/myfff\"> https://www.fff.fr/myfff </a> 登入以存取平台。"
+            }
+        },
+        "forco": {
+            "form": {
+                "user": "電子郵件小寫"
+            }
+        },
+        "gdf": {
+            "welcome_message": "要登入，請輸入你的職業電子郵件 <br/>（用小寫）與你的密碼。",
+            "welcome_message_coorp": "<br><br>首次連線嗎？請輸入經電子郵件提供給您的密碼。",
+            "forgotten_credentials_pre": "無法取用嗎？連線有問題嗎？ <a href=\"https://docs.google.com/forms/d/1M9Wxq3h8ukgZZHgD8MXknduRIpbNns9rYZNA3bEiiM4/viewform?usp=send_form\">點擊此處</a><br><br>有關 MOOC 的問題，請與平台管理員聯絡："
+        },
+        "gdfec": {
+            "welcome_message": "要登錄，請輸入你的工作電子郵件地址 <br/>（小寫）和你的密碼。",
+            "welcome_message_coorp": "<br><br>初次連線？輸入電子郵件提供給您的密碼。",
+            "forgotten_credentials_pre": "沒有存取權限？連線問題？ <a href=\"https://docs.google.com/forms/d/1M9Wxq3h8ukgZZHgD8MXknduRIpbNns9rYZNA3bEiiM4/viewform?usp=send_form\">點擊此處</a><br><br>有關慕課的問題，請聯繫平台管理員："
+        },
+        "ilearn": {
+            "welcome": "歡迎"
+        },
+        "jardiland": {
+            "form": {
+                "user": "numéro de matricule"
+            }
+        },
+        "letsgetdigital": {
+            "form": {
+                "user": "郵件"
+            }
+        },
+        "linxea": {
+            "form": {
+                "user": "你的電子郵件"
+            }
+        },
+        "logisacademie": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "登錄"
+            }
+        },
+        "metro": {
+            "form": {
+                "user": "name.lastname"
+            }
+        },
+        "mooc-parischarlesdegaulle": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "登錄"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "登錄"
+            }
+        },
+        "nespresso": {
+            "form": {
+                "user": "Nespresso Email address (case-sensitive)"
+            }
+        },
+        "nestlehealthscience": {
+            "form": {
+                "user": "電子郵件小寫"
+            }
+        },
+        "natixis": {
+            "forgotten_credentials_pre": "For any question, please contact the platform administrator:"
+        },
+        "michelin": {
+            "inactive": {
+                "sub_title": "<p>We have missed you. Your account has been deactivated by your DCAD departement (Contact: <a href=\"mailto:compte-fonction.digital-transformation@michelin.com\">compte-fonction.digital-transformation@michelin.com</a>)"
+            }
+        },
+        "moocandfeel": {
+            "welcome_message": "要登入，請輸入 Comundi 提供的登入資訊。",
+            "forgotten_credentials_pre": "關於 MOOC 的問題，請聯絡平台管理員：",
+            "forgotten_credentials_href": "寄到：assistance-moocandfeel@coorpacademy.com",
+            "forgotten_credentials": "assistance-moocandfeel@coorpacademy.com",
+            "forgotten_credentials_post": "&nbsp;"
+        },
+        "online-academy-klubschule": {
+            "forgotten_credentials_href": "mailto:support@online-academy.klubschule.ch",
+            "forgotten_credentials": "support@online-academy.klubschule.ch"
+        },
+        "paca": {
+            "forgotten_credentials_href": "寄至：assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "登錄"
+            }
+        },
+        "panzani": {
+            "form": {
+                "user": "電子郵件小寫"
+            }
+        },
+        "pernod": {
+            "bad_access": {
+                "title": "抱歉",
+                "sub_title": "MOOC 僅供授權人員使用。若要造訪此平台，請在 <a href='http://digifit-pernodricard-university.com'>digifit-pernodricard-university.com</a>登入"
+            }
+        },
+        "pmf": {
+            "form": {
+                "user": "以小寫字母發送電子郵件"
+            }
+        },
+        "pru": {
+            "bad_access": {
+                "title": "很抱歉",
+                "sub_title": "此 MOOC 僅供被授權人員使用。"
+            }
+        },
+        "quizz-auchan": {
+            "form": {
+                "user": "標識號 (示例: XXX0000000)"
+            }
+        },
+        "redoute": {
+            "form": {
+                "user": "Login"
+            }
+        },
+        "renault": {
+            "welcome_message": "要登入，請輸入你的登入資訊。",
+            "forgotten_credentials_pre": "關於大規模開放線上課堂的問題，請聯絡平台管理員：",
+            "forgotten_credentials_href": "電子信箱：gerardo.talavera-farias@renault.com",
+            "forgotten_credentials": "gerardo.talavera-farias@renault.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "welcome_message_coorp": "&nbsp;"
+        },
+        "samsung": {
+            "forgotten_credentials_pre": "有關慕課的問題，請聯繫平台管理員：",
+            "forgotten_credentials_href": "請寄至：assistance@coorpacademy.com",
+            "forgotten_credentials": "assistance@coorpacademy.com",
+            "hotline_assistance_pre": "如有關於註冊的問題，請聯絡三星學院的熱線：",
+            "hotline_assistance_href": "郵件傳至：hotline.samsungacademy@gmail.com",
+            "hotline_assistance": "hotline.samsungacademy@gmail.com",
+            "inactive": {
+                "title": "抱歉",
+                "sub_title": "你的帳戶無效 </br> </br>$t(login:hotline_assistance_pre) <a href=\"$t(login:hotline_assistance_href)\"> $t(login:hotline_assistance)</a></br></br> $t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a>"
+            }
+        },
+        "securite": {
+            "forgotten_credentials_pre": "要登入，請輸入你在電子郵件收到的登入資料。</br> </br> 如有 MOOC 的問題，請聯絡平台管理員：",
+            "form": {
+                "user": "你的郵件信箱"
+            }
+        },
+        "societegenerale": {
+            "welcome_message": "要登入，請輸入 SGLearning 提供的登入資訊。",
+            "forgotten_credentials_pre": "有關慕課的問題，請聯繫平台管理員：",
+            "forgotten_credentials_href": "寄至：sglearning.communication@socgen.com",
+            "forgotten_credentials": "sglearning.communication@socgen.com",
+            "forgotten_credentials_post": "&nbsp",
+            "welcome_message_coorp": "&nbsp;"
+        },
+        "schmidt-groupe": {
+            "form": {
+                "user": "電子郵件或 firstNameInitial + 姓氏"
+            }
+        },
+        "sqy": {
+            "welcome_message_coorp": "信件",
+            "forgotten_credentials_pre": "欲登入，請輸入您由電子郵件收到的登入資訊。</br></br>有關慕課的問題，請聯繫平台管理員：",
+            "form": {
+                "user": "你的電子郵件"
+            }
+        },
+        "tagheuer": {
+            "forgotten_credentials_pre": "關於泰格豪雅訓練平台的疑問，請聯繫平台管理員：",
+            "form": {
+                "user": "登錄"
+            }
+        },
+        "thelem": {
+            "forgotten_credentials_href": "電話：11-11",
+            "forgotten_credentials": "電話：11－11"
+        },
+        "total": {
+            "instruction": "你的密碼已藉由電子郵件傳送給你。第一次連線時你將被邀請更改它。",
+            "form": {
+                "user": "IGG",
+                "password": "密碼"
+            }
+        },
+        "tourism": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "登錄"
+            }
+        },
+        "tourisme-hautsdefrance": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "登錄"
+            }
+        },
+        "tourismdigital": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "登錄"
+            }
+        },
+        "who": {
+            "forgotten_credentials_pre": "如有任何問題，請聯繫",
+            "forgotten_credentials_href": "mailto:assistance@coorpacademy.com",
+            "forgotten_credentials": "assistance@coorpacademy.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "inactive": {
+                "sub_title": "<p>您的帳戶無效。</p> <p>如果您已經完成了註冊表，您將很快收到確認並訪問該平台。 否則，請提交<a href=\"/signup\" target=\"_self\"> <b>（“註冊”</b> </a>的註冊表單。</p> <p> $ t（登錄 ：forgotten_credentials_pre）<a href=\"$t(login:forgotten_credentials_href)\"> $ t（登錄名：忘記密碼）</a> </p>"
+            }
+        },
+        "wme-img": {
+            "form": {
+                "user": "firstNameInitial + 姓氏"
+            }
+        },
+        "yahoo": {
+            "welcome_message_coorp": "電子郵件"
+        }
+    }
+}

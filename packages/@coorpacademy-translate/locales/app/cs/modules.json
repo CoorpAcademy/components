@@ -1,0 +1,153 @@
+{
+    "loose": {
+        "title": "Domů",
+        "end_try": "Nemáte už k dispozici žádné pokusy!",
+        "echec_title": "Jejda...",
+        "new_badges": "{{number}} získán nový odznak",
+        "new_badges_plural": "Získáno {{number}} odznaků",
+        "footer": {
+            "joker": {
+                "video": {
+                    "pre": "Přehrát video ",
+                    "text": "lekce",
+                    "win": "pro výhru 1",
+                    "heart": "život navíc",
+                    "post": "a pokračujte na úroveň"
+                },
+                "pdf": {
+                    "pre": "Přečíst lekci",
+                    "win": "k získání 1",
+                    "heart": "životy navíc",
+                    "post": "a pokračujte na úroveň"
+                },
+                "without": "Využili jste žolíka"
+            },
+            "new_try": {
+                "title_pre": "Zkuste tuto úroveň znovu.",
+                "title": "Máte motivaci,",
+                "title_post": "a je to vidět!",
+                "button": "Opakujte tuto úroveň"
+            },
+            "new_module": {
+                "title_pre": "Další úroveň přístupu.",
+                "title": "Chystáte se vše dohnat!",
+                "button": "Změňte kurz"
+            }
+        },
+        "type_badges": {
+            "init": "zahájit",
+            "bronze": "Bronzová",
+            "argent": "Stříbro",
+            "or": "Zlato",
+            "platine": "Platinum"
+        }
+    },
+    "question_title": "Otázka: {{question}}",
+    "progression": "Dotaz {{nb}} / {{ref}}",
+    "success": {
+        "home": "Domů",
+        "title": "Gratulujeme!",
+        "subtitle": "Dokončili jste tuto úroveň",
+        "body": {
+            "new_star": "Hvězdičky {{newStars}}",
+            "new_score": "Vaše nové skóre {{newScore}}"
+        },
+        "new_badges": "{{new}} získán nový odznak",
+        "new_badges_plural": "Získány {{new}} nové odznaky",
+        "reported": "Díky tomuto modulu jste získali:",
+        "win": "Nyní máte:",
+        "footer": {
+            "title": "Začali jste dobře! Jen tak dál!",
+            "new_module": "Tato úroveň přístupu",
+            "duration_unit": "min",
+            "battle": "Začít bitvu"
+        },
+        "type_badges": {
+            "init": "inic",
+            "bronze": "Bronzová",
+            "argent": "Stříbro",
+            "or": "Zlato",
+            "platine": "Platinová"
+        },
+        "yourRanking": "Vaše klasifikace:",
+        "rankWin": "(+ {{count}} klasifikace)",
+        "rankWin_plural": "(+ {{count}} ranks)"
+    },
+    "duration": "{{nb}}",
+    "duration_post": "min",
+    "duration_post_plural": "min",
+    "assistance": "Nahlásit chybu",
+    "buy_next": "Zakoupit další modul",
+    "moduleNotFound": "Žádná úroveň nebyla nalezena s odkazem {{moduleRef}} pro kurz {{disciplineName}}",
+    "custom": {
+        "armeedeterre": {
+            "success": {
+                "footer": {
+                    "battle": "Zahájení bitvy"
+                }
+            }
+        },
+        "7steps": {
+            "loose": {
+                "type_badges": {
+                    "platine": "Nahoru"
+                }
+            },
+            "success": {
+                "type_badges": {
+                    "platine": "Nahoru"
+                }
+            }
+        },
+        "fdj": {
+            "loose": {
+                "echec_title": "dokončeno",
+                "end_try": "Dokončili jste kvíz!"
+            }
+        },
+        "letsgetdigital": {
+            "assistance": "Zpětná vazba"
+        },
+        "up": {
+            "loose": {
+                "footer": {
+                    "joker": {
+                        "video": {
+                            "post": "a pokračujte na úroveň"
+                        },
+                        "pdf": {
+                            "post": "a pokračujte na úroveň"
+                        }
+                    },
+                    "new_try": {
+                        "title_pre": "Zkuste tuto úroveň znovu.",
+                        "button": "Opakujte tuto úroveň"
+                    },
+                    "new_module": {
+                        "title_pre": "Další úroveň přístupu.",
+                        "button": "Změňte kurz"
+                    }
+                }
+            },
+            "success": {
+                "subtitle": "Jste prošli této úrovně",
+                "reported": "Tato úroveň měl jste vydělal",
+                "footer": {
+                    "new_module": "Tato úroveň přístupu"
+                }
+            },
+            "memo": {
+                "module_title": "Kurz: {{disciplineName}} - {{moduleName}}",
+                "from": "od {{disciplineName}} - {{jméno}}"
+            },
+            "buy_next": "Koupit další kurz"
+        },
+        "who": {
+            "success": {
+                "footer": {
+                    "battle": "Zahájení výzvy"
+                }
+            }
+        }
+    }
+}

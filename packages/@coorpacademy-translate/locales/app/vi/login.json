@@ -1,0 +1,392 @@
+{
+    "welcome": "Xin chào!",
+    "goodby": "Tạm biệt!",
+    "sorry": "Rất tiếc!",
+    "welcome_message": "Để đăng nhập, vui lòng nhập thông tin đăng nhập được cung cấp bởi",
+    "welcome_message_coorp": "Coorpacademy",
+    "grant_credentials": "Bạn không có đủ quyền để thực hiện thao tác này.",
+    "sso_connect": "Bạn có thể kết nối thông qua tài khoản doanh nghiệp.",
+    "connect_connect": "Bạn có thể kết nối thông qua connect.",
+    "forgotten_credentials_pre": "Đối với thắc mắc về MOOC, vui lòng liên hệ người quản trị của nền tảng:",
+    "forgotten_credentials_href": "mailto:assistance@coorpacademy.com?subject=Tôi%20cần%20trợ%20giúp%20kết%20nối%20với%20{{platform}}",
+    "forgotten_credentials": "assistance@coorpacademy.com",
+    "forgotten_credentials_post": "&nbsp;",
+    "instruction": "&nbsp;",
+    "logged_out": "Bạn đã bị ngắt kết nối.",
+    "form": {
+        "user": "Email",
+        "password": "Mật khẩu"
+    },
+    "error": {
+        "incorrect_credentials": "Thông tin không chính xác",
+        "password_check": "Không thể kiểm tra mật khẩu của bạn. Vui lòng liên hệ với người quản trị về kỹ thuật của chúng tôi.",
+        "too_many_failed_attempts": "Đăng nhập thất bại quá nhiều lần. Hãy thử lại sau vài phút.",
+        "no_population": "Bạn không đạt điều kiện để được truy cập nền tảng. Vui lòng liên hệ với quản trị viên của mình.",
+        "auth": {
+            "_sso_vendor_vendor_authentication_failed_connect_econnrefused": "[sso.vendor] xác thực nhà cung cấp thất bại: kết nối ECONNREFUSED",
+            "_sso_corporate_authenticate_person_failed_connect_econnrefused": "[sso.corporate] authenticatePerson failed: connect ECONNREFUSED"
+        },
+        "token_invalid": "Đường link này đã hết hiệu lực, vui lòng sử dụng tên đăng nhập và mật khẩu của bạn"
+    },
+    "reset_password": "Quên mật khẩu của bạn?",
+    "forgot": {
+        "welcome": "Đặt lại mật khẩu của bạn",
+        "new_password": "Mật khẩu mới",
+        "forgotten_welcome_message": "Vui lòng nhập thông tin đăng nhập hoặc email của bạn.",
+        "forgotten_placeholder": "đăng nhập hoặc email",
+        "reset_welcome_message": "Hãy nhập vào mật khẩu mới của bạn.",
+        "password_updated": "Mật khẩu đã được cập nhật",
+        "your_login_is": "Tên người dùng hiện tại của bạn là:",
+        "reset_query_not_found": "Liên kết không hợp lệ. Yêu cầu cập nhật mật khẩu của bạn không còn tồn tại hoặc không còn hợp lệ nữa.",
+        "incorrect_credentials": "Tên đăng nhập hoặc mật khẩu không đúng",
+        "password_reset_query_created": "Yêu cầu của bạn đã được ghi nhận.",
+        "password_reset_mail_sent": "Nếu bạn đã nhập đúng địa chỉ email bạn sử dụng cho nền tảng này, chúng tôi vừa gửi cho bạn một email. Vui lòng làm theo hướng dẫn để cập nhật mật khẩu của bạn.\nNếu bạn không nhận được email trong vài phút tới, <b>bạn có thể đã nhập sai email</b>. Vui lòng thử lại bằng một địa chỉ khác.",
+        "sign": {
+            "in": "Kết nối"
+        },
+        "error": {
+            "missing_login": "Tên đăng nhập là bắt buộc.",
+            "login_not_found": "Không tìm thấy tên đăng nhập",
+            "forgotten_missing_login": "Đăng nhập hoặc email là bắt buộc",
+            "weak_password": "Mật khẩu mới không đủ mạnh",
+            "reset_query_not_saved": "Có lỗi xảy ra trong khi xử lý yêu cầu đặt lại mật khẩu. Vui lòng thử lại sau."
+        }
+    },
+    "unsubscribe": {
+        "title": "Bỏ đăng ký",
+        "confirmation_unsubscribe_message": "Yêu cầu bỏ đăng ký của bạn đã được ghi nhận thành công.",
+        "confirmation_subscribe_message": "Gói thuê bao của bạn đã được đăng ký thành công.",
+        "question_message": "Tôi không muốn nhận email hoặc lời nhắc thông tin"
+    },
+    "bad_access": {
+        "title": "Rất tiếc!",
+        "sub_title": "Chỉ người được cấp phép mới có thể truy cập MOOC này"
+    },
+    "inactive": {
+        "title": "Rất tiếc",
+        "sub_title": "<p>Tài khoản của bạn không hoạt động.</p> <p>$t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\">$t(login:forgotten_credentials)</a> </p>"
+    },
+    "deactivated": {
+        "title": "Rất tiếc",
+        "warning": "Tất cả các hủy kích hoạt của người dùng sẽ có hiệu lực từ ngày đầu tiên của tháng tiếp theo. Khi bị hủy kích hoạt, người dùng không thể kích hoạt lại được. Hãy sử dụng thận trọng.",
+        "sub_title": "<p>Công ty của bạn đã hủy kích hoạt tài khoản của bạn. Chúng tôi rất buồn khi thấy bạn rời đi!</p>"
+    },
+    "anonymous_notification": "Đã là thành viên? <a href=\"/sso/connect\" target=\"_self\"> <b>đăng nhập bây giờ</b></a> hoặc <a href=\"$t(global:demo.url, {\"medium\":\"notification\"})\" target=\"_blank\"> <b>cuốn sách một bản demo</b></a> cho công ty của bạn",
+    "connect_dialog": {
+        "need_signup": {
+            "title": "Bạn sắp hoàn tất!",
+            "message": "Đăng ký ngay để mở khóa chương tiếp theo"
+        },
+        "feature_locked": {
+            "title": "Tính năng bị Khóa!",
+            "message": "Đăng ký ngay để mở khoá tính năng này"
+        },
+        "login_with": {
+            "facebook": "Đăng nhập bằng Facebook",
+            "google": "Đăng nhập bằng Google",
+            "linkedin": "Đăng nhập bằng Linkedin"
+        },
+        "signup_with": {
+            "email": "Đăng ký bằng e-mail"
+        },
+        "or": "hoặc",
+        "signup": "Đăng ký",
+        "signup_exist": "Tôi đã có tài khoản",
+        "login": "Đăng nhập"
+    },
+    "custom": {
+        "accueil": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Đăng nhập"
+            }
+        },
+        "architas-powercircle": {
+            "reset_password": "Bạn quên mật khẩu?",
+            "forgotten_credentials_pre": "<p>Có câu hỏi liên quan đến nền tảng học tập trực tuyến này? </p> <p>Đừng ngần ngại - gửi tin nhắn cho chúng tôi ngay!</p>",
+            "forgotten_credentials_href": "mailto:powercircle@architas.com",
+            "forgotten_credentials": "powercircle@architas.com"
+        },
+        "bestwesternuniversity": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Đăng nhập"
+            }
+        },
+        "bigdata": {
+            "forgotten_credentials_pre": "Để đăng nhập, hãy nhập thông tin đăng nhập bạn nhận qua email.</br> </br> Đối với câu hỏi liên quan đến MOOC, hãy liên hệ với quản trị viên của nền tảng:",
+            "form": {
+                "user": "Địa chỉ email của bạn"
+            }
+        },
+        "bpifrance-academie": {
+            "forgotten_credentials": "formation-drhinvest@bpifrance.fr",
+            "forgotten_credentials_href": "mailto:formation-drhinvest@bpifrance.fr"
+        },
+        "breguet": {
+            "form": {
+                "user": "Đăng nhập"
+            }
+        },
+        "chanel": {
+            "welcome": "CHÀO MỪNG",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "cd78": {
+            "forgotten_credentials": "DSIdemande@yvelines.fr",
+            "forgotten_credentials_href": "mailto:DSIdemande@yvelines.fr"
+        },
+        "el": {
+            "form": {
+                "user": "RAISON SOCIALE.NUMERO"
+            }
+        },
+        "faurecia": {
+            "welcome_message": "Để đăng nhập, vui lòng nhập thông tin đăng nhập bạn nhận được bởi",
+            "welcome_message_coorp": "email"
+        },
+        "fdj": {
+            "form": {
+                "user": "email trong chữ thường"
+            }
+        },
+        "fff": {
+            "bad_access": {
+                "title": "Rất tiếc",
+                "sub_title": "MOOC này chỉ dành cho người được ủy quyền. <br/> <br/> Nếu bạn là giáo viên hoặc kỹ thuật viên, đăng nhập vào <a href=\"https://www.fff.fr/myfff\"> https://www.fff.fr/myfff</a> để truy cập vào nền tảng."
+            }
+        },
+        "forco": {
+            "form": {
+                "user": "email trong chữ thường"
+            }
+        },
+        "gdf": {
+            "welcome_message": "Để đăng nhập, vui lòng nhập địa chỉ email nghề nghiệp của bạn <br/> (bằng chữ in thường) và mật khẩu của bạn.",
+            "welcome_message_coorp": "<br><br>Kết nối lần đầu? Hãy nhập mật khẩu bạn nhận được qua email.",
+            "forgotten_credentials_pre": "Không thể truy cập? Vấn đề kết nối? <a href=\"https://docs.google.com/forms/d/1M9Wxq3h8ukgZZHgD8MXknduRIpbNns9rYZNA3bEiiM4/viewform?usp=send_form\">Nhấp vào đây</a><br><br>Đối với câu hỏi liên quan đến MOOC, hãy liên hệ với quản trị viên của nền tảng:"
+        },
+        "gdfec": {
+            "welcome_message": "Để đăng nhập, vui lòng nhập địa chỉ email nghề nghiệp<br/> (viết thường) và mật khẩu của bạn.",
+            "welcome_message_coorp": "<br><br>Kết nối lần đầu? Hãy nhập mật khẩu bạn được cung cấp trong email.",
+            "forgotten_credentials_pre": "Không thể truy cập? Lỗi kết nối? <a href=\"https://docs.google.com/forms/d/1M9Wxq3h8ukgZZHgD8MXknduRIpbNns9rYZNA3bEiiM4/viewform?usp=send_form\">Nhấp vào đây</a> <br> <br>Đối với các câu hỏi liên quan đến MOOC, vui lòng liên hệ với quản trị viên nền tảng:"
+        },
+        "ilearn": {
+            "welcome": "Chào mừng"
+        },
+        "jardiland": {
+            "form": {
+                "user": "numéro de matricule"
+            }
+        },
+        "letsgetdigital": {
+            "form": {
+                "user": "Thư"
+            }
+        },
+        "linxea": {
+            "form": {
+                "user": "Email của bạn"
+            }
+        },
+        "logisacademie": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Đăng nhập"
+            }
+        },
+        "metro": {
+            "form": {
+                "user": "tên.họ"
+            }
+        },
+        "mooc-parischarlesdegaulle": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Đăng nhập"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Đăng nhập"
+            }
+        },
+        "nespresso": {
+            "form": {
+                "user": "Nespresso Email address (case-sensitive)"
+            }
+        },
+        "nestlehealthscience": {
+            "form": {
+                "user": "email trong chữ thường"
+            }
+        },
+        "natixis": {
+            "forgotten_credentials_pre": "For any question, please contact the platform administrator:"
+        },
+        "michelin": {
+            "inactive": {
+                "sub_title": "<p>We have missed you. Your account has been deactivated by your DCAD departement (Contact: <a href=\"mailto:compte-fonction.digital-transformation@michelin.com\">compte-fonction.digital-transformation@michelin.com</a>)"
+            }
+        },
+        "moocandfeel": {
+            "welcome_message": "Để đăng nhập, hãy nhập vào thông tin đăng nhập được cung cấp bởi Comundi.",
+            "forgotten_credentials_pre": "Đối với thắc mắc liên quan đến MOOC, vui lòng liên hệ quản trị viên nền tảng:",
+            "forgotten_credentials_href": "mailto:assistance-moocandfeel@coorpacademy.com",
+            "forgotten_credentials": "assistance-moocandfeel@coorpacademy.com",
+            "forgotten_credentials_post": "&nbsp;"
+        },
+        "online-academy-klubschule": {
+            "forgotten_credentials_href": "mailto:support@online-academy.klubschule.ch",
+            "forgotten_credentials": "support@online-academy.klubschule.ch"
+        },
+        "paca": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Đăng nhập"
+            }
+        },
+        "panzani": {
+            "form": {
+                "user": "email trong chữ thường"
+            }
+        },
+        "pernod": {
+            "bad_access": {
+                "title": "Rất tiếc",
+                "sub_title": "Chỉ người được cấp phép mới có thể truy cập vào MOOC này. Để truy cập nền tảng, hãy đăng nhập vào <a href='http://digifit-pernodricard-university.com'>digifit-pernodricard-university.com</a>"
+            }
+        },
+        "pmf": {
+            "form": {
+                "user": "email trong chữ thường"
+            }
+        },
+        "pru": {
+            "bad_access": {
+                "title": "Rất tiếc",
+                "sub_title": "Chỉ có người được cấp phép mới có thể truy cập MOOC này."
+            }
+        },
+        "quizz-auchan": {
+            "form": {
+                "user": "SỐ CĂN CƯỚC (Ví dụ: XXX0000000)"
+            }
+        },
+        "redoute": {
+            "form": {
+                "user": "Login"
+            }
+        },
+        "renault": {
+            "welcome_message": "Để đăng nhập, vui lòng nhập thông tin đăng nhập của bạn.",
+            "forgotten_credentials_pre": "Đối với thắc mắc liên quan đến MOOC, vui lòng liên hệ quản trị viên nền tảng:",
+            "forgotten_credentials_href": "mailto:gerardo.talavera-farias@renault.com",
+            "forgotten_credentials": "gerardo.talavera-farias@renault.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "welcome_message_coorp": "&nbsp;"
+        },
+        "samsung": {
+            "forgotten_credentials_pre": "Đối với thắc mắc liên quan đến MOOC, vui lòng liên hệ quản trị viên nền tảng:",
+            "forgotten_credentials_href": "mailto:assistance@coorpacademy.com",
+            "forgotten_credentials": "assistance@coorpacademy.com",
+            "hotline_assistance_pre": "Đối với thắc mắc liên quan đến việc đăng ký của bạn, vui lòng liên hệ đường dây nóng Samsung Academy:",
+            "hotline_assistance_href": "mailto:hotline.samsungacademy@gmail.com",
+            "hotline_assistance": "hotline.samsungacademy@gmail.com",
+            "inactive": {
+                "title": "Rất tiếc",
+                "sub_title": "Tài khoản của bạn không hoạt động</br></br> $t(login:hotline_assistance_pre) <a href=\"$t(login:hotline_assistance_href)\"> $t(login:hotline_assistance)</a></br></br> $t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a>"
+            }
+        },
+        "securite": {
+            "forgotten_credentials_pre": "Để đăng nhập, hãy nhập vào thông tin đăng nhập bạn nhận được qua email.</br> </br> Với câu hỏi liên quan đến MOOC, hãy liên hệ với quản trị viên của nền tảng:",
+            "form": {
+                "user": "Địa chỉ email của bạn"
+            }
+        },
+        "societegenerale": {
+            "welcome_message": "Để đăng nhập, vui lòng nhập thông tin đăng nhập do SGLearning cung cấp.",
+            "forgotten_credentials_pre": "Với các câu hỏi liên quan đến MOOC, hãy liên hệ với quản trị viên của nền tảng:",
+            "forgotten_credentials_href": "mailto:sglearning.communication@socgen.com",
+            "forgotten_credentials": "sglearning.communication@socgen.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "welcome_message_coorp": "&nbsp;"
+        },
+        "schmidt-groupe": {
+            "form": {
+                "user": "email hoặc TênViếtTắt+Họ"
+            }
+        },
+        "sqy": {
+            "welcome_message_coorp": "thư",
+            "forgotten_credentials_pre": "Để đăng nhập, vui lòng nhập thông tin đăng nhập bạn đã nhận được qua email.</br> </br> Đối với các câu hỏi liên quan đến MOOC, vui lòng liên hệ với quản trị viên của nền tảng:",
+            "form": {
+                "user": "Địa chỉ email của bạn"
+            }
+        },
+        "tagheuer": {
+            "forgotten_credentials_pre": "Đối với thắc mắc liên quan đến Nền tảng Huấn luyện TAG Heuer, vui lòng liên hệ quản trị viên nền tảng:",
+            "form": {
+                "user": "Đăng nhập"
+            }
+        },
+        "thelem": {
+            "forgotten_credentials_href": "đt:11-11",
+            "forgotten_credentials": "Điện thoại: 11-11"
+        },
+        "total": {
+            "instruction": "Mật khẩu của bạn đã được gửi đến bạn bằng email. Khi lần đầu kết nối, bạn sẽ được mời thay đổi nó.",
+            "form": {
+                "user": "IGG",
+                "password": "Mật khẩu"
+            }
+        },
+        "tourism": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Đăng nhập"
+            }
+        },
+        "tourisme-hautsdefrance": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Đăng nhập"
+            }
+        },
+        "tourismdigital": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Đăng nhập"
+            }
+        },
+        "who": {
+            "forgotten_credentials_pre": "Đối với bất kỳ câu hỏi nào, vui lòng liên hệ",
+            "forgotten_credentials_href": "mailto:assistance@coorpacademy.com",
+            "forgotten_credentials": "assistance@coorpacademy.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "inactive": {
+                "sub_title": "<p>Tài khoản của bạn không hoạt động.</p> <p>Nếu bạn đã hoàn thành mẫu đơn đăng ký, bạn sẽ sớm nhận được xác nhận để truy cập vào nền tảng. Nếu không, vui lòng gửi mẫu đơn đăng ký <a href=\"/signup\" target=\"_self\"><b>(“Đăng ký”)</b></a>.</p> <p>$t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\">$t(login:forgotten_credentials)</a></p>"
+            }
+        },
+        "wme-img": {
+            "form": {
+                "user": "TênViếtTắt+Họ"
+            }
+        },
+        "yahoo": {
+            "welcome_message_coorp": "email"
+        }
+    }
+}

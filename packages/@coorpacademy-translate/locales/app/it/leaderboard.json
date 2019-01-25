@@ -1,0 +1,31 @@
+{
+    "rankPos": "&nbsp;",
+    "rankPos_plural": "&nbsp;",
+    "title": "La mia classifica",
+    "title_caps": "La mia classifica",
+    "subtitle_head": "La tua posizione rispetto ai primi-20 (per numero di stelle)",
+    "subtitle_core_pre": "Si è classificato",
+    "subtitle_core_post": "fuori tutti gli studenti!",
+    "subtitle_tail": "Mantenere lo slancio per migliorare ulteriormente il tuo punteggio.",
+    "subtitle_no_rank": "Ulteriori moduli completi per salire in classifica.",
+    "custom": {
+        "bnp": {
+            "subtitle_head": "Mostra la vostra posizione rispetto la stella top-20 Factiors."
+        },
+        "gdf": {
+            "subtitle_tail": "Alla fine della stagione 1, i dipendenti di top 20 nella classifica generale saranno invitati al Comitato editoriale di scegliere il contenuto dell'oggetto per la prossima stagione di WeTransform."
+        },
+        "gdfec": {
+            "subtitle_tail": "Alla fine della stagione 1, i dipendenti di top 20 nella classifica generale saranno invitati al Comitato editoriale di scegliere il contenuto dell'oggetto per la prossima stagione di WeTransform."
+        },
+        "up": {
+            "subtitle_no_rank": "Completa i livelli più per salire in classifica."
+        },
+        "yahoo": {
+            "subtitle_tail": "&nbsp;"
+        },
+        "linxea": {
+            "subtitle_head": "La tua posizione rispetto ai primi-20 (per numero di stelle)"
+        }
+    }
+}

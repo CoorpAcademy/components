@@ -1,0 +1,430 @@
+{
+    "content": {
+        "types": {
+            "course": "學習主題",
+            "course_plural": "學習主題",
+            "adaptive_chapter": "自我調整 5' Learning",
+            "adaptive_course": "自我調整學習",
+            "adaptive_course_plural": "自我調整學習",
+            "cursus": "課程",
+            "cursus_plural": "課程",
+            "chapter": "5' Learning",
+            "chapter_plural": "5' Learning"
+        },
+        "sorts": {
+            "title": "排序方式：",
+            "cta": "分類",
+            "tab": "排序方式",
+            "pertinence": "相關性",
+            "newest": "最新的",
+            "duration": "最短"
+        },
+        "filters": {
+            "cta": "過濾",
+            "tab": "篩選",
+            "authors": "作者：",
+            "authorTypes": "內容類別別:",
+            "type": "類型：",
+            "themes": "收藏：",
+            "goals": "認證:",
+            "time": "時間：",
+            "learning_paths": "學習徒徑：",
+            "all_authors": "所有作者",
+            "all_author_types": "所有類別",
+            "all_themes": "所有收藏",
+            "all_goals": "所有認證",
+            "all_courses": "所有課程",
+            "microlearning": "5' Learning",
+            "all": "所有",
+            "courses": "課程",
+            "my_favorites": "我的清單："
+        },
+        "notification": {
+            "addFavorite": "已加入您的清單",
+            "removeFavorite": "已從您的清單中刪除"
+        },
+        "search": {
+            "placeholder": "你想學些什麼?"
+        },
+        "catalog": "目錄",
+        "result": "{{title}}：{{count}}結果",
+        "result_plural": "{{title}}：{{count}}個結果",
+        "noresultsfound": "很抱歉沒有任何結果可提供",
+        "clearFilters": "重定",
+        "recommended": "發現為您推薦的課程:",
+        "new": "新增功能"
+    },
+    "author": {
+        "socialTitle": "社會：",
+        "cardsTitle": "{{author}} 的所有課程",
+        "website": "網站：",
+        "notFound": "找不到作者（{{authorRef}}）",
+        "more": "作者詳細資訊",
+        "customCustomer": "{{name}} 創建",
+        "types": {
+            "coorp": "Coorp 原件",
+            "verified": "經 Coorp 驗證",
+            "marketplace": "別人",
+            "custom": "{{name}} 創建"
+        }
+    },
+    "unit": {
+        "duration_minutes_set": "{{m}}分鐘",
+        "duration_minutes_set_plural": "{{m}} 分鐘",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}}小時$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}}小時$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "shortUnit": {
+        "duration_minutes_set": "{{m}}分鐘",
+        "duration_minutes_set_plural": "{{m}}分鐘",
+        "duration_minutes_with_hours_set": "{{m}}",
+        "duration_minutes_with_hours_set_plural": "{{m}}",
+        "duration_minutes_with_hours_none": "‌",
+        "duration_minutes_with_hours_none_plural": "‌",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}}h$t(shortUnit.duration_minutes_with_hours, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}}h$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "module_level": {
+        "1": "$t(global:module_level.base)",
+        "2": "$t(global:module_level.advanced)",
+        "3": "$t(global:module_level.coach)",
+        "base": "初級",
+        "advanced": "高級",
+        "coach": "教練"
+    },
+    "progression_status": {
+        "not_started": "未啟動",
+        "in_progress": "正在進行",
+        "completed": "完成"
+    },
+    "close": "關閉",
+    "skipIntro": "跳過介紹",
+    "route": {
+        "initialized": "此顯示現已設置完成。",
+        "error": {
+            "401": "看來您已不再連線上。",
+            "402": "需要付款",
+            "403": "你不可以這樣做。",
+            "404": "你知道嗎？404 錯誤代碼代表無法找到網頁。",
+            "409": "你知道嗎？409錯誤代碼意味著由於某些資料尚未更新, 您的請求無法解析。",
+            "500": "您知道嗎？ 500 錯誤代碼代表伺服器上發生問題。",
+            "api": "發生錯誤。伺服器已啟動，但程式並未正常運作。",
+            "default": "發生錯誤。"
+        }
+    },
+    "loading": "載入中…",
+    "htmlTitle": "CoorpAcademy",
+    "hero": {
+        "cta": "開始學習"
+    },
+    "cookiesDisabled": {
+        "title": "Cookie已停用",
+        "error": "您的Cookie已被禁用或阻止。 請重新啟用或配置您的AdBlocker"
+    },
+    "chatbot": {
+        "welcome": {
+            "default": "Welcome on Coorpacademy. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin.",
+            "facebook": "Hello and welcome to Coorpacademy! I can ask you question of our online courses. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin. If you're looking for some other informations you can contact us at communication@coorpacademy.com."
+        },
+        "ask_question": {
+            "repeat_header_1": "確保! {{question}}。",
+            "repeat_header_2": "確保! {{question}}。",
+            "repeat_header_3": "還行！這裡是一個問題: {{question}}。",
+            "repeat_header_4": "沒關係。 {{question}}。",
+            "repeat_header_5": "我重複: {{question}}。"
+        },
+        "next_action": {
+            "question_next": "請求“下一個問題”繼續。",
+            "answer_next": "答案是什麼 ？",
+            "wrong_answer_next": "說'為什麼'得到一些解釋或'下一步'繼續。"
+        },
+        "answer_question": {
+            "is_valid": {
+                "title_1": "做得好！",
+                "title_2": "沒錯！",
+                "title_3": "好答案：",
+                "title_4": "是的!",
+                "title_5": "完成！"
+            },
+            "is_invalid": {
+                "title_1": "一點也不！答案是: {{answer}}。",
+                "title_2": "不對!答案是: {{answer}}。",
+                "title_3": "糟糕的回答!你應該說: {{answer}}。",
+                "title_4": "一點也不！答案是: {{answer}}。",
+                "title_5": "不對!答案是: {{answer}}。"
+            }
+        },
+        "error": {
+            "not_found": "對不起, 我沒有發現任何問題。請嘗試其他任何主題。"
+        }
+    },
+    "demo": {
+        "url": "https://www.coorpacademy.com/en/request-a-demo/?utm_source=Up&utm_medium={{medium}}"
+    },
+    "custom": {
+        "7steps": {
+            "module_level": {
+                "base": "為什麼",
+                "advanced": "移情",
+                "coach": "給我看"
+            }
+        },
+        "loreal-retail-v2": {
+            "module_level": {
+                "base": "Why",
+                "advanced": "Empathy",
+                "coach": "Show me"
+            }
+        },
+        "accueil": {
+            "htmlTitle": "慕課 Accueil France"
+        },
+        "achat-habitat": {
+            "htmlTitle": "Mooc Achat Habitat",
+            "module_level": {
+                "base": "介紹",
+                "advanced": "正面的",
+                "coach": "教練"
+            }
+        },
+        "adeo": {
+            "htmlTitle": "Adeo 訓練 CPL"
+        },
+        "auchan-retail": {
+            "htmlTitle": "Auchan Retail QUIZZ"
+        },
+        "architas-powercircle": {
+            "htmlTitle": "POWERCIRCLE | FOCUS"
+        },
+        "bnp": {
+            "htmlTitle": "MOOC 法國巴黎銀行應收帳款承購商"
+        },
+        "bestwesternuniversity": {
+            "htmlTitle": "Best Western University"
+        },
+        "capgemini": {
+            "htmlTitle": "酷課"
+        },
+        "cd78": {
+            "htmlTitle": "MOOC rSa"
+        },
+        "chanel": {
+            "htmlTitle": "iJoin頻道"
+        },
+        "clarins-digital": {
+            "htmlTitle": "Clarins Digital"
+        },
+        "crt": {
+            "htmlTitle": "CRT"
+        },
+        "coravin": {
+            "htmlTitle": "卡拉文（Coravin）"
+        },
+        "corporateonlineopencourse": {
+            "module_level": {
+                "base": "基礎"
+            },
+            "progression_status": {
+                "not_started": "註冊",
+                "in_progress": "註冊",
+                "completed": "完成"
+            }
+        },
+        "dolce": {
+            "htmlTitle": "個體"
+        },
+        "eacampus": {
+            "htmlTitle": "EAcampus"
+        },
+        "ecolenumerique-sncf": {
+            "content": {
+                "filters": {
+                    "goals": "絕地徽章:"
+                }
+            }
+        },
+        "edenred-talents": {
+            "htmlTitle": "Edenred 人才",
+            "module_level": {
+                "coach": "大使"
+            }
+        },
+        "ganprevoyance": {
+            "content": {
+                "filters": {
+                    "goals": "宇宙:"
+                }
+            }
+        },
+        "faurecia": {
+            "htmlTitle": "Learning Lab"
+        },
+        "gdf": {
+            "htmlTitle": "WeTransform"
+        },
+        "gdfec": {
+            "htmlTitle": "企業與社群"
+        },
+        "hr-ac": {
+            "htmlTitle": "HR Academy"
+        },
+        "ilearn": {
+            "htmlTitle": "香奈兒 iLearn",
+            "module_level": {
+                "1": "重要",
+                "2": "高級",
+                "3": "專家",
+                "base": "重要",
+                "advanced": "高級",
+                "coach": "專家"
+            }
+        },
+        "learnnrj": {
+            "htmlTitle": "我學習能源"
+        },
+        "linxea": {
+            "htmlTitle": "LinXea Academy 學院"
+        },
+        "manpower": {
+            "htmlTitle": "領導效應",
+            "module_level": {
+                "1": "初級",
+                "2": "專家",
+                "3": "教練",
+                "base": "初級",
+                "advanced": "專家",
+                "coach": "教練"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "htmlTitle": "Digital MOOC ATF"
+        },
+        "mooc-socgen": {
+            "htmlTitle": "Mooc Socgen",
+            "module_level": {
+                "base": "1级",
+                "advanced": "2级",
+                "coach": "3级"
+            }
+        },
+        "natixis": {
+            "htmlTitle": "Think Digital"
+        },
+        "nespresso": {
+            "module_level": {
+                "3": "專家",
+                "coach": "專家"
+            }
+        },
+        "nespressodigital": {
+            "htmlTitle": "數碼學院"
+        },
+        "paca": {
+            "htmlTitle": "MOOC 普羅旺斯-阿爾卑斯-蔚藍海岸大區（Paca）"
+        },
+        "online-academy-klubschule": {
+            "module_level": {
+                "base": "初學者",
+                "advanced": "高級",
+                "coach": "專家"
+            }
+        },
+        "petite": {
+            "htmlTitle": "香奈兒嬌小新手上路",
+            "module_level": {
+                "base": "單元 1",
+                "advanced": "模組 2",
+                "coach": "單元 3"
+            }
+        },
+        "quizz-auchan": {
+            "htmlTitle": "QUIZZ AUCHAN RETAIL"
+        },
+        "renaultrh": {
+            "module_level": {
+                "base": "步驟 1",
+                "advanced": "步驟 2",
+                "coach": "第 3 步"
+            }
+        },
+        "renaultcare": {
+            "module_level": {
+                "base": "基本資料"
+            }
+        },
+        "rexel": {
+            "htmlTitle": "藍格賽的客戶中心"
+        },
+        "schneider": {
+            "module_level": {
+                "base": "第 1 季",
+                "advanced": "第 2 季",
+                "coach": "第 3 季"
+            }
+        },
+        "tagheuer": {
+            "module_level": {
+                "base": "鈦",
+                "advanced": "銅",
+                "coach": "銀"
+            }
+        },
+        "tagheuercon": {
+            "module_level": {
+                "base": "鈦",
+                "advanced": "銅",
+                "coach": "銀牌"
+            }
+        },
+        "theglenlivet-academy": {
+            "htmlTitle": "The Glenlivet | ザ・グレンリベット アカデミー"
+        },
+        "tourism": {
+            "htmlTitle": "旅遊學院"
+        },
+        "tourismdigital": {
+            "htmlTitle": "數位旅遊"
+        },
+        "tourisme-hautsdefrance": {
+            "htmlTitle": "Tourisme Hauts-de-France"
+        },
+        "yahoo": {
+            "module_level": {
+                "base": "新手",
+                "advanced": "中",
+                "coach": "專業"
+            }
+        },
+        "ey": {
+            "htmlTitle": "數位學院 (Digital Academy)"
+        },
+        "thelem": {
+            "htmlTitle": "數碼通行證 #"
+        },
+        "letsgetdigital": {
+            "htmlTitle": "讓我們取得數位 2.0",
+            "module_level": {
+                "base": "學習者",
+                "advanced": "專家",
+                "coach": "大師"
+            }
+        },
+        "who": {
+            "htmlTitle": "人權",
+            "module_level": {
+                "advanced": "案例分析"
+            }
+        },
+        "triptorelin": {
+            "htmlTitle": "曲普瑞林"
+        }
+    }
+}

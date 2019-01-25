@@ -1,0 +1,153 @@
+{
+    "loose": {
+        "title": "首頁",
+        "end_try": "你無法繼續嘗試！",
+        "echec_title": "噢喔....",
+        "new_badges": "獲得{{number}}個新的徽章",
+        "new_badges_plural": "{{number}} 得到新徽章",
+        "footer": {
+            "joker": {
+                "video": {
+                    "pre": "觀看影片 ",
+                    "text": "的課程",
+                    "win": "贏 1",
+                    "heart": "額外的生活",
+                    "post": "並繼續本級別"
+                },
+                "pdf": {
+                    "pre": "閱讀課程",
+                    "win": "以贏得 1",
+                    "heart": "額外的命",
+                    "post": "並繼續本級別"
+                },
+                "without": "您已使用了您的小丑"
+            },
+            "new_try": {
+                "title_pre": "再試一次這個級別。",
+                "title": "你受到激勵，",
+                "title_post": "而且看得出來！",
+                "button": "再次嘗試這一級"
+            },
+            "new_module": {
+                "title_pre": "進入另一個級別。",
+                "title": "你即將跟上進度！",
+                "button": "改變課程"
+            }
+        },
+        "type_badges": {
+            "init": "初始化",
+            "bronze": "銅",
+            "argent": "銀",
+            "or": "金牌",
+            "platine": "白金"
+        }
+    },
+    "question_title": "問題：{{question}}",
+    "progression": "問題 {{nb}} / {{ref}}",
+    "success": {
+        "home": "首頁",
+        "title": "恭喜！",
+        "subtitle": "您已通過這個級別",
+        "body": {
+            "new_star": "星星 {{newStars}}",
+            "new_score": "你的新分數 {{newScore}}"
+        },
+        "new_badges": "獲得{{new}}個新的徽章",
+        "new_badges_plural": "{{new}} 贏得新徽章",
+        "reported": "由於這個模組，你獲得了：",
+        "win": "您現在有：",
+        "footer": {
+            "title": "您有個好的開始！繼續保持下去！",
+            "new_module": "進入這個等級",
+            "duration_unit": "分鐘",
+            "battle": "查看戰帖"
+        },
+        "type_badges": {
+            "init": "初始設定",
+            "bronze": "銅",
+            "argent": "銀",
+            "or": "金牌",
+            "platine": "鉑"
+        },
+        "yourRanking": "您的排名：",
+        "rankWin": "(+ {{count}} 等級)",
+        "rankWin_plural": "(+ {{count}} ranks)"
+    },
+    "duration": "{{nb}}",
+    "duration_post": "分鐘",
+    "duration_post_plural": "分鐘",
+    "assistance": "回報錯誤",
+    "buy_next": "購買下一個模組",
+    "moduleNotFound": "在 {{disciplineName}} 課程中找不到參考{{moduleRef}}的級別",
+    "custom": {
+        "armeedeterre": {
+            "success": {
+                "footer": {
+                    "battle": "查看戰帖"
+                }
+            }
+        },
+        "7steps": {
+            "loose": {
+                "type_badges": {
+                    "platine": "頂部"
+                }
+            },
+            "success": {
+                "type_badges": {
+                    "platine": "頂端"
+                }
+            }
+        },
+        "fdj": {
+            "loose": {
+                "echec_title": "完成",
+                "end_try": "你已經完成了測驗!"
+            }
+        },
+        "letsgetdigital": {
+            "assistance": "給予回饋"
+        },
+        "up": {
+            "loose": {
+                "footer": {
+                    "joker": {
+                        "video": {
+                            "post": "並繼續本級別"
+                        },
+                        "pdf": {
+                            "post": "並繼續本級別"
+                        }
+                    },
+                    "new_try": {
+                        "title_pre": "再試一次這個級別。",
+                        "button": "再次嘗試這一級"
+                    },
+                    "new_module": {
+                        "title_pre": "進入另一個級別。",
+                        "button": "改變課程"
+                    }
+                }
+            },
+            "success": {
+                "subtitle": "您已通過這個級別",
+                "reported": "這一級別讓你贏得",
+                "footer": {
+                    "new_module": "進入這個等級"
+                }
+            },
+            "memo": {
+                "module_title": "課程：{{disciplineName}} - {{moduleName}}",
+                "from": "從課程{{disciplineName}} - {{name}}"
+            },
+            "buy_next": "購買下一個課程"
+        },
+        "who": {
+            "success": {
+                "footer": {
+                    "battle": "開始挑戰"
+                }
+            }
+        }
+    }
+}

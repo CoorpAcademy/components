@@ -1,0 +1,147 @@
+{
+    "tabs": {
+        "import": "업로드",
+        "achievement": "리셋",
+        "cms": "CMS",
+        "loginEvents": "로그인 사후 이벤트",
+        "replay": "콘텐츠 업로드 기록",
+        "partners": "새 파트너",
+        "buildReport": "보고서 생성"
+    },
+    "import": {
+        "help": "도움말",
+        "help_content": "<h2>전체 테마 또는 분야 가져오기</h2> <p>테마를 가져오려면 다음 요구 사항을 충족 하는.zip 파일을 제공 해야 합니다: <ul><li>똑같은 이름을 가진 분야는 없어야 하며</li> <li>모든 분야는 본 .zip 파일에 있어야 하며</li> <li>각 분야 폴더는 그 분야의 단일 .json 파일을 포함 해야 합니다</li> <li>각 분야 폴더는 A-Z 순서에서 가져온 세개의 모듈 폴더를 포함 해야 합니다</li> <li>각 모듈 폴더는 여러 질문 폴더를 포함 해야 합니다</li> <li>각 질문 폴더 그 질문의 단일 .json 파일을 포함하고 있어야 합니다</li> <li>새: 모듈 또는 장 (챕터)는 remove:true 필드를 포함 될 수 있습니다</li> <li>새: 모듈 또는 장은 대체할 것이 있으면 자리를 변경할 수 있습니다: 인덱스는 위치를 뜻하는 숫자 입니다 (0부터 시작)</li></ul></p> <h2> 사용자 zip 가져오기</h2> <p>사용자의 그룹을 가져오려면, 다음 규칙을 존중 하는.zip을 제공 해야 합니다 : <ul><li>똑같은 로그인을 가진 사용자는 없어야 합니다</li> <li>모든 사용자는는 본 .zip 파일에 있어야 합니다</li></ul></p> <a href=\"/assets/samples/import.zip\"> 예.zip 다운로드</a>",
+        "disciplines": {
+            "title": "분야",
+            "zero": "분야가 없읍니다"
+        },
+        "send_job": "작업을 통해 파일 보내기"
+    },
+    "delete": {
+        "disciplines": {
+            "404": "일치하는 분야 없음",
+            "title": "모든 분야 삭제하기",
+            "button": "삭제",
+            "confirm": "모든 과목을 삭제 하려면 \"{{word}}\"를 입력 하십시오",
+            "confirm_word": "분야",
+            "success": "삭제 된 분야"
+        },
+        "users": {
+            "404": "일치하는 사용자가 없음",
+            "title": "모든 사용자 삭제하기",
+            "help": "한 공급자의 사용자들 삭제하기 (모두 삭제 하려면 빈칸으로 비워 두세요) ",
+            "button": "삭제",
+            "confirm": "사용자 삭제를 확인 하려면 \"{{word}}\"를 입력 해 주시기 바랍니다",
+            "confirm_word": "사용자",
+            "success": "{{count}} 사용자 삭제",
+            "success_plural": "{{count}} 사용자 삭제",
+            "provider": "공급자:"
+        },
+        "tuto": {
+            "404": "일치하는 사용자가 없음",
+            "title": "튜토리얼 리셋",
+            "button": "지우기",
+            "confirm": "\"{{word}}\"를 선택하여 튜토리얼 리셋을 완료하십시오.",
+            "confirm_word": "튜토리얼",
+            "success": "튜토리얼 리셋"
+        },
+        "achievements": {
+            "404": "일치하는 진행 없음",
+            "title": "전체 진행 지우기",
+            "button": "지우기",
+            "confirm": "진행 삭제를 확인 하려면 \"{{word}}\"를 입력해 주시기 바랍니다",
+            "confirm_word": "진행",
+            "success": "진행 삭제"
+        }
+    },
+    "console": {
+        "status": "HTTP 상태:",
+        "exception": "예외 ID:",
+        "error": "오류 메시지:"
+    },
+    "update": {
+        "goals": {
+            "title": "목표 업데이트",
+            "button": "작업을 통해 목표 업데이트",
+            "success": "요청 전송"
+        }
+    },
+    "create": "추가",
+    "save": "저장",
+    "remove": "삭제",
+    "test": "테스트",
+    "edit": "수정",
+    "back": "뒤로",
+    "table": {
+        "button": {
+            "prev": "<<",
+            "next": ">>",
+            "first": "첫 번째 페이지",
+            "last": "마지막 페이지"
+        }
+    },
+    "loginEvent": {
+        "subtitle": "로그인 후 이벤트",
+        "config": "일반 정보",
+        "content": "추가 환경설정",
+        "eventName": "이벤트 이름",
+        "type": "유형",
+        "active": "활성",
+        "mandatory": "필수",
+        "cmsPagePath": "CMS Path",
+        "redirectTo": "리디렉션 링크",
+        "title": "제목",
+        "text": "본문",
+        "redirectButton": "리디렉션 버튼 레이블",
+        "button": "버튼 레이블",
+        "checkboxText": "확인란 레이블",
+        "footerText": "꼬리말 텍스트 (옵션)",
+        "order": "순서"
+    },
+    "status": {
+        "ok": {
+            "title": "성공"
+        },
+        "saving": {
+            "title": "저장 중..."
+        },
+        "removing": {
+            "title": "제거중..."
+        }
+    },
+    "version": "현재 플랫폼 버전: {{appVersion}}",
+    "job": {
+        "import": {
+            "replay": "적용하기",
+            "username": "에 의해 실행",
+            "createdAt": "실행 날짜",
+            "elapsedTime": "실행 시간",
+            "status": "상태",
+            "uploadedFile": "S3 파일",
+            "seeLogs": "로그 참조"
+        }
+    },
+    "partner": {
+        "name": "이름",
+        "link": "링크",
+        "createdAt": "제작 날짜",
+        "logo": "로고",
+        "config": "정보",
+        "upload": "업로드",
+        "linkLabel": "레이블 링크",
+        "description": "설명"
+    },
+    "buildReport": {
+        "help": "도움말",
+        "send_job": "람다를 통해 파일을 전송",
+        "title": "Pernod 보고서 생성",
+        "help_content": "함께 우편 업로드를 능가 하 고 결과 수신 하고자 하는 메일을 지정",
+        "email": "이메일 주소",
+        "file": "Zip에 탁월한",
+        "email_missing": "이메일을 제공 해야 합니다.",
+        "email_not_coorp": "이메일은 coorpacademy에서 해야",
+        "file_missing": "파일을 제공 해야 합니다.",
+        "upload_in_progress": "파일 업로드 되 고 있다. 처리는 몇 분 정도 걸릴 수 있습니다.\n우편으로 결과 받게 됩니다.",
+        "file_received": "파일 서버에서 받은 및 오류 없이 현재 처리 되 고.\n몇 분 후에 결과 함께 전자 우편을 받아야 한다."
+    }
+}

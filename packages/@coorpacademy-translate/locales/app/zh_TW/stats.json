@@ -1,0 +1,189 @@
+{
+    "not_a_number": "<not available>",
+    "target": "目標：",
+    "export": {
+        "csv": "CSV",
+        "pdf": "PDF",
+        "excel": "擅長"
+    },
+    "info": {
+        "launch_date": "發射日期",
+        "targeted_users": "目標人口"
+    },
+    "navigation": {
+        "every": "所有",
+        "every-except-coorp": "除了Coorpacademy之外的所有人",
+        "engagement": "承諾",
+        "dashboard": "普遍看法",
+        "users": "按使用者",
+        "content": "內容",
+        "battles": "根據戰鬥",
+        "exports": "導出",
+        "behavioral": "行為"
+    },
+    "since": {
+        "last_week": "最近 7 天",
+        "last_month": "過去 30 天",
+        "beginning": "開始"
+    },
+    "users": {
+        "roles": {
+            "header": "角色",
+            "button": "儲存",
+            "saved": "成功更新角色 {{displayName}}。",
+            "cms": "內容管理系統",
+            "moderator": "論壇版主",
+            "rh": "Rh",
+            "godmode": "上帝模式",
+            "supercoach": "超級導師"
+        },
+        "tab": {
+            "ranking": "使用者排名",
+            "activity": "活動"
+        },
+        "back": "回到搜尋",
+        "entity": "公司",
+        "title": "功能",
+        "cnx": {
+            "first": "第 1 次連接日期",
+            "last": "上次連線的日期"
+        },
+        "general": {
+            "header": "一般活動",
+            "total_cnx": "總關聯數",
+            "total_validated_disciplines": "總共完成的學科",
+            "total_validated_modules": "已達成的總模組",
+            "modules_validated_per_total": "＃完成單元 /＃總單元",
+            "ranking": "排行",
+            "never": "從不"
+        },
+        "sociability": {
+            "header": "社交性",
+            "posts": {
+                "count": "{{nb}} 發文",
+                "count_plural": "{{nb}} 個發文",
+                "answers": "包含給其他用戶的 {{nb}} 答案",
+                "answers_plural": "含{{nb}}個給另一位使用者的回覆"
+            },
+            "battles": {
+                "count": "{{nb}} 戰鬥",
+                "count_plural": "{{nb}} 挑戰",
+                "won": "包含 {{nb}} 勝利的戰鬥",
+                "won_plural": "含{{nb}}場戰鬥勝利"
+            },
+            "coach": {
+                "disciplines": "教授 {{nb}} 個學科",
+                "disciplines_plural": " {{nb}} 學科的教練",
+                "interactions": "{{nb}}與教練團互動",
+                "interactions_plural": "{{nb}} 與導師互動"
+            },
+            "completion": {
+                "total_label": "總完成：",
+                "total": "{{ratio}}%",
+                "modules_tried_label": "嘗試過的模組：",
+                "modules_tried": "{{totalTriedModules}}/{{nbModules}}",
+                "average_completion_label": "完成/嘗試：",
+                "average_completion": "{{ratio}}%"
+            }
+        },
+        "progression": {
+            "filter": "篩選學科",
+            "filterPlaceholder": "關鍵詞過濾學科",
+            "th": {
+                "discipline": "學科",
+                "hidden": "隱",
+                "level": "等級",
+                "module_progression": "成功百分率",
+                "status": "狀態",
+                "score": "分數"
+            }
+        },
+        "time": {
+            "header": "連線的持續時間",
+            "totalTime": "累積時間",
+            "validatedTime": "有效時間"
+        },
+        "license": {
+            "label": "授權",
+            "button": "關閉",
+            "active": "活耀",
+            "inactive": "不活躍"
+        },
+        "deactivate": {
+            "confirm": "請輸入 \"yes\" 來確認關閉帳戶",
+            "confirm_word": "是的",
+            "account_deactivated": "本帳戶已被停用"
+        },
+        "connectAs": "连接为",
+        "bonusStars": {
+            "buttonPositive": "加上",
+            "buttonNegative": "移除",
+            "required": "請輸入欲添加的星星",
+            "notANumber": "星星數必須是整數",
+            "confirm": "請輸入「獎金」以確認增加或減少星星。",
+            "confirm_word": "獎金",
+            "starsAdded": "你剛加了 {{count}} 個星星給使用者 {{displayName}}",
+            "starsAdded_plural": "你剛加入 {{count}} 星星到用戶 {{displayName}}",
+            "starsRemoved": "您剛從使用者{{displayName}}移除了{{count}}顆星",
+            "starsRemoved_plural": "你剛從用戶 {{displayName}} 移除了 {{count}} 顆星"
+        }
+    },
+    "exports": {
+        "export": "導出",
+        "querySent": "你的報告正在準備中。你應該很快會透過電子郵件收到。",
+        "global": {
+            "title": "使用者按需求導出",
+            "introduction": "這功能可以讓您把所有用戶相關資料匯出平台。"
+        },
+        "battles": {
+            "title": "按需求導出戰鬥",
+            "introduction": "本功能允許您導出有關平台戰鬥的所有數據。"
+        },
+        "history": {
+            "title": "匯出歷史",
+            "introduction": "此特點使你能夠檢索所有的每日數據",
+            "users": "用戶",
+            "battle": "戰鬥",
+            "analytics": "progression",
+            "filter_by": "過濾器為"
+        }
+    },
+    "custom": {
+        "up": {
+            "navigation": {
+                "modules": "以等級"
+            },
+            "modules": {
+                "header": {
+                    "discipline": "課程"
+                },
+                "module": {
+                    "media_views": {
+                        "title": "按級別的課程媒體觀看率"
+                    }
+                }
+            },
+            "users": {
+                "general": {
+                    "total_validated_disciplines": "完成的課程總數",
+                    "total_validated_modules": "完成的總等級數",
+                    "modules_validated_per_total": "＃達成級別 /＃總級別"
+                },
+                "sociability": {
+                    "coach": {
+                        "disciplines": "教授 {{nb}} 課程",
+                        "disciplines_plural": "教導 {{nb}} 課程"
+                    },
+                    "completion": {
+                        "modules_tried_label": "已嘗試級別："
+                    }
+                },
+                "progression": {
+                    "th": {
+                        "discipline": "課程"
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,153 @@
+{
+    "loose": {
+        "title": "Додому",
+        "end_try": "У вас не залишилося більше спроб!",
+        "echec_title": "О т а к о ї ...",
+        "new_badges": "{{number}} нових значків зароблено",
+        "new_badges_plural": "{{number}} нових жетонів зароблено",
+        "footer": {
+            "joker": {
+                "video": {
+                    "pre": "Переглянути відео ",
+                    "text": "заняття",
+                    "win": "виграти 1",
+                    "heart": "додаткове життя",
+                    "post": "і продовжити рівень"
+                },
+                "pdf": {
+                    "pre": "Прочитайте урок",
+                    "win": "щоб виграти 1",
+                    "heart": "додаткове життя",
+                    "post": "і продовжити рівень"
+                },
+                "without": "Ви використали свого джокера"
+            },
+            "new_try": {
+                "title_pre": "Спробуйте цей рівень ще раз",
+                "title": "Ви мотивовані,",
+                "title_post": "і воно показує!",
+                "button": "Спробуйте цей рівень ще раз"
+            },
+            "new_module": {
+                "title_pre": "Отримати доступ до наступного рівня.",
+                "title": "Ви наздоганяєте!",
+                "button": "Зміна курсу"
+            }
+        },
+        "type_badges": {
+            "init": "Ініціалізація",
+            "bronze": "Бронза",
+            "argent": "Срібло",
+            "or": "Золото",
+            "platine": "Платина"
+        }
+    },
+    "question_title": "Питання:{{question}}",
+    "progression": "Запитання {{nb}} / {{ref}}",
+    "success": {
+        "home": "Головна сторінка",
+        "title": "Вітання!",
+        "subtitle": "Ви пройшли цей рівень",
+        "body": {
+            "new_star": "Зірки  {{newStars}}",
+            "new_score": "Ваш новий рахунок {{detail}}"
+        },
+        "new_badges": "{{new}} ви заробили новий значок ",
+        "new_badges_plural": "{{new}} зароблено нові жетони",
+        "reported": "Завдяки цьому модулю ви заробили:",
+        "win": "У вас тепер є:",
+        "footer": {
+            "title": "Хороший початок! Так тримати!",
+            "new_module": "Доступ до цього рівня",
+            "duration_unit": "хв.",
+            "battle": "Почати бій"
+        },
+        "type_badges": {
+            "init": "ініт",
+            "bronze": "Бронза",
+            "argent": "Срібло",
+            "or": "Золото",
+            "platine": "Платина"
+        },
+        "yourRanking": "Ваш Ранг:",
+        "rankWin": "(+ {{count}} rank)",
+        "rankWin_plural": "(+ {{count}} оцінка)"
+    },
+    "duration": "{{nb}}",
+    "duration_post": "хв",
+    "duration_post_plural": "хв.",
+    "assistance": "Повідомити про помилку",
+    "buy_next": "Купити наступний модуль",
+    "moduleNotFound": "Не знайдено рівня з даними {{moduleRef}} для курсу {{disciplineName}}",
+    "custom": {
+        "armeedeterre": {
+            "success": {
+                "footer": {
+                    "battle": "Почати бій"
+                }
+            }
+        },
+        "7steps": {
+            "loose": {
+                "type_badges": {
+                    "platine": "Верх"
+                }
+            },
+            "success": {
+                "type_badges": {
+                    "platine": "Топ"
+                }
+            }
+        },
+        "fdj": {
+            "loose": {
+                "echec_title": "завершено",
+                "end_try": "Завершення вікторини!"
+            }
+        },
+        "letsgetdigital": {
+            "assistance": "Надати відгук"
+        },
+        "up": {
+            "loose": {
+                "footer": {
+                    "joker": {
+                        "video": {
+                            "post": "і продовжити рівень"
+                        },
+                        "pdf": {
+                            "post": "і продовжити рівень"
+                        }
+                    },
+                    "new_try": {
+                        "title_pre": "Спробуйте пройти цей рівень знову.",
+                        "button": "Спробуйте цей рівень ще раз"
+                    },
+                    "new_module": {
+                        "title_pre": "Отримати доступ до наступного рівня.",
+                        "button": "Зміна курсу"
+                    }
+                }
+            },
+            "success": {
+                "subtitle": "Ви пройшли цей рівень",
+                "reported": "Цей рівень ви заслужили",
+                "footer": {
+                    "new_module": "Доступ до цього рівня"
+                }
+            },
+            "memo": {
+                "module_title": "Курс: {{disciplineName}} — {{moduleName}}",
+                "from": "з курсу {{disciplineName}} - {{name}}"
+            },
+            "buy_next": "Купити наступний курс"
+        },
+        "who": {
+            "success": {
+                "footer": {
+                    "battle": "Розпочати виклик"
+                }
+            }
+        }
+    }
+}

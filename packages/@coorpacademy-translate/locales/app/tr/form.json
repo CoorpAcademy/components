@@ -1,0 +1,23 @@
+{
+    "submit": "Onayla",
+    "print": "Yazdır",
+    "share": "Paylaş",
+    "delete": "Sil",
+    "start": "Git",
+    "loadMore": "Daha fazla yük...",
+    "download": "Download",
+    "ok": "Tamam",
+    "cancel": "İptal et",
+    "sso": "Tek Kayıt",
+    "connect": "Bağlan",
+    "signup": "Kayıt ol",
+    "signup_pre": "Hesabınız yok mu?",
+    "custom": {
+        "chanel": {
+            "signup": "KAYDOL"
+        },
+        "ilearn": {
+            "signup": "Kayıt ol"
+        }
+    }
+}

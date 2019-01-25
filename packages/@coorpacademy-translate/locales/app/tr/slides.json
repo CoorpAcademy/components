@@ -1,0 +1,107 @@
+{
+    "indice": {
+        "title": "Yardıma mı ihtiyacınız var?",
+        "sub_title": "Bir ipucu için bir yıldız takas et!",
+        "content": "BİR İPUCU ELDE ET"
+    },
+    "lesson": {
+        "title": "Burada cevapları bulun!",
+        "sub_title": "Dersi izleyin ve 4 ek yıldız kazanın!",
+        "resources": "Daha ileri gitmek için",
+        "title_video": "DERSİN VİDEOSU",
+        "title_pdf": "PDF formatındaki ders",
+        "look_at_the_course": "Derse erişim sağla"
+    },
+    "without_coach": {
+        "title": "MÜSAİT KOÇ YOK"
+    },
+    "with_coach": {
+        "title": "Bir Koç ile konuş",
+        "content": "{{nb}} KOÇ MÜSAİT"
+    },
+    "is_valid": {
+        "state": "<span class=\"label1\">Doğru</span> <span class=\"label2\">cevap</span>",
+        "title": "Tebrikler!",
+        "correctAnswer": "Doğru cevap:"
+    },
+    "is_invalid": {
+        "state": "<span class=\"label1\">Yanlış</span> <span class=\"label2\">cevap</span>",
+        "title": "HAY AKSİ...",
+        "goodAnswer": "Cevap şöyleydi:"
+    },
+    "signup_finish_chapter": "Bölüm bitirmek kaydolun",
+    "available_shots_pre": "yine",
+    "available_shots": "{{count}} şans mevcut",
+    "available_shots_plural": "{{count}} modül mevcut",
+    "available_shots_post": "&nbsp;",
+    "klf": "Biliyor muydunuz?",
+    "to_know": "Önemli nokta",
+    "footer": {
+        "lesson": {
+            "title": "Dersleri yeniden izlemeye karar verebilirsiniz",
+            "button": "Derse dön"
+        },
+        "result": {
+            "title": "Sonucunuza geri dönebilirsiniz",
+            "button": "Sonuca geri dön"
+        },
+        "next_question": "Devam et"
+    },
+    "check_answer": "Cevabı kontrol et",
+    "adaptive_check_answer": "Sonraki",
+    "next_question": "Sonraki soruya geç",
+    "next_level": "Sonraki seviyeye geç",
+    "author": "Bu bölümü hazırlayan:",
+    "button_tree": "Kataloğa git",
+    "comments": {
+        "title": "Tartışma",
+        "title_for_module": "Tartışmak - {{name}} Düzeyi"
+    },
+    "slideNotFound": "Hiçbir soru {{slideId}} başvuruyla bulundu",
+    "forbidden": "Referans {{contentRef}} ile içerik erişim hakkı yok.",
+    "showContext": "Bağlamı yeniden gör",
+    "context": "Bağlam",
+    "custom": {
+        "hr-ac": {
+            "footer": {
+                "lesson": {
+                    "button": "Belgeye erişim"
+                }
+            }
+        },
+        "nespresso": {
+            "without_coach": {
+                "title": "Hiçbir uzman kullanılabilir"
+            },
+            "with_coach": {
+                "content": "{{nb}} expert(s) kullanılabilir"
+            }
+        },
+        "renaultcare": {
+            "is_valid": {
+                "state": "<span class=\"label1\"> Bravo</span>"
+            },
+            "is_invalid": {
+                "state": "<span class=\"label1\"> pek sayılmaz</span>",
+                "title": "HAY AKSİ..."
+            }
+        },
+        "schneider": {
+            "comments": {
+                "title_for_module": "Tartışmak - {{name}} düzeyi <br/> herhangi bir video ile ilgili sorunlar için lütfen <a href=\"http://2929it.schneider-electric.com/\" target=\"_blank\"> 2929 destek</a>"
+            }
+        },
+        "who": {
+            "is_valid": {
+                "state": "<span class=\"label1\"> doğru</span> <span class=\"label2\"> cevap</span>",
+                "correctAnswer": "Doğru cevap:"
+            },
+            "to_know": "Anlamak için",
+            "lesson": {
+                "resources": "Konunun dalış",
+                "look_at_the_course": "PDF dersin"
+            },
+            "showContext": "Bağlam erişin"
+        }
+    }
+}

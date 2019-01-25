@@ -1,0 +1,25 @@
+{
+    "notCompatible": {
+        "os": "Wersja systemu operacyjnego jest przestarzała, dlatego nie można uzyskać dostępu do platformy. Zaleca się aktualizację.",
+        "explanation": "Widok zgodności przeglądarki może być włączony. Więcej informacji na temat wyłączania.",
+        "explanationLink": "https://static.coorpacademy.com/content/help/compatibility_view/Help_Compatibility_view_EN.pdf",
+        "explanationLinkLabel": "tutaj.",
+        "header": "Wersja systemu operacyjnego jest przestarzała, dlatego nie można uzyskać dostępu do platformy.",
+        "suggestion_text": "BrowseHappy",
+        "suggestion_href": "http://browsehappy.com",
+        "suggestion_text_pre": "Przejdź do",
+        "suggestion_text_post": "aby uzyskać więcej informacji na temat przeglądarek Evergreen.",
+        "different_user_agent": "Znaleziono dwa różne agenty użytkownika, co spowodowało ograniczenie dostępu do platformy."
+    },
+    "custom": {
+        "fff": {
+            "notCompatible": {
+                "os": "Wersja systemu operacyjnego jest zbyt stary, aby uzyskać dostęp do platformy. Zalecamy aktualizację.",
+                "suggestion_text": "Chrome",
+                "suggestion_href": "https://www.Google.com/intl/fr/Chrome/Browser/",
+                "suggestion_text_pre": "Sugerowane Pobierz",
+                "suggestion_text_post": "."
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "submit": "Hitelesítés",
+    "print": "Nyomtatás",
+    "share": "Megosztás",
+    "delete": "Törlés",
+    "start": "Tovább",
+    "loadMore": "Több betöltése...",
+    "download": "Letöltés",
+    "ok": "OK",
+    "cancel": "Visszavonás",
+    "sso": "Egyszeri feliratkozás",
+    "connect": "Kapcsolódás",
+    "signup": "Regisztráció",
+    "signup_pre": "Nincs még fiókja?",
+    "custom": {
+        "chanel": {
+            "signup": "FELIRATKOZÁS"
+        },
+        "ilearn": {
+            "signup": "Regisztráció"
+        }
+    }
+}

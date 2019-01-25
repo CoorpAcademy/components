@@ -1,0 +1,316 @@
+{
+    "message": "<p>사용자 당 자세한 정보에 액세스 하려면 우리의 <a href=\"{{user}}\"> 사용자 분석 페이지</a> 사용.</p> <p><a href=\"{{export}}\"> 요청에 모든 사용자를 내보낼</a> 수 있습니다 모든 사용자에 대 한 자세한 정보에 액세스 하려면.</p>",
+    "export": {
+        "global": {
+            "first_name": "이름",
+            "last_name": "성",
+            "email": "이메일",
+            "provider": "공급자",
+            "stars": "점수",
+            "providerinfos_company": "회사",
+            "providerinfos_city": "도시",
+            "providerinfos_country": "나라",
+            "providerinfos_department": "부서",
+            "providerinfos_title": "제목",
+            "providerinfos_chorusID": "ChorusID",
+            "ageRange": "연령 그룹",
+            "personalEmail": "이메일 (개인)",
+            "role": "역할",
+            "brandName": "상사",
+            "boutique": "스토어",
+            "billable": "Billable",
+            "postalCode": "우편 번호",
+            "moduleLevel": "$t(dashboard:badges.module.name) - 수준",
+            "moduleCount": "$t(dashboard:badges.module.name) - 수",
+            "moduleUpdate": "$t(dashboard:badges.module.name) - 마지막 업데이트",
+            "battleLevel": "$t(dashboard:badges.battle.name) - 레벨",
+            "battleCount": "$t(dashboard:badges.battle.name) - 수",
+            "battleUpdate": "$t(dashboard:badges.battle.name) - 마지막 업데이트",
+            "coachLevel": "$t(dashboard:badges.coach.name) - 레벨",
+            "coachCount": "$t(dashboard:badges.coach.name) - 수",
+            "coachUpdate": "$t(dashboard:badges.coach.name) - 마지막 업데이트",
+            "lessonLevel": "$t(dashboard:badges.coach.name) - 레벨",
+            "lessonCount": "$t(dashboard:badges.lesson.name) - 수",
+            "lessonUpdate": "$t(dashboard:badges.lesson.name) - 마지막 업데이트",
+            "questionLevel": "$t(dashboard:badges.question.name) - 수",
+            "questionCount": "$t(dashboard:badges.question.name) - 수",
+            "questionUpdate": "$t(dashboard:badges.question.name) - 마지막 업데이트",
+            "badges": "배지",
+            "lastConnectionDate": "마지막 연결 날짜",
+            "state": "주",
+            "login": "로그인",
+            "firstConnectionDate": "첫 번째 연결 날짜",
+            "certificate": "{{label}} 인증서",
+            "certifications": "자격증",
+            "entity": "엔티티",
+            "grade": "등급",
+            "region": "지역",
+            "validatedTimeProgression": "확인된 시간",
+            "totalTimeProgression": "총 시간",
+            "populations": "내 인구",
+            "deactivationDate": "비활성화 날짜",
+            "organization_branch": "사업부",
+            "organization_businessunit": "사업부",
+            "organization_workingCountry": "비즈니스 국가",
+            "organization_role": "비즈니스 역할",
+            "organization_boutique": "비즈니스 스토어",
+            "organization_address1": "회사 주소 1",
+            "organization_address2": "회사 주소 2",
+            "organization_zipcode": "회사 우편 번호",
+            "organization_workingCity": "회사 도시",
+            "organization_company": "상사",
+            "organization_ambassador": "대사",
+            "birthday": "생일"
+        },
+        "battles": {
+            "disciplineName": "분야 이름",
+            "disciplineStatus": "훈련 상태",
+            "disciplineStatus_hidden": "숨겨진",
+            "disciplineStatus_visible": "표시",
+            "moduleLevel": "모듈 레벨",
+            "createdAt": "제작 날짜",
+            "answeredAt": "응답",
+            "createdBy": "도전자 이름",
+            "opponent": "상대 이름",
+            "winner": "우승자",
+            "winnerScore": "우승자 점수",
+            "userLogin": "도전자 로그인",
+            "opponentLogin": "상대 로그인",
+            "looserScore": "패자 점수"
+        },
+        "moduleStart": {
+            "brand": "브랜드",
+            "discipline": "분야 이름",
+            "module": "모듈 수준",
+            "author": "저자",
+            "count": "개수",
+            "userCount": "사용자의 수"
+        }
+    },
+    "dashboard": {
+        "serenetics-error": "새로운 대시보드 url을 검색 하는 동안 오류 발생.",
+        "behavioral": {
+            "upgrade": {
+                "title": "이 대시보드는 기업 비율 계획에서 사용할 수만.",
+                "subtitle": "Coorpacademy 플랫폼의 행동 통찰력에 대 한 액세스를 귀하의 계정을 업그레이 드를 문의 하시기 바랍니다"
+            }
+        }
+    },
+    "custom": {
+        "7steps": {
+            "export": {
+                "global": {
+                    "organization_role": "작업",
+                    "organization_title": "저장소의 유형",
+                    "organization_ambassador": "L' 로레알 직원?",
+                    "organization_branch": "L' 로레알 부문",
+                    "entity": "L' 로레알 브랜드",
+                    "organization_grade": "상권의 사용",
+                    "organization_boutiqueReferent": "소매 업체/체인",
+                    "organization_boutique": "저장소 이름/코드"
+                }
+            }
+        },
+        "achat-habitat": {
+            "export": {
+                "global": {
+                    "organization_ambassador": "뉴스 레터"
+                }
+            }
+        },
+        "adidas-fr": {
+            "export": {
+                "global": {
+                    "organization_businessunit": "부서",
+                    "organization_grade": "나이",
+                    "organization_boutique": "작업 환경",
+                    "organization_branch": "성별"
+                }
+            }
+        },
+        "capgemini": {
+            "export": {
+                "global": {
+                    "organization_grade": "GGID"
+                }
+            }
+        },
+        "chanel": {
+            "export": {
+                "global": {
+                    "boutique": "부티크",
+                    "organization_workingCountry": "국가",
+                    "region": "지역",
+                    "role": "역할",
+                    "startContract": "계약의 시작"
+                }
+            }
+        },
+        "cofpart-learning": {
+            "export": {
+                "global": {
+                    "brandName": "Direction",
+                    "entity": "Job",
+                    "organization_branch": "Manager"
+                }
+            }
+        },
+        "corporateonlineopencourse": {
+            "export": {
+                "global": {
+                    "region": "지역",
+                    "organization_workingCountry": "국가",
+                    "role": "함수"
+                }
+            }
+        },
+        "edenred-talents": {
+            "export": {
+                "global": {
+                    "organization_company": "방향",
+                    "entity": "수-방향",
+                    "organization_branch": "서비스-민간",
+                    "organization_boutiqueReferent": "Responsable",
+                    "organization_role": "Fonction",
+                    "organization_grade": "주문"
+                }
+            }
+        },
+        "gdf": {
+            "export": {
+                "global": {
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - 레벨",
+                    "transformerCount": "$t(dashboard:badges.transformer.name)-수",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name)-마지막 업데이트"
+                }
+            }
+        },
+        "gdfec": {
+            "export": {
+                "global": {
+                    "organization_zipcode": "가이아",
+                    "organization_businessunit": "팀",
+                    "organization_boutique": "관리자의 이름",
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name)-수준",
+                    "transformerCount": "$t(dashboard:badges.transformer.name)-수",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name)-마지막 업데이트"
+                }
+            }
+        },
+        "ilearn": {
+            "export": {
+                "global": {
+                    "boutique": "매장",
+                    "organization_workingCountry": "국가",
+                    "region": "지역",
+                    "role": "역할",
+                    "startContract": "계약 시작"
+                }
+            }
+        },
+        "life-auchan": {
+            "export": {
+                "global": {
+                    "organization_boutique": "활동 수준",
+                    "organization_region": "생활의 균형",
+                    "organization_workingCountry": "국가"
+                }
+            }
+        },
+        "metro": {
+            "export": {
+                "global": {
+                    "organization_boutique": "City",
+                    "organization_branch": "ID",
+                    "organization_businessunit": "Role"
+                }
+            }
+        },
+        "monoprix": {
+            "export": {
+                "global": {
+                    "organization_branch": "방향"
+                }
+            }
+        },
+        "nespresso": {
+            "export": {
+                "global": {
+                    "organization_branch": "부서",
+                    "organization_businessunit": "위치"
+                }
+            }
+        },
+        "pru": {
+            "export": {
+                "global": {
+                    "providerCompany": "회사",
+                    "providerCountry": "국가",
+                    "providerDepartment": "부서"
+                }
+            }
+        },
+        "redoute": {
+            "boutique": "가게"
+        },
+        "securite": {
+            "export": {
+                "global": {
+                    "organization_grade": "ID"
+                }
+            }
+        },
+        "up": {
+            "export": {
+                "battles": {
+                    "disciplineName": "과목 이름",
+                    "moduleLevel": "레벨"
+                }
+            }
+        },
+        "tagheuer": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Point of sales code"
+                }
+            }
+        },
+        "thelem": {
+            "export": {
+                "global": {
+                    "organization_role": "고용",
+                    "language": "언어",
+                    "organization_boutique": "위치",
+                    "organization_title": "제목 서비스",
+                    "organization_boutiqueReferent": "등록 번호",
+                    "startContract": "고용 날짜 회사",
+                    "organization_contractType": "계약의 종류",
+                    "organization_grade": "자격"
+                }
+            }
+        },
+        "yahoo": {
+            "export": {
+                "global": {
+                    "organization_title": "직장",
+                    "organization_workingCountry": "국가",
+                    "region": "언어"
+                }
+            }
+        },
+        "who": {
+            "export": {
+                "global": {
+                    "organization_workingCountry": "국가/국가",
+                    "region": "국가/지역",
+                    "provider": "제휴",
+                    "organization_role": "배경/경험",
+                    "organization_grade": "액세스 코드",
+                    "organization_boutiqueReferent": "교육의 수준"
+                }
+            }
+        }
+    }
+}

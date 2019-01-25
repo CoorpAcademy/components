@@ -1,0 +1,189 @@
+{
+    "not_a_number": "<not available>",
+    "target": "目标：",
+    "export": {
+        "csv": "CSV",
+        "pdf": "PDF",
+        "excel": "电子表格"
+    },
+    "info": {
+        "launch_date": "发布日期",
+        "targeted_users": "目标人群"
+    },
+    "navigation": {
+        "every": "所有",
+        "every-except-coorp": "除了Coorpacademy之外的所有人",
+        "engagement": "承诺",
+        "dashboard": "概貌",
+        "users": "由用户",
+        "content": "内容",
+        "battles": "通过战斗",
+        "exports": "出口",
+        "behavioral": "行为"
+    },
+    "since": {
+        "last_week": "最近 7 天",
+        "last_month": "最近 30 天",
+        "beginning": "发布"
+    },
+    "users": {
+        "roles": {
+            "header": "角色",
+            "button": "保存",
+            "saved": "随着{{displayName}}的胜利，角色更新。",
+            "cms": "Cms",
+            "moderator": "论坛版主",
+            "rh": "Rh",
+            "godmode": "上帝模式",
+            "supercoach": "超级教练"
+        },
+        "tab": {
+            "ranking": "用户排名",
+            "activity": "活动"
+        },
+        "back": "返回搜索",
+        "entity": "公司",
+        "title": "功能",
+        "cnx": {
+            "first": "第 1 次连接日期",
+            "last": "最近的连接日期"
+        },
+        "general": {
+            "header": "一般活动",
+            "total_cnx": "连接总次数",
+            "total_validated_disciplines": "所完成的总的学科",
+            "total_validated_modules": "完成的所有模块",
+            "modules_validated_per_total": "# 完成的模块 / # 所有模块",
+            "ranking": "排名",
+            "never": "从不"
+        },
+        "sociability": {
+            "header": "社交能力",
+            "posts": {
+                "count": "{{nb}} 帖子",
+                "count_plural": "{{nb}} 帖子",
+                "answers": "包括给另一个用户的 {{nb}} 回复 ",
+                "answers_plural": "incl. {{nb}} 给另一用户的答案"
+            },
+            "battles": {
+                "count": "{{nb}} 战斗",
+                "count_plural": "{{nb}} 场比赛",
+                "won": "incl. {{nb}} 战斗胜利",
+                "won_plural": "包括已获得胜利的{{nb}}场比赛"
+            },
+            "coach": {
+                "disciplines": "{{nb}} 规范的指导",
+                "disciplines_plural": "{{nb}}科目教练员",
+                "interactions": "{{nb}} 与教练员互动",
+                "interactions_plural": "{{nb}} 与教练互动"
+            },
+            "completion": {
+                "total_label": "总完成数：",
+                "total": "{{ratio}}%",
+                "modules_tried_label": "已试过的模块：",
+                "modules_tried": "{{totalTriedModules}}/{{nbModules}}",
+                "average_completion_label": "完成/尝试：",
+                "average_completion": "{{ratio}}%"
+            }
+        },
+        "progression": {
+            "filter": "过滤器纪律",
+            "filterPlaceholder": "关键词过滤学科",
+            "th": {
+                "discipline": "纪律",
+                "hidden": "隐",
+                "level": "等级",
+                "module_progression": "% 成功",
+                "status": "状态",
+                "score": "分数"
+            }
+        },
+        "time": {
+            "header": "连接期间",
+            "totalTime": "累积时间",
+            "validatedTime": "已验证时间"
+        },
+        "license": {
+            "label": "执照",
+            "button": "失效",
+            "active": "有效的",
+            "inactive": "不活跃"
+        },
+        "deactivate": {
+            "confirm": "请输入“是”以确认账户失效",
+            "confirm_word": "是",
+            "account_deactivated": "账户已经无效"
+        },
+        "connectAs": "连接为",
+        "bonusStars": {
+            "buttonPositive": "添加",
+            "buttonNegative": "移除",
+            "required": "请输入星星以添加",
+            "notANumber": "必须以整数开头",
+            "confirm": "请输入“奖金”以确认星星的添加或扣减",
+            "confirm_word": "奖金",
+            "starsAdded": "您刚刚已为用户 {{displayName}} 添加 {{count}} 颗星星",
+            "starsAdded_plural": "你刚为{{displayName}}用户增加了 {{count}} 颗星",
+            "starsRemoved": "您刚才移除了用户 {{displayName}} 的 {{count}} 颗星",
+            "starsRemoved_plural": "您已删除用户 {{displayName}} 的 {{count}} 颗星。"
+        }
+    },
+    "exports": {
+        "export": "导出",
+        "querySent": "您的报告正在准备当中。稍候您将会收到电子邮件。",
+        "global": {
+            "title": "用户按需导出",
+            "introduction": "此特点允许您导出平台中用户的所有数据。"
+        },
+        "battles": {
+            "title": "战斗出口按需",
+            "introduction": "这个功能能让你将平台上所有战斗的数据输出"
+        },
+        "history": {
+            "title": "出口历史",
+            "introduction": "此功能允许您检索所有日常数据",
+            "users": "用户",
+            "battle": "战斗",
+            "analytics": "progression",
+            "filter_by": "过滤"
+        }
+    },
+    "custom": {
+        "up": {
+            "navigation": {
+                "modules": "按级别"
+            },
+            "modules": {
+                "header": {
+                    "discipline": "课程"
+                },
+                "module": {
+                    "media_views": {
+                        "title": "课程 按等级排列的媒体收视率"
+                    }
+                }
+            },
+            "users": {
+                "general": {
+                    "total_validated_disciplines": "完成的所有课程",
+                    "total_validated_modules": "所有完成的等级",
+                    "modules_validated_per_total": "# 所达到的等级 / # 总的等级"
+                },
+                "sociability": {
+                    "coach": {
+                        "disciplines": "{{nb}} 课程教练",
+                        "disciplines_plural": "{{nb}} 课程的教练"
+                    },
+                    "completion": {
+                        "modules_tried_label": "尝试的等级："
+                    }
+                },
+                "progression": {
+                    "th": {
+                        "discipline": "课程"
+                    }
+                }
+            }
+        }
+    }
+}

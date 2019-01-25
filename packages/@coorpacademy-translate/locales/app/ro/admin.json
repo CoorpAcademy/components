@@ -1,0 +1,147 @@
+{
+    "tabs": {
+        "import": "Importați",
+        "achievement": "Resetare",
+        "cms": "CMS",
+        "loginEvents": "Postare Logare Evenimente",
+        "replay": "Istoric import conținut",
+        "partners": "News Partners",
+        "buildReport": "Generare Raport"
+    },
+    "import": {
+        "help": "ajutor",
+        "help_content": "<h2>Importați o întreagă temă sau disciplină</h2> <p>Pentru a importa o temă, trebuie să furnizați un fișier .zip care îndeplinește următoarele cerințe:\n    <ul>\n <li>Numele disciplinei trebuie să fie unic</li>\n <li>Toate disciplinele trebuie să fie în originea fișierului .zip</li>\n        <li>Fiecare folder de disciplină trebuie să conțină un singur fișier .json al disciplinei care urmează a fi creată</li>\n        <li>Fiecare folder de disciplină trebuie să conțină trei foldere de module importate în ordine alfabetică</li>\n        <li>Fiecare folder de modul trebuie să conțină mai multe foldere cu întrebări</li>\n        <li>Fiecare folder cu întrebări trebuie să conțină un singur fișier .json corespunzător întrebării care urmează a fi creată</li>\n        <li>NOU: un modul sau un capitol poate conține un câmp remove:true pentru a-l șterge</li>\n        <li>NOU: un modul sau un capitol își poate schimba locul dacă are un swap:INDEX, unde INDEX este numărul poziției de luat (începând cu 0)</li>\n    </ul>\n</p> <h2>Importați un zip de utilizator</h2> <p>Pentru a importa un grup de utilizatori, trebuie să furnizați un .zip respectând următoarele reguli:\n    <ul>\n        <li>Datele de autentificare ale fiecărui utilizator trebuie să fie unice</li>\n        <li>Toți utilizatorii trebuie să fie la originea fișierului .zip</li>\n    </ul>\n</p> <a href=\"/assets/samples/import.zip\">Descărcați un exemplu de .zip</a>",
+        "disciplines": {
+            "title": "Discipline",
+            "zero": "Nu există disciplină"
+        },
+        "send_job": "Trimiteți fișierul prin intermediul serviciului"
+    },
+    "delete": {
+        "disciplines": {
+            "404": "Nu a fost găsită nicio disciplină",
+            "title": "Șterge toate disciplinele",
+            "button": "Ștergere",
+            "confirm": "Introdu \"{{word}}\" pentru a confirma ștergerea tuturor subiectelor",
+            "confirm_word": "discipline",
+            "success": "Discipline șterse"
+        },
+        "users": {
+            "404": "Nu și-au găsit niciun utilizator",
+            "title": "Ștergeți toți utilizatorii",
+            "help": "Ștergeți utilizatorii unui furnizor (pentru a-i șterge pe toți, lăsați necompletat)",
+            "button": "Ștergere",
+            "confirm": "Te rugăm apasă \"{{word}}\" pentru a confirma ștergerea utilizatorilor",
+            "confirm_word": "utilizatori",
+            "success": "{{count}} utilizator șters",
+            "success_plural": "{{count}} utilizatori șterși",
+            "provider": "furnizor:"
+        },
+        "tuto": {
+            "404": "Nici un utilizator găsit",
+            "title": "Resetează tutorialul",
+            "button": "Ștergere",
+            "confirm": "Vă rugăm să selectați \"{{word}}\" pentru a confirma reinițializarea completă a tutorialului.",
+            "confirm_word": "tutorial",
+            "success": "Resetare tutorial"
+        },
+        "achievements": {
+            "404": "Nu s-a găsit niciun progres",
+            "title": "Șterge tot progresul tău",
+            "button": "Ștergere",
+            "confirm": "Te rugăm introdu \"{{word}}\" pentru a confirma ștergerea progresului tău",
+            "confirm_word": "progres",
+            "success": "Progres șters"
+        }
+    },
+    "console": {
+        "status": "Stare HTTP:",
+        "exception": "Excepție ID:",
+        "error": "Mesaj de eroare:"
+    },
+    "update": {
+        "goals": {
+            "title": "Actualizați Obiectivele",
+            "button": "Actualizați Obiectivele printr-o activitate",
+            "success": "Cerere trimisă"
+        }
+    },
+    "create": "Adaugă",
+    "save": "Salvează ",
+    "remove": "Șterge",
+    "test": "Test",
+    "edit": "Modifică",
+    "back": "Înapoi",
+    "table": {
+        "button": {
+            "prev": "<<",
+            "next": ">>",
+            "first": "Prima pagină",
+            "last": "Ultima pagină"
+        }
+    },
+    "loginEvent": {
+        "subtitle": "Postare Evenimente de Conectare",
+        "config": "Informații generale",
+        "content": "Configurare suplimentară",
+        "eventName": "Nume eveniment",
+        "type": "Tip",
+        "active": "Activ",
+        "mandatory": "Obligatoriu",
+        "cmsPagePath": "Cale CMS",
+        "redirectTo": "Link de redirecționare",
+        "title": "Titlu",
+        "text": "Text principal",
+        "redirectButton": "Etichetă Buton Redirectare",
+        "button": "Denumire buton",
+        "checkboxText": "Casetă de bifat Catalogare",
+        "footerText": "Text subsol (opțional)",
+        "order": "Comanda"
+    },
+    "status": {
+        "ok": {
+            "title": "Succes"
+        },
+        "saving": {
+            "title": "Salvează..."
+        },
+        "removing": {
+            "title": "Se șterge..."
+        }
+    },
+    "version": "Versiunea curentă a platformei: {{appVersion}}",
+    "job": {
+        "import": {
+            "replay": "Aplică",
+            "username": "Condus de",
+            "createdAt": "Data executării",
+            "elapsedTime": "Timp executare",
+            "status": "Poziţie",
+            "uploadedFile": "Fișierul pentru S3",
+            "seeLogs": "A se vedea busteni"
+        }
+    },
+    "partner": {
+        "name": "Nume",
+        "link": "Link",
+        "createdAt": "Creat la",
+        "logo": "Logo",
+        "config": "Informații",
+        "upload": "Încărcare",
+        "linkLabel": "Etichetează link",
+        "description": "Descriere"
+    },
+    "buildReport": {
+        "help": "Ajutor",
+        "send_job": "Trimite fișier prin Lambda",
+        "title": "Generare Raport Pernod",
+        "help_content": "Încărcați fișierul zip care conține fișierele dvs. Excel și specificați adresa de email la care doriți să primiți rezultatele",
+        "email": "Adresa de e-mail",
+        "file": "Excelează în Zip",
+        "email_missing": "E-mailul trebuie furnizat",
+        "email_not_coorp": "E-mailul trebuie să fie de la coorpacademy",
+        "file_missing": "Fișierul trebuie furnizat",
+        "upload_in_progress": "Fișierul dvs. este în curs de încărcare. Procesarea poate dura câteva minute.\nVeți primi rezultatul pe email",
+        "file_received": "Fişierul a fost primit de server şi în prezent este procesat fără erori.\nÎn câteva minute vei primi un email cu rezultatul."
+    }
+}

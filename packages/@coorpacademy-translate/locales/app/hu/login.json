@@ -1,0 +1,392 @@
+{
+    "welcome": "Helló!",
+    "goodby": "Viszontlátásra!",
+    "sorry": "Elnézést!",
+    "welcome_message": "A bejelentkezéshez adja meg a megadott bejelentkezési adatokat",
+    "welcome_message_coorp": "Coorpakadémia",
+    "grant_credentials": "Ön nem rendelkezik megfelelő engedéllyel a művelet végrehajtásához.",
+    "sso_connect": "A céges fiókján keresztül csatlakozhat.",
+    "connect_connect": "Csatlakozhat a csatlakozással.",
+    "forgotten_credentials_pre": "A MOOC-vel kapcsolatos kérdések kapcsán keresd fel a platform adminisztrátort:",
+    "forgotten_credentials_href": "mailto:assistance@coorpacademy.com?subject=Segítségre%20van%20szüksége%20a%20(z)%20{{platform}}",
+    "forgotten_credentials": "assistance@coorpacademy.com",
+    "forgotten_credentials_post": "&nbsp;",
+    "instruction": "&nbsp;",
+    "logged_out": "Kapcsolat bontva",
+    "form": {
+        "user": "E-mailben",
+        "password": "Jelszó"
+    },
+    "error": {
+        "incorrect_credentials": "Hibás hitelesítési adatok",
+        "password_check": "Nem lehet ellenőrizni jelszavát. Vegye fel a kapcsolatot műszaki adminisztrátorunkkal.",
+        "too_many_failed_attempts": "Túl sok helytelen bejelentkezési próbálkozás. Kérjük, próbáld újra néhány perc múlva.",
+        "no_population": "Nem éri el a követelményeket a platform eléréséhez. Kérjük vegye fel a kapcsolatot az adminisztrátorral.",
+        "auth": {
+            "_sso_vendor_vendor_authentication_failed_connect_econnrefused": "[sso.vendor] beszállító : connect ECONNREFUSED",
+            "_sso_corporate_authenticate_person_failed_connect_econnrefused": "[sso.corporate] authenticatePerson meghíusult: connect ECONNREFUSED"
+        },
+        "token_invalid": "Ez a link lejárt, használja a logika és a jelszó"
+    },
+    "reset_password": "Elfelejtette a jelszavát?",
+    "forgot": {
+        "welcome": "Jelszó visszaállítása",
+        "new_password": "Új jelszó",
+        "forgotten_welcome_message": "Kérjük, írja be a bejelentkezési vagy e-mailben.",
+        "forgotten_placeholder": "Bejelentkezés",
+        "reset_welcome_message": "Kérjük, írd be az új jelszót.",
+        "password_updated": "Jelszó frissítve",
+        "your_login_is": "Jelenleg felhasználóneve:",
+        "reset_query_not_found": "Érvénytelen hivatkozás. Jelszava megújításának kérése már nem létezik vagy már nem érvényes.",
+        "incorrect_credentials": "Belépési név vagy jelszó hibás",
+        "password_reset_query_created": "Kérését regisztráltuk",
+        "password_reset_mail_sent": "Ha a helyes e-mail használata platformhoz, mi van most küldött egy e-mailt. Kérjük, kövesse az utasításokat, hogy frissítse a jelszót.\nHa nem kap egy e-mailt a következő néhány percben, <b>vittünk be a rossz elektronikus levél</b> belül. Próbálja újra egy másik címet.",
+        "sign": {
+            "in": "Kapcsolódás"
+        },
+        "error": {
+            "missing_login": "A belépés kötelező.",
+            "login_not_found": "A bejelentkezés nem található",
+            "forgotten_missing_login": "Bejelentkezés vagy e-mail kötelező",
+            "weak_password": "Az új jelszó nem erős elég",
+            "reset_query_not_saved": "Hiba történt a jelszóvisszaállítás kérésének feldolgozásakor. Kérjük próbálkozzon újra később."
+        }
+    },
+    "unsubscribe": {
+        "title": "Leiratkozás",
+        "confirmation_unsubscribe_message": "Leiratkozási kérelme sikeresen regisztrálva lett",
+        "confirmation_subscribe_message": "Sikereden regisztráltuk az előfizetésedet.",
+        "question_message": "Nem szeretnék emailben tájékoztatást és emlékeztetőt kapni."
+    },
+    "bad_access": {
+        "title": "Bocsánat!",
+        "sub_title": "A MOOC csak a hitelesített személyek számára elérhető"
+    },
+    "inactive": {
+        "title": "Elnézést",
+        "sub_title": "<p>a számla nem aktivál.</p> <p>$t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a></p>"
+    },
+    "deactivated": {
+        "title": "Sajnáljuk",
+        "warning": "Minden felhasználó deaktiválása esetén az a következő hónap első napjától kezdve érvényes. Deaktivált felhasználók újra már nem aktiválhatók. Használja a funkciót óvatosan.",
+        "sub_title": "<p>A cége deaktiválta fiókját. Szomorúak vagyunk, hogy elmegy!</p>"
+    },
+    "anonymous_notification": "Már tag vagy? <a href=\"/sso/connect\" target=\"_self\"> <b>Jelentkezz be most</b></a>, vagy <a href=\"$t(global:demo.url, {\"medium\":\"notification\"})\" target=\"_blank\"> <b>könyv egy demo</b></a> a vállalat",
+    "connect_dialog": {
+        "need_signup": {
+            "title": "Már majdnem ott van!",
+            "message": "Iratkozzon fel most kinyit a következő fejezet"
+        },
+        "feature_locked": {
+            "title": "Funkció Korlátozva!",
+            "message": "Jelentkezzen be a funkció megnyitásához"
+        },
+        "login_with": {
+            "facebook": "Belépés Facebookkal",
+            "google": "Bejelentkezés Google fiókkal",
+            "linkedin": "Belépés LinkedInnel"
+        },
+        "signup_with": {
+            "email": "Iratkozzon fel e-mailben"
+        },
+        "or": "vagy",
+        "signup": "Feliratkozás",
+        "signup_exist": "Már van fiókom",
+        "login": "Bejelentkezés"
+    },
+    "custom": {
+        "accueil": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "architas-powercircle": {
+            "reset_password": "Elfelejtette a jelszavát?",
+            "forgotten_credentials_pre": "<p>Ez az e-learning platform kérdése?</p> <p>Ne habozzon - üzenj nekünk most!</p>",
+            "forgotten_credentials_href": "mailto:powercircle@architas.com",
+            "forgotten_credentials": "powercircle@architas.com"
+        },
+        "bestwesternuniversity": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "bigdata": {
+            "forgotten_credentials_pre": "Belépéshez kérjük, írd be az emailben kapott belépési adatokat.</br> </br> A MOOC-ra vonatkozó kérdésekkel keresd a felület adminisztrátorát:",
+            "form": {
+                "user": "Az ön e-mail címe"
+            }
+        },
+        "bpifrance-academie": {
+            "forgotten_credentials": "formation-drhinvest@bpifrance.fr",
+            "forgotten_credentials_href": "mailto:formation-drhinvest@bpifrance.fr"
+        },
+        "breguet": {
+            "form": {
+                "user": "Bejelentkezés"
+            }
+        },
+        "chanel": {
+            "welcome": "Üdvözlet",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "cd78": {
+            "forgotten_credentials": "DSIdemande@yvelines.fr",
+            "forgotten_credentials_href": "mailto:DSIdemande@yvelines.fr"
+        },
+        "el": {
+            "form": {
+                "user": "RAISON SOCIALE. NUMERO"
+            }
+        },
+        "faurecia": {
+            "welcome_message": "A bejelentkezéshez kérjük adja meg a kapott adatokat",
+            "welcome_message_coorp": "email"
+        },
+        "fdj": {
+            "form": {
+                "user": "kisbetűs e-mailben"
+            }
+        },
+        "fff": {
+            "bad_access": {
+                "title": "Elnézést",
+                "sub_title": "Ez a MOOC csak engedéllyel rendelkező személyek számára elérthető. <br/> <br/> Ha ön egy tanár vagy technikus, lépjen be a <a href=\"https://www.fff.fr/myfff\"> https://www.fff.fr/myfff</a> oldalra, ha használni szeretné a platformot."
+            }
+        },
+        "forco": {
+            "form": {
+                "user": "kisbetűs e-mailben"
+            }
+        },
+        "gdf": {
+            "welcome_message": "A bejelentkezéshez, kérjük adja meg a szakmai e-mail címét <br/> (kisbetűvel) és a jelszavát.",
+            "welcome_message_coorp": "<br><br>Először csatlakozik? Írja be az e-mailben kapott jelszót",
+            "forgotten_credentials_pre": "Nincs elérés? Kapcsolati hiba? <a href=\"https://docs.google.com/forms/d/1M9Wxq3h8ukgZZHgD8MXknduRIpbNns9rYZNA3bEiiM4/viewform?usp=send_form\">Kattints ide</a><br><br>A MOOC-al kapcsolatos kérdésekkel kérjük fordulj a felület adminisztrátorához:"
+        },
+        "gdfec": {
+            "welcome_message": "A belépéshez, kérem, adja meg szakmai e-mail címét<br/> (kisbetűvel) és jelszavát.",
+            "welcome_message_coorp": "<br><br>Első kapcsolódás? Adja meg az emailben elküldött jelszót.",
+            "forgotten_credentials_pre": "Nincs elérs? Kapcsolódási problémák? <a href=\"https://docs.google.com/forms/d/1M9Wxq3h8ukgZZHgD8MXknduRIpbNns9rYZNA3bEiiM4/viewform?usp=send_form\">Kattints ide</a><br><br> A MOOC-al kapcsolatos kérdésekért kérjük keresd fel a felület adminisztrátorját."
+        },
+        "ilearn": {
+            "welcome": "Üdvözöljük"
+        },
+        "jardiland": {
+            "form": {
+                "user": "numéro de matricule"
+            }
+        },
+        "letsgetdigital": {
+            "form": {
+                "user": "Mail"
+            }
+        },
+        "linxea": {
+            "form": {
+                "user": "Emailed"
+            }
+        },
+        "logisacademie": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "metro": {
+            "form": {
+                "user": "name.lastname"
+            }
+        },
+        "mooc-parischarlesdegaulle": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "nespresso": {
+            "form": {
+                "user": "Nespresso Email address (case-sensitive)"
+            }
+        },
+        "nestlehealthscience": {
+            "form": {
+                "user": "kisbetűs e-mailben"
+            }
+        },
+        "natixis": {
+            "forgotten_credentials_pre": "For any question, please contact the platform administrator:"
+        },
+        "michelin": {
+            "inactive": {
+                "sub_title": "<p>We have missed you. Your account has been deactivated by your DCAD departement (Contact: <a href=\"mailto:compte-fonction.digital-transformation@michelin.com\">compte-fonction.digital-transformation@michelin.com</a>)"
+            }
+        },
+        "moocandfeel": {
+            "welcome_message": "A belépéshez, kérem, írja be a Comunditól kapott belépési információkat.",
+            "forgotten_credentials_pre": "A MOOC-al kapcsolatos kérdéseivel, forduljon a platform adminisztrátorhoz:",
+            "forgotten_credentials_href": "mailto:assistance-moocandfeel@coorpacademy.com",
+            "forgotten_credentials": "assistance-moocandfeel@coorpacademy.com",
+            "forgotten_credentials_post": "&nbsp;"
+        },
+        "online-academy-klubschule": {
+            "forgotten_credentials_href": "mailto:support@online-academy.klubschule.ch",
+            "forgotten_credentials": "support@online-academy.klubschule.ch"
+        },
+        "paca": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "panzani": {
+            "form": {
+                "user": "kisbetűs e-mailben"
+            }
+        },
+        "pernod": {
+            "bad_access": {
+                "title": "Sajnáljuk",
+                "sub_title": "Ez a MOOC csak bejelentkezett felhasználóknak érhető el. A platform elérséhez jelentkezz be az alábbi linken: <a href='http://digifit-pernodricard-university.com'>digifit-pernodricard-university.com</a>"
+            }
+        },
+        "pmf": {
+            "form": {
+                "user": "kisbetűs e-mailben"
+            }
+        },
+        "pru": {
+            "bad_access": {
+                "title": "Elnézést",
+                "sub_title": "Ez a MOOC csak engedéllyel rendelkező személyek számára elérhető"
+            }
+        },
+        "quizz-auchan": {
+            "form": {
+                "user": "AZONOSÍTÓ száma (például: XXX0000000)"
+            }
+        },
+        "redoute": {
+            "form": {
+                "user": "Login"
+            }
+        },
+        "renault": {
+            "welcome_message": "A bejelentkezéshez adja meg bejelentkezési adatait.",
+            "forgotten_credentials_pre": "Az MOOC-vel kapcsolatos kérdésekkel kérjük, fordulj a felület adminisztrátorához.",
+            "forgotten_credentials_href": "mailto:gerardo.talavera-farias@renault.com",
+            "forgotten_credentials": "gerardo.talavera-farias@renault.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "welcome_message_coorp": "&nbsp;"
+        },
+        "samsung": {
+            "forgotten_credentials_pre": "A MOOC-kal kapcsolatos kérdésekkel kérjük vegye fel a kapcsolatot a platform adminisztrátorával:",
+            "forgotten_credentials_href": "mailto:assistance@coorpacademy.com",
+            "forgotten_credentials": "assistance@coorpacademy.com",
+            "hotline_assistance_pre": "Feliratkozással kapcsolatos kérdésekkel kérünk, keresd a Samsung Akadémia forró vonalát:",
+            "hotline_assistance_href": "mailto:hotline.samsungacademy@gmail.com",
+            "hotline_assistance": "hotline.samsungacademy@gmail.com",
+            "inactive": {
+                "title": "Sajnáljuk",
+                "sub_title": "Fiókja nem aktív</br></br> $t(login:hotline_assistance_pre) <a href=\"$t(login:hotline_assistance_href)\"> $t(login:hotline_assistance)</a></br></br> $t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a>"
+            }
+        },
+        "securite": {
+            "forgotten_credentials_pre": "Belépéshez kérjük, írd be az emailben kapott belépési adatokat.</br> </br> A MOOC-ra vonatkozó kérdésekkel keresd a felület adminisztrátorát:",
+            "form": {
+                "user": "E-mail cím"
+            }
+        },
+        "societegenerale": {
+            "welcome_message": "A bejelentkezéshez, kérjük, adja meg a SGLearning által megadott adatokat.",
+            "forgotten_credentials_pre": "Az MOOC-vel kapcsolatos kérdésekkel kérjük, fordulj a felület adminisztrátorához.",
+            "forgotten_credentials_href": "mailto:sglearning.communication@socgen.com",
+            "forgotten_credentials": "sglearning.communication@socgen.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "welcome_message_coorp": "&nbsp;"
+        },
+        "schmidt-groupe": {
+            "form": {
+                "user": "e-mail vagy firstNameInitial + vezetéknév"
+            }
+        },
+        "sqy": {
+            "welcome_message_coorp": "mail",
+            "forgotten_credentials_pre": "A belépéshez kérjük add meg az e-mail-ben kapott bejelentkezési információd.</br> </br>A MOOC kapcsán felmerülő kérdéseiddel kérjük vedd fel a kapcsolatot a platform adminisztrátorával:",
+            "form": {
+                "user": "Az ön e-mail címe"
+            }
+        },
+        "tagheuer": {
+            "forgotten_credentials_pre": "A TAG Heuer Traning Platformmal kapcsolatos kérdésekkel kérjük vegye fel a kapcsolatot az adminisztrátorral:",
+            "form": {
+                "user": "Bejelentkezés"
+            }
+        },
+        "thelem": {
+            "forgotten_credentials_href": "telefon: 11-11",
+            "forgotten_credentials": "Telefonszám: 11-11"
+        },
+        "total": {
+            "instruction": "Jelszavadat elküldtük emailben. Az első belépéskor a jelszót meg kell változtatnod.",
+            "form": {
+                "user": "IGG",
+                "password": "Jelszó"
+            }
+        },
+        "tourism": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "tourisme-hautsdefrance": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "tourismdigital": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "who": {
+            "forgotten_credentials_pre": "Bármilyen kérdése van kérjük, lépjen kapcsolatba",
+            "forgotten_credentials_href": "mailto:assistance@coorpacademy.com",
+            "forgotten_credentials": "assistance@coorpacademy.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "inactive": {
+                "sub_title": "<p>a számla nem aktivál.</p> <p>, Ha már befejezte a regisztrációs űrlapot, rövidesen kap visszaigazolást és a hozzáférést a platform. Ellenkező esetben, kérjük, küldje el a jelentkezési lapot <a href=\"/signup\" target=\"_self\"> <b>(“Sign Up”)</b></a>.</p> <p>$t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a></p>"
+            }
+        },
+        "wme-img": {
+            "form": {
+                "user": "firstNameInitial + vezetéknév"
+            }
+        },
+        "yahoo": {
+            "welcome_message_coorp": "e-mail"
+        }
+    }
+}

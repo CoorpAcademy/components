@@ -1,0 +1,23 @@
+{
+    "submit": "Valideren",
+    "print": "Afdrukken",
+    "share": "Delen",
+    "delete": "Verwijderen",
+    "start": "Start",
+    "loadMore": "Laad meer...",
+    "download": "Downloaden",
+    "ok": "OK",
+    "cancel": "Annuleren",
+    "sso": "Eenmalige aanmelding",
+    "connect": "Verbinden",
+    "signup": "Aanmelden",
+    "signup_pre": "Heb je geen account?",
+    "custom": {
+        "chanel": {
+            "signup": "Aanmelden"
+        },
+        "ilearn": {
+            "signup": "Aanmelden"
+        }
+    }
+}

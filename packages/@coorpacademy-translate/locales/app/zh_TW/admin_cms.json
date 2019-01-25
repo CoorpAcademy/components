@@ -1,0 +1,120 @@
+{
+    "cms": {
+        "add": "新增項目",
+        "title": "添加新頁面",
+        "lang": "輸入語言：",
+        "name": "名字：",
+        "scope": "周界線：",
+        "target": {
+            "title": "目標",
+            "empty": "沒有目標",
+            "discipline": "學科",
+            "learningTree": "目錄"
+        },
+        "type": "類型：",
+        "order": "訂單：",
+        "active": "已啟用：",
+        "populations": "人口：",
+        "rmd": "降價",
+        "save": "儲存",
+        "delete": "刪除",
+        "test": "測試",
+        "deploy": "寄送",
+        "delete_confirm": "您確定要刪除本頁嗎？",
+        "markdown": "標記語法",
+        "quick": "快速指南",
+        "path": "網址連結字尾*：",
+        "full": "完整記錄",
+        "preview": "預覽",
+        "edit": "編輯",
+        "notifications": "自訂通知",
+        "content": "內容：",
+        "config": "全球設置",
+        "targetBlank": "在新分頁中打開：",
+        "forum_xid": "論壇 Id",
+        "navigation": {
+            "label": "探索街區：",
+            "none": "無封鎖頁面"
+        },
+        "provider": {
+            "none": "所有人"
+        },
+        "status": {
+            "ok": {
+                "title": "成功",
+                "save": "您的頁面已成功儲存",
+                "del": "你的網頁已被成功刪除"
+            },
+            "test": {
+                "title": "工作已開始。通知很快就會看得見。"
+            },
+            "deploy": {
+                "title": "已開始工作。請在工作頁面上遵循進度。"
+            },
+            "ko": {
+                "title": "錯誤",
+                "save": "儲存時發生錯誤：{{err}}",
+                "del": "刪除時發生了錯誤: {{err}}"
+            }
+        },
+        "title_content": "標題：",
+        "category": "類別",
+        "select_all": "選擇全部",
+        "language_info": "每個啟用的國家都必須填入每個輸入的語言",
+        "imageURL": "圖片網址",
+        "page": "頁面：",
+        "link": "連結：",
+        "link_placeholder": "(舉例： http://www.google.com)",
+        "partner": "夥伴：",
+        "discipline_ref": "discipline.ref",
+        "cancel": "取消",
+        "date": "日期：",
+        "image": "圖片：",
+        "upload": "上傳",
+        "modify": "修改",
+        "countries": "國家"
+    },
+    "success": "你的修改已被儲存。",
+    "error": {
+        "mandatory": "缺少欄位"
+    },
+    "tabs": {
+        "pages": "網頁",
+        "news": "新聞",
+        "notification": "客製的通知"
+    },
+    "page": {
+        "name": "{{name}}"
+    },
+    "notification": {
+        "new": "本通知尚未創建。填寫並儲存表單以創建之。",
+        "name": "{{name}}",
+        "provider": "提供者：",
+        "expires": "截止日期*:",
+        "message": "訊息",
+        "link": {
+            "show": "顯示 '更多訊息' 按鍵：",
+            "url": "連結：",
+            "target": "在新頁面中開啟連結"
+        },
+        "status": {
+            "title": "狀態",
+            "created": "已建立",
+            "sending": "正在發送：有一作業正在創建要發送給使用者的通知。",
+            "tested": "已測試",
+            "sent": "發送給選定用戶。",
+            "pending": {
+                "deploy": "寄送要求以通知特定用戶。",
+                "testing": "等待顯示通知。",
+                "delete": "請稍等一下，通知將被刪除。",
+                "save": "請稍等，正在儲存通知"
+            },
+            "ok": {
+                "save": "已儲存通知",
+                "testing": "測試過",
+                "deploy": "啟動作業向用戶發送通知"
+            }
+        }
+    },
+    "text": "<h2> 基本 </h2><p>\n   強制歸位：以兩個空格結束一行 <br />\n   直接嵌入 html：以 4 個空格開始一行<br />\n</p><h2> 標頭 </h2><p>\n   # H1<br />\n   ## H2<br />\n   ### H3<br />\n</p><h2> 強調 </h2><p>\n   斜體字：* 星號 * 或 _底線_。\n<br />\n   粗體字：** 雙星號 ** 或 __ 雙底線 __。<br />\n</p> <h2> 清單 </h2> <p>\n   1. 清單上的一項目 <br />\n   2. 另一項目<br />\n   ⋅⋅* 無排序子清單。<br />\n   1. 實際數字不重要，就只是數字。<br />\n   ⋅⋅1. 排序子清單。<br />\n   4. 以及其他項目。<br />\n   <br />\n   ... 你可在清單項目中有正確縮排的段落。注意其上的空行，以及開頭空格（至少一個，但我們在此用三個以與原始 Markdown 對齊）。<br />\n   <br />\n   如要在一個段落中空行，你需要使用兩個結尾空格。⋅⋅<br />\n   ... 注意此行為獨立的，但在同一段落中。⋅⋅<br />\n   ...（這與典型 GFM 空行動作相反，後者不需要結尾空格。）\n<br />\n   <br />\n   * 可使用星號標記無排序清單。<br />\n   - 或減號<br />\n   + 或加號<br />\n</p> <h2> 連結 </h2> <p>\n   [ 我為一行內套用式連結]\n(https://www.google.com)<br /><br />\n   [ 我為一有標題行內套用式連結]\n(https://www.google.com \"Google's Homepage\")<br /><br />\n    [ 我為一援引式連結][ 任意套用大小寫有別之援引文字 ]<br /><br />\n   [ 我為一資料庫檔案的相對援引 ](../blob/master/LICENSE)<br /><br />\n   [ 你可以使用數字定義援引式連結 ][1]<br /><br />\n   或留白並使用 [ 原始連結文字 ]\n<br /><br />\n   一些文字以顯示援引連結將出現。\n</p><h2> 錨點 </h2><p>\n   <h3> 設定錨點 </h3>\n   你應使用 HTML 語法來你為想要設定錨點的標籤創建 id。<br/>\n</br>\n   範例：</br>\n   如你想在 H1 標籤設立錨點，你應如下設定： <b>&lt;h1 id=\"my_anchor\"&gt;Anchor Text&lt;/h1&gt;</b>\n   <br/></br>\n   <h3> 使用錨點 </h3>\n   有了 <b> a </b> 標籤，你應設定 href 值為：<b>/pages/[url_suffix_page]#[the_anchor]</b>.<br/><br/>\n   設定錨點頁面之 <li><b>url_suffix_page</b>。這是當一個頁面被創建以生成 url 時首先被填入的文字。</li>\n   <li><b>the_anchor</b> 設定錨點之標籤 id 值。</li>\n   <br/></br>\n   範例：</br>\n   使用之前已設定之錨點，你應如此設定：<b>&lt;a href=\"/pages/page_url#my_anchor\"&gt;Link Text&lt;/a&gt;</b></br>\n   或是 <b>[ 連結文字 ](/pages/page_url#my_anchor)</b>\n</p> <h2> 圖像 </h2> <p>\n   此為我們的商標（移動滑鼠來看標題文字）：<br />\n<br />\n   行內套用式：<br />\n   ！[ 替代文字 ](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png \"Logo Title Text 1\")<br />\n   <br />\n   援引式：<br />\n   ！[ 替代文字 ][ 商標 ]<br />\n</p> <h2> 表 </h2> <p>\n   可使用冒號來對齊欄位。<br />\n   <br />\n   | 表單        | 很           | 酷  |<br />\n   | ------------- |:-------------:| -----:|<br />\n   | 第 3 欄為      | 向右對齊 | $1600 |<br />\n   | 第 2 欄為      | 置中      |   $12 |<br />\n   | 斑馬紋 | 很整齊      |    $1 |<br />\n   <br />\n   外直線 (|) 非必需，且你不需調整美化原始 Markdown。你也可使用行內 Markdown。<br />\n   <br />\n   Markdown | 較不 | 美觀<br />\n    --- | --- | ---<br />\n    * 還是 * | ` 呈現 ` | ** 良好 **<br />\n    1 | 2 | 3<br />\n</p> <h2> 行內 HTML </h2> <p> <dl>\n   <dt> 定義清單 </dt><br />\n   <dd>是大家有時會使用的東西。</dd>\n<br /><br />\n\n   <dt> HTML 中的 Markdown </dt><br />\n   <dd> 並 * 不 * 運作得 ** 非常 ** 好。使用 HTML <em> 標籤 </em>。</dd><br />\n</dl></p>"
+}

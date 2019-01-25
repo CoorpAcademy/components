@@ -1,0 +1,153 @@
+{
+    "loose": {
+        "title": "ホーム",
+        "end_try": "あなたはこれ以上トライすることはできません!",
+        "echec_title": "残念…",
+        "new_badges": "バッジを新たに{{number}}個獲得しました",
+        "new_badges_plural": "{{number}} 個の新たなバッジを獲得",
+        "footer": {
+            "joker": {
+                "video": {
+                    "pre": "動画を見る ",
+                    "text": "レッスンの",
+                    "win": "1を勝利するには",
+                    "heart": "エクストラ・ライフ",
+                    "post": "コンティニュ レベル。"
+                },
+                "pdf": {
+                    "pre": "レッスンを読む",
+                    "win": "1回勝つには",
+                    "heart": "残機",
+                    "post": "コンティニュ レベル。"
+                },
+                "without": "あなたは手持ちのジョーカーを使いました"
+            },
+            "new_try": {
+                "title_pre": "このレベルを再度実行してください。",
+                "title": "あなたは意欲的で、",
+                "title_post": "そして表示されます!",
+                "button": "このレベルをもう一度試してください。"
+            },
+            "new_module": {
+                "title_pre": "別のレベルにアクセスします。",
+                "title": "あなたは追いつきますよ!",
+                "button": "変更コース"
+            }
+        },
+        "type_badges": {
+            "init": "初期値",
+            "bronze": "ブロンズ",
+            "argent": "シルバー",
+            "or": "金",
+            "platine": "プラチナ"
+        }
+    },
+    "question_title": "質問: {{question}}",
+    "progression": "質問 {{nb}} / {{ref}}",
+    "success": {
+        "home": "ホーム",
+        "title": "おめでとうございます!",
+        "subtitle": "このレベルを完了しています。",
+        "body": {
+            "new_star": "星  {{newStars}}",
+            "new_score": "あなたの新しいスコア {{newScore}}"
+        },
+        "new_badges": "{{new}} 新しいバッジを獲得しました",
+        "new_badges_plural": "{{new}} 個の新たなバッジを獲得",
+        "reported": "あなたが獲得したこのモジュールにより：",
+        "win": "あなたの総合得点",
+        "footer": {
+            "title": "よいスタートが切れました! その調子で!",
+            "new_module": "このレベルにアクセスします。",
+            "duration_unit": "分",
+            "battle": "バトルを開始 "
+        },
+        "type_badges": {
+            "init": "初期値",
+            "bronze": "銅",
+            "argent": "シルバー",
+            "or": "金",
+            "platine": "プラチナ"
+        },
+        "yourRanking": "ランキング:",
+        "rankWin": "(+ {{count}} ランク)",
+        "rankWin_plural": "(+ {{count}} ランク)"
+    },
+    "duration": "{{nb}}",
+    "duration_post": "分",
+    "duration_post_plural": "分",
+    "assistance": "エラーを報告する",
+    "buy_next": "次のモジュールを購入する",
+    "moduleNotFound": "{{disciplineName}}コースに向けてそのレファレンス{{moduleRef}}に関連されるレベルは見つかりませんでした。",
+    "custom": {
+        "armeedeterre": {
+            "success": {
+                "footer": {
+                    "battle": "バトルを開始"
+                }
+            }
+        },
+        "7steps": {
+            "loose": {
+                "type_badges": {
+                    "platine": "ページのトップへ"
+                }
+            },
+            "success": {
+                "type_badges": {
+                    "platine": "ページのトップへ"
+                }
+            }
+        },
+        "fdj": {
+            "loose": {
+                "echec_title": "終了",
+                "end_try": "クイズが終了!"
+            }
+        },
+        "letsgetdigital": {
+            "assistance": "フィードバックを与える"
+        },
+        "up": {
+            "loose": {
+                "footer": {
+                    "joker": {
+                        "video": {
+                            "post": "レベルを続けると"
+                        },
+                        "pdf": {
+                            "post": "レベルを続けると"
+                        }
+                    },
+                    "new_try": {
+                        "title_pre": "このレベルを再度実行してください。",
+                        "button": "このレベルをもう一度試してください。"
+                    },
+                    "new_module": {
+                        "title_pre": "別のレベルにアクセスします。",
+                        "button": "変更コース"
+                    }
+                }
+            },
+            "success": {
+                "subtitle": "このレベルを合格しました。",
+                "reported": "このレベルでは、獲得しました。",
+                "footer": {
+                    "new_module": "このレベルにアクセスします。"
+                }
+            },
+            "memo": {
+                "module_title": "モジュール: {{disciplineName}} - {{moduleName}}",
+                "from": "コース {{disciplineName}} - {{名}}"
+            },
+            "buy_next": "次のコースを購入します。"
+        },
+        "who": {
+            "success": {
+                "footer": {
+                    "battle": "挑戦を開始します。"
+                }
+            }
+        }
+    }
+}

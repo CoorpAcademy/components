@@ -1,0 +1,90 @@
+{
+    "disciplines": {
+        "book_demo": "book a demo",
+        "payment_required": "coorpacademy feliratkozás",
+        "free_start": "tanulás megkezdése"
+    },
+    "modules": {
+        "button": {
+            "start": "{{name}} kezdő szinten",
+            "access": "{{name}} hozzáférési szint",
+            "continue": "{{name}} szintje továbbra is",
+            "again": "{{name}} indítsa újra a szintet ",
+            "locked": "Modul lezárva",
+            "payment_required": "Iratkozz fel továbbra is"
+        },
+        "skill": {
+            "valid": "Ennek a modulnak köszönhetően a következőkre lesz képes:",
+            "invalid": "A modul végén a következőket teheti:"
+        },
+        "chapters": {
+            "title": "Fejezetek"
+        },
+        "stars": "Összes elért csillag"
+    },
+    "chapters": {
+        "button": {
+            "start": "Start 5' Learning",
+            "access": "Hozzáférés 5' Learning",
+            "continue": "Továbbra is 5' Learning",
+            "again": "Indítsa újra a 5' Learning",
+            "locked": "Zárva 5' Learning"
+        }
+    },
+    "presentation": {
+        "total": "{{nb}}",
+        "total_post": "modul",
+        "total_post_plural": "modulok",
+        "video_title": "Kurzusanyag megtekintése",
+        "popularity": "Népszerűség:",
+        "trainer": "Edző",
+        "trainer_plural": "Edzők",
+        "by": "Gyártó",
+        "and": "&"
+    },
+    "author": "A kurzus készítője:",
+    "disciplineNotFound": "Nem található tanfolyam {{disciplineRef}} referenciával",
+    "forbidden": {
+        "unknown_in_group": "Nem férhetnek hozzá a tartalomhoz",
+        "previous_level": "A korábbi szinten kell elvégezni, mielőtt ezt a szintet",
+        "conditions": "A következő tanfolyamokat kell végezni, mielőtt megpróbál ez egy: {{contents}}",
+        "subscription_required": "Előfizetés Coorpacademy szükséges ezt a tartalmat."
+    },
+    "custom": {
+        "up": {
+            "disciplines": {
+                "payment_required": "Coorpacademy előfizetés"
+            },
+            "modules": {
+                "button": {
+                    "locked": "Szint megnyitva"
+                },
+                "skill": {
+                    "valid": "Ennek a szintnek köszönhetően tud:",
+                    "invalid": "A szint végén ezt tudod majd csinálni: "
+                }
+            },
+            "presentation": {
+                "total_post": "szint",
+                "total_post_plural": "szintek"
+            }
+        },
+        "silca": {
+            "modules": {
+                "skill": {
+                    "invalid": "A modul végén próbára teheted ismereteid az alábbiakban: "
+                }
+            }
+        },
+        "mooc-socgen": {
+            "modules": {
+                "button": {
+                    "start": "Start {{name}}",
+                    "access": "Hozzáférés {{name}}",
+                    "continue": "Továbbra is {{name}}",
+                    "again": "Indítsa újra a {{name}}"
+                }
+            }
+        }
+    }
+}

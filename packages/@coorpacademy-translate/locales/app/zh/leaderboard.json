@@ -1,0 +1,31 @@
+{
+    "rankPos": "&nbsp;",
+    "rankPos_plural": "&nbsp;",
+    "title": "我的排名",
+    "title_caps": "我的排名",
+    "subtitle_head": "相对前 20 名星级获得者，查看你的位置。",
+    "subtitle_core_pre": "你已经获得排名",
+    "subtitle_core_post": "在所有学习者当中！",
+    "subtitle_tail": "继续保持这一势头以进一步提高你的分数。",
+    "subtitle_no_rank": "完成更多模块，让排名上升。",
+    "custom": {
+        "bnp": {
+            "subtitle_head": "查看您的排名前20名的因素。"
+        },
+        "gdf": {
+            "subtitle_tail": "在第 1 季末，一般排名的前 20 位雇员将被邀请至编辑委员会，选择 WeTransform 下一季的主题内容。"
+        },
+        "gdfec": {
+            "subtitle_tail": "在第 1 季结束时，总排名前 20 的员工将受邀进入编委会，挑选下一季 WeTransform 的主题内容。"
+        },
+        "up": {
+            "subtitle_no_rank": "完成更多等级，提升排名。"
+        },
+        "yahoo": {
+            "subtitle_tail": "&nbsp;"
+        },
+        "linxea": {
+            "subtitle_head": "查看您对前20名明星收入者的排名。"
+        }
+    }
+}

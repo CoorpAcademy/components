@@ -1,0 +1,107 @@
+{
+    "indice": {
+        "title": "Besoin d'aide ?",
+        "sub_title": "Échangez un indice contre une étoile !",
+        "content": "Obtenir un indice"
+    },
+    "lesson": {
+        "title": "Toutes les réponses ici !",
+        "sub_title": "Regardez le cours et gagnez 4 étoiles supplémentaires !",
+        "resources": "Pour aller plus loin",
+        "title_video": "Vidéo du cours",
+        "title_pdf": "Cours en PDF",
+        "look_at_the_course": "Accéder au cours"
+    },
+    "without_coach": {
+        "title": "Pas de coach disponible"
+    },
+    "with_coach": {
+        "title": "Discuter avec un Coach",
+        "content": "{{nb}} coache(s) disponible(s)"
+    },
+    "is_valid": {
+        "state": "<span class=\"label1\">Bonne</span> <span class=\"label2\">réponse</span>",
+        "title": "Bravo !",
+        "correctAnswer": "Bonne réponse :"
+    },
+    "is_invalid": {
+        "state": "<span class=\"label1\">Mauvaise</span> <span class=\"label2\">réponse</span>",
+        "title": "Aïe aïe aïe...",
+        "goodAnswer": "La réponse était :"
+    },
+    "signup_finish_chapter": "Inscrivez-vous pour finir le chapitre",
+    "available_shots_pre": "encore",
+    "available_shots": "{{count}} chance possible",
+    "available_shots_plural": "{{count}} chances possibles",
+    "available_shots_post": "&nbsp;",
+    "klf": "Le saviez-vous ?",
+    "to_know": "Point-clé",
+    "footer": {
+        "lesson": {
+            "title": "Vous pouvez décider de revoir le cours",
+            "button": "Accéder au cours"
+        },
+        "result": {
+            "title": "Vous pouvez revenir à votre résultat",
+            "button": "Retour au résultat"
+        },
+        "next_question": "Continuer"
+    },
+    "check_answer": "Vérifier la réponse",
+    "adaptive_check_answer": "Continuer",
+    "next_question": "Passer à la question suivante",
+    "next_level": "Passer au niveau suivant",
+    "author": "Ce chapitre a été réalisé par :",
+    "button_tree": "Accéder au catalogue",
+    "comments": {
+        "title": "Discussion",
+        "title_for_module": "Discuter - Niveau {{name}}"
+    },
+    "slideNotFound": "Aucun cours trouvé avec la référence {{disciplineRef}}",
+    "forbidden": "Vous n’avez pas le droit d’accéder au contenu avec la référence {{contentRef}}.",
+    "showContext": "Revoir le contexte",
+    "context": "Contexte",
+    "custom": {
+        "hr-ac": {
+            "footer": {
+                "lesson": {
+                    "button": "Accéder au support"
+                }
+            }
+        },
+        "nespresso": {
+            "without_coach": {
+                "title": "Aucun expert disponible"
+            },
+            "with_coach": {
+                "content": "{{nb}} expert disponible"
+            }
+        },
+        "renaultcare": {
+            "is_valid": {
+                "state": "<span class=\"label1\">Bravo</span>"
+            },
+            "is_invalid": {
+                "state": "<span class=\"label1\">Pas tout à fait</span>",
+                "title": "Ouch..."
+            }
+        },
+        "schneider": {
+            "comments": {
+                "title_for_module": "Discuter - niveau {{name}} <br/> veuillez contacter <a href=\"http://2929it.schneider-electric.com/\" target=\"_blank\"> 2929 assistance</a> pour des problèmes de vidéo"
+            }
+        },
+        "who": {
+            "is_valid": {
+                "state": "<span class=\"label1\"> correct</span> <span class=\"label2\"> réponse</span>",
+                "correctAnswer": "Bonne réponse :"
+            },
+            "to_know": "Pour comprendre",
+            "lesson": {
+                "resources": "Plonger dans le sujet",
+                "look_at_the_course": "Cours en PDF"
+            },
+            "showContext": "Revoir le contexte"
+        }
+    }
+}

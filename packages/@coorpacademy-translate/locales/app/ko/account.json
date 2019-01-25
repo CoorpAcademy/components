@@ -1,0 +1,565 @@
+{
+    "firstConnection": {
+        "title": "<span>환영 합니다</span> <span class='name'> {{name}}!</span>"
+    },
+    "changePassword": {
+        "title": "<span>환영 합니다</span> <span class='name'> {{name}}!</span>",
+        "intro": "비밀 번호 만들기 미래 참고를 위해 그것을 저장!",
+        "errors": {
+            "mustChangePassword": "새 암호는 현재 암호와 달라야 합니다",
+            "incorrectPassword": "현재 암호가 올바르지 않습니다."
+        }
+    },
+    "footer": {
+        "title": "“{{platformName}}” 플랫폼을 사용 하는 이유",
+        "features": {
+            "videos": {
+                "title": "동영상",
+                "description": "학습과 진전을 비디오 레슨을 시청"
+            },
+            "quizzes": {
+                "title": "퀴즈",
+                "description": "수백 개의 퀴즈를 통해 지식을 테스트합니다"
+            },
+            "battles": {
+                "title": "$t(menu:header.mainNav.battles)",
+                "description": "전투에 다른 사람을 도전 하 여 검토"
+            },
+            "certificates": {
+                "title": "$t(menu:header.mainNav.certifications)",
+                "description": "실력을 증명 하는 인증서를 얻을"
+            }
+        },
+        "pillars": {
+            "learnAtYourOwnPace": {
+                "title": "자신의 진도에 배울",
+                "description": "<li>받아 짧은 세션</li> <li>중지 하 고 언제 든 지 다시 시작</li> <li>어떤 장치를 사용 하 여</li>"
+            },
+            "adapted": {
+                "title": "당신에 게 적응 하는 학습",
+                "description": "<li>시스템을 이미 알고 적응</li> <li>선택 자신의 학습 경로</li> <li>맞춤 콘텐츠</li>"
+            },
+            "haveFun": {
+                "title": "즐거운 시간 보내세요",
+                "description": "<li>Gamified 학습 환경</li> <li>비디오 게임에 의해 영감</li> <li>«중지 및 이동» 기능</li>"
+            },
+            "learningCommunity": {
+                "title": "학습 커뮤니티",
+                "description": "<li>피어 코칭</li> <li>토론 포럼</li> <li>여러 학습자에 대 한 도전</li> <li>순위</li>"
+            }
+        },
+        "gotoform": "플랫폼에 액세스 하는 양식을 작성합니다"
+    },
+    "edit": {
+        "oldPassword": "이전 암호",
+        "password": "암호",
+        "password_confirmation": "비밀 번호 확인"
+    },
+    "myaccount": {
+        "title": "내 계정",
+        "subtitle": "귀하의 개인 데이터를 관리하세요!",
+        "modify": "수정",
+        "status": "상태",
+        "save": "저장",
+        "carriere": "경력",
+        "hobbie": "관심 분야",
+        "abonnement": "이메일 구독",
+        "allowed_mail": "정보 이메일 또는 알림를 받고 싶습니다.",
+        "not_allowed_mail": "정보 또는 알림 이메일을 받고 싶지 않습니다",
+        "avatar": {
+            "update": "사진이는 성공적으로 업로드 되었습니다. 24시간 이내에 표시 될것입니다.",
+            "no_image": "선택한 파일은 올바른 형식이 아닙니다. .Png,.jpg 또는.gif에서 선택 하십시오."
+        },
+        "profile": {
+            "updated": "프로필이 업데이트 되었습니다."
+        },
+        "reset": "리셋",
+        "updatedAccount": "귀하의 계정이 업데이트 되었습니다.",
+        "accountUpdate": "계정 업데이트",
+        "password": "암호",
+        "updatePassword": "전송",
+        "newPassword": "새 암호",
+        "actualPassword": "현재 암호",
+        "passwordConfirmation": "새 암호 확인",
+        "updatePasswordSuccess": "암호가 성공적으로 업데이트 되었습니다.",
+        "updatePasswordError": "암호를 변경할 수 없습니다 폼을 확인 하시기 바랍니다.",
+        "privateAccount": {
+            "title": "개인 프로필",
+            "label": "내 성 숨기기."
+        },
+        "emailSettings": {
+            "core": "시스템 메시지(인증서, \"누군가 전투에 도전했습니다\"...)",
+            "user": "알림(\"권장 과정\", \"가장 인기 있는 과정 확인\"...)",
+            "mailchimp": "월간 읽을거리"
+        }
+    },
+    "error": {
+        "oldPasswordRequired": "현재 암호가 필요합니다.",
+        "newPasswordRequired": "새 암호가 필요합니다.",
+        "confirmPasswordRequired": "비밀 번호 확인이 필요 합니다.",
+        "incorrectMinLength": "암호는 적어도 {{minLength}} 자 이상 포함 되어야 합니다.",
+        "different_password": "귀하의 비밀 번호가 일치 하지 않습니다!",
+        "wrong_password": "비밀번호가 올바르지 않습니다."
+    },
+    "menu": {
+        "info": {
+            "title": "내 프로필",
+            "modify_avatar": "내 프로필 사진 업데이트",
+            "modify_password": "비밀번호 변경"
+        },
+        "alerts": {
+            "title": "내 알림",
+            "email": "이메일 설정",
+            "modify_email": "내 이메일 설정 변경",
+            "notifications": "알림",
+            "modify_notifications": "내 알림 변경",
+            "wish_notifications": "알림을 받고 싶습니다.",
+            "blocked_notifications": "현재 설정이 알림을 허용 하지 않습니다. 브라우저 설정을 변경하고 이 페이지를 새로 고치십시오."
+        },
+        "bills": {
+            "title": "내 구매"
+        },
+        "custom": {
+            "modify_account_title": "내 계정",
+            "modify_account_informations": "계정 업데이트"
+        },
+        "subscription": {
+            "title": "내 구독",
+            "subtitle": "Coorpacademy Premium Subscription is no longer available",
+            "info": "If you have already signed up and you wish to cancel your Premium subscription please send a mail with your details to:",
+            "update": "내 구독 관리"
+        }
+    },
+    "go": {
+        "to": {
+            "sso": "SSO로 이동",
+            "connect": "Connect로 이동"
+        }
+    },
+    "custom": {
+        "corporateonlineopencourse": {
+            "changePassword": {
+                "title": "스마트폰/패드와 연결 하 여 암호를 ' 구성 '",
+                "intro": "<span>안녕하세요,</span> <br><br>그냥 처음에 대 한 로그인 캠퍼스를 통해 MOOC 브랜드 대사 하. <br> 우리는 특정 다중 장치 암호를 구성 하는 초대 <br>아래 여기. 귀하의 스마트폰이나 태블릿에 MOOC 액세스할 수 원하는 경우이 암호 당신이 가능성을 줄 것 이다. <br>한번 구성 확인 이메일이 당신에 게 전송 됩니다."
+            },
+            "myaccount": {
+                "updatePassword": "유효성 검사"
+            }
+        },
+        "gdf": {
+            "edit": {
+                "title": "이것은 당신의 첫 번째 연결",
+                "lastName": "성*",
+                "firstName": "이름*",
+                "branch": "지점 *",
+                "password_title": "새 암호를 입력 하십시오",
+                "oldPassword": "현재 비밀 번호 *",
+                "password": "새로운 비밀 번호 *",
+                "password_confirmation": "확인 *",
+                "personnal_title": "귀하의 개인 정보를 입력 해 주시기 바랍니다",
+                "businessUnit": "비즈니스 단위 *",
+                "age": "나이 범위 *",
+                "workingCountry": "나라 어디 당신이 작업 *",
+                "gender": "성별 *",
+                "save": "유효성 검사",
+                "mandatory": "* 필수 필드",
+                "male": "남성",
+                "female": "여성",
+                "saving": "귀하의 정보를 저장 하는 동안 기다려 주세요. 당신이 완료 되 면 홈 페이지로 리디렉션됩니다."
+            },
+            "error": {
+                "different_password": "비밀 번호의 확인을 일치 하지 않습니다.",
+                "mandatory": "이러한 모든 필드는 필수",
+                "incorrectPassword": "현재 암호가 올바르지 않은"
+            },
+            "branch": {
+                "centre": "센터",
+                "energy_europe": "에너지 유럽",
+                "energy_international": "에너지 국제",
+                "energy_services": "에너지 서비스",
+                "global_gas_lng": "글로벌 가스 및 LNG",
+                "infrastructures": "인프라",
+                "entreprises_collectivites": "기업 및 공공 기관"
+            },
+            "business_unit": {
+                "centre_bxl": "센터-BXL",
+                "centre_paris": "센터 파리",
+                "generation": "세대",
+                "renewable_energies": "신 재생 에너지",
+                "marketing_sales": "마케팅 및 영업",
+                "emt": "구급 대",
+                "support_lines_corporate": "라인을 지원 / 기업",
+                "asia_pacific": "아시아-태평양",
+                "latin_america": "라틴 아메리카",
+                "north_america": "북미 지역",
+                "samea": "동남 아시아, 중동 및 아프리카 (SAMEA)",
+                "uk_turkey": "영국-터키",
+                "benelux_division": "베네룩스 부문",
+                "engineering_division": "공학",
+                "support": "Fonctions 지원 / 기업 및 다른 사람",
+                "international_division": "국제 본부",
+                "pole_services": "Pôle 프랑스 서비스 Energétiques",
+                "pole_system": "Pôle 프랑스 시스템, 설치 및 유지 보수",
+                "pole_network": "Pôle 차원 에너지 부문 지구 /",
+                "ep": "E & P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "배포",
+                "storage": "스토리지",
+                "methane": "빠른 Méthaniers",
+                "business_line_energies": "비즈니스 라인 에너지",
+                "business_line_services": "비즈니스 라인 서비스",
+                "delegation_relation_clients": "Délégation 관계 클라이언트",
+                "direction_finance": "방향으로 금융 성능",
+                "direction_rh": "방향 능숙해 Humaines Prévention 건강 보안",
+                "etat_major": "Etat 중요",
+                "direction_ventes": "방향 데 셀러",
+                "marche_eld": "마 르 쉐 노년",
+                "marche_prive": "마 르 쉐 Résidentiel Privé",
+                "marche_public": "마 르 쉐 고객 Publics",
+                "marche_industrie": "마 르 쉐 Industrie 동부 그랜드 Tertiaire",
+                "marche_multisites": "마 르 쉐 Multisites",
+                "marche_pme_pmi": "마 르 쉐 PME/PMI",
+                "marketing_marche_clients": "마케팅 시장/고객",
+                "systeme_information": "시스템 디 내"
+            },
+            "country": {
+                "algeria": "알제리",
+                "argentina": "아르헨티나",
+                "australia": "오스트레일리아",
+                "bahrein": "Bahreïn",
+                "belgium": "벨기에",
+                "brazil": "브라질",
+                "cameroun": "카메룬",
+                "canada": "캐나다",
+                "chili": "칠레",
+                "china": "중국",
+                "costarica": "코스타리카",
+                "cz": "체코",
+                "egypt": "이집트",
+                "france": "프랑스",
+                "germany": "독일",
+                "greece": "그리스",
+                "hungary": "헝가리",
+                "indonesia": "인도네시아",
+                "italy": "이탈리아",
+                "laos": "라오스",
+                "libya": "리비아",
+                "luxembourg": "룩셈부르크",
+                "mexico": "멕시코",
+                "monaco": "모나코",
+                "morocco": "모로코",
+                "netherland": "네덜란드",
+                "norway": "노르웨이",
+                "nouvellecaledonie": "뉴 칼레도니아",
+                "oman": "오만",
+                "pakistan": "파키스탄",
+                "panama": "파나마",
+                "peru": "페루",
+                "poland": "폴란드",
+                "polynesie": "프랑스령 폴리네시아",
+                "qatar": "카타르",
+                "reunion": "레위니옹",
+                "romania": "루마니아",
+                "saudiarabia": "사우디 Aradia",
+                "singapore": "싱가포르",
+                "slovakia": "슬로바키아",
+                "spain": "스페인",
+                "swiss": "스위스",
+                "thailand": "Thaïland",
+                "turkey": "터키",
+                "uk": "영국",
+                "arabemirates": "아랍 에미리트 연방",
+                "usa": "미국",
+                "vanuatu": "바누아투",
+                "waliisfutuna": "왈리스 및 푸투나",
+                "other": "다른"
+            },
+            "ages": {
+                "minus-34": "34 이하의",
+                "35-44": "35-44",
+                "45-54": "54 45",
+                "more-55": "55 이상"
+            }
+        },
+        "gdfec": {
+            "edit": {
+                "title": "이것은 당신의 첫 번째 연결",
+                "lastName": "성*",
+                "firstName": "이름 *",
+                "branch": "지점 *",
+                "password_title": "새 암호를 입력 하십시오",
+                "oldPassword": "현재 비밀 번호 *",
+                "password": "새로운 비밀 번호 *",
+                "password_confirmation": "확인 *",
+                "personnal_title": "귀하의 개인 정보를 입력 해 주시기 바랍니다",
+                "businessUnit": "비즈니스 단위 *",
+                "age": "나이 범위 *",
+                "workingCountry": "나라 어디 당신이 작업 *",
+                "gender": "성별 *",
+                "save": "유효성 검사",
+                "mandatory": "* 필수 필드",
+                "male": "남성",
+                "female": "여성",
+                "saving": "귀하의 정보를 저장 하는 동안 기다려 주세요. 당신이 완료 되 면 홈 페이지로 리디렉션됩니다."
+            },
+            "error": {
+                "different_password": "비밀 번호의 확인을 일치 하지 않습니다.",
+                "mandatory": "이러한 모든 필드는 필수",
+                "incorrectPassword": "현재 암호가 올바르지 않은"
+            },
+            "branch": {
+                "centre": "센터",
+                "energy_europe": "에너지 유럽",
+                "energy_international": "에너지 국제",
+                "energy_services": "에너지 서비스",
+                "global_gas_lng": "글로벌 가스 및 LNG",
+                "infrastructures": "인프라",
+                "entreprises_collectivites": "기업 및 공공 기관"
+            },
+            "business_unit": {
+                "centre_bxl": "센터-BXL",
+                "centre_paris": "센터 파리",
+                "generation": "세대",
+                "renewable_energies": "신 재생 에너지",
+                "marketing_sales": "마케팅 및 영업",
+                "emt": "구급 대",
+                "support_lines_corporate": "라인을 지원 / 기업",
+                "asia_pacific": "아시아-태평양",
+                "latin_america": "라틴 아메리카",
+                "north_america": "북미 지역",
+                "samea": "동남 아시아, 중동 및 아프리카 (SAMEA)",
+                "uk_turkey": "영국-터키",
+                "benelux_division": "베네룩스 부문",
+                "engineering_division": "공학",
+                "support": "Fonctions 지원 / 기업 및 다른 사람",
+                "international_division": "국제 본부",
+                "pole_services": "Pôle 프랑스 서비스 Energétiques",
+                "pole_system": "Pôle 프랑스 시스템, 설치 및 유지 보수",
+                "pole_network": "Pôle 차원 에너지 부문 지구 /",
+                "ep": "E & P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "배포",
+                "storage": "스토리지",
+                "methane": "빠른 Méthaniers",
+                "business_line_energies": "비즈니스 라인 에너지",
+                "business_line_services": "비즈니스 라인 서비스",
+                "delegation_relation_clients": "Délégation 관계 클라이언트",
+                "direction_finance": "방향으로 금융 성능",
+                "direction_rh": "방향 능숙해 Humaines Prévention 건강 보안",
+                "etat_major": "Etat 중요",
+                "direction_ventes": "방향 데 셀러",
+                "marche_eld": "마 르 쉐 노년",
+                "marche_prive": "마 르 쉐 Résidentiel Privé",
+                "marche_public": "마 르 쉐 고객 Publics",
+                "marche_industrie": "마 르 쉐 Industrie 동부 그랜드 Tertiaire",
+                "marche_multisites": "마 르 쉐 Multisites",
+                "marche_pme_pmi": "마 르 쉐 PME/PMI",
+                "marketing_marche_clients": "마케팅 시장/고객",
+                "systeme_information": "시스템 디 내"
+            },
+            "country": {
+                "algeria": "알제리",
+                "argentina": "아르헨티나",
+                "australia": "오스트레일리아",
+                "bahrein": "Bahreïn",
+                "belgium": "벨기에",
+                "brazil": "브라질",
+                "cameroun": "카메룬",
+                "canada": "캐나다",
+                "chili": "칠레",
+                "china": "중국",
+                "costarica": "코스타리카",
+                "cz": "체코",
+                "egypt": "이집트",
+                "france": "프랑스",
+                "germany": "독일",
+                "greece": "그리스",
+                "hungary": "헝가리",
+                "indonesia": "인도네시아",
+                "italy": "이탈리아",
+                "laos": "라오스",
+                "libya": "리비아",
+                "luxembourg": "룩셈부르크",
+                "mexico": "멕시코",
+                "monaco": "모나코",
+                "morocco": "모로코",
+                "netherland": "네덜란드",
+                "norway": "노르웨이",
+                "nouvellecaledonie": "뉴 칼레도니아",
+                "oman": "오만",
+                "pakistan": "파키스탄",
+                "panama": "파나마",
+                "peru": "페루",
+                "poland": "폴란드",
+                "polynesie": "프랑스령 폴리네시아",
+                "qatar": "카타르",
+                "reunion": "레위니옹",
+                "romania": "루마니아",
+                "saudiarabia": "사우디 Aradia",
+                "singapore": "싱가포르",
+                "slovakia": "슬로바키아",
+                "spain": "스페인",
+                "swiss": "스위스",
+                "thailand": "Thaïland",
+                "turkey": "터키",
+                "uk": "영국",
+                "arabemirates": "아랍 에미리트 연방",
+                "usa": "미국",
+                "vanuatu": "바누아투",
+                "waliisfutuna": "왈리스 및 푸투나",
+                "other": "다른"
+            },
+            "ages": {
+                "minus-34": "34 이하의",
+                "35-44": "35-44",
+                "45-54": "54 45",
+                "more-55": "55 이상"
+            }
+        },
+        "nespresso": {
+            "changePassword": {
+                "title": "환영 합니다!",
+                "intro": "비밀 번호를 변경 하시기 바랍니다. 미래 참고를 위해 그것을 저장!"
+            }
+        },
+        "pwc": {
+            "footer": {
+                "title": "Discover our PwC Digital Academy platform"
+            }
+        },
+        "renaultcare": {
+            "changePassword": {
+                "intro": "<span>안녕하세요,</span> <br><br>스마트폰 접속 MOOC 고객 경험을 만드는 데, 그냥 구성 해야 비밀 번호 아래. <br> 우리 보낼 것 이다 당신의 당신의 Smartphone에서는 MOOC 연결할 특정 링크와 함께 이메일 확인 이후에. <br><br>알림으로 서, 귀하의 ID C@re 2.0 plateform에 연결 하는: 지금 비밀 번호를 정의 하십시오 <b>{{login}}</b> <br><br>:"
+            },
+            "myaccount": {
+                "updatePassword": "유효성 검사"
+            }
+        },
+        "samsung": {
+            "edit": {
+                "title": "이것은 당신의 첫 번째 연결",
+                "lastName": "이름*",
+                "firstName": "이름*",
+                "email": "이메일*",
+                "branch": "엔터티 *",
+                "password_title": "새 암호를 입력 하십시오",
+                "password": "비밀 번호 *",
+                "password_confirmation": "확인 비밀 번호 *",
+                "personnal_title": "귀하의 개인 정보를 입력 해 주시기 바랍니다",
+                "age": "년의 출생 *",
+                "workingCountry": "국가 *",
+                "save": "유효성 검사",
+                "mandatory": "* 필수 필드",
+                "saving": "귀하의 정보를 저장 하는 동안 기다려 주세요. 당신이 완료 되 면 홈 페이지로 리디렉션됩니다."
+            },
+            "error": {
+                "different_password": "비밀 번호의 확인을 일치 하지 않습니다.",
+                "mandatory": "이러한 모든 필드는 필수"
+            },
+            "branch": {
+                "centre": "센터",
+                "energy_europe": "에너지 유럽",
+                "energy_international": "에너지 국제",
+                "energy_services": "에너지 서비스",
+                "global_gas_lng": "글로벌 가스 및 LNG",
+                "infrastructures": "인프라"
+            },
+            "business_unit": {
+                "centre_bxl": "센터-BXL",
+                "centre_paris": "센터 파리",
+                "generation": "세대",
+                "renewable_energies": "신 재생 에너지",
+                "marketing_sales": "마케팅 및 영업",
+                "emt": "구급 대",
+                "support_lines_corporate": "라인을 지원 / 기업",
+                "asia_pacific": "아시아-태평양",
+                "latin_america": "라틴 아메리카",
+                "north_america": "북미 지역",
+                "samea": "동남 아시아, 중동 및 아프리카 (SAMEA)",
+                "uk_turkey": "영국-터키",
+                "benelux_division": "베네룩스 부문",
+                "engineering_division": "공학",
+                "support": "Fonctions 지원 / 기업 및 다른 사람",
+                "international_division": "국제 본부",
+                "pole_services": "Pôle 프랑스 서비스 Energétiques",
+                "pole_system": "Pôle 프랑스 시스템, 설치 및 유지 보수",
+                "pole_network": "Pôle 차원 에너지 부문 지구 /",
+                "ep": "E & P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "배포",
+                "storage": "스토리지",
+                "methane": "빠른 Méthaniers"
+            },
+            "country": {
+                "algeria": "알제리",
+                "argentina": "아르헨티나",
+                "australia": "오스트레일리아",
+                "bahrein": "Bahreïn",
+                "belgium": "벨기에",
+                "brazil": "브라질",
+                "cameroun": "카메룬",
+                "canada": "캐나다",
+                "chili": "칠레",
+                "china": "중국",
+                "costarica": "코스타리카",
+                "cz": "체코",
+                "egypt": "이집트",
+                "france": "프랑스",
+                "germany": "독일",
+                "greece": "그리스",
+                "hungary": "헝가리",
+                "indonesia": "인도네시아",
+                "italy": "이탈리아",
+                "laos": "라오스",
+                "libya": "리비아",
+                "luxembourg": "룩셈부르크",
+                "mexico": "멕시코",
+                "monaco": "모나코",
+                "morocco": "모로코",
+                "netherland": "네덜란드",
+                "norway": "노르웨이",
+                "nouvellecaledonie": "뉴 칼레도니아",
+                "oman": "오만",
+                "pakistan": "파키스탄",
+                "panama": "파나마",
+                "peru": "페루",
+                "poland": "폴란드",
+                "polynesie": "프랑스령 폴리네시아",
+                "qatar": "카타르",
+                "reunion": "레위니옹",
+                "romania": "루마니아",
+                "saudiarabia": "사우디 Aradia",
+                "singapore": "싱가포르",
+                "slovakia": "슬로바키아",
+                "spain": "스페인",
+                "swiss": "스위스",
+                "thailand": "Thaïland",
+                "turkey": "터키",
+                "uk": "영국",
+                "arabemirates": "아랍 에미리트 연방",
+                "usa": "미국",
+                "vanuatu": "바누아투",
+                "waliisfutuna": "왈리스 및 푸투나",
+                "other": "다른"
+            },
+            "ages": {
+                "minus-34": "34 이하의",
+                "35-44": "35-44",
+                "45-54": "54 45",
+                "more-55": "55 이상"
+            }
+        },
+        "up": {
+            "myaccount": {
+                "noModulesUnlocked": "구매한 레벨 없음",
+                "unlockedModules": "구매한 레벨:"
+            }
+        },
+        "digitlearning": {
+            "passwordHint": "최소 8 문자 길이입니다. 암호는 적어도 대문자 문자, 숫자 및 특수 문자를 포함 해야 합니다 (~! @# $%^&*_-+='|() {}:;“’ <>,.? )"
+        }
+    }
+}

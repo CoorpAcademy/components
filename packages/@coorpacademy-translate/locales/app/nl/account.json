@@ -1,0 +1,565 @@
+{
+    "firstConnection": {
+        "title": "<span>Welkom</span> <span class='name'> {{name}}!</span>"
+    },
+    "changePassword": {
+        "title": "<span>Welkom</span> <span class='name'> {{name}}!</span>",
+        "intro": "Kies een wachtwoord. Bewaar het voor toekomstig gebruik!",
+        "errors": {
+            "mustChangePassword": "Je nieuw wachtwoord moet afwijken van je huidig wachtwoord",
+            "incorrectPassword": "Je huidige wachtwoord is onjuist"
+        }
+    },
+    "footer": {
+        "title": "Waarom het “{{platformName}}”-platform? gebruiken?",
+        "features": {
+            "videos": {
+                "title": "Video's",
+                "description": "Bekijk videolessen om bij te leren en vooruitgang te boeken"
+            },
+            "quizzes": {
+                "title": "Quizzen",
+                "description": "Test je kennis door middel van tientallen quizzen"
+            },
+            "battles": {
+                "title": "$t(menu:header.mainNav.battles)",
+                "description": "Herhaal door anderen uit te dagen voor een battle"
+            },
+            "certificates": {
+                "title": "$t(menu:header.mainNav.certifications)",
+                "description": "Verkrijg certificaten om je vaardigheden te bewijzen"
+            }
+        },
+        "pillars": {
+            "learnAtYourOwnPace": {
+                "title": "Leer in je eigen tempo",
+                "description": "<li>Neem korte sessies</li> <li>Stoppen en opnieuw starten op elk gewenst moment</li> <li>Elk apparaat gebruiken</li>"
+            },
+            "adapted": {
+                "title": "Leren op jouw maat",
+                "description": "<li>Een systeem dat zich aanpast aan wat je al weet</li> <li>Kies je eigen leren pad</li> <li>Op maat content</li>"
+            },
+            "haveFun": {
+                "title": "Veel plezier",
+                "description": "<li>Een gamified leeromgeving</li> <li>Geïnspireerd door videospelletjes</li> <li>«Stop & Go» functie</li>"
+            },
+            "learningCommunity": {
+                "title": "Learning community",
+                "description": "<li>Peer coaching</li> <li>Discussieforum</li> <li>Uitdagingen voor meerdere leerlingen</li> <li>Ranking</li>"
+            }
+        },
+        "gotoform": "Vul het formulier in om toegang te krijgen tot het platform"
+    },
+    "edit": {
+        "oldPassword": "Oud wachtwoord",
+        "password": "Wachtwoord",
+        "password_confirmation": "Bevestig je wachtwoord"
+    },
+    "myaccount": {
+        "title": "MIJN ACCOUNT",
+        "subtitle": "Beheer je persoonlijke gegevens!",
+        "modify": "Wijzigen",
+        "status": "Status",
+        "save": "Opslaan",
+        "carriere": "Carrière",
+        "hobbie": "Interesses",
+        "abonnement": "E-mailabonnement",
+        "allowed_mail": "Ik wil e-mails met informatie of herinneringen ontvangen",
+        "not_allowed_mail": "Ik wil geen e-mails of herinneringen meer ontvangen",
+        "avatar": {
+            "update": "Je afbeelding is geupload en zal binnen 24 uur worden weergegeven.",
+            "no_image": "Het geselecteerde bestand is niet in het juiste formaat. Kies uit .png, .jpg of .gif."
+        },
+        "profile": {
+            "updated": "Jouw profiel is bijgewerkt."
+        },
+        "reset": "Opnieuw instellen",
+        "updatedAccount": "Jouw account is bijgewerkt.",
+        "accountUpdate": "Jouw account bijwerken",
+        "password": "Wachtwoord",
+        "updatePassword": "Opslaan",
+        "newPassword": "Nieuw wachtwoord",
+        "actualPassword": "Huidig wachtwoord",
+        "passwordConfirmation": "Bevestig nieuw wachtwoord",
+        "updatePasswordSuccess": "Je wachtwoord is succesvol bijgewerkt",
+        "updatePasswordError": "Je wachtwoord kon niet gewijzigd worden. Controleer je formulier. ",
+        "privateAccount": {
+            "title": "Privéprofiel",
+            "label": "Mijn achternaam verbergen"
+        },
+        "emailSettings": {
+            "core": "Systeemberichten (certificeringen, 'Iemand heeft je uitgedaagd voor een battle'...)",
+            "user": "Notificaties ('Aanbevolen cursussen', 'Bekijk de populairste cursus'...)",
+            "mailchimp": "Maandelijks overzicht"
+        }
+    },
+    "error": {
+        "oldPasswordRequired": "Een huidig wachtwoord is vereist.",
+        "newPasswordRequired": "Een nieuw wachtwoord is vereist.",
+        "confirmPasswordRequired": "Je moet je wachtwoord bevestigen.",
+        "incorrectMinLength": "Je wachtwoord moet uit minstens {{minLength}} karakters bestaan.",
+        "different_password": "Je wachtwoorden komen niet overeen!",
+        "wrong_password": "Je wachtwoord is onjuist."
+    },
+    "menu": {
+        "info": {
+            "title": "MIJN PROFIEL",
+            "modify_avatar": "Werk mijn profielfoto bij",
+            "modify_password": "Mijn wachtwoord wijzigen"
+        },
+        "alerts": {
+            "title": "MIJN MELDINGEN",
+            "email": "Mijn e-mailinstellingen",
+            "modify_email": "Mijn e-mailinstellingen wijzigen",
+            "notifications": "Mijn meldingen",
+            "modify_notifications": "Mijn meldingen wijzigen",
+            "wish_notifications": "Ik wil meldingen ontvangen",
+            "blocked_notifications": "Je huidige instellingen staan geen meldingen toe. Wijzig de browserinstellingen en vernieuw deze pagina."
+        },
+        "bills": {
+            "title": "MIJN BESTELLINGEN"
+        },
+        "custom": {
+            "modify_account_title": "MIJN ACCOUNT",
+            "modify_account_informations": "Je account bijwerken"
+        },
+        "subscription": {
+            "title": "Mijn abonnement",
+            "subtitle": "Coorpacademy Premium-abonnement is niet langer beschikbaar",
+            "info": "Als je je al hebt aangemeld en je wil je wil je Premium abonnement annuleren, gelieve een mail met je gegevens te sturen naar:",
+            "update": "Mijn abonnement beheren"
+        }
+    },
+    "go": {
+        "to": {
+            "sso": "Ga naar SSO",
+            "connect": "Ga naar 'Verbinding maken'"
+        }
+    },
+    "custom": {
+        "corporateonlineopencourse": {
+            "changePassword": {
+                "title": "'CONFIGURE' UW WACHTWOORD VOOR EEN VERBINDING MET UW SMARTPHONE/ZEEM",
+                "intro": "<span>Hallo,</span> <br><br>u net voor de eerste keer bent ingelogd de MOOC merk ambassadeur via Campus. <br> Wij nodigen u uit om uw specifieke multi apparaat wachtwoord configureren <br>hieronder. Dit wachtwoord krijgt u de mogelijkheid, indien gewenst, toegang tot de MOOC vanaf uw smartphone of tablet. <br>Eenmaal geconfigureerd, zal een bevestiging e-mail worden verzonden aan u."
+            },
+            "myaccount": {
+                "updatePassword": "Valideren"
+            }
+        },
+        "gdf": {
+            "edit": {
+                "title": "Dit is uw eerste verbinding",
+                "lastName": "Achternaam *",
+                "firstName": "Voornaam *",
+                "branch": "Filiaal *",
+                "password_title": "Voer een nieuw wachtwoord",
+                "oldPassword": "Huidige wachtwoord *",
+                "password": "Nieuw wachtwoord *",
+                "password_confirmation": "Bevestiging *",
+                "personnal_title": "Voer uw persoonlijke gegevens",
+                "businessUnit": "Business Unit *",
+                "age": "Leeftijd *",
+                "workingCountry": "Land waar je werkt *",
+                "gender": "Geslacht *",
+                "save": "Valideren",
+                "mandatory": "* verplichte velden",
+                "male": "Man",
+                "female": "Vrouw",
+                "saving": "Even geduld, je gegevens worden opgeslagen. Je zal worden doorverwezen naar de startpagina eenmaal voltooid."
+            },
+            "error": {
+                "different_password": "Je wachtwoord komt niet overeen met de bevestiging",
+                "mandatory": "Alle deze velden zijn verplicht",
+                "incorrectPassword": "Huidige wachtwoord is ongeldig"
+            },
+            "branch": {
+                "centre": "Centrum",
+                "energy_europe": "Energie Europa",
+                "energy_international": "Energy International",
+                "energy_services": "Energiediensten",
+                "global_gas_lng": "Wereldwijde Gas & LNG",
+                "infrastructures": "Infrastructuur",
+                "entreprises_collectivites": "Bedrijven en overheden"
+            },
+            "business_unit": {
+                "centre_bxl": "Centrum-BXL",
+                "centre_paris": "Centrum Parijs",
+                "generation": "Generatie",
+                "renewable_energies": "Hernieuwbare energiebronnen",
+                "marketing_sales": "Marketing & verkoop",
+                "emt": "EMT",
+                "support_lines_corporate": "Steun / Corporate",
+                "asia_pacific": "Azië-Pacific",
+                "latin_america": "Latijns-Amerika",
+                "north_america": "Noord-Amerika",
+                "samea": "Zuid-Azië, Midden-Oosten & Afrika (SAMEA)",
+                "uk_turkey": "Verenigd Koninkrijk-Turkije",
+                "benelux_division": "Afdeling van de Benelux",
+                "engineering_division": "Engineering afdeling",
+                "support": "Fonctions ondersteuning / Corporate & anderen",
+                "international_division": "Internationale arbeidsverdeling",
+                "pole_services": "Pôle Frankrijk diensten Energétiques",
+                "pole_system": "Pôle Frankrijk Systèmes, installaties & onderhoud",
+                "pole_network": "Pôle Réseaux / District Energiedivisie",
+                "ep": "E & P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "Distributie",
+                "storage": "Opslag",
+                "methane": "TERMINAUX Méthaniers",
+                "business_line_energies": "Business Line energieën",
+                "business_line_services": "Business Online diensten",
+                "delegation_relation_clients": "Délégation relatie Clients",
+                "direction_finance": "Richting financiën prestaties",
+                "direction_rh": "Richting Ressources Humaines Prévention Santé Sécurité",
+                "etat_major": "Etat grote",
+                "direction_ventes": "Richting des Ventes",
+                "marche_eld": "Marché ELD",
+                "marche_prive": "Marché Résidentiel Privé",
+                "marche_public": "Marché Clients Publics",
+                "marche_industrie": "Marché Industrie et Grand Tertiaire",
+                "marche_multisites": "Marché Multisites",
+                "marche_pme_pmi": "Marché PME/PMI",
+                "marketing_marche_clients": "Marketing Marché/cliënten",
+                "systeme_information": "Système d'Information Métier"
+            },
+            "country": {
+                "algeria": "Algerije",
+                "argentina": "Argentinië",
+                "australia": "Australië",
+                "bahrein": "Bahreïn",
+                "belgium": "België",
+                "brazil": "Brazilië",
+                "cameroun": "Kameroen",
+                "canada": "Canada",
+                "chili": "Chili",
+                "china": "China",
+                "costarica": "Costa Rica",
+                "cz": "Tsjechische Republiek",
+                "egypt": "Egypte",
+                "france": "Frankrijk",
+                "germany": "Duitsland",
+                "greece": "Griekenland",
+                "hungary": "Hongarije",
+                "indonesia": "Indonesië",
+                "italy": "Italië",
+                "laos": "Laos",
+                "libya": "Libië",
+                "luxembourg": "Luxemburg",
+                "mexico": "Mexico",
+                "monaco": "Monaco",
+                "morocco": "Marokko",
+                "netherland": "Nederland",
+                "norway": "Noorwegen",
+                "nouvellecaledonie": "Nieuw-Caledonië",
+                "oman": "Oman",
+                "pakistan": "Pakistan",
+                "panama": "Panama",
+                "peru": "Peru",
+                "poland": "Polen",
+                "polynesie": "Frans-Polynesië",
+                "qatar": "Qatar",
+                "reunion": "Réunion",
+                "romania": "Roemenië",
+                "saudiarabia": "Prince Faisal bin Fahad Aradia",
+                "singapore": "Singapore",
+                "slovakia": "Slowakije",
+                "spain": "Spanje",
+                "swiss": "Zwitserse",
+                "thailand": "Thailand",
+                "turkey": "Turkije",
+                "uk": "VERENIGD KONINKRIJK",
+                "arabemirates": "Verenigde Arabische Emiraten",
+                "usa": "VERENIGDE STATEN",
+                "vanuatu": "Vanuatu",
+                "waliisfutuna": "Wallis & Futuna",
+                "other": "Andere"
+            },
+            "ages": {
+                "minus-34": "34 of minder",
+                "35-44": "van 35 tot 44",
+                "45-54": "van 45 tot 54",
+                "more-55": "55 of meer"
+            }
+        },
+        "gdfec": {
+            "edit": {
+                "title": "Dit is je eerste verbinding",
+                "lastName": "Laatste naam *",
+                "firstName": "Voornaam *",
+                "branch": "Filiaal *",
+                "password_title": "Voer een nieuw wachtwoord",
+                "oldPassword": "Huidige wachtwoord *",
+                "password": "Nieuw wachtwoord *",
+                "password_confirmation": "Bevestiging *",
+                "personnal_title": "Voer uw persoonlijke gegevens",
+                "businessUnit": "Business Unit *",
+                "age": "Leeftijd bereik *",
+                "workingCountry": "Land waar je werkt *",
+                "gender": "Geslacht *",
+                "save": "Valideren",
+                "mandatory": "* verplichte velden",
+                "male": "Man",
+                "female": "Vrouw",
+                "saving": "Even geduld, je gegevens worden opgeslagen. Je zal worden doorverwezen naar de startpagina eenmaal voltooid"
+            },
+            "error": {
+                "different_password": "Uw wachtwoord komt niet overeen met de bevestiging",
+                "mandatory": "Al deze velden zijn verplicht",
+                "incorrectPassword": "Je huidig wachtwoord is ongeldig"
+            },
+            "branch": {
+                "centre": "Centrum",
+                "energy_europe": "Energie Europa",
+                "energy_international": "Energy International",
+                "energy_services": "Energiediensten",
+                "global_gas_lng": "Wereldwijde Gas & LNG",
+                "infrastructures": "Infrastructuur",
+                "entreprises_collectivites": "Bedrijven en overheden"
+            },
+            "business_unit": {
+                "centre_bxl": "Centrum-BXL",
+                "centre_paris": "Centrum Parijs",
+                "generation": "Generatie",
+                "renewable_energies": "Hernieuwbare energiebronnen",
+                "marketing_sales": "Marketing & verkoop",
+                "emt": "EMT",
+                "support_lines_corporate": "Steun / Corporate",
+                "asia_pacific": "Azië-Pacific",
+                "latin_america": "Latijns-Amerika",
+                "north_america": "Noord-Amerika",
+                "samea": "Zuid-Azië, Midden-Oosten & Afrika (SAMEA)",
+                "uk_turkey": "Verenigd Koninkrijk-Turkije",
+                "benelux_division": "Afdeling van de Benelux",
+                "engineering_division": "Engineering afdeling",
+                "support": "Fonctions ondersteuning / Corporate & anderen",
+                "international_division": "Internationale arbeidsverdeling",
+                "pole_services": "Pôle Frankrijk diensten Energétiques",
+                "pole_system": "Pôle Frankrijk Systèmes, installaties & onderhoud",
+                "pole_network": "Pôle Réseaux / District Energiedivisie",
+                "ep": "E & P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "Distributie",
+                "storage": "Opslag",
+                "methane": "TERMINAUX Méthaniers",
+                "business_line_energies": "Business Line energieën",
+                "business_line_services": "Business Online diensten",
+                "delegation_relation_clients": "Délégation relatie Clients",
+                "direction_finance": "Richting financiën prestaties",
+                "direction_rh": "Richting Ressources Humaines Prévention Santé Sécurité",
+                "etat_major": "Etat grote",
+                "direction_ventes": "Richting des Ventes",
+                "marche_eld": "Marché ELD",
+                "marche_prive": "Marché Résidentiel Privé",
+                "marche_public": "Marché Clients Publics",
+                "marche_industrie": "Marché Industrie et Grand Tertiaire",
+                "marche_multisites": "Marché Multisites",
+                "marche_pme_pmi": "Marché PME/PMI",
+                "marketing_marche_clients": "Marketing Marché/cliënten",
+                "systeme_information": "Système d'Information Métier"
+            },
+            "country": {
+                "algeria": "Algerije",
+                "argentina": "Argentinië",
+                "australia": "Australië",
+                "bahrein": "Bahreïn",
+                "belgium": "België",
+                "brazil": "Brazilië",
+                "cameroun": "Kameroen",
+                "canada": "Canada",
+                "chili": "Chili",
+                "china": "China",
+                "costarica": "Costa Rica",
+                "cz": "Tsjechische Republiek",
+                "egypt": "Egypte",
+                "france": "Frankrijk",
+                "germany": "Duitsland",
+                "greece": "Griekenland",
+                "hungary": "Hongarije",
+                "indonesia": "Indonesië",
+                "italy": "Italië",
+                "laos": "Laos",
+                "libya": "Libië",
+                "luxembourg": "Luxemburg",
+                "mexico": "Mexico",
+                "monaco": "Monaco",
+                "morocco": "Marokko",
+                "netherland": "Nederland",
+                "norway": "Noorwegen",
+                "nouvellecaledonie": "Nieuw-Caledonië",
+                "oman": "Oman",
+                "pakistan": "Pakistan",
+                "panama": "Panama",
+                "peru": "Peru",
+                "poland": "Polen",
+                "polynesie": "Frans-Polynesië",
+                "qatar": "Qatar",
+                "reunion": "Réunion",
+                "romania": "Roemenië",
+                "saudiarabia": "Prince Faisal bin Fahad Aradia",
+                "singapore": "Singapore",
+                "slovakia": "Slowakije",
+                "spain": "Spanje",
+                "swiss": "Zwitserse",
+                "thailand": "Thailand",
+                "turkey": "Turkije",
+                "uk": "VERENIGD KONINKRIJK",
+                "arabemirates": "Verenigde Arabische Emiraten",
+                "usa": "VERENIGDE STATEN",
+                "vanuatu": "Vanuatu",
+                "waliisfutuna": "Wallis & Futuna",
+                "other": "Andere"
+            },
+            "ages": {
+                "minus-34": "34 of minder",
+                "35-44": "van 35 tot 44",
+                "45-54": "van 45 tot 54",
+                "more-55": "55 of meer"
+            }
+        },
+        "nespresso": {
+            "changePassword": {
+                "title": "Welkom!",
+                "intro": "Wijzig uw wachtwoord. Opslaan voor toekomstig gebruik!"
+            }
+        },
+        "pwc": {
+            "footer": {
+                "title": "Discover our PwC Digital Academy platform"
+            }
+        },
+        "renaultcare": {
+            "changePassword": {
+                "intro": "<span>Hallo,</span> <br><br>Maken uw Smartphone toegang tot de MOOC Customer Experience, u uitsluitend nood voor configureren uw wachtwoord hieronder. <br> We sturen je daarna een bevestigingsmail met een specifieke link naar verbinding maken met de MOOC vanaf uw Smartphone. <br><br>Als een herinnering, uw ID verbinden met C@re 2.0 instond is: <b>{{login}}</b> <br><br>Geef nu uw wachtwoord:"
+            },
+            "myaccount": {
+                "updatePassword": "Valideren"
+            }
+        },
+        "samsung": {
+            "edit": {
+                "title": "Dit is je eerste verbinding",
+                "lastName": "Laatste naam *",
+                "firstName": "Voornaam *",
+                "email": "E-mail *",
+                "branch": "Entiteit *",
+                "password_title": "Voer een nieuw wachtwoord in",
+                "password": "Wachtwoord *",
+                "password_confirmation": "Bevestig wachtwoord *",
+                "personnal_title": "Voer je persoonlijke gegevens in",
+                "age": "Geboortejaar *",
+                "workingCountry": "Land *",
+                "save": "Valideren",
+                "mandatory": "* verplichte velden",
+                "saving": "Even geduld, je gegevens worden opgeslagen. Je zal worden doorverwezen naar de startpagina eenmaal voltooid."
+            },
+            "error": {
+                "different_password": "Uw wachtwoord komt niet overeen met de bevestiging",
+                "mandatory": "Alle deze velden zijn verplicht"
+            },
+            "branch": {
+                "centre": "Centrum",
+                "energy_europe": "Energie Europa",
+                "energy_international": "Energy International",
+                "energy_services": "Energiediensten",
+                "global_gas_lng": "Wereldwijde Gas & LNG",
+                "infrastructures": "Infrastructuur"
+            },
+            "business_unit": {
+                "centre_bxl": "Centrum-BXL",
+                "centre_paris": "Centrum Parijs",
+                "generation": "Generatie",
+                "renewable_energies": "Hernieuwbare energiebronnen",
+                "marketing_sales": "Marketing & verkoop",
+                "emt": "EMT",
+                "support_lines_corporate": "Steun / Corporate",
+                "asia_pacific": "Azië-Pacific",
+                "latin_america": "Latijns-Amerika",
+                "north_america": "Noord-Amerika",
+                "samea": "Zuid-Azië, Midden-Oosten & Afrika (SAMEA)",
+                "uk_turkey": "Verenigd Koninkrijk-Turkije",
+                "benelux_division": "Afdeling van de Benelux",
+                "engineering_division": "Engineering afdeling",
+                "support": "Fonctions ondersteuning / Corporate & anderen",
+                "international_division": "Internationale arbeidsverdeling",
+                "pole_services": "Pôle Frankrijk diensten Energétiques",
+                "pole_system": "Pôle Frankrijk Systèmes, installaties & onderhoud",
+                "pole_network": "Pôle Réseaux / District Energiedivisie",
+                "ep": "E & P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "Distributie",
+                "storage": "Opslag",
+                "methane": "TERMINAUX Méthaniers"
+            },
+            "country": {
+                "algeria": "Algerije",
+                "argentina": "Argentinië",
+                "australia": "Australië",
+                "bahrein": "Bahreïn",
+                "belgium": "België",
+                "brazil": "Brazilië",
+                "cameroun": "Kameroen",
+                "canada": "Canada",
+                "chili": "Chili",
+                "china": "China",
+                "costarica": "Costa Rica",
+                "cz": "Tsjechische Republiek",
+                "egypt": "Egypte",
+                "france": "Frankrijk",
+                "germany": "Duitsland",
+                "greece": "Griekenland",
+                "hungary": "Hongarije",
+                "indonesia": "Indonesië",
+                "italy": "Italië",
+                "laos": "Laos",
+                "libya": "Libië",
+                "luxembourg": "Luxemburg",
+                "mexico": "Mexico",
+                "monaco": "Monaco",
+                "morocco": "Marokko",
+                "netherland": "Nederland",
+                "norway": "Noorwegen",
+                "nouvellecaledonie": "Nieuw-Caledonië",
+                "oman": "Oman",
+                "pakistan": "Pakistan",
+                "panama": "Panama",
+                "peru": "Peru",
+                "poland": "Polen",
+                "polynesie": "Frans-Polynesië",
+                "qatar": "Qatar",
+                "reunion": "Réunion",
+                "romania": "Roemenië",
+                "saudiarabia": "Prince Faisal bin Fahad Aradia",
+                "singapore": "Singapore",
+                "slovakia": "Slowakije",
+                "spain": "Spanje",
+                "swiss": "Zwitserse",
+                "thailand": "Thailand",
+                "turkey": "Turkije",
+                "uk": "VERENIGD KONINKRIJK",
+                "arabemirates": "Verenigde Arabische Emiraten",
+                "usa": "VERENIGDE STATEN",
+                "vanuatu": "Vanuatu",
+                "waliisfutuna": "Wallis & Futuna",
+                "other": "Andere"
+            },
+            "ages": {
+                "minus-34": "34 of minder",
+                "35-44": "van 35 tot 44",
+                "45-54": "van 45 tot 54",
+                "more-55": "55 of meer"
+            }
+        },
+        "up": {
+            "myaccount": {
+                "noModulesUnlocked": "Geen niveau gekocht",
+                "unlockedModules": "Niveaus gekocht:"
+            }
+        },
+        "digitlearning": {
+            "passwordHint": "Minimaal 8 tekens lang. Wachtwoord moet bestaan uit ten minste een hoofdletter, een cijfer en een speciaal teken (~! @# $%^&*_-+='|() {} []:; “’ <>,.? )"
+        }
+    }
+}

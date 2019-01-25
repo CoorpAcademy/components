@@ -1,0 +1,316 @@
+{
+    "message": "<p>要访问每个用户的详细信息，请使用我们的<a href=\"{{user}}\">按用户分析页面</a>。</ p> <p>要访问所有用户的详细信息，您可以 <a href=\"{{export}}\">按需导出所有用户</a>。</ p>",
+    "export": {
+        "global": {
+            "first_name": "名字",
+            "last_name": "姓",
+            "email": "电子邮件",
+            "provider": "提供者",
+            "stars": "得分",
+            "providerinfos_company": "公司",
+            "providerinfos_city": "城市",
+            "providerinfos_country": "国家",
+            "providerinfos_department": "部门",
+            "providerinfos_title": "标题",
+            "providerinfos_chorusID": "ChorusID",
+            "ageRange": "年龄组",
+            "personalEmail": "电子邮件（个人）",
+            "role": "角色",
+            "brandName": "商业公司",
+            "boutique": "分数",
+            "billable": "Billable",
+            "postalCode": "邮政编码",
+            "moduleLevel": "$t(dashboard:badges.module.name) - 等级",
+            "moduleCount": "$t(dashboard:badges.module.name) - 计数",
+            "moduleUpdate": "$t(dashboard:badges.module.name)——最后一次更新",
+            "battleLevel": "$t(信息中心:徽章.战斗.名字) - 等级",
+            "battleCount": "$t(dashboard:badges.battle.name) - 账户",
+            "battleUpdate": "$t(dashboard:badges.battle.name) - 最新修改",
+            "coachLevel": "$t(dashboard:badges.coach.name) - 等级",
+            "coachCount": "$t(dashboard:badges.coach.name) - 计算",
+            "coachUpdate": "$t(信息中心:徽章.教练.名字) - 最后更新",
+            "lessonLevel": "$t(dashboard:badges.lesson.name)——级别",
+            "lessonCount": "$t（控制面板：勋章：课程：名字）- 数目",
+            "lessonUpdate": "$t(dashboard:badges.lesson.name) - 最后更新",
+            "questionLevel": "$t(dashboard:badges.question.name)——级别",
+            "questionCount": "$t(dashboard:badges.question.name) - 计数",
+            "questionUpdate": "$t(dashboard:badges.question.name) - 最近更新",
+            "badges": "徽章",
+            "lastConnectionDate": "上一次连接日期",
+            "state": "州",
+            "login": "登录",
+            "firstConnectionDate": "第一次连接日期",
+            "certificate": "证书 {{label}}",
+            "certifications": "证书",
+            "entity": "本质",
+            "grade": "级别",
+            "region": "地区",
+            "validatedTimeProgression": "已验证时间",
+            "totalTimeProgression": "总时间",
+            "populations": "人口",
+            "deactivationDate": "禁用日期",
+            "organization_branch": "业务分支",
+            "organization_businessunit": "商业模块",
+            "organization_workingCountry": "经营所在国家/地区",
+            "organization_role": "业务职责",
+            "organization_boutique": "商业店铺",
+            "organization_address1": "营业地址 1",
+            "organization_address2": "营业地址 2",
+            "organization_zipcode": "商务邮政编码",
+            "organization_workingCity": "经营所在城市",
+            "organization_company": "商业公司",
+            "organization_ambassador": "大使",
+            "birthday": "生日"
+        },
+        "battles": {
+            "disciplineName": "学科名",
+            "disciplineStatus": "纪律状况",
+            "disciplineStatus_hidden": "隐",
+            "disciplineStatus_visible": "可见",
+            "moduleLevel": "模块等级",
+            "createdAt": "建立于",
+            "answeredAt": "已回答",
+            "createdBy": "挑战者名字",
+            "opponent": "对手名称",
+            "winner": "获胜者",
+            "winnerScore": "赢家比分",
+            "userLogin": "挑战者登录",
+            "opponentLogin": "对手登录",
+            "looserScore": "失败者分数"
+        },
+        "moduleStart": {
+            "brand": "牌",
+            "discipline": "學科名稱",
+            "module": "模塊級別",
+            "author": "作者",
+            "count": "計數",
+            "userCount": "用戶數"
+        }
+    },
+    "dashboard": {
+        "serenetics-error": "检索新信息中心的网址时发生错误。",
+        "behavioral": {
+            "upgrade": {
+                "title": "此仪表板仅适用于企业费率计划。",
+                "subtitle": "请联系Coorpacademy升级您的帐户并获取您的平台的行为见解"
+            }
+        }
+    },
+    "custom": {
+        "7steps": {
+            "export": {
+                "global": {
+                    "organization_role": "工作",
+                    "organization_title": "商店类型",
+                    "organization_ambassador": "欧莱雅员工？",
+                    "organization_branch": "欧莱雅司",
+                    "entity": "欧莱雅品牌",
+                    "organization_grade": "使用图像权限",
+                    "organization_boutiqueReferent": "零售商/链",
+                    "organization_boutique": "商店名称/代码"
+                }
+            }
+        },
+        "achat-habitat": {
+            "export": {
+                "global": {
+                    "organization_ambassador": "通讯"
+                }
+            }
+        },
+        "adidas-fr": {
+            "export": {
+                "global": {
+                    "organization_businessunit": "部门",
+                    "organization_grade": "年龄",
+                    "organization_boutique": "工作场所",
+                    "organization_branch": "性别"
+                }
+            }
+        },
+        "capgemini": {
+            "export": {
+                "global": {
+                    "organization_grade": "GGID"
+                }
+            }
+        },
+        "chanel": {
+            "export": {
+                "global": {
+                    "boutique": "精品店",
+                    "organization_workingCountry": "国家",
+                    "region": "地区",
+                    "role": "角色",
+                    "startContract": "合同开始"
+                }
+            }
+        },
+        "cofpart-learning": {
+            "export": {
+                "global": {
+                    "brandName": "Direction",
+                    "entity": "Job",
+                    "organization_branch": "Manager"
+                }
+            }
+        },
+        "corporateonlineopencourse": {
+            "export": {
+                "global": {
+                    "region": "地区",
+                    "organization_workingCountry": "国家",
+                    "role": "功能"
+                }
+            }
+        },
+        "edenred-talents": {
+            "export": {
+                "global": {
+                    "organization_company": "指导",
+                    "entity": "Sous-direction",
+                    "organization_branch": "Service - Secteur",
+                    "organization_boutiqueReferent": "Responsable",
+                    "organization_role": "Fonction",
+                    "organization_grade": "Statut"
+                }
+            }
+        },
+        "gdf": {
+            "export": {
+                "global": {
+                    "transformer": "$t（主控面板：徽章，变形器，姓名）",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - 级别",
+                    "transformerCount": "$t（面板：勋章.转换者.姓名）-计算",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) —— 最新更新"
+                }
+            }
+        },
+        "gdfec": {
+            "export": {
+                "global": {
+                    "organization_zipcode": "GAIA",
+                    "organization_businessunit": "球队",
+                    "organization_boutique": "经理的名字",
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - 级别",
+                    "transformerCount": "$t(信息中心:徽章.变形者.名字) - 数",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - 最后更新"
+                }
+            }
+        },
+        "ilearn": {
+            "export": {
+                "global": {
+                    "boutique": "商店",
+                    "organization_workingCountry": "国家",
+                    "region": "地区",
+                    "role": "角色",
+                    "startContract": "合同开始"
+                }
+            }
+        },
+        "life-auchan": {
+            "export": {
+                "global": {
+                    "organization_boutique": "活动级别",
+                    "organization_region": "生活平衡",
+                    "organization_workingCountry": "国家"
+                }
+            }
+        },
+        "metro": {
+            "export": {
+                "global": {
+                    "organization_boutique": "City",
+                    "organization_branch": "ID",
+                    "organization_businessunit": "Role"
+                }
+            }
+        },
+        "monoprix": {
+            "export": {
+                "global": {
+                    "organization_branch": "说明"
+                }
+            }
+        },
+        "nespresso": {
+            "export": {
+                "global": {
+                    "organization_branch": "Department",
+                    "organization_businessunit": "Position"
+                }
+            }
+        },
+        "pru": {
+            "export": {
+                "global": {
+                    "providerCompany": "公司",
+                    "providerCountry": "国家",
+                    "providerDepartment": "部门"
+                }
+            }
+        },
+        "redoute": {
+            "boutique": "店"
+        },
+        "securite": {
+            "export": {
+                "global": {
+                    "organization_grade": "ID"
+                }
+            }
+        },
+        "up": {
+            "export": {
+                "battles": {
+                    "disciplineName": "课程名称",
+                    "moduleLevel": "级别"
+                }
+            }
+        },
+        "tagheuer": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Point of sales code"
+                }
+            }
+        },
+        "thelem": {
+            "export": {
+                "global": {
+                    "organization_role": "就业",
+                    "language": "语言",
+                    "organization_boutique": "租赁",
+                    "organization_title": "标题服务",
+                    "organization_boutiqueReferent": "注册号码",
+                    "startContract": "日期雇佣公司",
+                    "organization_contractType": "合同类型",
+                    "organization_grade": "合格"
+                }
+            }
+        },
+        "yahoo": {
+            "export": {
+                "global": {
+                    "organization_title": "工作",
+                    "organization_workingCountry": "国家",
+                    "region": "语言"
+                }
+            }
+        },
+        "who": {
+            "export": {
+                "global": {
+                    "organization_workingCountry": "Country/State",
+                    "region": "国家/地区",
+                    "provider": "Affiliation",
+                    "organization_role": "Background/Experience",
+                    "organization_grade": "Access Code",
+                    "organization_boutiqueReferent": "Level of Education"
+                }
+            }
+        }
+    }
+}

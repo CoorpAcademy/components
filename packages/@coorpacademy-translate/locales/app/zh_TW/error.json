@@ -1,0 +1,56 @@
+{
+    "http": {
+        "401": "未授權存取",
+        "403": "禁止的存取",
+        "404": "找不到頁面",
+        "412": "前提失敗",
+        "500": "內部伺服器錯誤",
+        "503": "無法取得服務",
+        "500_message_pre": "網址",
+        "500_message": "發生以下錯誤",
+        "500_message_post": "。",
+        "503_message": "服務無法使用。請稍後再試。",
+        "404_message_pre": "網址",
+        "404_message": "沒有解決為一個路線",
+        "412_message": "請求中的 If ... 標頭所指定的條件有一個或多個評估為不符。",
+        "409_progressions_content_conflict": "看來你在本屆會議上已經回答了這個問題。您是否在其他某個選項卡上打開了它, 也許？ <br/>按一下下面的 \"重新載入頁面\" 以刷新資料, 我們將為您載入正確的問題。"
+    },
+    "infos": "資訊",
+    "auth": {
+        "header": "噢喔！{{status}}",
+        "reload": "登入"
+    },
+    "modal": {
+        "header": "錯誤 {{status}}",
+        "body": {
+            "title": "請注意下面的訊息並將其提供給我們的技術支援",
+            "url": "Url: {{err}}",
+            "id": "ID：{{id}}",
+            "message": "{{message}}"
+        },
+        "footer": {
+            "assistance": "幫助",
+            "back_home": "反回主頁",
+            "reload": "重新載入頁面",
+            "continue": "繼續"
+        },
+        "assistance": "回報錯誤"
+    },
+    "defaultMessage": "發生錯誤。我們很抱歉。請稍後再試",
+    "achievementContext": "看來這個單元已經開始了。請重新載入頁面以繼續單元。",
+    "custom": {
+        "chanel": {
+            "http": {
+                "412_message": "沒有電子郵件地址。請聯繫你的管理員或在此註冊。"
+            }
+        },
+        "ilearn": {
+            "http": {
+                "412_message": "沒有電子郵件地址。請聯繫你的管理員或在此註冊。"
+            }
+        },
+        "up": {
+            "achievementContext": "看來這個級別已經開始了。請重新載入頁面以繼續進行級別。"
+        }
+    }
+}

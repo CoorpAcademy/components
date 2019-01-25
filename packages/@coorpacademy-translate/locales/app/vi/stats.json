@@ -1,0 +1,189 @@
+{
+    "not_a_number": "<not available>",
+    "target": "Mục tiêu:",
+    "export": {
+        "csv": "CSV",
+        "pdf": "PDF",
+        "excel": "Excel"
+    },
+    "info": {
+        "launch_date": "Ngày Ra mắt",
+        "targeted_users": "Dân số mục tiêu"
+    },
+    "navigation": {
+        "every": "Tất cả",
+        "every-except-coorp": "Tất cả ngoại trừ Coorpacademy",
+        "engagement": "cam kết",
+        "dashboard": "nhận xét chung",
+        "users": "theo người dùng",
+        "content": "nội dung",
+        "battles": "theo cuộc tranh tài",
+        "exports": "xuất",
+        "behavioral": "hành vi"
+    },
+    "since": {
+        "last_week": "7 ngày qua",
+        "last_month": "30 ngày qua",
+        "beginning": "ra mắt"
+    },
+    "users": {
+        "roles": {
+            "header": "Vai trò",
+            "button": "Lưu",
+            "saved": "Đã cập nhật vai trò thành công cho {{displayName}}.",
+            "cms": "Cms",
+            "moderator": "Người điều phối Diễn đàn",
+            "rh": "Rh",
+            "godmode": "Chế độ Bất tử",
+            "supercoach": "Siêu Huấn luyện viên"
+        },
+        "tab": {
+            "ranking": "Thứ hạng người dùng",
+            "activity": "Hoạt động"
+        },
+        "back": "Quay lại tìm kiếm",
+        "entity": "Công ty",
+        "title": "Chức năng",
+        "cnx": {
+            "first": "Ngày kết nối đầu tiên",
+            "last": "Ngày kết nối cuối cùng"
+        },
+        "general": {
+            "header": "Hoạt động chung",
+            "total_cnx": "Tổng số kết nối",
+            "total_validated_disciplines": "Tổng số môn học đạt được",
+            "total_validated_modules": "Tổng số mô-đun đạt được",
+            "modules_validated_per_total": "số mô-đun đạt được / tổng số mô-đun",
+            "ranking": "Thứ hạng",
+            "never": "Không bao giờ"
+        },
+        "sociability": {
+            "header": "Tính xã hội",
+            "posts": {
+                "count": "{{nb}} bài đăng",
+                "count_plural": "{{nb}} bài đăng",
+                "answers": "bao gồm {{nb}} đáp án đến một người dùng khác",
+                "answers_plural": "bao gồm {{nb}} đáp án đến một người dùng khác"
+            },
+            "battles": {
+                "count": "{{nb}} trận đấu",
+                "count_plural": "{{nb}} trận đấu",
+                "won": "bao gồm {{nb}} trận đấu đã thắng",
+                "won_plural": "bao gồm {{nb}} trận đấu đã thắng"
+            },
+            "coach": {
+                "disciplines": "Huấn luyện viên cho {{nb}} môn học",
+                "disciplines_plural": "Huấn luyện viên cho {{nb}} môn học",
+                "interactions": "{{nb}} tương tác với các huấn luyện viên",
+                "interactions_plural": "{{nb}} tương tác với các huấn luyện viên"
+            },
+            "completion": {
+                "total_label": "Hoàn thành tổng cộng:",
+                "total": "{{ratio}}%",
+                "modules_tried_label": "Học phần đã thử:",
+                "modules_tried": "{{totalTriedModules}}/{{nbModules}}",
+                "average_completion_label": "Hoàn thành/thử:",
+                "average_completion": "{{ratio}}%"
+            }
+        },
+        "progression": {
+            "filter": "Filtrování disciplín",
+            "filterPlaceholder": "Klíčová slova pro filtrování disciplín",
+            "th": {
+                "discipline": "Môn học",
+                "hidden": "Ẩn",
+                "level": "Cấp độ",
+                "module_progression": "% thành công",
+                "status": "Trạng thái",
+                "score": "Điểm"
+            }
+        },
+        "time": {
+            "header": "thời gian kết nối",
+            "totalTime": "thời gian tích lũy",
+            "validatedTime": "thời gian xác thực"
+        },
+        "license": {
+            "label": "Giấy phép",
+            "button": "Vô hiệu hóa",
+            "active": "Kích hoạt",
+            "inactive": "Không hoạt động"
+        },
+        "deactivate": {
+            "confirm": "Vui lòng nhập \"yes\" để xác nhận việc vô hiệu hóa tài khoản",
+            "confirm_word": "có",
+            "account_deactivated": "Tài khoản đã bị vô hiệu hóa"
+        },
+        "connectAs": "Kết nối như",
+        "bonusStars": {
+            "buttonPositive": "Thêm",
+            "buttonNegative": "Xóa",
+            "required": "Vui lòng nhập sao để thêm",
+            "notANumber": "Số Ngôi sao phải là một số nguyên",
+            "confirm": "Vui lòng nhập \"tiền thưởng\" để xác nhận thêm hoặc bớt sao",
+            "confirm_word": "thưởng",
+            "starsAdded": "Bạn vừa thêm {{count}} ngôi sao cho người dùng {{displayName}}",
+            "starsAdded_plural": "Bạn vừa bổ sung {{count}} sao cho người dùng {{displayName}}",
+            "starsRemoved": "Bạn vừa xóa {{count}}  sao từ người dùng {{displayName}}",
+            "starsRemoved_plural": "Bạn vừa xóa {{count}} ngôi sao khỏi người dùng {{displayName}}"
+        }
+    },
+    "exports": {
+        "export": "Xuất",
+        "querySent": "Báo cáo của bạn đang được chuẩn bị. Bạn sẽ nhận được nó qua email trong giây lát.",
+        "global": {
+            "title": "Người dùng xuất theo Yêu cầu",
+            "introduction": "Tính năng này cho phép bạn xuất tất cả dữ liệu về người dùng của nền tảng."
+        },
+        "battles": {
+            "title": "Xuất Trận đấu theo Nhu cầu",
+            "introduction": "Tính năng này cho phép bạn xuất tất cả dữ liệu về các trận đấu của nền tảng."
+        },
+        "history": {
+            "title": "Lịch sử xuất",
+            "introduction": "Tính năng này cho phép bạn truy xuất tất cả dữ liệu hàng ngày",
+            "users": "người dùng",
+            "battle": "trận đấu",
+            "analytics": "tiến trình",
+            "filter_by": "lọc theo"
+        }
+    },
+    "custom": {
+        "up": {
+            "navigation": {
+                "modules": "trình độ"
+            },
+            "modules": {
+                "header": {
+                    "discipline": "Khóa học"
+                },
+                "module": {
+                    "media_views": {
+                        "title": "Tỷ lệ xem phương tiện bài học theo trình độ"
+                    }
+                }
+            },
+            "users": {
+                "general": {
+                    "total_validated_disciplines": "Tổng số khoa học đã đạt được",
+                    "total_validated_modules": "Tổng số cấp độ đạt được",
+                    "modules_validated_per_total": "# trình độ đạt được / # tổng số trình độ"
+                },
+                "sociability": {
+                    "coach": {
+                        "disciplines": "Huấn luyện viên trong {{nb}} khóa học",
+                        "disciplines_plural": "Huấn luyện {{nb}} khóa học"
+                    },
+                    "completion": {
+                        "modules_tried_label": "trình độ đã thử:"
+                    }
+                },
+                "progression": {
+                    "th": {
+                        "discipline": "Khóa học"
+                    }
+                }
+            }
+        }
+    }
+}

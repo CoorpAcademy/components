@@ -1,0 +1,25 @@
+{
+    "notCompatible": {
+        "os": "Operációs rendszerének verziója túl régi a platform eléréséhez. Javaslunk egy frissítést.",
+        "explanation": "Lehet, hogy kikapcsolták böngészője kompatibilis megjelenítését. További információk a bekapcsolásról.",
+        "explanationLink": "https://static.coorpacademy.com/content/help/compatibility_view/Help_Compatibility_view_EN.pdf",
+        "explanationLinkLabel": "itt",
+        "header": "A böngészó verziója túl öreg a felület eléréséhez.",
+        "suggestion_text": "Böngéssz Boldogan",
+        "suggestion_href": "http://browsehappy.com",
+        "suggestion_text_pre": "Tovább a",
+        "suggestion_text_post": "Az Evergreen böngészőkkel kapcsolatos további információkért.",
+        "different_user_agent": "2 különböző felhasználót találtunk, ami a platform hozzáférés tiltását eredményezte."
+    },
+    "custom": {
+        "fff": {
+            "notCompatible": {
+                "os": "Az operációs rendszer verziója túl régi a platform eléréséhez. Egy frissítést ajánlunk.",
+                "suggestion_text": "Chrome",
+                "suggestion_href": "https://www.google.com/intl/fr/chrome/browser/",
+                "suggestion_text_pre": "Ajánlott letöltés",
+                "suggestion_text_post": "."
+            }
+        }
+    }
+}

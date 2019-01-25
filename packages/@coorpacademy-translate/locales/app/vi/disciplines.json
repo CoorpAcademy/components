@@ -1,0 +1,90 @@
+{
+    "disciplines": {
+        "book_demo": "book a demo",
+        "payment_required": "đăng ký coorpacademy",
+        "free_start": "bắt đầu học"
+    },
+    "modules": {
+        "button": {
+            "start": "Bắt đầu Trình độ {{name}}",
+            "access": "Truy cập Trình độ {{name}}",
+            "continue": "Tiếp tục Trình độ {{name}}",
+            "again": "Bắt đầu lại Trình độ {{name}}",
+            "locked": "Học phần đã Khóa",
+            "payment_required": "Đăng ký để tiếp tục"
+        },
+        "skill": {
+            "valid": "Nhờ có mô-đun này, bạn có thể:",
+            "invalid": "Ở cuối mô-đun này, bạn sẽ có thể:"
+        },
+        "chapters": {
+            "title": "Chương"
+        },
+        "stars": "Tổng số ngôi sao giành được"
+    },
+    "chapters": {
+        "button": {
+            "start": "Bắt đầu phương pháp Học vi mô",
+            "access": "Truy cập 5' Learning",
+            "continue": "Tiếp tục 5' Learning",
+            "again": "Khởi động lại Học vi mô",
+            "locked": "Học vi mô bị Khóa"
+        }
+    },
+    "presentation": {
+        "total": "{{nb}}",
+        "total_post": "học phần",
+        "total_post_plural": "mô-đun",
+        "video_title": "Duyệt Tài liệu Khóa học",
+        "popularity": "Mức độ phổ biến:",
+        "trainer": "Người đào tạo",
+        "trainer_plural": "Huấn luyện viên",
+        "by": "Bởi",
+        "and": "và"
+    },
+    "author": "Khóa học này được thực hiện bởi:",
+    "disciplineNotFound": "Không tìm thấy khóa học nào với tham chiếu {{disciplineRef}}",
+    "forbidden": {
+        "unknown_in_group": "Bạn không có quyền truy cập nội dung này",
+        "previous_level": "Cần phải hoàn thành trình độ trước đó rồi mới thử trình độ này",
+        "conditions": "Trước khi thử khóa học này, cần phải hoàn thành các khóa học sau: {{contents}}",
+        "subscription_required": "Phải có gói thuê bao Coorpacademy để bắt đầu nội dung này."
+    },
+    "custom": {
+        "up": {
+            "disciplines": {
+                "payment_required": "đăng ký học viện hợp tác"
+            },
+            "modules": {
+                "button": {
+                    "locked": "Cấp độ bị khóa"
+                },
+                "skill": {
+                    "valid": "Nhờ vào trình độ này, bạn có thể:",
+                    "invalid": "Vào cuối trình độ này, bạn sẽ có thể:"
+                }
+            },
+            "presentation": {
+                "total_post": "trình độ",
+                "total_post_plural": "trình độ"
+            }
+        },
+        "silca": {
+            "modules": {
+                "skill": {
+                    "invalid": "Vào cuối học phần này, bạn có thể đánh giá khả năng của bạn để:"
+                }
+            }
+        },
+        "mooc-socgen": {
+            "modules": {
+                "button": {
+                    "start": "Bắt đầu {{name}}",
+                    "access": "Truy cập {{name}}",
+                    "continue": "Tiếp tục {{name}}",
+                    "again": "Bắt đầu lại {{name}}"
+                }
+            }
+        }
+    }
+}

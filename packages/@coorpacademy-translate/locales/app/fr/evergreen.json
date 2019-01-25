@@ -1,0 +1,25 @@
+{
+    "notCompatible": {
+        "os": "La version de votre OS est trop ancienne pour accéder à la plateforme. Nous vous recommandons une mise à jour.",
+        "explanation": "L'affichage compatibilité de votre navigateur est peut-être activé. Plus d'informations pour le désactiver",
+        "explanationLink": "https://static.coorpacademy.com/content/help/compatibility_view/Help_Compatibility_view_FR.pdf",
+        "explanationLinkLabel": "ici.",
+        "header": "La version de navigateur est trop ancienne pour accéder à la plateforme.",
+        "suggestion_text": "BrowseHappy",
+        "suggestion_href": "http://browsehappy.com",
+        "suggestion_text_pre": "Visitez le site",
+        "suggestion_text_post": "pour avoir plus d'information sur les navigateurs evergreen.",
+        "different_user_agent": "Deux user-agents différents ont été trouvés ce qui entraine une restriction pour accéder à la platforme"
+    },
+    "custom": {
+        "fff": {
+            "notCompatible": {
+                "os": "La version de votre OS est trop ancienne pour accéder à la plateforme. Nous vous recommandons une mise à jour.",
+                "suggestion_text": "Chrome",
+                "suggestion_href": "https://www.google.com/intl/fr/chrome/browser/",
+                "suggestion_text_pre": "Nous vous recommendons télécharger",
+                "suggestion_text_post": "."
+            }
+        }
+    }
+}

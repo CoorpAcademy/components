@@ -1,0 +1,90 @@
+{
+    "disciplines": {
+        "book_demo": "book a demo",
+        "payment_required": "coorpacademy abonelik",
+        "free_start": "öğrenmeye başlamak"
+    },
+    "modules": {
+        "button": {
+            "start": "{{name}} düzey başlatmak",
+            "access": "{{name}} erişim düzeyi",
+            "continue": "{{name}} düzey devam",
+            "again": "{{name}} düzey yeniden başlatın",
+            "locked": "Modül Kilitlendi",
+            "payment_required": "Devam etmek için abone"
+        },
+        "skill": {
+            "valid": "Bu modül sayesinde, şunları yapabileceksiniz:",
+            "invalid": "Bu modülün sonunda :"
+        },
+        "chapters": {
+            "title": "Bölüm"
+        },
+        "stars": "Toplam kazanılan yıldızlar"
+    },
+    "chapters": {
+        "button": {
+            "start": "Başlangıç 5' Learning",
+            "access": "Erişim 5' Learning",
+            "continue": "5' Learning devam",
+            "again": "5' Learning yeniden başlatın",
+            "locked": "Kilitli 5' Learning"
+        }
+    },
+    "presentation": {
+        "total": "{{nb}}",
+        "total_post": "modül",
+        "total_post_plural": "modüller",
+        "video_title": "BÖLÜME AİT DOSYALARI GÖZDEN GEÇİR",
+        "popularity": "Popülarite:",
+        "trainer": "Trainer",
+        "trainer_plural": "Trainers",
+        "by": "By",
+        "and": "&"
+    },
+    "author": "Bu kursu oluşturan:",
+    "disciplineNotFound": "{{disciplineRef}} referansına sahip hiçbir ders bulunamadı",
+    "forbidden": {
+        "unknown_in_group": "Bu içeriğe erişimi var mı",
+        "previous_level": "Önceki düzey bu düzeyi denemeden önce tamamlanması gerekiyor",
+        "conditions": "Aşağıda bulunan kurslardan bunu denemeden önce tamamlanması gereken: {{contents}}",
+        "subscription_required": "Coorpacademy abonelik bu içerik başlatmak için gereklidir."
+    },
+    "custom": {
+        "up": {
+            "disciplines": {
+                "payment_required": "coorpacademy abonelik"
+            },
+            "modules": {
+                "button": {
+                    "locked": "Seviye Kilitli"
+                },
+                "skill": {
+                    "valid": "Bu seviye sayesinde, şunları yapabilirsiniz:",
+                    "invalid": "Bu seviyenin sonunda, yapabilecekleriniz:"
+                }
+            },
+            "presentation": {
+                "total_post": "seviye",
+                "total_post_plural": "seviyeler"
+            }
+        },
+        "silca": {
+            "modules": {
+                "skill": {
+                    "invalid": "Bu modül sonunda, yeteneğinizi ölçmek mümkün olacaktır:"
+                }
+            }
+        },
+        "mooc-socgen": {
+            "modules": {
+                "button": {
+                    "start": "Başlangıç {{name}}",
+                    "access": "Erişim {{name}}",
+                    "continue": "{{name}} devam",
+                    "again": "{{name}} yeniden başlatın"
+                }
+            }
+        }
+    }
+}

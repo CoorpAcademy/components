@@ -1,0 +1,316 @@
+{
+    "message": "<p>Щоб отримати доступ до детальної інформації про окремого користувача, використовуйте нашу <a href=\"{{user}}\">аналітичну сторінку по користувачам</a>.</p><p>Щоб отримати доступ до детальної інформації про всіх користувачів, ви можете <a href=\"{{export}}\">експортувати всіх користувачів за запитом</a>.</p>",
+    "export": {
+        "global": {
+            "first_name": "Ім'я",
+            "last_name": "Прізвище",
+            "email": "Електронна пошта",
+            "provider": "Провайдер",
+            "stars": "Рахунок",
+            "providerinfos_company": "Компанія",
+            "providerinfos_city": "Місто",
+            "providerinfos_country": "Країна",
+            "providerinfos_department": "Відділ",
+            "providerinfos_title": "Назва",
+            "providerinfos_chorusID": "ChorusID",
+            "ageRange": "Вікова група",
+            "personalEmail": "Електронна пошта(особиста)",
+            "role": "Роль",
+            "brandName": "Бізнес Компанія",
+            "boutique": "Магазин",
+            "billable": "Billable",
+            "postalCode": "Поштовий індекс",
+            "moduleLevel": "$t(dashboard:badges.module.name) - Рівень",
+            "moduleCount": "$t(dashboard:badges.module.name) - Рахунок",
+            "moduleUpdate": "$t(dashboard:badges.module.name) - Останнє оновлення",
+            "battleLevel": "$t(dashboard:badges.battle.name) - Рівень",
+            "battleCount": "$t(dashboard:badges.battle.name) - Підрахунок",
+            "battleUpdate": "$t(dashboard:badges.battle.name) - Останнє оновлення",
+            "coachLevel": "$t(dashboard:badges.coach.name) - Рівень",
+            "coachCount": "$t(dashboard:badges.coach.name) - Рахунок",
+            "coachUpdate": "$t(dashboard:badges.coach.name) - Останнє Оновлення",
+            "lessonLevel": "$t(dashboard:badges.lesson.name) - Рівень",
+            "lessonCount": "$t(dashboard:badges.lesson.name) - Рахувати",
+            "lessonUpdate": "$t(dashboard:badges.lesson.name) - Останнє оновлення",
+            "questionLevel": "$t(dashboard:badges.question.name) - Рівень",
+            "questionCount": "$t(dashboard:badges.question.name) - Рахунок",
+            "questionUpdate": "$t(dashboard:badges.question.name) - Останнє оновлення",
+            "badges": "відзнаки",
+            "lastConnectionDate": "Дата останнього підключення",
+            "state": "Держава",
+            "login": "Увійти",
+            "firstConnectionDate": "Дата першого підключення",
+            "certificate": "сертифікат {{label}}",
+            "certifications": "Сертифікати",
+            "entity": "Об'єкт",
+            "grade": "Оцінка",
+            "region": "Регіон",
+            "validatedTimeProgression": "Затверджений час",
+            "totalTimeProgression": "Загальний час",
+            "populations": "Населення",
+            "deactivationDate": "Дата деактивації",
+            "organization_branch": "Гілка бізнесу",
+            "organization_businessunit": "Бізнес-юніт",
+            "organization_workingCountry": "Країна бізнесу",
+            "organization_role": "Бізнес Роль",
+            "organization_boutique": "Бізнес-магазин",
+            "organization_address1": "Робоча адреса 1",
+            "organization_address2": "Юридична адреса 2",
+            "organization_zipcode": "Діловий поштовий індекс",
+            "organization_workingCity": "Бізнес-місто",
+            "organization_company": "Бізнес Компанія",
+            "organization_ambassador": "Представник",
+            "birthday": "День народження"
+        },
+        "battles": {
+            "disciplineName": "Назва дисципліни",
+            "disciplineStatus": "Дисципліна статус",
+            "disciplineStatus_hidden": "Приховані",
+            "disciplineStatus_visible": "Видимий",
+            "moduleLevel": "Рівень модулю",
+            "createdAt": "Створено на",
+            "answeredAt": "Відповідь дана в",
+            "createdBy": "Ім'я того, хто кидає виклик",
+            "opponent": "Ім'я супротивника",
+            "winner": "Переможець",
+            "winnerScore": "Результат переможця",
+            "userLogin": "Вхід у Challenger",
+            "opponentLogin": "Логін суперника",
+            "looserScore": "Рахунок переможеного"
+        },
+        "moduleStart": {
+            "brand": "Бренд",
+            "discipline": "Назва Дисципліни",
+            "module": "Рівень модуля",
+            "author": "Автор",
+            "count": "Рахувати",
+            "userCount": "Кількість користувачів"
+        }
+    },
+    "dashboard": {
+        "serenetics-error": "Помилка відбулися час отримання URL-адреса нового приладової панелі.",
+        "behavioral": {
+            "upgrade": {
+                "title": "Цієї приладної дошки, доступні лише в тарифний план підприємства.",
+                "subtitle": "Будь ласка, звертайтеся Coorpacademy апгрейд акаунта і отримати доступ до поведінкових розуміння вашої платформи"
+            }
+        }
+    },
+    "custom": {
+        "7steps": {
+            "export": {
+                "global": {
+                    "organization_role": "Робота",
+                    "organization_title": "Тип магазину",
+                    "organization_ambassador": "L'Oréal працівника?",
+                    "organization_branch": "L'Oréal дивізія",
+                    "entity": "L'Oréal бренди",
+                    "organization_grade": "Використання прав, образу",
+                    "organization_boutiqueReferent": "Роздрібної торгівлі/мережа",
+                    "organization_boutique": "Зберігання ім'я/код"
+                }
+            }
+        },
+        "achat-habitat": {
+            "export": {
+                "global": {
+                    "organization_ambassador": "Бюлетень"
+                }
+            }
+        },
+        "adidas-fr": {
+            "export": {
+                "global": {
+                    "organization_businessunit": "Департамент",
+                    "organization_grade": "Вік",
+                    "organization_boutique": "Робоче місце",
+                    "organization_branch": "Стать"
+                }
+            }
+        },
+        "capgemini": {
+            "export": {
+                "global": {
+                    "organization_grade": "GGID"
+                }
+            }
+        },
+        "chanel": {
+            "export": {
+                "global": {
+                    "boutique": "Бутік",
+                    "organization_workingCountry": "Країна",
+                    "region": "Регіон",
+                    "role": "Роль",
+                    "startContract": "Початок дії контракту"
+                }
+            }
+        },
+        "cofpart-learning": {
+            "export": {
+                "global": {
+                    "brandName": "Direction",
+                    "entity": "Job",
+                    "organization_branch": "Manager"
+                }
+            }
+        },
+        "corporateonlineopencourse": {
+            "export": {
+                "global": {
+                    "region": "Регіон",
+                    "organization_workingCountry": "Країна",
+                    "role": "Функція"
+                }
+            }
+        },
+        "edenred-talents": {
+            "export": {
+                "global": {
+                    "organization_company": "Напрямок",
+                    "entity": "Су напрямку",
+                    "organization_branch": "Сервіс - Secteur",
+                    "organization_boutiqueReferent": "Responsable",
+                    "organization_role": "Fonction",
+                    "organization_grade": "Statut"
+                }
+            }
+        },
+        "gdf": {
+            "export": {
+                "global": {
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - Рівень",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - Лічильник",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) — Останнє оновлення"
+                }
+            }
+        },
+        "gdfec": {
+            "export": {
+                "global": {
+                    "organization_zipcode": "ГЕЯ",
+                    "organization_businessunit": "Команда",
+                    "organization_boutique": "Ім'я менеджера",
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - Рівень",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - Кількість",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - Останнє оновлення"
+                }
+            }
+        },
+        "ilearn": {
+            "export": {
+                "global": {
+                    "boutique": "Магазин",
+                    "organization_workingCountry": "Країна",
+                    "region": "Регіон",
+                    "role": "Роль",
+                    "startContract": "Початок Контракту"
+                }
+            }
+        },
+        "life-auchan": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Рівень активності",
+                    "organization_region": "Життєвий баланс",
+                    "organization_workingCountry": "Країна"
+                }
+            }
+        },
+        "metro": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Місто",
+                    "organization_branch": "ID",
+                    "organization_businessunit": "Роль"
+                }
+            }
+        },
+        "monoprix": {
+            "export": {
+                "global": {
+                    "organization_branch": "Напрямок"
+                }
+            }
+        },
+        "nespresso": {
+            "export": {
+                "global": {
+                    "organization_branch": "Департамент",
+                    "organization_businessunit": "Позиція"
+                }
+            }
+        },
+        "pru": {
+            "export": {
+                "global": {
+                    "providerCompany": "Компанія",
+                    "providerCountry": "Країна",
+                    "providerDepartment": "Відділення"
+                }
+            }
+        },
+        "redoute": {
+            "boutique": "Бутік"
+        },
+        "securite": {
+            "export": {
+                "global": {
+                    "organization_grade": "ID"
+                }
+            }
+        },
+        "up": {
+            "export": {
+                "battles": {
+                    "disciplineName": "Назва курсу",
+                    "moduleLevel": "Рівень"
+                }
+            }
+        },
+        "tagheuer": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Point of sales code"
+                }
+            }
+        },
+        "thelem": {
+            "export": {
+                "global": {
+                    "organization_role": "Працевлаштування",
+                    "language": "Мова",
+                    "organization_boutique": "Місцезнаходження",
+                    "organization_title": "Головна сторінка",
+                    "organization_boutiqueReferent": "Реєстраційний номер",
+                    "startContract": "Дата прийняття на роботу",
+                    "organization_contractType": "Тип Контракту",
+                    "organization_grade": "Кваліфікація"
+                }
+            }
+        },
+        "yahoo": {
+            "export": {
+                "global": {
+                    "organization_title": "Робота",
+                    "organization_workingCountry": "Країна",
+                    "region": "Мова"
+                }
+            }
+        },
+        "who": {
+            "export": {
+                "global": {
+                    "organization_workingCountry": "Країна/область",
+                    "region": "Держави/територій",
+                    "provider": "Приналежність",
+                    "organization_role": "Фон/досвід",
+                    "organization_grade": "Код доступу",
+                    "organization_boutiqueReferent": "Рівень освіти"
+                }
+            }
+        }
+    }
+}

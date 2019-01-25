@@ -1,0 +1,1569 @@
+{
+    "hello": "환영 합니다, {{displayname}}!",
+    "show_more": "모두 보기",
+    "registered": {
+        "score": "점수:",
+        "new_score": "새 점수 {{newscore}}",
+        "badge": {
+            "new": "1 배지",
+            "new_post": "승",
+            "award_pre": "브론즈",
+            "award": "-3 배틀",
+            "award_post": "완료",
+            "name": "브론즈"
+        },
+        "next_player": "상대방의 차례입니다...",
+        "button_back": "돌아가기"
+    },
+    "slides_battle": "{{count}} 질문",
+    "slides_battle_check": "확인",
+    "success_battle": {
+        "title": "끝!",
+        "result": {
+            "win": "우승을 축하드립니다!",
+            "win_fast": "축하합니다, 최소 시간으로 승리 하셨습니다!",
+            "win_first": "축하합니다!",
+            "win_second": "승리하셨습니다!",
+            "loose": "아야, 지셨습니다!",
+            "loose_first": "아야",
+            "loose_second": "지셨습니다!",
+            "loose_against": "아야, 패하셨습니다. {{name}}이 더 빨랐군요!",
+            "winStars": "이 배틀로 {{수}} 개의 별을 추가로 얻으셨습니다!",
+            "winStars_plural": "이 배틀로 {{count}} 개의 별을 추가로 얻으셨습니다!"
+        },
+        "badge_user": {
+            "text": "배지 1",
+            "text_post": "승",
+            "award_pre": "브론즈",
+            "award": "-3 배틀",
+            "award_post": "완료",
+            "name": "브론즈"
+        },
+        "badge_opponent": {
+            "text": "배지 1",
+            "text_post": "승",
+            "award_pre": "브론즈",
+            "award": "-3 배틀",
+            "award_post": "완료",
+            "name": "브론즈"
+        },
+        "footer": "돌아가기"
+    },
+    "notificationCard": {
+        "request_title": "{{title}} 요청",
+        "request": "{{module}} 모듈 {{level}} 레벨",
+        "aim": {
+            "text": "1 새 대답",
+            "text_post": "귀하의 질문에",
+            "name": "이름 성",
+            "link": "보기"
+        },
+        "badge": {
+            "text": "축하합니다! 1 새로운 배지를 얻으셨습니다",
+            "text_post": "승",
+            "link": "보기"
+        },
+        "battle": {
+            "text": "새로운 배틀 요청을 받으셨습니다.",
+            "text_post": "도전",
+            "link": "보기",
+            "demand_accept": "배틀 요청",
+            "demand_accept_post": "승낙되었습니다.",
+            "win_against_title": "님이 승리하셨습니다",
+            "loose_against_title": "배틀에서 패배하셨습니다.",
+            "against": "{{module}} 모듈 {{level}} 레벨",
+            "versus": "vs"
+        },
+        "forum_text": "{{module}} 모듈 {{level}} 수준에 관한 귀하의 의견에 1 새로운 대답은",
+        "forum_text_page": "포럼에 귀하의 의견을 1 새로운 회신이입니다.",
+        "module": {
+            "text": {
+                "bravo": "축하합니다!",
+                "pre": "통과 하셨습니다",
+                "detail": "모듈",
+                "base": "기초 레벨",
+                "advanced": "고급 레벨",
+                "coach": "코치 레벨"
+            },
+            "link": "보기"
+        },
+        "reward": {
+            "bonusStars": {
+                "title": "축하합니다! 추가 별을 획득하셨습니다!",
+                "goal": {
+                    "description": "{{goal}} 목표에 도달 하셨습니다. 그리하여 {{stars}} 추가 별을 얻으셨습니다."
+                },
+                "rh": {
+                    "description": "상으로 {{count}} 개의 별을 추가로 얻으셨습니다!"
+                }
+            },
+            "rewardStars": {
+                "title": "축하합니다! 추가 별을 획득하셨습니다!",
+                "goal": {
+                    "description": "{{goal}} 목표에 도달 하셨습니다. 그리하여 {{stars}} 추가 별을 얻으셨습니다."
+                }
+            },
+            "resource": {
+                "title": "축하합니다! 새로운 아이템에 액세스할 수 있습니다!",
+                "description": "{{goal}} 목표에 도달 했습니다. 이제 {{label}}에 액세스를 부여 합니다."
+            },
+            "diploma": {
+                "title": "졸업장.",
+                "description": "{{goal}} 목표에 도달 하셨습니다. 졸업장을 취득하셨습니다. 축하드립니다!"
+            }
+        },
+        "coach": {
+            "bravo": "축하합니다!",
+            "text": "{{disciplineName}} 분야에서 코치가 되셨습니다!"
+        },
+        "title": {
+            "text": "{{title}} 요청",
+            "Battle": "배틀",
+            "Module": "모듈",
+            "Badge": "배지",
+            "Forum": "대화",
+            "Coach": "코치",
+            "cmsNotification": "정보",
+            "welcome": "환영 합니다",
+            "resetModule": "콘텐츠 업데이트!"
+        },
+        "type": {
+            "module": "모듈",
+            "badge": "배지",
+            "battle": "배틀",
+            "forum": "대화",
+            "Coach": "코치",
+            "objectif": "자격증",
+            "cmsNotification": "정보",
+            "reward": "상",
+            "welcome": "환영 합니다",
+            "resetModule": "콘텐츠 업데이트!"
+        }
+    },
+    "achievement": {
+        "helper": "당신의 성공의 개요! 이 배지들의 각 플래티넘 레벨을 얻을실 수 있으실까요?",
+        "titre": "배지"
+    },
+    "navigation": {
+        "text": "탐색 메뉴에서 플랫폼의 모든 기능을 보실수 있으십니다",
+        "my_board": "내 대시보드",
+        "population": "내 인구",
+        "learningTree": {
+            "helper": "1 클릭에 모든 분야로 가기",
+            "push": "모든 분야 보러가기",
+            "push_post": "클릭 하나로"
+        },
+        "account_helper": "개인 공간을 검색, 결과들을 모아, 당신의 진행 상황을 관리, 대화에 참여 또는 단순히 모듈을 시작 하기 전에 레슨들을 보세요.",
+        "account": "내 계정",
+        "language": "언어",
+        "notification": "알림",
+        "badge": "내 배지",
+        "objectif": "내 자격증",
+        "activity": "활동",
+        "discussion": "대화",
+        "conseil": "팁 및 힌트",
+        "coach": "코치",
+        "lessons": "라이브러리",
+        "battle_helper": "모듈을 완료하면 당신과 동일한 수준에 있는 모든 사람들에게 10 가지 질문의 작은 게임으로 도전하세요!",
+        "battle_pre": "배틀 모드",
+        "battle": "\"배틀\" 모드에서 동료에게 도전하세요: 가능한 한 빨리 질문에 대답하세요!",
+        "battle_post": "여기를 클릭하세요!",
+        "assistance": "고객센터",
+        "home": "홈",
+        "certifications": "내 자격증"
+    },
+    "personal_selection": {
+        "text_helper": "당신의 경로 따라 세개의 모듈이 추천 되었습니다!",
+        "title": "당신을 위해 우리의 추천",
+        "acces_module": "지금 시작하기",
+        "payment_required": "지금 구매하기",
+        "popular_module_helper": "영감이 필요하싶니까? 가장 인기 있는 모듈을 선택하여 다른 사람들이 무었을 하고 있는지 알아보세요.",
+        "last_discussion": "마지막 대화",
+        "no_discussion": "대화 없음",
+        "last_module": "마지막으로 한 모듈",
+        "no_module": "한 모듈이 없음",
+        "level": {
+            "pre": "레벨",
+            "base": "기초,",
+            "advanced": "고급,",
+            "coach": "코치,",
+            "post": "{{stars}} / {{maxstars}}"
+        },
+        "popular_module": "가장 많이 한 분야들",
+        "easiest_disciplines": "가장 쉬운 분야",
+        "hardest_disciplines": "가장 어려운 분야들",
+        "no_popular_module": "한 모듈이 없음",
+        "module_name": {
+            "pre": "레벨",
+            "base": "기초",
+            "advanced": "고급",
+            "coach": "코치"
+        }
+    },
+    "activity": {
+        "title": "활동",
+        "progression_text_pre": "트레이닝이 어떻게 나아가고 있나요?",
+        "progression_text": "당신이 설정한 목표에 가까이 나아가시는 중 이십니까?",
+        "progression_subtext": "지금 확인 해볼 시간이네요...",
+        "discipline_title": "분야",
+        "disciplines": {
+            "title": "분야",
+            "score": "점수",
+            "actual_level": "현재 레벨"
+        },
+        "module_title": "모듈",
+        "avancement": "진행",
+        "caption-started": "시작한 모듈",
+        "caption-done": "마친 모듈"
+    },
+    "myactivity": {
+        "title": "활동:",
+        "subtitle": "어떻게 귀하의 진행 과정에 가요?",
+        "total": "총:",
+        "engines": {
+            "learner": "코스",
+            "microlearning": "5' Learning",
+            "battle": "전투",
+            "certifications": "인증",
+            "bonus": "보너스"
+        },
+        "recommendation": {
+            "title": "{{displayName}} 안녕하세요, 귀하의 점수를 증가!",
+            "subtitle": "좋습니다."
+        },
+        "starsToolTip": {
+            "preMessage": "이 기능은 현재 귀하의 플랫폼에서 사용하실 수 없습니다. 해당 기능을 활성화하려면 관리자에게 문의하시거나, ",
+            "linkMessage": "여기를 클릭하시면 ",
+            "endMessage": "메시지를 전달해 드립니다."
+        }
+    },
+    "goals": {
+        "title": "자격증으로 더 발전하세요"
+    },
+    "badges": {
+        "title": "내 모든 배지",
+        "subtitle": "모든 배지 보기",
+        "title-1-0": "내 배지",
+        "subtitle-1-0": "받은 또는 디지털 \"왕\"이 되기위해 여전히 취득 해야할 모든 배지를 보세요! ;-)",
+        "newBadgeWon": "현재:",
+        "newBadgeWon_plural": "현재:",
+        "seeYourBadges": "배지 보기",
+        "battle": {
+            "name": "배틀 전사",
+            "details": "{{count}} 배틀",
+            "details_plural": "{{count}} 배틀",
+            "details_post": "완료!",
+            "details_post_plural": "완료!"
+        },
+        "module": {
+            "name": "모듈 생존자",
+            "details": "모듈 {{count}}",
+            "details_plural": "모듈 {{count}}",
+            "success": "완료",
+            "success_plural": "완료",
+            "details_pre_1": "잃지 않고",
+            "details_pre_2": "기회!"
+        },
+        "lesson": {
+            "name": "모범생",
+            "details": "레슨 {{count}}",
+            "details_plural": "레슨 {{count}}개",
+            "details_post": "완전히 봄!",
+            "details_post_plural": "완전히 봄!"
+        },
+        "question": {
+            "name": "챔피언을 위한 질문",
+            "details": "질문 {{count}}개",
+            "details_plural": "질문 {{count}}",
+            "details_post": "대답하였음!",
+            "details_post_plural": "대답하였음!"
+        },
+        "coach": {
+            "name": "우정상",
+            "details": "대화 {{count}}",
+            "details_plural": "대화 {{count}}",
+            "details_pre_1": "와 함께",
+            "details_pre_2": "코치!"
+        },
+        "level": {
+            "bronze": "브론즈",
+            "silver": "실버",
+            "gold": "골드",
+            "platinum": "플래티넘"
+        }
+    },
+    "battle": {
+        "title": "전투",
+        "create": "전투를 만들기",
+        "requests": {
+            "title": "전투 요청",
+            "no_requests_found": "당신은 아직 어떤 전투 요청 없어",
+            "sendBattle": "{{opponentName}}은 도전"
+        },
+        "history": {
+            "title": "전투 역사",
+            "message": {
+                "pending": "상대방의 승인을 기다리는이 전투",
+                "win": "전투 원!",
+                "lost": "당신은 전투를 잃 었!",
+                "win_byTime": "가장 빠른 했다!",
+                "lost_byTime": "당신이 너무 느린 있 었 어 요!"
+            },
+            "no_history_found": "아직 어떤 전투 역사 없습니다"
+        },
+        "start": {
+            "cta": "<span class=\"bold\"> 전투</span>를 시작합니다",
+            "new_cta": "새로운 <span class=\"bold\"> 전투</span>를 만들기",
+            "cancel": "무시",
+            "body_pre": "속도 문제:",
+            "bodyText": "경우에 무승부, 빠른 승!",
+            "me": "나",
+            "inProgress": "진행 중"
+        },
+        "steps": {
+            "1": "1. 레벨 선택",
+            "2": "2. 상대 선택",
+            "3": "3. 전투 시작"
+        },
+        "select_module": {
+            "title": "레벨을 선택 합니다.",
+            "placeholder": "모듈 이름을 입력합니다",
+            "no_module_available": "완성 된 모듈에만 전투를 만들 수 있습니다.",
+            "no_module_found": "아니 모듈 발견"
+        },
+        "select_theme": {
+            "title": "컬렉션을 선택 합니다."
+        },
+        "select_opponent": {
+            "title": "상대 선택",
+            "placeholder": "이름을 입력합니다",
+            "no_opponent_found": "아니 상대 발견",
+            "random": "무작위 상대"
+        },
+        "subtitle": "동료들에게 도전장을 내미세요!",
+        "button": {
+            "create": "새로운 배틀 시작",
+            "cancel": "취소하기"
+        },
+        "score": "10",
+        "no_battle_progress": "진행 중인 배틀이 없으십니다.",
+        "block": {
+            "title": "배틀 요청"
+        },
+        "accept_button": "동의",
+        "no_proposition": "배틀 요청이 없으십니다.",
+        "completed": {
+            "title": "완료된 배틀",
+            "subtitle_pre": "참여",
+            "subtitle_pre_plural": "참여",
+            "subtitle": "{{count}} 배틀중, {{nb}} 승리",
+            "subtitle_plural": "{{count}} 배틀중, {{nb}} 승리"
+        },
+        "block_empty": "완료하신 배틀이 없으십니다.",
+        "create_title": "배틀 시작",
+        "active_title_intro": "배틀 모드",
+        "active_title_active": "활성화됨",
+        "start_discipline": "한 분야 시작하기",
+        "no_opponent": "이 수준에 사용할 수 없는 상대",
+        "coming_soon_random": "랜덤 배틀 시작"
+    },
+    "dashboard": {
+        "text": "우주 경쟁! 올바르게 질문하거나, 레슨을 많이 보거나, 또는 사교성 (배틀 및 트레이닝)으로 이길 수 있습니다!",
+        "title": "당신의 점수",
+        "data": {
+            "intro": "상위에 있습니다.",
+            "value": "15%",
+            "wording": "최고 점수"
+        },
+        "data_dev_hidden": {
+            "question": {
+                "title": "질문:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "일부",
+                    "level": "{{level}}",
+                    "wording": "가장 많은 별과 "
+                }
+            },
+            "cours": {
+                "title": "레슨:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "일부",
+                    "level": "{{level}}",
+                    "wording": "누가 수업을 제일 많이 보았는지."
+                }
+            },
+            "extra": {
+                "title": "추가:",
+                "stat": {
+                    "intro": "일부",
+                    "level": "{{level}}",
+                    "wording": "최상의 결과와."
+                }
+            },
+            "total_title": "총:"
+        }
+    },
+    "lessons": {
+        "title": "모든 레슨 및 비디오",
+        "subtitle": "퀴즈를 시작 하기 전에 재검토 하거나 공부를 하시겠습니까? 이 페이지를 보세요. 여기에 모든 레슨들이 주제별로 분류되어 있습니다.",
+        "subtitle_up": "퀴즈를 시작 하기 전에 재검토 하거나 공부를 하시겠습니까?",
+        "empty": "이 과정에 대 한 발견 아무 리소스입니다."
+    },
+    "notifications": {
+        "title": "알림",
+        "infos": "<b> {{count}} </b> 알림!",
+        "infos_plural": "<b> {{count}} </b> 알림!",
+        "filter": "필터",
+        "close": "닫기",
+        "myNotifications": "내 알림 보기",
+        "deleteAll": "모두 삭제하기",
+        "filters": {
+            "module": "수준으로 필터링",
+            "badge": "배지별로 필터하기",
+            "forum": "대화별 필터",
+            "battle": "배틀별 필터링",
+            "coach": "코치별 필터링",
+            "objectif": "목표별 필터링",
+            "reward": "보상으로 필터링",
+            "welcome": "환영 메시지 필터링",
+            "resetModule": "업데이트 콘텐츠 필터링"
+        }
+    },
+    "block_push": {
+        "tree": {
+            "title": "모든 내용 검색",
+            "content": "빨리 시작할려면 여기를 클릭 하세요",
+            "link": "여기를 클릭 하십시오"
+        },
+        "battle": {
+            "title": "동료들에게 도전장을 내미세요!",
+            "content": "\"배틀\"을 시작하세요. 실력 강화시키는게 이렇게 재미있던 적은 없으실 것 입니다!",
+            "link": "여기를 클릭 하십시오"
+        }
+    },
+    "welcomePopin": {
+        "title": "환영합니다",
+        "text": "MOOC을 하기위해, 처음 페이지로 이동 합니다.",
+        "button": "더 알아보기"
+    },
+    "global_notification": {
+        "button": {
+            "show_more": "추가 정보"
+        }
+    },
+    "filters": {
+        "all": "전체",
+        "coorpers": "Coorpers",
+        "courses": "내 래슨"
+    },
+    "sections": {
+        "most-popular": "가장 인기 있는",
+        "most-recent": "최신 ",
+        "my-list": "{{name}} 님의 리스트",
+        "news": "뉴스",
+        "recommended": "당신을 위해 권장",
+        "load_more": "더 보기",
+        "certification": "인증: {{name}}",
+        "prefix_chapter": "5' Learning: {{title}}"
+    },
+    "continueLesson": "내 과목 계속하기",
+    "widgets": {
+        "read_more": "추가항목"
+    },
+    "discussion": {
+        "title": "모든 과목 의견",
+        "subtitle": "다른 분야마다 커뮤니티가 남긴 메시지 전체 보기"
+    },
+    "slider": {
+        "start": {
+            "surtitle": "{{displayName}}, 환영",
+            "surtitle_anonymous": "환영 합니다,",
+            "title": "새로운 과목들을 둘러봐보세요",
+            "cta": "카탈로그를 참조"
+        },
+        "resume": {
+            "surtitle_learner": "다시 {{displayName}}를 환영 합니다, 그리고 계속:",
+            "surtitle_microlearning": "다시 {{displayName}}를 환영 합니다, 그리고 계속:",
+            "surtitle_learner_anonymous": "환영, 계속:",
+            "surtitle_microlearning_anonymous": "환영, 계속:",
+            "title": "{{courseName}}",
+            "cta": "학습을 계속"
+        },
+        "battle": {
+            "surtitle": "다시 {{displayName}}을 환영 합니다, 그리고 당신의 전투 요청 확인",
+            "title": "당신은 {{count}} 전투 요청!",
+            "title_plural": "당신은 {{count}} 전투 요청!",
+            "cta": "진압 시작"
+        }
+    },
+    "custom": {
+        "7steps": {
+            "achievement": {
+                "helper": "당신의 성공의 개요! 당신이 관리 하는 것이 기장의 각 최상위를 얻을?"
+            },
+            "badges": {
+                "level": {
+                    "platinum": "맨 위로"
+                }
+            },
+            "block_push": {
+                "tree": {
+                    "content": "이제 배우기 시작!"
+                }
+            }
+        },
+        "accueil": {
+            "filters": {
+                "coorpers": "mooc'ers"
+            },
+            "badges": {
+                "battle": {
+                    "name": "도전자",
+                    "details_3": "40"
+                },
+                "module": {
+                    "name": "슈퍼 히어로",
+                    "details_1": {
+                        "number": "2"
+                    },
+                    "details_2": {
+                        "number": "4"
+                    },
+                    "details_3": {
+                        "number": "6"
+                    }
+                },
+                "lesson": {
+                    "name": "입장료 가격",
+                    "details_0": "5",
+                    "details_1": "15",
+                    "details_2": "30",
+                    "details_3": "60"
+                },
+                "question": {
+                    "name": "챔피언을 위한 질문",
+                    "details_3": "360"
+                },
+                "coach": {
+                    "name": "화목 상"
+                }
+            }
+        },
+        "architas-powercircle": {
+            "filters": {
+                "coorpers": "투자 슈퍼 히어로"
+            }
+        },
+        "armeedeterre": {
+            "slider": {
+                "battle": {
+                    "surtitle": "다시 {{displayName}}를 환영 합니다, 그리고 당신의 전투 요청 확인",
+                    "title": "당신은 {{count}} 전투 요청!",
+                    "title_plural": "당신은 {{count}} 전투 요청!",
+                    "cta": "진압 시작"
+                }
+            },
+            "battle_start": {
+                "title": "전투 시작입니다."
+            },
+            "select_module": {
+                "no_module_available": "만 완성 된 수준에 전투를 만들 수 있습니다."
+            },
+            "success_battle": {
+                "title": "위에 전투!",
+                "badge_user": {
+                    "award": "-3 전투"
+                },
+                "badge_opponent": {
+                    "award": "-3 전투"
+                },
+                "winStars": "이 전투와 {{count}} 추가 스타 원!",
+                "winStars_plural": "이 전투와 추가 별 {{count}} 원!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "전투"
+                },
+                "battle": {
+                    "text": "1 새로운 전투를 받았습니다.",
+                    "demand_accept": "당신의 전투",
+                    "win_against_title": "전투 원!",
+                    "loose_against_title": "당신은 전투를 잃 었!"
+                },
+                "type": {
+                    "battle": "전투"
+                }
+            },
+            "navigation": {
+                "battle_pre": "전투 모드",
+                "battle": "\"전투\" 모드에서 귀하의 동료 도전: 가능한 한 빨리 질문에 대답!"
+            },
+            "filters": {
+                "battles": "내 전투"
+            },
+            "badges": {
+                "battle": {
+                    "name": "전투 탐색",
+                    "details": "{{count}} 전투",
+                    "details_plural": "{{count}} 전투"
+                }
+            },
+            "battle": {
+                "title": "전투 모드",
+                "create": "전투를 만들기",
+                "requests": {
+                    "title": "전투 요청",
+                    "no_requests_found": "당신은 아직 어떤 전투 요청 없어"
+                },
+                "history": {
+                    "title": "전투 역사",
+                    "message": {
+                        "pending": "상대방의 승인을 기다리는이 전투",
+                        "win": "전투 원!",
+                        "lost": "당신은 전투를 잃 었!"
+                    },
+                    "no_history_found": "아직 어떤 전투 역사 없습니다"
+                },
+                "start": {
+                    "cta": "<span class=\"bold\"> 전투</span>를 시작합니다",
+                    "new_cta": "새로운 <span class=\"bold\"> 전투</span>를 만들기"
+                },
+                "steps": {
+                    "3": "3. 전투 시작"
+                },
+                "select_module": {
+                    "no_module_available": "만 완성 된 수준에 전투를 만들 수 있습니다."
+                },
+                "button": {
+                    "create": "새로운 전투를 만들기"
+                },
+                "no_battle_progress": "당신은 아무 전투 진행.",
+                "block": {
+                    "title": "전투 요청"
+                },
+                "no_proposition": "당신은 모든 전투 요청 받지.",
+                "completed": {
+                    "title": "완성된 전투",
+                    "subtitle": "{{count}} 전투 승리 {{nb}}",
+                    "subtitle_plural": "{{count}} 전투 승리 {{nb}}"
+                },
+                "block_empty": "당신은 아무 완성 된 전투.",
+                "create_title": "전투를 만들기",
+                "active_title_intro": "전투 모드",
+                "coming_soon_random": "무작위 전투를 시작"
+            }
+        },
+        "bigdata": {
+            "navigation": {
+                "lessons": "모든 과목"
+            },
+            "filters": {
+                "news": "당신의 트레이닝",
+                "coorpers": "MOOCers"
+            }
+        },
+        "bnp": {
+            "filters": {
+                "coorpers": "Factiors"
+            }
+        },
+        "bnpp-legal": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "마스터"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "마스터"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "마스터,"
+                },
+                "module_name": {
+                    "coach": "마스터"
+                }
+            },
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "casa": {
+            "filters": {
+                "news": "당신의 트레이닝",
+                "coorpers": "MOOCers"
+            }
+        },
+        "challenge48htechno": {
+            "slider": {
+                "start": {
+                    "title": "새로운 퀴즈들을 둘러보세요"
+                },
+                "resume": {
+                    "surtitle": "다시 {{displayName}}를 환영 합니다, 퀴즈 계속"
+                }
+            }
+        },
+        "chanel": {
+            "block_push": {
+                "tree": {
+                    "title": "시작",
+                    "content": "카탈로그에 샤넬 기초를 발견.",
+                    "link": "여기를 클릭 하십시오"
+                },
+                "battle": {
+                    "title": "도전 커뮤니티",
+                    "content": "\"전투 모드\"에서 귀하의 동료를 도전 한다. 당신이 수 있는 신속 하 게 질문에 대답!",
+                    "link": "여기를 클릭 하십시오"
+                }
+            },
+            "filters": {
+                "coorpers": "내 커뮤니티"
+            }
+        },
+        "crisis": {
+            "filters": {
+                "coorpers": "Pernod Ricard 커뮤니티"
+            }
+        },
+        "dolce": {
+            "filters": {
+                "coorpers": "커뮤니티"
+            }
+        },
+        "edenred-talents": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "대사"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "대사"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "대사,"
+                },
+                "module_name": {
+                    "coach": "대사"
+                }
+            }
+        },
+        "ey": {
+            "filters": {
+                "coorpers": "디지털 영웅"
+            }
+        },
+        "fff": {
+            "activity": {
+                "caption-started": "시작 하였지만 아직 완료 하지않은 분야",
+                "caption-done": "확인한 분야"
+            }
+        },
+        "gdf": {
+            "badges": {
+                "transformer": {
+                    "name": "변압기",
+                    "details_0": {
+                        "number": "1",
+                        "details": "테마",
+                        "details_post": "완료"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "테마",
+                        "details_post": "완료"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "테마",
+                        "details_post": "완료"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "테마",
+                        "details_post": "완료"
+                    }
+                }
+            }
+        },
+        "gdfec": {
+            "badges": {
+                "transformer": {
+                    "name": "변압기",
+                    "details_0": {
+                        "number": "1",
+                        "details": "테마",
+                        "details_post": "완료"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "테마",
+                        "details_post": "완료"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "테마",
+                        "details_post": "완료"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "테마",
+                        "details_post": "완료"
+                    }
+                }
+            },
+            "filters": {
+                "coorpers": "커뮤니티"
+            }
+        },
+        "ilearn": {
+            "filters": {
+                "coorpers": "내 커뮤니티"
+            }
+        },
+        "learnnrj": {
+            "filters": {
+                "coorpers": "커뮤니티"
+            }
+        },
+        "letsgetdigital": {
+            "badges": {
+                "battle": {
+                    "name": "챌 린 저"
+                },
+                "module": {
+                    "name": "영웅"
+                }
+            }
+        },
+        "linxea": {
+            "filters": {
+                "coorpers": "MOOCers"
+            },
+            "navigation": {
+                "lessons": "모든 동영상"
+            }
+        },
+        "loreal-retail-v2": {
+            "select_module": {
+                "filter_by": {
+                    "base": "왜 필터",
+                    "advanced": "공감으로 필터링",
+                    "coach": "나 표시 하 여 필터링"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "왜",
+                        "advanced": "공감",
+                        "coach": "보여 주세요"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "왜",
+                    "advanced": "공감",
+                    "coach": "보여 주세요"
+                },
+                "module_name": {
+                    "base": "왜",
+                    "advanced": "공감",
+                    "coach": "보여 주세요"
+                }
+            }
+        },
+        "martell": {
+            "badges": {
+                "subtitle-1-0": "받은 또는 당신이 아직도 Martell 전문가가 될 얻이 필요가 있는 모든 배지를 볼"
+            },
+            "filters": {
+                "coorpers": "Martell 친구들"
+            }
+        },
+        "michelin": {
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "mooc-socgen": {
+            "select_module": {
+                "filter_by": {
+                    "base": "수준 1 필터",
+                    "advanced": "레벨 2에 의해 필터링",
+                    "coach": "레벨 3으로 필터링"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "레벨 1",
+                        "advanced": "레벨 2",
+                        "coach": "레벨 3"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "레벨 1",
+                    "advanced": "수준 2,",
+                    "coach": "레벨 3"
+                },
+                "module_name": {
+                    "base": "레벨 1",
+                    "advanced": "레벨 2",
+                    "coach": "레벨 3"
+                }
+            }
+        },
+        "nespresso": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "전문가"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "전문가"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "전문가,"
+                },
+                "module_name": {
+                    "coach": "전문가"
+                }
+            },
+            "filters": {
+                "coorpers": "커뮤니티"
+            }
+        },
+        "online-academy-klubschule": {
+            "select_module": {
+                "filter_by": {
+                    "base": "초보자로 필터링",
+                    "advanced": "고급 필터링",
+                    "coach": "전문가 의해 필터링"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "레벨 초급",
+                        "advanced": "고급 수준",
+                        "coach": "전문가 수준"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "초급,",
+                    "advanced": "고급,",
+                    "coach": "전문가,"
+                },
+                "module_name": {
+                    "base": "초급",
+                    "advanced": "고급",
+                    "coach": "전문가"
+                }
+            }
+        },
+        "paca": {
+            "filters": {
+                "coorpers": "MOOC'ers"
+            },
+            "badges": {
+                "battle": {
+                    "name": "도전자"
+                },
+                "module": {
+                    "name": "슈퍼 히어로"
+                },
+                "lesson": {
+                    "name": "입장료 가격"
+                },
+                "question": {
+                    "name": "챔피언을 위한 질문"
+                },
+                "coach": {
+                    "name": "펠로우십 상"
+                }
+            }
+        },
+        "pernodci": {
+            "filters": {
+                "coorpers": "Pernod Ricard 커뮤니티"
+            }
+        },
+        "pernod": {
+            "notificationCard": {
+                "type": {
+                    "objectif": "목표"
+                }
+            },
+            "goals": {
+                "title": "당신의 목표를 향해 진행"
+            },
+            "navigation": {
+                "objectif": "내 목표"
+            }
+        },
+        "petite": {
+            "filters": {
+                "coorpers": "내 커뮤니티"
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "모듈 1,",
+                    "advanced": "모듈 2,",
+                    "coach": "모듈 3,"
+                },
+                "module_name": {
+                    "base": "모듈 1",
+                    "advanced": "모듈 2",
+                    "coach": "모듈 3"
+                }
+            }
+        },
+        "pru": {
+            "block_push": {
+                "tree": {
+                    "content": "이제 배우기 시작!"
+                },
+                "battle": {
+                    "title": "당신의 동료와 연습을 무시!",
+                    "content": "\"전투\"에서 귀하의 동료 도전: 그들 보다 더 빠른 것을 시도 하십시오!"
+                }
+            },
+            "badges": {
+                "subtitle-1-0": "적립 또는 여전히 준수 마스터 되기 위해 적립을 해야 하는 모든 배지를 볼!"
+            }
+        },
+        "quizz-auchan": {
+            "slider": {
+                "start": {
+                    "title": "블루 라이프 Quizz를 둘러보세요!"
+                }
+            }
+        },
+        "renault": {
+            "badges": {
+                "subtitle": "얻 었 또는 될 마지막 클리오 RS의 \"왕\" 적립을 해야 하는 모든 배지를 볼! ;-)",
+                "lessons_seen": {
+                    "details_0": "2",
+                    "details_1": "4",
+                    "details_2": "8",
+                    "details_3": "10"
+                },
+                "answer": {
+                    "details_0": "20",
+                    "details_1": "36",
+                    "details_2": "72",
+                    "details_3": "120"
+                },
+                "perfect": {
+                    "details_2": {
+                        "number": "5"
+                    },
+                    "details_3": {
+                        "number": "8"
+                    }
+                }
+            }
+        },
+        "renaultrh": {
+            "select_module": {
+                "filter_by": {
+                    "base": "1 단계 필터링",
+                    "advanced": "2 단계 필터",
+                    "coach": "3 단계 필터링"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "레벨 1 단계",
+                        "advanced": "레벨 2 단계",
+                        "coach": "수준 3 단계"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "1 단계,",
+                    "advanced": "2 단계",
+                    "coach": "3 단계"
+                },
+                "module_name": {
+                    "base": "1 단계",
+                    "advanced": "2 단계",
+                    "coach": "3 단계"
+                }
+            }
+        },
+        "renaultcare": {
+            "select_module": {
+                "filter_by": {
+                    "base": "기본 필터링"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "기본 수준"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "기초,"
+                },
+                "module_name": {
+                    "base": "기본 사항"
+                }
+            }
+        },
+        "rexel": {
+            "filters": {
+                "coorpers": "고객 중심 커뮤니티"
+            }
+        },
+        "samsung": {
+            "block_push": {
+                "tree": {
+                    "content": "여기서 시작!"
+                },
+                "battle": {
+                    "content": "\"전투\" 모드에서 귀하의 동료 도전: 가능한 한 빨리 질문에 대답!"
+                }
+            }
+        },
+        "schneider": {
+            "select_module": {
+                "filter_by": {
+                    "base": "시즌 1으로 필터링",
+                    "advanced": "시즌 2에 의해 필터링",
+                    "coach": "시즌 3에 의해 필터링"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "레벨 시즌 1",
+                        "advanced": "레벨 시즌 2",
+                        "coach": "시즌 3 층"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "시즌 1,",
+                    "advanced": "시즌 2,",
+                    "coach": "시즌 3,"
+                },
+                "module_name": {
+                    "base": "시즌 1",
+                    "advanced": "시즌 2",
+                    "coach": "시즌 3"
+                }
+            },
+            "filters": {
+                "all": "모든",
+                "battles": "내 전투",
+                "coorpers": "IQ-ers",
+                "news": "뉴스",
+                "courses": "내 수업",
+                "continueLesson": "내 과목 계속하기"
+            }
+        },
+        "securite": {
+            "navigation": {
+                "lessons": "모든 과목"
+            },
+            "filters": {
+                "news": "당신의 형성",
+                "coorpers": "MOOCers"
+            }
+        },
+        "silca": {
+            "navigation": {
+                "lessons": "모든 코스"
+            },
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "sgmgt": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "societegenerale": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "sqy": {
+            "navigation": {
+                "lessons": "모든 과목"
+            },
+            "filters": {
+                "news": "당신의 형성",
+                "coorpers": "MOOCers"
+            }
+        },
+        "tourismdigital": {
+            "filters": {
+                "coorpers": "회원"
+            }
+        },
+        "tagheuer": {
+            "badges": {
+                "level": {
+                    "bronze": "기어 1",
+                    "silver": "기어 3",
+                    "gold": "기어 5",
+                    "platinum": "기어 7"
+                }
+            },
+            "filters": {
+                "coorpers": "태그호이어 커뮤니티"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "티타늄 레벨",
+                        "advanced": "브론즈 레벨",
+                        "coach": "실버 레벨"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "티타늄으로 필터링",
+                    "advanced": "브론즈로 필터링",
+                    "coach": "실버로 필터링"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "티타늄,",
+                    "advanced": "브론즈,",
+                    "coach": "실버,"
+                },
+                "module_name": {
+                    "base": "티타늄",
+                    "advanced": "브론즈",
+                    "coach": "실버"
+                }
+            }
+        },
+        "tagheuercon": {
+            "badges": {
+                "level": {
+                    "bronze": "기어 1 ",
+                    "silver": "기어 3",
+                    "gold": "기어 5",
+                    "platinum": "기어 7"
+                }
+            },
+            "filters": {
+                "coorpers": "학습자 커뮤니티"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "티타늄 레벨",
+                        "advanced": "브론즈 레벨",
+                        "coach": "실버 레벨"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "티타늄으로 필터링",
+                    "advanced": "브론즈로 필터링",
+                    "coach": "실버에 의해 필터링"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "티타늄,",
+                    "advanced": "브론즈,",
+                    "coach": "실버,"
+                },
+                "module_name": {
+                    "base": "티타늄",
+                    "advanced": "브론즈",
+                    "coach": "실버"
+                }
+            }
+        },
+        "tourism": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "up": {
+            "personal_selection": {
+                "text_helper": "3 레벨 길을 따라 제안!",
+                "popular_module_helper": "영감이 필요? 다른 사람에서 가장 인기 있는 선택 하 여 뭐 하는 확인 하십시오.",
+                "last_module": "마지막으로 한 레벨",
+                "no_module": "한 모듈이 없음",
+                "popular_module": "가장 많이 한 과목들",
+                "easiest_disciplines": "가장 쉬운 과목",
+                "hardest_disciplines": "가장 어려운 과목들",
+                "no_popular_module": "아니 수준 연주 하고있다"
+            },
+            "select_module": {
+                "title": "레벨 선택",
+                "availability": "남은 레벨 {{count}}",
+                "availability_plural": "남은 레벨 {{count}}",
+                "no_module_available": "만 완성 된 수준에 전투를 만들 수 있습니다."
+            },
+            "notificationCard": {
+                "request": "{{module}} 과목 {{level}} 레벨",
+                "battle": {
+                    "against": "{{module}} 과목 {{level}} 레벨"
+                },
+                "forum_text": "{{module}} 과목 {{level}} 레벨의 귀하의 의견에 1 새로운 대답이 있습니다",
+                "module": {
+                    "text": {
+                        "detail": "레벨"
+                    }
+                },
+                "coach": {
+                    "text": "{{disciplineName}} 과목에서 코치가 되셨습니다!"
+                },
+                "title": {
+                    "Module": "레벨"
+                },
+                "type": {
+                    "module": "레벨"
+                }
+            },
+            "navigation": {
+                "learningTree": {
+                    "helper": "1 클릭에 모든 과목에 가기",
+                    "push": "모든 과목 보러가기",
+                    "push_post": "클릭 하나로"
+                },
+                "account_helper": "개인 공간을 검색, 결과들을 모아, 당신의 진행 상황을 관리, 대화에 참여 또는 단순히 모듈을 시작 하기 전에 레슨들을 보세요.",
+                "battle_helper": "모듈을 완료하면 당신과 동일한 수준에 있는 모든 사람들에게 10 가지 질문의 작은 게임으로 도전하세요!"
+            },
+            "activity": {
+                "progression_text_pre": "트레이닝이 어떻게 나아가고 있나요?",
+                "discipline_title": "과목",
+                "disciplines": {
+                    "title": "과목"
+                },
+                "module_title": "레벨",
+                "caption-started": "시작한 레벨",
+                "caption-done": "마친 레벨"
+            },
+            "badges": {
+                "module": {
+                    "name": "생존자",
+                    "details_0": {
+                        "module": "레벨"
+                    },
+                    "details_1": {
+                        "module": "레벨"
+                    },
+                    "details_2": {
+                        "module": "레벨"
+                    },
+                    "details_3": {
+                        "module": "레벨"
+                    }
+                }
+            },
+            "battle": {
+                "start_discipline": "과목 시작",
+                "no_opponent": "이 레벨에는 도전할 수 있은 상대가 없음"
+            },
+            "notifications": {
+                "filters": {
+                    "module": "과목별 필터링"
+                }
+            }
+        },
+        "yahoo": {
+            "badges": {
+                "subtitle-1-0": "다른 배지를 얻기에서 진행 상황을 볼."
+            },
+            "filters": {
+                "coorpers": "커뮤니티"
+            }
+        },
+        "capgemini": {
+            "navigation": {
+                "certifications": "내 Digicertif'"
+            }
+        },
+        "cnp": {
+            "navigation": {
+                "certifications": "Certificate"
+            },
+            "sections": {
+                "certification": "인증서: {{name}}"
+            }
+        },
+        "ecolenumerique-sncf": {
+            "navigation": {
+                "certifications": "제다이 배지"
+            },
+            "sections": {
+                "certification": "Jedi Badge: {{name}}"
+            }
+        },
+        "ganprevoyance": {
+            "navigation": {
+                "certifications": "우주"
+            },
+            "sections": {
+                "certification": "우주: {{name}}"
+            }
+        },
+        "who": {
+            "slider": {
+                "battle": {
+                    "surtitle": "다시 {{displayName}}을 환영 합니다, 그리고 당신의 도전을 요청 확인",
+                    "title": "당신은 {{count}} 도전 요청!",
+                    "title_plural": "당신은 {{count}} 도전 요청!",
+                    "cta": "도전 시작"
+                }
+            },
+            "discussion": {
+                "title": "모듈 피드백",
+                "subtitle": "모든 메시지는 서로 다른 모듈에서 지역 사회에 의해 왼쪽 참조"
+            },
+            "battle_start": {
+                "title": "당신의 도전은 시작 이다."
+            },
+            "select_module": {
+                "no_module_available": "완성 된 모듈에서 도전만 만들 수 있습니다."
+            },
+            "success_battle": {
+                "title": "도전!",
+                "badge_user": {
+                    "award": "- 3 과제"
+                },
+                "badge_opponent": {
+                    "award": "- 3 과제"
+                },
+                "winStars": "당신은 원 {{count}} 추가와 스타가이 도전!",
+                "winStars_plural": "이 전에 {{count}} 추가 별 원!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "도전"
+                },
+                "coach": {
+                    "text": "물론 {{disciplineName}}를 완료 했습니다."
+                },
+                "battle": {
+                    "text": "1 새로운 도전을 받았습니다.",
+                    "demand_accept": "당신의 도전",
+                    "win_against_title": "도전 원!",
+                    "loose_against_title": "당신이 잃어버린 도전!"
+                },
+                "reward": {
+                    "resource": {
+                        "title": "축 하! 새로운 배지를 액세스할 수 있습니다!"
+                    }
+                },
+                "type": {
+                    "battle": "도전"
+                },
+                "forum_text_page": "귀하의 의견을 1 새로운 회신이입니다."
+            },
+            "navigation": {
+                "battle_pre": "챌린지 모드",
+                "battle": "\"도전\" 모드에서 귀하의 동료 도전: 가능한 한 빨리 질문에 대답!"
+            },
+            "filters": {
+                "battles": "나의 도전",
+                "coorpers": "QR 수비수"
+            },
+            "badges": {
+                "battle": {
+                    "name": "도전 찾는 사람",
+                    "details": "{{count}} 도전",
+                    "details_plural": "{{count}} 과제"
+                },
+                "module": {
+                    "name": "스타"
+                },
+                "coach": {
+                    "name": "커넥터"
+                },
+                "question": {
+                    "name": "퀴즈 마스터"
+                }
+            },
+            "battle": {
+                "title": "챌린지 모드",
+                "create": "만들기 도전",
+                "requests": {
+                    "title": "도전 요청",
+                    "no_requests_found": "당신은 아직 어떤 도전 요청 없어"
+                },
+                "history": {
+                    "title": "도전 역사",
+                    "message": {
+                        "pending": "이 전에 상대방의 승인을 기다리고 있다",
+                        "win": "도전 원!",
+                        "lost": "당신이 잃어버린 도전!"
+                    },
+                    "no_history_found": "아직 어떤 도전 역사 없습니다"
+                },
+                "start": {
+                    "cta": "<span class=\"bold\"> 도전</span> 시작",
+                    "new_cta": "만들기 새로운 <span class=\"bold\"> 도전</span>"
+                },
+                "steps": {
+                    "3": "3. 도전 시작"
+                },
+                "select_module": {
+                    "no_module_available": "완성 된 모듈에서 도전만 만들 수 있습니다."
+                },
+                "button": {
+                    "create": "새로운 도전을 만들기"
+                },
+                "no_battle_progress": "당신은 아무 과제 진행.",
+                "block": {
+                    "title": "도전 요청"
+                },
+                "no_proposition": "당신은 어떤 도전 요청 받지.",
+                "completed": {
+                    "title": "완료 과제",
+                    "subtitle": "{{count}} 도전, 이기는 {{nb}}",
+                    "subtitle_plural": "{{count}} 도전, 승리 {{nb}}"
+                },
+                "block_empty": "당신은 아무 완료 과제.",
+                "create_title": "만들기 도전",
+                "active_title_intro": "챌린지 모드",
+                "coming_soon_random": "임의 도전 시작"
+            },
+            "dashboard": {
+                "text": "우주 경쟁! 올바르게 질문, 레슨, 따라 또는 사교를 이길 수 있습니다 (도전과 훈련)을 통해!"
+            }
+        }
+    }
+}

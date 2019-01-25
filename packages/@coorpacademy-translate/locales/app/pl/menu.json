@@ -1,0 +1,155 @@
+{
+    "header": {
+        "title": "CoorpAcademy",
+        "mainNav": {
+            "helper": "Alternatywny sposób przeglądania treści pedagogicznych",
+            "menu": "Menu",
+            "dashboard": "Interfejs administracyjny My Dashboard",
+            "home": "Strona główna",
+            "learningTree": "Katalog",
+            "lessons": "Wszystkie lekcje i filmy",
+            "medias": "Biblioteka",
+            "battles": "Bitwy",
+            "explore": "Katalog",
+            "discussions": "Dyskusje",
+            "badges": "Odznaki",
+            "certifications": "Certyfikaty"
+        },
+        "mainNav_user": {
+            "helper": "Alternatywny sposób wyszukiwania informacji o Tobie i Twojej pracy!"
+        },
+        "account_menu": {
+            "title": "Menu",
+            "logout": "Wyloguj się",
+            "notifications": "Moje powiadomienia",
+            "language": "Język",
+            "cohorts": "Populacje:",
+            "account": "Konta",
+            "godmode": "God mode",
+            "fastslides": "Szybkie zjeżdżalnie",
+            "newlearner": "Nowy interfejs gry",
+            "livenotifications": "Powiadomienia na żywo",
+            "close": "Zamknij"
+        }
+    },
+    "content": "To są podstawowe treści.",
+    "footer": {
+        "assistance": "Pomoc",
+        "admin_link": {
+            "jobs": "Oferty pracy",
+            "admin": "Administrator",
+            "analytics": "Analizy",
+            "changelog": "Dziennik zmian",
+            "cms": "CMS",
+            "manual": "Podręcznik"
+        },
+        "data_privacy_policy": "Polityka prywatności danych",
+        "data_privacy_policy_link": "http://www.privacy.coorpacademy.com",
+        "dev_link": {
+            "api": "API doc"
+        },
+        "by": "Zasilany przez Coorpacademy",
+        "title": "Coorpacademy",
+        "changelog": {
+            "title": "Dziennik zmian",
+            "subtitle": "Oto historia wydania serwisu"
+        }
+    },
+    "custom": {
+        "accueil": {
+            "footer": {
+                "by": "Turystyki Akademii & Atout Francji",
+                "copyright": "Turystyki Akademii & Atout Francji"
+            }
+        },
+        "armeedeterre": {
+            "header": {
+                "mainNav": {
+                    "battles": "Bitwy"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "footer": {
+                "assistance": "Przekaż opinię"
+            }
+        },
+        "capgemini": {
+            "header": {
+                "mainNav": {
+                    "certifications": "DigiCertif'"
+                }
+            }
+        },
+        "cnp": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Certyfikaty"
+                }
+            }
+        },
+        "chanel": {
+            "footer": {
+                "by": "© CHANEL. Tylko do użytku wewnętrznego",
+                "copyright": "© CHANEL. Tylko do użytku wewnętrznego"
+            }
+        },
+        "ganprevoyance": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Wszechświaty"
+                }
+            }
+        },
+        "ecolenumerique-sncf": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Odznaki Jedi"
+                }
+            }
+        },
+        "ilearn": {
+            "footer": {
+                "by": "© CHANEL. Tylko do użytku wewnętrznego",
+                "copyright": "© CHANEL. Tylko do użytku wewnętrznego"
+            }
+        },
+        "paca": {
+            "footer": {
+                "by": "Produkcji Akademii turystyki",
+                "copyright": "Produkcji Akademii turystyki"
+            }
+        },
+        "tourism": {
+            "footer": {
+                "by": "Turystyki Akademii",
+                "copyright": "Turystyki Akademii"
+            }
+        },
+        "tourismdigital": {
+            "footer": {
+                "by": "Produkcji Akademii turystyki",
+                "copyright": "Produkcji Akademii turystyki"
+            }
+        },
+        "ey": {
+            "footer": {
+                "by": "EY Digital Akademii",
+                "copyright": "EY Digital Akademii"
+            }
+        },
+        "up": {
+            "footer": {
+                "data_privacy_policy_link": "http://www.privacy.coorpacademy.com/up"
+            }
+        },
+        "who": {
+            "header": {
+                "mainNav": {
+                    "battles": "Wyzwania",
+                    "discussions": "Sprzężenie zwrotne"
+                }
+            }
+        }
+    }
+}

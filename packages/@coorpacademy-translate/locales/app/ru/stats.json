@@ -1,0 +1,189 @@
+{
+    "not_a_number": "<not available>",
+    "target": "Цель:",
+    "export": {
+        "csv": "CSV",
+        "pdf": "PDF-файл",
+        "excel": "Excel"
+    },
+    "info": {
+        "launch_date": "Дата выпуска",
+        "targeted_users": "Целевая аудитория"
+    },
+    "navigation": {
+        "every": "Все",
+        "every-except-coorp": "Все, кроме Coorpacademy",
+        "engagement": "участие",
+        "dashboard": "общий вид",
+        "users": "по пользователю",
+        "content": "содержание",
+        "battles": "по битвам",
+        "exports": "экспорт",
+        "behavioral": "поведение"
+    },
+    "since": {
+        "last_week": "последние 7 дней",
+        "last_month": "последние 30 дней",
+        "beginning": "запуск"
+    },
+    "users": {
+        "roles": {
+            "header": "Роли",
+            "button": "Сохранить",
+            "saved": "Успешное обновление ролей для {{displayName}}.",
+            "cms": "CMS",
+            "moderator": "Модератор форума",
+            "rh": "Специалист отдела кадров",
+            "godmode": "Режим Бога",
+            "supercoach": "Суперкоуч"
+        },
+        "tab": {
+            "ranking": "Пользовательский рейтинг",
+            "activity": "Активность"
+        },
+        "back": "Назад к поиску",
+        "entity": "Компания",
+        "title": "Функция",
+        "cnx": {
+            "first": "Дата первого подключения",
+            "last": "Дата последнего подключения"
+        },
+        "general": {
+            "header": "Общая деятельность",
+            "total_cnx": "Общее количество подключений",
+            "total_validated_disciplines": "Всего выполнено дисциплин",
+            "total_validated_modules": "Всего пройдено модулей",
+            "modules_validated_per_total": "# законченные модули / # всего модулей",
+            "ranking": "Рейтинг",
+            "never": "Никогда"
+        },
+        "sociability": {
+            "header": "Коммуникабельность",
+            "posts": {
+                "count": "{{nb}} пост",
+                "count_plural": "{{nb}} пост.",
+                "answers": "вкл. {{nb}} ответ другому пользователю",
+                "answers_plural": "вкл. {{nb}} ответы другим пользователям"
+            },
+            "battles": {
+                "count": "{{nb}} битва",
+                "count_plural": "{{nb}} битвы",
+                "won": "включая {{nb}} выигранная битва",
+                "won_plural": "в том числе {{nb}} битв выиграно"
+            },
+            "coach": {
+                "disciplines": "Коуч по {{nb}} дисциплине",
+                "disciplines_plural": "Коуч по {{nb}} дисциплинам",
+                "interactions": "{{nb}} контакт с тренером",
+                "interactions_plural": "{{nb}} контактов с тренером"
+            },
+            "completion": {
+                "total_label": "Полное прохождение:",
+                "total": "{{ratio}}%",
+                "modules_tried_label": "Модулей начато:",
+                "modules_tried": "{{totalTriedModules}}/{{nbModules}}",
+                "average_completion_label": "Завершение/попытка:",
+                "average_completion": "{{ratio}}%"
+            }
+        },
+        "progression": {
+            "filter": "Сортировать дисциплины",
+            "filterPlaceholder": "Ключевые слова для сортировки дисциплин",
+            "th": {
+                "discipline": "Дисциплина",
+                "hidden": "Скрытый",
+                "level": "Уровень",
+                "module_progression": "% успеха",
+                "status": "Статус",
+                "score": "Результат"
+            }
+        },
+        "time": {
+            "header": "длительность подключения",
+            "totalTime": "Общая продолжительность",
+            "validatedTime": "Подтвержденная продолжительность"
+        },
+        "license": {
+            "label": "Лицензия",
+            "button": "Дезактивировать",
+            "active": "Активна",
+            "inactive": "Неактивен"
+        },
+        "deactivate": {
+            "confirm": "Пожалуйста, введите \"да\", чтобы подтвердить дезактивацию аккаунта",
+            "confirm_word": "да",
+            "account_deactivated": "Этот аккаунт был дезактивирован"
+        },
+        "connectAs": "Подключиться как",
+        "bonusStars": {
+            "buttonPositive": "Добавить",
+            "buttonNegative": "Удалить",
+            "required": "Введите количество добавляемых звезд",
+            "notANumber": "Звезды должны быть целым числом",
+            "confirm": "Введите \"bonus\", чтобы подтвердить добавление или удаление звезд",
+            "confirm_word": "бонус",
+            "starsAdded": "Вы только что добавили {{count}} звезд пользователю {{displayName}}",
+            "starsAdded_plural": "Вы только что добавили {{count}} звезд пользователю {{displayName}}",
+            "starsRemoved": "Вы удалили {{count}} звезд у пользователя {{displayName}}",
+            "starsRemoved_plural": "Вы удалили {{count}} звезд. у пользователя {{displayName}}"
+        }
+    },
+    "exports": {
+        "export": "Экспорт",
+        "querySent": "Ваш отчет находится на стадии подготовки. Вы получите его по электронной почте в ближайшее время",
+        "global": {
+            "title": "Экспорт пользователей по требованию",
+            "introduction": "Эта функция позволяет экспортировать все данные о пользователях платформы."
+        },
+        "battles": {
+            "title": "Экспорт битвы по требованию",
+            "introduction": "Эта функция позволяет экспортировать все данные о битвах платформы"
+        },
+        "history": {
+            "title": "Экспорт истории",
+            "introduction": "Эта функция позволяет извлекать все ежедневные данные",
+            "users": "Пользователи",
+            "battle": "Битва",
+            "analytics": "прогресс",
+            "filter_by": "Фильтр по"
+        }
+    },
+    "custom": {
+        "up": {
+            "navigation": {
+                "modules": "по уровню"
+            },
+            "modules": {
+                "header": {
+                    "discipline": "Курс"
+                },
+                "module": {
+                    "media_views": {
+                        "title": "Урок СМИ просмотра курса по уровню"
+                    }
+                }
+            },
+            "users": {
+                "general": {
+                    "total_validated_disciplines": "Всего закончено курсов",
+                    "total_validated_modules": "Всего законченных уровней",
+                    "modules_validated_per_total": "# достигнутых уровней / # всего уровней"
+                },
+                "sociability": {
+                    "coach": {
+                        "disciplines": "Коуч на курсах {{nb}}",
+                        "disciplines_plural": "Коуч на курсах {{nb}}"
+                    },
+                    "completion": {
+                        "modules_tried_label": "начатые уровни:"
+                    }
+                },
+                "progression": {
+                    "th": {
+                        "discipline": "Курс"
+                    }
+                }
+            }
+        }
+    }
+}

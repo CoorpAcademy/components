@@ -1,0 +1,316 @@
+{
+    "message": "<p>Para acessar informações detalhadas por usuário, use nossa <a href=\"{{user}}\"> página de análise do usuário</a>.</p> <p>Para acessar informações detalhadas para todos os usuários, você pode <a href=\"{{export}}\"> exportar todos os usuários por demanda</a>.</p>",
+    "export": {
+        "global": {
+            "first_name": "Primeiro nome",
+            "last_name": "Sobrenome",
+            "email": "E-mail",
+            "provider": "Provider",
+            "stars": "Pontuação",
+            "providerinfos_company": "Empresa",
+            "providerinfos_city": "Cidade",
+            "providerinfos_country": "País",
+            "providerinfos_department": "Estado",
+            "providerinfos_title": "Título",
+            "providerinfos_chorusID": "ChorusID",
+            "ageRange": "Faixa etária",
+            "personalEmail": "E-mail (pessoal)",
+            "role": "Função",
+            "brandName": "Empresa",
+            "boutique": "Loja",
+            "billable": "Billable",
+            "postalCode": "CEP",
+            "moduleLevel": "$t(dashboard:badges.module.name) - Nível",
+            "moduleCount": "$t(dashboard:badges.module.name) - Total",
+            "moduleUpdate": "$t(dashboard:badges.module.name) - Última alteração",
+            "battleLevel": "$t(dashboard:badges.battle.name) - Nível",
+            "battleCount": "$t(dashboard:badges.battle.name) - Total",
+            "battleUpdate": "$t(dashboard:badges.battle.name) - Última alteração",
+            "coachLevel": "$t(dashboard:badges.coach.name) - Nível",
+            "coachCount": "$t(dashboard:badges.coach.name) - Total",
+            "coachUpdate": "$t(dashboard:badges.coach.name) - Última alteração",
+            "lessonLevel": "$t(dashboard:badges.lesson.name) - Nível",
+            "lessonCount": "$t(dashboard:badges.lesson.name) - Total",
+            "lessonUpdate": "$t(dashboard:badges.lesson.name) - Última alteração",
+            "questionLevel": "$t(dashboard:badges.question.name) - Nível",
+            "questionCount": "$t(dashboard:badges.question.name) - Total",
+            "questionUpdate": "$t(dashboard:badges.question.name) - Última alteração",
+            "badges": "insígnias",
+            "lastConnectionDate": "Data da última conexão",
+            "state": "Estado",
+            "login": "Login",
+            "firstConnectionDate": "Data da primeira conexão",
+            "certificate": "certificado de {{label}}",
+            "certifications": "Certificados",
+            "entity": "Entidade",
+            "grade": "Grau",
+            "region": "Região",
+            "validatedTimeProgression": "Tempo validado",
+            "totalTimeProgression": "Tempo total",
+            "populations": "Populaçõ(es)",
+            "deactivationDate": "Data de Desativação",
+            "organization_branch": "Ramo de business",
+            "organization_businessunit": "Business Unit",
+            "organization_workingCountry": "País de business",
+            "organization_role": "Papel de negócios",
+            "organization_boutique": "Loja de negócios",
+            "organization_address1": "Endereço comercial 1",
+            "organization_address2": "Endereço comercial 2",
+            "organization_zipcode": "CPE business",
+            "organization_workingCity": "Cidade de negócios",
+            "organization_company": "Empresa de negócios",
+            "organization_ambassador": "Embaixador",
+            "birthday": "Aniversário"
+        },
+        "battles": {
+            "disciplineName": "Nome das disciplinas",
+            "disciplineStatus": "Status de disciplina",
+            "disciplineStatus_hidden": "Escondido",
+            "disciplineStatus_visible": "Visível",
+            "moduleLevel": "Nível do módulo",
+            "createdAt": "Criado em",
+            "answeredAt": "Respondido em",
+            "createdBy": "Nome do desafiante",
+            "opponent": "Nome do adversário",
+            "winner": "Ganhador",
+            "winnerScore": "Pontuação do ganhador",
+            "userLogin": "Login do desafiante",
+            "opponentLogin": "Login do adversário",
+            "looserScore": "Pontuação do perdedor"
+        },
+        "moduleStart": {
+            "brand": "Marca",
+            "discipline": "Nome da disciplina",
+            "module": "Nível de módulo",
+            "author": "Autor",
+            "count": "Contagem",
+            "userCount": "Número de usuários"
+        }
+    },
+    "dashboard": {
+        "serenetics-error": "Ocorreu um erro ao recuperar a url do novo painel de instrumentos.",
+        "behavioral": {
+            "upgrade": {
+                "title": "Este painel está disponível somente no plano de taxa de empresa.",
+                "subtitle": "Entre em contato com Coorpacademy para atualizar sua conta e obter acesso a insights comportamentais de sua plataforma"
+            }
+        }
+    },
+    "custom": {
+        "7steps": {
+            "export": {
+                "global": {
+                    "organization_role": "Trabalho",
+                    "organization_title": "Tipo de loja",
+                    "organization_ambassador": "Funcionário da L'Oréal?",
+                    "organization_branch": "Divisão da L'Oréal",
+                    "entity": "Marcas da L'Oréal",
+                    "organization_grade": "Utilização de direitos de imagem",
+                    "organization_boutiqueReferent": "Varejista/corrente",
+                    "organization_boutique": "Armazenar o nome/código"
+                }
+            }
+        },
+        "achat-habitat": {
+            "export": {
+                "global": {
+                    "organization_ambassador": "Boletim informativo"
+                }
+            }
+        },
+        "adidas-fr": {
+            "export": {
+                "global": {
+                    "organization_businessunit": "Departamento",
+                    "organization_grade": "Idade",
+                    "organization_boutique": "Local de trabalho",
+                    "organization_branch": "Sexo"
+                }
+            }
+        },
+        "capgemini": {
+            "export": {
+                "global": {
+                    "organization_grade": "GGID"
+                }
+            }
+        },
+        "chanel": {
+            "export": {
+                "global": {
+                    "boutique": "Boutique",
+                    "organization_workingCountry": "País",
+                    "region": "Região",
+                    "role": "Papel",
+                    "startContract": "Início do contrato"
+                }
+            }
+        },
+        "cofpart-learning": {
+            "export": {
+                "global": {
+                    "brandName": "Direction",
+                    "entity": "Job",
+                    "organization_branch": "Manager"
+                }
+            }
+        },
+        "corporateonlineopencourse": {
+            "export": {
+                "global": {
+                    "region": "Região",
+                    "organization_workingCountry": "País",
+                    "role": "Função"
+                }
+            }
+        },
+        "edenred-talents": {
+            "export": {
+                "global": {
+                    "organization_company": "Direção",
+                    "entity": "Sous-direção",
+                    "organization_branch": "Serviço - Secteur",
+                    "organization_boutiqueReferent": "Responsável",
+                    "organization_role": "Fonction",
+                    "organization_grade": "Statut"
+                }
+            }
+        },
+        "gdf": {
+            "export": {
+                "global": {
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - nível",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - contagem",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - última atualização"
+                }
+            }
+        },
+        "gdfec": {
+            "export": {
+                "global": {
+                    "organization_zipcode": "GAIA",
+                    "organization_businessunit": "Equipe",
+                    "organization_boutique": "Nome do gerente",
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - nível",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - contagem",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - última atualização"
+                }
+            }
+        },
+        "ilearn": {
+            "export": {
+                "global": {
+                    "boutique": "Loja",
+                    "organization_workingCountry": "País",
+                    "region": "Região",
+                    "role": "Papel",
+                    "startContract": "Início do contrato"
+                }
+            }
+        },
+        "life-auchan": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Nível de atividade",
+                    "organization_region": "Equilíbrio entre vida",
+                    "organization_workingCountry": "País"
+                }
+            }
+        },
+        "metro": {
+            "export": {
+                "global": {
+                    "organization_boutique": "City",
+                    "organization_branch": "ID",
+                    "organization_businessunit": "Role"
+                }
+            }
+        },
+        "monoprix": {
+            "export": {
+                "global": {
+                    "organization_branch": "Direção"
+                }
+            }
+        },
+        "nespresso": {
+            "export": {
+                "global": {
+                    "organization_branch": "Departamento",
+                    "organization_businessunit": "Posição"
+                }
+            }
+        },
+        "pru": {
+            "export": {
+                "global": {
+                    "providerCompany": "Entidade",
+                    "providerCountry": "País",
+                    "providerDepartment": "Departamento"
+                }
+            }
+        },
+        "redoute": {
+            "boutique": "Loja"
+        },
+        "securite": {
+            "export": {
+                "global": {
+                    "organization_grade": "ID"
+                }
+            }
+        },
+        "up": {
+            "export": {
+                "battles": {
+                    "disciplineName": "Nome do curso",
+                    "moduleLevel": "Nível"
+                }
+            }
+        },
+        "tagheuer": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Point of sales code"
+                }
+            }
+        },
+        "thelem": {
+            "export": {
+                "global": {
+                    "organization_role": "Emprego",
+                    "language": "Língua",
+                    "organization_boutique": "Localização",
+                    "organization_title": "Serviço de título",
+                    "organization_boutiqueReferent": "Número de registo",
+                    "startContract": "Empresa data contratada",
+                    "organization_contractType": "Tipo de contrato",
+                    "organization_grade": "Qualificação"
+                }
+            }
+        },
+        "yahoo": {
+            "export": {
+                "global": {
+                    "organization_title": "Trabalho",
+                    "organization_workingCountry": "País",
+                    "region": "Língua"
+                }
+            }
+        },
+        "who": {
+            "export": {
+                "global": {
+                    "organization_workingCountry": "Estado/país",
+                    "region": "Estados/territórios",
+                    "provider": "Filiação",
+                    "organization_role": "Plano de fundo/experiência",
+                    "organization_grade": "Código de acesso",
+                    "organization_boutiqueReferent": "Nível de educação"
+                }
+            }
+        }
+    }
+}

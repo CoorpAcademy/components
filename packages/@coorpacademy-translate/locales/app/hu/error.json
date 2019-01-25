@@ -1,0 +1,56 @@
+{
+    "http": {
+        "401": "Nem hitelesített elérés",
+        "403": "Hozzáférés letiltva",
+        "404": "Oldal nem található",
+        "412": "Sikertelen előfeltétel",
+        "500": "Belső szerverhiba",
+        "503": "Szolgáltatás nem elérhető",
+        "500_message_pre": "Az URL",
+        "500_message": "a következő hibával járt",
+        "500_message_post": ".",
+        "503_message": "A szolgáltatás nem elérhető. Kérjük próbáld újra később.",
+        "404_message_pre": "Az URL",
+        "404_message": "nem oldotta meg az utat.",
+        "412_message": "A feltétel megállapításra kerül egy vagy több Ha... fejléccel, amennyiben hibásnak értékelik a kérést.",
+        "409_progressions_content_conflict": "Úgy tűnik, már válaszoltam erre a kérdésre az aktuális munkamenetben. Van, hogy nyissa meg a másik lapon valahol máshol, talán? <br/> Kattintson a \"Reload\"alábbi oldalon az adatok frissítése érdekében, majd betölti a helyes kérdés az Ön számára."
+    },
+    "infos": "Információ",
+    "auth": {
+        "header": "Hoppá! {{status}}",
+        "reload": "Belépés"
+    },
+    "modal": {
+        "header": "{{status}} hiba",
+        "body": {
+            "title": "Kérjük, olvasd el az alábbiakat, és add meg az adatokat a technikai támogatói csapatnak",
+            "url": "Url: {{err}}",
+            "id": "Azonosító: {{id}}",
+            "message": "{{message}}"
+        },
+        "footer": {
+            "assistance": "Támogatás",
+            "back_home": "Vissza a kezdőlapra",
+            "reload": "Oldal Újratöltése",
+            "continue": "Folytatás"
+        },
+        "assistance": "Hiba bejelntése"
+    },
+    "defaultMessage": "Hiba történt. Sajnáljuk. Kérjük, próbálja újra később.",
+    "achievementContext": "Úgy tűnik már elkezdte ezt a modult. Kérjük töltse újra az oldalt a modul folytatásához.",
+    "custom": {
+        "chanel": {
+            "http": {
+                "412_message": "Hiányzó email cím. Kérjük keresd fel az adminisztrátorodat, vagy regisztrálj itt."
+            }
+        },
+        "ilearn": {
+            "http": {
+                "412_message": "Hiányzó e-mail cím"
+            }
+        },
+        "up": {
+            "achievementContext": "Úgy tűnik, hogy ezt a szintet már elkezdték. Töltse be újra az oldalt a szint folytatásához."
+        }
+    }
+}

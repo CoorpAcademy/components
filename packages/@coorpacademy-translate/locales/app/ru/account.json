@@ -1,0 +1,565 @@
+{
+    "firstConnection": {
+        "title": "<span>Добро пожаловать</span> <span class='name'> {{name}}!</span>"
+    },
+    "changePassword": {
+        "title": "<span>Добро пожаловать</span> <span class='name'> {{name}}!</span>",
+        "intro": "Пожалуйста, создайте свой пароль. Сохраните его для дальнейшего использования!",
+        "errors": {
+            "mustChangePassword": "Новый пароль должен отличаться от вашего текущего пароля",
+            "incorrectPassword": "Ваш текущий пароль неверный"
+        }
+    },
+    "footer": {
+        "title": "Почему использовать платформу “{{platformName}}”?",
+        "features": {
+            "videos": {
+                "title": "Видео",
+                "description": "Видео уроки для обучения и углубления знаний"
+            },
+            "quizzes": {
+                "title": "Тесты",
+                "description": "Проверить свои знания, проходя сотни тестов"
+            },
+            "battles": {
+                "title": "$t(menu:header.mainNav.battles)",
+                "description": "Повторяйте, вызывая других на поединки"
+            },
+            "certificates": {
+                "title": "$t(menu:header.mainNav.certifications)",
+                "description": "Получить сертификаты, чтобы подтвердить ваши знания"
+            }
+        },
+        "pillars": {
+            "learnAtYourOwnPace": {
+                "title": "Обучение в вашем ритме",
+                "description": "<li>Короткие тесты</li> <li>Возможность остановиться и продолжить в любое время</li> <li>Разработано для любых устройств</li>"
+            },
+            "adapted": {
+                "title": "Адаптированное под ваши нужды обучение",
+                "description": "<li>Система, которая адаптируется к вашим знаниям</li> <li>Возможность выбрать собственный путь обучения </li> <li>Пользовательский контент</li>"
+            },
+            "haveFun": {
+                "title": "Игровая форма",
+                "description": "<li>Игровая форма обучения</li> <li>Вдохновленная видеоиграми</li> <li>Функция «Stop & Go»</li>"
+            },
+            "learningCommunity": {
+                "title": "Учебное сообщество",
+                "description": "<li>Коучинг среди пользователей</li> <li>Дискуссионный форум</li> <li>Поединки среди пользователей</li> <li>Рейтинг</li>"
+            }
+        },
+        "gotoform": "Заполните форму, чтобы получить доступ к платформе"
+    },
+    "edit": {
+        "oldPassword": "Старый пароль",
+        "password": "Пароль",
+        "password_confirmation": "Подтвердите ваш пароль"
+    },
+    "myaccount": {
+        "title": "МОЙ АККАУНТ",
+        "subtitle": "Управляйте вашими личными данными!",
+        "modify": "Настроить",
+        "status": "Состояние",
+        "save": "Сохранить",
+        "carriere": "Карьера",
+        "hobbie": "Интересы",
+        "abonnement": "Email-подписка",
+        "allowed_mail": "Я хочу получать напоминания и информационные письма",
+        "not_allowed_mail": "Я не хочу получать информационные письма или напоминания на эл. почту ",
+        "avatar": {
+            "update": "Ваше изображение успешно загружено. Оно появится в течение 24 часов.",
+            "no_image": "Выбранный файл содержится в неправильном формате. Пожалуйста, выберите из .png, .jpg или .gif."
+        },
+        "profile": {
+            "updated": "Ваш профиль обновлен."
+        },
+        "reset": "Сбросить",
+        "updatedAccount": "Ваш аккаунт был обновлен.",
+        "accountUpdate": "Обновите свою учетную запись",
+        "password": "Пароль",
+        "updatePassword": "Отправить",
+        "newPassword": "Новый пароль",
+        "actualPassword": "Текущий пароль",
+        "passwordConfirmation": "Подтвердить новый пароль",
+        "updatePasswordSuccess": "Ваш пароль был успешно изменен",
+        "updatePasswordError": "Не удалось изменить пароль, пожалуйста, проверьте ваш формуляр.",
+        "privateAccount": {
+            "title": "Личный профиль",
+            "label": "Спрятать мою фамилию."
+        },
+        "emailSettings": {
+            "core": "Системные сообщения (подтверждения, \"Кто-то вызвал вас на битву\"...)",
+            "user": "Уведомления (\"Рекомендуемые курсы\", \"Посмотрите самый популярный курс\"...)",
+            "mailchimp": "Ежемесячный обзор"
+        }
+    },
+    "error": {
+        "oldPasswordRequired": "Требуется текущий пароль.",
+        "newPasswordRequired": "Требуется новый пароль",
+        "confirmPasswordRequired": "Требуется подтверждение вашего пароля.",
+        "incorrectMinLength": "Ваш пароль должен содержать как минимум {{minLength}} знаков.",
+        "different_password": "Ваши пароли не совпадают!",
+        "wrong_password": "Вы ввели неверный пароль."
+    },
+    "menu": {
+        "info": {
+            "title": "МОЙ ПРОФИЛЬ",
+            "modify_avatar": "Обновить фото профиля",
+            "modify_password": "Изменить пароль"
+        },
+        "alerts": {
+            "title": "МОИ ОПОВЕЩЕНИЯ",
+            "email": "Мои настройки электронной почты",
+            "modify_email": "Изменить мои настройки электронной почты",
+            "notifications": "Мои уведомления",
+            "modify_notifications": "Изменить мои уведомления",
+            "wish_notifications": "Я хочу получать уведомления",
+            "blocked_notifications": "C вашими текущими настройками не возможны уведомления. Пожалуйста, измените настройки своего браузера и обновите эту страницу."
+        },
+        "bills": {
+            "title": "МОИ ЗАКАЗЫ"
+        },
+        "custom": {
+            "modify_account_title": "МОЙ АККАУНТ",
+            "modify_account_informations": "Обновление вашей учетной записи"
+        },
+        "subscription": {
+            "title": "Моя подписка",
+            "subtitle": "Coorpacademy Premium Subscription is no longer available",
+            "info": "Если вы уже зарегистрировались и хотите отменить подписку Premium пожалуйста отправьте  электронное сообщение с вашей информацией на адрес:",
+            "update": "Управлять моей подпиской"
+        }
+    },
+    "go": {
+        "to": {
+            "sso": "Перейти к SSO",
+            "connect": "Перейти к Подключению"
+        }
+    },
+    "custom": {
+        "corporateonlineopencourse": {
+            "changePassword": {
+                "title": "«НАСТРОИТЬ» ВАШ ПАРОЛЬ ДЛЯ СОЕДИНЕНИЯ С ВАШЕГО СМАРТФОНА/PAD",
+                "intro": "<span>Здравствуйте,</span> <br><br>Вы только в первый раз вошли в посол бренда MOOC через кампус. <br> <br>, Мы приглашаем вас, чтобы настроить пароль конкретные мульти устройства здесь ниже. Этот пароль даст вам возможность, если вы хотите, чтобы доступ MOOC со смартфона или планшета. После настройки <br>, подтверждение по электронной почте будет отправлен к вам."
+            },
+            "myaccount": {
+                "updatePassword": "Проверка"
+            }
+        },
+        "gdf": {
+            "edit": {
+                "title": "Это ваше первое подключение",
+                "lastName": "Фамилия *",
+                "firstName": "Имя *",
+                "branch": "Филиал *",
+                "password_title": "Пожалуйста, введите новый пароль",
+                "oldPassword": "Текущий пароль *",
+                "password": "Новый пароль *",
+                "password_confirmation": "Подтверждение *",
+                "personnal_title": "Пожалуйста, введите ваши личные данные",
+                "businessUnit": "Бизнес единица*",
+                "age": "Возрастной диапазон *",
+                "workingCountry": "Страна, где вы работаете*",
+                "gender": "Пол *",
+                "save": "Подтвердить",
+                "mandatory": "* обязательные поля",
+                "male": "Мужчина",
+                "female": "Женщина",
+                "saving": "Пожалуйста, подождите. Ваша информация сохраняется. Вы будете перенаправлены на домашнюю страницу после завершения процесса."
+            },
+            "error": {
+                "different_password": "Ваш пароль и его подтверждение не совпадают",
+                "mandatory": "Все эти поля являются обязательными",
+                "incorrectPassword": "Текущий пароль неверный"
+            },
+            "branch": {
+                "centre": "Центр",
+                "energy_europe": "Энергия Европа",
+                "energy_international": "Energy International",
+                "energy_services": "Энергетические услуги",
+                "global_gas_lng": "Global Gas & LNG",
+                "infrastructures": "Инфраструктуры",
+                "entreprises_collectivites": "Компании и государственные органы"
+            },
+            "business_unit": {
+                "centre_bxl": "Центр BXL",
+                "centre_paris": "Центр Парижа",
+                "generation": "Поколение",
+                "renewable_energies": "Возобновляемые источники энергии",
+                "marketing_sales": "Маркетинг & продажи",
+                "emt": "EMT",
+                "support_lines_corporate": "Линии поддержки / корпоративное",
+                "asia_pacific": "Азиатско-Тихоокеанского региона",
+                "latin_america": "Латинская Америка",
+                "north_america": "Северная Америка",
+                "samea": "Южная Азия, Ближний Восток & Африка (SAMEA)",
+                "uk_turkey": "Великобритания Турция",
+                "benelux_division": "страны Бенилюкс",
+                "engineering_division": "Инженерное подразделение",
+                "support": "Службы поддержки / Корпоративные & другие",
+                "international_division": "Международный отдел",
+                "pole_services": "Французское подразделение Энергитические услуги",
+                "pole_system": "Французское подразделение Систем, Установок & Обслуживания",
+                "pole_network": "Департамент Коммуникации / департамент региональной энергетики",
+                "ep": "E & P",
+                "lng": "СПГ",
+                "gtt": "ОПС",
+                "distribution": "Распределение",
+                "storage": "Хранение",
+                "methane": "СПГ-терминалы",
+                "business_line_energies": "Бизнес линии энергии",
+                "business_line_services": "Бизнес услуги",
+                "delegation_relation_clients": "Делегация по работе с клиентами",
+                "direction_finance": "Дирекция по финансовой производительности",
+                "direction_rh": "Дирекция по Персоналу, Здравоохранению и Безопасности",
+                "etat_major": "Генеральный штаб",
+                "direction_ventes": "Направлении des Ventes",
+                "marche_eld": "Marché ELD",
+                "marche_prive": "Частный жилой рынок",
+                "marche_public": "Рынок государственных клиентов",
+                "marche_industrie": "Marché Industrie et Гранд Тертиэр",
+                "marche_multisites": "Marché Multisites",
+                "marche_pme_pmi": "Рынок малого и среднего бизнеса",
+                "marketing_marche_clients": "Маркетинг Marché/клиентов",
+                "systeme_information": "Système информации Métier"
+            },
+            "country": {
+                "algeria": "Алжир",
+                "argentina": "Аргентина",
+                "australia": "Австралия",
+                "bahrein": "Bahreïn",
+                "belgium": "Бельгия",
+                "brazil": "Бразилия",
+                "cameroun": "Камерун",
+                "canada": "Канада",
+                "chili": "Чили",
+                "china": "Китай",
+                "costarica": "Коста-Рика",
+                "cz": "Чешская Республика",
+                "egypt": "Египет",
+                "france": "Франция",
+                "germany": "Германия",
+                "greece": "Греция",
+                "hungary": "Венгрия",
+                "indonesia": "Индонезия",
+                "italy": "Италия",
+                "laos": "Лаос",
+                "libya": "Ливия",
+                "luxembourg": "Люксембург",
+                "mexico": "Мексика",
+                "monaco": "Монако",
+                "morocco": "Марокко",
+                "netherland": "Нидерланды",
+                "norway": "Норвегия",
+                "nouvellecaledonie": "Новая Каледония",
+                "oman": "Оман",
+                "pakistan": "Пакистан",
+                "panama": "Панама",
+                "peru": "Перу",
+                "poland": "Польша",
+                "polynesie": "Французская Полинезия",
+                "qatar": "Катар",
+                "reunion": "Реюньон",
+                "romania": "Румыния",
+                "saudiarabia": "Саудовская Аравия",
+                "singapore": "Сингапур",
+                "slovakia": "Словакия",
+                "spain": "Испания",
+                "swiss": "Швейцария",
+                "thailand": "Thaïland",
+                "turkey": "Турция",
+                "uk": "Великобритания",
+                "arabemirates": "Объединенные Арабские Эмираты",
+                "usa": "США",
+                "vanuatu": "Вануату",
+                "waliisfutuna": "Эллис & Футуна",
+                "other": "Другие"
+            },
+            "ages": {
+                "minus-34": "34 или меньше",
+                "35-44": "от 35 до 44",
+                "45-54": "от 45 до 54",
+                "more-55": "55 или более"
+            }
+        },
+        "gdfec": {
+            "edit": {
+                "title": "Это ваше первое подключение",
+                "lastName": "Фамилия *",
+                "firstName": "Имя *",
+                "branch": "Филиал *",
+                "password_title": "Пожалуйста, введите новый пароль",
+                "oldPassword": "Текущий пароль *",
+                "password": "Новый пароль *",
+                "password_confirmation": "Подтверждение *",
+                "personnal_title": "Пожалуйста, введите ваши личные данные",
+                "businessUnit": "Бизнес единица *",
+                "age": "Возрастной диапазон *",
+                "workingCountry": "Страна, где вы работаете*",
+                "gender": "Пол *",
+                "save": "Подтвердить",
+                "mandatory": "* обязательные поля",
+                "male": "Мужчина",
+                "female": "Женщина",
+                "saving": "Пожалуйста, подождите. Ваша информация сохраняется. Вы будете перенаправлены на домашнюю страницу после завершения процесса."
+            },
+            "error": {
+                "different_password": "Ваш пароль и его подтверждение не совпадают",
+                "mandatory": "Все эти поля являются обязательными",
+                "incorrectPassword": "Текущий пароль неверный"
+            },
+            "branch": {
+                "centre": "Центр",
+                "energy_europe": "Energy Europe",
+                "energy_international": "Международная энергия",
+                "energy_services": "Энергетические услуги",
+                "global_gas_lng": "Global Gas & LNG",
+                "infrastructures": "Инфраструктуры",
+                "entreprises_collectivites": "Компании и государственные органы"
+            },
+            "business_unit": {
+                "centre_bxl": "Центр BXL",
+                "centre_paris": "Центр Парижа",
+                "generation": "Поколение",
+                "renewable_energies": "Возобновляемые источники энергии",
+                "marketing_sales": "Маркетинг & продажи",
+                "emt": "EMT",
+                "support_lines_corporate": "Линии поддержки / корпоративное",
+                "asia_pacific": "Азиатско-Тихоокеанский регион",
+                "latin_america": "Латинская Америка",
+                "north_america": "Северная Америка",
+                "samea": "Южная Азия, Ближний Восток & Африка (SAMEA)",
+                "uk_turkey": "Великобритания Турция",
+                "benelux_division": "страны Бенилюкс",
+                "engineering_division": "Инженерное подразделение",
+                "support": "Службы поддержки / Корпоративные & другие",
+                "international_division": "Международный отдел",
+                "pole_services": "Французское подразделение Энергитические услуги",
+                "pole_system": "Французское подразделение Систем, Установок & Обслуживания",
+                "pole_network": "Департамент Коммуникации / департамент региональной энергетики",
+                "ep": "E & P",
+                "lng": "СПГ",
+                "gtt": "ОПС",
+                "distribution": "Распределение",
+                "storage": "Хранение",
+                "methane": "СПГ-терминалы",
+                "business_line_energies": "Бизнес линии энергии",
+                "business_line_services": "Бизнес услуги",
+                "delegation_relation_clients": "Делегация по работе с клиентами",
+                "direction_finance": "Дирекция по финансовой производительности",
+                "direction_rh": "Дирекция по Персоналу, Здравоохранению и Безопасности",
+                "etat_major": "Etat основных",
+                "direction_ventes": "Направлении des Ventes",
+                "marche_eld": "Marché ELD",
+                "marche_prive": "Частный жилой рынок",
+                "marche_public": "государственный рынок",
+                "marche_industrie": "Промышленный рынок et Гранд Тертиэр",
+                "marche_multisites": "Многоплощадный рынок",
+                "marche_pme_pmi": "Рынок малого и среднего бизнеса",
+                "marketing_marche_clients": "Маркетинг Marché/клиентов",
+                "systeme_information": "Système информации Métier"
+            },
+            "country": {
+                "algeria": "Алжир",
+                "argentina": "Аргентина",
+                "australia": "Австралия",
+                "bahrein": "Бахрейн",
+                "belgium": "Бельгия",
+                "brazil": "Бразилия",
+                "cameroun": "Камерун",
+                "canada": "Канада",
+                "chili": "Чили",
+                "china": "Китай",
+                "costarica": "Коста-Рика",
+                "cz": "Чешская Республика",
+                "egypt": "Египет",
+                "france": "Франция",
+                "germany": "Германия",
+                "greece": "Греция",
+                "hungary": "Венгрия",
+                "indonesia": "Индонезия",
+                "italy": "Италия",
+                "laos": "Лаос",
+                "libya": "Ливия",
+                "luxembourg": "Люксембург",
+                "mexico": "Мексика",
+                "monaco": "Монако",
+                "morocco": "Марокко",
+                "netherland": "Нидерланды",
+                "norway": "Норвегия",
+                "nouvellecaledonie": "Новая Каледония",
+                "oman": "Оман",
+                "pakistan": "Пакистан",
+                "panama": "Панама",
+                "peru": "Перу",
+                "poland": "Польша",
+                "polynesie": "Французская Полинезия",
+                "qatar": "Катар",
+                "reunion": "Реюньон",
+                "romania": "Румыния",
+                "saudiarabia": "Саудовская Аравия",
+                "singapore": "Сингапур",
+                "slovakia": "Словакия",
+                "spain": "Испания",
+                "swiss": "Швейцария",
+                "thailand": "Таиланд",
+                "turkey": "Турция",
+                "uk": "Великобритания",
+                "arabemirates": "Объединенные Арабские Эмираты",
+                "usa": "США",
+                "vanuatu": "Вануату",
+                "waliisfutuna": "Эллис & Футуна",
+                "other": "Другие"
+            },
+            "ages": {
+                "minus-34": "34 или меньше",
+                "35-44": "от 35 до 44",
+                "45-54": "от 45 до 54",
+                "more-55": "55 или более"
+            }
+        },
+        "nespresso": {
+            "changePassword": {
+                "title": "Добро пожаловать!",
+                "intro": "Пожалуйста, измените ваш пароль. Сохраните его для дальнейшего использования!"
+            }
+        },
+        "pwc": {
+            "footer": {
+                "title": "Discover our PwC Digital Academy platform"
+            }
+        },
+        "renaultcare": {
+            "changePassword": {
+                "intro": "<span>Здравствуйте,</span> <br><br>Для создания доступа к платформе клиентов MOOC co смартфона, вам просто нужно настроить ваш пароль ниже. <br> Мы отправим вам подтверждение по электронной почте со ссылкой для подключения к MOOC с вашего смартфона. <br><br>, Как напоминание, это ваш идентификатор для подключения к C@re 2.0 цех изготовления печатных форм: <b>{{login}}</b> <br><br>Теперь введите ваш пароль:"
+            },
+            "myaccount": {
+                "updatePassword": "Подтвердить"
+            }
+        },
+        "samsung": {
+            "edit": {
+                "title": "Это ваше первое подключение",
+                "lastName": "Фамилия*",
+                "firstName": "Имя *",
+                "email": "Электронная почта *",
+                "branch": "Сущность *",
+                "password_title": "Пожалуйста, введите новый пароль",
+                "password": "Пароль*",
+                "password_confirmation": "Подтвердите пароль*",
+                "personnal_title": "Пожалуйста, введите ваши личные данные",
+                "age": "Год рождения*",
+                "workingCountry": "Страна *",
+                "save": "Подтвердить",
+                "mandatory": "* обязательные поля",
+                "saving": "Пожалуйста, подождите. Ваша информация сохраняется. Вы будете перенаправлены на домашнюю страницу после завершения процесса."
+            },
+            "error": {
+                "different_password": "Ваш пароль и его подтверждение не совпадают",
+                "mandatory": "Все эти поля являются обязательными"
+            },
+            "branch": {
+                "centre": "Центр",
+                "energy_europe": "Энергия Европа",
+                "energy_international": "Energy International",
+                "energy_services": "Энергетические услуги",
+                "global_gas_lng": "Global Gas & LNG",
+                "infrastructures": "Инфраструктуры"
+            },
+            "business_unit": {
+                "centre_bxl": "Центр BXL",
+                "centre_paris": "Центр Парижа",
+                "generation": "Поколение",
+                "renewable_energies": "Возобновляемые источники энергии",
+                "marketing_sales": "Маркетинг & продажи",
+                "emt": "EMT",
+                "support_lines_corporate": "Линии поддержки / корпоративное",
+                "asia_pacific": "Азиатско-Тихоокеанский регион",
+                "latin_america": "Латинская Америка",
+                "north_america": "Северная Америка",
+                "samea": "Южная Азия, Ближний Восток & Африка (SAMEA)",
+                "uk_turkey": "Великобритания Турция",
+                "benelux_division": "страны Бенилюкс",
+                "engineering_division": "Инженерное подразделение",
+                "support": "Службы поддержки / Корпоративные & другие",
+                "international_division": "Международный отдел",
+                "pole_services": "Французское подразделение Энергетические услуги",
+                "pole_system": "Французское подразделение Систем, Установок & Обслуживания",
+                "pole_network": "Департамент Коммуникации / департамент региональной энергетики",
+                "ep": "E & P",
+                "lng": "СПГ",
+                "gtt": "ОПС",
+                "distribution": "Распределение",
+                "storage": "Хранение",
+                "methane": "СПГ-терминалы"
+            },
+            "country": {
+                "algeria": "Алжир",
+                "argentina": "Аргентина",
+                "australia": "Австралия",
+                "bahrein": "Бахрейн",
+                "belgium": "Бельгия",
+                "brazil": "Бразилия",
+                "cameroun": "Камерун",
+                "canada": "Канада",
+                "chili": "Чили",
+                "china": "Китай",
+                "costarica": "Коста-Рика",
+                "cz": "Чешская Республика",
+                "egypt": "Египет",
+                "france": "Франция",
+                "germany": "Германия",
+                "greece": "Греция",
+                "hungary": "Венгрия",
+                "indonesia": "Индонезия",
+                "italy": "Италия",
+                "laos": "Лаос",
+                "libya": "Ливия",
+                "luxembourg": "Люксембург",
+                "mexico": "Мексика",
+                "monaco": "Монако",
+                "morocco": "Марокко",
+                "netherland": "Нидерланды",
+                "norway": "Норвегия",
+                "nouvellecaledonie": "Новая Каледония",
+                "oman": "Оман",
+                "pakistan": "Пакистан",
+                "panama": "Панама",
+                "peru": "Перу",
+                "poland": "Польша",
+                "polynesie": "Французская Полинезия",
+                "qatar": "Катар",
+                "reunion": "Реюньон",
+                "romania": "Румыния",
+                "saudiarabia": "Арадия Саудовской Аравии",
+                "singapore": "Сингапур",
+                "slovakia": "Словакия",
+                "spain": "Испания",
+                "swiss": "Швейцария",
+                "thailand": "Таиланд",
+                "turkey": "Турция",
+                "uk": "Великобритания",
+                "arabemirates": "Объединенные Арабские Эмираты",
+                "usa": "США",
+                "vanuatu": "Вануату",
+                "waliisfutuna": "Эллис & Футуна",
+                "other": "Другие"
+            },
+            "ages": {
+                "minus-34": "34 или меньше",
+                "35-44": "от 35 до 44",
+                "45-54": "от 45 до 54",
+                "more-55": "55 или более"
+            }
+        },
+        "up": {
+            "myaccount": {
+                "noModulesUnlocked": "Нет оплаченных уровней",
+                "unlockedModules": "Приобретенные уровни:"
+            }
+        },
+        "digitlearning": {
+            "passwordHint": "Минимум 8 символов. Пароль должен содержать по крайней мере одну заглавную букву, цифру и специальный символ (~! @# $%^&*_-+='|() [] {}:; “’ <>,.? )"
+        }
+    }
+}

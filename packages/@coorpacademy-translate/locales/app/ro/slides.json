@@ -1,0 +1,107 @@
+{
+    "indice": {
+        "title": "Ai nevoie de ajutor?",
+        "sub_title": "Schimbați o stea cu un indiciu!",
+        "content": "Obține un indiciu"
+    },
+    "lesson": {
+        "title": "Găsiți răspunsurile aici!",
+        "sub_title": "Uită-te la curs și câștigă 4 stele suplimentare!",
+        "resources": "Pentru a merge mai departe",
+        "title_video": "Videoclipul cursului",
+        "title_pdf": "PDF-ul cursului",
+        "look_at_the_course": "Consultă cursul"
+    },
+    "without_coach": {
+        "title": "Niciun instructor disponibil"
+    },
+    "with_coach": {
+        "title": "Porniți o discuție",
+        "content": "{{nb}} antrenor(i) disponibil(i)"
+    },
+    "is_valid": {
+        "state": "<span class=\"label1\">Răspuns</span> <span class=\"label2\">corect</span>",
+        "title": "Bravo!",
+        "correctAnswer": "Răspunsul bun:"
+    },
+    "is_invalid": {
+        "state": "<span class=\"label1\">Răspuns</span> <span class=\"label2\">greșit</span>",
+        "title": "Au...",
+        "goodAnswer": "Răspunsul corect este:"
+    },
+    "signup_finish_chapter": "Înregistrează-te pentru a finaliza capitolul",
+    "available_shots_pre": "Mai aveți",
+    "available_shots": "{{count}} șanse rămase",
+    "available_shots_plural": "{{count}} şanse rămase",
+    "available_shots_post": "&nbsp;",
+    "klf": "Știați asta?",
+    "to_know": "Punct-cheie",
+    "footer": {
+        "lesson": {
+            "title": "Puteţi decide să revizuiţi lecţia",
+            "button": "Acces la lecție"
+        },
+        "result": {
+            "title": "Te poți întoarce la rezultatul tău",
+            "button": "Revenire la rezultate"
+        },
+        "next_question": "Următorul"
+    },
+    "check_answer": "Verificați răspunsul",
+    "adaptive_check_answer": "Următorul",
+    "next_question": "Următoarea întrebare",
+    "next_level": "Următorul nivel",
+    "author": "Acest capitol a fost realizat de:",
+    "button_tree": "Accesați Catalogul",
+    "comments": {
+        "title": "Discutaţi",
+        "title_for_module": "Discuta - {{name}} nivel"
+    },
+    "slideNotFound": "Nu s-a găsit nicio întrebare cu referința {{slideId}}",
+    "forbidden": "Nu aveţi dreptul de a accesa conţinut cu referinţă {{contentRef}}.",
+    "showContext": "Accesaţi contextul din nou",
+    "context": "Context",
+    "custom": {
+        "hr-ac": {
+            "footer": {
+                "lesson": {
+                    "button": "Accesul la document"
+                }
+            }
+        },
+        "nespresso": {
+            "without_coach": {
+                "title": "Expert disponibile"
+            },
+            "with_coach": {
+                "content": "{{nb}} expertului disponibile"
+            }
+        },
+        "renaultcare": {
+            "is_valid": {
+                "state": "<span class=\"label1\">Bravo</span>"
+            },
+            "is_invalid": {
+                "state": "<span class=\"label1\">Nu prea</span>",
+                "title": "Au..."
+            }
+        },
+        "schneider": {
+            "comments": {
+                "title_for_module": "Discuta - nivelul {{name}} <br/> vă rugăm să contactaţi <a href=\"http://2929it.schneider-electric.com/\" target=\"_blank\"> 2929 suport</a> pentru orice probleme de pagina"
+            }
+        },
+        "who": {
+            "is_valid": {
+                "state": "<span class=\"label1\">Răspunsul</span> <span class=\"label2\">corect</span>",
+                "correctAnswer": "Răspunsul corect:"
+            },
+            "to_know": "A înțelege",
+            "lesson": {
+                "resources": "Aprofundarea materiei",
+                "look_at_the_course": "PDF-ul cursului"
+            },
+            "showContext": "Accesați contextul din nou"
+        }
+    }
+}

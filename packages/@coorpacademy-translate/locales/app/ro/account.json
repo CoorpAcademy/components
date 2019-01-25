@@ -1,0 +1,565 @@
+{
+    "firstConnection": {
+        "title": "<span>Bine ati venit</span> <span class='name'> {{name}}!</span>"
+    },
+    "changePassword": {
+        "title": "<span>Bine ati venit</span> <span class='name'> {{name}}!</span>",
+        "intro": "Vă rugăm să creaţi parola. Salvaţi-o pentru referinţe viitoare!",
+        "errors": {
+            "mustChangePassword": "Parola nouă trebuie să fie diferită față de parola veche",
+            "incorrectPassword": "Parola dvs. curentă este incorectă"
+        }
+    },
+    "footer": {
+        "title": "De ce folosesc platforma de “{{platformName}}”?",
+        "features": {
+            "videos": {
+                "title": "Clipuri video",
+                "description": "Uita-te la pagina de lecţii pentru a învăţa şi progresa"
+            },
+            "quizzes": {
+                "title": "Chestionare",
+                "description": "Testaţi-vă cunoştinţele prin sute de chestionare"
+            },
+            "battles": {
+                "title": "$t(menu:header.mainNav.battles)",
+                "description": "Revizuirea de altele provocatoare la lupte"
+            },
+            "certificates": {
+                "title": "$t(menu:header.mainNav.certifications)",
+                "description": "Obţine certificate pentru a dovedi abilităţile dumneavoastră"
+            }
+        },
+        "pillars": {
+            "learnAtYourOwnPace": {
+                "title": "Aflaţi la propriul ritm",
+                "description": "<li>Ia scurte sesiuni</li> <li>Opri si reporni în orice moment</li> <li>Folosi orice dispozitiv</li>"
+            },
+            "adapted": {
+                "title": "Învăţare adaptat la tine",
+                "description": "<li>Un sistem care se adaptează la ceea ce deja stii</li> <li>Alege calea voastră de învăţare</li> <li>Bespoke conţinut</li>"
+            },
+            "haveFun": {
+                "title": "distracţie plăcută",
+                "description": "<li>Un mediu de învăţare gamified</li> <li>Inspirat de jocuri video</li> <li>«Stop & Go» funcţia</li>"
+            },
+            "learningCommunity": {
+                "title": "Învăţare comunitare",
+                "description": "<li>Coaching-ul de la egal la egal</li> <li>Forum de discutii</li> <li>Provocări pentru cei care învaţă mai multe</li> <li>Clasament</li>"
+            }
+        },
+        "gotoform": "Completaţi formularul pentru a accesa platforma"
+    },
+    "edit": {
+        "oldPassword": "Parola veche",
+        "password": "Parola",
+        "password_confirmation": "Confirma parola"
+    },
+    "myaccount": {
+        "title": "CONTUL MEU",
+        "subtitle": "Gestionați-vă datele personale!",
+        "modify": "Modificare",
+        "status": "Stare",
+        "save": "Salvează",
+        "carriere": "Carieră",
+        "hobbie": "Interese",
+        "abonnement": "Abonare la e-mail",
+        "allowed_mail": "Vreau să primesc emailuri sau memento cu informații",
+        "not_allowed_mail": "Nu doresc să primesc e-mailuri cu informații sau mementouri",
+        "avatar": {
+            "update": "Imaginea dvs. a fost încărcată cu succes. Aceasta va apărea în decurs de 24 de ore.",
+            "no_image": "Fişierul selectat nu este în formatul corect. Vă rugăm alegeţi dintre .png, .jpg sau .gif."
+        },
+        "profile": {
+            "updated": "Profilul dumneavoastră a fost actualizat"
+        },
+        "reset": "Resetare",
+        "updatedAccount": "Contul dvs. a fost actualizat.",
+        "accountUpdate": "Actualizează-ți contul",
+        "password": "Parolă",
+        "updatePassword": "Prezinte",
+        "newPassword": "Parolă nouă",
+        "actualPassword": "Parolă curentă",
+        "passwordConfirmation": "Confirmă parola nouă",
+        "updatePasswordSuccess": "Parola dvs. a fost actualizată cu succes",
+        "updatePasswordError": "Parola dvs. nu a putut fi schimbată, vă rugăm să vă verificați formularul.",
+        "privateAccount": {
+            "title": "Profil confidențial",
+            "label": "Ascunde-mi numele de familie."
+        },
+        "emailSettings": {
+            "core": "Mesaje de sistem (certificări, „Un alt utilizator vă cheamă la luptă”...)",
+            "user": "Notificări („Cursuri recomandate”, „Vedeți cursurile cele mai apreciate”...)",
+            "mailchimp": "Rezumat lunar"
+        }
+    },
+    "error": {
+        "oldPasswordRequired": "O parolă curentă este necesară.",
+        "newPasswordRequired": "Este necesară o nouă parolă.",
+        "confirmPasswordRequired": "Este necesară confirmarea parolei.",
+        "incorrectMinLength": "Parola ta trebuie să conțină cel puțin {{minLength}} caractere.",
+        "different_password": "Parolele tale nu sunt identice!",
+        "wrong_password": "Parola este incorectă "
+    },
+    "menu": {
+        "info": {
+            "title": "PROFILUL MEU",
+            "modify_avatar": "Actualizare imagine de profil",
+            "modify_password": "Schimbă parola mea"
+        },
+        "alerts": {
+            "title": "ALERTELE MELE",
+            "email": "Setările contului meu de e-mail",
+            "modify_email": "Schimbă setările mele de e-mail",
+            "notifications": "Notificările mele",
+            "modify_notifications": "Modifică notificările mele",
+            "wish_notifications": "Doresc să primesc notificări",
+            "blocked_notifications": "Setările dvs. curente nu permit notificări. Vă rugăm să schimbați setările navigatorului dvs. și să reîmprospătați această pagină."
+        },
+        "bills": {
+            "title": "COMENZILE MELE"
+        },
+        "custom": {
+            "modify_account_title": "CONTUL MEU",
+            "modify_account_informations": "Actualizați-vă contul"
+        },
+        "subscription": {
+            "title": "Abonamentul meu",
+            "subtitle": "Coorpacademy Premium Subscription is no longer available",
+            "info": "If you have already signed up and you wish to cancel your Premium subscription please send a mail with your details to:",
+            "update": "Gestionare abonamentul meu"
+        }
+    },
+    "go": {
+        "to": {
+            "sso": "Mergi la SSO",
+            "connect": "Mergi la Conectare"
+        }
+    },
+    "custom": {
+        "corporateonlineopencourse": {
+            "changePassword": {
+                "title": "'CONFIGURAREA' PAROLA PENTRU CONECTAREA CU COVORAŞUL DE SMARTPHONE",
+                "intro": "<span>Bună ziua,</span> <br><br>Sunteţi doar pentru prima dată logat la Marijana BRAND ambasador prin Campus. <br> <br>Vă invităm să configuraţi parola multi-dispozitiv specifice aici de mai jos. Această parolă vă va oferi posibilitatea, dacă doresc, să acceseze Marijana de pe smartphone sau tabletă. <br>Configurat o dată, un e-mail de confirmare va fi trimis la tine."
+            },
+            "myaccount": {
+                "updatePassword": "Valida"
+            }
+        },
+        "gdf": {
+            "edit": {
+                "title": "Aceasta este prima dvs. conectare",
+                "lastName": "Nume de familie*",
+                "firstName": "Prenume*",
+                "branch": "Filială*",
+                "password_title": "Introduceți o parolă nouă",
+                "oldPassword": "Parola curentă*",
+                "password": "Parola nouă*",
+                "password_confirmation": "Confirmare*",
+                "personnal_title": "Vă rugăm să vă introduceți informațiile personale",
+                "businessUnit": "Business Unit*",
+                "age": "Categoria de vârstă*",
+                "workingCountry": "Țara în care lucrezi*",
+                "gender": "Sex*",
+                "save": "Validare",
+                "mandatory": "* câmpuri obligatorii",
+                "male": "Masculin",
+                "female": "Femelă",
+                "saving": "Vă rugăm așteptați cât timp vă salvăm informațiile. Veți fi redirecționat către pagina de start după finalizare."
+            },
+            "error": {
+                "different_password": "Parola dumneavoastră nu se potriveşte cu cea confirmată",
+                "mandatory": "Toate câmpurile sunt obligatorii",
+                "incorrectPassword": "Parola actuală nu este validă"
+            },
+            "branch": {
+                "centre": "Centru",
+                "energy_europe": "Energia Europei",
+                "energy_international": "Energy International",
+                "energy_services": "Servicii Energetice",
+                "global_gas_lng": "Global Gas & LNG",
+                "infrastructures": "Infrastructuri",
+                "entreprises_collectivites": "Companii și autorități publice"
+            },
+            "business_unit": {
+                "centre_bxl": "Centru-BXL",
+                "centre_paris": "Centrul Parisului",
+                "generation": "Generație",
+                "renewable_energies": "Energii regenerabile",
+                "marketing_sales": "Marketing și vanzari",
+                "emt": "EMT",
+                "support_lines_corporate": "Linii suport / Corporație",
+                "asia_pacific": "Asia-Pacific",
+                "latin_america": "America Latină",
+                "north_america": "America de Nord",
+                "samea": "Asia de Sud, Orientul Mijlociu & Africa (SAMEA)",
+                "uk_turkey": "UK-Turcia",
+                "benelux_division": "Divizia Benelux",
+                "engineering_division": "Divizia de inginerie",
+                "support": "Funcții Asistență / Corporate și altele",
+                "international_division": "Divizia Internațională",
+                "pole_services": "Pôle France Services Energétiques",
+                "pole_system": "Pôle France Systèmes, Installations & Maintenance",
+                "pole_network": "Pôle Réseaux / District Energy Division",
+                "ep": "E&P",
+                "lng": "GNL",
+                "gtt": "GTT",
+                "distribution": "Distribuire",
+                "storage": "Stocare",
+                "methane": "Terminale LNG",
+                "business_line_energies": "Energii Linie de activitate",
+                "business_line_services": "Serviciile Liniei Business",
+                "delegation_relation_clients": "Délégation Relation Clients",
+                "direction_finance": "Direcția de Performanță a Finanțelor",
+                "direction_rh": "Direcția Resurse Humaines Prévention Santé Sécurité",
+                "etat_major": "Etat Major",
+                "direction_ventes": "Direction des Ventes",
+                "marche_eld": "Marché ELD",
+                "marche_prive": "Marché Résidentiel Privé",
+                "marche_public": "Marché Clients Publics",
+                "marche_industrie": "Marché Industrie et Grand Tertiaire",
+                "marche_multisites": "Marché Multisites",
+                "marche_pme_pmi": "Marché PME/PMI",
+                "marketing_marche_clients": "Marketing Marché/Clienți",
+                "systeme_information": "Système d'Information Métier"
+            },
+            "country": {
+                "algeria": "Algeria",
+                "argentina": "Argentina",
+                "australia": "Australia",
+                "bahrein": "Bahreïn",
+                "belgium": "Belgia",
+                "brazil": "Brazilia",
+                "cameroun": "Camerun",
+                "canada": "Canada",
+                "chili": "Chile",
+                "china": "China",
+                "costarica": "Costa Rica",
+                "cz": "Republica Cehă",
+                "egypt": "Egipt",
+                "france": "Franța",
+                "germany": "Germania",
+                "greece": "Grecia",
+                "hungary": "Ungaria",
+                "indonesia": "Indonesia",
+                "italy": "Italia",
+                "laos": "Laos",
+                "libya": "Libia",
+                "luxembourg": "Luxemburg",
+                "mexico": "Mexic",
+                "monaco": "Monaco",
+                "morocco": "Maroc",
+                "netherland": "Olanda",
+                "norway": "Norvegia",
+                "nouvellecaledonie": "Noua Caledonie",
+                "oman": "Oman",
+                "pakistan": "Pakistan ",
+                "panama": "Panama",
+                "peru": "Peru",
+                "poland": "Polonia",
+                "polynesie": "Polinezia Franceză",
+                "qatar": "Qatar",
+                "reunion": "Réunion",
+                "romania": "România",
+                "saudiarabia": "Arabia Saudita",
+                "singapore": "Singapore",
+                "slovakia": "Slovacia",
+                "spain": "Spania",
+                "swiss": "elvețian",
+                "thailand": "Tailanda",
+                "turkey": "Turcia",
+                "uk": "Regatul Unit",
+                "arabemirates": "Emiratele Arabe Unite",
+                "usa": "SUA",
+                "vanuatu": "Vanuatu",
+                "waliisfutuna": "Wallis & Futuna",
+                "other": "Altul"
+            },
+            "ages": {
+                "minus-34": "34 sau mai puțin",
+                "35-44": "de la 35 până la 44",
+                "45-54": "de la 45  la 54",
+                "more-55": "55 sau mai multe"
+            }
+        },
+        "gdfec": {
+            "edit": {
+                "title": "Aceasta este prima dumneavoastră conexiune",
+                "lastName": "Nume de familie*",
+                "firstName": "Prenume*",
+                "branch": "Sucursală*",
+                "password_title": "Vă rugăm să introduceți o parolă nouă",
+                "oldPassword": "Parolă curentă*",
+                "password": "Parolă Nouă*",
+                "password_confirmation": "Confirmare*",
+                "personnal_title": "Te rugăm să introduci informațiile personale",
+                "businessUnit": "Unitate de business",
+                "age": "Interval de vârstă*",
+                "workingCountry": "Țara unde lucrezi*",
+                "gender": "Gen*",
+                "save": "Validează",
+                "mandatory": "* câmpuri obligatorii",
+                "male": "Bărbat",
+                "female": "Feminin",
+                "saving": "Vă rugăm să așteptați în timp ce vă salvăm informațiile. Veți fi redirecționat la pagina principală după finalizare."
+            },
+            "error": {
+                "different_password": "Parola ta nu este identică cu cea confirmată",
+                "mandatory": "Toate aceste câmpuri sunt obligatorii",
+                "incorrectPassword": "Parola curentă nu este valabilă"
+            },
+            "branch": {
+                "centre": "Centru",
+                "energy_europe": "Energy Europe",
+                "energy_international": "Energy International",
+                "energy_services": "Servicii energie",
+                "global_gas_lng": "Global Gas & LNG",
+                "infrastructures": "Infrastructuri",
+                "entreprises_collectivites": "Companii şi autorități publice"
+            },
+            "business_unit": {
+                "centre_bxl": "Centre-BXL",
+                "centre_paris": "Paris centru",
+                "generation": "Generație",
+                "renewable_energies": "Energii Regenerabile",
+                "marketing_sales": "Marketing & Vânzări",
+                "emt": "EMT",
+                "support_lines_corporate": "Linii de suport / Corporație",
+                "asia_pacific": "Asia-Pacific",
+                "latin_america": "America Latină",
+                "north_america": "America de Nord",
+                "samea": "Asia de Sud, Orientul Mijlociu și Africa (SAMEA)",
+                "uk_turkey": "RU-Turcia",
+                "benelux_division": "Divizia Benelux",
+                "engineering_division": "Divizia de Inginerie",
+                "support": "Asistență Funcții / Corporativ & altele",
+                "international_division": "Divizia Internațională",
+                "pole_services": "Pôle France Services Energétiques",
+                "pole_system": "Pôle France Systèmes, Installations & Maintenance",
+                "pole_network": "Pôle Réseaux / Divizia Districtului de Energie",
+                "ep": "E&P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "Distribuție",
+                "storage": "Depozitare",
+                "methane": "Terminaux Méthaniers",
+                "business_line_energies": "Linia de Activitate Energetică",
+                "business_line_services": "Linia de servicii pentru afaceri",
+                "delegation_relation_clients": "Delegaţia Relaţii Clienţi",
+                "direction_finance": "Performanţa direcţiei finanţe",
+                "direction_rh": "Direction Ressources Humaines Prévention Santé Sécurité",
+                "etat_major": "Stat Major",
+                "direction_ventes": "Departamentul de vânzări",
+                "marche_eld": "Marché ELD",
+                "marche_prive": "Piaţa Rezidenţială Privată",
+                "marche_public": "Clienți Publici Marché",
+                "marche_industrie": "Marché Industrie et Grand Tertiaire",
+                "marche_multisites": "Marché Multisites",
+                "marche_pme_pmi": "Marché PME/PMI",
+                "marketing_marche_clients": "Marketing Marché/Clienți",
+                "systeme_information": "Sistem de informații cu privire la activități"
+            },
+            "country": {
+                "algeria": "Algeria",
+                "argentina": "Argentina",
+                "australia": "Australia",
+                "bahrein": "Bahreïn",
+                "belgium": "Belgia",
+                "brazil": "Brazilia",
+                "cameroun": "Camerun",
+                "canada": "Canada",
+                "chili": "Chile",
+                "china": "China",
+                "costarica": "Costa Rica",
+                "cz": "Republica Cehă",
+                "egypt": "Egipt",
+                "france": "Franța",
+                "germany": "Germania",
+                "greece": "Grecia",
+                "hungary": "Ungaria",
+                "indonesia": "Indonezia",
+                "italy": "Italia",
+                "laos": "Laos",
+                "libya": "Libia",
+                "luxembourg": "Luxemburg",
+                "mexico": "Mexic",
+                "monaco": "Monaco",
+                "morocco": "Maroc",
+                "netherland": "Olanda",
+                "norway": "Norvegia",
+                "nouvellecaledonie": "Noua Caledonie",
+                "oman": "Oman",
+                "pakistan": "Pakistan",
+                "panama": "Panama",
+                "peru": "Peru",
+                "poland": "Polonia",
+                "polynesie": "Polinezia Franceză",
+                "qatar": "Qatar",
+                "reunion": "Réunion",
+                "romania": "România",
+                "saudiarabia": "Arabia Saudită",
+                "singapore": "Singapore",
+                "slovakia": "Slovacia",
+                "spain": "Spania",
+                "swiss": "elvețian",
+                "thailand": "Thailanda",
+                "turkey": "Turcia",
+                "uk": "Marea Britanie",
+                "arabemirates": "Emiratele Arabe Unite",
+                "usa": "SUA",
+                "vanuatu": "Vanuatu",
+                "waliisfutuna": "Wallis & Futuna",
+                "other": "Altele"
+            },
+            "ages": {
+                "minus-34": "34 sau mai puțin",
+                "35-44": "de la 35 la 44",
+                "45-54": "de la 45 până la 54",
+                "more-55": "55 sau mai mult"
+            }
+        },
+        "nespresso": {
+            "changePassword": {
+                "title": "bun venit!",
+                "intro": "Vă rugăm să schimbaţi-vă parola. Salvaţi-o pentru referinţe viitoare!"
+            }
+        },
+        "pwc": {
+            "footer": {
+                "title": "Discover our PwC Digital Academy platform"
+            }
+        },
+        "renaultcare": {
+            "changePassword": {
+                "intro": "<span>Bună ziua,</span><br><br>Pentru a crea accesul Samsung la Experiența clientului MOOC, trebuie să configurați parola mai jos.<br>Apoi, vă vom trimite un e-mail de confirmare cu un link specific pentru a vă conecta la MOOC de pe smartphone.<br><br> Ca un memento, ID-ul pentru a vă conecta la platforma C@re 2.0 este: <b>{{login}}</b> <br><br> Vă rugăm să vă setați o parolă:"
+            },
+            "myaccount": {
+                "updatePassword": "Validează"
+            }
+        },
+        "samsung": {
+            "edit": {
+                "title": "Aceasta este prima dvs. conexiune",
+                "lastName": "Numele de familie*",
+                "firstName": "Prenumele*",
+                "email": "E-mail*",
+                "branch": "Entitate*",
+                "password_title": "Vă rugăm să introduceți o parolă nouă",
+                "password": "Parola*",
+                "password_confirmation": "Confirmă parola*",
+                "personnal_title": "Vă rugăm să introduceți datele personale",
+                "age": "Anul nașterii*",
+                "workingCountry": "Țară*",
+                "save": "Validați",
+                "mandatory": "* campuri obligatorii",
+                "saving": "Te rugăm aşteaptă până se salvează informațiile. Vei fi redirecționat la prima pagină după finalizare."
+            },
+            "error": {
+                "different_password": "Parola dvs. nu se potrivește cu cea din confirmare",
+                "mandatory": "Toate aceste câmpuri sunt necesare"
+            },
+            "branch": {
+                "centre": "Centru",
+                "energy_europe": "Energy Europe",
+                "energy_international": "Energy International",
+                "energy_services": "Servicii energie",
+                "global_gas_lng": "Global Gas & LNG",
+                "infrastructures": "Infrastructuri"
+            },
+            "business_unit": {
+                "centre_bxl": "Centru-BXL",
+                "centre_paris": "Centrul Parisului ",
+                "generation": "Generație",
+                "renewable_energies": "Renewable Energies",
+                "marketing_sales": "Marketing și vânzări",
+                "emt": "EMT",
+                "support_lines_corporate": "Linii de asistență/Corporativ",
+                "asia_pacific": "Asia-Pacific",
+                "latin_america": "America Latină\n",
+                "north_america": "America de Nord",
+                "samea": "Asia de Sud, Orientul Mijlociu & Africa (SAMEA)",
+                "uk_turkey": "Marea Britanie-Turcia",
+                "benelux_division": "Divizia Benelux",
+                "engineering_division": "Divizia de Inginerie",
+                "support": "Funcții Asistență / Corporate și altele",
+                "international_division": "Divizia Internațională",
+                "pole_services": "Pôle France Services Energétiques",
+                "pole_system": "Pôle France Systèmes, Instalații și mentenanță",
+                "pole_network": "Pôle Réseaux / Divizia Energia Centralizată",
+                "ep": "E&P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "Distribuire",
+                "storage": "Stocare",
+                "methane": "Terminaux Méthaniers"
+            },
+            "country": {
+                "algeria": "Algeria",
+                "argentina": "Argentina",
+                "australia": "Australia",
+                "bahrein": "Bahrein",
+                "belgium": "Belgia",
+                "brazil": "Brazilia",
+                "cameroun": "Camerun",
+                "canada": "Canada",
+                "chili": "Chile",
+                "china": "China",
+                "costarica": "Costa Rica",
+                "cz": "Republica Cehă",
+                "egypt": "Egipt",
+                "france": "Franța",
+                "germany": "Germania",
+                "greece": "Grecia",
+                "hungary": "Ungaria",
+                "indonesia": "Indonezia",
+                "italy": "Italia",
+                "laos": "Laos",
+                "libya": "Libia",
+                "luxembourg": "Luxemburg",
+                "mexico": "Mexic",
+                "monaco": "Monaco",
+                "morocco": "Morocco",
+                "netherland": "Țările de Jos",
+                "norway": "Norvegia",
+                "nouvellecaledonie": "Noua Caledonie",
+                "oman": "Oman",
+                "pakistan": "Pakistan",
+                "panama": "Panama",
+                "peru": "Peru",
+                "poland": "Polonia",
+                "polynesie": "Polinezia Franceză",
+                "qatar": "Qatar",
+                "reunion": "Réunion",
+                "romania": "România",
+                "saudiarabia": "Arabia Saudită",
+                "singapore": "Singapore",
+                "slovakia": "Slovacia",
+                "spain": "Spania",
+                "swiss": "Elvețian",
+                "thailand": "Tailanda",
+                "turkey": "Turcia",
+                "uk": "UK",
+                "arabemirates": "Emiratele Arabe Unite",
+                "usa": "SUA",
+                "vanuatu": "Vanuatu",
+                "waliisfutuna": "Wallis și Futuna",
+                "other": "Altele"
+            },
+            "ages": {
+                "minus-34": "34 sau mai puțin",
+                "35-44": "de la 35 la 44",
+                "45-54": "de la 45 la 54",
+                "more-55": "55 sau mai multe"
+            }
+        },
+        "up": {
+            "myaccount": {
+                "noModulesUnlocked": "Nu a fost cumpărat niciun nivel",
+                "unlockedModules": "Nivelurile cumpărate :"
+            }
+        },
+        "digitlearning": {
+            "passwordHint": "Minim 8 caractere. Parola trebuie să conţină cel puţin o majusculă, o cifră şi un caracter special (~! @# $%^&*_-+='|() {} []:; “’ <>,.? )"
+        }
+    }
+}

@@ -1,0 +1,90 @@
+{
+    "disciplines": {
+        "book_demo": "book a demo",
+        "payment_required": "подписка на coorpacademy",
+        "free_start": "начать обучение"
+    },
+    "modules": {
+        "button": {
+            "start": "Начать {{name}} уровень",
+            "access": "Доступ к уровню {{name}}",
+            "continue": "Продолжить уровень {{name}}",
+            "again": "Повторить {{name}} уровень",
+            "locked": "Модуль закрыт",
+            "payment_required": "Подписаться на продолжение"
+        },
+        "skill": {
+            "valid": "Благодаря этому модулю вы можете:",
+            "invalid": "Цель модуля:"
+        },
+        "chapters": {
+            "title": "Темы"
+        },
+        "stars": "Всего заработано звезд"
+    },
+    "chapters": {
+        "button": {
+            "start": "Начать 5' Learning",
+            "access": "Доступ к 5' Learning",
+            "continue": "Продолжить 5' Learning",
+            "again": "Перезагрузить 5' Learning",
+            "locked": "5' Learning недоступен"
+        }
+    },
+    "presentation": {
+        "total": "{{nb}}",
+        "total_post": "модуль",
+        "total_post_plural": "модули",
+        "video_title": "Просмотр материалов курса",
+        "popularity": "Популярность:",
+        "trainer": "Коуч",
+        "trainer_plural": "Тренеры",
+        "by": "От",
+        "and": "&"
+    },
+    "author": "Этот обучающий курс был сделан:",
+    "disciplineNotFound": "Не найдено курсов с таким упоминанием {{disciplineRef}}",
+    "forbidden": {
+        "unknown_in_group": "Вы не имеете доступ к этому содержимому",
+        "previous_level": "Необходимо завершить предыдущий уровень перед прохождением этого уровня",
+        "conditions": "Следующие курсы должны быть завершены, прежде чем начать этот: {{contents}}",
+        "subscription_required": "Необходима подписка на Coorpacademy для доступа к этому контенту."
+    },
+    "custom": {
+        "up": {
+            "disciplines": {
+                "payment_required": "подписка на coorpacademy"
+            },
+            "modules": {
+                "button": {
+                    "locked": "Заблокированные уровни"
+                },
+                "skill": {
+                    "valid": "После завершения этого уровня вы можете:",
+                    "invalid": "Цель модуля:"
+                }
+            },
+            "presentation": {
+                "total_post": "уровень",
+                "total_post_plural": "уровни"
+            }
+        },
+        "silca": {
+            "modules": {
+                "skill": {
+                    "invalid": "Цель модуля:"
+                }
+            }
+        },
+        "mooc-socgen": {
+            "modules": {
+                "button": {
+                    "start": "Начать {{name}}",
+                    "access": "Доступ к {{name}}",
+                    "continue": "Далее {{name}}",
+                    "again": "Перезапустить {{name}}"
+                }
+            }
+        }
+    }
+}

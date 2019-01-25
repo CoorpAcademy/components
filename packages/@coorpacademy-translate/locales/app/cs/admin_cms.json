@@ -1,0 +1,120 @@
+{
+    "cms": {
+        "add": "Přidat položku",
+        "title": "Přidat novou stránku",
+        "lang": "Zadat jazyk:",
+        "name": "Jméno:",
+        "scope": "Obvod:",
+        "target": {
+            "title": "Cíl:",
+            "empty": "Žádný cíl",
+            "discipline": "Disciplína",
+            "learningTree": "Katalog"
+        },
+        "type": "Typ:",
+        "order": "Objednat:",
+        "active": "Aktivní:",
+        "populations": "Populace:",
+        "rmd": "Snížení",
+        "save": "Uložit",
+        "delete": "Smazat",
+        "test": "Test",
+        "deploy": "Odeslat",
+        "delete_confirm": "Jste si jistý, že chcete smazat tuto stránku?",
+        "markdown": "Markdown Syntax",
+        "quick": "Rychlá reference",
+        "path": "Přípona adresy URL*:",
+        "full": "Úplná dokumentace",
+        "preview": "Náhled",
+        "edit": "Upravit",
+        "notifications": "Uživatelská oznámení",
+        "content": "Obsah:",
+        "config": "Globální nastavení",
+        "targetBlank": "Otevřít v novém panelu:",
+        "forum_xid": "ID fóra",
+        "navigation": {
+            "label": "K zobrazení:",
+            "none": "Stránka bez blokování"
+        },
+        "provider": {
+            "none": "Všichni"
+        },
+        "status": {
+            "ok": {
+                "title": "Úspěch",
+                "save": "Vaše stránka byla úspěšně uložena",
+                "del": "Vaše stránka byla úspěšně odstraněna."
+            },
+            "test": {
+                "title": "Práce započata. Oznámení se brzy zobrazí."
+            },
+            "deploy": {
+                "title": "Úloha byla zahájena. Postup můžete sledovat na stránce Úlohy."
+            },
+            "ko": {
+                "title": "Chyba",
+                "save": "Došlo k chybě při ukládání: {{err}}",
+                "del": "Při vymazávání se vyskytla chyba: {{err}}"
+            }
+        },
+        "title_content": "Nadpis:",
+        "category": "Kategorie",
+        "select_all": "Vybrat vše",
+        "language_info": "Každý jazyk musí být vyplněna pro každou zemi aktivován",
+        "imageURL": "Adresa URL obrázku",
+        "page": "Strana:",
+        "link": "Odkaz:",
+        "link_placeholder": "(ex: http://www.google.com)",
+        "partner": "Partner:",
+        "discipline_ref": "disciplína.ref",
+        "cancel": "Zrušit",
+        "date": "Datum:",
+        "image": "Obrázek",
+        "upload": "Nahrát",
+        "modify": "Upravit",
+        "countries": "Země"
+    },
+    "success": "Vaše úpravy byly uloženy.",
+    "error": {
+        "mandatory": "Chybějící pole"
+    },
+    "tabs": {
+        "pages": "Stránky",
+        "news": "Novinky",
+        "notification": "Vlastní oznámení"
+    },
+    "page": {
+        "name": "{{name}}"
+    },
+    "notification": {
+        "new": "Toto oznámení ještě nebyl vytvořen. Vyplňte a uložte formulář a vytvořte ji.",
+        "name": "{{name}}",
+        "provider": "Poskytovatel:",
+        "expires": "Datum expirace*:",
+        "message": "Zpráva",
+        "link": {
+            "show": "Zobrazit tlačítko „Více informací“:",
+            "url": "Odkaz:",
+            "target": "Otevřít odkaz v nové stránce:"
+        },
+        "status": {
+            "title": "Stav",
+            "created": "Vytvořil",
+            "sending": "Odesílání: Úloha vytváří oznámení odeslat uživatelům.",
+            "tested": "Testováno",
+            "sent": "Odeslaných vybraným uživatelům.",
+            "pending": {
+                "deploy": "Odesílání požadavku na vytvoření oznámení pro vybrané uživatele.",
+                "testing": "Čekání na oznámení zobrazovat.",
+                "delete": "Prosím počkejte, oznámení bude odstraněna.",
+                "save": "Prosím počkejte, oznámení je ukládán"
+            },
+            "ok": {
+                "save": "Uloženo v oznámení",
+                "testing": "Testováno",
+                "deploy": "Práce k odesílání oznámení uživatelům"
+            }
+        }
+    },
+    "text": "<h2>Základy</h2> <p>\n    Hard return (tvrdá mezera): Řádek ukončete dvěma mezerami<br />\n    Vložit html přímo: Začněte řádek se 4 mezerami<br />\n</p> <h2>Hlavičky</h2> <p>\n    # H1<br />\n    ## H2<br />\n    ### H3<br />\n</p> <h2>Zdůraznění</h2> <p>\n    Slova kurzívou: *hvězdičky* nebo _podtržítka_.<br />\n    Slova tučným písmem:  **dvojité hvězdičky** nebo __dvojité podtržítka__.<br />\n</p> <h2>Seznamy</h2> <p>\n    1. Seznam položek od první objednávky<br />\n    2. Další položka<br />\n    ⋅⋅* Podseznam bez seřazení.<br />\n    1. Nezáleží na skutečných číslech, jen že je to číslo<br />\n    ⋅⋅1. Seřazený podseznam<br />\n    4. A další položka.<br />\n    <br />\n    ⋅⋅⋅Mezi položkami seznamu můžete mít správně odražené odstavce. Všimněte si prázdný řádek výše a úvodní mezery (nejméně jednu, ale kvůli správnému zobrazení textu v Markdownu budeme používat tři).<br />\n    <br />\n    ⋅⋅⋅Jestli chcete nový řádek bez odstavce, musíte na konci dát dvě mezery.⋅⋅<br />\n    ⋅⋅⋅Všimněte si, že tento řádek je oddělen, ale v rámci téhož odstavce.⋅⋅<br />\n    ⋅⋅⋅(Tohle je v protikladu s obvyklým způsobem tvorby nových řádků v GFM, který na konci řádku mezeru nevyžaduje.)<br />\n    <br />\n    * Neseřazené seznamy mohou využívat hvězdiček<br />\n    - Nebo znamínka mínus<br />\n    + Nebo znamínka plus<br />\n</p> <h2>Odkazy</h2> <p>\n    [Jsem odkaz ve stylu in-line](https://www.google.com)<br /><br />\n    [Jsem odkaz s názvem ve stylu in-line](https://www.google.com \"Google's Homepage\")<br /><br />\n    [Jsem odkaz ve stylu odvolávky][Libovolný text odvolávky akceptující i velká písmena]<br /><br />\n    [Jsem relativní odvolávka na archivovaný soubor](../blob/master/LICENSE)<br /><br />\n    [Pro určení odkazu ve stylu odvolávky můžete použít číslo][1]<br /><br />\n    Nebo nechat prázdné [vlastni text odkazu]<br /><br />\n    Nějaký text jako příklad, že mohou následovat referenční odkazy.\n</p> <h2>Kotva (Anchor)</h2> <p>\n    <h3>Nastavit kotvu</h3>\n    Když chcete nastavit kotvu, měli byste v příslušném tagu vytvořit identifikátor (id) pomocí HTML syntaxe.<br/></br>\n    Příklad:</br>\n    Když chcete dát kotvu do tagu H1, měli byste: <b>&lt;h1 id=\"má_kotva\"&gt;Text kotvy&lt;/h1&gt;</b>\n    <br/></br>\n    <h3>Používání kotvy</h3>\n    S tagem <b> </b> byste měli nastavit referenci href s hodnotou jako je tato: <b>/stranky/[url_suffix_stranky]#[samotná_kotva]</b>.<br/><br/>\n    <li><b>url_suffix_stránky</b> stránky, kde byly kotvy vyznačeny. Tenhle text je vkládán na začátek stránky když se stránka vytvoří kvůli generování url adresy.</li>\n    <li><b>samotná_kotva</b> hodnota identifikátora id tagu s nastavenou kotvou.</li>\n    <br/></br>\n    Příklad :</br>\n    Pro použití dříve nastavené kotvy byste měli použít : <b>&lt;a href=\"/stranky/url_stranky#moje_kotva\"&gt;Text odkazu&lt;/a&gt;</b></br>\n    nebo <b>[Text odkazu](/stranky/url_stranky#moje_kotva)</b>\n</p> <h2>Obrázky</h2> <p>\n    Zde je naše logo (pro zobrazení textu názvu nastavte kurzor):<br /><br />\n    Odkaz ve stylu in-line:<br />\n    ![náhradní text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png \"Logo Title Text 1\")<br />\n    <br />\n    Odkaz ve stylu odvolávky:<br />\n    ![náhradní text][logo]<br />\n</p> <h2>Tableaux</h2> <p>\n    Pro zarovnání sloupců můžete použít dvojtečky.<br />\n    <br />\n    | Tabulky        | Jsou           | Super  |<br />\n    | ------------- |:-------------:| -----:|<br />\n    | 3. sloupec je| zarovnán doprava | $1600 |<br />\n    | 3. sloupec je| zarovnán na střed |   $12 |<br />\n    | zebrovaný pásek | je hezký      |    $1 |<br />\n    <br />\n    Vnější svislé čáry (|) jsou nepovinné a Markdown nemusíte zarovnávat na krásu. Můžete využívat taky Markdown v řádcích.<br />\n    <br />\n    Markdown | Není tak | Hezký<br />\n    --- | --- | ---<br />\n    *I tak má* | `hezký` | **vzhled**<br />\n    1 | 2 | 3<br />\n</p> <h2>HTML v řádku</h2> <p> <dl>\n    <dt>Seznam definic</dt><br />\n    <dd>Je něco, co lidi občas využívají.</dd><br /><br />\n\n    <dt>Markdown v HTML</dt><br />\n    <dd>*Nefunguje* tak **úplně** dobře. Použijte HTML <em>tagy</em>.</dd><br />\n</dl> </p>"
+}

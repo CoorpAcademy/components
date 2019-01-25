@@ -1,0 +1,25 @@
+{
+    "notCompatible": {
+        "os": "您的操作系統版本太舊，無法使用平台。我們建議更新。",
+        "explanation": "你的瀏覽器的相容檢視可能已打開。更多關於關閉它的資料。",
+        "explanationLink": "https://static.coorpacademy.com/content/help/compatibility_view/Help_Compatibility_view_EN.pdf",
+        "explanationLinkLabel": "這裡",
+        "header": "瀏覽器版本太舊，無法取用該平台。",
+        "suggestion_text": "快樂瀏覽",
+        "suggestion_href": "http://browsehappy.com",
+        "suggestion_text_pre": "前往",
+        "suggestion_text_post": "更多關於 Evergreen 瀏覽器的資訊。",
+        "different_user_agent": "發現兩名不同使用者，造成連接平台受到限制。"
+    },
+    "custom": {
+        "fff": {
+            "notCompatible": {
+                "os": "您的作業系統版本太舊，無法存取平台。我們建議更新。",
+                "suggestion_text": "Chrome",
+                "suggestion_href": "https://www.google.com/intl/fr/chrome/browser/",
+                "suggestion_text_pre": "建議的下載",
+                "suggestion_text_post": "。"
+            }
+        }
+    }
+}

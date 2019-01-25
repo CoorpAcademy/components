@@ -1,0 +1,392 @@
+{
+    "welcome": "Здравствуйте!",
+    "goodby": "До свидания!",
+    "sorry": "Сожалеем!",
+    "welcome_message": "Чтобы войти, пожалуйста, введите информацию для входа, предоставленную",
+    "welcome_message_coorp": "Coorpacademy",
+    "grant_credentials": "У вас нет соответствующего разрешения на выполнение этой операции.",
+    "sso_connect": "Вы можете подключиться с помощью своей корпоративной учетной записи.",
+    "connect_connect": "Вы можете связаться с помощью подключения.",
+    "forgotten_credentials_pre": "По вопросам, касающимся MOOC, пожалуйста, обращайтесь к администратору платформы:",
+    "forgotten_credentials_href": "mailto:assistance@coorpacademy.com?subject=Мне%20нужна%20помощь%20в%20подключении%20к%20{{platform}}",
+    "forgotten_credentials": "assistance@coorpacademy.com",
+    "forgotten_credentials_post": "&nbsp;",
+    "instruction": "&nbsp;",
+    "logged_out": "Вы были отключены.",
+    "form": {
+        "user": "Эл. почта",
+        "password": "Пароль"
+    },
+    "error": {
+        "incorrect_credentials": "Неверные данные для входа",
+        "password_check": "Невозможно проверить пароль. Свяжитесь, пожалуйста, с нашим техническим администратором.",
+        "too_many_failed_attempts": "Слишком много неудачных попыток входа в систему. Пожалуйста, повторите попытку через несколько минут.",
+        "no_population": "Вы не отвечают критериям, чтобы иметь доступ к платформе. Обратитесь к администратору.",
+        "auth": {
+            "_sso_vendor_vendor_authentication_failed_connect_econnrefused": "[sso.vendor] ошибка аутентификации: подключение отклонено",
+            "_sso_corporate_authenticate_person_failed_connect_econnrefused": "[sso.corporate] аутентификация личности не удалась: подключить ECONNREFUSED"
+        },
+        "token_invalid": "Эта ссылка больше не действительна, пожалуйста, используйте ваш логин и пароль"
+    },
+    "reset_password": "Забыли пароль?",
+    "forgot": {
+        "welcome": "Сбросить свой пароль",
+        "new_password": "Новый пароль",
+        "forgotten_welcome_message": "Пожалуйста, введите ваш логин или электронную почту.",
+        "forgotten_placeholder": "логин или электронная почта",
+        "reset_welcome_message": "Пожалуйста, введите новый пароль.",
+        "password_updated": "Пароль обновлен",
+        "your_login_is": "Ваше текущее имя пользователя:",
+        "reset_query_not_found": "Некорректная ссылка. Ваш запрос на обновление своего пароля более не существует либо более не корректен.",
+        "incorrect_credentials": "Неверный логин или пароль",
+        "password_reset_query_created": "Ваш запрос был зарегистрирован",
+        "password_reset_mail_sent": "Если вы ввели правильный адрес электронной почты, который вы используете для этой платформы, мы только что отправили вам сообщение. Пожалуйста, следуйте инструкциям, чтобы обновить свой пароль.\nЕсли вы не получили письмо в течение нескольких минут, <b>возможно, вы ввели неправильный адрес электронной почты</b>. Пожалуйста, повторите попытку с другим адресом.",
+        "sign": {
+            "in": "Подключиться"
+        },
+        "error": {
+            "missing_login": "Принудительный вход.",
+            "login_not_found": "Регистрационное имя не найдено",
+            "forgotten_missing_login": "Логин или электронная почта обязательны",
+            "weak_password": "Ваш новый пароль недостаточно надежный",
+            "reset_query_not_saved": "Произошла ошибка во время обработки запроса на смену пароля. Повторите попытку позже."
+        }
+    },
+    "unsubscribe": {
+        "title": "Отписаться",
+        "confirmation_unsubscribe_message": "Ваш запрос на отмену подписки был успешно зарегистрирован",
+        "confirmation_subscribe_message": "Ваша подписка была успешно зарегистрирована.",
+        "question_message": "Я не хочу получать информационные письма или уведомления по эл. почте"
+    },
+    "bad_access": {
+        "title": "Извините!",
+        "sub_title": "МООК доступна только для уполномоченных лиц"
+    },
+    "inactive": {
+        "title": "Извините",
+        "sub_title": "<p>Ваша учетная запись не активна.</p> <p>$t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a></p>"
+    },
+    "deactivated": {
+        "title": "Извините",
+        "warning": "Деактивация всех пользователей вступает в силу с первого числа следующего месяца. После деактивации пользователей нельзя вновь активировать. Используйте осторожно.",
+        "sub_title": "<p>Ваша компания отключила ваш аккаунт. Нам жаль, что вы уходите!</p>"
+    },
+    "anonymous_notification": "Уже зарегистрированы? <a href=\"/sso/connect\" target=\"_self\"> <b>Войти</b></a> или <a href=\"$t(global:demo.url, {\"medium\":\"notification\"})\" target=\"_blank\"> <b>Запросить демо-версию</b></a> для вашей компании",
+    "connect_dialog": {
+        "need_signup": {
+            "title": "Вы почти там!",
+            "message": "Зарегистрироваться сейчас, чтобы разблокировать следующую главу"
+        },
+        "feature_locked": {
+            "title": "Характеристика заблокирована!",
+            "message": "Зарегистрируйтесь, чтобы разблокировать эту характеристику"
+        },
+        "login_with": {
+            "facebook": "Войти через Facebook",
+            "google": "Войти через Google",
+            "linkedin": "Войти через Linkedin"
+        },
+        "signup_with": {
+            "email": "Зарегистрироваться с электронной почтой"
+        },
+        "or": "или",
+        "signup": "Зарегистрироваться",
+        "signup_exist": "у меня уже есть аккаунт",
+        "login": "Войти"
+    },
+    "custom": {
+        "accueil": {
+            "forgotten_credentials_href": "mailto:Assistance@Tourism-Academy.com",
+            "forgotten_credentials": "Assistance@Tourism-Academy.com",
+            "form": {
+                "user": "Логин"
+            }
+        },
+        "architas-powercircle": {
+            "reset_password": "Забыли пароль?",
+            "forgotten_credentials_pre": "<p>Есть вопрос относительно этой платформы электронного обучения?</p> <p>Отправьте нам сообщение сейчас!</p>",
+            "forgotten_credentials_href": "mailto:powercircle@architas.com",
+            "forgotten_credentials": "powercircle@architas.com"
+        },
+        "bestwesternuniversity": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Логин"
+            }
+        },
+        "bigdata": {
+            "forgotten_credentials_pre": "Чтобы войти, пожалуйста, введите логин, вы получили по электронной почте.</br> </br> Для вопросов касающихся MOOC, пожалуйста, свяжитесь с администратором платформы:",
+            "form": {
+                "user": "Ваш адрес электронной почты"
+            }
+        },
+        "bpifrance-academie": {
+            "forgotten_credentials": "formation-drhinvest@bpifrance.fr",
+            "forgotten_credentials_href": "mailto:formation-drhinvest@bpifrance.fr"
+        },
+        "breguet": {
+            "form": {
+                "user": "Логин"
+            }
+        },
+        "chanel": {
+            "welcome": "ДОБРО ПОЖАЛОВАТЬ",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "cd78": {
+            "forgotten_credentials": "DSIdemande@yvelines.fr",
+            "forgotten_credentials_href": "mailto:DSIdemande@yvelines.fr"
+        },
+        "el": {
+            "form": {
+                "user": "RAISON SOCIALE. NUMERO"
+            }
+        },
+        "faurecia": {
+            "welcome_message": "Чтобы войти, пожалуйста, введите логин, который вы получили по",
+            "welcome_message_coorp": "Отправить по электронной почте"
+        },
+        "fdj": {
+            "form": {
+                "user": "эл. почта в нижнем регистре"
+            }
+        },
+        "fff": {
+            "bad_access": {
+                "title": "Извините",
+                "sub_title": "Этот MOOC доступна только для уполномоченных лиц. <br/> <br/> Если вы являетесь преподавателем или техник, войдите на <a href=\"https://www.fff.fr/myfff\"> https://www.fff.fr/myfff</a> для доступа к платформе."
+            }
+        },
+        "forco": {
+            "form": {
+                "user": "эл. почта в нижнем регистре"
+            }
+        },
+        "gdf": {
+            "welcome_message": "Чтобы войти, пожалуйста, введите ваш адрес электронной почты профессиональный <br/> (в нижнем регистре) и пароль.",
+            "welcome_message_coorp": "<br><br>Первое подключение? Введите пароль, предоставленный вам по электронной почте.",
+            "forgotten_credentials_pre": "Нет доступа? Проблема подключения? <a href=\"https://docs.google.com/forms/d/1M9Wxq3h8ukgZZHgD8MXknduRIpbNns9rYZNA3bEiiM4/viewform?usp=send_form\"> нажмите здесь</a> <br><br>Для вопросов касающихся MOOC, пожалуйста, свяжитесь с администратором платформы:"
+        },
+        "gdfec": {
+            "welcome_message": "Чтобы войти, пожалуйста, введите ваш адрес электронной почты профессиональный <br/> (в нижнем регистре) и пароль.",
+            "welcome_message_coorp": "<br><br>Первое подключение? Введите пароль, предоставленный вам по электронной почте.",
+            "forgotten_credentials_pre": "Нет доступа? Проблема подключения? <a href=\"https://docs.google.com/forms/d/1M9Wxq3h8ukgZZHgD8MXknduRIpbNns9rYZNA3bEiiM4/viewform?usp=send_form\"> нажмите здесь</a> <br><br>Для вопросов касающихся MOOC, пожалуйста, свяжитесь с администратором платформы:"
+        },
+        "ilearn": {
+            "welcome": "Добро пожаловать"
+        },
+        "jardiland": {
+            "form": {
+                "user": "numéro de matricule"
+            }
+        },
+        "letsgetdigital": {
+            "form": {
+                "user": "Почта"
+            }
+        },
+        "linxea": {
+            "form": {
+                "user": "Ваш электронный адрес"
+            }
+        },
+        "logisacademie": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Логин"
+            }
+        },
+        "metro": {
+            "form": {
+                "user": "name.lastname"
+            }
+        },
+        "mooc-parischarlesdegaulle": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Логин"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Логин"
+            }
+        },
+        "nespresso": {
+            "form": {
+                "user": "Nespresso Email address (case-sensitive)"
+            }
+        },
+        "nestlehealthscience": {
+            "form": {
+                "user": "эл. почта в нижнем регистре"
+            }
+        },
+        "natixis": {
+            "forgotten_credentials_pre": "For any question, please contact the platform administrator:"
+        },
+        "michelin": {
+            "inactive": {
+                "sub_title": "<p>We have missed you. Your account has been deactivated by your DCAD departement (Contact: <a href=\"mailto:compte-fonction.digital-transformation@michelin.com\">compte-fonction.digital-transformation@michelin.com</a>)"
+            }
+        },
+        "moocandfeel": {
+            "welcome_message": "Для входа, пожалуйста, введите логин информацию, представленную Comundi.",
+            "forgotten_credentials_pre": "Для вопросов относительно MOOC пожалуйста, свяжитесь с администратором платформы:",
+            "forgotten_credentials_href": "mailto:Assistance-moocandfeel@coorpacademy.com",
+            "forgotten_credentials": "Assistance-moocandfeel@coorpacademy.com",
+            "forgotten_credentials_post": "&nbsp;"
+        },
+        "online-academy-klubschule": {
+            "forgotten_credentials_href": "mailto:support@online-academy.klubschule.ch",
+            "forgotten_credentials": "support@online-academy.klubschule.ch"
+        },
+        "paca": {
+            "forgotten_credentials_href": "mailto:Assistance@Tourism-Academy.com",
+            "forgotten_credentials": "Assistance@Tourism-Academy.com",
+            "form": {
+                "user": "Логин"
+            }
+        },
+        "panzani": {
+            "form": {
+                "user": "эл. почта в нижнем регистре"
+            }
+        },
+        "pernod": {
+            "bad_access": {
+                "title": "Извините",
+                "sub_title": "Этот MOOC доступна только для уполномоченных лиц. Для доступа к платформе, пожалуйста, войдите на <a href='http://digifit-pernodricard-university.com'> digifit-pernodricard-university.com</a>"
+            }
+        },
+        "pmf": {
+            "form": {
+                "user": "эл. почта в нижнем регистре"
+            }
+        },
+        "pru": {
+            "bad_access": {
+                "title": "Извините",
+                "sub_title": "Этот MOOC доступна только для уполномоченных лиц."
+            }
+        },
+        "quizz-auchan": {
+            "form": {
+                "user": "ИДЕНТИФИКАЦИОННЫЙ номер (пример: XXX0000000)"
+            }
+        },
+        "redoute": {
+            "form": {
+                "user": "Login"
+            }
+        },
+        "renault": {
+            "welcome_message": "Чтобы войти, пожалуйста, введите ваши данные для входа.",
+            "forgotten_credentials_pre": "Для вопросов относительно MOOC пожалуйста, свяжитесь с администратором платформы:",
+            "forgotten_credentials_href": "mailto:Gerardo.Talavera-Farias@Renault.com",
+            "forgotten_credentials": "Gerardo.Talavera-Farias@Renault.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "welcome_message_coorp": "&nbsp;"
+        },
+        "samsung": {
+            "forgotten_credentials_pre": "Для вопросов относительно MOOC пожалуйста, свяжитесь с администратором платформы:",
+            "forgotten_credentials_href": "mailto:Assistance@coorpacademy.com",
+            "forgotten_credentials": "Assistance@coorpacademy.com",
+            "hotline_assistance_pre": "Для вопросов относительно вашей регистрации пожалуйста, свяжитесь с горячей линии Samsung академии:",
+            "hotline_assistance_href": "mailto:Hotline.samsungacademy@Gmail.com",
+            "hotline_assistance": "Hotline.samsungacademy@Gmail.com",
+            "inactive": {
+                "title": "Извините",
+                "sub_title": "Ваша учетная запись не активна</br></br> $t(login:hotline_assistance_pre) <a href=\"$t(login:hotline_assistance_href)\"> $t(login:hotline_assistance)</a></br></br> $t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a>"
+            }
+        },
+        "securite": {
+            "forgotten_credentials_pre": "Чтобы войти, пожалуйста, введите логин, вы получили по электронной почте.</br> </br> Для вопросов касающихся MOOC, пожалуйста, свяжитесь с администратором платформы:",
+            "form": {
+                "user": "Ваш адрес электронной почты"
+            }
+        },
+        "societegenerale": {
+            "welcome_message": "Чтобы войти, пожалуйста, введите логин информацию, представленную SGLearning.",
+            "forgotten_credentials_pre": "Для вопросов относительно MOOC пожалуйста, свяжитесь с администратором платформы:",
+            "forgotten_credentials_href": "mailto:sglearning.Communication@SocGen.com",
+            "forgotten_credentials": "sglearning.Communication@SocGen.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "welcome_message_coorp": "&nbsp;"
+        },
+        "schmidt-groupe": {
+            "form": {
+                "user": "эл. почта или firstNameInitial+lastName"
+            }
+        },
+        "sqy": {
+            "welcome_message_coorp": "почта",
+            "forgotten_credentials_pre": "Чтобы войти, пожалуйста, введите логин, вы получили по электронной почте.</br> </br> Для вопросов касающихся MOOC, пожалуйста, свяжитесь с администратором платформы:",
+            "form": {
+                "user": "Ваш адрес электронной почты"
+            }
+        },
+        "tagheuer": {
+            "forgotten_credentials_pre": "По вопросам, связанным с тренировочной платформой TAG Heuer, обращайтесь к администратору платформы:",
+            "form": {
+                "user": "Логин"
+            }
+        },
+        "thelem": {
+            "forgotten_credentials_href": "tel:11-11",
+            "forgotten_credentials": "Телефон: 11-11"
+        },
+        "total": {
+            "instruction": "Ваш пароль был отправлен вам по электронной почте. При первом подключении вам будет предложено изменить его.",
+            "form": {
+                "user": "IGG",
+                "password": "Пароль"
+            }
+        },
+        "tourism": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Логин"
+            }
+        },
+        "tourisme-hautsdefrance": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Логин"
+            }
+        },
+        "tourismdigital": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Логин"
+            }
+        },
+        "who": {
+            "forgotten_credentials_pre": "По любым вопросам пожалуйста, обращайтесь",
+            "forgotten_credentials_href": "mailto:assistance@coorpacademy.com",
+            "forgotten_credentials": "assistance@coorpacademy.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "inactive": {
+                "sub_title": "<p>Ваша учетная запись не активна.</p> <p>Если вы уже завершили регистрационную форму, вы вскоре получите подтверждение и доступ к платформе. В противном случае, пожалуйста заполните регистрационную форму <a href=\"/signup\" target=\"_self\"> <b>(“Sign Up”)</b></a>.</p> <p>$t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a></p>"
+            }
+        },
+        "wme-img": {
+            "form": {
+                "user": "firstNameInitial+lastName"
+            }
+        },
+        "yahoo": {
+            "welcome_message_coorp": "Отправить по электронной почте"
+        }
+    }
+}

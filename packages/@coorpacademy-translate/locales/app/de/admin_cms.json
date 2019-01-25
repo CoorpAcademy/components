@@ -1,0 +1,120 @@
+{
+    "cms": {
+        "add": "Element hinzufügen",
+        "title": "Eine neue Seite hinzufügen",
+        "lang": "Eingabesprache:",
+        "name": "Name*:",
+        "scope": "Umfang:",
+        "target": {
+            "title": "Ziel:",
+            "empty": "Kein Ziel",
+            "discipline": "Kurs",
+            "learningTree": "Katalog"
+        },
+        "type": "Typ:",
+        "order": "Reihenfolge:",
+        "active": "Aktiv:",
+        "populations": "Populationen:",
+        "rmd": "Markdown",
+        "save": "Speichern",
+        "delete": "Löschen",
+        "test": "Test",
+        "deploy": "Senden",
+        "delete_confirm": "Möchten Sie diese Seite wirklich löschen?",
+        "markdown": "Markdown-Syntax",
+        "quick": "Schnellübersicht",
+        "path": "URL-Suffix*:",
+        "full": "Vollständige Dokumentation",
+        "preview": "Preview",
+        "edit": "Bearbeiten",
+        "notifications": "Benutzerdefinierte Benachrichtigungen",
+        "content": "Inhalt:",
+        "config": "Allgemeine Konfiguration",
+        "targetBlank": "In neuem Tab öffnen:",
+        "forum_xid": "Forum-Id",
+        "navigation": {
+            "label": "Zu entdeckender Block:",
+            "none": "Seite ohne Block"
+        },
+        "provider": {
+            "none": "Alle Benutzer:"
+        },
+        "status": {
+            "ok": {
+                "title": "Erfolg",
+                "save": "Ihre Seite wurde gespeichert.",
+                "del": "Ihre Seite wurde gelöscht."
+            },
+            "test": {
+                "title": "Job gestartet. Die Benachrichtigung wird bald angezeigt."
+            },
+            "deploy": {
+                "title": "Job gestartet. Verfolgen Sie den Fortschritt im Bereich „Jobs“."
+            },
+            "ko": {
+                "title": "Fehler",
+                "save": "Beim Speichern ist ein Fehler aufgetreten: {{err}}",
+                "del": "Beim Löschen ist ein Fehler aufgetreten: {{err}}"
+            }
+        },
+        "title_content": "Titel:",
+        "category": "Kategorie",
+        "select_all": "Wählen Sie alle",
+        "language_info": "Für jedes aktivierte Land muss die Eingabesprache ausgefüllt werden",
+        "imageURL": "Bild-URL",
+        "page": "Seite:",
+        "link": "Link:",
+        "link_placeholder": "(ex: http://www.google.de)",
+        "partner": "Partner:",
+        "discipline_ref": "discipline.ref",
+        "cancel": "Abbrechen",
+        "date": "Datum:",
+        "image": "Bild:",
+        "upload": "Hochladen",
+        "modify": "Ändern",
+        "countries": "Länder"
+    },
+    "success": "Ihre Änderungen wurden gespeichert.",
+    "error": {
+        "mandatory": "Fehlende Felder"
+    },
+    "tabs": {
+        "pages": "Seiten",
+        "news": "News",
+        "notification": "Benutzerdefinierte Benachrichtigungen"
+    },
+    "page": {
+        "name": "{{name}}"
+    },
+    "notification": {
+        "new": "Diese Benachrichtigung wurde noch nicht erstellt. Füllen Sie und speichern Sie das Formular.",
+        "name": "{{name}}",
+        "provider": "Provider:",
+        "expires": "Ablaufdatum*:",
+        "message": "Nachricht",
+        "link": {
+            "show": "Schaltfläche „Mehr erfahren“:",
+            "url": "Link:",
+            "target": "Link in neuer Seite öffnen:"
+        },
+        "status": {
+            "title": "Status",
+            "created": "Erstellt",
+            "sending": "Senden: Ein Job kreiert die Benachrichtigung, die an die Benutzer gesendet wird.",
+            "tested": "Getestet",
+            "sent": "An ausgewählten Benutzer gesendet.",
+            "pending": {
+                "deploy": "Anfrage wird gesendet, um Benachrichtigung an ausgewählte Benutzer zu kreieren.",
+                "testing": "Warten auf Anzeige der Benachrichtigung.",
+                "delete": "Bitte warten Sie, Benachrichtigung soll gelöscht werden.",
+                "save": "Bitte warten, Benachrichtigung wird gespeichert"
+            },
+            "ok": {
+                "save": "Benachrichtigung gespeichert",
+                "testing": "Getestet",
+                "deploy": "Job gestartet, um Benachrichtigungen an Benutzer zu senden"
+            }
+        }
+    },
+    "text": "<h2>Grundlagen</h2> <p> Zurück zu Zeile: Zeile mit zwei Leerzeichen abschließen<br /> Direkt HTML-Code einfügen: Zeile mit 4 Leerzeichen beginnen<br /> </p> <h2>Header</h2> <p> # H1<br /> ## H2<br /> ### H3<br /> </p> <h2>Emphasis</h2> <p> Kursiv formatiertes Wort: *Asteriske* oder _underscores_.<br /> Fett formatiertes Wort: **doppelte Asteriske** oder __double underscores__.<br /> </p> <h2>Lists</h2> <p> 1. First ordered list item<br /> 2. Another item<br /> ⋅⋅* Unordered sub-list.<br /> 1. Actual numbers don't matter, just that it's a number<br /> ⋅⋅1. Ordered sub-list<br /> 4. And another item.<br /> <br /> ⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).<br /> <br /> ⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅<br /> ⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅<br /> ⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)<br /> <br /> * Unordered list can use asterisks<br /> - Or minuses<br /> + Or pluses<br /> </p> <h2>Links</h2> <p> [I'm an inline-style link](https://www.google.com)<br /><br /> [I'm an inline-style link with title](https://www.google.com \"Google's Homepage\")<br /><br /> [I'm a reference-style link][Arbitrary case-insensitive reference text]<br /><br /> [I'm a relative reference to a repository file](../blob/master/LICENSE)<br /><br /> [You can use numbers for reference-style link definitions][1]<br /><br /> Or leave it empty and use the [link text itself]<br /><br /> Some text to show that the reference links can follow later. </p> <h2>Textmarken</h2> <p> <h3>Textmarke platzieren</h3> Um IDs auf den Tags zu erstellen, auf denen die Textmarke platziert werden soll, muss die HTML-Syntax verwendet werden. <br/></br> Beispiel:</br> Es handelt sich um einen Titel, also: <b>&lt;h1 id=“Meine_Textmarke“&gt;Header_Text&lt;/h1&gt;</b> <br/></br> <h3>Referenzierung der Textmarke</h3> Mit einem Tag muss href mit <b>/Seiten/[URL_der_Seite]#[Textmarke]</b> verwendet werden.<br/><br/> <li><b>Die_URL_der_Seite,</b> auf der die Textmarken platziert wurden, ist das erste Textfeld, das beim Erstellen einer Seite ausgefüllt wird, und ermöglicht die Generierung der URL.</li> <li><b>Textmarke</b> Die ID des Elements, auf dem die Textmarke platziert wurde.</li> <br/></br> Beispiel:</br> Um den Titel aus dem vorherigen Beispiel zu referenzieren: <b>&lt;a href=\"/Seiten/URL_Seite#Meine_Textmarke\"&gt;Link-Text&lt;/a&gt;</b></br> oder <b>[Link-Text](/Seiten/URL_Seite#Meine_Textmarke)</b> </p> <h2>Images</h2> <p> Here's our logo (hover to see the title text):<br /><br /> Inline-style:<br /> ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png \"Logo Title Text 1\")<br /> <br /> Reference-style:<br /> ![alt text][logo]<br /> </p> <h2>Tabellen</h2> <p> Colons can be used to align columns.<br /> <br /> | Tables | Are | Cool |<br /> | ------------- |:-------------:| -----:|<br /> | col 3 is | right-aligned | $1600 |<br /> | col 2 is | centered | $12 |<br /> | zebra stripes | are neat | $1 |<br /> <br /> The outer pipes (|) are optional, and you don't need to make the raw Markdown line up prettily. You can also use inline Markdown.<br /> <br/>Markdown | Less | Pretty<br /> --- | --- | ---<br /> *Still* | `renders` | **nicely**<br /> 1 | 2 | 3<br /> </p> <h2>Inline HTML</h2> <p> <dl> <dt>Definition list</dt><br /> <dd>Is something people use sometimes.</dd><br /><br /> <dt>Markdown in HTML</dt><br /> <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd><br /> </dl> </p>"
+}

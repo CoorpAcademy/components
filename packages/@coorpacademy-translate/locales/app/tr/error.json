@@ -1,0 +1,63 @@
+{
+    "http": {
+        "401": "Erişim izni verilmedi",
+        "403": "Erişim yasak",
+        "404": "Sayfa bulunamıyor",
+        "412": "Önşart başarısız oldu",
+        "500": "Bir dahili sunucu hatası",
+        "503": "Hizmet kullanılamıyor",
+        "500_message_pre": "URL",
+        "500_message": "bilinmeyen bir hata ile karşılaştı",
+        "500_message_post": ".",
+        "503_message": "Hizmet kullanılamıyor. Lütfen bir süre sonra yeniden deneyin.",
+        "404_message_pre": "URL",
+        "404_message": "ilgili yolu bulamadı.",
+        "412_message": "Talep içinde belirtilen koşullar sağlanmıyor.",
+        "409_progressions_content_conflict": "Görünüşe göre zaten geçerli oturum sırasında bu soruya cevap verdim. Belki de başka bir yerde, başka bir sekmesinde açık var mı? <br/> Tıklayın ', verileri yenilemek için sayfayı yeniden yükle üzerinde' aşağıda, biz sizin için doğru soru yük."
+    },
+    "infos": "Bilgiler",
+    "auth": {
+        "header": "Aman! {{status}} ",
+        "reload": "Bağlan"
+    },
+    "modal": {
+        "header": "Hata {{status}}",
+        "body": {
+            "title": "Aşağıdaki bilgileri lütfen not alın ve teknik destek servisimize iletin",
+            "paymentRequired": "Bu module ulaşmak için, ilk önce onu satın almalısınız.",
+            "url": "Url: {{err}}",
+            "id": "Id: {{id}}",
+            "message": "{{message}}"
+        },
+        "footer": {
+            "paymentRequired": "Açıklama Sayfası",
+            "assistance": "Destek",
+            "back_home": "Anasayfaya Dön",
+            "reload": "Sayfayı yeniden yükle ",
+            "continue": "Devam et"
+        },
+        "assistance": "Soru hatası"
+    },
+    "defaultMessage": "Uygulama içinde bir hata oluştu. Lütfen daha sonra yeniden deneyin.",
+    "achievementContext": "Görünüşe göre bu modül zaten başlatılmış. Modüle devam edebilmek için sayfayı tekrar yükleyin.",
+    "custom": {
+        "chanel": {
+            "http": {
+                "412_message": "Kayıp e-posta adresi.Lütfen yöneticinizle iletişime geçin yada buraya kayıt olun."
+            }
+        },
+        "ilearn": {
+            "http": {
+                "412_message": "Eposta adresi eksik. Lütfen yöneticinizle iletişime geçin ya da buradan kaydolun."
+            }
+        },
+        "up": {
+            "modal": {
+                "body": {
+                    "paymentRequired": "Bu seviyeye ulaşmak için, önce onu satın almak zorundasınız."
+                }
+            },
+            "achievementContext": "Öyle görünüyor ki bu seviye zaten başlatılmış. \nSeviyeye devam etmek için lütfen sayfayı yeniden yükleyin."
+        }
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "battle": {
+        "incoming": "{{count}} függőben lévő csatája van.",
+        "incoming_plural": "{{count}} függőben lévő kihívásod van.",
+        "you_win": "Megnyerted a csatát",
+        "you_lose": "Elveszített egy csatát"
+    },
+    "badge": {
+        "won": "Megnyerte a {{name}} kitűzőt"
+    },
+    "module": {
+        "won": "Teljesítettél egy modult"
+    },
+    "reward": {
+        "won": "Gratulálunk! Erőfeszítéseid elnyerték jutalmukat!"
+    },
+    "coach": {
+        "unlocked": "Edzővé váltál"
+    },
+    "incoming": "Van egy új értesítése",
+    "chatrequest": "Új cset kérés",
+    "goal": {
+        "progress": "Előrehaladt a minősítésében",
+        "select": "Kiválasztott egy igazolást",
+        "reward": "Bizonyítványt szereztél"
+    },
+    "forum": "Egy felhasználó válaszolt a kérdésre",
+    "new_version": {
+        "title": "Új verzió",
+        "message": "Kiadásra került a platfrom egy újabb verziója",
+        "action": "Frissítés"
+    },
+    "welcome": "Üdvözöljük <b>{{user}}</b>, tudod most belépés minden tanfolyamok",
+    "personal_note": "Az üzenetét elküldtük az e-mail címre.",
+    "bonusStars": "Gratulálunk! Ön {{stars}} további csillagot nyert!",
+    "rewardStars": "Gratulálunk ! További  {{stars}} csillagot nyert!",
+    "totem": {
+        "header": "Egy új Totem élő történik!",
+        "body": "Ide kattintva a csatlakozás"
+    },
+    "custom": {
+        "armeedeterre": {
+            "battle": {
+                "incoming": "{{count}} csata függőben van.",
+                "incoming_plural": "{{count}} csaták függőben van.",
+                "you_win": "Csatát nyert",
+                "you_lose": "Ön elveszett egy csata"
+            }
+        },
+        "pernod": {
+            "goal": {
+                "progress": "Módosítottál egy célt",
+                "select": "Kiválasztott egy célt",
+                "reward": "Felszabadítottál egy célt"
+            }
+        },
+        "up": {
+            "module": {
+                "won": "Befejezted a szintet"
+            }
+        }
+    }
+}

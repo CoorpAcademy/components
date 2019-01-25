@@ -1,0 +1,550 @@
+{
+    "welcome": "你好 {{name}}！",
+    "team": "{{team}}团队",
+    "passwordFooter": "<br> <br>登录信息：<br> - IP：{{ip}} <br> - 操作系统：{{os}} <br> - 浏览器：{{browser}} <br> <br> <b >不是吗？</b>您现在应该修改<a href=\"{{passwordReset}}\">密码</a>。",
+    "unsubscribe": "取消订阅",
+    "personalHooks_timeReferenceObjects": {
+        "510min": "纽约到巴黎的航班",
+        "420min": "《权力的游戏》季数",
+        "360min": "环法自行车赛赛段",
+        "120min": "《暮光之城》电影",
+        "100min": "功夫电影",
+        "90min": "足球比赛",
+        "60min": "董事会会议",
+        "25min": "你最喜欢的电视节目的剧集"
+    },
+    "body": {
+        "accountCode": "要验证你的 {{label}} 帐户，请前往以下地址并输入本代码：<strong>{{code}}</strong>。",
+        "battleWaitingOpponent": "别忘了， {{opponentName}}向你发出了“战斗”的挑战 $t({{disciplineName}}) 课程 $t({{level}}) 等级，并等待着你的回复！<br/> 接受挑战并开始玩游戏，按 <a href=\"{{redirectionUrl}}\">这里</a>！<br/> <br/> 祝愿最优秀者获得胜利！",
+        "coachUnlocked": "恭喜！你已经成为这门学科的教练  \"$t({{completedDiscipline}})\", 你已经完全验证！<br/> <br/> 你现在可以帮助别人学习这个主题，因为你已经成为无与伦比的主题！<br/> 请记住 <b>打开实时通知</b> 在您的设置中，并简单地回应那些打电话给我聊天的学员 —-目的是引导他们找到答案，而不仅仅是给他们。<br/> <br/> 不要忘记，“没有团结就没有长期或光荣的表现!”<br/><font size=\"2\"><i>(普鲁斯特)</i></font><br/> <br/>",
+        "contentUpdated": "平台刚刚添加了新的课程！<br/>",
+        "contentUpdatedEnd": "现在开始：在<a href=\"{{redirectionUrl}}\">这里。</a>！<br/> <br/> 训练愉快！",
+        "contentUpdated_plural": "新的科目刚被添加到平台！<br/>",
+        "contentUpdatedEnd_plural": "去 {{label}} 平台开启一个！在<a href=\"{{redirectionUrl}}\">这里。</a>!<br/> <br/>  享受训练吧！",
+        "lastAnsweredQuestion": "我们注意到你在一个星期内没有回答过任何问题。<br/> <br/> 如果你遇到了困难，不要犹豫，请与我们的教练联系。",
+        "lastConnection": "您已经有一段日子没登录 {{label}} 平台了，我们非常想念您！ <br/> <br/> 您还有许多模块等待发现，许多比分等待超越，许多对手等待挑战（友好地挑战）……回来继续您的学习之旅吧！ <br/> <br/> 点击下面的链接即可进入平台： <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> 训练快乐！",
+        "lastModuleDone": "你登陆{{label}} 平台模块已经一个星期了，不要放弃！<br/> <br/> 如果你遇到了困难，请随时与教练员联系或通过论坛寻求社区帮助。<br/> <br/> 你可以点击一下链接，进入平台：<a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> 训练愉快！",
+        "passwordReset": "我们已收到您帐户的密码恢复请求。<br/> <br/>作为提醒，您的登录名为：{{login}} <br/>（小心大写和小写字符）<br/> < br/>您可以通过点击以下链接重置密码：<a href=\"{{resetLink}}\"> {{resetLink}} </a>。<br/>请注意，此链接 仅适用于{{ttl}}小时，因此请勿等太久才能点击链接！<br/> <br/>如果您没有提出此请求，请忽略此电子邮件。<br/ >欢乐训练！",
+        "personalHooks": {
+            "trendingCourse": "<p>课程<b>{{courseName}}</b>在{{platform}}上的记录正被打破！最近有超过{{activeUsersOnCourse}}人正在进行此课程.</p><p>你还在等什么？</p>",
+            "recommendedCourse": "<p>根据你在{{platform}}上的活动，我们想到了一些课程可以推荐给你。</p><p>我们的最佳推荐，<b>{{courseName}}</b>，应该符合你的兴趣！你何不尝试一下？</p>",
+            "onboarding": "<p>你已成功连接到<b>{{platform}}</b>。很高兴见到你已准备好提高你自身的技能！</p><p>就差一点了！只需选择一个你喜欢的主题，或在我们的推荐中选择其一，然后即可开始学习，或在较量中挑战你的同事！</p>",
+            "finishCourse": "<p>就差一点了！你已在{{platform}}上成功开始<b>{{courseName}}</b>。</p><p>现在就完成它。完成当前等级以获得额外的星星并将进度条填满至100％。</p>",
+            "doBattle": "<p>我们身边都有那么一个同事，总是自称比其他人懂得多。<br>在{{platform}}上证明他们是错的！</p><p>在<b>较量</b>中挑战他们。选择一个你喜欢的主题，击败他们以赢取星星，并提升排名，然后在餐厅中以此来嘲弄他们！</p>",
+            "doBattleOnCourse": "<p>你已掌握了<b>{{courseName}}</b>的全部内容。</p><p>在你的同事中，谁有勇气就这个主题向你发起挑战？没有人……？</p><p>继续在{{platform}}上的较量模式中挑战他们！</p>",
+            "othersProgress": "<p>最近，你的同事在{{platform}}上相当活跃！</p><p>在过去的一个月里，发生了很多事：<ul><li><span style=\"font-weight: bold;color:{{primaryColor}}\">{{connectedUsers}}人</span>已连接</li><li><span style=\"font-weight: bold;color:{{primaryColor}}\">{{answeredQuestions}}个问题</span>得到回答</li><li><span style=\"font-weight: bold;color:{{primaryColor}}\">{{viewedLessons}}门课程</span>被浏览</li><li>……合在一起相当于 {{numberTimes}} {{timeReferenceObject}}的学习时间！</li></ul></p><p>别落后了！</p>",
+            "weMissYou": "<p>好久没有在<b>{{platform}}</b>上见到你了。从上次见到你之后，平台上又添加了新的内容和新功能。 回来一探究竟吧！</p>",
+            "weMissYou_footer": "我么非常感谢你提供的反馈。请将你的体验心得<a href=\"mailto:assistance@coorpacademy.com\">告诉我们</a>，即使是负面的，我们也可以从中获得有用信息！",
+            "generic_footer": "‌"
+        },
+        "sendBattle": "{{opponentName}} 向您发起了挑战，挑战主题为$t({{disciplineName}}) ，级别为$t({{level}})  ，非常期待您的响应！<br/> <br/> 要接受该挑战并马上开始迎战，请点击<a href=\"{{redirectionUrl}}\">此处</a>！<br/> <br/> 祝愿学习最努力的人能够成功胜出！",
+        "signupSelfValidation": "感谢您注册！ 最后一步开始：请点击<a href=\"{{validateLink}}\">以下链接</a>激活您的帐户。<br/><br/>您的登录名是：{{login}} <br/>（小心大写和小写字符）<br/> <br/>享受你的训练！",
+        "signupValidation": "我们收到了注册请求{{firstName}} {{lastName}} (登录: {{login}}电子邮件: {{email}}）<br/>要验证此帐户，请点击以下链接： <a href =“{{validateLink}}”>{{validateLink}}</a> <br/>。<br/>如果你不知道这个人，请点击以下链接删除帐户：<a href =“{{rejectLink}}”>{{rejectLink}}</a><br/>欢乐训练！",
+        "signupComplete": "您的帐户现已验证！<br/><br/>您的登录名为：{{login}} <br/>（小心大写和小写字符）<br/> <br/>点击下面的按钮 登录并开始学习！",
+        "commentReply": "{{replierName}} 刚在 {{label}} 上回答了你的帖子：<p>{{originalCommentContent}}</p> --- <p>{{newCommentContent}}</p> 点击本 <a href=\"{{newCommentLink}}\"> 链接 </a> 以显示讨论并继续。待会儿见！",
+        "certification_header": "恭喜你获得 $t({{certification}}) 证书。因为奖赏你的努力，我们将赠予你：",
+        "certification_content_stars": "{{stars}} 颗 额外的星星！<br/>",
+        "certification_content_diploma": "点此显示你的证书</a>下载<a target='_blank' href=\"$t({{diplomaLink}})\">",
+        "certification_content_resource": "点此显示你的新徽章 $t({{rewardLabel}}) <a target='_blank' download href=\"$t({{resourceLink}})\">链接</a>",
+        "certification_content_end": "别忘了使用这个新证书更新你的简历和职业简历。",
+        "assistance": {
+            "object": "目标：{{object}}",
+            "message": "{{message}}",
+            "displayName": "显示名称：{{displayName}}",
+            "email": "电子邮件地址：{{email}}",
+            "url": "url: <a href=\"{{url}}\">{{url}}</a>",
+            "discipline": "科目：{{discipline}}",
+            "module": "模块：{{module}}",
+            "chapter": "章节：{{chapter}}",
+            "slideRef": "slideRef: {{slideRef}}"
+        },
+        "createdPassword": {
+            "top": "恭喜！ <br><br>您已成功更新您帐户的密码 {{label}}.<br><br>您现在可以使用新密码和平常的登录信息登录到平台。<br>提醒你，你的登录是： <b>{{login}}</b> （区分大小写)。<br>",
+            "bottom": "<br>是时候学习！"
+        },
+        "updatedPassword": {
+            "top": "恭喜！ <br>您已成功更新您帐户的密码{{label}}。 <br><br>Y您现在可以使用新密码和平常的登录信息登录到平台。<br>提醒你，你的登录是：<b>{{login}}</b> （区分大小写)。<br>",
+            "bottom": "<br>是时候学习！"
+        }
+    },
+    "subject": {
+        "accountCode": "请确认你的 CoorpAcademy 账户。",
+        "battleWaitingOpponent": "{{opponentName}} 正在等您",
+        "coachUnlocked": "干得好，你已经成为一名教练",
+        "contentUpdated": "{{label}} 平台最新动态",
+        "lastAnsweredQuestion": "{{name}}，您不再进行下去了。",
+        "lastConnection": "继续您在 {{label}} 平台上的进度",
+        "lastModuleDone": "继续你在 {{label}} 平台上的进度",
+        "passwordReset": "重置你的密码",
+        "personalHooks": {
+            "trendingCourse": "查看最受欢迎的课程",
+            "recommendedCourse": "推荐课程：我们为你准备的最佳推荐",
+            "onboarding": "如何在{{platform}}上提高你的技能水平？",
+            "finishCourse": "我打赌你能做到，完成{{courseName}}",
+            "doBattle": "在{{platform}}上挑战你的同事！",
+            "doBattleOnCourse": "针对你的上一个课程进行一场较量！",
+            "othersProgress": "及时了解{{platform}}上的活动",
+            "weMissYou": "好久不见！"
+        },
+        "sendBattle": "{{opponentName}}正在挑战您",
+        "test": "{{name}}，你已退出比赛",
+        "signupSelfValidation": "激活你的帐号",
+        "signupValidation": "验证您的帐户",
+        "signupComplete": "Your account has been validated!",
+        "commentReply": "{{replierName}} 回复了你的评论",
+        "certification": "恭喜 {{name}}，你已赢得 $t({{certification}}) 认证",
+        "assistance": "[{{brand}}] {{object}}",
+        "createdPassword": "登录/密码连接到{{label}}",
+        "updatedPassword": "登录/密码连接到{{label}}"
+    },
+    "call2action": {
+        "coachUnlocked": "进入网站",
+        "sendBattle": "接受挑战",
+        "battleWaitingOpponent": "接受挑战",
+        "commentReply": "按照讨论",
+        "passwordReset": "重置您的密码",
+        "personalHooks": {
+            "trendingCourse": "像他们一样学习",
+            "recommendedCourse": "立即开始学习",
+            "onboarding": "享受学习！",
+            "finishCourse": "完成这门课程",
+            "doBattle": "挑战一名同事",
+            "doBattleOnCourse": "进行较量！",
+            "othersProgress": "加入学习者",
+            "weMissYou": "看看有什么更新"
+        },
+        "contentUpdated": "访问网站",
+        "lastConnection": "访问网站",
+        "lastModuleDone": "进入网站",
+        "lastAnsweredQuestion": "前往网站",
+        "accountCode": "转到网站",
+        "signupValidation": "验证此账户",
+        "certificationDone": "前往本网站",
+        "signupSelfValidation": "验证您的账户",
+        "signupComplete": "访问平台",
+        "assistance": "转到此页面",
+        "createdPassword": "开始训练",
+        "updatedPassword": "开始训练"
+    },
+    "custom": {
+        "7steps": {
+            "team": "‌",
+            "body": {
+                "signupSelfValidation": "Thank you for joining our community of selected retail talents!<br/><br/>Discover the SRA 7 Selling Steps MOOC and get the ultimate certification in service expertise!<br/><br/>Your login is: {{login}}<br/>(Be careful with uppercase and lowercase characters)<br/> <br/>Click on the link below to activate your account.<br/><br/>If you received this email by mistake, simply delete it. Your account won't be activated if you don't click the confirmation link below. For questions about this SRA MOOC, please contact: <a href=\"mailto:serviceretailacademy@loreal.com\">serviceretailacademy@loreal.com</a>"
+            },
+            "call2action": {
+                "signupSelfValidation": "确认"
+            },
+            "subject": {
+                "signupSelfValidation": "SRA MOOC：请确认您的帐户"
+            }
+        },
+        "achat-habitat": {
+            "team": "The Achat Habitat 球队",
+            "body": {
+                "signupSelfValidation": "感谢您在Achat Habitat注册！ 最后一步开始：请点击以下链接激活您的帐户：<br> <a href=\"{{validateLink}}\"> {{validateLink}} </a> <br> <br>您的登录名是： {{login}} <br/>（小心大写和小写字符）<br/> <br/>内容将在4月5日之后提供，你将收到一封包含所有实际信息的邮件，指导你 学习考察。 <br> <br>有关您的访问/ Achat Habitat的工作方式的任何问题，您可以联系<a href=\"mailto:assistance@coorpacademy.com\"> assistance@coorpacademy.com </a>。 <br>享受你的训练！"
+            },
+            "subject": {
+                "signupSelfValidation": "Achat Habitat 帐号激活"
+            }
+        },
+        "air": {
+            "body": {
+                "coachUnlocked": "恭喜！您已成功完成了 $t({{completedDiscipline}}) 章节，并达到了教练级别！<br/><br/>现在您可以为其他探险者作裁判，并分享您已获得的知识。<br/><br/>当别的探险者寻求支持时，请指引他/她获得正确的答案，但是不要直接告知。<br/><br/>感谢您的参与，我们下个营地再见！<br/><br/>数字的，"
+            },
+            "subject": {
+                "coachUnlocked": "Air Liquide 数字远征——现在你是教练了！"
+            }
+        },
+        "bigdata": {
+            "team": "The SI'Academy Team",
+            "body": {
+                "certification_header": "我们很荣幸地授予您 $t({{certification}})，并奖励您：",
+                "certification_content_stars": "{{stars}} 红利星星 <br/>",
+                "certification_content_diploma": "通过 <a target='_blank' href=\"$t({{diplomaLink}})\">此处</a> 链接访问您的 $t({{certification}}) 证书",
+                "certification_content_resource": "通过此链接<a target='_blank' download href=\"$t({{resourceLink}})\">链接</a>访问你的 $t({{rewardLabel}}) 徽章",
+                "certification_content_end": "别忘了更新你的 SI'tizen 个人资料以及你的电子邮件签名，以显示你的新认证"
+            }
+        },
+        "capgemini": {
+            "welcome": "你好 {{name}}！",
+            "body": {
+                "certification_header": "You went through all your COOCs required for $t({{certification}}). Congratulations!<br>Thank you very much and see you very soon on the COOC platform!",
+                "certification_content_stars": "‌",
+                "certification_content_resource": "In order to support us to further improve the VP DigiCertif’ experience, we would be grateful if you could share your feedback through this link:<br>VP please click <a href=\"https://www.surveygizmo.com/s3/4299114/VP-COOC-platform\">HERE</a>",
+                "certification_content_end": "Regards,"
+            }
+        },
+        "challenge48htechno": {
+            "body": {
+                "signupSelfValidation": "感谢您在48小时技术注册！ 最后一步开始：请点击以下链接激活您的帐户：<br> <a href=\"{{validateLink}}\"> {{validateLink}} </a> <br> <br>您的登录名是： {{login}} <br/>（小心大写和小写字符）<br/> <br/>对于有关您的访问/ 48h Techno的工作的任何问题，您可以联系到<a href =“mailto:assistance@coorpacademy.com“> assistance@coorpacademy.com</a>。 <br>享受你的训练！"
+            },
+            "subject": {
+                "signupSelfValidation": "48h Techno帐户激活"
+            }
+        },
+        "chanel": {
+            "body": {
+                "certification_content_end": "不要忘记：你可以无限期地回到这个平台来补充你的知识、观看课程和视频以及挑战你的同伴！"
+            }
+        },
+        "cnp": {
+            "body": {
+                "certification_header": "恭喜你获得 $t({{certification}}) 证书。因为奖赏你的努力，我们将赠予你："
+            }
+        },
+        "crisis": {
+            "team": "保乐力加大学"
+        },
+        "corporateonlineopencourse": {
+            "body": {
+                "battleWaitingOpponent": "不要忘了，{{opponentName}}已经挑战你在$ t（{{disciplineName}}）课程$ t（{{level}}）级别上的“战斗”，并等待着你的回应！<br/>要接受挑战并播放，请点击<a href=\"https://idp.renault.com/nidp/saml2/idpsend?id=campus\">此处</a>!<br/> <br/>可能 最好的人赢！",
+                "sendBattle": "{{opponentName}}正在挑战你在$ t（{{disciplineName}}）学科，$ t（{{level}}）级别的“战斗”，并热切地等待着你的回应!<br/> <br/>要接受挑战并播放，请点击<a href=\"https://idp.renault.com/nidp/saml2/idpsend?id=campus\">此处</a><br/> <br/>可能 最好的学习者赢！",
+                "createdPassword": {
+                    "top": "你好！ 恭喜！<br>您刚刚配置了多设备密码。<br>所以，如果您愿意，只需使用智能手机或平板电脑点击下面的链接，并与新配置建立与MOOC BRAND AMBASSADOR的连接 多设备密码https://corporateonlineopencourse.coorpacademy.com/login <br> <br>提示：连接后，为什么不在智能手机上创建链接以便进一步轻松访问;-) <br>请注意：通过校园连接 仍然可用，没有任何特定的密码。 多设备访问只是一个选项。",
+                    "bottom": "<br>现在是学习的时候了！"
+                }
+            }
+        },
+        "cofpart-learning": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "digitalls2e": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "faurecia": {
+            "body": {
+                "coachUnlocked": "恭喜！ 您现在已获得$ t（{{completedDiscipline}}）课程的教练资格。<br/> <br/>由于您在这个主题上已经无可匹敌，您现在可以帮助他人的学习之旅。 br /> <br/>请分享您的知识，并回应学生在学习实验室中的通话。<br/> <br/>但是请记住，目的是引导他们走向答案，而不仅仅是 <br/><br/>忘记“彻底的知识的唯一标志是教学的力量”<br/> <font size =“2”> <i>（亚里士多德</ i> </font><br/><br/>",
+                "certification_header": "祝贺您获得$ t（{{certification}}）认证！<br/>为了认识到这一成就，我们为你提供：",
+                "certification_content_stars": "佛罗伦萨大学附加{{stars}}星级点 <b>学习实验室</b> <br/>",
+                "certification_content_diploma": "您可以按照<a target='_blank' href=\"$t({{diplomaLink}})\">链接</a>下载和打印证书",
+                "certification_content_resource": "遵循此<a target='_blank'\" download href=\"$t ({{resourceLink}})\">链接</a>，您将获得特殊奖励",
+                "certification_content_end": "并考虑将这个新的认证添加到您的社交个人资料！"
+            }
+        },
+        "fdj": {
+            "body": {
+                "certification_content_end": "And do not forget to continue your learning journey by testing yourself on the Digilearn application from your mobile.<br/>You do not have the app yet? Go to the apple store or google store and then activate your notifications!"
+            }
+        },
+        "ecolenumerique-sncf": {
+            "body": {
+                "certification_header": "Congratulations for obtaining the $t({{certification}}) Badge!<br/> In order to recognize this achievement, we are offering you:",
+                "certification_content_stars": "An additional {{stars}} Star points<br/>",
+                "certification_content_resource": "A special reward you will get by following this <a target='_blank' download href=\"$t({{resourceLink}})\">link</a>",
+                "certification_content_end": "And think about adding this new Jedi Badge to your social profile!"
+            }
+        },
+        "el": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "ganprevoyance": {
+            "body": {
+                "certification_header": "Congratulations for validating the Universe $t({{certification}})!<br/> In order to recognize this achievement, we are offering you:",
+                "certification_content_stars": "An additional {{stars}} Star points<br/>",
+                "certification_content_resource": "A special reward you will get by following this <a target='_blank' download href=\"$t({{resourceLink}})\">link</a>",
+                "certification_content_end": "And think about adding this new Universe to your social profile!"
+            }
+        },
+        "gdf": {
+            "urlHowTo": "* 只需双击桌面上的 WeTransform 图标，然后复制/粘贴此网址到地址栏",
+            "body": {
+                "battleWaitingOpponent": "请不要忘记，{{opponentName}} 已经向您发出了针对 $t({{disciplineName}}) 课程 $t({{level}}) 等级的“对战”挑战，正在不耐烦地等着回答！<br/>要接受挑战并参与游戏，请单击此处*：<br/> <br/> <a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/> <br/> 愿最好的人能赢！<br/> $t(email:urlHowTo)",
+                "coachUnlocked": "恭喜！您已经成为 $t({{completedDiscipline}}) 学科的一名教练，已经完全通过验证！ <br/> <br/> 既然您在这个学科已经无敌，现在您可以帮助其他学习者了！只需回复在聊天工具上联系您的管理员：目标是引导他们找到答案，而不是直接告诉他们。如果您不希望被联系，您可以通过菜单停用这一选项，菜单就在 WeTransform <br/> <br/> <br/> 屏幕右上方。向您致以最诚挚的祝福。",
+                "passwordReset": "您曾告诉我们您忘记了您的密码。请单击以下链接来重置密码*：<br/> <br/> <a href=\"{{resetLink}}\">{{resetLink}}</a><br/> <br/>请注意，此链接仅 {{ttl}} 小时有效，不要等太长时间再转到该链接！<br/> <br/>此致！<br/> $t(email:urlHowTo)",
+                "sendBattle": "{{opponentName}} 想要在模块 $t({{disciplineName}}) 规范 $t({{level}}) 级别中和您战斗！<br/><br/> 接受挑战和开始，请点击这里*：<br/><br/><a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/><br/> 愿强者胜出！<br/>$t(email:urlHowTo)"
+            }
+        },
+        "gdfec": {
+            "urlHowTo": "*双击你桌面上的 WeTransform 图标，复制/粘贴此链接至地址栏内",
+            "body": {
+                "battleWaitingOpponent": "别忘了 {{opponentName}} 在 $t（{{disciplineName}}）  $t（{{level}}） 级别的课程上向你发出了挑战，并焦急得等待着你的答案！ <br/> 接受挑战并且开始，点击 *:<br/> <br/> <a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/> <br/> 胜利归于强者！ <br/> $t（邮件：操作方法链接）",
+                "coachUnlocked": "恭喜你！你已成为此科目$t({{completedDiscipline}})的教练员，并经过全面验证！<br/><br/>鉴于在此科目下已不可战胜，现在你可以帮助其他学员了！回复与你联系的管理人员：目标是指导他们获得答案，而不是直接给他们。如果你不想被打扰，你可以通过菜单取消此选项，菜单位于屏幕右上方的 WeTransform<br/> <br/> <br/>祝好，",
+                "passwordReset": "我们已被告知你忘记了密码。点击下面的链接*:<br/> <br/> <a href=\"{{resetLink}}\">{{resetLink}}</a><br/> <br/>，重设密码。请知悉，该链接有效时间为{{ttl}}小时，请尽快点击链接！<br/> <br/>祝好，<br/> $t（邮件：操作方法链接）",
+                "sendBattle": "{{opponentName}}想和你在模块上战斗 $t({{disciplineName}}) 指标 $t({{level}}) 等级！<br/> <br/> 接受挑战并开始玩游戏，按这里：<br/> <br/> <a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/> <br/> 祝愿最优秀者获得胜利！ <br/> $t(email:urlHowTo)",
+                "certification_content_end": "If you just finished the 'Rentability' course, please follow <a target='_blank' download href=\"https://www.getfeedback.com/r/bjNmfx11\">this link</a> to better prepare our next seminar and share your best practices. (10 minutes max.)<br><br>And don't forget to update your Curriculum Vitae as well as your professional profile with this new certification."
+            }
+        },
+        "hr-ac": {
+            "body": {
+                "signupSelfValidation": "感谢您在人力资源学院注册！ 最后一步开始：请点击<a href=\"{{validateLink}}\">以下链接</a>激活您的帐户。<br/><br/>您的登录名是：{{login}} <br/>（小心大写和小写字符）<br/> <br/>请注意你的训练！",
+                "signupComplete": "您的帐户现已验证！<br/><br/>您的登录名为：{{login}} <br/>（小心大写和小写字符）<br/> <br/>点击下面的按钮 登录并开始学习！"
+            },
+            "subject": {
+                "signupSelfValidation": "HR学院帐户激活"
+            }
+        },
+        "linxea": {
+            "team": "LinXea 学院团队",
+            "body": {
+                "signupSelfValidation": "感谢您加入我们！ 您可以开始测试人身保险知识的最后一步是通过点击此链接激活您的帐户：<br> <a href=\"{{validateLink}}\"> {{validateLink}} </a> <br > <br>您的登录名为：{{login}} <br/>（小写大写字母）<br/> <br/>对于有关您访问/ LinXea Academy平台工作方式的任何问题，您 可以联系<a href=\"mailto:assistance@coorpacademy.com\"> assistance@coorpacademy.com </a>。 <br>如对LinXea合约或人寿保险有任何疑问，请写信至<a href=\"mailto:contact@linxea.com\"> contact@linxea.com </a> <br>有一个很好的训练！",
+                "signupComplete": "您的雅虎数字营销学院的题词已被验证。<br/><br/>您的登录名为：{{login}} <br/>（小心大写和小写字符）"
+            },
+            "subject": {
+                "signupSelfValidation": "LinXea 学院账户激活"
+            }
+        },
+        "learnnrj": {
+            "body": {
+                "signupSelfValidation": "感谢注册。 你很好去！<br/><br/>您的登录名是：{{login}} <br/>（小心大写和小写字符）<br/> <br/>请点击此链接 激活您的帐户：<a href=\"{{plateform}}\"> {{plateform}} </a>。\n如果您有任何问题或想了解有关所涉主题的更多信息，请咨询您的代表或联系assistance@coorpacademy.com",
+                "signupComplete": "感谢注册。 你很好去！<br/><br/>您的登录名是：{{login}} <br/>（小心大写和小写字符）<br/> <br/>请点击此链接 激活您的帐户：<a href=\"{{plateform}}\"> {{plateform}} </a>。\n如果您有任何问题或想了解有关所涉主题的更多信息，请咨询您的代表或联系assistance@coorpacademy.com"
+            }
+        },
+        "letsgetdigital": {
+            "team": "Let's Get Digital 2.0",
+            "body": {
+                "signupSelfValidation": "感谢您注册Let's Get Digital 2.0！ 最后一步开始：请点击<a href=\"{{validateLink}}\">以下链接</a>激活您的帐户。<br/><br/>您的登录名是：{{login}} <br/>（小心大写和小写字符）<br/> <br/>对于有关您的访问/ Let's Get Digital 2.0的工作方式的任何问题，您可以联系contact.letsgetdigital@bnpparibas.com\n享受你的训练！",
+                "signupComplete": "您的帐户现已验证！<br/><br/>您的登录名为：{{login}} <br/>（小心大写和小写字符）<br/> <br/>点击下面的按钮 登录并开始学习！"
+            },
+            "subject": {
+                "signupSelfValidation": "Let's Get Digital 激活"
+            }
+        },
+        "michelin": {
+            "body": {
+                "certification_header": "我们很荣幸能向您发送$ t（{{certification}}）证书，并承认您的努力，我们很高兴为您提供：",
+                "certification_content_stars": "{{stars}}多颗星！",
+                "certification_content_resource": "下载护照标志的可能性<a target='_blank' download href=\"$t({{resourceLink}})\">此处</a>",
+                "certification_content_end": "不要忘记在Bibspace（“您的个人资料”/“教育”）更新您的专业资料，并指出这个新的认证。"
+            }
+        },
+        "mooc-socgen": {
+            "body": {
+                "personalHooks": {
+                    "generic_footer": "The above link is only accessible using a device outside of SG network. In order to access it via your SG workstation, please use the <a href=\"https://secure-browsing.eur.socgen.com\">MOOC Portal</a>."
+                }
+            }
+        },
+        "nespresso": {
+            "body": {
+                "coachUnlocked": "恭喜！ 你已经成为这门学科的专家  $t({{completedDiscipline}}), 你已经完全验证！<br/> <br/>"
+            },
+            "subject": {
+                "coachUnlocked": "干得好，你已经成为专家"
+            }
+        },
+        "openlab-cb": {
+            "body": {
+                "signupComplete": "您的帐户已经过验证！ 您现在可以开始享受Openlab平台！<br/><br/>您的登录名为：{{login}} <br/>（小心大写和小写字符）<br/> <br/>请访问平台 这里：<a href=\"{{plateform}}\"> {{plateform}} </a>"
+            },
+            "subject": {
+                "signupValidation": "Openlab帐户验证",
+                "signupComplete": "验证您的Openlab帐户"
+            }
+        },
+        "pernod": {
+            "body": {
+                "battleWaitingOpponent": "别忘了，{{opponentName}} 在 $t({{disciplineName}}) 课程  $t({{level}}) 级别上向你发起挑战，正在等待你的回应！<br/> 接受挑战请按 <a href=\"{{redirectionUrl}}\"> 这里 </a>！<br/> <br/> 展示你的巨大实力吧！",
+                "sendBattle": "{{opponentName}}向你提出挑战，请你加入“战斗” $t({{disciplineName}}) 指标 $t({{level}})  等级并且焦急地等待着你的回答！<br/> <br/> 接受挑战并开始玩游戏，请按 <a href=\"{{redirectionUrl}}\">这里</a>！<br/> <br/> 展示你的数码本领吧！"
+            },
+            "team": "Pernod Ricard 大学"
+        },
+        "pru": {
+            "body": {
+                "coachUnlocked": "恭喜！你刚刚完成了学科 $t({{completedDiscipline}}) 里的“高级”级别。你已经完成了本学科，你现在可以被视为本主题的教练了！<br/> 你现在可以帮助别人学习本主题，因为你在本主题上已变得无敌！<br/> 就这样回应打电话叫你聊天的学习者：目的是引导他们寻找答案，而不只是给他们答案。<br/> <br/> 别忘了“没有团结，就没有长期或值得尊敬的表现！”<br/><font size=\"2\"><i>(François Proust)</i></font><br/> <br/>",
+                "sendBattle": "{{opponentName}} 正在挑战你参加“战斗” $t({{disciplineName}}) 指标 $t({{level}}) 等级，并焦急地等待着你的回答！<br/> <br/> 接受挑战并开始玩游戏，按 <a href=\"{{redirectionUrl}}\">这里</a>!<br/> <br/> 让我们看看你的商业手腕！",
+                "battleWaitingOpponent": "不要忘记，{{opponentName}} 对你进行了$t({{disciplineName}}) 科目$t({{level}}) 等级的“战斗\"，正在等在你的回应！<br/> 接受挑战并开始，点击<a href=\"{{redirectionUrl}}\">这里</a>！<br/> <br/> 展示你的业务管理能力！"
+            },
+            "team": "Pernod Ricard 大学"
+        },
+        "quizz-auchan": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "rexel": {
+            "team": "瑞格尔学院"
+        },
+        "renaultcare": {
+            "subject": {
+                "createdPassword": "您刚刚创建了密码，以便使用智能手机访问MOOC客户体验。"
+            },
+            "passwordFooter": "&nbsp;",
+            "body": {
+                "createdPassword": {
+                    "top": "You have just created your password to access the MOOC Customer Experience from your Smartphone.",
+                    "bottom": "You can now access to the MOOC by clicking here:"
+                }
+            },
+            "call2action": {
+                "createdPassword": "开始训练"
+            }
+        },
+        "samsung": {
+            "team": "{{team}} 团队",
+            "body": {
+                "signupValidation": "您收到了一份代表{{firstName}} {{lastName}}(login: {{login}}) 的注册申请。他们的联系信息如下：<ul><li>{{company}}</li> <li>{{role}}</li> <li>{{boutique}}</li> <li>{{postalCode}}</li></ul> 要批准此帐户，请点击以下链接： <a href=\"{{validateLink}}\"> {{validateLink}}</a> <br/> 如果您不认识此人，请点击以下链接来删除这些数据：<a href=\"{{rejectLink}}\"> {{rejectLink}}</a>. <br/> 非常感谢！",
+                "signupComplete": "您的帐户现已启用<a href=\"{{plateform}}\"> {{plateform}} </a><br/><br/>您的登录名为：{{login}} <br/>（Be 小心大写和小写字母）<br/> <br/>现在，您可以发现最新的三星电视，最新的创新，以及赢得客户的最佳卖点，或与法国各地的同事分享！ <br> <br>尽快访问并尽快见到您。"
+            },
+            "subject": {
+                "signupValidation": "验证三星学院帐户",
+                "signupComplete": "你的三星学院账户验证"
+            },
+            "call2action": {
+                "signupComplete": "访问平台"
+            }
+        },
+        "schneider": {
+            "welcome": "你好，{{name}}！",
+            "team": "MOOC 团队",
+            "lastModuleDone": "从您登入Schneider IQ平台某个组件起，已经过去了一个星期，不要放弃！<br/> <br/> 如果您遇到困难，请随时联系导师或者通过讨论论坛向社区里的其他人请教。<br/> <br/> 您可以通过点击以下链接<a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a>访问平台 <br/> <br/> 祝您培训愉快！",
+            "body": {
+                "personalHooks": {
+                    "generic_footer": "You are receiving Coorpacademy emails as you are a member on Schneider IQ.</br>CoorpAcademy uses your email only in correlation with Schneider IQ. If you do not want to receive these emails anymore, please Unsubscribe using the link below."
+                }
+            }
+        },
+        "seb": {
+            "team": "大学集团 SEB 培训团队"
+        },
+        "societegenerale": {
+            "body": {
+                "certification_header": "恭喜！您刚解锁了证书 $t({{certification}}) 。这是您参与集团数字化转型战略的证明。为了提升您的证书，我们为您提供：",
+                "certification_content_stars": "{{stars}}额外星星<br/>",
+                "certification_content_diploma": "点击<a target='_blank' href=\"$t({{diplomaLink}})\">这里</a>访问你的奖状",
+                "certification_content_resource": "获取 $t({{rewardLabel}})，<a target='_blank' download href=\"$t({{resourceLink}})\">此处</a>",
+                "certification_content_end": "通过将此徽标添加到您的 Outlook 签名来分享你的成功。<br/> <br/> 享受你公开课！<br/> <br/> 你可以在你的数字课程中赢取 {{totalGoals}} 证书。"
+            }
+        },
+        "securite": {
+            "team": "The SI'Academy Team",
+            "body": {
+                "certification_header": "我们很自豪地授予您$t({{certification}})，奖励您：",
+                "certification_content_stars": "{{stars}} 奖励星级<br/>",
+                "certification_content_diploma": "通过本链接 <a target='_blank' href=\"$t({{diplomaLink}})\">here</a>",
+                "certification_content_resource": "通过此链接 <a target='_blank' download href=\"$t({{resourceLink}})\"> 链接 </a> 访问您的 $t({{rewardLabel}}) 徽章",
+                "certification_content_end": "‌"
+            }
+        },
+        "sqy": {
+            "team": "The SI'Academy Team",
+            "body": {
+                "certification_header": "我们自豪地向您授予 $t({{certification}})，奖励您：",
+                "certification_content_stars": "{{stars}} 奖励星星<br/>",
+                "certification_content_diploma": "通过这里</a>的链接<a target='_blank' href=\"$t({{diplomaLink}})\"> 获取认证",
+                "certification_content_resource": "通过本链接 <a target='_blank' download href=\"$t({{resourceLink}})\"> 链接 </a> 访问你的 $t({{rewardLabel}}) 徽章",
+                "certification_content_end": "为了展示新的证书，不要忘记更新你的SI'tizen 资料以及邮箱签名"
+            }
+        },
+        "monoprix": {
+            "body": {
+                "signupSelfValidation": "感谢您注册以提高您的数字文化知识。 你很好去。<br/> <br/>你的登录名是：{{login}} <br/>（小心大写和小写字符）<br/> <br/>请点击此链接 激活您的帐户：<a href=\"{{plateform}}\"> {{plateform}} </a>。\n如果您有任何问题或想了解有关主题的更多信息，请咨询Monoprix代表或联系assistance@coorpacademy.com",
+                "signupComplete": "感谢您注册以提高您的数字文化知识。 你很好去。<br/> <br/>你的登录名是：{{login}} <br/>（小心大写和小写字符）<br/> <br/>请点击此链接 激活您的帐户：<a href=\"{{plateform}}\"> {{plateform}} </a>。\n如果您有任何问题或想了解有关主题的更多信息，请咨询Monoprix代表或联系assistance@coorpacademy.com"
+            },
+            "subject": {
+                "signupSelfValidation": "激活您在 l'Académie Digitale 上的帐户",
+                "signupComplete": "在 l’Académie Digitale 上激活您的账户"
+            }
+        },
+        "redoute": {
+            "body": {
+                "signupSelfValidation": "感谢您注册MOOC La Redoute学习实验室人才。 你很好去！<br/><br/>你的登录名是：{{login}} <br/>（小心大写和小写字符）<br/> <br/>请点击按钮 “验证您的帐户”以激活该帐户\n  如果您有任何问题，或者如果您想了解有关主题的更多信息，请咨询您的代表或联系我们：assistance@coorpacademy.com",
+                "signupComplete": "谢谢，您现在已注册在MOOC学习实验室！<br/><br/>您的登录名为：{{login}} <br/>请小心大写和小写字符 将很快收到一封具有激活链接的电子邮件。"
+            },
+            "subject": {
+                "signupSelfValidation": "在La Redoute学习实验室激活您的帐户",
+                "signupComplete": "在La Redoute学习实验室激活您的帐户"
+            }
+        },
+        "tagheuer": {
+            "body": {
+                "signupValidation": "豪雅在线培训方面有了新的要求: <ul>\n    <li>姓： {{lastName}}</li>\n    <li>名字： {{firstName}}</li>\n    <li>登录：{{login}}</li>\n    <li>公司： {{company}}</li>\n    <li>商店： {{boutique}}</li>\n    <li>国家： {{country}}</li>\n <li>大使： {{ambassador}}</li>\n</ul> 请点击此处批准请求 <a href=\"{{validateLink}}\">{{validateLink}}</a><br/><br/> 点击此处拒绝此请求： <a href=\"{{rejectLink}}\">{{rejectLink}}</a><br/>",
+                "signupComplete": "您的帐户已经过验证！ 您现在可以开始享受TAG Heuer培训平台！<br/><br/>您的登录名为：{{login}} <br/>（小心大写和小写字符）<br/> <br/>访问 这里的平台：<a href=\"{{plateform}}\"> {{plateform}} </a>",
+                "certification_content_end": "‌"
+            },
+            "subject": {
+                "signupValidation": "TAG Heuer 训练的新请求",
+                "signupComplete": "您向豪雅压力实验室提交的内容已验证。"
+            },
+            "call2action": {
+                "signupComplete": "访问平台"
+            }
+        },
+        "tagheuercon": {
+            "body": {
+                "signupValidation": "有一个关于 TAG Heuer 在线训练的新请求: <ul>\n    <li>{{lastName}}</li>\n    <li>{{firstName}}</li>\n    <li>{{login}}</li>\n    <li>{{company}}</li>\n    <li>{{boutique}}</li>\n    <li>{{country}}</li>\n</ul> 批准该请求，请点击此处： <a href=\"{{validateLink}}\">{{validateLink}}</a><br/><br/> 拒绝该请求，请点击此处： <a href=\"{{rejectLink}}\">{{rejectLink}}</a><br/>",
+                "signupComplete": "您的帐户已经过验证！ 您现在可以开始享受TAG Heuer培训平台！<br/><br/>您的登录名为：{{login}} <br/>（小心大写和小写字符）<br/> <br/>访问 这里的平台：<a href=\"{{plateform}}\"> {{plateform}} </a>"
+            },
+            "subject": {
+                "signupValidation": "关于 MOOC 的新的请求",
+                "signupComplete": "您注册为豪雅表用户已经通过验证"
+            },
+            "call2action": {
+                "signupComplete": "访问平台"
+            }
+        },
+        "thelem": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "up": {
+            "body": {
+                "battleWaitingOpponent": "请不要忘记，{{opponentName}} 已经向您发出了针对 $t({{disciplineName}}) 课程 $t({{level}}) 等级的“对战”挑战，正在等着您的响应！<br/>要接受挑战并参加游戏，请单击<a href=\"{{redirectionUrl}}\">此处</a>！<br/> <br/>愿最好的人能赢！",
+                "coachUnlocked": "恭喜！您已成为您已完全通过验证的课程 $t({{completedDiscipline}}) 的一名辅导员！<br/> <br/>现在，您可以帮助其他人学习此主题了，因为您在这个科目上已经无敌了！<br/>请直接回应要求与您交谈的学习者，目的是指导他们寻找答案，而不是直接给他们答案。<br/> <br/>请不要忘记，“没有团结，就没有长期的或光荣的表现！”<br/><font size=\"2\"><i>（弗朗索瓦·普鲁斯特）</i></font><br/> <br/>",
+                "contentUpdated": "平台上刚刚添加了新课程！<br/>",
+                "contentUpdated_plural": "新课程已经被添加到平台！<br/>",
+                "lastConnection": "您此刻未登录{{label}}平台，我们想念你！<br/><br/>您尚有待开发的课程，待提升的分数，待挑战的人物（友好的方式）……返回并继续学习！<br/><br/>您可以点击以下链接进入平台：<a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> 训练愉快！",
+                "lastModuleDone": "从您进入{{label}} 平台的一门课程开始，已经过去一个星期了，不要放弃！<br/> <br/> 如果您遇到难题，请随时联系导师或者在讨论论坛里向社区的其他人请教一下。<br/> <br/> 您可以通过单击以下链接访问平台： <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a> <br/> <br/> 培训快乐！",
+                "sendBattle": "{{opponentName}}在 $t({{disciplineName}}) 课程$t({{level}}) 等级上对您发起“战斗”挑战，并等待您的回应！<br/> <br/> 接受挑战并开始，点击<a href=\"{{redirectionUrl}}\">此处</a>！<br/> <br/>愿最优秀之人胜利！"
+            }
+        },
+        "who": {
+            "subject": {
+                "signupValidation": "Validate this account",
+                "coachUnlocked": "Well done, you have completed the course {{completedDiscipline}}"
+            },
+            "body": {
+                "signupValidation": "我们已收到<b> {{firstName}} {{lastName}}的注册申请。</b> <br/>登录：<b> {{login}} </b> <br/>国家：<b> {{country}} </b> <br/>状态：<b> {{region}} </b> <br/>附属：<b> {{provider}} </b> <br/> 背景经验：<b> {{role}} </b> <br/>访问代码：<b> {{grade}} </b> <br/>要验证此帐户，请点击 以下链接：<a href=\"{{validateLink}}\"> {{validateLink}} </a> <br/> <br/> <br/> <br/>如果你不知道这个人，请点击以下链接去除 帐户：<a href=\"{{rejectLink}}\"> {{rejectLink}} </a>。欢乐训练！",
+                "signupComplete": "您的WHO QualityRights电子培训注册现已完成。<br/>在访问培训之前，请确保已完成<a href=“https://extranet.who.int/dataform/236824?lang=en“>预培训问卷</a>。<br/><br/> <b>您现在可以开始了！</b> <br> <br>访问电子培训 这个<a href=\"https://humanrights-etrain-qualityrights.coorpacademy.com/login\">链接</a>的平台。 您的登录信息是：{{login}}（小心大写和小写字符）。<br/><br/>您可以从任何互联网设备（智能手机，平板电脑，笔记本电脑，台式电脑）访问电子培训。 电子培训可以在最常用的浏览器上运行，例如Internet Explorer 11和更高版本，以及最新版本的Chrome，Chrome Android，Firefox，Safari和IEdge（或紧接在 最近）。<br/> <br/>我们希望你喜欢e-training！",
+                "signupSelfValidation": "<br/>谢谢您注册参加世卫组织质量权威电子培训！ 开始之前还有–个步骤 - 请点击以下链接验证您的帐号。<br/><br/>您的登录名为：{{login}} <br/>（大写字母和小写字母）<br/><br/>享受你的训练！",
+                "battleWaitingOpponent": "不要忘记，{{opponentName}}在$ t（{{disciplineName}}）课程$ t（{{level}}）级别上提出了质疑，并等待您的回复！ 并播放，请点击<a href=\"{{redirectionUrl}}\">此处</a>!<br/><br/>最佳人选赢！",
+                "sendBattle": "{{opponentName}} 正在挑战 $t（{{disciplineName}}）学科，$t{{level}}）级别，并热切期待您的回应!<br/> <br/>接受挑战 并播放，请点击<a href=\"{{redirectionUrl}}\">此处</a><br/><br/>最佳学习者赢得胜利！",
+                "coachUnlocked": "Congratulations on completing \"How to play on the platform?\".  Now you are ready to start one of the modules of the e-training!",
+                "certification_header": "恭喜！ 您已经成功完成了由世卫组织心理健康政策和服务发展开发和提供的QualityRights电子培训课程“心理健康，人权与恢复基金会”。",
+                "certification_content_stars": "‌",
+                "certification_content_diploma": "您可以下载您的证书<a target='_blank'href=\"$t({{diplomaLink}})\"> here </a>",
+                "certification_content_resource": "请完成后评估<a href=\"https://extranet.who.int/dataform/772112?lang=en\">问卷</a>",
+                "certification_content_end": "请记住，您可以随时重新访问电子培训，再次访问课程，访问培训材料和视频，并为讨论作出贡献。<br/> <br/>希望您享受电子培训！"
+            }
+        },
+        "yahoo": {
+            "welcome": "你好， {{name}}！",
+            "urlHowTo": "&nbsp;",
+            "happyTraining": "谢谢！",
+            "team": "雅虎及库普学院 (Coorpacademy) 团队",
+            "unsubscribetext": "邮件太多了吗？你可以",
+            "body": {
+                "certification_header": "恭喜您完成了雅虎在线数字培训学院的$t（{{certification}}）模块！ 您现在是一个精英用户群体的一部分，他们展示了关于$ t（{{certification}}）的特殊知识。 你应该非常自豪！\n\n作为奖励，我们为您提供：",
+                "certification_content_resource": "访问 $t({{certification}}) 徽章，接下来 <a href=\"{{certificationPage}}/\"> 链接 </a>",
+                "certification_content_end": "我们鼓励您自豪地将您的徽章放在您的社交媒体和网站上\n\n为什么现在停止？ 登录回雅虎在线数字培训学院继续学习。",
+                "coachUnlocked": "恭喜！你现在是科目 $t({{completedDiscipline}}) 的专业者，<br/> <br/> 如果你有任何关于本科目的问题，或者一般情况的数字化营销，请联系 <a href=\"mailto:info-yahoo@yahoo-inc.com\"> info-yahoo@yahoo-inc.com</a>.<br/> <br/> 亲切的问候，<br/>",
+                "signupValidation": "有一个关于 MOOC 的新请求： <br> <ul>\n  <li>{{firstName}}</li>\n  <li>{{lastName}}</li>\n  <li>{{email}}</li>\n  <li>{{company}}</li>\n  <li>{{jobTitle}}</li>\n</ul> <br> 批准该请求，请点击此处： <br> <a href=\"{{validateLink}}\">{{validateLink}}</a><br><br> 拒绝该请求，请点击此处： <br> <a href=\"{{rejectLink}}\">{{rejectLink}}</a>",
+                "signupSelfValidation": "感谢您注册以提高您的数字营销知识。 你很好去！<br/><br/>您的登录名是：{{login}} <br/>（小心大写和小写字符）<br/> <br/>请点击此链接 激活您的帐户：<br> <a href=\"{{validateLink}}\"> {{validateLink}} </a> <br> <br>要登录，请输入您的专业电子邮件和密码。<br> 如果您有任何问题或想了解有关所涉主题的更多信息，请咨询您的雅虎代表或联系<br> <a href=\"info-yahoo@yahoo-inc.com\"> info-yahoo@yahoo-inc.com</a>",
+                "signupComplete": "感谢您对提高数字营销知识的兴趣。 您的请求已获得批准。<br/><br/>您的登录名为：{{login}} <br/>（小心大写和小写字符）<br/> <br/>要访问该平台，请单击 <br> <a href=\"{{plateform}}\"> {{plateform}} </a> <br> <br>要登录，请输入您的专业电子邮件和密码。<br> <br>如果 您有任何问题或想了解更多关于所涉及的话题，与您的雅虎代表联系或联系<br> <a href=\"mailto:info-yahoo@yahoo-inc.com\"> info-yahoo@yahoo-inc.com</a>"
+            },
+            "subject": {
+                "coachUnlocked": "恭喜你，你已成为此课程的专业等级$t({{completedDiscipline}})",
+                "signupValidation": "来自 Yahoo Digital 用户的新请求",
+                "signupSelfValidation": "在雅虎数字营销上激活你的账户",
+                "signupComplete": "你对雅虎数字营销学院的题词已被验证。"
+            },
+            "call2action": {
+                "signupValidation": "验证该帐户",
+                "signupSelfValidation": "验证您的账户",
+                "signupComplete": "访问平台"
+            }
+        },
+        "zenithcommunity": {
+            "body": {
+                "signupValidation": "There has been a new request for Zenith online training: <ul>\n    <li>Last name: {{lastName}}</li>\n    <li>First name: {{firstName}}</li>\n    <li>Login: {{login}}</li>\n    <li>Point of Sale Business Unit: {{provider}}</li>\n    <li>Point of Sale Name: {{company}}</li>\n    <li>Country: {{country}}</li>\n <li>City: {{city}}</li>\n <li>Job Title: {{jobTitle}}</li>\n <li>Grade (how long...): {{grade}}</li>\n</ul> Please approve the request by clicking here: <a href=\"{{validateLink}}\">{{validateLink}}</a><br/><br/> Decline this request by clicking here: <a href=\"{{rejectLink}}\">{{rejectLink}}</a><br/>"
+            }
+        }
+    }
+}

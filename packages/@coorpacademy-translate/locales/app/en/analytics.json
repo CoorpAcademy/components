@@ -1,0 +1,317 @@
+{
+    "message": "<p>To access detailed information per user, use our <a href=\"{{user}}\">by user analytics page</a>.</p><p>To access detailed information for all users, you can <a href=\"{{export}}\">export all users on demand</a>.</p>",
+    "export": {
+        "global": {
+            "first_name": "First Name",
+            "last_name": "Last Name",
+            "email": "Email",
+            "provider": "Provider",
+            "stars": "Score",
+            "providerinfos_company": "Company",
+            "providerinfos_city": "City",
+            "providerinfos_country": "Country",
+            "providerinfos_department": "Department",
+            "providerinfos_title": "Title",
+            "providerinfos_chorusID": "ChorusID",
+            "ageRange": "Age Group",
+            "personalEmail": "Email (personal)",
+            "role": "Role",
+            "brandName": "Business company",
+            "boutique": "Store",
+            "billable": "Billable",
+            "postalCode": "Postal Code",
+            "moduleLevel": "$t(dashboard:badges.module.name) - Level",
+            "moduleCount": "$t(dashboard:badges.module.name) - Count",
+            "moduleUpdate": "$t(dashboard:badges.module.name) - Last Update",
+            "battleLevel": "$t(dashboard:badges.battle.name) - Level",
+            "battleCount": "$t(dashboard:badges.battle.name) - Count",
+            "battleUpdate": "$t(dashboard:badges.battle.name) - Last Update",
+            "coachLevel": "$t(dashboard:badges.coach.name) - Level",
+            "coachCount": "$t(dashboard:badges.coach.name) - Count",
+            "coachUpdate": "$t(dashboard:badges.coach.name) - Last Update",
+            "lessonLevel": "$t(dashboard:badges.lesson.name) - Level",
+            "lessonCount": "$t(dashboard:badges.lesson.name) - Count",
+            "lessonUpdate": "$t(dashboard:badges.lesson.name) - Last Update",
+            "questionLevel": "$t(dashboard:badges.question.name) - Level",
+            "questionCount": "$t(dashboard:badges.question.name) - Count",
+            "questionUpdate": "$t(dashboard:badges.question.name) - Last Update",
+            "badges": "badges",
+            "lastConnectionDate": "Last Connection Date",
+            "state": "State",
+            "login": "Login",
+            "firstConnectionDate": "First Connection Date",
+            "certificate": "{{label}} certificate",
+            "certifications": "Certificates",
+            "entity": "Entity",
+            "grade": "Grade",
+            "region": "Region",
+            "validatedTimeProgression": "Validated Time",
+            "totalTimeProgression": "Total Time",
+            "populations": "Population(s)",
+            "deactivationDate": "Deactivation Date",
+            "organization_branch": "Business Branch",
+            "organization_businessunit": "Business Unit",
+            "organization_workingCountry": "Business Country",
+            "organization_role": "Business Role",
+            "organization_boutique": "Business Store",
+            "organization_address1": "Business Address 1",
+            "organization_address2": "Business Address 2",
+            "organization_zipcode": "Business ZipCode",
+            "organization_workingCity": "Business City",
+            "organization_company": "Business Company",
+            "organization_ambassador": "Ambassador",
+            "birthday": "Birthday"
+        },
+        "battles": {
+            "disciplineName": "Discipline Name",
+            "disciplineStatus": "Discipline Status",
+            "disciplineStatus_hidden": "Hidden",
+            "disciplineStatus_visible": "Visible",
+            "moduleLevel": "Module Level",
+            "createdAt": "Created at",
+            "answeredAt": "Answered at",
+            "createdBy": "Challenger name",
+            "opponent": "Opponent name",
+            "winner": "Winner",
+            "winnerScore": "Winner Score",
+            "userLogin": "Challenger Login",
+            "opponentLogin": "Opponent Login",
+            "looserScore": "Loser Score"
+        },
+        "moduleStart": {
+            "brand": "Brand",
+            "discipline": "Discipline Name",
+            "module": "Module Level",
+            "author": "Author",
+            "count": "Count",
+            "userCount": "Number of users"
+        }
+    },
+    "dashboard": {
+      "serenetics-error": "Error Occured while retrieving the url of the new dashboard.",
+      "behavioral": {
+        "upgrade": {
+          "title": "This dashboard is only available in enterprise rate plan.",
+          "subtitle": "Please contact Coorpacademy to upgrade your account and get access to the behavioral insights of your platform"
+        }
+      }
+    },
+    "custom": {
+        "7steps": {
+            "export": {
+                "global": {
+                    "organization_role": "Job",
+                    "organization_title": "Type of store",
+                    "organization_ambassador": "L'Oréal employee ?",
+                    "organization_branch": "L'Oréal Division",
+                    "entity": "L'Oréal Brands",
+                    "organization_grade": "Use of Image rights",
+                    "organization_boutiqueReferent": "Retailer/Chain",
+                    "organization_boutique": "Store name/code"
+                }
+            }
+        },
+        "achat-habitat": {
+            "export": {
+                "global": {
+                    "organization_ambassador": "Newsletter"
+                }
+            }
+        },
+        "adidas-fr": {
+            "export": {
+                "global": {
+                    "organization_businessunit": "Department",
+                    "organization_grade": "Age",
+                    "organization_boutique": "Workplace",
+                    "organization_branch": "Gender"
+                }
+            }
+        },
+        "capgemini": {
+            "export": {
+                "global": {
+                    "organization_grade": "GGID"
+                }
+            }
+        },
+        "chanel": {
+            "export": {
+                "global": {
+                    "boutique": "Boutique",
+                    "organization_workingCountry": "Country",
+                    "region": "Region",
+                    "role": "Role",
+                    "startContract": "Start of Contract"
+                }
+            }
+        },
+        "cofpart-learning": {
+            "export": {
+                "global":{
+                    "brandName": "Direction",
+                    "entity": "Job",
+                    "organization_branch": "Manager"
+                }
+            }
+        },
+        "corporateonlineopencourse": {
+            "export": {
+                "global": {
+                    "region": "Region",
+                    "organization_workingCountry": "Country",
+                    "role": "Function"
+                }
+            }
+        },
+        "edenred-talents": {
+            "export": {
+                "global": {
+                    "organization_company": "Direction",
+                    "entity": "Sous-direction",
+                    "organization_branch": "Service - Secteur",
+                    "organization_boutiqueReferent": "Responsable",
+                    "organization_role": "Fonction",
+                    "organization_grade": "Statut"
+                }
+            }
+        },
+        "gdf": {
+            "export": {
+                "global": {
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - Level",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - Count",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - Last Update"
+                }
+            }
+        },
+        "gdfec": {
+            "export": {
+                "global": {
+                    "organization_zipcode": "GAIA",
+                    "organization_businessunit": "Team",
+                    "organization_boutique": "Manager's name",
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - Level",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - Count",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - Last Update"
+                }
+            }
+        },
+        "ilearn": {
+            "export": {
+                "global": {
+                    "boutique": "Shop",
+                    "organization_workingCountry": "Country",
+                    "region": "Region",
+                    "role": "Role",
+                    "startContract": "Contract Start"
+                }
+            }
+        },
+        "life-auchan": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Activity Level",
+                    "organization_region": "Life Balance",
+                    "organization_workingCountry": "Country"
+                }
+            }
+        },
+        "metro":{
+            "export": {
+                "global": {
+                    "organization_boutique": "City",
+                    "organization_branch": "ID",
+                    "organization_businessunit": "Role"
+                }
+            }
+        },
+        "monoprix": {
+            "export": {
+                "global": {
+                    "organization_branch": "Direction"
+                }
+            }
+        },
+        "nespresso": {
+            "export": {
+                "global": {
+                    "organization_branch": "Department",
+                    "organization_businessunit": "Position"
+                }
+            }
+        },
+        "pru": {
+            "export": {
+                "global": {
+                    "providerCompany": "Company",
+                    "providerCountry": "Country",
+                    "providerDepartment": "Department"
+                }
+            }
+        },
+        "redoute": {
+            "boutique": "Boutique"
+        },
+        "securite": {
+            "export": {
+                "global": {
+                    "organization_grade": "ID"
+                }
+            }
+        },
+        "up": {
+            "export": {
+                "battles": {
+                    "disciplineName": "Course Name",
+                    "moduleLevel": "Level"
+                }
+            }
+        },
+        "tagheuer": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Point of sales code"
+                }
+            }
+        },
+        "thelem": {
+            "export": {
+                "global": {
+                    "organization_role": "Employment",
+                    "language": "Language",
+                    "organization_boutique": "Location",
+                    "organization_title": "Title service",
+                    "organization_boutiqueReferent": "Registration number",
+                    "startContract": "Date hired company",
+                    "organization_contractType": "Type of Contract",
+                    "organization_grade": "Qualification"
+                }
+            }
+        },
+        "yahoo": {
+            "export": {
+                "global": {
+                    "organization_title": "Job",
+                    "organization_workingCountry": "Country",
+                    "region": "Language"
+
+                }
+            }
+        },
+        "who": {
+            "export": {
+                "global": {
+                    "organization_workingCountry": "Country/State",
+                    "region": "States/Territories",
+                    "provider": "Affiliation",
+                    "organization_role": "Background/Experience",
+                    "organization_grade": "Access Code",
+                    "organization_boutiqueReferent": "Level of Education"
+                }
+            }
+        }
+    }
+}

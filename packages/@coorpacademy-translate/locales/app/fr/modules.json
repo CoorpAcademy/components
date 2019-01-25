@@ -1,0 +1,153 @@
+{
+    "loose": {
+        "title": "Accueil",
+        "end_try": "Vous n'avez plus d'essai possible !",
+        "echec_title": "Oups ...",
+        "new_badges": "{{number}} nouveau badge gagné",
+        "new_badges_plural": "{{number}} nouveaux badges gagnés",
+        "footer": {
+            "joker": {
+                "video": {
+                    "pre": "Regardez la vidéo ",
+                    "text": "du cours pour",
+                    "win": "gagner 1",
+                    "heart": "coeur",
+                    "post": "  et continuer ce niveau"
+                },
+                "pdf": {
+                    "pre": "Lisez ce cours",
+                    "win": "pour gagner 1",
+                    "heart": "coeur",
+                    "post": "  et continuer ce niveau"
+                },
+                "without": "Vous avez utilisé votre joker."
+            },
+            "new_try": {
+                "title_pre": "Recommencez ce niveau.",
+                "title": "Vous êtes motivé,",
+                "title_post": "ça se voit !",
+                "button": "Recommencez ce niveau"
+            },
+            "new_module": {
+                "title_pre": "Accédez à un autre niveau",
+                "title": "Vous allez vous rattraper !",
+                "button": "Changer de cours"
+            }
+        },
+        "type_badges": {
+            "init": "init",
+            "bronze": "Bronze",
+            "argent": "Argent",
+            "or": "Or",
+            "platine": "Platine"
+        }
+    },
+    "question_title": "Question : {{question}}",
+    "progression": "Question {{nb}} / {{ref}}",
+    "success": {
+        "home": "Accueil",
+        "title": "Félicitations !",
+        "subtitle": "Vous avez réussi ce niveau",
+        "body": {
+            "new_star": "Étoiles {{newStars}}",
+            "new_score": "Votre nouveau score {{newScore}}"
+        },
+        "new_badges": "{{new}} nouveau badge gagné",
+        "new_badges_plural": "{{new}} nouveaux badges gagnés",
+        "reported": "Ce module vous a rapporté :",
+        "win": "Vous avez :",
+        "footer": {
+            "title": "Vous êtes bien parti ! Continuez !",
+            "new_module": "Accéder à ce niveau",
+            "duration_unit": "min",
+            "battle": "Lancez une battle"
+        },
+        "type_badges": {
+            "init": "init",
+            "bronze": "Bronze",
+            "argent": "Argent",
+            "or": "Or",
+            "platine": "Platine"
+        },
+        "yourRanking": "Votre classement :",
+        "rankWin": "(+ {{count}} classement)",
+        "rankWin_plural": "(+ {{count}} places)"
+    },
+    "duration": "{{nb}}",
+    "duration_post": "min",
+    "duration_post_plural": "mins",
+    "assistance": "Signaler une erreur",
+    "buy_next": "Achetez le cours suivant",
+    "moduleNotFound": "Ancun niveau trouvé avec la référence {{moduleRef}} pour le cours {{disciplineName}}",
+    "custom": {
+        "armeedeterre": {
+            "success": {
+                "footer": {
+                    "battle": "Lancez une Bataille"
+                }
+            }
+        },
+        "7steps": {
+            "loose": {
+                "type_badges": {
+                    "platine": "Top"
+                }
+            },
+            "success": {
+                "type_badges": {
+                    "platine": "Top"
+                }
+            }
+        },
+        "fdj": {
+            "loose": {
+                "echec_title": "C'est fini !",
+                "end_try": "Vous êtes arrivés à la fin du quiz"
+            }
+        },
+        "letsgetdigital": {
+            "assistance": "Donner votre avis"
+        },
+        "up": {
+            "loose": {
+                "footer": {
+                    "joker": {
+                        "video": {
+                            "post": "  et continuer ce niveau"
+                        },
+                        "pdf": {
+                            "post": "  et continuer ce niveau"
+                        }
+                    },
+                    "new_try": {
+                        "title_pre": "Recommencez ce niveau.",
+                        "button": "Recommencez ce niveau"
+                    },
+                    "new_module": {
+                        "title_pre": "Accéder à un autre niveau.",
+                        "button": "Changer de cours"
+                    }
+                }
+            },
+            "success": {
+                "subtitle": "Vous avez réussi ce niveau",
+                "reported": "Vous avez réussi ce niveau",
+                "footer": {
+                    "new_module": "Accéder à ce niveau"
+                }
+            },
+            "memo": {
+                "module_title": "Discipline : {{disciplineName}} - {{moduleName}}",
+                "from": "de la discipline {{disciplineName}} - {{name}}"
+            },
+            "buy_next": "Acheter le prochain cours"
+        },
+        "who": {
+            "success": {
+                "footer": {
+                    "battle": "Commencer le défi"
+                }
+            }
+        }
+    }
+}

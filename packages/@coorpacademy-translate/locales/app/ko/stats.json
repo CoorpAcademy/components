@@ -1,0 +1,189 @@
+{
+    "not_a_number": "<not available>",
+    "target": "목표:",
+    "export": {
+        "csv": "CSV",
+        "pdf": "PDF",
+        "excel": "Excel"
+    },
+    "info": {
+        "launch_date": "출시 날짜",
+        "targeted_users": "대상"
+    },
+    "navigation": {
+        "every": "모든",
+        "every-except-coorp": "Coorpacademy를 제외 하 고 모든",
+        "engagement": "참여",
+        "dashboard": "전체보기",
+        "users": "사용자별",
+        "content": "콘텐츠",
+        "battles": "전투별",
+        "exports": "업로드",
+        "behavioral": "동작"
+    },
+    "since": {
+        "last_week": "지난 7일",
+        "last_month": "지난 30일",
+        "beginning": "시작"
+    },
+    "users": {
+        "roles": {
+            "header": "역할",
+            "button": "저장",
+            "saved": "{{displayName}}에 대한 역할들 성공적으로 업데이트 되었음.",
+            "cms": "Cms",
+            "moderator": "포럼 운영자",
+            "rh": "Rh",
+            "godmode": "갓 모드",
+            "supercoach": "슈퍼코치"
+        },
+        "tab": {
+            "ranking": "사용자 순위",
+            "activity": "활동"
+        },
+        "back": "검색으로 돌아가기",
+        "entity": "회사",
+        "title": "역할",
+        "cnx": {
+            "first": "첫 연결 날짜",
+            "last": "마지막 연결 날짜"
+        },
+        "general": {
+            "header": "일반 활동",
+            "total_cnx": "연결 총 수",
+            "total_validated_disciplines": "총 마친 분야",
+            "total_validated_modules": "총 마친 모듈",
+            "modules_validated_per_total": "# 마친 모듈 / # 총 모듈",
+            "ranking": "순위",
+            "never": "절대"
+        },
+        "sociability": {
+            "header": "사교성",
+            "posts": {
+                "count": "게시물 {{nb}} 개",
+                "count_plural": "게시물 {{nb}} 개",
+                "answers": "다른 사용자에 대한 답변 포함 {{nb}}",
+                "answers_plural": "다른 사용자에 대한 답변 포함 {{nb}}"
+            },
+            "battles": {
+                "count": "{{nb}} 배틀",
+                "count_plural": "{{nb}} 배틀",
+                "won": "승리한 {{nb}} 배틀 포함",
+                "won_plural": "승리한 {{nb}} 배틀 포함"
+            },
+            "coach": {
+                "disciplines": "{{nb}} 강의에 코치",
+                "disciplines_plural": "{{nb}} 강의에 코치",
+                "interactions": "코치와 대화 {{nb}} 번!",
+                "interactions_plural": "코치와 대화 {{nb}} 번"
+            },
+            "completion": {
+                "total_label": "총 완료:",
+                "total": "{{ratio}}%",
+                "modules_tried_label": "시도한 모듈:",
+                "modules_tried": "{{totalTriedModules}} / {{nbModules}}",
+                "average_completion_label": "완료/시도:",
+                "average_completion": " {{ratio}}%"
+            }
+        },
+        "progression": {
+            "filter": "필터 분야",
+            "filterPlaceholder": "키워드 필터 분야를",
+            "th": {
+                "discipline": "분야",
+                "hidden": "숨겨진",
+                "level": "레벨",
+                "module_progression": "성공% ",
+                "status": "상태",
+                "score": "점수"
+            }
+        },
+        "time": {
+            "header": "연결 기간",
+            "totalTime": "축적 된 기간",
+            "validatedTime": "유효 기간"
+        },
+        "license": {
+            "label": "라이센스",
+            "button": "정지 시키기",
+            "active": "활성",
+            "inactive": "비활성"
+        },
+        "deactivate": {
+            "confirm": "계정 정지 하려면 \"예\"를 입력 해 주시기 바랍니다",
+            "confirm_word": "예",
+            "account_deactivated": "계정이 비활성화 되었습니다."
+        },
+        "connectAs": "으로 연결",
+        "bonusStars": {
+            "buttonPositive": "추가",
+            "buttonNegative": "제거",
+            "required": "추가 별 입력",
+            "notANumber": "별은 정수 여야 합니다.",
+            "confirm": "별을 추가 또는 빼기위해 \"bonus\"를 입력해 주시기 바랍니다",
+            "confirm_word": "보너스",
+            "starsAdded": "당신은 사용자 {{displayName}}를 별 {{count}}개 추가 했습니다.",
+            "starsAdded_plural": "당신은 사용자 {{displayName}}를 별 {{count}}개 추가 했습니다.",
+            "starsRemoved": "당신은 사용자 {{displayName}}를 별 {{count}}개 뺐습니다.",
+            "starsRemoved_plural": "당신은 사용자 {{displayName}}를 별 {{count}}개 뺐습니다."
+        }
+    },
+    "exports": {
+        "export": "가져오기",
+        "querySent": "보고서가 준비 중 있니다. 이메일로 곧 받을 것 입니다.",
+        "global": {
+            "title": "맞춤형 사용자 목록 다운로드",
+            "introduction": "이 기능을 사용하면 플랫폼의 사용자에 대한 모든 데이터를 가져가실 수 있습니다."
+        },
+        "battles": {
+            "title": "맞춤형 배틀 목록 다운로드",
+            "introduction": "이 기능을 사용하면 플랫폼의 사용자에 대한 모든 데이터를 가져가실 수 있습니다."
+        },
+        "history": {
+            "title": "목록 다운로드 기록",
+            "introduction": "이 기능을 사용하면 일일 데이터를 검색할 수 있습니다.",
+            "users": "사용자",
+            "battle": "배틀",
+            "analytics": "진행",
+            "filter_by": "필터"
+        }
+    },
+    "custom": {
+        "up": {
+            "navigation": {
+                "modules": "레벨별"
+            },
+            "modules": {
+                "header": {
+                    "discipline": "과목"
+                },
+                "module": {
+                    "media_views": {
+                        "title": "레벨별 레슨 미디어 시청률"
+                    }
+                }
+            },
+            "users": {
+                "general": {
+                    "total_validated_disciplines": "총 마친 과목",
+                    "total_validated_modules": "총 마친 레벨",
+                    "modules_validated_per_total": "# 마친 레벨 / # 총 레벨"
+                },
+                "sociability": {
+                    "coach": {
+                        "disciplines": "{{nb}} 과목에 코치",
+                        "disciplines_plural": "{{nb}} 과목에 코치"
+                    },
+                    "completion": {
+                        "modules_tried_label": "시도한 레벨"
+                    }
+                },
+                "progression": {
+                    "th": {
+                        "discipline": "과목"
+                    }
+                }
+            }
+        }
+    }
+}

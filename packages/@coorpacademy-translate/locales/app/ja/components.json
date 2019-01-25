@@ -1,0 +1,203 @@
+{
+    "video_player": {
+        "jw": "ビデオプレーヤーをロード中です...",
+        "fileCouldNotBePlayedTitle": "ビデオ エラーを再生",
+        "flashInstallUrl": "https://get.adobe.com/en/flashplayer/",
+        "MEDIA_ERR_UNKNOWN": {
+            "title": "不明なエラーが発生しました",
+            "description": "ビデオの再生エラーが検出されました。我々 はこのエラーの通知されているし、我々 はさらに調査されます。"
+        },
+        "MEDIA_ERR_ABORTED": {
+            "title": "メディア リソースの取得プロセスが中止されました。",
+            "description": "インターネット接続を確認してビデオを再読み込みを行ってください。"
+        },
+        "MEDIA_ERR_NETWORK": {
+            "title": "ネットワーク エラーは、メディア リソースの取得を停止するユーザー エージェントを起こしています。",
+            "description": "インターネット接続を確認してビデオを再読み込みを行ってください。"
+        },
+        "MEDIA_ERR_DECODE": {
+            "title": "メディア リソースのデコードでは、エラーが発生しました。",
+            "description": "このビデオは、このブラウザーではサポートされていません。あなたのブラウザーまたはオペレーティング システム内の問題です。"
+        },
+        "MEDIA_ERR_SRC_NOT_SUPPORTED": {
+            "title": "メディアのソースは使用できません。",
+            "description": "このビデオは使用できないまたはこのブラウザーでサポートされていない、してください別のブラウザーで試してみてくださいまたはフォールバックとして Flash Player をインストール、このページをリロードします。"
+        }
+    },
+    "account_menu": {
+        "badge": "バッジ",
+        "account": "マイアカウント ",
+        "objectif": "認定書",
+        "activity": "アクティビティ",
+        "competence_win": "取得されたスキル",
+        "timeline": "時間が経つにつれての進歩",
+        "discussion": "ディスカッション",
+        "conseil": "アドバイスとヒント",
+        "coach": "コーチ",
+        "battle": "バトルモード",
+        "modification": "マイ情報を変更する"
+    },
+    "chat_room": {
+        "button_wrapper": "送信",
+        "placeholder": "あなたのメッセージ",
+        "connexion": "{{displayName}} > がこの会話に参加しました",
+        "deconnexion": "{{displayName}}がこの会話から抜けました"
+    },
+    "badgesLabel": {
+        "battle": {
+            "detail": "{{detail}}つのバトルを完了",
+            "detail_plural": "{{detail}}個のバトルを完了"
+        },
+        "module": {
+            "detail": "1 問も間違えることなく{{detail}}つのコースをクリア",
+            "detail_plural": "1問も間違えることなく{{detail}}個のコースをクリア"
+        },
+        "lesson": {
+            "detail": "{{detail}}レッスン資料を閲覧し、学びました。",
+            "detail_plural": "{{detail}}レッスン資料を閲覧し、学びました。"
+        },
+        "question": {
+            "detail": "{{detail}}問、質問に回答しました。",
+            "detail_plural": "{{detail}}問、質問に回答しました 。"
+        },
+        "coach": {
+            "detail": "{{detail}}回のコーチとのコミュニケーション ",
+            "detail_plural": "{{detail}}回のコーチとのコミュニケーション "
+        }
+    },
+    "notificationMenu": {
+        "god_mode": "ゴッドモードを有効にする",
+        "notification": "ザ・グレンリベット アカデミーに関するリマインダーを PCのデスクトップで通知しません。 ",
+        "title": "通知 ({{nb}})",
+        "forum": "ユーザーが{{name}} モジュール {{level}} レベルについてあなたのコメントに返答しました",
+        "badge_title": "おめでとうございます!",
+        "badge": "{{name}} バッジ {{level}} を獲得しました",
+        "module_title": "おめでとうございます！",
+        "module": "あなたは{{name}}モジュールレベル{{level}}を完了しました！",
+        "battle": {
+            "new": "{{name}}が{{module}}モジュールの{{level}} \nレベルであなたに挑戦したいです！",
+            "accepted": "バトルへの挑戦が受け付けられました",
+            "win": "あなたは{{module}}モジュールのレベル{{level}}での{{looser}}に対するバトルに勝利しました!",
+            "loose": "あなたは{{module}}モジュールのレベル{{level}}での{{winner}}に対するバトルに敗れました…"
+        },
+        "link": "全て見る",
+        "challenge_reminder": "{{name}}が{{module}}モジュールのレベル{{level}}であなたに挑戦して、応答を待っていることをお忘れなく!",
+        "coach": "ブラボー!　あなたは{{name}}の分野のコーチになりました!",
+        "start_aim": "あなたは{{name}}証明書を選択しました。開始しましょう!",
+        "goal_as_reward": "あなたは{{name}}の証明書をアンロックしました。始めましょう!",
+        "half_achieved": "おめでとうございます!  {{name}} の証明まであと半分のところまで辿り着きました! 努力を続けましょう。",
+        "three_third_achieved": "おめでとうございます! あなたは{{name}}の認定を受けました! この成功をあなたの専門家仲間の人脈にも知ってもらいましょう。",
+        "continue_goals": "おめでとうございます!  {{name}} の証明に到達しました! 次にとりかかりましょう!",
+        "continue": "ここまでうまくやってきたのに、どうして今やめるんですか? {{name}}検定を続けましょう!",
+        "mandatory": " {{name}} を獲得するためには、 {{levels}} モジュールを終了する必要があります!",
+        "mandatory_plural": "{{name}}を獲得するためには、{{levels}} モジュールを完了する必要があります!",
+        "mandatory_achieved": "おめでとうございます!　あなたは{{name}}の証明書を達成しました!",
+        "toggleCoach": "コーチ可能",
+        "reward_title": "素晴らしい! 褒賞を獲得しました!",
+        "reward_description": {
+            "bonusStars": "あなたはボーナスで {{stars}}の新しいスターを持っています。 "
+        }
+    },
+    "custom": {
+        "armeedeterre": {
+            "account_menu": {
+                "battle": "戦闘モード"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "完成品 {{detail}} の戦い",
+                    "detail_plural": "完成品 {{detail}} の戦い"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "あなたの戦いを受け付けました",
+                    "win": "{{module}} モジュールの {{level}} レベルでの {{looser}} との戦いを獲得している!",
+                    "loose": "{{module}} モジュールの {{level}} レベルでの {{winner}} との戦いを失っている."
+                }
+            }
+        },
+        "gdf": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} テーマ完成品",
+                    "detail_plural": "{{detail}} テーマ完成品"
+                }
+            }
+        },
+        "gdfec": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} テーマ完成品",
+                    "detail_plural": "{{detail}} テーマ完成品"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "assistance": {
+                "title": "フィードバック"
+            }
+        },
+        "pernod": {
+            "notificationMenu": {
+                "start_aim": "{{name}} 目的を選択しました。開始しなさい!",
+                "goal_as_reward": "{{name}} 目的のブロックを解除しました。開始しなさい!",
+                "half_achieved": "よく出来ました！目的 {{name}} の 50% を実現しました!",
+                "three_third_achieved": "おめでとうございます!あなたは、{{name}} 目的を達成!",
+                "continue_goals": "おめでとうございます!あなたは目的 {{name}} を達成!別の開始!",
+                "continue": "なぜ停止は、とてもうまくやって?{{name}} 目的を続行!",
+                "mandatory": "あなたのトレーニングを完了する目的 {{name}} を達成しなければならない: 始めましょう!",
+                "mandatory_achieved": "おめでとうございます!あなたは目的 {{name}} を達成!"
+            }
+        },
+        "up": {
+            "badgesLabel": {
+                "module": {
+                    "detail": "{{detail}} レベル、生命を失うことがなく完了!",
+                    "detail_plural": "ライフを失うことがなく完成した {{detail}} レベル!"
+                }
+            },
+            "notificationMenu": {
+                "forum": "ユーザーがあなたのコメントに答えた {{name}} {{level}} コースのレベルについて",
+                "module": "{{level}} {{name}} コース レベルが経ちました!",
+                "battle": {
+                    "new": "{{name}} は、{{module}} {{level}} のコースのレベルに挑戦するみたいと思います!",
+                    "win": "{{module}} {{level}} コース レベル {{looser}} との戦いを獲得している!",
+                    "loose": "{{module}} {{level}} コース レベル {{winner}} との戦いを失った."
+                },
+                "challenge_reminder": "忘れてはいけない、{{name}} {{module}} {{level}} のコースのレベルに挑戦、あなたの応答をお待ちしております!",
+                "coach": "ブラボー!コース {{name}} のコーチをなっている!"
+            }
+        },
+        "who": {
+            "account_menu": {
+                "battle": "チャレンジ モード"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} チャレンジを完了",
+                    "detail_plural": "{{detail}} 課題が完了"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "あなたの挑戦を受け入れた",
+                    "win": "{{looser}} {{module}} モジュール レベル {{level}} に対してチャレンジを獲得している!",
+                    "loose": "{{winner}} と {{module}} {{level}} モジュール レベルでの挑戦を失っている."
+                },
+                "continue_goals": "おめでとうございます!{{name}} 認証を取得した!"
+            }
+        }
+    },
+    "assistance": {
+        "title": "ヘルプ",
+        "object": "題名",
+        "message": "メッセージ",
+        "send": "送信",
+        "thanks": "メッセージありがとうございます!",
+        "next": "次へ"
+    },
+    "cards": {
+        "allCategories": "すべてのカテゴリ"
+    }
+}

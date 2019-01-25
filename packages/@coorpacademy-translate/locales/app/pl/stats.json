@@ -1,0 +1,189 @@
+{
+    "not_a_number": "< niedostępne >",
+    "target": "Cel:",
+    "export": {
+        "csv": "CSV",
+        "pdf": "PDF",
+        "excel": "Program Excel"
+    },
+    "info": {
+        "launch_date": "Data rozpoczęcia",
+        "targeted_users": "Populacja docelowa"
+    },
+    "navigation": {
+        "every": "Wszystkie",
+        "every-except-coorp": "Wszystkie z wyjątkiem Coorpacademy",
+        "engagement": "zaangażowanie",
+        "dashboard": "widok ogólny",
+        "users": "według użytkowników",
+        "content": "zawartość",
+        "battles": "według bitew",
+        "exports": "eksport",
+        "behavioral": "zachowanie"
+    },
+    "since": {
+        "last_week": "7 ostatnich dni",
+        "last_month": "30 ostatnich dni",
+        "beginning": "uruchomienie"
+    },
+    "users": {
+        "roles": {
+            "header": "Role",
+            "button": "Zapisz",
+            "saved": "Pomyślnie aktualizowane role dla {{displayName}}.",
+            "cms": "CMS",
+            "moderator": "Forum Moderator",
+            "rh": "RH",
+            "godmode": "Tryb boski",
+            "supercoach": "Super trener"
+        },
+        "tab": {
+            "ranking": "Ranking użytkowników",
+            "activity": "Aktywność"
+        },
+        "back": "Powrót do wyszukiwania",
+        "entity": "Firma",
+        "title": "Funkcja",
+        "cnx": {
+            "first": "Data 1. połączenia",
+            "last": "Data ostatniego połączenia"
+        },
+        "general": {
+            "header": "Ogólna aktywność",
+            "total_cnx": "Całkowita liczba połączeń",
+            "total_validated_disciplines": "Całkowita liczba zdobytych dyscyplin",
+            "total_validated_modules": "Całkowita liczba ukończonych modułów",
+            "modules_validated_per_total": "Liczba ukończonych modułów / Całkowita liczba modułów",
+            "ranking": "Ranking",
+            "never": "Nigdy"
+        },
+        "sociability": {
+            "header": "Towarzyskość",
+            "posts": {
+                "count": "Post: {{nb}}",
+                "count_plural": "Posty: {{nb}}",
+                "answers": "Zawiera odpowiedzi ({{nb}}) udzielone innemu użytkownikowi",
+                "answers_plural": "Zawiera odpowiedzi ({{nb}}) udzielone innemu użytkownikowi"
+            },
+            "battles": {
+                "count": "Bitwa: {{nb}}",
+                "count_plural": "Bitwy: {{nb}}",
+                "won": "Zawiera wygraną bitwę: {{nb}}",
+                "won_plural": "Zawiera wygrane bitwy: {{nb}}"
+            },
+            "coach": {
+                "disciplines": "Trener dyscypliny: {{nb}}",
+                "disciplines_plural": "Trener dyscyplin: {{nb}}",
+                "interactions": "Interakcje z trenerami: {{nb}}",
+                "interactions_plural": "Interakcje z trenerami: {{nb}}"
+            },
+            "completion": {
+                "total_label": "Łącznie ukończone:",
+                "total": "{{ratio}}%",
+                "modules_tried_label": "Wypróbowane moduły:",
+                "modules_tried": "{{totalTriedModules}}/{{nbModules}}",
+                "average_completion_label": "Ukończenie/Próba:",
+                "average_completion": "{{ratio}}%"
+            }
+        },
+        "progression": {
+            "filter": "Filtruj według dyscypliny",
+            "filterPlaceholder": "Słowa kluczowe do filtrowania według dyscypliny",
+            "th": {
+                "discipline": "Dyscyplina",
+                "hidden": "Ukryte",
+                "level": "Poziom",
+                "module_progression": "% sukcesu",
+                "status": "Stan",
+                "score": "Wynik"
+            }
+        },
+        "time": {
+            "header": "czas trwania połączenia",
+            "totalTime": "Łączny czas trwania",
+            "validatedTime": "Długość zatwierdzonych"
+        },
+        "license": {
+            "label": "Licencja",
+            "button": "Dezaktywuj",
+            "active": "Aktywne",
+            "inactive": "Nieaktywne"
+        },
+        "deactivate": {
+            "confirm": "Wpisz „tak” w celu potwierdzenia dezaktywacji konta",
+            "confirm_word": "tak",
+            "account_deactivated": "Konto zostało zdezaktywowane"
+        },
+        "connectAs": "Połącz jako",
+        "bonusStars": {
+            "buttonPositive": "Dodaj",
+            "buttonNegative": "Usuń",
+            "required": "Wprowadź gwiazdki, które mają zostać dodane",
+            "notANumber": "Gwiazki muszą być wyrażone liczbą całkowitą",
+            "confirm": "Wpisz wartość „premia” w celu potwierdzenia operacji dodania lub odjęcia gwiazdek",
+            "confirm_word": "premia",
+            "starsAdded": "Dodano gwiazdki ({{count}}) dla użytkownika {{displayName}}",
+            "starsAdded_plural": "Dodano gwiazdki ({{count}}) dla użytkownika {{displayName}}",
+            "starsRemoved": "Usunięto gwiazdki ({{count}}) użytkownika {{displayName}}",
+            "starsRemoved_plural": "Usunięto gwiazdki ({{count}}) użytkownika {{displayName}}"
+        }
+    },
+    "exports": {
+        "export": "Eksport",
+        "querySent": "Twój raport jest przygotowywany. Wkrótce otrzymasz go w wiadomości e-mail.",
+        "global": {
+            "title": "Eksportowanie użytkowników na żądanie",
+            "introduction": "Ta funkcja pozwala na eksport wszystkich danych dotyczących użytkowników platformy."
+        },
+        "battles": {
+            "title": "Battle eksportowanie na żądanie",
+            "introduction": "Ta funkcja pozwala na eksport wszystkich danych o bitwach na platformie."
+        },
+        "history": {
+            "title": "Eksportuje historię",
+            "introduction": "Funkcja ta pozwala pobrać wszystkie dane dzienne",
+            "users": "Użytkownicy",
+            "battle": "Bitwa pod",
+            "analytics": "postęp",
+            "filter_by": "Filtruj według"
+        }
+    },
+    "custom": {
+        "up": {
+            "navigation": {
+                "modules": "przez poziom"
+            },
+            "modules": {
+                "header": {
+                    "discipline": "Kurs"
+                },
+                "module": {
+                    "media_views": {
+                        "title": "Lekcji głoska bezdźwięczna oglądanie wskaźnik według poziomu"
+                    }
+                }
+            },
+            "users": {
+                "general": {
+                    "total_validated_disciplines": "Całkowitej kursy osiągnięte",
+                    "total_validated_modules": "Całkowity poziom osiągnięty",
+                    "modules_validated_per_total": "Nr osiągnięte poziomy / nr łącznych poziomów"
+                },
+                "sociability": {
+                    "coach": {
+                        "disciplines": "Trener na kursy {{nb}}",
+                        "disciplines_plural": "Trener na kursy {{nb}}"
+                    },
+                    "completion": {
+                        "modules_tried_label": "poziomy wypróbowany:"
+                    }
+                },
+                "progression": {
+                    "th": {
+                        "discipline": "Kurs"
+                    }
+                }
+            }
+        }
+    }
+}

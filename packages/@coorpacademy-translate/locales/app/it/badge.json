@@ -1,0 +1,29 @@
+{
+    "level_0": "Dentro",
+    "level_1": "Bronzo",
+    "level_2": "Argento",
+    "level_3": "Oro",
+    "level_4": "Platino",
+    "custom": {
+        "7steps": {
+            "level_4": "In alto"
+        },
+        "renault": {
+            "my_badges_intro": "Mostra tutte le medaglie che hai guadagnato o che restano per voi di diventare il \"re\" dell'ultima Clio RS! ;-)"
+        },
+        "tagheuer": {
+            "level_0": "Init",
+            "level_1": "1° MARCIA",
+            "level_2": "3° MARCIA",
+            "level_3": "5° MARCIA",
+            "level_4": "7° MARCIA"
+        },
+        "tagheuercon": {
+            "level_0": "Init",
+            "level_1": "1° MARCIA",
+            "level_2": "3° MARCIA",
+            "level_3": "5° MARCIA",
+            "level_4": "7° MARCIA"
+        }
+    }
+}

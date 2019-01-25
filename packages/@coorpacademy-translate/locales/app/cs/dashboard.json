@@ -1,0 +1,1569 @@
+{
+    "hello": "Vítejte, {{displayname}}!",
+    "show_more": "Zobrazit vše",
+    "registered": {
+        "score": "Váš výsledek:",
+        "new_score": "Vaše nové skóre {{newscore}}",
+        "badge": {
+            "new": "1 odznak",
+            "new_post": "výhra",
+            "award_pre": "Bronz",
+            "award": "– 3 souboje",
+            "award_post": "hotovo",
+            "name": "Bronz"
+        },
+        "next_player": "Na řadě je oponent…",
+        "button_back": "Vrátit se"
+    },
+    "slides_battle": "{{count}} otázek",
+    "slides_battle_check": "Potvrdit",
+    "success_battle": {
+        "title": "Konec bitvy",
+        "result": {
+            "win": "Gratulujeme, vyhrál/a jste!",
+            "win_fast": "Blahopřejeme, vyhráli jste v nejkratším čase!",
+            "win_first": "Blahopřejeme!",
+            "win_second": "vyhráli jste",
+            "loose": "Au, prohráli jste!",
+            "loose_first": "Au",
+            "loose_second": "prohráli jste!",
+            "loose_against": "Ejhle, prohráli jste. {{name}} byl rychlejší!",
+            "winStars": "Touto bitvou jste získali {{count}} dalších hvězdiček!",
+            "winStars_plural": "Vyhráli jste v této bitvě další hvězdičky (celkem {{count}})!"
+        },
+        "badge_user": {
+            "text": "1 odznak",
+            "text_post": "získáno",
+            "award_pre": "Bronz",
+            "award": "– 3 souboje",
+            "award_post": "hotovo",
+            "name": "Bronz"
+        },
+        "badge_opponent": {
+            "text": "1 odznak",
+            "text_post": "výhra",
+            "award_pre": "Bronz",
+            "award": "- 3 bitvy",
+            "award_post": "hotovo",
+            "name": "Bronzová"
+        },
+        "footer": "Zpět"
+    },
+    "notificationCard": {
+        "request_title": "Požadavek: {{title}}",
+        "request": "{{level}} úroveň modulu {{module}}",
+        "aim": {
+            "text": "1 nová odpověď",
+            "text_post": "na vaši otázku",
+            "name": "Jméno Příjmení",
+            "link": "Viz"
+        },
+        "badge": {
+            "text": "Gratulujeme! Získali jste 1 nový odznak",
+            "text_post": "vyhráno",
+            "link": "Zobrazit"
+        },
+        "battle": {
+            "text": "Obdrželi jste 1 novou bitvu",
+            "text_post": "výzva",
+            "link": "Zobrazit",
+            "demand_accept": "Vaše bitevní výzva",
+            "demand_accept_post": "bylo přijato",
+            "win_against_title": "Vyhrál jste bitvu!",
+            "loose_against_title": "Prohráli jste bitvu!",
+            "against": "{{module}} modul, {{level}} úroveň",
+            "versus": "proti"
+        },
+        "forum_text": "1 nová odpověď na váš komentář o úroveň {{level}} modul {{module}}",
+        "forum_text_page": "1 novou odpověď na váš komentář na fórum",
+        "module": {
+            "text": {
+                "bravo": "Blahopřejeme!",
+                "pre": "Uspěli jste",
+                "detail": "modul",
+                "base": "Základní úroveň",
+                "advanced": "Pokročilá úroveň",
+                "coach": "Trenérská úroveň"
+            },
+            "link": "Viz"
+        },
+        "reward": {
+            "bonusStars": {
+                "title": "Gratulujeme! Vyhráli jste další hvězdičky!",
+                "goal": {
+                    "description": "Dosáhli jste cíle {{goal}}. Umožnilo vám to získat {{stars}} dalších hvězdiček."
+                },
+                "rh": {
+                    "description": "Získáváte {{stars}} další hvězdy jako odměnu."
+                }
+            },
+            "rewardStars": {
+                "title": "Blahopřejeme! Získali jste další hvězdičky!",
+                "goal": {
+                    "description": "Dosáhli jste cíle {{goal}}. Tím jste získali navíc {{stars}} dalších hvězdiček."
+                }
+            },
+            "resource": {
+                "title": "Gratulujeme! Máte přístup k novému prvku!",
+                "description": "Dosáhli jste {{goal}} cíle. Poskytuje vám to přístup k {{label}}."
+            },
+            "diploma": {
+                "title": "Diplom.",
+                "description": "Získali jste cíl {{goal}}. Obdrželi jste diplom. Blahopřejeme!"
+            }
+        },
+        "coach": {
+            "bravo": "Gratulujeme!",
+            "text": "Stali jste se školitelem v disciplíně {{disciplineName}}."
+        },
+        "title": {
+            "text": "{{title}} – žádost",
+            "Battle": "Bitva",
+            "Module": "Modul",
+            "Badge": "Odznak",
+            "Forum": "Diskuse",
+            "Coach": "Trenér",
+            "cmsNotification": "Informace",
+            "welcome": "Vítejte",
+            "resetModule": "Aktualizace obsahu!"
+        },
+        "type": {
+            "module": "Modul",
+            "badge": "Odznak",
+            "battle": "Bitva",
+            "forum": "Diskuze",
+            "Coach": "Trenér",
+            "objectif": "Osvědčení",
+            "cmsNotification": "Informace",
+            "reward": "Odměna",
+            "welcome": "Vítejte",
+            "resetModule": "Aktualizace obsahu!"
+        }
+    },
+    "achievement": {
+        "helper": "Přehled vašich úspěchů! Dokážete získat úroveň platinum pro každý z těchto odznaků?",
+        "titre": "Vaše odznaky"
+    },
+    "navigation": {
+        "text": "Ve svém navigačním menu můžete přistupovat ke všem funkcím ve své platformě",
+        "my_board": "Panel nástrojů",
+        "population": "Moje populace",
+        "learningTree": {
+            "helper": "Přístup ke všem disciplínám vaší cesty v 1 kliknutí",
+            "push": "Přístup ke všem vašim disciplinám",
+            "push_post": "jedním kliknutím"
+        },
+        "account_helper": "Prohlížejte svůj osobní prostor, najděte své výsledky, mějte kontrolu nad svým postupem, účastněte se diskuzí nebo jen sledujte lekce předtím, než začnete s moduly.",
+        "account": "Můj účet",
+        "language": "Jazyk",
+        "notification": "Oznámení",
+        "badge": "Mé odznaky",
+        "objectif": "Moje kvalifikace",
+        "activity": "Aktivita",
+        "discussion": "Diskuse",
+        "conseil": "Tipy a rady",
+        "coach": "Trenéři",
+        "lessons": "Knihovna",
+        "battle_helper": "Jakmile jste ukončili modul, vyzvěte na malou hru o 10 otázkách všechny ty, kteří jsou na stejné úrovni jako vy!",
+        "battle_pre": "Režim souboje",
+        "battle": "Vyzvěte své kolegy v režimu „Bitva“: odpovězte na otázky co nejrychleji!",
+        "battle_post": "Klikněte sem!",
+        "assistance": "Asistence",
+        "home": "Domů",
+        "certifications": "Mé certifikáty"
+    },
+    "personal_selection": {
+        "text_helper": "V závislosti na vaší cestě doporučujeme 3 moduly!",
+        "title": "Naše doporučení pro Vás",
+        "acces_module": "Začněte teď",
+        "payment_required": "Koupit nyní",
+        "popular_module_helper": "Potřebujete inspiraci? Výběrem nejoblíbenějších se můžete podívat, co dělají ostatní.",
+        "last_discussion": "Poslední diskuse",
+        "no_discussion": "Žádná diskuze",
+        "last_module": "Poslední hraný modul",
+        "no_module": "Nebyl přehrán žádný modul",
+        "level": {
+            "pre": "Úroveň",
+            "base": "Základní,",
+            "advanced": "Pokročilý,",
+            "coach": "Školitel,",
+            "post": "{{stars}}/{{maxstars}}"
+        },
+        "popular_module": "Nejhranější disciplíny",
+        "easiest_disciplines": "Nejjednodušší disciplíny",
+        "hardest_disciplines": "Nejtěžší discipliny",
+        "no_popular_module": "Nehrál se žádný modul",
+        "module_name": {
+            "pre": "úroveň",
+            "base": "Základní",
+            "advanced": "Pokročilé",
+            "coach": "Školitel"
+        }
+    },
+    "activity": {
+        "title": "Aktivita",
+        "progression_text_pre": "Jak se vám ve svých disciplínách daří?",
+        "progression_text": "Děláte pokrok vzhledem k svým předsevzetím?",
+        "progression_subtext": "Nyní je čas zkontrolovat...",
+        "discipline_title": "Disciplína",
+        "disciplines": {
+            "title": "Disciplína",
+            "score": "Skóre",
+            "actual_level": "Současná úroveň"
+        },
+        "module_title": "Moduly",
+        "avancement": "Pokrok",
+        "caption-started": "Započatý modul",
+        "caption-done": "Dokončený modul"
+    },
+    "myactivity": {
+        "title": "Činnost:",
+        "subtitle": "Jak pokračuje váš pokrok ve všech předmětech?",
+        "total": "Celkem:",
+        "engines": {
+            "learner": "Kurzy",
+            "microlearning": "5' Learning",
+            "battle": "Bitvy",
+            "certifications": "Certifikace",
+            "bonus": "Bonus"
+        },
+        "recommendation": {
+            "title": "Dobrý den, {{displayName}}, zvýšit své skóre!",
+            "subtitle": "Doporučujeme:"
+        },
+        "starsToolTip": {
+            "preMessage": "Tato funkce není momentálně na vaší platformě dostupná. Pokud ji chcete aktivovat, kontaktujte svého manažera nebo",
+            "linkMessage": "klikněte sem",
+            "endMessage": "a my zprávu předáme dál."
+        }
+    },
+    "goals": {
+        "title": "Postup směrem k certifikacím"
+    },
+    "badges": {
+        "title": "Všechny mé odznaky",
+        "subtitle": "Objevte všechny své odznaky",
+        "title-1-0": "Mé odznaky",
+        "subtitle-1-0": "Zobrazte všechny získané odznaky nebo odznaky, které potřebujete získat, abyste se stali digitálním „Králem“! ;-)",
+        "newBadgeWon": "Máte:",
+        "newBadgeWon_plural": "Máte:",
+        "seeYourBadges": "Podívejte se na své odznaky",
+        "battle": {
+            "name": "Válečník v bitvě",
+            "details": "{{count}} Bitva",
+            "details_plural": "Počet soubojů: {{count}}",
+            "details_post": "hotovo!",
+            "details_post_plural": "hotovo!"
+        },
+        "module": {
+            "name": "Modul o přežití",
+            "details": "{{count}} modul",
+            "details_plural": "Počet modulů: {{count}}",
+            "success": "dokončeno",
+            "success_plural": "dokončeno",
+            "details_pre_1": "bez ztráty",
+            "details_pre_2": "život!"
+        },
+        "lesson": {
+            "name": "První ve třídě",
+            "details": "{{count}} lekcí",
+            "details_plural": "{{count}} lekcí",
+            "details_post": "zcela zobrazeno!",
+            "details_post_plural": "celkově zobrazený!"
+        },
+        "question": {
+            "name": "Otázky pro šampióna",
+            "details": "{{count}} otázek",
+            "details_plural": "Počet otázek: {{count}}",
+            "details_post": "zodpovězeno!",
+            "details_post_plural": "zodpovězeno!"
+        },
+        "coach": {
+            "name": "První cena v kamarádství",
+            "details": "{{count}} interakce",
+            "details_plural": "{{count}} interakcí",
+            "details_pre_1": "s",
+            "details_pre_2": "trenéři!"
+        },
+        "level": {
+            "bronze": "Bronzová",
+            "silver": "Stříbro",
+            "gold": "Zlato",
+            "platinum": "Platina"
+        }
+    },
+    "battle": {
+        "title": "Bitvy",
+        "create": "Vytvořit bitvu",
+        "requests": {
+            "title": "Požadavky na bitvu",
+            "no_requests_found": "Zatím nemáte žádné bitvě žádost",
+            "sendBattle": "{{opponentName}} je náročné"
+        },
+        "history": {
+            "title": "Historie bitvy",
+            "message": {
+                "pending": "Tato bitva, čeká na schválení protivníka",
+                "win": "Vyhrál bitvu!",
+                "lost": "Prohrál jsi bitvu!",
+                "win_byTime": "Byls nejrychlejší!",
+                "lost_byTime": "Byla jsi příliš pomalá!"
+            },
+            "no_history_found": "Zatím nemáte žádné bitvy historie"
+        },
+        "start": {
+            "cta": "Začátek <span class=\"bold\"> bitvy</span>",
+            "new_cta": "Vytvořit nová <span class=\"bold\"> bitva</span>",
+            "cancel": "Ignorovat",
+            "body_pre": "Na rychlosti záleží:",
+            "bodyText": "V případě remízy, nejrychlejší vyhrává!",
+            "me": "Já",
+            "inProgress": "V průběhu"
+        },
+        "steps": {
+            "1": "1. Zvolte úroveň",
+            "2": "2. Vyberte soupeře",
+            "3": "3. začít bitvu"
+        },
+        "select_module": {
+            "title": "Zvolte úroveň:",
+            "placeholder": "Zadejte název modulu",
+            "no_module_available": "Boj lze vytvořit pouze v odemčené úrovně.",
+            "no_module_found": "Žádný modul Nalezeno"
+        },
+        "select_theme": {
+            "title": "Zvolte kolekci:"
+        },
+        "select_opponent": {
+            "title": "Vyberte váš soupeř",
+            "placeholder": "Zadejte název",
+            "no_opponent_found": "Žádný soupeř našel",
+            "random": "Náhodné soupeře"
+        },
+        "subtitle": "Vyzvěte své kolegy!",
+        "button": {
+            "create": "Vytvořit novou bitvu",
+            "cancel": "Zrušit"
+        },
+        "score": "10",
+        "no_battle_progress": "Nemáte žádné probíhající bitvy",
+        "block": {
+            "title": "Požadavky na bitvu"
+        },
+        "accept_button": "Přijmout",
+        "no_proposition": "Nemáte žádné žádosti o bitvy.",
+        "completed": {
+            "title": "dokončené bitvy",
+            "subtitle_pre": "Účastnil jste se",
+            "subtitle_pre_plural": "Zúčastnili jste se",
+            "subtitle": "{{count}} bitva, vítězná {{nb}}",
+            "subtitle_plural": "{{count}} bitev, počet vítězství {{nb}}"
+        },
+        "block_empty": "Nemáte žádné dokončené souboje.",
+        "create_title": "Vytvořit bitvu",
+        "active_title_intro": "Režim bitvy",
+        "active_title_active": "aktivováno",
+        "start_discipline": "Začít disciplínu",
+        "no_opponent": "Žádný soupeř dostupných pro tuto úroveň",
+        "coming_soon_random": "Spustit náhodnou bitvu"
+    },
+    "dashboard": {
+        "text": "Vesmírný závod! Můžete vyhrát tím, že správně odpovíte na otázky, sledováním lekcí nebo socializováním (prostřednictvím bitev a tréninku)!",
+        "title": "Vaše skóre",
+        "data": {
+            "intro": "Nacházíte se mezi nejlepšími",
+            "value": "15 %",
+            "wording": "nejlepší výsledky"
+        },
+        "data_dev_hidden": {
+            "question": {
+                "title": "Otázky:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "Jste součástí",
+                    "level": "{{level}}",
+                    "wording": "s nejvíce hvězdičkami"
+                }
+            },
+            "cours": {
+                "title": "Lekce:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "Jste součástí",
+                    "level": "{{level}}",
+                    "wording": "kteří si prohlíželi nejvíce lekcí."
+                }
+            },
+            "extra": {
+                "title": "Doplňky:",
+                "stat": {
+                    "intro": "Jste součástí",
+                    "level": "{{level}}",
+                    "wording": "s nejlepšími výsledky."
+                }
+            },
+            "total_title": "Dohromady:"
+        }
+    },
+    "lessons": {
+        "title": "Všechny lekce a videa",
+        "subtitle": "Chcete si před spuštěním kvízů opakovat nebo studovat? Tato stránka je pro vás. Zde jsou všechny lekce roztříděné podle tématu.",
+        "subtitle_up": "Chcete si před zahájením kvízu opakovat nebo studovat?",
+        "empty": "Žádný prostředek pro tento kurz."
+    },
+    "notifications": {
+        "title": "Oznámení",
+        "infos": "<b>{{count}}</b> oznámení!",
+        "infos_plural": "<b>{{count}}</b> oznámení!",
+        "filter": "Filtrovat podle...",
+        "close": "Zavřít",
+        "myNotifications": "Zobrazit mé oznámení",
+        "deleteAll": "Vymazat vše",
+        "filters": {
+            "module": "Filtrovat podle úrovně",
+            "badge": "Filtrovat podle odznaků",
+            "forum": "Filtrovat podle diskuze",
+            "battle": "Filtrovat podle bitvy",
+            "coach": "Filtrovat podle trenéra",
+            "objectif": "Filtrovat podle úkolu",
+            "reward": "Filtrovat podle odměnu",
+            "welcome": "Filtrovat podle uvítací zprávy",
+            "resetModule": "Filtrovat podle aktualizovaného obsahu"
+        }
+    },
+    "block_push": {
+        "tree": {
+            "title": "Procházet všechen obsah",
+            "content": "Začněte rychle kliknutím sem",
+            "link": "Klikněte zde"
+        },
+        "battle": {
+            "title": "Vyzvěte své kolegy!",
+            "content": "Spusťte „bitvu“. Posílení vašich dovedností nebylo nikdy tak zábavné!",
+            "link": "Klikněte sem"
+        }
+    },
+    "welcomePopin": {
+        "title": "Vítejte",
+        "text": "Pro požitek z MOOC navštivte stránku Začátečník",
+        "button": "Objevte"
+    },
+    "global_notification": {
+        "button": {
+            "show_more": "Více informací"
+        }
+    },
+    "filters": {
+        "all": "Vše",
+        "coorpers": "Coorpeři",
+        "courses": "Mé lekce"
+    },
+    "sections": {
+        "most-popular": "Nejpopulárnější",
+        "most-recent": "Nové verze",
+        "my-list": "Seznam uživatele {{name}}",
+        "news": "Novinky",
+        "recommended": "Doporučeno pro vás:",
+        "load_more": "Načíst další příspěvky",
+        "certification": "Certifikace: {{name}}",
+        "prefix_chapter": "5' Learning: {{title}}"
+    },
+    "continueLesson": "Pokračovat v mém kurzu",
+    "widgets": {
+        "read_more": "Více"
+    },
+    "discussion": {
+        "title": "Všechny komentáře ke kurzům",
+        "subtitle": "Podívejte se na všechny zprávy, které zanechala komunita o různých disciplínách"
+    },
+    "slider": {
+        "start": {
+            "surtitle": "Vítejte {{displayName}},",
+            "surtitle_anonymous": "Vítej",
+            "title": "Prozkoumejte nové kurzy",
+            "cta": "Viz katalog"
+        },
+        "resume": {
+            "surtitle_learner": "Vítejte zpět {{displayName}}, pokračovat:",
+            "surtitle_microlearning": "Vítejte zpět {{displayName}}, pokračovat:",
+            "surtitle_learner_anonymous": "Vítejte zpět, pokračovat:",
+            "surtitle_microlearning_anonymous": "Vítejte zpět, pokračovat:",
+            "title": "{{courseName}}",
+            "cta": "Pokračovat v učení"
+        },
+        "battle": {
+            "surtitle": "Vítejte zpět {{displayName}}, zkontrolujte požadavky na bitvu",
+            "title": "Máte {{count}} bitva žádost!",
+            "title_plural": "Máte {{count}} bitva požadavky!",
+            "cta": "Začít bojovat"
+        }
+    },
+    "custom": {
+        "7steps": {
+            "achievement": {
+                "helper": "Přehled vašeho úspěchu! Podaří se získat nejvyšší úroveň pro každou z těchto odznaky?"
+            },
+            "badges": {
+                "level": {
+                    "platinum": "Nahoru"
+                }
+            },
+            "block_push": {
+                "tree": {
+                    "content": "Začněte se studiem!"
+                }
+            }
+        },
+        "accueil": {
+            "filters": {
+                "coorpers": "mooc'ers"
+            },
+            "badges": {
+                "battle": {
+                    "name": "Challenger",
+                    "details_3": "40"
+                },
+                "module": {
+                    "name": "Superhrdina",
+                    "details_1": {
+                        "number": "2"
+                    },
+                    "details_2": {
+                        "number": "4"
+                    },
+                    "details_3": {
+                        "number": "6"
+                    }
+                },
+                "lesson": {
+                    "name": "Vstupné",
+                    "details_0": "5",
+                    "details_1": "15",
+                    "details_2": "30",
+                    "details_3": "60"
+                },
+                "question": {
+                    "name": "Otázka pro šampiona",
+                    "details_3": "360"
+                },
+                "coach": {
+                    "name": "Fellowship Award"
+                }
+            }
+        },
+        "architas-powercircle": {
+            "filters": {
+                "coorpers": "Investiční superhrdinové"
+            }
+        },
+        "armeedeterre": {
+            "slider": {
+                "battle": {
+                    "surtitle": "Vítejte zpět {{displayName}}, zkontrolujte požadavky na bitvu",
+                    "title": "Máte {{count}} bitva žádost!",
+                    "title_plural": "Máte {{count}} bitva požadavky!",
+                    "cta": "Začít bojovat"
+                }
+            },
+            "battle_start": {
+                "title": "Váš boj se chystá začít."
+            },
+            "select_module": {
+                "no_module_available": "Boj lze vytvořit pouze v dokončené úrovni."
+            },
+            "success_battle": {
+                "title": "Bitva nad!",
+                "badge_user": {
+                    "award": "-3 bitvy"
+                },
+                "badge_opponent": {
+                    "award": "-3 bitvy"
+                },
+                "winStars": "Vyhráli jste {{count}} další hvězda s této bitvy!",
+                "winStars_plural": "Vyhráli jste {{count}} další hvězdy v této bitvě!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "Bitva"
+                },
+                "battle": {
+                    "text": "Jste obdrželi 1 nová Bitva",
+                    "demand_accept": "Vaše bitva",
+                    "win_against_title": "Vyhrál bitvu!",
+                    "loose_against_title": "Prohrál jsi bitvu!"
+                },
+                "type": {
+                    "battle": "Bitva"
+                }
+            },
+            "navigation": {
+                "battle_pre": "Režim bitvy",
+                "battle": "Vyzvěte své kolegy v \"Bitvě\" režimu: odpovědět na otázky co nejrychleji!"
+            },
+            "filters": {
+                "battles": "MOJE BITVY"
+            },
+            "badges": {
+                "battle": {
+                    "name": "BITVA O AZYL",
+                    "details": "{{count}} bitva",
+                    "details_plural": "{{count}} bitvy"
+                }
+            },
+            "battle": {
+                "title": "Režim bitvy",
+                "create": "Vytvořit bitvu",
+                "requests": {
+                    "title": "Požadavky na bitvu",
+                    "no_requests_found": "Zatím nemáte žádné bitvě žádost"
+                },
+                "history": {
+                    "title": "Historie bitvy",
+                    "message": {
+                        "pending": "Tato bitva, čeká na schválení protivníka",
+                        "win": "Vyhrál bitvu!",
+                        "lost": "Prohrál jsi bitvu!"
+                    },
+                    "no_history_found": "Zatím nemáte žádné bitvy historie"
+                },
+                "start": {
+                    "cta": "Začátek <span class=\"bold\"> bitvy</span>",
+                    "new_cta": "Vytvořit nová <span class=\"bold\"> bitva</span>"
+                },
+                "steps": {
+                    "3": "3. začít bitvu"
+                },
+                "select_module": {
+                    "no_module_available": "Boj lze vytvořit pouze v dokončené úrovni."
+                },
+                "button": {
+                    "create": "Vytvořit novou bitvu"
+                },
+                "no_battle_progress": "Nemáte žádné bitvy probíhající.",
+                "block": {
+                    "title": "Požadavky na bitvu"
+                },
+                "no_proposition": "Jste neobdrželi žádné požadavky bitva.",
+                "completed": {
+                    "title": "dokončené bitvy",
+                    "subtitle": "{{count}} bitva, vítězné {{nb}}",
+                    "subtitle_plural": "{{count}} bitvy, vítězné {{nb}}"
+                },
+                "block_empty": "Nemáte žádné dokončené bitvy.",
+                "create_title": "Vytvořit bitva",
+                "active_title_intro": "Režim bitvy",
+                "coming_soon_random": "Začít náhodné bitvy"
+            }
+        },
+        "bigdata": {
+            "navigation": {
+                "lessons": "Všechny kurzy"
+            },
+            "filters": {
+                "news": "Vaše školení",
+                "coorpers": "MOOCers"
+            }
+        },
+        "bnp": {
+            "filters": {
+                "coorpers": "Factiors"
+            }
+        },
+        "bnpp-legal": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Master"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Master"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Master,"
+                },
+                "module_name": {
+                    "coach": "Master"
+                }
+            },
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "casa": {
+            "filters": {
+                "news": "Vaše školení",
+                "coorpers": "MOOCers"
+            }
+        },
+        "challenge48htechno": {
+            "slider": {
+                "start": {
+                    "title": "Prozkoumejte nové quizz"
+                },
+                "resume": {
+                    "surtitle": "Vítejte zpět {{displayName}}, pokračovat ve své quizz"
+                }
+            }
+        },
+        "chanel": {
+            "block_push": {
+                "tree": {
+                    "title": "ZAČÁTEK",
+                    "content": "Objevte essentials CHANEL v katalogu.",
+                    "link": "Klepnutím sem"
+                },
+                "battle": {
+                    "title": "VYZVAT SPOLEČENSTVÍ",
+                    "content": "Vyzvěte své kolegy v \"Battle mode\". Odpovězte na otázky tak rychle, jak můžete!",
+                    "link": "Klepnutím sem"
+                }
+            },
+            "filters": {
+                "coorpers": "Moje komunita"
+            }
+        },
+        "crisis": {
+            "filters": {
+                "coorpers": "Pernod Ricard Společenství"
+            }
+        },
+        "dolce": {
+            "filters": {
+                "coorpers": "Společenství"
+            }
+        },
+        "edenred-talents": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Velvyslanec"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Velvyslanec"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Pane velvyslanče,"
+                },
+                "module_name": {
+                    "coach": "Velvyslanec"
+                }
+            }
+        },
+        "ey": {
+            "filters": {
+                "coorpers": "Digitální hrdinové"
+            }
+        },
+        "fff": {
+            "activity": {
+                "caption-started": "Disciplína začala, ale dosud není ukoncen",
+                "caption-done": "Disciplína ověřena"
+            }
+        },
+        "gdf": {
+            "badges": {
+                "transformer": {
+                    "name": "Transformátor",
+                    "details_0": {
+                        "number": "1",
+                        "details": "téma",
+                        "details_post": "dokončeno"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "témata",
+                        "details_post": "dokončeno"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "témata",
+                        "details_post": "dokončeno"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "témata",
+                        "details_post": "dokončeno"
+                    }
+                }
+            }
+        },
+        "gdfec": {
+            "badges": {
+                "transformer": {
+                    "name": "Transformátor",
+                    "details_0": {
+                        "number": "1",
+                        "details": "téma",
+                        "details_post": "dokončeno"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "témata",
+                        "details_post": "dokončeno"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "témata",
+                        "details_post": "dokončeno"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "témata",
+                        "details_post": "dokončeno"
+                    }
+                }
+            },
+            "filters": {
+                "coorpers": "Společenství"
+            }
+        },
+        "ilearn": {
+            "filters": {
+                "coorpers": "Moje komunita"
+            }
+        },
+        "learnnrj": {
+            "filters": {
+                "coorpers": "Společenství"
+            }
+        },
+        "letsgetdigital": {
+            "badges": {
+                "battle": {
+                    "name": "Challenger"
+                },
+                "module": {
+                    "name": "Hrdina"
+                }
+            }
+        },
+        "linxea": {
+            "filters": {
+                "coorpers": "MOOCers"
+            },
+            "navigation": {
+                "lessons": "Všechna videa"
+            }
+        },
+        "loreal-retail-v2": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filtrovat podle proč",
+                    "advanced": "Filtrovat podle empatie",
+                    "coach": "Filtrovat podle Show me"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Proč",
+                        "advanced": "Empatie",
+                        "coach": "Ukaž"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Proč",
+                    "advanced": "Empatie",
+                    "coach": "Ukaž"
+                },
+                "module_name": {
+                    "base": "Proč",
+                    "advanced": "Empatie",
+                    "coach": "Ukaž"
+                }
+            }
+        },
+        "martell": {
+            "badges": {
+                "subtitle-1-0": "Zobrazit všechny odznaky, které jste obdrželi nebo potřebujete získat stát se odborníkem na Martell"
+            },
+            "filters": {
+                "coorpers": "Martell přátel"
+            }
+        },
+        "michelin": {
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "mooc-socgen": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filtrovat podle úrovně 1",
+                    "advanced": "Filtrovat podle úrovně 2",
+                    "coach": "Filtrovat podle úrovně 3"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Úroveň 1",
+                        "advanced": "Úroveň 2",
+                        "coach": "Úroveň 3"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Úroveň 1,",
+                    "advanced": "Úroveň 2,",
+                    "coach": "Úroveň 3,"
+                },
+                "module_name": {
+                    "base": "Úroveň 1",
+                    "advanced": "Úroveň 2",
+                    "coach": "Úroveň 3"
+                }
+            }
+        },
+        "nespresso": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Expert"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Expert"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Odborník,"
+                },
+                "module_name": {
+                    "coach": "Expert"
+                }
+            },
+            "filters": {
+                "coorpers": "Společenství"
+            }
+        },
+        "online-academy-klubschule": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filtrovat podle začátečník",
+                    "advanced": "Filtrovat podle rozšířené",
+                    "coach": "Filtrovat podle Expert"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "úroveň začátečník",
+                        "advanced": "úroveň Advanced",
+                        "coach": "úroveň Expert"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Začátečník,",
+                    "advanced": "Upřesnit,",
+                    "coach": "Odborník,"
+                },
+                "module_name": {
+                    "base": "Začátečník",
+                    "advanced": "Pokročilé",
+                    "coach": "Expert"
+                }
+            }
+        },
+        "paca": {
+            "filters": {
+                "coorpers": "MOOC'ers"
+            },
+            "badges": {
+                "battle": {
+                    "name": "Challenger"
+                },
+                "module": {
+                    "name": "Superhrdina"
+                },
+                "lesson": {
+                    "name": "Vstupné"
+                },
+                "question": {
+                    "name": "Otázka pro šampiona"
+                },
+                "coach": {
+                    "name": "Fellowship Award"
+                }
+            }
+        },
+        "pernodci": {
+            "filters": {
+                "coorpers": "Pernod Ricard Společenství"
+            }
+        },
+        "pernod": {
+            "notificationCard": {
+                "type": {
+                    "objectif": "Cíl"
+                }
+            },
+            "goals": {
+                "title": "Pokrok směrem k dosažení vašich cílů"
+            },
+            "navigation": {
+                "objectif": "Moje cíle"
+            }
+        },
+        "petite": {
+            "filters": {
+                "coorpers": "Moje komunita"
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Modul 1,",
+                    "advanced": "Modul 2,",
+                    "coach": "Modul 3,"
+                },
+                "module_name": {
+                    "base": "Modul 1",
+                    "advanced": "Modul 2",
+                    "coach": "Modul 3"
+                }
+            }
+        },
+        "pru": {
+            "block_push": {
+                "tree": {
+                    "content": "Začněte se studiem!"
+                },
+                "battle": {
+                    "title": "Vzdorovat své vrstevníky a praxe!",
+                    "content": "Vyzvěte své kolegy v \"Bitvě\": Snažte se být rychlejší než oni!"
+                }
+            },
+            "badges": {
+                "subtitle-1-0": "Zobrazte všechny odznaky, které jste získali, nebo že stále musíte vydělat, aby se stal mistrem shodu!"
+            }
+        },
+        "quizz-auchan": {
+            "slider": {
+                "start": {
+                    "title": "Prozkoumejte Quizz Blue Life!"
+                }
+            }
+        },
+        "renault": {
+            "badges": {
+                "subtitle": "Zobrazte všechny odznaky, které jste získali nebo že je třeba vydělat, aby se stal \"králem\" poslední Clio RS! ;-)",
+                "lessons_seen": {
+                    "details_0": "2",
+                    "details_1": "4",
+                    "details_2": "8",
+                    "details_3": "10"
+                },
+                "answer": {
+                    "details_0": "20",
+                    "details_1": "36",
+                    "details_2": "72",
+                    "details_3": "120"
+                },
+                "perfect": {
+                    "details_2": {
+                        "number": "5"
+                    },
+                    "details_3": {
+                        "number": "8"
+                    }
+                }
+            }
+        },
+        "renaultrh": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filtrovat podle kroku 1",
+                    "advanced": "Filtrovat podle kroku 2",
+                    "coach": "Filtrovat podle kroku 3"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "úroveň 1 krok",
+                        "advanced": "úroveň krok 2",
+                        "coach": "úroveň 3 krok"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Krok 1,",
+                    "advanced": "Krok 2,",
+                    "coach": "Krok 3,"
+                },
+                "module_name": {
+                    "base": "Krok 1",
+                    "advanced": "Krok 2",
+                    "coach": "Krok 3"
+                }
+            }
+        },
+        "renaultcare": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filtrovat podle základy"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "úroveň základní informace"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Základy,"
+                },
+                "module_name": {
+                    "base": "Základy"
+                }
+            }
+        },
+        "rexel": {
+            "filters": {
+                "coorpers": "A tři vyměnitelné trysky komunita zákazníků"
+            }
+        },
+        "samsung": {
+            "block_push": {
+                "tree": {
+                    "content": "Začněte zde!"
+                },
+                "battle": {
+                    "content": "Vyzvěte své kolegy v \"Bitvě\" režimu: odpovědět na otázky co nejrychleji!"
+                }
+            }
+        },
+        "schneider": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filtrovat podle sezóna 1",
+                    "advanced": "Filtrovat podle sezóna 2",
+                    "coach": "Filtrovat podle Sezóna 3"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "úroveň 1 sezóna",
+                        "advanced": "úroveň 2 sezóny",
+                        "coach": "úroveň 3 sezóny"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Sezóna 1,",
+                    "advanced": "Sezóna 2,",
+                    "coach": "Sezóna 3,"
+                },
+                "module_name": {
+                    "base": "Sezóna 1",
+                    "advanced": "Sezóna 2",
+                    "coach": "Sezóna 3"
+                }
+            },
+            "filters": {
+                "all": "Všechny",
+                "battles": "Moje bitvy",
+                "coorpers": "IQ-ers",
+                "news": "Novinky",
+                "courses": "Moje lekce",
+                "continueLesson": "Obnovit můj kurz"
+            }
+        },
+        "securite": {
+            "navigation": {
+                "lessons": "Všechny kurzy"
+            },
+            "filters": {
+                "news": "Vaše tvorba",
+                "coorpers": "MOOCers"
+            }
+        },
+        "silca": {
+            "navigation": {
+                "lessons": "Všechny kurzy"
+            },
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "sgmgt": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "societegenerale": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "sqy": {
+            "navigation": {
+                "lessons": "Všechny kurzy"
+            },
+            "filters": {
+                "news": "Vaše tvorba",
+                "coorpers": "MOOCers"
+            }
+        },
+        "tourismdigital": {
+            "filters": {
+                "coorpers": "Členové"
+            }
+        },
+        "tagheuer": {
+            "badges": {
+                "level": {
+                    "bronze": "1ST GEAR",
+                    "silver": "3. STUPEŇ",
+                    "gold": "5. STUPEŇ",
+                    "platinum": "7. RYCHLOSTNÍ STUPEŇ"
+                }
+            },
+            "filters": {
+                "coorpers": "Komunita TAG Heuer"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "titanová úroveň",
+                        "advanced": "Bronzová úroveň",
+                        "coach": "úroveň Stříbro"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "Filtrovat podle titanových",
+                    "advanced": "Filtrovat podle bronzu",
+                    "coach": "Filtr podle stříbrných"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Titanium,",
+                    "advanced": "Bronz,",
+                    "coach": "Stříbro,"
+                },
+                "module_name": {
+                    "base": "Titan",
+                    "advanced": "Bronzová",
+                    "coach": "Stříbro"
+                }
+            }
+        },
+        "tagheuercon": {
+            "badges": {
+                "level": {
+                    "bronze": "1. PŘEVODOVÝ STUPEŇ",
+                    "silver": "3. STUPEŇ",
+                    "gold": "5TH GEAR",
+                    "platinum": "7TH GEAR"
+                }
+            },
+            "filters": {
+                "coorpers": "Komunita posluchačů"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "úroveň Titan",
+                        "advanced": "úroveň Bronz",
+                        "coach": "úroveň Silver"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "Filtrovat podle Titanium",
+                    "advanced": "Filtrovat podle bronzového",
+                    "coach": "Filtrovat podle stříbra"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Titan,",
+                    "advanced": "Bronz,",
+                    "coach": "Stříbro,"
+                },
+                "module_name": {
+                    "base": "Titanium",
+                    "advanced": "Bronz",
+                    "coach": "Stříbro"
+                }
+            }
+        },
+        "tourism": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "up": {
+            "personal_selection": {
+                "text_helper": "3 úrovně navrhl, v závislosti na vaší cestě!",
+                "popular_module_helper": "Potřebujete inspiraci? Podívejte se, co dělají ostatní výběrem nejoblíbenější.",
+                "last_module": "Poslední úrovně hraje",
+                "no_module": "Žádný modul se hraje",
+                "popular_module": "Nejvíce přehrávané kurzy",
+                "easiest_disciplines": "Nejjednodušší kurzy",
+                "hardest_disciplines": "Nejtěžší kurzy",
+                "no_popular_module": "Žádná úroveň se hraje"
+            },
+            "select_module": {
+                "title": "Zvolte úroveň",
+                "availability": "{{count}} úrovni k dispozici.",
+                "availability_plural": "{{count}} úrovni k dispozici.",
+                "no_module_available": "Na dokončené úrovni lze vytvořit pouze bitvu."
+            },
+            "notificationCard": {
+                "request": "úroveň kurzu {{úroveň}} {{modul}}",
+                "battle": {
+                    "against": "úroveň kurzu {{úroveň}} {{modul}}"
+                },
+                "forum_text": "1 nová odpověď na váš komentář týkající se úrovně kurzu {{úroveň}} {{modul}}",
+                "module": {
+                    "text": {
+                        "detail": "úroveň"
+                    }
+                },
+                "coach": {
+                    "text": "Jste se stal trenérem v kurzu {{disciplineName}}."
+                },
+                "title": {
+                    "Module": "Úroveň"
+                },
+                "type": {
+                    "module": "Úroveň"
+                }
+            },
+            "navigation": {
+                "learningTree": {
+                    "helper": "Přístup ke všem kurzům své stáže na 1 kliknutí",
+                    "push": "Přístup ke všem kurzům",
+                    "push_post": "na 1 kliknutí"
+                },
+                "account_helper": "Procházet váš osobní prostor, najít své výsledky, spravovat své pokroky, účast v diskusích nebo jednoduše postupujte podle poučení před zahájením kurzu.",
+                "battle_helper": "Jakmile jste dokončili kurz, napadat všechny ty, kteří jsou na stejné úrovni jako vy v malé hře 10otázka!"
+            },
+            "activity": {
+                "progression_text_pre": "Jak pokračuje váš pokrok ve vašem kurzu?",
+                "discipline_title": "Kurz",
+                "disciplines": {
+                    "title": "Kurz"
+                },
+                "module_title": "Úrovně",
+                "caption-started": "Začala úroveň",
+                "caption-done": "Dokončené úrovně"
+            },
+            "badges": {
+                "module": {
+                    "name": "Kdo přežije",
+                    "details_0": {
+                        "module": "Úroveň"
+                    },
+                    "details_1": {
+                        "module": "Úrovně"
+                    },
+                    "details_2": {
+                        "module": "Úrovně"
+                    },
+                    "details_3": {
+                        "module": "Úrovně"
+                    }
+                }
+            },
+            "battle": {
+                "start_discipline": "Zahájení kurzu",
+                "no_opponent": "Žádný soupeř dostupných pro tuto úroveň"
+            },
+            "notifications": {
+                "filters": {
+                    "module": "Filtrovat podle kurzu"
+                }
+            }
+        },
+        "yahoo": {
+            "badges": {
+                "subtitle-1-0": "Zobrazte průběh v získání různé odznaky."
+            },
+            "filters": {
+                "coorpers": "Společenství"
+            }
+        },
+        "capgemini": {
+            "navigation": {
+                "certifications": "Moje Digicertif'"
+            }
+        },
+        "cnp": {
+            "navigation": {
+                "certifications": "Certificate"
+            },
+            "sections": {
+                "certification": "Certifikát: {{name}}"
+            }
+        },
+        "ecolenumerique-sncf": {
+            "navigation": {
+                "certifications": "Jedi odznaky"
+            },
+            "sections": {
+                "certification": "Jedi Badge: {{name}}"
+            }
+        },
+        "ganprevoyance": {
+            "navigation": {
+                "certifications": "Vesmíry"
+            },
+            "sections": {
+                "certification": "Vesmír: {{name}}"
+            }
+        },
+        "who": {
+            "slider": {
+                "battle": {
+                    "surtitle": "Vítejte zpět {{displayName}}, zkontrolujte požadavky na výzvu",
+                    "title": "Máte {{count}} výzvu žádost!",
+                    "title_plural": "Máte {{count}} výzvu požadavky!",
+                    "cta": "Začít, náročné"
+                }
+            },
+            "discussion": {
+                "title": "Zpětná vazba na modul",
+                "subtitle": "Viz všechny zprávy zanechané Společenství na různé moduly"
+            },
+            "battle_start": {
+                "title": "Váš úkol se chystá začít."
+            },
+            "select_module": {
+                "no_module_available": "Výzvu můžete vytvořit pouze v modulu ukončení."
+            },
+            "success_battle": {
+                "title": "Výzvou nad!",
+                "badge_user": {
+                    "award": "-3 výzvy"
+                },
+                "badge_opponent": {
+                    "award": "-3 výzvy"
+                },
+                "winStars": "Vyhrál jsi {{count}} další hvězda s touto výzvou!",
+                "winStars_plural": "Vyhrál jsi {{count}} další hvězdy s touto výzvou!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "Výzva"
+                },
+                "coach": {
+                    "text": "Dokončili jste kurz {{disciplineName}}."
+                },
+                "battle": {
+                    "text": "Jste obdrželi 1 novou výzvu",
+                    "demand_accept": "Vaše výzva",
+                    "win_against_title": "Vyhrál jsi výzvu!",
+                    "loose_against_title": "Ztratili jste výzvu!"
+                },
+                "reward": {
+                    "resource": {
+                        "title": "Blahopřejeme! Můžete využít nový odznak!"
+                    }
+                },
+                "type": {
+                    "battle": "Výzva"
+                },
+                "forum_text_page": "1 novou odpověď na váš komentář"
+            },
+            "navigation": {
+                "battle_pre": "Režim výzva",
+                "battle": "Vyzvěte své kolegy v \"Výzva\" režimu: odpovědět na otázky co nejrychleji!"
+            },
+            "filters": {
+                "battles": "MOJE ÚKOLY",
+                "coorpers": "QR OBRÁNCI"
+            },
+            "badges": {
+                "battle": {
+                    "name": "VÝZVA HLEDAČ",
+                    "details": "{{count}} Výzva",
+                    "details_plural": "{{count}} Výzvy"
+                },
+                "module": {
+                    "name": "Hvězda"
+                },
+                "coach": {
+                    "name": "SPOJNICE"
+                },
+                "question": {
+                    "name": "QUIZ MASTER"
+                }
+            },
+            "battle": {
+                "title": "Režim výzva",
+                "create": "Vytvořit úkol",
+                "requests": {
+                    "title": "Požadavky na výzvu",
+                    "no_requests_found": "Zatím nemáte žádné výzvy žádost"
+                },
+                "history": {
+                    "title": "Historie Challenge",
+                    "message": {
+                        "pending": "Tato výzva čeká na schválení protivníka",
+                        "win": "Vyhrál jsi výzvu!",
+                        "lost": "Ztratili jste výzvu!"
+                    },
+                    "no_history_found": "Zatím nemáte žádné výzvy historie"
+                },
+                "start": {
+                    "cta": "Zahájení <span class=\"bold\"> výzvy</span>",
+                    "new_cta": "Vytvořit novou <span class=\"bold\"> výzvu</span>"
+                },
+                "steps": {
+                    "3": "3. Začněte výzvu"
+                },
+                "select_module": {
+                    "no_module_available": "Výzvu můžete vytvořit pouze v modulu ukončení."
+                },
+                "button": {
+                    "create": "Vytvořit novou výzvu"
+                },
+                "no_battle_progress": "Nemáte žádné problémy v průběhu.",
+                "block": {
+                    "title": "Požadavky na výzvu"
+                },
+                "no_proposition": "Jste neobdrželi žádné požadavky na výzvu.",
+                "completed": {
+                    "title": "dokončené úkoly",
+                    "subtitle": "{{count}} výzvu, vyhrál {{nb}}",
+                    "subtitle_plural": "{{count}} výzvy, vyhrál {{nb}}"
+                },
+                "block_empty": "Nemáte žádné dokončené úkoly.",
+                "create_title": "Vytvořit úkol",
+                "active_title_intro": "Challenge mód",
+                "coming_soon_random": "Spustit náhodnou výzvu"
+            },
+            "dashboard": {
+                "text": "Prostor závodu! Můžete vyhrát správně odpovědět na otázky, po poučení nebo chození do společnosti (přes výzvy a školení)!"
+            }
+        }
+    }
+}

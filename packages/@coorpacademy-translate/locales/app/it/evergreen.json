@@ -1,0 +1,25 @@
+{
+    "notCompatible": {
+        "os": "La versione del tuo sistema operativo è troppo obsoleta per accedere alla nostra piattaforma. Fai un aggiornamento.",
+        "explanation": "La vista di compatibilità del tuo browser potrebbe essere attiva. Per saperne di più su come disattivarla",
+        "explanationLink": "https://static.coorpacademy.com/content/help/compatibility_view/Help_Compatibility_view_FR.pdf",
+        "explanationLinkLabel": "fai clic qui.",
+        "header": "La versione del tuo browser è troppo obsoleta per accedere alla nostra piattaforma.",
+        "suggestion_text": "BrowseHappy",
+        "suggestion_href": "http://browsehappy.com",
+        "suggestion_text_pre": "Visita il sito",
+        "suggestion_text_post": "per saperne di più sui browser evergreen.",
+        "different_user_agent": "Due diversi agenti utente sono stati trovati, con conseguente accesso limitato alla piattaforma."
+    },
+    "custom": {
+        "fff": {
+            "notCompatible": {
+                "os": "La versione del tuo sistema operativo è troppo obsoleta per accedere alla nostra piattaforma. Fai un aggiornamento.",
+                "suggestion_text": "Bicromato di potassio",
+                "suggestion_href": "https://www.Google.com/Intl/fr/Chrome/browser/",
+                "suggestion_text_pre": "Scarica suggerito",
+                "suggestion_text_post": "."
+            }
+        }
+    }
+}

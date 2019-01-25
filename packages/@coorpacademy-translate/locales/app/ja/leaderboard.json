@@ -1,0 +1,31 @@
+{
+    "rankPos": "&nbsp;",
+    "rankPos_plural": "&nbsp;",
+    "title": "マイランキング ",
+    "title_caps": "マイランキング ",
+    "subtitle_head": "トップ20にランクインしているガーディアンと あなたのランキングをチェックしましょう!",
+    "subtitle_core_pre": "あなたはランク付けされました",
+    "subtitle_core_post": "全学習者中",
+    "subtitle_tail": "調子を保ってスコアをもっと改善しましょう。",
+    "subtitle_no_rank": "ランキングで上位へ登るには、より多くのモジュールを完了させてください。",
+    "custom": {
+        "bnp": {
+            "subtitle_head": "トップ 20 つ星 Factiors に関連してあなたの位置を表示します。"
+        },
+        "gdf": {
+            "subtitle_tail": "シーズン 1 の最後に、総合ランキングのトップ 20 の従業員の次の WeTransform シーズンの件名の内容を選択する編集委員会に招待されます。"
+        },
+        "gdfec": {
+            "subtitle_tail": "シーズン 1 の最後に、総合ランキングのトップ 20 の従業員の次の WeTransform シーズンの件名の内容を選択する編集委員会に招待されます。"
+        },
+        "up": {
+            "subtitle_no_rank": "ランキングで上に移動するより多くのレベルを完了します。"
+        },
+        "yahoo": {
+            "subtitle_tail": "&nbsp;"
+        },
+        "linxea": {
+            "subtitle_head": "トップ 20 の星所得に関連してあなたの位置を表示します。"
+        }
+    }
+}

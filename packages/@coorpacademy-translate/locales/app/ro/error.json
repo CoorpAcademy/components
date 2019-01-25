@@ -1,0 +1,63 @@
+{
+    "http": {
+        "401": "Acces neautorizat",
+        "403": "Acces interzis",
+        "404": "Pagina nu a fost găsită",
+        "412": "Precondiție eșuată",
+        "500": "Eroare internă server",
+        "503": "Serviciu Indisponibil",
+        "500_message_pre": "URL-ul",
+        "500_message": "a avut următoarea eroare",
+        "500_message_post": ".",
+        "503_message": "Serviciul nu este disponibil. Vă rugăm încercați din nou în scurt timp.",
+        "404_message_pre": "Adresa URL",
+        "404_message": "nu s-a rezumat la un traseu.",
+        "412_message": "Condiția specificată de unul sau mai multe antete If... în cerere au fost evaluate ca fals.",
+        "409_progressions_content_conflict": "Se pare că le-am răspuns deja la această întrebare în timpul sesiunii curente. Ai se deschide pe o altă filă altundeva, poate? <br/> Faceţi clic pe \"Reload pagină' mai jos pentru a reîmprospăta datele, ne vom încărca întrebare potrivit pentru tine."
+    },
+    "infos": "Info",
+    "auth": {
+        "header": "Hopa! {{status}}",
+        "reload": "Autentificare"
+    },
+    "modal": {
+        "header": "Eroare {{status}}",
+        "body": {
+            "title": "Ia notă de informațiile de mai jos și transmite-le departamentului de asistență tehnică.",
+            "paymentRequired": "Pentru a accesa acest modul, este necesar să îl achiziționezi mai întâi.",
+            "url": "Url: {{err}}",
+            "id": "Id: {{id}}",
+            "message": "{{message}}"
+        },
+        "footer": {
+            "paymentRequired": "Pagină Descriere",
+            "assistance": "Asistență",
+            "back_home": "Revenire Acasă",
+            "reload": "Reîncarcă pagina",
+            "continue": "Continuă"
+        },
+        "assistance": "Raportează o eroare"
+    },
+    "defaultMessage": "A apărut o eroare. Ne cerem scuze. Vă rugăm reîncercaţi mai târziu",
+    "achievementContext": "Se pare că acest modul a început deja. Vă rugăm să reîncărcați pagina pentru a continua modulul.",
+    "custom": {
+        "chanel": {
+            "http": {
+                "412_message": "Lipseşte adresa de e-mail. Vă rugăm să vă contactaţi administratorul sau să vă înregistraţi aici."
+            }
+        },
+        "ilearn": {
+            "http": {
+                "412_message": "Adresa de email lipsește. Te rugăm contactează administratorul sau înregistrează-te aici."
+            }
+        },
+        "up": {
+            "modal": {
+                "body": {
+                    "paymentRequired": "Pentru a accesa acest nivel trebuie ca mai întâi să-l cumperi."
+                }
+            },
+            "achievementContext": "Se pare că acest nivel a fost lansat deja. Reîncărcați pagina pentru a continua nivelul."
+        }
+    }
+}

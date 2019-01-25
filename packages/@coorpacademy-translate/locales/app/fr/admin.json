@@ -1,0 +1,147 @@
+{
+    "tabs": {
+        "import": "Import",
+        "achievement": "Réinitilisation",
+        "cms": "CMS",
+        "loginEvents": "Événements Post Login",
+        "replay": "Historique de contenu",
+        "partners": "Partenaires",
+        "buildReport": "Génération de rapports"
+    },
+    "import": {
+        "help": "Aide",
+        "help_content": "<h2>Pour importer une thématique</h2> <p>Vous devez fournir un .zip respectant les règles suivantes: <ul>\\n <li>Le nom de la discipline doit être unique</li>\\n <li>Toutes les disciplines doivent être à la racine du zip</li>\\n <li>Chaque répertoire de discipline doit contenir un seul fichier .json de la discipline à créer</li>\\n <li>Chaque répertoire de discipline doit contenir 3 répertoires des modules importés par ordre A-Z</li>\\n <li>Chaque répertoire de module doit contenir plusieurs répertoires de questions </li>\\n <li>Chaque répertoire de question doit contenir un seul fichier .json correspondant à la question à créer</li>\\n <li>NOUVEAU : un module ou un chapitre peut contenir un champs remove:true pour le supprimer</li>\\n <li>NOUVEAU : un module ou un chapitre peut changer de placer s'il possède un champs swap:INDEX ou INDEX est un numéro de la position à prendre (commence à 0)</li>\\n</ul> Pour importer un ensemble d'utilisateurs, vous devez fournir un .zip respectant les règles suivantes: <ul>\\n <li>Le login de chaque utilisateur doit être unique</li>\\n <li>Tous les utilisateurs doivent être à la racine du zip</li>\\n</ul> <a href=\\\"/assets/samples/import.zip\\\">Télécharger un zip d'exemple</p></a>;",
+        "disciplines": {
+            "title": "Disciplines",
+            "zero": "Il n'y a aucune discipline"
+        },
+        "send_job": "Envoyer le fichier via un job"
+    },
+    "delete": {
+        "disciplines": {
+            "404": "Aucune discipline trouvée",
+            "title": "Supprimer toutes les disciplines",
+            "button": "Supprimer",
+            "confirm": "Veuillez entrer \"{{word}}\" pour confirmer la suppression de toutes les disciplines",
+            "confirm_word": "disciplines",
+            "success": "Disciplines supprimées"
+        },
+        "users": {
+            "404": "Aucun utilisateur trouvé",
+            "title": "Supprimer tous les utilisateurs",
+            "help": "Supprimer les utilisateurs d'un provider (laisser vide pour tout supprimer)",
+            "button": "Supprimer",
+            "confirm": "Veuillez entrer \"{{word}}\" pour confirmer la suppression des utilisateurs",
+            "confirm_word": "utilisateurs",
+            "success": "{{count}} utilisateur supprimé",
+            "success_plural": "{{count}} utilisateurs supprimés",
+            "provider": "provider:"
+        },
+        "tuto": {
+            "404": "Aucun utilisateur trouvé",
+            "title": "Remettre à zero le tutorial",
+            "button": "Effacer",
+            "confirm": "Veuillez entrer \"{{word}}\" pour confirmer la suppression du tutoriel",
+            "confirm_word": "tutoriel",
+            "success": "Tutoriel remis à zéro"
+        },
+        "achievements": {
+            "404": "Aucune progression trouvée",
+            "title": "Effacer toute votre progression",
+            "button": "Effacer",
+            "confirm": "Veuillez entrer \"{{word}}\" pour confirmer la suppression de votre progression",
+            "confirm_word": "progression",
+            "success": "Progression supprimée"
+        }
+    },
+    "console": {
+        "status": "HTTP Statut :",
+        "exception": "Exception Id :",
+        "error": "Message d'erreur :"
+    },
+    "update": {
+        "goals": {
+            "title": "Mettre à jour les certifications",
+            "button": "Mettre à jour les certifications via un job",
+            "success": "Demande envoyée"
+        }
+    },
+    "create": "Ajouter",
+    "save": "Enregistrer",
+    "remove": "Supprimer",
+    "test": "Tester",
+    "edit": "Modifier",
+    "back": "Retourner",
+    "table": {
+        "button": {
+            "prev": "<<",
+            "next": ">>",
+            "first": "Première page",
+            "last": "Dernière page"
+        }
+    },
+    "loginEvent": {
+        "subtitle": "Evénements Post login",
+        "config": "Information Générale",
+        "content": "Configuration additionnelle",
+        "eventName": "Nom de l'événement",
+        "type": "Type",
+        "active": "Actif",
+        "mandatory": "Obligatoire",
+        "cmsPagePath": "Path de la page du CMS",
+        "redirectTo": "Lien de redirection",
+        "title": "Titre",
+        "text": "Texte",
+        "redirectButton": "Libellé bouton de redirection",
+        "button": "Libellé du bouton",
+        "checkboxText": "Libellé pour la checkbox",
+        "footerText": "Texte pour pied de page (optionnel)",
+        "order": "Ordre"
+    },
+    "status": {
+        "ok": {
+            "title": "Succès"
+        },
+        "saving": {
+            "title": "Enregistrement..."
+        },
+        "removing": {
+            "title": "Suppression..."
+        }
+    },
+    "version": "Version de la plateforme: {{appVersion}}",
+    "job": {
+        "import": {
+            "replay": "Appliquer",
+            "username": "Lancé par",
+            "createdAt": "Date d'exécution",
+            "elapsedTime": "Temps d'exécution",
+            "status": "Status",
+            "uploadedFile": "Fichier sur S3",
+            "seeLogs": "Voir logs"
+        }
+    },
+    "partner": {
+        "name": "Nom du partenaire",
+        "link": "Lien du partenaire",
+        "createdAt": "Date de création",
+        "logo": "Logo",
+        "config": "Information générale sur le partenaire",
+        "upload": "Importer image",
+        "linkLabel": "Libellé associé au lien du partenaire",
+        "description": "Description"
+    },
+    "buildReport": {
+        "help": "Aide",
+        "send_job": "Envoyer le fichier via lambda",
+        "title": "Génération de rapports de Pernod",
+        "help_content": "Télécharger le fichier Zip avec votre excelle et spécifier l’e-mail où vous souhaitez recevoir le résultat",
+        "email": "Adresse email",
+        "file": "Fichiers Excel dans le Zip",
+        "email_missing": "Adresse email doit être fourni",
+        "email_not_coorp": "Adresse email doit être de coorpacademy",
+        "file_missing": "Fichier doit être fourni",
+        "upload_in_progress": "Votre fichier est téléchargé. Le traitement peut prendre quelques minutes.\nVous recevrez le résultat par courrier",
+        "file_received": "Fichier a été reçu par le serveur et est actuellement traité sans erreur.\nVous devriez recevoir un e-mail avec le résultat dans quelques minutes."
+    }
+}

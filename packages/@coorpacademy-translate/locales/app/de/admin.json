@@ -1,0 +1,147 @@
+{
+    "tabs": {
+        "import": "Import",
+        "achievement": "Reset",
+        "cms": "CMS",
+        "loginEvents": "Post Login Events",
+        "replay": "Content Import History",
+        "partners": "News Partners",
+        "buildReport": "Erstellung von Berichten"
+    },
+    "import": {
+        "help": "help",
+        "help_content": "<h2>Importieren Sie eine gesamte Thema oder Disziplin</h2> <p>Importieren Sie eine Thema geben Sie eine ZIP-Datei, die folgenden Anforderungen erfüllt: \n <ul>\n <li>der Name der Disziplin muss eindeutig sein</li>\n <li>alle Disziplinen muß in das Herkunftsland der .zip</li>\n <li>jeder Disziplin-Ordner eine einzelne .json-Datei der Disziplin erstellt werden enthalten muss</li>\n <li>jeder Disziplin-Ordner darf drei Modul-Ordner importiert in A – Z-Reihenfolge enthalten</li>\n <li>jedes Modulordner enthalten muss, mehrere Ordner in Frage</li>\n <li>jede Frage-Ordner muss eine einzelne .json Datei entsprechende enthalten auf die Frage zu erstellenden</li>\n <li>NEW: ein Modul oder ein Kapitel enthalten kann ein entfernen: True-Feld um es zu löschen</li>\n <li>NEW: ein Modul oder ein Kapitel kann Orte ändern, wenn es einen Swap: INDEX abgelegt hat, wobei INDEX ist die Anzahl der Position (beginnend mit 0) nehmen</li>\n </ul>\n </p> <h2>importieren eine Benutzer-Zip</h2> <p>um eine Gruppe von Benutzern zu importieren, müssen Sie einer ZIP-Datei unter Beachtung der folgenden Regeln bereitstellen : \n <ul>\n <li>Das Login des jeweiligen Benutzers muss eindeutig sein</li>\n <li>alle Benutzer muß die Ursache für das .zip</li>\n </ul>\n</p> <a href=\"/assets/samples/import.zip\"> ein Beispiel .zip herunterladen</a>",
+        "disciplines": {
+            "title": "Disziplinen",
+            "zero": "There is no discipline"
+        },
+        "send_job": "Send file via job"
+    },
+    "delete": {
+        "disciplines": {
+            "404": "No discipline found",
+            "title": "Delete all the disciplines",
+            "button": "Delete",
+            "confirm": "Please enter \"{{word}}\" to confirm deletion of all subjects",
+            "confirm_word": "disciplines",
+            "success": "Deleted disciplines"
+        },
+        "users": {
+            "404": "No user found",
+            "title": "Delete all users",
+            "help": "Löschen von Benutzern eines Anbieters (zum Sie zu Löschen alle leer lassen)",
+            "button": "Delete",
+            "confirm": "Please enter \"{{word}}\" to confirm deletion of users",
+            "confirm_word": "users",
+            "success": "{{count}}-Benutzer gelöscht",
+            "success_plural": "{{count}}-Benutzer gelöscht",
+            "provider": "provider:"
+        },
+        "tuto": {
+            "404": "No user found",
+            "title": "Reset the tutorial",
+            "button": "Erase",
+            "confirm": "Please select \"{{word}}\" to confirm complete reset of the tutorial.",
+            "confirm_word": "tutorial",
+            "success": "Lernprogramm zurücksetzen"
+        },
+        "achievements": {
+            "404": "No progress found",
+            "title": "Erase your whole progression",
+            "button": "Erase",
+            "confirm": "Geben Sie \"{{Wort}}\" zur Bestätigung der Löschung Ihrer Progression",
+            "confirm_word": "progression",
+            "success": "Progression gelöscht"
+        }
+    },
+    "console": {
+        "status": "HTTP-Status:",
+        "exception": "Ausnahme-ID:",
+        "error": "Fehlermeldung:"
+    },
+    "update": {
+        "goals": {
+            "title": "Update Objectives",
+            "button": "Update Objectives through a job",
+            "success": "Request sent"
+        }
+    },
+    "create": "Add",
+    "save": "Save",
+    "remove": "Delete",
+    "test": "Test",
+    "edit": "Modify",
+    "back": "Back",
+    "table": {
+        "button": {
+            "prev": "<<",
+            "next": ">>",
+            "first": "Erste Seite",
+            "last": "Letzte Seite"
+        }
+    },
+    "loginEvent": {
+        "subtitle": "Post login Events",
+        "config": "Allgemeine Informationen",
+        "content": "Zusätzliche Konfiguration",
+        "eventName": "Name der Veranstaltung",
+        "type": "Type",
+        "active": "Aktive",
+        "mandatory": "Mandatory",
+        "cmsPagePath": "CMS Path",
+        "redirectTo": "Umleitung-Link",
+        "title": "Title",
+        "text": "Main Text",
+        "redirectButton": "Schaltflächenbezeichnung umleiten",
+        "button": "Schaltflächenbezeichnung",
+        "checkboxText": "Checkbox Label",
+        "footerText": "Footer Text (optional)",
+        "order": "Bestellung"
+    },
+    "status": {
+        "ok": {
+            "title": "Erfolg"
+        },
+        "saving": {
+            "title": "Speichern..."
+        },
+        "removing": {
+            "title": "Entfernt..."
+        }
+    },
+    "version": "Aktuelle Version der Plattform: {{appVersion}}",
+    "job": {
+        "import": {
+            "replay": "Gelten",
+            "username": "Ausführen von",
+            "createdAt": "Ausführungsdatum",
+            "elapsedTime": "Execution time",
+            "status": "Status",
+            "uploadedFile": "Datei auf S3",
+            "seeLogs": "Siehe Protokolle"
+        }
+    },
+    "partner": {
+        "name": "Name",
+        "link": "Link",
+        "createdAt": "Erstellt am",
+        "logo": "Logo",
+        "config": "Informationen",
+        "upload": "Upload",
+        "linkLabel": "Etikett-Verknüpfung",
+        "description": "Beschreibung"
+    },
+    "buildReport": {
+        "help": "Hilfe",
+        "send_job": "Senden Sie Datei über lambda",
+        "title": "Pernod-Berichterstellung",
+        "help_content": "Laden Sie die Zip mit Ihrem zeichnet sich und geben Sie die e-Mail, wo Sie das Ergebnis erhalten möchten,",
+        "email": "E-Mail-Adresse",
+        "file": "Zeichnet sich in Zip",
+        "email_missing": "E-Mail muss angegeben werden",
+        "email_not_coorp": "E-Mail muss vom Coorpacademy sein.",
+        "file_missing": "Datei muss angegeben werden",
+        "upload_in_progress": "Ihre Datei wird hochgeladen. Verarbeitung kann einige Minuten dauern.\nErgebnis erhalten Sie per Post",
+        "file_received": "Datei wurde vom Server empfangen und ist derzeit ohne Fehler behandelt.\nSie erhalten eine Email mit dem Ergebnis in wenigen Minuten."
+    }
+}

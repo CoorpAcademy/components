@@ -1,0 +1,189 @@
+{
+    "not_a_number": "<利用不可>",
+    "target": "ターゲット：",
+    "export": {
+        "csv": "CSV",
+        "pdf": "PDF",
+        "excel": "エクセル"
+    },
+    "info": {
+        "launch_date": "開始日",
+        "targeted_users": "目的とする集団"
+    },
+    "navigation": {
+        "every": "すべての",
+        "every-except-coorp": "Coorpacademy を除くすべて",
+        "engagement": "婚約",
+        "dashboard": "概観",
+        "users": "ユーザーで",
+        "content": "コンテンツ",
+        "battles": "バトルで",
+        "exports": "エクスポート",
+        "behavioral": "動作"
+    },
+    "since": {
+        "last_week": "最後の7日",
+        "last_month": "過去30日",
+        "beginning": "ローンチする"
+    },
+    "users": {
+        "roles": {
+            "header": "役割",
+            "button": "保存",
+            "saved": "{{displayName}}のロール更新に成功しました。",
+            "cms": "Cミリセカンド",
+            "moderator": "フォーラムのモデレーター",
+            "rh": "Rh",
+            "godmode": "ゴッドモード",
+            "supercoach": "スーパーコーチ"
+        },
+        "tab": {
+            "ranking": "ユーザーランキング",
+            "activity": "アクティビティ"
+        },
+        "back": "検索に戻る",
+        "entity": "会社",
+        "title": "機能",
+        "cnx": {
+            "first": "接続開始日",
+            "last": "最後に接続した日時"
+        },
+        "general": {
+            "header": "一般活動",
+            "total_cnx": "コネクション総数",
+            "total_validated_disciplines": "達成した訓練の総数",
+            "total_validated_modules": "達成されたモジュールの総数",
+            "modules_validated_per_total": "達成モジュール数 / 総モジュール数",
+            "ranking": "ランキング",
+            "never": "決してない"
+        },
+        "sociability": {
+            "header": "社交性",
+            "posts": {
+                "count": "{nb}} ポスト",
+                "count_plural": "{{nb}} 投稿数",
+                "answers": "他ユーザーへの {{nb}} 件の回答を含む",
+                "answers_plural": "他のユーザーへの{{nb}}の回答を含む"
+            },
+            "battles": {
+                "count": "{{nb}} バトルをしましょう",
+                "count_plural": "{{nb}} バトル",
+                "won": "勝利したバトル {{nb}} 回を含む",
+                "won_plural": "{{nb}}バトルの勝利を含む"
+            },
+            "coach": {
+                "disciplines": " {{nb}} 訓練のコーチ",
+                "disciplines_plural": "{{nb}}の分野へのコーチ",
+                "interactions": "{{nb}} コーチたちと交流しましょう",
+                "interactions_plural": "{{nb}} コーチとのやり取り"
+            },
+            "completion": {
+                "total_label": "完了した総数:",
+                "total": "{{ratio}}%",
+                "modules_tried_label": "試行したモジュール:",
+                "modules_tried": "{{totalTriedModules}}/{{nbModules}}",
+                "average_completion_label": "完了/トライ:",
+                "average_completion": "{{ratio}}%"
+            }
+        },
+        "progression": {
+            "filter": "フィルター分野",
+            "filterPlaceholder": "フィルター分野キーワード",
+            "th": {
+                "discipline": "分野",
+                "hidden": "非表示",
+                "level": "レベル",
+                "module_progression": "成功 %",
+                "status": "ステータス",
+                "score": "スコア"
+            }
+        },
+        "time": {
+            "header": "接続期間",
+            "totalTime": "累計期間",
+            "validatedTime": "検証期間"
+        },
+        "license": {
+            "label": "ライセンス",
+            "button": "無効化",
+            "active": "アクティブ",
+            "inactive": "非アクティブ"
+        },
+        "deactivate": {
+            "confirm": "アカウントの非アクティブ化を確認するため、「イエス」を入力下さい",
+            "confirm_word": "はい",
+            "account_deactivated": "アカウントが無効化されました"
+        },
+        "connectAs": "として接続します。",
+        "bonusStars": {
+            "buttonPositive": "追加",
+            "buttonNegative": "削除",
+            "required": "追加するスターを入力して下さい。",
+            "notANumber": "スターは整数でなければなりません",
+            "confirm": "スターの加減を確認するために「ボーナス」と入力して下さい。",
+            "confirm_word": "ボーナス",
+            "starsAdded": "あなたはたった今ユーザー{{displayName}}へと{{count}}星を追加しました",
+            "starsAdded_plural": "あなたはたった今ユーザー{{displayName}}へと{{count}}星を追加しました",
+            "starsRemoved": "ユーザー {{displayName}} のスター {{count}} 個を削除しました",
+            "starsRemoved_plural": "スターを {{count}} 個をあなたの{{displayName}}から削除しました。"
+        }
+    },
+    "exports": {
+        "export": "エクスポート",
+        "querySent": "お客様のレポートを作成中です。ほどなく電子メールで送信いたします。",
+        "global": {
+            "title": "オンデマンド ユーザーのエクスポート",
+            "introduction": "この機能はプラットフォーム上のユーザーの全てのデータをエクスポートすることを可能にします。"
+        },
+        "battles": {
+            "title": "オンデマンドの戦いエクスポート",
+            "introduction": "この機能を利用してプラットフォームのバトルに関する全てのデータをエクスポートすることができます。"
+        },
+        "history": {
+            "title": "輸出の歴史",
+            "introduction": "この機能は、すべての毎日のデータを取得することができます。",
+            "users": "ユーザー",
+            "battle": "戦い",
+            "analytics": "進捗",
+            "filter_by": "をフィルターします。"
+        }
+    },
+    "custom": {
+        "up": {
+            "navigation": {
+                "modules": "レベルによって"
+            },
+            "modules": {
+                "header": {
+                    "discipline": "コース"
+                },
+                "module": {
+                    "media_views": {
+                        "title": "視聴率レベルによってレッスン メディア"
+                    }
+                }
+            },
+            "users": {
+                "general": {
+                    "total_validated_disciplines": "達成総コース",
+                    "total_validated_modules": "合計レベルを達成",
+                    "modules_validated_per_total": "# レベルを達成/# 合計レベル"
+                },
+                "sociability": {
+                    "coach": {
+                        "disciplines": "{{nb}} コースのコーチ",
+                        "disciplines_plural": "{{nb}} コースのコーチ"
+                    },
+                    "completion": {
+                        "modules_tried_label": "レベルを試してみました。"
+                    }
+                },
+                "progression": {
+                    "th": {
+                        "discipline": "コース"
+                    }
+                }
+            }
+        }
+    }
+}

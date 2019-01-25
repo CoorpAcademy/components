@@ -1,0 +1,201 @@
+{
+    "title": "Meine Zertifizierungen",
+    "subtitle_head1": "Wählen Sie Zertifizierungen und schließen Sie sie ab, um neue Kenntnisse und Kompetenzen zu erwerben!",
+    "subtitle_head2": "Starten Sie eines der Module, die Ihnen im Rahmen Ihrer Zertifizierungen vorgeschlagen werden.",
+    "how_to": "Um eine Zertifizierung zu bestätigen, müssen Sie alle vorgeschlagenen Module abschließen. An die Arbeit!",
+    "button_choose_goal": "Eine Zertifizierung wählen",
+    "selected_goals_title": "{{goals}} laufende Zertifizierung",
+    "selected_goals_title_plural": "{{goals}} laufende Zertifizierungen",
+    "selected_goals_no_item": "Sie haben keine laufende Zertifizierung. Wählen Sie eine!",
+    "finished_goals_title": "{{goals}} Zertifizierung abgeschlossen",
+    "finished_goals_title_plural": "{{goals}} Zertifizierungen abgeschlossen",
+    "finished_goal_label": "{{goalLabel}} {{star}}",
+    "finished_goals_no_item": "Sie haben noch keine Zertifizierung beendet.",
+    "button_module_access": "Starten",
+    "minutes_label": "Min.",
+    "status_label": "Status:",
+    "stars_label": "{{stars}} Stern",
+    "stars_label_plural": "{{stars}} Sterne",
+    "popover": {
+        "title": "Vorsicht!",
+        "module_blocked_pre": "Dieses Modul ist nicht zugänglich:",
+        "module_blocked_post": "{{pre}} Um es zu öffnen, müssen Sie zunächst das Level {{level}} validieren.",
+        "select_goal": {
+            "title": "Wählen Sie eine Zertifizierung.",
+            "available_module": "{{total}} Zertifizierung verfügbar",
+            "available_module_plural": "{{total}} Zertifizierungen verfügbar",
+            "module_done": ".Das Modul wurde bereits validiert Sie sind auf dem besten Weg, die Zertifizierung zu erreichen!",
+            "module_blocked": "Das Modul ist noch nicht zugänglich: Um es zu entsperren, müssen Sie alle niedrigeren Levels validieren.",
+            "button_add_goal": "Meine Zertifizierung bestätigen"
+        }
+    },
+    "condition_progress": {
+        "information": "Sie haben {{done}} der {{total}} vorgeschlagenen Module beenden."
+    },
+    "certification": {
+        "title": "Zertifizierungen",
+        "title_plural": "Zertifizierungen",
+        "subtitle": "Bestätigen Sie Ihre Kompetenzen, indem Sie Zertifizierungen abschließen.",
+        "subtitle_plural": "Bestätigen Sie Ihre Kompetenzen, indem Sie Zertifizierungen abschließen.",
+        "rewards": {
+            "subtitle": "Ihre Belohnungen",
+            "see_detail": "Anzeigen",
+            "congratulations": "Herzlichen Glückwunsch zu Ihrem Erfolg",
+            "you_can_win": "Gewinnen Sie",
+            "download_resource": "Herunterladen",
+            "see_diploma": "Diplom ansehen",
+            "access_your_diploma": "Zugriff auf Ihr Diplom"
+        },
+        "stars": {
+            "description_pre": "Erhalten Sie",
+            "description_post": "Sterne"
+        },
+        "state": {
+            "done": "Bestätigt!",
+            "inProgress": "Laufend"
+        },
+        "condition_description": {
+            "progress": "Ziel: {{count}} Modul",
+            "progress_plural": "Ziel: {{count}} Module"
+        },
+        "certificationDone": "Herzlichen Glückwunsch! Sie haben die Zertifizierung {{certificationName}} geschafft!"
+    },
+    "diploma": {
+        "certificate": "Zertifikat",
+        "date": "Datum: {{date}}",
+        "message": "hat alle für dieses Zertifikat relevanten Kurse abgeschlossen:"
+    },
+    "custom": {
+        "ecolenumerique-sncf": {
+            "certification": {
+                "title": "Jedi-Abzeichen",
+                "title_plural": "Jedi-Abzeichen",
+                "certificationDone": "Herzlichen Glückwunsch! Sie haben das {{certificationName}} Abzeichen geschafft!",
+                "subtitle": "Validieren Sie Ihr Jedi-Abzeichen",
+                "subtitle_plural": "Validieren Sie Ihre Jedi-Abzeichen"
+            }
+        },
+        "ganprevoyance": {
+            "certification": {
+                "title": "Universum",
+                "title_plural": "Universen",
+                "certificationDone": "Herzlichen Glückwunsch! Sie haben das {{certificationName}} Universum erreicht!",
+                "subtitle": "Validieren Sie Ihr Universum hier",
+                "subtitle_plural": "Validieren Sie hier Ihre Universen"
+            }
+        },
+        "cnp": {
+            "certification": {
+                "title": "Zertifikat",
+                "title_plural": "Zertifikate",
+                "certificationDone": "Herzlichen Glückwunsch! Sie haben das {{certificationName}} Zertifikat validiert!",
+                "subtitle": "Überprüfen Sie Ihr Zertifikat hier",
+                "subtitle_plural": "Hier Ihre Zertifikate validieren"
+            }
+        },
+        "pernod": {
+            "title": "Meine Ziele.",
+            "subtitle_head1": "Wählen Sie ein oder mehrere Ziele und vervollständigen Sie diese zur Verbesserung Ihrer Fähigkeiten in einem ausgewählten Bereich und Thema.",
+            "subtitle_head2": "Starten Sie einen Kurs, der zu einem Ziel gehört.",
+            "how_to": "Um ein Ziel zu erreichen, müssen Sie alle zugehörigen Module abschliessen. Los geht's!",
+            "button_choose_goal": "Wählen Sie ein Ziel.",
+            "selected_goals_title": "{{goals}} Aktuelle Ziel",
+            "selected_goals_title_plural": "{{goals}} Aktuelle Ziele",
+            "selected_goals_no_item": "Kein Ziel ausgewählt ist. Bitte wählen Sie eines!",
+            "finished_goals_title": "{{goals}}  erreichtes Ziel",
+            "finished_goals_title_plural": "{{goals}}  Erreichte Ziele",
+            "finished_goal_label": "{{goalLabel}} {{star}}",
+            "finished_goals_no_item": "Sie haben noch kein Ziel erreicht.",
+            "button_module_access": "Jetzt starten",
+            "minutes_label": "Min.",
+            "status_label": "Status:",
+            "stars_label": "{{stars}} Stern",
+            "stars_label_plural": "{{stars}} Sterne",
+            "popover": {
+                "title": "Vorsicht!",
+                "module_blocked_pre": "Dieses Modul ist nicht zugänglich:",
+                "module_blocked_post": "{{pre}} Um es zu erreichen, müssen Sie zunächst das Level {{level}} beenden.",
+                "select_goal": {
+                    "title": "Bitte wählen Sie ein Ziel",
+                    "available_module": "{{total}} Verfügbaren Ziel",
+                    "available_module_plural": "{{total}} Verfügbare Ziele",
+                    "module_done": "Dieser Kurs wurde bereits abgeschlossen. Sie sind auf bestem Weg, das Ziel zu erreichen.",
+                    "module_blocked": "Dieses Modul ist noch nicht verfügbar. Um es zu entsperren müssen Sie zunächst die Basic oder fortgeschrittene beenden.",
+                    "button_add_goal": "Mein Ziel zu bestätigen."
+                }
+            },
+            "condition_progress": {
+                "information": "Sie haben {{done}} von {{total}} vorgeschlagenen Kursen abgeschlossen."
+            },
+            "certification": {
+                "title": "Ihre Ziele",
+                "subtitle": "Validen Sie Ihre Fähigkeiten mit diesen Zielen",
+                "rewards": {
+                    "subtitle": "Ihre Belohnungen",
+                    "see_detail": "Anzeigen",
+                    "congratulations_pre": "Und unsere",
+                    "congratulations": "congratulations",
+                    "congratulations_post": "für Ihre Anstrengungen"
+                },
+                "stars": {
+                    "description_pre": "Wir geben Ihnen",
+                    "description_post": "Sterne"
+                },
+                "state": {
+                    "done": "Fertig",
+                    "inProgress": "Laufend"
+                },
+                "condition_description": {
+                    "progress": "{{nbDone}} abgeschlossene Kurse"
+                },
+                "certificationDone": "Herzlichen Glückwunsch! Sie haben das Ziel {{certificationName}} erreicht!"
+            }
+        },
+        "sgmgt": {
+            "diploma": {
+                "message": "Alle Schritte des erforderlichen Ausprägungen sind im Rahmen des Projekt Management Bewusstsein abgeschlossen"
+            }
+        },
+        "securite": {
+            "diploma": {
+                "message": "hat alle für dieses Zertifikat relevanten Kurse abgeschlossen:"
+            }
+        },
+        "projet": {
+            "diploma": {
+                "message": "Alle Schritte des erforderlichen Kompetenzgrades wurden im Rahmen des Projekt Management Bewusstsein abgeschlossen"
+            }
+        },
+        "tagheuer": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Dieses Modul ist noch nicht verfügbar. Um es zu entsperren, müssen Sie zunächst die Titan oder Bronze-Level schaffen."
+                }
+            }
+        },
+        "tagheuercon": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Dieses Modul ist noch nicht verfügbar. Um es zu entsperren, müssen Sie zunächst die Titan oder Bronze-Level schaffen."
+                }
+            }
+        },
+        "up": {
+            "subtitle_head2": "Starten Sie ein Kurslevel, das zu einem Ziel gehört.",
+            "how_to": "Um ein Ziel zu erreichen, beenden Sie alle Kurslevels. Los geht's!",
+            "popover": {
+                "module_blocked_pre": "Dieses Level ist nicht verfügbar:",
+                "select_goal": {
+                    "module_done": "Dieses Level wurde bereits beendet. Sie sind auf bestem Weg, das Ziel zu erreichen.",
+                    "module_blocked": "Dieses Level ist noch nicht verfügbar. Um es zu entsperren, müssen Sie zunächst Basis oder Fortgeschritten beenden."
+                }
+            },
+            "certification": {
+                "condition_description": {
+                    "progress": "Ziel: {{count}} Disziplin",
+                    "progress_plural": "Ziel: {{count}} Disziplinen"
+                }
+            }
+        }
+    }
+}

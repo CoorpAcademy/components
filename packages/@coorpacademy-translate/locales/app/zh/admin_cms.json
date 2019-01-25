@@ -1,0 +1,120 @@
+{
+    "cms": {
+        "add": "添加项目",
+        "title": "添加新页面",
+        "lang": "输入语言：",
+        "name": "名：",
+        "scope": "周长：",
+        "target": {
+            "title": "目标：",
+            "empty": "没有目标",
+            "discipline": "科目",
+            "learningTree": "目录"
+        },
+        "type": "类型：",
+        "order": "命令：",
+        "active": "有效的：",
+        "populations": "人口:",
+        "rmd": "减价",
+        "save": "保存",
+        "delete": "删除",
+        "test": "测试",
+        "deploy": "发送",
+        "delete_confirm": "你确定想要删除这个页面吗？",
+        "markdown": "Markdown 语法",
+        "quick": "快速参考",
+        "path": "网址后缀*：",
+        "full": "完整文档",
+        "preview": "预览",
+        "edit": "编辑",
+        "notifications": "定制通知",
+        "content": "内容：",
+        "config": "全局设置",
+        "targetBlank": "在新标签中开启：",
+        "forum_xid": "论坛 ID",
+        "navigation": {
+            "label": "发现障碍：",
+            "none": "没有障碍的页面"
+        },
+        "provider": {
+            "none": "每个人"
+        },
+        "status": {
+            "ok": {
+                "title": "成功",
+                "save": "你的页面已经被成功保存",
+                "del": "你的页面已被成功删除"
+            },
+            "test": {
+                "title": "工作开始。提醒很快会显示。"
+            },
+            "deploy": {
+                "title": "工作已开始。按照工作页面上的进程工作。"
+            },
+            "ko": {
+                "title": "错误",
+                "save": "保存过程中发生错误：{{err}}",
+                "del": "删除时出现一个错误：{{err}}"
+            }
+        },
+        "title_content": "标题：",
+        "category": "类别",
+        "select_all": "全选",
+        "language_info": "每个激活的国家必须填写每种输入语言",
+        "imageURL": "图片网址",
+        "page": "页面：",
+        "link": "链接：",
+        "link_placeholder": "(ex: http://www.google.com)",
+        "partner": "合作人：",
+        "discipline_ref": "discipline.ref",
+        "cancel": "取消",
+        "date": "日期：",
+        "image": "图像：",
+        "upload": "上传",
+        "modify": "修改",
+        "countries": "国家"
+    },
+    "success": "你的修改已被保存。",
+    "error": {
+        "mandatory": "丢失领域"
+    },
+    "tabs": {
+        "pages": "页",
+        "news": "新闻",
+        "notification": "自定义通知"
+    },
+    "page": {
+        "name": "{{name}}"
+    },
+    "notification": {
+        "new": "此通知尚未创建。 填写并保存表单以创建它。",
+        "name": "{{name}}",
+        "provider": "提供者：",
+        "expires": "过期日期*：",
+        "message": "信息",
+        "link": {
+            "show": "显示 ’更多信息‘ 按钮：",
+            "url": "链接：",
+            "target": "在新页面打开链接："
+        },
+        "status": {
+            "title": "状态",
+            "created": "创建",
+            "sending": "发送：作业正在创建要发送给用户的通知。",
+            "tested": "测试",
+            "sent": "发送给选定的用户。",
+            "pending": {
+                "deploy": "正在传送要为所选使用者建立通知的要求。",
+                "testing": "正在等待通知显示。",
+                "delete": "请稍候，通知将被删除。",
+                "save": "正在保存通知，请稍候"
+            },
+            "ok": {
+                "save": "通知已保存",
+                "testing": "测试",
+                "deploy": "作业已启动，以向用户发送通知"
+            }
+        }
+    },
+    "text": "<h2>基础</h2> <p>\n    硬回车：以两个空格结束一行<br />\n    直接插入 html：以 4 个空格开始一行<br />\n</p> <h2>标题</h2> <p>\n    # H1<br />\n    ## H2<br />\n    ### H3<br />\n</p> <h2>重点</h2> <p>\n    斜体字：*星号* 或 _下划线_。<br />\n    加粗字：**双星号** 或__双下划线__。<br />\n</p> <h2>列表</h2> <p>\n    1. 第一个有序列表项<br />\n    2. 其他项<br />\n    ⋅⋅* 无序子列表。<br />\n    1. 实际数字无所谓，只要它是个数字<br />\n    ⋅⋅1. 有序子列表<br />\n    4. 和其他项。<br />\n    <br />\n    ⋅⋅⋅您可能已在列表项内缩进了段落。请注意上面的空行，和前导空格（至少有一个空格，但是在这里，我们会使用三个，用来对齐原始标记）。<br />\n    <br />\n    ⋅⋅⋅为了没有分段符号时的换行需要，您必须使用两个尾随空格。⋅⋅<br />\n    ⋅⋅⋅请注意此行是独立的，但是它是在相同的段落内。⋅⋅<br />\n    ⋅⋅⋅（这与传统的 GFM 分行方式截然相反，并不需要尾随空格。）<br />\n    <br />\n    * 无序列表可以使用星号<br />\n    - 或减号<br />\n    + 或加号<br />\n</p> <h2>链接</h2> <p>\n    [我是内联方式的链接](https://www.google.com)<br /><br />\n    [我是带标题的内联方式的链接](https://www.google.com “谷歌主页”)<br /><br />\n    [我是引用方式的链接][任意不区分大小写的引用文本]<br /><br />\n    [我是对一个库文件的相对引用](../blob/master/LICENSE)<br /><br />\n    [您可以使用数字来表示引用方式的链接定义][1]<br /><br />\n    或留空并使用[链接文字本身]<br /><br />\n    用一些文本用来显示引用链接可遵循以下内容。\n</p> <h2>锚点</h2> <p>\n    <h3>设置锚点</h3>\n    您应该使用 HTML 的语法来为想要设置锚点的标签创建 ID。<br/></br>\n    样例：</br>\n    如果您想要为一个 H1 标签设置锚点，您应该： <b>&lt;h1 id=\"my_anchor\"&gt;Anchor Text&lt;/h1&gt;</b>\n    <br/></br>\n    <h3>使用锚点</h3>\n    对于<b>a</b> 标签，您需要这样设置带值的 href：<b>/pages/[url_suffix_page]#[the_anchor]</b>.<br/><br/>\n    <li>页面中需要设置锚点的<b>url_suffix_page</b> 。当一个页面被创建来生成 url 时，这是需要填写的第一个输入文本。</li>\n    <li><b>the_anchor</b> 已设置锚点的标签 ID 值。</li>\n    <br/></br>\n    样例：</br>\n    为了使用以前设置的锚点，您应该使用：<b>&lt;a href=\"/pages/page_url#my_anchor\"&gt;Link Text&lt;/a&gt;</b></br>\n    或 <b>[链接文本](/pages/page_url#my_anchor)</b>\n</p> <h2>图片</h2> <p>\n    这是我们的标识（悬停鼠标来查看标题文本）：<br /><br />\n    内联方式：<br />\n    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png \"标识主题文本 1\")<br />\n    <br />\n    引用方式：<br />\n    ![alt text][标识]<br />\n</p> <h2>表格</h2> <p>\n    使用冒号来完成列对齐。<br />\n    <br />\n    | 表格        | 很          | 酷  |<br />\n    | ------------- |:-------------:| -----:|<br />\n    | 列 3 是     | 右对齐 | $1600 |<br />\n    | 列 2 是     | 居中      |   $12 |<br />\n    | 斑马线 | 很整齐      |    $1 |<br />\n    <br />\n    外部管道符 (|) 是可选的，您不需要让原始标记排列整齐。您还可以使用行内标记。<br />\n    <br />\n    标记 | 少 | 漂亮<br />\n    --- | --- | ---<br />\n    *还是* | `呈现` | **漂亮**<br />\n    1 | 2 | 3<br />\n</p> <h2>行内 HTML</h2> <p> <dl>\n    <dt>定义列表</dt><br />\n    <dd>是人们偶尔会使用的东西。</dd><br /><br />\n\n    <dt>HTML 内的标记</dt><br />\n    <dd>也*不是* **很好** 使用。使用 HTML <em>标签</em>.</dd><br />\n</dl> </p>"
+}

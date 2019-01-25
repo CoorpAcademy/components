@@ -1,0 +1,23 @@
+{
+    "submit": "Bestätigen",
+    "print": "Drucken",
+    "share": "Freigeben",
+    "delete": "Löschen",
+    "start": "Los",
+    "loadMore": "Laden Sie mehr...",
+    "download": "Download",
+    "ok": "OK",
+    "cancel": "Abbrechen",
+    "sso": "Single Sign On",
+    "connect": "Connect",
+    "signup": "Registrieren",
+    "signup_pre": "Sie haben kein Konto?",
+    "custom": {
+        "chanel": {
+            "signup": "Anmelden"
+        },
+        "ilearn": {
+            "signup": "Anmelden"
+        }
+    }
+}

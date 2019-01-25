@@ -1,0 +1,25 @@
+{
+    "notCompatible": {
+        "os": "お使いのOSのバージョンはプラットフォームをご利用いただくには古すぎます。アップデートをおすすめします。",
+        "explanation": "あなたのブラウザで互換表示が有効になっているかもしれません。より詳しい情報に向けては、互換表示を無効にしてください",
+        "explanationLink": "https://static.coorpacademy.com/content/help/compatibility_view/Help_Compatibility_view_EN.pdf",
+        "explanationLinkLabel": "ここ。",
+        "header": "ブラウザのバージョンが古すぎるため、プラットフォームにアクセスできません。",
+        "suggestion_text": "BrowseHappy",
+        "suggestion_href": "http://browsehappy.com",
+        "suggestion_text_pre": "ここへ行く",
+        "suggestion_text_post": "Evergreenブラウザに関するより詳細な情報。",
+        "different_user_agent": "2つの異なるユーザーエージェントが見つかり、プラットフォームにアクセス制限がかかりました。"
+    },
+    "custom": {
+        "fff": {
+            "notCompatible": {
+                "os": "お使いの OS のバージョンが古すぎて、プラットフォームにアクセスします。更新プログラムをお勧めします。",
+                "suggestion_text": "クロム",
+                "suggestion_href": "https://www.google.com/intl/fr/chrome/browser/",
+                "suggestion_text_pre": "推奨ダウンロード",
+                "suggestion_text_post": "."
+            }
+        }
+    }
+}

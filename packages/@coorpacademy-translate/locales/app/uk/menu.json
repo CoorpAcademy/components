@@ -1,0 +1,155 @@
+{
+    "header": {
+        "title": "CoorpAcademy",
+        "mainNav": {
+            "helper": "Інший спосіб переглядати ваш педагогічний вміст",
+            "menu": "Меню",
+            "dashboard": "Мій особистий кабінет",
+            "home": "Головна сторінка",
+            "learningTree": "Каталог",
+            "lessons": "Усі заняття та відео",
+            "medias": "Бібліотека",
+            "battles": "Битви",
+            "explore": "Каталог",
+            "discussions": "Дискусії",
+            "badges": "Відзнаки",
+            "certifications": "Сертифікати"
+        },
+        "mainNav_user": {
+            "helper": "Альтернативний спосіб знаходити інформацію про вас та вашу роботу!"
+        },
+        "account_menu": {
+            "title": "Меню",
+            "logout": "Вийти",
+            "notifications": "Мої оповіщення",
+            "language": "Мова",
+            "cohorts": "Населення:",
+            "account": "Обліковий запис",
+            "godmode": "Режим бога",
+            "fastslides": "Швидкі слайди",
+            "newlearner": "Новий інтерфейс гри",
+            "livenotifications": "Сповіщення в режимі он-лайн",
+            "close": "закрити"
+        }
+    },
+    "content": "Це основний зміст.",
+    "footer": {
+        "assistance": "Допомога",
+        "admin_link": {
+            "jobs": "Роботи",
+            "admin": "Адміністратор",
+            "analytics": "Аналіз",
+            "changelog": "Журнал змін",
+            "cms": "CMS",
+            "manual": "Інструкція"
+        },
+        "data_privacy_policy": "політика конфіденційності",
+        "data_privacy_policy_link": "http://www.privacy.coorpacademy.com",
+        "dev_link": {
+            "api": "API doc"
+        },
+        "by": "Зроблено на основі Coorpacademy",
+        "title": "Coorpacademy",
+        "changelog": {
+            "title": "Changelog",
+            "subtitle": "Тут є історія випуску сайта"
+        }
+    },
+    "custom": {
+        "accueil": {
+            "footer": {
+                "by": "Tourism Academy & Atout France",
+                "copyright": "Tourism Academy & Atout France"
+            }
+        },
+        "armeedeterre": {
+            "header": {
+                "mainNav": {
+                    "battles": "Битви"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "footer": {
+                "assistance": "Залишити відгук"
+            }
+        },
+        "capgemini": {
+            "header": {
+                "mainNav": {
+                    "certifications": "DigiCertif'"
+                }
+            }
+        },
+        "cnp": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Сертифікати"
+                }
+            }
+        },
+        "chanel": {
+            "footer": {
+                "by": "© CHANEL. Лише для службового використання",
+                "copyright": "© CHANEL. Тільки для внутрішнього використання"
+            }
+        },
+        "ganprevoyance": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Всесвіти"
+                }
+            }
+        },
+        "ecolenumerique-sncf": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Бейджі джедаїв"
+                }
+            }
+        },
+        "ilearn": {
+            "footer": {
+                "by": "© CHANEL. Тільки для внутрішнього використання",
+                "copyright": "© CHANEL. Тільки для внутрішнього використання"
+            }
+        },
+        "paca": {
+            "footer": {
+                "by": "Виробництво TOURISM ACADEMY",
+                "copyright": "Виробництво TOURISM ACADEMY"
+            }
+        },
+        "tourism": {
+            "footer": {
+                "by": "Академія туризму",
+                "copyright": "Академія туризму"
+            }
+        },
+        "tourismdigital": {
+            "footer": {
+                "by": "Проект Tourism Academy",
+                "copyright": "Виробництво академії туризму"
+            }
+        },
+        "ey": {
+            "footer": {
+                "by": "EY Digital Academy",
+                "copyright": "Цифрова академія EY"
+            }
+        },
+        "up": {
+            "footer": {
+                "data_privacy_policy_link": "http://www.privacy.coorpacademy.com/up"
+            }
+        },
+        "who": {
+            "header": {
+                "mainNav": {
+                    "battles": "Змагання",
+                    "discussions": "Зворотній зв'язок"
+                }
+            }
+        }
+    }
+}

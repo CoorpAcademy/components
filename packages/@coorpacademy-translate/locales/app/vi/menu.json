@@ -1,0 +1,155 @@
+{
+    "header": {
+        "title": "CoorpAcademy",
+        "mainNav": {
+            "helper": "Một cách khác để duyệt nội dung sư phạm của bạn",
+            "menu": "Menu",
+            "dashboard": "Bảng điều khiển của tôi",
+            "home": "Trang chủ",
+            "learningTree": "Danh mục",
+            "lessons": "Tất cả Bài học và Video",
+            "medias": "Thư viện",
+            "battles": "Cuộc tranh tài",
+            "explore": "Danh mục",
+            "discussions": "Thảo luận",
+            "badges": "Huy hiệu",
+            "certifications": "Các chứng chỉ"
+        },
+        "mainNav_user": {
+            "helper": "Một cách khác để tìm thông tin về bạn và công việc của bạn!"
+        },
+        "account_menu": {
+            "title": "Menu",
+            "logout": "Đăng xuất",
+            "notifications": "Thông báo của Tôi",
+            "language": "Ngôn ngữ",
+            "cohorts": "Dân số",
+            "account": "Tài khoản",
+            "godmode": "Chế độ God",
+            "fastslides": "Lướt nhanh",
+            "newlearner": "Giao diện trò chơi mới",
+            "livenotifications": "Thông báo trực tiếp",
+            "close": "đóng"
+        }
+    },
+    "content": "Đây là nội dung cơ bản.",
+    "footer": {
+        "assistance": "Hỗ trợ",
+        "admin_link": {
+            "jobs": "Nhiệm vụ",
+            "admin": "Admin",
+            "analytics": "Phân tích",
+            "changelog": "Changelog",
+            "cms": "CMS",
+            "manual": "Hướng dẫn"
+        },
+        "data_privacy_policy": "Chính sách bảo mật dữ liệu",
+        "data_privacy_policy_link": "http://www.privacy.coorpacademy.com",
+        "dev_link": {
+            "api": "Tài liệu API"
+        },
+        "by": "Vận hành bởi Coorpacademy",
+        "title": "Coorpacademy",
+        "changelog": {
+            "title": "Nhật ký thay đổi",
+            "subtitle": "Đây là lịch sử ra đời của trang web"
+        }
+    },
+    "custom": {
+        "accueil": {
+            "footer": {
+                "by": "Học viện Du lịch & Atout Pháp",
+                "copyright": "Học viện du lịch - Atout Pháp"
+            }
+        },
+        "armeedeterre": {
+            "header": {
+                "mainNav": {
+                    "battles": "Trận đấu"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "footer": {
+                "assistance": "Đưa ra phản hồi"
+            }
+        },
+        "capgemini": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Bằng cấp số"
+                }
+            }
+        },
+        "cnp": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Giấy chứng nhận"
+                }
+            }
+        },
+        "chanel": {
+            "footer": {
+                "by": "© CHANEL. Chỉ dùng nội bộ",
+                "copyright": "© CHANEL. Chỉ sử dụng nội bộ"
+            }
+        },
+        "ganprevoyance": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Các Vũ trụ"
+                }
+            }
+        },
+        "ecolenumerique-sncf": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Huy hiệu Jedi"
+                }
+            }
+        },
+        "ilearn": {
+            "footer": {
+                "by": "© CHANEL. Chỉ sử dụng nội bộ",
+                "copyright": "© CHANEL. Chỉ sử dụng nội bộ"
+            }
+        },
+        "paca": {
+            "footer": {
+                "by": "Một tác phẩm của HỌC VIỆN DU LỊCH",
+                "copyright": "Chương trình sản xuất cho HỌC VIỆN DU LỊCH"
+            }
+        },
+        "tourism": {
+            "footer": {
+                "by": "Học viện Du Lịch",
+                "copyright": "Học viện Du lịch"
+            }
+        },
+        "tourismdigital": {
+            "footer": {
+                "by": "Chương trình sản xuất về một học viện du lịch",
+                "copyright": "chương trình sản xuất học viện du lịch"
+            }
+        },
+        "ey": {
+            "footer": {
+                "by": "Học viện kỹ thuật số EY",
+                "copyright": "Học Viện Số EY"
+            }
+        },
+        "up": {
+            "footer": {
+                "data_privacy_policy_link": "http://www.privacy.coorpacademy.com/up"
+            }
+        },
+        "who": {
+            "header": {
+                "mainNav": {
+                    "battles": "Thách thức",
+                    "discussions": "Phản hồi"
+                }
+            }
+        }
+    }
+}

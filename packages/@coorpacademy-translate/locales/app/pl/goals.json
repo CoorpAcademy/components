@@ -1,0 +1,201 @@
+{
+    "title": "Moje certyfikaty.",
+    "subtitle_head1": "Wybierz jeden lub więcej certyfikatów i zdobądź je, aby udoskonalić swoje umiejętności w wybranym obszarze lub temacie.",
+    "subtitle_head2": "Uruchom moduł certyfikacji.",
+    "how_to": "Aby zatwierdzić certyfikat, należy ukończyć każdy moduł. Zacznijmy!",
+    "button_choose_goal": "Wybierz certyfikat.",
+    "selected_goals_title": "{{goals}} Aktualny certyfikat",
+    "selected_goals_title_plural": "{{goals}} Aktualne certyfikaty",
+    "selected_goals_no_item": "Nie zaznaczono certyfikatu. Wybierz certyfikat!",
+    "finished_goals_title": "{{goals}} Usunięty certyfikat",
+    "finished_goals_title_plural": "{{goals}} Usunięte certyfikaty",
+    "finished_goal_label": "{{goalLabel}} {{star}}",
+    "finished_goals_no_item": "Nie masz jeszcze żadnego certyfikatu.",
+    "button_module_access": "Rozpocznij teraz",
+    "minutes_label": "min",
+    "status_label": "Status:",
+    "stars_label": "{{stars}} gwiazdka",
+    "stars_label_plural": "{{stars}} gwiazdki/gwiazdek",
+    "popover": {
+        "title": "Ostrożnie!",
+        "module_blocked_pre": "Ten moduł nie jest dostępny:",
+        "module_blocked_post": "{{pre}} Aby tego dokonać, najpierw należy zatwierdzić poziom {{level}}",
+        "select_goal": {
+            "title": "Wybierz certyfikat",
+            "available_module": "Dostępny certyfikat {{total}}",
+            "available_module_plural": "Dostępne certyfikaty {{total}} ",
+            "module_done": "Ten moduł już został usunięty. Jesteś na dobrej drodze do zatwierdzenia ważności certyfikatu.",
+            "module_blocked": "Ten moduł nie jest jeszcze dostępny. Aby go odblokować, należy najpierw uzyskać poziomy podstawowy lub zaawansowany.",
+            "button_add_goal": "Potwierdź mój certyfikat."
+        }
+    },
+    "condition_progress": {
+        "information": "Ukończono {{done}} z {{total}} proponowanych modułów."
+    },
+    "certification": {
+        "title": "Twój certyfikat",
+        "title_plural": "Twoje certyfikaty",
+        "subtitle": "Ten certyfikat potwierdzi Twoje umiejętności",
+        "subtitle_plural": "Te certyfikaty potwierdzą Twoje umiejętności",
+        "rewards": {
+            "subtitle": "Twoje nagrody",
+            "see_detail": "Zobacz",
+            "congratulations": "Gratulujemy sukcesu",
+            "you_can_win": "Wygraj",
+            "download_resource": "Kliknij tutaj, aby pobrać",
+            "see_diploma": "Zobacz dyplom",
+            "access_your_diploma": "Uzyskaj dostęp do swojego dyplomu"
+        },
+        "stars": {
+            "description_pre": "Pobierz",
+            "description_post": "gwiazdki"
+        },
+        "state": {
+            "done": "Gotowe!",
+            "inProgress": "W toku"
+        },
+        "condition_description": {
+            "progress": "Cel: {{count}} moduł",
+            "progress_plural": "Cel: {{count}} moduły/modułów"
+        },
+        "certificationDone": "Gratulacje! Certyfikat {{certificationName}} jest Twój!"
+    },
+    "diploma": {
+        "certificate": "certyfikat",
+        "date": "Data: {{date}}",
+        "message": "ukończył/a wszystkie wymagane moduły i otrzymuje certyfikat:"
+    },
+    "custom": {
+        "ecolenumerique-sncf": {
+            "certification": {
+                "title": "Odznaka Jedi",
+                "title_plural": "Odznaki Jedi",
+                "certificationDone": "Gratulacje! Uzyskał {{certificationName}} Badge!",
+                "subtitle": "Sprawdź poprawność tutaj swój znaczek Jedi",
+                "subtitle_plural": "Sprawdź poprawność tutaj swoje odznaki Jedi"
+            }
+        },
+        "ganprevoyance": {
+            "certification": {
+                "title": "Wszechświat",
+                "title_plural": "Wszechświaty",
+                "certificationDone": "Gratulacje! Zatwierdzeniu {{certificationName}} wszechświata!",
+                "subtitle": "Sprawdź poprawność tutaj swój wszechświat",
+                "subtitle_plural": "Sprawdzić swoje wszechświaty tutaj"
+            }
+        },
+        "cnp": {
+            "certification": {
+                "title": "Certyfikat",
+                "title_plural": "Certyfikaty",
+                "certificationDone": "Gratulacje! Zatwierdzeniu {{certificationName}} certyfikat!",
+                "subtitle": "Sprawdzania poprawności certyfikatu tutaj",
+                "subtitle_plural": "Sprawdzanie poprawności certyfikatów tutaj"
+            }
+        },
+        "pernod": {
+            "title": "Moje cele.",
+            "subtitle_head1": "Wybierz jeden lub więcej celów i wykonuj je, aby poprawić swoje umiejętności na zaznaczony obszar i tematu.",
+            "subtitle_head2": "Uruchom moduł wśród tych zawarte w sposób obiektywny.",
+            "how_to": "Aby sprawdzić poprawność cel, należy wykonać każdy moduł. Zaczynajmy!",
+            "button_choose_goal": "Wybierz cel.",
+            "selected_goals_title": "{{goals}} Życiowy cel",
+            "selected_goals_title_plural": "{{goals}} Aktualne cele",
+            "selected_goals_no_item": "Celem nie jest zaznaczone. Proszę wybrać jedną!",
+            "finished_goals_title": "{{goals}}  Celem wyczyszczone",
+            "finished_goals_title_plural": "{{goals}}  Wyczyszczone cele",
+            "finished_goal_label": "{{goalLabel}} {{star}}",
+            "finished_goals_no_item": "Wszelkie cele nie zostały jeszcze rozliczone jeszcze.",
+            "button_module_access": "Rozpocznij teraz",
+            "minutes_label": "min",
+            "status_label": "Status:",
+            "stars_label": "{{stars}} star",
+            "stars_label_plural": "{{stars}} gwiazd",
+            "popover": {
+                "title": "Ostrożnie!",
+                "module_blocked_pre": "Moduł ten nie jest dostępna:",
+                "module_blocked_post": "{{pre}} Aby osiągnąć to najpierw należy sprawdzić poprawność {{level}}",
+                "select_goal": {
+                    "title": "Proszę wybrać cel",
+                    "available_module": "{{total}} Dostępny cel",
+                    "available_module_plural": "{{total}} Dostępne cele",
+                    "module_done": "Moduł ten już został wyczyszczony. Jesteś na najlepszej drodze do osiągnięcia celu.",
+                    "module_blocked": "Moduł ten nie jest jeszcze dostępna. Aby je odblokować należy najpierw usunąć Basic lub zaawansowanym.",
+                    "button_add_goal": "Potwierdzić mój cel."
+                }
+            },
+            "condition_progress": {
+                "information": "Masz ukończone {{done}} {{total}} proponowanych modułów."
+            },
+            "certification": {
+                "title": "Swoje cele",
+                "subtitle": "Valide swoje umiejętności o tych celów",
+                "rewards": {
+                    "subtitle": "Swoje nagrody",
+                    "see_detail": "Zobacz",
+                    "congratulations_pre": "I nasze",
+                    "congratulations": "Congralutations",
+                    "congratulations_post": "za wszystkie Twoje wysiłki"
+                },
+                "stars": {
+                    "description_pre": "Dajemy Ci",
+                    "description_post": "gwiazdy"
+                },
+                "state": {
+                    "done": "Gotowe",
+                    "inProgress": "W toku"
+                },
+                "condition_description": {
+                    "progress": "{{nbDone}} zakończony modułów"
+                },
+                "certificationDone": "Gratulacje! Uzyskaniu celem {{certificationName}}!"
+            }
+        },
+        "sgmgt": {
+            "diploma": {
+                "message": "Wszystkie kroki biegłości wymaganych zostały zakończone w ramach projektu zarządzania świadomości"
+            }
+        },
+        "securite": {
+            "diploma": {
+                "message": "ukończył/a wszystkie wymagane moduły i otrzymuje certyfikat:"
+            }
+        },
+        "projet": {
+            "diploma": {
+                "message": "Wszystkie kroki biegłości wymaganych zostały zakończone w ramach projektu zarządzania świadomości"
+            }
+        },
+        "tagheuer": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Ten moduł nie jest jeszcze dostępny. Aby go odblokować, należy najpierw usunąć poziomy tytanowy lub brązowy."
+                }
+            }
+        },
+        "tagheuercon": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Ten moduł nie jest jeszcze dostępny. Aby go odblokować, należy najpierw uzyskać poziomy tytanowy lub brązowy."
+                }
+            }
+        },
+        "up": {
+            "subtitle_head2": "Rozpocznij poziom wśród tych zawarte w sposób obiektywny.",
+            "how_to": "Aby sprawdzić poprawność cel, należy wykonać każdy poziom. Zaczynajmy!",
+            "popover": {
+                "module_blocked_pre": "Ten poziom nie jest dostępna:",
+                "select_goal": {
+                    "module_done": "Ten poziom już został wyczyszczony. Jesteś na najlepszej drodze do osiągnięcia celu.",
+                    "module_blocked": "Ten poziom nie jest jeszcze dostępna. Aby je odblokować należy najpierw usunąć Basic lub zaawansowanym."
+                }
+            },
+            "certification": {
+                "condition_description": {
+                    "progress": "Cel: {{count}} dyscypliny",
+                    "progress_plural": "Cel: {{count}} dyscyplin"
+                }
+            }
+        }
+    }
+}

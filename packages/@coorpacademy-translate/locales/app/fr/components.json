@@ -1,0 +1,203 @@
+{
+    "video_player": {
+        "jw": "Chargement du lecteur vidéo",
+        "fileCouldNotBePlayedTitle": "Erreur lecture vidéo",
+        "flashInstallUrl": "https://get.adobe.com/en/flashplayer/",
+        "MEDIA_ERR_UNKNOWN": {
+            "title": "Une erreur inconnue s'est produite",
+            "description": "Nous avons détecté une erreur de lecture vidéo. Nous avons été informés de cet échec et étudions le problème."
+        },
+        "MEDIA_ERR_ABORTED": {
+            "title": "Le processus de récupération de la ressource multimédia a été abandonné.",
+            "description": "Merci de bien vouloir vérifier votre connexion Internet et essayer de recharger la vidéo."
+        },
+        "MEDIA_ERR_NETWORK": {
+            "title": "Une erreur réseau a chargée l'agent utilisateur d'arrêter l'extraction de la ressource multimédia.",
+            "description": "Merci de vérifier votre connexion Internet et essayer de recharger la vidéo."
+        },
+        "MEDIA_ERR_DECODE": {
+            "title": "Une erreur s'est produite dans le décodage de la ressource multimédia.",
+            "description": "Cette vidéo n'est pas pris en charge par ce navigateur. C'est un problème lié à votre navigateur ou système d'exploitation."
+        },
+        "MEDIA_ERR_SRC_NOT_SUPPORTED": {
+            "title": "La source média n'est pas utilisable",
+            "description": "Cette vidéo est indisponible ou non pris en charge par ce navigateur, merci d'essayer avec un autre navigateur ou installer Flash Player en attendant et recharger cette page."
+        }
+    },
+    "account_menu": {
+        "badge": "Badges",
+        "account": "Mon compte",
+        "objectif": "Mes Certifications",
+        "activity": "Activité",
+        "competence_win": "Compétences acquises",
+        "timeline": "Avancement dans le temps",
+        "discussion": "Discussions",
+        "conseil": "Conseils et astuces",
+        "coach": "Coaches",
+        "battle": "Mode battle",
+        "modification": "Modifier mes infos"
+    },
+    "chat_room": {
+        "button_wrapper": "Envoyer",
+        "placeholder": "Votre message",
+        "connexion": "{{displayName}} a rejoint cette conversation",
+        "deconnexion": "{{displayName}} a quitté cette conversation"
+    },
+    "badgesLabel": {
+        "battle": {
+            "detail": "{{detail}} battle terminée",
+            "detail_plural": "{{detail}} battle terminée"
+        },
+        "module": {
+            "detail": "{{detail}} Module réussi sans perdre de vie !",
+            "detail_plural": "{{detail}} Modules réussis sans perdre de vie !"
+        },
+        "lesson": {
+            "detail": "{{detail}} leçon visionnée!",
+            "detail_plural": "{{detail}} leçons visionnées !"
+        },
+        "question": {
+            "detail": "{{detail}} question répondue correctement !",
+            "detail_plural": "{{detail}} questions répondues correctement !"
+        },
+        "coach": {
+            "detail": "{{detail}} Interaction avec les coaches !",
+            "detail_plural": "{{detail}} interactions avec les coaches !"
+        }
+    },
+    "notificationMenu": {
+        "god_mode": "Activer le God Mode",
+        "notification": "Être notifié en temps réel",
+        "title": "Notifications ({{nb}})",
+        "forum": "Un utilisateur a répondu à votre commentaire sur le module {{name}} niveau {{level}}",
+        "badge_title": "Félicitations !",
+        "badge": "Vous avez gagné le badge {{name}} {{level}}",
+        "module_title": "Félicitations !",
+        "module": "Vous avez réussi le module {{name}} niveau {{level}} !",
+        "battle": {
+            "new": "{{name}} souhaite vous défier sur le module {{module}} niveau {{level}} !",
+            "accepted": "Votre demande de battle a été acceptée",
+            "win": "Vous avez gagné la battle contre {{looser}} sur le module {{module}} niveau {{level}} !",
+            "loose": "Vous avez perdu la battle contre {{winner}} sur le module {{module}} niveau {{level}}…"
+        },
+        "link": "Tout voir",
+        "challenge_reminder": "N’oubliez pas, {{name}} souhaite vous défier sur le module {{module}} niveau {{level}} et attend votre réponse !",
+        "coach": "Bravo ! Vous êtes devenu coach de la discipline {{name}} !",
+        "start_aim": "Vous avez sélectionné la certification {{name}}. Commencez-la !",
+        "goal_as_reward": "Vous avez débloqué une nouvelle certification : {{name}}, commencez-la !",
+        "half_achieved": "Félicitations ! Vous avez fait plus de la moitié de votre certification {{name}} ! Continuez vos efforts.",
+        "three_third_achieved": "Félicitations ! Vous avez décroché la certification {{name}} ! Partagez votre réussite auprès de votre réseau professionnel.",
+        "continue_goals": "Félicitations ! Vous avez atteint la certification {{name}} ! Commencez-en une autre !",
+        "continue": "Ne vous arrêtez pas en si bon chemin, continuez la certification {{name}} !",
+        "mandatory": "Pour décrocher la certification {{name}}, validez {{levels}} niveaux !",
+        "mandatory_plural": "Pour décrocher la certification {{name}}, validez {{levels}} niveaux !",
+        "mandatory_achieved": "Félicitations ! Vous avez atteint la certification {{name}} !",
+        "toggleCoach": "Disponible pour coach",
+        "reward_title": "Bravo ! Vous avez décroché une récompense !",
+        "reward_description": {
+            "bonusStars": "Vous avez gagné {{stars}} supplementaires."
+        }
+    },
+    "custom": {
+        "armeedeterre": {
+            "account_menu": {
+                "battle": "Mode bataille"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} bataille terminée",
+                    "detail_plural": "{{detail}} batailles terminées"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "Votre demande de bataille a été acceptée",
+                    "win": "Vous avez gagné la bataille contre {{looser}} sur le module {{module}} niveau {{level}} !",
+                    "loose": "Vous avez perdu la bataille contre {{winner}} sur le module {{module}} niveau {{level}}…"
+                }
+            }
+        },
+        "gdf": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} thème terminé",
+                    "detail_plural": "{{detail}} thèmes terminés"
+                }
+            }
+        },
+        "gdfec": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} thème terminé",
+                    "detail_plural": "{{detail}} thèmes terminés"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "assistance": {
+                "title": "Feedback"
+            }
+        },
+        "pernod": {
+            "notificationMenu": {
+                "start_aim": "Vous avez sélectionné l’objectif {{name}}, démarrez-le !",
+                "goal_as_reward": "Vous avez débloqué un nouvel objectif : {{name}}, démarrez-le !",
+                "half_achieved": "Vous êtes sur la bonne voie ! Vous avez réalisé 50% de l’objectif {{name}} !",
+                "three_third_achieved": "Félicitations ! Vous avez atteint l’objectif {{name}} !",
+                "continue_goals": "Félicitations ! Vous avez atteint l'objectif {{name}} ! Commencez-en un autre !",
+                "continue": "Ne vous arrêtez pas en si bon chemin, continuez l’objectif {{name}} !",
+                "mandatory": "Vous devez réaliser l’objectif {{name}} pour valider votre formation, démarrez-le !",
+                "mandatory_achieved": "Félicitations ! Vous avez atteint l'objectif {{name}} !"
+            }
+        },
+        "up": {
+            "badgesLabel": {
+                "module": {
+                    "detail": "{{detail}} Niveau réussi sans perdre de vie !",
+                    "detail_plural": "{{detail}} Niveaux réussis sans perdre de vie !"
+                }
+            },
+            "notificationMenu": {
+                "forum": "Un utilisateur a répondu à votre commentaire lié au cours {{name}} niveau {{level}}",
+                "module": "Vous avez réussi le cours {{name}} niveau {{level}} !",
+                "battle": {
+                    "new": "{{name}} souhaite vous défier sur le cours {{module}} niveau {{level}} !",
+                    "win": "Vous avez gagné la battle contre {{looser}} sur le cours {{module}} niveau {{level}} !",
+                    "loose": "Vous avez perdu la battle contre {{winner}} sur le cours {{module}} niveau {{level}}…"
+                },
+                "challenge_reminder": "N’oubliez pas, {{name}} souhaite vous défier sur le cours {{module}} niveau {{level}} et attend votre réponse !",
+                "coach": "Bravo ! Vous êtes devenu coach du cours {{name}} !"
+            }
+        },
+        "who": {
+            "account_menu": {
+                "battle": "Défi Mode"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "défi {{detail}} terminée",
+                    "detail_plural": "{{detail}} défis terminées"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "Votre défi a été accepté",
+                    "win": "Vous avez gagné le défi contre {{looser}} sur le niveau {{level}} de module {{module}} !",
+                    "loose": "Vous avez perdu le défi contre {{winner}} sur le niveau {{level}} de module {{module}}..."
+                },
+                "continue_goals": "Félicitations ! Vous avez obtenu votre certification de {{name}} !"
+            }
+        }
+    },
+    "assistance": {
+        "title": "Assistance",
+        "object": "Objet",
+        "message": "Message",
+        "send": "Envoyer",
+        "thanks": "Merci pour votre message !",
+        "next": "Continuer"
+    },
+    "cards": {
+        "allCategories": "Tous"
+    }
+}

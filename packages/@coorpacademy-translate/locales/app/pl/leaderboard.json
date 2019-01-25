@@ -1,0 +1,31 @@
+{
+    "rankPos": "&nbsp;",
+    "rankPos_plural": "&nbsp;",
+    "title": "Mój ranking",
+    "title_caps": "Mój ranking",
+    "subtitle_head": "Sprawdź swoją pozycję w stosunku do 20 graczy, którzy uzyskali najwięcej gwiazdek.",
+    "subtitle_core_pre": "Masz miejsce nr:",
+    "subtitle_core_post": "spośród wszystkich uczących się!",
+    "subtitle_tail": "Utrzymaj tę tendencję, aby poprawić swój wynik.",
+    "subtitle_no_rank": "Ukończ więcej modułów, aby poprawić swoją pozycję w rankingach.",
+    "custom": {
+        "bnp": {
+            "subtitle_head": "Zobacz swoją pozycję w stosunku do top-20 star Factiors."
+        },
+        "gdf": {
+            "subtitle_tail": "Na koniec sezonu 1 top-20 pracowników w rankingu ogólnym zostaną zaproszeni do Komitetu redakcyjnego do wyboru zawartości przedmiot na następny sezon WeTransform."
+        },
+        "gdfec": {
+            "subtitle_tail": "Na koniec sezonu 1 top-20 pracowników w rankingu ogólnym zostaną zaproszeni do Komitetu redakcyjnego do wyboru zawartości przedmiot na następny sezon WeTransform."
+        },
+        "up": {
+            "subtitle_no_rank": "Ukończ więcej poziomów, aby przenieść w górę w rankingach."
+        },
+        "yahoo": {
+            "subtitle_tail": "&nbsp;"
+        },
+        "linxea": {
+            "subtitle_head": "Zobacz swoją pozycję w stosunku do zarabiających gwiazda top-20."
+        }
+    }
+}

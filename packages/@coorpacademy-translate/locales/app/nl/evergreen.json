@@ -1,0 +1,25 @@
+{
+    "notCompatible": {
+        "os": "De versie van je OS is te oud voor toegang tot het platform. We raden je aan om een update uit te voeren.",
+        "explanation": "De compatibiliteitsweergave van je browser is waarschijnlijk ingeschakeld. Meer info over het uitschakelen ervan.",
+        "explanationLink": "https://static.coorpacademy.com/content/help/compatibility_view/Help_Compatibility_view_EN.pdf",
+        "explanationLinkLabel": "hier.",
+        "header": "De versie van de browser is te oud voor toegang tot het platform.",
+        "suggestion_text": "BrowseHappy",
+        "suggestion_href": "http://browsehappy.com",
+        "suggestion_text_pre": "Ga naar",
+        "suggestion_text_post": "voor meer informatie over Evergreen-browsers.",
+        "different_user_agent": "Er zijn twee verschillende gebruikersagenten gevonden, wat resulteert in beperkte toegang tot het platform."
+    },
+    "custom": {
+        "fff": {
+            "notCompatible": {
+                "os": "De versie van je OS is te oud voor toegang tot het platform. We raden je aan om een update uit te voeren.",
+                "suggestion_text": "Chrome",
+                "suggestion_href": "https://www.Google.com/intl/fr/Chrome/browser/",
+                "suggestion_text_pre": "Voorgestelde downloaden",
+                "suggestion_text_post": "."
+            }
+        }
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "http": {
+        "401": "Acesso não autorizado",
+        "403": "Acesso proibido",
+        "404": "Página não encontrada",
+        "412": "Condição prévia falhada",
+        "500": "Erro interno do servidor",
+        "503": "Serviço não disponível",
+        "500_message_pre": "A URL",
+        "500_message": "encontrou um erro desconhecido",
+        "500_message_post": ".",
+        "503_message": "O serviço está indisponível. Queira tentar novamente em alguns instantes.",
+        "404_message_pre": "A URL",
+        "404_message": "não encontrou o endereço correspondente.",
+        "412_message": "A condição especificada por uma ou mais ... Se cabeçalhos no pedido avaliado como false.",
+        "409_progressions_content_conflict": "Parece que você já respondeu esta pergunta durante a sessão atual. Você tem abrir em outra guia em outro lugar, talvez? <br/> Clique em 'Atualizar página' abaixo para atualizar seus dados, nós vai carregar a pergunta certa para você."
+    },
+    "infos": "Informações",
+    "auth": {
+        "header": "Ops! {{status}}",
+        "reload": "Conectar-se"
+    },
+    "modal": {
+        "header": "Erro {{status}}",
+        "body": {
+            "title": "Favor anotar as informações abaixo e fornecê-las ao nosso suporte técnico",
+            "paymentRequired": "Antes de acessar este módulo, você deve comprá-lo.",
+            "url": "Url: {{err}}",
+            "id": "Id: {{id}}",
+            "message": "{{message}}"
+        },
+        "footer": {
+            "paymentRequired": "Descrição do curso",
+            "assistance": "Assistência",
+            "back_home": "Voltar à página inicial",
+            "reload": "Recarregar a página",
+            "continue": "Continuar"
+        },
+        "assistance": "Questão com erro"
+    },
+    "defaultMessage": "Ocorreu um erro na aplicação. Favor tentar novamente mais tarde.",
+    "achievementContext": "Parece que este módulo já foi iniciado. Queira recarregar a página a fim de continuar este módulo.",
+    "custom": {
+        "chanel": {
+            "http": {
+                "412_message": "Endereço de e-mail em falta. Por favor, contacte o seu administrador ou registe-se aqui."
+            }
+        },
+        "ilearn": {
+            "http": {
+                "412_message": "Falta endereço de e-mail. Por favor, entre em contato com seu administrador ou Cadastre-se aqui."
+            }
+        },
+        "up": {
+            "modal": {
+                "body": {
+                    "paymentRequired": "Para acessar esse nível, você tem que comprá-lo primeiro."
+                }
+            },
+            "achievementContext": "Parece que este nível já foi iniciado. Por favor, recarregue a página para continuar o nível."
+        }
+    }
+}

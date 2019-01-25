@@ -1,0 +1,392 @@
+{
+    "welcome": "Guten Tag!",
+    "goodby": "Auf Wiedersehen!",
+    "sorry": "Tut uns leid!",
+    "welcome_message": "Bitte geben Sie die von Coorpacademy bereitgestellten Anmeldeinformationen ein, um sich",
+    "welcome_message_coorp": "anzumelden.",
+    "grant_credentials": "Sie besitzen nicht die nötigen Berechtigungen für diesen Vorgang.",
+    "sso_connect": "Sie können sich über Ihr Unternehmenskonto anmelden.",
+    "connect_connect": "Sie können sich über connect anmelden.",
+    "forgotten_credentials_pre": "Bei Fragen zum MOOC wenden Sie sich bitte an den Administrator der Plattform:",
+    "forgotten_credentials_href": "mailto:assistance@coorpacademy.com?subject=Brauchen%20Sie%20Hilfe%20beim%20Anschließen%20an%20{{platform}}",
+    "forgotten_credentials": "assistance@coorpacademy.com",
+    "forgotten_credentials_post": "&nbsp;",
+    "instruction": "&nbsp;",
+    "logged_out": "Ihre Verbindung wurde getrennt.",
+    "form": {
+        "user": "E-Mail",
+        "password": "Passwort"
+    },
+    "error": {
+        "incorrect_credentials": "Benutzername oder Passwort falsch",
+        "password_check": "Ihr Passwort kann nicht überprüft werden. Bitte wenden Sie sich an den technischen Administrator.",
+        "too_many_failed_attempts": "Maximale Anzahl Versuche überschritten. Versuchen Sie es in einigen Minuten erneut.",
+        "no_population": "Sie erfüllen nicht die Kriterien für den Zugang zur Plattform. Bitte kontaktieren Sie Ihren Administrator.",
+        "auth": {
+            "_sso_vendor_vendor_authentication_failed_connect_econnrefused": "[sso.vendor] vendor authentication failed: connect ECONNREFUSED",
+            "_sso_corporate_authenticate_person_failed_connect_econnrefused": "[sso.corporate] authenticatePerson failed: connect ECONNREFUSED"
+        },
+        "token_invalid": "Dieser Link ist abgelaufen, benutzen Sie bitte Ihren Benutzernamen und Ihr Passwort"
+    },
+    "reset_password": "Passwort vergessen?",
+    "forgot": {
+        "welcome": "Setzen Sie Ihr Passwort zurück.",
+        "new_password": "Neues Passwort",
+        "forgotten_welcome_message": "Bitte geben Sie Ihren Login oder Ihre e-Mail.",
+        "forgotten_placeholder": "Login oder e-Mail",
+        "reset_welcome_message": "Bitte geben Sie Ihr neues Passwort ein.",
+        "password_updated": "Ihr Passwort wurde aktualisiert!",
+        "your_login_is": "Ihr aktueller Benutzername lautet:",
+        "reset_query_not_found": "Ungültiger Link. Ihre Anfrage zur Aktualisierung Ihres Passworts existiert nicht oder ist nicht mehr gültig.",
+        "incorrect_credentials": "Benutzername oder Passwort falsch",
+        "password_reset_query_created": "Ihre Anfrage ist eingegangen.",
+        "password_reset_mail_sent": "Wenn Sie die korrekte Emailadresse, die Sie für diese Plattform verwenden, eingegeben haben, haben wir Ihnen gerade eine e-Mail gesendet. Bitte folgen Sie den dortigen Anweisungen, um Ihr Passwort zu aktualisieren.\nWenn Sie keine e-Mail innerhalb der nächsten Minuten erhalten, <b>haben Sie möglicherweise die falsche e-Mail eingegeben</b>. Bitte versuchen Sie es erneut mit einer anderen Adresse.",
+        "sign": {
+            "in": "Anmelden"
+        },
+        "error": {
+            "missing_login": "Benutzername obligatorisch.",
+            "login_not_found": "Benutzername nicht gefunden.",
+            "forgotten_missing_login": "Login oder e-Mail obligatorisch",
+            "weak_password": "Das neue Kennwort ist nicht gut genug",
+            "reset_query_not_saved": "Beim Speichern der Anfrage zum Zurücksetzen Ihres Passwortes ist ein Fehler aufgetreten. Bitte versuchen Sie es später erneut."
+        }
+    },
+    "unsubscribe": {
+        "title": "Abmelden",
+        "confirmation_unsubscribe_message": "Ihre Abmeldung wurde registriert.",
+        "confirmation_subscribe_message": "Ihre Anmeldung wurde registriert.",
+        "question_message": "Ich möchte keine Informations- oder Erinnerungs-E-Mails erhalten."
+    },
+    "bad_access": {
+        "title": "Tut uns leid!",
+        "sub_title": "Dieser MOOC ist nur für berechtigte Personen zugänglich."
+    },
+    "inactive": {
+        "title": "Tut uns leid!",
+        "sub_title": "<p>Ihr Konto ist nicht aktiv.</p> <p>$t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a></p>"
+    },
+    "deactivated": {
+        "title": "Entschuldigung",
+        "warning": "Alle Benutzerdeaktivierungen werden am ersten Tag des Folgemonats wirksam. Einmal deaktivierte Benutzer können nicht mehr aktiviert werden. Mit Bedacht anwenden.",
+        "sub_title": "<p>Ihr Unternehmen hat Ihr Konto deaktiviert. Wir bedauern, dass Sie uns verlassen möchten!</p>"
+    },
+    "anonymous_notification": "Schon angemeldet ? <a href=\"/sso/connect\" target=\"_self\"><b>Log in </b></a> oder <a href=\"$t(global:demo.url, {\"medium\": \"notification\"})\" target=\"_blank\"><b>ein Demo buchen</b></a> für Ihr Unternehmen",
+    "connect_dialog": {
+        "need_signup": {
+            "title": "Sie sind fast fertig!",
+            "message": "Melden Sie sich jetzt an, um das nächste Kapitel zu entsperren"
+        },
+        "feature_locked": {
+            "title": "Funktion gesperrt!",
+            "message": "Melden Sie sich jetzt an, um dieses Feature zu entsperren"
+        },
+        "login_with": {
+            "facebook": "Login mit Facebook",
+            "google": "Login mit Google",
+            "linkedin": "Login mit Linkedin"
+        },
+        "signup_with": {
+            "email": "Melden Sie sich mit Ihrer e-mail an"
+        },
+        "or": "oder",
+        "signup": "Anmelden",
+        "signup_exist": "Ich habe bereits ein Konto",
+        "login": "Anmelden"
+    },
+    "custom": {
+        "accueil": {
+            "forgotten_credentials_href": "mailto:Assistance@Tourism-Academy.com",
+            "forgotten_credentials": "Assistance@Tourism-Academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "architas-powercircle": {
+            "reset_password": "Passwort vergessen?",
+            "forgotten_credentials_pre": "<p>Haben Sie Fragen bezüglich dieser e-Learning-Plattform?</p> <p>Zögern Sie nicht - schicken Sie uns eine Nachricht!</p>",
+            "forgotten_credentials_href": "mailto:powercircle@architas.com",
+            "forgotten_credentials": "powercircle@architas.com"
+        },
+        "bestwesternuniversity": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "bigdata": {
+            "forgotten_credentials_pre": "Um sich anzumelden, geben Sie bitte die Login-Daten ein, die Sie per e-Mail erhalten haben.</br> </br> Für Fragen bezüglich des MOOC, kontaktieren Sie den Plattformadministrator:",
+            "form": {
+                "user": "Ihre e-Mail-Adresse"
+            }
+        },
+        "bpifrance-academie": {
+            "forgotten_credentials": "formation-drhinvest@bpifrance.fr",
+            "forgotten_credentials_href": "mailto:formation-drhinvest@bpifrance.fr"
+        },
+        "breguet": {
+            "form": {
+                "user": "Login"
+            }
+        },
+        "chanel": {
+            "welcome": "HERZLICH WILLKOMMEN",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "cd78": {
+            "forgotten_credentials": "DSIdemande@yvelines.fr",
+            "forgotten_credentials_href": "mailto:DSIdemande@yvelines.fr"
+        },
+        "el": {
+            "form": {
+                "user": "RAISON SOCIALE. NUMERO"
+            }
+        },
+        "faurecia": {
+            "welcome_message": "Um sich anzumelden geben Sie bitte die Login-Daten ein, die Sie erhalten haben von",
+            "welcome_message_coorp": "E-Mail"
+        },
+        "fdj": {
+            "form": {
+                "user": "mailen Sie in Kleinbuchstaben"
+            }
+        },
+        "fff": {
+            "bad_access": {
+                "title": "Tut uns leid",
+                "sub_title": "Dieses MOOC ist nur für autorisierte Personen zugänglich. <br/> <br/> Wenn Sie einen Lehrer oder Techniker sind, melden Sie am <a href=\"https://www.fff.fr/myfff\"> https://www.fff.fr/myfff</a> auf die Plattform zuzugreifen."
+            }
+        },
+        "forco": {
+            "form": {
+                "user": "mailen Sie in Kleinbuchstaben"
+            }
+        },
+        "gdf": {
+            "welcome_message": "Um sich anzumelden geben Sie bitte Ihre professionelle e-Mail-Adresse <br/> (in Kleinbuchstaben) und Ihr Passwort ein.",
+            "welcome_message_coorp": "<br><br>Erste Verbindung? Geben Sie das Kennwort ein, das Ihnen per e-Mail zur Verfügung gestellt wurde.",
+            "forgotten_credentials_pre": "Keinen Zugang? Verbindungsproblem? <a href=\"https://docs.google.com/forms/d/1M9Wxq3h8ukgZZHgD8MXknduRIpbNns9rYZNA3bEiiM4/viewform?usp=send_form\"> Klicken Sie hier</a> <br><br>Für Fragen bezüglich des MOOC, kontaktieren Sie bitte den Plattformadministrator:"
+        },
+        "gdfec": {
+            "welcome_message": "Um sich anzumelden geben Sie bitte Ihre professionelle e-Mail-Adresse <br/> (in Kleinbuchstaben) und Ihr Passwort ein.",
+            "welcome_message_coorp": "<br><br>Erste Verbindung? Geben Sie das Kennwort ein, das Ihnen per e-Mail zur Verfügung gestellt wurde.",
+            "forgotten_credentials_pre": "Keinen Zugang? Verbindungsproblem? <a href=\"https://docs.google.com/forms/d/1M9Wxq3h8ukgZZHgD8MXknduRIpbNns9rYZNA3bEiiM4/viewform?usp=send_form\"> Klicken Sie hier</a> <br><br>Für Fragen bezüglich des MOOC, kontaktieren Sie bitte den Plattformadministrator:"
+        },
+        "ilearn": {
+            "welcome": "Herzlich Willkommen"
+        },
+        "jardiland": {
+            "form": {
+                "user": "numéro de matricule"
+            }
+        },
+        "letsgetdigital": {
+            "form": {
+                "user": "E-Mail"
+            }
+        },
+        "linxea": {
+            "form": {
+                "user": "Ihre e-Mail-Adresse"
+            }
+        },
+        "logisacademie": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "metro": {
+            "form": {
+                "user": "name.lastname"
+            }
+        },
+        "mooc-parischarlesdegaulle": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "nespresso": {
+            "form": {
+                "user": "Nespresso Email address (case-sensitive)"
+            }
+        },
+        "nestlehealthscience": {
+            "form": {
+                "user": "mailen Sie in Kleinbuchstaben"
+            }
+        },
+        "natixis": {
+            "forgotten_credentials_pre": "For any question, please contact the platform administrator:"
+        },
+        "michelin": {
+            "inactive": {
+                "sub_title": "<p>We have missed you. Your account has been deactivated by your DCAD departement (Contact: <a href=\"mailto:compte-fonction.digital-transformation@michelin.com\">compte-fonction.digital-transformation@michelin.com</a>)"
+            }
+        },
+        "moocandfeel": {
+            "welcome_message": "Um sich einzuloggen, geben Sie bitte die Login-Informationen bereitgestellt durch Comundi.",
+            "forgotten_credentials_pre": "Kontaktieren Sie für Fragen bezüglich des MOOC bitte den Plattformadministrator:",
+            "forgotten_credentials_href": "mailto:Assistance-moocandfeel@coorpacademy.com",
+            "forgotten_credentials": "Assistance-moocandfeel@coorpacademy.com",
+            "forgotten_credentials_post": "&nbsp;"
+        },
+        "online-academy-klubschule": {
+            "forgotten_credentials_href": "mailto:support@online-academy.klubschule.ch",
+            "forgotten_credentials": "support@online-academy.klubschule.ch"
+        },
+        "paca": {
+            "forgotten_credentials_href": "mailto:Assistance@Tourism-Academy.com",
+            "forgotten_credentials": "Assistance@Tourism-Academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "panzani": {
+            "form": {
+                "user": "mailen Sie in Kleinbuchstaben"
+            }
+        },
+        "pernod": {
+            "bad_access": {
+                "title": "Tut uns Leid",
+                "sub_title": "Dieses MOOC ist nur für autorisierte Personen zugänglich. Um die Plattform benutzen, melden Sie sich auf <a href='http://digifit-pernodricard-university.com'> Digifit-Pernodricard-university.com</a>an"
+            }
+        },
+        "pmf": {
+            "form": {
+                "user": "mailen Sie in Kleinbuchstaben"
+            }
+        },
+        "pru": {
+            "bad_access": {
+                "title": "Tut uns Leid",
+                "sub_title": "Dieses MOOC ist nur für autorisierte Personen zugänglich."
+            }
+        },
+        "quizz-auchan": {
+            "form": {
+                "user": "Ident-Nummer (Beispiel: XXX0000000)"
+            }
+        },
+        "redoute": {
+            "form": {
+                "user": "Login"
+            }
+        },
+        "renault": {
+            "welcome_message": "Um sich einzuloggen, geben Sie bitte Ihre Login-Daten ein.",
+            "forgotten_credentials_pre": "Kontaktieren Sie für Fragen bezüglich des MOOC bitte den Plattformadministrator:",
+            "forgotten_credentials_href": "mailto:Gerardo.Talavera-Farias@Renault.com",
+            "forgotten_credentials": "Gerardo.Talavera-Farias@Renault.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "welcome_message_coorp": "&nbsp;"
+        },
+        "samsung": {
+            "forgotten_credentials_pre": "Kontaktieren Sie für Fragen bezüglich des MOOC bitte den Plattformadministrator:",
+            "forgotten_credentials_href": "mailto:Assistance@coorpacademy.com",
+            "forgotten_credentials": "Assistance@coorpacademy.com",
+            "hotline_assistance_pre": "Kontaktieren Sie für Fragen zu Ihrer Registrierung bitte die Hotline von Samsung Akademie:",
+            "hotline_assistance_href": "mailto:Hotline.samsungacademy@gmail.com",
+            "hotline_assistance": "Hotline.samsungacademy@gmail.com",
+            "inactive": {
+                "title": "Tut uns Leid",
+                "sub_title": "Ihr Konto ist nicht aktiv</br></br> $t(login:hotline_assistance_pre) <a href=\"$t(login:hotline_assistance_href)\"> $t(login:hotline_assistance)</a></br></br> $t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a>"
+            }
+        },
+        "securite": {
+            "forgotten_credentials_pre": "Um sich anzumelden, geben Sie bitte die Login-Daten ein, die Sie per e-Mail erhalten haben.</br> </br> Für Fragen bezüglich des MOOC, kontaktieren Sie bitte den Plattformadministrator:",
+            "form": {
+                "user": "Ihre e-Mail-Adresse"
+            }
+        },
+        "societegenerale": {
+            "welcome_message": "Um sich anzumelden, geben Sie bitte die Login-Informationen ein, die durch SGLearning bereitgestellt wurden.",
+            "forgotten_credentials_pre": "Kontaktieren Sie für Fragen bezüglich der MOOC bitte den Plattformadministrator:",
+            "forgotten_credentials_href": "mailto:sglearning.Communication@SocGen.com",
+            "forgotten_credentials": "sglearning.Communication@SocGen.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "welcome_message_coorp": "&nbsp;"
+        },
+        "schmidt-groupe": {
+            "form": {
+                "user": "e-Mail- oder VornameInitial+ \"Nachname\""
+            }
+        },
+        "sqy": {
+            "welcome_message_coorp": "e-Mail",
+            "forgotten_credentials_pre": "Um sich anzumelden, geben Sie bitte die Login-Daten ein, die Sie per e-Mail erhalten haben.</br> </br> Für Fragen bezüglich des MOOC, kontaktieren Sie den Plattformadministrator:",
+            "form": {
+                "user": "Ihre e-Mail-Adresse"
+            }
+        },
+        "tagheuer": {
+            "forgotten_credentials_pre": "Kontaktieren Sie für Fragen bezüglich der TAG Heuer Traning Plattform bitte den Plattformadministrator:",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "thelem": {
+            "forgotten_credentials_href": "tel:11-11",
+            "forgotten_credentials": "Telefon: 11-11"
+        },
+        "total": {
+            "instruction": "Ihr Passwort wurde Ihnen per e-Mail geschickt. Bei der ersten Verbindung werden Sie gebeten, es zu ändern.",
+            "form": {
+                "user": "IGG",
+                "password": "Passwort"
+            }
+        },
+        "tourism": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "tourisme-hautsdefrance": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "tourismdigital": {
+            "forgotten_credentials_href": "mailto:assistance@tourism-academy.com",
+            "forgotten_credentials": "assistance@tourism-academy.com",
+            "form": {
+                "user": "Login"
+            }
+        },
+        "who": {
+            "forgotten_credentials_pre": "Kontaktieren Sie für weitere Fragen bitte",
+            "forgotten_credentials_href": "mailto:assistance@coorpacademy.com",
+            "forgotten_credentials": "assistance@coorpacademy.com",
+            "forgotten_credentials_post": "&nbsp;",
+            "inactive": {
+                "sub_title": "<p>Ihr Konto ist nicht aktiv.</p> <p>, Wenn Sie bereits das Anmeldeformular ausgefüllt haben, erhalten Sie in Kürze eine Bestätigung und Zugriff auf die Plattform. Andernfalls senden Sie das Anmeldeformular <a href=\"/signup\" target=\"_self\"> <b>(“Sign Up”)</b></a>.</p> <p>$t(login:forgotten_credentials_pre) <a href=\"$t(login:forgotten_credentials_href)\"> $t(login:forgotten_credentials)</a></p>"
+            }
+        },
+        "wme-img": {
+            "form": {
+                "user": "FirstNameInitial + \"LastName\""
+            }
+        },
+        "yahoo": {
+            "welcome_message_coorp": "E-Mail"
+        }
+    }
+}

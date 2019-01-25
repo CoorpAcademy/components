@@ -1,0 +1,90 @@
+{
+    "disciplines": {
+        "book_demo": "book a demo",
+        "payment_required": "abonare coorpacademy",
+        "free_start": "începeți să învățați"
+    },
+    "modules": {
+        "button": {
+            "start": "Start {{name}} Nivel",
+            "access": "Accesare nivel {{name}}",
+            "continue": "Continuă nivelul {{name}}",
+            "again": "Repornește nivelul {{name}}",
+            "locked": "Modul blocat",
+            "payment_required": "Abonați-vă pentru a continue"
+        },
+        "skill": {
+            "valid": "Datorită acestui modul, puteți:",
+            "invalid": "La finalul acestui modul, veți putea să:"
+        },
+        "chapters": {
+            "title": "Capitole"
+        },
+        "stars": "Total stele câștigate"
+    },
+    "chapters": {
+        "button": {
+            "start": "Începe 5' Learning",
+            "access": "Acces 5' Learning",
+            "continue": "Continua 5' Learning",
+            "again": "Reporniţi 5' Learning",
+            "locked": "5' Learning blocat"
+        }
+    },
+    "presentation": {
+        "total": "{{nb}}",
+        "total_post": "modul",
+        "total_post_plural": "module",
+        "video_title": "Răsfoire Materiale de curs",
+        "popularity": "Popularitate:",
+        "trainer": "Antrenor",
+        "trainer_plural": "Formatori",
+        "by": "De",
+        "and": "și"
+    },
+    "author": "Acest curs a fost creat de:",
+    "disciplineNotFound": "Nu s-a găsit niciun curs cu referința {{disciplineRef}}",
+    "forbidden": {
+        "unknown_in_group": "Nu aveţi acces la acest conţinut",
+        "previous_level": "Nivelul anterior trebuie să fie finalizate înainte de a încerca acest nivel",
+        "conditions": "Urmatoarele cursuri trebuie să fie finalizate înainte de a încerca acest lucru: {{contents}}",
+        "subscription_required": "Coorpacademy abonament este necesar pentru a începe acest conţinut."
+    },
+    "custom": {
+        "up": {
+            "disciplines": {
+                "payment_required": "înscriere academiacoorp"
+            },
+            "modules": {
+                "button": {
+                    "locked": "Nivel blocat"
+                },
+                "skill": {
+                    "valid": "Mulțumită acestui nivel puteți să:",
+                    "invalid": "La sfârșitul acestui nivel, vei putea să:"
+                }
+            },
+            "presentation": {
+                "total_post": "nivel",
+                "total_post_plural": "niveluri"
+            }
+        },
+        "silca": {
+            "modules": {
+                "skill": {
+                    "invalid": "La finalul acestui modul, vă veți putea evalua capacitatea de a:"
+                }
+            }
+        },
+        "mooc-socgen": {
+            "modules": {
+                "button": {
+                    "start": "Începe {{name}}",
+                    "access": "Acces {{name}}",
+                    "continue": "Continua {{name}}",
+                    "again": "Reporniţi {{name}}"
+                }
+            }
+        }
+    }
+}

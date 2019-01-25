@@ -1,0 +1,63 @@
+{
+    "battle": {
+        "incoming": "Aveți {{count}} bătălii în curs de așteptare.",
+        "incoming_plural": "Ai {{count}} lupte în așteptare.",
+        "you_win": "Ai câștigat o bătălie",
+        "you_lose": "Ai pierdut o bătălie"
+    },
+    "badge": {
+        "won": "Ați câștigat insigna {{name}}"
+    },
+    "module": {
+        "won": "Ai trecut un modul"
+    },
+    "reward": {
+        "won": "Felicitări! Eforturile dvs. au fost răsplătite!"
+    },
+    "coach": {
+        "unlocked": "Ați devenit Antrenor"
+    },
+    "incoming": "Aveţi o notificare nouă",
+    "chatrequest": "Cerere nouă chat",
+    "goal": {
+        "progress": "Aţi avansat în certificarea dumneavoastră",
+        "select": "Ați selectat o certificare",
+        "reward": "Ai obținut un certificat"
+    },
+    "forum": "Un utilizator tocmai ți-a răspuns la întrebare",
+    "new_version": {
+        "title": "Versiune nouă",
+        "message": "A fost lansată o nouă versiune a acestei platforme.",
+        "action": "Reîmprospătați"
+    },
+    "welcome": "Bine ati venit pe <b>{{user}}</b>, acum puteţi accesa toate cursurile",
+    "personal_note": "Notița dumneavoastră a fost trimisă pe adresa de e-mail.",
+    "bonusStars": "Felicitări! Ai câștigat {{stare}} stele suplimentare!",
+    "rewardStars": "Felicitări! Ai câștigat {{stars}} stele adiționale!",
+    "custom": {
+        "armeedeterre": {
+            "battle": {
+                "incoming": "Trebuie {{count}} până la luptă.",
+                "incoming_plural": "Trebuie {{count}} până la lupte.",
+                "you_win": "Ai castigat o batalie",
+                "you_lose": "Ai pierdut o batalie"
+            }
+        },
+        "pernod": {
+            "goal": {
+                "progress": "Aţi modificat un ţel",
+                "select": "Ați selectat un obiectiv",
+                "reward": "Ai deblocat un obiectiv"
+            }
+        },
+        "up": {
+            "module": {
+                "won": "Ai încheiat un nivel"
+            }
+        },
+        "racing": {
+            "header": "A new Tower Quizz live is happening!",
+            "body": "Click here to join"
+        }
+    }
+}

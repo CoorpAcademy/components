@@ -1,0 +1,31 @@
+{
+    "rankPos": "&nbsp;",
+    "rankPos_plural": "&nbsp;",
+    "title": "Ranglista",
+    "title_caps": "Helyezésem",
+    "subtitle_head": "Tekintse meg helyét a top 20 csillagot szerzők között.",
+    "subtitle_core_pre": "Besorolásod",
+    "subtitle_core_post": "az összes tanuló közül!",
+    "subtitle_tail": "Tartsa meg a lendületet hogy tovább növelhesse a pontszámát.",
+    "subtitle_no_rank": "Fejezzen be további modulokat a besoroláson való előrelépéshez.",
+    "custom": {
+        "bnp": {
+            "subtitle_head": "Tekintse meg helyezését a legjobb 20 csillag Tényezőhöz képest"
+        },
+        "gdf": {
+            "subtitle_tail": "Az 1. Évad végén a ranglista 20 legjobb alkalmazottja meghívót kap a szerkesztői bizottságba, hogy kiválasszák a következő Átalakítunk évad tárgyi tartalmát"
+        },
+        "gdfec": {
+            "subtitle_tail": "Az 1. évad végén a teljes alkalmazotti rangsor első 20 helyezettjét meghívjuk a szerkesztőbizottságba, ahol a következő WeTransform évad témáját választhatják ki. "
+        },
+        "up": {
+            "subtitle_no_rank": "Teljesítst több szintet, hogy feljebb juthass a ranglétrán."
+        },
+        "yahoo": {
+            "subtitle_tail": "&nbsp;"
+        },
+        "linxea": {
+            "subtitle_head": "Pozíciód megtekintése a top-20 csillag kiérdemlőkhöz viszonyítva."
+        }
+    }
+}

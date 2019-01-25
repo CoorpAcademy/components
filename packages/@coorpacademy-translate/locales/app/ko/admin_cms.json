@@ -1,0 +1,120 @@
+{
+    "cms": {
+        "add": "항목 추가",
+        "title": "새 페이지 추가",
+        "lang": "입력 언어:",
+        "name": "이름:",
+        "scope": "경계:",
+        "target": {
+            "title": "목표:",
+            "empty": "목표 없음",
+            "discipline": "분야",
+            "learningTree": "카탈로그"
+        },
+        "type": "유형:",
+        "order": "순서:",
+        "active": "활성:",
+        "populations": "인구:",
+        "rmd": "마크다운",
+        "save": "저장",
+        "delete": "삭제",
+        "test": "테스트",
+        "deploy": "보내기",
+        "delete_confirm": "이 페이지를 삭제 하시겠습니까?",
+        "markdown": "마크다운 구문",
+        "quick": "빠른 참조",
+        "path": "URL 접미사*:",
+        "full": "전체 문서",
+        "preview": "미리 보기",
+        "edit": "수정하기",
+        "notifications": "사용자 지정 알림",
+        "content": "내용:",
+        "config": "전체 설정",
+        "targetBlank": "새 탭에서 열기:",
+        "forum_xid": "포럼 Id",
+        "navigation": {
+            "label": "블록 발견:",
+            "none": "블록 없는 페이지"
+        },
+        "provider": {
+            "none": "모두"
+        },
+        "status": {
+            "ok": {
+                "title": "성공",
+                "save": "귀하의 페이지는 성공적으로 저장 되었습니다.",
+                "del": "귀하의 페이지는 성공적으로 삭제 되었습니다."
+            },
+            "test": {
+                "title": "작업이 시작함. 알림을 곧 볼 수 있으실 것입니다."
+            },
+            "deploy": {
+                "title": "작업 시작함. 작업 페이지에서 진행 상황을 따르실수 있으십니다."
+            },
+            "ko": {
+                "title": "오류",
+                "save": "저장 중 오류가 발생 했습니다: {{err}}",
+                "del": "삭제 하는 동안 오류가 발생 했습니다: {{err}}"
+            }
+        },
+        "title_content": "제목:",
+        "category": "카테고리",
+        "select_all": "모두 선택",
+        "language_info": "입력된 언어의 각각 활성화 하는 각 국가 대 한 가득 해야 합니다.",
+        "imageURL": "이미지 URL",
+        "page": "페이지:",
+        "link": "링크:",
+        "link_placeholder": "(예: http://www.google.com)",
+        "partner": "파트너:",
+        "discipline_ref": "discipline.ref",
+        "cancel": "취소",
+        "date": "날짜:",
+        "image": "이미지:",
+        "upload": "업로드",
+        "modify": "수정",
+        "countries": "국가"
+    },
+    "success": "변경 사항이 저장 되었습니다.",
+    "error": {
+        "mandatory": "누락된 필드"
+    },
+    "tabs": {
+        "pages": "페이지",
+        "news": "뉴스",
+        "notification": "사용자 지정 알림"
+    },
+    "page": {
+        "name": "{{name}}"
+    },
+    "notification": {
+        "new": "이 알림 하지 생성 되었습니다 아직. 작성 하 고 그것을 만드는 양식을 저장 합니다.",
+        "name": "{{name}}",
+        "provider": "공급자:",
+        "expires": "만료 날짜*:",
+        "message": "메시지",
+        "link": {
+            "show": "'추가 정보' 버튼 표시하기:",
+            "url": "링크:",
+            "target": "새 페이지에 링크 열기:"
+        },
+        "status": {
+            "title": "상태",
+            "created": "만든",
+            "sending": "전송: 일을 사용자에 게 전송 되도록 알림을 만드는 것입니다.",
+            "tested": "테스트",
+            "sent": "선택한 사용자에 게 전송.",
+            "pending": {
+                "deploy": "선택한 사용자에 대 한 알림을 생성 하려면 요청을 보내는.",
+                "testing": "알림 표시를 기다리고 있습니다.",
+                "delete": "제발 기다려, 알림 삭제 할 것 이다.",
+                "save": "제발 기다려, 알림 저장 되 고"
+            },
+            "ok": {
+                "save": "알림 저장",
+                "testing": "테스트",
+                "deploy": "사용자에 게 알림을 보내도록 작업 시작"
+            }
+        }
+    },
+    "text": "<h2>간단 소개</h2> <p>⏎\n줄 바꿈: 만약 강제개행을 하려면 줄 끝에 공백 두칸을 넣으면 됩니다<br />⏎\n바로 html 쓸려면 줄 앞에 공백 네칸은 넣으면 됩니다<br />⏎\n</p> <h2>헤딩태그</h2> <p>⏎\n# H1<br />⏎\n## H2<br />⏎\n### H3<br />⏎\n</p> <h2>강조구문</h2> <p>⏎\n기울여 표시 (Italic): *기울여* 또는 _기울여_.<br />⏎\n진하게표시 (Bold): **진하게** 또는 __진하게__.<br />⏎\n</p> <h2>리스트</h2> <p>⏎\n1. 하나 <br />⏎\n2. 둘 <br />⏎\n⋅⋅* 번호 없는 리스트.<br />⏎\n1. 숫자는 반드시 맞춰 쓸 필요는 없습니다.<br />⏎\n⋅⋅1. 번호 있는 리스트<br />⏎\n4. 또는 다름 아이템.<br />⏎\n<br />⏎\n⋅⋅⋅ 물론 리스트에 문단을 잘 맞추어 들여쓸수도 있습니다. 위에 빈줄과 선행 공백을 참조해 주시길 바랍니다 (적어도 하나는 필요하나 여기선 3개를 썼습니다).<br />⏎\n<br />⏎\n⋅⋅⋅ 단락없이 행을 바꾸려면, 두번 후행 공백을 쓰면 됩니다.⋅⋅<br />⏎\n⋅⋅⋅이때, 이 행은 똑같은 단락이 아닌 새 단락에 포합됩니다.⋅⋅<br />⏎\n⋅⋅⋅(반대로 보통 GFM 행 바꿀때엔 후행 공백이 필요 없습니다.)<br />⏎\n<br />⏎\n* 번호 없는 리스트엔 별 표시, <br />⏎\n- 또는 마이너스 <br />⏎\n+ 또는 플러스 표시를 쓸수 있으십니다<br />⏎\n</p> <h2>링크</h2> <p>⏎\n[인라인 링크](https://www.google.com)<br /><br />⏎\n[제목있는 인라인 링크](https://www.google.com \"Google's Homepage\")<br /><br />⏎\n[참조 링크][참조명]<br /><br />⏎\n[참조명](../blob/master/LICENSE)<br /><br />⏎\n[숫자로도 쓸수 있습니다][1]<br /><br />⏎\n또는 비워두고 [링크 그대로 쓸수 있습니다]<br /><br />⏎\n뒤로 링크가 있을걸 알리기 위해 텍스트를 준비하세요.⏎\n</p> <h2>앵커</h2> <p>⏎\n<h3>앵커 사용방법</h3>⏎\nHTML소스에 id를 만들어 앵커 링크를 자동 생성할 수 있습니다.<br/></br>⏎\n예:</br>⏎\nH1 태그에 앵커를 생성하게 하려면,  <b>&lt;h1 id=\"my_anchor\"&gt;Anchor Text&lt;/h1&gt;</b>⏎\n<br/></br>⏎\n<h3>앵커</h3>⏎\n<b>a</b> 태그로는, href 를 이렇게 써야합니다: <b>/pages/[url_suffix_page]#[the_anchor]</b>.<br/><br/>⏎\n<li><b>url_suffix_page</b> 는 앵커가 있는 페이지를 말합니다. url을 생성 시키려고 할 때에 쓰는 첫 번째 텍스트 입니다.</li>⏎\n<li><b>the_anchor</b> 는 앵커 태그 id 를 뜻 합니다.</li>⏎\n<br/></br>⏎\n예:</br>⏎\n이미 셋팅된 앵커를 쓸려면 : <b>&lt;a href=\"/pages/page_url#my_anchor\"&gt;Link Text&lt;/a&gt;</b></br>⏎\nor <b>[Link Text](/pages/page_url#my_anchor)</b>⏎\n</p> <h2>이미지</h2> <p>⏎\n여기 로고가 있습니다 (hover to see the title text):<br /><br />⏎\n인라인:<br />⏎\n![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png \"Logo Title Text 1\")<br />⏎\n<br />⏎\n참조명:<br />⏎\n![alt text][logo]<br />⏎\n</p> <h2>테이블</h2> <p>⏎\n열을 맟추기 위해선 콜론을 사용하십시오.<br />⏎\n<br />⏎\n| Tables | Are | Cool |<br />⏎\n| ------------- |:-------------:| -----:|<br />⏎\n| col 3 is | right-aligned | $1600 |<br />⏎\n| col 2 is | centered | $12 |<br />⏎\n| zebra stripes | are neat | $1 |<br />⏎\n<br />⏎\n일자 막대기는 (|) 꼭 필요하지 않고 마크다운을 완벽하게 쓸 필요는 없습니다. 인라인 마크다운을 써도 됩니다.<br />⏎\n<br />⏎\nMarkdown | Less | Pretty<br />⏎\n--- | --- | ---<br />⏎\n*Still* | `renders` | **nicely**<br />⏎\n1 | 2 | 3<br />⏎\n</p> <h2>인라인 HTML</h2> <p> <dl>⏎\n<dt>정의 목록은</dt><br />⏎\n<dd>가끔 쓰입니다.</dd><br /><br />⏎\n⏎\n<dt>HTML에 마크다운은 잘 되지 않습니다.</dt><br />⏎\n<dd>그러하니 HTML을 쓰시기 바랍니다 <em>tags</em>.</dd><br />⏎\n</dl> </p>"
+}

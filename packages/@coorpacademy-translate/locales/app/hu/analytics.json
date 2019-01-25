@@ -1,0 +1,316 @@
+{
+    "message": "<p>Információkhoz való hozzáférés részletes felhasználónként, használja a <a href=\"{{user}}\"> felhasználó analytics oldalala</a>.</p> <p>Részletes információ az összes felhasználó eléréséhez exportálhatjuk <a href=\"{{export}}\"> minden használók-on demand</a>.</p>",
+    "export": {
+        "global": {
+            "first_name": "Keresztnév",
+            "last_name": "Vezetéknév",
+            "email": "E-mail",
+            "provider": "Szolgáltató",
+            "stars": "Pontszám",
+            "providerinfos_company": "Vállalat",
+            "providerinfos_city": "Város",
+            "providerinfos_country": "Ország",
+            "providerinfos_department": "Részleg",
+            "providerinfos_title": "Cím",
+            "providerinfos_chorusID": "ChorusID",
+            "ageRange": "Korcsoport",
+            "personalEmail": "E-mail (privát)",
+            "role": "Szerep",
+            "brandName": "Gazdasági Társaság",
+            "boutique": "Üzlet",
+            "billable": "Billable",
+            "postalCode": "Irányítószám",
+            "moduleLevel": "$t(dashboard:badges.module.name) - Szint",
+            "moduleCount": "$t(dashboard:badges.module.name) - szám",
+            "moduleUpdate": "$t(dashboard:badges.module.name) - Legújabb Frissjtés",
+            "battleLevel": "$t(dashboard:badges.battle.name) - Szint",
+            "battleCount": "$t(dashboard:badges.battle.name) - Számláló",
+            "battleUpdate": "$t(dashboard:badges.battle.name) - Legutolsó frissítés",
+            "coachLevel": "$t(dashboard:badges.coach.name) - Szint",
+            "coachCount": "$t(dashboard:badges.coach.name) - szám",
+            "coachUpdate": "$t(dashboard:badges.coach.name) - utolsó frissítés",
+            "lessonLevel": "$t(dashboard:badges.lesson.name) - Szint",
+            "lessonCount": "$t(dashboard:badges.lesson.name) - Számoló",
+            "lessonUpdate": "$t(dashboard:badges.lesson.name) - utolsó frissítés",
+            "questionLevel": "$t(dashboard:badges.question.name) - Szint",
+            "questionCount": "$t(dashboard:badges.question.name) - szám",
+            "questionUpdate": "$t(dashboard:badges.question.name) - utolsó frissítés",
+            "badges": "jelvények",
+            "lastConnectionDate": "Utolsó Csatlakozás Dátuma",
+            "state": "Állam",
+            "login": "Bejelentkezés",
+            "firstConnectionDate": "Első kapcsolatfelvétel dátuma",
+            "certificate": "{{label}} tanúsítvány",
+            "certifications": "Bizonyítványok",
+            "entity": "Entitás",
+            "grade": "Osztályzat",
+            "region": "Régió",
+            "validatedTimeProgression": "Érvényesített idő",
+            "totalTimeProgression": "Teljes idő",
+            "populations": "Populáció(k)",
+            "deactivationDate": "Inaktiválás dátuma",
+            "organization_branch": "Fióktelep",
+            "organization_businessunit": "Üzleti egység",
+            "organization_workingCountry": "Cég ország",
+            "organization_role": "Beosztás",
+            "organization_boutique": "Business Store",
+            "organization_address1": "Céges cím 1",
+            "organization_address2": "Üzleti cím 2",
+            "organization_zipcode": "Cég irányítószáma",
+            "organization_workingCity": "Székhely városa",
+            "organization_company": "Gazdasági Társaság",
+            "organization_ambassador": "Nagykövet",
+            "birthday": "Születésnap"
+        },
+        "battles": {
+            "disciplineName": "Tudományág Neve",
+            "disciplineStatus": "Fegyelem állapota",
+            "disciplineStatus_hidden": "Rejtett",
+            "disciplineStatus_visible": "Látható",
+            "moduleLevel": "Modul Szint",
+            "createdAt": "Készítve",
+            "answeredAt": "Megválaszolva:",
+            "createdBy": "Kihívó neve",
+            "opponent": "Ellenfél neve",
+            "winner": "Nyertes",
+            "winnerScore": "Győztes pontszám",
+            "userLogin": "Kihívó login",
+            "opponentLogin": "Ellenfél bejelentkezése",
+            "looserScore": "Vesztes pontszám"
+        },
+        "moduleStart": {
+            "brand": "Márka",
+            "discipline": "Tantárgy megnevezése",
+            "module": "Modul szintje",
+            "author": "Szerző",
+            "count": "Szám",
+            "userCount": "Felhasználók száma"
+        }
+    },
+    "dashboard": {
+        "serenetics-error": "Hiba történt az új irányítópult url lekérésekor.",
+        "behavioral": {
+            "upgrade": {
+                "title": "Az irányítópult a vállalat ráta terv csak érhető el.",
+                "subtitle": "Kérjük, forduljon Coorpacademy-hoz feljavít a számla és kap hozzáférést a viselkedési betekintést a platform"
+            }
+        }
+    },
+    "custom": {
+        "7steps": {
+            "export": {
+                "global": {
+                    "organization_role": "Foglalkozása",
+                    "organization_title": "A tároló típusa",
+                    "organization_ambassador": "L'Oréal alkalmazott?",
+                    "organization_branch": "L'Oréal osztály",
+                    "entity": "L'Oréal márkák",
+                    "organization_grade": "A kép jogok",
+                    "organization_boutiqueReferent": "Kiskereskedés/lánc",
+                    "organization_boutique": "Áruház neve vagy kódja"
+                }
+            }
+        },
+        "achat-habitat": {
+            "export": {
+                "global": {
+                    "organization_ambassador": "Hírlevél"
+                }
+            }
+        },
+        "adidas-fr": {
+            "export": {
+                "global": {
+                    "organization_businessunit": "Osztály",
+                    "organization_grade": "Kor",
+                    "organization_boutique": "Munkahelyi",
+                    "organization_branch": "A nemek közötti"
+                }
+            }
+        },
+        "capgemini": {
+            "export": {
+                "global": {
+                    "organization_grade": "GGID"
+                }
+            }
+        },
+        "chanel": {
+            "export": {
+                "global": {
+                    "boutique": "Boutique",
+                    "organization_workingCountry": "Ország",
+                    "region": "Régió",
+                    "role": "Szerep",
+                    "startContract": "Szerződés kezdete"
+                }
+            }
+        },
+        "cofpart-learning": {
+            "export": {
+                "global": {
+                    "brandName": "Direction",
+                    "entity": "Job",
+                    "organization_branch": "Manager"
+                }
+            }
+        },
+        "corporateonlineopencourse": {
+            "export": {
+                "global": {
+                    "region": "Régió",
+                    "organization_workingCountry": "Ország",
+                    "role": "Függvény"
+                }
+            }
+        },
+        "edenred-talents": {
+            "export": {
+                "global": {
+                    "organization_company": "Irány",
+                    "entity": "Sous-irány",
+                    "organization_branch": "Szolgáltatás - Secteur",
+                    "organization_boutiqueReferent": "Responsable",
+                    "organization_role": "Fonction",
+                    "organization_grade": "Hozzon"
+                }
+            }
+        },
+        "gdf": {
+            "export": {
+                "global": {
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - Szint",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - Szám",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - Utolsó frissítés"
+                }
+            }
+        },
+        "gdfec": {
+            "export": {
+                "global": {
+                    "organization_zipcode": "GAIA",
+                    "organization_businessunit": "Csapat",
+                    "organization_boutique": "Igazgató neve",
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - szint",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - Számláló",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - utolsó frissítés"
+                }
+            }
+        },
+        "ilearn": {
+            "export": {
+                "global": {
+                    "boutique": "Üzlet",
+                    "organization_workingCountry": "Ország",
+                    "region": "Régió",
+                    "role": "Szerep",
+                    "startContract": "Szerződés kezdete"
+                }
+            }
+        },
+        "life-auchan": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Aktivitási szint",
+                    "organization_region": "Magánélet egyensúlya",
+                    "organization_workingCountry": "Ország"
+                }
+            }
+        },
+        "metro": {
+            "export": {
+                "global": {
+                    "organization_boutique": "City",
+                    "organization_branch": "ID",
+                    "organization_businessunit": "Role"
+                }
+            }
+        },
+        "monoprix": {
+            "export": {
+                "global": {
+                    "organization_branch": "Irány"
+                }
+            }
+        },
+        "nespresso": {
+            "export": {
+                "global": {
+                    "organization_branch": "Osztály",
+                    "organization_businessunit": "Pozíció"
+                }
+            }
+        },
+        "pru": {
+            "export": {
+                "global": {
+                    "providerCompany": "Cég",
+                    "providerCountry": "Ország",
+                    "providerDepartment": "Részleg"
+                }
+            }
+        },
+        "redoute": {
+            "boutique": "üzlet"
+        },
+        "securite": {
+            "export": {
+                "global": {
+                    "organization_grade": "ID"
+                }
+            }
+        },
+        "up": {
+            "export": {
+                "battles": {
+                    "disciplineName": "Tanfolyam neve",
+                    "moduleLevel": "Szint"
+                }
+            }
+        },
+        "tagheuer": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Point of sales code"
+                }
+            }
+        },
+        "thelem": {
+            "export": {
+                "global": {
+                    "organization_role": "Alaklmazottság",
+                    "language": "Nyelv",
+                    "organization_boutique": "Hely",
+                    "organization_title": "Cím szolgáltatás",
+                    "organization_boutiqueReferent": "Nyilvántartási szám",
+                    "startContract": "Cég megbízás dátuma",
+                    "organization_contractType": "Szerződés Típusa",
+                    "organization_grade": "Minősítés"
+                }
+            }
+        },
+        "yahoo": {
+            "export": {
+                "global": {
+                    "organization_title": "Munka",
+                    "organization_workingCountry": "Ország",
+                    "region": "Nyelv"
+                }
+            }
+        },
+        "who": {
+            "export": {
+                "global": {
+                    "organization_workingCountry": "Ország/állami",
+                    "region": "Államok/területek",
+                    "provider": "Hovatartozás",
+                    "organization_role": "Háttér/tapasztalat",
+                    "organization_grade": "Hozzáférési kód",
+                    "organization_boutiqueReferent": "Az iskolai végzettség"
+                }
+            }
+        }
+    }
+}

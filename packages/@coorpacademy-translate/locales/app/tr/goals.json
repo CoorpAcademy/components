@@ -1,0 +1,201 @@
+{
+    "title": "Sertifikalarım",
+    "subtitle_head1": "Bir ya da daha fazla sertifika seç ve seçilen bir alan ya da konuda becerilerini geliştirmek için onları tamamla.",
+    "subtitle_head2": "Sertifikasyon modülünü başlatın.",
+    "how_to": "Bir sertifikayı geçerli kılmak için, her modülü tamamlamalısın. Hadi başlayalım!",
+    "button_choose_goal": "Bir sertifika programı seç",
+    "selected_goals_title": "{{goals}} sertifika programı devam ediyor",
+    "selected_goals_title_plural": "{{goals}} sertifika programı devam ediyor",
+    "selected_goals_no_item": "Sertifika seçili değil. Lütfen bir tane seçin!",
+    "finished_goals_title": "{{goals}} sertifika programı tamamlandı",
+    "finished_goals_title_plural": "{{goals}} sertifika programı tamamlandı",
+    "finished_goal_label": "{{goalLabel}} {{star}}",
+    "finished_goals_no_item": "Daha sertifikayı tamamlamadınız.",
+    "button_module_access": "Şimdi Başla",
+    "minutes_label": "dakika",
+    "status_label": "Durum:",
+    "stars_label": "{{stars}} yıldız",
+    "stars_label_plural": "{{stars}} yıldız",
+    "popover": {
+        "title": "Dikkat!",
+        "module_blocked_pre": "Bu modüle erişim sağlanamıyor:",
+        "module_blocked_post": "{{pre}} Onu gerçekleştirmek için, öncelikle {{level}} seviyesini tamamlamalısınız",
+        "select_goal": {
+            "title": "Lütfen Bir Sertifika Seçiniz",
+            "available_module": "{{total}} sertifika programı mevcut",
+            "available_module_plural": "{{total}} sertifika programı mevcut",
+            "module_done": "Bu modül zaten halledildi. Sertifikayı gerçekleştirme yolunda ilerliyorsunuz.",
+            "module_blocked": "Bu modül, henüz mevcut değildir. Kilidi açmak için önce Temel veya Gelişmiş düzeyleri temizlemeniz gerekir.",
+            "button_add_goal": "Sertifika programımı onayla"
+        }
+    },
+    "condition_progress": {
+        "information": "{{total}} önerilen modülün {{done}} ini tamamladın. "
+    },
+    "certification": {
+        "title": "Sertifikanız",
+        "title_plural": "Sertifikalarınız",
+        "subtitle": "Bu Sertifika ile Yeteneklerinizi Doğrulayın",
+        "subtitle_plural": "Bu sertifikalar ile yeteneklerinizi doğrulayın.",
+        "rewards": {
+            "subtitle": "Ödülleriniz",
+            "see_detail": "Göster",
+            "congratulations": "başarınız için tebrikler",
+            "you_can_win": "Kazanın",
+            "download_resource": "İndirmek için buraya tıklayın",
+            "see_diploma": "Diplomaya Bakın",
+            "access_your_diploma": "Diplomanıza erişin"
+        },
+        "stars": {
+            "description_pre": "Yıldızları",
+            "description_post": "koparın"
+        },
+        "state": {
+            "done": "Aferin!",
+            "inProgress": "Devam ediyor"
+        },
+        "condition_description": {
+            "progress": "Hedef:  {{count}} modül",
+            "progress_plural": "Hedef:  {{count}} modül"
+        },
+        "certificationDone": "Tebrikler! {{certificationName}} sertifika programını aldınız"
+    },
+    "diploma": {
+        "certificate": "sertifika",
+        "date": "Tarih: {{date}}",
+        "message": "Bu sertifika için ilgili tüm modüller tamamlandı:"
+    },
+    "custom": {
+        "ecolenumerique-sncf": {
+            "certification": {
+                "title": "Jedi rozeti",
+                "title_plural": "Jedi rozetleri",
+                "certificationDone": "Tebrikler! {{certificationName}} rozet elde!",
+                "subtitle": "Jedi rozetini doğrulamak",
+                "subtitle_plural": "Jedi Rozetlerinizi doğrulamak"
+            }
+        },
+        "ganprevoyance": {
+            "certification": {
+                "title": "Evren",
+                "title_plural": "Evrenler",
+                "certificationDone": "Tebrikler! {{certificationName}} evren geçerliliği!",
+                "subtitle": "Sizin evreninizi doğrulamak",
+                "subtitle_plural": "Senin evrenler doğrulamak"
+            }
+        },
+        "cnp": {
+            "certification": {
+                "title": "Sertifika",
+                "title_plural": "Sertifikalar",
+                "certificationDone": "Tebrikler! {{certificationName}} Sertifika geçerliliği!",
+                "subtitle": "Sertifikanızı burada doğrulamak",
+                "subtitle_plural": "Senin sertifikaları doğrulamak"
+            }
+        },
+        "pernod": {
+            "title": "Görevlerim",
+            "subtitle_head1": "Seçilen alanda ve konuda yeteneğinizi artırmak için bir veya daha fazla Hedef seçin ve tamamlayın.",
+            "subtitle_head2": "Bir Hedefte içerilen bir modül başlat.",
+            "how_to": "Bir hedefi doğrulamak için, her modülü tamamlaman lazım. Hadi başlayalım!",
+            "button_choose_goal": "Bir Hedef Seçin.",
+            "selected_goals_title": "{{goals}} Şu Anki Hedef",
+            "selected_goals_title_plural": "{{goals}} Mevcut Hedefler",
+            "selected_goals_no_item": "Hiçbir görev seçilmedi. Lütfen bir tane seçin!",
+            "finished_goals_title": "{{goals}} Temizlenen Hedef",
+            "finished_goals_title_plural": "{{goals}} Tamamlanan Hedefler",
+            "finished_goal_label": "{{goalLabel}} {{star}}",
+            "finished_goals_no_item": "Henüz bir Hedef temizleyemedin.",
+            "button_module_access": "Şimdi Başla",
+            "minutes_label": "dakika",
+            "status_label": "Durum:",
+            "stars_label": "{{stars}} yıldız",
+            "stars_label_plural": "{{stars}} yıldız",
+            "popover": {
+                "title": "Dikkat!",
+                "module_blocked_pre": "Bu modüle erişim sağlanamıyor:",
+                "module_blocked_post": "{{pre}} Onu gerçekleştirmek için, öncelikle {{level}} seviyesini tamamlamalısınız",
+                "select_goal": {
+                    "title": "Lütfen bir hedef seçin",
+                    "available_module": "{{total}} Mevcut Hedef",
+                    "available_module_plural": "{{total}} Mevcut Hedefler",
+                    "module_done": "Bu modül zaten temizlendi. Hedefe ulaşma yolundasınız.",
+                    "module_blocked": "Bu modüle henüz ulaşılamıyor. Açmak için Temel ve İleri seviyeleri geçmelisiniz.",
+                    "button_add_goal": "Hedefimi Doğrula."
+                }
+            },
+            "condition_progress": {
+                "information": "Önerilen {{total}} işin {{done}} tanesini tamaladınız."
+            },
+            "certification": {
+                "title": "Hedefleriniz",
+                "subtitle": "Bu Hedeflerdeki yeteneklerinizi doğrulayın",
+                "rewards": {
+                    "subtitle": "Ödülleriniz",
+                    "see_detail": "Göster",
+                    "congratulations_pre": "Ve bizim",
+                    "congratulations": "tebrikler",
+                    "congratulations_post": "tüm gayretleriniz için"
+                },
+                "stars": {
+                    "description_pre": "size veriyoruz",
+                    "description_post": "koparın"
+                },
+                "state": {
+                    "done": "Tamam",
+                    "inProgress": "Devam ediyor"
+                },
+                "condition_description": {
+                    "progress": "{{nbDone}} tamamlanmış modüller"
+                },
+                "certificationDone": "Tebrikler! {{certificationName} amacını elde ettiniz!"
+            }
+        },
+        "sgmgt": {
+            "diploma": {
+                "message": "Proje Yönetimi bilinci çerçevesinde gerekli yetkinliklere tüm adımları tamamladınız"
+            }
+        },
+        "securite": {
+            "diploma": {
+                "message": "Bu sertifika için ilgili tüm modüller tamamlandı:"
+            }
+        },
+        "projet": {
+            "diploma": {
+                "message": "Proje Yönetimi bilinci çerçevesinde gerekli yetkinliklere tüm adımları tamamladınız"
+            }
+        },
+        "tagheuer": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Bu modül henüz mevcut değil. Kilidini açmak için önce Titanyum ve Bronz seviyeleri geçmelisin."
+                }
+            }
+        },
+        "tagheuercon": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Bu modül henüz kullanılabilir değil. Kilidini açmak için öncelikle Titanyum veya Bronz seviyelerini tamamlamalısınız."
+                }
+            }
+        },
+        "up": {
+            "subtitle_head2": "Hedefte dahil edilenlerden bir seviyeye başla.",
+            "how_to": "Bir Hedefi onaylamak için, her seviyeyi tamamlamalısınız. Haydi başlayalım!",
+            "popover": {
+                "module_blocked_pre": "Bu seviye açık değil:",
+                "select_goal": {
+                    "module_done": "Bu seviye zaten halledildi. Görevi başarma yolunda ilerliyorsunuz.",
+                    "module_blocked": "Bu seviye henüz elde edilebilir değildir. Bu seviyeye ulaşabilmek için önce Temel veya Gelişmiş seviyeleri tamamlamalısınız."
+                }
+            },
+            "certification": {
+                "condition_description": {
+                    "progress": "Hedef: {{count}} disiplin",
+                    "progress_plural": "Hedef: {{count}} disiplinler"
+                }
+            }
+        }
+    }
+}

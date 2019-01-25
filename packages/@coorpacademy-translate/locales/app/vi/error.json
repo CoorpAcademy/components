@@ -1,0 +1,63 @@
+{
+    "http": {
+        "401": "Truy cập trái phép",
+        "403": "Cấm truy cập",
+        "404": "Không tìm thấy trang",
+        "412": "Điều kiện tiên quyết bị thất bại",
+        "500": "Lỗi máy chủ nội bộ",
+        "503": "Dịch vụ không có sẵn",
+        "500_message_pre": "Đường dẫn URL",
+        "500_message": "đã có lỗi sau",
+        "500_message_post": ".",
+        "503_message": "Dịch vụ không có sẵn. Hãy quay lại sau.",
+        "404_message_pre": "URL",
+        "404_message": "đã không tìm ra đường.",
+        "412_message": "Điều kiện được chỉ định bởi một hoặc nhiều tiêu đề Nếu... trong yêu cầu được đánh giá là sai.",
+        "409_progressions_content_conflict": "Có vẻ như bạn đã trả lời câu hỏi này trong phiên làm việc hiện tại. Có lẽ bạn mở nó trong thẻ khác ở đâu đó?<br/>Hãy nhấn \"Tải lại trang\" dưới đây để làm mới dữ liệu của bạn, chúng tôi sẽ tải câu hỏi phù hợp với bạn."
+    },
+    "infos": "Thông tin",
+    "auth": {
+        "header": "Ôi! {{status}}",
+        "reload": "Đăng nhập"
+    },
+    "modal": {
+        "header": "Lỗi {{status}}",
+        "body": {
+            "title": "Hãy lưu ý thông tin bên dưới và cung cấp nó cho bộ phận hỗ trợ kỹ thuật của chúng tôi",
+            "paymentRequired": "Để truy cập học phần này, trước tiên bạn cần phải mua nó.",
+            "url": "Url: {{err}}",
+            "id": "ID: {{id}}",
+            "message": "{{message}}"
+        },
+        "footer": {
+            "paymentRequired": "Trang Mô tả",
+            "assistance": "Hỗ trợ",
+            "back_home": "Quay về Trang chủ",
+            "reload": "Tải lại Trang",
+            "continue": "Tiếp tục"
+        },
+        "assistance": "Báo cáo lỗi"
+    },
+    "defaultMessage": "Đã xảy ra lỗi. Chúng tôi xin lỗi. Hãy thử lại sau",
+    "achievementContext": "Có vẻ như mô-đun này đã được bắt đầu. Vui lòng tải lại trang để tiếp tục mô-đun.",
+    "custom": {
+        "chanel": {
+            "http": {
+                "412_message": "Thiếu địa chỉ email. Vui lòng liên lạc với người quản lý của bạn hoặc đăng ký tại đây."
+            }
+        },
+        "ilearn": {
+            "http": {
+                "412_message": "Thiếu địa chỉ email. Vui lòng liên hệ với người quản lý của bạn hoặc đăng ký tại đây."
+            }
+        },
+        "up": {
+            "modal": {
+                "body": {
+                    "paymentRequired": "Để truy cập vào cấp độ này, trước tiên bạn phải mua nó."
+                }
+            },
+            "achievementContext": "Dường như cấp độ này đã được khởi động. Vui lòng tải lại trang để tiếp tục cấp độ."
+        }
+    }
+}

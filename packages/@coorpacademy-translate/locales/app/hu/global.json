@@ -1,0 +1,430 @@
+{
+    "content": {
+        "types": {
+            "course": "tanfolyam",
+            "course_plural": "tanfolyamok",
+            "adaptive_chapter": "adaptív 5' Learning",
+            "adaptive_course": "adaptív tanulás",
+            "adaptive_course_plural": "adaptív tanulás",
+            "cursus": "cursus",
+            "cursus_plural": "cursuses",
+            "chapter": "5' Learning",
+            "chapter_plural": "5' Learning"
+        },
+        "sorts": {
+            "title": "Rendezés:",
+            "cta": "Rendezés",
+            "tab": "Rendezés",
+            "pertinence": "Relevancia",
+            "newest": "Legújabb",
+            "duration": "Legrövidebb"
+        },
+        "filters": {
+            "cta": "Szűrő",
+            "tab": "Szűrő",
+            "authors": "Szerzők:",
+            "authorTypes": "Tartalmi Kategóriák:",
+            "type": "Típus:",
+            "themes": "Gyűjtemények:",
+            "goals": "Minősítések:",
+            "time": "Idő:",
+            "learning_paths": "Tanulási utak:",
+            "all_authors": "Minden szerző",
+            "all_author_types": "Minden kategóriában",
+            "all_themes": "Minden gyűjtemények",
+            "all_goals": "Minden tanúsítvány",
+            "all_courses": "Az összes tanfolyam",
+            "microlearning": "5' Learning",
+            "all": "Minden",
+            "courses": "Tanfolyamok",
+            "my_favorites": "Saját lista:"
+        },
+        "notification": {
+            "addFavorite": "Hozzáadva a listához",
+            "removeFavorite": "Törölve a listáról"
+        },
+        "search": {
+            "placeholder": "Mit szeretnél tanulni?"
+        },
+        "catalog": "Katalógus",
+        "result": "{{title}}: {{count}} eredménye",
+        "result_plural": "{{title}}: {{count}} eredmények",
+        "noresultsfound": "Sajnálom, nincs rendelkezésre álló eredmények",
+        "clearFilters": "Reset",
+        "recommended": "Fedezze fel az Ön számára ajánlott tanfolyamok:",
+        "new": "új"
+    },
+    "author": {
+        "socialTitle": "Társadalmi:",
+        "cardsTitle": "Minden tanfolyam a {{author}}",
+        "website": "Honlap:",
+        "notFound": "Szerző ({{authorRef}}) nem található",
+        "more": "Szerző részletek",
+        "customCustomer": "{{name}} Creation",
+        "types": {
+            "coorp": "Coorp Originals",
+            "verified": "Verified by Coorp",
+            "marketplace": "Mások",
+            "custom": "{{name}} létrehozása"
+        }
+    },
+    "unit": {
+        "duration_minutes_set": "{{m}} perc",
+        "duration_minutes_set_plural": "{{m}} perc",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}} óra $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}} óra $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "shortUnit": {
+        "duration_minutes_set": "{{m}}m",
+        "duration_minutes_set_plural": "{{m}}m",
+        "duration_minutes_with_hours_set": "{{m}}",
+        "duration_minutes_with_hours_set_plural": "{{m}}",
+        "duration_minutes_with_hours_none": "‌",
+        "duration_minutes_with_hours_none_plural": "‌",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}}h$t(shortUnit.duration_minutes_with_hours, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}}h$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "module_level": {
+        "1": "$t(global:module_level.base)",
+        "2": "$t(global:module_level.advanced)",
+        "3": "$t(global:module_level.coach)",
+        "base": "Alapvető",
+        "advanced": "Speciális",
+        "coach": "Edző"
+    },
+    "progression_status": {
+        "not_started": "Nincs elindítva",
+        "in_progress": "A folyamatban lévő",
+        "completed": "Befejezett"
+    },
+    "close": "Bezárás",
+    "skipIntro": "Skip intro",
+    "route": {
+        "initialized": "A kijelző most már be van állítva",
+        "error": {
+            "401": "Úgy tűnik már nincs kapcsolódva.",
+            "402": "Befizetés szükséges",
+            "403": "Nincs engedélye ezt tenni.",
+            "404": "Tudtad? A 404 hibakód azt jelenti, hogy az oldal nem található",
+            "409": "tudod? 409 hibakód azt jelenti, hogy, hogy bizonyos adatok, amely nem naprakész a kérést nem lehet megoldani.",
+            "500": "Tudta? Az 500-as hibakód a szerveren történt hibát jelent.",
+            "api": "Hiba történt. A szervre működik, azonban az alkalmazás nem.",
+            "default": "Hiba történt."
+        }
+    },
+    "loading": "Töltés...",
+    "htmlTitle": "CoorpAcademy",
+    "hero": {
+        "cta": "Kezdjen tanulni"
+    },
+    "cookiesDisabled": {
+        "title": "Cookie-k desactivated",
+        "error": "A cookie-k nincsenek engedélyezve, vagy tiltva. Kérjük, engedélyezze újra, vagy állítsa be a AdBlocker"
+    },
+    "chatbot": {
+        "welcome": {
+            "default": "Welcome on Coorpacademy. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin.",
+            "facebook": "Hello and welcome to Coorpacademy! I can ask you question of our online courses. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin. If you're looking for some other informations you can contact us at communication@coorpacademy.com."
+        },
+        "ask_question": {
+            "repeat_header_1": "Biztos! {{question}}.",
+            "repeat_header_2": "természetesen! {{question}}.",
+            "repeat_header_3": "oké! Itt van a kérdés ismét: {{question}}.",
+            "repeat_header_4": "nem gond. {{question}}.",
+            "repeat_header_5": "Ismétlem: {{question}}."
+        },
+        "next_action": {
+            "question_next": "Kérje a 'következő kérdés' a folytatáshoz.",
+            "answer_next": "Mi a válaszol?",
+            "wrong_answer_next": "Azt mondják, \"miért\", hogy kap néhány magyarázatot vagy \"tovább\" a folytatáshoz."
+        },
+        "answer_question": {
+            "is_valid": {
+                "title_1": "Bravo!",
+                "title_2": "Ez a helyes!",
+                "title_3": "Jó válasz!",
+                "title_4": "igen!",
+                "title_5": "szép munka!"
+            },
+            "is_invalid": {
+                "title_1": "egyáltalán nem! A válasz ez volt: {{answer}}.",
+                "title_2": "Ez nem igaz! A válasz ez volt: {{answer}}.",
+                "title_3": "Rossz válasz! Azt kell mondanom: {{answer}}.",
+                "title_4": "Jaj! A helyes válasz az volt: {{answer}}.",
+                "title_5": "Sajnálom, de ez nem igaz! A helyes válasz az volt: {{answer}}."
+            }
+        },
+        "error": {
+            "not_found": "Sajnálom, nem találtam kérdése. Kérjük, próbálja meg más tárggyal."
+        }
+    },
+    "demo": {
+        "url": "https://www.coorpacademy.com/en/request-a-demo/?utm_source=Up&utm_medium={{medium}}"
+    },
+    "custom": {
+        "7steps": {
+            "module_level": {
+                "base": "Why",
+                "advanced": "Empathy",
+                "coach": "Show me"
+            }
+        },
+        "loreal-retail-v2": {
+            "module_level": {
+                "base": "miért",
+                "advanced": "Empátia",
+                "coach": "mutasd"
+            }
+        },
+        "accueil": {
+            "htmlTitle": "MOOC Accueil Franciaország"
+        },
+        "achat-habitat": {
+            "htmlTitle": "Mooc Achat Habitat",
+            "module_level": {
+                "base": "Intro",
+                "advanced": "Profik",
+                "coach": "Edző"
+            }
+        },
+        "adeo": {
+            "htmlTitle": "Adeo Training CPL"
+        },
+        "auchan-retail": {
+            "htmlTitle": "Auchan Retail QUIZZ"
+        },
+        "architas-powercircle": {
+            "htmlTitle": "POWERCIRCLE | FOCUS"
+        },
+        "bnp": {
+            "htmlTitle": "MOOC BNP Paribas Factor"
+        },
+        "bestwesternuniversity": {
+            "htmlTitle": "Best Western University"
+        },
+        "capgemini": {
+            "htmlTitle": "COOC"
+        },
+        "cd78": {
+            "htmlTitle": "MOOC rSa"
+        },
+        "chanel": {
+            "htmlTitle": "iJoinCHANEL"
+        },
+        "clarins-digital": {
+            "htmlTitle": "Clarins Digital"
+        },
+        "crt": {
+            "htmlTitle": "CRT"
+        },
+        "coravin": {
+            "htmlTitle": "Coravin"
+        },
+        "corporateonlineopencourse": {
+            "module_level": {
+                "base": "ALAPJAI"
+            },
+            "progression_status": {
+                "not_started": "Regisztrált",
+                "in_progress": "Regisztrált",
+                "completed": "Befejezett"
+            }
+        },
+        "dolce": {
+            "htmlTitle": "Egyének"
+        },
+        "eacampus": {
+            "htmlTitle": "EAcampus"
+        },
+        "ecolenumerique-sncf": {
+            "content": {
+                "filters": {
+                    "goals": "Jedi jelvények:"
+                }
+            }
+        },
+        "edenred-talents": {
+            "htmlTitle": "Edenred tehetségek",
+            "module_level": {
+                "coach": "Nagykövet"
+            }
+        },
+        "ganprevoyance": {
+            "content": {
+                "filters": {
+                    "goals": "Világok:"
+                }
+            }
+        },
+        "faurecia": {
+            "htmlTitle": "Learning Lab"
+        },
+        "gdf": {
+            "htmlTitle": "WeTransform"
+        },
+        "gdfec": {
+            "htmlTitle": "Üzlet és közösségek"
+        },
+        "hr-ac": {
+            "htmlTitle": "HR Academy"
+        },
+        "ilearn": {
+            "htmlTitle": "CHANEL iLearn",
+            "module_level": {
+                "1": "Alapvető",
+                "2": "Speciális",
+                "3": "Szakértő",
+                "base": "Alapvető",
+                "advanced": "Speciális",
+                "coach": "Szakértő"
+            }
+        },
+        "learnnrj": {
+            "htmlTitle": "Az Energiát tanulom"
+        },
+        "linxea": {
+            "htmlTitle": "LinXea Academy"
+        },
+        "manpower": {
+            "htmlTitle": "Vezető Hatás",
+            "module_level": {
+                "1": "Alap",
+                "2": "Szakértő",
+                "3": "Edző",
+                "base": "Alap",
+                "advanced": "Szakértő",
+                "coach": "Edző"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "htmlTitle": "Digital MOOC ATF"
+        },
+        "mooc-socgen": {
+            "htmlTitle": "Mooc Socgen",
+            "module_level": {
+                "base": "Level 1",
+                "advanced": "Level 2",
+                "coach": "Level 3"
+            }
+        },
+        "natixis": {
+            "htmlTitle": "Think Digital"
+        },
+        "nespresso": {
+            "module_level": {
+                "3": "Szakértő",
+                "coach": "Haladó"
+            }
+        },
+        "nespressodigital": {
+            "htmlTitle": "Digital Academy"
+        },
+        "paca": {
+            "htmlTitle": "MOOC Paca"
+        },
+        "online-academy-klubschule": {
+            "module_level": {
+                "base": "Kezdő",
+                "advanced": "Speciális",
+                "coach": "Szakértő"
+            }
+        },
+        "petite": {
+            "htmlTitle": "Chanel Petite Előkészítés",
+            "module_level": {
+                "base": "Modul 1",
+                "advanced": "2. Modul",
+                "coach": "3. modul"
+            }
+        },
+        "quizz-auchan": {
+            "htmlTitle": "QUIZZ AUCHAN RETAIL"
+        },
+        "renaultrh": {
+            "module_level": {
+                "base": "Első lépés",
+                "advanced": "2. lépés",
+                "coach": "3. Lépés"
+            }
+        },
+        "renaultcare": {
+            "module_level": {
+                "base": "Alapok"
+            }
+        },
+        "rexel": {
+            "htmlTitle": "Ügyfélközpontúság a Rexeltől "
+        },
+        "schneider": {
+            "module_level": {
+                "base": "Első évad",
+                "advanced": "2. évad",
+                "coach": "3. évad"
+            }
+        },
+        "tagheuer": {
+            "module_level": {
+                "base": "Titán",
+                "advanced": "Bronz",
+                "coach": "Ezüst"
+            }
+        },
+        "tagheuercon": {
+            "module_level": {
+                "base": "Titán",
+                "advanced": "Bronz",
+                "coach": "Ezüst"
+            }
+        },
+        "theglenlivet-academy": {
+            "htmlTitle": "The Glenlivet | ザ・グレンリベット アカデミー"
+        },
+        "tourism": {
+            "htmlTitle": "Turizmus Akadémia"
+        },
+        "tourismdigital": {
+            "htmlTitle": "Digital Tourism"
+        },
+        "tourisme-hautsdefrance": {
+            "htmlTitle": "Tourisme Hauts-de-France"
+        },
+        "yahoo": {
+            "module_level": {
+                "base": "Újonc",
+                "advanced": "Mid",
+                "coach": "Pro"
+            }
+        },
+        "ey": {
+            "htmlTitle": "Digital Academy"
+        },
+        "thelem": {
+            "htmlTitle": "DigiPass#"
+        },
+        "letsgetdigital": {
+            "htmlTitle": "Let's get digital 2.0",
+            "module_level": {
+                "base": "LEARNER",
+                "advanced": "EXPERT",
+                "coach": "MASTER"
+            }
+        },
+        "who": {
+            "htmlTitle": "QualityRights",
+            "module_level": {
+                "advanced": "Eset-elemzés"
+            }
+        },
+        "triptorelin": {
+            "htmlTitle": "Triptorelin"
+        }
+    }
+}

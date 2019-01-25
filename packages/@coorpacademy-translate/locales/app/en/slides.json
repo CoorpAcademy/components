@@ -1,0 +1,107 @@
+{
+    "indice": {
+        "title": "Need help?",
+        "sub_title": "Trade a star for a clue!",
+        "content": "Get a clue"
+    },
+    "lesson": {
+        "title": "Find the answers here!",
+        "sub_title": "Look at the course and earn 4 extra stars!",
+        "resources": "To go further",
+        "title_video": "Video of the course",
+        "title_pdf": "PDF of the course",
+        "look_at_the_course": "Look at the course"
+    },
+    "without_coach": {
+        "title": "No coach available"
+    },
+    "with_coach": {
+        "title": "Start a discussion",
+        "content": "{{nb}} coach(es) available"
+    },
+    "is_valid": {
+        "state": "<span class=\"label1\">Good</span> <span class=\"label2\">answer</span>",
+        "title": "Bravo!",
+        "correctAnswer": "Good answer:"
+    },
+    "is_invalid": {
+        "state": "<span class=\"label1\">Wrong</span> <span class=\"label2\">answer</span>",
+        "title": "Ouch...",
+        "goodAnswer": "The correct answer is:"
+    },
+    "signup_finish_chapter": "Sign up to finish the chapter",
+    "available_shots_pre": "You still have",
+    "available_shots": "{{count}} chance left",
+    "available_shots_plural": "{{count}} chances left",
+    "available_shots_post": "&nbsp;",
+    "klf": "Did you know that?",
+    "to_know": "Key point",
+    "footer": {
+        "lesson": {
+            "title": "You can decide to review the lesson",
+            "button": "Access the lesson"
+        },
+        "result": {
+            "title": "You can return to your result",
+            "button": "Return to the result"
+        },
+        "next_question": "Next"
+    },
+    "check_answer": "Check the answer",
+    "adaptive_check_answer": "Next",
+    "next_question": "Next question",
+    "next_level": "Next level",
+    "author": "This chapter has been made by:",
+    "button_tree": "Go to the catalog",
+    "comments": {
+        "title": "Discuss",
+        "title_for_module": "Discuss - {{name}} Level"
+    },
+    "slideNotFound": "No question found with reference {{slideId}}",
+    "forbidden": "You do not have the right to access the content with reference {{contentRef}}.",
+    "showContext": "Access the context again",
+    "context": "Context",
+    "custom": {    
+        "hr-ac": {
+            "footer": {
+                "lesson": {
+                    "button": "Access to the document"
+                }
+            }
+        },
+        "nespresso": {
+            "without_coach": {
+               "title": "No expert available"          
+            },
+            "with_coach": {     
+               "content": "{{nb}} expert(s) available"
+            }
+        },      
+        "renaultcare": {
+            "is_valid": {
+                "state": "<span class=\"label1\">Bravo</span>"
+            },
+            "is_invalid": {
+                "state": "<span class=\"label1\">Not really</span>",
+                "title": "Ouch..."
+            }
+        },
+        "schneider": {
+            "comments": {
+                "title_for_module": "Discuss - {{name}} Level <br/>Please contact <a href=\"http://2929it.schneider-electric.com/\" target=\"_blank\">2929 support</a> for any video issues"
+            }
+        },
+        "who": {
+            "is_valid": {
+                "state": "<span class=\"label1\">Correct</span> <span class=\"label2\">answer</span>",
+                "correctAnswer": "Correct answer:"
+            },
+            "to_know": "To understand",
+            "lesson": {
+                "resources": "Dive into the subject",
+                "look_at_the_course": "PDF of the course"
+            },
+            "showContext": "Access the context again"
+        }
+    }
+}

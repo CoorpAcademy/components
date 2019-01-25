@@ -1,0 +1,550 @@
+{
+    "welcome": "Kedves, {{name}}!",
+    "team": "A {{team}} csapat",
+    "passwordFooter": "<br><br>Kapcsolat információ: <br>- IP cím: {{ip}} <br>-operációs rendszer: {{os}} <br>-böngésző: {{browser}} <br><br><b>nem volt, akkor?</b> Most kell módosítania a <a href=\"{{passwordReset}}\"> jelszavát</a>.",
+    "unsubscribe": "Leiratkozás",
+    "personalHooks_timeReferenceObjects": {
+        "510min": "repülőút New York és Párizs között",
+        "420min": "Trónok harca-évad",
+        "360min": "Tour de France-szakasz",
+        "120min": "Alkonyat-film",
+        "100min": "Kung Fu-film",
+        "90min": "focimeccs",
+        "60min": "tanácstermi értekezlet",
+        "25min": "epizód a kedvenc tévésorozatodból"
+    },
+    "body": {
+        "accountCode": "Ahhoz, hogy a {{label}} fiókját hitelesítse, kérjük látogassa meg a következő címet és adja meg ezt a kódot: <strong> {{code}}</strong>.",
+        "battleWaitingOpponent": "Ne felejtse, {{opponentName}} kihívta \"csatázni\"a $t({{disciplineName}}) modulban $t({{level}}) szinten és vár a válaszára!<br/> A kihívás elfogadásához és a játékhoz kattintson <a href=\"{{redirectionUrl}}\">ide</a>!<br/> <br/> Győzzön a legjobb!",
+        "coachUnlocked": "Gratulálok! Lettél egy edző a fegyelem \"$t({{completedDiscipline}})\", amely teljesen elvégezte! <br/> <br/> Most tudsz segíteni másoknak tanulás ez a téma, mivel akkor vált a témában verhetetlen! <br/> Ne feledd, <b>kapcsolja be a valós idejű értesítéseket</b> a beállításokat, és egyszerűen reagálni a tanulók, akik hívni egy chat —- a cél az, hogy vezessem őket a választ, nem csak, hogy adjon nekik. <br/> <br/> Ne felejtsd el, “Van nem hosszú távú, vagy tiszteletre méltó teljesítmény szolidaritás nélkül!” <br/> <font size=\"2\"> <i>(Proust)</i></font> <br/> <br/>",
+        "contentUpdated": "Az új tanfolyamot hozzáadtuk a platformhoz!<br/>",
+        "contentUpdatedEnd": "Kezdjen most: <a href=\"{{redirectionUrl}}\">itt.</a>!<br/> <br/> Kellemes traininget!",
+        "contentUpdated_plural": "Az új tudományágak hozzáadásra kerültek most a platformhoz! <br/>",
+        "contentUpdatedEnd_plural": "Menjen a {{label}} platformra és kezdjen el egyet! <a href=\"{{redirectionUrl}}\">Itt.</a>!<br/> <br/> Kellemes traininget!",
+        "lastAnsweredQuestion": "Észrevettük, hogy nem válaszoltál egy kérdésre sem az elmúlt hét folyamán.<br/> <br/> Ha nehézségbe ütköztél, ne habott az edző felkeresésével.",
+        "lastConnection": "Már egy ideje nem léptél be a {{label}} felületre, és hiányzol nekünk!<br/> <br/> Várnak még felfedeznivaló modulok, újabb pontokat szerezhetsz, és kihívhatsz embereket (barátságosan)... Gyere vissza, és folytasd a tudáshoz vezető utat!<br/> <br/> A felületre ezen a linken keresztül juthatsz el: <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> Jó edzést!",
+        "lastModuleDone": "Egy hét telt el az óta, hogy bejelentkeztél egy modulba a {{label}} felületen, ne add fel!<br/> <br/> Amennyiben nehézségekbe ütközik, keresse fel az edzőt, vagy kérdezd meg a közösséget a fórumokon.<br/> <br/> A felület eléréséhez kattint a következő linkre: <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> Boldog gyakorlást!",
+        "passwordReset": "Kaptunk egy jelszó helyreállítási kérelmet fiókjából. <br/> <br/> Mint egy emlékeztetőt, a logika van: {{login}} <br/> (Legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> Így lehet visszaállítani a jelszót, a következő linkre kattintva: <a href=\"{{resetLink}}\"> {{resetLink}}</a>. <br/> <br/> Legyen szíves figyelmét, hogy ezt a linket csak érvényes {{ttl}} óra, így ne várjon túl sokáig, hogy kattintson a linkre! <br/> <br/> Ha nem teszi ezt a kérelmet, kérjük hagyja figyelmen kívül az e-mail. <br/> <br/> Boldog képzés!",
+        "personalHooks": {
+            "trendingCourse": "<p>A(z) <b>{{courseName}}</b> kurzus most nagyon közkedvelt a(z) {{platform}} platformon! Több mint {{activeUsersOnCourse}} ember foglalkozott vele az elmúlt időben.</p><p>Ne késlekedj!</p>",
+            "recommendedCourse": "<p>A(z) {{platform}} platformon végzett aktivitásod alapján néhány tanfolyamot szeretnénk ajánlani számodra.</p><p>Az első számú javaslatunk, a(z) <b>{{courseName}}</b>, például pont jó lehet neked! Próbáld ki!</p>",
+            "onboarding": "<p>Sikeresen csatlakoztál a(z) <b>{{platform}}</b> platformhoz. Örülünk, hogy kész vagy fejleszteni magadat!</p><p>Már majdnem el is készültél! Csak válassz egy témát, ami tetszik, vagy kövesd valamelyik javaslatunkat, és kezdj el tanulni – vagy hívd ki munkatársaidat egy összecsapásra!</p>",
+            "finishCourse": "<p>Már majdnem kész vagy! Sikeresen elkezdted a(z) <b>{{courseName}}</b> kurzust a(z) {{platform}} platformon.</p><p>Fejezd is be! A szint teljesítésével további csillagokat szerezhetsz, és a folyamatjelző sáv végre 100%-ra fog ugrani!</p>",
+            "doBattle": "<p>Mindannyiunknak van olyan kollégája, aki mindig azt mondja, hogy többet tud másoknál.<br>A(z) {{platform}} platformon megmutathatod neki, hogy nincs igaza!</p><p>Hívd ki egy <b>összecsapáson</b>! Válassz egy témát, amit szeretsz, és győzd le – ezzel csillagokat szerezhetsz, fentebb léphetsz a ranglistán, és az orra alá dörgölheted az ebédlőben!</p>",
+            "doBattleOnCourse": "<p>A(z) <b>{{courseName}}</b> már nem tartogat számodra újdonságokat.</p><p>Vajon a munkatársaid közül ki lenne elég bátor ahhoz, hogy kihívjon téged a témában? Senki...?</p><p>Hívd ki inkább te őket egy összecsapásban a(z) {{platform}} platformon!</p>",
+            "othersProgress": "<p>A munkatársaid az elmúlt időszakban  igen aktívak voltak a(z) {{platform}} platformon!</p><p>A múlt hónapban sok minden történt:<ul><li><span style=\"font-weight: bold;color:{{primaryColor}}\">{{connectedUsers}} ember</span> csatlakozott;</li><li><span style=\"font-weight: bold;color:{{primaryColor}}\">{{answeredQuestions}} kérdésre</span> válaszoltak;</li><li><span style=\"font-weight: bold;color:{{primaryColor}}\">{{viewedLessons}} leckét</span> tekintettek meg;</li><li>...összesen tehát annyi időt töltöttek tanulással, mint {{numberTimes}} {{timeReferenceObject}}!</li></ul></p><p>Ne maradj le!</p>",
+            "weMissYou": "<p>Egy ideje nem láttunk a(z) <b>{{platform}}</b> platformon. Azóta vadonatúj tartalmak és új funkciók váltak elérhetővé. Térj vissza és nézz körbe!</p>",
+            "weMissYou_footer": "Nagyra értékeljük a visszajelzést. Kérjük, <a href=\"mailto:assistance@coorpacademy.com\">oszd meg velünk</a> a tapasztalataidat, még akkor is, ha negatívak, hogy tanulhassunk belőlük!",
+            "generic_footer": "‌"
+        },
+        "sendBattle": "{{opponentName}} kihívta egy \"harcra\" a $t({{disciplineName}}) témában, $t({{level}}) szintű és vár a válaszára!<br/> <br/> A kihívás elfogadásához és a játékhoz kattintson <a href=\"{{redirectionUrl}}\">ide</a>!<br/> <br/> Győzzön a legjobb tanuló!",
+        "signupSelfValidation": "Köszönjük az érdeklödését! Utolsó lépés az induláshoz: kérjük aktiválja fiókját <a href=\"{{validateLink}}\"> az alábbi</a> linkre kattintva. <br/> <br/> a bejelentkezés: {{login}} <br/> (Legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> Élvezze a képzés!",
+        "signupValidation": "Kaptunk egy regisztrációs kérelemben {{firstName}} {{lastName}} (bejelentkezés: {{login}} e-mail: {{email}}) <br/> érvényesíteni ezt a fiókot, kérjük, kattintson a következő linkre: <a href=\"{{validateLink}}\">{{validateLink}}</a> <br/>. <br/> Ha nem tudod, hogy ez a személy, kérjük, kattintson a következő linkre kattintva távolítsa el a fiókot: <a href=\"{{rejectLink}}\">{{rejectLink}}</a>. <br/> Boldog képzés!",
+        "signupComplete": "Fiókját most érvényesített! <br/> <br/> a bejelentkezés: {{login}} <br/> (Legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> Kattints az alábbi gombra, hogy jelentkezzen be, és kezdi a tanulást!",
+        "commentReply": "{{replierName}} épp most válaszolt az ön bejegyzésére a {{label}}: <p>{{originalCommentContent}}</p> --- <p>{{newCommentContent}}</p> Kattintson erre a <a href=\"{{newCommentLink}}\">linkre</a> a beszélgetés megjelenítéséhez és folytatásához. Viszlát!",
+        "certification_header": "Büszkén nyújtjuk át neked a $t({{certification}} tanúsítványt, valamint erőfeszítéseid jutalmául a következőket:",
+        "certification_content_stars": "{{stars}} további csillagot!<br/>",
+        "certification_content_diploma": "Hozzáférésedet a tanúsítványodhoz ezen a <a target='_blank' href=\"$t({{diplomaLink}})\">linken</a>",
+        "certification_content_resource": "A(z) $t({{rewardLabel}}) elérését ezen a <a target='_blank' download href=\"$t({{resourceLink}})\">linken</a>",
+        "certification_content_end": "Ne feledje frissíteni Curriculum Vitae-jét, valamint szakmai profilját ezzel az új hitelesítéssel.",
+        "assistance": {
+            "object": "Cél: {{object}}",
+            "message": "{{message}}",
+            "displayName": "displayName: {{displayName}}",
+            "email": "email: {{email}}",
+            "url": "url: <a href=\"{{url}}\">{{url}}</a>",
+            "discipline": "téma: {{discipline}}",
+            "module": "modul: {{module}}",
+            "chapter": "fejezet: {{chapter}}",
+            "slideRef": "slideRef: {{slideRef}}"
+        },
+        "createdPassword": {
+            "top": "Gratulálok! <br><br>Csak létrehozott egy jelszót, kapcsolódik a {{label}} számla. <br> <br>Tud most belépés a platform, használja a logika és az új jelszót. <br>Emlékeztető, a logika van: <b>{{login}}</b> (kis-és nagybetűket). <br>",
+            "bottom": "<br>Itt az idő tanulni!"
+        },
+        "updatedPassword": {
+            "top": "Gratulálok! Sikeresen frissítetted a jelszó részére-a {{label}} számla <br>. Ön tud most fatörzs--ban a platform, használja az új jelszót, és a szokásos bejelentkezési <br><br>. <br> Felszólítás, a logika van: <b>{{login}}</b> (kis-és nagybetűket). <br>",
+            "bottom": "<br>Ideje tanulni!"
+        }
+    },
+    "subject": {
+        "accountCode": "Kérjük erősítse meg CoorpAcademy fiókját.",
+        "battleWaitingOpponent": "{{opponentName}}  Önre vár",
+        "coachUnlocked": "Remek, oktatóvá vált",
+        "contentUpdated": "Mi új a {{label}} platformon",
+        "lastAnsweredQuestion": "{{name}}, már nem vagy játékban",
+        "lastConnection": "Folytassa haladását a {{label}} platformon",
+        "lastModuleDone": "Továbbhaladás a {{label}} platformon",
+        "passwordReset": "Jelszó visszaállítása",
+        "personalHooks": {
+            "trendingCourse": "Ismerd meg a legnépszerűbb kurzust!",
+            "recommendedCourse": "Ajánlott kurzusok: ezt ajánljuk neked",
+            "onboarding": "Hogyan fejlesztheted a képességeidet a(z) {{platform}} platformon?",
+            "finishCourse": "Biztosan meg tudod csinálni – fejezd be a(z) {{courseName}} kurzust!",
+            "doBattle": "Hívd ki munkatársaidat a(z) {{platform}} platformon!",
+            "doBattleOnCourse": "Csapj össze valakivel az utolsó kurzuson!",
+            "othersProgress": "Kövesd az aktivitást a(z) {{platform}} platformon!",
+            "weMissYou": "Rég találkoztunk!"
+        },
+        "sendBattle": "{{opponentName}} kihívott téged",
+        "test": "{{name}}, már nem vagy játékban",
+        "signupSelfValidation": "Aktiváld a fiókodat",
+        "signupValidation": "Fiókja érvényesítése",
+        "signupComplete": "A fiók nem érvényesítette!",
+        "commentReply": "{{replierName}} válaszolt a hozzászólására",
+        "certification": "Gratulálunk {{name}}, elnyerte a $t({{certification}})  tanúsítványt!",
+        "assistance": "[{{brand}}] {{object}}",
+        "createdPassword": "Login / jelszó kapcsolat {{label}}",
+        "updatedPassword": "Login / jelszó kapcsolat {{label}}"
+    },
+    "call2action": {
+        "coachUnlocked": "Tovább a weboldalra",
+        "sendBattle": "Kihívás elfogadása",
+        "battleWaitingOpponent": "Fogadja el a kihívást",
+        "commentReply": "Beszélgetés követése",
+        "passwordReset": "Jelszó visszaállítása",
+        "personalHooks": {
+            "trendingCourse": "Tanulj úgy, mint ők!",
+            "recommendedCourse": "Kezdjük a tanulást!",
+            "onboarding": "Élvezd a tanulást!",
+            "finishCourse": "Elvégzem a kurzust",
+            "doBattle": "Hívd ki egy kollégádat!",
+            "doBattleOnCourse": "Kezdődjön az összecsapás!",
+            "othersProgress": "Csatlakozz a tanulókhoz!",
+            "weMissYou": "Újdonságok"
+        },
+        "contentUpdated": "Ugrás a weboldalra",
+        "lastConnection": "Látogasson el a weboldalra",
+        "lastModuleDone": "Látogasson el a következő weboldalra:",
+        "lastAnsweredQuestion": "Menjen a weboldalra",
+        "accountCode": "Ugrás a weboldalra",
+        "signupValidation": "Fiók hitelesítése",
+        "certificationDone": "Látogasson el a weboldalra",
+        "signupSelfValidation": "Érvényesítsd a fiókod",
+        "signupComplete": "Látogassa meg a Platformot",
+        "assistance": "Olda megtekintése",
+        "createdPassword": "Kezdje el a képzést",
+        "updatedPassword": "Kezdje el a képzést"
+    },
+    "custom": {
+        "7steps": {
+            "team": "‌",
+            "body": {
+                "signupSelfValidation": "Köszönjük a részvételt a kiválasztott kiskereskedelmi tehetségek közösségünk! <br/> <br/> Fedezze fel az SRA 7-eladás lépéseket András, és kap a végső tanúsítási szolgáltatás szakértelem! <br/> <br/> A logika van: {{login}} <br/> (legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> kattints az alábbi linkre, hogy aktiválja fiókját. <br/> <br/> Ha véletlenül kapott e-mailt, egyszerűen töröl ez. A fiók nem aktív, ha nem kattintson a megerősítés láncszem alul. Ha kérdése van ez SRA András, kérjük, lépjen kapcsolatba: <a href=\"mailto:serviceretailacademy@loreal.com\">serviceretailacademy@loreal.com</a>"
+            },
+            "call2action": {
+                "signupSelfValidation": "Győződjön meg arról"
+            },
+            "subject": {
+                "signupSelfValidation": "SRA András: Kérjük, erősítse meg a fiók"
+            }
+        },
+        "achat-habitat": {
+            "team": "A Achat Habitat-csapat",
+            "body": {
+                "signupSelfValidation": "Köszönöm részére beiktat-ra Achat élőhely! Utolsó lépés az induláshoz: kérjük aktiválja fiókját, kattintson erre a linkre: <br><a href=\"{{validateLink}}\"> {{validateLink}}</a> <br><br>a logika van: {{login}} <br/> (legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> tartalma lesz elérhető április 5-én-miután, és kapni fog egy e-mailt és minden gyakorlati információk elvezeti Önt az Ön tanulás expedíció. <br><br>Számára a hozzáférés kérdése / ahogy a Achat élőhely működik, akkor érheti el, hogy <a href=\"mailto:assistance@coorpacademy.com\"> assistance@coorpacademy.com</a>. <br>Élvezze a képzés!"
+            },
+            "subject": {
+                "signupSelfValidation": "Achat élőhely fiók aktiválása"
+            }
+        },
+        "air": {
+            "body": {
+                "coachUnlocked": "Gratulálunk! Teljesítetted a $t({{completedDiscipline}}) témát, és elérted az edzői szintet!<br/><br/> Mostantól játékvezetőként működhetsz más felfedezők játékában, és megoszthatod tudásod.<br/><br/>Amikor egy felfedező segítséget kér tőled, vezesd rá a helyes válaszra, de ne add meg neki a választ direktben.<br/><br/>Köszönjük a részvételed, és találkozunk a következő bivakban!<br/><br/>Digitális üdvözlettel:"
+            },
+            "subject": {
+                "coachUnlocked": "Air Liquide Digital Expedition - Most már ön az oktató!"
+            }
+        },
+        "bigdata": {
+            "team": "A SI'Academy csapat",
+            "body": {
+                "certification_header": "Kiérdemelte a $t({{certification}})-t, amellyel:",
+                "certification_content_stars": "{{stars}} bónusz csillag<br/>",
+                "certification_content_diploma": "Hozzáférés a(z) $t({{certification}}) oklevélhez  <a target='_blank' href=\"$t({{diplomaLink}})\">ezen</a> a linken keresztül",
+                "certification_content_resource": "A $t({{rewardLabel}}) jelvényedet elérheted ezen a <a target='_blank' download href=\"$t({{resourceLink}})\">linken</a>",
+                "certification_content_end": "Ne felejtse el frissíteni a SI'tizen profilját, valamint az e-mail aláírását, hogy megjelenítse az új tanúsítványát"
+            }
+        },
+        "capgemini": {
+            "welcome": "Kedves {{name}},",
+            "body": {
+                "certification_header": "Ment át a COOCs, a $t({{certification}}) szükséges. Gratulálok! <br>Nagyon szépen köszönöm és hamarosan találkozunk a COOC platform!",
+                "certification_content_stars": "‌",
+                "certification_content_resource": "Annak érdekében, hogy támogasson minket, hogy tovább javítsa a VP DigiCertif' tapasztalat, mi akar lenni hálás ha Ön tudna osztozik a visszajelzést keresztül erre a linkre: <br>-VP kérjük kattintson <a href=\"https://www.surveygizmo.com/s3/4299114/VP-COOC-platform\"> ide</a>",
+                "certification_content_end": "Üdvözlettel"
+            }
+        },
+        "challenge48htechno": {
+            "body": {
+                "signupSelfValidation": "Köszönöm részére beiktat-ra 48h Techno! Utolsó lépés az induláshoz: kérjük aktiválja fiókját, kattintson erre a linkre: <br><a href=\"{{validateLink}}\"> {{validateLink}}</a> <br><br>a logika van: {{login}} <br/> (legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> számára a hozzáférés kérdése / a út 48 h Techno-szerkezet, akkor érheti el, hogy <a href=\"mailto:assistance@coorpacademy.com\"> assistance@coorpacademy.com</a>. <br>Élvezze a képzés!"
+            },
+            "subject": {
+                "signupSelfValidation": "48h Techno fiók aktiválása"
+            }
+        },
+        "chanel": {
+            "body": {
+                "certification_content_end": "Ne felejtse el: bármikor visszajöhet a platformra ismerete felfrissítéséhez, a leckék és videók megtekintéséhez és természetesen barátai kihívásához!"
+            }
+        },
+        "cnp": {
+            "body": {
+                "certification_header": "Mi büszkék vagyunk a $t({{certification}}) tanúsítvány megszerzéséhez. Annak érdekében, hogy jutalmat Ön erőfeszítéseit, kínálunk Önnek:"
+            }
+        },
+        "crisis": {
+            "team": "Pernod Ricard Egyetem"
+        },
+        "corporateonlineopencourse": {
+            "body": {
+                "battleWaitingOpponent": "Ne felejtsd el, {{opponentName}} hívtak ki téged, a \"csata\" a $t({{disciplineName}}) tanfolyam $t({{level}}) szinten, és vár a válaszra! <br/> Fogadja el a kihívást és a játék, kattintson <a href=\"https://idp.renault.com/nidp/saml2/idpsend?id=campus\"> ide</a>! <br/> <br/> Lehet a legjobb személy nyerni!",
+                "sendBattle": "{{opponentName}} is kihívást jelent, hogy a “csata” a $t({{disciplineName}}) fegyelem, $t({{level}}) szinten, és türelmetlenül várja a választ! <br/> <br/> Elfogadja a kihívást és a játék, kattintson <a href=\"https://idp.renault.com/nidp/saml2/idpsend?id=campus\"> ide</a>! <br/> <br/> Lehet a legjobb tanuló nyerni!",
+                "createdPassword": {
+                    "top": "helló! Gratulálok! <br>Az imént konfigurálta a multi eszközök jelszó. <br>, Így ha akarod, csak kattints a linkre a smartphone vagy tablet és a kapcsolat a András márka nagykövete segítségével kell létesíteni az újonnan beállított multi készülék jelszó https://corporateonlineopencourse.coorpacademy.com/login <br><br>Tipp: egyszer összekapcsolt, miért nem hoz létre egy linket a smartphone további könnyen hozzáférhető ;-) <br>kérjük Megjegyzés: A kapcsolat keresztül campus elérhető bármely adott jelszó nélkül marad. A multi-eszköz hozzáférés csak lehetőség.",
+                    "bottom": "<br>-A ' idő-hoz megtanul!"
+                }
+            }
+        },
+        "cofpart-learning": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "digitalls2e": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "faurecia": {
+            "body": {
+                "coachUnlocked": "Gratulálunk! A $t({{completedDiscipline}}) kurzus edzője lett.<br/><br/>Mivel verhetetlen a témában, segíthet másoknak a tanulásban.<br/><br/>Kérjük ossza meg tudását és válaszoljon kérdésekre a Learning Lab chaten.<br/><br/>De ne feledje, a cél, hogy rásegítse őket a válaszra, ne árulja el azonnal azt.<br/><br/>\"Az alapos tudás jele a tanítás képessége\" <br/><font size=\"2\"><i>(Arisztotelész)</i></font><br/><br/>",
+                "certification_header": "Gratulálunk a $t({{certification}}) minősítés elérésében! <br/> Ez az eredmény képernyőolvasóknak kínálunk Önnek:",
+                "certification_content_stars": "Egy további {{stars}} Star rámutat a <b>Egyetem Faurecia | Tanulás Lab</b> <br/>",
+                "certification_content_diploma": "Egy tanúsítványt, hogy lehet letölteni és kinyomtatni, alábbiak ez <a target='_blank' href=\"$t({{diplomaLink}})\"> láncszem</a>",
+                "certification_content_resource": "Követi ezt a <a target='_blank' download href=\"$t({{resourceLink}})\"> linket</a> kap egy különleges jutalom",
+                "certification_content_end": "És Gondolj ez új tanúsítvány hozzáadása a szociális profil!"
+            }
+        },
+        "fdj": {
+            "body": {
+                "certification_content_end": "And do not forget to continue your learning journey by testing yourself on the Digilearn application from your mobile.<br/>You do not have the app yet? Go to the apple store or google store and then activate your notifications!"
+            }
+        },
+        "ecolenumerique-sncf": {
+            "body": {
+                "certification_header": "Gratulálunk a $t({{certification}}) jelvény megszerzése! <br/> Ez az eredmény képernyőolvasóknak kínálunk Önnek:",
+                "certification_content_stars": "Egy további {{stars}} Star pontok <br/>",
+                "certification_content_resource": "Követi ezt a <a target='_blank' download href=\"$t({{resourceLink}})\"> linket</a> kap egy különleges jutalom",
+                "certification_content_end": "És Gondolj a új Jedi jelvényt hozzáadása a szociális profil!"
+            }
+        },
+        "el": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "ganprevoyance": {
+            "body": {
+                "certification_header": "Gratulálunk érvényesítése a világegyetem $t({{certification}})! <br/> Ez az eredmény képernyőolvasóknak kínálunk Önnek:",
+                "certification_content_stars": "Egy további {{stars}} Star pontok <br/>",
+                "certification_content_resource": "Követi ezt a <a target='_blank' download href=\"$t({{resourceLink}})\"> linket</a> kap egy különleges jutalom",
+                "certification_content_end": "És hiszem, ez az új univerzum felvétele a szociális profil!"
+            }
+        },
+        "gdf": {
+            "urlHowTo": "* Egyszerűen csak kattints duplán a WeTransform ikonra az asztalon, és másold be ezt az url-t a címsorba",
+            "body": {
+                "battleWaitingOpponent": "Ne felejtse el, hogy {{opponentName}} kihívta önt egy „csat'ra” a $t({{disciplineName}}) tanfolyam $t({{level}}) szintjén, és türelmetlenül vár az ön válaszára!!<br/> A kihívás elfogadásához és a játékhoz kattintson ide*:<br/> <br/> <a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/> <br/> Nyerjen a jobbik!<br/> $t(email:urlHowTo)",
+                "coachUnlocked": "Gratulálunk! $t({{completedDiscipline}}) edző lett a hitelesítésnek köszönhetően!<br/> <br/> Mivel verhetetlen volt ebben az ágban, segíthet más tanulóknak! Válaszoljon a chaten a menedzsereknek: a cél, hogy rávezesse a válaszra, ne árulja el rögtön. Ha ezt nem szeretné, kikapcsolhatja a WeTransform-on a menü jobb felső részén<br/> <br/> <br/> Üdvözlettel,",
+                "passwordReset": "Elmondása szerint elfelejtette jelszavát. Állítsa vissza a következő hivatkozásra való kattintással*:<br/> <br/> <a href=\"{{resetLink}}\">{{resetLink}}</a><br/> <br/> Kérjük vegye figyelembe, hogy ez csak {{ttl}} óráig érvényes, ne várjon sokáig!<br/> <br/> Üdvözlettel, <br/> $t(email:urlHowTo)",
+                "sendBattle": "{{opponentName}} csatázni akar önnel a $t({{disciplineName}}) modul büntetésének $t({{level}}) szintjén!<br/> <br/> A kihívás elfogadásához és a játékhoz kattintson ide*:<br/> <br/> <a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/> <br/> Nyerjen a jobbik! <br/> $t(email:urlHowTo)"
+            }
+        },
+        "gdfec": {
+            "urlHowTo": "* Egyszerűen kattints duplán a WeTransform ikonra az asztalodon és másold / illeszd be az urlt a címsorba",
+            "body": {
+                "battleWaitingOpponent": "Ne feledd, {{opponentName}} kihívott csatára a(z) $t({{disciplineName}}) pályán $t({{level}}) szinten, és izgatottan várja válaszod!<br/> A kihívás elfogadásához kattints ide*: <br/> <br/> <a href=\"{{redirectionUrl}}\">\n{{redirectionUrl}}</a><br/> <br/>  Győzzön a jobb! <br/> $t(email:urlHowTo)",
+                "coachUnlocked": "Gratulálun! Edző lettél a $t({{completedDiscipline}}) tanszakon, teljesen hitelesítettek!<br/> <br/> Mivel verhetetlen voltál, segíthetsz más tanulóknak is! Egyszerűen csak válaszolj a menedzsereknek aki chaten keresztül felkeresnek: az a cél, hogy elvezesd őket a válaszhoz nem, hogy csak megadd nekik azt. amennyiben nem szeretnéd, hogy felkeressenek a WeTransform képernyő jobb felső sarkában a menüben kikapcsolhatod ezt a lehetőséget.<br/> <br/> <br/> Minden jót,",
+                "passwordReset": "Azt mondta nekünk, hogy elfelejtette jelszavát. Állítsa újra a következő linkre kattintva*:*:<br/> <br/> <a href=\"{{resetLink}}\">{{resetLink}}</a><br/> <br/> Kérem, figyeljen oda, ez a link csak{{ttl}} óráig lesz érvényes, ezért ne várjon túl sokat a link felkeresésével!<br/> <br/> Éegjobbakat, <br/> $t(email:urlHowTo)",
+                "sendBattle": "{{opponentName}} csatázni szeretne a $t({{disciplineName}}) modulban $t({{level}}) szinten!<br/> <br/> A kihívás elfogadásához és a játékhoz kattintson ide:<br/> <br/> <a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/> <br/> Győzzön a legjobb! <br/> $t(email:urlHowTo)",
+                "certification_content_end": "Ha most fejezte be a \"Rentability\" tanfolyam, kérjük, kövesse <a target='_blank' download href=\"https://www.getfeedback.com/r/bjNmfx11\"> ezt a linket</a> a jobb előkészítése a következő szeminárium és a bevált gyakorlatok cseréje. (10 perc max.) <br><br>, És ne felejtsd el, hogy frissítse a Curriculum Vitae, valamint a szakmai profil ezzel új igazolás."
+            }
+        },
+        "hr-ac": {
+            "body": {
+                "signupSelfValidation": "Köszönjük, hogy a HR Oscar regisztráció! Utolsó lépés az induláshoz: kérjük aktiválja fiókját <a href=\"{{validateLink}}\"> az alábbi</a> linkre kattintva. <br/> <br/> a bejelentkezés: {{login}} <br/> (Legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> Élvezze a képzés!",
+                "signupComplete": "Fiókját most érvényesített! <br/> <br/> a bejelentkezés: {{login}} <br/> (Legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> Kattints az alábbi gombra, hogy jelentkezzen be, és kezdi a tanulást!"
+            },
+            "subject": {
+                "signupSelfValidation": "HR Oscar fiók aktiválása"
+            }
+        },
+        "linxea": {
+            "team": "A LinXea Akadémia csapata",
+            "body": {
+                "signupSelfValidation": "Köszönjük, hogy a csatlakozott hozzánk! Tudását az életbiztosítási vizsgálat megkezdése előtt, az utolsó lépés az, hogy aktiválja fiókját, kattintson erre a linkre: <br><a href=\"{{validateLink}}\"> {{validateLink}}</a> <br><br>a logika van: {{login}} <br/> (legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> a a hozzáférés kérdése / ahogy a LinXea Akadémia platform működik, kapcsolatba léphet a <a href=\"mailto:assistance@coorpacademy.com\"> assistance@coorpacademy.com</a>. <br>, Ha van bármilyen kérdése a szerződések LinXea és életbiztosítás, kérem írjon <a href=\"mailto:contact@linxea.com\"> contact@linxea.com</a> <br>van egy jó tréning!",
+                "signupComplete": "A felirat Yahoo digitális Marketing Akadémia validálták. <br/> <br/> a bejelentkezés: {{login}} <br/> (Legyen óvatos, a kis- és nagybetűk karakter)"
+            },
+            "subject": {
+                "signupSelfValidation": "LinXea Akadémia fiók aktiválás"
+            }
+        },
+        "learnnrj": {
+            "body": {
+                "signupSelfValidation": "Köszönjük, hogy regisztrálta. -A ' jó-hoz megy! <br/> <br/> a bejelentkezés: {{login}} <br/> (Legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> Kérjük, kattintson erre a linkre, hogy aktiváld a fiókod: <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Ha bármilyen kérdése van, vagy szeretne többet megtudni a témák, beszéljen a képviselő, vagy lépjen kapcsolatba assistance@coorpacademy.com",
+                "signupComplete": "Köszönjük, hogy regisztrálta. -A ' jó-hoz megy! <br/> <br/> a bejelentkezés: {{login}} <br/> (Legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> Kérjük, kattintson erre a linkre, hogy aktiváld a fiókod: <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Ha bármilyen kérdése van, vagy szeretne többet megtudni a témák, beszéljen a képviselő, vagy lépjen kapcsolatba assistance@coorpacademy.com"
+            }
+        },
+        "letsgetdigital": {
+            "team": "Let's Get Digital 2.0",
+            "body": {
+                "signupSelfValidation": "Köszönjük, hogy a regisztráció, a Let's Get digitális 2.0! Utolsó lépés az induláshoz: kérjük aktiválja fiókját <a href=\"{{validateLink}}\"> az alábbi</a> linkre kattintva. <br/> <br/> a bejelentkezés: {{login}} <br/> (Legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> Számára a hozzáférés kérdése / a Let's Get digitális 2.0 működését, érheti el, hogy contact.letsgetdigital@bnpparibas.com élvezze a képzés!",
+                "signupComplete": "Fiókját most érvényesített! <br/> <br/> a bejelentkezés: {{login}} <br/> (Legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> Kattints az alábbi gombra, hogy jelentkezzen be, és kezdi a tanulást!"
+            },
+            "subject": {
+                "signupSelfValidation": "Let's Get Digital fiók aktiválása"
+            }
+        },
+        "michelin": {
+            "body": {
+                "certification_header": "Büszkék vagyunk, hogy elküldhetjük neked a(z) $t({{certification}}) oklevelet, és erőfeszítéseid elismeréseként felajánljuk számodra:",
+                "certification_content_stars": "{{stars}} további csillag!<br/>",
+                "certification_content_resource": "Töltse le az útlevél logóját <a target='_blank' download href=\"$t({{resourceLink}})\">itt</a>",
+                "certification_content_end": "Ne feledje frissíteni szakmai profilját a Bibspace-en (\"Profilja\" / \"Képesítés\" és mutassa be ezt a Bizonyítványt."
+            }
+        },
+        "mooc-socgen": {
+            "body": {
+                "personalHooks": {
+                    "generic_footer": "The above link is only accessible using a device outside of SG network. In order to access it via your SG workstation, please use the <a href=\"https://secure-browsing.eur.socgen.com\">MOOC Portal</a>."
+                }
+            }
+        },
+        "nespresso": {
+            "body": {
+                "coachUnlocked": "Gratulálok! Lettél a szakértő a fegyelem $t({{completedDiscipline}}), amely teljesen elvégezte a! <br/> <br/>"
+            },
+            "subject": {
+                "coachUnlocked": "Jól megtett, akkor lesz egy szakértő"
+            }
+        },
+        "openlab-cb": {
+            "body": {
+                "signupComplete": "A fiók nem érvényesítette! Most élj a Openlab Platform! <br/> <br/> a bejelentkezés: {{login}} <br/> (Legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> Látogassa meg a platform itt: <a href=\"{{plateform}}\"> {{plateform}}</a>"
+            },
+            "subject": {
+                "signupValidation": "Openlab-számla érvényesítése",
+                "signupComplete": "A Openlab számla"
+            }
+        },
+        "pernod": {
+            "body": {
+                "battleWaitingOpponent": "Ne felejtsd,  hogy {{opponentName}} kihívott egy csatára a(z) $t({{disciplineName}}) pályán $t({{level}}) szinten, és várja válaszod!<br/> A kihívás elfogadásához és a játék megkezdéséhez kattints <a href=\"{{redirectionUrl}}\">ide</a>!<br/> <br/> Mutasd meg, mennyi a DigiFitnesszed!",
+                "sendBattle": "{{opponentName}} kihívta önt egy \"csatára\" a $t({{disciplineName}}) tárgy $t({{level}}) szintjén, és türelmetlenül várja válaszát!<br/> <br/> A kihívás elfogadásához és a játék indításához kattintson <a href=\"{{redirectionUrl}}\">ide</a>!<br/> <br/> Mutassa meg mennyire Digifitt!"
+            },
+            "team": "Pernod Ricard egyetem"
+        },
+        "pru": {
+            "body": {
+                "coachUnlocked": "Gratulálunk! Ön most fejezte be a \"Haladó\" szintet a $t({{completedDiscipline}}) tantárgyban. Így hogy elvégezte a tárgyat, coach-nak tekinthető benne. <br/> Segíthet másoknak a témakörben, mivel verhetetlen benne! <br/> Csak válaszoljon a tanulóknak akik a cseten megkeresik: a cél az, hogy a válaszra maguktól jöjjenek rá, nem pedig az, hogy megadja nekik. <br/><br/> Ne feledje: \"Nincs hosszútávú vagy tiszteletreméltó teljesítmény szolidaritás nélkül!\" <br/><font size=\"2\"><i>(François Proust)</i></font><br/><br/>",
+                "sendBattle": "{{opponentName}} kihívta önt egy \"csatára a $t({{disciplineName}}) büntetés $t({{level}}) szintjén, és várja a válaszát!<br/> <br/> A kihívás elfogadásához és a játékhoz kattintson <a href=\"{{redirectionUrl}}\">ide</a>!<br/> <br/> Mutassa meg üzléeti elkötelezettségét!",
+                "battleWaitingOpponent": "Ne felejtsd el, {{opponentName}} kihívott egy \"csatára\" a $t({{disciplineName}}) meneten $t({{level}}) szinten és a válaszodra vár!\n<br/>A kihívás elfogadásához és a játékhoz kattints <a href=\"{{redirectionUrl}}\">ide</a>!<br/> <br/> Mutasd meg az üzleti képességeidet!"
+            },
+            "team": "Pernod Ricard Egyetem"
+        },
+        "quizz-auchan": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "rexel": {
+            "team": "Rexel Academy"
+        },
+        "renaultcare": {
+            "subject": {
+                "createdPassword": "A MOOC ügyfélélmény elérése egy okostelefonnal"
+            },
+            "passwordFooter": "&nbsp;",
+            "body": {
+                "createdPassword": {
+                    "top": "Jelszó létrehozva a MOOC ügyfélprogram eléréséhez mobilon keresztül.",
+                    "bottom": "<br><br> Most már beléphetsz a MOOC-ra ide kattintva:"
+                }
+            },
+            "call2action": {
+                "createdPassword": "Oktatás kezdete"
+            }
+        },
+        "samsung": {
+            "team": "A {{team}} csapat",
+            "body": {
+                "signupValidation": "Ön egy regisztrálási kérelmet kapott a következőtől {{firstName}} {{lastName}} (belépés: {{login}}). Az elérhetősége a következő: <ul><li>{{company}}</li> <li>{{role}}</li> <li>{{boutique}}</li> <li>{{postalCode}}</li></ul> A fiók érvényesítéséhez kérjük, kattintson az alábbi linkre: <a href=\"{{validateLink}}\"> {{validateLink}}</a> <br/> Ha nem ismeri ezt a személyt, kattintson az az alábbi linkre, hogy törölje ezeket az adatokat: <a href=\"{{rejectLink}}\"> {{rejectLink}}</a>. <br/> Köszönjük szépen!",
+                "signupComplete": "A fiók jelenleg aktív, a <a href=\"{{plateform}}\"> {{plateform}}</a> <br/> <br/> a logika van: {{login}} <br/> (legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> most Fedezze fel a legújabb Samsung TV-k, a legújabb innovációk és a legjobb eladási pontok megnyerni a vásárlók, vagy ossza meg kollégáival egész Franciaországban! <br><br>Eltöltjük az időt, és hamarosan találkozunk."
+            },
+            "subject": {
+                "signupValidation": "Samsung Academy fiók hitelesítése",
+                "signupComplete": "A Samsung Academy fiókjának hitelesítése"
+            },
+            "call2action": {
+                "signupComplete": "Platform meglátogatása"
+            }
+        },
+        "schneider": {
+            "welcome": "Kedves, {{name}}!",
+            "team": "Az MOOC csapat",
+            "lastModuleDone": "Már egy hét is eltelt, mióta bejelentkezett egy modulba a Schneider IQ platformon - ne adja fel!<br/> <br/> Ha nehézségeket tapasztal, akkor vegye fel a kapcsolatot egy oktatóval vagy kérdezze meg a közösséget a fórumokon.<br/> <br/> A platformhoz a következő hivatkozásokra kattintva férhet hozzá: <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> Örömteli oktatást kívánunk!",
+            "body": {
+                "personalHooks": {
+                    "generic_footer": "You are receiving Coorpacademy emails as you are a member on Schneider IQ.</br>CoorpAcademy uses your email only in correlation with Schneider IQ. If you do not want to receive these emails anymore, please Unsubscribe using the link below."
+                }
+            }
+        },
+        "seb": {
+            "team": "A University Groupe SEB Képző Csapat"
+        },
+        "societegenerale": {
+            "body": {
+                "certification_header": "Gratulálunk! Megszerezted a következő oklevelet: $t({{certification}}). Ez igazolja a részvételed a csapat digitális transzformációs stratégiájában. Az oklevél további fejlesztéséhez ezt adjuk neked:",
+                "certification_content_stars": "{{stars}} extra csillagok<br/>",
+                "certification_content_diploma": "Férjen hozzá a diplomához egy <a target='_blank' href=\"$t({{diplomaLink}})\">kattintással</a>",
+                "certification_content_resource": "$t({{rewardLabel}}) hozzáféréséhez kattintson <a target='_blank' download href=\"$t({{resourceLink}})\">ide</a>",
+                "certification_content_end": "Ossza meg sikereit ennek a logónak az Outlook aláírásához adásával.<br/><br/> Élvezze a mOOC-ot!<br/><br/> {{totalGoals}} igazolást nyerhet ezzel a digitális kurzussal."
+            }
+        },
+        "securite": {
+            "team": "A SI'Academy csapat",
+            "body": {
+                "certification_header": "Büszkén adjuk át a $t({{certification}})-t, amely:",
+                "certification_content_stars": "{{stars}} bónusz csillagok<br/>",
+                "certification_content_diploma": "Hozzáférés $t({{certification}}) bizonyítványához az <a target='_blank' href=\"$t({{diplomaLink}})\">itt</a> látható linken keresztül",
+                "certification_content_resource": "Hozzáférés a $t({{rewardLabel}}) kitűződhöz ezen a linken keresztül: <a target='_blank' download href=\"$t({{resourceLink}})\">link</a>",
+                "certification_content_end": "‌"
+            }
+        },
+        "sqy": {
+            "team": "A SI'Academy csapat",
+            "body": {
+                "certification_header": "Büszkén adjuk a $t({{certification}})-t, amely:",
+                "certification_content_stars": "{{stars}} bónusz csillagok<br/>",
+                "certification_content_diploma": "Hozzáférés a saját $t({{certification}}) tanúsítványhoz ezen a linken keresztül <a target='_blank' href=\"$t({{diplomaLink}})\">itt</a>",
+                "certification_content_resource": "Tekintse meg a $t({{rewardLabel}}) jelvényét ezen a linken: <a target='_blank' download href=\"$t({{resourceLink}})\">link</a>",
+                "certification_content_end": "Ne felejtse el frissíteni a SI'tizen profilját, valamint az e-mail aláírását, hogy megjelenjen az új tanúsítványa"
+            }
+        },
+        "monoprix": {
+            "body": {
+                "signupSelfValidation": "Köszönjük, hogy regisztrálta a digitális kultúra megismerésének előmozdítása. Te jó menni. <br/> <br/> a bejelentkezés: {{login}} <br/> (Legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> Kérjük, kattintson erre a linkre, hogy aktiváld a fiókod: <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Ha bármilyen kérdése van, vagy szeretne többet megtudni a témák, beszélni a Monoprix képviselőjét, vagy lépjen kapcsolatba assistance@coorpacademy.com",
+                "signupComplete": "Köszönjük, hogy regisztrálta a digitális kultúra megismerésének előmozdítása. Te jó menni. <br/> <br/> a bejelentkezés: {{login}} <br/> (Legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> Kérjük, kattintson erre a linkre, hogy aktiváld a fiókod: <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Ha bármilyen kérdése van, vagy szeretne többet megtudni a témák, beszélni a Monoprix képviselőjét, vagy lépjen kapcsolatba assistance@coorpacademy.com"
+            },
+            "subject": {
+                "signupSelfValidation": "Aktiváld a fiókod a l’Académie Digitale-nál",
+                "signupComplete": "Aktiválja Digitális Akadémiai felhasználói fiókját."
+            }
+        },
+        "redoute": {
+            "body": {
+                "signupSelfValidation": "Köszönöm részére beiktat a András La Redoute tanulás Lab tehetség. -A ' jó-hoz megy! <br/> <br/> a bejelentkezés: {{login}} <br/> (Legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> Kérjük, kattintson a gombra \"Érvényesíteni fiókját\" a fiók aktiválásához.\n Ha bármilyen kérdése van, vagy ha szeretne többet megtudni a témák, beszéljen a képviselő, vagy lépjen kapcsolatba velünk: assistance@coorpacademy.com",
+                "signupComplete": "Köszönöm, most regisztráltál a András tanulás Lab! <br/> <br/> a bejelentkezés: {{login}} <br/> Legyen óvatos, kis- és nagybetűk karakterekkel <br/> <br/> rövidesen kap egy e-mailt egy aktiváló linkkel."
+            },
+            "subject": {
+                "signupSelfValidation": "Aktiválja La Redoute Learning Lab fiókját",
+                "signupComplete": "Aktiválja La Redoute Learning Lab fiókját"
+            }
+        },
+        "tagheuer": {
+            "body": {
+                "signupValidation": "Volt egy új kérelmet, a TAG Heuer online képzés: <ul><li>vezetéknév: {{lastName}}</li> <li>Utónév: {{firstName}}</li> <li>logika: {{login}}</li> <li>Vállalat: {{company}}</li> <li>bolt: {{boutique}}</li> <li>ország: {{country}}</li> <li> Nagykövet: {{ambassador}}</li></ul> kérjük jóváhagyja a kérelmet, ha ide kattint: <a href=\"{{validateLink}}\"> {{validateLink}}</a> <br/> <br/> csökken a kérés, ha ide kattint: <a href=\"{{rejectLink}}\"> {{rejectLink}}</a> <br/>",
+                "signupComplete": "A fiók nem érvényesítette! Most élj a TAG Heuer oktatási Platform! <br/> <br/> a bejelentkezés: {{login}} <br/> (Legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> Látogassa meg a platform itt: <a href=\"{{plateform}}\"> {{plateform}}</a>",
+                "certification_content_end": "‌"
+            },
+            "subject": {
+                "signupValidation": "Új követelmény a TAG Heuer képzésre",
+                "signupComplete": "A TAG Heuer Pressure Lab beiratkozása érvényesítve lett"
+            },
+            "call2action": {
+                "signupComplete": "Platform meglátogatása"
+            }
+        },
+        "tagheuercon": {
+            "body": {
+                "signupValidation": "Egy új kérés volt a TAG Heuer online képzésért: <ul>\n    <li>{{lastName}}</li>\n    <li>{{firstName}}</li>\n    <li>{{login}}</li>\n    <li>{{company}}</li>\n    <li>{{boutique}}</li>\n    <li>{{country}}</li>\n</ul> Kérjük fogadja el a felkérést ide kattintva: <a href=\"{{validateLink}}\">{{validateLink}}</a><br/><br/> Utasítsa el ide kattintva: <a href=\"{{rejectLink}}\">{{rejectLink}}</a><br/>",
+                "signupComplete": "A fiók nem érvényesítette! Most élj a TAG Heuer oktatási Platform! <br/> <br/> a bejelentkezés: {{login}} <br/> (Legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> Látogassa meg a platform itt: <a href=\"{{plateform}}\"> {{plateform}}</a>"
+            },
+            "subject": {
+                "signupValidation": "Új kérés a MOOC felé",
+                "signupComplete": "A TAG Heuer Connected-del kapcsolatos ajánlása hitelesítésre került."
+            },
+            "call2action": {
+                "signupComplete": "Tovább a platformra"
+            }
+        },
+        "thelem": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "up": {
+            "body": {
+                "battleWaitingOpponent": "Ne felejtse el, hogy {{opponentName}} kihívta önt egy „csatára” a $t({{disciplineName}}) tanfolyam $t({{level}}) szintjén, és várja az ön válaszát!<br/> A kihívás elfogadásához és a játékhoz kattintson <a href=\"{{redirectionUrl}}\">ide.</a>!<br/> <br/> Nyerjen a jobbik!",
+                "coachUnlocked": "Gratulálunk! Oktató lett a $t({{completedDiscipline}}) tanfolyamban, amelyet sikeresen érvényesített!<br/> <br/> Most már segíthet másoknak ennek a bevehetetlen tárgynak a legyőzésében!<br/> Csak válaszoljon a tanulók hívására és segítse őket a válaszhoz, ne pedig egyszerűen csak megmondja nekik.<br/> <br/> Ne felejtse el, hogy „Szolidaritás nélkül nincsen hosszú távú vagy elismerhető teljesítmény!” <br/><font size=\"2\"><i>(François Proust)</i></font><br/> <br/>",
+                "contentUpdated": "Egy új kurzus került a platfromra!<br/>",
+                "contentUpdated_plural": "Egy új kurzust adtak hozzá a felülethez!<br/>",
+                "lastConnection": "Egy ideje nem lépett be a {{label}} platformra, és hiányoltuk!<br/> <br/> Még mindig vannak felfedeznivaló kurzusok, javításra váró eredmények, (barátságosan) kihívható személyek... Jöjjön vissza és folytassa a tanulmányi útját!<br/> <br/> A következő linkre kattintva beléphet a platformra: <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> Vidám képzést!",
+                "lastModuleDone": "Egy hét telt el, mióta utoljára beléptél a {{label}} platform tanfolyamára, ne add fell!<br/> <br/> Ha nehézségeid adódtak, nyugodtan vedd fel a kapcsolatot a tanfolyam vezetőjével vagy tedd fel kérdésed a közösségnek fórumainkon.<br/> <br/> A platformot elérheted a linkre való kattintással: <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> Jó tanulást!",
+                "sendBattle": "{{opponentName}} kihívott csatára a(z) $t({{disciplineName}}) pályán $t({{level}}) szinten, és izgatottan várja válaszod!<br/> <br/> A kihívás elfogadásához kattints <a href=\"{{redirectionUrl}}\">ide</a>!<br/> <br/> Győzzön a jobb!"
+            }
+        },
+        "who": {
+            "subject": {
+                "signupValidation": "A felhasználói fiók érvényesítése érdekében",
+                "coachUnlocked": "Well done, you have completed the course {{completedDiscipline}}"
+            },
+            "body": {
+                "signupValidation": "Kaptunk egy regisztrációs kérelemben <b>{{firstName}} {{lastName}}</b> <br/> Login: <b>{{login}}</b> <br/> ország: <b>{{country}}</b> <br/> állam: <b>{{region}}</b> <br/> helye: <b>{{provider}}</b> <br/> élményt hátterét: <b>{{role}}</b> <br/> hozzáférési kódot: <b>{{grade}}</b> <br/> <br/> érvényesíteni ezt a fiókot, kérjük, kattintson a következő linkre: <a href=\"{{validateLink}}\"> {{validateLink}}</a> <br/>. <br/> Ha nem tudod, hogy ez a személy, kérjük, kattintson a következő linkre kattintva távolítsa el a fiókot: <a href=\"{{rejectLink}}\"> {{rejectLink}}</a>. <br/> Boldog képzés!",
+                "signupComplete": "A WHO QualityRights e-képzés a regisztráció befejeződött. <br/> <br/> Előtt éri el a képzést, győződjön meg róla, befejezte a <a href=\"https://extranet.who.int/dataform/236824?lang=en\"> Kérdőív bemelegítési</a>. <br/> <br/> <b>Most már készen áll elindítani!</b> <br><br/> Az e-oktatási platform-ezt a <a href=\"https://humanrights-etrain-qualityrights.coorpacademy.com/login\"> linket</a> belépés. A logika van: {{login}} (vigyázz kis- és nagybetűk karakterekkel). <br/> <br/> Elérheti az e-képzés bármely internet berendezés (okostelefon, tablet, laptop, asztali számítógép). Az e-képzést is futtatható, a leggyakrabban használt böngészőkben, például Internet Explorer 11 és újabb verziói, valamint a legutóbbi változata Chrome, króm Android, Firefox, Safari és IEdge (vagy a közvetlenül megelőzően a legfrissebb változat). <br/> <br/> Reméljük, élvezni az e-képzést!",
+                "signupSelfValidation": "<br/> Köszönjük, hogy regisztrálsz a WHO QualityRights e-képzés! Még egy lépést, mielőtt – kérjük, kattintson az alábbi linkre a fiók érvényesítéséhez. <br/> <br/> a bejelentkezés: {{login}} <br/> (vigyázz a tőke irodalom és a lowercases) <br/> <br/> Élvezze a képzés!",
+                "battleWaitingOpponent": "Ne feledd, {{opponentName}} kihívott párbajra a(z) $t({{disciplineName}}) tanfolyam $t({{level}}) szintjén és válaszodra vár!<br/> Hogy elfogadd a kihívást, kattints <a href=\"{{redirectionUrl}}\">ide</a>!<br/> <br/> Győzzön a legjobb!",
+                "sendBattle": "{{opponentName}} kihívott csatára a(z) $t({{disciplineName}}) pályán $t({{level}}) szinten, és izgatottan várja válaszod!<br/> <br/> A kihívás elfogadásához kattints <a href=\"{{redirectionUrl}}\">ide</a>!<br/> <br/> Győzzön az ügyesebb tanuló!",
+                "coachUnlocked": "Congratulations on completing \"How to play on the platform?\".  Now you are ready to start one of the modules of the e-training!",
+                "certification_header": "Gratulálok! Sikeresen befejezte a QualityRights e-tanfolyam \"Alapítvány a mentális egészség, az emberi jogok és a helyreállítás\", aki mentális egészségügyi politika és a fejlesztési szolgáltatás által kifejlesztett vagy biztosított.",
+                "certification_content_stars": "‌",
+                "certification_content_diploma": "Tudod letölt a tanúsítványt <a target='_blank' href=\"$t({{diplomaLink}})\"> itt</a>",
+                "certification_content_resource": "Kérjük, töltse ki a post értékelő <a href=\"https://extranet.who.int/dataform/772112?lang=en\"> Kérdőív</a>",
+                "certification_content_end": "Ne feledje, hogy akkor újra az e-képzés bármely időpontban, nem az persze megint, a képzési anyagok és videók, és hozzájárulnak a viták. <br/> <br/> Reméljük, élvezték az e-képzést!"
+            }
+        },
+        "yahoo": {
+            "welcome": "Kedves {{name}}!",
+            "urlHowTo": "&nbsp;",
+            "happyTraining": "Köszönjük",
+            "team": "A Yahoo és a Coorpacademy csapata",
+            "unsubscribetext": "Túl sok email? Meg tudod",
+            "body": {
+                "certification_header": "Gratulálunk, befejezte a $t({{certification}}) modul a Yahoo online digitális oktatási akadémiáján! Ön most már a felhasználók egy elit csoportjának a tagja, akik kivételes tudásról tettek tanúbiztonyságot a $t({{certification}}) témájában. Legyen nagyon büszke!\n\nJutalomként a következőt ajánljuk önnek:",
+                "certification_content_resource": "Érd el a $t({{certification}}) jelvényt, köved ezt a <a href=\"{{certificationPage}}/\"> linket </a>",
+                "certification_content_end": "Büszkén ossza meg kitűzőjét a közösségi és networking oldalakon.\n\nMiért állna meg most? Jelentkezzen vissza a Yahoo online digitális training akadémiára a tanulás folytatásához.",
+                "coachUnlocked": "Gratulálunk! Ön mostantól profi a $t({{completedDiscipline}}) témakörben. <br/><br/>Ha bármilyen kérdése van a témával kapcsolatban, vagy általánosságban a digitális marketingről, kérjük írjon a következő címre: <a href=\"mailto:info-yahoo@yahoo-inc.com\">info-yahoo@yahoo-inc.com</a>.<br/><br/>Üdvözlettel, <br/>",
+                "signupValidation": "Egy új kérés volt a MOOC-ért: <br> <ul>\n  <li>{{firstName}}</li>\n  <li>{{lastName}}</li>\n  <li>{{email}}</li>\n  <li>{{company}}</li>\n  <li>{{jobTitle}}</li>\n</ul> <br> Kérjük fogadja el a felkérést ide kattintva: <br> <a href=\"{{validateLink}}\">{{validateLink}}</a><br><br> Utasítsa el ide kattintva: <br> <a href=\"{{rejectLink}}\">{{rejectLink}}</a>",
+                "signupSelfValidation": "Köszönjük, hogy a regisztráció, a digitális marketing ismeretek. -A ' jó-hoz megy! <br/> <br/> a bejelentkezés: {{login}} <br/> (Legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> Kérjük, kattintson erre a linkre, hogy aktiváld a fiókod: <br><a href=\"{{validateLink}}\"> {{validateLink}}</a> <br><br>bejelentkezni, kérjük, írja be a professzionális e-mail és jelszó. <br> Ha bármilyen kérdése van, vagy szeretne többet megtudni a témák, beszéljen a Yahoo képviselője vagy a kapcsolattartó <br><a href=\"info-yahoo@yahoo-inc.com\"> info-yahoo@yahoo-inc.com</a>",
+                "signupComplete": "Köszönjük érdeklődését a digitális marketing ismeretek. A kérést nem hagyják jóvá. <br/> <br/> a bejelentkezés: {{login}} <br/> (Legyen óvatos, a kis- és nagybetűk karakterek) <br/> <br/> Látogassa meg a platform, kattintson ide <br><a href=\"{{plateform}}\"> {{plateform}}</a> <br><br>bejelentkezni, kérjük, írja be a professzionális e-mail és jelszó. <br> Ha bármilyen kérdése van, vagy hogy megtud több körülbelül a témák, mint beszélni, hogy a Yahoo képviselője vagy lépjen kapcsolatba a <br><a href=\"mailto:info-yahoo@yahoo-inc.com\"> info-yahoo@yahoo-inc.com</a> <br>"
+            },
+            "subject": {
+                "coachUnlocked": "Gratulálunk, mostantól profi vagy az alábbi ágazatban: $t({{completedDiscipline}})",
+                "signupValidation": "Új kérés egy felhasználótól a Yahoo Digitalon",
+                "signupSelfValidation": "Aktiválja a Yahoo Digital Marketing fiókját",
+                "signupComplete": "A Yahoo Digital Marketing Academy-hez kapcsolódó bejegyzése hitelesésre került."
+            },
+            "call2action": {
+                "signupValidation": "Fiók hitelesítése",
+                "signupSelfValidation": "Hitelesítsd a Fiókodat",
+                "signupComplete": "Látogassa meg a Platformot"
+            }
+        },
+        "zenithcommunity": {
+            "body": {
+                "signupValidation": "There has been a new request for Zenith online training: <ul>\n    <li>Last name: {{lastName}}</li>\n    <li>First name: {{firstName}}</li>\n    <li>Login: {{login}}</li>\n    <li>Point of Sale Business Unit: {{provider}}</li>\n    <li>Point of Sale Name: {{company}}</li>\n    <li>Country: {{country}}</li>\n <li>City: {{city}}</li>\n <li>Job Title: {{jobTitle}}</li>\n <li>Grade (how long...): {{grade}}</li>\n</ul> Please approve the request by clicking here: <a href=\"{{validateLink}}\">{{validateLink}}</a><br/><br/> Decline this request by clicking here: <a href=\"{{rejectLink}}\">{{rejectLink}}</a><br/>"
+            }
+        }
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "battle": {
+        "incoming": "{{count}} adet bekleyen dövüş talebiniz var",
+        "incoming_plural": "{{count}} adet bekleyen dövüş talebiniz var",
+        "you_win": "Dövüşü kazandınız",
+        "you_lose": "Dövüşü kaybettiniz"
+    },
+    "badge": {
+        "won": "{{name}} rozetini kazandınız"
+    },
+    "module": {
+        "won": "Bir modülü başardınız"
+    },
+    "reward": {
+        "won": "Tebrikler! Emeğiniz karşılık buldu!"
+    },
+    "coach": {
+        "unlocked": "Bir koç oldun"
+    },
+    "incoming": "Yeni bir bildiriminiz var",
+    "chatrequest": "Sohbet talebi",
+    "goal": {
+        "progress": "Sertifikanızda ilerlediniz.",
+        "select": "Bir sertifika programını seçtiniz",
+        "reward": "Bir sertifika kazandınız"
+    },
+    "forum": "Bir kullanıcı sorunuzu cevapladı",
+    "new_version": {
+        "title": "Yeni ürüm",
+        "message": "Bu platformun yeni sürümü yayınlandı.",
+        "action": "Yenile"
+    },
+    "welcome": "<b>{{user}}</b> Hoşgeldiniz, sen-ebilmek şimdi giriş tüm dersler",
+    "personal_note": "Notunuz e-posta adresinize gönderildi.",
+    "bonusStars": "Bravo! Ek {{stars}} yıldınız kazandınız!",
+    "rewardStars": "Congratulations ! You have won {{stars}} additional stars!",
+    "custom": {
+        "armeedeterre": {
+            "battle": {
+                "incoming": "Savaş bekleyen {{count}} var.",
+                "incoming_plural": "Savaşlar bekleyen {{count}} var.",
+                "you_win": "Bir savaş kazandın",
+                "you_lose": "Bir savaşı kaybetti"
+            }
+        },
+        "pernod": {
+            "goal": {
+                "progress": "Bir hedefi düzenlediniz",
+                "select": "Bir hedef seçtiniz",
+                "reward": "bir hedefteki engeli kaldırdınız"
+            }
+        },
+        "up": {
+            "module": {
+                "won": "Bir seviye tamamladınız"
+            }
+        },
+        "racing": {
+            "header": "A new Tower Quizz live is happening!",
+            "body": "Click here to join"
+        }
+    }
+}

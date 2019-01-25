@@ -1,0 +1,153 @@
+{
+    "loose": {
+        "title": "Ana sayfa",
+        "end_try": "Artık deneme hakkınız yok!",
+        "echec_title": "HAY AKSİ",
+        "new_badges": "{{number}} yeni rozet kazanıldı",
+        "new_badges_plural": "{{number}} yeni rozet kazanıldı",
+        "footer": {
+            "joker": {
+                "video": {
+                    "pre": "Dersin videosunu izleyerek",
+                    "text": " ",
+                    "win": "1 can kazanın",
+                    "heart": "kalp",
+                    "post": "ve seviyeye devam edin."
+                },
+                "pdf": {
+                    "pre": "Bu dersi oku",
+                    "win": "1 can kazanın",
+                    "heart": "kalp",
+                    "post": "ve seviyeye devam edin."
+                },
+                "without": "Jokerinizi kullandınız."
+            },
+            "new_try": {
+                "title_pre": "Bu düzeyde yeniden deneyin.",
+                "title": "Heveslisiniz,",
+                "title_post": "bu belli oluyor!",
+                "button": "Bu seviyeyi tekrar deneyin"
+            },
+            "new_module": {
+                "title_pre": "Başka bir düzey erişim.",
+                "title": "Durumu telafi edebilirsiniz!",
+                "button": "Kursu değiştir"
+            }
+        },
+        "type_badges": {
+            "init": "init",
+            "bronze": "Bronz",
+            "argent": "Gümüş",
+            "or": "Altın",
+            "platine": "Platin"
+        }
+    },
+    "question_title": "Soru: {{question}}",
+    "progression": "Cevap {{nb}} / {{ref}}",
+    "success": {
+        "home": "Ana Sayfa",
+        "title": "Tebrikler!",
+        "subtitle": "Bu düzeyde tamamlamış",
+        "body": {
+            "new_star": "{{newStars}} yıldızları",
+            "new_score": "Yeni skorunuz {{newScore}}"
+        },
+        "new_badges": "{{new}} yeni rozet kazanıldı",
+        "new_badges_plural": "{{new}} yeni rozet kazanıldı",
+        "reported": "Bu modül size bunu kazandırdı:",
+        "win": "şimdi bunlara sahipsiniz:",
+        "footer": {
+            "title": "İyi bir başlangıç yapıyorsunuz! Devam edin!",
+            "new_module": "Bu seviyeye eriş",
+            "duration_unit": "dakika",
+            "battle": "Savaşa Başla"
+        },
+        "type_badges": {
+            "init": "init",
+            "bronze": "Bronz",
+            "argent": "Gümüş",
+            "or": "Altın",
+            "platine": "Platin"
+        },
+        "yourRanking": "Sıralama:",
+        "rankWin": "(+ {{count}} sırası)",
+        "rankWin_plural": "(+ {{count}} rütbeleri)"
+    },
+    "duration": "{{nb}}",
+    "duration_post": "dakika",
+    "duration_post_plural": "dakika",
+    "assistance": "HATA BİLDİR",
+    "buy_next": "Sonraki dersi satın al",
+    "moduleNotFound": "{{disciplineName}} dersi için, {{moduleRef}} referansına sahip hiçbir seviye bulunamadı",
+    "custom": {
+        "armeedeterre": {
+            "success": {
+                "footer": {
+                    "battle": "Savaşa Başla"
+                }
+            }
+        },
+        "7steps": {
+            "loose": {
+                "type_badges": {
+                    "platine": "Üst"
+                }
+            },
+            "success": {
+                "type_badges": {
+                    "platine": "Top"
+                }
+            }
+        },
+        "fdj": {
+            "loose": {
+                "echec_title": "bitmiş",
+                "end_try": "Quiz tamamladıktan!"
+            }
+        },
+        "letsgetdigital": {
+            "assistance": "Geribildirim vermek"
+        },
+        "up": {
+            "loose": {
+                "footer": {
+                    "joker": {
+                        "video": {
+                            "post": "ve seviyeye devam et"
+                        },
+                        "pdf": {
+                            "post": "ve seviyeye devam et"
+                        }
+                    },
+                    "new_try": {
+                        "title_pre": "Bu seviyeyi tekrar dene.",
+                        "button": "Bu seviyeyi tekrar deneyin"
+                    },
+                    "new_module": {
+                        "title_pre": "Başka bir seviyeye eriş.",
+                        "button": "Kursu değiştir"
+                    }
+                }
+            },
+            "success": {
+                "subtitle": "Bu seviyeyi geçtiniz",
+                "reported": "Kazandığınız bu seviye",
+                "footer": {
+                    "new_module": "Bu seviyeye eriş"
+                }
+            },
+            "memo": {
+                "module_title": "Ders: {{disciplineName}} - {{moduleName}}",
+                "from": "{{disciplineName}} - {{name}} kursundan"
+            },
+            "buy_next": "sonraki dersi satın alın"
+        },
+        "who": {
+            "success": {
+                "footer": {
+                    "battle": "Başlangıç Challenge"
+                }
+            }
+        }
+    }
+}

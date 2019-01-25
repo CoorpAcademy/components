@@ -1,0 +1,23 @@
+{
+    "submit": "Zatwierdź",
+    "print": "Drukuj",
+    "share": "Udostępnij",
+    "delete": "Usuń",
+    "start": "Przejdź",
+    "loadMore": "Załaduj więcej...",
+    "download": "Pobierz",
+    "ok": "OK",
+    "cancel": "Anuluj",
+    "sso": "Rejestracja jednokrotna",
+    "connect": "Połącz",
+    "signup": "Zarejestruj się",
+    "signup_pre": "Nie masz konta?",
+    "custom": {
+        "chanel": {
+            "signup": "Zarejestruj się"
+        },
+        "ilearn": {
+            "signup": "Zarejestruj się"
+        }
+    }
+}

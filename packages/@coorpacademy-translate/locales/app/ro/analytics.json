@@ -1,0 +1,316 @@
+{
+    "message": "<p>Pentru a accesa informațiile detaliate per utilizator, folosiți <a href=\"{{user}}\">pagina noastră de analize în funcție de utilizator</a>.</p><p>Pentru a accesa informații detaliate pentru toți utilizatorii, puteți să <a href=\"{{export}}\">exportați toți utilizatorii la cerere</a>.</p>",
+    "export": {
+        "global": {
+            "first_name": "Prenume",
+            "last_name": "Numele de familie",
+            "email": "E-mail",
+            "provider": "Furnizor",
+            "stars": "Scor",
+            "providerinfos_company": "Companie",
+            "providerinfos_city": "Oraș",
+            "providerinfos_country": "Țara",
+            "providerinfos_department": "Departament",
+            "providerinfos_title": "Titlu",
+            "providerinfos_chorusID": "ChorusID",
+            "ageRange": "Grupa de vârstă",
+            "personalEmail": "Email (personal)",
+            "role": "Rol",
+            "brandName": "Societatea de afaceri",
+            "boutique": "Magazin",
+            "billable": "Billable",
+            "postalCode": "Cod poștal",
+            "moduleLevel": "$t(dashboard:badges.module.name) - Nivel",
+            "moduleCount": "$t(dashboard:badges.module.name) - Număr",
+            "moduleUpdate": "$t(dashboard:badges.module.name) - Ultima Actualizare",
+            "battleLevel": "$t(dashboard:badges.battle.name) - Nivel",
+            "battleCount": "$t(dashboard:badges.battle.name) - Număr",
+            "battleUpdate": "$t(dashboard:badges.battle.name) - Ultima actualizare",
+            "coachLevel": "$t(dashboard:badges.coach.name) - Nivel",
+            "coachCount": "$t(dashboard:badges.coach.name) - Număr",
+            "coachUpdate": "$t(dashboard:badges.coach.name) - Cea mai recentă actualizare",
+            "lessonLevel": "$t(dashboard:badges.lesson.name) - Nivel",
+            "lessonCount": "$t(dashboard:badges.lesson.name) - Număr",
+            "lessonUpdate": "$t(dashboard:badges.lesson.name) - Ultima actualizare",
+            "questionLevel": "$t(dashboard:badges.question.name) - Nivel",
+            "questionCount": "$t(dashboard:badges.question.name) - Număr",
+            "questionUpdate": "$t(tablou de bord:insigne.întrebare.nume) - Ultima Actualizare",
+            "badges": "insigne",
+            "lastConnectionDate": "Data Ultimei Conectări",
+            "state": "Stare",
+            "login": "Autentificare",
+            "firstConnectionDate": "Data primei conexiuni",
+            "certificate": "certificat de {{label}}",
+            "certifications": "Certificate",
+            "entity": "Entitate",
+            "grade": "Grad",
+            "region": "Regiune",
+            "validatedTimeProgression": "Validate de timp",
+            "totalTimeProgression": "Timp total",
+            "populations": "Populație(i)",
+            "deactivationDate": "Data dezactivării",
+            "organization_branch": "Filială companie",
+            "organization_businessunit": "Unitate de afaceri",
+            "organization_workingCountry": "Țara Business",
+            "organization_role": "Rol în cadrul companiei",
+            "organization_boutique": "Magazin de Afaceri",
+            "organization_address1": "Adresă profesională 1",
+            "organization_address2": "Adresă Business 2",
+            "organization_zipcode": "Cod poștal companie",
+            "organization_workingCity": "Oraș de afaceri",
+            "organization_company": "Companie de afaceri",
+            "organization_ambassador": "Ambasador",
+            "birthday": "Zi de naștere"
+        },
+        "battles": {
+            "disciplineName": "Numele disciplinei",
+            "disciplineStatus": "Statutul disciplinei",
+            "disciplineStatus_hidden": "Ascunse",
+            "disciplineStatus_visible": "Vizibil",
+            "moduleLevel": "Nivel modul",
+            "createdAt": "Creeat la",
+            "answeredAt": "Răspuns la",
+            "createdBy": "Nume rival",
+            "opponent": "Nume oponent",
+            "winner": "Câștigător",
+            "winnerScore": "Scor Învingător",
+            "userLogin": "Autentificare competitor",
+            "opponentLogin": "Conectare oponent",
+            "looserScore": "Scorul Perdantului"
+        },
+        "moduleStart": {
+            "brand": "Marcă",
+            "discipline": "Numele disciplinei",
+            "module": "Nivel modul",
+            "author": "Autor",
+            "count": "Numărătoarea",
+            "userCount": "Număr de utilizatori"
+        }
+    },
+    "dashboard": {
+        "serenetics-error": "Avut de eroare în timpul regăsirii URL-ul nou tablou de bord.",
+        "behavioral": {
+            "upgrade": {
+                "title": "Acest tablou de bord este disponibil doar în planul de rata de Intreprindere.",
+                "subtitle": "Vă rugăm să contactaţi Coorpacademy pentru a-ti contul şi să obţină acces la intuiţii comportamentale de platforma"
+            }
+        }
+    },
+    "custom": {
+        "7steps": {
+            "export": {
+                "global": {
+                    "organization_role": "Job",
+                    "organization_title": "Tip magazin",
+                    "organization_ambassador": "L'Oréal angajat?",
+                    "organization_branch": "L'Oréal Divizia",
+                    "entity": "L'Oréal branduri",
+                    "organization_grade": "Utilizarea de drepturile de imagine",
+                    "organization_boutiqueReferent": "Retailerul/lanţ",
+                    "organization_boutique": "Nume magazin/cod"
+                }
+            }
+        },
+        "achat-habitat": {
+            "export": {
+                "global": {
+                    "organization_ambassador": "Buletin informativ"
+                }
+            }
+        },
+        "adidas-fr": {
+            "export": {
+                "global": {
+                    "organization_businessunit": "Departamentul",
+                    "organization_grade": "Vârsta",
+                    "organization_boutique": "La locul de muncă",
+                    "organization_branch": "Între femei şi bărbaţi"
+                }
+            }
+        },
+        "capgemini": {
+            "export": {
+                "global": {
+                    "organization_grade": "GGID"
+                }
+            }
+        },
+        "chanel": {
+            "export": {
+                "global": {
+                    "boutique": "Butic",
+                    "organization_workingCountry": "Țară",
+                    "region": "Regiune",
+                    "role": "Rol",
+                    "startContract": "Începutul contractului"
+                }
+            }
+        },
+        "cofpart-learning": {
+            "export": {
+                "global": {
+                    "brandName": "Direction",
+                    "entity": "Job",
+                    "organization_branch": "Manager"
+                }
+            }
+        },
+        "corporateonlineopencourse": {
+            "export": {
+                "global": {
+                    "region": "Regiune",
+                    "organization_workingCountry": "Tara",
+                    "role": "Funcţia"
+                }
+            }
+        },
+        "edenred-talents": {
+            "export": {
+                "global": {
+                    "organization_company": "Direcţia",
+                    "entity": "Sous-direcţia",
+                    "organization_branch": "Servicii - Secteur",
+                    "organization_boutiqueReferent": "Responsable",
+                    "organization_role": "Fonction",
+                    "organization_grade": "Statut"
+                }
+            }
+        },
+        "gdf": {
+            "export": {
+                "global": {
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - Nivel",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - Total",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - Ultima actualizare"
+                }
+            }
+        },
+        "gdfec": {
+            "export": {
+                "global": {
+                    "organization_zipcode": "GAIA",
+                    "organization_businessunit": "Echipa",
+                    "organization_boutique": "Numele managerului",
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - Nivel",
+                    "transformerCount": "$t(tablou de bord:insigne.transformator.nume) - Număr",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - Ultima Actualizare"
+                }
+            }
+        },
+        "ilearn": {
+            "export": {
+                "global": {
+                    "boutique": "Magazin",
+                    "organization_workingCountry": "Țara",
+                    "region": "Regiune",
+                    "role": "Rol",
+                    "startContract": "Începere contract"
+                }
+            }
+        },
+        "life-auchan": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Nivelul activității",
+                    "organization_region": "Life Balance",
+                    "organization_workingCountry": "Țara"
+                }
+            }
+        },
+        "metro": {
+            "export": {
+                "global": {
+                    "organization_boutique": "City",
+                    "organization_branch": "ID-UL",
+                    "organization_businessunit": "Rolul"
+                }
+            }
+        },
+        "monoprix": {
+            "export": {
+                "global": {
+                    "organization_branch": "Direcţie"
+                }
+            }
+        },
+        "nespresso": {
+            "export": {
+                "global": {
+                    "organization_branch": "Departamentul",
+                    "organization_businessunit": "Poziţia"
+                }
+            }
+        },
+        "pru": {
+            "export": {
+                "global": {
+                    "providerCompany": "Companie",
+                    "providerCountry": "Țara",
+                    "providerDepartment": "Departament"
+                }
+            }
+        },
+        "redoute": {
+            "boutique": "Butic"
+        },
+        "securite": {
+            "export": {
+                "global": {
+                    "organization_grade": "ID"
+                }
+            }
+        },
+        "up": {
+            "export": {
+                "battles": {
+                    "disciplineName": "Numele cursului",
+                    "moduleLevel": "Nivel"
+                }
+            }
+        },
+        "tagheuer": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Point of sales code"
+                }
+            }
+        },
+        "thelem": {
+            "export": {
+                "global": {
+                    "organization_role": "Angajare",
+                    "language": "Limbă",
+                    "organization_boutique": "Locație",
+                    "organization_title": "Titlul serviciului",
+                    "organization_boutiqueReferent": "Număr înregistrare",
+                    "startContract": "Data angajării companiei",
+                    "organization_contractType": "Tip de Contract",
+                    "organization_grade": "Calificare"
+                }
+            }
+        },
+        "yahoo": {
+            "export": {
+                "global": {
+                    "organization_title": "Sarcină",
+                    "organization_workingCountry": "Țară",
+                    "region": "Limba"
+                }
+            }
+        },
+        "who": {
+            "export": {
+                "global": {
+                    "organization_workingCountry": "Tara/stat",
+                    "region": "Statele şi teritoriile",
+                    "provider": "Afiliere",
+                    "organization_role": "Fundal/experienţă",
+                    "organization_grade": "Cod de acces",
+                    "organization_boutiqueReferent": "Nivelul de educaţie"
+                }
+            }
+        }
+    }
+}

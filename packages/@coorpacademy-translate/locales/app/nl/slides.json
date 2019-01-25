@@ -1,0 +1,107 @@
+{
+    "indice": {
+        "title": "Hulp nodig?",
+        "sub_title": "Ruil een ster voor een tip!",
+        "content": "Gebruik een tip"
+    },
+    "lesson": {
+        "title": "Hier vind je de antwoorden!",
+        "sub_title": "Bekijk de cursus en verdien 4 extra sterren!",
+        "resources": "Om verder te gaan",
+        "title_video": "Video van de cursus",
+        "title_pdf": "PDF van de cursus",
+        "look_at_the_course": "Bekijk de cursus"
+    },
+    "without_coach": {
+        "title": "Geen coach beschikbaar"
+    },
+    "with_coach": {
+        "title": "Start een discussie",
+        "content": "{{nb}} coach(es) beschikbaar"
+    },
+    "is_valid": {
+        "state": "<span class=\"label1\">Goed</span> <span class=\"label2\">antwoord</span>",
+        "title": "Bravo!",
+        "correctAnswer": "Goed antwoord:"
+    },
+    "is_invalid": {
+        "state": "<span class=\"label1\">Verkeerd</span> <span class=\"label2\">antwoord</span>",
+        "title": "Oeps...",
+        "goodAnswer": "Het juiste antwoord is:"
+    },
+    "signup_finish_chapter": "Meld je nu aan om het hoofdstuk af te werken",
+    "available_shots_pre": "Je hebt nog",
+    "available_shots": "{{count}} kans over",
+    "available_shots_plural": "{{count}} kansen over",
+    "available_shots_post": "&nbsp;",
+    "klf": "Wist je dat?",
+    "to_know": "Belangrijkste informatie",
+    "footer": {
+        "lesson": {
+            "title": "Je kunt besluiten om de les te bekijken",
+            "button": "Toegang tot de les"
+        },
+        "result": {
+            "title": "Je kan terugkeren naar je resultaat",
+            "button": "Terugkeren naar het resultaat"
+        },
+        "next_question": "Volgende"
+    },
+    "check_answer": "Controleer het antwoord",
+    "adaptive_check_answer": "Volgende",
+    "next_question": "Volgende vraag",
+    "next_level": "Volgend niveau",
+    "author": "Dit hoofdstuk is gemaakt door:",
+    "button_tree": "Ga naar de catalogus",
+    "comments": {
+        "title": "DISCUSSIE",
+        "title_for_module": "Forum - Niveau {{name}}"
+    },
+    "slideNotFound": "Geen vraag gevonden met referentie {{slideId}}",
+    "forbidden": "Je hebt geen toegang tot de inhoud met referentie {{contentRef}}.",
+    "showContext": "Ga terug naar de context",
+    "context": "Context",
+    "custom": {
+        "hr-ac": {
+            "footer": {
+                "lesson": {
+                    "button": "Ga naar het document"
+                }
+            }
+        },
+        "nespresso": {
+            "without_coach": {
+                "title": "Geen expert beschikbaar"
+            },
+            "with_coach": {
+                "content": "{{nb}} deskundige beschikbaar"
+            }
+        },
+        "renaultcare": {
+            "is_valid": {
+                "state": "<span class=\"label1\"> Bravo</span>"
+            },
+            "is_invalid": {
+                "state": "<span class=\"label1\"> niet echt</span>",
+                "title": "Ouch..."
+            }
+        },
+        "schneider": {
+            "comments": {
+                "title_for_module": "Bespreken - {{name}} niveau <br/> contacteer <a href=\"http://2929it.schneider-electric.com/\" target=\"_blank\"> 2929 ondersteuning</a> voor problemen met video"
+            }
+        },
+        "who": {
+            "is_valid": {
+                "state": "<span class=\"label1\"> juiste</span> <span class=\"label2\"> antwoord</span>",
+                "correctAnswer": "Juiste antwoord:"
+            },
+            "to_know": "Om te begrijpen",
+            "lesson": {
+                "resources": "Duik in het onderwerp",
+                "look_at_the_course": "PDF van de cursus"
+            },
+            "showContext": "Het kader weer toegang"
+        }
+    }
+}

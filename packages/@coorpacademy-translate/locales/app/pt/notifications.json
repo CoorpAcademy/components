@@ -1,0 +1,63 @@
+{
+    "battle": {
+        "incoming": "Você tem {{count}} solicitação de batalha em espera",
+        "incoming_plural": "Você tem {{count}} solicitações de batalhas em espera",
+        "you_win": "Você ganhou a batalha",
+        "you_lose": "Você perdeu a batalha"
+    },
+    "badge": {
+        "won": "Você ganhou uma insígnia {{name}}"
+    },
+    "module": {
+        "won": "Você concluiu este módulo com sucesso"
+    },
+    "reward": {
+        "won": "Parabéns! Seus esforços foram recompensados!"
+    },
+    "coach": {
+        "unlocked": "Você se tornou instrutor"
+    },
+    "incoming": "Você tem uma nova notificação",
+    "chatrequest": "Solicitação de chat",
+    "goal": {
+        "progress": "Você progrediu em sua certificação",
+        "select": "Você selecionou uma certificação",
+        "reward": "Você obteve uma certificação"
+    },
+    "forum": "Um usuário respondeu à sua questão",
+    "new_version": {
+        "title": "Nova versão",
+        "message": "Uma atualização técnica acabou de ser publicada. Clique em “Recarregar” para um funcionamento correto.",
+        "action": "Recarregar"
+    },
+    "welcome": "Bem-vindo a <b>{{user}}</b>, você pode acessar todos os cursos",
+    "personal_note": "Seu memorando foi enviado para o seu e-mail.",
+    "bonusStars": "Parabéns! Você ganhou {{stars}} estrelas suplementares!",
+    "rewardStars": "Parabéns ! Ganhou {{stars}} estrelas adicionais!",
+    "custom": {
+        "armeedeterre": {
+            "battle": {
+                "incoming": "Você tem {{count}} pendente batalha.",
+                "incoming_plural": "Você tem {{count}} pendente batalhas.",
+                "you_win": "Você ganhou uma batalha",
+                "you_lose": "Você perdeu uma batalha"
+            }
+        },
+        "pernod": {
+            "goal": {
+                "progress": "Você modificou um gol",
+                "select": "Você selecionou um gol",
+                "reward": "Você desbloqueou um gol"
+            }
+        },
+        "up": {
+            "module": {
+                "won": "Você concluiu um nível"
+            }
+        },
+        "racing": {
+            "header": "A new Tower Quizz live is happening!",
+            "body": "Click here to join"
+        }
+    }
+}

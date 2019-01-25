@@ -1,0 +1,23 @@
+{
+    "submit": "OK",
+    "print": "Stampare",
+    "share": "Condividi",
+    "delete": "Elimina",
+    "start": "Vai",
+    "loadMore": "Caricare di più...",
+    "download": "Scarica",
+    "ok": "OK",
+    "cancel": "Annulla",
+    "sso": "Single Sign On",
+    "connect": "Login",
+    "signup": "Iscriviti",
+    "signup_pre": "Non hai un account?",
+    "custom": {
+        "chanel": {
+            "signup": "Registrati"
+        },
+        "ilearn": {
+            "signup": "Registrati"
+        }
+    }
+}

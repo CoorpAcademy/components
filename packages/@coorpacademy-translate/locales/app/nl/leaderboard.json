@@ -1,0 +1,31 @@
+{
+    "rankPos": "&nbsp;",
+    "rankPos_plural": "&nbsp;",
+    "title": "RANGSCHIKKING",
+    "title_caps": "RANGSCHIKKING",
+    "subtitle_head": "Bekijk jouw positie ten opzichte van de top 20 sterrenverdieners.",
+    "subtitle_core_pre": "Dit is jouw stand:",
+    "subtitle_core_post": "uit alle leerlingen!",
+    "subtitle_tail": "Ga zo door om je score verder te verbeteren.",
+    "subtitle_no_rank": "Volbreng meer modules om in het klassement te stijgen.",
+    "custom": {
+        "bnp": {
+            "subtitle_head": "Bekijk uw positie ten opzichte van de top-20 star Factiors."
+        },
+        "gdf": {
+            "subtitle_tail": "Aan het eind van seizoen 1, zal de top-20 werknemers in het algemeen klassement worden uitgenodigd om het redactiecomité te kiezen van de inhoud van het onderwerp voor het volgende seizoen van de WeTransform."
+        },
+        "gdfec": {
+            "subtitle_tail": "Aan het eind van seizoen 1, zal de top-20 werknemers in het algemeen klassement worden uitgenodigd om het redactiecomité te kiezen van de inhoud van het onderwerp voor het volgende seizoen van de WeTransform."
+        },
+        "up": {
+            "subtitle_no_rank": "Voltooi meer levels om te stijgen in het klassement."
+        },
+        "yahoo": {
+            "subtitle_tail": "&nbsp;"
+        },
+        "linxea": {
+            "subtitle_head": "Bekijk je positie ten opzichte van de top-20 sterrenverdieners."
+        }
+    }
+}

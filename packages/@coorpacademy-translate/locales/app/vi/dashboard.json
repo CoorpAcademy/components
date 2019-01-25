@@ -1,0 +1,1569 @@
+{
+    "hello": "Xin chào, {{displayname}}!",
+    "show_more": "Xem tất cả",
+    "registered": {
+        "score": "Điểm của bạn:",
+        "new_score": "Điểm số mới của bạn {{newscore}}",
+        "badge": {
+            "new": "1 huy hiệu",
+            "new_post": "đã thắng",
+            "award_pre": "Đồng",
+            "award": "-3 trận đấu",
+            "award_post": "xong",
+            "name": "Đồng"
+        },
+        "next_player": "Đến lượt đối thủ của bạn...",
+        "button_back": "Quay lại"
+    },
+    "slides_battle": "Câu hỏi {{count}}",
+    "slides_battle_check": "Có hiệu lực",
+    "success_battle": {
+        "title": "Trận đấu kết thúc!",
+        "result": {
+            "win": "Chúc mừng, bạn đã thắng!",
+            "win_fast": "Xin chúc mừng, bạn đã thắng với thời gian ít nhất!",
+            "win_first": "Xin chúc mừng!",
+            "win_second": "bạn đã thắng",
+            "loose": "Ôi, bạn đã thua rồi!",
+            "loose_first": "Ối",
+            "loose_second": "bạn đã thua!",
+            "loose_against": "Ối, bạn đã thua. {{name}} đã nhanh hơn!",
+            "winStars": "Bạn đã thắng thêm {{count}} ngôi sao với trận đấu này!",
+            "winStars_plural": "Bạn đã giành được thêm {{count}} sao trong cuộc tranh tài này!"
+        },
+        "badge_user": {
+            "text": "1 huy hiệu",
+            "text_post": "đã thắng",
+            "award_pre": "Đồng",
+            "award": "- 3 trận đấu",
+            "award_post": "xong",
+            "name": "Đồng"
+        },
+        "badge_opponent": {
+            "text": "1 huy hiệu",
+            "text_post": "đã thắng",
+            "award_pre": "Đồng",
+            "award": "- 3 trận chiến",
+            "award_post": "xong",
+            "name": "Đồng"
+        },
+        "footer": "Quay lại"
+    },
+    "notificationCard": {
+        "request_title": "Yêu cầu {{title}} ",
+        "request": "Học phần {{module}} trình độ {{level}}",
+        "aim": {
+            "text": "1 câu trả lời mới",
+            "text_post": "tới câu hỏi của bạn",
+            "name": "Tên chính Họ",
+            "link": "Xem"
+        },
+        "badge": {
+            "text": "Xin chúc mừng! Bạn đã đạt được 1 huy hiệu",
+            "text_post": "đã thắng",
+            "link": "Xem"
+        },
+        "battle": {
+            "text": "Bạn đã nhận được 1 trận đấu mới",
+            "text_post": "thách đấu",
+            "link": "Xem",
+            "demand_accept": "Trận thách đấu của bạn",
+            "demand_accept_post": "đã được chấp nhận",
+            "win_against_title": "Bạn đã thắng trận đấu!",
+            "loose_against_title": "Bạn đã thua trận đấu!",
+            "against": "học phần {{module}} trình độ {{level}}",
+            "versus": "chống lại"
+        },
+        "forum_text": "Đó là 1 câu trả lời mới cho bình luận của bạn liên quan đến mức độ {{level}} {{module}} mô-đun",
+        "forum_text_page": "Có 1 trả lời mới cho bình luận của bạn trên diễn đàn",
+        "module": {
+            "text": {
+                "bravo": "Xin chúc mừng!",
+                "pre": "Bạn đã đỗ",
+                "detail": "mô-đun",
+                "base": "Trình độ cơ bản",
+                "advanced": "Cấp độ Nâng cao",
+                "coach": "Trình độ huấn luyện viên"
+            },
+            "link": "Xem"
+        },
+        "reward": {
+            "bonusStars": {
+                "title": "Xin chúc mừng! Bạn đã thắng thêm sao!",
+                "goal": {
+                    "description": "Bạn đã đạt được mục tiêu {{goal}}. Điều này cho phép bạn giành thêm {{stars}} ngôi sao bổ sung."
+                },
+                "rh": {
+                    "description": "Bạn đã thắng thêm {{stars}} sao thưởng."
+                }
+            },
+            "rewardStars": {
+                "title": "Xin chúc mừng! Bạn đã thắng thêm sao!",
+                "goal": {
+                    "description": "Bạn đã đạt được mục tiêu {{goal}}. Điều này cho phép bạn kiếm thêm {{stars}} ngôi sao."
+                }
+            },
+            "resource": {
+                "title": "Xin chúc mừng! Bạn có thể truy cập một yếu tố mới!",
+                "description": "Bạn đã hoàn thành các yêu cầu chứng nhận trong {{goal}}! Bạn được phép truy cập vào {{label}}."
+            },
+            "diploma": {
+                "title": "Chứng chỉ",
+                "description": "Bạn đã hoàn thành yêu cầu cho chứng chỉ {{goal}}. Bây giờ, bạn có thể truy cập chứng chỉ."
+            }
+        },
+        "coach": {
+            "bravo": "Xin chúc mừng!",
+            "text": "Bạn đã trở thành Huấn luuện viên cho môn học {{disciplineName}}."
+        },
+        "title": {
+            "text": "{{title}} Yêu cầu",
+            "Battle": "Trận đấu",
+            "Module": "Học phần",
+            "Badge": "Huy hiệu",
+            "Forum": "Cuộc thảo luận",
+            "Coach": "Giảng viên",
+            "cmsNotification": "Thông tin",
+            "welcome": "Chào mừng",
+            "resetModule": "Nội dung cập nhật"
+        },
+        "type": {
+            "module": "Mô-đun",
+            "badge": "Huy hiệu",
+            "battle": "Trận đấu",
+            "forum": "Thảo luận",
+            "Coach": "Huấn luyện viên",
+            "objectif": "Chứng nhận",
+            "cmsNotification": "Thông tin",
+            "reward": "Phần thưởng",
+            "welcome": "Chào mừng",
+            "resetModule": "Nội dung cập nhật!"
+        }
+    },
+    "achievement": {
+        "helper": "Tổng quan về thành công của bạn! Bạn sẽ cố gắng để đạt được trình độ bạch kim cho mỗi huy hiệu này không?",
+        "titre": "Huy hiệu của bạn"
+    },
+    "navigation": {
+        "text": "Trong menu điều hướng của bạn, truy cập tất cả các chức năng nền tảng của bạn",
+        "my_board": "Bảng điều khiển của Tôi",
+        "population": "Dân số của tôi",
+        "learningTree": {
+            "helper": "Truy cập tất cả môn học trong lộ trình của bạn với một lần nhấp",
+            "push": "Truy cập tất cả môn học của bạn",
+            "push_post": "trong 1 lần nhấp"
+        },
+        "account_helper": "Duyệt không gian cá nhân của bạn, tìm kết quả của bạn, quản lý tiến trình của bạn, tham gia vào các cuộc thảo luận hoặc chỉ cần làm theo các bài học trước khi bắt đầu các mô-đun.",
+        "account": "Tài khoản của Tôi",
+        "language": "Ngôn ngữ",
+        "notification": "Thông báo",
+        "badge": "Huy hiệu của Tôi",
+        "objectif": "Chứng nhận của Tôi",
+        "activity": "Hoạt động",
+        "discussion": "Thào luận",
+        "conseil": "Mẹo & Gợi ý",
+        "coach": "Huấn luyện viên",
+        "lessons": "Thư viện",
+        "battle_helper": "Một khi bạn đã hoàn thành một học phần, hãy thách thức những người cùng trình độ với bạn một trò chơi nhỏ có 10 câu hỏi!",
+        "battle_pre": "Chế độ Tranh tài",
+        "battle": "Thách đấu đồng nghiệp của bạn trong chế độ “Tranh Tài”: trả lời câu hỏi càng nhanh càng tốt!",
+        "battle_post": "Bấm vào đây!",
+        "assistance": "Hỗ trợ",
+        "home": "Trang chủ",
+        "certifications": "Chứng chỉ của tôi"
+    },
+    "personal_selection": {
+        "text_helper": "3 mô-đun được đề xuất tùy thuộc vào lộ trình của bạn!",
+        "title": "Đề nghị của chúng tôi dành cho bạn",
+        "acces_module": "Bắt đầu ngay",
+        "payment_required": "Mua ngay",
+        "popular_module_helper": "Cần nguồn cảm hứng? Chọn cái phổ biến nhất để xem mọi người khác đang làm gì.",
+        "last_discussion": "Thảo luận cuối cùng",
+        "no_discussion": "Không có thảo luận",
+        "last_module": "Mô-đun phát cuối cùng",
+        "no_module": "Chưa có học phần nào được phát",
+        "level": {
+            "pre": "Cấp bậc",
+            "base": "Cơ bản,",
+            "advanced": "Nâng cao,",
+            "coach": "Huấn luyện viên",
+            "post": "{{stars}}/{{maxstars}}"
+        },
+        "popular_module": "Môn học được Chơi Nhiều nhất",
+        "easiest_disciplines": "Môn học dễ nhất",
+        "hardest_disciplines": "Môn học Khó nhất",
+        "no_popular_module": "Chưa có mô-đun nào được phát",
+        "module_name": {
+            "pre": "trình độ",
+            "base": "Cơ bản",
+            "advanced": "Nâng cao",
+            "coach": "Huấn luyện viên"
+        }
+    },
+    "activity": {
+        "title": "Hoạt động",
+        "progression_text_pre": "Tình hình các môn học của bạn thế nào?",
+        "progression_text": "Bạn có đang đạt được tiến bộ về những mục tiêu đã đặt ra hay không?",
+        "progression_subtext": "Giờ là lúc để kiểm tra...",
+        "discipline_title": "Môn học",
+        "disciplines": {
+            "title": "Môn học",
+            "score": "Điểm số",
+            "actual_level": "Cấp độ hiện tại"
+        },
+        "module_title": "Học phần",
+        "avancement": "Tiến trình",
+        "caption-started": "Bắt đầu học phần",
+        "caption-done": "Mô-đun đã hoàn thành"
+    },
+    "myactivity": {
+        "title": "Hoạt động:",
+        "subtitle": "Bạn tiến bộ như thế nào trong các khóa học của mình?",
+        "total": "Tổng cộng:",
+        "engines": {
+            "learner": "Các khoá học",
+            "microlearning": "5' Learning",
+            "battle": "Cuộc tranh tài",
+            "certifications": "Các chứng chỉ",
+            "bonus": "Thưởng"
+        },
+        "recommendation": {
+            "title": "Xin chào {{displayName}}, hãy tăng điểm của bạn lên!",
+            "subtitle": "Chúng tôi đề xuất:"
+        },
+        "starsToolTip": {
+            "preMessage": "Tính năng này hiện không khả dụng trên nền tảng của bạn. Nếu bạn muốn kích hoạt nó, hãy liên hệ với quản lý của mình hoặc",
+            "linkMessage": "bấm vào đây",
+            "endMessage": "và chúng tôi sẽ chuyển tiếp thông điệp của bạn."
+        }
+    },
+    "goals": {
+        "title": "Tiến trình Hướng đến Chứng nhận của Bạn"
+    },
+    "badges": {
+        "title": "Tất cả Huy hiệu của Tôi",
+        "subtitle": "Khám phá Tất cả Huy hiệu của Bạn",
+        "title-1-0": "Huy hiệu của Tôi",
+        "subtitle-1-0": "Xem tất cả huy hiệu bạn đã đạt được hoặc vẫn cần đạt để trở thành \"Vua\" kỹ thuật số! ;-)",
+        "newBadgeWon": "Bạn có:",
+        "newBadgeWon_plural": "Bạn có:",
+        "seeYourBadges": "Xem các huy hiệu của bạn",
+        "battle": {
+            "name": "Chiến binh tranh tài",
+            "details": "{{count}} Cuộc chiến",
+            "details_plural": "{{count}} Cuộc tranh tài",
+            "details_post": "đã xong!",
+            "details_post_plural": "đã xong!"
+        },
+        "module": {
+            "name": "Mô-đun người sống sót",
+            "details": "{{count}} Mô-đun",
+            "details_plural": "{{count}} Mô đun",
+            "success": "hoàn thành",
+            "success_plural": "đã hoàn thành",
+            "details_pre_1": "mà không mất",
+            "details_pre_2": "một mạng!"
+        },
+        "lesson": {
+            "name": "Đứng đầu Lớp",
+            "details": "{{count}} bài học",
+            "details_plural": "{{count}} bài học",
+            "details_post": "đã xem toàn bộ!",
+            "details_post_plural": "đã xem hoàn toàn!"
+        },
+        "question": {
+            "name": "Câu hỏi cho Nhà vô địch",
+            "details": "{{count}} Câu hỏi",
+            "details_plural": "{{count}} Câu hỏi",
+            "details_post": "đã trả lời!",
+            "details_post_plural": "đã trả lời!"
+        },
+        "coach": {
+            "name": "Giải nhất về trợ giúp",
+            "details": "{{count}} Tương tác",
+            "details_plural": "{{count}} Tương tác",
+            "details_pre_1": "với",
+            "details_pre_2": "các huấn luyện viên!"
+        },
+        "level": {
+            "bronze": "Đồng",
+            "silver": "Bạc",
+            "gold": "Vàng",
+            "platinum": "Bạch Kim"
+        }
+    },
+    "battle": {
+        "title": "Cuộc tranh tài",
+        "create": "Tạo một cuộc tranh tài",
+        "requests": {
+            "title": "Yêu cầu tranh tài",
+            "no_requests_found": "Bạn chưa có yêu cầu trận đấu nào",
+            "sendBattle": "{{opponentName}} đang thách thức bạn"
+        },
+        "history": {
+            "title": "Lịch sử các cuộc tranh tài",
+            "message": {
+                "pending": "Trận đấu này đamg chờ đối thủ chấp thuận",
+                "win": "Bạn đã thắng trận đấu!",
+                "lost": "Bạn đã thua trận đấu!",
+                "win_byTime": "Bạn là người nhanh nhất!",
+                "lost_byTime": "Bạn đã quá chậm!"
+            },
+            "no_history_found": "Bạn chưa có lịch sử trận đấu nào"
+        },
+        "start": {
+            "cta": "Bắt đầu <span class=\"bold\">Trận đấu</span>",
+            "new_cta": "Tạo một <span class=\"bold\">Trận đấu</span> mới",
+            "cancel": "Bỏ qua",
+            "body_pre": "Tốc độ cũng quan trọng:",
+            "bodyText": "Trong trường hợp hòa, người nhanh nhất sẽ chiến thắng!",
+            "me": "Tôi",
+            "inProgress": "Đang Diễn ra"
+        },
+        "steps": {
+            "1": "1. Chọn Trình độ",
+            "2": "2. Chọn một Đối thủ",
+            "3": "3. Bắt đầu cuộc tranh tài"
+        },
+        "select_module": {
+            "title": "Chọn một Cấp độ:",
+            "placeholder": "Nhập tên học phần",
+            "no_module_available": "Bạn chỉ có thể tạo một trận đấu trong một mô-đun đã hoàn thành.",
+            "no_module_found": "Không tìm thấy mô-đun nào"
+        },
+        "select_theme": {
+            "title": "Chọn bộ sưu tập:"
+        },
+        "select_opponent": {
+            "title": "Chọn Đối thủ của Bạn",
+            "placeholder": "Nhập tên",
+            "no_opponent_found": "Không tìm thấy đối thủ",
+            "random": "Đối thủ ngẫu nhiên"
+        },
+        "subtitle": "Thách thức đồng nghiệp của bạn!",
+        "button": {
+            "create": "Tạo một Trận đấu Mới",
+            "cancel": "Hủy"
+        },
+        "score": "10",
+        "no_battle_progress": "Bạn không có cuộc tranh tài nào đang diễn ra.",
+        "block": {
+            "title": "Yêu cầu Trận đấu"
+        },
+        "accept_button": "Chấp nhận",
+        "no_proposition": "Bạn chưa nhận được yêu cầu chiến đấu nào.",
+        "completed": {
+            "title": "Các trận đấu đã hoàn thành",
+            "subtitle_pre": "Bạn đã tham gia vào",
+            "subtitle_pre_plural": "Bạn đã tham gia",
+            "subtitle": "{{count}} trận chiến, chiến thắng {{nb}}",
+            "subtitle_plural": "{{count}} trận đấu, thắng {{nb}}"
+        },
+        "block_empty": "Bạn không hoàn thành trận đấu nào.",
+        "create_title": "Tạo một cuộc tranh tài",
+        "active_title_intro": "Chế độ Thi đấu",
+        "active_title_active": "được kích hoạt",
+        "start_discipline": "Bắt đầu khóa huấn luyện",
+        "no_opponent": "Không có đối thủ khả dụng cho cấp độ này",
+        "coming_soon_random": "Bắt đầu một Trận đấu Ngẫu nhiên"
+    },
+    "dashboard": {
+        "text": "Cuộc đua Không gian! Bạn có thể thắng bằng việc trả lời đúng câu hỏi, làm theo bài học hoặc giao tiếp xã hội (thông qua các trận đấu và đào tạo)!",
+        "title": "Điểm của Bạn",
+        "data": {
+            "intro": "Bạn đang ở nhóm dẫn đầu",
+            "value": "15%",
+            "wording": "điểm cao nhất"
+        },
+        "data_dev_hidden": {
+            "question": {
+                "title": "Câu hỏi:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "Bạn là một phần của",
+                    "level": "{{level}}",
+                    "wording": "với hầu hết các ngôi sao"
+                }
+            },
+            "cours": {
+                "title": "Bài học:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "Bạn là một phần của",
+                    "level": "{{level}}",
+                    "wording": "người đã xem nhiều bài học nhất."
+                }
+            },
+            "extra": {
+                "title": "Thêm:",
+                "stat": {
+                    "intro": "Bạn là một phần của",
+                    "level": "{{level}}",
+                    "wording": "với kết quả tốt nhất."
+                }
+            },
+            "total_title": "Tổng:"
+        }
+    },
+    "lessons": {
+        "title": "Tất cả Bài học và Video",
+        "subtitle": "Bạn có muốn ôn tập hoặc học trước khi bắt đầu bài kiểm tra không? Trang này là dành cho bạn. Ở đây có tất cả bài học, phân loại theo chủ đề.",
+        "subtitle_up": "Bạn có muốn xem lại hoặc học lại trước khi bắt đầu các câu đố?",
+        "empty": "Không tìm thấy tài nguyên cho khóa học này."
+    },
+    "notifications": {
+        "title": "Thông báo",
+        "infos": "<b>{{count}}</b> thông báo!",
+        "infos_plural": "<b>{{count}}</b> thông báo!",
+        "filter": "Lọc theo...",
+        "close": "Đóng",
+        "myNotifications": "Xem Thông báo của Tôi",
+        "deleteAll": "Xóa Tất cả",
+        "filters": {
+            "module": "Lọc theo Cấp độ",
+            "badge": "Lọc theo Huy hiệu",
+            "forum": "Lọc theo Thảo luận",
+            "battle": "Lọc theo Trận đấu",
+            "coach": "Lọc theo Huấn luyện viên",
+            "objectif": "Lọc theo Mục tiêu",
+            "reward": "Lọc theo Phần thưởng",
+            "welcome": "Lọc theo Tin nhắn Chào mừng",
+            "resetModule": "Bộ lọc bởi Nội dung Cập nhật"
+        }
+    },
+    "block_push": {
+        "tree": {
+            "title": "Duyệt Tất cả Nội dung",
+            "content": "Để bắt đầu nhanh, nhấp vào đây",
+            "link": "Nhấp vào Đây"
+        },
+        "battle": {
+            "title": "Thách thức người cùng trình độ với bạn!",
+            "content": "Bắt đầu một \"trận đấu\". Củng cố kỹ năng của bạn chưa bao giờ vui nhiều như vậy!",
+            "link": "Nhấp vào đây"
+        }
+    },
+    "welcomePopin": {
+        "title": "Chào mừng",
+        "text": "Để tận hưởng MOOC, đi đến trang Lần Đầu.",
+        "button": "Khám phá"
+    },
+    "global_notification": {
+        "button": {
+            "show_more": "Thông tin Thêm"
+        }
+    },
+    "filters": {
+        "all": "Tất cả",
+        "coorpers": "Coorpers",
+        "courses": "Bài học của Tôi"
+    },
+    "sections": {
+        "most-popular": "Phổ biến Nhất",
+        "most-recent": "Bản phát hành mới",
+        "my-list": "Danh sách của {{name}}",
+        "news": "Tin tức",
+        "recommended": "Được đề nghị cho bạn",
+        "load_more": "Tải thêm",
+        "certification": "Chứng nhận: {{name}}",
+        "prefix_chapter": "5' Learning: {{title}}"
+    },
+    "continueLesson": "Lại tiếp tục khóa học của tôi",
+    "widgets": {
+        "read_more": "Thêm"
+    },
+    "discussion": {
+        "title": "Tất cả Bình luận của Khóa học",
+        "subtitle": "Xem Tất cả Tin nhắn của Cộng đồng về các Môn học Khác"
+    },
+    "slider": {
+        "start": {
+            "surtitle": "Xin chào mừng {{displayName}},",
+            "surtitle_anonymous": "Chào mừng,",
+            "title": "Khám phá những khóa học mới",
+            "cta": "Xem danh mục liệt kê"
+        },
+        "resume": {
+            "surtitle_learner": "Chào mừng {{displayName}} quay trở lại, tiếp tục:",
+            "surtitle_microlearning": "Chào mừng quay trở lại {{displayName}}, tiếp tục:",
+            "surtitle_learner_anonymous": "Chào mừng quay trở lại, tiếp tục:",
+            "surtitle_microlearning_anonymous": "Chào mừng bạn trở lại, tiếp tục:",
+            "title": "{{courseName}}",
+            "cta": "Tiếp tục học"
+        },
+        "battle": {
+            "surtitle": "Chào mừng {{displayName}} quay trở lại, kiểm tra các yêu cầu chiến đấu của bạn",
+            "title": "Bạn có {{count}} yêu cầu trận đấu!",
+            "title_plural": "Bạn có {{count}} yêu cầu chiến đấu!",
+            "cta": "Bắt đầu Trận đấu"
+        }
+    },
+    "custom": {
+        "7steps": {
+            "achievement": {
+                "helper": "Tổng quan về thành công của bạn! Bạn sẽ tiếp tục để đạt được trình độ cao nhất cho mỗi huy hiệu này?"
+            },
+            "badges": {
+                "level": {
+                    "platinum": "Trên cùng"
+                }
+            },
+            "block_push": {
+                "tree": {
+                    "content": "Hãy bắt đầu học ngay!"
+                }
+            }
+        },
+        "accueil": {
+            "filters": {
+                "coorpers": "Những người tham gia khoá học đại trà trực tuyến mở"
+            },
+            "badges": {
+                "battle": {
+                    "name": "Người thách đấu",
+                    "details_3": "40"
+                },
+                "module": {
+                    "name": "Siêu anh hùng",
+                    "details_1": {
+                        "number": "2"
+                    },
+                    "details_2": {
+                        "number": "4"
+                    },
+                    "details_3": {
+                        "number": "6"
+                    }
+                },
+                "lesson": {
+                    "name": "Phí nhập học",
+                    "details_0": "5",
+                    "details_1": "15",
+                    "details_2": "30",
+                    "details_3": "60"
+                },
+                "question": {
+                    "name": "Câu hỏi cho Nhà vô địch",
+                    "details_3": "360"
+                },
+                "coach": {
+                    "name": "Giải thưởng học bổng"
+                }
+            }
+        },
+        "architas-powercircle": {
+            "filters": {
+                "coorpers": "Đầu tư Siêu anh hùng"
+            }
+        },
+        "armeedeterre": {
+            "slider": {
+                "battle": {
+                    "surtitle": "Chào mừng {{displayName}} quay trở lại, hãy kiểm tra yêu cầu trận đấu của bạn",
+                    "title": "Bạn có {{count}} yêu cầu thách đấu!",
+                    "title_plural": "Bạn có {{count}} yêu cầu thách đấu!",
+                    "cta": "Bắt đầu Trận đấu"
+                }
+            },
+            "battle_start": {
+                "title": "Cuộc tranh tài của bạn sắp bắt đầu,"
+            },
+            "select_module": {
+                "no_module_available": "Bạn chỉ có thể tạo cuộc tranh tài trong cấp độ đã hoàn tất."
+            },
+            "success_battle": {
+                "title": "trận đấu kết thúc!",
+                "badge_user": {
+                    "award": "- 3 cuộc tranh tài"
+                },
+                "badge_opponent": {
+                    "award": "- 3 cuộc tranh tài"
+                },
+                "winStars": "Bạn đã giành được {{count}} sao cộng thêm với trận đấu này!",
+                "winStars_plural": "Bạn đã giành thêm {{count}} sao với cuộc tranh tài này!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "Cuộc tranh tài"
+                },
+                "battle": {
+                    "text": "Bạn đã nhận được 1 huy hiệu mới",
+                    "demand_accept": "Cuộc tranh tài của bạn",
+                    "win_against_title": "Bạn đã thắng trận đấu",
+                    "loose_against_title": "Bạn đã thua trong cuộc tranh tài!"
+                },
+                "type": {
+                    "battle": "Cuộc tranh tài"
+                }
+            },
+            "navigation": {
+                "battle_pre": "Chế độ tranh tài",
+                "battle": "Thách thức đồng sự của bạn trong chế độ \"Trận đấu\": trả lời các câu hỏi nhanh nhất có thể!"
+            },
+            "filters": {
+                "battles": "Trận đấu của tôi"
+            },
+            "badges": {
+                "battle": {
+                    "name": "NGƯỜI MUỐN TRANH TÀI",
+                    "details": "{{count}} Cuộc tranh tài",
+                    "details_plural": "{{count}} Trận đấu"
+                }
+            },
+            "battle": {
+                "title": "Chế độ tranh tài",
+                "create": "Tạo cuộc tranh tài",
+                "requests": {
+                    "title": "Các yêu cầu trận đấu",
+                    "no_requests_found": "Bạn chưa có bất kỳ yêu cầu tranh tài nào"
+                },
+                "history": {
+                    "title": "Lịch sử thi đấu",
+                    "message": {
+                        "pending": "Cuộc tranh tài này đang chờ đối phương chấp thuận",
+                        "win": "Bạn đã thắng cuộc tranh tài!",
+                        "lost": "Bạn đã thua cuộc tranh tài!"
+                    },
+                    "no_history_found": "Bạn chưa có bất kỳ lịch sử trận đấu nào"
+                },
+                "start": {
+                    "cta": "Bắt đầu <span class=\"bold\">Cuộc tranh tài</span>",
+                    "new_cta": "Tạo một <span class=\"bold\">Trận đấu</span> mới"
+                },
+                "steps": {
+                    "3": "3. Bắt đầu trận đấu"
+                },
+                "select_module": {
+                    "no_module_available": "Bạn chỉ có thể tạo trận đấu ở trong cấp độ đã hoàn thành."
+                },
+                "button": {
+                    "create": "Tạo cuộc tranh tài mới"
+                },
+                "no_battle_progress": "Bạn không có trận đấu nào đang thực hiện.",
+                "block": {
+                    "title": "Yêu cầu tranh tài"
+                },
+                "no_proposition": "Bạn chưa nhận được bất cứ yêu cầu trận đấu nào.",
+                "completed": {
+                    "title": "Trận đấu hoàn thành",
+                    "subtitle": "{{count}} trận đấu, thắng {{nb}}",
+                    "subtitle_plural": "{{count}} cuộc tranh tài, thắng {{nb}}"
+                },
+                "block_empty": "Bạn không có trận đấu đã hoàn thành.",
+                "create_title": "Tạo Trận đấu",
+                "active_title_intro": "\tChế độ tranh tài",
+                "coming_soon_random": "Bắt đầu Cuộc tranh tài ngẫu nhiên"
+            }
+        },
+        "bigdata": {
+            "navigation": {
+                "lessons": "Tất cả khóa học"
+            },
+            "filters": {
+                "news": "Chương trình đào tạo của bạn",
+                "coorpers": "Thành viên MOOC"
+            }
+        },
+        "bnp": {
+            "filters": {
+                "coorpers": "Yếu tố"
+            }
+        },
+        "bnpp-legal": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Thạc sĩ"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Thạc sĩ"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Thạc sĩ,"
+                },
+                "module_name": {
+                    "coach": "Thạc sĩ"
+                }
+            },
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "casa": {
+            "filters": {
+                "news": "Quá trình đào tạo của bạn",
+                "coorpers": "Thành viên MOOC"
+            }
+        },
+        "challenge48htechno": {
+            "slider": {
+                "start": {
+                    "title": "Khám phá câu hỏi mới"
+                },
+                "resume": {
+                    "surtitle": "Chào mừng đã trở lại {{displayName}}, tiếp tục bài trắc nghiệm của bạn"
+                }
+            }
+        },
+        "chanel": {
+            "block_push": {
+                "tree": {
+                    "title": "BẮT ĐẦU",
+                    "content": "Khám phá những tinh chất của  CHANEL trong danh mục.",
+                    "link": "nhấp vào đây"
+                },
+                "battle": {
+                    "title": "THÁCH ĐẤU CỘNG ĐỒNG",
+                    "content": "Thách đấu đồng nghiệp của bạn trong \"Chế độ tranh tài\". Trả lời câu hỏi nhanh nhất có thể!",
+                    "link": "Nhấp vào đây"
+                }
+            },
+            "filters": {
+                "coorpers": "Cộng đồng của tôi"
+            }
+        },
+        "crisis": {
+            "filters": {
+                "coorpers": "Cộng đồng Pernod Ricard"
+            }
+        },
+        "dolce": {
+            "filters": {
+                "coorpers": "Cộng đồng"
+            }
+        },
+        "edenred-talents": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Đại sứ"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Đại sứ"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Đại sứ,"
+                },
+                "module_name": {
+                    "coach": "Đại sứ"
+                }
+            }
+        },
+        "ey": {
+            "filters": {
+                "coorpers": "Anh hùng kỹ thuật số"
+            }
+        },
+        "fff": {
+            "activity": {
+                "caption-started": "Kỷ luật đã bắt đầu nhưng chưa hoàn tất",
+                "caption-done": "Học trò đã được xác nhận"
+            }
+        },
+        "gdf": {
+            "badges": {
+                "transformer": {
+                    "name": "Người làm biến đổi",
+                    "details_0": {
+                        "number": "1",
+                        "details": "chủ đề",
+                        "details_post": "Đã hoàn tất"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "chủ đề",
+                        "details_post": "hoàn thành"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "chủ đề",
+                        "details_post": "hoàn thành"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "chủ đề",
+                        "details_post": "hoàn thành"
+                    }
+                }
+            }
+        },
+        "gdfec": {
+            "badges": {
+                "transformer": {
+                    "name": "Người chuyển đổi",
+                    "details_0": {
+                        "number": "1",
+                        "details": "chủ đề",
+                        "details_post": "hoàn thành"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "chủ đề",
+                        "details_post": "hoàn thành"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "chủ đề",
+                        "details_post": "hoàn thành"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "các chủ đề",
+                        "details_post": "đã hoàn tất"
+                    }
+                }
+            },
+            "filters": {
+                "coorpers": "Cộng đồng"
+            }
+        },
+        "ilearn": {
+            "filters": {
+                "coorpers": "Cộng đồng của tôi"
+            }
+        },
+        "learnnrj": {
+            "filters": {
+                "coorpers": "Cộng đồng"
+            }
+        },
+        "letsgetdigital": {
+            "badges": {
+                "battle": {
+                    "name": "Người thách đấu"
+                },
+                "module": {
+                    "name": "Anh hùng"
+                }
+            }
+        },
+        "linxea": {
+            "filters": {
+                "coorpers": "Những người tham gia khoá học đại trà trực tuyến mở"
+            },
+            "navigation": {
+                "lessons": "Tất cả video"
+            }
+        },
+        "loreal-retail-v2": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Lọc theo lý do tại sao",
+                    "advanced": "Lọc theo sự đồng cảm",
+                    "coach": "Lọc theo Hiển thị tôi"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Tại sao",
+                        "advanced": "Đồng cảm",
+                        "coach": "Chỉ cho tôi"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Tại sao",
+                    "advanced": "Đồng cảm",
+                    "coach": "Chỉ cho tôi"
+                },
+                "module_name": {
+                    "base": "Tại sao",
+                    "advanced": "Đồng cảm",
+                    "coach": "Chỉ cho tôi"
+                }
+            }
+        },
+        "martell": {
+            "badges": {
+                "subtitle-1-0": "Xem tất cả huy hiệu bạn đã đạt được hoặc bạn cần đạt được để trở thành chuyên gia Martell"
+            },
+            "filters": {
+                "coorpers": "Bạn bè Martell"
+            }
+        },
+        "michelin": {
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "mooc-socgen": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Lọc theo Trình độ 1",
+                    "advanced": "Lọc theo Trình độ 2",
+                    "coach": "Lọc theo Cấp độ 3"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Cấp độ 1",
+                        "advanced": "Trình độ 2",
+                        "coach": "Trình độ 3"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Trình độ 1,",
+                    "advanced": "Bước 2,",
+                    "coach": "Trình độ 3,"
+                },
+                "module_name": {
+                    "base": "Bước 1",
+                    "advanced": "Cấp độ 2",
+                    "coach": "Cấp độ 3"
+                }
+            }
+        },
+        "nespresso": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Chuyên gia"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Nhà chuyên môn"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Chuyên gia,"
+                },
+                "module_name": {
+                    "coach": "Chuyên gia"
+                }
+            },
+            "filters": {
+                "coorpers": "Cộng đồng"
+            }
+        },
+        "online-academy-klubschule": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Lọc theo Người mới bắt đầu",
+                    "advanced": "Lọc theo Nâng cao",
+                    "coach": "Lọc theo Chuyên gia"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Trình độ Người bắt đầu",
+                        "advanced": "trình độ Nâng cao",
+                        "coach": "Trình độ Chuyên gia"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Người bắt đầu",
+                    "advanced": "Nâng cao",
+                    "coach": "Chuyên gia,"
+                },
+                "module_name": {
+                    "base": "Người bắt đầu",
+                    "advanced": "Nâng cao",
+                    "coach": "Chuyên gia"
+                }
+            }
+        },
+        "paca": {
+            "filters": {
+                "coorpers": "Những người tham gia khoá học đại trà trực tuyến mở"
+            },
+            "badges": {
+                "battle": {
+                    "name": "Người thách đấu,"
+                },
+                "module": {
+                    "name": "Siêu anh hùng"
+                },
+                "lesson": {
+                    "name": "Phí nhập học"
+                },
+                "question": {
+                    "name": "Câu hỏi cho Nhà vô địch"
+                },
+                "coach": {
+                    "name": "Giải thưởng học bổng"
+                }
+            }
+        },
+        "pernodci": {
+            "filters": {
+                "coorpers": "Cộng đồng Pernod Ricard"
+            }
+        },
+        "pernod": {
+            "notificationCard": {
+                "type": {
+                    "objectif": "Mục tiêu"
+                }
+            },
+            "goals": {
+                "title": "Tiến độ cho đến mục tiêu của bạn"
+            },
+            "navigation": {
+                "objectif": "Mục tiêu của tôi"
+            }
+        },
+        "petite": {
+            "filters": {
+                "coorpers": "Cộng đồng của Tôi"
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Học phần 1,",
+                    "advanced": "Mô-đun 2,",
+                    "coach": "Học phần 3,"
+                },
+                "module_name": {
+                    "base": "Mô-đun 1",
+                    "advanced": "Học phần 2",
+                    "coach": "Học phần 3"
+                }
+            }
+        },
+        "pru": {
+            "block_push": {
+                "tree": {
+                    "content": "Hãy bắt đầu học ngay!"
+                },
+                "battle": {
+                    "title": "Thách thức bạn thân của bạn và thực hành!",
+                    "content": "Thách thức bạn thân của bạn trong một \"Trận đấu\": cố gắng nhanh hơn họ!"
+                }
+            },
+            "badges": {
+                "subtitle-1-0": "Xem tất cả huy hiệu bạn đã giành được hoặc cái bạn vẫn cần giành thêm để trở thành một bậc thầy phù hợp!"
+            }
+        },
+        "quizz-auchan": {
+            "slider": {
+                "start": {
+                    "title": "Khám phá Trắc nghiệm Blue Life!"
+                }
+            }
+        },
+        "renault": {
+            "badges": {
+                "subtitle": "Xem tất cả những huy hiệu bạn đã giành được hoặc những cái bạn cần giành được để trở thành  \"vua\" của Clio RS mới nhất ! ;-)",
+                "lessons_seen": {
+                    "details_0": "2",
+                    "details_1": "4",
+                    "details_2": "8",
+                    "details_3": "10"
+                },
+                "answer": {
+                    "details_0": "20",
+                    "details_1": "36",
+                    "details_2": "72",
+                    "details_3": "120"
+                },
+                "perfect": {
+                    "details_2": {
+                        "number": "5"
+                    },
+                    "details_3": {
+                        "number": "8"
+                    }
+                }
+            }
+        },
+        "renaultrh": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Lọc theo Bước 1",
+                    "advanced": "Lọc theo Bước 2",
+                    "coach": "Lọc theo Bước 3"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "cấp độ Bước 1",
+                        "advanced": "trình độ Bước 2",
+                        "coach": "cấp độ Bước 3"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Bước 1,",
+                    "advanced": "Bước 2",
+                    "coach": "Bước 3,"
+                },
+                "module_name": {
+                    "base": "Bước 1",
+                    "advanced": "Bước 2",
+                    "coach": "Bước 3"
+                }
+            }
+        },
+        "renaultcare": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Lọc theo Cơ bản"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "cấp độ Cơ bản"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Cơ bản,"
+                },
+                "module_name": {
+                    "base": "Cơ bản"
+                }
+            }
+        },
+        "rexel": {
+            "filters": {
+                "coorpers": "Cộng đồng Trung tâm Khách Hàng"
+            }
+        },
+        "samsung": {
+            "block_push": {
+                "tree": {
+                    "content": "Bắt đầu tại đây!"
+                },
+                "battle": {
+                    "content": "Thách thức đồng sự của bạn trong chế độ \"Trận đấu\": trả lời các câu hỏi nhanh nhất có thể!"
+                }
+            }
+        },
+        "schneider": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Lọc theo Mùa 1",
+                    "advanced": "Lọc theo Mùa 2",
+                    "coach": "Lọc theo Mùa 3"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "cấp độ Mùa 1",
+                        "advanced": "trình độ Mùa 2",
+                        "coach": "cập độ Mùa 3"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Mùa 1,",
+                    "advanced": "Mùa 2,",
+                    "coach": "Mùa 3,"
+                },
+                "module_name": {
+                    "base": "Mùa 1",
+                    "advanced": "Mùa 2",
+                    "coach": "Mùa 3"
+                }
+            },
+            "filters": {
+                "all": "Tất cả",
+                "battles": "Trận đấu của tôi",
+                "coorpers": "Những người thông minh",
+                "news": "Tin tức",
+                "courses": "Bài học của tôi",
+                "continueLesson": "Tiếp tục Khoá học của tôi"
+            }
+        },
+        "securite": {
+            "navigation": {
+                "lessons": "Tất cả khóa học"
+            },
+            "filters": {
+                "news": "Đội hình của bạn",
+                "coorpers": "Thành viên MOOC"
+            }
+        },
+        "silca": {
+            "navigation": {
+                "lessons": "Tất cả Khóa học"
+            },
+            "filters": {
+                "coorpers": "Những người tham gia khoá học đại trà trực tuyến mở"
+            }
+        },
+        "sgmgt": {
+            "filters": {
+                "coorpers": "Thành viên MOOC"
+            }
+        },
+        "societegenerale": {
+            "filters": {
+                "coorpers": "Thành viên MOOC"
+            }
+        },
+        "sqy": {
+            "navigation": {
+                "lessons": "Tất cả khóa học"
+            },
+            "filters": {
+                "news": "Đội hình của bạn",
+                "coorpers": "Những người tham gia khoá học đại trà trực tuyến mở"
+            }
+        },
+        "tourismdigital": {
+            "filters": {
+                "coorpers": "Thành viên"
+            }
+        },
+        "tagheuer": {
+            "badges": {
+                "level": {
+                    "bronze": "PHỤ KIỆN ĐẦU TIÊN",
+                    "silver": "VÒNG THỨ 3",
+                    "gold": "VÒNG THỨ 5",
+                    "platinum": "VÒNG THỨ 7"
+                }
+            },
+            "filters": {
+                "coorpers": "Cộng đồng TAG Heuer"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "cấp độ Titan",
+                        "advanced": "cấp độ Đồng",
+                        "coach": "cấp độ Bạc"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "Lọc theo Ti-tan",
+                    "advanced": "Lọc theo Đồng",
+                    "coach": "Lọc theo Bạc"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Titan,",
+                    "advanced": "Đồng,",
+                    "coach": "Bạc,"
+                },
+                "module_name": {
+                    "base": "Ti-tan",
+                    "advanced": "Đồng",
+                    "coach": "Bạc"
+                }
+            }
+        },
+        "tagheuercon": {
+            "badges": {
+                "level": {
+                    "bronze": "PHỤ KIỆN ĐẦU TIÊN",
+                    "silver": "PHỤ KIỆN THỨ 3",
+                    "gold": "PHỤ KIỆN THỨ 5",
+                    "platinum": "PHỤ KIỆN THỨ 7"
+                }
+            },
+            "filters": {
+                "coorpers": "Cộng đồng Người học"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Trình độ Ti-tan",
+                        "advanced": "trình độ Đồng",
+                        "coach": "Trình độ Bạc"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "Lọc theo Titan",
+                    "advanced": "Lọc theo Đồng",
+                    "coach": "Lọc theo Bạc"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Ti-tan",
+                    "advanced": "Đồng,",
+                    "coach": "Bạc,"
+                },
+                "module_name": {
+                    "base": "Ti-tan",
+                    "advanced": "Đồng",
+                    "coach": "Bạc"
+                }
+            }
+        },
+        "tourism": {
+            "filters": {
+                "coorpers": "Thành viên MOOC"
+            }
+        },
+        "up": {
+            "personal_selection": {
+                "text_helper": "3 trình độ được đề xuất, phụ thuộc vào đường dẫn của bạn!",
+                "popular_module_helper": "Cần nguồn cảm hứng? Hãy kiểm tra những gì người khác đang làm trước khi chọn phổ biến nhất.",
+                "last_module": "Cấp độ cuối cùng đã chơi",
+                "no_module": "Chưa có học phần nào được chơi",
+                "popular_module": "Khóa học Được chơi Nhiều nhất",
+                "easiest_disciplines": "Các khoá học dễ nhất",
+                "hardest_disciplines": "Các Khóa học khó nhất",
+                "no_popular_module": "Chưa có cấp độ nào được chơi"
+            },
+            "select_module": {
+                "title": "Chọn cấp độ",
+                "availability": "có {{count}} cấp độ",
+                "availability_plural": "có {{count}} cấp độ",
+                "no_module_available": "Bạn chỉ có thể tạo trận đấu ở trình độ đã hoàn thành."
+            },
+            "notificationCard": {
+                "request": "khoá học {{module}} cấp độ {{level}}",
+                "battle": {
+                    "against": "khóa học {{module}} trình độ {{level}}"
+                },
+                "forum_text": "Có 1 câu trả lời mới cho bình luận của bạn liên quan đến khoá học {{module}} cấp độ {{level}}",
+                "module": {
+                    "text": {
+                        "detail": "cấp độ"
+                    }
+                },
+                "coach": {
+                    "text": "Bạn đã trở thành Huấn luyện viên trong khoá học {{disciplineName}}."
+                },
+                "title": {
+                    "Module": "Cấp độ"
+                },
+                "type": {
+                    "module": "Trình độ"
+                }
+            },
+            "navigation": {
+                "learningTree": {
+                    "helper": "Truy cập tất cả các khóa học trong lộ trình của bạn bằng 1 lần nhấp",
+                    "push": "Truy cập tất cả khoá học của bạn",
+                    "push_post": "bằng một lần nhấp"
+                },
+                "account_helper": "Lướt qua không gian cá nhân của bạn, tìm kết quả của bạn, quản lý tiến độ của bạn, tham gia vào các cuộc thảo luận, hoặc chỉ đơn giản theo dõi các bài học trước khi bắt đầu khoá học.",
+                "battle_helper": "Khi bạn hoàn thành khóa học, thách thức tất cả những ai cùng trình độ với bạn trong một trò chơi 10 câu hỏi nhỏ!"
+            },
+            "activity": {
+                "progression_text_pre": "Tiến độ của bạn trong khoá học như thế nào?",
+                "discipline_title": "Khóa học",
+                "disciplines": {
+                    "title": "Khóa học"
+                },
+                "module_title": "Cấp độ",
+                "caption-started": "Trình độ bắt đầu",
+                "caption-done": "Cấp độ đã hoàn tất"
+            },
+            "badges": {
+                "module": {
+                    "name": "Người sống sót",
+                    "details_0": {
+                        "module": "Trình độ"
+                    },
+                    "details_1": {
+                        "module": "Trình độ"
+                    },
+                    "details_2": {
+                        "module": "Trình độ"
+                    },
+                    "details_3": {
+                        "module": "Cấp độ"
+                    }
+                }
+            },
+            "battle": {
+                "start_discipline": "Bắt đầu khóa học",
+                "no_opponent": "Không có sẵn đối thủ cho trình độ này"
+            },
+            "notifications": {
+                "filters": {
+                    "module": "Lọc theo Khoá học"
+                }
+            }
+        },
+        "yahoo": {
+            "badges": {
+                "subtitle-1-0": "Xem tiến trình bạn đạt được các huy hiệu khác nhau"
+            },
+            "filters": {
+                "coorpers": "Cộng đồng"
+            }
+        },
+        "capgemini": {
+            "navigation": {
+                "certifications": "Digicertif' của tôi"
+            }
+        },
+        "cnp": {
+            "navigation": {
+                "certifications": "Certificate"
+            },
+            "sections": {
+                "certification": "Giấy chứng nhận: {{name}}"
+            }
+        },
+        "ecolenumerique-sncf": {
+            "navigation": {
+                "certifications": "Huy hiệu Jedi"
+            },
+            "sections": {
+                "certification": "Huy hiệu Jedi: {{name}}"
+            }
+        },
+        "ganprevoyance": {
+            "navigation": {
+                "certifications": "Vũ trụ"
+            },
+            "sections": {
+                "certification": "Vũ trụ: {{name}}"
+            }
+        },
+        "who": {
+            "slider": {
+                "battle": {
+                    "surtitle": "Chào mừng {{displayName}} quay trở lại, kiểm tra các yêu cầu thách thức của bạn",
+                    "title": "Bạn có {{count}} thách thức được yêu cầu!",
+                    "title_plural": "Bạn có {{count}} yêu cầu thách thức!",
+                    "cta": "Bắt đầu Thách thức"
+                }
+            },
+            "discussion": {
+                "title": "Ý kiến phản hồi về Mô-đun",
+                "subtitle": "Xem tất cả tin nhắn được Cộng đồng để lại ở các Học phần khác nhau"
+            },
+            "battle_start": {
+                "title": "Thách thức của bạn sắp bắt đầu."
+            },
+            "select_module": {
+                "no_module_available": "Bạn chỉ có thể tạo thách thức trong mô-đun đã hoàn thành."
+            },
+            "success_battle": {
+                "title": "Thách đầu đã kết thúc!",
+                "badge_user": {
+                    "award": "- 3 thách thức"
+                },
+                "badge_opponent": {
+                    "award": "- 3 cuộc tranh tài"
+                },
+                "winStars": "Bạn đã giành được {{count}} sao cộng thêm với thách thức này!",
+                "winStars_plural": "Bạn đã giành được {{count}} sao cộng thêm với thách thức này!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "Thách thức"
+                },
+                "coach": {
+                    "text": "Bạn đã hoàn tất khóa học {{disciplineName}}."
+                },
+                "battle": {
+                    "text": "Bạn đã nhận được 1 thách thức mới",
+                    "demand_accept": "Thách thức của bạn",
+                    "win_against_title": "Bạn đã thắng thách thức!",
+                    "loose_against_title": "Bạn đã thua thách thức!"
+                },
+                "reward": {
+                    "resource": {
+                        "title": "Chúc mừng! Bạn đã giành được huy hiệu mới!"
+                    }
+                },
+                "type": {
+                    "battle": "Thách thức"
+                },
+                "forum_text_page": "Đó là 1 lời bình luận của bạn mới"
+            },
+            "navigation": {
+                "battle_pre": "Chế độ Thách thức",
+                "battle": "Thách thức đồng sự của bạn trong chế độ \"Thách thức\": trả lời các câu hỏi nhanh nhất có thể!"
+            },
+            "filters": {
+                "battles": "LỜI THÁCH ĐẤU CỦA TÔI",
+                "coorpers": "NHỮNG NGƯỜI BẢO VỆ QR"
+            },
+            "badges": {
+                "battle": {
+                    "name": "NGƯỜI MUỐN THÁCH ĐẤU",
+                    "details": "{{count}} Lời thách đấu",
+                    "details_plural": "{{count}} Lời thách đấu"
+                },
+                "module": {
+                    "name": "Sao"
+                },
+                "coach": {
+                    "name": "NGƯỜI KẾT NỐI"
+                },
+                "question": {
+                    "name": "BẬC THẦY CÂU HỎI"
+                }
+            },
+            "battle": {
+                "title": "Chế độ Thách thức",
+                "create": "Tạo một thách thức",
+                "requests": {
+                    "title": "Yêu cầu thách đấu",
+                    "no_requests_found": "Bạn chưa có bất kỳ yêu cầu thách đấu nào"
+                },
+                "history": {
+                    "title": "Lịch sử thách đấu",
+                    "message": {
+                        "pending": "Cuộc thách đấu này đang chờ đối phương chấp thuận",
+                        "win": "Bạn đã thắng thách thức!",
+                        "lost": "Bạn đã thua trong cuộc thách đấu!"
+                    },
+                    "no_history_found": "Bạn chưa có lịch sử thách đấu nào"
+                },
+                "start": {
+                    "cta": "Bắt đầu <span class=\"bold\">Thách đấu</span>",
+                    "new_cta": "Tạo <span class=\"bold\">Lời thách đấu</span> mới"
+                },
+                "steps": {
+                    "3": "3. Bắt đầu thách thức"
+                },
+                "select_module": {
+                    "no_module_available": "Bạn chỉ có thể tạo lời thách đấu trong cấp độ đã hoàn tất."
+                },
+                "button": {
+                    "create": "Tạo lời thách đấu mới"
+                },
+                "no_battle_progress": "Bạn không có thách thức đang thực hiện.",
+                "block": {
+                    "title": "Các Yêu cầu Thách thức"
+                },
+                "no_proposition": "Bạn chưa có bất kỳ yêu cầu thách đấu nào.",
+                "completed": {
+                    "title": "Thách đấu đã hoàn tất",
+                    "subtitle": "{{count}} lời thách đấu, thắng {{nb}}",
+                    "subtitle_plural": "{{count}} thách thức, thắng {{nb}}"
+                },
+                "block_empty": "Bạn không có thách đấu nào chưa hoàn tất.",
+                "create_title": "Tạo lời thách đấu",
+                "active_title_intro": "Chế độ Thách đấu",
+                "coming_soon_random": "Bắt đầu một Thách thức Ngẫu nhiên"
+            },
+            "dashboard": {
+                "text": "Cuộc đua Không gian! Bạn có thể chiến thắng bằng cách trả lời câu hỏi, bằng cách theo dõi các bài học, hoặc bằng cách giao tiếp xã hội (thông qua các cuộc thách đấu và huấn luyện)!"
+            }
+        }
+    }
+}

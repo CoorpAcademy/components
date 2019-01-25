@@ -1,0 +1,203 @@
+{
+    "video_player": {
+        "jw": "비디오 플레이어 로딩중입니다...",
+        "fileCouldNotBePlayedTitle": "비디오 재생 오류 ",
+        "flashInstallUrl": "https://get.adobe.com/en/flashplayer/",
+        "MEDIA_ERR_UNKNOWN": {
+            "title": "알 수 없는 오류가 발생 했습니다.",
+            "description": "우리는 비디오 재생 실패를 감지 했습니다. 오류 통지를 받았으며 더 깊이 조사 할 것입니다."
+        },
+        "MEDIA_ERR_ABORTED": {
+            "title": "미디어 리소스 가져오기 프로세스가 중단 되었습니다.",
+            "description": "인터넷 연결을 확인 하고 비디오를 다시 로드 해보십시오."
+        },
+        "MEDIA_ERR_NETWORK": {
+            "title": "네트워크 오류로 인해 사용자 에이전트 미디어 리소스를 가져오는 중 중지 하였습니다.",
+            "description": "인터넷 연결을 확인 하시고 비디오를 다시 로드 해주십시오."
+        },
+        "MEDIA_ERR_DECODE": {
+            "title": "미디어리소스의 디코딩 중 오류가 발생 했습니다.",
+            "description": "이 비디오는이 브라우저에서 지원 되지 않습니다. 당신은 브라우저 또는 운영 체제 문제입니다."
+        },
+        "MEDIA_ERR_SRC_NOT_SUPPORTED": {
+            "title": "미디어소스를 사용할 수 없습니다.",
+            "description": "이 비디오는이 브라우저에서 지원 되지 않거나 또는 사용할 수 없습니다. 다른 브라우저를 시도 또는 대체 시스템으로 플래시 플레이어를 설치 하시고 이 페이지를 다시 로드해주세요."
+        }
+    },
+    "account_menu": {
+        "badge": "배지",
+        "account": "내 계정",
+        "objectif": "자격증",
+        "activity": "활동",
+        "competence_win": "습득한 스킬",
+        "timeline": "진행 상황",
+        "discussion": "대화",
+        "conseil": "팁 및 힌트",
+        "coach": "코치",
+        "battle": "배틀 모드",
+        "modification": "내 정보 수정"
+    },
+    "chat_room": {
+        "button_wrapper": "보내기",
+        "placeholder": "메시지",
+        "connexion": "{{displayName}} >이 대화에 합류 했습니다",
+        "deconnexion": "{{displayName}} 이 대화를 종료했습니다."
+    },
+    "badgesLabel": {
+        "battle": {
+            "detail": "{{detail}} 배틀 완료",
+            "detail_plural": "{{detail}} 배틀 완료"
+        },
+        "module": {
+            "detail": "{{detail}} 기회 하나도 잃지 않고 완료한 모듈!",
+            "detail_plural": "{{detail}} 기회 하나도 잃지 않고 완료한 모듈!"
+        },
+        "lesson": {
+            "detail": "{{detail}} 레슨 볼!",
+            "detail_plural": "{{detail}} 레슨 볼!"
+        },
+        "question": {
+            "detail": "{{detail}} 질문에 올바르게 대답!",
+            "detail_plural": "{{detail}} 질문에 올바르게 대답!"
+        },
+        "coach": {
+            "detail": "코치와 대화 {{detail}} !",
+            "detail_plural": "코치와 대화 {{detail}} 번!"
+        }
+    },
+    "notificationMenu": {
+        "god_mode": "신 모드 활성화",
+        "notification": "데스크톱에서 보내는 알림 활성화하기",
+        "title": "알림 ({{nb}})",
+        "forum": "어느 사용자가 {{level}} 레벨의 {{name}} 모듈에 대한 귀하의 의견에 답 하였습니다",
+        "badge_title": "축하합니다!",
+        "badge": "{{수준}} {{이름}} 배지를 적립하셨습니다",
+        "module_title": "축하합니다!",
+        "module": "{{level}} 의 {{name}} 모듈을 완료 하셨습니다!",
+        "battle": {
+            "new": "{{name}}이 {{module}} 모듈 {{level}} 레벨에서 배틀을 하고 싶어하십니다",
+            "accepted": "님의 배틀 요청이 승낙되었습니다.",
+            "win": "{{level}} 레벨의 {{module}} 모듈에서 {{looser}}를 상대로한 배틀에서 승리하셨습니다!",
+            "loose": "{{level}} 레벨의 {{module}} 모듈에서  {{winner}}를 상대로한 배틀에서 패하셨읍니다..."
+        },
+        "link": "전체 보기",
+        "challenge_reminder": "잊지 마세요! {{name}} 는 {{module}} 모듈 {{level}} 레벨에서 배틀 도전장을 전하고 귀하의 회신을 기다리고 있습니다!",
+        "coach": "브라보! {{이름}} 분야에서 코치가 되셨습니다!",
+        "start_aim": "{{name}} 자격증을 선택하셨습니다. 이제 시작하죠!",
+        "goal_as_reward": "{{name}} 자격증 잠금을 해제 했습니다. 이제 시작하죠!",
+        "half_achieved": "축하합니다! {{name}} 자격증을 취득하기 위해 반 길을 오셨습니다! 계속 노력하세요.",
+        "three_third_achieved": "축하합니다! {{name}}  자격증을 취득 하셨습니다! 직업적 네트워크에 당신의 성공을 공유하세요.",
+        "continue_goals": "축하합니다! {{이름}} 자격증을 취득 하셨습니다! 또 다른 것을 시작하세요!",
+        "continue": "왜 지금까지 잘해요셨는데 왜 여기에서 멈추시나요? {{name}} 자격증으로 계속 나아가세요!",
+        "mandatory": "{{name}}를 얻기 위해 {{levels}} 모듈들을 완료 해야합니다!",
+        "mandatory_plural": "{{name}}를 취득하기 위해선 {{levels}} 모듈을 완료해야 합니다!",
+        "mandatory_achieved": "축하합니다! {{name}} 자격증을 마치셨습니다!",
+        "toggleCoach": "코치 가능",
+        "reward_title": "브라보! 상을 받으셨습니다!",
+        "reward_description": {
+            "bonusStars": "보너스에 {{stars}} 새로운 별이 있으십니다."
+        }
+    },
+    "custom": {
+        "armeedeterre": {
+            "account_menu": {
+                "battle": "전투 모드"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} 전투 완료",
+                    "detail_plural": "{{detail}} 전투 완료"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "당신의 전투를 허용",
+                    "win": "{{module}} 모듈 {{level}} 수준에 {{looser}}에 대하여 전투를 승리 했습니다!",
+                    "loose": "{{module}} 모듈 {{level}} 수준에 {{winner}}에 대하여 전투를 잃 었..."
+                }
+            }
+        },
+        "gdf": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{정보}} 테마 완료",
+                    "detail_plural": "{{정보}} 테마 완료"
+                }
+            }
+        },
+        "gdfec": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{정보}} 테마 완료",
+                    "detail_plural": "{{정보}} 테마 완료"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "assistance": {
+                "title": "피드백"
+            }
+        },
+        "pernod": {
+            "notificationMenu": {
+                "start_aim": "{{이름}} 목표를 선택 했습니다. 시작!",
+                "goal_as_reward": "{{이름}} 목표를 차단 했습니다. 시작!",
+                "half_achieved": "잘 했어요! 당신은 목표 {{이름}}의 50% 달성!",
+                "three_third_achieved": "축 하! {{이름}} 목표 달성!",
+                "continue_goals": "축 하! {{이름}} 목표 달성! 또 다른 시작!",
+                "continue": "당신이 너무 잘 하고있다, 왜 그만? {{이름}} 목적으로 계속!",
+                "mandatory": "훈련을 완료 하려면 {{이름}} 목표를 달성 해야 합니다: 시작 하자!",
+                "mandatory_achieved": "축 하! {{이름}} 목표 달성!"
+            }
+        },
+        "up": {
+            "badgesLabel": {
+                "module": {
+                    "detail": "{{정보}} 수준 생활의 손실 없이 완료!",
+                    "detail_plural": "{{정보}} 수준 생활의 손실 없이 완료!"
+                }
+            },
+            "notificationMenu": {
+                "forum": "어느 사용자가 {{level}} 레벨의 {{name}} 과목에 귀하의 의견에 답 하였습니다",
+                "module": "{{level}} 의 {{name}} 과목을 완료 하셨습니다!",
+                "battle": {
+                    "new": "{{name}}이 {{module}} 모듈 {{level}} 레벨에서 배틀을 하고 싶어하십니다",
+                    "win": "{{level}} 레벨의 {{module}} 과목에서 {{looser}}를 상대로한 배틀에서 승리하셨습니다!",
+                    "loose": "{{level}} 레벨의 {{module}} 과목에서  {{winner}}를 상대로한 배틀에서 패하셨읍니다..."
+                },
+                "challenge_reminder": "잊지 마세요! {{name}} 는 {{module}} 과목 {{level}} 레벨에서 배틀 도전장을 전하고 귀하의 회신을 기다리고 있습니다!",
+                "coach": "브라보! {{name}} 과목에서 코치가 되셨습니다!"
+            }
+        },
+        "who": {
+            "account_menu": {
+                "battle": "챌린지 모드"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} 도전 완료",
+                    "detail_plural": "{{detail}} 과제 완료"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "당신의 도전을 허용합니다",
+                    "win": "승리에 대 한 도전 {{looser}} {{module}} {{level}} 모듈 수준에서!",
+                    "loose": "{{winner}} {{module}} 모듈 수준에서 {{level}}에 대 한 도전 잃 었..."
+                },
+                "continue_goals": "축 하! {{name}} 인증 받은!"
+            }
+        }
+    },
+    "assistance": {
+        "title": "고객 센터",
+        "object": "제목",
+        "message": "메시지",
+        "send": "보내기",
+        "thanks": "메시지를 주셔서 감사 합니다!",
+        "next": "다음"
+    },
+    "cards": {
+        "allCategories": "모든 카테고리"
+    }
+}

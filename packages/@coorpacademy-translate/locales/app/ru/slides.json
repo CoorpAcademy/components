@@ -1,0 +1,107 @@
+{
+    "indice": {
+        "title": "Нужна помощь?",
+        "sub_title": "Обменяйте звездочку на подсказку!",
+        "content": "Получить подсказку"
+    },
+    "lesson": {
+        "title": "Найдите ответы здесь!",
+        "sub_title": "Посмотрите курс и получите 4 дополнительные звезды!",
+        "resources": "Чтобы продолжить",
+        "title_video": "Видео курса",
+        "title_pdf": "PDF курса",
+        "look_at_the_course": "Посмотреть курс"
+    },
+    "without_coach": {
+        "title": "Нет доступных коучей"
+    },
+    "with_coach": {
+        "title": "Начать обсуждение",
+        "content": "{{nb}} коуч(ей) доступно"
+    },
+    "is_valid": {
+        "state": "<span class=\"label1\">Верный</span> <span class=\"label2\">ответ</span>",
+        "title": "Браво!",
+        "correctAnswer": "Верный ответ:"
+    },
+    "is_invalid": {
+        "state": "<span class=\"label1\">Неверный</span> <span class=\"label2\">ответ</span>",
+        "title": "Ой...",
+        "goodAnswer": "Правильный ответ:"
+    },
+    "signup_finish_chapter": "Зарегистрируйтесь, чтобы закончить главу",
+    "available_shots_pre": "У вас до сих пор",
+    "available_shots": "осталось {{count}} попыток ",
+    "available_shots_plural": "осталось попыток: {{count}}",
+    "available_shots_post": "&nbsp;",
+    "klf": "Знаете ли вы?",
+    "to_know": "Ключевой момент",
+    "footer": {
+        "lesson": {
+            "title": "Вы можете повторить урок",
+            "button": "Получить доступ к уроку"
+        },
+        "result": {
+            "title": "Вы можете вернуться к своему результату",
+            "button": "Вернуться к результату"
+        },
+        "next_question": "Далее"
+    },
+    "check_answer": "Проверьте ответ",
+    "adaptive_check_answer": "Следующий",
+    "next_question": "Следующий вопрос",
+    "next_level": "Следующий уровень",
+    "author": "Этот раздел сделан:",
+    "button_tree": "Перейти в каталог",
+    "comments": {
+        "title": "Обсудить",
+        "title_for_module": "Обсудить - {{name}} уровень"
+    },
+    "slideNotFound": "Вопроса со ссылкой {{slideId}} не найдено",
+    "forbidden": "Вы не имеют право на доступ к содержимому с ссылкой {{contentRef}}.",
+    "showContext": "Вернитесь к контексту еще раз",
+    "context": "Контекст",
+    "custom": {
+        "hr-ac": {
+            "footer": {
+                "lesson": {
+                    "button": "Доступ к документу"
+                }
+            }
+        },
+        "nespresso": {
+            "without_coach": {
+                "title": "Нет доступных эксперт"
+            },
+            "with_coach": {
+                "content": "{{nb}} эксперта(ов) доступны"
+            }
+        },
+        "renaultcare": {
+            "is_valid": {
+                "state": "<span class=\"label1\"> Браво</span>"
+            },
+            "is_invalid": {
+                "state": "<span class=\"label1\"> не очень</span>",
+                "title": "Ой..."
+            }
+        },
+        "schneider": {
+            "comments": {
+                "title_for_module": "Обсудить - уровень {{name}} <br/> обращайтесь за помощью<a href=\"http://2929it.schneider-electric.com/\" target=\"_blank\"> 2929 </a> при возникновении проблем с просмотром видео"
+            }
+        },
+        "who": {
+            "is_valid": {
+                "state": "<span class=\"label1\"> правильный</span> <span class=\"label2\"> ответ</span>",
+                "correctAnswer": "Правильный ответ:"
+            },
+            "to_know": "Чтобы понять",
+            "lesson": {
+                "resources": "Погружение в тему",
+                "look_at_the_course": "PDF курса"
+            },
+            "showContext": "Вернуться к контексту еще раз"
+        }
+    }
+}

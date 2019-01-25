@@ -1,0 +1,63 @@
+{
+    "battle": {
+        "incoming": "Sie haben {{count}} ausstehende Battle-Anfrage.",
+        "incoming_plural": "Sie haben {{count}} ausstehende Battle-Anfragen.",
+        "you_win": "Sie haben eine Battle gewonnen.",
+        "you_lose": "Sie haben eine Battle verloren."
+    },
+    "badge": {
+        "won": "Sie haben ein {{name}}-Lernabzeichen gewonnen."
+    },
+    "module": {
+        "won": "Sie haben ein Kurslevel erfolgreich abgeschlossen."
+    },
+    "reward": {
+        "won": "Herzlichen Glückwunsch! Ihre Mühen wurden belohnt!"
+    },
+    "coach": {
+        "unlocked": "Sie sind jetzt Coach."
+    },
+    "incoming": "Sie haben eine neue Benachrichtigung.",
+    "chatrequest": "Chat-Anfrage",
+    "goal": {
+        "progress": "Sie sind in Ihrer Zertifizierung vorangekommen.",
+        "select": "Sie haben eine Zertifizierung ausgewählt.",
+        "reward": "Sie haben eine Zertifizierung erworben."
+    },
+    "forum": "Ein Benutzer hat Ihre Frage beantwortet.",
+    "new_version": {
+        "title": "Neue Version",
+        "message": "Es wurde eine technische Aktualisierung veröffentlicht. Klicken Sie auf „Aktualisieren“ , damit alles reibungslos funktioniert.",
+        "action": "Aktualisieren"
+    },
+    "welcome": "Herzlich Willkommen <b>{{user}}</b>, Sie haben jetzt Zugang zu allen Kursen",
+    "personal_note": "Ihr Merkzettel wurde an Ihre E-Mail-Adresse versandt.",
+    "bonusStars": "Herzlichen Glückwunsch! Sie haben {{stars}} zusätzliche Sterne gewonnen!",
+    "rewardStars": "Herzlichen Glückwunsch! Sie haben {{stars}} zusätzliche Sterne gewonnen!",
+    "totem": {
+        "header": "Eine neue Totem live passiert!",
+        "body": "Click here to join"
+    },
+    "custom": {
+        "armeedeterre": {
+            "battle": {
+                "incoming": "Sie haben {{count}} ausstehende Battle-Anfragen.",
+                "incoming_plural": "Sie haben {{count}} ausstehende Battles.",
+                "you_win": "Sie haben eine Battle gewonnen.",
+                "you_lose": "Sie haben ein Battle verloren"
+            }
+        },
+        "pernod": {
+            "goal": {
+                "progress": "Sie haben ein Ziel geändert.",
+                "select": "Sie haben ein Ziel gewählt.",
+                "reward": "Sie haben ein Ziel entsperrt."
+            }
+        },
+        "up": {
+            "module": {
+                "won": "Sie haben ein Kurslevel abgeschlossen."
+            }
+        }
+    }
+}

@@ -1,0 +1,189 @@
+{
+    "not_a_number": "<not available>",
+    "target": "Cible :",
+    "export": {
+        "csv": "CSV",
+        "pdf": "PDF",
+        "excel": "Excel"
+    },
+    "info": {
+        "launch_date": "Date de lancement",
+        "targeted_users": "Population cible"
+    },
+    "navigation": {
+        "every": "Tous",
+        "every-except-coorp": "Tous sauf Coorpacademy",
+        "engagement": "engagement",
+        "dashboard": "vue générale",
+        "users": "par utilisateur",
+        "content": "contenu",
+        "battles": "battles",
+        "exports": "exports",
+        "behavioral": "comportement"
+    },
+    "since": {
+        "last_week": "Les 7 derniers jours",
+        "last_month": "Les 30 derniers jours",
+        "beginning": "Le lancement"
+    },
+    "users": {
+        "roles": {
+            "header": "Rôles",
+            "button": "Sauvegarder",
+            "saved": "La modification des rôles de {{displayName}} a été réalisée avec succès.",
+            "cms": "Cms",
+            "moderator": "Modérateur du Forum",
+            "rh": "Rh",
+            "godmode": "God mode",
+            "supercoach": "Super coach"
+        },
+        "tab": {
+            "ranking": "Classement des utilisateurs",
+            "activity": "Activité par utilisateur"
+        },
+        "back": "Retour à la recherche",
+        "entity": "Entité",
+        "title": "Fonction",
+        "cnx": {
+            "first": "Date de 1ère connexion",
+            "last": "Date de dernière connexion"
+        },
+        "general": {
+            "header": "Activité générale",
+            "total_cnx": "Nombre total de connexions",
+            "total_validated_disciplines": "Nombre total de disciplines validées",
+            "total_validated_modules": "Nombre total de modules validés",
+            "modules_validated_per_total": "#modules validés / #total de modules",
+            "ranking": "Classement",
+            "never": "Jamais"
+        },
+        "sociability": {
+            "header": "Sociabilité",
+            "posts": {
+                "count": "{{nb}} post",
+                "count_plural": "{{nb}} posts",
+                "answers": "dont {{nb}} réponse à un autre utilisateur",
+                "answers_plural": "dont {{nb}} réponses à un autre utilisateur"
+            },
+            "battles": {
+                "count": "{{nb}} battle",
+                "count_plural": "{{nb}} battles",
+                "won": "dont {{nb}} battle gagnée",
+                "won_plural": "dont {{nb}} battles gagnées"
+            },
+            "coach": {
+                "disciplines": "Coach sur {{nb}} discipline",
+                "disciplines_plural": "Coach sur {{nb}} disciplines",
+                "interactions": "{{nb}} interaction avec un Coach",
+                "interactions_plural": "{{nb}} interactions avec un Coach"
+            },
+            "completion": {
+                "total_label": "Taux de complétion total :",
+                "total": "{{ratio}}%",
+                "modules_tried_label": "Nombre de modules essayés:",
+                "modules_tried": "{{totalTriedModules}}/{{nbModules}}",
+                "average_completion_label": "Taux de complétion par essais :",
+                "average_completion": "{{ratio}}%"
+            }
+        },
+        "progression": {
+            "filter": "Filtrer les Disciplines",
+            "filterPlaceholder": "Mots clés pour filtrer les disciplines",
+            "th": {
+                "discipline": "Discipline",
+                "hidden": "Non visible",
+                "level": "Niveau",
+                "module_progression": "% réussite",
+                "status": "Statut",
+                "score": "Score"
+            }
+        },
+        "time": {
+            "header": "Temps de connexion",
+            "totalTime": "Durée cumulée",
+            "validatedTime": "Durée validée"
+        },
+        "license": {
+            "label": "License",
+            "button": "Désactiver",
+            "active": "Activée",
+            "inactive": "Désactivée"
+        },
+        "deactivate": {
+            "confirm": "Veuillez entrer \"oui\" pour confirmer la désactivation du compte",
+            "confirm_word": "oui",
+            "account_deactivated": "Le compte a été désactivé"
+        },
+        "connectAs": "Se connecter en tant que",
+        "bonusStars": {
+            "buttonPositive": "Ajouter",
+            "buttonNegative": "Retirer",
+            "required": "Veuillez fournir un nombre d'étoiles",
+            "notANumber": "Le nombre d'étoiles doit être un entier",
+            "confirm": "Veuillez entrer \"bonus\" pour confirmer l'ajout ou la suppression d'étoiles",
+            "confirm_word": "bonus",
+            "starsAdded": "Vous avez ajouté {{count}} étoile à l'utilisateur {{displayName}}",
+            "starsAdded_plural": "Vous avez ajouté {{count}} étoiles à l'utilisateur {{displayName}}",
+            "starsRemoved": "Vous avez retiré {{count}} étoile à l'utilisateur {{displayName}}",
+            "starsRemoved_plural": "Vous avez retiré {{count}} étoiles à l'utilisateur {{displayName}}"
+        }
+    },
+    "exports": {
+        "export": "Exporter",
+        "querySent": "Votre export est en cours de préparation, vous le recevrez sous peu via email.",
+        "global": {
+            "title": "Export Utilisateurs",
+            "introduction": "Cette fonctionnalité vous permet d’exporter toutes les informations concernant les utilisateurs de la plateforme."
+        },
+        "battles": {
+            "title": "Export Battles",
+            "introduction": "Cette fonctionnalité vous permet d’exporter toutes les informations concernant les battles de la plateforme."
+        },
+        "history": {
+            "title": "Historique des exports",
+            "introduction": "Cette fonctionnalité vous permet d’extraire toutes les données quotidiennes",
+            "users": "utilisateurs",
+            "battle": "Battle",
+            "analytics": "progression",
+            "filter_by": "filtrer l'année"
+        }
+    },
+    "custom": {
+        "up": {
+            "navigation": {
+                "modules": "par niveau"
+            },
+            "modules": {
+                "header": {
+                    "discipline": "Cours"
+                },
+                "module": {
+                    "media_views": {
+                        "title": "Taux de visionnage des médias de cours par niveau"
+                    }
+                }
+            },
+            "users": {
+                "general": {
+                    "total_validated_disciplines": "Nombre total de cours validées",
+                    "total_validated_modules": "Nombre total de niveaux validés",
+                    "modules_validated_per_total": "#niveaux validés / #total de niveaux"
+                },
+                "sociability": {
+                    "coach": {
+                        "disciplines": "Coach sur {{nb}} cours",
+                        "disciplines_plural": "Coach sur {{nb}} cours"
+                    },
+                    "completion": {
+                        "modules_tried_label": "Nombre de niveaux essayés:"
+                    }
+                },
+                "progression": {
+                    "th": {
+                        "discipline": "Cours"
+                    }
+                }
+            }
+        }
+    }
+}

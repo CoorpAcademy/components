@@ -1,0 +1,56 @@
+{
+    "http": {
+        "401": "Geen toegang",
+        "403": "Verboden toegang",
+        "404": "Pagina niet gevonden",
+        "412": "Precondition failed",
+        "500": "Interne serverfout",
+        "503": "Dienst niet beschikbaar",
+        "500_message_pre": "De URL",
+        "500_message": "vertoont volgende fout",
+        "500_message_post": ".",
+        "503_message": "De dienst is niet beschikbaar. Probeer het binnenkort nog eens.",
+        "404_message_pre": "De URL",
+        "404_message": "is niet omgezet in een route.",
+        "412_message": "De voorwaarde opgegeven door één of meer als... titels in de aanvraag geëvalueerd zijn als onwaar.",
+        "409_progressions_content_conflict": "Je hebt deze vraag al beantwoord tijdens de huidige sessie. Staat de vraag open op een ander tabblad? <br/> Klik hieronder op 'Pagina opnieuw laden' om uw gegevens te vernieuwen. We zullen de juiste vraag voor u laden."
+    },
+    "infos": "Informatie",
+    "auth": {
+        "header": "Oeps! {{status}}",
+        "reload": "Aanmelden"
+    },
+    "modal": {
+        "header": "Fout {{status}}",
+        "body": {
+            "title": "Bekijk onderstaande informatie en geef deze door aan de technische ondersteuning",
+            "url": "URL: {{err}}",
+            "id": "Id: {{id}}",
+            "message": "{{message}}"
+        },
+        "footer": {
+            "assistance": "Helpdesk",
+            "back_home": "Return Home",
+            "reload": "Pagina opnieuw laden",
+            "continue": "Doorgaan"
+        },
+        "assistance": "Een fout melden"
+    },
+    "defaultMessage": "Er is een fout opgetreden. Onze excuses. Probeer het later opnieuw",
+    "achievementContext": "Het lijkt erop dat deze module al gestart is. Laad de pagina opnieuw om verder te gaan met de module.",
+    "custom": {
+        "chanel": {
+            "http": {
+                "412_message": "Ontbrekend e-mailadres. Neem contact op met uw beheerder of registreer hier."
+            }
+        },
+        "ilearn": {
+            "http": {
+                "412_message": "Ontbrekend e-mailadres. Neem contact op met uw beheerder of registreer hier."
+            }
+        },
+        "up": {
+            "achievementContext": "Het lijkt erop dat dit niveau reeds gestart is. Herlaad de pagina om verder te gaan."
+        }
+    }
+}

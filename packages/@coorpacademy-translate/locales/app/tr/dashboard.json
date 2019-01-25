@@ -1,0 +1,1569 @@
+{
+    "hello": "Hoşgeldiniz, {{displayname}}!",
+    "show_more": "Hepsini gör",
+    "registered": {
+        "score": "Skorunuz:",
+        "new_score": "Yeni skorunuz {{newscore}}",
+        "badge": {
+            "new": "1 rozet",
+            "new_post": "kazanıldı",
+            "award_pre": "Bronz",
+            "award": "- 3 mücadeleler",
+            "award_post": "gerçekleştirildi",
+            "name": "Bronz"
+        },
+        "next_player": "Rakibinin sırası...",
+        "button_back": "Geri"
+    },
+    "slides_battle": "Soru {{count}}",
+    "slides_battle_check": "Onayla",
+    "success_battle": {
+        "title": "Dövüş tamamlandı!",
+        "result": {
+            "win": "Tebrikler, kazandınız!",
+            "win_fast": "Tebrikler,en kısa zamanda kazandınız!",
+            "win_first": "Tebrikler!",
+            "win_second": "Sen Kazandın",
+            "loose": "Ah, kaybettin!",
+            "loose_first": "Hay aksi",
+            "loose_second": "kaybettiniz!",
+            "loose_against": "Ah, kaybettiniz. {{name}} daha hızlıydı!",
+            "winStars": "Bu savaşta {{count}} ek yıldız kazandınız!",
+            "winStars_plural": "Bu muharebeyle ilave {{count}} yıldız kazandınız!"
+        },
+        "badge_user": {
+            "text": "1 rozet",
+            "text_post": "kazanıldı",
+            "award_pre": "Bronz",
+            "award": "- 3 mücadeleler",
+            "award_post": "gerçekleştirildi",
+            "name": "Bronz"
+        },
+        "badge_opponent": {
+            "text": "1 rozet",
+            "text_post": "kazanıldı",
+            "award_pre": "Bronz",
+            "award": "- 3 mücadeleler",
+            "award_post": "gerçekleştirildi",
+            "name": "Bronz"
+        },
+        "footer": "Geri"
+    },
+    "notificationCard": {
+        "request_title": "{{title}} talebi",
+        "request": "{{name}} modülü, {{level}} seviyesi",
+        "aim": {
+            "text": "Sorunuz için",
+            "text_post": "1 yeni cevap",
+            "name": "Adı, Soyadı",
+            "link": "Göster"
+        },
+        "badge": {
+            "text": "Tebrikler! 1 yeni rozet kazandınız!",
+            "text_post": "kazanıldı",
+            "link": "Göster"
+        },
+        "battle": {
+            "text": "1 yeni",
+            "text_post": "meydan okuma",
+            "link": "Göster",
+            "demand_accept": "Savaş meydan okuman",
+            "demand_accept_post": "kabul edildi",
+            "win_against_title": "Kazandınız!",
+            "loose_against_title": "Kaybettiniz!",
+            "against": "{{name}} modülü, {{level}} seviyesi",
+            "versus": "Kime karşı:"
+        },
+        "forum_text": "1 yeni cevap {{module}} modül {{level}} düzeyi ile ilgili yorum",
+        "forum_text_page": "1 yeni cevap forumunda yorum",
+        "module": {
+            "text": {
+                "bravo": "Tebrikler!",
+                "pre": "Başardınız:",
+                "detail": "Modül ",
+                "base": "Temel seviye",
+                "advanced": "İleri seviye",
+                "coach": "Antrenör seviyesi"
+            },
+            "link": "Göster"
+        },
+        "reward": {
+            "bonusStars": {
+                "title": "Tebrikler! Fazladan yıldız kazandınız!",
+                "goal": {
+                    "description": "{{goal}} sertifikasına eriştiniz. Bu da size, ek {{stars}} kazandırdı."
+                },
+                "rh": {
+                    "description": "Ödül olarak, ek {{stars}} kazandınız."
+                }
+            },
+            "rewardStars": {
+                "title": "Congratulations! You have won additional stars!",
+                "goal": {
+                    "description": "You have reached the {{goal}} goal. It allowed you to earn {{stars}} additional stars."
+                }
+            },
+            "resource": {
+                "title": "Tebrikler!Yeni bir öğeye erişebilirsiniz!",
+                "description": "{{goal}} sertifikasına eriştiniz. Bu da size, {{label}} erişimi sağladı."
+            },
+            "diploma": {
+                "title": "Diploma.",
+                "description": "{{goal}} sertifikasına eriştiniz. Bu da size, diplomanızı almanızı sağladı."
+            }
+        },
+        "coach": {
+            "bravo": "Tebrikler!",
+            "text": "{{disciplineName}} disiplini koçu oldunuz"
+        },
+        "title": {
+            "text": "{{title}} talebi",
+            "Battle": "Dövüş",
+            "Module": "Modül",
+            "Badge": "Rozet",
+            "Forum": "Tartışma",
+            "Coach": "Koç",
+            "cmsNotification": "Bilgi",
+            "welcome": "Hoş geldiniz",
+            "resetModule": "İçerik güncelleme!"
+        },
+        "type": {
+            "module": "Modül",
+            "badge": "Rozet",
+            "battle": "Dövüş",
+            "forum": "Tartışma",
+            "Coach": "Koç",
+            "objectif": "Sertifika",
+            "cmsNotification": "Bilgi",
+            "reward": "Ödül",
+            "welcome": "Hoş geldiniz",
+            "resetModule": "İçerik güncelleme!"
+        }
+    },
+    "achievement": {
+        "helper": "Başarı durumunuz! Bu rozetlerin herbirinin platin seviyesine erişebilecek misiniz?",
+        "titre": "Rozetleriniz"
+    },
+    "navigation": {
+        "text": "Gezgin menünüz içinden, platformunuzun tüm fonksiyonlarına erişim sağlayın",
+        "my_board": "Kontrol Panelim",
+        "population": "Benim nüfus",
+        "learningTree": {
+            "helper": "Bir tıklama ile, parkurunuza ait disiplinlerin hepsine erişim sağlayın",
+            "push": "Bir tıklama ile disiplinlerinizin hepsine erişim sağlayın",
+            "push_post": "disiplinleriniz"
+        },
+        "account_helper": "Kişisel alanına gözat, sonuçlarını bul, gelişimini yönet, tartışmalara katıl veya modüllere başlamadan önce kolayca dersleri takip et.",
+        "account": "Hesabım",
+        "language": "Dil",
+        "notification": "Bildirimler",
+        "badge": "Madalyalarım",
+        "objectif": "Benim Sertifikalarım",
+        "activity": "AKTİVİTE",
+        "discussion": "Tartışmalar",
+        "conseil": "Tüyolar ve İpuçları ",
+        "coach": "Koçlar",
+        "lessons": "Kitaplık",
+        "battle_helper": "Bir modülü bitirdiğinizde sizinle aynı seviyede olanları 10 soruluk küçük bir oyuna davet edin!",
+        "battle_pre": "Mücadele Modu",
+        "battle": "Meslektaşlarına \"Savaş\" modunda meydan oku: sorulara mümkün olduğunca çabuk cevap ver!",
+        "battle_post": "Buraya tıklayın.",
+        "assistance": "Destek",
+        "home": "Ana sayfa",
+        "certifications": "Sertifikalarım"
+    },
+    "personal_selection": {
+        "text_helper": "Parkurunuza göre önerilen 3 modül!",
+        "title": "Tavsiyelerimiz",
+        "acces_module": "Şimdi Başla",
+        "payment_required": "Şimdi Satın Al",
+        "popular_module_helper": "İlhama mı ihtiyacınız var? En Popüler'i seçerek diğer herkesin ne yaptığını görebilirsiniz. ",
+        "last_discussion": "Son Tartışmalar",
+        "no_discussion": "Hiçbir tartışma yok",
+        "last_module": "Son Oynanan Modül",
+        "no_module": "Hiçbir modül oynanmamış",
+        "level": {
+            "pre": "Seviye",
+            "base": "Temel,",
+            "advanced": "Gelişmiş,",
+            "coach": "Özel ders,",
+            "post": "{{stars}}/{{maxstars}}"
+        },
+        "popular_module": "EN ÇOK TEKRAR EDİLEN BÖLÜMLER",
+        "easiest_disciplines": "EN KOLAY BÖLÜMLER",
+        "hardest_disciplines": "EN ZOR BÖLÜMLER",
+        "no_popular_module": "Hiçbir modül oynanmadı",
+        "module_name": {
+            "pre": "seviye",
+            "base": "Temel",
+            "advanced": "İleri",
+            "coach": "Koç"
+        }
+    },
+    "activity": {
+        "title": "AKTİVİTE",
+        "progression_text_pre": "EĞİTİM YOLCULUĞUNUZ NASIL GİDİYOR?",
+        "progression_text": "Belirlediğiniz hedeflere göre yeterli ilerleme kaydettiniz mi?",
+        "progression_subtext": "Bunu keşfetmenin zamanı...",
+        "discipline_title": "Disiplin",
+        "disciplines": {
+            "title": "Disiplin",
+            "score": "Skor",
+            "actual_level": "Güncel Seviye"
+        },
+        "module_title": "Modüller",
+        "avancement": "İlerleme",
+        "caption-started": "Başlatılan modül",
+        "caption-done": "Tamamlanan modül"
+    },
+    "myactivity": {
+        "title": "Etkinlik:",
+        "subtitle": "İlerleme, derslerde ne durumda?",
+        "total": "Toplam Sonuç:",
+        "engines": {
+            "learner": "Kurslar",
+            "microlearning": "5' Learning",
+            "battle": "Mücadeleler",
+            "certifications": "Sertifikalarım",
+            "bonus": "Bonus"
+        },
+        "recommendation": {
+            "title": "{{displayName}} Merhaba, puanınızı artırmak!",
+            "subtitle": "Biz öneririz:"
+        },
+        "starsToolTip": {
+            "preMessage": "Bu özellik şimdilik platformunuzda kullanılamıyor. Onu aktifleştirmek isterseniz, müdürünüzle iletişime geçin veya",
+            "linkMessage": "buraya tıklayın",
+            "endMessage": "ve biz mesajı ileteceğiz."
+        }
+    },
+    "goals": {
+        "title": "Sertifikasyonunuza doğru ilerleme"
+    },
+    "badges": {
+        "title": "TÜM MADALYALARIM",
+        "subtitle": "TÜM MADALYALARINIZI KEŞFEDİN",
+        "title-1-0": "Madalyalarım",
+        "subtitle-1-0": "Topladığınız tüm rozetleri görün ya da dijital bir Kral olabilmek için toplamanız gerekenleri görün! ;-)",
+        "newBadgeWon": "Bunu kazandınız:",
+        "newBadgeWon_plural": "Sende mi:",
+        "seeYourBadges": "Rozetlerinizi görmek",
+        "battle": {
+            "name": "MEYDAN OKUMA",
+            "details": "Dövüşler",
+            "details_plural": "{{count}} Mücadeleler",
+            "details_post": "gerçekleştirildi!",
+            "details_post_plural": "YAPILDI!"
+        },
+        "module": {
+            "name": "MADALYA GEÇMİŞİM",
+            "details": "{{count}} MODÜL",
+            "details_plural": "{{count}} MODÜL",
+            "success": "tamamlandı",
+            "success_plural": "tamamlandı",
+            "details_pre_1": "CAN",
+            "details_pre_2": "KAYBETMEDEN!"
+        },
+        "lesson": {
+            "name": "SINIFINDA BİRİNCİ",
+            "details": "{{count}} ders",
+            "details_plural": "{{count}} ders",
+            "details_post": "tamamen İZLENDİ!",
+            "details_post_plural": "tamamen İZLENDİ!"
+        },
+        "question": {
+            "name": "ŞAMPİYON OLMA ADIMLARI",
+            "details": "Yapılan",
+            "details_plural": "{{count}} Soru",
+            "details_post": "cevaplandı!",
+            "details_post_plural": "cevaplandı!"
+        },
+        "coach": {
+            "name": "DOSTLUKTA BİRİNCİLİK ÖDÜLÜ",
+            "details": "{{count}} Etkileşim",
+            "details_plural": "{{count}} Etkileşim",
+            "details_pre_1": "ile",
+            "details_pre_2": "karşılıklı iletişim!"
+        },
+        "level": {
+            "bronze": "Bronz",
+            "silver": "Gümüş",
+            "gold": "Altın",
+            "platinum": "Platin"
+        }
+    },
+    "battle": {
+        "title": "Mücadeleler",
+        "create": "Bir savaş oluşturmak",
+        "requests": {
+            "title": "Mücadele talepleri",
+            "no_requests_found": "Henüz herhangi bir savaş isteği yok",
+            "sendBattle": "{{opponentName}} seni davet ediyor"
+        },
+        "history": {
+            "title": "Mücadele tarihçesi",
+            "message": {
+                "pending": "Bu savaş rakibin onay bekliyor",
+                "win": "Savaşı kazandı!",
+                "lost": "Mücadele kaybetti!",
+                "win_byTime": "En hızlı oldu!",
+                "lost_byTime": "Çok yavaş binmedin!"
+            },
+            "no_history_found": "Herhangi bir savaş tarihi henüz yok"
+        },
+        "start": {
+            "cta": "<span class=\"bold\"> savaş</span> başlatmak",
+            "new_cta": "Yeni <span class=\"bold\">mücadele</span> başlat",
+            "cancel": "Yoksay",
+            "body_pre": "Hız önemli değil:",
+            "bodyText": "Beraberlik durumunda, en hızlı olan kazanır!",
+            "me": "Beni",
+            "inProgress": "Devam eden"
+        },
+        "steps": {
+            "1": "1. Bir düzeyi seçin",
+            "2": "2. Bir rakip seçin",
+            "3": "3. Başlat Mücadele"
+        },
+        "select_module": {
+            "title": "Bir düzeyi seçin:",
+            "placeholder": "Bir modül adı girin",
+            "no_module_available": "Bir savaş bitmiş bir modülde oluşturabilmeniz için.",
+            "no_module_found": "Bulundu hiç modülü"
+        },
+        "select_theme": {
+            "title": "Bir koleksiyon seçin:"
+        },
+        "select_opponent": {
+            "title": "Rakibiniz seçin",
+            "placeholder": "Bir ad girin",
+            "no_opponent_found": "Hiçbir rakip bulundu",
+            "random": "Rasgele rakip"
+        },
+        "subtitle": "Çalışma arkadaşlarınıza meydan okuyun ;-)",
+        "button": {
+            "create": "Yeni mücadele başlat",
+            "cancel": "İptal et"
+        },
+        "score": "10",
+        "no_battle_progress": "Devam eden hiçbir dövüşünüz bulunmuyor.",
+        "block": {
+            "title": "Mücadele talepleri"
+        },
+        "accept_button": "Kabul et",
+        "no_proposition": "Mücadele isteği almadınız.",
+        "completed": {
+            "title": "TAMAMLANAN MÜCADELELER",
+            "subtitle_pre": "Buna katıldınız:",
+            "subtitle_pre_plural": "Buna katıldınız:",
+            "subtitle": "{{count}} Dövüş, bunlar arasından {{nb}} dövüş kazandınız",
+            "subtitle_plural": "{{count}} savaşları, kazanan {{nb}}"
+        },
+        "block_empty": "Tamamladığınız hiçbir dövüşünüz bulunmuyor.",
+        "create_title": "Dövüş Oluşturma",
+        "active_title_intro": "Mücadele Modu",
+        "active_title_active": "Açık",
+        "start_discipline": "Bir Disipline Başla",
+        "no_opponent": "Bu düzey için kullanılabilir hiçbir rakip",
+        "coming_soon_random": "Rastgele bir düello başlat"
+    },
+    "dashboard": {
+        "text": "Uzay Yarışı! Soruları doğru yanıtlayarak, dersleri takip ederek, ya da (mücadeleler ve eğitimler ile) sosyalleşerek kazanabilirsiniz!",
+        "title": "Skorun",
+        "data": {
+            "intro": "En iyi not alan",
+            "value": "%15",
+            "wording": "yüksek skorlar"
+        },
+        "data_dev_hidden": {
+            "question": {
+                "title": "Sorular:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "En çok yıldıza sahip olan",
+                    "level": "{{level}}",
+                    "wording": "arasında bulunuyorsunuz"
+                }
+            },
+            "cours": {
+                "title": "Ders:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "En çok derse katılan",
+                    "level": "{{level}}",
+                    "wording": "en çok ders görüntüleyen."
+                }
+            },
+            "extra": {
+                "title": "Ekstralar:",
+                "stat": {
+                    "intro": "En iyi notu alan",
+                    "level": "{{level}}",
+                    "wording": "en iyi sonuçlarla."
+                }
+            },
+            "total_title": "Toplam:"
+        }
+    },
+    "lessons": {
+        "title": "TÜM DERSLER VE VİDEOLAR ",
+        "subtitle": "ANLIK SINAMALARA BAŞLAMADAN ÖNCE YENİDEN GÖZDEN GEÇİRMEK VEYA ÇALIŞMAK İSTİYOR MUSUNUZ?Bu sayfa size göre. Burada konuya göre sınıflandırılmış tüm dersleri bulabilirsiniz.",
+        "subtitle_up": "ANLIK SINAMALARA BAŞLAMADAN ÖNCE YENİDEN GÖZDEN GEÇİRMEK VEYA ÇALIŞMAK İSTİYOR MUSUNUZ?",
+        "empty": "Bu ders için bulunan kaynak yok."
+    },
+    "notifications": {
+        "title": "Bildirimler",
+        "infos": "<b>{{count}}</b> bildirim!",
+        "infos_plural": "<b>{{count}}</b> bildirimleri!",
+        "filter": "Filtrele...",
+        "close": "Kapat",
+        "myNotifications": "Bildirimlerimi Gör",
+        "deleteAll": "Hepsini sil",
+        "filters": {
+            "module": "Düzeye göre filtre",
+            "badge": "Rozete göre göster",
+            "forum": "Sohbete göre göster",
+            "battle": "Dövüşe göre göster",
+            "coach": "Koça göre göster",
+            "objectif": "Hedefe göre göster",
+            "reward": "Ödül tarafından filtre",
+            "welcome": "Tarafından hoş geldiniz iletilerini filtre",
+            "resetModule": "Tarafından güncelleştirilen içerik filtreleme"
+        }
+    },
+    "block_push": {
+        "tree": {
+            "title": "Tüm İçeriği Tara",
+            "content": "Başlamak için, buraya tıklayın",
+            "link": "Buraya Tıkla"
+        },
+        "battle": {
+            "title": "Çalışma arkadaşlarınıza meydan okuyun!",
+            "content": "Bir \"savaşa\" başla. Yeteneklerini arttırmak hiç bu kadar eğlenceli olmamıştı!",
+            "link": "Buraya Tıklayın"
+        }
+    },
+    "welcomePopin": {
+        "title": "Platforma hoş geldiniz",
+        "text": "MOOC'tan yararlanmak için, İlk Defa sayfasına gidin.  ",
+        "button": "Platformu keşfet"
+    },
+    "global_notification": {
+        "button": {
+            "show_more": "Daha fazla bilgi "
+        }
+    },
+    "filters": {
+        "all": "Ana sayfa",
+        "coorpers": "KATILIMCILAR",
+        "courses": "Derslerim"
+    },
+    "sections": {
+        "most-popular": "En popüler",
+        "most-recent": "Yeni Yayınlananlar",
+        "my-list": "{{name}}'in Listesi",
+        "news": "Haberler",
+        "recommended": "Senin için önerilen",
+        "load_more": "Daha fazla yük",
+        "certification": "Sertifika: {{name}}",
+        "prefix_chapter": "5' Learning: {{title}}"
+    },
+    "continueLesson": "DERSE DEVAM ET",
+    "widgets": {
+        "read_more": "Devamını oku"
+    },
+    "discussion": {
+        "title": "Tüm Kurs Yorumları",
+        "subtitle": "FARKLI ALANLARDA TOPLULUĞUN BIRAKTIĞI TÜM MESAJLARI GÖRÜNTÜLE"
+    },
+    "slider": {
+        "start": {
+            "surtitle": "{{displayName}}, hoş geldiniz",
+            "surtitle_anonymous": "Hoş geldiniz,",
+            "title": "Yeni dersler keşfedin",
+            "cta": "Katalog bkz:"
+        },
+        "resume": {
+            "surtitle_learner": "Arka {{displayName}} Hoşgeldiniz, devam:",
+            "surtitle_microlearning": "Arka {{displayName}} Hoşgeldiniz, devam:",
+            "surtitle_learner_anonymous": "Hoş geldin, devam:",
+            "surtitle_microlearning_anonymous": "Hoş geldin, devam:",
+            "title": "{{courseName}}",
+            "cta": "Öğrenmeye devam"
+        },
+        "battle": {
+            "surtitle": "Hoş geldin {{displayName}}, savaş isteklerinizi kontrol",
+            "title": "{{count}} savaş isteği var!",
+            "title_plural": "{{count}} savaş istekleri var!",
+            "cta": "Mücadele başlatmak"
+        }
+    },
+    "custom": {
+        "7steps": {
+            "achievement": {
+                "helper": "Başarının gözden geçirmesi. Bu rozetlerin her biri için en üst seviyeyi elde edebilecek misin? "
+            },
+            "badges": {
+                "level": {
+                    "platinum": "En iyi"
+                }
+            },
+            "block_push": {
+                "tree": {
+                    "content": "Şimdi öğrenmeye başla!"
+                }
+            }
+        },
+        "accueil": {
+            "filters": {
+                "coorpers": "mooc'cular"
+            },
+            "badges": {
+                "battle": {
+                    "name": "Meydan Okuma",
+                    "details_3": "40"
+                },
+                "module": {
+                    "name": "Süper kahraman",
+                    "details_1": {
+                        "number": "2"
+                    },
+                    "details_2": {
+                        "number": "4"
+                    },
+                    "details_3": {
+                        "number": "6"
+                    }
+                },
+                "lesson": {
+                    "name": "Kayıt Ücreti",
+                    "details_0": "5",
+                    "details_1": "15",
+                    "details_2": "30",
+                    "details_3": "60"
+                },
+                "question": {
+                    "name": "Bir şampiyona soru",
+                    "details_3": "360"
+                },
+                "coach": {
+                    "name": "Burs Ödülü"
+                }
+            }
+        },
+        "architas-powercircle": {
+            "filters": {
+                "coorpers": "Yatırım süper kahramanlar"
+            }
+        },
+        "armeedeterre": {
+            "slider": {
+                "battle": {
+                    "surtitle": "Arka {{displayName}} hoş geldiniz, savaş isteklerinizi kontrol",
+                    "title": "{{count}} savaş isteği var!",
+                    "title_plural": "{{count}} savaş istekleri var!",
+                    "cta": "Mücadele başlatmak"
+                }
+            },
+            "battle_start": {
+                "title": "Senin savaşın başlamak etmektir."
+            },
+            "select_module": {
+                "no_module_available": "Bir mücadele bitmiş bir kademede oluşturabilmeniz için."
+            },
+            "success_battle": {
+                "title": "Savaş bitti!",
+                "badge_user": {
+                    "award": "- 3 mücadeleler"
+                },
+                "badge_opponent": {
+                    "award": "- 3 mücadeleler"
+                },
+                "winStars": "{{count}} ek yıldız ile bu savaşı kazandı!",
+                "winStars_plural": "Bu savaşı ile ek yıldız {{count}} kazandı!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "Savaş"
+                },
+                "battle": {
+                    "text": "1 yeni savaş aldık",
+                    "demand_accept": "Senin savaşın",
+                    "win_against_title": "Savaşı kazandı!",
+                    "loose_against_title": "Savaşı kaybetti!"
+                },
+                "type": {
+                    "battle": "Savaş"
+                }
+            },
+            "navigation": {
+                "battle_pre": "Savaş modu",
+                "battle": "\"Savaş\" modunda senin meslektaş meydan: en kısa zamanda cevap!"
+            },
+            "filters": {
+                "battles": "BENİM MÜCADELELER"
+            },
+            "badges": {
+                "battle": {
+                    "name": "SAVAŞ ARAYICI",
+                    "details": "{{count}} savaş",
+                    "details_plural": "{{count}} mücadeleler"
+                }
+            },
+            "battle": {
+                "title": "Savaş modu",
+                "create": "Bir savaş oluşturmak",
+                "requests": {
+                    "title": "Mücadele talepleri",
+                    "no_requests_found": "Henüz herhangi bir savaş isteği yok"
+                },
+                "history": {
+                    "title": "Mücadele tarihçesi",
+                    "message": {
+                        "pending": "Bu savaş rakibin onay bekliyor",
+                        "win": "Savaşı kazandı!",
+                        "lost": "Savaşı kaybetti!"
+                    },
+                    "no_history_found": "Herhangi bir savaş tarihi henüz yok"
+                },
+                "start": {
+                    "cta": "<span class=\"bold\"> savaş</span> başlatmak",
+                    "new_cta": "Yeni <span class=\"bold\">mücadele</span> başlat"
+                },
+                "steps": {
+                    "3": "3. Başlat Savaşı"
+                },
+                "select_module": {
+                    "no_module_available": "Bir mücadele bitmiş bir kademede oluşturabilmeniz için."
+                },
+                "button": {
+                    "create": "Yeni mücadele başlat"
+                },
+                "no_battle_progress": "Sen-si olmak hiçbir mücadeleler sürüyor.",
+                "block": {
+                    "title": "Mücadele talepleri"
+                },
+                "no_proposition": "Herhangi bir savaş istekleri almadım.",
+                "completed": {
+                    "title": "Tamamlanan savaşları",
+                    "subtitle": "{{count}} savaş, kazanan {{nb}}",
+                    "subtitle_plural": "{{count}} savaşlar, kazanan {{nb}}"
+                },
+                "block_empty": "Sen-si olmak bitmiş hiçbir savaşlar.",
+                "create_title": "Savaş oluşturmak",
+                "active_title_intro": "Savaş modu",
+                "coming_soon_random": "Rastgele bir savaş başlatmak"
+            }
+        },
+        "bigdata": {
+            "navigation": {
+                "lessons": "Tüm Dersler"
+            },
+            "filters": {
+                "news": "Çalışmanız",
+                "coorpers": "MOOCcular"
+            }
+        },
+        "bnp": {
+            "filters": {
+                "coorpers": "Factiors"
+            }
+        },
+        "bnpp-legal": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Master"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Master"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Master,"
+                },
+                "module_name": {
+                    "coach": "Master"
+                }
+            },
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "casa": {
+            "filters": {
+                "news": "Çalışmanız ",
+                "coorpers": "MOOC'cular"
+            }
+        },
+        "challenge48htechno": {
+            "slider": {
+                "start": {
+                    "title": "Yeni sınavı keşfetmek"
+                },
+                "resume": {
+                    "surtitle": "Hoş geldin {{displayName}}, sınavı devam"
+                }
+            }
+        },
+        "chanel": {
+            "block_push": {
+                "tree": {
+                    "title": "BAŞLA",
+                    "content": "Katalogdaki CHANEL temel keşfedin.",
+                    "link": "buraya tıkla"
+                },
+                "battle": {
+                    "title": "TOPLULUĞA MEYDAN OKU",
+                    "content": "İş arkadaşlarınıza \"Savaş modu\"nda meydan okuyun. Soruları olabildiğince hızlı yanıtlayın!",
+                    "link": "Buraya tıklayın."
+                }
+            },
+            "filters": {
+                "coorpers": "Topluluğum"
+            }
+        },
+        "crisis": {
+            "filters": {
+                "coorpers": "Pernod Ricard Topluluğu"
+            }
+        },
+        "dolce": {
+            "filters": {
+                "coorpers": "Topluluk"
+            }
+        },
+        "edenred-talents": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Büyükelçi"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Büyükelçi"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Büyükelçi,"
+                },
+                "module_name": {
+                    "coach": "Büyükelçi"
+                }
+            }
+        },
+        "ey": {
+            "filters": {
+                "coorpers": "Dijital kahramanlar"
+            }
+        },
+        "fff": {
+            "activity": {
+                "caption-started": "Disiplin başladı ama henüz tamamlanmadı",
+                "caption-done": "Onaylanan Disiplinler"
+            }
+        },
+        "gdf": {
+            "badges": {
+                "transformer": {
+                    "name": "Dönüştürücü",
+                    "details_0": {
+                        "number": "1",
+                        "details": "tema",
+                        "details_post": "tamamlandı"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "temalar",
+                        "details_post": "tamamlandı"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "temalar",
+                        "details_post": "tamamlandı"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "temalar",
+                        "details_post": "tamamlandı"
+                    }
+                }
+            }
+        },
+        "gdfec": {
+            "badges": {
+                "transformer": {
+                    "name": "Transformatör",
+                    "details_0": {
+                        "number": "1",
+                        "details": "TEMA",
+                        "details_post": "tamamlandı"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "temalar",
+                        "details_post": "tamamlandı"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "temalar",
+                        "details_post": "tamamlandı"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "temalar",
+                        "details_post": "tamamlandı"
+                    }
+                }
+            },
+            "filters": {
+                "coorpers": "Topluluk"
+            }
+        },
+        "ilearn": {
+            "filters": {
+                "coorpers": "Topluluğum"
+            }
+        },
+        "learnnrj": {
+            "filters": {
+                "coorpers": "Topluluk"
+            }
+        },
+        "letsgetdigital": {
+            "badges": {
+                "battle": {
+                    "name": "Challenger"
+                },
+                "module": {
+                    "name": "Kahraman"
+                }
+            }
+        },
+        "linxea": {
+            "filters": {
+                "coorpers": "MOOCers"
+            },
+            "navigation": {
+                "lessons": "Tüm videoları"
+            }
+        },
+        "loreal-retail-v2": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Neden tarafından filtre",
+                    "advanced": "Empati tarafından filtre",
+                    "coach": "Bana Haritayı tarafından filtre"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Neden",
+                        "advanced": "Empati",
+                        "coach": "Gösterin"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Neden",
+                    "advanced": "Empati",
+                    "coach": "Gösterin"
+                },
+                "module_name": {
+                    "base": "Neden",
+                    "advanced": "Empati",
+                    "coach": "Gösterin"
+                }
+            }
+        },
+        "martell": {
+            "badges": {
+                "subtitle-1-0": "Şu ana kadar edindiğiniz veya Martell uzmanı olmak için edinmeniz gereken tüm rozetleri görüntüleyin"
+            },
+            "filters": {
+                "coorpers": "Martell arkadaşlar"
+            }
+        },
+        "michelin": {
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "mooc-socgen": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Düzey 1 tarafından filtre",
+                    "advanced": "Düzey 2 tarafından filtre",
+                    "coach": "Düzey 3 tarafından filtre"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Düzey 1",
+                        "advanced": "Düzey 2",
+                        "coach": "Düzey 3"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Düzey 1,",
+                    "advanced": "Düzey 2,",
+                    "coach": "Düzey 3,"
+                },
+                "module_name": {
+                    "base": "Düzey 1",
+                    "advanced": "Düzey 2",
+                    "coach": "Düzey 3"
+                }
+            }
+        },
+        "nespresso": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Uzman"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Uzman"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Uzman,"
+                },
+                "module_name": {
+                    "coach": "Uzman"
+                }
+            },
+            "filters": {
+                "coorpers": "Topluluk"
+            }
+        },
+        "online-academy-klubschule": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Başlangıç göre filtre",
+                    "advanced": "Gelişmiş filtre tarafından",
+                    "coach": "Uzman tarafından filtre"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "düzey acemi",
+                        "advanced": "düzeyi gelişmiş",
+                        "coach": "düzey uzman"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Başlangıç,",
+                    "advanced": "Gelişmiş,",
+                    "coach": "Uzman,"
+                },
+                "module_name": {
+                    "base": "Acemi",
+                    "advanced": "Gelişmiş",
+                    "coach": "Uzman"
+                }
+            }
+        },
+        "paca": {
+            "filters": {
+                "coorpers": "KÇAD'cılar"
+            },
+            "badges": {
+                "battle": {
+                    "name": "Meydan okuyucu"
+                },
+                "module": {
+                    "name": "Süper kahraman"
+                },
+                "lesson": {
+                    "name": "Giriş Ücreti"
+                },
+                "question": {
+                    "name": "Bir Şampiyon için soru"
+                },
+                "coach": {
+                    "name": "Burs Ödülü"
+                }
+            }
+        },
+        "pernodci": {
+            "filters": {
+                "coorpers": "Pernod Ricard Topluluğu"
+            }
+        },
+        "pernod": {
+            "notificationCard": {
+                "type": {
+                    "objectif": "Objektif"
+                }
+            },
+            "goals": {
+                "title": "Hedeflerinize doğru kaydettiğiniz mesafe"
+            },
+            "navigation": {
+                "objectif": "Hedeflerim"
+            }
+        },
+        "petite": {
+            "filters": {
+                "coorpers": "Topluluğum"
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Modül 1,",
+                    "advanced": "Modül 2,",
+                    "coach": "Modül 3,"
+                },
+                "module_name": {
+                    "base": "Modül 1",
+                    "advanced": "Modül 2",
+                    "coach": "Modül 3"
+                }
+            }
+        },
+        "pru": {
+            "block_push": {
+                "tree": {
+                    "content": "Öğrenmeye şimdi başla!"
+                },
+                "battle": {
+                    "title": "Akranlarınıza karşı koyun ve pratik yapın!",
+                    "content": "Bir \"Muharebede\" akranlarına meydan oku: hepsinden daha hızlı olmaya çalış!"
+                }
+            },
+            "badges": {
+                "subtitle-1-0": "Kazandığınız tüm rozetleri ya da uyum ustası olmak için halen kazanmanız gereken tüm rozetleri inceleyin!"
+            }
+        },
+        "quizz-auchan": {
+            "slider": {
+                "start": {
+                    "title": "Mavi hayat konularasıl keşfedin!"
+                }
+            }
+        },
+        "renault": {
+            "badges": {
+                "subtitle": "Son Clio RS'nin \"kralı\" olmak için kazandığınız veya kazanmanız gereken tüm rozetleri görüntüleyin! ;-)",
+                "lessons_seen": {
+                    "details_0": "2",
+                    "details_1": "4",
+                    "details_2": "8",
+                    "details_3": "10"
+                },
+                "answer": {
+                    "details_0": "20",
+                    "details_1": "36",
+                    "details_2": "72",
+                    "details_3": "120"
+                },
+                "perfect": {
+                    "details_2": {
+                        "number": "5"
+                    },
+                    "details_3": {
+                        "number": "8"
+                    }
+                }
+            }
+        },
+        "renaultrh": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Adım 1'e göre Filtrele",
+                    "advanced": "Step 2 ile Filtrele",
+                    "coach": "3. Adım Filtresi"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "1. Adım seviyesi",
+                        "advanced": "seviye adım 2",
+                        "coach": "seviye Adım 3"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Adım 1.",
+                    "advanced": "Adım 2",
+                    "coach": "Adım 3"
+                },
+                "module_name": {
+                    "base": "Adım 1",
+                    "advanced": "2. Adım ",
+                    "coach": "3. Adım"
+                }
+            }
+        },
+        "renaultcare": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Temelleri tarafından filtre"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "seviye temelleri"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Temelleri,"
+                },
+                "module_name": {
+                    "base": "Temel bilgiler"
+                }
+            }
+        },
+        "rexel": {
+            "filters": {
+                "coorpers": "Müşteri Merkezi Oluş Komunitesi"
+            }
+        },
+        "samsung": {
+            "block_push": {
+                "tree": {
+                    "content": "Buradan Başlayın!"
+                },
+                "battle": {
+                    "content": "\"Savaş\" modunda iş arkadaşlarınıza meydan okuyun: soruları en kısa sürede cevaplayın!"
+                }
+            }
+        },
+        "schneider": {
+            "select_module": {
+                "filter_by": {
+                    "base": "1. Sezon'a göre Filtrele",
+                    "advanced": "2. Sezon Filtresi",
+                    "coach": "3. Sezon Filtresi"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "seviye Sezon 1",
+                        "advanced": "Sezon 2 seviyesi",
+                        "coach": "3. Sezon seviyesi"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Sezon 1,",
+                    "advanced": "2. Sezon,",
+                    "coach": "Sezon 3,"
+                },
+                "module_name": {
+                    "base": "Sezon 1",
+                    "advanced": "Sezon 2",
+                    "coach": "Sezon 3"
+                }
+            },
+            "filters": {
+                "all": "Ana sayfa",
+                "battles": "MÜCADELELERIM",
+                "coorpers": "IQ'cular",
+                "news": "Haberler",
+                "courses": "Derslerim",
+                "continueLesson": "DERSE DEVAM ET"
+            }
+        },
+        "securite": {
+            "navigation": {
+                "lessons": "Tüm Yönler"
+            },
+            "filters": {
+                "news": "Düzenlemeniz",
+                "coorpers": "MOOCers"
+            }
+        },
+        "silca": {
+            "navigation": {
+                "lessons": "Tüm dersler"
+            },
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "sgmgt": {
+            "filters": {
+                "coorpers": "MOOCcular"
+            }
+        },
+        "societegenerale": {
+            "filters": {
+                "coorpers": "MOOC kullananlar"
+            }
+        },
+        "sqy": {
+            "navigation": {
+                "lessons": "Tüm kurslar"
+            },
+            "filters": {
+                "news": "Bilgileriniz",
+                "coorpers": "MOOC'cular"
+            }
+        },
+        "tourismdigital": {
+            "filters": {
+                "coorpers": "Üyeler"
+            }
+        },
+        "tagheuer": {
+            "badges": {
+                "level": {
+                    "bronze": "1. VİTES",
+                    "silver": "3. VİTES",
+                    "gold": "5. VİTES",
+                    "platinum": "7. VİTES"
+                }
+            },
+            "filters": {
+                "coorpers": "TAG Heuer  Topluluğu"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Titanyum seviyesi",
+                        "advanced": "Bronz seviye",
+                        "coach": "Gümüş seviye"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "Titanyum Filtresi",
+                    "advanced": "Bronz'a göre Filtrele",
+                    "coach": "Gümüş Filtre"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Titanyum,",
+                    "advanced": "Bronz, ",
+                    "coach": "Gümüş,"
+                },
+                "module_name": {
+                    "base": "TİTANYUM",
+                    "advanced": "Bronz",
+                    "coach": "Gümüş"
+                }
+            }
+        },
+        "tagheuercon": {
+            "badges": {
+                "level": {
+                    "bronze": "1. VİTES",
+                    "silver": "3. VİTES",
+                    "gold": "5. VİTES",
+                    "platinum": "7. VİTES"
+                }
+            },
+            "filters": {
+                "coorpers": "Öğrenciler Topluluğu"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Titanyum leveli",
+                        "advanced": "Bronz seviye",
+                        "coach": "seviye Gümüş"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "Titanyum filtre",
+                    "advanced": "Bronz tarafından Filtreleme",
+                    "coach": "Gümüşe göre Filtrele"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Titanyum,",
+                    "advanced": "Bronz,",
+                    "coach": "Gümüş,"
+                },
+                "module_name": {
+                    "base": "TİTANYUM",
+                    "advanced": "Bronz",
+                    "coach": "Gümüş"
+                }
+            }
+        },
+        "tourism": {
+            "filters": {
+                "coorpers": "MOOCcular"
+            }
+        },
+        "up": {
+            "personal_selection": {
+                "text_helper": "3 seviye önerildi, yoluna bağlı olarak!",
+                "popular_module_helper": "İlhama mı ihtiyacın var? En popüleri seçerek diğer herkes ne yapıyor bak.",
+                "last_module": "Oynanan Son Seviye",
+                "no_module": "Hiçbir modül oynanmadı",
+                "popular_module": "En çok Oynanan Parkurlar",
+                "easiest_disciplines": "En Kolay Kurslar",
+                "hardest_disciplines": "En zor kurslar",
+                "no_popular_module": "Herhangi bir seviye oynanmadı"
+            },
+            "select_module": {
+                "title": "Bir seviye seç",
+                "availability": "{{count}} seviye mevcut",
+                "availability_plural": "{{count}} seviye mevcut",
+                "no_module_available": "Sadece bitmiş bir seviyede savaş yaratabilirsin."
+            },
+            "notificationCard": {
+                "request": "{{module}} kursu {{level}} seviye",
+                "battle": {
+                    "against": "{{module}} kursu {{level}} seviye"
+                },
+                "forum_text": "{{module}} kursu {{level}} seviyesindeki yorumunuzla ilgili 1 yeni cevap var.",
+                "module": {
+                    "text": {
+                        "detail": "seviye"
+                    }
+                },
+                "coach": {
+                    "text": "{{disciplineName}} kursundan Koç oldunuz."
+                },
+                "title": {
+                    "Module": "Seviye"
+                },
+                "type": {
+                    "module": "Seviye"
+                }
+            },
+            "navigation": {
+                "learningTree": {
+                    "helper": "1 tıkta yolunun tüm yönlerine eriş",
+                    "push": "Tüm derslerinize ulaşın",
+                    "push_post": "disiplinleriniz"
+                },
+                "account_helper": "Kişisel alanınıza girin, sonuçlarınızı bulun, gelişiminizi yönetin, tartışmalara katılın ya da sadece derse başlamadan önce eğitimleri takip edin.",
+                "battle_helper": "Bir dersi bitirdiğinde, küçük bir 10 soruluk oyunla seninle aynı seviyedeki herkese meydan oku!"
+            },
+            "activity": {
+                "progression_text_pre": "Kursunuzdaki gelişiminiz nasıl gidiyor?",
+                "discipline_title": "Kurs",
+                "disciplines": {
+                    "title": "Kurs"
+                },
+                "module_title": "Seviyeler",
+                "caption-started": "Başlangıç Seviyesi",
+                "caption-done": "Bitirilen Seviye"
+            },
+            "badges": {
+                "module": {
+                    "name": "Hayatta Kalan",
+                    "details_0": {
+                        "module": "Seviye"
+                    },
+                    "details_1": {
+                        "module": "Seviyeler"
+                    },
+                    "details_2": {
+                        "module": "Seviyeler"
+                    },
+                    "details_3": {
+                        "module": "Seviyeler"
+                    }
+                }
+            },
+            "battle": {
+                "start_discipline": "Bir kurs başlat",
+                "no_opponent": "Bu seviyede rakip mevcut değil"
+            },
+            "notifications": {
+                "filters": {
+                    "module": "Ders'e göre Filtrele"
+                }
+            }
+        },
+        "yahoo": {
+            "badges": {
+                "subtitle-1-0": "Farklı rozetler kazanmadaki ilerlemenizi görün"
+            },
+            "filters": {
+                "coorpers": "Topluluk"
+            }
+        },
+        "capgemini": {
+            "navigation": {
+                "certifications": "Benim Digicertif'"
+            }
+        },
+        "cnp": {
+            "navigation": {
+                "certifications": "Certificate"
+            },
+            "sections": {
+                "certification": "Sertifika: {{name}}"
+            }
+        },
+        "ecolenumerique-sncf": {
+            "navigation": {
+                "certifications": "Jedi rozetleri"
+            },
+            "sections": {
+                "certification": "Jedi Badge: {{name}}"
+            }
+        },
+        "ganprevoyance": {
+            "navigation": {
+                "certifications": "Evrenler"
+            },
+            "sections": {
+                "certification": "Evren: {{name}}"
+            }
+        },
+        "who": {
+            "slider": {
+                "battle": {
+                    "surtitle": "Hoş geldin {{displayName}}, meydan okuma isteklerini denetleyin",
+                    "title": "{{count}} meydan okuma isteği var!",
+                    "title_plural": "{{count}} meydan okuma istekleri var!",
+                    "cta": "Zorlu başlatmak"
+                }
+            },
+            "discussion": {
+                "title": "Modül geribildirim",
+                "subtitle": "Tüm mesaj bıraktım topluluğu tarafından farklı modülleri bkz:"
+            },
+            "battle_start": {
+                "title": "Senin sorun başlamak etmektir."
+            },
+            "select_module": {
+                "no_module_available": "Bir meydan okuma bitmiş bir modülde oluşturabilmeniz için."
+            },
+            "success_battle": {
+                "title": "Üzerinde meydan okuyorum!",
+                "badge_user": {
+                    "award": "- 3 zorlukları"
+                },
+                "badge_opponent": {
+                    "award": "- 3 zorlukları"
+                },
+                "winStars": "{{count}} ek yıldız bu meydan okuma ile kazandı!",
+                "winStars_plural": "{{count}} ek yıldız bu meydan okuma ile kazandı!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "Meydan okuma"
+                },
+                "coach": {
+                    "text": "Ders {{disciplineName}} tamamladınız."
+                },
+                "battle": {
+                    "text": "1 yeni sorun aldık",
+                    "demand_accept": "Kişisel sorun",
+                    "win_against_title": "Meydan kazandı!",
+                    "loose_against_title": "Meydan kaybettim!"
+                },
+                "reward": {
+                    "resource": {
+                        "title": "Tebrikler! Yeni bir rozet erişebilirsiniz!"
+                    }
+                },
+                "type": {
+                    "battle": "Meydan okuma"
+                },
+                "forum_text_page": "1 yeni cevap yorum"
+            },
+            "navigation": {
+                "battle_pre": "Meydan okuma modu",
+                "battle": "Arkadaşlarınız \"Challenge\" modunda meydan: en kısa zamanda cevap!"
+            },
+            "filters": {
+                "battles": "BENİM SORUNLAR",
+                "coorpers": "QR SAVUNUCULARI"
+            },
+            "badges": {
+                "battle": {
+                    "name": "MEYDAN ARAYICI",
+                    "details": "{{count}} Meydan okuma",
+                    "details_plural": "{{count}} Zorluklar"
+                },
+                "module": {
+                    "name": "Yıldız"
+                },
+                "coach": {
+                    "name": "BAĞLAYICI"
+                },
+                "question": {
+                    "name": "MASTER QUIZ"
+                }
+            },
+            "battle": {
+                "title": "Meydan okuma modu",
+                "create": "Bir meydan okuma oluşturma",
+                "requests": {
+                    "title": "Meydan okuma istekleri",
+                    "no_requests_found": "Henüz herhangi bir meydan okuma isteği yok"
+                },
+                "history": {
+                    "title": "Meydan okuma tarihi",
+                    "message": {
+                        "pending": "Bu challenge rakibin onay bekliyor",
+                        "win": "Meydan kazandı!",
+                        "lost": "Meydan kaybettim!"
+                    },
+                    "no_history_found": "Herhangi bir meydan okuma tarihi henüz yok"
+                },
+                "start": {
+                    "cta": "<span class=\"bold\"> meydan</span> başlatmak",
+                    "new_cta": "Yeni bir <span class=\"bold\"> meydan okuma</span> oluşturma"
+                },
+                "steps": {
+                    "3": "3. Başlat meydan"
+                },
+                "select_module": {
+                    "no_module_available": "Bir meydan okuma bitmiş bir modülde oluşturabilmeniz için."
+                },
+                "button": {
+                    "create": "Yeni bir sorun oluşturma"
+                },
+                "no_battle_progress": "Devam eden hiçbir sorunları var.",
+                "block": {
+                    "title": "Meydan okuma istekleri"
+                },
+                "no_proposition": "Herhangi bir meydan okuma istekleri almadım.",
+                "completed": {
+                    "title": "Tamamlanan zorluklar",
+                    "subtitle": "{{count}} {{nb}} kazanan meydan okuma,",
+                    "subtitle_plural": "kazanan sorunlar {{count}} {{nb}}"
+                },
+                "block_empty": "Bitmiş hiçbir sorunları var.",
+                "create_title": "Sorun oluşturma",
+                "active_title_intro": "Meydan okuma modu",
+                "coming_soon_random": "Rastgele bir meydan okuma başlamak"
+            },
+            "dashboard": {
+                "text": "Uzay yarışı! Doğru soruları yanıtlayan, dersler izleyerek veya sosyalleşme kazanabilirsiniz (yolu ile zorluklar ve eğitim)!"
+            }
+        }
+    }
+}

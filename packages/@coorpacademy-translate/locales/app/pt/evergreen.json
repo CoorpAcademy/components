@@ -1,0 +1,25 @@
+{
+    "notCompatible": {
+        "os": "A versão do seu Sistema Operacional é muito antiga para acessar a plataforma. Recomendamos que você o atualize.",
+        "explanation": "O modo de exibição de compatibilidade de seu navegador pode estar habilitado. Mais informações para desabilitá-lo",
+        "explanationLink": "https://static.coorpacademy.com/content/help/compatibility_view/Help_Compatibility_view_FR.pdf",
+        "explanationLinkLabel": "aqui.",
+        "header": "A versão do seu navegador é muito antiga para acessar a plataforma.",
+        "suggestion_text": "BrowseHappy",
+        "suggestion_href": "http://browsehappy.com",
+        "suggestion_text_pre": "Visite o site",
+        "suggestion_text_post": "para mais informações sobre os navegadores evergreen.",
+        "different_user_agent": "Dois usuários-agentes diferentes foram encontrados, resultando em uma restrição de acesso à plataforma."
+    },
+    "custom": {
+        "fff": {
+            "notCompatible": {
+                "os": "A versão do seu Sistema Operacional é muito antiga para acessar a plataforma. Recomendamos que você o atualize.",
+                "suggestion_text": "Cromado",
+                "suggestion_href": "https://www.google.com/intl/fr/Chrome/Browser/",
+                "suggestion_text_pre": "Baixar sugerido",
+                "suggestion_text_post": "."
+            }
+        }
+    }
+}

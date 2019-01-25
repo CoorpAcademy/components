@@ -1,0 +1,435 @@
+{
+    "content": {
+        "types": {
+            "course": "курс",
+            "course_plural": "курси",
+            "adaptive_chapter": "адаптаційний 5' Learning",
+            "adaptive_course": "навчання",
+            "adaptive_course_plural": "навчання",
+            "cursus": "курсус",
+            "cursus_plural": "курсуси",
+            "chapter": "5' Learning",
+            "chapter_plural": "5' Learning"
+        },
+        "sorts": {
+            "title": "Сортувати за:",
+            "cta": "Сортування",
+            "tab": "Сортувати за",
+            "pertinence": "Відповідність",
+            "newest": "Найновіший",
+            "duration": "Найкоротший"
+        },
+        "filters": {
+            "cta": "Фільтр",
+            "tab": "Фільтр",
+            "authors": "Автори:",
+            "authorTypes": "Категорії вмісту:",
+            "skills": "Навички:",
+            "type": "Тип:",
+            "themes": "Розділи:",
+            "goals": "Сертифікати:",
+            "time": "Час:",
+            "learning_paths": "Напрями навчання:",
+            "all_authors": "Всі автори",
+            "all_author_types": "Всі категорії",
+            "all_skills": "Усі навички",
+            "all_themes": "Всі колекції",
+            "all_goals": "Всі Сертифікати",
+            "all_courses": "Всі курси",
+            "microlearning": "5' Learning",
+            "all": "Всі",
+            "courses": "Курси",
+            "my_favorites": "Мій список:"
+        },
+        "notification": {
+            "addFavorite": "Додано до вашого списку",
+            "removeFavorite": "Вилучено зі списку"
+        },
+        "search": {
+            "placeholder": "Що ви хочете, щоб дізнатися?"
+        },
+        "catalog": "Каталог",
+        "result": "{{title}}: {{count}} результат",
+        "result_plural": "{{title}}: {{count}} результатів",
+        "noresultsfound": "Вибачте, результатів немає доступних",
+        "clearFilters": "Скидання",
+        "recommended": "Відкрийте для себе курсів, рекомендується для вас:",
+        "new": "нові"
+    },
+    "author": {
+        "socialTitle": "Соціальні:",
+        "cardsTitle": "Усі курси від {{author}}",
+        "website": "Веб-сайт:",
+        "notFound": "Автора ({{authorRef}}) не знайдено",
+        "more": "Дані про авторів",
+        "customCustomer": "Створення {{name}}",
+        "types": {
+            "coorp": "Coorp Originals",
+            "verified": "Verified by Coorp",
+            "marketplace": "Інші",
+            "custom": "Створення {{name}}"
+        }
+    },
+    "unit": {
+        "duration_minutes_set": "{{m}} хв",
+        "duration_minutes_set_plural": "{{m}} хв",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}} година $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}} годин $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "shortUnit": {
+        "duration_minutes_set": "{{m}}хв",
+        "duration_minutes_set_plural": "{{m}}хв",
+        "duration_minutes_with_hours_set": "{{m}}",
+        "duration_minutes_with_hours_set_plural": "{{m}}",
+        "duration_minutes_with_hours_none": "‌",
+        "duration_minutes_with_hours_none_plural": "‌",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}} г$t(shortUnit.duration_minutes_with_hours, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}} г$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "module_level": {
+        "1": "$t(global:module_level.base)",
+        "2": "$t(global:module_level.advanced)",
+        "3": "$t(global:module_level.coach)",
+        "base": "Базовий",
+        "advanced": "Просунутий",
+        "coach": "Тренер"
+    },
+    "progression_status": {
+        "not_started": "Не розпочато",
+        "in_progress": "Триває",
+        "completed": "Завершено"
+    },
+    "close": "Закрити",
+    "skipIntro": "Пропустити вступ",
+    "route": {
+        "initialized": "Цей дисплей налаштовано",
+        "error": {
+            "401": "Здається, ви втратили зв'язок.",
+            "402": "Потрібна оплата",
+            "403": "Ви не маєте дозволу на це.",
+            "404": "Чи знаєте Ви? Код помилки 404 означає, що сторінку не знайдено.",
+            "409": "Ти знаєш? Код 409 помилки означає, що через деякі дані, що не в курсі ваш запит не може бути вирішена.",
+            "500": "Ви знаєте? Код помилки 500 означає, що проблема сталась на сервері.",
+            "api": "Виникла помилка. Сервер функціонує, але додаток не працює, як треба.",
+            "default": "Трапилась помилка."
+        }
+    },
+    "loading": "Завантажується...",
+    "htmlTitle": "CoorpAcademy",
+    "hero": {
+        "cta": "Почати навчання"
+    },
+    "cookiesDisabled": {
+        "title": "Cookies вимкнені",
+        "error": "Файли cookie з них інваліди або заблоковано. Будь ласка, повторно ввімкнути або налаштувати ваш AdBlocker"
+    },
+    "chatbot": {
+        "welcome": {
+            "default": "Welcome on Coorpacademy. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin.",
+            "facebook": "Hello and welcome to Coorpacademy! I can ask you question of our online courses. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin. If you're looking for some other informations you can contact us at communication@coorpacademy.com."
+        },
+        "ask_question": {
+            "repeat_header_1": "Впевнені! {{question}}.",
+            "repeat_header_2": "Звичайно! {{question}}.",
+            "repeat_header_3": "Гаразд! Ось питання знову: {{question}}.",
+            "repeat_header_4": "Без проблем. {{question}}.",
+            "repeat_header_5": "Я повторюю: {{question}}."
+        },
+        "next_action": {
+            "question_next": "Попросити 'наступне питання' для продовження.",
+            "answer_next": "Що таке відповідь?",
+            "wrong_answer_next": "Сказати \"Чому\", щоб отримати пояснення або \"Далі\" для продовження."
+        },
+        "answer_question": {
+            "is_valid": {
+                "title_1": "Браво!",
+                "title_2": "Це правильно!",
+                "title_3": "Правильна відповідь!",
+                "title_4": "Так!",
+                "title_5": "Гарна робота!"
+            },
+            "is_invalid": {
+                "title_1": "Зовсім ні! Відповідь була: {{answer}}.",
+                "title_2": "Це не правильно! Відповідь була: {{answer}}.",
+                "title_3": "Погана відповідь! Ви повинні сказати: {{answer}}.",
+                "title_4": "Ой! Правильну відповідь була: {{answer}}.",
+                "title_5": "Мені дуже шкода, але це не правильно! Правильну відповідь була: {{answer}}."
+            }
+        },
+        "error": {
+            "not_found": "На жаль, я не знайшов будь-яке питання. Будь ласка, спробуйте з будь-якого іншого питання."
+        }
+    },
+    "demo": {
+        "url": "https://www.coorpacademy.com/en/request-a-demo/?utm_source=Up&utm_medium={{medium}}"
+    },
+    "custom": {
+        "7steps": {
+            "module_level": {
+                "base": "Why",
+                "advanced": "Empathy",
+                "coach": "Show me"
+            }
+        },
+        "loreal-retail-v2": {
+            "module_level": {
+                "base": "Чому",
+                "advanced": "Емпатія",
+                "coach": "Покажи мені"
+            }
+        },
+        "accueil": {
+            "htmlTitle": "MOOC Accueil Франція"
+        },
+        "achat-habitat": {
+            "htmlTitle": "Mooc Achat Habitat",
+            "module_level": {
+                "base": "Вступ",
+                "advanced": "Професіонал",
+                "coach": "Тренер"
+            }
+        },
+        "adeo": {
+            "htmlTitle": "Adeo Training CPL"
+        },
+        "auchan-retail": {
+            "htmlTitle": "Auchan Retail QUIZZ"
+        },
+        "architas-powercircle": {
+            "htmlTitle": "POWERCIRCLE | FOCUS"
+        },
+        "bnp": {
+            "htmlTitle": "MOOC BNP Paribas Factor"
+        },
+        "bestwesternuniversity": {
+            "htmlTitle": "Best Western University"
+        },
+        "capgemini": {
+            "htmlTitle": "COOC"
+        },
+        "cd78": {
+            "htmlTitle": "MOOC rSa"
+        },
+        "chanel": {
+            "htmlTitle": "iJoinCHANEL"
+        },
+        "clarins-digital": {
+            "htmlTitle": "Clarins Digital"
+        },
+        "crt": {
+            "htmlTitle": "CRT"
+        },
+        "coravin": {
+            "htmlTitle": "Coravin"
+        },
+        "corporateonlineopencourse": {
+            "module_level": {
+                "base": "ОСНОВИ"
+            },
+            "progression_status": {
+                "not_started": "Зареєстровано",
+                "in_progress": "Зареєстровано",
+                "completed": "Завершено"
+            }
+        },
+        "dolce": {
+            "htmlTitle": "Особистості"
+        },
+        "eacampus": {
+            "htmlTitle": "EAcampus"
+        },
+        "ecolenumerique-sncf": {
+            "content": {
+                "filters": {
+                    "goals": "Джедаї значки:"
+                }
+            }
+        },
+        "edenred-talents": {
+            "htmlTitle": "Edenred таланти",
+            "module_level": {
+                "coach": "Посол"
+            }
+        },
+        "ganprevoyance": {
+            "content": {
+                "filters": {
+                    "goals": "Всесвіти:"
+                }
+            }
+        },
+        "faurecia": {
+            "htmlTitle": "Learning Lab"
+        },
+        "gdf": {
+            "htmlTitle": "WeTransform"
+        },
+        "gdfec": {
+            "htmlTitle": "Фірми та Товариства"
+        },
+        "hr-ac": {
+            "htmlTitle": "Академії RH"
+        },
+        "ilearn": {
+            "htmlTitle": "CHANEL iLearn",
+            "module_level": {
+                "1": "Суттєве",
+                "2": "Просунутий",
+                "3": "Експерт",
+                "base": "Найважливіше",
+                "advanced": "Просунутий",
+                "coach": "Експерт"
+            }
+        },
+        "learnnrj": {
+            "htmlTitle": "Я Вчу Енергію"
+        },
+        "logisacademie": {
+            "htmlTitle": "Logis Académie"
+        },
+        "linxea": {
+            "htmlTitle": "LinXea Academy"
+        },
+        "manpower": {
+            "htmlTitle": "Результат керівника",
+            "module_level": {
+                "1": "Базовий",
+                "2": "Експерт",
+                "3": "Тренер",
+                "base": "Базовий",
+                "advanced": "Експерт",
+                "coach": "Тренер"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "htmlTitle": "Digital MOOC ATF"
+        },
+        "mooc-socgen": {
+            "htmlTitle": "Mooc Socgen",
+            "module_level": {
+                "base": "Рівень 1",
+                "advanced": "Рівень 2",
+                "coach": "Рівень 3"
+            }
+        },
+        "natixis": {
+            "htmlTitle": "Think Digital"
+        },
+        "nespresso": {
+            "module_level": {
+                "3": "Експерт",
+                "coach": "Експерт"
+            }
+        },
+        "nespressodigital": {
+            "htmlTitle": "Цифрова академія"
+        },
+        "paca": {
+            "htmlTitle": "МВОК Paca"
+        },
+        "online-academy-klubschule": {
+            "module_level": {
+                "base": "Новачок",
+                "advanced": "Розширений",
+                "coach": "Експерт"
+            }
+        },
+        "petite": {
+            "htmlTitle": "Chanel Petite Onboarding",
+            "module_level": {
+                "base": "Модуль 1",
+                "advanced": "Модуль 2",
+                "coach": "Модуль 3"
+            }
+        },
+        "quizz-auchan": {
+            "htmlTitle": "QUIZZ AUCHAN RETAIL"
+        },
+        "renaultrh": {
+            "module_level": {
+                "base": "Крок 1",
+                "advanced": "Крок 2",
+                "coach": "Крок 3"
+            }
+        },
+        "renaultcare": {
+            "module_level": {
+                "base": "Основи"
+            }
+        },
+        "rexel": {
+            "htmlTitle": "Клієнтоорієнтованість Rexel"
+        },
+        "schneider": {
+            "module_level": {
+                "base": "Сезон 1",
+                "advanced": "Сезон 2",
+                "coach": "Сезон 3"
+            }
+        },
+        "tagheuer": {
+            "module_level": {
+                "base": "Титан",
+                "advanced": "Бронза",
+                "coach": "Срібло"
+            }
+        },
+        "tagheuercon": {
+            "module_level": {
+                "base": "Титан",
+                "advanced": "Бронза",
+                "coach": "Срібло"
+            }
+        },
+        "theglenlivet-academy": {
+            "htmlTitle": "The Glenlivet | ザ・グレンリベット アカデミー"
+        },
+        "tourism": {
+            "htmlTitle": "Tourism Academy"
+        },
+        "tourismdigital": {
+            "htmlTitle": "Цифровий туризм"
+        },
+        "tourisme-hautsdefrance": {
+            "htmlTitle": "Tourisme Hauts-de-France"
+        },
+        "yahoo": {
+            "module_level": {
+                "base": "Новачок",
+                "advanced": "Середина",
+                "coach": "Професіонал"
+            }
+        },
+        "ey": {
+            "htmlTitle": "Цифрова Академія"
+        },
+        "thelem": {
+            "htmlTitle": "DigiPass#"
+        },
+        "letsgetdigital": {
+            "htmlTitle": "Let's get digital 2.0",
+            "module_level": {
+                "base": "УЧЕНЬ",
+                "advanced": "ЕКСПЕРТ",
+                "coach": "ОПАНУВАТИ"
+            }
+        },
+        "who": {
+            "htmlTitle": "QualityRights",
+            "module_level": {
+                "advanced": "Аналіз Кейсу"
+            }
+        },
+        "triptorelin": {
+            "htmlTitle": "Тріпторелін"
+        }
+    }
+}

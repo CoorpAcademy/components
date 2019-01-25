@@ -1,0 +1,29 @@
+{
+    "level_0": "Init",
+    "level_1": "Bronze",
+    "level_2": "Prata",
+    "level_3": "Ouro",
+    "level_4": "Platina",
+    "custom": {
+        "7steps": {
+            "level_4": "Início"
+        },
+        "renault": {
+            "my_badges_intro": "Ver todos os crachás que você ganhou ou que permanecem para você se tornar o \"rei\" do último Clio RS! ;-)"
+        },
+        "tagheuer": {
+            "level_0": "Init",
+            "level_1": "1.ª MUDANÇA",
+            "level_2": "3.ª MUDANÇA",
+            "level_3": "5.ª MUDANÇA",
+            "level_4": "7.ª MUDANÇA"
+        },
+        "tagheuercon": {
+            "level_0": "Init",
+            "level_1": "1.ª MUDANÇA",
+            "level_2": "3.ª MUDANÇA",
+            "level_3": "5.ª MUDANÇA",
+            "level_4": "7.ª MUDANÇA"
+        }
+    }
+}

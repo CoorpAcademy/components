@@ -1,0 +1,433 @@
+{
+    "content": {
+        "types": {
+            "course": "コース",
+            "course_plural": "コース",
+            "adaptive_chapter": "適応の章",
+            "adaptive_course": "適応コース",
+            "adaptive_course_plural": "適応コース",
+            "cursus": "cursus",
+            "cursus_plural": "cursuses",
+            "chapter": "5' Learning",
+            "chapter_plural": "5' Learning"
+        },
+        "sorts": {
+            "title": "並べ替える:",
+            "cta": "並べ替える",
+            "tab": "並べ替える",
+            "pertinence": "関連性から",
+            "newest": "最新のものから",
+            "duration": "所要時間が短いものから"
+        },
+        "filters": {
+            "cta": "絞込む",
+            "tab": "絞込む",
+            "authors": "著者:",
+            "authorTypes": "コンテンツのカテゴリ:",
+            "type": "タイプ:",
+            "themes": "コレクション:",
+            "goals": "認証:",
+            "time": "時間:",
+            "learning_paths": "ラーニング ・ パス:",
+            "all_authors": "すべての著者",
+            "all_author_types": "すべてのカテゴリ",
+            "all_themes": "すべてのコレクション",
+            "all_goals": "すべての認定",
+            "all_courses": "すべてのコース",
+            "microlearning": "5' Learning",
+            "all": "全て",
+            "courses": "コース",
+            "my_favorites": "マイリスト"
+        },
+        "notification": {
+            "addFavorite": "リストに追加しました",
+            "removeFavorite": "リストから削除されました"
+        },
+        "search": {
+            "placeholder": "何について学びますか?"
+        },
+        "catalog": "カタログ",
+        "result": "{{title}}: {{count}} 件",
+        "result_plural": "{{title}}: {{count}} 件",
+        "noresultsfound": "結果なし",
+        "clearFilters": "リセット",
+        "recommended": "あなたのためのオススメ コースを発見します。",
+        "new": "新機能"
+    },
+    "author": {
+        "socialTitle": "社会。",
+        "cardsTitle": "{{author}} からすべてのコース",
+        "website": "ウェブサイト:",
+        "notFound": "著者 ({{authorRef}}) が見つかりません",
+        "more": "著者の詳細",
+        "customCustomer": "{{name}} Creation",
+        "types": {
+            "coorp": "Coorp Originals",
+            "verified": "Verified by Coorp",
+            "marketplace": "その他",
+            "custom": "{{name}} Creation"
+        }
+    },
+    "unit": {
+        "duration_minutes_set": "{{m}} 分",
+        "duration_minutes_set_plural": "{{m}} 分",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}} 時間 $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}} 時間 $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "shortUnit": {
+        "duration_minutes_set": "{{m}}m",
+        "duration_minutes_set_plural": "{{m}}m",
+        "duration_minutes_with_hours_set": "{{m}}",
+        "duration_minutes_with_hours_set_plural": "{{m}}",
+        "duration_minutes_with_hours_none": "‌",
+        "duration_minutes_with_hours_none_plural": "‌",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}}h$t(shortUnit.duration_minutes_with_hours, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}}h$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "module_level": {
+        "1": "$t(global:module_level.base)",
+        "2": "$t(global:module_level.advanced)",
+        "3": "$t(global:module_level.coach)",
+        "base": "ベーシック",
+        "advanced": "アドバンス",
+        "coach": "コーチ"
+    },
+    "progression_status": {
+        "not_started": "開始されていません",
+        "in_progress": "進行中の",
+        "completed": "完成品"
+    },
+    "close": "閉じる",
+    "skipIntro": "閉じる",
+    "route": {
+        "initialized": "このディスプレイの設定が完了します。",
+        "error": {
+            "401": "それは、もはや接続しているようです。",
+            "402": "支払いが必要です。",
+            "403": "これを行うことはできません。",
+            "404": "知っていますか。404 エラーコードの意味ページを見つけていません。",
+            "409": "知っていますか。409 エラー コードは、データの競合が発生するを意味します。",
+            "500": "知っていますか。500 のエラー コードは、サーバーに問題が発生しましたを意味します。",
+            "api": "エラーが発生しました。サーバーがアプリケーションが正しく動作していないです。",
+            "default": "エラーが発生しました。"
+        }
+    },
+    "loading": "読み込んでいます.",
+    "htmlTitle": "CoorpAcademy",
+    "hero": {
+        "cta": " 次へ"
+    },
+    "cookiesDisabled": {
+        "title": "クッキーです。",
+        "error": "あなたのクッキーが無効またはブロックされています。再度有効にするか、AdBlocker を構成してください。"
+    },
+    "chatbot": {
+        "welcome": {
+            "default": "Welcome on Coorpacademy. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin.",
+            "facebook": "Hello and welcome to Coorpacademy! I can ask you question of our online courses. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin. If you're looking for some other informations you can contact us at communication@coorpacademy.com."
+        },
+        "ask_question": {
+            "repeat_header_1": "もちろん！{{question}}。",
+            "repeat_header_2": "もちろんです！{{question}}。",
+            "repeat_header_3": "わかりました！ここで再度質問です: {{question}}。",
+            "repeat_header_4": "大丈夫。{{question}}。",
+            "repeat_header_5": "私は繰り返す: {{question}}。"
+        },
+        "next_action": {
+            "question_next": "次の質問' の質問を続けます。",
+            "answer_next": "答えは何ですか。",
+            "wrong_answer_next": "'なぜ' または取得するいくつかの説明 'next' を続行すると言います。"
+        },
+        "answer_question": {
+            "is_valid": {
+                "title_1": "ブラボー!",
+                "title_2": "そうです！",
+                "title_3": "良い答えは!",
+                "title_4": "うん！",
+                "title_5": "よくやりましたね！"
+            },
+            "is_invalid": {
+                "title_1": "全く違います！答えは: {{answer}}。",
+                "title_2": "それは違います！答えは: {{answer}}。",
+                "title_3": "悪い答え!あなたが言う必要があります: {{answer}}。",
+                "title_4": "痛い!正しい答えだった: {{answer}}。",
+                "title_5": "私は申し訳ありませんが、それは右ではない!正しい答えだった: {{answer}}。"
+            }
+        },
+        "error": {
+            "not_found": "申し訳ありませんが、質問を見つかりませんでした。その他の件名でお試しください。"
+        }
+    },
+    "demo": {
+        "url": "https://www.coorpacademy.com/en/request-a-demo/?utm_source=Up&utm_medium={{medium}}"
+    },
+    "custom": {
+        "7steps": {
+            "module_level": {
+                "base": "Why",
+                "advanced": "Empathy",
+                "coach": "Show me"
+            }
+        },
+        "loreal-retail-v2": {
+            "module_level": {
+                "base": "なぜでしょうか",
+                "advanced": "共感",
+                "coach": "見せてください"
+            }
+        },
+        "accueil": {
+            "htmlTitle": "MOOC Accueil フランス"
+        },
+        "achat-habitat": {
+            "htmlTitle": "Mooc Achat Habitat",
+            "module_level": {
+                "base": "イントロ",
+                "advanced": "長所",
+                "coach": "コーチ"
+            }
+        },
+        "adeo": {
+            "htmlTitle": "Adeo 研修 CPL"
+        },
+        "auchan-retail": {
+            "htmlTitle": "Auchan Retail QUIZZ"
+        },
+        "architas-powercircle": {
+            "htmlTitle": "POWERCIRCLE | FOCUS"
+        },
+        "bnp": {
+            "htmlTitle": "MOOC BNP パリバ要因"
+        },
+        "bestwesternuniversity": {
+            "htmlTitle": "Best Western University"
+        },
+        "capgemini": {
+            "htmlTitle": "損害"
+        },
+        "cd78": {
+            "htmlTitle": "MOOC rSa"
+        },
+        "chanel": {
+            "htmlTitle": "iJoinCHANEL"
+        },
+        "clarins-digital": {
+            "htmlTitle": "Clarins Digital"
+        },
+        "crt": {
+            "htmlTitle": "CRT"
+        },
+        "coravin": {
+            "htmlTitle": "Coravin"
+        },
+        "corporateonlineopencourse": {
+            "module_level": {
+                "base": "基本"
+            },
+            "progression_status": {
+                "not_started": "登録",
+                "in_progress": "登録",
+                "completed": "完成品"
+            }
+        },
+        "dolce": {
+            "htmlTitle": "個人"
+        },
+        "eacampus": {
+            "htmlTitle": "EAcampus"
+        },
+        "ecolenumerique-sncf": {
+            "content": {
+                "filters": {
+                    "goals": "ジェダイのバッジ:"
+                }
+            }
+        },
+        "edenred-talents": {
+            "htmlTitle": "Edenred Talents",
+            "module_level": {
+                "coach": "大使"
+            }
+        },
+        "ganprevoyance": {
+            "content": {
+                "filters": {
+                    "goals": "宇宙:"
+                }
+            }
+        },
+        "faurecia": {
+            "htmlTitle": "Learning Lab"
+        },
+        "gdf": {
+            "htmlTitle": "WeTransform"
+        },
+        "gdfec": {
+            "htmlTitle": "企業とコミュニティ"
+        },
+        "hr-ac": {
+            "htmlTitle": "HR Academy"
+        },
+        "ilearn": {
+            "htmlTitle": "シャネルとらなきゃ",
+            "module_level": {
+                "1": "本質的です",
+                "2": "アドバンス",
+                "3": "エキスパート",
+                "base": "本質的です",
+                "advanced": "アドバンス",
+                "coach": "エキスパート"
+            }
+        },
+        "learnnrj": {
+            "htmlTitle": "エネルギーを学ぶこと"
+        },
+        "logisacademie": {
+            "htmlTitle": "Logis Académie"
+        },
+        "linxea": {
+            "htmlTitle": "LinXea アカデミー"
+        },
+        "manpower": {
+            "htmlTitle": "リーダー効果",
+            "module_level": {
+                "1": "ベーシック",
+                "2": "エキスパート",
+                "3": "コーチ",
+                "base": "ベーシック",
+                "advanced": "エキスパート",
+                "coach": "コーチ"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "htmlTitle": "Digital MOOC ATF"
+        },
+        "mooc-socgen": {
+            "htmlTitle": "Mooc Socgen",
+            "module_level": {
+                "base": "レベル 1",
+                "advanced": "レベル 2",
+                "coach": "レベル 3"
+            }
+        },
+        "natixis": {
+            "htmlTitle": "Think Digital"
+        },
+        "nespresso": {
+            "module_level": {
+                "3": "エキスパート",
+                "coach": "エキスパート"
+            }
+        },
+        "nespressodigital": {
+            "htmlTitle": "デジタル アカデミー"
+        },
+        "paca": {
+            "htmlTitle": "MOOC パカ"
+        },
+        "online-academy-klubschule": {
+            "module_level": {
+                "base": "初心者のため",
+                "advanced": "高度な",
+                "coach": "エキスパート"
+            }
+        },
+        "petite": {
+            "htmlTitle": "シャネル小柄な登録",
+            "module_level": {
+                "base": "モジュール 1",
+                "advanced": "モジュール 2",
+                "coach": "モジュール 3"
+            }
+        },
+        "quizz-auchan": {
+            "htmlTitle": "QUIZZ AUCHAN RETAIL"
+        },
+        "renaultrh": {
+            "module_level": {
+                "base": "ステップ 1",
+                "advanced": "ステップ 2",
+                "coach": "ステップ 3"
+            }
+        },
+        "renaultcare": {
+            "module_level": {
+                "base": "基本"
+            }
+        },
+        "rexel": {
+            "htmlTitle": "Rexel によって顧客中心主義"
+        },
+        "schneider": {
+            "module_level": {
+                "base": "シーズン 1",
+                "advanced": "シーズン 2",
+                "coach": "シーズン 3"
+            }
+        },
+        "tagheuer": {
+            "module_level": {
+                "base": "チタン",
+                "advanced": "ブロンズ",
+                "coach": "シルバー"
+            }
+        },
+        "tagheuercon": {
+            "module_level": {
+                "base": "チタン",
+                "advanced": "ブロンズ",
+                "coach": "シルバー"
+            }
+        },
+        "theglenlivet-academy": {
+            "htmlTitle": "The Glenlivet | ザ・グレンリベット アカデミー"
+        },
+        "tourism": {
+            "htmlTitle": "観光アカデミー"
+        },
+        "tourismdigital": {
+            "htmlTitle": "デジタル観光"
+        },
+        "tourisme-hautsdefrance": {
+            "htmlTitle": "Tourisme Hauts-de-France"
+        },
+        "yahoo": {
+            "module_level": {
+                "base": "新人",
+                "advanced": "半ば",
+                "coach": "プロ"
+            }
+        },
+        "ey": {
+            "htmlTitle": "デジタル アカデミー"
+        },
+        "thelem": {
+            "htmlTitle": "DigiPass#"
+        },
+        "letsgetdigital": {
+            "htmlTitle": "Let's get digital 2.0",
+            "module_level": {
+                "base": "LEARNER",
+                "advanced": "EXPERT",
+                "coach": "MASTER"
+            }
+        },
+        "who": {
+            "htmlTitle": "QualityRights",
+            "module_level": {
+                "advanced": "事例分析"
+            }
+        },
+        "triptorelin": {
+            "htmlTitle": "Triptorelin"
+        }
+    }
+}

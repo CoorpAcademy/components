@@ -1,0 +1,56 @@
+{
+    "http": {
+        "401": "未授权进入",
+        "403": "禁止访问",
+        "404": "没有找到页面",
+        "412": "前提条件失败",
+        "500": "内部服务器错误",
+        "503": "无法提供服务",
+        "500_message_pre": "URL",
+        "500_message": "存在以下错误",
+        "500_message_post": ".",
+        "503_message": "服务不可用。请稍后重试。",
+        "404_message_pre": "URL",
+        "404_message": "未确定路线。",
+        "412_message": "情况被1个或更多个指明 如果……要求中的页眉被评估为错误。",
+        "409_progressions_content_conflict": "看来你在本届会议上已经回答了这个问题。 您是否可以在其他地方的其他标签上打开它，也许？<br/>点击下面的“刷新页面”刷新您的数据，我们会为您加载正确的问题。"
+    },
+    "infos": "信息",
+    "auth": {
+        "header": "哎呀！{{status}}",
+        "reload": "登录"
+    },
+    "modal": {
+        "header": "错误 {{status}}",
+        "body": {
+            "title": "请您注意以下信息，并将其提供给我们的技术支持人员",
+            "url": "Url: {{err}}",
+            "id": "Id： {{id}}",
+            "message": "消息：{{message}}"
+        },
+        "footer": {
+            "assistance": "帮助",
+            "back_home": "回家",
+            "reload": "重新加载页面",
+            "continue": "继续"
+        },
+        "assistance": "报告错误"
+    },
+    "defaultMessage": "出现了一个错误。我们抱歉。请稍后重试",
+    "achievementContext": "此模块似乎已经开始了。请重新加载掩面继续模块。",
+    "custom": {
+        "chanel": {
+            "http": {
+                "412_message": "丢失电子邮件地址。请联系您的系统管理员或在此处注册。"
+            }
+        },
+        "ilearn": {
+            "http": {
+                "412_message": "电子邮件地址空缺。请联系你的管理员或在这里注册。"
+            }
+        },
+        "up": {
+            "achievementContext": "看来这个级别已经开始了。请刷新页面继续。"
+        }
+    }
+}

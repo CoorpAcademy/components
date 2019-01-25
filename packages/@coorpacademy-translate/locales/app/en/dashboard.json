@@ -1,0 +1,1571 @@
+{
+    "hello": "Welcome, {{displayname}}!",
+    "show_more": "See all",
+    "registered": {
+        "score": "Your score:",
+        "new_score": "Your new score {{newscore}}",
+        "badge": {
+            "new": "1 badge",
+            "new_post": "won",
+            "award_pre": "Bronze",
+            "award": "- 3 battles",
+            "award_post": "done",
+            "name": "Bronze"
+        },
+        "next_player": "Your opponent's turn...",
+        "button_back": "Return"
+    },
+    "slides_battle": "Question {{count}}",
+    "slides_battle_check": "Validate",
+    "success_battle": {
+        "title": "Battle over!",
+        "result": {
+            "win": "Congratulations, you won!",
+            "win_fast": "Congratulations, you won in the least time!",
+            "win_first": "Congratulations!",
+            "win_second": "you won",
+            "loose": "Ouch, you lost!",
+            "loose_first": "Ouch",
+            "loose_second": "you lost!",
+            "loose_against": "Ouch, you lost. {{name}} was quicker!",
+            "winStars": "You won {{count}} additional star with this battle!",
+            "winStars_plural": "You won {{count}} additional stars with this battle!"
+        },
+        "badge_user": {
+            "text": "1 badge",
+            "text_post": "won",
+            "award_pre": "Bronze",
+            "award": "- 3 battles",
+            "award_post": "done",
+            "name": "Bronze"
+        },
+        "badge_opponent": {
+            "text": "1 badge",
+            "text_post": "won",
+            "award_pre": "Bronze",
+            "award": "- 3 battles",
+            "award_post": "done",
+            "name": "Bronze"
+        },
+        "footer": "Return"
+    },
+    "notificationCard": {
+        "request_title": "{{title}} Request",
+        "request": "{{module}} Module {{level}} level",
+        "aim": {
+            "text": "1 new answer",
+            "text_post": "to your question",
+            "name": "First name Last name",
+            "link": "See"
+        },
+        "badge": {
+            "text": "Congratulations! You've won 1 new badge",
+            "text_post": "won",
+            "link": "See"
+        },
+        "battle": {
+            "text": "You've received 1 new battle",
+            "text_post": "challenge",
+            "link": "See",
+            "demand_accept": "Your battle challenge",
+            "demand_accept_post": "has been accepted",
+            "win_against_title": "You won the battle!",
+            "loose_against_title": "You lost the battle!",
+            "against": "{{module}} module {{level}} level",
+            "versus": "against"
+        },
+        "forum_text": "There is 1 new answer to your comment regarding the {{module}} module {{level}} level",
+        "forum_text_page": "There is 1 new reply to your comment on the forum",
+        "module": {
+            "text": {
+                "bravo": "Congratulations!",
+                "pre": "You have passed",
+                "detail": "the module",
+                "base": "Basic level",
+                "advanced": "Advanced level",
+                "coach": "Coach level"
+            },
+            "link": "See"
+        },
+        "reward": {
+            "bonusStars": {
+                "title": "Congratulations! You have won additional stars!",
+                "goal": {
+                    "description": "You have reached the {{goal}} goal. It allowed you to earn {{stars}} additional stars."
+                },
+                "rh": {
+                    "description": "You have won {{stars}} additional stars as reward."
+                }
+            },
+            "rewardStars": {
+                "title": "Congratulations! You have won additional stars!",
+                "goal": {
+                    "description": "You have reached the {{goal}} goal. It allowed you to earn {{stars}} additional stars."
+                }
+            },
+            "resource": {
+                "title": "Congratulations! You can access a new element!",
+                "description": "You have completed the requirements for certification in {{goal}}! It grants you access to {{label}}."
+            },
+            "diploma": {
+                "title": "Certificate",
+                "description": "You have completed the requirements for the {{goal}} certificate. You can now access your certificate."
+            }
+        },
+        "coach": {
+            "bravo": "Congratulations!",
+            "text": "You have become a Coach in the {{disciplineName}} discipline."
+        },
+        "title": {
+            "text": "{{title}} Request",
+            "Battle": "Battle",
+            "Module": "Module",
+            "Badge": "Badge",
+            "Forum": "Discussion",
+            "Coach": "Coach",
+            "cmsNotification": "Information",
+            "welcome": "Welcome",
+            "resetModule": "Content update!"
+        },
+        "type": {
+            "module": "Module",
+            "badge": "Badge",
+            "battle": "Battle",
+            "forum": "Discussion",
+            "Coach": "Coach",
+            "objectif": "Certification",
+            "cmsNotification": "Information",
+            "reward": "Reward",
+            "welcome": "Welcome",
+            "resetModule": "Content update!"
+        }
+    },
+    "achievement": {
+        "helper": "Overview of your success! Will you manage to obtain the platinum level for each of these badges?",
+        "titre": "Your badges"
+    },
+    "navigation": {
+        "text": "In your navigation menu, access all the functions of your platform",
+        "my_board": "My Dashboard",
+        "population": "My populations",
+        "learningTree": {
+            "helper": "Access all the disciplines of your pathway in 1 click",
+            "push": "Access all your disciplines",
+            "push_post": "in 1 click"
+        },
+        "account_helper": "Browse your personal space, find your results, manage your progress, participate in discussions, or simply follow the lessons before starting the modules.",
+        "account": "My Account",
+        "language": "Language",
+        "notification": "Notifications",
+        "badge": "My Badges",
+        "objectif": "My Certifications",
+        "activity": "Activity",
+        "discussion": "Discussions",
+        "conseil": "Tips & Hints",
+        "coach": "Coaches",
+        "lessons": "Library",
+        "battle_helper": "Once you have finished a module, challenge all those who are on the same level as you to a small game of 10 questions!",
+        "battle_pre": "Battle Mode",
+        "battle": "Challenge your colleagues in “Battle” mode: answer the questions as quickly as possible!",
+        "battle_post": "Click here!",
+        "assistance": "Assistance",
+        "home": "Home",
+        "certifications": "My Certifications"
+    },
+    "personal_selection": {
+        "text_helper": "3 modules suggested depending on your pathway!",
+        "title": "Our recommendation for you",
+        "acces_module": "Start Now",
+        "payment_required": "Buy Now",
+        "popular_module_helper": "Need inspiration? Check out what everyone else is doing by selecting the most popular.",
+        "last_discussion": "Last Discussions",
+        "no_discussion": "No discussion",
+        "last_module": "Last Module Played",
+        "no_module": "No module has been played",
+        "level": {
+            "pre": "Level",
+            "base": "Basic,",
+            "advanced": "Advanced,",
+            "coach": "Coach,",
+            "post": "{{stars}}/{{maxstars}}"
+        },
+        "popular_module": "Most Played Disciplines",
+        "easiest_disciplines": "Easiest Disciplines",
+        "hardest_disciplines": "Hardest Disciplines",
+        "no_popular_module": "No module has been played",
+        "module_name": {
+            "pre": "level",
+            "base": "Basic",
+            "advanced": "Advanced",
+            "coach": "Coach"
+        }
+    },
+    "activity": {
+        "title": "Activity",
+        "progression_text_pre": "How is it going in your disciplines?",
+        "progression_text": "Are you making progress in relation to the objectives you set?",
+        "progression_subtext": "Now is the time to check...",
+        "discipline_title": "Discipline",
+        "disciplines": {
+            "title": "Discipline",
+            "score": "Score",
+            "actual_level": "Current Level"
+        },
+        "module_title": "Modules",
+        "avancement": "Progress",
+        "caption-started": "Started module",
+        "caption-done": "Finished module"
+    },
+    "myactivity": {
+        "title": "Activity:",
+        "subtitle": "How is your progress going in your courses?",
+        "total": "Total:",
+        "engines": {
+            "learner": "Courses",
+            "microlearning": "5' Learning",
+            "battle": "Battles",
+            "certifications": "Certifications",
+            "bonus": "Bonus"
+        },
+        "recommendation": {
+            "title": "Hello {{displayName}}, increase your score!",
+            "subtitle": "We recommend:"
+        },
+        "starsToolTip": {
+            "preMessage":
+              "This feature is currently unavailable on your platform. If you want to activate it, contact your manager or",
+            "linkMessage": "click here",
+            "endMessage": "and we will pass the message on."
+        }
+    },
+    "goals": {
+        "title": "Progress Toward Your Certifications"
+    },
+    "badges": {
+        "title": "All My Badges",
+        "subtitle": "Discover All Your Badges",
+        "title-1-0": "My Badges",
+        "subtitle-1-0": "View all the badges you have obtained or that you still need to obtain to become the digital “King”! ;-)",
+        "newBadgeWon": "You have got:",
+        "newBadgeWon_plural": "You have got:",
+        "seeYourBadges": "See your badges",
+        "battle": {
+            "name": "Battle Warrior",
+            "details": "{{count}} Battle",
+            "details_plural": "{{count}} Battles",
+            "details_post": "done!",
+            "details_post_plural": "done!"
+        },
+        "module": {
+            "name": "Survivor Module",
+            "details": "{{count}} Module",
+            "details_plural": "{{count}} Modules",
+            "success": "completed",
+            "success_plural": "completed",
+            "details_pre_1": "without losing",
+            "details_pre_2": "a life!"
+        },
+        "lesson": {
+            "name": "First in Class",
+            "details": "{{count}} lesson",
+            "details_plural": "{{count}} lessons",
+            "details_post": "viewed completely!",
+            "details_post_plural": "viewed completely!"
+        },
+        "question": {
+            "name": "Questions for a Champion",
+            "details": "{{count}} Question",
+            "details_plural": "{{count}} Questions",
+            "details_post": " answered!",
+            "details_post_plural": " answered!"
+        },
+        "coach": {
+            "name": "First prize in camaraderie",
+            "details": "{{count}} Interaction",
+            "details_plural": "{{count}} Interactions",
+            "details_pre_1": "with",
+            "details_pre_2": "the coaches!"
+        },
+        "level": {
+            "bronze": "Bronze",
+            "silver": "Silver",
+            "gold": "Gold",
+            "platinum": "Platinum"
+        }
+    },
+    "battle": {
+        "title": "Battles",
+        "create": "Create a battle",
+        "requests": {
+            "title":"Battle requests",
+            "no_requests_found": "You don't have any battle request yet",
+            "sendBattle": "{{opponentName}} is challenging you"
+        },
+        "history": {
+            "title": "Battle history",
+            "message":{
+                "pending" : "This Battle awaiting opponent's approval",
+                "win": "You won the battle!",
+                "lost": "You lost the battle!",
+                "win_byTime": "You were the fastest!",
+                "lost_byTime": "You've been too slow!"
+            },
+            "no_history_found": "You don't have any battle history yet"
+        },
+        "start": {
+            "cta": "Start <span class=\"bold\">Battle</span>",
+            "new_cta": "Create a new <span class=\"bold\">Battle</span>",
+            "cancel": "Ignore",
+            "body_pre": "Speed matters:",
+            "bodyText": "In case of a draw, the fastest wins!",
+            "me": "Me",
+            "inProgress": "In Progress"
+        },
+        "steps": {
+            "1": "1. Choose a Level",
+            "2": "2. Select an Opponent",
+            "3": "3. Start the Battle"
+        },
+        "select_module": {
+            "title": "Choose a Level:",
+            "placeholder": "Enter a module name",
+            "no_module_available": "You can only create a battle in an unlocked level.",
+            "no_module_found": "No module found"
+        },
+        "select_theme": {
+            "title": "Choose a Collection:"
+        },
+        "select_opponent": {
+            "title": "Select Your Opponent",
+            "placeholder": "Enter a name",
+            "no_opponent_found": "No opponent found",
+            "random": "Random opponent"
+        },
+
+        "subtitle": "Challenge your colleagues!",
+        "button": {
+            "create": "Create a New Battle",
+            "cancel": "Cancel"
+        },
+        "score": "10",
+        "no_battle_progress": "You have no battles in progress.",
+        "block": {
+            "title": "Battle Requests"
+        },
+        "accept_button": "Accept",
+        "no_proposition": "You have not received any battle requests.",
+        "completed": {
+            "title": "completed Battles",
+            "subtitle_pre": "You have taken part in",
+            "subtitle_pre_plural": "You have taken part in",
+            "subtitle": "{{count}} battle, winning {{nb}}",
+            "subtitle_plural": "{{count}} battles, winning {{nb}}"
+        },
+        "block_empty": "You have no finished battles.",
+        "create_title": "Create Battle",
+        "active_title_intro": "Battle Mode",
+        "active_title_active": "activated",
+        "start_discipline": "Start a Discipline",
+        "no_opponent": "No opponent available for this level",
+        "coming_soon_random": "Start a Random Battle"
+    },
+    "dashboard": {
+        "text": "The Space Race! You can win by correctly answering the questions, by following the lessons, or by socialising (via battles and training)!",
+        "title": "Your Score",
+        "data": {
+            "intro": "You are in the top",
+            "value": "15%",
+            "wording": "highest scores"
+        },
+        "data_dev_hidden": {
+            "question": {
+                "title": "Questions:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "You are part of the",
+                    "level": "{{level}}",
+                    "wording": "with the most stars"
+                }
+            },
+            "cours": {
+                "title": "Lesson:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "You are part of the",
+                    "level": "{{level}}",
+                    "wording": "who have viewed the most lessons."
+                }
+            },
+            "extra": {
+                "title": "Extras:",
+                "stat": {
+                    "intro": "You are part of the",
+                    "level": "{{level}}",
+                    "wording": "with the best results."
+                }
+            },
+            "total_title": "Total:"
+        }
+    },
+    "lessons": {
+        "title": "All Lessons and Videos",
+        "subtitle": "Do you want to review or study before starting the quizzes? This page is for you. Here are all the lessons, classified by theme.",
+        "subtitle_up": "Do you want to review or study before starting the quizzes?",
+        "empty": "No resource found for this course."
+    },
+    "notifications": {
+        "title": "Notifications",
+        "infos": "<b>{{count}}</b> notification!",
+        "infos_plural": "<b>{{count}}</b> notifications!",
+        "filter": "Filter by...",
+        "close": "Close",
+        "myNotifications": "See My Notifications",
+        "deleteAll": "Delete All",
+        "filters": {
+            "module": "Filter by Level",
+            "badge": "Filter by Badge",
+            "forum": "Filter by Discussion",
+            "battle": "Filter by Battle",
+            "coach": "Filter by Coach",
+            "objectif": "Filter by Objective",
+            "reward": "Filter by Reward",
+            "welcome":"Filter by Welcome Messages",
+            "resetModule":"Filter by Updated Content"
+        }
+    },
+    "block_push": {
+        "tree": {
+            "title": "Browse All Content",
+            "content": "For a quick start, click here",
+            "link": "Click Here"
+        },
+        "battle": {
+            "title": "Challenge your peers!",
+            "content": "Start a \"battle\". Reinforcing your skills has never been so much fun!",
+            "link": "Click Here"
+        }
+    },
+    "welcomePopin": {
+        "title": "Welcome",
+        "text": "To enjoy the MOOC, go to the First Time page.",
+        "button": "Discover"
+    },
+    "global_notification": {
+        "button": {
+            "show_more": "More Info"
+        }
+    },
+    "filters": {
+        "all": "All",
+        "coorpers": "Coorpers",
+        "courses": "My Lessons"
+    },
+    "sections": {
+        "most-popular": "Most Popular",
+        "most-recent": "New Releases",
+        "my-list": "{{name}}'s List",
+        "news": "News",
+        "recommended": "Recommended for you",
+        "load_more": "Load More",
+        "certification": "Certification: {{name}}",
+        "prefix_chapter": "5' Learning: {{title}}"
+    },
+    "continueLesson": "Resume my Course",
+    "widgets": {
+        "read_more": "More"
+    },
+    "discussion": {
+        "title": "All Course Comments",
+        "subtitle": "See All the Messages Left by the Community on the Different Disciplines"
+    },
+    "slider": {
+        "start": {
+            "surtitle": "Welcome {{displayName}},",
+            "surtitle_anonymous": "Welcome,",
+            "title": "Explore the new courses",
+            "cta": "See catalog"
+        },
+        "resume": {
+            "surtitle_learner": "Welcome back {{displayName}}, continue:",
+            "surtitle_microlearning": "Welcome back {{displayName}}, continue:",
+            "surtitle_learner_anonymous": "Welcome back, continue:",
+            "surtitle_microlearning_anonymous": "Welcome back, continue:",
+            "title": "{{courseName}}",
+            "cta": "Continue Learning"
+        },
+        "battle": {
+            "surtitle": "Welcome back {{displayName}}, check your battle requests",
+            "title": "You have {{count}} battle request!",
+            "title_plural": "You have {{count}} battle requests!",
+            "cta": "Start Battling"
+        }
+    },
+    "custom": {
+        "7steps": {
+            "achievement": {
+                "helper": "Overview of your success! Will you manage to obtain the top level for each of these badges?"
+            },
+            "badges": {
+                "level": {
+                    "platinum": "Top"
+                }
+            },
+            "block_push": {
+                "tree": {
+                    "content": "Start learning now!"
+                }
+            }
+        },
+        "accueil": {
+            "filters": {
+                "coorpers": "mooc'ers"
+            },
+            "badges": {
+                "battle": {
+                    "name": "Challenger",
+                    "details_3": "40"
+                },
+                "module": {
+                    "name": "Superhero",
+                    "details_1": {
+                        "number": "2"
+                    },
+                    "details_2": {
+                        "number": "4"
+                    },
+                    "details_3": {
+                        "number": "6"
+                    }
+                },
+                "lesson": {
+                    "name": "Price of Admission",
+                    "details_0": "5",
+                    "details_1": "15",
+                    "details_2": "30",
+                    "details_3": "60"
+                },
+                "question": {
+                    "name": "Question for a Champion",
+                    "details_3": "360"
+                },
+                "coach": {
+                    "name": "Fellowship Award"
+                }
+            }
+        },
+        "architas-powercircle": {
+            "filters": {
+                "coorpers": "Investment Superheroes"
+            }
+        },
+        "armeedeterre": {
+            "slider": {
+                "battle": {
+                    "surtitle": "Welcome back {{displayName}}, check your battle requests",
+                    "title": "You have {{count}} battle request!",
+                    "title_plural": "You have {{count}} battle requests!",
+                    "cta": "Start Battling"
+                }
+            },
+            "battle_start": {
+                "title": "Your battle is about to begin."
+            },
+            "select_module": {
+                "no_module_available": "You can only create a battle in a finished level."
+            },
+            "success_battle": {
+                "title": "battle over!",
+                "badge_user": {
+                    "award": "- 3 battles"
+                },
+                "badge_opponent": {
+                    "award": "- 3 battles"
+                },
+                "winStars": "You won {{count}} additional star with this battle!",
+                "winStars_plural": "You won {{count}} additional stars with this battle!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "Battle"
+                },
+                "battle": {
+                    "text": "You've received 1 new battle",
+                    "demand_accept": "Your battle",
+                    "win_against_title": "You won the battle!",
+                    "loose_against_title": "You lost the battle!"
+                },
+                "type": {
+                    "battle": "Battle"
+                }
+            },
+            "navigation": {
+                "battle_pre": "Battle Mode",
+                "battle": "Challenge your colleagues in “Battle” mode: answer the questions as quickly as possible!"
+            },
+            "filters": {
+                "battles": "MY BATTLES"
+            },
+            "badges": {
+                "battle": {
+                    "name": "BATTLE SEEKER",
+                    "details": "{{count}} Battle",
+                    "details_plural": "{{count}} Battles"
+                }
+            },
+            "battle": {
+                "title": "Battle mode",
+                "create": "Create a battle",
+                "requests": {
+                    "title":"Battle requests",
+                    "no_requests_found": "You don't have any battle request yet"
+                },
+                "history": {
+                    "title": "Battle history",
+                    "message":{
+                        "pending" : "This battle awaiting opponent's approval",
+                        "win": "You won the battle!",
+                        "lost": "You lost the battle!"
+                    },
+                    "no_history_found": "You don't have any battle history yet"
+                },
+                "start": {
+                    "cta": "Start <span class=\"bold\">Battle</span>",
+                    "new_cta": "Create a new <span class=\"bold\">Battle</span>"
+                },
+                "steps": {
+                    "3": "3. Start the battle"
+                },
+                "select_module": {
+                    "no_module_available": "You can only create a battle in a finished level."
+                },
+                "button": {
+                    "create": "Create a New Battle"
+                },
+                "no_battle_progress": "You have no battles in progress.",
+                "block": {
+                    "title": "Battle Requests"
+                },
+                "no_proposition": "You have not received any battle requests.",
+                "completed": {
+                    "title": "completed Battles",
+                    "subtitle": "{{count}} battle, winning {{nb}}",
+                    "subtitle_plural": "{{count}} battles, winning {{nb}}"
+                },
+                "block_empty": "You have no finished battles.",
+                "create_title": "Create Battle",
+                "active_title_intro": "Battle Mode",
+                "coming_soon_random": "Start a Random Battle"
+            }
+        },
+        "bigdata": {
+            "navigation": {
+                "lessons": "All Courses"
+            },
+            "filters": {
+                "news": "Your Training",
+                "coorpers": "MOOCers"
+            }
+        },
+        "bnp": {
+            "filters": {
+                "coorpers": "Factiors"
+            }
+        },
+        "bnpp-legal": {
+            "sections": {
+                "certification": "{{name}}"
+            },
+            "select_module": {
+                "filter_by": {
+                    "coach": "Master"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Master"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Master,"
+                },
+                "module_name": {
+                    "coach": "Master"
+                }
+            }
+        },
+        "casa": {
+            "filters": {
+                "news": "Your Training",
+                "coorpers": "MOOCers"
+            }
+        },
+        "challenge48htechno": {
+            "slider": {
+                "start": {
+                    "title": "Explore the new quizz"
+                },
+                "resume": {
+                    "surtitle": "Welcome back {{displayName}}, continue your quizz"
+                }
+            }
+        },
+        "chanel": {
+            "block_push": {
+                "tree": {
+                    "title": "START",
+                    "content": "Discover the CHANEL essentials in the catalog.",
+                    "link": "click here"
+                },
+                "battle": {
+                    "title": "CHALLENGE THE COMMUNITY",
+                    "content": "Challenge your colleagues in the \"Battle mode\". Answer the questions as quickly as you can!",
+                    "link": "Click here"
+                }
+            },
+            "filters": {
+                "coorpers": "My Community"
+            }
+        },
+        "crisis": {
+            "filters": {
+                "coorpers": "Pernod Ricard Community"
+            }
+        },
+        "dolce": {
+            "filters": {
+                "coorpers": "Community"
+            }
+        },
+        "edenred-talents": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Ambassador"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Ambassador"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Ambassador,"
+                },
+                "module_name": {
+                    "coach": "Ambassador"
+                }
+            }
+        },
+        "ey": {
+            "filters": {
+                "coorpers": "Digital Heroes"
+            }
+        },
+        "fff": {
+            "activity": {
+                "caption-started": "Discipline begun but not yet completed",
+                "caption-done": "Discipline Validated"
+            }
+        },
+        "gdf": {
+            "badges": {
+                "transformer": {
+                    "name": "Transformer",
+                    "details_0": {
+                        "number": "1",
+                        "details": "theme",
+                        "details_post": "completed"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "themes",
+                        "details_post": "completed"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "themes",
+                        "details_post": "completed"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "themes",
+                        "details_post": "completed"
+                    }
+                }
+            }
+        },
+        "gdfec": {
+            "badges": {
+                "transformer": {
+                    "name": "Transformer",
+                    "details_0": {
+                        "number": "1",
+                        "details": "theme",
+                        "details_post": "completed"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "themes",
+                        "details_post": "completed"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "themes",
+                        "details_post": "completed"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "themes",
+                        "details_post": "completed"
+                    }
+                }
+            },
+            "filters": {
+                "coorpers": "Community"
+            }
+        },
+        "ilearn": {
+            "filters": {
+                "coorpers": "My Community"
+            }
+        },
+        "learnnrj": {
+            "filters": {
+                "coorpers": "Community"
+            }
+        },
+        "letsgetdigital": {
+            "badges": {
+                "battle": {
+                    "name": "Challenger"
+                },
+                "module": {
+                    "name": "Hero"
+                }
+            }
+        },
+        "linxea": {
+            "filters": {
+                "coorpers": "MOOCers"
+            },
+            "navigation": {
+                "lessons": "All videos"
+            }
+        },
+        "loreal-retail-v2": {
+           "select_module": {
+                "filter_by": {
+                    "base": "Filter by Why",
+                    "advanced": "Filter by Empathy",
+                    "coach": "Filter by Show me"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Why",
+                        "advanced": "Empathy",
+                        "coach": "Show me"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Why",
+                    "advanced": "Empathy",
+                    "coach": "Show me"
+                },
+                "module_name": {
+                     "base": "Why",
+                     "advanced": "Empathy",
+                     "coach": "Show me"
+                }
+            }
+        },
+        "martell": {
+            "badges": {
+                "subtitle-1-0": "View all the badges you have obtained or that you still need to obtain to become a Martell expert"
+            },
+            "filters": {
+                "coorpers": "Martell friends"
+            }
+        },
+        "michelin": {
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "mooc-socgen": {
+           "select_module": {
+                "filter_by": {
+                    "base": "Filter by Level 1",
+                    "advanced": "Filter by Level 2",
+                    "coach": "Filter by Level 3"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Level 1",
+                        "advanced": "Level 2",
+                        "coach": "Level 3"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Level 1,",
+                    "advanced": "Level 2,",
+                    "coach": "Level 3,"
+                },
+                "module_name": {
+                    "base": "Level 1",
+                    "advanced": "Level 2",
+                    "coach": "Level 3"
+                }
+            }
+        },
+        "nespresso": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Expert"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Expert"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Expert,"
+                },
+                "module_name": {
+                    "coach": "Expert"
+                }
+            },
+            "filters": {
+                "coorpers": "Community"
+            }
+        },
+        "online-academy-klubschule": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filter by Beginner",
+                    "advanced": "Filter by Advanced",
+                    "coach": "Filter by Expert"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "level Beginner",
+                        "advanced": "level Advanced",
+                        "coach": "level Expert"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Beginner,",
+                    "advanced": "Advanced,",
+                    "coach": "Expert,"
+                },
+                "module_name": {
+                    "base": "Beginner",
+                    "advanced": "Advanced",
+                    "coach": "Expert"
+                }
+            }
+        },
+        "paca": {
+            "filters": {
+                "coorpers": "MOOC'ers"
+            },
+            "badges": {
+                "battle": {
+                    "name": "Challenger"
+                },
+                "module": {
+                    "name": "Superhero"
+                },
+                "lesson": {
+                    "name": "Price of Admission"
+                },
+                "question": {
+                    "name": "Question for a Champion"
+                },
+                "coach": {
+                    "name": "Fellowship Award"
+                }
+            }
+        },
+        "pernodci": {
+            "filters": {
+                "coorpers": "Pernod Ricard Community"
+            }
+        },
+        "pernod": {
+            "notificationCard": {
+                "type": {
+                    "objectif": "Objective"
+                }
+            },
+            "goals": {
+                "title": "Progress Toward Your Goals"
+            },
+            "navigation": {
+                "objectif": "My Objectives"
+            }
+        },
+        "petite": {
+            "filters": {
+                "coorpers": "My Community"
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Module 1,",
+                    "advanced": "Module 2,",
+                    "coach": "Module 3,"
+                },
+                "module_name": {
+                    "base": "Module 1",
+                    "advanced": "Module 2",
+                    "coach": "Module 3"
+                }
+            }
+        },
+        "pru": {
+            "block_push": {
+                "tree": {
+                    "content": "Start learning now!"
+                },
+                "battle": {
+                    "title": "Defy your peers and practice!",
+                    "content": "Challenge your peers in a \"Battle\": try to be faster than them!"
+                }
+            },
+            "badges": {
+                "subtitle-1-0": "View all the badges you have earned or that you still need to earn to become a compliance master!"
+            }
+        },
+        "quizz-auchan": {
+            "slider": {
+                "start": {
+                    "title": "Explore the Blue Life Quizz!"
+                }
+            }
+        },
+        "renault": {
+            "badges": {
+                "subtitle": "View all the badges that you have earned or that you need to earn to become the \"king\" of the last Clio RS ! ;-)",
+                "lessons_seen": {
+                    "details_0": "2",
+                    "details_1": "4",
+                    "details_2": "8",
+                    "details_3": "10"
+                },
+                "answer": {
+                    "details_0": "20",
+                    "details_1": "36",
+                    "details_2": "72",
+                    "details_3": "120"
+                },
+                "perfect": {
+                    "details_2": {
+                        "number": "5"
+                    },
+                    "details_3": {
+                        "number": "8"
+                    }
+                }
+            }
+        },
+        "renaultrh": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filter by Step 1",
+                    "advanced": "Filter by Step 2",
+                    "coach": "Filter by Step 3"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "level Step 1",
+                        "advanced": "level Step 2",
+                        "coach": "level Step 3"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Step 1,",
+                    "advanced": "Step 2,",
+                    "coach": "Step 3,"
+                },
+                "module_name": {
+                    "base": "Step 1",
+                    "advanced": "Step 2",
+                    "coach": "Step 3"
+                }
+            }
+        },
+        "renaultcare": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filter by Basics"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "level Basics"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Basics,"
+                },
+                "module_name": {
+                    "base": "Basics"
+                }
+            }
+        },
+        "rexel": {
+            "filters": {
+                "coorpers": "Customer Centricity Community"
+            }
+        },
+        "samsung": {
+            "block_push": {
+                "tree": {
+                    "content": "Start Here!"
+                },
+                "battle": {
+                    "content": "Challenge your colleagues in “Battle” mode: answer the questions as quickly as possible!"
+                }
+            }
+        },
+        "schneider": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filter by Season 1",
+                    "advanced": "Filter by Season 2",
+                    "coach": "Filter by Season 3"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "level Season 1",
+                        "advanced": "level Season 2",
+                        "coach": "level Season 3"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Season 1,",
+                    "advanced": "Season 2,",
+                    "coach": "Season 3,"
+                },
+                "module_name": {
+                    "base": "Season 1",
+                    "advanced": "Season 2",
+                    "coach": "Season 3"
+                }
+            },
+            "filters": {
+                "all": "All",
+                "battles": "My Battles",
+                "coorpers": "IQ-ers",
+                "news": "News",
+                "courses": "My Lessons",
+                "continueLesson": "Resume my Course"
+            }
+        },
+        "securite": {
+            "navigation": {
+                "lessons": "All Courses"
+            },
+            "filters": {
+                "news": "Your Formation",
+                "coorpers": "MOOCers"
+            }
+        },
+        "silca": {
+            "navigation": {
+                "lessons": "All Courses"
+            },
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "sgmgt": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "societegenerale": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "sqy": {
+            "navigation": {
+                "lessons": "All courses"
+            },
+            "filters": {
+                "news": "Your Formation",
+                "coorpers": "MOOCers"
+            }
+        },
+        "tourismdigital": {
+            "filters": {
+                "coorpers": "Members"
+            }
+        },
+        "tagheuer": {
+            "badges": {
+                "level": {
+                    "bronze": "1ST GEAR",
+                    "silver": "3RD GEAR",
+                    "gold": "5TH GEAR",
+                    "platinum": "7TH GEAR"
+                }
+            },
+            "filters": {
+                "coorpers": "TAG Heuer Community"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "level Titanium",
+                        "advanced": "level Bronze",
+                        "coach": "level Silver"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "Filter by Titanium",
+                    "advanced": "Filter by Bronze",
+                    "coach": "Filter by Silver"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Titanium,",
+                    "advanced": "Bronze,",
+                    "coach": "Silver,"
+                },
+                "module_name": {
+                    "base": "Titanium",
+                    "advanced": "Bronze",
+                    "coach": "Silver"
+                }
+            }
+        },
+        "tagheuercon": {
+            "badges": {
+                "level": {
+                    "bronze": "1ST GEAR",
+                    "silver": "3RD GEAR",
+                    "gold": "5TH GEAR",
+                    "platinum": "7TH GEAR"
+                }
+            },
+            "filters": {
+                "coorpers": "Community of Learners"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "level Titanium",
+                        "advanced": "level Bronze",
+                        "coach": "level Silver"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "Filter by Titanium",
+                    "advanced": "Filter by Bronze",
+                    "coach": "Filter by Silver"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Titanium,",
+                    "advanced": "Bronze,",
+                    "coach": "Silver,"
+                },
+                "module_name": {
+                    "base": "Titanium",
+                    "advanced": "Bronze",
+                    "coach": "Silver"
+                }
+            }
+        },
+        "tourism": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "up": {
+            "personal_selection": {
+                "text_helper": "3 levels suggested, depending on your path!",
+                "popular_module_helper": "Need inspiration? Check out what everyone else is doing by selecting the most popular.",
+                "last_module": "Last Level Played",
+                "no_module": "No module has been played",
+                "popular_module": "Most Played Courses",
+                "easiest_disciplines": "Easiest Courses",
+                "hardest_disciplines": "Hardest Courses",
+                "no_popular_module": "No level has been played"
+            },
+            "select_module": {
+                "title": "Choose a level",
+                "availability": "{{count}} level available",
+                "availability_plural": "{{count}} level available",
+                "no_module_available": "You can only create a battle on a finished level."
+            },
+            "notificationCard": {
+                "request": "{{module}} course {{level}} level",
+                "battle": {
+                    "against": "{{module}} course {{level}} level"
+                },
+                "forum_text": "There is 1 new answer to your comment regarding to the {{module}} course {{level}} level",
+                "module": {
+                    "text": {
+                        "detail": "the level"
+                    }
+                },
+                "coach": {
+                    "text": "You have become a Coach in the {{disciplineName}} course."
+                },
+                "title": {
+                    "Module": "Level"
+                },
+                "type": {
+                    "module": "Level"
+                }
+            },
+            "navigation": {
+                "learningTree": {
+                    "helper": "Access all the courses of your pathway in 1 click",
+                    "push": "Access all your courses",
+                    "push_post": "in 1 click"
+                },
+                "account_helper": "Browse your personal space, find your results, manage your progress, participate in discussions, or simply follow the lessons before starting the course.",
+                "battle_helper": "Once you have finished a course, challenge all those who are on the same level as you in a small 10-question game!"
+            },
+            "activity": {
+                "progression_text_pre": "How is your progress going in your course?",
+                "discipline_title": "Course",
+                "disciplines": {
+                    "title": "Course"
+                },
+                "module_title": "Levels",
+                "caption-started": "Started Level",
+                "caption-done": "Finished Level"
+            },
+            "badges": {
+                "module": {
+                    "name": "Survivor",
+                    "details_0": {
+                        "module": "Level"
+                    },
+                    "details_1": {
+                        "module": "Levels"
+                    },
+                    "details_2": {
+                        "module": "Levels"
+                    },
+                    "details_3": {
+                        "module": "Levels"
+                    }
+                }
+            },
+            "battle": {
+                "start_discipline": "Start a course",
+                "no_opponent": "No opponent available for this level"
+            },
+            "notifications": {
+                "filters": {
+                    "module": "Filter by Course"
+                }
+            }
+        },
+        "yahoo": {
+            "badges": {
+                "subtitle-1-0": "View your progress in obtaining different badges."
+            },
+            "filters": {
+                "coorpers": "Community"
+            }
+        },
+        "capgemini": {
+            "navigation": {
+                "certifications": "My Digicertif'"
+            }
+        },
+        "cnp": {
+            "navigation": {
+                "certifications": "Certificate"
+            },
+            "sections": {
+                "certification": "Certificate: {{name}}"
+            }
+        },
+        "ecolenumerique-sncf": {
+            "navigation": {
+                "certifications": "Jedi Badges"
+            },
+            "sections": {
+                "certification": "Jedi Badge: {{name}}"
+            }
+        },
+        "ganprevoyance": {
+            "navigation": {
+                "certifications": "Universes"
+            },
+            "sections": {
+                "certification": "Universe: {{name}}"
+            }
+        },
+        "who": {
+            "slider": {
+                "battle": {
+                    "surtitle": "Welcome back {{displayName}}, check your challenge requests",
+                    "title": "You have {{count}} challenge request!",
+                    "title_plural": "You have {{count}} challenge requests!",
+                    "cta": "Start Challenging"
+                }
+            },
+            "discussion": {
+                "title": "Module Feedback",
+                "subtitle": "See All the Messages Left by the Community on the Different Modules"
+            },
+            "battle_start": {
+                "title": "Your challenge is about to begin."
+            },
+            "select_module": {
+                "no_module_available": "You can only create a challenge in a finished module."
+            },
+            "success_battle": {
+                "title": "Challenge over!",
+                "badge_user": {
+                    "award": "- 3 challenges"
+                },
+                "badge_opponent": {
+                    "award": "- 3 challenges"
+                },
+                "winStars": "You won {{count}} additional star with this challenge!",
+                "winStars_plural": "You won {{count}} additional stars with this challenge!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "Challenge"
+                },
+                "coach": {          
+                    "text": "You have completed the course {{disciplineName}}."
+                },
+                "battle": {
+                    "text": "You've received 1 new challenge",
+                    "demand_accept": "Your challenge",
+                    "win_against_title": "You won the challenge!",
+                    "loose_against_title": "You lost the challenge!"
+                },
+                "reward": {
+                    "resource": {
+                        "title": "Congratulations! You can access a new badge!"
+                    }
+                },
+                "type": {
+                    "battle": "Challenge"
+                },
+                "forum_text_page": "There is 1 new reply to your comment"
+            },
+            "navigation": {
+                "battle_pre": "Challenge Mode",
+                "battle": "Challenge your colleagues in “Challenge” mode: answer the questions as quickly as possible!"
+            },
+            "filters": {
+                "battles": "MY CHALLENGES",
+                "coorpers": "QR DEFENDERS"
+            },
+            "badges": {
+                "battle": {
+                    "name": "CHALLENGE SEEKER",
+                    "details": "{{count}} Challenge",
+                    "details_plural": "{{count}} Challenges"
+                },
+                "module": {
+                  "name": "Star"
+                },
+                "coach": {
+                    "name": "CONNECTOR"
+                },
+                "question": {
+                    "name": "QUIZ MASTER"
+                }
+            },
+            "battle": {
+                "title": "Challenge mode",
+                "create": "Create a challenge",
+                "requests": {
+                    "title":"Challenge requests",
+                    "no_requests_found": "You don't have any challenge request yet"
+                },
+                "history": {
+                    "title": "Challenge history",
+                    "message":{
+                        "pending" : "This challenge awaiting opponent's approval",
+                        "win": "You won the challenge!",
+                        "lost": "You lost the challenge!"
+                    },
+                    "no_history_found": "You don't have any challenge history yet"
+                },
+                "start": {
+                    "cta": "Start <span class=\"bold\">Challenge</span>",
+                    "new_cta": "Create a new <span class=\"bold\">Challenge</span>"
+                },
+                "steps": {
+                    "3": "3. Start the challenge"
+                },
+                "select_module": {
+                    "no_module_available": "You can only create a challenge in a finished module."
+                },
+                "button": {
+                    "create": "Create a New Challenge"
+                },
+                "no_battle_progress": "You have no challenges in progress.",
+                "block": {
+                    "title": "Challenge Requests"
+                },
+                "no_proposition": "You have not received any challenge requests.",
+                "completed": {
+                    "title": "completed Challenges",
+                    "subtitle": "{{count}} challenge, winning {{nb}}",
+                    "subtitle_plural": "{{count}} challenges, winning {{nb}}"
+                },
+                "block_empty": "You have no finished challenges.",
+                "create_title": "Create Challenge",
+                "active_title_intro": "Challenge Mode",
+                "coming_soon_random": "Start a Random Challenge"
+            },
+            "dashboard": {
+                "text": "The Space Race! You can win by correctly answering the questions, by following the lessons, or by socialising (via challenges and training)!"
+            }
+        }
+    }
+}

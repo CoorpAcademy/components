@@ -1,0 +1,201 @@
+{
+    "title": "내 자격증",
+    "subtitle_head1": "하나 이상의 자격증을 선택하고 선택된 영역 또는 주제에 관한 실력을 향상시키세요.",
+    "subtitle_head2": "자격증 모듈 시작하기.",
+    "how_to": "자격증을 얻으시려면 모든 모듈을 완료 해야 합니다. 이제 시작하죠!",
+    "button_choose_goal": "자격증을 선택하세요.",
+    "selected_goals_title": "{{goals}} 현재 자격증",
+    "selected_goals_title_plural": "{{goals}} 현재 자격증",
+    "selected_goals_no_item": "선택된 자격증이 없읍니다. 하나를 선택 하십시오!",
+    "finished_goals_title": "{{goals}} 통과한 자격증",
+    "finished_goals_title_plural": "{{goals}} 통과한 자격증",
+    "finished_goal_label": "{{goalLabel}} {{star}}",
+    "finished_goals_no_item": "아직 어떤 자격증을 취득하지 않으셨습니다.",
+    "button_module_access": "지금 시작하기",
+    "minutes_label": "분",
+    "status_label": "상태:",
+    "stars_label": "{{stars}} 별",
+    "stars_label_plural": "{{stars}} 별",
+    "popover": {
+        "title": "조심하세요!",
+        "module_blocked_pre": "이 모듈은 사용할 수 없습니다.",
+        "module_blocked_post": "{{pre}} 그것을 달성 하기 위해 먼저 {{level}} 레벨을 마치셔야 합니다.",
+        "select_goal": {
+            "title": "자격증을 선택 하십시오",
+            "available_module": "{{total}} 가능한 자격증",
+            "available_module_plural": "{{total}} 가능한 자격증",
+            "module_done": "이 모듈은 이미 마치셨습니다. 곧 자격증을 얻으실 것 입니다.",
+            "module_blocked": "이 모듈 아직 사용할 수 없습니다. 잠금을 해제 하려면 먼저 기초 또는 고급 레벨을 마치셔야 합니다.",
+            "button_add_goal": "내 자격증 확인하기."
+        }
+    },
+    "condition_progress": {
+        "information": "총 {{total}} 개 제안 된 모듈들중 {{done}}개를 마치셨습니다."
+    },
+    "certification": {
+        "title": "귀하의 자격증",
+        "title_plural": "귀하의 자격증",
+        "subtitle": "이 자격증으로 실력을 확인하세요",
+        "subtitle_plural": "이 자격증들로 실력을 확인하세요",
+        "rewards": {
+            "subtitle": "상",
+            "see_detail": "보기",
+            "congratulations": "성공을 축하합니다!",
+            "you_can_win": "승",
+            "download_resource": "다운로드하려면 여기를 클릭하십시오.",
+            "see_diploma": "졸업장 보기",
+            "access_your_diploma": "귀하의 졸업장에 가기"
+        },
+        "stars": {
+            "description_pre": "가져오기",
+            "description_post": "별들"
+        },
+        "state": {
+            "done": "완료!",
+            "inProgress": "진행 중"
+        },
+        "condition_description": {
+            "progress": "목표: 모듈 {{count}} 개",
+            "progress_plural": "목표: 모듈 {{count}} 개"
+        },
+        "certificationDone": "축하합니다! {{certificationName}} 자격증을 취득 하셨습니다! "
+    },
+    "diploma": {
+        "certificate": "자격증",
+        "date": "날짜: {{date}}",
+        "message": "이 인증서에 관련 된 모든 모듈을 완료 했습니다."
+    },
+    "custom": {
+        "ecolenumerique-sncf": {
+            "certification": {
+                "title": "제다이 배지",
+                "title_plural": "제다이 배지",
+                "certificationDone": "축 하! {{certificationName}} 배지 획득 했습니다!",
+                "subtitle": "제다이 배지 여기를 확인합니다",
+                "subtitle_plural": "여기에 제다이 배지를 확인"
+            }
+        },
+        "ganprevoyance": {
+            "certification": {
+                "title": "우주",
+                "title_plural": "우주",
+                "certificationDone": "축 하! {{certificationName}} 우주 확인 한!",
+                "subtitle": "여기 당신의 우주를 확인",
+                "subtitle_plural": "여기 당신의 우주를 확인"
+            }
+        },
+        "cnp": {
+            "certification": {
+                "title": "인증서",
+                "title_plural": "인증서",
+                "certificationDone": "축 하! {{certificationName}} 인증서의 유효성을 검사 했습니다!",
+                "subtitle": "여기에 귀하의 인증서의 유효성을 검사합니다",
+                "subtitle_plural": "여기 당신의 인증서 유효성"
+            }
+        },
+        "pernod": {
+            "title": "내 목표입니다.",
+            "subtitle_head1": "하나 이상의 목표를 선택 하 고 선택된 영역 및 주제에 실력을 향상 하도록.",
+            "subtitle_head2": "목표에 포함 되어 그 중 모듈 시작.",
+            "how_to": "목표를 확인, 모든 모듈을 완료 해야 합니다. 시작 하자!",
+            "button_choose_goal": "목표를 선택 합니다.",
+            "selected_goals_title": "{{목표}} 현재 목표",
+            "selected_goals_title_plural": "{{목표}} 현재 목표",
+            "selected_goals_no_item": "아무 목표 선택 됩니다. 하나를 선택 하십시오!",
+            "finished_goals_title": "{{목표}}  허가 목적",
+            "finished_goals_title_plural": "{{목표}}  취소 목표",
+            "finished_goal_label": "{{goalLabel}} {{스타}}",
+            "finished_goals_no_item": "당신은 아직 어떤 목표를 통과 하지 않았습니다.",
+            "button_module_access": "지금 시작",
+            "minutes_label": "분",
+            "status_label": "상태:",
+            "stars_label": "{{stars}} 스타",
+            "stars_label_plural": "{{stars}} 받음",
+            "popover": {
+                "title": "조심하세요!",
+                "module_blocked_pre": "이 모듈은 사용할 수 없습니다.",
+                "module_blocked_post": "{{사전}} 그것을 달성 하기 위해 먼저 수준 {{수준}}를 확인 해야 합니다.",
+                "select_goal": {
+                    "title": "목표를 선택 하십시오",
+                    "available_module": "{{전체}} 사용 가능한 목표",
+                    "available_module_plural": "{{전체}} 사용 가능한 목표",
+                    "module_done": "이 모듈은 이미 삭제 되었습니다. 목표를 달성 하는 방법에 있습니다.",
+                    "module_blocked": "이 모듈 아직 사용할 수 없습니다. 잠금을 해제 하려면 먼저 기본 또는 고급 수준을 취소 해야 합니다.",
+                    "button_add_goal": "내 목표를 확인 합니다."
+                }
+            },
+            "condition_progress": {
+                "information": "당신은 완료 {{완료}} {{전체}} 제안 된 모듈의."
+            },
+            "certification": {
+                "title": "당신의 목표",
+                "subtitle": "Valide 이러한 목적을가지고 실력",
+                "rewards": {
+                    "subtitle": "보상",
+                    "see_detail": "참조",
+                    "congratulations_pre": "그리고 우리의",
+                    "congratulations": "congralutations",
+                    "congratulations_post": "귀하의 모든 노력에 대 한"
+                },
+                "stars": {
+                    "description_pre": "우리는 당신을 주고는",
+                    "description_post": "받음"
+                },
+                "state": {
+                    "done": "완료",
+                    "inProgress": "진행 중"
+                },
+                "condition_description": {
+                    "progress": "{{nbDone}} 모듈 완료"
+                },
+                "certificationDone": "축 하! {{CertificationName}} 목표를 획득 했습니다!"
+            }
+        },
+        "sgmgt": {
+            "diploma": {
+                "message": "프로젝트 관리 교육의 틀 안에서 필요한 proficiencies의 모든 단계를 완료"
+            }
+        },
+        "securite": {
+            "diploma": {
+                "message": "이 인증서에 관련 된 모든 모듈을 완료 했습니다."
+            }
+        },
+        "projet": {
+            "diploma": {
+                "message": "프로젝트 관리 교육의 틀 안에서 필요한 proficiencies의 모든 단계를 완료"
+            }
+        },
+        "tagheuer": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "이 모듈에 아직 접속할 수 없습니다. 잠금을 해제하려면 먼저 티타늄 또는 청동 레벨을 통과해야 합니다."
+                }
+            }
+        },
+        "tagheuercon": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "이 모듈에 아직 접속할 수 없습니다. 잠금을 해제하려면 먼저 티타늄 또는 청동 레벨을 통과해야 합니다."
+                }
+            }
+        },
+        "up": {
+            "subtitle_head2": "목표에 포함 되어 그 중 레벨을 시작 합니다.",
+            "how_to": "목표를 확인, 모든 레벨을 완료 해야 합니다. 시작 하자!",
+            "popover": {
+                "module_blocked_pre": "이 레벨는 사용할 수 없습니다.",
+                "select_goal": {
+                    "module_done": "이 레벨은 이미 완료 되었습니다. 곧 목표를 달성 하실 것있니다.",
+                    "module_blocked": "이 수준은 아직 사용할 수 없습니다. 잠금을 해제 하려면 먼저 기본 또는 고급 수준을 취소 해야 합니다."
+                }
+            },
+            "certification": {
+                "condition_description": {
+                    "progress": "대상: {{count}} 분야",
+                    "progress_plural": "목표: 분야 {{count}} 개"
+                }
+            }
+        }
+    }
+}

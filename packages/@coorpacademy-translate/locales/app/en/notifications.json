@@ -1,0 +1,59 @@
+{
+    "battle": {
+        "incoming": "You have {{count}} pending battle.",
+        "incoming_plural": "You have {{count}} pending battles.",
+        "you_win": "You won a battle",
+        "you_lose": "You lost a battle"
+    },
+    "badge": {
+        "won": "You have won the {{name}} badge"
+    },
+    "module": {
+        "won": "You have passed a module"
+    },
+    "reward": {
+        "won": "Congratulations! Your efforts have been rewarded!"
+    },
+    "coach": {
+        "unlocked": "You have become a Coach"
+    },
+    "incoming": "You have a new notification",
+    "chatrequest": "New chat request",
+    "goal": {
+        "progress": "You have advanced in your certification",
+        "select": "You have selected a certification",
+        "reward": "You have earned a certification"
+    },
+    "forum": "A user has answered your question",
+    "new_version": {
+        "title": "New version",
+        "message": "A new version of this platform has been released.",
+        "action": "Refresh"
+    },
+    "welcome": "welcome <b>{{user}}</b>, you can now access all courses",
+    "personal_note": "Your note was sent to your email address.",
+    "bonusStars": "Congratulations ! You have won {{stars}} additional stars!",
+    "rewardStars": "Congratulations ! You have won {{stars}} additional stars!",
+    "custom": {
+        "armeedeterre":{
+            "battle": {
+                "incoming": "You have {{count}} pending battle.",
+                "incoming_plural": "You have {{count}} pending battles.",
+                "you_win": "You won a battle",
+                "you_lose": "You lost a battle"
+            }
+        },      
+        "pernod": {
+            "goal": {
+                "progress": "You have modified a goal",
+                "select": "You have selected a goal",
+                "reward": "You have unblocked a goal"
+            }
+        },
+        "up": {
+            "module": {
+                "won": "You have completed a level"
+            }
+        }
+    }
+}

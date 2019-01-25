@@ -1,0 +1,440 @@
+{
+    "content": {
+        "types": {
+            "course": "课程",
+            "course_plural": "赛跑",
+            "adaptive_chapter": "适应性章节",
+            "adaptive_course": "自适应课程",
+            "adaptive_course_plural": "适应性课程",
+            "cursus": "课程",
+            "cursus_plural": "cursuses",
+            "chapter": "章节",
+            "chapter_plural": "章节"
+        },
+        "sorts": {
+            "title": "排序方式:",
+            "cta": "排序",
+            "tab": "排序方式",
+            "pertinence": "关联",
+            "newest": "最新",
+            "duration": "最短"
+        },
+        "filters": {
+            "cta": "选择",
+            "tab": "选择",
+            "authors": "作者:",
+            "authorTypes": "内容类别",
+            "skills": "技巧",
+            "type": "类型：",
+            "themes": "集合：",
+            "goals": "证书:",
+            "time": "时间：",
+            "learning_paths": "学习路径：",
+            "all_authors": "所有作者",
+            "all_author_types": "所有类别",
+            "all_skills": "所有技巧",
+            "all_themes": "所有收藏",
+            "all_goals": "所有认证",
+            "all_courses": "全部课程",
+            "microlearning": "5' Learning",
+            "all": "所有",
+            "courses": "赛跑",
+            "my_favorites": "我的清单："
+        },
+        "notification": {
+            "addFavorite": "已添加到您的清单",
+            "removeFavorite": "已从您的清单删除"
+        },
+        "search": {
+            "placeholder": "你想学些什么？"
+        },
+        "catalog": "目录",
+        "result": "{{title}}：{{count}}结果",
+        "result_plural": "{{title}}：{{count}}个结果",
+        "noresultsfound": "对不起没有结果可用",
+        "clearFilters": "重启",
+        "recommended": "发现为你推荐的课程：",
+        "new": "新"
+    },
+    "author": {
+        "socialTitle": "社会：",
+        "cardsTitle": "来自{{author}}的所有课程",
+        "website": "网站：",
+        "notFound": "作者 ({{authorRef}}) 未找到",
+        "more": "作者细节",
+        "customCustomer": "{{name}} 创建",
+        "types": {
+            "coorp": "Coorp Originals",
+            "verified": "Verified by Coorp",
+            "marketplace": "其它",
+            "custom": "{{name}} 创建"
+        }
+    },
+    "unit": {
+        "duration_minutes_set": "{{m}}分钟",
+        "duration_minutes_set_plural": "{{m}} 分钟",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}} 小时 $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}} 小时 $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "shortUnit": {
+        "duration_minutes_set": "{{m}}m",
+        "duration_minutes_set_plural": "{{m}}m",
+        "duration_minutes_with_hours_set": "{{m}}",
+        "duration_minutes_with_hours_set_plural": "{{m}}",
+        "duration_minutes_with_hours_none": "‌",
+        "duration_minutes_with_hours_none_plural": "‌",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}}h$t(shortUnit.duration_minutes_with_hours, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}}h$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "module_level": {
+        "1": "$t(global:module_level.base)",
+        "2": "$t(全球：模块_等级.高级)",
+        "3": "$t(全球:模块_等级.教练)",
+        "base": "基本",
+        "advanced": "高级",
+        "coach": "教练"
+    },
+    "progression_status": {
+        "not_started": "未开始",
+        "in_progress": "进行中",
+        "completed": "已完成"
+    },
+    "close": "关闭",
+    "skipIntro": "跳过介绍",
+    "route": {
+        "initialized": "该显示器现在已设置好。",
+        "error": {
+            "401": "你好像失去了连接。",
+            "402": "需要付款",
+            "403": "你不能这么做。",
+            "404": "知道吗？404 错误代码意味着页面未找到。",
+            "409": "您知道吗?409 错误代码意味着您的数据发生冲突。",
+            "500": "你知道吗？一个 500 错误代码意味着服务器出现了问题。",
+            "api": "出现了一个错误。服务器已启动，但应用程序无法正常运行。",
+            "default": "发生错误。"
+        }
+    },
+    "loading": "加载中……",
+    "htmlTitle": "CoorpAcademy",
+    "hero": {
+        "cta": "开始学习"
+    },
+    "cookiesDisabled": {
+        "title": "Cookie已停用",
+        "error": "您的Cookie已被禁用或阻止。 请重新启用或配置您的AdBlocker"
+    },
+    "chatbot": {
+        "welcome": {
+            "default": "Welcome on Coorpacademy. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin.",
+            "facebook": "Hello and welcome to Coorpacademy! I can ask you question of our online courses. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin. If you're looking for some other informations you can contact us at communication@coorpacademy.com."
+        },
+        "ask_question": {
+            "repeat_header_1": "问题：{{question}}。",
+            "repeat_header_2": "问题：{{question}}。",
+            "repeat_header_3": "问: {{question}}。",
+            "repeat_header_4": "没关系。 {{question}}。",
+            "repeat_header_5": "我重复: {{question}}。"
+        },
+        "next_action": {
+            "question_next": "请求“下一个问题”继续。",
+            "answer_next": "答案是什么 ？",
+            "wrong_answer_next": "说'为什么'得到一些解释或'下一步'继续。"
+        },
+        "answer_question": {
+            "is_valid": {
+                "title_1": "好极啦！",
+                "title_2": "没错！",
+                "title_3": "回答正确：",
+                "title_4": "是!",
+                "title_5": "完成！"
+            },
+            "is_invalid": {
+                "title_1": "点也不！答案是: {{answer}}。",
+                "title_2": "点也不！答案是: {{answer}}。",
+                "title_3": "糟糕的回答!你应该说: {{answer}}。",
+                "title_4": "点也不！答案是: {{answer}}。",
+                "title_5": "点也不！答案是: {{answer}}。"
+            }
+        },
+        "error": {
+            "not_found": "对不起，我没有发现任何问题。 请尝试与其他任何主题。"
+        }
+    },
+    "demo": {
+        "url": "https://www.coorpacademy.com/en/request-a-demo/?utm_source=Up&utm_medium={{medium}}"
+    },
+    "custom": {
+        "7steps": {
+            "module_level": {
+                "base": "Why",
+                "advanced": "Empathy",
+                "coach": "Show me"
+            }
+        },
+        "loreal-retail-v2": {
+            "module_level": {
+                "base": "Why",
+                "advanced": "Empathy",
+                "coach": "Show me"
+            }
+        },
+        "accueil": {
+            "htmlTitle": "在线课程Accueil法国"
+        },
+        "achat-habitat": {
+            "htmlTitle": "Mooc Achat Habitat",
+            "module_level": {
+                "base": "基本",
+                "advanced": "高级",
+                "coach": "教练"
+            }
+        },
+        "adeo": {
+            "htmlTitle": "Adeo Training CPL"
+        },
+        "auchan-retail": {
+            "htmlTitle": "Auchan Retail QUIZZ"
+        },
+        "architas-powercircle": {
+            "htmlTitle": "POWERCIRCLE | FOCUS"
+        },
+        "bnp": {
+            "htmlTitle": "BNP Paribas Factor MOOC"
+        },
+        "bnpp-legal": {
+            "module_level": {
+                "coach": "Master"
+            }
+        },
+        "bestwesternuniversity": {
+            "htmlTitle": "Best Western University"
+        },
+        "capgemini": {
+            "htmlTitle": "COOC"
+        },
+        "cd78": {
+            "htmlTitle": "MOOC rSa"
+        },
+        "chanel": {
+            "htmlTitle": "iJoinCHANEL"
+        },
+        "clarins-digital": {
+            "htmlTitle": "Clarins Digital"
+        },
+        "crt": {
+            "htmlTitle": "CRT"
+        },
+        "coravin": {
+            "htmlTitle": "Coravin"
+        },
+        "corporateonlineopencourse": {
+            "module_level": {
+                "base": "基本"
+            },
+            "progression_status": {
+                "not_started": "注册",
+                "in_progress": "注册",
+                "completed": "已完成"
+            }
+        },
+        "dolce": {
+            "htmlTitle": "个人"
+        },
+        "eacampus": {
+            "htmlTitle": "EAcampus"
+        },
+        "ecolenumerique-sncf": {
+            "content": {
+                "filters": {
+                    "goals": "Jedi Badges:"
+                }
+            }
+        },
+        "edenred-talents": {
+            "htmlTitle": "Edenred Talents",
+            "module_level": {
+                "coach": "大使"
+            }
+        },
+        "ganprevoyance": {
+            "content": {
+                "filters": {
+                    "goals": "Universes:"
+                }
+            }
+        },
+        "faurecia": {
+            "htmlTitle": "Learning Lab"
+        },
+        "gdf": {
+            "htmlTitle": "WeTransform"
+        },
+        "gdfec": {
+            "htmlTitle": "企业和社区"
+        },
+        "hr-ac": {
+            "htmlTitle": "HR Academy"
+        },
+        "ilearn": {
+            "htmlTitle": "香奈儿 iLearn",
+            "module_level": {
+                "1": "必要",
+                "2": "高级",
+                "3": "专家",
+                "base": "必要",
+                "advanced": "高级",
+                "coach": "专家"
+            }
+        },
+        "learnnrj": {
+            "htmlTitle": "我学习能源"
+        },
+        "logisacademie": {
+            "htmlTitle": "Logis Académie"
+        },
+        "linxea": {
+            "htmlTitle": "LinXea Academy"
+        },
+        "manpower": {
+            "htmlTitle": "领导者影响力",
+            "module_level": {
+                "1": "基础",
+                "2": "专家",
+                "3": "教练",
+                "base": "基础",
+                "advanced": "专家",
+                "coach": "教练"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "htmlTitle": "Digital MOOC ATF"
+        },
+        "mooc-socgen": {
+            "htmlTitle": "Mooc Socgen",
+            "module_level": {
+                "base": "1级",
+                "advanced": "2级",
+                "coach": "3级"
+            }
+        },
+        "natixis": {
+            "htmlTitle": "Think Digital"
+        },
+        "nespresso": {
+            "module_level": {
+                "3": "专家",
+                "coach": "专家"
+            }
+        },
+        "nespressodigital": {
+            "htmlTitle": "数字学院"
+        },
+        "paca": {
+            "htmlTitle": "在线课程Paca"
+        },
+        "online-academy-klubschule": {
+            "module_level": {
+                "base": "初学者",
+                "advanced": "高级",
+                "coach": "专家"
+            }
+        },
+        "petite": {
+            "htmlTitle": "Chanel Petite Onboarding",
+            "module_level": {
+                "base": "模块 1",
+                "advanced": "模块 2",
+                "coach": "模块 3"
+            }
+        },
+        "quizz-auchan": {
+            "htmlTitle": "QUIZZ AUCHAN RETAIL"
+        },
+        "renaultrh": {
+            "module_level": {
+                "base": "步骤 1",
+                "advanced": "第2步",
+                "coach": "步骤 3"
+            }
+        },
+        "renaultcare": {
+            "module_level": {
+                "base": "基础知识"
+            }
+        },
+        "rexel": {
+            "htmlTitle": "Rexel 以顾客为中心"
+        },
+        "schneider": {
+            "module_level": {
+                "base": "第 1 季",
+                "advanced": "2 季度",
+                "coach": "第 3 季"
+            }
+        },
+        "tagheuer": {
+            "module_level": {
+                "base": "钛",
+                "advanced": "青铜",
+                "coach": "银"
+            }
+        },
+        "tagheuercon": {
+            "module_level": {
+                "base": "钛",
+                "advanced": "青铜",
+                "coach": "银"
+            }
+        },
+        "theglenlivet-academy": {
+            "htmlTitle": "The Glenlivet | ザ・グレンリベット アカデミー"
+        },
+        "tourism": {
+            "htmlTitle": "Tourism Academy"
+        },
+        "tourismdigital": {
+            "htmlTitle": "数字旅游"
+        },
+        "tourisme-hautsdefrance": {
+            "htmlTitle": "Tourisme Hauts-de-France"
+        },
+        "yahoo": {
+            "module_level": {
+                "base": "基本",
+                "advanced": "高级",
+                "coach": "教练"
+            }
+        },
+        "ey": {
+            "htmlTitle": "数字学院"
+        },
+        "thelem": {
+            "htmlTitle": "DigiPass#"
+        },
+        "letsgetdigital": {
+            "htmlTitle": "Let's get digital 2.0",
+            "module_level": {
+                "base": "LEARNER",
+                "advanced": "EXPERT",
+                "coach": "MASTER"
+            }
+        },
+        "who": {
+            "htmlTitle": "QualityRights",
+            "module_level": {
+                "advanced": "案例分析"
+            }
+        },
+        "triptorelin": {
+            "htmlTitle": "Triptorelin"
+        }
+    }
+}

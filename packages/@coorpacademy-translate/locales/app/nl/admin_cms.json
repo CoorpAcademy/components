@@ -1,0 +1,120 @@
+{
+    "cms": {
+        "add": "Onderdeel toevoegen",
+        "title": "Een nieuwe pagina toevoegen",
+        "lang": "Invoertaal:",
+        "name": "Naam:",
+        "scope": "Omtrek:",
+        "target": {
+            "title": "Doel:",
+            "empty": "Geen doelstelling",
+            "discipline": "Discipline",
+            "learningTree": "Catalogus"
+        },
+        "type": "Type:",
+        "order": "Volgorde:",
+        "active": "Actief:",
+        "populations": "Bevolking:",
+        "rmd": "Markdown",
+        "save": "Opslaan",
+        "delete": "Verwijderen",
+        "test": "Test",
+        "deploy": "Verzenden",
+        "delete_confirm": "Weet je zeker dat je deze pagina wilt verwijderen?",
+        "markdown": "De syntaxis van de markdown",
+        "quick": "Snelle referentie",
+        "path": "URL-toevoeging*:",
+        "full": "Volledige documentatie",
+        "preview": "Voorbeeld",
+        "edit": "Bewerken",
+        "notifications": "Aangepaste meldingen",
+        "content": "Inhoud:",
+        "config": "Globale instelling",
+        "targetBlank": "Open in nieuw tabblad:",
+        "forum_xid": "Forum-id",
+        "navigation": {
+            "label": "Om blok te ontdekken:",
+            "none": "Pagina zonder blok"
+        },
+        "provider": {
+            "none": "Iedereen"
+        },
+        "status": {
+            "ok": {
+                "title": "Succes",
+                "save": "Jouw pagina is opgeslagen",
+                "del": "Jouw pagina is verwijderd"
+            },
+            "test": {
+                "title": "Aan taak begonnen. Melding zal binnenkort zichtbaar zijn."
+            },
+            "deploy": {
+                "title": "Baan begonnen. Volg de voortgang op de takenpagina."
+            },
+            "ko": {
+                "title": "Fout",
+                "save": "Er is een fout opgetreden tijdens het opslaan: {{err}}",
+                "del": "Er is een fout opgetreden bij het verwijderen: {{err}}"
+            }
+        },
+        "title_content": "Titel:",
+        "category": "Categorie",
+        "select_all": "Alles selecteren",
+        "language_info": "Elk van de invoertaal die moet worden ingevuld voor elk land geactiveerd",
+        "imageURL": "Afbeeldings-URL",
+        "page": "Pagina:",
+        "link": "Link:",
+        "link_placeholder": "(ex: http://www.google.com)",
+        "partner": "Partner:",
+        "discipline_ref": "discipline.Ref",
+        "cancel": "Annuleren",
+        "date": "Datum:",
+        "image": "Afbeelding:",
+        "upload": "Uploaden",
+        "modify": "Wijzigen",
+        "countries": "Landen"
+    },
+    "success": "Jouw wijzigingen zijn opgeslagen.",
+    "error": {
+        "mandatory": "Ontbrekende velden"
+    },
+    "tabs": {
+        "pages": "Pagina's",
+        "news": "Nieuws",
+        "notification": "Aangepaste meldingen"
+    },
+    "page": {
+        "name": "{{name}}"
+    },
+    "notification": {
+        "new": "Deze melding is nog niet gemaakt. Vul in en sla het formulier op om deze te maken.",
+        "name": "{{name}}",
+        "provider": "Provider:",
+        "expires": "Vervaldatum *:",
+        "message": "Bericht",
+        "link": {
+            "show": "'Meer Info'-knop weergeven:",
+            "url": "Link:",
+            "target": "Open link op een nieuwe pagina:"
+        },
+        "status": {
+            "title": "Status",
+            "created": "Gemaakt",
+            "sending": "Verzenden: Een baan is het creëren van de kennisgevingen worden verzonden naar de gebruikers.",
+            "tested": "Getest",
+            "sent": "Verzonden aan geselecteerde gebruikers.",
+            "pending": {
+                "deploy": "Verzoek om uit te maken van kennisgeving voor geselecteerde gebruikers te sturen.",
+                "testing": "Wachten kennisgeving aan komt te staan.",
+                "delete": "Gelieve te wachten, kennisgeving gaat worden verwijderd.",
+                "save": "Gelieve te wachten, kennisgeving wordt opgeslagen"
+            },
+            "ok": {
+                "save": "Aanmelding opgeslagen",
+                "testing": "Getest",
+                "deploy": "Baan gelanceerd om meldingen te verzenden naar gebruikers"
+            }
+        }
+    },
+    "text": "<h2>Basis</h2> <p> \n   Harde return: eindig de regel met twee spaties<br />\n   Voeg HTML direct in: begin de regel met vier spaties<br />\n</p> <h2>Kopteksten</h2> <p>\n   # H1<br />\n   ## H2<br />\n   ### H3<br />\n</p> <h2>Accentuering</h2> <p>\n   Schuingedrukte woorden: *asterisken* of _underscores_.<br />\n   Vetgedrukte woorden: **dubbele asterisken** of __dubbele underscores__.<br />\n</p> <h2>Lijsten</h2> <p>\n   1. Eerste item op de lijst<br />\n   2. Een ander item<br />\n   ⋅⋅* Niet geordende sub-lijst.<br />\n   1. De eigenlijke getallen doen er niet toe, enkel dat het een getal is<br />\n   ⋅⋅1. Geordende sub-lijst<br />\n   4. En een ander item.<br />\n   <br />\n   ⋅⋅⋅Je kan goed opgezette alinea's hebben binnen de items van je lijst. Kijk naar de witregel erboven en de spatie aan het begin van de regel (minstens één, maar hier gebruiken we er drie om ook de ruwe Markdown in lijn te brengen).<br /><br />\n   ⋅⋅⋅Om een regeleinde te hebben zonder een alinea zal je twee spaties achteraan moeten gebruiken. <br />\n   ⋅⋅⋅Merk op dat deze regel apart staat, maar binnen dezelfde alinea. <br />\n   ⋅⋅⋅(dit in tegenstelling tot het typische GFM-gedrag bij regelafbreking, waar de spaties aan het einde niet nodig zijn.)\n<br />\n   <br />\n   * Ongeordende lijsten kunnen asterisken gebruiken<br />\n   - Of mintekens<br />\n   + Of plustekens<br />\n</p> <h2>Links</h2> <p>\n   [Ik ben een inline-stijl link]\n(https://www.google.com)<br /><br /> \n   [Ik ben een inline-stijl link met titel]\n(https://www.google.com \"Google's Homepage\")<br /><br />\n   [Ik ben een link in referentie-stijl][Arbitraire onafhankelijke referentietekst]<br /><br />\n   [Ik ben een relatieve referentie naar een opslagbestand] \n(../blob/master/LICENSE)<br /><br />\n   [Je kan getallen gebruiken voor referentie-stijl linkdefinities][1]<br /><br />\n   Of laat het leeg en gebruik de [linktekst zelf]<br /><br />\n   Wat tekst om aan te tonen dat de referentielinks later kunnen volgen. \n</p> <h2>Ankers</h2> <p>\n   <h3>Zet het anker</h3>\n   Je moet de HTML syntax gebruiken om een ID te creëren op de tag waar je het anker op wil zetten.<br/></br>\n   Voorbeeld:</br>\n   Als je een anker op een H1-tag wil zetten, moet je: <b>&lt;h1 id=\"my_anchor\"&gt;Anchor Text&lt;/h1&gt;</b>\n   <br/></br>\n   <h3>Gebruik het anker</h3>\n   Met een <b>a</b> tag moet je href zetten met een waarde zoals deze: <b>/pages/[url_suffix_page]#[the_anchor]</b>.<br/><br/>\n   <li><b>url_suffix_page</b> van de pagina waar de ankers gezet werden. Dit is de eerst gevulde inputtekst na het creëren van een pagina om een url te genereren.</li>\n   <li><b>de_anchor</b> de ID-waarde van de tag waar de anchor werd geplaatst.</li>\n   <br/></br>\n   Voorbeeld: </br>\n   Om de anchorset vooraf te gebruiken gebruik je: <b>&lt;a href=\"/pages/page_url#my_anchor\"&gt;Link Text&lt;/a&gt;</b></br>\n   of <b>[Link Text](/pages/page_url#my_anchor)\n</b>\n</p> <h2>Afbeeldingen</h2> <p>\n   Hier is ons logo (wijs aan om de titeltekst te zien):<br /><br />\n   Inline-stijl:<br />\n   ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png \"Logo Title Text 1\")<br />\n<br />\n   Referentie-stijl:<br />\n   ![alt text][logo]<br />\n</p> <h2>Tableaus</h2> <p>\n   De dubbele punt kan gebruikt worden om kolommen uit te lijnen.<br />\n   <br />\n    | Tabellen    |     Zijn      | Cool  |<br />\n    | ------------- |:-------------:| -----:|<br />\n    | kol. 3 is      | rechts uitgelijnd | $1600 |<br />\n    | kol. 2 is      |  gecentreerd  |   $12 |<br />\n    | zebrastrepen |   zijn top   |    $1 |<br />\n    <br />\n   De buitenste strepen (|) zijn optioneel, en je hoeft de ruwe Markdown regel niet netjes op te maken. Je kan ook inline Markdown gebruiken. <br />\n   <br />\n       Markdown | Minder| Mooi<br />\n    --- | --- | ---<br />\n    *Weergave* | `is` | **prima**<br />\n    1 | 2 | 3<br />\n</p> <h2> Inline HTML </h2> <p> <dl>\n   <dt> Definitielijst</dt><br />\n   <dd>Is iets dat mensen soms gebruiken.</dd><br /><br />\n\n   <dt>Markdown in HTML</dt><br />\n   <dd>Werkt *niet* **heel** goed. Gebruik HTML <em>tags</em>.</dd><br />\n</dl> </p>"
+}

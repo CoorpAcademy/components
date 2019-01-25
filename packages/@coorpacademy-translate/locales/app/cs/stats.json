@@ -1,0 +1,189 @@
+{
+    "not_a_number": "<not available>",
+    "target": "Cíl:",
+    "export": {
+        "csv": "CSV",
+        "pdf": "PDF",
+        "excel": "Excel"
+    },
+    "info": {
+        "launch_date": "Datum spuštění",
+        "targeted_users": "Cílová populace"
+    },
+    "navigation": {
+        "every": "Všechny",
+        "every-except-coorp": "Vše kromě Coorpacademy",
+        "engagement": "zapojení",
+        "dashboard": "celkový pohled",
+        "users": "uživatelem",
+        "content": "obsah",
+        "battles": "podle bitev",
+        "exports": "exporty",
+        "behavioral": "chování"
+    },
+    "since": {
+        "last_week": "posledních 7 dní",
+        "last_month": "posledních 30 dní",
+        "beginning": "spustit"
+    },
+    "users": {
+        "roles": {
+            "header": "Role",
+            "button": "Uložit",
+            "saved": "Role aktualizovány o úspěch pro {{displayName}}.",
+            "cms": "Cms",
+            "moderator": "Moderátor fóra",
+            "rh": "Rh",
+            "godmode": "Božský mód",
+            "supercoach": "Superkouč"
+        },
+        "tab": {
+            "ranking": "Pořadí uživatele",
+            "activity": "Aktivita"
+        },
+        "back": "Zpět na vyhledávání",
+        "entity": "Společnost",
+        "title": "Funkce",
+        "cnx": {
+            "first": "Datum prvního připojení",
+            "last": "Datum posledního připojení"
+        },
+        "general": {
+            "header": "Celková aktivita",
+            "total_cnx": "Celkový počet připojení",
+            "total_validated_disciplines": "Celkem získaných disciplin",
+            "total_validated_modules": "Celkový počet získaných modulů",
+            "modules_validated_per_total": "počet archivovaných modulů / celkový počet modulů",
+            "ranking": "Hodnocení",
+            "never": "Nikdy"
+        },
+        "sociability": {
+            "header": "Společenskost",
+            "posts": {
+                "count": "{{nb}} příspěvek",
+                "count_plural": "Počet příspěvků: {{nb}}",
+                "answers": "včetně {{nb}} odpovědět jinému uživateli",
+                "answers_plural": "zahrnuje {{nb}} odpovědi ostatním uživatelům"
+            },
+            "battles": {
+                "count": "{{nb}} bitva",
+                "count_plural": "{{nb}} bitev",
+                "won": "včetně {{nb}} vítězných bitev",
+                "won_plural": "zahrnuje {{nb}} vyhraných bitev"
+            },
+            "coach": {
+                "disciplines": "Školitel disciplíny {{nb}}",
+                "disciplines_plural": "Trenér pro {{nb}} disciplíny",
+                "interactions": "{{nb}} interakce s trenéry",
+                "interactions_plural": "{{nb}} interakcí s trénérem"
+            },
+            "completion": {
+                "total_label": "Celkem dokončeno:",
+                "total": "{{ratio}}%",
+                "modules_tried_label": "Vyzkoušeno modulů:",
+                "modules_tried": "{{totalTriedModules}}/{{nbModules}}",
+                "average_completion_label": "Dokončení/pokus:",
+                "average_completion": "{{ratio}}%"
+            }
+        },
+        "progression": {
+            "filter": "Filtrování disciplín",
+            "filterPlaceholder": "Klíčová slova pro filtrování disciplín",
+            "th": {
+                "discipline": "Disciplína",
+                "hidden": "Skrytý",
+                "level": "Úroveň",
+                "module_progression": "% úspěchu",
+                "status": "Status",
+                "score": "Skóre"
+            }
+        },
+        "time": {
+            "header": "doba připojení",
+            "totalTime": "Kumulované trvání",
+            "validatedTime": "Ověřené trvání"
+        },
+        "license": {
+            "label": "Oprávnění",
+            "button": "Deaktivovat",
+            "active": "Aktivní",
+            "inactive": "Neaktivní"
+        },
+        "deactivate": {
+            "confirm": "Zadejte prosím „ano“ pro potvrzení deaktivace účtu",
+            "confirm_word": "ano",
+            "account_deactivated": "Váš účet byl deaktivován."
+        },
+        "connectAs": "Připojit se jako",
+        "bonusStars": {
+            "buttonPositive": "Přidat",
+            "buttonNegative": "Odstranit",
+            "required": "Zadejte, kolik hvězdiček se má přidat",
+            "notANumber": "Hvězdy musí být celé číslo",
+            "confirm": "Zadejte prosím „bonus“, čímž potvrdíte přidání nebo odpočet hvězdiček",
+            "confirm_word": "bonus",
+            "starsAdded": "Právě jste uživateli {{displayName}} přidali {{count}} hvězdiček",
+            "starsAdded_plural": "Právě jste uživateli {{displayName}} přidali {{count}} hvězdiček",
+            "starsRemoved": "Uživateli {{displayName}} jste sebrali {{count}} hvězdičky",
+            "starsRemoved_plural": "Právě jste uživateli {{displayName}} sebrali {{count}} hvězdičky."
+        }
+    },
+    "exports": {
+        "export": "Export",
+        "querySent": "Zpráva se připravuje. Brzy byste ji měli dostat e-mailem.",
+        "global": {
+            "title": "Uživatelé exportovat na požádání",
+            "introduction": "Tato funkce umožňuje exportovat všechna data o uživatelích platformy."
+        },
+        "battles": {
+            "title": "Bitva exportu na vyžádání",
+            "introduction": "Tato funkce umožňuje exportovat všechny údaje o bitvách na platformě."
+        },
+        "history": {
+            "title": "Exportuje historie",
+            "introduction": "Tato funkce umožňuje načíst všechny denní data",
+            "users": "Uživatelé",
+            "battle": "Bitva",
+            "analytics": "progrese",
+            "filter_by": "filtrovat podle"
+        }
+    },
+    "custom": {
+        "up": {
+            "navigation": {
+                "modules": "podle úrovně"
+            },
+            "modules": {
+                "header": {
+                    "discipline": "Kurz"
+                },
+                "module": {
+                    "media_views": {
+                        "title": "Lekce mediální prohlížení rychlost podle úrovně"
+                    }
+                }
+            },
+            "users": {
+                "general": {
+                    "total_validated_disciplines": "Celkový počet kurzů dosaženo",
+                    "total_validated_modules": "Celkové úrovně dosaženo",
+                    "modules_validated_per_total": "# dosáhnout úrovně / # celkové úrovně"
+                },
+                "sociability": {
+                    "coach": {
+                        "disciplines": "Trenér na hřiště {{nb}}",
+                        "disciplines_plural": "Trenér na hřiště {{nb}}"
+                    },
+                    "completion": {
+                        "modules_tried_label": "úrovně se snažil:"
+                    }
+                },
+                "progression": {
+                    "th": {
+                        "discipline": "Kurz"
+                    }
+                }
+            }
+        }
+    }
+}

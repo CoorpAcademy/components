@@ -1,0 +1,31 @@
+{
+    "rankPos": "º",
+    "rankPos_plural": "ª",
+    "title": "Minha classificação",
+    "title_caps": "Minha classificação",
+    "subtitle_head": "Visualize sua posição em relação aos 20 estudantes que obtiveram as maiores quantidades de estrelas.",
+    "subtitle_core_pre": "Você é",
+    "subtitle_core_post": "entre todos os estudantes!",
+    "subtitle_tail": "Continue motivado para melhorar ainda mais sua pontuação.",
+    "subtitle_no_rank": "Realize os módulos para entrar na classificação.",
+    "custom": {
+        "bnp": {
+            "subtitle_head": "Visualizar a sua posição em relação a estrela do top-20 Factiors."
+        },
+        "gdf": {
+            "subtitle_tail": "No final da temporada 1, os funcionários top-20 na classificação geral serão convidados ao comitê editorial para escolher o conteúdo do assunto para a próxima temporada de WeTransform."
+        },
+        "gdfec": {
+            "subtitle_tail": "No final da temporada 1, os funcionários top-20 na classificação geral serão convidados ao comitê editorial para escolher o conteúdo do assunto para a próxima temporada de WeTransform."
+        },
+        "up": {
+            "subtitle_no_rank": "Complete mais níveis para subir no ranking."
+        },
+        "yahoo": {
+            "subtitle_tail": "ª"
+        },
+        "linxea": {
+            "subtitle_head": "Visualizar a sua posição em relação a assalariados estrela top-20."
+        }
+    }
+}

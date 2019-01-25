@@ -1,0 +1,25 @@
+{
+    "notCompatible": {
+        "os": "Phiên bản HĐH của bạn quá cũ, không thể truy cập nền tảng. Chúng đôi đề nghị bạn cập nhật.",
+        "explanation": "Chế độ xem tương thích của trình duyệt của bạn có thể đã được bật lên. Thêm thông tin để tắt nó",
+        "explanationLink": "https://static.coorpacademy.com/content/help/compatibility_view/Help_Compatibility_view_EN.pdf",
+        "explanationLinkLabel": "ở đây.",
+        "header": "Phiên bản trình duyệt quá cũ, không thể truy cập nền tảng.",
+        "suggestion_text": "BrowseHappy",
+        "suggestion_href": "http://browsehappy.com",
+        "suggestion_text_pre": "Đi đến",
+        "suggestion_text_post": "để biết thêm thông tin về trình duyệt Evergreen.",
+        "different_user_agent": "Đã tìm thấy hai tác nhân người dùng khác nhau, dẫn đến việc hạn chế truy cập vào nền tảng."
+    },
+    "custom": {
+        "fff": {
+            "notCompatible": {
+                "os": "Phiên bản hệ điều hành của bạn quá cũ để truy cập nền tảng. Chúng tôi khuyến nghị bạn nên cập nhật.",
+                "suggestion_text": "Chrome",
+                "suggestion_href": "https://www.google.com/intl/fr/chrome/browser/",
+                "suggestion_text_pre": "Tải về đề nghị",
+                "suggestion_text_post": "."
+            }
+        }
+    }
+}

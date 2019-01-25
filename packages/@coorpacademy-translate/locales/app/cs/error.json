@@ -1,0 +1,56 @@
+{
+    "http": {
+        "401": "Neoprávněný přístup",
+        "403": "Zakázaný přístup",
+        "404": "Stránka nenalezena",
+        "412": "Předpoklad selhal",
+        "500": "Interní chyba serveru",
+        "503": "Služba je nedostupná",
+        "500_message_pre": "Adresa URL",
+        "500_message": "měl následující chybu",
+        "500_message_post": ".",
+        "503_message": "Služba není k dispozici. Zkuste to prosím za chvíli znovu.",
+        "404_message_pre": "URL",
+        "404_message": "se nestal součástí trasy.",
+        "412_message": "Podmínka stanovená jedním nebo více „jestli“ ... hlavičky v požadavku hodnoceny jako „nepravda“.",
+        "409_progressions_content_conflict": "Zdá se, že jste již odpověděli na tuto otázku během aktuální relace. Máte ji na jiné kartě někde jinde, snad? <br/> Klepněte na tlačítko \"Reload níže na stránce\" vaše data aktualizovat, dáme správná otázka pro vás."
+    },
+    "infos": "Info",
+    "auth": {
+        "header": "Hopla! {{status}}",
+        "reload": "Přihlásit se"
+    },
+    "modal": {
+        "header": "Chyba {{status}}",
+        "body": {
+            "title": "Vezměte prosím na vědomí níže uvedené informace a poskytněte je naší technické podpoře",
+            "url": "URL: {{err}}",
+            "id": "Id: {{id}}",
+            "message": "{{message}}"
+        },
+        "footer": {
+            "assistance": "Podpora",
+            "back_home": "Zpět domů",
+            "reload": "Znovu načíst stránku",
+            "continue": "Pokračovat"
+        },
+        "assistance": "Nahlásit chybu"
+    },
+    "defaultMessage": "Vyskytla se chyba, omlouváme se. Zkuste to prosím znovu",
+    "achievementContext": "Zdá se, že tento modul byl již zahájen. Pro pokračování v modulu obnovte stránku.",
+    "custom": {
+        "chanel": {
+            "http": {
+                "412_message": "Chybí e-mailová adresa. Obraťte se na správce nebo se zaregistrujte zde."
+            }
+        },
+        "ilearn": {
+            "http": {
+                "412_message": "Chybí e-mailová adresa. Obraťte se na správce nebo se zaregistrujte zde."
+            }
+        },
+        "up": {
+            "achievementContext": "Zdá se, že tato úroveň byla již spuštěna. Znovu načtěte stránku a pokračovat na úrovni."
+        }
+    }
+}

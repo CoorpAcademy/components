@@ -1,0 +1,203 @@
+{
+    "video_player": {
+        "jw": "Đang tải trình phát video...",
+        "fileCouldNotBePlayedTitle": "Lỗi phát video",
+        "flashInstallUrl": "https://get.adobe.com/en/flashplayer/",
+        "MEDIA_ERR_UNKNOWN": {
+            "title": "Đã xảy ra lỗi không xác định",
+            "description": "Chúng tôi đã phát hiện lỗi khi phát video này. Chúng tôi đã được thông báo về lỗi này và sẽ điều tra thêm."
+        },
+        "MEDIA_ERR_ABORTED": {
+            "title": "Quá trình thu hút tài nguyên truyền thông đã bị hủy bỏ.",
+            "description": "Vui lòng kiểm tra lại kết nối Internet của bạn sau đó cố gắng tải lại video."
+        },
+        "MEDIA_ERR_NETWORK": {
+            "title": "Lỗi mạng đã ngăn tác nhân người dùng tìm nạp tài nguyên phương tiện.",
+            "description": "Hãy kiểm tra kết nối Internet của bạn và cố gắng tải lại video."
+        },
+        "MEDIA_ERR_DECODE": {
+            "title": "Đã xảy ra lỗi khi giải mã tài nguyên phương tiện.",
+            "description": "Video này không được hỗ trợ trên trình duyệt này. Sự cố do trình duyệt hoặc hệ điều hành của bạn."
+        },
+        "MEDIA_ERR_SRC_NOT_SUPPORTED": {
+            "title": "Nguồn phương tiện không thể sử dụng",
+            "description": "Video này không có sẵn hoặc không được hỗ trợ trên trình duyệt này, hãy thử với một trình duyệt khác hoặc cài Flash Player làm dự phòng và tải lại trang này."
+        }
+    },
+    "account_menu": {
+        "badge": "Huy hiệu",
+        "account": "Tài khoản của Tôi",
+        "objectif": "Chứng nhận",
+        "activity": "Hoạt động",
+        "competence_win": "Kỹ năng đạt được",
+        "timeline": "Tiến độ theo thời gian",
+        "discussion": "Thảo luận",
+        "conseil": "Mẹo & Gợi ý",
+        "coach": "Các giảng viên",
+        "battle": "Chế độ chiến đấu",
+        "modification": "Chỉnh sửa Thông tin của Tôi"
+    },
+    "chat_room": {
+        "button_wrapper": "Gửi",
+        "placeholder": "Tin nhắn của Bạn",
+        "connexion": "{{displayName}} > đã gia nhập cuộc nói chuyện này",
+        "deconnexion": "{{displayName}} đã rời cuộc nói chuyện này"
+    },
+    "badgesLabel": {
+        "battle": {
+            "detail": "{{detail}} trận đấu đã hoàn thành",
+            "detail_plural": "{{detail}} trận đấu đã hoàn thành"
+        },
+        "module": {
+            "detail": "{{detail}} mô-đun đã được hoàn thành mà không mất mạng nào!",
+            "detail_plural": "Đã hoàn thành học phần {{detail}} mà không mất mạng nào!"
+        },
+        "lesson": {
+            "detail": "{{detail}} bài học đã xem!",
+            "detail_plural": "{{detail}} bài học đã xem!"
+        },
+        "question": {
+            "detail": "Câu hỏi {{detail}} đã được trả lời chính xác!",
+            "detail_plural": "{{detail}} câu hỏi đã được trả lfmofulời chính xác!"
+        },
+        "coach": {
+            "detail": "{{detail}} tương tác với các huấn luyện viên!",
+            "detail_plural": "{{detail}} tương tác với các huấn luyện viên!"
+        }
+    },
+    "notificationMenu": {
+        "god_mode": "Kích hoạt Chế độ Bất tử",
+        "notification": "Kích hoạt Thông báo Màn hình",
+        "title": "Thông báo ({{nb}})",
+        "forum": "Một người dùng đã trả lời bình luận của bạn về học phần {{name}} trình độ {{level}}",
+        "badge_title": "Chúc mừng!",
+        "badge": "Bạn đã giành được huy hiệu {{name}} {{level}}",
+        "module_title": "Chúc mừng!",
+        "module": "Bạn đã hoàn thành mô-đun {{name}} cấp độ {{level}}!",
+        "battle": {
+            "new": "{{name}} muốn thách đấu bạn trong học phần {{module}} cấp độ {{level}}!",
+            "accepted": "Lời thách đấu của bạn đã được chấp nhận",
+            "win": "Bạn đã thắng trong trận đấu với {{looser}} ở mô-đun {{module}} cấp độ {{level}}!",
+            "loose": "Bạn đã thua trận đấu với {{winner}} ở mô-đun {{module}} cấp {{level}} ..."
+        },
+        "link": "Xem tất cả",
+        "challenge_reminder": "Đừng quên, {{name}} đã thách thức bạn về học phần {{module}} trình độ {{level}} và đang đợi hồi đáp của bạn!",
+        "coach": "Hay lắm! Bạn đã trở thành môt giảng viên của quy tắc {{name}}!",
+        "start_aim": "Bạn đã chọn chứng nhận {{name}}. Hãy bắt đầu!",
+        "goal_as_reward": "Bạn đã mở khóa chứng nhận {{name}}. Bắt đầu!",
+        "half_achieved": "Chúc mừng! Bạn đã đi được nửa đường cho chứng nhận {{name}} của bạn! Hãy tiếp tục phát huy nhé.",
+        "three_third_achieved": "Chúc mừng! Bạn đã hoàn thành các yêu cầu cho chứng nhận môn {{name}}! Hãy chia sẻ thành công với mạng lưới nghề nghiệp của bạn.",
+        "continue_goals": "Chúc mừng! Bạn đã đạt được chứng nhận {{name}}! Hãy bắt đầu một chứng nhận khác! ",
+        "continue": "Bạn đang làm rất tốt, tại sao dừng bây giờ? Hãy tiếp tục với chứng nhận {{name}}!",
+        "mandatory": "Để đạt được chứng chỉ {{name}}, bạn cần phải hoàn thành mô-đun {{levels}}!",
+        "mandatory_plural": "Để giành được chứng chỉ {{name}}, bạn cần hoàn thành các mô đun {{levels}}!",
+        "mandatory_achieved": "Chúc mừng! Bạn đã đạt được chứng nhận {{name}}!",
+        "toggleCoach": "Có sẵn cho huấn luyện viên",
+        "reward_title": "Hoan hô! Bạn giành được một phần thưởng!",
+        "reward_description": {
+            "bonusStars": "Bạn có thêm {{stars}} sao mới dưới dạng phần thưởng."
+        }
+    },
+    "custom": {
+        "armeedeterre": {
+            "account_menu": {
+                "battle": "Chế độ trận đấu"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} trận đấu đã hoàn thành",
+                    "detail_plural": "{{detail}} các trận đấu đã hoàn thành"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "Trận đấu của bạn đã được chấp nhận",
+                    "win": "Bạn đã chiến thắng trong cuộc tranh tài với {{looser}} trong học phần {{module}} cấp độ {{level}}!",
+                    "loose": "Bạn thua trong trận đấu đối đầu với {{winner}} trong khóa học {{module}} trình độ {{level}}..."
+                }
+            }
+        },
+        "gdf": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "chủ đề {{detail}} đã hoàn tất",
+                    "detail_plural": "{{detail}} chủ đề hoàn thành"
+                }
+            }
+        },
+        "gdfec": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "chủ đề {{detail}} đã hoàn tất",
+                    "detail_plural": "chủ đề {{detail}} đã hoàn tất"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "assistance": {
+                "title": "Phản hồi"
+            }
+        },
+        "pernod": {
+            "notificationMenu": {
+                "start_aim": "Bạn đã chọn mục tiêu {{name}}. Hãy bắt đầu!",
+                "goal_as_reward": "Bạn đã bỏ chặn mục tiêu {{name}}. Hãy bắt đầu!",
+                "half_achieved": "Làm tốt lắm! Bạn đã đạt được 50% mục tiêu {{name}}!",
+                "three_third_achieved": "Chúc mừng! Bạn đã đạt được mục tiêu {{name}}!",
+                "continue_goals": "Chúc mừng! Bạn đã đạt được mục tiêu {{name}}! Hãy bắt đầu một cái khác!",
+                "continue": "Bạn đang làm rất tốt, tại sao dừng? Hãy tiếp tục với mục tiêu {{name}}!",
+                "mandatory": "Để hoàn thành chương trình đào tạo, bạn phải đạt mục tiêu {{name}}: hãy bắt đầu nào!",
+                "mandatory_achieved": "Chúc mừng! Bạn đã đạt được mục tiêu {{name}}!"
+            }
+        },
+        "up": {
+            "badgesLabel": {
+                "module": {
+                    "detail": "Cấp độ {{detail}} đã hoàn tất mà không mất mạng nào!",
+                    "detail_plural": "Cấp độ {{detail}} đã hoàn tất mà không mất mạng nào!"
+                }
+            },
+            "notificationMenu": {
+                "forum": "Một người dùng đã trả lời bình luận của bạn về khóa học {{name}} trình độ {{level}}",
+                "module": "Bạn đã vượt qua khoá học {{name}} cấp độ {{level}}!",
+                "battle": {
+                    "new": "{{name}} muốn thách thức bạn trong mô-đun {{module}} trình độ {{level}}!",
+                    "win": "Bạn đã chiến thắng trong cuộc tranh tài với {{looser}} trong khoá học {{module}} cấp độ {{level}}!",
+                    "loose": "Bạn thua trong trận đấu đối đầu với {{winner}} trong khóa học {{module}} trình độ {{level}}..."
+                },
+                "challenge_reminder": "Đừng quên, {{name}} đã thách thức bạn trong khóa học {{module}} trình độ {{level}} và đang chờ bạn phản hồi!",
+                "coach": "Hoan hô! Bạn đã trở thành huấn luyện viên trong khoá học {{name}}!"
+            }
+        },
+        "who": {
+            "account_menu": {
+                "battle": "Chế độ thách đấu"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "lời thách đấu {{detail}} đã hoàn tất",
+                    "detail_plural": "{{detail}} thách thức đã hoàn thành"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "Thách thức của bạn đã được chấp nhận",
+                    "win": "Bạn đã chiến thắng cuộc thách đấu của {{looser}} trong học phần {{module}} cấp độ {{level}}!",
+                    "loose": "Bạn thua trong trận đấu đối đầu với {{winner}} trong mô-đun {{module}} trình độ {{level}}..."
+                },
+                "continue_goals": "Chúc mừng! Bạn đã có được chứng chỉ {{name}}!"
+            }
+        }
+    },
+    "assistance": {
+        "title": "Hỗ trợ",
+        "object": "Chủ đề",
+        "message": "Tin nhắn",
+        "send": "Gửi",
+        "thanks": "Cảm ơn tin nhắn của bạn!",
+        "next": "Tiếp theo"
+    },
+    "cards": {
+        "allCategories": "Tất cả hạng mục"
+    }
+}

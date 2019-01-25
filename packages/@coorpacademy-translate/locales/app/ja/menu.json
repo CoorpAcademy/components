@@ -1,0 +1,155 @@
+{
+    "header": {
+        "title": "CoorpAcademy",
+        "mainNav": {
+            "helper": "あなたの教育的コンテンツをブラウズするための新しい方法",
+            "menu": "メニュー",
+            "dashboard": "自分のダッシュボード",
+            "home": "ホーム",
+            "learningTree": "カタログ",
+            "lessons": "全レッスンと動画",
+            "medias": "ライブラリ",
+            "battles": "バトル",
+            "explore": "カタログ",
+            "discussions": "ディスカッション",
+            "badges": "バッジ",
+            "certifications": "認定資格"
+        },
+        "mainNav_user": {
+            "helper": "あなたと仕事についての情報を探すもう1つの方法!"
+        },
+        "account_menu": {
+            "title": "メニュー",
+            "logout": "ログアウト",
+            "notifications": "通知",
+            "language": "言語",
+            "cohorts": "集団",
+            "account": "マイアカウント ",
+            "godmode": "God mode",
+            "fastslides": "Fast slides",
+            "newlearner": "新しいゲームのインターフェイス",
+            "livenotifications": "ライブの通知",
+            "close": "閉じる"
+        }
+    },
+    "content": "これは基本的なコンテンツです。",
+    "footer": {
+        "assistance": "ヘルプ",
+        "admin_link": {
+            "jobs": "仕事",
+            "admin": "アドミニ",
+            "analytics": "解析",
+            "changelog": "変更履歴",
+            "cms": "CMS",
+            "manual": "マニュアル"
+        },
+        "data_privacy_policy": "データのプライバシーポリシー",
+        "data_privacy_policy_link": "http://www.privacy.coorpacademy.com",
+        "dev_link": {
+            "api": "API文書"
+        },
+        "by": "Coorpacademy によって供給",
+        "title": "Coorpacademy",
+        "changelog": {
+            "title": "チェンジログ",
+            "subtitle": "こちらがサイトのリリース情報です"
+        }
+    },
+    "custom": {
+        "accueil": {
+            "footer": {
+                "by": "観光アカデミー ・ フランス観光開発機構",
+                "copyright": "観光アカデミー ・ フランス観光開発機構"
+            }
+        },
+        "armeedeterre": {
+            "header": {
+                "mainNav": {
+                    "battles": "バトル"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "footer": {
+                "assistance": "フィードバックを与える"
+            }
+        },
+        "capgemini": {
+            "header": {
+                "mainNav": {
+                    "certifications": "DigiCertif'"
+                }
+            }
+        },
+        "cnp": {
+            "header": {
+                "mainNav": {
+                    "certifications": "証明書"
+                }
+            }
+        },
+        "chanel": {
+            "footer": {
+                "by": "© シャネル。内部でのみ使用",
+                "copyright": "© シャネル。内部でのみ使用"
+            }
+        },
+        "ganprevoyance": {
+            "header": {
+                "mainNav": {
+                    "certifications": "ユニバース"
+                }
+            }
+        },
+        "ecolenumerique-sncf": {
+            "header": {
+                "mainNav": {
+                    "certifications": "ジェダイのバッジ"
+                }
+            }
+        },
+        "ilearn": {
+            "footer": {
+                "by": "© シャネル。内部でのみ使用",
+                "copyright": "© シャネル。内部でのみ使用"
+            }
+        },
+        "paca": {
+            "footer": {
+                "by": "観光アカデミーの生産",
+                "copyright": "観光アカデミーの生産"
+            }
+        },
+        "tourism": {
+            "footer": {
+                "by": "観光アカデミー",
+                "copyright": "観光アカデミー"
+            }
+        },
+        "tourismdigital": {
+            "footer": {
+                "by": "観光アカデミー生産",
+                "copyright": "観光アカデミー生産"
+            }
+        },
+        "ey": {
+            "footer": {
+                "by": "EY デジタル アカデミー",
+                "copyright": "EY デジタル アカデミー"
+            }
+        },
+        "up": {
+            "footer": {
+                "data_privacy_policy_link": "http://www.privacy.coorpacademy.com/up"
+            }
+        },
+        "who": {
+            "header": {
+                "mainNav": {
+                    "battles": "課題",
+                    "discussions": "フィードバック"
+                }
+            }
+        }
+    }
+}

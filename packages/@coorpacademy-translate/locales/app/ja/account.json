@@ -1,0 +1,565 @@
+{
+    "firstConnection": {
+        "title": "<span>ようこそ</span><span class='name'> {{name}}!</span>"
+    },
+    "changePassword": {
+        "title": "<span>ようこそ</span><span class='name'> {{name}}!</span>",
+        "intro": "パスワードを作成してください。今後の参考のために保存!",
+        "errors": {
+            "mustChangePassword": "新しいパスワードを現在のパスワードとは異なるする必要があります。",
+            "incorrectPassword": "現在のパスワードが正しくありません。"
+        }
+    },
+    "footer": {
+        "title": "“{{platformName}}”のプラットフォームを使用する理由",
+        "features": {
+            "videos": {
+                "title": "動画",
+                "description": "ビデオ レッスンを学び、進行状況を見る"
+            },
+            "quizzes": {
+                "title": "クイズ",
+                "description": "クイズの数百人を介してあなたの知識をテストします。"
+            },
+            "battles": {
+                "title": "$t(menu:header.mainNav.battles)",
+                "description": "戦いに他の挑戦によって確認します。"
+            },
+            "certificates": {
+                "title": "$t(menu:header.mainNav.certifications)",
+                "description": "あなたのスキルを証明するために証明書を取得します。"
+            }
+        },
+        "pillars": {
+            "learnAtYourOwnPace": {
+                "title": "自分のペースで学ぶ",
+                "description": "<li>短いセッションを取る</li><li>を停止し、いつでも再起動</li><li>任意のデバイスを使用して</li>"
+            },
+            "adapted": {
+                "title": "あなたに適応学習",
+                "description": "<li>あなたはすでに知っているものに適応するシステム</li><li>独自の学習パスの選択</li><li>オーダーメイドの内容</li>"
+            },
+            "haveFun": {
+                "title": "楽しんでください",
+                "description": "<li>Gamified 学習環境</li><li>ビデオゲームに触発され</li><li>«ストップ & ゴー» 関数</li>"
+            },
+            "learningCommunity": {
+                "title": "学習コミュニティ",
+                "description": "<li>ピアのコーチング</li><li>ディスカッション フォーラム</li><li>複数の学習者のための課題</li><li>ランキング</li>"
+            }
+        },
+        "gotoform": "プラットフォームにアクセスするフォームを記入します。"
+    },
+    "edit": {
+        "oldPassword": "古いパスワード",
+        "password": "パスワード",
+        "password_confirmation": "パスワードを確認します。"
+    },
+    "myaccount": {
+        "title": "マイアカウント ",
+        "subtitle": "あなたの登録情報はこちらです。",
+        "modify": "修正",
+        "status": "ステータス",
+        "save": "保存",
+        "carriere": "キャリア",
+        "hobbie": "興味",
+        "abonnement": "Eメール・サブスクリプション",
+        "allowed_mail": "ザ・グレンリベット アカデミーに関する リマインダーをEメールで受信します。 ",
+        "not_allowed_mail": "Eメールでのリマインダーを希望しません。 ",
+        "avatar": {
+            "update": "写真のアップロードに成功しました。24時間以内に表示されます。",
+            "no_image": "選択されたファイルは正しいフォーマットではありません。「.png」、「.jpg」、「.gif」から選択してください。"
+        },
+        "profile": {
+            "updated": "あなたのプロファイルが更新されました。"
+        },
+        "reset": "リセット",
+        "updatedAccount": "あなたのアカウントはアップデートされました。",
+        "accountUpdate": "アカウントを更新",
+        "password": "パスワード",
+        "updatePassword": "送信",
+        "newPassword": "新パスワード",
+        "actualPassword": "現在のパスワード",
+        "passwordConfirmation": "新しいパスワードを確認する",
+        "updatePasswordSuccess": "あなたのパスワードは正常に更新されました",
+        "updatePasswordError": "あなたのパスワードを変更できませんでしたあなたのフォームを確認してください。",
+        "privateAccount": {
+            "title": "プライベートプロファイル",
+            "label": "名字のみを表示する"
+        },
+        "emailSettings": {
+            "core": "システムメッセージ （認証、 \"誰かがあなたに戦いを挑みました\"...）",
+            "user": "通知（\"お勧めのコース\"、\"最も人気のあるコースをチェック\"...）",
+            "mailchimp": "マンスリー・ダイジェスト"
+        }
+    },
+    "error": {
+        "oldPasswordRequired": "現在のパスワードが必要です。",
+        "newPasswordRequired": "新しいパスワードが必要です。",
+        "confirmPasswordRequired": "パスワードの確認が必要です。",
+        "incorrectMinLength": "パスワードは最低 {{minLength}} 文字でなければなりません。",
+        "different_password": "パスワードが一致しません。",
+        "wrong_password": "パスワードが間違っています"
+    },
+    "menu": {
+        "info": {
+            "title": "マイプロフィール",
+            "modify_avatar": "プロフィール写真を更新 ",
+            "modify_password": "パスワードを変更する"
+        },
+        "alerts": {
+            "title": "通知設定 ",
+            "email": "Eメール設定 ",
+            "modify_email": "Eメール設定を変更",
+            "notifications": "デスクトップ通知 ",
+            "modify_notifications": "今の通知方法を変更する",
+            "wish_notifications": "通知を受け取ることを希望",
+            "blocked_notifications": "あなたの現在の設定では通知が許可されていません。ブラウザの設定を変更してこのページをリフレッシュして下さい。"
+        },
+        "bills": {
+            "title": "注文履歴"
+        },
+        "custom": {
+            "modify_account_title": "マイアカウント ",
+            "modify_account_informations": "あなたのアカウントを更新します。"
+        },
+        "subscription": {
+            "title": "私の定期購読",
+            "subtitle": "Coorpacademy Premium Subscription is no longer available",
+            "info": "If you have already signed up and you wish to cancel your Premium subscription please send a mail with your details to:",
+            "update": "サブスクリプションを管理します。"
+        }
+    },
+    "go": {
+        "to": {
+            "sso": "SSOへ移動",
+            "connect": "接続へと移動"
+        }
+    },
+    "custom": {
+        "corporateonlineopencourse": {
+            "changePassword": {
+                "title": "'' スマート フォン/パッドを接続するためのパスワードを設定します。",
+                "intro": "<span>こんにちは、</span><br><br>、最初の時間のためにだけログインした学内 MOOC のブランド大使にします <br>。特定のマルチ デバイス パスワードを設定することを勧めます <br>以下。あなたのスマート フォンやタブレットから、MOOC をアクセスする場合、このパスワードはあなたに、可能性を与えます。<br>は一度設定、確認の e メールがあなたに送信されます。"
+            },
+            "myaccount": {
+                "updatePassword": "検証"
+            }
+        },
+        "gdf": {
+            "edit": {
+                "title": "これはあなたの最初の接続",
+                "lastName": "最後の名前 *",
+                "firstName": "最初の名前 *",
+                "branch": "支店 *",
+                "password_title": "新しいパスワードを入力してください。",
+                "oldPassword": "現在パスワード *",
+                "password": "新パスワード *",
+                "password_confirmation": "確認 *",
+                "personnal_title": "個人情報を入力してください。",
+                "businessUnit": "ビジネス ユニット *",
+                "age": "年齢範囲 *",
+                "workingCountry": "国でする作業 *",
+                "gender": "性別 *",
+                "save": "検証",
+                "mandatory": "* 必須フィールド",
+                "male": "男性",
+                "female": "女性",
+                "saving": "お客様の情報を保存しながらお待ちください。あなたは、一度完成したホーム ページにリダイレクトされます。"
+            },
+            "error": {
+                "different_password": "あなたのパスワードの確認が一致しません",
+                "mandatory": "これらのフィールドはすべて必須です。",
+                "incorrectPassword": "現在のパスワードが有効です"
+            },
+            "branch": {
+                "centre": "センター",
+                "energy_europe": "エネルギー ヨーロッパ",
+                "energy_international": "エネルギー国際",
+                "energy_services": "エネルギー サービス",
+                "global_gas_lng": "世界のガス ・ LNG",
+                "infrastructures": "インフラストラクチャ",
+                "entreprises_collectivites": "企業や公共機関"
+            },
+            "business_unit": {
+                "centre_bxl": "センター BXL",
+                "centre_paris": "パリを中心します。",
+                "generation": "世代",
+                "renewable_energies": "再生可能エネルギー",
+                "marketing_sales": "マーケティング ・ セールス",
+                "emt": "EMT",
+                "support_lines_corporate": "行をサポート/会社",
+                "asia_pacific": "アジア太平洋地域",
+                "latin_america": "ラテン アメリカ",
+                "north_america": "北アメリカ",
+                "samea": "南アジア、中東・ アフリカ (SAMEA)",
+                "uk_turkey": "英国トルコ",
+                "benelux_division": "ベネルクス部門",
+                "engineering_division": "エンジニア リング部",
+                "support": "Fonctions サポート/企業・その他",
+                "international_division": "国際事業部",
+                "pole_services": "極フランス サービス Energétiques",
+                "pole_system": "極フランス ・ システムズ、インストール ・保守",
+                "pole_network": "極 Réseaux/地域エネルギー事業部",
+                "ep": "E ・ P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "分布",
+                "storage": "ストレージ",
+                "methane": "Terminaux Méthaniers",
+                "business_line_energies": "ビジネス ラインのエネルギー",
+                "business_line_services": "ビジネス ライン サービス",
+                "delegation_relation_clients": "Délégation 関係のクライアント",
+                "direction_finance": "方向財務パフォーマンス",
+                "direction_rh": "方向 Ressources Humaines Prévention 健康 Sécurité",
+                "etat_major": "クーデタークーデター主要な",
+                "direction_ventes": "方向デ Ventes",
+                "marche_eld": "マルシェ ELD",
+                "marche_prive": "マルシェ Résidentiel プリヴェ",
+                "marche_public": "マルシェ クライアント パブリック",
+                "marche_industrie": "マルシェ Industrie et グランド Tertiaire",
+                "marche_multisites": "マルシェつけてしまうという欠点",
+                "marche_pme_pmi": "マルシェ PME/PMI",
+                "marketing_marche_clients": "マーケティング マルシェ/クライアント",
+                "systeme_information": "Système d'Information 取り仕切る星座"
+            },
+            "country": {
+                "algeria": "アルジェリア",
+                "argentina": "アルゼンチン",
+                "australia": "オーストラリア",
+                "bahrein": "Bahreïn",
+                "belgium": "ベルギー",
+                "brazil": "ブラジル",
+                "cameroun": "カメルーン",
+                "canada": "カナダ",
+                "chili": "チリ",
+                "china": "中国",
+                "costarica": "コスタリカ",
+                "cz": "チェコ共和国",
+                "egypt": "エジプト",
+                "france": "フランス",
+                "germany": "ドイツ",
+                "greece": "ギリシャ",
+                "hungary": "ハンガリー",
+                "indonesia": "インドネシア",
+                "italy": "イタリア",
+                "laos": "ラオス",
+                "libya": "リビア",
+                "luxembourg": "ルクセンブルク",
+                "mexico": "メキシコ",
+                "monaco": "モナコ",
+                "morocco": "モロッコ",
+                "netherland": "オランダ",
+                "norway": "ノルウェー",
+                "nouvellecaledonie": "ニューカレドニア",
+                "oman": "オマーン",
+                "pakistan": "パキスタン",
+                "panama": "パナマ",
+                "peru": "ペルー",
+                "poland": "ポーランド",
+                "polynesie": "フランス領ポリネシア",
+                "qatar": "カタール",
+                "reunion": "レユニオン",
+                "romania": "ルーマニア",
+                "saudiarabia": "サウジアラビア アラディア",
+                "singapore": "シンガポール",
+                "slovakia": "スロバキア",
+                "spain": "スペイン",
+                "swiss": "スイス",
+                "thailand": "Thaïland",
+                "turkey": "トルコ",
+                "uk": "イギリス",
+                "arabemirates": "アラブ首長国連邦",
+                "usa": "アメリカ",
+                "vanuatu": "バヌアツ",
+                "waliisfutuna": "ウォリス ・ フトーナ",
+                "other": "その他"
+            },
+            "ages": {
+                "minus-34": "34 以下",
+                "35-44": "44 35 から",
+                "45-54": "54 45 から",
+                "more-55": "55 以上"
+            }
+        },
+        "gdfec": {
+            "edit": {
+                "title": "これはあなたの最初の接続",
+                "lastName": "最後の名前 *",
+                "firstName": "最初の名前 *",
+                "branch": "支店 *",
+                "password_title": "新しいパスワードを入力してください。",
+                "oldPassword": "現在パスワード *",
+                "password": "新パスワード *",
+                "password_confirmation": "確認 *",
+                "personnal_title": "個人情報を入力してください。",
+                "businessUnit": "ビジネス ユニット *",
+                "age": "年齢範囲 *",
+                "workingCountry": "国でする作業 *",
+                "gender": "性別 *",
+                "save": "検証",
+                "mandatory": "* 必須フィールド",
+                "male": "男性",
+                "female": "女性",
+                "saving": "お客様の情報を保存しながらお待ちください。あなたは、一度完成したホーム ページにリダイレクトされます。"
+            },
+            "error": {
+                "different_password": "あなたのパスワードの確認が一致しません",
+                "mandatory": "これらのフィールドはすべて必須です。",
+                "incorrectPassword": "現在のパスワードが有効です"
+            },
+            "branch": {
+                "centre": "センター",
+                "energy_europe": "エネルギー ヨーロッパ",
+                "energy_international": "エネルギー国際",
+                "energy_services": "エネルギー サービス",
+                "global_gas_lng": "世界のガス ・ LNG",
+                "infrastructures": "インフラストラクチャ",
+                "entreprises_collectivites": "企業や公共機関"
+            },
+            "business_unit": {
+                "centre_bxl": "センター BXL",
+                "centre_paris": "パリを中心します。",
+                "generation": "世代",
+                "renewable_energies": "再生可能エネルギー",
+                "marketing_sales": "マーケティング ・ セールス",
+                "emt": "EMT",
+                "support_lines_corporate": "行をサポート/会社",
+                "asia_pacific": "アジア太平洋地域",
+                "latin_america": "ラテン アメリカ",
+                "north_america": "北アメリカ",
+                "samea": "南アジア、中東・ アフリカ (SAMEA)",
+                "uk_turkey": "英国トルコ",
+                "benelux_division": "ベネルクス部門",
+                "engineering_division": "エンジニア リング部",
+                "support": "Fonctions サポート/企業・その他",
+                "international_division": "国際事業部",
+                "pole_services": "極フランス サービス Energétiques",
+                "pole_system": "極フランス ・ システムズ、インストール ・保守",
+                "pole_network": "極 Réseaux/地域エネルギー事業部",
+                "ep": "E ・ P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "分布",
+                "storage": "ストレージ",
+                "methane": "Terminaux Méthaniers",
+                "business_line_energies": "ビジネス ラインのエネルギー",
+                "business_line_services": "ビジネス ライン サービス",
+                "delegation_relation_clients": "Délégation 関係のクライアント",
+                "direction_finance": "方向財務パフォーマンス",
+                "direction_rh": "方向 Ressources Humaines Prévention 健康 Sécurité",
+                "etat_major": "クーデタークーデター主要な",
+                "direction_ventes": "方向デ Ventes",
+                "marche_eld": "マルシェ ELD",
+                "marche_prive": "マルシェ Résidentiel プリヴェ",
+                "marche_public": "マルシェ クライアント パブリック",
+                "marche_industrie": "マルシェ Industrie et グランド Tertiaire",
+                "marche_multisites": "マルシェつけてしまうという欠点",
+                "marche_pme_pmi": "マルシェ PME/PMI",
+                "marketing_marche_clients": "マーケティング マルシェ/クライアント",
+                "systeme_information": "Système d'Information 取り仕切る星座"
+            },
+            "country": {
+                "algeria": "アルジェリア",
+                "argentina": "アルゼンチン",
+                "australia": "オーストラリア",
+                "bahrein": "Bahreïn",
+                "belgium": "ベルギー",
+                "brazil": "ブラジル",
+                "cameroun": "カメルーン",
+                "canada": "カナダ",
+                "chili": "チリ",
+                "china": "中国",
+                "costarica": "コスタリカ",
+                "cz": "チェコ共和国",
+                "egypt": "エジプト",
+                "france": "フランス",
+                "germany": "ドイツ",
+                "greece": "ギリシャ",
+                "hungary": "ハンガリー",
+                "indonesia": "インドネシア",
+                "italy": "イタリア",
+                "laos": "ラオス",
+                "libya": "リビア",
+                "luxembourg": "ルクセンブルク",
+                "mexico": "メキシコ",
+                "monaco": "モナコ",
+                "morocco": "モロッコ",
+                "netherland": "オランダ",
+                "norway": "ノルウェー",
+                "nouvellecaledonie": "ニューカレドニア",
+                "oman": "オマーン",
+                "pakistan": "パキスタン",
+                "panama": "パナマ",
+                "peru": "ペルー",
+                "poland": "ポーランド",
+                "polynesie": "フランス領ポリネシア",
+                "qatar": "カタール",
+                "reunion": "レユニオン",
+                "romania": "ルーマニア",
+                "saudiarabia": "サウジアラビア アラディア",
+                "singapore": "シンガポール",
+                "slovakia": "スロバキア",
+                "spain": "スペイン",
+                "swiss": "スイス",
+                "thailand": "Thaïland",
+                "turkey": "トルコ",
+                "uk": "イギリス",
+                "arabemirates": "アラブ首長国連邦",
+                "usa": "アメリカ",
+                "vanuatu": "バヌアツ",
+                "waliisfutuna": "ウォリス ・ フトーナ",
+                "other": "その他"
+            },
+            "ages": {
+                "minus-34": "34 以下",
+                "35-44": "44 35 から",
+                "45-54": "54 45 から",
+                "more-55": "55 以上"
+            }
+        },
+        "nespresso": {
+            "changePassword": {
+                "title": "ようこそ!",
+                "intro": "あなたのパスワードを変更してください。今後の参考のために保存!"
+            }
+        },
+        "pwc": {
+            "footer": {
+                "title": "Discover our PwC Digital Academy platform"
+            }
+        },
+        "renaultcare": {
+            "changePassword": {
+                "intro": "<span>こんにちは、</span><br>MOOC 顧客の経験にあなたのスマート フォンのアクセスを作成する <br>、あなたは以下のパスワードを構成するだけです <br>。我々 が送信されます、あなたのスマート フォンから、MOOC に接続する特定のリンクにその後確認のメール。<br><br>C@re 2.0 のプラットフォームに接続するあなたの ID は、念のため、: あなたのパスワードを定義してください今 <b>{{login}}</b> <br><br>:"
+            },
+            "myaccount": {
+                "updatePassword": "検証"
+            }
+        },
+        "samsung": {
+            "edit": {
+                "title": "これはあなたの最初の接続",
+                "lastName": "最後の名前 *",
+                "firstName": "最初の名前 *",
+                "email": "E メール *",
+                "branch": "エンティティ *",
+                "password_title": "新しいパスワードを入力してください。",
+                "password": "パスワード *",
+                "password_confirmation": "パスワードを確認します。",
+                "personnal_title": "個人情報を入力してください。",
+                "age": "誕生年",
+                "workingCountry": "国 *",
+                "save": "検証",
+                "mandatory": "* 必須フィールド",
+                "saving": "お客様の情報を保存しながらお待ちください。あなたは、一度完成したホーム ページにリダイレクトされます。"
+            },
+            "error": {
+                "different_password": "あなたのパスワードの確認が一致しません",
+                "mandatory": "これらのフィールドはすべて必須です。"
+            },
+            "branch": {
+                "centre": "センター",
+                "energy_europe": "エネルギー ヨーロッパ",
+                "energy_international": "エネルギー国際",
+                "energy_services": "エネルギー サービス",
+                "global_gas_lng": "世界のガス ・ LNG",
+                "infrastructures": "インフラストラクチャ"
+            },
+            "business_unit": {
+                "centre_bxl": "センター BXL",
+                "centre_paris": "パリを中心します。",
+                "generation": "世代",
+                "renewable_energies": "再生可能エネルギー",
+                "marketing_sales": "マーケティング ・ セールス",
+                "emt": "EMT",
+                "support_lines_corporate": "行をサポート/会社",
+                "asia_pacific": "アジア太平洋地域",
+                "latin_america": "ラテン アメリカ",
+                "north_america": "北アメリカ",
+                "samea": "南アジア、中東・ アフリカ (SAMEA)",
+                "uk_turkey": "英国トルコ",
+                "benelux_division": "ベネルクス部門",
+                "engineering_division": "エンジニア リング部",
+                "support": "Fonctions サポート/企業・その他",
+                "international_division": "国際事業部",
+                "pole_services": "極フランス サービス Energétiques",
+                "pole_system": "極フランス ・ システムズ、インストール ・保守",
+                "pole_network": "極 Réseaux/地域エネルギー事業部",
+                "ep": "E ・ P",
+                "lng": "LNG",
+                "gtt": "GTT",
+                "distribution": "分布",
+                "storage": "ストレージ",
+                "methane": "Terminaux Méthaniers"
+            },
+            "country": {
+                "algeria": "アルジェリア",
+                "argentina": "アルゼンチン",
+                "australia": "オーストラリア",
+                "bahrein": "Bahreïn",
+                "belgium": "ベルギー",
+                "brazil": "ブラジル",
+                "cameroun": "カメルーン",
+                "canada": "カナダ",
+                "chili": "チリ",
+                "china": "中国",
+                "costarica": "コスタリカ",
+                "cz": "チェコ共和国",
+                "egypt": "エジプト",
+                "france": "フランス",
+                "germany": "ドイツ",
+                "greece": "ギリシャ",
+                "hungary": "ハンガリー",
+                "indonesia": "インドネシア",
+                "italy": "イタリア",
+                "laos": "ラオス",
+                "libya": "リビア",
+                "luxembourg": "ルクセンブルク",
+                "mexico": "メキシコ",
+                "monaco": "モナコ",
+                "morocco": "モロッコ",
+                "netherland": "オランダ",
+                "norway": "ノルウェー",
+                "nouvellecaledonie": "ニューカレドニア",
+                "oman": "オマーン",
+                "pakistan": "パキスタン",
+                "panama": "パナマ",
+                "peru": "ペルー",
+                "poland": "ポーランド",
+                "polynesie": "フランス領ポリネシア",
+                "qatar": "カタール",
+                "reunion": "レユニオン",
+                "romania": "ルーマニア",
+                "saudiarabia": "サウジアラビア アラディア",
+                "singapore": "シンガポール",
+                "slovakia": "スロバキア",
+                "spain": "スペイン",
+                "swiss": "スイス",
+                "thailand": "Thaïland",
+                "turkey": "トルコ",
+                "uk": "イギリス",
+                "arabemirates": "アラブ首長国連邦",
+                "usa": "アメリカ",
+                "vanuatu": "バヌアツ",
+                "waliisfutuna": "ウォリス ・ フトーナ",
+                "other": "その他"
+            },
+            "ages": {
+                "minus-34": "34 以下",
+                "35-44": "44 35 から",
+                "45-54": "54 45 から",
+                "more-55": "55 以上"
+            }
+        },
+        "up": {
+            "myaccount": {
+                "noModulesUnlocked": "レベルを買った",
+                "unlockedModules": "レベルを買った。"
+            }
+        },
+        "digitlearning": {
+            "passwordHint": "最低 8 文字。パスワードは、少なくとも、大文字、数字、特殊文字を含める必要があります (~! @# $%^&*_-+='|(){}:;“’<>,.?)"
+        }
+    }
+}

@@ -1,0 +1,203 @@
+{
+    "video_player": {
+        "jw": "JWPlayer değişimi...",
+        "fileCouldNotBePlayedTitle": "Video hata oynarken",
+        "flashInstallUrl": "https://get.adobe.com/en/flashplayer/",
+        "MEDIA_ERR_UNKNOWN": {
+            "title": "Bilinmeyen bir hata oluştu",
+            "description": "Video oynarken bir hata tespit etti. Bu başarısızlığın haber verildi ve biz daha fazla araştırmak."
+        },
+        "MEDIA_ERR_ABORTED": {
+            "title": "Medya kaynağı için alma işlemi iptal edildi.",
+            "description": "Lütfen Internet bağlantı doğrulamak ve video yeniden yüklemeyi deneyin."
+        },
+        "MEDIA_ERR_NETWORK": {
+            "title": "Bir ağ hatası medya kaynak alma durdurmak kullanıcı aracısı neden oldu.",
+            "description": "Lütfen Internet bağlantı doğrulamak ve video yeniden yüklemeyi deneyin."
+        },
+        "MEDIA_ERR_DECODE": {
+            "title": "Medya kaynağı olan kod çözme bir hata oluştu.",
+            "description": "Bu video bu tarayıcıda desteklenmiyor. Sen tarayıcı veya işletim sistemi içinde bir konudur."
+        },
+        "MEDIA_ERR_SRC_NOT_SUPPORTED": {
+            "title": "Medya kaynağı kullanılabilir değil",
+            "description": "Bu video kullanılamıyor veya bu tarayıcıda desteklenmeyen, lütfen başka bir tarayıcıyla deneyin veya bir geri dönüş Flash Player yükleyin ve bu sayfayı yeniden yükleyin."
+        }
+    },
+    "account_menu": {
+        "badge": "Rozetler",
+        "account": "Hesabım",
+        "objectif": "Sertifikalarım",
+        "activity": "AKTİVİTE",
+        "competence_win": "Yetenek Edinildi",
+        "timeline": "Hırvatistan",
+        "discussion": "Tartışmalar",
+        "conseil": "İpuçları",
+        "coach": "Koçlar",
+        "battle": "Mücadele Modu",
+        "modification": "Bilgilerimi değiştir"
+    },
+    "chat_room": {
+        "button_wrapper": "Gönder",
+        "placeholder": "Mesajınız",
+        "connexion": "{{displayName}} bu konuşmaya katıldı",
+        "deconnexion": "{{displayName}} bu konuşmadan çıktı"
+    },
+    "badgesLabel": {
+        "battle": {
+            "detail": "{{detail}} mücadele tamamlandı",
+            "detail_plural": "{{detail}} kazanılan mücadeleler"
+        },
+        "module": {
+            "detail": "{{detail}} MODÜL TAMAMLANDI CAN KAYBETMEDEN!",
+            "detail_plural": "{{detail}} MODÜL TAMAMLANDI CAN KAYBETMEDEN!"
+        },
+        "lesson": {
+            "detail": "{{detail}} ders görüntülendi!",
+            "detail_plural": "{{detail}} dersleri görüntülendi!"
+        },
+        "question": {
+            "detail": "{{detail}} soruya doğru cevap!",
+            "detail_plural": "{{detail}} sorulara doğru cevap!"
+        },
+        "coach": {
+            "detail": "{{detail}} koç ile karşılıklı etkileşim!",
+            "detail_plural": "{{detail}} koç ile karşılıklı etkileşim!"
+        }
+    },
+    "notificationMenu": {
+        "god_mode": "God Mode'u etkin duruma getir",
+        "notification": "Masaüstü Bildirimlerini Aktifleştir",
+        "title": "Bildirimler ({{nb}})",
+        "forum": "Modül {{name}}, seviye {{level}} için olan yorumunuza bir kullanıcı cevap verdi",
+        "badge_title": "Tebrikler!",
+        "badge": "{{level}} seviye {{name}} rozetini kazandınız",
+        "module_title": "Tebrikler!",
+        "module": "{{name}} modülünün {{level}} seviyesini tamamladınız!",
+        "battle": {
+            "new": "{{name}} size, {{module}} modülü, seviye {{level}} üzerinde meydan okuyor!",
+            "accepted": "Savaş meydan okumanız kabul edildi",
+            "win": "{{module}} modülü, seviye {{level}} üzerinde, {{looser}} karşısında dövüşü kazandınız!",
+            "loose": "{{winner}} karşısında {{module}}de kurs {{level}} bir muharebe kaybettiniz..."
+        },
+        "link": "Hepsini göster",
+        "challenge_reminder": "Unutumayın, {{name}} size {{module}}de {{level}} meydan okudu ve yanıtınızı bekliyor!",
+        "coach": "Bravo! {{name}} eğitiminde bir eğitmen oldun!",
+        "start_aim": "{{name}} sertifikasını seçtiniz. Başlayın!",
+        "goal_as_reward": "{{name}} sertfikasının kilidini açtınız. Hemen Başlayın!",
+        "half_achieved": "Tebrikler! {{name}} sertifikanız için yarı yola geldiniz! Bu şekilde devam edin.",
+        "three_third_achieved": "Tebrikler! Sertifikayı kaptınız {{name}}! Profesyonel ağınız üzerinden başarınızı paylaşın.",
+        "continue_goals": "Tebrikler! {{name}} sertifikasına ulaştınız! Bir tane daha başlatın! ",
+        "continue": "Çok iyi gidiyordunuz, neden durdunuz?\n{{name}} sertifikası ile devam edin!",
+        "mandatory": "Sertifika almak için {{name}}, {{levels}} seviye tamamlayın!",
+        "mandatory_plural": "Sertifika kapmak için {{name}}, {{levels}} seviye tamamlayın!",
+        "mandatory_achieved": "Tebrikler! {{name}} sertifikasını aldınız!",
+        "toggleCoach": "Çalıştırmak için uygunum",
+        "reward_title": "Tebrikler! Bir ödül kazandınız",
+        "reward_description": {
+            "bonusStars": "Ek {{stars}} kazandınız."
+        }
+    },
+    "custom": {
+        "armeedeterre": {
+            "account_menu": {
+                "battle": "Savaş modu"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} savaş tamamlandı",
+                    "detail_plural": "{{detail}} mücadeleler tamamlandı"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "Senin savaşın kabul etti",
+                    "win": "{{looser}} {{module}} modülü {{level}} düzeyde karşı Savaşı kazandık!",
+                    "loose": "{{winner}} {{module}} modülü {{level}} düzeyde karşı savaşı kaybettik..."
+                }
+            }
+        },
+        "gdf": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} tema tamamlandı",
+                    "detail_plural": "{{detail}} temalar tamamlandı"
+                }
+            }
+        },
+        "gdfec": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} teması tamamlandı ",
+                    "detail_plural": "{{detail}} tema tamamlandı"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "assistance": {
+                "title": "Feedback"
+            }
+        },
+        "pernod": {
+            "notificationMenu": {
+                "start_aim": "{{name}} hedefini seçtiniz. Başlayın!",
+                "goal_as_reward": "{{name}} hedefinin kilidini açtınız. Hemen başla!",
+                "half_achieved": "Aferin! {{name}} hedefinin %50 sine ulaştın!",
+                "three_third_achieved": "Tebrikler! {{name}} hedefini tamamladınız!",
+                "continue_goals": "Tebrikler! {{name}} hedefini başardın! Yenisine başla!",
+                "continue": "Çok iyi gidiyorsun, neden durdun? {{name}} hedefine devam et!",
+                "mandatory": "Eğitiminizi tamamlamak için, {{name}} görevini başarmalısınız: hadi başlayalım!",
+                "mandatory_achieved": "Tebrikler!{{name}} hedefine ulaştınız!"
+            }
+        },
+        "up": {
+            "badgesLabel": {
+                "module": {
+                    "detail": "{{detail}} seviye can kaybetmeden tamamlandı!",
+                    "detail_plural": "{{detail}} seviye hiç can kaybetmeden tamamlandı!"
+                }
+            },
+            "notificationMenu": {
+                "forum": "Bir kullanıcı {{name}} kursunun {{level}} seviyesi hakkındaki yorumunuza yanıt verdi.",
+                "module": "{{name}} kursu {{level}}. seviyesini geçtiniz! ",
+                "battle": {
+                    "new": "{{name}}, {{module}}de kendine {{level}} seviyesinde meydan okumak ister misin!",
+                    "win": "{{looser}}'a karşı {{module}} bölümü {{level}} seviyesindeki mücadeleyi kazandınız!",
+                    "loose": "{{winner}} karşısında {{module}}de kurs {{level}} bir muharebe kaybettiniz..."
+                },
+                "challenge_reminder": "Unutumayın, {{name}} size {{module}}de {{level}} meydan okudu ve yanıtınızı bekliyor!",
+                "coach": "Bravo! {{name}} kursunda bir antrenör oldunuz!"
+            }
+        },
+        "who": {
+            "account_menu": {
+                "battle": "Meydan okuma modu"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} challenge tamamlandı",
+                    "detail_plural": "{{detail}} zorluklar tamamlandı"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "Meydan okumanı kabul etti",
+                    "win": "Sana karşı meydan {{looser}} {{module}} modül {{level}} düzeyi üzerinde kazandı.",
+                    "loose": "{{winner}} karşı meydan {{module}} {{level}} modülü düzeyde kaybettik..."
+                },
+                "continue_goals": "Tebrikler! Senin {{name}} sertifika almış!"
+            }
+        }
+    },
+    "assistance": {
+        "title": "Destek",
+        "object": "Konu",
+        "message": "Mesaj",
+        "send": "Gönder",
+        "thanks": "Mesajın için teşekkürler!",
+        "next": "İleri"
+    },
+    "cards": {
+        "allCategories": "Tüm Kategoriler"
+    }
+}

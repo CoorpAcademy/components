@@ -1,0 +1,25 @@
+{
+    "notCompatible": {
+        "os": "귀하의 OS의 버전은 플랫폼에 액세스 하기에 너무 오래 되었습니다. 업데이트 해주세요.",
+        "explanation": "브라우저의 호환성 보기가 설정 되어 있을 수 있습니다. 그것을 해제 하려면 추가 정보를 봐주세요",
+        "explanationLink": "https://static.coorpacademy.com/content/help/compatibility_view/Help_Compatibility_view_EN.pdf",
+        "explanationLinkLabel": "여기.",
+        "header": "브라우저 버전이 플랫폼에 액세스 하기에 너무 오래 되었습니다.",
+        "suggestion_text": "BrowseHappy",
+        "suggestion_href": "http://browsehappy.com",
+        "suggestion_text_pre": "로 가기",
+        "suggestion_text_post": "에버그린 브라우저에 대한 자세한 내용은.",
+        "different_user_agent": "두 명의 서로 다른 사용자 에이전트가 발견 되어 플랫폼 엑세스가 제한되었습니다."
+    },
+    "custom": {
+        "fff": {
+            "notCompatible": {
+                "os": "귀하의 OS의 버전은 플랫폼에 액세스 하기에 너무 오래 되었습니다. 업데이트 해주세요.",
+                "suggestion_text": "크롬",
+                "suggestion_href": "https://www.google.com/intl/fr/chrome/browser/",
+                "suggestion_text_pre": "추천된 다운로드",
+                "suggestion_text_post": "."
+            }
+        }
+    }
+}

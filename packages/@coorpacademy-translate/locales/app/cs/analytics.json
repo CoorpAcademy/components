@@ -1,0 +1,316 @@
+{
+    "message": "<p>Přístup k podrobným informacím na uživatele, použijte naše <a href=\"{{user}}\"> uživatele analytics stránky</a>.</p> <p>Přístup k podrobným informacím pro všechny uživatele, můžete <a href=\"{{export}}\"> exportovat všechny uživatele na vyžádání</a>.</p>",
+    "export": {
+        "global": {
+            "first_name": "Jméno",
+            "last_name": "Příjmení",
+            "email": "E-mail",
+            "provider": "Poskytovatel",
+            "stars": "Skóre",
+            "providerinfos_company": "Společnost",
+            "providerinfos_city": "Město",
+            "providerinfos_country": "Krajina",
+            "providerinfos_department": "Oddělení",
+            "providerinfos_title": "Název",
+            "providerinfos_chorusID": "ChorusID",
+            "ageRange": "Věková skupina",
+            "personalEmail": "E-mailová adresa (osobní)",
+            "role": "funkce",
+            "brandName": "Obchodní společnost",
+            "boutique": "Uložit",
+            "billable": "Billable",
+            "postalCode": "PSČ",
+            "moduleLevel": "$t(dashboard:badges.module.name) - úroveň",
+            "moduleCount": "$t(dashboard:badges.module.name) – Počet",
+            "moduleUpdate": "$t(dashboard:badges.module.name) – Poslední aktualizace",
+            "battleLevel": "$t(dashboard:badges.battle.name) – úroveň",
+            "battleCount": "$t(dashboard:badges.battle.name) – Počet",
+            "battleUpdate": "$t(dashboard:badges.battle.name) - poslední aktualizace",
+            "coachLevel": "$t(dashboard:badges.coach.name) - Úroveň",
+            "coachCount": "$t(dashboard:badges.coach.name) – počet",
+            "coachUpdate": "$t(dashboard:badges.coach.name) - Poslední aktualizace",
+            "lessonLevel": "$t(dashboard:badges.lesson.name) – Úroveň",
+            "lessonCount": "$t(dashboard:badges.lesson.name) – Počet",
+            "lessonUpdate": "$t(dashboard:badges.lesson.name) – Poslední aktualizace",
+            "questionLevel": "$t(dashboard:badges.question.name) – úroveň",
+            "questionCount": "$t(dashboard:badges.question.name) – počet",
+            "questionUpdate": "$t(dashboard:badges.question.name) – Poslední aktualizace",
+            "badges": "odznaky",
+            "lastConnectionDate": "Poslední datum připojení",
+            "state": "Stát",
+            "login": "Přihlášení",
+            "firstConnectionDate": "Datum prvního připojení",
+            "certificate": "{{label}} certifikát",
+            "certifications": "Osvědčení",
+            "entity": "Jednotka",
+            "grade": "Stupeň",
+            "region": "Lokalita",
+            "validatedTimeProgression": "Validované čas",
+            "totalTimeProgression": "Celkový čas",
+            "populations": "Moje populace",
+            "deactivationDate": "Datum deaktivace",
+            "organization_branch": "Obor podnikání",
+            "organization_businessunit": "Podniková jednotka",
+            "organization_workingCountry": "Obchodní země",
+            "organization_role": "Obchodní úloha",
+            "organization_boutique": "Firemní obchod",
+            "organization_address1": "Podniková adresa 1",
+            "organization_address2": "Obchodní adresa 2",
+            "organization_zipcode": "PSČ společnosti",
+            "organization_workingCity": "Město společnosti",
+            "organization_company": "Obchodní společnost",
+            "organization_ambassador": "Velvyslanec",
+            "birthday": "Narozeniny"
+        },
+        "battles": {
+            "disciplineName": "Název disciplíny",
+            "disciplineStatus": "Disciplínu Status",
+            "disciplineStatus_hidden": "Skrytý",
+            "disciplineStatus_visible": "Viditelná",
+            "moduleLevel": "Úroveň modulu",
+            "createdAt": "Vytvořeno v",
+            "answeredAt": "Zodpovězeno v",
+            "createdBy": "Jméno vyzývající osoby",
+            "opponent": "Jméno soupeře",
+            "winner": "Vítěz",
+            "winnerScore": "Skóre vítěze",
+            "userLogin": "Přihlášení soupeře",
+            "opponentLogin": "Přihlášení soupeře",
+            "looserScore": "Skóre poraženého"
+        },
+        "moduleStart": {
+            "brand": "Značka",
+            "discipline": "Název disciplíny",
+            "module": "Úroveň modulu",
+            "author": "Autor",
+            "count": "Počet",
+            "userCount": "Počet uživatelů"
+        }
+    },
+    "dashboard": {
+        "serenetics-error": "Vyskytla se chyba při načítání url nového řídicího panelu.",
+        "behavioral": {
+            "upgrade": {
+                "title": "Tento řídicí panel je pouze v enterprise tarifu k dispozici.",
+                "subtitle": "Obraťte se na Coorpacademy k upgradu vašeho účtu a získat přístup k chování postřehy platformy"
+            }
+        }
+    },
+    "custom": {
+        "7steps": {
+            "export": {
+                "global": {
+                    "organization_role": "Úloha",
+                    "organization_title": "Typ úložiště",
+                    "organization_ambassador": "L'Oréal zaměstnanec?",
+                    "organization_branch": "Divize L'Oréal",
+                    "entity": "Značky L'Oréal",
+                    "organization_grade": "Použití Image práv",
+                    "organization_boutiqueReferent": "Prodejce/řetěz",
+                    "organization_boutique": "Název/kód obchodu"
+                }
+            }
+        },
+        "achat-habitat": {
+            "export": {
+                "global": {
+                    "organization_ambassador": "Newsletter"
+                }
+            }
+        },
+        "adidas-fr": {
+            "export": {
+                "global": {
+                    "organization_businessunit": "Oddělení",
+                    "organization_grade": "Věk",
+                    "organization_boutique": "Pracoviště",
+                    "organization_branch": "Pohlaví"
+                }
+            }
+        },
+        "capgemini": {
+            "export": {
+                "global": {
+                    "organization_grade": "GGID"
+                }
+            }
+        },
+        "chanel": {
+            "export": {
+                "global": {
+                    "boutique": "Boutique",
+                    "organization_workingCountry": "Země",
+                    "region": "Lokalita",
+                    "role": "Role",
+                    "startContract": "Start ze smlouvy"
+                }
+            }
+        },
+        "cofpart-learning": {
+            "export": {
+                "global": {
+                    "brandName": "Direction",
+                    "entity": "Job",
+                    "organization_branch": "Manager"
+                }
+            }
+        },
+        "corporateonlineopencourse": {
+            "export": {
+                "global": {
+                    "region": "Lokalita",
+                    "organization_workingCountry": "Země",
+                    "role": "Funkce"
+                }
+            }
+        },
+        "edenred-talents": {
+            "export": {
+                "global": {
+                    "organization_company": "Směr",
+                    "entity": "Sous směr",
+                    "organization_branch": "Služby - Secteur",
+                    "organization_boutiqueReferent": "Zařízení",
+                    "organization_role": "Fonction",
+                    "organization_grade": "Tuto"
+                }
+            }
+        },
+        "gdf": {
+            "export": {
+                "global": {
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - úroveň",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - počet",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - Poslední aktualizace"
+                }
+            }
+        },
+        "gdfec": {
+            "export": {
+                "global": {
+                    "organization_zipcode": "GAIA",
+                    "organization_businessunit": "Tým",
+                    "organization_boutique": "Jméno manažera",
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - úroveň",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - počet",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - Poslední aktualizace"
+                }
+            }
+        },
+        "ilearn": {
+            "export": {
+                "global": {
+                    "boutique": "Obchod",
+                    "organization_workingCountry": "Země",
+                    "region": "Lokalita",
+                    "role": "Role",
+                    "startContract": "Zahájení smlouvy"
+                }
+            }
+        },
+        "life-auchan": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Úroveň aktivity",
+                    "organization_region": "Rodinného života",
+                    "organization_workingCountry": "Země"
+                }
+            }
+        },
+        "metro": {
+            "export": {
+                "global": {
+                    "organization_boutique": "City",
+                    "organization_branch": "ID",
+                    "organization_businessunit": "Role"
+                }
+            }
+        },
+        "monoprix": {
+            "export": {
+                "global": {
+                    "organization_branch": "Směr"
+                }
+            }
+        },
+        "nespresso": {
+            "export": {
+                "global": {
+                    "organization_branch": "Oddělení",
+                    "organization_businessunit": "Pozice"
+                }
+            }
+        },
+        "pru": {
+            "export": {
+                "global": {
+                    "providerCompany": "Společnost",
+                    "providerCountry": "Země",
+                    "providerDepartment": "Oddělení"
+                }
+            }
+        },
+        "redoute": {
+            "boutique": "Boutique"
+        },
+        "securite": {
+            "export": {
+                "global": {
+                    "organization_grade": "ID"
+                }
+            }
+        },
+        "up": {
+            "export": {
+                "battles": {
+                    "disciplineName": "Název kurzu",
+                    "moduleLevel": "Úroveň"
+                }
+            }
+        },
+        "tagheuer": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Point of sales code"
+                }
+            }
+        },
+        "thelem": {
+            "export": {
+                "global": {
+                    "organization_role": "Zaměstnání",
+                    "language": "Jazyk",
+                    "organization_boutique": "Umístění",
+                    "organization_title": "Název služby",
+                    "organization_boutiqueReferent": "Registrační číslo",
+                    "startContract": "Datum nástupu společnost",
+                    "organization_contractType": "Typ smlouvy",
+                    "organization_grade": "Kvalifikace"
+                }
+            }
+        },
+        "yahoo": {
+            "export": {
+                "global": {
+                    "organization_title": "Úloha",
+                    "organization_workingCountry": "Země",
+                    "region": "Jazyk"
+                }
+            }
+        },
+        "who": {
+            "export": {
+                "global": {
+                    "organization_workingCountry": "Země/stát",
+                    "region": "Státy a území",
+                    "provider": "Umístění",
+                    "organization_role": "Pozadí/zkušenosti",
+                    "organization_grade": "Přístupový kód",
+                    "organization_boutiqueReferent": "Úroveň vzdělání"
+                }
+            }
+        }
+    }
+}

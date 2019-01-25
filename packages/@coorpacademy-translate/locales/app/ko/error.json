@@ -1,0 +1,63 @@
+{
+    "http": {
+        "401": "권한 없음",
+        "403": "금지됨",
+        "404": "페이지를 찾을 수 없음",
+        "412": "전제 조건 실패",
+        "500": "내부 서버 오류",
+        "503": "서비스를 사용할 수 없음",
+        "500_message_pre": "URL",
+        "500_message": "다음과 같은 오류가 발생 했다",
+        "500_message_post": ".",
+        "503_message": "현재 서비스는 사용하실 수 없습니다. 곧 다시 시도 해주십시오.",
+        "404_message_pre": "URL",
+        "404_message": "경로가 해결 되지 않았습니다.",
+        "412_message": "The condition specified by one or more If... headers in the request evaluated to false.",
+        "409_progressions_content_conflict": "그것은 이미 현재 세션 동안이 질문을 대답 했습니다 보인다. 아마도 다른 곳, 다른 탭에 열려 있습니까? <br/> 클릭 ' 다시 로드 페이지에서 ' 아래 데이터를 새로 고치려면, 우리 당신을 위해 올바른 질문을 로드 합니다."
+    },
+    "infos": "정보",
+    "auth": {
+        "header": "죄송 합니다! {{상태}}",
+        "reload": "로그인"
+    },
+    "modal": {
+        "header": "오류 {{status}}",
+        "body": {
+            "title": "아래 정보를 참고 하시고 저희의 기술 지원부에 알려주십시오",
+            "paymentRequired": "이 모듈에 액세스 하려면 먼저 그것을 구매 해야 합니다.",
+            "url": "Url: {{err}}",
+            "id": "ID: {{id}}",
+            "message": "{{message}}"
+        },
+        "footer": {
+            "paymentRequired": "설명 페이지",
+            "assistance": "고객센터",
+            "back_home": "홈으로 돌아가기",
+            "reload": "페이지 새로 고침",
+            "continue": "계속"
+        },
+        "assistance": "문제 신고"
+    },
+    "defaultMessage": "오류가 발생 했습니다. 사과드리며 나중에 다시 시도 해주십시오",
+    "achievementContext": "이 모듈은 이미 시작 하신것 같습니다. 계속하시려면 페이지를 새로고침 해주세요.",
+    "custom": {
+        "chanel": {
+            "http": {
+                "412_message": "누락 된 이메일 주소입니다. 제발 관리자에 게 문의 하거나 여기에 가입 합니다."
+            }
+        },
+        "ilearn": {
+            "http": {
+                "412_message": "누락 된 이메일 주소입니다. 관리자에게 문의 하거나 여기에서 회원가입을 해주세요."
+            }
+        },
+        "up": {
+            "modal": {
+                "body": {
+                    "paymentRequired": "이 레벨에 접속 하려면 먼저 이것을 구매 해야 합니다."
+                }
+            },
+            "achievementContext": "이 수준은 이미 시작 된 것 같다. 수준을 계속 페이지를 새로고침 하세요."
+        }
+    }
+}

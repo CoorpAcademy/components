@@ -1,0 +1,155 @@
+{
+    "header": {
+        "title": "CoorpAcademy",
+        "mainNav": {
+            "helper": "Alternativní způsob prohlížení vašeho pedagogického obsahu",
+            "menu": "Ponuka",
+            "dashboard": "Můj panel",
+            "home": "Domů",
+            "learningTree": "Katalog",
+            "lessons": "Všechny lekce a videa",
+            "medias": "Knihovna",
+            "battles": "Bitvy",
+            "explore": "Katalog",
+            "discussions": "Diskuse",
+            "badges": "Odznaky",
+            "certifications": "Certifikace"
+        },
+        "mainNav_user": {
+            "helper": "Alternativní způsob, jak najít informace o vás a vaší práci!"
+        },
+        "account_menu": {
+            "title": "Nabídka",
+            "logout": "Odhlásit se",
+            "notifications": "Má oznámení",
+            "language": "Jazyk",
+            "cohorts": "Populace:",
+            "account": "Účet",
+            "godmode": "God mode",
+            "fastslides": "Rychlé snímky",
+            "newlearner": "Nové herní rozhraní",
+            "livenotifications": "Živá oznámení",
+            "close": "Zavřít"
+        }
+    },
+    "content": "Toto je základní obsah",
+    "footer": {
+        "assistance": "Asistence",
+        "admin_link": {
+            "jobs": "úkolů",
+            "admin": "Správce",
+            "analytics": "Analýza",
+            "changelog": "Záznamník změn",
+            "cms": "CMS",
+            "manual": "Manuál"
+        },
+        "data_privacy_policy": "Zásady ochrany osobních údajů",
+        "data_privacy_policy_link": "http://www.privacy.coorpacademy.com",
+        "dev_link": {
+            "api": "API dokumentace"
+        },
+        "by": "Podporuje Coorpacademy",
+        "title": "Coorpacademy",
+        "changelog": {
+            "title": "Protokol změn",
+            "subtitle": "Zde najdete historii vydání stránky"
+        }
+    },
+    "custom": {
+        "accueil": {
+            "footer": {
+                "by": "Cestovní ruch akademie & Atout France",
+                "copyright": "Cestovní ruch akademie & Atout France"
+            }
+        },
+        "armeedeterre": {
+            "header": {
+                "mainNav": {
+                    "battles": "Bitvy"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "footer": {
+                "assistance": "Zpětná vazba"
+            }
+        },
+        "capgemini": {
+            "header": {
+                "mainNav": {
+                    "certifications": "DigiCertif'"
+                }
+            }
+        },
+        "cnp": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Certifikáty"
+                }
+            }
+        },
+        "chanel": {
+            "footer": {
+                "by": "© CHANEL. Pouze pro vnitřní potřebu",
+                "copyright": "© CHANEL. Pouze pro vnitřní potřebu"
+            }
+        },
+        "ganprevoyance": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Vesmíry"
+                }
+            }
+        },
+        "ecolenumerique-sncf": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Jedi odznaky"
+                }
+            }
+        },
+        "ilearn": {
+            "footer": {
+                "by": "© CHANEL. Pouze pro vnitřní potřebu",
+                "copyright": "© CHANEL. Pouze pro vnitřní potřebu"
+            }
+        },
+        "paca": {
+            "footer": {
+                "by": "Turistika v AKADEMII produkce",
+                "copyright": "Turistika v AKADEMII produkce"
+            }
+        },
+        "tourism": {
+            "footer": {
+                "by": "Cestovní ruch akademie",
+                "copyright": "Cestovní ruch akademie"
+            }
+        },
+        "tourismdigital": {
+            "footer": {
+                "by": "Produkce akademie cestovního ruchu",
+                "copyright": "Produkce akademie cestovního ruchu"
+            }
+        },
+        "ey": {
+            "footer": {
+                "by": "EY digitální akademie",
+                "copyright": "EY digitální akademie"
+            }
+        },
+        "up": {
+            "footer": {
+                "data_privacy_policy_link": "http://www.privacy.coorpacademy.com/up"
+            }
+        },
+        "who": {
+            "header": {
+                "mainNav": {
+                    "battles": "Výzvy",
+                    "discussions": "Zpětná vazba"
+                }
+            }
+        }
+    }
+}

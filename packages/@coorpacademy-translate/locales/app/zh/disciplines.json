@@ -1,0 +1,90 @@
+{
+    "disciplines": {
+        "book_demo": "预订演示",
+        "payment_required": "coorpacademy訂閱",
+        "free_start": "開始學習"
+    },
+    "modules": {
+        "button": {
+            "start": "开始{{name}}级别",
+            "access": "访问{{name}}级别",
+            "continue": "继续{{name}}级别",
+            "again": "重新启动{{name}}级别",
+            "locked": "模块被锁定",
+            "payment_required": "订阅继续"
+        },
+        "skill": {
+            "valid": "有了这个组件，您可以：",
+            "invalid": "在此模块结束时，您将能够："
+        },
+        "chapters": {
+            "title": "章节"
+        },
+        "stars": "已获得的全部星星"
+    },
+    "chapters": {
+        "button": {
+            "start": "开始微型学习",
+            "access": "访问微型学习",
+            "continue": "继续微型学习",
+            "again": "重新启动微型学习",
+            "locked": "章锁定"
+        }
+    },
+    "presentation": {
+        "total": "{{nb}}",
+        "total_post": "模块",
+        "total_post_plural": "模块",
+        "video_title": "浏览课程材料",
+        "popularity": "流行：",
+        "trainer": "Trainer",
+        "trainer_plural": "Trainers",
+        "by": "By",
+        "and": "&"
+    },
+    "author": "本课程的创建人：",
+    "disciplineNotFound": "没有发现 {{disciplineRef}} 相关课程",
+    "forbidden": {
+        "unknown_in_group": "您无权访问此内容",
+        "previous_level": "在尝试这个级别之前，需要先完成以前的级别",
+        "conditions": "在尝试这个之前，需要完成以下课程: {{contents}}",
+        "subscription_required": "需要Coorpacademy订阅才能启动此内容。"
+    },
+    "custom": {
+        "up": {
+            "disciplines": {
+                "payment_required": "coorpacademy訂閱"
+            },
+            "modules": {
+                "button": {
+                    "locked": "级别已锁定"
+                },
+                "skill": {
+                    "valid": "由于你通过了这个等级，你可以：",
+                    "invalid": "在这个级别的最后，您将可以："
+                }
+            },
+            "presentation": {
+                "total_post": "等级",
+                "total_post_plural": "等级"
+            }
+        },
+        "silca": {
+            "modules": {
+                "skill": {
+                    "invalid": "在本單元的最後，您將能夠衡量您的能力："
+                }
+            }
+        },
+        "mooc-socgen": {
+            "modules": {
+                "button": {
+                    "start": "开始{{name}}级别",
+                    "access": "访问{{name}}级别",
+                    "continue": "继续{{name}}级别",
+                    "again": "重新启动{{name}}级别"
+                }
+            }
+        }
+    }
+}

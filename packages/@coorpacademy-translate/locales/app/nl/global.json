@@ -1,0 +1,430 @@
+{
+    "content": {
+        "types": {
+            "course": "cursus",
+            "course_plural": "cursussen",
+            "adaptive_chapter": "adaptieve 5' Learning",
+            "adaptive_course": "adaptieve cursus",
+            "adaptive_course_plural": "adaptieve cursussen",
+            "cursus": "cursus",
+            "cursus_plural": "cursuses",
+            "chapter": "5' Learning",
+            "chapter_plural": "5' Learning"
+        },
+        "sorts": {
+            "title": "Sorteren op:",
+            "cta": "Sorteren",
+            "tab": "Sorteren op",
+            "pertinence": "Relevantie",
+            "newest": "Nieuwste",
+            "duration": "Kortste"
+        },
+        "filters": {
+            "cta": "Filteren",
+            "tab": "Filteren",
+            "authors": "Auteurs:",
+            "authorTypes": "Inhoudscategorieën:",
+            "type": "Type:",
+            "themes": "Collecties:",
+            "goals": "Certificeringen:",
+            "time": "Tijd:",
+            "learning_paths": "Leren paden:",
+            "all_authors": "Alle auteurs",
+            "all_author_types": "Alle categorieën",
+            "all_themes": "Alle collecties",
+            "all_goals": "All Certifications",
+            "all_courses": "Alle cursussen",
+            "microlearning": "5' Learning",
+            "all": "Alle",
+            "courses": "Cursussen",
+            "my_favorites": "Mijn lijst:"
+        },
+        "notification": {
+            "addFavorite": "Toegevoegd aan je lijst",
+            "removeFavorite": "Verwijderd van je lijst"
+        },
+        "search": {
+            "placeholder": "Wat wil je leren?"
+        },
+        "catalog": "Catalogus",
+        "result": "{{title}}: {{count}} resultaat",
+        "result_plural": "{{title}}: {{count}} resultaten",
+        "noresultsfound": "Sorry, geen resultaten beschikbaar",
+        "clearFilters": "Reset",
+        "recommended": "Ontdek cursussen aanbevolen voor jou:",
+        "new": "Nieuw"
+    },
+    "author": {
+        "socialTitle": "Sociale banden:",
+        "cardsTitle": "Alle cursussen van {{author}}",
+        "website": "Website:",
+        "notFound": "Auteur ({{authorRef}}) niet gevonden",
+        "more": "Info over de auteur",
+        "customCustomer": "{{name}} maken",
+        "types": {
+            "coorp": "Coorp Originals",
+            "verified": "Verified by Coorp",
+            "marketplace": "Anderen",
+            "custom": "{{name}} maken"
+        }
+    },
+    "unit": {
+        "duration_minutes_set": "{{m}} min",
+        "duration_minutes_set_plural": "{{m}} minuten",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}} uur $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}} uur $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "shortUnit": {
+        "duration_minutes_set": "{{m}}m",
+        "duration_minutes_set_plural": "{{m}}m",
+        "duration_minutes_with_hours_set": "{{m}}",
+        "duration_minutes_with_hours_set_plural": "{{m}}",
+        "duration_minutes_with_hours_none": "‌",
+        "duration_minutes_with_hours_none_plural": "‌",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}}h$t(shortUnit.duration_minutes_with_hours, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}}h$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "module_level": {
+        "1": "$t(global:module_level.base)",
+        "2": "$t(global:module_level.advanced)",
+        "3": "$t(global:module_level.coach)",
+        "base": "Beginner",
+        "advanced": "Gevorderde",
+        "coach": "Coach"
+    },
+    "progression_status": {
+        "not_started": "Niet gestart",
+        "in_progress": "In uitvoering",
+        "completed": "Voltooid"
+    },
+    "close": "Sluiten",
+    "skipIntro": "Intro overslaan",
+    "route": {
+        "initialized": "Deze weergave is nu ingesteld.",
+        "error": {
+            "401": "Zo te zien ben je niet meer verbonden.",
+            "402": "Betaling vereist",
+            "403": "Je hebt geen toestemming om dit te doen.",
+            "404": "Wist je dat een 404-foutcode betekent dat een pagina niet gevonden kon worden?",
+            "409": "Wist je dat een 409-foutcode betekent dat er een conflict is opgetreden in jouw gegevens?",
+            "500": "Wist je dat een 500-foutcode betekent dat er een probleem is met de server?",
+            "api": "Er is een fout opgetreden. De server werkt, maar er is een probleem met de toepassing.",
+            "default": "Er is een fout opgetreden."
+        }
+    },
+    "loading": "Bezig met laden...",
+    "htmlTitle": "CoorpAcademy",
+    "hero": {
+        "cta": "Begin met leren"
+    },
+    "cookiesDisabled": {
+        "title": "Cookies gedesactiveerd",
+        "error": "Je cookies zijn uitgeschakeld of geblokkeerd. Schakel ze opnieuw in of configureer je AdBlocker."
+    },
+    "chatbot": {
+        "welcome": {
+            "default": "Welcome on Coorpacademy. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin.",
+            "facebook": "Hello and welcome to Coorpacademy! I can ask you question of our online courses. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin. If you're looking for some other informations you can contact us at communication@coorpacademy.com."
+        },
+        "ask_question": {
+            "repeat_header_1": "Zeker! {{question}}.",
+            "repeat_header_2": "Natuurlijk! {{question}}.",
+            "repeat_header_3": "OK! Hier is de vraag weer: {{question}}.",
+            "repeat_header_4": "Geen probleem. {{question}}.",
+            "repeat_header_5": "Ik herhaal: {{question}}."
+        },
+        "next_action": {
+            "question_next": "Vragen bij 'volgende vraag' om door te gaan.",
+            "answer_next": "Wat is het antwoord?",
+            "wrong_answer_next": "Zeg 'waarom' om verdere uitleg te krijgen of 'volgende' om door te gaan."
+        },
+        "answer_question": {
+            "is_valid": {
+                "title_1": "Bravo!",
+                "title_2": "Dat klopt!",
+                "title_3": "Goed antwoord!",
+                "title_4": "Ja!",
+                "title_5": "Goed gedaan!"
+            },
+            "is_invalid": {
+                "title_1": "Helemaal niet! Het antwoord was: {{answer}}.",
+                "title_2": "Dat klopt niet! Het antwoord was: {{answer}}.",
+                "title_3": "Fout antwoord! Je moet zeggen: {{answer}}.",
+                "title_4": "Ouch! Het juiste antwoord was: {{answer}}.",
+                "title_5": "Sorry maar dat klopt niet! Het juiste antwoord was: {{answer}}."
+            }
+        },
+        "error": {
+            "not_found": "Het spijt me, vond ik niet vragen. Probeer het met enig ander onderwerp."
+        }
+    },
+    "demo": {
+        "url": "https://www.coorpacademy.com/en/request-a-demo/?utm_source=Up&utm_medium={{medium}}"
+    },
+    "custom": {
+        "7steps": {
+            "module_level": {
+                "base": "Why",
+                "advanced": "Empathy",
+                "coach": "Show me"
+            }
+        },
+        "loreal-retail-v2": {
+            "module_level": {
+                "base": "Why",
+                "advanced": "Empathy",
+                "coach": "Show me"
+            }
+        },
+        "accueil": {
+            "htmlTitle": "MOOC Accueil Frankrijk"
+        },
+        "achat-habitat": {
+            "htmlTitle": "Mooc Achat Habitat",
+            "module_level": {
+                "base": "Intro",
+                "advanced": "Profs",
+                "coach": "Coach"
+            }
+        },
+        "adeo": {
+            "htmlTitle": "Adeo opleiding CPL"
+        },
+        "auchan-retail": {
+            "htmlTitle": "Auchan Retail QUIZZ"
+        },
+        "architas-powercircle": {
+            "htmlTitle": "POWERCIRCLE | FOCUS"
+        },
+        "bnp": {
+            "htmlTitle": "MOOC BNP Paribas Factor"
+        },
+        "bestwesternuniversity": {
+            "htmlTitle": "Best Western University"
+        },
+        "capgemini": {
+            "htmlTitle": "COOC"
+        },
+        "cd78": {
+            "htmlTitle": "MOOC rSa"
+        },
+        "chanel": {
+            "htmlTitle": "iJoinCHANEL"
+        },
+        "clarins-digital": {
+            "htmlTitle": "Clarins Digital"
+        },
+        "crt": {
+            "htmlTitle": "CRT"
+        },
+        "coravin": {
+            "htmlTitle": "Coravin"
+        },
+        "corporateonlineopencourse": {
+            "module_level": {
+                "base": "BASICS"
+            },
+            "progression_status": {
+                "not_started": "Geregistreerd",
+                "in_progress": "Geregistreerd",
+                "completed": "Voltooid"
+            }
+        },
+        "dolce": {
+            "htmlTitle": "Personen"
+        },
+        "eacampus": {
+            "htmlTitle": "EAcampus"
+        },
+        "ecolenumerique-sncf": {
+            "content": {
+                "filters": {
+                    "goals": "Jedi Badges:"
+                }
+            }
+        },
+        "edenred-talents": {
+            "htmlTitle": "Edenred Talents",
+            "module_level": {
+                "coach": "Ambassadeur"
+            }
+        },
+        "ganprevoyance": {
+            "content": {
+                "filters": {
+                    "goals": "Universa:"
+                }
+            }
+        },
+        "faurecia": {
+            "htmlTitle": "Learning Lab"
+        },
+        "gdf": {
+            "htmlTitle": "WeTransform"
+        },
+        "gdfec": {
+            "htmlTitle": "Bedrijven en gemeenschappen"
+        },
+        "hr-ac": {
+            "htmlTitle": "HR Academy"
+        },
+        "ilearn": {
+            "htmlTitle": "CHANEL iLearn",
+            "module_level": {
+                "1": "Essentiële",
+                "2": "Geavanceerde",
+                "3": "Deskundige",
+                "base": "Essentiële",
+                "advanced": "Geavanceerde",
+                "coach": "Deskundige"
+            }
+        },
+        "learnnrj": {
+            "htmlTitle": "Ik leer energie"
+        },
+        "linxea": {
+            "htmlTitle": "LinXea Academy"
+        },
+        "manpower": {
+            "htmlTitle": "Leider Effect",
+            "module_level": {
+                "1": "Basic",
+                "2": "Deskundige",
+                "3": "Coach",
+                "base": "Basic",
+                "advanced": "Deskundige",
+                "coach": "Coach"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "htmlTitle": "Digital MOOC ATF"
+        },
+        "mooc-socgen": {
+            "htmlTitle": "Mooc Socgen",
+            "module_level": {
+                "base": "Niveau 1",
+                "advanced": "Niveau 2",
+                "coach": "Niveau 3"
+            }
+        },
+        "natixis": {
+            "htmlTitle": "Think Digital"
+        },
+        "nespresso": {
+            "module_level": {
+                "3": "Deskundige",
+                "coach": "Deskundige"
+            }
+        },
+        "nespressodigital": {
+            "htmlTitle": "Digitale Academy"
+        },
+        "paca": {
+            "htmlTitle": "MOOC Paca"
+        },
+        "online-academy-klubschule": {
+            "module_level": {
+                "base": "Beginner",
+                "advanced": "Geavanceerde",
+                "coach": "Deskundige"
+            }
+        },
+        "petite": {
+            "htmlTitle": "Chanel Petite doordat",
+            "module_level": {
+                "base": "Module 1",
+                "advanced": "Module 2",
+                "coach": "Module 3"
+            }
+        },
+        "quizz-auchan": {
+            "htmlTitle": "QUIZZ AUCHAN RETAIL"
+        },
+        "renaultrh": {
+            "module_level": {
+                "base": "Stap 1",
+                "advanced": "Stap 2",
+                "coach": "Stap 3"
+            }
+        },
+        "renaultcare": {
+            "module_level": {
+                "base": "Basics"
+            }
+        },
+        "rexel": {
+            "htmlTitle": "Klant Centricity door Rexel"
+        },
+        "schneider": {
+            "module_level": {
+                "base": "Seizoen 1",
+                "advanced": "Seizoen 2",
+                "coach": "Seizoen 3"
+            }
+        },
+        "tagheuer": {
+            "module_level": {
+                "base": "Titanium",
+                "advanced": "Brons",
+                "coach": "Zilver"
+            }
+        },
+        "tagheuercon": {
+            "module_level": {
+                "base": "Titanium",
+                "advanced": "Brons",
+                "coach": "Zilver"
+            }
+        },
+        "theglenlivet-academy": {
+            "htmlTitle": "The Glenlivet | ザ・グレンリベット アカデミー"
+        },
+        "tourism": {
+            "htmlTitle": "Toerisme Academy"
+        },
+        "tourismdigital": {
+            "htmlTitle": "Digitale toerisme"
+        },
+        "tourisme-hautsdefrance": {
+            "htmlTitle": "Tourisme Hauts-de-France"
+        },
+        "yahoo": {
+            "module_level": {
+                "base": "Rookie",
+                "advanced": "Mid",
+                "coach": "Pro"
+            }
+        },
+        "ey": {
+            "htmlTitle": "Digitale Academy"
+        },
+        "thelem": {
+            "htmlTitle": "DigiPass#"
+        },
+        "letsgetdigital": {
+            "htmlTitle": "Let's get digital 2.0",
+            "module_level": {
+                "base": "LEARNER",
+                "advanced": "EXPERT",
+                "coach": "MASTER"
+            }
+        },
+        "who": {
+            "htmlTitle": "QualityRights",
+            "module_level": {
+                "advanced": "Case-analyse"
+            }
+        },
+        "triptorelin": {
+            "htmlTitle": "Triptorelin"
+        }
+    }
+}

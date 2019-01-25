@@ -1,0 +1,29 @@
+{
+    "level_0": "Inicializace",
+    "level_1": "Bronz",
+    "level_2": "Stříbro",
+    "level_3": "Zlatá",
+    "level_4": "Platinový",
+    "custom": {
+        "7steps": {
+            "level_4": "Nahoru"
+        },
+        "renault": {
+            "my_badges_intro": "Zobrazit všechny odznaky, které jste získali, nebo pro vás stát se \"králem\" poslední Clio RS, které zůstávají! ;-)"
+        },
+        "tagheuer": {
+            "level_0": "Inic",
+            "level_1": "1ST GEAR",
+            "level_2": "3. STUPEŇ",
+            "level_3": "5. STUPEŇ",
+            "level_4": "7. RYCHLOSTNÍ STUPEŇ"
+        },
+        "tagheuercon": {
+            "level_0": "Init",
+            "level_1": "1. STUPEŇ",
+            "level_2": "3. PŘEVODOVÝ STUPEŇ",
+            "level_3": "5. STUPEŇ",
+            "level_4": "7. RYCHLOSTNÍ STUPEŇ"
+        }
+    }
+}

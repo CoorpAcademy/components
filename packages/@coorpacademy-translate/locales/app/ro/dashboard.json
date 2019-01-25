@@ -1,0 +1,1569 @@
+{
+    "hello": "Bine ai venit, {{displayname}}!",
+    "show_more": "Vezi toate",
+    "registered": {
+        "score": "Scorul dvs.:",
+        "new_score": "Noul dvs. scor {{newscore}}",
+        "badge": {
+            "new": "1 insignă",
+            "new_post": "câștigat",
+            "award_pre": "Bronz",
+            "award": "- 3 bătălii",
+            "award_post": "gata",
+            "name": "Bronz"
+        },
+        "next_player": "E rândul adversarului dvs....",
+        "button_back": "Înapoi"
+    },
+    "slides_battle": "Întrebarea {{count}}",
+    "slides_battle_check": "Validare",
+    "success_battle": {
+        "title": "Bătălia s-a încheiat!",
+        "result": {
+            "win": "Felicitări, ai câștigat!",
+            "win_fast": "Felicitări, aţi câştigat în cel mai scurt timp!",
+            "win_first": "Felicitări!",
+            "win_second": "ați câștigat",
+            "loose": "Offf, ai pierdut!",
+            "loose_first": "Au",
+            "loose_second": "ai pierdut!",
+            "loose_against": "Ah, ați pierdut. {{name}} a fost mai rapid!",
+            "winStars": "Ați câștigat {{count}} stea suplimentară cu această bătălie!",
+            "winStars_plural": "Ai câștigat {{count}} stele suplimentare în această bătălie!"
+        },
+        "badge_user": {
+            "text": "1 insignă",
+            "text_post": "a câștigat",
+            "award_pre": "Bronz",
+            "award": "- 3 bătălii",
+            "award_post": "gata",
+            "name": "Bronz"
+        },
+        "badge_opponent": {
+            "text": "1 insignă",
+            "text_post": "câștigat",
+            "award_pre": "Bronz",
+            "award": "- 3 bătălii",
+            "award_post": "terminat",
+            "name": "Bronz"
+        },
+        "footer": "Revenire"
+    },
+    "notificationCard": {
+        "request_title": "Solicitare {{title}}",
+        "request": "Modulul {{module}} de nivel {{level}}",
+        "aim": {
+            "text": "1 răspuns nou",
+            "text_post": "la întrebarea ta",
+            "name": "Nume Prenume",
+            "link": "Vezi "
+        },
+        "badge": {
+            "text": "Felicitări! Ai câștigat 1 ecuson nou",
+            "text_post": "câștigat",
+            "link": "Vezi"
+        },
+        "battle": {
+            "text": "Ai primit o luptă nouă",
+            "text_post": "provocare",
+            "link": "Vezi",
+            "demand_accept": "Provocarea dvs. de bătălie",
+            "demand_accept_post": "a fost acceptată",
+            "win_against_title": "Ai câștigat bătălia!",
+            "loose_against_title": "Ai pierdut lupta!",
+            "against": "modul {{module}} nivel {{level}} ",
+            "versus": "împotriva"
+        },
+        "forum_text": "Există 1 răspuns la comentariu cu privire la nivelul de {{level}} a modulul {{module}}",
+        "forum_text_page": "Există 1 nou răspuns la comentariu pe forum",
+        "module": {
+            "text": {
+                "bravo": "Felicitări!",
+                "pre": "Ai trecut",
+                "detail": "modulul ",
+                "base": "Nivel de bază",
+                "advanced": "Nivel avansat",
+                "coach": "Nivel Antrenor"
+            },
+            "link": "Vezi"
+        },
+        "reward": {
+            "bonusStars": {
+                "title": "Felicitări! Ați câștigat alte stele!",
+                "goal": {
+                    "description": "Ați atins obiectivul {{goal}}. Vă permite să câștigați {{stars}} stele suplimentare."
+                },
+                "rh": {
+                    "description": "Ai câştigat {{stars}} stele suplimentare ca recompensă."
+                }
+            },
+            "rewardStars": {
+                "title": "Felicitări! Ați câștigat stele suplimentare!",
+                "goal": {
+                    "description": "Ați atins obiectivul {{goal}}. Acest lucru v-a permis să câștigați {{stars}} stele suplimentare."
+                }
+            },
+            "resource": {
+                "title": "Felicitări! Puteți accesa un element nou!",
+                "description": "Ați atins obiectivul {{goal}}. Acesta vă oferă acces la {{label}}."
+            },
+            "diploma": {
+                "title": "Diplomă",
+                "description": "Ați atins obiectivul {{goal}}. V-ați obținut diploma. Felicitări!"
+            }
+        },
+        "coach": {
+            "bravo": "Felicitări!",
+            "text": "Ați devenit Antrenor la disciplina {{disciplineName}}."
+        },
+        "title": {
+            "text": "{{title}} Solicitare",
+            "Battle": "Bătălie",
+            "Module": "Modul",
+            "Badge": "Insignă",
+            "Forum": "Discuție",
+            "Coach": "Antrenor",
+            "cmsNotification": "Informații",
+            "welcome": "Bine ai venit",
+            "resetModule": "Actualizarea conținutului!"
+        },
+        "type": {
+            "module": "Modul",
+            "badge": "Insignă",
+            "battle": "Luptă",
+            "forum": "Discuție",
+            "Coach": "Instruire",
+            "objectif": "Certificare",
+            "cmsNotification": "Informații",
+            "reward": "Recompensă",
+            "welcome": "Bine ați venit",
+            "resetModule": "Actualizare conținut!"
+        }
+    },
+    "achievement": {
+        "helper": "Privire de ansamblu asupra succesului dvs.! Veți reuși să obțineți nivelul platină pentru fiecare dintre aceste insigne?",
+        "titre": "Ecusoanele dvs."
+    },
+    "navigation": {
+        "text": "În meniul de navigare, accesaţi toate funcţiile de pe platforma dumneavoastră",
+        "my_board": "Panoul meu de control",
+        "population": "Populațiile mele",
+        "learningTree": {
+            "helper": "Accesează toate disciplinele căii tale cu un singur clic",
+            "push": "Accesează-ți toate disciplinele",
+            "push_post": "cu un singur click"
+        },
+        "account_helper": "Navigați în spațiul dvs. personal, găsiți-vă rezultatele, gestionați-vă progresul, participați la discuții sau, pur și simplu, urmăriți lecțiile înainte de a începe modulele.",
+        "account": "Contul meu",
+        "language": "Limbă",
+        "notification": "Notificări",
+        "badge": "Insignele mele",
+        "objectif": "Certificările mele",
+        "activity": "Activitate",
+        "discussion": "Discuții",
+        "conseil": "Sfaturi și Sugestii",
+        "coach": "Instructori",
+        "lessons": "Bibliotecă",
+        "battle_helper": "Odată ce aţi terminat un modul, provocaţi-i pe toţi cei care sunt la acelaşi nivel la un scurt joc de 10 întrebări!",
+        "battle_pre": "Mod de luptă ",
+        "battle": "Provocați-vă colegii în modul ”Bătălie”: răspundeți la întrebări cât mai rapid posibil!",
+        "battle_post": "Fă clic aici!",
+        "assistance": "Asistență",
+        "home": "Acasă",
+        "certifications": "Certificările mele"
+    },
+    "personal_selection": {
+        "text_helper": "3 module sugerate în funcție de calea ta!",
+        "title": "Recomandarea noastră pentru tine",
+        "acces_module": "Începe acum",
+        "payment_required": "Cumpără acum",
+        "popular_module_helper": "Ai nevoie de inspirație? Vezi ce face restul lumii selectând cele mai populare.",
+        "last_discussion": "Ultimele discuții",
+        "no_discussion": "Nicio discuție",
+        "last_module": "Ultimul modul jucat",
+        "no_module": "Niciun modul nu a fost jucat",
+        "level": {
+            "pre": "Nivel",
+            "base": "Elementar,",
+            "advanced": "Avansat,",
+            "coach": "Antrenor,",
+            "post": "{{stars}}/{{maxstars}}"
+        },
+        "popular_module": "Cele mai jucate discipline",
+        "easiest_disciplines": "Cele mai simple discipline",
+        "hardest_disciplines": "Cele mai dificile discipline",
+        "no_popular_module": "Nu a fost jucat nici un modul",
+        "module_name": {
+            "pre": "nivel",
+            "base": "Începător",
+            "advanced": "Avansat",
+            "coach": "Instructor"
+        }
+    },
+    "activity": {
+        "title": "Activitate",
+        "progression_text_pre": "Cum îți merge în categoria ta?",
+        "progression_text": "Ați progresat în relația cu obiectivele pe care vi le-ați propus?",
+        "progression_subtext": "Acum este momentul să verificați ...",
+        "discipline_title": "Disciplină",
+        "disciplines": {
+            "title": "Disciplină",
+            "score": "Scor",
+            "actual_level": "Nivelul curent"
+        },
+        "module_title": "Module",
+        "avancement": "Progres",
+        "caption-started": "Modul început",
+        "caption-done": "Modul terminat"
+    },
+    "myactivity": {
+        "title": "Activitate:",
+        "subtitle": "Cum se întâmplă progresul la cursuri de dumneavoastră?",
+        "total": "Total:",
+        "engines": {
+            "learner": "Cursuri",
+            "microlearning": "5' Learning",
+            "battle": "Battles",
+            "certifications": "Certificari",
+            "bonus": "Bonus"
+        },
+        "recommendation": {
+            "title": "Bună ziua {{displayName}}, creşte scorul!",
+            "subtitle": "Vă recomandăm:"
+        },
+        "starsToolTip": {
+            "preMessage": "În prezent, această caracteristică nu este disponibilă pe platforma dumneavoastră. Dacă doriți să o activați, contactați managerul sau",
+            "linkMessage": "apăsați aici",
+            "endMessage": "şi vom transmite mesajul mai departe."
+        }
+    },
+    "goals": {
+        "title": "Progresul certificărilor dumneavoastră"
+    },
+    "badges": {
+        "title": "Toate insignele mele",
+        "subtitle": "Descoperiți toate ecusoanele dvs.",
+        "title-1-0": "Insignele mele",
+        "subtitle-1-0": "Vezi toate insignele pe care le-ai obținut sau pe care trebuie încă să le obții pentru a deveni Regele digital! ;-)",
+        "newBadgeWon": "Ai:",
+        "newBadgeWon_plural": "Aveți:",
+        "seeYourBadges": "Vizualizați insignele dvs.",
+        "battle": {
+            "name": "Războinic în bătălie",
+            "details": "{{count}} bătălie",
+            "details_plural": "{{count}} batali",
+            "details_post": "gata!",
+            "details_post_plural": "Gata!"
+        },
+        "module": {
+            "name": "Modul Supraviețuire",
+            "details": "{{count}} modul",
+            "details_plural": "{{count}} Module",
+            "success": "terminat",
+            "success_plural": "terminat",
+            "details_pre_1": "fără înfrângeri",
+            "details_pre_2": "o viață!"
+        },
+        "lesson": {
+            "name": "Primul din Clasă",
+            "details": "{{count}} lecție",
+            "details_plural": "{{count}} de lecții",
+            "details_post": "vizualizat în totalitate!",
+            "details_post_plural": "vizualizat complet!"
+        },
+        "question": {
+            "name": "Întrebări pentru un Campion",
+            "details": "{{count}} Întrebare",
+            "details_plural": "{{count}} Întrebări",
+            "details_post": "a răspuns!",
+            "details_post_plural": "răspuns!"
+        },
+        "coach": {
+            "name": "Premiul I în camaraderie",
+            "details": "{{count}} Interacțiune",
+            "details_plural": "{{count}} Interacțiuni",
+            "details_pre_1": "cu",
+            "details_pre_2": "antrenorii!"
+        },
+        "level": {
+            "bronze": "Bronz",
+            "silver": "Argint",
+            "gold": "Aur",
+            "platinum": "Platină"
+        }
+    },
+    "battle": {
+        "title": "Bătălii",
+        "create": "Creează o bătălie ",
+        "requests": {
+            "title": "Solicitări bătălie",
+            "no_requests_found": "Deocamdată nu ai nicio solicitare de bătălie",
+            "sendBattle": "{{opponentName}} vă provoacă"
+        },
+        "history": {
+            "title": "Istoric bătălii",
+            "message": {
+                "pending": "Această bătălie așteaptă aprobarea adversarului",
+                "win": "Ai câștigat bătălia!",
+                "lost": "Ați pierdut bătălia!",
+                "win_byTime": "Ați fost cei mai rapizi!",
+                "lost_byTime": "Ai fost prea lent!"
+            },
+            "no_history_found": "Nu ai deocamdată un istoric de bătălii"
+        },
+        "start": {
+            "cta": "Porniți <span class=\"bold\"> Bătălia </span>",
+            "new_cta": "Creează o nouă <span class=\"bold\">Luptă</span>",
+            "cancel": "Ignorare",
+            "body_pre": "Viteza contează:",
+            "bodyText": "In caz de remiza, victorii cel mai rapid!",
+            "me": "Eu",
+            "inProgress": "În curs de desfășurare"
+        },
+        "steps": {
+            "1": "1. Alegeţi un nivel de",
+            "2": "2. Selectaţi un adversar",
+            "3": "3. începe bătălia"
+        },
+        "select_module": {
+            "title": "Alege un nivel:",
+            "placeholder": "Introduceți numele unui modul",
+            "no_module_available": "Poți crea o bătălie doar într-un modul terminat.",
+            "no_module_found": "Nu a fost găsit niciun modul"
+        },
+        "select_theme": {
+            "title": "Alege o colecţie:"
+        },
+        "select_opponent": {
+            "title": "Selectează adversarul",
+            "placeholder": "Introduceți un nume",
+            "no_opponent_found": "Nu s-a găsit niciun adversar",
+            "random": "Adversar aleatoriu"
+        },
+        "subtitle": "Provocați-vă colegii!",
+        "button": {
+            "create": "Creează o luptă nouă",
+            "cancel": "Anulează"
+        },
+        "score": "10",
+        "no_battle_progress": "Nu aveți bătălii în desfășurare.",
+        "block": {
+            "title": "Cereri de bătălie"
+        },
+        "accept_button": "Accept",
+        "no_proposition": "Nu ați primit nici un fel de cereri de bătălie.",
+        "completed": {
+            "title": "Bătălii finalizate",
+            "subtitle_pre": "Ai participat la",
+            "subtitle_pre_plural": "Ai luat parte la",
+            "subtitle": "{{count}} bătălie, câștigă {{nb}}",
+            "subtitle_plural": "{{count}} lupte, victorie {{nb}}"
+        },
+        "block_empty": "Nu aveţi bătălii finalizate.",
+        "create_title": "Creează bătălie",
+        "active_title_intro": "Mod bătălie",
+        "active_title_active": "activat",
+        "start_discipline": "Începeţi o disciplină",
+        "no_opponent": "Nici un adversar disponibile pentru acest nivel",
+        "coming_soon_random": "Începeți o Bătălie Aleatorie"
+    },
+    "dashboard": {
+        "text": "Cursa Spațială! Poți câștiga răspunzând corect întrebărilor, urmând lecțiile sau socializând (prin lupte sau antrenament)!",
+        "title": "Scorul dvs.",
+        "data": {
+            "intro": "Ești în top",
+            "value": "15%",
+            "wording": "cel mai mare scor"
+        },
+        "data_dev_hidden": {
+            "question": {
+                "title": "Întrebări:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "Sunteți parte a",
+                    "level": "{{level}}",
+                    "wording": "cu cele mai multe stele"
+                }
+            },
+            "cours": {
+                "title": "Lecție:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "Faceți parte din",
+                    "level": "{{level}}",
+                    "wording": "care au vizualizat cele mai multe lecții."
+                }
+            },
+            "extra": {
+                "title": "Opțiuni suplimentare:",
+                "stat": {
+                    "intro": "Faci parte din",
+                    "level": "{{level}}",
+                    "wording": "cu cele mai bune rezultate."
+                }
+            },
+            "total_title": "Total:"
+        }
+    },
+    "lessons": {
+        "title": "Toate lecțiile și filmele",
+        "subtitle": "Dorești să repeți sau să studiezi înainte de a începe testele? Această pagină este pentru tine. Aici sunt toate lecțiile, clasificate în funcție de temă.",
+        "subtitle_up": "Doriți să faceți o trecere în revistă a cunoștințelor proprii sau să mai studiați înainte de a începe testele?",
+        "empty": "Nici o resursă pentru acest curs."
+    },
+    "notifications": {
+        "title": "Notificări",
+        "infos": "<b>{{count}}</b> notificare!",
+        "infos_plural": "<b>{{count}}</b> notificări!",
+        "filter": "Filtrează după...",
+        "close": "Închide",
+        "myNotifications": "Vezi notificările mele",
+        "deleteAll": "Ştergeţi tot",
+        "filters": {
+            "module": "Filtru de nivel",
+            "badge": "Filtrează după Insignă",
+            "forum": "Filtrați după discuție",
+            "battle": "Filtrează după Luptă",
+            "coach": "Filtrare după Antrenor",
+            "objectif": "Filtrează după Obiectiv",
+            "reward": "Filtraţi după recompense",
+            "welcome": "Filtrul de mesaje de bun venit",
+            "resetModule": "Filtrul de conținut actualizat"
+        }
+    },
+    "block_push": {
+        "tree": {
+            "title": "Răsfoiți Întregul Conținut",
+            "content": "Pentru un început rapid, dați click aici",
+            "link": "Apasă Aici"
+        },
+        "battle": {
+            "title": "Provocaţi-vă colegii!",
+            "content": "Începeți o „bătălie”. Îmbunătățirea abilităților dumneavoastră nu a fost niciodată atât de distractivă!",
+            "link": "Faceți Clic Aici"
+        }
+    },
+    "welcomePopin": {
+        "title": "Bine ai venit",
+        "text": "Pentru a te bucura de MOOC, mergi la pagina de Prima Dată.",
+        "button": "Descoperiți"
+    },
+    "global_notification": {
+        "button": {
+            "show_more": "Mai multe informații"
+        }
+    },
+    "filters": {
+        "all": "Toate",
+        "coorpers": "Coorpers",
+        "courses": "Lecțiile mele"
+    },
+    "sections": {
+        "most-popular": "Cele mai populare",
+        "most-recent": "Materiale noi",
+        "my-list": "Lista utilizatorului {{name}}",
+        "news": "Stiri",
+        "recommended": "Recomandat pentru tine",
+        "load_more": "Incarca mai mult",
+        "certification": "Certificare: {{name}}",
+        "prefix_chapter": "5' Learning: {{title}}"
+    },
+    "continueLesson": "Reia Traseul meu",
+    "widgets": {
+        "read_more": "Mai multe"
+    },
+    "discussion": {
+        "title": "Toate Comentariile Cursului",
+        "subtitle": "Vezi toate mesajele lăsate de comunitate pentru diferitele discipline"
+    },
+    "slider": {
+        "start": {
+            "surtitle": "Bine ați venit {{displayName}},",
+            "surtitle_anonymous": "Bun venit",
+            "title": "Explorați cursurile noi",
+            "cta": "Vezi catalog"
+        },
+        "resume": {
+            "surtitle_learner": "Bun venit spate {{displayName}}, continuă:",
+            "surtitle_microlearning": "Bun venit spate {{displayName}}, continuă:",
+            "surtitle_learner_anonymous": "Bine ai revenit, continuă:",
+            "surtitle_microlearning_anonymous": "Bine ai revenit, continuă:",
+            "title": "{{courseName}}",
+            "cta": "Continuați să învățați"
+        },
+        "battle": {
+            "surtitle": "Bine ați revenit, {{displayName}}. Vizualizați cererile de bătălie",
+            "title": "Ai {{count}} cereri de luptă!",
+            "title_plural": "Ai {{count}} cereri de bătălie!",
+            "cta": "Începe Lupta"
+        }
+    },
+    "custom": {
+        "7steps": {
+            "achievement": {
+                "helper": "Prezentarea generală a succesului dvs.! Veți reuși să obțineți nivelul superior pentru fiecare dintre aceste insigne?"
+            },
+            "badges": {
+                "level": {
+                    "platinum": "Top"
+                }
+            },
+            "block_push": {
+                "tree": {
+                    "content": "Începeți să învățați acum!"
+                }
+            }
+        },
+        "accueil": {
+            "filters": {
+                "coorpers": "Mooc-eri"
+            },
+            "badges": {
+                "battle": {
+                    "name": "Rival",
+                    "details_3": "40"
+                },
+                "module": {
+                    "name": "Super Erou",
+                    "details_1": {
+                        "number": "2"
+                    },
+                    "details_2": {
+                        "number": "4"
+                    },
+                    "details_3": {
+                        "number": "6"
+                    }
+                },
+                "lesson": {
+                    "name": "Costul Admiterii",
+                    "details_0": "5",
+                    "details_1": "15",
+                    "details_2": "30",
+                    "details_3": "60"
+                },
+                "question": {
+                    "name": "Întrebare pentru un campion",
+                    "details_3": "360"
+                },
+                "coach": {
+                    "name": "Calitate de cercetător"
+                }
+            }
+        },
+        "architas-powercircle": {
+            "filters": {
+                "coorpers": "Supereroi în investiţii"
+            }
+        },
+        "armeedeterre": {
+            "slider": {
+                "battle": {
+                    "surtitle": "Bun venit spate {{displayName}}, verificaţi solicitările dumneavoastră de luptă",
+                    "title": "Aveţi cerere de lupta {{count}}!",
+                    "title_plural": "Aveţi solicitări de lupta {{count}}!",
+                    "cta": "Începe lupta"
+                }
+            },
+            "battle_start": {
+                "title": "De luptă este pe cale să înceapă."
+            },
+            "select_module": {
+                "no_module_available": "Puteți crea doar o bătălie la un nivel terminat."
+            },
+            "success_battle": {
+                "title": "Bătălia de peste!",
+                "badge_user": {
+                    "award": "-3 lupte"
+                },
+                "badge_opponent": {
+                    "award": "-3 lupte"
+                },
+                "winStars": "Ai castigat {{count}} star suplimentare cu această bătălie!",
+                "winStars_plural": "Ai castigat {{count}} stele suplimentare cu această bătălie!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "Bătălia"
+                },
+                "battle": {
+                    "text": "Aţi primit 1 nouă bătălie",
+                    "demand_accept": "De luptă",
+                    "win_against_title": "Ai castigat batalia!",
+                    "loose_against_title": "Ţi-ai pierdut lupta!"
+                },
+                "type": {
+                    "battle": "Bătălia"
+                }
+            },
+            "navigation": {
+                "battle_pre": "Modul de luptă",
+                "battle": "Colegii dumneavoastră în \"Bătălia\" modul de provocare: răspunde la întrebări cât mai repede posibil!"
+            },
+            "filters": {
+                "battles": "LUPTELE MELE"
+            },
+            "badges": {
+                "battle": {
+                    "name": "SOLICITANT DE LUPTĂ",
+                    "details": "{{count}} Bătălia",
+                    "details_plural": "Luptele {{count}}"
+                }
+            },
+            "battle": {
+                "title": "Modul de luptă",
+                "create": "Creaţi o luptă",
+                "requests": {
+                    "title": "Cereri de luptă",
+                    "no_requests_found": "Încă nu aveţi orice cerere de luptă"
+                },
+                "history": {
+                    "title": "Bătălia istorie",
+                    "message": {
+                        "pending": "Această bătălie în aşteptarea aprobării adversarului",
+                        "win": "Ai castigat batalia!",
+                        "lost": "Ţi-ai pierdut lupta!"
+                    },
+                    "no_history_found": "Încă nu aveţi antecedente de luptă"
+                },
+                "start": {
+                    "cta": "Începe <span class=\"bold\"> Bătălia</span>",
+                    "new_cta": "Creaţi o nouă <span class=\"bold\"> bătălie</span>"
+                },
+                "steps": {
+                    "3": "3. începe bătălia"
+                },
+                "select_module": {
+                    "no_module_available": "Puteți crea doar o bătălie la un nivel terminat."
+                },
+                "button": {
+                    "create": "Creaţi o nouă bătălie"
+                },
+                "no_battle_progress": "Aveţi nici o bătălii în curs de desfăşurare.",
+                "block": {
+                    "title": "Cereri de luptă"
+                },
+                "no_proposition": "Nu am primit nici cereri de luptă.",
+                "completed": {
+                    "title": "Luptele de completat",
+                    "subtitle": "{{count}} Bătălia, câştigătoare {{nb}}",
+                    "subtitle_plural": "{{count}} bătălii, câştigătoare {{nb}}"
+                },
+                "block_empty": "Aveţi nici luptele finit.",
+                "create_title": "Crea Bătălia",
+                "active_title_intro": "Modul de luptă",
+                "coming_soon_random": "Începe o luptă aleatoare"
+            }
+        },
+        "bigdata": {
+            "navigation": {
+                "lessons": "Toate cursurile"
+            },
+            "filters": {
+                "news": "Pregătirea dvs.",
+                "coorpers": "MOOCers"
+            }
+        },
+        "bnp": {
+            "filters": {
+                "coorpers": "Factori"
+            }
+        },
+        "bnpp-legal": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Master"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Master"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Master,"
+                },
+                "module_name": {
+                    "coach": "Master"
+                }
+            },
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "casa": {
+            "filters": {
+                "news": "Formarea dvs.",
+                "coorpers": "MOOCers"
+            }
+        },
+        "challenge48htechno": {
+            "slider": {
+                "start": {
+                    "title": "Exploreze noi quizz"
+                },
+                "resume": {
+                    "surtitle": "Bun venit spate {{displayName}}, continua ţi quizz"
+                }
+            }
+        },
+        "chanel": {
+            "block_push": {
+                "tree": {
+                    "title": "START",
+                    "content": "Descoperiţi essentials CHANEL în catalog.",
+                    "link": "faceți clic aici"
+                },
+                "battle": {
+                    "title": "PROVOACĂ TOATĂ COMUNITATEA",
+                    "content": "Provocați-vă colegii în \"Mod bătălie\". Răspundeți la întrebări cât de repede puteți!",
+                    "link": "Faceți click aici"
+                }
+            },
+            "filters": {
+                "coorpers": "Comunitatea mea"
+            }
+        },
+        "crisis": {
+            "filters": {
+                "coorpers": "Comunitate Pernod Ricard"
+            }
+        },
+        "dolce": {
+            "filters": {
+                "coorpers": "Comunitate"
+            }
+        },
+        "edenred-talents": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Ambasador"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Ambasador"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Ambasador,"
+                },
+                "module_name": {
+                    "coach": "Ambasador"
+                }
+            }
+        },
+        "ey": {
+            "filters": {
+                "coorpers": "Eroi digitali"
+            }
+        },
+        "fff": {
+            "activity": {
+                "caption-started": "Disciplina a început, dar nu s-a finalizat încă",
+                "caption-done": "Disciplină validată"
+            }
+        },
+        "gdf": {
+            "badges": {
+                "transformer": {
+                    "name": "Transformator",
+                    "details_0": {
+                        "number": "1",
+                        "details": "temă",
+                        "details_post": "finalizat(ă)"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "teme",
+                        "details_post": "terminat"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "Teme",
+                        "details_post": "completat"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "Teme",
+                        "details_post": "finalizat(e)"
+                    }
+                }
+            }
+        },
+        "gdfec": {
+            "badges": {
+                "transformer": {
+                    "name": "Transformator",
+                    "details_0": {
+                        "number": "1",
+                        "details": "teme",
+                        "details_post": "Finalizat"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "teme",
+                        "details_post": "finalizat(e)"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "tematici",
+                        "details_post": "finalizat(e)"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "teme",
+                        "details_post": "complet"
+                    }
+                }
+            },
+            "filters": {
+                "coorpers": "Comunitate"
+            }
+        },
+        "ilearn": {
+            "filters": {
+                "coorpers": "Comunitatea mea"
+            }
+        },
+        "learnnrj": {
+            "filters": {
+                "coorpers": "Comunitate"
+            }
+        },
+        "letsgetdigital": {
+            "badges": {
+                "battle": {
+                    "name": "Competitor"
+                },
+                "module": {
+                    "name": "Erou"
+                }
+            }
+        },
+        "linxea": {
+            "filters": {
+                "coorpers": "MOOC-eri"
+            },
+            "navigation": {
+                "lessons": "Toate clipurile video"
+            }
+        },
+        "loreal-retail-v2": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filtrare după ce",
+                    "advanced": "Filtru de empatie",
+                    "coach": "Filtru de spectacol mi"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "de ce",
+                        "advanced": "Empatie",
+                        "coach": "arată-mi"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "de ce",
+                    "advanced": "Empatie",
+                    "coach": "arată-mi"
+                },
+                "module_name": {
+                    "base": "de ce",
+                    "advanced": "Empatie",
+                    "coach": "arată-mi"
+                }
+            }
+        },
+        "martell": {
+            "badges": {
+                "subtitle-1-0": "Vedeți toate insignele pe care le-ați obținut sau pe care încă trebuie să le obțineți pentru a deveni expert Martell"
+            },
+            "filters": {
+                "coorpers": "Prietenii Martell"
+            }
+        },
+        "michelin": {
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "mooc-socgen": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filtru de nivel 1",
+                    "advanced": "Filtru de nivel 2",
+                    "coach": "Filtru de nivel 3"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Nivel 1",
+                        "advanced": "Nivel 2",
+                        "coach": "Nivel 3"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Nivel 1,",
+                    "advanced": "Nivel 2,",
+                    "coach": "Nivel 3,"
+                },
+                "module_name": {
+                    "base": "Nivel 1",
+                    "advanced": "Nivel 2",
+                    "coach": "Nivel 3"
+                }
+            }
+        },
+        "nespresso": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "Expert"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "Expert"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "Expert,"
+                },
+                "module_name": {
+                    "coach": "Expert"
+                }
+            },
+            "filters": {
+                "coorpers": "Comunitate"
+            }
+        },
+        "online-academy-klubschule": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filtru de incepator",
+                    "advanced": "Filtru de avansată",
+                    "coach": "Filtru de Expert"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "nivel incepator",
+                        "advanced": "nivel avansat",
+                        "coach": "nivel Expert"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Incepator,",
+                    "advanced": "Avansate,",
+                    "coach": "Expert,"
+                },
+                "module_name": {
+                    "base": "Incepator",
+                    "advanced": "Avansate",
+                    "coach": "Expert"
+                }
+            }
+        },
+        "paca": {
+            "filters": {
+                "coorpers": "MOOC'eri"
+            },
+            "badges": {
+                "battle": {
+                    "name": "Concurent"
+                },
+                "module": {
+                    "name": "Supererou"
+                },
+                "lesson": {
+                    "name": "Preţul admisiei"
+                },
+                "question": {
+                    "name": "Întrebare pentru un campion"
+                },
+                "coach": {
+                    "name": "Premiul de Solidaritate"
+                }
+            }
+        },
+        "pernodci": {
+            "filters": {
+                "coorpers": "Comunitatea Pernod Ricard"
+            }
+        },
+        "pernod": {
+            "notificationCard": {
+                "type": {
+                    "objectif": "Obiectiv"
+                }
+            },
+            "goals": {
+                "title": "Înaintează Spre Obiectivul Tău"
+            },
+            "navigation": {
+                "objectif": "Obiectivele mele"
+            }
+        },
+        "petite": {
+            "filters": {
+                "coorpers": "Comunitatea mea"
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Modulul 1,",
+                    "advanced": "Modulul 2,",
+                    "coach": "Modul 3,"
+                },
+                "module_name": {
+                    "base": "Modulul 1",
+                    "advanced": "Modul 2",
+                    "coach": "Modulul 3"
+                }
+            }
+        },
+        "pru": {
+            "block_push": {
+                "tree": {
+                    "content": "Începeți să învățați acum!"
+                },
+                "battle": {
+                    "title": "Înfruntați-vă colegii și exersați!",
+                    "content": "Provoacă-ți colegii la o „bătălie”: încearcă să fii mai rapid decât ei!"
+                }
+            },
+            "badges": {
+                "subtitle-1-0": "Vizualizați toate insignele câștigate sau pe care trebuie să le mai câștigați pentru a deveni un maestru în conformitate!"
+            }
+        },
+        "quizz-auchan": {
+            "slider": {
+                "start": {
+                    "title": "Explora Quizz Stare de Bine!"
+                }
+            }
+        },
+        "renault": {
+            "badges": {
+                "subtitle": "Vedeți toate insignele pe care le-ați câștigat sau pe care încă trebuie să le câștigați pentru a deveni „regele” ultimului Clio RS! ;-)",
+                "lessons_seen": {
+                    "details_0": "2",
+                    "details_1": "4",
+                    "details_2": "8",
+                    "details_3": "10"
+                },
+                "answer": {
+                    "details_0": "20",
+                    "details_1": "36",
+                    "details_2": "72",
+                    "details_3": "120"
+                },
+                "perfect": {
+                    "details_2": {
+                        "number": "5"
+                    },
+                    "details_3": {
+                        "number": "8"
+                    }
+                }
+            }
+        },
+        "renaultrh": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filtrați după Pasul 1",
+                    "advanced": "Filtraţi după pasul 2",
+                    "coach": "Filtrare în funcție de Pas 3"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "Pas nivel 1",
+                        "advanced": "Nivel etapa 2",
+                        "coach": "nivel Pasul 3"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Pasul 1,",
+                    "advanced": "Pasul 2,",
+                    "coach": "Pasul 3,"
+                },
+                "module_name": {
+                    "base": "Pasul 1",
+                    "advanced": "Pasul 2",
+                    "coach": "Pasul 3"
+                }
+            }
+        },
+        "renaultcare": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filtrare după Începător"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "nivel Bază"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Noțiuni de bază,"
+                },
+                "module_name": {
+                    "base": "Noțiuni de bază"
+                }
+            }
+        },
+        "rexel": {
+            "filters": {
+                "coorpers": "Comunitatea pentru orientarea către clienți"
+            }
+        },
+        "samsung": {
+            "block_push": {
+                "tree": {
+                    "content": "Începeți aici!"
+                },
+                "battle": {
+                    "content": "Provocați-vă colegii în modul „Bătălie”: răspundeți la întrebări cât mai rapid posibil!"
+                }
+            }
+        },
+        "schneider": {
+            "select_module": {
+                "filter_by": {
+                    "base": "Filtrare după Sezonul 1",
+                    "advanced": "Filtrează după Sezonul 2",
+                    "coach": "Filtrează după Sezonul 3"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "nivel Sezonul 1",
+                        "advanced": "nivel Sezonul 2",
+                        "coach": "nivel Sezon 3"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Sezon 1,",
+                    "advanced": "Sezonul 2,",
+                    "coach": "Sezonul 3"
+                },
+                "module_name": {
+                    "base": "Sezonul 1",
+                    "advanced": "Sezonul 2",
+                    "coach": "Sezonul 3"
+                }
+            },
+            "filters": {
+                "all": "Toate",
+                "battles": "Luptele mele",
+                "coorpers": "IQ",
+                "news": "Știri",
+                "courses": "Lecțiile Mele",
+                "continueLesson": "Continuă Cursul"
+            }
+        },
+        "securite": {
+            "navigation": {
+                "lessons": "Toate cursurile"
+            },
+            "filters": {
+                "news": "Formația Ta",
+                "coorpers": "MOOC-eri"
+            }
+        },
+        "silca": {
+            "navigation": {
+                "lessons": "Toate Cursurile"
+            },
+            "filters": {
+                "coorpers": "MOOC-eri"
+            }
+        },
+        "sgmgt": {
+            "filters": {
+                "coorpers": "MOOCeri"
+            }
+        },
+        "societegenerale": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "sqy": {
+            "navigation": {
+                "lessons": "Toate cursurile"
+            },
+            "filters": {
+                "news": "Formația Ta",
+                "coorpers": "MOOC-eri"
+            }
+        },
+        "tourismdigital": {
+            "filters": {
+                "coorpers": "Membri"
+            }
+        },
+        "tagheuer": {
+            "badges": {
+                "level": {
+                    "bronze": "1ST GEAR",
+                    "silver": "VITEZA A 3-A",
+                    "gold": "VITEZA A 5-A",
+                    "platinum": "VITEZA A 7-A"
+                }
+            },
+            "filters": {
+                "coorpers": "Comunitatea TAG Heuer"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "nivel Titaniu",
+                        "advanced": "nivel Bronz",
+                        "coach": "nivel Argint"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "Filtrare după Titan",
+                    "advanced": "Filtrează după Bronz",
+                    "coach": "Filtrează după Argint"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Titaniu,",
+                    "advanced": "Bronz,",
+                    "coach": "Argint,"
+                },
+                "module_name": {
+                    "base": "Titaniu",
+                    "advanced": "Bronz",
+                    "coach": "Argint"
+                }
+            }
+        },
+        "tagheuercon": {
+            "badges": {
+                "level": {
+                    "bronze": "Prima viteză",
+                    "silver": "A treia viteză",
+                    "gold": "TREAPTA A 5-A",
+                    "platinum": "Viteza șapte"
+                }
+            },
+            "filters": {
+                "coorpers": "Comunitate de elevi"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "nivel Titaniu",
+                        "advanced": "nivel Bronz",
+                        "coach": " nivelul Argint"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "Filtrează după Titanium",
+                    "advanced": "Filtraţi după Bronz",
+                    "coach": "Filtrare după Argint"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "Titan,",
+                    "advanced": "Bronz,",
+                    "coach": "Argint,"
+                },
+                "module_name": {
+                    "base": "Titaniu",
+                    "advanced": "Bronz",
+                    "coach": "Argint"
+                }
+            }
+        },
+        "tourism": {
+            "filters": {
+                "coorpers": "Participanți MOOC"
+            }
+        },
+        "up": {
+            "personal_selection": {
+                "text_helper": "3 nivele sugerate, depinzând de traiectoria ta!",
+                "popular_module_helper": "Aveţi nevoie de inspiraţie? Verificaţi ce fac ceilalţi selectând cea mai populară secţie.",
+                "last_module": "Ultimul nivel jucat",
+                "no_module": "Nu a fost redat niciun modul",
+                "popular_module": "Traseele Cele Mai Jucate",
+                "easiest_disciplines": "Cele mai simple cursuri",
+                "hardest_disciplines": "Cele mai grele cursuri",
+                "no_popular_module": "Nu ați jucat nici un nivel"
+            },
+            "select_module": {
+                "title": "Alegeți un nivel",
+                "availability": "{{count}} nivel disponibil",
+                "availability_plural": "{{count}} nivel disponibil",
+                "no_module_available": "Puteți crea doar o bătălie la un nivel terminat."
+            },
+            "notificationCard": {
+                "request": "cursul {{module}} de nivel {{level}}",
+                "battle": {
+                    "against": "{{module}} cursă {{level}} nivel"
+                },
+                "forum_text": "Este 1 răspuns nou la comentariul tău cu privire la cursul {{module}} nivelul {{level}}",
+                "module": {
+                    "text": {
+                        "detail": "nivelul"
+                    }
+                },
+                "coach": {
+                    "text": "Ai devenit profesor pentru cursul {{disciplineName}}."
+                },
+                "title": {
+                    "Module": "Nivel"
+                },
+                "type": {
+                    "module": "Nivel"
+                }
+            },
+            "navigation": {
+                "learningTree": {
+                    "helper": "Accesaţi toate cursurile traiectoriei dumneavoastră cu un singur click",
+                    "push": "Accesează-ți toate cursurile",
+                    "push_post": "într-un click"
+                },
+                "account_helper": "Răsfoiți-vă spațiul personal, găsiți rezultatele, gestionați-vă progresul, participați la discuții sau pur și simplu urmați lecțiile înainte de a începe cursul.",
+                "battle_helper": "Odată ce ați terminat un curs, provocați-i pe toți aceia care sunt pe același nivel ca dvs. într-un mic joc de 10 întrebări!"
+            },
+            "activity": {
+                "progression_text_pre": "Ce progrese ai făcut în cursul tău?",
+                "discipline_title": "Curs",
+                "disciplines": {
+                    "title": "Curs"
+                },
+                "module_title": "Niveluri",
+                "caption-started": "Nivel a Început",
+                "caption-done": "Nivel Finalizat"
+            },
+            "badges": {
+                "module": {
+                    "name": "Supravieţuitor",
+                    "details_0": {
+                        "module": "Nivel"
+                    },
+                    "details_1": {
+                        "module": "Nivele"
+                    },
+                    "details_2": {
+                        "module": "Nivele"
+                    },
+                    "details_3": {
+                        "module": "Niveluri"
+                    }
+                }
+            },
+            "battle": {
+                "start_discipline": "Începe un curs",
+                "no_opponent": "Nu există adversar disponibil pentru acest nivel"
+            },
+            "notifications": {
+                "filters": {
+                    "module": "Filtrare după curs"
+                }
+            }
+        },
+        "yahoo": {
+            "badges": {
+                "subtitle-1-0": "Vezi cum ai progresat în obținerea de insigne diferite."
+            },
+            "filters": {
+                "coorpers": "Comunitate"
+            }
+        },
+        "capgemini": {
+            "navigation": {
+                "certifications": "Digicertif'-ul meu"
+            }
+        },
+        "cnp": {
+            "navigation": {
+                "certifications": "Certificate"
+            },
+            "sections": {
+                "certification": "Certificat: {{name}}"
+            }
+        },
+        "ecolenumerique-sncf": {
+            "navigation": {
+                "certifications": "Jedi insigne"
+            },
+            "sections": {
+                "certification": "Jedi Badge: {{name}}"
+            }
+        },
+        "ganprevoyance": {
+            "navigation": {
+                "certifications": "Universuri"
+            },
+            "sections": {
+                "certification": "Universul: {{name}}"
+            }
+        },
+        "who": {
+            "slider": {
+                "battle": {
+                    "surtitle": "Bine ați revenit {{displayName}}, verificați solicitările dumneavoastră de provocare",
+                    "title": "Ai o {{count}} provocare cerută ",
+                    "title_plural": "Ai {{count}} cereri de provocare!",
+                    "cta": "Începeţi provocarea"
+                }
+            },
+            "discussion": {
+                "title": "Modulul Feedback",
+                "subtitle": "Vezi toate mesajele lăsate de comunitate despre diverse module"
+            },
+            "battle_start": {
+                "title": "Provocarea dvs.este pe cale să înceapă."
+            },
+            "select_module": {
+                "no_module_available": "Poți crea o provocare doar într-un modul finalizat."
+            },
+            "success_battle": {
+                "title": "Provocarea s-a terminat!",
+                "badge_user": {
+                    "award": "- 3 provocări"
+                },
+                "badge_opponent": {
+                    "award": "- 3 provocări"
+                },
+                "winStars": "Aţi câştigat {{count}} stele în plus cu această provocare!",
+                "winStars_plural": "Ați câștigat {{count}} stele suplimentare la acestă provocare!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "Provocare"
+                },
+                "coach": {
+                    "text": "A terminat {{disciplineName}} curs."
+                },
+                "battle": {
+                    "text": "Ai primit o nouă provocare",
+                    "demand_accept": "Provocarea ta",
+                    "win_against_title": "Ai câștigat provocarea!",
+                    "loose_against_title": "Ați pierdut provocarea!"
+                },
+                "reward": {
+                    "resource": {
+                        "title": "Felicitări! Puteţi accesa o insignă de noi!"
+                    }
+                },
+                "type": {
+                    "battle": "Provocare"
+                },
+                "forum_text_page": "Există 1 nou răspuns la comentariu"
+            },
+            "navigation": {
+                "battle_pre": "Modul Provocare",
+                "battle": "Provocați-vă colegii în modul „Provocare”: răspundeți la întrebări cât mai repede posibil!"
+            },
+            "filters": {
+                "battles": "PROVOCĂRILE MELE",
+                "coorpers": "QR DEFENDERS"
+            },
+            "badges": {
+                "battle": {
+                    "name": "Căutător de provocări",
+                    "details": "{{clint}} Provocare",
+                    "details_plural": "{{count}} Provocări"
+                },
+                "module": {
+                    "name": "Stea"
+                },
+                "coach": {
+                    "name": "CONNECTOR"
+                },
+                "question": {
+                    "name": "MAESTRUL CHESTIONARELOR"
+                }
+            },
+            "battle": {
+                "title": "Mod provocare",
+                "create": "Creează o provocare",
+                "requests": {
+                    "title": "Solicitări de provocare",
+                    "no_requests_found": "Deocamdată nu ați primit nicio solicitare de provocare."
+                },
+                "history": {
+                    "title": "Istoric provocări",
+                    "message": {
+                        "pending": "Această provocare așteaptă răspunsul oponentului",
+                        "win": "Ați câștigat provocarea!",
+                        "lost": "Ai pierdut provocarea!"
+                    },
+                    "no_history_found": "Încă nu ai niciun istoric de provocări"
+                },
+                "start": {
+                    "cta": "Începe <span class=\"bold\">Provocarea</span>",
+                    "new_cta": "Creați o nouă <span class=\"bold\">Provocare</span>"
+                },
+                "steps": {
+                    "3": "3. Porniți provocarea"
+                },
+                "select_module": {
+                    "no_module_available": "Poți crea o provocare doar într-un modul finalizat."
+                },
+                "button": {
+                    "create": "Generare provocare nouă"
+                },
+                "no_battle_progress": "Nu aveți provocări în desfășurare.",
+                "block": {
+                    "title": "Solicitări de provocare"
+                },
+                "no_proposition": "Nu ai primit nicio provocare.",
+                "completed": {
+                    "title": "Provocări finalizate",
+                    "subtitle": "{{count}} provocare, câștigă {{nb}}",
+                    "subtitle_plural": "{{count}} provocări, câștigător {{nb}}"
+                },
+                "block_empty": "Nu ai provocări finalizate.",
+                "create_title": "Creați o provocare",
+                "active_title_intro": "Mod Provocare",
+                "coming_soon_random": "Începeți o Provocare Aleatorie"
+            },
+            "dashboard": {
+                "text": "Cursa Spațială! Poți câștiga oferind răspunsuri corecte la întrebări, urmărind lecțiile, sau socializând (prin provocări și antrenamente)!"
+            }
+        }
+    }
+}

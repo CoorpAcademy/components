@@ -1,0 +1,90 @@
+{
+    "disciplines": {
+        "book_demo": "book a demo",
+        "payment_required": "корпоративна підписка на академію",
+        "free_start": "розпочати навчання"
+    },
+    "modules": {
+        "button": {
+            "start": "Почати {{name}} рівень",
+            "access": "Отримати доступ до {{name}} рівня",
+            "continue": "Продовжуйте {{name}} Рівень",
+            "again": "Почати {{name}} рівень з початку",
+            "locked": "Модуль закрито",
+            "payment_required": "Щоб продовжити, оформіть підписку"
+        },
+        "skill": {
+            "valid": "Завдяки цьому модулю ви можете:",
+            "invalid": "В кінці цього модуля Ви зможете:"
+        },
+        "chapters": {
+            "title": "Розділи"
+        },
+        "stars": "Загальна кількість отриманих зірок"
+    },
+    "chapters": {
+        "button": {
+            "start": "Почати 5' Learning",
+            "access": "Доступ до 5' Learning",
+            "continue": "Продовжити 5' Learning",
+            "again": "Перезапустіть 5' Learning",
+            "locked": "5' Learning заблоковано"
+        }
+    },
+    "presentation": {
+        "total": "{{nb}}",
+        "total_post": "модуль",
+        "total_post_plural": "модулі",
+        "video_title": "Переглянути Матеріали Курсу",
+        "popularity": "Популярність:",
+        "trainer": "Тренер",
+        "trainer_plural": "Тренери",
+        "by": "За",
+        "and": "&"
+    },
+    "author": "Цей курс створено:",
+    "disciplineNotFound": "Не знайдено курсу із посиланням {{disciplineRef}}",
+    "forbidden": {
+        "unknown_in_group": "Ви не маєте доступу до цього змісту",
+        "previous_level": "Попередній рівень повинна бути завершена перед виконанням цього рівня",
+        "conditions": "Такі курси потрібно виконати перед виконанням цього один: {{contents}}",
+        "subscription_required": "Coorpacademy передплати необхідна для запуску цього вмісту."
+    },
+    "custom": {
+        "up": {
+            "disciplines": {
+                "payment_required": "підписка {{count}}"
+            },
+            "modules": {
+                "button": {
+                    "locked": "Рівень закритий"
+                },
+                "skill": {
+                    "valid": "Завдяки цьому рівню Ви можете:",
+                    "invalid": "У кінці цього рівня Ви зможете:"
+                }
+            },
+            "presentation": {
+                "total_post": "рівень",
+                "total_post_plural": "рівні"
+            }
+        },
+        "silca": {
+            "modules": {
+                "skill": {
+                    "invalid": "В кінці цього курсу Ви зможете оцінити Ваші навички:"
+                }
+            }
+        },
+        "mooc-socgen": {
+            "modules": {
+                "button": {
+                    "start": "Почати {{name}}",
+                    "access": "Доступ до {{name}}",
+                    "continue": "Продовжити {{name}}",
+                    "again": "Перезапустіть {{name}}"
+                }
+            }
+        }
+    }
+}

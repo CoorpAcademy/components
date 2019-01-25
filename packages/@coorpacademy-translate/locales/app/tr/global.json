@@ -1,0 +1,433 @@
+{
+    "content": {
+        "types": {
+            "course": "Ders",
+            "course_plural": "Kurslar",
+            "adaptive_chapter": "adaptif 5' Learning",
+            "adaptive_course": "adaptif Ders",
+            "adaptive_course_plural": "adaptif kursları",
+            "cursus": "cursus",
+            "cursus_plural": "cursuses",
+            "chapter": "5' Learning",
+            "chapter_plural": "5' Learning"
+        },
+        "sorts": {
+            "title": "Sıralama ölçütü:",
+            "cta": "Sıralama",
+            "tab": "Sıralama ölçütü",
+            "pertinence": "Alaka düzeyi",
+            "newest": "En yeni",
+            "duration": "En kısa"
+        },
+        "filters": {
+            "cta": "Filtre",
+            "tab": "Filtre",
+            "authors": "Yazarlar:",
+            "authorTypes": "İçerik kategorileri:",
+            "type": "Türü:",
+            "themes": "Koleksiyonlar:",
+            "goals": "Sertifikalar:",
+            "time": "Saat:",
+            "learning_paths": "Öğrenme yolları:",
+            "all_authors": "Tüm Yazarlar",
+            "all_author_types": "Tüm Kategoriler",
+            "all_themes": "Tüm koleksiyonlar",
+            "all_goals": "Tüm Sertifikalar",
+            "all_courses": "Tüm dersler",
+            "microlearning": "5' Learning",
+            "all": "Tüm",
+            "courses": "Kurslar",
+            "my_favorites": "Listem:"
+        },
+        "notification": {
+            "addFavorite": "Listenize Eklendi",
+            "removeFavorite": "Listenizden Çıkartıldı"
+        },
+        "search": {
+            "placeholder": "Ne öğrenmek istiyorsun?"
+        },
+        "catalog": "Katalog",
+        "result": "{{title}}: {{count}} sonuç",
+        "result_plural": "{{title}}: {{count}} sonuçları",
+        "noresultsfound": "Üzgünüm sonuç yok",
+        "clearFilters": "Sıfırlama",
+        "recommended": "Tavsiye ettiğin için dersler keşfetmek:",
+        "new": "Yeni"
+    },
+    "author": {
+        "socialTitle": "Sosyal:",
+        "cardsTitle": "Tüm kurslar yazardan {{author}}",
+        "website": "Web sitesi:",
+        "notFound": "Yazar ({{authorRef}}) bulunamadı",
+        "more": "Yazar detayları",
+        "customCustomer": "{{name}} Creation",
+        "types": {
+            "coorp": "Coorp Originals",
+            "verified": "Verified by Coorp",
+            "marketplace": "Diğerleri",
+            "custom": "{{name}} Creation"
+        }
+    },
+    "unit": {
+        "duration_minutes_set": "{{m}} dakika",
+        "duration_minutes_set_plural": "{{m}} dakika",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}} h $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}} hs $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "shortUnit": {
+        "duration_minutes_set": "{{m}}m",
+        "duration_minutes_set_plural": "{{m}}m",
+        "duration_minutes_with_hours_set": "{{m}}",
+        "duration_minutes_with_hours_set_plural": "{{m}}",
+        "duration_minutes_with_hours_none": "‌",
+        "duration_minutes_with_hours_none_plural": "‌",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}}h$t(shortUnit.duration_minutes_with_hours, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}}h$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "module_level": {
+        "1": "$t(global:module_level.base)",
+        "2": "$t(global:module_level.advanced)",
+        "3": "$t(global:module_level.coach)",
+        "base": "Temel",
+        "advanced": "Gelişmiş",
+        "coach": "Koç"
+    },
+    "progression_status": {
+        "not_started": "Başlatılmamış",
+        "in_progress": "Devam eden",
+        "completed": "Tamamlandı"
+    },
+    "close": "Kapat",
+    "skipIntro": "Skip Intro",
+    "route": {
+        "initialized": "Görüntü sıfırlandı.",
+        "error": {
+            "401": "Artık bağlı değilmişsiniz gibi görünüyor. ",
+            "402": "Ödeme Gerekli",
+            "403": "Bu işlemi gerçekleştirme izniniz yok",
+            "404": "Biliyor musunuz? 404 hata kodu bir sayfanın bulunamadığı anlamına gelir.",
+            "409": "Biliyor muydunuz? Bir 409 kodu, verinizde bir zıtlık olduğu anlamına gelmektedir. ",
+            "500": "Biliyor musunuz? Bir 500 hata kodu sunucuda bir problem olduğu anlamına gelir.",
+            "api": "Bir hata oluştu. Sunucu çalışıyor, ancak istenen hizmet bir istisna ile karşılaştı.",
+            "default": "Bir hata oluştu."
+        }
+    },
+    "loading": "Yükleniyor...",
+    "htmlTitle": "CoorpAcademy",
+    "hero": {
+        "cta": "Öğrenmeye başla"
+    },
+    "cookiesDisabled": {
+        "title": "Kurabiye desactivated",
+        "error": "Tanımlama bilgilerini veya bloke devre dışı. Lütfen yeniden etkinleştirmek veya yapılandırmak sizin AdBlocker"
+    },
+    "chatbot": {
+        "welcome": {
+            "default": "Welcome on Coorpacademy. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin.",
+            "facebook": "Hello and welcome to Coorpacademy! I can ask you question of our online courses. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin. If you're looking for some other informations you can contact us at communication@coorpacademy.com."
+        },
+        "ask_question": {
+            "repeat_header_1": "Emin! {{question}}.",
+            "repeat_header_2": "Elbette! {{question}}.",
+            "repeat_header_3": "Tamam! İşte soru: tekrar: {{question}}.",
+            "repeat_header_4": "Sorun değil. {{question}}.",
+            "repeat_header_5": "Tekrar ediyorum: {{question}}."
+        },
+        "next_action": {
+            "question_next": "' İçin sonraki sorunun ' devam etmek için.",
+            "answer_next": "Cevap ne?",
+            "wrong_answer_next": "'Neden' bazı açıklamalar veya 'İleri' devam etmek için almak söyle."
+        },
+        "answer_question": {
+            "is_valid": {
+                "title_1": "Bravo!",
+                "title_2": "Bu doğrudur!",
+                "title_3": "İyi cevap!",
+                "title_4": "Evet!",
+                "title_5": "Bravo!"
+            },
+            "is_invalid": {
+                "title_1": "Ne demek! Cevap: {{answer}}.",
+                "title_2": "Bu doğru değil! Cevap: {{answer}}.",
+                "title_3": "Kötü cevap! Sen-meli demek: {{answer}}.",
+                "title_4": "Ah! Doğru cevap olduğunu: {{answer}}.",
+                "title_5": "Üzgünüm ama bu doğru değil! Doğru cevap olduğunu: {{answer}}."
+            }
+        },
+        "error": {
+            "not_found": "Özür dilerim, herhangi bir soru bulamadık. Lütfen başka bir konu ile deneyin."
+        }
+    },
+    "demo": {
+        "url": "https://www.coorpacademy.com/en/request-a-demo/?utm_source=Up&utm_medium={{medium}}"
+    },
+    "custom": {
+        "7steps": {
+            "module_level": {
+                "base": "Öğren",
+                "advanced": "Yap",
+                "coach": "Bağlan"
+            }
+        },
+        "loreal-retail-v2": {
+            "module_level": {
+                "base": "Niye ya",
+                "advanced": "Empati",
+                "coach": "Göster bana"
+            }
+        },
+        "accueil": {
+            "htmlTitle": "MOOC Accueil Fransa"
+        },
+        "achat-habitat": {
+            "htmlTitle": "Mooc Achat Habitat",
+            "module_level": {
+                "base": "Intro",
+                "advanced": "Artıları",
+                "coach": "Koç"
+            }
+        },
+        "adeo": {
+            "htmlTitle": "Adeo Training CPL"
+        },
+        "auchan-retail": {
+            "htmlTitle": "Auchan Retail QUIZZ"
+        },
+        "architas-powercircle": {
+            "htmlTitle": "POWERCIRCLE | FOCUS"
+        },
+        "bnp": {
+            "htmlTitle": "BNP Paribas Factor MOOC"
+        },
+        "bestwesternuniversity": {
+            "htmlTitle": "Best Western University"
+        },
+        "capgemini": {
+            "htmlTitle": "COOC"
+        },
+        "cd78": {
+            "htmlTitle": "MOOC rSa"
+        },
+        "chanel": {
+            "htmlTitle": "iJoinCHANEL"
+        },
+        "clarins-digital": {
+            "htmlTitle": "Clarins Digital"
+        },
+        "crt": {
+            "htmlTitle": "CRT"
+        },
+        "coravin": {
+            "htmlTitle": "Coravin"
+        },
+        "corporateonlineopencourse": {
+            "module_level": {
+                "base": "TEMEL BİLGİLER"
+            },
+            "progression_status": {
+                "not_started": "Kayıtlı",
+                "in_progress": "Kayıtlı",
+                "completed": "Tamamlandı"
+            }
+        },
+        "dolce": {
+            "htmlTitle": "Bireyler"
+        },
+        "eacampus": {
+            "htmlTitle": "EAcampus"
+        },
+        "ecolenumerique-sncf": {
+            "content": {
+                "filters": {
+                    "goals": "Jedi rozetleri:"
+                }
+            }
+        },
+        "edenred-talents": {
+            "htmlTitle": "Edenred Talents",
+            "module_level": {
+                "coach": "Büyükelçi"
+            }
+        },
+        "ganprevoyance": {
+            "content": {
+                "filters": {
+                    "goals": "Evren:"
+                }
+            }
+        },
+        "faurecia": {
+            "htmlTitle": "Learning Lab"
+        },
+        "gdf": {
+            "htmlTitle": "WeTransform"
+        },
+        "gdfec": {
+            "htmlTitle": "İşletmeler ve Toplumlar"
+        },
+        "hr-ac": {
+            "htmlTitle": "HR Academy"
+        },
+        "ilearn": {
+            "htmlTitle": "iLearn KANALI",
+            "module_level": {
+                "1": "Temel",
+                "2": "Gelişmiş",
+                "3": "Uzman",
+                "base": "Temel",
+                "advanced": "Gelişmiş",
+                "coach": "Uzman"
+            }
+        },
+        "learnnrj": {
+            "htmlTitle": "Enerji Öğreniyorum"
+        },
+        "logisacademie": {
+            "htmlTitle": "Logis Académie"
+        },
+        "linxea": {
+            "htmlTitle": "LinXea Academy"
+        },
+        "manpower": {
+            "htmlTitle": "Lider etkisi",
+            "module_level": {
+                "1": "Temel",
+                "2": "Uzman",
+                "3": "Koç",
+                "base": "Temel",
+                "advanced": "Uzman",
+                "coach": "Koç"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "htmlTitle": "Digital MOOC ATF"
+        },
+        "mooc-socgen": {
+            "htmlTitle": "Mooc Socgen",
+            "module_level": {
+                "base": "Düzey 1",
+                "advanced": "Düzey 2",
+                "coach": "Düzey 3"
+            }
+        },
+        "natixis": {
+            "htmlTitle": "Think Digital"
+        },
+        "nespresso": {
+            "module_level": {
+                "3": "Uzman",
+                "coach": "Uzman"
+            }
+        },
+        "nespressodigital": {
+            "htmlTitle": "Dijital Akademi"
+        },
+        "paca": {
+            "htmlTitle": "MOOc Paca"
+        },
+        "online-academy-klubschule": {
+            "module_level": {
+                "base": "Acemi",
+                "advanced": "Gelişmiş",
+                "coach": "Uzman"
+            }
+        },
+        "petite": {
+            "htmlTitle": "Chanel Petite Onboarding",
+            "module_level": {
+                "base": "Modül 1",
+                "advanced": "Modül 2",
+                "coach": "Modül 3"
+            }
+        },
+        "quizz-auchan": {
+            "htmlTitle": "QUIZZ AUCHAN RETAIL"
+        },
+        "renaultrh": {
+            "module_level": {
+                "base": "Adım 1",
+                "advanced": "Adım 2",
+                "coach": "3. Aşama"
+            }
+        },
+        "renaultcare": {
+            "module_level": {
+                "base": "Temel bilgiler"
+            }
+        },
+        "rexel": {
+            "htmlTitle": "Rexel Müşteri Merkezi"
+        },
+        "schneider": {
+            "module_level": {
+                "base": "Sezon 1",
+                "advanced": "Sezon 2",
+                "coach": "3. Sezon"
+            }
+        },
+        "tagheuer": {
+            "module_level": {
+                "base": "Titanyum",
+                "advanced": "Bronz",
+                "coach": "Gümüş"
+            }
+        },
+        "tagheuercon": {
+            "module_level": {
+                "base": "Titanyum",
+                "advanced": "Bronz",
+                "coach": "Gümüş"
+            }
+        },
+        "theglenlivet-academy": {
+            "htmlTitle": "The Glenlivet | ザ・グレンリベット アカデミー"
+        },
+        "tourism": {
+            "htmlTitle": "Turizm Akademizi"
+        },
+        "tourismdigital": {
+            "htmlTitle": "Dijital turizm"
+        },
+        "tourisme-hautsdefrance": {
+            "htmlTitle": "Tourisme Hauts-de-France"
+        },
+        "yahoo": {
+            "module_level": {
+                "base": "Çaylak",
+                "advanced": "Orta",
+                "coach": "Pro"
+            }
+        },
+        "ey": {
+            "htmlTitle": "Dijital Akademi"
+        },
+        "thelem": {
+            "htmlTitle": "DigiPass#"
+        },
+        "letsgetdigital": {
+            "htmlTitle": "Dijital 2.0 alalım",
+            "module_level": {
+                "base": "LEARNER",
+                "advanced": "EXPERT",
+                "coach": "MASTER"
+            }
+        },
+        "who": {
+            "htmlTitle": "QualityRights",
+            "module_level": {
+                "advanced": "Durum analizi"
+            }
+        },
+        "triptorelin": {
+            "htmlTitle": "Triptorelin"
+        }
+    }
+}

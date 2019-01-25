@@ -1,0 +1,203 @@
+{
+    "video_player": {
+        "jw": "Ładowanie odtwarzacza wideo...",
+        "fileCouldNotBePlayedTitle": "Błąd odtwarzania wideo",
+        "flashInstallUrl": "https://get.adobe.com/en/flashplayer/",
+        "MEDIA_ERR_UNKNOWN": {
+            "title": "Wystąpił nieznany błąd",
+            "description": "Wykryto błąd odtwarzania filmu wideo. Zostaliśmy powiadomieni o tej awarii i zbadamy problem."
+        },
+        "MEDIA_ERR_ABORTED": {
+            "title": "Proces pobierania zasobu nośnika został przerwany.",
+            "description": "Sprawdź połączenie z Internetem i spróbuj ponownie wczytać film wideo."
+        },
+        "MEDIA_ERR_NETWORK": {
+            "title": "Z powodu błędu sieci agent użytkownika zatrzymał pobieranie zasobu nośnika.",
+            "description": "Sprawdź połączenie z Internetem i spróbuj ponownie wczytać film wideo."
+        },
+        "MEDIA_ERR_DECODE": {
+            "title": "Wystąpił błąd podczas dekodowania zasobu nośnika.",
+            "description": "Ten film wideo nie jest obsługiwany w tej przeglądarce. To problem dotyczący przeglądarki lub systemu operacyjnego."
+        },
+        "MEDIA_ERR_SRC_NOT_SUPPORTED": {
+            "title": "Źródło multimediów nie nadaje się do użytku",
+            "description": "Film wideo jest niedostępny lub nie jest obsługiwany w tej przeglądarce. Spróbuj użyć innej przeglądarki lub zainstaluj Flash Player, a następnie odśwież stronę."
+        }
+    },
+    "account_menu": {
+        "badge": "Odznaki",
+        "account": "Moje konto",
+        "objectif": "Certyfikaty",
+        "activity": "Aktywność",
+        "competence_win": "Nabyte umiejętności",
+        "timeline": "Postęp na przestrzeni czasu",
+        "discussion": "Dyskusje",
+        "conseil": "Porady i wskazówki",
+        "coach": "Trenerzy",
+        "battle": "Tryb bitwy",
+        "modification": "Modyfikuj moje informacje"
+    },
+    "chat_room": {
+        "button_wrapper": "Wyślij",
+        "placeholder": "Twoja wiadomość",
+        "connexion": "{{displayName}} > dołączył do rozmowy",
+        "deconnexion": "Użytkownik {{displayName}} opuścił tę rozmowę"
+    },
+    "badgesLabel": {
+        "battle": {
+            "detail": "Bitwa {{detail}} zakończona",
+            "detail_plural": "Ukończono bitwy {{detail}}"
+        },
+        "module": {
+            "detail": "Ukończono moduł {{detail}} bez utraty życia!",
+            "detail_plural": "Ukończono moduły {{detail}} bez utraty życia!"
+        },
+        "lesson": {
+            "detail": "{{detail}} lekcji obejrzeli!",
+            "detail_plural": "{{detail}} lekcje obejrzeli!"
+        },
+        "question": {
+            "detail": "{{detail}} pytanie odpowiedzieć prawidłowo!",
+            "detail_plural": "{{detail}} pytania odpowiedział poprawnie!"
+        },
+        "coach": {
+            "detail": "Odbyto interakcje z trenerami {{detail}}!",
+            "detail_plural": "Interakcje z trenerami {{detail}}!"
+        }
+    },
+    "notificationMenu": {
+        "god_mode": "Aktywuj tryb boski",
+        "notification": "Aktywuj powiadomienia na pulpicie",
+        "title": "Powiadomienia ({{nb}})",
+        "forum": "Użytkownik odpowiedział na Twój komentarz odnośnie poziomu {{level}} modułu {{name}}",
+        "badge_title": "Gratulacje!",
+        "badge": "Masz odznakę {{name}} {{badge}}",
+        "module_title": "Gratulacje!",
+        "module": "Ukończono moduł {{module}} na poziomie {{level}}!",
+        "battle": {
+            "new": "{{name}} chce rzucić Ci wyzwanie na poziomie {{level}} w module {{module}}!",
+            "accepted": "Twoje wyzwanie do udziału w bitwie zostało przyjęte",
+            "win": "Wygrałeś/-łaś walkę z {{looser}} na poziomie {{level}} w module {{module}}!",
+            "loose": "Przegrałeś/-łaś walkę z {{winner}} w module {{module}} na poziomie {{level}}..."
+        },
+        "link": "Zobacz wszystkie",
+        "challenge_reminder": "Nie zapominaj, że użytkownik {{name}} rzucił Ci wyzwanie w module {{module}} na poziomie {{level}} i czeka na odpowiedź!",
+        "coach": "Brawo! Zostałeś/-łaś trenerem w dyscyplinie {{name}}!",
+        "start_aim": "Wybrano certyfikat {{name}}. Rozpocznij pracę!",
+        "goal_as_reward": "Odblokowano certyfikat {{name}}. Zaczynaj!",
+        "half_achieved": "Gratulacje! Jesteś w połowie drogi do certyfikatu {{name}}! Tak trzymaj.",
+        "three_third_achieved": "Gratulacje! Certyfikat {{name}} jest Twój! Podziel się swoim sukcesem w sieci profesjonalistów.",
+        "continue_goals": "Gratulacje! Certyfikat {{name}} jest Twój! Rozpocznij uzyskiwanie kolejnego!",
+        "continue": "Tak dobrze Ci szło. Dlaczego chcesz teraz zrezygnować? Spróbuj uzyskać certyfikat {{name}}!",
+        "mandatory": "Aby zdobyć {{name}}, musisz zakończyć moduły na poziomach {{levels}}!",
+        "mandatory_plural": "Aby zdobyć {{name}}, musisz zakończyć moduły na poziomach {{levels}}!",
+        "mandatory_achieved": "Gratulacje! Certyfikat {{name}} jest Twój!",
+        "toggleCoach": "Dostępne dla trenera",
+        "reward_title": "Brawo! Nagroda jest Twoja!",
+        "reward_description": {
+            "bonusStars": "Masz premię w postaci nowych gwiazdek {{stars}}."
+        }
+    },
+    "custom": {
+        "armeedeterre": {
+            "account_menu": {
+                "battle": "Tryb bitwy"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} Bitwa zakończona",
+                    "detail_plural": "{{detail}} bitwy"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "Twoja walka została przyjęta",
+                    "win": "Masz wygrał walkę z {{looser}} na poziomie {{level}} moduł {{module}}!",
+                    "loose": "Straciłeś walki z {{winner}} na poziomie {{level}} moduł {{module}}..."
+                }
+            }
+        },
+        "gdf": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} tematu zakończone",
+                    "detail_plural": "{{detail}} tematy zakończone"
+                }
+            }
+        },
+        "gdfec": {
+            "badgesLabel": {
+                "transformer": {
+                    "detail": "{{detail}} tematu zakończone",
+                    "detail_plural": "{{detail}} tematy zakończone"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "assistance": {
+                "title": "Sprzężenie zwrotne"
+            }
+        },
+        "pernod": {
+            "notificationMenu": {
+                "start_aim": "Wybrano cel {{name}}. Rozpocząć pracę!",
+                "goal_as_reward": "Masz odblokowane celem {{name}}. Rozpocząć pracę!",
+                "half_achieved": "Dobra robota! Możesz osiągnąć 50% celem {{name}}!",
+                "three_third_achieved": "Gratulacje! Osiągnąć cel {{name}}!",
+                "continue_goals": "Gratulacje! Osiągnąć cel {{name}}! Uruchomić inną!",
+                "continue": "Robisz tak dobrze, dlaczego stop? Nadal w celu {{name}}!",
+                "mandatory": "Do zakończenia treningu, musi osiągnąć cel {{name}}: zaczynajmy!",
+                "mandatory_achieved": "Gratulacje! Osiągnąć cel {{name}}!"
+            }
+        },
+        "up": {
+            "badgesLabel": {
+                "module": {
+                    "detail": "{{detail}} poziom ukończony bez utraty życia!",
+                    "detail_plural": "{{detail}} poziomów bez utraty życia!"
+                }
+            },
+            "notificationMenu": {
+                "forum": "Użytkownik odpowiedział na Twój komentarz odnośnie do poziomu kursu {{level}} {{name}}",
+                "module": "Przeszedłeś poziom kursu {{name}} {{level}}!",
+                "battle": {
+                    "new": "{{name}} chciałby wyzwanie na poziomie kursu {{level}} {{module}}!",
+                    "win": "Masz wygrał walkę z {{looser}} na poziomie kursu {{level}} {{module}}!",
+                    "loose": "Przegrał walkę z {{winner}} na poziomie kursu {{level}} {{module}}..."
+                },
+                "challenge_reminder": "Nie zapomnij, wyzwał na poziomie kursu {{level}} {{module}} {{name}} i czeka na odpowiedź!",
+                "coach": "Brawo! Stajesz się trener w toku {{name}}!"
+            }
+        },
+        "who": {
+            "account_menu": {
+                "battle": "Tryb Challenge"
+            },
+            "badgesLabel": {
+                "battle": {
+                    "detail": "{{detail}} wyzwanie ukończone",
+                    "detail_plural": "{{detail}} wyzwania ukończone"
+                }
+            },
+            "notificationMenu": {
+                "battle": {
+                    "accepted": "Twoje wyzwanie została przyjęta",
+                    "win": "Wygrałeś wyzwanie przed {{looser}} na {{module}} modułu {{level}} poziomu!",
+                    "loose": "Straciłeś wyzwanie przed {{winner}} na {{module}} modułu {{level}} poziomu..."
+                },
+                "continue_goals": "Gratulacje! Uzyskaniu certyfikacji {{name}}!"
+            }
+        }
+    },
+    "assistance": {
+        "title": "Pomoc",
+        "object": "Temat",
+        "message": "Komunikat",
+        "send": "Wyślij",
+        "thanks": "Dziękuję za wiadomość!",
+        "next": "Dalej"
+    },
+    "cards": {
+        "allCategories": "Wszystkie kategorie"
+    }
+}

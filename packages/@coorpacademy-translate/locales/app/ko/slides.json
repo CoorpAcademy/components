@@ -1,0 +1,107 @@
+{
+    "indice": {
+        "title": "도움이 필요하십니까?",
+        "sub_title": "별 하나 잃는대신 단서를 보세요!",
+        "content": "단서 얻기"
+    },
+    "lesson": {
+        "title": "여기서 답을 찾으세요!",
+        "sub_title": "수업를 보고 별 4개를 얻으세요!",
+        "resources": "더 나아 가기 위해...",
+        "title_video": "과목 비디오",
+        "title_pdf": "교재 PDF",
+        "look_at_the_course": "수업 보기"
+    },
+    "without_coach": {
+        "title": "연결 가능한 코치가 없음"
+    },
+    "with_coach": {
+        "title": "대화 시작",
+        "content": "현재 {{nb}} 코치 연결 가능"
+    },
+    "is_valid": {
+        "state": "<span class=\"label1\"> 정답 </span> <span class=\"label2\"> </span>",
+        "title": "브라보!",
+        "correctAnswer": "정답:"
+    },
+    "is_invalid": {
+        "state": "<span class=\"label1\"> 오답 </span> <span class=\"label2\"> </span>",
+        "title": "아야...",
+        "goodAnswer": "정답은:"
+    },
+    "signup_finish_chapter": "장 완료 가입",
+    "available_shots_pre": "여전히",
+    "available_shots": "남은 기회 {{count}}",
+    "available_shots_plural": "남은 기회 {{count}}",
+    "available_shots_post": "&nbsp;",
+    "klf": "알고 있으셨나요?",
+    "to_know": "핵심 포인트",
+    "footer": {
+        "lesson": {
+            "title": "레슨을 다시 볼 수 있습니다.",
+            "button": "레슨으로 가기"
+        },
+        "result": {
+            "title": "결과로 돌아가실 수 있습니다",
+            "button": "결과로 돌아가기"
+        },
+        "next_question": "다음"
+    },
+    "check_answer": "답변 확인",
+    "adaptive_check_answer": "다음",
+    "next_question": "다음 질문",
+    "next_level": "다음 레벨",
+    "author": "본 장 제작사",
+    "button_tree": "카탈로그에가 서",
+    "comments": {
+        "title": "대화 나누기",
+        "title_for_module": "토론-{{name}} 수준"
+    },
+    "slideNotFound": "참조 {{slideId}}와 발견 질문",
+    "forbidden": "참조 {{contentRef}}와 콘텐츠에 액세스할 수 있는 권리를 필요가 없습니다.",
+    "showContext": "문맥 다시보기",
+    "context": "문맥",
+    "custom": {
+        "hr-ac": {
+            "footer": {
+                "lesson": {
+                    "button": "문서에 액세스"
+                }
+            }
+        },
+        "nespresso": {
+            "without_coach": {
+                "title": "사용할 수 있는 전문가 없습니다"
+            },
+            "with_coach": {
+                "content": "{{nb}} 전문가 제공"
+            }
+        },
+        "renaultcare": {
+            "is_valid": {
+                "state": "<span class=\"label1\"> 브라 보</span>"
+            },
+            "is_invalid": {
+                "state": "<span class=\"label1\"> 정말</span>",
+                "title": "아야..."
+            }
+        },
+        "schneider": {
+            "comments": {
+                "title_for_module": "토론-{{name}} 수준 <br/> 연락 <a href=\"http://2929it.schneider-electric.com/\" target=\"_blank\"> 2929 지원</a> 비디오 문제에 대 한"
+            }
+        },
+        "who": {
+            "is_valid": {
+                "state": "<span class=\"label1\"> 올바른</span> <span class=\"label2\"> 대답</span>",
+                "correctAnswer": "정답:"
+            },
+            "to_know": "이해 하기",
+            "lesson": {
+                "resources": "제목으로 다이빙",
+                "look_at_the_course": "물론 PDF"
+            },
+            "showContext": "다시는 컨텍스트 액세스"
+        }
+    }
+}

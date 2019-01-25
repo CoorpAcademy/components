@@ -1,0 +1,120 @@
+{
+    "cms": {
+        "add": "Adicionar Item",
+        "title": "Adicionar uma nova página",
+        "lang": "Idioma de entrada:",
+        "name": "Nome*:",
+        "scope": "Escopo:",
+        "target": {
+            "title": "Alvo:",
+            "empty": "Nenhum alvo",
+            "discipline": "Disciplina",
+            "learningTree": "Catálogo"
+        },
+        "type": "Tipo:",
+        "order": "Ordem:",
+        "active": "Ativo:",
+        "populations": "Populações:",
+        "rmd": "Markdown",
+        "save": "Salvar",
+        "delete": "Excluir",
+        "test": "Testar",
+        "deploy": "Enviar",
+        "delete_confirm": "Deseja realmente excluir esta página?",
+        "markdown": "Sintaxe do Markdown",
+        "quick": "Referência rápida",
+        "path": "Sufixo do URL*:",
+        "full": "Documentação completa",
+        "preview": "Preview",
+        "edit": "Editar",
+        "notifications": "Notificações personalizadas",
+        "content": "Conteúdo'",
+        "config": "Configuração global",
+        "targetBlank": "Abrir uma nova aba:",
+        "forum_xid": "Id do fórum",
+        "navigation": {
+            "label": "Bloco a descobrir:",
+            "none": "Página sem bloco"
+        },
+        "provider": {
+            "none": "Todos os usuários:"
+        },
+        "status": {
+            "ok": {
+                "title": "Sucesso",
+                "save": "Sua página foi salva com sucesso",
+                "del": "Sua página foi excluída com sucesso"
+            },
+            "test": {
+                "title": "Tarefa lançada. A notificação aparecerá em breve."
+            },
+            "deploy": {
+                "title": "Tarefa lançada. Acompanhe a execução no espaço de tarefas."
+            },
+            "ko": {
+                "title": "Erro",
+                "save": "Ocorreu um erro enquanto salvava: {{err}}",
+                "del": "Ocorreu um erro durante a exclusão: {{err}}"
+            }
+        },
+        "title_content": "Título:",
+        "category": "Categoria",
+        "select_all": "Selecionar tudo",
+        "language_info": "Cada um do idioma de entrada deve ser preenchido para cada país ativado",
+        "imageURL": "URL da imagem",
+        "page": "Page:",
+        "link": "Link:",
+        "link_placeholder": "(ex: http://www.google.com)",
+        "partner": "Parceiro:",
+        "discipline_ref": "discipline.ref",
+        "cancel": "Cancelar",
+        "date": "Data:",
+        "image": "Imagem:",
+        "upload": "Carregar",
+        "modify": "Modificar",
+        "countries": "Países"
+    },
+    "success": "Suas alterações foram salvas.",
+    "error": {
+        "mandatory": "Campos faltantes"
+    },
+    "tabs": {
+        "pages": "Páginas",
+        "news": "News",
+        "notification": "Notificações personalizadas"
+    },
+    "page": {
+        "name": "{{name}}"
+    },
+    "notification": {
+        "new": "Essa notificação não tiver sido criada ainda. Preencher e salvar o formulário para criá-lo.",
+        "name": "{{name}}",
+        "provider": "Servidor:",
+        "expires": "Data de vencimento*:",
+        "message": "Mensagem",
+        "link": {
+            "show": "Botão “Saiba mais”:",
+            "url": "Link:",
+            "target": "Em uma nova página:"
+        },
+        "status": {
+            "title": "Estatuto",
+            "created": "Criado",
+            "sending": "Envio: Um trabalho é criar as notificações a serem enviadas para os usuários.",
+            "tested": "Testado",
+            "sent": "Enviado para usuários selecionados.",
+            "pending": {
+                "deploy": "Enviar a solicitação para criar notificação para usuários selecionados.",
+                "testing": "À espera de notificação a ser mostrado.",
+                "delete": "Por favor espere, notificação vai ser eliminado.",
+                "save": "Por favor espere, notificação está sendo salva"
+            },
+            "ok": {
+                "save": "Notificação salvada",
+                "testing": "Testado",
+                "deploy": "Trabalho lançado para enviar notificações aos usuários"
+            }
+        }
+    },
+    "text": "<h2>Fundamentos</h2> <p>\n    Retorno obrigatório: Termine a linha com dois espaços<br />\n    Inserir html diretamente: Inicie a linha com 4 espaços<br />\n</p> <h2>Cabeçalhos</h2> <p>\n    # H1<br />\n    ## H2<br />\n    ### H3<br />\n</p> <h2>Ênfase</h2> <p>\n    Palavra em itálico: *asteriscos* ou _underscores_.<br />\n    Palavra a negrito: **duplo asterisco** ou __duplo underscore__.<br />\n</p> <h2>Listas</h2> <p>\n    1. Primeiro item da lista ordenado<br />\n    2. Outro item<br />\n    ⋅⋅* Sub-lista não ordenada.<br />\n    1. Números não importam, são apenas números<br />\n    ⋅⋅1. Sub-lista ordenada<br />\n    4. E outro item.<br />\n    <br />\n    ⋅⋅⋅Pode ter parágrafos devidamente recuados dentro de itens da lista. Repare na linha em branco acima, e nos espaços iniciais (pelo menos um, mas aqui vamos usar três para também alinhar a Marcação sem formatação).<br />\n    <br />\n    ⋅⋅⋅Para ter uma quebra de linha sem parágrafo, terá de usar dois espaços no final da linha.⋅⋅<br />\n    ⋅⋅⋅Note que esta linha é separada, mas dentro do mesmo parágrafo.⋅⋅<br />\n    ⋅⋅⋅(Isto é contrário ao comportamento de quebra de linha GFM típico, onde os espaços no final da linha não são necessários.)<br />\n    <br />\n    * Listas não ordenadas podem usar asteriscos<br />\n    - Ou sinais de menos<br />\n    + Ou sinais de soma<br />\n</p> <h2>Links</h2> <p>\n    [Sou um link de estilo em linha](https://www.google.com)<br /><br />\n    [Sou um link de estilo em linha](https://www.google.com \"Página da Google\")<br /><br />\n    [Sou um link de estilo referência][Texto de referência arbitrário não sensível a maiúsculas]<br /><br />\n    [Sou uma referência relativa a um ficheiro de repositório](../blob/master/LICENSE)<br /><br />\n    [Pode usar números para definições de links de estilo referência][1]<br /><br />\n    Ou deixar em branco e usar o [texto do link em si]<br /><br />\n    Algum texto para mostrar que os links de referência podem seguir-se depois.\n</p> <h2>Âncoras</h2> <p>\n    <h3>Defina a âncora</h3>\n    Pode usar a sintaxe HTML para criar um id na tag onde quer definir a âncora.<br/></br>\n    Exemplo:</br>\n    Se quer definir uma âncora numa tag H1, deve: <b>&lt;h1 id=\"minha_ancora\"&gt;Texto de Âncora&lt;/h1&gt;</b>\n    <br/></br>\n    <h3>Use a âncora</h3>\n    Com uma tag <b>a</b>, pode definir href com um valor como este: <b>/paginas/[pagina_sufixo_url]#[a_ancora]</b>.<br/><br/>\n    <li><b>pagina_sufixo_url</b> da página é onde foram definidas as âncoras. Este é o primeiro texto de entrada preenchido quando é criada uma página de modo a gerar um url.</li>\n    <li><b>a_ancora</b> o valor id da tag onde a âncora foi definida.</li>\n    <br/></br>\n    Exemplo :</br>\n    Para usar a âncora definida anteriormente, deve usar : <b>&lt;a href=\"/paginas/url_pagina#minha_ancora\"&gt;Texto do Link&lt;/a&gt;</b></br>\n    ou <b>[Texto do Link](/paginas/url_pagina#minha_ancora)</b>\n</p> <h2>Imagens</h2> <p>\n    Aqui está o nosso logotipo (passe com o rato para ver o texto do título):<br /><br />\n    Estilo em linha:<br />\n    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png \"Texto 1 do Título do Logo\")<br />\n    <br />\n    Estilo Referência:<br />\n    ![alt text][logo]<br />\n</p> <h2>Tabelas</h2> <p>\n    Dois pontos podem ser usados para alinhar colunas.<br />\n    <br />\n    | Tabelas        | São           | Fixes  |<br />\n    | ------------- |:-------------:| -----:|<br />\n    | col 3 está      | alinhada à direita | $1600 |<br />\n    | col 2 está      | centrada      |   $12 |<br />\n    | riscas de zebra | são porreiras      |    $1 |<br />\n    <br />\n    Os tubos exteriores (|) são opcionais e não precisa de alinhar direito a Marcação sem formatação. Pode também usar Marcação em linha.<br />\n    <br />\n    Marcação | Menos | Bonita<br />\n    --- | --- | ---<br />\n    *Ainda* | `se apresenta` | **bem**<br />\n    1 | 2 | 3<br />\n</p> <h2>HTML em linha</h2> <p> <dl>\n    <dt>Lista de definições</dt><br />\n    <dd>É algo que as pessoas usam às vezes.</dd><br /><br />\n\n    <dt>Marcação em HTML</dt><br />\n    <dd>Não *funciona* muito **bem**. Use <em>tags</em> HTML.</dd><br />\n</dl></p>"
+}

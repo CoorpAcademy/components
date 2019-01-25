@@ -1,0 +1,155 @@
+{
+    "header": {
+        "title": "Coorpacademy",
+        "mainNav": {
+            "helper": "查看你教学内容的另一种方法",
+            "menu": "菜单",
+            "dashboard": "我的控制面板",
+            "home": "主页",
+            "learningTree": "目录",
+            "lessons": "所有课程和视频",
+            "medias": "图书馆",
+            "battles": "挑战",
+            "explore": "目录",
+            "discussions": "讨论",
+            "badges": "徽章",
+            "certifications": "证书"
+        },
+        "mainNav_user": {
+            "helper": "发现关于你和你工作信息的另一种方式！"
+        },
+        "account_menu": {
+            "title": "菜单",
+            "logout": "退出",
+            "notifications": "我的通知",
+            "language": "语言",
+            "cohorts": "人口:",
+            "account": "帐户",
+            "godmode": "God mode",
+            "fastslides": "快速幻灯片",
+            "newlearner": "新游戏界面",
+            "livenotifications": "现场通知",
+            "close": "关"
+        }
+    },
+    "content": "这是基本内容。",
+    "footer": {
+        "assistance": "辅助",
+        "admin_link": {
+            "jobs": "工作",
+            "admin": "管理",
+            "analytics": "分析工具",
+            "changelog": "变更日志",
+            "cms": "CMS",
+            "manual": "手册"
+        },
+        "data_privacy_policy": "数据隐私政策",
+        "data_privacy_policy_link": "http://www.privacy.coorpacademy.com",
+        "dev_link": {
+            "api": "API文档"
+        },
+        "by": "供电 Coorpacademy",
+        "title": "Coorpacademy",
+        "changelog": {
+            "title": "更新日志",
+            "subtitle": "以下是网站的版本历史记录"
+        }
+    },
+    "custom": {
+        "accueil": {
+            "footer": {
+                "by": "旅游学院与王牌法国",
+                "copyright": "旅游学院与法国旅游发展署"
+            }
+        },
+        "armeedeterre": {
+            "header": {
+                "mainNav": {
+                    "battles": "竞赛"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "footer": {
+                "assistance": "给予反馈"
+            }
+        },
+        "capgemini": {
+            "header": {
+                "mainNav": {
+                    "certifications": "DigiCertif'"
+                }
+            }
+        },
+        "cnp": {
+            "header": {
+                "mainNav": {
+                    "certifications": "证书"
+                }
+            }
+        },
+        "chanel": {
+            "footer": {
+                "by": "© CHANEL. 仅限内部用户",
+                "copyright": "© 频道。仅供内部使用"
+            }
+        },
+        "ganprevoyance": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Universes"
+                }
+            }
+        },
+        "ecolenumerique-sncf": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Jedi Badges"
+                }
+            }
+        },
+        "ilearn": {
+            "footer": {
+                "by": "© CHANEL. 仅限内部使用",
+                "copyright": "© 频道。仅供内部使用"
+            }
+        },
+        "paca": {
+            "footer": {
+                "by": "TOURISM ACADEMY 出品",
+                "copyright": "TOURISM ACADEMY 出品"
+            }
+        },
+        "tourism": {
+            "footer": {
+                "by": "旅游学院",
+                "copyright": "旅游学会"
+            }
+        },
+        "tourismdigital": {
+            "footer": {
+                "by": "旅游学院生产",
+                "copyright": "旅游学院生产"
+            }
+        },
+        "ey": {
+            "footer": {
+                "by": "EY数字学院",
+                "copyright": "EY数字学院"
+            }
+        },
+        "up": {
+            "footer": {
+                "data_privacy_policy_link": "http://www.privacy.coorpacademy.com/up"
+            }
+        },
+        "who": {
+            "header": {
+                "mainNav": {
+                    "battles": "挑战",
+                    "discussions": "反馈"
+                }
+            }
+        }
+    }
+}

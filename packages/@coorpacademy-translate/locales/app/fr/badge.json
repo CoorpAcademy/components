@@ -1,0 +1,29 @@
+{
+    "level_0": "Init",
+    "level_1": "Bronze",
+    "level_2": "Argent",
+    "level_3": "Or",
+    "level_4": "Platine",
+    "custom": {
+        "7steps": {
+            "level_4": "Top"
+        },
+        "renault": {
+            "my_badges_intro": "Visualisez tous les badges que vous avez obtenus ou qu'il vous reste à obtenir pour devenir le \"king\" de la dernière Clio R.S ! ;-)"
+        },
+        "tagheuer": {
+            "level_0": "Init",
+            "level_1": "1ÈRE VITESSE",
+            "level_2": "3ÈME VITESSE",
+            "level_3": "5ÈME VITESSE",
+            "level_4": "7ÈME VITESSE"
+        },
+        "tagheuercon": {
+            "level_0": "Init",
+            "level_1": "VITESSE 1",
+            "level_2": "3ÈME VITESSE",
+            "level_3": "5ÈME VITESSE",
+            "level_4": "7ÈME VITESSE"
+        }
+    }
+}

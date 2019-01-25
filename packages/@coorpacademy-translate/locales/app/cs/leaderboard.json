@@ -1,0 +1,31 @@
+{
+    "rankPos": "&nbsp;",
+    "rankPos_plural": "&nbsp;",
+    "title": "Moje hodnocení",
+    "title_caps": "Mé hodnocení",
+    "subtitle_head": "Zobrazte si své umístění ve vztahu k 20 osobám, které mají nejvíc hvězdiček.",
+    "subtitle_core_pre": "Byl jste hodnocen",
+    "subtitle_core_post": "ze všech školených!",
+    "subtitle_tail": "Udržujte si schopnost i nadále si vylepšovat výsledky.",
+    "subtitle_no_rank": "Dokončete více modulů a postupujte pořadím výše.",
+    "custom": {
+        "bnp": {
+            "subtitle_head": "Zobrazit vaši pozici vůči hvězda top-20 Factiors."
+        },
+        "gdf": {
+            "subtitle_tail": "Na konci sezóny 1 top-20 zaměstnanců v obecné pořadí budou pozváni na redakční vybrat obsah předmětu pro příští sezónu WeTransform."
+        },
+        "gdfec": {
+            "subtitle_tail": "Na konci sezóny 1 top-20 zaměstnanců v obecné pořadí budou pozváni na redakční vybrat obsah předmětu pro příští sezónu WeTransform."
+        },
+        "up": {
+            "subtitle_no_rank": "Kompletní více úrovní nahoru v žebříčku."
+        },
+        "yahoo": {
+            "subtitle_tail": "&nbsp;"
+        },
+        "linxea": {
+            "subtitle_head": "Zobrazit vaši pozici vůči hvězda příjmy top-20."
+        }
+    }
+}

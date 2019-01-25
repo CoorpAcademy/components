@@ -1,0 +1,29 @@
+{
+    "level_0": "初始設定",
+    "level_1": "銅",
+    "level_2": "銀",
+    "level_3": "金牌",
+    "level_4": "白金",
+    "custom": {
+        "7steps": {
+            "level_4": "頂尖"
+        },
+        "renault": {
+            "my_badges_intro": "查看您成為最後的 Clio RS 的「國王」所贏得的所有徽章或是還需要的徽章！ ;-)"
+        },
+        "tagheuer": {
+            "level_0": "在裡面",
+            "level_1": "一檔",
+            "level_2": "第 3 檔",
+            "level_3": "第 5 檔",
+            "level_4": "第 7 檔"
+        },
+        "tagheuercon": {
+            "level_0": "初始設定",
+            "level_1": "第 1 檔",
+            "level_2": "第 3 檔",
+            "level_3": "第 5 個齒輪",
+            "level_4": "第 7 檔"
+        }
+    }
+}

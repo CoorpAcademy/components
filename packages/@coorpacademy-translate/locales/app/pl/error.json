@@ -1,0 +1,63 @@
+{
+    "http": {
+        "401": "Nieupoważniony dostęp",
+        "403": "Zabroniony dostęp",
+        "404": "Nie znaleziono strony",
+        "412": "Warunek wstępny nie może być spełniony",
+        "500": "Wewnętrzny błąd serwera",
+        "503": "Usługa niedostępna",
+        "500_message_pre": "Adres URL",
+        "500_message": "zawierał następujący błąd",
+        "500_message_post": ".",
+        "503_message": "Usługa jest niedostępna. Spróbuj ponownie za chwilę.",
+        "404_message_pre": "Adres URL",
+        "404_message": "nie rozwiązało do trasy.",
+        "412_message": "Warunek określony przez jeden lub więcej nagłówków „Jeżeli”... w żądaniu oceniono jako fałszywy.",
+        "409_progressions_content_conflict": "Wydaje się, że już odpowiedziałeś na to pytanie podczas bieżącej sesji. Czy ją otworzyć na innej karcie gdzie indziej, być może masz? <br/> Kliknij na \"Odśwież stronę\" poniżej aby odświeżyć dane, możemy załadować odpowiednie pytanie dla Ciebie."
+    },
+    "infos": "Informacje",
+    "auth": {
+        "header": "Ojej! {{status}}",
+        "reload": "Zaloguj się"
+    },
+    "modal": {
+        "header": "Błąd {{status}}",
+        "body": {
+            "title": "Należy zapisać poniższe informacje i dostarczyć je do naszego działu pomocy technicznej.",
+            "paymentRequired": "Aby uzyskać dostęp do tego modułu, musisz go kupić.",
+            "url": "URL: {{err}}",
+            "id": "ID: {{id}}",
+            "message": "{{message}}"
+        },
+        "footer": {
+            "paymentRequired": "Strona opisu",
+            "assistance": "Pomoc",
+            "back_home": "Powrót do strony głównej",
+            "reload": "Załaduj ponownie stronę",
+            "continue": "Kontynuuj"
+        },
+        "assistance": "Zgłoś błąd"
+    },
+    "defaultMessage": "Przepraszamy, wystąpił błąd. Spróbuj ponownie później.",
+    "achievementContext": "Wygląda na to, że moduł jest już uruchomiony. Odśwież stronę, aby kontynuować moduł.",
+    "custom": {
+        "chanel": {
+            "http": {
+                "412_message": "Brak adresu e-mail. Proszę skontaktuj się z administratorem lub zarejestruj się tutaj."
+            }
+        },
+        "ilearn": {
+            "http": {
+                "412_message": "Brak adresu e-mail. Proszę skontaktuj się z administratorem lub zarejestruj się tutaj."
+            }
+        },
+        "up": {
+            "modal": {
+                "body": {
+                    "paymentRequired": "Aby uzyskać dostęp do tego poziomu, musisz je kupić."
+                }
+            },
+            "achievementContext": "Wydaje się, że ten poziom już zostały uruchomione. Proszę odświeżyć stronę, aby kontynuować na poziomie."
+        }
+    }
+}

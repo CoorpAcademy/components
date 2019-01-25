@@ -1,0 +1,147 @@
+{
+    "tabs": {
+        "import": "Importeren",
+        "achievement": "Opnieuw instellen",
+        "cms": "CMS",
+        "loginEvents": "Aanmeldignsevenementen plaatsen",
+        "replay": "Importeergeschiedenis van materiaal",
+        "partners": "Nieuwspartners",
+        "buildReport": "Genereren van rapporten"
+    },
+    "import": {
+        "help": "helpen",
+        "help_content": "<h2>Importeer een volledig thema of discipline</h2> <p>Voor het importeren van een thema, dien je een .zip-bestand dat voldoet aan de volgende vereisten te leveren: \n<ul>\n<li>de naam van de discipline moet uniek zijn</li> \n<li>alle disciplines moeten worden in de oorsprong van het .zip-bestand zijn</li> \n<li>elke discipline-map moet een enkel .json-bestand bevatten van de discipline die moet worden gemaakt</li> \n<li>elke discipline-map moet drie modulemappen bevatten die geïmporteerd zijn in alfabetische volgorde</li> \n<li>elke modulemap moet uit verschillende vraagmappen bestaan</li> \n<li>elke vraagmap moet een enkel .json-bestand bevatten dat overeenkomt met de vraag die gemaakt wordt</li> \n<li>NIEUW: een module of een hoofdstuk kan een 'remove:true'-veld bevatten om het te verwijderen</li> \n<li>NIEUW: een module of een hoofdstuk kan omgewisseld worden indien ingediend met swap:INDEX waarbij INDEX het nummer van de positie (beginnend met 0) is</li>\n</ul>\n</p> <h2>Een gebruikers-zip importeren</h2> <p>Om een groep gebruikers te importeren, moet je een .zip leveren met inachtneming van de volgende regels: \n<ul>\n<li>De aanmeldingsnaam van elke gebruiker moet uniek zijn</li> \n<li>alle gebruikers moeten zich in de oorsprong van de .zip bevinden</li>\n</ul>\n</p> <a href=\"/assets/samples/import.zip\"> Download een .zip als voorbeeld</a>",
+        "disciplines": {
+            "title": "Disciplines",
+            "zero": "Er is geen discipline"
+        },
+        "send_job": "Bestand via baan verzenden"
+    },
+    "delete": {
+        "disciplines": {
+            "404": "Geen discipline gevonden",
+            "title": "Alle disciplines verwijderen",
+            "button": "Verwijderen",
+            "confirm": "Voer '{{word}}' in om verwijdering van alle onderwerpen te bevestigen",
+            "confirm_word": "disciplines",
+            "success": "Verwijderde disciplines"
+        },
+        "users": {
+            "404": "Geen gebruiker gevonden",
+            "title": "Alle gebruikers verwijderen",
+            "help": "De gebruikers van een provider verwijderen (vul niets in om alles te verwijderen)",
+            "button": "Verwijderen",
+            "confirm": "Voer '{{word}}' in om de verwijdering van gebruikers te bevestigen",
+            "confirm_word": "gebruikers",
+            "success": "{{count}} gebruiker verwijderd",
+            "success_plural": "{{count}} gebruikers verwijderd",
+            "provider": "provider:"
+        },
+        "tuto": {
+            "404": "Geen gebruiker gevonden",
+            "title": "Reset de tutorial",
+            "button": "Wissen",
+            "confirm": "Selecteer '{{word}}' om te bevestigen dat je de tutorial weer helemaal opnieuw wilt starten.",
+            "confirm_word": "tutorial",
+            "success": "Tutorial resetten"
+        },
+        "achievements": {
+            "404": "Geen vooruitgang gevonden",
+            "title": "Wis jouw volledige voortgang",
+            "button": "Wissen",
+            "confirm": "Voer '{{word}}' om om te bevestigen dat je jouw voortgang wilt verwijderen",
+            "confirm_word": "voortgang",
+            "success": "Voortgang verwijderd"
+        }
+    },
+    "console": {
+        "status": "HTTP-status:",
+        "exception": "Uitzondering-ID:",
+        "error": "Foutmelding:"
+    },
+    "update": {
+        "goals": {
+            "title": "Doelstellingen bijwerken",
+            "button": "Doelen bijwerken door middel van een taak",
+            "success": "Verzoek verzonden"
+        }
+    },
+    "create": "Toevoegen",
+    "save": "Opslaan",
+    "remove": "Verwijderen",
+    "test": "Test",
+    "edit": "Wijzigen",
+    "back": "Terug",
+    "table": {
+        "button": {
+            "prev": "<<",
+            "next": ">>",
+            "first": "Eerste pagina",
+            "last": "Laatste pagina"
+        }
+    },
+    "loginEvent": {
+        "subtitle": "Aanmeldignsevenementen plaatsen",
+        "config": "Algemene informatie",
+        "content": "Aanvullende configuratie",
+        "eventName": "Naam van gebeurtenis",
+        "type": "Type",
+        "active": "Actief",
+        "mandatory": "Verplicht",
+        "cmsPagePath": "CMS-pad",
+        "redirectTo": "Omleidingslink",
+        "title": "Titel",
+        "text": "Hoofdtekst",
+        "redirectButton": "Omleiding knoplabel",
+        "button": "Knoplabel",
+        "checkboxText": "Checkboxlabel",
+        "footerText": "Voettekst (optioneel)",
+        "order": "Bestelling"
+    },
+    "status": {
+        "ok": {
+            "title": "Succes"
+        },
+        "saving": {
+            "title": "Opslaan..."
+        },
+        "removing": {
+            "title": "Bezig met verwijderen..."
+        }
+    },
+    "version": "Huidige platformversie: {{appVersion}}",
+    "job": {
+        "import": {
+            "replay": "Toepassing",
+            "username": "Gerund door",
+            "createdAt": "Uitvoeringsdatum",
+            "elapsedTime": "Uitvoeringstijd",
+            "status": "Status",
+            "uploadedFile": "Bestand op S3",
+            "seeLogs": "Zie Logboeken"
+        }
+    },
+    "partner": {
+        "name": "Naam",
+        "link": "Link",
+        "createdAt": "Gemaakt op",
+        "logo": "Logo",
+        "config": "Informatie",
+        "upload": "Uploaden",
+        "linkLabel": "Label van link",
+        "description": "Beschrijving"
+    },
+    "buildReport": {
+        "help": "Help",
+        "send_job": "Bestand verzenden via lambda",
+        "title": "Pernod rapportgeneratie",
+        "help_content": "Upload het Zip met uw blinkt uit en geef de mail waar u wenst te ontvangen van het resultaat",
+        "email": "E-mailadres",
+        "file": "Blinkt uit in Zip",
+        "email_missing": "E-mail moet worden verstrekt",
+        "email_not_coorp": "E-mail moet afkomstig zijn uit coorpacademy",
+        "file_missing": "Bestand moet worden verstrekt",
+        "upload_in_progress": "Uw bestand wordt geüpload. De verwerking kan enkele minuten duren.\nResultaat ontvangt u per post",
+        "file_received": "Bestand is ontvangen door de server en is momenteel behandeld zonder fouten.\nU ontvangt dan een e-mail met het resultaat in een paar minuten."
+    }
+}

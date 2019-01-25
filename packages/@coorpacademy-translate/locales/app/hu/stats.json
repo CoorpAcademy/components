@@ -1,0 +1,189 @@
+{
+    "not_a_number": "<not available> ",
+    "target": "Cél:",
+    "export": {
+        "csv": "CSV",
+        "pdf": "PDF",
+        "excel": "Excel"
+    },
+    "info": {
+        "launch_date": "Indítás Dátuma",
+        "targeted_users": "Célpopuláció"
+    },
+    "navigation": {
+        "every": "Minden",
+        "every-except-coorp": "Mind, kivéve a Coorpacademy",
+        "engagement": "elkötelezettség",
+        "dashboard": "általános nézet",
+        "users": "felhasználó alapján",
+        "content": "tartalom",
+        "battles": "csaták alapján",
+        "exports": "exportok",
+        "behavioral": "viselkedés"
+    },
+    "since": {
+        "last_week": "utolsó 7 nap",
+        "last_month": "utolsó 30 nap",
+        "beginning": "indítás"
+    },
+    "users": {
+        "roles": {
+            "header": "Szerepkörök",
+            "button": "Mentés",
+            "saved": "Sikeres szerepfrissítés a következőnek: {{displayName}}.",
+            "cms": "Cms",
+            "moderator": "Fórum Moderátor",
+            "rh": "Rh",
+            "godmode": "Isten mód",
+            "supercoach": "Szuperedző"
+        },
+        "tab": {
+            "ranking": "Felhasználói besorolás",
+            "activity": "Tevékenység"
+        },
+        "back": "Vissza a kereséshez",
+        "entity": "Vállalat",
+        "title": "Funkció",
+        "cnx": {
+            "first": "Első kapcsolódás dátuma",
+            "last": "Utolsó csatlakozás időpontja"
+        },
+        "general": {
+            "header": "Általános tevékenység",
+            "total_cnx": "Összes kapcsolat",
+            "total_validated_disciplines": "Összes megszerzett terület",
+            "total_validated_modules": "Összes teljesített modul",
+            "modules_validated_per_total": "# archivált modul / # összes modul",
+            "ranking": "Rangsor",
+            "never": "Soha"
+        },
+        "sociability": {
+            "header": "Társasság",
+            "posts": {
+                "count": "{{nb}} bejegyzés",
+                "count_plural": "{{nb}} bejegyzések",
+                "answers": "{{nb}} válasz mellékelve egy másik felhasználónak",
+                "answers_plural": "beleértve {{nb}} választ egy másik felhasználó felé"
+            },
+            "battles": {
+                "count": "{{nb}} csata",
+                "count_plural": "{{nb}} csata",
+                "won": "beleértve {{nb}} megnyert csata",
+                "won_plural": "beleértve a {{nb}} megnyert csatát"
+            },
+            "coach": {
+                "disciplines": "{{nb}} tárgy képzője",
+                "disciplines_plural": "Oktató {{nb}} büntetéseknek",
+                "interactions": "{{nb}} interakció az oktatókkal",
+                "interactions_plural": "{{nb}} képzésvezetőkkel való interakció"
+            },
+            "completion": {
+                "total_label": "Teljes elvégzés:",
+                "total": "{{ratio}}%",
+                "modules_tried_label": "Próbált modulok:",
+                "modules_tried": "{{totalTriedModules}}/{{nbModules}}",
+                "average_completion_label": "Teljesítés/próbálkozás:",
+                "average_completion": "{{ratio}}%"
+            }
+        },
+        "progression": {
+            "filter": "Szűrő tudományok",
+            "filterPlaceholder": "Kulcsszavak szűrő tudományok",
+            "th": {
+                "discipline": "Fegyelem",
+                "hidden": "Rejtett",
+                "level": "Szint",
+                "module_progression": "% siker",
+                "status": "Állapot",
+                "score": "Pontszám"
+            }
+        },
+        "time": {
+            "header": "kapcsolódás időtartama",
+            "totalTime": "Összesített időtartam",
+            "validatedTime": "Érvényesített időtartama"
+        },
+        "license": {
+            "label": "Licenc",
+            "button": "Deaktiválás",
+            "active": "Aktív",
+            "inactive": "Inaktív"
+        },
+        "deactivate": {
+            "confirm": "Kérjük, írja be \"igen\", hogy a fiók inaktiválását megerősítse",
+            "confirm_word": "igen",
+            "account_deactivated": "A fiók inaktiválásra került"
+        },
+        "connectAs": "Csatlakoztassa a",
+        "bonusStars": {
+            "buttonPositive": "Hozzáadás",
+            "buttonNegative": "Eltávolítás",
+            "required": "Adja meg a hozzáadandó csillagokat",
+            "notANumber": "Integernek kell lennie",
+            "confirm": "Írja le a \"bonus\" szót a csillagok hozzáadásának vagy elvételének megerősítéséhez",
+            "confirm_word": "bónusz",
+            "starsAdded": "Most szerzett {{count}} csillagot {{displayName}} felhasználónak",
+            "starsAdded_plural": "Átadott  {{count}} csillagot {{displayName}} felhasználónak",
+            "starsRemoved": "Eltávolított {{count}} csillagot {{displayName}} felhasználótól",
+            "starsRemoved_plural": "Eltávolítottál {{count}} csillagot az alábbi felhasználótól: {{displayName}}"
+        }
+    },
+    "exports": {
+        "export": "Exportálás",
+        "querySent": "Jelentését előkészítik. Hamarosan meg fogja kapni e-mailben.",
+        "global": {
+            "title": "Felhasználók exportálása kérésre",
+            "introduction": "Ez a funkció lehetővé teszi a platform felhasználóival kapcsolatos összes adat exportálását."
+        },
+        "battles": {
+            "title": "Csata export igény szerint",
+            "introduction": "Ezzel az opcióval exportálhatod a platformon folytatott csaták adatait."
+        },
+        "history": {
+            "title": "Előzmények exportálása",
+            "introduction": "Ezzel az opcióval minden napi adatot le tudsz tölteni",
+            "users": "felhasználók",
+            "battle": "harc",
+            "analytics": "haladás",
+            "filter_by": "szűrés ez alapján: "
+        }
+    },
+    "custom": {
+        "up": {
+            "navigation": {
+                "modules": "szintek szerint"
+            },
+            "modules": {
+                "header": {
+                    "discipline": "Pálya"
+                },
+                "module": {
+                    "media_views": {
+                        "title": "Lecke média megtekintési rátája szint szerint"
+                    }
+                }
+            },
+            "users": {
+                "general": {
+                    "total_validated_disciplines": "Összes teljesített pálya",
+                    "total_validated_modules": "Összes elért szint",
+                    "modules_validated_per_total": "elért szintek száma / összes szint"
+                },
+                "sociability": {
+                    "coach": {
+                        "disciplines": "Edző {{nb}} pályán",
+                        "disciplines_plural": "Edzés a {{nb}} pályákon"
+                    },
+                    "completion": {
+                        "modules_tried_label": "próbált szintek:"
+                    }
+                },
+                "progression": {
+                    "th": {
+                        "discipline": "Kurzus"
+                    }
+                }
+            }
+        }
+    }
+}

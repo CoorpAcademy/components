@@ -1,0 +1,63 @@
+{
+    "battle": {
+        "incoming": "您有 {{count}} 場戰鬥在等候著。",
+        "incoming_plural": "你有 {{count}} 等待中的對決。",
+        "you_win": "你贏得了挑戰",
+        "you_lose": "您輸了一場戰鬥"
+    },
+    "badge": {
+        "won": "你已贏得 {{name}} 獎章"
+    },
+    "module": {
+        "won": "您已通過一個單元"
+    },
+    "reward": {
+        "won": "恭喜！您的努力得到了回報！"
+    },
+    "coach": {
+        "unlocked": "你已成為導師"
+    },
+    "incoming": "你有一個新通知",
+    "chatrequest": "新的聊天請求",
+    "goal": {
+        "progress": "您在您的認證上有進步",
+        "select": "你選擇了一項證照",
+        "reward": "您已獲得一個認證"
+    },
+    "forum": "有名使用者已回答你的問題。",
+    "new_version": {
+        "title": "新版本",
+        "message": "此平台的新版本已釋出。",
+        "action": "刷新"
+    },
+    "welcome": "歡迎<b> {{user}} </b>，您現在可以訪問所有課程",
+    "personal_note": "你的筆記已寄送至你的電子信箱。",
+    "bonusStars": "恭喜！您贏得了額外的{{stars}}}顆星！",
+    "rewardStars": "恭喜！你已贏得 {{stars}} 額外星星！",
+    "totem": {
+        "header": "一個新的圖騰生活正在發生!",
+        "body": "點擊這裡加入"
+    },
+    "custom": {
+        "armeedeterre": {
+            "battle": {
+                "incoming": "您有 {{count}} 場戰鬥在等候著。",
+                "incoming_plural": "你有 {{count}} 等待中的對決。",
+                "you_win": "你贏得了挑戰",
+                "you_lose": "您輸了一場戰鬥"
+            }
+        },
+        "pernod": {
+            "goal": {
+                "progress": "您已修改了一個目標",
+                "select": "你選擇了一個目標",
+                "reward": "您已解鎖一個目標"
+            }
+        },
+        "up": {
+            "module": {
+                "won": "你已完成一個級別"
+            }
+        }
+    }
+}

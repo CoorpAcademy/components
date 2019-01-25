@@ -1,0 +1,63 @@
+{
+    "battle": {
+        "incoming": "你有 {{count}} 个还未完成的竞赛。",
+        "incoming_plural": "您有 {{count}} 项未完成的战斗。",
+        "you_win": "你赢得战斗",
+        "you_lose": "您输了一次对战"
+    },
+    "badge": {
+        "won": "您已赢得{{name}}徽章"
+    },
+    "module": {
+        "won": "您已通过一个模块"
+    },
+    "reward": {
+        "won": "祝贺！你的努力获得了回报！"
+    },
+    "coach": {
+        "unlocked": "您已经成为了"
+    },
+    "incoming": "你有一条新通知",
+    "chatrequest": "新的对话请求",
+    "goal": {
+        "progress": "你在认证中已有进步",
+        "select": "您已经选择了一项认证",
+        "reward": "你已获得验证"
+    },
+    "forum": "用户已回答你的问题",
+    "new_version": {
+        "title": "新版本",
+        "message": "本平台的新版本已经发布。",
+        "action": "刷新"
+    },
+    "welcome": "欢迎<b> {{user}} </b>，您现在可以访问所有课程",
+    "personal_note": "您的记录已经发送至您的电子邮箱",
+    "bonusStars": "恭喜！你已经赢得了 {{stars}} 额外的星星！",
+    "rewardStars": "Congratulations ! You have won {{stars}} additional stars!",
+    "totem": {
+        "header": "A new Totem live is happening!",
+        "body": "Click here to join"
+    },
+    "custom": {
+        "armeedeterre": {
+            "battle": {
+                "incoming": "你有 {{count}} 个还未完成的竞赛。",
+                "incoming_plural": "您有 {{count}} 项未完成的战斗。",
+                "you_win": "你赢得战斗",
+                "you_lose": "您输了一次对战"
+            }
+        },
+        "pernod": {
+            "goal": {
+                "progress": "你已修正目标",
+                "select": "你已选择一个目标",
+                "reward": "您已经解锁了一个目标"
+            }
+        },
+        "up": {
+            "module": {
+                "won": "您已经完成了一个级别"
+            }
+        }
+    }
+}

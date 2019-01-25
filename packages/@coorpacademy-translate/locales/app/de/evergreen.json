@@ -1,0 +1,25 @@
+{
+    "notCompatible": {
+        "os": "Die Version Ihres Betriebssystems ist zu alt, um auf die Plattform zugreifen zu können. Wir empfehlen Ihnen eine Aktualisierung.",
+        "explanation": "Die Kompatibilitätsansicht in Ihrem Browser ist ggf eingeschaltet. Weitere Informationen, um sie auszuschalten.",
+        "explanationLink": "https://static.coorpacademy.com/content/help/compatibility_view/Help_Compatibility_view_EN.pdf",
+        "explanationLinkLabel": "hier.",
+        "header": "Die Version Ihres Browsers ist zu alt, um auf die Plattform zugreifen zu können.",
+        "suggestion_text": "BrowseHappy",
+        "suggestion_href": "http://browsehappy.com",
+        "suggestion_text_pre": "Besuchen Sie die Website,",
+        "suggestion_text_post": "um weitere Informationen zu den Evergreen-Browsern zu erhalten.",
+        "different_user_agent": "Es wurden zwei verschiedene User-Agents gefunden. Dies hat zu einer Beschränkung des Zugriffs auf die Plattform geführt."
+    },
+    "custom": {
+        "fff": {
+            "notCompatible": {
+                "os": "Die Version Ihres Betriebssystems ist zu alt, um auf die Plattform zugreifen zu können. Wir empfehlen Ihnen eine Aktualisierung.",
+                "suggestion_text": "Chrome",
+                "suggestion_href": "https://www.Google.com/intl/fr/Chrome/Browser/",
+                "suggestion_text_pre": "Vorgeschlagene herunterladen",
+                "suggestion_text_post": "."
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+{
+    "submit": "確認",
+    "print": "印刷",
+    "share": "共有",
+    "delete": "削除",
+    "start": "行く",
+    "loadMore": "さらに読み込む.",
+    "download": "ダウンロード",
+    "ok": "OK",
+    "cancel": "キャンセルする",
+    "sso": "シングルサインオン",
+    "connect": "接続する",
+    "signup": "サインアップ",
+    "signup_pre": "アカウントをお持ちでないですか?",
+    "custom": {
+        "chanel": {
+            "signup": "サインアップ"
+        },
+        "ilearn": {
+            "signup": "サインアップ"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "level_0": "初始",
+    "level_1": "青铜",
+    "level_2": "银牌",
+    "level_3": "金",
+    "level_4": "铂金",
+    "custom": {
+        "7steps": {
+            "level_4": "顶端"
+        },
+        "renault": {
+            "my_badges_intro": "查看你获得的所有徽章，或你成为最终克力奥”之王“保留的徽章！ ;-)"
+        },
+        "tagheuer": {
+            "level_0": "初始化",
+            "level_1": "1 档齿轮",
+            "level_2": "第三齿轮",
+            "level_3": "第 5 档",
+            "level_4": "第 7 档"
+        },
+        "tagheuercon": {
+            "level_0": "初始",
+            "level_1": "第 1 档",
+            "level_2": "3RD GEAR",
+            "level_3": "5 档",
+            "level_4": "第 7 档"
+        }
+    }
+}

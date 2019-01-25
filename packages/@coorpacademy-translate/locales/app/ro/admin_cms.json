@@ -1,0 +1,120 @@
+{
+    "cms": {
+        "add": "Adăugare element",
+        "title": "Adăugați o pagină nouă",
+        "lang": "Limbă de Intrare:",
+        "name": "Nume:",
+        "scope": "Perimetru",
+        "target": {
+            "title": "Ţintă:",
+            "empty": "Nicio țintă",
+            "discipline": "Disciplină",
+            "learningTree": "Catalog"
+        },
+        "type": "Tip",
+        "order": "Ordine:",
+        "active": "Activ:",
+        "populations": "Populații:",
+        "rmd": "Eliminare marcaj",
+        "save": "Salvează",
+        "delete": "Ștergere",
+        "test": "Test",
+        "deploy": "Trimiteți",
+        "delete_confirm": "Ești sigur că vrei să ștergi această pagină?",
+        "markdown": "Markdown Syntax",
+        "quick": "Referință rapidă",
+        "path": "Sufix* URL:",
+        "full": "Documentație completă",
+        "preview": "Previzualizare",
+        "edit": "Editează",
+        "notifications": "Notificări personalizate",
+        "content": "Conținut:",
+        "config": "Setare globală",
+        "targetBlank": "Deschide într-o filă nouă:",
+        "forum_xid": "Id Forum",
+        "navigation": {
+            "label": "Pentru a descoperi blocul:",
+            "none": "Pagină fără blocare"
+        },
+        "provider": {
+            "none": "Toată lumea"
+        },
+        "status": {
+            "ok": {
+                "title": "Succes",
+                "save": "Pagina dvs. a fost salvată cu succes.",
+                "del": "Pagina dumneavoastră a fost ştearsă cu succes"
+            },
+            "test": {
+                "title": "Activitate începută. Notificarea va fi vizibilă în curând."
+            },
+            "deploy": {
+                "title": "Job început. Urmărește progresul pe pagina jobului."
+            },
+            "ko": {
+                "title": "Eroare",
+                "save": "A survenit o eroare la salvare: {{err}}",
+                "del": "A apărut o eroare în timpul ştergerii: {{err}}"
+            }
+        },
+        "title_content": "Titlu:",
+        "category": "Categorie",
+        "select_all": "Selectaţi tot",
+        "language_info": "Fiecare dintre limbile de admisie trebuie adăugate pentru fiecare ţară activată",
+        "imageURL": "Imagine URL",
+        "page": "Pagina:",
+        "link": "Link:",
+        "link_placeholder": "(ex: http://www.google.com)",
+        "partner": "Partener:",
+        "discipline_ref": "disciplina.ref",
+        "cancel": "Anulează",
+        "date": "Data:",
+        "image": "Imagine:",
+        "upload": "Încărcaţi",
+        "modify": "Modificare",
+        "countries": "Țări"
+    },
+    "success": "Modificările dvs. au fost salvate.",
+    "error": {
+        "mandatory": "Câmpuri lipsă"
+    },
+    "tabs": {
+        "pages": "Pagini",
+        "news": "Ştiri",
+        "notification": "Notificări personalizate"
+    },
+    "page": {
+        "name": "{{name}}"
+    },
+    "notification": {
+        "new": "Această notificare nu a fost creată încă. Completați și salvați formularul pentru a o crea.",
+        "name": "{{name}}",
+        "provider": "Furnizor :",
+        "expires": "Dată de expirare*:",
+        "message": "Mesaj",
+        "link": {
+            "show": "Afișează Butonul 'Mai multe informații':",
+            "url": "Link:",
+            "target": "Deschideți Linkul în Pagina Nouă:"
+        },
+        "status": {
+            "title": "Poziţie",
+            "created": "Creat",
+            "sending": "Se trimite: Un job este crearea notificărilor care urmează să fie trimise utilizatorilor.",
+            "tested": "Testat",
+            "sent": "Trimitere către utilizatorii selectați",
+            "pending": {
+                "deploy": "Se trimite solicitarea pentru a crea o notificare pentru utilizatorii selectați.",
+                "testing": "Se așteaptă afișarea notificărilor.",
+                "delete": "Vă rugăm să așteptați, notificarea va fi ștearsă.",
+                "save": "Te rugăm așteaptă, notificarea este salvată"
+            },
+            "ok": {
+                "save": "Notificare salvată",
+                "testing": "Testat",
+                "deploy": "Job lansat pentru a trimite notificări"
+            }
+        }
+    },
+    "text": "<h2>Noțiuni de bază</h2> <p>\n    Linie nouă: Încheie linia cu două spații<br />\n    Inserează direct html: Începe linia cu 4 spații<br />\n</p> <h2>Antete</h2> <p>\n    # H1<br />\n    ## H2<br />\n    ### H3<br />\n</p> <h2>Accente</h2> <p>\n    Cuvânt cu caractere italice: *asteriscuri* sau _sublinieri_.<br />\n    Cuvânt îngroșat:  **asteriscuri duble** sau __sublinieri duble__.<br />\n</p> <h2>Liste</h2> <p>\n    1. Primul articol ordonat din listă<br />\n    2. Alt articol<br />\n    ⋅⋅* Sublistă neordonată.<br />\n    1. Numerele exacte nu contează, doar să fie numere<br />\n    ⋅⋅1. Sublistă ordonată<br />\n    4. Încă un alt articol.<br />\n    <br />\n    ⋅⋅⋅Poți avea paragrafe indentate corespunzător în cadrul articolelor din liste. Observă linia goală de deasupra și spațiile din față (cel puțin unul, dar vom folosi trei aici pentru a alinia și reducerea brută).<br />\n    <br />\n    ⋅⋅⋅Pentru a insera o linie nouă fără a insera un paragraf, trebuie să adaugi două spații la sfârșit.⋅⋅<br />\n    ⋅⋅⋅Observă că această linie este separată, dar în cadrul aceluiași paragraf.⋅⋅<br />\n    ⋅⋅⋅(În ciuda compartamentului tipic GFM, unde spațiile de la sfârșit nu sunt necesare.)<br />\n    <br />\n    * Listele neordonate pot folosi asteriscuri<br />\n    - Sau minusuri<br />\n    + Sau plusuri<br />\n</p> <h2>Linkuri</h2> <p>\n    [Sunt un link în linie](https://www.google.com)<br /><br />\n    [Sunt un link în linie cu titlu](https://www.google.com \"Pagina Google\")<br /><br />\n    [Sunt un link de referință][Text de referință arbitrar cu orice litere]<br /><br />\n    [Sunt o referință relativă la un fișier din repertoriu](../blob/master/LICENSE)<br /><br />\n    [Poți folosi numere pentru definirea linkurilor de referință][1]<br /><br />\n    Sau lasă-l gol și folosește [textul din link]<br /><br />\n    Niște text pentru a arăta că linkurile de referință pot apărea mai târziu.\n</p> <h2>Ancore</h2> <p>\n    <h3>Setează ancora</h3>\n    Ar trebui să folosești sintaxa HTML pentru a crea un id pe eticheta pe care vrei să setezi o ancoră.<br/></br>\n    Exemplu:</br>\n    Dacă vrei să setezi o ancoră pe o etichetă H1, ar trebui să scrii: <b>&lt;h1 id=\"my_anchor\"&gt;Anchor Text&lt;/h1&gt;</b>\n    <br/></br>\n    <h3>Utilizează ancora</h3>\n    Cu o etichetă <b>a</b>, ar trebui să setezi href o valoare de genul: <b>/pages/[url_suffix_page]#[the_anchor]</b>.<br/><br/>\n    <li><b>url_suffix_page</b> al paginii unde ancorele au fost setate. Acesta este primul câmp text completat când o pagină este creată pentru a genera un url.</li>\n    <li><b>the_anchor</b> valorea id-ului etichetei unde ancora a fost setată.</li>\n    <br/></br>\n    Exemplu :</br>\n    Pentru a utiliza ancora setată anterior, ar trebui să folosește: <b>&lt;a href=\"/pages/page_url#my_anchor\"&gt;Link Text&lt;/a&gt;</b></br>\n    sau <b>[Link Text](/pages/page_url#my_anchor)</b>\n</p> <h2>Imagini</h2> <p>\n    Acesta este sigla noastră (treci cursorul peste pentru a vedea textul titlului):<br /><br />\n    În linie:<br />\n    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png \"Text Titlu Siglă 1\")<br />\n    <br />\n    Referință:<br />\n    ![alt text][logo]<br />\n</p> <h2>Tableaux</h2> <p>\n    Două puncte pot fi utilizate pentru a alinia coloane.<br />\n    <br />\n    | Tabelele        | Sunt           | Grozave  |<br />\n    | ------------- |:-------------:| -----:|<br />\n    | col 3 este      | aliniată dreapta | $1600 |<br />\n    | col 2 este      | centrată      |   $12 |<br />\n    | dungile de zebră | sunt elegante      |    $1 |<br />\n    <br />\n    Țevile exterioare (|) sunt opționale, și nu trebuie să aliniezi marcajul brut frumos. Poți de asemena să folosește marcaj în linie.<br />\n    <br />\n    Marcaj| Mai Puțin | Frumos<br />\n    --- | --- | ---<br />\n    *Încă* | `apare` | **decent**<br />\n    1 | 2 | 3<br />\n</p> <h2>HTML în linie</h2> <p> <dl>\n    <dt>Lista de definiții</dt><br />\n    <dd>Este ceva ce unii folosesc câteodată.</dd><br /><br />\n\n    <dt>Marcaj în HTML</dt><br />\n    <dd>Nu *funcționează* **foarte** bine. Folosește <em>etichete</em> HTML.</dd><br />\n</dl> </p>"
+}

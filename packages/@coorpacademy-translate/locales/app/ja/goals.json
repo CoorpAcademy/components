@@ -1,0 +1,201 @@
+{
+    "title": "私の証明書",
+    "subtitle_head1": "検定を1つ以上選択して、選んだ分野やテーマに関するスキルを磨くために検定を最後まで終わらせましょう。",
+    "subtitle_head2": "認定モジュールを開始する。",
+    "how_to": "認定を検証するには、各モジュールを完了しなければなりません。さあ始めましょう！",
+    "button_choose_goal": "検定を選んでください。",
+    "selected_goals_title": "{{goals}} 現在の証明書",
+    "selected_goals_title_plural": "{{goals}} 現在の認定",
+    "selected_goals_no_item": "認定が選択されていません。１つ選択して下さい！",
+    "finished_goals_title": "{{goals}}  クリアした証明",
+    "finished_goals_title_plural": "{{goals}}  クリアされた証明書",
+    "finished_goal_label": "{{goalLabel}} {{star}}",
+    "finished_goals_no_item": "完了された証明がまだありません。",
+    "button_module_access": "今すぐ始める",
+    "minutes_label": "分",
+    "status_label": "ステータス:",
+    "stars_label": "{{stars}} スター",
+    "stars_label_plural": "{{stars}}個のスター",
+    "popover": {
+        "title": "気をつけて！",
+        "module_blocked_pre": "このモジュールは利用できません。",
+        "module_blocked_post": "{{pre}} この達成にはまずレベル{{level}}を有効にする必要があります",
+        "select_goal": {
+            "title": "認定を選択してください",
+            "available_module": "{{total}}入手可能な証明書総数",
+            "available_module_plural": "{{total}} 件の取得可能な認定",
+            "module_done": "このモジュールはすでにクリアされています。現在あなたの認定を有効化している途中です。",
+            "module_blocked": "このモジュールはまだ利用できません。アンロックするにはまず基本レベルや上級レベルをクリアする必要があります。",
+            "button_add_goal": "私の証明書を確認してください。"
+        }
+    },
+    "condition_progress": {
+        "information": "あなたは{{total}} の提案されたモジュールのうち {{done}}を完了しました"
+    },
+    "certification": {
+        "title": "あなたの証明書",
+        "title_plural": "あなたの証明書",
+        "subtitle": "この認定であなたのスキルを証明しましょう",
+        "subtitle_plural": "こうした検定で自分のスキルを証明しましょう",
+        "rewards": {
+            "subtitle": "あなたの報酬",
+            "see_detail": "見る",
+            "congratulations": "成功おめでとうございます",
+            "you_can_win": "勝ち取る",
+            "download_resource": "ここをクリックしてダウンロード",
+            "see_diploma": "ディプロマを閲覧",
+            "access_your_diploma": "あなたのディプロマにアクセス"
+        },
+        "stars": {
+            "description_pre": "獲得する",
+            "description_post": "星"
+        },
+        "state": {
+            "done": "完了!",
+            "inProgress": "進行中"
+        },
+        "condition_description": {
+            "progress": "ターゲット: {{count}} モジュール",
+            "progress_plural": "ターゲット: {{count}} モジュール"
+        },
+        "certificationDone": "おめでとうございます!　あなたは{{certificationName}} の証明書を獲得しました!"
+    },
+    "diploma": {
+        "certificate": "証明",
+        "date": "日付: {{date}}",
+        "message": "この証明書に関連するすべてのモジュールを完了しました。"
+    },
+    "custom": {
+        "ecolenumerique-sncf": {
+            "certification": {
+                "title": "ジェダイのバッジ",
+                "title_plural": "ジェダイのバッジ",
+                "certificationDone": "おめでとうございます!{{certificationName}} バッジを入手した!",
+                "subtitle": "ここにあなたのジェダイのバッジを検証します。",
+                "subtitle_plural": "ここにあなたのジェダイのバッジを検証します。"
+            }
+        },
+        "ganprevoyance": {
+            "certification": {
+                "title": "宇宙",
+                "title_plural": "ユニバース",
+                "certificationDone": "おめでとうございます!{{certificationName}} 宇宙を検証した!",
+                "subtitle": "ここであなたの宇宙を検証します。",
+                "subtitle_plural": "ここであなたの宇宙を検証します。"
+            }
+        },
+        "cnp": {
+            "certification": {
+                "title": "証明書",
+                "title_plural": "証明書",
+                "certificationDone": "おめでとうございます!{{certificationName}} 証明書検証!",
+                "subtitle": "ここにあなたの証明書を検証します。",
+                "subtitle_plural": "ここにあなたの証明書を検証します。"
+            }
+        },
+        "pernod": {
+            "title": "私の目標。",
+            "subtitle_head1": "1 つまたは複数の目的を選択し、選択した地域、トピックのあなたのスキルを改善するためにそれらを完了します。",
+            "subtitle_head2": "目的に含まれるものの間でモジュールを開始します。",
+            "how_to": "客観的に検証するため、すべてのモジュールを完了してください。始めましょう!",
+            "button_choose_goal": "目的を選んでください。",
+            "selected_goals_title": "{{goals}}現在の目標",
+            "selected_goals_title_plural": "{{goals}}現在の目標",
+            "selected_goals_no_item": "目的は選択されません。1 つを選択してください!",
+            "finished_goals_title": "{{goals}} クリア目的",
+            "finished_goals_title_plural": "{{goals}} クリア目標",
+            "finished_goal_label": "{{goalLabel}}{{star}}",
+            "finished_goals_no_item": "任意の目標をまだクリアしていません。",
+            "button_module_access": "今すぐ開始します。",
+            "minutes_label": "分",
+            "status_label": "ステータス:",
+            "stars_label": "{{stars}} 星",
+            "stars_label_plural": "{{stars}} 星",
+            "popover": {
+                "title": "注意してください！",
+                "module_blocked_pre": "このモジュールは使用できません。",
+                "module_blocked_post": "{{pre}}それを達成するためには、まずレベル {{level}} を検証する必要があります。",
+                "select_goal": {
+                    "title": "目的を選択してください。",
+                    "available_module": "{{total}}利用目的",
+                    "available_module_plural": "{{total}}利用目的",
+                    "module_done": "このモジュールは既にクリアされています。目的を達成するためにあなたの方法にあります。",
+                    "module_blocked": "このモジュールはまだ使用できません。ロックを解除するには、基本的なまたは高度なレベルをまずクリアする必要があります。",
+                    "button_add_goal": "私の目的を確認します。"
+                }
+            },
+            "condition_progress": {
+                "information": "{{total}} 提案モジュールの完了した {{done}} があります。"
+            },
+            "certification": {
+                "title": "あなたの目標",
+                "subtitle": "Valide あなたのスキルは、これらの目標を持つ",
+                "rewards": {
+                    "subtitle": "あなたの報酬",
+                    "see_detail": "参照してください。",
+                    "congratulations_pre": "私たち",
+                    "congratulations": "congralutations",
+                    "congratulations_post": "すべてのあなたの努力を"
+                },
+                "stars": {
+                    "description_pre": "私たちはあなたを与えています。",
+                    "description_post": "つ星の評価"
+                },
+                "state": {
+                    "done": "行われます",
+                    "inProgress": "進行中の"
+                },
+                "condition_description": {
+                    "progress": "{{nbDone}} 完成品モジュール"
+                },
+                "certificationDone": "おめでとうございます!{{certificationName}} 目的得られる!"
+            }
+        },
+        "sgmgt": {
+            "diploma": {
+                "message": "プロジェクト管理意識の枠組みの中で必要な習熟度のすべての手順が完了します。"
+            }
+        },
+        "securite": {
+            "diploma": {
+                "message": "この証明書に関連するすべてのモジュールを完了しました。"
+            }
+        },
+        "projet": {
+            "diploma": {
+                "message": "プロジェクト管理意識の枠組みの中で必要な習熟度のすべての手順が完了します。"
+            }
+        },
+        "tagheuer": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "このモジュールはまだ利用可能になっていません。アンロックするには、チタニウムとブロンズのレベルをクリアする必要があります"
+                }
+            }
+        },
+        "tagheuercon": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "このモジュールは未だ入手可能になっていません。アンロックをするためには、まずチタンまたはブロンズレベルをクリアしないといけません。"
+                }
+            }
+        },
+        "up": {
+            "subtitle_head2": "目的に含まれるものの間でレベルを開始します。",
+            "how_to": "客観的に検証するため、あらゆるレベルを完了する必要があります。始めましょう!",
+            "popover": {
+                "module_blocked_pre": "このレベルは使用できません。",
+                "select_goal": {
+                    "module_done": "このレベルは既にクリアされています。目的を達成するためにあなたの方法にあります。",
+                    "module_blocked": "このレベルはまだ使用できません。ロックを解除するには、基本的なまたは高度なレベルをまずクリアする必要があります。"
+                }
+            },
+            "certification": {
+                "condition_description": {
+                    "progress": "ターゲット：{{count}} discipline",
+                    "progress_plural": "ターゲット：{{count}} disciplines"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,189 @@
+{
+    "not_a_number": "<non disponible>",
+    "target": "Ziel:",
+    "export": {
+        "csv": "CSV",
+        "pdf": "PDF",
+        "excel": "Excel"
+    },
+    "info": {
+        "launch_date": "Startdatum",
+        "targeted_users": "Zielgruppe"
+    },
+    "navigation": {
+        "every": "Alle",
+        "every-except-coorp": "Alle außer Coorpacademy",
+        "engagement": "Engagement",
+        "dashboard": "Allgemeine Ansicht",
+        "users": "Nach Benutzer",
+        "content": "Inhalt",
+        "battles": "Battles",
+        "exports": "Exporte",
+        "behavioral": "Verhalten"
+    },
+    "since": {
+        "last_week": "Letzte 7 Tage",
+        "last_month": "Letzte 30 Tage",
+        "beginning": "Start"
+    },
+    "users": {
+        "roles": {
+            "header": "Rollen",
+            "button": "Speichern",
+            "saved": "Die Rollen von {{displayName}} wurden geändert.",
+            "cms": "Cms",
+            "moderator": "Forum-Moderator anzeigen",
+            "rh": "Rh",
+            "godmode": "God Mode",
+            "supercoach": "Super Coach"
+        },
+        "tab": {
+            "ranking": "Benutzer-Ranking",
+            "activity": "Aktivität nach Benutzer"
+        },
+        "back": "Zurück zur Suche",
+        "entity": "Unternehmen",
+        "title": "Funktion",
+        "cnx": {
+            "first": "Datum der 1. Verbindung",
+            "last": "Datum der letzten Verbindung"
+        },
+        "general": {
+            "header": "Allgemeine Aktivität",
+            "total_cnx": "Anzahl der Verbindungen insgesamt",
+            "total_validated_disciplines": "Anzahl der beendeten Kursen insgesamt",
+            "total_validated_modules": "Anzahl der bestätigten Kurse insgesamt",
+            "modules_validated_per_total": "#bestätigte Module / #Module gesamt",
+            "ranking": "Ranking",
+            "never": "Nie"
+        },
+        "sociability": {
+            "header": "Soziale Interaktionen",
+            "posts": {
+                "count": "{{nb}} Beitrag",
+                "count_plural": "{{nb}} Beiträge",
+                "answers": "davon {{nb}} Antwort an einen anderen Benutzer",
+                "answers_plural": "davon {{nb}} Antworten an einen anderen Benutzer"
+            },
+            "battles": {
+                "count": "{{nb}} Battle",
+                "count_plural": "{{nb}} Battles",
+                "won": "davon {{nb}} gewonnen",
+                "won_plural": "davon {{nb}} gewonnen"
+            },
+            "coach": {
+                "disciplines": "Coach für {{nb}} Kurse",
+                "disciplines_plural": "Coach für {{nb}} Kurse",
+                "interactions": "{{nb}} Interaktion mit einem Coach",
+                "interactions_plural": "{{nb}} Interaktionen mit einem Coach"
+            },
+            "completion": {
+                "total_label": "Abschlussrate insgesamt:",
+                "total": "{{ratio}}%",
+                "modules_tried_label": "Anzahl der versuchten Module:",
+                "modules_tried": "{{totalTriedModules}}/{{nbModules}}",
+                "average_completion_label": "Abschlussrate/Versuche:",
+                "average_completion": "{{ratio}}%"
+            }
+        },
+        "progression": {
+            "filter": "Filter nach Disziplin",
+            "filterPlaceholder": "Stichwörter zum Filtern der Disziplinen",
+            "th": {
+                "discipline": "Kurs",
+                "hidden": "Versteckt",
+                "level": "Level",
+                "module_progression": "% Erfolg",
+                "status": "Status",
+                "score": "Punktzahl"
+            }
+        },
+        "time": {
+            "header": "Verbindungszeit",
+            "totalTime": "Kumulierte Dauer",
+            "validatedTime": "Validierte Dauer"
+        },
+        "license": {
+            "label": "Lizenz",
+            "button": "Deaktivieren",
+            "active": "Aktiviert",
+            "inactive": "Nicht aktiv"
+        },
+        "deactivate": {
+            "confirm": "Geben Sie „Ja“ ein, um die Deaktivierung des Kontos zu bestätigen.",
+            "confirm_word": "Ja",
+            "account_deactivated": "Das Konto wurde deaktiviert."
+        },
+        "connectAs": "Verbinden als",
+        "bonusStars": {
+            "buttonPositive": "Hinzufügen",
+            "buttonNegative": "Entfernen",
+            "required": "Geben Sie eine Anzahl Sterne an.",
+            "notANumber": "Bei der Anzahl Sterne muss es sich um eine ganze Zahl handeln.",
+            "confirm": "Geben Sie „Bonus“ ein, um das Hinzufügen oder Löschen von Sternen zu bestätigen.",
+            "confirm_word": "Bonus",
+            "starsAdded": "Sie haben {{count}} Stern für Benutzer {{displayName}} hinzugefügt.",
+            "starsAdded_plural": "Sie haben {{count}} Sterne für Benutzer {{displayName}} hinzugefügt.",
+            "starsRemoved": "Sie haben {{count}} Stern für Benutzer {{displayName}} entfernt.",
+            "starsRemoved_plural": "Sie haben {{count}} Sterne für Benutzer {{displayName}} entfernt."
+        }
+    },
+    "exports": {
+        "export": "Export",
+        "querySent": "Ihr Export wird vorbereitet, Sie erhalten ihn in Kürze per E-Mail.",
+        "global": {
+            "title": "Benutzer exportieren auf Anfrage",
+            "introduction": "Mit dieser Funktion können Sie alle Informationen zu den Benutzern der Plattform exportieren."
+        },
+        "battles": {
+            "title": "Battle-Export auf Anfrage",
+            "introduction": "Mit dieser Funktion können Sie alle Informationen zu den Battles der Plattform exportieren."
+        },
+        "history": {
+            "title": "Export-Geschichte",
+            "introduction": "Mit dieser Funktion können Sie alle täglichen Daten abrufen",
+            "users": "Benutzer",
+            "battle": "battle",
+            "analytics": "Progression",
+            "filter_by": "Filtern nach"
+        }
+    },
+    "custom": {
+        "up": {
+            "navigation": {
+                "modules": "nach Kurslevel"
+            },
+            "modules": {
+                "header": {
+                    "discipline": "Kurs"
+                },
+                "module": {
+                    "media_views": {
+                        "title": "Rate des Zugriffs auf Lektions-Medien per Kurslevel"
+                    }
+                }
+            },
+            "users": {
+                "general": {
+                    "total_validated_disciplines": "Total Kurse erreicht",
+                    "total_validated_modules": "Gesamt erreichte Kurslevels",
+                    "modules_validated_per_total": "# erreichte Levels / # gesamte Levels"
+                },
+                "sociability": {
+                    "coach": {
+                        "disciplines": "Coach in {{nb}} Kursen",
+                        "disciplines_plural": "Coach in {{nb}} Kursen"
+                    },
+                    "completion": {
+                        "modules_tried_label": "Versuchte Kurslevels:"
+                    }
+                },
+                "progression": {
+                    "th": {
+                        "discipline": "Kurs"
+                    }
+                }
+            }
+        }
+    }
+}

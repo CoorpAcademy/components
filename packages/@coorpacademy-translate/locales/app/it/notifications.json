@@ -1,0 +1,63 @@
+{
+    "battle": {
+        "incoming": "Hai {{count}} richiesta di duello in sospeso",
+        "incoming_plural": "Hai {{count}} richieste di duelli in sospeso",
+        "you_win": "Hai vinto il duello!",
+        "you_lose": "Hai perso il duello!"
+    },
+    "badge": {
+        "won": "Hai vinto un distintivo {{name}}"
+    },
+    "module": {
+        "won": "Hai concluso un modulo"
+    },
+    "reward": {
+        "won": "Congratulazioni! Il tuo impegno è stato ricompensato!"
+    },
+    "coach": {
+        "unlocked": "Adesso sei un coach"
+    },
+    "incoming": "Hai una nuova notifica",
+    "chatrequest": "Richiesta di chat",
+    "goal": {
+        "progress": "Hai fatto progressi nella certificazione",
+        "select": "Hai selezionato una certificazione",
+        "reward": "Hai vinto una certificazione"
+    },
+    "forum": "Un utente ha risposto alla tua domanda",
+    "new_version": {
+        "title": "Nuova versione",
+        "message": "Una nuova versione di questa piattaforma è stata rilasciata.",
+        "action": "Aggiorna"
+    },
+    "welcome": "Benvenuto <b>{{user}}</b>, ora puoi accedere a tutti i corsi",
+    "personal_note": "La tua nota è stata inviata al tuo indirizzo email.",
+    "bonusStars": "Congratulazioni! Hai vinto {{stars}} stelle supplementari!",
+    "rewardStars": "Congratulazioni! Hai vinto {{stars}} ulteriori stelle!",
+    "totem": {
+        "header": "Un nuovo Totem dal vivo sta accadendo!",
+        "body": "Clicca qui per iscriverti"
+    },
+    "custom": {
+        "armeedeterre": {
+            "battle": {
+                "incoming": "Avete {{count}} in attesa di battaglia.",
+                "incoming_plural": "Avete {{count}} in attesa di battaglie.",
+                "you_win": "Hai vinto una battaglia",
+                "you_lose": "Hai perso una battaglia"
+            }
+        },
+        "pernod": {
+            "goal": {
+                "progress": "È stato modificato un obiettivo",
+                "select": "È stato selezionato un obiettivo",
+                "reward": "Hai sbloccato un obiettivo"
+            }
+        },
+        "up": {
+            "module": {
+                "won": "Aver completato un livello"
+            }
+        }
+    }
+}

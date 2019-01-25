@@ -1,0 +1,107 @@
+{
+    "indice": {
+        "title": "Segítsünk?",
+        "sub_title": "Adjon egy csillagot egy megfejtésért cserébe!",
+        "content": "Szerezzen egy nyomot"
+    },
+    "lesson": {
+        "title": "Találja meg a válaszokat itt!",
+        "sub_title": "Tekintse meg a képzést, és nyerjen 4 extra csillagot!",
+        "resources": "A továbbhaladáshoz",
+        "title_video": "Videó a pályáról. ",
+        "title_pdf": "A tananyag PDF-ben",
+        "look_at_the_course": "A tanfolyam megtekintése"
+    },
+    "without_coach": {
+        "title": "Nincs elérhető edző"
+    },
+    "with_coach": {
+        "title": "Beszélgetés indítása",
+        "content": "{{nb}} oktató áll rendelkezésre"
+    },
+    "is_valid": {
+        "state": "<span class=\"label1\">Jó</span> <span class=\"label2\">válasz</span>",
+        "title": "Bravó!",
+        "correctAnswer": "Jó válasz:"
+    },
+    "is_invalid": {
+        "state": "<span class=\"label1\">Rossz</span> <span class=\"label2\">válasz</span>",
+        "title": "Jaj...",
+        "goodAnswer": "A helyes válasz:"
+    },
+    "signup_finish_chapter": "A fejezet befejezéséhez regisztrálj",
+    "available_shots_pre": "Neked még mindig van",
+    "available_shots": "{{count}} lehetőséged maradt",
+    "available_shots_plural": "{{count}} lehetőséged maradt",
+    "available_shots_post": "&nbsp;",
+    "klf": "Tudta?",
+    "to_know": "Kulcs pont",
+    "footer": {
+        "lesson": {
+            "title": "Úgy is dönthetsz, hogy átnézed a leckét",
+            "button": "Hozzáférés a leckéhez"
+        },
+        "result": {
+            "title": "Visszatérhet az eredményéhez",
+            "button": "Vissza az eredményekhez"
+        },
+        "next_question": "Következő"
+    },
+    "check_answer": "Válasz ellenőrzése",
+    "adaptive_check_answer": "Következő",
+    "next_question": "Következő kérdés",
+    "next_level": "Következő szint",
+    "author": "Ezt a fejezetet készítette:",
+    "button_tree": "Megy a katalógus",
+    "comments": {
+        "title": "Kibeszélés",
+        "title_for_module": "Fórum - {{name}} szint"
+    },
+    "slideNotFound": "Nem kérdéses, talált hivatkozás {{slideId}}",
+    "forbidden": "Nem kell a jogot, hogy elérje a tartalom a referencia {{contentRef}}.",
+    "showContext": "A kontextus új hozzáférése",
+    "context": "Kontextus",
+    "custom": {
+        "hr-ac": {
+            "footer": {
+                "lesson": {
+                    "button": "A dokumentumokhoz való hozzáférést"
+                }
+            }
+        },
+        "nespresso": {
+            "without_coach": {
+                "title": "Nincs rendelkezésre álló szakértő"
+            },
+            "with_coach": {
+                "content": "{{nb}} szakértő(k) elérhető"
+            }
+        },
+        "renaultcare": {
+            "is_valid": {
+                "state": "<span class=\"label1\">Bravó</span>"
+            },
+            "is_invalid": {
+                "state": "<span class=\"label1\">Nem</span>",
+                "title": "Hoppá..."
+            }
+        },
+        "schneider": {
+            "comments": {
+                "title_for_module": "Fórum - {{name}} szint <br/> kérjük, lépjen kapcsolatba <a href=\"http://2929it.schneider-electric.com/\" target=\"_blank\"> 2929 támogatja</a> olyan videóinak kérdések"
+            }
+        },
+        "who": {
+            "is_valid": {
+                "state": "<span class=\"label1\">Helyes</span> <span class=\"label2\">válasz</span>",
+                "correctAnswer": "Helyes válasz:"
+            },
+            "to_know": "Megérteni",
+            "lesson": {
+                "resources": "Ugorj fejest a témába!",
+                "look_at_the_course": "A tanfolyam PDF"
+            },
+            "showContext": "Hozzáférés az összefüggésben újra"
+        }
+    }
+}

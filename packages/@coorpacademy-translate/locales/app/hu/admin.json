@@ -1,0 +1,147 @@
+{
+    "tabs": {
+        "import": "Importálás",
+        "achievement": "Törlés",
+        "cms": "CMS",
+        "loginEvents": "Bejegyzés Események",
+        "replay": "Tartalom-importálási előzmények",
+        "partners": "Új partnerek",
+        "buildReport": "Jelentés létrehozása"
+    },
+    "import": {
+        "help": "segítség",
+        "help_content": "<h2>Importáljon teljes témát vagy területet</h2> <p>Téma importálásához egy .zip fájlra van szükség, amely megfelel a következő követelményeknek:\n    <ul>\n <li>A terület nevének egyedinek kell lennie</li>\n <li>A .zip-ben kell lennie minden területnek</li>\n        <li>Egy .json fájlra van szükség a terület létrehozásához</li>\n        <li>Minden mappának 3 modulra van szüksége A–Z sorrendben</li>\n        <li>Minden modul mappának több kérdés mappát kell tartalmaznia</li>\n        <li>Ezen mappáknak egy .json fájlt kell tartalmaznia a krédés létrehozásához</li>\n        <li>ÚJ: ezeknek egy remove:true mezőt kell tartalmaznia a törléshez</li>\n        <li>ÚJ: a modul és a fejezet helyet cserélhet egy swap:INDEX-el, ahol az INDEX a hely száma (0-val kezdődő)</li>\n    </ul>\n</p> <h2>Felhasználó zip importálása</h2> <p>Felhasználócsoportok importálásához adjon megy egy .zip-eta következő szabályokkal:\n    <ul>\n        <li>Minden felhasználó loginja egyedi legyen</li>\n        <li>Minden felhasználónak a .zip eredetijében kell lennie</li>\n    </ul>\n</p> <a href=\"/assets/samples/import.zip\">Példa .zip letöltése</a>",
+        "disciplines": {
+            "title": "Témák",
+            "zero": "Nincs tudományág"
+        },
+        "send_job": "Fájl küldése munkán keresztül"
+    },
+    "delete": {
+        "disciplines": {
+            "404": "Nem található ágazat",
+            "title": "Összes büntetés törlése",
+            "button": "Törlés",
+            "confirm": "Kérjük, írd be a \"{{word}}\" szót, hogy megerősítsd az összes tárgy törlését",
+            "confirm_word": "témakörök",
+            "success": "Törölt tudományágak"
+        },
+        "users": {
+            "404": "Felhasználó nem található",
+            "title": "Összes felhasználó törlése",
+            "help": "Egy szolgáltató felhasználóinak törlése (az összes törléséhez hagyja üresen)",
+            "button": "Törlés",
+            "confirm": "Kérjük gépelje be a \"{{word}}\" szót a felhasználók törlésének megerősítéséhez",
+            "confirm_word": "felhasználók",
+            "success": "{{count}} felhasználó törölve",
+            "success_plural": "{{count}} törölt felhasználó",
+            "provider": "szolgáltató:"
+        },
+        "tuto": {
+            "404": "Nincs ilyen felhasználó",
+            "title": "Oktatóanyag visszaállítása",
+            "button": "Törlés",
+            "confirm": "Kérjük válassza ki a  \"{{word}}\"-t az oktatás újrakezdéséhez.",
+            "confirm_word": "oktatóanyag",
+            "success": "Oktató program visszavonása"
+        },
+        "achievements": {
+            "404": "Nem található előremenetel",
+            "title": "Előremenetel törlése",
+            "button": "Törlés",
+            "confirm": "Kérjük adjon meg egy \"{{word}}\"-t az előremenetel törlésének megerősítéséhez",
+            "confirm_word": "haladás",
+            "success": "Előrehaladás törölve"
+        }
+    },
+    "console": {
+        "status": "HTTP státusz:",
+        "exception": "Kivétel azonosító:",
+        "error": "Hiba üzenet:"
+    },
+    "update": {
+        "goals": {
+            "title": "Célkitűzések frissítése",
+            "button": "Célok frissítése munkán keresztül",
+            "success": "Felkérés elküldve"
+        }
+    },
+    "create": "Hozzáadás",
+    "save": "Mentés",
+    "remove": "Törlés",
+    "test": "Teszt",
+    "edit": "Módosítás",
+    "back": "Vissza",
+    "table": {
+        "button": {
+            "prev": "<<",
+            "next": ">>",
+            "first": "Első oldal",
+            "last": "Utolsó oldal"
+        }
+    },
+    "loginEvent": {
+        "subtitle": "Bejelentkezés utáni események",
+        "config": "Általános Információ",
+        "content": "További beállítások",
+        "eventName": "Esemény Neve",
+        "type": "Típus",
+        "active": "Aktív",
+        "mandatory": "Kötelező",
+        "cmsPagePath": "CMS elérési útvonal",
+        "redirectTo": "Átirányítási Hivatkozás",
+        "title": "Cím",
+        "text": "Főszöveg",
+        "redirectButton": "Átirányítás gomb címke",
+        "button": "Gombfelirat",
+        "checkboxText": "Ellenőrzési Címke",
+        "footerText": "Lábléc Szöveg (opcionális)",
+        "order": "Rendelés"
+    },
+    "status": {
+        "ok": {
+            "title": "Siker"
+        },
+        "saving": {
+            "title": "Mentés..."
+        },
+        "removing": {
+            "title": "Eltvolítás..."
+        }
+    },
+    "version": "Jelenlegi Platform Verzió: {{appVersion}}",
+    "job": {
+        "import": {
+            "replay": "Alkalmaz",
+            "username": "Futtatás:",
+            "createdAt": "Végrehajtás dátuma",
+            "elapsedTime": "Végrehajtás ideje",
+            "status": "Státusz",
+            "uploadedFile": "S3 fájl",
+            "seeLogs": "Lásd: naplók"
+        }
+    },
+    "partner": {
+        "name": "Név",
+        "link": "Hivatkozás",
+        "createdAt": "Létrehozás időpontja",
+        "logo": "Logó",
+        "config": "Információ",
+        "upload": "Feltöltés",
+        "linkLabel": "Címke link",
+        "description": "Leírás"
+    },
+    "buildReport": {
+        "help": "segítség",
+        "send_job": "Küld reszelő keresztül lambda",
+        "title": "Pernod jelentéskészítés",
+        "help_content": "Töltsd fel a Zip, a kiemelkedik, és adja meg az e-mail, ahol szeretne kapni az eredmény",
+        "email": "Elektronikus levél cím",
+        "file": "Kiemelkedik a Zip",
+        "email_missing": "E-mailben kell ellátni.",
+        "email_not_coorp": "E-mailben kell coorpacademy",
+        "file_missing": "Meg kell adni a fájl",
+        "upload_in_progress": "A fájl feltöltése. Feldolgozás néhány percig is eltarthat.\nEredményt fog kapni e-mailben",
+        "file_received": "A fájl a kiszolgáló megkapta, és hiba nélkül kezeli.\nÖnnek kellene kap egy e-mailt, azzal az eredménnyel, néhány perc alatt."
+    }
+}

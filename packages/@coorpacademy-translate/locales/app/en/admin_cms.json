@@ -1,0 +1,120 @@
+{
+    "cms": {
+        "add": "Add Item",
+        "title": "Add a New Page",
+        "lang": "Input Language:",
+        "name": "Name:",
+        "scope": "Perimeter:",
+        "target": {
+            "title": "Target:",
+            "empty": "No Target",
+            "discipline": "Discipline",
+            "learningTree": "Catalog"
+        },
+        "type": "Type:",
+        "order": "Order:",
+        "active": "Active:",
+        "populations": "Populations:",
+        "rmd": "Markdown",
+        "save": "Save",
+        "delete": "Delete",
+        "test": "Test",
+        "deploy": "Send",
+        "delete_confirm": "Are you sure you want to delete this page?",
+        "markdown": "Markdown Syntax",
+        "quick": "Quick Reference",
+        "path": "URL suffix*:",
+        "full": "Full Documentation",
+        "preview": "Preview",
+        "edit": "Edit",
+        "notifications": "Custom Notifications",
+        "content": "Content:",
+        "config": "Global Setup",
+        "targetBlank": "Open in New Tab:",
+        "forum_xid": "Forum Id",
+        "navigation": {
+            "label": "To discover block:",
+            "none": "Page without block"
+        },
+        "provider": {
+            "none": "Everybody"
+        },
+        "status": {
+            "ok": {
+                "title": "Success",
+                "save": "Your page has been successfully saved",
+                "del": "Your page has been successfully deleted"
+            },
+            "test": {
+                "title": "Job started. Notification will be visible soon."
+            },
+            "deploy": {
+                "title": "Job started. Follow its progress on the Jobs page."
+            },
+            "ko": {
+                "title": "Error",
+                "save": "An error occurred while saving: {{err}}",
+                "del": "An error occurred while deleting: {{err}}"
+            }
+        },
+        "title_content": "Title:",
+        "category": "Category",
+        "select_all": "Select all",
+        "language_info": "Each of the input language must be filled for each country activated",
+        "imageURL": "Image URL",
+        "page": "Page:",
+        "link": "Link:",
+        "link_placeholder": "(ex: http://www.google.com)",
+        "partner": "Partner:",
+        "discipline_ref": "discipline.ref",
+        "cancel": "Cancel",
+        "date": "Date:",
+        "image": "Image:",
+        "upload": "Upload",
+        "modify": "Modify",
+        "countries": "Countries"
+    },
+    "success": "Your modifications have been saved.",
+    "error": {
+        "mandatory": "Missing Fields"
+    },
+    "tabs": {
+        "pages": "Pages",
+        "news": "News",
+        "notification": "Custom Notifications"
+    },
+    "page": {
+        "name": "{{name}}"
+    },
+    "notification": {
+        "new": "This notification has not been created yet. Fill and save the form to create it.",
+        "name": "{{name}}",
+        "provider": "Provider :",
+        "expires": "Expiration Date*:",
+        "message": "Message",
+        "link": {
+            "show": "Show 'More Info' Button:",
+            "url": "Link:",
+            "target": "Open Link in New Page:"
+        },
+        "status": {
+            "title": "Status",
+            "created": "Created",
+            "sending": "Sending: A job is creating the notifications to be sent to the users.",
+            "tested": "Tested",
+            "sent": "Sent to selected users.",
+            "pending": {
+                "deploy": "Sending request to create notification for selected users.",
+                "testing": "Waiting to notification to be shown.",
+                "delete": "Please wait, notification is going to be deleted.",
+                "save": "Please wait, notification is being saved"
+            },
+            "ok": {
+                "save": "Notification saved",
+                "testing": "Tested",
+                "deploy": "Job launched to send notifications to users"
+            }
+        }
+    },
+    "text": "<h2>Basics</h2> <p>\n    Hard return: End the line with two spaces<br />\n    Insert html directly: Begin the line with 4 spaces<br />\n</p> <h2>Headers</h2> <p>\n    # H1<br />\n    ## H2<br />\n    ### H3<br />\n</p> <h2>Emphasis</h2> <p>\n    Word in italics: *asterisks* or _underscores_.<br />\n    Word in bold:  **double asterisks** or __double underscores__.<br />\n</p> <h2>Lists</h2> <p>\n    1. First ordered list item<br />\n    2. Another item<br />\n    ⋅⋅* Unordered sub-list.<br />\n    1. Actual numbers don't matter, just that it's a number<br />\n    ⋅⋅1. Ordered sub-list<br />\n    4. And another item.<br />\n    <br />\n    ⋅⋅⋅You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we'll use three here to also align the raw Markdown).<br />\n    <br />\n    ⋅⋅⋅To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅<br />\n    ⋅⋅⋅Note that this line is separate, but within the same paragraph.⋅⋅<br />\n    ⋅⋅⋅(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)<br />\n    <br />\n    * Unordered lists can use asterisks<br />\n    - Or minuses<br />\n    + Or pluses<br />\n</p> <h2>Links</h2> <p>\n    [I'm an inline-style link](https://www.google.com)<br /><br />\n    [I'm an inline-style link with title](https://www.google.com \"Google's Homepage\")<br /><br />\n    [I'm a reference-style link][Arbitrary case-insensitive reference text]<br /><br />\n    [I'm a relative reference to a repository file](../blob/master/LICENSE)<br /><br />\n    [You can use numbers for reference-style link definitions][1]<br /><br />\n    Or leave it empty and use the [link text itself]<br /><br />\n    Some text to show that the reference links can follow later.\n</p> <h2>Anchors</h2> <p>\n    <h3>Set the anchor</h3>\n    You should use the HTML syntax to create an id on the tag where you want to set the anchor.<br/></br>\n    Example:</br>\n    If you want to set un anchor on a H1 tag, you should: <b>&lt;h1 id=\"my_anchor\"&gt;Anchor Text&lt;/h1&gt;</b>\n    <br/></br>\n    <h3>Use the anchor</h3>\n    With an <b>a</b> tag, you should set href with a value like this: <b>/pages/[url_suffix_page]#[the_anchor]</b>.<br/><br/>\n    <li><b>url_suffix_page</b> of the page where the anchors were set. This is the first imput text filled when a page is created in order to generate an url.</li>\n    <li><b>the_anchor</b> the id value of the tag where the anchor were set.</li>\n    <br/></br>\n    Example :</br>\n    To use the anchor set before, ou should use : <b>&lt;a href=\"/pages/page_url#my_anchor\"&gt;Link Text&lt;/a&gt;</b></br>\n    or <b>[Link Text](/pages/page_url#my_anchor)</b>\n</p> <h2>Images</h2> <p>\n    Here's our logo (hover to see the title text):<br /><br />\n    Inline-style:<br />\n    ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png \"Logo Title Text 1\")<br />\n    <br />\n    Reference-style:<br />\n    ![alt text][logo]<br />\n</p> <h2>Tableaux</h2> <p>\n    Colons can be used to align columns.<br />\n    <br />\n    | Tables        | Are           | Cool  |<br />\n    | ------------- |:-------------:| -----:|<br />\n    | col 3 is      | right-aligned | $1600 |<br />\n    | col 2 is      | centered      |   $12 |<br />\n    | zebra stripes | are neat      |    $1 |<br />\n    <br />\n    The outer pipes (|) are optional, and you don't need to make the raw Markdown line up prettily. You can also use inline Markdown.<br />\n    <br />\n    Markdown | Less | Pretty<br />\n    --- | --- | ---<br />\n    *Still* | `renders` | **nicely**<br />\n    1 | 2 | 3<br />\n</p> <h2>Inline HTML</h2> <p> <dl>\n    <dt>Definition list</dt><br />\n    <dd>Is something people use sometimes.</dd><br /><br />\n\n    <dt>Markdown in HTML</dt><br />\n    <dd>Does *not* work **very** well. Use HTML <em>tags</em>.</dd><br />\n</dl> </p>"
+}

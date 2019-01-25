@@ -1,0 +1,316 @@
+{
+    "message": "<p>Để truy cập thông tin chi tiết cho từng người dùng, hãy sử dụng <a href=\"{{user}}\">trang phân tích theo người dùng </a>của chúng tôi.</p><p>Để truy cập thông tin chi tiết của tất cả người dùng, bạn có thể <a href=\"{{export}}\">xuất tất cả người dùng theo yêu cầu</a>.</p>",
+    "export": {
+        "global": {
+            "first_name": "Tên",
+            "last_name": "Họ",
+            "email": "Email",
+            "provider": "Nhà cung cấp",
+            "stars": "Điểm",
+            "providerinfos_company": "Công ty",
+            "providerinfos_city": "Thành phố",
+            "providerinfos_country": "Quốc gia",
+            "providerinfos_department": "Khoa",
+            "providerinfos_title": "Tiêu đề",
+            "providerinfos_chorusID": "ChorusID",
+            "ageRange": "Nhóm tuổi",
+            "personalEmail": "Email (cá nhân)",
+            "role": "Vai trò",
+            "brandName": "Công ty Kinh doanh",
+            "boutique": "Cửa hàng",
+            "billable": "Billable",
+            "postalCode": "Mã bưu điện",
+            "moduleLevel": "$t(dashboard:badges.module.name) - Cấp bậc",
+            "moduleCount": "$t(dashboard:badges.module.name) - Bộ đếm",
+            "moduleUpdate": "$t(dashboard:badges.module.name) - Cập nhật Lần cuối",
+            "battleLevel": "$t(dashboard:badges.battle.name) - Trình độ",
+            "battleCount": "$t(dashboard:badges.battle.name) - Đếm",
+            "battleUpdate": "$t(dashboard:badges.battle.name) - Cập nhật Lần cuối",
+            "coachLevel": "$t(dashboard:badges.coach.name) - Trình độ",
+            "coachCount": "$t(dashboard:badges.coach.name) - Đếm",
+            "coachUpdate": "$t(dashboard:badges.coach.name) - Cập nhật Lần cuối",
+            "lessonLevel": "t(dashboard:badges.lesson.name) - Trình độ",
+            "lessonCount": "$t(dashboard:badges.lesson.name) - Đếm",
+            "lessonUpdate": "$t(dashboard:badges.lesson.name) - Cập nhật Lần cuối",
+            "questionLevel": "$t(dashboard:badges.question.name) - Cấp độ",
+            "questionCount": "$t(dashboard:badges.question.name) - Bộ đếm",
+            "questionUpdate": "$t(dashboard:badges.question.name) - Cập nhật Lần cuối",
+            "badges": "huy hiệu",
+            "lastConnectionDate": "Ngày Kết nối Cuối cùng",
+            "state": "Tiểu bang",
+            "login": "Đăng nhập",
+            "firstConnectionDate": "Ngày Kết nối Đầu tiên",
+            "certificate": "giấy chứng nhận {{label}}",
+            "certifications": "Chứng chỉ",
+            "entity": "Cơ quan",
+            "grade": "Lớp",
+            "region": "Vùng",
+            "validatedTimeProgression": "Xác nhận thời gian",
+            "totalTimeProgression": "Tổng số thời gian",
+            "populations": "Dân số",
+            "deactivationDate": "Ngày hủy kích hoạt ",
+            "organization_branch": "Chi nhánh Kinh doanh",
+            "organization_businessunit": "Đơn vị Kinh doanh",
+            "organization_workingCountry": "Quốc gia hoạt động",
+            "organization_role": "Vai trò Thương mại",
+            "organization_boutique": "Cửa hàng Kinh doanh",
+            "organization_address1": "Địa chỉ doanh nghiệp 1",
+            "organization_address2": "Địa chỉ Doanh nghiệp 2",
+            "organization_zipcode": "Mã Bưu chính Doanh nghiệp",
+            "organization_workingCity": "Thành phố thương mại",
+            "organization_company": "Công ty Kinh doanh",
+            "organization_ambassador": "Đại sứ",
+            "birthday": "Sinh nhật"
+        },
+        "battles": {
+            "disciplineName": "Tên môn học",
+            "disciplineStatus": "Trạng thái môn học",
+            "disciplineStatus_hidden": "Ẩn",
+            "disciplineStatus_visible": "Hiển thị",
+            "moduleLevel": "Trình độ Mô-đun",
+            "createdAt": "Được tạo vào",
+            "answeredAt": "Đã được trả lời vào",
+            "createdBy": "Tên thử thách",
+            "opponent": "Tên đối thủ",
+            "winner": "Người chiến thắng",
+            "winnerScore": "Điểm thắng cuộc",
+            "userLogin": "Đăng nhập Người thách thức",
+            "opponentLogin": "Đăng nhập Đối thủ",
+            "looserScore": "Điểm số của Người thua"
+        },
+        "moduleStart": {
+            "brand": "Nhãn hiệu",
+            "discipline": "Tên Môn học",
+            "module": "Cấp độ Mô-đun",
+            "author": "Tác giả",
+            "count": "Bộ đếm",
+            "userCount": "Số lượng người dùng"
+        }
+    },
+    "dashboard": {
+        "serenetics-error": "Xảy ra Lỗi trong khi truy vấn url của bảng điều khiển mới.",
+        "behavioral": {
+            "upgrade": {
+                "title": "Bảng điều khiển này chỉ có trong gói cước doanh nghiệp.",
+                "subtitle": "Vui lòng liên hệ với Coorpacademy để nâng cấp tài khoản của bạn và nhận quyền truy cập vào thấu hiểu hành vi của nền tảng của bạn"
+            }
+        }
+    },
+    "custom": {
+        "7steps": {
+            "export": {
+                "global": {
+                    "organization_role": "Nhiệm vụ",
+                    "organization_title": "Kiểu cửa hàng",
+                    "organization_ambassador": "Nhân viên L'Oréal ?",
+                    "organization_branch": "Bộ phận L'Oréal",
+                    "entity": "Thương hiệu L'Oréal",
+                    "organization_grade": "Sử dụng hình ảnh quyền",
+                    "organization_boutiqueReferent": "Nhà bán lẻ/Chuỗi",
+                    "organization_boutique": "Mã/tên cửa hàng"
+                }
+            }
+        },
+        "achat-habitat": {
+            "export": {
+                "global": {
+                    "organization_ambassador": "Bản tin"
+                }
+            }
+        },
+        "adidas-fr": {
+            "export": {
+                "global": {
+                    "organization_businessunit": "Lĩnh vực",
+                    "organization_grade": "Tuổi",
+                    "organization_boutique": "Nơi làm việc",
+                    "organization_branch": "Giới tính"
+                }
+            }
+        },
+        "capgemini": {
+            "export": {
+                "global": {
+                    "organization_grade": "GGID"
+                }
+            }
+        },
+        "chanel": {
+            "export": {
+                "global": {
+                    "boutique": "Boutique",
+                    "organization_workingCountry": "Quốc gia",
+                    "region": "Vùng",
+                    "role": "Vai trò",
+                    "startContract": "Bắt đầu Hợp đồng"
+                }
+            }
+        },
+        "cofpart-learning": {
+            "export": {
+                "global": {
+                    "brandName": "Direction",
+                    "entity": "Job",
+                    "organization_branch": "Manager"
+                }
+            }
+        },
+        "corporateonlineopencourse": {
+            "export": {
+                "global": {
+                    "region": "Lĩnh vực",
+                    "organization_workingCountry": "Quốc gia",
+                    "role": "Chức năng"
+                }
+            }
+        },
+        "edenred-talents": {
+            "export": {
+                "global": {
+                    "organization_company": "Chỉ đạo",
+                    "entity": "Sous-hướng",
+                    "organization_branch": "Dịch vụ - Secteur",
+                    "organization_boutiqueReferent": "Responsable",
+                    "organization_role": "Fonction",
+                    "organization_grade": "Statut"
+                }
+            }
+        },
+        "gdf": {
+            "export": {
+                "global": {
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - Trình độ",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - Đếm",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - Cập nhật lần cuối"
+                }
+            }
+        },
+        "gdfec": {
+            "export": {
+                "global": {
+                    "organization_zipcode": "GAIA",
+                    "organization_businessunit": "Nhóm",
+                    "organization_boutique": "Tên người quản lý",
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - Cấp độ",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - Đếm",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - Cập nhật lần cuối"
+                }
+            }
+        },
+        "ilearn": {
+            "export": {
+                "global": {
+                    "boutique": "Cửa hàng",
+                    "organization_workingCountry": "Quốc gia",
+                    "region": "Vùng",
+                    "role": "Vai trò",
+                    "startContract": "Hợp đồng Bắt đầu"
+                }
+            }
+        },
+        "life-auchan": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Mức độ Hoạt động",
+                    "organization_region": "Số mạng còn dư",
+                    "organization_workingCountry": "Quốc gia"
+                }
+            }
+        },
+        "metro": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Thành phố",
+                    "organization_branch": "ID",
+                    "organization_businessunit": "Vai trò"
+                }
+            }
+        },
+        "monoprix": {
+            "export": {
+                "global": {
+                    "organization_branch": "Hướng dẫn"
+                }
+            }
+        },
+        "nespresso": {
+            "export": {
+                "global": {
+                    "organization_branch": "Lĩnh vực",
+                    "organization_businessunit": "Chức vụ"
+                }
+            }
+        },
+        "pru": {
+            "export": {
+                "global": {
+                    "providerCompany": "Công ty",
+                    "providerCountry": "Quốc gia",
+                    "providerDepartment": "Lĩnh vực"
+                }
+            }
+        },
+        "redoute": {
+            "boutique": "Gian hàng"
+        },
+        "securite": {
+            "export": {
+                "global": {
+                    "organization_grade": "ID"
+                }
+            }
+        },
+        "up": {
+            "export": {
+                "battles": {
+                    "disciplineName": "Tên khóa học",
+                    "moduleLevel": "Trình độ"
+                }
+            }
+        },
+        "tagheuer": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Point of sales code"
+                }
+            }
+        },
+        "thelem": {
+            "export": {
+                "global": {
+                    "organization_role": "Công việc",
+                    "language": "Ngôn ngữ",
+                    "organization_boutique": "Vị trí",
+                    "organization_title": "Dịch vụ Quyền sở hữu",
+                    "organization_boutiqueReferent": "Số đăng ký",
+                    "startContract": "Ngày bắt đầulàm việc tại công ty",
+                    "organization_contractType": "Kiểu thỏa thuận",
+                    "organization_grade": "Trình độ chuyên môn"
+                }
+            }
+        },
+        "yahoo": {
+            "export": {
+                "global": {
+                    "organization_title": "Nhiệm vụ",
+                    "organization_workingCountry": "Quốc gia",
+                    "region": "Ngôn ngữ"
+                }
+            }
+        },
+        "who": {
+            "export": {
+                "global": {
+                    "organization_workingCountry": "Quốc gia/Tiểu bang",
+                    "region": "Tiểu bang/Vùng lãnh thổ",
+                    "provider": "Đối tác liên kết",
+                    "organization_role": "Thông tin cơ bản/Kinh nghiệm",
+                    "organization_grade": "Mã truy cập",
+                    "organization_boutiqueReferent": "Trình độ Giáo dục"
+                }
+            }
+        }
+    }
+}

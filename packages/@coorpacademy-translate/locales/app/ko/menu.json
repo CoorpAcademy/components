@@ -1,0 +1,155 @@
+{
+    "header": {
+        "title": "CoorpAcademy",
+        "mainNav": {
+            "helper": "교육 콘텐츠를 탐색하는 대체 방법",
+            "menu": "메뉴",
+            "dashboard": "내 대시보드",
+            "home": "홈",
+            "learningTree": "카탈로그",
+            "lessons": "모든 교재 및 비디오",
+            "medias": "라이브러리",
+            "battles": "전투",
+            "explore": "메뉴",
+            "discussions": "토론",
+            "badges": "배지",
+            "certifications": "인증"
+        },
+        "mainNav_user": {
+            "helper": "당신 및 당신의 일에 대한 정보를 찾는 다른 방법!"
+        },
+        "account_menu": {
+            "title": "메뉴",
+            "logout": "로그 아웃",
+            "notifications": "내 알림",
+            "language": "언어",
+            "cohorts": "인구:",
+            "account": "계정",
+            "godmode": "신 최빈값",
+            "fastslides": "빠른 슬라이드",
+            "newlearner": "새로운 게임 인터페이스",
+            "livenotifications": "라이브 알림",
+            "close": "닫기"
+        }
+    },
+    "content": "이것은 기본적인 내용입니다.",
+    "footer": {
+        "assistance": "고객센터",
+        "admin_link": {
+            "jobs": "직장",
+            "admin": "관리자",
+            "analytics": "데이터 분석",
+            "changelog": "Changelog",
+            "cms": "CMS",
+            "manual": "설명서"
+        },
+        "data_privacy_policy": "개인 정보 보호 정책",
+        "data_privacy_policy_link": "http://www.privacy.coorpacademy.com",
+        "dev_link": {
+            "api": "API doc"
+        },
+        "by": "Coorpacademy에 의해 구동",
+        "title": "Coorpacademy",
+        "changelog": {
+            "title": "Changelog",
+            "subtitle": "여기 사이트 출시 이력입니다"
+        }
+    },
+    "custom": {
+        "accueil": {
+            "footer": {
+                "by": "Tourism Academy & Atout France",
+                "copyright": "Tourism Academy & Atout France"
+            }
+        },
+        "armeedeterre": {
+            "header": {
+                "mainNav": {
+                    "battles": "전투"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "footer": {
+                "assistance": "피드백을 제공"
+            }
+        },
+        "capgemini": {
+            "header": {
+                "mainNav": {
+                    "certifications": "DigiCertif'"
+                }
+            }
+        },
+        "cnp": {
+            "header": {
+                "mainNav": {
+                    "certifications": "인증서"
+                }
+            }
+        },
+        "chanel": {
+            "footer": {
+                "by": "© CHANEL. Internal use only",
+                "copyright": "© CHANEL. Internal use only"
+            }
+        },
+        "ganprevoyance": {
+            "header": {
+                "mainNav": {
+                    "certifications": "우주"
+                }
+            }
+        },
+        "ecolenumerique-sncf": {
+            "header": {
+                "mainNav": {
+                    "certifications": "제다이 배지"
+                }
+            }
+        },
+        "ilearn": {
+            "footer": {
+                "by": "© CHANEL. Internal use only",
+                "copyright": "© CHANEL. Internal use only"
+            }
+        },
+        "paca": {
+            "footer": {
+                "by": "TOURISM ACADEMY 재작",
+                "copyright": "A TOURISM ACADEMY production"
+            }
+        },
+        "tourism": {
+            "footer": {
+                "by": "Tourism Academy",
+                "copyright": "Tourism Academy"
+            }
+        },
+        "tourismdigital": {
+            "footer": {
+                "by": "관광 아카데미 생산",
+                "copyright": "관광 아카데미 생산"
+            }
+        },
+        "ey": {
+            "footer": {
+                "by": "EY 디지털 아카데미",
+                "copyright": "EY 디지털 아카데미"
+            }
+        },
+        "up": {
+            "footer": {
+                "data_privacy_policy_link": "http://www.privacy.coorpacademy.com/up"
+            }
+        },
+        "who": {
+            "header": {
+                "mainNav": {
+                    "battles": "과제",
+                    "discussions": "피드백"
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,147 @@
+{
+    "tabs": {
+        "import": "Nhập",
+        "achievement": "Đặt lại",
+        "cms": "CMS",
+        "loginEvents": "Thông báo Sự kiện Đăng nhập",
+        "replay": "Lịch sử Nhập Nội dung",
+        "partners": "Đối tác tin tức",
+        "buildReport": "Tạo Báo cáo"
+    },
+    "import": {
+        "help": "giúp đỡ",
+        "help_content": "<h2>Nhập toàn bộ chủ đề hoặc môn học</h2> <p>Để nhập chủ đề, bạn phải cung cấp một tập tin .zip thỏa mãn những yêu cầu sau:\n    <ul>\n <li>Tên của môn học phải duy nhất</li>\n <li>Tất cả các môn học phải ở thư mục gốc của tập tin .zip</li>\n        <li>Mỗi thư mục môn học phải chứa một tập tin .json duy nhất của môn học được tạo</li>\n        <li>Mỗi thư mục môn học phải chứa ba thư mục học phần được nhập theo thứ tự A–Z</li>\n        <li>Mỗi thư mục học phần phải chứa vài thư mục câu hỏi</li>\n        <li>Mỗi thư mục câu hỏi phải chứa một tập tin .json duy nhất tương ứng với câu hỏi được tạo</li>\n        <li>MỚI: mỗi học phần hoặc mỗi chương có thể chứa trường remove:true field để xóa nó</li>\n        <li>MỚI: mỗi học phần hoặc mỗi chương có thể thay đổi vị trí của nó nếu nó có trường swap:INDEX với INDEX là số của vị trí mà nó sẽ nằm (bắt đầu với 0)</li>\n    </ul>\n</p> <h2>Nhập tập tin zip của người dùng</h2> <p>Để nhập một nhóm người dùng, bạn phải cung cấp một tập tin .zip thỏa mãn những điều kiện sau:\n    <ul>\n        <li>Tên đăng nhập của mỗi người dùng phải duy nhất</li>\n        <li>Tất cả người dùng phải ở thư mục gốc của tập tin .zip</li>\n    </ul>\n</p> <a href=\"/assets/samples/import.zip\">Tải về một tập tin .zip mẫu</a>",
+        "disciplines": {
+            "title": "Môn học",
+            "zero": "Không có khóa huấn luyện nào"
+        },
+        "send_job": "Gửi tập tin thông qua công việc"
+    },
+    "delete": {
+        "disciplines": {
+            "404": "Không tìm thấy môn học",
+            "title": "Xoá tất cả quy tắc",
+            "button": "Xóa bỏ",
+            "confirm": "Hãy nhập \"{{word}}\" để xác nhận xóa mọi chủ đề",
+            "confirm_word": "Các môn học",
+            "success": "Môn học đã xóa"
+        },
+        "users": {
+            "404": "Không tìm thấy người dùng nào",
+            "title": "Xoá tất cả người dùng",
+            "help": "Xóa các người dùng của nhà cung cấp (để xóa tất cả, để trống)",
+            "button": "Xóa",
+            "confirm": "Vui lòng nhập \"{{word}}\" để xác nhận việc xóa người dùng",
+            "confirm_word": "người dùng",
+            "success": "{{count}} người dùng đã bị xóa",
+            "success_plural": "{{count}} các người dùng đã xoá",
+            "provider": "nhà cung cấp:"
+        },
+        "tuto": {
+            "404": "Người dùng không tìm thấy",
+            "title": "Thiết lập lại các hướng dẫn",
+            "button": "Xóa",
+            "confirm": "Vui lòng chọn \"{{word}}\" để xác nhận đặt lại hoàn toàn hướng dẫn.",
+            "confirm_word": "hướng dẫn",
+            "success": "Đặt lại hướng dẫn"
+        },
+        "achievements": {
+            "404": "Không có tiến bộ được tìm thấy",
+            "title": "Xóa toàn bộ tiến trình của bạn",
+            "button": "Xóa",
+            "confirm": "Vui lòng nhập \"{{word}}\" để xác nhận xóa tiến trình của bạn",
+            "confirm_word": "tiến trình",
+            "success": "Tiến trình đã xoá"
+        }
+    },
+    "console": {
+        "status": "Trạng thái HTTP:",
+        "exception": "ID Ngoại lệ:",
+        "error": "Thông báo lỗi:"
+    },
+    "update": {
+        "goals": {
+            "title": "Cập nhật Mục tiêu",
+            "button": "Cập nhật Mục tiêu thông qua việc làm",
+            "success": "Đã gửi yêu cầu"
+        }
+    },
+    "create": "Thêm",
+    "save": "Lưu",
+    "remove": "Xoá",
+    "test": "Kiểm tra",
+    "edit": "Chỉnh sửa",
+    "back": "Quay lại",
+    "table": {
+        "button": {
+            "prev": "<<",
+            "next": ">>",
+            "first": "Trang đầu tiên",
+            "last": "Trang cuối"
+        }
+    },
+    "loginEvent": {
+        "subtitle": "Sự kiện Hậu Đăng nhập",
+        "config": "Thông tin chung",
+        "content": "Cấu hình Bổ sung",
+        "eventName": "Tên Sự kiện",
+        "type": "Loại",
+        "active": "Hoạt động",
+        "mandatory": "Bắt buộc",
+        "cmsPagePath": "CMS Path",
+        "redirectTo": "Liên kết chuyển hướng",
+        "title": "Tiêu đề",
+        "text": "Văn bản chính",
+        "redirectButton": "Nhãn nút chuyển hướng",
+        "button": "Nhãn Nút",
+        "checkboxText": "Nhãn tích dấu",
+        "footerText": "Văn bản chân (tùy chọn)",
+        "order": "Đặt hàng"
+    },
+    "status": {
+        "ok": {
+            "title": "Thành công"
+        },
+        "saving": {
+            "title": "Đang lưu..."
+        },
+        "removing": {
+            "title": "Loại bỏ..."
+        }
+    },
+    "version": "Phiên bản nền tảng hiện tại: {{appVersion}}",
+    "job": {
+        "import": {
+            "replay": "Áp dụng",
+            "username": "Điều hành bởi",
+            "createdAt": "Ngày thực thi",
+            "elapsedTime": "Thời gian thực hiện",
+            "status": "Trạng thái",
+            "uploadedFile": "Các tập tin trên S3",
+            "seeLogs": "Xem nhật ký"
+        }
+    },
+    "partner": {
+        "name": "Tên",
+        "link": "Liên kết",
+        "createdAt": "Được tạo vào",
+        "logo": "Logo",
+        "config": "Thông tin",
+        "upload": "Tải lên",
+        "linkLabel": "Liên kết nhãn",
+        "description": "Mô tả"
+    },
+    "buildReport": {
+        "help": "Giúp đỡ",
+        "send_job": "Gửi tập tin qua lambda",
+        "title": "Tạo Báo cáo Pernod",
+        "help_content": "Tải tệp Zip lên với những điểm xuất sắc của bạn và chỉ rõ thư bạn muốn nhận kết quả",
+        "email": "Địa chỉ Email",
+        "file": "Excel trong Zip",
+        "email_missing": "Email phải được cung cấp",
+        "email_not_coorp": "Email phải từ coorpacademy",
+        "file_missing": "Tập tin phải được cung cấp",
+        "upload_in_progress": "Tệp của bạn đang được tải lên. Việc xử lý có thể mất vài phút. Bạn sẽ nhận được kết quả qua thư",
+        "file_received": "Tệp đã được máy chủ nhận và hiện đang được xử lý không có lỗi.\nBạn sẽ nhận được một email với kết quả sau một vài phút."
+    }
+}

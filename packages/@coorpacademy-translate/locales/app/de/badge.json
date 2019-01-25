@@ -1,0 +1,29 @@
+{
+    "level_0": "Begonnen",
+    "level_1": "Bronze",
+    "level_2": "Silber",
+    "level_3": "Gold",
+    "level_4": "Platin",
+    "custom": {
+        "7steps": {
+            "level_4": "Top"
+        },
+        "renault": {
+            "my_badges_intro": "Alle Lernabzeichen sehen, die Sie erworben haben oder noch erwerben können, um der \"King\" der Clio RS zu werden! ;-)"
+        },
+        "tagheuer": {
+            "level_0": "Init",
+            "level_1": "1. GANG",
+            "level_2": "3. GANG",
+            "level_3": "5. GANG",
+            "level_4": "7. GANG"
+        },
+        "tagheuercon": {
+            "level_0": "Init",
+            "level_1": "1. GANG",
+            "level_2": "3. GANG",
+            "level_3": "5. GANG",
+            "level_4": "7. GANG"
+        }
+    }
+}

@@ -1,0 +1,29 @@
+{
+    "level_0": "Init",
+    "level_1": "ブロンズ",
+    "level_2": "シルバー",
+    "level_3": "金",
+    "level_4": "プラチナ",
+    "custom": {
+        "7steps": {
+            "level_4": "ページのトップへ"
+        },
+        "renault": {
+            "my_badges_intro": "獲得しているすべてのバッジを表示または最後のクリオ RS の「王」になることを残っている!;-)"
+        },
+        "tagheuer": {
+            "level_0": "Init",
+            "level_1": "1番めのギア",
+            "level_2": "3番目のギア",
+            "level_3": "5番目のギア",
+            "level_4": "7個目のギア"
+        },
+        "tagheuercon": {
+            "level_0": "Init",
+            "level_1": "1番めのギア",
+            "level_2": "3番目のギア",
+            "level_3": "5番目のギア",
+            "level_4": "7個目のギア"
+        }
+    }
+}

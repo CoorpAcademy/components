@@ -1,0 +1,25 @@
+{
+    "notCompatible": {
+        "os": "Версія вашої операційної системи занадто стара, щоб отримати доступ до платформи. Ми рекомендуємо оновлення.",
+        "explanation": "Перегляд в режимі сумісності у Вашому браузері може бути активований. Більше інформації про його вимкнення",
+        "explanationLink": "https://static.coorpacademy.com/content/help/compatibility_view/Help_Compatibility_view_EN.pdf",
+        "explanationLinkLabel": "тут.",
+        "header": "Версія вашого браузера є занадто старою щоб отримати доступ до нашої платформи.",
+        "suggestion_text": "BrowseHappy",
+        "suggestion_href": "http://browsehappy.com",
+        "suggestion_text_pre": "Перейти до",
+        "suggestion_text_post": "для отримання додаткової інформації про браузери Evergreen.",
+        "different_user_agent": "Знайдено 2 різних користувацьких агенти, що викликало обмеження доступу до платформи."
+    },
+    "custom": {
+        "fff": {
+            "notCompatible": {
+                "os": "Версія вашої операційної системи занадто стара для доступу до платформи. Рекомендуємо оновлення.",
+                "suggestion_text": "Chrome",
+                "suggestion_href": "https://www.google.com/intl/fr/chrome/browser/",
+                "suggestion_text_pre": "Пропоноване завантаження",
+                "suggestion_text_post": "."
+            }
+        }
+    }
+}

@@ -1,0 +1,63 @@
+{
+    "battle": {
+        "incoming": "{{count}} 件の保留中バトルがあります。",
+        "incoming_plural": "現在進行中のバトルは {{count}} 件です。",
+        "you_win": "バトルに勝利しました",
+        "you_lose": "あなたはバトルに敗れました"
+    },
+    "badge": {
+        "won": "{{name}} バッジを獲得しました。"
+    },
+    "module": {
+        "won": "あなたはモジュールを通過しました"
+    },
+    "reward": {
+        "won": "おめでとうございます! 努力が報われました!"
+    },
+    "coach": {
+        "unlocked": "コーチになりました"
+    },
+    "incoming": "新しい通知があります",
+    "chatrequest": "新しいチャットリクエスト",
+    "goal": {
+        "progress": "あなたは認定において前進しました",
+        "select": "あなたは証明書を選択しました",
+        "reward": "あなたは認定されました"
+    },
+    "forum": "あなたの質問にユーザーが回答しました。",
+    "new_version": {
+        "title": "新バージョン",
+        "message": "このプラットフォームの新バージョンがリリースされました。",
+        "action": "リフレッシュ"
+    },
+    "welcome": "ようこそ <b>{{user}}</b> は、すべてのコースにアクセスできます。",
+    "personal_note": "ノートがあなたのEメールアドレスに送信されました。",
+    "bonusStars": "おめでとうございます! {{stars}}個のスターをさらに獲得しました!",
+    "rewardStars": "おめでとうございます! {{stars}}個のスターをさらに獲得しました!",
+    "custom": {
+        "armeedeterre": {
+            "battle": {
+                "incoming": "{{count}} 保留中の戦いがあります。",
+                "incoming_plural": "{{count}} 保留中の戦いがあります。",
+                "you_win": "戦いに勝利します。",
+                "you_lose": "あなたは戦いを失った"
+            }
+        },
+        "pernod": {
+            "goal": {
+                "progress": "目標を変更しています。",
+                "select": "目標を選択しました。",
+                "reward": "目的のブロックを解除があります。"
+            }
+        },
+        "up": {
+            "module": {
+                "won": "レベルを完了しています。"
+            }
+        },
+        "racing": {
+            "header": "A new Tower Quizz live is happening!",
+            "body": "Click here to join"
+        }
+    }
+}

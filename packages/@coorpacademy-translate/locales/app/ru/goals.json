@@ -1,0 +1,201 @@
+{
+    "title": "Мои сертификаты.",
+    "subtitle_head1": "Выберите один или большее количество сертификатов и пройдите обучение, чтобы улучшить навыки в выбранной Вами области.",
+    "subtitle_head2": "Начать модуль для получения сертификации",
+    "how_to": "Для получения сертификации вы должны закончить все модули. Давайте начнем!",
+    "button_choose_goal": "Выберите сертификацию.",
+    "selected_goals_title": "{{goals}} Текущая сертификация",
+    "selected_goals_title_plural": "{{goals}} Текущие сертификации",
+    "selected_goals_no_item": "Ни одна сертификация не выбрана. Пожалуйста, выберите одну!",
+    "finished_goals_title": "{{goals}}  Подтвержденная сертификация",
+    "finished_goals_title_plural": "{{goals}}  Подтвержденные Сертификации",
+    "finished_goal_label": "{{goalLabel}} {{star}}",
+    "finished_goals_no_item": "Вы еще не получили сертификаты.",
+    "button_module_access": "Начать сейчас",
+    "minutes_label": "мин.",
+    "status_label": "Статус:",
+    "stars_label": "{{stars}} звезда",
+    "stars_label_plural": "{{stars}} звезды",
+    "popover": {
+        "title": "Будьте Осторожны!",
+        "module_blocked_pre": "Этот модуль недоступен:",
+        "module_blocked_post": "{{pre}} Для достижения цели нужно сначала подтвердить уровень {{level}}",
+        "select_goal": {
+            "title": "Пожалуйста, выберите сертификат",
+            "available_module": "{{total}} Доступные сертификаты",
+            "available_module_plural": "{{total}} Доступно сертификатов",
+            "module_done": "Этот модуль уже проработан. Вы на полпути к подтверждению сертификата.",
+            "module_blocked": "Этот модуль пока не доступен. Чтобы разблокировать его, сначала вам нужно пройти Базовый или Продвинутый уровни.",
+            "button_add_goal": "Подтвердить мое свидетельство"
+        }
+    },
+    "condition_progress": {
+        "information": "Вы завершили {{done}} из {{total}} предлагаемых модулей."
+    },
+    "certification": {
+        "title": "Ваши сертификаты",
+        "title_plural": "Ваши сертификаты",
+        "subtitle": "Подтвердить свой уровень с помощью сертификации",
+        "subtitle_plural": "Подтвердить свой уровень с помощью сертификации",
+        "rewards": {
+            "subtitle": "Ваши награды",
+            "see_detail": "Смотреть",
+            "congratulations": "Поздравляем!",
+            "you_can_win": "Получить сертификат",
+            "download_resource": "Нажмите здесь чтобы загрузить",
+            "see_diploma": "Посмотреть Диплом",
+            "access_your_diploma": "Доступ к вашему диплому"
+        },
+        "stars": {
+            "description_pre": "Вы получили",
+            "description_post": "звезды"
+        },
+        "state": {
+            "done": "Готово!",
+            "inProgress": "В ходе выполнения"
+        },
+        "condition_description": {
+            "progress": "Цель: {{count}} модуль",
+            "progress_plural": "Цель: {{count}} модуля(ей)"
+        },
+        "certificationDone": "Поздравляем! Вы получили сертификат {{certificationName}}!"
+    },
+    "diploma": {
+        "certificate": "диплом",
+        "date": "Дата: {{date}}",
+        "message": "подтвердил(а) необходимые знания для аттестации в программе:"
+    },
+    "custom": {
+        "ecolenumerique-sncf": {
+            "certification": {
+                "title": "Jedi Badge",
+                "title_plural": "Джедаи значки",
+                "certificationDone": "Поздравляю! Вы получили награду {{certificationName}}!",
+                "subtitle": "Проверка бейджу джедаев",
+                "subtitle_plural": "Проверить ваши значки джедаев здесь"
+            }
+        },
+        "ganprevoyance": {
+            "certification": {
+                "title": "Вселенная",
+                "title_plural": "Вселенные",
+                "certificationDone": "Поздравляю! Вселенная {{certificationName}} подтверждена!",
+                "subtitle": "Проверка вашей вселенной",
+                "subtitle_plural": "Проверить ваш вселенных"
+            }
+        },
+        "cnp": {
+            "certification": {
+                "title": "Сертификат",
+                "title_plural": "Сертификаты",
+                "certificationDone": "Поздравляю! Вы получили сертификат {{certificationName}}!",
+                "subtitle": "Подтвердить ваш сертификат здесь",
+                "subtitle_plural": "Подтвердить ваши сертификаты здесь"
+            }
+        },
+        "pernod": {
+            "title": "Мои цели.",
+            "subtitle_head1": "Выберите одну или несколько целей и завершить их, чтобы улучшить свои навыки на выбранной области и темы.",
+            "subtitle_head2": "Запустите модуль среди тех, которые включены в цели.",
+            "how_to": "Чтобы проверить объективный, необходимо завершить каждый модуль. Давайте начнем!",
+            "button_choose_goal": "Выберите цель.",
+            "selected_goals_title": "{{goals}} Текущие задачи",
+            "selected_goals_title_plural": "{{goals}} Текущие задачи",
+            "selected_goals_no_item": "Никакая цель выбрана. Пожалуйста, выберите один!",
+            "finished_goals_title": "{{goals}}  Достигнутая цель",
+            "finished_goals_title_plural": "{{goals}}  Достигнутые цели",
+            "finished_goal_label": "{{goalLabel}} {{star}}",
+            "finished_goals_no_item": "Вы еще не достигли никакой цели.",
+            "button_module_access": "Начните прямо сейчас",
+            "minutes_label": "мин",
+            "status_label": "Статус:",
+            "stars_label": "{{stars}} звезда",
+            "stars_label_plural": "{{stars}} звезд",
+            "popover": {
+                "title": "Будь осторожен!",
+                "module_blocked_pre": "Этот модуль недоступен:",
+                "module_blocked_post": "{{pre}} Для достижения этой цели необходимо сначала подтвердить уровень {{level}}",
+                "select_goal": {
+                    "title": "Пожалуйста, выберите цель",
+                    "available_module": "{{total}} Доступная цель",
+                    "available_module_plural": "{{total}} Доступных целей",
+                    "module_done": "Этот модуль уже был пройден. Вы находитесь на пути к достижению цели.",
+                    "module_blocked": "Этот модуль недоступен. Для его разблокировки необходимо сначала пройти базовый или продвинутый уровень.",
+                    "button_add_goal": "Подтвердить мою цель."
+                }
+            },
+            "condition_progress": {
+                "information": "Вы закончили {{done}} из {{total}} предлагаемых модулей."
+            },
+            "certification": {
+                "title": "Ваши цели",
+                "subtitle": "Подтвердите ваши навыки по отношению к этим целям",
+                "rewards": {
+                    "subtitle": "Ваши награды",
+                    "see_detail": "См.",
+                    "congratulations_pre": "И наши",
+                    "congratulations": "поздравляем",
+                    "congratulations_post": "за все ваши усилия"
+                },
+                "stars": {
+                    "description_pre": "Мы даем вам",
+                    "description_post": "звезды"
+                },
+                "state": {
+                    "done": "Сделано",
+                    "inProgress": "В процессе"
+                },
+                "condition_description": {
+                    "progress": "{{nbDone}} завершенных модулей"
+                },
+                "certificationDone": "Поздравляем! Вы получили {{certificationName}} цель!"
+            }
+        },
+        "sgmgt": {
+            "diploma": {
+                "message": "В рамках проекта управления осведомленности выполнены все действия необходимых умений"
+            }
+        },
+        "securite": {
+            "diploma": {
+                "message": "завершила все модули, соответствующие этому сертификату в:"
+            }
+        },
+        "projet": {
+            "diploma": {
+                "message": "В рамках проекта управления осведомленности выполнены все действия необходимых умений"
+            }
+        },
+        "tagheuer": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Данный модуль еще недоступен. Для разблокировки вы должны сначала успешно пройти титановый и бронзовый уровни."
+                }
+            }
+        },
+        "tagheuercon": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Этот модуль пока недоступен. Чтобы разблокировать его, необходимо сначала пройти уровни Титан или Бронза."
+                }
+            }
+        },
+        "up": {
+            "subtitle_head2": "Начните уровень среди тех, которые включены в цели.",
+            "how_to": "Для достижения цели необходимо завершить каждый уровень. Давайте начнем!",
+            "popover": {
+                "module_blocked_pre": "Этот уровень не доступен:",
+                "select_goal": {
+                    "module_done": "Этот уровень уже был пройден. Вы находитесь на пути к достижению цели.",
+                    "module_blocked": "Этот уровень еще не доступен. Для его разблокировки необходимо сначала пройти базовый или продвинутый уровень."
+                }
+            },
+            "certification": {
+                "condition_description": {
+                    "progress": "Целевой показатель: {{count}} дисциплины",
+                    "progress_plural": "Цель: {{count}} дисциплин"
+                }
+            }
+        }
+    }
+}

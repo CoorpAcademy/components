@@ -1,0 +1,29 @@
+{
+    "level_0": "Init",
+    "level_1": "Brąz",
+    "level_2": "Srebro",
+    "level_3": "Złoto",
+    "level_4": "Platyna",
+    "custom": {
+        "7steps": {
+            "level_4": "Do góry"
+        },
+        "renault": {
+            "my_badges_intro": "Zobacz wszystkie odznaki, które zostały uzyskane lub które pozostają dla Ciebie stać się \"królem\" ostatni Clio RS! ;-)"
+        },
+        "tagheuer": {
+            "level_0": "Pocz.",
+            "level_1": "1. BIEG",
+            "level_2": "3. BIEG",
+            "level_3": "5. BIEG",
+            "level_4": "7. BIEG"
+        },
+        "tagheuercon": {
+            "level_0": "Pocz.",
+            "level_1": "1. BIEG",
+            "level_2": "3. BIEG",
+            "level_3": "5. BIEG",
+            "level_4": "7. BIEG"
+        }
+    }
+}

@@ -1,0 +1,153 @@
+{
+    "loose": {
+        "title": "Startpagina",
+        "end_try": "Je hebt geen beschikbare pogingen meer!",
+        "echec_title": "Oeps...",
+        "new_badges": "{{number}} nieuwe badge verdiend",
+        "new_badges_plural": "{{number}} nieuwe badges verdiend",
+        "footer": {
+            "joker": {
+                "video": {
+                    "pre": "Bekijk de video",
+                    "text": "van de les",
+                    "win": "om 1",
+                    "heart": "extra leven",
+                    "post": "en ga verder met dit niveau."
+                },
+                "pdf": {
+                    "pre": "De les lezen",
+                    "win": "om 1",
+                    "heart": "extra leven",
+                    "post": "en ga verder met dit niveau."
+                },
+                "without": "Je hebt jouw joker gebruikt"
+            },
+            "new_try": {
+                "title_pre": "Probeer dit niveau opnieuw.",
+                "title": "Je bent gemotiveerd,",
+                "title_post": "en dat is te zien!",
+                "button": "Probeer dit niveau opnieuw"
+            },
+            "new_module": {
+                "title_pre": "Ga naar een ander niveau.",
+                "title": "Je maakt een comeback!",
+                "button": "Verander van cursus"
+            }
+        },
+        "type_badges": {
+            "init": "init",
+            "bronze": "Brons",
+            "argent": "Zilver",
+            "or": "Goud",
+            "platine": "Platina"
+        }
+    },
+    "question_title": "Vraag: {{question}}",
+    "progression": "Vraag {{nb}} / {{ref}}",
+    "success": {
+        "home": "Startpagina",
+        "title": "Gefeliciteerd!",
+        "subtitle": "Je hebt dit niveau voltooid",
+        "body": {
+            "new_star": "Sterren {{newStars}}",
+            "new_score": "Jouw nieuwe score van {{newScore}}"
+        },
+        "new_badges": "{{new}} nieuwe badge verdiend",
+        "new_badges_plural": "{{new}} nieuwe badges verdiend",
+        "reported": "Dankzij deze module heb je het volgende verdiend:",
+        "win": "Je hebt nu:",
+        "footer": {
+            "title": "Je bent goed van start gegaan! Ga zo door!",
+            "new_module": "Ga naar dit niveau",
+            "duration_unit": "min",
+            "battle": "Start Battle"
+        },
+        "type_badges": {
+            "init": "init",
+            "bronze": "Brons",
+            "argent": "Zilver",
+            "or": "Goud",
+            "platine": "Platina"
+        },
+        "yourRanking": "Jouw stand:",
+        "rankWin": "(+ {{count}} plaats)",
+        "rankWin_plural": "(+ {{count}} rangen)"
+    },
+    "duration": "{{nb}}",
+    "duration_post": "min",
+    "duration_post_plural": "minuten",
+    "assistance": "Een fout melden",
+    "buy_next": "Volgende module kopen",
+    "moduleNotFound": "Geen niveau gevonden met de referentie {{moduleRef}} voor de les{{disciplineName}}",
+    "custom": {
+        "armeedeterre": {
+            "success": {
+                "footer": {
+                    "battle": "Start Battle"
+                }
+            }
+        },
+        "7steps": {
+            "loose": {
+                "type_badges": {
+                    "platine": "Boven"
+                }
+            },
+            "success": {
+                "type_badges": {
+                    "platine": "Boven"
+                }
+            }
+        },
+        "fdj": {
+            "loose": {
+                "echec_title": "voltooid",
+                "end_try": "U hebt de quiz!"
+            }
+        },
+        "letsgetdigital": {
+            "assistance": "Feedback geven"
+        },
+        "up": {
+            "loose": {
+                "footer": {
+                    "joker": {
+                        "video": {
+                            "post": "en blijven het niveau"
+                        },
+                        "pdf": {
+                            "post": "en blijven het niveau"
+                        }
+                    },
+                    "new_try": {
+                        "title_pre": "Probeer dit niveau opnieuw.",
+                        "button": "Probeer dit niveau opnieuw"
+                    },
+                    "new_module": {
+                        "title_pre": "Een ander toegangsniveau.",
+                        "button": "Verandering cursus"
+                    }
+                }
+            },
+            "success": {
+                "subtitle": "Je bent geslaagd voor dit niveau",
+                "reported": "Dit niveau had u verdiend",
+                "footer": {
+                    "new_module": "Dit toegangsniveau"
+                }
+            },
+            "memo": {
+                "module_title": "Cursus: {{disciplineName}} - {{moduleName}}",
+                "from": "uit de cursus {{disciplineName}} - {{name}}"
+            },
+            "buy_next": "Volgende cursus kopen"
+        },
+        "who": {
+            "success": {
+                "footer": {
+                    "battle": "Start uitdaging"
+                }
+            }
+        }
+    }
+}

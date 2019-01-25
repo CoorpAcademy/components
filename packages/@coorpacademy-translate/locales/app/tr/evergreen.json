@@ -1,0 +1,25 @@
+{
+    "notCompatible": {
+        "os": "OS sürümünüz, platforma erişmeniz için çok eski. Güncellemenizi tavsiye ediyoruz.",
+        "explanation": "Tarayıcınızın uyumluluk modu açılmış olabilir. Kapatmak için daha fazla bilgi",
+        "explanationLink": "https://static.coorpacademy.com/content/help/compatibility_view/Help_Compatibility_view_FR.pdf",
+        "explanationLinkLabel": "Buraya tıklayın.",
+        "header": "Gezgin sürümünüz platforma erişmeniz için çok eski.",
+        "suggestion_text": "BrowseHappy",
+        "suggestion_href": "http://browsehappy.com",
+        "suggestion_text_pre": "Evergreen gezginleri hakkında daha fazla bilgi edinmek için,",
+        "suggestion_text_post": "İnternet sitesini ziyaret edin.",
+        "different_user_agent": "İki farklı kullanıcı aracı bulundu, platform erişim kısıtlamasıyla sonuçlanır."
+    },
+    "custom": {
+        "fff": {
+            "notCompatible": {
+                "os": "OS sürümünüz, platforma erişmeniz için çok eski. Güncellemenizi tavsiye ediyoruz.",
+                "suggestion_text": "Chrome",
+                "suggestion_href": "https://www.google.com/intl/fr/chrome/browser/",
+                "suggestion_text_pre": "Önerilen indirme",
+                "suggestion_text_post": "."
+            }
+        }
+    }
+}

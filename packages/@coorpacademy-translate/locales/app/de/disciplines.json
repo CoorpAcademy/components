@@ -1,0 +1,90 @@
+{
+    "disciplines": {
+        "book_demo": "Buchen Sie eine Demo",
+        "payment_required": "Coorpacademy Abo",
+        "free_start": "Lernen Sie"
+    },
+    "modules": {
+        "button": {
+            "start": "{{name}} Level starten",
+            "access": "Zugriff auf Level {{name}}",
+            "continue": "Weiter mit Level {{name}}",
+            "again": "{{name}} Level wiederholen",
+            "locked": "Kurs gesperrt",
+            "payment_required": "Abonnieren Sie um fortzufahren"
+        },
+        "skill": {
+            "valid": "Dieses Modul versetzt Sie in die Lage:",
+            "invalid": "Nach Abschluss dieses Kurses sind Sie in der Lage:"
+        },
+        "chapters": {
+            "title": "Kapitel"
+        },
+        "stars": "Gewonnene Sterne insgesamt"
+    },
+    "chapters": {
+        "button": {
+            "start": "Starten Sie 5' Learning",
+            "access": "Zugang 5' Learning",
+            "continue": "Weiter mit 5' Learning",
+            "again": "Starten Sie 5' Learning",
+            "locked": "5' Learning gesperrt"
+        }
+    },
+    "presentation": {
+        "total": "{{nb}}",
+        "total_post": "Modul",
+        "total_post_plural": "Module",
+        "video_title": "Kurse ansehen",
+        "popularity": "Beliebtheit:",
+        "trainer": "Trainer",
+        "trainer_plural": "Trainers",
+        "by": "Durch",
+        "and": "&"
+    },
+    "author": "Dieser Kurs wurde erstellt von:",
+    "disciplineNotFound": "Kein Kurs mit der Referenz {{disciplineRef}} gefunden",
+    "forbidden": {
+        "unknown_in_group": "Sie haben keinen Zugriff auf diese Inhalte",
+        "previous_level": "Das vorherige Level muss abgeschlossen werden, bevor Sie dieses Level starten können.",
+        "conditions": "Die folgenden Kurse müssen abgeschlossen sein, bevor Sie diese versuchen können: {{contents}}",
+        "subscription_required": "Coorpacademy Abonnement ist erforderlich, um diesen Inhalt zu starten."
+    },
+    "custom": {
+        "up": {
+            "disciplines": {
+                "payment_required": "Coorpacademy Abo"
+            },
+            "modules": {
+                "button": {
+                    "locked": "Ebene gesperrt"
+                },
+                "skill": {
+                    "valid": "Dank dieses Levels können Sie:",
+                    "invalid": "Am Ende dieses Levels werden Sie in der Lage sein:"
+                }
+            },
+            "presentation": {
+                "total_post": "Level",
+                "total_post_plural": "Levels"
+            }
+        },
+        "silca": {
+            "modules": {
+                "skill": {
+                    "invalid": "Am Ende dieser Unterrichtseinheit werden Sie in der Lage, Ihre Fähigkeit zu messen:"
+                }
+            }
+        },
+        "mooc-socgen": {
+            "modules": {
+                "button": {
+                    "start": "Start {{name}}",
+                    "access": "Zugang {{name}}",
+                    "continue": "Weiter {{name}}",
+                    "again": "Starten Sie {{name}}"
+                }
+            }
+        }
+    }
+}

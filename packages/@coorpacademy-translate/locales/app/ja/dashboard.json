@@ -1,0 +1,1569 @@
+{
+    "hello": "ようこそ、 {{displayname}}!",
+    "show_more": "すべてを見る",
+    "registered": {
+        "score": "あなたのスコア：",
+        "new_score": "あなたの新しいスコア{{newscore}}",
+        "badge": {
+            "new": "1個のバッジ",
+            "new_post": "勝利",
+            "award_pre": "Bronze",
+            "award": "- 3 バトル",
+            "award_post": "完了",
+            "name": "Bronze"
+        },
+        "next_player": "相手の番です...",
+        "button_back": "戻る"
+    },
+    "slides_battle": "質問 {{count}}",
+    "slides_battle_check": "確認",
+    "success_battle": {
+        "title": "バトルが終了しました!",
+        "result": {
+            "win": "おめでとうございます。あなたの勝ちです!",
+            "win_fast": "おめでとうございます。最短時間で勝ちました!",
+            "win_first": "おめでとうございます!",
+            "win_second": "勝ちました",
+            "loose": "残念、負けました!",
+            "loose_first": "おっと",
+            "loose_second": "負けました!",
+            "loose_against": "おっと、負けてしまいましたね。{{name}}の方が速かった!",
+            "winStars": "このバトルで{{count}} の追加のスターを獲得しました！",
+            "winStars_plural": "あなたはこのバトルで更に{{count}}星を獲得しました!"
+        },
+        "badge_user": {
+            "text": "1個のバッジ",
+            "text_post": "勝利",
+            "award_pre": "Bronze",
+            "award": "- 3 バトル",
+            "award_post": "完了",
+            "name": "Bronze"
+        },
+        "badge_opponent": {
+            "text": "1バッジ",
+            "text_post": "勝ち取る",
+            "award_pre": "Bronze",
+            "award": "- 3 バトル",
+            "award_post": "完了",
+            "name": "Bronze"
+        },
+        "footer": "返却"
+    },
+    "notificationCard": {
+        "request_title": "{{title}} リクエスト",
+        "request": "{{module}}コース{{level}}レベル",
+        "aim": {
+            "text": "1件の新しい回答",
+            "text_post": "あなたの質問へ",
+            "name": "名　姓",
+            "link": "閲覧"
+        },
+        "badge": {
+            "text": "おめでとうございます!　あなたは1つの新しいバッジを獲得しました。",
+            "text_post": "勝利",
+            "link": "閲覧"
+        },
+        "battle": {
+            "text": "新しいバトルを１つ受信しました。",
+            "text_post": "チャレンジ",
+            "link": "見る",
+            "demand_accept": "あなたのバトルチャレンジ",
+            "demand_accept_post": "が承認されました",
+            "win_against_title": "バトルに勝ちました！",
+            "loose_against_title": "バトルに負けました！",
+            "against": "{{module}}コース{{level}}レベル",
+            "versus": "対"
+        },
+        "forum_text": "{{module}} モジュール {{level}} レベルに関するあなたのコメントに 1 の新しい答えがあります。",
+        "forum_text_page": "フォーラムであなたのコメントに 1 新しい返信があります。",
+        "module": {
+            "text": {
+                "bravo": "おめでとうございます!",
+                "pre": "あなたは下記のコースに合格しました。",
+                "detail": "コース",
+                "base": "ベーシックレベル",
+                "advanced": "上級レベル",
+                "coach": "コーチレベル"
+            },
+            "link": "閲覧"
+        },
+        "reward": {
+            "bonusStars": {
+                "title": "おめでとうございます!　あなたは更なる星を獲得しました!",
+                "goal": {
+                    "description": "{{goal}} の目標に到達しました。{{stars}} 個のスターをさらに獲得できました。"
+                },
+                "rh": {
+                    "description": "{{stars}}個の新しいスターを、報酬として獲得しました。"
+                }
+            },
+            "rewardStars": {
+                "title": "Congratulations! You have won additional stars!",
+                "goal": {
+                    "description": "You have reached the {{goal}} goal. It allowed you to earn {{stars}} additional stars."
+                }
+            },
+            "resource": {
+                "title": "おめでとうございます! 新しいエレメントにアクセスできます!",
+                "description": "{{goal}}のゴールを達成しました。{{label}}へのアクセスが求められるようになりました。"
+            },
+            "diploma": {
+                "title": "修了証。",
+                "description": "{{goal}} ゴールを達成しました。卒業証書を獲得しました。おめてどうございます！"
+            }
+        },
+        "coach": {
+            "bravo": "おめでとうございます!",
+            "text": "あなたは {{disciplineName}} 訓練のコーチになりました。"
+        },
+        "title": {
+            "text": "{{title}}リクエスト",
+            "Battle": "バトル",
+            "Module": "モジュール",
+            "Badge": "バッジ",
+            "Forum": "ディスカッション",
+            "Coach": "コーチ",
+            "cmsNotification": "情報",
+            "welcome": "ようこそ",
+            "resetModule": "コンテンツ更新!"
+        },
+        "type": {
+            "module": "コース",
+            "badge": "バッジ",
+            "battle": "バトル",
+            "forum": "ディスカッション",
+            "Coach": "コーチ",
+            "objectif": "証明",
+            "cmsNotification": "情報",
+            "reward": "褒賞",
+            "welcome": "ようこそ",
+            "resetModule": "コンテンツ更新!"
+        }
+    },
+    "achievement": {
+        "helper": "あなたの成功の概要！　これらのバッジについてプラチナムレベルを獲得することが出来ますか？",
+        "titre": "お持ちのバッジ"
+    },
+    "navigation": {
+        "text": "ナビゲーション・メニューでプラットフォームの全機能にアクセスしてください",
+        "my_board": "マイ ダッシュボード",
+        "population": "私の集団",
+        "learningTree": {
+            "helper": "1回のクリックで自分の進路にある全専門分野にアクセスする",
+            "push": "あなたの専門分野に全てにクセス",
+            "push_post": "1クリックで"
+        },
+        "account_helper": "パーソナルなスペースをブラウズ、結果を閲覧、進行状況を管理、ディスカッションに参加、又はモジュールを開始する前にレッスンを受けてみましょう",
+        "account": "マイアカウント ",
+        "language": "言語",
+        "notification": "お知らせ",
+        "badge": "マイバッジ",
+        "objectif": "自分の認定",
+        "activity": "アクティビティ",
+        "discussion": "ディスカッション",
+        "conseil": "助言とヒント",
+        "coach": "コーチ",
+        "lessons": "ライブラリ",
+        "battle_helper": "モジュールを完了したら、あなたと同じレベルの人たちに10問のスモールゲームで挑戦しましょう!",
+        "battle_pre": "バトルモード",
+        "battle": "「バトル」モードで仲間に挑戦：なるべく素早く質問に答えましょう！",
+        "battle_post": "ここをクリックしてください！",
+        "assistance": "アシスタンス",
+        "home": "ホーム",
+        "certifications": "私の証明書"
+    },
+    "personal_selection": {
+        "text_helper": "あなたのルートに応じて3つのモジュールがされました!",
+        "title": "あなたへのおすすめ",
+        "acces_module": "今すぐ開始",
+        "payment_required": "今すぐ購入",
+        "popular_module_helper": "インスピレーションが必要ですか? 一番人気を選択して他の人たちが何をしているか見てみましょう。",
+        "last_discussion": "最後のディスカッション",
+        "no_discussion": "ディスカッションが見つかりません",
+        "last_module": "最後にプレイしたモジュール",
+        "no_module": "プレーされたモジュールはありまあせん",
+        "level": {
+            "pre": "レベル",
+            "base": "ベーシック、",
+            "advanced": "アドバンス、",
+            "coach": "馬車、",
+            "post": "{{stars}}/{{maxstars}}"
+        },
+        "popular_module": "最もプレーされている分野",
+        "easiest_disciplines": "一番簡単な専門分野",
+        "hardest_disciplines": "最も厳しい鍛錬",
+        "no_popular_module": "プレイしたことのあるモジュールはありません",
+        "module_name": {
+            "pre": "レベル",
+            "base": "ベーシック",
+            "advanced": "アドバンス",
+            "coach": "コーチ"
+        }
+    },
+    "activity": {
+        "title": "アクティビティ",
+        "progression_text_pre": "あなたの分野ではどんな感じですか？",
+        "progression_text": "設定した目標に向かって進捗していますか?",
+        "progression_subtext": "今がチェックするときです...",
+        "discipline_title": "専門分野",
+        "disciplines": {
+            "title": "専門分野",
+            "score": "スコア",
+            "actual_level": "現在のレベル"
+        },
+        "module_title": "モジュール",
+        "avancement": "進行状況",
+        "caption-started": "開始したモジュール",
+        "caption-done": "完了したモジュール"
+    },
+    "myactivity": {
+        "title": "アクティビティ:",
+        "subtitle": "あなたのコースの進捗状況",
+        "total": "合計:",
+        "engines": {
+            "learner": "コース",
+            "microlearning": "5' Learning",
+            "battle": "バトル ",
+            "certifications": "認定資格",
+            "bonus": "ボーナス"
+        },
+        "recommendation": {
+            "title": "こんにちは、{{displayName}}様。さらに高いスコアを目指しましょう。",
+            "subtitle": "おすすめのコース"
+        },
+        "starsToolTip": {
+            "preMessage": "この機能は現在ご利用いただけません。お問い合わせの場合は",
+            "linkMessage": "こちらから、",
+            "endMessage": "ご連絡ください。"
+        }
+    },
+    "goals": {
+        "title": "認定までの進捗"
+    },
+    "badges": {
+        "title": "マイ・バッジ ",
+        "subtitle": "あなたの獲得した全てのバッジをみる",
+        "title-1-0": "マイ バッジ",
+        "subtitle-1-0": "あなたが獲得した全てのバッジを閲覧、またはデジタル「キング」になるために獲得しなければならないバッジを閲覧!",
+        "newBadgeWon": "所持しています:",
+        "newBadgeWon_plural": "持っています。",
+        "seeYourBadges": "あなたのバッジを参照してください。",
+        "battle": {
+            "name": "Battle Warrior",
+            "details": "{{count}}つのバトル",
+            "details_plural": "{{count}}個のバトル",
+            "details_post": "を完了",
+            "details_post_plural": "を完了"
+        },
+        "module": {
+            "name": "Survivor Module",
+            "details": "{{count}}つのコース",
+            "details_plural": "{{count}}個のコース",
+            "success": "をクリア",
+            "success_plural": "をクリア",
+            "details_pre_1": "ライフ",
+            "details_pre_2": "を全て守りました"
+        },
+        "lesson": {
+            "name": "First in Class",
+            "details": "{{count}}レッスン",
+            "details_plural": "{{count}}レッスン",
+            "details_post": "資料を閲覧し、学びました。",
+            "details_post_plural": "資料を閲覧し、学びました。"
+        },
+        "question": {
+            "name": "Questions for a Champion",
+            "details": "{{count}} 問、",
+            "details_plural": "{{count}} 問、",
+            "details_post": "質問に回答しました。",
+            "details_post_plural": "質問に回答しました。"
+        },
+        "coach": {
+            "name": "First prize in camaraderie",
+            "details": "{{count}}回のコーチ",
+            "details_plural": "{{count}}回のコーチ",
+            "details_pre_1": "との",
+            "details_pre_2": "コミュニケーション"
+        },
+        "level": {
+            "bronze": "Bronze",
+            "silver": "Silver",
+            "gold": "Gold",
+            "platinum": "Platinum"
+        }
+    },
+    "battle": {
+        "title": "バトル",
+        "create": "バトルを挑む ",
+        "requests": {
+            "title": "リクエストを受けているバトル",
+            "no_requests_found": "バトルはまだ誰からも申し込まれていません。",
+            "sendBattle": "{{opponentName}} バトルリクエストあり"
+        },
+        "history": {
+            "title": "バトル履歴 ",
+            "message": {
+                "pending": "相手の承認待ちのバトル",
+                "win": "バトルに勝ちました！",
+                "lost": "バトルに負けました！",
+                "win_byTime": "あなたの方が速かった！勝ちです。",
+                "lost_byTime": "遅すぎた！相手の勝ちです。"
+            },
+            "no_history_found": "バトルの履歴はまだありません。"
+        },
+        "start": {
+            "cta": "<span class=\"bold\"> バトルを </span> 開始する",
+            "new_cta": "<span class=\"bold\"> バトル </span> を挑む",
+            "cancel": "この相手とバトルしない ",
+            "body_pre": "回答の速度について:",
+            "bodyText": "同点の場合、回答速度が速い方の勝ちです。",
+            "me": "私",
+            "inProgress": "承認待ち"
+        },
+        "steps": {
+            "1": "1. レベルを選択します。",
+            "2": "2. 対戦相手を選択します。",
+            "3": "3. バトルを開始します。"
+        },
+        "select_module": {
+            "title": "レベルを選択します。",
+            "placeholder": "バトルしたいコースを入力 してください 。",
+            "no_module_available": "バトルは既にクリアしたコースの み挑むことができます。",
+            "no_module_found": "ないモジュールが見つかりました"
+        },
+        "select_theme": {
+            "title": "コレクションを選択します。"
+        },
+        "select_opponent": {
+            "title": "相手を選択します。",
+            "placeholder": "名前を入力します。",
+            "no_opponent_found": "ない相手が見つかりました",
+            "random": "対戦相手をランダムで選択"
+        },
+        "subtitle": "仲間に挑戦！",
+        "button": {
+            "create": "バトル を挑む",
+            "cancel": "取り消し"
+        },
+        "score": "10",
+        "no_battle_progress": "現在進行中のバトルはありません。",
+        "block": {
+            "title": "リクエストを受けているバトル"
+        },
+        "accept_button": "受容",
+        "no_proposition": "バトルはまだ誰からも申し込まれていません",
+        "completed": {
+            "title": "つのバトルを完了",
+            "subtitle_pre": "次に参加されました。",
+            "subtitle_pre_plural": "あなたは以下に参加しました",
+            "subtitle": "{{count}} バトル、勝利中 {{nb}}",
+            "subtitle_plural": "{{count}} バトル 、勝利 {{nb}}"
+        },
+        "block_empty": "終了したバトルはありません。",
+        "create_title": "バトルを作成する",
+        "active_title_intro": "バトルモード",
+        "active_title_active": "有効化完了",
+        "start_discipline": "分野を始める",
+        "no_opponent": "ない相手をこのレベルで使用可能",
+        "coming_soon_random": "ランダム・バトルを開始"
+    },
+    "dashboard": {
+        "text": "宇宙開発競争! 質問に正しく答えたり、レッスンを受けたり、(バトルやトレーニングを通じて) 社会的に活動したりすることで、勝利を収めることができます!",
+        "title": "あなたのスコア",
+        "data": {
+            "intro": "　あなたはトップにいます",
+            "value": "15%",
+            "wording": "最高スコア"
+        },
+        "data_dev_hidden": {
+            "question": {
+                "title": "質問:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "あなたは次の一部です",
+                    "level": "{{level}}\n",
+                    "wording": "殆どの星と"
+                }
+            },
+            "cours": {
+                "title": "レッスン:",
+                "stars": "{{stars}} / {{maxstars}}",
+                "stat": {
+                    "intro": "あなたは以下の一部です",
+                    "level": "{{level}}",
+                    "wording": "最も多くのレッスンを閲覧した人"
+                }
+            },
+            "extra": {
+                "title": "エクストラ:",
+                "stat": {
+                    "intro": "あなたは以下の一部です",
+                    "level": "{{level}}",
+                    "wording": "最高の結果と。"
+                }
+            },
+            "total_title": "トータル:"
+        }
+    },
+    "lessons": {
+        "title": "全てのレッスンとビデオ",
+        "subtitle": "クイズを始める前に復習や勉強をしたくありませんか? このページはあなたのために用意されたものです。ここにはテーマごとに分類された全レッスンがそろっています。",
+        "subtitle_up": "それぞれのコースの問題にチャレンジする前に、復習または予習をする。",
+        "empty": "このコースのリソースがありません。"
+    },
+    "notifications": {
+        "title": "お知らせ ",
+        "infos": "<b>{{count}}</b>件 ",
+        "infos_plural": "あなたへのお知らせ<b>{{count}}</b>",
+        "filter": "絞込む",
+        "close": "近い",
+        "myNotifications": "デスクトップ通知 ",
+        "deleteAll": "全て削除",
+        "filters": {
+            "module": "コースに関するお知らせ",
+            "badge": "バッジに関するお知らせ",
+            "forum": "ディスカッションによるフィルター",
+            "battle": "バトルに関するお知らせ",
+            "coach": "コーチでフィルターにかける",
+            "objectif": "目的でフィルタリング",
+            "reward": "報酬でフィルター",
+            "welcome": "ウェルカム メッセージのフィルター処理します。",
+            "resetModule": "更新されたコンテンツをフィルターします。"
+        }
+    },
+    "block_push": {
+        "tree": {
+            "title": "全コンテンツを閲覧",
+            "content": "クイックスタートするには、こちらをクリックしてください",
+            "link": "こちらをクリック"
+        },
+        "battle": {
+            "title": "同レベルの人にチャレンジしましょう!",
+            "content": "「バトル」を始めましょう。こんなに楽しいスキル強化は初めてです!",
+            "link": "ここをクリック"
+        }
+    },
+    "welcomePopin": {
+        "title": "ようこそ",
+        "text": "MOOCを楽しむためには、まずファースト タイム ページヘどうぞ。",
+        "button": "発見する"
+    },
+    "global_notification": {
+        "button": {
+            "show_more": "より詳しい情報"
+        }
+    },
+    "filters": {
+        "all": "全て",
+        "coorpers": "クーパー",
+        "courses": "私のレッスン"
+    },
+    "sections": {
+        "most-popular": "最も人気のコース",
+        "most-recent": "最新のリリース",
+        "my-list": "{{name}} の一覧",
+        "news": "ニュース",
+        "recommended": "あなたへおすすめのコース",
+        "load_more": "詳細をロードします。",
+        "certification": "証明: {{name}}",
+        "prefix_chapter": "5' Learning: {{title}}"
+    },
+    "continueLesson": "自分のコースを再開",
+    "widgets": {
+        "read_more": "その他"
+    },
+    "discussion": {
+        "title": "コメント一覧",
+        "subtitle": "それぞれのコースへのコメントをチェックして、自身で各テーマに関するコメントをしてみましょう。"
+    },
+    "slider": {
+        "start": {
+            "surtitle": "ようこそ{{displayName}}様",
+            "surtitle_anonymous": "ようこそ、",
+            "title": "新しいテーマについて学びましょう。",
+            "cta": "カタログを参照してください。"
+        },
+        "resume": {
+            "surtitle_learner": "{{displayName}}様、おかえりなさい ",
+            "surtitle_microlearning": "{{displayName}}様、おかえりなさい",
+            "surtitle_learner_anonymous": "ご来店、続けます。",
+            "surtitle_microlearning_anonymous": "ご来店、続けます。",
+            "title": "{{courseName}}",
+            "cta": "学習を続ける"
+        },
+        "battle": {
+            "surtitle": "{{displayName}}様、おかえりなさい。バトルリクエストをチェックしましょう。",
+            "title": "バトルリクエストが{{count}}件届いています!",
+            "title_plural": "バトルリクエストが{{count}}件届いています!",
+            "cta": "バトルを開始する"
+        }
+    },
+    "custom": {
+        "7steps": {
+            "achievement": {
+                "helper": "あなたの成功の概要。これらのバッジのそれぞれに最上位のレベルを取得する管理するか。"
+            },
+            "badges": {
+                "level": {
+                    "platinum": "ページのトップへ"
+                }
+            },
+            "block_push": {
+                "tree": {
+                    "content": "今すぐ学習を開始!"
+                }
+            }
+        },
+        "accueil": {
+            "filters": {
+                "coorpers": "mooc'ers"
+            },
+            "badges": {
+                "battle": {
+                    "name": "チャレンジャー",
+                    "details_3": "40"
+                },
+                "module": {
+                    "name": "スーパー ヒーロー",
+                    "details_1": {
+                        "number": "2"
+                    },
+                    "details_2": {
+                        "number": "4"
+                    },
+                    "details_3": {
+                        "number": "6"
+                    }
+                },
+                "lesson": {
+                    "name": "入場料の価格",
+                    "details_0": "5",
+                    "details_1": "15",
+                    "details_2": "30",
+                    "details_3": "60"
+                },
+                "question": {
+                    "name": "チャンピオンのための質問",
+                    "details_3": "360"
+                },
+                "coach": {
+                    "name": "フェローシップ賞を受賞"
+                }
+            }
+        },
+        "architas-powercircle": {
+            "filters": {
+                "coorpers": "投資スーパー ヒーロー"
+            }
+        },
+        "armeedeterre": {
+            "slider": {
+                "battle": {
+                    "surtitle": "バックの {{displayName}} を歓迎、戦い要求をチェックします。",
+                    "title": "あなたは {{count}} の戦いの要求を持っている!",
+                    "title_plural": "あなたは {{count}} の戦いの要求を持っている!",
+                    "cta": "バトルを開始する"
+                }
+            },
+            "battle_start": {
+                "title": "あなたの戦いが始まろうとしています。"
+            },
+            "select_module": {
+                "no_module_available": "戦いは、完成したレベルでのみ作成できます。"
+            },
+            "success_battle": {
+                "title": "上の戦い!",
+                "badge_user": {
+                    "award": "-3 の戦い"
+                },
+                "badge_opponent": {
+                    "award": "-3 の戦い"
+                },
+                "winStars": "あなたはこの戦いに {{count}} 追加つ星を獲得!",
+                "winStars_plural": "あなたはこの戦いで追加の星 {{count}} を獲得!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "戦い"
+                },
+                "battle": {
+                    "text": "1 新たな戦いを受信しました。",
+                    "demand_accept": "あなたの戦い",
+                    "win_against_title": "戦いに勝利する!",
+                    "loose_against_title": "あなたは戦いを失った!"
+                },
+                "type": {
+                    "battle": "戦い"
+                }
+            },
+            "navigation": {
+                "battle_pre": "戦闘モード",
+                "battle": "「戦い」モードであなたの同僚に挑戦: できるだけ早く質問に答える!"
+            },
+            "filters": {
+                "battles": "私の戦い"
+            },
+            "badges": {
+                "battle": {
+                    "name": "戦いの探求者",
+                    "details": "{{count}} の戦い",
+                    "details_plural": "{{count}} の戦い"
+                }
+            },
+            "battle": {
+                "title": "戦闘モード",
+                "create": "戦いを作成します。",
+                "requests": {
+                    "title": "戦いの要求",
+                    "no_requests_found": "バトルはまだ誰からも申し込まれていません。"
+                },
+                "history": {
+                    "title": "バトル履歴 ",
+                    "message": {
+                        "pending": "相手の承認を待っているこの戦い",
+                        "win": "戦いに勝利する!",
+                        "lost": "あなたは戦いを失った!"
+                    },
+                    "no_history_found": "バトルの履歴はまだあ りません。"
+                },
+                "start": {
+                    "cta": "<span class=\"bold\"> 戦闘を</span> を開始します。",
+                    "new_cta": "新たな <span class=\"bold\"> 戦い</span> を作成します。"
+                },
+                "steps": {
+                    "3": "3. 戦闘を開始します。"
+                },
+                "select_module": {
+                    "no_module_available": "戦いは、完成したレベルでのみ作成できます。"
+                },
+                "button": {
+                    "create": "新たな戦いを作成します。"
+                },
+                "no_battle_progress": "進行中の戦いがあるありません。",
+                "block": {
+                    "title": "戦いの要求"
+                },
+                "no_proposition": "あなたはすべての戦いの要求を受け取っていません。",
+                "completed": {
+                    "title": "完成した戦い",
+                    "subtitle": "{{count}} の戦い、勝利 {{nb}}",
+                    "subtitle_plural": "{{count}} の戦い、勝利 {{nb}}"
+                },
+                "block_empty": "完成した戦いがあるありません。",
+                "create_title": "戦いを作成します。",
+                "active_title_intro": "戦闘モード",
+                "coming_soon_random": "ランダム戦闘を開始します。"
+            }
+        },
+        "bigdata": {
+            "navigation": {
+                "lessons": "すべてのコース"
+            },
+            "filters": {
+                "news": "あなたのトレーニング",
+                "coorpers": "MOOCers"
+            }
+        },
+        "bnp": {
+            "filters": {
+                "coorpers": "Factiors"
+            }
+        },
+        "bnpp-legal": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "マスター"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "マスター"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "マスター、"
+                },
+                "module_name": {
+                    "coach": "マスター"
+                }
+            },
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "casa": {
+            "filters": {
+                "news": "あなたのトレーニング",
+                "coorpers": "MOOCers"
+            }
+        },
+        "challenge48htechno": {
+            "slider": {
+                "start": {
+                    "title": "新しいクイズを探索します。"
+                },
+                "resume": {
+                    "surtitle": "バックの {{displayName}} を歓迎、あなたのクイズを続行"
+                }
+            }
+        },
+        "chanel": {
+            "block_push": {
+                "tree": {
+                    "title": "スタート",
+                    "content": "カタログにシャネルの必需品を発見します。",
+                    "link": "ここをクリックしてください。"
+                },
+                "battle": {
+                    "title": "社会を課題します。",
+                    "content": "「戦闘モード」にあなたの同僚に挑戦します。早くすることができます質問に答える!",
+                    "link": "ここをクリックしてください。"
+                }
+            },
+            "filters": {
+                "coorpers": "私のコミュニティ"
+            }
+        },
+        "crisis": {
+            "filters": {
+                "coorpers": "ペルノ ・ リカール ・ コミュニティ"
+            }
+        },
+        "dolce": {
+            "filters": {
+                "coorpers": "コミュニティ"
+            }
+        },
+        "edenred-talents": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "大使"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "大使"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "大使、"
+                },
+                "module_name": {
+                    "coach": "大使"
+                }
+            }
+        },
+        "ey": {
+            "filters": {
+                "coorpers": "デジタル英雄"
+            }
+        },
+        "fff": {
+            "activity": {
+                "caption-started": "訓練開始しますが、まだ完了していません。",
+                "caption-done": "検証訓練"
+            }
+        },
+        "gdf": {
+            "badges": {
+                "transformer": {
+                    "name": "変圧器",
+                    "details_0": {
+                        "number": "1",
+                        "details": "テーマ",
+                        "details_post": "完成品"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "テーマ",
+                        "details_post": "完成品"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "テーマ",
+                        "details_post": "完成品"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "テーマ",
+                        "details_post": "完成品"
+                    }
+                }
+            }
+        },
+        "gdfec": {
+            "badges": {
+                "transformer": {
+                    "name": "変圧器",
+                    "details_0": {
+                        "number": "1",
+                        "details": "テーマ",
+                        "details_post": "完成品"
+                    },
+                    "details_1": {
+                        "number": "3",
+                        "details": "テーマ",
+                        "details_post": "完成品"
+                    },
+                    "details_2": {
+                        "number": "5",
+                        "details": "テーマ",
+                        "details_post": "完成品"
+                    },
+                    "details_3": {
+                        "number": "8",
+                        "details": "テーマ",
+                        "details_post": "完成品"
+                    }
+                }
+            },
+            "filters": {
+                "coorpers": "コミュニティ"
+            }
+        },
+        "ilearn": {
+            "filters": {
+                "coorpers": "私のコミュニティ"
+            }
+        },
+        "learnnrj": {
+            "filters": {
+                "coorpers": "コミュニティ"
+            }
+        },
+        "letsgetdigital": {
+            "badges": {
+                "battle": {
+                    "name": "チャレンジャー"
+                },
+                "module": {
+                    "name": "ヒーロー"
+                }
+            }
+        },
+        "linxea": {
+            "filters": {
+                "coorpers": "MOOCers"
+            },
+            "navigation": {
+                "lessons": "すべての動画"
+            }
+        },
+        "loreal-retail-v2": {
+            "select_module": {
+                "filter_by": {
+                    "base": "なぜフィルターします。",
+                    "advanced": "共感によるフィルターします。",
+                    "coach": "ショーでフィルターする私"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "なぜでしょうか",
+                        "advanced": "共感",
+                        "coach": "見せてください"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "なぜでしょうか",
+                    "advanced": "共感",
+                    "coach": "見せてください"
+                },
+                "module_name": {
+                    "base": "なぜでしょうか",
+                    "advanced": "共感",
+                    "coach": "見せてください"
+                }
+            }
+        },
+        "martell": {
+            "badges": {
+                "subtitle-1-0": "すべてのバッジを取得したは、マーテルの専門家になることを取得する必要がありますを表示します。"
+            },
+            "filters": {
+                "coorpers": "マーテルの友人"
+            }
+        },
+        "michelin": {
+            "sections": {
+                "certification": "{{name}}"
+            }
+        },
+        "mooc-socgen": {
+            "select_module": {
+                "filter_by": {
+                    "base": "レベル 1 でフィルターします。",
+                    "advanced": "レベル 2 でフィルターします。",
+                    "coach": "レベル 3 でフィルターします。"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "レベル 1",
+                        "advanced": "レベル 2",
+                        "coach": "レベル 3"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "レベル 1",
+                    "advanced": "レベル 2",
+                    "coach": "レベル 3"
+                },
+                "module_name": {
+                    "base": "レベル 1",
+                    "advanced": "レベル 2",
+                    "coach": "レベル 3"
+                }
+            }
+        },
+        "nespresso": {
+            "select_module": {
+                "filter_by": {
+                    "coach": "エキスパート"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "coach": "エキスパート"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "coach": "エキスパート"
+                },
+                "module_name": {
+                    "coach": "エキスパート"
+                }
+            },
+            "filters": {
+                "coorpers": "コミュニティ"
+            }
+        },
+        "online-academy-klubschule": {
+            "select_module": {
+                "filter_by": {
+                    "base": "初心者によるフィルターします。",
+                    "advanced": "高度なフィルター処理します。",
+                    "coach": "専門家によるフィルター処理します。"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "レベル初級",
+                        "advanced": "レベル詳細",
+                        "coach": "エキスパート レベル"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "初心者のため、",
+                    "advanced": "高度な",
+                    "coach": "専門家は、"
+                },
+                "module_name": {
+                    "base": "初心者のため",
+                    "advanced": "高度な",
+                    "coach": "エキスパート"
+                }
+            }
+        },
+        "paca": {
+            "filters": {
+                "coorpers": "MOOC'ers"
+            },
+            "badges": {
+                "battle": {
+                    "name": "チャレンジャー"
+                },
+                "module": {
+                    "name": "スーパー ヒーロー"
+                },
+                "lesson": {
+                    "name": "入場料の価格"
+                },
+                "question": {
+                    "name": "チャンピオンのための質問"
+                },
+                "coach": {
+                    "name": "フェローシップ賞を受賞"
+                }
+            }
+        },
+        "pernodci": {
+            "filters": {
+                "coorpers": "ペルノ ・ リカール ・ コミュニティ"
+            }
+        },
+        "pernod": {
+            "notificationCard": {
+                "type": {
+                    "objectif": "目的"
+                }
+            },
+            "goals": {
+                "title": "あなたの目標に向けた進捗状況"
+            },
+            "navigation": {
+                "objectif": "私の目標"
+            }
+        },
+        "petite": {
+            "filters": {
+                "coorpers": "私のコミュニティ"
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "モジュール 1,",
+                    "advanced": "モジュール 2,",
+                    "coach": "モジュール 3,"
+                },
+                "module_name": {
+                    "base": "モジュール 1",
+                    "advanced": "モジュール 2",
+                    "coach": "モジュール 3"
+                }
+            }
+        },
+        "pru": {
+            "block_push": {
+                "tree": {
+                    "content": "今すぐ学習を開始!"
+                },
+                "battle": {
+                    "title": "あなたの仲間と実践に挑む!",
+                    "content": "「戦い」であなた仲間に挑戦: それらよりも高速にしてみてください!"
+                }
+            },
+            "badges": {
+                "subtitle-1-0": "すべてのバッジを獲得している、またはコンプライアンスのマスターになることを得るために必要がありますを表示!"
+            }
+        },
+        "quizz-auchan": {
+            "slider": {
+                "start": {
+                    "title": "青い人生クイズを探検しよう!"
+                }
+            }
+        },
+        "renault": {
+            "badges": {
+                "subtitle": "あなたが獲得したまたは最後のクリオ RS の「王」になることを得るために必要なすべてのバッジを表示!;-)",
+                "lessons_seen": {
+                    "details_0": "2",
+                    "details_1": "4",
+                    "details_2": "8",
+                    "details_3": "10"
+                },
+                "answer": {
+                    "details_0": "20",
+                    "details_1": "36",
+                    "details_2": "72",
+                    "details_3": "120"
+                },
+                "perfect": {
+                    "details_2": {
+                        "number": "5"
+                    },
+                    "details_3": {
+                        "number": "8"
+                    }
+                }
+            }
+        },
+        "renaultrh": {
+            "select_module": {
+                "filter_by": {
+                    "base": "ステップ 1 でフィルターします。",
+                    "advanced": "ステップ 2 をフィルターします。",
+                    "coach": "ステップ 3 でフィルターします。"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "ステップ 1 のレベル",
+                        "advanced": "ステップ 2 のレベル",
+                        "coach": "ステップ 3 のレベル"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "手順 1、",
+                    "advanced": "ステップ 2、",
+                    "coach": "手順 3、"
+                },
+                "module_name": {
+                    "base": "ステップ 1",
+                    "advanced": "ステップ 2",
+                    "coach": "ステップ 3"
+                }
+            }
+        },
+        "renaultcare": {
+            "select_module": {
+                "filter_by": {
+                    "base": "基本をフィルターします。"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "レベルの基本"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "基本、"
+                },
+                "module_name": {
+                    "base": "基本"
+                }
+            }
+        },
+        "rexel": {
+            "filters": {
+                "coorpers": "顧客中心主義のコミュニティ"
+            }
+        },
+        "samsung": {
+            "block_push": {
+                "tree": {
+                    "content": "ここからスタート!"
+                },
+                "battle": {
+                    "content": "「戦い」モードであなたの同僚に挑戦: できるだけ早く質問に答える!"
+                }
+            }
+        },
+        "schneider": {
+            "select_module": {
+                "filter_by": {
+                    "base": "シーズン 1 でフィルターします。",
+                    "advanced": "シーズン 2 でフィルターします。",
+                    "coach": "シーズン 3 でフィルターします。"
+                }
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "シーズン 1 のレベル",
+                        "advanced": "シーズン 2 のレベル",
+                        "coach": "シーズン 3 のレベル"
+                    }
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "シーズン 1、",
+                    "advanced": "シーズン 2、",
+                    "coach": "シーズン 3、"
+                },
+                "module_name": {
+                    "base": "シーズン 1",
+                    "advanced": "シーズン 2",
+                    "coach": "シーズン 3"
+                }
+            },
+            "filters": {
+                "all": "すべて",
+                "battles": "私の戦い",
+                "coorpers": "IQ ers",
+                "news": "ニュース",
+                "courses": "私のレッスン",
+                "continueLesson": "私のコースを再開します。"
+            }
+        },
+        "securite": {
+            "navigation": {
+                "lessons": "すべてのコース"
+            },
+            "filters": {
+                "news": "あなたの形成",
+                "coorpers": "MOOCers"
+            }
+        },
+        "silca": {
+            "navigation": {
+                "lessons": "すべてのコース"
+            },
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "sgmgt": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "societegenerale": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "sqy": {
+            "navigation": {
+                "lessons": "すべてのコース"
+            },
+            "filters": {
+                "news": "あなたの形成",
+                "coorpers": "MOOCers"
+            }
+        },
+        "tourismdigital": {
+            "filters": {
+                "coorpers": "メンバー"
+            }
+        },
+        "tagheuer": {
+            "badges": {
+                "level": {
+                    "bronze": "1番めのギア",
+                    "silver": "3番目のギア",
+                    "gold": "5番目のギア",
+                    "platinum": "7個目のギア"
+                }
+            },
+            "filters": {
+                "coorpers": "TAG Heuerコミュニティ"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "チタニウムレベル",
+                        "advanced": "ブロンズレベル",
+                        "coach": "レベルシルバー"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "チタンでフィルタリング",
+                    "advanced": "ブロンズでフィルター",
+                    "coach": "シルバーでフィルタリング"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "チタン、",
+                    "advanced": "ブロンズ、",
+                    "coach": "シルバー、"
+                },
+                "module_name": {
+                    "base": "チタン",
+                    "advanced": "ブロンズ",
+                    "coach": "シルバー"
+                }
+            }
+        },
+        "tagheuercon": {
+            "badges": {
+                "level": {
+                    "bronze": "1番めのギア",
+                    "silver": "3番目のギア",
+                    "gold": "5番目のギア",
+                    "platinum": "7個目のギア"
+                }
+            },
+            "filters": {
+                "coorpers": "学習者のコミュニティ"
+            },
+            "notificationCard": {
+                "module": {
+                    "text": {
+                        "base": "レベルチタン",
+                        "advanced": "ブロンズのレベル",
+                        "coach": "レベルシルバー"
+                    }
+                }
+            },
+            "select_module": {
+                "filter_by": {
+                    "base": "チタンによるフィルター",
+                    "advanced": "ブロンズでソート",
+                    "coach": "シルバーでソート"
+                }
+            },
+            "personal_selection": {
+                "level": {
+                    "base": "チタン、",
+                    "advanced": "ブロンズ、",
+                    "coach": "シルバー、"
+                },
+                "module_name": {
+                    "base": "タイタニアム",
+                    "advanced": "ブロンズ",
+                    "coach": "シルバー"
+                }
+            }
+        },
+        "tourism": {
+            "filters": {
+                "coorpers": "MOOCers"
+            }
+        },
+        "up": {
+            "personal_selection": {
+                "text_helper": "3 つのレベルがあなたのパスによって提案した!",
+                "popular_module_helper": "インスピレーションが必要ですか。皆は何を最も人気のあるを選択するをチェックしてください。",
+                "last_module": "最後のレベルをプレイ",
+                "no_module": "モジュールを果たしてないです。",
+                "popular_module": "最も演奏コース",
+                "easiest_disciplines": "最も簡単なコース",
+                "hardest_disciplines": "最も困難なコース",
+                "no_popular_module": "レベルを果たしてないです。"
+            },
+            "select_module": {
+                "title": "レベルを選択します。",
+                "availability": "{{count}} レベルで使用可能",
+                "availability_plural": "{{count}} レベルで使用可能",
+                "no_module_available": "戦いは、完成したレベルでのみ作成できます。"
+            },
+            "notificationCard": {
+                "request": "{{module}} {{level}} コースのレベル",
+                "battle": {
+                    "against": "{{module}} {{level}} コースのレベル"
+                },
+                "forum_text": "あなたのコメントに 1 の新しい答えがある {{module}} {{level}} コースのレベルについて",
+                "module": {
+                    "text": {
+                        "detail": "レベル"
+                    }
+                },
+                "coach": {
+                    "text": "{{disciplineName}} コースでコーチをなっています。"
+                },
+                "title": {
+                    "Module": "レベル"
+                },
+                "type": {
+                    "module": "レベル"
+                }
+            },
+            "navigation": {
+                "learningTree": {
+                    "helper": "1 クリックであなたの道のすべてのコースにアクセスします。",
+                    "push": "アクセスすべてのコース",
+                    "push_post": "1 クリックで"
+                },
+                "account_helper": "あなたの個人的なスペースを参照して、結果を見つける、あなたの進捗状況を管理、ディスカッションに参加または単にコースを開始する前に、レッスンに従います。",
+                "battle_helper": "コースを完了すると、小さな 10 質問ゲームであなたと同じレベルにいるすべての人に挑戦!"
+            },
+            "activity": {
+                "progression_text_pre": "あなたの進捗状況はどうのコース",
+                "discipline_title": "コース",
+                "disciplines": {
+                    "title": "コース"
+                },
+                "module_title": "レベル",
+                "caption-started": "開始レベル",
+                "caption-done": "完成レベル"
+            },
+            "badges": {
+                "module": {
+                    "name": "サバイバー",
+                    "details_0": {
+                        "module": "レベル"
+                    },
+                    "details_1": {
+                        "module": "レベル"
+                    },
+                    "details_2": {
+                        "module": "レベル"
+                    },
+                    "details_3": {
+                        "module": "レベル"
+                    }
+                }
+            },
+            "battle": {
+                "start_discipline": "コースを始める",
+                "no_opponent": "ない相手をこのレベルで使用可能"
+            },
+            "notifications": {
+                "filters": {
+                    "module": "コースによってフィルターします。"
+                }
+            }
+        },
+        "yahoo": {
+            "badges": {
+                "subtitle-1-0": "別のバッジを得ることにあなたの進捗状況を表示します。"
+            },
+            "filters": {
+                "coorpers": "コミュニティ"
+            }
+        },
+        "capgemini": {
+            "navigation": {
+                "certifications": "私の Digicertif'"
+            }
+        },
+        "cnp": {
+            "navigation": {
+                "certifications": "Certificate"
+            },
+            "sections": {
+                "certification": "証明書: {{name}}"
+            }
+        },
+        "ecolenumerique-sncf": {
+            "navigation": {
+                "certifications": "ジェダイのバッジ"
+            },
+            "sections": {
+                "certification": "Jedi Badge: {{name}}"
+            }
+        },
+        "ganprevoyance": {
+            "navigation": {
+                "certifications": "ユニバース"
+            },
+            "sections": {
+                "certification": "宇宙: {{name}}"
+            }
+        },
+        "who": {
+            "slider": {
+                "battle": {
+                    "surtitle": "{{displayName}} ご来店、チャレンジ要求をチェックします。",
+                    "title": "{{count}} チャレンジ要求がある!",
+                    "title_plural": "{{count}} チャレンジ要求がある!",
+                    "cta": "挑戦を開始します。"
+                }
+            },
+            "discussion": {
+                "title": "モジュールのフィードバック",
+                "subtitle": "コミュニティによってさまざまなモジュール左側にすべてのメッセージを参照してください"
+            },
+            "battle_start": {
+                "title": "あなたの挑戦が始まろうとしています。"
+            },
+            "select_module": {
+                "no_module_available": "挑戦は、完成したモジュールでのみ作成できます。"
+            },
+            "success_battle": {
+                "title": "挑戦!",
+                "badge_user": {
+                    "award": "- 3 つの課題"
+                },
+                "badge_opponent": {
+                    "award": "- 3 つの課題"
+                },
+                "winStars": "あなたはこの課題と {{count}} 追加スターを獲得!",
+                "winStars_plural": "あなたはこの挑戦で {{count}} 追加の星を獲得!"
+            },
+            "notificationCard": {
+                "title": {
+                    "Battle": "チャレンジ"
+                },
+                "coach": {
+                    "text": "コース {{disciplineName}} が完了しました。"
+                },
+                "battle": {
+                    "text": "1 新しいチャレンジを受信しました。",
+                    "demand_accept": "あなたの挑戦",
+                    "win_against_title": "あなたは、チャレンジを獲得!",
+                    "loose_against_title": "課題を失った!"
+                },
+                "reward": {
+                    "resource": {
+                        "title": "おめでとうございます!新しいバッジをアクセスすることができます!"
+                    }
+                },
+                "type": {
+                    "battle": "チャレンジ"
+                },
+                "forum_text_page": "あなたのコメントに 1 新しい返信があります。"
+            },
+            "navigation": {
+                "battle_pre": "チャレンジ モード",
+                "battle": "「チャレンジ」モードであなたの同僚に挑戦: できるだけ早く質問に答える!"
+            },
+            "filters": {
+                "battles": "私の課題",
+                "coorpers": "QR の守備"
+            },
+            "badges": {
+                "battle": {
+                    "name": "求職者のチャレンジ",
+                    "details": "{{count}}チャレンジ",
+                    "details_plural": "{{count}}課題"
+                },
+                "module": {
+                    "name": "つ星"
+                },
+                "coach": {
+                    "name": "コネクタ"
+                },
+                "question": {
+                    "name": "クイズ マスター"
+                }
+            },
+            "battle": {
+                "title": "チャレンジ モード",
+                "create": "課題を作成します。",
+                "requests": {
+                    "title": "チャレンジ要求",
+                    "no_requests_found": "任意課題要求をまだ持っていません。"
+                },
+                "history": {
+                    "title": "挑戦の歴史",
+                    "message": {
+                        "pending": "今回は相手の承認待ち",
+                        "win": "あなたは、チャレンジを獲得!",
+                        "lost": "課題を失った!"
+                    },
+                    "no_history_found": "任意の挑戦の歴史をまだ持っていません。"
+                },
+                "start": {
+                    "cta": "<span class=\"bold\"> 挑戦</span> を開始します。",
+                    "new_cta": "新たな <span class=\"bold\"> 挑戦</span> を作成します。"
+                },
+                "steps": {
+                    "3": "3. チャレンジを開始します。"
+                },
+                "select_module": {
+                    "no_module_available": "挑戦は、完成したモジュールでのみ作成できます。"
+                },
+                "button": {
+                    "create": "新たな挑戦を作成します。"
+                },
+                "no_battle_progress": "進行中でない課題があります。",
+                "block": {
+                    "title": "チャレンジ要求"
+                },
+                "no_proposition": "あなたは、チャレンジ要求を受け取っていません。",
+                "completed": {
+                    "title": "完了した課題",
+                    "subtitle": "受賞 {{nb}} {{count}} チャレンジ",
+                    "subtitle_plural": "{{count}} {{nb}} の課題を獲得"
+                },
+                "block_empty": "完成した課題があるありません。",
+                "create_title": "チャレンジを作成します。",
+                "active_title_intro": "チャレンジ モード",
+                "coming_soon_random": "ランダムなチャレンジを開始します。"
+            },
+            "dashboard": {
+                "text": "スペース レース!質問に正しく答えることで、次のレッスン、または社交によって勝つことができる (課題やトレーニング) を通じ!"
+            }
+        }
+    }
+}

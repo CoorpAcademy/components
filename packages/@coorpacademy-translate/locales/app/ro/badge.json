@@ -1,0 +1,29 @@
+{
+    "level_0": "Init",
+    "level_1": "Bronz",
+    "level_2": "Argint",
+    "level_3": "Aur",
+    "level_4": "Platină",
+    "custom": {
+        "7steps": {
+            "level_4": "Top"
+        },
+        "renault": {
+            "my_badges_intro": "Vizualizați toate insignele pe care le-ați câștigat sau care au rămas ca dvs. să deveniți „regele“ ultimului Clio RS! ;-)"
+        },
+        "tagheuer": {
+            "level_0": "Inițializare",
+            "level_1": "Prima viteză",
+            "level_2": "A treia aparatură",
+            "level_3": "TREAPTA A 5-A",
+            "level_4": "VITEZA A 7-a"
+        },
+        "tagheuercon": {
+            "level_0": "Init",
+            "level_1": "TREAPTA 1",
+            "level_2": "VITEZA A TREIA",
+            "level_3": "VITEZA A 5-A",
+            "level_4": "VITEZA A 7-a"
+        }
+    }
+}

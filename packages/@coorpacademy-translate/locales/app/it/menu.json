@@ -1,0 +1,155 @@
+{
+    "header": {
+        "title": "CoorpAcademy",
+        "mainNav": {
+            "helper": "Un altro modo di esplorare i contenuti didattici",
+            "menu": "Menu",
+            "dashboard": "Il mio pannello di controllo",
+            "home": "Home",
+            "learningTree": "Catalogo",
+            "lessons": "Tutti i corsi e i video",
+            "medias": "Biblioteca",
+            "battles": "Sfide",
+            "explore": "Catalogo",
+            "discussions": "Discussioni",
+            "badges": "Premi",
+            "certifications": "Certificazioni"
+        },
+        "mainNav_user": {
+            "helper": "Un modo alternativo per ritrovare informazioni su te stesso e le tue attività!"
+        },
+        "account_menu": {
+            "title": "Menu",
+            "logout": "Esci",
+            "notifications": "Le mie notifiche",
+            "language": "Lingua",
+            "cohorts": "Popolazioni:",
+            "account": "Profilo",
+            "godmode": "God mode",
+            "fastslides": "Fast slides",
+            "newlearner": "Nuova interfaccia di gioco",
+            "livenotifications": "Notifiche dal vivo",
+            "close": "chiudi"
+        }
+    },
+    "content": "Questi sono i contenuti di base.",
+    "footer": {
+        "assistance": "Assistenza",
+        "admin_link": {
+            "jobs": "Jobs",
+            "admin": "Admin",
+            "analytics": "Analytics",
+            "changelog": "Changelog",
+            "cms": "CMS",
+            "manual": "Modo d’uso"
+        },
+        "data_privacy_policy": "Informativa sulla privacy dei dati",
+        "data_privacy_policy_link": "http://www.privacy.coorpacademy.com",
+        "dev_link": {
+            "api": "Doc API"
+        },
+        "by": "Realizzato da Coorpacademy",
+        "title": "Coorpacademy",
+        "changelog": {
+            "title": "Changelog",
+            "subtitle": "Questa è la cronologia delle varie versioni di rilascio del sito"
+        }
+    },
+    "custom": {
+        "accueil": {
+            "footer": {
+                "by": "Tourism Academy & Atout France",
+                "copyright": "Tourism Academy & Atout France"
+            }
+        },
+        "armeedeterre": {
+            "header": {
+                "mainNav": {
+                    "battles": "Sfide"
+                }
+            }
+        },
+        "letsgetdigital": {
+            "footer": {
+                "assistance": "Dare un Feedback"
+            }
+        },
+        "capgemini": {
+            "header": {
+                "mainNav": {
+                    "certifications": "DigiCertif'"
+                }
+            }
+        },
+        "cnp": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Certificati"
+                }
+            }
+        },
+        "chanel": {
+            "footer": {
+                "by": "© CHANEL. Solo per uso interno",
+                "copyright": "© CHANEL. Solo per uso interno"
+            }
+        },
+        "ganprevoyance": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Universi"
+                }
+            }
+        },
+        "ecolenumerique-sncf": {
+            "header": {
+                "mainNav": {
+                    "certifications": "Distintivi di Jedi"
+                }
+            }
+        },
+        "ilearn": {
+            "footer": {
+                "by": "© CHANEL. Solo per uso interno",
+                "copyright": "© CHANEL. Solo per uso interno"
+            }
+        },
+        "paca": {
+            "footer": {
+                "by": "Una produzione di TOURISM ACADEMY",
+                "copyright": "Una produzione di TOURISM ACADEMY"
+            }
+        },
+        "tourism": {
+            "footer": {
+                "by": "Accademia del turismo",
+                "copyright": "Accademia del turismo"
+            }
+        },
+        "tourismdigital": {
+            "footer": {
+                "by": "Una produzione di Accademia del turismo",
+                "copyright": "Una produzione di Accademia del turismo"
+            }
+        },
+        "ey": {
+            "footer": {
+                "by": "EY Digital Academy",
+                "copyright": "EY Digital Academy"
+            }
+        },
+        "up": {
+            "footer": {
+                "data_privacy_policy_link": "http://www.privacy.coorpacademy.com/up"
+            }
+        },
+        "who": {
+            "header": {
+                "mainNav": {
+                    "battles": "Sfide",
+                    "discussions": "Feedback"
+                }
+            }
+        }
+    }
+}

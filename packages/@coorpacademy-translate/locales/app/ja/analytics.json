@@ -1,0 +1,316 @@
+{
+    "message": "<p>ユーザーごとの詳細情報にアクセスする当社 <a href=\"{{user}}\"> ユーザー分析ページで</a> 使用します</p>。<p>すべてのユーザーの詳細な情報にアクセス、<a href=\"{{export}}\"> 必要に応じてすべてのユーザーをエクスポート</a> できます</p>。",
+    "export": {
+        "global": {
+            "first_name": "ファーストネーム",
+            "last_name": "姓",
+            "email": "Eメール",
+            "provider": "プロバイダー",
+            "stars": "スコア",
+            "providerinfos_company": "会社",
+            "providerinfos_city": "町",
+            "providerinfos_country": "国",
+            "providerinfos_department": "部門",
+            "providerinfos_title": "タイトル",
+            "providerinfos_chorusID": "ChorusID",
+            "ageRange": "年齢層",
+            "personalEmail": "Eメール(個人用)",
+            "role": "ロール",
+            "brandName": "事業会社",
+            "boutique": "ストア",
+            "billable": "Billable",
+            "postalCode": "郵便番号",
+            "moduleLevel": "$t(dashboard:badges.module.name) - レベル",
+            "moduleCount": "$t(ダッシュボード:バッジ.質問.名前) - カウント",
+            "moduleUpdate": "$t(dashboard:badges.module.name) - 直近のアップデート",
+            "battleLevel": "$t(dashboard:badges.battle.name) - Level",
+            "battleCount": "$t(dashboard:badges.battle.name) - カウント",
+            "battleUpdate": "$t(dashboard:badges.battle.name) - 最終アップデート",
+            "coachLevel": "$t(dashboard:badges.coach.name) - レベル",
+            "coachCount": "$t(dashboard:badges.coach.name) - カウント",
+            "coachUpdate": "$t(dashboard:badges.coach.name) - 最新のアップデート",
+            "lessonLevel": "$t(dashboard:badges.lesson.name) - レベル",
+            "lessonCount": "$t(dashboard:badges.lesson.name) - 数",
+            "lessonUpdate": "$t(dashboard:badges.lesson.name) - 最終更新",
+            "questionLevel": "$t(dashboard:badges.question.name) - レベル",
+            "questionCount": "$t(ダッシュボード:バッジ.質問.名前) - カウント",
+            "questionUpdate": "$t(dashboard:badges.question.name) - 直近のアップデート",
+            "badges": "バッジ",
+            "lastConnectionDate": "直近の接続日",
+            "state": "州",
+            "login": "ログイン",
+            "firstConnectionDate": "最初の接続日",
+            "certificate": "{{label}} 証明書",
+            "certifications": "認定",
+            "entity": "主体",
+            "grade": "等級",
+            "region": "地域",
+            "validatedTimeProgression": "検証時間",
+            "totalTimeProgression": "合計時間",
+            "populations": "集団",
+            "deactivationDate": "ディアクティベーション日",
+            "organization_branch": "ビジネス ブランチ",
+            "organization_businessunit": "事業単位",
+            "organization_workingCountry": "勤務先の国",
+            "organization_role": "ビジネス ロール",
+            "organization_boutique": "ビジネス ストア",
+            "organization_address1": "住所 1",
+            "organization_address2": "住所 2",
+            "organization_zipcode": "ビジネス郵便番号",
+            "organization_workingCity": "ビジネス街",
+            "organization_company": "事業会社",
+            "organization_ambassador": "大使",
+            "birthday": "誕生日"
+        },
+        "battles": {
+            "disciplineName": "分野の名前",
+            "disciplineStatus": "規律の状態",
+            "disciplineStatus_hidden": "非表示",
+            "disciplineStatus_visible": "目に見える",
+            "moduleLevel": "モジュールレベル",
+            "createdAt": "以下で作成",
+            "answeredAt": "以下で回答",
+            "createdBy": "挑戦者名",
+            "opponent": "対戦相手の名前",
+            "winner": "勝者",
+            "winnerScore": "勝者のスコア",
+            "userLogin": "挑戦者ログイン",
+            "opponentLogin": "相手のログイン",
+            "looserScore": "敗者のスコア"
+        },
+        "moduleStart": {
+            "brand": "ブランド",
+            "discipline": "分野名",
+            "module": "モジュール レベル",
+            "author": "著者",
+            "count": "カウント",
+            "userCount": "ユーザーの数"
+        }
+    },
+    "dashboard": {
+        "serenetics-error": "新しいダッシュ ボードの url を取得中エラーが発生しました。",
+        "behavioral": {
+            "upgrade": {
+                "title": "このダッシュ ボードはエンタープライズ料金プランで利用できるのみです。",
+                "subtitle": "あなたのアカウントをアップグレードし、プラットフォームの行動分析へのアクセスを取得する Coorpacademy にお問い合わせください。"
+            }
+        }
+    },
+    "custom": {
+        "7steps": {
+            "export": {
+                "global": {
+                    "organization_role": "ジョブ",
+                    "organization_title": "ストアの種類",
+                    "organization_ambassador": "ロレアルの社員ですか。",
+                    "organization_branch": "L'Oréal ' 部門",
+                    "entity": "ロレアルのブランド",
+                    "organization_grade": "肖像権の使用",
+                    "organization_boutiqueReferent": "小売業者・ チェーン",
+                    "organization_boutique": "店舗名/コード"
+                }
+            }
+        },
+        "achat-habitat": {
+            "export": {
+                "global": {
+                    "organization_ambassador": "ニュースレター"
+                }
+            }
+        },
+        "adidas-fr": {
+            "export": {
+                "global": {
+                    "organization_businessunit": "部",
+                    "organization_grade": "年齢",
+                    "organization_boutique": "職場",
+                    "organization_branch": "性別"
+                }
+            }
+        },
+        "capgemini": {
+            "export": {
+                "global": {
+                    "organization_grade": "GGID"
+                }
+            }
+        },
+        "chanel": {
+            "export": {
+                "global": {
+                    "boutique": "ブティック",
+                    "organization_workingCountry": "国",
+                    "region": "地域",
+                    "role": "役割",
+                    "startContract": "契約の開始"
+                }
+            }
+        },
+        "cofpart-learning": {
+            "export": {
+                "global": {
+                    "brandName": "Direction",
+                    "entity": "Job",
+                    "organization_branch": "Manager"
+                }
+            }
+        },
+        "corporateonlineopencourse": {
+            "export": {
+                "global": {
+                    "region": "地域",
+                    "organization_workingCountry": "国",
+                    "role": "関数"
+                }
+            }
+        },
+        "edenred-talents": {
+            "export": {
+                "global": {
+                    "organization_company": "方向",
+                    "entity": "ス方向",
+                    "organization_branch": "サービス - Secteur",
+                    "organization_boutiqueReferent": "責任があります。",
+                    "organization_role": "処遇",
+                    "organization_grade": "Statut"
+                }
+            }
+        },
+        "gdf": {
+            "export": {
+                "global": {
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - レベル",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - カウント",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - 最後の更新"
+                }
+            }
+        },
+        "gdfec": {
+            "export": {
+                "global": {
+                    "organization_zipcode": "ガイア",
+                    "organization_businessunit": "チーム",
+                    "organization_boutique": "マネージャーの名前",
+                    "transformer": "$t(dashboard:badges.transformer.name)",
+                    "transformerLevel": "$t(dashboard:badges.transformer.name) - レベル",
+                    "transformerCount": "$t(dashboard:badges.transformer.name) - カウント",
+                    "transformerUpdate": "$t(dashboard:badges.transformer.name) - 最後の更新"
+                }
+            }
+        },
+        "ilearn": {
+            "export": {
+                "global": {
+                    "boutique": "ショップ",
+                    "organization_workingCountry": "国",
+                    "region": "地域",
+                    "role": "役割",
+                    "startContract": "契約開始"
+                }
+            }
+        },
+        "life-auchan": {
+            "export": {
+                "global": {
+                    "organization_boutique": "活動レベル",
+                    "organization_region": "ライフ ・ バランス",
+                    "organization_workingCountry": "国"
+                }
+            }
+        },
+        "metro": {
+            "export": {
+                "global": {
+                    "organization_boutique": "City",
+                    "organization_branch": "ID",
+                    "organization_businessunit": "Role"
+                }
+            }
+        },
+        "monoprix": {
+            "export": {
+                "global": {
+                    "organization_branch": "方向"
+                }
+            }
+        },
+        "nespresso": {
+            "export": {
+                "global": {
+                    "organization_branch": "部",
+                    "organization_businessunit": "位置"
+                }
+            }
+        },
+        "pru": {
+            "export": {
+                "global": {
+                    "providerCompany": "会社",
+                    "providerCountry": "国",
+                    "providerDepartment": "部"
+                }
+            }
+        },
+        "redoute": {
+            "boutique": "ショップ"
+        },
+        "securite": {
+            "export": {
+                "global": {
+                    "organization_grade": "ID"
+                }
+            }
+        },
+        "up": {
+            "export": {
+                "battles": {
+                    "disciplineName": "コース名",
+                    "moduleLevel": "レベル"
+                }
+            }
+        },
+        "tagheuer": {
+            "export": {
+                "global": {
+                    "organization_boutique": "Point of sales code"
+                }
+            }
+        },
+        "thelem": {
+            "export": {
+                "global": {
+                    "organization_role": "雇用",
+                    "language": "言語",
+                    "organization_boutique": "場所",
+                    "organization_title": "タイトル サービス",
+                    "organization_boutiqueReferent": "登録番号",
+                    "startContract": "雇われた会社を日付します。",
+                    "organization_contractType": "契約の種類",
+                    "organization_grade": "資格"
+                }
+            }
+        },
+        "yahoo": {
+            "export": {
+                "global": {
+                    "organization_title": "ジョブ",
+                    "organization_workingCountry": "国",
+                    "region": "言語"
+                }
+            }
+        },
+        "who": {
+            "export": {
+                "global": {
+                    "organization_workingCountry": "国/州",
+                    "region": "州/地域",
+                    "provider": "所属",
+                    "organization_role": "背景/経験",
+                    "organization_grade": "アクセス コード",
+                    "organization_boutiqueReferent": "教育のレベル"
+                }
+            }
+        }
+    }
+}

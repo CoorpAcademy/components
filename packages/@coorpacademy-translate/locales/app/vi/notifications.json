@@ -1,0 +1,63 @@
+{
+    "battle": {
+        "incoming": "Bạn có {{count}} trận đấu đang chờ.",
+        "incoming_plural": "Bạn có {{count}} trận đấu đang chờ.",
+        "you_win": "Bạn đã thắng trận đấu",
+        "you_lose": "Bạn đã thua một trận đấu"
+    },
+    "badge": {
+        "won": "Bạn đã giành được huy hiệu {{name}}"
+    },
+    "module": {
+        "won": "Bạn đã vượt qua một học phần"
+    },
+    "reward": {
+        "won": "Xin chúc mừng! Những nỗ lực của bạn đã được thưởng!"
+    },
+    "coach": {
+        "unlocked": "Bạn đã trở thành một Huấn luyện viên"
+    },
+    "incoming": "Bạn có một thông báo mới",
+    "chatrequest": "Yêu cầu trò chuyện mới",
+    "goal": {
+        "progress": "Bạn đã nâng cao bằng cấp của mình",
+        "select": "Bạn đã chọn một chứng nhận",
+        "reward": "Bạn đã giành được một chứng nhận"
+    },
+    "forum": "Một người dùng đã trả lời câu hỏi của bạn",
+    "new_version": {
+        "title": "Phiên bản mới",
+        "message": "Phiên bản mới của nền tảng này đã được phát hành.",
+        "action": "Làm mới"
+    },
+    "welcome": "xin chào mừng <b>{{user}}</b>, bây giờ bạn có thể truy cập tất cả các khóa học",
+    "personal_note": "Đã gửi ghi chú đến địa chỉ email của bạn.",
+    "bonusStars": "Xin chúc mừng ! Bạn đã giành được thêm {{stars}} sao!",
+    "rewardStars": "Xin chúc mừng! Bạn đã thắng thêm {{stars}} ngôi sao!",
+    "totem": {
+        "header": "Một Totem mới sống đang xảy ra!",
+        "body": "Click vào đây để tham gia"
+    },
+    "custom": {
+        "armeedeterre": {
+            "battle": {
+                "incoming": "Bạn có {{count}} trận chiến đang chờ.",
+                "incoming_plural": "Bạn có {{count}} trận đấu đang chờ.",
+                "you_win": "Bạn đã giành chiến thắng",
+                "you_lose": "Bạn đã thua trận"
+            }
+        },
+        "pernod": {
+            "goal": {
+                "progress": "Bạn đã chỉnh sửa mục tiêu",
+                "select": "Bạn đã chọn một mục tiêu",
+                "reward": "Bạn đã bỏ chặn một mục tiêu"
+            }
+        },
+        "up": {
+            "module": {
+                "won": "Bạn đã hoàn thành một cấp độ"
+            }
+        }
+    }
+}

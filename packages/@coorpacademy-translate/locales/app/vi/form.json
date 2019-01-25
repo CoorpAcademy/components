@@ -1,0 +1,23 @@
+{
+    "submit": "Xác thực",
+    "print": "In",
+    "share": "Chia sẻ",
+    "delete": "Xóa",
+    "start": "Tiến hành",
+    "loadMore": "Tải thêm...",
+    "download": "Tải về",
+    "ok": "OK",
+    "cancel": "Hủy",
+    "sso": "Đăng nhập Một lần",
+    "connect": "Kết nối",
+    "signup": "Đăng ký",
+    "signup_pre": "Không có tài khoản?",
+    "custom": {
+        "chanel": {
+            "signup": "ĐĂNG KÝ"
+        },
+        "ilearn": {
+            "signup": "Đăng ký"
+        }
+    }
+}

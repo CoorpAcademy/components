@@ -1,0 +1,440 @@
+{
+    "content": {
+        "types": {
+            "course": "kurz",
+            "course_plural": "kurzy",
+            "adaptive_chapter": "adaptivní 5' Learning",
+            "adaptive_course": "adaptivní kurz",
+            "adaptive_course_plural": "adaptivní kurzy",
+            "cursus": "cursus",
+            "cursus_plural": "cursuses",
+            "chapter": "5' Learning",
+            "chapter_plural": "5' Learning"
+        },
+        "sorts": {
+            "title": "Seřadit podle:",
+            "cta": "Seřadit",
+            "tab": "Seřadit podle",
+            "pertinence": "Význam",
+            "newest": "Nejnovější",
+            "duration": "Nejkratší"
+        },
+        "filters": {
+            "cta": "Filtr",
+            "tab": "Filtr",
+            "authors": "Autoři:",
+            "authorTypes": "Obsah kategorie:",
+            "skills": "Dovednosti",
+            "type": "Typ:",
+            "themes": "Kolekce:",
+            "goals": "Certifikace:",
+            "time": "Čas:",
+            "learning_paths": "Studijní cesty:",
+            "all_authors": "Všichni autoři",
+            "all_author_types": "Všechny kategorie",
+            "all_skills": "Všechny dovednosti",
+            "all_themes": "Všechny sbírky",
+            "all_goals": "Všechna certifikace",
+            "all_courses": "Všechny kurzy",
+            "microlearning": "5' Learning",
+            "all": "Vše",
+            "courses": "Kurzy",
+            "my_favorites": "Můj seznam:"
+        },
+        "notification": {
+            "addFavorite": "Přidáno na seznam",
+            "removeFavorite": "Odebráno ze seznamu"
+        },
+        "search": {
+            "placeholder": "Co chcete naučit?"
+        },
+        "catalog": "Katalog",
+        "result": "{{title}}: {{count}} výsledek",
+        "result_plural": "{{title}}: {{count}} výsledky",
+        "noresultsfound": "Omlouváme se žádné výsledky k dispozici.",
+        "clearFilters": "Obnovit",
+        "recommended": "Objevte kurzy – doporučeno pro vás:",
+        "new": "nové"
+    },
+    "author": {
+        "socialTitle": "Následovat:",
+        "cardsTitle": "Všechny kurzy od {{author}}",
+        "website": "Webové stránky:",
+        "notFound": "Autor ({{authorRef}}) nebyl nalezen.",
+        "more": "Podrobnosti o autorovi",
+        "customCustomer": "{{name}} tvorba",
+        "types": {
+            "coorp": "Coorp Originals",
+            "verified": "Verified by Coorp",
+            "marketplace": "Ostatní",
+            "custom": "{{name}} tvorba"
+        }
+    },
+    "unit": {
+        "duration_minutes_set": "{{m}} min",
+        "duration_minutes_set_plural": "{{m}} min",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}} hod. $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}} hodin $t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(unit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "shortUnit": {
+        "duration_minutes_set": "{{m}}m",
+        "duration_minutes_set_plural": "{{m}}m",
+        "duration_minutes_with_hours_set": "{{m}}",
+        "duration_minutes_with_hours_set_plural": "{{m}}",
+        "duration_minutes_with_hours_none": "‌",
+        "duration_minutes_with_hours_none_plural": "‌",
+        "duration_minutes_none": "‌",
+        "duration_minutes_none_plural": "‌",
+        "duration_set": "{{h}}h$t(shortUnit.duration_minutes_with_hours, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_set_plural": "{{h}}h$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})",
+        "duration_none_plural": "$t(shortUnit.duration_minutes, {\"count\": {{minutes}}, \"context\": \"{{contextMin}}\", \"m\": \"{{m}}\"})"
+    },
+    "module_level": {
+        "1": "$t(global:module_level.base)",
+        "2": "$t(global:module_level.advanced)",
+        "3": "$t(global:module_level.coach)",
+        "base": "Základní",
+        "advanced": "Pokročilé",
+        "coach": "Trenér"
+    },
+    "progression_status": {
+        "not_started": "Není spuštěno",
+        "in_progress": "V průběhu",
+        "completed": "Dokončeno"
+    },
+    "close": "Zavřít",
+    "skipIntro": "Přeskočit intro",
+    "route": {
+        "initialized": "Toto zobrazení je nyní nastaveno.",
+        "error": {
+            "401": "Zdá se, že už nejste připojeni.",
+            "402": "Je vyžadována platba",
+            "403": "Toto nemáte právo provést.",
+            "404": "Víte, že kód chyby 404 znamená, že stránka nebyla nalezena?",
+            "409": "Věděli jste, že chybový kód 409 znamená, že došlo k problémům s vašimi údaji?",
+            "500": "Věděli jste, že kód chyby 500 znamená problém na serveru?",
+            "api": "Vyskytla se chyba. Tento server je funkční, ale aplikace nepracuje správně.",
+            "default": "Nastala chyba."
+        }
+    },
+    "loading": "Načítání...",
+    "htmlTitle": "CoorpAcademy",
+    "hero": {
+        "cta": "Začněte se učit"
+    },
+    "cookiesDisabled": {
+        "title": "Soubory cookie desactivated",
+        "error": "Soubory cookie jsou zakázány nebo zablokován. Prosím znovu povolit nebo konfigurovat vašeho AdBlocker"
+    },
+    "chatbot": {
+        "welcome": {
+            "default": "Welcome on Coorpacademy. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin.",
+            "facebook": "Hello and welcome to Coorpacademy! I can ask you question of our online courses. Say: 'Instructions' to listen to the guidelines or 'Ask me a question' to begin. If you're looking for some other informations you can contact us at communication@coorpacademy.com."
+        },
+        "ask_question": {
+            "repeat_header_1": "Jistý! {{question}}.",
+            "repeat_header_2": "Samozřejmě! {{question}}.",
+            "repeat_header_3": "Ok! Tady je otázka znovu: {{question}}.",
+            "repeat_header_4": "Žádný problém. {{question}}.",
+            "repeat_header_5": "Opakuji: {{question}}."
+        },
+        "next_action": {
+            "question_next": "Požádat o \"Další otázka\" pro pokračování.",
+            "answer_next": "Jaká je odpověď?",
+            "wrong_answer_next": "Říct \"Proč\" získat některé vysvětlení nebo \"Další\" pro pokračování."
+        },
+        "answer_question": {
+            "is_valid": {
+                "title_1": "Výborně!",
+                "title_2": "To je správně!",
+                "title_3": "Dobrá odpověď!",
+                "title_4": "Ano!",
+                "title_5": "Skvělá práce!"
+            },
+            "is_invalid": {
+                "title_1": "Není zač! Odpověď byla: {{answer}}.",
+                "title_2": "To není správné! Odpověď byla: {{answer}}.",
+                "title_3": "Špatná odpověď! Měli byste říct: {{answer}}.",
+                "title_4": "Au! Správná odpověď byla: {{answer}}.",
+                "title_5": "Je mi líto, ale to není správné! Správná odpověď byla: {{answer}}."
+            }
+        },
+        "error": {
+            "not_found": "Omlouvám se, našla jsem neměl jakoukoli otázku. Opakujte s jiným předmětem."
+        }
+    },
+    "demo": {
+        "url": "https://www.coorpacademy.com/en/request-a-demo/?utm_source=Up&utm_medium={{medium}}"
+    },
+    "custom": {
+        "7steps": {
+            "module_level": {
+                "base": "Why",
+                "advanced": "Empathy",
+                "coach": "Show me"
+            }
+        },
+        "loreal-retail-v2": {
+            "module_level": {
+                "base": "Why",
+                "advanced": "Empathy",
+                "coach": "Show me"
+            }
+        },
+        "accueil": {
+            "htmlTitle": "MOOC Accueil Francie"
+        },
+        "achat-habitat": {
+            "htmlTitle": "Mooc Achat Habitat",
+            "module_level": {
+                "base": "Úvod",
+                "advanced": "Profíci",
+                "coach": "Trenér"
+            }
+        },
+        "adeo": {
+            "htmlTitle": "CPL trénink Adeo"
+        },
+        "auchan-retail": {
+            "htmlTitle": "Auchan Retail QUIZZ"
+        },
+        "architas-powercircle": {
+            "htmlTitle": "POWERCIRCLE | FOCUS"
+        },
+        "bnp": {
+            "htmlTitle": "MOOC BNP Paribas faktor"
+        },
+        "bnpp-legal": {
+            "module_level": {
+                "coach": "Master"
+            }
+        },
+        "bestwesternuniversity": {
+            "htmlTitle": "Best Western University"
+        },
+        "capgemini": {
+            "htmlTitle": "COOC"
+        },
+        "cd78": {
+            "htmlTitle": "MOOC rSa"
+        },
+        "chanel": {
+            "htmlTitle": "iJoinCHANEL"
+        },
+        "clarins-digital": {
+            "htmlTitle": "Clarins Digital"
+        },
+        "crt": {
+            "htmlTitle": "CRT"
+        },
+        "coravin": {
+            "htmlTitle": "Coravin"
+        },
+        "corporateonlineopencourse": {
+            "module_level": {
+                "base": "ZÁKLADY"
+            },
+            "progression_status": {
+                "not_started": "Registrován",
+                "in_progress": "Registrován",
+                "completed": "Dokončeno"
+            }
+        },
+        "dolce": {
+            "htmlTitle": "Jednotlivci"
+        },
+        "eacampus": {
+            "htmlTitle": "EAcampus"
+        },
+        "ecolenumerique-sncf": {
+            "content": {
+                "filters": {
+                    "goals": "Jedi odznaky:"
+                }
+            }
+        },
+        "edenred-talents": {
+            "htmlTitle": "Edenred Talents",
+            "module_level": {
+                "coach": "Velvyslanec"
+            }
+        },
+        "ganprevoyance": {
+            "content": {
+                "filters": {
+                    "goals": "Vesmíry:"
+                }
+            }
+        },
+        "faurecia": {
+            "htmlTitle": "Learning Lab"
+        },
+        "gdf": {
+            "htmlTitle": "WeTransform"
+        },
+        "gdfec": {
+            "htmlTitle": "Firmy a komunity"
+        },
+        "hr-ac": {
+            "htmlTitle": "HR Academy"
+        },
+        "ilearn": {
+            "htmlTitle": "CHANEL iLearn",
+            "module_level": {
+                "1": "Základní",
+                "2": "Pokročilé",
+                "3": "Expert",
+                "base": "Základní",
+                "advanced": "Pokročilé",
+                "coach": "Expert"
+            }
+        },
+        "learnnrj": {
+            "htmlTitle": "Učím se energie"
+        },
+        "logisacademie": {
+            "htmlTitle": "Logis Académie"
+        },
+        "linxea": {
+            "htmlTitle": "LinXea akademie"
+        },
+        "manpower": {
+            "htmlTitle": "Vůdce efekt",
+            "module_level": {
+                "1": "Základní",
+                "2": "Expert",
+                "3": "Trenér",
+                "base": "Základní",
+                "advanced": "Expert",
+                "coach": "Trenér"
+            }
+        },
+        "mooc-atoutfrancenumerique": {
+            "htmlTitle": "Digital MOOC ATF"
+        },
+        "mooc-socgen": {
+            "htmlTitle": "Mooc Socgen",
+            "module_level": {
+                "base": "Úroveň 1",
+                "advanced": "Úroveň 2",
+                "coach": "Úroveň 3"
+            }
+        },
+        "natixis": {
+            "htmlTitle": "Think Digital"
+        },
+        "nespresso": {
+            "module_level": {
+                "3": "Expert",
+                "coach": "Expert"
+            }
+        },
+        "nespressodigital": {
+            "htmlTitle": "Digitální akademie"
+        },
+        "paca": {
+            "htmlTitle": "MOOC Pospíšilík"
+        },
+        "online-academy-klubschule": {
+            "module_level": {
+                "base": "Začátečník",
+                "advanced": "Pokročilé",
+                "coach": "Expert"
+            }
+        },
+        "petite": {
+            "htmlTitle": "Chanel Petite Onboarding",
+            "module_level": {
+                "base": "Modul 1",
+                "advanced": "Modul 2",
+                "coach": "Modul 3"
+            }
+        },
+        "quizz-auchan": {
+            "htmlTitle": "QUIZZ AUCHAN RETAIL"
+        },
+        "renaultrh": {
+            "module_level": {
+                "base": "Krok 1",
+                "advanced": "Krok 2",
+                "coach": "Krok 3"
+            }
+        },
+        "renaultcare": {
+            "module_level": {
+                "base": "Základy"
+            }
+        },
+        "rexel": {
+            "htmlTitle": "Zákazník stejně tím Rexel"
+        },
+        "schneider": {
+            "module_level": {
+                "base": "Sezóna 1",
+                "advanced": "Sezóna 2",
+                "coach": "Sezóna 3"
+            }
+        },
+        "tagheuer": {
+            "module_level": {
+                "base": "Titan",
+                "advanced": "Bronz",
+                "coach": "Stříbrná"
+            }
+        },
+        "tagheuercon": {
+            "module_level": {
+                "base": "Titan",
+                "advanced": "Bronz",
+                "coach": "Stříbrná"
+            }
+        },
+        "theglenlivet-academy": {
+            "htmlTitle": "The Glenlivet | ザ・グレンリベット アカデミー"
+        },
+        "tourism": {
+            "htmlTitle": "Cestovní ruch akademie"
+        },
+        "tourismdigital": {
+            "htmlTitle": "Digitální cestovní ruch"
+        },
+        "tourisme-hautsdefrance": {
+            "htmlTitle": "Tourisme Hauts-de-France"
+        },
+        "yahoo": {
+            "module_level": {
+                "base": "Nováček",
+                "advanced": "Střední",
+                "coach": "Pro"
+            }
+        },
+        "ey": {
+            "htmlTitle": "Digitální akademie"
+        },
+        "thelem": {
+            "htmlTitle": "DigiPass#"
+        },
+        "letsgetdigital": {
+            "htmlTitle": "Pojďme si digitální 2.0",
+            "module_level": {
+                "base": "LEARNER",
+                "advanced": "EXPERT",
+                "coach": "MASTER"
+            }
+        },
+        "who": {
+            "htmlTitle": "QualityRights",
+            "module_level": {
+                "advanced": "Případová analýza"
+            }
+        },
+        "triptorelin": {
+            "htmlTitle": "Triptorelin"
+        }
+    }
+}

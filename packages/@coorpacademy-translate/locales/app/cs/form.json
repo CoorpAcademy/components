@@ -1,0 +1,23 @@
+{
+    "submit": "Potvrdit",
+    "print": "Tisk",
+    "share": "Sdílet",
+    "delete": "Odstranit",
+    "start": "Start",
+    "loadMore": "Načíst další příspěvky...",
+    "download": "Stáhnout",
+    "ok": "OK",
+    "cancel": "Zrušit",
+    "sso": "Single Sign On",
+    "connect": "Připojit",
+    "signup": "Zaregistrovat se",
+    "signup_pre": "Ještě nemáte účet?",
+    "custom": {
+        "chanel": {
+            "signup": "Registrace"
+        },
+        "ilearn": {
+            "signup": "Registrace"
+        }
+    }
+}

@@ -1,0 +1,25 @@
+{
+    "notCompatible": {
+        "os": "你的操作系统版本太旧，无法访问平台。我们推荐你进行更新。",
+        "explanation": "您可能打开了浏览器的兼容性视图。点击“更多信息”将其关闭。",
+        "explanationLink": "https://static.coorpacademy.com/content/help/compatibility_view/Help_Compatibility_view_EN.pdf",
+        "explanationLinkLabel": "此处。",
+        "header": "流浪器的版本过旧，无法访问平台。",
+        "suggestion_text": "快乐浏览",
+        "suggestion_href": "http://browsehappy.com",
+        "suggestion_text_pre": "去往",
+        "suggestion_text_post": "更多关于  Evergreen 浏览器的信息。",
+        "different_user_agent": "发现了 2 个不同的用户机构，造成平台进入限制。"
+    },
+    "custom": {
+        "fff": {
+            "notCompatible": {
+                "os": "你的操作系统版本太低，无法访问此平台。我们建议你进行更新。",
+                "suggestion_text": "铬",
+                "suggestion_href": "https://www.google.com/intl/fr/chrome/browser/",
+                "suggestion_text_pre": "建议的下载",
+                "suggestion_text_post": "."
+            }
+        }
+    }
+}

@@ -1,0 +1,550 @@
+{
+    "welcome": "Bună ziua {{name}}!",
+    "team": "Echipa {{team}}",
+    "passwordFooter": "<br><br>Informaţii de conectare: <br>- IP-ul: sistem de operare <br>{{ip}}: {{os}} <br>-browser-ul: {{browser}} <br><br><b>nu a fost tu?</b> Ar trebui să modificaţi <a href=\"{{passwordReset}}\"> parola</a> acum.",
+    "unsubscribe": "Dezabonare",
+    "personalHooks_timeReferenceObjects": {
+        "510min": "Zboruri New York - Paris",
+        "420min": "sezoane din Urzeala Tronurilor",
+        "360min": "Etapele Turului Franței",
+        "120min": "Filmele Twilight",
+        "100min": "Filme kung-fu",
+        "90min": "Meciuri de fotbal",
+        "60min": "ședințe",
+        "25min": "episoade din serialul tău preferat"
+    },
+    "body": {
+        "accountCode": "Pentru a valida contul {{label}}, vă rugăm să accesați următoarea adresă şi introduceţi acest cod: <strong>{{code}}</strong>.",
+        "battleWaitingOpponent": "Nu uita, {{opponentName}} ai a provocat la o \"batalie\" pe $t({{disciplineName}}) curs $t({{level}}) nivel şi este în aşteptare pentru răspunsul dumneavoastră! <br/> Pentru a accepta provocarea şi juca, click <a href=\"{{redirectionUrl}}\"> aici</a>! <br/> <br/> Poate câştiga cel mai bun persoană!",
+        "coachUnlocked": "Felicitări! Ai devenit un antrenor în curs \"$t({{completedDiscipline}})\", care te-au validat complet! <br/> <br/> Vă poate ajuta alţii această temă de învăţare, deoarece au devenit imbatabil pe această temă! <br/> Amintiţi-vă pentru a <b>activa notificările live</b> în setările şi pur şi simplu răspunde la elevii care suna pentru o sesiune de chat —-Scopul este să-i călăuzească spre răspunsul, nu doar să-l dau la ele. <br/> <br/> Nu uitaţi, \"Nu există nici o performanta pe termen lung sau onorabil fara solidaritate!\" <br/> <font size=\"2\"> <i>(Proust)</i></font> <br/> <br/>",
+        "contentUpdated": "Curs nou a fost adăugat doar pe platforma! <br/>",
+        "contentUpdatedEnd": "Porniţi-l acum: are <a href=\"{{redirectionUrl}}\"> aici.</a>! <br/> <br/> Formare fericit!",
+        "contentUpdated_plural": "Discipline noi au fost adăugate doar pe platforma! <br/>",
+        "contentUpdatedEnd_plural": "Du-te la platforma de {{label}} şi începe unul! Are <a href=\"{{redirectionUrl}}\"> aici.</a>! <br/> <br/> Formare fericit!",
+        "lastAnsweredQuestion": "Am observat nu au răspuns la întrebări timp de o saptamana. <br/> <br/> În cazul în care se confruntă cu dificultăţi, nu ezitati sa contactati un antrenor.",
+        "lastConnection": "Tu nu s-au conectat la platforma {{label}} într-un timp si ne e dor de tine! <br/> <br/> Încă mai aveţi module pentru a descoperi, scoruri pentru a îmbunătăţi, oamenilor de a contesta (într-un mod prietenos)... Vin pe spate şi continua călătoria dumneavoastră de învăţare! <br/> <br/> Acces la platforma făcând clic pe link-ul următor: <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}}</a> <br/> <br/> Formare fericit!",
+        "lastModuleDone": "A fost o săptămână când aţi conectat la un modul pe platforma {{label}}, nu renunta! <br/> <br/> Dacă vă întâmpină dificultăţi, nu ezitaţi să contactaţi un antrenor sau cere comunitatea prin intermediul forumuri de discuţii. <br/> <br/> Pot accesa platforma făcând clic pe link-ul următor: <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}}</a> <br/> <br/> Formare fericit!",
+        "passwordReset": "Am primit o cerere de recuperare a parolei de la contul dvs. <br/> <br/> Ca un memento, parola este: {{login}} <br/> (Fi atent cu caractere majuscule şi minuscule) <br/> <br/> Aveţi posibilitatea să reiniţializaţi parola făcând clic pe link-ul următor: <a href=\"{{resetLink}}\"> {{resetLink}}</a>. <br/> <br/> Vă rugăm să reţineţi că acest link este valabil pentru ore {{ttl}}, Deci, nu aşteptaţi prea mult timp să faceţi clic pe link-ul numai! <br/> <br/> În cazul în care nu a prezentat această cerere, vă rugăm să ignoraţi acest email. <br/> <br/> Formare fericit!",
+        "personalHooks": {
+            "trendingCourse": "<p>Cursul <b>{{courseName}}</b> a depășit orice așteptare pe {{platform}}! Peste {{activeUsersOnCourse}} persoane l-au făcut recent.</p><p>Ce mai aștepți?</p>",
+            "recommendedCourse": "<p>Pe baza activității tale pe {{platform}}, ne vin în minte câteva cursuri pe care am vrea să ți le recomandăm.</p><p>Prima noastră alegere, <b>{{courseName}}</b>, ar trebui să fie specialitatea ta! De ce nu-l încerci?</p>",
+            "onboarding": "<p>Te-ai conectat cu succes la <b>{{platform}}</b>. Ne bucurăm să vedem că ești gata să te perfecționezi!</p><p>Ești aproape gata! Doar alege un subiect care îți place sau urmărește una dintre recomandările noastre și începe să înveți sau provoacă-ți colegii la o bătălie!</p>",
+            "finishCourse": "<p>Ești aproape gata! Ai început cu succes <b>{{courseName}}</b> pe {{platform}}.</p><p>Termină-l acum! Finalizează nivelul pentru a câștiga stele în plus și a umple bara aceea de progres până la 100%.</p>",
+            "doBattle": "<p>Avem cu toții un coleg care tot spune că știe mai multe decât alții.<br>Demonstrează-i că se înșală pe {{platform}}!</p><p>Provoacă-l la o <b>bătălie</b>. Alege un subiect care îți place și învinge-l pentru a câștiga stele, a urca în clasament și a-i râde în nas la cantină!</p>",
+            "doBattleOnCourse": "<p><b>{{courseName}}</b> nu mai are niciun secret pentru tine.</p><p>Care dintre colegii tăi ar avea curajul să te provoace pe această temă acum? Nimeni...?</p><p>Provoacă-i tu în modul bătălie pe {{platform}}!</p>",
+            "othersProgress": "<p>Colegii tăi au fost destul de activi recent pe {{platform}}!</p><p>În ultima lună s-au întâmplat multe:<ul><li><span style=\"font-weight: bold;color:{{primaryColor}}\">{{connectedUsers}} persoane</span> s-au conectat</li><li><span style=\"font-weight: bold;color:{{primaryColor}}\">{{answeredQuestions}} întrebări</span> au primit răspunsuri</li><li><span style=\"font-weight: bold;color:{{primaryColor}}\">{{viewedLessons}} lecții</span> au fost vizualizate</li><li>...asta e echivalentul a {{numberTimes}} {{timeReferenceObject}} de timp de învățat pus laolaltă!</li></ul></p><p>Nu rămâne în urmă!</p>",
+            "weMissYou": "<p>Nu te-am văzut de o vreme pe <b>{{platform}}</b>. De atunci, au fost adăugate pe platformă caracteristici noi și conținut nou-nouț! Întoarce-te ca să descoperi mai mult!</p>",
+            "weMissYou_footer": "Apreciem mult feedbackul tău. Te rugăm <a href=\"mailto:assistance@coorpacademy.com\">spune-ne</a> despre experiențele tale, chiar și negative, ca să putem învăța din ele!",
+            "generic_footer": "‌"
+        },
+        "sendBattle": "{{opponentName}} este de tine o provocare la o \"batalie\" pe disciplina $t({{disciplineName}}), nivelul $t({{level}}) şi se aşteaptă cu nerăbdare răspunsul dumneavoastră! <br/> <br/> Să accepte provocarea şi să se joace, click <a href=\"{{redirectionUrl}}\"> aici</a>! <br/> <br/> Poate câştiga cel mai bun începător!",
+        "signupSelfValidation": "Vă mulţumim pentru înregistrare! Ultimul pas pentru a începe: vă rugăm să activaţi-vă contul făcând clic pe <a href=\"{{validateLink}}\"> link-ul de mai jos</a>. <br/> <br/> Parola este: {{login}} <br/> (Fi atent cu caractere majuscule şi minuscule) <br/> <br/> Bucuraţi-vă de antrenament!",
+        "signupValidation": "Am primit o cerere de înregistrare la {{firstName}} {{lastName}} (login: {{login}} e-mail: {{email}}) <br/> pentru a valida acest cont, vă rugăm să faceţi clic pe următorul link: <a href=\"{{validateLink}}\">{{validateLink}}</a> <br/>. <br/> Dacă nu ştiţi această persoană, daţi click pe următorul link pentru a elimina contul: <a href=\"{{rejectLink}}\">{{rejectLink}}</a>. <br/> Formare fericit!",
+        "signupComplete": "Contul este validat acum! <br/> <br/> Parola este: {{login}} <br/> (Fi atent cu caractere majuscule şi minuscule) <br/> <br/> Click pe butonul de mai jos pentru a autentifica şi începe de învăţare!",
+        "commentReply": "{{replierName}} tocmai a răspuns anunţului dumneavoastră {{label}}: <p>{{originalCommentContent}}</p> --- <p>{{newCommentContent}}</p> accesaţi acest <a href=\"{{newCommentLink}}\">link</a> pentru a vedea şi continua discuţia. Ne vedem în curând!",
+        "certification_header": "Suntem mândri să vă conferim certificarea $t({{certification}}). Pentru a vă răsplăti eforturile, vă oferim:",
+        "certification_content_stars": "{{stars}} stele suplimentare!<br/>",
+        "certification_content_diploma": "Certificarea dvs. pe care o puteți descărca <a target='_blank' href=\"$t({{diplomaLink}})\">aici</a>",
+        "certification_content_resource": "Accesează $t({{rewardLabel}}) urmând acest <a target='_blank' download href=\"$t({{resourceLink}})\">link</a>",
+        "certification_content_end": "Și nu uita să îți actualizezi atât CV-ul cât și profilul profesional cu noua ta certificare.",
+        "assistance": {
+            "object": "Obiect: {{object}}",
+            "message": "{{message}}",
+            "displayName": "displayName: {{displayName}}",
+            "email": "e-mail: {{email}}",
+            "url": "url: <a href=\"{{url}}\">{{url}}</a>",
+            "discipline": "disciplină: {{discipline}}",
+            "module": "modul: {{module}}",
+            "chapter": "capitol: {{chapter}}",
+            "slideRef": "Alunecăref {{slideRef}}"
+        },
+        "createdPassword": {
+            "top": "Felicitări! <br><br>Doar au creat o parolă legate de contul de {{label}}. <br> <br>Puteţi acum login pe platformă folosind datele de conectare şi parola nouă. <br>Memento, parola este: <b>{{login}}</b> (case-sensitive). <br>",
+            "bottom": "<br> E momentul să învățați!"
+        },
+        "updatedPassword": {
+            "top": "Felicitări! <br>Au actualizat cu succes parola pentru contul de {{label}}. <br><br>Vă poate acum logarea la platforma folosind parola nouă şi parola uzuală. <br> Memento, parola este: <b>{{login}}</b> (case-sensitive). <br>",
+            "bottom": "<br>E timpul să învățăm!"
+        }
+    },
+    "subject": {
+        "accountCode": "Vă rugăm să confirmaţi contul de CoorpAcademy.",
+        "battleWaitingOpponent": "{{opponentName}} este în aşteptare pentru tine",
+        "coachUnlocked": "Foarte bine, ai devenit un antrenor",
+        "contentUpdated": "Ce e nou pe platforma {{label}}",
+        "lastAnsweredQuestion": "{{name}}, nu mai jucaţi",
+        "lastConnection": "Progrese în continuare pe platforma {{label}}",
+        "lastModuleDone": "Progresul dumneavoastră de a continua pe platforma {{label}}",
+        "passwordReset": "Resetare parola",
+        "personalHooks": {
+            "trendingCourse": "Aruncă o privire la cel mai popular curs",
+            "recommendedCourse": "Cursuri recomandate: selecția noastră pentru tine",
+            "onboarding": "Cum să-ți îmbunătățești abilitățile pe {{platform}}?",
+            "finishCourse": "Pun pariu că reușești, termină {{courseName}}",
+            "doBattle": "Provoacă-ți colegii pe {{platform}}!",
+            "doBattleOnCourse": "Joacă o bătălie pe tema ultimului tău curs!",
+            "othersProgress": "Stai la curent cu activitatea de pe {{platform}}",
+            "weMissYou": "A trecut ceva vreme!"
+        },
+        "sendBattle": "{{opponentName}} este o provocare vă",
+        "test": "{{name}}, nu mai faci parte din joc",
+        "signupSelfValidation": "Activaţi-vă contul",
+        "signupValidation": "Validează-ți contul",
+        "signupComplete": "Contul dumneavoastră a fost validat!",
+        "commentReply": "{{replierName}} v-a răspuns la comentariu",
+        "certification": "Felicitări {{name}}, ați câștigat certificarea $t({{certification}})",
+        "assistance": "[{{brand}}] {{object}}",
+        "createdPassword": "Login / parola conexiune {{label}}",
+        "updatedPassword": "Login / parola conexiune {{label}}"
+    },
+    "call2action": {
+        "coachUnlocked": "Du-te la site-ul",
+        "sendBattle": "Accepta provocarea",
+        "battleWaitingOpponent": "Accepta provocarea",
+        "commentReply": "Urmaţi discuţie",
+        "passwordReset": "Resetare parola",
+        "personalHooks": {
+            "trendingCourse": "Învață ca ei",
+            "recommendedCourse": "Începe să înveți acum",
+            "onboarding": "Spor la învățat!",
+            "finishCourse": "Termină acest curs",
+            "doBattle": "Provoacă un coleg",
+            "doBattleOnCourse": "Începe bătălia!",
+            "othersProgress": "Alătură-te celor care învață",
+            "weMissYou": "Vezi ce e nou"
+        },
+        "contentUpdated": "Du-te la site-ul",
+        "lastConnection": "Du-te la site-ul",
+        "lastModuleDone": "Du-te la site-ul",
+        "lastAnsweredQuestion": "Du-te la site-ul",
+        "accountCode": "Mergeți la site-ul web",
+        "signupValidation": "Validați acest cont",
+        "certificationDone": "Du-te la website",
+        "signupSelfValidation": "Validează-ți contul",
+        "signupComplete": "Vizitați Platforma",
+        "assistance": "Mergi la această pagină",
+        "createdPassword": "Începeţi instrucţia",
+        "updatedPassword": "Începe antrenament"
+    },
+    "custom": {
+        "7steps": {
+            "team": "‌",
+            "body": {
+                "signupSelfValidation": "Vă mulţumim pentru aderarea la comunitatea noastră cu amănuntul selectat talente! <br/> <br/> Descoperiţi SRA vânzare 7 paşi Marijana şi obţine certificarea finală în serviciul expertiza! <br/> <br/> Parola este: {{login}} <br/> (fi atent cu caractere majuscule şi minuscule) <br/> <br/> Click pe linkul de mai jos pentru a activa contul. <br/> <br/> Dacă aţi primit acest e-mail de greşeală, pur şi simplu ştergeţi-l. Contul va fi activat în cazul în care nu faceţi clic pe link-ul de confirmare de mai jos. Pentru întrebări despre acest MOOC SRA, vă rugăm să contactaţi: <a href=\"mailto:serviceretailacademy@loreal.com\"> serviceretailacademy@loreal.com</a>"
+            },
+            "call2action": {
+                "signupSelfValidation": "Confirma"
+            },
+            "subject": {
+                "signupSelfValidation": "MARIJANA SRA: Vă rugăm să confirmaţi contul dvs."
+            }
+        },
+        "achat-habitat": {
+            "team": "Echipa Achat Habitat",
+            "body": {
+                "signupSelfValidation": "Vă mulţumim pentru înregistrarea pe Achat Habitat! Ultimul pas pentru a începe: vă rugăm să activaţi-vă contul făcând clic pe acest link: <br><a href=\"{{validateLink}}\"> {{validateLink}}</a> <br><br>parola este: {{login}} <br/> (fi atent cu caractere majuscule şi minuscule) <br/> <br/> conţinutul va fi disponibil după 5 aprilie şi veţi primi un mail cu toate informatiile practice pentru a vă ghida în expeditie de învăţare. <br><br>Pentru orice întrebare cu privire la accesul / Achat Habitat modul în care funcţionează, vă pot ajunge la <a href=\"mailto:assistance@coorpacademy.com\"> assistance@coorpacademy.com</a>. <br>Enjoy antrenamentul!"
+            },
+            "subject": {
+                "signupSelfValidation": "ACHAT Habitat activare cont"
+            }
+        },
+        "air": {
+            "body": {
+                "coachUnlocked": "Felicitări! Aţi terminat $t({{completedDiscipline}}) subiect cu succes şi a ajuns la nivelul de antrenor! <br/> <br/> Acum puteţi acţiona ca un arbitru pentru alte exploratori şi împărtăşească cunoştinţele pe care le-au atins. <br/> <br/> Atunci când a cerut sprijinul de un alt explorer, vă rugăm să ghid îl reprezintă răspunsul corect, dar nu dau răspunsul direct. <br/> <br/> Va multumesc pentru implicarea ta şi ne vedem la următoarea bivuac! <br/> <br/> Digital,"
+            },
+            "subject": {
+                "coachUnlocked": "Air Liquide Digital Expedition - vă sunt acum un antrenor!"
+            }
+        },
+        "bigdata": {
+            "team": "Echipa SI'Academy",
+            "body": {
+                "certification_header": "Suntem mândri să vă atribuie $t({{certification}}), plină de satisfacţii cu:",
+                "certification_content_stars": "stele de bonus {{stars}} <br/>",
+                "certification_content_diploma": "Acces la certificatul $t({{certification}}) prin acest link <a target='_blank' href=\"$t({{diplomaLink}})\"> aici</a>",
+                "certification_content_resource": "<a target='_blank' download href=\"$t({{resourceLink}})\"> acces la insigna de $t({{rewardLabel}}) prin acest link</a>",
+                "certification_content_end": "Nu uitați să vă actualizați profilul Sl'tizen, precum și semnătura de e-mail, pentru ca noua dvs. certificare să fie afișată"
+            }
+        },
+        "capgemini": {
+            "welcome": "Dragă {{name}},",
+            "body": {
+                "certification_header": "Te-ai dus prin toate vă COOCs necesare pentru $t({{certification}}). Felicitări! <br>Vă mulţumesc foarte mult şi ne vedem curand pe platforma COOC!",
+                "certification_content_stars": "‌",
+                "certification_content_resource": "În scopul de a sprijini noi pentru a îmbunătăţi în continuare VP DigiCertif' experienta, ne-ar fi recunoscător dacă aţi putea împărtăşi feedback-ul dvs prin acest link: <br>VP, vă rugăm să faceţi clic <a href=\"https://www.surveygizmo.com/s3/4299114/VP-COOC-platform\"> aici</a>",
+                "certification_content_end": "Cu stimă"
+            }
+        },
+        "challenge48htechno": {
+            "body": {
+                "signupSelfValidation": "Vă mulţumim pentru înregistrarea pe 48h Techno! Ultimul pas pentru a începe: vă rugăm să activaţi-vă contul făcând clic pe acest link: <br><a href=\"{{validateLink}}\"> {{validateLink}}</a> <br><br>parola este: {{login}} <br/> (fi atent cu caractere majuscule şi minuscule) <br/> <br/> pentru orice întrebare în ceea ce priveşte accesul / mod 48h Techno funcţionează, vă pot ajunge la <a href=\"mailto:assistance@coorpacademy.com\"> assistance@coorpacademy.com</a>. <br>Enjoy antrenamentul!"
+            },
+            "subject": {
+                "signupSelfValidation": "48h Techno activare cont"
+            }
+        },
+        "chanel": {
+            "body": {
+                "certification_content_end": "Şi nu uitaţi: puteţi reveni la nesfârşit pe platforma pentru a reîmprospăta cunoştinţele, lecţii video şi clipuri video, şi desigur provocare colegii dumneavoastră!"
+            }
+        },
+        "cnp": {
+            "body": {
+                "certification_header": "Suntem mândri să vă conferă certificatul de $t({{certification}}). În scopul de a recompensa eforturile tale, noi iti oferim:"
+            }
+        },
+        "crisis": {
+            "team": "Pernod Ricard Universitatea"
+        },
+        "corporateonlineopencourse": {
+            "body": {
+                "battleWaitingOpponent": "Nu uita, {{opponentName}} ai a provocat la o \"batalie\" pe $t({{disciplineName}}) curs $t({{level}}) nivel şi este în aşteptare pentru răspunsul dumneavoastră! <br/> Pentru a accepta provocarea şi juca, click <a href=\"https://idp.renault.com/nidp/saml2/idpsend?id=campus\"> aici</a>! <br/> <br/> Poate câştiga cel mai bun persoană!",
+                "sendBattle": "{{opponentName}} este de tine o provocare la o “battle” pe disciplina $t({{disciplineName}}), nivelul $t({{level}}) şi se aşteaptă cu nerăbdare răspunsul dumneavoastră! <br/> <br/> Să accepte provocarea şi să se joace, click <a href=\"https://idp.renault.com/nidp/saml2/idpsend?id=campus\"> aici</a>! <br/> <br/> Poate câştiga cel mai bun începător!",
+                "createdPassword": {
+                    "top": "bună! Felicitări! <br>Aţi configurat doar parola de mai multe dispozitive. <br>Deci, dacă doriţi, doar să faceţi clic pe linkul de mai jos folosind smartphone sau tabletă și conexiune la Marijana BRAND ambasador va fi stabilit cu al tău nou configurat multi dispozitiv parola https://corporateonlineopencourse.coorpacademy.com/login <br><br>Sfat: odată conectat, ce nu a crea un link pe smartphone-ul pentru un acces mai uşor ;-) <br>vă rugăm să Notă: conexiune prin campus rămâne disponibile fără orice password specifice. Multi dispozitiv accesul este doar o opţiune.",
+                    "bottom": "<br>Este timp pentru a învăţa!"
+                }
+            }
+        },
+        "cofpart-learning": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "digitalls2e": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "faurecia": {
+            "body": {
+                "coachUnlocked": "Felicitări! Acum ești calificat ca antrenor pentru cursul $t({{completedDiscipline}}). <br/><br/> Din moment ce ai devenit de neînvins la acest subiect, poți acum să-i ajuți și pe ceilalți în drumul spre învățare.<br/><br/>Te rugăm să-ți împărtășești cunoștințele și să răspunzi faurecienilor care contactează un chat în Learning Lab. <br/><br/> Dar ține minte, scopul este să-i îndrepți spre răspuns, nu să îl oferi pur și simplu.<br/><br/> Nu uita că “Cel mai exclusiv semn al învățăturii totale este puterea de a învăța”<br/><font size=\"2\"><i>(Aristotel)</i></font><br/><br/>",
+                "certification_header": "Felicitări pentru realizarea $t({{certification}}) certificare! <br/> În scopul de a recunoaşte această realizare, noi oferim:",
+                "certification_content_stars": "O {{stars}} suplimentare Star puncte de pe <b>Universitatea Faurecia | Laboratorul de învăţare</b> <br/>",
+                "certification_content_diploma": "Un certificat că puteţi descărca şi tipări, urmand acest <a target='_blank' href=\"$t({{diplomaLink}})\"> link</a>",
+                "certification_content_resource": "O recompensă specială vei primi urmând acest <a target='_blank' download href=\"$t({{resourceLink}})\"> link</a>",
+                "certification_content_end": "Şi cred că despre adăugarea acest nou certificare pentru profilul tau social!"
+            }
+        },
+        "fdj": {
+            "body": {
+                "certification_content_end": "And do not forget to continue your learning journey by testing yourself on the Digilearn application from your mobile.<br/>You do not have the app yet? Go to the apple store or google store and then activate your notifications!"
+            }
+        },
+        "ecolenumerique-sncf": {
+            "body": {
+                "certification_header": "Felicitări pentru obţinerea $t({{certification}}) insigna! <br/> În scopul de a recunoaşte această realizare, noi oferim:",
+                "certification_content_stars": "O {{stars}} suplimentare Puncte Star <br/>",
+                "certification_content_resource": "O recompensă specială vei primi urmând acest <a target='_blank' download href=\"$t({{resourceLink}})\"> link</a>",
+                "certification_content_end": "Şi cred că despre adăugarea acest nou Jedi insigna profilului sociale!"
+            }
+        },
+        "el": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "ganprevoyance": {
+            "body": {
+                "certification_header": "Felicitări pentru validarea univers $t({{certification}})! <br/> În scopul de a recunoaşte această realizare, noi oferim:",
+                "certification_content_stars": "O {{stars}} suplimentare Puncte Star <br/>",
+                "certification_content_resource": "O recompensă specială vei primi urmând acest <a target='_blank' download href=\"$t({{resourceLink}})\"> link</a>",
+                "certification_content_end": "Şi cred că despre adăugarea acest univers nou la profilul sociale!"
+            }
+        },
+        "gdf": {
+            "urlHowTo": "*Pur și simplu fă dublu clic pe pictograma WeTransform de pe desktop și copiază/lipește acest URL în bara de adrese",
+            "body": {
+                "battleWaitingOpponent": "Nu uita, {{opponentName}} v-a provocat la o „bătălie” pe nivelul $t({{level}}) al cursului $t({{disciplineName}}) și așteaptă cu nerăbdare să îi răspundeți!<br/> Pentru a accepta provocarea și a juca, faceți clic aici*:<br/> <br/> <a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/> <br/> Fie ca cel mai bun să învingă! <br/> $t(email:urlHowTo)",
+                "coachUnlocked": "Felicitări! Ai devenit antrenor la disciplina $t({{completedDiscipline}}), pe care ai validat-o complet! <br/> <br/> Pentru că ai ajuns de neînvins la această disciplină, acum poți să-i ajuți şi pe alții care învață! Doar răspunde-le managerilor care te contactează pe chat: scopul este să-i ghidezi către răspuns şi nu doar să li-l spui. Dacă nu vrei să fii contactat, poți să dezactivezi această opțiune din meniul din partea de sus dreapta a ecranului de pe Transformăm <br/> <br/> <br/> Toate cele bune,",
+                "passwordReset": "Ne-ai spus că ți-ai uitat parola. Reseteaz-o apăsând pe următorul link*:<br/> <br/> <a href=\"{{resetLink}}\">{{resetLink}}</a> <br/> <br/> Reține că acest link este valabil doar pentru {{ttl}} oră(e), nu aștepta prea mult să accesezi linkul!<br/> <br/> Toate cele bune <br/> $t(email:urlHowTo)",
+                "sendBattle": "{{opponentName}} vrea să se lupte cu dvs. în modulul $t({{disciplineName}}), disciplina $t({{level}}) level!<br/> <br/> Pentru a accepta provocarea și a juca, dați clic aici*:<br/> <br/> <a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/> <br/> Fie ca cel mai bun să câștige! <br/> $t(email:urlHowTo)"
+            }
+        },
+        "gdfec": {
+            "urlHowTo": "* Pur și simplu faceți dublu clic pe pictograma WeTransform de pe desktopul dvs. și copiați/inserați această adresă URL în bara de adrese",
+            "body": {
+                "battleWaitingOpponent": "Nu uita, {{opponentName}} te-a provocat la o \"luptă\" în cadrul cursului de $({{disciplineName}}) la nivelul $t({{level}}) și așteaptă cu nerăbdare un răspuns!<br/> Pentru a accepta provocarea și a juca, apasă aici*:<br/> <br/> <a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/> <br/> Fie ca cel mai bun să câștige! <br/> $t(email:urlHowto)",
+                "coachUnlocked": "Felicitări! Ai devenit antrenor în disciplina $t({{completedDiscipline}}), pe care ai validat-o în întregime! <br/> <br/> Din moment ce ai devenit de neînvins în această disciplină, poți acum să ajuți ceilalți elevi! Răspunde managerilor care te contactează prin chat: scopul este să-i ghidezi spre răspuns, nu să-l oferi pur si simplu. Dacă nu vrei să fii contactat niciodată, poți dezactiva această opțiune prin meniul din partea dreaptă de sus a ecranului pe WeTransform <br/> <br/> <br/> Toate cele bune,",
+                "passwordReset": "Ne-ai spus că ți-ai uitat parola. Reseteaz-o făcând clic pe următorul link*:<br/> <br/> <a href=\"{{resetLink}}\">{{resetLink}}</a><br/> <br/> Vă rugăm să rețineți că acest link este valabil doar {{ttl}} (de) ore, deci nu așteptați prea mult pentru a-l urma!<br/> <br/> Numai bine, <br/> $t(email:urlHowTo)",
+                "sendBattle": "{{opponentName}} vrea să se lupte cu dvs. în modulul $t({{disciplineName}}), disciplina $t({{level}}) nivelul!<br/> <br/> Pentru a accepta provocarea și a juca, dați clic aici:<br/> <br/> <a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/> <br/> Fie ca cel mai bun jucător să câștige! <br/> $t(email:urlHowTo)",
+                "certification_content_end": "Daca ai terminat doar cursul de \"Rentabilizarea\", vă rugăm să urmaţi <a target='_blank' download href=\"https://www.getfeedback.com/r/bjNmfx11\"> acest link</a> pentru a mai bine să se pregătească noastre viitoare seminar şi accesul dumneavoastră cele mai bune practici. (10 minute max.) <br><br>Şi nu uitaţi să actualizaţi CV-ul tău, precum şi profilul tău profesional cu acest nou certificare."
+            }
+        },
+        "hr-ac": {
+            "body": {
+                "signupSelfValidation": "Vă mulţumim pentru înregistrarea pe HR Academy! Ultimul pas pentru a începe: vă rugăm să activaţi-vă contul făcând clic pe <a href=\"{{validateLink}}\"> link-ul de mai jos</a>. <br/> <br/> Parola este: {{login}} <br/> (Fi atent cu caractere majuscule şi minuscule) <br/> <br/> Bucuraţi-vă de antrenament!",
+                "signupComplete": "Contul este validat acum! <br/> <br/> Parola este: {{login}} <br/> (Fi atent cu caractere majuscule şi minuscule) <br/> <br/> Click pe butonul de mai jos pentru a autentifica şi începe de învăţare!"
+            },
+            "subject": {
+                "signupSelfValidation": "Activarea contului de HR Academy"
+            }
+        },
+        "linxea": {
+            "team": "Echipa Academiei LinXea",
+            "body": {
+                "signupSelfValidation": "Vă mulţumesc pentru alături de noi! Ultimul pas înainte de a începe testarea cunoştinţelor de asigurare de viaţă este de a activa contul făcând clic pe acest link: <br><a href=\"{{validateLink}}\"> {{validateLink}}</a> <br><br>parola este: {{login}} <br/> (fi atent cu caractere majuscule şi minuscule) <br/> <br/> pentru orice întrebare cu privire la accesul / modul platforma LinXea Academiei funcţionează, puteţi contacta <a href=\"mailto:assistance@coorpacademy.com\"> assistance@coorpacademy.com</a>. <br>Dacă aveţi orice întrebare despre contractele de LinXea sau de asigurare de viaţă, vă rugăm să scrie la <a href=\"mailto:contact@linxea.com\"> contact@linxea.com</a> <br>au o formare frumos!",
+                "signupComplete": "Inscripţia de la Yahoo Digital Marketing Academy a fost validat. <br/> <br/> Parola este: {{login}} <br/> (Fi atent cu caractere majuscule şi minuscule)"
+            },
+            "subject": {
+                "signupSelfValidation": "Activarea contului pentru Academia LinXea"
+            }
+        },
+        "learnnrj": {
+            "body": {
+                "signupSelfValidation": "Vă mulţumim pentru înregistrare. Tu esti bine să plec! <br/> <br/> Parola este: {{login}} <br/> (Fi atent cu caractere majuscule şi minuscule) <br/> <br/> Vă rugăm să faceţi clic pe acest link pentru activarea contului: <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Dacă aveţi întrebări sau ar dori pentru a afla mai multe despre subiectele acoperite, vorbesc cu reprezentantul dumneavoastră sau contactaţi assistance@coorpacademy.com",
+                "signupComplete": "Vă mulţumim pentru înregistrare. Tu esti bine să plec! <br/> <br/> Parola este: {{login}} <br/> (Fi atent cu caractere majuscule şi minuscule) <br/> <br/> Vă rugăm să faceţi clic pe acest link pentru activarea contului: <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Dacă aveţi întrebări sau ar dori pentru a afla mai multe despre subiectele acoperite, vorbesc cu reprezentantul dumneavoastră sau contactaţi assistance@coorpacademy.com"
+            }
+        },
+        "letsgetdigital": {
+            "team": "Let's Get Digital 2.0",
+            "body": {
+                "signupSelfValidation": "Vă mulţumim pentru înregistrarea pe haideţi să obţine Digital 2.0! Ultimul pas pentru a începe: vă rugăm să activaţi-vă contul făcând clic pe <a href=\"{{validateLink}}\"> link-ul de mai jos</a>. <br/> <br/> Parola este: {{login}} <br/> (Fi atent cu caractere majuscule şi minuscule) <br/> <br/> Pentru orice întrebare cu privire la accesul / calea să obţine Digital 2.0 funcţionează, vă pot ajunge la contact.letsgetdigital@bnpparibas.com Enjoy antrenamentul!",
+                "signupComplete": "Contul este validat acum! <br/> <br/> Parola este: {{login}} <br/> (Fi atent cu caractere majuscule şi minuscule) <br/> <br/> Click pe butonul de mai jos pentru a autentifica şi începe de învăţare!"
+            },
+            "subject": {
+                "signupSelfValidation": "Să activăm digital contul"
+            }
+        },
+        "michelin": {
+            "body": {
+                "certification_header": "Suntem onorați să îți trimitem certificatul $t({{certification}}) și, pentru a-ți recunoaște eforturile, ne bucurăm să îți putem oferi:",
+                "certification_content_stars": "{{stars}} mai multe stele!<br/>",
+                "certification_content_resource": "Posibilitatea de a descărca logo paşaport <a target='_blank' download href=\"$t({{resourceLink}})\">aici</a>",
+                "certification_content_end": "Nu uitați să vă actualizați profilul profesional pe Bibspace (\"Profilul dvs.“ / \"Educație“) și menționați această nouă Certificare."
+            }
+        },
+        "mooc-socgen": {
+            "body": {
+                "personalHooks": {
+                    "generic_footer": "The above link is only accessible using a device outside of SG network. In order to access it via your SG workstation, please use the <a href=\"https://secure-browsing.eur.socgen.com\">MOOC Portal</a>."
+                }
+            }
+        },
+        "nespresso": {
+            "body": {
+                "coachUnlocked": "Felicitări! Aţi devenit un Expert în disciplina $t({{completedDiscipline}}), care te-au validat complet! <br/> <br/>"
+            },
+            "subject": {
+                "coachUnlocked": "Bravo, aţi devenit un Expert"
+            }
+        },
+        "openlab-cb": {
+            "body": {
+                "signupComplete": "Contul dumneavoastră a fost validat! Acum puteţi începe Bucurându-se de platforma Openlab! <br/> <br/> Parola este: {{login}} <br/> (Fi atent cu caractere majuscule şi minuscule) <br/> <br/> Vizitaţi platforma de aici: <a href=\"{{plateform}}\"> {{plateform}}</a>"
+            },
+            "subject": {
+                "signupValidation": "Validare cont Openlab",
+                "signupComplete": "Validarea contului Openlab"
+            }
+        },
+        "pernod": {
+            "body": {
+                "battleWaitingOpponent": "Nu uita, {{opponentName}} te-a provocat la o \"luptă\" în cadrul cursului $t({{disciplineName}}) de nivel $t({{level}}) și așteaptă răspunsul tău!<br/> Pentru a accepta provocarea și a juca, apasă <a href=\"{{redirectionUrl}}\">aici</a>!<br/> <br/> Demonstrează Digifitness!",
+                "sendBattle": "{{opponentName}} te provoacă la o \"luptă\" în cadrul disciplinei $t({{disciplineName}}) de nivel $t({{level}}) și așteaptă cu nerăbdare răspunsul tău!<br/> <br/> Pentru a accepta provocarea și a juca, apasă <a href=\"{{redirectionUrl}}\">aici</a>!<br/> <br/> Demonstrează Digifitness!"
+            },
+            "team": "Universitatea Pernod Ricard"
+        },
+        "pru": {
+            "body": {
+                "coachUnlocked": "Felicitări! Tocmai aţi trecut nivelul \"Avansat\" în disciplina $t({{completedDiscipline}}). Aţi finalizat această disciplină şi acum puteţi fi considerat ca şi mentor pe acest subiect! <br/> Puteţi acum să îi ajutaţi pe alţii să înveţe această tematică deoarece aţi devenit de neînvins pe acest subiect! <br/> Doar răspundeţi elevilor care vă cer să discutaţi: scopul este să îi direcţionaţi spre răspuns, nu doar să oferiţi răspunsul. <br/> <br/> Nu uitaţi că \"Nu există nici o performanță onorabilă sau pe termen lung fără solidaritate!\" <br/><font size=\"2\"><i>(François Proust)</i></font><br/> <br/>",
+                "sendBattle": "{{opponentName}} v-a provocat la o \"bătălie\" pe nivelul $t({{level}}) al disciplinei $t({{disciplineName}}) și așteaptă cu nerăbdare să îi răspundeți!<br/> <br/>Pentru a accepta provocarea și a juca, faceți clic <a href=\"{{redirectionUrl}}\">aici</a>!<br/> <br/> Arătați comportamentul dvs. de afaceri!",
+                "battleWaitingOpponent": "Nu uitați, {{opponentName}}v-a provocat la o bătălie pe cursa $t({{disciplineName}}) nivelul $t({{level}}) așteaptă răspunsul dvs.!<br/> Pentru a accepta provocarea și a juca, faceți click pe <a href=\"{{redirectionUrl}}\"> aici </a>!<br/> <br/> Arătați Conduita dvs. în Afaceri!"
+            },
+            "team": "Universitatea Pernod Ricard"
+        },
+        "quizz-auchan": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "rexel": {
+            "team": "Academia Rexel"
+        },
+        "renaultcare": {
+            "subject": {
+                "createdPassword": "Accesați Experiența clientului MOOC pe smartphone"
+            },
+            "passwordFooter": "&nbsp;",
+            "body": {
+                "createdPassword": {
+                    "top": "Tocmai v-ați creat parola pentru a accesa Experiența de Client MOOC de pe smartphone-ul dvs.",
+                    "bottom": "<br><br> Poți accesa acum MOOC făcând clic aici:"
+                }
+            },
+            "call2action": {
+                "createdPassword": "Începe instruirea"
+            }
+        },
+        "samsung": {
+            "team": "Echipa {{team}}",
+            "body": {
+                "signupValidation": "Ați primit o solicitare de înregistrare din partea lui {{firstName}} {{lastName}} (login: {{login}}). Informațiile sale de contact sunt următoarele: <ul><li>{{company}}</li> <li>{{role}}</li> <li>{{boutique}}</li> <li>{{postalCode}}</li></ul> Pentru a valida acest cont, vă rugăm să faceți clic pe următorul link: <a href=\"{{validateLink}}\"> {{validateLink}}</a> <br/> Dacă nu o cunoașteți pe această persoană, vă rugăm să faceți clic pe următorul link pentru a șterge aceste date: <a href=\"{{rejectLink}}\"> {{rejectLink}}</a>. <br/> Vă mulțumim mult!",
+                "signupComplete": "Contul tau este acum activ pe <a href=\"{{plateform}}\"> {{plateform}}</a> <br/> <br/> parola este: {{login}} <br/> (fi atent cu caractere majuscule şi minuscule) <br/> <br/> acum poti descoperi cele mai recente televizoare Samsung, cele mai recente inovaţii, şi cele mai bune de vânzare de puncte pentru a câştiga peste clienţii sau de a împărtăşi cu colegii din toată Franţa! <br><br>Au o vizită bună şi te văd în curând."
+            },
+            "subject": {
+                "signupValidation": "Validare pentru contul Academiei Samsung",
+                "signupComplete": "Validarea contului tău Academia Samsung"
+            },
+            "call2action": {
+                "signupComplete": "Accesați platforma"
+            }
+        },
+        "schneider": {
+            "welcome": "Bună ziua, {{name}}!",
+            "team": "Echipa MOOC",
+            "lastModuleDone": "A trecut o săptămână de când v-ați autentificat la un modul pe platforma Schneider IQ, nu renunțați!<br/> <br/> Dacă întâmpinați dificultăți, nu ezitați să contactați un instructor sau să întrebați comunitatea prin intermediul forumurilor de discuție.<br/> <br/> Puteți accesa platforma dând click pe următorul link: <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> Bucurați-vă de formare!",
+            "body": {
+                "personalHooks": {
+                    "generic_footer": "You are receiving Coorpacademy emails as you are a member on Schneider IQ.</br>CoorpAcademy uses your email only in correlation with Schneider IQ. If you do not want to receive these emails anymore, please Unsubscribe using the link below."
+                }
+            }
+        },
+        "seb": {
+            "team": "Grupul Universității SEB Echipa de Pregătire"
+        },
+        "societegenerale": {
+            "body": {
+                "certification_header": "Felicitări!Tocmai v-ați deblocat certificatul $t({{certification}}). Aceasta este dovada implicării dvs. în strategia de Transformare digitală a Grupului. Pentru a spori valoarea certificatului dvs., vă oferim:",
+                "certification_content_stars": "{{stars}} stele suplimentare<br/>",
+                "certification_content_diploma": "Accesează-ți diploma făcând clic <a target='_blank' href=\"$t({{diplomaLink}})\">aici</a>",
+                "certification_content_resource": "Un acces la $t({{rewardLabel}}), <a target='_blank' download href=\"$t({{resourceLink}})\">aici</a>",
+                "certification_content_end": "Împărtășiți-vă succesul, adăugând logoul dvs. în semnătura Outlook<br/><br/> Bucurați-vă de MOOC!<br/><br/> Puteți câștiga {{totalGoals}} certificate pe lângă cursul digital."
+            }
+        },
+        "securite": {
+            "team": "Echipa SI'Academy",
+            "body": {
+                "certification_header": "Suntem mândrii să vă acordăm $t({{certification}}), care vă recompensează cu:",
+                "certification_content_stars": "{{stars}} stele bonus <br/>",
+                "certification_content_diploma": "Accesul la certificarea dvs. $t({{certification}}) prin acest link <a target='_blank' href=\"$t({{diplomaLink}})\"> aici </a>",
+                "certification_content_resource": "Accesează-ți $t({{rewardLabel}})  insigna prin această legătură \n<a target='_blank' download href=\"$t({{resourceLink}})\">legătură  </a>",
+                "certification_content_end": "‌"
+            }
+        },
+        "sqy": {
+            "team": "Echipa SI'Academy",
+            "body": {
+                "certification_header": "Suntem mândri să vă acordăm $t({{certification}}), răsplătindu-vă cu:",
+                "certification_content_stars": "{{stars}} stele bonus<br/>",
+                "certification_content_diploma": "Accesul la $t({{certification}}) certificatul dvs. prin acest link <a target='_blank' href=\"$t({{diplomaLink}})\"> aici </a>",
+                "certification_content_resource": "Acces la insigna dvs. $t({{rewardLabel}}) prin acest link<a target='_blank' download href=\"$t({{resourceLink}})\">link</a>",
+                "certification_content_end": "Nu uitați să vă actualizați profilul SI'tizen, precum și semnătura de e-mail, pentru ca noua dvs. certificare să fie afișată"
+            }
+        },
+        "monoprix": {
+            "body": {
+                "signupSelfValidation": "Vă mulţumim pentru înregistrare pentru a îmbunătăţi ţi cunoştinţele de cultură digitale. Tu esti bine să plec. <br/> <br/> Parola este: {{login}} <br/> (Fi atent cu caractere majuscule şi minuscule) <br/> <br/> Vă rugăm să faceţi clic pe acest link pentru activarea contului: <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Dacă aveţi întrebări sau ar dori pentru a afla mai multe despre subiectele acoperite, vorbesc la reprezentanþa Monoprix sau contactati assistance@coorpacademy.com",
+                "signupComplete": "Vă mulţumim pentru înregistrare pentru a îmbunătăţi ţi cunoştinţele de cultură digitale. Tu esti bine să plec. <br/> <br/> Parola este: {{login}} <br/> (Fi atent cu caractere majuscule şi minuscule) <br/> <br/> Vă rugăm să faceţi clic pe acest link pentru activarea contului: <a href=\"{{plateform}}\"> {{plateform}}</a>. \n Dacă aveţi întrebări sau ar dori pentru a afla mai multe despre subiectele acoperite, vorbesc la reprezentanþa Monoprix sau contactati assistance@coorpacademy.com"
+            },
+            "subject": {
+                "signupSelfValidation": "Activează-ți contul Academiei Digitale",
+                "signupComplete": "Activaţi-vă contul pe l’Académie Digitale"
+            }
+        },
+        "redoute": {
+            "body": {
+                "signupSelfValidation": "Vă mulţumim pentru înregistrarea la Marijana La Redoute Learning Lab talent. Tu esti bine să plec! <br/> <br/> Parola este: {{login}} <br/> (Fi atent cu caractere majuscule şi minuscule) <br/> <br/> Vă rugăm să faceţi clic pe butonul 'Validează-ţi contul' pentru a activa contul.\n Dacă aveţi orice întrebări sau dacă doriţi să aflaţi mai multe despre subiectele acoperite, vorbesc cu reprezentantul dumneavoastră sau contactati-ne la: assistance@coorpacademy.com",
+                "signupComplete": "Vă mulţumesc, acum v-aţi înregistrat pe Marijana Learning Lab! <br/> <br/> Parola este: {{login}} <br/> Fii atent cu litere mari şi mici personaje <br/> <br/> scurt timp veţi primi un e-mail cu un link de activare."
+            },
+            "subject": {
+                "signupSelfValidation": "Activați-vă contul pe La Redoute Learning Lab",
+                "signupComplete": "Activează-ți contul pe Laboratorul de Învățare La Redoute"
+            }
+        },
+        "tagheuer": {
+            "body": {
+                "signupValidation": "A existat o nouă solicitare pentru TAG Heuer de instruire on-line: <ul><li>nume: {{lastName}}</li> <li>Prenume: {{firstName}}</li> <li>Login: {{login}}</li> <li>Firma: {{company}}</li> <li>magazin: {{boutique}}</li> <li>Tara: {{country}}</li> <li> Ambasador: {{ambassador}}</li></ul> vă rugăm să aprobe cererea făcând clic aici: <a href=\"{{validateLink}}\"> {{validateLink}}</a> <br/> <br/> refuza această cerere făcând clic aici: <a href=\"{{rejectLink}}\"> {{rejectLink}}</a> <br/>",
+                "signupComplete": "Contul dumneavoastră a fost validat! Acum puteţi începe Bucurându-se de platforma de formare TAG Heuer! <br/> <br/> Parola este: {{login}} <br/> (Fi atent cu caractere majuscule şi minuscule) <br/> <br/> Vizitaţi platforma de aici: <a href=\"{{plateform}}\"> {{plateform}}</a>",
+                "certification_content_end": "‌"
+            },
+            "subject": {
+                "signupValidation": "Solicitare nouă pentru instruirea TAG Heuer",
+                "signupComplete": "Inscripția ta către Laboratorul de Presiune TAG Heuer a fost validată."
+            },
+            "call2action": {
+                "signupComplete": "Vizitează platforma"
+            }
+        },
+        "tagheuercon": {
+            "body": {
+                "signupValidation": "A fost o nouă cerere pentru antrenament online TAG Heure: <ul>\n<li>{{lastName}}</li>\n<li>{{firstName}}</li>\n<li>{{login}}</li>\n<li>{{company}}</li> <li>{{boutique}}</li>\n<li>{{country}}</li>\n</ul> Te rugăm să aprobi cererea apăsând click aici:\n<a href=\"{{validateLink}}\">{{validateLink}}</a><br/><br/> \nRefuză această cerere apăsând click aici: <a href=\"{{rejectLink}}\">{{rejectLink}}</a><br/>",
+                "signupComplete": "Contul dumneavoastră a fost validat! Acum puteţi începe Bucurându-se de platforma de formare TAG Heuer! <br/> <br/> Parola este: {{login}} <br/> (Fi atent cu caractere majuscule şi minuscule) <br/> <br/> Vizitaţi platforma de aici: <a href=\"{{plateform}}\"> {{plateform}}</a>"
+            },
+            "subject": {
+                "signupValidation": "O nouă solicitare pentru MOOC",
+                "signupComplete": "Înscrierea ta pe Conectat TAG Heuer a fost validată"
+            },
+            "call2action": {
+                "signupComplete": "Vizitează platforma"
+            }
+        },
+        "thelem": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "up": {
+            "body": {
+                "battleWaitingOpponent": "Nu uita, {{opponentName}} v-a provocat la o „bătălie” pe nivelul $t({{level}}) al cursului $t({{disciplineName}}) și așteaptă cu nerăbdare să îi răspundeți!<br/> Pentru a accepta provocarea și a juca, faceți clic <a href=\"{{redirectionUrl}}\">aici.</a>!<br/> <br/> Fie ca cel mai bun să învingă!",
+                "coachUnlocked": "Felicitări! Ați devenit un profesor pentru cursul $t({{completedDiscipline}}), pentru care ați fost validat complet!<br/> <br/>Acum puteți să îi ajutați pe alții să învețe această temă, având în vedere că sunteți cel mai bun la acest subiect!<br/> E de-ajuns să răspundeți elevilor care doresc să discute pe chat cu dvs. Scopul pregătirii este să îi îndrumați către răspuns, nu să li-l dați de-a gata.<br/> <br/> Nu uitați că: „Performanța pe termen lung sau onorabilă este imposibilă fără solidaritate!” <br/><font size=\"2\"><i>(François Proust)</i></font><br/> <br/>",
+                "contentUpdated": "Noul curs tocmai a fost adăugat pe platformă!<br/>",
+                "contentUpdated_plural": "Noul cursul tocmai a fost adăugat pe platformă!<br/>",
+                "lastConnection": "Nu v-ați mai conectat la platforma {{label}} și ne lipsiți!<br/> <br/> Aveți cursuri de descoperit, note de îmbunătățit, oameni de provocat (prietenește)... Întoarceți-vă și reluați călătoria cunoașterii!<br/> <br/> Puteți accesa platforma făcând clic pe următorul link: <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> Pregătire plăcută!",
+                "lastModuleDone": "A trecut o săptămână de când v-ați conectat la un curs pe platforma {{label}}, nu renunțați!<br/> <br/> Dacă întâmpinați dificultăți, simțiți-vă liber să contactați un antrenor sau să întrebați comunitatea folosind forumurile de discuții.<br/> <br/> Puteți accesa platforma făcând clic pe următorul link: <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> Spor la antrenament!",
+                "sendBattle": "{{opponentName}} te provoacă la o \"luptă\" în cadrul cursului $t({{disciplineName}}) de nivel $t({{level}}) și așteaptă cu nerăbdare răspunsul tău!<br/> <br/> Pentru a accepta provocarea și a juca, apasă <a href=\"{{redirectionUrl}}\">aici</a>!<br/> <br/> Fie ca cel mai bun să câștige!"
+            }
+        },
+        "who": {
+            "subject": {
+                "signupValidation": "Valida acest cont",
+                "coachUnlocked": "Well done, you have completed the course {{completedDiscipline}}"
+            },
+            "body": {
+                "signupValidation": "Am primit o cerere de înregistrare la <b>{{firstName}} {{lastName}}</b> <br/> Login: <b>{{login}}</b> <br/> Tara: <b>{{country}}</b> <br/> stat: <b>{{region}}</b> <br/> Afiliere: <b>{{provider}}</b> <br/> experienţă de fundal: <b>{{role}}</b> <br/> cod de acces: <b>{{grade}}</b> <br/> <br/> pentru a valida acest cont, vă rugăm să faceţi clic pe următorul link: <a href=\"{{validateLink}}\"> {{validateLink}}</a> <br/>. <br/> Dacă nu ştiţi această persoană, daţi click pe următorul link pentru a elimina contul: <a href=\"{{rejectLink}}\"> {{rejectLink}}</a>. <br/> Formare fericit!",
+                "signupComplete": "Înregistrare pentru cine QualityRights de e-formare este acum completă. <br/> <br/> Înainte de a vă accesa trainingul, asiguraţi-vă că aţi terminat <a href=\"https://extranet.who.int/dataform/236824?lang=en\"> chestionar de pre-instruire</a>. <br/> <br/> <b>Sunt acum gata să înceapă!</b> <br><br/> Acces la platforma de e-formare la acest <a href=\"https://humanrights-etrain-qualityrights.coorpacademy.com/login\"> link</a>. Parola este: {{login}} (fi atent cu caractere majuscule şi minuscule). <br/> <br/> Pot accesa e-formare de pe orice dispozitiv de internet (smartphone, tabletă, laptop, desktop computer). E-formare poate fi rulat pe cele mai folosite browsere, de exemplu, Internet Explorer 11 şi versiunile superioare, precum şi pe cele mai recente versiuni de Chrome, Chrome Android, Firefox, Safari şi IEdge (sau versiunea imediat înainte de cea mai recentă). <br/> <br/> Sperăm că vă bucuraţi-vă de e-formare!",
+                "signupSelfValidation": "<br/> Vă mulţumesc pentru înscrierea la OMS QualityRights e-formare! Încă un pas înainte de a începe – vă rugăm să faceţi clic pe link-ul pentru a valida contul de mai jos. <br/> <br/> Parola este: {{login}} <br/> (Uita-te pentru majuscule şi lowercases) <br/> <br/> Bucuraţi-vă de antrenament!",
+                "battleWaitingOpponent": "Nu uitați, {{opponentName}} v-a provocat la cursa $t({{disciplineName}}) nivelul $t({{level}}) și așteaptă răspunsul dvs. !<br/> Pentru a accepta provocarea și a juca, faceți clic pe <a href=\"{{redirectionUrl}}\">aici</a>!<br/> <br/>Fie ca cea mai calificată persoană să câștige!",
+                "sendBattle": "{{opponentName}} te provoacă la disciplina $t({{disciplineName}}) de nivel $t({{level}}) și așteaptă cu nerăbdare răspunsul tău!<br/> <br/> Pentru a accepta provocarea și a juca, apasă <a href=\"{{redirectionUrl}}\">aici</a>! <br/> <br/> Fie ca cel mai bun student să câștige!",
+                "coachUnlocked": "Congratulations on completing \"How to play on the platform?\".  Now you are ready to start one of the modules of the e-training!",
+                "certification_header": "Felicitări! Au finalizat cu succes cursul de e-formare QualityRights \"Fundaţia în sănătate mintală, drepturile omului şi recuperare\", dezvoltate şi oferite de care Mental Health politica si dezvoltare de servicii.",
+                "certification_content_stars": "‌",
+                "certification_content_diploma": "Puteti descarca certificatul <a target='_blank' href=\"$t({{diplomaLink}})\"> aici</a>",
+                "certification_content_resource": "Vă rugăm să completaţi post evaluare <a href=\"https://extranet.who.int/dataform/772112?lang=en\"> chestionar</a>",
+                "certification_content_end": "Amintiţi-vă că revizitați e-formare în orice moment pentru a face cursul din nou, pentru a accesa materiale de instruire şi videoclipuri, şi să contribuie la discuţii. <br/> <br/> Sperăm că va plăcut e-formare!"
+            }
+        },
+        "yahoo": {
+            "welcome": "Bună ziua, {{name}}!",
+            "urlHowTo": "&nbsp;",
+            "happyTraining": "Mulţumesc!",
+            "team": "Echipa Yahoo și Coorpacademy",
+            "unsubscribetext": "Prea multe emailuri? Poți",
+            "body": {
+                "certification_header": "Felicitări pentru finalizarea modulului $t({{certification}}) pe academia de instruire digitală online Yahoo! Faci parte acum dintr-un grup de utilizatori de elită care au demonstrat cunoștințe excepționale despre $t({{certification}}). Ar trebui să te mândrești!\n\nDrept recompensă, îți oferim:",
+                "certification_content_resource": "Acces către insigna de $t({{certification}}), urmând acest <a href=\"{{certificationPage}}/\"> link </a>",
+                "certification_content_end": "Te încurajăm să îți afișezi insigna pe rețelele de socializare și pe site-urile de networking.\n\nDe ce să te oprești acum? Conectează-te din nou la academia de instruire digitală online Yahoo pentru a continua studiul.",
+                "coachUnlocked": "Felicitări! Acum sunteți un expert în disciplina $t({{completedDiscipline}})<br/> <br/> Dacă aveți întrebări referitoare la această disciplină sau la marketingul digital în general, vă rugăm să contactați <a href=\"mailto:info-yahoo@yahoo-inc.com\">info-yahoo@yahoo-inc.com</a>.<br/> <br/> Cu stimă, <br/>",
+                "signupValidation": "A fost o nouă cerere pentru MOOC: <br><ul>\n<li>{{firstName}}</li>\n<li>{{lastName}}</li>\n<li>{{email}}</li>\n<li>{{company}}</li>\n<li>{{jobTitle}}</li>\n</ul> <br> Te rugăm să aprobi cererea prin a apăsa click aici:<br>\n<a href=\"{{validateLink}}\">{{validateLink}}\n</a><br><br>Refuză cererea prin a apăsa click aici: <br>\n<a href=\"{{rejectLink}}\">}{{rejectLink}}</a>",
+                "signupSelfValidation": "Multumim pentru inregistrarea pentru a îmbunătăţi cunoştinţele de marketing digital. Tu esti bine să plec! <br/> <br/> Parola este: {{login}} <br/> (Fi atent cu caractere majuscule şi minuscule) <br/> <br/> Vă rugăm să faceţi clic pe acest link pentru activarea contului: <br><a href=\"{{validateLink}}\"> {{validateLink}}</a> <br><br>pentru a face sign in, introduceți adresa profesională e-mail şi parola. <br> Dacă aveţi întrebări sau ar dori pentru a afla mai multe despre subiectele acoperite, vorbesc la Yahoo reprezentant sau contact <br><a href=\"info-yahoo@yahoo-inc.com\"> info-yahoo@yahoo-inc.com</a>",
+                "signupComplete": "Vă mulţumim pentru interesul dumneavoastră în îmbunătăţirea cunoştinţele dumneavoastră de marketing digital. A fost aprobată cererea dvs. <br/> <br/> Parola este: {{login}} <br/> (Fi atent cu caractere majuscule şi minuscule) <br/> <br/> Pentru a vizita platforma, click aici <br><a href=\"{{plateform}}\"> {{plateform}}</a> <br><br>pentru a face sign in, introduceți adresa profesională e-mail şi parola. <br> <br>Dacă aveţi întrebări sau doriţi ca pentru a afla mai multe despre subiectele acoperite, vorbesc la reprezentanþa Yahoo sau <br><a href=\"mailto:info-yahoo@yahoo-inc.com\"> info-yahoo@yahoo-inc.com</a> de contact"
+            },
+            "subject": {
+                "coachUnlocked": "Felicitări, acum sunteți un profesionist în disciplina $t({{completedDiscipline}})",
+                "signupValidation": "O nouă cerere de  la un utilizator pe Yahoo digital",
+                "signupSelfValidation": "Activează-ți contul pe Yahoo Digital Marketing",
+                "signupComplete": "Înscrierea dumneavoastră la Yahoo Digital Marketing Academy a fost validată."
+            },
+            "call2action": {
+                "signupValidation": "Validați acest cont",
+                "signupSelfValidation": "Validați-vă Contul",
+                "signupComplete": "Vizitați platforma"
+            }
+        },
+        "zenithcommunity": {
+            "body": {
+                "signupValidation": "There has been a new request for Zenith online training: <ul>\n    <li>Last name: {{lastName}}</li>\n    <li>First name: {{firstName}}</li>\n    <li>Login: {{login}}</li>\n    <li>Point of Sale Business Unit: {{provider}}</li>\n    <li>Point of Sale Name: {{company}}</li>\n    <li>Country: {{country}}</li>\n <li>City: {{city}}</li>\n <li>Job Title: {{jobTitle}}</li>\n <li>Grade (how long...): {{grade}}</li>\n</ul> Please approve the request by clicking here: <a href=\"{{validateLink}}\">{{validateLink}}</a><br/><br/> Decline this request by clicking here: <a href=\"{{rejectLink}}\">{{rejectLink}}</a><br/>"
+            }
+        }
+    }
+}

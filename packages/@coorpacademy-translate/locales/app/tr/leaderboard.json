@@ -1,0 +1,31 @@
+{
+    "rankPos": "&nbsp;",
+    "rankPos_plural": "&nbsp;",
+    "title": "Derecem",
+    "title_caps": "Derecem",
+    "subtitle_head": "TOP 20'deki konumuza göz atın.",
+    "subtitle_core_pre": "Derecem:",
+    "subtitle_core_post": "arasındasınız!",
+    "subtitle_tail": "Skorunu yükseltmek için ivmeyi koru",
+    "subtitle_no_rank": "Sıralamada yukarı çıkmak için daha fazla modul tamamlayın.",
+    "custom": {
+        "bnp": {
+            "subtitle_head": "Konumunuzu top 20 yıldız Factiors ile ilgili olarak görüntüleyin."
+        },
+        "gdf": {
+            "subtitle_tail": "Sezon 1'in sonunda, genel sıralamada ilk 20 çalışan, sonraki WeTransform sezonuna içerik konusu seçmek için editör komitesine çağrılacak."
+        },
+        "gdfec": {
+            "subtitle_tail": "Bir dahaki BizDönüştürürüz sezonu için içerik konusunu seçmek için genel sıralamada ilk 20’de olan çalışanlar Sezon 1’in sonunda editör komitesine davet edilecek."
+        },
+        "up": {
+            "subtitle_no_rank": "Sıralamada yukarı çıkmak için daha fazla seviye tamamlayın."
+        },
+        "yahoo": {
+            "subtitle_tail": "&nbsp;"
+        },
+        "linxea": {
+            "subtitle_head": "Konumunuzu top 20 yıldız gelirliler ile ilgili olarak görüntüleyin."
+        }
+    }
+}

@@ -1,0 +1,107 @@
+{
+    "indice": {
+        "title": "Cần giúp đỡ?",
+        "sub_title": "Trao đổi một ngôi sao cho một gợi ý!",
+        "content": "Lấy manh mối"
+    },
+    "lesson": {
+        "title": "Tìm đáp án ở đây!",
+        "sub_title": "Hãy lướt qua khoá học và tích luỹ thêm 4 sao!",
+        "resources": "Để đi tiếp",
+        "title_video": "Video của khoá học",
+        "title_pdf": "PDF của khóa học",
+        "look_at_the_course": "Nhìn vào khóa học"
+    },
+    "without_coach": {
+        "title": "Không có người huấn luyện nào"
+    },
+    "with_coach": {
+        "title": "Bắt đầu một thảo luận",
+        "content": "{{nb}} (các) giảng viên có sẵn"
+    },
+    "is_valid": {
+        "state": "<span class=\"label1\">Câu trả lời</span> <span class=\"label2\">tốt</span>",
+        "title": "Xin chúc mừng!",
+        "correctAnswer": "Câu trả lời hay:"
+    },
+    "is_invalid": {
+        "state": "<span class=\"label1\">Đáp án</span> <span class=\"label2\">sai</span>",
+        "title": "Ôi...",
+        "goodAnswer": "Đáp án đúng là:"
+    },
+    "signup_finish_chapter": "Đăng ký để hoàn thành chương này",
+    "available_shots_pre": "Bạn vẫn còn",
+    "available_shots": "còn lại {{count}} cơ hội",
+    "available_shots_plural": "còn lại {{count}} cơ hội",
+    "available_shots_post": "&nbsp;",
+    "klf": "Bạn có biết điều đó không?",
+    "to_know": "Điểm chính",
+    "footer": {
+        "lesson": {
+            "title": "Bạn có thể quyết định xem lại bài học",
+            "button": "Truy cập bài học"
+        },
+        "result": {
+            "title": "Bạn có thể quay lại kết quả của mình",
+            "button": "Quay về kết quả"
+        },
+        "next_question": "Tiếp theo"
+    },
+    "check_answer": "Kiểm tra đáp án",
+    "adaptive_check_answer": "Tiếp theo",
+    "next_question": "Câu hỏi tiếp theo",
+    "next_level": "Cấp độ tiếp theo",
+    "author": "Chương này được làm bởi:",
+    "button_tree": "Đi tới danh mục",
+    "comments": {
+        "title": "Thảo luận",
+        "title_for_module": "Thảo luận - Trình độ {{name}}"
+    },
+    "slideNotFound": "Không tìm thấy câu hỏi nào có tham chiếu {{slideId}}",
+    "forbidden": "Bạn không có quyền truy cập nội dung với tham chiếu {{contentRef}}.",
+    "showContext": "Truy cập lại bối cảnh",
+    "context": "Ngữ cảnh",
+    "custom": {
+        "hr-ac": {
+            "footer": {
+                "lesson": {
+                    "button": "Truy cập tài liệu"
+                }
+            }
+        },
+        "nespresso": {
+            "without_coach": {
+                "title": "Không có chuyên gia nào"
+            },
+            "with_coach": {
+                "content": "{{nb}} chuyên gia có sẵn"
+            }
+        },
+        "renaultcare": {
+            "is_valid": {
+                "state": "<span class=\"label1\">Hoan hô</span>"
+            },
+            "is_invalid": {
+                "state": "<span class=\"label1\">Không thực sự</span>",
+                "title": "Ôi..."
+            }
+        },
+        "schneider": {
+            "comments": {
+                "title_for_module": "Thảo luận - {{name}} cấp <br/> xin vui lòng liên hệ với <a href=\"http://2929it.schneider-electric.com/\" target=\"_blank\"> 2929 hỗ trợ</a> cho bất kỳ vấn đề video"
+            }
+        },
+        "who": {
+            "is_valid": {
+                "state": "<span class=\"label1\">Đáp án</span> <span class=\"label2\">đúng</span>\n",
+                "correctAnswer": "Đáp án đúng:"
+            },
+            "to_know": "Để hiểu",
+            "lesson": {
+                "resources": "Đi sâu vào chủ đề",
+                "look_at_the_course": "PDF của khóa học"
+            },
+            "showContext": "Truy cập ngữ cảnh lần nữa"
+        }
+    }
+}

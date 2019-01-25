@@ -1,0 +1,550 @@
+{
+    "welcome": "嗨!{{name}}!",
+    "team": "{{team}} 團隊",
+    "passwordFooter": "<br> <br> 連接資訊: <br> IP 位址: {{ip}} <br>-作業系統: {{os}} <br>-瀏覽器: {{browser}} <br> <br> <b> 不是你嗎？ </b>現在應該修改您的 <a href=\"{{passwordReset}}\"> 密碼 </a>。",
+    "unsubscribe": "取消訂閱",
+    "personalHooks_timeReferenceObjects": {
+        "510min": "紐約到巴黎的航班",
+        "420min": "《權力遊戲》全季",
+        "360min": "環法自行車賽",
+        "120min": "《暮光之城》電影系列",
+        "100min": "功夫電影",
+        "90min": "足球比賽",
+        "60min": "會議",
+        "25min": "你最愛的電視節目"
+    },
+    "body": {
+        "accountCode": "欲驗證您的{{label}}帳戶，請至下面地址並輸入本代碼：<strong>{{code}}</strong>。",
+        "battleWaitingOpponent": "別忘了，{{opponentName}}已挑戰您來一場$t({{disciplineName}})課程$t({{level}})級別的「戰鬥」，並且正在等待您的回應！<br/>欲接受挑戰並開始暢玩，請點擊<a href=\"{{redirectionUrl}}\">這裡</a>！<br/><br/>祝最棒的人獲勝！",
+        "coachUnlocked": "祝賀！你已經成為教練的紀律 \"$t ({{completedDiscipline}})\", 你已經完全驗證! <br/><br/> 您現在可以説明其他人學習這個主題, 因為您已成為不可戰勝的主題! <br/>只需記住 <b> 在您的設置中打開即時通知 </b>, 只需對呼叫您進行聊天的學習者作出回應—-其目的是引導他們走向答案, 而不僅僅是給他們. <br/><br/> 不要忘記, “沒有團結的長期或光榮的表現!” <br/><font size=\"2\"> <i> (普魯斯特) </i> </font> <br/><br/>",
+        "contentUpdated": "新課程剛被添加到平台上！<br/>",
+        "contentUpdatedEnd": "馬上開始：就在<a href=\"{{redirectionUrl}}\">這裡</a>！<br/> <br/> 祝你受訓愉快！",
+        "contentUpdated_plural": "新的學科剛被加進平台了！<br/>",
+        "contentUpdatedEnd_plural": "請到 {{label}} 平台開始！就在 <a href=\"{{redirectionUrl}}\"> 這裡。</a> <br/> <br/> 訓練愉快！",
+        "lastAnsweredQuestion": "我們注意到你已一週尚未應答任何問題。<br/> <br/>如果你有遭逢任何困難，請隨時聯繫導師。",
+        "lastConnection": "你有一陣子沒有登入 {{label}} 平台而我們想念你！<br/> <br/> 你仍有模組等待你發現，分數等待你進步，其他人等待你挑戰（以友善的方式）... 回來並繼續你的學習之旅！<br/> <br/> 點以下連結來進入平台：<a href=\"{{redirectionUrl}}\"> {{redirectionUrl}}  </a> <br/>  <br/> 訓練愉快！",
+        "lastModuleDone": "自從您上回登入{{label}}平台上的模組，至今已有一週了，別放棄！<br/> <br/>您若遭遇到困難，請隨時與教練聯絡，或經由討論論壇向社群發問。<br/> <br/>您可以藉點選下列連結而取用本平台：<a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> 祝訓練愉快！",
+        "passwordReset": "我們已收到您帳戶的密碼恢復請求。<br/> <br/>作為提醒，您的登錄名為：{{login}} <br/>（小心大寫和小寫字符）<br/> < br />您可以通過點擊以下鏈接重置密碼：<a href=\"{{resetLink}}\"> {{resetLink}} </a>。<br/>請注意，此鏈接 僅適用於{{ttl}}小時，因此請勿等太久才能點擊鏈接！<br/> <br/>如果您沒有提出此請求，請忽略此電子郵件。<br/> <br/>歡樂訓練！",
+        "personalHooks": {
+            "trendingCourse": "<p><b>{{courseName}} </b>課程在 {{platform}} 很受歡迎！超過 {{activeUsersOnCourse}} 人在上這門課。</p><p>還在等什麼？</p>",
+            "recommendedCourse": "<p>根據你在 {{platform}} 的活動， 我們想推薦幾個課程給你。</p><p>我們的首選 <b>{{courseName}}</b> 非常適合你！試試看吧！</p>",
+            "onboarding": "<p>你已成功連接到 <b>{{platform}}</b>。很高興你想充實自己！</p><p>你快可做到了！ 只需選擇一個您喜歡的主題，或者按照我們的推薦選擇，就可以開始學習，或者在戰鬥中挑戰您的同事！</p>",
+            "finishCourse": "<p>你距離充實自己又進一步！你已經成功在 {{platform}} 開始了 <b>{{courseName}}</b>。</p><p>馬上完成課程！完成關卡獲得額外的星星，將進度條填滿 100％。</p>",
+            "doBattle": "<p>我們身邊總有個同事吹噓自己什麼都懂。<br>在 {{platform}} 讓他們自打嘴巴！</p><p>在<b>戰鬥</b>中挑戰他們。選擇一個你喜歡的題目並擊敗他們，取得星星，提升排名，明天午飯時讓他們難堪一下。</p>",
+            "doBattleOnCourse": "<p>你已經完全了解 <b>{{courseName}} </b>了。</p><p>同事之中，誰有膽量在這題目挑戰你？沒有人⋯⋯？</p><p>在 {{platform}} 戰鬥模式主動挑戰他們吧！</p>",
+            "othersProgress": "<p>您的同事最近在 {{platform}} 上非常活躍！</p><p>上個月有好多事情發生：<ul><li><span style=\"font-weight: bold;color:{{primaryColor}}\"> {{connectedUsers}} 人</span>連接了</li><li>答了<span style=\"font-weight: bold;color:{{primaryColor}}\">{{answeredQuestions}} 條問題</span></li><li>瀏覽了<span style=\"font-weight: bold;color:{{primaryColor}}\">{{viewedLessons}} 門課程</span></li><li>⋯⋯即是合共學習了 {{numberTimes}} {{timeReferenceObject}} 小時！</li></ul></p><p>不要落伍！</p>",
+            "weMissYou": "<p>有一段時間沒有在 <b>{{platform}}</b> 見到您了。期間平台添加了全新內容和新功能。 回來再發掘更多吧！</p>",
+            "weMissYou_footer": "我們非常感謝及期待您的反饋。 不論正面負面，請<a href=\"mailto:assistance@coorpacademy.com\">告訴我們</a>您的經歷，讓我們能從中學習！",
+            "generic_footer": "‌"
+        },
+        "sendBattle": "{{opponentName}} 想要與你挑戰 $t({{disciplineName}}) 學科 $t({{level}}) 級別，並正熱切地等待著你的回應! <br/> <br/> 要接受挑戰加入戰鬥，按 <a href=\"{{redirectionUrl}}\"> 這裡 </a>！<br/> <br/> 祝最優秀的學習者贏！",
+        "signupSelfValidation": "感謝您註冊！ 最後一步開始：請點擊<a href=\"{{validateLink}}\">以下鏈接</a>激活您的帳戶。<br/><br/>您的登錄名是：{{login}} <br/>（小心大寫和小寫字符）<br/> <br/>享受你的訓練！",
+        "signupValidation": "我們收到了註冊請求 {{firstName}} {{lastName}} (登錄 : {{login}} 電子郵件 : {{email}}) <br/>要驗證此帳戶，請點擊以下鏈接： <a href =“{{validateLink}}”>{{validateLink}}</a> <br/>。<br/>如果你不知道這個人，請點擊以下鏈接刪除帳戶：<a href =“{{rejectLink}}”>{{rejectLink}}</a>。<br/>歡樂訓練！",
+        "signupComplete": "您的帳戶現已驗證！<br/><br/>您的登錄名為：{{login}} <br/>（小心大寫和小寫字符）<br/> <br/>點擊下面的按鈕 登錄並開始學習！",
+        "commentReply": "{{replierName}} 剛回應了你在 {{label}} 的貼文： <p>{{originalCommentContent}}</p> --- <p>{{newCommentContent}}</p> 點擊此 <a href=\"{{newCommentLink}}\">連結</a>來顯示討論串並繼續。很快再見！",
+        "certification_header": "我們很驕傲的給予您 $t({{certification}}) 證書。為了獎勵您的努力，我們將提供您:",
+        "certification_content_stars": "額外的{{stars}}顆星！<br/>",
+        "certification_content_diploma": "您可以在 <a target='_blank' href=\"$t({{diplomaLink}})\"> 這裡 </a> 顯示您的證書",
+        "certification_content_resource": "進入目標請點此連 $t({{rewardLabel}}) <a target='_blank' download href=\"$t({{resourceLink}})\">結</a>",
+        "certification_content_end": "並且不要忘記使用這個新的認證來更新你的履歷與專業簡介。",
+        "assistance": {
+            "object": "目標：{{object}}",
+            "message": "{{message}}",
+            "displayName": "顯示名稱：{{displayName}}",
+            "email": "電子郵件：{{email}}",
+            "url": "網址：<a href=\"{{url}}\">{{url}}</a>",
+            "discipline": "學科：{{discipline}}",
+            "module": "模組：{{module}}",
+            "chapter": "章節：{{chapter}}",
+            "slideRef": "投影文獻: {{slideRef}}"
+        },
+        "createdPassword": {
+            "top": "祝賀!<br> <br> 您剛剛創建了一個連結到您的 {{label}} 帳戶的密碼. <br><br> 現在可以使用您的登錄名和新密碼登錄到平臺。<br> 提醒, 您的登錄是: <b> {{login}} </b> (區分大小寫)。<br>",
+            "bottom": "<br>學習的時間到了！"
+        },
+        "updatedPassword": {
+            "top": "祝賀!<br> 您已成功更新了您的 {{label}} 帳戶的密碼。<br> <br> 現在, 您可以使用新密碼和常用登錄名登錄到平臺. <br>提醒, 您的登錄名為: <b> {{login}} </b> (區分大小寫)。<br>",
+            "bottom": "<br>學習時間到了！"
+        }
+    },
+    "subject": {
+        "accountCode": "請確認你的 CoorpAcademy 帳戶。",
+        "battleWaitingOpponent": "{{opponentName}} 正在等待你",
+        "coachUnlocked": "做得好，你已經成為一名教練",
+        "contentUpdated": "{{label}} 平台上有什麼新發現",
+        "lastAnsweredQuestion": "{{name}}、你已停止參與",
+        "lastConnection": "繼續在{{label}}平台取得進展",
+        "lastModuleDone": "繼續你在 {{label}} 平台的進展",
+        "passwordReset": "重置您的密碼",
+        "personalHooks": {
+            "trendingCourse": "看看最受歡迎的課程",
+            "recommendedCourse": "推薦課程：我們的首選",
+            "onboarding": "如何在 {{platform}} 上提高您的技能？",
+            "finishCourse": "你一定可以完成 {{courseName}} 的",
+            "doBattle": "在 {{platform}} 挑戰你的同事！",
+            "doBattleOnCourse": "挑戰上一個課程！",
+            "othersProgress": "及時了解 {{platform}} 上的活動",
+            "weMissYou": "好久不見！"
+        },
+        "sendBattle": "{{opponentName}} 正在挑戰您",
+        "test": "{{name}}，您沒有再玩了",
+        "signupSelfValidation": "激活你的帳號",
+        "signupValidation": "驗證你的帳戶",
+        "signupComplete": "Your account has been validated!",
+        "commentReply": "{{replierName}}回覆了您的評論",
+        "certification": "{{name}}，恭喜，您已贏得了$t({{certification}})認證",
+        "assistance": "[{{brand}}] {{object}}",
+        "createdPassword": "登錄/密碼連接到 {{label}}",
+        "updatedPassword": "登錄/密碼連接到 {{label}}"
+    },
+    "call2action": {
+        "coachUnlocked": "前往此網站",
+        "sendBattle": "接受挑戰",
+        "battleWaitingOpponent": "接受本挑戰",
+        "commentReply": "跟進討論",
+        "passwordReset": "重新設定密碼",
+        "personalHooks": {
+            "trendingCourse": "像他們一樣學習",
+            "recommendedCourse": "馬上開始學習",
+            "onboarding": "享受學習！",
+            "finishCourse": "完成這門課程",
+            "doBattle": "挑戰同事",
+            "doBattleOnCourse": "衝鋒陷陣！",
+            "othersProgress": "加入學習",
+            "weMissYou": "看看新東西"
+        },
+        "contentUpdated": "前往網站",
+        "lastConnection": "拜訪網站",
+        "lastModuleDone": "前往這個網站",
+        "lastAnsweredQuestion": "前往這個網站",
+        "accountCode": "前往網站",
+        "signupValidation": "驗證此帳戶",
+        "certificationDone": "前往網站",
+        "signupSelfValidation": "驗證你的帳戶",
+        "signupComplete": "拜訪平台",
+        "assistance": "前往這一頁",
+        "createdPassword": "開始訓練",
+        "updatedPassword": "開始訓練"
+    },
+    "custom": {
+        "7steps": {
+            "team": "‌",
+            "body": {
+                "signupSelfValidation": "感謝您加入我們的社區選定的零售人才！<br/> <br/>發現SRA 7銷售步驟MOOC並得到服務專業知識的最終認證！<br/><br/>您的登錄名是：{{login}}<br/>（小心大寫和小寫字符）<br/> <br/>點擊下面的鏈接激活你的帳號。<br/><br/>你錯誤地收到這封電子郵件，簡單地 刪除它。 如果您沒有點擊下面的確認鏈接，您的帳戶將不被激活。 有關此SRA MOOC的問題，請聯繫：<a href=\"mailto:serviceretailacademy@loreal.com\">serviceretailacademy@loreal.com</a>"
+            },
+            "call2action": {
+                "signupSelfValidation": "確認"
+            },
+            "subject": {
+                "signupSelfValidation": "SRA MOOC：請確認你的帳戶"
+            }
+        },
+        "achat-habitat": {
+            "team": "查特棲息地團隊",
+            "body": {
+                "signupSelfValidation": "感謝您在Achat Habitat註冊！ 最後一步開始：請點擊以下鏈接激活您的帳戶：<br> <a href=\"{{validateLink}}\"> {{validateLink}} </a> <br> <br>您的登錄名是： {{login}} <br/>（小心大寫和小寫字符）<br/> <br/>內容將在4月5日之後提供，你將收到一封包含所有實際信息的郵件，指導你 學習考察。 <br> <br>有關您的訪問/ Achat Habitat的工作方式的任何問題，您可以聯繫<a href=\"mailto:assistance@coorpacademy.com\"> assistance@coorpacademy.com </a>。 <br>享受你的訓練！"
+            },
+            "subject": {
+                "signupSelfValidation": "Achat Habitat 帳戶啟動"
+            }
+        },
+        "air": {
+            "body": {
+                "coachUnlocked": "恭喜！你已成功完成科目 $t({{completedDiscipline}}) 並達到導師層級！<br/><br/> 現在你可以當其他探索者的推薦人，並分享自己得到的知識。<br/><br/> 當其他探索者尋求幫助時，請引導他／他正確答案的方向，但不要直接給出答案。<br/><br/> 感謝你的參與，下一個營地見！<br/><br/> 線上，"
+            },
+            "subject": {
+                "coachUnlocked": "液空數碼考察 - 你現在是一名教練！"
+            }
+        },
+        "bigdata": {
+            "team": "SI'Academy 團隊",
+            "body": {
+                "certification_header": "我們很榮幸的頒給你 $t({{certification}})，用以下來獎勵你：",
+                "certification_content_stars": "{{stars}}獎勵星星<br/>",
+                "certification_content_diploma": "由此連結 <a target='_blank' href=\"$t({{diplomaLink}})\">here</a> 進入你的證書 $t({{certification}})",
+                "certification_content_resource": "透過這個連結 <a target='_blank' download href=\"$t({{resourceLink}})\"> 連結 </a> 使用你的 $t({{rewardLabel}}) 徽章",
+                "certification_content_end": "不要忘了更新你的公民基本資料，以及你的電子郵件簽名，來顯示你的新證照。"
+            }
+        },
+        "capgemini": {
+            "welcome": "親愛的 {{name}},",
+            "body": {
+                "certification_header": "你 COOCs 了 $t ({{certification}}) 所需的一切。祝賀！<br> 非常感謝您, 很快就會在 COOC 平臺上看到您!",
+                "certification_content_stars": "",
+                "certification_content_resource": "In order to support us to further improve the VP DigiCertif’ experience, we would be grateful if you could share your feedback through this link:<br>VP please click <a href=\"https://www.surveygizmo.com/s3/4299114/VP-COOC-platform\">HERE</a>",
+                "certification_content_end": "問候"
+            }
+        },
+        "challenge48htechno": {
+            "body": {
+                "signupSelfValidation": "感謝您在48小時技術註冊！ 最後一步開始：請點擊以下鏈接激活您的帳戶：<br> <a href=\"{{validateLink}}\"> {{validateLink}} </a> <br> <br>您的登錄名是： {{login}} <br/>（小心大寫和小寫字符）<br/> <br/>對於有關您的訪問/ 48h Techno的工作的任何問題，您可以聯繫到 <a href=“mailto:assistance@coorpacademy.com“> assistance@coorpacademy.com</a>。 <br>享受你的訓練！"
+            },
+            "subject": {
+                "signupSelfValidation": "48h Techno 帳戶啟用"
+            }
+        },
+        "chanel": {
+            "body": {
+                "certification_content_end": "而且別忘了：您可以無限期的回到平台上來溫習您的知識、觀看課程和影片，當然還有挑戰您的同輩！"
+            }
+        },
+        "cnp": {
+            "body": {
+                "certification_header": "我們很榮幸地向您授予 $t ({{certification}}) 證書。為了獎勵您的努力, 我們為您提供:"
+            }
+        },
+        "crisis": {
+            "team": "保樂力加 (Pernod Ricard ) 大學"
+        },
+        "corporateonlineopencourse": {
+            "body": {
+                "battleWaitingOpponent": "不要忘了，{{opponentName}}已經挑戰你在$ t（{{disciplineName}}）課程$ t（{{level}}）級別上的“戰鬥”，並等待著你的回應！<br/>要接受挑戰並播放，請點擊<a href=\"https://idp.renault.com/nidp/saml2/idpsend?id=campus\">此處</a>！<br/><br/>可能 最好的人贏！",
+                "sendBattle": "{{opponentName}}正在挑戰你在$ t（{{disciplineName}}）學科，$ t（{{level}}）級別的“戰鬥”，並熱切地等待著你的回應！<br/> <br/>要接受挑戰並播放，請點擊<a href=\"https://idp.renault.com/nidp/saml2/idpsend?id=campus\">此處</a>!<br/> <br/>可能 最好的學習者贏！",
+                "createdPassword": {
+                    "top": "你好！ 恭喜！<br>您剛剛配置了多設備密碼。<br>所以，如果您願意，只需使用智能手機或平板電腦點擊下面的鏈接，並與新配置建立與MOOC BRAND AMBASSADOR的連接 多設備密碼https://corporateonlineopencourse.coorpacademy.com/login <br> <br>提示：連接後，為什麼不在智能手機上創建鏈接以便進一步輕鬆訪問;-) <br>請注意：通過校園連接 仍然可用，沒有任何特定的密碼。 多設備訪問只是一個選項。",
+                    "bottom": "<br>現在是學習的時候了！"
+                }
+            }
+        },
+        "cofpart-learning": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "digitalls2e": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "faurecia": {
+            "body": {
+                "coachUnlocked": "恭喜！您現在有資格擔任$t({{completedDiscipline}})課程的教練了。<br/><br/>您在這個課程上已變得無人能敵，所以您現在可以幫助他人的學習之旅。<br/><br/>請分享您的知識並且回答在學習實驗室中請求聊天的 Faurecians。<br/><br/>不過請記得，您的目的是引導他們走向答案，而不僅是給予他們答案而已。<br/><br/>別忘了，「教學的力量是透徹知識的獨特標記」<br/><font size=\"2\"><i>（亞里斯多德）</i></font><br/><br/>",
+                "certification_header": "祝賀您獲得$ t（{{certification}}）認證！<br/>為了認識到這一成就，我們為你提供：",
+                "certification_content_stars": "佛羅倫薩大學附加{{stars}}星級點 <b>學習實驗室</b> <br/>",
+                "certification_content_diploma": "您可以按照<a target='_blank' href=\"$t({{diplomaLink}})\">鏈接</a>下載和打印證書",
+                "certification_content_resource": "遵循此<a target='_blank'\" download href=\"$t ({{resourceLink}})\">鏈接</a>，您將獲得特殊獎勵",
+                "certification_content_end": "並考慮將這個新的認證添加到您的社交個人資料！"
+            }
+        },
+        "fdj": {
+            "body": {
+                "certification_content_end": "And do not forget to continue your learning journey by testing yourself on the Digilearn application from your mobile.<br/>You do not have the app yet? Go to the apple store or google store and then activate your notifications!"
+            }
+        },
+        "ecolenumerique-sncf": {
+            "body": {
+                "certification_header": "恭喜您獲得 $t ({{certification}}) 徽章! <br/>為了表彰這一成就, 我們為您提供:",
+                "certification_content_stars": "附加的 {{stars}} 星點 <br/>",
+                "certification_content_resource": "A special reward you will get by following this <a target='_blank' download href=\"$t({{resourceLink}})\">link</a>",
+                "certification_content_end": "考慮一下把這個新的絕地徽章加入你的社會形象!"
+            }
+        },
+        "el": {
+            "body": {
+                "certification_content_end": ""
+            }
+        },
+        "ganprevoyance": {
+            "body": {
+                "certification_header": "恭喜你驗證宇宙 $t ({{certification}})! <br/>為了表彰這一成就, 我們為您提供:",
+                "certification_content_stars": "附加的 {{stars}} 星點 <br/>",
+                "certification_content_resource": "A special reward you will get by following this <a target='_blank' download href=\"$t({{resourceLink}})\">link</a>",
+                "certification_content_end": "並考慮將這個新的宇宙添加到你的社會形象中!"
+            }
+        },
+        "gdf": {
+            "urlHowTo": "* 只要在你桌面上的 WeTransform 圖示上快速按兩下來複製/貼上這個連結到位址欄",
+            "body": {
+                "battleWaitingOpponent": "別忘了，{{opponentName}}在$t({{disciplineName}})課程$t({{level}}) 等級向您下「戰書」，正迫不及待等待您的答覆！<br/>欲接受挑戰開始玩，請按這裡*:<br/><br/><a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/><br/>願最厲害的人贏！<br/>$t(email:urlHowTo)",
+                "coachUnlocked": "恭喜！你成為$t({{completedDiscipline}})學科的教練，你已經完全獲得本學科認可！<br/> <br/>因為你已經充分掌握本學科，所以你現在可以幫助其他學員！只要以下列訊息回覆跟你聯絡的管理員即可：目標是引導學員找到答案，而非直接告訴學員答案。如果你不希望有人聯絡你，你可以經由 WeTransform<br/> <br/> <br/> 畫面右上方的目錄，取消本選項。祝你一切順利。",
+                "passwordReset": "您告訴我們您忘記您的密碼了。點擊以下連結以重置之*：<br/> <br/> <a href=\"{{resetLink}}\">{{resetLink}}</a><br/> <br/>請注意，本連結僅在{{ttl}}小時內有效，不要等太久才點擊連結！<br/> <br/>最誠摯的問候<br/>$t(email:urlHowTo)",
+                "sendBattle": "{{opponentName}}想在單元$t({{disciplineName}})學科$t({{level}})級別上與您戰鬥！<br/><br/>欲接受挑戰並開始暢玩，請點擊這裡*：<br/> <br/> <a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/> <br/>祝最棒的人獲勝！<br/>$t(email:urlHowTo)"
+            }
+        },
+        "gdfec": {
+            "urlHowTo": "* 只要點擊你桌面上的WeTransform圖標兩下，並複製此網址到位址列",
+            "body": {
+                "battleWaitingOpponent": "別忘了，{{opponentName}} 已於 ({{disciplineName}}) 課程 $t({{level}}) 級中挑戰與你「對決」並正迫切等待你的回覆！<br/> 如要接受挑戰並開始，點擊這裡*：<br/><br/><a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/><br/> 願最佳選手獲勝！<br/> $t（郵件：url 教學）",
+                "coachUnlocked": "恭喜！您已完全驗證$t({{completedDiscipline}})學科並且成為其教練！<br/><br/>由於您在這個學科上已變得無人能敵，您現在可以幫助其他學習者了！只要回覆給通過聊天與您聯繫的管理員即可：教練的目的是引導他們走向答案，而不是單純給予他們答案而已。如果您不想要被聯繫，可以從您在 WeTransform 螢幕右上方的選單中停用本選項。<br/> <br/> <br/>最誠摯的問候，",
+                "passwordReset": "你已通知我們忘了密碼。重設密碼請按以下連結 *:<br/> <br/> <a href=\"{{resetLink}}\">{{resetLink}}</a><br/> <br/> 請注意，本連結僅在 {{ttl}} 小時內有效，請勿過了太久才按！<br/> <br/> 謹此，<br/> $t(email:urlHowTo)",
+                "sendBattle": "{{opponentName}}想與您做單元$t({{disciplineName}})學科$t({{level}})級別的戰鬥！<br/><br/>欲接受挑戰並開始暢玩，請點擊這裡：<br/><br/><a href=\"{{redirectionUrl}}\">{{redirectionUrl}}</a><br/><br/>祝最棒的人獲勝！<br/>$t(email:urlHowTo)",
+                "certification_content_end": "如果您剛剛完成“可租賃”課程，請按照<a target='_blank“下載href=\"https://www.getfeedback.com/r/bjNmfx11\">此鏈接</a>，以更好地準備我們的下一個研討會 並分享您的最佳做法。 （最多10分鐘）<br> <br>請勿忘記使用此新認證更新您的簡歷以及您的專業資料。"
+            }
+        },
+        "hr-ac": {
+            "body": {
+                "signupSelfValidation": "感謝您在人力資源學院註冊！ 最後一步開始：請點擊<a href=\"{{validateLink}}\">以下鏈接</a>激活您的帳戶。<br/>您的登錄名是：{{login}} <br/>（小心大寫和小寫字符）<br/> <br/>請注意你的訓練！",
+                "signupComplete": "您的帳戶現已驗證！<br/><br/>您的登錄名為：{{login}} <br/>（小心大寫和小寫字符<br/> <br/>點擊下面的按鈕 登錄並開始學習！"
+            },
+            "subject": {
+                "signupSelfValidation": "HR學院帳戶激活"
+            }
+        },
+        "linxea": {
+            "team": "LinXea 學院團隊",
+            "body": {
+                "signupSelfValidation": "感謝您加入我們！ 您可以開始測試人身保險知識的最後一步是通過點擊此鏈接激活您的帳戶：<br> <a href=\"{{validateLink}}\"> {{validateLink}} </a> <br > <br>您的登錄名為：{{login}} <br/>（小寫大寫字母）<br/> <br/>對於有關您訪問/ LinXea Academy平台工作方式的任何問題，您 可以聯繫<a href=\"mailto:assistance@coorpacademy.com\"> assistance@coorpacademy.com </a>。 <br>如對LinXea合約或人壽保險有任何疑問，請寫信至<a href=\"mailto:contact@linxea.com\"> contact@linxea.com </a> <br>有一個很好的訓練！",
+                "signupComplete": "您的雅虎數字營銷學院的題詞已被驗證。<br/><br/>您的登錄名為：{{login}} <br/>（小心大寫和小寫字符）"
+            },
+            "subject": {
+                "signupSelfValidation": "啟動 LinXea Academy 帳號"
+            }
+        },
+        "learnnrj": {
+            "body": {
+                "signupSelfValidation": "感謝註冊。 你很好去！<br/><br/>您的登錄名是：{{login}} <br/>（小心大寫和小寫字符）<br/> <br/>請點擊此鏈接 激活您的帳戶：<a href=\"{{plateform}}\"> {{plateform}} </a>。\n如果您有任何問題或想了解有關所涉主題的更多信息，請諮詢您的代表或聯繫assistance@coorpacademy.com",
+                "signupComplete": "感謝註冊。 你很好去！<br/><br/>您的登錄名是：{{login}} <br/>（小心大寫和小寫字符）<br/> <br/>請點擊此鏈接 激活您的帳戶：<a href=\"{{plateform}}\"> {{plateform}} </a>。\n如果您有任何問題或想了解有關所涉主題的更多信息，請諮詢您的代表或聯繫assistance@coorpacademy.com"
+            }
+        },
+        "letsgetdigital": {
+            "team": "Let's Get Digital 2.0",
+            "body": {
+                "signupSelfValidation": "感謝您註冊Let's Get Digital 2.0！ 最後一步開始：請點擊<a href=\"{{validateLink}}\">以下鏈接</a>激活您的帳戶。<br/><br/>您的登錄名是：{{login}} <br/>（小心大寫和小寫字符）<br/> <br/>對於有關您的訪問/ Let's Get Digital 2.0的工作方式的任何問題，您可以聯繫contact.letsgetdigital@bnpparibas.com\n享受你的訓練！",
+                "signupComplete": "您的帳戶現已驗證！<br/><br/>您的登錄名為：{{login}} <br/>（小心大寫和小寫字符）<br/> <br/>點擊下面的按鈕 登錄並開始學習！"
+            },
+            "subject": {
+                "signupSelfValidation": "讓我們來啟動數位帳戶"
+            }
+        },
+        "michelin": {
+            "body": {
+                "certification_header": "我們很驕傲的將 $t({{certification}}) 證書寄給你，並且為了認可你的努力我們很高興的提供你：",
+                "certification_content_stars": "{{stars}} 更多星星！<br/>",
+                "certification_content_resource": "<a target='_blank' download href=\"$t({{resourceLink}})\"> 此處 </a> 可能下載護照標誌",
+                "certification_content_end": "別忘記更新您在 Bibspace 上的個人職業小檔案（「您的個人小檔案」/「教育」）並標明這份新證書。"
+            }
+        },
+        "mooc-socgen": {
+            "body": {
+                "personalHooks": {
+                    "generic_footer": "The above link is only accessible using a device outside of SG network. In order to access it via your SG workstation, please use the <a href=\"https://secure-browsing.eur.socgen.com\">MOOC Portal</a>."
+                }
+            }
+        },
+        "nespresso": {
+            "body": {
+                "coachUnlocked": "祝賀!你已經成為了一個學科的專家 $t ({{completedDiscipline}}), 你已經完全驗證! <br/><br/>"
+            },
+            "subject": {
+                "coachUnlocked": "幹得好, 你已經成為專家了"
+            }
+        },
+        "openlab-cb": {
+            "body": {
+                "signupComplete": "您的帳戶已經過驗證！ 您現在可以開始享受Openlab平台！<br/><br/>您的登錄名為：{{login}} <br/>（小心大寫和小寫字符<br/> <br/>請訪問平台 這裡：<a href=\"{{plateform}}\"> {{plateform}} </a>"
+            },
+            "subject": {
+                "signupValidation": "Validation for Openlab account",
+                "signupComplete": "Validation of your Openlab account"
+            }
+        },
+        "pernod": {
+            "body": {
+                "battleWaitingOpponent": "別忘記，{{opponentName}} 已經挑戰你加入 $t({{disciplineName}}) 學科 $t({{level}}) 級別的「戰鬥」，並正在等待你的回應！<br/> 要接受挑戰加入戰鬥，請按 <a href=\"{{redirectionUrl}}\"> 這裡 </a>！<br/> <br/> 顯示你的數字能力！",
+                "sendBattle": "{{opponentName}} 要挑戰你加入$t({{disciplineName}}) 學科 $t({{level}}) 級別的「戰鬥」，並熱切期待您的回應！<br/> <br/> 要接受挑戰並加入戰鬥，按 <a href=\"{{redirectionUrl}}\"> 這裡 </a>！<br/> <br/> 表現你的數字能力！"
+            },
+            "team": "保樂力加大學"
+        },
+        "pru": {
+            "body": {
+                "coachUnlocked": "恭喜！您剛完成了學科$$t({{completedDiscipline}})中的「進階」級別。您已完成了這個學科，現在您可以被視為這個主題的教練了！<br/>您現在可以幫助別人學習這個主題，因為您在這個主題上已變得無人能敵了！<br/>只要回應來電向您要求聊天的學習者即可：教練目的是引導他們走向答案，而不僅是給予答案而已。<br/> <br/>別忘了，「沒有團結，就沒有長期或光榮的表現！」<br/><font size=\"2\"><i>（François Proust）</i></font><br/> <br/>",
+                "sendBattle": "{{opponentName}} 要挑戰你加入 $t({{disciplineName}}) 學科 $t({{level}}) 級別的「戰鬥」，並正熱切地等待著你的回應！<br/> <br/> 要接受挑戰加入戰鬥，按 <a href=\"{{redirectionUrl}}\"> 這裡 </a>！<br/> <br/> 表現你的商業品行！",
+                "battleWaitingOpponent": "別忘了，{{opponentName}}已挑戰您參加一場$t({{disciplineName}})課程$t({{level}})層級的「戰鬥」，正在等候您的回應！<br/>若要接受挑戰及比試，點擊<a href=\"{{redirectionUrl}}\">此處</a>！<br/> <br/>表現您的商業行為度！"
+            },
+            "team": "保樂力加大學"
+        },
+        "quizz-auchan": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "rexel": {
+            "team": "Rexel 學院"
+        },
+        "renaultcare": {
+            "subject": {
+                "createdPassword": "以智慧型手機存取慕課客戶體驗"
+            },
+            "passwordFooter": "&nbsp;",
+            "body": {
+                "createdPassword": {
+                    "top": "你剛剛已透過智慧型手機創建密碼，以造訪 MOOC 顧客經驗區。",
+                    "bottom": "<br><br> 你現在可點擊這裡進入 MOOC："
+                }
+            },
+            "call2action": {
+                "createdPassword": "開始訓練"
+            }
+        },
+        "samsung": {
+            "team": "{{team}}團隊",
+            "body": {
+                "signupValidation": "您已收到{{firstName}}{{lastName}}（login：{{login}}）的註冊申請。他們的聯繫方式如下：<ul><li>{{company}}</li> <li>{{role}}</li> <li>{{boutique}}</li> <li>{{postalCode}}</li></ul>欲驗證本帳戶，請點擊以下連結：<a href=\"{{validateLink}}\">{{validateLink}}</a> <br/>如果您不認識這個人，請點擊以下連結以刪除本數據：<a href=\"{{rejectLink}}\">{{rejectLink}}</a>。<br/>非常感謝您！",
+                "signupComplete": "您的帳戶現已啟用<a href=\"{{plateform}}\"> {{plateform}} </a>您的登錄名為：{{login}} <br/><br/>（Be 小心大寫和小寫字母）<br/> <br/>現在，您可以發現最新的三星電視，最新的創新，以及贏得客戶的最佳賣點，或與法國各地的同事分享！ <br> <br>盡快訪問並儘快見到您。"
+            },
+            "subject": {
+                "signupValidation": "三星學院帳戶驗證",
+                "signupComplete": "三星學院帳戶驗證"
+            },
+            "call2action": {
+                "signupComplete": "造訪平台"
+            }
+        },
+        "schneider": {
+            "welcome": "您好，{{name}}！",
+            "team": "MOOC 團隊",
+            "lastModuleDone": "自從您上回登入 Schneider IQ 平台，至今已有一週了，別放棄！<br/> <br/> 您若遭遇到困難，請隨時與教練聯絡或經由討論論壇向社群發問。<br/> <br/> 您可以藉點選下列連結而取用本平台： <a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> 祝訓練愉快！",
+            "body": {
+                "personalHooks": {
+                    "generic_footer": "You are receiving Coorpacademy emails as you are a member on Schneider IQ.</br>CoorpAcademy uses your email only in correlation with Schneider IQ. If you do not want to receive these emails anymore, please Unsubscribe using the link below."
+                }
+            }
+        },
+        "seb": {
+            "team": "大學集團 SEB 訓練團隊"
+        },
+        "societegenerale": {
+            "body": {
+                "certification_header": "恭喜！你剛剛已打開了你的證書 ({{certification}})。這是你參與數位轉化策略小組的證明。為了提升你的證書，我們將給予你：",
+                "certification_content_stars": "額外的{{stars}}顆星<br/>",
+                "certification_content_diploma": "點擊<a target='_blank' href=\"$t({{diplomaLink}})\">此處</a>存取您的文憑",
+                "certification_content_resource": "使用 $t({{rewardLabel}})，<a target='_blank' download href=\"$t({{resourceLink}})\">此處</a>",
+                "certification_content_end": "把這個標誌加入你的 Outlook 簽名中，來分享你的成功。<br/> <br/> 享受你的 MOOC！<br/> <br/> 隨著你的數碼課程，你可以一起贏得 {{totalGoals}} 證書。"
+            }
+        },
+        "securite": {
+            "team": "SI'Academy 團隊",
+            "body": {
+                "certification_header": "我們很榮幸為你頒發$t({{certification}})，並獎賞你：",
+                "certification_content_stars": "{{stars}}紅利星星<br/>",
+                "certification_content_diploma": "若要取用您的$t({{certification}}) 證書，請透過這連結 <a target='_blank' href=\"$t({{diplomaLink}})\">此處</a>",
+                "certification_content_resource": "由此連結 <a target='_blank' download href=\"$t({{resourceLink}})\">link</a> 進入你的 $t({{rewardLabel}}) 徽章",
+                "certification_content_end": "‌"
+            }
+        },
+        "sqy": {
+            "team": "史泰登島學院團隊",
+            "body": {
+                "certification_header": "我們很榮幸頒發你 $t({{certification}})，並獎賞你：",
+                "certification_content_stars": "{{stars}} 紅利星星<br/>",
+                "certification_content_diploma": "若要取用您的$t({{certification}})證書，經由<a target='_blank' href=\"$t({{diplomaLink}})\">此處</a>這連結",
+                "certification_content_resource": "透過<a target='_blank' download href=\"$t({{resourceLink}})\">link</a>取得您的$t({{rewardLabel}})徽章",
+                "certification_content_end": "不要忘了更新你的公民基本資料，以及你的電子郵件簽名，來顯示你的新證照。"
+            }
+        },
+        "monoprix": {
+            "body": {
+                "signupSelfValidation": "感謝您註冊以提高您的數字文化知識。 你很好去。<br/> <br/>你的登錄名是：{{login}} <br/>（小心大寫和小寫字符）<br/> <br/>請點擊此鏈接 激活您的帳戶：<a href=\"{{plateform}}\"> {{plateform}} </a>。\n如果您有任何問題或想了解有關主題的更多信息，請諮詢Monoprix代表或聯繫assistance@coorpacademy.com",
+                "signupComplete": "感謝您註冊以提高您的數字文化知識。 你很好去。<br/> <br/>你的登錄名是：{{login}} <br/>（小心大寫和小寫字符）<br/> <br/>請點擊此鏈接 激活您的帳戶：<a href=\"{{plateform}}\"> {{plateform}} </a>。\n如果您有任何問題或想了解有關主題的更多信息，請諮詢Monoprix代表或聯繫 assistance@coorpacademy.com"
+            },
+            "subject": {
+                "signupSelfValidation": "啟動你的數位學院帳號",
+                "signupComplete": "在 l'AcadémieDigitale 上啟用您的帳戶"
+            }
+        },
+        "redoute": {
+            "body": {
+                "signupSelfValidation": "感謝您註冊MOOC La Redoute學習實驗室人才。 你很好去！<br/><br/>你的登錄名是：{{login}} <br/>（小心大寫和小寫字符）<br/> <br/>請點擊按鈕 “驗證您的帳戶”以激活該帳戶\n如果您有任何問題，或者如果您想了解有關主題的更多信息，請諮詢您的代表或聯繫我們：assistance@coorpacademy.com",
+                "signupComplete": "謝謝，您現在已註冊在MOOC學習實驗室！<br/><br/>您的登錄名為：{{login}} <br/>請小心大寫和小寫字符 將<br/> <br/>收到一封具有激活鏈接的電子郵件。"
+            },
+            "subject": {
+                "signupSelfValidation": "啟用您在 La Redoute 學習實驗室的帳戶",
+                "signupComplete": "啟用您在 La Redoute 學習實驗室的帳戶"
+            }
+        },
+        "tagheuer": {
+            "body": {
+                "signupValidation": "泰格豪雅線上培訓有一個新的要求：<ul>\n    <li>{{lastName}}</li>\n    <li>{{firstName}}</li>\n    <li>{{login}}</li>\n    <li>{{company}}</li>\n    <li>{{boutique}}</li>\n    <li>{{country}}</li>\n <li>大使：{{ambassador}}</li>\n</ul>請點擊此處以批准請求：<a href=\"{{validateLink}}\">{{validateLink}}</a><br/><br/>點擊此處以拒絕本請求：<a href=\"{{rejectLink}}\">{{rejectLink}}</a><br/>",
+                "signupComplete": "您的帳戶已經過驗證！ 您現在可以開始享受TAG Heuer培訓平台！<br/><br/>您的登錄名為：{{login}} <br/>（小心大寫和小寫字符）<br/> <br/>訪問 這裡的平台：<a href=\"{{plateform}}\"> {{plateform}} </a>",
+                "certification_content_end": "‌"
+            },
+            "subject": {
+                "signupValidation": "對於 TAG Heuer（泰格豪雅）培訓的新請求",
+                "signupComplete": "你在泰格豪雅 (TAG Heuer) 壓力實驗室的註冊已驗證通過。"
+            },
+            "call2action": {
+                "signupComplete": "拜訪平台"
+            }
+        },
+        "tagheuercon": {
+            "body": {
+                "signupValidation": "有一個來自泰格豪雅線上訓練的新邀請： <ul>\n    <li>{{lastName}}</li>\n    <li>{{firstName}}</li>\n    <li>{{login}}</li>\n    <li>{{company}}</li>\n    <li>{{boutique}}</li>\n    <li>{{country}}</li>\n</ul>請點擊此處接受邀請： <a href=\"{{validateLink}}\">{{validateLink}}</a><br/><br/> 點擊此處以婉拒邀請： <a href=\"{{rejectLink}}\">{{rejectLink}}</a><br/>",
+                "signupComplete": "您的帳戶已經過驗證！ 您現在可以開始享受TAG Heuer培訓平台！<br/><br/>您的登錄名為：{{login}} <br/>（小心大寫和小寫字符）<br/> <br/>訪問 這裡的平台：<a href=\"{{plateform}}\"> {{plateform}} </a>"
+            },
+            "subject": {
+                "signupValidation": "對 MOOC 的新要求",
+                "signupComplete": "你在泰格豪雅智慧錶的登記已獲驗證"
+            },
+            "call2action": {
+                "signupComplete": "造訪平台"
+            }
+        },
+        "thelem": {
+            "body": {
+                "certification_content_end": "‌"
+            }
+        },
+        "up": {
+            "body": {
+                "battleWaitingOpponent": "別忘了，{{opponentName}}在$t({{disciplineName}})課程$t({{level}}) 等級向您下「戰書」，正迫不及待等待您的答覆！<br/>欲接受挑戰開始玩，請按<a href=\"{{redirectionUrl}}\">這裡。</a>！<br/><br/>願最厲害的人贏！",
+                "coachUnlocked": "恭喜！您已通過驗證，成為$t({{completedDiscipline}})課程的教練！<br/><br/>您在本主題上已成不敗之王，因此現在可協助其他人學習本主題！<br/>當學員請求跟您討論時－－目標是引導他們找到答案，而不是將答案直接給他們。<br/><br/>別忘了，「團結一致才有長期的或光榮的好表現！」<br/><font size=\"2\"><i>（法蘭索瓦•普魯斯特）</i></font><br/> <br/>",
+                "contentUpdated": "有新課程剛被添加到平台上！<br/>",
+                "contentUpdated_plural": "新課程已新增到平台上！<br/>",
+                "lastConnection": "你有一陣子沒登入 {{label}} 平台了，我們想念你！<br/> <br/> 你仍然有可以探索的課程，可以提高的分數，可以挑戰的人（以友好的方式）...回來繼續你的學習之旅！<br/> <br/> 你可按以下的連結來使用平台：<a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a> <br/> <br/> 快樂的培訓！",
+                "lastModuleDone": "你已有一週未於 {{label}} 平台上登入課程！<br/><br/> 如你遇到困難，請不吝聯絡導師或於討論論壇上求助社群成員。<br/><br/> 你可點擊以下連結進入平台：<a href=\"{{redirectionUrl}}\"> {{redirectionUrl}} </a><br/> <br/> 訓練愉快！",
+                "sendBattle": "{{opponentName}}正挑戰您進行一場$t({{disciplineName}})課程$t({{level}})級別的「戰鬥」，並且正熱切等待著您的回應！<br/><br/>欲接受挑戰並開始暢玩，請點擊<a href=\"{{redirectionUrl}}\">這裡</a>！<br/><br/>祝最棒的人獲勝！"
+            }
+        },
+        "who": {
+            "subject": {
+                "signupValidation": "Validate this account",
+                "coachUnlocked": "Well done, you have completed the course {{completedDiscipline}}"
+            },
+            "body": {
+                "signupValidation": "我們已收到<b> {{firstName}} {{lastName}}的註冊申請。</b> <br/>登錄：<b> {{login}} </b> <br/>國家：<b > {{country}} </b> <br/>狀態：<b> {{region}} </b> <br/>附屬：<b> {{provider}} </b> <br/> 背景經驗：<b> {{role}} </b> <br/>訪問代碼：<b> {{grade}} </b> <br/>要驗證此帳戶，請點擊 以下鏈接：<a href=\"{{validateLink}}\"> {{validateLink}} </a> <br/> <br/> <br/> <br/>如果你不知道這個人，請點擊以下鏈接去除 帳戶：<a href=\"{{rejectLink}}\"> {{rejectLink}} </a>。歡樂訓練！",
+                "signupComplete": "您的WHO QualityRights電子培訓註冊現已完成。<br/><br/>在訪問培訓之前，請確保已完成<a href =“https://extranet.who.int/dataform/236824?lang=en“>預培訓問卷</a>。<br/> <b>您現在可以開始了！</b> <br> <br>訪問電子培訓 這個<a href=\"https://humanrights-etrain-qualityrights.coorpacademy.com/login\">鏈接</a>的平台。 您的登錄信息是：{{login}}（小心大寫和小寫字符）。<br/>您可以從任何互聯網設備（智能手機，平板電腦，筆記本電腦，台式電腦）訪問電子培訓。 電子培訓可以在最常用的瀏覽器上運行，例如Internet Explorer 11和更高版本，以及最新版本的Chrome，Chrome Android，Firefox，Safari和IEdge（或緊接在 最近）。 <br/> <br/>我們希望你喜歡e-training！",
+                "signupSelfValidation": "<br/>謝謝您註冊參加世衛組織質量權威電子培訓！ 開始之前還有–個步驟 - 請點擊以下鏈接驗證您的帳號。<br/><br/>您的登錄名為：{{login}} <br/>（大寫字母和小寫字母）<br/><br/>享受你的訓練！",
+                "battleWaitingOpponent": "別忘了，{{opponentName}} 已在 $t({{disciplineName}})課程$t({{level}})層級向您挑戰，而且在等您回應！<br/> 若要接受挑戰及比試，點擊<a href=\"{{redirectionUrl}}\">此處</a>！<br/> <br/>願最優者得勝！",
+                "sendBattle": "{{opponentName}} 在 $t({{disciplineName}}) 學科 $t({{level}}) 級別對你下了戰帖，並正迫切等待你的回覆！<br/><br/> 點擊 <a href=\"{{redirectionUrl}}\"> 此處 </a> 接受挑戰！<br/><br/>願最好的學員獲勝！",
+                "coachUnlocked": "Congratulations on completing \"How to play on the platform?\".  Now you are ready to start one of the modules of the e-training!",
+                "certification_header": "恭喜！ 您已經成功完成了由世衛組織心理健康政策和服務發展開發和提供的QualityRights電子培訓課程“心理健康，人權與恢復基金會”。",
+                "certification_content_stars": "‌",
+                "certification_content_diploma": "您可以下載證書<a target='_blank' href=\"$t({{diplomaLink}})\">這裡</a>",
+                "certification_content_resource": "請完成後評估<a href=\"https://extranet.who.int/dataform/772112?lang=en\">問卷</a>",
+                "certification_content_end": "請記住，您可以隨時重新訪問電子培訓，再次訪問課程，訪問培訓材料和視頻，並為討論作出貢獻。<br/> <br/>希望您喜歡e-training！"
+            }
+        },
+        "yahoo": {
+            "welcome": "您好，{{name}}！",
+            "urlHowTo": "&nbsp",
+            "happyTraining": "謝謝您！",
+            "team": "雅虎與 Coorpacademy 團隊",
+            "unsubscribetext": "太多電子郵件了嗎？你可以",
+            "body": {
+                "certification_header": "恭喜您完成 Yahoo 線上數位培訓學院的$t({{certification}}) 單元！您現在是在$t({{certification}})上展現了卓越知識的使用者精英群的一份子。您應該要感到非常自豪！\n\n作為獎勵，我們提供您：",
+                "certification_content_resource": "取得$t({{certification}})徽章，請至此<a href=\"{{certificationPage}}/\">連結 </a>",
+                "certification_content_end": "我們鼓勵您自豪地把您的徽章放在您的社交媒體和網絡網站上。\n\n為什麼現在停下來呢？回到 Yahoo 線上數位培訓學院繼續學習",
+                "coachUnlocked": "恭喜！你現在已是 $t({{completedDiscipline}})<br/> <br/> 學科的專家了。如有任何關於此學科或整體數位行銷的問題，請聯絡 <a href=\"mailto:info-yahoo@yahoo-inc.com\">info-yahoo@yahoo-inc.com</a>.<br/> <br/> 親切的問候， <br/>",
+                "signupValidation": "有一個來自 MOOC 的新邀請： <br> <ul>\n  <li>{{firstName}}</li>\n  <li>{{lastName}}</li>\n  <li>{{email}}</li>\n  <li>{{company}}</li>\n  <li>{{jobTitle}}</li>\n</ul> <br> 請點擊此處以接受邀請：<br> <a href=\"{{validateLink}}\">{{validateLink}}</a><br><br>\n請點擊此處以婉拒邀請<br> <a href=\"{{rejectLink}}\">{{rejectLink}}</a>",
+                "signupSelfValidation": "感謝您註冊以提高您的數字營銷知識。 你很好去！<br/><br/>您的登錄名是：{{login}} <br/>（小心大寫和小寫字符）<br/> <br/>請點擊此鏈接 激活您的帳戶：<br> <a href=\"{{validateLink}}\"> {{validateLink}} </a> <br> <br>要登錄，請輸入您的專業電子郵件和密碼。<br> 如果您有任何問題或想了解有關所涉主題的更多信息，請諮詢您的雅虎代表或聯繫<br> <a href=\"info-yahoo@yahoo-inc.com\"> info-yahoo@yahoo-inc.com</a>",
+                "signupComplete": "感謝您對提高數字營銷知識的興趣。 您的請求已獲得批准。<br/><br/>您的登錄名為：{{login}} <br/>（小心大寫和小寫字符）<br/> <br/>要訪問該平台，請單擊 <br> <a href=\"{{plateform}}\"> {{plateform}} </a> <br> <br>要登錄，請輸入您的專業電子郵件和密碼。<br> <br>如果 您有任何問題或想了解更多關於所涉及的話題，與您的雅虎代表聯繫或聯繫<br> <a href=\"mailto:info-yahoo@yahoo-inc.com\"> info-yahoo@yahoo-inc.com</a>"
+            },
+            "subject": {
+                "coachUnlocked": "恭喜，您現在是$t({{completedDiscipline}})學科的專家了",
+                "signupValidation": "雅虎數位一位使用者的新請求",
+                "signupSelfValidation": "在 Yahoo 奇摩數位行銷啟動你的帳號",
+                "signupComplete": "您的雅虎數位行銷學院 (Yahoo Digital Marketing Academy) 銘文已被驗證。"
+            },
+            "call2action": {
+                "signupValidation": "驗證此帳戶",
+                "signupSelfValidation": "驗證您的帳號",
+                "signupComplete": "拜訪平台"
+            }
+        },
+        "zenithcommunity": {
+            "body": {
+                "signupValidation": "There has been a new request for Zenith online training: <ul>\n    <li>Last name: {{lastName}}</li>\n    <li>First name: {{firstName}}</li>\n    <li>Login: {{login}}</li>\n    <li>Point of Sale Business Unit: {{provider}}</li>\n    <li>Point of Sale Name: {{company}}</li>\n    <li>Country: {{country}}</li>\n <li>City: {{city}}</li>\n <li>Job Title: {{jobTitle}}</li>\n <li>Grade (how long...): {{grade}}</li>\n</ul> Please approve the request by clicking here: <a href=\"{{validateLink}}\">{{validateLink}}</a><br/><br/> Decline this request by clicking here: <a href=\"{{rejectLink}}\">{{rejectLink}}</a><br/>"
+            }
+        }
+    }
+}

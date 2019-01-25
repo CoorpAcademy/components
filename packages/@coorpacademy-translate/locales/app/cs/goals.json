@@ -1,0 +1,201 @@
+{
+    "title": "Má osvědčení.",
+    "subtitle_head1": "Vyberte jednu nebo více certifikací a dokončete je pro zlepšení vašich dovednosti ve vybrané oblasti nebo tématu.",
+    "subtitle_head2": "Spustit modul certifikace",
+    "how_to": "Chcete-li ověřit certifikaci, je nutné dokončit každý modul. Začněme!",
+    "button_choose_goal": "Zvolte certifikát.",
+    "selected_goals_title": "{{goals}} aktuální certifikace",
+    "selected_goals_title_plural": "{{goals}} Aktuálních certifikací",
+    "selected_goals_no_item": "Nebyla zvolena certifikace. Vyberte si nějakou!",
+    "finished_goals_title": "Splněná certifikace: {{goals}}",
+    "finished_goals_title_plural": "{{goals}} Čistá osvědčení",
+    "finished_goal_label": "{{goalLabel}} {{star}}",
+    "finished_goals_no_item": "Ještě jste nedokončili žádný certifikát.",
+    "button_module_access": "Spustit nyní",
+    "minutes_label": "min",
+    "status_label": "Status:",
+    "stars_label": "{{stars}} hvězdička",
+    "stars_label_plural": "{{stars}} hvězdy",
+    "popover": {
+        "title": "Buďte opatrní!",
+        "module_blocked_pre": "Tento modul není k dispozici:",
+        "module_blocked_post": "{{pre}} K jeho dosažení je třeba nejprve potvrdit úroveň {{level}}",
+        "select_goal": {
+            "title": "Prosím vyberte certifikaci",
+            "available_module": "{{total}} certifikátů k dispozici",
+            "available_module_plural": "Dostupných certifikací: {{total}}",
+            "module_done": "Tímto modulem jste již prošel/prošla. Jste na nejlepší cestě k ověření oprávnění.",
+            "module_blocked": "Tento modul ještě není k dispozici. Chcete-li ho odemknout, musíte nejprve zdolat základní a pokročilou úroveň.",
+            "button_add_goal": "Potvrdit můj certifikát."
+        }
+    },
+    "condition_progress": {
+        "information": "Dokončili jste {{done}} z {{total}} navržených modulů."
+    },
+    "certification": {
+        "title": "Vaše certifikace",
+        "title_plural": "Vaše osvědčení",
+        "subtitle": "Ověřte si své schopnosti s touto certifikací",
+        "subtitle_plural": "Ověřte si své schopnosti těmito certifikáty",
+        "rewards": {
+            "subtitle": "Vaše odměny",
+            "see_detail": "Podívat se",
+            "congratulations": "blahopřejeme vám k úspěchu",
+            "you_can_win": "Vítězství",
+            "download_resource": "Pro stáhnutí klikněte zde",
+            "see_diploma": "Viz diplom",
+            "access_your_diploma": "Přístup k diplomu"
+        },
+        "stars": {
+            "description_pre": "Vyhráli jste",
+            "description_post": "hvězdičky"
+        },
+        "state": {
+            "done": "Hotovo!",
+            "inProgress": "Ve zpracování"
+        },
+        "condition_description": {
+            "progress": "Cíl: {{count}} modulů",
+            "progress_plural": "Cíl: {{count}} moduly"
+        },
+        "certificationDone": "Blahopřejeme! Jste získal certifikát {{certificationName}}!"
+    },
+    "diploma": {
+        "certificate": "certifikát",
+        "date": "Datum: {{date}}",
+        "message": "dokončení všech modulů, které jsou relevantní pro tento certifikát v:"
+    },
+    "custom": {
+        "ecolenumerique-sncf": {
+            "certification": {
+                "title": "Jedi odznak",
+                "title_plural": "Jedi odznaky",
+                "certificationDone": "Blahopřejeme! Jste obdrželi {{certificationName}} odznak!",
+                "subtitle": "Ověřit odznak Jedi",
+                "subtitle_plural": "Ověřit své Jedi odznaků zde"
+            }
+        },
+        "ganprevoyance": {
+            "certification": {
+                "title": "Vesmír",
+                "title_plural": "Vesmíry",
+                "certificationDone": "Blahopřejeme! Ověření {{certificationName}} vesmíru!",
+                "subtitle": "Ověřit váš vesmír",
+                "subtitle_plural": "Ověřit své vesmíry"
+            }
+        },
+        "cnp": {
+            "certification": {
+                "title": "Certifikát",
+                "title_plural": "Certifikáty",
+                "certificationDone": "Blahopřejeme! Ověření {{certificationName}} certifikát!",
+                "subtitle": "Ověřit certifikát zde",
+                "subtitle_plural": "Ověřit vaše certifikáty"
+            }
+        },
+        "pernod": {
+            "title": "Moje cíle.",
+            "subtitle_head1": "Vyberte jeden nebo více cílů a zlepšit své dovednosti na vybranou oblast a téma dokončit.",
+            "subtitle_head2": "Spusťte modul mezi těmi zahrnuty do cíle.",
+            "how_to": "Chcete-li ověřit cíl, je třeba dokončit každý modul. Pojďme začít!",
+            "button_choose_goal": "Zvolte cíl.",
+            "selected_goals_title": "{{cíle}} Aktuální cíl",
+            "selected_goals_title_plural": "{{cíle}} Současné cíle",
+            "selected_goals_no_item": "Je vybrán žádný cíl. Prosím vyberte jednu!",
+            "finished_goals_title": "{{cíle}}  Vymazané cíl",
+            "finished_goals_title_plural": "{{cíle}}  Vymazané cíle",
+            "finished_goal_label": "{{goalLabel}} {{hvězda}}",
+            "finished_goals_no_item": "Dosud jste nemazali žádné cíle.",
+            "button_module_access": "Začít teď",
+            "minutes_label": "min",
+            "status_label": "Stav:",
+            "stars_label": "{{hvězdy}} hvězda",
+            "stars_label_plural": "{{hvězdy}} hvězdy",
+            "popover": {
+                "title": "Dej si pozor!",
+                "module_blocked_pre": "Tento modul není k dispozici:",
+                "module_blocked_post": "{{pre}} K jeho dosažení je třeba nejprve ověřit úroveň {{úroveň}}",
+                "select_goal": {
+                    "title": "Prosím zvolte si účel",
+                    "available_module": "{{celkem}} K dispozici cíl",
+                    "available_module_plural": "{{celkem}} Dostupné cíle",
+                    "module_done": "Tento modul již byl vymazán. Jste na vaší cestě k dosažení cíle.",
+                    "module_blocked": "Tento modul není dosud k dispozici. Odemknout jej musíte nejprve vymazat základní nebo pokročilé úrovně.",
+                    "button_add_goal": "Potvrďte své cíle."
+                }
+            },
+            "condition_progress": {
+                "information": "Máte dokončenou {{Hotovo}} {{total}} navrhované modulů."
+            },
+            "certification": {
+                "title": "Vaše cíle",
+                "subtitle": "Valide své dovednosti mají tyto cíle",
+                "rewards": {
+                    "subtitle": "Vaše odměny",
+                    "see_detail": "Viz",
+                    "congratulations_pre": "A naše",
+                    "congratulations": "Congralutations",
+                    "congratulations_post": "pro veškeré vaše úsilí"
+                },
+                "stars": {
+                    "description_pre": "Dáváme vám",
+                    "description_post": "hvězdy"
+                },
+                "state": {
+                    "done": "Hotovo",
+                    "inProgress": "V průběhu"
+                },
+                "condition_description": {
+                    "progress": "{{nbDone}} dokončené moduly"
+                },
+                "certificationDone": "Blahopřejeme! Jste obdrželi {{certificationName}} cíl!"
+            }
+        },
+        "sgmgt": {
+            "diploma": {
+                "message": "Byly dokončeny všechny kroky požadované kompetence v rámci projektu management povědomí"
+            }
+        },
+        "securite": {
+            "diploma": {
+                "message": "dokončení všech modulů, které jsou relevantní pro tento certifikát v:"
+            }
+        },
+        "projet": {
+            "diploma": {
+                "message": "Byly dokončeny všechny kroky požadované kompetence v rámci projektu management povědomí"
+            }
+        },
+        "tagheuer": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Tento modul zatím není k dispozici. Chcete-li ho odemknout, musíte nejprve dokončit Titanovou nebo Bronzovou úroveň."
+                }
+            }
+        },
+        "tagheuercon": {
+            "popover": {
+                "select_goal": {
+                    "module_blocked": "Tento modul zatím není k dispozici. Chcete-li jej odemknout, musíte nejprve projít titaničitou nebo bronzovou úrovní."
+                }
+            }
+        },
+        "up": {
+            "subtitle_head2": "Spustíte na úroveň těch, které jsou zahrnuty v objektivním.",
+            "how_to": "Chcete-li ověřit cíl, je třeba dokončit každou úroveň. Pojďme začít!",
+            "popover": {
+                "module_blocked_pre": "Tato úroveň není k dispozici:",
+                "select_goal": {
+                    "module_done": "Tato úroveň je již zrušeno. Jste na vaší cestě k dosažení cíle.",
+                    "module_blocked": "Tato úroveň není dosud k dispozici. Odemknout jej musíte nejprve vymazat základní nebo pokročilé úrovně."
+                }
+            },
+            "certification": {
+                "condition_description": {
+                    "progress": "Cíl: {{count}} disciplína",
+                    "progress_plural": "Cíl: {{count}} disciplíny"
+                }
+            }
+        }
+    }
+}
