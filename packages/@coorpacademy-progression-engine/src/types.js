@@ -31,6 +31,9 @@ export type VIDEO = 'video';
 export type PDF = 'pdf';
 export type ContentType = CHAPTER | LEVEL | SLIDE | NODE | FAILURE | SUCCESS | VIDEO | PDF;
 
+type Url = string;
+type ResourceMimeType = 'video/mp4' | 'application/vimeo';
+
 export type ContentSlide = {|
   type: SLIDE,
   ref: string
@@ -210,6 +213,34 @@ export type AnswerCorrection = {|
 
 export type AcceptedAnswers = Array<Answer>;
 
+type Source = {|
+  _id: string,
+  mimeType: ResourceMimeType,
+  url: Url
+|};
+
+type Media = {|
+  subtitles?: Array<string>,
+  posters?: Array<Url>,
+  src?: Array<Source>
+|};
+
+type ChoiceItem = {|
+  text: string,
+  value: string,
+  _id: string
+|};
+
+export type Choice = {|
+  _id: string,
+  value?: string,
+  name?: string,
+  type?: 'select',
+  label: string,
+  items: Array<ChoiceItem>,
+  media: Media
+|};
+
 type QuestionCommon = {|
   explanation?: string,
   header?: string,
@@ -220,6 +251,7 @@ export type QCMQuestion = {|
   ...{|
     type: 'qcm',
     content: {
+      choices: Array<Choice>,
       answers: AcceptedAnswers
     }
   |} & QuestionCommon
