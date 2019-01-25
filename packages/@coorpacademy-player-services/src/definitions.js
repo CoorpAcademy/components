@@ -9,7 +9,8 @@ import type {
   PartialCorrection,
   Progression,
   Slide,
-  SUCCESS
+  SUCCESS,
+  Question
 } from '@coorpacademy/progression-engine';
 
 type Url = string;
@@ -210,12 +211,17 @@ export const CONTENT_TYPE: {[string]: ContentType} = {
 
 export type {
   ChapterAPI,
+  Answer,
   ClueAPI,
   CorrectionAPI,
   DataEvent,
   ExitNodeAPI,
   ExitNodeRef,
   Fixtures,
+  ChapterRule,
+  FAILURE,
+  Slide,
+  SUCCESS,
   JwPlayerOptions,
   LevelAPI,
   RecommendationAPI,
