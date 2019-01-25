@@ -83,16 +83,6 @@ type Meta = {|
   createdAt: string
 |};
 
-// type Choice = {|
-//   _id: string,
-//   value: string,
-//   label: string,
-//   items: Array<?string>,
-//   media: Media
-// |};
-
-// type Answers = Array<Array<string>>;
-
 type Recommendation = {|
   view: string,
   image: Url,

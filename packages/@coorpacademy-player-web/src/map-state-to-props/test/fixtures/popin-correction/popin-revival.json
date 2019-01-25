@@ -1,5 +1,12 @@
 {
   "data": {
+    "configs": {
+      "entities": {
+        "microlearning@1": {
+          "version": 1
+        }
+      }
+    },
     "contents": {
       "slide": {
         "entities": {
@@ -49,11 +56,7 @@
                 "placeholder": " ",
                 "maxTypos": null,
                 "choices": [],
-                "answers": [
-                  [
-                    "Text"
-                  ]
-                ],
+                "answers": [["Text"]],
                 "media": {
                   "subtitles": [],
                   "posters": [],
@@ -70,9 +73,7 @@
       "entities": {
         "0": {
           "1.B2.4": {
-            "correctAnswer": [
-              "Text"
-            ],
+            "correctAnswer": ["Text"],
             "corrections": [
               {
                 "answer": "Toto",
@@ -96,9 +97,7 @@
             "type": "slide"
           },
           "state": {
-            "slides": [
-              "1.B2.4"
-            ],
+            "slides": ["1.B2.4"],
             "nextContent": {
               "ref": "extraLife",
               "type": "node"
@@ -128,20 +127,14 @@
   "ui": {
     "answers": {
       "0": {
-        "value": [
-          "Toto"
-        ]
+        "value": ["Toto"]
       }
     },
     "current": {
       "progressionId": "0"
     },
     "corrections": {
-      "accordion": [
-        true,
-        false,
-        false
-      ]
+      "accordion": [true, false, false]
     }
   }
 }

@@ -1,5 +1,12 @@
 {
   "data": {
+    "configs": {
+      "entities": {
+        "learner@1": {
+          "version": 1
+        }
+      }
+    },
     "contents": {
       "slide": {
         "entities": {
@@ -93,7 +100,16 @@
             "type": "level"
           },
           "state": {
-            "slides": ["1.B2.5", "1.B2.6", "1.B2.7", "1.B2.14", "1.B2.15", "1.B2.16", "1.B2.17", "1.B2.4"],
+            "slides": [
+              "1.B2.5",
+              "1.B2.6",
+              "1.B2.7",
+              "1.B2.14",
+              "1.B2.15",
+              "1.B2.16",
+              "1.B2.17",
+              "1.B2.4"
+            ],
             "nextContent": {
               "ref": "successExitNode",
               "type": "success"

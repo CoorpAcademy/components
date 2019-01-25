@@ -234,21 +234,26 @@ export type Choice = {|
   media: Media
 |};
 
+export type TemplateChoice = {|
+  type: 'text' | 'select'
+|};
+
+export type Choices = Array<Choice | TemplateChoice>;
+
 type QuestionCommon = {|
   explanation?: string,
   header?: string,
   medias?: Array<string>
 |};
 
-export type QCMQuestion = {|
-  ...{|
-    type: 'qcm',
-    content: {
-      choices: Array<Choice>,
-      answers: AcceptedAnswers
-    }
-  |} & QuestionCommon
-|};
+export type QCMQuestion = $Exact<{|
+  ...QuestionCommon,
+  type: 'qcm',
+  content: {
+    choices: Array<Choice>,
+    answers: AcceptedAnswers
+  }
+|}>;
 
 export type QCMGraphicQuestion = {|
   type: 'qcmGraphic',
@@ -264,15 +269,14 @@ export type SliderQuestion = {|
   }
 |};
 
-export type QCMDragQuestion = {|
-  ...{|
-    type: 'qcmDrag',
-    content: {
-      matchOrder: boolean,
-      answers: AcceptedAnswers
-    }
-  |} & QuestionCommon
-|};
+export type QCMDragQuestion = $Exact<{|
+  ...QuestionCommon,
+  type: 'qcmDrag',
+  content: {
+    matchOrder: boolean,
+    answers: AcceptedAnswers
+  }
+|}>;
 
 export type BasicQuestion = {|
   type: 'basic',
@@ -280,10 +284,6 @@ export type BasicQuestion = {|
     maxTypos?: ?number,
     answers: AcceptedAnswers
   }
-|};
-
-type TemplateChoice = {|
-  type: 'text' | 'select'
 |};
 
 export type TemplateQuestion = {|

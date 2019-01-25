@@ -1,6 +1,22 @@
 {
   "data": {
+    "configs": {
+      "entities": {
+        "microlearning@1": {
+          "version": 1
+        }
+      }
+    },
     "contents": {
+      "chapter": {
+        "entities": {
+          "cha_Ny1BTxRp~": {
+            "info": {
+              "nbSlides": 4
+            }
+          }
+        }
+      },
       "slide": {
         "entities": {
           "1.B2.4": {
@@ -64,8 +80,8 @@
             "version": "1"
           },
           "content": {
-            "ref": "1.B2.4",
-            "type": "slide"
+            "ref": "cha_Ny1BTxRp~",
+            "type": "chapter"
           },
           "state": {
             "slides": ["1.B2.3"],

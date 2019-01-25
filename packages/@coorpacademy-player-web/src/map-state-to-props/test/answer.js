@@ -18,7 +18,11 @@ const getAnswerProps = createGetAnswerProps(options, store);
 const getHelp = createGetHelp(options, store);
 
 test('should create initial qcm props', t => {
-  const state = {};
+  const state = {
+    ui: {
+      current: {progressionId: '1234'}
+    }
+  };
   const props = getAnswerProps(state, qcm);
   t.is(props.type, 'qcm');
   t.true(props.answers.every(answer => answer.selected === false));
@@ -33,6 +37,7 @@ test('should create edited qcm props', t => {
   };
 
   const props = getAnswerProps(state, qcm);
+
   t.is(props.type, 'qcm');
   t.is(props.answers.length, 4);
   t.is(props.answers[0].title, 'Case 1');
