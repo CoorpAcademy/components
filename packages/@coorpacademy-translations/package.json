@@ -1,0 +1,14 @@
+{
+  "name": "@coorpacademy/translations",
+  "version": "1.0.0",
+  "description": "Translations used by other packages",
+  "files": [
+    "app",
+    "components",
+    "player"
+  ],
+  "contributors": [
+    "Vincent Catillon <vincent.catillon@coorpacademy.com>"
+  ],
+  "author": "CoorpAcademy"
+}
