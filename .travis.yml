@@ -17,6 +17,7 @@ cache:
     - packages/@coorpacademy-redux-router/node_modules/node_modules
     - packages/@coorpacademy-redux-task/node_modules
     - packages/@coorpacademy-translate/node_modules
+    - packages/@coorpacademy-translations/node_modules
     - packages/@coorpacademy-treantjs-adapter-angular/node_modules
     - packages/@coorpacademy-treantjs-adapter-dust/node_modules
     - packages/@coorpacademy-webpack-config/node_modules
@@ -47,6 +48,8 @@ matrix:
       env: PACKAGE_NAME=@coorpacademy/redux-task
     - name: Translate
       env: PACKAGE_NAME=@coorpacademy/translate
+    - name: Translations
+      env: PACKAGE_NAME=@coorpacademy/translations
     - name: Angular adapter
       env: PACKAGE_NAME=@coorpacademy/treantjs-adapter-angular
     - name: Dust adapter

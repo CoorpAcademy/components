@@ -54,6 +54,7 @@
     "@coorpacademy/progression-engine": "9.3.3",
     "@coorpacademy/redux-task": "0.0.10",
     "@coorpacademy/translate": "5.3.16",
+    "@coorpacademy/translations": "1.0.0",
     "@coorpacademy/webpack-config": "7.0.4",
     "lodash": "^4.17.4",
     "react": "^16.3.2",

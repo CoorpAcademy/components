@@ -67,6 +67,7 @@
   "devDependencies": {
     "@coorpacademy/css-modules-require-hook": "1.0.3",
     "@coorpacademy/translate": "5.3.16",
+    "@coorpacademy/translations": "1.0.0",
     "@coorpacademy/webpack-config": "7.0.4",
     "@storybook/addon-knobs": "^3.3.0",
     "@storybook/addons": "^4.0.0-alpha.4",
