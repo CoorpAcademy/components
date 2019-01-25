@@ -5,6 +5,7 @@ import {
   getAnswers,
   getAnswerValues,
   extractClue,
+  getChoices,
   getCurrentClue,
   getCorrection,
   getCurrentContent,
@@ -43,6 +44,29 @@ import {
 } from '../state-extract';
 
 import slideFixture from './slide';
+
+test('getChoices should return undefined when no content.choices', t => {
+  const slide = {
+    question: {
+      content: {
+        defaultValue: 500
+      }
+    }
+  };
+  t.is(getChoices(slide), undefined);
+});
+
+test('getChoices should return choices', t => {
+  const choices = [{foo: 1}, {bar: 2}];
+  const slide = {
+    question: {
+      content: {
+        choices
+      }
+    }
+  };
+  t.deepEqual(getChoices(slide), choices);
+});
 
 test("getCurrentProgressionId should get current progression's id from state", t => {
   const progressionId = '1234';

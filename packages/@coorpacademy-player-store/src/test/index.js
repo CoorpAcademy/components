@@ -11,6 +11,7 @@ test('it should expose all api', t => {
     '__esModule',
     'middlewares',
     'reducers',
+    'getChoices',
     'getChapterId',
     'getCurrentProgressionId',
     'getQuestionType',

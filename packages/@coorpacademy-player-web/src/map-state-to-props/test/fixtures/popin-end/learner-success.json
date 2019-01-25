@@ -15,7 +15,13 @@
             ]
           },
           "1.B2.2": {
-            "correctAnswer": ["Actualités", "Filmographie", "Images", "Compte Twitter", "Vidéos"],
+            "correctAnswer": [
+              "Actualités",
+              "Filmographie",
+              "Images",
+              "Compte Twitter",
+              "Vidéos"
+            ],
             "corrections": [
               {
                 "answer": "",
@@ -24,7 +30,11 @@
             ]
           },
           "1.B2.3": {
-            "correctAnswer": ["Moment de la journée", "Type de téléphone", "Position GPS"],
+            "correctAnswer": [
+              "Moment de la journée",
+              "Type de téléphone",
+              "Position GPS"
+            ],
             "corrections": [
               {
                 "answer": "",
@@ -33,7 +43,11 @@
             ]
           },
           "1.B2.4": {
-            "correctAnswer": ["Moment de la journée", "Type de téléphone", "Position GPS"],
+            "correctAnswer": [
+              "Moment de la journée",
+              "Type de téléphone",
+              "Position GPS"
+            ],
             "corrections": [
               {
                 "answer": "",
@@ -171,7 +185,13 @@
               "type": "slide"
             }
           },
-          "correctAnswer": ["Site de marque", "Adresse", "Carte", "Avis de consommateurs", "Prix"]
+          "correctAnswer": [
+            "Site de marque",
+            "Adresse",
+            "Carte",
+            "Avis de consommateurs",
+            "Prix"
+          ]
         }
       }
     },
@@ -184,8 +204,7 @@
         "idProgression1234": [
           {
             "view": "grid",
-            "image":
-              "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/default/7a2-1503484226173.jpg&h=300&w=300&q=90",
+            "image": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/default/7a2-1503484226173.jpg&h=300&w=300&q=90",
             "time": "5m",
             "adaptiv": false,
             "freerun": true,
@@ -199,8 +218,7 @@
           },
           {
             "view": "grid",
-            "image":
-              "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/default/7a2-1503484226173.jpg&h=300&w=300&q=90",
+            "image": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/default/7a2-1503484226173.jpg&h=300&w=300&q=90",
             "time": "5m",
             "adaptiv": false,
             "freerun": true,
@@ -214,8 +232,7 @@
           },
           {
             "view": "grid",
-            "image":
-              "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/default/7a2-1503484226173.jpg&h=300&w=300&q=90",
+            "image": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/default/7a2-1503484226173.jpg&h=300&w=300&q=90",
             "time": "5m",
             "adaptiv": false,
             "freerun": true,

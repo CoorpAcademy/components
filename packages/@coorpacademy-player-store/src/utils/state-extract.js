@@ -11,6 +11,7 @@ import map from 'lodash/fp/map';
 import _toString from 'lodash/fp/toString';
 import type {
   Answer,
+  Choice,
   Content,
   ContentType,
   ContentInfo,
@@ -19,7 +20,8 @@ import type {
   GenericContent,
   Progression,
   ProgressionId,
-  Slide
+  Slide,
+  TemplateChoice
 } from '@coorpacademy/progression-engine';
 import type {
   Chapter,
@@ -33,6 +35,20 @@ import type {
 import type {ReduxState as State} from '../definitions/redux';
 import {CONTENT_TYPE, ENGINES} from '../definitions/models';
 
+export const getChoices = (slide: Slide): Array<Choice> | Array<TemplateChoice> | void => {
+  if (
+    !slide || // eslint-disable-line lodash-fp/prefer-get
+    !slide.question ||
+    !slide.question.content ||
+    !slide.question.content.choices
+  ) {
+    return undefined;
+  }
+
+  // $FlowFixMe flow cannot cast here "property choices of unknown type is incompatible with array type"
+  const choices: Array<Choice> | Array<TemplateChoice> = slide.question.content.choices;
+  return choices;
+};
 export const getChapterId = (slide: Slide): string => slide.chapter_id;
 export const getCurrentProgressionId = (state: State): ProgressionId | void =>
   state && state.ui && state.ui.current && state.ui.current.progressionId; // eslint-disable-line lodash-fp/prefer-get
@@ -97,9 +113,10 @@ export const getAnswerValues = (slide: Slide, state: State): Answer => {
 };
 
 export const getSlide = (id: string): (State => Slide) => (state: State): Slide =>
-  state &&
+  state && // eslint-disable-line lodash-fp/prefer-get
   state.data &&
   state.data.contents &&
+  state.data.contents.slide &&
   state.data.contents.slide.entities &&
   state.data.contents.slide.entities[id];
 
@@ -117,16 +134,18 @@ export const getCurrentSlide = (state: State): Slide | void => {
 export const getChapter = (ref: string): (State => Chapter | void) => (
   state: State
 ): Chapter | void =>
-  state &&
+  state && // eslint-disable-line lodash-fp/prefer-get
   state.data &&
   state.data.contents &&
+  state.data.contents.chapter &&
   state.data.contents.chapter.entities &&
   state.data.contents.chapter.entities[ref];
 
 export const getLevel = (ref: string): (State => Level | void) => (state: State): Level | void =>
-  state &&
+  state && // eslint-disable-line lodash-fp/prefer-get
   state.data &&
   state.data.contents &&
+  state.data.contents.level &&
   state.data.contents.level.entities &&
   state.data.contents.level.entities[ref];
 

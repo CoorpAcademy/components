@@ -21,6 +21,8 @@ import type {
   Action,
   Answer,
   AvailableContent,
+  Choice,
+  Choices,
   Config,
   Content,
   ContentInfo,
@@ -39,6 +41,8 @@ import type {
   Question,
   State,
   Meta
+  State,
+  TemplateChoice
 } from './types';
 
 import type {Instruction, ChapterRule} from './rule-engine/types';
@@ -56,6 +60,8 @@ export type {
   Answer,
   AvailableContent,
   ChapterRule,
+  Choice,
+  Choices,
   Config,
   Content,
   ContentInfo,
@@ -74,6 +80,7 @@ export type {
   Slide,
   State,
   Meta
+  TemplateChoice
 };
 
 export {
