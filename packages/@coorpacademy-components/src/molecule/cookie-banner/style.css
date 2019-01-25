@@ -7,16 +7,16 @@
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    margin-top: 200px;
+    margin-top: -200px;
   }
 
   30% {
     opacity: 0;
-    margin-top: 200px;
+    margin-top: -200px;
   }
 
   100% {
-    margin-top: 68px;
+    margin-top: 70px;
     opacity: 1;
   }
 }
