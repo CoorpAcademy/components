@@ -14,6 +14,7 @@ function createQuestion(answers: AcceptedAnswers): QCMQuestion {
   return {
     type: 'qcm',
     content: {
+      choices: [],
       answers
     }
   };

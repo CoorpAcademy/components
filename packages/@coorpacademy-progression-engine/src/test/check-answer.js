@@ -38,6 +38,7 @@ test("should return the value of `isCorrect` in checkAnswerCorrectness's result 
   const question = {
     type: 'qcm',
     content: {
+      choices: [],
       answers: [['answer1', 'answer3'], ['answer2', 'answer4'], ['answer1', 'answer4']]
     }
   };
