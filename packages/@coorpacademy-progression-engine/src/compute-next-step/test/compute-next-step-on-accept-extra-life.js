@@ -1,6 +1,7 @@
 // @flow
 import test from 'ava';
 import omit from 'lodash/fp/omit';
+import concat from 'lodash/fp/concat';
 import filter from 'lodash/fp/filter';
 import {getConfig} from '../../config';
 import type {AvailableContent, Config, State} from '../../types';
@@ -32,6 +33,39 @@ test('should return an action linking to a new slide', t => {
     }
   });
   t.regex(result.payload.nextContent.ref, /^1\.A1\.[2-9]+$/);
+});
+
+test('should return an action linking to a new slide with a chapter without slides', t => {
+  const availableContent: AvailableContent = [
+    {
+      ref: '1.A1',
+      slides: concat(filter({_id: '1.A1.1'}, allSlides), filter({_id: '1.A1.2'}, allSlides)),
+      rules: null
+    },
+    {
+      ref: '1.1.A1',
+      slides: [],
+      rules: null
+    },
+    {
+      ref: '2.A1',
+      slides: filter({chapter_id: '2.A1'}, allSlides),
+      rules: null
+    }
+  ];
+  const result = computeNextStepOnAcceptExtraLife(config, state, availableContent);
+  if (!result) {
+    throw new Error('action should not be falsy');
+  }
+  t.deepEqual(omit(['payload.nextContent.ref'], result), {
+    type: 'extraLifeAccepted',
+    payload: {
+      content: {ref: 'extraLife', type: 'node'},
+      nextContent: {type: 'slide'},
+      instructions: null
+    }
+  });
+  t.regex(result.payload.nextContent.ref, /^2\.A1\.[1-9]+$/);
 });
 
 test('should return null if there is no available content', t => {

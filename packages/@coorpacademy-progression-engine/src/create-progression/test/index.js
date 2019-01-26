@@ -34,7 +34,7 @@ const initialRule = {
 const availableContentWithRules: AvailableContent = [
   {
     ref: '1.A1',
-    slides: [],
+    slides: allSlides,
     rules: [
       initialRule,
       {

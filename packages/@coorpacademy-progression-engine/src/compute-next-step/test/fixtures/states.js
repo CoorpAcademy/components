@@ -3,11 +3,11 @@ import {type State} from '../../../types';
 
 export const stateBeforeGettingNextContent: State = {
   content: {
-    ref: '1.A1.2',
+    ref: '1.A1.1',
     type: 'slide'
   },
   nextContent: {
-    ref: '1.A1.1',
+    ref: '1.A1.2',
     type: 'slide'
   },
   lives: 1,
@@ -18,11 +18,11 @@ export const stateBeforeGettingNextContent: State = {
   viewedResources: [],
   isCorrect: true,
   step: {
-    current: 1
+    current: 2
   },
   remainingLifeRequests: 1,
   hasViewedAResourceAtThisStep: false,
-  allAnswers: [],
+  allAnswers: [{slideRef: '1.A1.1', isCorrect: true, answer: []}],
   variables: {}
 };
 

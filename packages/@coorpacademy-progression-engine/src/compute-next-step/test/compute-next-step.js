@@ -1,6 +1,7 @@
 // @flow
 import test from 'ava';
 import filter from 'lodash/fp/filter';
+import concat from 'lodash/fp/concat';
 import {getConfig} from '../../config';
 import type {AvailableContent, Config, State} from '../../types';
 import computeNextStep, {
@@ -20,6 +21,63 @@ const availableContent: AvailableContent = [
   }
 ];
 
+test('should return a success ExitNode if there is no available content with one chapter', t => {
+  const availableContenta: AvailableContent = [
+    {
+      ref: '1.A1',
+      slides: concat(filter({_id: '1.A1.1'}, allSlides), filter({_id: '1.A1.2'}, allSlides)),
+      rules: null
+    }
+  ];
+  const state: State = Object.freeze(stateBeforeGettingNextContent);
+  // $FlowFixMe
+  const action = computeNextStep(config, state, availableContenta, {type: 'foo'});
+  // $FlowFixMe
+  t.deepEqual(action.nextContent, {type: 'success', ref: 'successExitNode'});
+});
+test('should return a success ExitNode if there is no available content with any empty chapters', t => {
+  const availableContenta: AvailableContent = [
+    {
+      ref: '1.A1',
+      slides: concat(filter({_id: '1.A1.1'}, allSlides), filter({_id: '1.A1.2'}, allSlides)),
+      rules: null
+    },
+    {
+      ref: '2.A1',
+      slides: [],
+      rules: null
+    },
+    {
+      ref: '3.A1',
+      slides: [],
+      rules: null
+    }
+  ];
+  const state: State = Object.freeze(stateBeforeGettingNextContent);
+  // $FlowFixMe
+  const action = computeNextStep(config, state, availableContenta, {type: 'foo'});
+  // $FlowFixMe
+  t.deepEqual(action.nextContent, {type: 'success', ref: 'successExitNode'});
+});
+test('should return next slide if there is no available content in current chapter', t => {
+  const availableContenta: AvailableContent = [
+    {
+      ref: '1.A1',
+      slides: concat(filter({_id: '1.A1.1'}, allSlides), filter({_id: '1.A1.2'}, allSlides)),
+      rules: null
+    },
+    {
+      ref: '2.A1',
+      slides: filter({chapter_id: '2.A1'}, allSlides),
+      rules: null
+    }
+  ];
+  const state: State = Object.freeze(stateBeforeGettingNextContent);
+  // $FlowFixMe
+  const action = computeNextStep(config, state, availableContenta, {type: 'foo'});
+  // $FlowFixMe
+  t.regex(action.nextContent.ref, /^2\.A1\.[1-9]+$/);
+});
 test('should return null if there is no available content', t => {
   const state: State = Object.freeze(stateBeforeGettingNextContent);
   // $FlowFixMe

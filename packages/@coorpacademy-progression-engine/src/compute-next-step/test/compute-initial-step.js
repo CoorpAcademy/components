@@ -25,8 +25,43 @@ test('should return null if availableContent is empty', t => {
   t.is(computeInitialStep(config, []), null);
 });
 
-test('should return null if there are no slides for the first chapter', t => {
-  t.is(computeInitialStep(config, [{ref: '1.A1', slides: [], rules: null}]), null);
+test('should return a success exitNode if there are no slides in all chapters', t => {
+  const action = computeInitialStep(config, [{ref: '1.A1', slides: [], rules: null}]);
+  if (!action) {
+    throw new Error('action should not be falsy');
+  }
+  t.deepEqual(action, {
+    type: 'move',
+    payload: {
+      instructions: null,
+      nextContent: {
+        type: 'success',
+        ref: 'successExitNode'
+      }
+    }
+  });
+});
+
+test('should return a slide in next chapter if there are no slides for the first chapter', t => {
+  const action = computeInitialStep(config, [
+    {ref: '1.A1', slides: [], rules: null},
+    {ref: '1.1.A1', slides: [], rules: null},
+    {ref: '2.A1', slides: filter({chapter_id: '2.A1'}, allSlides), rules: null}
+  ]);
+  if (!action) {
+    throw new Error('action should not be falsy');
+  }
+
+  t.deepEqual(omit(['payload.nextContent.ref'], action), {
+    type: 'move',
+    payload: {
+      instructions: null,
+      nextContent: {
+        type: 'slide'
+      }
+    }
+  });
+  t.regex(action.payload.nextContent.ref, /^2\.A1\.[1-9]+$/);
 });
 
 test('should create an initial action from the slides', t => {
@@ -84,7 +119,7 @@ test('should create an adaptive initial Action', t => {
   const content: AvailableContent = [
     {
       ref: 'chapter1',
-      slides: [],
+      slides: allSlides,
       rules: [initialRule, randomRule]
     }
   ];

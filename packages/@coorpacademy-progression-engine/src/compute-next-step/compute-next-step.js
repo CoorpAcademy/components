@@ -4,6 +4,8 @@ import get from 'lodash/fp/get';
 import find from 'lodash/fp/find';
 import pipe from 'lodash/fp/pipe';
 import head from 'lodash/fp/head';
+import size from 'lodash/fp/size';
+import slice from 'lodash/fp/slice';
 import last from 'lodash/fp/last';
 import filter from 'lodash/fp/filter';
 import sortBy from 'lodash/fp/sortBy';
@@ -84,19 +86,25 @@ export const nextSlidePool = (
   );
   const currentIndex = _currentIndex !== -1 ? _currentIndex : 0;
   const currentChapterPool: ChapterContent | null = availableContent[currentIndex] || null;
-  const slidesAnsweredForThisChapter = intersection(
-    state.slides,
-    (currentChapterPool && map('_id', currentChapterPool.slides)) || []
-  );
 
-  const isChapterCompleted = slidesAnsweredForThisChapter.length >= config.slidesToComplete;
+  const currentChapterSlideIds = pipe(get('slides'), map('_id'))(currentChapterPool || []);
+  const slidesAnsweredForThisChapter = intersection(state.slides, currentChapterSlideIds);
+  const isChapterCompleted =
+    size(slidesAnsweredForThisChapter) >=
+    Math.min(config.slidesToComplete, size(currentChapterSlideIds) - 1);
+
   const hasRules = hasRulesToApply(currentChapterPool);
   const shouldChangeChapter = !hasRules && isChapterCompleted;
 
   if (shouldChangeChapter) {
+    const nextChapterContent = pipe(
+      slice(currentIndex + 1, size(availableContent)),
+      filter(content => !isEmpty(content.slides)),
+      head
+    )(availableContent);
     return {
       currentChapterContent: currentChapterPool,
-      nextChapterContent: availableContent[currentIndex + 1] || null,
+      nextChapterContent,
       temporaryNextContent: {type: 'slide', ref: ''}
     };
   }
@@ -113,7 +121,7 @@ const _getChapterContent = (
   availableContent: AvailableContent,
   state: State | null
 ): ChapterContentSelection => {
-  const firstContent = head(availableContent);
+  const firstContent = pipe(filter(content => !isEmpty(content.slides)), head)(availableContent);
   if (!state) {
     return {
       currentChapterContent: firstContent,
@@ -198,7 +206,6 @@ export const computeNextStepForNewChapter = (
     availableContent,
     null
   );
-
   if (!nextStep) {
     return null;
   }
@@ -260,7 +267,6 @@ const computeNextStep = (
   const answer = (!!action && action.type === 'answer' && action.payload.answer) || [];
   const state = !_state || !action ? _state : updateState(config, _state, [action]);
   const chapterContent = getChapterContent(config, availableContent, state);
-
   if (!chapterContent) {
     return null;
   }

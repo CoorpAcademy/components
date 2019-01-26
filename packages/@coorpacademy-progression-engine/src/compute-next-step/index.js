@@ -1,3 +1,4 @@
+import isEmpty from 'lodash/fp/isEmpty';
 // @flow
 import type {
   Answer,
@@ -28,11 +29,21 @@ export type PartialAnswerAction = $ReadOnly<{
 
 export const computeInitialStep = (
   config: Config,
-  availableContent: AvailableContent
+  availableContent: AvailableContent = []
 ): MoveAction | null => {
+  if (isEmpty(availableContent)) return null;
   const initialStep = computeNextStep(config, null, availableContent, null);
   if (!initialStep) {
-    return null;
+    return {
+      type: 'move',
+      payload: {
+        nextContent: {
+          type: 'success',
+          ref: 'successExitNode'
+        },
+        instructions: null
+      }
+    };
   }
 
   const {nextContent, instructions} = initialStep;
@@ -92,7 +103,6 @@ export const computeNextStepOnAcceptExtraLife = (
   const partialAction: PartialExtraLifeAcceptedAction = {type: 'extraLifeAccepted'};
 
   const stepResult = computeNextStep(config, state, availableContent, partialAction);
-
   if (!stepResult) {
     return null;
   }
