@@ -657,16 +657,24 @@ test('should return null when switching to new chapter but no content could be f
   ];
 
   const currentSlide = getSlide(allSlides, state.nextContent);
-  t.is(
-    computeNextStepAfterAnswer(
-      config,
-      state,
-      availableContentWithNoContentInSecondChapter,
-      currentSlide,
-      partialAction(state)
-    ),
-    null
+  const result = computeNextStepAfterAnswer(
+    config,
+    state,
+    availableContentWithNoContentInSecondChapter,
+    currentSlide,
+    partialAction(state)
   );
+  t.deepEqual(result, {
+    type: 'answer',
+    payload: {
+      answer: [],
+      content: state.nextContent,
+      godMode: true,
+      nextContent: {type: 'success', ref: 'successExitNode'},
+      instructions: null,
+      isCorrect: true
+    }
+  });
 });
 
 test("should return null when there are no rules matching the progression's conditions", t => {
