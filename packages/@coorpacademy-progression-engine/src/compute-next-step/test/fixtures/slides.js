@@ -1,5 +1,5 @@
 // @flow
-import {type Slide} from '../../../types';
+import type {Slide} from '../../../types';
 
 const slide1_A_14 = {
   _id: '1.A1.4',
@@ -22,6 +22,7 @@ const slide1_A_14 = {
   lessons: [
     {
       type: 'video',
+      ref: 'ref',
       poster: '//static.coorpacademy.com/content/digital/miniatures_cours/avance/1A1.png',
       description: 'Le concept de Knowledge Graph',
       mimeType: 'application/vimeo',
@@ -77,6 +78,7 @@ const slides: Array<Slide> = [
     },
     lessons: [
       {
+        ref: 'ref',
         type: 'video',
         poster: '//static.coorpacademy.com/content/digital/miniatures_cours/avance/1A1.png',
         description: 'Le concept de Knowledge Graph',
@@ -171,6 +173,7 @@ const slides: Array<Slide> = [
     },
     lessons: [
       {
+        ref: 'ref',
         type: 'video',
         poster: '//static.coorpacademy.com/content/digital/miniatures_cours/avance/1A1.png',
         description: 'Le concept de Knowledge Graph',
@@ -277,6 +280,7 @@ const slides: Array<Slide> = [
     },
     lessons: [
       {
+        ref: 'ref',
         type: 'video',
         poster: '//static.coorpacademy.com/content/digital/miniatures_cours/avance/1A1.png',
         description: 'Le concept de Knowledge Graph',
@@ -356,6 +360,7 @@ const slides: Array<Slide> = [
     },
     lessons: [
       {
+        ref: 'ref',
         type: 'video',
         poster: '//static.coorpacademy.com/content/digital/miniatures_cours/avance/1A1.png',
         description: 'Le concept de Knowledge Graph',
@@ -419,6 +424,7 @@ const slides: Array<Slide> = [
   {...slide1_A_14, _id: '1.A1.6'},
   {...slide1_A_14, _id: '1.A1.7'},
   {
+    ...slide1_A_14,
     _id: '2.A1.1',
     chapter_id: '2.A1',
     question: {
@@ -429,6 +435,7 @@ const slides: Array<Slide> = [
     }
   },
   {
+    ...slide1_A_14,
     _id: '2.A1.2',
     chapter_id: '2.A1',
     question: {
@@ -440,6 +447,7 @@ const slides: Array<Slide> = [
     }
   },
   {
+    ...slide1_A_14,
     _id: '2.A1.3',
     chapter_id: '2.A1',
     question: {
@@ -450,6 +458,7 @@ const slides: Array<Slide> = [
     }
   },
   {
+    ...slide1_A_14,
     _id: '2.A1.4',
     chapter_id: '2.A1',
     question: {
@@ -461,6 +470,7 @@ const slides: Array<Slide> = [
     }
   },
   {
+    ...slide1_A_14,
     _id: '2.A1.5',
     chapter_id: '2.A1',
     question: {

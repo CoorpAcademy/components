@@ -3,7 +3,7 @@
 import includes from 'lodash/fp/includes';
 import type {ClueAPI, Fixtures} from './definitions';
 
-type FindById = (progressionId: string, slideId: string) => Promise<ClueAPI>;
+type FindById = (progressionId: string, slideId: string) => Promise<ClueAPI | void>;
 type CluesService = {|
   findById: FindById
 |};
@@ -11,7 +11,7 @@ type CluesService = {|
 const findById = (fixtures: Fixtures): FindById => async (
   progressionId,
   slideId
-): Promise<ClueAPI> => {
+): Promise<ClueAPI | void> => {
   const {findProgressionById, getClue} = fixtures;
   const progression = await findProgressionById(progressionId);
 

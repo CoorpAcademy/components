@@ -5,9 +5,12 @@ import pipe from 'lodash/fp/pipe';
 import {getConfig} from '@coorpacademy/progression-engine';
 
 import type {Slide} from '@coorpacademy/progression-engine';
-import type {ChapterAPI, Fixtures, LevelAPI} from './definitions';
+import type {ChapterAPI, Fixtures, LevelAPI, RestrictedResourceType} from './definitions';
 
-type FindContent = (type: string, ref: string) => Promise<ChapterAPI | LevelAPI | Slide>;
+type FindContent = (
+  type: RestrictedResourceType,
+  ref: string
+) => Promise<ChapterAPI | LevelAPI | Slide>;
 type GetNbSlides = (contentRef: string, engineRef: string, version: string) => Promise<number>;
 type GetInfo = (
   contentRef: string,
@@ -21,7 +24,7 @@ type ContentService = {|
 |};
 
 const find = (fixtures: Fixtures): FindContent => (
-  type: string,
+  type: RestrictedResourceType,
   ref: string
 ): Promise<ChapterAPI | LevelAPI | Slide> => {
   const {findContent} = fixtures;
@@ -38,19 +41,15 @@ const getNbSlides = (fixtures: Fixtures): GetNbSlides => async (
     ref: engineRef,
     version
   });
-
   const level = await findLevelById(contentRef);
-
   if (level) {
     return level.chapterIds.length * maxNbSlides;
   }
-
   const chapter: ChapterAPI = await findChapterById(contentRef);
 
   if (chapter) {
     return maxNbSlides;
   }
-
   return -1;
 };
 
@@ -59,8 +58,7 @@ const getInfo = (fixtures: Fixtures): GetInfo => async (
   engineRef: string,
   version: string
 ): Promise<{nbSlides: number}> => {
-  const getNbSlideFunction = getNbSlides(fixtures);
-  const nbSlides = await getNbSlideFunction(contentRef, engineRef, version);
+  const nbSlides = await getNbSlides(fixtures)(contentRef, engineRef, version);
   return {nbSlides};
 };
 
