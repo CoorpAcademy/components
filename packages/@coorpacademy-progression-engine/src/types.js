@@ -266,12 +266,13 @@ export type QCMQuestion = $Exact<{|
   }
 |}>;
 
-export type QCMGraphicQuestion = {|
+export type QCMGraphicQuestion = $Exact<{|
+  ...QuestionCommon,
   type: 'qcmGraphic',
   content: {
     answers: AcceptedAnswers
   }
-|};
+|}>;
 
 export type SliderQuestion = {|
   type: 'slider',
