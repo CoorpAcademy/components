@@ -269,6 +269,7 @@ export type QCMQuestion = $Exact<{|
 export type QCMGraphicQuestion = $Exact<{|
   ...QuestionCommon,
   type: 'qcmGraphic',
+  explanation: string,
   content: {
     answers: AcceptedAnswers
   }
