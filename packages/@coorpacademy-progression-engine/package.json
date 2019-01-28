@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/progression-engine",
-  "version": "9.3.4-alpha.49+36b543d81",
+  "version": "9.3.3",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -69,6 +69,5 @@
     ],
     "babel": "inherit"
   },
-  "author": "CoorpAcademy",
-  "gitHead": "36b543d8105ae922220ef6e9d129e5d06c607418"
+  "author": "CoorpAcademy"
 }

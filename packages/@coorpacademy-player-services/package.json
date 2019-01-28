@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/player-services",
-  "version": "1.3.8-alpha.3+d87d8ea76",
+  "version": "1.3.5",
   "description": "Implements reactions to redux actions from player-store",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -48,7 +48,7 @@
     "rimraf": "^2.6.1"
   },
   "dependencies": {
-    "@coorpacademy/progression-engine": "9.3.4-alpha.49+36b543d81",
+    "@coorpacademy/progression-engine": "9.3.3",
     "lodash": "^4.17.4"
   },
   "ava": {
@@ -69,6 +69,5 @@
         "transform-object-rest-spread"
       ]
     }
-  },
-  "gitHead": "d87d8ea76c1c978a97133ae47460ef70d596bc9f"
+  }
 }
