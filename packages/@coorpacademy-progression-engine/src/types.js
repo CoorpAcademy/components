@@ -32,7 +32,6 @@ export type PDF = 'pdf';
 export type ContentType = CHAPTER | LEVEL | SLIDE | NODE | FAILURE | SUCCESS | VIDEO | PDF;
 
 type Url = string;
-type ResourceMimeType = 'video/mp4' | 'application/vimeo';
 
 export type ContentSlide = {|
   type: SLIDE,
@@ -211,19 +210,24 @@ export type AnswerCorrection = {|
   corrections: Array<PartialCorrection>
 |};
 
-export type AcceptedAnswers = Array<Answer>;
-
 type Source = {|
   _id: string,
   mimeType: ResourceMimeType,
   url: Url
 |};
 
-type Media = {|
+type Media = {
+  type?: string,
+  description?: string,
+  mimeType?: ResourceMimeType,
+  _id?: string,
+  mediaUrl?: Url,
   subtitles?: Array<string>,
   posters?: Array<Url>,
   src?: Array<Source>
-|};
+};
+
+export type AcceptedAnswers = Array<Answer>;
 
 type ChoiceItem = {|
   text: string,
@@ -318,13 +322,6 @@ export type Meta = {
 };
 
 type Author = string;
-type Url = string;
-
-type Source = {|
-  _id: string,
-  mimeType: ResourceMimeType,
-  url: Url
-|};
 
 type LessonType = 'pdf' | 'video';
 type Subtitle = string;
@@ -342,17 +339,6 @@ type Lesson = {|
   posters: Array<string>,
   src: Array<string>
 |};
-
-type Media = {
-  type?: string,
-  description?: string,
-  mimeType?: ResourceMimeType,
-  _id?: string,
-  mediaUrl?: Url,
-  subtitles?: Array<string>,
-  posters?: Array<Url>,
-  src?: Array<Source>
-};
 
 export type Slide = {|
   _id: string,
