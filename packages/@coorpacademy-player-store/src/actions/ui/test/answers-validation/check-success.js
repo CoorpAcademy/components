@@ -112,6 +112,9 @@ test(
       ref: 'learner',
       version: '1'
     }),
+    set('data.configs.entities.learner@1', {
+      version: '1'
+    }),
     set('data.progressions.entities.foo.state.nextContent', {
       type: 'slide',
       ref: 'baz'

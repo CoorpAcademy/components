@@ -3,9 +3,9 @@ import test from 'ava';
 import type {
   Action,
   AvailableContent,
-  Content,
+  GenericContent,
   Engine,
-  EngineOptions,
+  EngineConfig,
   MoveAction
 } from '../../types';
 import createProgression from '..';
@@ -59,11 +59,12 @@ test('should create a new progression with the latest version of the engine and 
     ref: 'learner',
     version: 'latest'
   };
-  const content: Content = {
+  const content: GenericContent = {
     ref: '1.A1',
     type: 'level'
   };
-  const engineOptions: EngineOptions = {
+  const engineOptions: EngineConfig = {
+    version: '1',
     livesDisabled: true
   };
   const progression = createProgression(engine, content, engineOptions, availableContentWithRules);
@@ -89,11 +90,12 @@ test("progression should have 'move' action that links to the initial rule's des
     ref: 'learner',
     version: 'latest'
   };
-  const content: Content = {
+  const content: GenericContent = {
     ref: '1.A1',
     type: 'level'
   };
-  const engineOptions: EngineOptions = {
+  const engineOptions: EngineConfig = {
+    version: '1',
     livesDisabled: true
   };
   const progression = createProgression(engine, content, engineOptions, availableContentWithRules);
@@ -116,11 +118,12 @@ test('progression should have "move" action that links to a random slide from th
     ref: 'learner',
     version: 'latest'
   };
-  const content: Content = {
+  const content: GenericContent = {
     ref: '1.A1',
     type: 'level'
   };
-  const engineOptions: EngineOptions = {
+  const engineOptions: EngineConfig = {
+    version: '1',
     livesDisabled: true
   };
 
@@ -158,11 +161,12 @@ test('should return null if no there is no available content', t => {
     ref: 'learner',
     version: 'latest'
   };
-  const content: Content = {
+  const content: GenericContent = {
     ref: '1.A1',
     type: 'level'
   };
-  const engineOptions: EngineOptions = {
+  const engineOptions: EngineConfig = {
+    version: '1',
     livesDisabled: true
   };
   t.is(createProgression(engine, content, engineOptions, []), null);

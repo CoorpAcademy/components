@@ -14,7 +14,7 @@ import {
   Location as LocationService,
   Progressions as ProgressionsService,
   Recommendations as RecommendationsService
-} from '@coorpacademy/player-services/es';
+} from '@coorpacademy/player-services';
 
 import * as fixtures from '../../sandbox/fixtures';
 import {create} from '..';

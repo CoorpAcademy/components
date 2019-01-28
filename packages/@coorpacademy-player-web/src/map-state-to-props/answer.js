@@ -38,7 +38,8 @@ const editAnswerAction = (options, {dispatch}) => (state, slide) => newValue => 
 const qcmProps = (options, store) => (state, slide) => {
   const answers = getAnswerValues(slide, state);
   const _editAnswerAction = editAnswerAction(options, store)(state, slide);
-  return {
+
+  const props = {
     type: 'qcm',
     answers: map(
       choice => ({
@@ -49,6 +50,8 @@ const qcmProps = (options, store) => (state, slide) => {
       getChoices(slide)
     )
   };
+
+  return props;
 };
 
 const qcmDragProps = (options, store) => (state, slide) => {

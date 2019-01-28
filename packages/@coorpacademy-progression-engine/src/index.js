@@ -21,12 +21,16 @@ import type {
   Action,
   Answer,
   AvailableContent,
+  Choice,
+  Choices,
   Config,
   Content,
+  ContentInfo,
   ContentType,
   ContentSlide,
   Engine,
-  EngineOptions,
+  EngineConfig,
+  Engines,
   GenericContent,
   PartialCorrection,
   Progression,
@@ -36,7 +40,8 @@ import type {
   Slide,
   Question,
   State,
-  Meta
+  Meta,
+  TemplateChoice
 } from './types';
 
 import type {Instruction, ChapterRule} from './rule-engine/types';
@@ -54,12 +59,16 @@ export type {
   Answer,
   AvailableContent,
   ChapterRule,
+  Choice,
+  Choices,
   Config,
   Content,
+  ContentInfo,
   ContentType,
   ContentSlide,
   Engine,
-  EngineOptions,
+  EngineConfig,
+  Engines,
   GenericContent,
   Instruction,
   PartialCorrection,
@@ -69,7 +78,8 @@ export type {
   ResourceContent,
   Slide,
   State,
-  Meta
+  Meta,
+  TemplateChoice
 };
 
 export {

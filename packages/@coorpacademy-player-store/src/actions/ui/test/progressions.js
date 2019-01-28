@@ -980,3 +980,425 @@ test(
   ],
   13
 );
+
+test(
+  'should dispatch error if no progressionId is found',
+  macro,
+  {},
+  t => ({
+    Progressions: {
+      findById: id => {
+        t.is(id, 'foo');
+        return {};
+      },
+      getEngineConfig: () => {
+        t.pass();
+        return 42;
+      }
+    },
+    LeaderBoard: {
+      getRank: () => {
+        t.pass();
+        return 1;
+      }
+    }
+  }),
+  selectProgression(),
+  [
+    {
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
+      payload: {id: undefined}
+    },
+    {
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
+      payload: 'progressionId must be defined.'
+    }
+  ],
+  0
+);
+
+test(
+  'should dispatch error if no content is found',
+  macro,
+  {},
+  t => ({
+    Progressions: {
+      findById: id => {
+        t.is(id, 'foo');
+        return {
+          _id: 'foo',
+          state: {
+            nextContent: {type: 'slide', ref: 'bar'}
+          },
+          engine: {ref: 'qux', version: 'quux'}
+        };
+      },
+      getEngineConfig: () => {
+        t.pass();
+        return 42;
+      }
+    },
+    LeaderBoard: {
+      getRank: () => {
+        t.pass();
+        return 1;
+      }
+    },
+    Content: ContentService(t, false)
+  }),
+  selectProgression('foo'),
+  [
+    {
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
+      payload: {id: 'foo'}
+    },
+    {
+      type: PROGRESSION_FETCH_REQUEST,
+      meta: {id: 'foo'}
+    },
+    {
+      type: PROGRESSION_FETCH_SUCCESS,
+      meta: {id: 'foo'},
+      payload: {
+        _id: 'foo',
+        state: {
+          nextContent: {type: 'slide', ref: 'bar'}
+        },
+        engine: {ref: 'qux', version: 'quux'}
+      }
+    },
+    {
+      type: RANK_FETCH_START_REQUEST
+    },
+    {
+      type: RANK_FETCH_START_SUCCESS,
+      payload: 1
+    },
+    {
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
+      payload: 'progression "foo" has no content.'
+    }
+  ],
+  2
+);
+
+test(
+  'should dispatch error if no engine is found',
+  macro,
+  {},
+  t => ({
+    Progressions: {
+      findById: id => {
+        t.is(id, 'foo');
+        return {
+          _id: 'foo',
+          state: {
+            nextContent: {type: 'success', ref: 'bar'}
+          },
+          content: {type: 'level', ref: '1B'}
+        };
+      },
+      findBestOf: (type, contentType, ref, id) => {
+        t.is(contentType, 'level');
+        t.is(type, 'learner');
+        t.is(ref, '1B');
+        t.is(id, 'foo');
+        return 32;
+      },
+      getEngineConfig: () => {
+        t.pass();
+        return 42;
+      }
+    },
+    LeaderBoard: {
+      getRank: () => {
+        t.pass();
+        return 1;
+      }
+    }
+  }),
+  selectProgression('foo'),
+  [
+    {
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
+      payload: {id: 'foo'}
+    },
+    {
+      type: PROGRESSION_FETCH_REQUEST,
+      meta: {id: 'foo'}
+    },
+    {
+      type: PROGRESSION_FETCH_SUCCESS,
+      meta: {id: 'foo'},
+      payload: {
+        _id: 'foo',
+        state: {
+          nextContent: {type: 'success', ref: 'bar'}
+        },
+        content: {type: 'level', ref: '1B'}
+      }
+    },
+    {
+      type: RANK_FETCH_START_REQUEST
+    },
+    {
+      type: RANK_FETCH_START_SUCCESS,
+      payload: 1
+    },
+    {
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
+      payload: 'progression "foo" has no engine.'
+    }
+  ],
+  2
+);
+
+test(
+  'should dispatch error if no nextContent is found',
+  macro,
+  {},
+  t => ({
+    Progressions: {
+      findById: id => {
+        t.is(id, 'foo');
+        return {
+          _id: 'foo',
+          state: {},
+          content: {type: 'level', ref: '1B'},
+          engine: {ref: 'learner', version: '1'}
+        };
+      },
+      findBestOf: (type, contentType, ref, id) => {
+        t.is(contentType, 'level');
+        t.is(type, 'learner');
+        t.is(ref, '1B');
+        t.is(id, 'foo');
+        return 32;
+      },
+      getEngineConfig: () => {
+        t.pass();
+        return 42;
+      }
+    },
+    ExitNodes: {
+      findById: id => {
+        t.is(id, 'bar');
+        return 'bar';
+      }
+    },
+    LeaderBoard: {
+      getRank: () => {
+        t.pass();
+        return 1;
+      }
+    },
+    Content: {
+      find: (type, ref) => {
+        if (ref === '1B') {
+          return {ref: '1B', level: 'base'};
+        }
+      },
+      getInfo: (contentRef, engineRef, version) => {
+        t.is(contentRef, '1B');
+        t.is(engineRef, 'learner');
+        t.is(version, '1');
+        return 'info';
+      }
+    }
+  }),
+  selectProgression('foo'),
+  [
+    {
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
+      payload: {id: 'foo'}
+    },
+    {
+      type: PROGRESSION_FETCH_REQUEST,
+      meta: {id: 'foo'}
+    },
+    {
+      type: PROGRESSION_FETCH_SUCCESS,
+      meta: {id: 'foo'},
+      payload: {
+        _id: 'foo',
+        state: {},
+        engine: {ref: 'learner', version: '1'},
+        content: {type: 'level', ref: '1B'}
+      }
+    },
+    {
+      type: RANK_FETCH_START_REQUEST
+    },
+    {
+      type: RANK_FETCH_START_SUCCESS,
+      payload: 1
+    },
+    {
+      type: CONTENT_FETCH_REQUEST,
+      meta: {type: 'level', ref: '1B'}
+    },
+    {
+      type: CONTENT_FETCH_SUCCESS,
+      meta: {type: 'level', ref: '1B'},
+      payload: {level: 'base', ref: '1B'}
+    },
+    {
+      type: PROGRESSION_FETCH_BESTOF_REQUEST,
+      meta: {type: 'level', ref: '1B'}
+    },
+    {
+      type: PROGRESSION_FETCH_BESTOF_SUCCESS,
+      meta: {type: 'level', ref: '1B'},
+      payload: 32
+    },
+    {
+      type: ENGINE_CONFIG_FETCH_REQUEST,
+      meta: {engine: {ref: 'learner', version: '1'}}
+    },
+    {
+      type: ENGINE_CONFIG_FETCH_SUCCESS,
+      meta: {engine: {ref: 'learner', version: '1'}},
+      payload: 42
+    },
+    {
+      type: CONTENT_INFO_FETCH_REQUEST,
+      meta: {type: 'level', ref: '1B'}
+    },
+    {
+      type: CONTENT_INFO_FETCH_SUCCESS,
+      meta: {type: 'level', ref: '1B'},
+      payload: 'info'
+    },
+    {
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
+      payload: 'progression "foo" has no state.nextContent.'
+    }
+  ],
+  10
+);
+
+test(
+  'should dispatch error on node extralife, when no state.content is found',
+  macro,
+  {},
+  t => ({
+    Answers: {
+      findById: (progressionId, slideId, givenAnswers) => {
+        t.is(slideId, slide._id);
+        t.is(progressionId, 'xtralife');
+        t.deepEqual(givenAnswers, []);
+        return ['a', 'n', 's', 'w', 'e', 'r', 's'];
+      }
+    },
+    Progressions: {
+      findById: id => {
+        t.is(id, 'xtralife');
+        return {
+          _id: 'xtralife',
+          state: {
+            nextContent: {type: 'node', ref: 'extraLife'}
+          },
+          content: {type: 'chapter', ref: 'baz'},
+          engine: {ref: 'qux', version: 'quux'}
+        };
+      },
+      findBestOf: (type, contentType, ref, id) => {
+        t.is(contentType, 'chapter');
+        t.is(ref, 'baz');
+        return 16;
+      },
+      getEngineConfig: () => {
+        t.pass();
+        return 42;
+      }
+    },
+    ExitNodes: {
+      findById: id => {
+        t.is(id, 'bar');
+        return 'bar';
+      }
+    },
+    LeaderBoard: {
+      getRank: () => {
+        t.pass();
+        return 1;
+      }
+    },
+    Content: ContentService(t, false),
+    Recommendations: {
+      find: () => 'plop',
+      getNext: () => 'plip'
+    }
+  }),
+  selectProgression('xtralife'),
+  [
+    {
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
+      payload: {id: 'xtralife'}
+    },
+    {
+      type: PROGRESSION_FETCH_REQUEST,
+      meta: {id: 'xtralife'}
+    },
+    {
+      type: PROGRESSION_FETCH_SUCCESS,
+      meta: {id: 'xtralife'},
+      payload: {
+        _id: 'xtralife',
+        state: {
+          nextContent: {type: 'node', ref: 'extraLife'}
+        },
+        content: {type: 'chapter', ref: 'baz'},
+        engine: {ref: 'qux', version: 'quux'}
+      }
+    },
+    {
+      type: RANK_FETCH_START_REQUEST
+    },
+    {
+      type: RANK_FETCH_START_SUCCESS,
+      payload: 1
+    },
+    {
+      type: CONTENT_FETCH_REQUEST,
+      meta: {type: 'chapter', ref: 'baz'}
+    },
+    {
+      type: CONTENT_FETCH_SUCCESS,
+      meta: {type: 'chapter', ref: 'baz'},
+      payload: {_id: 'baz', foo: 3}
+    },
+    {
+      type: PROGRESSION_FETCH_BESTOF_REQUEST,
+      meta: {type: 'chapter', ref: 'baz'}
+    },
+    {
+      type: PROGRESSION_FETCH_BESTOF_SUCCESS,
+      meta: {type: 'chapter', ref: 'baz'},
+      payload: 16
+    },
+    {
+      type: ENGINE_CONFIG_FETCH_REQUEST,
+      meta: {engine: {ref: 'qux', version: 'quux'}}
+    },
+    {
+      type: ENGINE_CONFIG_FETCH_SUCCESS,
+      meta: {engine: {ref: 'qux', version: 'quux'}},
+      payload: 42
+    },
+    {
+      type: CONTENT_INFO_FETCH_REQUEST,
+      meta: {type: 'chapter', ref: 'baz'}
+    },
+    {
+      type: CONTENT_INFO_FETCH_SUCCESS,
+      meta: {type: 'chapter', ref: 'baz'},
+      payload: 'info'
+    },
+    {
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
+      payload: 'progression "xtralife" has no state.content.'
+    }
+  ],
+  9
+);

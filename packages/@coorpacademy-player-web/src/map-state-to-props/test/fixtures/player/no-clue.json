@@ -1,5 +1,12 @@
 {
   "data": {
+    "configs": {
+      "entities": {
+        "microlearning@1": {
+          "version": 1
+        }
+      }
+    },
     "contents": {
       "slide": {
         "entities": {

@@ -16,6 +16,11 @@ export type ResourceMimeType =
 
 export type Answer = Array<string>;
 
+export type MICROLEARNING = 'microlearning';
+export type LEARNER = 'learner';
+
+export type Engines = MICROLEARNING | LEARNER;
+
 export type CHAPTER = 'chapter';
 export type LEVEL = 'level';
 export type SLIDE = 'slide';
@@ -26,9 +31,15 @@ export type VIDEO = 'video';
 export type PDF = 'pdf';
 export type ContentType = CHAPTER | LEVEL | SLIDE | NODE | FAILURE | SUCCESS | VIDEO | PDF;
 
+type Url = string;
+
 export type ContentSlide = {|
   type: SLIDE,
   ref: string
+|};
+
+export type ContentInfo = {|
+  nbSlides: number
 |};
 
 export type GenericContent = {|
@@ -166,19 +177,26 @@ export type Config = {|
   remainingLifeRequests: number
 |};
 
-export type EngineOptions = {|
+export type EngineConfig = {|
   livesDisabled?: boolean,
   lives?: number,
-  maxTypos?: number
+  maxTypos?: number,
+  version: string,
+  slidesToComplete?: number,
+  answerBoundaryLimit?: number,
+  starsPerAskingClue?: number,
+  starsPerCorrectAnswer?: number,
+  starsPerResourceViewed?: number,
+  remainingLifeRequests?: number
 |};
 
 export type ProgressionId = string;
 export type Progression = {|
   _id?: ProgressionId,
-  content: Content,
+  content: GenericContent,
   state?: State,
   engine: Engine,
-  engineOptions: EngineOptions,
+  engineOptions: EngineConfig,
   actions?: Array<Action>
 |};
 
@@ -192,7 +210,46 @@ export type AnswerCorrection = {|
   corrections: Array<PartialCorrection>
 |};
 
+type Source = {|
+  _id: string,
+  mimeType: ResourceMimeType,
+  url: Url
+|};
+
+type Media = {
+  type?: string,
+  description?: string,
+  mimeType?: ResourceMimeType,
+  _id?: string,
+  mediaUrl?: Url,
+  subtitles?: Array<string>,
+  posters?: Array<Url>,
+  src?: Array<Source>
+};
+
 export type AcceptedAnswers = Array<Answer>;
+
+type ChoiceItem = {|
+  text: string,
+  value: string,
+  _id: string
+|};
+
+export type Choice = {|
+  _id: string,
+  value?: string,
+  name?: string,
+  type?: 'select',
+  label: string,
+  items: Array<ChoiceItem>,
+  media: Media
+|};
+
+export type TemplateChoice = {|
+  type: 'text' | 'select'
+|};
+
+export type Choices = Array<Choice | TemplateChoice>;
 
 type QuestionCommon = {|
   explanation?: string,
@@ -200,14 +257,14 @@ type QuestionCommon = {|
   medias?: Array<string>
 |};
 
-export type QCMQuestion = {|
-  ...{|
-    type: 'qcm',
-    content: {
-      answers: AcceptedAnswers
-    }
-  |} & QuestionCommon
-|};
+export type QCMQuestion = $Exact<{|
+  ...QuestionCommon,
+  type: 'qcm',
+  content: {
+    choices: Array<Choice>,
+    answers: AcceptedAnswers
+  }
+|}>;
 
 export type QCMGraphicQuestion = {|
   type: 'qcmGraphic',
@@ -223,15 +280,14 @@ export type SliderQuestion = {|
   }
 |};
 
-export type QCMDragQuestion = {|
-  ...{|
-    type: 'qcmDrag',
-    content: {
-      matchOrder: boolean,
-      answers: AcceptedAnswers
-    }
-  |} & QuestionCommon
-|};
+export type QCMDragQuestion = $Exact<{|
+  ...QuestionCommon,
+  type: 'qcmDrag',
+  content: {
+    matchOrder: boolean,
+    answers: AcceptedAnswers
+  }
+|}>;
 
 export type BasicQuestion = {|
   type: 'basic',
@@ -239,10 +295,6 @@ export type BasicQuestion = {|
     maxTypos?: ?number,
     answers: AcceptedAnswers
   }
-|};
-
-type TemplateChoice = {|
-  type: 'text' | 'select'
 |};
 
 export type TemplateQuestion = {|
@@ -270,13 +322,6 @@ export type Meta = {
 };
 
 type Author = string;
-type Url = string;
-
-type Source = {|
-  _id: string,
-  mimeType: ResourceMimeType,
-  url: Url
-|};
 
 type LessonType = 'pdf' | 'video';
 type Subtitle = string;
@@ -294,17 +339,6 @@ type Lesson = {|
   posters: Array<string>,
   src: Array<string>
 |};
-
-type Media = {
-  type?: string,
-  description?: string,
-  mimeType?: ResourceMimeType,
-  _id?: string,
-  mediaUrl?: Url,
-  subtitles?: Array<string>,
-  posters?: Array<Url>,
-  src?: Array<Source>
-};
 
 export type Slide = {|
   _id: string,

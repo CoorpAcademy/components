@@ -11,7 +11,7 @@ import {
   Progressions as ProgressionsService,
   Recommendations as RecommendationsService,
   Slides as SlidesService
-} from '@coorpacademy/player-services/es';
+} from '@coorpacademy/player-services';
 import curryN from 'lodash/fp/curryN';
 import mapValues from 'lodash/fp/mapValues';
 

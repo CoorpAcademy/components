@@ -1,5 +1,12 @@
 {
   "data": {
+    "configs": {
+      "entities": {
+        "microlearning@1": {
+          "version": 1
+        }
+      }
+    },
     "answers": {
       "entities": {
         "59634ace3f6143001c46bae5": {
@@ -75,8 +82,7 @@
         "entities": {
           "sli_4ymMuMFb8": {
             "_id": "sli_4ymMuMFb8",
-            "klf":
-              "Sur Twitter, l’outil de référence du microblogging, les messages sont limités à 140 signes.",
+            "klf": "Sur Twitter, l’outil de référence du microblogging, les messages sont limités à 140 signes.",
             "tips": "Twitter compterait plus de 20 millions de faux comptes.",
             "chapter_id": "cha_Ny1BTxRp~",
             "authors": [],
@@ -97,8 +103,7 @@
                 "mimeType": "application/vimeo",
                 "videoId": "191200830",
                 "description": "Universal Searches",
-                "poster":
-                  "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+                "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
                 "_id": "5955111adfdc3224006ec08b",
                 "subtitles": [],
                 "posters": [],
@@ -109,8 +114,7 @@
                 "mimeType": "application/vimeo",
                 "videoId": "191168702",
                 "description": "A Short History of Search Engines",
-                "poster":
-                  "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+                "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
                 "_id": "5955111adfdc3224006ec08a",
                 "subtitles": [],
                 "posters": [],
@@ -119,8 +123,7 @@
             ],
             "question": {
               "type": "basic",
-              "header":
-                "Quel réseau social se distingue par ses messages instantanés limités à 140 signes ?",
+              "header": "Quel réseau social se distingue par ses messages instantanés limités à 140 signes ?",
               "explanation": "Saisissez votre réponse.",
               "content": {
                 "label": " ",
@@ -139,8 +142,7 @@
           },
           "sli_EyinLfF~X": {
             "_id": "sli_EyinLfF~X",
-            "klf":
-              "2 x 2 est égal à additionner 2 fois le chiffre 2 à zéro. C est-à-dire 0 + 2 = 2 (une première fois), plus 2 (ce qu on a cumulé) + 2 = 4.",
+            "klf": "2 x 2 est égal à additionner 2 fois le chiffre 2 à zéro. C est-à-dire 0 + 2 = 2 (une première fois), plus 2 (ce qu on a cumulé) + 2 = 4.",
             "tips": "4 s'écrit 11 en base 3",
             "chapter_id": "cha_Ny1BTxRp~",
             "__v": 0,
@@ -162,8 +164,7 @@
                 "mimeType": "application/vimeo",
                 "videoId": "191200830",
                 "description": "Universal Searches",
-                "poster":
-                  "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+                "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
                 "_id": "5955111bdfdc3224006ec098",
                 "subtitles": [],
                 "posters": [],
@@ -174,8 +175,7 @@
                 "mimeType": "application/vimeo",
                 "videoId": "191168702",
                 "description": "A Short History of Search Engines",
-                "poster":
-                  "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+                "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
                 "_id": "5955111bdfdc3224006ec097",
                 "subtitles": [],
                 "posters": [],
@@ -235,8 +235,7 @@
           "sli_4ymMuMFbB": {
             "_id": "sli_4ymMuMFbB",
             "klf": "Pas problème si t'es daltonien.",
-            "tips":
-              "On fait la même blague en Amérique du Sud, avec le cheval blanc de Simon Bolivar.",
+            "tips": "On fait la même blague en Amérique du Sud, avec le cheval blanc de Simon Bolivar.",
             "chapter_id": "cha_Ny1BTxRp~",
             "authors": [],
             "context": {
@@ -256,8 +255,7 @@
                 "mimeType": "application/vimeo",
                 "videoId": "191200830",
                 "description": "Universal Searches",
-                "poster":
-                  "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+                "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
                 "_id": "5955111adfdc3224006ec091",
                 "subtitles": [],
                 "posters": [],
@@ -268,8 +266,7 @@
                 "mimeType": "application/vimeo",
                 "videoId": "191168702",
                 "description": "A Short History of Search Engines",
-                "poster":
-                  "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+                "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
                 "_id": "5955111adfdc3224006ec090",
                 "subtitles": [],
                 "posters": [],
@@ -318,8 +315,7 @@
                 "mimeType": "application/vimeo",
                 "videoId": "191200830",
                 "description": "Universal Searches",
-                "poster":
-                  "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+                "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
                 "_id": "59551123dfdc3224006ec0a0",
                 "subtitles": [],
                 "posters": [],
@@ -330,8 +326,7 @@
                 "mimeType": "application/vimeo",
                 "videoId": "191168702",
                 "description": "A Short History of Search Engines",
-                "poster":
-                  "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
+                "poster": "//static.coorpacademy.com/content/up/fr/medias/img/poster/miniature_bleue_up.jpg",
                 "_id": "59551123dfdc3224006ec09f",
                 "subtitles": [],
                 "posters": [],
@@ -431,7 +426,12 @@
               "type": "failure"
             },
             "isCorrect": false,
-            "slides": ["sli_4ymMuMFb8", "sli_EyinLfF~X", "sli_4ymMuMFbB", "sli_NJ862PX7Q"],
+            "slides": [
+              "sli_4ymMuMFb8",
+              "sli_EyinLfF~X",
+              "sli_4ymMuMFbB",
+              "sli_NJ862PX7Q"
+            ],
             "lives": 0,
             "step": {
               "current": 5

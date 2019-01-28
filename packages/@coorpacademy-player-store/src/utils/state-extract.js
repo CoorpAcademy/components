@@ -11,12 +11,17 @@ import map from 'lodash/fp/map';
 import _toString from 'lodash/fp/toString';
 import type {
   Answer,
+  Choice,
   Content,
   ContentType,
+  ContentInfo,
   Engine,
+  EngineConfig,
   GenericContent,
   Progression,
-  Slide
+  ProgressionId,
+  Slide,
+  TemplateChoice
 } from '@coorpacademy/progression-engine';
 import type {
   Chapter,
@@ -28,42 +33,72 @@ import type {
   Lesson
 } from '../definitions/models';
 import type {ReduxState as State} from '../definitions/redux';
+import {CONTENT_TYPE, ENGINES} from '../definitions/models';
 
-const getId: (Progression | Slide) => string = get('_id');
+export const getChoices = (slide: Slide): Array<Choice> | Array<TemplateChoice> | void => {
+  if (
+    !slide || // eslint-disable-line lodash-fp/prefer-get
+    !slide.question ||
+    !slide.question.content ||
+    !slide.question.content.choices
+  ) {
+    return undefined;
+  }
 
-export const getChapterId: Slide => string = get('chapter_id');
-export const getChoices: State => string = get('question.content.choices');
-export const getCurrentProgressionId: State => string = get('ui.current.progressionId');
+  // $FlowFixMe flow cannot cast here "property choices of unknown type is incompatible with array type"
+  const choices: Array<Choice> | Array<TemplateChoice> = slide.question.content.choices;
+  return choices;
+};
+export const getChapterId = (slide: Slide): string => slide.chapter_id;
+export const getCurrentProgressionId = (state: State): ProgressionId | void =>
+  state && state.ui && state.ui.current && state.ui.current.progressionId; // eslint-disable-line lodash-fp/prefer-get
+
 export const getQuestionType: State => string = get('question.type');
 
-export const getProgression: string => State => Progression = (
-  id: string
-): (State => Progression) => (state: State): Progression => {
-  return get(['data', 'progressions', 'entities', id], state);
-};
+export const getProgression = (id: ProgressionId): (State => Progression) => (
+  state: State
+): Progression =>
+  state && state.data && state.data.progressions.entities && state.data.progressions.entities[id];
 
-export const getCurrentProgression = (state: State): Progression => {
-  const id: string = getCurrentProgressionId(state);
+export const getCurrentProgression = (state: State): Progression | void => {
+  const id = getCurrentProgressionId(state);
+  if (!id) {
+    return;
+  }
   return getProgression(id)(state);
 };
 
-export const getCurrentEngine = (state: State): Engine => {
-  const progression: Progression = getCurrentProgression(state);
-  return get(['engine'], progression);
+export const getCurrentEngine = (state: State): Engine | void => {
+  const progression = getCurrentProgression(state);
+  if (!progression) {
+    return;
+  }
+  return progression.engine;
 };
 
 export const isCurrentEngineMicrolearning = (state: State): boolean => {
-  const engine: Engine = getCurrentEngine(state);
-  return get('ref', engine) === 'microlearning';
+  const engine = getCurrentEngine(state);
+  if (!engine) {
+    return false;
+  }
+
+  return engine.ref === ENGINES.MICROLEARNING;
 };
 
 export const isCurrentEngineLearner = (state: State): boolean => {
-  const engine: Engine = getCurrentEngine(state);
-  return get('ref', engine) === 'learner';
+  const engine = getCurrentEngine(state);
+  if (!engine) {
+    return false;
+  }
+
+  return engine.ref === ENGINES.LEARNER;
 };
 
 export const getAnswers = (state: State): Answer => {
-  const progressionId: string = getCurrentProgressionId(state);
+  const progressionId = getCurrentProgressionId(state);
+  if (!progressionId) {
+    return [''];
+  }
   return getOr({}, ['ui', 'answers', progressionId])(state);
 };
 
@@ -77,22 +112,51 @@ export const getAnswerValues = (slide: Slide, state: State): Answer => {
   return answers;
 };
 
-export const getSlide: (id: string) => State => Slide = (id: string): (State => Slide) =>
-  get(['data', 'contents', 'slide', 'entities', id]);
+export const getSlide = (id: string): (State => Slide) => (state: State): Slide =>
+  state && // eslint-disable-line lodash-fp/prefer-get
+  state.data &&
+  state.data.contents &&
+  state.data.contents.slide &&
+  state.data.contents.slide.entities &&
+  state.data.contents.slide.entities[id];
 
-export const getCurrentSlide: State => Slide = (state: State): Slide => {
-  const id: string = get('state.nextContent.ref')(getCurrentProgression(state));
-  return getSlide(id)(state);
+export const getCurrentSlide = (state: State): Slide | void => {
+  const progression = getCurrentProgression(state);
+
+  if (!progression || !progression.state) {
+    return;
+  }
+
+  const slideId = progression.state.nextContent.ref;
+  return getSlide(slideId)(state);
 };
 
-export const getChapter: (ref: string) => State => Chapter = (ref: string): (State => Chapter) =>
-  get(['data', 'contents', 'chapter', 'entities', ref]);
+export const getChapter = (ref: string): (State => Chapter | void) => (
+  state: State
+): Chapter | void =>
+  state && // eslint-disable-line lodash-fp/prefer-get
+  state.data &&
+  state.data.contents &&
+  state.data.contents.chapter &&
+  state.data.contents.chapter.entities &&
+  state.data.contents.chapter.entities[ref];
 
-export const getLevel: (ref: string) => State => Level = (ref: string): (State => Level) =>
-  get(['data', 'contents', 'level', 'entities', ref]);
+export const getLevel = (ref: string): (State => Level | void) => (state: State): Level | void =>
+  state && // eslint-disable-line lodash-fp/prefer-get
+  state.data &&
+  state.data.contents &&
+  state.data.contents.level &&
+  state.data.contents.level.entities &&
+  state.data.contents.level.entities[ref];
 
-export const getProgressionContent = (state: State): GenericContent => {
-  return get('content')(getCurrentProgression(state));
+export const getProgressionContent = (state: State): GenericContent | void => {
+  const progression = getCurrentProgression(state);
+
+  if (!progression) {
+    return;
+  }
+
+  return progression.content;
 };
 
 export const getContent: (type: ContentType, ref: string) => State => Chapter | Slide | Level = (
@@ -100,52 +164,137 @@ export const getContent: (type: ContentType, ref: string) => State => Chapter | 
   ref: string
 ): (State => Chapter | Slide | Level) => get(['data', 'contents', type, 'entities', ref]);
 
-export const getCurrentContent = (state: State): Chapter | Slide | Level => {
-  const {type, ref}: GenericContent = getProgressionContent(state);
+export const getCurrentContent = (state: State): Chapter | Slide | Level | void => {
+  const content = getProgressionContent(state);
+
+  if (!content) {
+    return;
+  }
+
+  const {type, ref} = content;
   return getContent(type, ref)(state);
 };
 
-export const getContentInfo = pipe(getCurrentContent, get('info'));
-export const getNbSlides: State => number = pipe(getContentInfo, get('nbSlides'));
-export const getStepContent: State => Content = pipe(
-  getCurrentProgression,
-  get('state.nextContent')
-);
-export const getPrevStepContent: State => Content = pipe(
-  getCurrentProgression,
-  get('state.content')
-);
-export const getCurrentChapterId: State => string = pipe(
-  (getCurrentSlide: State => Slide),
-  getChapterId
-);
+export const getContentInfo = (state: State): ContentInfo | void => {
+  const content = getProgressionContent(state);
 
-export const getCurrentChapter = (state: State): Chapter => {
-  const chapterId: string = getCurrentChapterId(state);
+  if (!content) {
+    return;
+  }
+
+  const {type, ref} = content;
+  if (type === CONTENT_TYPE.SLIDE) {
+    return;
+  }
+
+  if (type === CONTENT_TYPE.LEVEL) {
+    const level = getLevel(ref)(state);
+    return level && level.info;
+  }
+
+  if (type === CONTENT_TYPE.CHAPTER) {
+    const chapter = getChapter(ref)(state);
+    return chapter && chapter.info;
+  }
+
+  return;
+};
+
+export const getNbSlides = (state: State): number => {
+  const info = getContentInfo(state);
+  return info ? info.nbSlides : 0;
+};
+
+export const getStepContent = (state: State): Content | void => {
+  const progression = getCurrentProgression(state);
+
+  if (!progression || !progression.state) {
+    return;
+  }
+
+  return progression.state.nextContent;
+};
+
+export const getPrevStepContent = (state: State): Content | void => {
+  const progression = getCurrentProgression(state);
+
+  if (!progression || !progression.state) {
+    return;
+  }
+
+  return progression.state.content;
+};
+
+export const getCurrentChapterId = (state: State): string | void => {
+  const slide = getCurrentSlide(state);
+
+  if (!slide) {
+    return;
+  }
+
+  return getChapterId(slide);
+};
+
+export const getCurrentChapter = (state: State): Chapter | void => {
+  const chapterId = getCurrentChapterId(state);
+
+  if (!chapterId) {
+    return;
+  }
+
   return getChapter(chapterId)(state);
 };
 
 export const isContentAdaptive = (state: State): boolean => {
-  const chapter: Chapter = getCurrentChapter(state);
+  const chapter = getCurrentChapter(state);
+
+  if (!chapter) {
+    return false;
+  }
+
   return getOr(false, 'isConditional', chapter);
 };
-export const hasViewedAResourceAtThisStep: State => boolean = pipe(
-  getCurrentProgression,
-  get('state.hasViewedAResourceAtThisStep')
-);
 
-export const getEngine = (state: State): Engine => {
-  return get('engine')(getCurrentProgression(state));
+export const hasViewedAResourceAtThisStep = (state: State): boolean => {
+  const progression = getCurrentProgression(state);
+
+  if (!progression || !progression.state) {
+    return false;
+  }
+
+  return progression.state.hasViewedAResourceAtThisStep;
 };
 
-export const getEngineConfig = (state: State): Engine => {
+export const getEngine = (state: State): Engine | void => {
+  const progression = getCurrentProgression(state);
+
+  if (!progression) {
+    return;
+  }
+
+  return progression.engine;
+};
+
+export const getEngineConfig = (state: State): EngineConfig | void => {
   const engine = getEngine(state);
-  return get(['data', 'configs', 'entities', `${engine.ref}@${engine.version}`], state);
+
+  if (!engine) {
+    return;
+  }
+
+  const config = `${engine.ref}@${engine.version}`;
+  return state.data.configs && state.data.configs.entities && state.data.configs.entities[config];
 };
 
-export const getPreviousSlide = (state: State): Slide => {
-  const id: string = get('state.content.ref')(getCurrentProgression(state));
-  return getSlide(id)(state);
+export const getPreviousSlide = (state: State): Slide | void => {
+  const progression = getCurrentProgression(state);
+
+  if (!progression || !progression.state || !progression.state.content) {
+    return;
+  }
+
+  const slideId = progression.state.content.ref;
+  return getSlide(slideId)(state);
 };
 
 export const getExitNode = (ref: string) => (state: State): ExitNode => {
@@ -153,8 +302,14 @@ export const getExitNode = (ref: string) => (state: State): ExitNode => {
   return get(ref)(entities);
 };
 
-export const getCurrentExitNode = (state: State): ExitNode => {
-  const ref: string = get('state.nextContent.ref')(getCurrentProgression(state));
+export const getCurrentExitNode = (state: State): ExitNode | void => {
+  const progression = getCurrentProgression(state);
+
+  if (!progression || !progression.state) {
+    return;
+  }
+
+  const ref = progression.state.nextContent.ref;
   return getExitNode(ref)(state);
 };
 
@@ -162,14 +317,27 @@ export const getCorrection = (progressionId: string, slideId: string) => (state:
   return get(['data', 'answers', 'entities', progressionId, slideId], state);
 };
 export const getCurrentCorrection = (state: State): string => {
-  const progression: Progression = getCurrentProgression(state);
-  const slide: Slide = getPreviousSlide(state);
+  const progression = getCurrentProgression(state);
 
-  return getCorrection(getId(progression), getId(slide))(state);
+  if (!progression) {
+    return '';
+  }
+
+  const progressionId = progression._id;
+  const slide = getPreviousSlide(state);
+
+  if (!progressionId || !slide) {
+    return '';
+  }
+
+  return getCorrection(progressionId, slide._id)(state);
 };
 
 export const isCommentSent = (state: State): boolean => {
-  const progressionId: string = getCurrentProgressionId(state);
+  const progressionId = getCurrentProgressionId(state);
+  if (!progressionId) {
+    return false;
+  }
   return get(['data', 'comments', 'entities', progressionId, 'isSent'], state);
 };
 
@@ -178,33 +346,78 @@ export const extractClue = (progressionId: string, slideId: string) => (state: S
 };
 
 export const getCurrentClue = (state: State): string => {
-  const progression: Progression = getCurrentProgression(state);
-  const slide: Slide = getCurrentSlide(state);
+  const progression = getCurrentProgression(state);
 
-  return extractClue(getId(progression), getId(slide))(state);
+  if (!progression) {
+    return '';
+  }
+
+  const progressionId = progression._id;
+  const slide = getCurrentSlide(state);
+
+  if (!progressionId || !slide) {
+    return '';
+  }
+
+  return extractClue(progressionId, slide._id)(state);
 };
 
 export const getRoute = (state: State): string => {
-  const progressionId: string = getCurrentProgressionId(state);
+  const progressionId = getCurrentProgressionId(state);
+  if (!progressionId) {
+    return '';
+  }
   return get(['ui', 'route', progressionId], state);
 };
 
 export const getRecommendations = (state: State): Array<Recommendation> => {
-  const id: string = getCurrentProgressionId(state);
+  const id = getCurrentProgressionId(state);
+  if (!id) {
+    return [];
+  }
   return get(`data.recommendations.entities.${id}`, state);
 };
 
-export const getNextContent = (state: State): Content => {
-  const id: string = getCurrentProgressionId(state);
+export const getNextContent = (state: State): Content | void => {
+  const id = getCurrentProgressionId(state);
+  if (!id) {
+    return;
+  }
   return get(`data.nextContent.entities.${id}`, state);
 };
 
 export const getStartRank: State => number = get(`data.rank.start`);
 export const getEndRank: State => number = get(`data.rank.end`);
-export const getBestScore: State => number = pipe(getCurrentContent, get('bestScore'));
+export const getBestScore = (state: State): number | void => {
+  const content = getProgressionContent(state);
+
+  if (!content) {
+    return;
+  }
+
+  const {type, ref} = content;
+  if (type === CONTENT_TYPE.SLIDE) {
+    return;
+  }
+
+  if (type === CONTENT_TYPE.LEVEL) {
+    const level = getLevel(ref)(state);
+    return level && level.bestScore;
+  }
+
+  if (type === CONTENT_TYPE.CHAPTER) {
+    const chapter = getChapter(ref)(state);
+    return chapter && chapter.bestScore;
+  }
+};
 
 export const getQuestionMedia = (state: State): void | Media => {
-  const slide: Slide = getCurrentSlide(state);
+  const slide = getCurrentSlide(state);
+
+  if (!slide) {
+    return;
+  }
+
   const media: Media = get('question.medias.0', slide);
   if (!media) {
     return;
@@ -228,20 +441,29 @@ export const getQuestionMedia = (state: State): void | Media => {
 
 export const getResourceToPlay: State => Resource = get('ui.corrections.playResource');
 export const getLives = (state: State): null | number => {
-  const progression: Progression = getCurrentProgression(state);
+  const progression = getCurrentProgression(state);
 
-  if (!progression.state) {
-    throw new Error(`progression has no state.`);
+  if (!progression || !progression.state) {
+    return 0;
   }
 
-  return progression.state.livesDisabled ? null : get('state.lives', progression);
+  return progression.state.livesDisabled ? null : progression.state.lives;
 };
 
 export const getCoaches: State => number = getOr(0, 'ui.coaches.availableCoaches');
 
 export const hasSeenLesson = (state: State): boolean => {
-  const progression: Progression = getCurrentProgression(state);
-  const slide: Slide = getCurrentSlide(state) || getPreviousSlide(state);
+  const progression = getCurrentProgression(state);
+
+  if (!progression || !progression.state) {
+    return false;
+  }
+
+  const slide = getCurrentSlide(state) || getPreviousSlide(state);
+
+  if (!slide) {
+    return false;
+  }
   const lessons: Array<Lesson> = get('lessons', slide);
   const viewedResources = getOr([], ['state', 'viewedResources'], progression);
   const chapterContent = {

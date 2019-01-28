@@ -8,13 +8,11 @@ import omit from 'lodash/fp/omit';
 import {mockTranslate} from '@coorpacademy/translate';
 import {
   UI_TOGGLE_ACCORDION,
-  selectResource
-} from '@coorpacademy/player-store/es/actions/ui/corrections';
-import {
   UI_VIDEO_RESUME,
   UI_VIDEO_PAUSE,
-  UI_VIDEO_ENDED
-} from '@coorpacademy/player-store/es/actions/ui/video';
+  UI_VIDEO_ENDED,
+  selectResource
+} from '@coorpacademy/player-store';
 import statePopinFailure from '../../map-state-to-props/test/fixtures/popin-correction/popin-failure';
 import statePopinSuccess from '../../map-state-to-props/test/fixtures/popin-correction/popin-success';
 import statePopinFailureMultipleAnswers from '../../map-state-to-props/test/fixtures/popin-correction/state-fail-multiple-answers';

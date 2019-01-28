@@ -49,12 +49,30 @@ test(
 );
 
 test(
+  'should dispatch failure if no engine is found',
+  macro,
+  pipe(
+    set('ui.current.progressionId', 'foo'),
+    set('data.progressions.entities.foo.content', progressionContent)
+  )({}),
+  t => ({}),
+  fetchBestProgression(progressionContent, 'foo'),
+  [
+    {
+      type: PROGRESSION_FETCH_BESTOF_FAILURE,
+      payload: 'progression "foo" has no engine.'
+    }
+  ],
+  0
+);
+
+test(
   'should prevent request if bestScore already fetched',
   macro,
   pipe(
     set('ui.current.progressionId', 'foo'),
-    set('data.progressions.entities.foo', {engine, content: {type: 'chapter', ref: 'bar'}}),
-    set('data.contents.chapter.entities.bar.bestScore', 0)
+    set('data.progressions.entities.foo', {engine, content: {type: 'chapter', ref: 'plop'}}),
+    set('data.contents.chapter.entities.plop.bestScore', 0)
   )({}),
   t => ({
     Progressions: {

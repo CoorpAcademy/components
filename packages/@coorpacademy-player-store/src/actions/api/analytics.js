@@ -1,7 +1,6 @@
 // @flow strict
 
 import buildTask from '@coorpacademy/redux-task';
-import type {Progression, Engine} from '@coorpacademy/progression-engine';
 import {getRoute, getCurrentProgression, getEngineConfig} from '../../utils/state-extract';
 import type {Resource} from '../../definitions/models';
 import type {Services} from '../../definitions/services';
@@ -45,15 +44,30 @@ export const SEND_PROGRESSION_ANALYTICS_SUCCESS: string = '@@analytics/SEND_PROG
 export const SEND_PROGRESSION_ANALYTICS_FAILURE: string = '@@analytics/SEND_PROGRESSION_FAILURE';
 
 export const sendProgressionAnalytics = (progressionId: string): ThunkAction => (
-  dispatch: Dispatch,
+  dispatch: Function,
   getState: GetState,
   {services}: {services: Services}
 ): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
 DispatchedAction => {
   const {Analytics} = services;
   const state = getState();
-  const currentProgression: Progression = getCurrentProgression(state);
-  const engineConfig: Engine = getEngineConfig(state);
+  const currentProgression = getCurrentProgression(state);
+
+  if (!currentProgression) {
+    return dispatch({
+      type: SEND_PROGRESSION_ANALYTICS_FAILURE,
+      payload: `progression "${progressionId}" could not be found.`
+    });
+  }
+
+  const engineConfig = getEngineConfig(state);
+
+  if (!engineConfig) {
+    return dispatch({
+      type: SEND_PROGRESSION_ANALYTICS_FAILURE,
+      payload: `progression "${progressionId}" has no config.`
+    });
+  }
 
   const action: Action = buildTask({
     types: [

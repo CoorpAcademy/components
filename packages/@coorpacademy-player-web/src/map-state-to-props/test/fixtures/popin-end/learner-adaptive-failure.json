@@ -74,10 +74,7 @@
               "userTriesCount": 0,
               "userDoneCount": 0
             },
-            "chapterIds": [
-              "1.B1",
-              "1.B2"
-            ],
+            "chapterIds": ["1.B1", "1.B2"],
             "acquiredSkills": [
               "discipline_1.module_base.skill1",
               "discipline_1.module_base.skill2",
@@ -108,10 +105,7 @@
               "userTriesCount": 0,
               "userDoneCount": 0
             },
-            "chapterIds": [
-              "1.A1",
-              "1.A2"
-            ],
+            "chapterIds": ["1.A1", "1.A2"],
             "acquiredSkills": [
               "discipline_1.module_avance.skill1",
               "discipline_1.module_avance.skill2",
@@ -170,11 +164,7 @@
             },
             "livesDisabled": true,
             "isCorrect": false,
-            "slides": [
-              "1.B1.4",
-              "1.B1.3",
-              "1.B1.2"
-            ],
+            "slides": ["1.B1.4", "1.B1.3", "1.B1.2"],
             "lives": 3,
             "step": {
               "current": 4
@@ -205,11 +195,7 @@
   "ui": {
     "answers": {},
     "corrections": {
-      "accordion": [
-        false,
-        false,
-        false
-      ],
+      "accordion": [false, false, false],
       "playResource": ""
     },
     "current": {

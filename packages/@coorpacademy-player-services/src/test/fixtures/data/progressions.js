@@ -9,7 +9,9 @@ const progressions: Array<Progression> = [
       ref: 'microlearning',
       version: '1'
     },
-    engineOptions: {},
+    engineOptions: {
+      version: '1'
+    },
     content: {
       ref: '5.C7',
       type: 'chapter'
@@ -32,7 +34,9 @@ const progressions: Array<Progression> = [
       ref: 'microlearning',
       version: '1'
     },
-    engineOptions: {},
+    engineOptions: {
+      version: '1'
+    },
     content: {
       ref: '5.C7',
       type: 'chapter'
@@ -72,7 +76,9 @@ const progressions: Array<Progression> = [
       ref: 'microlearning',
       version: '1'
     },
-    engineOptions: {},
+    engineOptions: {
+      version: '1'
+    },
     content: {
       ref: '5.C7',
       type: 'chapter'
@@ -95,7 +101,9 @@ const progressions: Array<Progression> = [
       ref: 'microlearning',
       version: '1'
     },
-    engineOptions: {},
+    engineOptions: {
+      version: '1'
+    },
     content: {
       ref: '5.C7',
       type: 'chapter'
@@ -186,7 +194,9 @@ const progressions: Array<Progression> = [
       ref: 'microlearning',
       version: '1'
     },
-    engineOptions: {},
+    engineOptions: {
+      version: '1'
+    },
     content: {
       ref: '5.C7',
       type: 'chapter'
@@ -209,7 +219,9 @@ const progressions: Array<Progression> = [
       ref: 'microlearning',
       version: '1'
     },
-    engineOptions: {},
+    engineOptions: {
+      version: '1'
+    },
     content: {
       ref: '5.C7',
       type: 'chapter'
@@ -232,7 +244,9 @@ const progressions: Array<Progression> = [
       ref: 'microlearning',
       version: '1'
     },
-    engineOptions: {},
+    engineOptions: {
+      version: '1'
+    },
     content: {
       ref: '5.C7',
       type: 'chapter'
@@ -255,7 +269,9 @@ const progressions: Array<Progression> = [
       ref: 'microlearning',
       version: '1'
     },
-    engineOptions: {},
+    engineOptions: {
+      version: '1'
+    },
     content: {
       ref: '5.C7',
       type: 'chapter'
@@ -278,7 +294,9 @@ const progressions: Array<Progression> = [
       ref: 'microlearning',
       version: '1'
     },
-    engineOptions: {},
+    engineOptions: {
+      version: '1'
+    },
     content: {
       ref: '5.C7',
       type: 'chapter'
@@ -301,7 +319,9 @@ const progressions: Array<Progression> = [
       ref: 'microlearning',
       version: '1'
     },
-    engineOptions: {},
+    engineOptions: {
+      version: '1'
+    },
     content: {
       ref: '5.C7',
       type: 'chapter'
@@ -324,7 +344,9 @@ const progressions: Array<Progression> = [
       ref: 'microlearning',
       version: '1'
     },
-    engineOptions: {},
+    engineOptions: {
+      version: '1'
+    },
     content: {
       ref: '5.C8',
       type: 'chapter'
@@ -347,7 +369,9 @@ const progressions: Array<Progression> = [
       ref: 'learner',
       version: '1'
     },
-    engineOptions: {},
+    engineOptions: {
+      version: '1'
+    },
     content: {
       ref: '1.A',
       type: 'level'
@@ -422,7 +446,8 @@ const progressions: Array<Progression> = [
       version: '1'
     },
     engineOptions: {
-      livesDisabled: true
+      livesDisabled: true,
+      version: '1'
     },
     content: {
       ref: '1.A',
@@ -446,7 +471,9 @@ const progressions: Array<Progression> = [
       ref: 'microlearning',
       version: '1'
     },
-    engineOptions: {},
+    engineOptions: {
+      version: '1'
+    },
     content: {
       ref: '5.C7',
       type: 'chapter'
@@ -486,7 +513,9 @@ const progressions: Array<Progression> = [
       ref: 'microlearning',
       version: '1'
     },
-    engineOptions: {},
+    engineOptions: {
+      version: '1'
+    },
     content: {
       ref: 'cha_N19MiQrYG',
       type: 'chapter'
@@ -509,7 +538,9 @@ const progressions: Array<Progression> = [
       ref: 'learner',
       version: '1'
     },
-    engineOptions: {},
+    engineOptions: {
+      version: '1'
+    },
     content: {
       ref: 'mod_E15Bh1hDM',
       type: 'level',

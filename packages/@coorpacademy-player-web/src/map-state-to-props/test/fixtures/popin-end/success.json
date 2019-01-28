@@ -1,5 +1,12 @@
 {
   "data": {
+    "configs": {
+      "entities": {
+        "microlearning@1": {
+          "version": 1
+        }
+      }
+    },
     "answers": {
       "entities": {
         "0": {
@@ -24,8 +31,7 @@
             "ref": "5930752aa2b39d0024eebffb",
             "_id": "5930752aa2b39d0024eebffb",
             "description": "Hierarchie",
-            "mediaUrl":
-              "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
+            "mediaUrl": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/raw/hierachie-contenu-1496311207505.pdf",
             "mimeType": "application/pdf",
             "type": "pdf",
             "subtitles": [],
@@ -78,8 +84,7 @@
         "0": [
           {
             "view": "grid",
-            "image":
-              "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
+            "image": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
             "time": "8m",
             "adaptiv": false,
             "certification": false,
@@ -92,8 +97,7 @@
           },
           {
             "view": "grid",
-            "image":
-              "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
+            "image": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
             "time": "8m",
             "adaptiv": false,
             "certification": false,
@@ -106,8 +110,7 @@
           },
           {
             "view": "grid",
-            "image":
-              "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
+            "image": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
             "time": "8m",
             "adaptiv": false,
             "certification": false,
@@ -126,8 +129,7 @@
         "0": {
           "card": {
             "view": "grid",
-            "image":
-              "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
+            "image": "//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/poster/1931716-40629814-640-360-1496310886550.jpg",
             "time": "8m",
             "adaptiv": false,
             "certification": false,
