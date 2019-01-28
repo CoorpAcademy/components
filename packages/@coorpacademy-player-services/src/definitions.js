@@ -12,7 +12,6 @@ import type {
   SUCCESS,
   Question,
   Meta,
-  SUCCESS,
   ResourceMimeType
 } from '@coorpacademy/progression-engine';
 
@@ -216,7 +215,6 @@ export const CONTENT_TYPE: {[string]: ContentType} = {
 export type {
   Answer,
   ChapterAPI,
-  Answer,
   ClueAPI,
   CorrectionAPI,
   DataEvent,
@@ -231,7 +229,6 @@ export type {
   JwPlayerOptions,
   LevelAPI,
   SlideAPI,
-  ChapterRule,
   RecommendationAPI,
   ResourceAPI,
   ResourceMimeType,
