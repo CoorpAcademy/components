@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/player-web",
-  "version": "1.7.7-alpha.37+df8b5e0f7",
+  "version": "1.7.7-alpha.37+7ec2b7b69",
   "description": "CoorpAcademy web slide-player",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -78,5 +78,5 @@
       ]
     }
   },
-  "gitHead": "df8b5e0f7c0da2c4bd0804b0f8541df0529356ff"
+  "gitHead": "7ec2b7b69bbd3948b1bdcd59afdee65d37db89d0"
 }

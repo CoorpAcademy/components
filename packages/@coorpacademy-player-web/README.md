@@ -4,7 +4,7 @@
 - learner
 - battles
 
-# local dev
+## local dev
 
 - npm install
 - npm start
