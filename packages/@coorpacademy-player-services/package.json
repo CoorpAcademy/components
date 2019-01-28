@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/player-services",
-  "version": "1.3.8-alpha.31+67af6c65",
+  "version": "1.3.8-alpha.0+ba675334",
   "description": "Implements reactions to redux actions from player-store",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -70,5 +70,5 @@
       ]
     }
   },
-  "gitHead": "67af6c653d69ab40ba9e1f78a56832e7b5030030"
+  "gitHead": "ba6753340311c13376461931ab2c509c68821774"
 }

@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/player-store",
-  "version": "1.3.6-alpha.44+3fe703ee",
+  "version": "1.3.6-alpha.15+ba675334",
   "description": "Redux store for slide players",
   "main": "lib",
   "module": "es",
@@ -50,7 +50,7 @@
     "rimraf": "^2.6.1"
   },
   "dependencies": {
-    "@coorpacademy/progression-engine": "9.3.4-alpha.44+3fe703ee",
+    "@coorpacademy/progression-engine": "9.3.4-alpha.15+ba675334",
     "@coorpacademy/redux-task": "0.0.10",
     "lodash": "^4.17.4",
     "redux": "^4.0.0",
@@ -75,5 +75,5 @@
       ]
     }
   },
-  "gitHead": "3fe703ee91f4600b8defdf5c92036673fd64066c"
+  "gitHead": "ba6753340311c13376461931ab2c509c68821774"
 }
