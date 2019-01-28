@@ -180,7 +180,7 @@ type ExitNodeAPI = {|
   type: ExitNodeType,
   meta: Meta,
   title: string,
-  description: string,
+  description?: string,
   media: Media
 |};
 
