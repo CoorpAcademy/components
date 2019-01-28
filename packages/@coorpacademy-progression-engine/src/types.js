@@ -263,7 +263,7 @@ export type Question =
   | BasicQuestion
   | TemplateQuestion;
 
-type Meta = {
+export type Meta = {
   taggedNewUntil?: string,
   updatedAt: string,
   createdAt: string
@@ -274,7 +274,7 @@ type Url = string;
 
 type Source = {|
   _id: string,
-  mimeType: MimeTypee,
+  mimeType: ResourceMimeType,
   url: Url
 |};
 
@@ -287,7 +287,7 @@ type Lesson = {|
   mediaUrl?: string,
   poster: string,
   description: string,
-  mimeType: MimeTypee,
+  mimeType: ResourceMimeType,
   ref: string,
   type: LessonType,
   subtitles: Array<Subtitle>,
@@ -298,7 +298,7 @@ type Lesson = {|
 type Media = {
   type?: string,
   description?: string,
-  mimeType?: MimeTypee,
+  mimeType?: ResourceMimeType,
   _id?: string,
   mediaUrl?: Url,
   subtitles?: Array<string>,

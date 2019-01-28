@@ -48,7 +48,7 @@
     "rimraf": "^2.6.1"
   },
   "dependencies": {
-    "@coorpacademy/progression-engine": "9.3.4-alpha.32",
+    "@coorpacademy/progression-engine": "9.3.4-alpha.16",
     "lodash": "^4.17.4"
   },
   "ava": {
