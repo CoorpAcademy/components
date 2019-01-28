@@ -40,8 +40,7 @@ import type {
   Slide,
   Question,
   State,
-  Meta
-  State,
+  Meta,
   TemplateChoice
 } from './types';
 
@@ -79,7 +78,7 @@ export type {
   ResourceContent,
   Slide,
   State,
-  Meta
+  Meta,
   TemplateChoice
 };
 
