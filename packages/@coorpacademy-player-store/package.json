@@ -50,7 +50,7 @@
     "rimraf": "^2.6.1"
   },
   "dependencies": {
-    "@coorpacademy/progression-engine": "9.3.4-alpha.16",
+    "@coorpacademy/progression-engine": "9.3.4-alpha.49+36b543d81",
     "@coorpacademy/redux-task": "0.0.10",
     "lodash": "^4.17.4",
     "redux": "^4.0.0",
