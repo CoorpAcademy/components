@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/player-store",
-  "version": "1.3.6-alpha.15+ba675334",
+  "version": "1.3.6-alpha.49+36b543d81",
   "description": "Redux store for slide players",
   "main": "lib",
   "module": "es",
@@ -75,5 +75,5 @@
       ]
     }
   },
-  "gitHead": "ba6753340311c13376461931ab2c509c68821774"
+  "gitHead": "36b543d8105ae922220ef6e9d129e5d06c607418"
 }
