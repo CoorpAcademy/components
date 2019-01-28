@@ -314,40 +314,14 @@
     prettier "1.11.1"
     requireindex "^1.2.0"
 
-"@coorpacademy/player-services@1.3.8-alpha.1":
-  version "1.3.8-alpha.1"
-  resolved "https://registry.npmjs.org/@coorpacademy/player-services/-/player-services-1.3.8-alpha.1.tgz#fcade4ba1d488ae1a930ff8956a7891e451fa1a6"
-  integrity sha512-3FKM7NYUWGQkkj5IvNHYwmAKinlt5INq43xg6VxZLrQ87u3bP/4qQ5ERnrTHJBIer2C8LUbC8qYtlMI6wejgDA==
+"@coorpacademy/player-store@1.3.8-alpha.3+d87d8ea76":
+  version "1.3.6-alpha.49"
   dependencies:
-    "@coorpacademy/progression-engine" "9.3.4-alpha.32"
-    lodash "^4.17.4"
-
-"@coorpacademy/player-store@1.3.6-alpha.16":
-  version "1.3.6-alpha.16"
-  resolved "https://registry.npmjs.org/@coorpacademy/player-store/-/player-store-1.3.6-alpha.16.tgz#7febea85be72d2c293ab2884bea13e218b8d0b76"
-  integrity sha512-n/fpJqe0pCmdjxF+e1OIcHsM1wzWRSS9GLa2pQCCZqoxfJKuVEl2x/nWseyrsAlCHd8uTrkTn3XXtprHEldoUA==
-  dependencies:
-    "@coorpacademy/progression-engine" "9.3.4-alpha.16+ca310f89"
+    "@coorpacademy/progression-engine" "9.3.4-alpha.49+36b543d81"
     "@coorpacademy/redux-task" "0.0.10"
     lodash "^4.17.4"
     redux "^4.0.0"
     redux-thunk "^2.2.0"
-
-"@coorpacademy/progression-engine@9.3.4-alpha.16", "@coorpacademy/progression-engine@9.3.4-alpha.16+ca310f89":
-  version "9.3.4-alpha.16"
-  resolved "https://registry.npmjs.org/@coorpacademy/progression-engine/-/progression-engine-9.3.4-alpha.16.tgz#0c0a0075ca5966309778837014e6aaf3aefe187f"
-  integrity sha512-Rv5viZR9a4jHY6QuvFbi0vKWXR0Ph26kAuVkF8cA3bxuf18hK8QHQXTbGXbXx5bQDeBoKqj0JAcfgq4EgxPBXQ==
-  dependencies:
-    fuzzy-matching "^0.4.3"
-    lodash "^4.17.4"
-
-"@coorpacademy/progression-engine@9.3.4-alpha.32":
-  version "9.3.4-alpha.32"
-  resolved "https://registry.npmjs.org/@coorpacademy/progression-engine/-/progression-engine-9.3.4-alpha.32.tgz#44d78fd624dd98697c00a85e91e2f0097ffd46c3"
-  integrity sha512-dNGjlZnzvBJ5rSIFsAUQvHUfh7xo7RqVHt35aW3+rkr9yP+IxKKHe/A7RIaDA69eneVn7iZ6TQscNbpg/lUG6w==
-  dependencies:
-    fuzzy-matching "^0.4.3"
-    lodash "^4.17.4"
 
 "@ladjs/time-require@^0.1.4":
   version "0.1.4"
