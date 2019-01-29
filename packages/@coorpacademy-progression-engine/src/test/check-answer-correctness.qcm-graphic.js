@@ -13,7 +13,9 @@ const config: Config = getConfig({ref: 'microlearning', version: 'latest'});
 function createQuestion(answers: AcceptedAnswers): QCMGraphicQuestion {
   return {
     type: 'qcmGraphic',
+    explanation: 'without explanation',
     content: {
+      matchOrder: 2,
       answers
     }
   };
