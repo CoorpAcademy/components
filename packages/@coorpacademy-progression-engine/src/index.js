@@ -39,8 +39,8 @@ import type {
   ResourceMimeType,
   Slide,
   Question,
-  State,
   Meta,
+  State,
   TemplateChoice
 } from './types';
 
