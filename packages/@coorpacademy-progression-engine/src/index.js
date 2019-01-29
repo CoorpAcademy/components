@@ -37,9 +37,11 @@ import type {
   ProgressionId,
   Question,
   ResourceContent,
+  ResourceMimeType,
   Slide,
   State,
-  TemplateChoice
+  TemplateChoice,
+  Url
 } from './types';
 
 import type {Instruction, ChapterRule} from './rule-engine/types';
@@ -72,9 +74,11 @@ export type {
   ProgressionId,
   Question,
   ResourceContent,
+  ResourceMimeType,
   Slide,
   State,
-  TemplateChoice
+  TemplateChoice,
+  Url
 };
 
 export {

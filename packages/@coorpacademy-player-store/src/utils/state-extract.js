@@ -50,10 +50,9 @@ export const getChoices = (slide: Slide): Array<Choice> | Array<TemplateChoice> 
   return choices;
 };
 export const getChapterId = (slide: Slide): string => slide.chapter_id;
+export const getQuestionType = (slide: Slide): string => slide.question.type;
 export const getCurrentProgressionId = (state: State): ProgressionId | void =>
   state && state.ui && state.ui.current && state.ui.current.progressionId; // eslint-disable-line lodash-fp/prefer-get
-
-export const getQuestionType: State => string = get('question.type');
 
 export const getProgression = (id: ProgressionId): (State => Progression) => (
   state: State

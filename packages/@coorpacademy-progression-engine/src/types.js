@@ -24,8 +24,8 @@ export type VIDEO = 'video';
 export type PDF = 'pdf';
 export type ContentType = CHAPTER | LEVEL | SLIDE | NODE | FAILURE | SUCCESS | VIDEO | PDF;
 
-type Url = string;
-type ResourceMimeType = 'video/mp4' | 'application/vimeo';
+export type Url = string;
+export type ResourceMimeType = 'video/mp4' | 'application/vimeo';
 
 export type ContentSlide = {|
   type: SLIDE,
@@ -206,18 +206,6 @@ export type AnswerCorrection = {|
 
 export type AcceptedAnswers = Array<Answer>;
 
-type Source = {|
-  _id: string,
-  mimeType: ResourceMimeType,
-  url: Url
-|};
-
-type Media = {|
-  subtitles?: Array<string>,
-  posters?: Array<Url>,
-  src?: Array<Source>
-|};
-
 type ChoiceItem = {|
   text: string,
   value: string,
@@ -231,7 +219,13 @@ export type Choice = {|
   type?: 'select',
   label: string,
   items: Array<ChoiceItem>,
-  media: Media
+  media: {|
+    type: 'img',
+    src?: Array<{|
+      mimeType: 'image/png',
+      url: Url
+    |}>
+  |}
 |};
 
 export type TemplateChoice = {|
