@@ -31,7 +31,7 @@ export type VIDEO = 'video';
 export type PDF = 'pdf';
 export type ContentType = CHAPTER | LEVEL | SLIDE | NODE | FAILURE | SUCCESS | VIDEO | PDF;
 
-type Url = string;
+export type Url = string;
 
 export type ContentSlide = {|
   type: SLIDE,

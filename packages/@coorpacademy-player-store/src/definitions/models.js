@@ -13,7 +13,7 @@ import type {
 
 type Url = string;
 type AspectRatio = '16:9' | '4:3';
-type ResourceMimeType = 'video/mp4' | 'application/vimeo';
+type ResourceMimeType = 'image/png' | 'video/mp4' | 'application/vimeo';
 type ResourceType = 'video' | 'pdf';
 
 type JwPlayerOptions = {|
@@ -32,18 +32,19 @@ type JwPlayerOptions = {|
 |};
 
 type Source = {|
-  _id: string,
+  _id?: string,
   mimeType: ResourceMimeType,
   url: Url
 |};
 
+type MediaType = 'img';
 type Media = {|
-  type: string,
-  description: string,
-  mimeType: ResourceMimeType,
-  _id: string,
+  type: MediaType,
+  description?: string,
+  mimeType?: ResourceMimeType,
+  _id?: string,
   url?: Url,
-  mediaUrl: Url,
+  mediaUrl?: Url,
   subtitles?: Array<string>,
   posters?: Array<Url>,
   src?: Array<Source>
@@ -192,6 +193,7 @@ export type {
   Lesson,
   Level,
   Media,
+  MediaType,
   Recommendation,
   Resource,
   UserAnswer

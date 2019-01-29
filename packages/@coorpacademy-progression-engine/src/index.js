@@ -41,7 +41,8 @@ import type {
   Question,
   Meta,
   State,
-  TemplateChoice
+  TemplateChoice,
+  Url
 } from './types';
 
 import type {Instruction, ChapterRule} from './rule-engine/types';
@@ -55,7 +56,6 @@ export type {
   FAILURE,
   SUCCESS,
   Action,
-  ResourceMimeType,
   Answer,
   AvailableContent,
   ChapterRule,
@@ -71,15 +71,17 @@ export type {
   Engines,
   GenericContent,
   Instruction,
+  Meta,
   PartialCorrection,
   Progression,
   ProgressionId,
   Question,
   ResourceContent,
+  ResourceMimeType,
   Slide,
   State,
-  Meta,
-  TemplateChoice
+  TemplateChoice,
+  Url
 };
 
 export {
