@@ -8,12 +8,14 @@ import type {
   ContentInfo,
   ContentType,
   Engines,
-  PartialCorrection
+  Media,
+  PartialCorrection,
+  ResourceMimeType,
+  Source
 } from '@coorpacademy/progression-engine';
 
 type Url = string;
 type AspectRatio = '16:9' | '4:3';
-type ResourceMimeType = 'image/png' | 'video/mp4' | 'application/vimeo';
 type ResourceType = 'video' | 'pdf';
 
 type JwPlayerOptions = {|
@@ -31,25 +33,6 @@ type JwPlayerOptions = {|
   playerScript: Url
 |};
 
-type Source = {|
-  _id?: string,
-  mimeType: ResourceMimeType,
-  url: Url
-|};
-
-type MediaType = 'img';
-type Media = {|
-  type: MediaType,
-  description?: string,
-  mimeType?: ResourceMimeType,
-  _id?: string,
-  url?: Url,
-  mediaUrl?: Url,
-  subtitles?: Array<string>,
-  posters?: Array<Url>,
-  src?: Array<Source>
-|};
-
 type Resource = {|
   _id: string,
   ref: string,
@@ -62,19 +45,6 @@ type Resource = {|
   subtitles?: Array<string>,
   posters?: Array<Url>,
   jwpOptions?: JwPlayerOptions
-|};
-
-type Lesson = {|
-  _id: string,
-  ref: string,
-  type: string,
-  poster: Url,
-  description: string,
-  mimeType: ResourceMimeType,
-  videoId: string,
-  subtitles: Array<string>,
-  posters: Array<Url>,
-  src: Array<Source>
 |};
 
 type Clue = string;
@@ -190,10 +160,7 @@ export type {
   Correction,
   ExitNode,
   ExitNodeRef,
-  Lesson,
   Level,
-  Media,
-  MediaType,
   Recommendation,
   Resource,
   UserAnswer

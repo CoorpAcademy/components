@@ -210,18 +210,20 @@ export type AnswerCorrection = {|
   corrections: Array<PartialCorrection>
 |};
 
-type Source = {|
+export type Source = {|
   _id: string,
   mimeType: ResourceMimeType,
   url: Url
 |};
 
-type Media = {
-  type?: string,
+export type MediaType = 'img';
+export type Media = {
+  type?: MediaType,
   description?: string,
   mimeType?: ResourceMimeType,
   _id?: string,
   mediaUrl?: Url,
+  url?: Url,
   subtitles?: Array<string>,
   posters?: Array<Url>,
   src?: Array<Source>
@@ -250,6 +252,8 @@ export type TemplateChoice = {|
 |};
 
 export type Choices = Array<Choice | TemplateChoice>;
+
+export type QuestionType = 'qcm' | 'qcmGraphic' | 'slider' | 'qcmDrag' | 'basic' | 'template';
 
 type QuestionCommon = {|
   explanation?: string,
@@ -324,21 +328,21 @@ export type Meta = {
 
 type Author = string;
 
-type LessonType = 'pdf' | 'video';
+type LessonType = VIDEO | PDF;
 type Subtitle = string;
 
-type Lesson = {|
+export type Lesson = {|
   _id: string,
-  videoId?: string,
-  mediaUrl?: string,
-  poster: string,
   description: string,
+  mediaUrl?: string,
   mimeType: ResourceMimeType,
+  poster: Url,
+  posters: Array<Url>,
   ref: string,
-  type: LessonType,
+  src: Array<Source>,
   subtitles: Array<Subtitle>,
-  posters: Array<string>,
-  src: Array<string>
+  type: LessonType,
+  videoId?: string
 |};
 
 export type Slide = {|

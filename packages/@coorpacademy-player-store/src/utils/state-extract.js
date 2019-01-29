@@ -18,20 +18,15 @@ import type {
   Engine,
   EngineConfig,
   GenericContent,
+  Lesson,
+  Media,
   Progression,
   ProgressionId,
+  QuestionType,
   Slide,
   TemplateChoice
 } from '@coorpacademy/progression-engine';
-import type {
-  Chapter,
-  ExitNode,
-  Level,
-  Recommendation,
-  Resource,
-  Media,
-  Lesson
-} from '../definitions/models';
+import type {Chapter, ExitNode, Level, Recommendation, Resource} from '../definitions/models';
 import type {ReduxState as State} from '../definitions/redux';
 import {CONTENT_TYPE, ENGINES} from '../definitions/models';
 
@@ -50,7 +45,7 @@ export const getChoices = (slide: Slide): Array<Choice> | Array<TemplateChoice> 
   return choices;
 };
 export const getChapterId = (slide: Slide): string => slide.chapter_id;
-export const getQuestionType = (slide: Slide): string => slide.question.type;
+export const getQuestionType = (slide: Slide): QuestionType => slide.question.type;
 export const getCurrentProgressionId = (state: State): ProgressionId | void =>
   state && state.ui && state.ui.current && state.ui.current.progressionId; // eslint-disable-line lodash-fp/prefer-get
 
