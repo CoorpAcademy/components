@@ -5,7 +5,8 @@
     "transform-class-properties"
   ],
   "presets": [
-    "react"
+    "react",
+    "env"
   ],
   "env": {
     "commonjs": {
