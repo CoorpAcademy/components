@@ -1,18 +1,18 @@
 {
   "plugins": [
-    "transform-export-extensions",
-    "transform-object-rest-spread",
-    "transform-class-properties"
+    "@babel/plugin-proposal-export-default-from",
+    "@babel/plugin-proposal-object-rest-spread",
+    "@babel/plugin-proposal-class-properties"
   ],
   "presets": [
-    "react",
-    "env"
+    "@babel/preset-react",
+    "@babel/preset-env"
   ],
   "env": {
     "commonjs": {
       "presets": [
         [
-          "env",
+          "@babel/preset-env",
           {
             "targets": {
               "node": true
@@ -33,7 +33,7 @@
     "test": {
       "presets": [
         [
-          "env",
+          "@babel/preset-env",
           {
             "targets": {
               "node": true
@@ -55,7 +55,7 @@
     "es": {
       "presets": [
         [
-          "env",
+          "@babel/preset-env",
           {
             "targets": {
               "node": true

@@ -3,8 +3,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = (baseConfig, env, defaultConfig) => {
-  baseConfig.module.rules = [
-    {
+  baseConfig.module.rules = [{
       test: /\.(ttf|otf|eot|svg|woff)$/,
       loader: 'file-loader'
     },
@@ -15,7 +14,7 @@ module.exports = (baseConfig, env, defaultConfig) => {
         cacheDirectory: true,
         presets: [
           [
-            'env',
+            '@babel/preset-env',
             {
               targets: {
                 browsers: ['last 2 versions']
@@ -24,17 +23,20 @@ module.exports = (baseConfig, env, defaultConfig) => {
               loose: true
             }
           ],
-          "stage-1",
-          "react"
+          "@babel/preset-react"
         ],
-        plugins: ['transform-object-assign']
+        plugins: [
+          'transform-object-assign',
+          '@babel/plugin-proposal-export-default-from',
+          '@babel/plugin-proposal-object-rest-spread',
+          '@babel/plugin-proposal-class-properties'
+        ]
       },
       exclude: [/node_modules/]
     },
     {
       test: /\.css$/,
-      use: [
-        {
+      use: [{
           loader: 'style-loader'
         },
         {
