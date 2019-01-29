@@ -64,5 +64,6 @@ export default [
   path.resolve('./third-party/nova-solid.iconjar/icons/vote-star.svg'),
   path.resolve('./third-party/nova-solid.iconjar/icons/shrink-diagonal-1.svg'),
   path.resolve('./third-party/nova-solid.iconjar/icons/expand-diagonal-3.svg'),
-  path.resolve('./third-party/nova-solid.iconjar/icons/redo.svg')
+  path.resolve('./third-party/nova-solid.iconjar/icons/redo.svg'),
+  path.resolve('./third-party/nova-solid.iconjar/icons/close.svg')
 ];
