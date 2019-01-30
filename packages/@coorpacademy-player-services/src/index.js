@@ -56,7 +56,7 @@ export const Answers: DataLayer => AnswersService = createAnswersService;
 export const Clues: DataLayer => CluesService = createCluesService;
 export const Coach = CoachService;
 export const Comments = CommentsService;
-export const Content = createContentService;
+export const Content: DataLayer => ContentService = createContentService;
 export const ExitNodes: DataLayer => ExitNodesService = createExitNodesService;
 export const LeaderBoard = LeaderBoardService;
 export const Location = LocationService; // eslint-disable-line no-shadow
