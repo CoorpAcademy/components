@@ -1,14 +1,14 @@
 // @flow strict
 
 import includes from 'lodash/fp/includes';
-import type {ClueAPI, Fixtures} from './definitions';
+import type {ClueAPI, ContentService} from './definitions';
 
 type FindById = (progressionId: string, slideId: string) => Promise<ClueAPI | void>;
 type CluesService = {|
   findById: FindById
 |};
 
-const findById = (fixtures: Fixtures): FindById => async (
+const findById = (fixtures: ContentService): FindById => async (
   progressionId,
   slideId
 ): Promise<ClueAPI | void> => {
@@ -30,7 +30,7 @@ const findById = (fixtures: Fixtures): FindById => async (
   return getClue(slideId);
 };
 
-const createCluesService = (fixtures: Fixtures): CluesService => ({
+const createCluesService = (fixtures: ContentService): CluesService => ({
   findById: findById(fixtures)
 });
 

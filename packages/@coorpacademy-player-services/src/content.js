@@ -5,7 +5,7 @@ import pipe from 'lodash/fp/pipe';
 import {getConfig} from '@coorpacademy/progression-engine';
 
 import type {Slide} from '@coorpacademy/progression-engine';
-import type {ChapterAPI, Fixtures, LevelAPI, RestrictedResourceType} from './definitions';
+import type {ChapterAPI, ContentService, LevelAPI, RestrictedResourceType} from './definitions';
 
 type FindContent = (
   type: RestrictedResourceType,
@@ -23,7 +23,7 @@ type ContentService = {|
   getInfo: GetInfo
 |};
 
-const find = (fixtures: Fixtures): FindContent => (
+const find = (fixtures: ContentService): FindContent => (
   type: RestrictedResourceType,
   ref: string
 ): Promise<ChapterAPI | LevelAPI | Slide> => {
@@ -31,7 +31,7 @@ const find = (fixtures: Fixtures): FindContent => (
   return findContent(type, ref);
 };
 
-const getNbSlides = (fixtures: Fixtures): GetNbSlides => async (
+const getNbSlides = (fixtures: ContentService): GetNbSlides => async (
   contentRef: string,
   engineRef: string,
   version: string
@@ -53,7 +53,7 @@ const getNbSlides = (fixtures: Fixtures): GetNbSlides => async (
   return -1;
 };
 
-const getInfo = (fixtures: Fixtures): GetInfo => async (
+const getInfo = (fixtures: ContentService): GetInfo => async (
   contentRef: string,
   engineRef: string,
   version: string
@@ -62,7 +62,7 @@ const getInfo = (fixtures: Fixtures): GetInfo => async (
   return {nbSlides};
 };
 
-const createContentService = (fixtures: Fixtures): ContentService => ({
+const createContentService = (fixtures: ContentService): ContentService => ({
   find: find(fixtures),
   getInfo: getInfo(fixtures)
 });

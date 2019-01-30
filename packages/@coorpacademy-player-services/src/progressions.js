@@ -32,7 +32,7 @@ import type {
   ResourceContent
 } from '@coorpacademy/progression-engine';
 import {CONTENT_TYPE} from './definitions';
-import type {Fixtures, UserAnswerAPI} from './definitions';
+import type {ContentService, UserAnswerAPI} from './definitions';
 
 type AcceptExtraLife = (
   progressionId: string,
@@ -89,10 +89,10 @@ type ProgressionsService = {|
 
 const generateId = () => uniqueId('progression');
 
-const findById = (fixtures: Fixtures): FindById => async (
+const findById = (contentService: ContentService): FindById => async (
   id: string
 ): Promise<Progression | void> => {
-  const {findProgressionById} = fixtures;
+  const {findProgressionById} = contentService;
   const progression = await findProgressionById(id);
   return progression;
 };
@@ -106,11 +106,11 @@ const openAssistance = (progression: Progression): Progression => {
   return progression;
 };
 
-const getAvailableContent = (fixtures: Fixtures): GetAvailableContent => async (
+const getAvailableContent = (contentService: ContentService): GetAvailableContent => async (
   content: Content
 ): Promise<AvailableContent> => {
-  const {getChapterRulesByContent, findSlideByChapter} = fixtures;
-  const {findLevelById} = fixtures;
+  const {getChapterRulesByContent, findSlideByChapter} = contentService;
+  const {findLevelById} = contentService;
   let chapters: Array<Content>;
 
   if (content.type === CONTENT_TYPE.LEVEL) {
@@ -132,21 +132,21 @@ const getAvailableContent = (fixtures: Fixtures): GetAvailableContent => async (
   );
 };
 
-const createSave = (fixtures: Fixtures): (Progression => Progression) => (
+const createSave = (contentService: ContentService): (Progression => Progression) => (
   progression: Progression
 ): Progression => {
-  const {saveProgression} = fixtures;
+  const {saveProgression} = contentService;
   saveProgression(progression);
   return progression;
 };
 
-const findBestOf = (fixtures: Fixtures): FindBestOf => (
+const findBestOf = (contentService: ContentService): FindBestOf => (
   engineRef: string,
   contentType: ContentType,
   contentRef: string,
   progressionId: string = ''
 ): Progression => {
-  const {getAllProgressions} = fixtures;
+  const {getAllProgressions} = contentService;
   const progressions = getAllProgressions();
 
   const bestProgression = pipe(
@@ -157,22 +157,22 @@ const findBestOf = (fixtures: Fixtures): FindBestOf => (
 };
 
 const addActionAndSaveProgression = (
-  fixtures: Fixtures
+  contentService: ContentService
 ): ((Progression, Action) => Progression) => (
   progression: Progression,
   action: Action
 ): Progression => {
   const newProgression = update('actions', actions => actions.concat(action), progression);
   const newState = createState(newProgression);
-  const save = createSave(fixtures);
+  const save = createSave(contentService);
   return pipe(set('state', newState), save)(newProgression);
 };
 
-const postAnswer = (fixtures: Fixtures): PostAnswer => async (
+const postAnswer = (contentService: ContentService): PostAnswer => async (
   progressionId: string,
   payload: UserAnswerAPI
 ): Promise<Progression> => {
-  const {findSlideById, findProgressionById} = fixtures;
+  const {findSlideById, findProgressionById} = contentService;
   const progression = await findProgressionById(progressionId);
 
   if (!progression) {
@@ -198,7 +198,7 @@ const postAnswer = (fixtures: Fixtures): PostAnswer => async (
     }
   };
 
-  const _getAvailableContent = getAvailableContent(fixtures);
+  const _getAvailableContent = getAvailableContent(contentService);
   const availableContent = await _getAvailableContent(progression.content);
   const config = getConfigForProgression(progression);
   const action = computeNextStepAfterAnswer(
@@ -214,14 +214,14 @@ const postAnswer = (fixtures: Fixtures): PostAnswer => async (
     throw new Error(`computeNextStepAfterAnswer failed`);
   }
 
-  return addActionAndSaveProgression(fixtures)(progression, action);
+  return addActionAndSaveProgression(contentService)(progression, action);
 };
 
-const requestClue = (fixtures: Fixtures): RequestClue => async (
+const requestClue = (contentService: ContentService): RequestClue => async (
   progressionId: string,
   payload: {content: ContentSlide}
 ): Promise<Progression> => {
-  const {findProgressionById} = fixtures;
+  const {findProgressionById} = contentService;
   const progression = await findProgressionById(progressionId);
 
   if (!progression) {
@@ -233,16 +233,16 @@ const requestClue = (fixtures: Fixtures): RequestClue => async (
     payload
   };
 
-  return addActionAndSaveProgression(fixtures)(progression, action);
+  return addActionAndSaveProgression(contentService)(progression, action);
 };
 
-const acceptExtraLife = (fixtures: Fixtures): AcceptExtraLife => async (
+const acceptExtraLife = (contentService: ContentService): AcceptExtraLife => async (
   progressionId: string,
   payload: {
     content: Content
   }
 ): Promise<Progression> => {
-  const {findProgressionById} = fixtures;
+  const {findProgressionById} = contentService;
   const progression = await findProgressionById(progressionId);
 
   if (!progression) {
@@ -256,7 +256,7 @@ const acceptExtraLife = (fixtures: Fixtures): AcceptExtraLife => async (
   }
 
   const config = getConfigForProgression(progression);
-  const _getAvailableContent = getAvailableContent(fixtures);
+  const _getAvailableContent = getAvailableContent(contentService);
   const availableContent = await _getAvailableContent(progression.content);
   const action = computeNextStepOnAcceptExtraLife(config, state, availableContent);
 
@@ -265,16 +265,16 @@ const acceptExtraLife = (fixtures: Fixtures): AcceptExtraLife => async (
     throw new Error(`computeNextStepOnAcceptExtraLife failed`);
   }
 
-  return addActionAndSaveProgression(fixtures)(progression, action);
+  return addActionAndSaveProgression(contentService)(progression, action);
 };
 
-const refuseExtraLife = (fixtures: Fixtures): RefuseExtraLife => async (
+const refuseExtraLife = (contentService: ContentService): RefuseExtraLife => async (
   progressionId: string,
   payload: {
     content: Content
   }
 ): Promise<Progression> => {
-  const {findProgressionById} = fixtures;
+  const {findProgressionById} = contentService;
   const progression = await findProgressionById(progressionId);
 
   if (!progression) {
@@ -290,23 +290,23 @@ const refuseExtraLife = (fixtures: Fixtures): RefuseExtraLife => async (
   const config = getConfigForProgression(progression);
   const action = computeNextStepOnRefuseExtraLife(config, state);
 
-  return addActionAndSaveProgression(fixtures)(progression, action);
+  return addActionAndSaveProgression(contentService)(progression, action);
 };
 
-const create = (fixtures: Fixtures): CreateProgression => async (
+const create = (contentService: ContentService): CreateProgression => async (
   engine: Engine,
   content: GenericContent,
   engineOptions: EngineConfig
 ): Promise<Progression> => {
   const _id = generateId();
 
-  const _getAvailableContent = getAvailableContent(fixtures);
+  const _getAvailableContent = getAvailableContent(contentService);
   const availableContent = await _getAvailableContent(content);
 
   const newProgression = createProgression(engine, content, engineOptions, availableContent);
   const state = createState(newProgression);
 
-  const save = createSave(fixtures);
+  const save = createSave(contentService);
   return save({
     ...newProgression,
     _id,
@@ -314,14 +314,14 @@ const create = (fixtures: Fixtures): CreateProgression => async (
   });
 };
 
-const markResourceAsViewed = (fixtures: Fixtures): MarkResourceAsViewed => async (
+const markResourceAsViewed = (contentService: ContentService): MarkResourceAsViewed => async (
   progressionId: string,
   payload: {
     resource: ResourceContent,
     content: Content
   }
 ): Promise<Progression> => {
-  const {findProgressionById} = fixtures;
+  const {findProgressionById} = contentService;
   const progression = await findProgressionById(progressionId);
 
   if (!progression) {
@@ -333,22 +333,22 @@ const markResourceAsViewed = (fixtures: Fixtures): MarkResourceAsViewed => async
     payload
   };
 
-  return addActionAndSaveProgression(fixtures)(progression, action);
+  return addActionAndSaveProgression(contentService)(progression, action);
 };
 
-const createProgressionsService = (fixtures: Fixtures): ProgressionsService => ({
-  acceptExtraLife: acceptExtraLife(fixtures),
-  create: create(fixtures),
-  findBestOf: findBestOf(fixtures),
-  findById: findById(fixtures),
-  getAvailableContent: getAvailableContent(fixtures),
+const createProgressionsService = (contentService: ContentService): ProgressionsService => ({
+  acceptExtraLife: acceptExtraLife(contentService),
+  create: create(contentService),
+  findBestOf: findBestOf(contentService),
+  findById: findById(contentService),
+  getAvailableContent: getAvailableContent(contentService),
   getEngineConfig,
-  markResourceAsViewed: markResourceAsViewed(fixtures),
+  markResourceAsViewed: markResourceAsViewed(contentService),
   openAssistance,
-  postAnswer: postAnswer(fixtures),
-  refuseExtraLife: refuseExtraLife(fixtures),
-  requestClue: requestClue(fixtures),
-  save: createSave(fixtures)
+  postAnswer: postAnswer(contentService),
+  refuseExtraLife: refuseExtraLife(contentService),
+  requestClue: requestClue(contentService),
+  save: createSave(contentService)
 });
 
 export type {ProgressionsService};

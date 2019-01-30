@@ -1,13 +1,13 @@
 // @flow strict
 
-import type {ExitNodeAPI, ExitNodeRef, Fixtures} from './definitions';
+import type {ExitNodeAPI, ExitNodeRef, ContentService} from './definitions';
 
 type FindById = (id: ExitNodeRef) => Promise<ExitNodeAPI>;
 type ExitNodesService = {|
   findById: FindById
 |};
 
-export const findById = (fixtures: Fixtures): FindById => async (
+export const findById = (fixtures: ContentService): FindById => async (
   id: ExitNodeRef
 ): Promise<ExitNodeAPI> => {
   const {getExitNode} = fixtures;
@@ -15,7 +15,7 @@ export const findById = (fixtures: Fixtures): FindById => async (
   return exitNode;
 };
 
-const ExitNodes = (fixtures: Fixtures): ExitNodesService => ({
+const ExitNodes = (fixtures: ContentService): ExitNodesService => ({
   findById: findById(fixtures)
 });
 
