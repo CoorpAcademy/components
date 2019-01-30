@@ -34,13 +34,13 @@ export const getChoices = (slide: Slide): Array<Choice> | void => {
     !slide || // eslint-disable-line lodash-fp/prefer-get
     !slide.question ||
     !slide.question.content ||
-    slide.question.content.choices !== undefined
+    !slide.question.content.choices
   ) {
     return undefined;
   }
 
-  const choices = slide.question.content.choices;
-  return choices;
+  // $FlowFixMe flow cannot cast here "property choices of unknown type is incompatible with array type"
+  return slide.question.content.choices;
 };
 export const getChapterId = (slide: Slide): string => slide.chapter_id;
 export const getQuestionType = (slide: Slide): QuestionType => slide.question.type;
