@@ -58,13 +58,17 @@ function isTextCorrect(
   config: Config,
   _allowedAnswers: Answer,
   answerWithCase: string,
-  _maxTypos: ?number
+  _maxTypos: ?number,
+  noFuzzy: boolean
 ): boolean {
   const allowedAnswers = _allowedAnswers.map(trim);
   const fm = new FuzzyMatching(allowedAnswers);
   const maxTypos = _maxTypos === 0 ? _maxTypos : _maxTypos || config.maxTypos;
   const answer = toLower(answerWithCase);
 
+  if (noFuzzy) {
+    return some(allowedAnswer => toLower(allowedAnswer) === answer, allowedAnswers);
+  }
   return (
     checkFuzzyAnswer(maxTypos, fm, answer) ||
     (maxTypos !== 0 &&
@@ -85,7 +89,8 @@ function matchAnswerForBasic(
     config,
     question.content.answers.map(answers => answers[0]),
     givenAnswer[0],
-    question.content.maxTypos
+    question.content.maxTypos,
+    false
   );
 
   return [[{answer: givenAnswer[0], isCorrect}]];
@@ -109,7 +114,8 @@ function matchAnswerForTemplate(
         toLower(answer),
         get(['content', 'choices', `${index}`, 'type'], question) === 'text'
           ? question.content.maxTypos
-          : 0
+          : 0,
+        get(['content', 'choices', `${index}`, 'type'], question) !== 'text'
       )
     )
   }));

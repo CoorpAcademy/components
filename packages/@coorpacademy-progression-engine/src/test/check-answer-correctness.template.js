@@ -128,6 +128,7 @@ test('should allow additional characters on the sides of text inputs', t => {
   const question = createQuestion([['parachute']], ['text']);
 
   assertCorrect(t, config, question, ['parachute']);
+  assertCorrect(t, config, question, ['parachuté']);
   assertCorrect(t, config, question, ['parachuteZZZZZ']);
   assertCorrect(t, config, question, ['ZZZZZparachute']);
   assertCorrect(t, config, question, ['ZZZZZparachuteZZZZZ']);
@@ -146,6 +147,7 @@ test('should not allow typos or additional characters for select inputs', t => {
   assertIncorrect(t, config, question, ['parachOte'], [false]);
   assertIncorrect(t, config, question, ['parachuteZ'], [false]);
   assertIncorrect(t, config, question, ['Zparachute'], [false]);
+  assertIncorrect(t, config, question, ['parachuté'], [false]);
 });
 
 test('should return false when the given answer has more elements that the accepted answers', t => {
