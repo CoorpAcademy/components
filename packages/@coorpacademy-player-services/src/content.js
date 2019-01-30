@@ -23,20 +23,20 @@ type ContentService = {|
   getInfo: GetInfo
 |};
 
-const find = (fixtures: ContentService): FindContent => (
+const find = (contentService: ContentService): FindContent => (
   type: RestrictedResourceType,
   ref: string
 ): Promise<ChapterAPI | LevelAPI | Slide> => {
-  const {findContent} = fixtures;
+  const {findContent} = contentService;
   return findContent(type, ref);
 };
 
-const getNbSlides = (fixtures: ContentService): GetNbSlides => async (
+const getNbSlides = (contentService: ContentService): GetNbSlides => async (
   contentRef: string,
   engineRef: string,
   version: string
 ): Promise<number> => {
-  const {findChapterById, findLevelById} = fixtures;
+  const {findChapterById, findLevelById} = contentService;
   const maxNbSlides = pipe(getConfig, get('slidesToComplete'))({
     ref: engineRef,
     version
@@ -53,18 +53,18 @@ const getNbSlides = (fixtures: ContentService): GetNbSlides => async (
   return -1;
 };
 
-const getInfo = (fixtures: ContentService): GetInfo => async (
+const getInfo = (contentService: ContentService): GetInfo => async (
   contentRef: string,
   engineRef: string,
   version: string
 ): Promise<{nbSlides: number}> => {
-  const nbSlides = await getNbSlides(fixtures)(contentRef, engineRef, version);
+  const nbSlides = await getNbSlides(contentService)(contentRef, engineRef, version);
   return {nbSlides};
 };
 
-const createContentService = (fixtures: ContentService): ContentService => ({
-  find: find(fixtures),
-  getInfo: getInfo(fixtures)
+const createContentService = (contentService: ContentService): ContentService => ({
+  find: find(contentService),
+  getInfo: getInfo(contentService)
 });
 
 export type {ContentService};

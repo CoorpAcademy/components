@@ -12,20 +12,20 @@ type RecommendationsService = {|
   getNext: GetNextRecommendation
 |};
 
-const find = (fixtures: ContentService): FindRecommendations => (
+const find = (contentService: ContentService): FindRecommendations => (
   type: ContentType,
   ref: string
 ): Promise<Array<RecommendationAPI>> => {
-  const {findRecommendations} = fixtures;
+  const {findRecommendations} = contentService;
   const recommendations = findRecommendations(type, ref);
   return Promise.resolve(recommendations);
 };
 
-const getNext = (fixtures: ContentService): GetNextRecommendation => (
+const getNext = (contentService: ContentService): GetNextRecommendation => (
   type: ContentType,
   ref: string
 ): Promise<void | LevelAPI> => {
-  const {getNextLevel} = fixtures;
+  const {getNextLevel} = contentService;
   switch (type) {
     case CONTENT_TYPE.LEVEL:
       return Promise.resolve(getNextLevel(ref));
@@ -35,9 +35,9 @@ const getNext = (fixtures: ContentService): GetNextRecommendation => (
   }
 };
 
-const createRecommendationsService = (fixtures: ContentService): RecommendationsService => ({
-  find: find(fixtures),
-  getNext: getNext(fixtures)
+const createRecommendationsService = (contentService: ContentService): RecommendationsService => ({
+  find: find(contentService),
+  getNext: getNext(contentService)
 });
 
 export type {RecommendationsService};

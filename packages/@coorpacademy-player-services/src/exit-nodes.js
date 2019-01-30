@@ -7,16 +7,16 @@ type ExitNodesService = {|
   findById: FindById
 |};
 
-export const findById = (fixtures: ContentService): FindById => async (
+export const findById = (contentService: ContentService): FindById => async (
   id: ExitNodeRef
 ): Promise<ExitNodeAPI> => {
-  const {getExitNode} = fixtures;
+  const {getExitNode} = contentService;
   const exitNode = await getExitNode(id);
   return exitNode;
 };
 
-const ExitNodes = (fixtures: ContentService): ExitNodesService => ({
-  findById: findById(fixtures)
+const ExitNodes = (contentService: ContentService): ExitNodesService => ({
+  findById: findById(contentService)
 });
 
 export type {ExitNodesService};
