@@ -165,9 +165,15 @@ const computeNextSlide = (
     pipe(get('_id'), (slideId: string) => !state || !includes(slideId, state.slides)),
     chapterContent.slides
   );
+  const nextSlide = pickNextSlide(remainingSlides);
+  if (isEmpty(nextSlide)) {
+    throw new Error('There is 0 remaining slides');
+  }
+
+  const nextSlideId = get('_id', nextSlide);
   return {
     type: 'slide',
-    ref: pickNextSlide(remainingSlides)._id
+    ref: nextSlideId
   };
 };
 
