@@ -22,7 +22,6 @@ import type {
   Answer,
   AvailableContent,
   Choice,
-  Choices,
   Config,
   Content,
   ContentInfo,
@@ -34,6 +33,7 @@ import type {
   GenericContent,
   Lesson,
   Media,
+  MediaType,
   Meta,
   PartialCorrection,
   Progression,
@@ -45,7 +45,6 @@ import type {
   Slide,
   Source,
   State,
-  TemplateChoice,
   Url
 } from './types';
 
@@ -64,7 +63,6 @@ export type {
   AvailableContent,
   ChapterRule,
   Choice,
-  Choices,
   Config,
   Content,
   ContentInfo,
@@ -77,6 +75,7 @@ export type {
   Instruction,
   Lesson,
   Media,
+  MediaType,
   Meta,
   PartialCorrection,
   Progression,
@@ -88,7 +87,6 @@ export type {
   Slide,
   Source,
   State,
-  TemplateChoice,
   Url
 };
 

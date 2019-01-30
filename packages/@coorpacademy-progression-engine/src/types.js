@@ -231,27 +231,19 @@ export type Media = {
 
 export type AcceptedAnswers = Array<Answer>;
 
-type ChoiceItem = {|
-  text: string,
-  value: string,
-  _id: string
-|};
-
 export type Choice = {|
   _id: string,
   value?: string,
   name?: string,
-  type?: 'select',
+  type?: 'text' | 'select',
   label: string,
-  items: Array<ChoiceItem>,
-  media: Media
+  items?: Array<{|
+    text: string,
+    value: string,
+    _id: string
+  |}>,
+  media?: Media
 |};
-
-export type TemplateChoice = {|
-  type: 'text' | 'select'
-|};
-
-export type Choices = Array<Choice | TemplateChoice>;
 
 export type QuestionType = 'qcm' | 'qcmGraphic' | 'slider' | 'qcmDrag' | 'basic' | 'template';
 
@@ -307,7 +299,7 @@ export type TemplateQuestion = {|
   content: {
     matchOrder: boolean,
     maxTypos?: ?number,
-    choices: Array<TemplateChoice>,
+    choices: Array<Choice>,
     answers: AcceptedAnswers
   }
 |};

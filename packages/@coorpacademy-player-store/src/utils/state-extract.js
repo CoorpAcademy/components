@@ -23,25 +23,23 @@ import type {
   Progression,
   ProgressionId,
   QuestionType,
-  Slide,
-  TemplateChoice
+  Slide
 } from '@coorpacademy/progression-engine';
 import type {Chapter, ExitNode, Level, Recommendation, Resource} from '../definitions/models';
 import type {ReduxState as State} from '../definitions/redux';
 import {CONTENT_TYPE, ENGINES} from '../definitions/models';
 
-export const getChoices = (slide: Slide): Array<Choice> | Array<TemplateChoice> | void => {
+export const getChoices = (slide: Slide): Array<Choice> | void => {
   if (
     !slide || // eslint-disable-line lodash-fp/prefer-get
     !slide.question ||
     !slide.question.content ||
-    !slide.question.content.choices
+    slide.question.content.choices !== undefined
   ) {
     return undefined;
   }
 
-  // $FlowFixMe flow cannot cast here "property choices of unknown type is incompatible with array type"
-  const choices: Array<Choice> | Array<TemplateChoice> = slide.question.content.choices;
+  const choices = slide.question.content.choices;
   return choices;
 };
 export const getChapterId = (slide: Slide): string => slide.chapter_id;
