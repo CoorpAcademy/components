@@ -21,8 +21,17 @@ const availableContent: AvailableContent = [
   }
 ];
 
-test('should return null if availableContent is empty', t => {
-  t.is(computeInitialStep(config, []), null);
+test('should return successExitNode if availableContent is empty', t => {
+  t.deepEqual(computeInitialStep(config, []), {
+    type: 'move',
+    payload: {
+      nextContent: {
+        type: 'success',
+        ref: 'successExitNode'
+      },
+      instructions: null
+    }
+  });
 });
 
 test('should return a success exitNode if there are no slides in all chapters', t => {
