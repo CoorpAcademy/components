@@ -1,13 +1,6 @@
 // @flow
 import {getConfig} from '../config';
-import type {
-  AvailableContent,
-  GenericContent,
-  MoveAction,
-  Progression,
-  Engine,
-  EngineConfig
-} from '../types';
+import type {AvailableContent, GenericContent, Progression, Engine, EngineConfig} from '../types';
 import {computeInitialStep} from '../compute-next-step';
 
 const createProgression = (
