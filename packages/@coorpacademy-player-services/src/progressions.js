@@ -32,7 +32,7 @@ import type {
   ResourceContent
 } from '@coorpacademy/progression-engine';
 import {CONTENT_TYPE} from './definitions';
-import type {ContentService, UserAnswerAPI} from './definitions';
+import type {DataLayer, UserAnswerAPI} from './definitions';
 
 type AcceptExtraLife = (
   progressionId: string,
@@ -89,7 +89,7 @@ type ProgressionsService = {|
 
 const generateId = () => uniqueId('progression');
 
-const findById = (contentService: ContentService): FindById => async (
+const findById = (contentService: DataLayer): FindById => async (
   id: string
 ): Promise<Progression | void> => {
   const {findProgressionById} = contentService;
@@ -106,7 +106,7 @@ const openAssistance = (progression: Progression): Progression => {
   return progression;
 };
 
-const getAvailableContent = (contentService: ContentService): GetAvailableContent => async (
+const getAvailableContent = (contentService: DataLayer): GetAvailableContent => async (
   content: Content
 ): Promise<AvailableContent> => {
   const {getChapterRulesByContent, findSlideByChapter} = contentService;
@@ -132,7 +132,7 @@ const getAvailableContent = (contentService: ContentService): GetAvailableConten
   );
 };
 
-const createSave = (contentService: ContentService): (Progression => Progression) => (
+const createSave = (contentService: DataLayer): (Progression => Progression) => (
   progression: Progression
 ): Progression => {
   const {saveProgression} = contentService;
@@ -140,7 +140,7 @@ const createSave = (contentService: ContentService): (Progression => Progression
   return progression;
 };
 
-const findBestOf = (contentService: ContentService): FindBestOf => (
+const findBestOf = (contentService: DataLayer): FindBestOf => (
   engineRef: string,
   contentType: ContentType,
   contentRef: string,
@@ -157,7 +157,7 @@ const findBestOf = (contentService: ContentService): FindBestOf => (
 };
 
 const addActionAndSaveProgression = (
-  contentService: ContentService
+  contentService: DataLayer
 ): ((Progression, Action) => Progression) => (
   progression: Progression,
   action: Action
@@ -168,7 +168,7 @@ const addActionAndSaveProgression = (
   return pipe(set('state', newState), save)(newProgression);
 };
 
-const postAnswer = (contentService: ContentService): PostAnswer => async (
+const postAnswer = (contentService: DataLayer): PostAnswer => async (
   progressionId: string,
   payload: UserAnswerAPI
 ): Promise<Progression> => {
@@ -217,7 +217,7 @@ const postAnswer = (contentService: ContentService): PostAnswer => async (
   return addActionAndSaveProgression(contentService)(progression, action);
 };
 
-const requestClue = (contentService: ContentService): RequestClue => async (
+const requestClue = (contentService: DataLayer): RequestClue => async (
   progressionId: string,
   payload: {content: ContentSlide}
 ): Promise<Progression> => {
@@ -236,7 +236,7 @@ const requestClue = (contentService: ContentService): RequestClue => async (
   return addActionAndSaveProgression(contentService)(progression, action);
 };
 
-const acceptExtraLife = (contentService: ContentService): AcceptExtraLife => async (
+const acceptExtraLife = (contentService: DataLayer): AcceptExtraLife => async (
   progressionId: string,
   payload: {
     content: Content
@@ -268,7 +268,7 @@ const acceptExtraLife = (contentService: ContentService): AcceptExtraLife => asy
   return addActionAndSaveProgression(contentService)(progression, action);
 };
 
-const refuseExtraLife = (contentService: ContentService): RefuseExtraLife => async (
+const refuseExtraLife = (contentService: DataLayer): RefuseExtraLife => async (
   progressionId: string,
   payload: {
     content: Content
@@ -293,7 +293,7 @@ const refuseExtraLife = (contentService: ContentService): RefuseExtraLife => asy
   return addActionAndSaveProgression(contentService)(progression, action);
 };
 
-const create = (contentService: ContentService): CreateProgression => async (
+const create = (contentService: DataLayer): CreateProgression => async (
   engine: Engine,
   content: GenericContent,
   engineOptions: EngineConfig
@@ -314,7 +314,7 @@ const create = (contentService: ContentService): CreateProgression => async (
   });
 };
 
-const markResourceAsViewed = (contentService: ContentService): MarkResourceAsViewed => async (
+const markResourceAsViewed = (contentService: DataLayer): MarkResourceAsViewed => async (
   progressionId: string,
   payload: {
     resource: ResourceContent,
@@ -336,7 +336,7 @@ const markResourceAsViewed = (contentService: ContentService): MarkResourceAsVie
   return addActionAndSaveProgression(contentService)(progression, action);
 };
 
-const createProgressionsService = (contentService: ContentService): ProgressionsService => ({
+const createProgressionsService = (contentService: DataLayer): ProgressionsService => ({
   acceptExtraLife: acceptExtraLife(contentService),
   create: create(contentService),
   findBestOf: findBestOf(contentService),

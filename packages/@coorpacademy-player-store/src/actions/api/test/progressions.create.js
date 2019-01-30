@@ -39,7 +39,7 @@ const engineOptions = {
   lives: 888
 };
 
-const ContentService = t => ({
+const DataLayer = t => ({
   find: (type, ref) => {
     switch (type) {
       case 'chapter':
@@ -110,7 +110,7 @@ test(
         return 1;
       }
     },
-    Content: ContentService(t, false)
+    Content: DataLayer(t, false)
   }),
   createProgression(engine, content, engineOptions),
   [

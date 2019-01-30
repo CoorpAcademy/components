@@ -1,7 +1,7 @@
 // @flow strict
 
 import type {
-  ContentService,
+  DataLayer,
   SlideAPI,
   ChapterAPI,
   ExitNodeAPI,
@@ -14,7 +14,7 @@ import type {
 
 import type {AnswersService} from './answers';
 import type {CluesService} from './clues';
-import type {ContentService} from './content';
+import type {DataLayer} from './content';
 import type {ProgressionsService} from './progressions';
 import type {RecommendationsService} from './recommendations';
 import type {SlidesService} from './slides';
@@ -42,8 +42,7 @@ export type {
   AnswersService,
   Answer,
   CluesService,
-  ContentService,
-  ContentService,
+  DataLayer,
   ProgressionsService,
   RecommendationsService,
   SlidesService,
@@ -52,15 +51,15 @@ export type {
 };
 
 export const Analytics = AnalyticsService;
-export const Answers: ContentService => AnswersService = createAnswersService;
-export const Clues: ContentService => CluesService = createCluesService;
+export const Answers: DataLayer => AnswersService = createAnswersService;
+export const Clues: DataLayer => CluesService = createCluesService;
 export const Coach = CoachService;
 export const Comments = CommentsService;
 export const Content = createContentService;
-export const ExitNodes: ContentService => ExitNodesService = createExitNodesService;
+export const ExitNodes: DataLayer => ExitNodesService = createExitNodesService;
 export const LeaderBoard = LeaderBoardService;
 export const Location = LocationService; // eslint-disable-line no-shadow
 export const Logger = console; // eslint-disable-line no-console
-export const Progressions: ContentService => ProgressionsService = createProgressionsService;
-export const Recommendations: ContentService => RecommendationsService = createRecommendationsService;
-export const Slides: ContentService => SlidesService = createSlidesService;
+export const Progressions: DataLayer => ProgressionsService = createProgressionsService;
+export const Recommendations: DataLayer => RecommendationsService = createRecommendationsService;
+export const Slides: DataLayer => SlidesService = createSlidesService;

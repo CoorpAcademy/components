@@ -1,7 +1,7 @@
 // @flow strict
 
 import type {ContentType} from '@coorpacademy/progression-engine';
-import type {ContentService, LevelAPI, RecommendationAPI} from './definitions';
+import type {DataLayer, LevelAPI, RecommendationAPI} from './definitions';
 import {CONTENT_TYPE} from './definitions';
 
 type FindRecommendations = (type: ContentType, ref: string) => Promise<Array<RecommendationAPI>>;
@@ -12,7 +12,7 @@ type RecommendationsService = {|
   getNext: GetNextRecommendation
 |};
 
-const find = (contentService: ContentService): FindRecommendations => (
+const find = (contentService: DataLayer): FindRecommendations => (
   type: ContentType,
   ref: string
 ): Promise<Array<RecommendationAPI>> => {
@@ -21,7 +21,7 @@ const find = (contentService: ContentService): FindRecommendations => (
   return Promise.resolve(recommendations);
 };
 
-const getNext = (contentService: ContentService): GetNextRecommendation => (
+const getNext = (contentService: DataLayer): GetNextRecommendation => (
   type: ContentType,
   ref: string
 ): Promise<void | LevelAPI> => {
@@ -35,7 +35,7 @@ const getNext = (contentService: ContentService): GetNextRecommendation => (
   }
 };
 
-const createRecommendationsService = (contentService: ContentService): RecommendationsService => ({
+const createRecommendationsService = (contentService: DataLayer): RecommendationsService => ({
   find: find(contentService),
   getNext: getNext(contentService)
 });

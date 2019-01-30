@@ -186,7 +186,7 @@ type ExitNodeAPI = {|
 
 export type RestrictedResourceType = 'level' | 'chapter' | 'slide';
 
-type ContentService = {
+type DataLayer = {
   fetchDisciplineBundle: () => Promise<void>,
   getAllProgressions: () => Array<Progression>,
   getChapterRulesByContent: (ref: string) => Array<ChapterRule>,
@@ -222,7 +222,7 @@ export type {
   ExitNodeAPI,
   ExitNodeRef,
   Question,
-  ContentService,
+  DataLayer,
   ChapterRule,
   FAILURE,
   Slide,

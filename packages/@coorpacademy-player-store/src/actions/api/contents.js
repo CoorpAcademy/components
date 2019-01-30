@@ -22,11 +22,11 @@ export const fetchContent = (type: ContentType, ref: string): ThunkAction => (
   {services}: {services: Services}
 ): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
 DispatchedAction => {
-  const {Content: ContentService} = services;
+  const {Content: DataLayer} = services;
 
   const action: Action = buildTask({
     types: [CONTENT_FETCH_REQUEST, CONTENT_FETCH_SUCCESS, CONTENT_FETCH_FAILURE],
-    task: () => ContentService.find(type, ref),
+    task: () => DataLayer.find(type, ref),
     meta: {type, ref},
     bailout: getContent(type, ref)
   });
@@ -44,11 +44,11 @@ export const fetchContentInfo = (content: Content, engine: Engine): ThunkAction 
   {services}: {services: Services}
 ): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
 DispatchedAction => {
-  const {Content: ContentService} = services;
+  const {Content: DataLayer} = services;
 
   const action: Action = buildTask({
     types: [CONTENT_INFO_FETCH_REQUEST, CONTENT_INFO_FETCH_SUCCESS, CONTENT_INFO_FETCH_FAILURE],
-    task: () => ContentService.getInfo(content.ref, engine.ref, engine.version),
+    task: () => DataLayer.getInfo(content.ref, engine.ref, engine.version),
     meta: content,
     bailout: getContentInfo
   });

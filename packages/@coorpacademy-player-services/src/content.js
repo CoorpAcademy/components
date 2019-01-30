@@ -5,7 +5,7 @@ import pipe from 'lodash/fp/pipe';
 import {getConfig} from '@coorpacademy/progression-engine';
 
 import type {Slide} from '@coorpacademy/progression-engine';
-import type {ChapterAPI, ContentService, LevelAPI, RestrictedResourceType} from './definitions';
+import type {ChapterAPI, DataLayer, LevelAPI, RestrictedResourceType} from './definitions';
 
 type FindContent = (
   type: RestrictedResourceType,
@@ -23,20 +23,20 @@ type ContentService = {|
   getInfo: GetInfo
 |};
 
-const find = (contentService: ContentService): FindContent => (
+const find = (dataLayer: DataLayer): FindContent => (
   type: RestrictedResourceType,
   ref: string
 ): Promise<ChapterAPI | LevelAPI | Slide> => {
-  const {findContent} = contentService;
+  const {findContent} = dataLayer;
   return findContent(type, ref);
 };
 
-const getNbSlides = (contentService: ContentService): GetNbSlides => async (
+const getNbSlides = (dataLayer: DataLayer): GetNbSlides => async (
   contentRef: string,
   engineRef: string,
   version: string
 ): Promise<number> => {
-  const {findChapterById, findLevelById} = contentService;
+  const {findChapterById, findLevelById} = dataLayer;
   const maxNbSlides = pipe(getConfig, get('slidesToComplete'))({
     ref: engineRef,
     version
@@ -53,18 +53,18 @@ const getNbSlides = (contentService: ContentService): GetNbSlides => async (
   return -1;
 };
 
-const getInfo = (contentService: ContentService): GetInfo => async (
+const getInfo = (dataLayer: DataLayer): GetInfo => async (
   contentRef: string,
   engineRef: string,
   version: string
 ): Promise<{nbSlides: number}> => {
-  const nbSlides = await getNbSlides(contentService)(contentRef, engineRef, version);
+  const nbSlides = await getNbSlides(dataLayer)(contentRef, engineRef, version);
   return {nbSlides};
 };
 
-const createContentService = (contentService: ContentService): ContentService => ({
-  find: find(contentService),
-  getInfo: getInfo(contentService)
+const createContentService = (dataLayer: DataLayer): ContentService => ({
+  find: find(dataLayer),
+  getInfo: getInfo(dataLayer)
 });
 
 export type {ContentService};

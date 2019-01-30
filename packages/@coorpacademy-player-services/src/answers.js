@@ -5,7 +5,7 @@ import includes from 'lodash/fp/includes';
 import {checkAnswerCorrectness, getConfigForProgression} from '@coorpacademy/progression-engine';
 
 import type {Answer} from '@coorpacademy/progression-engine';
-import type {CorrectionAPI, ContentService} from './definitions';
+import type {CorrectionAPI, DataLayer} from './definitions';
 
 type FindById = (
   progressionId: string,
@@ -17,7 +17,7 @@ type AnswersService = {|
   findById: FindById
 |};
 
-const findById = (contentService: ContentService): FindById => async (
+const findById = (contentService: DataLayer): FindById => async (
   progressionId: string,
   slideId: string,
   givenAnswers: Answer = []
@@ -52,7 +52,7 @@ const findById = (contentService: ContentService): FindById => async (
   };
 };
 
-const Answers = (contentService: ContentService): AnswersService => ({
+const Answers = (contentService: DataLayer): AnswersService => ({
   findById: findById(contentService)
 });
 

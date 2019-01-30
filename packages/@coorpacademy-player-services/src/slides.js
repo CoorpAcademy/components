@@ -1,7 +1,7 @@
 // @flow strict
 
 import type {Slide} from '@coorpacademy/progression-engine';
-import type {ContentService} from './definitions';
+import type {DataLayer} from './definitions';
 
 type FindSlideById = (slideId: string) => Promise<Slide>;
 
@@ -9,7 +9,7 @@ type SlidesService = {|
   findById: FindSlideById
 |};
 
-const findById = (contentService: ContentService): FindSlideById => async (
+const findById = (contentService: DataLayer): FindSlideById => async (
   slideId: string
 ): Promise<Slide> => {
   const {findSlideById} = contentService;
@@ -17,7 +17,7 @@ const findById = (contentService: ContentService): FindSlideById => async (
   return slide;
 };
 
-const createSlidesService = (contentService: ContentService): SlidesService => ({
+const createSlidesService = (contentService: DataLayer): SlidesService => ({
   findById: findById(contentService)
 });
 
