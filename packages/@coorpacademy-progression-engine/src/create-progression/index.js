@@ -15,16 +15,12 @@ const createProgression = (
   content: GenericContent,
   engineOptions: EngineConfig,
   availableContent: AvailableContent
-): Progression | null => {
+): Progression => {
   const config = {
     ...getConfig({ref: engine.ref, version: 'latest'}),
     ...engineOptions
   };
-  const initialAction: MoveAction | null = computeInitialStep(config, availableContent);
-
-  if (!initialAction) {
-    return null;
-  }
+  const initialAction = computeInitialStep(config, availableContent);
 
   return {
     engine: {

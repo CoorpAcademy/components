@@ -30,7 +30,7 @@ export type PartialAnswerAction = $ReadOnly<{
 export const computeInitialStep = (
   config: Config,
   availableContent: AvailableContent = []
-): MoveAction | null => {
+): MoveAction => {
   if (isEmpty(availableContent)) return null;
   const initialStep = computeNextStep(config, null, availableContent, null);
   if (!initialStep) {
