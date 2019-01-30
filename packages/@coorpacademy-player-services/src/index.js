@@ -14,7 +14,7 @@ import type {
 
 import type {AnswersService} from './answers';
 import type {CluesService} from './clues';
-import type {DataLayer} from './content';
+import type {ContentService} from './content';
 import type {ProgressionsService} from './progressions';
 import type {RecommendationsService} from './recommendations';
 import type {SlidesService} from './slides';
@@ -47,6 +47,7 @@ export type {
   RecommendationsService,
   SlidesService,
   Question,
+  ContentService,
   ChapterRule
 };
 
