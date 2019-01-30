@@ -12,20 +12,20 @@ type RecommendationsService = {|
   getNext: GetNextRecommendation
 |};
 
-const find = (contentService: DataLayer): FindRecommendations => (
+const find = (dataLayer: DataLayer): FindRecommendations => (
   type: ContentType,
   ref: string
 ): Promise<Array<RecommendationAPI>> => {
-  const {findRecommendations} = contentService;
+  const {findRecommendations} = dataLayer;
   const recommendations = findRecommendations(type, ref);
   return Promise.resolve(recommendations);
 };
 
-const getNext = (contentService: DataLayer): GetNextRecommendation => (
+const getNext = (dataLayer: DataLayer): GetNextRecommendation => (
   type: ContentType,
   ref: string
 ): Promise<void | LevelAPI> => {
-  const {getNextLevel} = contentService;
+  const {getNextLevel} = dataLayer;
   switch (type) {
     case CONTENT_TYPE.LEVEL:
       return Promise.resolve(getNextLevel(ref));
@@ -35,9 +35,9 @@ const getNext = (contentService: DataLayer): GetNextRecommendation => (
   }
 };
 
-const createRecommendationsService = (contentService: DataLayer): RecommendationsService => ({
-  find: find(contentService),
-  getNext: getNext(contentService)
+const createRecommendationsService = (dataLayer: DataLayer): RecommendationsService => ({
+  find: find(dataLayer),
+  getNext: getNext(dataLayer)
 });
 
 export type {RecommendationsService};

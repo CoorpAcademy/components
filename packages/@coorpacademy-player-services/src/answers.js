@@ -17,12 +17,12 @@ type AnswersService = {|
   findById: FindById
 |};
 
-const findById = (contentService: DataLayer): FindById => async (
+const findById = (dataLayer: DataLayer): FindById => async (
   progressionId: string,
   slideId: string,
   givenAnswers: Answer = []
 ): Promise<CorrectionAPI> => {
-  const {findProgressionById, findSlideById, getCorrectAnswer} = contentService;
+  const {findProgressionById, findSlideById, getCorrectAnswer} = dataLayer;
   const progression = await findProgressionById(progressionId);
 
   if (!progression) {
@@ -52,8 +52,8 @@ const findById = (contentService: DataLayer): FindById => async (
   };
 };
 
-const Answers = (contentService: DataLayer): AnswersService => ({
-  findById: findById(contentService)
+const Answers = (dataLayer: DataLayer): AnswersService => ({
+  findById: findById(dataLayer)
 });
 
 export type {FindById, AnswersService};

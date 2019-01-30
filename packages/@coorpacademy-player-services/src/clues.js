@@ -8,11 +8,11 @@ type CluesService = {|
   findById: FindById
 |};
 
-const findById = (contentService: DataLayer): FindById => async (
+const findById = (dataLayer: DataLayer): FindById => async (
   progressionId,
   slideId
 ): Promise<ClueAPI | void> => {
-  const {findProgressionById, getClue} = contentService;
+  const {findProgressionById, getClue} = dataLayer;
   const progression = await findProgressionById(progressionId);
 
   if (!progression) {
@@ -30,8 +30,8 @@ const findById = (contentService: DataLayer): FindById => async (
   return getClue(slideId);
 };
 
-const createCluesService = (contentService: DataLayer): CluesService => ({
-  findById: findById(contentService)
+const createCluesService = (dataLayer: DataLayer): CluesService => ({
+  findById: findById(dataLayer)
 });
 
 export type {CluesService};

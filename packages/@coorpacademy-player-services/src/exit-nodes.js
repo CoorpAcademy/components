@@ -7,16 +7,16 @@ type ExitNodesService = {|
   findById: FindById
 |};
 
-export const findById = (contentService: DataLayer): FindById => async (
+export const findById = (dataLayer: DataLayer): FindById => async (
   id: ExitNodeRef
 ): Promise<ExitNodeAPI> => {
-  const {getExitNode} = contentService;
+  const {getExitNode} = dataLayer;
   const exitNode = await getExitNode(id);
   return exitNode;
 };
 
-const ExitNodes = (contentService: DataLayer): ExitNodesService => ({
-  findById: findById(contentService)
+const ExitNodes = (dataLayer: DataLayer): ExitNodesService => ({
+  findById: findById(dataLayer)
 });
 
 export type {ExitNodesService};
