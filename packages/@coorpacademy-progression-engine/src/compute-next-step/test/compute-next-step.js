@@ -102,3 +102,24 @@ test('computeNextStepForNewChapter --> should return null when computeNextStep r
   const result = computeNextStepForNewChapter(config, state, chapterRule, false, availableContent);
   t.is(result, null);
 });
+
+test('computeNextStep --> should warn when there are no more slides', t => {
+  const state: State = Object.freeze(stateBeforeGettingNextContent);
+  t.throws(
+    () =>
+      computeNextStep(
+        config,
+        state,
+        [
+          {
+            ref: '1.A1',
+            slides: filter({_id: '1.A1.1'}, allSlides),
+            rules: null
+          }
+        ],
+        // $FlowFixMe
+        {type: 'foo'}
+      ),
+    'There is 0 remaining slides'
+  );
+});
