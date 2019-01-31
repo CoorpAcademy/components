@@ -326,7 +326,8 @@ type Subtitle = string;
 export type Lesson = {|
   _id: string,
   description: string,
-  mediaUrl?: string,
+  mediaUrl: string,
+  downloadUrl?: string,
   mimeType: ResourceMimeType,
   poster: Url,
   posters: Array<Url>,
