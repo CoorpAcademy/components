@@ -7,16 +7,16 @@
 @keyframes fadeIn {
   0% {
     opacity: 0;
-    margin-bottom: -200px;
+    margin-top: -200px;
   }
 
   30% {
     opacity: 0;
-    margin-bottom: -200px;
+    margin-top: -200px;
   }
 
   100% {
-    margin-bottom: 10px;
+    margin-top: 70px;
     opacity: 1;
   }
 }
@@ -26,7 +26,7 @@
   align-items: center;
   position: fixed;
   font-family: 'Open Sans';
-  bottom: 0;
+  top: 0;
   left: 0;
   right: 0;
   background-color: white;
