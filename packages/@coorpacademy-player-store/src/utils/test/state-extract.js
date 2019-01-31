@@ -491,7 +491,10 @@ test('getCurrentCorrection should get current correction from state', t => {
 
 test('getCurrentCorrection should return "" if no progression is found', t => {
   const state = set('ui.current.progressionId', '0')({});
-  t.is(getCurrentCorrection(state), '');
+  t.deepEqual(getCurrentCorrection(state), {
+    correctAnswer: [],
+    corrections: []
+  });
 });
 
 test('getCurrentCorrection should return "" if progression is not well formed', t => {
@@ -506,7 +509,10 @@ test('getCurrentCorrection should return "" if progression is not well formed', 
   )({});
 
   delete state.data.progressions.entities[progression._id]._id;
-  t.is(getCurrentCorrection(state), '');
+  t.deepEqual(getCurrentCorrection(state), {
+    correctAnswer: [],
+    corrections: []
+  });
 });
 
 test('getCurrentCorrection should return "" if no slide is found', t => {
@@ -516,7 +522,10 @@ test('getCurrentCorrection should return "" if no slide is found', t => {
     set('ui.current.progressionId', 'foo')
   )({});
 
-  t.is(getCurrentCorrection(state), '');
+  t.deepEqual(getCurrentCorrection(state), {
+    correctAnswer: [],
+    corrections: []
+  });
 });
 
 test('extractClue should get clue from state', t => {

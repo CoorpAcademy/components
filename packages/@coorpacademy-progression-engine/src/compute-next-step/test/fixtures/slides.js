@@ -29,7 +29,7 @@ const slide1_A_14 = {
       mediaUrl:
         '//player.vimeo.com/external/89404998.m3u8?s=eaab5764b4ec57c635501c74d41ee60ca069c937&oauth2_token_id=411503075',
       downloadUrl:
-        '/player.vimeo.com/external/89404998.sd.mp4?s=b1bf57bc6716d72521eba9a6517edc084566c83a&profile_id=112&oauth2_token_id=411503075',
+        '//player.vimeo.com/external/89404998.sd.mp4?s=b1bf57bc6716d72521eba9a6517edc084566c83a&profile_id=112&oauth2_token_id=411503075',
       videoId: '89404998',
       _id: '590b862e2e967f64333ad46f',
       subtitles: [],
@@ -91,7 +91,7 @@ const slides: Array<Slide> = [
         mediaUrl:
           '//player.vimeo.com/external/89404998.m3u8?s=eaab5764b4ec57c635501c74d41ee60ca069c937&oauth2_token_id=411503075',
         downloadUrl:
-          '/player.vimeo.com/external/89404998.sd.mp4?s=b1bf57bc6716d72521eba9a6517edc084566c83a&profile_id=112&oauth2_token_id=411503075',
+          '//player.vimeo.com/external/89404998.sd.mp4?s=b1bf57bc6716d72521eba9a6517edc084566c83a&profile_id=112&oauth2_token_id=411503075',
         _id: '590b862e2e967f64333ad45f',
         subtitles: [],
         posters: [],
@@ -190,7 +190,7 @@ const slides: Array<Slide> = [
         mediaUrl:
           '//player.vimeo.com/external/89404998.m3u8?s=eaab5764b4ec57c635501c74d41ee60ca069c937&oauth2_token_id=411503075',
         downloadUrl:
-          '/player.vimeo.com/external/89404998.sd.mp4?s=b1bf57bc6716d72521eba9a6517edc084566c83a&profile_id=112&oauth2_token_id=411503075',
+          '//player.vimeo.com/external/89404998.sd.mp4?s=b1bf57bc6716d72521eba9a6517edc084566c83a&profile_id=112&oauth2_token_id=411503075',
         _id: '590b862e2e967f64333ad464',
         subtitles: [],
         posters: [],
@@ -301,7 +301,7 @@ const slides: Array<Slide> = [
         mediaUrl:
           '//player.vimeo.com/external/89404998.m3u8?s=eaab5764b4ec57c635501c74d41ee60ca069c937&oauth2_token_id=411503075',
         downloadUrl:
-          '/player.vimeo.com/external/89404998.sd.mp4?s=b1bf57bc6716d72521eba9a6517edc084566c83a&profile_id=112&oauth2_token_id=411503075',
+          '//player.vimeo.com/external/89404998.sd.mp4?s=b1bf57bc6716d72521eba9a6517edc084566c83a&profile_id=112&oauth2_token_id=411503075',
         _id: '590b862e2e967f64333ad46a',
         subtitles: [],
         posters: [],
@@ -381,7 +381,7 @@ const slides: Array<Slide> = [
         mediaUrl:
           '//player.vimeo.com/external/89404998.m3u8?s=eaab5764b4ec57c635501c74d41ee60ca069c937&oauth2_token_id=411503075',
         downloadUrl:
-          '/player.vimeo.com/external/89404998.sd.mp4?s=b1bf57bc6716d72521eba9a6517edc084566c83a&profile_id=112&oauth2_token_id=411503075',
+          '//player.vimeo.com/external/89404998.sd.mp4?s=b1bf57bc6716d72521eba9a6517edc084566c83a&profile_id=112&oauth2_token_id=411503075',
         poster: '//static.coorpacademy.com/content/digital/miniatures_cours/avance/1A1.png',
         description: 'Le concept de Knowledge Graph',
         mimeType: 'application/vimeo',

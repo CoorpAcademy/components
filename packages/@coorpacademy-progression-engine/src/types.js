@@ -250,7 +250,7 @@ export type QuestionType = 'qcm' | 'qcmGraphic' | 'slider' | 'qcmDrag' | 'basic'
 type QuestionCommon = {|
   explanation?: string,
   header?: string,
-  medias?: Array<string>
+  medias?: Array<Media>
 |};
 
 export type QCMQuestion = $Exact<{|
