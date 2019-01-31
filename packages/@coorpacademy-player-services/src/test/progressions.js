@@ -5,9 +5,9 @@ import isString from 'lodash/fp/isString';
 import {getConfig} from '@coorpacademy/progression-engine';
 
 import createProgressionsService from '../progressions';
-import * as fixtures from './fixtures';
+import * as dataLayer from './fixtures';
 
-const Progressions = createProgressionsService(fixtures);
+const Progressions = createProgressionsService(dataLayer);
 const {
   create,
   findById,

@@ -5,7 +5,7 @@ import includes from 'lodash/fp/includes';
 import {checkAnswerCorrectness, getConfigForProgression} from '@coorpacademy/progression-engine';
 
 import type {Answer} from '@coorpacademy/progression-engine';
-import type {CorrectionAPI, Fixtures} from './definitions';
+import type {CorrectionAPI, DataLayer} from './definitions';
 
 type FindById = (
   progressionId: string,
@@ -17,12 +17,12 @@ type AnswersService = {|
   findById: FindById
 |};
 
-const findById = (fixtures: Fixtures): FindById => async (
+const findById = (dataLayer: DataLayer): FindById => async (
   progressionId: string,
   slideId: string,
   givenAnswers: Answer = []
 ): Promise<CorrectionAPI> => {
-  const {findProgressionById, findSlideById, getCorrectAnswer} = fixtures;
+  const {findProgressionById, findSlideById, getCorrectAnswer} = dataLayer;
   const progression = await findProgressionById(progressionId);
 
   if (!progression) {
@@ -52,8 +52,8 @@ const findById = (fixtures: Fixtures): FindById => async (
   };
 };
 
-const Answers = (fixtures: Fixtures): AnswersService => ({
-  findById: findById(fixtures)
+const Answers = (dataLayer: DataLayer): AnswersService => ({
+  findById: findById(dataLayer)
 });
 
 export type {FindById, AnswersService};

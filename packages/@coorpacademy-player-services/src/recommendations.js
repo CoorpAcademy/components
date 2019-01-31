@@ -1,7 +1,7 @@
 // @flow strict
 
 import type {ContentType} from '@coorpacademy/progression-engine';
-import type {Fixtures, LevelAPI, RecommendationAPI} from './definitions';
+import type {DataLayer, LevelAPI, RecommendationAPI} from './definitions';
 import {CONTENT_TYPE} from './definitions';
 
 type FindRecommendations = (type: ContentType, ref: string) => Promise<Array<RecommendationAPI>>;
@@ -12,20 +12,20 @@ type RecommendationsService = {|
   getNext: GetNextRecommendation
 |};
 
-const find = (fixtures: Fixtures): FindRecommendations => (
+const find = (dataLayer: DataLayer): FindRecommendations => (
   type: ContentType,
   ref: string
 ): Promise<Array<RecommendationAPI>> => {
-  const {findRecommendations} = fixtures;
+  const {findRecommendations} = dataLayer;
   const recommendations = findRecommendations(type, ref);
   return Promise.resolve(recommendations);
 };
 
-const getNext = (fixtures: Fixtures): GetNextRecommendation => (
+const getNext = (dataLayer: DataLayer): GetNextRecommendation => (
   type: ContentType,
   ref: string
 ): Promise<void | LevelAPI> => {
-  const {getNextLevel} = fixtures;
+  const {getNextLevel} = dataLayer;
   switch (type) {
     case CONTENT_TYPE.LEVEL:
       return Promise.resolve(getNextLevel(ref));
@@ -35,9 +35,9 @@ const getNext = (fixtures: Fixtures): GetNextRecommendation => (
   }
 };
 
-const createRecommendationsService = (fixtures: Fixtures): RecommendationsService => ({
-  find: find(fixtures),
-  getNext: getNext(fixtures)
+const createRecommendationsService = (dataLayer: DataLayer): RecommendationsService => ({
+  find: find(dataLayer),
+  getNext: getNext(dataLayer)
 });
 
 export type {RecommendationsService};

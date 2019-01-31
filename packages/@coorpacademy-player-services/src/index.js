@@ -1,7 +1,7 @@
 // @flow strict
 
 import type {
-  Fixtures,
+  DataLayer,
   SlideAPI,
   ChapterAPI,
   ExitNodeAPI,
@@ -42,25 +42,25 @@ export type {
   AnswersService,
   Answer,
   CluesService,
-  ContentService,
-  Fixtures,
+  DataLayer,
   ProgressionsService,
   RecommendationsService,
   SlidesService,
   Question,
+  ContentService,
   ChapterRule
 };
 
 export const Analytics = AnalyticsService;
-export const Answers: Fixtures => AnswersService = createAnswersService;
-export const Clues: Fixtures => CluesService = createCluesService;
+export const Answers: DataLayer => AnswersService = createAnswersService;
+export const Clues: DataLayer => CluesService = createCluesService;
 export const Coach = CoachService;
 export const Comments = CommentsService;
-export const Content = createContentService;
-export const ExitNodes: Fixtures => ExitNodesService = createExitNodesService;
+export const Content: DataLayer => ContentService = createContentService;
+export const ExitNodes: DataLayer => ExitNodesService = createExitNodesService;
 export const LeaderBoard = LeaderBoardService;
 export const Location = LocationService; // eslint-disable-line no-shadow
 export const Logger = console; // eslint-disable-line no-console
-export const Progressions: Fixtures => ProgressionsService = createProgressionsService;
-export const Recommendations: Fixtures => RecommendationsService = createRecommendationsService;
-export const Slides: Fixtures => SlidesService = createSlidesService;
+export const Progressions: DataLayer => ProgressionsService = createProgressionsService;
+export const Recommendations: DataLayer => RecommendationsService = createRecommendationsService;
+export const Slides: DataLayer => SlidesService = createSlidesService;

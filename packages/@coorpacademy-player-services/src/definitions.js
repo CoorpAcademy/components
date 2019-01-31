@@ -186,7 +186,8 @@ type ExitNodeAPI = {|
 
 export type RestrictedResourceType = 'level' | 'chapter' | 'slide';
 
-type Fixtures = {|
+type DataLayer = {
+  fetchDisciplineBundle: () => Promise<void>,
   getAllProgressions: () => Array<Progression>,
   getChapterRulesByContent: (ref: string) => Array<ChapterRule>,
   getClue: (slideId: string) => Promise<ClueAPI | void>,
@@ -204,7 +205,7 @@ type Fixtures = {|
   findSlideByChapter: (chapterRef: string) => Promise<Array<Slide>>,
   findSlideById: (id: string) => Promise<Slide>,
   saveProgression: Progression => Promise<void>
-|};
+};
 
 export const CONTENT_TYPE: {[string]: ContentType} = {
   CHAPTER: 'chapter',
@@ -221,7 +222,7 @@ export type {
   ExitNodeAPI,
   ExitNodeRef,
   Question,
-  Fixtures,
+  DataLayer,
   ChapterRule,
   FAILURE,
   Slide,
