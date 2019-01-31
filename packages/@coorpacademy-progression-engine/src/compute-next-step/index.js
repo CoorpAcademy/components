@@ -30,20 +30,22 @@ export type PartialAnswerAction = $ReadOnly<{
 export const computeInitialStep = (
   config: Config,
   availableContent: AvailableContent = []
-): MoveAction | null => {
-  if (isEmpty(availableContent)) return null;
+): MoveAction => {
+  const defaultSuccess = {
+    type: 'move',
+    payload: {
+      nextContent: {
+        type: 'success',
+        ref: 'successExitNode'
+      },
+      instructions: null
+    }
+  };
+
+  if (isEmpty(availableContent)) return defaultSuccess;
   const initialStep = computeNextStep(config, null, availableContent, null);
   if (!initialStep) {
-    return {
-      type: 'move',
-      payload: {
-        nextContent: {
-          type: 'success',
-          ref: 'successExitNode'
-        },
-        instructions: null
-      }
-    };
+    return defaultSuccess;
   }
 
   const {nextContent, instructions} = initialStep;

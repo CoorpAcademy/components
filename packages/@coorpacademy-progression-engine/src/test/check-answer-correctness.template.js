@@ -28,7 +28,11 @@ function createQuestion(
     content: {
       matchOrder: true,
       maxTypos,
-      choices: choiceTypes.map(type => ({type})),
+      choices: choiceTypes.map((type, index) => ({
+        _id: `id-${index}`,
+        label: `choice-${index}`,
+        type
+      })),
       answers
     }
   };
@@ -185,7 +189,18 @@ test('should return false when there are no correct answers', t => {
     type: 'template',
     content: {
       matchOrder: true,
-      choices: [{type: 'text'}, {type: 'text'}],
+      choices: [
+        {
+          _id: `1`,
+          label: `choice-1`,
+          type: 'text'
+        },
+        {
+          _id: `1`,
+          label: `choice-1`,
+          type: 'text'
+        }
+      ],
       answers: []
     }
   };

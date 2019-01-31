@@ -18,24 +18,18 @@ import type {
   Engine,
   EngineConfig,
   GenericContent,
+  Lesson,
+  Media,
   Progression,
   ProgressionId,
-  Slide,
-  TemplateChoice
+  QuestionType,
+  Slide
 } from '@coorpacademy/progression-engine';
-import type {
-  Chapter,
-  ExitNode,
-  Level,
-  Recommendation,
-  Resource,
-  Media,
-  Lesson
-} from '../definitions/models';
+import type {Chapter, ExitNode, Level, Recommendation, Resource} from '../definitions/models';
 import type {ReduxState as State} from '../definitions/redux';
 import {CONTENT_TYPE, ENGINES} from '../definitions/models';
 
-export const getChoices = (slide: Slide): Array<Choice> | Array<TemplateChoice> | void => {
+export const getChoices = (slide: Slide): Array<Choice> | void => {
   if (
     !slide || // eslint-disable-line lodash-fp/prefer-get
     !slide.question ||
@@ -46,14 +40,12 @@ export const getChoices = (slide: Slide): Array<Choice> | Array<TemplateChoice> 
   }
 
   // $FlowFixMe flow cannot cast here "property choices of unknown type is incompatible with array type"
-  const choices: Array<Choice> | Array<TemplateChoice> = slide.question.content.choices;
-  return choices;
+  return slide.question.content.choices;
 };
 export const getChapterId = (slide: Slide): string => slide.chapter_id;
+export const getQuestionType = (slide: Slide): QuestionType => slide.question.type;
 export const getCurrentProgressionId = (state: State): ProgressionId | void =>
   state && state.ui && state.ui.current && state.ui.current.progressionId; // eslint-disable-line lodash-fp/prefer-get
-
-export const getQuestionType: State => string = get('question.type');
 
 export const getProgression = (id: ProgressionId): (State => Progression) => (
   state: State

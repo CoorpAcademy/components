@@ -31,7 +31,7 @@ export type VIDEO = 'video';
 export type PDF = 'pdf';
 export type ContentType = CHAPTER | LEVEL | SLIDE | NODE | FAILURE | SUCCESS | VIDEO | PDF;
 
-type Url = string;
+export type Url = string;
 
 export type ContentSlide = {|
   type: SLIDE,
@@ -210,18 +210,20 @@ export type AnswerCorrection = {|
   corrections: Array<PartialCorrection>
 |};
 
-type Source = {|
+export type Source = {|
   _id: string,
   mimeType: ResourceMimeType,
   url: Url
 |};
 
-type Media = {
-  type?: string,
+export type MediaType = 'img';
+export type Media = {
+  type?: MediaType,
   description?: string,
   mimeType?: ResourceMimeType,
   _id?: string,
   mediaUrl?: Url,
+  url?: Url,
   subtitles?: Array<string>,
   posters?: Array<Url>,
   src?: Array<Source>
@@ -229,27 +231,21 @@ type Media = {
 
 export type AcceptedAnswers = Array<Answer>;
 
-type ChoiceItem = {|
-  text: string,
-  value: string,
-  _id: string
-|};
-
 export type Choice = {|
   _id: string,
   value?: string,
   name?: string,
-  type?: 'select',
+  type?: 'text' | 'select',
   label: string,
-  items: Array<ChoiceItem>,
-  media: Media
+  items?: Array<{|
+    text: string,
+    value: string,
+    _id: string
+  |}>,
+  media?: Media
 |};
 
-export type TemplateChoice = {|
-  type: 'text' | 'select'
-|};
-
-export type Choices = Array<Choice | TemplateChoice>;
+export type QuestionType = 'qcm' | 'qcmGraphic' | 'slider' | 'qcmDrag' | 'basic' | 'template';
 
 type QuestionCommon = {|
   explanation?: string,
@@ -303,7 +299,7 @@ export type TemplateQuestion = {|
   content: {
     matchOrder: boolean,
     maxTypos?: ?number,
-    choices: Array<TemplateChoice>,
+    choices: Array<Choice>,
     answers: AcceptedAnswers
   }
 |};
@@ -324,21 +320,21 @@ export type Meta = {
 
 type Author = string;
 
-type LessonType = 'pdf' | 'video';
+type LessonType = VIDEO | PDF;
 type Subtitle = string;
 
-type Lesson = {|
+export type Lesson = {|
   _id: string,
-  videoId?: string,
-  mediaUrl?: string,
-  poster: string,
   description: string,
+  mediaUrl?: string,
   mimeType: ResourceMimeType,
+  poster: Url,
+  posters: Array<Url>,
   ref: string,
-  type: LessonType,
+  src: Array<Source>,
   subtitles: Array<Subtitle>,
-  posters: Array<string>,
-  src: Array<string>
+  type: LessonType,
+  videoId?: string
 |};
 
 export type Slide = {|

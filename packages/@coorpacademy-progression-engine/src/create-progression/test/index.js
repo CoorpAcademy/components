@@ -169,5 +169,24 @@ test('should return null if no there is no available content', t => {
     version: '1',
     livesDisabled: true
   };
-  t.is(createProgression(engine, content, engineOptions, []), null);
+
+  const progression = createProgression(engine, content, engineOptions, []);
+
+  t.deepEqual(progression, {
+    engine: {ref: 'learner', version: '1'},
+    content: {ref: '1.A1', type: 'level'},
+    engineOptions: {version: '1', livesDisabled: true},
+    actions: [
+      {
+        type: 'move',
+        payload: {
+          nextContent: {
+            type: 'success',
+            ref: 'successExitNode'
+          },
+          instructions: null
+        }
+      }
+    ]
+  });
 });

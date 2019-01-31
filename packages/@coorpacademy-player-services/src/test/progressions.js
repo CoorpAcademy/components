@@ -38,12 +38,6 @@ test('should call getAvailableContent function', t =>
     'level plop has no chapterIds'
   ));
 
-test('should fail to create a progression', t =>
-  t.throws(
-    create(engine, {type: 'chapter', ref: 'bad'}),
-    'progression could not be created properly'
-  ));
-
 test('should create progression for a non-adaptive chapter', async t => {
   const progression = await create(engine, {type: 'chapter', ref: '5.C7'});
   t.true(isString(progression._id));

@@ -304,11 +304,6 @@ const create = (fixtures: Fixtures): CreateProgression => async (
   const availableContent = await _getAvailableContent(content);
 
   const newProgression = createProgression(engine, content, engineOptions, availableContent);
-
-  if (!newProgression) {
-    throw new Error(`progression could not be created properly`);
-  }
-
   const state = createState(newProgression);
 
   const save = createSave(fixtures);

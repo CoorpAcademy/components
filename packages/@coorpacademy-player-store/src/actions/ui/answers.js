@@ -1,3 +1,4 @@
+import keys from 'lodash/fp/keys';
 import get from 'lodash/fp/get';
 import isNull from 'lodash/fp/isNull';
 import remove from 'lodash/fp/remove';
@@ -43,7 +44,9 @@ const newState = (state = [], questionType, newValue) => {
 export const editAnswer = (state, questionType, progressionId, newValue) => {
   const type = ANSWER_EDIT[questionType];
   if (!type) {
-    throw new Error('Unknown question type "bar"');
+    throw new Error(
+      `Cannot find edit action for "${questionType}". It must be within [${keys(ANSWER_EDIT)}]`
+    );
   }
   return {
     type,

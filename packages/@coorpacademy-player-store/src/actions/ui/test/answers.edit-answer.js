@@ -13,7 +13,7 @@ const macro = (t, state, inputType, input, expected) => {
 test('should throw an error if questionType is unknown', t => {
   return t.throws(
     () => editAnswer(['some answer'], 'bar', '0', ['some new answer']),
-    'Unknown question type "bar"'
+    'Cannot find edit action for "bar". It must be within [qcm,qcmGraphic,qcmDrag,template,basic,slider]'
   );
 });
 
