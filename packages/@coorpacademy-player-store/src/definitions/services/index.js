@@ -2,7 +2,7 @@
 
 import type {AnswersService} from './answers';
 import type {CluesService} from './clues';
-import type {ContenService} from './content';
+import type {ContentService} from './content';
 import type {ExitNodesService} from './exit-nodes';
 import type {ProgressionsService} from './progressions';
 import type {RecommendationsService} from './recommendations';
@@ -14,7 +14,7 @@ type Services = {
   LeaderBoard: any,
   Answers: AnswersService,
   Clues: CluesService,
-  Content: ContenService,
+  Content: ContentService,
   ExitNodes: ExitNodesService,
   Progressions: ProgressionsService,
   Recommendations: RecommendationsService,
