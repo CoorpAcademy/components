@@ -8,6 +8,7 @@ import type {
   Media,
   LevelAPI,
   ChapterRule,
+  LessonAPI,
   Question,
   Answer
 } from './definitions';
@@ -46,6 +47,7 @@ export type {
   ProgressionsService,
   RecommendationsService,
   SlidesService,
+  LessonAPI,
   Question,
   ContentService,
   ChapterRule
