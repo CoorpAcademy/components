@@ -25,7 +25,14 @@ import type {
   QuestionType,
   Slide
 } from '@coorpacademy/progression-engine';
-import type {Chapter, ExitNode, Level, Recommendation, Resource} from '../definitions/models';
+import type {
+  Chapter,
+  Correction,
+  ExitNode,
+  Level,
+  Recommendation,
+  Resource
+} from '../definitions/models';
 import type {ReduxState as State} from '../definitions/redux';
 import {CONTENT_TYPE, ENGINES} from '../definitions/models';
 
@@ -305,21 +312,29 @@ export const getCurrentExitNode = (state: State): ExitNode | void => {
   return getExitNode(ref)(state);
 };
 
-export const getCorrection = (progressionId: string, slideId: string) => (state: State): string => {
+export const getCorrection = (progressionId: string, slideId: string) => (
+  state: State
+): Correction => {
   return get(['data', 'answers', 'entities', progressionId, slideId], state);
 };
-export const getCurrentCorrection = (state: State): string => {
+export const getCurrentCorrection = (state: State): Correction => {
   const progression = getCurrentProgression(state);
 
   if (!progression) {
-    return '';
+    return {
+      correctAnswer: [],
+      corrections: []
+    };
   }
 
   const progressionId = progression._id;
   const slide = getPreviousSlide(state);
 
   if (!progressionId || !slide) {
-    return '';
+    return {
+      correctAnswer: [],
+      corrections: []
+    };
   }
 
   return getCorrection(progressionId, slide._id)(state);
