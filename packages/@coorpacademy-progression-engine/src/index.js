@@ -55,7 +55,6 @@ export type {
   LEVEL,
   SLIDE,
   NODE,
-  ERRORS,
   FAILURE,
   SUCCESS,
   Action,
@@ -99,5 +98,6 @@ export {
   createState,
   createProgression,
   getConfig,
-  getConfigForProgression
+  getConfigForProgression,
+  ERRORS
 };
