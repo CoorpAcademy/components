@@ -21,7 +21,7 @@ import type {
 
 import type {FindCorrection, AnswersService} from './definitions/services/answers';
 import type {FindById as FindClueById, CluesService} from './definitions/services/clues';
-import type {GetInfo, DataLayer} from './definitions/services/content';
+import type {GetInfo, ContentService} from './definitions/services/content';
 import type {
   FindById as FindExitNodeById,
   ExitNodesService
@@ -82,7 +82,7 @@ export type {
   Chapter,
   Clue,
   CluesService,
-  DataLayer,
+  ContentService,
   Correction,
   CreateProgression,
   DataProgressionState,

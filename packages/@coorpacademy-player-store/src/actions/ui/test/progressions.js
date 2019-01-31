@@ -35,7 +35,7 @@ const slideWithContext = {
   context: {title: 'some-title', description: 'some-description', foo: 2}
 };
 
-const DataLayer = (t, withContext) => ({
+const ContentService = (t, withContext) => ({
   find: (type, ref) => {
     switch (type) {
       case 'chapter':
@@ -130,7 +130,7 @@ test(
   macro,
   {},
   t => ({
-    Content: DataLayer(t, false),
+    Content: ContentService(t, false),
     LeaderBoard: {
       getRank: () => {
         t.pass();
@@ -271,7 +271,7 @@ test(
         return 1;
       }
     },
-    Content: DataLayer(t, false)
+    Content: ContentService(t, false)
   }),
   selectProgression('foo'),
   [
@@ -393,7 +393,7 @@ test(
         return 1;
       }
     },
-    Content: DataLayer(t, true)
+    Content: ContentService(t, true)
   }),
   selectProgression('foo'),
   [
@@ -524,7 +524,7 @@ test(
         return 1;
       }
     },
-    Content: DataLayer(t, false),
+    Content: ContentService(t, false),
     Recommendations: {
       find: () => 'plop',
       getNext: () => 'plip'
@@ -887,7 +887,7 @@ test(
         return 1;
       }
     },
-    Content: DataLayer(t, false),
+    Content: ContentService(t, false),
     Recommendations: {
       find: () => 'plop',
       getNext: () => 'plip'
@@ -1044,7 +1044,7 @@ test(
         return 1;
       }
     },
-    Content: DataLayer(t, false)
+    Content: ContentService(t, false)
   }),
   selectProgression('foo'),
   [
@@ -1324,7 +1324,7 @@ test(
         return 1;
       }
     },
-    Content: DataLayer(t, false),
+    Content: ContentService(t, false),
     Recommendations: {
       find: () => 'plop',
       getNext: () => 'plip'

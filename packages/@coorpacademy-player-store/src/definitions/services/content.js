@@ -6,9 +6,9 @@ import type {Chapter, Level} from '../models';
 type FindContent = (type: string, ref: string) => Promise<Chapter | Level | Slide>;
 type GetInfo = (contentRef: string, engineRef: string, version: string) => {nbSlides: number};
 
-type DataLayer = {|
+type ContentService = {|
   find: FindContent,
   getInfo: GetInfo
 |};
 
-export type {GetInfo, DataLayer};
+export type {GetInfo, ContentService};
