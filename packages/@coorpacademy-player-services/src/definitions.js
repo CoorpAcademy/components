@@ -12,6 +12,7 @@ import type {
   SUCCESS,
   Question,
   Meta,
+  Lesson,
   ResourceMimeType
 } from '@coorpacademy/progression-engine';
 
@@ -19,6 +20,8 @@ type Url = string;
 type AspectRatio = '16:9' | '4:3';
 
 type SlideAPI = Slide;
+
+type LessonAPI = Lesson;
 
 type JwPlayerOptions = {|
   customProps: {
@@ -236,6 +239,7 @@ export type {
   ResourceType,
   Media,
   Url,
+  LessonAPI,
   UserAnswerAPI,
   Window
 };
