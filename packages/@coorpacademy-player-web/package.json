@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/player-web",
-  "version": "2.4.1",
+  "version": "2.4.2",
   "description": "CoorpAcademy web slide-player",
   "main": "lib/index.js",
   "module": "es/index.js",
