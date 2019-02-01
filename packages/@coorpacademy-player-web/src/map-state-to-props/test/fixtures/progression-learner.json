@@ -8,8 +8,7 @@
             "lessons": [
               {
                 "_id": "5a21127459e9b1002853be55",
-                "poster":
-                  "https://api-staging.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-bfm/cockpit-bfm/default/lafranceatout-1507106331318.jpg&h=250&w=250&q=90",
+                "poster": "https://api-staging.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-bfm/cockpit-bfm/default/lafranceatout-1507106331318.jpg&h=250&w=250&q=90",
                 "description": "La France a tout pour réussir - oct. 1/4",
                 "videoId": "236612175",
                 "mimeType": "application/vimeo",
@@ -20,7 +19,32 @@
                 "src": [],
                 "id": "5a21127459e9b1002853be55"
               }
-            ]
+            ],
+            "question": {
+              "type": "qcm",
+              "header": "Which is the best language to use to construct a powerful speech?",
+              "explanation": "Select the right answer.",
+              "content": {
+                "choices": [
+                  {
+                    "id": "sli_41z20kbsM.id",
+                    "label": "Spanish",
+                    "value": "sli_41z20kbsM.choice_4knC0kbsz"
+                  },
+                  {
+                    "id": "sli_41z20kbsM.id",
+                    "label": "English",
+                    "value": "sli_41z20kbsM.choice_Nk6RAJ~of"
+                  },
+                  {
+                    "id": "sli_41z20kbsM.id",
+                    "label": "French",
+                    "value": "sli_41z20kbsM.choice_4yC0CyZsz"
+                  }
+                ],
+                "answers": [["English"]]
+              }
+            }
           }
         }
       },
@@ -70,7 +94,7 @@
     }
   },
   "ui": {
-    "route": {"0": "answer"},
+    "route": { "0": "answer" },
     "current": {
       "progressionId": "0"
     }
