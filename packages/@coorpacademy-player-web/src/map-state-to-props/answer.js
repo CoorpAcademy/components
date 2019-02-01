@@ -193,6 +193,9 @@ const sliderProps = (options, store) => (state, slide) => {
 };
 
 const createGetAnswerProps = (options, store) => (state, slide) => {
+  if (!slide) {
+    return;
+  }
   const type = getQuestionType(slide);
   switch (type) {
     case 'qcm':
@@ -214,7 +217,7 @@ const createGetAnswerProps = (options, store) => (state, slide) => {
       return sliderProps(options, store)(state, slide);
 
     default:
-      return {};
+      throw new Error(`${type} is not an handled question.type`);
   }
 };
 

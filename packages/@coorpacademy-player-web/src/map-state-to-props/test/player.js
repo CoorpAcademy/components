@@ -13,6 +13,7 @@ import {UI_SELECT_ROUTE} from '@coorpacademy/player-store';
 import createPlayer from '../player';
 import createHeader from '../header';
 import learnerProgressionStateFixture from './fixtures/progression-learner';
+import plopSlide from './fixtures/slides/plop';
 import basicSlide from './fixtures/slides/basic';
 import contextSlide from './fixtures/slides/with-context';
 import templateSlide from './fixtures/slides/template';
@@ -27,6 +28,7 @@ const createHeaderProps = createHeader(options, store);
 
 const availableSlides = pipe(map(slide => [slide._id, slide]), fromPairs)([
   basicSlide,
+  plopSlide,
   qcmSlide,
   qcmDragSlide,
   qcmGraphicSlide,
@@ -77,6 +79,7 @@ const data = {
   progressions: {
     entities: {
       basic: createProgression(basicSlide, 'nonAdaptiveContent'),
+      plop: createProgression(plopSlide, 'nonAdaptiveContent'),
       qcm: createProgression(qcmSlide, 'nonAdaptiveContent'),
       qcmDrag: createProgression(qcmDragSlide, 'nonAdaptiveContent'),
       qcmGraphic: createProgression(qcmGraphicSlide, 'nonAdaptiveContent'),
@@ -204,6 +207,19 @@ test('should disable the validate button when there the text answer has been del
   const props = createPlayerProps(state);
 
   t.true(props.cta.disabled);
+});
+
+test('should return defaut props when slide.question.type is not handles', t => {
+  const state = {
+    data,
+    ui: {
+      route: {basic: 'answer'},
+      current: {progressionId: 'plop'},
+      answers: {basic: {value: ['']}}
+    }
+  };
+
+  t.throws(() => createPlayerProps(state), 'plop is not an handled question.type');
 });
 
 test('should disable the validate button when no answer is provided', t => {
@@ -451,6 +467,7 @@ test('should feed step prop in non-adaptive mode', t => {
     12,
     learnerProgressionStateFixture
   );
+
   const props = createPlayerProps(state);
 
   t.deepEqual(props.step, {current: 0, total: 12});
