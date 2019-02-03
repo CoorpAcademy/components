@@ -91,8 +91,7 @@ export const nextSlidePool = (
   const slidesAnsweredForThisChapter = intersection(state.slides, currentChapterSlideIds);
   const isChapterCompleted =
     size(slidesAnsweredForThisChapter) >=
-    Math.min(config.slidesToComplete, size(currentChapterSlideIds) - 1);
-
+    Math.min(config.slidesToComplete, size(currentChapterSlideIds));
   const hasRules = hasRulesToApply(currentChapterPool);
   const shouldChangeChapter = !hasRules && isChapterCompleted;
 

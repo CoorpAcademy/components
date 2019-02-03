@@ -10,7 +10,7 @@ import computeNextStep, {
   prepareStateToSwitchChapters
 } from '../compute-next-step';
 import allSlides from './fixtures/slides';
-import {stateBeforeGettingNextContent} from './fixtures/states';
+import {stateBeforeGettingNextContent, lastStepProgressionState} from './fixtures/states';
 
 const config: Config = getConfig({ref: 'learner', version: '1'});
 const availableContent: AvailableContent = [
@@ -31,7 +31,18 @@ test('should return a success ExitNode if there is no available content with one
   ];
   const state: State = Object.freeze(stateBeforeGettingNextContent);
   // $FlowFixMe
-  const action = computeNextStep(config, state, availableContenta, {type: 'foo'});
+  const action = computeNextStep(config, state, availableContenta, {
+    type: 'answer',
+    payload: {
+      answer: [],
+      content: {
+        ref: '1.A1.2',
+        type: 'slide'
+      },
+      godMode: false,
+      isCorrect: true
+    }
+  });
   // $FlowFixMe
   t.deepEqual(action.nextContent, {type: 'success', ref: 'successExitNode'});
 });
@@ -55,7 +66,18 @@ test('should return a success ExitNode if there is no available content with any
   ];
   const state: State = Object.freeze(stateBeforeGettingNextContent);
   // $FlowFixMe
-  const action = computeNextStep(config, state, availableContenta, {type: 'foo'});
+  const action = computeNextStep(config, state, availableContenta, {
+    type: 'answer',
+    payload: {
+      answer: [],
+      content: {
+        ref: '1.A1.2',
+        type: 'slide'
+      },
+      godMode: false,
+      isCorrect: true
+    }
+  });
   // $FlowFixMe
   t.deepEqual(action.nextContent, {type: 'success', ref: 'successExitNode'});
 });
@@ -74,10 +96,53 @@ test('should return next slide if there is no available content in current chapt
   ];
   const state: State = Object.freeze(stateBeforeGettingNextContent);
   // $FlowFixMe
-  const action = computeNextStep(config, state, availableContenta, {type: 'foo'});
+  const action = computeNextStep(config, state, availableContenta, {
+    type: 'answer',
+    payload: {
+      answer: [],
+      content: {
+        ref: '1.A1.2',
+        type: 'slide'
+      },
+      godMode: false,
+      isCorrect: true
+    }
+  });
   // $FlowFixMe
   t.regex(action.nextContent.ref, /^2\.A1\.[1-9]+$/);
 });
+
+test('should return next slide if there is available content in current chapter', t => {
+  const availableContentbb: AvailableContent = [
+    {
+      ref: '1.A1',
+      slides: [
+        ...filter({_id: '1.A1.1'}, allSlides),
+        ...filter({_id: '1.A1.2'}, allSlides),
+        ...filter({_id: '1.A1.3'}, allSlides),
+        ...filter({_id: '1.A1.4'}, allSlides)
+      ],
+      rules: null
+    }
+  ];
+  const state: State = Object.freeze(lastStepProgressionState);
+  // $FlowFixMe
+  const action = computeNextStep(config, state, availableContentbb, {
+    type: 'answer',
+    payload: {
+      answer: [],
+      content: {
+        ref: '1.A1.3',
+        type: 'slide'
+      },
+      godMode: false,
+      isCorrect: true
+    }
+  });
+  // $FlowFixMe
+  t.is(action.nextContent.ref, '1.A1.4');
+});
+
 test('should return null if there is no available content', t => {
   const state: State = Object.freeze(stateBeforeGettingNextContent);
   // $FlowFixMe
