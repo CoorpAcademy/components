@@ -7,7 +7,7 @@ import {getConfig} from '../../config';
 import type {AvailableContent, Config, State} from '../../types';
 import {computeNextStepOnAcceptExtraLife} from '..';
 import allSlides from './fixtures/slides';
-import {stateBeforeGettingNextContent} from './fixtures/states';
+import {stateBeforeGettingNextContent, stateBeforeAcceptExtraLife} from './fixtures/states';
 
 const config: Config = getConfig({ref: 'learner', version: '1'});
 const state: State = {...stateBeforeGettingNextContent, lives: 0};
@@ -20,7 +20,11 @@ test('should return an action linking to a new slide', t => {
       rules: null
     }
   ];
-  const result = computeNextStepOnAcceptExtraLife(config, state, availableContent);
+  const result = computeNextStepOnAcceptExtraLife(
+    config,
+    stateBeforeAcceptExtraLife,
+    availableContent
+  );
   if (!result) {
     throw new Error('action should not be falsy');
   }
@@ -32,7 +36,7 @@ test('should return an action linking to a new slide', t => {
       instructions: null
     }
   });
-  t.regex(result.payload.nextContent.ref, /^1\.A1\.[2-9]+$/);
+  t.regex(result.payload.nextContent.ref, /^1\.A1\.[3-9]+$/);
 });
 
 test('should return an action linking to a new slide with a chapter without slides', t => {
@@ -53,7 +57,11 @@ test('should return an action linking to a new slide with a chapter without slid
       rules: null
     }
   ];
-  const result = computeNextStepOnAcceptExtraLife(config, state, availableContent);
+  const result = computeNextStepOnAcceptExtraLife(
+    config,
+    stateBeforeAcceptExtraLife,
+    availableContent
+  );
   if (!result) {
     throw new Error('action should not be falsy');
   }
@@ -70,7 +78,10 @@ test('should return an action linking to a new slide with a chapter without slid
 
 test('should return null if there is no available content', t => {
   const availableContent: AvailableContent = [];
-  t.is(computeNextStepOnAcceptExtraLife(config, state, availableContent), null);
+  t.is(
+    computeNextStepOnAcceptExtraLife(config, stateBeforeAcceptExtraLife, availableContent),
+    null
+  );
 });
 
 test('should not apply the lives increment twice when switching chapters', t => {
