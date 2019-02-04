@@ -1,12 +1,16 @@
+// @flow
+
 import keys from 'lodash/fp/keys';
 import get from 'lodash/fp/get';
 import isNull from 'lodash/fp/isNull';
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
+import type {Answer, Choice, ProgressionId, QuestionType} from '@coorpacademy/progression-engine';
 import {hasSeenLesson} from '../../utils/state-extract';
 import {createAnswer} from '../api/progressions';
 import {fetchAnswer} from '../api/answers';
 import {fetchSlideChapter} from '../api/contents';
+import type {DispatchedAction, GetState, Options} from '../../definitions/redux';
 import {progressionUpdated, selectProgression} from './progressions';
 import {toggleAccordion, ACCORDION_KLF, ACCORDION_TIPS, ACCORDION_LESSON} from './corrections';
 
@@ -19,32 +23,57 @@ export const ANSWER_EDIT = {
   slider: '@@answer/EDIT_SLIDER'
 };
 
-const newState = (state = [], questionType, newValue) => {
+type PayloadEditAnswer = Array<string>;
+type EditAnswerAction = {
+  type: string,
+  meta: {
+    progressionId: ProgressionId
+  },
+  payload: PayloadEditAnswer
+};
+
+const newState = (
+  state: PayloadEditAnswer = [],
+  questionType: QuestionType,
+  newValue: string | Array<string> | Choice
+  // $FlowFixMe incompatible with implicitly-returned undefined.
+): PayloadEditAnswer => {
   switch (questionType) {
     case 'qcm':
     case 'qcmGraphic':
     case 'qcmDrag':
-      if (!newValue.label) return state;
+      if (newValue.label === undefined) return state;
 
+      // $FlowFixMe string [1] is incompatible with property label of unknown type
       if (includes(newValue.label, state)) {
+        // $FlowFixMe dont see if (newValue.label === undefined) above...
         return remove(label => label === newValue.label)(state);
       } else {
+        // $FlowFixMe property label of unknown type [1] is incompatible with string
         return [...state, newValue.label];
       }
 
     case 'basic':
     case 'slider':
+      // $FlowFixMe here newValue IS string
       return [newValue];
 
     case 'template':
+      // $FlowFixMe here newValue IS Array<string>
       return newValue;
   }
 };
 
-export const editAnswer = (state, questionType, progressionId, newValue) => {
+export const editAnswer = (
+  state: PayloadEditAnswer,
+  questionType: QuestionType,
+  progressionId: ProgressionId,
+  newValue: string | Array<string> | Choice
+): EditAnswerAction => {
   const type = ANSWER_EDIT[questionType];
   if (!type) {
     throw new Error(
+      // $FlowFixMe loadsh def
       `Cannot find edit action for "${questionType}". It must be within [${keys(ANSWER_EDIT)}]`
     );
   }
@@ -57,7 +86,11 @@ export const editAnswer = (state, questionType, progressionId, newValue) => {
   };
 };
 
-export const validateAnswer = (progressionId, body) => async (dispatch, getState, {services}) => {
+export const validateAnswer = (progressionId: ProgressionId, body: {answer: Answer}) => async (
+  dispatch: Function,
+  getState: GetState,
+  {services}: Options
+): DispatchedAction => {
   const createAnswerResponse = await dispatch(createAnswer(progressionId, body.answer));
   if (createAnswerResponse.error) return createAnswerResponse;
 

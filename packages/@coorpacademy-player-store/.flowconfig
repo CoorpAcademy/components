@@ -4,9 +4,5 @@
 [options]
 module.name_mapper='^@coorpacademy/\(.*\)$' -> '<PROJECT_ROOT>/../@coorpacademy-\1/src'
 
-[strict]
-unsafe-getters-setters
-untyped-type-import
-
 [version]
 ^0.75.0
