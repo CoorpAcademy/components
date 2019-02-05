@@ -125,15 +125,15 @@ type Stats = {|
   userDoneCount: number
 |};
 
-type LevelAPI = {
+type LevelAPI = {|
   _id: string,
   universalRef?: string,
   disciplineRef?: string,
   ref: string,
-  name: string,
+  name?: string,
   level: string,
-  meta: Meta,
-  poster: Poster,
+  meta?: Meta,
+  poster?: Poster,
   chapterIds: Array<string>,
   levelTranslation?: string,
   mediaUrl?: Url,
@@ -147,7 +147,7 @@ type LevelAPI = {
   stats: Stats,
   version: string,
   external_refs: Array<?string>
-};
+|};
 
 type ChapterAPI = {|
   _id: string,
