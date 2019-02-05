@@ -121,8 +121,8 @@ type Poster = {|
 |};
 
 type Stats = {|
-  userTriesCoun: number,
-  userDoneCoun: number
+  userTriesCount: number,
+  userDoneCount: number
 |};
 
 type LevelAPI = {
