@@ -9,6 +9,7 @@ import {
   PROGRESSION_CREATE_ANSWER_SUCCESS
 } from '../../../api/progressions';
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../../api/answers';
+import {UI_SELECT_ROUTE} from '../../route';
 import {accordionIsOpenAt, progressionUpdated} from './helpers/shared';
 
 const services = t => ({
@@ -83,6 +84,13 @@ test(
         set('state.content.ref', 'slideRef'),
         set('state.nextContent', {type: 'success', ref: 'successExitNode'})
       )({})
+    },
+    {
+      type: UI_SELECT_ROUTE,
+      payload: 'correction',
+      meta: {
+        progressionId: 'foo'
+      }
     },
     accordionIsOpenAt(0),
     progressionUpdated,

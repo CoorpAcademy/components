@@ -144,6 +144,13 @@ const answer = result => [
       }
     },
     payload: result
+  },
+  {
+    type: UI_SELECT_ROUTE,
+    payload: 'correction',
+    meta: {
+      progressionId: 'foo'
+    }
   }
 ];
 
