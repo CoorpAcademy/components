@@ -11,6 +11,7 @@ import {createAnswer} from '../api/progressions';
 import {fetchAnswer} from '../api/answers';
 import {fetchSlideChapter} from '../api/contents';
 import type {DispatchedAction, GetState, Options} from '../../definitions/redux';
+import {selectRoute} from './route';
 import {progressionUpdated, selectProgression} from './progressions';
 import {toggleAccordion, ACCORDION_KLF, ACCORDION_TIPS, ACCORDION_LESSON} from './corrections';
 
@@ -93,6 +94,7 @@ export const validateAnswer = (progressionId: ProgressionId, body: {answer: Answ
 ): DispatchedAction => {
   const createAnswerResponse = await dispatch(createAnswer(progressionId, body.answer));
   if (createAnswerResponse.error) return createAnswerResponse;
+  await dispatch(selectRoute('correction'));
 
   const payload = createAnswerResponse.payload;
 
