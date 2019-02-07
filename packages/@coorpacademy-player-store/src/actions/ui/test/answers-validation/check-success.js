@@ -9,6 +9,7 @@ import {
   PROGRESSION_CREATE_ANSWER_REQUEST,
   PROGRESSION_CREATE_ANSWER_SUCCESS
 } from '../../../api/progressions';
+import {UI_SELECT_ROUTE} from '../../route';
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../../api/answers';
 import {CONTENT_FETCH_REQUEST, CONTENT_FETCH_SUCCESS} from '../../../api/contents';
 import {accordionIsOpenAt, progressionUpdated} from './helpers/shared';
@@ -156,6 +157,13 @@ test(
   validateAnswer('foo', {answer: ['bar']}),
   flatten([
     createCorrectAnswer,
+    {
+      type: UI_SELECT_ROUTE,
+      payload: 'correction',
+      meta: {
+        progressionId: 'foo'
+      }
+    },
     contentFetchActions,
     accordionIsOpenAt(2),
     progressionUpdated,

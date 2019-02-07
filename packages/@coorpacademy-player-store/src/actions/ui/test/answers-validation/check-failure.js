@@ -5,6 +5,7 @@ import flatten from 'lodash/fp/flatten';
 import macro from '../../../test/helpers/macro';
 import {validateAnswer} from '../../answers';
 import {UI_TOGGLE_ACCORDION} from '../../corrections';
+import {UI_SELECT_ROUTE} from '../../route';
 import {
   PROGRESSION_CREATE_ANSWER_REQUEST,
   PROGRESSION_CREATE_ANSWER_SUCCESS,
@@ -163,6 +164,13 @@ test(
         set('state.isCorrect', false),
         set('state.viewedResources', [])
       )({})
+    },
+    {
+      type: UI_SELECT_ROUTE,
+      payload: 'correction',
+      meta: {
+        progressionId: 'foo'
+      }
     },
     {
       type: UI_TOGGLE_ACCORDION,
