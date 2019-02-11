@@ -51,7 +51,8 @@ type Clue = string;
 
 type Meta = {|
   updatedAt: string,
-  createdAt: string
+  createdAt: string,
+  taggedNewUntil?: string
 |};
 
 type Recommendation = {|
@@ -103,8 +104,8 @@ type Chapter = {|
 |};
 
 type Stats = {|
-  userTriesCoun: number,
-  userDoneCoun: number
+  userTriesCount: number,
+  userDoneCount: number
 |};
 
 type Level = {|
@@ -112,10 +113,10 @@ type Level = {|
   universalRef?: string,
   disciplineRef?: string,
   ref: string,
-  name: string,
+  name?: string,
   level: string,
-  meta: Meta,
-  poster: Poster,
+  meta?: Meta,
+  poster?: Poster,
   chapterIds: Array<string>,
   levelTranslation?: string,
   mediaUrl?: Url,
