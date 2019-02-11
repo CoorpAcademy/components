@@ -6,7 +6,13 @@ import isNull from 'lodash/fp/isNull';
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
 import type {Answer, Choice, ProgressionId, QuestionType} from '@coorpacademy/progression-engine';
-import {hasSeenLesson} from '../../utils/state-extract';
+import {
+  getAnswerValues,
+  getCurrentProgressionId,
+  getCurrentSlide,
+  getQuestionType,
+  hasSeenLesson
+} from '../../utils/state-extract';
 import {createAnswer} from '../api/progressions';
 import {fetchAnswer} from '../api/answers';
 import {fetchSlideChapter} from '../api/contents';
@@ -65,12 +71,14 @@ const newState = (
   }
 };
 
-export const editAnswer = (
-  state: PayloadEditAnswer,
-  questionType: QuestionType,
-  progressionId: ProgressionId,
-  newValue: string | Array<string> | Choice
-): EditAnswerAction => {
+export const editAnswer = (newValue: string | Array<string> | Choice): EditAnswerAction => (
+  dispatch: Function,
+  getState: GetState
+): ThunkAction => {
+  const state = getState();
+  const slide = getCurrentSlide(state);
+  const questionType = getQuestionType(slide);
+
   const type = ANSWER_EDIT[questionType];
   if (!type) {
     throw new Error(
@@ -78,13 +86,21 @@ export const editAnswer = (
       `Cannot find edit action for "${questionType}". It must be within [${keys(ANSWER_EDIT)}]`
     );
   }
-  return {
+
+  if (!slide) {
+    return;
+  }
+
+  const userAnswers = getAnswerValues(slide, state);
+  const progressionId = getCurrentProgressionId(state);
+
+  return dispatch({
     type,
     meta: {
       progressionId
     },
-    payload: newState(state, questionType, newValue)
-  };
+    payload: newState(userAnswers, questionType, newValue)
+  });
 };
 
 export const validateAnswer = (progressionId: ProgressionId, body: {answer: Answer}) => async (
