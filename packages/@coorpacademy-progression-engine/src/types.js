@@ -22,6 +22,7 @@ export type LEARNER = 'learner';
 export type Engines = MICROLEARNING | LEARNER;
 
 export type CHAPTER = 'chapter';
+export type DISCIPLINE = 'discipline';
 export type LEVEL = 'level';
 export type SLIDE = 'slide';
 export type NODE = 'node';

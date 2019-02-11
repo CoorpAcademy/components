@@ -13,6 +13,7 @@ import ERRORS from './errors';
 
 import type {
   CHAPTER,
+  DISCIPLINE,
   LEVEL,
   SLIDE,
   NODE,
@@ -58,6 +59,7 @@ import type {Instruction, ChapterRule} from './rule-engine/types';
 
 export type {
   CHAPTER,
+  DISCIPLINE,
   LEVEL,
   SLIDE,
   NODE,

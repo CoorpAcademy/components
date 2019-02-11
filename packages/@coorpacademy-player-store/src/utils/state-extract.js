@@ -28,6 +28,7 @@ import type {
 import type {
   Chapter,
   Correction,
+  Discipline,
   ExitNode,
   Level,
   Recommendation,
@@ -158,12 +159,16 @@ export const getProgressionContent = (state: State): GenericContent | void => {
   return progression.content;
 };
 
-export const getContent: (type: ContentType, ref: string) => State => Chapter | Slide | Level = (
+export const getContent: (
   type: ContentType,
   ref: string
-): (State => Chapter | Slide | Level) => get(['data', 'contents', type, 'entities', ref]);
+) => State => Chapter | Slide | Level | Discipline = (
+  type: ContentType,
+  ref: string
+): (State => Chapter | Slide | Level | Discipline) =>
+  get(['data', 'contents', type, 'entities', ref]);
 
-export const getCurrentContent = (state: State): Chapter | Slide | Level | void => {
+export const getCurrentContent = (state: State): Chapter | Discipline | Slide | Level | void => {
   const content = getProgressionContent(state);
 
   if (!content) {

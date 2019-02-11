@@ -18,6 +18,15 @@ type Url = string;
 type AspectRatio = '16:9' | '4:3';
 type ResourceType = 'video' | 'pdf';
 
+// eslint-disable-next-line no-shadow
+type MimeType =
+  | 'video/mp4'
+  | 'application/vimeo'
+  | 'image/jpeg'
+  | 'image/png'
+  | 'application/pdf'
+  | 'application/vimeo';
+
 type JwPlayerOptions = {|
   customProps: {
     aspectratio: AspectRatio,
@@ -134,6 +143,50 @@ type Level = {|
   bestScore?: number
 |};
 
+type ExtentedMedia = {|
+  type?: string,
+  mimeType?: MimeType,
+  mediaUrl?: Url,
+  subtitles: Array<string>,
+  posters: Array<string>,
+  src: Array<string>
+|};
+type Cover = {|
+  description: string,
+  media: ExtentedMedia
+|};
+
+type Skill = string;
+type Group = string;
+type Condition = string;
+type Partner = string;
+
+type Stat = {|
+  userTriesCount: number,
+  userDoneCount: number
+|};
+
+type Discipline = {|
+  _id: string,
+  ref: string,
+  universalRef: string,
+  name: string,
+  partnershipType: string,
+  deliverCoachStatus?: boolean,
+  hidden: boolean,
+  __v: number,
+  position: number,
+  conditions: Array<Condition>,
+  skills: Array<Skill>,
+  groups: Array<Group>,
+  stats: Stat,
+  meta: Meta,
+  partners: Array<Partner>,
+  modules: Array<Level>,
+  cover?: Cover,
+  version: string
+|};
+
 type UserAnswer = {|
   answer: Answer,
   content: Content
@@ -159,6 +212,7 @@ export type {
   Chapter,
   Clue,
   Correction,
+  Discipline,
   ExitNode,
   ExitNodeRef,
   Level,
