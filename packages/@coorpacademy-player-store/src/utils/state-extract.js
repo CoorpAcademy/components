@@ -149,6 +149,16 @@ export const getLevel = (ref: string): (State => Level | void) => (state: State)
   state.data.contents.level.entities &&
   state.data.contents.level.entities[ref];
 
+export const getDiscipline = (ref: string): (Discipline => Level | void) => (
+  state: State
+): Discipline | void =>
+  state && // eslint-disable-line lodash-fp/prefer-get
+  state.data &&
+  state.data.contents &&
+  state.data.contents.discipline &&
+  state.data.contents.discipline.entities &&
+  state.data.contents.discipline.entities[ref];
+
 export const getProgressionContent = (state: State): GenericContent | void => {
   const progression = getCurrentProgression(state);
 

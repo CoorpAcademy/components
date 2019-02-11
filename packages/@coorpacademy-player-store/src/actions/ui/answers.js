@@ -103,12 +103,22 @@ export const editAnswer = (newValue: string | Array<string> | Choice): EditAnswe
   });
 };
 
-export const validateAnswer = (progressionId: ProgressionId, body: {answer: Answer}) => async (
+export const validateAnswer = () => async (
   dispatch: Function,
   getState: GetState,
   {services}: Options
 ): DispatchedAction => {
-  const createAnswerResponse = await dispatch(createAnswer(progressionId, body.answer));
+  const initialState = getState();
+  const slide = getCurrentSlide(initialState);
+  const progressionId = getCurrentProgressionId(initialState);
+
+  if (!slide || !progressionId) {
+    throw new Error('Cannot validate answer without a slide or o progressionId');
+  }
+
+  const answer = getAnswerValues(slide, initialState);
+
+  const createAnswerResponse = await dispatch(createAnswer(progressionId, answer));
   if (createAnswerResponse.error) return createAnswerResponse;
   await dispatch(selectRoute('correction'));
 
@@ -137,5 +147,5 @@ export const validateAnswer = (progressionId: ProgressionId, body: {answer: Answ
   }
 
   await dispatch(progressionUpdated(progressionId));
-  return dispatch(fetchAnswer(progressionId, slideId, body.answer));
+  return dispatch(fetchAnswer(progressionId, slideId, answer));
 };

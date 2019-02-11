@@ -190,7 +190,6 @@ type ExitNodeAPI = {|
 export type RestrictedResourceType = 'level' | 'chapter' | 'slide';
 
 type DataLayer = {
-  fetchDisciplineBundle: () => Promise<void>,
   getAllProgressions: () => Array<Progression>,
   getChapterRulesByContent: (ref: string) => Array<ChapterRule>,
   getClue: (slideId: string) => Promise<ClueAPI | void>,

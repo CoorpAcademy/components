@@ -248,7 +248,7 @@ export type Choice = {|
 
 export type QuestionType = 'qcm' | 'qcmGraphic' | 'slider' | 'qcmDrag' | 'basic' | 'template';
 
-type QuestionCommon = {|
+export type QuestionCommon = {|
   explanation?: string,
   header?: string,
   medias?: Array<Media>
