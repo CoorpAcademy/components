@@ -19,6 +19,8 @@ import type {
 } from './definitions/models';
 // @flow strict
 
+import type {ReduxState} from './definitions/redux';
+
 import type {FindCorrection, AnswersService} from './definitions/services/answers';
 import type {FindById as FindClueById, CluesService} from './definitions/services/clues';
 import type {GetInfo, ContentService} from './definitions/services/content';
@@ -111,5 +113,6 @@ export type {
   Services,
   SlidesService,
   UiCurrentState,
-  UserAnswer
+  UserAnswer,
+  ReduxState
 };

@@ -44,12 +44,12 @@ type Data = {
 };
 
 type Ui = {
-  answers: Array<Answer>,
+  answers: {[key: string]: Answer},
   coaches: {
     availableCoaches: number
   },
   comments: {
-    text: string
+    text: ?string
   },
   corrections: {
     accordion: Array<boolean>,
@@ -63,10 +63,11 @@ type Ui = {
   }
 };
 
-type ReduxState = {
+type ReduxState = {|
   data: Data,
   ui: Ui
-};
+|};
+
 type GetState = () => ReduxState;
 
 type Action = {|
