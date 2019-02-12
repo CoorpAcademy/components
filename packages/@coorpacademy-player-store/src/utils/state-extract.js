@@ -457,11 +457,11 @@ export const getLives = (state: State): Lives => {
       count: 0
     };
   }
-  const hideLives = !isContentAdaptive(state) && !progression.state.livesDisabled;
+  const hideLives = !isContentAdaptive(state) && progression.state.lives !== null;
 
   return {
     hide: hideLives,
-    count: hideLives ? null : progression.state.lives
+    count: progression.state.livesDisabled ? null : progression.state.lives
   };
 };
 
