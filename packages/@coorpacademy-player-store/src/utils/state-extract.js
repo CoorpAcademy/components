@@ -30,6 +30,7 @@ import type {
   Correction,
   ExitNode,
   Level,
+  Lives,
   Recommendation,
   Resource
 } from '../definitions/models';
@@ -447,14 +448,21 @@ export const getQuestionMedia = (state: State): void | Media => {
 };
 
 export const getResourceToPlay: State => Resource = get('ui.corrections.playResource');
-export const getLives = (state: State): null | number => {
+
+export const getLives = (state: State): Lives => {
   const progression = getCurrentProgression(state);
-
   if (!progression || !progression.state) {
-    return 0;
+    return {
+      hide: true,
+      count: 0
+    };
   }
+  const hideLives = isContentAdaptive(state) && progression.state.livesDisabled;
 
-  return progression.state.livesDisabled ? null : progression.state.lives;
+  return {
+    hide: hideLives,
+    count: progression.state.lives
+  };
 };
 
 export const getCoaches: State => number = getOr(0, 'ui.coaches.availableCoaches');

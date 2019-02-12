@@ -6,7 +6,6 @@ import {
   getEngine,
   getLives,
   getCurrentContent,
-  isContentAdaptive,
   back
 } from '@coorpacademy/player-store';
 
@@ -52,11 +51,7 @@ const headerSubcontent = (engineRef, state) => {
 const headerProps = (options, {dispatch}) => state => {
   const engine = getEngine(state);
   const {ref: engineRef} = engine;
-  const livesCount = getLives(state);
-  const lives = !isContentAdaptive(state) &&
-    livesCount !== null && {
-      count: livesCount
-    };
+  const lives = getLives(state);
 
   return {
     type: engineRef,
@@ -65,7 +60,7 @@ const headerProps = (options, {dispatch}) => state => {
       ...headerContent(engineRef, state)
     },
     subcontent: headerSubcontent(engineRef, state),
-    lives
+    lives: lives.hide ? null : lives
   };
 };
 
