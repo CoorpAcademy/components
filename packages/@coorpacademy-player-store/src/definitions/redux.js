@@ -30,6 +30,11 @@ type Data = {
         [id: string]: Chapter
       }
     },
+    discipline: {
+      entities: {
+        [id: string]: Chapter
+      }
+    },
     level: {
       entities: {
         [id: string]: Level

@@ -21,6 +21,8 @@ import {selectRoute} from './route';
 import {progressionUpdated, selectProgression} from './progressions';
 import {toggleAccordion, ACCORDION_KLF, ACCORDION_TIPS, ACCORDION_LESSON} from './corrections';
 
+export const ANSWER_ERROR = '@@answer/ANSWER_ERROR';
+
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
   qcmGraphic: '@@answer/EDIT_QCM_GRAPHIC',
@@ -113,7 +115,10 @@ export const validateAnswer = () => async (
   const progressionId = getCurrentProgressionId(initialState);
 
   if (!slide || !progressionId) {
-    throw new Error('Cannot validate answer without a slide or o progressionId');
+    return dispatch({
+      type: ANSWER_ERROR,
+      meta: 'Cannot validate answer without a slide or o progressionId'
+    });
   }
 
   const answer = getAnswerValues(slide, initialState);
