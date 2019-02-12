@@ -126,14 +126,14 @@ export const popinCorrectionStateToProps = (options, store) => state => {
   const extraLifeGranted = isExtraLifeActive && hasViewedAResourceAtThisStep(state);
   const mayAcceptExtraLife = isExtraLifeActive && !extraLifeGranted;
   const noMoreExtraLife = isExtraLifeAvailable && !isCorrect && remainingLifeRequests === 0;
-  const livesCount = getLives(state).count;
+  const lives = getLives(state).count;
   const header = isNil(answerResult)
     ? {}
     : {
         title: translate(isCorrect ? 'Good job' : 'Ouch'),
         subtitle: translate(isCorrect ? 'Good answer' : 'Wrong answer'),
         failed: isLoading ? null : !isCorrect,
-        lives: {count: livesCount}
+        lives
       };
 
   const question = {
