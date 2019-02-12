@@ -109,5 +109,5 @@ test('should set lives to null if lives are disabled in the progression', t => {
   const state = {data: set('progressions.entities.basic.state.livesDisabled', true, data), ui};
   const props = headerProps(state);
 
-  t.deepEqual(props.lives, false);
+  t.deepEqual(props.lives.count, null);
 });
