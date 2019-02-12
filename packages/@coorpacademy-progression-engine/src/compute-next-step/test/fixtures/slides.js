@@ -9,6 +9,8 @@ const slide1_A_14 = {
   chapter_id: '1.A1',
   authors: [],
   context: {
+    title: '',
+    description: '',
     media: {
       subtitles: [],
       posters: [],
@@ -70,6 +72,8 @@ const slides: Array<Slide> = [
     chapter_id: '1.A1',
     authors: [],
     context: {
+      title: '',
+      description: '',
       media: {
         subtitles: [],
         posters: [],
@@ -169,6 +173,8 @@ const slides: Array<Slide> = [
     chapter_id: '1.A1',
     authors: [],
     context: {
+      title: '',
+      description: '',
       media: {
         subtitles: [],
         posters: [],
@@ -280,6 +286,8 @@ const slides: Array<Slide> = [
     chapter_id: '1.A1',
     authors: [],
     context: {
+      title: '',
+      description: '',
       media: {
         subtitles: [],
         posters: [],
@@ -364,6 +372,8 @@ const slides: Array<Slide> = [
     chapter_id: '1.A1',
     authors: [],
     context: {
+      title: '',
+      description: '',
       media: {
         subtitles: [],
         posters: [],
