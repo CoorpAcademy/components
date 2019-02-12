@@ -5,7 +5,7 @@ import get from 'lodash/fp/get';
 import isNull from 'lodash/fp/isNull';
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
-import type {Answer, Choice, ProgressionId, QuestionType} from '@coorpacademy/progression-engine';
+import type {Choice, ProgressionId, QuestionType} from '@coorpacademy/progression-engine';
 import {
   getAnswerValues,
   getCurrentProgressionId,
@@ -21,7 +21,8 @@ import {selectRoute} from './route';
 import {progressionUpdated, selectProgression} from './progressions';
 import {toggleAccordion, ACCORDION_KLF, ACCORDION_TIPS, ACCORDION_LESSON} from './corrections';
 
-export const ANSWER_ERROR = '@@answer/ANSWER_ERROR';
+export const EDIT_ANSWER_ERROR = '@@answer/EDIT_ANSWER_ERROR';
+export const VALIDATE_ERROR = '@@answer/VALIDATE_ERROR';
 
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
@@ -79,18 +80,22 @@ export const editAnswer = (newValue: string | Array<string> | Choice): EditAnswe
 ): ThunkAction => {
   const state = getState();
   const slide = getCurrentSlide(state);
-  const questionType = getQuestionType(slide);
 
+  if (!slide) {
+    return dispatch({
+      type: EDIT_ANSWER_ERROR,
+      meta: 'Cannot edit this answer, slide is not found'
+    });
+  }
+
+  const questionType = getQuestionType(slide);
   const type = ANSWER_EDIT[questionType];
+
   if (!type) {
     throw new Error(
       // $FlowFixMe loadsh def
       `Cannot find edit action for "${questionType}". It must be within [${keys(ANSWER_EDIT)}]`
     );
-  }
-
-  if (!slide) {
-    return;
   }
 
   const userAnswers = getAnswerValues(slide, state);
@@ -116,7 +121,7 @@ export const validateAnswer = () => async (
 
   if (!slide || !progressionId) {
     return dispatch({
-      type: ANSWER_ERROR,
+      type: VALIDATE_ERROR,
       meta: 'Cannot validate answer without a slide or o progressionId'
     });
   }

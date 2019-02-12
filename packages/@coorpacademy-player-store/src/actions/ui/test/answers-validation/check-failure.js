@@ -3,7 +3,7 @@ import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import flatten from 'lodash/fp/flatten';
 import macro from '../../../test/helpers/macro';
-import {ANSWER_ERROR, validateAnswer} from '../../answers';
+import {VALIDATE_ERROR, validateAnswer} from '../../answers';
 import {UI_TOGGLE_ACCORDION} from '../../corrections';
 import {UI_SELECT_ROUTE} from '../../route';
 import {
@@ -16,7 +16,7 @@ import {progressionUpdated} from './helpers/shared';
 
 test('should throw an error if slide is undefined', t => {
   const dispatch = action => {
-    t.is(action.type, ANSWER_ERROR);
+    t.is(action.type, VALIDATE_ERROR);
   };
   const getState = () =>
     pipe(
@@ -37,7 +37,7 @@ test('should throw an error if slide is undefined', t => {
 
 test('should throw an error if progressionId is undefined', t => {
   const dispatch = action => {
-    t.is(action.type, ANSWER_ERROR);
+    t.is(action.type, VALIDATE_ERROR);
   };
   const getState = () => {};
   validateAnswer()(dispatch, getState, {});

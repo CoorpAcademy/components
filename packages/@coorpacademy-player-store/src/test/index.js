@@ -146,6 +146,8 @@ test('it should expose all api', t => {
     'RECO_FETCH_SUCCESS',
     'RECO_FETCH_FAILURE',
     'fetchRecommendations',
+    'EDIT_ANSWER_ERROR',
+    'VALIDATE_ERROR',
     'ANSWER_EDIT',
     'editAnswer',
     'validateAnswer',

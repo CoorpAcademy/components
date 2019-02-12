@@ -3,7 +3,7 @@ import set from 'lodash/fp/set';
 import noop from 'lodash/fp/noop';
 import pipe from 'lodash/fp/pipe';
 import map from 'lodash/fp/map';
-import {ANSWER_EDIT, editAnswer} from '../answers';
+import {ANSWER_EDIT, EDIT_ANSWER_ERROR, editAnswer} from '../answers';
 
 const createState = (userAnswers, type) =>
   pipe(
@@ -46,6 +46,15 @@ test('should throw an error if questionType is unknown', t => {
     () => editAnswer(['some new answer'])(dispatch, getState),
     'Cannot find edit action for "bar". It must be within [qcm,qcmGraphic,qcmDrag,template,basic,slider]'
   );
+});
+
+test('should dispatch an error if slide is not found', t => {
+  const getState = () => {};
+  const dispatch = action => {
+    t.is(action.type, EDIT_ANSWER_ERROR);
+  };
+
+  editAnswer(['plop'])(dispatch, getState);
 });
 
 test('should return initial state if state is undefined', macro, undefined, 'qcm', {label: 'bar'}, [

@@ -149,7 +149,7 @@ export const getLevel = (ref: string): (State => Level | void) => (state: State)
   state.data.contents.level.entities &&
   state.data.contents.level.entities[ref];
 
-export const getDiscipline = (ref: string): (Discipline => Level | void) => (
+export const getDiscipline = (ref: string): (State => Discipline | void) => (
   state: State
 ): Discipline | void =>
   state && // eslint-disable-line lodash-fp/prefer-get
