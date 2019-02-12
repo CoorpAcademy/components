@@ -145,7 +145,7 @@ type Correction = {
 
 type Lives = {|
   hide: boolean,
-  count: number
+  count: number | void
 |};
 
 export const CONTENT_TYPE: {[string]: ContentType} = {
