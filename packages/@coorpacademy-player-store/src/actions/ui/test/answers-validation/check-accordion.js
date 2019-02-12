@@ -63,6 +63,7 @@ const extraLifeAndViewedThreeLessons = set(
 );
 
 const stateWithSlideAndManyResources = pipe(
+  set('ui.answers.foo.value', ['bar']),
   set('ui.current.progressionId', 'foo'),
   set('data.configs.entities.microlearning@1', {
     version: '1'
@@ -184,7 +185,7 @@ test(
   macro,
   stateWithSlideAndManyResources,
   services(correctAnswer),
-  validateAnswer('foo', {answer: ['bar']}),
+  validateAnswer(),
   flatten([
     answer(correctAnswer),
     contentFetchActions,
@@ -200,7 +201,7 @@ test(
   macro,
   stateWithSlideAndManyResources,
   services(wrongAnswer),
-  validateAnswer('foo', {answer: ['bar']}),
+  validateAnswer(),
   flatten([
     answer(wrongAnswer),
     contentFetchActions,
@@ -216,7 +217,7 @@ test(
   macro,
   stateWithSlideAndManyResources,
   services(viewedOneLesson),
-  validateAnswer('foo', {answer: ['bar']}),
+  validateAnswer(),
   flatten([
     answer(viewedOneLesson),
     contentFetchActions,
@@ -232,7 +233,7 @@ test(
   macro,
   stateWithSlideAndManyResources,
   services(extraLifeAndViewedThreeLessons),
-  validateAnswer('foo', {answer: ['bar']}),
+  validateAnswer(),
   flatten([
     answer(extraLifeAndViewedThreeLessons),
     accordionIsOpenAt(ACCORDION_LESSON),
@@ -247,7 +248,7 @@ test(
   macro,
   stateWithSlideAndManyResources,
   services(adaptiveNoAnswer),
-  validateAnswer('foo', {answer: ['bar']}),
+  validateAnswer(),
   flatten([
     answer(set('state.isCorrect', null, adaptiveNoAnswer)),
     contentFetchActions,

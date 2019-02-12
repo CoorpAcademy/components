@@ -18,6 +18,7 @@ test(
   'should dispatch failure on request fail',
   macro,
   pipe(
+    set('ui.answers.foo.value', ['bar']),
     set('ui.current.progressionId', 'foo'),
     set('data.progressions.entities.foo.engine', {
       ref: 'learner',
@@ -26,7 +27,8 @@ test(
     set('data.progressions.entities.foo.state.nextContent', {
       type: 'slide',
       ref: 'baz'
-    })
+    }),
+    set('data.contents.slide.entities.baz', {})
   )({}),
   t => ({
     Logger: {
@@ -45,7 +47,7 @@ test(
       }
     }
   }),
-  validateAnswer('foo', {answer: ['bar']}),
+  validateAnswer(),
   [
     {
       type: PROGRESSION_CREATE_ANSWER_REQUEST,
@@ -79,6 +81,7 @@ test(
   'should dispatch failure when answer request fail',
   macro,
   pipe(
+    set('ui.answers.foo.value', ['bar']),
     set('ui.current.progressionId', 'foo'),
     set('data.progressions.entities.foo.engine', {
       ref: 'learner',
@@ -135,7 +138,7 @@ test(
       }
     }
   }),
-  validateAnswer('foo', {answer: ['bar']}),
+  validateAnswer(),
   flatten([
     {
       type: PROGRESSION_CREATE_ANSWER_REQUEST,

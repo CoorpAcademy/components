@@ -45,6 +45,7 @@ test(
   'should submit last answer',
   macro,
   pipe(
+    set('ui.answers.foo.value', ['bar']),
     set('ui.current.progressionId', 'foo'),
     set('data.progressions.entities.foo.engine', {
       ref: 'learner',
@@ -57,7 +58,7 @@ test(
     set('data.contents.slide.entities.slideRef.lessons', [{ref: 'lesson_ref'}])
   )({}),
   services,
-  validateAnswer('foo', {answer: ['bar']}),
+  validateAnswer(),
   flatten([
     {
       type: PROGRESSION_CREATE_ANSWER_REQUEST,
