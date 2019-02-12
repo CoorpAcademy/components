@@ -346,6 +346,8 @@ export type Slide = {|
   position?: ?number,
   authors: Array<Author>,
   context?: {
+    title: string,
+    description: string,
     media: Media
   },
   clue?: string,
