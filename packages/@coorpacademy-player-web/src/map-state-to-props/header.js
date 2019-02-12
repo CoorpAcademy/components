@@ -60,7 +60,7 @@ const headerProps = (options, {dispatch}) => state => {
       ...headerContent(engineRef, state)
     },
     subcontent: headerSubcontent(engineRef, state),
-    lives: lives.hide && {count: lives.count}
+    lives: !lives.hide && {count: lives.count}
   };
 };
 
