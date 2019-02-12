@@ -17,7 +17,6 @@ import type {
   Resource,
   UserAnswer
 } from './definitions/models';
-// @flow strict
 
 import type {ReduxState} from './definitions/redux';
 
@@ -75,6 +74,7 @@ export * from './actions/ui/location';
 export * from './actions/ui/progressions';
 export * from './actions/ui/route';
 export * from './actions/ui/video';
+export {CONTENT_TYPE, ENGINES} from './definitions/models';
 
 export {middlewares, reducers};
 
