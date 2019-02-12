@@ -28,6 +28,7 @@ test('it should expose all api', t => {
     'getCurrentSlide',
     'getChapter',
     'getLevel',
+    'getDiscipline',
     'getProgressionContent',
     'getContent',
     'getCurrentContent',

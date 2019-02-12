@@ -1,18 +1,49 @@
 import test from 'ava';
+import set from 'lodash/fp/set';
+import noop from 'lodash/fp/noop';
+import pipe from 'lodash/fp/pipe';
+import map from 'lodash/fp/map';
 import {ANSWER_EDIT, editAnswer} from '../answers';
 
-const macro = (t, state, inputType, input, expected) => {
-  const action = editAnswer(state, inputType, '0', input);
+const createState = (userAnswers, type) =>
+  pipe(
+    set('ui.answers.foo.value', userAnswers),
+    set('ui.current.progressionId', 'foo'),
+    set('data.configs.entities.microlearning@1', {
+      version: '1'
+    }),
+    set('data.progressions.entities.foo.engine', {version: '1', ref: 'microlearning'}),
+    set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'}),
+    set('data.progressions.entities.foo.content', {type: 'chapter', ref: 'chapId'}),
+    set('data.contents.slide.entities.baz', {
+      chapter_id: 'chapId',
+      question: {
+        type
+      },
+      lessons: map(ref => ({ref}), ['lesson_1', 'lesson_2', 'lesson_3'])
+    })
+  )({});
 
-  t.not(action.type, undefined);
-  t.is(action.type, ANSWER_EDIT[inputType]);
-  t.is(action.meta.progressionId, '0');
-  t.deepEqual(action.payload, expected);
+const badQuestionType = createState(null, 'bar');
+
+const macro = (t, userAnswers, type, newValue, expected) => {
+  const dispatch = action => {
+    t.not(action.type, undefined);
+    t.is(action.type, ANSWER_EDIT[type]);
+    t.is(action.meta.progressionId, 'foo');
+    t.deepEqual(action.payload, expected);
+  };
+
+  const getState = () => createState(userAnswers, type);
+  editAnswer(newValue)(dispatch, getState);
 };
 
 test('should throw an error if questionType is unknown', t => {
+  const dispatch = noop;
+  const getState = () => badQuestionType;
+
   return t.throws(
-    () => editAnswer(['some answer'], 'bar', '0', ['some new answer']),
+    () => editAnswer(['some new answer'])(dispatch, getState),
     'Cannot find edit action for "bar". It must be within [qcm,qcmGraphic,qcmDrag,template,basic,slider]'
   );
 });
