@@ -28,6 +28,7 @@
   opacity: 0;
   animation: fadeIn 1s ease-out forwards;
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.07);
+  border-radius: 8px
 }
 
 .default[disabled] .favorite {
@@ -128,26 +129,26 @@
 .course .title {
   text-align: left;
   color: white;
-  text-shadow: 1px 1px 2px black;
+  text-shadow: 1px 1px 6px black;
 }
 
 .course .author {
   font-size: 12px;
   color: white;
   text-align: left;
-  text-shadow: 1px 1px 2px black;
+  text-shadow: 1px 1px 6px black;
   display: flex;
   align-items: center;
 }
 
 .course .adaptiv {
   top: 100px;
-  filter: drop-shadow(1px 1px 2px grey);
+  filter: drop-shadow(1px 1px 6px grey);
 }
 
 .course .author .icon {
   fill: white;
-  filter: drop-shadow(1px 1px 2px grey);
+  filter: drop-shadow(1px 1px 6px grey);
 }
 
 .lazy {
