@@ -458,7 +458,7 @@ export const getLives = (state: State): Lives => {
     };
   }
   const livesCount = progression.state.livesDisabled ? null : progression.state.lives;
-  const hideLives = !isContentAdaptive(state) && livesCount !== null;
+  const hideLives = progression.state.livesDisabled;
   return {
     hide: hideLives,
     count: livesCount
