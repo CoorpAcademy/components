@@ -133,7 +133,7 @@ export const popinCorrectionStateToProps = (options, store) => state => {
         title: translate(isCorrect ? 'Good job' : 'Ouch'),
         subtitle: translate(isCorrect ? 'Good answer' : 'Wrong answer'),
         failed: isLoading ? null : !isCorrect,
-        lives: getLives(state)
+        lives: getLives(state).count
       };
 
   const question = {

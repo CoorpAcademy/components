@@ -659,7 +659,7 @@ test('getLives should get lives from state', t => {
     set('data.progressions.entities', {'0': progression})
   )({});
 
-  t.is(getLives(state), 100);
+  t.is(getLives(state).count, 100);
 });
 
 test('getLives should return null if lives are disabled for the current progression', t => {
@@ -671,7 +671,7 @@ test('getLives should return null if lives are disabled for the current progress
     set('data.progressions.entities', {'0': progression})
   )({});
 
-  t.is(getLives(state), null);
+  t.is(getLives(state).count, null);
 });
 
 test('getLives should throw error if progression.state is not defined', t => {
@@ -681,7 +681,7 @@ test('getLives should throw error if progression.state is not defined', t => {
     set('data.progressions.entities', {'0': progression})
   )({});
 
-  t.is(getLives(state), 0);
+  t.is(getLives(state).count, 0);
 });
 
 test('getNextContent should return undefined if no progressionId is found', t => {
