@@ -5,7 +5,7 @@ import get from 'lodash/fp/get';
 import isNull from 'lodash/fp/isNull';
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
-import type {Choice, ProgressionId, QuestionType} from '@coorpacademy/progression-engine';
+import type {Choice, QuestionType} from '@coorpacademy/progression-engine';
 import {
   getAnswerValues,
   getCurrentProgressionId,
@@ -34,13 +34,6 @@ export const ANSWER_EDIT = {
 };
 
 type PayloadEditAnswer = Array<string>;
-type EditAnswerAction = {
-  type: string,
-  meta: {
-    progressionId: ProgressionId
-  },
-  payload: PayloadEditAnswer
-};
 
 const newState = (
   state: PayloadEditAnswer = [],
@@ -74,10 +67,10 @@ const newState = (
   }
 };
 
-export const editAnswer = (newValue: string | Array<string> | Choice): EditAnswerAction => (
+export const editAnswer = (newValue: string | Array<string> | Choice) => (
   dispatch: Function,
   getState: GetState
-): ThunkAction => {
+): DispatchedAction => {
   const state = getState();
   const slide = getCurrentSlide(state);
 

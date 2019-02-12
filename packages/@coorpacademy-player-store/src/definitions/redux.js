@@ -7,7 +7,7 @@ import type {
   ProgressionId,
   Slide
 } from '@coorpacademy/progression-engine';
-import type {Chapter, Level, Resource} from './models';
+import type {Chapter, Discipline, Level, Resource} from './models';
 import type {Services} from './services';
 
 // eslint-disable-next-line flowtype/no-weak-types
@@ -32,7 +32,7 @@ type Data = {
     },
     discipline: {
       entities: {
-        [id: string]: Chapter
+        [id: string]: Discipline
       }
     },
     level: {

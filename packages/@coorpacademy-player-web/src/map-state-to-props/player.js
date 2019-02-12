@@ -10,7 +10,6 @@ import {
   getCurrentClue,
   getCurrentContent,
   getCurrentProgression,
-  getCurrentProgressionId,
   getCurrentSlide,
   getEngineConfig,
   getNbSlides,
