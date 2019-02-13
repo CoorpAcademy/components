@@ -63,10 +63,11 @@ type Ui = {
   }
 };
 
-type ReduxState = {|
+// Keep it no-strict because some of apps can extend this one
+type ReduxState = {
   data: Data,
   ui: Ui
-|};
+};
 
 type GetState = () => ReduxState;
 
