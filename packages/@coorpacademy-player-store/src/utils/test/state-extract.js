@@ -46,6 +46,20 @@ import {
 
 import slideFixture from './slide';
 
+const getStateWithContent = (isConditional, progressionState) => {
+  const slide = {_id: 42, chapter_id: 1337};
+  const nextContent = {ref: 42, type: 'slide'};
+  const progression = {state: {nextContent, ...progressionState}};
+  const chapter = {_id: 1337, isConditional};
+
+  return pipe(
+    set('ui.current.progressionId', 12),
+    set('data.progressions.entities', {12: progression}),
+    set('data.contents.chapter.entities', {1337: chapter}),
+    set('data.contents.slide.entities', {42: slide})
+  )({});
+};
+
 test('getChoices should return undefined when no content.choices', t => {
   const slide = {
     question: {
@@ -657,27 +671,19 @@ test('getEngine should return undefined if no progression is found', t => {
 });
 
 test('getLives should get lives from state', t => {
-  const progression = {
-    state: {lives: 100, livesDisabled: false}
-  };
-  const state = pipe(
-    set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
-  )({});
-  const lives = getLives(state);
-  t.is(lives.count, 100);
+  const state = getStateWithContent(false, {lives: 100, livesDisabled: false});
+  t.deepEqual(getLives(state), {
+    hide: false,
+    count: 100
+  });
 });
 
 test('getLives should return null if lives are disabled for the current progression', t => {
-  const progression = {
-    state: {lives: 100, livesDisabled: true}
-  };
-  const state = pipe(
-    set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
-  )({});
-
-  t.is(getLives(state).count, null);
+  const state = getStateWithContent(false, {lives: 111, livesDisabled: true});
+  t.deepEqual(getLives(state), {
+    hide: true,
+    count: 111
+  });
 });
 
 test('getLives should throw error if progression.state is not defined', t => {
@@ -806,23 +812,8 @@ test('getQuestionMedia should return video media from state', t => {
 });
 
 test('isContentAdaptive should return if content is adaptive or not', t => {
-  const slide = {_id: 42, chapter_id: 1337};
-  const nextContent = {ref: 42, type: 'slide'};
-  const progression = {state: {nextContent}};
-
-  const getState = isConditional => {
-    const chapter = {_id: 1337, isConditional};
-
-    return pipe(
-      set('ui.current.progressionId', 12),
-      set('data.progressions.entities', {12: progression}),
-      set('data.contents.chapter.entities', {1337: chapter}),
-      set('data.contents.slide.entities', {42: slide})
-    )({});
-  };
-
-  t.true(isContentAdaptive(getState(true)));
-  t.false(isContentAdaptive(getState(false)));
+  t.true(isContentAdaptive(getStateWithContent(true)));
+  t.false(isContentAdaptive(getStateWithContent(false)));
 });
 
 test('isContentAdaptive should return false if no chapterId is found', t => {
