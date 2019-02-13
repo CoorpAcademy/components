@@ -3,7 +3,7 @@ import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import flatten from 'lodash/fp/flatten';
 import macro from '../../../test/helpers/macro';
-import {validateAnswer} from '../../answers';
+import {VALIDATE_ERROR, validateAnswer} from '../../answers';
 import {UI_TOGGLE_ACCORDION} from '../../corrections';
 import {UI_SELECT_ROUTE} from '../../route';
 import {
@@ -14,10 +14,40 @@ import {
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_FAILURE} from '../../../api/answers';
 import {progressionUpdated} from './helpers/shared';
 
+test('should throw an error if slide is undefined', t => {
+  const dispatch = action => {
+    t.is(action.type, VALIDATE_ERROR);
+  };
+  const getState = () =>
+    pipe(
+      set('ui.answers.foo.value', ['bar']),
+      set('ui.current.progressionId', 'foo'),
+      set('data.progressions.entities.foo.engine', {
+        ref: 'learner',
+        version: '1'
+      }),
+      set('data.progressions.entities.foo.state.nextContent', {
+        type: 'slide',
+        ref: 'baz'
+      })
+    )({});
+
+  validateAnswer()(dispatch, getState, {});
+});
+
+test('should throw an error if progressionId is undefined', t => {
+  const dispatch = action => {
+    t.is(action.type, VALIDATE_ERROR);
+  };
+  const getState = () => {};
+  validateAnswer()(dispatch, getState, {});
+});
+
 test(
   'should dispatch failure on request fail',
   macro,
   pipe(
+    set('ui.answers.foo.value', ['bar']),
     set('ui.current.progressionId', 'foo'),
     set('data.progressions.entities.foo.engine', {
       ref: 'learner',
@@ -26,7 +56,8 @@ test(
     set('data.progressions.entities.foo.state.nextContent', {
       type: 'slide',
       ref: 'baz'
-    })
+    }),
+    set('data.contents.slide.entities.baz', {})
   )({}),
   t => ({
     Logger: {
@@ -45,7 +76,7 @@ test(
       }
     }
   }),
-  validateAnswer('foo', {answer: ['bar']}),
+  validateAnswer(),
   [
     {
       type: PROGRESSION_CREATE_ANSWER_REQUEST,
@@ -79,6 +110,7 @@ test(
   'should dispatch failure when answer request fail',
   macro,
   pipe(
+    set('ui.answers.foo.value', ['bar']),
     set('ui.current.progressionId', 'foo'),
     set('data.progressions.entities.foo.engine', {
       ref: 'learner',
@@ -135,7 +167,7 @@ test(
       }
     }
   }),
-  validateAnswer('foo', {answer: ['bar']}),
+  validateAnswer(),
   flatten([
     {
       type: PROGRESSION_CREATE_ANSWER_REQUEST,

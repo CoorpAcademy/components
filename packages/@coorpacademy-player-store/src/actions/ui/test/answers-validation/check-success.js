@@ -108,6 +108,7 @@ test(
   'should submit answer with the current content and refresh progression state',
   macro,
   pipe(
+    set('ui.answers.foo.value', ['bar']),
     set('ui.current.progressionId', 'foo'),
     set('data.progressions.entities.foo.engine', {
       ref: 'learner',
@@ -119,7 +120,8 @@ test(
     set('data.progressions.entities.foo.state.nextContent', {
       type: 'slide',
       ref: 'baz'
-    })
+    }),
+    set('data.contents.slide.entities.baz', {})
   )({}),
   t => ({
     Content: mockContentService(t),
@@ -154,7 +156,7 @@ test(
       }
     }
   }),
-  validateAnswer('foo', {answer: ['bar']}),
+  validateAnswer(),
   flatten([
     createCorrectAnswer,
     {

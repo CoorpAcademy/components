@@ -28,6 +28,7 @@ import type {
 import type {
   Chapter,
   Correction,
+  Discipline,
   ExitNode,
   Level,
   Recommendation,
@@ -148,6 +149,16 @@ export const getLevel = (ref: string): (State => Level | void) => (state: State)
   state.data.contents.level.entities &&
   state.data.contents.level.entities[ref];
 
+export const getDiscipline = (ref: string): (State => Discipline | void) => (
+  state: State
+): Discipline | void =>
+  state && // eslint-disable-line lodash-fp/prefer-get
+  state.data &&
+  state.data.contents &&
+  state.data.contents.discipline &&
+  state.data.contents.discipline.entities &&
+  state.data.contents.discipline.entities[ref];
+
 export const getProgressionContent = (state: State): GenericContent | void => {
   const progression = getCurrentProgression(state);
 
@@ -158,12 +169,16 @@ export const getProgressionContent = (state: State): GenericContent | void => {
   return progression.content;
 };
 
-export const getContent: (type: ContentType, ref: string) => State => Chapter | Slide | Level = (
+export const getContent: (
   type: ContentType,
   ref: string
-): (State => Chapter | Slide | Level) => get(['data', 'contents', type, 'entities', ref]);
+) => State => Chapter | Slide | Level | Discipline = (
+  type: ContentType,
+  ref: string
+): (State => Chapter | Slide | Level | Discipline) =>
+  get(['data', 'contents', type, 'entities', ref]);
 
-export const getCurrentContent = (state: State): Chapter | Slide | Level | void => {
+export const getCurrentContent = (state: State): Chapter | Discipline | Slide | Level | void => {
   const content = getProgressionContent(state);
 
   if (!content) {

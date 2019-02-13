@@ -16,23 +16,10 @@ import isNil from 'lodash/fp/isNil';
 import rangeStep from 'lodash/fp/rangeStep';
 import _toString from 'lodash/fp/toString';
 import indexOf from 'lodash/fp/indexOf';
-import {
-  getChoices,
-  getCurrentProgressionId,
-  getQuestionType,
-  getAnswerValues,
-  editAnswer
-} from '@coorpacademy/player-store';
+import {getChoices, getQuestionType, getAnswerValues, editAnswer} from '@coorpacademy/player-store';
 
 const editAnswerAction = (options, {dispatch}) => (state, slide) => newValue => {
-  return dispatch(
-    editAnswer(
-      getAnswerValues(slide, state),
-      getQuestionType(slide),
-      getCurrentProgressionId(state),
-      newValue
-    )
-  );
+  return dispatch(editAnswer(newValue));
 };
 
 const qcmProps = (options, store) => (state, slide) => {

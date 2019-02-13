@@ -10,7 +10,6 @@ import {
   getCurrentClue,
   getCurrentContent,
   getCurrentProgression,
-  getCurrentProgressionId,
   getCurrentSlide,
   getEngineConfig,
   getNbSlides,
@@ -65,13 +64,7 @@ const playerProps = (options, store) => state => {
   const clickClueHandler = () => dispatch(selectClue);
   const clickSeeClueHandler = () => dispatch(getClue);
   const clickBackToAnswerHandler = () => dispatch(selectRoute('answer'));
-  const clickCTAHandler = () =>
-    dispatch(
-      validateAnswer(getCurrentProgressionId(state), {
-        answer: getAnswerValues(slide, state),
-        slideId: slide._id
-      })
-    );
+  const clickCTAHandler = () => dispatch(validateAnswer());
 
   const hasClue = get('hasClue', slide);
   const slideLessons = get('lessons', slide);

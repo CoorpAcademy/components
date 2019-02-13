@@ -21,6 +21,7 @@ import {
   getCurrentProgression,
   getCurrentProgressionId,
   getCurrentSlide,
+  getDiscipline,
   getEngine,
   getEngineConfig,
   getLevel,
@@ -160,6 +161,11 @@ test('getEngineConfig should return undefined if no engine is found', t => {
 test('getLevel', t => {
   const state = set('data.contents.level.entities.foo', 'plop', {});
   t.is(getLevel('foo')(state), 'plop');
+});
+
+test('getDiscipline', t => {
+  const state = set('data.contents.discipline.entities.foo', 'plop', {});
+  t.is(getDiscipline('foo')(state), 'plop');
 });
 
 test('isCommentSent should return comment status for current progression', t => {

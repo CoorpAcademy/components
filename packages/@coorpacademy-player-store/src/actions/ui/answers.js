@@ -5,8 +5,14 @@ import get from 'lodash/fp/get';
 import isNull from 'lodash/fp/isNull';
 import remove from 'lodash/fp/remove';
 import includes from 'lodash/fp/includes';
-import type {Answer, Choice, ProgressionId, QuestionType} from '@coorpacademy/progression-engine';
-import {hasSeenLesson} from '../../utils/state-extract';
+import type {Choice, QuestionType} from '@coorpacademy/progression-engine';
+import {
+  getAnswerValues,
+  getCurrentProgressionId,
+  getCurrentSlide,
+  getQuestionType,
+  hasSeenLesson
+} from '../../utils/state-extract';
 import {createAnswer} from '../api/progressions';
 import {fetchAnswer} from '../api/answers';
 import {fetchSlideChapter} from '../api/contents';
@@ -14,6 +20,9 @@ import type {DispatchedAction, GetState, Options} from '../../definitions/redux'
 import {selectRoute} from './route';
 import {progressionUpdated, selectProgression} from './progressions';
 import {toggleAccordion, ACCORDION_KLF, ACCORDION_TIPS, ACCORDION_LESSON} from './corrections';
+
+export const EDIT_ANSWER_ERROR = '@@answer/EDIT_ANSWER_ERROR';
+export const VALIDATE_ERROR = '@@answer/VALIDATE_ERROR';
 
 export const ANSWER_EDIT = {
   qcm: '@@answer/EDIT_QCM',
@@ -25,13 +34,6 @@ export const ANSWER_EDIT = {
 };
 
 type PayloadEditAnswer = Array<string>;
-type EditAnswerAction = {
-  type: string,
-  meta: {
-    progressionId: ProgressionId
-  },
-  payload: PayloadEditAnswer
-};
 
 const newState = (
   state: PayloadEditAnswer = [],
@@ -65,34 +67,61 @@ const newState = (
   }
 };
 
-export const editAnswer = (
-  state: PayloadEditAnswer,
-  questionType: QuestionType,
-  progressionId: ProgressionId,
-  newValue: string | Array<string> | Choice
-): EditAnswerAction => {
+export const editAnswer = (newValue: string | Array<string> | Choice) => (
+  dispatch: Function,
+  getState: GetState
+): DispatchedAction => {
+  const state = getState();
+  const slide = getCurrentSlide(state);
+
+  if (!slide) {
+    return dispatch({
+      type: EDIT_ANSWER_ERROR,
+      meta: 'Cannot edit this answer, slide is not found'
+    });
+  }
+
+  const questionType = getQuestionType(slide);
   const type = ANSWER_EDIT[questionType];
+
   if (!type) {
     throw new Error(
       // $FlowFixMe loadsh def
       `Cannot find edit action for "${questionType}". It must be within [${keys(ANSWER_EDIT)}]`
     );
   }
-  return {
+
+  const userAnswers = getAnswerValues(slide, state);
+  const progressionId = getCurrentProgressionId(state);
+
+  return dispatch({
     type,
     meta: {
       progressionId
     },
-    payload: newState(state, questionType, newValue)
-  };
+    payload: newState(userAnswers, questionType, newValue)
+  });
 };
 
-export const validateAnswer = (progressionId: ProgressionId, body: {answer: Answer}) => async (
+export const validateAnswer = () => async (
   dispatch: Function,
   getState: GetState,
   {services}: Options
 ): DispatchedAction => {
-  const createAnswerResponse = await dispatch(createAnswer(progressionId, body.answer));
+  const initialState = getState();
+  const slide = getCurrentSlide(initialState);
+  const progressionId = getCurrentProgressionId(initialState);
+
+  if (!slide || !progressionId) {
+    return dispatch({
+      type: VALIDATE_ERROR,
+      meta: 'Cannot validate answer without a slide or o progressionId'
+    });
+  }
+
+  const answer = getAnswerValues(slide, initialState);
+
+  const createAnswerResponse = await dispatch(createAnswer(progressionId, answer));
   if (createAnswerResponse.error) return createAnswerResponse;
   await dispatch(selectRoute('correction'));
 
@@ -121,5 +150,5 @@ export const validateAnswer = (progressionId: ProgressionId, body: {answer: Answ
   }
 
   await dispatch(progressionUpdated(progressionId));
-  return dispatch(fetchAnswer(progressionId, slideId, body.answer));
+  return dispatch(fetchAnswer(progressionId, slideId, answer));
 };

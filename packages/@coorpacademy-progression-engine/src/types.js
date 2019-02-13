@@ -22,6 +22,7 @@ export type LEARNER = 'learner';
 export type Engines = MICROLEARNING | LEARNER;
 
 export type CHAPTER = 'chapter';
+export type DISCIPLINE = 'discipline';
 export type LEVEL = 'level';
 export type SLIDE = 'slide';
 export type NODE = 'node';
@@ -247,7 +248,7 @@ export type Choice = {|
 
 export type QuestionType = 'qcm' | 'qcmGraphic' | 'slider' | 'qcmDrag' | 'basic' | 'template';
 
-type QuestionCommon = {|
+export type QuestionCommon = {|
   explanation?: string,
   header?: string,
   medias?: Array<Media>
