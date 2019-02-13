@@ -197,6 +197,11 @@ type Correction = {
   corrections: Array<PartialCorrection>
 };
 
+type Lives = {|
+  hide: boolean | void,
+  count: number | null
+|};
+
 export const CONTENT_TYPE: {[string]: ContentType} = {
   CHAPTER: 'chapter',
   LEVEL: 'level',
@@ -216,6 +221,7 @@ export type {
   ExitNode,
   ExitNodeRef,
   Level,
+  Lives,
   Recommendation,
   Resource,
   UserAnswer
