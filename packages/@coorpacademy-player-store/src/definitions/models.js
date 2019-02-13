@@ -144,7 +144,7 @@ type Correction = {
 };
 
 type Lives = {|
-  hide: boolean,
+  hide: boolean | void,
   count: number | null
 |};
 
