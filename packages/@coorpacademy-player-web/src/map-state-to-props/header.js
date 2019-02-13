@@ -6,7 +6,6 @@ import {
   getEngine,
   getLives,
   getCurrentContent,
-  isContentAdaptive,
   back
 } from '@coorpacademy/player-store';
 
