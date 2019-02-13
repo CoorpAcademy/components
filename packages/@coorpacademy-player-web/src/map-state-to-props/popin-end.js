@@ -77,7 +77,9 @@ const comment = ({translate}, {dispatch}) => state => {
 };
 
 const summaryHeader = ({translate}, {dispatch}) => state => {
-  const {count: lives} = getLives(state);
+  const {hide, count} = getLives(state);
+  const lives = hide ? null : count;
+
   const successCta = {
     title: translate('Back to home'),
     href: '/'
