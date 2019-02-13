@@ -198,8 +198,8 @@ type Correction = {
 };
 
 type Lives = {|
-  hide: boolean | void,
-  count: number | null
+  hide: boolean,
+  count: number
 |};
 
 export const CONTENT_TYPE: {[string]: ContentType} = {

@@ -466,17 +466,17 @@ export const getResourceToPlay: State => Resource = get('ui.corrections.playReso
 
 export const getLives = (state: State): Lives => {
   const progression = getCurrentProgression(state);
-  if (!progression || !progression.state) {
+  if (!progression || progression.state === undefined) {
     return {
       hide: true,
       count: 0
     };
   }
-  const livesCount = progression.state.livesDisabled ? null : progression.state.lives;
-  const hideLives = progression.state.livesDisabled;
+  const hide = isContentAdaptive(state) || progression.state.livesDisabled ? true : false;
+
   return {
-    hide: hideLives,
-    count: livesCount
+    hide,
+    count: progression.state.lives
   };
 };
 

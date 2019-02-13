@@ -13,6 +13,7 @@ import type {
   ExitNode,
   ExitNodeRef,
   Level,
+  Lives,
   Recommendation,
   Resource,
   UserAnswer
@@ -102,6 +103,7 @@ export type {
   GetInfo,
   GetNextRecommendation,
   Level,
+  Lives,
   MarkResourceAsViewed,
   PostAnswer,
   ProgressionsService,
