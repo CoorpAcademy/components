@@ -66,7 +66,7 @@ export * from './actions/api/progressions';
 export * from './actions/api/rank';
 export * from './actions/api/recommendations';
 export * from './actions/ui/answers';
-export * from './actions/ui/clues';
+export {selectClue, getClue} from './actions/ui/clues';
 export * from './actions/ui/coaches';
 export * from './actions/ui/comments';
 export * from './actions/ui/corrections';
