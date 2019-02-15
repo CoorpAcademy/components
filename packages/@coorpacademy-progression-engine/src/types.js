@@ -294,7 +294,8 @@ export type BasicQuestion = {|
   }
 |};
 
-export type TemplateQuestion = {|
+export type TemplateQuestion = $Exact<{|
+  ...QuestionCommon,
   type: 'template',
   content: {
     matchOrder: boolean,
@@ -302,7 +303,7 @@ export type TemplateQuestion = {|
     choices: Array<Choice>,
     answers: AcceptedAnswers
   }
-|};
+|}>;
 
 export type Question =
   | QCMQuestion
