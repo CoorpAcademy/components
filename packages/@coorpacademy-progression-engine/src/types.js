@@ -335,6 +335,7 @@ export type Lesson = {|
   posters: Array<Url>,
   ref: string,
   src: Array<Source>,
+  subtitleRef?: string,
   subtitles: Array<Subtitle>,
   type: LessonType,
   videoId?: string
