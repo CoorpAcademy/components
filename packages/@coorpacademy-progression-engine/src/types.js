@@ -314,11 +314,11 @@ export type Question =
   | BasicQuestion
   | TemplateQuestion;
 
-export type Meta = {
+export type Meta = {|
   taggedNewUntil?: string,
   updatedAt: string,
   createdAt: string
-};
+|};
 
 type Author = string;
 

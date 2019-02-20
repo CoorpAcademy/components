@@ -4,11 +4,14 @@ import * as api from '..';
 
 // this test is somehow a snapshot;
 // use this to update the test according to your changes:
-// console.dir({k: keys(api)}, {depth: 10, maxArrayLength: null, colors: true});
+// add this inside the test =>  console.dir({k: keys(api)}, {depth: 10, maxArrayLength: null, colors: true});
+// and launch that specific test with   npx ava src/test/index.js
 
 test('it should expose all api', t => {
   t.deepEqual(keys(api), [
     '__esModule',
+    'selectClue',
+    'getClue',
     'CONTENT_TYPE',
     'ENGINES',
     'middlewares',
@@ -151,8 +154,6 @@ test('it should expose all api', t => {
     'ANSWER_EDIT',
     'editAnswer',
     'validateAnswer',
-    'selectClue',
-    'getClue',
     'START_CHAT_REQUEST',
     'START_CHAT_SUCCESS',
     'START_CHAT_FAILURE',
