@@ -9,6 +9,8 @@ import * as api from '..';
 test('it should expose all api', t => {
   t.deepEqual(keys(api), [
     '__esModule',
+    'selectClue',
+    'getClue',
     'CONTENT_TYPE',
     'ENGINES',
     'middlewares',
@@ -151,8 +153,6 @@ test('it should expose all api', t => {
     'ANSWER_EDIT',
     'editAnswer',
     'validateAnswer',
-    'selectClue',
-    'getClue',
     'START_CHAT_REQUEST',
     'START_CHAT_SUCCESS',
     'START_CHAT_FAILURE',
