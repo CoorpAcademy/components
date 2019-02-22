@@ -345,6 +345,7 @@ export type Slide = {|
   _id: string,
   klf: string,
   chapter_id: string,
+  // $FlowFixMe union type  :(
   question: Question,
   position?: ?number,
   authors: Array<Author>,
