@@ -32,8 +32,8 @@ import type {
   ExitNode,
   Level,
   Lives,
-  Recommendation,
-  Resource
+  Resource,
+  Recommendation
 } from '../definitions/models';
 import type {ReduxState as State} from '../definitions/redux';
 import {CONTENT_TYPE, ENGINES} from '../definitions/models';
