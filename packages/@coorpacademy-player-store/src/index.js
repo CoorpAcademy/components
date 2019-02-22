@@ -16,7 +16,8 @@ import type {
   Lives,
   Recommendation,
   Resource,
-  UserAnswer
+  UserAnswer,
+  Discipline
 } from './definitions/models';
 
 import type {ReduxState} from './definitions/redux';
@@ -116,5 +117,6 @@ export type {
   SlidesService,
   UiCurrentState,
   UserAnswer,
-  ReduxState
+  ReduxState,
+  Discipline
 };

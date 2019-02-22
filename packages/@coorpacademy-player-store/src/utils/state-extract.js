@@ -32,8 +32,9 @@ import type {
   ExitNode,
   Level,
   Lives,
-  Recommendation,
-  Resource
+  // eslint-disable-next-line no-unused-vars
+  Resource,
+  Recommendation
 } from '../definitions/models';
 import type {ReduxState as State} from '../definitions/redux';
 import {CONTENT_TYPE, ENGINES} from '../definitions/models';
