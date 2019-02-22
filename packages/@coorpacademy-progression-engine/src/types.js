@@ -267,7 +267,6 @@ export type QCMGraphicQuestion = $Exact<{|
   ...QuestionCommon,
   type: 'qcmGraphic',
   content: {
-    choices: Array<Choice>,
     answers: AcceptedAnswers
   }
 |}>;
