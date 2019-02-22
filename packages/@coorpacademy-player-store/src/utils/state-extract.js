@@ -32,7 +32,7 @@ import type {
   ExitNode,
   Level,
   Lives,
-  // eslint-disable-line no-unused-vars
+  // eslint-disable-next-line no-unused-vars
   Resource,
   Recommendation
 } from '../definitions/models';
