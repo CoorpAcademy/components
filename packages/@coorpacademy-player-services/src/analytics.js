@@ -37,3 +37,8 @@ export const sendProgressionAnalytics = (currentProgression: Progression, engine
     });
   }
 };
+
+export type AnalyticsService = {
+  sendViewedMediaAnalytics: typeof sendViewedMediaAnalytics,
+  sendProgressionAnalytics: typeof sendProgressionAnalytics
+};

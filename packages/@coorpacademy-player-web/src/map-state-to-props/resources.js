@@ -23,7 +23,7 @@ const getResourcesProps = (options, store) => (state, slide) => {
     map(lesson => ({
       ...omit(['id', 'ref'], lesson),
       onClick: () => dispatch(selectResource(lesson._id)),
-      onPlay: () => dispatch(play(lesson)),
+      onPlay: () => dispatch(play()),
       onResume: () => dispatch(resume(lesson)),
       onPause: () => dispatch(pause(lesson)),
       onEnded: () => dispatch(ended(lesson)),
