@@ -217,7 +217,7 @@ export type Source = {|
   url: Url
 |};
 
-export type MediaType = 'img';
+export type MediaType = 'img' | 'video' | 'pdf';
 export type Media = {
   type?: MediaType,
   description?: string,
