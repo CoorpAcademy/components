@@ -341,6 +341,12 @@ export type Lesson = {|
   videoId?: string
 |};
 
+export type Context = {|
+  title?: string,
+  description?: string,
+  media: Media
+|};
+
 export type Slide = {|
   _id: string,
   klf: string,
@@ -349,11 +355,7 @@ export type Slide = {|
   question: Question,
   position?: ?number,
   authors: Array<Author>,
-  context?: {
-    title?: string,
-    description?: string,
-    media: Media
-  },
+  context?: Context,
   clue?: string,
   meta: Meta,
   tips: string,
