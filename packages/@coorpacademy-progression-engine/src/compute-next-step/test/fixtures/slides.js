@@ -28,6 +28,7 @@ const slide1_A_14 = {
       poster: '//static.coorpacademy.com/content/digital/miniatures_cours/avance/1A1.png',
       description: 'Le concept de Knowledge Graph',
       mimeType: 'application/vimeo',
+      mediaRef: '',
       mediaUrl:
         '//player.vimeo.com/external/89404998.m3u8?s=eaab5764b4ec57c635501c74d41ee60ca069c937&oauth2_token_id=411503075',
       downloadUrl:
@@ -90,6 +91,7 @@ const slides: Array<Slide> = [
         type: 'video',
         poster: '//static.coorpacademy.com/content/digital/miniatures_cours/avance/1A1.png',
         description: 'Le concept de Knowledge Graph',
+        mediaRef: '',
         mimeType: 'application/vimeo',
         videoId: '89404998',
         mediaUrl:
@@ -193,6 +195,7 @@ const slides: Array<Slide> = [
         description: 'Le concept de Knowledge Graph',
         mimeType: 'application/vimeo',
         videoId: '89404998',
+        mediaRef: '',
         mediaUrl:
           '//player.vimeo.com/external/89404998.m3u8?s=eaab5764b4ec57c635501c74d41ee60ca069c937&oauth2_token_id=411503075',
         downloadUrl:
@@ -306,6 +309,7 @@ const slides: Array<Slide> = [
         description: 'Le concept de Knowledge Graph',
         mimeType: 'application/vimeo',
         videoId: '89404998',
+        mediaRef: '',
         mediaUrl:
           '//player.vimeo.com/external/89404998.m3u8?s=eaab5764b4ec57c635501c74d41ee60ca069c937&oauth2_token_id=411503075',
         downloadUrl:
@@ -388,6 +392,7 @@ const slides: Array<Slide> = [
       {
         ref: 'ref',
         type: 'video',
+        mediaRef: '',
         mediaUrl:
           '//player.vimeo.com/external/89404998.m3u8?s=eaab5764b4ec57c635501c74d41ee60ca069c937&oauth2_token_id=411503075',
         downloadUrl:
