@@ -201,6 +201,7 @@ test('it should expose all api', t => {
     'openAssistance',
     'UI_SELECT_ROUTE',
     'selectRoute',
+    'UI_VIDEO_ERROR',
     'UI_VIDEO_PAUSE',
     'UI_VIDEO_RESUME',
     'UI_VIDEO_ENDED',

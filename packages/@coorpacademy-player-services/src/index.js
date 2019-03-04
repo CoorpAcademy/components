@@ -13,6 +13,7 @@ import type {
   Answer
 } from './definitions';
 
+import type {AnalyticsService} from './analytics';
 import type {AnswersService} from './answers';
 import type {CluesService} from './clues';
 import type {ContentService} from './content';
@@ -21,7 +22,7 @@ import type {RecommendationsService} from './recommendations';
 import type {SlidesService} from './slides';
 import type {ExitNodesService} from './exit-nodes';
 
-import * as AnalyticsService from './analytics';
+import * as _Analytics from './analytics';
 import createAnswersService from './answers';
 import createCluesService from './clues';
 import * as CoachService from './coach';
@@ -40,6 +41,7 @@ export type {
   Media,
   LevelAPI,
   ExitNodeAPI,
+  AnalyticsService,
   AnswersService,
   Answer,
   CluesService,
@@ -53,7 +55,7 @@ export type {
   ChapterRule
 };
 
-export const Analytics = AnalyticsService;
+export const Analytics = _Analytics;
 export const Answers: DataLayer => AnswersService = createAnswersService;
 export const Clues: DataLayer => CluesService = createCluesService;
 export const Coach = CoachService;

@@ -1,8 +1,8 @@
 // @flow strict
 
 import buildTask from '@coorpacademy/redux-task';
+import type {Lesson} from '@coorpacademy/progression-engine';
 import {getRoute, getCurrentProgression, getEngineConfig} from '../../utils/state-extract';
-import type {Resource} from '../../definitions/models';
 import type {Services} from '../../definitions/services';
 import type {
   Dispatch,
@@ -16,7 +16,7 @@ export const MEDIA_VIEWED_ANALYTICS_REQUEST: string = '@@analytics/MEDIA_VIEWED_
 export const MEDIA_VIEWED_ANALYTICS_SUCCESS: string = '@@analytics/MEDIA_VIEWED_SUCCESS';
 export const MEDIA_VIEWED_ANALYTICS_FAILURE: string = '@@analytics/MEDIA_VIEWED_FAILURE';
 
-export const sendMediaViewed = (resource: Resource): ThunkAction => (
+export const sendMediaViewed = (resource: Lesson): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
