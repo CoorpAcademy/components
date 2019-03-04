@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/player-store",
-  "version": "2.5.9",
+  "version": "2.5.10",
   "description": "Redux store for slide players",
   "main": "lib",
   "module": "es",
