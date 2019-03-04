@@ -1,32 +1,54 @@
 // @flow
 
+import type {Lesson, Slide} from '@coorpacademy/progression-engine';
 import {sendMediaViewed} from '../api/analytics';
 import {markResourceAsViewed} from '../api/progressions';
 import {
+  getRoute,
   getCurrentProgressionId,
   getCurrentSlide,
-  getResourceToPlay
+  getResourceToPlay,
+  getPreviousSlide
 } from '../../utils/state-extract';
-import type {GetState, ThunkAction} from '../../definitions/redux';
-import type {Lesson} from '../../definitions/models';
+import type {DispatchedAction, GetState, ReduxState, ThunkAction} from '../../definitions/redux';
 import {progressionUpdated} from './progressions';
 
+export const UI_VIDEO_ERROR = '@@ui/VIDEO_ERROR';
 export const UI_VIDEO_PAUSE = '@@ui/VIDEO_PAUSE';
 export const UI_VIDEO_RESUME = '@@ui/UI_VIDEO_RESUME';
 export const UI_VIDEO_ENDED = '@@ui/VIDEO_ENDED';
 
-export const play = (): DispatchedAction => async (
+const getSlide = (state: ReduxState): Slide | void => {
+  const isCorrection = getRoute(state) === 'correction';
+  return isCorrection ? getPreviousSlide(state) : getCurrentSlide(state);
+};
+
+export const play = (): ThunkAction => async (
   dispatch: Function,
   getState: GetState
-): ThunkAction => {
+): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+DispatchedAction => {
   const state = getState();
   const progressionId = getCurrentProgressionId(state);
 
-  const slide = getCurrentSlide(state);
-  const resources = (slide && slide.lessons && slide.lessons) || [];
-  const selectedResourceId: string =
-    getResourceToPlay(state) || (resources.length === 0 ? '' : resources[0]._id);
+  if (!progressionId) {
+    return dispatch({
+      type: UI_VIDEO_ERROR,
+      payload: 'progressionId is required.'
+    });
+  }
 
+  const slide = getSlide(state);
+  const resources = slide && slide.lessons && slide.lessons;
+
+  if (!resources || resources.length === 0) {
+    return dispatch({
+      type: UI_VIDEO_ERROR,
+      payload: `cannot play video for progression "${progressionId}", no resources found.`
+    });
+  }
+
+  const selectedResourceId: string = getResourceToPlay(state);
   const resource: Lesson = resources.filter(r => r._id === selectedResourceId)[0];
 
   await dispatch(sendMediaViewed(resource));
@@ -34,17 +56,17 @@ export const play = (): DispatchedAction => async (
   return dispatch(progressionUpdated(progressionId));
 };
 
-export const pause = resource => ({
+export const pause = (resource: Lesson) => ({
   type: UI_VIDEO_PAUSE,
   resource
 });
 
-export const resume = resource => ({
+export const resume = (resource: Lesson) => ({
   type: UI_VIDEO_RESUME,
   resource
 });
 
-export const ended = resource => ({
+export const ended = (resource: Lesson) => ({
   type: UI_VIDEO_ENDED,
   resource
 });

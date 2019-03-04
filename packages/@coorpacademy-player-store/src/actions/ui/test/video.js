@@ -3,6 +3,7 @@ import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
 import macro from '../../test/helpers/macro';
 import {
+  UI_VIDEO_ERROR,
   UI_VIDEO_PAUSE,
   UI_VIDEO_ENDED,
   UI_VIDEO_RESUME,
@@ -78,7 +79,8 @@ test(
   macro,
   pipe(
     set('ui.current.progressionId', 'foo'),
-    set('ui.route.foo', 'media'),
+    set('ui.corrections.playResource', resource._id),
+    set('ui.route.foo', 'question'),
     set('data.progressions.entities.foo._id', 'foo'),
     set('data.progressions.entities.foo.state.nextContent.ref', 'slideRef'),
     set('data.progressions.entities.foo.engine', {
@@ -89,7 +91,8 @@ test(
       version: '1'
     }),
     set('data.progressions.entities.foo.content', content),
-    set('data.contents.slide.entities.slideRef.chapter_id', 'chapter')
+    set('data.contents.slide.entities.slideRef.chapter_id', 'chapter'),
+    set('data.contents.slide.entities.slideRef.lessons', [resource])
   )({}),
   t => ({
     Analytics: {
@@ -120,15 +123,15 @@ test(
       }
     }
   }),
-  play(resource),
+  play(),
   [
     {
       type: MEDIA_VIEWED_ANALYTICS_REQUEST,
-      meta: {resource, location: 'media'}
+      meta: {resource, location: 'question'}
     },
     {
       type: MEDIA_VIEWED_ANALYTICS_SUCCESS,
-      meta: {resource, location: 'media'},
+      meta: {resource, location: 'question'},
       payload: undefined
     },
     {
@@ -158,11 +161,86 @@ test(
 );
 
 test(
+  'should throw error if no resource is provided within the slide',
+  macro,
+  pipe(
+    set('ui.current.progressionId', 'foo'),
+    set('ui.route.foo', 'question'),
+    set('data.progressions.entities.foo._id', 'foo'),
+    set('data.progressions.entities.foo.state.nextContent.ref', 'slideRef'),
+    set('data.progressions.entities.foo.engine', {
+      version: '1',
+      ref: 'microlearning'
+    }),
+    set('data.configs.entities.microlearning@1', {
+      version: '1'
+    }),
+    set('data.progressions.entities.foo.content', content),
+    set('data.contents.slide.entities.slideRef.chapter_id', 'chapter')
+  )({}),
+  t => ({}),
+  play(),
+  [
+    {
+      type: UI_VIDEO_ERROR,
+      payload: 'cannot play video for progression "foo", no resources found.'
+    }
+  ],
+  0
+);
+
+test(
+  'should throw error if resources are empty within the slide',
+  macro,
+  pipe(
+    set('ui.current.progressionId', 'foo'),
+    set('ui.route.foo', 'question'),
+    set('data.progressions.entities.foo._id', 'foo'),
+    set('data.progressions.entities.foo.state.nextContent.ref', 'slideRef'),
+    set('data.progressions.entities.foo.engine', {
+      version: '1',
+      ref: 'microlearning'
+    }),
+    set('data.configs.entities.microlearning@1', {
+      version: '1'
+    }),
+    set('data.progressions.entities.foo.content', content),
+    set('data.contents.slide.entities.slideRef.chapter_id', 'chapter'),
+    set('data.contents.slide.entities.slideRef.lessons', [])
+  )({}),
+  t => ({}),
+  play(),
+  [
+    {
+      type: UI_VIDEO_ERROR,
+      payload: 'cannot play video for progression "foo", no resources found.'
+    }
+  ],
+  0
+);
+
+test(
+  'should fail to dispatch video play action when no progressionId is provided',
+  macro,
+  {},
+  t => ({}),
+  play(),
+  [
+    {
+      type: UI_VIDEO_ERROR,
+      payload: 'progressionId is required.'
+    }
+  ],
+  0
+);
+
+test(
   'should dispatch video play action and forward to mark a resource as viewed when requesting an extra life',
   macro,
   pipe(
     set('ui.current.progressionId', 'foo'),
-    set('ui.route.foo', 'media'),
+    set('ui.corrections.playResource', resource._id),
+    set('ui.route.foo', 'correction'),
     set('data.progressions.entities.foo._id', 'foo'),
     set('data.progressions.entities.foo.state.content', {
       type: 'slide',
@@ -180,7 +258,8 @@ test(
       version: '1'
     }),
     set('data.progressions.entities.foo.content', content),
-    set('data.contents.slide.entities.slideRef._id', 'slide')
+    set('data.contents.slide.entities.slideRef._id', 'slide'),
+    set('data.contents.slide.entities.slideRef.lessons', [resource])
   )({}),
   t => ({
     Analytics: {
@@ -199,15 +278,15 @@ test(
       }
     }
   }),
-  play(resource),
+  play(),
   [
     {
       type: MEDIA_VIEWED_ANALYTICS_REQUEST,
-      meta: {resource, location: 'media'}
+      meta: {resource, location: 'correction'}
     },
     {
       type: MEDIA_VIEWED_ANALYTICS_SUCCESS,
-      meta: {resource, location: 'media'},
+      meta: {resource, location: 'correction'},
       payload: undefined
     },
     {

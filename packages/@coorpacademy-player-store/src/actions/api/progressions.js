@@ -9,13 +9,13 @@ import buildTask from '@coorpacademy/redux-task';
 import type {
   Answer,
   Content,
+  Lesson,
   Engine,
   EngineConfig,
   Progression,
   ProgressionId
 } from '@coorpacademy/progression-engine';
 import type {Services} from '../../definitions/services';
-import type {Resource} from '../../definitions/models';
 import {selectProgression} from '../ui/progressions';
 import {
   getProgression,
@@ -294,7 +294,7 @@ export const PROGRESSION_RESOURCE_VIEWED_REQUEST: string = '@@progression/RESOUR
 export const PROGRESSION_RESOURCE_VIEWED_SUCCESS: string = '@@progression/RESOURCE_VIEWED_SUCCESS';
 export const PROGRESSION_RESOURCE_VIEWED_FAILURE: string = '@@progression/RESOURCE_VIEWED_FAILURE';
 
-export const markResourceAsViewed = (progressionId: string, resource: Resource): ThunkAction => (
+export const markResourceAsViewed = (progressionId: string, resource: Lesson): ThunkAction => (
   dispatch: Function,
   getState: GetState,
   {services}: {services: Services}
