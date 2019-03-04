@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/translate",
-  "version": "5.3.16",
+  "version": "5.3.17",
   "description": "",
   "main": "lib/translate.js",
   "module": "es/translate.js",
