@@ -330,6 +330,7 @@ export type Lesson = {|
   _id: string,
   description: string,
   mediaUrl: string,
+  mediaRef: string,
   downloadUrl?: string,
   mimeType: ResourceMimeType,
   poster: Url,

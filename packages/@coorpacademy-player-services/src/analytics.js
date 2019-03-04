@@ -1,7 +1,7 @@
 // @flow strict
 
-import type {Config, Progression, State} from '@coorpacademy/progression-engine';
-import type {DataEvent, ResourceAPI, ResourceType} from './definitions';
+import type {Lesson, Config, Progression, State} from '@coorpacademy/progression-engine';
+import type {DataEvent, ResourceType} from './definitions';
 
 // eslint-disable-next-line no-shadow
 declare var window: {|
@@ -9,7 +9,7 @@ declare var window: {|
 |};
 
 // eslint-disable-next-line import/prefer-default-export
-export const sendViewedMediaAnalytics = (resource: ResourceAPI, location: string) => {
+export const sendViewedMediaAnalytics = (resource: Lesson, location: string) => {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event: 'mediaViewed',
