@@ -302,7 +302,8 @@ export type TemplateQuestion = $Exact<{|
     matchOrder: boolean,
     maxTypos?: ?number,
     choices: Array<Choice>,
-    answers: AcceptedAnswers
+    answers: AcceptedAnswers,
+    template?: string
   }
 |}>;
 
