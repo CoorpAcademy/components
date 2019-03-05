@@ -272,6 +272,7 @@ export type QCMGraphicQuestion = $Exact<{|
 |}>;
 
 export type SliderQuestion = {|
+  ...QuestionCommon,
   type: 'slider',
   content: {
     answers: AcceptedAnswers
@@ -288,6 +289,7 @@ export type QCMDragQuestion = $Exact<{|
 |}>;
 
 export type BasicQuestion = {|
+  ...QuestionCommon,
   type: 'basic',
   content: {
     maxTypos?: ?number,
