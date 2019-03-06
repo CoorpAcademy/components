@@ -30,7 +30,16 @@ export type FAILURE = 'failure';
 export type SUCCESS = 'success';
 export type VIDEO = 'video';
 export type PDF = 'pdf';
-export type ContentType = CHAPTER | LEVEL | SLIDE | NODE | FAILURE | SUCCESS | VIDEO | PDF;
+export type ContentType =
+  | DISCIPLINE
+  | CHAPTER
+  | LEVEL
+  | SLIDE
+  | NODE
+  | FAILURE
+  | SUCCESS
+  | VIDEO
+  | PDF;
 
 export type Url = string;
 
