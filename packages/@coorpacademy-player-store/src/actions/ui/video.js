@@ -49,7 +49,9 @@ DispatchedAction => {
   }
 
   const selectedResourceId: string = getResourceToPlay(state);
-  const resource: Lesson = resources.filter(r => r._id === selectedResourceId)[0];
+  const resource: Lesson = selectedResourceId
+    ? resources.filter(r => r._id === selectedResourceId)[0]
+    : resources[0];
 
   await dispatch(sendMediaViewed(resource));
   await dispatch(markResourceAsViewed(progressionId, resource));
