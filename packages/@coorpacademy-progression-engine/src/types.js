@@ -28,6 +28,7 @@ export type SLIDE = 'slide';
 export type NODE = 'node';
 export type FAILURE = 'failure';
 export type SUCCESS = 'success';
+export type IMG = 'img';
 export type VIDEO = 'video';
 export type PDF = 'pdf';
 export type ContentType =
@@ -38,8 +39,11 @@ export type ContentType =
   | NODE
   | FAILURE
   | SUCCESS
-  | VIDEO
-  | PDF;
+  | IMG
+  | PDF
+  | VIDEO;
+
+export type LessonType = VIDEO | PDF | IMG;
 
 export type Url = string;
 
@@ -60,7 +64,7 @@ export type GenericContent = {|
 
 export type ResourceContent = {|
   ref: string,
-  type: VIDEO | PDF,
+  type: LessonType,
   version?: string
 |};
 
@@ -333,8 +337,6 @@ export type Meta = {|
 |};
 
 type Author = string;
-
-type LessonType = VIDEO | PDF;
 type Subtitle = string;
 
 export type Lesson = {|

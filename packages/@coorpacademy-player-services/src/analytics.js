@@ -1,7 +1,7 @@
 // @flow strict
 
 import type {Lesson, Config, Progression, State} from '@coorpacademy/progression-engine';
-import type {DataEvent, ResourceType} from './definitions';
+import type {DataEvent, ResourceTypeAPI} from './definitions';
 
 // eslint-disable-next-line no-shadow
 declare var window: {|
@@ -13,7 +13,7 @@ export const sendViewedMediaAnalytics = (resource: Lesson, location: string) => 
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event: 'mediaViewed',
-    mediaType: (resource.type: ResourceType),
+    mediaType: (resource.type: ResourceTypeAPI),
     location
   });
 };
