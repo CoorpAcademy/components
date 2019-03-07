@@ -13,6 +13,7 @@ import type {
   Question,
   Meta,
   Lesson,
+  LessonType,
   ResourceMimeType
 } from '@coorpacademy/progression-engine';
 
@@ -38,7 +39,7 @@ type JwPlayerOptions = {|
   playerScript: Url
 |};
 
-type ResourceType = 'video' | 'pdf';
+type ResourceTypeAPI = LessonType;
 
 type Source = {|
   _id: string,
@@ -49,7 +50,7 @@ type Source = {|
 type ResourceAPI = {|
   _id: string,
   ref: string,
-  type: ResourceType,
+  type: ResourceTypeAPI,
   mimeType: ResourceMimeType,
   mediaUrl: Url,
   src?: Array<Source>,
@@ -236,7 +237,7 @@ export type {
   RecommendationAPI,
   ResourceAPI,
   ResourceMimeType,
-  ResourceType,
+  ResourceTypeAPI,
   Media,
   Url,
   LessonAPI,
