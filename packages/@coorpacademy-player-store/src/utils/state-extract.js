@@ -483,14 +483,14 @@ export const getLives = (state: State): Lives => {
 
 export const getCoaches: State => number = getOr(0, 'ui.coaches.availableCoaches');
 
-export const hasSeenLesson = (state: State): boolean => {
+export const hasSeenLesson = (state: State, onPreviousSlide: boolean = false): boolean => {
   const progression = getCurrentProgression(state);
 
   if (!progression || !progression.state) {
     return false;
   }
 
-  const slide = getCurrentSlide(state) || getPreviousSlide(state);
+  const slide = onPreviousSlide ? getPreviousSlide(state) : getCurrentSlide(state);
 
   if (!slide) {
     return false;

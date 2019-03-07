@@ -161,6 +161,91 @@ test(
 );
 
 test(
+  'should dispatch video play action for default resource when none is selected',
+  macro,
+  pipe(
+    set('ui.current.progressionId', 'foo'),
+    set('ui.route.foo', 'question'),
+    set('data.progressions.entities.foo._id', 'foo'),
+    set('data.progressions.entities.foo.state.nextContent.ref', 'slideRef'),
+    set('data.progressions.entities.foo.engine', {
+      version: '1',
+      ref: 'microlearning'
+    }),
+    set('data.configs.entities.microlearning@1', {
+      version: '1'
+    }),
+    set('data.progressions.entities.foo.content', content),
+    set('data.contents.slide.entities.slideRef.chapter_id', 'chapter'),
+    set('data.contents.slide.entities.slideRef.lessons', [resource])
+  )({}),
+  t => ({
+    Analytics: {
+      sendViewedMediaAnalytics: (media, location) => {
+        t.pass();
+      },
+      sendProgressionAnalytics: () => {
+        t.pass();
+        return 'qux';
+      }
+    },
+    Progressions: {
+      markResourceAsViewed: (progressionId, payload) => {
+        t.is(progressionId, 'foo');
+        t.deepEqual(payload, {
+          resource: {
+            ref: 'resourceRef',
+            type: 'video',
+            version: '1'
+          },
+          content: {
+            type: 'chapter',
+            ref: 'chapter'
+          }
+        });
+
+        return set('state.viewedResources', [content.ref], {});
+      }
+    }
+  }),
+  play(),
+  [
+    {
+      type: MEDIA_VIEWED_ANALYTICS_REQUEST,
+      meta: {resource, location: 'question'}
+    },
+    {
+      type: MEDIA_VIEWED_ANALYTICS_SUCCESS,
+      meta: {resource, location: 'question'},
+      payload: undefined
+    },
+    {
+      type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
+      meta: {progressionId: 'foo', resource}
+    },
+    {
+      type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
+      meta: {progressionId: 'foo', resource},
+      payload: set('state.viewedResources', [content.ref], {})
+    },
+    {
+      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
+      meta: {id: 'foo'}
+    },
+    {
+      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
+      meta: {id: 'foo'}
+    },
+    {
+      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
+      meta: {id: 'foo'},
+      payload: 'qux'
+    }
+  ],
+  4
+);
+
+test(
   'should throw error if no resource is provided within the slide',
   macro,
   pipe(

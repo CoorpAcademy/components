@@ -143,7 +143,7 @@ export const validateAnswer = () => async (
 
   if (isCorrect) {
     await dispatch(toggleAccordion(ACCORDION_TIPS));
-  } else if (nextContentRef !== 'extraLife' && hasSeenLesson(state)) {
+  } else if (nextContentRef !== 'extraLife' && hasSeenLesson(state, true)) {
     await dispatch(toggleAccordion(ACCORDION_KLF));
   } else {
     await dispatch(toggleAccordion(ACCORDION_LESSON));
