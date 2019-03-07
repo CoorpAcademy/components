@@ -981,7 +981,7 @@ test('getContentInfo should return chapter.info', t => {
   });
 });
 
-test('should return true if side is at previous step and at least one lesson has been seen', t => {
+test('should return true if slide is at previous step and at least one lesson has been seen', t => {
   const state = Object.freeze(slideFixture);
   const slide = getCurrentSlide(state);
   const result = hasSeenLesson(
@@ -992,7 +992,8 @@ test('should return true if side is at previous step and at least one lesson has
         ref: slide._id
       }),
       setViewedResources(slide.lessons[0].ref, slide.chapter_id)
-    )(state)
+    )(state),
+    true
   );
 
   return t.is(result, true);
