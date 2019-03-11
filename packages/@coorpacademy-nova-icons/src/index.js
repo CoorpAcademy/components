@@ -30,6 +30,7 @@ import NovaCompositionCoorpacademyListBullets3 from './components/nova-compositi
 import NovaCompositionCoorpacademyBrokenHeart from './components/nova-composition/coorpacademy/broken-heart';
 import NovaCompositionCoorpacademyFilterVideo2 from './components/nova-composition/coorpacademy/filter-video2';
 import NovaLineBusinessCircleView from './components/nova-line/business/circle-view';
+import NovaLineShoppingQrCode from './components/nova-line/shopping/qr-code';
 import NovaLineLoginKey1 from './components/nova-line/login/key-1';
 import NovaLineContentEditionPencil2 from './components/nova-line/content-edition/pencil-2';
 import NovaLineInterfaceFeedbackInterfaceAlertCircle from './components/nova-line/interface-feedback/interface-alert-circle';
@@ -38,6 +39,7 @@ import NovaLineBookmarksTagsBookmark5 from './components/nova-line/bookmarks-tag
 import NovaLineAudioAudioControlPlay from './components/nova-line/audio/audio-control-play';
 import NovaLineVideosVideoClip3 from './components/nova-line/videos/video-clip-3';
 import NovaLineFilesOfficeFileOfficePdf from './components/nova-line/files-office/file-office-pdf';
+import NovaLineComputersComputerScreen1 from './components/nova-line/computers/computer-screen-1';
 import NovaSolidDataTransferDataUpload1 from './components/nova-solid/data-transfer/data-upload-1';
 import NovaSolidSchoolScienceGraduationHat from './components/nova-solid/school-science/graduation-hat';
 import NovaSolidVoteRewardsVoteStar from './components/nova-solid/vote-rewards/vote-star';
@@ -95,6 +97,7 @@ export {
 	NovaCompositionCoorpacademyBrokenHeart,
 	NovaCompositionCoorpacademyFilterVideo2,
 	NovaLineBusinessCircleView,
+	NovaLineShoppingQrCode,
 	NovaLineLoginKey1,
 	NovaLineContentEditionPencil2,
 	NovaLineInterfaceFeedbackInterfaceAlertCircle,
@@ -103,6 +106,7 @@ export {
 	NovaLineAudioAudioControlPlay,
 	NovaLineVideosVideoClip3,
 	NovaLineFilesOfficeFileOfficePdf,
+	NovaLineComputersComputerScreen1,
 	NovaSolidDataTransferDataUpload1,
 	NovaSolidSchoolScienceGraduationHat,
 	NovaSolidVoteRewardsVoteStar,
