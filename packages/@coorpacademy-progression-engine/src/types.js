@@ -12,6 +12,7 @@ export type ResourceMimeType =
   | 'image/jpeg'
   | 'image/png'
   | 'application/pdf'
+  | 'application/jwplayer'
   | 'application/vimeo';
 
 export type Answer = Array<string>;
@@ -342,7 +343,7 @@ type Subtitle = string;
 export type Lesson = {|
   _id: string,
   description: string,
-  mediaUrl: string,
+  mediaUrl?: string,
   mediaRef: string,
   downloadUrl?: string,
   mimeType: ResourceMimeType,
