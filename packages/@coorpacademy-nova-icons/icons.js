@@ -3,6 +3,8 @@
 import path from 'path';
 
 export default [
+  path.resolve('./third-party/nova-composition.iconjar/icons/target.svg'),
+  path.resolve('./third-party/nova-composition.iconjar/icons/settings.svg'),
   path.resolve('./third-party/nova-composition.iconjar/icons/adaptive.svg'),
   path.resolve('./third-party/nova-composition.iconjar/icons/bolt.svg'),
   path.resolve('./third-party/nova-composition.iconjar/icons/broken-heart.svg'),

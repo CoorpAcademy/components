@@ -54,7 +54,7 @@ You may have to reset all `node_modules` : use `lerna clean` before performing `
 
 #### publishing
 
-Be sure your packages are public, or you'll end up with errors on CI like
+Be sure your packages are public, or you'll end up with errors on CI like.
 
 ```error
 Extracting tar content of undefined failed, the file appears to be corrupt: "Unexpected end of data"
