@@ -1,7 +1,5 @@
 // @flow strict
 
-import keys from 'lodash/fp/keys';
-import last from 'lodash/fp/last';
 import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 import includes from 'lodash/fp/includes';
@@ -16,7 +14,6 @@ import type {
   ProgressionId
 } from '@coorpacademy/progression-engine';
 import type {Services} from '../../definitions/services';
-import {selectProgression} from '../ui/progressions';
 import {
   getProgression,
   getBestScore,
@@ -41,10 +38,11 @@ export const PROGRESSION_CREATE_SUCCESS: string = '@@progression/CREATE_SUCCESS'
 export const PROGRESSION_CREATE_FAILURE: string = '@@progression/CREATE_FAILURE';
 
 export const createProgression = (
+  _id: string,
   engine: Engine,
   content: Content,
   config: EngineConfig
-): ThunkAction => async (
+): ThunkAction => (
   dispatch: Function,
   getState: GetState,
   {services}: {services: Services}
@@ -54,14 +52,11 @@ DispatchedAction => {
 
   const action = buildTask({
     types: [PROGRESSION_CREATE_REQUEST, PROGRESSION_CREATE_SUCCESS, PROGRESSION_CREATE_FAILURE],
-    task: () => Progressions.create(engine, content, config),
+    task: () => Progressions.create(_id, engine, content, config),
     meta: {}
   });
 
-  await dispatch(action);
-  const state = getState();
-  const progressionId = last(keys(state.data.progressions.entities));
-  return dispatch(selectProgression(progressionId));
+  return dispatch(action);
 };
 
 export const PROGRESSION_FETCH_REQUEST: string = '@@progression/FETCH_REQUEST';

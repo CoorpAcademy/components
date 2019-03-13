@@ -2,6 +2,7 @@ import test from 'ava';
 import find from 'lodash/fp/find';
 import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
+import uniqueId from 'lodash/fp/uniqueId';
 import set from 'lodash/fp/set';
 import createCluesService from '../clues';
 
@@ -18,7 +19,7 @@ const engine = {
 };
 
 test('should findById', async t => {
-  const progression = await Progressions.create(engine, {
+  const progression = await Progressions.create(uniqueId(), engine, {
     type: 'chapter',
     ref: '5.C7'
   });
@@ -37,7 +38,7 @@ test('should fail for wrong progressionId', t => {
 });
 
 test("should throw error if slide doesn't exist", async t => {
-  const progression = await Progressions.create(engine, {
+  const progression = await Progressions.create(uniqueId(), engine, {
     type: 'chapter',
     ref: '5.C7'
   });
@@ -48,7 +49,7 @@ test("should throw error if slide doesn't exist", async t => {
 });
 
 test("should throw error if clue haven't been requested", async t => {
-  const progression = await Progressions.create(engine, {
+  const progression = await Progressions.create(uniqueId(), engine, {
     type: 'chapter',
     ref: '5.C7'
   });
@@ -60,7 +61,7 @@ test('should fail with wrong progressionId', t => {
 });
 
 test('should fail to acceptExtraLife with progression without state', async t => {
-  const progression = await Progressions.create(engine, {type: 'chapter', ref: '5.C7'});
+  const progression = await Progressions.create(uniqueId(), engine, {type: 'chapter', ref: '5.C7'});
   delete progression.state;
   Progressions.save(progression);
 
