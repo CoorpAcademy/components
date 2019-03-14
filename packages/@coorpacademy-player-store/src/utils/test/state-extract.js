@@ -192,27 +192,12 @@ test('isCommentSent should return comment status for current progression', t => 
   t.is(isCommentSent(state), 'plop');
 });
 
-test('isCommentSent should return false if progressionId is not defined', t => {
-  const state = pipe(
-    set('data.progressions.entities', {'0': {}}),
-    set('data.comments.entities.0.isSent', 'plop')
-  )({});
-
-  t.is(isCommentSent(state), false);
-});
-
 test('getRoute should return current route for current progression', t => {
-  const state = pipe(set('data.progressions.entities', {'0': {}}), set('ui.route.0', 'plop'))({});
-  t.is(getRoute(state), '');
-});
-
-test('getRoute should return "" if progressionId is not defined', t => {
   const state = pipe(
     set('ui.current.progressionId', '0'),
     set('data.progressions.entities', {'0': {}}),
     set('ui.route.0', 'plop')
   )({});
-
   t.is(getRoute(state), 'plop');
 });
 
@@ -224,15 +209,6 @@ test('getRecommendations should return recommendations for current progression',
   )({});
 
   t.is(getRecommendations(state), 'plop');
-});
-
-test('getRecommendations should return [] if progressionId is not defined', t => {
-  const state = pipe(
-    set('data.progressions.entities', {'0': {}}),
-    set('data.recommendations.entities.0', 'plop')
-  )({});
-
-  t.deepEqual(getRecommendations(state), []);
 });
 
 test('getCurrentProgression should get current progression from state', t => {
@@ -250,11 +226,6 @@ test('getAnswers should get answers from state', t => {
   const state = pipe(set('ui.current.progressionId', '0'), set('ui.answers.0', answers))({});
 
   t.is(getAnswers(state), answers);
-});
-
-test('getAnswers should return no answer if progressionId is not defined', t => {
-  const state = set('ui.answers.0', ['foo'])({});
-  t.deepEqual(getAnswers(state), ['']);
 });
 
 test("getAnswerValues should get answer's values from state", t => {
@@ -694,11 +665,6 @@ test('getLives should throw error if progression.state is not defined', t => {
   )({});
 
   t.is(getLives(state).count, 0);
-});
-
-test('getNextContent should return undefined if no progressionId is found', t => {
-  const state = {};
-  t.deepEqual(getNextContent(state), undefined);
 });
 
 test('getNextContent should return nextChapter if microlearning progression', t => {

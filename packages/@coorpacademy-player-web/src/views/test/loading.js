@@ -5,6 +5,6 @@ import stateToVNode from './helpers/state-to-vnode';
 const mapStateToVNode = stateToVNode({}, {});
 
 test('should display loading view', t => {
-  const vNode = mapStateToVNode({});
+  const vNode = mapStateToVNode({ui: {current: {progressionId: null}}});
   t.notThrows(() => testRendering(vNode));
 });

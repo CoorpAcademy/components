@@ -188,7 +188,7 @@ export const PROGRESSION_EXTRALIFEREFUSED_SUCCESS: string =
 export const PROGRESSION_EXTRALIFEREFUSED_FAILURE: string =
   '@@progression/EXTRALIFEREFUSED_FAILURE';
 
-export const refuseExtraLife = (progressionId: string): ThunkAction => (
+export const registerRefuseExtraLife = (progressionId: string): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
@@ -221,7 +221,7 @@ export const PROGRESSION_EXTRALIFEACCEPTED_SUCCESS: string =
 export const PROGRESSION_EXTRALIFEACCEPTED_FAILURE: string =
   '@@progression/EXTRALIFEACCEPTED_FAILURE';
 
-export const acceptExtraLife = (progressionId: string): ThunkAction => (
+export const registerAcceptExtraLife = (progressionId: string): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}

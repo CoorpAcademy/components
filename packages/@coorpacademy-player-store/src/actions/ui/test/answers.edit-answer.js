@@ -49,7 +49,15 @@ test('should throw an error if questionType is unknown', t => {
 });
 
 test('should dispatch an error if slide is not found', t => {
-  const getState = () => {};
+  const getState = () =>
+    pipe(
+      set('ui.current.progressionId', 'foo'),
+      set('data.configs.entities.microlearning@1', {
+        version: '1'
+      }),
+      set('data.progressions.entities.foo.engine', {version: '1', ref: 'microlearning'}),
+      set('data.progressions.entities.foo.content', {type: 'chapter', ref: 'chapId'})
+    )({});
   const dispatch = action => {
     t.is(action.type, EDIT_ANSWER_ERROR);
   };

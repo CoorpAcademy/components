@@ -141,7 +141,12 @@ test('should add an invalid `select an answer` choice for a select field in a te
 });
 
 test('should create initial qcmGraphic props', t => {
-  const state = {};
+  const state = {
+    ui: {
+      answers: {},
+      current: {progressionId: '1234'}
+    }
+  };
   const props = getAnswerProps(state, qcmGraphic);
   t.is(props.type, 'qcmGraphic');
   t.is(props.answers.length, 2);
@@ -177,7 +182,12 @@ test('should create edited qcmGraphic props', t => {
 });
 
 test('should create initial qcmDrag props', t => {
-  const state = {};
+  const state = {
+    ui: {
+      answers: {},
+      current: {progressionId: '1234'}
+    }
+  };
   const props = getAnswerProps(state, qcmDrag);
   t.is(props.type, 'qcmDrag');
   t.is(props.answers.length, 3);
@@ -229,7 +239,12 @@ test('should create edited qcmDrag props', t => {
 
 test('should create initial slider props', t => {
   t.plan(8);
-  const state = {};
+  const state = {
+    ui: {
+      answers: {},
+      current: {progressionId: '1234'}
+    }
+  };
 
   const dispatch = action => {
     t.pass();
@@ -250,7 +265,12 @@ test('should create initial slider props', t => {
 
 test('should default slider step to 1', t => {
   t.plan(2);
-  const state = {};
+  const state = {
+    ui: {
+      answers: {},
+      current: {progressionId: '1234'}
+    }
+  };
 
   const dispatch = action => {
     t.pass();
@@ -280,7 +300,12 @@ test('should create edited slider props', t => {
 });
 
 test('should create initial basic props', t => {
-  const state = {};
+  const state = {
+    ui: {
+      answers: {},
+      current: {progressionId: null}
+    }
+  };
   const props = getAnswerProps(state, basic);
   t.is(props.type, 'freeText');
 });
