@@ -4,8 +4,8 @@ import get from 'lodash/fp/get';
 import pipe from 'lodash/fp/pipe';
 import macro from '../../test/helpers/macro';
 import {
-  acceptExtraLife,
-  refuseExtraLife,
+  registerAcceptExtraLife,
+  registerRefuseExtraLife,
   PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
   PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
   PROGRESSION_EXTRALIFEACCEPTED_FAILURE,
@@ -37,7 +37,7 @@ test(
       }
     }
   }),
-  acceptExtraLife('foo'),
+  registerAcceptExtraLife('foo'),
   [
     {
       type: PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
@@ -73,7 +73,7 @@ test(
       }
     }
   }),
-  acceptExtraLife('foo'),
+  registerAcceptExtraLife('foo'),
   [
     {
       type: PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
@@ -104,7 +104,7 @@ test(
       }
     }
   }),
-  refuseExtraLife('foo'),
+  registerRefuseExtraLife('foo'),
   [
     {
       type: PROGRESSION_EXTRALIFEREFUSED_REQUEST,
@@ -140,7 +140,7 @@ test(
       }
     }
   }),
-  refuseExtraLife('foo'),
+  registerRefuseExtraLife('foo'),
   [
     {
       type: PROGRESSION_EXTRALIFEREFUSED_REQUEST,

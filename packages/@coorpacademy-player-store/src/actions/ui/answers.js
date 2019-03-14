@@ -110,15 +110,15 @@ export const validateAnswer = () => async (
 ): DispatchedAction => {
   const initialState = getState();
   const slide = getCurrentSlide(initialState);
-  const progressionId = getCurrentProgressionId(initialState);
 
-  if (!slide || !progressionId) {
+  if (!slide) {
     return dispatch({
       type: VALIDATE_ERROR,
       meta: 'Cannot validate answer without a slide or o progressionId'
     });
   }
 
+  const progressionId = getCurrentProgressionId(initialState);
   const answer = getAnswerValues(slide, initialState);
 
   const createAnswerResponse = await dispatch(createAnswer(progressionId, answer));

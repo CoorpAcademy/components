@@ -35,14 +35,6 @@ test('should throw an error if slide is undefined', t => {
   validateAnswer()(dispatch, getState, {});
 });
 
-test('should throw an error if progressionId is undefined', t => {
-  const dispatch = action => {
-    t.is(action.type, VALIDATE_ERROR);
-  };
-  const getState = () => {};
-  validateAnswer()(dispatch, getState, {});
-});
-
 test(
   'should dispatch failure on request fail',
   macro,
