@@ -9,7 +9,6 @@ import {
   getConfig,
   getConfigForProgression
 } from '@coorpacademy/progression-engine';
-import uniqueId from 'lodash/fp/uniqueId';
 import update from 'lodash/fp/update';
 import pipe from 'lodash/fp/pipe';
 import filter from 'lodash/fp/filter';
@@ -41,7 +40,7 @@ type AcceptExtraLife = (
   }
 ) => Promise<Progression>;
 
-type CreateProgression = (Engine, GenericContent, EngineConfig) => Promise<Progression>;
+type CreateProgression = (string, Engine, GenericContent, EngineConfig) => Promise<Progression>;
 
 type FindBestOf = (
   engineRef: string,
@@ -86,8 +85,6 @@ type ProgressionsService = {|
   requestClue: RequestClue,
   save: Progression => Progression
 |};
-
-const generateId = () => uniqueId('progression');
 
 const findById = (dataLayer: DataLayer): FindById => async (
   id: string
@@ -294,12 +291,11 @@ const refuseExtraLife = (dataLayer: DataLayer): RefuseExtraLife => async (
 };
 
 const create = (dataLayer: DataLayer): CreateProgression => async (
+  _id: string,
   engine: Engine,
   content: GenericContent,
   engineOptions: EngineConfig
 ): Promise<Progression> => {
-  const _id = generateId();
-
   const _getAvailableContent = getAvailableContent(dataLayer);
   const availableContent = await _getAvailableContent(content);
 
