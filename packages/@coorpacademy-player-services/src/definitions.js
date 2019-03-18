@@ -208,7 +208,7 @@ type DataLayer = {
   findRecommendations: (type: string, ref: string) => Promise<Array<RecommendationAPI>>,
   findSlideByChapter: (chapterRef: string) => Promise<Array<Slide>>,
   findSlideById: (id: string) => Promise<Slide>,
-  saveProgression: Progression => Promise<void>
+  saveProgression: Progression => Promise<Progression>
 };
 
 export const CONTENT_TYPE: {[string]: ContentType} = {

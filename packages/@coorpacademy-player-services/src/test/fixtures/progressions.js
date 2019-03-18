@@ -32,12 +32,10 @@ const getAll = (): Array<Progression> => {
   return [...progressionStore.values()];
 };
 
-const save = (progression: Progression) => {
-  if (!progression._id) {
-    return;
-  }
-
+const save = (progression: Progression): Promise<Progression> => {
+  if (!progression._id) return Promise.reject(new Error());
   progressionStore.set(progression._id, progression);
+  return Promise.resolve(progression);
 };
 
 export {save, getAll, findById};

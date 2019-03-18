@@ -83,7 +83,7 @@ type ProgressionsService = {|
   postAnswer: PostAnswer,
   refuseExtraLife: RefuseExtraLife,
   requestClue: RequestClue,
-  save: Progression => Progression
+  save: Progression => Promise<Progression>
 |};
 
 const findById = (dataLayer: DataLayer): FindById => async (
@@ -129,12 +129,11 @@ const getAvailableContent = (dataLayer: DataLayer): GetAvailableContent => async
   );
 };
 
-const createSave = (dataLayer: DataLayer): (Progression => Progression) => (
+const createSave = (dataLayer: DataLayer): (Progression => Promise<Progression>) => (
   progression: Progression
-): Progression => {
+): Promise<Progression> => {
   const {saveProgression} = dataLayer;
-  saveProgression(progression);
-  return progression;
+  return saveProgression(progression);
 };
 
 const findBestOf = (dataLayer: DataLayer): FindBestOf => (
@@ -155,10 +154,10 @@ const findBestOf = (dataLayer: DataLayer): FindBestOf => (
 
 const addActionAndSaveProgression = (
   dataLayer: DataLayer
-): ((Progression, Action) => Progression) => (
+): ((Progression, Action) => Promise<Progression>) => (
   progression: Progression,
   action: Action
-): Progression => {
+): Promise<Progression> => {
   const newProgression = update('actions', actions => actions.concat(action), progression);
   const newState = createState(newProgression);
   const save = createSave(dataLayer);
