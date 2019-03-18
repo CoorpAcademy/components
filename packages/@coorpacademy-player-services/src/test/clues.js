@@ -42,7 +42,7 @@ test("should throw error if slide doesn't exist", async t => {
     type: 'chapter',
     ref: '5.C7'
   });
-  const corruptProgression = Progressions.save(
+  const corruptProgression = await Progressions.save(
     pipe(set('state.content.ref', 'unknown'), set('state.requestedClues', ['unknown']))(progression)
   );
   return t.throws(findById(corruptProgression._id, 'unknown'), 'Clue not found');
