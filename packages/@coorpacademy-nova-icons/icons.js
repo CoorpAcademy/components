@@ -30,6 +30,8 @@ export default [
   path.resolve('./third-party/nova-composition.iconjar/icons/more.svg'),
   path.resolve('./third-party/nova-composition.iconjar/icons/vote-heart-outline.svg'),
   path.resolve('./third-party/nova-composition.iconjar/icons/lightbulb.svg'),
+  path.resolve('./third-party/nova-composition.iconjar/icons/spiral.svg'),
+  path.resolve('./third-party/nova-composition.iconjar/icons/trophy-cup.svg'),
   path.resolve('./third-party/nova-line.iconjar/icons/audio-control-play.svg'),
   path.resolve('./third-party/nova-line.iconjar/icons/circle-view.svg'),
   path.resolve('./third-party/nova-line.iconjar/icons/pencil-2.svg'),
