@@ -21,6 +21,7 @@ import type {
   SUCCESS,
   Action,
   Answer,
+  AnswerRecord,
   AvailableContent,
   Choice,
   Config,
@@ -55,7 +56,10 @@ import type {
   Slide,
   Source,
   State,
-  Url
+  Step,
+  Url,
+  Variables,
+  ViewedResource
 } from './types';
 
 import type {Instruction, ChapterRule} from './rule-engine/types';
@@ -70,6 +74,7 @@ export type {
   SUCCESS,
   Action,
   Answer,
+  AnswerRecord,
   AvailableContent,
   ChapterRule,
   Choice,
@@ -106,7 +111,10 @@ export type {
   Slide,
   Source,
   State,
-  Url
+  Step,
+  Url,
+  Variables,
+  ViewedResource
 };
 
 export {
