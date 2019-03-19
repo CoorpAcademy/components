@@ -20,7 +20,7 @@ type AcceptExtraLife = (
   }
 ) => Promise<Progression>;
 
-type CreateProgression = (Engine, Content, EngineConfig) => Promise<Progression>;
+type CreateProgression = (string, Engine, Content, EngineConfig) => Promise<Progression>;
 
 type FindBestOf = (
   engineRef: string,

@@ -1,4 +1,5 @@
 import test from 'ava';
+import uniqueId from 'lodash/fp/uniqueId';
 import createContentService from '../progressions';
 import * as fixtures from './fixtures';
 
@@ -10,7 +11,7 @@ const engine = {
 };
 
 test('should add one extra life if call accept', async t => {
-  const progression = await Progressions.create(engine, {type: 'chapter', ref: '5.C7'});
+  const progression = await Progressions.create(uniqueId(), engine, {type: 'chapter', ref: '5.C7'});
   const progressionWithAnswer = await Progressions.postAnswer(progression._id, {
     content: progression.state.nextContent,
     answer: []
@@ -35,7 +36,7 @@ test('should fail to refuseExtraLife with wrong progressionId', t => {
 });
 
 test('should fail to acceptExtraLife with progression without state', async t => {
-  const progression = await Progressions.create(engine, {type: 'chapter', ref: '5.C7'});
+  const progression = await Progressions.create(uniqueId(), engine, {type: 'chapter', ref: '5.C7'});
   delete progression.state;
   return t.throws(
     Progressions.acceptExtraLife(progression._id, {}),
@@ -44,7 +45,7 @@ test('should fail to acceptExtraLife with progression without state', async t =>
 });
 
 test('should fail to refuseExtraLife with progression without state', async t => {
-  const progression = await Progressions.create(engine, {type: 'chapter', ref: '5.C7'});
+  const progression = await Progressions.create(uniqueId(), engine, {type: 'chapter', ref: '5.C7'});
   delete progression.state;
   return t.throws(
     Progressions.refuseExtraLife(progression._id, {}),
@@ -53,7 +54,7 @@ test('should fail to refuseExtraLife with progression without state', async t =>
 });
 
 test('should forward to failure if call refuse', async t => {
-  const progression = await Progressions.create(engine, {type: 'chapter', ref: '5.C7'});
+  const progression = await Progressions.create(uniqueId(), engine, {type: 'chapter', ref: '5.C7'});
   const progressionWithAnswer = await Progressions.postAnswer(progression._id, {
     content: progression.state.nextContent,
     answer: []

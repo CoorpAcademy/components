@@ -1,5 +1,6 @@
 import test from 'ava';
 import find from 'lodash/fp/find';
+import uniqueId from 'lodash/fp/uniqueId';
 import createAnswersService from '../answers';
 import createProgressionsService from '../progressions';
 import slidesData from './fixtures/data/slides';
@@ -14,7 +15,10 @@ const engine = {
 };
 
 test('findById should return the correct answer and corrections for the given answer', async t => {
-  const progression = await ProgressionsService.create(engine, {type: 'chapter', ref: '5.C7'});
+  const progression = await ProgressionsService.create(uniqueId(), engine, {
+    type: 'chapter',
+    ref: '5.C7'
+  });
   const answer = ['bar'];
   const progressionWithAnswer = await ProgressionsService.postAnswer(progression._id, {
     content: progression.state.nextContent,
@@ -40,7 +44,10 @@ test('findById should return the correct answer and corrections for the given an
 });
 
 test("findById should throw error if slide doesn't exist", async t => {
-  const progression = await ProgressionsService.create(engine, {type: 'chapter', ref: '5.C7'});
+  const progression = await ProgressionsService.create(uniqueId(), engine, {
+    type: 'chapter',
+    ref: '5.C7'
+  });
   return t.throws(
     findById(progression._id, progression.state.nextContent.ref, ['foo', 'bar']),
     'Answer is not available'
@@ -52,7 +59,10 @@ test('should fail with wrong progressionId', t => {
 });
 
 test('should fail to acceptExtraLife with progression without state', async t => {
-  const progression = await ProgressionsService.create(engine, {type: 'chapter', ref: '5.C7'});
+  const progression = await ProgressionsService.create(uniqueId(), engine, {
+    type: 'chapter',
+    ref: '5.C7'
+  });
   delete progression.state;
   ProgressionsService.save(progression);
 

@@ -7,7 +7,7 @@ import omitBy from 'lodash/fp/omitBy';
 import isUndefined from 'lodash/fp/isUndefined';
 import includes from 'lodash/fp/includes';
 import {
-  acceptExtraLifeAndReset,
+  acceptExtraLife,
   getCurrentCorrection,
   getCurrentProgression,
   getCurrentProgressionId,
@@ -17,7 +17,7 @@ import {
   getPreviousSlide,
   hasViewedAResourceAtThisStep,
   openAssistance,
-  refuseExtraLifeAndReset,
+  refuseExtraLife,
   selectProgression,
   toggleAccordion
 } from '@coorpacademy/player-store';
@@ -65,7 +65,7 @@ const getNextStepTitle = state => {
 const extraLifeCTAProps = ({translate}, {dispatch}) => state => {
   const progressionId = getCurrentProgressionId(state);
   const isRevival = hasViewedAResourceAtThisStep(state);
-  const updateProgression = isRevival ? acceptExtraLifeAndReset : refuseExtraLifeAndReset;
+  const updateProgression = isRevival ? acceptExtraLife : refuseExtraLife;
 
   return {
     title: translate(isRevival ? 'Next' : 'Quit'),

@@ -54,8 +54,8 @@ export const getChoices = (slide: Slide): Array<Choice> | void => {
 };
 export const getChapterId = (slide: Slide): string => slide.chapter_id;
 export const getQuestionType = (slide: Slide): QuestionType => slide.question.type;
-export const getCurrentProgressionId = (state: State): ProgressionId | void =>
-  state && state.ui && state.ui.current && state.ui.current.progressionId; // eslint-disable-line lodash-fp/prefer-get
+export const getCurrentProgressionId = (state: State): ProgressionId =>
+  state.ui.current.progressionId; // eslint-disable-line lodash-fp/prefer-get
 
 export const getProgression = (id: ProgressionId): (State => Progression) => (
   state: State
@@ -64,9 +64,6 @@ export const getProgression = (id: ProgressionId): (State => Progression) => (
 
 export const getCurrentProgression = (state: State): Progression | void => {
   const id = getCurrentProgressionId(state);
-  if (!id) {
-    return;
-  }
   return getProgression(id)(state);
 };
 
@@ -98,9 +95,6 @@ export const isCurrentEngineLearner = (state: State): boolean => {
 
 export const getAnswers = (state: State): Answer => {
   const progressionId = getCurrentProgressionId(state);
-  if (!progressionId) {
-    return [''];
-  }
   return getOr({}, ['ui', 'answers', progressionId])(state);
 };
 
@@ -359,9 +353,6 @@ export const getCurrentCorrection = (state: State): Correction => {
 
 export const isCommentSent = (state: State): boolean => {
   const progressionId = getCurrentProgressionId(state);
-  if (!progressionId) {
-    return false;
-  }
   return get(['data', 'comments', 'entities', progressionId, 'isSent'], state);
 };
 
@@ -388,25 +379,16 @@ export const getCurrentClue = (state: State): string => {
 
 export const getRoute = (state: State): string => {
   const progressionId = getCurrentProgressionId(state);
-  if (!progressionId) {
-    return '';
-  }
   return get(['ui', 'route', progressionId], state);
 };
 
 export const getRecommendations = (state: State): Array<Recommendation> => {
   const id = getCurrentProgressionId(state);
-  if (!id) {
-    return [];
-  }
   return get(`data.recommendations.entities.${id}`, state);
 };
 
 export const getNextContent = (state: State): Content | void => {
   const id = getCurrentProgressionId(state);
-  if (!id) {
-    return;
-  }
   return get(`data.nextContent.entities.${id}`, state);
 };
 

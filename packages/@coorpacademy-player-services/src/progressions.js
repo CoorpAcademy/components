@@ -9,7 +9,6 @@ import {
   getConfig,
   getConfigForProgression
 } from '@coorpacademy/progression-engine';
-import uniqueId from 'lodash/fp/uniqueId';
 import update from 'lodash/fp/update';
 import pipe from 'lodash/fp/pipe';
 import filter from 'lodash/fp/filter';
@@ -41,7 +40,7 @@ type AcceptExtraLife = (
   }
 ) => Promise<Progression>;
 
-type CreateProgression = (Engine, GenericContent, EngineConfig) => Promise<Progression>;
+type CreateProgression = (string, Engine, GenericContent, EngineConfig) => Promise<Progression>;
 
 type FindBestOf = (
   engineRef: string,
@@ -84,10 +83,8 @@ type ProgressionsService = {|
   postAnswer: PostAnswer,
   refuseExtraLife: RefuseExtraLife,
   requestClue: RequestClue,
-  save: Progression => Progression
+  save: Progression => Promise<Progression>
 |};
-
-const generateId = () => uniqueId('progression');
 
 const findById = (dataLayer: DataLayer): FindById => async (
   id: string
@@ -132,12 +129,11 @@ const getAvailableContent = (dataLayer: DataLayer): GetAvailableContent => async
   );
 };
 
-const createSave = (dataLayer: DataLayer): (Progression => Progression) => (
+const createSave = (dataLayer: DataLayer): (Progression => Promise<Progression>) => (
   progression: Progression
-): Progression => {
+): Promise<Progression> => {
   const {saveProgression} = dataLayer;
-  saveProgression(progression);
-  return progression;
+  return saveProgression(progression);
 };
 
 const findBestOf = (dataLayer: DataLayer): FindBestOf => (
@@ -158,10 +154,10 @@ const findBestOf = (dataLayer: DataLayer): FindBestOf => (
 
 const addActionAndSaveProgression = (
   dataLayer: DataLayer
-): ((Progression, Action) => Progression) => (
+): ((Progression, Action) => Promise<Progression>) => (
   progression: Progression,
   action: Action
-): Progression => {
+): Promise<Progression> => {
   const newProgression = update('actions', actions => actions.concat(action), progression);
   const newState = createState(newProgression);
   const save = createSave(dataLayer);
@@ -294,12 +290,11 @@ const refuseExtraLife = (dataLayer: DataLayer): RefuseExtraLife => async (
 };
 
 const create = (dataLayer: DataLayer): CreateProgression => async (
+  _id: string,
   engine: Engine,
   content: GenericContent,
   engineOptions: EngineConfig
 ): Promise<Progression> => {
-  const _id = generateId();
-
   const _getAvailableContent = getAvailableContent(dataLayer);
   const availableContent = await _getAvailableContent(content);
 

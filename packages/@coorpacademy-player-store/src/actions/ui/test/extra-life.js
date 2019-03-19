@@ -3,7 +3,7 @@ import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import macro from '../../test/helpers/macro';
 import mockContentService from '../../test/helpers/mock-content-service';
-import {acceptExtraLifeAndReset, refuseExtraLifeAndReset} from '../extra-life';
+import {acceptExtraLife, refuseExtraLife} from '../extra-life';
 import {UI_PROGRESSION_ACTION_TYPES} from '../progressions';
 import {
   PROGRESSION_FETCH_REQUEST,
@@ -85,7 +85,7 @@ test(
       }
     }
   }),
-  refuseExtraLifeAndReset('foo'),
+  refuseExtraLife(),
   [
     {
       type: PROGRESSION_EXTRALIFEREFUSED_REQUEST,
@@ -246,7 +246,7 @@ test(
       }
     }
   }),
-  acceptExtraLifeAndReset('foo'),
+  acceptExtraLife(),
   [
     {
       type: PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
