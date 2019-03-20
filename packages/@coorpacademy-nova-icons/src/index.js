@@ -4,35 +4,35 @@
 
 /* eslint-disable import/max-dependencies */
 
-import NovaCompositionCoorpacademyCog from './components/nova-composition/coorpacademy/cog';
-import NovaCompositionCoorpacademyVoteHeartOutline from './components/nova-composition/coorpacademy/vote-heart-outline';
-import NovaCompositionCoorpacademyFunnel from './components/nova-composition/coorpacademy/funnel';
-import NovaCompositionCoorpacademyBrokenHeart from './components/nova-composition/coorpacademy/broken-heart';
-import NovaCompositionCoorpacademyFilterVideo2 from './components/nova-composition/coorpacademy/filter-video2';
-import NovaCompositionCoorpacademyCheck from './components/nova-composition/coorpacademy/check';
-import NovaCompositionCoorpacademyListBullets3 from './components/nova-composition/coorpacademy/list-bullets-3';
-import NovaCompositionCoorpacademyTarget from './components/nova-composition/coorpacademy/target';
-import NovaCompositionCoorpacademySettings from './components/nova-composition/coorpacademy/settings';
-import NovaCompositionCoorpacademyChat from './components/nova-composition/coorpacademy/chat';
-import NovaCompositionCoorpacademyBolt from './components/nova-composition/coorpacademy/bolt';
-import NovaCompositionCoorpacademyAdaptive from './components/nova-composition/coorpacademy/adaptive';
-import NovaCompositionCoorpacademyTrophyCup from './components/nova-composition/coorpacademy/trophy-cup';
-import NovaCompositionCoorpacademyClock from './components/nova-composition/coorpacademy/clock';
-import NovaCompositionCoorpacademyCharts from './components/nova-composition/coorpacademy/charts';
-import NovaCompositionCoorpacademyTimer from './components/nova-composition/coorpacademy/timer';
-import NovaCompositionCoorpacademyClue from './components/nova-composition/coorpacademy/clue';
-import NovaCompositionCoorpacademyStar from './components/nova-composition/coorpacademy/star';
-import NovaCompositionCoorpacademySpiral from './components/nova-composition/coorpacademy/spiral';
 import NovaCompositionCoorpacademySearch from './components/nova-composition/coorpacademy/search';
 import NovaCompositionCoorpacademyMap from './components/nova-composition/coorpacademy/map';
+import NovaCompositionCoorpacademyTrophyCup from './components/nova-composition/coorpacademy/trophy-cup';
+import NovaCompositionCoorpacademyClue from './components/nova-composition/coorpacademy/clue';
+import NovaCompositionCoorpacademyClock from './components/nova-composition/coorpacademy/clock';
+import NovaCompositionCoorpacademyListBullets3 from './components/nova-composition/coorpacademy/list-bullets-3';
 import NovaCompositionCoorpacademyLightbulb from './components/nova-composition/coorpacademy/lightbulb';
+import NovaCompositionCoorpacademyChat from './components/nova-composition/coorpacademy/chat';
+import NovaCompositionCoorpacademyVoteHeartOutline from './components/nova-composition/coorpacademy/vote-heart-outline';
+import NovaCompositionCoorpacademyAdaptive from './components/nova-composition/coorpacademy/adaptive';
+import NovaCompositionCoorpacademySpiral from './components/nova-composition/coorpacademy/spiral';
 import NovaCompositionCoorpacademyPictures from './components/nova-composition/coorpacademy/pictures';
+import NovaCompositionCoorpacademySettings from './components/nova-composition/coorpacademy/settings';
+import NovaCompositionCoorpacademyCharts from './components/nova-composition/coorpacademy/charts';
+import NovaCompositionCoorpacademyFunnel from './components/nova-composition/coorpacademy/funnel';
+import NovaCompositionCoorpacademyCog from './components/nova-composition/coorpacademy/cog';
+import NovaCompositionCoorpacademyFilterVideo2 from './components/nova-composition/coorpacademy/filter-video2';
+import NovaCompositionCoorpacademyBrokenHeart from './components/nova-composition/coorpacademy/broken-heart';
+import NovaCompositionCoorpacademyBolt from './components/nova-composition/coorpacademy/bolt';
+import NovaCompositionCoorpacademyCheck from './components/nova-composition/coorpacademy/check';
+import NovaCompositionCoorpacademyTimer from './components/nova-composition/coorpacademy/timer';
+import NovaCompositionCoorpacademyStar from './components/nova-composition/coorpacademy/star';
+import NovaCompositionCoorpacademyTarget from './components/nova-composition/coorpacademy/target';
+import NovaCompositionNavigationLess from './components/nova-composition/navigation/less';
+import NovaCompositionNavigationArrowTop from './components/nova-composition/navigation/arrow-top';
+import NovaCompositionNavigationArrowLeft from './components/nova-composition/navigation/arrow-left';
 import NovaCompositionNavigationArrowRight from './components/nova-composition/navigation/arrow-right';
 import NovaCompositionNavigationMore from './components/nova-composition/navigation/more';
-import NovaCompositionNavigationArrowLeft from './components/nova-composition/navigation/arrow-left';
-import NovaCompositionNavigationArrowTop from './components/nova-composition/navigation/arrow-top';
 import NovaCompositionNavigationArrowDown from './components/nova-composition/navigation/arrow-down';
-import NovaCompositionNavigationLess from './components/nova-composition/navigation/less';
 import NovaLineBusinessCircleView from './components/nova-line/business/circle-view';
 import NovaLineShoppingQrCode from './components/nova-line/shopping/qr-code';
 import NovaLineLoginKey1 from './components/nova-line/login/key-1';
@@ -75,35 +75,35 @@ import NovaSolidLocationsCompass3 from './components/nova-solid/locations/compas
 import NovaSolidLightsLightbulb4 from './components/nova-solid/lights/lightbulb-4';
 
 export {
-  NovaCompositionCoorpacademyCog,
-	NovaCompositionCoorpacademyVoteHeartOutline,
-	NovaCompositionCoorpacademyFunnel,
-	NovaCompositionCoorpacademyBrokenHeart,
-	NovaCompositionCoorpacademyFilterVideo2,
-	NovaCompositionCoorpacademyCheck,
-	NovaCompositionCoorpacademyListBullets3,
-	NovaCompositionCoorpacademyTarget,
-	NovaCompositionCoorpacademySettings,
-	NovaCompositionCoorpacademyChat,
-	NovaCompositionCoorpacademyBolt,
-	NovaCompositionCoorpacademyAdaptive,
-	NovaCompositionCoorpacademyTrophyCup,
-	NovaCompositionCoorpacademyClock,
-	NovaCompositionCoorpacademyCharts,
-	NovaCompositionCoorpacademyTimer,
-	NovaCompositionCoorpacademyClue,
-	NovaCompositionCoorpacademyStar,
-	NovaCompositionCoorpacademySpiral,
-	NovaCompositionCoorpacademySearch,
+  NovaCompositionCoorpacademySearch,
 	NovaCompositionCoorpacademyMap,
+	NovaCompositionCoorpacademyTrophyCup,
+	NovaCompositionCoorpacademyClue,
+	NovaCompositionCoorpacademyClock,
+	NovaCompositionCoorpacademyListBullets3,
 	NovaCompositionCoorpacademyLightbulb,
+	NovaCompositionCoorpacademyChat,
+	NovaCompositionCoorpacademyVoteHeartOutline,
+	NovaCompositionCoorpacademyAdaptive,
+	NovaCompositionCoorpacademySpiral,
 	NovaCompositionCoorpacademyPictures,
+	NovaCompositionCoorpacademySettings,
+	NovaCompositionCoorpacademyCharts,
+	NovaCompositionCoorpacademyFunnel,
+	NovaCompositionCoorpacademyCog,
+	NovaCompositionCoorpacademyFilterVideo2,
+	NovaCompositionCoorpacademyBrokenHeart,
+	NovaCompositionCoorpacademyBolt,
+	NovaCompositionCoorpacademyCheck,
+	NovaCompositionCoorpacademyTimer,
+	NovaCompositionCoorpacademyStar,
+	NovaCompositionCoorpacademyTarget,
+	NovaCompositionNavigationLess,
+	NovaCompositionNavigationArrowTop,
+	NovaCompositionNavigationArrowLeft,
 	NovaCompositionNavigationArrowRight,
 	NovaCompositionNavigationMore,
-	NovaCompositionNavigationArrowLeft,
-	NovaCompositionNavigationArrowTop,
 	NovaCompositionNavigationArrowDown,
-	NovaCompositionNavigationLess,
 	NovaLineBusinessCircleView,
 	NovaLineShoppingQrCode,
 	NovaLineLoginKey1,

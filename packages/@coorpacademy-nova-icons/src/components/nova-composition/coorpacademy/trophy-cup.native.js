@@ -1,9 +1,16 @@
-import React from 'react';
-import Svg, {G, Path} from 'react-native-svg';
+import React from "react";
+import Svg, { G, Path } from "react-native-svg";
 /* SVGR has dropped some elements not supported by react-native-svg: style */
 
 const SvgComponent = props => (
-  <Svg id="prefix__Calque_1" x={0} y={0} viewBox="0 0 139 175" xmlSpace="preserve" {...props}>
+  <Svg
+    id="prefix__Calque_1"
+    x={0}
+    y={0}
+    viewBox="0 0 139 175"
+    xmlSpace="preserve"
+    {...props}
+  >
     <G id="prefix__Popin_END_good_STEP02" transform="translate(-118 -174)">
       <G id="prefix__Group-17" transform="translate(118 174)">
         <G id="prefix__Group" transform="translate(0 7)">
@@ -57,7 +64,11 @@ const SvgComponent = props => (
             className="prefix__st4"
             d="M34.8 137.4c-1.7.8-3.5 2-5.7 4 1-1.9 4.2-4.1 5.7-4"
           />
-          <Path id="prefix__Fill-14" className="prefix__st0" d="M13.7 174.9h55.4v-27.3H13.7z" />
+          <Path
+            id="prefix__Fill-14"
+            className="prefix__st0"
+            d="M13.7 174.9h55.4v-27.3H13.7z"
+          />
           <Path
             id="prefix__Fill-15"
             d="M22.6 4.2c0 5.3-1 14-3 16-2.2 2.2-10.7 3.1-16 3.1 5.3 0 14.3 1 16 3 1.8 2.2 3.1 10.8 3.1 16 0-5.4.8-13.8 3-16 2.2-2.1 10.8-3.1 16-3.1-5.3 0-14.1-1-16-3-2-2.2-3-10.7-3.1-16"

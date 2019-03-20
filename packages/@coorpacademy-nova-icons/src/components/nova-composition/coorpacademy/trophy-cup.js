@@ -1,10 +1,17 @@
-import React from 'react';
+import React from "react";
 
 const SvgComponent = props => (
-  <svg id="prefix__Calque_1" x={0} y={0} viewBox="0 0 139 175" xmlSpace="preserve" {...props}>
+  <svg
+    id="prefix__Calque_1"
+    x={0}
+    y={0}
+    viewBox="0 0 139 175"
+    xmlSpace="preserve"
+    {...props}
+  >
     <style>
       {
-        '.prefix__st0,.prefix__st1,.prefix__st4{fill-rule:evenodd;clip-rule:evenodd;fill:#fcb23a}.prefix__st1,.prefix__st4{fill:#ffd54b}.prefix__st4{fill:#fff475}'
+        ".prefix__st0,.prefix__st1,.prefix__st4{fill-rule:evenodd;clip-rule:evenodd;fill:#fcb23a}.prefix__st1,.prefix__st4{fill:#ffd54b}.prefix__st4{fill:#fff475}"
       }
     </style>
     <g id="prefix__Popin_END_good_STEP02" transform="translate(-118 -174)">
@@ -60,7 +67,11 @@ const SvgComponent = props => (
             className="prefix__st4"
             d="M34.8 137.4c-1.7.8-3.5 2-5.7 4 1-1.9 4.2-4.1 5.7-4"
           />
-          <path id="prefix__Fill-14" className="prefix__st0" d="M13.7 174.9h55.4v-27.3H13.7z" />
+          <path
+            id="prefix__Fill-14"
+            className="prefix__st0"
+            d="M13.7 174.9h55.4v-27.3H13.7z"
+          />
           <path
             id="prefix__Fill-15"
             d="M22.6 4.2c0 5.3-1 14-3 16-2.2 2.2-10.7 3.1-16 3.1 5.3 0 14.3 1 16 3 1.8 2.2 3.1 10.8 3.1 16 0-5.4.8-13.8 3-16 2.2-2.1 10.8-3.1 16-3.1-5.3 0-14.1-1-16-3-2-2.2-3-10.7-3.1-16"
