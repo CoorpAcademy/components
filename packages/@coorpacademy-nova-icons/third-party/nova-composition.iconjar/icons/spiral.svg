@@ -4,7 +4,7 @@
 	 viewBox="0 0 802 802" style="enable-background:new 0 0 802 802;" xml:space="preserve">
 
 		<g id="Group">
-			<polygon id="Path" points="432.8,0.4 368.7,0.4 400.8,401.2 			"/>
+			<polygon fill="#757575" id="Path" points="432.8,0.4 368.7,0.4 400.8,401.2 			"/>
 			<polygon fill="#757575" points="584,0.4 511.4,0.4 400.8,401.2 			"/>
 			<polygon fill="#757575" points="290.2,0.4 217.5,0.4 400.8,401.2 			"/>
 			<polygon fill="#757575" points="801.6,210.5 801.6,124.9 400.8,401.2 			"/>
@@ -23,5 +23,5 @@
 			<polygon fill="#757575" points="400.8,401.2 801.6,505.3 801.6,439.3 			"/>
 			<polygon fill="#757575" points="801.6,677.3 801.6,591.7 400.8,401.2 			"/>
 		</g>
-	
+
 </svg>
