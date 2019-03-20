@@ -192,7 +192,7 @@ export type RestrictedResourceType = 'level' | 'chapter' | 'slide';
 
 // Keep it no strict because we can extend it
 type DataLayer = {
-  getAllProgressions: () => Array<Progression>,
+  getAllProgressions: () => Promise<Array<Progression>>,
   getChapterRulesByContent: (ref: string) => Array<ChapterRule>,
   getClue: (slideId: string) => Promise<ClueAPI | void>,
   getCorrectAnswer: (slideId: string) => Promise<Array<Answer>>,
