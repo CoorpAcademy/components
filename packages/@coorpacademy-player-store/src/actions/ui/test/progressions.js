@@ -1,6 +1,11 @@
 import test from 'ava';
 import macro from '../../test/helpers/macro';
-import {selectProgression, openAssistance, UI_PROGRESSION_ACTION_TYPES} from '../progressions';
+import {
+  selectProgression,
+  openAssistance,
+  unselectProgression,
+  UI_PROGRESSION_ACTION_TYPES
+} from '../progressions';
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../api/answers';
 import {
   PROGRESSION_FETCH_REQUEST,
@@ -1401,4 +1406,19 @@ test(
     }
   ],
   9
+);
+
+test(
+  'should dispatch unselectProgression ',
+  macro,
+  {},
+  t => ({}),
+  unselectProgression,
+  [
+    {
+      type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
+      payload: {id: ''}
+    }
+  ],
+  0
 );

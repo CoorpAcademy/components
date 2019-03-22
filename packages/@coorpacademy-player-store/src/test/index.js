@@ -197,6 +197,7 @@ test('it should expose all api', t => {
     'openRecommendation',
     'UI_PROGRESSION_ACTION_TYPES',
     'progressionUpdated',
+    'unselectProgression',
     'selectProgression',
     'openAssistance',
     'UI_SELECT_ROUTE',
