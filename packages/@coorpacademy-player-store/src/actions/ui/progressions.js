@@ -80,6 +80,13 @@ export type SelectAction = {
   payload: SelectProgressionPayload
 };
 
+export const unselectProgression: SelectAction = {
+  type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
+  payload: {
+    id: ''
+  }
+};
+
 export const selectProgression = (id: ProgressionId) => async (
   dispatch: Function,
   getState: GetState
