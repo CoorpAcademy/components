@@ -39,6 +39,7 @@ import NovaLineLoginKey1 from './components/nova-line/login/key-1';
 import NovaLineContentEditionPencil2 from './components/nova-line/content-edition/pencil-2';
 import NovaLineInterfaceFeedbackInterfaceAlertCircle from './components/nova-line/interface-feedback/interface-alert-circle';
 import NovaLineStatusCheckCircle1 from './components/nova-line/status/check-circle-1';
+import NovaLineStatusCloseCircle from './components/nova-line/status/close-circle';
 import NovaLineRemoveAddRemoveCircle1 from './components/nova-line/remove-add/remove-circle-1';
 import NovaLineBookmarksTagsBookmark5 from './components/nova-line/bookmarks-tags/bookmark-5';
 import NovaLineAudioAudioControlPlay from './components/nova-line/audio/audio-control-play';
@@ -111,6 +112,7 @@ export {
 	NovaLineContentEditionPencil2,
 	NovaLineInterfaceFeedbackInterfaceAlertCircle,
 	NovaLineStatusCheckCircle1,
+	NovaLineStatusCloseCircle,
 	NovaLineRemoveAddRemoveCircle1,
 	NovaLineBookmarksTagsBookmark5,
 	NovaLineAudioAudioControlPlay,
