@@ -11,6 +11,7 @@ import svgr from '@svgr/core';
 import mkdirp from 'mkdirp-promise';
 
 import whiteList from '../icons';
+import type {Icon} from '../icons';
 import {parseMeta, getSVGFilePath} from './modules/iconjar-reader';
 import type {Meta, IconSetGroupItem} from './modules/iconjar-reader';
 import {formatKebabCase, formatPascalCase} from './modules/string-formatter';
@@ -85,18 +86,20 @@ const findElementAndReplaceAttributes = (
   };
 };
 
-const template = (
+const template = (replaceColors?: boolean = true) => (
   {template: templateAlias, types},
   opts,
   {imports: importsAlias, componentName, props, jsx, exports: exportsAlias}
 ): // eslint-disable-next-line flowtype/no-weak-types
 Object => {
-  const jsxWithoutFillColors = findElementAndReplaceAttributes(jsx, opts.native, types);
+  const extendedJsx = replaceColors
+    ? findElementAndReplaceAttributes(jsx, opts.native, types)
+    : jsx;
 
   // @todo add flow type
   return templateAlias.ast`
     ${importsAlias}
-    const ${componentName} = props => ${jsxWithoutFillColors}
+    const ${componentName} = props => ${extendedJsx}
     ${exportsAlias}
   `;
 };
@@ -104,6 +107,7 @@ Object => {
 const generateComponent = (
   fileContent: Buffer,
   fileName: string,
+  replaceColors?: boolean,
   native?: boolean = false
 ): string => {
   const options = {
@@ -112,7 +116,7 @@ const generateComponent = (
     icon: true,
     dimensions: false,
     native,
-    template
+    template: template(replaceColors)
   };
   const extensionSuffix = (native && '.native') || '';
   const extendedFileName = fileName.replace('.svg', `${extensionSuffix}.js`);
@@ -132,10 +136,15 @@ const generateComponent = (
   return extendedFileName;
 };
 
-const wrongFiles = whiteList.filter(filePath => !fs.existsSync(filePath));
+const wrongFiles = whiteList.filter(({filePath}) => !fs.existsSync(filePath));
 if (wrongFiles.length > 0) {
-  throw new Error(chalk.red('Invalid icons:', ...wrongFiles.map(filePath => `\n - ${filePath}`)));
+  throw new Error(
+    chalk.red('Invalid icons:', ...wrongFiles.map(({filePath}) => `\n - ${filePath}`))
+  );
 }
+
+const findIcon = (filePath: string): Icon | void =>
+  whiteList.find(({filePath: whiteListFilePath}) => whiteListFilePath === filePath);
 
 type OutputFile = {|
   name: string,
@@ -173,12 +182,22 @@ const files: Array<OutputFile> = globby
             item,
             filePath: getSVGFilePath(iconJarFileName, item.file)
           }))
-          .filter(({filePath}) =>
-            whiteList.find(whiteListFilePath => whiteListFilePath === filePath)
-          );
+          .filter(({filePath}) => findIcon(filePath))
+          .map(({item, filePath}): {
+            item: IconSetGroupItem,
+            filePath: string,
+            replaceColors?: boolean
+          } => {
+            const {replaceColors} = findIcon(filePath) || {};
+            return {
+              item,
+              filePath,
+              replaceColors
+            };
+          });
 
         return itemArrayFiltered
-          .map(({item, filePath}): Array<string> => {
+          .map(({item, filePath, replaceColors}): Array<string> => {
             const content = fs.readFileSync(filePath);
             // $FlowFixMe path.join() is defined
             const outputFileName = path.join(
@@ -188,8 +207,8 @@ const files: Array<OutputFile> = globby
             );
 
             return [
-              generateComponent(content, outputFileName),
-              generateComponent(content, outputFileName, true)
+              generateComponent(content, outputFileName, replaceColors),
+              generateComponent(content, outputFileName, replaceColors, true)
             ];
           })
           .reduce((result, outputFileNames) => result.concat(outputFileNames), []);
