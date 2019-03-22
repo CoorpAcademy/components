@@ -40,14 +40,14 @@ const SvgComponent = props => (
             d="M55.3.2h15.8c1.7 42.1-3.9 80-24.9 104.6 2.3 5.4 1.5 10.1-2.8 14.1l-.1 10.4c3.4 2.2 4.5 4.5 4.5 7.7 3.6.9 6 2.6 7 4.7v5.8h-2v-5.8c-1.9-2.8-6-4.2-7.7-4.4 0-1.7.8-4.7-3.7-8V119c.2-.4-2.2-.3-1.8-.4 4-1.2 5.7-9.7 1.6-13.2-3.5-2.9-3.7.7 1-3.4 2-1.8 4-7.4 5.2-11.6 7.8-26.7 11-58.3 7.9-90.2"
             fillRule="evenodd"
             clipRule="evenodd"
-            fill={props.color}
+            fill="#fcc23a"
           />
           <Path
             id="prefix__Fill-10"
             d="M22.8.2c-.6 15.9-1 46.3 2.4 71.1C18 56.5 14 22.9 14.2.2h8.6"
             fillRule="evenodd"
             clipRule="evenodd"
-            fill={props.color}
+            fill="#ffee8f"
           />
           <Path
             id="prefix__Fill-11"
@@ -75,7 +75,7 @@ const SvgComponent = props => (
             opacity={0.591}
             fillRule="evenodd"
             clipRule="evenodd"
-            fill={props.color}
+            fill="#fefefe"
           />
           <Path
             id="prefix__Fill-16"
