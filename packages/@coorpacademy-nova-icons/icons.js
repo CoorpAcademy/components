@@ -8,6 +8,7 @@ export type Icon = {|
 |};
 
 const icons: Array<Icon> = [
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/tooltip-corner.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/target.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/settings.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/adaptive.svg')},
