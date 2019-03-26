@@ -48,6 +48,7 @@ import NovaLineAudioAudioControlPlay from './components/nova-line/audio/audio-co
 import NovaLineVideosVideoClip3 from './components/nova-line/videos/video-clip-3';
 import NovaLineFilesOfficeFileOfficePdf from './components/nova-line/files-office/file-office-pdf';
 import NovaLineComputersComputerScreen1 from './components/nova-line/computers/computer-screen-1';
+import NovaSolidPlacesPlacesHome2 from './components/nova-solid/places/places-home-2';
 import NovaSolidDataTransferDataUpload1 from './components/nova-solid/data-transfer/data-upload-1';
 import NovaSolidSchoolScienceGraduationHat from './components/nova-solid/school-science/graduation-hat';
 import NovaSolidVoteRewardsVoteStar from './components/nova-solid/vote-rewards/vote-star';
@@ -123,6 +124,7 @@ export {
 	NovaLineVideosVideoClip3,
 	NovaLineFilesOfficeFileOfficePdf,
 	NovaLineComputersComputerScreen1,
+	NovaSolidPlacesPlacesHome2,
 	NovaSolidDataTransferDataUpload1,
 	NovaSolidSchoolScienceGraduationHat,
 	NovaSolidVoteRewardsVoteStar,
