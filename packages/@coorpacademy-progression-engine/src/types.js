@@ -109,22 +109,17 @@ export type State = {
   content?: Content
 } & GenericState;
 
-export type AskClueAction = {|
-  type: 'clue',
-  payload: {
-    content: ContentSlide
-  }
+type GenericAction = {|
+  createdAt?: string
 |};
 
-export type ContentResourceViewedAction = {|
-  type: 'resource',
-  payload: {
-    resource: ResourceContent,
-    content: Content
-  }
+export type InitAction = {|
+  ...GenericAction,
+  type: 'init'
 |};
 
 export type AnswerAction = {|
+  ...GenericAction,
   type: 'answer',
   payload: {
     content: Content,
@@ -136,19 +131,16 @@ export type AnswerAction = {|
   }
 |};
 
-export type InitAction = {|
-  type: 'init'
-|};
-
-export type MoveAction = {|
-  type: 'move',
+export type AskClueAction = {|
+  ...GenericAction,
+  type: 'clue',
   payload: {
-    nextContent: Content,
-    instructions?: Array<Instruction> | null
+    content: ContentSlide
   }
 |};
 
 export type ExtraLifeAcceptedAction = {|
+  ...GenericAction,
   type: 'extraLifeAccepted',
   payload: {
     content: Content,
@@ -158,10 +150,29 @@ export type ExtraLifeAcceptedAction = {|
 |};
 
 export type ExtraLifeRefusedAction = {|
+  ...GenericAction,
   type: 'extraLifeRefused',
   payload: {
     content: Content,
     nextContent: Content
+  }
+|};
+
+export type ContentResourceViewedAction = {|
+  ...GenericAction,
+  type: 'resource',
+  payload: {
+    resource: ResourceContent,
+    content: Content
+  }
+|};
+
+export type MoveAction = {|
+  ...GenericAction,
+  type: 'move',
+  payload: {
+    nextContent: Content,
+    instructions?: Array<Instruction> | null
   }
 |};
 
