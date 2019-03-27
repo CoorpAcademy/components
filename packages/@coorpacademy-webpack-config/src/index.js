@@ -64,7 +64,6 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
             {
               loader: 'css-loader',
               options: {
-                minimize: isProduction,
                 modules: true,
                 localIdentName: hash
               }
