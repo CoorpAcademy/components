@@ -71,6 +71,7 @@ import NovaSolidContentEditionPencil1 from './components/nova-solid/content-edit
 import NovaSolidRemoveAddAdd1 from './components/nova-solid/remove-add/add-1';
 import NovaSolidRemoveAddSubtract1 from './components/nova-solid/remove-add/subtract-1';
 import NovaSolidAudioAudioControlPlay from './components/nova-solid/audio/audio-control-play';
+import NovaSolidLocationsLocationPinQuestionMark1 from './components/nova-solid/locations/location-pin-question-mark-1';
 import NovaSolidLocationsCompass3 from './components/nova-solid/locations/compass-3';
 import NovaSolidLightsLightbulb4 from './components/nova-solid/lights/lightbulb-4';
 
@@ -142,6 +143,7 @@ export {
 	NovaSolidRemoveAddAdd1,
 	NovaSolidRemoveAddSubtract1,
 	NovaSolidAudioAudioControlPlay,
+	NovaSolidLocationsLocationPinQuestionMark1,
 	NovaSolidLocationsCompass3,
 	NovaSolidLightsLightbulb4,
 };
