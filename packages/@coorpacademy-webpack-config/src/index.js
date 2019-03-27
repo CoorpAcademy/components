@@ -93,9 +93,9 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
       if (isProduction)
         plugins.push(
           new CompressionPlugin({
-            asset: '[path].gz',
+            filename: '[path].gz',
             algorithm: 'gzip',
-            regExp: /\.js$|\.css$/,
+            test: /\.js$|\.css$/,
             threshold: 10240,
             minRatio: 0.8
           })
