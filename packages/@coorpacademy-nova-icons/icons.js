@@ -26,6 +26,10 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/less.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/lightbulb.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/list-bullets-3.svg')},
+  {
+    filePath: path.resolve('./third-party/nova-composition.iconjar/icons/lock.svg'),
+    replaceColors: false
+  },
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/map.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/more.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/pictures.svg')},
@@ -35,6 +39,7 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/star.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/target.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/timer.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/tooltip-corner.svg')},
   {
     filePath: path.resolve('./third-party/nova-composition.iconjar/icons/trophy-cup.svg'),
     replaceColors: false
@@ -44,12 +49,14 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/bookmark-5.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/check-circle-1.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/circle-view.svg')},
+  {filePath: path.resolve('./third-party/nova-line.iconjar/icons/close-circle.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/computer-screen-1.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/file-office-pdf.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/interface-alert-circle.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/key-1.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/pencil-2.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/qr-code.svg')},
+  {filePath: path.resolve('./third-party/nova-line.iconjar/icons/remove-circle-1.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/video-clip-3.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/add-1.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/audio-control-play.svg')},
@@ -74,6 +81,7 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/lock-1.1.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/lock-unlock-1.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/pencil-1.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/places-home-2.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/programming-jigsaw.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/redo.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/rewards-badge-1.svg')},
