@@ -44,7 +44,7 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
             cacheDirectory: true,
             presets: [
               [
-                'env',
+                '@babel/preset-env',
                 {
                   targets: {
                     browsers: ['last 2 versions']
@@ -54,7 +54,7 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
                 }
               ]
             ],
-            plugins: ['transform-object-assign']
+            plugins: ['@babel/plugin-proposal-object-rest-spread']
           }
         },
         {

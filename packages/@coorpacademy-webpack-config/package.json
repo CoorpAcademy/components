@@ -19,6 +19,7 @@
     "prepare": "npm run clean && npm run build --production"
   },
   "contributors": [
+    "Adrien Becchis <adrien.becchis@coorpacademy.com>",
     "Arthur Weber <arthur.weber@coorpacademy.com>",
     "Christophe Dugne-Esquevin <christophe.dugne@coorpacademy.com>",
     "Gaelle Leguet <gaelle.leguet@coorpacademy.com>",
