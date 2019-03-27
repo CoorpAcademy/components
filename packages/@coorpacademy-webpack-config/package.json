@@ -32,14 +32,14 @@
     "@babel/plugin-transform-object-assign": "^7.0.0",
     "@babel/preset-env": "^7.0.0",
     "babel-loader": "^8.0.0",
-    "compression-webpack-plugin": "^1.0.0",
-    "css-loader": "^0.28.11",
+    "compression-webpack-plugin": "^2.0.0",
+    "css-loader": "^2.1.1",
     "json-loader": "^0.5.4",
-    "mini-css-extract-plugin": "^0.4.0",
+    "mini-css-extract-plugin": "^0.5.0",
     "nyc": "^13.1.0",
-    "postcss-loader": "^2.0.5",
-    "style-loader": "^0.21.0",
-    "webpack-bundle-analyzer": "^2.11.2"
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^0.23.1",
+    "webpack-bundle-analyzer": "^3.1.0"
   },
   "ava": {
     "files": [
@@ -53,9 +53,9 @@
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
-    "babel-plugin-istanbul": "^4.1.4",
+    "babel-plugin-istanbul": "^5.1.1",
     "cross-env": "^5.0.0",
-    "eslint": "^4.18.2",
+    "eslint": "^5.15.3",
     "rimraf": "^2.6.1",
     "webpack": "^4.8.2"
   },
