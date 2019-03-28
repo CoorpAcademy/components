@@ -74,9 +74,10 @@ const Table = (props, context) => {
     });
 
     tableRows.unshift(
+      // TODO restore dropped support of hoverColor={brandColor}
       <td key="header">
         <Link href={editHref}>
-          <PencilIcon color={mediumColor} hoverColor={brandColor} height={16} width={16} />
+          <PencilIcon color={mediumColor} height={16} width={16} />
         </Link>
       </td>
     );
