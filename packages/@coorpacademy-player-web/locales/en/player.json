@@ -21,7 +21,7 @@
   "Go to settings account in the upper right hand corner": "Go to <b>Settings > Account</b> </br>in the upper right-hand corner",
   "Good answer": "Good answer",
   "Good job": "Good job!",
-  "Highscore": "You have a new highscore<br><b>you just won +17 stars</b>",
+  "Highscore": "You have a new highscore<br><b>you just won {{score}} stars</b>",
   "Key point": "Key point",
   "Media": "Lesson",
   "Next chapter": "Next chapter",
