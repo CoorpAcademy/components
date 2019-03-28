@@ -218,15 +218,17 @@ class MoocHeader extends React.Component {
 
     if (user) {
       notificationsView =
-        user.notifications > 0 ? (
-          <div
+        user.notifications && user.notifications.value > 0 ? (
+          <Link
+            href={user.notifications.href}
+            data-name="user-notifications"
             className={style.notifications}
             style={{
               backgroundColor: primaryColor
             }}
           >
-            {user.notifications}
-          </div>
+            {user.notifications.value}
+          </Link>
         ) : null;
 
       userView = (
