@@ -29,6 +29,18 @@ test(
 );
 
 test(
+  "shouldn't reset entities map",
+  macro,
+  reducer,
+  {entities: {bar: {_id: 'bar', baz: 'bar'}}},
+  {
+    type: PROGRESSION_CREATE_SUCCESS,
+    payload: {_id: 'foo', baz: 'bar'}
+  },
+  {entities: {foo: {_id: 'foo', baz: 'bar'}, bar: {_id: 'bar', baz: 'bar'}}}
+);
+
+test(
   'should set default progression id on createProgression success',
   macro,
   reducer,
