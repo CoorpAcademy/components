@@ -4,7 +4,7 @@ import get from 'lodash/fp/get';
 import {
   NovaCompositionNavigationArrowDown as ArrowDown,
   NovaCompositionCoorpacademyFunnel as FunnelIcon,
-  NovaSolidCOntentEditionPencil1 as PencilIcon
+  NovaSolidContentEditionPencil1 as PencilIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import Checkbox from '../../atom/checkbox';
