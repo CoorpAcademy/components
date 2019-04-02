@@ -16,7 +16,7 @@ const Table = (props, context) => {
   const {skin} = context;
 
   const mediumColor = get('common.medium', skin);
-  const brandColor = get('common.brand', skin);
+  // const brandColor = get('common.brand', skin);
 
   const headerView = columns.map((column, cIndex) => {
     const {title, filtered, options = []} = column;

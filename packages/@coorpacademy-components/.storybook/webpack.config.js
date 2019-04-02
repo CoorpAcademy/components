@@ -2,8 +2,8 @@ const hash = '[folder]_[local]-[hash:base64:5]';
 const path = require('path');
 const webpack = require('webpack');
 
-module.exports = (baseConfig, env, defaultConfig) => {
-  baseConfig.module.rules = [
+module.exports = ({config}) => {
+  config.module.rules = [
     {
       test: /\.(ttf|otf|eot|svg|woff)$/,
       loader: 'file-loader'
@@ -24,10 +24,21 @@ module.exports = (baseConfig, env, defaultConfig) => {
               loose: true
             }
           ],
-          "stage-1",
-          "react"
+
+          '@babel/preset-react',
+          '@babel/preset-flow'
         ],
-        plugins: ['transform-object-assign']
+        plugins: [
+          '@babel/transform-object-assign',
+          '@babel/plugin-proposal-export-default-from',
+          '@babel/plugin-proposal-logical-assignment-operators',
+          ['@babel/plugin-proposal-optional-chaining', {loose: false}],
+          ['@babel/plugin-proposal-pipeline-operator', {proposal: 'minimal'}],
+          ['@babel/plugin-proposal-nullish-coalescing-operator', {loose: false}],
+          '@babel/plugin-proposal-do-expressions',
+          '@babel/plugin-transform-destructuring',
+          '@babel/plugin-transform-block-scoping'
+        ]
       },
       exclude: [/node_modules/]
     },
@@ -54,5 +65,5 @@ module.exports = (baseConfig, env, defaultConfig) => {
     }
   ];
 
-  return baseConfig;
+  return config;
 };
