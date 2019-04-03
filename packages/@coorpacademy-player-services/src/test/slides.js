@@ -16,5 +16,5 @@ test('should findById', async t => {
 });
 
 test("should throw error if slide doesn't exist", t => {
-  return t.throws(findById('unknown'));
+  return t.throwsAsync(() => findById('unknown'));
 });

@@ -38,7 +38,8 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
     "@babel/polyfill": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
-    "ava": "^0.25.0",
+    "@babel/preset-flow": "^7.0.0",
+    "ava": "^1.4.1",
     "babel-plugin-istanbul": "^4.1.4",
     "browser-env": "^3.2.5",
     "concurrently": "^3.5.1",
@@ -47,8 +48,7 @@
     "flow-bin": "^0.75.0",
     "flow-copy-source": "^2.0.2",
     "nyc": "^13.1.0",
-    "rimraf": "^2.6.1",
-    "@babel/preset-flow": "^7.0.0"
+    "rimraf": "^2.6.1"
   },
   "dependencies": {
     "@coorpacademy/progression-engine": "10.3.15",
@@ -67,13 +67,15 @@
       "@babel/polyfill"
     ],
     "babel": {
-      "presets": [
-        "@ava/stage-4",
-        "flow"
-      ],
-      "plugins": [
-        "transform-object-rest-spread"
-      ]
+      "testOptions": {
+        "presets": [
+          "@ava/stage-4",
+          "@babel/preset-flow"
+        ],
+        "plugins": [
+          "@babel/plugin-proposal-object-rest-spread"
+        ]
+      }
     }
   }
 }

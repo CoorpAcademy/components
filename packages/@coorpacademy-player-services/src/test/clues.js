@@ -34,7 +34,10 @@ test('should findById', async t => {
 });
 
 test('should fail for wrong progressionId', t => {
-  return t.throws(Progressions.requestClue('wrongId', {}), 'progression "wrongId" not found');
+  return t.throwsAsync(
+    () => Progressions.requestClue('wrongId', {}),
+    'progression "wrongId" not found'
+  );
 });
 
 test("should throw error if slide doesn't exist", async t => {
@@ -45,7 +48,7 @@ test("should throw error if slide doesn't exist", async t => {
   const corruptProgression = await Progressions.save(
     pipe(set('state.content.ref', 'unknown'), set('state.requestedClues', ['unknown']))(progression)
   );
-  return t.throws(findById(corruptProgression._id, 'unknown'), 'Clue not found');
+  return t.throwsAsync(() => findById(corruptProgression._id, 'unknown'), 'Clue not found');
 });
 
 test("should throw error if clue haven't been requested", async t => {
@@ -53,11 +56,11 @@ test("should throw error if clue haven't been requested", async t => {
     type: 'chapter',
     ref: '5.C7'
   });
-  return t.throws(findById(progression._id, 'unknown'), 'Clue is not available');
+  return t.throwsAsync(() => findById(progression._id, 'unknown'), 'Clue is not available');
 });
 
-test('should fail with wrong progressionId', t => {
-  return t.throws(findById('wrongId', {}), 'progression "wrongId" not found');
+test('should fail with wrong progressionId2', t => {
+  return t.throwsAsync(() => findById('wrongId', {}), 'progression "wrongId" not found');
 });
 
 test('should fail to acceptExtraLife with progression without state', async t => {
@@ -65,5 +68,8 @@ test('should fail to acceptExtraLife with progression without state', async t =>
   delete progression.state;
   Progressions.save(progression);
 
-  return t.throws(findById(progression._id, {}), `progression "${progression._id}" has no state`);
+  return t.throwsAsync(
+    () => findById(progression._id, {}),
+    `progression "${progression._id}" has no state`
+  );
 });
