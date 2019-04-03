@@ -36,7 +36,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
     "@babel/polyfill": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
-    "ava": "^0.25.0",
+    "ava": "^1.4.1",
     "babel-plugin-istanbul": "^4.1.4",
     "browser-env": "^3.2.5",
     "cross-env": "^5.0.0",
@@ -69,13 +69,15 @@
       "@babel/polyfill"
     ],
     "babel": {
-      "presets": [
-        "@ava/stage-4",
-        "flow"
-      ],
-      "plugins": [
-        "transform-object-rest-spread"
-      ]
+      "testOptions": {
+        "presets": [
+          "@ava/stage-4",
+          "flow"
+        ],
+        "plugins": [
+          "@babel/plugin-proposal-object-rest-spread"
+        ]
+      }
     }
   }
 }
