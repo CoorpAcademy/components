@@ -49,7 +49,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
     "@babel/preset-flow": "^7.0.0",
-    "ava": "^0.25.0",
+    "ava": "^1.4.1",
     "babel-plugin-istanbul": "^4.1.4",
     "concurrently": "^3.5.1",
     "cross-env": "^5.0.0",
@@ -64,10 +64,23 @@
       "src/**/test/**/*.js"
     ],
     "require": [
-      "@babel/register",
-      "@babel/polyfill"
+      "@babel/polyfill",
+      "../../test/helpers/throw-warning",
+      "@babel/register"
     ],
-    "babel": "inherit"
+    "babel": {
+      "testOptions": {
+        "plugins": [
+          "@babel/plugin-proposal-export-default-from",
+          "@babel/plugin-proposal-export-namespace-from",
+          "@babel/plugin-proposal-object-rest-spread",
+          "@babel/plugin-proposal-class-properties"
+        ],
+        "presets": [
+          "@ava/stage-4"
+        ]
+      }
+    }
   },
   "author": "CoorpAcademy"
 }
