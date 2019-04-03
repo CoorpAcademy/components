@@ -36,10 +36,10 @@
     "path-match": "^1.2.4"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.24.1",
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
     "babel-plugin-istanbul": "^4.1.4",
-    "babel-preset-env": "^1.5.2",
     "cross-env": "^5.0.0",
     "eslint": "^4.18.2",
     "rimraf": "^2.6.1"
