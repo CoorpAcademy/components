@@ -36,12 +36,12 @@
     "lodash": "^4.17.4"
   },
   "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
     "@coorpacademy/eslint-plugin-coorpacademy": "^8.3.0",
     "ava": "^0.25.0",
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.24.1",
     "babel-plugin-istanbul": "^4.1.4",
-    "babel-preset-env": "^1.5.2",
     "cross-env": "^5.0.0",
     "eslint": "^4.18.2",
     "nyc": "^13.1.0",
@@ -53,7 +53,7 @@
       "src/**/test/**/*.js"
     ],
     "require": [
-      "babel-register"
+      "@babel/register"
     ],
     "babel": "inherit"
   }
