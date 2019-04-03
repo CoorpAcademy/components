@@ -27,7 +27,10 @@
   "author": "CoorpAcademy",
   "dependencies": {
     "@babel/cli": "^7.4.3",
-    "async": "^2.6.2"
+    "async": "^2.6.2",
+    "chalk": "^2.4.2",
+    "globby": "^9.1.0",
+    "mkdirp-promise": "^5.0.1"
   },
   "peerDependencies": {
     "react": "^16.3.2"
@@ -46,13 +49,10 @@
     "babel-plugin-css-modules-transform": "^1.6.2",
     "babel-plugin-istanbul": "^5.1.1",
     "babel-plugin-transform-react-remove-prop-types": "0.4.24",
-    "chalk": "^2.4.2",
     "concurrently": "^4.1.0",
     "cross-env": "^5.2.0",
     "eslint": "^5.15.3",
     "flow-bin": "^0.95.1",
-    "globby": "^9.1.0",
-    "mkdirp-promise": "^5.0.1",
     "react": "^16.8.6"
   }
 }

@@ -15,7 +15,7 @@ module.exports = ({config}) => {
         cacheDirectory: true,
         presets: [
           [
-            'env',
+            '@babel/preset-env',
             {
               targets: {
                 browsers: ['last 2 versions']
@@ -51,7 +51,6 @@ module.exports = ({config}) => {
         {
           loader: 'css-loader',
           options: {
-            minimize: true,
             modules: true,
             importLoaders: 1,
             localIdentName: `${hash}`
