@@ -16,7 +16,7 @@ const {find, getInfo} = createContentService(fixtures);
 const first = pipe(values, head);
 
 test('should throw error if content type is unknown', t => {
-  return t.throws(find('unknown', 'foo'));
+  return t.throwsAsync(() => find('unknown', 'foo'));
 });
 
 test('should find a level', async t => {
@@ -25,7 +25,7 @@ test('should find a level', async t => {
 });
 
 test('should tell when a level is not found', async t => {
-  const error = await t.throws(find('level', 'unknownLevelId'));
+  const error = await t.throwsAsync(() => find('level', 'unknownLevelId'));
   t.is(error.message, 'Level unknownLevelId not found');
 });
 
@@ -35,7 +35,7 @@ test('should find a chapter', async t => {
 });
 
 test('should tell when a chapter is not found', async t => {
-  const error = await t.throws(find('chapter', 'unknownChapterId'));
+  const error = await t.throwsAsync(() => find('chapter', 'unknownChapterId'));
   t.is(error.message, 'Chapter unknownChapterId not found');
 });
 
@@ -45,7 +45,7 @@ test('should find a slide', async t => {
 });
 
 test('should tell when a slide is not found', async t => {
-  const error = await t.throws(find('slide', 'unknownSlideId'));
+  const error = await t.throwsAsync(() => find('slide', 'unknownSlideId'));
   t.is(error.message, 'Slide unknownSlideId not found');
 });
 

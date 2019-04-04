@@ -48,14 +48,14 @@ test("findById should throw error if slide doesn't exist", async t => {
     type: 'chapter',
     ref: '5.C7'
   });
-  return t.throws(
-    findById(progression._id, progression.state.nextContent.ref, ['foo', 'bar']),
+  return t.throwsAsync(
+    () => findById(progression._id, progression.state.nextContent.ref, ['foo', 'bar']),
     'Answer is not available'
   );
 });
 
 test('should fail with wrong progressionId', t => {
-  return t.throws(findById('wrongId', {}), 'progression "wrongId" not found');
+  return t.throwsAsync(() => findById('wrongId', {}), 'progression "wrongId" not found');
 });
 
 test('should fail to acceptExtraLife with progression without state', async t => {
@@ -66,5 +66,8 @@ test('should fail to acceptExtraLife with progression without state', async t =>
   delete progression.state;
   ProgressionsService.save(progression);
 
-  return t.throws(findById(progression._id, {}), `progression "${progression._id}" has no state`);
+  return t.throwsAsync(
+    () => findById(progression._id, {}),
+    `progression "${progression._id}" has no state`
+  );
 });

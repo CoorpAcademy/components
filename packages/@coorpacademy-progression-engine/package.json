@@ -44,13 +44,13 @@
     "lodash": "^4.17.4"
   },
   "devDependencies": {
-    "ava": "^0.25.0",
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.24.1",
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-flow": "^7.0.0",
+    "ava": "^1.4.1",
     "babel-plugin-istanbul": "^4.1.4",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.5.2",
-    "babel-preset-flow": "^6.23.0",
     "concurrently": "^3.5.1",
     "cross-env": "^5.0.0",
     "eslint": "^4.18.2",
@@ -64,10 +64,23 @@
       "src/**/test/**/*.js"
     ],
     "require": [
-      "babel-register",
-      "babel-polyfill"
+      "@babel/polyfill",
+      "../../test/helpers/throw-warning",
+      "@babel/register"
     ],
-    "babel": "inherit"
+    "babel": {
+      "testOptions": {
+        "plugins": [
+          "@babel/plugin-proposal-export-default-from",
+          "@babel/plugin-proposal-export-namespace-from",
+          "@babel/plugin-proposal-object-rest-spread",
+          "@babel/plugin-proposal-class-properties"
+        ],
+        "presets": [
+          "@ava/stage-4"
+        ]
+      }
+    }
   },
   "author": "CoorpAcademy"
 }

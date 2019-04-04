@@ -86,7 +86,7 @@ test(
   [0, 1]
 );
 test(
-  'should limit hangles',
+  'should limit hangles 2',
   macro,
   {multi: true, value: [0.4, 0.6]},
   {left: 0, right: 100},

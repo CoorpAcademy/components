@@ -4,7 +4,7 @@ import get from 'lodash/fp/get';
 import {
   NovaCompositionNavigationArrowDown as ArrowDown,
   NovaCompositionCoorpacademyFunnel as FunnelIcon,
-  NovaSolidCOntentEditionPencil1 as PencilIcon
+  NovaSolidContentEditionPencil1 as PencilIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import Checkbox from '../../atom/checkbox';
@@ -16,7 +16,7 @@ const Table = (props, context) => {
   const {skin} = context;
 
   const mediumColor = get('common.medium', skin);
-  const brandColor = get('common.brand', skin);
+  // const brandColor = get('common.brand', skin);
 
   const headerView = columns.map((column, cIndex) => {
     const {title, filtered, options = []} = column;
@@ -74,9 +74,10 @@ const Table = (props, context) => {
     });
 
     tableRows.unshift(
+      // TODO restore dropped support of hoverColor={brandColor}
       <td key="header">
         <Link href={editHref}>
-          <PencilIcon color={mediumColor} hoverColor={brandColor} height={16} width={16} />
+          <PencilIcon color={mediumColor} height={16} width={16} />
         </Link>
       </td>
     );

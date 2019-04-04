@@ -40,8 +40,8 @@ test('it should forward any task error', async t => {
   const firstPromise = setPlayerScore('john', 0);
   const secondPromise = setPlayerScore('john', 1);
 
-  await t.throws(firstPromise, "Can't set score to 0 from john");
-  return t.throws(secondPromise, "Can't set score to 0 from john");
+  await t.throwsAsync(firstPromise, "Can't set score to 0 from john");
+  return t.throwsAsync(secondPromise, "Can't set score to 0 from john");
 });
 
 test('it not should return the same promise if first argument is the same and last task failed before second call', async t => {
@@ -49,8 +49,8 @@ test('it not should return the same promise if first argument is the same and la
     Promise.reject(new Error(`Can't set score to ${score} from ${playerId}`))
   );
 
-  await t.throws(setPlayerScore('john', 0), "Can't set score to 0 from john");
-  return t.throws(setPlayerScore('john', 1), "Can't set score to 1 from john");
+  await t.throwsAsync(setPlayerScore('john', 0), "Can't set score to 0 from john");
+  return t.throwsAsync(setPlayerScore('john', 1), "Can't set score to 1 from john");
 });
 
 test('it should forward any error from the memoize cache', t => {
@@ -66,5 +66,5 @@ test('it should forward any error from the memoize cache', t => {
 
   const setPlayerScore = memoizeTaskWithCacheFailures((playerId, score) => Promise.resolve(score));
 
-  return t.throws(setPlayerScore('john', 0), "No, I won't delete cache id john");
+  return t.throwsAsync(setPlayerScore('john', 0), "No, I won't delete cache id john");
 });

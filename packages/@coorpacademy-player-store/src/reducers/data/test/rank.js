@@ -47,7 +47,7 @@ test(
 );
 
 test(
-  'should remove null on failure',
+  'should remove null on failure -- failure on start',
   macro,
   reducer,
   {start: null},

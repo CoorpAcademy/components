@@ -12,7 +12,7 @@
   "scripts": {
     "test": "npm run lint",
     "lint": "npm run eslint",
-    "eslint": "eslint ./ *.js *.json --ext .js,.json",
+    "eslint": "eslint . --ext .js,.json",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
     "build": "npm run build:commonjs && npm run build:es",
@@ -36,10 +36,10 @@
     "path-match": "^1.2.4"
   },
   "devDependencies": {
-    "babel-cli": "^6.24.1",
-    "babel-core": "^6.24.1",
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
     "babel-plugin-istanbul": "^4.1.4",
-    "babel-preset-env": "^1.5.2",
     "cross-env": "^5.0.0",
     "eslint": "^4.18.2",
     "rimraf": "^2.6.1"

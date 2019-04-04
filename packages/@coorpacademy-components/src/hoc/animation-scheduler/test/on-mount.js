@@ -103,7 +103,7 @@ test('should ignore text child', t => {
 });
 
 test('AnimationAdapter should call onAnimationEnd', t => {
-  return t.notThrows(
+  return t.notThrowsAsync(
     new Promise(resolve => {
       mount(
         <AnimationScheduler animated>
