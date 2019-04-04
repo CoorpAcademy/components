@@ -39,7 +39,6 @@
     "@babel/cli": "^7.4.3",
     "@babel/core": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
-    "@coorpacademy/eslint-plugin-coorpacademy": "^8.3.0",
     "ava": "^1.4.1",
     "babel-plugin-istanbul": "^4.1.4",
     "cross-env": "^5.0.0",

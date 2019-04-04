@@ -66,13 +66,14 @@
     ],
     "require": [
       "@babel/register",
-      "@babel/polyfill"
+      "@babel/polyfill",
+      "./src/test/helpers/css-register"
     ],
     "babel": {
       "testOptions": {
         "presets": [
           "@ava/stage-4",
-          "flow"
+          "@babel/preset-env"
         ],
         "plugins": [
           "@babel/plugin-proposal-object-rest-spread"

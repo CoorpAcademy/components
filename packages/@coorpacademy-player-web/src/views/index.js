@@ -1,7 +1,5 @@
-import Loading from '@coorpacademy/components/es/template/app-player/loading';
-import Player from '@coorpacademy/components/es/template/app-player/player';
-import PopinCorrection from '@coorpacademy/components/es/template/app-player/popin-correction';
-import PopinEnd from '@coorpacademy/components/es/template/app-player/popin-end';
+import {Loading, Player, PopinCorrection, PopinEnd} from '@coorpacademy/components';
+
 import pipe from 'lodash/fp/pipe';
 import {createElement} from 'react';
 

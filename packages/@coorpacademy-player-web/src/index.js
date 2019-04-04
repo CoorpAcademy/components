@@ -1,7 +1,7 @@
 import {render, unmountComponentAtNode} from 'react-dom';
 import {createElement} from 'react';
 import pipe from 'lodash/fp/pipe';
-import Provider from '@coorpacademy/components/es/atom/provider';
+import {Provider} from '@coorpacademy/components';
 import {selectProgression, updateCoaches} from '@coorpacademy/player-store';
 import runApp from './run-app';
 import createStore from './store';
