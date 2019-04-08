@@ -5,7 +5,7 @@ import get from 'lodash/fp/get';
 import keys from 'lodash/fp/keys';
 import {
   NovaSolidBookmarksTagsBookmark5 as AddBookmarkIcon,
-  NovaLineBookmarksTagsBookmarks5 as RemoveBookmarkIcon,
+  NovaLineBookmarksTagsBookmark5 as RemoveBookmarkIcon,
   NovaSolidLocksLock11 as LockIcon,
   NovaSolidLocksLockUnlock1 as UnlockIcon
 } from '@coorpacademy/nova-icons';
