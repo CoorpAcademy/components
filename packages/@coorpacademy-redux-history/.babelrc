@@ -1,7 +1,5 @@
 {
-  "plugins": [
-        ["@babel/plugin-proposal-object-rest-spread", {"loose": true}],
-  ],
+  "plugins": [["@babel/plugin-proposal-object-rest-spread", { "loose": true }]],
   "env": {
     "commonjs": {
       "presets": [
@@ -28,9 +26,7 @@
           }
         ]
       ],
-      "plugins": [
-        "istanbul"
-      ]
+      "plugins": ["istanbul"]
     },
     "es": {
       "presets": [

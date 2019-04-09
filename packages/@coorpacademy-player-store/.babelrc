@@ -1,10 +1,6 @@
 {
-  "presets": [
-    "@babel/preset-flow"
-  ],
-  "plugins": [
-        ["@babel/plugin-proposal-object-rest-spread", {"loose": true}],
-  ],
+  "presets": ["@babel/preset-flow"],
+  "plugins": [["@babel/plugin-proposal-object-rest-spread", { "loose": true }]],
   "env": {
     "commonjs": {
       "presets": [
@@ -31,9 +27,7 @@
           }
         ]
       ],
-      "plugins": [
-        "istanbul"
-      ]
+      "plugins": ["istanbul"]
     },
     "es": {
       "presets": [
