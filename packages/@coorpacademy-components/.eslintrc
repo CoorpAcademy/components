@@ -44,6 +44,11 @@
     "flowtype/use-flow-type": "error",
     "fp/no-class": "off",
     "import/no-extraneous-dependencies": "off",
+    "no-restricted-properties": ["error", {
+      "object": "Object",
+      "property": "keys",
+      "message": "IE doesn't support Object.keys with non-Object value. Use _.keys instead."
+    }],
     "no-shadow": [
       "error",
       {
