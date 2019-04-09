@@ -1,15 +1,15 @@
-import React from "react";
-import PropTypes from "prop-types";
-import classnames from "classnames";
-import get from "lodash/fp/get";
-import keys from "lodash/fp/keys";
+import React from 'react';
+import PropTypes from 'prop-types';
+import classnames from 'classnames';
+import get from 'lodash/fp/get';
+import keys from 'lodash/fp/keys';
 import {
   NovaSolidBookmarksTagsBookmark5 as AddBookmarkIcon,
   NovaLineBookmarksTagsBookmark5 as RemoveBookmarkIcon,
   NovaSolidLocksLock11 as LockIcon,
   NovaSolidLocksLockUnlock1 as UnlockIcon
-} from "@coorpacademy/nova-icons";
-import style from "./notification.css";
+} from '@coorpacademy/nova-icons';
+import style from './notification.css';
 
 const NOTIFICATION_ICON = {
   addFavorite: AddBookmarkIcon,
@@ -19,7 +19,7 @@ const NOTIFICATION_ICON = {
 };
 
 const Notification = props => {
-  const { message, icon } = props;
+  const {message, icon} = props;
 
   const handleOverlayClick = e => {
     e.stopPropagation();
