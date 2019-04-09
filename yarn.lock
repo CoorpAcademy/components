@@ -1223,6 +1223,76 @@
     prettier "1.11.1"
     requireindex "^1.2.0"
 
+"@coorpacademy/nova-icons@2.7.6":
+  version "2.7.6"
+  resolved "https://registry.npmjs.org/@coorpacademy/nova-icons/-/nova-icons-2.7.6.tgz#a63b2c305c4e5a012637a05956d6c9c5227ee074"
+  integrity sha512-mCdjyKiVhR6MY9HTT0OiD4bqJC8aWV3rXT6A/BwSq3DjHFKZ5CzkreDQmOTQn+psmD/TtTFuk8ge/nQKswMKuQ==
+  dependencies:
+    "@babel/cli" "^7.4.3"
+    async "^2.6.2"
+    chalk "^2.4.2"
+    globby "^9.1.0"
+    mkdirp-promise "^5.0.1"
+
+"@coorpacademy/player-store@4.0.0":
+  version "4.0.0"
+  resolved "https://registry.npmjs.org/@coorpacademy/player-store/-/player-store-4.0.0.tgz#3a5e54951be2e0a592d94a46e495d9587d2d684d"
+  integrity sha512-i17mL95W/AHZRjPzAK5M63CNMGys5pyXXlHW/xC6FSQgtnoHXvZB868nSfJrz7AN41FfU2Q9XC63hts2zSkDFg==
+  dependencies:
+    "@coorpacademy/progression-engine" "11.0.0"
+    "@coorpacademy/redux-task" "1.0.0"
+    lodash "^4.17.4"
+    redux "^4.0.0"
+    redux-thunk "^2.2.0"
+
+"@coorpacademy/progression-engine@10.3.16":
+  version "10.3.16"
+  resolved "https://registry.npmjs.org/@coorpacademy/progression-engine/-/progression-engine-10.3.16.tgz#68da024b4663f25a5d4ec73b095d9b8a5b63c546"
+  integrity sha512-rxPGXO1E0TwpgZgRK5SOk2HVTqi2cjt7/tX1W5cks0LFbLEAgwPrbWdu9d7vR2N+12EYwqkTvZ4QA24fXbqelA==
+  dependencies:
+    fuzzy-matching "^0.4.3"
+    lodash "^4.17.4"
+
+"@coorpacademy/redux-history@5.3.18":
+  version "5.3.18"
+  resolved "https://registry.npmjs.org/@coorpacademy/redux-history/-/redux-history-5.3.18.tgz#0d8e290873b7694139331ded146d65425d2b9f4e"
+  integrity sha512-JKCiyNNp++MOPYymWOMmpwewE7oMnf8zWAoWStBGwvtvxZV0AsiYK5dkLiYGfAAQXoM/pXJ6350kZ5OrQE0R+w==
+  dependencies:
+    lodash "^4.17.4"
+
+"@coorpacademy/redux-task@0.0.12":
+  version "0.0.12"
+  resolved "https://registry.npmjs.org/@coorpacademy/redux-task/-/redux-task-0.0.12.tgz#01e5fb00e3dabe0b7df2f77bd0ecfc6751deee64"
+  integrity sha512-jm0sMZOrGYmGZH+TnSRb5kg6itkeX60/yeLQG45yXBBdz8S/i/LSndcvTOU/3NVSOHeXg22vOCJcKM9BRfaIdg==
+  dependencies:
+    lodash "^4.17.4"
+
+"@coorpacademy/translate@5.3.18":
+  version "5.3.18"
+  resolved "https://registry.npmjs.org/@coorpacademy/translate/-/translate-5.3.18.tgz#aa1a1b7a3d120d071b95370109969c9a438eeed8"
+  integrity sha512-uCWM3wdSdjV9Ew+0DiUFrTIr28vJYm7s1AYFWpcYP9dgU6i0qXj/K5oCwvnobGhPDZD8NU1iv85XgHb/gQQLmA==
+  dependencies:
+    lodash "^4.17.4"
+
+"@coorpacademy/webpack-config@7.0.6":
+  version "7.0.6"
+  resolved "https://registry.npmjs.org/@coorpacademy/webpack-config/-/webpack-config-7.0.6.tgz#75170442fa61f5bbc87c143c091d94b052aecc71"
+  integrity sha512-ZLUCU2nauzZSsQd7T8SZJ0XcB5A39MYX0wel6i27fuEtT+kdVYjPG4dTW4YI87MS9hRuMHUM0jL+Ils//nfc5w==
+  dependencies:
+    "@babel/cli" "^7.4.3"
+    "@babel/core" "^7.4.3"
+    "@babel/plugin-transform-object-assign" "^7.2.0"
+    "@babel/preset-env" "^7.4.3"
+    babel-loader "^8.0.0"
+    compression-webpack-plugin "^2.0.0"
+    css-loader "^2.1.1"
+    json-loader "^0.5.4"
+    mini-css-extract-plugin "^0.5.0"
+    nyc "^13.1.0"
+    postcss-loader "^3.0.0"
+    style-loader "^0.23.1"
+    webpack-bundle-analyzer "^3.1.0"
+
 "@emotion/babel-utils@^0.6.4":
   version "0.6.10"
   resolved "https://registry.npmjs.org/@emotion/babel-utils/-/babel-utils-0.6.10.tgz#83dbf3dfa933fae9fc566e54fbb45f14674c6ccc"
