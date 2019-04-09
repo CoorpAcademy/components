@@ -39,6 +39,11 @@
     "import/no-extraneous-dependencies": "off",
     "no-shadow": ["error", {"builtinGlobals": true, "hoist": "all", "allow": ["Promise", "history", "location", "find", "name", "Notification", "Animation", "T"]}],
     "promise/no-native": "off",
+    "no-restricted-properties": ["error", {
+      "object": "Object",
+      "property": "keys",
+      "message": "IE doesn't support Object.keys with non-Object value. Use _.keys instead."
+    }],
     "react/jsx-no-bind": "off",
     "react/no-deprecated": "warn",
     "react/prop-types": "off"

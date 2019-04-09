@@ -44,17 +44,17 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
             cacheDirectory: true,
             presets: [
               [
-                'env',
+                '@babel/preset-env',
                 {
                   targets: {
-                    browsers: ['last 2 versions']
+                    browsers: ['last 2 versions', 'IE >= 10']
                   },
                   modules: false,
                   loose: true
                 }
               ]
             ],
-            plugins: ['transform-object-assign']
+            plugins: [['@babel/plugin-proposal-object-rest-spread', {loose: true}]]
           }
         },
         {
@@ -64,7 +64,6 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
             {
               loader: 'css-loader',
               options: {
-                minimize: isProduction,
                 modules: true,
                 localIdentName: hash
               }
@@ -94,9 +93,9 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
       if (isProduction)
         plugins.push(
           new CompressionPlugin({
-            asset: '[path].gz',
+            filename: '[path].gz',
             algorithm: 'gzip',
-            regExp: /\.js$|\.css$/,
+            test: /\.js$|\.css$/,
             threshold: 10240,
             minRatio: 0.8
           })

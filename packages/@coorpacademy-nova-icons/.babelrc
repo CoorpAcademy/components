@@ -1,16 +1,11 @@
 {
-  "presets": [
-    "react",
-    "env"
-  ],
-  "plugins": [
-    "transform-object-rest-spread"
-  ],
+  "presets": ["@babel/preset-react", "@babel/preset-env", "@babel/preset-flow"],
+  "plugins": [["@babel/plugin-proposal-object-rest-spread", { "loose": true }]],
   "env": {
     "commonjs": {
       "presets": [
         [
-          "env",
+          "@babel/preset-env",
           {
             "targets": {
               "node": true
@@ -37,7 +32,7 @@
     "test": {
       "presets": [
         [
-          "env",
+          "@babel/preset-env",
           {
             "targets": {
               "node": true
@@ -59,7 +54,7 @@
     "es": {
       "presets": [
         [
-          "env",
+          "@babel/preset-env",
           {
             "targets": {
               "node": true

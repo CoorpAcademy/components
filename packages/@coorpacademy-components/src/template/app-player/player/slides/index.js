@@ -4,6 +4,7 @@ import compact from 'lodash/fp/compact';
 import find from 'lodash/fp/find';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
+import keys from 'lodash/fp/keys';
 import omit from 'lodash/fp/omit';
 import identity from 'lodash/fp/identity';
 import max from 'lodash/fp/max';
@@ -295,7 +296,7 @@ ContentLayout.contextTypes = {
 };
 
 ContentLayout.propTypes = {
-  typeClue: PropTypes.oneOf(Object.keys(CONTENT_TYPE)),
+  typeClue: PropTypes.oneOf(keys(CONTENT_TYPE)),
   question: PropTypes.string,
   ...ValidateButton.propTypes
 };

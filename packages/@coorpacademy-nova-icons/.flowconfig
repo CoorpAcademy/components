@@ -2,7 +2,10 @@
 src
 
 [libs]
-../../flow-typed/
+../../flow-typed/custom/@svgr
+../../flow-typed/custom/chalk_v2.x.x.js
+../../flow-typed/custom/mkdirp-promise_vx.x.x.js
+# specific to avoid to crash on lodash/fp vs lodash
 
 [strict]
 # nonstrict-import

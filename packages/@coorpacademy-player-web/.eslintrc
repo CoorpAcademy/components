@@ -60,6 +60,11 @@
         ]
       }
     ],
+    "no-restricted-properties": ["error", {
+      "object": "Object",
+      "property": "keys",
+      "message": "IE doesn't support Object.keys with non-Object value. Use _.keys instead."
+    }],
     "promise/no-native": "off"
   },
   "settings": {

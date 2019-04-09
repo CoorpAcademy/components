@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
+import keys from 'lodash/fp/keys';
 import {
   NovaSolidAudioAudioControlPlay as PlayIcon,
   NovaLineFilesOfficeFileOfficePdf as PDFIcon
@@ -35,7 +36,7 @@ const ResourceMiniature = (props, context) => {
 };
 
 ResourceMiniature.propTypes = {
-  type: PropTypes.oneOf(Object.keys(STYLE_TYPES)),
+  type: PropTypes.oneOf(keys(STYLE_TYPES)),
   selected: PropTypes.bool,
   description: PropTypes.string,
   poster: PropTypes.string,

@@ -5,6 +5,7 @@ import isNil from 'lodash/fp/isNil';
 import isEmpty from 'lodash/fp/isEmpty';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
+import keys from 'lodash/fp/keys';
 import omit from 'lodash/fp/omit';
 import {
   NovaCompositionCoorpacademyCheck as CheckIcon,
@@ -19,7 +20,7 @@ import Header from '../popin-header';
 import style from './style.css';
 
 const extractTabs = items =>
-  Object.keys(items).map(type => {
+  keys(items).map(type => {
     const item = items[type];
     return {iconType: type, title: item.title, isOpen: item.open};
   });

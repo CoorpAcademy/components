@@ -31,7 +31,7 @@ test('should call openAssistance function', t => {
 });
 
 test('should call getAvailableContent function', t =>
-  t.throws(
+  t.throwsAsync(
     getAvailableContent({
       type: 'level',
       ref: 'plop'
@@ -139,13 +139,16 @@ test('should add answer action', async t => {
 });
 
 test('should fail to postAnswer for wrong progressionId', t => {
-  return t.throws(postAnswer('wrongId', {}), 'progression "wrongId" not found');
+  return t.throwsAsync(() => postAnswer('wrongId', {}), 'progression "wrongId" not found');
 });
 
 test('should fail for progression with no state', async t => {
   const progression = await create(uniqueId(), engine, {type: 'chapter', ref: '5.C7'});
   delete progression.state;
-  return t.throws(postAnswer(progression._id, {}), `progression "${progression._id}" has no state`);
+  return t.throwsAsync(
+    postAnswer(progression._id, {}),
+    `progression "${progression._id}" has no state`
+  );
 });
 
 test('should mark a resource as viewed', async t => {
@@ -165,7 +168,10 @@ test('should mark a resource as viewed', async t => {
 });
 
 test('should fail to markResourceAsViewed with wrong progressionId', t => {
-  return t.throws(markResourceAsViewed('wrongId', {}), 'progression "wrongId" not found');
+  return t.throwsAsync(
+    () => markResourceAsViewed('wrongId', {}),
+    'progression "wrongId" not found'
+  );
 });
 
 test('getEngineConfig should return the value from progression-engine', async t => {

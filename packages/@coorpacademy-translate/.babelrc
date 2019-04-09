@@ -3,7 +3,7 @@
     "commonjs": {
       "presets": [
         [
-          "env",
+          "@babel/preset-env",
           {
             "targets": {
               "node": true
@@ -16,7 +16,7 @@
     "test": {
       "presets": [
         [
-          "env",
+          "@babel/preset-env",
           {
             "targets": {
               "node": true
@@ -32,7 +32,7 @@
     "es": {
       "presets": [
         [
-          "env",
+          "@babel/preset-env",
           {
             "targets": {
               "node": true
