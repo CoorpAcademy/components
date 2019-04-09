@@ -47,7 +47,7 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
                 '@babel/preset-env',
                 {
                   targets: {
-                    browsers: ['last 2 versions']
+                    browsers: ['last 2 versions', 'IE >= 10']
                   },
                   modules: false,
                   loose: true
