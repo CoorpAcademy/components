@@ -4,6 +4,7 @@ import noop from 'lodash/fp/noop';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import kebabCase from 'lodash/fp/kebabCase';
+import keys from 'lodash/fp/keys';
 import Layout from '../layout';
 import Sidebar from '../../../organism/sidebar';
 import Provider from '../../../atom/provider';
@@ -27,7 +28,7 @@ const currentDashboardSidebarSection = ({
     type: 'select',
     name: 'version-field',
     onChange: onUpdateVersion,
-    options: Object.keys(currentDashboard.versions).map(v => ({
+    options: keys(currentDashboard.versions).map(v => ({
       name: v,
       value: v,
       selected: v === currentDashboard.currentVersion

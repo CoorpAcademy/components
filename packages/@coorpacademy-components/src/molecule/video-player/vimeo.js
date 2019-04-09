@@ -4,6 +4,7 @@
 */
 import React from 'react';
 import PropTypes from 'prop-types';
+import keys from 'lodash/fp/keys';
 import Provider from '../../atom/provider';
 import Loader from '../../atom/loader';
 
@@ -37,7 +38,7 @@ class Vimeo extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const changes = Object.keys(this.props).filter(_name => this.props[_name] !== prevProps[_name]);
+    const changes = keys(this.props).filter(_name => this.props[_name] !== prevProps[_name]);
     this.updateProps(changes);
   }
 
@@ -97,7 +98,7 @@ class Vimeo extends React.Component {
       }));
     });
 
-    Object.keys(eventNames).forEach(dmName => {
+    keys(eventNames).forEach(dmName => {
       const reactName = eventNames[dmName];
       this.player.on(dmName, e => {
         if (this.props[reactName]) {

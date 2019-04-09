@@ -1,5 +1,6 @@
 import React from 'react';
 import noop from 'lodash/fp/noop';
+import keys from 'lodash/fp/keys';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import {
@@ -51,7 +52,7 @@ AccordionPart.contextTypes = {
 };
 
 AccordionPart.propTypes = {
-  iconType: PropTypes.oneOf(Object.keys(ICON_TYPES)),
+  iconType: PropTypes.oneOf(keys(ICON_TYPES)),
   title: PropTypes.string,
   content: PropTypes.node,
   onClick: PropTypes.func,

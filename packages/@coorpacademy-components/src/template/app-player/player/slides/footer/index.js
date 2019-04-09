@@ -62,14 +62,14 @@ class Button extends React.Component {
     const primaryColor = get('common.primary', skin);
     const {disabled, notify, selected, highlighted, title, type, onClick} = this.props;
     const colorIcon = selected ? primaryColor : grey;
-    const selectedColor = selected && {borderTopColor: primaryColor};
+    const selectedColor = (selected && {borderTopColor: primaryColor}) || {};
 
     const hoverStyle =
       !disabled && this.state.hovered
         ? {
             borderTopColor: primaryColor
           }
-        : null;
+        : {};
 
     const IconType = get([type, 'icon'], TABS);
     const className = classnames(
