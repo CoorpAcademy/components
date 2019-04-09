@@ -117,8 +117,8 @@
     ],
     "require": [
       "@babel/polyfill",
-      "../../test/helpers/throw-warning",
-      "@babel/register"
+      "@babel/register",
+      "../../test/helpers/throw-warning"
     ],
     "babel": {
       "testOptions": {
