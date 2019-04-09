@@ -68,12 +68,7 @@ const dataProgressionsReducer = (
     case PROGRESSION_CREATE_SUCCESS: {
       const progression: Progression = action.payload;
       const id: ProgressionId = progression._id || '_no-id';
-      return {
-        ...state,
-        entities: {
-          [id]: progression
-        }
-      };
+      return set(['entities', id], progression, state);
     }
     case PROGRESSION_REQUEST_CLUE_SUCCESS:
     case PROGRESSION_RESOURCE_VIEWED_SUCCESS:
