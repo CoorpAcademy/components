@@ -1,5 +1,6 @@
 // @flow
 import test from 'ava';
+import keys from 'lodash/fp/keys';
 import type {
   Action,
   AvailableContent,
@@ -72,10 +73,7 @@ test('should create a new progression with the latest version of the engine and 
     throw new Error('progression should not be falsy');
   }
 
-  t.deepEqual(
-    Object.keys(progression).sort(),
-    ['actions', 'content', 'engine', 'engineOptions'].sort()
-  );
+  t.deepEqual(keys(progression).sort(), ['actions', 'content', 'engine', 'engineOptions'].sort());
   t.deepEqual(progression.engine, {
     ref: 'learner',
     version: '1'
