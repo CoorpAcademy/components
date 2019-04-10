@@ -31,7 +31,7 @@ import type {
   ResourceContent
 } from '@coorpacademy/progression-engine';
 import {CONTENT_TYPE} from './definitions';
-import type {DataLayer, UserAnswerAPI} from './definitions';
+import type {DataLayer, UserAnswerAPI, PartialPayload} from './definitions';
 
 type AcceptExtraLife = (
   progressionId: string,
@@ -58,7 +58,11 @@ type MarkResourceAsViewed = (
   }
 ) => Promise<Progression>;
 
-type PostAnswer = (progressionId: string, payload: UserAnswerAPI) => Promise<Progression>;
+type PostAnswer = (
+  progressionId: string,
+  payload: UserAnswerAPI,
+  partialPayload?: PartialPayload
+) => Promise<Progression>;
 type RefuseExtraLife = (
   progressionId: string,
   payload: {
@@ -166,7 +170,8 @@ const addActionAndSaveProgression = (
 
 const postAnswer = (dataLayer: DataLayer): PostAnswer => async (
   progressionId: string,
-  payload: UserAnswerAPI
+  payload: UserAnswerAPI,
+  partialPayload: PartialPayload = {godMode: false}
 ): Promise<Progression> => {
   const {findSlideById, findProgressionById} = dataLayer;
   const progression = await findProgressionById(progressionId);
@@ -182,6 +187,7 @@ const postAnswer = (dataLayer: DataLayer): PostAnswer => async (
   }
 
   const answer = getOr([''], 'answer', payload);
+  const godMode = get('godMode', partialPayload);
   const slideId = payload.content.ref;
   const slide = await findSlideById(slideId);
 
@@ -190,7 +196,7 @@ const postAnswer = (dataLayer: DataLayer): PostAnswer => async (
     payload: {
       content: payload.content,
       answer,
-      godMode: false
+      godMode
     }
   };
 
