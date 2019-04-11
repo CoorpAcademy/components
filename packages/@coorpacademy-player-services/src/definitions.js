@@ -171,6 +171,7 @@ type UserAnswerAPI = {|
   content: Content
 |};
 
+type PartialPayload = {|godMode: boolean|};
 type CorrectionAPI = {
   correctAnswer: Array<Answer>,
   corrections: Array<PartialCorrection>
@@ -242,5 +243,6 @@ export type {
   Url,
   LessonAPI,
   UserAnswerAPI,
+  PartialPayload,
   Window
 };
