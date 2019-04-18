@@ -22,7 +22,7 @@
   "Go to settings account in the upper right hand corner": "오른쪽 상단 모서리에 있는 <b>설정 > 계정</b> </br>으로 가세요",
   "Good answer": "훌륭한 답변",
   "Good job": "잘 했습니다!",
-  "Highscore": "새로운 최고 점수입니다<br><b>{{score}}별을 획득했습니다</b>",
+  "Highscore": "새로운 최고 점수입니다<b>{{score}}별을 획득했습니다</b>",
   "Key point": "핵심 포인트",
   "Media": "강의",
   "Next chapter": "다음 장",
