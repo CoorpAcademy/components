@@ -21,7 +21,9 @@ yarn
 yarn bootstrap
 ```
 
-### Publish: [doc](./doc/publish.md)
+### Publish: 
+
+[See detailed doc](./doc/publish.md)
 
 ### Add a new dependency:
 
