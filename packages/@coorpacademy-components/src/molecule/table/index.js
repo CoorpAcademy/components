@@ -1,5 +1,5 @@
 import React from 'react';
-import cn from 'classnames';
+import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import {
@@ -60,22 +60,23 @@ const Table = (props, context) => {
     );
   });
 
-  editable &&
+  if (editable) {
     headerView.unshift(
       <th key="header">
         <div className={style.noOptions} />
       </th>
     );
+  }
 
   const bodyView = rows.map((row, index) => {
     const {fields = [], editHref} = row;
-    const trClasses = cn({[style.highlighted]: row.highlighted});
+    const trClasses = classnames({[style.highlighted]: row.highlighted});
 
     const tableRows = fields.map((field, fIndex) => {
       return <td key={fIndex}>{field}</td>;
     });
 
-    editable &&
+    if (editable) {
       tableRows.unshift(
         // TODO restore dropped support of hoverColor={brandColor}
         <td key="header">
@@ -84,6 +85,7 @@ const Table = (props, context) => {
           </Link>
         </td>
       );
+    }
 
     return (
       <tr className={trClasses} key={index}>
