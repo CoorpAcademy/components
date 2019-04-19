@@ -1245,14 +1245,6 @@
     redux "^4.0.0"
     redux-thunk "^2.2.0"
 
-"@coorpacademy/progression-engine@10.3.16":
-  version "10.3.16"
-  resolved "https://registry.npmjs.org/@coorpacademy/progression-engine/-/progression-engine-10.3.16.tgz#68da024b4663f25a5d4ec73b095d9b8a5b63c546"
-  integrity sha512-rxPGXO1E0TwpgZgRK5SOk2HVTqi2cjt7/tX1W5cks0LFbLEAgwPrbWdu9d7vR2N+12EYwqkTvZ4QA24fXbqelA==
-  dependencies:
-    fuzzy-matching "^0.4.3"
-    lodash "^4.17.4"
-
 "@coorpacademy/progression-engine@11.0.0":
   version "11.0.0"
   resolved "https://registry.npmjs.org/@coorpacademy/progression-engine/-/progression-engine-11.0.0.tgz#63a223eb03097f28c41ff91cdf5a0b5bf1b741b9"
@@ -1265,13 +1257,6 @@
   version "5.3.18"
   resolved "https://registry.npmjs.org/@coorpacademy/redux-history/-/redux-history-5.3.18.tgz#0d8e290873b7694139331ded146d65425d2b9f4e"
   integrity sha512-JKCiyNNp++MOPYymWOMmpwewE7oMnf8zWAoWStBGwvtvxZV0AsiYK5dkLiYGfAAQXoM/pXJ6350kZ5OrQE0R+w==
-  dependencies:
-    lodash "^4.17.4"
-
-"@coorpacademy/redux-task@0.0.12":
-  version "0.0.12"
-  resolved "https://registry.npmjs.org/@coorpacademy/redux-task/-/redux-task-0.0.12.tgz#01e5fb00e3dabe0b7df2f77bd0ecfc6751deee64"
-  integrity sha512-jm0sMZOrGYmGZH+TnSRb5kg6itkeX60/yeLQG45yXBBdz8S/i/LSndcvTOU/3NVSOHeXg22vOCJcKM9BRfaIdg==
   dependencies:
     lodash "^4.17.4"
 
