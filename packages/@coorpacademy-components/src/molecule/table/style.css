@@ -137,6 +137,14 @@
   composes: option;
 }
 
+.highlighted {
+  background-color: xtraLightGrey;
+}
+
+.highlighted  td:first-child {
+  font-weight: 800;
+};
+
 .selected button {
   color: dark;
 }
