@@ -51,8 +51,8 @@
     "rimraf": "^2.6.1"
   },
   "dependencies": {
-    "@coorpacademy/progression-engine": "10.3.16",
-    "@coorpacademy/redux-task": "0.0.12",
+    "@coorpacademy/progression-engine": "11.0.1",
+    "@coorpacademy/redux-task": "1.0.1",
     "lodash": "^4.17.4",
     "redux": "^4.0.0",
     "redux-thunk": "^2.2.0"

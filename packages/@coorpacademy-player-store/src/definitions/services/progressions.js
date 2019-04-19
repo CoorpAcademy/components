@@ -37,8 +37,13 @@ type MarkResourceAsViewed = (
     content: Content
   }
 ) => Promise<Progression>;
+type PostAnswerPartialPayload = {|godMode: boolean|};
 
-type PostAnswer = (progressionId: string, payload: UserAnswer) => Promise<Progression>;
+type PostAnswer = (
+  progressionId: string,
+  payload: UserAnswer,
+  partialPayload: PostAnswerPartialPayload
+) => Promise<Progression>;
 type RefuseExtraLife = (
   progressionId: string,
   payload: {
@@ -76,5 +81,6 @@ export type {
   PostAnswer,
   RefuseExtraLife,
   RequestClue,
-  ProgressionsService
+  ProgressionsService,
+  PostAnswerPartialPayload
 };
