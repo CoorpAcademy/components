@@ -14,6 +14,7 @@ import type {
   ProgressionId
 } from '@coorpacademy/progression-engine';
 import type {Services} from '../../definitions/services';
+import type {PostAnswerPartialPayload} from '../../definitions/services/progressions';
 import {
   getProgression,
   getBestScore,
@@ -107,7 +108,11 @@ export const PROGRESSION_CREATE_ANSWER_REQUEST: string = '@@progression/CREATE_A
 export const PROGRESSION_CREATE_ANSWER_SUCCESS: string = '@@progression/CREATE_ANSWER_SUCCESS';
 export const PROGRESSION_CREATE_ANSWER_FAILURE: string = '@@progression/CREATE_ANSWER_FAILURE';
 
-export const createAnswer = (progressionId: string, answer: Answer): ThunkAction => (
+export const createAnswer = (
+  progressionId: string,
+  answer: Answer,
+  partialPayload: PostAnswerPartialPayload
+): ThunkAction => (
   dispatch: Function,
   getState: GetState,
   {services}: {services: Services}
@@ -132,10 +137,14 @@ DispatchedAction => {
       PROGRESSION_CREATE_ANSWER_FAILURE
     ],
     task: () =>
-      Progressions.postAnswer(progressionId, {
-        content: nextContent,
-        answer
-      }),
+      Progressions.postAnswer(
+        progressionId,
+        {
+          content: nextContent,
+          answer
+        },
+        partialPayload
+      ),
     meta: {
       progressionId,
       content: nextContent,

@@ -17,6 +17,7 @@ import {createAnswer} from '../api/progressions';
 import {fetchAnswer} from '../api/answers';
 import {fetchSlideChapter} from '../api/contents';
 import type {DispatchedAction, GetState, Options} from '../../definitions/redux';
+import type {PostAnswerPartialPayload} from '../../definitions/services/progressions';
 import {selectRoute} from './route';
 import {progressionUpdated, selectProgression} from './progressions';
 import {toggleAccordion, ACCORDION_KLF, ACCORDION_TIPS, ACCORDION_LESSON} from './corrections';
@@ -103,7 +104,7 @@ export const editAnswer = (newValue: string | Array<string> | Choice) => (
   });
 };
 
-export const validateAnswer = () => async (
+export const validateAnswer = (partialPayload: PostAnswerPartialPayload) => async (
   dispatch: Function,
   getState: GetState,
   {services}: Options
@@ -121,7 +122,7 @@ export const validateAnswer = () => async (
   const progressionId = getCurrentProgressionId(initialState);
   const answer = getAnswerValues(slide, initialState);
 
-  const createAnswerResponse = await dispatch(createAnswer(progressionId, answer));
+  const createAnswerResponse = await dispatch(createAnswer(progressionId, answer, partialPayload));
   if (createAnswerResponse.error) return createAnswerResponse;
   await dispatch(selectRoute('correction'));
 
