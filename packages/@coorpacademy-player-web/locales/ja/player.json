@@ -22,7 +22,7 @@
   "Go to settings account in the upper right hand corner": "右上の隅にある<b>設定>アカウント</b> </br>に移動してください",
   "Good answer": "正解",
   "Good job": "よく出来ました！",
-  "Highscore": "ハイスコアを更新<br><b>{{score}}の星を獲得しました</b>",
+  "Highscore": "ハイスコアを更新<b>{{score}}の星を獲得しました</b>",
   "Key point": "重要なポイント",
   "Media": "レッスン",
   "Next chapter": "Next Chapter",
