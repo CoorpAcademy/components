@@ -33,14 +33,14 @@ const Table = (props, context) => {
   const mediumColor = get('common.medium', skin);
 
   const headerView = columns.map((column, cIndex) => {
-    const {title, filtered, options = []} = column;
+    const {title, filtered, info = '', options = []} = column;
 
     const hasOptions = options.length > 0;
 
     const OptionsIcon = (hasOptions && (filtered ? FunnelIcon : ArrowDown)) || null;
 
     return (
-      <th key={cIndex}>
+      <th title={info} key={cIndex}>
         <div className={hasOptions ? style.toggle : style.noOptions}>
           <Checkbox id={title} name={title} checked className={style.checkbox} />
           <label htmlFor={title}>{title}</label>
@@ -96,7 +96,7 @@ const Table = (props, context) => {
 
   return (
     <div className={style.wrapper}>
-      <table className={style.table}>
+      <table className={classnames(style.table, {[style.readonly]: !editable})}>
         <thead>
           <tr>{headerView}</tr>
         </thead>
@@ -115,12 +115,14 @@ Table.propTypes = {
   rows: PropTypes.arrayOf(
     PropTypes.shape({
       fields: PropTypes.arrayOf(PropTypes.string),
-      editHref: PropTypes.string
+      editHref: PropTypes.string,
+      highlighted: PropTypes.bool
     })
   ),
   columns: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
+      info: PropTypes.string,
       filtered: PropTypes.bool,
       options: PropTypes.arrayOf(
         PropTypes.shape({

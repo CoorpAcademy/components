@@ -53,7 +53,9 @@
   border-bottom: 0;
 }
 
-.table tbody tr:hover {
+.readonly {}
+
+.table:not(.readonly) tbody tr:hover {
   background-color: xtraLightGrey;
 }
 
