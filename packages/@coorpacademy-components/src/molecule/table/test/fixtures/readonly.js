@@ -21,13 +21,16 @@ export default {
         title: 'Title'
       },
       {
-        title: 'Fr'
+        title: 'Fr',
+        info: 'French'
       },
       {
-        title: 'En'
+        title: 'En',
+        info: 'English'
       },
       {
-        title: 'Ru'
+        title: 'Ru',
+        info: 'Russian'
       }
     ]
   }
