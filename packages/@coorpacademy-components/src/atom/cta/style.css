@@ -3,6 +3,7 @@
 @value transparent from colors;
 @value white from colors;
 @value grey from colors;
+@value blueCoorp from colors;
 
 .button {
   display: inline-block;
@@ -24,6 +25,10 @@
   height: 42px;
   line-height: 38px;
   border-radius: 23px;
+}
+
+.blueCoorpButton{
+  background-color: blueCoorp;
 }
 
 .smallButton {

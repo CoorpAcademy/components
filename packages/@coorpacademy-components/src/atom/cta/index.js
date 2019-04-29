@@ -80,6 +80,7 @@ class CTA extends React.Component {
       light = false,
       small = false,
       secondary = false,
+      blueCoorp = false,
       onClick
     } = this.props;
 
@@ -96,6 +97,7 @@ class CTA extends React.Component {
           small ? style.smallButton : null,
           light ? style.lightButton : null,
           secondary ? style.secondaryButton : null,
+          blueCoorp ? style.blueCoorpButton : null,
           this.props.className
         )}
         data-name={ctaName || 'cta'}
@@ -119,6 +121,7 @@ CTA.propTypes = {
   name: PropTypes.string,
   disabled: PropTypes.bool,
   light: PropTypes.bool,
+  blueCoorp: PropTypes.string,
   small: PropTypes.bool
 };
 

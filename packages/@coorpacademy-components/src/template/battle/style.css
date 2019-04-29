@@ -1,0 +1,106 @@
+@value colors: "../../variables/colors.css";
+@value brand from colors;
+@value red from colors;
+@value green from colors;
+@value xtraLightGrey from colors;
+@value orange from colors;
+@value defaultText from "../../variables/fonts.css";
+
+.container { 
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+    height: 260px;
+    width: 349.3px;
+    border-radius: 12px;
+}
+
+.avt {
+    display:flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width:auto;
+}
+
+.image{
+    width: 100%;
+    border-radius: 12px 12px 0px 0px;
+    overflow: hidden; 
+    background-repeat:no-repeat;
+}
+
+.wrapper{
+    text-align: center;
+    font-size: 14px;
+    composes: defaultText;
+    color: #ffffff;
+    line-height: normal;
+}
+
+.wrapper h3{
+    margin-bottom: 8%;
+    margin-top: -3%;
+    font-size: 12px;
+}
+
+.wrapper p{
+    margin-top: auto;
+}
+
+.buttons{
+    width: auto;
+    padding: 5.5%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+
+span{
+    font-weight: bold;
+}
+
+.level {
+    text-align: center;
+    font-family: 'Open Sans';
+    border: solid 1px #ffffff;
+    color: white;
+    padding: 0px 15px;
+    border-radius: 50px;
+    font-size: 8px;
+    width: fit-content;
+    margin-top: 3%;
+    margin-right: 3%;
+  }
+
+.level p{
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.buttonRed {
+    background-color: red;
+}
+
+.red{
+    border-color: red;
+}
+
+.blue{
+    border-color: brand;
+}
+
+.green{
+    border-color: green;
+}
+
+.grey{
+    border-color: xtraLightGrey;
+}
+
+.levelOrange{
+    background-color: #FF7063;
+}
+
+.levelGreen{
+    background-color: green;
+}

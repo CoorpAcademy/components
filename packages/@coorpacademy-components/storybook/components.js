@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 
+import AtomAvatar from './../src/atom/avatar';
 import AtomButton from './../src/atom/button';
 import AtomCatalogSection from './../src/atom/catalog-section';
 import AtomCenteredText from './../src/atom/centered-text';
@@ -136,12 +137,15 @@ import TemplateBackOfficeBrandCreate from './../src/template/back-office/brand-c
 import TemplateBackOfficeBrandList from './../src/template/back-office/brand-list';
 import TemplateBackOfficeBrandUpdate from './../src/template/back-office/brand-update';
 import TemplateBackOfficeDashboardPreview from './../src/template/back-office/dashboard-preview';
+import TemplateBattle from './../src/template/battle';
+import TemplateBattlesDesktop from './../src/template/battles-desktop';
 import TemplateCockpitJwUploader from './../src/template/cockpit/jw-uploader';
 import TemplateCommonAuthors from './../src/template/common/authors';
 import TemplateCommonCoorpHeader from './../src/template/common/coorp-header';
 import TemplateCommonDashboard from './../src/template/common/dashboard';
 import TemplateCommonDiscipline from './../src/template/common/discipline';
 import TemplateCommonSearchPage from './../src/template/common/search-page';
+import AtomAvatarFixtureDefault from '../src/atom/avatar/test/fixtures/default';
 import AtomButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import AtomButtonFixtureClassName from '../src/atom/button/test/fixtures/class-name';
 import AtomButtonFixtureClear from '../src/atom/button/test/fixtures/clear';
@@ -697,6 +701,8 @@ import TemplateBackOfficeDashboardPreviewFixtureLoading from '../src/template/ba
 import TemplateBackOfficeDashboardPreviewFixtureSelectedError from '../src/template/back-office/dashboard-preview/test/fixtures/selected-error';
 import TemplateBackOfficeDashboardPreviewFixtureSelectedLoading from '../src/template/back-office/dashboard-preview/test/fixtures/selected-loading';
 import TemplateBackOfficeDashboardPreviewFixtureSelected from '../src/template/back-office/dashboard-preview/test/fixtures/selected';
+import TemplateBattleFixtureDefault from '../src/template/battle/test/fixtures/default';
+import TemplateBattlesDesktopFixtureDefault from '../src/template/battles-desktop/test/fixtures/default';
 import TemplateCockpitJwUploaderFixtureDefault from '../src/template/cockpit/jw-uploader/test/fixtures/default';
 import TemplateCommonAuthorsFixtureDefault from '../src/template/common/authors/test/fixtures/default';
 import TemplateCommonAuthorsFixtureNoSocials from '../src/template/common/authors/test/fixtures/no-socials';
@@ -719,6 +725,7 @@ import TemplateCommonSearchPageFixtureNoResult from '../src/template/common/sear
 
 export const components = {
   Atom: {
+    AtomAvatar,
     AtomButton,
     AtomCatalogSection,
     AtomCenteredText,
@@ -860,7 +867,9 @@ export const components = {
     OrganismMoocImageSlider
   },
   Template: {
-    TemplateActivity
+    TemplateActivity,
+    TemplateBattle,
+    TemplateBattlesDesktop
   },
   TemplateAppPlayer: {
     TemplateAppPlayerLoading,
@@ -896,6 +905,9 @@ export const components = {
 
 export const fixtures = {
   Atom: {
+    AtomAvatar: {
+      Default: AtomAvatarFixtureDefault
+    },
     AtomButton: {
       A: AtomButtonFixtureA,
       ClassName: AtomButtonFixtureClassName,
@@ -1585,6 +1597,12 @@ export const fixtures = {
       Default: TemplateActivityFixtureDefault,
       Empty: TemplateActivityFixtureEmpty,
       NoEngines: TemplateActivityFixtureNoEngines
+    },
+    TemplateBattle: {
+      Default: TemplateBattleFixtureDefault
+    },
+    TemplateBattlesDesktop: {
+      Default: TemplateBattlesDesktopFixtureDefault
     }
   },
   TemplateAppPlayer: {
