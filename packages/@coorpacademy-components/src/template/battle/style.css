@@ -77,30 +77,6 @@ span{
     margin-bottom: 4px;
 }
 
-.buttonRed {
-    background-color: red;
-}
-
-.red{
-    border-color: red;
-}
-
-.blue{
-    border-color: brand;
-}
-
-.green{
-    border-color: green;
-}
-
 .grey{
     border-color: xtraLightGrey;
-}
-
-.levelOrange{
-    background-color: #FF7063;
-}
-
-.levelGreen{
-    background-color: green;
 }
