@@ -30,7 +30,7 @@ const Button = props => {
 const App = props => {
   const obj = Obj(props.urlImg);
   return (
-    <div className={`${style.container} ${style[props.borderColor]}`}>
+    <div className={style.container}>
       <div className={`${style.image}`} style={Object.assign({}, obj, {backgroundSize: 'cover'})}>
         <div style={{width: '100%', display: 'flex', justifyContent: 'flex-end'}}>
           <div className={style.level}>
@@ -63,7 +63,6 @@ const App = props => {
 App.propTypes = {
   name: PropTypes.string,
   courseName: PropTypes.string,
-  borderColor: PropTypes.string,
   submitReviewCourseValue: Link.propTypes.children,
   submitStartBattleValue: Link.propTypes.children,
   levelName: Link.propTypes.children,

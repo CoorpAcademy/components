@@ -1,3 +1,6 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
 .cards {
     justify-content: center;
     display: flex;
@@ -11,13 +14,7 @@
     display: flex;
     justify-content: space-around;
     padding: 1rem;
-    @media(min-width: 40rem) {
-      width: 50%;
-    }
-    @media(min-width: 56rem) {
-      width: 33.3333%;
-    }
-  }
+  } 
   
   .card {
     background-color: white;
@@ -27,3 +24,13 @@
     flex-direction: row;
     overflow: hidden;
   }
+
+  @media mobile {
+  .cards__item{
+   width: 90%;
+   display: flex;
+   justify-content: space-around;
+   padding: 1rem;
+   }
+  }
+   

@@ -1,7 +1,6 @@
 export default {
   props: {
     name: 'User',
-    borderColor: 'grey',
     courseName: 'courseName',
     submitReviewCourseValue: 'Review course',
     submitStartBattleValue: 'Start battle',
