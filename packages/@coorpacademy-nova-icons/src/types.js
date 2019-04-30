@@ -1,3 +1,3 @@
 // @flow
 
-export type Icon = React$Component<React$ElementProps<'svg'>>;
+export type Icon = typeof React$Component<React$ElementProps<'svg'>>;
