@@ -225,7 +225,8 @@ const files: Array<OutputFile> = globby
 const imports = files
   .map(({name, path: filePath}) => `import ${name} from './components/${filePath}';`)
   .join('\n');
-const componentsNames = files.map(({name}) => `${name},`).join('\n\t');
+const componentsNames = files.map(({name}) => `${name},`).join('\n  ');
+const componentsTypes = files.map(({name}) => `${name}: Icon,`).join('\n  ');
 
 fs.writeFileSync(
   // $FlowFixMe path.join() is defined
@@ -236,9 +237,19 @@ fs.writeFileSync(
 
 /* eslint-disable import/max-dependencies */
 
+import type {Icon} from './types';
+
+export type {Icon};
+
 ${imports}
 
-export {
+type Icons = {|
+  ${componentsTypes}
+|};
+
+const icons: Icons = {
   ${componentsNames}
-};`
+};
+
+export default icons;`
 );

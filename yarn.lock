@@ -1198,6 +1198,18 @@
   dependencies:
     arrify "^1.0.1"
 
+"@coorpacademy/css-modules-require-hook@1.0.5":
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/@coorpacademy/css-modules-require-hook/-/css-modules-require-hook-1.0.5.tgz#0fd593d55c96172cb77307a1d8f0c33b1dd4aca0"
+  integrity sha512-q2HyaYnvJ9BzG5ZkwohdS111bMhKbihiOcEJ2xXuaVLpysrJXmZ8nKtdZrAqB4vFJ+yQ6PwUIEASQi2rqsdXbg==
+  dependencies:
+    "@babel/cli" "^7.4.3"
+    "@babel/core" "^7.4.3"
+    "@babel/preset-env" "^7.4.3"
+    css-modules-require-hook "^4.0.6"
+    generic-names "^1.0.2"
+    lodash "^4.17.4"
+
 "@coorpacademy/eslint-plugin-coorpacademy@^8.3.0":
   version "8.3.0"
   resolved "https://registry.npmjs.org/@coorpacademy/eslint-plugin-coorpacademy/-/eslint-plugin-coorpacademy-8.3.0.tgz#7fc4ba8cfa75123b6072f635839d255b74097d81"
@@ -1223,6 +1235,14 @@
     prettier "1.11.1"
     requireindex "^1.2.0"
 
+"@coorpacademy/history@5.3.16":
+  version "5.3.16"
+  resolved "https://registry.npmjs.org/@coorpacademy/history/-/history-5.3.16.tgz#7105b4b88a0465746ac661cec2a5994c06b2afac"
+  integrity sha512-XFER/Uwt0+4Y09ZG6/YtPhjajVLDnJ6iLd+BQiHgdHMu6D1U460JqkIq3MCr8WReu3phhnSXWVDXP6g0wbGTWA==
+  dependencies:
+    history "^4.7.2"
+    lodash "^4.17.4"
+
 "@coorpacademy/nova-icons@2.7.6":
   version "2.7.6"
   resolved "https://registry.npmjs.org/@coorpacademy/nova-icons/-/nova-icons-2.7.6.tgz#a63b2c305c4e5a012637a05956d6c9c5227ee074"
@@ -1234,36 +1254,10 @@
     globby "^9.1.0"
     mkdirp-promise "^5.0.1"
 
-"@coorpacademy/player-store@4.0.0":
-  version "4.0.0"
-  resolved "https://registry.npmjs.org/@coorpacademy/player-store/-/player-store-4.0.0.tgz#3a5e54951be2e0a592d94a46e495d9587d2d684d"
-  integrity sha512-i17mL95W/AHZRjPzAK5M63CNMGys5pyXXlHW/xC6FSQgtnoHXvZB868nSfJrz7AN41FfU2Q9XC63hts2zSkDFg==
-  dependencies:
-    "@coorpacademy/progression-engine" "11.0.0"
-    "@coorpacademy/redux-task" "1.0.0"
-    lodash "^4.17.4"
-    redux "^4.0.0"
-    redux-thunk "^2.2.0"
-
-"@coorpacademy/progression-engine@11.0.0":
-  version "11.0.0"
-  resolved "https://registry.npmjs.org/@coorpacademy/progression-engine/-/progression-engine-11.0.0.tgz#63a223eb03097f28c41ff91cdf5a0b5bf1b741b9"
-  integrity sha512-aDC5/Y9wklKXSVrvDQdE4OF5rtQu3xEgjKZS+py0TRxzCc6keKGvX5axpu+/FEVECqDVfGwkkg6merWoFFsZCw==
-  dependencies:
-    fuzzy-matching "^0.4.3"
-    lodash "^4.17.4"
-
 "@coorpacademy/redux-history@5.3.18":
   version "5.3.18"
   resolved "https://registry.npmjs.org/@coorpacademy/redux-history/-/redux-history-5.3.18.tgz#0d8e290873b7694139331ded146d65425d2b9f4e"
   integrity sha512-JKCiyNNp++MOPYymWOMmpwewE7oMnf8zWAoWStBGwvtvxZV0AsiYK5dkLiYGfAAQXoM/pXJ6350kZ5OrQE0R+w==
-  dependencies:
-    lodash "^4.17.4"
-
-"@coorpacademy/redux-task@1.0.0":
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/@coorpacademy/redux-task/-/redux-task-1.0.0.tgz#8e5571b091630a8ce08f95ff66cb943f5826293e"
-  integrity sha512-rBYhNHLFzjvXRNIiv48nK7psPDtqcqnK4LbkuV8o7zsCz72dq6RwWu6DcnDzQka79hTbY/n5wkDQRs/gDo8MrQ==
   dependencies:
     lodash "^4.17.4"
 
@@ -7190,7 +7184,7 @@ flow-bin@^0.95.1:
   resolved "https://registry.npmjs.org/flow-bin/-/flow-bin-0.95.1.tgz#633113831ccff4b7ee70a2730f63fc43b69ba85f"
   integrity sha512-06IOC/pqPMNRYtC6AMZEWYR9Fi6UdBC7gImGinPuNUpPZFnP5E9/0cBCl3DWrH4zz/gSM2HdDilU7vPGpYIr2w==
 
-flow-copy-source@^2.0.2:
+flow-copy-source@^2.0.2, flow-copy-source@^2.0.3:
   version "2.0.3"
   resolved "https://registry.npmjs.org/flow-copy-source/-/flow-copy-source-2.0.3.tgz#d4666b5bd556f8b3b80dc42d4dd7fb128f57c2d9"
   integrity sha512-P32YxH+bq5McSFjUeEoRGrfQKNfRisi9c/yzE612prN2bLkWKFz3ZvZwL++ejs8vNth6eqYbhfywugiYkZnfnQ==
@@ -12062,6 +12056,11 @@ react-modal@^3.8.1:
     prop-types "^15.5.10"
     react-lifecycles-compat "^3.0.0"
     warning "^3.0.0"
+
+react-native-svg@^9.4.0:
+  version "9.4.0"
+  resolved "https://registry.npmjs.org/react-native-svg/-/react-native-svg-9.4.0.tgz#e428e0eae55aebd2355f1ff4f22675dad4611960"
+  integrity sha512-IVJlVbS2dAPerPr927fEi4uXzrPXzlra5ddgyJXZZ2IKA2ZygyYWFZDM+vsQs+Vj20CfL8nOWszQQV57vdQgFg==
 
 react-popper-tooltip@^2.8.0:
   version "2.8.1"
