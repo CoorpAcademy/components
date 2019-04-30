@@ -4,9 +4,10 @@ Components bank (react and react-native) based on Nova SVG icons (through [Iconj
 
 ## Adding an icon
 
-- Open the Iconjar collection in the `third-party` folder or add a new one
-- Drag and drop your SVG file into the collection (be careful of having a SVG without any custom color)
-- Add the path into the `icons.js` file at root
+- Open the Iconjar collection that's in the `third-party` folder or add a new one
+- Drag and drop your SVG file into a collection (be careful of having a SVG without any custom color)
+- Export the new updated iconjar collection
+- Add the the brand new svg icon's path into `icons.js` file that's in root project
 - Generate the component using `yarn prepare`
 
 ## Usage

@@ -1,6 +1,7 @@
 /* eslint-disable react/no-danger */
 import React from 'react';
 import PropTypes from 'prop-types';
+import {NovaCompositionCoorpacademyMagicWand as MagicWand} from '@coorpacademy/nova-icons';
 import Button from '../../atom/button';
 import style from './style.css';
 
@@ -23,32 +24,29 @@ const QrCodeImage = ({url}) => {
   );
 };
 
-const MagicLink = ({disabled, url}) => {
+const MagicLink = ({disabled, submitValue, url}) => {
   return (
     <div className={style.buttonWrapper}>
-      <Button disabled={disabled} href={url} type="a" />
+      <Button disabled={disabled} href={url} type="a" submitValue={null}>
+        <div className={style.iconWrapper}>
+          <MagicWand className={style.magicLinkIcon} />
+          <p>{submitValue}</p>
+        </div>
+      </Button>
     </div>
   );
 };
 
 const StoresLinks = ({
-  appStoreAppUrl,
+  onAppStoreButtonClick,
   appStoreButtonImageUrl,
   playStoreButtonImageUrl,
-  playStoreAppUrl
+  onPlayStoreButtonClick
 }) => {
   return (
     <div className={style.storeLinksContainer}>
-      <img
-        className={style.img}
-        src={appStoreButtonImageUrl}
-        onClick={() => window.open(appStoreAppUrl)}
-      />
-      <img
-        className={style.img}
-        src={playStoreButtonImageUrl}
-        onClick={() => window.open(playStoreAppUrl)}
-      />
+      <img className={style.img} src={appStoreButtonImageUrl} onClick={onAppStoreButtonClick} />
+      <img className={style.img} src={playStoreButtonImageUrl} onClick={onPlayStoreButtonClick} />
     </div>
   );
 };
@@ -62,10 +60,10 @@ const Divider = ({word}) => (
 );
 
 const GetTheApp = ({
-  appStoreAppUrl,
+  onAppStoreButtonClick,
   appStoreButtonImageUrl,
   playStoreButtonImageUrl,
-  playStoreAppUrl,
+  onPlayStoreButtonClick,
   step1Title,
   step1SubTitle,
   step2Title,
@@ -74,17 +72,19 @@ const GetTheApp = ({
   diviserWord,
   qrCodeImageUrl,
   magicLinkUrl,
-  disabled
+  disabled,
+  submitValue,
+  onMagicLinkButtonClick
 }) => {
   return (
     <div className={style.container}>
       <div className={style.store}>
         <Header title={step1Title} subTitle={step1SubTitle} />
         <StoresLinks
-          appStoreAppUrl={appStoreAppUrl}
+          onAppStoreButtonClick={onAppStoreButtonClick}
           appStoreButtonImageUrl={appStoreButtonImageUrl}
           playStoreButtonImageUrl={playStoreButtonImageUrl}
-          playStoreAppUrl={playStoreAppUrl}
+          onPlayStoreButtonClick={onPlayStoreButtonClick}
         />
       </div>
       <div className={style.secondStepWrapper}>
@@ -97,7 +97,12 @@ const GetTheApp = ({
           <Divider word={diviserWord} />
           <div className={style.wrapper}>
             <Header title={magicLinkTitle} />
-            <MagicLink disabled={disabled} url={magicLinkUrl} />
+            <MagicLink
+              onSubmit={onMagicLinkButtonClick}
+              submitValue={submitValue}
+              disabled={disabled}
+              url={magicLinkUrl}
+            />
           </div>
         </div>
       </div>
@@ -106,10 +111,10 @@ const GetTheApp = ({
 };
 
 GetTheApp.propTypes = {
-  appStoreAppUrl: PropTypes.string,
+  onAppStoreButtonClick: PropTypes.func,
   appStoreButtonImageUrl: PropTypes.string,
   playStoreButtonImageUrl: PropTypes.string,
-  playStoreAppUrl: PropTypes.string,
+  onPlayStoreButtonClick: PropTypes.func,
   step1Title: PropTypes.string,
   step1SubTitle: PropTypes.string,
   step2Title: PropTypes.string,
@@ -118,7 +123,9 @@ GetTheApp.propTypes = {
   diviserWord: PropTypes.string,
   qrCodeImageUrl: PropTypes.string,
   magicLinkUrl: PropTypes.string,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  submitValue: PropTypes.string,
+  onMagicLinkButtonClick: PropTypes.func
 };
 
 export default GetTheApp;

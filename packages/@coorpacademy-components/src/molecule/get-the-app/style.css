@@ -105,6 +105,25 @@
   margin-top: 120px;
 }
 
+.iconWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconWrapper > p {
+  margin: 0;
+}
+
+.magicLinkIcon {
+  color: white;
+  width: 20px;
+  height: 20px;
+  padding: 0 5px;
+}
+
 .secondStepWrapper {
   display: flex;
   flex-direction: column;
