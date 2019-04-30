@@ -37,7 +37,7 @@ const App = props => {
           </div>
         </div>
         <div className={style.avt}>
-          <Avatar avatar={props.avatar} />
+          <Avatar url={props.urlAvatar} />
         </div>
         <div className={style.wrapper}>
           <p>
@@ -67,7 +67,7 @@ App.propTypes = {
   levelName: Link.propTypes.children,
   onClickButtonBattle: PropTypes.func,
   onClickButtonCourse: PropTypes.func,
-  avatar: PropTypes.string,
+  urlAvatar: PropTypes.string,
   urlImg: PropTypes.string
 };
 

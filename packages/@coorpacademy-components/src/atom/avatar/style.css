@@ -1,6 +1,4 @@
 .container {
-  /* margin: 0 0 8px; */
-  /* width: 100%; */
   height: 80px;
   padding: 20px;
   box-sizing: border-box;
@@ -30,7 +28,7 @@
   flex: 0 0 50px;
 }
 
-.avatar img {
+.avatarImg {
   width: 100%;
   height: auto;
 }

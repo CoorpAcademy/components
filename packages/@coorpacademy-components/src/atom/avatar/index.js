@@ -8,7 +8,7 @@ const Avatar = props => {
     <div className={style.container}>
       <div className={style.circle}>
         <div className={style.avatar}>
-          <img src={props.avatar} />
+          <img className={style.avatarImg} src={props.url} />
         </div>
       </div>
       <div className={style.iconBubble}>
@@ -19,7 +19,7 @@ const Avatar = props => {
 };
 
 Avatar.propTypes = {
-  avatar: PropTypes.string
+  url: PropTypes.string
 };
 
 export default Avatar;

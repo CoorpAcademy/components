@@ -8,14 +8,14 @@ const Battles = props => {
   const battles = props.battles;
   return (
     <ul className={style.cards}>
-      {battles.map((battle, index) => (
+      {battles.map(battle => (
         <li key={battle.name} className={style.cards__item}>
           <div className={style.card}>
             <Battle
               name={battle.name}
               courseName={battle.courseName}
               levelName={battle.levelName}
-              avatar={battle.avatar}
+              urlAvatar={battle.urlAvatar}
               urlImg={battle.urlImg}
               submitReviewCourseValue={battle.submitReviewCourseValue}
               submitStartBattleValue={battle.submitStartBattleValue}
@@ -38,7 +38,7 @@ Battles.propTypes = {
       levelName: Link.propTypes.children,
       onClickButtonBattle: PropTypes.func,
       onClickButtonCourse: PropTypes.func,
-      avatar: PropTypes.string,
+      urlAvatar: PropTypes.string,
       urlImg: PropTypes.string
     })
   )
