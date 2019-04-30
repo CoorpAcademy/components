@@ -28,10 +28,19 @@ const Button = props => {
   );
 };
 const App = props => {
-  const obj = Obj(props.urlImg);
+  function backgroundImage(url) {
+    return {
+      background: `linear-gradient(
+        rgba(0, 0, 0, 0.55), 
+        rgba(0, 0, 0, 0.55)
+        ),url(${url})`,
+      backgroundSize: 'cover'
+    };
+  }
+
   return (
     <div className={style.container}>
-      <div className={`${style.image}`} style={Object.assign({}, obj, {backgroundSize: 'cover'})}>
+      <div className={`${style.image}`} style={backgroundImage(props.urlImg)}>
         <div style={{width: '100%', display: 'flex', justifyContent: 'flex-end'}}>
           <div className={style.level}>
             <p>{props.levelName}</p>

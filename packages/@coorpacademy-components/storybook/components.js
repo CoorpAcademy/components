@@ -54,7 +54,7 @@ import MoleculeBreadcrumbs from './../src/molecule/breadcrumbs';
 import MoleculeCard from './../src/molecule/card';
 import MoleculeCookieBanner from './../src/molecule/cookie-banner';
 import MoleculeDashboardBattleRequestList from './../src/molecule/dashboard/battle-request-list';
-import MoleculeDashboardBattleRequestList2 from './../src/molecule/dashboard/battle-request-list2';
+import MoleculeDashboardBattleRequestListInline from './../src/molecule/dashboard/battle-request-list-inline';
 import MoleculeDashboardCardsList from './../src/molecule/dashboard/cards-list';
 import MoleculeDashboardNewsList from './../src/molecule/dashboard/news-list';
 import MoleculeDashboardStartBattle from './../src/molecule/dashboard/start-battle';
@@ -342,8 +342,8 @@ import MoleculeCardFixtureFreerun from '../src/molecule/card/test/fixtures/freer
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
 import MoleculeDashboardBattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
 import MoleculeDashboardBattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
-import MoleculeDashboardBattleRequestList2FixtureDefault from '../src/molecule/dashboard/battle-request-list2/test/fixtures/default';
-import MoleculeDashboardBattleRequestList2FixtureEmpty from '../src/molecule/dashboard/battle-request-list2/test/fixtures/empty';
+import MoleculeDashboardBattleRequestListInlineFixtureDefault from '../src/molecule/dashboard/battle-request-list-inline/test/fixtures/default';
+import MoleculeDashboardBattleRequestListInlineFixtureEmpty from '../src/molecule/dashboard/battle-request-list-inline/test/fixtures/empty';
 import MoleculeDashboardCardsListFixtureDefault from '../src/molecule/dashboard/cards-list/test/fixtures/default';
 import MoleculeDashboardCardsListFixtureManyEmpty from '../src/molecule/dashboard/cards-list/test/fixtures/many-empty';
 import MoleculeDashboardCardsListFixtureMany from '../src/molecule/dashboard/cards-list/test/fixtures/many';
@@ -824,7 +824,7 @@ export const components = {
   },
   MoleculeDashboard: {
     MoleculeDashboardBattleRequestList,
-    MoleculeDashboardBattleRequestList2,
+    MoleculeDashboardBattleRequestListInline,
     MoleculeDashboardCardsList,
     MoleculeDashboardNewsList,
     MoleculeDashboardStartBattle
@@ -1414,9 +1414,9 @@ export const fixtures = {
       Default: MoleculeDashboardBattleRequestListFixtureDefault,
       Empty: MoleculeDashboardBattleRequestListFixtureEmpty
     },
-    MoleculeDashboardBattleRequestList2: {
-      Default: MoleculeDashboardBattleRequestList2FixtureDefault,
-      Empty: MoleculeDashboardBattleRequestList2FixtureEmpty
+    MoleculeDashboardBattleRequestListInline: {
+      Default: MoleculeDashboardBattleRequestListInlineFixtureDefault,
+      Empty: MoleculeDashboardBattleRequestListInlineFixtureEmpty
     },
     MoleculeDashboardCardsList: {
       Default: MoleculeDashboardCardsListFixtureDefault,
