@@ -5,13 +5,13 @@ import Link from '../../atom/link';
 import Avatar from '../../atom/avatar';
 import style from './style.css';
 
-// Définition de l'objet
-function Obj(url) {
+function backgroundImage(url) {
   return {
     background: `linear-gradient(
       rgba(0, 0, 0, 0.55), 
       rgba(0, 0, 0, 0.55)
-      ),url(${url})`
+      ),url(${url})`,
+    backgroundSize: 'cover'
   };
 }
 
@@ -28,16 +28,6 @@ const Button = props => {
   );
 };
 const App = props => {
-  function backgroundImage(url) {
-    return {
-      background: `linear-gradient(
-        rgba(0, 0, 0, 0.55), 
-        rgba(0, 0, 0, 0.55)
-        ),url(${url})`,
-      backgroundSize: 'cover'
-    };
-  }
-
   return (
     <div className={style.container}>
       <div className={`${style.image}`} style={backgroundImage(props.urlImg)}>
