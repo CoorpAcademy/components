@@ -3,6 +3,7 @@
 @value xtraLightGrey from colors;
 @value light from colors;
 @value white from colors;
+@value lightMediumGray from colors;
 
 .button {
   composes: hoverFill from './hover-fill.css';
@@ -36,4 +37,10 @@
   background-color: xtraLightGrey;
   cursor: default;
   color: light;
+}
+
+.isDisabled {
+  background-color: lightMediumGray;
+  animation: 0;
+  pointer-events: none;
 }

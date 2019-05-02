@@ -9,13 +9,20 @@ export default {
     step1Title: 'Step 1: Download the app!',
     step1SubTitle: 'Get The Coorpacademy experience on your phone!',
     step2Title: "Step 2: Once you've downloaded it, connect to it",
-    qrCodeTitle: 'By scanning your personal QR Code directly from the app',
-    magicLinkTitle:
-      'By clicking on your personal magic link (only works directly from your smartphone)',
+    qrCodeTitle: 'By scanning your personal QR Code',
+    qrCodeSubTitle: 'directly from the app',
+    magicLinkTitle: 'By clicking on your personal magic link',
+    magicLinkSubTitle: ' (only works directly from your smartphone)',
     diviserWord: 'or',
+    disabled: false,
+    showMobileAppAccess: false,
     qrCodeImageUrl: 'https://www.qrcode-monkey.com/img/default-preview-qr.svg',
     magicLinkUrl: 'https://play.google.com/store/apps/details?id=com.frogmind.rumblestars&hl=fr',
     submitValue: 'magic link',
-    onMagicLinkButtonClick: () => window.open('https://www.coorpacademy.com')
+    onMagicLinkButtonClick: () => window.open('https://www.coorpacademy.com'),
+    preMessage:
+      "Cette fonctionnalité n'est pas encore activée sur votre plateform. Si vous souhaitez l'activer, contactez votre resposable RH ou ",
+    linkMessage: 'cliquez ici ',
+    endMessage: 'et nous passerons le message'
   }
 };

@@ -4,13 +4,18 @@
 @value colors: "../../variables/colors.css";
 @value dark from colors;
 @value medium from colors;
+@value white from colors;
 @value lightGrey from colors;
+@value xtraLightGrey from colors;
 
 .container {
   display: flex;
   flex-direction: column;
   justify-items: center;
   align-items: center;
+  font-family: "Open Sans";
+  border-radius: 8px;
+  border: 2px solid lightGrey;
 }
 
 .headerContainer {
@@ -19,19 +24,16 @@
   align-items: center;
   align-content: center;
   flex-direction: column;
-  font-family: "Open Sans";
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
 .headerTitle {
-  font-size: 2em;
-  font-weight: normal;
+  font-weight: bold;
   text-align: center;
 }
 
 .headerSubTitle {
-  font-size: 1em;
   padding-top: 0;
   margin-top: 0;
   font-weight: normal;
@@ -46,8 +48,10 @@
 
 .storeLinksContainer {
   display: flex;
-  justify-items: center;
+  justify-content: center;
   align-items: center;
+  margin: 0 auto;
+  margin-bottom: 37px;
 }
 
 .store {
@@ -58,7 +62,7 @@
   width: 100%;
   height: 100%;
   justify-content: space-around;
-  background-color: lightGrey;
+  background-color: xtraLightGrey;
 }
 
 .wrapper {
@@ -76,7 +80,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 150px;
+  margin-top: 120px;
 }
 
 .dividerWrapper > p {
@@ -86,7 +90,7 @@
 
 .divider {
   border-left: 1px solid medium;
-  height: 200px;
+  height: 100px;
 }
 
 .connectionWrapper {
@@ -94,6 +98,7 @@
   flex-direction: row;
   align-items: start;
   justify-content: center;
+  padding-bottom: 20px;
 }
 
 .buttonWrapper {
@@ -102,7 +107,6 @@
   align-items: center;
   padding: 10px;
   height: 100%;
-  margin-top: 120px;
 }
 
 .iconWrapper {
@@ -131,13 +135,40 @@
   align-items: center;
   width: 100%;
   height: 100%;
+  border-top: 2px solid lightGrey;
 }
 
-.qrCodeImageWrapper {
-  display: flex;
-  flex-direction: column;
+.qrcodeWrapper > img {
+  height: 240px;
+}
+
+.qrcodeWrapper {
+  position: relative;
   align-items: center;
-  padding: 10px;
+  justify-content: center;
+  display: flex;
+}
+
+.qrcodeOverlay {
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 220px;
+  height: 220px;
+  background-color: rgba(255, 255, 255, 0.65);
+}
+
+.qrcodeModal {
+  background-color: white;
+  width: 80%;
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 3px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 /* Responsive */
@@ -166,10 +197,6 @@
     justify-content: center;
     margin: 0 auto;
     flex-direction: column;
-  }
-
-  .qrCodeImageWrapper > img {
-    width: 60%;
   }
 
   .dividerWrapper {
@@ -202,10 +229,6 @@
     font-weight: normal;
   }
 
-  .buttonWrapper {
-    margin-top: 50px;
-  }
-
   .img {
     padding: 5px 30px;
     max-height: 100px;
@@ -214,14 +237,12 @@
 }
 
 @media mobile {
-  .storeLinksContainer {
-    justify-content: center;
-    margin: 0 auto;
-    flex-direction: column;
+  .dividerWrapper {
+    display: none;
   }
 
-  .connectionWrapper {
-    flex-direction: column-reverse;
+  .connectionWrapper > :nth-child(1) {
+    display: none;
   }
 
   .divider {
