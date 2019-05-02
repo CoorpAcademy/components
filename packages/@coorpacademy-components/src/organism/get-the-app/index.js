@@ -6,13 +6,15 @@ import get from 'lodash/fp/get';
 import Button from '../../atom/button';
 import style from './style.css';
 
+const createMarkUp = (title, subtitle) => {
+  if (subtitle) {
+    return `<p>${title}</p><p>${subtitle} </p>`;
+  }
+  return `<p class="headerTitle">${title}</p>`;
+};
 const Header = ({title, subTitle}) => {
-  return (
-    <div className={style.headerContainer}>
-      <h2 className={style.headerTitle}>{title}</h2>
-      {subTitle && <h4 className={style.headerSubTitle}>{subTitle} </h4>}
-    </div>
-  );
+  const __html = createMarkUp(title, subTitle);
+  return <div className={style.headerContainer} dangerouslySetInnerHTML={{__html}} />;
 };
 
 const QrCodeImage = ({showMobileAppAccess, url, preMessage, linkMessage, endMessage}) => {
