@@ -39,7 +39,7 @@ const QrCodeImage = ({showMobileAppAccess, url, preMessage, linkMessage, endMess
 const MagicLink = ({disabled, submitValue, url, color}) => {
   return (
     <div className={style.buttonWrapper}>
-      <Button color={color} disabled={disabled} href={url} type="a" submitValue={null}>
+      <Button color={color} disabled={disabled} href={url} type="link" submitValue={null}>
         <div className={style.iconWrapper}>
           <MagicWand className={style.magicLinkIcon} />
           <p>{submitValue}</p>
