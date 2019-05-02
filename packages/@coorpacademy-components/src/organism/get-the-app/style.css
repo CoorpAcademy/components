@@ -245,6 +245,10 @@
     display: none;
   }
 
+  .storeLinksContainer > img {
+    padding: 0 5px;
+  }
+
   .divider {
     margin: 0 auto;
     margin-bottom: 2px;

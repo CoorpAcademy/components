@@ -65,7 +65,6 @@ import MoleculeFilters from './../src/molecule/filters';
 import MoleculeForumForumComment from './../src/molecule/forum/forum-comment';
 import MoleculeForumForumPost from './../src/molecule/forum/forum-post';
 import MoleculeForumForumThread from './../src/molecule/forum/forum-thread';
-import MoleculeGetTheApp from './../src/molecule/get-the-app';
 import MoleculeMenuList from './../src/molecule/menu-list';
 import MoleculeMessagePopin from './../src/molecule/message-popin';
 import MoleculeModuleBubble from './../src/molecule/module-bubble';
@@ -112,6 +111,7 @@ import OrganismBrandUpload from './../src/organism/brand-upload';
 import OrganismCardsGrid from './../src/organism/cards-grid';
 import OrganismCart from './../src/organism/cart';
 import OrganismDiscussion from './../src/organism/discussion';
+import OrganismGetTheApp from './../src/organism/get-the-app';
 import OrganismGridList from './../src/organism/grid-list';
 import OrganismHeader from './../src/organism/header';
 import OrganismHero from './../src/organism/hero';
@@ -399,7 +399,6 @@ import MoleculeForumForumPostFixtureTextareasLocked from '../src/molecule/forum/
 import MoleculeForumForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thread/test/fixtures/deep-answers';
 import MoleculeForumForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
 import MoleculeForumForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
-import MoleculeGetTheAppFixtureDefault from '../src/molecule/get-the-app/test/fixtures/default';
 import MoleculeMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import MoleculeMessagePopinFixtureDefault from '../src/molecule/message-popin/test/fixtures/default';
 import MoleculeModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
@@ -529,6 +528,7 @@ import OrganismDiscussionFixtureDefault from '../src/organism/discussion/test/fi
 import OrganismDiscussionFixtureLoadingMore from '../src/organism/discussion/test/fixtures/loading-more';
 import OrganismDiscussionFixtureModeration from '../src/organism/discussion/test/fixtures/moderation';
 import OrganismDiscussionFixtureNewDiscussion from '../src/organism/discussion/test/fixtures/new-discussion';
+import OrganismGetTheAppFixtureDefault from '../src/organism/get-the-app/test/fixtures/default';
 import OrganismGridListFixtureDefault from '../src/organism/grid-list/test/fixtures/default';
 import OrganismHeaderFixtureDefault from '../src/organism/header/test/fixtures/default';
 import OrganismHeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
@@ -783,7 +783,6 @@ export const components = {
     MoleculeDisciplineScope,
     MoleculeFeedback,
     MoleculeFilters,
-    MoleculeGetTheApp,
     MoleculeMenuList,
     MoleculeMessagePopin,
     MoleculeModuleBubble,
@@ -847,6 +846,7 @@ export const components = {
     OrganismCardsGrid,
     OrganismCart,
     OrganismDiscussion,
+    OrganismGetTheApp,
     OrganismGridList,
     OrganismHeader,
     OrganismHero,
@@ -1247,9 +1247,6 @@ export const fixtures = {
       Two: MoleculeFiltersFixtureTwo,
       Zero: MoleculeFiltersFixtureZero
     },
-    MoleculeGetTheApp: {
-      Default: MoleculeGetTheAppFixtureDefault
-    },
     MoleculeMenuList: {
       Default: MoleculeMenuListFixtureDefault
     },
@@ -1522,6 +1519,9 @@ export const fixtures = {
       LoadingMore: OrganismDiscussionFixtureLoadingMore,
       Moderation: OrganismDiscussionFixtureModeration,
       NewDiscussion: OrganismDiscussionFixtureNewDiscussion
+    },
+    OrganismGetTheApp: {
+      Default: OrganismGetTheAppFixtureDefault
     },
     OrganismGridList: {
       Default: OrganismGridListFixtureDefault
