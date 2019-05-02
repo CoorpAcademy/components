@@ -11,7 +11,6 @@ import {
   getPreviousSlide
 } from '../../utils/state-extract';
 import type {DispatchedAction, GetState, ReduxState, ThunkAction} from '../../definitions/redux';
-import {progressionUpdated} from './progressions';
 
 export const UI_VIDEO_ERROR = '@@ui/VIDEO_ERROR';
 export const UI_VIDEO_PAUSE = '@@ui/VIDEO_PAUSE';
@@ -54,8 +53,7 @@ DispatchedAction => {
     : resources[0];
 
   await dispatch(sendMediaViewed(resource));
-  await dispatch(markResourceAsViewed(progressionId, resource));
-  return dispatch(progressionUpdated(progressionId));
+  return dispatch(markResourceAsViewed(progressionId, resource));
 };
 
 export const pause = (resource: Lesson) => ({

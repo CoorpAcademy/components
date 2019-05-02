@@ -12,14 +12,8 @@ import {
   resume,
   ended
 } from '../video';
-import {UI_PROGRESSION_ACTION_TYPES} from '../progressions';
 
-import {
-  MEDIA_VIEWED_ANALYTICS_REQUEST,
-  MEDIA_VIEWED_ANALYTICS_SUCCESS,
-  SEND_PROGRESSION_ANALYTICS_REQUEST,
-  SEND_PROGRESSION_ANALYTICS_SUCCESS
-} from '../../api/analytics';
+import {MEDIA_VIEWED_ANALYTICS_REQUEST, MEDIA_VIEWED_ANALYTICS_SUCCESS} from '../../api/analytics';
 
 import {
   PROGRESSION_RESOURCE_VIEWED_REQUEST,
@@ -98,10 +92,6 @@ test(
     Analytics: {
       sendViewedMediaAnalytics: (media, location) => {
         t.pass();
-      },
-      sendProgressionAnalytics: () => {
-        t.pass();
-        return 'qux';
       }
     },
     Progressions: {
@@ -142,22 +132,9 @@ test(
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource},
       payload: set('state.viewedResources', [content.ref], {})
-    },
-    {
-      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
-      meta: {id: 'foo'}
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
-      meta: {id: 'foo'}
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
-      meta: {id: 'foo'},
-      payload: 'qux'
     }
   ],
-  4
+  3
 );
 
 test(
@@ -183,10 +160,6 @@ test(
     Analytics: {
       sendViewedMediaAnalytics: (media, location) => {
         t.pass();
-      },
-      sendProgressionAnalytics: () => {
-        t.pass();
-        return 'qux';
       }
     },
     Progressions: {
@@ -227,22 +200,9 @@ test(
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource},
       payload: set('state.viewedResources', [content.ref], {})
-    },
-    {
-      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
-      meta: {id: 'foo'}
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
-      meta: {id: 'foo'}
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
-      meta: {id: 'foo'},
-      payload: 'qux'
     }
   ],
-  4
+  3
 );
 
 test(
@@ -350,10 +310,6 @@ test(
     Analytics: {
       sendViewedMediaAnalytics: (media, location) => {
         t.pass();
-      },
-      sendProgressionAnalytics: () => {
-        t.pass();
-        return 'qux';
       }
     },
     Progressions: {
@@ -382,20 +338,7 @@ test(
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource},
       payload: 'foo'
-    },
-    {
-      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
-      meta: {id: 'foo'}
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
-      meta: {id: 'foo'}
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
-      meta: {id: 'foo'},
-      payload: 'qux'
     }
   ],
-  3
+  2
 );
