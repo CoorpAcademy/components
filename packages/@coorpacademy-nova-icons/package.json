@@ -22,7 +22,10 @@
     "prebuild:babel:es": "rm -rf es",
     "build:babel:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
     "build:babel": "concurrently \"npm run build:babel:commonjs\" \"npm run build:babel:es\"",
-    "prepare": "npm run generate:icons && npm run build:babel"
+    "build:types:commonjs": "flow-copy-source src lib --ignore '**/test/**/*.js'",
+    "build:types:es": "flow-copy-source src es --ignore '**/test/**/*.js'",
+    "build:types": "concurrently \"npm run build:types:commonjs\" \"npm run build:types:es\"",
+    "prepare": "npm run generate:icons && npm run build:babel && npm run build:types"
   },
   "author": "CoorpAcademy",
   "dependencies": {
@@ -30,7 +33,8 @@
     "async": "^2.6.2",
     "chalk": "^2.4.2",
     "globby": "^9.1.0",
-    "mkdirp-promise": "^5.0.1"
+    "mkdirp-promise": "^5.0.1",
+    "react-native-svg": "^9.4.0"
   },
   "peerDependencies": {
     "react": "^16.3.2"
@@ -53,6 +57,7 @@
     "cross-env": "^5.2.0",
     "eslint": "^5.15.3",
     "flow-bin": "^0.95.1",
+    "flow-copy-source": "^2.0.3",
     "react": "^16.8.6"
   }
 }
