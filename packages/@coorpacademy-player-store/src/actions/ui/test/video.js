@@ -144,7 +144,7 @@ test(
       payload: set('state.viewedResources', [content.ref], {})
     },
     {
-      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
+      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_NODE,
       meta: {id: 'foo'}
     },
     {
@@ -229,7 +229,7 @@ test(
       payload: set('state.viewedResources', [content.ref], {})
     },
     {
-      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
+      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_NODE,
       meta: {id: 'foo'}
     },
     {
@@ -384,7 +384,7 @@ test(
       payload: 'foo'
     },
     {
-      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
+      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_NODE,
       meta: {id: 'foo'}
     },
     {

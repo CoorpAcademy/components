@@ -2,7 +2,7 @@ import get from 'lodash/fp/get';
 import {getCurrentSlide, getCurrentProgressionId} from '../../utils/state-extract';
 import {fetchClue} from '../api/clues';
 import {requestClue} from '../api/progressions';
-import {progressionUpdated} from './progressions';
+import {UI_PROGRESSION_ACTION_TYPES, progressionUpdated} from './progressions';
 import {selectRoute} from './route';
 
 const getId = get('_id');
@@ -19,5 +19,7 @@ export const getClue = async (dispatch, getState) => {
 
   await dispatch(requestClue(progressionId, slideId));
   await dispatch(fetchClue(progressionId, slideId));
-  return dispatch(progressionUpdated(progressionId));
+  return dispatch(
+    progressionUpdated(progressionId, UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_NODE)
+  );
 };

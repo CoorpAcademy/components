@@ -32,7 +32,8 @@ import type {ExitNodeRef} from '../../definitions/models';
 import {selectRoute} from './route';
 
 /* eslint-disable flowtype/type-id-match */
-type UI_PROGRESSION_UPDATED = '@@ui/UI_PROGRESSION_UPDATED';
+export type UI_PROGRESSION_UPDATED_ON_MOVE = '@@ui/PROGRESSION_UPDATED_ON_MOVE';
+export type UI_PROGRESSION_UPDATED_ON_NODE = '@@ui/PROGRESSION_UPDATED_ON_NODE';
 type UI_SELECT_PROGRESSION = '@@ui/SELECT_PROGRESSION';
 type UI_SELECT_PROGRESSION_FAILURE = '@@ui/SELECT_PROGRESSION_FAILURE';
 type OPEN_ASSISTANCE_REQUEST = '@@progression/OPEN_ASSISTANCE_REQUEST';
@@ -43,31 +44,36 @@ type OPEN_ASSISTANCE_FAILURE = '@@progression/OPEN_ASSISTANCE_FAILURE';
 export const UI_PROGRESSION_ACTION_TYPES: {
   SELECT_PROGRESSION: UI_SELECT_PROGRESSION,
   SELECT_PROGRESSION_FAILURE: UI_SELECT_PROGRESSION_FAILURE,
-  PROGRESSION_UPDATED: UI_PROGRESSION_UPDATED,
+  PROGRESSION_UPDATED_ON_MOVE: UI_PROGRESSION_UPDATED_ON_MOVE,
+  PROGRESSION_UPDATED_ON_NODE: UI_PROGRESSION_UPDATED_ON_NODE,
   OPEN_ASSISTANCE_REQUEST: OPEN_ASSISTANCE_REQUEST,
   OPEN_ASSISTANCE_SUCCESS: OPEN_ASSISTANCE_SUCCESS,
   OPEN_ASSISTANCE_FAILURE: OPEN_ASSISTANCE_FAILURE
 } = {
   SELECT_PROGRESSION: '@@ui/SELECT_PROGRESSION',
   SELECT_PROGRESSION_FAILURE: '@@ui/SELECT_PROGRESSION_FAILURE',
-  PROGRESSION_UPDATED: '@@ui/UI_PROGRESSION_UPDATED',
+  PROGRESSION_UPDATED_ON_MOVE: '@@ui/PROGRESSION_UPDATED_ON_MOVE',
+  PROGRESSION_UPDATED_ON_NODE: '@@ui/PROGRESSION_UPDATED_ON_NODE',
   OPEN_ASSISTANCE_REQUEST: '@@progression/OPEN_ASSISTANCE_REQUEST',
   OPEN_ASSISTANCE_SUCCESS: '@@progression/OPEN_ASSISTANCE_SUCCESS',
   OPEN_ASSISTANCE_FAILURE: '@@progression/OPEN_ASSISTANCE_FAILURE'
 };
 
-export const progressionUpdated = (id: ProgressionId): ThunkAction => async (
+export const progressionUpdated = (
+  id: ProgressionId,
+  type: UI_PROGRESSION_UPDATED_ON_MOVE | UI_PROGRESSION_UPDATED_ON_NODE
+): ThunkAction => async (
   dispatch: Function,
   getState: GetState
 ): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
 DispatchedAction => {
   await dispatch({
-    type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
+    type,
     meta: {
       id
     }
   });
-  return dispatch(sendProgressionAnalytics(id));
+  return dispatch(sendProgressionAnalytics(id, type));
 };
 
 type SelectProgressionPayload = {

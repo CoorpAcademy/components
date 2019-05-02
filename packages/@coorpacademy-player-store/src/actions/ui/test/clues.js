@@ -111,7 +111,7 @@ test(
       payload: ['Clue']
     },
     {
-      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
+      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_NODE,
       meta: {
         id: 'foo'
       }

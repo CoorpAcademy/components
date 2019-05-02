@@ -11,6 +11,10 @@ import type {
   GetState,
   ThunkAction
 } from '../../definitions/redux';
+import type {
+  UI_PROGRESSION_UPDATED_ON_MOVE,
+  UI_PROGRESSION_UPDATED_ON_NODE
+} from '../ui/progressions';
 
 export const MEDIA_VIEWED_ANALYTICS_REQUEST: string = '@@analytics/MEDIA_VIEWED_REQUEST';
 export const MEDIA_VIEWED_ANALYTICS_SUCCESS: string = '@@analytics/MEDIA_VIEWED_SUCCESS';
@@ -43,7 +47,10 @@ export const SEND_PROGRESSION_ANALYTICS_REQUEST: string = '@@analytics/SEND_PROG
 export const SEND_PROGRESSION_ANALYTICS_SUCCESS: string = '@@analytics/SEND_PROGRESSION_SUCCESS';
 export const SEND_PROGRESSION_ANALYTICS_FAILURE: string = '@@analytics/SEND_PROGRESSION_FAILURE';
 
-export const sendProgressionAnalytics = (progressionId: string): ThunkAction => (
+export const sendProgressionAnalytics = (
+  progressionId: string,
+  type: UI_PROGRESSION_UPDATED_ON_MOVE | UI_PROGRESSION_UPDATED_ON_NODE
+): ThunkAction => (
   dispatch: Function,
   getState: GetState,
   {services}: {services: Services}
@@ -75,7 +82,7 @@ DispatchedAction => {
       SEND_PROGRESSION_ANALYTICS_SUCCESS,
       SEND_PROGRESSION_ANALYTICS_FAILURE
     ],
-    task: () => Analytics.sendProgressionAnalytics(currentProgression, engineConfig),
+    task: () => Analytics.sendProgressionAnalytics(currentProgression, engineConfig, type),
     meta: {id: progressionId}
   });
 
