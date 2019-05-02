@@ -1,0 +1,244 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value medium from colors;
+@value white from colors;
+@value lightGrey from colors;
+@value xtraLightGrey from colors;
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  font-family: "Open Sans";
+  border-radius: 8px;
+  border: 2px solid lightGrey;
+}
+
+.headerContainer {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+  flex-direction: column;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.headerContainer :nth-child(1) {
+  font-size: 15px;
+  text-align: center;
+}
+
+.headerContainer :nth-child(2) {
+  font-size: 15px;
+  padding-top: 0;
+  margin-top: 0;
+  font-weight: normal;
+  text-align: center;
+}
+
+.img {
+  padding: 30px;
+  max-height: 109px;
+  max-width: 209px;
+}
+
+.storeLinksContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  margin-bottom: 37px;
+}
+
+.store {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: space-around;
+  background-color: xtraLightGrey;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  margin: 20px;
+  flex-direction: column;
+}
+
+.dividerWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.dividerWrapper > p {
+  color: dark;
+  font-weight: bold;
+}
+
+.divider {
+  border-left: 1px solid medium;
+  height: 100px;
+}
+
+.connectionWrapper {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: start;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.buttonWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  height: 100%;
+}
+
+.iconWrapper {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconWrapper > p {
+  margin: 0;
+}
+
+.magicLinkIcon {
+  color: white;
+  width: 20px;
+  height: 20px;
+  padding: 0 5px;
+}
+
+.secondStepWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  border-top: 2px solid lightGrey;
+}
+
+.qrcodeWrapper > img {
+  height: 240px;
+}
+
+.qrcodeWrapper {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+}
+
+.qrcodeOverlay {
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  width: 220px;
+  height: 220px;
+  background-color: rgba(255, 255, 255, 0.65);
+}
+
+.qrcodeModal {
+  background-color: white;
+  width: 80%;
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 3px;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+/* Responsive */
+
+@media tablet {
+  .headerContainer {
+    padding: 0 10px;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .secondStepWrapper {
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    margin: 0 auto;
+  }
+
+  .connectionWrapper {
+    width: 100%;
+    justify-content: center;
+    margin: 0 auto;
+    flex-direction: column;
+  }
+
+  .dividerWrapper {
+    width: 100%;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    margin-top: 0;
+    flex-direction: row;
+  }
+
+  .divider {
+    margin: 0 10px;
+    border: 0;
+    border-bottom: 1px solid medium;
+    width: 100px;
+    height: 10px;
+  }
+
+  .img {
+    padding: 5px 30px;
+  }
+}
+
+@media mobile {
+  .dividerWrapper {
+    display: none;
+  }
+
+  .connectionWrapper > :nth-child(1) {
+    display: none;
+  }
+
+  .storeLinksContainer > img {
+    padding: 0 5px;
+  }
+
+  .divider {
+    margin: 0 auto;
+    margin-bottom: 2px;
+  }
+}

@@ -19,17 +19,19 @@ const ButtonContent = props => {
     type
   } = props;
   const dataName = props['data-name'];
+  const anchorClassName = (disabled && `${className} ${style.isDisabled}`) || className;
+  const anchorOnClick = (disabled && null) || onClick;
+  const anchorHref = (disabled && null) || href;
   switch (type) {
     case 'link':
       return (
         <Link
           data-name={dataName}
-          href={href}
+          href={anchorHref}
           download={download}
-          onClick={onClick}
-          disabled={disabled}
+          onClick={anchorOnClick}
           target={target}
-          className={className}
+          className={anchorClassName}
           style={props.style}
         >
           {submitValue || children}
@@ -40,11 +42,10 @@ const ButtonContent = props => {
       return (
         <a
           data-name={dataName}
-          href={href}
-          disabled={disabled}
+          href={anchorHref}
           target={target}
-          className={className}
-          onClick={onClick}
+          className={anchorClassName}
+          onClick={anchorOnClick}
           style={props.style}
         >
           {submitValue || children}

@@ -111,6 +111,7 @@ import OrganismBrandUpload from './../src/organism/brand-upload';
 import OrganismCardsGrid from './../src/organism/cards-grid';
 import OrganismCart from './../src/organism/cart';
 import OrganismDiscussion from './../src/organism/discussion';
+import OrganismGetTheApp from './../src/organism/get-the-app';
 import OrganismGridList from './../src/organism/grid-list';
 import OrganismHeader from './../src/organism/header';
 import OrganismHero from './../src/organism/hero';
@@ -527,6 +528,7 @@ import OrganismDiscussionFixtureDefault from '../src/organism/discussion/test/fi
 import OrganismDiscussionFixtureLoadingMore from '../src/organism/discussion/test/fixtures/loading-more';
 import OrganismDiscussionFixtureModeration from '../src/organism/discussion/test/fixtures/moderation';
 import OrganismDiscussionFixtureNewDiscussion from '../src/organism/discussion/test/fixtures/new-discussion';
+import OrganismGetTheAppFixtureDefault from '../src/organism/get-the-app/test/fixtures/default';
 import OrganismGridListFixtureDefault from '../src/organism/grid-list/test/fixtures/default';
 import OrganismHeaderFixtureDefault from '../src/organism/header/test/fixtures/default';
 import OrganismHeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
@@ -844,6 +846,7 @@ export const components = {
     OrganismCardsGrid,
     OrganismCart,
     OrganismDiscussion,
+    OrganismGetTheApp,
     OrganismGridList,
     OrganismHeader,
     OrganismHero,
@@ -1516,6 +1519,9 @@ export const fixtures = {
       LoadingMore: OrganismDiscussionFixtureLoadingMore,
       Moderation: OrganismDiscussionFixtureModeration,
       NewDiscussion: OrganismDiscussionFixtureNewDiscussion
+    },
+    OrganismGetTheApp: {
+      Default: OrganismGetTheAppFixtureDefault
     },
     OrganismGridList: {
       Default: OrganismGridListFixtureDefault

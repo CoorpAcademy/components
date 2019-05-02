@@ -139,7 +139,7 @@ const generateComponent = (
 const wrongFiles = whiteList.filter(({filePath}) => !fs.existsSync(filePath));
 if (wrongFiles.length > 0) {
   throw new Error(
-    chalk.red('Invalid icons:', ...wrongFiles.map(({filePath}) => `\n - ${filePath}`))
+    chalk.red('Invalid or not found icons:', ...wrongFiles.map(({filePath}) => `\n - ${filePath}`))
   );
 }
 
