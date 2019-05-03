@@ -3,6 +3,7 @@
 import test from 'ava';
 import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
+import {UI_PROGRESSION_ACTION_TYPES} from '@coorpacademy/player-store';
 import type {Config} from '@coorpacademy/progression-engine';
 import type {DataEvent} from '../definitions';
 import {sendProgressionAnalytics} from '../analytics';
@@ -37,7 +38,11 @@ test('should push an event even if dataLayer is not defined previously', t => {
     set('state.remainingLifeRequests', 1)
   )({});
 
-  sendProgressionAnalytics(currentProgression, engineConfig);
+  sendProgressionAnalytics(
+    currentProgression,
+    engineConfig,
+    UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_MOVE
+  );
 
   const res = [
     {
@@ -69,7 +74,11 @@ test('should send a `finishProgression` event to the tag manager when finishing 
     set('state.remainingLifeRequests', 1)
   )({});
 
-  sendProgressionAnalytics(currentProgression, engineConfig);
+  sendProgressionAnalytics(
+    currentProgression,
+    engineConfig,
+    UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_MOVE
+  );
 });
 
 test('should send a `finishProgression` event to the tag manager when failing a progression', t => {
@@ -92,7 +101,11 @@ test('should send a `finishProgression` event to the tag manager when failing a 
     set('state.remainingLifeRequests', 1)
   )({});
 
-  sendProgressionAnalytics(currentProgression, engineConfig);
+  sendProgressionAnalytics(
+    currentProgression,
+    engineConfig,
+    UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_MOVE
+  );
 });
 
 test('should do nothing if neither success nor failure', t => {
@@ -109,7 +122,34 @@ test('should do nothing if neither success nor failure', t => {
     set('state.nextContent.type', 'foo')
   )({});
 
-  sendProgressionAnalytics(currentProgression, engineConfig);
+  sendProgressionAnalytics(
+    currentProgression,
+    engineConfig,
+    UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_MOVE
+  );
+  t.pass();
+});
+
+test('should not send `finishProgression` event if sendProgressionAnalytics is not a from MOVE update', t => {
+  global.window = {
+    dataLayer: {
+      push: evt => {
+        t.fail();
+      }
+    }
+  };
+
+  const currentProgression = pipe(
+    set('engine.ref', 'microlearning'),
+    set('state.nextContent.type', 'failure'),
+    set('state.remainingLifeRequests', 1)
+  )({});
+
+  sendProgressionAnalytics(
+    currentProgression,
+    engineConfig,
+    UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_NODE
+  );
   t.pass();
 });
 
