@@ -43,6 +43,7 @@ import _NovaCompositionCoorpacademyClock from './components/nova-composition/coo
 import _NovaLineBusinessCircleView from './components/nova-line/business/circle-view';
 import _NovaLineShoppingQrCode from './components/nova-line/shopping/qr-code';
 import _NovaLineLoginKey1 from './components/nova-line/login/key-1';
+import _NovaLineContentEditionLinkBroken from './components/nova-line/content-edition/link-broken';
 import _NovaLineContentEditionPencil2 from './components/nova-line/content-edition/pencil-2';
 import _NovaLineInterfaceFeedbackInterfaceAlertCircle from './components/nova-line/interface-feedback/interface-alert-circle';
 import _NovaLineStatusCheckCircle1 from './components/nova-line/status/check-circle-1';
@@ -53,6 +54,7 @@ import _NovaLineAudioAudioControlPlay from './components/nova-line/audio/audio-c
 import _NovaLineVideosVideoClip3 from './components/nova-line/videos/video-clip-3';
 import _NovaLineFilesOfficeFileOfficePdf from './components/nova-line/files-office/file-office-pdf';
 import _NovaLineComputersComputerScreen1 from './components/nova-line/computers/computer-screen-1';
+import _NovaLineSpaceRingPlanet from './components/nova-line/space/ring-planet';
 import _NovaSolidPlacesPlacesHome2 from './components/nova-solid/places/places-home-2';
 import _NovaSolidDataTransferDataUpload1 from './components/nova-solid/data-transfer/data-upload-1';
 import _NovaSolidSchoolScienceGraduationHat from './components/nova-solid/school-science/graduation-hat';
@@ -120,6 +122,7 @@ export const NovaCompositionCoorpacademyClock: Icon = _NovaCompositionCoorpacade
 export const NovaLineBusinessCircleView: Icon = _NovaLineBusinessCircleView;
 export const NovaLineShoppingQrCode: Icon = _NovaLineShoppingQrCode;
 export const NovaLineLoginKey1: Icon = _NovaLineLoginKey1;
+export const NovaLineContentEditionLinkBroken: Icon = _NovaLineContentEditionLinkBroken;
 export const NovaLineContentEditionPencil2: Icon = _NovaLineContentEditionPencil2;
 export const NovaLineInterfaceFeedbackInterfaceAlertCircle: Icon = _NovaLineInterfaceFeedbackInterfaceAlertCircle;
 export const NovaLineStatusCheckCircle1: Icon = _NovaLineStatusCheckCircle1;
@@ -130,6 +133,7 @@ export const NovaLineAudioAudioControlPlay: Icon = _NovaLineAudioAudioControlPla
 export const NovaLineVideosVideoClip3: Icon = _NovaLineVideosVideoClip3;
 export const NovaLineFilesOfficeFileOfficePdf: Icon = _NovaLineFilesOfficeFileOfficePdf;
 export const NovaLineComputersComputerScreen1: Icon = _NovaLineComputersComputerScreen1;
+export const NovaLineSpaceRingPlanet: Icon = _NovaLineSpaceRingPlanet;
 export const NovaSolidPlacesPlacesHome2: Icon = _NovaSolidPlacesPlacesHome2;
 export const NovaSolidDataTransferDataUpload1: Icon = _NovaSolidDataTransferDataUpload1;
 export const NovaSolidSchoolScienceGraduationHat: Icon = _NovaSolidSchoolScienceGraduationHat;
