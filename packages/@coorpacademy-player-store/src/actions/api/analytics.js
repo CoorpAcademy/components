@@ -15,6 +15,7 @@ import type {
   UI_PROGRESSION_UPDATED_ON_MOVE,
   UI_PROGRESSION_UPDATED_ON_NODE
 } from '../ui/progressions';
+import {UI_PROGRESSION_ACTION_TYPES} from '../ui/progressions';
 
 export const MEDIA_VIEWED_ANALYTICS_REQUEST: string = '@@analytics/MEDIA_VIEWED_REQUEST';
 export const MEDIA_VIEWED_ANALYTICS_SUCCESS: string = '@@analytics/MEDIA_VIEWED_SUCCESS';
@@ -82,7 +83,21 @@ DispatchedAction => {
       SEND_PROGRESSION_ANALYTICS_SUCCESS,
       SEND_PROGRESSION_ANALYTICS_FAILURE
     ],
-    task: () => Analytics.sendProgressionAnalytics(currentProgression, engineConfig, type),
+    task: () => {
+      const progressionState = currentProgression.state;
+      if (!progressionState) {
+        return;
+      }
+
+      const onMove = type === UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_MOVE;
+      const isExitNode =
+        progressionState.nextContent.type === 'success' ||
+        progressionState.nextContent.type === 'failure';
+
+      if (onMove && isExitNode) {
+        Analytics.sendProgressionAnalytics(currentProgression, engineConfig);
+      }
+    },
     meta: {id: progressionId}
   });
 

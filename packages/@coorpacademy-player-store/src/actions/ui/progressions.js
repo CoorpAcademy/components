@@ -73,6 +73,7 @@ DispatchedAction => {
       id
     }
   });
+
   return dispatch(sendProgressionAnalytics(id, type));
 };
 

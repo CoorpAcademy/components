@@ -3,7 +3,6 @@
 import test from 'ava';
 import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
-import {UI_PROGRESSION_ACTION_TYPES} from '@coorpacademy/player-store';
 import type {Config} from '@coorpacademy/progression-engine';
 import type {DataEvent} from '../definitions';
 import {sendProgressionAnalytics} from '../analytics';
@@ -38,11 +37,7 @@ test('should push an event even if dataLayer is not defined previously', t => {
     set('state.remainingLifeRequests', 1)
   )({});
 
-  sendProgressionAnalytics(
-    currentProgression,
-    engineConfig,
-    UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_MOVE
-  );
+  sendProgressionAnalytics(currentProgression, engineConfig);
 
   const res = [
     {
@@ -62,7 +57,7 @@ test('should send a `finishProgression` event to the tag manager when finishing 
       push: evt => {
         t.deepEqual(evt, {
           event: 'finishProgression',
-          progression: {type: 'microlearning', state: 'success', extraLife: 2}
+          progression: {type: 'microlearning', state: 'whatever', extraLife: 2}
         });
       }
     }
@@ -70,87 +65,11 @@ test('should send a `finishProgression` event to the tag manager when finishing 
 
   const currentProgression = pipe(
     set('engine.ref', 'microlearning'),
-    set('state.nextContent.type', 'success'),
+    set('state.nextContent.type', 'whatever'),
     set('state.remainingLifeRequests', 1)
   )({});
 
-  sendProgressionAnalytics(
-    currentProgression,
-    engineConfig,
-    UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_MOVE
-  );
-});
-
-test('should send a `finishProgression` event to the tag manager when failing a progression', t => {
-  t.plan(1);
-
-  global.window = {
-    dataLayer: {
-      push: evt => {
-        t.deepEqual(evt, {
-          event: 'finishProgression',
-          progression: {type: 'microlearning', state: 'failure', extraLife: 2}
-        });
-      }
-    }
-  };
-
-  const currentProgression = pipe(
-    set('engine.ref', 'microlearning'),
-    set('state.nextContent.type', 'failure'),
-    set('state.remainingLifeRequests', 1)
-  )({});
-
-  sendProgressionAnalytics(
-    currentProgression,
-    engineConfig,
-    UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_MOVE
-  );
-});
-
-test('should do nothing if neither success nor failure', t => {
-  global.window = {
-    dataLayer: {
-      push: evt => {
-        t.fail();
-      }
-    }
-  };
-
-  const currentProgression = pipe(
-    set('engine.ref', 'microlearning'),
-    set('state.nextContent.type', 'foo')
-  )({});
-
-  sendProgressionAnalytics(
-    currentProgression,
-    engineConfig,
-    UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_MOVE
-  );
-  t.pass();
-});
-
-test('should not send `finishProgression` event if sendProgressionAnalytics is not a from MOVE update', t => {
-  global.window = {
-    dataLayer: {
-      push: evt => {
-        t.fail();
-      }
-    }
-  };
-
-  const currentProgression = pipe(
-    set('engine.ref', 'microlearning'),
-    set('state.nextContent.type', 'failure'),
-    set('state.remainingLifeRequests', 1)
-  )({});
-
-  sendProgressionAnalytics(
-    currentProgression,
-    engineConfig,
-    UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_NODE
-  );
-  t.pass();
+  sendProgressionAnalytics(currentProgression, engineConfig);
 });
 
 test('should do nothing if progression has no state', t => {

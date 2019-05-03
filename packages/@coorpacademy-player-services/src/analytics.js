@@ -1,11 +1,6 @@
 // @flow strict
 
-import type {
-  UI_PROGRESSION_UPDATED_ON_NODE,
-  UI_PROGRESSION_UPDATED_ON_MOVE
-} from '@coorpacademy/player-store';
-import type {Lesson, Config, Progression, State} from '@coorpacademy/progression-engine';
-import {UI_PROGRESSION_ACTION_TYPES} from '@coorpacademy/player-store';
+import type {Lesson, Config, Progression} from '@coorpacademy/progression-engine';
 import type {DataEvent, ResourceTypeAPI} from './definitions';
 
 // eslint-disable-next-line no-shadow
@@ -23,31 +18,20 @@ export const sendViewedMediaAnalytics = (resource: Lesson, location: string) => 
   });
 };
 
-export const sendProgressionAnalytics = (
-  currentProgression: Progression,
-  engineConfig: Config,
-  type: UI_PROGRESSION_UPDATED_ON_MOVE | UI_PROGRESSION_UPDATED_ON_NODE
-) => {
+export const sendProgressionAnalytics = (currentProgression: Progression, engineConfig: Config) => {
   if (!currentProgression.state) {
     return;
   }
 
-  const state: State = currentProgression.state;
-  const onMove = type === UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_MOVE;
-  const isExitNode = state.nextContent.type === 'success' || state.nextContent.type === 'failure';
-
   window.dataLayer = window.dataLayer || [];
-
-  if (onMove && isExitNode) {
-    window.dataLayer.push({
-      event: 'finishProgression',
-      progression: {
-        type: currentProgression.engine.ref,
-        state: state.nextContent.type,
-        extraLife: engineConfig.remainingLifeRequests - state.remainingLifeRequests
-      }
-    });
-  }
+  window.dataLayer.push({
+    event: 'finishProgression',
+    progression: {
+      type: currentProgression.engine.ref,
+      state: currentProgression.state.nextContent.type,
+      extraLife: engineConfig.remainingLifeRequests - currentProgression.state.remainingLifeRequests
+    }
+  });
 };
 
 export type AnalyticsService = {
