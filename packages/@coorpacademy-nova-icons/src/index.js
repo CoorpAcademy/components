@@ -54,6 +54,7 @@ import _NovaLineAudioAudioControlPlay from './components/nova-line/audio/audio-c
 import _NovaLineVideosVideoClip3 from './components/nova-line/videos/video-clip-3';
 import _NovaLineFilesOfficeFileOfficePdf from './components/nova-line/files-office/file-office-pdf';
 import _NovaLineComputersComputerScreen1 from './components/nova-line/computers/computer-screen-1';
+import _NovaLineSpaceRingPlanet from './components/nova-line/space/ring-planet';
 import _NovaSolidPlacesPlacesHome2 from './components/nova-solid/places/places-home-2';
 import _NovaSolidDataTransferDataUpload1 from './components/nova-solid/data-transfer/data-upload-1';
 import _NovaSolidSchoolScienceGraduationHat from './components/nova-solid/school-science/graduation-hat';
@@ -132,6 +133,7 @@ export const NovaLineAudioAudioControlPlay: Icon = _NovaLineAudioAudioControlPla
 export const NovaLineVideosVideoClip3: Icon = _NovaLineVideosVideoClip3;
 export const NovaLineFilesOfficeFileOfficePdf: Icon = _NovaLineFilesOfficeFileOfficePdf;
 export const NovaLineComputersComputerScreen1: Icon = _NovaLineComputersComputerScreen1;
+export const NovaLineSpaceRingPlanet: Icon = _NovaLineSpaceRingPlanet;
 export const NovaSolidPlacesPlacesHome2: Icon = _NovaSolidPlacesPlacesHome2;
 export const NovaSolidDataTransferDataUpload1: Icon = _NovaSolidDataTransferDataUpload1;
 export const NovaSolidSchoolScienceGraduationHat: Icon = _NovaSolidSchoolScienceGraduationHat;
