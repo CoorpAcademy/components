@@ -43,6 +43,7 @@ import _NovaCompositionCoorpacademyClock from './components/nova-composition/coo
 import _NovaLineBusinessCircleView from './components/nova-line/business/circle-view';
 import _NovaLineShoppingQrCode from './components/nova-line/shopping/qr-code';
 import _NovaLineLoginKey1 from './components/nova-line/login/key-1';
+import _NovaLineContentEditionLinkBroken from './components/nova-line/content-edition/link-broken';
 import _NovaLineContentEditionPencil2 from './components/nova-line/content-edition/pencil-2';
 import _NovaLineInterfaceFeedbackInterfaceAlertCircle from './components/nova-line/interface-feedback/interface-alert-circle';
 import _NovaLineStatusCheckCircle1 from './components/nova-line/status/check-circle-1';
@@ -120,6 +121,7 @@ export const NovaCompositionCoorpacademyClock: Icon = _NovaCompositionCoorpacade
 export const NovaLineBusinessCircleView: Icon = _NovaLineBusinessCircleView;
 export const NovaLineShoppingQrCode: Icon = _NovaLineShoppingQrCode;
 export const NovaLineLoginKey1: Icon = _NovaLineLoginKey1;
+export const NovaLineContentEditionLinkBroken: Icon = _NovaLineContentEditionLinkBroken;
 export const NovaLineContentEditionPencil2: Icon = _NovaLineContentEditionPencil2;
 export const NovaLineInterfaceFeedbackInterfaceAlertCircle: Icon = _NovaLineInterfaceFeedbackInterfaceAlertCircle;
 export const NovaLineStatusCheckCircle1: Icon = _NovaLineStatusCheckCircle1;
