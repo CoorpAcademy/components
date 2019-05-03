@@ -33,11 +33,11 @@
     "async": "^2.6.2",
     "chalk": "^2.4.2",
     "globby": "^9.1.0",
-    "mkdirp-promise": "^5.0.1",
-    "react-native-svg": "^9.4.0"
+    "mkdirp-promise": "^5.0.1"
   },
   "peerDependencies": {
-    "react": "^16.3.2"
+    "react": "^16.3.2",
+    "react-native-svg": "*"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",
@@ -58,6 +58,7 @@
     "eslint": "^5.15.3",
     "flow-bin": "^0.95.1",
     "flow-copy-source": "^2.0.3",
-    "react": "^16.8.6"
+    "react": "^16.8.6",
+    "react-native-svg": "^9.4.0"
   }
 }
