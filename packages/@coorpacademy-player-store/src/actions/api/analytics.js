@@ -2,13 +2,14 @@
 
 import buildTask from '@coorpacademy/redux-task';
 import type {Lesson, ProgressionId} from '@coorpacademy/progression-engine';
-import {getCurrentProgression, getRoute} from '../../utils/state-extract';
+import {getCurrentProgression, getEngineConfig, getRoute} from '../../utils/state-extract';
 import type {Services} from '../../definitions/services';
 import type {
   Dispatch,
   DispatchedAction,
   Action,
   GetState,
+  Options,
   ThunkAction
 } from '../../definitions/redux';
 
@@ -71,6 +72,15 @@ DispatchedAction => {
     });
   }
 
+  const engineConfig = getEngineConfig(state);
+
+  if (!engineConfig) {
+    return dispatch({
+      type: PROGRESSION_UPDATED_FAILURE,
+      payload: `progression "${id}" has no config.`
+    });
+  }
+
   const progressionUpdatedRequest = await dispatch({
     type,
     meta: {
@@ -85,9 +95,9 @@ DispatchedAction => {
 
   const {Analytics} = services;
   if (onMove && isExitNode) {
-    Analytics.sendProgressionFinished(currentProgression);
+    Analytics.sendProgressionFinished(currentProgression, engineConfig);
   } else {
-    Analytics.sendProgressionUpdated(currentProgression);
+    Analytics.sendProgressionUpdated(currentProgression, engineConfig);
   }
 
   return progressionUpdatedRequest;

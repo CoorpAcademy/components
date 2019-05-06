@@ -12,12 +12,7 @@ import {
 test(
   'should fail if progression is not found',
   macro,
-  pipe(
-    set('ui.current.progressionId', 'bar'),
-    set('data.configs.entities.microlearning@1', {
-      version: '1'
-    })
-  )({}),
+  set('ui.current.progressionId', 'bar')({}),
   t => ({}),
   progressionUpdated('foo', PROGRESSION_UPDATED_ON_MOVE),
   [
@@ -38,9 +33,6 @@ test(
       _id: 'foo',
       content: {ref: '1.B', type: 'level'},
       engine: {version: '1', ref: 'microlearning'}
-    }),
-    set('data.configs.entities.microlearning@1', {
-      version: '1'
     })
   )({}),
   t => ({}),
@@ -49,6 +41,29 @@ test(
     {
       type: PROGRESSION_UPDATED_FAILURE,
       payload: 'progression "foo" has no state.'
+    }
+  ],
+  0
+);
+
+test(
+  'should fail if progression has no config.',
+  macro,
+  pipe(
+    set('ui.current.progressionId', 'foo'),
+    set('data.progressions.entities.foo', {
+      _id: 'foo',
+      content: {ref: '1.B', type: 'level'},
+      engine: {version: '1', ref: 'microlearning'},
+      state: {nextContent: {type: 'success'}}
+    })
+  )({}),
+  t => ({}),
+  progressionUpdated('foo', PROGRESSION_UPDATED_ON_MOVE),
+  [
+    {
+      type: PROGRESSION_UPDATED_FAILURE,
+      payload: 'progression "foo" has no config.'
     }
   ],
   0
