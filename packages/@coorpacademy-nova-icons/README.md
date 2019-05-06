@@ -10,6 +10,7 @@ Components bank (react and react-native) based on Nova SVG icons (through [Iconj
 - Add the the brand new svg icon's path into `icons.js` file that's in root project
 - Generate the component using `yarn prepare`
 
+
 ## Usage
 
 ```jsx
