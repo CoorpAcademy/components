@@ -6,15 +6,18 @@ import get from 'lodash/fp/get';
 import Button from '../../atom/button';
 import style from './style.css';
 
-const createMarkUp = (title, subtitle) => {
-  if (subtitle) {
-    return `<p>${title}</p><p>${subtitle} </p>`;
-  }
-  return `<p class="headerTitle">${title}</p>`;
-};
-const Header = ({title, subTitle}) => {
-  const __html = createMarkUp(title, subTitle);
-  return <div className={style.headerContainer} dangerouslySetInnerHTML={{__html}} />;
+const Header = ({step = undefined, header, subHeader = undefined}) => {
+  return (
+    <div className={style.headerContainer}>
+      {(step && (
+        <div className={style.headerWrapper}>
+          <h1 className={style.step}>{step}</h1>
+          <h1 className={style.header}>{header}</h1>
+        </div>
+      )) || <h1 className={style.header}>{header}</h1>}
+      {subHeader && <h4 className={style.subHeader}>{subHeader}</h4>}
+    </div>
+  );
 };
 
 const QrCodeImage = ({showMobileAppAccess, url, preMessage, linkMessage, endMessage}) => {
@@ -79,20 +82,16 @@ class GetTheApp extends React.Component {
       appStoreButtonImageUrl,
       playStoreButtonImageUrl,
       onPlayStoreButtonClick,
-      step1Title,
-      step1SubTitle,
-      step2Title,
-      qrCodeTitle,
-      qrCodeSubTitle,
-      magicLinkTitle,
-      magicLinkSubTitle,
+      storeStep,
+      connectionStep,
+      qrCodeStep,
+      magicLinkStep,
       diviserWord,
       qrCodeImageUrl,
       magicLinkUrl,
       disabled,
       showMobileAppAccess,
       submitValue,
-      onMagicLinkButtonClick,
       preMessage,
       linkMessage,
       endMessage
@@ -102,7 +101,7 @@ class GetTheApp extends React.Component {
     return (
       <div className={style.container}>
         <div className={style.store}>
-          <Header title={step1Title} subTitle={step1SubTitle} />
+          <Header {...storeStep} />
           <StoresLinks
             onAppStoreButtonClick={onAppStoreButtonClick}
             appStoreButtonImageUrl={appStoreButtonImageUrl}
@@ -111,10 +110,10 @@ class GetTheApp extends React.Component {
           />
         </div>
         <div className={style.secondStepWrapper}>
-          <Header title={step2Title} />
+          <Header {...connectionStep} />
           <div className={style.connectionWrapper}>
             <div className={style.wrapper}>
-              <Header title={qrCodeTitle} subTitle={qrCodeSubTitle} />
+              <Header {...qrCodeStep} />
               <QrCodeImage
                 showMobileAppAccess={showMobileAppAccess}
                 url={qrCodeImageUrl}
@@ -125,10 +124,9 @@ class GetTheApp extends React.Component {
             </div>
             <Divider word={diviserWord} />
             <div className={style.wrapper}>
-              <Header title={magicLinkTitle} subTitle={magicLinkSubTitle} />
+              <Header {...magicLinkStep} />
               <MagicLink
                 color={primaryColor}
-                onSubmit={onMagicLinkButtonClick}
                 submitValue={submitValue}
                 disabled={disabled}
                 url={magicLinkUrl}
@@ -146,23 +144,32 @@ GetTheApp.propTypes = {
   appStoreButtonImageUrl: PropTypes.string,
   playStoreButtonImageUrl: PropTypes.string,
   onPlayStoreButtonClick: PropTypes.func,
-  step1Title: PropTypes.string,
-  step1SubTitle: PropTypes.string,
-  step2Title: PropTypes.string,
-  qrCodeTitle: PropTypes.string,
-  qrCodeSubTitle: PropTypes.string,
+  storeStep: PropTypes.shape({
+    step: PropTypes.string,
+    header: PropTypes.string,
+    subHeader: PropTypes.string
+  }),
+  connectionStep: PropTypes.shape({
+    step: PropTypes.string,
+    header: PropTypes.string
+  }),
+  qrCodeStep: PropTypes.shape({
+    header: PropTypes.string,
+    subHeader: PropTypes.string
+  }),
+  magicLinkStep: PropTypes.shape({
+    header: PropTypes.string,
+    subHeader: PropTypes.string
+  }),
   preMessage: PropTypes.string,
   linkMessage: PropTypes.string,
   endMessage: PropTypes.string,
-  magicLinkTitle: PropTypes.string,
-  magicLinkSubTitle: PropTypes.string,
   diviserWord: PropTypes.string,
   qrCodeImageUrl: PropTypes.string,
   magicLinkUrl: PropTypes.string,
   disabled: PropTypes.bool,
   showMobileAppAccess: PropTypes.bool,
-  submitValue: PropTypes.string,
-  onMagicLinkButtonClick: PropTypes.func
+  submitValue: PropTypes.string
 };
 
 export default GetTheApp;
