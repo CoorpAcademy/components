@@ -114,7 +114,7 @@ const services = result => t => ({
     }
   },
   Analytics: {
-    sendProgressionAnalytics: (currentProgression, engineConfig) => {
+    sendProgressionUpdated: (currentProgression, engineConfig) => {
       t.is(currentProgression.engine.ref, 'microlearning');
       t.deepEqual(currentProgression.state.nextContent, result.state.nextContent);
       return 'sent';

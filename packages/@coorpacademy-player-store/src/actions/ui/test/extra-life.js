@@ -23,10 +23,7 @@ import {
   CONTENT_INFO_FETCH_REQUEST,
   CONTENT_INFO_FETCH_SUCCESS
 } from '../../api/contents';
-import {
-  SEND_PROGRESSION_ANALYTICS_REQUEST,
-  SEND_PROGRESSION_ANALYTICS_SUCCESS
-} from '../../api/analytics';
+import {PROGRESSION_UPDATED_ON_MOVE} from '../../api/analytics';
 
 test(
   'should dispatch refuse and reset progression',
@@ -43,7 +40,7 @@ test(
   )({}),
   t => ({
     Analytics: {
-      sendProgressionAnalytics: (currentProgression, engineConfig) => {
+      sendProgressionUpdated: (currentProgression, engineConfig) => {
         t.is(currentProgression.engine.ref, 'microlearning');
         t.deepEqual(currentProgression.state.nextContent, {type: 'slide', ref: 'slideRef'});
         return 'sent';
@@ -103,23 +100,10 @@ test(
       }
     },
     {
-      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_MOVE,
+      type: PROGRESSION_UPDATED_ON_MOVE,
       meta: {
         id: 'foo'
       }
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
-      meta: {
-        id: 'foo'
-      }
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
-      meta: {
-        id: 'foo'
-      },
-      payload: 'sent'
     },
     {
       type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
@@ -208,7 +192,7 @@ test(
   )({}),
   t => ({
     Analytics: {
-      sendProgressionAnalytics: (currentProgression, engineConfig) => {
+      sendProgressionUpdated: (currentProgression, engineConfig) => {
         t.is(currentProgression.engine.ref, 'microlearning');
         t.deepEqual(currentProgression.state.nextContent, {type: 'slide', ref: 'slideRef'});
         return 'sent';
@@ -264,23 +248,10 @@ test(
       }
     },
     {
-      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_MOVE,
+      type: PROGRESSION_UPDATED_ON_MOVE,
       meta: {
         id: 'foo'
       }
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
-      meta: {
-        id: 'foo'
-      }
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
-      meta: {
-        id: 'foo'
-      },
-      payload: 'sent'
     },
     {
       type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,

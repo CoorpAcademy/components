@@ -149,7 +149,7 @@ test(
       }
     },
     Analytics: {
-      sendProgressionAnalytics: (currentProgression, engineConfig) => {
+      sendProgressionUpdated: (currentProgression, engineConfig) => {
         t.is(currentProgression.engine.ref, 'learner');
         t.deepEqual(currentProgression.state.nextContent, postAnswerPayload.state.nextContent);
         return 'sent';

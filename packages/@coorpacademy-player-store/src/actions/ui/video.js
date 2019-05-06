@@ -1,7 +1,7 @@
 // @flow
 
 import type {Lesson, Slide} from '@coorpacademy/progression-engine';
-import {sendMediaViewed} from '../api/analytics';
+import {PROGRESSION_UPDATED_ON_NODE, progressionUpdated, sendMediaViewed} from '../api/analytics';
 import {markResourceAsViewed} from '../api/progressions';
 import {
   getRoute,
@@ -11,7 +11,6 @@ import {
   getPreviousSlide
 } from '../../utils/state-extract';
 import type {DispatchedAction, GetState, ReduxState, ThunkAction} from '../../definitions/redux';
-import {UI_PROGRESSION_ACTION_TYPES, progressionUpdated} from './progressions';
 
 export const UI_VIDEO_ERROR = '@@ui/VIDEO_ERROR';
 export const UI_VIDEO_PAUSE = '@@ui/VIDEO_PAUSE';
@@ -55,9 +54,7 @@ DispatchedAction => {
 
   await dispatch(sendMediaViewed(resource));
   await dispatch(markResourceAsViewed(progressionId, resource));
-  return dispatch(
-    progressionUpdated(progressionId, UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED_ON_NODE)
-  );
+  return dispatch(progressionUpdated(progressionId, PROGRESSION_UPDATED_ON_NODE));
 };
 
 export const pause = (resource: Lesson) => ({

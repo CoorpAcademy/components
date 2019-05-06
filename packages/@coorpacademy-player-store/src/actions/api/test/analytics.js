@@ -3,57 +3,26 @@ import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import macro from '../../test/helpers/macro';
 import {
-  sendProgressionAnalytics,
-  SEND_PROGRESSION_ANALYTICS_REQUEST,
-  SEND_PROGRESSION_ANALYTICS_SUCCESS,
-  SEND_PROGRESSION_ANALYTICS_FAILURE
+  progressionUpdated,
+  PROGRESSION_UPDATED_FAILURE,
+  PROGRESSION_UPDATED_ON_MOVE,
+  PROGRESSION_UPDATED_ON_NODE
 } from '../analytics';
 
 test(
-  'should send progression analytics',
+  'should fail if progression is not found',
   macro,
   pipe(
-    set('ui.current.progressionId', 'foo'),
-    set('data.progressions.entities.foo', {
-      content: {ref: '1.B', type: 'level'},
-      engine: {version: '1', ref: 'microlearning'}
-    }),
+    set('ui.current.progressionId', 'bar'),
     set('data.configs.entities.microlearning@1', {
       version: '1'
     })
   )({}),
-  t => ({
-    Analytics: {
-      sendProgressionAnalytics: (currentProgression, engineConfig) => {
-        t.is(currentProgression.engine.ref, 'microlearning');
-        return 'sent';
-      }
-    }
-  }),
-  sendProgressionAnalytics('foo'),
-  [
-    {
-      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
-      meta: {id: 'foo'}
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
-      meta: {id: 'foo'},
-      payload: 'sent'
-    }
-  ],
-  1
-);
-
-test(
-  'should fail to send progression analytics no progression is not found',
-  macro,
-  {},
   t => ({}),
-  sendProgressionAnalytics('foo'),
+  progressionUpdated('foo', PROGRESSION_UPDATED_ON_MOVE),
   [
     {
-      type: SEND_PROGRESSION_ANALYTICS_FAILURE,
+      type: PROGRESSION_UPDATED_FAILURE,
       payload: 'progression "foo" could not be found.'
     }
   ],
@@ -61,30 +30,95 @@ test(
 );
 
 test(
-  'should fail to send progression analytics when engineConfig is not found',
+  'should fail if progression has no state.',
   macro,
   pipe(
     set('ui.current.progressionId', 'foo'),
-    set(['data', 'progressions', 'entities', 'foo'], {
+    set('data.progressions.entities.foo', {
+      _id: 'foo',
       content: {ref: '1.B', type: 'level'},
       engine: {version: '1', ref: 'microlearning'}
+    }),
+    set('data.configs.entities.microlearning@1', {
+      version: '1'
     })
   )({}),
-  t => ({
-    Clues: {
-      findById: (progressionId, slideId) => {
-        t.is(progressionId, 'foo');
-        t.is(slideId, 'bar');
-        return 'baz';
-      }
-    }
-  }),
-  sendProgressionAnalytics('foo'),
+  t => ({}),
+  progressionUpdated('foo', PROGRESSION_UPDATED_ON_MOVE),
   [
     {
-      type: SEND_PROGRESSION_ANALYTICS_FAILURE,
-      payload: 'progression "foo" has no config.'
+      type: PROGRESSION_UPDATED_FAILURE,
+      payload: 'progression "foo" has no state.'
     }
   ],
   0
+);
+
+test(
+  'should send progression analytics on finished',
+  macro,
+  pipe(
+    set('ui.current.progressionId', 'foo'),
+    set('data.progressions.entities.foo', {
+      _id: 'foo',
+      content: {ref: '1.B', type: 'level'},
+      engine: {version: '1', ref: 'microlearning'},
+      state: {nextContent: {type: 'success'}}
+    }),
+    set('data.configs.entities.microlearning@1', {
+      version: '1'
+    })
+  )({}),
+  t => ({
+    Analytics: {
+      sendProgressionFinished: (currentProgression, engineConfig) => {
+        t.is(currentProgression.engine.ref, 'microlearning');
+        return 'sent';
+      },
+      sendProgressionUpdated: (currentProgression, engineConfig) => {
+        t.fail();
+      }
+    }
+  }),
+  progressionUpdated('foo', PROGRESSION_UPDATED_ON_MOVE),
+  [
+    {
+      type: PROGRESSION_UPDATED_ON_MOVE,
+      meta: {id: 'foo'}
+    }
+  ],
+  1
+);
+
+test(
+  'should send progression analytics on update',
+  macro,
+  pipe(
+    set('ui.current.progressionId', 'foo'),
+    set('data.progressions.entities.foo', {
+      _id: 'foo',
+      content: {ref: '1.B', type: 'level'},
+      engine: {version: '1', ref: 'microlearning'},
+      state: {nextContent: {type: 'success'}}
+    }),
+    set('data.configs.entities.microlearning@1', {
+      version: '1'
+    })
+  )({}),
+  t => ({
+    Analytics: {
+      sendProgressionUpdated: (currentProgression, engineConfig) => {
+        t.is(currentProgression.engine.ref, 'microlearning');
+        return 'sent';
+      }
+    }
+  }),
+  progressionUpdated('foo', PROGRESSION_UPDATED_ON_NODE),
+  [
+    {
+      type: PROGRESSION_UPDATED_ON_NODE,
+      meta: {id: 'foo'}
+    }
+  ],
+  1
 );

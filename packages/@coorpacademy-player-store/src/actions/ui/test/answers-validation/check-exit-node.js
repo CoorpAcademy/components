@@ -33,7 +33,7 @@ const services = t => ({
     }
   },
   Analytics: {
-    sendProgressionAnalytics: (currentProgression, engineConfig) => {
+    sendProgressionFinished: (currentProgression, engineConfig) => {
       t.is(currentProgression.engine.ref, 'learner');
       t.deepEqual(currentProgression.state.nextContent, {type: 'success', ref: 'successExitNode'});
       return 'sent';
