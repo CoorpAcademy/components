@@ -18,14 +18,30 @@ export const sendViewedMediaAnalytics = (resource: Lesson, location: string) => 
   });
 };
 
-export const sendProgressionAnalytics = (currentProgression: Progression, engineConfig: Config) => {
+export const sendProgressionUpdated = (currentProgression: Progression, engineConfig: Config) => {
   if (!currentProgression.state) {
     return;
   }
 
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
-    event: 'finishProgression',
+    event: 'updatedProgression',
+    progression: {
+      type: currentProgression.engine.ref,
+      state: currentProgression.state.nextContent.type,
+      extraLife: engineConfig.remainingLifeRequests - currentProgression.state.remainingLifeRequests
+    }
+  });
+};
+
+export const sendProgressionFinished = (currentProgression: Progression, engineConfig: Config) => {
+  if (!currentProgression.state) {
+    return;
+  }
+
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'finishedProgression',
     progression: {
       type: currentProgression.engine.ref,
       state: currentProgression.state.nextContent.type,
@@ -36,5 +52,6 @@ export const sendProgressionAnalytics = (currentProgression: Progression, engine
 
 export type AnalyticsService = {
   sendViewedMediaAnalytics: typeof sendViewedMediaAnalytics,
-  sendProgressionAnalytics: typeof sendProgressionAnalytics
+  sendProgressionUpdated: typeof sendProgressionUpdated,
+  sendProgressionFinished: typeof sendProgressionFinished
 };

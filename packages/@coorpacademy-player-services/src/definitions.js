@@ -74,8 +74,8 @@ type StartProgressionEvent = {|
   }
 |};
 
-type FinishProgressionEvent = {|
-  event: 'finishProgression',
+type FinishedProgressionEvent = {|
+  event: 'finishedProgression',
   progression?: {
     type: string,
     state: string,
@@ -83,7 +83,20 @@ type FinishProgressionEvent = {|
   }
 |};
 
-type DataEvent = MediaViewedEvent | StartProgressionEvent | FinishProgressionEvent;
+type UpdatedProgressionEvent = {|
+  event: 'updatedProgression',
+  progression?: {
+    type: string,
+    state: string,
+    extraLife: number
+  }
+|};
+
+type DataEvent =
+  | MediaViewedEvent
+  | StartProgressionEvent
+  | FinishedProgressionEvent
+  | UpdatedProgressionEvent;
 
 // eslint-disable-next-line no-shadow
 type Window = {|

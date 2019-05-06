@@ -5,7 +5,7 @@ import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
 import type {Config} from '@coorpacademy/progression-engine';
 import type {DataEvent} from '../definitions';
-import {sendProgressionAnalytics} from '../analytics';
+import {sendProgressionFinished, sendProgressionUpdated} from '../analytics';
 
 // eslint-disable-next-line no-shadow
 type Window = {|
@@ -28,7 +28,7 @@ const engineConfig: Config = {
   remainingLifeRequests: 3
 };
 
-test('should push an event even if dataLayer is not defined previously', t => {
+test('should push a finished event even if dataLayer is not defined previously', t => {
   global.window = {dataLayer: undefined};
 
   const currentProgression = pipe(
@@ -37,11 +37,11 @@ test('should push an event even if dataLayer is not defined previously', t => {
     set('state.remainingLifeRequests', 1)
   )({});
 
-  sendProgressionAnalytics(currentProgression, engineConfig);
+  sendProgressionFinished(currentProgression, engineConfig);
 
   const res = [
     {
-      event: 'finishProgression',
+      event: 'finishedProgression',
       progression: {type: 'microlearning', state: 'success', extraLife: 2}
     }
   ];
@@ -49,14 +49,35 @@ test('should push an event even if dataLayer is not defined previously', t => {
   t.deepEqual(global.window.dataLayer, res);
 });
 
-test('should send a `finishProgression` event to the tag manager when finishing a progression successfully', t => {
+test('should push a updated event even if dataLayer is not defined previously', t => {
+  global.window = {dataLayer: undefined};
+
+  const currentProgression = pipe(
+    set('engine.ref', 'microlearning'),
+    set('state.nextContent.type', 'success'),
+    set('state.remainingLifeRequests', 1)
+  )({});
+
+  sendProgressionUpdated(currentProgression, engineConfig);
+
+  const res = [
+    {
+      event: 'updatedProgression',
+      progression: {type: 'microlearning', state: 'success', extraLife: 2}
+    }
+  ];
+
+  t.deepEqual(global.window.dataLayer, res);
+});
+
+test('should send a `finishedProgression` event to the tag manager when finishing a progression successfully', t => {
   t.plan(1);
 
   global.window = {
     dataLayer: {
       push: evt => {
         t.deepEqual(evt, {
-          event: 'finishProgression',
+          event: 'finishedProgression',
           progression: {type: 'microlearning', state: 'whatever', extraLife: 2}
         });
       }
@@ -69,7 +90,7 @@ test('should send a `finishProgression` event to the tag manager when finishing 
     set('state.remainingLifeRequests', 1)
   )({});
 
-  sendProgressionAnalytics(currentProgression, engineConfig);
+  sendProgressionFinished(currentProgression, engineConfig);
 });
 
 test('should do nothing if progression has no state', t => {
@@ -82,6 +103,30 @@ test('should do nothing if progression has no state', t => {
   };
 
   const currentProgression = set('engine.ref', 'microlearning')({});
-  sendProgressionAnalytics(currentProgression, engineConfig);
+  sendProgressionFinished(currentProgression, engineConfig);
+  sendProgressionUpdated(currentProgression, engineConfig);
   t.pass();
+});
+
+test('should send a `updatedProgression` event to the tag manager when Updating a progression successfully', t => {
+  t.plan(1);
+
+  global.window = {
+    dataLayer: {
+      push: evt => {
+        t.deepEqual(evt, {
+          event: 'updatedProgression',
+          progression: {type: 'microlearning', state: 'whatever', extraLife: 2}
+        });
+      }
+    }
+  };
+
+  const currentProgression = pipe(
+    set('engine.ref', 'microlearning'),
+    set('state.nextContent.type', 'whatever'),
+    set('state.remainingLifeRequests', 1)
+  )({});
+
+  sendProgressionUpdated(currentProgression, engineConfig);
 });
