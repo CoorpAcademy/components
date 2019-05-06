@@ -1243,17 +1243,6 @@
     history "^4.7.2"
     lodash "^4.17.4"
 
-"@coorpacademy/nova-icons@2.7.6":
-  version "2.7.6"
-  resolved "https://registry.npmjs.org/@coorpacademy/nova-icons/-/nova-icons-2.7.6.tgz#a63b2c305c4e5a012637a05956d6c9c5227ee074"
-  integrity sha512-mCdjyKiVhR6MY9HTT0OiD4bqJC8aWV3rXT6A/BwSq3DjHFKZ5CzkreDQmOTQn+psmD/TtTFuk8ge/nQKswMKuQ==
-  dependencies:
-    "@babel/cli" "^7.4.3"
-    async "^2.6.2"
-    chalk "^2.4.2"
-    globby "^9.1.0"
-    mkdirp-promise "^5.0.1"
-
 "@coorpacademy/redux-history@5.3.18":
   version "5.3.18"
   resolved "https://registry.npmjs.org/@coorpacademy/redux-history/-/redux-history-5.3.18.tgz#0d8e290873b7694139331ded146d65425d2b9f4e"
