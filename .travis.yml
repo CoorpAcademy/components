@@ -138,3 +138,6 @@ deploy:
     'on':
       tags: true
       condition: $PACKAGE_NAME = "@coorpacademy/player-web"
+branches:
+  except:
+    - /@coorpacademy.*/
