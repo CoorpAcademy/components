@@ -25,7 +25,7 @@ export const sendProgressionUpdated = (currentProgression: Progression, engineCo
 
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
-    event: 'updatedProgression',
+    event: 'updateProgression',
     progression: {
       type: currentProgression.engine.ref,
       state: currentProgression.state.nextContent.type,
@@ -41,7 +41,7 @@ export const sendProgressionFinished = (currentProgression: Progression, engineC
 
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
-    event: 'finishedProgression',
+    event: 'finishProgression',
     progression: {
       type: currentProgression.engine.ref,
       state: currentProgression.state.nextContent.type,

@@ -28,7 +28,7 @@ const engineConfig: Config = {
   remainingLifeRequests: 3
 };
 
-test('should push a finished event even if dataLayer is not defined previously', t => {
+test('should push a finish event even if dataLayer is not defined previously', t => {
   global.window = {dataLayer: undefined};
 
   const currentProgression = pipe(
@@ -41,7 +41,7 @@ test('should push a finished event even if dataLayer is not defined previously',
 
   const res = [
     {
-      event: 'finishedProgression',
+      event: 'finishProgression',
       progression: {type: 'microlearning', state: 'success', extraLife: 2}
     }
   ];
@@ -49,7 +49,7 @@ test('should push a finished event even if dataLayer is not defined previously',
   t.deepEqual(global.window.dataLayer, res);
 });
 
-test('should push a updated event even if dataLayer is not defined previously', t => {
+test('should push a update event even if dataLayer is not defined previously', t => {
   global.window = {dataLayer: undefined};
 
   const currentProgression = pipe(
@@ -62,7 +62,7 @@ test('should push a updated event even if dataLayer is not defined previously', 
 
   const res = [
     {
-      event: 'updatedProgression',
+      event: 'updateProgression',
       progression: {type: 'microlearning', state: 'success', extraLife: 2}
     }
   ];
@@ -70,14 +70,14 @@ test('should push a updated event even if dataLayer is not defined previously', 
   t.deepEqual(global.window.dataLayer, res);
 });
 
-test('should send a `finishedProgression` event to the tag manager when finishing a progression successfully', t => {
+test('should send a `finishProgression` event to the tag manager when finishing a progression successfully', t => {
   t.plan(1);
 
   global.window = {
     dataLayer: {
       push: evt => {
         t.deepEqual(evt, {
-          event: 'finishedProgression',
+          event: 'finishProgression',
           progression: {type: 'microlearning', state: 'whatever', extraLife: 2}
         });
       }
@@ -108,14 +108,14 @@ test('should do nothing if progression has no state', t => {
   t.pass();
 });
 
-test('should send a `updatedProgression` event to the tag manager when Updating a progression successfully', t => {
+test('should send a `updateProgression` event to the tag manager when Updating a progression successfully', t => {
   t.plan(1);
 
   global.window = {
     dataLayer: {
       push: evt => {
         t.deepEqual(evt, {
-          event: 'updatedProgression',
+          event: 'updateProgression',
           progression: {type: 'microlearning', state: 'whatever', extraLife: 2}
         });
       }
