@@ -12,13 +12,11 @@ import {
   resume,
   ended
 } from '../video';
-import {UI_PROGRESSION_ACTION_TYPES} from '../progressions';
 
 import {
   MEDIA_VIEWED_ANALYTICS_REQUEST,
   MEDIA_VIEWED_ANALYTICS_SUCCESS,
-  SEND_PROGRESSION_ANALYTICS_REQUEST,
-  SEND_PROGRESSION_ANALYTICS_SUCCESS
+  PROGRESSION_UPDATED_ON_NODE
 } from '../../api/analytics';
 
 import {
@@ -82,7 +80,7 @@ test(
     set('ui.corrections.playResource', resource._id),
     set('ui.route.foo', 'question'),
     set('data.progressions.entities.foo._id', 'foo'),
-    set('data.progressions.entities.foo.state.nextContent.ref', 'slideRef'),
+    set('data.progressions.entities.foo.state', {nextContent: {type: 'slide', ref: 'slideRef'}}),
     set('data.progressions.entities.foo.engine', {
       version: '1',
       ref: 'microlearning'
@@ -99,9 +97,11 @@ test(
       sendViewedMediaAnalytics: (media, location) => {
         t.pass();
       },
-      sendProgressionAnalytics: () => {
+      sendProgressionUpdated: () => {
         t.pass();
-        return 'qux';
+      },
+      sendProgressionFinished: () => {
+        t.fail();
       }
     },
     Progressions: {
@@ -119,7 +119,11 @@ test(
           }
         });
 
-        return set('state.viewedResources', [content.ref], {});
+        return set(
+          'state',
+          {viewedResources: [content.ref], nextContent: {type: 'slide', ref: 'slideRef'}},
+          {}
+        );
       }
     }
   }),
@@ -141,20 +145,15 @@ test(
     {
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource},
-      payload: set('state.viewedResources', [content.ref], {})
+      payload: set(
+        'state',
+        {viewedResources: [content.ref], nextContent: {type: 'slide', ref: 'slideRef'}},
+        {}
+      )
     },
     {
-      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
+      type: PROGRESSION_UPDATED_ON_NODE,
       meta: {id: 'foo'}
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
-      meta: {id: 'foo'}
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
-      meta: {id: 'foo'},
-      payload: 'qux'
     }
   ],
   4
@@ -167,7 +166,7 @@ test(
     set('ui.current.progressionId', 'foo'),
     set('ui.route.foo', 'question'),
     set('data.progressions.entities.foo._id', 'foo'),
-    set('data.progressions.entities.foo.state.nextContent.ref', 'slideRef'),
+    set('data.progressions.entities.foo.state', {nextContent: {type: 'slide', ref: 'slideRef'}}),
     set('data.progressions.entities.foo.engine', {
       version: '1',
       ref: 'microlearning'
@@ -184,9 +183,11 @@ test(
       sendViewedMediaAnalytics: (media, location) => {
         t.pass();
       },
-      sendProgressionAnalytics: () => {
+      sendProgressionUpdated: () => {
         t.pass();
-        return 'qux';
+      },
+      sendProgressionFinished: () => {
+        t.fail();
       }
     },
     Progressions: {
@@ -204,7 +205,11 @@ test(
           }
         });
 
-        return set('state.viewedResources', [content.ref], {});
+        return set(
+          'state',
+          {viewedResources: [content.ref], nextContent: {type: 'slide', ref: 'slideRef'}},
+          {}
+        );
       }
     }
   }),
@@ -226,20 +231,15 @@ test(
     {
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource},
-      payload: set('state.viewedResources', [content.ref], {})
+      payload: set(
+        'state',
+        {viewedResources: [content.ref], nextContent: {type: 'slide', ref: 'slideRef'}},
+        {}
+      )
     },
     {
-      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
+      type: PROGRESSION_UPDATED_ON_NODE,
       meta: {id: 'foo'}
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
-      meta: {id: 'foo'}
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
-      meta: {id: 'foo'},
-      payload: 'qux'
     }
   ],
   4
@@ -351,7 +351,7 @@ test(
       sendViewedMediaAnalytics: (media, location) => {
         t.pass();
       },
-      sendProgressionAnalytics: () => {
+      sendProgressionUpdated: () => {
         t.pass();
         return 'qux';
       }
@@ -384,17 +384,8 @@ test(
       payload: 'foo'
     },
     {
-      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
+      type: PROGRESSION_UPDATED_ON_NODE,
       meta: {id: 'foo'}
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
-      meta: {id: 'foo'}
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
-      meta: {id: 'foo'},
-      payload: 'qux'
     }
   ],
   3

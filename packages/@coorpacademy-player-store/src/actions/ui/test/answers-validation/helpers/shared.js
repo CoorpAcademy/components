@@ -1,30 +1,13 @@
 import {UI_TOGGLE_ACCORDION} from '../../../corrections';
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../../../api/answers';
-import {UI_PROGRESSION_ACTION_TYPES} from '../../../progressions';
-import {
-  SEND_PROGRESSION_ANALYTICS_REQUEST,
-  SEND_PROGRESSION_ANALYTICS_SUCCESS
-} from '../../../../api/analytics';
+import {PROGRESSION_UPDATED_ON_MOVE} from '../../../../api/analytics';
 
 export const progressionUpdated = [
   {
-    type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
+    type: PROGRESSION_UPDATED_ON_MOVE,
     meta: {
       id: 'foo'
     }
-  },
-  {
-    type: SEND_PROGRESSION_ANALYTICS_REQUEST,
-    meta: {
-      id: 'foo'
-    }
-  },
-  {
-    type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
-    meta: {
-      id: 'foo'
-    },
-    payload: 'sent'
   }
 ];
 

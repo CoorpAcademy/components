@@ -3,9 +3,9 @@ import keys from 'lodash/fp/keys';
 import * as api from '..';
 
 // this test is somehow a snapshot;
-// use this to update the test according to your changes:
-// add this inside the test =>  console.dir({k: keys(api)}, {depth: 10, maxArrayLength: null, colors: true});
-// and launch that specific test with   npx ava src/test/index.js
+// use this to update the test according to your changes: uncomment the next line
+// console.dir({k: keys(api)}, {depth: 10, maxArrayLength: null, colors: true});
+// and launch this specific test with `NODE_ENV=test npx ava src/test/index.js`
 
 test('it should expose all api', t => {
   t.deepEqual(keys(api), [
@@ -68,10 +68,11 @@ test('it should expose all api', t => {
     'MEDIA_VIEWED_ANALYTICS_SUCCESS',
     'MEDIA_VIEWED_ANALYTICS_FAILURE',
     'sendMediaViewed',
-    'SEND_PROGRESSION_ANALYTICS_REQUEST',
-    'SEND_PROGRESSION_ANALYTICS_SUCCESS',
-    'SEND_PROGRESSION_ANALYTICS_FAILURE',
-    'sendProgressionAnalytics',
+    'PROGRESSION_UPDATED_FAILURE',
+    'PROGRESSION_UPDATED_ON_MOVE',
+    'PROGRESSION_UPDATED_ON_NODE',
+    'PROGRESSION_FINISHED',
+    'progressionUpdated',
     'ANSWER_FETCH_REQUEST',
     'ANSWER_FETCH_SUCCESS',
     'ANSWER_FETCH_FAILURE',
@@ -196,7 +197,6 @@ test('it should expose all api', t => {
     'LOCATION_OPEN_RECOMMENDATION_FAILURE',
     'openRecommendation',
     'UI_PROGRESSION_ACTION_TYPES',
-    'progressionUpdated',
     'unselectProgression',
     'selectProgression',
     'openAssistance',

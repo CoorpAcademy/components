@@ -8,12 +8,8 @@ import {
   PROGRESSION_REQUEST_CLUE_REQUEST,
   PROGRESSION_REQUEST_CLUE_SUCCESS
 } from '../../api/progressions';
-import {UI_PROGRESSION_ACTION_TYPES} from '../progressions';
 import {CLUE_FETCH_REQUEST, CLUE_FETCH_SUCCESS} from '../../api/clues';
-import {
-  SEND_PROGRESSION_ANALYTICS_REQUEST,
-  SEND_PROGRESSION_ANALYTICS_SUCCESS
-} from '../../api/analytics';
+import {PROGRESSION_UPDATED_ON_NODE} from '../../api/analytics';
 
 const slide = {
   ref: 'bar',
@@ -57,7 +53,10 @@ test(
   )({}),
   t => ({
     Analytics: {
-      sendProgressionAnalytics: (currentProgression, engineConfig) => {
+      sendProgressionFinished: (currentProgression, engineConfig) => {
+        t.fail();
+      },
+      sendProgressionUpdated: (currentProgression, engineConfig) => {
         t.is(currentProgression.engine.ref, 'microlearning');
         t.deepEqual(currentProgression.state.nextContent, {type: 'slide', ref: 'bar'});
         return 'sent';
@@ -111,23 +110,10 @@ test(
       payload: ['Clue']
     },
     {
-      type: UI_PROGRESSION_ACTION_TYPES.PROGRESSION_UPDATED,
+      type: PROGRESSION_UPDATED_ON_NODE,
       meta: {
         id: 'foo'
       }
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_REQUEST,
-      meta: {
-        id: 'foo'
-      }
-    },
-    {
-      type: SEND_PROGRESSION_ANALYTICS_SUCCESS,
-      meta: {
-        id: 'foo'
-      },
-      payload: 'sent'
     }
   ],
   6

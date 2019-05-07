@@ -18,8 +18,9 @@ import {fetchAnswer} from '../api/answers';
 import {fetchSlideChapter} from '../api/contents';
 import type {DispatchedAction, GetState, Options} from '../../definitions/redux';
 import type {PostAnswerPartialPayload} from '../../definitions/services/progressions';
+import {PROGRESSION_UPDATED_ON_MOVE, progressionUpdated} from '../api/analytics';
 import {selectRoute} from './route';
-import {progressionUpdated, selectProgression} from './progressions';
+import {selectProgression} from './progressions';
 import {toggleAccordion, ACCORDION_KLF, ACCORDION_TIPS, ACCORDION_LESSON} from './corrections';
 
 export const EDIT_ANSWER_ERROR = '@@answer/EDIT_ANSWER_ERROR';
@@ -150,6 +151,6 @@ export const validateAnswer = (partialPayload: PostAnswerPartialPayload) => asyn
     await dispatch(toggleAccordion(ACCORDION_LESSON));
   }
 
-  await dispatch(progressionUpdated(progressionId));
+  await dispatch(progressionUpdated(progressionId, PROGRESSION_UPDATED_ON_MOVE));
   return dispatch(fetchAnswer(progressionId, slideId, answer));
 };
