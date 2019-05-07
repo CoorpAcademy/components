@@ -3,7 +3,19 @@ sudo: false
 node_js:
   - 8.15.1
 cache: npm
-matrix:
+install:
+  - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "^1.2.1"'`
+  - 'npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN'
+  - 'npm config set @coorpacademy:registry http://registry.npmjs.org/'
+  - 'yarn config set registry https://registry.npmjs.org/'
+  - yarn
+before_script:
+  - npx lerna bootstrap --scope $PACKAGE_NAME --include-filtered-dependencies
+  - npx lerna run prepare --scope $PACKAGE_NAME --include-filtered-dependencies
+script:
+  - npx lerna run test --since --scope $PACKAGE_NAME
+after_script: yarn codecov
+jobs:
   include:
     - name: React components
       env: PACKAGE_NAME=@coorpacademy/components
@@ -35,20 +47,6 @@ matrix:
       env: PACKAGE_NAME=@coorpacademy/css-modules-require-hook
     - name: History
       env: PACKAGE_NAME=@coorpacademy/webpack-config
-install:
-  - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "^1.2.1"'`
-  - 'npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN'
-  - 'npm config set @coorpacademy:registry http://registry.npmjs.org/'
-  - 'yarn config set registry https://registry.npmjs.org/'
-  - yarn
-before_script:
-  - npx lerna bootstrap --scope $PACKAGE_NAME --include-filtered-dependencies
-  - npx lerna run prepare --scope $PACKAGE_NAME --include-filtered-dependencies
-script:
-  - npx lerna run test --since --scope $PACKAGE_NAME
-after_script: yarn codecov
-jobs:
-  include:
     - stage: deploy
       script: skip
       env: PACKAGE_NAME=@coorpacademy/player-web
