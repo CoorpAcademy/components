@@ -16,7 +16,7 @@
 				</g>
 			</g>
 		</g>
-		<circle id="Oval" fill="none" stroke="#757575" strokeWidth="2" cx="13.5" cy="13.5" r="12.5"/>
+		<circle id="Oval" fill="none" stroke="#757575" stroke-width="2" cx="13.5" cy="13.5" r="12.5"/>
 	</g>
 </g>
 </svg>
