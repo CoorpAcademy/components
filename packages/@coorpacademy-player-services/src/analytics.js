@@ -52,6 +52,6 @@ export const sendProgressionFinished = (currentProgression: Progression, engineC
 
 export type AnalyticsService = {
   sendViewedMediaAnalytics: typeof sendViewedMediaAnalytics,
-  sendProgressionUpdated: typeof sendProgressionUpdated,
+  sendProgressionUpdated?: typeof sendProgressionUpdated,
   sendProgressionFinished: typeof sendProgressionFinished
 };
