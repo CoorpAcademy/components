@@ -20,9 +20,6 @@ cache:
     - packages/@coorpacademy-treantjs-adapter-angular/node_modules
     - packages/@coorpacademy-treantjs-adapter-dust/node_modules
     - packages/@coorpacademy-webpack-config/node_modules
-env:
-  global:
-    - CXX=g++-5
 matrix:
   include:
     - name: React components
@@ -67,12 +64,6 @@ before_script:
 script:
   - npx lerna run test --since --scope $PACKAGE_NAME
 after_script: yarn codecov
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-5
 deploy:
   - provider: script
     skip_cleanup: true
