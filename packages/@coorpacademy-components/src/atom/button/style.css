@@ -39,8 +39,11 @@
   color: light;
 }
 
-.isDisabled {
+.disabledButton {
   background-color: lightMediumGray;
-  animation: 0;
+  min-width: 200px;
+  text-transform: inherit;
+  border-radius: 2px;
+  line-height: 52px;
   pointer-events: none;
 }

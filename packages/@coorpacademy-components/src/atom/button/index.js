@@ -19,7 +19,7 @@ const ButtonContent = props => {
     type
   } = props;
   const dataName = props['data-name'];
-  const anchorClassName = (disabled && `${className} ${style.isDisabled}`) || className;
+  const anchorClassName = (disabled && `${className} ${style.disabledButton}`) || className;
   const anchorOnClick = (disabled && null) || onClick;
   const anchorHref = (disabled && null) || href;
   switch (type) {
@@ -71,9 +71,12 @@ const ButtonContent = props => {
 };
 
 const Button = ({children, ...props}) => {
-  const {className, type = 'submit'} = props;
+  const {className, disabled, type = 'submit'} = props;
+  const _classnames =
+    (disabled && classnames([style.disabledButton, className])) ||
+    classnames([style.button, className]);
   return (
-    <div className={classnames([style.button, className])}>
+    <div className={_classnames}>
       <ButtonContent
         {...props}
         type={type}
