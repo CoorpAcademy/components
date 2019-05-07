@@ -27,7 +27,7 @@ jobs:
       env: PACKAGE_NAME=@coorpacademy/player-web
     - name: Progression engine
       env: PACKAGE_NAME=@coorpacademy/progression-engine
-    - name: CSS-modules require hook
+    - name: History
       env: PACKAGE_NAME=@coorpacademy/history
     - name: Nova icons
       env: PACKAGE_NAME=@coorpacademy/nova-icons
@@ -43,9 +43,9 @@ jobs:
       env: PACKAGE_NAME=@coorpacademy/treantjs-adapter-angular
     - name: Dust adapter
       env: PACKAGE_NAME=@coorpacademy/treantjs-adapter-dust
-    - name: Common webpack config
+    - name: Css Module Require Hook
       env: PACKAGE_NAME=@coorpacademy/css-modules-require-hook
-    - name: History
+    - name: Webpack Config
       env: PACKAGE_NAME=@coorpacademy/webpack-config
     - stage: deploy
       script: skip
