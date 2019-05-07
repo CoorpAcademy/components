@@ -51,8 +51,7 @@ jobs:
   include:
     - stage: deploy
       script: skip
-      env: 
-        - PACKAGE_NAME=@coorpacademy/player-web
+      env: PACKAGE_NAME=@coorpacademy/player-web
       deploy:
         provider: script
         skip_cleanup: true
@@ -60,8 +59,7 @@ jobs:
 
     - stage: deploy
       script: skip
-      env: 
-        - PACKAGE_NAME=@coorpacademy/player-web
+      env: PACKAGE_NAME=@coorpacademy/player-web
       deploy:
         provider: pages
         skip_cleanup: true
@@ -70,11 +68,11 @@ jobs:
 
     - stage: deploy
       script: skip
-      env: 
-        - PACKAGE_NAME=@coorpacademy/player-web
+      env: PACKAGE_NAME=@coorpacademy/player-web
       deploy:
         provider: script
         skip_cleanup: true
+        # FIXME: to update
         script: >-
           npm i -g @coorpacademy/update-node && update-node --nvmrc ./.nvmrc
           --package ./package.json --travis ./.travis.yml --repo_slug
@@ -83,10 +81,13 @@ jobs:
 
     - stage: deploy
       script: skip
-      env: 
-        - PACKAGE_NAME=@coorpacademy/player-web
+      env: PACKAGE_NAME=@coorpacademy/player-web
       deploy:
         provider: script
         skip_cleanup: true
         script: scripts/trigger-dependent-builds.sh
-
+stages:
+  - name: test
+    if: branch != master OR type = pull_request OR (branch = master AND commit_message !~ /^Publish$/)
+  - name: deploy
+    if: branch = master AND commit_message =~ /^Publish$/
