@@ -96,7 +96,7 @@ DispatchedAction => {
   const {Analytics} = services;
   if (onMove && isExitNode) {
     Analytics.sendProgressionFinished(currentProgression, engineConfig);
-  } else {
+  } else if (Analytics.sendProgressionUpdated) {
     Analytics.sendProgressionUpdated(currentProgression, engineConfig);
   }
 

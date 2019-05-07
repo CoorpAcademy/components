@@ -137,3 +137,31 @@ test(
   ],
   1
 );
+
+test(
+  'should do nothing on update',
+  macro,
+  pipe(
+    set('ui.current.progressionId', 'foo'),
+    set('data.progressions.entities.foo', {
+      _id: 'foo',
+      content: {ref: '1.B', type: 'level'},
+      engine: {version: '1', ref: 'microlearning'},
+      state: {nextContent: {type: 'success'}}
+    }),
+    set('data.configs.entities.microlearning@1', {
+      version: '1'
+    })
+  )({}),
+  t => ({
+    Analytics: {}
+  }),
+  progressionUpdated('foo', PROGRESSION_UPDATED_ON_NODE),
+  [
+    {
+      type: PROGRESSION_UPDATED_ON_NODE,
+      meta: {id: 'foo'}
+    }
+  ],
+  0
+);
