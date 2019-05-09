@@ -9,7 +9,7 @@ const Battles = props => {
   return (
     <ul className={style.cards}>
       {battles.map(battle => (
-        <li key={battle.name} className={style.cards__item}>
+        <li key={battle.name} className={style.cardsItem}>
           <div className={style.card}>
             <Battle
               name={battle.name}

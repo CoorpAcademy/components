@@ -3,7 +3,6 @@
 @value transparent from colors;
 @value white from colors;
 @value grey from colors;
-@value blueCoorp from colors;
 
 .button {
   display: inline-block;

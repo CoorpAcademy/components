@@ -5,7 +5,6 @@ export default {
     submitReviewCourseValue: 'Review course',
     submitStartBattleValue: 'Start battle',
     levelName: 'Coach',
-    /* levelColor: 'levelGreen',*/
     onClickButtonCourse: () => console.log('test onClickButtonCourse'),
     onClickButtonBattle: () => console.log('test onClickButtonBattle'),
     urlAvatar: 'http://minecraft.fr/wp-content/uploads/2013/05/Pa8WZj1-235x300.jpg',

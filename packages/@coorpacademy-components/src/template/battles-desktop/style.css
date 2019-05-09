@@ -8,29 +8,27 @@
     list-style: none;
     margin: 0;
     padding: 0;
+    flex-direction: row;
   }
   
-  .cards__item {
-    display: flex;
+  .cardsItem {
     justify-content: space-around;
-    padding: 1rem;
+    padding: 1%;
+    flex: 1 0 25%; /* 3 cards per row */
   } 
   
   .card {
     background-color: white;
-    border-radius: 0.25rem;
+    border-radius: 15px;
     box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
-    display: flex;
-    flex-direction: row;
     overflow: hidden;
+    flex-grow: 1;
   }
 
   @media mobile {
-  .cards__item{
+  .cardsItem{
    width: 90%;
-   display: flex;
    justify-content: space-around;
-   padding: 1rem;
+   padding: 1%;
    }
   }
-   
