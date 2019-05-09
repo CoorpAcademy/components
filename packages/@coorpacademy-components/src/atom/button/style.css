@@ -39,7 +39,7 @@
   color: light;
 }
 
-.disabledButton {
+.disabledAnchor {
   background-color: lightMediumGray;
   min-width: 200px;
   text-transform: inherit;
