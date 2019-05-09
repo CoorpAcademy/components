@@ -19,7 +19,7 @@ const ButtonContent = props => {
     type
   } = props;
   const dataName = props['data-name'];
-  const anchorClassName = (disabled && `${className} ${style.disabledButton}`) || className;
+  const anchorClassName = (disabled && `${className} ${style.disabledAnchor}`) || className;
   const anchorOnClick = (disabled && null) || onClick;
   const anchorHref = (disabled && null) || href;
   switch (type) {
@@ -71,9 +71,9 @@ const ButtonContent = props => {
 };
 
 const Button = ({children, ...props}) => {
-  const {className, disabled, type = 'submit'} = props;
+  const {className, isLinkDisabled, type = 'submit'} = props;
   const _classnames =
-    (disabled && classnames([style.disabledButton, className])) ||
+    (isLinkDisabled && classnames([style.disabledAnchor, className])) ||
     classnames([style.button, className]);
   return (
     <div className={_classnames}>
@@ -95,6 +95,7 @@ Button.propTypes = {
   color: ColorPropType,
   submitValue: PropTypes.string,
   disabled: PropTypes.bool,
+  isLinkDisabled: PropTypes.bool,
   href: PropTypes.string,
   download: PropTypes.bool,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
