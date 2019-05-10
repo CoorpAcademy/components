@@ -1,10 +1,15 @@
-import {find} from 'lodash';
+import find from 'lodash/fp/find';
 
 import {Config, Engine, Progression} from '../types';
 import microlearning from './microlearning';
 import learner from './learner';
 
-const engineConfigurations = {
+type EngineConfigurations = {
+  microlearning: typeof microlearning,
+  learner: typeof learner
+};
+
+const engineConfigurations: EngineConfigurations = {
   microlearning,
   learner
 };
@@ -22,9 +27,7 @@ export const getConfig = (engine: Engine): Config => {
   );
 };
 
-export const getConfigForProgression = (progression: Progression): Config => {
-  return {
-    ...getConfig(progression.engine),
-    ...progression.engineOptions
-  };
-};
+export const getConfigForProgression = (progression: Progression): Config => ({
+  ...getConfig(progression.engine),
+  ...progression.engineOptions
+});
