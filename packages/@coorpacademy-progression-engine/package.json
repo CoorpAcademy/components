@@ -64,9 +64,11 @@
   },
   "ava": {
     "files": [
-      "src/**/test/**/*.js"
+      "src/**/test/**/*.{t,j}s"
     ],
+    "extensions": ["ts", "tsx"],
     "require": [
+      "ts-node/register",
       "@babel/polyfill",
       "../../test/helpers/throw-warning",
       "@babel/register"
