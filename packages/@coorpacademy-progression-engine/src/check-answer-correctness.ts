@@ -1,4 +1,3 @@
-// @flow
 import every from 'lodash/fp/every';
 import filter from 'lodash/fp/filter';
 import get from 'lodash/fp/get';
@@ -10,11 +9,12 @@ import pipe from 'lodash/fp/pipe';
 import reverse from 'lodash/fp/reverse';
 import some from 'lodash/fp/some';
 import split from 'lodash/fp/split';
+import compact from 'lodash/fp/compact';
 import toLower from 'lodash/fp/toLower';
 import trim from 'lodash/fp/trim';
 import zip from 'lodash/fp/zip';
 import FuzzyMatching from 'fuzzy-matching';
-import type {
+import {
   Question,
   BasicQuestion,
   TemplateQuestion,
@@ -58,7 +58,7 @@ function isTextCorrect(
   config: Config,
   _allowedAnswers: Answer,
   answerWithCase: string,
-  _maxTypos: ?number,
+  _maxTypos: number | null | undefined,
   noFuzzy: boolean
 ): boolean {
   const allowedAnswers = _allowedAnswers.map(trim);
@@ -80,7 +80,7 @@ function matchAnswerForBasic(
   config: Config,
   question: BasicQuestion,
   givenAnswer: Answer
-): Array<Array<PartialCorrection>> {
+): PartialCorrection[][] {
   if (question.content.answers.length === 0) {
     return [];
   }
@@ -100,7 +100,7 @@ function matchAnswerForTemplate(
   config: Config,
   question: TemplateQuestion,
   givenAnswer: Answer
-): Array<Array<PartialCorrection>> {
+): PartialCorrection[][] {
   if (question.content.answers.length === 0) {
     return [];
   }
@@ -122,16 +122,16 @@ function matchAnswerForTemplate(
   const missingAnswers = question.content.answers[0]
     .slice(result.length)
     .map(() => ({answer: undefined, isCorrect: false}));
-  return [result.concat(missingAnswers)];
+  return [[...result, ...missingAnswers]];
 }
 
 function matchAnswerForUnorderedItems(
   allowedAnswers: AcceptedAnswers,
   givenAnswer: Answer
-): Array<Array<PartialCorrection>> {
+): PartialCorrection[][] {
   const lowerGivenAnswer = map(toLower, givenAnswer);
 
-  return allowedAnswers.map((allowedAnswer): Array<PartialCorrection> => {
+  return allowedAnswers.map((allowedAnswer): PartialCorrection[] => {
     const lowerAllowedAnswer = map(toLower, allowedAnswer);
     const givenAnswersMap = map(
       answer => ({
@@ -141,7 +141,7 @@ function matchAnswerForUnorderedItems(
       givenAnswer
     );
     if (lowerAllowedAnswer.some(answer => !includes(answer, lowerGivenAnswer))) {
-      return givenAnswersMap.concat([{answer: undefined, isCorrect: false}]);
+      return [...givenAnswersMap, {answer: undefined, isCorrect: false}];
     }
     return givenAnswersMap;
   });
@@ -150,24 +150,34 @@ function matchAnswerForUnorderedItems(
 function matchAnswerForOrderedItems(
   allowedAnswers: AcceptedAnswers,
   givenAnswer: Answer
-): Array<Array<PartialCorrection>> {
-  return map((allowedAnswer): Array<PartialCorrection> => {
-    return map(([givenAnswerPart, allowedAnswerPart]): PartialCorrection => {
-      return {
-        answer: givenAnswerPart,
-        isCorrect: toLower(givenAnswerPart) === toLower(allowedAnswerPart)
-      };
-    }, zip(givenAnswer, allowedAnswer));
+): PartialCorrection[][] {
+  return map((allowedAnswer): PartialCorrection[] => {
+    const givenAndAllowedAnswersTuples = zip(givenAnswer, allowedAnswer);
+    const partialCorrections = map(
+      ([givenAnswerPart, allowedAnswerPart]): PartialCorrection | null => {
+        if (givenAnswerPart === undefined) return null;
+        return {
+          answer: givenAnswerPart,
+          isCorrect: allowedAnswerPart
+            ? toLower(givenAnswerPart) === toLower(allowedAnswerPart)
+            : false
+        };
+      },
+      givenAndAllowedAnswersTuples
+    );
+    return compact(partialCorrections);
   }, allowedAnswers);
 }
 
-const findBestMatch = maxBy(correction => filter('isCorrect', correction).length);
+const findBestMatch: <I, T>(corrections: (T & {isCorrect: I})[][]) => (T)[] | undefined = maxBy(
+  correction => filter('isCorrect', correction).length
+);
 
 function matchGivenAnswerToQuestion(
   config: Config,
   question: Question,
   givenAnswer: Answer
-): Array<Array<PartialCorrection>> {
+): PartialCorrection[][] {
   const allowedAnswers = question.content.answers.map(answer => answer.map(trim));
   switch (question.type) {
     case 'basic': {
@@ -208,7 +218,7 @@ export default function checkAnswerCorrectness(
     };
   }
 
-  const bestMatch: Array<PartialCorrection> = findBestMatch(matches);
+  const bestMatch = findBestMatch(matches);
   return {
     isCorrect: every('isCorrect', bestMatch),
     corrections: filter(item => item.answer !== undefined, bestMatch)

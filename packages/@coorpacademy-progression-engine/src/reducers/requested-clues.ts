@@ -3,9 +3,9 @@ import includes from 'lodash/fp/includes';
 import {Action, ActionType, AskClueAction, Config} from '../types';
 
 export default function requestedClues(config: Config) {
-  return (array: Array<string> = [], action: Action): Array<string> => {
+  return (array: string[] = [], action: Action): string[] => {
     switch (action.type) {
-      case ActionType.CLUE: {
+      case 'clue': {
         const requestedClueAction: AskClueAction = action;
         const slideRef = requestedClueAction.payload.content.ref;
         return includes(slideRef, array) ? array : concat(array, [slideRef]);

@@ -5,16 +5,12 @@ import includes from 'lodash/fp/includes';
 import {Action, ActionType, Config, ContentResourceViewedAction, ViewedResource} from '../types';
 
 export default function viewedResources(config: Config) {
-  return (
-    currentViewedResources: Array<ViewedResource> = [],
-    action: Action
-  ): Array<ViewedResource> => {
+  return (currentViewedResources: ViewedResource[] = [], action: Action): ViewedResource[] => {
     switch (action.type) {
-      case ActionType.RESOURCE: {
-        const resourceViewAction: ContentResourceViewedAction = action;
-        const contentRef = resourceViewAction.payload.content.ref;
-        const contentType = resourceViewAction.payload.content.type;
-        const resourceRef = resourceViewAction.payload.resource.ref;
+      case 'resource': {
+        const contentRef = action.payload.content.ref;
+        const contentType = action.payload.content.type;
+        const resourceRef = action.payload.resource.ref;
         const contentIndex = findIndex({ref: contentRef}, currentViewedResources);
 
         if (contentIndex === -1) {
@@ -28,14 +24,11 @@ export default function viewedResources(config: Config) {
           ]);
         }
 
-        const contentResources: Array<string> = get(
-          'resources',
-          currentViewedResources[contentIndex]
-        );
+        const contentResources: string[] = get('resources', currentViewedResources[contentIndex]);
         const resourceAlreadyViewed = includes(resourceRef, contentResources);
 
         if (resourceAlreadyViewed) return currentViewedResources;
-        // return currentViewedResources, contentIndex, resourceRef;
+
         const newViewedResources = [...currentViewedResources];
         newViewedResources[contentIndex] = {
           ...newViewedResources[contentIndex],

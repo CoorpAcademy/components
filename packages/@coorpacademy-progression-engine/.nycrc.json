@@ -12,13 +12,10 @@
     "**/lib/"
   ],
   "check-coverage": true,
-  "lines": 99,
-  "statements": 99,
+  "lines": 100,
+  "statements": 100,
   "functions": 100,
-  "branches": 92,
-  "cache": true,
-  "require": "@babel/register",
-  "sourceMap": false,
-  "instrument": false,
-  "all": true
+  "branches": 100,
+  "extends": "@istanbuljs/nyc-config-typescript",
+  "all": false
 }

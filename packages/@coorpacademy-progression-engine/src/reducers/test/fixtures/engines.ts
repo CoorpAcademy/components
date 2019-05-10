@@ -1,6 +1,6 @@
 export interface FakeContent {
-  ref: 'microlearning' | 'learner',
-  version: string
+  ref: 'microlearning' | 'learner';
+  version: string;
 }
 
 export const microlearning: FakeContent = {

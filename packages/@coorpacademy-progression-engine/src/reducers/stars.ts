@@ -13,21 +13,21 @@ import {
 export default function stars(config: Config) {
   return (currentStars: number = 0, action: Action, state: State): number => {
     switch (action.type) {
-      case ActionType.ANSWER: {
+      case 'answer': {
         const answerAction: AnswerAction = action;
         return !answerAction.payload.instructions && answerAction.payload.isCorrect
           ? currentStars + config.starsPerCorrectAnswer
           : currentStars;
       }
-      case ActionType.CLUE: {
+      case 'clue': {
         const requestedClueAction: AskClueAction = action;
         const slideRef = requestedClueAction.payload.content.ref;
         return includes(slideRef, state.requestedClues)
           ? currentStars
           : currentStars + config.starsPerAskingClue;
       }
-      case ActionType.RESOURCE: {
-        const contentResourceViewedAction: ContentResourceViewedAction =  action;
+      case 'resource': {
+        const contentResourceViewedAction: ContentResourceViewedAction = action;
         const contentRef = contentResourceViewedAction.payload.content.ref;
         const contentType = contentResourceViewedAction.payload.content.type;
         const contentResourceAlreadyViewed = Boolean(

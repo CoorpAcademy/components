@@ -1,12 +1,11 @@
-
 import concat from 'lodash/fp/concat';
 import get from 'lodash/fp/get';
 import {Action, AnswerAction, AnswerRecord, Config, ActionType} from '../types';
 
 const allAnswers = (config: Config) => {
-  return (answers: Array<AnswerRecord> = [], action: Action): Array<AnswerRecord> => {
+  return (answers: AnswerRecord[] = [], action: Action): AnswerRecord[] => {
     switch (action.type) {
-      case ActionType.ANSWER: {
+      case 'answer': {
         const answerAction: AnswerAction = action;
         const answer = {
           slideRef: get('payload.content.ref', answerAction),
@@ -19,6 +18,6 @@ const allAnswers = (config: Config) => {
         return answers;
     }
   };
-}
+};
 
 export default allAnswers;

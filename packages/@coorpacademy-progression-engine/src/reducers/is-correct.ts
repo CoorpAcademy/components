@@ -1,10 +1,10 @@
 import {Action, ActionType, AnswerAction, Config} from '../types';
 
 export default function isCorrect(config: Config) {
-  return (state: boolean | void = true, action: Action): boolean | void => {
+  return (state: boolean | null = true, action: Action): boolean | null => {
     switch (action.type) {
-      case ActionType.ANSWER: {
-        const answerAction: AnswerAction = action
+      case 'answer': {
+        const answerAction: AnswerAction = action;
         return answerAction.payload.isCorrect;
       }
       default:

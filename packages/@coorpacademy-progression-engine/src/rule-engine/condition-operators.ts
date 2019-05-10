@@ -34,44 +34,50 @@ const BETWEEN = <T>(expectedValues: T[], value: T): boolean => {
 
 const NOT_BETWEEN: <T>(expectedValues: T[], value: T) => boolean = negate(BETWEEN);
 
-export type OPERATORS = "BETWEEN" | "EQUALS" | "GT" | "GTE" | "IN" | "LT" | "LTE" | "NOT_BETWEEN" | "NOT_EQUALS" | "NOT_IN";
+export type OPERATORS =
+  | 'BETWEEN'
+  | 'EQUALS'
+  | 'GT'
+  | 'GTE'
+  | 'IN'
+  | 'LT'
+  | 'LTE'
+  | 'NOT_BETWEEN'
+  | 'NOT_EQUALS'
+  | 'NOT_IN';
 
-const checkCondition = <T>(
-  operator: OPERATORS,
-  expectedValues: T[],
-  value: T
-): boolean => {
+const checkCondition = <T>(operator: OPERATORS, expectedValues: T[], value: T): boolean => {
   if (value === null || value === undefined) return false;
 
-  switch(operator) {
-    case "BETWEEN": {
+  switch (operator) {
+    case 'BETWEEN': {
       return BETWEEN(expectedValues, value);
     }
-    case "EQUALS": {
+    case 'EQUALS': {
       return EQUALS(expectedValues, value);
     }
-    case "GT": {
+    case 'GT': {
       return GT(expectedValues, value);
     }
-    case "GTE": {
+    case 'GTE': {
       return GTE(expectedValues, value);
     }
-    case "IN": {
+    case 'IN': {
       return IN(expectedValues, value);
     }
-    case "LT": {
+    case 'LT': {
       return LT(expectedValues, value);
     }
-    case "LTE": {
+    case 'LTE': {
       return LTE(expectedValues, value);
     }
-    case "NOT_BETWEEN": {
+    case 'NOT_BETWEEN': {
       return NOT_BETWEEN(expectedValues, value);
     }
-    case "NOT_EQUALS": {
+    case 'NOT_EQUALS': {
       return NOT_EQUALS(expectedValues, value);
     }
-    case "NOT_IN": {
+    case 'NOT_IN': {
       return NOT_IN(expectedValues, value);
     }
     default: {

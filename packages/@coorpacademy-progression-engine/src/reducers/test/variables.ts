@@ -1,9 +1,8 @@
 import test from 'ava';
 import set from 'lodash/fp/set';
-// @ts-ignore
 import {getConfig} from '../../config';
 import variables from '../variables';
-import {answerAction, moveAction} from './fixtures/actions';
+import {answerAction, moveAction, resourceAction} from './fixtures/actions';
 import {learner} from './fixtures/engines';
 import {stateForFirstSlide} from './fixtures/states';
 
@@ -48,5 +47,12 @@ test('should not update variables if there are no instructions into moveAction',
   const state = stateForFirstSlide;
   const newState = variables(config)(state, moveAction);
 
+  t.deepEqual(newState.variables, {});
+});
+
+test('should skip unsupported action', t => {
+  const state = stateForFirstSlide;
+
+  const newState = variables(config)(state, resourceAction);
   t.deepEqual(newState.variables, {});
 });

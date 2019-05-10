@@ -1,6 +1,4 @@
-
-// @flow
-import test from 'ava';
+import test, {ExecutionContext} from 'ava';
 import {Content, State} from '../../types';
 import selectRule, {DEFAULT_SOURCE} from '../select-rule';
 import {ChapterRule} from '../types';
@@ -23,7 +21,7 @@ const createState = (nextContent: Content): State => ({
   variables: {}
 });
 
-test('should return null if no rules match', t => {
+test('should return null if no rules match', (t: ExecutionContext) => {
   const state = createState({type: 'slide', ref: ''});
   const rule = selectRule([], state);
   t.is(rule, null);
@@ -56,7 +54,7 @@ const defaultState: State = {
   hasViewedAResourceAtThisStep: false
 };
 
-const chapterRules: Array<ChapterRule> = [
+const chapterRules: ChapterRule[] = [
   {
     source: destination,
     destination: source,
@@ -144,7 +142,7 @@ const chapterRules: Array<ChapterRule> = [
   }
 ];
 
-test('should select right chapter from source and priority', t => {
+test('should select right chapter from source and priority', (t: ExecutionContext) => {
   const state: State = defaultState;
 
   const actualChapterRule = selectRule(chapterRules, state);
@@ -152,19 +150,19 @@ test('should select right chapter from source and priority', t => {
   t.is(actualChapterRule && actualChapterRule.ref, 'high_priority');
 });
 
-test('should select chapterRule with empty source if state is null', t => {
+test('should select chapterRule with empty source if state is null', (t: ExecutionContext) => {
   const rule = selectRule(chapterRules, null);
   t.is(rule && rule.ref, '3');
 });
 
-test('should return no chapterRule if none match', t => {
+test('should return no chapterRule if none match', (t: ExecutionContext) => {
   const state: State = {...defaultState, nextContent: {type: 'slide', ref: 'noop'}};
 
   const actualChapterRule = selectRule(chapterRules, state);
   t.is(actualChapterRule, null);
 });
 
-test("should select chapterRule with 'slide' scope", t => {
+test("should select chapterRule with 'slide' scope", (t: ExecutionContext) => {
   const slideScopedRules: ChapterRule[] = [
     {
       source,
@@ -257,7 +255,7 @@ test("should select chapterRule with 'slide' scope", t => {
   t.is(noIsCorrectChapterRule, null, "Don't support 'slide' scoped target with 'isCorrect' field");
 });
 
-test("should select chapterRule with 'variables' scope", t => {
+test("should select chapterRule with 'variables' scope", (t: ExecutionContext) => {
   const slideScopedRules: ChapterRule[] = [
     {
       source,
@@ -372,9 +370,9 @@ test("should select chapterRule with 'variables' scope", t => {
   t.is(nocustomChapterRule, null, "Don't support 'variable' scoped target with custom field");
 });
 
-type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
+type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 
-test("should select a rule with source.ref:'*'", t => {
+test("should select a rule with source.ref:'*'", (t: ExecutionContext) => {
   const value = 111;
   type Foo = Omit<ChapterRule, 'priority'>;
   const baseRule: Foo = {
@@ -417,4 +415,8 @@ test("should select a rule with source.ref:'*'", t => {
 
   const selectedRule = selectRule(rules, state);
   t.deepEqual(selectedRule, globalSourceHighPriority);
+});
+
+test('should return null if any rule matched', t => {
+  t.is(selectRule([], null), null);
 });

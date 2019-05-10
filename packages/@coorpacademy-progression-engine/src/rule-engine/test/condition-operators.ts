@@ -6,14 +6,14 @@ const testCondition = (t: ExecutionContext, opNormal: OPERATORS, opNegative: OPE
   expectedValues: T[],
   value: S
 ) => {
-  // @ts-ignore
+  // @ts-ignore: Allow to pass two different types for test
   t.is(checkCondition(opNormal, expectedValues, value), expectedResult);
-  // @ts-ignore
+  // @ts-ignore: Allow to pass two different types for test
   t.is(checkCondition(opNegative, expectedValues, value), !expectedResult);
 };
 
 test('should return true for IN (false for NOT_IN) condition if value is among the expected values', t => {
-  const check = testCondition(t, "IN", 'NOT_IN');
+  const check = testCondition(t, 'IN', 'NOT_IN');
   check(true, [1, 2, 3], 1);
   check(true, [1, 2, 3], 2);
   check(true, [1, 2, 3], 3);
@@ -107,4 +107,9 @@ test('should return false for GT (true for GTE) condition if value is less or eq
   check(false, [1], -10);
   check(false, [1], 1);
   check(false, [10], -10);
+});
+
+test("should return false if operator doesn't supported", t => {
+  // @ts-ignore: Fake operator for test
+  t.false(checkCondition('FOO', [1], 10));
 });

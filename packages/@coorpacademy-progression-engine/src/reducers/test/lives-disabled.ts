@@ -1,5 +1,4 @@
 import test from 'ava';
-// @ts-ignore
 import {getConfig} from '../../config';
 import livesDisabled from '../lives-disabled';
 import {moveAction} from './fixtures/actions';

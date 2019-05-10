@@ -1,20 +1,20 @@
 import test from 'ava';
 
 import {getConfigForProgression} from '..';
-import {Progression, EngineRef, ContentType} from '../../types';
+import {Progression} from '../../types';
 
 const progression: Progression = {
-  engine: {ref: EngineRef.MICROLEARNING, version: '1'},
+  engine: {ref: 'microlearning', version: '1'},
   engineOptions: {
     version: '1'
   },
-  content: {type: ContentType.CHAPTER, ref: '1.A1'},
+  content: {type: 'chapter', ref: '1.A1'},
   actions: []
 };
 
 test('should throw an error if the engine ref is unknown', t => {
   t.throws(
-    // @ts-ignore: Voluntary bad ref
+    // @ts-ignore: Fake ref for test
     () => getConfigForProgression({...progression, engine: {ref: 'foobar', version: '1'}}),
     'Unknown engine foobar'
   );
@@ -33,7 +33,7 @@ test('should return the configuration with the given version if it exists', t =>
     starsPerResourceViewed: 4,
     remainingLifeRequests: 1
   });
-  t.deepEqual(getConfigForProgression({...progression, engine: {ref: EngineRef.LEARNER, version: '1'}}), {
+  t.deepEqual(getConfigForProgression({...progression, engine: {ref: 'learner', version: '1'}}), {
     version: '1',
     lives: 3,
     livesDisabled: false,

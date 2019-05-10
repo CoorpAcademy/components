@@ -1,36 +1,8 @@
 {
   "name": "@coorpacademy/progression-engine",
   "version": "11.0.1",
+  "author": "CoorpAcademy",
   "description": "",
-  "main": "lib/index.js",
-  "module": "es/index.js",
-  "files": [
-    "lib",
-    "es",
-    "README.md"
-  ],
-  "scripts": {
-    "ava": "cross-env NODE_ENV=test ava",
-    "nyc": "cross-env NODE_ENV=test nyc npm run ava",
-    "test": "npm run lint && npm run flow && npm run flow -- stop && npm run nyc",
-    "flow": "flow",
-    "lint": "npm run eslint",
-    "eslint": "eslint ./ *.js *.json --ext .js,.json",
-    "build:commonjs": "npm run build:babel:commonjs && npm run build:types:commonjs",
-    "build:es": "npm run build:babel:es && npm run build:types:es",
-    "build": "concurrently \"npm run build:commonjs\" \"npm run build:es\"",
-    "build:babel:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
-    "build:babel:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
-    "build:babel": "concurrently \"npm run build:babel:commonjs\" \"npm run build:babel:es\"",
-    "build:types:commonjs": "flow-copy-source src lib --ignore '**/test/**/*.js'",
-    "build:types:es": "flow-copy-source src es --ignore '**/test/**/*.js'",
-    "build:types": "concurrently \"npm run build:types:commonjs\" \"npm run build:types:es\"",
-    "clean:build:commonjs": "rimraf lib",
-    "clean:build:es": "rimraf es",
-    "clean:build": "concurrently \"npm run clean:build:commonjs\" \"npm run clean:build:es\"",
-    "clean": "npm run clean:build",
-    "prepare": "npm run clean && npm run build --production"
-  },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",
     "Christophe Dugne-Esquevin <christophe.dugne@coorpacademy.com>",
@@ -39,39 +11,48 @@
     "Joan Ortega <joan.ortega@coorpacademy.com>",
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "files": [
+    "lib",
+    "es",
+    "README.md"
+  ],
+  "scripts": {
+    "ava": "ava",
+    "nyc": "nyc npm run ava",
+    "test": "npm run lint && npm run typecheck && npm run nyc",
+    "typecheck": "tsc --noEmit",
+    "lint": "npm run eslint",
+    "eslint": "eslint '**' --ext '.ts'",
+    "build:commonjs": "tsc",
+    "build:es": "tsc --build tsconfig.es.json",
+    "build": "concurrently \"npm run build:commonjs\" \"npm run build:es\"",
+    "clean:build:commonjs": "rimraf lib",
+    "clean:build:es": "rimraf es",
+    "clean:build": "concurrently \"npm run clean:build:commonjs\" \"npm run clean:build:es\"",
+    "clean": "npm run clean:build",
+    "prepare": "npm run clean"
+  },
   "dependencies": {
-    "@types/lodash": "^4.14.125",
-    "@types/node": "^12.0.0",
     "fuzzy-matching": "^0.4.3",
-    "lodash": "^4.17.4",
-    "ts-node": "^8.1.0",
-    "typescript": "^3.4.5"
+    "lodash": "^4.17.4"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "@babel/preset-flow": "^7.0.0",
+    "@coorpacademy/eslint-plugin-coorpacademy": "^8.3.1",
+    "@istanbuljs/nyc-config-typescript": "^0.1.3",
+    "@types/lodash": "^4.14.125",
+    "@types/node": "^12.0.0",
+    "@typescript-eslint/eslint-plugin": "^1.8.0",
+    "@typescript-eslint/parser": "^1.8.0",
     "ava": "^1.4.1",
-    "babel-plugin-istanbul": "^4.1.4",
-    "concurrently": "^3.5.1",
-    "cross-env": "^5.0.0",
-    "eslint": "^4.18.2",
-    "flow-bin": "^0.75.0",
-    "flow-copy-source": "^2.0.2",
-    "nyc": "^13.1.0",
-    "rimraf": "^2.6.1"
-  },
-  "ava": {
-    "files": [
-      "src/**/test/**/*.ts"
-    ],
-    "extensions": ["ts", "tsx"],
-    "compileEnhancements": false,
-    "require": [
-      "ts-node/register"
-    ]
-  },
-  "author": "CoorpAcademy"
+    "concurrently": "^4.1.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.16.0",
+    "eslint-plugin-import": "^2.17.2",
+    "nyc": "^14.1.1",
+    "rimraf": "^2.6.3",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
+  }
 }

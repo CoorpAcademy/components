@@ -1,6 +1,6 @@
 import {Config} from '../types';
 
-const configurations: Array<Config> = [
+const configurations: Config[] = [
   {
     version: '1',
     lives: 1,

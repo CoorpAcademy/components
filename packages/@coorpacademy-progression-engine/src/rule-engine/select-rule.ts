@@ -62,12 +62,12 @@ const matchWithState = (state: State) => (chapterRule: ChapterRule): boolean => 
   });
 };
 
-const selectRule = (rules: Array<ChapterRule>, state: State | null): ChapterRule | null => {
-  const targetedChapterRules: Array<ChapterRule> = filter(
+const selectRule = (rules: ChapterRule[], state: State | null): ChapterRule | null => {
+  const targetedChapterRules: ChapterRule[] = filter(
     isRuleAvailable(state ? state.nextContent : DEFAULT_SOURCE),
     rules
   );
-  const sortedChapterRules: Array<ChapterRule> = sortBy('priority', targetedChapterRules);
+  const sortedChapterRules: ChapterRule[] = sortBy('priority', targetedChapterRules);
 
   if (!state) {
     return head(sortedChapterRules) || null;

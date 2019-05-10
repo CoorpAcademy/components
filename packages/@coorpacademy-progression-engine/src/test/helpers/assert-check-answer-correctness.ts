@@ -1,10 +1,9 @@
-// @flow
 import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import trim from 'lodash/fp/trim';
 import zip from 'lodash/fp/zip';
 import checkAnswerCorrectness from '../../check-answer-correctness';
-import type {Question, Answer, Config} from '../../types';
+import {Question, Answer, Config} from '../../types';
 
 // eslint-disable-next-line flowtype/no-weak-types
 export function assertCorrect(t: any, config: Config, question: Question, givenAnswer: Answer) {
@@ -22,7 +21,7 @@ export function assertIncorrect(
   config: Config,
   question: Question,
   givenAnswer: Answer,
-  expectedCorrections: Array<boolean>
+  expectedCorrections: boolean[]
 ) {
   t.is(
     givenAnswer.length,
@@ -33,7 +32,7 @@ export function assertIncorrect(
   t.false(result.isCorrect, 'Answer should have been considered as incorrect');
   t.deepEqual(
     result.corrections,
-    pipe(zip(givenAnswer), map(([answer, isCorrect]) => ({answer: trim(answer), isCorrect})))(
+    pipe(zip(givenAnswer), map(([answer = '', isCorrect]) => ({answer: trim(answer), isCorrect})))(
       expectedCorrections
     ),
     'Some sub-answers were not correctly marked as correct'

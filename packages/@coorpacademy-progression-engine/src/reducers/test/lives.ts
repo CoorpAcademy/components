@@ -1,13 +1,18 @@
 import test from 'ava';
 import set from 'lodash/fp/set';
-// @ts-ignore
 import {getConfig} from '../../config';
 import lives from '../lives';
-import {answerAction, extraLifeAcceptedAction, askClueAction} from './fixtures/actions';
+import {moveAction, answerAction, extraLifeAcceptedAction, askClueAction} from './fixtures/actions';
 import {learner} from './fixtures/engines';
 import {stateForSecondSlide} from './fixtures/states';
 
 const config = getConfig(learner);
+
+test('should return default value', t => {
+  const customConfig = set('lives', 9, config);
+  const result = lives(customConfig)(undefined, moveAction, stateForSecondSlide);
+  t.is(result, customConfig.lives);
+});
 
 test('should return config lives when livesDisabled is true on state', t => {
   const state = set('livesDisabled', true, stateForSecondSlide);

@@ -1,10 +1,9 @@
 import test from 'ava';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
-// @ts-ignore
 import {getConfig} from '../../config';
 import stars from '../stars';
-import {answerAction, askClueAction, resourceAction} from './fixtures/actions';
+import {answerAction, askClueAction, resourceAction, moveAction} from './fixtures/actions';
 import {microlearning} from './fixtures/engines';
 import {stateForSecondSlide} from './fixtures/states';
 
@@ -14,6 +13,12 @@ test('should return updated stars when action type is answer with isCorrect true
   const action = set('payload.isCorrect', true, answerAction);
   const result = stars(config)(0, action, stateForSecondSlide);
   t.is(result, 4);
+});
+
+test('should return default stars value', t => {
+  const action = set('payload.isCorrect', false, moveAction);
+  const result = stars(config)(undefined, action, stateForSecondSlide);
+  t.is(result, 0);
 });
 
 test('should not change stars when action has instructions and its type is answer with isCorrect true', t => {

@@ -2,7 +2,7 @@ import test from 'ava';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import applyInstructions from '../apply-instructions';
-import { Instruction, Variables } from '../types';
+import {Instruction, Variables} from '../types';
 
 test('should return new variables with instructions to set initial attributes', t => {
   const instructions: Instruction[] = [
@@ -21,7 +21,7 @@ test('should return new variables with instructions to set initial attributes', 
     variables: {}
   });
 
-  // @ts-ignore
+  // @ts-ignore: Fake state for test
   const fromState: State = {};
 
   const variables = applyInstructions(instructions)(fromState);
@@ -37,7 +37,7 @@ test('should return new variables with instructions to update attributes', t => 
     {value: 'baz', type: 'add', field: 'C'}
   ];
 
-  // @ts-ignore
+  // @ts-ignore: Fake state for test
   const fromState: State = {
     lives: 3,
     stars: 4,
@@ -62,13 +62,13 @@ test('should return new variables with instructions to update attributes', t => 
 
 test('should return the same input when instructions type are not recognized', t => {
   const instructions: Instruction[] = [
-    // @ts-ignore
+    // @ts-ignore: Fake instruction for test
     {value: 1, type: 'foo', field: 'A'},
-    // @ts-ignore
+    // @ts-ignore: Fake instruction for test
     {value: 4, type: 'bar', field: 'stars'}
   ];
 
-  // @ts-ignore
+  // @ts-ignore: Fake state for test
   const fromState: State = {
     lives: 3,
     stars: 4,

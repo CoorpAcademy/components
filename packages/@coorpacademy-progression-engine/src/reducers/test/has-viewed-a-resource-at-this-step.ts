@@ -1,12 +1,15 @@
 // @flow
 import test from 'ava';
-// @ts-ignore
 import {getConfig} from '../../config';
 import hasViewedAResourceAtThisStep from '../has-viewed-a-resource-at-this-step';
 import {answerAction, askClueAction, resourceAction} from './fixtures/actions';
 import {microlearning} from './fixtures/engines';
 
 const config = getConfig(microlearning);
+
+test('should return false by default', t => {
+  t.false(hasViewedAResourceAtThisStep(config)(undefined, answerAction));
+});
 
 test('should return true when action type is action', t => {
   const result = hasViewedAResourceAtThisStep(config)(false, resourceAction);

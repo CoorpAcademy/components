@@ -1,5 +1,4 @@
 import test from 'ava';
-// @ts-ignore
 import {getConfig} from '../../config';
 import requestedClues from '../requested-clues';
 import {answerAction, askClueAction} from './fixtures/actions';
@@ -8,7 +7,7 @@ import {microlearning} from './fixtures/engines';
 const config = getConfig(microlearning);
 
 test('should return updated requestedClues when action type is clue', t => {
-  const result = requestedClues(config)([], askClueAction);
+  const result = requestedClues(config)(undefined, askClueAction);
   t.deepEqual(result, ['1.A1.2']);
 });
 

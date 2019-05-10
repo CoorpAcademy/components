@@ -14,11 +14,9 @@ const apply = <T>(variables: T & Variables, instruction: Instruction): T => {
       return update(
         field,
         (v: Variable): Variable => {
-          if (typeof v === 'number' && typeof value === 'number')
-            return v + value;
+          if (typeof v === 'number' && typeof value === 'number') return v + value;
 
-          if (typeof v === 'string' && typeof value === 'string')
-            return v + value;
+          if (typeof v === 'string' && typeof value === 'string') return v + value;
           return v;
         },
         variables
@@ -28,7 +26,7 @@ const apply = <T>(variables: T & Variables, instruction: Instruction): T => {
   }
 };
 
-const updateVariables = (instructions: Array<Instruction>) => (fromState: State): State => {
+const updateVariables = (instructions: Instruction[]) => (fromState: State): State => {
   const {lives, stars, ...variables}: Variables = reduce(
     apply,
     {

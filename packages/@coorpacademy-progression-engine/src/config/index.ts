@@ -4,10 +4,10 @@ import {Config, Engine, Progression} from '../types';
 import microlearning from './microlearning';
 import learner from './learner';
 
-type EngineConfigurations = {
-  microlearning: typeof microlearning,
-  learner: typeof learner
-};
+interface EngineConfigurations {
+  microlearning: typeof microlearning;
+  learner: typeof learner;
+}
 
 const engineConfigurations: EngineConfigurations = {
   microlearning,

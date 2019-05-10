@@ -4,9 +4,9 @@ import {Action, ActionType, Config, State} from '../types';
 export default function validate(config: Config) {
   return (state: State, action: Action): void => {
     switch (action.type) {
-      case ActionType.ANSWER:
-      case ActionType.EXTRA_LIFE_ACCEPTED:
-      case ActionType.EXTRA_LIFE_REFUSE: {
+      case 'answer':
+      case 'extraLifeAccepted':
+      case 'extraLifeRefused': {
         if (
           state.nextContent.ref !== action.payload.content.ref ||
           state.nextContent.type !== action.payload.content.type
