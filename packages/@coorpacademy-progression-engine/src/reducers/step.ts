@@ -1,0 +1,9 @@
+import {Action, Config, State, Step} from '../types';
+
+export default function step(config: Config) {
+  return (s: Step, action: Action, state: State): Step => {
+    return {
+      current: state.slides.length + 1
+    };
+  };
+}

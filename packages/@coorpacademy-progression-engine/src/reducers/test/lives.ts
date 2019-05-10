@@ -1,0 +1,83 @@
+import test from 'ava';
+import set from 'lodash/fp/set';
+import {getConfig} from '../../config';
+import lives from '../lives';
+import {moveAction, answerAction, extraLifeAcceptedAction, askClueAction} from './fixtures/actions';
+import {learner} from './fixtures/engines';
+import {stateForSecondSlide} from './fixtures/states';
+
+const config = getConfig(learner);
+
+test('should return default value', t => {
+  const customConfig = set('lives', 9, config);
+  const result = lives(customConfig)(undefined, moveAction, stateForSecondSlide);
+  t.is(result, customConfig.lives);
+});
+
+test('should return config lives when livesDisabled is true on state', t => {
+  const state = set('livesDisabled', true, stateForSecondSlide);
+  const result = lives(config)(3, answerAction, state);
+  t.is(result, 3);
+});
+
+test('should return updated lives when action type is answer with isCorrect false', t => {
+  const result = lives(config)(3, answerAction, stateForSecondSlide);
+  t.is(result, 2);
+});
+
+test('should not change lives when action has instructions and its type is answer with isCorrect false', t => {
+  const action = set(
+    'payload.instructions',
+    [
+      {
+        value: 1,
+        type: 'add',
+        field: 'A'
+      }
+    ],
+    answerAction
+  );
+  const result = lives(config)(3, action, stateForSecondSlide);
+
+  t.is(result, 3);
+});
+
+test('should not modify lives when action type is answer with isCorrect true', t => {
+  const action = set('payload.isCorrect', true, answerAction);
+  const result = lives(config)(1, action, stateForSecondSlide);
+  t.is(result, 1);
+});
+
+test('should update lives when action type is extraLifeAccepted', t => {
+  const result = lives(config)(0, extraLifeAcceptedAction, stateForSecondSlide);
+  t.is(result, 1);
+});
+
+test('should not change lives when action has instructions and its type is extraLifeAccepted', t => {
+  const action = set(
+    'payload.instructions',
+    [
+      {
+        value: 1,
+        type: 'add',
+        field: 'A'
+      }
+    ],
+    extraLifeAcceptedAction
+  );
+  const result = lives(config)(0, action, stateForSecondSlide);
+  t.is(result, 0);
+});
+
+test('should not modify lives for any other type of action', t => {
+  const result = lives(config)(5, askClueAction, stateForSecondSlide);
+  t.is(result, 5);
+});
+
+test('should not increment lives counter if there are no more remainingLifeRequests', t => {
+  const result = lives(config)(0, extraLifeAcceptedAction, {
+    ...stateForSecondSlide,
+    remainingLifeRequests: 0
+  });
+  t.is(result, 0);
+});
