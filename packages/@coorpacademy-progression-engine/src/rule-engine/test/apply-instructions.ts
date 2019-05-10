@@ -2,9 +2,10 @@ import test from 'ava';
 import pipe from 'lodash/fp/pipe';
 import set from 'lodash/fp/set';
 import applyInstructions from '../apply-instructions';
+import { Instruction, Variables } from '../types';
 
 test('should return new variables with instructions to set initial attributes', t => {
-  const instructions = [
+  const instructions: Instruction[] = [
     {value: 0, type: 'set', field: 'A'},
     {value: 3, type: 'set', field: 'lives'},
     {value: 0, type: 'set', field: 'stars'},
@@ -20,20 +21,24 @@ test('should return new variables with instructions to set initial attributes', 
     variables: {}
   });
 
-  const variables = applyInstructions(instructions)({});
+  // @ts-ignore
+  const fromState: State = {};
+
+  const variables = applyInstructions(instructions)(fromState);
 
   t.deepEqual(expectedVariables, variables);
 });
 
-test('should return new variables with instructions to update attributes', t => {
-  const instructions = [
+test.only('should return new variables with instructions to update attributes', t => {
+  const instructions: Instruction[] = [
     {value: 1, type: 'add', field: 'A'},
     {value: 4, type: 'add', field: 'stars'},
     {value: 'foo', type: 'add', field: 'B'},
     {value: 'baz', type: 'add', field: 'C'}
   ];
 
-  const fromState = {
+  // @ts-ignore
+  const fromState: State = {
     lives: 3,
     stars: 4,
     variables: {
@@ -56,12 +61,15 @@ test('should return new variables with instructions to update attributes', t => 
 });
 
 test('should return the same input when instructions type are not recognized', t => {
-  const instructions = [
+  const instructions: Instruction[] = [
+    // @ts-ignore
     {value: 1, type: 'foo', field: 'A'},
+    // @ts-ignore
     {value: 4, type: 'bar', field: 'stars'}
   ];
 
-  const fromState = {
+  // @ts-ignore
+  const fromState: State = {
     lives: 3,
     stars: 4,
     variables: {
@@ -69,6 +77,7 @@ test('should return the same input when instructions type are not recognized', t
       reverse: false
     }
   };
+
   const variables = applyInstructions(instructions)(fromState);
 
   t.deepEqual(fromState, variables);

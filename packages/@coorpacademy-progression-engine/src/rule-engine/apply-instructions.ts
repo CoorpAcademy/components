@@ -1,11 +1,10 @@
-// @flow
 import reduce from 'lodash/fp/reduce';
 import set from 'lodash/fp/set';
 import update from 'lodash/fp/update';
-import type {State, Variables, Variable} from '../types';
-import type {Instruction} from './types';
+import {State, Variables, Variable} from '../types';
+import {Instruction} from './types';
 
-const apply = <T: Variables>(variables: T, instruction: Instruction): T => {
+const apply = <T>(variables: T & Variables, instruction: Instruction): T => {
   const {type, value, field} = instruction;
 
   switch (type) {
@@ -15,11 +14,10 @@ const apply = <T: Variables>(variables: T, instruction: Instruction): T => {
       return update(
         field,
         (v: Variable): Variable => {
-          if (
-            typeof v === typeof value &&
-            (typeof v === 'number' || typeof v === 'string') &&
-            (typeof value === 'number' || typeof value === 'string')
-          )
+          if (typeof v === 'number' && typeof value === 'number')
+            return v + value;
+
+          if (typeof v === 'string' && typeof value === 'string')
             return v + value;
           return v;
         },
@@ -31,7 +29,7 @@ const apply = <T: Variables>(variables: T, instruction: Instruction): T => {
 };
 
 const updateVariables = (instructions: Array<Instruction>) => (fromState: State): State => {
-  const {lives, stars, ...variables} = reduce(
+  const {lives, stars, ...variables}: Variables = reduce(
     apply,
     {
       lives: fromState.lives,

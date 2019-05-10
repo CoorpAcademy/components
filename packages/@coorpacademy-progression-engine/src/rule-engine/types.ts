@@ -1,8 +1,7 @@
-// @flow
-import type {Content} from '../types';
-import type {OperatorKeys} from './condition-operators';
+import {Content} from '../types';
+import {OPERATORS} from './condition-operators';
 
-type Target =
+export type Target =
   | {
       scope: 'variable',
       field: 'lives' | 'stars' | string
@@ -13,19 +12,19 @@ type Target =
       field: 'isCorrect' | 'answer'
     };
 
-type Condition = {
+export type Condition = {
   target: Target,
-  operator: OperatorKeys,
+  operator: OPERATORS,
   values: Array<number | boolean | string | Array<string>>
 };
 
-type Instruction = {
+export type Instruction = {
   field: string,
   type: 'add' | 'set',
   value: number | boolean | string
 };
 
-type ChapterRule = {
+export type ChapterRule = {
   source: Content,
   destination: Content,
   instructions: Array<Instruction>,
@@ -34,10 +33,8 @@ type ChapterRule = {
   ref?: string
 };
 
-type Variables = {
+export type Variables = {
   lives: number,
   stars: number,
-  variables: {[string]: string | boolean | number}
+  variables: {[variableName: string]: string | boolean | number}
 };
-
-export type {ChapterRule, Condition, Instruction, OperatorKeys, Target, Variables};

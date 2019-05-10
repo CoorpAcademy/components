@@ -1,10 +1,11 @@
+
 // @flow
 import test from 'ava';
-import type {Content, State} from '../../types';
+import {Content, State} from '../../types';
 import selectRule, {DEFAULT_SOURCE} from '../select-rule';
-import type {ChapterRule} from '../types';
+import {ChapterRule} from '../types';
 
-const createState = (nextContent): State => ({
+const createState = (nextContent: Content): State => ({
   nextContent,
   lives: 3,
   stars: 0,
@@ -144,11 +145,11 @@ const chapterRules: Array<ChapterRule> = [
 ];
 
 test('should select right chapter from source and priority', t => {
-  const state = defaultState;
+  const state: State = defaultState;
 
-  const actualChapterRule = selectRule(chapterRules, state) || {};
+  const actualChapterRule = selectRule(chapterRules, state);
 
-  t.is(actualChapterRule.ref, 'high_priority');
+  t.is(actualChapterRule && actualChapterRule.ref, 'high_priority');
 });
 
 test('should select chapterRule with empty source if state is null', t => {
@@ -157,14 +158,14 @@ test('should select chapterRule with empty source if state is null', t => {
 });
 
 test('should return no chapterRule if none match', t => {
-  const state = {...defaultState, nextContent: {type: 'slide', ref: 'noop'}};
+  const state: State = {...defaultState, nextContent: {type: 'slide', ref: 'noop'}};
 
   const actualChapterRule = selectRule(chapterRules, state);
   t.is(actualChapterRule, null);
 });
 
 test("should select chapterRule with 'slide' scope", t => {
-  const slideScopedRules = [
+  const slideScopedRules: ChapterRule[] = [
     {
       source,
       destination,
@@ -215,7 +216,7 @@ test("should select chapterRule with 'slide' scope", t => {
   };
   const answerChapterRule = selectRule(slideScopedRules, answerState);
   t.is(
-    (answerChapterRule || {}).ref,
+    answerChapterRule && answerChapterRule.ref,
     'answer',
     "Don't support 'slide' scoped target with 'answer' field"
   );
@@ -238,7 +239,7 @@ test("should select chapterRule with 'slide' scope", t => {
   };
   const isCorrectChapterRule = selectRule(slideScopedRules, isCorrectState);
   t.is(
-    (isCorrectChapterRule || {}).ref,
+    isCorrectChapterRule && isCorrectChapterRule.ref,
     'isCorrect',
     "Don't support 'slide' scoped target with 'isCorrect' field"
   );
@@ -257,7 +258,7 @@ test("should select chapterRule with 'slide' scope", t => {
 });
 
 test("should select chapterRule with 'variables' scope", t => {
-  const slideScopedRules = [
+  const slideScopedRules: ChapterRule[] = [
     {
       source,
       destination,
@@ -334,7 +335,7 @@ test("should select chapterRule with 'variables' scope", t => {
   };
   const livesChapterRule = selectRule(slideScopedRules, livesState);
   t.is(
-    (livesChapterRule || {}).ref,
+    livesChapterRule && livesChapterRule.ref,
     'lives',
     "Don't support 'variable' scoped target with 'lives' field"
   );
@@ -348,7 +349,7 @@ test("should select chapterRule with 'variables' scope", t => {
   };
   const starsChapterRule = selectRule(slideScopedRules, starsState);
   t.is(
-    (starsChapterRule || {}).ref,
+    starsChapterRule && starsChapterRule.ref,
     'stars',
     "Don't support 'variable' scoped target with 'stars' field"
   );
@@ -362,7 +363,7 @@ test("should select chapterRule with 'variables' scope", t => {
   };
   const customChapterRule = selectRule(slideScopedRules, customState);
   t.is(
-    (customChapterRule || {}).ref,
+    customChapterRule && customChapterRule.ref,
     'custom',
     "Don't support 'variable' scoped target with custom field"
   );
@@ -371,9 +372,12 @@ test("should select chapterRule with 'variables' scope", t => {
   t.is(nocustomChapterRule, null, "Don't support 'variable' scoped target with custom field");
 });
 
+type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>
+
 test("should select a rule with source.ref:'*'", t => {
   const value = 111;
-  const baseRule = {
+  type Foo = Omit<ChapterRule, 'priority'>;
+  const baseRule: Foo = {
     source,
     destination,
     instructions: [],
@@ -390,12 +394,12 @@ test("should select a rule with source.ref:'*'", t => {
     ref: '1'
   };
 
-  const sameSourceLowPriority = {
+  const sameSourceLowPriority: ChapterRule = {
     ...baseRule,
     priority: 1
   };
 
-  const globalSourceHighPriority = {
+  const globalSourceHighPriority: ChapterRule = {
     ...baseRule,
     source: {
       type: 'slide',
@@ -404,7 +408,7 @@ test("should select a rule with source.ref:'*'", t => {
     priority: 0
   };
 
-  const rules = [sameSourceLowPriority, globalSourceHighPriority];
+  const rules: ChapterRule[] = [sameSourceLowPriority, globalSourceHighPriority];
 
   const state = {
     ...defaultState,

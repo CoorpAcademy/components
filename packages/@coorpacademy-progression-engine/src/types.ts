@@ -1,6 +1,4 @@
-// @flow strict
-
-import type {Instruction, ChapterRule} from './rule-engine/types';
+import {Instruction, ChapterRule} from './rule-engine/types';
 
 export interface Step {
   current: number,
@@ -82,7 +80,7 @@ export interface ResourceContent {
 export type Content = GenericContent | ResourceContent;
 
 export interface ViewedResource {
-  type: $PropertyType<Content, 'type'>,
+  type: Content['type'],
   ref: string,
   resources: Array<string>
 };
@@ -90,7 +88,7 @@ export interface ViewedResource {
 export interface AnswerRecord {
   slideRef: string,
   answer: Answer,
-  isCorrect: ?boolean
+  isCorrect: boolean | void
 };
 
 export type Variable = string | boolean | number;
@@ -105,7 +103,7 @@ export interface GenericState  {
   chapters?: Array<string>,
   lives: number,
   livesDisabled?: boolean,
-  isCorrect: ?boolean,
+  isCorrect: boolean | void,
   slides: Array<string>,
   requestedClues: Array<string>,
   viewedResources: Array<ViewedResource>,
@@ -137,8 +135,8 @@ export interface AnswerAction extends GenericAction {
     content: Content,
     nextContent: Content,
     answer: Answer,
-    isCorrect: ?boolean,
-    godMode: ?boolean,
+    isCorrect: boolean | void,
+    godMode: boolean | void,
     instructions?: Array<Instruction> | null
   }
 };
@@ -236,7 +234,7 @@ export interface Progression {
 
 export interface PartialCorrection {
   answer: string | void,
-  isCorrect: ?boolean
+  isCorrect: boolean | void
 };
 
 export interface AnswerCorrection {
@@ -321,7 +319,7 @@ export interface QCMDragQuestion extends QuestionCommon {
 export interface BasicQuestion extends QuestionCommon {
   type: 'basic',
   content: {
-    maxTypos?: ?number,
+    maxTypos?: number | void,
     answers: AcceptedAnswers
   }
 };
@@ -330,7 +328,7 @@ export interface TemplateQuestion {
   type: 'template',
   content: {
     matchOrder: boolean,
-    maxTypos?: ?number,
+    maxTypos?: number | void,
     choices: Array<Choice>,
     answers: AcceptedAnswers,
     template?: string
@@ -381,9 +379,8 @@ export interface Slide {
   _id: string,
   klf: string,
   chapter_id: string,
-  // $FlowFixMe union type  :(
   question: Question,
-  position?: ?number,
+  position?: number | void,
   authors: Array<Author>,
   context?: Context,
   clue?: string,
