@@ -1,5 +1,6 @@
 // @flow
 import test from 'ava';
+// @ts-ignore
 import {getConfig} from '../../config';
 import hasViewedAResourceAtThisStep from '../has-viewed-a-resource-at-this-step';
 import {answerAction, askClueAction, resourceAction} from './fixtures/actions';

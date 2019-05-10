@@ -1,5 +1,4 @@
-// @flow
-import {type State} from '../../../types';
+import {State} from '../../../types';
 
 export const stateForFirstSlide: State = {
   content: undefined,

@@ -1,5 +1,3 @@
-// @flow
-
 const ERRORS = {
   STATE_VALIDATION_ERROR: 'STATE_VALIDATION_ERROR'
 };

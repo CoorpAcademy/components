@@ -1,5 +1,5 @@
-// @flow
 import test from 'ava';
+// @ts-ignore
 import {getConfig} from '../../config';
 import content from '../content';
 import {
@@ -8,6 +8,7 @@ import {
   extraLifeRefusedAction,
   askClueAction
 } from './fixtures/actions';
+
 import {microlearning} from './fixtures/engines';
 
 const _content = {
@@ -17,6 +18,7 @@ const _content = {
 const config = getConfig(microlearning);
 
 test('should return content when action type is answer', t => {
+  // @ts-ignore : Fake Content
   const result = content(config)(_content, answerAction);
   t.deepEqual(result, {
     ref: '1.A1.2',
@@ -25,6 +27,7 @@ test('should return content when action type is answer', t => {
 });
 
 test('should return content when action type is extraLifeAccepted', t => {
+  // @ts-ignore : Fake Content
   const result = content(config)(_content, extraLifeAcceptedAction);
   t.deepEqual(result, {
     type: 'node',
@@ -33,6 +36,7 @@ test('should return content when action type is extraLifeAccepted', t => {
 });
 
 test('should return content when action type is extraLifeRefused', t => {
+  // @ts-ignore : Fake Content
   const result = content(config)(_content, extraLifeRefusedAction);
   t.deepEqual(result, {
     type: 'node',
@@ -41,6 +45,7 @@ test('should return content when action type is extraLifeRefused', t => {
 });
 
 test('should return input content when action type is not answer', t => {
+  // @ts-ignore : Fake Content
   const result = content(config)(_content, askClueAction);
   t.deepEqual(result, _content);
 });

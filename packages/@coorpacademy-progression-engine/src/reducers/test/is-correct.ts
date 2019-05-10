@@ -1,5 +1,5 @@
-// @flow
 import test from 'ava';
+// @ts-ignore
 import {getConfig} from '../../config';
 import isCorrect from '../is-correct';
 import {answerAction, extraLifeAcceptedAction} from './fixtures/actions';

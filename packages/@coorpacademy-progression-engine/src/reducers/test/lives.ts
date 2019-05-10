@@ -1,6 +1,6 @@
-// @flow
 import test from 'ava';
 import set from 'lodash/fp/set';
+// @ts-ignore
 import {getConfig} from '../../config';
 import lives from '../lives';
 import {answerAction, extraLifeAcceptedAction, askClueAction} from './fixtures/actions';
