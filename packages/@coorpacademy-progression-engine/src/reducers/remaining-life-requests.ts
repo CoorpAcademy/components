@@ -1,8 +1,6 @@
-// @flow
+import {Action, Config, State} from '../types';
 
-import type {Action, Config, State} from '../types';
-
-export default function remainingLifeRequests(config: Config): (number, Action, State) => number {
+export default function remainingLifeRequests(config: Config) {
   return (count: number = config.remainingLifeRequests, action: Action, state: State): number => {
     switch (action.type) {
       case 'extraLifeAccepted': {

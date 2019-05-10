@@ -1,10 +1,8 @@
-// @flow
-
 import {createStateValidationError} from '../errors';
-import type {Action, Config, State} from '../types';
+import {Action, Config, State} from '../types';
 
-export default function validate(config: Config): (State, Action) => void {
-  return (state: State, action: Action) => {
+export default function validate(config: Config) {
+  return (state: State, action: Action): void => {
     switch (action.type) {
       case 'answer':
       case 'extraLifeAccepted':

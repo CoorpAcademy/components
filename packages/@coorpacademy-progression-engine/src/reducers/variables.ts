@@ -1,5 +1,4 @@
-// @flow
-import type {Action, State, Config} from '../types';
+import {Action, State, Config} from '../types';
 import updateVariables from '../rule-engine/apply-instructions';
 
 const variables = (config: Config) => (_state: State, action: Action): State => {

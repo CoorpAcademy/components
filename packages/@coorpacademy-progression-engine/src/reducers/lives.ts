@@ -1,8 +1,6 @@
-// @flow
+import {Action, Config, State} from '../types';
 
-import type {Action, Config, State} from '../types';
-
-export default function lives(config: Config): (number, Action, State) => number {
+export default function lives(config: Config) {
   return (amount: number = config.lives, action: Action, state: State): number => {
     if (state.livesDisabled) {
       return amount;

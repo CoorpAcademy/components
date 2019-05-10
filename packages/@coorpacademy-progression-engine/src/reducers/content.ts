@@ -1,6 +1,4 @@
-// @flow
-
-import type {
+import {
   Action,
   AnswerAction,
   Config,
@@ -9,23 +7,26 @@ import type {
   ExtraLifeRefusedAction
 } from '../types';
 
-export default function content(config: Config): (Content, Action) => Content {
-  return (c: Content, action: Action): Content => {
+const content = (config: Config) => {
+  return (cont: Content, action: Action): Content => {
     switch (action.type) {
       case 'answer': {
-        const answerAction = (action: AnswerAction);
+        const answerAction: AnswerAction = action;
         return answerAction.payload.content;
       }
       case 'extraLifeAccepted': {
-        const acceptAction = (action: ExtraLifeAcceptedAction);
+        const acceptAction: ExtraLifeAcceptedAction = action;
         return acceptAction.payload.content;
       }
       case 'extraLifeRefused': {
-        const refuseAction = (action: ExtraLifeRefusedAction);
+        const refuseAction: ExtraLifeRefusedAction = action;
         return refuseAction.payload.content;
       }
       default:
-        return c;
+        return cont;
     }
-  };
+  }
 }
+
+
+export default content;

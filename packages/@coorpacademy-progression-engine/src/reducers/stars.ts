@@ -1,8 +1,6 @@
-// @flow
-
 import find from 'lodash/fp/find';
 import includes from 'lodash/fp/includes';
-import type {
+import {
   Action,
   AnswerAction,
   AskClueAction,
@@ -11,24 +9,24 @@ import type {
   State
 } from '../types';
 
-export default function stars(config: Config): (number, Action, State) => number {
+export default function stars(config: Config) {
   return (currentStars: number = 0, action: Action, state: State): number => {
     switch (action.type) {
       case 'answer': {
-        const answerAction = (action: AnswerAction);
+        const answerAction = action as AnswerAction;
         return !answerAction.payload.instructions && answerAction.payload.isCorrect
           ? currentStars + config.starsPerCorrectAnswer
           : currentStars;
       }
       case 'clue': {
-        const requestedClueAction = (action: AskClueAction);
+        const requestedClueAction = action as AskClueAction;
         const slideRef = requestedClueAction.payload.content.ref;
         return includes(slideRef, state.requestedClues)
           ? currentStars
           : currentStars + config.starsPerAskingClue;
       }
       case 'resource': {
-        const contentResourceViewedAction = (action: ContentResourceViewedAction);
+        const contentResourceViewedAction =  action as ContentResourceViewedAction;
         const contentRef = contentResourceViewedAction.payload.content.ref;
         const contentType = contentResourceViewedAction.payload.content.type;
         const contentResourceAlreadyViewed = Boolean(

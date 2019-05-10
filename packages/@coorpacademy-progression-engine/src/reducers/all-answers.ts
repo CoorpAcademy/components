@@ -1,16 +1,13 @@
-// @flow
 
 import concat from 'lodash/fp/concat';
 import get from 'lodash/fp/get';
-import type {Action, AnswerAction, AnswerRecord, Config} from '../types';
+import {Action, AnswerAction, AnswerRecord, Config} from '../types';
 
-export default function allAnswers(
-  config: Config
-): (Array<AnswerRecord>, Action) => Array<AnswerRecord> {
+const allAnswers = (config: Config) => {
   return (answers: Array<AnswerRecord> = [], action: Action): Array<AnswerRecord> => {
     switch (action.type) {
       case 'answer': {
-        const answerAction = (action: AnswerAction);
+        const answerAction: AnswerAction = action;
         const answer = {
           slideRef: get('payload.content.ref', answerAction),
           isCorrect: get('payload.isCorrect', answerAction),
@@ -23,3 +20,5 @@ export default function allAnswers(
     }
   };
 }
+
+export default allAnswers;

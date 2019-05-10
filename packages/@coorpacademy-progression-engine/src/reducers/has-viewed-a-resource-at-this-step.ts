@@ -1,8 +1,6 @@
-// @flow
+import {Action, Config} from '../types';
 
-import type {Action, Config} from '../types';
-
-export default function hasViewedAResourceAtThisStep(config: Config): (boolean, Action) => boolean {
+export default function hasViewedAResourceAtThisStep(config: Config) {
   return (hasAlreadyViewed: boolean = false, action: Action): boolean => {
     switch (action.type) {
       case 'resource': {

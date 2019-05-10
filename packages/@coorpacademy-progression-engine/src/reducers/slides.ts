@@ -1,13 +1,11 @@
-// @flow
-
 import concat from 'lodash/fp/concat';
-import type {Action, AnswerAction, Config} from '../types';
+import {Action, AnswerAction, Config} from '../types';
 
-export default function slides(config: Config): (Array<string>, Action) => Array<string> {
+export default function slides(config: Config) {
   return (array: Array<string> = [], action: Action): Array<string> => {
     switch (action.type) {
       case 'answer': {
-        const answerAction = (action: AnswerAction);
+        const answerAction = action as AnswerAction;
         return concat(array, [answerAction.payload.content.ref]);
       }
       default:

@@ -1,21 +1,17 @@
-// @flow
-
 import concat from 'lodash/fp/concat';
 import findIndex from 'lodash/fp/findIndex';
 import get from 'lodash/fp/get';
 import includes from 'lodash/fp/includes';
-import type {Action, Config, ContentResourceViewedAction, ViewedResource} from '../types';
+import {Action, Config, ContentResourceViewedAction, ViewedResource} from '../types';
 
-export default function viewedResources(
-  config: Config
-): (Array<ViewedResource>, Action) => Array<ViewedResource> {
+export default function viewedResources(config: Config) {
   return (
     currentViewedResources: Array<ViewedResource> = [],
     action: Action
   ): Array<ViewedResource> => {
     switch (action.type) {
       case 'resource': {
-        const resourceViewAction = (action: ContentResourceViewedAction);
+        const resourceViewAction = action as ContentResourceViewedAction;
         const contentRef = resourceViewAction.payload.content.ref;
         const contentType = resourceViewAction.payload.content.type;
         const resourceRef = resourceViewAction.payload.resource.ref;
