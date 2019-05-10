@@ -55,9 +55,10 @@
 }
 
 .img {
-  padding: 30px;
+  margin: 30px;
   max-height: 109px;
   max-width: 209px;
+  cursor: pointer;
 }
 
 .storeLinksContainer {
