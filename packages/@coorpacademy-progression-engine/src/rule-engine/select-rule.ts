@@ -40,7 +40,6 @@ const matchWithState = (state: State) => (chapterRule: ChapterRule): boolean => 
         const value = answerRecord[field];
         const typedValues = values.filter(isSameType(value));
 
-        // @ts-ignore
         return checkCondition(operator, typedValues, value);
       }
       case 'variable': {
