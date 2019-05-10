@@ -15,44 +15,29 @@ export type ResourceMimeType =
 
 export type Answer = Array<string>;
 
-export type MICROLEARNING = 'microlearning';
-export type LEARNER = 'learner';
+export enum EngineRef {
+  MICROLEARNING = 'microlearning',
+  LEARNER = 'learner'
+}
 
-export type Engines = MICROLEARNING | LEARNER;
+export enum LessonType {
+  IMG = 'img',
+  VIDEO = 'video',
+  PDF = 'pdf'
+}
 
-export type CHAPTER = 'chapter';
-
-export type DISCIPLINE = 'discipline';
-
-export type LEVEL = 'level';
-
-export type SLIDE = 'slide';
-
-export type NODE = 'node';
-
-export type FAILURE = 'failure';
-
-export type SUCCESS = 'success';
-
-export type IMG = 'img';
-
-export type VIDEO = 'video';
-
-export type PDF = 'pdf';
-
-export type ContentType =
-  | DISCIPLINE
-  | CHAPTER
-  | LEVEL
-  | SLIDE
-  | NODE
-  | FAILURE
-  | SUCCESS
-  | IMG
-  | PDF
-  | VIDEO;
-
-export type LessonType = VIDEO | PDF | IMG;
+export enum ContentType {
+  CHAPTER = 'chapter',
+  DISCIPLINE = 'discipline',
+  LEVEL = 'level',
+  SLIDE = 'slide',
+  NODE = 'node',
+  FAILURE = 'failure',
+  SUCCESS = 'success',
+  IMG = LessonType.IMG,
+  VIDEO = LessonType.VIDEO,
+  PDF = LessonType.PDF
+}
 
 export type Url = string;
 
@@ -191,7 +176,7 @@ export type Action =
   | MoveAction;
 
 export interface Engine {
-  ref: string,
+  ref: EngineRef,
   version: string
 };
 
