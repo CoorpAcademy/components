@@ -88,7 +88,7 @@ export interface ViewedResource {
 export interface AnswerRecord {
   slideRef: string,
   answer: Answer,
-  isCorrect: boolean | void
+  isCorrect: boolean | null
 };
 
 export type Variable = string | boolean | number;
@@ -103,7 +103,7 @@ export interface GenericState  {
   chapters?: Array<string>,
   lives: number,
   livesDisabled?: boolean,
-  isCorrect: boolean | void,
+  isCorrect: boolean,
   slides: Array<string>,
   requestedClues: Array<string>,
   viewedResources: Array<ViewedResource>,
@@ -135,8 +135,8 @@ export interface AnswerAction extends GenericAction {
     content: Content,
     nextContent: Content,
     answer: Answer,
-    isCorrect: boolean | void,
-    godMode: boolean | void,
+    isCorrect: boolean | null,
+    godMode?: boolean,
     instructions?: Array<Instruction> | null
   }
 };
@@ -234,7 +234,7 @@ export interface Progression {
 
 export interface PartialCorrection {
   answer: string | void,
-  isCorrect: boolean | void
+  isCorrect: boolean | null
 };
 
 export interface AnswerCorrection {
@@ -319,7 +319,7 @@ export interface QCMDragQuestion extends QuestionCommon {
 export interface BasicQuestion extends QuestionCommon {
   type: 'basic',
   content: {
-    maxTypos?: number | void,
+    maxTypos?: number | null,
     answers: AcceptedAnswers
   }
 };
@@ -328,7 +328,7 @@ export interface TemplateQuestion {
   type: 'template',
   content: {
     matchOrder: boolean,
-    maxTypos?: number | void,
+    maxTypos?: number | null,
     choices: Array<Choice>,
     answers: AcceptedAnswers,
     template?: string
@@ -380,7 +380,7 @@ export interface Slide {
   klf: string,
   chapter_id: string,
   question: Question,
-  position?: number | void,
+  position?: number,
   authors: Array<Author>,
   context?: Context,
   clue?: string,
