@@ -1,14 +1,14 @@
-import {Action, Config} from '../types';
+import {Action, ActionType, Config} from '../types';
 
 export default function hasViewedAResourceAtThisStep(config: Config) {
   return (hasAlreadyViewed: boolean = false, action: Action): boolean => {
     switch (action.type) {
-      case 'resource': {
+      case ActionType.RESOURCE: {
         return true;
       }
-      case 'answer':
-      case 'extraLifeAccepted':
-      case 'extraLifeRefused': {
+      case ActionType.ANSWER:
+      case ActionType.EXTRA_LIFE_ACCEPTED:
+      case ActionType.EXTRA_LIFE_REFUSE: {
         return false;
       }
       default:

@@ -181,6 +181,15 @@ export interface MoveAction extends GenericAction{
   }
 };
 
+export enum ActionType {
+  CLUE = 'clue',
+  MOVE = 'move',
+  RESOURCE = 'resource',
+  ANSWER = 'answer',
+  EXTRA_LIFE_ACCEPTED = 'extraLifeAccepted',
+  EXTRA_LIFE_REFUSE = 'extraLifeRefused'
+};
+
 export type Action =
   | InitAction
   | AnswerAction

@@ -1,4 +1,4 @@
-import {Action, Config, State} from '../types';
+import {Action, ActionType, Config, State} from '../types';
 
 export default function lives(config: Config) {
   return (amount: number = config.lives, action: Action, state: State): number => {
@@ -6,11 +6,11 @@ export default function lives(config: Config) {
       return amount;
     }
     switch (action.type) {
-      case 'answer':
+      case ActionType.ANSWER:
         return !action.payload.instructions && action.payload.isCorrect === false
           ? amount - 1
           : amount;
-      case 'extraLifeAccepted':
+      case ActionType.EXTRA_LIFE_ACCEPTED:
         return !action.payload.instructions && state.remainingLifeRequests > 0
           ? amount + 1
           : amount;

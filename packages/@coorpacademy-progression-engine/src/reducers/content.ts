@@ -1,5 +1,6 @@
 import {
   Action,
+  ActionType,
   AnswerAction,
   Config,
   Content,
@@ -7,26 +8,17 @@ import {
   ExtraLifeRefusedAction
 } from '../types';
 
-const content = (config: Config) => {
-  return (cont: Content, action: Action): Content => {
-    switch (action.type) {
-      case 'answer': {
-        const answerAction: AnswerAction = action;
-        return answerAction.payload.content;
-      }
-      case 'extraLifeAccepted': {
-        const acceptAction: ExtraLifeAcceptedAction = action;
-        return acceptAction.payload.content;
-      }
-      case 'extraLifeRefused': {
-        const refuseAction: ExtraLifeRefusedAction = action;
-        return refuseAction.payload.content;
-      }
-      default:
-        return cont;
+const content = (config: Config) => (cont: Content, action: Action): Content => {
+  switch (action.type) {
+    case ActionType.ANSWER:
+    case ActionType.EXTRA_LIFE_ACCEPTED:
+    case ActionType.EXTRA_LIFE_REFUSE: {
+      const _action: AnswerAction | ExtraLifeAcceptedAction | ExtraLifeRefusedAction = action;
+      return _action.payload.content;
     }
+    default:
+      return cont;
   }
 }
-
 
 export default content;
