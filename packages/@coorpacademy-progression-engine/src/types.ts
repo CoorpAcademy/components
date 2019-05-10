@@ -33,16 +33,13 @@ export enum ContentType {
   SLIDE = 'slide',
   NODE = 'node',
   FAILURE = 'failure',
-  SUCCESS = 'success',
-  IMG = LessonType.IMG,
-  VIDEO = LessonType.VIDEO,
-  PDF = LessonType.PDF
+  SUCCESS = 'success'
 }
 
 export type Url = string;
 
 export interface ContentSlide {
-  type: SLIDE,
+  type: ContentType.SLIDE,
   ref: string
 };
 

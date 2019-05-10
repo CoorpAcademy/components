@@ -1,5 +1,9 @@
 import {Content} from '../types';
+<<<<<<< HEAD:packages/@coorpacademy-progression-engine/src/rule-engine/types.ts
 import {OPERATORS} from './condition-operators';
+=======
+import {OperatorKeys} from './condition-operators';
+>>>>>>> Fix errors:packages/@coorpacademy-progression-engine/src/rule-engine/types.ts
 
 export type Target =
   | {
@@ -18,9 +22,17 @@ export type Condition = {
   values: Array<number | boolean | string | Array<string>>
 };
 
+<<<<<<< HEAD:packages/@coorpacademy-progression-engine/src/rule-engine/types.ts
+=======
+export enum InstructionType {
+  ADD = 'add',
+  SET = 'set'
+}
+
+>>>>>>> Fix errors:packages/@coorpacademy-progression-engine/src/rule-engine/types.ts
 export type Instruction = {
   field: string,
-  type: 'add' | 'set',
+  type: InstructionType,
   value: number | boolean | string
 };
 
