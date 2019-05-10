@@ -39,7 +39,7 @@ export type OPERATORS = "BETWEEN" | "EQUALS" | "GT" | "GTE" | "IN" | "LT" | "LTE
 const checkCondition = <T>(
   operator: OPERATORS,
   expectedValues: T[],
-  value: T | void
+  value: T
 ): boolean => {
   if (value === null || value === undefined) return false;
 

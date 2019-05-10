@@ -29,7 +29,7 @@ test('should return new variables with instructions to set initial attributes', 
   t.deepEqual(expectedVariables, variables);
 });
 
-test.only('should return new variables with instructions to update attributes', t => {
+test('should return new variables with instructions to update attributes', t => {
   const instructions: Instruction[] = [
     {value: 1, type: 'add', field: 'A'},
     {value: 4, type: 'add', field: 'stars'},
