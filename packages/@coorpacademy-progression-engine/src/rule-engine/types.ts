@@ -18,9 +18,14 @@ export type Condition = {
   values: Array<number | boolean | string | Array<string>>
 };
 
+export enum InstructionType {
+  ADD = 'add',
+  SET = 'set'
+}
+
 export type Instruction = {
   field: string,
-  type: 'add' | 'set',
+  type: InstructionType,
   value: number | boolean | string
 };
 
