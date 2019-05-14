@@ -72,11 +72,11 @@ const ButtonContent = props => {
 
 const Button = ({children, ...props}) => {
   const {className, isLinkDisabled, type = 'submit'} = props;
-  const _classnames =
+  const cNames =
     (isLinkDisabled && classnames([style.disabledAnchor, className])) ||
     classnames([style.button, className]);
   return (
-    <div className={_classnames}>
+    <div className={cNames}>
       <ButtonContent
         {...props}
         type={type}
