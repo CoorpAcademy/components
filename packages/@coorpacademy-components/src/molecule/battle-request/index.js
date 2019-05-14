@@ -1,12 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
-import {
-  NovaCompositionCoorpacademyBolt as BoltIcon,
-  NovaCompositionNavigationArrowRight as ArrowRightIcon
-} from '@coorpacademy/nova-icons';
+import {NovaCompositionNavigationArrowRight as ArrowRightIcon} from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
 import Provider from '../../atom/provider';
+import Avatar from '../../atom/avatar';
 import style from './style.css';
 
 const BattleRequest = (props, context) => {
@@ -14,7 +12,6 @@ const BattleRequest = (props, context) => {
   const {username, discipline, level, avatar, href} = props;
 
   const primaryColor = get('common.primary', skin);
-  const white = get('common.white', skin);
   const light = get('common.light', skin);
 
   const challengeLabel = translate('challenges you on');
@@ -28,11 +25,8 @@ const BattleRequest = (props, context) => {
       }}
       href={href}
     >
-      <div className={style.avatar}>
-        <img src={avatar} />
-      </div>
-      <div className={style.iconBubble}>
-        <BoltIcon color={white} className={style.icon} />
+      <div>
+        <Avatar url={avatar} />
       </div>
       <div className={style.info}>
         <div className={style.name}>
