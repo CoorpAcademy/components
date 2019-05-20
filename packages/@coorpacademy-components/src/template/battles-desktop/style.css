@@ -13,7 +13,7 @@
   
   .cardsItem {
     justify-content: space-around;
-    padding: 1%;
+    padding: 10px;
     flex: 1 0 25%; /* 3 cards per row */
   } 
   
@@ -29,6 +29,6 @@
   .cardsItem{
    width: 90%;
    justify-content: space-around;
-   padding: 1%;
+   padding: 10px;
    }
   }

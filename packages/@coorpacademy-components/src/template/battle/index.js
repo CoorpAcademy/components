@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import Provider from '../../atom/provider';
 import Cta from '../../atom/cta';
 import Link from '../../atom/link';
@@ -20,7 +21,7 @@ const Button = props => {
   return (
     <div>
       <Cta
-        className={`${props.className} ${style[props.buttonColor]}`}
+        className={classnames(props.className, style[props.buttonColor])}
         submitValue={props.submitValue}
         onClick={props.onClick}
         secondary={props.secondary}
@@ -41,7 +42,7 @@ const App = (props, context) => {
     urlAvatar,
     urlImg
   } = props;
-  const challengeLabel = translate('challenges you on');
+  const challengeLabel = translate('is challenging you', {name, courseName});
 
   return (
     <div className={style.container}>
@@ -54,13 +55,13 @@ const App = (props, context) => {
         <div className={style.avt}>
           <Avatar url={urlAvatar} />
         </div>
-        <div className={style.wrapper}>
-          <p>
-            <span>{name} </span>
-            {challengeLabel}
-          </p>
-          <h3>{courseName}</h3>
-        </div>
+        <div
+          className={style.wrapper}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{
+            __html: challengeLabel
+          }}
+        />
       </div>
       <div className={style.buttons}>
         <Button submitValue={submitReviewCourseValue} onClick={onClickButtonCourse} secondary />
