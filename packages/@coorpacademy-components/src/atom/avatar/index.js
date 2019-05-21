@@ -19,7 +19,7 @@ const Avatar = props => {
 };
 
 Avatar.propTypes = {
-  url: PropTypes.string
+  url: PropTypes.string.isRequired
 };
 
 export default Avatar;

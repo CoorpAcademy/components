@@ -76,15 +76,15 @@ App.contextTypes = {
 };
 
 App.propTypes = {
-  name: PropTypes.string,
-  courseName: PropTypes.string,
-  submitReviewCourseValue: Link.propTypes.children,
-  submitStartBattleValue: Link.propTypes.children,
-  levelName: Link.propTypes.children,
-  onClickButtonBattle: PropTypes.func,
-  onClickButtonCourse: PropTypes.func,
-  urlAvatar: PropTypes.string,
-  urlImg: PropTypes.string
+  name: PropTypes.string.isRequired,
+  courseName: PropTypes.string.isRequired,
+  submitReviewCourseValue: Link.propTypes.children.isRequired,
+  submitStartBattleValue: Link.propTypes.children.isRequired,
+  levelName: Link.propTypes.children.isRequired,
+  onClickButtonBattle: PropTypes.func.isRequired,
+  onClickButtonCourse: PropTypes.func.isRequired,
+  urlAvatar: PropTypes.string.isRequired,
+  urlImg: PropTypes.string.isRequired
 };
 
 export default App;
