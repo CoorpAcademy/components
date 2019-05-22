@@ -86,7 +86,6 @@
 .card {
   box-sizing: border-box;
   padding: 8px;
-  min-width: 274px;
   transition: all 0.25s linear;
 }
 
@@ -155,7 +154,6 @@
   .card {
     width: 100%;
     flex: 0 0 210px;
-    min-width: 210px;
     transition: all 0.25s linear;
   }
 
@@ -163,4 +161,3 @@
     display: none;
   }
 }
-
