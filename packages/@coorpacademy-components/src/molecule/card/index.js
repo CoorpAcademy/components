@@ -19,7 +19,7 @@ import Favorite from './favorite';
 import Notification from './notification';
 import style from './style.css';
 
-const createSpecificIcon = (whiteColor, adaptiv, type) => {
+const createContentTypeIcon = (whiteColor, adaptiv, type) => {
   if (adaptiv) {
     return (
       <div className={style.specificIcon}>
@@ -66,7 +66,7 @@ const Card = (props, context) => {
   const handleClick = e => !disabled && onClick(e);
 
   const emptyIcon = empty ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
-  const specificIcon = createSpecificIcon(whiteColor, adaptiv, type);
+  const contentTypeIcon = createContentTypeIcon(whiteColor, adaptiv, type);
 
   const lock = disabled ? (
     <LockIcon className={style.lockIcon} color={whiteColor} height={40} />
@@ -116,7 +116,7 @@ const Card = (props, context) => {
           {notification && <Notification {...notification} />}
           {customer && <Customer className={style.customer} {...customer} />}
           <div data-name="info" className={style.infoWrapper}>
-            {specificIcon}
+            {contentTypeIcon}
             <div className={classnames(style.title, empty ? style.empty : null)}>
               <div data-name="title" title={title}>
                 {title}
