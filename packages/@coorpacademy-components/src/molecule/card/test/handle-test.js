@@ -8,7 +8,7 @@ import pipe from 'lodash/fp/pipe';
 import unset from 'lodash/fp/unset';
 import Card from '..';
 import defaultFixture from './fixtures/default';
-import notificationFixture from './fixtures/freerun';
+import notificationFixture from './fixtures/favorite';
 
 browserEnv();
 configure({adapter: new Adapter()});

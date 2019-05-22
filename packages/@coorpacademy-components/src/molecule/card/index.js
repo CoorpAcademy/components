@@ -9,25 +9,39 @@ import {
   NovaSolidLocksLock11 as LockIcon,
   NovaCompositionCoorpacademyAdaptive as AdaptivIcon,
   NovaSolidStatusCheckCircle2 as CheckIcon,
-  NovaCompositionCoorpacademyPictures as PicturesIcon
+  NovaCompositionCoorpacademyPictures as PicturesIcon,
+  NovaCompositionCoorpacademyTimer as TimerIcon
 } from '@coorpacademy/nova-icons';
+
 import Provider from '../../atom/provider';
 import Customer from './customer';
 import Favorite from './favorite';
 import Notification from './notification';
 import style from './style.css';
 
-const viewStyle = {
-  grid_course: classnames(style.grid, style.course),
-  list_course: classnames(style.list, style.course),
-  grid_chapter: classnames(style.grid, style.chapter),
-  list_chapter: classnames(style.list, style.chapter)
+const createContentTypeIcon = (whiteColor, adaptiv, type) => {
+  if (adaptiv) {
+    return (
+      <div className={style.specificIcon}>
+        <AdaptivIcon color={whiteColor} height={25} />
+      </div>
+    );
+  }
+
+  if (type === 'chapter') {
+    return (
+      <div className={style.specificIcon}>
+        <TimerIcon color={whiteColor} height={25} />
+      </div>
+    );
+  }
+
+  return null;
 };
 
 const Card = (props, context) => {
   const {skin} = context;
   const {
-    view = 'grid',
     image,
     badge,
     adaptiv,
@@ -48,15 +62,12 @@ const Card = (props, context) => {
   const empty = isEmpty(pick(['title', 'type', 'author', 'image'], props));
   const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
-  const cardStyle = viewStyle[`${view}_${type}`];
+  const cardStyle = classnames(style.grid, style.course);
   const handleClick = e => !disabled && onClick(e);
 
   const emptyIcon = empty ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
-  const adaptivIcon = adaptiv ? (
-    <div className={style.adaptiv}>
-      <AdaptivIcon color={whiteColor} height={25} />
-    </div>
-  ) : null;
+  const contentTypeIcon = createContentTypeIcon(whiteColor, adaptiv, type);
+
   const lock = disabled ? (
     <LockIcon className={style.lockIcon} color={whiteColor} height={40} />
   ) : null;
@@ -103,9 +114,9 @@ const Card = (props, context) => {
             />
           )}
           {notification && <Notification {...notification} />}
-          {adaptivIcon}
           {customer && <Customer className={style.customer} {...customer} />}
           <div data-name="info" className={style.infoWrapper}>
+            {contentTypeIcon}
             <div className={classnames(style.title, empty ? style.empty : null)}>
               <div data-name="title" title={title}>
                 {title}
@@ -142,7 +153,6 @@ Card.contextTypes = {
 };
 
 Card.propTypes = {
-  view: PropTypes.oneOf(['list', 'grid']),
   badge: PropTypes.string,
   image: PropTypes.string,
   disabled: PropTypes.bool,
