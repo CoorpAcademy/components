@@ -329,10 +329,10 @@ import MoleculeBrandUploadBoxFixtureSso from '../src/molecule/brand-upload-box/t
 import MoleculeBreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
 import MoleculeCardFixtureAdaptivAndDisabled from '../src/molecule/card/test/fixtures/adaptiv-and-disabled';
 import MoleculeCardFixtureAdaptiv from '../src/molecule/card/test/fixtures/adaptiv';
-import MoleculeCardFixtureCatalogue from '../src/molecule/card/test/fixtures/catalogue';
 import MoleculeCardFixtureDefault from '../src/molecule/card/test/fixtures/default';
 import MoleculeCardFixtureDisabled from '../src/molecule/card/test/fixtures/disabled';
 import MoleculeCardFixtureEmpty from '../src/molecule/card/test/fixtures/empty';
+import MoleculeCardFixtureFavorite from '../src/molecule/card/test/fixtures/favorite';
 import MoleculeCardFixtureFreerunAndDisabled from '../src/molecule/card/test/fixtures/freerun-and-disabled';
 import MoleculeCardFixtureFreerun from '../src/molecule/card/test/fixtures/freerun';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
@@ -1190,10 +1190,10 @@ export const fixtures = {
     MoleculeCard: {
       AdaptivAndDisabled: MoleculeCardFixtureAdaptivAndDisabled,
       Adaptiv: MoleculeCardFixtureAdaptiv,
-      Catalogue: MoleculeCardFixtureCatalogue,
       Default: MoleculeCardFixtureDefault,
       Disabled: MoleculeCardFixtureDisabled,
       Empty: MoleculeCardFixtureEmpty,
+      Favorite: MoleculeCardFixtureFavorite,
       FreerunAndDisabled: MoleculeCardFixtureFreerunAndDisabled,
       Freerun: MoleculeCardFixtureFreerun
     },

@@ -26,15 +26,3 @@
 .card {
   margin: 8px;
 }
-
-@media mobile {
-  .default {
-    flex-direction: column;
-    padding: 0 5px;
-  }
-
-  .card {
-    margin: 4px 0;
-    width: 100%;
-  }
-}

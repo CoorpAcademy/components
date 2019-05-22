@@ -15,12 +15,12 @@
 .default {
   display: inline-block;
   box-sizing: border-box;
-  width: 258px;
   vertical-align: top;
   border: solid 1px light;
   background-color: white;
   overflow: hidden;
-  height: 260px;
+  height: 100%;
+  width: 100%;
   text-align: left;
   transition: all 0.25s ease-in-out;
   text-decoration: none;
@@ -44,16 +44,19 @@
 }
 
 .customer {
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0) 20%);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0) 20%
+  );
 }
 
-.list.empty,
 .grid.empty {
   opacity: 0.6;
 }
 
 .course {
-  width: 256px;
+  width: 200px;
   height: 258px;
 }
 
@@ -87,10 +90,6 @@
   transition: all 1s ease-in-out;
 }
 
-.chapter:hover .progressWrapper {
-  background: white;
-}
-
 .course .image::after {
   position: absolute;
   content: '';
@@ -99,7 +98,11 @@
   opacity: 1;
   top: 0;
   left: 0;
-  background-image: linear-gradient(to bottom, color(black a(0%)), color(black a(80%)));
+  background-image: linear-gradient(
+    to bottom,
+    color(black a(0%)),
+    color(black a(80%))
+  );
 }
 
 .default .image::before {
@@ -119,13 +122,6 @@
   transition: opacity 0.5s ease-in-out;
 }
 
-.course .infoWrapper {
-  position: relative;
-  padding: 0 15px;
-  height: 105px;
-  margin-top: 134px;
-}
-
 .course .title {
   text-align: left;
   color: white;
@@ -139,11 +135,6 @@
   text-shadow: 1px 1px 6px black;
   display: flex;
   align-items: center;
-}
-
-.course .adaptiv {
-  top: 100px;
-  filter: drop-shadow(1px 1px 6px grey);
 }
 
 .course .author .icon {
@@ -217,11 +208,9 @@
   cursor: pointer;
 }
 
-.adaptiv {
-  position: absolute;
-  left: 15px;
-  top: 90px;
+.specificIcon {
   font-size: 25px;
+  filter: drop-shadow(1px 1px 6px grey);
 }
 
 .image {
@@ -235,10 +224,10 @@
 .progressWrapper {
   position: relative;
   left: 0;
-  width: 180px;
+  width: 150px;
   height: 3px;
   border-radius: 1px;
-  margin: 0 auto;
+  margin: 16px auto;
   background: light;
 }
 
@@ -274,15 +263,20 @@
 }
 
 .infoWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  position: relative;
+  padding: 0 16px;
+  height: 150px;
+  margin-top: 73px;
   width: 100%;
   box-sizing: border-box;
-  padding: 10px 20px;
-  height: 119px;
 }
 
 .title {
   margin-top: 5px;
-  font-size: 18px;
+  font-size: 15px;
   color: dark;
   letter-spacing: 0;
   font-family: 'Open Sans';
@@ -352,10 +346,6 @@
     transform: scale(1);
   }
 
-  .chapter:hover .progressWrapper {
-    background: light;
-  }
-
   .default:hover .image::before {
     opacity: 0;
   }
@@ -370,126 +360,11 @@
     margin-top: 5px;
   }
 
-  .list {
-    width: 100%;
-    height: 120px;
-  }
-
-  .grid .default {
-    width: 200px;
-    height: 260px;
-  }
-
-  .grid.course {
-    width: 200px;
-  }
-
-  .grid .progressWrapper {
-    width: 150px;
-  }
-
-  .list.course .infoWrapper {
-    padding: 0 15px;
-    height: 42px;
-    margin-top: 42px;
-  }
-
-  .list .adaptiv {
-    top: 15px;
-  }
-
-  .title {
-    font-size: 16px;
-    font-weight: 600;
-    overflow: hidden;
-    padding: 0 0 2px;
-  }
-
   .author {
     font-size: 12px;
   }
 
-  .list.course .progressWrapper {
-    position: absolute;
-    left: 15px;
-    right: 15px;
-    bottom: 10px;
-    width: inherit;
-  }
-
-  .grid .customer {
-    padding-top: 10px;
-  }
-
-  .list.chapter .customer {
-    width: 100px;
-    display: flex;
-    height: 100%;
-  }
-
-  .list .lockWrapper {
-    height: 120px;
-  }
-
-  .list .default {
-    width: 100%;
-    height: 120px;
-    display: flex;
-    flex-flow: row nowrap;
-    position: relative;
-  }
-
-  .list.chapter .imageWrapper {
-    position: absolute;
-    width: 100px;
-    height: 100%;
-  }
-
-  .list.chapter .adaptiv {
-    top: 85px;
-    left: 5px;
-    fill: white;
-  }
-
-  .list.chapter .progressWrapper {
-    position: absolute;
-    bottom: 10px;
-    left: 115px;
-    right: 15px;
-    width: inherit;
-  }
-
-  .list .infoWrapper {
-    width: 100%;
-    box-sizing: border-box;
-    padding: 8px 15px 8px 115px;
-    height: 100%;
-  }
-
-  .list.chapter .infoWrapper {
-    position: absolute;
-  }
-
-  .list .title {
-    margin: 12px 0 0;
-    font-size: 15px;
-    line-height: 15px;
-    font-weight: 700;
-  }
-
-  .list.chapter .title {
-    max-height: 60px;
-  }
-
-  .list.course .title {
-    max-height: 29px;
-  }
-
-  .grid.chapter .title {
-    max-height: 60px;
-  }
-
-  .grid.course .title {
+  .grid .title {
     max-height: 68px;
   }
 }
