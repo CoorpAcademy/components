@@ -14,7 +14,9 @@
   .cardsItem {
     justify-content: space-around;
     padding: 10px;
-    flex: 1 0 25%; /* 3 cards per row */
+    box-sizing: border-box;
+    flex: 1 0 33%; /* 3 cards per row */
+    min-width: 300px;
   } 
   
   .card {
