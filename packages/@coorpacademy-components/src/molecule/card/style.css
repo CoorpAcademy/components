@@ -209,7 +209,7 @@
 }
 
 .specificIcon {
-  font-size: 25px;
+  font-size: 5px;
   filter: drop-shadow(1px 1px 6px grey);
 }
 
@@ -268,8 +268,8 @@
   justify-content: flex-end;
   position: relative;
   padding: 0 16px;
-  height: 150px;
-  margin-top: 73px;
+  height: 181px;
+  margin-top: 40px;
   width: 100%;
   box-sizing: border-box;
 }
@@ -281,7 +281,6 @@
   letter-spacing: 0;
   font-family: 'Open Sans';
   overflow: hidden;
-  max-height: 75px;
   user-select: none;
 }
 
