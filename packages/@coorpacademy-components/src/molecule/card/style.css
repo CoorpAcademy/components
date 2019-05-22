@@ -56,8 +56,14 @@
 }
 
 .course {
-  width: 200px;
+  width: 256px;
   height: 258px;
+}
+
+@media mobile {
+  .course {
+    width: 200px;
+  }
 }
 
 .course .imageWrapper {
