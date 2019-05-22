@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Provider from '../../atom/provider';
-import Cta from '../../atom/cta';
 import Link from '../../atom/link';
 import Avatar from '../../atom/avatar';
+import Cta from '../../atom/cta';
 import style from './style.css';
 
 function backgroundImage(url) {
@@ -20,16 +20,11 @@ function backgroundImage(url) {
 const Button = props => {
   return (
     <div>
-      <Cta
-        className={classnames(props.className, style[props.buttonColor])}
-        submitValue={props.submitValue}
-        onClick={props.onClick}
-        secondary={props.secondary}
-      />
+      <Cta submitValue={props.submitValue} onClick={props.onClick} secondary={props.secondary} />
     </div>
   );
 };
-const App = (props, context) => {
+const Battle = (props, context) => {
   const {translate} = context;
   const {
     name,
@@ -71,20 +66,26 @@ const App = (props, context) => {
   );
 };
 
-App.contextTypes = {
+Battle.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
-App.propTypes = {
+Button.propTypes = {
+  onClick: Cta.propTypes.onClick,
+  submitValue: Cta.propTypes.submitValue,
+  secondary: Cta.propTypes.secondary
+};
+
+Battle.propTypes = {
   name: PropTypes.string.isRequired,
   courseName: PropTypes.string.isRequired,
-  submitReviewCourseValue: Link.propTypes.children.isRequired,
-  submitStartBattleValue: Link.propTypes.children.isRequired,
+  submitReviewCourseValue: Button.propTypes.submitValue.isRequired,
+  submitStartBattleValue: Button.propTypes.submitValue.isRequired,
   levelName: Link.propTypes.children.isRequired,
-  onClickButtonBattle: PropTypes.func.isRequired,
-  onClickButtonCourse: PropTypes.func.isRequired,
-  urlAvatar: PropTypes.string.isRequired,
+  onClickButtonBattle: Button.propTypes.onClick.isRequired,
+  onClickButtonCourse: Button.propTypes.onClick.isRequired,
+  urlAvatar: Avatar.propTypes.url.isRequired,
   urlImg: PropTypes.string.isRequired
 };
 
-export default App;
+export default Battle;
