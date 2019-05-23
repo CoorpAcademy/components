@@ -42,6 +42,7 @@ import HocAnimationScheduler from './../src/hoc/animation-scheduler';
 import HocSwapper from './../src/hoc/swapper';
 import HocTransition from './../src/hoc/transition';
 import MoleculeAnswer from './../src/molecule/answer';
+import MoleculeBattle from './../src/molecule/battle';
 import MoleculeBattleRequest from './../src/molecule/battle-request';
 import MoleculeBrandCard from './../src/molecule/brand-card';
 import MoleculeBrandCardCreate from './../src/molecule/brand-card-create';
@@ -138,7 +139,6 @@ import TemplateBackOfficeBrandCreate from './../src/template/back-office/brand-c
 import TemplateBackOfficeBrandList from './../src/template/back-office/brand-list';
 import TemplateBackOfficeBrandUpdate from './../src/template/back-office/brand-update';
 import TemplateBackOfficeDashboardPreview from './../src/template/back-office/dashboard-preview';
-import TemplateBattle from './../src/template/battle';
 import TemplateBattlesDesktop from './../src/template/battles-desktop';
 import TemplateCockpitJwUploader from './../src/template/cockpit/jw-uploader';
 import TemplateCommonAuthors from './../src/template/common/authors';
@@ -300,6 +300,7 @@ import MoleculeAnswerFixtureQcmShort from '../src/molecule/answer/test/fixtures/
 import MoleculeAnswerFixtureQcm from '../src/molecule/answer/test/fixtures/qcm';
 import MoleculeAnswerFixtureRange from '../src/molecule/answer/test/fixtures/range';
 import MoleculeAnswerFixtureTemplate from '../src/molecule/answer/test/fixtures/template';
+import MoleculeBattleFixtureDefault from '../src/molecule/battle/test/fixtures/default';
 import MoleculeBattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import MoleculeBrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
 import MoleculeBrandCardFixtureWithDescription from '../src/molecule/brand-card/test/fixtures/with-description';
@@ -703,7 +704,6 @@ import TemplateBackOfficeDashboardPreviewFixtureLoading from '../src/template/ba
 import TemplateBackOfficeDashboardPreviewFixtureSelectedError from '../src/template/back-office/dashboard-preview/test/fixtures/selected-error';
 import TemplateBackOfficeDashboardPreviewFixtureSelectedLoading from '../src/template/back-office/dashboard-preview/test/fixtures/selected-loading';
 import TemplateBackOfficeDashboardPreviewFixtureSelected from '../src/template/back-office/dashboard-preview/test/fixtures/selected';
-import TemplateBattleFixtureDefault from '../src/template/battle/test/fixtures/default';
 import TemplateBattlesDesktopFixtureDefault from '../src/template/battles-desktop/test/fixtures/default';
 import TemplateCockpitJwUploaderFixtureDefault from '../src/template/cockpit/jw-uploader/test/fixtures/default';
 import TemplateCommonAuthorsFixtureDefault from '../src/template/common/authors/test/fixtures/default';
@@ -773,6 +773,7 @@ export const components = {
   },
   Molecule: {
     MoleculeAnswer,
+    MoleculeBattle,
     MoleculeBattleRequest,
     MoleculeBrandCard,
     MoleculeBrandCardCreate,
@@ -871,7 +872,6 @@ export const components = {
   },
   Template: {
     TemplateActivity,
-    TemplateBattle,
     TemplateBattlesDesktop
   },
   TemplateAppPlayer: {
@@ -1149,6 +1149,9 @@ export const fixtures = {
       Qcm: MoleculeAnswerFixtureQcm,
       Range: MoleculeAnswerFixtureRange,
       Template: MoleculeAnswerFixtureTemplate
+    },
+    MoleculeBattle: {
+      Default: MoleculeBattleFixtureDefault
     },
     MoleculeBattleRequest: {
       Default: MoleculeBattleRequestFixtureDefault
@@ -1603,9 +1606,6 @@ export const fixtures = {
       Default: TemplateActivityFixtureDefault,
       Empty: TemplateActivityFixtureEmpty,
       NoEngines: TemplateActivityFixtureNoEngines
-    },
-    TemplateBattle: {
-      Default: TemplateBattleFixtureDefault
     },
     TemplateBattlesDesktop: {
       Default: TemplateBattlesDesktopFixtureDefault
