@@ -131,7 +131,7 @@
 .course .title {
   text-align: left;
   color: white;
-  text-shadow: 1px 1px 6px black;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
 }
 
 .course .author {
@@ -282,12 +282,18 @@
 
 .title {
   margin-top: 5px;
-  font-size: 15px;
+  font-size: 17px;
   color: dark;
   letter-spacing: 0;
   font-family: 'Open Sans';
   overflow: hidden;
   user-select: none;
+}
+
+@media mobile {
+  .title {
+    font-size: 15px;
+  }
 }
 
 .title.empty::before {
