@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Battle from '../battle';
+import Battle from '../../molecule/battle';
 import style from './style.css';
 
 const Battles = props => {
