@@ -1,0 +1,85 @@
+@value colors: "../../variables/colors.css";
+@value brand from colors;
+@value red from colors;
+@value green from colors;
+@value xtraLightGrey from colors;
+@value orange from colors;
+@value defaultText from "../../variables/fonts.css";
+
+.container { 
+    box-shadow: 0 0 4px 1px rgba(0, 0, 0, 0.1);
+    width: auto;
+    height: auto;
+    border-radius: 12px;
+}
+
+.avt {
+    display:flex;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    width:auto;
+}
+
+.image{
+    width: 100%;
+    border-radius: 12px 12px 0px 0px;
+    overflow: hidden; 
+    background-repeat:no-repeat;
+}
+
+.wrapper{
+    text-align: center;
+    font-size: 15px;
+    composes: defaultText;
+    color: #ffffff;
+    line-height: normal;
+}
+
+.wrapper h3{
+    margin-top: 1px;
+    margin-bottom: 5%;
+    font-size: 12px;
+}
+
+.wrapper p{
+    margin-top: auto;
+    margin-bottom: 1px;
+}
+
+.buttons{
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 15px;
+}
+
+span{
+    font-weight: bold;
+}
+
+.levelContainer {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.level {
+    text-align: center;
+    font-family: 'Open Sans';
+    border: solid 1px #ffffff;
+    color: white;
+    padding: 0px 15px;
+    border-radius: 50px;
+    font-size: 10px;
+    width: fit-content;
+    margin-top: 10px;
+    margin-right: 10px;
+  }
+
+.level p{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

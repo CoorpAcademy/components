@@ -1,0 +1,52 @@
+.container {
+  height: 80px;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  text-decoration: none;
+}
+
+.circle {
+  background-color: white;
+  border:3px solid white;    
+  height:50px;
+  border-radius:50%;
+  width:50px;
+}
+
+.avatar {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: light;
+}
+
+.avatarImg {
+  width: 100%;
+  height: auto;
+}
+
+
+.iconBubble {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffe100;
+  top: 10px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  background: battle;
+  border-radius: 50%;
+}
+
+.icon {
+  width: 20px;
+  height: 20px;
+}

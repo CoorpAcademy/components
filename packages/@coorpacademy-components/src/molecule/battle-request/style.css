@@ -35,22 +35,6 @@
   background-color: xtraLightGrey;
 }
 
-.avatar {
-  position: relative;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-  background-color: light;
-  margin-right: 20px;
-  flex: 0 0 50px;
-}
-
-.avatar img {
-  width: 100%;
-  height: auto;
-}
-
 .info {
   flex-grow: 1;
   min-width: 0;
@@ -71,24 +55,6 @@
 .name span {
   color: medium;
   margin-left: 5px;
-}
-
-.iconBubble {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  top: 10px;
-  left: 10px;
-  width: 30px;
-  height: 30px;
-  background: battle;
-  border-radius: 50%;
-}
-
-.icon {
-  width: 20px;
-  height: 20px;
 }
 
 .discipline {
@@ -141,14 +107,6 @@
   .card {
     margin-bottom: 8px;
     border-left: 0;
-  }
-
-  .icon {
-    left: 0;
-  }
-
-  .avatar {
-    margin-right: 10px;
   }
 
   .level {

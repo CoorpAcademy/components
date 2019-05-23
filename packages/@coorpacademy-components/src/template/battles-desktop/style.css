@@ -1,0 +1,37 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+
+.cards {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+  }
+  
+  .cardsItem {
+    justify-content: space-around;
+    padding: 10px;
+    box-sizing: border-box;
+    flex: 1 0 33%; /* 3 cards per row */
+    min-width: 300px;
+    max-width: 350px;
+  } 
+  
+  .card {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
+    overflow: hidden;
+    flex-grow: 1;
+  }
+
+  @media mobile {
+  .cardsItem{
+   width: 90%;
+   justify-content: space-around;
+   padding: 10px;
+   }
+  }
