@@ -37,12 +37,14 @@
 }
 
 .wrapper h3{
+    margin-top: 1px;
     margin-bottom: 5%;
     font-size: 12px;
 }
 
 .wrapper p{
     margin-top: auto;
+    margin-bottom: 1px;
 }
 
 .buttons{
@@ -71,7 +73,7 @@ span{
     color: white;
     padding: 0px 15px;
     border-radius: 50px;
-    font-size: 8px;
+    font-size: 10px;
     width: fit-content;
     margin-top: 10px;
     margin-right: 10px;

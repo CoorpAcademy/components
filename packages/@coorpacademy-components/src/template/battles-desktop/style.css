@@ -17,6 +17,7 @@
     box-sizing: border-box;
     flex: 1 0 33%; /* 3 cards per row */
     min-width: 300px;
+    max-width: 350px;
   } 
   
   .card {

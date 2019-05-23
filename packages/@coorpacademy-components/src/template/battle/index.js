@@ -9,8 +9,8 @@ import style from './style.css';
 function backgroundImage(url) {
   return {
     background: `linear-gradient(
-      rgba(0, 0, 0, 0.55), 
-      rgba(0, 0, 0, 0.55)
+      rgba(0, 0, 0, 0.65), 
+      rgba(0, 0, 0, 0.65)
       ),url(${url})`,
     backgroundSize: 'cover'
   };
