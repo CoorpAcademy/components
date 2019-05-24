@@ -37,7 +37,7 @@ type MarkResourceAsViewed = (
     content: Content
   }
 ) => Promise<Progression>;
-type PostAnswerPartialPayload = {|godMode: boolean|};
+type PostAnswerPartialPayload = {|godMode: boolean, fastSlide: boolean|};
 
 type PostAnswer = (
   progressionId: string,

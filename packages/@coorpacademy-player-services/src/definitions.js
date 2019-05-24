@@ -184,7 +184,7 @@ type UserAnswerAPI = {|
   content: Content
 |};
 
-type PartialPayload = {|godMode: boolean|};
+type PartialPayload = {|godMode: boolean, fastSlide: boolean|};
 type CorrectionAPI = {
   correctAnswer: Array<Answer>,
   corrections: Array<PartialCorrection>

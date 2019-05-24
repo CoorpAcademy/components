@@ -138,6 +138,20 @@ test('should add answer action', async t => {
   t.true(isString(progressionWithAnswer.state.nextContent.ref));
 });
 
+test('should override answer action with exitNode if fastSlide is true', async t => {
+  const progression = await create(uniqueId(), engine, {type: 'chapter', ref: '5.C7'});
+  const progressionWithAnswer = await postAnswer(
+    progression._id,
+    {
+      content: progression.state.nextContent,
+      answer: ['bar']
+    },
+    {godMode: true, fastSlide: true}
+  );
+
+  t.is(progressionWithAnswer.state.nextContent.ref, 'successExitNode');
+});
+
 test('should fail to postAnswer for wrong progressionId', t => {
   return t.throwsAsync(() => postAnswer('wrongId', {}), 'progression "wrongId" not found');
 });
