@@ -7,7 +7,8 @@ import {
   computeNextStepOnAcceptExtraLife,
   computeNextStepOnRefuseExtraLife,
   getConfig,
-  getConfigForProgression
+  getConfigForProgression,
+  getFastSlideExitNode
 } from '@coorpacademy/progression-engine';
 import update from 'lodash/fp/update';
 import pipe from 'lodash/fp/pipe';
@@ -171,7 +172,7 @@ const addActionAndSaveProgression = (
 const postAnswer = (dataLayer: DataLayer): PostAnswer => async (
   progressionId: string,
   payload: UserAnswerAPI,
-  partialPayload: PartialPayload = {godMode: false}
+  partialPayload: PartialPayload = {godMode: false, fastSlide: false}
 ): Promise<Progression> => {
   const {findSlideById, findProgressionById} = dataLayer;
   const progression = await findProgressionById(progressionId);
@@ -188,6 +189,7 @@ const postAnswer = (dataLayer: DataLayer): PostAnswer => async (
 
   const answer = getOr([''], 'answer', payload);
   const godMode = get('godMode', partialPayload);
+  const fastSlide = get('fastSlide', partialPayload);
   const slideId = payload.content.ref;
   const slide = await findSlideById(slideId);
 
@@ -196,14 +198,15 @@ const postAnswer = (dataLayer: DataLayer): PostAnswer => async (
     payload: {
       content: payload.content,
       answer,
-      godMode
+      godMode,
+      fastSlide
     }
   };
 
   const _getAvailableContent = getAvailableContent(dataLayer);
   const availableContent = await _getAvailableContent(progression.content);
   const config = getConfigForProgression(progression);
-  const action = computeNextStepAfterAnswer(
+  let action = computeNextStepAfterAnswer(
     config,
     state,
     availableContent,
@@ -216,6 +219,13 @@ const postAnswer = (dataLayer: DataLayer): PostAnswer => async (
     throw new Error(`computeNextStepAfterAnswer failed`);
   }
 
+  if (fastSlide) {
+    action = {
+      ...action,
+      // $FlowFixMe - Inexact type
+      payload: {...action.payload, ...getFastSlideExitNode(config, godMode, availableContent)}
+    };
+  }
   return addActionAndSaveProgression(dataLayer)(progression, action);
 };
 
