@@ -3,7 +3,7 @@ export default {
     battles: [
       {
         name: 'Avatar',
-        courseName: 'Les robots au service',
+        courseName: 'Digital in China: The world s biggest online market',
         urlAvatar: 'http://minecraft.fr/wp-content/uploads/2013/05/Pa8WZj1-235x300.jpg',
         urlImg:
           'http://www.canalvie.com/polopoly_fs/1.1917585.1474313690!/image/bureau-travail.jpg_gen/derivatives/cvlandscape_670_377/bureau-travail.jpg',

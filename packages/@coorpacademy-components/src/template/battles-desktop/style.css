@@ -12,12 +12,16 @@
   }
   
   .cardsItem {
+    display: flex;
     justify-content: space-around;
     padding: 10px;
     box-sizing: border-box;
     flex: 1 0 33%; /* 3 cards per row */
-    min-width: 300px;
+    min-width: 315px;
     max-width: 350px;
+    min-height: 187px;
+    max-height: 265px;
+    width: 100%;
   } 
   
   .card {
@@ -26,6 +30,8 @@
     box-shadow: 0 20px 40px -14px rgba(0,0,0,0.25);
     overflow: hidden;
     flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
   }
 
   @media mobile {
