@@ -26,6 +26,8 @@
 
 .image{
     width: 100%;
+    height: 100%;
+    flex-basis: 70%;
     border-radius: 12px 12px 0px 0px;
     overflow: hidden; 
     background-repeat:no-repeat;
@@ -45,13 +47,12 @@
     font-size: 12px;
     margin-left: 15px;
     margin-right: 15px;
-    /* overflow: hidden;
+    overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap; */
+    white-space: nowrap;
 }
 
 .buttons{
-    width: auto;
     display: flex;
     flex-direction: row;
     align-items: center;
