@@ -138,7 +138,7 @@ import TemplateBackOfficeBrandCreate from './../src/template/back-office/brand-c
 import TemplateBackOfficeBrandList from './../src/template/back-office/brand-list';
 import TemplateBackOfficeBrandUpdate from './../src/template/back-office/brand-update';
 import TemplateBackOfficeDashboardPreview from './../src/template/back-office/dashboard-preview';
-import TemplateBattlesDesktop from './../src/template/battles-desktop';
+import TemplateBattleRequests from './../src/template/battle-requests';
 import TemplateCockpitJwUploader from './../src/template/cockpit/jw-uploader';
 import TemplateCommonAuthors from './../src/template/common/authors';
 import TemplateCommonCoorpHeader from './../src/template/common/coorp-header';
@@ -702,7 +702,7 @@ import TemplateBackOfficeDashboardPreviewFixtureLoading from '../src/template/ba
 import TemplateBackOfficeDashboardPreviewFixtureSelectedError from '../src/template/back-office/dashboard-preview/test/fixtures/selected-error';
 import TemplateBackOfficeDashboardPreviewFixtureSelectedLoading from '../src/template/back-office/dashboard-preview/test/fixtures/selected-loading';
 import TemplateBackOfficeDashboardPreviewFixtureSelected from '../src/template/back-office/dashboard-preview/test/fixtures/selected';
-import TemplateBattlesDesktopFixtureDefault from '../src/template/battles-desktop/test/fixtures/default';
+import TemplateBattleRequestsFixtureDefault from '../src/template/battle-requests/test/fixtures/default';
 import TemplateCockpitJwUploaderFixtureDefault from '../src/template/cockpit/jw-uploader/test/fixtures/default';
 import TemplateCommonAuthorsFixtureDefault from '../src/template/common/authors/test/fixtures/default';
 import TemplateCommonAuthorsFixtureNoSocials from '../src/template/common/authors/test/fixtures/no-socials';
@@ -869,7 +869,7 @@ export const components = {
   },
   Template: {
     TemplateActivity,
-    TemplateBattlesDesktop
+    TemplateBattleRequests
   },
   TemplateAppPlayer: {
     TemplateAppPlayerLoading,
@@ -1601,8 +1601,8 @@ export const fixtures = {
       Empty: TemplateActivityFixtureEmpty,
       NoEngines: TemplateActivityFixtureNoEngines
     },
-    TemplateBattlesDesktop: {
-      Default: TemplateBattlesDesktopFixtureDefault
+    TemplateBattleRequests: {
+      Default: TemplateBattleRequestsFixtureDefault
     }
   },
   TemplateAppPlayer: {

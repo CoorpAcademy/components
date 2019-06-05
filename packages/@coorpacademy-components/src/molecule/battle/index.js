@@ -17,29 +17,26 @@ function backgroundImage(url) {
 }
 
 const Button = props => {
+  const {onClick, submitValue, secondary = false} = props;
   return (
     <div>
-      <Cta submitValue={props.submitValue} onClick={props.onClick} secondary={props.secondary} />
+      <Cta submitValue={submitValue} onClick={onClick} secondary={secondary} />
     </div>
   );
 };
 const Battle = (props, context) => {
-  const {translate} = context;
+  // const {translate} = context;
   const {
-    name,
-    courseName,
+    // username,
+    // courseName,
     submitReviewCourseValue,
     submitStartBattleValue,
     levelName,
     onClickButtonBattle,
     onClickButtonCourse,
-    urlAvatar,
+    // urlAvatar,
     urlImg
   } = props;
-  const challengeLabel = translate('is challenging you', {
-    name: `<strong>${name}</strong>`,
-    courseName: `<p><strong>${courseName}</strong></p>`
-  });
 
   return (
     <div className={style.container}>
@@ -49,16 +46,7 @@ const Battle = (props, context) => {
             <p>{levelName}</p>
           </div>
         </div>
-        <div className={style.avt}>
-          <Avatar url={urlAvatar} />
-        </div>
-        <div
-          className={style.wrapper}
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{
-            __html: challengeLabel
-          }}
-        />
+        <div className={style.avt}>{props.children}</div>
       </div>
       <div className={style.buttons}>
         <Button submitValue={submitReviewCourseValue} onClick={onClickButtonCourse} secondary />
@@ -74,19 +62,19 @@ Battle.contextTypes = {
 
 Button.propTypes = {
   onClick: Cta.propTypes.onClick,
-  submitValue: Cta.propTypes.submitValue,
-  secondary: Cta.propTypes.secondary
+  submitValue: Cta.propTypes.submitValue
 };
 
 Battle.propTypes = {
-  name: PropTypes.string.isRequired,
-  courseName: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
+  // username: PropTypes.string.isRequired,
+  // courseName: PropTypes.string.isRequired,
   submitReviewCourseValue: Button.propTypes.submitValue.isRequired,
   submitStartBattleValue: Button.propTypes.submitValue.isRequired,
   levelName: Link.propTypes.children.isRequired,
   onClickButtonBattle: Button.propTypes.onClick.isRequired,
   onClickButtonCourse: Button.propTypes.onClick.isRequired,
-  urlAvatar: Avatar.propTypes.url.isRequired,
+  // urlAvatar: Avatar.propTypes.url,
   urlImg: PropTypes.string.isRequired
 };
 
