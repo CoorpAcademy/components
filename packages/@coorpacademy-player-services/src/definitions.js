@@ -216,7 +216,7 @@ type DataLayer = {
   findContent: (
     type: RestrictedResourceType,
     ref: string
-  ) => Promise<ChapterAPI | LevelAPI | Slide>,
+  ) => Promise<ChapterAPI | LevelAPI | Slide | void>,
   findLevelById: (contentRef: string) => Promise<LevelAPI | void>,
   findProgressionById: (id: string) => Promise<Progression | void>,
   findRecommendations: (type: string, ref: string) => Promise<Array<RecommendationAPI>>,
