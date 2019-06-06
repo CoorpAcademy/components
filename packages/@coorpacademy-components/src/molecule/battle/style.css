@@ -17,7 +17,6 @@
 }
 
 .avt {
-    display:flex;
     align-items: center;
     align-content: center;
     justify-content: center;
@@ -31,25 +30,6 @@
     border-radius: 12px 12px 0px 0px;
     overflow: hidden; 
     background-repeat:no-repeat;
-}
-
-.wrapper{
-    text-align: center;
-    font-size: 15px;
-    composes: defaultText;
-    color: #ffffff;
-    line-height: normal;
-}
-
-.wrapper p{
-    margin-top: 1px;
-    margin-bottom: 5%;
-    font-size: 12px;
-    margin-left: 15px;
-    margin-right: 15px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
 }
 
 .buttons{

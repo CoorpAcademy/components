@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Provider from '../../atom/provider';
 import Link from '../../atom/link';
-import Avatar from '../../atom/avatar';
 import Cta from '../../atom/cta';
 import style from './style.css';
 
@@ -24,17 +23,13 @@ const Button = props => {
     </div>
   );
 };
-const Battle = (props, context) => {
-  // const {translate} = context;
+const Battle = props => {
   const {
-    // username,
-    // courseName,
     submitReviewCourseValue,
     submitStartBattleValue,
     levelName,
     onClickButtonBattle,
     onClickButtonCourse,
-    // urlAvatar,
     urlImg
   } = props;
 
@@ -67,14 +62,11 @@ Button.propTypes = {
 
 Battle.propTypes = {
   id: PropTypes.string.isRequired,
-  // username: PropTypes.string.isRequired,
-  // courseName: PropTypes.string.isRequired,
   submitReviewCourseValue: Button.propTypes.submitValue.isRequired,
   submitStartBattleValue: Button.propTypes.submitValue.isRequired,
   levelName: Link.propTypes.children.isRequired,
   onClickButtonBattle: Button.propTypes.onClick.isRequired,
   onClickButtonCourse: Button.propTypes.onClick.isRequired,
-  // urlAvatar: Avatar.propTypes.url,
   urlImg: PropTypes.string.isRequired
 };
 
