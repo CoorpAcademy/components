@@ -10,7 +10,7 @@ import type {ChapterAPI, DataLayer, LevelAPI, RestrictedResourceType} from './de
 type FindContent = (
   type: RestrictedResourceType,
   ref: string
-) => Promise<ChapterAPI | LevelAPI | Slide>;
+) => Promise<ChapterAPI | LevelAPI | Slide | void>;
 type GetNbSlides = (contentRef: string, engineRef: string, version: string) => Promise<number>;
 type GetInfo = (
   contentRef: string,
@@ -26,7 +26,7 @@ type ContentService = {|
 const find = (dataLayer: DataLayer): FindContent => (
   type: RestrictedResourceType,
   ref: string
-): Promise<ChapterAPI | LevelAPI | Slide> => {
+): Promise<ChapterAPI | LevelAPI | Slide | void> => {
   const {findContent} = dataLayer;
   return findContent(type, ref);
 };
