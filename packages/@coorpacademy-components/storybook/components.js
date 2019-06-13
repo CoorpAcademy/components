@@ -42,7 +42,6 @@ import HocAnimationScheduler from './../src/hoc/animation-scheduler';
 import HocSwapper from './../src/hoc/swapper';
 import HocTransition from './../src/hoc/transition';
 import MoleculeAnswer from './../src/molecule/answer';
-import MoleculeBattle from './../src/molecule/battle';
 import MoleculeBattleRequest from './../src/molecule/battle-request';
 import MoleculeBrandCard from './../src/molecule/brand-card';
 import MoleculeBrandCardCreate from './../src/molecule/brand-card-create';
@@ -53,6 +52,7 @@ import MoleculeBrandTabs from './../src/molecule/brand-tabs';
 import MoleculeBrandUploadBox from './../src/molecule/brand-upload-box';
 import MoleculeBreadcrumbs from './../src/molecule/breadcrumbs';
 import MoleculeCard from './../src/molecule/card';
+import MoleculeCardWithButton from './../src/molecule/card-with-button';
 import MoleculeCookieBanner from './../src/molecule/cookie-banner';
 import MoleculeDashboardBattleRequestList from './../src/molecule/dashboard/battle-request-list';
 import MoleculeDashboardCardsList from './../src/molecule/dashboard/cards-list';
@@ -299,7 +299,6 @@ import MoleculeAnswerFixtureQcmShort from '../src/molecule/answer/test/fixtures/
 import MoleculeAnswerFixtureQcm from '../src/molecule/answer/test/fixtures/qcm';
 import MoleculeAnswerFixtureRange from '../src/molecule/answer/test/fixtures/range';
 import MoleculeAnswerFixtureTemplate from '../src/molecule/answer/test/fixtures/template';
-import MoleculeBattleFixtureDefault from '../src/molecule/battle/test/fixtures/default';
 import MoleculeBattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import MoleculeBrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
 import MoleculeBrandCardFixtureWithDescription from '../src/molecule/brand-card/test/fixtures/with-description';
@@ -339,6 +338,9 @@ import MoleculeCardFixtureDisabled from '../src/molecule/card/test/fixtures/disa
 import MoleculeCardFixtureEmpty from '../src/molecule/card/test/fixtures/empty';
 import MoleculeCardFixtureFreerunAndDisabled from '../src/molecule/card/test/fixtures/freerun-and-disabled';
 import MoleculeCardFixtureFreerun from '../src/molecule/card/test/fixtures/freerun';
+import MoleculeCardWithButtonFixtureDefault from '../src/molecule/card-with-button/test/fixtures/default';
+import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-button/test/fixtures/with-avatar';
+import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
 import MoleculeDashboardBattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
 import MoleculeDashboardBattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
@@ -771,7 +773,6 @@ export const components = {
   },
   Molecule: {
     MoleculeAnswer,
-    MoleculeBattle,
     MoleculeBattleRequest,
     MoleculeBrandCard,
     MoleculeBrandCardCreate,
@@ -782,6 +783,7 @@ export const components = {
     MoleculeBrandUploadBox,
     MoleculeBreadcrumbs,
     MoleculeCard,
+    MoleculeCardWithButton,
     MoleculeCookieBanner,
     MoleculeDisciplineCta,
     MoleculeDisciplineHeader,
@@ -1147,9 +1149,6 @@ export const fixtures = {
       Range: MoleculeAnswerFixtureRange,
       Template: MoleculeAnswerFixtureTemplate
     },
-    MoleculeBattle: {
-      Default: MoleculeBattleFixtureDefault
-    },
     MoleculeBattleRequest: {
       Default: MoleculeBattleRequestFixtureDefault
     },
@@ -1208,6 +1207,11 @@ export const fixtures = {
       Empty: MoleculeCardFixtureEmpty,
       FreerunAndDisabled: MoleculeCardFixtureFreerunAndDisabled,
       Freerun: MoleculeCardFixtureFreerun
+    },
+    MoleculeCardWithButton: {
+      Default: MoleculeCardWithButtonFixtureDefault,
+      WithAvatar: MoleculeCardWithButtonFixtureWithAvatar,
+      WithoutLabel: MoleculeCardWithButtonFixtureWithoutLabel
     },
     MoleculeCookieBanner: {
       Default: MoleculeCookieBannerFixtureDefault
