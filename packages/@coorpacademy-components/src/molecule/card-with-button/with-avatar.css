@@ -5,14 +5,9 @@
     align-content: center;
     justify-content: center;
     width:auto;
-}
-
-.injection{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
+}
 
 .wrapper{
     text-align: center;
