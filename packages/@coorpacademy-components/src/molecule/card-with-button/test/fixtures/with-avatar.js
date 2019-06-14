@@ -15,10 +15,8 @@ export default {
   },
   children: (
     <>
-      <div className={style.injection}>
-        <div className={style.avatar}>
-          <Avatar url="https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg" />
-        </div>
+      <div className={style.avatar}>
+        <Avatar url="https://cdn.pixabay.com/photo/2017/08/30/12/45/girl-2696947_1280.jpg" />
       </div>
       <div className={style.wrapper}>
         <span>
