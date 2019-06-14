@@ -75,7 +75,7 @@ CardWithButton.propTypes = {
   secondaryButtonLabel: Button.propTypes.submitValue,
   primaryButtonLabel: Button.propTypes.submitValue.isRequired,
   tagLabel: Link.propTypes.children,
-  onSecondaryButtonClick: Button.propTypes.onClick.isRequired,
+  onSecondaryButtonClick: Button.propTypes.onClick,
   onPrimaryButtonClick: Button.propTypes.onClick.isRequired,
   backgroundImg: PropTypes.string.isRequired
 };

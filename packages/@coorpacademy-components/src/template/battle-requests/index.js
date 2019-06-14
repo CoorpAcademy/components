@@ -22,7 +22,7 @@ const Battles = (props, context) => {
           primaryButtonLabel: trads.battleCTA,
           secondaryButtonLabel: trads.reviewCTA,
           tagLabel: battle.tagLabel,
-          onSecondaryButtonClick: battle.onClickSecondaryButton,
+          onSecondaryButtonClick: battle.onSecondaryButtonClick,
           onPrimaryButtonClick: battle.onPrimaryButtonClick,
           backgroundImg: battle.backgroundImg
         };
