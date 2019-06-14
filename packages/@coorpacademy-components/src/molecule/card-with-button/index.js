@@ -17,11 +17,7 @@ function backgroundImage(url) {
 
 const Button = props => {
   const {onClick, submitValue, secondary = false} = props;
-  return (
-    <div>
-      <Cta submitValue={submitValue} onClick={onClick} secondary={secondary} />
-    </div>
-  );
+  return <Cta submitValue={submitValue} onClick={onClick} secondary={secondary} />;
 };
 const CardWithButton = props => {
   const {
