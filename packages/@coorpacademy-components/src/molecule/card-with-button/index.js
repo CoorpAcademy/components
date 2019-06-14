@@ -28,8 +28,8 @@ const CardWithButton = props => {
     secondaryButtonLabel,
     primaryButtonLabel,
     tagLabel,
-    onClickSecondaryButton,
-    onClickPrimaryButton,
+    onSecondaryButtonClick,
+    onPrimaryButtonClick,
     backgroundImg
   } = props;
 
@@ -46,17 +46,17 @@ const CardWithButton = props => {
                   </div>
                 </div>
               ) : null}
-              {props.children ? <div className={style.avt}>{props.children}</div> : null}
+              {props.children ? <div className={style.avatar}>{props.children}</div> : null}
             </div>
           </div>
         </div>
       </div>
       <div className={style.buttons}>
         {secondaryButtonLabel ? (
-          <Button submitValue={secondaryButtonLabel} onClick={onClickSecondaryButton} secondary />
+          <Button submitValue={secondaryButtonLabel} onClick={onSecondaryButtonClick} secondary />
         ) : null}
 
-        <Button submitValue={primaryButtonLabel} onClick={onClickPrimaryButton} />
+        <Button submitValue={primaryButtonLabel} onClick={onPrimaryButtonClick} />
       </div>
     </div>
   );
@@ -75,8 +75,8 @@ CardWithButton.propTypes = {
   secondaryButtonLabel: Button.propTypes.submitValue,
   primaryButtonLabel: Button.propTypes.submitValue.isRequired,
   tagLabel: Link.propTypes.children,
-  onClickSecondaryButton: Button.propTypes.onClick.isRequired,
-  onClickPrimaryButton: Button.propTypes.onClick.isRequired,
+  onSecondaryButtonClick: Button.propTypes.onClick.isRequired,
+  onPrimaryButtonClick: Button.propTypes.onClick.isRequired,
   backgroundImg: PropTypes.string.isRequired
 };
 

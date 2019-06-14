@@ -22,8 +22,8 @@ const Battles = (props, context) => {
           primaryButtonLabel: trads.battleCTA,
           secondaryButtonLabel: trads.reviewCTA,
           tagLabel: battle.tagLabel,
-          onClickSecondaryButton: battle.onClickSecondaryButton,
-          onClickPrimaryButton: battle.onClickPrimaryButton,
+          onSecondaryButtonClick: battle.onClickSecondaryButton,
+          onPrimaryButtonClick: battle.onPrimaryButtonClick,
           backgroundImg: battle.backgroundImg
         };
         return (
