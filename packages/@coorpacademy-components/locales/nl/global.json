@@ -8,6 +8,7 @@
   "back_to_catalog": "Terug naar cursussen",
   "cart_title": "Coorpacademy-abonnement",
   "challenges you on": "daagt je uit op",
+  "is challenging you": "<p><span>{{name}} </span>daagt u uit </p><h3>{{courseName}}</h3>",
   "chapters": "hoofdstukken",
   "Close": "Sluiten",
   "clue_stars_to_loose_plural": "Het gebruiken van een tip vermindert het aantal sterren dat je met deze vraag kan winnen met {{count}} (als je goed antwoordt)",
