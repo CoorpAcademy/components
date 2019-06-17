@@ -8,6 +8,7 @@
   "back_to_catalog": "返回課程",
   "cart_title": "Coorpacademy 訂閱",
   "challenges you on": "挑戰您",
+  "is challenging you": "<p><span>{{name}} </span>對您下了 </p><h3>{{courseName}}</h3> 挑戰",
   "chapters": "章節",
   "Close": "關閉",
   "clue_stars_to_loose_plural": "解開線索所減少的星星，您可以在此問題上贏回{{count}}顆星星（如果您答對的話）",
