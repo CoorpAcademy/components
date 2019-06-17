@@ -8,6 +8,7 @@
   "back_to_catalog": "返回到课程",
   "cart_title": "Coorpacademy 订阅",
   "challenges you on": "挑战你",
+  "is challenging you": "<p><span>{{name}} </span>向你发起了挑战</p><h3>{{courseName}}</h3>",
   "chapters": "章节",
   "Close": "关闭",
   "clue_stars_to_loose_plural": "解锁提示意味着你从本问题获得的星星数量会被减少 {{count}} （如果你回答正确的话）",
