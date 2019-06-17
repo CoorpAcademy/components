@@ -8,6 +8,7 @@
   "back_to_catalog": "Zurück zu den Kursen",
   "cart_title": "Coorpacademy Abo",
   "challenges you on": "Herausforderungen für Sie",
+  "is challenging you": "<p><span>{{name}} </span>fordert dich heraus </p><h3>{{courseName}}</h3>",
   "chapters": "Kapitel",
   "Close": "Schliessen",
   "clue_stars_to_loose_plural": "Wenn Sie den Hinweis benutzen, reduziert sich die Anzahl Sterne, die Sie bei dieser Frage gewinnen können um {{count}}  (wenn Sie richtig antworten)",
