@@ -8,6 +8,7 @@
   "back_to_catalog": "Volver a los cursos",
   "cart_title": "Suscripción a Coorpacademy",
   "challenges you on": "te reta en",
+  "is challenging you": "<p><span>{{name}} </span>te reta a aprender </p><h3>{{courseName}}</h3>",
   "chapters": "capítulos",
   "Close": "Cerrar",
   "clue_stars_to_loose_plural": "Desbloquear la pista reduce en {{count}} las estrellas que puedes ganar por esta pregunta (si la aciertas)",
