@@ -8,6 +8,7 @@
   "back_to_catalog": "Zpět na kurzy",
   "cart_title": "Předplatné Coorpacademy",
   "challenges you on": "vás vyzve",
+  "is challenging you": "<p><span>{{name}} </span>vám posílá výzvu do </p><h3>{{courseName}}</h3>",
   "chapters": "kapitoly",
   "Close": "Zavřít",
   "clue_stars_to_loose_plural": "Odemknutí nápovědy sníží počet hvězd, které můžete získat na této otázce o {{count}} (pokud ji zodpovíte správně)",
