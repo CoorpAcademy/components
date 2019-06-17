@@ -8,6 +8,7 @@
   "back_to_catalog": "Назад к курсам",
   "cart_title": "Подписка Coorpacademy",
   "challenges you on": "бросает вам вызов",
+  "is challenging you": "<p><span>{{name}} </span>бросает вам вызов</p><h3>{{courseName}}</h3>",
   "chapters": "главы",
   "Close": "Закрыть",
   "clue_stars_to_loose_plural": "Разблокировав подсказку, вы уменьшите количество звезд, которые вы можете выиграть в этом вопросе, на {{count}} (если ответите правильно)",
