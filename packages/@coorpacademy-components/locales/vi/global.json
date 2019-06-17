@@ -8,6 +8,7 @@
   "back_to_catalog": "Quay lại khóa học",
   "cart_title": "Đăng ký Coorpacademy",
   "challenges you on": "thử thách bạn về",
+  "is challenging you": "<p><span>{{name}} </span>đang thách đố bạn </p><h3>{{courseName}}</h3>",
   "chapters": "chương",
   "Close": "Đóng",
   "clue_stars_to_loose_plural": "Mở khóa gợi ý làm giảm số sao bạn có thể đạt được cho câu hỏi này đi {{count}} sao (nếu bạn đáp đúng)",
