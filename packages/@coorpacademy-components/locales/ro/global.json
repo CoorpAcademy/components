@@ -8,6 +8,7 @@
   "back_to_catalog": "Înapoi la cursuri",
   "cart_title": "Abonament Coorpacademy",
   "challenges you on": "vă cheamă la luptă",
+  "is challenging you": "<p><span>{{name}} </span>te provoacă </p><h3>{{courseName}}</h3>",
   "chapters": "capitole",
   "Close": "Închide",
   "clue_stars_to_loose_plural": "Utilizarea indiciului va lua {{count}} din numărul maxim de stele pe care le puteți obține răspunzând la această întrebare (dacă răspunsul este corect)",
