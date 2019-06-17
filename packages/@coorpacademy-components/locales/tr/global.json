@@ -8,6 +8,7 @@
   "back_to_catalog": "Kurslara geri dön",
   "cart_title": "Coorpacademy Aboneliği",
   "challenges you on": "size _____ hakkında meydan okur",
+  "is challenging you": "<p><span>{{name}} </span> sana </p><h3>{{courseName}}</h3> konusunda meydan okuyor",
   "chapters": "üniteler",
   "Close": "Kapat",
   "clue_stars_to_loose_plural": "İpucunu açmanız halinde bu sorudan {{count}} daha az yıldız kazanırsınız (eğer doğru yanıtlarsanız)",
