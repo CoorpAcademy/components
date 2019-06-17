@@ -8,6 +8,7 @@
   "back_to_catalog": "Powrót do kursów",
   "cart_title": "Subskrypcja Coorpacademy",
   "challenges you on": "rzuca Ci wyzwanie odnośnie",
+  "is challenging you": "<p>Użytkownik <span>{{name}} </span>wysłał Ci wyzwanie – </p><h3>{{courseName}}</h3>",
   "chapters": "rozdziały",
   "Close": "Zamknij",
   "clue_stars_to_loose_plural": "Odblokowanie wskazówki zmniejsza liczbę gwiazdek, jakie możesz zdobyć w tym pytaniu o {{count}} (jeżeli odpowiesz prawidłowo)",
