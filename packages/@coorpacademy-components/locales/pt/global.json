@@ -8,6 +8,7 @@
   "back_to_catalog": "De volta aos cursos",
   "cart_title": "Subscrição Coorpacademy",
   "challenges you on": "desafie-se a si próprio em ",
+  "is challenging you": "<p><span>{{name}} </span>está a desafiá-lo </p><h3>{{courseName}}</h3>",
   "chapters": "capítulos",
   "Close": "Fechar",
   "clue_stars_to_loose_plural": "Desbloquear a solução reduz as estrelas que pode ganhar nesta pergunta em {{count}} (se responder corretamente)",
