@@ -8,6 +8,7 @@
   "back_to_catalog": "コースに戻る",
   "cart_title": "Coorpacademy サブスクリプション",
   "challenges you on": "バトルリクエストあり",
+  "is challenging you": "<p><span>{{name}} </span>があなたにチャレンジ </p><h3>{{courseName}}</h3>",
   "chapters": "chapters",
   "Close": "閉じる",
   "clue_stars_to_loose_plural": "ヒントを参照すると通常より獲得ができるスターの数が{{count}}つ減ります。",
