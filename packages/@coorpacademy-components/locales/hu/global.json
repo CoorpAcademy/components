@@ -8,6 +8,7 @@
   "back_to_catalog": "Vissza a képzésekhez",
   "cart_title": "Coorpacademy előfizetés",
   "challenges you on": "kihívja Önt erre:",
+  "is challenging you": "<p><span>{{name}} </span>kihívott erre: </p><h3>{{courseName}}</h3>",
   "chapters": "fejezetek",
   "Close": "Bezár",
   "clue_stars_to_loose_plural": "A tipp feloldása {{count}} csillaggal csökkentheti a nyereményét ennél a kérdésnél (ha jól válaszol)",
