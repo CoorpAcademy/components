@@ -51,7 +51,6 @@ const CardWithButton = props => {
         {secondaryButtonLabel ? (
           <Button submitValue={secondaryButtonLabel} onClick={onSecondaryButtonClick} secondary />
         ) : null}
-
         <Button submitValue={primaryButtonLabel} onClick={onPrimaryButtonClick} />
       </div>
     </div>
