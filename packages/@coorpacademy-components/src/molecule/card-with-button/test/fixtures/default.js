@@ -1,7 +1,5 @@
 export default {
   props: {
-    username: 'User',
-    courseName: 'courseName',
     secondaryButtonLabel: 'Review course',
     primaryButtonLabel: 'Start battle',
     tagLabel: 'Coach',
