@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import map from 'lodash/fp/map';
 import Provider from '../../atom/provider';
 import CardWithButton from '../../molecule/card-with-button';
 import Avatar from '../../atom/avatar';
@@ -11,7 +12,7 @@ const Battles = (props, context) => {
   const trads = props.trads;
   return (
     <ul className={style.cards}>
-      {battles.map(battle => {
+      {map(battle => {
         const challengeLabel = translate('is challenging you', {
           username: `<strong>${battle.username}</strong>`,
           courseName: `<p><strong>${battle.courseName}</strong></p>`
@@ -44,7 +45,7 @@ const Battles = (props, context) => {
             </div>
           </li>
         );
-      })}
+      }, battles)}
     </ul>
   );
 };
@@ -54,7 +55,7 @@ Battles.contextTypes = {
 };
 
 Battles.propTypes = {
-  battles: PropTypes.arrayOf(PropTypes.shape(CardWithButton.PropTypes)),
+  battles: PropTypes.arrayOf(PropTypes.shape(CardWithButton.PropTypes)).isRequired,
   trads: PropTypes.objectOf(PropTypes.string)
 };
 
