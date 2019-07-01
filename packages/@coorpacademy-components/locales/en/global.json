@@ -8,7 +8,7 @@
   "back_to_catalog": "Back to courses",
   "cart_title": "Coorpacademy Subscription",
   "challenges you on": "challenges you on",
-  "is challenging you": "<p><span>{{name}} </span>is challenging you </p><h3>{{courseName}}</h3>",
+  "is challenging you": "{{username}} is challenging you {{courseName}}",
   "chapters": "chapters",
   "Close": "Close",
   "clue_stars_to_loose_plural": "Unlocking the clue reduces the stars you can gain on this question by {{count}} (if you get it right)",

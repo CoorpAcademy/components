@@ -52,6 +52,7 @@ import MoleculeBrandTabs from './../src/molecule/brand-tabs';
 import MoleculeBrandUploadBox from './../src/molecule/brand-upload-box';
 import MoleculeBreadcrumbs from './../src/molecule/breadcrumbs';
 import MoleculeCard from './../src/molecule/card';
+import MoleculeCardWithButton from './../src/molecule/card-with-button';
 import MoleculeCookieBanner from './../src/molecule/cookie-banner';
 import MoleculeDashboardBattleRequestList from './../src/molecule/dashboard/battle-request-list';
 import MoleculeDashboardCardsList from './../src/molecule/dashboard/cards-list';
@@ -138,8 +139,7 @@ import TemplateBackOfficeBrandCreate from './../src/template/back-office/brand-c
 import TemplateBackOfficeBrandList from './../src/template/back-office/brand-list';
 import TemplateBackOfficeBrandUpdate from './../src/template/back-office/brand-update';
 import TemplateBackOfficeDashboardPreview from './../src/template/back-office/dashboard-preview';
-import TemplateBattle from './../src/template/battle';
-import TemplateBattlesDesktop from './../src/template/battles-desktop';
+import TemplateBattleRequests from './../src/template/battle-requests';
 import TemplateCockpitJwUploader from './../src/template/cockpit/jw-uploader';
 import TemplateCommonAuthors from './../src/template/common/authors';
 import TemplateCommonCoorpHeader from './../src/template/common/coorp-header';
@@ -339,6 +339,9 @@ import MoleculeCardFixtureEmpty from '../src/molecule/card/test/fixtures/empty';
 import MoleculeCardFixtureFavorite from '../src/molecule/card/test/fixtures/favorite';
 import MoleculeCardFixtureFreerunAndDisabled from '../src/molecule/card/test/fixtures/freerun-and-disabled';
 import MoleculeCardFixtureFreerun from '../src/molecule/card/test/fixtures/freerun';
+import MoleculeCardWithButtonFixtureDefault from '../src/molecule/card-with-button/test/fixtures/default';
+import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-button/test/fixtures/with-avatar';
+import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
 import MoleculeDashboardBattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
 import MoleculeDashboardBattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
@@ -703,8 +706,7 @@ import TemplateBackOfficeDashboardPreviewFixtureLoading from '../src/template/ba
 import TemplateBackOfficeDashboardPreviewFixtureSelectedError from '../src/template/back-office/dashboard-preview/test/fixtures/selected-error';
 import TemplateBackOfficeDashboardPreviewFixtureSelectedLoading from '../src/template/back-office/dashboard-preview/test/fixtures/selected-loading';
 import TemplateBackOfficeDashboardPreviewFixtureSelected from '../src/template/back-office/dashboard-preview/test/fixtures/selected';
-import TemplateBattleFixtureDefault from '../src/template/battle/test/fixtures/default';
-import TemplateBattlesDesktopFixtureDefault from '../src/template/battles-desktop/test/fixtures/default';
+import TemplateBattleRequestsFixtureDefault from '../src/template/battle-requests/test/fixtures/default';
 import TemplateCockpitJwUploaderFixtureDefault from '../src/template/cockpit/jw-uploader/test/fixtures/default';
 import TemplateCommonAuthorsFixtureDefault from '../src/template/common/authors/test/fixtures/default';
 import TemplateCommonAuthorsFixtureNoSocials from '../src/template/common/authors/test/fixtures/no-socials';
@@ -783,6 +785,7 @@ export const components = {
     MoleculeBrandUploadBox,
     MoleculeBreadcrumbs,
     MoleculeCard,
+    MoleculeCardWithButton,
     MoleculeCookieBanner,
     MoleculeDisciplineCta,
     MoleculeDisciplineHeader,
@@ -871,8 +874,7 @@ export const components = {
   },
   Template: {
     TemplateActivity,
-    TemplateBattle,
-    TemplateBattlesDesktop
+    TemplateBattleRequests
   },
   TemplateAppPlayer: {
     TemplateAppPlayerLoading,
@@ -1208,6 +1210,11 @@ export const fixtures = {
       Favorite: MoleculeCardFixtureFavorite,
       FreerunAndDisabled: MoleculeCardFixtureFreerunAndDisabled,
       Freerun: MoleculeCardFixtureFreerun
+    },
+    MoleculeCardWithButton: {
+      Default: MoleculeCardWithButtonFixtureDefault,
+      WithAvatar: MoleculeCardWithButtonFixtureWithAvatar,
+      WithoutLabel: MoleculeCardWithButtonFixtureWithoutLabel
     },
     MoleculeCookieBanner: {
       Default: MoleculeCookieBannerFixtureDefault
@@ -1604,11 +1611,8 @@ export const fixtures = {
       Empty: TemplateActivityFixtureEmpty,
       NoEngines: TemplateActivityFixtureNoEngines
     },
-    TemplateBattle: {
-      Default: TemplateBattleFixtureDefault
-    },
-    TemplateBattlesDesktop: {
-      Default: TemplateBattlesDesktopFixtureDefault
+    TemplateBattleRequests: {
+      Default: TemplateBattleRequestsFixtureDefault
     }
   },
   TemplateAppPlayer: {

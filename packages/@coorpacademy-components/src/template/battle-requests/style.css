@@ -1,0 +1,69 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value defaultText from "../../variables/fonts.css";
+
+.cards {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    flex-direction: row;
+  }
+  
+  .cardsItem {
+    display: flex;
+    justify-content: space-around;
+    padding: 5px;
+    box-sizing: border-box;
+    flex: 1 0 33%; /* 3 cards per row */
+    min-width: 315px;
+    max-width: 350px;
+    min-height: 187px;
+    max-height: 265px;
+    width: 100%;
+  } 
+  
+  .card {
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex-basis: 0;
+  }
+
+  @media mobile {
+  .cardsItem{
+   width: 90%;
+   justify-content: space-around;
+   padding: 10px;
+   }
+  }
+
+  .wrapper{
+    text-align: center;
+    font-size: 15px;
+    composes: defaultText;
+    color: #ffffff;
+    line-height: normal;
+}
+
+.wrapper p{
+    margin-top: 1px;
+    margin-bottom: 5%;
+    font-size: 12px;
+    margin-left: 15px;
+    margin-right: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.injection{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
