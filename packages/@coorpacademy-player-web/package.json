@@ -36,6 +36,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
     "@babel/polyfill": "^7.4.3",
     "@babel/preset-env": "^7.4.3",
+    "@coorpacademy/css-modules-require-hook": "^2.0.1",
     "ava": "^1.4.1",
     "babel-plugin-istanbul": "^4.1.4",
     "browser-env": "^3.2.5",
