@@ -47,6 +47,8 @@ const icons: Array<Icon> = [
   },
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/vote-heart-outline.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/magic-wand.1.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/mail-inbox.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/mail-inbox-document.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/profile.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/audio-control-play.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/bookmark-5.svg')},
