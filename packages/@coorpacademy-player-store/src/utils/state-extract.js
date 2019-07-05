@@ -168,13 +168,15 @@ export const getProgressionContent = (state: State): GenericContent | void => {
 export const getContent: (
   type: ContentType,
   ref: string
-) => State => Chapter | Slide | Level | Discipline = (
+) => State => Chapter | Slide | Level | Discipline | string = (
   type: ContentType,
   ref: string
-): (State => Chapter | Slide | Level | Discipline) =>
+): (State => Chapter | Slide | Level | Discipline | string) =>
   get(['data', 'contents', type, 'entities', ref]);
 
-export const getCurrentContent = (state: State): Chapter | Discipline | Slide | Level | void => {
+export const getCurrentContent = (
+  state: State
+): Chapter | Discipline | Slide | Level | string | void => {
   const content = getProgressionContent(state);
 
   if (!content) {

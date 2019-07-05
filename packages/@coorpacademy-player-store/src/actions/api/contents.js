@@ -16,7 +16,14 @@ export const CONTENT_FETCH_REQUEST: string = '@@content/FETCH_REQUEST';
 export const CONTENT_FETCH_SUCCESS: string = '@@content/FETCH_SUCCESS';
 export const CONTENT_FETCH_FAILURE: string = '@@content/FETCH_FAILURE';
 
-export const fetchContent = (type: ContentType, ref: string): ThunkAction => (
+export const fetchContent = (
+  type: ContentType,
+  ref: string,
+  // This is an optional parameter object, which you can you to pass
+  // data down to any of your functions
+  // eslint-disable-next-line flowtype/no-weak-types
+  options?: {[key: string]: any} = {}
+): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
@@ -26,7 +33,7 @@ DispatchedAction => {
 
   const action: Action = buildTask({
     types: [CONTENT_FETCH_REQUEST, CONTENT_FETCH_SUCCESS, CONTENT_FETCH_FAILURE],
-    task: () => ContentService.find(type, ref),
+    task: () => ContentService.find(type, ref, options),
     meta: {type, ref},
     bailout: getContent(type, ref)
   });
