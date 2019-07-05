@@ -493,3 +493,11 @@ export const hasSeenLesson = (state: State, onPreviousSlide: boolean = false): b
     isEmpty(lessons) || any(ref => includes(ref, map('ref', lessons)), viewedResourcesForContent)
   );
 };
+
+export const getVideoUrl = (id: string) => (state: State): string =>
+  state && // eslint-disable-line lodash-fp/prefer-get
+  state.data &&
+  state.data.contents &&
+  state.data.contents.video &&
+  state.data.contents.video.entities &&
+  state.data.contents.video.entities[id];
