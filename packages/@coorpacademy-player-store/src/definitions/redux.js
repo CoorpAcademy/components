@@ -44,6 +44,11 @@ type Data = {
       entities: {
         [id: string]: Slide
       }
+    },
+    video: {
+      entities: {
+        [id: string]: string
+      }
     }
   }
 };

@@ -168,13 +168,15 @@ export const getProgressionContent = (state: State): GenericContent | void => {
 export const getContent: (
   type: ContentType,
   ref: string
-) => State => Chapter | Slide | Level | Discipline = (
+) => State => Chapter | Slide | Level | Discipline | string = (
   type: ContentType,
   ref: string
-): (State => Chapter | Slide | Level | Discipline) =>
+): (State => Chapter | Slide | Level | Discipline | string) =>
   get(['data', 'contents', type, 'entities', ref]);
 
-export const getCurrentContent = (state: State): Chapter | Discipline | Slide | Level | void => {
+export const getCurrentContent = (
+  state: State
+): Chapter | Discipline | Slide | Level | string | void => {
   const content = getProgressionContent(state);
 
   if (!content) {
@@ -493,3 +495,11 @@ export const hasSeenLesson = (state: State, onPreviousSlide: boolean = false): b
     isEmpty(lessons) || any(ref => includes(ref, map('ref', lessons)), viewedResourcesForContent)
   );
 };
+
+export const getVideoUrl = (id: string) => (state: State): string =>
+  state && // eslint-disable-line lodash-fp/prefer-get
+  state.data &&
+  state.data.contents &&
+  state.data.contents.video &&
+  state.data.contents.video.entities &&
+  state.data.contents.video.entities[id];
