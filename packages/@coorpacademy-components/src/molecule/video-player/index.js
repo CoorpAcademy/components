@@ -30,7 +30,6 @@ class VideoPlayer extends React.Component {
 
   renderPlayer = () => {
     const {mimeType, id, url, width = '100%', height = '400px', onPause, onEnded} = this.props;
-    console.log('MIME-TYPE', mimeType);
     switch (mimeType) {
       case 'application/vimeo':
         return (

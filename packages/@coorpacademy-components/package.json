@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "9.1.13-alpha.55+0745f5280",
+  "version": "9.1.18",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -135,6 +135,5 @@
       }
     }
   },
-  "author": "CoorpAcademy",
-  "gitHead": "0745f5280ffd7ae045d03031c123d998dc9864ec"
+  "author": "CoorpAcademy"
 }
