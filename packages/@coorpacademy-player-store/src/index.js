@@ -17,7 +17,8 @@ import type {
   Recommendation,
   Resource,
   UserAnswer,
-  Discipline
+  Discipline,
+  VideoProvider
 } from './definitions/models';
 
 import type {ReduxState} from './definitions/redux';
@@ -47,6 +48,7 @@ import type {
   RecommendationsService
 } from './definitions/services/recommendations';
 import type {FindById as FindSlideById, SlidesService} from './definitions/services/slides';
+import type {FindUriById as FindVideoUriById, VideosService} from './definitions/services/videos';
 import type {Services} from './definitions/services';
 
 import type {UiCurrentState} from './reducers/ui/current';
@@ -66,6 +68,7 @@ export * from './actions/api/next-content';
 export * from './actions/api/progressions';
 export * from './actions/api/rank';
 export * from './actions/api/recommendations';
+export * from './actions/api/videos';
 export * from './actions/ui/answers';
 export {selectClue, getClue} from './actions/ui/clues';
 export * from './actions/ui/coaches';
@@ -100,6 +103,7 @@ export type {
   FindProgressionById,
   FindRecommendations,
   FindSlideById,
+  FindVideoUriById,
   GetAvailableContent,
   GetInfo,
   GetNextRecommendation,
@@ -115,8 +119,10 @@ export type {
   Resource,
   Services,
   SlidesService,
+  VideosService,
   UiCurrentState,
   UserAnswer,
   ReduxState,
-  Discipline
+  Discipline,
+  VideoProvider
 };
