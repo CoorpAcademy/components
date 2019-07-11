@@ -202,6 +202,8 @@ type Lives = {|
   count: number
 |};
 
+type VideoProvider = 'jwplayer' | 'kontiki' | 'vimeo';
+
 export const CONTENT_TYPE: {[string]: ContentType} = {
   CHAPTER: 'chapter',
   LEVEL: 'level',
@@ -224,5 +226,6 @@ export type {
   Lives,
   Recommendation,
   Resource,
-  UserAnswer
+  UserAnswer,
+  VideoProvider
 };
