@@ -10,7 +10,8 @@ import type {
   ChapterRule,
   LessonAPI,
   Question,
-  Answer
+  Answer,
+  VideoProvider
 } from './definitions';
 
 import type {AnalyticsService} from './analytics';
@@ -21,6 +22,7 @@ import type {ProgressionsService} from './progressions';
 import type {RecommendationsService} from './recommendations';
 import type {SlidesService} from './slides';
 import type {ExitNodesService} from './exit-nodes';
+import type {VideosService} from './videos';
 
 import * as _Analytics from './analytics';
 import createAnswersService from './answers';
@@ -34,6 +36,7 @@ import * as LocationService from './location';
 import createProgressionsService from './progressions';
 import createRecommendationsService from './recommendations';
 import createSlidesService from './slides';
+import createVideosService from './videos';
 
 export type {
   SlideAPI,
@@ -52,7 +55,9 @@ export type {
   LessonAPI,
   Question,
   ContentService,
-  ChapterRule
+  ChapterRule,
+  VideoProvider,
+  VideosService
 };
 
 export const Analytics = _Analytics;
@@ -68,3 +73,4 @@ export const Logger = console; // eslint-disable-line no-console
 export const Progressions: DataLayer => ProgressionsService = createProgressionsService;
 export const Recommendations: DataLayer => RecommendationsService = createRecommendationsService;
 export const Slides: DataLayer => SlidesService = createSlidesService;
+export const Videos: DataLayer => VideosService = createVideosService;
