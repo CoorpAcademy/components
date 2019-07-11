@@ -9,6 +9,7 @@ import exitNodes from './exit-nodes';
 import progressions from './progressions';
 import rank from './rank';
 import recommendations from './recommendations';
+import videos from './videos';
 
 export default combineReducers({
   answers,
@@ -20,5 +21,6 @@ export default combineReducers({
   progressions,
   rank,
   recommendations,
-  nextContent
+  nextContent,
+  videos
 });

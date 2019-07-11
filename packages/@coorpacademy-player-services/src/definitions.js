@@ -204,6 +204,8 @@ type ExitNodeAPI = {|
 
 export type RestrictedResourceType = 'level' | 'chapter' | 'slide';
 
+type VideoProvider = 'jwplayer' | 'kontiki' | 'vimeo';
+
 // Keep it no strict because we can extend it
 type DataLayer = {
   getAllProgressions: () => Promise<Array<Progression>>,
@@ -222,7 +224,8 @@ type DataLayer = {
   findRecommendations: (type: string, ref: string) => Promise<Array<RecommendationAPI>>,
   findSlideByChapter: (chapterRef: string) => Promise<Array<Slide>>,
   findSlideById: (id: string) => Promise<Slide>,
-  saveProgression: Progression => Promise<Progression>
+  saveProgression: Progression => Promise<Progression>,
+  findVideoUriById: (id: string, provider: VideoProvider) => Promise<string>
 };
 
 export const CONTENT_TYPE: {[string]: ContentType} = {
@@ -257,5 +260,6 @@ export type {
   LessonAPI,
   UserAnswerAPI,
   PartialPayload,
-  Window
+  Window,
+  VideoProvider
 };

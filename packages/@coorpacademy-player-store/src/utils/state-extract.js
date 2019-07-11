@@ -496,10 +496,5 @@ export const hasSeenLesson = (state: State, onPreviousSlide: boolean = false): b
   );
 };
 
-export const getVideoUrl = (id: string) => (state: State): string =>
-  state && // eslint-disable-line lodash-fp/prefer-get
-  state.data &&
-  state.data.contents &&
-  state.data.contents.video &&
-  state.data.contents.video.entities &&
-  state.data.contents.video.entities[id];
+export const getVideoUri = (id: string) => (state: State): string | void =>
+  get(['data', 'videos', 'entities', id], state);

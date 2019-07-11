@@ -7,6 +7,7 @@ import type {ExitNodesService} from './exit-nodes';
 import type {ProgressionsService} from './progressions';
 import type {RecommendationsService} from './recommendations';
 import type {SlidesService} from './slides';
+import type {VideosService} from './videos';
 
 type Services = {
   Analytics: any,
@@ -18,7 +19,8 @@ type Services = {
   ExitNodes: ExitNodesService,
   Progressions: ProgressionsService,
   Recommendations: RecommendationsService,
-  Slides: SlidesService
+  Slides: SlidesService,
+  Videos: VideosService
 };
 
 // eslint-disable-next-line import/prefer-default-export
