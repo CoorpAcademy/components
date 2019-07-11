@@ -36,7 +36,7 @@ import {
   getResourceToPlay,
   getNbSlides,
   getNextContent,
-  getVideoUrl,
+  getVideoUri,
   getRecommendations,
   getRoute,
   hasViewedAResourceAtThisStep,
@@ -867,7 +867,7 @@ test('getNbSlides should return 0 if no contentInfo is found', t => {
   return t.is(getNbSlides(state), 0);
 });
 
-test('getVideoUrl should return the video url', t => {
+test('getVideoUri should return the video url', t => {
   const videoId = 'DE3942dz9ke';
   const state = set(
     'data.contents.video.entities',
@@ -877,7 +877,7 @@ test('getVideoUrl should return the video url', t => {
     {}
   );
 
-  return t.is(getVideoUrl(videoId)(state), 'www.reallyfancy.com/DE3942dz9ke.mp4');
+  return t.is(getVideoUri(videoId)(state), 'www.reallyfancy.com/DE3942dz9ke.mp4');
 });
 
 test('getNbSlides should return the proper amount', t => {
