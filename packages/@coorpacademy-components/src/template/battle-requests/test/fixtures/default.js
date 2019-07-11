@@ -8,8 +8,8 @@ export default {
         backgroundImg:
           'http://www.canalvie.com/polopoly_fs/1.1917585.1474313690!/image/bureau-travail.jpg_gen/derivatives/cvlandscape_670_377/bureau-travail.jpg',
         tagLabel: 'Base',
-        onLightButtonClick: () => console.log('test onClickButtonBattle'),
-        onPrimaryButtonClick: () => console.log('test onClickButtonCourse'),
+        onLightButtonClick: () => console.log('test onClickButtonCourse'),
+        onPrimaryButtonClick: () => console.log('test onClickButtonBattle'),
         id: '1'
       },
 
