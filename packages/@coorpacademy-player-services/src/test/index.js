@@ -17,6 +17,7 @@ test('should expose services', t => {
     'Logger',
     'Progressions',
     'Recommendations',
-    'Slides'
+    'Slides',
+    'Videos'
   ]);
 });
