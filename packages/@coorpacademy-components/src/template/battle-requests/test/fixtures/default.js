@@ -8,7 +8,7 @@ export default {
         backgroundImg:
           'http://www.canalvie.com/polopoly_fs/1.1917585.1474313690!/image/bureau-travail.jpg_gen/derivatives/cvlandscape_670_377/bureau-travail.jpg',
         tagLabel: 'Base',
-        onSecondaryButtonClick: () => console.log('test onClickButtonBattle'),
+        onLightButtonClick: () => console.log('test onClickButtonBattle'),
         onPrimaryButtonClick: () => console.log('test onClickButtonCourse'),
         id: '1'
       },
@@ -21,7 +21,7 @@ export default {
         backgroundImg: 'https://img.bfmtv.com/c/1256/708/c32/01a671c64243d70195cbe64a18f2a.jpg',
         tagLabel: 'Coach',
         onPrimaryButtonClick: () => console.log('test onClickButtonBattle2'),
-        onSecondaryButtonClick: () => console.log('test onClickButtonCourse2'),
+        onLightButtonClick: () => console.log('test onClickButtonCourse2'),
         id: '2'
       },
 
@@ -33,7 +33,7 @@ export default {
         backgroundImg: 'https://consomac.fr/images/news/test-macbookair-2018-header.jpg',
         tagLabel: 'Advanced',
         onPrimaryButtonClick: () => console.log('test onClickButtonBattle'),
-        onSecondaryButtonClick: () => console.log('test onClickButtonCourse'),
+        onLightButtonClick: () => console.log('test onClickButtonCourse'),
         id: '3'
       },
 
@@ -44,7 +44,7 @@ export default {
         backgroundImg: 'https://bienobureau.files.wordpress.com/2014/11/bureau-travail.jpg',
         tagLabel: 'Base',
         onPrimaryButtonClick: () => console.log('test onClickButtonBattle'),
-        onSecondaryButtonClick: () => console.log('test onClickButtonCourse'),
+        onLightButtonClick: () => console.log('test onClickButtonCourse'),
         id: '4'
       },
 
@@ -55,7 +55,7 @@ export default {
         backgroundImg: 'https://cdn.pixabay.com/photo/2018/02/27/09/19/colors-3185020_1280.jpg',
         tagLabel: 'Base',
         onPrimaryButtonClick: () => console.log('test onClickButtonBattle'),
-        onSecondaryButtonClick: () => console.log('test onClickButtonCourse'),
+        onLightButtonClick: () => console.log('test onClickButtonCourse'),
         id: '5'
       },
 
@@ -67,7 +67,7 @@ export default {
         backgroundImg: 'https://cdn.pixabay.com/photo/2016/11/06/05/36/landscape-1802337_1280.jpg',
         tagLabel: 'Coach',
         onPrimaryButtonClick: () => console.log('test onClickButtonBattle2'),
-        onSecondaryButtonClick: () => console.log('test onClickButtonCourse2'),
+        onLightButtonClick: () => console.log('test onClickButtonCourse2'),
         id: '6'
       }
     ],

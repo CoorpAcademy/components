@@ -16,15 +16,15 @@ function backgroundImage(url) {
 }
 
 const Button = props => {
-  const {onClick, submitValue, secondary = false} = props;
-  return <Cta submitValue={submitValue} onClick={onClick} secondary={secondary} />;
+  const {onClick, submitValue, light = false} = props;
+  return <Cta submitValue={submitValue} onClick={onClick} light={light} />;
 };
 const CardWithButton = props => {
   const {
-    secondaryButtonLabel,
+    lightButtonLabel,
     primaryButtonLabel,
     tagLabel,
-    onSecondaryButtonClick,
+    onLightButtonClick,
     onPrimaryButtonClick,
     backgroundImg
   } = props;
@@ -48,8 +48,8 @@ const CardWithButton = props => {
         </div>
       </div>
       <div className={style.buttons}>
-        {secondaryButtonLabel ? (
-          <Button submitValue={secondaryButtonLabel} onClick={onSecondaryButtonClick} secondary />
+        {lightButtonLabel ? (
+          <Button submitValue={lightButtonLabel} onClick={onLightButtonClick} light />
         ) : null}
         <Button submitValue={primaryButtonLabel} onClick={onPrimaryButtonClick} />
       </div>
@@ -67,10 +67,10 @@ Button.propTypes = {
 };
 
 CardWithButton.propTypes = {
-  secondaryButtonLabel: Button.propTypes.submitValue,
+  lightButtonLabel: Button.propTypes.submitValue,
   primaryButtonLabel: Button.propTypes.submitValue.isRequired,
   tagLabel: Link.propTypes.children,
-  onSecondaryButtonClick: Button.propTypes.onClick,
+  onLightButtonClick: Button.propTypes.onClick,
   onPrimaryButtonClick: Button.propTypes.onClick.isRequired,
   backgroundImg: PropTypes.string.isRequired
 };
