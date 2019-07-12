@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/fp/get';
 import Provider from '../../atom/provider';
 import Link from '../../atom/link';
 import Cta from '../../atom/cta';
@@ -19,7 +20,7 @@ const Button = props => {
   const {onClick, submitValue, light = false} = props;
   return <Cta submitValue={submitValue} onClick={onClick} light={light} />;
 };
-const CardWithButton = props => {
+const CardWithButton = (props, context) => {
   const {
     lightButtonLabel,
     primaryButtonLabel,
@@ -28,7 +29,9 @@ const CardWithButton = props => {
     onPrimaryButtonClick,
     backgroundImg
   } = props;
-
+  const {skin} = context;
+  const primaryColor = get('common.primary', skin);
+  const inlineStyle = {color: primaryColor};
   return (
     <div className={style.container}>
       <div className={style.imageBox}>
@@ -49,7 +52,9 @@ const CardWithButton = props => {
       </div>
       <div className={style.buttons}>
         {lightButtonLabel ? (
-          <Button submitValue={lightButtonLabel} onClick={onLightButtonClick} light />
+          <a className={style.lightButton} style={inlineStyle} onClick={onLightButtonClick}>
+            {lightButtonLabel}
+          </a>
         ) : null}
         <Button submitValue={primaryButtonLabel} onClick={onPrimaryButtonClick} />
       </div>
@@ -58,7 +63,8 @@ const CardWithButton = props => {
 };
 
 CardWithButton.contextTypes = {
-  translate: Provider.childContextTypes.translate
+  translate: Provider.childContextTypes.translate,
+  skin: Provider.childContextTypes.skin
 };
 
 Button.propTypes = {
