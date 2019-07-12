@@ -11,7 +11,7 @@ import {
   VIDEOS_FETCH_URI_FAILURE
 } from '../../actions/api/videos';
 
-const dataContentReducer = (state = {}, action) => {
+const dataContentReducer = (state = {entities: {}}, action) => {
   switch (action.type) {
     case VIDEOS_FETCH_URI_REQUEST: {
       const {meta} = action;

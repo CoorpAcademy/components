@@ -8,7 +8,7 @@ import {
 } from '../../../actions/api/videos';
 import macro from '../../test/helpers/macro';
 
-test('should have initial value', macro, reducer, undefined, {}, {});
+test('should have initial value', macro, reducer, undefined, {}, {entities: {}});
 
 test(
   'should set entities to null on request',
