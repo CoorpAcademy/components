@@ -93,12 +93,29 @@
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    padding: 15px;
+    padding: 12px;
     border-bottom-right-radius: 15px;
     border-bottom-left-radius: 15px;
     border-left: solid 1px lightGrey;
     border-right: solid 1px lightGrey;
     border-bottom: solid 1px lightGrey;
+}
+
+.lightButton{
+    display: inline-block;
+    box-sizing: border-box;
+    font-family: 'Open Sans';
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0 20px;
+    cursor: pointer;
+    user-select: none;
+    height: 42px;
+    line-height: 38px;
+    border-radius: 23px;
+    background-color: white;
+    border-color: transparent;
 }
 
 

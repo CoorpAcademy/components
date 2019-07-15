@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/fp/get';
 import Provider from '../../atom/provider';
 import Link from '../../atom/link';
 import Cta from '../../atom/cta';
@@ -16,19 +17,21 @@ function backgroundImage(url) {
 }
 
 const Button = props => {
-  const {onClick, submitValue, secondary = false} = props;
-  return <Cta submitValue={submitValue} onClick={onClick} secondary={secondary} />;
+  const {onClick, submitValue, light = false} = props;
+  return <Cta submitValue={submitValue} onClick={onClick} light={light} />;
 };
-const CardWithButton = props => {
+const CardWithButton = (props, context) => {
   const {
-    secondaryButtonLabel,
+    lightButtonLabel,
     primaryButtonLabel,
     tagLabel,
-    onSecondaryButtonClick,
+    onLightButtonClick,
     onPrimaryButtonClick,
     backgroundImg
   } = props;
-
+  const {skin} = context;
+  const primaryColor = get('common.primary', skin);
+  const inlineStyle = {color: primaryColor};
   return (
     <div className={style.container}>
       <div className={style.imageBox}>
@@ -48,8 +51,10 @@ const CardWithButton = props => {
         </div>
       </div>
       <div className={style.buttons}>
-        {secondaryButtonLabel ? (
-          <Button submitValue={secondaryButtonLabel} onClick={onSecondaryButtonClick} secondary />
+        {lightButtonLabel ? (
+          <a className={style.lightButton} style={inlineStyle} onClick={onLightButtonClick}>
+            {lightButtonLabel}
+          </a>
         ) : null}
         <Button submitValue={primaryButtonLabel} onClick={onPrimaryButtonClick} />
       </div>
@@ -58,7 +63,8 @@ const CardWithButton = props => {
 };
 
 CardWithButton.contextTypes = {
-  translate: Provider.childContextTypes.translate
+  translate: Provider.childContextTypes.translate,
+  skin: Provider.childContextTypes.skin
 };
 
 Button.propTypes = {
@@ -67,10 +73,10 @@ Button.propTypes = {
 };
 
 CardWithButton.propTypes = {
-  secondaryButtonLabel: Button.propTypes.submitValue,
+  lightButtonLabel: Button.propTypes.submitValue,
   primaryButtonLabel: Button.propTypes.submitValue.isRequired,
   tagLabel: Link.propTypes.children,
-  onSecondaryButtonClick: Button.propTypes.onClick,
+  onLightButtonClick: Button.propTypes.onClick,
   onPrimaryButtonClick: Button.propTypes.onClick.isRequired,
   backgroundImg: PropTypes.string.isRequired
 };

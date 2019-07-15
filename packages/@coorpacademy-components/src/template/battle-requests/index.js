@@ -21,9 +21,9 @@ const Battles = (props, context) => {
           username: battle.username,
           courseName: battle.courseName,
           primaryButtonLabel: trads.battleCTA,
-          secondaryButtonLabel: trads.reviewCTA,
+          lightButtonLabel: trads.reviewCTA,
           tagLabel: battle.tagLabel,
-          onSecondaryButtonClick: battle.onSecondaryButtonClick,
+          onLightButtonClick: battle.onLightButtonClick,
           onPrimaryButtonClick: battle.onPrimaryButtonClick,
           backgroundImg: battle.backgroundImg
         };

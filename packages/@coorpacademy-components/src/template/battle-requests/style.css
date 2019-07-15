@@ -3,7 +3,6 @@
 @value defaultText from "../../variables/fonts.css";
 
 .cards {
-    justify-content: center;
     display: flex;
     flex-wrap: wrap;
     list-style: none;
