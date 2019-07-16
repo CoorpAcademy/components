@@ -1,11 +1,14 @@
 // @flow strict
 
 import type {ContentType} from '@coorpacademy/progression-engine';
-import type {DataLayer, LevelAPI, RecommendationAPI} from './definitions';
+import type {ChapterAPI, DataLayer, LevelAPI, RecommendationAPI} from './definitions';
 import {CONTENT_TYPE} from './definitions';
 
 type FindRecommendations = (type: ContentType, ref: string) => Promise<Array<RecommendationAPI>>;
-type GetNextRecommendation = (type: ContentType, ref: string) => Promise<void | LevelAPI>;
+type GetNextRecommendation = (
+  type: ContentType,
+  ref: string
+) => Promise<void | ChapterAPI | LevelAPI>;
 
 type RecommendationsService = {|
   find: FindRecommendations,
@@ -24,12 +27,16 @@ const find = (dataLayer: DataLayer): FindRecommendations => (
 const getNext = (dataLayer: DataLayer): GetNextRecommendation => (
   type: ContentType,
   ref: string
-): Promise<void | LevelAPI> => {
-  const {getNextLevel} = dataLayer;
+): Promise<void | ChapterAPI | LevelAPI> => {
   switch (type) {
-    case CONTENT_TYPE.LEVEL:
+    case CONTENT_TYPE.LEVEL: {
+      const {getNextLevel} = dataLayer;
       return Promise.resolve(getNextLevel(ref));
-    case CONTENT_TYPE.CHAPTER:
+    }
+    case CONTENT_TYPE.CHAPTER: {
+      const {getNextChapter} = dataLayer;
+      return Promise.resolve(getNextChapter(ref));
+    }
     default:
       return Promise.resolve(undefined);
   }

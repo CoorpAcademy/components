@@ -165,7 +165,6 @@ type LevelAPI = {|
 
 type ChapterAPI = {|
   _id: string,
-  __v: number,
   universalRef: string,
   name: string,
   stars: number,
@@ -211,6 +210,7 @@ type DataLayer = {
   getClue: (slideId: string) => Promise<ClueAPI | void>,
   getCorrectAnswer: (slideId: string) => Promise<Array<Answer>>,
   getExitNode: (ref: string) => Promise<ExitNodeAPI>,
+  getNextChapter: (ref: string) => Promise<ChapterAPI | void>,
   getNextLevel: (ref: string) => Promise<LevelAPI | void>,
   findChapterById: (contentRef: string) => Promise<ChapterAPI>,
   findContent: (

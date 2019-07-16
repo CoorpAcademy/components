@@ -3,7 +3,8 @@
 import reduce from 'lodash/fp/reduce';
 import _find from 'lodash/fp/find';
 
-import type {LevelAPI, RecommendationAPI} from '../../definitions';
+import type {ChapterAPI, LevelAPI, RecommendationAPI} from '../../definitions';
+import {findById as findChapterById} from './chapters';
 import levelsData from './data/levels';
 import recommendations from './data/recommendations';
 
@@ -16,6 +17,8 @@ const levels: Map<string, LevelAPI> = reduce(
 const find = (type: string, ref: string): Promise<Array<RecommendationAPI>> => {
   return Promise.resolve(recommendations);
 };
+
+const getNextChapter = (ref: string): ChapterAPI | void => findChapterById(ref);
 
 const getNextLevel = (ref: string): LevelAPI | void => {
   const _level = levels.get(ref);
@@ -43,4 +46,4 @@ const getNextLevel = (ref: string): LevelAPI | void => {
   );
 };
 
-export {find, getNextLevel};
+export {find, getNextChapter, getNextLevel};
