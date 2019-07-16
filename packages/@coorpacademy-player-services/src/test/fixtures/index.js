@@ -12,7 +12,7 @@ import {
   getAll as getAllProgressions,
   save as saveProgression
 } from './progressions';
-import {find as findRecommendations, getNextLevel} from './recommendations';
+import {find as findRecommendations, getNextChapter, getNextLevel} from './recommendations';
 import {findById as findSlideById, findByChapter as findSlideByChapter} from './slides';
 import {findUriById as findVideoUriById} from './videos';
 
@@ -22,6 +22,7 @@ export {
   getClue,
   getCorrectAnswer,
   getExitNode,
+  getNextChapter,
   getNextLevel,
   findChapterById,
   findContent,
