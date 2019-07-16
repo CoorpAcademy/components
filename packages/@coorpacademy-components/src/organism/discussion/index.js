@@ -47,6 +47,7 @@ function Discussion(props) {
     <div data-name="discussion" className={classnames(style.thread, className)}>
       <div className={style.header}>
         <h1
+          id="forum-discussion"
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
             __html: title

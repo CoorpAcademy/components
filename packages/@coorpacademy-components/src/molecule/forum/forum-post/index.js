@@ -11,6 +11,7 @@ import style from './style.css';
 const ForumPost = (props, context) => {
   const {translate, skin} = context;
   const {
+    id,
     author,
     avatar,
     date,
@@ -58,6 +59,7 @@ const ForumPost = (props, context) => {
   return (
     <div
       data-name="forumPost"
+      id={`forum-post-${id || 'to-be-posted'}`}
       className={classnames(
         mainPost ? style.mainPost : null,
         rejected ? style.rejected : style.post
