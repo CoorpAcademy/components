@@ -41,6 +41,12 @@
    }
   }
 
+  @media screen and (max-width: 960px){
+    .cards{
+      justify-content: center;
+    }
+  }
+
   .wrapper{
     text-align: center;
     font-size: 15px;
@@ -51,7 +57,7 @@
 
 .wrapper p{
     margin-top: 1px;
-    margin-bottom: 5%;
+    margin-bottom: 0%;
     font-size: 12px;
     margin-left: 15px;
     margin-right: 15px;
