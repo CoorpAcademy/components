@@ -98,7 +98,6 @@ type Poster = {|
 
 type Chapter = {|
   _id: string,
-  __v: number,
   universalRef: string,
   name: string,
   stars: number,
@@ -174,7 +173,6 @@ type Discipline = {|
   partnershipType: string,
   deliverCoachStatus?: boolean,
   hidden: boolean,
-  __v: number,
   position: number,
   conditions: Array<Condition>,
   skills: Array<Skill>,
