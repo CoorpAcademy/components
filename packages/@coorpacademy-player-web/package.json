@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/player-web",
-  "version": "3.1.30",
+  "version": "3.1.31",
   "description": "CoorpAcademy web slide-player",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -49,7 +49,7 @@
     "webpack-dev-server": "^3.1.4"
   },
   "dependencies": {
-    "@coorpacademy/components": "9.1.22",
+    "@coorpacademy/components": "9.1.23",
     "@coorpacademy/player-services": "5.0.12",
     "@coorpacademy/player-store": "4.0.8",
     "@coorpacademy/progression-engine": "11.0.2",
