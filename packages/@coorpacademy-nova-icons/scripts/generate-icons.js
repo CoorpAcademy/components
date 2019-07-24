@@ -244,5 +244,6 @@ export type {Icon};
 
 ${componentsImports}
 
-${componentsExports}`
+${componentsExports}
+`
 );
