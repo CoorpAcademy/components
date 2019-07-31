@@ -24,6 +24,7 @@ const Template = props => {
     }
     if (type === 'answerField') {
       const field = find({name: part.value}, props.answers);
+      if (!field) return null;
       const fieldView =
         field.type === 'text' ? (
           <FreeText {...field} className={style.text} />
