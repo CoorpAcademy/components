@@ -4,7 +4,7 @@ import type {Config} from '../types';
 const configurations: Array<Config> = [
   {
     version: '1',
-    lives: 3,
+    lives: 4,
     livesDisabled: false,
     maxTypos: 2,
     slidesToComplete: 4,

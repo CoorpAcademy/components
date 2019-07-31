@@ -21,7 +21,7 @@ test('should return the configuration with the given version if it exists', t =>
   });
   t.deepEqual(getConfig({ref: 'learner', version: '1'}), {
     version: '1',
-    lives: 3,
+    lives: 4,
     livesDisabled: false,
     maxTypos: 2,
     slidesToComplete: 4,
@@ -48,7 +48,7 @@ test('should return the default configuration if the engine does not have the gi
   });
   t.deepEqual(getConfig({ref: 'learner', version: 'foobar'}), {
     version: '1',
-    lives: 3,
+    lives: 4,
     livesDisabled: false,
     maxTypos: 2,
     slidesToComplete: 4,

@@ -1,7 +1,7 @@
 export default {
   props: {
     type: 'popinCorrection',
-    lives: 3,
+    lives: 4,
     failed: false,
     title: 'Good job',
     subtitle: 'Bonne réponse',

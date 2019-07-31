@@ -19,7 +19,8 @@ test(
       progressions: {entities: {}},
       rank: {},
       nextContent: {entities: {}},
-      recommendations: {entities: {}}
+      recommendations: {entities: {}},
+      videos: {entities: {}}
     },
     ui: {
       answers: {},
