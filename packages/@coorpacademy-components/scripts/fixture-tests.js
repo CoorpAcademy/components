@@ -16,7 +16,7 @@ const readFixtureTests$ = (cwd, macro) =>
         concat(
           of(
             `import test from 'ava';`,
-            `import _ from 'lodash';`,
+            `import forEach from 'lodash/forEach';`,
             `import renderComponentMacro from '${join(
               relative(testPath, dirname(macro)),
               basename(macro, '.js')
@@ -33,7 +33,7 @@ const readFixtureTests$ = (cwd, macro) =>
             ``,
             `test('${type} › ${title} > should have valid propTypes', t => {`,
             `  t.pass();`,
-            `  _.forEach(${title}.propTypes, (value, key) => {`,
+            `  forEach(${title}.propTypes, (value, key) => {`,
             `    t.not(value, undefined, \`PropType for "${type}.${title}.propTypes.$\{key}" may not be undefined. Did you mistype the propTypes definition?\`);`,
             `  });`,
             `});`,
