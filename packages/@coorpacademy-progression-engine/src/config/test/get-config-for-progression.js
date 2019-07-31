@@ -34,6 +34,18 @@ test('should return the configuration with the given version if it exists', t =>
   });
   t.deepEqual(getConfigForProgression({...progression, engine: {ref: 'learner', version: '1'}}), {
     version: '1',
+    lives: 3,
+    livesDisabled: false,
+    maxTypos: 2,
+    slidesToComplete: 4,
+    answerBoundaryLimit: 5,
+    starsPerAskingClue: -1,
+    starsPerCorrectAnswer: 4,
+    starsPerResourceViewed: 4,
+    remainingLifeRequests: 1
+  });
+  t.deepEqual(getConfigForProgression({...progression, engine: {ref: 'learner', version: '2'}}), {
+    version: '1',
     lives: 4,
     livesDisabled: false,
     maxTypos: 2,
