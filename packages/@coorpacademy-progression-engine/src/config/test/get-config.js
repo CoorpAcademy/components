@@ -59,8 +59,8 @@ test('should return the default configuration if the engine does not have the gi
     remainingLifeRequests: 1
   });
   t.deepEqual(getConfig({ref: 'learner', version: 'foobar'}), {
-    version: '2',
-    lives: 4,
+    version: '1',
+    lives: 3,
     livesDisabled: false,
     maxTypos: 2,
     slidesToComplete: 4,

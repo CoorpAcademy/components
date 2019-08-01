@@ -30,5 +30,5 @@ const configurations: Array<Config> = [
 
 export default {
   configurations,
-  defaultConfiguration: configurations[1]
+  defaultConfiguration: configurations[0]
 };
