@@ -34,7 +34,7 @@ test('should return new variables with instructions to update attributes', t => 
   ];
 
   const fromState = {
-    lives: 3,
+    lives: 4,
     stars: 4,
     variables: {
       A: 0,
@@ -62,7 +62,7 @@ test('should return the same input when instructions type are not recognized', t
   ];
 
   const fromState = {
-    lives: 3,
+    lives: 4,
     stars: 4,
     variables: {
       A: 0,

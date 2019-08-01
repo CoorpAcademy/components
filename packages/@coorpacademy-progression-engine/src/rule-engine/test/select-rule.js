@@ -6,7 +6,7 @@ import type {ChapterRule} from '../types';
 
 const createState = (nextContent): State => ({
   nextContent,
-  lives: 3,
+  lives: 4,
   stars: 0,
   livesDisabled: true,
   isCorrect: true,
