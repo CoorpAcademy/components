@@ -32,6 +32,21 @@ test('should return the configuration with the given version if it exists', t =>
     starsPerResourceViewed: 4,
     remainingLifeRequests: 1
   });
+  t.deepEqual(
+    getConfigForProgression({...progression, engine: {ref: 'microlearning', version: '2'}}),
+    {
+      version: '2',
+      lives: 0,
+      livesDisabled: true,
+      maxTypos: 2,
+      slidesToComplete: 4,
+      answerBoundaryLimit: 5,
+      starsPerAskingClue: -1,
+      starsPerCorrectAnswer: 4,
+      starsPerResourceViewed: 4,
+      remainingLifeRequests: 1
+    }
+  );
   t.deepEqual(getConfigForProgression({...progression, engine: {ref: 'learner', version: '1'}}), {
     version: '1',
     lives: 3,
