@@ -65,7 +65,7 @@ test('should create a new progression with the latest version of the engine and 
     type: 'level'
   };
   const engineOptions: EngineConfig = {
-    version: 'latest',
+    version: '2',
     livesDisabled: true
   };
   const progression = createProgression(engine, content, engineOptions, availableContentWithRules);
@@ -121,7 +121,7 @@ test("progression should have 'move' action that links to the initial rule's des
     type: 'level'
   };
   const engineOptions: EngineConfig = {
-    version: 'latest',
+    version: '2',
     livesDisabled: true
   };
   const progression = createProgression(engine, content, engineOptions, availableContentWithRules);
@@ -149,7 +149,7 @@ test('progression should have "move" action that links to a random slide from th
     type: 'level'
   };
   const engineOptions: EngineConfig = {
-    version: 'latest',
+    version: '2',
     livesDisabled: true
   };
 
@@ -192,7 +192,7 @@ test('should return null if no there is no available content', t => {
     type: 'level'
   };
   const engineOptions: EngineConfig = {
-    version: 'latest',
+    version: '2',
     livesDisabled: true
   };
 
@@ -201,7 +201,7 @@ test('should return null if no there is no available content', t => {
   t.deepEqual(progression, {
     engine: {ref: 'learner', version: '2'},
     content: {ref: '1.A1', type: 'level'},
-    engineOptions: {version: 'latest', livesDisabled: true},
+    engineOptions: {version: '2', livesDisabled: true},
     actions: [
       {
         type: 'move',
