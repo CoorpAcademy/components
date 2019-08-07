@@ -34,13 +34,9 @@ class JWPlayer extends React.Component {
   }
 
   setFileUrl() {
-    const {videoId, file} = this.props.jwpOptions;
+    const {file} = this.props.jwpOptions;
 
-    // This is mostly for test(Storybook) purpose only
-    if (!videoId) {
-      return this.setState({fileUrl: file});
-    }
-    return this.setState({fileUrl: `https://content.jwplatform.com/manifests/${videoId}.m3u8`});
+    return this.setState({fileUrl: file});
   }
 
   handlePlay(e) {
@@ -74,13 +70,14 @@ class JWPlayer extends React.Component {
   render() {
     return (
       <ReactJWPlayer
+        {...this.props.jwpOptions}
         className={style.wrapper}
         onPlay={this.handlePlay}
         onResume={this.handleResume}
         onPause={this.handlePause}
         onOneHundredPercent={this.handleEnded}
         onError={this.handleError}
-        {...{...this.props.jwpOptions, file: this.state.fileUrl}}
+        file={this.state.fileUrl}
       />
     );
   }
