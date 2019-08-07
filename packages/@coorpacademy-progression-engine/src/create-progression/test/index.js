@@ -65,6 +65,34 @@ test('should create a new progression with the latest version of the engine and 
     type: 'level'
   };
   const engineOptions: EngineConfig = {
+    version: 'latest',
+    livesDisabled: true
+  };
+  const progression = createProgression(engine, content, engineOptions, availableContentWithRules);
+  if (!progression) {
+    throw new Error('progression should not be falsy');
+  }
+
+  t.deepEqual(keys(progression).sort(), ['actions', 'content', 'engine', 'engineOptions'].sort());
+  t.deepEqual(progression.engine, {
+    ref: 'learner',
+    version: '2'
+  });
+  t.is(progression.content, content);
+  t.is(progression.engineOptions, engineOptions);
+  t.true(Array.isArray(progression.actions));
+});
+
+test('should create a new progression with a custom version of the engine', t => {
+  const engine: Engine = {
+    ref: 'learner',
+    version: '1'
+  };
+  const content: GenericContent = {
+    ref: '1.A1',
+    type: 'level'
+  };
+  const engineOptions: EngineConfig = {
     version: '1',
     livesDisabled: true
   };
@@ -93,7 +121,7 @@ test("progression should have 'move' action that links to the initial rule's des
     type: 'level'
   };
   const engineOptions: EngineConfig = {
-    version: '1',
+    version: 'latest',
     livesDisabled: true
   };
   const progression = createProgression(engine, content, engineOptions, availableContentWithRules);
@@ -121,7 +149,7 @@ test('progression should have "move" action that links to a random slide from th
     type: 'level'
   };
   const engineOptions: EngineConfig = {
-    version: '1',
+    version: 'latest',
     livesDisabled: true
   };
 
@@ -164,16 +192,16 @@ test('should return null if no there is no available content', t => {
     type: 'level'
   };
   const engineOptions: EngineConfig = {
-    version: '1',
+    version: 'latest',
     livesDisabled: true
   };
 
   const progression = createProgression(engine, content, engineOptions, []);
 
   t.deepEqual(progression, {
-    engine: {ref: 'learner', version: '1'},
+    engine: {ref: 'learner', version: '2'},
     content: {ref: '1.A1', type: 'level'},
-    engineOptions: {version: '1', livesDisabled: true},
+    engineOptions: {version: 'latest', livesDisabled: true},
     actions: [
       {
         type: 'move',
