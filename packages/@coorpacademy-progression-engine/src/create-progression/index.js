@@ -10,7 +10,7 @@ const createProgression = (
   availableContent: AvailableContent
 ): Progression => {
   const config = {
-    ...getConfig({ref: engine.ref, version: 'latest'}),
+    ...getConfig({ref: engine.ref, version: engine.version || 'latest'}),
     ...engineOptions
   };
   const initialAction = computeInitialStep(config, availableContent);
