@@ -31,6 +31,9 @@ class JWPlayer extends React.Component {
         window.jwplayer().play();
       }
     }
+    if (prevProps.jwpOptions.file !== this.props.jwpOptions.file) {
+      this.setFileUrl();
+    }
   }
 
   setFileUrl() {
