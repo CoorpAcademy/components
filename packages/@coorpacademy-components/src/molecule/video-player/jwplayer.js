@@ -67,9 +67,14 @@ class JWPlayer extends React.Component {
     if (code === 214000) {
       const {file: videoUrl} = this.props.jwpOptions;
       const regex = /^https:\/\/content.jwplatform\.com\/manifests\/(\w+).m3u8/;
-      const videoId = videoUrl.match(regex)[1];
+      const matched = videoUrl.match(regex);
 
-      this.setState({fileUrl: `https://content.jwplatform.com/videos/${videoId}-1080.mp4`});
+      if (matched) {
+        const videoId = matched[1];
+        return this.setState({
+          fileUrl: `https://content.jwplatform.com/videos/${videoId}-1080.mp4`
+        });
+      }
     }
   }
 
