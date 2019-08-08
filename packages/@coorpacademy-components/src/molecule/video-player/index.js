@@ -45,7 +45,6 @@ class VideoPlayer extends React.Component {
         );
 
       case 'application/youtube':
-      case 'application/kontiki':
       case 'application/uptale':
         return (
           <VideoIframe
@@ -62,6 +61,7 @@ class VideoPlayer extends React.Component {
             onEnded={onEnded}
           />
         );
+      case 'application/kontiki':
       case 'application/jwplayer':
       case 'video/mp4':
         return <JWPlayer {...this.props} onPlay={this.handleOnPlay} key={id} />;

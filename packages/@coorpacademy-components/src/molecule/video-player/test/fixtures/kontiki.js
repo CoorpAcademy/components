@@ -1,11 +1,21 @@
-import Default from './vimeo';
-
 export default {
   props: {
-    ...Default.props,
     mimeType: 'application/kontiki',
-    onPlay: () => console.log('on play kontiki'),
-    url:
-      'http://schneider-electric.mc.eu1.kontiki.com/global/player?moid=cfe8997c-a015-4005-a9fa-05ae9c3a7c34&repeat=false&client=false&context=embed&overlay=false&name=false&description=false&created_by=false&created_at=false&rating=false&sharing=false&favorites=false&chapters=false&tags=false&flagging=false&views=false&length=false&valetKey=12345'
+    jwpOptions: {
+      playerId: '12345',
+      file: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
+      playerScript:
+        'https://s3-eu-west-1.amazonaws.com/static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
+      licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8=',
+      customProps: {
+        autostart: false,
+        width: '100%',
+        height: '100%'
+      }
+    },
+    onPlay: () => console.log('onPlay jwp'),
+    onResume: () => console.log('onResume jwp'),
+    onPause: () => console.log('onPause jwp'),
+    onEnded: () => console.log('onEnded jwp')
   }
 };

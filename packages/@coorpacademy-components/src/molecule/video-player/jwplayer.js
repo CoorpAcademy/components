@@ -61,6 +61,10 @@ class JWPlayer extends React.Component {
   handleError(error) {
     const {code} = error;
 
+    if (this.props.mimeType === 'application/kontiki') {
+      return;
+    }
+
     // This error mostly appears on IE11 on W7
     // Since IE11 dont kinda support M3U8 sometimes,
     // We've decided to switch from M3U8 to mp4 whenever it appears
