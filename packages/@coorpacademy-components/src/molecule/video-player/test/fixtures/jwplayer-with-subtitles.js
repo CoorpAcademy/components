@@ -4,7 +4,6 @@ export default {
     jwpOptions: {
       playerId: '12345',
       file: 'https://content.jwplatform.com/videos/nTXhramY-720.mp4',
-      videoId: undefined,
       playerScript:
         'https://s3-eu-west-1.amazonaws.com/static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
       licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8=',

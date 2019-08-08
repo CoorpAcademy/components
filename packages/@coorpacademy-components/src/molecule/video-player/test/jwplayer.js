@@ -14,7 +14,6 @@ test.serial('should update props and call componentDidUpdate successfully', t =>
     jwpOptions: {
       playerId: '1',
       file: 'https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4',
-      videoId: undefined,
       playerScript:
         'https://s3-eu-west-1.amazonaws.com/static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
       licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8='
@@ -36,7 +35,6 @@ test.serial('should do nothing if autoplay is triggered and jwplayer script is n
     jwpOptions: {
       playerId: '2',
       file: 'https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4',
-      videoId: undefined,
       playerScript:
         'https://s3-eu-west-1.amazonaws.com/static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
       licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8='
@@ -64,7 +62,6 @@ test('should call handlers within props, then add autoplay props', t => {
     jwpOptions: {
       playerId: '3',
       file: 'https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4',
-      videoId: undefined,
       playerScript:
         'https://s3-eu-west-1.amazonaws.com/static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
       licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8=',

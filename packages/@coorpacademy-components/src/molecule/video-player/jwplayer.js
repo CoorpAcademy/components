@@ -65,7 +65,10 @@ class JWPlayer extends React.Component {
     // Since IE11 dont kinda support M3U8 sometimes,
     // We've decided to switch from M3U8 to mp4 whenever it appears
     if (code === 214000) {
-      const {videoId} = this.props.jwpOptions;
+      const {file: videoUrl} = this.props.jwpOptions;
+      const regex = /^https:\/\/content.jwplatform\.com\/manifests\/(\w+).m3u8/;
+      const videoId = videoUrl.match(regex)[1];
+
       this.setState({fileUrl: `https://content.jwplatform.com/videos/${videoId}-1080.mp4`});
     }
   }
@@ -89,7 +92,6 @@ class JWPlayer extends React.Component {
 JWPlayer.propTypes = {
   jwpOptions: PropTypes.shape({
     file: SrcPropType,
-    videoId: PropTypes.string,
     customProps: PropTypes.shape({
       aspectratio: PropTypes.string,
       tracks: PropTypes.shape({

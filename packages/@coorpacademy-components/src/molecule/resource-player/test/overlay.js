@@ -19,7 +19,6 @@ test('should call jwplayer.onPlay when overlay is clicked', t => {
       jwpOptions: {
         playerId: '12345',
         file: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-        videoId: undefined,
         playerScript:
           'https://s3-eu-west-1.amazonaws.com/static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
         licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8=',

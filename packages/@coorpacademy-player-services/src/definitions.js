@@ -34,7 +34,6 @@ type JwPlayerOptions = {|
     width: string
   },
   file: Url,
-  videoId: string,
   licenseKey: string,
   playerId: string,
   playerScript: Url
