@@ -34,7 +34,7 @@ test('should return the configuration with the given version if it exists', t =>
   });
   t.deepEqual(getConfigForProgression(createProgression({ref: 'microlearning', version: '2'})), {
     version: '2',
-    lives: 0,
+    lives: 1,
     livesDisabled: true,
     maxTypos: 2,
     slidesToComplete: 4,
