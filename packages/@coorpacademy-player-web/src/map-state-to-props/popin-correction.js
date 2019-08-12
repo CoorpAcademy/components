@@ -126,16 +126,15 @@ export const popinCorrectionStateToProps = (options, store) => state => {
   const extraLifeGranted = isExtraLifeActive && hasViewedAResourceAtThisStep(state);
   const mayAcceptExtraLife = isExtraLifeActive && !extraLifeGranted;
   const noMoreExtraLife = isExtraLifeAvailable && !isCorrect && remainingLifeRequests === 0;
-  const {count: lives} = getLives(state);
+  const {hide, count: lives} = getLives(state);
   const header = isNil(answerResult)
     ? {}
     : {
         title: translate(isCorrect ? 'Good job' : 'Ouch'),
         subtitle: translate(isCorrect ? 'Good answer' : 'Wrong answer'),
         failed: isLoading ? null : !isCorrect,
-        lives
+        lives: hide ? null : lives
       };
-
   const question = {
     header: getOr('', 'question.header', slide),
     answerPrefix: translate('Correct answer'),
@@ -149,7 +148,7 @@ export const popinCorrectionStateToProps = (options, store) => state => {
       ? {type: 'popinCorrection'}
       : {
           type: 'popinCorrection',
-          lives: 1,
+          lives: 10,
           title: '',
           subtitle: '',
           corrections,
