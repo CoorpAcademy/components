@@ -148,7 +148,7 @@ export const popinCorrectionStateToProps = (options, store) => state => {
       ? {type: 'popinCorrection'}
       : {
           type: 'popinCorrection',
-          lives: 10,
+          lives: 1,
           title: '',
           subtitle: '',
           corrections,
