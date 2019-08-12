@@ -56,3 +56,36 @@ test('should put revival to false if current step is not extra life, even if les
   t.is(props.quit, undefined);
   t.is(props.overlay, undefined);
 });
+
+test('should return lives', t => {
+  const progressionId = getCurrentProgressionId(popinFailure);
+  let state = set(
+    ['data', 'progressions', 'entities', progressionId, 'state', 'livesDisabled'],
+    false,
+    popinExtraLife
+  );
+  state = set(
+    ['data', 'progressions', 'entities', progressionId, 'state', 'lives'],
+    42,
+    popinExtraLife
+  );
+  const props = popinCorrectionStateToProps({translate: mockTranslate}, {dispatch: identity})(
+    state
+  );
+
+  t.is(props.header.lives, 42);
+});
+
+test('should return empty lives if disabled', t => {
+  const progressionId = getCurrentProgressionId(popinFailure);
+  const state = set(
+    ['data', 'progressions', 'entities', progressionId, 'state', 'livesDisabled'],
+    true,
+    popinExtraLife
+  );
+  const props = popinCorrectionStateToProps({translate: mockTranslate}, {dispatch: identity})(
+    state
+  );
+
+  t.is(props.header.lives, null);
+});

@@ -21,7 +21,7 @@ test('should return the configuration with the given version if it exists', t =>
   });
   t.deepEqual(getConfig({ref: 'microlearning', version: '2'}), {
     version: '2',
-    lives: 0,
+    lives: 1,
     livesDisabled: true,
     maxTypos: 2,
     slidesToComplete: 4,
@@ -60,7 +60,7 @@ test('should return the configuration with the given version if it exists', t =>
 test('should return the default configuration if the engine does not have the given version', t => {
   t.deepEqual(getConfig({ref: 'microlearning', version: 'foobar'}), {
     version: '2',
-    lives: 0,
+    lives: 1,
     livesDisabled: true,
     maxTypos: 2,
     slidesToComplete: 4,

@@ -16,7 +16,7 @@ const configurations: Array<Config> = [
   },
   {
     version: '2',
-    lives: 0,
+    lives: 1,
     livesDisabled: true,
     maxTypos: 2,
     slidesToComplete: 4,
