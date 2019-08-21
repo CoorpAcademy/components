@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/player-web",
-  "version": "3.1.38",
+  "version": "3.1.39",
   "description": "CoorpAcademy web slide-player",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -55,7 +55,7 @@
     "@coorpacademy/progression-engine": "11.0.7",
     "@coorpacademy/redux-task": "1.0.1",
     "@coorpacademy/translate": "6.0.1",
-    "@coorpacademy/webpack-config": "8.0.1",
+    "@coorpacademy/webpack-config": "9.0.0",
     "lodash": "^4.17.4",
     "react": "^16.3.2",
     "react-dom": "^16.3.2"
