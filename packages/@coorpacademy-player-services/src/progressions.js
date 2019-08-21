@@ -225,7 +225,9 @@ const postAnswer = (dataLayer: DataLayer): PostAnswer => async (
       payload: {...action.payload, ...getFastSlideExitNode(config, godMode, availableContent)}
     };
   }
-  return addActionAndSaveProgression(dataLayer)(progression, action);
+
+  const _action = addActionAndSaveProgression(dataLayer)(progression, action);
+  return _action;
 };
 
 const requestClue = (dataLayer: DataLayer): RequestClue => async (

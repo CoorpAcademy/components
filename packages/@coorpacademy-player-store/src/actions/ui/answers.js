@@ -129,6 +129,8 @@ export const validateAnswer = (partialPayload: PostAnswerPartialPayload) => asyn
   const slideId = get('content.ref', progressionState);
   const nextContentRef = get('nextContent.ref', progressionState);
 
+  console.log('action.validateAnswer', {payload, progressionState});
+
   const {isCorrect = false} = progressionState;
 
   const state = getState();

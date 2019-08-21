@@ -62,6 +62,23 @@ export const unselectProgression: SelectAction = {
   }
 };
 
+const fetchData = (
+  dispatch,
+  engine,
+  progressionId,
+  progressionContent,
+  customFetchers: Array<Promise<any>>
+): Promise<any> => {
+  return Promise.all(
+    [
+      dispatch(fetchStartRank()),
+      dispatch(fetchBestProgression(progressionContent, progressionId)),
+      dispatch(fetchEngineConfig(engine)),
+      dispatch(fetchContentInfo(progressionContent, engine))
+    ].concat(customFetchers)
+  );
+};
+
 export const selectProgression = (id: ProgressionId) => async (
   dispatch: Function,
   getState: GetState
@@ -87,7 +104,6 @@ export const selectProgression = (id: ProgressionId) => async (
   const response = await dispatch(fetchProgression(progressionId));
   if (response.error) return response;
 
-  await dispatch(fetchStartRank());
   const progressionContent = getProgressionContent(getState());
 
   if (!progressionContent) {
@@ -105,11 +121,6 @@ export const selectProgression = (id: ProgressionId) => async (
     });
   }
 
-  await dispatch(fetchContent(progressionContent.type, progressionContent.ref));
-  await dispatch(fetchBestProgression(progressionContent, progressionId));
-  await dispatch(fetchEngineConfig(engine));
-  await dispatch(fetchContentInfo(progressionContent, engine));
-
   const nextContent = getStepContent(getState());
 
   if (!nextContent) {
@@ -119,11 +130,16 @@ export const selectProgression = (id: ProgressionId) => async (
     });
   }
 
+  await dispatch(fetchContent(progressionContent.type, progressionContent.ref));
+
   const {ref, type} = nextContent;
 
   switch (type) {
     case 'slide': {
-      await dispatch(fetchSlideChapter(ref));
+      await fetchData(dispatch, engine, progressionId, progressionContent, [
+        dispatch(fetchSlideChapter(ref))
+      ]);
+
       const slideResult = getSlide(ref)(getState());
 
       if (isNil(get('context.title', slideResult))) {
@@ -143,8 +159,10 @@ export const selectProgression = (id: ProgressionId) => async (
             });
           }
 
-          await dispatch(fetchContent(prevContent.type, prevContent.ref));
-          return dispatch(fetchAnswer(progressionId, get('ref', prevContent), []));
+          return fetchData(dispatch, engine, progressionId, progressionContent, [
+            dispatch(fetchContent(prevContent.type, prevContent.ref)),
+            dispatch(fetchAnswer(progressionId, get('ref', prevContent), []))
+          ]);
         }
       }
     }
