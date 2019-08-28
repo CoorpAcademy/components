@@ -156,6 +156,7 @@
 
 .qrcodeWrapper > img {
   height: 240px;
+  width: 240px;
 }
 
 .qrcodeWrapper {
