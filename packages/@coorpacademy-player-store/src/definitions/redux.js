@@ -54,7 +54,9 @@ type Data = {
 };
 
 type Ui = {
-  answers: {[key: string]: Answer},
+  answers: {
+    [key: string]: {value: Answer}
+  },
   coaches: {
     availableCoaches: number
   },
