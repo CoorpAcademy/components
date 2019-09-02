@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
+import pipe from 'lodash/fp/pipe';
+import get from 'lodash/fp/get';
+import extend from 'lodash/fp/extend';
+
 import ResourcePlayer, {TYPE_IMAGE, TYPE_VIDEO, TYPE_PDF} from '../resource-player';
 import style from './style.css';
 
@@ -9,7 +12,7 @@ const Feedback = (props, context) => {
   const resource = media &&
     media.type && {
       ...media,
-      ...getOr({}, 'src.0', media)
+      ...pipe(get('src.0'), extend({description: mediaDescription}))(media)
     };
 
   return (

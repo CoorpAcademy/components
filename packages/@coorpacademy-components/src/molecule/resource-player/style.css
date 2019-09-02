@@ -19,6 +19,7 @@
 
 .pdf {
   composes: video;
+  background-color: transparent;
 }
 
 .overlay {

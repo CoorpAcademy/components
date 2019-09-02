@@ -50,8 +50,9 @@
   width: 341px;
   font-family: 'Open Sans';
   font-size: 12px;
-  margin-top: 4px;
+  padding-top: 4px;
   color: medium;
+  background-color: white;
 }
 
 .feedback .resourcePlayer {
