@@ -1,6 +1,7 @@
 // @flow strict
 
 import get from 'lodash/fp/get';
+import last from 'lodash/fp/last';
 import getOr from 'lodash/fp/getOr';
 import pipe from 'lodash/fp/pipe';
 import any from 'lodash/fp/any';
@@ -122,7 +123,6 @@ export const getCurrentSlide = (state: State): Slide | void => {
   if (!progression || !progression.state) {
     return;
   }
-
   const slideId = progression.state.nextContent.ref;
   return getSlide(slideId)(state);
 };
@@ -237,14 +237,28 @@ export const getPrevStepContent = (state: State): Content | void => {
   return progression.state.content;
 };
 
-export const getCurrentChapterId = (state: State): string | void => {
-  const slide = getCurrentSlide(state);
-
+export const getChapterIdBySlide = (state: State, slideId: string): string | void => {
+  const slide = getSlide(slideId)(state);
   if (!slide) {
     return;
   }
-
   return getChapterId(slide);
+};
+
+export const getCurrentChapterId = (state: State): string | void => {
+  const progression = getCurrentProgression(state);
+  if (!progression || !progression.state || !progression.state.nextContent) {
+    return;
+  }
+  if (progression.state.nextContent.type === 'slide') {
+    return getChapterIdBySlide(state, progression.state.nextContent.ref);
+  } else {
+    if (!progression.state.slides || isEmpty(progression.state.slides)) {
+      return;
+    }
+    const lastSlideId = last(progression.state.slides);
+    return getChapterIdBySlide(state, lastSlideId);
+  }
 };
 
 export const getCurrentChapter = (state: State): Chapter | void => {

@@ -47,17 +47,23 @@ import {
 
 import slideFixture from './slide';
 
-const getStateWithContent = (isConditional, progressionState) => {
-  const slide = {_id: 42, chapter_id: 1337};
-  const nextContent = {ref: 42, type: 'slide'};
-  const progression = {state: {nextContent, ...progressionState}};
-  const chapter = {_id: 1337, isConditional};
+const getStateWithContent = (
+  isConditional,
+  progressionState,
+  nextContent = {ref: '42', type: 'slide'},
+  slides = ['42']
+) => {
+  const nextSlide = {_id: '42', chapter_id: '1337'};
+  const currentSlide = {_id: '41', chapter_id: '1337'};
+  const content = {ref: '41', type: 'slide'};
+  const progression = {state: {nextContent, content, slides, ...progressionState}};
+  const chapter = {_id: '1337', isConditional};
 
   return pipe(
-    set('ui.current.progressionId', 12),
-    set('data.progressions.entities', {12: progression}),
-    set('data.contents.chapter.entities', {1337: chapter}),
-    set('data.contents.slide.entities', {42: slide})
+    set('ui.current.progressionId', '12'),
+    set('data.progressions.entities', {'12': progression}),
+    set('data.contents.chapter.entities', {'1337': chapter}),
+    set('data.contents.slide.entities', {'42': nextSlide, '41': currentSlide})
   )({});
 };
 
@@ -778,15 +784,48 @@ test('getQuestionMedia should return video media from state', t => {
   });
 });
 
-test('isContentAdaptive should return if content is adaptive or not', t => {
+test('isContentAdaptive should return if content is adaptive or not with slide in nextContent', t => {
   t.true(isContentAdaptive(getStateWithContent(true)));
   t.false(isContentAdaptive(getStateWithContent(false)));
+});
+test('isContentAdaptive should return if content is adaptive or not with unknown slide in nextContent', t => {
+  t.false(isContentAdaptive(getStateWithContent(true, {}, {ref: 'unknownSlide', type: 'slide'})));
+  t.false(isContentAdaptive(getStateWithContent(false, {}, {ref: 'unknownSlide', type: 'slide'})));
+});
+test('isContentAdaptive should return if content is adaptive or not with failure exitNode in nextContent', t => {
+  t.true(
+    isContentAdaptive(getStateWithContent(true, {}, {ref: 'failureExitNode', type: 'failure'}))
+  );
+  t.false(
+    isContentAdaptive(getStateWithContent(false, {}, {ref: 'failureExitNode', type: 'failure'}))
+  );
+});
+test('isContentAdaptive should return if content is adaptive or not with success exitNode in nextContent', t => {
+  t.true(
+    isContentAdaptive(getStateWithContent(true, {}, {ref: 'successExitNode', type: 'success'}))
+  );
+  t.false(
+    isContentAdaptive(getStateWithContent(false, {}, {ref: 'successExitNode', type: 'success'}))
+  );
+});
+test('isContentAdaptive should return if content is adaptive or not with extralife node  in nextContent', t => {
+  t.true(isContentAdaptive(getStateWithContent(true, {}, {ref: 'extralife', type: 'node'})));
+  t.false(isContentAdaptive(getStateWithContent(false, {}, {ref: 'extralife', type: 'node'})));
 });
 
 test('isContentAdaptive should return false if no chapterId is found', t => {
   const progressionId = '1234';
   const state = set('ui.current.progressionId', progressionId, {});
   t.is(isContentAdaptive(state), false);
+});
+
+test('isContentAdaptive should return if content is adaptive or not with extralife node  in nextContent and no slideList ', t => {
+  t.false(isContentAdaptive(getStateWithContent(true, {}, {ref: 'extralife', type: 'node'}, null)));
+  t.false(
+    isContentAdaptive(getStateWithContent(false, {}, {ref: 'extralife', type: 'node'}, null))
+  );
+  t.false(isContentAdaptive(getStateWithContent(true, {}, {ref: 'extralife', type: 'node'}, [])));
+  t.false(isContentAdaptive(getStateWithContent(false, {}, {ref: 'extralife', type: 'node'}, [])));
 });
 
 const setViewedResources = (lessonId, chapterId) => state =>

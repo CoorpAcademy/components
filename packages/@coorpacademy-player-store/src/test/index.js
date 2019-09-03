@@ -39,6 +39,7 @@ test('it should expose all api', t => {
     'getNbSlides',
     'getStepContent',
     'getPrevStepContent',
+    'getChapterIdBySlide',
     'getCurrentChapterId',
     'getCurrentChapter',
     'isContentAdaptive',
