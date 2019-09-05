@@ -1,5 +1,5 @@
 import {getCorrectAnswer} from './answers';
-import {findById as findChapterById} from './chapters';
+import {findById as findChapterById, getNextChapter} from './chapters';
 import {getChapterRulesByContent} from './chapter-rules';
 import {getClue} from './clues';
 import {find as findContent} from './content';
@@ -19,6 +19,7 @@ export {
   getClue,
   getCorrectAnswer,
   getExitNode,
+  getNextChapter,
   getNextLevel,
   findChapterById,
   findContent,

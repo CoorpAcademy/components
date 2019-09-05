@@ -24,6 +24,7 @@ const getAll = () => {
 
 const save = progression => {
   progressionStore.set(progression._id, progression);
+  return Promise.resolve(progression);
 };
 
 export {save, getAll, findById};

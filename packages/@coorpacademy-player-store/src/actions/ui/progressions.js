@@ -25,6 +25,7 @@ import {selectRoute} from './route';
 
 /* eslint-disable flowtype/type-id-match */
 type UI_SELECT_PROGRESSION = '@@ui/SELECT_PROGRESSION';
+type UI_SELECT_PROGRESSION_EXTRA_LIFE_DONE = '@@ui/SELECT_PROGRESSION_EXTRA_LIFE_DONE';
 type UI_SELECT_PROGRESSION_FAILURE = '@@ui/SELECT_PROGRESSION_FAILURE';
 type OPEN_ASSISTANCE_REQUEST = '@@progression/OPEN_ASSISTANCE_REQUEST';
 type OPEN_ASSISTANCE_SUCCESS = '@@progression/OPEN_ASSISTANCE_SUCCESS';
@@ -33,12 +34,14 @@ type OPEN_ASSISTANCE_FAILURE = '@@progression/OPEN_ASSISTANCE_FAILURE';
 
 export const UI_PROGRESSION_ACTION_TYPES: {
   SELECT_PROGRESSION: UI_SELECT_PROGRESSION,
+  SELECT_PROGRESSION_EXTRA_LIFE_DONE: UI_SELECT_PROGRESSION_EXTRA_LIFE_DONE,
   SELECT_PROGRESSION_FAILURE: UI_SELECT_PROGRESSION_FAILURE,
   OPEN_ASSISTANCE_REQUEST: OPEN_ASSISTANCE_REQUEST,
   OPEN_ASSISTANCE_SUCCESS: OPEN_ASSISTANCE_SUCCESS,
   OPEN_ASSISTANCE_FAILURE: OPEN_ASSISTANCE_FAILURE
 } = {
   SELECT_PROGRESSION: '@@ui/SELECT_PROGRESSION',
+  SELECT_PROGRESSION_EXTRA_LIFE_DONE: '@@ui/SELECT_PROGRESSION_EXTRA_LIFE_DONE',
   SELECT_PROGRESSION_FAILURE: '@@ui/SELECT_PROGRESSION_FAILURE',
   OPEN_ASSISTANCE_REQUEST: '@@progression/OPEN_ASSISTANCE_REQUEST',
   OPEN_ASSISTANCE_SUCCESS: '@@progression/OPEN_ASSISTANCE_SUCCESS',
@@ -55,6 +58,12 @@ export type SelectAction = {
   payload: SelectProgressionPayload
 };
 
+export type SelectExtraLifeDoneAction = {
+  ...Action,
+  type: UI_SELECT_PROGRESSION_EXTRA_LIFE_DONE,
+  payload: SelectProgressionPayload
+};
+
 export const unselectProgression: SelectAction = {
   type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
   payload: {
@@ -62,22 +71,13 @@ export const unselectProgression: SelectAction = {
   }
 };
 
-const fetchData = (
-  dispatch,
-  engine,
-  progressionId,
-  progressionContent,
-  customFetchers: Array<Promise<any>>
-): Promise<any> => {
-  return Promise.all(
-    [
-      dispatch(fetchStartRank()),
-      dispatch(fetchBestProgression(progressionContent, progressionId)),
-      dispatch(fetchEngineConfig(engine)),
-      dispatch(fetchContentInfo(progressionContent, engine))
-    ].concat(customFetchers)
-  );
-};
+const fetchData = (dispatch, engine, progressionId, progressionContent): Promise<any> =>
+  Promise.all([
+    dispatch(fetchStartRank()),
+    dispatch(fetchBestProgression(progressionContent, progressionId)),
+    dispatch(fetchEngineConfig(engine)),
+    dispatch(fetchContentInfo(progressionContent, engine))
+  ]);
 
 export const selectProgression = (id: ProgressionId) => async (
   dispatch: Function,
@@ -136,7 +136,8 @@ export const selectProgression = (id: ProgressionId) => async (
 
   switch (type) {
     case 'slide': {
-      await fetchData(dispatch, engine, progressionId, progressionContent, [
+      await Promise.all([
+        fetchData(dispatch, engine, progressionId, progressionContent),
         dispatch(fetchSlideChapter(ref))
       ]);
 
@@ -159,10 +160,20 @@ export const selectProgression = (id: ProgressionId) => async (
             });
           }
 
-          return fetchData(dispatch, engine, progressionId, progressionContent, [
+          await Promise.all([
+            fetchData(dispatch, engine, progressionId, progressionContent),
             dispatch(fetchContent(prevContent.type, prevContent.ref)),
             dispatch(fetchAnswer(progressionId, get('ref', prevContent), []))
           ]);
+
+          const selectOnExtraLifeDoneAction: SelectExtraLifeDoneAction = {
+            type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_EXTRA_LIFE_DONE,
+            payload: {
+              id
+            }
+          };
+
+          await dispatch(selectOnExtraLifeDoneAction);
         }
       }
     }

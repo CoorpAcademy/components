@@ -162,10 +162,14 @@ const addActionAndSaveProgression = (
   const newProgression = update('actions', actions => actions.concat(action), progression);
   const newState = createState(newProgression);
   const save = createSave(dataLayer);
+<<<<<<< HEAD
   return pipe(
     set('state', newState),
     save
   )(newProgression);
+=======
+  return pipe(set('state', newState), save)(newProgression);
+>>>>>>> updated fetchdata, fixed sandbox properly
 };
 
 const postAnswer = (dataLayer: DataLayer): PostAnswer => async (
@@ -226,8 +230,7 @@ const postAnswer = (dataLayer: DataLayer): PostAnswer => async (
     };
   }
 
-  const _action = addActionAndSaveProgression(dataLayer)(progression, action);
-  return _action;
+  return addActionAndSaveProgression(dataLayer)(progression, action);
 };
 
 const requestClue = (dataLayer: DataLayer): RequestClue => async (
