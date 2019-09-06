@@ -63,7 +63,7 @@
             "step": {
               "current": 2
             },
-            "isCorrect": false,
+            "isCorrect": true,
             "stars": 10,
             "requestedClues": [],
             "viewedResources": [],

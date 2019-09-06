@@ -222,12 +222,14 @@ const extractFeedback = pipe(
 
 const popinEndStateToProps = (options, store) => state => {
   const progression = getCurrentProgression(state);
-  const isCorrect = get('state.isCorrect')(progression);
 
   const {translate} = options;
   const {dispatch} = store;
 
   const exitNode = getCurrentExitNode(state);
+
+  const canPostAComment =
+    get('type', exitNode) === 'success' && get('engine.ref', progression) === 'learner';
 
   const footer = {
     title: translate('Back to home'),
@@ -241,7 +243,7 @@ const popinEndStateToProps = (options, store) => state => {
       action: extractAction(options, store)(state)(exitNode),
       feedback: extractFeedback(exitNode),
       recommendation: extractRecommendation(options, store)(state),
-      comment: isCorrect ? comment(options, store)(state) : null,
+      comment: canPostAComment ? comment(options, store)(state) : null,
       footer
     }
   };
