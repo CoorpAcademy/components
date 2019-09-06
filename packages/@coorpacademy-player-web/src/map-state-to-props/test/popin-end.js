@@ -24,6 +24,7 @@ import popinLearnerSuccess from './fixtures/popin-end/learner-success';
 import popinLearnerFailure from './fixtures/popin-end/learner-failure';
 import popinLearnerAdaptiveFailure from './fixtures/popin-end/learner-adaptive-failure';
 import popinMicrolearningFailure from './fixtures/popin-end/fail';
+import popinMicrolearningSuccess from './fixtures/popin-end/success';
 
 const services = {
   Comments: {
@@ -126,12 +127,28 @@ test('should write, send, and go see a comment after success on learner progress
   ]);
 });
 
-test('should not see comment section when answer is not correct', t => {
+test('should not see comment section after failure on learner progression', t => {
   const dispatch = createDispatch(popinLearnerFailure);
   const props = popinEnd(options, {dispatch})(popinLearnerFailure);
   t.is(props.summary.comment, null);
   t.is(props.summary.header.subtitle, '__You are out of lives!');
   t.is(props.summary.header.lives, 0);
+});
+
+test('should not see comment section after failure on microlearning progression', t => {
+  const dispatch = createDispatch(popinMicrolearningFailure);
+  const props = popinEnd(options, {
+    dispatch
+  })(popinMicrolearningFailure);
+  t.is(props.summary.comment, null);
+});
+
+test('should not see comment section after success on microlearning progression', t => {
+  const dispatch = createDispatch(popinMicrolearningSuccess);
+  const props = popinEnd(options, {
+    dispatch
+  })(popinMicrolearningSuccess);
+  t.is(props.summary.comment, null);
 });
 
 test("livesDisabled == true ---> should not see lives and 'You are out of lives!' message", t => {

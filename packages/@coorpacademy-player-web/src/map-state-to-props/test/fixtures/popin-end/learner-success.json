@@ -161,7 +161,7 @@
               "ref": "successExitNode",
               "type": "success"
             },
-            "isCorrect": true,
+            "isCorrect": false,
             "slides": [
               "1.B1.4",
               "1.B1.1",
@@ -172,7 +172,7 @@
               "1.B2.4",
               "1.B2.1"
             ],
-            "lives": 3,
+            "lives": 2,
             "step": {
               "current": 9
             },
