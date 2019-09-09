@@ -14,7 +14,7 @@ const MenuList = props => {
   const {menuItems = []} = props;
 
   const MenuitemDiv = menuItems.map((item, index) => {
-    const {title, href, type, subItems, outgoing = false} = item;
+    const {title, href, type, subItems, outgoing = false, onClick} = item;
 
     const subItemsView = !isNil(subItems) && (
       <div className={style.subNav}>
@@ -24,7 +24,7 @@ const MenuList = props => {
 
     return (
       <li key={index} className={type ? buttonStyle[type] : style.item}>
-        <a href={href} target={outgoing ? '_blank' : '_self'}>
+        <a href={href} target={outgoing ? '_blank' : '_self'} onClick={onClick}>
           {title}
         </a>
         {subItemsView}
