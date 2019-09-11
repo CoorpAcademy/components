@@ -1,11 +1,12 @@
+import {JWPLAYER_SCRIPT_URL} from '../../../../util/constants';
+
 export default {
   props: {
     mimeType: 'video/mp4',
     jwpOptions: {
       playerId: '12345',
       file: 'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4',
-      playerScript:
-        'https://s3-eu-west-1.amazonaws.com/static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
+      playerScript: JWPLAYER_SCRIPT_URL,
       licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8=',
       customProps: {
         autostart: false,

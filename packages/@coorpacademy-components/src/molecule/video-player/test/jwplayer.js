@@ -3,6 +3,7 @@ import test from 'ava';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import {JWPLAYER_SCRIPT_URL} from '../../../util/constants';
 import JWPlayer from '../jwplayer';
 
 browserEnv();
@@ -14,8 +15,7 @@ test.serial('should update props and call componentDidUpdate successfully', t =>
     jwpOptions: {
       playerId: '1',
       file: 'https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4',
-      playerScript:
-        'https://s3-eu-west-1.amazonaws.com/static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
+      playerScript: JWPLAYER_SCRIPT_URL,
       licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8='
     }
   };
@@ -35,8 +35,7 @@ test.serial('should do nothing if autoplay is triggered and jwplayer script is n
     jwpOptions: {
       playerId: '2',
       file: 'https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4',
-      playerScript:
-        'https://s3-eu-west-1.amazonaws.com/static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
+      playerScript: JWPLAYER_SCRIPT_URL,
       licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8='
     }
   };
@@ -62,8 +61,7 @@ test('should call handlers within props, then add autoplay props', t => {
     jwpOptions: {
       playerId: '3',
       file: 'https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4',
-      playerScript:
-        'https://s3-eu-west-1.amazonaws.com/static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js',
+      playerScript: JWPLAYER_SCRIPT_URL,
       licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8=',
       customProps: {
         aspectratio: '16:9',
