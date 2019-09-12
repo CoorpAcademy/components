@@ -12,7 +12,7 @@ const appendJWPOptions = prefix => media => {
     const options = {
       playerId,
       file,
-      playerScript: 'https://cdn.jwplayer.com/libraries/7IMa4DCK.js',
+      playerScript: 'https://cdn.jwplayer.com/libraries/2nAPZnzC.js',
       licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8=',
       customProps: {
         aspectratio: '16:9',

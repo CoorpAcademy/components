@@ -81,7 +81,7 @@
         "jwpOptions": {
           "file": "https://content.jwplatform.com/videos/nTXhramY-720.mp4",
           "playerId": "12345",
-          "playerScript": "https://cdn.jwplayer.com/libraries/7IMa4DCK.js",
+          "playerScript": "https://cdn.jwplayer.com/libraries/2nAPZnzC.js",
           "licenseKey": "QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8=",
           "customProps": {
             "tracks": [
@@ -120,7 +120,7 @@
           },
           "licenseKey": "QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8=",
           "playerId": "5980934b7dfebe01618a57df",
-          "playerScript": "https://cdn.jwplayer.com/libraries/7IMa4DCK.js"
+          "playerScript": "https://cdn.jwplayer.com/libraries/2nAPZnzC.js"
         }
       },
       {
