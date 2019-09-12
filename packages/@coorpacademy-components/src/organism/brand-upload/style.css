@@ -15,29 +15,6 @@
   padding: 0;
 }
 
-.back {
-  margin-bottom: 30px;
-}
-
-.arrowBack {
-  width: 15px;
-  height: 15px;
-  margin-top: -2px;
-}
-
-.backDesc {
-  margin-left: 10px;
-  font-family: 'Open Sans';
-  font-size: 15px;
-  font-weight: 700;
-  color: dark;
-  text-decoration: none;
-}
-
-.backDesc:hover {
-  color: brand;
-}
-
 .title {
   margin-bottom: 20px;
 }

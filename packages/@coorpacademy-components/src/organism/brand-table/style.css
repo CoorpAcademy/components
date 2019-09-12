@@ -21,28 +21,9 @@
 .searchWrapper {
   display: flex;
   border: 1px solid light;
-  margin: 0 8px;
+  margin: 0 8px 0 0;
   height: 38px;
   flex: 1;
-}
-
-.create a {
-  display: block;
-  width: 40px;
-  height: 40px;
-  color: white;
-  background-color: lightGreen;
-  text-decoration: none;
-  font-family: 'Open Sans';
-  font-weight: 300;
-  text-align: center;
-  line-height: 40px;
-  font-size: 40px;
-  border-radius: 2px;
-}
-
-.create a:hover {
-  background-color: color(lightGreen lightness(60%));
 }
 
 .loading {

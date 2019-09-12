@@ -4,11 +4,10 @@ import Table from '../../molecule/table';
 import Pagination from '../../molecule/pagination';
 import Search from '../../molecule/search';
 import Loader from '../../atom/loader';
-import Link from '../../atom/link';
 import style from './style.css';
 
 const BrandTable = props => {
-  const {createHref, pagination, search, rows = [], columns = [], isPending, emptyValue} = props;
+  const {pagination, search, rows = [], columns = [], isPending, emptyValue} = props;
 
   const pendingView = (
     <div className={style.loading}>
@@ -26,9 +25,6 @@ const BrandTable = props => {
   return (
     <div className={style.wrapper}>
       <div className={style.headerWrapper}>
-        <div className={style.create}>
-          <Link href={createHref}>+</Link>
-        </div>
         <div className={style.searchWrapper}>
           <Search {...search} />
         </div>
@@ -43,7 +39,6 @@ const BrandTable = props => {
 };
 
 BrandTable.propTypes = {
-  createHref: Link.propTypes.href.isRequired,
   search: PropTypes.shape(Search.propTypes),
   pagination: PropTypes.shape(Pagination.propTypes),
   emptyValue: PropTypes.string.isRequired,

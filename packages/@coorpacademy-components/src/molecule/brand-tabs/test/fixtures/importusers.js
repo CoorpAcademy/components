@@ -14,9 +14,7 @@ export default {
       {
         title: 'SSO',
         href: '#brand/samsung/sso',
-        selected: false,
-        // eslint-disable-next-line no-alert
-        onClick: () => alert('Fear the SSO!')
+        selected: false
       },
       {
         title: 'Manage uesrs',
@@ -26,12 +24,12 @@ export default {
       {
         title: 'Upload users',
         href: '#brand/samsung/import',
-        selected: false
+        selected: true
       },
       {
         title: 'Analytics',
         href: '#brand/samsung/analytics',
-        selected: true
+        selected: false
       },
       {
         title: 'Cohort',

@@ -17,8 +17,13 @@ export default {
         selected: false
       },
       {
-        title: 'Users',
+        title: 'Manage uesrs',
         href: '#brand/samsung/users',
+        selected: false
+      },
+      {
+        title: 'Upload users',
+        href: '#brand/samsung/import',
         selected: false
       },
       {
