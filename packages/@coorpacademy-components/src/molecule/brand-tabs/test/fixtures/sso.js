@@ -17,7 +17,7 @@ export default {
         selected: true
       },
       {
-        title: 'Manage uesrs',
+        title: 'Manage users',
         href: '#brand/samsung/users',
         selected: false
       },
