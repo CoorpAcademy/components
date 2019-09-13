@@ -1,5 +1,5 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import Users from './users';
+import Users from './manageusers';
 
 const {props} = Users;
 

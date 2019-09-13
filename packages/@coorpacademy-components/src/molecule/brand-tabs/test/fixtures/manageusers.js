@@ -14,12 +14,12 @@ export default {
       {
         title: 'SSO',
         href: '#brand/samsung/sso',
-        selected: true
+        selected: false
       },
       {
         title: 'Manage users',
         href: '#brand/samsung/users',
-        selected: false
+        selected: true
       },
       {
         title: 'Upload users',

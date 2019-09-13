@@ -324,9 +324,10 @@ import MoleculeBrandFormGroupFixtureSso from '../src/molecule/brand-form-group/t
 import MoleculeBrandTabsFixtureAnalytics from '../src/molecule/brand-tabs/test/fixtures/analytics';
 import MoleculeBrandTabsFixtureCohort from '../src/molecule/brand-tabs/test/fixtures/cohort';
 import MoleculeBrandTabsFixtureDefault from '../src/molecule/brand-tabs/test/fixtures/default';
+import MoleculeBrandTabsFixtureImportusers from '../src/molecule/brand-tabs/test/fixtures/importusers';
 import MoleculeBrandTabsFixtureLookandfeel from '../src/molecule/brand-tabs/test/fixtures/lookandfeel';
+import MoleculeBrandTabsFixtureManageusers from '../src/molecule/brand-tabs/test/fixtures/manageusers';
 import MoleculeBrandTabsFixtureSso from '../src/molecule/brand-tabs/test/fixtures/sso';
-import MoleculeBrandTabsFixtureUsers from '../src/molecule/brand-tabs/test/fixtures/users';
 import MoleculeBrandUploadBoxFixtureDefault from '../src/molecule/brand-upload-box/test/fixtures/default';
 import MoleculeBrandUploadBoxFixtureLoading from '../src/molecule/brand-upload-box/test/fixtures/loading';
 import MoleculeBrandUploadBoxFixtureSso from '../src/molecule/brand-upload-box/test/fixtures/sso';
@@ -519,8 +520,8 @@ import OrganismBrandFormFixtureDashboard from '../src/organism/brand-form/test/f
 import OrganismBrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import OrganismBrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
 import OrganismBrandFormFixtureLookandfeel from '../src/organism/brand-form/test/fixtures/lookandfeel';
+import OrganismBrandFormFixtureManageusersEdit from '../src/organism/brand-form/test/fixtures/manageusers-edit';
 import OrganismBrandFormFixtureSso from '../src/organism/brand-form/test/fixtures/sso';
-import OrganismBrandFormFixtureUserEdit from '../src/organism/brand-form/test/fixtures/user-edit';
 import OrganismBrandTableFixtureDefault from '../src/organism/brand-table/test/fixtures/default';
 import OrganismBrandTableFixtureEmpty from '../src/organism/brand-table/test/fixtures/empty';
 import OrganismBrandTableFixtureLoading from '../src/organism/brand-table/test/fixtures/loading';
@@ -692,14 +693,14 @@ import TemplateBackOfficeBrandUpdateFixtureLookandfeelModified from '../src/temp
 import TemplateBackOfficeBrandUpdateFixtureLookandfeelPending from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-pending';
 import TemplateBackOfficeBrandUpdateFixtureLookandfeelSuccess from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-success';
 import TemplateBackOfficeBrandUpdateFixtureLookandfeel from '../src/template/back-office/brand-update/test/fixtures/lookandfeel';
+import TemplateBackOfficeBrandUpdateFixtureManageusersEdit from '../src/template/back-office/brand-update/test/fixtures/manageusers-edit';
+import TemplateBackOfficeBrandUpdateFixtureManageusersList from '../src/template/back-office/brand-update/test/fixtures/manageusers-list';
+import TemplateBackOfficeBrandUpdateFixtureManageusers from '../src/template/back-office/brand-update/test/fixtures/manageusers';
 import TemplateBackOfficeBrandUpdateFixtureSsoActivate from '../src/template/back-office/brand-update/test/fixtures/sso-activate';
 import TemplateBackOfficeBrandUpdateFixtureSso from '../src/template/back-office/brand-update/test/fixtures/sso';
-import TemplateBackOfficeBrandUpdateFixtureUsersEdit from '../src/template/back-office/brand-update/test/fixtures/users-edit';
-import TemplateBackOfficeBrandUpdateFixtureUsersImportLoading from '../src/template/back-office/brand-update/test/fixtures/users-import-loading';
-import TemplateBackOfficeBrandUpdateFixtureUsersImportSuccessful from '../src/template/back-office/brand-update/test/fixtures/users-import-successful';
-import TemplateBackOfficeBrandUpdateFixtureUsersImport from '../src/template/back-office/brand-update/test/fixtures/users-import';
-import TemplateBackOfficeBrandUpdateFixtureUsersList from '../src/template/back-office/brand-update/test/fixtures/users-list';
-import TemplateBackOfficeBrandUpdateFixtureUsers from '../src/template/back-office/brand-update/test/fixtures/users';
+import TemplateBackOfficeBrandUpdateFixtureUploadusersLoading from '../src/template/back-office/brand-update/test/fixtures/uploadusers-loading';
+import TemplateBackOfficeBrandUpdateFixtureUploadusersSuccessful from '../src/template/back-office/brand-update/test/fixtures/uploadusers-successful';
+import TemplateBackOfficeBrandUpdateFixtureUploadusers from '../src/template/back-office/brand-update/test/fixtures/uploadusers';
 import TemplateBackOfficeDashboardPreviewFixtureDefault from '../src/template/back-office/dashboard-preview/test/fixtures/default';
 import TemplateBackOfficeDashboardPreviewFixtureError from '../src/template/back-office/dashboard-preview/test/fixtures/error';
 import TemplateBackOfficeDashboardPreviewFixtureLoading from '../src/template/back-office/dashboard-preview/test/fixtures/loading';
@@ -1189,9 +1190,10 @@ export const fixtures = {
       Analytics: MoleculeBrandTabsFixtureAnalytics,
       Cohort: MoleculeBrandTabsFixtureCohort,
       Default: MoleculeBrandTabsFixtureDefault,
+      Importusers: MoleculeBrandTabsFixtureImportusers,
       Lookandfeel: MoleculeBrandTabsFixtureLookandfeel,
-      Sso: MoleculeBrandTabsFixtureSso,
-      Users: MoleculeBrandTabsFixtureUsers
+      Manageusers: MoleculeBrandTabsFixtureManageusers,
+      Sso: MoleculeBrandTabsFixtureSso
     },
     MoleculeBrandUploadBox: {
       Default: MoleculeBrandUploadBoxFixtureDefault,
@@ -1512,8 +1514,8 @@ export const fixtures = {
       Default: OrganismBrandFormFixtureDefault,
       GeneralSettings: OrganismBrandFormFixtureGeneralSettings,
       Lookandfeel: OrganismBrandFormFixtureLookandfeel,
-      Sso: OrganismBrandFormFixtureSso,
-      UserEdit: OrganismBrandFormFixtureUserEdit
+      ManageusersEdit: OrganismBrandFormFixtureManageusersEdit,
+      Sso: OrganismBrandFormFixtureSso
     },
     OrganismBrandTable: {
       Default: OrganismBrandTableFixtureDefault,
@@ -1760,14 +1762,14 @@ export const fixtures = {
       LookandfeelPending: TemplateBackOfficeBrandUpdateFixtureLookandfeelPending,
       LookandfeelSuccess: TemplateBackOfficeBrandUpdateFixtureLookandfeelSuccess,
       Lookandfeel: TemplateBackOfficeBrandUpdateFixtureLookandfeel,
+      ManageusersEdit: TemplateBackOfficeBrandUpdateFixtureManageusersEdit,
+      ManageusersList: TemplateBackOfficeBrandUpdateFixtureManageusersList,
+      Manageusers: TemplateBackOfficeBrandUpdateFixtureManageusers,
       SsoActivate: TemplateBackOfficeBrandUpdateFixtureSsoActivate,
       Sso: TemplateBackOfficeBrandUpdateFixtureSso,
-      UsersEdit: TemplateBackOfficeBrandUpdateFixtureUsersEdit,
-      UsersImportLoading: TemplateBackOfficeBrandUpdateFixtureUsersImportLoading,
-      UsersImportSuccessful: TemplateBackOfficeBrandUpdateFixtureUsersImportSuccessful,
-      UsersImport: TemplateBackOfficeBrandUpdateFixtureUsersImport,
-      UsersList: TemplateBackOfficeBrandUpdateFixtureUsersList,
-      Users: TemplateBackOfficeBrandUpdateFixtureUsers
+      UploadusersLoading: TemplateBackOfficeBrandUpdateFixtureUploadusersLoading,
+      UploadusersSuccessful: TemplateBackOfficeBrandUpdateFixtureUploadusersSuccessful,
+      Uploadusers: TemplateBackOfficeBrandUpdateFixtureUploadusers
     },
     TemplateBackOfficeDashboardPreview: {
       Default: TemplateBackOfficeDashboardPreviewFixtureDefault,

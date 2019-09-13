@@ -1,6 +1,6 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import UserEdit from '../../../../../organism/brand-form/test/fixtures/user-edit';
-import Users from './users';
+import UserEdit from '../../../../../organism/brand-form/test/fixtures/manageusers-edit';
+import Users from './manageusers';
 
 const {props} = Users;
 const content = UserEdit.props;

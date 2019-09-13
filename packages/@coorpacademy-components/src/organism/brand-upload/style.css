@@ -3,6 +3,7 @@
 @value orangeAdd from colors;
 @value lightGreen from colors;
 @value dark from colors;
+@value white from colors;
 @value brand from colors;
 @value positive from colors;
 
@@ -13,29 +14,6 @@
 .notifications {
   margin: 20px 0 0;
   padding: 0;
-}
-
-.back {
-  margin-bottom: 30px;
-}
-
-.arrowBack {
-  width: 15px;
-  height: 15px;
-  margin-top: -2px;
-}
-
-.backDesc {
-  margin-left: 10px;
-  font-family: 'Open Sans';
-  font-size: 15px;
-  font-weight: 700;
-  color: dark;
-  text-decoration: none;
-}
-
-.backDesc:hover {
-  color: brand;
 }
 
 .title {
@@ -67,7 +45,7 @@
   font-family: 'Open Sans';
   font-size: 12px;
   font-weight: 400;
-  color: dark;
+  color: white;
 }
 
 .error {

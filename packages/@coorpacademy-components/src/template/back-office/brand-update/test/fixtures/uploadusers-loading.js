@@ -1,6 +1,6 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
-import BrandUpload from '../../../../../organism/brand-upload/test/fixtures/default';
-import Users from './users';
+import BrandUploadLoading from '../../../../../organism/brand-upload/test/fixtures/loading';
+import Users from './uploadusers';
 
 const {props} = Users;
 
@@ -8,7 +8,7 @@ export default {
   props: defaultsDeep(props, {
     content: {
       type: 'upload',
-      ...BrandUpload.props
+      ...BrandUploadLoading.props
     }
   })
 };
