@@ -47,8 +47,7 @@
         "ref": "88546729",
         "description": "video kontiki",
         "mimeType": "application/kontiki",
-        "url":
-          "https://schneider-electric.mc.eu1.kontiki.com/global/player?moid=3be700ca-9a15-4c43-bb90-45eae470c55d&repeat=false&client=false&context=embed&overlay=false&name=false&description=false&created_by=false",
+        "url": "https://schneider-electric.mc.eu1.kontiki.com/global/player?moid=3be700ca-9a15-4c43-bb90-45eae470c55d&repeat=false&client=false&context=embed&overlay=false&name=false&description=false&created_by=false",
         "videoId": "3be700ca-9a15-4c43-bb90-45eae470c55d",
         "poster": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/schneider-electric/en/medias/img/poster/vlcsnap-2015-08-18-19h41m19s916-1439919822187.png&h=250&w=250&q=90",
         "posters": [],
@@ -82,7 +81,7 @@
         "jwpOptions": {
           "file": "https://content.jwplatform.com/videos/nTXhramY-720.mp4",
           "playerId": "12345",
-          "playerScript": "https://s3-eu-west-1.amazonaws.com/static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js",
+          "playerScript": "https://cdn.jwplayer.com/libraries/2nAPZnzC.js",
           "licenseKey": "QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8=",
           "customProps": {
             "tracks": [
@@ -121,8 +120,7 @@
           },
           "licenseKey": "QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8=",
           "playerId": "5980934b7dfebe01618a57df",
-          "playerScript":
-          "https://s3-eu-west-1.amazonaws.com/static.coorpacademy.com/JwPlayer/8.6.3/jwplayer.js"
+          "playerScript": "https://cdn.jwplayer.com/libraries/2nAPZnzC.js"
         }
       },
       {
