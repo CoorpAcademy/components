@@ -3,12 +3,12 @@ import map from 'lodash/fp/map';
 import set from 'lodash/fp/set';
 import {createRouter} from '..';
 
-test('should return view funciton with params', t => {
+test('should return view function with params', t => {
   t.plan(1);
 
   // const options = {};
 
-  const route = set('pathname', '/', {});
+  const route = set('route.pathname', '/', {});
   // const dispatch = () => {};
   const view = () => 'I am a view';
 
@@ -29,7 +29,7 @@ test('should return view funciton with params', t => {
 test('should support function as path', t => {
   t.plan(1);
 
-  const route = set('pathname', '/foo', {});
+  const route = set('route.pathname', '/foo', {});
   const path = () => ({0: '/'});
   const view = () => true;
 
@@ -50,7 +50,7 @@ test('should support function as path', t => {
 test("should extract url's params", t => {
   t.plan(1);
 
-  const route = set('pathname', '/foo', {});
+  const route = set('route.pathname', '/foo', {});
   const view = () => true;
 
   const router = createRouter([
@@ -89,10 +89,70 @@ test("should respect route's order", t => {
   ]);
 
   return Promise.all(
-    map(([pathname, res]) => t.deepEqual(router({pathname}), res), [
+    map(([pathname, res]) => t.deepEqual(router({route: {pathname}}), res), [
       ['/foo/bar', {view: view1, params: {foo: 'foo', bar: 'bar'}}],
       ['/foo', {view: view2, params: {foo: 'foo'}}],
       ['/', {view: view3, params: {0: '/'}}]
+    ])
+  );
+});
+
+test('should ignore the route if its predicate returns false', t => {
+  const view1 = () => true;
+  const view2 = () => true;
+  const view3 = () => true;
+
+  const router = createRouter([
+    {
+      path: '/admin',
+      match: (_, state) => state.role === 'admin',
+      // eslint-disable-next-line no-shadow
+      view: view1
+    },
+    {
+      path: '*',
+      match: (_, state) => state.role === 'admin',
+      // eslint-disable-next-line no-shadow
+      view: view2
+    },
+    {
+      path: '*',
+      match: (_, state) => state.role !== 'admin',
+      // eslint-disable-next-line no-shadow
+      view: view3
+    }
+  ]);
+
+  return Promise.all(
+    map(([state, res]) => t.deepEqual(router(state), res), [
+      [
+        {
+          route: {pathname: '/admin'},
+          role: 'admin'
+        },
+        {view: view1, params: {}}
+      ],
+      [
+        {
+          route: {pathname: '/admin'},
+          role: 'user'
+        },
+        {view: view3, params: {0: '/admin'}}
+      ],
+      [
+        {
+          route: {pathname: '/'},
+          role: 'admin'
+        },
+        {view: view2, params: {0: '/'}}
+      ],
+      [
+        {
+          route: {pathname: '/'},
+          role: 'user'
+        },
+        {view: view3, params: {0: '/'}}
+      ]
     ])
   );
 });
