@@ -46,7 +46,10 @@ test(
 test(
   'should prevent request if recommendations are already fetched',
   macro,
-  pipe(initState, set('data.recommendations.entities.foo', 'bar'))({}),
+  pipe(
+    initState,
+    set('data.recommendations.entities.foo', 'bar')
+  )({}),
   t => ({
     Recommendations: {
       find: (type, ref) => {

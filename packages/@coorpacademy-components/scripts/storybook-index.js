@@ -36,7 +36,11 @@ const readComponentExports$ = cwd =>
     concatMap(
       pipe(
         mapValuesWithKey((titles, type) => {
-          return pipe(keys, join(',\n    '), s => `${type}: {\n    ${s}\n  }`)(titles);
+          return pipe(
+            keys,
+            join(',\n    '),
+            s => `${type}: {\n    ${s}\n  }`
+          )(titles);
         }),
         values,
         join(',\n  '),

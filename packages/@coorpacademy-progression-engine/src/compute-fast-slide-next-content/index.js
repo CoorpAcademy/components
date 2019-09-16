@@ -21,7 +21,7 @@ const getFastSlideExitNode = (
       };
   const starsMax = pipe(
     // $FlowFixMe
-    map(pipe(get('slides'), size, s => min([s, slidesToComplete]))),
+    map(pipe([get('slides'), size, s => min([s, slidesToComplete])])),
     // $FlowFixMe
     sum,
     multiply(starsPerCorrectAnswer)

@@ -79,7 +79,10 @@ export const nextSlidePool = (
       temporaryNextContent: {type: 'slide', ref: ''}
     };
   }
-  const lastSlideRef = pipe(get('slides'), last)(state);
+  const lastSlideRef = pipe(
+    get('slides'),
+    last
+  )(state);
   const _currentIndex: number = findIndex(
     ({slides}: ChapterContent): boolean => !!find({_id: lastSlideRef}, slides),
     availableContent
@@ -87,7 +90,10 @@ export const nextSlidePool = (
   const currentIndex = _currentIndex !== -1 ? _currentIndex : 0;
   const currentChapterPool: ChapterContent | null = availableContent[currentIndex] || null;
 
-  const currentChapterSlideIds = pipe(get('slides'), map('_id'))(currentChapterPool || []);
+  const currentChapterSlideIds = pipe(
+    get('slides'),
+    map('_id')
+  )(currentChapterPool || []);
   const slidesAnsweredForThisChapter = intersection(state.slides, currentChapterSlideIds);
   const isChapterCompleted =
     size(slidesAnsweredForThisChapter) >=
@@ -120,7 +126,10 @@ const _getChapterContent = (
   availableContent: AvailableContent,
   state: State | null
 ): ChapterContentSelection => {
-  const firstContent = pipe(filter(content => !isEmpty(content.slides)), head)(availableContent);
+  const firstContent = pipe(
+    filter(content => !isEmpty(content.slides)),
+    head
+  )(availableContent);
   if (!state) {
     return {
       currentChapterContent: firstContent,
@@ -143,11 +152,15 @@ const getChapterContent = (
   return res;
 };
 
-const sortByPosition = sortBy(
-  (slide: Slide) => (typeof slide.position === 'number' ? -slide.position : 0)
+const sortByPosition = sortBy((slide: Slide) =>
+  typeof slide.position === 'number' ? -slide.position : 0
 );
 
-const pickNextSlide = pipe(shuffle, sortByPosition, head);
+const pickNextSlide = pipe(
+  shuffle,
+  sortByPosition,
+  head
+);
 
 const isTargetingIsCorrect = (condition: Condition): boolean =>
   condition.target.scope === 'slide' && condition.target.field === 'isCorrect';
@@ -169,7 +182,10 @@ const computeNextSlide = (
   state: State | null
 ): Content => {
   const remainingSlides = filter(
-    pipe(get('_id'), (slideId: string) => !state || !includes(slideId, state.slides)),
+    pipe(
+      get('_id'),
+      (slideId: string) => !state || !includes(slideId, state.slides)
+    ),
     chapterContent.slides
   );
   return {

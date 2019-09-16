@@ -10,7 +10,10 @@ import levelsData from './data/levels';
 
 const mayBy = key =>
   // $FlowFixMe (typing postponed for this section)
-  pipe(values, reduce((map, object) => map.set(get(key, object), object), new Map()));
+  pipe(
+    values,
+    reduce((map, object) => map.set(get(key, object), object), new Map())
+  );
 
 const toMapByRef = mayBy('ref');
 

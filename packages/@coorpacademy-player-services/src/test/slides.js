@@ -11,7 +11,10 @@ const Slides = createSlidesService(fixtures);
 const {findById} = Slides;
 
 test('should findById', async t => {
-  const slide = pipe(values, head)(slidesData);
+  const slide = pipe(
+    values,
+    head
+  )(slidesData);
   t.deepEqual(await findById(slide._id), slide);
 });
 

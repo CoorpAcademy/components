@@ -11,7 +11,10 @@ import card6 from '../../../../molecule/card/test/fixtures/freerun-and-disabled'
 import card7 from '../../../../molecule/card/test/fixtures/adaptiv-and-disabled';
 
 const list = [card1.props, card3.props, card4.props, card5.props, card6.props, card7.props].map(
-  pipe(update('key', () => uniqueId()), set('view', 'list'))
+  pipe(
+    update('key', () => uniqueId()),
+    set('view', 'list')
+  )
 );
 
 export default {

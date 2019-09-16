@@ -1,6 +1,6 @@
 module.exports = {
   include: ['src/**'],
-  reporter: ['lcov', 'text-summary'],
+  reporter: ['lcov', 'text'],
   exclude: ['**/test/', '**/es/', '**/lib/'],
   'check-coverage': true,
   lines: 100,

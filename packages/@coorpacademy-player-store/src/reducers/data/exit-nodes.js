@@ -25,7 +25,13 @@ const dataExitNodesReducer = (state = {entities: {}}, action) => {
     case EXIT_NODE_FETCH_FAILURE: {
       const {meta} = action;
       const {id} = meta;
-      if (pipe(get(['entities', id]), isNull)(state)) return unset(['entities', id], state);
+      if (
+        pipe(
+          get(['entities', id]),
+          isNull
+        )(state)
+      )
+        return unset(['entities', id], state);
       return state;
     }
     default:

@@ -161,7 +161,11 @@ ContextMedia.propTypes = {
 };
 
 const ContextContent = ({slideContext}) => {
-  const descriptionParagraphs = pipe(getOr('', 'description'), split('\n'), compact)(slideContext);
+  const descriptionParagraphs = pipe(
+    getOr('', 'description'),
+    split('\n'),
+    compact
+  )(slideContext);
   const paragraphs = descriptionParagraphs.map((paragraph, index) => (
     <p
       key={index}
@@ -203,7 +207,7 @@ const Bar = ({total, color, current}) => {
     return null;
   }
 
-  const stepWidth = _current / total * 100;
+  const stepWidth = (_current / total) * 100;
 
   return (
     <div
