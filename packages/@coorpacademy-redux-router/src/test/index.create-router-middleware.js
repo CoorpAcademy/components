@@ -63,6 +63,24 @@ test("should extract url's params", t => {
   })(action => t.is(locationAction, action))(locationAction);
 });
 
+test('should no matched route', t => {
+  t.plan(1);
+
+  const routerMiddleware = createRouterMiddleware([
+    {
+      path: '/foo',
+      action: params => params
+    }
+  ]);
+
+  const locationAction = createLocation('/bar');
+
+  return routerMiddleware({
+    getState: () => ({route: {pathname: '/'}}),
+    dispatch: () => t.fail()
+  })(action => t.is(locationAction, action))(locationAction);
+});
+
 test("shouldn't dispatch action", t => {
   t.plan(1);
 

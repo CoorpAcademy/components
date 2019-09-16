@@ -6,7 +6,7 @@ import path from 'path';
 import fs from 'fs';
 
 import chalk from 'chalk';
-import globby from 'globby';
+import glob from 'glob';
 import svgr from '@svgr/core';
 import mkdirp from 'mkdirp-promise';
 
@@ -59,17 +59,19 @@ const findElementAndReplaceAttributes = (
 ): JSXElement => {
   let newAttributes;
   if (attributes) {
-    newAttributes = attributes.map((attribute: JSXAttribute): JSXAttribute => {
-      if (isFillAttribute(attribute) || isStrokeAttribute(attribute)) {
-        return {
-          ...attribute,
-          value: native
-            ? replaceWithPropValue(types, 'props.color')
-            : replaceWithCurrentColor(types)
-        };
+    newAttributes = attributes.map(
+      (attribute: JSXAttribute): JSXAttribute => {
+        if (isFillAttribute(attribute) || isStrokeAttribute(attribute)) {
+          return {
+            ...attribute,
+            value: native
+              ? replaceWithPropValue(types, 'props.color')
+              : replaceWithCurrentColor(types)
+          };
+        }
+        return attribute;
       }
-      return attribute;
-    });
+    );
   }
 
   return {
@@ -124,13 +126,15 @@ const generateComponent = (
   const outputPath = path.join(componentsPath, extendedFileName);
 
   svgr(fileContent, options)
-    .then(async (jsCode): Promise<string> => {
-      await mkdirp(path.dirname(outputPath));
-      fs.writeFileSync(outputPath, jsCode);
+    .then(
+      async (jsCode): Promise<string> => {
+        await mkdirp(path.dirname(outputPath));
+        fs.writeFileSync(outputPath, jsCode);
 
-      console.log(`- ${chalk.green(extendedFileName)}`);
-      return outputPath;
-    })
+        console.log(`- ${chalk.green(extendedFileName)}`);
+        return outputPath;
+      }
+    )
     .catch(e => console.log(`- ${chalk.red(extendedFileName)}\n`, e));
 
   return extendedFileName;
@@ -151,70 +155,83 @@ type OutputFile = {|
   path: string
 |};
 
-const files: Array<OutputFile> = globby
+const files: Array<OutputFile> = glob
   .sync('**/*.iconjar', {
     cwd: iconsPath,
-    absolute: true,
-    onlyFiles: false
+    absolute: true
   })
   .sort()
-  .map((file): IconJar => {
-    const fileName = file.split(/[\\/]/).pop();
+  .map(
+    (file): IconJar => {
+      console.log(file);
+      const fileName = file.split(/[\\/]/).pop();
 
-    return {
-      fileName,
-      meta: parseMeta(fileName)
-    };
-  })
-  .map(({fileName: iconJarFileName, meta: {sets, groups, items}}): Array<string> => {
-    console.log(chalk.underline('Iconjar:'), iconJarFileName);
+      return {
+        fileName,
+        meta: parseMeta(fileName)
+      };
+    }
+  )
+  .map(
+    ({fileName: iconJarFileName, meta: {sets, groups, items}}): Array<string> => {
+      console.log(chalk.underline('Iconjar:'), iconJarFileName);
 
-    // $FlowFixMe Object.values() returns mixed
-    const itemArray: Array<IconSetGroupItem> = Object.values(items);
-    // $FlowFixMe Object.values() returns mixed
-    const setArray: Array<Set> = Object.values(sets);
+      // $FlowFixMe Object.values() returns mixed
+      const itemArray: Array<IconSetGroupItem> = Object.values(items);
+      // $FlowFixMe Object.values() returns mixed
+      const setArray: Array<Set> = Object.values(sets);
 
-    return setArray
-      .map(({name: setName, identifier: setIdentifier}): Array<string> => {
-        const itemArrayFiltered = itemArray
-          .filter(item => item.parent === setIdentifier)
-          .map(item => ({
-            item,
-            filePath: getSVGFilePath(iconJarFileName, item.file)
-          }))
-          .filter(({filePath}) => findIcon(filePath))
-          .map(({item, filePath}): {
-            item: IconSetGroupItem,
-            filePath: string,
-            replaceColors?: boolean
-          } => {
-            const {replaceColors} = findIcon(filePath) || {};
-            return {
-              item,
-              filePath,
-              replaceColors
-            };
-          });
+      return setArray
+        .map(
+          ({name: setName, identifier: setIdentifier}): Array<string> => {
+            const itemArrayFiltered = itemArray
+              .filter(item => item.parent === setIdentifier)
+              .map(item => ({
+                item,
+                filePath: getSVGFilePath(iconJarFileName, item.file)
+              }))
+              .filter(({filePath}) => findIcon(filePath))
+              .map(
+                ({
+                  item,
+                  filePath
+                }): {
+                  item: IconSetGroupItem,
+                  filePath: string,
+                  replaceColors?: boolean
+                } => {
+                  const {replaceColors} = findIcon(filePath) || {};
+                  return {
+                    item,
+                    filePath,
+                    replaceColors
+                  };
+                }
+              );
 
-        return itemArrayFiltered
-          .map(({item, filePath, replaceColors}): Array<string> => {
-            const content = fs.readFileSync(filePath);
-            // $FlowFixMe path.join() is defined
-            const outputFileName = path.join(
-              formatKebabCase(iconJarFileName.replace('.iconjar', '')),
-              formatKebabCase(setName, true),
-              formatKebabCase(item.file)
-            );
+            return itemArrayFiltered
+              .map(
+                ({item, filePath, replaceColors}): Array<string> => {
+                  const content = fs.readFileSync(filePath);
+                  // $FlowFixMe path.join() is defined
+                  const outputFileName = path.join(
+                    formatKebabCase(iconJarFileName.replace('.iconjar', '')),
+                    formatKebabCase(setName, true),
+                    formatKebabCase(item.file)
+                  );
 
-            return [
-              generateComponent(content, outputFileName, replaceColors),
-              generateComponent(content, outputFileName, replaceColors, true)
-            ];
-          })
-          .reduce((result, outputFileNames) => result.concat(outputFileNames), []);
-      })
-      .reduce((result, outputFileNames) => result.concat(outputFileNames), []);
-  })
+                  return [
+                    generateComponent(content, outputFileName, replaceColors),
+                    generateComponent(content, outputFileName, replaceColors, true)
+                  ];
+                }
+              )
+              .reduce((result, outputFileNames) => result.concat(outputFileNames), []);
+          }
+        )
+        .reduce((result, outputFileNames) => result.concat(outputFileNames), []);
+    }
+  )
   .reduce((result, outputFileNames) => result.concat(outputFileNames), [])
   .filter(outputFileName => !outputFileName.includes('.native'))
   .map(outputFileName => ({

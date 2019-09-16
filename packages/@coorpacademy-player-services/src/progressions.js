@@ -166,7 +166,10 @@ const addActionAndSaveProgression = (
   const newProgression = update('actions', actions => actions.concat(action), progression);
   const newState = createState(newProgression);
   const save = createSave(dataLayer);
-  return pipe(set('state', newState), save)(newProgression);
+  return pipe(
+    set('state', newState),
+    save
+  )(newProgression);
 };
 
 const postAnswer = (dataLayer: DataLayer): PostAnswer => async (

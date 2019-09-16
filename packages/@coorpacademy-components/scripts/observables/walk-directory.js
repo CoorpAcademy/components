@@ -8,7 +8,10 @@ const isDirectoryP = file => statP(file).then(stat => stat.isDirectory());
 
 const walkDirectory$ = cwd => {
   const entries$ = readDirectory$(cwd);
-  const isDirectory$ = entries$.pipe(map(isDirectoryP), concatMap(p => from(p)));
+  const isDirectory$ = entries$.pipe(
+    map(isDirectoryP),
+    concatMap(p => from(p))
+  );
 
   const partitions = zip(entries$, isDirectory$).pipe(
     map(([file, isDirectory]) => ({

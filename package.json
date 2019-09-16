@@ -14,7 +14,7 @@
     "postinstall": "npm run preflow"
   },
   "engines": {
-    "node": "^8.15.1",
+    "node": "^8.16.1",
     "npm": "^6.4.1",
     "yarn": "^1.12.3"
   },
@@ -22,11 +22,11 @@
     "packages/*"
   ],
   "dependencies": {
-    "@coorpacademy/eslint-plugin-coorpacademy": "^8.3.0",
-    "codecov": "^3.1.0",
+    "@coorpacademy/eslint-plugin-coorpacademy": "^8.3.1",
+    "codecov": "^3.5.0",
     "estraverse-fb": "1.3.2",
-    "lerna": "^3.4.3",
+    "lerna": "^3.16.4",
     "mkdirp": "^0.5.1",
-    "rimraf": "^2.6.2"
+    "rimraf": "^3.0.0"
   }
 }

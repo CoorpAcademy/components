@@ -11,8 +11,8 @@ require('angular/angular');
 global.angular = global.window.angular;
 
 global.window.mocha = {};
-global.window.beforeEach = test.beforeEach;
-global.window.afterEach = test.afterEach;
+global.window.beforeEach = hook => test.beforeEach(t => hook.call(t.context));
+global.window.afterEach = hook => test.afterEach(t => hook.call(t.context));
 require('angular-mocks');
 
 test.beforeEach(t => {
@@ -22,7 +22,6 @@ test.beforeEach(t => {
 const macro = (t, {components, template, provider, data}, expected) => {
   createDirectives(t.context.app, provider, components);
   angular.mock.module('myApp');
-
   angular.mock.inject(($compile, $rootScope) => {
     const scope = $rootScope.$new();
     const element = $compile(template)(scope);
@@ -32,7 +31,7 @@ const macro = (t, {components, template, provider, data}, expected) => {
   });
 };
 
-test(
+test.serial(
   'should attach directive',
   macro,
   {
@@ -44,7 +43,7 @@ test(
   '<h1></h1>'
 );
 
-test(
+test.serial(
   'should wrap component with provider element',
   macro,
   {
@@ -57,7 +56,7 @@ test(
   '<strong><h1></h1></strong>'
 );
 
-test(
+test.serial(
   'should pass props',
   macro,
   {
@@ -72,7 +71,7 @@ test(
   '<h1>foo</h1>'
 );
 
-test(
+test.serial(
   'should extract provider props from context',
   macro,
   {

@@ -6,7 +6,10 @@ import values from 'lodash/fp/values';
 import chaptersData from './data/chapters';
 
 const mayBy = key =>
-  pipe(values, reduce((map, object) => map.set(get(key, object), object), new Map()));
+  pipe(
+    values,
+    reduce((map, object) => map.set(get(key, object), object), new Map())
+  );
 
 const toMapById = mayBy('_id');
 const chapters = toMapById(chaptersData);

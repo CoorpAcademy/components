@@ -33,7 +33,11 @@ const separator = index => (
 
 const joinBySeparator = elements => {
   const separators = times(separator, elements.length - 1);
-  return pipe(zip, flatten, compact)(elements, separators);
+  return pipe(
+    zip,
+    flatten,
+    compact
+  )(elements, separators);
 };
 
 const AnswersCorrection = ({corrections}) => {
@@ -79,7 +83,14 @@ const Rank = ({failed, rank, animated, onAnimationEnd}, {skin}) => {
         </Transition>
         <span className={style.iconText}>
           <Animation name="counter" bezier={EASE_OUT_CUBIC} duration={1000}>
-            {progress => pipe(_parseInt(10), multiply(progress), round, formatPlusSign)(rank)}
+            {progress =>
+              pipe(
+                _parseInt(10),
+                multiply(progress),
+                round,
+                formatPlusSign
+              )(rank)
+            }
           </Animation>
         </span>
       </div>
@@ -112,7 +123,14 @@ const Stars = ({failed, stars, animated, onAnimationEnd}, {skin}) => {
         </Transition>
         <span data-name="iconText" className={style.iconText}>
           <Animation name="counter" bezier={EASE_OUT_CUBIC} duration={1000}>
-            {progress => pipe(_parseInt(10), multiply(progress), round, formatPlusSign)(stars)}
+            {progress =>
+              pipe(
+                _parseInt(10),
+                multiply(progress),
+                round,
+                formatPlusSign
+              )(stars)
+            }
           </Animation>
         </span>
       </div>

@@ -287,7 +287,10 @@ DispatchedAction => {
       PROGRESSION_FETCH_BESTOF_FAILURE
     ],
     task: () => Progressions.findBestOf(engine.ref, type, ref, progressionId),
-    bailout: pipe(getBestScore, score => score !== undefined && score >= 0),
+    bailout: pipe(
+      getBestScore,
+      score => score !== undefined && score >= 0
+    ),
     meta: {type, ref}
   });
 

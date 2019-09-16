@@ -11,7 +11,10 @@ import {createStateToVNode, views} from './views';
 const createUpdate = (container, store, options) => _selectMapStateToVNode => {
   const {getState} = store;
   const mapStateToVNode = _selectMapStateToVNode(options, store, views, createStateToVNode);
-  const mapStateToView = pipe(mapStateToVNode, vNode => createElement(Provider, options, vNode));
+  const mapStateToView = pipe(
+    mapStateToVNode,
+    vNode => createElement(Provider, options, vNode)
+  );
 
   return () => {
     const state = getState();

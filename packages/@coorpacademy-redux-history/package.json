@@ -10,9 +10,11 @@
     "README.md"
   ],
   "scripts": {
-    "test": "npm run lint",
+    "ava": "ava",
+    "nyc": "nyc npm run ava",
+    "test": "npm run lint && npm run nyc",
     "lint": "npm run eslint",
-    "eslint": "eslint ./ *.js *.json --ext .js,.json",
+    "eslint": "eslint ./ *.js *.json --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\"",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
     "build": "npm run build:commonjs && npm run build:es",
@@ -31,19 +33,22 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "@coorpacademy/history": "5.3.16",
-    "babel-plugin-istanbul": "^4.1.4",
-    "cross-env": "^5.0.0",
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.6.0",
+    "@babel/register": "^7.6.0",
+    "@coorpacademy/history": "6.0.1",
+    "ava": "^2.4.0",
+    "babel-plugin-istanbul": "^5.2.0",
+    "cross-env": "^5.2.1",
     "eslint": "^4.18.2",
-    "redux": "^4.0.0",
-    "rimraf": "^2.6.1"
+    "nyc": "^14.1.1",
+    "redux": "^4.0.4",
+    "rimraf": "^3.0.0"
   },
   "author": "CoorpAcademy"
 }

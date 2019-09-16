@@ -73,7 +73,10 @@ test(
 test(
   'should dispatch failure if no slide is found',
   macro,
-  pipe(initState, set('data.contents.slide.entities', {}))({}),
+  pipe(
+    initState,
+    set('data.contents.slide.entities', {})
+  )({}),
   t => ({}),
   markResourceAsViewed('foo', resource),
   [

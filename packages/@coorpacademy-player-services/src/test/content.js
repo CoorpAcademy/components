@@ -13,7 +13,10 @@ import * as fixtures from './fixtures';
 
 const {find, getInfo} = createContentService(fixtures);
 
-const first = pipe(values, head);
+const first = pipe(
+  values,
+  head
+);
 
 test('should throw error if content type is unknown', t => {
   return t.throwsAsync(() => find('unknown', 'foo'));
@@ -64,7 +67,10 @@ test('should count slides for chapter', async t => {
   const version = 1;
   const info = await getInfo('5.C8', engineRef, version);
 
-  const maxNbSlides = pipe(getConfig, get('slidesToComplete'))({
+  const maxNbSlides = pipe(
+    getConfig,
+    get('slidesToComplete')
+  )({
     ref: engineRef,
     version
   });

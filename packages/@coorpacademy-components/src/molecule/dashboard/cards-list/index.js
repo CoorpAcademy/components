@@ -51,7 +51,7 @@ const IconView = (props, context) => {
 
   return (
     <div>
-      <IconType color={dark} className={style.icon} {...contentType} />
+      <IconType color={dark} className={style.icon} data-contenttype={contentType} />
     </div>
   );
 };

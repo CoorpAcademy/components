@@ -45,7 +45,10 @@ test(
 test(
   'should prevent request if clue has already requested',
   macro,
-  pipe(initState, set('data.progressions.entities.foo.state.requestedClues', ['bar']))({}),
+  pipe(
+    initState,
+    set('data.progressions.entities.foo.state.requestedClues', ['bar'])
+  )({}),
   t => ({
     Progressions: {
       requestClue: (id, payload) => {

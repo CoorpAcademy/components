@@ -26,7 +26,12 @@ const dataContentReducer = (state = {entities: {}}, action) => {
     case VIDEOS_FETCH_URI_FAILURE: {
       const {meta} = action;
       const {id} = meta;
-      if (pipe(get(['entities', id]), isNull)(state)) {
+      if (
+        pipe(
+          get(['entities', id]),
+          isNull
+        )(state)
+      ) {
         return unset(['entities', id], state);
       }
       return state;

@@ -108,7 +108,10 @@ class Range extends React.Component {
   handleClick(e) {
     e.stopPropagation();
     e.preventDefault();
-    const {value: [left, right], multi} = this.state;
+    const {
+      value: [left, right],
+      multi
+    } = this.state;
     const x = e.clientX;
     const newValue = valueOnTrack(this.track, x);
 
@@ -124,7 +127,11 @@ class Range extends React.Component {
   }
 
   renderHandles() {
-    const {value: [left, right], multi, pending} = this.state;
+    const {
+      value: [left, right],
+      multi,
+      pending
+    } = this.state;
 
     return (
       <div>
@@ -150,7 +157,10 @@ class Range extends React.Component {
     const {skin} = this.context;
     const defaultColor = getOr('#00B0FF', 'common.primary', skin);
 
-    const {value: [left, right], pending} = this.state;
+    const {
+      value: [left, right],
+      pending
+    } = this.state;
     const railWidth = right - left;
     const railLeft = left;
     const railStyle = {

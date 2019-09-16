@@ -23,7 +23,10 @@ test(
 test(
   'should toggle route',
   macro,
-  pipe(set('ui.current.progressionId', 'foo'), set('ui.route.foo', 'clue'))({}),
+  pipe(
+    set('ui.current.progressionId', 'foo'),
+    set('ui.route.foo', 'clue')
+  )({}),
   t => ({}),
   selectRoute('clue'),
   [

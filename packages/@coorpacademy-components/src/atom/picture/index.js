@@ -17,9 +17,12 @@ const toSrcSet = ({src}) => {
   return pipe(
     set(
       'srcSet',
-      pipe(toPairs, filter(([key, url]) => url), map(([key, url]) => `${url} ${key}`), join(','))(
-        src
-      )
+      pipe(
+        toPairs,
+        filter(([key, url]) => url),
+        map(([key, url]) => `${url} ${key}`),
+        join(',')
+      )(src)
     ),
     set('src', get('1x', src))
   )({});

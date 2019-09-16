@@ -1,7 +1,7 @@
 language: node_js
 sudo: false
 node_js:
-  - 8.15.1
+  - 8.16.1
 cache:
   directories:
     - node_modules
@@ -93,7 +93,7 @@ deploy:
       npm i -g @coorpacademy/update-node && update-node --nvmrc ./.nvmrc
       --package ./package.json --travis ./.travis.yml --repo_slug
       $TRAVIS_REPO_SLUG --team_reviewers $TEAM_REVIEWERS --branch
-      "upgrade-nodejs" --base $TRAVIS_BRANCH --github_token $GH_TOKEN
+      "upgrade-nodejs" --base $TRAVIS_BRANCH --github_token $GH_TOKEN || exit 0
     'on':
       branch: master
       condition: $PACKAGE_NAME = "@coorpacademy/player-web"

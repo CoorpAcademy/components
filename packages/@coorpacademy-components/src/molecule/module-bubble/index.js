@@ -17,7 +17,12 @@ const ModuleBubble = (props, context) => {
   const code = getOr('', ['icons', status], skin);
   const icon = String.fromCharCode(code);
 
-  const click = !disabled && pipe(stopPropagation, unary(partial(onClick, [props])));
+  const click =
+    !disabled &&
+    pipe(
+      stopPropagation,
+      unary(partial(onClick, [props]))
+    );
 
   const iconColor = getOr('#00B0FF', ['common', 'primary'], skin);
 

@@ -9,7 +9,9 @@ const Transition = props => {
   if (!animated) return children;
 
   return React.Children.map(children, child => {
-    const {props: {className: propClassName}} = child;
+    const {
+      props: {className: propClassName}
+    } = child;
 
     const handlerAnimationEnd = () => {
       return onAnimationEnd(name);
