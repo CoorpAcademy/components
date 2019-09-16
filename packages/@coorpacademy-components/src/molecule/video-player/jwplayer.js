@@ -59,9 +59,12 @@ class JWPlayer extends React.Component {
   }
 
   handleError(error) {
+    const {onError, mimeType, jwpOptions} = this.props;
     const {code} = error;
 
-    if (this.props.mimeType === 'application/kontiki') {
+    onError && onError(error);
+
+    if (mimeType === 'application/kontiki') {
       return;
     }
 
@@ -69,7 +72,7 @@ class JWPlayer extends React.Component {
     // Since IE11 dont kinda support M3U8 sometimes,
     // We've decided to switch from M3U8 to mp4 whenever it appears
     if (code === 214000) {
-      const {file: videoUrl} = this.props.jwpOptions;
+      const {file: videoUrl} = jwpOptions;
       const regex = /^https:\/\/content.jwplatform\.com\/manifests\/(\w+).m3u8/;
       const matched = videoUrl.match(regex);
 
@@ -120,7 +123,8 @@ JWPlayer.propTypes = {
   onPlay: PropTypes.func,
   onResume: PropTypes.func,
   onPause: PropTypes.func,
-  onEnded: PropTypes.func
+  onEnded: PropTypes.func,
+  onError: PropTypes.func
 };
 
 export default JWPlayer;
