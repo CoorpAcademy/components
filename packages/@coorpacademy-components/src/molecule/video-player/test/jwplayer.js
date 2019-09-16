@@ -86,7 +86,7 @@ test('should call handlers within props, then add autoplay props', t => {
   instance.handlePause();
   instance.handleResume();
   instance.handleEnded();
-  instance.handleError();
+  instance.handleError(new Error('Foo bar'));
 
   window.jwplayer = () => ({
     play: props.onPlay
