@@ -39,21 +39,9 @@ const BrandList = Layout(props => {
 });
 
 BrandList.propTypes = {
-  brands: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      edit: PropTypes.string.isRequired,
-      editHref: PropTypes.string.isRequired,
-      see: PropTypes.string.isRequired,
-      seeHref: PropTypes.string.isRequired,
-      image: PropTypes.string.isRequired
-    })
-  ),
+  brands: PropTypes.arrayOf(PropTypes.shape(BrandCard.propTypes)),
   search: PropTypes.shape(Search.propTypes),
-  create: PropTypes.shape({
-    edit: PropTypes.string.isRequired,
-    editHref: PropTypes.string.isRequired
-  }).isRequired
+  create: PropTypes.shape(BrandCardCreate.propTypes)
 };
 
 export default BrandList;
