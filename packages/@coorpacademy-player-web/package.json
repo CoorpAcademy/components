@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/player-web",
-  "version": "3.1.44",
+  "version": "3.1.45",
   "description": "CoorpAcademy web slide-player",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -36,7 +36,7 @@
     "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
     "@babel/polyfill": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
-    "@coorpacademy/css-modules-require-hook": "^2.0.1",
+    "@coorpacademy/css-modules-require-hook": "2.0.2",
     "ava": "^2.4.0",
     "babel-plugin-istanbul": "^5.2.0",
     "browser-env": "^3.2.6",
@@ -49,13 +49,13 @@
     "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
-    "@coorpacademy/components": "9.1.30",
-    "@coorpacademy/player-services": "5.0.17",
-    "@coorpacademy/player-store": "4.0.15",
-    "@coorpacademy/progression-engine": "11.0.7",
-    "@coorpacademy/redux-task": "1.0.1",
-    "@coorpacademy/translate": "6.0.1",
-    "@coorpacademy/webpack-config": "9.0.0",
+    "@coorpacademy/components": "9.1.31",
+    "@coorpacademy/player-services": "5.0.18",
+    "@coorpacademy/player-store": "4.0.16",
+    "@coorpacademy/progression-engine": "11.0.8",
+    "@coorpacademy/redux-task": "1.0.2",
+    "@coorpacademy/translate": "6.0.2",
+    "@coorpacademy/webpack-config": "9.0.1",
     "lodash": "^4.17.15",
     "react": "~16.4.0",
     "react-dom": "~16.4.0"
