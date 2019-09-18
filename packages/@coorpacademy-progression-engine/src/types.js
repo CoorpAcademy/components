@@ -223,7 +223,11 @@ export type Progression = {|
   state?: State,
   engine: Engine,
   engineOptions: EngineConfig,
-  actions?: Array<Action>
+  actions?: Array<Action>,
+  meta?: {
+    updatedAt: string,
+    createdAt: string
+  }
 |};
 
 export type PartialCorrection = {|
