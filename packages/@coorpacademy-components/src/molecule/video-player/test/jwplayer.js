@@ -92,3 +92,32 @@ test('should call handlers within props, then add autoplay props', t => {
 
   video.setProps({autoplay: true});
 });
+
+test('should call scriptError handlerif script cannot be loaded properly', t => {
+  t.plan(1);
+
+  const props = {
+    video: 'baz',
+    onScriptError: () => t.pass(),
+    jwpOptions: {
+      playerId: '3',
+      licenseKey: '12345',
+      file: 'https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4',
+      playerScript: 'http://my.bad.js',
+      customProps: {
+        aspectratio: '16:9',
+        autostart: false,
+        width: '100%',
+        skin: {
+          name: 'bekle'
+        }
+      }
+    }
+  };
+
+  const component = <JWPlayer {...props} />;
+  const video = mount(component);
+
+  const instance = video.instance();
+  instance.handleScripError();
+});

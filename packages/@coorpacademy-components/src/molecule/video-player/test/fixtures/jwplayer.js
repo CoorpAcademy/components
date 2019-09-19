@@ -14,6 +14,8 @@ export default {
         height: '100%'
       }
     },
+    onError: e => console.log('onError', e),
+    onScriptError: () => console.log('onScriptError! check adblocker setup'),
     onPlay: () => console.log('onPlay jwp'),
     onResume: () => console.log('onResume jwp'),
     onPause: () => console.log('onPause jwp'),
