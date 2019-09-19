@@ -473,6 +473,12 @@ test('getCorrection should get correction from state', t => {
   t.is(getCorrection('foo', 'bar')(state), correction);
 });
 
+test('getCorrection should not get correction from state', t => {
+  const state = {};
+
+  t.is(getCorrection('foo', 'bar')(state), undefined);
+});
+
 test('getCurrentCorrection should get current correction from state', t => {
   const progression = pipe(set('_id', 'foo'), set('state.content.ref', 'bar'))({});
   const slide = {_id: 'bar'};
@@ -487,7 +493,7 @@ test('getCurrentCorrection should get current correction from state', t => {
   t.is(getCurrentCorrection(state), correction);
 });
 
-test('getCurrentCorrection should return "" if no progression is found', t => {
+test('getCurrentCorrection should return default correction if no progression is found', t => {
   const state = set('ui.current.progressionId', '0')({});
   t.deepEqual(getCurrentCorrection(state), {
     correctAnswer: [],
@@ -495,7 +501,7 @@ test('getCurrentCorrection should return "" if no progression is found', t => {
   });
 });
 
-test('getCurrentCorrection should return "" if progression is not well formed', t => {
+test('getCurrentCorrection should return default correction if progression is not well formed', t => {
   const progression = pipe(set('_id', 'foo'), set('state.content.ref', 'bar'))({});
   const slide = {_id: 'bar'};
   const correction = ['Bonne réponse'];
@@ -513,10 +519,25 @@ test('getCurrentCorrection should return "" if progression is not well formed', 
   });
 });
 
-test('getCurrentCorrection should return "" if no slide is found', t => {
+test('getCurrentCorrection should return default correction if no slide is found', t => {
   const progression = pipe(set('_id', 'foo'), set('state.content.ref', 'bar'))({});
   const state = pipe(
     set(`data.progressions.entities.${progression._id}`, progression),
+    set('ui.current.progressionId', 'foo')
+  )({});
+
+  t.deepEqual(getCurrentCorrection(state), {
+    correctAnswer: [],
+    corrections: []
+  });
+});
+
+test('getCurrentCorrection should return default correction if correction is not found', t => {
+  const progression = pipe(set('_id', 'foo'), set('state.content.ref', 'bar'))({});
+  const slide = {_id: 'bar'};
+  const state = pipe(
+    set(`data.progressions.entities.${progression._id}`, progression),
+    set(`data.contents.slide.entities.${slide._id}`, slide),
     set('ui.current.progressionId', 'foo')
   )({});
 
