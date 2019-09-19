@@ -116,10 +116,10 @@ export const popinCorrectionStateToProps = (options, store) => state => {
   const isExtraLifeAvailable = get('remainingLifeRequests', engineConfig) > 0;
   const remainingLifeRequests = get('state.remainingLifeRequests', progression);
   const accordion = get('ui.corrections.accordion', state);
-  const answerResult = getCurrentCorrection(state);
-  const correctAnswer = get('correctAnswer', answerResult) || [];
-  const corrections = get('corrections', answerResult) || [];
-  const isCorrect = isNil(answerResult) ? null : get('state.isCorrect')(progression);
+  const correction = getCurrentCorrection(state);
+  const correctAnswer = correction.correctAnswer;
+  const corrections = correction.corrections;
+  const isCorrect = corrections.length === 0 ? null : get('state.isCorrect')(progression);
   const isLoading = isNil(isCorrect);
 
   const isExtraLifeActive = get('state.nextContent.ref', progression) === 'extraLife';
@@ -127,12 +127,12 @@ export const popinCorrectionStateToProps = (options, store) => state => {
   const mayAcceptExtraLife = isExtraLifeActive && !extraLifeGranted;
   const noMoreExtraLife = isExtraLifeAvailable && !isCorrect && remainingLifeRequests === 0;
   const {hide, count: lives} = getLives(state);
-  const header = isNil(answerResult)
+  const header = isLoading
     ? {}
     : {
         title: translate(isCorrect ? 'Good job' : 'Ouch'),
         subtitle: translate(isCorrect ? 'Good answer' : 'Wrong answer'),
-        failed: isLoading ? null : !isCorrect,
+        failed: !isCorrect,
         lives: hide ? null : lives
       };
   const question = {
