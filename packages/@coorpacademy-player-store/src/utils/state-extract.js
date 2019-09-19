@@ -341,30 +341,34 @@ export const getCurrentExitNode = (state: State): ExitNode | void => {
 
 export const getCorrection = (progressionId: string, slideId: string) => (
   state: State
-): Correction => {
+): Correction | void | null => {
   return get(['data', 'answers', 'entities', progressionId, slideId], state);
 };
 export const getCurrentCorrection = (state: State): Correction => {
+  const defaultCorrection = {
+    correctAnswer: [],
+    corrections: []
+  };
   const progression = getCurrentProgression(state);
+  const progressionId = progression && progression._id;
 
-  if (!progression) {
-    return {
-      correctAnswer: [],
-      corrections: []
-    };
+  if (!progressionId) {
+    return defaultCorrection;
   }
 
-  const progressionId = progression._id;
   const slide = getPreviousSlide(state);
 
-  if (!progressionId || !slide) {
-    return {
-      correctAnswer: [],
-      corrections: []
-    };
+  if (!slide) {
+    return defaultCorrection;
   }
 
-  return getCorrection(progressionId, slide._id)(state);
+  const correction = getCorrection(progressionId, slide._id)(state);
+
+  if (!correction) {
+    return defaultCorrection;
+  }
+
+  return correction;
 };
 
 export const isCommentSent = (state: State): boolean => {
