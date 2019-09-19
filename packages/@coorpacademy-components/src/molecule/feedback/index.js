@@ -12,7 +12,10 @@ const Feedback = (props, context) => {
   const resource = media &&
     media.type && {
       ...media,
-      ...pipe(get('src.0'), extend({description: mediaDescription}))(media)
+      ...pipe(
+        get('src.0'),
+        extend({description: mediaDescription})
+      )(media)
     };
 
   return (

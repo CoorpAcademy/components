@@ -15,6 +15,8 @@ const output = {
   filename: 'components.js'
 };
 
-module.exports = pipe(generateConfig, set('entry', entry), set('output', output))(
-  process.env.NODE_ENV
-);
+module.exports = pipe(
+  generateConfig,
+  set('entry', entry),
+  set('output', output)
+)(process.env.NODE_ENV);

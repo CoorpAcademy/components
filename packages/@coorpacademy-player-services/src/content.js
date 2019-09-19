@@ -37,7 +37,10 @@ const getNbSlides = (dataLayer: DataLayer): GetNbSlides => async (
   version: string
 ): Promise<number> => {
   const {findChapterById, findLevelById} = dataLayer;
-  const maxNbSlides = pipe(getConfig, get('slidesToComplete'))({
+  const maxNbSlides = pipe(
+    getConfig,
+    get('slidesToComplete')
+  )({
     ref: engineRef,
     version
   });

@@ -26,14 +26,10 @@ const store = {dispatch: identity};
 const createPlayerProps = createPlayer(options, store);
 const createHeaderProps = createHeader(options, store);
 
-const availableSlides = pipe(map(slide => [slide._id, slide]), fromPairs)([
-  basicSlide,
-  plopSlide,
-  qcmSlide,
-  qcmDragSlide,
-  qcmGraphicSlide,
-  contextSlide
-]);
+const availableSlides = pipe(
+  map(slide => [slide._id, slide]),
+  fromPairs
+)([basicSlide, plopSlide, qcmSlide, qcmDragSlide, qcmGraphicSlide, contextSlide]);
 
 const createProgression = (slide, contentRef) => ({
   engine: {

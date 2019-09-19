@@ -20,7 +20,11 @@ const config = {
 const removeIndex = replace(/\/index$/, '');
 
 const walkerTree = fun =>
-  pipe(toPairs, map(([node, deps]) => [fun(node), map(fun, deps)]), fromPairs);
+  pipe(
+    toPairs,
+    map(([node, deps]) => [fun(node), map(fun, deps)]),
+    fromPairs
+  );
 
 madge(join(__dirname, '../src/template'), config)
   .then(res => {

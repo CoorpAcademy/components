@@ -17,9 +17,10 @@ test('should call the onFavoriteClick function with click on favorite icon (favo
   t.plan(4);
 
   const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
-  const props = pipe(set('onFavoriteClick', () => t.pass()), set(true, 'favorite'))(
-    defaultFixture.props
-  );
+  const props = pipe(
+    set('onFavoriteClick', () => t.pass()),
+    set(true, 'favorite')
+  )(defaultFixture.props);
   const wrapper = mount(<Card {...props} />);
   const favoriteSection = wrapper.find('[data-name="favorite"]');
   t.is(favoriteSection.exists(), true);
@@ -29,9 +30,10 @@ test('should call the onFavoriteClick function with click on favorite icon (favo
   t.plan(4);
 
   const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
-  const props = pipe(set('onFavoriteClick', e => t.pass()), set(false, 'favorite'))(
-    defaultFixture.props
-  );
+  const props = pipe(
+    set('onFavoriteClick', e => t.pass()),
+    set(false, 'favorite')
+  )(defaultFixture.props);
   const wrapper = mount(<Card {...props} />);
   const favoriteSection = wrapper.find('[data-name="favorite"]');
   t.is(favoriteSection.exists(), true);
@@ -81,9 +83,10 @@ test('should call onClick chith unlocked card', t => {
 test('should show notification', t => {
   t.plan(3);
   const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
-  const props = pipe(set('favorite', true), set('onFavoriteClick', e => t.fail()))(
-    notificationFixture.props
-  );
+  const props = pipe(
+    set('favorite', true),
+    set('onFavoriteClick', e => t.fail())
+  )(notificationFixture.props);
   const wrapper = mount(<Card {...props} />);
   const notification = wrapper.find('[data-name="notification"]');
   t.is(notification.exists(), true);

@@ -106,12 +106,14 @@ JWPlayer.propTypes = {
     file: SrcPropType,
     customProps: PropTypes.shape({
       aspectratio: PropTypes.string,
-      tracks: PropTypes.shape({
-        file: SrcPropType,
-        label: PropTypes.string,
-        kind: PropTypes.string,
-        default: PropTypes.string
-      }),
+      tracks: PropTypes.arrayOf(
+        PropTypes.shape({
+          file: SrcPropType,
+          label: PropTypes.string,
+          kind: PropTypes.string,
+          default: PropTypes.boolean
+        })
+      ),
       width: PropTypes.string,
       skin: PropTypes.shape({
         name: PropTypes.string

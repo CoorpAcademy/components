@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/player-services",
-  "version": "5.0.17",
+  "version": "5.0.18",
   "description": "Implements reactions to redux actions from player-store",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -10,12 +10,12 @@
     "README.md"
   ],
   "scripts": {
-    "ava": "cross-env NODE_ENV=test ava",
-    "nyc": "cross-env NODE_ENV=test nyc npm run ava",
+    "ava": "ava",
+    "nyc": "nyc npm run ava",
     "test": "npm run lint && npm run flow && npm run flow -- stop && npm run nyc",
     "flow": "flow",
     "lint": "npm run eslint",
-    "eslint": "eslint ./ *.js *.json --ext .js,.json",
+    "eslint": "eslint ./ *.js *.json --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\"",
     "build:commonjs": "npm run build:babel:commonjs && npm run build:types:commonjs",
     "build:es": "npm run build:babel:es && npm run build:types:es",
     "build": "concurrently \"npm run build:commonjs\" \"npm run build:es\"",
@@ -33,45 +33,24 @@
   },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-player-services#readme",
   "devDependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
-    "@babel/polyfill": "^7.4.3",
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/polyfill": "^7.6.0",
     "@babel/preset-flow": "^7.0.0",
-    "ava": "^1.4.1",
-    "babel-plugin-istanbul": "^4.1.4",
-    "concurrently": "^3.5.1",
-    "cross-env": "^5.0.0",
+    "ava": "^2.4.0",
+    "babel-plugin-istanbul": "^5.2.0",
+    "concurrently": "^4.1.2",
+    "cross-env": "^5.2.1",
     "eslint": "^4.18.2",
     "flow-bin": "^0.75.0",
-    "flow-copy-source": "^2.0.2",
-    "nyc": "^13.1.0",
-    "rimraf": "^2.6.1"
+    "flow-copy-source": "^2.0.8",
+    "nyc": "^14.1.1",
+    "rimraf": "^3.0.0"
   },
   "dependencies": {
-    "@coorpacademy/progression-engine": "11.0.7",
-    "lodash": "^4.17.4"
-  },
-  "ava": {
-    "concurrency": 8,
-    "files": [
-      "src/**/test/**/*.js"
-    ],
-    "require": [
-      "@babel/register",
-      "@babel/polyfill"
-    ],
-    "babel": {
-      "testOptions": {
-        "plugins": [
-          "@babel/plugin-proposal-object-rest-spread"
-        ],
-        "presets": [
-          "@ava/stage-4",
-          "@babel/preset-flow"
-        ]
-      }
-    }
+    "@coorpacademy/progression-engine": "11.0.8",
+    "lodash": "^4.17.15"
   },
   "author": "CoorpAcademy"
 }

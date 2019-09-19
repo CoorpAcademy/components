@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/css-modules-require-hook",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "",
   "main": "lib/index.js",
   "files": [
@@ -25,20 +25,20 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
-    "@babel/preset-env": "^7.4.3",
-    "css-modules-require-hook": "^4.0.6",
-    "generic-names": "^1.0.2",
-    "lodash": "^4.17.4"
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/preset-env": "^7.6.0",
+    "css-modules-require-hook": "^4.2.3",
+    "generic-names": "^2.0.1",
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "@babel/plugin-proposal-object-rest-spread": "^7.4.3",
-    "babel-plugin-istanbul": "^4.1.4",
-    "cross-env": "^5.0.0",
+    "@babel/core": "^7.6.0",
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "babel-plugin-istanbul": "^5.2.0",
+    "cross-env": "^5.2.1",
     "eslint": "^4.18.2",
-    "rimraf": "^2.6.1"
+    "rimraf": "^3.0.0"
   },
   "author": "CoorpAcademy"
 }

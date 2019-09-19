@@ -19,7 +19,12 @@ const UserPreferences = props => {
 
   return (
     <div className={style.preferences}>
-      {map(settings => <Settings {...settings} key={settings.label} />, preferences)}
+      {map(
+        settings => (
+          <Settings {...settings} key={settings.label} />
+        ),
+        preferences
+      )}
     </div>
   );
 };

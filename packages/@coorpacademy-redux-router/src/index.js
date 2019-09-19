@@ -15,16 +15,21 @@ const createMatch = pathMatch({
 
 export const createRouter = routeDefinitions => {
   const routes = map(
-    ({path, view}) => ({
-      match: isString(path) ? createMatch(path) : path,
+    ({path, match = () => true, view}) => ({
+      path: isString(path) ? createMatch(path) : path,
+      match,
       view
     }),
     routeDefinitions
   );
 
-  return ({pathname} = {}) => {
-    const {match, view} = find(route => route.match(pathname), routes);
-    const params = match(pathname);
+  return state => {
+    const currentPathname = get('route.pathname', state);
+    const {path, view} = find(route => {
+      const params_ = route.path(currentPathname);
+      return params_ && route.match(params_, state);
+    }, routes);
+    const params = path(currentPathname);
     return {
       params,
       view
@@ -34,8 +39,9 @@ export const createRouter = routeDefinitions => {
 
 export const createRouterMiddleware = routeDefinitions => {
   const routes = map(
-    ({path, actions, action}) => ({
-      match: isString(path) ? createMatch(path) : path,
+    ({path, match = () => true, action}) => ({
+      path: isString(path) ? createMatch(path) : path,
+      match,
       action
     }),
     routeDefinitions
@@ -43,10 +49,18 @@ export const createRouterMiddleware = routeDefinitions => {
 
   return store => next => async action => {
     if (action.type === LOCATION) {
-      const currentPathname = get('route.pathname', store.getState());
+      const state = store.getState();
+      const currentPathname = get('route.pathname', state);
       const pathname = getOr(currentPathname, 'payload.pathname', action);
-      const {match, action: routeAction} = find(route => route.match(pathname), routes);
-      const params = match(pathname);
+      const route = find(route_ => {
+        const params_ = route_.path(pathname);
+        return params_ && route_.match(params_, state);
+      }, routes);
+
+      if (!route) return next(action);
+
+      const {path, action: routeAction} = route;
+      const params = path(pathname);
       const updatedAction = await next(action); // eslint-disable-line callback-return
 
       await store.dispatch(routeAction(params));

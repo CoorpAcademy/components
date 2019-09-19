@@ -680,6 +680,7 @@ import TemplateBackOfficeBrandCreateFixtureLoading from '../src/template/back-of
 import TemplateBackOfficeBrandCreateFixtureModified from '../src/template/back-office/brand-create/test/fixtures/modified';
 import TemplateBackOfficeBrandListFixtureDefault from '../src/template/back-office/brand-list/test/fixtures/default';
 import TemplateBackOfficeBrandListFixtureLoading from '../src/template/back-office/brand-list/test/fixtures/loading';
+import TemplateBackOfficeBrandListFixtureRh from '../src/template/back-office/brand-list/test/fixtures/rh';
 import TemplateBackOfficeBrandUpdateFixtureAnalytics from '../src/template/back-office/brand-update/test/fixtures/analytics';
 import TemplateBackOfficeBrandUpdateFixtureCohortError from '../src/template/back-office/brand-update/test/fixtures/cohort-error';
 import TemplateBackOfficeBrandUpdateFixtureCohort from '../src/template/back-office/brand-update/test/fixtures/cohort';
@@ -1746,7 +1747,8 @@ export const fixtures = {
     },
     TemplateBackOfficeBrandList: {
       Default: TemplateBackOfficeBrandListFixtureDefault,
-      Loading: TemplateBackOfficeBrandListFixtureLoading
+      Loading: TemplateBackOfficeBrandListFixtureLoading,
+      Rh: TemplateBackOfficeBrandListFixtureRh
     },
     TemplateBackOfficeBrandUpdate: {
       Analytics: TemplateBackOfficeBrandUpdateFixtureAnalytics,

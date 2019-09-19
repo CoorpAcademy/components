@@ -24,7 +24,13 @@ const dataRankReducer = (state = {}, action) => {
       return set('start', payload, state);
     }
     case RANK_FETCH_START_FAILURE: {
-      if (pipe(get('start'), isNull)(state)) return unset('start', state);
+      if (
+        pipe(
+          get('start'),
+          isNull
+        )(state)
+      )
+        return unset('start', state);
       return state;
     }
     case RANK_FETCH_END_REQUEST: {
@@ -35,7 +41,13 @@ const dataRankReducer = (state = {}, action) => {
       return set('end', payload, state);
     }
     case RANK_FETCH_END_FAILURE: {
-      if (pipe(get('end'), isNull)(state)) return unset('end', state);
+      if (
+        pipe(
+          get('end'),
+          isNull
+        )(state)
+      )
+        return unset('end', state);
       return state;
     }
     default:

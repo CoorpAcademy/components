@@ -1,7 +1,9 @@
 import head from 'lodash/fp/head';
 import doubleAuthors from './double-authors';
 
-const {props: {authors}} = doubleAuthors;
+const {
+  props: {authors}
+} = doubleAuthors;
 
 export default {
   props: {

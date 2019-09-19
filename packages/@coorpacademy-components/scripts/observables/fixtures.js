@@ -2,7 +2,11 @@ const {map, concatAll} = require('rxjs/operators');
 const {readComponents$} = require('./components');
 const {readComponentFixtures$} = require('./component-fixtures');
 
-const readFixtures$ = cwd => readComponents$(cwd).pipe(map(readComponentFixtures$), concatAll());
+const readFixtures$ = cwd =>
+  readComponents$(cwd).pipe(
+    map(readComponentFixtures$),
+    concatAll()
+  );
 
 module.exports.readFixtures$ = readFixtures$;
 

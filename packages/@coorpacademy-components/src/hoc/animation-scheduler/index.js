@@ -58,11 +58,16 @@ const reduceChildren = fun => acc => children => {
 const getAnimationNames = reduceChildren((acc, child) => {
   if (isString(child)) return acc;
 
-  const {type, props: {children}} = child;
+  const {
+    type,
+    props: {children}
+  } = child;
   if (Animation !== type && Transition !== type && AnimationAdapter !== type)
     return [...acc, ...getAnimationNames(children)];
 
-  const {props: {name}} = child;
+  const {
+    props: {name}
+  } = child;
   return [name, ...acc, ...getAnimationNames(children)];
 })([]);
 
@@ -101,9 +106,11 @@ class AnimationScheduler extends React.Component {
 
   handlerAnimationEnd(name) {
     this.setState(set(['animations', name], true), () => {
-      const hasPendingAnimation = pipe(get('state.animations'), values, some(negate(identity)))(
-        this
-      );
+      const hasPendingAnimation = pipe(
+        get('state.animations'),
+        values,
+        some(negate(identity))
+      )(this);
       const {onAnimationEnd = noop} = this.props;
       if (!hasPendingAnimation) return onAnimationEnd();
     });

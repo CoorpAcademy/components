@@ -128,11 +128,10 @@ const templateProps = (options, store) => (state, slide) => {
   return {
     type: 'template',
     template: slide.question.content.template,
-    answers: slide.question.content.choices.map(
-      (choice, index) =>
-        choice.type === 'text'
-          ? templateTextProps(options, store)(state, slide, choice, index)
-          : templateSelectProps(options, store)(state, slide, choice, index)
+    answers: slide.question.content.choices.map((choice, index) =>
+      choice.type === 'text'
+        ? templateTextProps(options, store)(state, slide, choice, index)
+        : templateSelectProps(options, store)(state, slide, choice, index)
     )
   };
 };
@@ -142,7 +141,10 @@ const basicProps = (options, store) => (state, slide) => {
   return {
     type: 'freeText',
     placeholder: translate('Type here'),
-    value: pipe(getAnswerValues, head)(slide, state),
+    value: pipe(
+      getAnswerValues,
+      head
+    )(slide, state),
     onChange: editAnswerAction(options, store)(state, slide)
   };
 };
@@ -150,7 +152,12 @@ const basicProps = (options, store) => (state, slide) => {
 const toAnswer = values => {
   const maxValue = size(values) - 1;
   return position => {
-    return pipe(multiply(maxValue), round, get(__, values), _toString)(position);
+    return pipe(
+      multiply(maxValue),
+      round,
+      get(__, values),
+      _toString
+    )(position);
   };
 };
 
@@ -161,7 +168,10 @@ const sliderProps = (options, store) => (state, slide) => {
     slide.question.content.max + 1
   );
 
-  const stateValue = pipe(getAnswerValues, head)(slide, state);
+  const stateValue = pipe(
+    getAnswerValues,
+    head
+  )(slide, state);
   const currentValue = parseInt(stateValue);
 
   const indexValue = indexOf(currentValue, values);
@@ -175,7 +185,10 @@ const sliderProps = (options, store) => (state, slide) => {
     maxLabel: `${slide.question.content.max} ${slide.question.content.unitLabel}`,
     title: `${currentValue} ${slide.question.content.unitLabel}`,
     value: sliderPosition,
-    onChange: pipe(toAnswer(values), handleChange)
+    onChange: pipe(
+      toAnswer(values),
+      handleChange
+    )
   };
 };
 

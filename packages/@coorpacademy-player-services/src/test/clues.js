@@ -29,7 +29,10 @@ test('should findById', async t => {
   });
   const clue = await findById(progressionWithClue._id, nextContent.ref);
 
-  const expected = pipe(find({_id: nextContent.ref}), get('clue'))(slidesData);
+  const expected = pipe(
+    find({_id: nextContent.ref}),
+    get('clue')
+  )(slidesData);
   t.deepEqual(clue, expected);
 });
 
@@ -46,7 +49,10 @@ test("should throw error if slide doesn't exist", async t => {
     ref: '5.C7'
   });
   const corruptProgression = await Progressions.save(
-    pipe(set('state.content.ref', 'unknown'), set('state.requestedClues', ['unknown']))(progression)
+    pipe(
+      set('state.content.ref', 'unknown'),
+      set('state.requestedClues', ['unknown'])
+    )(progression)
   );
   return t.throwsAsync(() => findById(corruptProgression._id, 'unknown'), 'Clue not found');
 });

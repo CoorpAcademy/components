@@ -230,7 +230,10 @@ test('getCurrentProgression should get current progression from state', t => {
 
 test('getAnswers should get answers from state', t => {
   const answers = {value: ['foo']};
-  const state = pipe(set('ui.current.progressionId', '0'), set('ui.answers.0', answers))({});
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('ui.answers.0', answers)
+  )({});
 
   t.is(getAnswers(state), answers);
 });
@@ -244,7 +247,10 @@ test("getAnswerValues should get answer's values from state", t => {
     }
   };
   const answers = ['foo'];
-  const state = pipe(set('ui.current.progressionId', '0'), set('ui.answers.0.value', answers))({});
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('ui.answers.0.value', answers)
+  )({});
 
   t.is(getAnswerValues(slide, state), answers);
 });
@@ -277,7 +283,10 @@ test('getAnswerValues should not use defaultValue from slide if answers is an em
       }
     }
   };
-  const state = pipe(set('ui.current.progressionId', '0'), set('ui.answers.0.value', []))({});
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('ui.answers.0.value', [])
+  )({});
 
   t.deepEqual(getAnswerValues(slide, state), []);
 });
@@ -480,7 +489,10 @@ test('getCorrection should not get correction from state', t => {
 });
 
 test('getCurrentCorrection should get current correction from state', t => {
-  const progression = pipe(set('_id', 'foo'), set('state.content.ref', 'bar'))({});
+  const progression = pipe(
+    set('_id', 'foo'),
+    set('state.content.ref', 'bar')
+  )({});
   const slide = {_id: 'bar'};
   const correction = ['Bonne réponse'];
   const state = pipe(
@@ -502,7 +514,10 @@ test('getCurrentCorrection should return default correction if no progression is
 });
 
 test('getCurrentCorrection should return default correction if progression is not well formed', t => {
-  const progression = pipe(set('_id', 'foo'), set('state.content.ref', 'bar'))({});
+  const progression = pipe(
+    set('_id', 'foo'),
+    set('state.content.ref', 'bar')
+  )({});
   const slide = {_id: 'bar'};
   const correction = ['Bonne réponse'];
   const state = pipe(
@@ -520,7 +535,10 @@ test('getCurrentCorrection should return default correction if progression is no
 });
 
 test('getCurrentCorrection should return default correction if no slide is found', t => {
-  const progression = pipe(set('_id', 'foo'), set('state.content.ref', 'bar'))({});
+  const progression = pipe(
+    set('_id', 'foo'),
+    set('state.content.ref', 'bar')
+  )({});
   const state = pipe(
     set(`data.progressions.entities.${progression._id}`, progression),
     set('ui.current.progressionId', 'foo')
@@ -533,7 +551,10 @@ test('getCurrentCorrection should return default correction if no slide is found
 });
 
 test('getCurrentCorrection should return default correction if correction is not found', t => {
-  const progression = pipe(set('_id', 'foo'), set('state.content.ref', 'bar'))({});
+  const progression = pipe(
+    set('_id', 'foo'),
+    set('state.content.ref', 'bar')
+  )({});
   const slide = {_id: 'bar'};
   const state = pipe(
     set(`data.progressions.entities.${progression._id}`, progression),
@@ -612,7 +633,10 @@ test('getBestScore should return undefined if content is not found', t => {
 });
 
 test('getCurrentClue should get current clue from state', t => {
-  const progression = pipe(set('_id', 'foo'), set('state.nextContent.ref', 'bar'))({});
+  const progression = pipe(
+    set('_id', 'foo'),
+    set('state.nextContent.ref', 'bar')
+  )({});
   const slide = {_id: 'bar'};
   const clue = 'Indice';
   const state = pipe(
@@ -640,7 +664,10 @@ test('getCurrentClue should return "" if no progression not well formed', t => {
 });
 
 test('getCurrentClue should return "" if no slide is found', t => {
-  const progression = pipe(set('_id', 'foo'), set('state.nextContent.ref', 'bar'))({});
+  const progression = pipe(
+    set('_id', 'foo'),
+    set('state.nextContent.ref', 'bar')
+  )({});
   const state = pipe(
     set(`data.progressions.entities.${progression._id}`, progression),
     set('ui.current.progressionId', 'foo')

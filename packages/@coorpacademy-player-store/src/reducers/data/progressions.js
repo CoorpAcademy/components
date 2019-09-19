@@ -95,7 +95,13 @@ const dataProgressionsReducer = (
 
       const id: ProgressionId = action.meta.id;
 
-      if (pipe(get(['entities', id]), isNull)(state)) return unset(['entities', id], state);
+      if (
+        pipe(
+          get(['entities', id]),
+          isNull
+        )(state)
+      )
+        return unset(['entities', id], state);
       return state;
     }
     default:

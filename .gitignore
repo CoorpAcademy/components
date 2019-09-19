@@ -17,3 +17,4 @@ packages/@coorpacademy-components/src/**/test/fixtures.js
 .prettierrc
 yarn-error.log
 .flowconfig
+.eslintcache

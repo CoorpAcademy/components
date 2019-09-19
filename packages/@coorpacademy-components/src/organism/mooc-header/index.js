@@ -462,7 +462,10 @@ MoocHeader.propTypes = {
   user: PropTypes.shape({
     picture: PropTypes.string,
     href: PropTypes.string,
-    notifications: PropTypes.number,
+    notifications: PropTypes.shape({
+      href: PropTypes.string,
+      value: PropTypes.number
+    }),
     stats: PropTypes.shape({
       stars: PropTypes.shape({
         href: PropTypes.string,

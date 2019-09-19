@@ -27,7 +27,12 @@ const dataContentReducer = (state = {}, action) => {
     case CONTENT_FETCH_FAILURE: {
       const {meta} = action;
       const {type, ref} = meta;
-      if (pipe(get([type, 'entities', ref]), isNull)(state))
+      if (
+        pipe(
+          get([type, 'entities', ref]),
+          isNull
+        )(state)
+      )
         return unset([type, 'entities', ref], state);
       return state;
     }

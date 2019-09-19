@@ -4,7 +4,12 @@ const {map, concatMap} = require('rxjs/operators');
 const {readdirP} = require('./fs');
 
 const readDirectory$ = cwd =>
-  of(cwd).pipe(map(readdirP), concatMap(p => from(p)), concatMap(from), map(f => join(cwd, f)));
+  of(cwd).pipe(
+    map(readdirP),
+    concatMap(p => from(p)),
+    concatMap(from),
+    map(f => join(cwd, f))
+  );
 
 module.exports.readDirectory$ = readDirectory$;
 

@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/webpack-config",
-  "version": "9.0.0",
+  "version": "9.0.1",
   "description": "",
   "main": "lib/index.js",
   "files": [
@@ -9,11 +9,11 @@
   ],
   "scripts": {
     "build": "cross-env babel src --out-dir lib -s --ignore test --copy-files",
-    "ava": "cross-env NODE_ENV=test ava",
-    "nyc": "cross-env NODE_ENV=test nyc npm run ava",
-    "test": "npm run lint",
+    "ava": "ava",
+    "nyc": "nyc npm run ava",
+    "test": "npm run lint && npm run nyc",
     "lint": "npm run eslint",
-    "eslint": "eslint . --ext .js,.json",
+    "eslint": "eslint ./ *.js *.json --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\"",
     "clean:build": "rimraf lib",
     "clean": "npm run clean:build",
     "prepare": "npm run clean && npm run build --production"
@@ -28,38 +28,31 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
-    "@babel/cli": "^7.4.3",
-    "@babel/core": "^7.4.3",
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
     "@babel/plugin-transform-object-assign": "^7.2.0",
-    "@babel/preset-env": "^7.4.3",
-    "babel-loader": "^8.0.0",
+    "@babel/preset-env": "^7.6.0",
+    "babel-loader": "^8.0.6",
     "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^2.1.1",
-    "json-loader": "^0.5.4",
+    "json-loader": "^0.5.7",
     "mini-css-extract-plugin": "^0.5.0",
-    "nyc": "^13.1.0",
+    "nyc": "^14.1.1",
     "postcss-loader": "^3.0.0",
     "regenerator-runtime": "^0.13.3",
-    "style-loader": "^0.23.1",
-    "webpack-bundle-analyzer": "^3.1.0"
-  },
-  "ava": {
-    "files": [
-      "src/**/test/**/*.js"
-    ],
-    "require": [
-      "@babel/register",
-      "@babel/polyfill"
-    ],
-    "babel": "inherit"
+    "style-loader": "^1.0.0",
+    "webpack-bundle-analyzer": "^3.5.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.4.3",
-    "babel-plugin-istanbul": "^5.1.1",
-    "cross-env": "^5.0.0",
+    "@babel/core": "^7.6.0",
+    "@babel/register": "^7.6.0",
+    "ava": "^2.4.0",
+    "babel-plugin-istanbul": "^5.2.0",
+    "cross-env": "^5.2.1",
     "eslint": "^5.15.3",
-    "rimraf": "^2.6.1",
-    "webpack": "^4.8.2"
+    "nyc": "^14.1.1",
+    "rimraf": "^3.0.0",
+    "webpack": "^4.40.2"
   },
   "author": "CoorpAcademy"
 }

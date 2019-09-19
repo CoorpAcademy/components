@@ -90,7 +90,11 @@ class SelectMultiple extends React.Component {
         </li>
       );
     }, options);
-    const selection = pipe(filter({selected: true}), map('name'), join(', '))(options);
+    const selection = pipe(
+      filter({selected: true}),
+      map('name'),
+      join(', ')
+    )(options);
     const titleView = title && <span className={style.title}>{title}</span>;
     const isActive = this.state.opened === true;
     const mainClass = classnames(theme ? themeStyle[theme] : style.default);

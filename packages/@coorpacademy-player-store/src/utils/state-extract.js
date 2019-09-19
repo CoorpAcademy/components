@@ -505,7 +505,7 @@ export const hasSeenLesson = (state: State, onPreviousSlide: boolean = false): b
   };
 
   // $FlowFixMe pipe issue with flow typing
-  const viewedResourcesForContent = pipe(find(chapterContent), getOr([], 'resources'))(
+  const viewedResourcesForContent = pipe([find(chapterContent), getOr([], 'resources')])(
     viewedResources
   );
 

@@ -46,7 +46,10 @@ test(
 test(
   'should prevent request if next-content are already fetched',
   macro,
-  pipe(initState, set('data.nextContent.entities.foo', 'bar'))({}),
+  pipe(
+    initState,
+    set('data.nextContent.entities.foo', 'bar')
+  )({}),
   t => ({
     Recommendations: {
       getNext: (type, ref) => {

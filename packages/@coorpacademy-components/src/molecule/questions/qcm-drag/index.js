@@ -47,7 +47,10 @@ Choices.propTypes = {
 };
 
 const SelectionBox = ({answers, help}) => {
-  const selectedAnswers = pipe(filter('selected'), orderBy('order', 'asc'))(answers);
+  const selectedAnswers = pipe(
+    filter('selected'),
+    orderBy('order', 'asc')
+  )(answers);
   const selectedAnswersViews = selectedAnswers.map((answer, key) => {
     const {onClick, title} = answer;
     return (

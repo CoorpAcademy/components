@@ -6,7 +6,10 @@ import values from 'lodash/fp/values';
 import levelsData from './data/levels';
 
 const mayBy = key =>
-  pipe(values, reduce((map, object) => map.set(get(key, object), object), new Map()));
+  pipe(
+    values,
+    reduce((map, object) => map.set(get(key, object), object), new Map())
+  );
 
 const toMapByRef = mayBy('ref');
 

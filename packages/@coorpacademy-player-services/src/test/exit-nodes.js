@@ -10,7 +10,10 @@ import * as fixtures from './fixtures';
 const ExitNodes = createExitNodesService(fixtures);
 const {findById} = ExitNodes;
 
-const first = pipe(values, head);
+const first = pipe(
+  values,
+  head
+);
 
 test('should findById', async t => {
   const exitNode = first(exitNodesData);
