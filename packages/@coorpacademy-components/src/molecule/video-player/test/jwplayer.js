@@ -98,6 +98,5 @@ test('should call handlers within props, then add autoplay props', t => {
     }
   });
 
-  // video.update();
   t.truthy(video.state().scriptFailedLoading);
 });
