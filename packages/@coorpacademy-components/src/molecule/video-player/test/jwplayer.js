@@ -59,7 +59,6 @@ test('should call handlers within props, then add autoplay props', t => {
     onResume: () => t.pass(),
     onEnded: () => t.pass(),
     onError: () => t.pass(),
-    onScriptError: () => t.pass(),
     jwpOptions: {
       playerId: '3',
       file: 'https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4',
@@ -86,11 +85,19 @@ test('should call handlers within props, then add autoplay props', t => {
   instance.handleResume();
   instance.handleEnded();
   instance.handleError(new Error('Foo bar'));
-  instance.handleScriptError();
 
   window.jwplayer = () => ({
     play: props.onPlay
   });
 
   video.setProps({autoplay: true});
+
+  instance.handleScriptError({
+    parentNode: {
+      removeChild: () => null
+    }
+  });
+
+  // video.update();
+  t.truthy(video.state().scriptFailedLoading);
 });

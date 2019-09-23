@@ -23,7 +23,7 @@ class JWPlayer extends React.Component {
 
   componentDidMount() {
     const jwPlayerScript = document.getElementById('jw-player-script');
-    jwPlayerScript.onerror = this.handleScriptError;
+    jwPlayerScript.onerror = this.handleScriptError(jwPlayerScript);
     this.setFileUrl();
   }
 
@@ -62,11 +62,11 @@ class JWPlayer extends React.Component {
     this.props.onEnded && this.props.onEnded(e);
   }
 
-  handleScriptError(e) {
-    this.props.onScriptError && this.props.onScriptError(e);
-    const script = document.getElementById('jw-player-script');
-    script.parentNode.removeChild(script);
+  handleScriptError(script) {
     this.setState({scriptFailedLoading: true});
+    if (script) {
+      script.parentNode.removeChild(script);
+    }
   }
 
   handleError(error) {
@@ -142,8 +142,7 @@ JWPlayer.propTypes = {
   onResume: PropTypes.func,
   onPause: PropTypes.func,
   onEnded: PropTypes.func,
-  onError: PropTypes.func,
-  onScriptError: PropTypes.func
+  onError: PropTypes.func
 };
 
 export default JWPlayer;

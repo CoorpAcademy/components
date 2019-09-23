@@ -17,7 +17,6 @@ export default {
     scriptErrorMessage:
       'Could not load the video player. Get sure to whitelist this platform within your adblocker if you use one.',
     onError: e => console.log('onError', e),
-    onScriptError: () => console.log('onScriptError! check adblocker setup'),
     onPlay: () => console.log('onPlay jwp'),
     onResume: () => console.log('onResume jwp'),
     onPause: () => console.log('onPause jwp'),
