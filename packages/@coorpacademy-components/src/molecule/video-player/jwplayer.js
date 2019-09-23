@@ -18,12 +18,12 @@ class JWPlayer extends React.Component {
     this.handlePause = this.handlePause.bind(this);
     this.handleEnded = this.handleEnded.bind(this);
     this.handleError = this.handleError.bind(this);
-    this.handleScripError = this.handleScripError.bind(this);
+    this.handleScriptError = this.handleScriptError.bind(this);
   }
 
   componentDidMount() {
     const jwPlayerScript = document.getElementById('jw-player-script');
-    jwPlayerScript.onerror = this.handleScripError;
+    jwPlayerScript.onerror = this.handleScriptError;
     this.setFileUrl();
   }
 
@@ -62,7 +62,7 @@ class JWPlayer extends React.Component {
     this.props.onEnded && this.props.onEnded(e);
   }
 
-  handleScripError(e) {
+  handleScriptError(e) {
     this.props.onScriptError && this.props.onScriptError(e);
     const script = document.getElementById('jw-player-script');
     script.parentNode.removeChild(script);

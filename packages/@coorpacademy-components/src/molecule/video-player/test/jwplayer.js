@@ -50,7 +50,7 @@ test.serial('should do nothing if autoplay is triggered and jwplayer script is n
 });
 
 test('should call handlers within props, then add autoplay props', t => {
-  t.plan(6);
+  t.plan(7);
 
   const props = {
     video: 'baz',
@@ -59,6 +59,7 @@ test('should call handlers within props, then add autoplay props', t => {
     onResume: () => t.pass(),
     onEnded: () => t.pass(),
     onError: () => t.pass(),
+    onScriptError: () => t.pass(),
     jwpOptions: {
       playerId: '3',
       file: 'https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4',
@@ -85,39 +86,11 @@ test('should call handlers within props, then add autoplay props', t => {
   instance.handleResume();
   instance.handleEnded();
   instance.handleError(new Error('Foo bar'));
+  instance.handleScriptError();
 
   window.jwplayer = () => ({
     play: props.onPlay
   });
 
   video.setProps({autoplay: true});
-});
-
-test('should call scriptError handlerif script cannot be loaded properly', t => {
-  t.plan(1);
-
-  const props = {
-    video: 'baz',
-    onScriptError: () => t.pass(),
-    jwpOptions: {
-      playerId: '3',
-      licenseKey: '12345',
-      file: 'https://simoocdigital.credit-agricole.fr/media/content/bigdata/159363386.mp4',
-      playerScript: 'http://my.bad.js',
-      customProps: {
-        aspectratio: '16:9',
-        autostart: false,
-        width: '100%',
-        skin: {
-          name: 'bekle'
-        }
-      }
-    }
-  };
-
-  const component = <JWPlayer {...props} />;
-  const video = mount(component);
-
-  const instance = video.instance();
-  instance.handleScripError();
 });
