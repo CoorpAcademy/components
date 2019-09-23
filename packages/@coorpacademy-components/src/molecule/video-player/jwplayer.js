@@ -10,7 +10,8 @@ class JWPlayer extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      fileUrl: ''
+      fileUrl: '',
+      scriptFailedLoading: false
     };
     this.handlePlay = this.handlePlay.bind(this);
     this.handleResume = this.handleResume.bind(this);
@@ -63,6 +64,9 @@ class JWPlayer extends React.Component {
 
   handleScripError(e) {
     this.props.onScriptError && this.props.onScriptError(e);
+    const script = document.getElementById('jw-player-script');
+    script.parentNode.removeChild(script);
+    this.setState({scriptFailedLoading: true});
   }
 
   handleError(error) {
@@ -94,16 +98,21 @@ class JWPlayer extends React.Component {
 
   render() {
     return (
-      <ReactJWPlayer
-        {...this.props.jwpOptions}
-        className={style.wrapper}
-        onPlay={this.handlePlay}
-        onResume={this.handleResume}
-        onPause={this.handlePause}
-        onOneHundredPercent={this.handleEnded}
-        onError={this.handleError}
-        file={this.state.fileUrl}
-      />
+      <>
+        {this.state.scriptFailedLoading && (
+          <p className={style.errorMessage}>{this.props.scriptErrorMessage}</p>
+        )}
+        <ReactJWPlayer
+          {...this.props.jwpOptions}
+          className={style.wrapper}
+          onPlay={this.handlePlay}
+          onResume={this.handleResume}
+          onPause={this.handlePause}
+          onOneHundredPercent={this.handleEnded}
+          onError={this.handleError}
+          file={this.state.fileUrl}
+        />
+      </>
     );
   }
 }
