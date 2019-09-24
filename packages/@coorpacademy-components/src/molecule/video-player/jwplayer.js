@@ -23,7 +23,7 @@ class JWPlayer extends React.Component {
 
   componentDidMount() {
     const jwPlayerScript = document.getElementById('jw-player-script');
-    jwPlayerScript.onerror = this.handleScriptError(jwPlayerScript);
+    jwPlayerScript.onerror = () => this.handleScriptError(jwPlayerScript);
     this.setFileUrl();
   }
 
