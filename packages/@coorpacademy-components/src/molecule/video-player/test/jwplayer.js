@@ -50,7 +50,7 @@ test.serial('should do nothing if autoplay is triggered and jwplayer script is n
 });
 
 test('should call handlers within props, then add autoplay props', t => {
-  t.plan(6);
+  t.plan(7);
 
   const props = {
     video: 'baz',
@@ -91,4 +91,12 @@ test('should call handlers within props, then add autoplay props', t => {
   });
 
   video.setProps({autoplay: true});
+
+  instance.handleScriptError({
+    parentNode: {
+      removeChild: () => null
+    }
+  });
+
+  t.truthy(video.state().scriptFailedLoading);
 });

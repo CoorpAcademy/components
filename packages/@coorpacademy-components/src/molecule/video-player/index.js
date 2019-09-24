@@ -86,6 +86,7 @@ VideoPlayer.propTypes = {
   onResume: PropTypes.func,
   onPause: PropTypes.func,
   onEnded: PropTypes.func,
+  onError: PropTypes.func,
   autoplay: PropTypes.bool,
   jwpOptions: JWPlayer.propTypes.jwpOptions,
   mimeType: PropTypes.oneOf([

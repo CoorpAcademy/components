@@ -10,16 +10,20 @@ class JWPlayer extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
-      fileUrl: ''
+      fileUrl: '',
+      scriptFailedLoading: false
     };
     this.handlePlay = this.handlePlay.bind(this);
     this.handleResume = this.handleResume.bind(this);
     this.handlePause = this.handlePause.bind(this);
     this.handleEnded = this.handleEnded.bind(this);
     this.handleError = this.handleError.bind(this);
+    this.handleScriptError = this.handleScriptError.bind(this);
   }
 
   componentDidMount() {
+    const jwPlayerScript = document.getElementById('jw-player-script');
+    jwPlayerScript.onerror = this.handleScriptError(jwPlayerScript);
     this.setFileUrl();
   }
 
@@ -58,6 +62,13 @@ class JWPlayer extends React.Component {
     this.props.onEnded && this.props.onEnded(e);
   }
 
+  handleScriptError(script) {
+    this.setState({scriptFailedLoading: true});
+    if (script) {
+      script.parentNode.removeChild(script);
+    }
+  }
+
   handleError(error) {
     const {onError, mimeType, jwpOptions} = this.props;
     const {code} = error;
@@ -87,16 +98,21 @@ class JWPlayer extends React.Component {
 
   render() {
     return (
-      <ReactJWPlayer
-        {...this.props.jwpOptions}
-        className={style.wrapper}
-        onPlay={this.handlePlay}
-        onResume={this.handleResume}
-        onPause={this.handlePause}
-        onOneHundredPercent={this.handleEnded}
-        onError={this.handleError}
-        file={this.state.fileUrl}
-      />
+      <>
+        {this.state.scriptFailedLoading && (
+          <p className={style.errorMessage}>{this.props.scriptErrorMessage}</p>
+        )}
+        <ReactJWPlayer
+          {...this.props.jwpOptions}
+          className={style.wrapper}
+          onPlay={this.handlePlay}
+          onResume={this.handleResume}
+          onPause={this.handlePause}
+          onOneHundredPercent={this.handleEnded}
+          onError={this.handleError}
+          file={this.state.fileUrl}
+        />
+      </>
     );
   }
 }
