@@ -15,7 +15,7 @@ export default {
       }
     },
     scriptErrorMessage:
-      'Could not load the video player. Get sure to whitelist this platform within your adblocker if you use one.',
+      'An error occurred while loading the video. Please make sure you have authorized this platform on your adblocker or deactivate your adblocker.',
     onError: e => console.log('onError', e),
     onPlay: () => console.log('onPlay jwp'),
     onResume: () => console.log('onResume jwp'),
