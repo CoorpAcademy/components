@@ -48,7 +48,7 @@ type FindBestOf = (
   contentType: ContentType,
   contentRef: string,
   progressionId: string
-) => Progression;
+) => Promise<{|stars: number|}>;
 type FindById = (id: string) => Promise<Progression | void>;
 type GetAvailableContent = Content => Promise<AvailableContent>;
 type MarkResourceAsViewed = (
@@ -141,20 +141,23 @@ const createSave = (dataLayer: DataLayer): (Progression => Promise<Progression>)
   return saveProgression(progression);
 };
 
-const findBestOf = (dataLayer: DataLayer): FindBestOf => (
+const findBestOf = (dataLayer: DataLayer): FindBestOf => async (
   engineRef: string,
   contentType: ContentType,
   contentRef: string,
   progressionId: string = ''
-): Progression => {
+): Promise<{|stars: number|}> => {
   const {getAllProgressions} = dataLayer;
-  const progressions = getAllProgressions();
+  const progressions = await getAllProgressions();
 
-  const bestProgression = pipe(
+  const bestProgression: Progression | void = pipe(
     filter(p => get('content.ref', p) === contentRef && get('_id', p) !== progressionId),
     maxBy(p => (p.state && p.state.stars) || 0)
   )(progressions);
-  return bestProgression || set('state.stars', 0, {});
+
+  return {
+    stars: (bestProgression && get('state.stars', bestProgression)) || 0
+  };
 };
 
 const addActionAndSaveProgression = (
