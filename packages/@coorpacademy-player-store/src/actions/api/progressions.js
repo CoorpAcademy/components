@@ -262,7 +262,8 @@ export const PROGRESSION_FETCH_BESTOF_FAILURE: string = '@@progression/FETCH_BES
 
 export const fetchBestProgression = (
   progressionContent: Content,
-  progressionId: string
+  progressionId: string,
+  force?: boolean
 ): ThunkAction => (
   dispatch: Function,
   getState: GetState,
@@ -287,10 +288,12 @@ DispatchedAction => {
       PROGRESSION_FETCH_BESTOF_FAILURE
     ],
     task: () => Progressions.findBestOf(engine.ref, type, ref, progressionId),
-    bailout: pipe(
-      getBestScore,
-      score => score !== undefined && score >= 0
-    ),
+    bailout: force
+      ? undefined
+      : pipe(
+          getBestScore,
+          score => score !== undefined && score >= 0
+        ),
     meta: {type, ref}
   });
 
