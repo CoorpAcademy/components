@@ -20,7 +20,7 @@ const findById = async id => {
 };
 
 const getAll = () => {
-  return [...progressionStore.values()];
+  return Promise.resolve([...progressionStore.values()]);
 };
 
 const save = progression => {

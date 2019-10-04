@@ -27,7 +27,7 @@ type FindBestOf = (
   contentType: ContentType,
   contentRef: string,
   progressionId: string
-) => Progression;
+) => Promise<{|stars: number|}>;
 type FindById = (id: string) => Promise<Progression | void>;
 type GetAvailableContent = Content => Promise<AvailableContent>;
 type MarkResourceAsViewed = (

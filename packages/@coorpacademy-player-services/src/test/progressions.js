@@ -117,13 +117,13 @@ test('should find progression', async t => {
 });
 
 test('should find best score', async t => {
-  const progression = await findBestOf('learner', 'chapter', '5.C7');
-  t.is(progression.state.stars, 16);
+  const result = await findBestOf('learner', 'chapter', '5.C7');
+  t.is(result.stars, 16);
 });
 
 test('should find 0 stars when there is no best score so far', async t => {
-  const progression = await findBestOf('none');
-  t.is(progression.state.stars, 0);
+  const result = await findBestOf('none');
+  t.is(result.stars, 0);
 });
 
 test('should add answer action', async t => {
