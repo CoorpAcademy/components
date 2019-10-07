@@ -92,6 +92,40 @@ test(
 );
 
 test(
+  'should force request if bestScore should be refreshed',
+  macro,
+  pipe(
+    set('ui.current.progressionId', 'foo'),
+    set('data.progressions.entities.foo', {engine, content: {type: 'chapter', ref: 'plop'}}),
+    set('data.contents.chapter.entities.plop.bestScore', 0)
+  )({}),
+  t => ({
+    Progressions: {
+      findBestOf: (engineRef, contentType, contentRef, id) => {
+        t.is(engineRef, 'microlearning');
+        t.is(contentRef, 'bar');
+        t.is(contentType, 'foo');
+        t.is(id, 'foo');
+        return 'baz';
+      }
+    }
+  }),
+  fetchBestProgression(progressionContent, 'foo', true),
+  [
+    {
+      type: PROGRESSION_FETCH_BESTOF_REQUEST,
+      meta: progressionContent
+    },
+    {
+      type: PROGRESSION_FETCH_BESTOF_SUCCESS,
+      meta: progressionContent,
+      payload: 'baz'
+    }
+  ],
+  4
+);
+
+test(
   'should return error if request failed',
   macro,
   state,
