@@ -169,7 +169,9 @@ JWPlayer.propTypes = {
   onEnded: PropTypes.func,
   onError: PropTypes.func,
   onPlayAttemptFailed: PropTypes.func,
-  onSetupError: PropTypes.func
+  onAutostartNotAllowed: PropTypes.func,
+  onSetupError: PropTypes.func,
+  onWarning: PropTypes.func
 };
 
 export default JWPlayer;
