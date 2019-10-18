@@ -50,7 +50,7 @@ test.serial('should do nothing if autoplay is triggered and jwplayer script is n
 });
 
 test('should call handlers within props, then add autoplay props', t => {
-  t.plan(7);
+  t.plan(11);
 
   const props = {
     video: 'baz',
@@ -58,6 +58,10 @@ test('should call handlers within props, then add autoplay props', t => {
     onPlay: () => t.pass(),
     onResume: () => t.pass(),
     onEnded: () => t.pass(),
+    onSetupError: () => t.pass(),
+    onAutostartNotAllowed: () => t.pass(),
+    onPlayAttemptFailed: () => t.pass(),
+    onWarning: () => t.pass(),
     onError: () => t.pass(),
     jwpOptions: {
       playerId: '3',
@@ -85,6 +89,10 @@ test('should call handlers within props, then add autoplay props', t => {
   instance.handleResume();
   instance.handleEnded();
   instance.handleError(new Error('Foo bar'));
+  instance.handleSetupError({});
+  instance.handlePlayAttemptFailed({});
+  instance.handleAutostartNotAllowed({});
+  instance.handleWarning({});
 
   window.jwplayer = () => ({
     play: props.onPlay
