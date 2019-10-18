@@ -13,12 +13,17 @@ class JWPlayer extends React.Component {
       fileUrl: '',
       scriptFailedLoading: false
     };
+
     this.handlePlay = this.handlePlay.bind(this);
     this.handleResume = this.handleResume.bind(this);
     this.handlePause = this.handlePause.bind(this);
     this.handleEnded = this.handleEnded.bind(this);
     this.handleError = this.handleError.bind(this);
+    this.handleSetupError = this.handleSetupError.bind(this);
     this.handleScriptError = this.handleScriptError.bind(this);
+    this.handlePlayAttemptFailed = this.handlePlayAttemptFailed.bind(this);
+    this.handleAutostartNotAllowed = this.handleAutostartNotAllowed.bind(this);
+    this.handleWarning = this.handleWarning.bind(this);
   }
 
   componentDidMount() {
@@ -69,6 +74,22 @@ class JWPlayer extends React.Component {
     }
   }
 
+  handleSetupError(error) {
+    this.props.onSetupError && this.props.onSetupError(error);
+  }
+
+  handlePlayAttemptFailed(error) {
+    this.props.onPlayAttemptFailed && this.props.onPlayAttemptFailed(error);
+  }
+
+  handleAutostartNotAllowed(error) {
+    this.props.onAutostartNotAllowed && this.props.onAutostartNotAllowed(error);
+  }
+
+  handleWarning(error) {
+    this.props.onWarning && this.props.onWarning(error);
+  }
+
   handleError(error) {
     const {onError, mimeType, jwpOptions} = this.props;
     const {code} = error;
@@ -110,6 +131,10 @@ class JWPlayer extends React.Component {
           onPause={this.handlePause}
           onOneHundredPercent={this.handleEnded}
           onError={this.handleError}
+          onSetupError={this.handleSetupError}
+          onPlayAttemptFailed={this.handlePlayAttemptFailed}
+          onWarning={this.handleWarning}
+          onAutostartNotAllowed={this.handleAutostartNotAllowed}
           file={this.state.fileUrl}
         />
       </>
@@ -142,7 +167,9 @@ JWPlayer.propTypes = {
   onResume: PropTypes.func,
   onPause: PropTypes.func,
   onEnded: PropTypes.func,
-  onError: PropTypes.func
+  onError: PropTypes.func,
+  onPlayAttemptFailed: PropTypes.func,
+  onSetupError: PropTypes.func
 };
 
 export default JWPlayer;
