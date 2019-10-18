@@ -143,6 +143,7 @@ type LevelAPI = {|
   _id: string,
   universalRef?: string,
   disciplineRef?: string,
+  disciplineUniversalRef?: string,
   ref: string,
   name?: string,
   level: string,
