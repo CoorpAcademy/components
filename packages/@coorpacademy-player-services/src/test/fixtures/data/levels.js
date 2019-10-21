@@ -61,6 +61,7 @@ const levels = [
   },
   {
     disciplineRef: 'dis_VJE4ukhvf',
+    disciplineUniversalRef: 'dis_VJE4ukhvf',
     name: 'Devenez agile avec le Design Thinking',
     levelTranslation: 'Coach',
     mediaUrl:
