@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/player-services",
-  "version": "5.0.19",
+  "version": "5.0.20",
   "description": "Implements reactions to redux actions from player-store",
   "main": "lib/index.js",
   "module": "es/index.js",
