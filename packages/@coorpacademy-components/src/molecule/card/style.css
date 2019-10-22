@@ -206,7 +206,7 @@
   }
 }
 
-.default:hover {
+.course .default:hover {
   background: light;
   cursor: pointer;
   transition: background 0.25s ease-in-out;

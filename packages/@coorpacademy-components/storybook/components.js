@@ -551,6 +551,8 @@ import OrganismMoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fi
 import OrganismMoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
 import OrganismMoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
 import OrganismMoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
+import OrganismMoocHeaderFixtureWithHeroAndSlides from '../src/organism/mooc-header/test/fixtures/with-hero-and-slides';
+import OrganismMoocHeaderFixtureWithHero from '../src/organism/mooc-header/test/fixtures/with-hero';
 import OrganismPopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
 import OrganismResourceBrowserFixtureJwplayerWithOverlay from '../src/organism/resource-browser/test/fixtures/jwplayer-with-overlay';
 import OrganismResourceBrowserFixtureJwplayer from '../src/organism/resource-browser/test/fixtures/jwplayer';
@@ -1564,7 +1566,9 @@ export const fixtures = {
       Logged: OrganismMoocHeaderFixtureLogged,
       SliderMultiple: OrganismMoocHeaderFixtureSliderMultiple,
       Slider: OrganismMoocHeaderFixtureSlider,
-      UserChangePassword: OrganismMoocHeaderFixtureUserChangePassword
+      UserChangePassword: OrganismMoocHeaderFixtureUserChangePassword,
+      WithHeroAndSlides: OrganismMoocHeaderFixtureWithHeroAndSlides,
+      WithHero: OrganismMoocHeaderFixtureWithHero
     },
     OrganismPopin: {
       Default: OrganismPopinFixtureDefault

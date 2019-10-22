@@ -6,8 +6,7 @@ import Card from '../../../molecule/card';
 import Slider from '../../slider';
 
 const ImageSlider = ({slides = [], card}) => {
-  const myslides = map(slide => <Slide key={slide.title} {...slide} />, slides);
-  const allSlides = [myslides];
+  const allSlides = map(slide => <Slide key={slide.title} {...slide} />, slides);
 
   if (card) {
     const heroCard = <Card key={card.title} {...card} />;
@@ -18,7 +17,7 @@ const ImageSlider = ({slides = [], card}) => {
 };
 
 ImageSlider.propTypes = {
-  card: PropTypes.shape(Card.propTypes),
+  hero: PropTypes.shape(Card.propTypes),
   slides: PropTypes.arrayOf(PropTypes.shape(Slide.propTypes))
 };
 
