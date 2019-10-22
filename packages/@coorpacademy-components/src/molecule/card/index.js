@@ -143,7 +143,7 @@ const Card = (props, context) => {
         {myprogress}
         {hero && (
           <div className={style.heroCtaWrapper}>
-            <Cta light="true" submitValue="Continue todo i18n" onClick={handleClick} />
+            <Cta light="true" {...hero.cta} />
           </div>
         )}
       </div>
