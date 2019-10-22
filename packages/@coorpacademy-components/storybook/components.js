@@ -340,6 +340,7 @@ import MoleculeCardFixtureEmpty from '../src/molecule/card/test/fixtures/empty';
 import MoleculeCardFixtureFavorite from '../src/molecule/card/test/fixtures/favorite';
 import MoleculeCardFixtureFreerunAndDisabled from '../src/molecule/card/test/fixtures/freerun-and-disabled';
 import MoleculeCardFixtureFreerun from '../src/molecule/card/test/fixtures/freerun';
+import MoleculeCardFixtureHero from '../src/molecule/card/test/fixtures/hero';
 import MoleculeCardWithButtonFixtureDefault from '../src/molecule/card-with-button/test/fixtures/default';
 import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-button/test/fixtures/with-avatar';
 import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
@@ -544,6 +545,7 @@ import OrganismHeroFixtureNoTouch from '../src/organism/hero/test/fixtures/no-to
 import OrganismHeroFixtureTouch from '../src/organism/hero/test/fixtures/touch';
 import OrganismMoocImageSliderFixtureDefault from '../src/organism/mooc/image-slider/test/fixtures/default';
 import OrganismMoocImageSliderFixtureMultipleSlides from '../src/organism/mooc/image-slider/test/fixtures/multiple-slides';
+import OrganismMoocImageSliderFixtureWithHero from '../src/organism/mooc/image-slider/test/fixtures/with-hero';
 import OrganismMoocHeaderFixtureDefault from '../src/organism/mooc-header/test/fixtures/default';
 import OrganismMoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/logged';
 import OrganismMoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
@@ -1212,7 +1214,8 @@ export const fixtures = {
       Empty: MoleculeCardFixtureEmpty,
       Favorite: MoleculeCardFixtureFavorite,
       FreerunAndDisabled: MoleculeCardFixtureFreerunAndDisabled,
-      Freerun: MoleculeCardFixtureFreerun
+      Freerun: MoleculeCardFixtureFreerun,
+      Hero: MoleculeCardFixtureHero
     },
     MoleculeCardWithButton: {
       Default: MoleculeCardWithButtonFixtureDefault,
@@ -1604,7 +1607,8 @@ export const fixtures = {
   OrganismMooc: {
     OrganismMoocImageSlider: {
       Default: OrganismMoocImageSliderFixtureDefault,
-      MultipleSlides: OrganismMoocImageSliderFixtureMultipleSlides
+      MultipleSlides: OrganismMoocImageSliderFixtureMultipleSlides,
+      WithHero: OrganismMoocImageSliderFixtureWithHero
     }
   },
   Template: {

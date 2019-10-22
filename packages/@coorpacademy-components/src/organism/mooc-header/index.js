@@ -377,9 +377,9 @@ class MoocHeader extends React.Component {
       );
     }
 
-    const sliderView = slider ? (
+    const sliderView = (slider || hero) ? (
       <div data-name="slider" className={style.slider}>
-        <ImageSlider {...slider} />
+        <ImageSlider slides={slider} card={hero} />
       </div>
     ) : null;
 

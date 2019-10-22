@@ -13,6 +13,7 @@ import {
   NovaCompositionCoorpacademyTimer as TimerIcon
 } from '@coorpacademy/nova-icons';
 
+import Cta from '../../atom/cta';
 import Provider from '../../atom/provider';
 import Customer from './customer';
 import Favorite from './favorite';
@@ -55,14 +56,19 @@ const Card = (props, context) => {
     favorite,
     onClick,
     onFavoriteClick,
-    notification
+    notification,
+    hero
   } = props;
 
-  const lazyClass = title ? style.default : style.lazy;
   const empty = isEmpty(pick(['title', 'type', 'author', 'image'], props));
   const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
-  const cardStyle = classnames(style.grid, style.course);
+  const cardStyle = classnames(
+    hero ? style.hero : style.course,
+    title ? null : style.lazy,
+    style.grid,
+    empty ? style.empty : null
+  );
   const handleClick = e => !disabled && onClick(e);
 
   const emptyIcon = empty ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
@@ -85,65 +91,68 @@ const Card = (props, context) => {
 
   return (
     <div
-      className={classnames(cardStyle, empty ? style.empty : null)}
+      className={cardStyle}
       data-name="card"
       data-lock={disabled}
       data-type={type === 'chapter' ? 'microlearning' : 'learner'}
-      onClick={handleClick}
+      disabled={disabled}
+      onClick={!hero && handleClick}
     >
-      <div className={lazyClass} disabled={disabled} data-type={disabled ? 'lock' : 'unlock'}>
-        <div disabled={disabled}>
-          <div className={style.imageWrapper}>
-            <div
-              data-name="cover"
-              className={style.image}
-              style={{
-                backgroundColor: primaryColor,
-                backgroundImage: image ? `url('${image}')` : 'none'
-              }}
-            >
-              {emptyIcon}
-            </div>
-          </div>
-          {!isUndefined(favorite) && (
-            <Favorite
-              className={style.favorite}
-              favorite={favorite}
-              disabled={disabled}
-              onFavoriteClick={onFavoriteClick}
-            />
-          )}
-          {notification && <Notification {...notification} />}
-          {customer && <Customer className={style.customer} {...customer} />}
-          <div data-name="info" className={style.infoWrapper}>
-            {contentTypeIcon}
-            <div className={classnames(style.title, empty ? style.empty : null)}>
-              <div data-name="title" title={title}>
-                {title}
-              </div>
-            </div>
-            <div
-              data-name="author"
-              title={author}
-              className={classnames(
-                style.author,
-                certifiedAuthor && style.certified,
-                empty ? style.empty : null
-              )}
-            >
-              <span>{author}</span>
-              <CheckIcon className={style.icon} color="inherit" />
-            </div>
-          </div>
-          {myprogress}
-          {badge && (
-            <div className={style.badge} style={inlineBadgeStyle}>
-              {badge}
-            </div>
-          )}
+      <div className={style.imageWrapper}>
+        <div
+          data-name="cover"
+          className={style.image}
+          style={{
+            backgroundColor: primaryColor,
+            backgroundImage: image ? `url('${image}')` : 'none'
+          }}
+        >
+          {emptyIcon}
         </div>
-        {disabled ? <div className={style.lockWrapper}>{lock}</div> : null}
       </div>
+      {!isUndefined(favorite) && (
+        <Favorite
+          className={style.favorite}
+          favorite={favorite}
+          disabled={disabled}
+          onFavoriteClick={onFavoriteClick}
+        />
+      )}
+      {notification && <Notification {...notification} />}
+      {customer && <Customer className={style.customer} {...customer} />}
+      <div data-name="info" className={style.infoWrapper}>
+        {contentTypeIcon}
+        <div className={classnames(style.title, empty ? style.empty : null)}>
+          <div data-name="title" title={title}>
+            {title}
+          </div>
+        </div>
+        <div
+          data-name="author"
+          title={author}
+          className={classnames(
+            style.author,
+            certifiedAuthor && style.certified,
+            empty ? style.empty : null
+          )}
+        >
+          <span>{author}</span>
+          <CheckIcon className={style.icon} color="inherit" />
+        </div>
+
+        {myprogress}
+        {hero && (
+          <div className={style.heroCtaWrapper}>
+            <Cta light="true" submitValue="Continue todo i18n" onClick={handleClick} />
+          </div>
+        )}
+      </div>
+      {badge && (
+        <div className={style.badge} style={inlineBadgeStyle}>
+          {badge}
+        </div>
+      )}
+      {disabled ? <div className={style.lockWrapper}>{lock}</div> : null}
     </div>
   );
 };
@@ -164,6 +173,7 @@ Card.propTypes = {
   customer: PropTypes.shape(Customer.propTypes),
   progress: PropTypes.number,
   favorite: PropTypes.bool,
+  hero: PropTypes.bool,
   onClick: PropTypes.func,
   onFavoriteClick: PropTypes.func,
   notification: PropTypes.shape(Notification.propTypes)

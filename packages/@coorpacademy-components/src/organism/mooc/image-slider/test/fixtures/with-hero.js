@@ -1,0 +1,34 @@
+import slideFixtures from '../../../../../atom/slide/test/fixtures/default';
+import heroCardFixtures from '../../../../../molecule/card/test/fixtures/hero';
+
+const slide = slideFixtures.props;
+
+export default {
+  props: {
+    card: heroCardFixtures.props,
+    slides: [
+      slide,
+      {
+        ...slide,
+        cover: 'url("http://www.lorempixel.com/200/200/nature/2")',
+        title: 'Hi XXX, check your battle requests,',
+        surtitle: 'You have N battle requests!',
+        light: true,
+        cta: {
+          href: '#',
+          title: 'Start Battling'
+        }
+      },
+      {
+        ...slide,
+        cover: 'url("http://www.lorempixel.com/200/200/nature/3")',
+        title: 'Welcome back Jane, continue your course',
+        surtitle: 'The Mobile Revolution',
+        cta: {
+          href: '#',
+          title: 'Continue Learning'
+        }
+      }
+    ]
+  }
+};
