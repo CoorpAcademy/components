@@ -7,10 +7,9 @@ export default {
     title: 'From Mass Market to One to One targeting  ',
     author: 'Coorpacademy',
     cta: {
-      href: '#',
-      submitValue: 'Continue your progression'
+      onClick: () => console.log('onClick'),
+      submitValue: 'Continue Learning'
     },
-    progress: 0.65,
-    onClick: () => console.log('onClick')
+    progress: 0.65
   }
 };

@@ -88,7 +88,6 @@ const Card = (props, context) => {
       <div data-name="progress" className={style.progress} style={inlineProgressValueStyle} />
     </div>
   ) : null;
-
   return (
     <div
       className={cardStyle}
@@ -143,7 +142,7 @@ const Card = (props, context) => {
         {myprogress}
         {hero && (
           <div className={style.heroCtaWrapper}>
-            <Cta light="true" {...hero.cta} />
+            <Cta light="true" {...props.cta} />
           </div>
         )}
       </div>

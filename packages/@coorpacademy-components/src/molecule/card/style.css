@@ -183,10 +183,6 @@
   justify-content: center;
 }
 
-.heroCta {
-  width: 250px;
-}
-
 .course .author .icon {
   fill: white;
   filter: drop-shadow(1px 1px 6px grey);
@@ -318,6 +314,10 @@
   padding: 0 16px;
   width: 100%;
   box-sizing: border-box;
+}
+
+.empty .infoWrapper {
+  padding-bottom: 25px;
 }
 
 .course .infoWrapper {
