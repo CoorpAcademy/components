@@ -545,14 +545,9 @@ import OrganismHeroFixtureNoTouch from '../src/organism/hero/test/fixtures/no-to
 import OrganismHeroFixtureTouch from '../src/organism/hero/test/fixtures/touch';
 import OrganismMoocImageSliderFixtureDefault from '../src/organism/mooc/image-slider/test/fixtures/default';
 import OrganismMoocImageSliderFixtureMultipleSlides from '../src/organism/mooc/image-slider/test/fixtures/multiple-slides';
-import OrganismMoocImageSliderFixtureWithHero from '../src/organism/mooc/image-slider/test/fixtures/with-hero';
 import OrganismMoocHeaderFixtureDefault from '../src/organism/mooc-header/test/fixtures/default';
 import OrganismMoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/logged';
-import OrganismMoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
-import OrganismMoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
 import OrganismMoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
-import OrganismMoocHeaderFixtureWithHeroAndSlides from '../src/organism/mooc-header/test/fixtures/with-hero-and-slides';
-import OrganismMoocHeaderFixtureWithHero from '../src/organism/mooc-header/test/fixtures/with-hero';
 import OrganismPopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
 import OrganismResourceBrowserFixtureJwplayerWithOverlay from '../src/organism/resource-browser/test/fixtures/jwplayer-with-overlay';
 import OrganismResourceBrowserFixtureJwplayer from '../src/organism/resource-browser/test/fixtures/jwplayer';
@@ -720,6 +715,7 @@ import TemplateCommonCoorpHeaderFixtureProduction from '../src/template/common/c
 import TemplateCommonCoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
 import TemplateCommonDashboardFixtureDefault from '../src/template/common/dashboard/test/fixtures/default';
 import TemplateCommonDashboardFixtureEmptyRequests from '../src/template/common/dashboard/test/fixtures/empty-requests';
+import TemplateCommonDashboardFixtureWithHeroCard from '../src/template/common/dashboard/test/fixtures/with-hero-card';
 import TemplateCommonDisciplineFixtureDefault from '../src/template/common/discipline/test/fixtures/default';
 import TemplateCommonDisciplineFixtureDoubleAuthor from '../src/template/common/discipline/test/fixtures/double-author';
 import TemplateCommonDisciplineFixtureEmpty from '../src/template/common/discipline/test/fixtures/empty';
@@ -1564,11 +1560,7 @@ export const fixtures = {
     OrganismMoocHeader: {
       Default: OrganismMoocHeaderFixtureDefault,
       Logged: OrganismMoocHeaderFixtureLogged,
-      SliderMultiple: OrganismMoocHeaderFixtureSliderMultiple,
-      Slider: OrganismMoocHeaderFixtureSlider,
-      UserChangePassword: OrganismMoocHeaderFixtureUserChangePassword,
-      WithHeroAndSlides: OrganismMoocHeaderFixtureWithHeroAndSlides,
-      WithHero: OrganismMoocHeaderFixtureWithHero
+      UserChangePassword: OrganismMoocHeaderFixtureUserChangePassword
     },
     OrganismPopin: {
       Default: OrganismPopinFixtureDefault
@@ -1611,8 +1603,7 @@ export const fixtures = {
   OrganismMooc: {
     OrganismMoocImageSlider: {
       Default: OrganismMoocImageSliderFixtureDefault,
-      MultipleSlides: OrganismMoocImageSliderFixtureMultipleSlides,
-      WithHero: OrganismMoocImageSliderFixtureWithHero
+      MultipleSlides: OrganismMoocImageSliderFixtureMultipleSlides
     }
   },
   Template: {
@@ -1806,7 +1797,8 @@ export const fixtures = {
     },
     TemplateCommonDashboard: {
       Default: TemplateCommonDashboardFixtureDefault,
-      EmptyRequests: TemplateCommonDashboardFixtureEmptyRequests
+      EmptyRequests: TemplateCommonDashboardFixtureEmptyRequests,
+      WithHeroCard: TemplateCommonDashboardFixtureWithHeroCard
     },
     TemplateCommonDiscipline: {
       Default: TemplateCommonDisciplineFixtureDefault,

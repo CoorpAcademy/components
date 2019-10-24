@@ -18,7 +18,6 @@ import InputSwitch from '../../atom/input-switch';
 import Link from '../../atom/link';
 import Search from '../../molecule/search';
 import SearchForm from '../../molecule/search-form';
-import ImageSlider from '../mooc/image-slider';
 import style from './style.css';
 
 class MoocHeader extends React.Component {
@@ -377,12 +376,6 @@ class MoocHeader extends React.Component {
       );
     }
 
-    const sliderView = slider ? (
-      <div data-name="slider" className={style.slider}>
-        <ImageSlider {...slider} />
-      </div>
-    ) : null;
-
     return (
       <div className={style.wrapper}>
         <div
@@ -416,7 +409,6 @@ class MoocHeader extends React.Component {
             {settingsView}
           </div>
         </div>
-        {sliderView}
       </div>
     );
   }
@@ -500,7 +492,6 @@ MoocHeader.propTypes = {
         )
       })
     })
-  ),
-  slider: PropTypes.shape(ImageSlider.propTypes)
+  )
 };
 export default MoocHeader;

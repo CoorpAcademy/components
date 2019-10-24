@@ -140,11 +140,12 @@ const Card = (props, context) => {
         </div>
 
         {myprogress}
-        {hero && (
-          <div className={style.heroCtaWrapper}>
-            <Cta light="true" {...props.cta} />
-          </div>
-        )}
+        {hero &&
+          !empty && (
+            <div className={style.heroCtaWrapper}>
+              <Cta light="true" {...props.cta} />
+            </div>
+          )}
       </div>
       {badge && (
         <div className={style.badge} style={inlineBadgeStyle}>

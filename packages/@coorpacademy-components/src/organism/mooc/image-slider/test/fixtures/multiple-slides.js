@@ -8,7 +8,7 @@ export default {
       slide,
       {
         ...slide,
-        cover: 'url("http://www.lorempixel.com/200/200/nature/2")',
+        cover: 'http://www.lorempixel.com/200/200/nature/2',
         title: 'Hi XXX, check your battle requests,',
         surtitle: 'You have N battle requests!',
         light: true,
@@ -19,7 +19,7 @@ export default {
       },
       {
         ...slide,
-        cover: 'url("http://www.lorempixel.com/200/200/nature/3")',
+        cover: 'http://www.lorempixel.com/200/200/nature/3',
         title: 'Welcome back Jane, continue your course',
         surtitle: 'The Mobile Revolution',
         cta: {
