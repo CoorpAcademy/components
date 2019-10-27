@@ -32,6 +32,7 @@ const Select = (props, context) => {
     multiple = false,
     disabled,
     required,
+    description,
     theme,
     modified = false
   } = props;
@@ -103,6 +104,7 @@ const Select = (props, context) => {
           {optionList}
         </select>
       </label>
+      <div className={style.description}>{description}</div>
     </div>
   );
 };
@@ -124,6 +126,7 @@ Select.propTypes = {
   borderClassName: PropTypes.string,
   disabled: PropTypes.bool,
   multiple: PropTypes.bool,
+  description: PropTypes.string,
   required: PropTypes.bool,
   onChange: PropTypes.func,
   theme: PropTypes.oneOf(keys(themeStyle)),
