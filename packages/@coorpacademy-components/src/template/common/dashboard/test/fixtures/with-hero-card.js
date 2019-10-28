@@ -1,4 +1,4 @@
-import heroCardFixtures from '../../../../../molecule/card/test/fixtures/hero';
+import heroCardFixtures from '../../../../../molecule/hero/test/fixtures/hero';
 import Default from './default';
 
 const {props} = Default;

@@ -67,6 +67,7 @@ import MoleculeFilters from './../src/molecule/filters';
 import MoleculeForumForumComment from './../src/molecule/forum/forum-comment';
 import MoleculeForumForumPost from './../src/molecule/forum/forum-post';
 import MoleculeForumForumThread from './../src/molecule/forum/forum-thread';
+import MoleculeHero from './../src/molecule/hero';
 import MoleculeMenuList from './../src/molecule/menu-list';
 import MoleculeMessagePopin from './../src/molecule/message-popin';
 import MoleculeModuleBubble from './../src/molecule/module-bubble';
@@ -340,7 +341,6 @@ import MoleculeCardFixtureEmpty from '../src/molecule/card/test/fixtures/empty';
 import MoleculeCardFixtureFavorite from '../src/molecule/card/test/fixtures/favorite';
 import MoleculeCardFixtureFreerunAndDisabled from '../src/molecule/card/test/fixtures/freerun-and-disabled';
 import MoleculeCardFixtureFreerun from '../src/molecule/card/test/fixtures/freerun';
-import MoleculeCardFixtureHero from '../src/molecule/card/test/fixtures/hero';
 import MoleculeCardFixtureWelcome from '../src/molecule/card/test/fixtures/welcome';
 import MoleculeCardWithButtonFixtureDefault from '../src/molecule/card-with-button/test/fixtures/default';
 import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-button/test/fixtures/with-avatar';
@@ -409,6 +409,7 @@ import MoleculeForumForumPostFixtureTextareasLocked from '../src/molecule/forum/
 import MoleculeForumForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thread/test/fixtures/deep-answers';
 import MoleculeForumForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
 import MoleculeForumForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
+import MoleculeHeroFixtureHero from '../src/molecule/hero/test/fixtures/hero';
 import MoleculeMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import MoleculeMessagePopinFixtureDefault from '../src/molecule/message-popin/test/fixtures/default';
 import MoleculeModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
@@ -796,6 +797,7 @@ export const components = {
     MoleculeDisciplineScope,
     MoleculeFeedback,
     MoleculeFilters,
+    MoleculeHero,
     MoleculeMenuList,
     MoleculeMessagePopin,
     MoleculeModuleBubble,
@@ -1214,7 +1216,6 @@ export const fixtures = {
       Favorite: MoleculeCardFixtureFavorite,
       FreerunAndDisabled: MoleculeCardFixtureFreerunAndDisabled,
       Freerun: MoleculeCardFixtureFreerun,
-      Hero: MoleculeCardFixtureHero,
       Welcome: MoleculeCardFixtureWelcome
     },
     MoleculeCardWithButton: {
@@ -1271,6 +1272,9 @@ export const fixtures = {
       TwoOpened: MoleculeFiltersFixtureTwoOpened,
       Two: MoleculeFiltersFixtureTwo,
       Zero: MoleculeFiltersFixtureZero
+    },
+    MoleculeHero: {
+      Hero: MoleculeHeroFixtureHero
     },
     MoleculeMenuList: {
       Default: MoleculeMenuListFixtureDefault

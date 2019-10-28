@@ -56,15 +56,14 @@ const Card = (props, context) => {
     favorite,
     onClick,
     onFavoriteClick,
-    notification,
-    hero
+    notification
   } = props;
 
   const empty = isEmpty(pick(['title', 'type', 'author', 'image'], props));
   const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
   const cardStyle = classnames(
-    hero ? style.hero : style.course,
+    style.course,
     title ? null : style.lazy,
     style.grid,
     empty ? style.empty : null
@@ -95,7 +94,7 @@ const Card = (props, context) => {
       data-lock={disabled}
       data-type={type === 'chapter' ? 'microlearning' : 'learner'}
       disabled={disabled}
-      onClick={!hero && handleClick}
+      onClick={handleClick}
     >
       <div className={style.imageWrapper}>
         <div
@@ -140,12 +139,6 @@ const Card = (props, context) => {
         </div>
 
         {myprogress}
-        {hero &&
-          !empty && (
-            <div className={style.heroCtaWrapper}>
-              <Cta light="true" {...props.cta} />
-            </div>
-          )}
       </div>
       {badge && (
         <div className={style.badge} style={inlineBadgeStyle}>
@@ -173,7 +166,6 @@ Card.propTypes = {
   customer: PropTypes.shape(Customer.propTypes),
   progress: PropTypes.number,
   favorite: PropTypes.bool,
-  hero: PropTypes.bool,
   onClick: PropTypes.func,
   onFavoriteClick: PropTypes.func,
   notification: PropTypes.shape(Notification.propTypes)

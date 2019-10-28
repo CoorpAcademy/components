@@ -3,12 +3,10 @@ export default {
     image:
       'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90',
     type: 'course',
-    title: 'From Mass Market to One to One targeting  ',
+    title: 'From Mass Market to One to One targeting  ooooo',
     author: 'Coorpacademy',
-    cta: {
-      onClick: () => console.log('onClick'),
-      submitValue: 'Continue Learning'
-    },
+    onClick: () => console.log('onClick'),
+    submitValue: 'zepfjpijzeipjzeipfjzepfijpi"rhpréir',
     progress: 0.65
   }
 };

@@ -55,20 +55,18 @@
   opacity: 0.6;
 }
 
-.course {
+.hero {
   composes: default;
-  border-radius: 8px;
-  width: 256px;
-  height: 258px;
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
 }
 
 @media mobile {
-  .course {
-    width: 200px;
-  }
 }
 
-.course .imageWrapper {
+.hero .imageWrapper {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -92,12 +90,6 @@
   transition: opacity 0.25s ease-in-out;
 }
 
-.default:hover .image {
-  transform-origin: center;
-  transform: scale(1.1);
-  transition: all 1s ease-in-out;
-}
-
 .default .image::after {
   position: absolute;
   content: '';
@@ -108,8 +100,9 @@
   left: 0;
   background-image: linear-gradient(
     to bottom,
-    color(black a(0%)),
-    color(black a(80%))
+    color(black a(1%)),
+    color(rgba(0, 0, 0, 0.7) a(47%)),
+    color(black a(96%))
   );
 }
 
@@ -130,24 +123,27 @@
   transition: opacity 0.5s ease-in-out;
 }
 
-.course .title {
-  text-align: left;
+.hero .title {
+  text-align: center;
   color: white;
+  font-size: 40px;
+  font-weight: bold;
   text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
 }
 
-.course .author {
-  font-size: 12px;
+.hero .author {
+  font-size: 20px;
   color: white;
-  text-align: left;
+  text-align: center;
   text-shadow: 1px 1px 6px black;
-  display: flex;
-  align-items: center;
 }
 
-.course .author .icon {
-  fill: white;
-  filter: drop-shadow(1px 1px 6px grey);
+.heroCtaWrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
 }
 
 .lazy {
@@ -162,12 +158,6 @@
   100% {
     opacity: 1;
   }
-}
-
-.course .default:hover {
-  background: light;
-  cursor: pointer;
-  transition: background 0.25s ease-in-out;
 }
 
 .default[disabled] .imageWrapper {
@@ -231,10 +221,10 @@
 .progressWrapper {
   position: relative;
   left: 0;
-  width: 150px;
+  width: 194px;
   height: 3px;
   border-radius: 1px;
-  margin: 16px auto;
+  margin: 0 auto;
   background: light;
 }
 
@@ -282,9 +272,9 @@
   padding-bottom: 25px;
 }
 
-.course .infoWrapper {
-  height: 100%;
-  justify-content: flex-end;
+.hero .infoWrapper {
+  height: auto;
+  justify-content: center;
 }
 
 .title {
@@ -295,6 +285,12 @@
   font-family: 'Open Sans';
   overflow: hidden;
   user-select: none;
+}
+
+.button {
+  min-width: 0;
+  line-height: 45px;
+  border-radius: 27.5px;
 }
 
 @media mobile {
@@ -314,7 +310,8 @@
 }
 
 .author {
-  margin-top: 5px;
+  margin-top: 9px;
+  margin-bottom: 24px;
   font-size: 12px;
   color: grey;
   width: 100%;
@@ -360,10 +357,6 @@
 }
 
 @media (hover: none) {
-  .default:hover .image {
-    transform: scale(1);
-  }
-
   .default:hover .image::before {
     opacity: 0;
   }
@@ -381,8 +374,14 @@
   .author {
     font-size: 12px;
   }
+}
 
-  .course .grid .title {
-    max-height: 68px;
+@media tablet {
+  .hero .title {
+    font-size: 15px;
+  }
+
+  .hero .author {
+    font-size: 12px;
   }
 }

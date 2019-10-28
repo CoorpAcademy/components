@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Slide from '../../../atom/slide';
-import Card from '../../../molecule/card';
+import HeroCard from '../../../molecule/hero';
 import BattleRequestList from '../../../molecule/dashboard/battle-request-list';
 import CardsList from '../../../molecule/dashboard/cards-list';
 import NewsList from '../../../molecule/dashboard/news-list';
@@ -9,7 +9,7 @@ import StartBattle from '../../../molecule/dashboard/start-battle';
 import style from './style.css';
 
 const Hero = ({hero, welcome}) => (
-  <div className={style.hero}>{hero ? <Card hero {...hero} /> : <Slide {...welcome} />}</div>
+  <div className={style.hero}>{hero ? <HeroCard hero {...hero} /> : <Slide {...welcome} />}</div>
 );
 
 const Dashboard = props => {
@@ -47,7 +47,7 @@ const Dashboard = props => {
 };
 
 Dashboard.propTypes = {
-  hero: PropTypes.shape(Card.propTypes),
+  hero: PropTypes.shape(HeroCard.propTypes),
   welcome: PropTypes.shape(Slide.propTypes),
   sections: PropTypes.arrayOf(
     PropTypes.oneOfType([
