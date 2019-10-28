@@ -104,7 +104,7 @@ class MoocHeader extends React.Component {
   }
 
   render() {
-    const {logo = {}, pages, settings, user, slider, links, search} = this.props;
+    const {logo = {}, pages, settings, user, links, search} = this.props;
     if (isEmpty(this.props)) return null;
     const {translate, skin} = this.context;
 

@@ -13,7 +13,6 @@ import {
   NovaCompositionCoorpacademyTimer as TimerIcon
 } from '@coorpacademy/nova-icons';
 
-import Cta from '../../atom/cta';
 import Provider from '../../atom/provider';
 import Customer from './customer';
 import Favorite from './favorite';
