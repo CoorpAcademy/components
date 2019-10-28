@@ -206,7 +206,7 @@
   user-select: none;
 }
 
-.heroButton {
+.heroCtaWrapper .heroButton {
   min-width: 0;
   line-height: 45px;
   border-radius: 27.5px;
@@ -237,7 +237,6 @@
   font-weight: 100;
   user-select: none;
 }
-
 
 @keyframes progressbar {
   0% {
