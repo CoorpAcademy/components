@@ -7,6 +7,7 @@ export default {
           {
             type: 'select',
             title: 'Status',
+            description: 'Deactivation Date: 01/01/2019',
             onChange: () => true,
             options: [
               {
