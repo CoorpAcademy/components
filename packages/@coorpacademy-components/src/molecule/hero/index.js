@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import get from 'lodash/fp/get';
-import isEmpty from 'lodash/fp/isEmpty';
-// import isUndefined from 'lodash/fp/isUndefined';
 import Button from '../../atom/button';
 import Provider from '../../atom/provider';
 import style from './style.css';
@@ -13,8 +11,7 @@ const Hero = (props, context) => {
   const {image, title, author, progress, onClick, submitValue} = props;
 
   const primaryColor = get('common.primary', skin);
-  const cardStyle = classnames(style.hero, title ? null : style.lazy, style.grid);
-  const handleClick = e => onClick(e);
+  const cardStyle = classnames(style.hero, title ? null : style.lazy);
 
   const inlineProgressValueStyle = {
     backgroundColor: primaryColor,
@@ -22,7 +19,7 @@ const Hero = (props, context) => {
   };
 
   return (
-    <div className={cardStyle} data-name="hero" onClick={handleClick}>
+    <div className={cardStyle} data-name="hero">
       <div className={style.imageWrapper}>
         <div
           data-name="cover"
@@ -39,8 +36,8 @@ const Hero = (props, context) => {
             {title}
           </div>
         </div>
-        <div data-name="author" title={author} className={classnames(style.author)}>
-          <span>{author}</span>
+        <div title={author} className={classnames(style.author)}>
+          <span data-name="author">{author}</span>
         </div>
 
         <div className={style.progressWrapper}>
@@ -49,9 +46,10 @@ const Hero = (props, context) => {
         <div className={style.heroCtaWrapper}>
           <Button
             type="link"
+            data-name="hero-button"
             onClick={onClick}
             submitValue={submitValue}
-            className={style.button}
+            className={style.heroButton}
             style={{backgroundColor: primaryColor}}
           />
         </div>

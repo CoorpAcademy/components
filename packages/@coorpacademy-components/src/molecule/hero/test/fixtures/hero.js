@@ -6,7 +6,7 @@ export default {
     title: 'From Mass Market to One to One targeting  ooooo',
     author: 'Coorpacademy',
     onClick: () => console.log('onClick'),
-    submitValue: 'zepfjpijzeipjzeipfjzepfijpi"rhpréir',
+    submitValue: 'Continue',
     progress: 0.65
   }
 };

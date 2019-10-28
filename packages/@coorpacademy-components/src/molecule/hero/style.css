@@ -31,30 +31,6 @@
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.07);
 }
 
-.default[disabled] .favorite {
-  z-index: 0;
-}
-
-.customer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-.customer {
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0) 20%
-  );
-}
-
-.grid.empty {
-  opacity: 0.6;
-}
-
 .hero {
   composes: default;
   border-radius: 0;
@@ -164,33 +140,6 @@
   opacity: 0.4;
 }
 
-.lockWrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 258px;
-  display: flex;
-  padding-top: 50px;
-  justify-content: center;
-}
-
-.lockWrapper::before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  content: '';
-  opacity: 0.4;
-  background: black;
-}
-
-.lockIcon {
-  font-size: 40px;
-  z-index: 1;
-}
-
 .imageWrapper {
   height: 125px;
   position: relative;
@@ -203,11 +152,6 @@
 .imageWrapper a {
   text-decoration: none;
   cursor: pointer;
-}
-
-.specificIcon {
-  font-size: 5px;
-  filter: drop-shadow(1px 1px 6px grey);
 }
 
 .image {
@@ -232,31 +176,10 @@
   visibility: hidden;
 }
 
-.default[disabled] .customer {
-  background: none;
-}
-
 .progress {
   display: block;
   height: 3px;
   animation: progressbar 2s ease-in-out;
-}
-
-.badge {
-  position: absolute;
-  width: auto;
-  height: auto;
-  background-color: white;
-  padding: 3px 11px;
-  top: 0;
-  left: 0;
-  font-family: 'Open Sans';
-  text-transform: uppercase;
-  font-size: 8px;
-  font-weight: bold;
-  border-bottom-right-radius: 7px;
-  z-index: 1;
-  user-select: none;
 }
 
 .infoWrapper {
@@ -266,10 +189,6 @@
   padding: 0 16px;
   width: 100%;
   box-sizing: border-box;
-}
-
-.empty .infoWrapper {
-  padding-bottom: 25px;
 }
 
 .hero .infoWrapper {
@@ -287,7 +206,7 @@
   user-select: none;
 }
 
-.button {
+.heroButton {
   min-width: 0;
   line-height: 45px;
   border-radius: 27.5px;
@@ -297,10 +216,6 @@
   .title {
     font-size: 15px;
   }
-}
-
-.title.empty::before {
-  content: '▅▅▅▅▅▅▅▅▅▅▅  ▅▅▅▅▅▅▅▅▅';
 }
 
 .title a {
@@ -323,32 +238,6 @@
   user-select: none;
 }
 
-.author.certified .icon {
-  display: inline;
-}
-
-.author .icon {
-  display: none;
-  width: 12px;
-  height: 12px;
-  margin-left: 0.25em;
-  fill: grey;
-}
-
-.author.empty::before {
-  content: '▅▅▅▅▅▅▅▅▅';
-}
-
-.emptyIcon {
-  vertical-align: middle;
-  width: 80px;
-  height: 70px;
-  position: absolute;
-  z-index: 1;
-  right: 50%;
-  transform: translate(50%, 50%);
-  top: 0;
-}
 
 @keyframes progressbar {
   0% {
@@ -363,10 +252,6 @@
 }
 
 @media mobile {
-  .grid .title a {
-    font-size: 15px;
-  }
-
   .author {
     margin-top: 5px;
   }
