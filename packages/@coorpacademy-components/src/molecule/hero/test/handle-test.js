@@ -11,7 +11,7 @@ browserEnv();
 configure({adapter: new Adapter()});
 
 test('should call onClick on hero', t => {
-  t.plan(2);
+  t.plan(1);
   const props = set('onClick', e => t.pass(), defaultFixture.props);
   const wrapper = mount(<Hero {...props} />);
   const hero = wrapper.find('[data-name="hero"]');
