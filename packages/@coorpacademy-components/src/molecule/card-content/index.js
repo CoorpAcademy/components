@@ -1,21 +1,30 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import style from './style.css';
+
+export const MODES = {
+  HERO: 'hero',
+  CARD: 'card'
+};
 
 const ContentInfo = ({
   renderContentTypeIcon = () => null,
   renderCheckIcon = () => null,
   renderButton = () => null,
   renderProgressBar = () => null,
+  mode = MODES.CARD,
   empty,
-  style,
   title,
   author,
   certifiedAuthor
 }) => {
   return (
-    <div data-name="info" className={style.infoWrapper}>
-      {() => renderContentTypeIcon()}
+    <div
+      data-name="info"
+      className={classnames(style.infoWrapper, mode === MODES.HERO ? style.hero : style.card)}
+    >
+      {renderContentTypeIcon()}
       <div className={classnames(style.title, empty ? style.empty : null)}>
         <div data-name="title" title={title}>
           {title}

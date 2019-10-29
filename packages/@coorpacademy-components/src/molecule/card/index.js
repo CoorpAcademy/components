@@ -12,7 +12,6 @@ import {
   NovaCompositionCoorpacademyPictures as PicturesIcon,
   NovaCompositionCoorpacademyTimer as TimerIcon
 } from '@coorpacademy/nova-icons';
-
 import Provider from '../../atom/provider';
 import ContentInfo from '../card-content';
 import Customer from './customer';
@@ -28,7 +27,6 @@ const createContentTypeIcon = (whiteColor, adaptiv, type) => {
       </div>
     );
   }
-
   if (type === 'chapter') {
     return (
       <div className={style.specificIcon}>
@@ -36,10 +34,8 @@ const createContentTypeIcon = (whiteColor, adaptiv, type) => {
       </div>
     );
   }
-
   return null;
 };
-
 const Card = (props, context) => {
   const {skin} = context;
   const {
@@ -58,7 +54,6 @@ const Card = (props, context) => {
     onFavoriteClick,
     notification
   } = props;
-
   const empty = isEmpty(pick(['title', 'type', 'author', 'image'], props));
   const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
@@ -69,14 +64,11 @@ const Card = (props, context) => {
     empty ? style.empty : null
   );
   const handleClick = e => !disabled && onClick(e);
-
   const emptyIcon = empty ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
   const contentTypeIcon = createContentTypeIcon(whiteColor, adaptiv, type);
-
   const lock = disabled ? (
     <LockIcon className={style.lockIcon} color={whiteColor} height={40} />
   ) : null;
-
   const inlineBadgeStyle = {color: primaryColor};
   const inlineProgressValueStyle = {
     backgroundColor: primaryColor,
@@ -126,9 +118,8 @@ const Card = (props, context) => {
         certifiedAuthor={certifiedAuthor}
         renderProgressBar={() => myprogress}
         renderContentTypeIcon={() => contentTypeIcon}
-        renderCheckIcon={() => <CheckIcon className={style.icon} color="inherit" />}
+        renderCheckIcon={() => <CheckIcon className={style.authorIcon} color="inherit" />}
       />
-
       {badge && (
         <div className={style.badge} style={inlineBadgeStyle}>
           {badge}
@@ -138,11 +129,9 @@ const Card = (props, context) => {
     </div>
   );
 };
-
 Card.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
-
 Card.propTypes = {
   badge: PropTypes.string,
   image: PropTypes.string,
@@ -159,5 +148,4 @@ Card.propTypes = {
   onFavoriteClick: PropTypes.func,
   notification: PropTypes.shape(Notification.propTypes)
 };
-
 export default Card;

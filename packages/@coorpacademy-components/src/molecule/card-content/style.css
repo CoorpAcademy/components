@@ -1,5 +1,4 @@
 @value breakpoints: "../../variables/breakpoints.css";
-@value desktop from breakpoints;
 @value tablet from breakpoints;
 @value mobile from breakpoints;
 @value colors: "../../variables/colors.css";
@@ -9,91 +8,47 @@
 @value xtraLightGrey from colors;
 @value white from colors;
 
-.default[disabled] {
-  pointer-events: none;
-}
-
-.default {
-  display: inline-block;
-  box-sizing: border-box;
-  vertical-align: top;
-  border: solid 1px light;
-  background-color: white;
-  overflow: hidden;
-  height: 100%;
-  width: 100%;
-  text-align: left;
-  transition: all 0.25s ease-in-out;
-  text-decoration: none;
-  position: relative;
-  opacity: 0;
-  animation: fadeIn 1s ease-out forwards;
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.07);
-}
-
-.hero {
-  composes: default;
-  border-radius: 0;
-  width: 100%;
-  height: 100%;
+.infoWrapper {
   display: flex;
-}
-
-.hero .imageWrapper {
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  padding: 0 16px;
   width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
+  box-sizing: border-box;
 }
 
-.default .image {
+.title {
+  text-align: left;
+  color: white;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+  margin-top: 5px;
+  font-size: 17px;
+  letter-spacing: 0;
+  font-family: 'Open Sans';
   overflow: hidden;
-  background-position: 50%;
-  background-size: cover;
-  transition: all 0.25s ease-in-out;
-  display: inline-block;
-  text-align: center;
-  vertical-align: middle;
-  line-height: 125px;
+  user-select: none;
 }
 
-.default .image::after {
-  opacity: 0;
-  transition: opacity 0.25s ease-in-out;
+.title a {
+  color: dark;
+  text-decoration: none;
+  cursor: pointer;
 }
 
-.default .image::after {
-  position: absolute;
-  content: '';
+.author {
+  text-align: left;
+  text-shadow: 1px 1px 6px black;
+  align-items: center;
+  font-size: 12px;
+  color: white;
   width: 100%;
-  height: 100%;
-  opacity: 1;
-  top: 0;
-  left: 0;
-  background-image: linear-gradient(
-    to bottom,
-    color(black a(1%)),
-    color(rgba(0, 0, 0, 0.7) a(47%)),
-    color(black a(96%))
-  );
-}
-
-.default .image::before {
-  position: absolute;
-  content: '';
-  width: 100%;
-  height: 100%;
-  opacity: 0;
-  top: 0;
-  left: 0;
-  transition: opacity 0.25s ease-in-out;
-  background: black;
-}
-
-.default:hover .image::before {
-  opacity: 0.3;
-  transition: opacity 0.5s ease-in-out;
+  font-family: 'Open Sans';
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 100;
+  user-select: none;
 }
 
 .hero .title {
@@ -105,161 +60,51 @@
 }
 
 .hero .author {
+  margin-top: 9px;
+  margin-bottom: 24px;
   font-size: 20px;
   color: white;
   text-align: center;
   text-shadow: 1px 1px 6px black;
 }
 
-.heroCtaWrapper {
-  position: relative;
-  width: 100%;
-  margin-top: 32px;
-  display: flex;
-  justify-content: center;
-}
-
-.lazy {
-  pointer-events: none;
-}
-
-@keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
-}
-
-.default[disabled] .imageWrapper {
-  opacity: 0.4;
-}
-
-.imageWrapper {
-  height: 125px;
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  background-position: 50%;
-  background-size: cover;
-}
-
-.imageWrapper a {
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.image {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.progressWrapper {
-  position: relative;
-  left: 0;
-  width: 194px;
-  height: 3px;
-  border-radius: 1px;
-  margin: 0 auto;
-  background: light;
-}
-
-.default[disabled] .progressWrapper {
-  visibility: hidden;
-}
-
-.progress {
-  display: block;
-  height: 3px;
-  animation: progressbar 2s ease-in-out;
-}
-
-.infoWrapper {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  padding: 0 16px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.hero .infoWrapper {
+.infoWrapper.hero {
   height: auto;
   justify-content: center;
 }
 
-.title {
-  margin-top: 5px;
-  font-size: 17px;
-  color: dark;
-  letter-spacing: 0;
-  font-family: 'Open Sans';
-  overflow: hidden;
-  user-select: none;
+.infoWrapper.card {
+  height: 248px;
+  margin-top: 40px;
 }
 
-.heroCtaWrapper .heroButton {
-  min-width: 0;
-  line-height: 45px;
-  border-radius: 27.5px;
+.infoWrapper.empty {
+  padding-bottom: 25px;
 }
 
-.title a {
-  color: dark;
-  text-decoration: none;
-  cursor: pointer;
+.title.empty::before {
+  content: '▅▅▅▅▅▅▅▅▅▅▅  ▅▅▅▅▅▅▅▅▅';
 }
 
-.author {
-  margin-top: 9px;
-  margin-bottom: 24px;
-  font-size: 12px;
-  color: grey;
-  width: 100%;
-  font-family: 'Open Sans';
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-weight: 100;
-  user-select: none;
+.author.certified .icon {
+  display: inline;
 }
-
-@keyframes progressbar {
-  0% {
-    width: 0;
-  }
-}
-
-@media (hover: none) {
-  .default:hover .image::before {
-    opacity: 0;
-  }
+.author.empty::before {
+  content: '▅▅▅▅▅▅▅▅▅';
 }
 
 @media mobile {
   .author {
+    font-size: 12px;
     margin-top: 5px;
   }
 
-  .title {
-    font-size: 15px;
-  }
-
-  .author {
-    font-size: 12px;
+  .hero .title {
+    font-size: 17px;
   }
 }
 
 @media tablet {
-  .hero .title {
-    font-size: 15px;
-  }
-
   .hero .author {
     font-size: 12px;
   }
