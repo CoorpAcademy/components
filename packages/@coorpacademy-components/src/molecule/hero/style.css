@@ -39,9 +39,6 @@
   display: flex;
 }
 
-@media mobile {
-}
-
 .hero .imageWrapper {
   width: 100%;
   height: 100%;
@@ -212,12 +209,6 @@
   border-radius: 27.5px;
 }
 
-@media mobile {
-  .title {
-    font-size: 15px;
-  }
-}
-
 .title a {
   color: dark;
   text-decoration: none;
@@ -253,6 +244,10 @@
 @media mobile {
   .author {
     margin-top: 5px;
+  }
+
+  .title {
+    font-size: 15px;
   }
 
   .author {
