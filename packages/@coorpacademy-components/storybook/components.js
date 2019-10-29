@@ -52,6 +52,7 @@ import MoleculeBrandTabs from './../src/molecule/brand-tabs';
 import MoleculeBrandUploadBox from './../src/molecule/brand-upload-box';
 import MoleculeBreadcrumbs from './../src/molecule/breadcrumbs';
 import MoleculeCard from './../src/molecule/card';
+import MoleculeCardContent from './../src/molecule/card-content';
 import MoleculeCardWithButton from './../src/molecule/card-with-button';
 import MoleculeCookieBanner from './../src/molecule/cookie-banner';
 import MoleculeDashboardBattleRequestList from './../src/molecule/dashboard/battle-request-list';
@@ -342,6 +343,8 @@ import MoleculeCardFixtureFavorite from '../src/molecule/card/test/fixtures/favo
 import MoleculeCardFixtureFreerunAndDisabled from '../src/molecule/card/test/fixtures/freerun-and-disabled';
 import MoleculeCardFixtureFreerun from '../src/molecule/card/test/fixtures/freerun';
 import MoleculeCardFixtureWelcome from '../src/molecule/card/test/fixtures/welcome';
+import MoleculeCardContentFixtureCard from '../src/molecule/card-content/test/fixtures/card';
+import MoleculeCardContentFixtureHero from '../src/molecule/card-content/test/fixtures/hero';
 import MoleculeCardWithButtonFixtureDefault from '../src/molecule/card-with-button/test/fixtures/default';
 import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-button/test/fixtures/with-avatar';
 import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
@@ -789,6 +792,7 @@ export const components = {
     MoleculeBrandUploadBox,
     MoleculeBreadcrumbs,
     MoleculeCard,
+    MoleculeCardContent,
     MoleculeCardWithButton,
     MoleculeCookieBanner,
     MoleculeDisciplineCta,
@@ -1217,6 +1221,10 @@ export const fixtures = {
       FreerunAndDisabled: MoleculeCardFixtureFreerunAndDisabled,
       Freerun: MoleculeCardFixtureFreerun,
       Welcome: MoleculeCardFixtureWelcome
+    },
+    MoleculeCardContent: {
+      Card: MoleculeCardContentFixtureCard,
+      Hero: MoleculeCardContentFixtureHero
     },
     MoleculeCardWithButton: {
       Default: MoleculeCardWithButtonFixtureDefault,

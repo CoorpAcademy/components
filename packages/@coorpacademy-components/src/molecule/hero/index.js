@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import get from 'lodash/fp/get';
 import Button from '../../atom/button';
 import Provider from '../../atom/provider';
+import ContentInfo from '../card-content';
 import style from './style.css';
 
 const Hero = (props, context) => {
@@ -30,7 +31,29 @@ const Hero = (props, context) => {
           }}
         />
       </div>
-      <div data-name="info" className={style.infoWrapper}>
+      <ContentInfo
+        style={style}
+        renderProgressBar={() => (
+          <div className={style.progressWrapper}>
+            <div data-name="progress" className={style.progress} style={inlineProgressValueStyle} />
+          </div>
+        )}
+        renderButton={() => (
+          <div className={style.heroCtaWrapper}>
+            <Button
+              type="link"
+              data-name="hero-button"
+              onClick={onClick}
+              submitValue={submitValue}
+              className={style.heroButton}
+              style={{backgroundColor: primaryColor}}
+            />
+          </div>
+        )}
+        author={author}
+        title={title}
+      />
+      {/* <div data-name="info" className={style.infoWrapper}>
         <div className={classnames(style.title)}>
           <div data-name="title" title={title}>
             {title}
@@ -53,7 +76,7 @@ const Hero = (props, context) => {
             style={{backgroundColor: primaryColor}}
           />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

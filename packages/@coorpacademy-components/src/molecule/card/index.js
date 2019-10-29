@@ -14,6 +14,7 @@ import {
 } from '@coorpacademy/nova-icons';
 
 import Provider from '../../atom/provider';
+import ContentInfo from '../card-content';
 import Customer from './customer';
 import Favorite from './favorite';
 import Notification from './notification';
@@ -117,28 +118,17 @@ const Card = (props, context) => {
       )}
       {notification && <Notification {...notification} />}
       {customer && <Customer className={style.customer} {...customer} />}
-      <div data-name="info" className={style.infoWrapper}>
-        {contentTypeIcon}
-        <div className={classnames(style.title, empty ? style.empty : null)}>
-          <div data-name="title" title={title}>
-            {title}
-          </div>
-        </div>
-        <div
-          data-name="author"
-          title={author}
-          className={classnames(
-            style.author,
-            certifiedAuthor && style.certified,
-            empty ? style.empty : null
-          )}
-        >
-          <span>{author}</span>
-          <CheckIcon className={style.icon} color="inherit" />
-        </div>
+      <ContentInfo
+        empty={empty}
+        author={author}
+        title={title}
+        style={style}
+        certifiedAuthor={certifiedAuthor}
+        renderProgressBar={() => myprogress}
+        renderContentTypeIcon={() => contentTypeIcon}
+        renderCheckIcon={() => <CheckIcon className={style.icon} color="inherit" />}
+      />
 
-        {myprogress}
-      </div>
       {badge && (
         <div className={style.badge} style={inlineBadgeStyle}>
           {badge}

@@ -1,0 +1,266 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value desktop from breakpoints;
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value light from colors;
+@value grey from colors;
+@value dark from colors;
+@value xtraLightGrey from colors;
+@value white from colors;
+
+.default[disabled] {
+  pointer-events: none;
+}
+
+.default {
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  border: solid 1px light;
+  background-color: white;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  text-align: left;
+  transition: all 0.25s ease-in-out;
+  text-decoration: none;
+  position: relative;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.07);
+}
+
+.hero {
+  composes: default;
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.hero .imageWrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.default .image {
+  overflow: hidden;
+  background-position: 50%;
+  background-size: cover;
+  transition: all 0.25s ease-in-out;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 125px;
+}
+
+.default .image::after {
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.default .image::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(
+    to bottom,
+    color(black a(1%)),
+    color(rgba(0, 0, 0, 0.7) a(47%)),
+    color(black a(96%))
+  );
+}
+
+.default .image::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  transition: opacity 0.25s ease-in-out;
+  background: black;
+}
+
+.default:hover .image::before {
+  opacity: 0.3;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hero .title {
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.hero .author {
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 6px black;
+}
+
+.heroCtaWrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.lazy {
+  pointer-events: none;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.default[disabled] .imageWrapper {
+  opacity: 0.4;
+}
+
+.imageWrapper {
+  height: 125px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-position: 50%;
+  background-size: cover;
+}
+
+.imageWrapper a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.progressWrapper {
+  position: relative;
+  left: 0;
+  width: 194px;
+  height: 3px;
+  border-radius: 1px;
+  margin: 0 auto;
+  background: light;
+}
+
+.default[disabled] .progressWrapper {
+  visibility: hidden;
+}
+
+.progress {
+  display: block;
+  height: 3px;
+  animation: progressbar 2s ease-in-out;
+}
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding: 0 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.hero .infoWrapper {
+  height: auto;
+  justify-content: center;
+}
+
+.title {
+  margin-top: 5px;
+  font-size: 17px;
+  color: dark;
+  letter-spacing: 0;
+  font-family: 'Open Sans';
+  overflow: hidden;
+  user-select: none;
+}
+
+.heroCtaWrapper .heroButton {
+  min-width: 0;
+  line-height: 45px;
+  border-radius: 27.5px;
+}
+
+.title a {
+  color: dark;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.author {
+  margin-top: 9px;
+  margin-bottom: 24px;
+  font-size: 12px;
+  color: grey;
+  width: 100%;
+  font-family: 'Open Sans';
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 100;
+  user-select: none;
+}
+
+@keyframes progressbar {
+  0% {
+    width: 0;
+  }
+}
+
+@media (hover: none) {
+  .default:hover .image::before {
+    opacity: 0;
+  }
+}
+
+@media mobile {
+  .author {
+    margin-top: 5px;
+  }
+
+  .title {
+    font-size: 15px;
+  }
+
+  .author {
+    font-size: 12px;
+  }
+}
+
+@media tablet {
+  .hero .title {
+    font-size: 15px;
+  }
+
+  .hero .author {
+    font-size: 12px;
+  }
+}
