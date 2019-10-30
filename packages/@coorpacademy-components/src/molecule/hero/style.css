@@ -37,6 +37,8 @@
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero .imageWrapper {
@@ -96,22 +98,11 @@
   transition: opacity 0.5s ease-in-out;
 }
 
-.hero .title {
-  text-align: center;
-  color: white;
-  font-size: 40px;
-  font-weight: bold;
-  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+.lazy {
+  pointer-events: none;
 }
 
-.hero .author {
-  font-size: 20px;
-  color: white;
-  text-align: center;
-  text-shadow: 1px 1px 6px black;
-}
-
-.heroCtaWrapper {
+.heroButtonWrapper {
   position: relative;
   width: 100%;
   margin-top: 32px;
@@ -119,8 +110,10 @@
   justify-content: center;
 }
 
-.lazy {
-  pointer-events: none;
+.heroButtonWrapper .heroButton {
+  min-width: 0;
+  line-height: 45px;
+  border-radius: 27.5px;
 }
 
 @keyframes fadeIn {
@@ -159,108 +152,8 @@
   left: 0;
 }
 
-.progressWrapper {
-  position: relative;
-  left: 0;
-  width: 194px;
-  height: 3px;
-  border-radius: 1px;
-  margin: 0 auto;
-  background: light;
-}
-
-.default[disabled] .progressWrapper {
-  visibility: hidden;
-}
-
-.progress {
-  display: block;
-  height: 3px;
-  animation: progressbar 2s ease-in-out;
-}
-
-.infoWrapper {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  padding: 0 16px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.hero .infoWrapper {
-  height: auto;
-  justify-content: center;
-}
-
-.title {
-  margin-top: 5px;
-  font-size: 17px;
-  color: dark;
-  letter-spacing: 0;
-  font-family: 'Open Sans';
-  overflow: hidden;
-  user-select: none;
-}
-
-.heroCtaWrapper .heroButton {
-  min-width: 0;
-  line-height: 45px;
-  border-radius: 27.5px;
-}
-
-.title a {
-  color: dark;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-.author {
-  margin-top: 9px;
-  margin-bottom: 24px;
-  font-size: 12px;
-  color: grey;
-  width: 100%;
-  font-family: 'Open Sans';
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-weight: 100;
-  user-select: none;
-}
-
-@keyframes progressbar {
-  0% {
-    width: 0;
-  }
-}
-
 @media (hover: none) {
   .default:hover .image::before {
     opacity: 0;
-  }
-}
-
-@media mobile {
-  .author {
-    margin-top: 5px;
-  }
-
-  .title {
-    font-size: 15px;
-  }
-
-  .author {
-    font-size: 12px;
-  }
-}
-
-@media tablet {
-  .hero .title {
-    font-size: 15px;
-  }
-
-  .hero .author {
-    font-size: 12px;
   }
 }

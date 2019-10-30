@@ -7,37 +7,14 @@ import isUndefined from 'lodash/fp/isUndefined';
 import pick from 'lodash/fp/pick';
 import {
   NovaSolidLocksLock11 as LockIcon,
-  NovaCompositionCoorpacademyAdaptive as AdaptivIcon,
-  NovaSolidStatusCheckCircle2 as CheckIcon,
-  NovaCompositionCoorpacademyPictures as PicturesIcon,
-  NovaCompositionCoorpacademyTimer as TimerIcon
+  NovaCompositionCoorpacademyPictures as PicturesIcon
 } from '@coorpacademy/nova-icons';
-
 import Provider from '../../atom/provider';
+import CardContentInfo, {MODES} from '../card-content';
 import Customer from './customer';
 import Favorite from './favorite';
 import Notification from './notification';
 import style from './style.css';
-
-const createContentTypeIcon = (whiteColor, adaptiv, type) => {
-  if (adaptiv) {
-    return (
-      <div className={style.specificIcon}>
-        <AdaptivIcon color={whiteColor} height={25} />
-      </div>
-    );
-  }
-
-  if (type === 'chapter') {
-    return (
-      <div className={style.specificIcon}>
-        <TimerIcon color={whiteColor} height={25} />
-      </div>
-    );
-  }
-
-  return null;
-};
 
 const Card = (props, context) => {
   const {skin} = context;
@@ -57,7 +34,6 @@ const Card = (props, context) => {
     onFavoriteClick,
     notification
   } = props;
-
   const empty = isEmpty(pick(['title', 'type', 'author', 'image'], props));
   const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
@@ -68,24 +44,12 @@ const Card = (props, context) => {
     empty ? style.empty : null
   );
   const handleClick = e => !disabled && onClick(e);
-
   const emptyIcon = empty ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
-  const contentTypeIcon = createContentTypeIcon(whiteColor, adaptiv, type);
 
   const lock = disabled ? (
     <LockIcon className={style.lockIcon} color={whiteColor} height={40} />
   ) : null;
-
   const inlineBadgeStyle = {color: primaryColor};
-  const inlineProgressValueStyle = {
-    backgroundColor: primaryColor,
-    width: `${progress * 100}%`
-  };
-  const myprogress = !empty ? (
-    <div className={style.progressWrapper}>
-      <div data-name="progress" className={style.progress} style={inlineProgressValueStyle} />
-    </div>
-  ) : null;
   return (
     <div
       className={cardStyle}
@@ -117,28 +81,18 @@ const Card = (props, context) => {
       )}
       {notification && <Notification {...notification} />}
       {customer && <Customer className={style.customer} {...customer} />}
-      <div data-name="info" className={style.infoWrapper}>
-        {contentTypeIcon}
-        <div className={classnames(style.title, empty ? style.empty : null)}>
-          <div data-name="title" title={title}>
-            {title}
-          </div>
-        </div>
-        <div
-          data-name="author"
-          title={author}
-          className={classnames(
-            style.author,
-            certifiedAuthor && style.certified,
-            empty ? style.empty : null
-          )}
-        >
-          <span>{author}</span>
-          <CheckIcon className={style.icon} color="inherit" />
-        </div>
-
-        {myprogress}
-      </div>
+      <CardContentInfo
+        mode={MODES.CARD}
+        adaptiv={adaptiv}
+        author={author}
+        certifiedAuthor={certifiedAuthor}
+        disabled={disabled}
+        empty={empty}
+        progress={progress}
+        style={style}
+        title={title}
+        type={type}
+      />
       {badge && (
         <div className={style.badge} style={inlineBadgeStyle}>
           {badge}
@@ -148,11 +102,9 @@ const Card = (props, context) => {
     </div>
   );
 };
-
 Card.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
-
 Card.propTypes = {
   badge: PropTypes.string,
   image: PropTypes.string,
@@ -169,5 +121,4 @@ Card.propTypes = {
   onFavoriteClick: PropTypes.func,
   notification: PropTypes.shape(Notification.propTypes)
 };
-
 export default Card;

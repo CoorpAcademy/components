@@ -1,11 +1,9 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import cardContentDisabled from '../../../card-content/test/fixtures/disabled';
 import Default from './default';
 
-const {props} = Default;
-
 export default {
-  props: defaultsDeep(props, {
-    disabled: true,
-    progress: 0
-  })
+  props: {
+    ...Default.props,
+    ...cardContentDisabled.props
+  }
 };

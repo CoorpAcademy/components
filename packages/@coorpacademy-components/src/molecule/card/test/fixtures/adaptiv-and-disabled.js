@@ -1,12 +1,11 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import cardContent from '../../../card-content/test/fixtures/adaptiv-and-disabled';
 import Default from './default';
 
-const {props} = Default;
-
 export default {
-  props: defaultsDeep(props, {
-    disabled: true,
-    adaptiv: true,
+  props: {
+    ...Default.props,
+    ...cardContent.props,
+    certifiedAuthor: false,
     progress: 0
-  })
+  }
 };

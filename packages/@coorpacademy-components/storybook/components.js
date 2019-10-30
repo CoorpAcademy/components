@@ -52,6 +52,7 @@ import MoleculeBrandTabs from './../src/molecule/brand-tabs';
 import MoleculeBrandUploadBox from './../src/molecule/brand-upload-box';
 import MoleculeBreadcrumbs from './../src/molecule/breadcrumbs';
 import MoleculeCard from './../src/molecule/card';
+import MoleculeCardContent from './../src/molecule/card-content';
 import MoleculeCardWithButton from './../src/molecule/card-with-button';
 import MoleculeCookieBanner from './../src/molecule/cookie-banner';
 import MoleculeDashboardBattleRequestList from './../src/molecule/dashboard/battle-request-list';
@@ -341,7 +342,12 @@ import MoleculeCardFixtureEmpty from '../src/molecule/card/test/fixtures/empty';
 import MoleculeCardFixtureFavorite from '../src/molecule/card/test/fixtures/favorite';
 import MoleculeCardFixtureFreerunAndDisabled from '../src/molecule/card/test/fixtures/freerun-and-disabled';
 import MoleculeCardFixtureFreerun from '../src/molecule/card/test/fixtures/freerun';
-import MoleculeCardFixtureWelcome from '../src/molecule/card/test/fixtures/welcome';
+import MoleculeCardContentFixtureAdaptivAndDisabled from '../src/molecule/card-content/test/fixtures/adaptiv-and-disabled';
+import MoleculeCardContentFixtureAdaptiv from '../src/molecule/card-content/test/fixtures/adaptiv';
+import MoleculeCardContentFixtureCard from '../src/molecule/card-content/test/fixtures/card';
+import MoleculeCardContentFixtureDisabled from '../src/molecule/card-content/test/fixtures/disabled';
+import MoleculeCardContentFixtureEmpty from '../src/molecule/card-content/test/fixtures/empty';
+import MoleculeCardContentFixtureHero from '../src/molecule/card-content/test/fixtures/hero';
 import MoleculeCardWithButtonFixtureDefault from '../src/molecule/card-with-button/test/fixtures/default';
 import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-button/test/fixtures/with-avatar';
 import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
@@ -789,6 +795,7 @@ export const components = {
     MoleculeBrandUploadBox,
     MoleculeBreadcrumbs,
     MoleculeCard,
+    MoleculeCardContent,
     MoleculeCardWithButton,
     MoleculeCookieBanner,
     MoleculeDisciplineCta,
@@ -1215,8 +1222,15 @@ export const fixtures = {
       Empty: MoleculeCardFixtureEmpty,
       Favorite: MoleculeCardFixtureFavorite,
       FreerunAndDisabled: MoleculeCardFixtureFreerunAndDisabled,
-      Freerun: MoleculeCardFixtureFreerun,
-      Welcome: MoleculeCardFixtureWelcome
+      Freerun: MoleculeCardFixtureFreerun
+    },
+    MoleculeCardContent: {
+      AdaptivAndDisabled: MoleculeCardContentFixtureAdaptivAndDisabled,
+      Adaptiv: MoleculeCardContentFixtureAdaptiv,
+      Card: MoleculeCardContentFixtureCard,
+      Disabled: MoleculeCardContentFixtureDisabled,
+      Empty: MoleculeCardContentFixtureEmpty,
+      Hero: MoleculeCardContentFixtureHero
     },
     MoleculeCardWithButton: {
       Default: MoleculeCardWithButtonFixtureDefault,

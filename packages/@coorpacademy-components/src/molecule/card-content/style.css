@@ -1,0 +1,160 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value light from colors;
+@value grey from colors;
+@value dark from colors;
+@value xtraLightGrey from colors;
+@value white from colors;
+
+.infoWrapper {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
+  padding: 0 16px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.title {
+  text-align: left;
+  color: white;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+  margin-top: 5px;
+  font-size: 17px;
+  letter-spacing: 0;
+  font-family: 'Open Sans';
+  overflow: hidden;
+  user-select: none;
+}
+
+.title a {
+  color: dark;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.author {
+  display: flex;
+  text-align: left;
+  text-shadow: 1px 1px 6px black;
+  align-items: center;
+  font-size: 12px;
+  color: white;
+  width: 100%;
+  font-family: 'Open Sans';
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 100;
+  user-select: none;
+}
+
+.hero .title {
+  text-align: center;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
+}
+
+.card .author {
+  margin-top: 5px;
+}
+
+.hero .author {
+  margin-top: 9px;
+  margin-bottom: 24px;
+  font-size: 20px;
+  color: white;
+  text-shadow: 1px 1px 6px black;
+  justify-content: center;
+}
+
+.infoWrapper.progressBarDisabled {
+  padding-bottom: 35px;
+}
+
+.infoWrapper.hero {
+  height: auto;
+  justify-content: center;
+}
+
+.infoWrapper.card {
+  height: 100%;
+  justify-content: flex-end;
+}
+
+.infoWrapper.empty {
+  padding-bottom: 25px;
+}
+
+.title.empty::before {
+  content: '▅▅▅▅▅▅▅▅▅▅▅  ▅▅▅▅▅▅▅▅▅';
+}
+
+.author.empty::before {
+  content: '▅▅▅▅▅▅▅▅▅';
+}
+
+.progress {
+  display: block;
+  height: 3px;
+  animation: progressbar 2s ease-in-out;
+}
+
+.specificIcon {
+  font-size: 5px;
+  filter: drop-shadow(1px 1px 6px grey);
+}
+
+.authorIcon {
+  fill: white;
+  filter: drop-shadow(1px 1px 6px grey);
+  width: 12px;
+  height: 12px;
+  margin-left: 0.25em;
+}
+
+@keyframes progressbar {
+  0% {
+    width: 0;
+  }
+}
+
+.progressWrapper {
+  position: relative;
+  left: 0;
+  width: 194px;
+  height: 3px;
+  border-radius: 1px;
+  margin: 16px auto;
+  background: light;
+}
+
+.card .progressWrapper {
+  width: 150px;
+}
+
+.hero .progressWrapper {
+  margin: 0 auto;
+}
+
+@media mobile {
+  .author {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  .hero .title {
+    font-size: 17px;
+  }
+}
+
+@media tablet {
+  .hero .author {
+    font-size: 12px;
+  }
+}
