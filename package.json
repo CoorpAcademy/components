@@ -23,7 +23,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@coorpacademy/eslint-plugin-coorpacademy": "^9.1.0-alpha.0",
+    "@coorpacademy/eslint-plugin-coorpacademy": "^9.0.1",
     "codecov": "^3.5.0",
     "eslint": "^6.6.0",
     "estraverse-fb": "1.3.2",

@@ -35,9 +35,10 @@
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@coorpacademy/eslint-plugin-coorpacademy": "^9.0.1",
     "babel-plugin-istanbul": "^5.2.0",
     "cross-env": "^5.2.1",
-    "eslint": "^4.18.2",
+    "eslint": "^6.6.0",
     "rimraf": "^3.0.0"
   },
   "author": "CoorpAcademy"
