@@ -60,13 +60,17 @@
   text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
 }
 
+.card .author {
+  margin-top: 5px;
+}
+
 .hero .author {
   margin-top: 9px;
   margin-bottom: 24px;
   font-size: 20px;
   color: white;
-  text-align: center;
   text-shadow: 1px 1px 6px black;
+  justify-content: center;
 }
 
 .infoWrapper.progressBarDisabled {
@@ -136,6 +140,20 @@
 
 .hero .progressWrapper {
   margin: 0 auto;
+}
+
+.heroButtonWrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.heroButtonWrapper .heroButton {
+  min-width: 0;
+  line-height: 45px;
+  border-radius: 27.5px;
 }
 
 @media mobile {

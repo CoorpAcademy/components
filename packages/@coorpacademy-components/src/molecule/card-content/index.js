@@ -7,6 +7,7 @@ import {
   NovaSolidStatusCheckCircle2 as CheckIcon,
   NovaCompositionCoorpacademyTimer as TimerIcon
 } from '@coorpacademy/nova-icons';
+import Button from '../../atom/button';
 import Provider from '../../atom/provider';
 import style from './style.css';
 
@@ -36,13 +37,15 @@ const createContentTypeIcon = (whiteColor, adaptiv, type) => {
 const ContentInfo = (
   {
     adaptiv,
-    disabled = false,
-    renderButton = () => null,
-    mode = MODES.CARD,
-    empty,
     author,
-    progress,
     certifiedAuthor = false,
+    disabled = false,
+    empty,
+    mode = MODES.CARD,
+    onClick,
+    progress,
+    renderButton = () => null,
+    submitValue,
     title,
     type
   },
@@ -72,6 +75,20 @@ const ContentInfo = (
     <CheckIcon className={style.authorIcon} color="inherit" />
   ) : null;
 
+  const button =
+    mode === MODES.HERO ? (
+      <div className={style.heroButtonWrapper}>
+        <Button
+          type="link"
+          data-name="hero-button"
+          onClick={onClick}
+          submitValue={submitValue}
+          className={style.heroButton}
+          style={{backgroundColor: primaryColor}}
+        />
+      </div>
+    ) : null;
+
   return (
     <div
       data-name="info"
@@ -97,7 +114,7 @@ const ContentInfo = (
       </div>
 
       {progressBar}
-      {renderButton()}
+      {button}
     </div>
   );
 };
@@ -108,15 +125,14 @@ ContentInfo.contextTypes = {
 
 ContentInfo.propTypes = {
   adaptiv: PropTypes.bool,
-  renderContentTypeIcon: PropTypes.func,
-  renderCheckIcon: PropTypes.func,
-  renderButton: PropTypes.func,
-  empty: PropTypes.bool,
-  title: PropTypes.string,
   author: PropTypes.string,
-  disabled: PropTypes.bool,
   certifiedAuthor: PropTypes.bool,
+  disabled: PropTypes.bool,
+  empty: PropTypes.bool,
+  onClick: PropTypes.func,
   progress: PropTypes.number,
+  submitValue: PropTypes.string,
+  title: PropTypes.string,
   type: PropTypes.string
 };
 

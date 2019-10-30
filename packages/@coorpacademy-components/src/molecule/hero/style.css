@@ -96,14 +96,6 @@
   transition: opacity 0.5s ease-in-out;
 }
 
-.heroCtaWrapper {
-  position: relative;
-  width: 100%;
-  margin-top: 32px;
-  display: flex;
-  justify-content: center;
-}
-
 .lazy {
   pointer-events: none;
 }
@@ -142,12 +134,6 @@
   position: absolute;
   top: 0;
   left: 0;
-}
-
-.heroCtaWrapper .heroButton {
-  min-width: 0;
-  line-height: 45px;
-  border-radius: 27.5px;
 }
 
 @media (hover: none) {
