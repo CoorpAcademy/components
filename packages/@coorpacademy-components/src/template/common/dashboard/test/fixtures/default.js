@@ -15,7 +15,7 @@ export default {
   props: {
     welcome: {
       title: 'Welcome Faust !',
-      surtitle: 'Exxplore',
+      subtitle: 'Exxplore',
       cover:
         'https://static.coorpacademy.com/content/onboarding/raw/image-dios-1-1531517080118.jpg',
       light: true,
