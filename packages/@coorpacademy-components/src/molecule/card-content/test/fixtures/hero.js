@@ -1,8 +1,12 @@
+import {MODES} from '../..';
+
 export default {
   props: {
+    mode: MODES.HERO,
     author: 'Coorpcademy',
-    title: 'Coorp Edit',
-    renderProgressBar: () => null,
-    renderButton: () => null
+    title: 'From Mass Market to One to One targeting',
+    submitValue: 'Continue',
+    progress: 0.67,
+    onClick: () => console.log('card-content.hero.onclick')
   }
 };

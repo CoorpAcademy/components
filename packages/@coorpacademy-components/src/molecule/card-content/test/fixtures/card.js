@@ -1,11 +1,10 @@
+import {MODES} from '../..';
+
 export default {
   props: {
-    empty: false,
+    mode: MODES.CARD,
     author: 'Coorpcademy',
-    title: 'Coorp Edit',
-    certifiedAuthor: true,
-    renderProgressBar: () => null,
-    renderContentTypeIcon: () => null,
-    renderCheckIcon: () => null
+    title: 'From Mass Market to One to One targeting',
+    progress: 0.32
   }
 };

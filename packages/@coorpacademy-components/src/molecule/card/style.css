@@ -52,6 +52,7 @@
 }
 
 .grid.empty {
+  padding-bottom: 25px;
   opacity: 0.6;
 }
 

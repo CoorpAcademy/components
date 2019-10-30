@@ -40,11 +40,10 @@ const ContentInfo = (
     author,
     certifiedAuthor = false,
     disabled = false,
-    empty,
+    empty = false,
     mode = MODES.CARD,
     onClick,
     progress,
-    renderButton = () => null,
     submitValue,
     title,
     type

@@ -343,7 +343,10 @@ import MoleculeCardFixtureFavorite from '../src/molecule/card/test/fixtures/favo
 import MoleculeCardFixtureFreerunAndDisabled from '../src/molecule/card/test/fixtures/freerun-and-disabled';
 import MoleculeCardFixtureFreerun from '../src/molecule/card/test/fixtures/freerun';
 import MoleculeCardFixtureWelcome from '../src/molecule/card/test/fixtures/welcome';
+import MoleculeCardContentFixtureAdaptivAndDisabled from '../src/molecule/card-content/test/fixtures/adaptiv-and-disabled';
+import MoleculeCardContentFixtureAdaptiv from '../src/molecule/card-content/test/fixtures/adaptiv';
 import MoleculeCardContentFixtureCard from '../src/molecule/card-content/test/fixtures/card';
+import MoleculeCardContentFixtureDisabled from '../src/molecule/card-content/test/fixtures/disabled';
 import MoleculeCardContentFixtureEmpty from '../src/molecule/card-content/test/fixtures/empty';
 import MoleculeCardContentFixtureHero from '../src/molecule/card-content/test/fixtures/hero';
 import MoleculeCardWithButtonFixtureDefault from '../src/molecule/card-with-button/test/fixtures/default';
@@ -1224,7 +1227,10 @@ export const fixtures = {
       Welcome: MoleculeCardFixtureWelcome
     },
     MoleculeCardContent: {
+      AdaptivAndDisabled: MoleculeCardContentFixtureAdaptivAndDisabled,
+      Adaptiv: MoleculeCardContentFixtureAdaptiv,
       Card: MoleculeCardContentFixtureCard,
+      Disabled: MoleculeCardContentFixtureDisabled,
       Empty: MoleculeCardContentFixtureEmpty,
       Hero: MoleculeCardContentFixtureHero
     },
