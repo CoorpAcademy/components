@@ -23,19 +23,19 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
-    "@babel/cli": "^7.6.0",
-    "@babel/core": "^7.6.0",
-    "@babel/preset-env": "^7.6.0",
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
     "css-modules-require-hook": "^4.2.3",
     "generic-names": "^2.0.1",
     "lodash": "^4.17.15"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
-    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/core": "^7.6.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
     "@coorpacademy/eslint-plugin-coorpacademy": "^9.0.1",
     "babel-plugin-istanbul": "^5.2.0",
-    "cross-env": "^5.2.1",
+    "cross-env": "^6.0.3",
     "eslint": "^6.6.0"
   },
   "author": "CoorpAcademy"
