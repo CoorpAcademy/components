@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import get from 'lodash/fp/get';
 import Provider from '../../atom/provider';
-import ContentInfo, {MODES} from '../card-content';
+import Button from '../../atom/button';
+import CardContentInfo, {MODES} from '../card-content';
 import style from './style.css';
 
 const Hero = (props, context) => {
@@ -25,14 +26,17 @@ const Hero = (props, context) => {
           }}
         />
       </div>
-      <ContentInfo
-        mode={MODES.HERO}
-        author={author}
-        progress={progress}
-        title={title}
-        onClick={onClick}
-        submitValue={submitValue}
-      />
+      <CardContentInfo mode={MODES.HERO} author={author} progress={progress} title={title} />
+      <div className={style.heroButtonWrapper}>
+        <Button
+          type="link"
+          data-name="hero-button"
+          onClick={onClick}
+          submitValue={submitValue}
+          className={style.heroButton}
+          style={{backgroundColor: primaryColor}}
+        />
+      </div>
     </div>
   );
 };

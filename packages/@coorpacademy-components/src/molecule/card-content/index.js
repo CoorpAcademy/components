@@ -7,7 +7,6 @@ import {
   NovaSolidStatusCheckCircle2 as CheckIcon,
   NovaCompositionCoorpacademyTimer as TimerIcon
 } from '@coorpacademy/nova-icons';
-import Button from '../../atom/button';
 import Provider from '../../atom/provider';
 import style from './style.css';
 
@@ -42,9 +41,7 @@ const ContentInfo = (
     disabled = false,
     empty = false,
     mode = MODES.CARD,
-    onClick,
     progress,
-    submitValue,
     title,
     type
   },
@@ -74,20 +71,6 @@ const ContentInfo = (
     <CheckIcon className={style.authorIcon} color="inherit" />
   ) : null;
 
-  const button =
-    mode === MODES.HERO ? (
-      <div className={style.heroButtonWrapper}>
-        <Button
-          type="link"
-          data-name="hero-button"
-          onClick={onClick}
-          submitValue={submitValue}
-          className={style.heroButton}
-          style={{backgroundColor: primaryColor}}
-        />
-      </div>
-    ) : null;
-
   return (
     <div
       data-name="info"
@@ -113,7 +96,6 @@ const ContentInfo = (
       </div>
 
       {progressBar}
-      {button}
     </div>
   );
 };
@@ -128,11 +110,10 @@ ContentInfo.propTypes = {
   certifiedAuthor: PropTypes.bool,
   disabled: PropTypes.bool,
   empty: PropTypes.bool,
-  onClick: PropTypes.func,
   progress: PropTypes.number,
-  submitValue: PropTypes.string,
   title: PropTypes.string,
-  type: PropTypes.string
+  type: PropTypes.string,
+  mode: PropTypes.string
 };
 
 export default ContentInfo;

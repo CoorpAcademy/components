@@ -10,7 +10,7 @@ import {
   NovaCompositionCoorpacademyPictures as PicturesIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
-import ContentInfo, {MODES} from '../card-content';
+import CardContentInfo, {MODES} from '../card-content';
 import Customer from './customer';
 import Favorite from './favorite';
 import Notification from './notification';
@@ -81,7 +81,7 @@ const Card = (props, context) => {
       )}
       {notification && <Notification {...notification} />}
       {customer && <Customer className={style.customer} {...customer} />}
-      <ContentInfo
+      <CardContentInfo
         mode={MODES.CARD}
         adaptiv={adaptiv}
         author={author}

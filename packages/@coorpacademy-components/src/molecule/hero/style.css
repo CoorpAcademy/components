@@ -37,6 +37,8 @@
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .hero .imageWrapper {
@@ -98,6 +100,20 @@
 
 .lazy {
   pointer-events: none;
+}
+
+.heroButtonWrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.heroButtonWrapper .heroButton {
+  min-width: 0;
+  line-height: 45px;
+  border-radius: 27.5px;
 }
 
 @keyframes fadeIn {
