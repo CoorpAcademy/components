@@ -24,10 +24,9 @@
     "build:types:commonjs": "flow-copy-source src lib --ignore '**/test/**/*.js'",
     "build:types:es": "flow-copy-source src es --ignore '**/test/**/*.js'",
     "build:types": "concurrently \"npm run build:types:commonjs\" \"npm run build:types:es\"",
-    "clean:build:commonjs": "rm -rf lib",
-    "clean:build:es": "rm -rf es",
-    "clean:build": "concurrently \"npm run clean:build:commonjs\" \"npm run clean:build:es\"",
-    "clean": "npm run clean:build",
+    "clean:commonjs": "rm -rf lib",
+    "clean:es": "rm -rf es",
+    "clean": "concurrently \"npm run clean:commonjs\" \"npm run clean:es\"",
     "prepare": "npm run clean && npm run build --production"
   },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-player-store#readme",

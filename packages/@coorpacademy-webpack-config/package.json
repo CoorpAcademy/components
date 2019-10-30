@@ -13,8 +13,7 @@
     "nyc": "nyc npm run ava",
     "test": "npm run lint && npm run nyc",
     "lint": "eslint . --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\"",
-    "clean:build": "rm -rf lib",
-    "clean": "npm run clean:build",
+    "clean": "rm -rf lib",
     "prepare": "npm run clean && npm run build --production"
   },
   "contributors": [
