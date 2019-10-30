@@ -195,11 +195,6 @@
   cursor: pointer;
 }
 
-.specificIcon {
-  font-size: 5px;
-  filter: drop-shadow(1px 1px 6px grey);
-}
-
 .image {
   width: 100%;
   height: 100%;
@@ -229,28 +224,6 @@
   user-select: none;
 }
 
-.infoWrapper {
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  padding: 0 16px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.course .infoWrapper {
-  height: 100%;
-  justify-content: flex-end;
-}
-
-.authorIcon {
-  fill: white;
-  filter: drop-shadow(1px 1px 6px grey);
-  width: 12px;
-  height: 12px;
-  margin-left: 0.25em;
-}
-
 .emptyIcon {
   vertical-align: middle;
   width: 80px;
@@ -269,15 +242,5 @@
 
   .default:hover .image::before {
     opacity: 0;
-  }
-}
-
-@media mobile {
-  .author {
-    margin-top: 5px;
-  }
-
-  .author {
-    font-size: 12px;
   }
 }

@@ -37,6 +37,7 @@
 }
 
 .author {
+  display: flex;
   text-align: left;
   text-shadow: 1px 1px 6px black;
   align-items: center;
@@ -79,7 +80,7 @@
 
 .infoWrapper.card {
   height: 100%;
-  justify-content: end;
+  justify-content: flex-end;
 }
 
 .infoWrapper.empty {
@@ -90,9 +91,6 @@
   content: '▅▅▅▅▅▅▅▅▅▅▅  ▅▅▅▅▅▅▅▅▅';
 }
 
-.author.certified .icon {
-  display: inline;
-}
 .author.empty::before {
   content: '▅▅▅▅▅▅▅▅▅';
 }
@@ -101,6 +99,19 @@
   display: block;
   height: 3px;
   animation: progressbar 2s ease-in-out;
+}
+
+.specificIcon {
+  font-size: 5px;
+  filter: drop-shadow(1px 1px 6px grey);
+}
+
+.authorIcon {
+  fill: white;
+  filter: drop-shadow(1px 1px 6px grey);
+  width: 12px;
+  height: 12px;
+  margin-left: 0.25em;
 }
 
 @keyframes progressbar {
@@ -125,10 +136,6 @@
 
 .hero .progressWrapper {
   margin: 0 auto;
-}
-
-.default[disabled] .progressWrapper {
-  visibility: hidden;
 }
 
 @media mobile {

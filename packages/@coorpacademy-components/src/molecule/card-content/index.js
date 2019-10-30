@@ -2,6 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import classnames from 'classnames';
+import {
+  NovaCompositionCoorpacademyAdaptive as AdaptivIcon,
+  NovaSolidStatusCheckCircle2 as CheckIcon,
+  NovaCompositionCoorpacademyTimer as TimerIcon
+} from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import style from './style.css';
 
@@ -10,23 +15,42 @@ export const MODES = {
   CARD: 'card'
 };
 
+const createContentTypeIcon = (whiteColor, adaptiv, type) => {
+  if (adaptiv) {
+    return (
+      <div className={style.specificIcon}>
+        <AdaptivIcon color={whiteColor} height={25} />
+      </div>
+    );
+  }
+  if (type === 'chapter') {
+    return (
+      <div className={style.specificIcon}>
+        <TimerIcon color={whiteColor} height={25} />
+      </div>
+    );
+  }
+  return null;
+};
+
 const ContentInfo = (
   {
-    renderContentTypeIcon = () => null,
-    renderCheckIcon = () => null,
+    adaptiv,
+    disabled = false,
     renderButton = () => null,
     mode = MODES.CARD,
     empty,
-    title,
     author,
     progress,
-    certifiedAuthor,
-    disabled = false
+    certifiedAuthor = false,
+    title,
+    type
   },
   context
 ) => {
   const {skin} = context;
   const primaryColor = get('common.primary', skin);
+  const whiteColor = get('common.white', skin);
   const inlineProgressValueStyle = {
     backgroundColor: primaryColor,
     width: `${progress * 100}%`
@@ -41,6 +65,13 @@ const ContentInfo = (
       </div>
     ) : null;
 
+  const contentTypeIcon =
+    mode === MODES.CARD ? createContentTypeIcon(whiteColor, adaptiv, type) : null;
+
+  const checkIcon = certifiedAuthor ? (
+    <CheckIcon className={style.authorIcon} color="inherit" />
+  ) : null;
+
   return (
     <div
       data-name="info"
@@ -50,7 +81,7 @@ const ContentInfo = (
         disabled ? style.progressBarDisabled : null
       )}
     >
-      {renderContentTypeIcon()}
+      {contentTypeIcon}
       <div className={classnames(style.title, empty ? style.empty : null)}>
         <div data-name="title" title={title}>
           {title}
@@ -59,14 +90,10 @@ const ContentInfo = (
       <div
         data-name="author"
         title={author}
-        className={classnames(
-          style.author,
-          certifiedAuthor && style.certified,
-          empty ? style.empty : null
-        )}
+        className={classnames(style.author, empty ? style.empty : null)}
       >
         <span>{author}</span>
-        {renderCheckIcon()}
+        {checkIcon}
       </div>
 
       {progressBar}
@@ -80,6 +107,7 @@ ContentInfo.contextTypes = {
 };
 
 ContentInfo.propTypes = {
+  adaptiv: PropTypes.bool,
   renderContentTypeIcon: PropTypes.func,
   renderCheckIcon: PropTypes.func,
   renderButton: PropTypes.func,
@@ -88,7 +116,8 @@ ContentInfo.propTypes = {
   author: PropTypes.string,
   disabled: PropTypes.bool,
   certifiedAuthor: PropTypes.bool,
-  progress: PropTypes.number
+  progress: PropTypes.number,
+  type: PropTypes.string
 };
 
 export default ContentInfo;

@@ -7,35 +7,15 @@ import isUndefined from 'lodash/fp/isUndefined';
 import pick from 'lodash/fp/pick';
 import {
   NovaSolidLocksLock11 as LockIcon,
-  NovaCompositionCoorpacademyAdaptive as AdaptivIcon,
-  NovaSolidStatusCheckCircle2 as CheckIcon,
-  NovaCompositionCoorpacademyPictures as PicturesIcon,
-  NovaCompositionCoorpacademyTimer as TimerIcon
+  NovaCompositionCoorpacademyPictures as PicturesIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
-import ContentInfo from '../card-content';
+import ContentInfo, {MODES} from '../card-content';
 import Customer from './customer';
 import Favorite from './favorite';
 import Notification from './notification';
 import style from './style.css';
 
-const createContentTypeIcon = (whiteColor, adaptiv, type) => {
-  if (adaptiv) {
-    return (
-      <div className={style.specificIcon}>
-        <AdaptivIcon color={whiteColor} height={25} />
-      </div>
-    );
-  }
-  if (type === 'chapter') {
-    return (
-      <div className={style.specificIcon}>
-        <TimerIcon color={whiteColor} height={25} />
-      </div>
-    );
-  }
-  return null;
-};
 const Card = (props, context) => {
   const {skin} = context;
   const {
@@ -65,7 +45,7 @@ const Card = (props, context) => {
   );
   const handleClick = e => !disabled && onClick(e);
   const emptyIcon = empty ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
-  const contentTypeIcon = createContentTypeIcon(whiteColor, adaptiv, type);
+
   const lock = disabled ? (
     <LockIcon className={style.lockIcon} color={whiteColor} height={40} />
   ) : null;
@@ -102,6 +82,8 @@ const Card = (props, context) => {
       {notification && <Notification {...notification} />}
       {customer && <Customer className={style.customer} {...customer} />}
       <ContentInfo
+        mode={MODES.CARD}
+        adaptiv={adaptiv}
         author={author}
         certifiedAuthor={certifiedAuthor}
         disabled={disabled}
@@ -109,8 +91,7 @@ const Card = (props, context) => {
         progress={progress}
         style={style}
         title={title}
-        renderContentTypeIcon={() => contentTypeIcon}
-        renderCheckIcon={() => <CheckIcon className={style.authorIcon} color="inherit" />}
+        type={type}
       />
       {badge && (
         <div className={style.badge} style={inlineBadgeStyle}>
