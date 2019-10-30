@@ -34,8 +34,7 @@
     "ava": "ava",
     "nyc": "nyc npm run ava",
     "test": " npm run lint && npm run nyc",
-    "lint": "npm run eslint",
-    "eslint": "eslint ./ *.js *.json --ext .js,.json"
+    "lint": "eslint . --ext .js,.json"
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",
