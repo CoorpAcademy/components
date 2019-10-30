@@ -41,12 +41,7 @@ import type {ReduxState as State} from '../definitions/redux';
 import {CONTENT_TYPE, ENGINES} from '../definitions/models';
 
 export const getChoices = (slide: Slide): Array<Choice> | void => {
-  if (
-    !slide || // eslint-disable-line lodash-fp/prefer-get
-    !slide.question ||
-    !slide.question.content ||
-    !slide.question.content.choices
-  ) {
+  if (!slide || !slide.question || !slide.question.content || !slide.question.content.choices) {
     return undefined;
   }
 
@@ -56,7 +51,7 @@ export const getChoices = (slide: Slide): Array<Choice> | void => {
 export const getChapterId = (slide: Slide): string => slide.chapter_id;
 export const getQuestionType = (slide: Slide): QuestionType => slide.question.type;
 export const getCurrentProgressionId = (state: State): ProgressionId =>
-  state.ui.current.progressionId; // eslint-disable-line lodash-fp/prefer-get
+  state.ui.current.progressionId;
 
 export const getProgression = (id: ProgressionId): (State => Progression) => (
   state: State
@@ -110,7 +105,7 @@ export const getAnswerValues = (slide: Slide, state: State): Answer => {
 };
 
 export const getSlide = (id: string): (State => Slide) => (state: State): Slide =>
-  state && // eslint-disable-line lodash-fp/prefer-get
+  state &&
   state.data &&
   state.data.contents &&
   state.data.contents.slide &&
@@ -130,7 +125,7 @@ export const getCurrentSlide = (state: State): Slide | void => {
 export const getChapter = (ref: string): (State => Chapter | void) => (
   state: State
 ): Chapter | void =>
-  state && // eslint-disable-line lodash-fp/prefer-get
+  state &&
   state.data &&
   state.data.contents &&
   state.data.contents.chapter &&
@@ -138,7 +133,7 @@ export const getChapter = (ref: string): (State => Chapter | void) => (
   state.data.contents.chapter.entities[ref];
 
 export const getLevel = (ref: string): (State => Level | void) => (state: State): Level | void =>
-  state && // eslint-disable-line lodash-fp/prefer-get
+  state &&
   state.data &&
   state.data.contents &&
   state.data.contents.level &&
@@ -148,7 +143,7 @@ export const getLevel = (ref: string): (State => Level | void) => (state: State)
 export const getDiscipline = (ref: string): (State => Discipline | void) => (
   state: State
 ): Discipline | void =>
-  state && // eslint-disable-line lodash-fp/prefer-get
+  state &&
   state.data &&
   state.data.contents &&
   state.data.contents.discipline &&

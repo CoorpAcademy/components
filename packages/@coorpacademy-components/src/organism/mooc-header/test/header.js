@@ -3,8 +3,8 @@ import test from 'ava';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import MoocHeader from '..';
 import defaultFixture from './fixtures/default';
+import MoocHeader from '..';
 
 browserEnv();
 configure({adapter: new Adapter()});

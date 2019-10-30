@@ -4,9 +4,9 @@ import {replace} from 'lodash/fp';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Authors from '..';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import authorFixture from './fixtures/default';
+import Authors from '..';
 
 browserEnv();
 configure({adapter: new Adapter()});

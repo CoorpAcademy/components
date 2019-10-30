@@ -7,7 +7,6 @@ import JWPlayer from './jwplayer';
 import Vimeo from './vimeo';
 import style from './style.css';
 
-// eslint-disable-next-line react/no-deprecated
 class VideoPlayer extends React.Component {
   state = {
     played: false

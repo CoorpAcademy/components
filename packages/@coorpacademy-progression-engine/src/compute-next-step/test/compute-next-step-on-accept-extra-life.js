@@ -5,9 +5,9 @@ import concat from 'lodash/fp/concat';
 import filter from 'lodash/fp/filter';
 import {getConfig} from '../../config';
 import type {AvailableContent, Config, State} from '../../types';
-import {computeNextStepOnAcceptExtraLife} from '..';
 import allSlides from './fixtures/slides';
 import {stateBeforeGettingNextContent, stateBeforeAcceptExtraLife} from './fixtures/states';
+import {computeNextStepOnAcceptExtraLife} from '..';
 
 const config: Config = getConfig({ref: 'learner', version: '1'});
 const state: State = {...stateBeforeGettingNextContent, lives: 0};

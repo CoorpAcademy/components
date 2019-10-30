@@ -5,7 +5,6 @@ import {create as createApp} from '../src';
 import Services from './services';
 import * as fixtures from './fixtures';
 
-// eslint-disable-next-line import/prefer-default-export
 export const create = options => {
   const translate = (key, data) => {
     try {

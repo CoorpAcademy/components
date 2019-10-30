@@ -4,8 +4,8 @@ import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import set from 'lodash/fp/set';
-import Hero from '..';
 import defaultFixture from './fixtures/hero';
+import Hero from '..';
 
 browserEnv();
 configure({adapter: new Adapter()});

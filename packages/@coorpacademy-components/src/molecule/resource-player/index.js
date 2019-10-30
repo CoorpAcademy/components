@@ -62,7 +62,7 @@ ResourceElement.propTypes = {
   autoplay: PropTypes.bool
 };
 
-const OverlayElement = (props = {}, context) => {
+const OverlayElement = (props = {}, context = undefined) => {
   const {title, text, lifeAmount, onClick} = props;
   const {skin} = context;
   const dark = get('common.dark', skin);

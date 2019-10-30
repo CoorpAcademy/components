@@ -18,7 +18,7 @@ import basicSlide from './fixtures/slides/basic';
 import contextSlide from './fixtures/slides/with-context';
 import templateSlide from './fixtures/slides/template';
 import qcmSlide from './fixtures/slides/qcm';
-import qcmDragSlide from './fixtures/slides/qcmDrag';
+import qcmDragSlide from './fixtures/slides/qcm-drag';
 import qcmGraphicSlide from './fixtures/slides/qcm-graphic';
 
 const options = {translate: mockTranslate};

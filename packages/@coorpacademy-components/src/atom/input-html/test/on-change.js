@@ -5,9 +5,9 @@ import {shallow, mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import omit from 'lodash/fp/omit';
 import replace from 'lodash/fp/replace';
-import InputHtml from '..';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import defaultFixture from './fixtures/default';
+import InputHtml from '..';
 
 browserEnv();
 configure({adapter: new Adapter()});

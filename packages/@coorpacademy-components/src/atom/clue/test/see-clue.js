@@ -4,9 +4,9 @@ import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import replace from 'lodash/fp/replace';
-import Clue from '..';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import defaultFixture from './fixtures/default';
+import Clue from '..';
 
 browserEnv();
 configure({adapter: new Adapter()});

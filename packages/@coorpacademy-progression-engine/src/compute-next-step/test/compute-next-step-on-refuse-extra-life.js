@@ -2,8 +2,8 @@
 import test from 'ava';
 import {getConfig} from '../../config';
 import type {Config, State} from '../../types';
-import {computeNextStepOnRefuseExtraLife} from '..';
 import {extraLifeState} from './fixtures/states';
+import {computeNextStepOnRefuseExtraLife} from '..';
 
 test('should return a complete ExtraLifeRefusedAction', t => {
   const config: Config = getConfig({ref: 'learner', version: '1'});

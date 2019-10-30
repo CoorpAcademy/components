@@ -3,9 +3,9 @@
 import test from 'ava';
 import filter from 'lodash/fp/filter';
 import {getConfig} from '../../config';
-import getFastSlideExitNode from '..';
 import type {AvailableContent, Config} from '../../types';
 import slide from './fixtures/slide';
+import getFastSlideExitNode from '..';
 
 test('should compute a successExitNode', t => {
   const config: Config = getConfig({ref: 'learner', version: '1'});

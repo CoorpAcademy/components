@@ -3,9 +3,9 @@ import test from 'ava';
 import React from 'react';
 import {shallow, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import Tab from '..';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import defaultFixture from './fixtures/default';
+import Tab from '..';
 
 browserEnv();
 configure({adapter: new Adapter()});

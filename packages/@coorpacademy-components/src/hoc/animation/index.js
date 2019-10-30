@@ -74,9 +74,7 @@ class Animation extends React.Component {
     this.requestID = null;
 
     this.setState(() => ({
-      // eslint-disable-next-line react/no-unused-state
       lastTimestamp: null,
-      // eslint-disable-next-line react/no-unused-state
       requestID: null
     }));
   }

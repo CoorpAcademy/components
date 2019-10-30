@@ -6,7 +6,7 @@ export default {
   props: {
     title: 'Platform logos',
     subtitle:
-      '(SVG files are recommanded for retina display. For any other file types, max height recommanded is xxx px)', // eslint-disable-line max-len
+      '(SVG files are recommanded for retina display. For any other file types, max height recommanded is xxx px)',
     fieldsLayout: 'grid',
     fields: [
       {

@@ -4,9 +4,9 @@ import {replace} from 'lodash/fp';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import InputDoublestep from '..';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import inputConfirmFixture from './fixtures/input-confirm';
+import InputDoublestep from '..';
 
 browserEnv();
 configure({adapter: new Adapter()});

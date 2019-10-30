@@ -3,9 +3,9 @@ import test from 'ava';
 import React from 'react';
 import {shallow, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import InputTextarea from '..';
 import omit from 'lodash/fp/omit';
 import defaultFixture from './fixtures/default';
+import InputTextarea from '..';
 
 browserEnv();
 configure({adapter: new Adapter()});

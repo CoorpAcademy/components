@@ -1,7 +1,5 @@
 import video from '../../../video-player/test/fixtures/jwplayer';
 
-/* eslint-disable max-len */
-
 export default {
   props: {
     title: 'Big Buck Bunny',

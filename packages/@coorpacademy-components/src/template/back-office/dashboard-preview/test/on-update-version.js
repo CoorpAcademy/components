@@ -4,8 +4,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import DashboardPreview from '..';
 import defaultFixture from './fixtures/selected';
+import DashboardPreview from '..';
 
 browserEnv();
 configure({adapter: new Adapter()});

@@ -9,4 +9,4 @@ const getChapterRulesByContent = ref => {
   return Promise.resolve(get('rules', chapterRules.get(ref)));
 };
 
-export {getChapterRulesByContent}; // eslint-disable-line import/prefer-default-export
+export {getChapterRulesByContent};

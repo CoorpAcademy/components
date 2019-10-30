@@ -13,5 +13,4 @@ const getClue = slideId => {
   return Promise.resolve(clueStore.get(slideId));
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export {getClue};

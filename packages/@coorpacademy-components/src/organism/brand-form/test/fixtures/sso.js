@@ -7,7 +7,6 @@ export default {
     groups: [
       {
         title: 'Single Sign On (SSO)',
-        /* eslint-disable max-len */
         subtitle:
           'Setup your platform’s single-sign-on method. This lets users connect to the Coorpacademy platform using your compny’s loing/password, adn have seamless integration with their business identity. Follow the steps below to set up your platform’s SSO.'
       },

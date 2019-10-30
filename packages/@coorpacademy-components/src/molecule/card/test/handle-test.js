@@ -6,9 +6,9 @@ import Adapter from 'enzyme-adapter-react-16';
 import set from 'lodash/fp/set';
 import pipe from 'lodash/fp/pipe';
 import unset from 'lodash/fp/unset';
-import Card from '..';
 import defaultFixture from './fixtures/default';
 import notificationFixture from './fixtures/favorite';
+import Card from '..';
 
 browserEnv();
 configure({adapter: new Adapter()});

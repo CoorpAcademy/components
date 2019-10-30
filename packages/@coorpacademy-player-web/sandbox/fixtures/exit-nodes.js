@@ -17,5 +17,4 @@ const getExitNode = id => {
   return Promise.resolve(update('media', appendJWPOptions('src.0.'), exitNode));
 };
 
-// eslint-disable-next-line import/prefer-default-export
 export {getExitNode};

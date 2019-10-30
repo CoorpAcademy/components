@@ -19,7 +19,7 @@ const slideStore = reduce(
 const findByChapter = (chapterRef: string): Array<Slide> =>
   filter({chapter_id: chapterRef}, slidesData);
 
-// eslint-disable-next-line import/prefer-default-export,require-await
+// eslint-disable-next-line require-await
 const findById = async (id: string): Promise<Slide> => {
   if (!slideStore.has(id)) throw new Error(`Slide ${id} not found`);
   const slide = slideStore.get(id);

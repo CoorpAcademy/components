@@ -4,8 +4,8 @@ import React from 'react';
 import unset from 'lodash/fp/unset';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import CardsList from '..';
 import Card from '../../../card/test/fixtures/default';
+import CardsList from '..';
 
 browserEnv();
 configure({adapter: new Adapter()});
