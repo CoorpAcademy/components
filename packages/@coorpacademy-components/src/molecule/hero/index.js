@@ -14,11 +14,6 @@ const Hero = (props, context) => {
   const primaryColor = get('common.primary', skin);
   const cardStyle = classnames(style.hero, title ? null : style.lazy);
 
-  const inlineProgressValueStyle = {
-    backgroundColor: primaryColor,
-    width: `${progress * 100}%`
-  };
-
   return (
     <div className={cardStyle} data-name="hero">
       <div className={style.imageWrapper}>
@@ -33,11 +28,6 @@ const Hero = (props, context) => {
       </div>
       <ContentInfo
         mode={MODES.HERO}
-        renderProgressBar={() => (
-          <div className={style.progressWrapper}>
-            <div data-name="progress" className={style.progress} style={inlineProgressValueStyle} />
-          </div>
-        )}
         renderButton={() => (
           <div className={style.heroCtaWrapper}>
             <Button
@@ -51,6 +41,7 @@ const Hero = (props, context) => {
           </div>
         )}
         author={author}
+        progress={progress}
         title={title}
       />
     </div>

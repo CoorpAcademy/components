@@ -144,36 +144,10 @@
   left: 0;
 }
 
-.progressWrapper {
-  position: relative;
-  left: 0;
-  width: 194px;
-  height: 3px;
-  border-radius: 1px;
-  margin: 0 auto;
-  background: light;
-}
-
-.default[disabled] .progressWrapper {
-  visibility: hidden;
-}
-
-.progress {
-  display: block;
-  height: 3px;
-  animation: progressbar 2s ease-in-out;
-}
-
 .heroCtaWrapper .heroButton {
   min-width: 0;
   line-height: 45px;
   border-radius: 27.5px;
-}
-
-@keyframes progressbar {
-  0% {
-    width: 0;
-  }
 }
 
 @media (hover: none) {

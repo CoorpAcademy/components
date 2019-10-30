@@ -70,15 +70,6 @@ const Card = (props, context) => {
     <LockIcon className={style.lockIcon} color={whiteColor} height={40} />
   ) : null;
   const inlineBadgeStyle = {color: primaryColor};
-  const inlineProgressValueStyle = {
-    backgroundColor: primaryColor,
-    width: `${progress * 100}%`
-  };
-  const myprogress = !empty ? (
-    <div className={style.progressWrapper}>
-      <div data-name="progress" className={style.progress} style={inlineProgressValueStyle} />
-    </div>
-  ) : null;
   return (
     <div
       className={cardStyle}
@@ -111,12 +102,13 @@ const Card = (props, context) => {
       {notification && <Notification {...notification} />}
       {customer && <Customer className={style.customer} {...customer} />}
       <ContentInfo
-        empty={empty}
         author={author}
-        title={title}
-        style={style}
         certifiedAuthor={certifiedAuthor}
-        renderProgressBar={() => myprogress}
+        disabled={disabled}
+        empty={empty}
+        progress={progress}
+        style={style}
+        title={title}
         renderContentTypeIcon={() => contentTypeIcon}
         renderCheckIcon={() => <CheckIcon className={style.authorIcon} color="inherit" />}
       />

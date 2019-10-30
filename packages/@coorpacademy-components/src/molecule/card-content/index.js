@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import get from 'lodash/fp/get';
 import classnames from 'classnames';
+import Provider from '../../atom/provider';
 import style from './style.css';
 
 export const MODES = {
@@ -8,21 +10,45 @@ export const MODES = {
   CARD: 'card'
 };
 
-const ContentInfo = ({
-  renderContentTypeIcon = () => null,
-  renderCheckIcon = () => null,
-  renderButton = () => null,
-  renderProgressBar = () => null,
-  mode = MODES.CARD,
-  empty,
-  title,
-  author,
-  certifiedAuthor
-}) => {
+const ContentInfo = (
+  {
+    renderContentTypeIcon = () => null,
+    renderCheckIcon = () => null,
+    renderButton = () => null,
+    mode = MODES.CARD,
+    empty,
+    title,
+    author,
+    progress,
+    certifiedAuthor,
+    disabled = false
+  },
+  context
+) => {
+  const {skin} = context;
+  const primaryColor = get('common.primary', skin);
+  const inlineProgressValueStyle = {
+    backgroundColor: primaryColor,
+    width: `${progress * 100}%`
+  };
+
+  const progressBar =
+    mode === MODES.HERO || (!empty && !disabled) ? (
+      <div className={style.progressWrapper}>
+        {!disabled && (
+          <div data-name="progress" className={style.progress} style={inlineProgressValueStyle} />
+        )}
+      </div>
+    ) : null;
+
   return (
     <div
       data-name="info"
-      className={classnames(style.infoWrapper, mode === MODES.HERO ? style.hero : style.card)}
+      className={classnames(
+        style.infoWrapper,
+        mode === MODES.HERO ? style.hero : style.card,
+        disabled ? style.progressBarDisabled : null
+      )}
     >
       {renderContentTypeIcon()}
       <div className={classnames(style.title, empty ? style.empty : null)}>
@@ -43,21 +69,26 @@ const ContentInfo = ({
         {renderCheckIcon()}
       </div>
 
-      {renderProgressBar()}
+      {progressBar}
       {renderButton()}
     </div>
   );
+};
+
+ContentInfo.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 
 ContentInfo.propTypes = {
   renderContentTypeIcon: PropTypes.func,
   renderCheckIcon: PropTypes.func,
   renderButton: PropTypes.func,
-  renderProgressBar: PropTypes.func.isRequired,
   empty: PropTypes.bool,
   title: PropTypes.string,
   author: PropTypes.string,
-  certifiedAuthor: PropTypes.bool
+  disabled: PropTypes.bool,
+  certifiedAuthor: PropTypes.bool,
+  progress: PropTypes.number
 };
 
 export default ContentInfo;

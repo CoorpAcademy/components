@@ -208,28 +208,8 @@
   left: 0;
 }
 
-.progressWrapper {
-  position: relative;
-  left: 0;
-  width: 150px;
-  height: 3px;
-  border-radius: 1px;
-  margin: 16px auto;
-  background: light;
-}
-
-.default[disabled] .progressWrapper {
-  visibility: hidden;
-}
-
 .default[disabled] .customer {
   background: none;
-}
-
-.progress {
-  display: block;
-  height: 3px;
-  animation: progressbar 2s ease-in-out;
 }
 
 .badge {
@@ -280,12 +260,6 @@
   right: 50%;
   transform: translate(50%, 50%);
   top: 0;
-}
-
-@keyframes progressbar {
-  0% {
-    width: 0;
-  }
 }
 
 @media (hover: none) {

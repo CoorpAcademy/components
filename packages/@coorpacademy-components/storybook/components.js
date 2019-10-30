@@ -344,6 +344,7 @@ import MoleculeCardFixtureFreerunAndDisabled from '../src/molecule/card/test/fix
 import MoleculeCardFixtureFreerun from '../src/molecule/card/test/fixtures/freerun';
 import MoleculeCardFixtureWelcome from '../src/molecule/card/test/fixtures/welcome';
 import MoleculeCardContentFixtureCard from '../src/molecule/card-content/test/fixtures/card';
+import MoleculeCardContentFixtureEmpty from '../src/molecule/card-content/test/fixtures/empty';
 import MoleculeCardContentFixtureHero from '../src/molecule/card-content/test/fixtures/hero';
 import MoleculeCardWithButtonFixtureDefault from '../src/molecule/card-with-button/test/fixtures/default';
 import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-button/test/fixtures/with-avatar';
@@ -1224,6 +1225,7 @@ export const fixtures = {
     },
     MoleculeCardContent: {
       Card: MoleculeCardContentFixtureCard,
+      Empty: MoleculeCardContentFixtureEmpty,
       Hero: MoleculeCardContentFixtureHero
     },
     MoleculeCardWithButton: {
