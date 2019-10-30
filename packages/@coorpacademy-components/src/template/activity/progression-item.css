@@ -20,6 +20,20 @@
   font-size: 14px;
   vertical-align: bottom;
 }
+.disabled {
+  position: relative;
+}
+
+.disabled:after {
+  width: 100%;
+  height: 100%;
+  top: 0px;
+  left: 0px;
+  content: '';
+  background: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  pointer-events: none;
+}
 
 .adaptiveIcon svg {
   vertical-align: middle;
@@ -128,6 +142,7 @@
   position: relative;
   right: 0;
   text-transform: capitalize;
+  flex: auto;
 }
 
 .separation {

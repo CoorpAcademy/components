@@ -16,7 +16,17 @@ import style from './progression-item.css';
 
 const ProgressionItem = (props, context) => {
   const {skin} = context;
-  const {adaptive, completion, label, level, onClick = noop, stars, state, type} = props;
+  const {
+    disabled = false,
+    adaptive,
+    completion,
+    label,
+    level,
+    onClick = noop,
+    stars,
+    state,
+    type
+  } = props;
   const dark = get('common.dark', skin);
   const primary = get('common.primary', skin);
   const white = get('common.white', skin);
@@ -38,8 +48,15 @@ const ProgressionItem = (props, context) => {
     onClick(e);
   };
 
+  const link = disabled ? null : (
+    <Link style={{color: primary}} onClick={handleCTAClick} data-progression-state={state}>
+      <span className={style.cta}>
+        {state} <ArrowRightIcon color={primary} height={12} />
+      </span>
+    </Link>
+  );
   return (
-    <div>
+    <div className={disabled ? style.disabled : ''}>
       <div className={style.wrapperTitle}>
         {type === 'course' ? (
           <LearnerIcon className={style.iconType} color={dark} />
@@ -68,17 +85,7 @@ const ProgressionItem = (props, context) => {
         style={{backgroundColor: primary}}
       />
       <div className={style.state}>
-        <Link
-          style={{
-            color: primary
-          }}
-          onClick={handleCTAClick}
-          data-progression-state={state}
-        >
-          <span className={style.cta}>
-            {state} <ArrowRightIcon color={primary} height={12} />
-          </span>
-        </Link>
+        {link}
         <span className={style.level}>{level}</span>
       </div>
       <div className={style.separation} />
@@ -89,6 +96,7 @@ const ProgressionItem = (props, context) => {
 ProgressionItem.propTypes = {
   completion: PropTypes.number.isRequired,
   stars: PropTypes.number.isRequired,
+  disabled: PropTypes.bool,
   label: PropTypes.string.isRequired,
   level: PropTypes.string.isRequired,
   state: PropTypes.string.isRequired,

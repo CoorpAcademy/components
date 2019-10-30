@@ -33,6 +33,16 @@ test('should call the onClick function with click on cta', t => {
     .simulate('click', clickEvent);
 });
 
+test('should not contain a link if progressionItem is disabled', t => {
+  t.plan(1);
+
+  const props = {...defaultFixture.props.progressions[3]};
+  const wrapper = shallow(<Wrapper {...props} />);
+
+  const element = wrapper.find(Link);
+  t.is(element.length, 0);
+});
+
 test('should not crash if onClick is not sent', t => {
   t.plan(2);
 

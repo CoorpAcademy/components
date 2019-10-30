@@ -36,6 +36,7 @@ export default {
         ref: '05',
         completion: 0.3,
         stars: 400,
+        disabled: false,
         label: 'Big Data',
         level: 'Basic',
         state: 'Continue learning',
@@ -49,6 +50,7 @@ export default {
         ref: '04',
         completion: 1,
         stars: 700,
+        disabled: false,
         label: 'Prospectives',
         level: 'Coach',
         state: 'Redo this course',
@@ -62,6 +64,20 @@ export default {
         ref: '03',
         completion: 0,
         stars: 400,
+        label: 'Lead generation',
+        level: 'Advanced',
+        state: 'Start learning',
+        type: 'chapter',
+        adaptive: false,
+        onClick: () => {
+          console.log('chapter');
+        }
+      },
+      {
+        ref: '05',
+        completion: 0.75,
+        stars: 400,
+        disabled: true,
         label: 'Lead generation',
         level: 'Advanced',
         state: 'Start learning',
