@@ -4,6 +4,7 @@ import CardsList from '../../../../../molecule/dashboard/cards-list/test/fixture
 import ManyCardsList from '../../../../../molecule/dashboard/cards-list/test/fixtures/many';
 import NewsList from '../../../../../molecule/dashboard/news-list/test/fixtures/default';
 import StartBattle from '../../../../../molecule/dashboard/start-battle/test/fixtures/default';
+import Default from './default';
 
 const requestsProps = BattleRequestList.props;
 const cardsProps = CardsList.props;
@@ -11,8 +12,11 @@ const manyCardsProps = ManyCardsList.props;
 const newsProps = NewsList.props;
 const battleProps = StartBattle.props;
 
+const {props} = Default;
+
 export default {
   props: {
+    ...props,
     sections: [
       defaultsDeep(requestsProps, {
         type: 'battleRequests'

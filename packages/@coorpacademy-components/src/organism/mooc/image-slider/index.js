@@ -4,10 +4,9 @@ import map from 'lodash/fp/map';
 import Slide from '../../../atom/slide';
 import Slider from '../../slider';
 
-const ImageSlider = ({slides}) => {
-  const myslides = map(slide => <Slide key={slide.title} {...slide} />, slides);
-
-  return <Slider>{myslides}</Slider>;
+const ImageSlider = ({slides = []}) => {
+  const allSlides = map(slide => <Slide key={slide.title} {...slide} />, slides);
+  return <Slider>{allSlides}</Slider>;
 };
 
 ImageSlider.propTypes = {

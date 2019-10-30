@@ -13,6 +13,14 @@ const battleProps = StartBattle.props;
 
 export default {
   props: {
+    welcome: {
+      title: 'Welcome Faust !',
+      subtitle: 'Exxplore',
+      cover:
+        'https://static.coorpacademy.com/content/onboarding/raw/image-dios-1-1531517080118.jpg',
+      light: true,
+      alignment: 'left'
+    },
     sections: [
       defaultsDeep(requestsProps, {
         type: 'battleRequests'

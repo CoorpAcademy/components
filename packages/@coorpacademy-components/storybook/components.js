@@ -52,6 +52,7 @@ import MoleculeBrandTabs from './../src/molecule/brand-tabs';
 import MoleculeBrandUploadBox from './../src/molecule/brand-upload-box';
 import MoleculeBreadcrumbs from './../src/molecule/breadcrumbs';
 import MoleculeCard from './../src/molecule/card';
+import MoleculeCardContent from './../src/molecule/card-content';
 import MoleculeCardWithButton from './../src/molecule/card-with-button';
 import MoleculeCookieBanner from './../src/molecule/cookie-banner';
 import MoleculeDashboardBattleRequestList from './../src/molecule/dashboard/battle-request-list';
@@ -67,6 +68,7 @@ import MoleculeFilters from './../src/molecule/filters';
 import MoleculeForumForumComment from './../src/molecule/forum/forum-comment';
 import MoleculeForumForumPost from './../src/molecule/forum/forum-post';
 import MoleculeForumForumThread from './../src/molecule/forum/forum-thread';
+import MoleculeHero from './../src/molecule/hero';
 import MoleculeMenuList from './../src/molecule/menu-list';
 import MoleculeMessagePopin from './../src/molecule/message-popin';
 import MoleculeModuleBubble from './../src/molecule/module-bubble';
@@ -340,6 +342,12 @@ import MoleculeCardFixtureEmpty from '../src/molecule/card/test/fixtures/empty';
 import MoleculeCardFixtureFavorite from '../src/molecule/card/test/fixtures/favorite';
 import MoleculeCardFixtureFreerunAndDisabled from '../src/molecule/card/test/fixtures/freerun-and-disabled';
 import MoleculeCardFixtureFreerun from '../src/molecule/card/test/fixtures/freerun';
+import MoleculeCardContentFixtureAdaptivAndDisabled from '../src/molecule/card-content/test/fixtures/adaptiv-and-disabled';
+import MoleculeCardContentFixtureAdaptiv from '../src/molecule/card-content/test/fixtures/adaptiv';
+import MoleculeCardContentFixtureCard from '../src/molecule/card-content/test/fixtures/card';
+import MoleculeCardContentFixtureDisabled from '../src/molecule/card-content/test/fixtures/disabled';
+import MoleculeCardContentFixtureEmpty from '../src/molecule/card-content/test/fixtures/empty';
+import MoleculeCardContentFixtureHero from '../src/molecule/card-content/test/fixtures/hero';
 import MoleculeCardWithButtonFixtureDefault from '../src/molecule/card-with-button/test/fixtures/default';
 import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-button/test/fixtures/with-avatar';
 import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
@@ -407,6 +415,7 @@ import MoleculeForumForumPostFixtureTextareasLocked from '../src/molecule/forum/
 import MoleculeForumForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thread/test/fixtures/deep-answers';
 import MoleculeForumForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
 import MoleculeForumForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
+import MoleculeHeroFixtureHero from '../src/molecule/hero/test/fixtures/hero';
 import MoleculeMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import MoleculeMessagePopinFixtureDefault from '../src/molecule/message-popin/test/fixtures/default';
 import MoleculeModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
@@ -546,8 +555,6 @@ import OrganismMoocImageSliderFixtureDefault from '../src/organism/mooc/image-sl
 import OrganismMoocImageSliderFixtureMultipleSlides from '../src/organism/mooc/image-slider/test/fixtures/multiple-slides';
 import OrganismMoocHeaderFixtureDefault from '../src/organism/mooc-header/test/fixtures/default';
 import OrganismMoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/logged';
-import OrganismMoocHeaderFixtureSliderMultiple from '../src/organism/mooc-header/test/fixtures/slider-multiple';
-import OrganismMoocHeaderFixtureSlider from '../src/organism/mooc-header/test/fixtures/slider';
 import OrganismMoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
 import OrganismPopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
 import OrganismResourceBrowserFixtureJwplayerWithOverlay from '../src/organism/resource-browser/test/fixtures/jwplayer-with-overlay';
@@ -716,6 +723,7 @@ import TemplateCommonCoorpHeaderFixtureProduction from '../src/template/common/c
 import TemplateCommonCoorpHeaderFixtureStaging from '../src/template/common/coorp-header/test/fixtures/staging';
 import TemplateCommonDashboardFixtureDefault from '../src/template/common/dashboard/test/fixtures/default';
 import TemplateCommonDashboardFixtureEmptyRequests from '../src/template/common/dashboard/test/fixtures/empty-requests';
+import TemplateCommonDashboardFixtureWithHeroCard from '../src/template/common/dashboard/test/fixtures/with-hero-card';
 import TemplateCommonDisciplineFixtureDefault from '../src/template/common/discipline/test/fixtures/default';
 import TemplateCommonDisciplineFixtureDoubleAuthor from '../src/template/common/discipline/test/fixtures/double-author';
 import TemplateCommonDisciplineFixtureEmpty from '../src/template/common/discipline/test/fixtures/empty';
@@ -787,6 +795,7 @@ export const components = {
     MoleculeBrandUploadBox,
     MoleculeBreadcrumbs,
     MoleculeCard,
+    MoleculeCardContent,
     MoleculeCardWithButton,
     MoleculeCookieBanner,
     MoleculeDisciplineCta,
@@ -795,6 +804,7 @@ export const components = {
     MoleculeDisciplineScope,
     MoleculeFeedback,
     MoleculeFilters,
+    MoleculeHero,
     MoleculeMenuList,
     MoleculeMessagePopin,
     MoleculeModuleBubble,
@@ -1214,6 +1224,14 @@ export const fixtures = {
       FreerunAndDisabled: MoleculeCardFixtureFreerunAndDisabled,
       Freerun: MoleculeCardFixtureFreerun
     },
+    MoleculeCardContent: {
+      AdaptivAndDisabled: MoleculeCardContentFixtureAdaptivAndDisabled,
+      Adaptiv: MoleculeCardContentFixtureAdaptiv,
+      Card: MoleculeCardContentFixtureCard,
+      Disabled: MoleculeCardContentFixtureDisabled,
+      Empty: MoleculeCardContentFixtureEmpty,
+      Hero: MoleculeCardContentFixtureHero
+    },
     MoleculeCardWithButton: {
       Default: MoleculeCardWithButtonFixtureDefault,
       WithAvatar: MoleculeCardWithButtonFixtureWithAvatar,
@@ -1268,6 +1286,9 @@ export const fixtures = {
       TwoOpened: MoleculeFiltersFixtureTwoOpened,
       Two: MoleculeFiltersFixtureTwo,
       Zero: MoleculeFiltersFixtureZero
+    },
+    MoleculeHero: {
+      Hero: MoleculeHeroFixtureHero
     },
     MoleculeMenuList: {
       Default: MoleculeMenuListFixtureDefault
@@ -1559,8 +1580,6 @@ export const fixtures = {
     OrganismMoocHeader: {
       Default: OrganismMoocHeaderFixtureDefault,
       Logged: OrganismMoocHeaderFixtureLogged,
-      SliderMultiple: OrganismMoocHeaderFixtureSliderMultiple,
-      Slider: OrganismMoocHeaderFixtureSlider,
       UserChangePassword: OrganismMoocHeaderFixtureUserChangePassword
     },
     OrganismPopin: {
@@ -1798,7 +1817,8 @@ export const fixtures = {
     },
     TemplateCommonDashboard: {
       Default: TemplateCommonDashboardFixtureDefault,
-      EmptyRequests: TemplateCommonDashboardFixtureEmptyRequests
+      EmptyRequests: TemplateCommonDashboardFixtureEmptyRequests,
+      WithHeroCard: TemplateCommonDashboardFixtureWithHeroCard
     },
     TemplateCommonDiscipline: {
       Default: TemplateCommonDisciplineFixtureDefault,

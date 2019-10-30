@@ -8,7 +8,6 @@ export default {
     title: 'From Mass Market to One to One targeting Lorem ipsum',
     author: 'Coorpacademy',
     certifiedAuthor: true,
-    cta: 'Continue Chapter',
     progress: 0.65,
     badge: 'new',
     favorite: true,

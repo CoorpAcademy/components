@@ -4,7 +4,7 @@ import Cta from '../cta';
 import style from './style.css';
 
 const Slide = props => {
-  const {cover, title, surtitle, cta, light, alignment = 'center'} = props;
+  const {cover, title, subtitle, cta, light, alignment = 'center'} = props;
 
   const imgCover = cover;
   const ctaView = cta ? <Cta {...cta} light={light} /> : null;
@@ -13,7 +13,7 @@ const Slide = props => {
     <div
       className={style.hero}
       style={{
-        backgroundImage: imgCover
+        backgroundImage: `url(${imgCover})`
       }}
     >
       <div
@@ -22,8 +22,8 @@ const Slide = props => {
           textAlign: alignment
         }}
       >
-        <h2 className={style.surtitle} data-name="surtitle">
-          {surtitle}
+        <h2 className={style.subtitle} data-name="subtitle">
+          {subtitle}
         </h2>
         <h1 className={style.title} data-name="title">
           {title}
@@ -37,7 +37,7 @@ const Slide = props => {
 Slide.propTypes = {
   cover: PropTypes.string,
   title: PropTypes.string,
-  surtitle: PropTypes.string,
+  subtitle: PropTypes.string,
   light: PropTypes.bool,
   cta: PropTypes.shape(Cta.propTypes),
   alignment: PropTypes.oneOf(['center', 'left', 'right'])

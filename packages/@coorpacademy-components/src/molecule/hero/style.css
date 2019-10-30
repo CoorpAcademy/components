@@ -31,45 +31,17 @@
   box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.07);
 }
 
-.default[disabled] .favorite {
-  z-index: 0;
-}
-
-.customer {
-  position: absolute;
-  top: 0;
-  left: 0;
+.hero {
+  composes: default;
+  border-radius: 0;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-.customer {
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0) 20%
-  );
-}
-
-.grid.empty {
-  padding-bottom: 25px;
-  opacity: 0.6;
-}
-
-.course {
-  composes: default;
-  border-radius: 8px;
-  width: 256px;
-  height: 258px;
-}
-
-@media mobile {
-  .course {
-    width: 200px;
-  }
-}
-
-.course .imageWrapper {
+.hero .imageWrapper {
   width: 100%;
   height: 100%;
   position: absolute;
@@ -93,12 +65,6 @@
   transition: opacity 0.25s ease-in-out;
 }
 
-.default:hover .image {
-  transform-origin: center;
-  transform: scale(1.1);
-  transition: all 1s ease-in-out;
-}
-
 .default .image::after {
   position: absolute;
   content: '';
@@ -109,8 +75,9 @@
   left: 0;
   background-image: linear-gradient(
     to bottom,
-    color(black a(0%)),
-    color(black a(80%))
+    color(black a(1%)),
+    color(rgba(0, 0, 0, 0.7) a(47%)),
+    color(black a(96%))
   );
 }
 
@@ -135,6 +102,20 @@
   pointer-events: none;
 }
 
+.heroButtonWrapper {
+  position: relative;
+  width: 100%;
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.heroButtonWrapper .heroButton {
+  min-width: 0;
+  line-height: 45px;
+  border-radius: 27.5px;
+}
+
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -145,41 +126,8 @@
   }
 }
 
-.course .default:hover {
-  background: light;
-  cursor: pointer;
-  transition: background 0.25s ease-in-out;
-}
-
 .default[disabled] .imageWrapper {
   opacity: 0.4;
-}
-
-.lockWrapper {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  height: 258px;
-  display: flex;
-  padding-top: 50px;
-  justify-content: center;
-}
-
-.lockWrapper::before {
-  position: absolute;
-  top: 0;
-  right: 0;
-  left: 0;
-  bottom: 0;
-  content: '';
-  opacity: 0.4;
-  background: black;
-}
-
-.lockIcon {
-  font-size: 40px;
-  z-index: 1;
 }
 
 .imageWrapper {
@@ -204,43 +152,7 @@
   left: 0;
 }
 
-.default[disabled] .customer {
-  background: none;
-}
-
-.badge {
-  position: absolute;
-  width: auto;
-  height: auto;
-  background-color: white;
-  padding: 3px 11px;
-  top: 0;
-  left: 0;
-  font-family: 'Open Sans';
-  text-transform: uppercase;
-  font-size: 8px;
-  font-weight: bold;
-  border-bottom-right-radius: 7px;
-  z-index: 1;
-  user-select: none;
-}
-
-.emptyIcon {
-  vertical-align: middle;
-  width: 80px;
-  height: 70px;
-  position: absolute;
-  z-index: 1;
-  right: 50%;
-  transform: translate(50%, 50%);
-  top: 0;
-}
-
 @media (hover: none) {
-  .default:hover .image {
-    transform: scale(1);
-  }
-
   .default:hover .image::before {
     opacity: 0;
   }

@@ -1,12 +1,19 @@
 @value breakpoints: "../../../variables/breakpoints.css";
-@value desktop from breakpoints;
 @value tablet from breakpoints;
-@value mobile from breakpoints;
-@value colors: "../../../variables/colors.css";
-@value white from colors;
 
 .wrapper {
   width: 100%;
   background-color: white;
   padding-bottom: 20px;
+}
+
+.hero {
+  height: 350px;
+  width: 100%;
+}
+
+@media tablet {
+  .hero {
+    height: 200px;
+  }
 }
