@@ -9,7 +9,7 @@
   ],
   "scripts": {
     "build": "cross-env babel src --out-dir lib -s --ignore test --copy-files",
-    "clean:build": "rimraf lib",
+    "clean:build": "rm -rf lib",
     "clean": "npm run clean:build",
     "prepare": "npm run clean && npm run build --production",
     "test": "npm run lint",
@@ -37,8 +37,7 @@
     "@coorpacademy/eslint-plugin-coorpacademy": "^9.0.1",
     "babel-plugin-istanbul": "^5.2.0",
     "cross-env": "^5.2.1",
-    "eslint": "^6.6.0",
-    "rimraf": "^3.0.0"
+    "eslint": "^6.6.0"
   },
   "author": "CoorpAcademy"
 }

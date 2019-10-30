@@ -33,8 +33,7 @@
     "codecov": "^3.1.0",
     "glob": "^7.1.4",
     "lerna": "^3.4.3",
-    "mkdirp-promise": "^5.0.1",
-    "rimraf": "^2.6.2"
+    "mkdirp-promise": "^5.0.1"
   },
   "peerDependencies": {
     "react": "~16.4.0",

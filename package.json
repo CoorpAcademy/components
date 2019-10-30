@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "bootstrap": "lerna run prepare",
-    "prestatic": "rimraf static",
+    "prestatic": "rm -rf static",
     "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/player-web static -- --production",
     "poststatic": "mkdirp static && cp -r packages/@coorpacademy-components/static static/components && cp -r packages/@coorpacademy-player-web/static static/app-player",
     "preflow": "sh scripts/links-for-nested-flow.sh",
@@ -28,7 +28,6 @@
     "eslint": "^6.6.0",
     "estraverse-fb": "1.3.2",
     "lerna": "^3.16.4",
-    "mkdirp": "^0.5.1",
-    "rimraf": "^3.0.0"
+    "mkdirp": "^0.5.1"
   }
 }

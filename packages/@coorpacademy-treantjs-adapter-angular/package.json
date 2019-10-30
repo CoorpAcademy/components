@@ -17,8 +17,8 @@
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
     "build": "npm run build:commonjs && npm run build:es",
-    "clean:build:commonjs": "rimraf lib",
-    "clean:build:es": "rimraf es",
+    "clean:build:commonjs": "rm -rf lib",
+    "clean:build:es": "rm -rf es",
     "clean:build": "npm run clean:build:commonjs && npm run clean:build:es",
     "clean": "npm run clean:build",
     "prepare": "npm run clean && npm run build --production",
@@ -56,7 +56,6 @@
     "express": "^4.17.1",
     "nyc": "^14.1.1",
     "prop-types": "^15.5.10",
-    "rimraf": "^3.0.0",
     "webpack": "^4.40.2",
     "webpack-dev-middleware": "^3.7.1",
     "webpack-hot-middleware": "^2.25.0"

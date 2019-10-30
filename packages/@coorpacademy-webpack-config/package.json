@@ -13,7 +13,7 @@
     "nyc": "nyc npm run ava",
     "test": "npm run lint && npm run nyc",
     "lint": "eslint . --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\"",
-    "clean:build": "rimraf lib",
+    "clean:build": "rm -rf lib",
     "clean": "npm run clean:build",
     "prepare": "npm run clean && npm run build --production"
   },
@@ -51,7 +51,6 @@
     "cross-env": "^5.2.1",
     "eslint": "^6.6.0",
     "nyc": "^14.1.1",
-    "rimraf": "^3.0.0",
     "webpack": "^4.40.2"
   },
   "author": "CoorpAcademy"
