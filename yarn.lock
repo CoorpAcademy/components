@@ -7847,10 +7847,10 @@ flatten@^1.0.2:
   resolved "https://registry.npmjs.org/flatten/-/flatten-1.0.2.tgz#dae46a9d78fbe25292258cc1e780a41d95c03782"
   integrity sha1-2uRqnXj74lKSJYzB54CkHZXAN4I=
 
-flow-bin@^0.110.1:
-  version "0.110.1"
-  resolved "https://registry.npmjs.org/flow-bin/-/flow-bin-0.110.1.tgz#24ac70bf0871a5d6bc181ba99801ded4d5e3b442"
-  integrity sha512-6FhvNKNvPQ523mx7sqNxTQvI/HgAWa/pbIsQuCst53qRqs387EFfYqgm4I3Zae5HLaVFacBwgWKmjKd92vf19w==
+flow-bin@^0.75.0:
+  version "0.75.0"
+  resolved "https://registry.npmjs.org/flow-bin/-/flow-bin-0.75.0.tgz#b96d1ee99d3b446a3226be66b4013224ce9df260"
+  integrity sha1-uW0e6Z07RGoyJr5mtAEyJM6d8mA=
 
 flow-copy-source@^2.0.8:
   version "2.0.8"

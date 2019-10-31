@@ -52,7 +52,7 @@
     "concurrently": "^5.0.0",
     "cross-env": "^6.0.3",
     "eslint": "^6.6.0",
-    "flow-bin": "^0.110.1",
+    "flow-bin": "^0.75.0",
     "flow-copy-source": "^2.0.8",
     "glob": "^7.1.5",
     "mkdirp-promise": "^5.0.1",
