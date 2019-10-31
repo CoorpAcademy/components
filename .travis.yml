@@ -1,29 +1,21 @@
 language: node_js
 sudo: false
 node_js:
-  - 8.16.1
-cache:
-  directories:
-    - node_modules
-    - packages/@coorpacademy-components/node_modules
-    - packages/@coorpacademy-css-modules-require-hook/node_modules
-    - packages/@coorpacademy-history/node_modules
-    - packages/@coorpacademy-nova-icons/node_modules
-    - packages/@coorpacademy-player-services/node_modules
-    - packages/@coorpacademy-player-store/node_modules
-    - packages/@coorpacademy-player-web/node_modules
-    - packages/@coorpacademy-progression-engine/node_modules
-    - packages/@coorpacademy-redux-history/node_modules
-    - packages/@coorpacademy-redux-router/node_modules/node_modules
-    - packages/@coorpacademy-redux-task/node_modules
-    - packages/@coorpacademy-translate/node_modules
-    - packages/@coorpacademy-treantjs-adapter-angular/node_modules
-    - packages/@coorpacademy-treantjs-adapter-dust/node_modules
-    - packages/@coorpacademy-webpack-config/node_modules
-env:
-  global:
-    - CXX=g++-5
-matrix:
+  - 8.16.2
+cache: npm
+install:
+  - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "^1.2.1"'`
+  - 'npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN'
+  - 'npm config set @coorpacademy:registry http://registry.npmjs.org/'
+  - 'yarn config set registry https://registry.npmjs.org/'
+  - yarn
+before_script:
+  - npx lerna bootstrap --scope $PACKAGE_NAME --include-filtered-dependencies
+  - npx lerna run prepare --scope $PACKAGE_NAME --include-filtered-dependencies
+script:
+  - npx lerna run test --since --scope $PACKAGE_NAME
+after_script: yarn codecov
+jobs:
   include:
     - name: React components
       env: PACKAGE_NAME=@coorpacademy/components
@@ -35,7 +27,7 @@ matrix:
       env: PACKAGE_NAME=@coorpacademy/player-web
     - name: Progression engine
       env: PACKAGE_NAME=@coorpacademy/progression-engine
-    - name: CSS-modules require hook
+    - name: History
       env: PACKAGE_NAME=@coorpacademy/history
     - name: Nova icons
       env: PACKAGE_NAME=@coorpacademy/nova-icons
@@ -51,99 +43,49 @@ matrix:
       env: PACKAGE_NAME=@coorpacademy/treantjs-adapter-angular
     - name: Dust adapter
       env: PACKAGE_NAME=@coorpacademy/treantjs-adapter-dust
-    - name: Common webpack config
+    - name: Css Module Require Hook
       env: PACKAGE_NAME=@coorpacademy/css-modules-require-hook
-    - name: History
+    - name: Webpack Config
       env: PACKAGE_NAME=@coorpacademy/webpack-config
-install:
-  - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "^1.2.1"'`
-  - 'npm config set //registry.npmjs.org/:_authToken $NPM_TOKEN'
-  - 'npm config set @coorpacademy:registry http://registry.npmjs.org/'
-  - 'yarn config set registry https://registry.npmjs.org/'
-  - yarn
-before_script:
-  - npx lerna bootstrap --scope $PACKAGE_NAME --include-dependencies
-  - npx lerna run prepare --scope $PACKAGE_NAME --include-dependencies
-script:
-  - npx lerna run test --since --scope $PACKAGE_NAME
-after_script: yarn codecov
-addons:
-  apt:
-    sources:
-      - ubuntu-toolchain-r-test
-    packages:
-      - g++-5
-deploy:
-  - provider: script
-    skip_cleanup: true
-    script: npm run static
-    'on':
-      branch: master
-      condition: $PACKAGE_NAME = "@coorpacademy/player-web"
-  - provider: pages
-    skip_cleanup: true
-    github_token: $GH_TOKEN
-    local_dir: static
-    'on':
-      branch: master
-      condition: $PACKAGE_NAME = "@coorpacademy/player-web"
-  - provider: script
-    skip_cleanup: true
-    script: >-
-      npm i -g @coorpacademy/update-node && update-node --nvmrc ./.nvmrc
-      --package ./package.json --travis ./.travis.yml --repo_slug
-      $TRAVIS_REPO_SLUG --team_reviewers $TEAM_REVIEWERS --branch
-      "upgrade-nodejs" --base $TRAVIS_BRANCH --github_token $GH_TOKEN || exit 0
-    'on':
-      branch: master
-      condition: $PACKAGE_NAME = "@coorpacademy/player-web"
-  - provider: script
-    skip_cleanup: true
-    script: >-
-      curl -s -X POST -H "Content-Type: application/json" -H "Accept:
-      application/json" -H "Travis-API-Version: 3" -H "Authorization: token
-      $TRAVIS_TOKEN" -d '{"request":{"branch":"deploy-production"}}'
-      https://api.travis-ci.com/repo/CoorpAcademy%2Fcoorpacademy/requests
-    'on':
-      tags: true
-      condition: $PACKAGE_NAME = "@coorpacademy/player-web"
-  - provider: script
-    skip_cleanup: true
-    script: >-
-      curl -s -X POST -H "Content-Type: application/json" -H "Accept:
-      application/json" -H "Travis-API-Version: 3" -H "Authorization: token
-      $TRAVIS_TOKEN" -d '{"request":{"branch":"master"}}'
-      https://api.travis-ci.com/repo/CoorpAcademy%2Fcoorpacademy-cockpit/requests
-    'on':
-      tags: true
-      condition: $PACKAGE_NAME = "@coorpacademy/player-web"
-  - provider: script
-    skip_cleanup: true
-    script: >-
-      curl -s -X POST -H "Content-Type: application/json" -H "Accept:
-      application/json" -H "Travis-API-Version: 3" -H "Authorization: token
-      $TRAVIS_TOKEN" -d '{"request":{"branch":"master"}}'
-      https://api.travis-ci.com/repo/CoorpAcademy%2Fapp-backoffice/requests
-    'on':
-      tags: true
-      condition: $PACKAGE_NAME = "@coorpacademy/player-web"
-  - provider: script
-    skip_cleanup: true
-    script: >-
-      curl -s -X POST -H "Content-Type: application/json" -H "Accept:
-      application/json" -H "Travis-API-Version: 3" -H "Authorization: token
-      $TRAVIS_TOKEN" -d '{"request":{"branch":"master"}}'
-      https://api.travis-ci.com/repo/CoorpAcademy%2Fcoorpacademy-store/requests
-    'on':
-      tags: true
-      condition: $PACKAGE_NAME = "@coorpacademy/player-web"
-  - provider: script
-    skip_cleanup: true
-    script: >-
-      curl -s -X POST -H "Content-Type: application/json" -H "Accept:
-      application/json" -H "Travis-API-Version: 3" -H "Authorization: token
-      $TRAVIS_TOKEN" -d '{"request":{"branch":"master"}}'
-      https://api.travis-ci.com/repo/CoorpAcademy%2Fapi-progression/requests
-    'on':
-      tags: true
-      condition: $PACKAGE_NAME = "@coorpacademy/player-web"
+    - stage: deploy
+      script: skip
+      env: PACKAGE_NAME=@coorpacademy/player-web
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script: npm run static
+
+    - stage: deploy
+      script: skip
+      env: PACKAGE_NAME=@coorpacademy/player-web
+      deploy:
+        provider: pages
+        skip_cleanup: true
+        github_token: $GH_TOKEN
+        local_dir: static
+
+    - stage: deploy
+      script: skip
+      env: PACKAGE_NAME=@coorpacademy/player-web
+      deploy:
+        provider: script
+        skip_cleanup: true
+        # ! FIXME: to update
+        script: >-
+          npm i -g @coorpacademy/update-node && update-node --nvmrc ./.nvmrc
+          --package ./package.json --travis ./.travis.yml --repo_slug
+          $TRAVIS_REPO_SLUG --team_reviewers $TEAM_REVIEWERS --branch
+          "upgrade-nodejs" --base $TRAVIS_BRANCH --github_token $GH_TOKEN
+
+    - stage: deploy
+      script: skip
+      env: PACKAGE_NAME=@coorpacademy/player-web
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script: scripts/trigger-dependent-builds.sh
+stages:
+  - name: test
+    if: tag IS blank AND (branch != master OR type = pull_request OR (branch = master AND commit_message !~ /^Publish$/))
+  - name: deploy
+    if: branch = master AND commit_message =~ /^Publish$/
