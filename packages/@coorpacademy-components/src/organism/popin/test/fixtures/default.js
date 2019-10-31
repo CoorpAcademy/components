@@ -4,7 +4,6 @@ export default {
     ctaOnClick: () => console.log('ctaOnClick'),
     closeOnClick: () => console.log('closeOnClick'),
     header: 'skip intro',
-    /* eslint-disable max-len */
     content: `<h1>Welcome!</h1>
         Welcome to this e-training on mental health and human rights! This training is part of the World Health Organization’s initiative called QualityRights. The e-training - what it covers and who it is for - is described in the video below. <br />
         <br />

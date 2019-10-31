@@ -6,7 +6,7 @@ import {mockTranslate} from '@coorpacademy/translate';
 import {createGetAnswerProps, createGetHelp} from '../answer';
 import basic from './fixtures/slides/basic';
 import qcm from './fixtures/slides/qcm';
-import qcmDrag from './fixtures/slides/qcmDrag';
+import qcmDrag from './fixtures/slides/qcm-drag';
 import qcmGraphic from './fixtures/slides/qcm-graphic';
 import template from './fixtures/slides/template';
 import slider from './fixtures/slides/slider';

@@ -1,7 +1,5 @@
 import video from '../../../video-player/test/fixtures/vimeo';
 
-/* eslint-disable max-len */
-
 export default {
   props: {
     title: 'Les nouveaux business',

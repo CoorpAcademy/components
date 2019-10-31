@@ -15,7 +15,6 @@ test('should return view function with params', t => {
   const router = createRouter([
     {
       path: '*',
-      // eslint-disable-next-line no-shadow
       view
     }
   ]);
@@ -56,7 +55,6 @@ test("should extract url's params", t => {
   const router = createRouter([
     {
       path: '/:foo',
-      // eslint-disable-next-line no-shadow
       view
     }
   ]);
@@ -73,17 +71,14 @@ test("should respect route's order", t => {
   const router = createRouter([
     {
       path: '/:foo/:bar',
-      // eslint-disable-next-line no-shadow
       view: view1
     },
     {
       path: '/:foo',
-      // eslint-disable-next-line no-shadow
       view: view2
     },
     {
       path: '*',
-      // eslint-disable-next-line no-shadow
       view: view3
     }
   ]);
@@ -106,19 +101,16 @@ test('should ignore the route if its predicate returns false', t => {
     {
       path: '/admin',
       match: (_, state) => state.role === 'admin',
-      // eslint-disable-next-line no-shadow
       view: view1
     },
     {
       path: '*',
       match: (_, state) => state.role === 'admin',
-      // eslint-disable-next-line no-shadow
       view: view2
     },
     {
       path: '*',
       match: (_, state) => state.role !== 'admin',
-      // eslint-disable-next-line no-shadow
       view: view3
     }
   ]);

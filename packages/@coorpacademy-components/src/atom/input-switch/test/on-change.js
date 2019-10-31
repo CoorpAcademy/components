@@ -3,8 +3,8 @@ import test from 'ava';
 import React from 'react';
 import {shallow, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import InputSwitch from '..';
 import defaultFixture from './fixtures/checked';
+import InputSwitch from '..';
 
 browserEnv();
 configure({adapter: new Adapter()});

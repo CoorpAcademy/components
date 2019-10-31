@@ -2,8 +2,6 @@ import cardsGrid from '../../../../../organism/cards-grid/test/fixtures/catalog'
 
 const cards = cardsGrid.props;
 
-/* eslint-disable max-len */
-
 export default {
   props: {
     socialTitle: 'Social :',

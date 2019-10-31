@@ -3,9 +3,9 @@ import test from 'ava';
 import React from 'react';
 import {shallow, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import DragAndDrop from '..';
 import style from '../../image-upload/style.css';
 import withChildrenFixtures from './fixtures/with-children';
+import DragAndDrop from '..';
 
 browserEnv();
 configure({adapter: new Adapter()});

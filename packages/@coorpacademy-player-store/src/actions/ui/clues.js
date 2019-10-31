@@ -7,7 +7,6 @@ import {selectRoute} from './route';
 
 const getId = get('_id');
 
-// eslint-disable-next-line import/prefer-default-export
 export const selectClue = (dispatch, getState) => {
   return dispatch(selectRoute('clue'));
 };

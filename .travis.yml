@@ -62,8 +62,8 @@ install:
   - 'yarn config set registry https://registry.npmjs.org/'
   - yarn
 before_script:
-  - npx lerna bootstrap --scope $PACKAGE_NAME --include-filtered-dependencies
-  - npx lerna run prepare --scope $PACKAGE_NAME --include-filtered-dependencies
+  - npx lerna bootstrap --scope $PACKAGE_NAME --include-dependencies
+  - npx lerna run prepare --scope $PACKAGE_NAME --include-dependencies
 script:
   - npx lerna run test --since --scope $PACKAGE_NAME
 after_script: yarn codecov

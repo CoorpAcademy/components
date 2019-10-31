@@ -1,7 +1,7 @@
 import test from 'ava';
 import map from 'lodash/fp/map';
-import {createRouterMiddleware} from '..';
 import {LOCATION} from '@coorpacademy/redux-history';
+import {createRouterMiddleware} from '..';
 
 const createLocation = pathname => ({type: LOCATION, payload: {pathname}});
 

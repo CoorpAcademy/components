@@ -71,7 +71,7 @@ export const Content: DataLayer => ContentService = createContentService;
 export const ExitNodes: DataLayer => ExitNodesService = createExitNodesService;
 export const LeaderBoard = LeaderBoardService;
 export const Location = LocationService; // eslint-disable-line no-shadow
-export const Logger = console; // eslint-disable-line no-console
+export const Logger = console;
 export const Progressions: DataLayer => ProgressionsService = createProgressionsService;
 export const Recommendations: DataLayer => RecommendationsService = createRecommendationsService;
 export const Slides: DataLayer => SlidesService = createSlidesService;

@@ -1,4 +1,3 @@
-/* eslint-disable max-len */
 export default {
   props: {
     title: 'Download our SAML Service PRovider Assertion (metadata)',

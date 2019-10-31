@@ -21,5 +21,4 @@ const levels = toMapByRef(levelsData);
 
 const findById = (ref: string): LevelAPI | void => levels.get(ref);
 
-// eslint-disable-next-line import/prefer-default-export
 export {findById};

@@ -64,7 +64,7 @@ class Vimeo extends React.Component {
       switch (_name) {
         case 'width':
         case 'height':
-          player.element[_name] = value; // eslint-disable-line no-param-reassign
+          player.element[_name] = value;
           break;
         case 'id':
           if (value) {

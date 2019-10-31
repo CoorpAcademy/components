@@ -1,10 +1,9 @@
-import {JWPLAYER_SCRIPT_URL} from '../../../util/constants';
-
 import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import {JWPLAYER_SCRIPT_URL} from '../../../util/constants';
 import ResourcePlayer from '..';
 
 browserEnv();

@@ -8,7 +8,6 @@ declare var window: {|
   dataLayer: Array<DataEvent>
 |};
 
-// eslint-disable-next-line import/prefer-default-export
 export const sendViewedMediaAnalytics = (resource: Lesson, location: string) => {
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({

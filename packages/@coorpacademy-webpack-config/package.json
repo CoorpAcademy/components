@@ -12,10 +12,8 @@
     "ava": "ava",
     "nyc": "nyc npm run ava",
     "test": "npm run lint && npm run nyc",
-    "lint": "npm run eslint",
-    "eslint": "eslint ./ *.js *.json --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\"",
-    "clean:build": "rimraf lib",
-    "clean": "npm run clean:build",
+    "lint": "eslint . --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\"",
+    "clean": "rm -rf lib",
     "prepare": "npm run clean && npm run build --production"
   },
   "contributors": [
@@ -28,10 +26,10 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
-    "@babel/cli": "^7.6.0",
-    "@babel/core": "^7.6.0",
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
     "@babel/plugin-transform-object-assign": "^7.2.0",
-    "@babel/preset-env": "^7.6.0",
+    "@babel/preset-env": "^7.6.3",
     "babel-loader": "^8.0.6",
     "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^2.1.1",
@@ -41,18 +39,18 @@
     "postcss-loader": "^3.0.0",
     "regenerator-runtime": "^0.13.3",
     "style-loader": "^1.0.0",
-    "webpack-bundle-analyzer": "^3.5.0"
+    "webpack-bundle-analyzer": "^3.6.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.6.0",
-    "@babel/register": "^7.6.0",
+    "@babel/core": "^7.6.4",
+    "@babel/register": "^7.6.2",
+    "@coorpacademy/eslint-plugin-coorpacademy": "^9.0.1",
     "ava": "^2.4.0",
     "babel-plugin-istanbul": "^5.2.0",
-    "cross-env": "^5.2.1",
-    "eslint": "^5.15.3",
+    "cross-env": "^6.0.3",
+    "eslint": "^6.6.0",
     "nyc": "^14.1.1",
-    "rimraf": "^3.0.0",
-    "webpack": "^4.40.2"
+    "webpack": "^4.41.2"
   },
   "author": "CoorpAcademy"
 }

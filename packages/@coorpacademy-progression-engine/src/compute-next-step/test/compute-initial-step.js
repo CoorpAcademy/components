@@ -3,9 +3,9 @@ import test from 'ava';
 import omit from 'lodash/fp/omit';
 import filter from 'lodash/fp/filter';
 import {getConfig} from '../../config';
-import {computeInitialStep} from '..';
 import type {AvailableContent, Config} from '../../types';
 import allSlides from './fixtures/slides';
+import {computeInitialStep} from '..';
 
 const config: Config = getConfig({ref: 'learner', version: '1'});
 const availableContent: AvailableContent = [

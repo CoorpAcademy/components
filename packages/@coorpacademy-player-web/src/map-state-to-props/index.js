@@ -36,7 +36,6 @@ const matchContentRef = contentType =>
     isEqual(contentType)
   );
 
-// eslint-disable-next-line import/prefer-default-export
 export const selectMapStateToVNode = (options, store, views, createStateToVNode) =>
   cond([
     [hasNotProgression, createStateToVNode(views.loading, loadingStateToProps)],

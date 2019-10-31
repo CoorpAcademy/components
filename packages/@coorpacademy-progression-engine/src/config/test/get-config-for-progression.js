@@ -1,7 +1,7 @@
 // @flow
 import test from 'ava';
-import {getConfigForProgression} from '..';
 import type {Progression} from '../../types';
+import {getConfigForProgression} from '..';
 
 const createProgression = ({ref, version}: {ref: string, version: string}): Progression => ({
   engine: {ref, version},

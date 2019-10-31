@@ -2,7 +2,6 @@ import {findById as findChapterById} from './chapters';
 import {findById as findLevelById} from './levels';
 import {findById as findSlideById} from './slides';
 
-// eslint-disable-next-line import/prefer-default-export
 export const find = (type, ref) => {
   switch (type) {
     case 'chapter': {

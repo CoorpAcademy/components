@@ -16,5 +16,4 @@ const chapters = toMapById(chaptersData);
 
 const findById = ref => Promise.resolve(chapters.get(ref));
 
-// eslint-disable-next-line import/prefer-default-export
 export {findById};

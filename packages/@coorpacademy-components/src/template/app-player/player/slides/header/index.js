@@ -11,7 +11,7 @@ const HEADER_TYPE = {
   MICROLEARNING: 'microlearning'
 };
 
-const SlidesHeader = (props = {}, context) => {
+const SlidesHeader = (props = {}, context = undefined) => {
   const {type, content, subcontent, lives} = props;
 
   return (

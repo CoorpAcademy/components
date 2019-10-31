@@ -20,6 +20,7 @@
   ],
   "parser": "babel-eslint",
   "rules": {
+    "default-param-last": "warn",
     "@coorpacademy/coorpacademy/no-overwriting-spread": "off",
     "ava/no-ignored-test-files": ["error", { "files": ["**/test/**/*.js"] }],
     "css-modules/no-undef-class": "error",

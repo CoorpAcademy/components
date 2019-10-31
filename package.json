@@ -1,8 +1,9 @@
 {
+  "name": "@coorpacademy/components-monorepo",
   "private": true,
   "scripts": {
     "bootstrap": "lerna run prepare",
-    "prestatic": "rimraf static",
+    "prestatic": "rm -rf static",
     "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/player-web static -- --production",
     "poststatic": "mkdirp static && cp -r packages/@coorpacademy-components/static static/components && cp -r packages/@coorpacademy-player-web/static static/app-player",
     "preflow": "sh scripts/links-for-nested-flow.sh",
@@ -21,12 +22,12 @@
   "workspaces": [
     "packages/*"
   ],
-  "dependencies": {
-    "@coorpacademy/eslint-plugin-coorpacademy": "^8.3.1",
-    "codecov": "^3.5.0",
+  "devDependencies": {
+    "@coorpacademy/eslint-plugin-coorpacademy": "^9.0.1",
+    "codecov": "^3.6.1",
+    "eslint": "^6.6.0",
     "estraverse-fb": "1.3.2",
-    "lerna": "^3.16.4",
-    "mkdirp": "^0.5.1",
-    "rimraf": "^3.0.0"
+    "lerna": "^3.18.3",
+    "mkdirp": "^0.5.1"
   }
 }

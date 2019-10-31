@@ -56,4 +56,4 @@ const create = options => {
   };
 };
 
-export {create}; // eslint-disable-line import/prefer-default-export
+export {create};

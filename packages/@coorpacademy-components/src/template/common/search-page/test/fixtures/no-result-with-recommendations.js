@@ -6,7 +6,6 @@ const searchFilters = filters.props;
 const clearFilters = clearFilter.props;
 const recommendations = CardsList.props;
 
-/* eslint-disable max-len */
 export default {
   props: {
     title: 'Catalogue : 0 résultat',

@@ -9,8 +9,8 @@ import type {
   EngineConfig,
   MoveAction
 } from '../../types';
-import createProgression from '..';
 import allSlides from '../../compute-next-step/test/fixtures/slides';
+import createProgression from '..';
 
 const initialRule = {
   source: {

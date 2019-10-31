@@ -6,8 +6,8 @@ import Adapter from 'enzyme-adapter-react-16';
 import set from 'lodash/fp/set';
 import Button from '../../../atom/button';
 import Select from '../../../atom/select';
-import Activity from '..';
 import defaultFixture from './fixtures/default';
+import Activity from '..';
 
 browserEnv();
 configure({adapter: new Adapter()});

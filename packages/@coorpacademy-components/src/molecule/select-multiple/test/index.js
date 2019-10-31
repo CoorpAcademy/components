@@ -3,8 +3,8 @@ import test from 'ava';
 import React from 'react';
 import {mount, shallow, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import SelectMultiple from '..';
 import defaultFixture from './fixtures/checked';
+import SelectMultiple from '..';
 
 browserEnv();
 configure({adapter: new Adapter()});

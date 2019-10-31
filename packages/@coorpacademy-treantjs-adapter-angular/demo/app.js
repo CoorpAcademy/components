@@ -5,7 +5,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import createDirectives from '../src';
 
-const DisplayValue = ({children} = {}, {backgroundColor}) =>
+const DisplayValue = ({children} = {}, {backgroundColor} = {}) =>
   React.createElement(
     'span',
     {
