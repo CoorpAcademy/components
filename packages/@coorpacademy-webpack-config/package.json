@@ -10,8 +10,8 @@
   "scripts": {
     "build": "cross-env babel src --out-dir lib -s --ignore test --copy-files",
     "ava": "ava",
-    "nyc": "nyc npm run ava",
-    "test": "npm run lint && npm run nyc",
+    "test:only": "nyc npm run ava",
+    "test": "npm run lint && npm run test:only",
     "lint": "eslint . --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\"",
     "clean": "rm -rf lib",
     "prepare": "npm run clean && npm run build --production"

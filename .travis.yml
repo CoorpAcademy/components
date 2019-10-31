@@ -9,45 +9,76 @@ install:
   - 'npm config set @coorpacademy:registry http://registry.npmjs.org/'
   - 'yarn config set registry https://registry.npmjs.org/'
   - yarn
-before_script:
-  - npx lerna bootstrap --scope $PACKAGE_NAME --include-filtered-dependencies
-  - npx lerna run prepare --scope $PACKAGE_NAME --include-filtered-dependencies
-script:
-  - npx lerna run test --since --scope $PACKAGE_NAME
-after_script: yarn codecov
+
+stages:
+  - lint
+  - name: test
+    if: tag IS blank AND (branch != master OR type = pull_request OR (branch = master AND commit_message !~ /^Publish$/))
+  - name: deploy
+    if: branch = master AND commit_message =~ /^Publish$/
+
+
 jobs:
   include:
-    - name: React components
+    - stage: lint
+      before_script: npm run bootstrap
+      script: npx lerna run lint
+
+    - &test-job
+      stage: test
+      name: React components
+      before_script:
+        - npx lerna bootstrap --scope $PACKAGE_NAME --include-dependencies
+        - npx lerna run prepare --scope $PACKAGE_NAME --include-dependencies
+      script: npx lerna run test:only --since --scope $PACKAGE_NAME
+      after_script: yarn codecov
       env: PACKAGE_NAME=@coorpacademy/components
-    - name: Player store
+
+    - <<: *test-job
+      name: Player store
       env: PACKAGE_NAME=@coorpacademy/player-store
-    - name: Player services
+    - <<: *test-job
+      name: Player services
       env: PACKAGE_NAME=@coorpacademy/player-services
-    - name: Player web
+    - <<: *test-job
+      name: Player web
       env: PACKAGE_NAME=@coorpacademy/player-web
-    - name: Progression engine
+    - <<: *test-job
+      name: Progression engine
       env: PACKAGE_NAME=@coorpacademy/progression-engine
-    - name: History
+    - <<: *test-job
+      name: History
       env: PACKAGE_NAME=@coorpacademy/history
-    - name: Nova icons
+    - <<: *test-job
+      name: Nova icons
       env: PACKAGE_NAME=@coorpacademy/nova-icons
-    - name: Redux history
+    - <<: *test-job
+      name: Redux history
       env: PACKAGE_NAME=@coorpacademy/redux-history
-    - name: Redux router
+    - <<: *test-job
+      name: Redux router
       env: PACKAGE_NAME=@coorpacademy/redux-router
-    - name: Redux task
+    - <<: *test-job
+      name: Redux task
       env: PACKAGE_NAME=@coorpacademy/redux-task
-    - name: Translate
+    - <<: *test-job
+      name: Translate
       env: PACKAGE_NAME=@coorpacademy/translate
-    - name: Angular adapter
+    - <<: *test-job
+      name: Angular adapter
       env: PACKAGE_NAME=@coorpacademy/treantjs-adapter-angular
-    - name: Dust adapter
+    - <<: *test-job
+      name: Dust adapter
       env: PACKAGE_NAME=@coorpacademy/treantjs-adapter-dust
-    - name: Css Module Require Hook
+    - <<: *test-job
+      name: Css Module Require Hook
       env: PACKAGE_NAME=@coorpacademy/css-modules-require-hook
-    - name: Webpack Config
+    - <<: *test-job
+      name: Webpack Config
       env: PACKAGE_NAME=@coorpacademy/webpack-config
+
     - stage: deploy
+      name: Publish Player web
       script: skip
       env: PACKAGE_NAME=@coorpacademy/player-web
       deploy:
@@ -56,6 +87,7 @@ jobs:
         script: npm run static
 
     - stage: deploy
+      name: Publish Player web on github pages
       script: skip
       env: PACKAGE_NAME=@coorpacademy/player-web
       deploy:
@@ -65,6 +97,7 @@ jobs:
         local_dir: static
 
     - stage: deploy
+      name: Update node
       script: skip
       env: PACKAGE_NAME=@coorpacademy/player-web
       deploy:
@@ -78,14 +111,10 @@ jobs:
           "upgrade-nodejs" --base $TRAVIS_BRANCH --github_token $GH_TOKEN
 
     - stage: deploy
+      name: Trigger dependant-builds
       script: skip
       env: PACKAGE_NAME=@coorpacademy/player-web
       deploy:
         provider: script
         skip_cleanup: true
         script: scripts/trigger-dependent-builds.sh
-stages:
-  - name: test
-    if: tag IS blank AND (branch != master OR type = pull_request OR (branch = master AND commit_message !~ /^Publish$/))
-  - name: deploy
-    if: branch = master AND commit_message =~ /^Publish$/
