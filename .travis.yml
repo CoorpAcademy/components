@@ -1,7 +1,7 @@
 language: node_js
 sudo: false
 node_js:
-  - 8.16.2
+  - 8.16.1
 cache: npm
 install:
   - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "^1.2.1"'`
@@ -81,7 +81,6 @@ jobs:
     - stage: deploy
       name: Publish Player web
       script: skip
-      env: PACKAGE_NAME=@coorpacademy/player-web
       deploy:
         provider: script
         skip_cleanup: true
@@ -90,7 +89,6 @@ jobs:
     - stage: deploy
       name: Publish Player web on github pages
       script: skip
-      env: PACKAGE_NAME=@coorpacademy/player-web
       deploy:
         provider: pages
         skip_cleanup: true
@@ -99,22 +97,12 @@ jobs:
 
     - stage: deploy
       name: Update node
-      script: skip
-      env: PACKAGE_NAME=@coorpacademy/player-web
-      deploy:
-        provider: script
-        skip_cleanup: true
-        # ! FIXME: to update
-        script: >-
-          npm i -g @coorpacademy/update-node && update-node --nvmrc ./.nvmrc
-          --package ./package.json --travis ./.travis.yml --repo_slug
-          $TRAVIS_REPO_SLUG --team_reviewers $TEAM_REVIEWERS --branch
-          "upgrade-nodejs" --base $TRAVIS_BRANCH --github_token $GH_TOKEN
+      before_script: git checkout master
+      script: npm run update -- --token $GH_TOKEN upgrade
 
     - stage: deploy
       name: Trigger dependant-builds
       script: skip
-      env: PACKAGE_NAME=@coorpacademy/player-web
       deploy:
         provider: script
         skip_cleanup: true
