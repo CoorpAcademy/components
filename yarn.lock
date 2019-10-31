@@ -1402,28 +1402,6 @@
   dependencies:
     arrify "^1.0.1"
 
-"@coorpacademy/components@9.4.0":
-  version "9.4.0"
-  resolved "https://registry.npmjs.org/@coorpacademy/components/-/components-9.4.0.tgz#d507578a28f094dff7bf4324d5ba795e8d870bb7"
-  integrity sha512-Vb91WAIv3j+EvDYiL9kOwGo5LzgP/wZSKybE/FXOrMR303xlBUeqDrI4RZO0wbK/G0fjhs3hLpi7V/9dlzr8zw==
-  dependencies:
-    "@coorpacademy/nova-icons" "3.1.11"
-    autoprefixer "^8.6.5"
-    classnames "^2.2.6"
-    css-color-function "^1.3.3"
-    cubic-bezier "^0.1.2"
-    extended-proptypes "^1.3.0"
-    hammerjs "^2.0.8"
-    lodash "^4.17.15"
-    postcss-calc "^7.0.1"
-    postcss-color-function "^4.1.0"
-    postcss-easy-import "^3.0.0"
-    postcss-modules-values-replace "^3.0.1"
-    qs "6.8.0"
-    react "~16.4.0"
-    react-jw-player "1.18.0"
-    react-tooltip "^3.6.1"
-
 "@coorpacademy/eslint-plugin-coorpacademy@^9.0.1":
   version "9.0.1"
   resolved "https://registry.npmjs.org/@coorpacademy/eslint-plugin-coorpacademy/-/eslint-plugin-coorpacademy-9.0.1.tgz#79bac5837e146355520da1d54312e8bb54d42744"
@@ -3837,18 +3815,6 @@ atob@^2.1.1:
   resolved "https://registry.npmjs.org/atob/-/atob-2.1.2.tgz#6d9517eb9e030d2436666651e86bd9f6f13533c9"
   integrity sha512-Wm6ukoaOGJi/73p/cl2GvLjTI5JM1k/O14isD73YML8StrH/7/lRFgmg8nICZgD3bZZvjwCGxtMOD3wWNAu8cg==
 
-autoprefixer@^8.6.5:
-  version "8.6.5"
-  resolved "https://registry.npmjs.org/autoprefixer/-/autoprefixer-8.6.5.tgz#343f3d193ed568b3208e00117a1b96eb691d4ee9"
-  integrity sha512-PLWJN3Xo/rycNkx+mp8iBDMTm3FeWe4VmYaZDSqL5QQB9sLsQkG5k8n+LNDFnhh9kdq2K+egL/icpctOmDHwig==
-  dependencies:
-    browserslist "^3.2.8"
-    caniuse-lite "^1.0.30000864"
-    normalize-range "^0.1.2"
-    num2fraction "^1.2.2"
-    postcss "^6.0.23"
-    postcss-value-parser "^3.2.3"
-
 autoprefixer@^9.4.9, autoprefixer@^9.7.0:
   version "9.7.0"
   resolved "https://registry.npmjs.org/autoprefixer/-/autoprefixer-9.7.0.tgz#905ec19e50f04545fe9ff131182cc9ab25246901"
@@ -4608,14 +4574,6 @@ browserslist@4.7.0, browserslist@^4.5.2, browserslist@^4.6.0, browserslist@^4.6.
     electron-to-chromium "^1.3.247"
     node-releases "^1.1.29"
 
-browserslist@^3.2.8:
-  version "3.2.8"
-  resolved "https://registry.npmjs.org/browserslist/-/browserslist-3.2.8.tgz#b0005361d6471f0f5952797a76fc985f1f978fc6"
-  integrity sha512-WHVocJYavUwVgVViC0ORikPHQquXwVh939TaelZ4WDqpWgTX/FsGhl/+P4qBUAGcRvtOgDgC+xftNWWp2RUTAQ==
-  dependencies:
-    caniuse-lite "^1.0.30000844"
-    electron-to-chromium "^1.3.47"
-
 browserslist@^4.7.2:
   version "4.7.2"
   resolved "https://registry.npmjs.org/browserslist/-/browserslist-4.7.2.tgz#1bb984531a476b5d389cedecb195b2cd69fb1348"
@@ -4856,11 +4814,6 @@ can-use-dom@^0.1.0:
   version "0.1.0"
   resolved "https://registry.npmjs.org/can-use-dom/-/can-use-dom-0.1.0.tgz#22cc4a34a0abc43950f42c6411024a3f6366b45a"
   integrity sha1-IsxKNKCrxDlQ9CxkEQJKP2NmtFo=
-
-caniuse-lite@^1.0.30000844, caniuse-lite@^1.0.30000864:
-  version "1.0.30000957"
-  resolved "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30000957.tgz#fb1026bf184d7d62c685205358c3b24b9e29f7b3"
-  integrity sha512-8wxNrjAzyiHcLXN/iunskqQnJquQQ6VX8JHfW5kLgAPRSiSuKZiNfmIkP5j7jgyXqAQBSoXyJxfnbCFS0ThSiQ==
 
 caniuse-lite@^1.0.30000989:
   version "1.0.30000989"
@@ -6666,11 +6619,6 @@ electron-to-chromium@^1.3.295:
   version "1.3.296"
   resolved "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.296.tgz#a1d4322d742317945285d3ba88966561b67f3ac8"
   integrity sha512-s5hv+TSJSVRsxH190De66YHb50pBGTweT9XGWYu/LMR20KX6TsjFzObo36CjVAzM+PUeeKSBRtm/mISlCzeojQ==
-
-electron-to-chromium@^1.3.47:
-  version "1.3.122"
-  resolved "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.122.tgz#b32a0805f48557bd3c3b8104eadc7fa511b14a9a"
-  integrity sha512-3RKoIyCN4DhP2dsmleuFvpJAIDOseWH88wFYBzb22CSwoFDSWRc4UAMfrtc9h8nBdJjTNIN3rogChgOy6eFInw==
 
 element-resize-detector@^1.1.15:
   version "1.1.15"
