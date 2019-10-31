@@ -11,9 +11,10 @@ install:
   - yarn
 
 stages:
-  - lint
+  - name: lint
+    if: type = pull_request OR (tag IS blank AND branch = master AND type != pull_request)
   - name: test
-    if: tag IS blank AND (branch != master OR type = pull_request OR (branch = master AND commit_message !~ /^Publish$/))
+    if: type = pull_request OR (tag IS blank AND branch = master AND commit_message !~ /^Publish$/ AND type != pull_request)
   - name: deploy
     if: branch = master AND commit_message =~ /^Publish$/
 
