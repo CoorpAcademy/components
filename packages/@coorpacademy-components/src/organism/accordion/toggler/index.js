@@ -33,7 +33,7 @@ class AccordionToggler extends React.Component {
   render() {
     const {children = []} = this.props;
     return (
-      <Accordion tabProps={this.state.tabProps} onClick={this.handleOnClick}>
+      <Accordion tabProps={this.state.tabProps} onClick={this.handleOnClick} theme={'setup'}>
         {children}
       </Accordion>
     );

@@ -19,9 +19,14 @@ const ICON_TYPES = {
   tips: LightBulbIcon
 };
 
+const themeStyle = {
+  setup: style.setupPart,
+  default: null
+};
+
 const AccordionPart = (props, context) => {
   const {skin} = context;
-  const {title, content, iconType, onClick = noop, isOpen = false} = props;
+  const {title, content, iconType, theme, onClick = noop, isOpen = false} = props;
   const TitleIcon = ICON_TYPES[iconType];
   const darkColor = get('common.dark', skin);
   const mediumColor = get('common.medium', skin);
@@ -29,7 +34,7 @@ const AccordionPart = (props, context) => {
   const closeIconClassName = !isOpen ? style.closeIconActivated : style.closeIcon;
 
   return (
-    <div data-name="accordionPart">
+    <div data-name="accordionPart" className={themeStyle[theme]}>
       <div
         className={isOpen ? style.openHeader : style.closedHeader}
         data-type={iconType}
@@ -56,7 +61,8 @@ AccordionPart.propTypes = {
   title: PropTypes.string,
   content: PropTypes.node,
   onClick: PropTypes.func,
-  isOpen: PropTypes.bool
+  isOpen: PropTypes.bool,
+  theme: PropTypes.string
 };
 
 export default AccordionPart;

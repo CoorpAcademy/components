@@ -519,9 +519,12 @@ import MoleculeVideoPlayerFixtureUptale from '../src/molecule/video-player/test/
 import MoleculeVideoPlayerFixtureVimeo from '../src/molecule/video-player/test/fixtures/vimeo';
 import MoleculeVideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
 import OrganismAccordionContainerFixtureDefault from '../src/organism/accordion/container/test/fixtures/default';
+import OrganismAccordionContainerFixtureNoChildren from '../src/organism/accordion/container/test/fixtures/no-children';
+import OrganismAccordionContainerFixtureOneChildren from '../src/organism/accordion/container/test/fixtures/one-children';
 import OrganismAccordionPartFixtureDefault from '../src/organism/accordion/part/test/fixtures/default';
 import OrganismAccordionPartFixtureOpen from '../src/organism/accordion/part/test/fixtures/open';
 import OrganismAccordionTogglerFixtureAllAreOpenable from '../src/organism/accordion/toggler/test/fixtures/all-are-openable';
+import OrganismAccordionTogglerFixtureNoChildrens from '../src/organism/accordion/toggler/test/fixtures/no-childrens';
 import OrganismAccordionTogglerFixtureOnlyOne from '../src/organism/accordion/toggler/test/fixtures/only-one';
 import OrganismBrandFormFixtureAnalytics from '../src/organism/brand-form/test/fixtures/analytics';
 import OrganismBrandFormFixtureCohort from '../src/organism/brand-form/test/fixtures/cohort';
@@ -1517,7 +1520,9 @@ export const fixtures = {
   },
   OrganismAccordion: {
     OrganismAccordionContainer: {
-      Default: OrganismAccordionContainerFixtureDefault
+      Default: OrganismAccordionContainerFixtureDefault,
+      NoChildren: OrganismAccordionContainerFixtureNoChildren,
+      OneChildren: OrganismAccordionContainerFixtureOneChildren
     },
     OrganismAccordionPart: {
       Default: OrganismAccordionPartFixtureDefault,
@@ -1525,6 +1530,7 @@ export const fixtures = {
     },
     OrganismAccordionToggler: {
       AllAreOpenable: OrganismAccordionTogglerFixtureAllAreOpenable,
+      NoChildrens: OrganismAccordionTogglerFixtureNoChildrens,
       OnlyOne: OrganismAccordionTogglerFixtureOnlyOne
     }
   },
