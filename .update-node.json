@@ -1,0 +1,19 @@
+{
+  "repoSlug": "Coorpacademy/components",
+  "baseBranch": "master",
+  "packageManager": "yarn",
+  "reviewers": [],
+  "teamReviewers": [
+    "env:TEAM_REVIEWERS"
+  ],
+  "label": "Upgrades :outbox_tray:",
+  "node": {
+    "branch": "upgrade-nodejs",
+    "nvmrc": true,
+    "dockerfile": false,
+    "travis": true,
+    "package": true
+  },
+  "auto-bump": false,
+  "dependencies": []
+}
