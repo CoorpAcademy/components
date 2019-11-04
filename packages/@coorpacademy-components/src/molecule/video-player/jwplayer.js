@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import ReactJWPlayer from 'react-jw-player';
 import includes from 'lodash/fp/includes';
+import isFunction from 'lodash/fp/isFunction';
 import keys from 'lodash/fp/keys';
 import {SrcPropType} from '../../util/proptypes';
 import style from './jwplayer.css';
@@ -36,7 +37,7 @@ class JWPlayer extends React.Component {
     const changes = keys(this.props).filter(_name => this.props[_name] !== prevProps[_name]);
     const shouldStart = includes('autoplay', changes);
     if (shouldStart) {
-      if (window.jwplayer) {
+      if (isFunction(window.jwplayer)) {
         window.jwplayer().play();
       }
     }
