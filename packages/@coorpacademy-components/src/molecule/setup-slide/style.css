@@ -1,8 +1,7 @@
 .wrapper {
   width: 100%;
   box-sizing: border-box;
-  padding-top: 10px;
-  padding-bottom: 10px;
+  padding: 10px;
   position: relative;
 }
 

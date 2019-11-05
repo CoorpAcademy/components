@@ -6,21 +6,26 @@ import noop from 'lodash/fp/noop';
 import Part from '../part';
 import style from './style.css';
 
-const Accordion = props => {
-  const {tabProps, children, onClick = noop} = props;
+const themeStyle = {
+  setup: style.setupWrapper,
+  default: style.wrapper
+};
 
+const Accordion = props => {
+  const {tabProps, children, theme = 'default', onClick = noop} = props;
   const accordion = map.convert({cap: false})((child, key) => {
     const title = get([key, 'title'], tabProps);
     const isOpen = get([key, 'isOpen'], tabProps);
     const iconType = get([key, 'iconType'], tabProps);
-    const handleOnClick = () => onClick(key);
+    const handleOnClick = evt => onClick(key, evt);
     return child ? (
-      <div data-name="accordion" key={key} className={style.wrapper}>
+      <div data-name="accordion" key={key} className={themeStyle[theme]}>
         <Part
           iconType={iconType}
           title={title}
           content={child}
           isOpen={isOpen}
+          theme={theme}
           onClick={handleOnClick}
         />
       </div>
@@ -39,7 +44,8 @@ Accordion.defaultProps = {
 Accordion.propTypes = {
   children: PropTypes.arrayOf(PropTypes.node),
   tabProps: PropTypes.arrayOf(PropTypes.shape(Part.PropTypes)),
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  theme: PropTypes.string
 };
 
 export default Accordion;

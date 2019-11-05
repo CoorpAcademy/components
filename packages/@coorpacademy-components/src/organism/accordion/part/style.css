@@ -1,9 +1,11 @@
 @value colors: "../../../variables/colors.css";
 @value dark from colors;
 @value light from colors;
+@value medium from colors;
 @value xtraLightGrey from colors;
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
+
 
 .header {
   position: relative;
@@ -91,6 +93,18 @@
   overflow: hidden;
 }
 
+.setupPart .container  {
+  background-color: xtraLightGrey;
+  animation: fadeIn 3s forwards;
+  overflow: hidden;
+  border-top: 1px solid medium;
+}
+.setupPart .header{
+  background-color: xtraLightGrey;
+}
+.setupPart .header:hover {
+  background-color: light;
+}
 @keyframes fadeIn {
   0% {
     max-height: 0;

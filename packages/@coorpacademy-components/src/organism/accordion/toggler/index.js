@@ -31,9 +31,9 @@ class AccordionToggler extends React.Component {
   }
 
   render() {
-    const {children = []} = this.props;
+    const {children = [], theme} = this.props;
     return (
-      <Accordion tabProps={this.state.tabProps} onClick={this.handleOnClick}>
+      <Accordion tabProps={this.state.tabProps} onClick={this.handleOnClick} theme={theme}>
         {children}
       </Accordion>
     );
@@ -41,7 +41,8 @@ class AccordionToggler extends React.Component {
 }
 AccordionToggler.propTypes = {
   tabProps: PropTypes.arrayOf(PropTypes.shape(Accordion.PropTypes)),
-  oneTabOnly: PropTypes.bool
+  oneTabOnly: PropTypes.bool,
+  theme: PropTypes.string
 };
 
 export default AccordionToggler;
