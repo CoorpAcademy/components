@@ -10,7 +10,8 @@ import containerFixture from '../../../container/test/fixtures/default';
 export default {
   props: {
     tabProps: containerFixture.props.tabProps,
-    type: 'all'
+    type: 'all',
+    theme: 'setup'
   },
   children: [
     <QcmGraphic key="1" {...qcmGraphicFixture.props} />,
