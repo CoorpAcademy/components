@@ -12,7 +12,7 @@ const SetupSlider = props => {
   );
   return (
     <div>
-      <Accordion tabProps={tabProps} type={'all'}>
+      <Accordion tabProps={tabProps} type={'all'} theme={'setup'}>
         {slidesView}
       </Accordion>
     </div>
