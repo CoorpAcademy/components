@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/treantjs-adapter-angular",
-  "version": "8.0.2",
+  "version": "8.0.3",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -13,7 +13,7 @@
     "ava": "ava",
     "test:only": "nyc npm run ava",
     "test": "npm run lint && npm run test:only",
-    "lint":  "eslint . --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\"",
+    "lint": "eslint . --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\"",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
     "build": "npm run build:commonjs && npm run build:es",
