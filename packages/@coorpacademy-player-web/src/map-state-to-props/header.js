@@ -1,6 +1,4 @@
-import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
-import indexOf from 'lodash/fp/indexOf';
+import {get, getOr, indexOf} from 'lodash/fp';
 import {
   getCurrentChapter,
   getEngine,

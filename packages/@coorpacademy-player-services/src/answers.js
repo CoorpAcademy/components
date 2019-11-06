@@ -1,7 +1,6 @@
 // @flow strict
 
-import assign from 'lodash/fp/assign';
-import includes from 'lodash/fp/includes';
+import {assign, includes} from 'lodash/fp';
 import {checkAnswerCorrectness, getConfigForProgression} from '@coorpacademy/progression-engine';
 
 import type {Answer} from '@coorpacademy/progression-engine';

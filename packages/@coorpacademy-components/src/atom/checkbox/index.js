@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import noop from 'lodash/fp/noop';
+import {noop} from 'lodash/fp';
 
 class Checkbox extends React.Component {
   constructor(props) {

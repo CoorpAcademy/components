@@ -1,6 +1,6 @@
 import test from 'ava';
-import set from 'lodash/fp/set';
-import identity from 'lodash/fp/identity';
+import {set, identity} from 'lodash/fp';
+
 import {mockTranslate} from '@coorpacademy/translate';
 import success from '../../map-state-to-props/test/fixtures/popin-end/success';
 import fail from '../../map-state-to-props/test/fixtures/popin-end/fail';

@@ -1,6 +1,5 @@
 import {parse} from 'url';
-import getOr from 'lodash/fp/getOr';
-import has from 'lodash/fp/has';
+import {getOr, has} from 'lodash/fp';
 
 const isLeftClickEvent = e => e.button === 0;
 const isModifiedEvent = e => !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);

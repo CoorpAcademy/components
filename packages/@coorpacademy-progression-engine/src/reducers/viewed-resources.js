@@ -1,9 +1,7 @@
 // @flow
 
-import concat from 'lodash/fp/concat';
-import findIndex from 'lodash/fp/findIndex';
-import get from 'lodash/fp/get';
-import includes from 'lodash/fp/includes';
+import {concat, findIndex, get, includes} from 'lodash/fp';
+
 import type {Action, Config, ContentResourceViewedAction, ViewedResource} from '../types';
 
 export default function viewedResources(

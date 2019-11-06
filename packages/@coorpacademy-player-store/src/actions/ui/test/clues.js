@@ -1,6 +1,5 @@
 import test from 'ava';
-import set from 'lodash/fp/set';
-import pipe from 'lodash/fp/pipe';
+import {set, pipe} from 'lodash/fp';
 import macro from '../../test/helpers/macro';
 import {getClue, selectClue} from '../clues';
 import {UI_SELECT_ROUTE} from '../route';

@@ -1,12 +1,7 @@
 // @flow
 
-import pipe from 'lodash/fp/pipe';
-import get from 'lodash/fp/get';
-import map from 'lodash/fp/map';
-import min from 'lodash/fp/min';
-import multiply from 'lodash/fp/multiply';
-import size from 'lodash/fp/size';
-import sum from 'lodash/fp/sum';
+import {pipe, get, map, min, multiply, size, sum} from 'lodash/fp';
+
 import type {Config, Content} from '../types';
 import type {FastSlideNextContent} from './types';
 

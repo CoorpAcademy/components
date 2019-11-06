@@ -1,10 +1,6 @@
 // @flow
 
-import keys from 'lodash/fp/keys';
-import get from 'lodash/fp/get';
-import isNull from 'lodash/fp/isNull';
-import remove from 'lodash/fp/remove';
-import includes from 'lodash/fp/includes';
+import {keys, get, isNull, remove, includes} from 'lodash/fp';
 import type {Choice, QuestionType} from '@coorpacademy/progression-engine';
 import {
   getAnswerValues,

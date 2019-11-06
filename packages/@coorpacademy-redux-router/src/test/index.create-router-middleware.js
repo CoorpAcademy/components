@@ -1,5 +1,5 @@
 import test from 'ava';
-import map from 'lodash/fp/map';
+import {map} from 'lodash/fp';
 import {LOCATION} from '@coorpacademy/redux-history';
 import {createRouterMiddleware} from '..';
 

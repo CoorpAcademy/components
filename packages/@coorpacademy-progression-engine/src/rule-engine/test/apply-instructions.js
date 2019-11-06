@@ -1,6 +1,6 @@
 import test from 'ava';
-import pipe from 'lodash/fp/pipe';
-import set from 'lodash/fp/set';
+import {pipe, set} from 'lodash/fp';
+
 import applyInstructions from '../apply-instructions';
 
 test('should return new variables with instructions to set initial attributes', t => {

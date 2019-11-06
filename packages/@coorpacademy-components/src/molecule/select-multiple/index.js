@@ -1,12 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import map from 'lodash/fp/map';
-import pipe from 'lodash/fp/pipe';
-import join from 'lodash/fp/join';
-import filter from 'lodash/fp/filter';
-import get from 'lodash/fp/get';
-import set from 'lodash/fp/set';
+import {map, pipe, join, filter, get, set} from 'lodash/fp';
 import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
 import TitledCheckbox from '../titled-checkbox';
 import Provider from '../../atom/provider';

@@ -2,7 +2,7 @@ import classnames from 'classnames';
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import PropTypes from 'prop-types';
-import get from 'lodash/fp/get';
+import {get} from 'lodash/fp';
 import {
   NovaCompositionCoorpacademyStar as StarIcon,
   NovaCompositionCoorpacademyTimer as TimerIcon,

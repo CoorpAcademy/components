@@ -1,7 +1,4 @@
-import head from 'lodash/fp/head';
-import pipe from 'lodash/fp/pipe';
-import reduce from 'lodash/fp/reduce';
-import values from 'lodash/fp/values';
+import {head, pipe, reduce, values} from 'lodash/fp';
 
 import slidesData from './data/slides';
 

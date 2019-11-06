@@ -1,8 +1,7 @@
 import classnames from 'classnames';
 import React from 'react';
-import get from 'lodash/fp/get';
+import {get, map} from 'lodash/fp';
 import PropTypes from 'prop-types';
-import map from 'lodash/fp/map';
 import Provider from '../provider';
 import style from './style.css';
 

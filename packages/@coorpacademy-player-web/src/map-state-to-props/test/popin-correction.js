@@ -1,7 +1,6 @@
 import test from 'ava';
-import get from 'lodash/fp/get';
-import set from 'lodash/fp/set';
-import identity from 'lodash/fp/identity';
+import {get, set, identity} from 'lodash/fp';
+
 import {mockTranslate} from '@coorpacademy/translate';
 import {getCurrentProgressionId} from '@coorpacademy/player-store';
 import {popinCorrectionStateToProps} from '../popin-correction';

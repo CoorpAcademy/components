@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import BrandTable from '../../../../../organism/brand-table/test/fixtures/default';
 import Users from './manageusers';
 

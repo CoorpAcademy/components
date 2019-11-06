@@ -1,12 +1,6 @@
 // @flow strict
 
-import assign from 'lodash/fp/assign';
-import set from 'lodash/fp/set';
-import update from 'lodash/fp/update';
-import isNull from 'lodash/fp/isNull';
-import get from 'lodash/fp/get';
-import unset from 'lodash/fp/unset';
-import pipe from 'lodash/fp/pipe';
+import {assign, set, update, isNull, get, unset, pipe} from 'lodash/fp';
 import type {Progression, ProgressionId} from '@coorpacademy/progression-engine';
 import {
   PROGRESSION_CREATE_SUCCESS,

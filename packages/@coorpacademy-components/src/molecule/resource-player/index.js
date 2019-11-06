@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import omit from 'lodash/fp/omit';
-import get from 'lodash/fp/get';
+import {omit, get} from 'lodash/fp';
 import {NovaSolidVideosVideoControlPlay as Play} from '@coorpacademy/nova-icons';
 import Pdf from '../pdf';
 import VideoPlayer from '../video-player';

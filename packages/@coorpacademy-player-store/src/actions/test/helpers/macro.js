@@ -1,9 +1,5 @@
 import {applyMiddleware, combineReducers, createStore} from 'redux';
-import last from 'lodash/fp/last';
-import size from 'lodash/fp/size';
-import isEqual from 'lodash/fp/isEqual';
-import isNumber from 'lodash/fp/isNumber';
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {last, size, isEqual, isNumber, defaultsDeep} from 'lodash/fp';
 
 import ReduxThunkMemoized from '../../../middlewares/redux-thunk-memoized';
 import ErrorLogger from '../../../middlewares/error-logger';

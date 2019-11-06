@@ -3,7 +3,7 @@ import test from 'ava';
 import React from 'react';
 import {shallow, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import _toString from 'lodash/fp/toString';
+import {toString as _toString} from 'lodash/fp';
 import Animation, {LINEAR} from '..';
 
 browserEnv({pretendToBeVisual: true});

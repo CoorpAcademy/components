@@ -1,10 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import noop from 'lodash/fp/noop';
-import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
-import kebabCase from 'lodash/fp/kebabCase';
-import keys from 'lodash/fp/keys';
+import {noop, get, getOr, kebabCase, keys} from 'lodash/fp';
 import Layout from '../layout';
 import Sidebar from '../../../organism/sidebar';
 import Provider from '../../../atom/provider';

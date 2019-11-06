@@ -1,5 +1,5 @@
 import test from 'ava';
-import memoize from 'lodash/fp/memoize';
+import {memoize} from 'lodash/fp';
 import memoizeTask, {_memoizeTask} from '../memoize-task';
 
 test('it should return the same promise if first argument is the same and last task did not finish yet', async t => {

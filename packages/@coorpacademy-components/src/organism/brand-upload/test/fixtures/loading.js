@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import Upload from '../../../../molecule/brand-upload-box/test/fixtures/loading';
 import Default from './default';
 

@@ -1,20 +1,23 @@
 // @flow
-import map from 'lodash/fp/map';
-import get from 'lodash/fp/get';
-import find from 'lodash/fp/find';
-import pipe from 'lodash/fp/pipe';
-import head from 'lodash/fp/head';
-import size from 'lodash/fp/size';
-import slice from 'lodash/fp/slice';
-import last from 'lodash/fp/last';
-import filter from 'lodash/fp/filter';
-import sortBy from 'lodash/fp/sortBy';
-import isEqual from 'lodash/fp/isEqual';
-import isEmpty from 'lodash/fp/isEmpty';
-import shuffle from 'lodash/fp/shuffle';
-import includes from 'lodash/fp/includes';
-import findIndex from 'lodash/fp/findIndex';
-import intersection from 'lodash/fp/intersection';
+import {
+  map,
+  get,
+  find,
+  pipe,
+  head,
+  size,
+  slice,
+  last,
+  filter,
+  sortBy,
+  isEqual,
+  isEmpty,
+  shuffle,
+  includes,
+  findIndex,
+  intersection
+} from 'lodash/fp';
+
 import type {
   Action,
   Answer,

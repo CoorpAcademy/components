@@ -1,4 +1,4 @@
-import isEqual from 'lodash/fp/isEqual';
+import {isEqual} from 'lodash/fp';
 
 /**
  * Does a shallow comparison for props, state and context

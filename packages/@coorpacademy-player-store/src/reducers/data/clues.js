@@ -1,9 +1,4 @@
-import set from 'lodash/fp/set';
-import update from 'lodash/fp/update';
-import isNull from 'lodash/fp/isNull';
-import get from 'lodash/fp/get';
-import unset from 'lodash/fp/unset';
-import pipe from 'lodash/fp/pipe';
+import {set, update, isNull, get, unset, pipe} from 'lodash/fp';
 import {CLUE_FETCH_REQUEST, CLUE_FETCH_SUCCESS, CLUE_FETCH_FAILURE} from '../../actions/api/clues';
 
 const dataCluesReducer = (state = {entities: {}}, action) => {

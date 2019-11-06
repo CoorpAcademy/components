@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import keys from 'lodash/fp/keys';
+import {get, keys} from 'lodash/fp';
 import {
   NovaCompositionCoorpacademyFilterVideo2 as MediaIcon,
   NovaCompositionCoorpacademyClue as ClueIcon,
@@ -9,7 +9,6 @@ import {
   NovaCompositionCoorpacademyChat as CoachIcon,
   NovaCompositionCoorpacademyListBullets3 as QuestionIcon
 } from '@coorpacademy/nova-icons';
-import get from 'lodash/fp/get';
 import Provider from '../../../../../atom/provider';
 import style from './style.css';
 

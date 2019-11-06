@@ -1,7 +1,7 @@
 // @flow
 
-import concat from 'lodash/fp/concat';
-import get from 'lodash/fp/get';
+import {concat, get} from 'lodash/fp';
+
 import type {Action, AnswerAction, AnswerRecord, Config} from '../types';
 
 export default function allAnswers(

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import forEach from 'lodash/fp/forEach';
+import {forEach} from 'lodash/fp';
 import Accordion from '../container';
 
 class AccordionToggler extends React.Component {

@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import GeneralSettings from '../../../../../organism/brand-form/test/fixtures/general-settings';
 import Default from './default';
 

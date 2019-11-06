@@ -1,14 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import filter from 'lodash/fp/filter';
-import get from 'lodash/fp/get';
-import isNil from 'lodash/fp/isNil';
-import isObject from 'lodash/fp/isObject';
-import join from 'lodash/fp/join';
-import map from 'lodash/fp/map';
-import pipe from 'lodash/fp/pipe';
-import set from 'lodash/fp/set';
-import toPairs from 'lodash/fp/toPairs';
+import {filter, get, isNil, isObject, join, map, pipe, set, toPairs} from 'lodash/fp';
 import {SrcPropType} from '../../util/proptypes';
 import style from './style.css';
 

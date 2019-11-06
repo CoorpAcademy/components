@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {NovaSolidInterfaceFeedbackInterfaceAlertCircle as AlertIcon} from '@coorpacademy/nova-icons';
-import get from 'lodash/fp/get';
+import {get} from 'lodash/fp';
 import Button from '../../atom/button';
 import Provider from '../../atom/provider';
 import style from './style.css';

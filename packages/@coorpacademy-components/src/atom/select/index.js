@@ -1,11 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import filter from 'lodash/fp/filter';
-import find from 'lodash/fp/find';
-import get from 'lodash/fp/get';
-import keys from 'lodash/fp/keys';
-import map from 'lodash/fp/map';
+import {find, keys, map, get, filter} from 'lodash/fp';
 import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
 import Provider from '../provider';
 import getClassState from '../../util/get-class-state';

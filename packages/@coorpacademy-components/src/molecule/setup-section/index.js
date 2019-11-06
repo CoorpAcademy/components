@@ -4,7 +4,7 @@ import {
   NovaCompositionNavigationArrowDown as ArrowDownIcon,
   NovaCompositionNavigationArrowTop as ArrowUpIcon
 } from '@coorpacademy/nova-icons';
-import get from 'lodash/fp/get';
+import {get} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import InputSwitch from '../../atom/input-switch';
 import RadioGroup from '../../atom/radio-group';

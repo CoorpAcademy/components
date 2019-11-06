@@ -1,6 +1,6 @@
 import browserEnv from 'browser-env';
 import test from 'ava';
-import replace from 'lodash/fp/replace';
+import {replace} from 'lodash/fp';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';

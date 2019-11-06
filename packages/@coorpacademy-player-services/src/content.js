@@ -1,7 +1,6 @@
 // @flow strict
 
-import get from 'lodash/fp/get';
-import pipe from 'lodash/fp/pipe';
+import {get, pipe} from 'lodash/fp';
 import {getConfig} from '@coorpacademy/progression-engine';
 
 import type {Slide} from '@coorpacademy/progression-engine';

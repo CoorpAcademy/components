@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import isObject from 'lodash/fp/isObject';
-import keys from 'lodash/fp/keys';
+import {isObject, keys} from 'lodash/fp';
 import style from './style.css';
 
 const viewStyle = {

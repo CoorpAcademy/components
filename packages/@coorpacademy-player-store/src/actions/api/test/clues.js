@@ -1,5 +1,5 @@
 import test from 'ava';
-import set from 'lodash/fp/set';
+import {set} from 'lodash/fp';
 import macro from '../../test/helpers/macro';
 import {fetchClue, CLUE_FETCH_REQUEST, CLUE_FETCH_SUCCESS, CLUE_FETCH_FAILURE} from '../clues';
 

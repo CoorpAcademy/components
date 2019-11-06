@@ -1,9 +1,5 @@
 // @flow
-import gt from 'lodash/fp/gt';
-import isEqual from 'lodash/fp/isEqual';
-import lt from 'lodash/fp/lt';
-import negate from 'lodash/fp/negate';
-import sortBy from 'lodash/fp/sortBy';
+import {gt, isEqual, lt, negate, sortBy} from 'lodash/fp';
 
 const IN = <T>(expectedValues: Array<T>, value: T): boolean => {
   return expectedValues.some(isEqual(value));

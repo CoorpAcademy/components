@@ -1,4 +1,4 @@
-import join from 'lodash/fp/join';
+import {join} from 'lodash/fp';
 
 const content = props => {
   const {rootUrl = '/', connexionLink = '/', inscriptionLink = '/'} = props;

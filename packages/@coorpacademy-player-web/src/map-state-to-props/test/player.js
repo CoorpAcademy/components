@@ -1,13 +1,6 @@
 import test from 'ava';
-import map from 'lodash/fp/map';
-import get from 'lodash/fp/get';
-import isEmpty from 'lodash/fp/isEmpty';
-import set from 'lodash/fp/set';
-import pipe from 'lodash/fp/pipe';
-import fromPairs from 'lodash/fp/fromPairs';
-import isFunction from 'lodash/fp/isFunction';
-import identity from 'lodash/fp/identity';
-import omit from 'lodash/fp/omit';
+import {map, get, isEmpty, set, pipe, fromPairs, isFunction, identity, omit} from 'lodash/fp';
+
 import {mockTranslate} from '@coorpacademy/translate';
 import {UI_SELECT_ROUTE} from '@coorpacademy/player-store';
 import createPlayer from '../player';

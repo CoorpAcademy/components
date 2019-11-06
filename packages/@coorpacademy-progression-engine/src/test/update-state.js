@@ -1,8 +1,7 @@
 // @flow
 import test from 'ava';
-import omit from 'lodash/fp/omit';
-import pick from 'lodash/fp/pick';
-import get from 'lodash/fp/get';
+import {omit, pick, get} from 'lodash/fp';
+
 import updateState from '../update-state';
 import {getConfig} from '../config';
 import type {

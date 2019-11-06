@@ -1,7 +1,5 @@
 import test from 'ava';
-import set from 'lodash/fp/set';
-import omit from 'lodash/fp/omit';
-import pipe from 'lodash/fp/pipe';
+import {set, omit, pipe} from 'lodash/fp';
 import macro from '../../test/helpers/macro';
 import {
   markResourceAsViewed,

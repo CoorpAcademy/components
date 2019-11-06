@@ -1,6 +1,5 @@
 import React from 'react';
-import get from 'lodash/fp/get';
-import isEmpty from 'lodash/fp/isEmpty';
+import {get, isEmpty} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Provider from '../provider';

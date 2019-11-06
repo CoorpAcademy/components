@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isEmpty from 'lodash/fp/isEmpty';
-import map from 'lodash/fp/map';
+import {isEmpty, map} from 'lodash/fp';
 import classnames from 'classnames';
 import Select from '../../atom/select';
 import InputSwitch from '../../atom/input-switch';

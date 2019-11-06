@@ -1,10 +1,6 @@
 import test from 'ava';
-import forEach from 'lodash/fp/forEach';
-import identity from 'lodash/fp/identity';
-import isArray from 'lodash/fp/isArray';
-import isFunction from 'lodash/fp/isFunction';
-import set from 'lodash/fp/set';
-import omit from 'lodash/fp/omit';
+import {forEach, identity, isArray, isFunction, set, omit} from 'lodash/fp';
+
 import {mockTranslate} from '@coorpacademy/translate';
 import {
   UI_TOGGLE_ACCORDION,

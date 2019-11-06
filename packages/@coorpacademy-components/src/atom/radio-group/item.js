@@ -1,9 +1,6 @@
 import React from 'react';
-import get from 'lodash/fp/get';
-import pipe from 'lodash/fp/pipe';
-import identity from 'lodash/fp/identity';
+import {get, pipe, identity, uniqueId} from 'lodash/fp';
 import PropTypes from 'prop-types';
-import uniqueId from 'lodash/fp/uniqueId';
 import Provider from '../provider';
 import style from './item.css';
 

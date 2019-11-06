@@ -1,10 +1,6 @@
 import test from 'ava';
-import get from 'lodash/fp/get';
-import map from 'lodash/fp/map';
-import set from 'lodash/fp/set';
-import pipe from 'lodash/fp/pipe';
-import identity from 'lodash/fp/identity';
-import isFunction from 'lodash/fp/isFunction';
+import {get, map, set, pipe, identity, isFunction} from 'lodash/fp';
+
 import {mockTranslate} from '@coorpacademy/translate';
 import {
   getCurrentProgressionId,

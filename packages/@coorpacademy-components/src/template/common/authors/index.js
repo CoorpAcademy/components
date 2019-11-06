@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
-import map from 'lodash/fp/map';
+import {getOr, map} from 'lodash/fp';
 import Provider from '../../../atom/provider';
 import CardsGrid from '../../../organism/cards-grid';
 import SocialLink from '../../../atom/social-link';

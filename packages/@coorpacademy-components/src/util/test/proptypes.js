@@ -1,9 +1,5 @@
 import PropTypes from 'prop-types';
-import forEach from 'lodash/fp/forEach';
-import set from 'lodash/fp/set';
-import split from 'lodash/fp/split';
-import map from 'lodash/fp/map';
-import concat from 'lodash/fp/concat';
+import {forEach, set, split, map, concat} from 'lodash/fp';
 import test from 'ava';
 import {ColorPropType, HexPropType, UrlPropType, PathPropType, SrcPropType} from '../proptypes';
 

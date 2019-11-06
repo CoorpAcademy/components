@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
-import noop from 'lodash/fp/noop';
-import set from 'lodash/fp/set';
-import clamp from 'lodash/fp/clamp';
+import {getOr, noop, set, clamp} from 'lodash/fp';
 import Provider from '../provider';
 import Handle from './handle';
 import style from './style.css';

@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import compact from 'lodash/fp/compact';
-import flatten from 'lodash/fp/flatten';
-import get from 'lodash/fp/get';
-import isNil from 'lodash/fp/isNil';
-import pipe from 'lodash/fp/pipe';
-import times from 'lodash/fp/times';
-import zip from 'lodash/fp/zip';
-import round from 'lodash/fp/round';
-import _parseInt from 'lodash/fp/parseInt';
-import multiply from 'lodash/fp/multiply';
+import {
+  compact,
+  flatten,
+  get,
+  isNil,
+  pipe,
+  times,
+  zip,
+  round,
+  parseInt as _parseInt,
+  multiply
+} from 'lodash/fp';
 import {
   NovaCompositionNavigationArrowRight as ArrowRight,
   NovaCompositionCoorpacademyCharts as ChartsIcon,

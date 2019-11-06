@@ -12,8 +12,7 @@ import {
   Recommendations as RecommendationsService,
   Slides as SlidesService
 } from '@coorpacademy/player-services';
-import curryN from 'lodash/fp/curryN';
-import mapValues from 'lodash/fp/mapValues';
+import {curryN, mapValues} from 'lodash/fp';
 
 const TIMEOUT = 0;
 

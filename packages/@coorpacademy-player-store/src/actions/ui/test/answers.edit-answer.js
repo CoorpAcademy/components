@@ -1,8 +1,5 @@
 import test from 'ava';
-import set from 'lodash/fp/set';
-import noop from 'lodash/fp/noop';
-import pipe from 'lodash/fp/pipe';
-import map from 'lodash/fp/map';
+import {set, noop, pipe, map} from 'lodash/fp';
 import {ANSWER_EDIT, EDIT_ANSWER_ERROR, editAnswer} from '../answers';
 
 const createState = (userAnswers, type) =>

@@ -4,7 +4,7 @@ import React from 'react';
 import classnames from 'classnames';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import noop from 'lodash/fp/noop';
+import {noop} from 'lodash/fp';
 import Transition from '..';
 
 browserEnv();

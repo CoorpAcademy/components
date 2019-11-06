@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/fp/get';
+import {get} from 'lodash/fp';
 import classnames from 'classnames';
 import {
   NovaCompositionCoorpacademyAdaptive as AdaptivIcon,

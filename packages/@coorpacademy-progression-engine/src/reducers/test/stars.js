@@ -1,7 +1,7 @@
 // @flow
 import test from 'ava';
-import pipe from 'lodash/fp/pipe';
-import set from 'lodash/fp/set';
+import {pipe, set} from 'lodash/fp';
+
 import {getConfig} from '../../config';
 import stars from '../stars';
 import {answerAction, askClueAction, resourceAction} from './fixtures/actions';

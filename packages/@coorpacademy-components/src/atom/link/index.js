@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import identity from 'lodash/fp/identity';
-import getOr from 'lodash/fp/getOr';
+import {identity, getOr} from 'lodash/fp';
 import Provider from '../provider';
 import pushToHistory from '../../util/navigation';
 

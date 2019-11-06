@@ -1,7 +1,5 @@
 import test from 'ava';
-import set from 'lodash/fp/set';
-import get from 'lodash/fp/get';
-import pipe from 'lodash/fp/pipe';
+import {set, get, pipe} from 'lodash/fp';
 import macro from '../../test/helpers/macro';
 import {
   registerAcceptExtraLife,

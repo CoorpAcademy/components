@@ -1,10 +1,5 @@
-import getOr from 'lodash/fp/getOr';
-import isEmpty from 'lodash/fp/isEmpty';
-import map from 'lodash/fp/map';
-import pipe from 'lodash/fp/pipe';
-import set from 'lodash/fp/set';
-import some from 'lodash/fp/some';
-import omit from 'lodash/fp/omit';
+import {getOr, isEmpty, map, pipe, set, some, omit} from 'lodash/fp';
+
 import {
   ended,
   getResourceToPlay,

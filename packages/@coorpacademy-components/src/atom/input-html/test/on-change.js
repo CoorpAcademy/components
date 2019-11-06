@@ -3,8 +3,7 @@ import test from 'ava';
 import React from 'react';
 import {shallow, mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import omit from 'lodash/fp/omit';
-import replace from 'lodash/fp/replace';
+import {omit, replace} from 'lodash/fp';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import defaultFixture from './fixtures/default';
 import InputHtml from '..';

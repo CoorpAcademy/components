@@ -1,9 +1,4 @@
-import find from 'lodash/fp/find';
-import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
-import constant from 'lodash/fp/constant';
-import isString from 'lodash/fp/isString';
-import map from 'lodash/fp/map';
+import {find, get, getOr, constant, isString, map} from 'lodash/fp';
 import pathMatch from 'path-match';
 import {LOCATION} from '@coorpacademy/redux-history';
 

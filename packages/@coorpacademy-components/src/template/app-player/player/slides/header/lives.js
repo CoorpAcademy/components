@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isNil from 'lodash/fp/isNil';
+import {isNil} from 'lodash/fp';
 import Life from '../../../../../atom/life';
 import style from './lives.css';
 

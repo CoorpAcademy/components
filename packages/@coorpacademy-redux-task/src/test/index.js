@@ -1,9 +1,7 @@
 import test from 'ava';
 import {createStore, applyMiddleware} from 'redux';
 import ReduxThunk from 'redux-thunk';
-import constant from 'lodash/fp/constant';
-import size from 'lodash/fp/size';
-import last from 'lodash/fp/last';
+import {constant, size, last} from 'lodash/fp';
 import createTask from '..';
 
 const macro = async (t, input, expected) => {

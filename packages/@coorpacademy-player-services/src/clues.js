@@ -1,6 +1,6 @@
 // @flow strict
 
-import includes from 'lodash/fp/includes';
+import {includes} from 'lodash/fp';
 import type {ClueAPI, DataLayer} from './definitions';
 
 type FindById = (progressionId: string, slideId: string) => Promise<ClueAPI | void>;

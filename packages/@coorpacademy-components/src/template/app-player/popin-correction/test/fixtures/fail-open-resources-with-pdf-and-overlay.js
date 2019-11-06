@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import failPdf from './fail-open-resources-with-pdf';
 
 export default defaultsDeep(failPdf, {

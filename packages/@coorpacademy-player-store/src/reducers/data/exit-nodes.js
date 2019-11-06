@@ -1,9 +1,4 @@
-import set from 'lodash/fp/set';
-import update from 'lodash/fp/update';
-import isNull from 'lodash/fp/isNull';
-import get from 'lodash/fp/get';
-import unset from 'lodash/fp/unset';
-import pipe from 'lodash/fp/pipe';
+import {set, update, isNull, get, unset, pipe} from 'lodash/fp';
 import {
   EXIT_NODE_FETCH_REQUEST,
   EXIT_NODE_FETCH_SUCCESS,

@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import CreateForm from '../../../../../molecule/brand-create-form/test/fixtures/error';
 import Header from '../../../../../organism/setup-header/test/fixtures/default';
 

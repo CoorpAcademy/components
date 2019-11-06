@@ -1,6 +1,4 @@
-import getOr from 'lodash/fp/getOr';
-import pipe from 'lodash/fp/pipe';
-import set from 'lodash/fp/set';
+import {getOr, pipe, set} from 'lodash/fp';
 import {UI_TOGGLE_ACCORDION, UI_SELECT_RESOURCE_IN_POPIN} from '../../actions/ui/corrections';
 import {UI_PROGRESSION_ACTION_TYPES} from '../../actions/ui/progressions';
 

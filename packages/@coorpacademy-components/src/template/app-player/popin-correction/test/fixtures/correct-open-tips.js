@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import correctClosed from './correct-closed';
 
 export default defaultsDeep(correctClosed, {

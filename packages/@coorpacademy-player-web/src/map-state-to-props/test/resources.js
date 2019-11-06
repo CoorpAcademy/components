@@ -1,6 +1,6 @@
 import test from 'ava';
-import isArray from 'lodash/fp/isArray';
-import identity from 'lodash/fp/identity';
+import {isArray, identity} from 'lodash/fp';
+
 import {mockTranslate} from '@coorpacademy/translate';
 import {getCurrentSlide} from '@coorpacademy/player-store';
 import creategetResourcesProps from '../resources';

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import snakeCase from 'lodash/fp/snakeCase';
+import {snakeCase} from 'lodash/fp';
 import Link from '../../atom/link';
 import {hoverFill} from '../../atom/button/hover-fill.css';
 import style from './style.css';

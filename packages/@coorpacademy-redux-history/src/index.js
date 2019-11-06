@@ -1,9 +1,5 @@
 import {parse as qsParse} from 'querystring';
-import getOr from 'lodash/fp/getOr';
-import get from 'lodash/fp/get';
-import isEqual from 'lodash/fp/isEqual';
-import pipe from 'lodash/fp/pipe';
-import set from 'lodash/fp/set';
+import {getOr, get, isEqual, pipe, set} from 'lodash/fp';
 
 export const LOCATION = '@@history/LOCATION';
 export const NAVIGATE = '@@history/NAVIGATE';

@@ -1,7 +1,7 @@
 // @flow
 import test from 'ava';
-import omit from 'lodash/fp/omit';
-import filter from 'lodash/fp/filter';
+import {omit, filter} from 'lodash/fp';
+
 import {getConfig} from '../../config';
 import type {AvailableContent, Config} from '../../types';
 import allSlides from './fixtures/slides';

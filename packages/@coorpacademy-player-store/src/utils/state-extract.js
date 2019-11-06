@@ -1,15 +1,17 @@
 // @flow strict
 
-import get from 'lodash/fp/get';
-import last from 'lodash/fp/last';
-import getOr from 'lodash/fp/getOr';
-import pipe from 'lodash/fp/pipe';
-import any from 'lodash/fp/any';
-import find from 'lodash/fp/find';
-import includes from 'lodash/fp/includes';
-import isEmpty from 'lodash/fp/isEmpty';
-import map from 'lodash/fp/map';
-import _toString from 'lodash/fp/toString';
+import {
+  get,
+  last,
+  getOr,
+  pipe,
+  any,
+  find,
+  includes,
+  isEmpty,
+  map,
+  toString as _toString
+} from 'lodash/fp';
 import type {
   Answer,
   Choice,

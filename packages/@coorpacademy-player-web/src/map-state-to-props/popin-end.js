@@ -1,15 +1,18 @@
-import cond from 'lodash/fp/cond';
-import constant from 'lodash/fp/constant';
-import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
-import isArray from 'lodash/fp/isArray';
-import isEqual from 'lodash/fp/isEqual';
-import isEmpty from 'lodash/fp/isEmpty';
-import map from 'lodash/fp/map';
-import pick from 'lodash/fp/pick';
-import pipe from 'lodash/fp/pipe';
-import omit from 'lodash/fp/omit';
-import isNull from 'lodash/fp/isNull';
+import {
+  cond,
+  constant,
+  get,
+  getOr,
+  isArray,
+  isEqual,
+  isEmpty,
+  map,
+  pick,
+  pipe,
+  omit,
+  isNull
+} from 'lodash/fp';
+
 import {
   editComment,
   exit,

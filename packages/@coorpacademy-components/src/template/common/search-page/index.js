@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
-import isEmpty from 'lodash/fp/isEmpty';
+import {getOr, isEmpty} from 'lodash/fp';
 import Provider from '../../../atom/provider';
 import Button from '../../../atom/button';
 import Filters from '../../../molecule/filters';

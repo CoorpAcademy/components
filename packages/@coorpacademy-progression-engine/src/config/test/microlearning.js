@@ -1,5 +1,5 @@
 import test from 'ava';
-import uniqBy from 'lodash/fp/uniqBy';
+import {uniqBy} from 'lodash/fp';
 import microlearning from '../microlearning';
 
 const {configurations} = microlearning;

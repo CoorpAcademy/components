@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
-import pipe from 'lodash/fp/pipe';
-import partial from 'lodash/fp/partial';
-import unary from 'lodash/fp/unary';
+import {getOr, pipe, partial, unary} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import stopPropagation from '../../util/bubbling';
 import style from './style.css';

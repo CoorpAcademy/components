@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import find from 'lodash/fp/find';
+import {find} from 'lodash/fp';
 import Select, {SelectOptionPropTypes} from '../../../atom/select';
 import style from './style.css';
 

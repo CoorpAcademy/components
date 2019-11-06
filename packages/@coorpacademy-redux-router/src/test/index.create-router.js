@@ -1,6 +1,5 @@
 import test from 'ava';
-import map from 'lodash/fp/map';
-import set from 'lodash/fp/set';
+import {map, set} from 'lodash/fp';
 import {createRouter} from '..';
 
 test('should return view function with params', t => {

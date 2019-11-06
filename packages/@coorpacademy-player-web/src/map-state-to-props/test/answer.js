@@ -1,7 +1,6 @@
 import test from 'ava';
-import omit from 'lodash/fp/omit';
-import isFunction from 'lodash/fp/isFunction';
-import identity from 'lodash/fp/identity';
+import {omit, isFunction, identity} from 'lodash/fp';
+
 import {mockTranslate} from '@coorpacademy/translate';
 import {createGetAnswerProps, createGetHelp} from '../answer';
 import basic from './fixtures/slides/basic';

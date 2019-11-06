@@ -1,7 +1,7 @@
 import test from 'ava';
 import {mockTranslate} from '@coorpacademy/translate';
-import identity from 'lodash/fp/identity';
-import get from 'lodash/fp/get';
+import {identity, get} from 'lodash/fp';
+
 import {popinCorrectionStateToProps} from '../../map-state-to-props/popin-correction';
 import statePopinExtraLife from '../../map-state-to-props/test/fixtures/popin-correction/popin-extra-life';
 

@@ -1,5 +1,5 @@
 import test from 'ava';
-import noop from 'lodash/fp/noop';
+import {noop} from 'lodash/fp';
 import pushToHistory from '../navigation';
 
 const createEvent = ({href, button = 0, ...props}) => ({

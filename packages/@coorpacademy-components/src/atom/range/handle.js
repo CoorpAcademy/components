@@ -1,5 +1,4 @@
-import noop from 'lodash/fp/noop';
-import getOr from 'lodash/fp/getOr';
+import {noop, getOr} from 'lodash/fp';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Provider from '../provider';

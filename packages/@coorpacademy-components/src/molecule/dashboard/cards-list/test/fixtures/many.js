@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import Card from '../../../../card/test/fixtures/default';
 
 const {props} = Card;

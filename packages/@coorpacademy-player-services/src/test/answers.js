@@ -1,6 +1,5 @@
 import test from 'ava';
-import find from 'lodash/fp/find';
-import uniqueId from 'lodash/fp/uniqueId';
+import {find, uniqueId} from 'lodash/fp';
 import createAnswersService from '../answers';
 import createProgressionsService from '../progressions';
 import slidesData from './fixtures/data/slides';

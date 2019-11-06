@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import disciplineScope from '../../../../../molecule/discipline-scope/test/fixtures/with-onclick';
 import Default from './default';
 

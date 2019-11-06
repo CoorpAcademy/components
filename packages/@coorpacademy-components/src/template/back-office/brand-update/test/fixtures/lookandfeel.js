@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import LookAndFeel from '../../../../../organism/brand-form/test/fixtures/lookandfeel';
 import BrandTabs from '../../../../../molecule/brand-tabs/test/fixtures/lookandfeel';
 import Default from './default';

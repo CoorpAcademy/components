@@ -1,5 +1,4 @@
-import update from 'lodash/fp/update';
-import uniqueId from 'lodash/fp/uniqueId';
+import {update, uniqueId} from 'lodash/fp';
 import Post from '../../../../molecule/forum/forum-thread/test/fixtures/default';
 
 const post = Post.props;

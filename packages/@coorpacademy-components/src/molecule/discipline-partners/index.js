@@ -1,9 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
-import isEmpty from 'lodash/fp/isEmpty';
-import map from 'lodash/fp/map';
+import {get, getOr, isEmpty, map} from 'lodash/fp';
 import {NovaCompositionNavigationArrowRight as ArrowRight} from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
 import SocialLink from '../../atom/social-link';

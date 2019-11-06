@@ -1,12 +1,8 @@
 import test from 'ava';
-import map from 'lodash/fp/map';
-import set from 'lodash/fp/set';
-import find from 'lodash/fp/find';
-import omit from 'lodash/fp/omit';
-import identity from 'lodash/fp/identity';
+import {map, set, find, omit, identity, cloneDeep, isFunction} from 'lodash/fp';
+
 import {mockTranslate} from '@coorpacademy/translate';
-import cloneDeep from 'lodash/fp/cloneDeep';
-import isFunction from 'lodash/fp/isFunction';
+
 import {
   ANSWER_FETCH_REQUEST,
   ANSWER_FETCH_SUCCESS,

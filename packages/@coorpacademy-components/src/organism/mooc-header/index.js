@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
-import get from 'lodash/fp/get';
-import isEmpty from 'lodash/fp/isEmpty';
+import {getOr, get, isEmpty} from 'lodash/fp';
 import {
   NovaCompositionNavigationArrowDown as ArrowDown,
   NovaCompositionCoorpacademyStar as StarIcon,

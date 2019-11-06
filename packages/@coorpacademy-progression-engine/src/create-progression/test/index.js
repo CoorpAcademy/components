@@ -1,6 +1,6 @@
 // @flow
 import test from 'ava';
-import keys from 'lodash/fp/keys';
+import {keys} from 'lodash/fp';
 import type {
   Action,
   AvailableContent,

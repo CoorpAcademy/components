@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import omit from 'lodash/fp/omit';
+import {omit} from 'lodash/fp';
 import VideoPlayer from '../video-player';
 import DropDown from '../questions/drop-down';
 import FreeText from '../questions/free-text';

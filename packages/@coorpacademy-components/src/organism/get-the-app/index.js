@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {NovaCompositionCoorpacademyMagicWand as MagicWand} from '@coorpacademy/nova-icons';
-import get from 'lodash/fp/get';
+import {get} from 'lodash/fp';
 import Button from '../../atom/button';
 import style from './style.css';
 

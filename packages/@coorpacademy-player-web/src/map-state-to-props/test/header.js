@@ -1,8 +1,6 @@
 import test from 'ava';
-import set from 'lodash/fp/set';
-import identity from 'lodash/fp/identity';
-import omit from 'lodash/fp/omit';
-import pipe from 'lodash/fp/pipe';
+import {set, identity, omit, pipe} from 'lodash/fp';
+
 import {mockTranslate} from '@coorpacademy/translate';
 import createHeader from '../header';
 import basicSlide from './fixtures/slides/basic';

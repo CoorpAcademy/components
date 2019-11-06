@@ -1,7 +1,4 @@
-import includes from 'lodash/fp/includes';
-import set from 'lodash/fp/set';
-import unset from 'lodash/fp/unset';
-import values from 'lodash/fp/values';
+import {includes, set, unset, values} from 'lodash/fp';
 import {ANSWER_EDIT} from '../../actions/ui/answers';
 import {UI_PROGRESSION_ACTION_TYPES} from '../../actions/ui/progressions';
 

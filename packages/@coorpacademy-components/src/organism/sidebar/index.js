@@ -1,8 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import noop from 'lodash/fp/noop';
-import getOr from 'lodash/fp/getOr';
+import {noop, getOr} from 'lodash/fp';
 import Link from '../../atom/link';
 import Provider from '../../atom/provider';
 import Select from '../../atom/select';

@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import Card from '../../../../../molecule/card/test/fixtures/default';
 import correct from './with-recommendations';
 

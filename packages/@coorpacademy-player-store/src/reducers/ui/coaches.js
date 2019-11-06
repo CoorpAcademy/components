@@ -1,5 +1,4 @@
-import getOr from 'lodash/fp/getOr';
-import set from 'lodash/fp/set';
+import {getOr, set} from 'lodash/fp';
 import {UI_UPDATE_COACHES} from '../../actions/ui/coaches';
 
 const uiCoachesReducer = (state = {availableCoaches: 0}, action) => {

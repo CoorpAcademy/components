@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/fp/get';
-import noop from 'lodash/fp/noop';
+import {get, noop} from 'lodash/fp';
 import {NovaCompositionCoorpacademySearch as SearchIcon} from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import style from './style.css';

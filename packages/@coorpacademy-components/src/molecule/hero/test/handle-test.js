@@ -3,7 +3,7 @@ import test from 'ava';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import set from 'lodash/fp/set';
+import {set} from 'lodash/fp';
 import defaultFixture from './fixtures/hero';
 import Hero from '..';
 

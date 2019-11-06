@@ -1,5 +1,4 @@
-import update from 'lodash/fp/update';
-import uniqueId from 'lodash/fp/uniqueId';
+import {update, uniqueId} from 'lodash/fp';
 import disciplineHeader from '../../../../../molecule/discipline-header/test/fixtures/default';
 import disciplinePartners from '../../../../../molecule/discipline-partners/test/fixtures/more-info';
 import disciplineCTA from '../../../../../molecule/discipline-cta/test/fixtures/default';

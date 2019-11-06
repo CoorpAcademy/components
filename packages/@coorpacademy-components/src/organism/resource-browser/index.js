@@ -1,6 +1,5 @@
 import React from 'react';
-import find from 'lodash/fp/find';
-import omit from 'lodash/fp/omit';
+import {find, omit} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import ResourceMiniature from '../../atom/resource-miniature';

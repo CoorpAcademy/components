@@ -1,4 +1,4 @@
-import compact from 'lodash/fp/compact';
+import {compact} from 'lodash/fp';
 
 const reg = /{{(\w+)}}/;
 

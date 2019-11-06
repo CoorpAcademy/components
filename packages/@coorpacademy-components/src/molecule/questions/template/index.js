@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import map from 'lodash/fp/map';
-import find from 'lodash/fp/find';
+import {map, find} from 'lodash/fp';
 import parseTemplateString from '../../../util/parse-template-string';
 import DropDown from '../drop-down';
 import FreeText from '../free-text';
