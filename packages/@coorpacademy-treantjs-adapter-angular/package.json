@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/treantjs-adapter-angular",
-  "version": "8.0.3",
+  "version": "9.0.0",
   "description": "Renamed to @coorpacademy/treantjs-adapter-angular",
   "files": [
     "README.md"
@@ -14,7 +14,5 @@
     "Joan Ortega <joan.ortega@coorpacademy.com>",
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
-  "dependencies": {},
-  "devDependencies": {},
   "author": "CoorpAcademy"
 }
