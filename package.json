@@ -4,6 +4,9 @@
   "scripts": {
     "bootstrap": "lerna run prepare",
     "prestatic": "rm -rf static",
+    "lint": "lerna run lint",
+    "test": "lerna run test",
+    "test:unit": "lerna run test:unit",
     "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/player-web static -- --production",
     "poststatic": "mkdirp static && cp -r packages/@coorpacademy-components/static static/components && cp -r packages/@coorpacademy-player-web/static static/app-player",
     "preflow": "sh scripts/links-for-nested-flow.sh",

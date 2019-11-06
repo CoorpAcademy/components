@@ -1,0 +1,47 @@
+{
+  "name": "@coorpacademy/react-adapter-dust",
+  "version": "8.0.3",
+  "description": "",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "scripts": {
+    "ava": "ava",
+    "test:only": "nyc npm run ava",
+    "test": "npm run lint && npm run test:only",
+    "lint": "eslint . --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\"",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
+    "build": "npm run build:commonjs && npm run build:es",
+    "clean:commonjs": "rm -rf lib",
+    "clean:es": "rm -rf es",
+    "clean": "npm run clean:commonjs && npm run clean:es",
+    "prepare": "npm run clean && npm run build --production"
+  },
+  "contributors": [
+    "Arthur Weber <arthur.weber@coorpacademy.com>",
+    "Christophe Dugne-Esquevin <christophe.dugne@coorpacademy.com>",
+    "Gaelle Leguet <gaelle.leguet@coorpacademy.com>",
+    "Jeroen Engels <jengels@coorpacademy.com>",
+    "Joan Ortega <joan.ortega@coorpacademy.com>",
+    "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
+  ],
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "react": "~16.4.0",
+    "react-dom": "~16.4.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.6.4",
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/register": "^7.6.2",
+    "@coorpacademy/eslint-plugin-coorpacademy": "^9.0.1",
+    "ava": "^2.4.0",
+    "babel-plugin-istanbul": "^5.2.0",
+    "cross-env": "^6.0.3",
+    "dustjs-linkedin": "^2.7.5",
+    "eslint": "^6.6.0",
+    "nyc": "^14.1.1"
+  },
+  "author": "CoorpAcademy"
+}
