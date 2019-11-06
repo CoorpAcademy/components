@@ -1,5 +1,5 @@
 {
-  "name": "@coorpacademy/treantjs-adapter-angular",
+  "name": "@coorpacademy/react-adapter-angular",
   "version": "8.0.3",
   "description": "",
   "main": "lib/index.js",

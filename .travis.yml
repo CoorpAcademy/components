@@ -67,10 +67,10 @@ jobs:
       env: PACKAGE_NAME=@coorpacademy/translate
     - <<: *test-job
       name: Angular adapter
-      env: PACKAGE_NAME=@coorpacademy/treantjs-adapter-angular
+      env: PACKAGE_NAME=@coorpacademy/react-adapter-angular
     - <<: *test-job
       name: Dust adapter
-      env: PACKAGE_NAME=@coorpacademy/treantjs-adapter-dust
+      env: PACKAGE_NAME=@coorpacademy/react-adapter-dust
     - <<: *test-job
       name: Css Module Require Hook
       env: PACKAGE_NAME=@coorpacademy/css-modules-require-hook
