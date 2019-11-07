@@ -1,6 +1,4 @@
-import map from 'lodash/fp/map';
-import toPairs from 'lodash/fp/toPairs';
-import kebabCase from 'lodash/fp/kebabCase';
+import {map, toPairs, kebabCase} from 'lodash/fp';
 import {createElement} from 'react';
 import {renderToStaticMarkup} from 'react-dom/server';
 

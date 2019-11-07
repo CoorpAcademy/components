@@ -1,6 +1,7 @@
 // @flow
 
-import {get, map, min, multiply, pipe, size, sum} from 'lodash/fp';
+import {pipe, get, map, min, multiply, size, sum} from 'lodash/fp';
+
 import type {Config, Content} from '../types';
 import type {FastSlideNextContent} from './types';
 
@@ -19,13 +20,15 @@ const getFastSlideExitNode = (
         type: 'failure',
         ref: 'failExitNode'
       };
+
+  // $FlowFixMe
   const starsMax = pipe(
     // $FlowFixMe
     map(pipe([get('slides'), size, s => min([s, slidesToComplete])])),
-    // $FlowFixMe
     sum,
     multiply(starsPerCorrectAnswer)
   )(availableContent);
+
   const instructions = godMode
     ? [
         {

@@ -1,7 +1,4 @@
-import pipe from 'lodash/fp/pipe';
-import reduce from 'lodash/fp/reduce';
-import update from 'lodash/fp/update';
-import values from 'lodash/fp/values';
+import {pipe, reduce, update, values} from 'lodash/fp';
 
 import exitNodesData from './data/exit-nodes';
 import appendJWPOptions from './utils/jwp-options';

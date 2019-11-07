@@ -3,7 +3,7 @@ import test from 'ava';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import once from 'lodash/fp/once';
+import {once} from 'lodash/fp';
 import BrandCreateForm from '..';
 
 browserEnv();

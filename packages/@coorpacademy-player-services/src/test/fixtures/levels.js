@@ -1,9 +1,6 @@
 // @flow strict
 
-import get from 'lodash/fp/get';
-import pipe from 'lodash/fp/pipe';
-import reduce from 'lodash/fp/reduce';
-import values from 'lodash/fp/values';
+import {get, pipe, reduce, values} from 'lodash/fp';
 
 import type {LevelAPI} from '../../definitions';
 import levelsData from './data/levels';

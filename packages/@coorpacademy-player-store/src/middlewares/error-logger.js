@@ -1,5 +1,4 @@
-import getOr from 'lodash/fp/getOr';
-import pick from 'lodash/fp/pick';
+import {getOr, pick} from 'lodash/fp';
 
 const logger = ({services}) => store => next => action => {
   const {Logger} = services;

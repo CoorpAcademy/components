@@ -1,5 +1,5 @@
 // @flow
-import find from 'lodash/fp/find';
+import {find} from 'lodash/fp';
 import type {Config, Engine, Progression} from '../types';
 import microlearning from './microlearning';
 import learner from './learner';

@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactJWPlayer from 'react-jw-player';
-import includes from 'lodash/fp/includes';
-import isFunction from 'lodash/fp/isFunction';
-import keys from 'lodash/fp/keys';
+import {includes, isFunction, keys} from 'lodash/fp';
 import {SrcPropType} from '../../util/proptypes';
 import style from './jwplayer.css';
 

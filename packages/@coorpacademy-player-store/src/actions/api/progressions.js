@@ -1,8 +1,6 @@
 // @flow strict
 
-import get from 'lodash/fp/get';
-import pipe from 'lodash/fp/pipe';
-import includes from 'lodash/fp/includes';
+import {get, pipe, includes} from 'lodash/fp';
 import buildTask from '@coorpacademy/redux-task';
 import type {
   Answer,

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import map from 'lodash/fp/map';
+import {map} from 'lodash/fp';
 import InputCheckbox from '../../atom/input-checkbox';
 import Button from '../../atom/button';
 import Provider from '../../atom/provider';

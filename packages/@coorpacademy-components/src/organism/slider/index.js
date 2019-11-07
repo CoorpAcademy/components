@@ -1,15 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
-import _map from 'lodash/fp/map';
+import {get, getOr, map} from 'lodash/fp';
 import {
   NovaCompositionNavigationArrowRight as ArrowRight,
   NovaCompositionNavigationArrowLeft as ArrowLeft
 } from '@coorpacademy/nova-icons';
 import style from './style.css';
 
-const map = _map.convert({cap: false});
+const mapWithIndex = map.convert({cap: false});
 const Hammer = typeof window !== 'undefined' ? require('hammerjs') : undefined;
 
 class Slider extends React.Component {
@@ -86,7 +84,7 @@ class Slider extends React.Component {
     const {children} = this.props;
     const totalSlide = children.length;
 
-    const myslides = map((child, index) => {
+    const myslides = mapWithIndex((child, index) => {
       const isActive = this.state.currentSlide === index;
 
       return (

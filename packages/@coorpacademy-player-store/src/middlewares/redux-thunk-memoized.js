@@ -1,7 +1,5 @@
 import ReduxThunk from 'redux-thunk';
-import reduce from 'lodash/fp/reduce';
-import get from 'lodash/fp/get';
-import set from 'lodash/fp/set';
+import {reduce, get, set} from 'lodash/fp';
 import memoizeTask from '../utils/memoize-task';
 
 const memoizeService = (options, keyPath) => {

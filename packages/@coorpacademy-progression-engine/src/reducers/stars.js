@@ -1,7 +1,7 @@
 // @flow
 
-import find from 'lodash/fp/find';
-import includes from 'lodash/fp/includes';
+import {find, includes} from 'lodash/fp';
+
 import type {
   Action,
   AnswerAction,

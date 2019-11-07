@@ -1,8 +1,5 @@
 import test from 'ava';
-import omit from 'lodash/fp/omit';
-import isObject from 'lodash/fp/isObject';
-import uniqueId from 'lodash/fp/uniqueId';
-import isString from 'lodash/fp/isString';
+import {omit, isObject, uniqueId, isString} from 'lodash/fp';
 import {getConfig} from '@coorpacademy/progression-engine';
 
 import createProgressionsService from '../progressions';

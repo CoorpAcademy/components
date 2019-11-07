@@ -18,7 +18,7 @@ module.exports = ({config}) => {
             '@babel/preset-env',
             {
               targets: {
-                browsers: ['last 2 versions']
+                overrideBrowserslist: ['last 2 versions']
               },
               modules: false,
               loose: true

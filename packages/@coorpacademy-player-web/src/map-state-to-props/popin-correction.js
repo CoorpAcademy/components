@@ -1,11 +1,5 @@
-import getOr from 'lodash/fp/getOr';
-import get from 'lodash/fp/get';
-import isNil from 'lodash/fp/isNil';
-import join from 'lodash/fp/join';
-import indexOf from 'lodash/fp/indexOf';
-import omitBy from 'lodash/fp/omitBy';
-import isUndefined from 'lodash/fp/isUndefined';
-import includes from 'lodash/fp/includes';
+import {getOr, get, isNil, join, indexOf, omitBy, isUndefined, includes} from 'lodash/fp';
+
 import {
   acceptExtraLife,
   getCurrentCorrection,

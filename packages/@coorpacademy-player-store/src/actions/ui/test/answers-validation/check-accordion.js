@@ -1,8 +1,5 @@
 import test from 'ava';
-import map from 'lodash/fp/map';
-import pipe from 'lodash/fp/pipe';
-import set from 'lodash/fp/set';
-import flatten from 'lodash/fp/flatten';
+import {map, pipe, set, flatten} from 'lodash/fp';
 import macro from '../../../test/helpers/macro';
 import {ACCORDION_KLF, ACCORDION_TIPS, ACCORDION_LESSON} from '../../corrections';
 import mockContentService from '../../../test/helpers/mock-content-service';

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import noop from 'lodash/fp/noop';
-import getOr from 'lodash/fp/getOr';
+import {noop, getOr} from 'lodash/fp';
 import {
   NovaLineBusinessCircleView as PreviewIcon,
   NovaLineContentEditionPencil2 as PencilIcon

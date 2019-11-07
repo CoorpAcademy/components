@@ -1,4 +1,4 @@
-import set from 'lodash/fp/set';
+import {set} from 'lodash/fp';
 import {SEND_POST_COMMENT_REQUEST} from '../../actions/api/comments';
 import {UI_PROGRESSION_ACTION_TYPES} from '../../actions/ui/progressions';
 

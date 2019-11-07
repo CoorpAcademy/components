@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import keys from 'lodash/fp/keys';
+import {keys} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import ProgressBar from '../../molecule/progress-bar';
 import UploadBox from '../../molecule/brand-upload-box';

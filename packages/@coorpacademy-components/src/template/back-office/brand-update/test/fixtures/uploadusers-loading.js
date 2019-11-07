@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import BrandUploadLoading from '../../../../../organism/brand-upload/test/fixtures/loading';
 import Users from './uploadusers';
 

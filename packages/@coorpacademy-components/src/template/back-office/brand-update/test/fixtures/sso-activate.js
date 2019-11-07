@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import SSO from './sso';
 
 const {props} = SSO;

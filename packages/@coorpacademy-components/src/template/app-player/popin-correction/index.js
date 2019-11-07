@@ -1,12 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import defer from 'lodash/fp/defer';
-import isNil from 'lodash/fp/isNil';
-import isEmpty from 'lodash/fp/isEmpty';
-import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
-import keys from 'lodash/fp/keys';
-import omit from 'lodash/fp/omit';
+import {defer, isNil, isEmpty, get, getOr, keys, omit} from 'lodash/fp';
 import {
   NovaCompositionCoorpacademyCheck as CheckIcon,
   NovaLineInterfaceFeedbackInterfaceAlertCircle as AlertIcon

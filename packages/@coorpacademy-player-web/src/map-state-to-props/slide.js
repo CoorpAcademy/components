@@ -1,6 +1,5 @@
-import __ from 'lodash/fp/__';
-import mapValues from 'lodash/fp/mapValues';
-import pipe from 'lodash/fp/pipe';
+import {__, mapValues, pipe} from 'lodash/fp';
+
 import createPlayerStateToProps from './player';
 
 const playerProps = (options, dispatch) => {

@@ -108,9 +108,7 @@ type ThunkAction = (Function, GetState, Options) => Action | PromiseAction;
 type DispatchedAction = Action | ThunkAction | PromiseAction;
 type Dispatch = (action: Action | ThunkAction | PromiseAction) => DispatchedAction;
 
-/* eslint-disable no-use-before-define */
 // type ThunkAction = (dispatch: Dispatch, getState: GetState, Options) => DispatchedAction;
-/* eslint-enable no-use-before-define */
 
 export type {
   Action,

@@ -1,4 +1,4 @@
-import set from 'lodash/fp/set';
+import {set} from 'lodash/fp';
 import {UI_EDIT_COMMENT} from '../../actions/ui/comments';
 import {UI_PROGRESSION_ACTION_TYPES} from '../../actions/ui/progressions';
 

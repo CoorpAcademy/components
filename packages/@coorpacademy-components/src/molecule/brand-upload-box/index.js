@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import uniqueId from 'lodash/fp/uniqueId';
-import get from 'lodash/fp/get';
+import {uniqueId, get} from 'lodash/fp';
 import {NovaSolidDataTransferDataUpload1 as UploadIcon} from '@coorpacademy/nova-icons';
 import Loader from '../../atom/loader';
 import style from './style.css';

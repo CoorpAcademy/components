@@ -1,7 +1,7 @@
 /* eslint-disable react/no-unused-state */
 import React from 'react';
 import PropTypes from 'prop-types';
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import {SrcPropType, ColorPropType, HexPropType} from '../../util/proptypes';
 
 const DEFAULT_SKIN = {

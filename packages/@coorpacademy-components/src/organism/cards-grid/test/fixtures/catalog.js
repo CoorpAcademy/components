@@ -1,7 +1,4 @@
-import update from 'lodash/fp/update';
-import pipe from 'lodash/fp/pipe';
-import set from 'lodash/fp/set';
-import uniqueId from 'lodash/fp/uniqueId';
+import {update, pipe, set, uniqueId} from 'lodash/fp';
 
 import card1 from '../../../../molecule/card/test/fixtures/adaptiv';
 import card3 from '../../../../molecule/card/test/fixtures/default';

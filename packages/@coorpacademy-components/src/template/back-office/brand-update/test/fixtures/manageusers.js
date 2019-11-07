@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import BrandTabs from '../../../../../molecule/brand-tabs/test/fixtures/manageusers';
 import Default from './default';
 

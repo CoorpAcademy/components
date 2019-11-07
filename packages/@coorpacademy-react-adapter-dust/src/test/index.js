@@ -1,7 +1,7 @@
 import test from 'ava';
 import dust from 'dustjs-linkedin';
 import {createElement} from 'react';
-import each from 'lodash/fp/each';
+import {each} from 'lodash/fp';
 import toHelpers from '..';
 
 const macro = (t, {components, template, provider, data}, expected) => {

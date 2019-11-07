@@ -1,12 +1,5 @@
 import React from 'react';
-import debounce from 'lodash/fp/debounce';
-import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
-import head from 'lodash/fp/head';
-import map from 'lodash/fp/map';
-import sumBy from 'lodash/fp/sumBy';
-import last from 'lodash/fp/last';
-import isEqual from 'lodash/fp/isEqual';
+import {debounce, get, getOr, head, map, sumBy, last, isEqual} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import {
   NovaCompositionNavigationArrowLeft as ArrowLeft,

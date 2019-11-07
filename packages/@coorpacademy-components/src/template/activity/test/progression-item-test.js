@@ -1,7 +1,7 @@
 import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
-import omit from 'lodash/fp/omit';
+import {omit} from 'lodash/fp';
 import {shallow, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Link from '../../../atom/link';

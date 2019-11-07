@@ -1,6 +1,4 @@
-import set from 'lodash/fp/set';
-import unset from 'lodash/fp/unset';
-import isNull from 'lodash/fp/isNull';
+import {set, unset, isNull} from 'lodash/fp';
 import {UI_SELECT_ROUTE} from '../../actions/ui/route';
 import {UI_PROGRESSION_ACTION_TYPES} from '../../actions/ui/progressions';
 

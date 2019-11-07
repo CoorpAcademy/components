@@ -1,5 +1,5 @@
 import test from 'ava';
-import uniqueId from 'lodash/fp/uniqueId';
+import {uniqueId} from 'lodash/fp';
 import createContentService from '../progressions';
 import * as fixtures from './fixtures';
 

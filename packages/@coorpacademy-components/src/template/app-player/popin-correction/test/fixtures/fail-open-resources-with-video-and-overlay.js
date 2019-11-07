@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import failVideo from './fail-open-resources-with-video-extralife-granted';
 
 export default defaultsDeep(failVideo, {

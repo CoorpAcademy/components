@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import keys from 'lodash/fp/keys';
-import isNil from 'lodash/fp/isNil';
+import {keys, isNil} from 'lodash/fp';
 import SsMenuList from '../ssmenu-list';
 import style from './style.css';
 

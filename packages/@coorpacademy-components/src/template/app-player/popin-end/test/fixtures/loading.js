@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import template from './default';
 
 export default defaultsDeep(template, {

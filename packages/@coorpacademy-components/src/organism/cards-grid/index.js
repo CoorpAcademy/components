@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import map from 'lodash/fp/map';
+import {map} from 'lodash/fp';
 import Card from '../../molecule/card';
 import Loader from '../../atom/loader';
 import style from './style.css';

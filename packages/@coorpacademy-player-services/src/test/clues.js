@@ -1,9 +1,5 @@
 import test from 'ava';
-import find from 'lodash/fp/find';
-import get from 'lodash/fp/get';
-import pipe from 'lodash/fp/pipe';
-import uniqueId from 'lodash/fp/uniqueId';
-import set from 'lodash/fp/set';
+import {find, get, pipe, uniqueId, set} from 'lodash/fp';
 import createCluesService from '../clues';
 
 import createProgressionsService from '../progressions';

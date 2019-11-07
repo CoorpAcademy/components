@@ -1,21 +1,23 @@
-import pipe from 'lodash/fp/pipe';
-import includes from 'lodash/fp/includes';
-import head from 'lodash/fp/head';
-import map from 'lodash/fp/map';
-import get from 'lodash/fp/get';
-import divide from 'lodash/fp/divide';
-import multiply from 'lodash/fp/multiply';
-import __ from 'lodash/fp/__';
-import round from 'lodash/fp/round';
-import size from 'lodash/fp/size';
-import constant from 'lodash/fp/constant';
-import times from 'lodash/fp/times';
-import set from 'lodash/fp/set';
-import isEmpty from 'lodash/fp/isEmpty';
-import isNil from 'lodash/fp/isNil';
-import rangeStep from 'lodash/fp/rangeStep';
-import _toString from 'lodash/fp/toString';
-import indexOf from 'lodash/fp/indexOf';
+import {
+  pipe,
+  includes,
+  head,
+  map,
+  get,
+  divide,
+  multiply,
+  __,
+  round,
+  size,
+  constant,
+  times,
+  set,
+  isEmpty,
+  isNil,
+  rangeStep,
+  toString as _toString,
+  indexOf
+} from 'lodash/fp';
 import {getChoices, getQuestionType, getAnswerValues, editAnswer} from '@coorpacademy/player-store';
 
 const editAnswerAction = (options, {dispatch}) => (state, slide) => newValue => {

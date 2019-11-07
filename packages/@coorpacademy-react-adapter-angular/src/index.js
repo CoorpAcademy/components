@@ -1,4 +1,4 @@
-import mapKeys from 'lodash/fp/mapKeys';
+import {mapKeys} from 'lodash/fp';
 import React from 'react';
 import ReactDOM from 'react-dom';
 

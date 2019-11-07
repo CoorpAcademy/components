@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import noop from 'lodash/fp/noop';
-import isNil from 'lodash/fp/isNil';
+import {noop, isNil} from 'lodash/fp';
 import classnames from 'classnames';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';

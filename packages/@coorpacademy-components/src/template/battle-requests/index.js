@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import map from 'lodash/fp/map';
+import {map} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import CardWithButton from '../../molecule/card-with-button';
 import Avatar from '../../atom/avatar';

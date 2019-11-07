@@ -1,8 +1,4 @@
-import filter from 'lodash/fp/filter';
-import map from 'lodash/fp/map';
-import pipe from 'lodash/fp/pipe';
-import reduce from 'lodash/fp/reduce';
-import update from 'lodash/fp/update';
+import {filter, map, pipe, reduce, update} from 'lodash/fp';
 
 import slidesData from './data/slides';
 import appendJWPOptions from './utils/jwp-options';

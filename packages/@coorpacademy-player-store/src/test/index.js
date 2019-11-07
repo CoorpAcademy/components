@@ -1,5 +1,5 @@
 import test from 'ava';
-import keys from 'lodash/fp/keys';
+import {keys} from 'lodash/fp';
 import * as api from '..';
 
 // this test is somehow a snapshot;

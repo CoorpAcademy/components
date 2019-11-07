@@ -1,5 +1,5 @@
 import {join} from 'path';
-import concat from 'lodash/fp/concat';
+import {concat} from 'lodash/fp';
 import webpack from 'webpack';
 
 const isProduction = process.env.NODE_ENV === 'production';

@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import get from 'lodash/fp/get';
+import {get} from 'lodash/fp';
 import {NovaSolidBookmarksTagsBookmark5 as BookmarkIcon} from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import style from './favorite.css';

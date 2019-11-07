@@ -1,5 +1,4 @@
-import reduce from 'lodash/fp/reduce';
-import _find from 'lodash/fp/find';
+import {reduce, find as _find} from 'lodash/fp';
 
 import levelsData from './data/levels';
 import recommendations from './data/recommendations';

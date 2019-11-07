@@ -1,7 +1,7 @@
 import {readFile} from 'fs';
 import {join} from 'path';
 import test from 'ava';
-import split from 'lodash/fp/split';
+import {split} from 'lodash/fp';
 import {of, from, bindNodeCallback} from 'rxjs';
 import {map, concat, concatMap, sequenceEqual} from 'rxjs/operators';
 import {readStorybookIndex$} from '../../scripts/storybook-index';

@@ -1,7 +1,7 @@
 import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
-import unset from 'lodash/fp/unset';
+import {unset} from 'lodash/fp';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Card from '../../../card/test/fixtures/default';

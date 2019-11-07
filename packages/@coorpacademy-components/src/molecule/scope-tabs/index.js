@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import has from 'lodash/fp/has';
-import getOr from 'lodash/fp/getOr';
+import {has, getOr} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import ModuleBubble from '../module-bubble';
 import style from './style.css';

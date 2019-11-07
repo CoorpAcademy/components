@@ -1,7 +1,7 @@
 // @flow
 import test from 'ava';
-import filter from 'lodash/fp/filter';
-import concat from 'lodash/fp/concat';
+import {filter, concat} from 'lodash/fp';
+
 import {getConfig} from '../../config';
 import type {AvailableContent, Config, State} from '../../types';
 import computeNextStep, {

@@ -1,8 +1,6 @@
 // @flow strict
 
-import get from 'lodash/fp/get';
-import last from 'lodash/fp/last';
-import isNil from 'lodash/fp/isNil';
+import {get, last, isNil} from 'lodash/fp';
 import buildTask from '@coorpacademy/redux-task';
 import type {ProgressionId, Progression} from '@coorpacademy/progression-engine';
 import {fetchProgression, fetchEngineConfig, fetchBestProgression} from '../api/progressions';

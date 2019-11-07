@@ -1,6 +1,6 @@
 import {Loading, Player, PopinCorrection, PopinEnd} from '@coorpacademy/components';
 
-import pipe from 'lodash/fp/pipe';
+import {pipe} from 'lodash/fp';
 import {createElement} from 'react';
 
 export const createStateToVNode = (template, mapStateToProps) =>

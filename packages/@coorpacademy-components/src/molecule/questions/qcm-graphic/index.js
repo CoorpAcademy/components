@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
+import {getOr} from 'lodash/fp';
 import Provider from '../../../atom/provider';
 import style from './style.css';
 

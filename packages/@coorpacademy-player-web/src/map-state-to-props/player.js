@@ -1,8 +1,4 @@
-import includes from 'lodash/fp/includes';
-import isEmpty from 'lodash/fp/isEmpty';
-import some from 'lodash/fp/some';
-import get from 'lodash/fp/get';
-import isNil from 'lodash/fp/isNil';
+import {includes, isEmpty, some, get, isNil} from 'lodash/fp';
 import {
   getAnswerValues,
   getClue,

@@ -1,6 +1,6 @@
 // @flow
 
-import concat from 'lodash/fp/concat';
+import {concat} from 'lodash/fp';
 import type {Action, AnswerAction, Config} from '../types';
 
 export default function slides(config: Config): (Array<string>, Action) => Array<string> {

@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/fp/get';
-import map from 'lodash/fp/map';
-import noop from 'lodash/fp/noop';
+import {get, map, noop} from 'lodash/fp';
 import Part from '../part';
 import style from './style.css';
 

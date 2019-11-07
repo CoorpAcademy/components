@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import correct from './with-recommendations';
 
 export default defaultsDeep(correct, {

@@ -1,10 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import get from 'lodash/fp/get';
-import isEmpty from 'lodash/fp/isEmpty';
-import isUndefined from 'lodash/fp/isUndefined';
-import pick from 'lodash/fp/pick';
+import {get, isEmpty, isUndefined, pick} from 'lodash/fp';
 import {
   NovaSolidLocksLock11 as LockIcon,
   NovaCompositionCoorpacademyPictures as PicturesIcon

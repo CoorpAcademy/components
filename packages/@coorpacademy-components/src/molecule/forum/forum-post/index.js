@@ -1,6 +1,5 @@
 import React from 'react';
-import identity from 'lodash/fp/identity';
-import get from 'lodash/fp/get';
+import {get, identity} from 'lodash/fp';
 import classnames from 'classnames';
 import Provider from '../../../atom/provider';
 import Picture from '../../../atom/picture';

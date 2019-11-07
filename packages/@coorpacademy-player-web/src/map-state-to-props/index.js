@@ -1,9 +1,4 @@
-import cond from 'lodash/fp/cond';
-import constant from 'lodash/fp/constant';
-import get from 'lodash/fp/get';
-import isNil from 'lodash/fp/isNil';
-import isEqual from 'lodash/fp/isEqual';
-import pipe from 'lodash/fp/pipe';
+import {cond, constant, get, isNil, isEqual, pipe} from 'lodash/fp';
 import {getStepContent, getCurrentProgression, getRoute} from '@coorpacademy/player-store';
 import {popinCorrectionStateToProps} from './popin-correction';
 import popinEndStateToProps from './popin-end';

@@ -1,7 +1,6 @@
 // @flow strict
 
-import reduce from 'lodash/fp/reduce';
-import _find from 'lodash/fp/find';
+import {reduce, find as _find} from 'lodash/fp';
 
 import type {ChapterAPI, LevelAPI, RecommendationAPI} from '../../definitions';
 import {findById as findChapterById} from './chapters';

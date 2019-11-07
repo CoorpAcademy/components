@@ -1,5 +1,4 @@
-import memoize from 'lodash/fp/memoize';
-import partial from 'lodash/fp/partial';
+import {memoize, partial} from 'lodash/fp';
 
 export const _memoizeTask = _memoize => task => {
   const memoizedTask = _memoize(task);

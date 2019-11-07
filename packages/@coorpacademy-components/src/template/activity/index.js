@@ -1,8 +1,6 @@
 import React from 'react';
 import {NovaCompositionCoorpacademyStar as StarIcon} from '@coorpacademy/nova-icons';
-import get from 'lodash/fp/get';
-import omit from 'lodash/fp/omit';
-import isEmpty from 'lodash/fp/isEmpty';
+import {get, omit, isEmpty} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import Provider from '../../atom/provider';
 import Button from '../../atom/button';

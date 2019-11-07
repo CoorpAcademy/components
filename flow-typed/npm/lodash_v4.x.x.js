@@ -3114,9 +3114,9 @@ declare module "lodash/fp" {
     defaultTo<T1: void | null, T2>(defaultValue: T2): (value: T1) => T2;
     defaultTo<T1: void | null, T2>(defaultValue: T2, value: T1): T2;
     flow: $ComposeReverse;
-    flow(funcs: Array<Function>): Function;
+    flow(...funcs: Array<Function>): Function;
     pipe: $ComposeReverse;
-    pipe(funcs: Array<Function>): Function;
+    pipe(...funcs: Array<Function>): Function;
     flowRight: $Compose;
     flowRight(funcs: Array<Function>): Function;
     compose: $Compose;

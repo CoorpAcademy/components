@@ -1,10 +1,7 @@
 // @flow
 
-import update from 'lodash/fp/update';
-import map from 'lodash/fp/map';
-import pipe from 'lodash/fp/pipe';
-import reduce from 'lodash/fp/reduce';
-import isEmpty from 'lodash/fp/isEmpty';
+import {update, map, pipe, reduce, isEmpty} from 'lodash/fp';
+
 import allAnswers from './reducers/all-answers';
 import content from './reducers/content';
 import hasViewedAResourceAtThisStep from './reducers/has-viewed-a-resource-at-this-step';

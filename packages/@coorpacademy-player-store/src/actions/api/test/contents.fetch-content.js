@@ -1,5 +1,5 @@
 import test from 'ava';
-import set from 'lodash/fp/set';
+import {set} from 'lodash/fp';
 import macro from '../../test/helpers/macro';
 import {
   fetchContent,

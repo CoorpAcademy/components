@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/fp/get';
+import {get} from 'lodash/fp';
 import {NovaCompositionCoorpacademyBolt as BoltIcon} from '@coorpacademy/nova-icons';
 import Provider from '../../../atom/provider';
 import Link from '../../../atom/link';

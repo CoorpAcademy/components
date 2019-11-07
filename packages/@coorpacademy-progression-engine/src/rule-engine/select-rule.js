@@ -1,9 +1,5 @@
 // @flow
-import get from 'lodash/fp/get';
-import head from 'lodash/fp/head';
-import isEqual from 'lodash/fp/isEqual';
-import filter from 'lodash/fp/filter';
-import sortBy from 'lodash/fp/sortBy';
+import {get, head, isEqual, filter, sortBy} from 'lodash/fp';
 import type {Content, State} from '../types';
 import type {ChapterRule} from './types';
 import checkCondition from './condition-operators';

@@ -1,4 +1,4 @@
-import set from 'lodash/fp/set';
+import {set} from 'lodash/fp';
 import {ENGINE_CONFIG_FETCH_SUCCESS} from '../../actions/api/progressions';
 
 const dataConfigsReducer = (state = {}, action) => {

@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import lookandfeel from './lookandfeel';
 
 const {props} = lookandfeel;

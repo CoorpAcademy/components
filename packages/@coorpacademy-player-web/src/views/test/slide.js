@@ -1,8 +1,6 @@
 import test from 'ava';
-import identity from 'lodash/fp/identity';
-import map from 'lodash/fp/map';
-import omit from 'lodash/fp/omit';
-import isFunction from 'lodash/fp/isFunction';
+import {identity, map, omit, isFunction} from 'lodash/fp';
+
 import {mockTranslate} from '@coorpacademy/translate';
 import microlearningHeader from '../../map-state-to-props/test/fixtures/progression-state';
 import learnerHeader from '../../map-state-to-props/test/fixtures/progression-learner';

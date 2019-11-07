@@ -1,5 +1,4 @@
-import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
+import {get, getOr} from 'lodash/fp';
 
 const ImageElement = (skin, defaultImage) => {
   const defaultUrl = get(['images', defaultImage], skin);

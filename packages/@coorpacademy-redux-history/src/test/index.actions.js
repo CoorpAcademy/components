@@ -1,6 +1,6 @@
 import test from 'ava';
-import toPairs from 'lodash/fp/toPairs';
-import forEach from 'lodash/fp/forEach';
+import {toPairs, forEach} from 'lodash/fp';
+
 import {
   LOCATION,
   createLocation,

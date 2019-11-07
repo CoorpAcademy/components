@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import RadioGroup from '../../../../atom/radio-group/test/fixtures/default';
 import Default from './zero';
 

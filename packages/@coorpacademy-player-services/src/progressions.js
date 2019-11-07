@@ -10,14 +10,7 @@ import {
   getConfigForProgression,
   getFastSlideExitNode
 } from '@coorpacademy/progression-engine';
-import update from 'lodash/fp/update';
-import pipe from 'lodash/fp/pipe';
-import filter from 'lodash/fp/filter';
-import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
-import set from 'lodash/fp/set';
-import maxBy from 'lodash/fp/maxBy';
-import map from 'lodash/fp/map';
+import {update, pipe, filter, get, getOr, set, maxBy, map} from 'lodash/fp';
 import type {
   Action,
   AvailableContent,

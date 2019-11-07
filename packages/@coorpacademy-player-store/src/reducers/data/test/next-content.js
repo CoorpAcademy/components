@@ -1,5 +1,5 @@
 import test from 'ava';
-import set from 'lodash/fp/set';
+import {set} from 'lodash/fp';
 import reducer from '../next-content';
 import {
   NEXT_CONTENT_FETCH_REQUEST,

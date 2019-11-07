@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
-import keys from 'lodash/fp/keys';
+import {get, getOr, keys} from 'lodash/fp';
 import {NovaSolidStatusCheckCircle2 as CheckIcon} from '@coorpacademy/nova-icons';
 import Provider from '../../../atom/provider';
 import Button from '../../../atom/button';

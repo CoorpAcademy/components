@@ -1,4 +1,4 @@
-import reduce from 'lodash/fp/reduce';
+import {reduce} from 'lodash/fp';
 
 import slidesData from './data/slides';
 

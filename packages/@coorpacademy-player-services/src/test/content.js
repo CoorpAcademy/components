@@ -1,8 +1,5 @@
 import test from 'ava';
-import get from 'lodash/fp/get';
-import head from 'lodash/fp/head';
-import pipe from 'lodash/fp/pipe';
-import values from 'lodash/fp/values';
+import {get, head, pipe, values} from 'lodash/fp';
 import {getConfig} from '@coorpacademy/progression-engine';
 import createContentService from '../content';
 import chaptersData from './fixtures/data/chapters';

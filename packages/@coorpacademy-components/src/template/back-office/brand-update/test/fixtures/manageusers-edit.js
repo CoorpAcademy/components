@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import UserEdit from '../../../../../organism/brand-form/test/fixtures/manageusers-edit';
 import Users from './manageusers';
 

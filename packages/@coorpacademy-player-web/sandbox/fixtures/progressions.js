@@ -1,5 +1,4 @@
-import reduce from 'lodash/fp/reduce';
-import set from 'lodash/fp/set';
+import {reduce, set} from 'lodash/fp';
 import {createState} from '@coorpacademy/progression-engine';
 import progressionsData from './data/progressions';
 

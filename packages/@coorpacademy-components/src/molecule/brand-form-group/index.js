@@ -1,8 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import map from 'lodash/fp/map';
-import snakeCase from 'lodash/fp/snakeCase';
+import {map, snakeCase} from 'lodash/fp';
 import Select from '../../atom/select';
 import SelectMultiple from '../select-multiple';
 import InputText from '../../atom/input-text';

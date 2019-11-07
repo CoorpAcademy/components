@@ -1,22 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import assign from 'lodash/fp/assign';
-import every from 'lodash/fp/every';
-import getOr from 'lodash/fp/getOr';
-import get from 'lodash/fp/get';
-import includes from 'lodash/fp/includes';
-import isArray from 'lodash/fp/isArray';
-import isNil from 'lodash/fp/isNil';
-import isString from 'lodash/fp/isString';
-import noop from 'lodash/fp/noop';
-import pickBy from 'lodash/fp/pickBy';
-import some from 'lodash/fp/some';
-import negate from 'lodash/fp/negate';
-import identity from 'lodash/fp/identity';
-import values from 'lodash/fp/values';
-import pipe from 'lodash/fp/pipe';
-import reduce from 'lodash/fp/reduce';
-import set from 'lodash/fp/set';
+import {
+  assign,
+  every,
+  getOr,
+  get,
+  includes,
+  isArray,
+  isNil,
+  isString,
+  noop,
+  pickBy,
+  some,
+  negate,
+  identity,
+  values,
+  pipe,
+  reduce,
+  set
+} from 'lodash/fp';
 import Animation from '../animation';
 import Transition from '../transition';
 

@@ -1,13 +1,15 @@
 import React from 'react';
-import get from 'lodash/fp/get';
-import set from 'lodash/fp/set';
-import reduce from 'lodash/fp/reduce';
-import mapValues from 'lodash/fp/mapValues';
-import pipe from 'lodash/fp/pipe';
-import isString from 'lodash/fp/isString';
-import isNumber from 'lodash/fp/isNumber';
-import isBoolean from 'lodash/fp/isBoolean';
-import isObject from 'lodash/fp/isObject';
+import {
+  get,
+  set,
+  reduce,
+  mapValues,
+  pipe,
+  isString,
+  isNumber,
+  isBoolean,
+  isObject
+} from 'lodash/fp';
 import {storiesOf} from '@storybook/react';
 import {withKnobs, text, number, boolean, object, color} from '@storybook/addon-knobs';
 import createTranslate from '@coorpacademy/translate';

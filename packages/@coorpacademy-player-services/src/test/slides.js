@@ -1,7 +1,5 @@
 import test from 'ava';
-import head from 'lodash/fp/head';
-import pipe from 'lodash/fp/pipe';
-import values from 'lodash/fp/values';
+import {head, pipe, values} from 'lodash/fp';
 import createSlidesService from '../slides';
 
 import slidesData from './fixtures/data/slides';

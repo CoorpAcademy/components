@@ -1,5 +1,5 @@
 import React from 'react';
-import isEmpty from 'lodash/fp/isEmpty';
+import {isEmpty} from 'lodash/fp';
 import threadShape from '../post-conditions';
 import ForumPost from '../forum-post';
 import style from './style.css';

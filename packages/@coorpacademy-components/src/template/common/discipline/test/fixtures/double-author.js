@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import disciplinePartners from '../../../../../molecule/discipline-partners/test/fixtures/more-info';
 import disciplineCTA from '../../../../../molecule/discipline-cta/test/fixtures/default';
 import Default from './default';

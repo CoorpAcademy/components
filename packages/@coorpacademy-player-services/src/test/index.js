@@ -1,5 +1,5 @@
 import test from 'ava';
-import keys from 'lodash/fp/keys';
+import {keys} from 'lodash/fp';
 import * as services from '..';
 
 test('should expose services', t => {

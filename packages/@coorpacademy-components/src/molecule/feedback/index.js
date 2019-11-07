@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import pipe from 'lodash/fp/pipe';
-import get from 'lodash/fp/get';
-import extend from 'lodash/fp/extend';
+import {pipe, get, extend} from 'lodash/fp';
 
 import ResourcePlayer, {TYPE_IMAGE, TYPE_VIDEO, TYPE_PDF} from '../resource-player';
 import style from './style.css';

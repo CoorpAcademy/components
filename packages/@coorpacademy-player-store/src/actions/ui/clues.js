@@ -1,4 +1,4 @@
-import get from 'lodash/fp/get';
+import {get} from 'lodash/fp';
 import {getCurrentSlide, getCurrentProgressionId} from '../../utils/state-extract';
 import {fetchClue} from '../api/clues';
 import {requestClue} from '../api/progressions';

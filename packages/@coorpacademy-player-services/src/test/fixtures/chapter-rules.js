@@ -1,5 +1,4 @@
-import get from 'lodash/fp/get';
-import reduce from 'lodash/fp/reduce';
+import {get, reduce} from 'lodash/fp';
 import chapterRulesData from './data/chapter-rules';
 
 const toMapByChapterRef = reduce((m, object) => m.set(object.chapterRef, object));

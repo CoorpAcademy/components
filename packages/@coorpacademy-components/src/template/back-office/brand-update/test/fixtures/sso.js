@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import SSO from '../../../../../organism/brand-form/test/fixtures/sso';
 import BrandTabs from '../../../../../molecule/brand-tabs/test/fixtures/sso';
 import Default from './default';

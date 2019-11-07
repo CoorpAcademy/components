@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
+import {getOr} from 'lodash/fp';
 import stopPropagation from '../../../util/bubbling';
 import Provider from '../../../atom/provider';
 import Button from '../../../atom/button';

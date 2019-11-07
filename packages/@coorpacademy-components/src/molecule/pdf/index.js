@@ -1,5 +1,5 @@
 import React from 'react';
-import get from 'lodash/fp/get';
+import {get} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import {NovaLineFilesOfficeFileOfficePdf as PDFIcon} from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';

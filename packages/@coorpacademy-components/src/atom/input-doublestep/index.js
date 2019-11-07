@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import snakeCase from 'lodash/fp/snakeCase';
-import omit from 'lodash/fp/omit';
-import noop from 'lodash/fp/noop';
+import {snakeCase, omit, noop} from 'lodash/fp';
 import Loader from '../loader';
 import style from './style.css';
 

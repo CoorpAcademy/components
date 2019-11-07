@@ -1,4 +1,4 @@
-import head from 'lodash/fp/head';
+import {head} from 'lodash/fp';
 import doubleAuthors from './double-authors';
 
 const {

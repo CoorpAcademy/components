@@ -1,18 +1,20 @@
 // @flow
-import every from 'lodash/fp/every';
-import filter from 'lodash/fp/filter';
-import get from 'lodash/fp/get';
-import includes from 'lodash/fp/includes';
-import join from 'lodash/fp/join';
-import map from 'lodash/fp/map';
-import maxBy from 'lodash/fp/maxBy';
-import pipe from 'lodash/fp/pipe';
-import reverse from 'lodash/fp/reverse';
-import some from 'lodash/fp/some';
-import split from 'lodash/fp/split';
-import toLower from 'lodash/fp/toLower';
-import trim from 'lodash/fp/trim';
-import zip from 'lodash/fp/zip';
+import {
+  every,
+  filter,
+  get,
+  includes,
+  join,
+  map,
+  maxBy,
+  pipe,
+  reverse,
+  some,
+  split,
+  toLower,
+  trim,
+  zip
+} from 'lodash/fp';
 import FuzzyMatching from 'fuzzy-matching';
 import type {
   Question,

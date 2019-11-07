@@ -1,8 +1,4 @@
-import constant from 'lodash/fp/constant';
-import isUndefined from 'lodash/fp/isUndefined';
-import identity from 'lodash/fp/identity';
-import pipe from 'lodash/fp/pipe';
-import set from 'lodash/fp/set';
+import {constant, isUndefined, identity, pipe, set} from 'lodash/fp';
 
 const setMeta = meta => (isUndefined(meta) ? identity : set('meta', meta));
 

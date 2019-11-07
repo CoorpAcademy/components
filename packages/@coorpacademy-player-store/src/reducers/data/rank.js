@@ -1,9 +1,4 @@
-import update from 'lodash/fp/update';
-import set from 'lodash/fp/set';
-import get from 'lodash/fp/get';
-import isNull from 'lodash/fp/isNull';
-import pipe from 'lodash/fp/pipe';
-import unset from 'lodash/fp/unset';
+import {update, set, get, isNull, pipe, unset} from 'lodash/fp';
 
 import {
   RANK_FETCH_START_REQUEST,

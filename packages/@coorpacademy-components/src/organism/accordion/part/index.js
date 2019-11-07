@@ -1,8 +1,6 @@
 import React from 'react';
-import noop from 'lodash/fp/noop';
-import keys from 'lodash/fp/keys';
+import {noop, keys, get} from 'lodash/fp';
 import PropTypes from 'prop-types';
-import get from 'lodash/fp/get';
 import {
   NovaCompositionNavigationMore as MoreIcon,
   NovaLineLoginKey1 as KeyIcon,

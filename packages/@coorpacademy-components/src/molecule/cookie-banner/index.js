@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/fp/get';
+import {get} from 'lodash/fp';
 import Button from '../../atom/button';
 import Link from '../../atom/link';
 import Provider from '../../atom/provider';

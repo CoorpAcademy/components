@@ -1,7 +1,4 @@
-import get from 'lodash/fp/get';
-import omit from 'lodash/fp/omit';
-import pipe from 'lodash/fp/pipe';
-import set from 'lodash/fp/set';
+import {get, omit, pipe, set} from 'lodash/fp';
 
 const appendJWPOptions = prefix => media => {
   const mimeType = get('mimeType', media) || get(`${prefix}mimeType`, media);

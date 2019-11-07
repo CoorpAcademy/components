@@ -1,6 +1,6 @@
 // @flow strict
 
-import set from 'lodash/fp/set';
+import {set} from 'lodash/fp';
 import {UI_PROGRESSION_ACTION_TYPES} from '../../actions/ui/progressions';
 import type {Action} from '../../definitions/redux';
 import type {SelectAction} from '../../actions/ui/progressions';

@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import min from 'lodash/fp/min';
-import noop from 'lodash/fp/noop';
+import {min, noop} from 'lodash/fp';
 import bezier from 'cubic-bezier';
 
 const EPSILON = 1000;

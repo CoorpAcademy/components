@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import disciplineHeader from '../../../../../molecule/discipline-header/test/fixtures/vimeo';
 import Default from './default';
 

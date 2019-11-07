@@ -1,4 +1,4 @@
-import defaultsDeep from 'lodash/fp/defaultsDeep';
+import {defaultsDeep} from 'lodash/fp';
 import Cohort from '../../../../../organism/brand-form/test/fixtures/cohort';
 import BrandTabs from '../../../../../molecule/brand-tabs/test/fixtures/cohort';
 import Default from './default';

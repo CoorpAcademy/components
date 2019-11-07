@@ -1,15 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import compact from 'lodash/fp/compact';
-import find from 'lodash/fp/find';
-import get from 'lodash/fp/get';
-import getOr from 'lodash/fp/getOr';
-import keys from 'lodash/fp/keys';
-import omit from 'lodash/fp/omit';
-import identity from 'lodash/fp/identity';
-import max from 'lodash/fp/max';
-import pipe from 'lodash/fp/pipe';
-import split from 'lodash/fp/split';
+import {compact, find, get, getOr, keys, omit, identity, max, pipe, split} from 'lodash/fp';
 import {ColorPropType, SrcPropType} from '../../../../util/proptypes';
 import Cta from '../../../../atom/cta';
 import Picture from '../../../../atom/picture';

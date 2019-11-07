@@ -1,5 +1,4 @@
-import update from 'lodash/fp/update';
-import uniqueId from 'lodash/fp/uniqueId';
+import {update, uniqueId} from 'lodash/fp';
 
 import card1 from '../../../../molecule/card/test/fixtures/adaptiv';
 import card2 from '../../../../molecule/card/test/fixtures/freerun';

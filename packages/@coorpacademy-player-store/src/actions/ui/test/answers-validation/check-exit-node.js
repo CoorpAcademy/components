@@ -1,7 +1,5 @@
 import test from 'ava';
-import pipe from 'lodash/fp/pipe';
-import set from 'lodash/fp/set';
-import flatten from 'lodash/fp/flatten';
+import {pipe, set, flatten} from 'lodash/fp';
 import macro from '../../../test/helpers/macro';
 import {validateAnswer} from '../../answers';
 import {

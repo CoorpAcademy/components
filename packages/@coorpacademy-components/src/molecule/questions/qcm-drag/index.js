@@ -1,8 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import pipe from 'lodash/fp/pipe';
-import filter from 'lodash/fp/filter';
-import orderBy from 'lodash/fp/orderBy';
+import {pipe, filter, orderBy} from 'lodash/fp';
 import Provider from '../../../atom/provider';
 import style from './style.css';
 

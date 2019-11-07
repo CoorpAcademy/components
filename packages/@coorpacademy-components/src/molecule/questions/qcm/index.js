@@ -1,8 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
-import maxBy from 'lodash/fp/maxBy';
+import {getOr, maxBy} from 'lodash/fp';
 import Provider from '../../../atom/provider';
 import style from './style.css';
 

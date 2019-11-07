@@ -1,5 +1,4 @@
-import pipe from 'lodash/fp/pipe';
-import replace from 'lodash/fp/replace';
+import {pipe, replace} from 'lodash/fp';
 
 const hook = require('css-modules-require-hook');
 const genericNames = require('generic-names');
