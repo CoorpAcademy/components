@@ -105,7 +105,7 @@ class InputDoublestep extends React.Component {
   }
 
   render() {
-    const {toggleValue, onClick} = this.props;
+    const {toggleValue, onClick, disabled} = this.props;
 
     const handleOnClick = e => {
       e.preventDefault();
@@ -113,7 +113,10 @@ class InputDoublestep extends React.Component {
     };
 
     const formView = !this.state.open ? (
-      <span onClick={this.handleToggle} className={style.toggle}>
+      <span
+        onClick={disabled ? noop : this.handleToggle}
+        className={disabled ? style.toggleDisabled : style.toggle}
+      >
         {toggleValue}
       </span>
     ) : (

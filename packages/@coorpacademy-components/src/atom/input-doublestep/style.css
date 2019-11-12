@@ -46,6 +46,13 @@
   text-align: center;
 }
 
+.toggleDisabled {
+  composes: toggle;
+  cursor: default;
+  background-color: light;
+  border: 1px solid light;
+}
+
 .button {
   height: 32px;
   padding: 0 15px;
