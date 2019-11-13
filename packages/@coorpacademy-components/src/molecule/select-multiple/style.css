@@ -130,3 +130,35 @@
   left: 180px;
   border-top: none;
 }
+
+/*
+  cockpit theme
+*/
+
+.cockpit {
+  composes: default;
+  display: flex;
+  align-items: center;
+  margin-left: 20px;
+  height: 35px;
+  flex-grow: 0;
+}
+
+.cockpit .title {
+  white-space: nowrap;
+}
+
+.cockpit .select {
+  line-height: 35px;
+  height: 35px;
+  width: 170px;
+  font-weight: normal;
+  background-color: white;
+  border-bottom: solid 0.5px light;
+  color: #000000;
+}
+
+.cockpit .activeChoices {
+  width: 170px;
+  border-top: none;
+}

@@ -8,7 +8,8 @@ import Provider from '../../atom/provider';
 import style from './style.css';
 
 const themeStyle = {
-  setup: style.setup
+  setup: style.setup,
+  cockpit: style.cockpit
 };
 
 class SelectMultiple extends React.Component {
@@ -70,7 +71,7 @@ class SelectMultiple extends React.Component {
     const {skin} = this.context;
     const defaultColor = get('common.primary', skin);
     const black = get('common.black', skin);
-    const {title, options, theme} = this.props;
+    const {title, options, theme, placeholder} = this.props;
 
     this._choices = options;
 
@@ -97,8 +98,8 @@ class SelectMultiple extends React.Component {
     return (
       <div className={mainClass} ref={node => (this.node = node)}>
         {titleView}
-        <div className={style.select} title={selection} onClick={this.handleOnClick}>
-          {selection}
+        <div className={style.select} title={selection || placeholder} onClick={this.handleOnClick}>
+          {selection || placeholder}
           <ArrowDown color={black} className={classnames(style.arrow, {[style.down]: isActive})} />
         </div>
         <div className={isActive ? style.activeChoices : style.choices}>
