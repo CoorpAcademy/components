@@ -466,6 +466,8 @@ import MoleculeScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtu
 import MoleculeSearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
 import MoleculeSearchFixtureWithValue from '../src/molecule/search/test/fixtures/with-value';
 import MoleculeSearchFormFixtureDefault from '../src/molecule/search-form/test/fixtures/default';
+import MoleculeSelectMultipleFixtureCheckedCockpitTheme from '../src/molecule/select-multiple/test/fixtures/checked-cockpit-theme';
+import MoleculeSelectMultipleFixtureCheckedSetupTheme from '../src/molecule/select-multiple/test/fixtures/checked-setup-theme';
 import MoleculeSelectMultipleFixtureChecked from '../src/molecule/select-multiple/test/fixtures/checked';
 import MoleculeSelectMultipleFixtureDefault from '../src/molecule/select-multiple/test/fixtures/default';
 import MoleculeSetupCohortItemFixtureCreateNewValid from '../src/molecule/setup-cohort-item/test/fixtures/create-new-valid';
@@ -1361,6 +1363,8 @@ export const fixtures = {
       Default: MoleculeSearchFormFixtureDefault
     },
     MoleculeSelectMultiple: {
+      CheckedCockpitTheme: MoleculeSelectMultipleFixtureCheckedCockpitTheme,
+      CheckedSetupTheme: MoleculeSelectMultipleFixtureCheckedSetupTheme,
       Checked: MoleculeSelectMultipleFixtureChecked,
       Default: MoleculeSelectMultipleFixtureDefault
     },
