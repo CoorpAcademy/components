@@ -93,6 +93,7 @@ class InputDoublestep extends React.Component {
       open: false
     };
     this.handleToggle = this.handleToggle.bind(this);
+    this.handleOnClick = this.handleOnClick.bind(this);
   }
 
   handleToggle() {
@@ -104,13 +105,14 @@ class InputDoublestep extends React.Component {
     this.state.open ? onCloseConfirmation() : onOpenConfirmation();
   }
 
-  render() {
-    const {toggleValue, onClick, disabled} = this.props;
+  handleOnClick(e) {
+    e.preventDefault();
+    this.setState({open: false});
+    return this.props.onClick(e);
+  }
 
-    const handleOnClick = e => {
-      e.preventDefault();
-      return onClick(e);
-    };
+  render() {
+    const {toggleValue, disabled} = this.props;
 
     const formView = !this.state.open ? (
       <span
@@ -120,7 +122,11 @@ class InputDoublestep extends React.Component {
         {toggleValue}
       </span>
     ) : (
-      <Confirmation {...this.props} onHandleClose={this.handleToggle} onConfirm={handleOnClick} />
+      <Confirmation
+        {...this.props}
+        onHandleClose={this.handleToggle}
+        onConfirm={this.handleOnClick}
+      />
     );
 
     return (
