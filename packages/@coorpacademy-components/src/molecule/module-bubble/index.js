@@ -9,7 +9,7 @@ const ModuleBubble = (props, context) => {
   const {skin} = context;
 
   // eslint-disable-next-line no-shadow
-  const {onClick, status, filtered, disabled} = props;
+  const {onClick, status, iconColor, filtered, disabled} = props;
 
   const code = getOr('', ['icons', status], skin);
   const icon = String.fromCharCode(code);
@@ -20,8 +20,6 @@ const ModuleBubble = (props, context) => {
       stopPropagation,
       unary(partial(onClick, [props]))
     );
-
-  const iconColor = getOr('#00B0FF', ['common', 'primary'], skin);
 
   return (
     <div className={filtered ? style.filtered : style.modulewrapper} data-name="moduleBubble">
@@ -48,6 +46,7 @@ ModuleBubble.contextTypes = {
 ModuleBubble.propTypes = {
   disabled: PropTypes.bool,
   filtered: PropTypes.bool,
+  iconColor: PropTypes.string,
   status: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired
 };

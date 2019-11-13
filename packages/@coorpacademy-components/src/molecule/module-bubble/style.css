@@ -1,7 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value xtraLightGrey from colors;
 @value white from colors;
-
+@value dark from colors;
 .modulewrapper {
   position: relative;
   display: inline-block;
@@ -45,6 +45,7 @@
   width: 38px;
   height: 38px;
   transition-duration: 0.5s;
+  color: dark;
 }
 
 .iconDisabled {

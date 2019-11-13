@@ -1,16 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {has, getOr} from 'lodash/fp';
-import Provider from '../../atom/provider';
+import {has} from 'lodash/fp';
+import classnames from 'classnames';
 import ModuleBubble from '../module-bubble';
 import style from './style.css';
 
 const ScopeTabs = (props, context) => {
-  const {skin} = context;
-
   const {onClick, selected = 0, levels} = props;
-
-  const primary = getOr('#00B0FF', ['common', 'primary'], skin);
 
   return (
     <ul data-name="scopeTabs" className={style.tabs}>
@@ -18,27 +14,6 @@ const ScopeTabs = (props, context) => {
         levels.map((level, index) => {
           const handleClick = () => onClick(index);
           const isSelected = selected === index;
-          const tabSkin = isSelected
-            ? {
-                background: primary,
-                border: `1px solid ${primary}`
-              }
-            : {
-                color: primary
-              };
-
-          const last = index === levels.length - 1;
-
-          const arrow =
-            isSelected && !last ? (
-              <span
-                className={style.arrow}
-                style={{
-                  borderColor: `transparent transparent transparent ${primary}`
-                }}
-              />
-            ) : null;
-
           const bubble = has('status', level) ? (
             <div className={style.module}>
               <ModuleBubble {...level} onClick={handleClick} />
@@ -51,21 +26,15 @@ const ScopeTabs = (props, context) => {
               data-index={index}
               key={index}
               onClick={handleClick}
-              className={isSelected ? style.currentTab : style.defaultTab}
-              style={tabSkin}
+              className={classnames(style.defaultTab, isSelected ? style.currentTab : null)}
             >
               {bubble}
               <div className={style.name}>{level.name}</div>
-              {arrow}
             </li>
           );
         })}
     </ul>
   );
-};
-
-ScopeTabs.contextTypes = {
-  skin: Provider.childContextTypes.skin
 };
 
 ScopeTabs.propTypes = {

@@ -2,6 +2,7 @@
 @value white from colors;
 @value light from colors;
 @value xtraLightGrey from colors;
+@value dark from colors;
 
 .tabs {
   display: flex;
@@ -22,12 +23,15 @@
   font-size: 16px;
   line-height: 50px;
   height: 50px;
-  color: brand;
+  color: dark;
   background: xtraLightGrey;
   border: 1px solid light;
   cursor: pointer;
   flex-direction: row;
   justify-content: center;
+  transition: all 0.3s ease-out;
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .defaultTab {
@@ -39,28 +43,25 @@
   transition: transform 0.3s ease-out;
   transform: scale(1.1);
 }
-
+.defaultTab:after {
+  content: "";
+  height: 3px;
+  width: 100%;
+  position: absolute;
+  background: dark;
+  bottom: 0px;
+  right: 100%;
+  transition: right 0.3s ease-out;
+}
+.defaultTab:hover:after {
+  right: 0px;
+}
 .currentTab {
   composes: tab;
-  color: white;
-  font-family: "Open Sans";
   font-weight: 800;
 }
-
-.arrow {
-  display: block;
-  position: absolute;
-  right: -6px;
-  top: 7px;
-  z-index: 1;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 18px 0 18px 14px;
-}
-
-.currentTab:last-child::after {
-  display: none;
+.defaultTab.currentTab:after {
+  right: 0px;
 }
 
 .name {

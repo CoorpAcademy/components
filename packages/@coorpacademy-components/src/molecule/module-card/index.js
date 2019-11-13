@@ -1,17 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {getOr} from 'lodash/fp';
 import ModuleBubble from '../module-bubble';
+import Provider from '../../atom/provider';
 import style from './style.css';
 
 function ModuleCard(props, context) {
+  const {skin} = context;
   const {label, level, onClick} = props;
 
+  const iconColor = getOr('#00B0FF', ['common', 'primary'], skin);
   return (
     <div className={style.default} data-name="module-card" onClick={onClick}>
       <div className={style.title}>{label}</div>
       <div className={style.level}>{level}</div>
       <div className={style.module}>
-        <ModuleBubble {...props} onClick={onClick} />
+        <ModuleBubble {...props} iconColor={iconColor} onClick={onClick} />
       </div>
     </div>
   );
@@ -23,4 +27,7 @@ ModuleCard.propTypes = {
   onClick: PropTypes.func.isRequired
 };
 
+ModuleCard.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
 export default ModuleCard;
