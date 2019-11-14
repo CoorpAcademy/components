@@ -421,6 +421,7 @@ import MoleculeMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtu
 import MoleculeMessagePopinFixtureDefault from '../src/molecule/message-popin/test/fixtures/default';
 import MoleculeModuleBubbleFixtureDefault from '../src/molecule/module-bubble/test/fixtures/default';
 import MoleculeModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
+import MoleculeModuleBubbleFixtureFiltered from '../src/molecule/module-bubble/test/fixtures/filtered';
 import MoleculeModuleCardFixtureActive from '../src/molecule/module-card/test/fixtures/active';
 import MoleculeModuleCardFixtureRestarted from '../src/molecule/module-card/test/fixtures/restarted';
 import MoleculeNewsFixtureDefault from '../src/molecule/news/test/fixtures/default';
@@ -463,6 +464,7 @@ import MoleculeScopeContentFixtureMedias from '../src/molecule/scope-content/tes
 import MoleculeScopeContentFixtureWithOnclick from '../src/molecule/scope-content/test/fixtures/with-onclick';
 import MoleculeScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
 import MoleculeScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
+import MoleculeScopeTabsFixtureWithoutStatus from '../src/molecule/scope-tabs/test/fixtures/without-status';
 import MoleculeSearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
 import MoleculeSearchFixtureWithValue from '../src/molecule/search/test/fixtures/with-value';
 import MoleculeSearchFormFixtureDefault from '../src/molecule/search-form/test/fixtures/default';
@@ -1305,7 +1307,8 @@ export const fixtures = {
     },
     MoleculeModuleBubble: {
       Default: MoleculeModuleBubbleFixtureDefault,
-      Disabled: MoleculeModuleBubbleFixtureDisabled
+      Disabled: MoleculeModuleBubbleFixtureDisabled,
+      Filtered: MoleculeModuleBubbleFixtureFiltered
     },
     MoleculeModuleCard: {
       Active: MoleculeModuleCardFixtureActive,
@@ -1353,7 +1356,8 @@ export const fixtures = {
     },
     MoleculeScopeTabs: {
       Default: MoleculeScopeTabsFixtureDefault,
-      Empty: MoleculeScopeTabsFixtureEmpty
+      Empty: MoleculeScopeTabsFixtureEmpty,
+      WithoutStatus: MoleculeScopeTabsFixtureWithoutStatus
     },
     MoleculeSearch: {
       Default: MoleculeSearchFixtureDefault,
