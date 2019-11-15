@@ -14,6 +14,14 @@
   margin-bottom: 30px;
 }
 
+.sticky {
+  position: fixed;
+  left: 50%;
+  margin-left: 330px;
+  top: 80px;
+  width: 280px;
+}
+
 .leftColumn {
   composes: column;
   float: left;
@@ -40,7 +48,14 @@
   .wrapper {
     display: flex;
   }
-
+  .sticky {
+    composes: wrapper from '../layout.css';
+    position: inherit;
+    display: flex;
+    flex-basis: 100%;
+    order: 2;
+    margin-left: 0px;
+  }
   .column {
     display: flex;
     flex-basis: 100%;
@@ -66,5 +81,8 @@
 @media mobile {
   .content {
     width: 100%;
+  }
+  .sticky {
+    padding: 0px;
   }
 }
