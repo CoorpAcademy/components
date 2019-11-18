@@ -193,13 +193,6 @@ test(
       }
     },
     {
-      type: RANK_FETCH_START_REQUEST
-    },
-    {
-      type: RANK_FETCH_START_SUCCESS,
-      payload: 1
-    },
-    {
       type: CONTENT_FETCH_REQUEST,
       meta: {type: 'chapter', ref: 'baz'}
     },
@@ -209,38 +202,11 @@ test(
       payload: {_id: 'baz', foo: 3}
     },
     {
-      type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: {type: 'chapter', ref: 'baz'}
-    },
-    {
-      type: PROGRESSION_FETCH_BESTOF_SUCCESS,
-      meta: {type: 'chapter', ref: 'baz'},
-      payload: 16
-    },
-    {
-      type: ENGINE_CONFIG_FETCH_REQUEST,
-      meta: {engine: {ref: 'qux', version: 'quux'}}
-    },
-    {
-      type: ENGINE_CONFIG_FETCH_SUCCESS,
-      meta: {engine: {ref: 'qux', version: 'quux'}},
-      payload: 42
-    },
-    {
-      type: CONTENT_INFO_FETCH_REQUEST,
-      meta: {type: 'chapter', ref: 'baz'}
-    },
-    {
-      type: CONTENT_INFO_FETCH_SUCCESS,
-      meta: {type: 'chapter', ref: 'baz'},
-      payload: 'info'
-    },
-    {
       type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
       payload: 'content.type must be either slide, node, success or failure'
     }
   ],
-  9
+  2
 );
 
 test(
@@ -301,13 +267,6 @@ test(
       }
     },
     {
-      type: RANK_FETCH_START_REQUEST
-    },
-    {
-      type: RANK_FETCH_START_SUCCESS,
-      payload: 1
-    },
-    {
       type: CONTENT_FETCH_REQUEST,
       meta: {type: 'chapter', ref: 'baz'}
     },
@@ -317,8 +276,27 @@ test(
       payload: {_id: 'baz', foo: 3}
     },
     {
+      type: RANK_FETCH_START_REQUEST
+    },
+    {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
       meta: {type: 'chapter', ref: 'baz'}
+    },
+    {
+      type: ENGINE_CONFIG_FETCH_REQUEST,
+      meta: {engine: {ref: 'qux', version: 'quux'}}
+    },
+    {
+      type: CONTENT_INFO_FETCH_REQUEST,
+      meta: {type: 'chapter', ref: 'baz'}
+    },
+    {
+      type: CONTENT_FETCH_REQUEST,
+      meta: {type: 'slide', ref: 'bar'}
+    },
+    {
+      type: RANK_FETCH_START_SUCCESS,
+      payload: 1
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
@@ -326,26 +304,14 @@ test(
       payload: 16
     },
     {
-      type: ENGINE_CONFIG_FETCH_REQUEST,
-      meta: {engine: {ref: 'qux', version: 'quux'}}
-    },
-    {
       type: ENGINE_CONFIG_FETCH_SUCCESS,
       meta: {engine: {ref: 'qux', version: 'quux'}},
       payload: 42
     },
     {
-      type: CONTENT_INFO_FETCH_REQUEST,
-      meta: {type: 'chapter', ref: 'baz'}
-    },
-    {
       type: CONTENT_INFO_FETCH_SUCCESS,
       meta: {type: 'chapter', ref: 'baz'},
       payload: 'info'
-    },
-    {
-      type: CONTENT_FETCH_REQUEST,
-      meta: {type: 'slide', ref: 'bar'}
     },
     {
       type: CONTENT_FETCH_SUCCESS,
@@ -423,13 +389,6 @@ test(
       }
     },
     {
-      type: RANK_FETCH_START_REQUEST
-    },
-    {
-      type: RANK_FETCH_START_SUCCESS,
-      payload: 1
-    },
-    {
       type: CONTENT_FETCH_REQUEST,
       meta: {type: 'chapter', ref: 'baz'}
     },
@@ -442,8 +401,27 @@ test(
       }
     },
     {
+      type: RANK_FETCH_START_REQUEST
+    },
+    {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
       meta: {type: 'chapter', ref: 'baz'}
+    },
+    {
+      type: ENGINE_CONFIG_FETCH_REQUEST,
+      meta: {engine: {ref: 'qux', version: 'quux'}}
+    },
+    {
+      type: CONTENT_INFO_FETCH_REQUEST,
+      meta: {type: 'chapter', ref: 'baz'}
+    },
+    {
+      type: CONTENT_FETCH_REQUEST,
+      meta: {type: 'slide', ref: 'bar'}
+    },
+    {
+      type: RANK_FETCH_START_SUCCESS,
+      payload: 1
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
@@ -451,26 +429,14 @@ test(
       payload: 16
     },
     {
-      type: ENGINE_CONFIG_FETCH_REQUEST,
-      meta: {engine: {ref: 'qux', version: 'quux'}}
-    },
-    {
       type: ENGINE_CONFIG_FETCH_SUCCESS,
       meta: {engine: {ref: 'qux', version: 'quux'}},
       payload: 42
     },
     {
-      type: CONTENT_INFO_FETCH_REQUEST,
-      meta: {type: 'chapter', ref: 'baz'}
-    },
-    {
       type: CONTENT_INFO_FETCH_SUCCESS,
       meta: {type: 'chapter', ref: 'baz'},
       payload: 'info'
-    },
-    {
-      type: CONTENT_FETCH_REQUEST,
-      meta: {type: 'slide', ref: 'bar'}
     },
     {
       type: CONTENT_FETCH_SUCCESS,
@@ -558,13 +524,6 @@ test(
       }
     },
     {
-      type: RANK_FETCH_START_REQUEST
-    },
-    {
-      type: RANK_FETCH_START_SUCCESS,
-      payload: 1
-    },
-    {
       type: CONTENT_FETCH_REQUEST,
       meta: {type: 'chapter', ref: 'baz'}
     },
@@ -574,31 +533,19 @@ test(
       payload: {_id: 'baz', foo: 3}
     },
     {
-      type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: {type: 'chapter', ref: 'baz'}
+      type: RANK_FETCH_START_REQUEST
     },
     {
-      type: PROGRESSION_FETCH_BESTOF_SUCCESS,
-      meta: {type: 'chapter', ref: 'baz'},
-      payload: 16
+      type: PROGRESSION_FETCH_BESTOF_REQUEST,
+      meta: {type: 'chapter', ref: 'baz'}
     },
     {
       type: ENGINE_CONFIG_FETCH_REQUEST,
       meta: {engine: {ref: 'qux', version: 'quux'}}
     },
     {
-      type: ENGINE_CONFIG_FETCH_SUCCESS,
-      meta: {engine: {ref: 'qux', version: 'quux'}},
-      payload: 42
-    },
-    {
       type: CONTENT_INFO_FETCH_REQUEST,
       meta: {type: 'chapter', ref: 'baz'}
-    },
-    {
-      type: CONTENT_INFO_FETCH_SUCCESS,
-      meta: {type: 'chapter', ref: 'baz'},
-      payload: 'info'
     },
     {
       type: RECO_FETCH_REQUEST,
@@ -614,6 +561,25 @@ test(
     {
       type: EXIT_NODE_FETCH_REQUEST,
       meta: {id: 'bar'}
+    },
+    {
+      type: RANK_FETCH_START_SUCCESS,
+      payload: 1
+    },
+    {
+      type: PROGRESSION_FETCH_BESTOF_SUCCESS,
+      meta: {type: 'chapter', ref: 'baz'},
+      payload: 16
+    },
+    {
+      type: ENGINE_CONFIG_FETCH_SUCCESS,
+      meta: {engine: {ref: 'qux', version: 'quux'}},
+      payload: 42
+    },
+    {
+      type: CONTENT_INFO_FETCH_SUCCESS,
+      meta: {type: 'chapter', ref: 'baz'},
+      payload: 'info'
     },
     {
       type: RECO_FETCH_SUCCESS,
@@ -764,13 +730,6 @@ test(
       }
     },
     {
-      type: RANK_FETCH_START_REQUEST
-    },
-    {
-      type: RANK_FETCH_START_SUCCESS,
-      payload: 1
-    },
-    {
       type: CONTENT_FETCH_REQUEST,
       meta: {type: 'level', ref: '1B'}
     },
@@ -780,31 +739,19 @@ test(
       payload: {level: 'base', ref: '1B'}
     },
     {
-      type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: {type: 'level', ref: '1B'}
+      type: RANK_FETCH_START_REQUEST
     },
     {
-      type: PROGRESSION_FETCH_BESTOF_SUCCESS,
-      meta: {type: 'level', ref: '1B'},
-      payload: 32
+      type: PROGRESSION_FETCH_BESTOF_REQUEST,
+      meta: {type: 'level', ref: '1B'}
     },
     {
       type: ENGINE_CONFIG_FETCH_REQUEST,
       meta: {engine: {ref: 'learner', version: '1'}}
     },
     {
-      type: ENGINE_CONFIG_FETCH_SUCCESS,
-      meta: {engine: {ref: 'learner', version: '1'}},
-      payload: 42
-    },
-    {
       type: CONTENT_INFO_FETCH_REQUEST,
       meta: {type: 'level', ref: '1B'}
-    },
-    {
-      type: CONTENT_INFO_FETCH_SUCCESS,
-      meta: {type: 'level', ref: '1B'},
-      payload: 'info'
     },
     {
       type: RECO_FETCH_REQUEST,
@@ -820,6 +767,25 @@ test(
     {
       type: EXIT_NODE_FETCH_REQUEST,
       meta: {id: 'bar'}
+    },
+    {
+      type: RANK_FETCH_START_SUCCESS,
+      payload: 1
+    },
+    {
+      type: PROGRESSION_FETCH_BESTOF_SUCCESS,
+      meta: {type: 'level', ref: '1B'},
+      payload: 32
+    },
+    {
+      type: ENGINE_CONFIG_FETCH_SUCCESS,
+      meta: {engine: {ref: 'learner', version: '1'}},
+      payload: 42
+    },
+    {
+      type: CONTENT_INFO_FETCH_SUCCESS,
+      meta: {type: 'level', ref: '1B'},
+      payload: 'info'
     },
     {
       type: RECO_FETCH_SUCCESS,
@@ -922,13 +888,6 @@ test(
       }
     },
     {
-      type: RANK_FETCH_START_REQUEST
-    },
-    {
-      type: RANK_FETCH_START_SUCCESS,
-      payload: 1
-    },
-    {
       type: CONTENT_FETCH_REQUEST,
       meta: {type: 'chapter', ref: 'baz'}
     },
@@ -938,8 +897,31 @@ test(
       payload: {_id: 'baz', foo: 3}
     },
     {
+      type: RANK_FETCH_START_REQUEST
+    },
+    {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
       meta: {type: 'chapter', ref: 'baz'}
+    },
+    {
+      type: ENGINE_CONFIG_FETCH_REQUEST,
+      meta: {engine: {ref: 'qux', version: 'quux'}}
+    },
+    {
+      type: CONTENT_INFO_FETCH_REQUEST,
+      meta: {type: 'chapter', ref: 'baz'}
+    },
+    {
+      type: CONTENT_FETCH_REQUEST,
+      meta: {type: 'slide', ref: 'bar'}
+    },
+    {
+      type: ANSWER_FETCH_REQUEST,
+      meta: {progressionId: 'xtralife', slideId: 'bar'}
+    },
+    {
+      type: RANK_FETCH_START_SUCCESS,
+      payload: 1
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
@@ -947,17 +929,9 @@ test(
       payload: 16
     },
     {
-      type: ENGINE_CONFIG_FETCH_REQUEST,
-      meta: {engine: {ref: 'qux', version: 'quux'}}
-    },
-    {
       type: ENGINE_CONFIG_FETCH_SUCCESS,
       meta: {engine: {ref: 'qux', version: 'quux'}},
       payload: 42
-    },
-    {
-      type: CONTENT_INFO_FETCH_REQUEST,
-      meta: {type: 'chapter', ref: 'baz'}
     },
     {
       type: CONTENT_INFO_FETCH_SUCCESS,
@@ -965,17 +939,9 @@ test(
       payload: 'info'
     },
     {
-      type: CONTENT_FETCH_REQUEST,
-      meta: {type: 'slide', ref: 'bar'}
-    },
-    {
       type: CONTENT_FETCH_SUCCESS,
       meta: {type: 'slide', ref: 'bar'},
       payload: slide
-    },
-    {
-      type: ANSWER_FETCH_REQUEST,
-      meta: {progressionId: 'xtralife', slideId: 'bar'}
     },
     {
       type: ANSWER_FETCH_SUCCESS,
@@ -1073,18 +1039,11 @@ test(
       }
     },
     {
-      type: RANK_FETCH_START_REQUEST
-    },
-    {
-      type: RANK_FETCH_START_SUCCESS,
-      payload: 1
-    },
-    {
       type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
       payload: 'progression "foo" has no content.'
     }
   ],
-  2
+  1
 );
 
 test(
@@ -1144,18 +1103,11 @@ test(
       }
     },
     {
-      type: RANK_FETCH_START_REQUEST
-    },
-    {
-      type: RANK_FETCH_START_SUCCESS,
-      payload: 1
-    },
-    {
       type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
       payload: 'progression "foo" has no engine.'
     }
   ],
-  2
+  1
 );
 
 test(
@@ -1232,54 +1184,11 @@ test(
       }
     },
     {
-      type: RANK_FETCH_START_REQUEST
-    },
-    {
-      type: RANK_FETCH_START_SUCCESS,
-      payload: 1
-    },
-    {
-      type: CONTENT_FETCH_REQUEST,
-      meta: {type: 'level', ref: '1B'}
-    },
-    {
-      type: CONTENT_FETCH_SUCCESS,
-      meta: {type: 'level', ref: '1B'},
-      payload: {level: 'base', ref: '1B'}
-    },
-    {
-      type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: {type: 'level', ref: '1B'}
-    },
-    {
-      type: PROGRESSION_FETCH_BESTOF_SUCCESS,
-      meta: {type: 'level', ref: '1B'},
-      payload: 32
-    },
-    {
-      type: ENGINE_CONFIG_FETCH_REQUEST,
-      meta: {engine: {ref: 'learner', version: '1'}}
-    },
-    {
-      type: ENGINE_CONFIG_FETCH_SUCCESS,
-      meta: {engine: {ref: 'learner', version: '1'}},
-      payload: 42
-    },
-    {
-      type: CONTENT_INFO_FETCH_REQUEST,
-      meta: {type: 'level', ref: '1B'}
-    },
-    {
-      type: CONTENT_INFO_FETCH_SUCCESS,
-      meta: {type: 'level', ref: '1B'},
-      payload: 'info'
-    },
-    {
       type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
       payload: 'progression "foo" has no state.nextContent.'
     }
   ],
-  10
+  1
 );
 
 test(
@@ -1358,13 +1267,6 @@ test(
       }
     },
     {
-      type: RANK_FETCH_START_REQUEST
-    },
-    {
-      type: RANK_FETCH_START_SUCCESS,
-      payload: 1
-    },
-    {
       type: CONTENT_FETCH_REQUEST,
       meta: {type: 'chapter', ref: 'baz'}
     },
@@ -1374,38 +1276,11 @@ test(
       payload: {_id: 'baz', foo: 3}
     },
     {
-      type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: {type: 'chapter', ref: 'baz'}
-    },
-    {
-      type: PROGRESSION_FETCH_BESTOF_SUCCESS,
-      meta: {type: 'chapter', ref: 'baz'},
-      payload: 16
-    },
-    {
-      type: ENGINE_CONFIG_FETCH_REQUEST,
-      meta: {engine: {ref: 'qux', version: 'quux'}}
-    },
-    {
-      type: ENGINE_CONFIG_FETCH_SUCCESS,
-      meta: {engine: {ref: 'qux', version: 'quux'}},
-      payload: 42
-    },
-    {
-      type: CONTENT_INFO_FETCH_REQUEST,
-      meta: {type: 'chapter', ref: 'baz'}
-    },
-    {
-      type: CONTENT_INFO_FETCH_SUCCESS,
-      meta: {type: 'chapter', ref: 'baz'},
-      payload: 'info'
-    },
-    {
       type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
       payload: 'progression "xtralife" has no state.content.'
     }
   ],
-  9
+  2
 );
 
 test(

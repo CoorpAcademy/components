@@ -113,13 +113,6 @@ test(
       meta: {id: 'foo'}
     },
     {
-      type: RANK_FETCH_START_REQUEST
-    },
-    {
-      type: RANK_FETCH_START_SUCCESS,
-      payload: 1
-    },
-    {
       type: CONTENT_FETCH_REQUEST,
       meta: {type: 'chapter', ref: 'chapId'}
     },
@@ -129,13 +122,11 @@ test(
       payload: {_id: 'chapId', foo: 'baz'}
     },
     {
-      type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: {type: 'chapter', ref: 'chapId'}
+      type: RANK_FETCH_START_REQUEST
     },
     {
-      type: PROGRESSION_FETCH_BESTOF_SUCCESS,
-      meta: {type: 'chapter', ref: 'chapId'},
-      payload: 16
+      type: PROGRESSION_FETCH_BESTOF_REQUEST,
+      meta: {type: 'chapter', ref: 'chapId'}
     },
     {
       type: ENGINE_CONFIG_FETCH_REQUEST,
@@ -146,13 +137,22 @@ test(
       meta: {type: 'chapter', ref: 'chapId'}
     },
     {
+      type: CONTENT_FETCH_REQUEST,
+      meta: {type: 'slide', ref: 'slideRef'}
+    },
+    {
+      type: RANK_FETCH_START_SUCCESS,
+      payload: 1
+    },
+    {
+      type: PROGRESSION_FETCH_BESTOF_SUCCESS,
+      meta: {type: 'chapter', ref: 'chapId'},
+      payload: 16
+    },
+    {
       type: CONTENT_INFO_FETCH_SUCCESS,
       meta: {type: 'chapter', ref: 'chapId'},
       payload: {nbSlides: 20}
-    },
-    {
-      type: CONTENT_FETCH_REQUEST,
-      meta: {type: 'slide', ref: 'slideRef'}
     },
     {
       type: CONTENT_FETCH_SUCCESS,
@@ -261,13 +261,6 @@ test(
       meta: {id: 'foo'}
     },
     {
-      type: RANK_FETCH_START_REQUEST
-    },
-    {
-      type: RANK_FETCH_START_SUCCESS,
-      payload: 1
-    },
-    {
       type: CONTENT_FETCH_REQUEST,
       meta: {type: 'chapter', ref: 'chapId'}
     },
@@ -277,13 +270,11 @@ test(
       payload: {_id: 'chapId', foo: 'baz'}
     },
     {
-      type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: {type: 'chapter', ref: 'chapId'}
+      type: RANK_FETCH_START_REQUEST
     },
     {
-      type: PROGRESSION_FETCH_BESTOF_SUCCESS,
-      meta: {type: 'chapter', ref: 'chapId'},
-      payload: 16
+      type: PROGRESSION_FETCH_BESTOF_REQUEST,
+      meta: {type: 'chapter', ref: 'chapId'}
     },
     {
       type: ENGINE_CONFIG_FETCH_REQUEST,
@@ -294,13 +285,22 @@ test(
       meta: {type: 'chapter', ref: 'chapId'}
     },
     {
+      type: CONTENT_FETCH_REQUEST,
+      meta: {type: 'slide', ref: 'slideRef'}
+    },
+    {
+      type: RANK_FETCH_START_SUCCESS,
+      payload: 1
+    },
+    {
+      type: PROGRESSION_FETCH_BESTOF_SUCCESS,
+      meta: {type: 'chapter', ref: 'chapId'},
+      payload: 16
+    },
+    {
       type: CONTENT_INFO_FETCH_SUCCESS,
       meta: {type: 'chapter', ref: 'chapId'},
       payload: {nbSlides: 20}
-    },
-    {
-      type: CONTENT_FETCH_REQUEST,
-      meta: {type: 'slide', ref: 'slideRef'}
     },
     {
       type: CONTENT_FETCH_SUCCESS,

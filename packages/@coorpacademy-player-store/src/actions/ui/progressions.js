@@ -25,7 +25,6 @@ import {selectRoute} from './route';
 
 /* eslint-disable flowtype/type-id-match */
 type UI_SELECT_PROGRESSION = '@@ui/SELECT_PROGRESSION';
-type UI_SELECT_PROGRESSION_EXTRA_LIFE_DONE = '@@ui/SELECT_PROGRESSION_EXTRA_LIFE_DONE';
 type UI_SELECT_PROGRESSION_FAILURE = '@@ui/SELECT_PROGRESSION_FAILURE';
 type OPEN_ASSISTANCE_REQUEST = '@@progression/OPEN_ASSISTANCE_REQUEST';
 type OPEN_ASSISTANCE_SUCCESS = '@@progression/OPEN_ASSISTANCE_SUCCESS';
@@ -34,14 +33,12 @@ type OPEN_ASSISTANCE_FAILURE = '@@progression/OPEN_ASSISTANCE_FAILURE';
 
 export const UI_PROGRESSION_ACTION_TYPES: {
   SELECT_PROGRESSION: UI_SELECT_PROGRESSION,
-  SELECT_PROGRESSION_EXTRA_LIFE_DONE: UI_SELECT_PROGRESSION_EXTRA_LIFE_DONE,
   SELECT_PROGRESSION_FAILURE: UI_SELECT_PROGRESSION_FAILURE,
   OPEN_ASSISTANCE_REQUEST: OPEN_ASSISTANCE_REQUEST,
   OPEN_ASSISTANCE_SUCCESS: OPEN_ASSISTANCE_SUCCESS,
   OPEN_ASSISTANCE_FAILURE: OPEN_ASSISTANCE_FAILURE
 } = {
   SELECT_PROGRESSION: '@@ui/SELECT_PROGRESSION',
-  SELECT_PROGRESSION_EXTRA_LIFE_DONE: '@@ui/SELECT_PROGRESSION_EXTRA_LIFE_DONE',
   SELECT_PROGRESSION_FAILURE: '@@ui/SELECT_PROGRESSION_FAILURE',
   OPEN_ASSISTANCE_REQUEST: '@@progression/OPEN_ASSISTANCE_REQUEST',
   OPEN_ASSISTANCE_SUCCESS: '@@progression/OPEN_ASSISTANCE_SUCCESS',
@@ -55,12 +52,6 @@ type SelectProgressionPayload = {
 export type SelectAction = {
   ...Action,
   type: UI_SELECT_PROGRESSION,
-  payload: SelectProgressionPayload
-};
-
-export type SelectExtraLifeDoneAction = {
-  ...Action,
-  type: UI_SELECT_PROGRESSION_EXTRA_LIFE_DONE,
   payload: SelectProgressionPayload
 };
 
@@ -160,20 +151,11 @@ export const selectProgression = (id: ProgressionId) => async (
             });
           }
 
-          await Promise.all([
+          return Promise.all([
             fetchData(dispatch, engine, progressionId, progressionContent),
             dispatch(fetchContent(prevContent.type, prevContent.ref)),
             dispatch(fetchAnswer(progressionId, get('ref', prevContent), []))
-          ]);
-
-          const selectOnExtraLifeDoneAction: SelectExtraLifeDoneAction = {
-            type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_EXTRA_LIFE_DONE,
-            payload: {
-              id
-            }
-          };
-
-          await dispatch(selectOnExtraLifeDoneAction);
+          ]).then(last);
         }
       }
     }
@@ -182,6 +164,7 @@ export const selectProgression = (id: ProgressionId) => async (
       // $FlowFixMe here we know ref is not a string, but a ExitNodeRef
       const exitNodeRef = (ref: ExitNodeRef);
       return Promise.all([
+        fetchData(dispatch, engine, progressionId, progressionContent),
         dispatch(fetchRecommendations(progressionId)),
         dispatch(fetchEndRank()),
         dispatch(fetchNext(progressionId)),
