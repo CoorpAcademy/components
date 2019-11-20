@@ -12,5 +12,6 @@ const toMapById = mayBy('_id');
 const chapters = toMapById(chaptersData);
 
 const findById = ref => Promise.resolve(chapters.get(ref));
+const getNextChapter = ref => Promise.resolve(chapters.get(ref));
 
-export {findById};
+export {findById, getNextChapter};

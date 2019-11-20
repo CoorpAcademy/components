@@ -2,7 +2,7 @@
 
 import {get, last, isNil} from 'lodash/fp';
 import buildTask from '@coorpacademy/redux-task';
-import type {ProgressionId, Progression} from '@coorpacademy/progression-engine';
+import type {Content, Engine, ProgressionId, Progression} from '@coorpacademy/progression-engine';
 import {fetchProgression, fetchEngineConfig, fetchBestProgression} from '../api/progressions';
 import {fetchEndRank, fetchStartRank} from '../api/rank';
 import {fetchExitNode} from '../api/exit-nodes';
@@ -62,6 +62,19 @@ export const unselectProgression: SelectAction = {
   }
 };
 
+const fetchData = (
+  engine: Engine,
+  progressionId: ProgressionId,
+  progressionContent: Content
+  // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
+) => (dispatch: Function): DispatchedAction =>
+  Promise.all([
+    dispatch(fetchStartRank()),
+    dispatch(fetchBestProgression(progressionContent, progressionId)),
+    dispatch(fetchEngineConfig(engine)),
+    dispatch(fetchContentInfo(progressionContent, engine))
+  ]).then(last);
+
 export const selectProgression = (id: ProgressionId) => async (
   dispatch: Function,
   getState: GetState
@@ -87,7 +100,6 @@ export const selectProgression = (id: ProgressionId) => async (
   const response = await dispatch(fetchProgression(progressionId));
   if (response.error) return response;
 
-  await dispatch(fetchStartRank());
   const progressionContent = getProgressionContent(getState());
 
   if (!progressionContent) {
@@ -105,11 +117,6 @@ export const selectProgression = (id: ProgressionId) => async (
     });
   }
 
-  await dispatch(fetchContent(progressionContent.type, progressionContent.ref));
-  await dispatch(fetchBestProgression(progressionContent, progressionId));
-  await dispatch(fetchEngineConfig(engine));
-  await dispatch(fetchContentInfo(progressionContent, engine));
-
   const nextContent = getStepContent(getState());
 
   if (!nextContent) {
@@ -119,11 +126,17 @@ export const selectProgression = (id: ProgressionId) => async (
     });
   }
 
+  await dispatch(fetchContent(progressionContent.type, progressionContent.ref));
+
   const {ref, type} = nextContent;
 
   switch (type) {
     case 'slide': {
-      await dispatch(fetchSlideChapter(ref));
+      await Promise.all([
+        fetchData(engine, progressionId, progressionContent)(dispatch),
+        dispatch(fetchSlideChapter(ref))
+      ]);
+
       const slideResult = getSlide(ref)(getState());
 
       if (isNil(get('context.title', slideResult))) {
@@ -143,8 +156,11 @@ export const selectProgression = (id: ProgressionId) => async (
             });
           }
 
-          await dispatch(fetchContent(prevContent.type, prevContent.ref));
-          return dispatch(fetchAnswer(progressionId, get('ref', prevContent), []));
+          return Promise.all([
+            fetchData(engine, progressionId, progressionContent)(dispatch),
+            dispatch(fetchContent(prevContent.type, prevContent.ref)),
+            dispatch(fetchAnswer(progressionId, get('ref', prevContent), []))
+          ]).then(last);
         }
       }
     }
@@ -153,6 +169,7 @@ export const selectProgression = (id: ProgressionId) => async (
       // $FlowFixMe here we know ref is not a string, but a ExitNodeRef
       const exitNodeRef = (ref: ExitNodeRef);
       return Promise.all([
+        fetchData(engine, progressionId, progressionContent)(dispatch),
         dispatch(fetchRecommendations(progressionId)),
         dispatch(fetchEndRank()),
         dispatch(fetchNext(progressionId)),

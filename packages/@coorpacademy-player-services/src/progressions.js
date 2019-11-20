@@ -225,6 +225,7 @@ const postAnswer = (dataLayer: DataLayer): PostAnswer => async (
       payload: {...action.payload, ...getFastSlideExitNode(config, godMode, availableContent)}
     };
   }
+
   return addActionAndSaveProgression(dataLayer)(progression, action);
 };
 
