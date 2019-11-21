@@ -142,6 +142,7 @@ class JWPlayer extends React.Component {
 }
 
 JWPlayer.propTypes = {
+  // https://developer.jwplayer.com/jwplayer/docs/jw8-player-configuration-reference
   jwpOptions: PropTypes.shape({
     file: SrcPropType,
     customProps: PropTypes.shape({
@@ -154,6 +155,7 @@ JWPlayer.propTypes = {
           default: PropTypes.boolean
         })
       ),
+      autostart: PropTypes.oneOf(['viewable', 'false']),
       width: PropTypes.string,
       skin: PropTypes.shape({
         name: PropTypes.string

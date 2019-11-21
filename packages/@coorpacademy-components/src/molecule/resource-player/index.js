@@ -34,7 +34,7 @@ const imgPropType = PropTypes.shape({
 });
 
 const ResourceElement = props => {
-  const {resource, autoplay = false} = props;
+  const {resource, autoplay = false, overlay} = props;
   const {type, videoId, ...childProps} = omit('id', resource);
   const {url} = childProps;
 
@@ -47,6 +47,7 @@ const ResourceElement = props => {
       return (
         <VideoPlayer
           autoplay={autoplay}
+          autostart={!overlay}
           id={videoId}
           height="100%"
           width="100%"
