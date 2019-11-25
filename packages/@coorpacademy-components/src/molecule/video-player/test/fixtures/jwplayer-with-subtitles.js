@@ -17,7 +17,7 @@ export default {
             default: true
           }
         ],
-        autostart: false,
+        autostart: 'viewable',
         width: '100%',
         height: '100%'
       }

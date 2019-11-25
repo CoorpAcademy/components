@@ -23,7 +23,7 @@ test('should call jwplayer.onPlay when overlay is clicked', t => {
         playerScript: JWPLAYER_SCRIPT_URL,
         licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8=',
         customProps: {
-          autostart: false,
+          autostart: 'viewable',
           width: '100%',
           height: '100%',
           skin: {

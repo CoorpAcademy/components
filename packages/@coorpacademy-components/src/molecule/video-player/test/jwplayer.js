@@ -70,7 +70,7 @@ test('should call handlers within props, then add autoplay props', t => {
       licenseKey: 'QDh3Fb2afiIAFI+XwlncwQDhNEwkXetm1y8tzWn3km8=',
       customProps: {
         aspectratio: '16:9',
-        autostart: false,
+        autostart: 'viewable',
         width: '100%',
         skin: {
           name: 'bekle'

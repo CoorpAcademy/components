@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {isEqual} from 'lodash/fp';
+import {get, isEqual} from 'lodash/fp';
 import {SrcPropType} from '../../util/proptypes';
 import VideoIframe from '../video-iframe';
 import JWPlayer from './jwplayer';
@@ -67,8 +67,8 @@ class VideoPlayer extends React.Component {
         const _jwpOptions = {
           ...jwpOptions,
           customProps: {
-            ...jwpOptions.customProps,
-            autostart: autostart && jwpOptions.customProps.autostart
+            ...get('customProps', jwpOptions),
+            autostart: autostart && get('customProps.autostart', jwpOptions)
           }
         };
 
