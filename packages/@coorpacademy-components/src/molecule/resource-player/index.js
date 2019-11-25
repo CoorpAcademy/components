@@ -34,7 +34,7 @@ const imgPropType = PropTypes.shape({
 });
 
 const ResourceElement = props => {
-  const {resource, autoplay = false, overlay} = props;
+  const {resource, autoplay = false, autostart} = props;
   const {type, videoId, ...childProps} = omit('id', resource);
   const {url} = childProps;
 
@@ -47,7 +47,7 @@ const ResourceElement = props => {
       return (
         <VideoPlayer
           autoplay={autoplay}
-          autostart={!overlay}
+          autostart={autostart}
           id={videoId}
           height="100%"
           width="100%"
@@ -136,7 +136,11 @@ class ResourcePlayer extends React.Component {
     return (
       <div data-name={type} className={className}>
         {overlayView}
-        <ResourceElement {...this.props} autoplay={this.state.autoplay} />
+        <ResourceElement
+          {...this.props}
+          autostart={!this.props.overlay}
+          autoplay={this.state.autoplay}
+        />
       </div>
     );
   }
