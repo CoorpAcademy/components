@@ -17,7 +17,11 @@ test('should emit play only one', t => {
     onPause: () => t.is('Pause', events.shift()),
     onPlay: () => t.is('Play', events.shift()),
     onResume: () => t.is('Resume', events.shift()),
-    onEnd: () => t.is('End', events.shift())
+    onEnd: () => t.is('End', events.shift()),
+    jwpOptions: {
+      licenseKey: '12345',
+      playerScript: '/path/to/jwplayer.js'
+    }
   };
 
   const component = <Player {...props} />;

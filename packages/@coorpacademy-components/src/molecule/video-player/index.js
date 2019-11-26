@@ -62,8 +62,19 @@ class VideoPlayer extends React.Component {
         );
       case 'application/kontiki':
       case 'application/jwplayer':
-      case 'video/mp4':
-        return <JWPlayer {...this.props} onPlay={this.handleOnPlay} key={id} />;
+      case 'video/mp4': {
+        const {disableAutostart, jwpOptions, ...otherProps} = this.props;
+
+        return (
+          <JWPlayer
+            disableAutostart={disableAutostart}
+            jwpOptions={jwpOptions}
+            {...otherProps}
+            onPlay={this.handleOnPlay}
+            key={id}
+          />
+        );
+      }
     }
   };
 
@@ -87,6 +98,7 @@ VideoPlayer.propTypes = {
   onEnded: PropTypes.func,
   onError: PropTypes.func,
   autoplay: PropTypes.bool,
+  disableAutostart: PropTypes.bool,
   jwpOptions: JWPlayer.propTypes.jwpOptions,
   mimeType: PropTypes.oneOf([
     'application/kontiki',

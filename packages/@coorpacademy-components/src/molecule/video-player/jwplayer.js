@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import ReactJWPlayer from 'react-jw-player';
-import {includes, isFunction, keys} from 'lodash/fp';
+import {get, includes, isFunction, keys} from 'lodash/fp';
 import {SrcPropType} from '../../util/proptypes';
 import style from './jwplayer.css';
 
@@ -117,13 +117,22 @@ class JWPlayer extends React.Component {
   }
 
   render() {
+    const {jwpOptions, disableAutostart} = this.props;
+    const _jwpOptions = {
+      ...jwpOptions,
+      customProps: {
+        ...get('customProps', jwpOptions),
+        autostart: !disableAutostart && get('customProps.autostart', jwpOptions)
+      }
+    };
+
     return (
       <>
         {this.state.scriptFailedLoading && (
           <p className={style.errorMessage}>{this.props.scriptErrorMessage}</p>
         )}
         <ReactJWPlayer
-          {...this.props.jwpOptions}
+          {..._jwpOptions}
           className={style.wrapper}
           onPlay={this.handlePlay}
           onResume={this.handleResume}
@@ -142,6 +151,8 @@ class JWPlayer extends React.Component {
 }
 
 JWPlayer.propTypes = {
+  disableAutostart: PropTypes.bool,
+  // https://developer.jwplayer.com/jwplayer/docs/jw8-player-configuration-reference
   jwpOptions: PropTypes.shape({
     file: SrcPropType,
     customProps: PropTypes.shape({
@@ -154,6 +165,7 @@ JWPlayer.propTypes = {
           default: PropTypes.boolean
         })
       ),
+      autostart: PropTypes.oneOf(['viewable', 'false']),
       width: PropTypes.string,
       skin: PropTypes.shape({
         name: PropTypes.string
