@@ -117,11 +117,12 @@ class JWPlayer extends React.Component {
   }
 
   render() {
+    const {jwpOptions, disableAutostart} = this.props;
     const _jwpOptions = {
-      ...this.props.jwpOptions,
+      ...jwpOptions,
       customProps: {
-        ...get('customProps', this.props.jwpOptions),
-        autostart: this.props.autostart && get('customProps.autostart', this.props.jwpOptions)
+        ...get('customProps', jwpOptions),
+        autostart: !disableAutostart && get('customProps.autostart', jwpOptions)
       }
     };
 
@@ -150,7 +151,7 @@ class JWPlayer extends React.Component {
 }
 
 JWPlayer.propTypes = {
-  autostart: PropTypes.bool,
+  disableAutostart: PropTypes.bool,
   // https://developer.jwplayer.com/jwplayer/docs/jw8-player-configuration-reference
   jwpOptions: PropTypes.shape({
     file: SrcPropType,
