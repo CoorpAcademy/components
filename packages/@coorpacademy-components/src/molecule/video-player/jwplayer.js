@@ -36,7 +36,7 @@ class JWPlayer extends React.Component {
     const changes = keys(this.props).filter(_name => this.props[_name] !== prevProps[_name]);
     const shouldStart = includes('autoplay', changes);
     if (shouldStart) {
-      if (window.jwplayer && typeof window.jwplayer === 'function') {
+      if (window.jwplayer) {
         window.jwplayer().play();
       }
     }
