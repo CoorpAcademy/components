@@ -134,6 +134,7 @@ class JWPlayer extends React.Component {
         <ReactJWPlayer
           {..._jwpOptions}
           className={style.wrapper}
+          onAutoStart={this.handlePlay}
           onPlay={this.handlePlay}
           onResume={this.handleResume}
           onPause={this.handlePause}
