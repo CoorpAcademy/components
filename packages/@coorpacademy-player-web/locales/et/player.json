@@ -1,9 +1,9 @@
 {
-  "Access the lesson": "Ligipääs õppetunnile ",
+  "Access the lesson": "Alusta õppetunniga",
   "Back to home": "Tagasi koju",
   "Back to question": "Tagasi küsimuse juurde",
   "Bonus!": "Boonus!",
-  "Get an extra life by viewing the lesson": "Heida pilk õppetunnile ja saa lisaelu",
+  "Get an extra life by viewing the lesson": "Heida pilk õppetunnile ja saa elu lisaks",
   "Check out the next chapter in this course!": "Tutvu järgmise peatükiga sellel kursusel!",
   "Click to continue": "Jätkamiseks klikka",
   "Clue": "Vihje",
@@ -33,11 +33,11 @@
   "Ouch": "Ai-ai-ai...",
   "Quit": "Välju",
   "Related subjects": "Soovitame sulle:",
-  "Retry chapter": "Tee peatükk uuesti",
-  "Retry chapter_": "Tee peatükk uuesti:",
-  "Retry level": "Tee tase uuesti",
-  "Retry level_": "Tee tase uuesti:",
-  "See your comment and those of your peers": "Näe enda ja sõprade kommentaare.",
+  "Retry chapter": "Võta sama peatükk uuesti ette",
+  "Retry chapter_": "Võta sama peatükk uuesti ette:",
+  "Retry level": "Mine uuesti samale tasemele",
+  "Retry level_": "Mine uuesti samale tasemele:",
+  "See your comment and those of your peers": "Vaata enda ja sõprade kommentaare.",
   "Select an answer": "Vali vastus",
   "Select something below": "Vali midagi alljärgnevatest",
   "Share your opinion on this course": "Jaga oma arvamust selle kursuse kohta",
@@ -50,5 +50,5 @@
   "You are out of lives!": "Sul on elud otsas!",
   "Your answer_": "Sinu vastus:",
   "Your answers_": "Sinu vastused:",
-  "Need help? Found a bug? Report it here": "Vajad abi? Leidsid vea? Teavita sellest siin"
+  "Need help? Found a bug? Report it here": "Vajad abi? Leidsid vea? Teavita sellest"
 }
