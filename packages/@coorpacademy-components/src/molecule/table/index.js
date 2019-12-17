@@ -11,6 +11,8 @@ import Provider from '../../atom/provider';
 import Checkbox from '../../atom/checkbox';
 import Link from '../../atom/link';
 import style from './style.css';
+// import { NovaSolidDraft } from '@coorpacademy/nova-icons';
+// import { NovaSolidValidate } from '@coorpacademy/nova-icons';
 
 const createOptionsView = (_options, hasOptions) => {
   const optionsView = _options.map((option, oIndex) => {
@@ -27,7 +29,7 @@ const createOptionsView = (_options, hasOptions) => {
 };
 
 const Table = (props, context) => {
-  const {rows = [], columns = [], editable = true} = props;
+  const {rows = [], columns = [], editable = true, theme} = props;
   const {skin} = context;
 
   const mediumColor = get('common.medium', skin);
@@ -60,6 +62,8 @@ const Table = (props, context) => {
     );
   });
 
+  const mainClass = classnames(theme ? style.cockpit : style.wrapper);
+
   if (editable) {
     headerView.unshift(
       <th key="header">
@@ -73,7 +77,13 @@ const Table = (props, context) => {
     const trClasses = classnames({[style.highlighted]: row.highlighted});
 
     const tableRows = fields.map((field, fIndex) => {
-      return <td key={fIndex}>{field}</td>;
+      // if (field === 'icon-draft') {
+      //   return <td key={fIndex}><img className="icon" src={NovaSolidDraft} /></td>;
+      // }
+      // if (field === 'icon-validated') {
+      //   return <td key={fIndex}><img className="icon" src={NovaSolidValidate} /></td>;
+      // }
+      return <td key={fIndex}><img src={field} /></td>;
     });
 
     if (editable) {
@@ -95,7 +105,7 @@ const Table = (props, context) => {
   });
 
   return (
-    <div className={style.wrapper}>
+    <div className={mainClass}>
       <table className={classnames(style.table, {[style.readonly]: !editable})}>
         <thead>
           <tr>{headerView}</tr>
@@ -132,7 +142,8 @@ Table.propTypes = {
         })
       )
     })
-  )
+  ),
+  theme: PropTypes.string
 };
 
 export default Table;

@@ -513,6 +513,7 @@ import MoleculeSubscriptionPremiumFixturePromoCode from '../src/molecule/subscri
 import MoleculeTableFixtureDefault from '../src/molecule/table/test/fixtures/default';
 import MoleculeTableFixtureNoOptions from '../src/molecule/table/test/fixtures/no-options';
 import MoleculeTableFixtureReadonly from '../src/molecule/table/test/fixtures/readonly';
+import MoleculeTableFixtureCockpitTheme from '../src/molecule/table/test/fixtures/cockpit-theme';
 import MoleculeThemeImageFixtureBg from '../src/molecule/theme-image/test/fixtures/bg';
 import MoleculeTitledCheckboxFixtureChecked from '../src/molecule/titled-checkbox/test/fixtures/checked';
 import MoleculeTitledCheckboxFixtureNoBg from '../src/molecule/titled-checkbox/test/fixtures/no-bg';
@@ -1443,7 +1444,8 @@ export const fixtures = {
     MoleculeTable: {
       Default: MoleculeTableFixtureDefault,
       NoOptions: MoleculeTableFixtureNoOptions,
-      Readonly: MoleculeTableFixtureReadonly
+      Readonly: MoleculeTableFixtureReadonly,
+      CockpitTheme: MoleculeTableFixtureCockpitTheme
     },
     MoleculeThemeImage: {
       Bg: MoleculeThemeImageFixtureBg
