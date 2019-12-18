@@ -206,6 +206,13 @@ export type RestrictedResourceType = 'level' | 'chapter' | 'slide';
 
 type VideoProvider = 'jwplayer' | 'kontiki' | 'vimeo';
 
+type Track = {|
+  kind: 'captions' | 'thumbnails',
+  file: string,
+  label?: string,
+  default?: boolean
+|};
+
 // Keep it no strict because we can extend it
 type DataLayer = {
   getAllProgressions: () => Promise<Array<Progression>>,
@@ -226,7 +233,8 @@ type DataLayer = {
   findSlideByChapter: (chapterRef: string) => Promise<Array<Slide>>,
   findSlideById: (id: string) => Promise<Slide>,
   saveProgression: Progression => Promise<Progression>,
-  findVideoUriById: (id: string, provider: VideoProvider) => Promise<string>
+  findVideoUriById: (id: string, provider: VideoProvider) => Promise<string>,
+  findVideoSubtitleById: (id: string) => Promise<Array<Track>>
 };
 
 export const CONTENT_TYPE: {[string]: ContentType} = {
@@ -262,5 +270,6 @@ export type {
   UserAnswerAPI,
   PartialPayload,
   Window,
-  VideoProvider
+  VideoProvider,
+  Track
 };
