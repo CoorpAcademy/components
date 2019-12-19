@@ -206,7 +206,7 @@ export type RestrictedResourceType = 'level' | 'chapter' | 'slide';
 
 type VideoProvider = 'jwplayer' | 'kontiki' | 'vimeo';
 
-type Track = {|
+type VideoTrack = {|
   kind: 'captions' | 'thumbnails',
   file: string,
   label?: string,
@@ -234,7 +234,7 @@ type DataLayer = {
   findSlideById: (id: string) => Promise<Slide>,
   saveProgression: Progression => Promise<Progression>,
   findVideoUriById: (id: string, provider: VideoProvider) => Promise<string>,
-  findVideoTracksById: (id: string) => Promise<Array<Track>>
+  findVideoTracksById: (id: string) => Promise<Array<VideoTrack>>
 };
 
 export const CONTENT_TYPE: {[string]: ContentType} = {
@@ -271,5 +271,5 @@ export type {
   PartialPayload,
   Window,
   VideoProvider,
-  Track
+  VideoTrack
 };
