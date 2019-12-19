@@ -13,9 +13,9 @@ import type {
   ThunkAction
 } from '../../definitions/redux';
 
-export const VIDEOS_FETCH_URI_REQUEST: string = '@@videos/FETCH_URI_REQUEST';
-export const VIDEOS_FETCH_URI_SUCCESS: string = '@@videos/FETCH_URI_SUCCESS';
-export const VIDEOS_FETCH_URI_FAILURE: string = '@@videos/FETCH_URI_FAILURE';
+export const FETCH_VIDEOS_URI_REQUEST: string = '@@videos/FETCH_URI_REQUEST';
+export const FETCH_VIDEOS_URI_SUCCESS: string = '@@videos/FETCH_URI_SUCCESS';
+export const FETCH_VIDEOS_URI_FAILURE: string = '@@videos/FETCH_URI_FAILURE';
 
 export const FETCH_VIDEOS_TRACKS_REQUEST: string = '@@videos/FETCH_VIDEOS_TRACKS_REQUEST';
 export const FETCH_VIDEOS_TRACKS_SUCCESS: string = '@@videos/FETCH_VIDEOS_TRACKS_SUCCESS';
@@ -30,7 +30,7 @@ DispatchedAction => {
   const {Videos: VideosService} = services;
 
   const action: Action = buildTask({
-    types: [VIDEOS_FETCH_URI_REQUEST, VIDEOS_FETCH_URI_SUCCESS, VIDEOS_FETCH_URI_FAILURE],
+    types: [FETCH_VIDEOS_URI_REQUEST, FETCH_VIDEOS_URI_SUCCESS, FETCH_VIDEOS_URI_FAILURE],
     task: () => VideosService.findUriById(id, provider),
     meta: {id, provider},
     bailout: getVideoUri(id)
@@ -49,7 +49,7 @@ DispatchedAction => {
 
   const action: Action = buildTask({
     types: [FETCH_VIDEOS_TRACKS_REQUEST, FETCH_VIDEOS_TRACKS_SUCCESS, FETCH_VIDEOS_TRACKS_FAILURE],
-    task: () => VideosService.findVideoTracksById(id),
+    task: () => VideosService.findTracksById(id),
     meta: {id},
     bailout: getVideoTracks(id)
   });

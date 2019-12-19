@@ -4,9 +4,9 @@ import macro from '../../test/helpers/macro';
 import {
   fetchVideoUri,
   fetchVideoTracks,
-  VIDEOS_FETCH_URI_REQUEST,
-  VIDEOS_FETCH_URI_SUCCESS,
-  VIDEOS_FETCH_URI_FAILURE,
+  FETCH_VIDEOS_URI_REQUEST,
+  FETCH_VIDEOS_URI_SUCCESS,
+  FETCH_VIDEOS_URI_FAILURE,
   FETCH_VIDEOS_TRACKS_REQUEST,
   FETCH_VIDEOS_TRACKS_SUCCESS,
   FETCH_VIDEOS_TRACKS_FAILURE
@@ -31,11 +31,11 @@ test(
   fetchVideoUri('1234', 'foobar'),
   [
     {
-      type: VIDEOS_FETCH_URI_REQUEST,
+      type: FETCH_VIDEOS_URI_REQUEST,
       meta: {id: '1234', provider: 'foobar'}
     },
     {
-      type: VIDEOS_FETCH_URI_SUCCESS,
+      type: FETCH_VIDEOS_URI_SUCCESS,
       meta: {id: '1234', provider: 'foobar'},
       payload: 'https://foo.bar/1234.mp4'
     }
@@ -64,11 +64,11 @@ test(
   fetchVideoUri('456', 'bazqux'),
   [
     {
-      type: VIDEOS_FETCH_URI_REQUEST,
+      type: FETCH_VIDEOS_URI_REQUEST,
       meta: {id: '456', provider: 'bazqux'}
     },
     {
-      type: VIDEOS_FETCH_URI_FAILURE,
+      type: FETCH_VIDEOS_URI_FAILURE,
       meta: {id: '456', provider: 'bazqux'},
       error: true,
       payload: new Error('some error')

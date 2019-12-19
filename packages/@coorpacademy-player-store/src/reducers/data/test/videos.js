@@ -2,9 +2,9 @@ import test from 'ava';
 
 import reducer from '../videos';
 import {
-  VIDEOS_FETCH_URI_REQUEST,
-  VIDEOS_FETCH_URI_SUCCESS,
-  VIDEOS_FETCH_URI_FAILURE,
+  FETCH_VIDEOS_URI_REQUEST,
+  FETCH_VIDEOS_URI_SUCCESS,
+  FETCH_VIDEOS_URI_FAILURE,
   FETCH_VIDEOS_TRACKS_REQUEST,
   FETCH_VIDEOS_TRACKS_SUCCESS,
   FETCH_VIDEOS_TRACKS_FAILURE
@@ -21,7 +21,7 @@ test(
   reducer,
   {},
   {
-    type: VIDEOS_FETCH_URI_REQUEST,
+    type: FETCH_VIDEOS_URI_REQUEST,
     meta: {id: 'foo', provider: 'foobar'}
   },
   {entities: {foo: {url: null}}}
@@ -33,7 +33,7 @@ test(
   reducer,
   {entities: {foo: {url: 'https://foo.bar/baz.mp4'}}},
   {
-    type: VIDEOS_FETCH_URI_REQUEST,
+    type: FETCH_VIDEOS_URI_REQUEST,
     meta: {id: 'foo', provider: 'foobar'}
   },
   {entities: {foo: {url: 'https://foo.bar/baz.mp4'}}}
@@ -45,7 +45,7 @@ test(
   reducer,
   {},
   {
-    type: VIDEOS_FETCH_URI_SUCCESS,
+    type: FETCH_VIDEOS_URI_SUCCESS,
     meta: {id: 'foo', provider: 'foobar'},
     payload: 'https://foo.bar/baz.mp4'
   },
@@ -58,7 +58,7 @@ test(
   reducer,
   {entities: {foo: {url: null}}},
   {
-    type: VIDEOS_FETCH_URI_FAILURE,
+    type: FETCH_VIDEOS_URI_FAILURE,
     meta: {id: 'foo', provider: 'foobar'},
     error: true,
     payload: ''
@@ -76,7 +76,7 @@ test(
   reducer,
   {entities: {foo: {url: 'https://foo.bar/baz.mp4'}}},
   {
-    type: VIDEOS_FETCH_URI_FAILURE,
+    type: FETCH_VIDEOS_URI_FAILURE,
     meta: {id: 'foo', provider: 'foobar'},
     error: true,
     payload: ''
@@ -145,7 +145,7 @@ test(
   reducer,
   {entities: {foo: {tracks}}},
   {
-    type: VIDEOS_FETCH_URI_FAILURE,
+    type: FETCH_VIDEOS_URI_FAILURE,
     meta: {id: 'foo', provider: 'foobar'},
     error: true,
     payload: ''
@@ -159,7 +159,7 @@ test(
   reducer,
   {entities: {foo: {tracks, url: 'foobar.com'}}},
   {
-    type: VIDEOS_FETCH_URI_FAILURE,
+    type: FETCH_VIDEOS_URI_FAILURE,
     meta: {id: 'foo', provider: 'foobar'},
     error: true,
     payload: ''
@@ -173,7 +173,7 @@ test(
   reducer,
   {entities: {foo: {tracks, url: 'foobar.com'}}},
   {
-    type: VIDEOS_FETCH_URI_FAILURE,
+    type: FETCH_VIDEOS_URI_FAILURE,
     meta: {id: 'foo', provider: 'foobar'},
     error: true,
     payload: ''
