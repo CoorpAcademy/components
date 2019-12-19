@@ -19,19 +19,19 @@ test(
     type: VIDEOS_FETCH_URI_REQUEST,
     meta: {id: 'foo', provider: 'foobar'}
   },
-  {entities: {foo: null}}
+  {entities: {foo: {url: null}}}
 );
 
 test(
   'should do nothing if entity already exists on request',
   macro,
   reducer,
-  {entities: {foo: 'https://foo.bar/baz.mp4'}},
+  {entities: {foo: {url: 'https://foo.bar/baz.mp4'}}},
   {
     type: VIDEOS_FETCH_URI_REQUEST,
     meta: {id: 'foo', provider: 'foobar'}
   },
-  {entities: {foo: 'https://foo.bar/baz.mp4'}}
+  {entities: {foo: {url: 'https://foo.bar/baz.mp4'}}}
 );
 
 test(
@@ -44,33 +44,37 @@ test(
     meta: {id: 'foo', provider: 'foobar'},
     payload: 'https://foo.bar/baz.mp4'
   },
-  {entities: {foo: 'https://foo.bar/baz.mp4'}}
+  {entities: {foo: {url: 'https://foo.bar/baz.mp4'}}}
 );
 
 test(
   'should remove null on failure',
   macro,
   reducer,
-  {entities: {foo: null}},
+  {entities: {foo: {url: null}}},
   {
     type: VIDEOS_FETCH_URI_FAILURE,
     meta: {id: 'foo', provider: 'foobar'},
     error: true,
     payload: ''
   },
-  {entities: {}}
+  {
+    entities: {
+      foo: {}
+    }
+  }
 );
 
 test(
   'should do nothing is entity already exists on failure',
   macro,
   reducer,
-  {entities: {foo: 'https://foo.bar/baz.mp4'}},
+  {entities: {foo: {url: 'https://foo.bar/baz.mp4'}}},
   {
     type: VIDEOS_FETCH_URI_FAILURE,
     meta: {id: 'foo', provider: 'foobar'},
     error: true,
     payload: ''
   },
-  {entities: {foo: 'https://foo.bar/baz.mp4'}}
+  {entities: {foo: {url: 'https://foo.bar/baz.mp4'}}}
 );

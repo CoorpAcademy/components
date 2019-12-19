@@ -960,7 +960,7 @@ test('getVideoUri should return the video uri', t => {
   const state = set(
     'data.videos.entities',
     {
-      [id]: url
+      [id]: {url}
     },
     {}
   );
