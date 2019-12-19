@@ -3,11 +3,11 @@
 import type {DataLayer, VideoProvider, VideoTrack} from './definitions';
 
 type FindUriById = (id: string, provider: VideoProvider) => Promise<string>;
-type FindVideoTracksById = (videoId: string) => Promise<Array<VideoTrack>>;
+type FindTracksById = (videoId: string) => Promise<Array<VideoTrack>>;
 
 type VideosService = {|
   findUriById: FindUriById,
-  findVideoTracksById: FindVideoTracksById
+  findTracksById: FindTracksById
 |};
 
 const findUriById = (dataLayer: DataLayer): FindUriById => async (
@@ -20,7 +20,7 @@ const findUriById = (dataLayer: DataLayer): FindUriById => async (
   return uri;
 };
 
-const findVideoTracksById = (dataLayer: DataLayer): FindVideoTracksById => async (
+const findTracksById = (dataLayer: DataLayer): FindTracksById => async (
   videoId: string
 ): Promise<Array<VideoTrack>> => {
   const {findVideoTracksById} = dataLayer;
@@ -30,7 +30,7 @@ const findVideoTracksById = (dataLayer: DataLayer): FindVideoTracksById => async
 
 const createVideosService = (dataLayer: DataLayer): VideosService => ({
   findUriById: findUriById(dataLayer),
-  findVideoTracksById: findVideoTracksById(dataLayer)
+  findTracksById: findTracksById(dataLayer)
 });
 
 export type {VideosService};

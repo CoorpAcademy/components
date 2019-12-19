@@ -83,7 +83,7 @@ test(
   {},
   t => ({
     Videos: {
-      findVideoTracksById: id => {
+      findTracksById: id => {
         t.is(id, '1234');
 
         return tracks;
@@ -116,7 +116,7 @@ test(
       }
     },
     Videos: {
-      findVideoTracksById: id => {
+      findTracksById: id => {
         t.is(id, '456');
 
         throw new Error('some error');
