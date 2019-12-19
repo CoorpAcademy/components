@@ -41,9 +41,11 @@ import {
   hasViewedAResourceAtThisStep,
   hasSeenLesson,
   getQuestionMedia,
-  isContentAdaptive
+  isContentAdaptive,
+  getVideoTracks
 } from '../state-extract';
 
+import tracksFixture from '../../fixtures/tracks';
 import slideFixture from './slide';
 
 const getStateWithContent = (
@@ -1068,4 +1070,21 @@ test('should return true if slide is at previous step and at least one lesson ha
   );
 
   return t.is(result, true);
+});
+
+test('getVideoUri should return the video tracks', t => {
+  const id = 'DE3942dz9ke';
+  const url = 'www.reallyfancy.com/DE3942dz9ke.mp4';
+
+  const state = set(
+    'data.videos.entities',
+    {
+      [id]: {tracks: tracksFixture}
+    },
+    {}
+  );
+
+  const result = getVideoTracks(id)(state);
+
+  return t.is(result, tracksFixture);
 });
