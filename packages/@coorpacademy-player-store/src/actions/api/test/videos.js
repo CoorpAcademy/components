@@ -3,13 +3,13 @@ import test from 'ava';
 import macro from '../../test/helpers/macro';
 import {
   fetchVideoUri,
-  fetchVideoSubtitles,
+  fetchVideoTracks,
   VIDEOS_FETCH_URI_REQUEST,
   VIDEOS_FETCH_URI_SUCCESS,
   VIDEOS_FETCH_URI_FAILURE,
-  FETCH_VIDEOS_SUBTITLE_REQUEST,
-  FETCH_VIDEOS_SUBTITLE_SUCCESS,
-  FETCH_VIDEOS_SUBTITLE_FAILURE
+  FETCH_VIDEOS_TRACKS_REQUEST,
+  FETCH_VIDEOS_TRACKS_SUCCESS,
+  FETCH_VIDEOS_TRACKS_FAILURE
 } from '../videos';
 
 import tracks from '../../../fixtures/tracks';
@@ -83,21 +83,21 @@ test(
   {},
   t => ({
     Videos: {
-      findVideoSubtitleById: id => {
+      findVideoTracksById: id => {
         t.is(id, '1234');
 
         return tracks;
       }
     }
   }),
-  fetchVideoSubtitles('1234'),
+  fetchVideoTracks('1234'),
   [
     {
-      type: FETCH_VIDEOS_SUBTITLE_REQUEST,
+      type: FETCH_VIDEOS_TRACKS_REQUEST,
       meta: {id: '1234'}
     },
     {
-      type: FETCH_VIDEOS_SUBTITLE_SUCCESS,
+      type: FETCH_VIDEOS_TRACKS_SUCCESS,
       meta: {id: '1234'},
       payload: tracks
     }
@@ -116,21 +116,21 @@ test(
       }
     },
     Videos: {
-      findVideoSubtitleById: id => {
+      findVideoTracksById: id => {
         t.is(id, '456');
 
         throw new Error('some error');
       }
     }
   }),
-  fetchVideoSubtitles('456'),
+  fetchVideoTracks('456'),
   [
     {
-      type: FETCH_VIDEOS_SUBTITLE_REQUEST,
+      type: FETCH_VIDEOS_TRACKS_REQUEST,
       meta: {id: '456'}
     },
     {
-      type: FETCH_VIDEOS_SUBTITLE_FAILURE,
+      type: FETCH_VIDEOS_TRACKS_FAILURE,
       meta: {id: '456'},
       error: true,
       payload: new Error('some error')

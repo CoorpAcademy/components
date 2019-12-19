@@ -234,7 +234,7 @@ type DataLayer = {
   findSlideById: (id: string) => Promise<Slide>,
   saveProgression: Progression => Promise<Progression>,
   findVideoUriById: (id: string, provider: VideoProvider) => Promise<string>,
-  findVideoSubtitleById: (id: string) => Promise<Array<Track>>
+  findVideoTracksById: (id: string) => Promise<Array<Track>>
 };
 
 export const CONTENT_TYPE: {[string]: ContentType} = {

@@ -3,11 +3,11 @@
 import type {VideoProvider} from '../models';
 
 type FindUriById = (id: string, provider: VideoProvider) => Promise<string>;
-type FindVideoSubtitleById = (id: string) => Promise<string>;
+type FindVideoTracksById = (id: string) => Promise<string>;
 
 type VideosService = {|
   findUriById: FindUriById,
-  findVideoSubtitleById: FindVideoSubtitleById
+  findVideoTracksById: FindVideoTracksById
 |};
 
-export type {FindUriById, FindVideoSubtitleById, VideosService};
+export type {FindUriById, FindVideoTracksById, VideosService};

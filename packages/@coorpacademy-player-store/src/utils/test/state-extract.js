@@ -1074,7 +1074,6 @@ test('should return true if slide is at previous step and at least one lesson ha
 
 test('getVideoUri should return the video tracks', t => {
   const id = 'DE3942dz9ke';
-  const url = 'www.reallyfancy.com/DE3942dz9ke.mp4';
 
   const state = set(
     'data.videos.entities',

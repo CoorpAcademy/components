@@ -5,9 +5,9 @@ import {
   VIDEOS_FETCH_URI_REQUEST,
   VIDEOS_FETCH_URI_SUCCESS,
   VIDEOS_FETCH_URI_FAILURE,
-  FETCH_VIDEOS_SUBTITLE_REQUEST,
-  FETCH_VIDEOS_SUBTITLE_SUCCESS,
-  FETCH_VIDEOS_SUBTITLE_FAILURE
+  FETCH_VIDEOS_TRACKS_REQUEST,
+  FETCH_VIDEOS_TRACKS_SUCCESS,
+  FETCH_VIDEOS_TRACKS_FAILURE
 } from '../../../actions/api/videos';
 import macro from '../../test/helpers/macro';
 
@@ -90,7 +90,7 @@ test(
   reducer,
   {},
   {
-    type: FETCH_VIDEOS_SUBTITLE_REQUEST,
+    type: FETCH_VIDEOS_TRACKS_REQUEST,
     meta: {id: 'foo'}
   },
   {entities: {foo: {tracks: null}}}
@@ -102,7 +102,7 @@ test(
   reducer,
   {entities: {foo: {tracks: null}}},
   {
-    type: FETCH_VIDEOS_SUBTITLE_REQUEST,
+    type: FETCH_VIDEOS_TRACKS_REQUEST,
     meta: {id: 'foo'}
   },
   {entities: {foo: {tracks: null}}}
@@ -114,7 +114,7 @@ test(
   reducer,
   {},
   {
-    type: FETCH_VIDEOS_SUBTITLE_SUCCESS,
+    type: FETCH_VIDEOS_TRACKS_SUCCESS,
     meta: {id: 'foo'},
     payload: tracks
   },
@@ -127,7 +127,7 @@ test(
   reducer,
   {entities: {foo: {}}},
   {
-    type: FETCH_VIDEOS_SUBTITLE_FAILURE,
+    type: FETCH_VIDEOS_TRACKS_FAILURE,
     meta: {id: 'foo'},
     error: true,
     payload: ''

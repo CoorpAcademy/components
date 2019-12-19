@@ -4,9 +4,9 @@ import {
   VIDEOS_FETCH_URI_REQUEST,
   VIDEOS_FETCH_URI_SUCCESS,
   VIDEOS_FETCH_URI_FAILURE,
-  FETCH_VIDEOS_SUBTITLE_REQUEST,
-  FETCH_VIDEOS_SUBTITLE_SUCCESS,
-  FETCH_VIDEOS_SUBTITLE_FAILURE
+  FETCH_VIDEOS_TRACKS_REQUEST,
+  FETCH_VIDEOS_TRACKS_SUCCESS,
+  FETCH_VIDEOS_TRACKS_FAILURE
 } from '../../actions/api/videos';
 
 const dataContentReducer = (state = {entities: {}}, action) => {
@@ -36,18 +36,18 @@ const dataContentReducer = (state = {entities: {}}, action) => {
       return state;
     }
 
-    case FETCH_VIDEOS_SUBTITLE_REQUEST: {
+    case FETCH_VIDEOS_TRACKS_REQUEST: {
       const {meta} = action;
       const {id} = meta;
       return update(['entities', id, 'tracks'], tracks => tracks || null, state);
     }
 
-    case FETCH_VIDEOS_SUBTITLE_SUCCESS: {
+    case FETCH_VIDEOS_TRACKS_SUCCESS: {
       const {payload, meta} = action;
       const {id} = meta;
       return set(['entities', id, 'tracks'], payload, state);
     }
-    case FETCH_VIDEOS_SUBTITLE_FAILURE: {
+    case FETCH_VIDEOS_TRACKS_FAILURE: {
       const {meta} = action;
       const {id} = meta;
 
