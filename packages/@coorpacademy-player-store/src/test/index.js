@@ -14,6 +14,8 @@ test('it should expose all api', t => {
     'getClue',
     'CONTENT_TYPE',
     'ENGINES',
+    'VIDEO_TRACK_KIND',
+    'VIDEO_TRACK_TYPE',
     'middlewares',
     'reducers',
     'getChoices',
