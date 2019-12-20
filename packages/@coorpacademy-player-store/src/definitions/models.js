@@ -14,6 +14,33 @@ import type {
   Source
 } from '@coorpacademy/progression-engine';
 
+export const CONTENT_TYPE: {[string]: ContentType} = {
+  CHAPTER: 'chapter',
+  LEVEL: 'level',
+  SLIDE: 'slide'
+};
+
+export const ENGINES: {[string]: Engines} = {
+  MICROLEARNING: 'microlearning',
+  LEARNER: 'learner'
+};
+
+export const VIDEO_TRACK_KIND: {
+  CAPTIONS: 'captions',
+  THUMBNAILS: 'thumbnails'
+} = {
+  CAPTIONS: 'captions',
+  THUMBNAILS: 'thumbnails'
+};
+
+export const VIDEO_TRACK_TYPE: {
+  SRT: 'srt',
+  VTT: 'vtt'
+} = {
+  SRT: 'srt',
+  VTT: 'vtt'
+};
+
 type Url = string;
 type AspectRatio = '16:9' | '4:3';
 type ResourceType = 'video' | 'pdf';
@@ -203,16 +230,14 @@ type Lives = {|
 
 type VideoProvider = 'jwplayer' | 'kontiki' | 'vimeo';
 
-export const CONTENT_TYPE: {[string]: ContentType} = {
-  CHAPTER: 'chapter',
-  LEVEL: 'level',
-  SLIDE: 'slide'
-};
+type VideoTrack = {|
+  kind: $Values<typeof VIDEO_TRACK_KIND>,
+  file: string,
+  label?: string,
+  default?: boolean
+|};
 
-export const ENGINES: {[string]: Engines} = {
-  MICROLEARNING: 'microlearning',
-  LEARNER: 'learner'
-};
+type VideoTrackType = $Values<typeof VIDEO_TRACK_TYPE>;
 
 export type {
   Chapter,
@@ -226,5 +251,7 @@ export type {
   Recommendation,
   Resource,
   UserAnswer,
-  VideoProvider
+  VideoProvider,
+  VideoTrack,
+  VideoTrackType
 };

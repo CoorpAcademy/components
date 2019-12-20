@@ -18,7 +18,9 @@ import type {
   Resource,
   UserAnswer,
   Discipline,
-  VideoProvider
+  VideoProvider,
+  VideoTrack,
+  VideoTrackType
 } from './definitions/models';
 
 import type {ReduxState} from './definitions/redux';
@@ -79,7 +81,7 @@ export * from './actions/ui/location';
 export * from './actions/ui/progressions';
 export * from './actions/ui/route';
 export * from './actions/ui/video';
-export {CONTENT_TYPE, ENGINES} from './definitions/models';
+export {CONTENT_TYPE, ENGINES, VIDEO_TRACK_KIND, VIDEO_TRACK_TYPE} from './definitions/models';
 
 export {middlewares, reducers};
 
@@ -124,5 +126,7 @@ export type {
   UserAnswer,
   ReduxState,
   Discipline,
-  VideoProvider
+  VideoProvider,
+  VideoTrack,
+  VideoTrackType
 };

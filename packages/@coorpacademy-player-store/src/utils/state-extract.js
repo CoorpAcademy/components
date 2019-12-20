@@ -37,7 +37,8 @@ import type {
   Lives,
   // eslint-disable-next-line no-unused-vars
   Resource,
-  Recommendation
+  Recommendation,
+  VideoTrack
 } from '../definitions/models';
 import type {ReduxState as State} from '../definitions/redux';
 import {CONTENT_TYPE, ENGINES} from '../definitions/models';
@@ -512,4 +513,7 @@ export const hasSeenLesson = (state: State, onPreviousSlide: boolean = false): b
 };
 
 export const getVideoUri = (id: string) => (state: State): string | void =>
-  get(['data', 'videos', 'entities', id], state);
+  get(['data', 'videos', 'entities', id, 'uri'], state);
+
+export const getVideoTracks = (id: string) => (state: State): Array<VideoTrack> | void =>
+  get(['data', 'videos', 'entities', id, 'tracks'], state);

@@ -41,9 +41,11 @@ import {
   hasViewedAResourceAtThisStep,
   hasSeenLesson,
   getQuestionMedia,
-  isContentAdaptive
+  isContentAdaptive,
+  getVideoTracks
 } from '../state-extract';
 
+import tracksFixture from '../../fixtures/tracks';
 import slideFixture from './slide';
 
 const getStateWithContent = (
@@ -955,20 +957,36 @@ test('getNbSlides should return 0 if no contentInfo is found', t => {
 
 test('getVideoUri should return the video uri', t => {
   const id = 'DE3942dz9ke';
-  const url = 'www.reallyfancy.com/DE3942dz9ke.mp4';
+  const uri = 'www.reallyfancy.com/DE3942dz9ke.mp4';
 
   const state = set(
     'data.videos.entities',
     {
-      [id]: url
+      [id]: {uri}
     },
     {}
   );
 
   const result = getVideoUri(id)(state);
-  const expected = url;
+  const expected = uri;
 
   return t.is(result, expected);
+});
+
+test('getVideoTracks should return the video tracks', t => {
+  const id = 'DE3942dz9ke';
+
+  const state = set(
+    'data.videos.entities',
+    {
+      [id]: {tracks: tracksFixture}
+    },
+    {}
+  );
+
+  const result = getVideoTracks(id)(state);
+
+  return t.is(result, tracksFixture);
 });
 
 test('getNbSlides should return the proper amount', t => {
