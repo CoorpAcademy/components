@@ -14,7 +14,7 @@ import {
 } from './progressions';
 import {find as findRecommendations, getNextChapter, getNextLevel} from './recommendations';
 import {findById as findSlideById, findByChapter as findSlideByChapter} from './slides';
-import {findUriById as findVideoUriById} from './videos';
+import {findUriById as findVideoUriById, findTracksById as findVideoTracksById} from './videos';
 
 export {
   getAllProgressions,
@@ -32,5 +32,6 @@ export {
   findSlideByChapter,
   findSlideById,
   saveProgression,
-  findVideoUriById
+  findVideoUriById,
+  findVideoTracksById
 };
