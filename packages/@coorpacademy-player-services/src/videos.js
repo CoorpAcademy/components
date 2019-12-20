@@ -1,9 +1,10 @@
 // @flow strict
 
-import type {DataLayer, VideoProvider, VideoTrack} from './definitions';
+import {VIDEO_TRACK_TYPE} from './definitions';
+import type {DataLayer, VideoProvider, VideoTrack, VideoTrackType} from './definitions';
 
 type FindUriById = (id: string, provider: VideoProvider) => Promise<string>;
-type FindTracksById = (videoId: string) => Promise<Array<VideoTrack>>;
+type FindTracksById = (id: string, type?: VideoTrackType) => Promise<Array<VideoTrack>>;
 
 type VideosService = {|
   findUriById: FindUriById,
@@ -21,10 +22,12 @@ const findUriById = (dataLayer: DataLayer): FindUriById => async (
 };
 
 const findTracksById = (dataLayer: DataLayer): FindTracksById => async (
-  videoId: string
+  id: string,
+  type?: VideoTrackType = VIDEO_TRACK_TYPE.SRT
 ): Promise<Array<VideoTrack>> => {
   const {findVideoTracksById} = dataLayer;
-  const tracks = await findVideoTracksById(videoId);
+  const tracks = await findVideoTracksById(id, type);
+
   return tracks;
 };
 

@@ -7,7 +7,7 @@ import type {
   ProgressionId,
   Slide
 } from '@coorpacademy/progression-engine';
-import type {Chapter, Discipline, Level, Resource} from './models';
+import type {Chapter, Discipline, Level, Resource, VideoTrack} from './models';
 import type {Services} from './services';
 
 // eslint-disable-next-line flowtype/no-weak-types
@@ -48,7 +48,10 @@ type Data = {
   },
   videos: {
     entities: {
-      [id: string]: string
+      [id: string]: {
+        url: string,
+        tracks?: Array<VideoTrack>
+      }
     }
   }
 };

@@ -35,7 +35,7 @@ import {
   getResourceToPlay,
   getNbSlides,
   getNextContent,
-  getVideoUri,
+  getVideoUrl,
   getRecommendations,
   getRoute,
   hasViewedAResourceAtThisStep,
@@ -955,7 +955,7 @@ test('getNbSlides should return 0 if no contentInfo is found', t => {
   return t.is(getNbSlides(state), 0);
 });
 
-test('getVideoUri should return the video uri', t => {
+test('getVideoUrl should return the video url', t => {
   const id = 'DE3942dz9ke';
   const url = 'www.reallyfancy.com/DE3942dz9ke.mp4';
 
@@ -967,10 +967,26 @@ test('getVideoUri should return the video uri', t => {
     {}
   );
 
-  const result = getVideoUri(id)(state);
+  const result = getVideoUrl(id)(state);
   const expected = url;
 
   return t.is(result, expected);
+});
+
+test('getVideoTracks should return the video tracks', t => {
+  const id = 'DE3942dz9ke';
+
+  const state = set(
+    'data.videos.entities',
+    {
+      [id]: {tracks: tracksFixture}
+    },
+    {}
+  );
+
+  const result = getVideoTracks(id)(state);
+
+  return t.is(result, tracksFixture);
 });
 
 test('getNbSlides should return the proper amount', t => {
@@ -1070,20 +1086,4 @@ test('should return true if slide is at previous step and at least one lesson ha
   );
 
   return t.is(result, true);
-});
-
-test('getVideoUri should return the video tracks', t => {
-  const id = 'DE3942dz9ke';
-
-  const state = set(
-    'data.videos.entities',
-    {
-      [id]: {tracks: tracksFixture}
-    },
-    {}
-  );
-
-  const result = getVideoTracks(id)(state);
-
-  return t.is(result, tracksFixture);
 });

@@ -1,6 +1,6 @@
 const videos = {
   url: 'https://foo.bar/baz.mp4',
-  trakcs: [
+  tracks: [
     {
       kind: 'captions',
       file: 'https://content.jwplatform.com/tracks/daimmENN.srt',
