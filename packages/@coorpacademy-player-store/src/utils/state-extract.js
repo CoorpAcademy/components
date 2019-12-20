@@ -512,7 +512,7 @@ export const hasSeenLesson = (state: State, onPreviousSlide: boolean = false): b
   );
 };
 
-export const getVideoUri = (id: string) => (state: State): string | void =>
+export const getVideoUrl = (id: string) => (state: State): string | void =>
   get(['data', 'videos', 'entities', id, 'url'], state);
 
 export const getVideoTracks = (id: string) => (state: State): Array<VideoTrack> | void =>

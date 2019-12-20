@@ -35,7 +35,7 @@ import {
   getResourceToPlay,
   getNbSlides,
   getNextContent,
-  getVideoUri,
+  getVideoUrl,
   getRecommendations,
   getRoute,
   hasViewedAResourceAtThisStep,
@@ -955,7 +955,7 @@ test('getNbSlides should return 0 if no contentInfo is found', t => {
   return t.is(getNbSlides(state), 0);
 });
 
-test('getVideoUri should return the video uri', t => {
+test('getVideoUrl should return the video url', t => {
   const id = 'DE3942dz9ke';
   const url = 'www.reallyfancy.com/DE3942dz9ke.mp4';
 
@@ -967,7 +967,7 @@ test('getVideoUri should return the video uri', t => {
     {}
   );
 
-  const result = getVideoUri(id)(state);
+  const result = getVideoUrl(id)(state);
   const expected = url;
 
   return t.is(result, expected);

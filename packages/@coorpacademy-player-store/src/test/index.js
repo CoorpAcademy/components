@@ -67,7 +67,7 @@ test('it should expose all api', t => {
     'getLives',
     'getCoaches',
     'hasSeenLesson',
-    'getVideoUri',
+    'getVideoUrl',
     'getVideoTracks',
     'MEDIA_VIEWED_ANALYTICS_REQUEST',
     'MEDIA_VIEWED_ANALYTICS_SUCCESS',

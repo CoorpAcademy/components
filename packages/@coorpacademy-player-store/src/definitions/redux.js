@@ -49,7 +49,7 @@ type Data = {
   videos: {
     entities: {
       [id: string]: {
-        uri: string,
+        url: string,
         tracks?: Array<VideoTrack>
       }
     }
