@@ -973,6 +973,22 @@ test('getVideoUri should return the video uri', t => {
   return t.is(result, expected);
 });
 
+test('getVideoTracks should return the video tracks', t => {
+  const id = 'DE3942dz9ke';
+
+  const state = set(
+    'data.videos.entities',
+    {
+      [id]: {tracks: tracksFixture}
+    },
+    {}
+  );
+
+  const result = getVideoTracks(id)(state);
+
+  return t.is(result, tracksFixture);
+});
+
 test('getNbSlides should return the proper amount', t => {
   const content = {ref: 42, type: 'chapter', info: {nbSlides: 111}};
   const progression = {content};
@@ -1070,20 +1086,4 @@ test('should return true if slide is at previous step and at least one lesson ha
   );
 
   return t.is(result, true);
-});
-
-test('getVideoUri should return the video tracks', t => {
-  const id = 'DE3942dz9ke';
-
-  const state = set(
-    'data.videos.entities',
-    {
-      [id]: {tracks: tracksFixture}
-    },
-    {}
-  );
-
-  const result = getVideoTracks(id)(state);
-
-  return t.is(result, tracksFixture);
 });

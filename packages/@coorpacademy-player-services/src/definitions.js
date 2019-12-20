@@ -17,6 +17,28 @@ import type {
   ResourceMimeType
 } from '@coorpacademy/progression-engine';
 
+export const CONTENT_TYPE: {[string]: ContentType} = {
+  CHAPTER: 'chapter',
+  LEVEL: 'level',
+  SLIDE: 'slide'
+};
+
+export const VIDEO_TRACK_KIND: {
+  CAPTIONS: 'captions',
+  THUMBNAILS: 'thumbnails'
+} = {
+  CAPTIONS: 'captions',
+  THUMBNAILS: 'thumbnails'
+};
+
+export const VIDEO_TRACK_TYPE: {
+  SRT: 'srt',
+  VTT: 'vtt'
+} = {
+  SRT: 'srt',
+  VTT: 'vtt'
+};
+
 type Url = string;
 type AspectRatio = '16:9' | '4:3';
 
@@ -207,11 +229,13 @@ export type RestrictedResourceType = 'level' | 'chapter' | 'slide';
 type VideoProvider = 'jwplayer' | 'kontiki' | 'vimeo';
 
 type VideoTrack = {|
-  kind: 'captions' | 'thumbnails',
+  kind: $Values<typeof VIDEO_TRACK_KIND>,
   file: string,
   label?: string,
   default?: boolean
 |};
+
+type VideoTrackType = $Values<typeof VIDEO_TRACK_TYPE>;
 
 // Keep it no strict because we can extend it
 type DataLayer = {
@@ -234,13 +258,7 @@ type DataLayer = {
   findSlideById: (id: string) => Promise<Slide>,
   saveProgression: Progression => Promise<Progression>,
   findVideoUriById: (id: string, provider: VideoProvider) => Promise<string>,
-  findVideoTracksById: (id: string) => Promise<Array<VideoTrack>>
-};
-
-export const CONTENT_TYPE: {[string]: ContentType} = {
-  CHAPTER: 'chapter',
-  LEVEL: 'level',
-  SLIDE: 'slide'
+  findVideoTracksById: (id: string, type?: VideoTrackType) => Promise<Array<VideoTrack>>
 };
 
 export type {
@@ -271,5 +289,6 @@ export type {
   PartialPayload,
   Window,
   VideoProvider,
-  VideoTrack
+  VideoTrack,
+  VideoTrackType
 };

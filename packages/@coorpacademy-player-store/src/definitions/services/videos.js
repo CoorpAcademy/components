@@ -1,9 +1,9 @@
 // @flow strict
 
-import type {VideoProvider} from '../models';
+import type {VideoProvider, VideoTrack, VideoTrackType} from '../models';
 
 type FindUriById = (id: string, provider: VideoProvider) => Promise<string>;
-type FindTracksById = (id: string) => Promise<string>;
+type FindTracksById = (id: string, type?: VideoTrackType) => Promise<Array<VideoTrack>>;
 
 type VideosService = {|
   findUriById: FindUriById,

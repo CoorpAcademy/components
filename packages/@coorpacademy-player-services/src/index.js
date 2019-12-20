@@ -12,7 +12,9 @@ import type {
   LessonAPI,
   Question,
   Answer,
-  VideoProvider
+  VideoProvider,
+  VideoTrack,
+  VideoTrackType
 } from './definitions';
 
 import type {AnalyticsService} from './analytics';
@@ -59,6 +61,8 @@ export type {
   ContentService,
   ChapterRule,
   VideoProvider,
+  VideoTrack,
+  VideoTrackType,
   VideosService
 };
 
