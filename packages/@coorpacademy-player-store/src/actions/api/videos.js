@@ -2,7 +2,7 @@
 
 import buildTask from '@coorpacademy/redux-task';
 
-import {getVideoUrl, getVideoTracks} from '../../utils/state-extract';
+import {getVideoUri, getVideoTracks} from '../../utils/state-extract';
 import type {Services} from '../../definitions/services';
 import type {VideoProvider} from '../../definitions/models';
 import type {
@@ -33,7 +33,7 @@ DispatchedAction => {
     types: [FETCH_VIDEOS_URI_REQUEST, FETCH_VIDEOS_URI_SUCCESS, FETCH_VIDEOS_URI_FAILURE],
     task: () => VideosService.findUriById(id, provider),
     meta: {id, provider},
-    bailout: getVideoUrl(id)
+    bailout: getVideoUri(id)
   });
 
   return dispatch(action);
