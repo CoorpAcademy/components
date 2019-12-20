@@ -14,12 +14,12 @@ const dataContentReducer = (state = {entities: {}}, action) => {
     case FETCH_VIDEOS_URI_REQUEST: {
       const {meta} = action;
       const {id} = meta;
-      return update(['entities', id, 'url'], videos => videos || null, state);
+      return update(['entities', id, 'uri'], videos => videos || null, state);
     }
     case FETCH_VIDEOS_URI_SUCCESS: {
       const {payload, meta} = action;
       const {id} = meta;
-      return set(['entities', id, 'url'], payload, state);
+      return set(['entities', id, 'uri'], payload, state);
     }
     case FETCH_VIDEOS_URI_FAILURE: {
       const {meta} = action;
@@ -27,11 +27,11 @@ const dataContentReducer = (state = {entities: {}}, action) => {
 
       if (
         pipe(
-          get(['entities', id, 'url']),
+          get(['entities', id, 'uri']),
           isNull
         )(state)
       ) {
-        return unset(['entities', id, 'url'], state);
+        return unset(['entities', id, 'uri'], state);
       }
       return state;
     }

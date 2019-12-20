@@ -16,7 +16,7 @@ import tracks from '../../../fixtures/tracks';
 test('should have initial value', macro, reducer, undefined, {}, {entities: {}});
 
 test(
-  'should set entities to null on request for url',
+  'should set entities to null on request for uri',
   macro,
   reducer,
   {},
@@ -24,23 +24,23 @@ test(
     type: FETCH_VIDEOS_URI_REQUEST,
     meta: {id: 'foo', provider: 'foobar'}
   },
-  {entities: {foo: {url: null}}}
+  {entities: {foo: {uri: null}}}
 );
 
 test(
-  'should do nothing if entity already exists on request for url',
+  'should do nothing if entity already exists on request for uri',
   macro,
   reducer,
-  {entities: {foo: {url: 'https://foo.bar/baz.mp4'}}},
+  {entities: {foo: {uri: 'https://foo.bar/baz.mp4'}}},
   {
     type: FETCH_VIDEOS_URI_REQUEST,
     meta: {id: 'foo', provider: 'foobar'}
   },
-  {entities: {foo: {url: 'https://foo.bar/baz.mp4'}}}
+  {entities: {foo: {uri: 'https://foo.bar/baz.mp4'}}}
 );
 
 test(
-  'should set entities on success for url',
+  'should set entities on success for uri',
   macro,
   reducer,
   {},
@@ -49,14 +49,14 @@ test(
     meta: {id: 'foo', provider: 'foobar'},
     payload: 'https://foo.bar/baz.mp4'
   },
-  {entities: {foo: {url: 'https://foo.bar/baz.mp4'}}}
+  {entities: {foo: {uri: 'https://foo.bar/baz.mp4'}}}
 );
 
 test(
-  'should remove null on failure for url',
+  'should remove null on failure for uri',
   macro,
   reducer,
-  {entities: {foo: {url: null}}},
+  {entities: {foo: {uri: null}}},
   {
     type: FETCH_VIDEOS_URI_FAILURE,
     meta: {id: 'foo', provider: 'foobar'},
@@ -74,14 +74,14 @@ test(
   'should do nothing is entity already exists on failure',
   macro,
   reducer,
-  {entities: {foo: {url: 'https://foo.bar/baz.mp4'}}},
+  {entities: {foo: {uri: 'https://foo.bar/baz.mp4'}}},
   {
     type: FETCH_VIDEOS_URI_FAILURE,
     meta: {id: 'foo', provider: 'foobar'},
     error: true,
     payload: ''
   },
-  {entities: {foo: {url: 'https://foo.bar/baz.mp4'}}}
+  {entities: {foo: {uri: 'https://foo.bar/baz.mp4'}}}
 );
 
 test(
@@ -157,26 +157,26 @@ test(
   'should not modify state on fetch tracks failure',
   macro,
   reducer,
-  {entities: {foo: {tracks, url: 'foobar.com'}}},
+  {entities: {foo: {tracks, uri: 'foobar.com'}}},
   {
     type: FETCH_VIDEOS_URI_FAILURE,
     meta: {id: 'foo', provider: 'foobar'},
     error: true,
     payload: ''
   },
-  {entities: {foo: {tracks, url: 'foobar.com'}}}
+  {entities: {foo: {tracks, uri: 'foobar.com'}}}
 );
 
 test(
-  'should not modify state on fetch url failure',
+  'should not modify state on fetch uri failure',
   macro,
   reducer,
-  {entities: {foo: {tracks, url: 'foobar.com'}}},
+  {entities: {foo: {tracks, uri: 'foobar.com'}}},
   {
     type: FETCH_VIDEOS_URI_FAILURE,
     meta: {id: 'foo', provider: 'foobar'},
     error: true,
     payload: ''
   },
-  {entities: {foo: {tracks, url: 'foobar.com'}}}
+  {entities: {foo: {tracks, uri: 'foobar.com'}}}
 );
