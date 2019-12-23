@@ -68,6 +68,8 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/network-mobile.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/interface-question-mark.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/mobile-phone-close-1.svg')},
+  {filePath: path.resolve('./third-party/nova-line.iconjar/icons/leisure-party-popper.svg')},
+  {filePath: path.resolve('./third-party/nova-line.iconjar/icons/wrench-screwdriver.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/add-1.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/audio-control-play.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/bookmark-3.svg')},
