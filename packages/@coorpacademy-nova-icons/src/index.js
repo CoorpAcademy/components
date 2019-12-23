@@ -50,10 +50,12 @@ import _NovaLineContentEditionLinkBroken from './components/nova-line/content-ed
 import _NovaLineContentEditionPencil2 from './components/nova-line/content-edition/pencil-2';
 import _NovaLineInterfaceFeedbackInterfaceQuestionMark from './components/nova-line/interface-feedback/interface-question-mark';
 import _NovaLineInterfaceFeedbackInterfaceAlertCircle from './components/nova-line/interface-feedback/interface-alert-circle';
+import _NovaLineToolsWrenchScrewdriver from './components/nova-line/tools/wrench-screwdriver';
 import _NovaLineStatusCheckCircle1 from './components/nova-line/status/check-circle-1';
 import _NovaLineStatusCloseCircle from './components/nova-line/status/close-circle';
 import _NovaLineNetworkNetworkMobile from './components/nova-line/network/network-mobile';
 import _NovaLineRemoveAddRemoveCircle1 from './components/nova-line/remove-add/remove-circle-1';
+import _NovaLineLeisureLeisurePartyPopper from './components/nova-line/leisure/leisure-party-popper';
 import _NovaLineBookmarksTagsBookmark5 from './components/nova-line/bookmarks-tags/bookmark-5';
 import _NovaLineAudioAudioControlPlay from './components/nova-line/audio/audio-control-play';
 import _NovaLineVideosVideoClip3 from './components/nova-line/videos/video-clip-3';
@@ -139,10 +141,12 @@ export const NovaLineContentEditionLinkBroken: Icon = _NovaLineContentEditionLin
 export const NovaLineContentEditionPencil2: Icon = _NovaLineContentEditionPencil2;
 export const NovaLineInterfaceFeedbackInterfaceQuestionMark: Icon = _NovaLineInterfaceFeedbackInterfaceQuestionMark;
 export const NovaLineInterfaceFeedbackInterfaceAlertCircle: Icon = _NovaLineInterfaceFeedbackInterfaceAlertCircle;
+export const NovaLineToolsWrenchScrewdriver: Icon = _NovaLineToolsWrenchScrewdriver;
 export const NovaLineStatusCheckCircle1: Icon = _NovaLineStatusCheckCircle1;
 export const NovaLineStatusCloseCircle: Icon = _NovaLineStatusCloseCircle;
 export const NovaLineNetworkNetworkMobile: Icon = _NovaLineNetworkNetworkMobile;
 export const NovaLineRemoveAddRemoveCircle1: Icon = _NovaLineRemoveAddRemoveCircle1;
+export const NovaLineLeisureLeisurePartyPopper: Icon = _NovaLineLeisureLeisurePartyPopper;
 export const NovaLineBookmarksTagsBookmark5: Icon = _NovaLineBookmarksTagsBookmark5;
 export const NovaLineAudioAudioControlPlay: Icon = _NovaLineAudioAudioControlPlay;
 export const NovaLineVideosVideoClip3: Icon = _NovaLineVideosVideoClip3;
