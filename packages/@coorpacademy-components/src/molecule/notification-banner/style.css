@@ -43,23 +43,6 @@
     margin-left: 30px;
 }
 
-.intro {
-    font-weight: 700;
-    margin-right: 7px;
-}
-
-.link {
-    font-family: 'Open Sans';
-    font-weight: 600;
-    font-size: 15px;
-    text-decoration: none;
-    margin-left: 5px;
-}
-
-.link:hover {
-    opacity: 0.7;
-}
-
 @media mobile {
     .banner {
         flex-direction: column;
