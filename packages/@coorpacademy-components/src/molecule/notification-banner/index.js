@@ -1,8 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {get, isUndefined, keys} from 'lodash/fp';
+import {
+  NovaLineToolsWrenchScrewdriver as MaintenanceIcon,
+  NovaLineLeisureLeisurePartyPopper as FeatureIcon,
+  NovaCompositionCoorpacademyListBullets3 as SurveyIcon
+} from '@coorpacademy/nova-icons';
 import Button from '../../atom/button';
-import { NovaLineToolsWrenchScrewdriver as MaintenanceIcon, NovaLineLeisureLeisurePartyPopper as FeatureIcon, NovaCompositionCoorpacademyListBullets3 as SurveyIcon } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import style from './style.css';
 
@@ -27,7 +31,7 @@ const NotificationBanner = (props, context) => {
 
   return (
     <div className={style.banner}>
-      <IconType height={30}/>
+      <IconType height={30} />
       <p>
         <span data-name="notification-banner-message">{message}</span>
       </p>
