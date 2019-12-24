@@ -1,6 +1,6 @@
 export default {
 	props: {
-		type: 'maintenance',
+		type: 'survey',
 		message: 'Cockpit will be offline for fixes.',
 		closeButton: {
 			label: 'Close',
