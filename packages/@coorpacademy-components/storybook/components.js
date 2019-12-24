@@ -431,6 +431,8 @@ import MoleculeNewsFixtureLongTitle from '../src/molecule/news/test/fixtures/lon
 import MoleculeNewsFixtureSmallDesciption from '../src/molecule/news/test/fixtures/small-desciption';
 import MoleculeNewsFixtureSmallTitle from '../src/molecule/news/test/fixtures/small-title';
 import MoleculeNotificationBannerFixtureDefault from '../src/molecule/notification-banner/test/fixtures/default';
+import MoleculeNotificationBannerFixtureFeature from '../src/molecule/notification-banner/test/fixtures/feature';
+import MoleculeNotificationBannerFixtureSurvey from '../src/molecule/notification-banner/test/fixtures/survey';
 import MoleculePaginationFixtureDefault from '../src/molecule/pagination/test/fixtures/default';
 import MoleculePaginationFixtureDisabled from '../src/molecule/pagination/test/fixtures/disabled';
 import MoleculePaymentFormFixtureDefault from '../src/molecule/payment-form/test/fixtures/default';
@@ -1325,7 +1327,9 @@ export const fixtures = {
       SmallTitle: MoleculeNewsFixtureSmallTitle
     },
     MoleculeNotificationBanner: {
-      Default: MoleculeNotificationBannerFixtureDefault
+      Default: MoleculeNotificationBannerFixtureDefault,
+      Feature: MoleculeNotificationBannerFixtureFeature,
+      Survey: MoleculeNotificationBannerFixtureSurvey
     },
     MoleculePagination: {
       Default: MoleculePaginationFixtureDefault,

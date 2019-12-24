@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {get, isUndefined} from 'lodash/fp';
+import {get, isUndefined, keys} from 'lodash/fp';
 import Button from '../../atom/button';
 import { NovaLineToolsWrenchScrewdriver as MaintenanceIcon, NovaLineLeisureLeisurePartyPopper as FeatureIcon, NovaCompositionCoorpacademyListBullets3 as SurveyIcon } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
@@ -21,10 +21,9 @@ const ICONS = {
 const NotificationBanner = (props, context) => {
   const {skin} = context;
   const primary = get('common.primary', skin);
-  const {type, message, okButton, closeButton} = props;
+  const {type, message, acceptHref, acceptLabel, closeLabel, closeOnClick} = props;
   const IconType = get([type, 'icon'], ICONS);
-
-  const handleOnClickCloseButton = closeButton.onClick;
+  const handleOnClickCloseButton = closeOnClick;
 
   return (
     <div className={style.banner}>
@@ -36,19 +35,20 @@ const NotificationBanner = (props, context) => {
         type="link"
         data-name="notification-banner-close-cta"
         className={style.button}
-        submitValue={closeButton.label}
+        submitValue={closeLabel}
         onClick={handleOnClickCloseButton}
         style={{
           backgroundColor: primary
         }}
       />
-      {!isUndefined(get('href', okButton)) && (
+      {!isUndefined(acceptHref) && (
         <Button
           type="link"
           data-name="notification-banner-cta"
           className={style.button}
-          submitValue={okButton.label}
-          href={okButton.href}
+          submitValue={acceptLabel}
+          href={acceptHref}
+          target="_blank"
           style={{
             backgroundColor: primary
           }}
@@ -63,18 +63,12 @@ NotificationBanner.contextTypes = {
 };
 
 NotificationBanner.propTypes = {
-  type: PropTypes.string,
-  message: PropTypes.string,
-  okButton: {
-    href: PropTypes.string,
-    label: PropTypes.string,
-    onClick: PropTypes.func
-  },
-  closeButton: {
-    href: PropTypes.string,
-    label: PropTypes.string,
-    onClick: PropTypes.func
-  }
+  type: PropTypes.oneOf(keys(ICONS)).isRequired,
+  message: PropTypes.string.isRequired,
+  acceptHref: PropTypes.string,
+  acceptLabel: PropTypes.string,
+  closeLabel: PropTypes.string,
+  closeOnClick: PropTypes.func
 };
 
 export default NotificationBanner;

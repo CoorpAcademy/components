@@ -1,14 +1,10 @@
 export default {
 	props: {
-		type: 'survey',
+		type: 'maintenance',
 		message: 'Cockpit will be offline for fixes.',
-		closeButton: {
-			label: 'Close',
-			onClick: () => {}
-		},
-		okButton: {
-			label: 'Know more',
-			onClick: () => {}
-		}
+		closeLabel: 'Close',
+		closeOnClick: () => console.log('Maintenance function'),
+		acceptLabel: 'Know more',
+		acceptHref: 'https://www.coorpacademy.com'
 	}
 };
