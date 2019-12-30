@@ -29,8 +29,9 @@ const ICONS = {
 };
 
 const NotificationBanner = props => {
-  const {type, message, acceptHref, acceptLabel, closeLabel, closeOnClick} = props;
+  const {type, message, acceptOnClick, acceptLabel, closeLabel, closeOnClick} = props;
   const {icon: Icon, title, color} = get([type], ICONS);
+  const handleOnClickAcceptButton = acceptOnClick;
   const handleOnClickCloseButton = closeOnClick;
 
   return (
@@ -61,13 +62,13 @@ const NotificationBanner = props => {
             color: '#546e7a'
           }}
         />
-        {!isUndefined(acceptHref) && (
+        {!isUndefined(handleOnClickAcceptButton) && (
           <Button
             type="link"
             data-name="notification-banner-cta"
             className={style.button}
             submitValue={acceptLabel}
-            href={acceptHref}
+            onClick={handleOnClickAcceptButton}
             target="_blank"
             style={{
               backgroundColor: '#00b0ff'
@@ -86,7 +87,7 @@ NotificationBanner.contextTypes = {
 NotificationBanner.propTypes = {
   type: PropTypes.oneOf(keys(ICONS)).isRequired,
   message: PropTypes.string.isRequired,
-  acceptHref: PropTypes.string,
+  acceptOnClick: PropTypes.func,
   acceptLabel: PropTypes.string,
   closeLabel: PropTypes.string,
   closeOnClick: PropTypes.func

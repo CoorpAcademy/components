@@ -5,6 +5,8 @@ export default {
     closeLabel: 'Close',
     closeOnClick: () => console.log('Survey function'),
     acceptLabel: 'Take the survey',
-    acceptHref: 'https://www.coorpacademy.com'
+    acceptOnClick: () => {
+      window.open('https://www.coorpacademy.com');
+    }
   }
 };

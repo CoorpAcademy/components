@@ -5,6 +5,8 @@ export default {
     closeLabel: 'Close',
     closeOnClick: () => console.log('Feature function'),
     acceptLabel: 'Know more',
-    acceptHref: 'https://www.coorpacademy.com'
+    acceptOnClick: () => {
+      window.open('https://www.coorpacademy.com');
+    }
   }
 };
