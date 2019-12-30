@@ -12,52 +12,69 @@ import style from './style.css';
 
 const ICONS = {
   feature: {
-    icon: FeatureIcon
+    icon: FeatureIcon,
+    title: 'New Feature',
+    color: '#3ec483'
   },
   maintenance: {
-    icon: MaintenanceIcon
+    icon: MaintenanceIcon,
+    title: 'Maintenance',
+    color: '#f73f52'
   },
   survey: {
-    icon: SurveyIcon
+    icon: SurveyIcon,
+    title: 'Survey',
+    color: '#01579b'
   }
 };
 
-const NotificationBanner = (props, context) => {
-  const {skin} = context;
-  const primary = get('common.primary', skin);
+const NotificationBanner = props => {
   const {type, message, acceptHref, acceptLabel, closeLabel, closeOnClick} = props;
-  const IconType = get([type, 'icon'], ICONS);
+  const {icon: Icon, title, color} = get([type], ICONS);
   const handleOnClickCloseButton = closeOnClick;
 
   return (
     <div className={style.banner}>
-      <IconType height={30} />
-      <p>
-        <span data-name="notification-banner-message">{message}</span>
-      </p>
-      <Button
-        type="link"
-        data-name="notification-banner-close-cta"
-        className={style.button}
-        submitValue={closeLabel}
-        onClick={handleOnClickCloseButton}
+      <div
         style={{
-          backgroundColor: primary
+          background: color
         }}
-      />
-      {!isUndefined(acceptHref) && (
+        className={style.circle}
+      >
+        <Icon className={style.icon} />
+      </div>
+      <div className={style.text}>
+        <div className={style.title}>{title}</div>
+        <div data-name="notification-banner-message" className={style.message}>
+          {message}
+        </div>
+      </div>
+      <div className={style.buttons}>
         <Button
           type="link"
-          data-name="notification-banner-cta"
-          className={style.button}
-          submitValue={acceptLabel}
-          href={acceptHref}
-          target="_blank"
+          data-name="notification-banner-close-cta"
+          className={style.close}
+          submitValue={closeLabel}
+          onClick={handleOnClickCloseButton}
           style={{
-            backgroundColor: primary
+            backgroundColor: '#ffffff',
+            color: '#546e7a'
           }}
         />
-      )}
+        {!isUndefined(acceptHref) && (
+          <Button
+            type="link"
+            data-name="notification-banner-cta"
+            className={style.button}
+            submitValue={acceptLabel}
+            href={acceptHref}
+            target="_blank"
+            style={{
+              backgroundColor: '#00b0ff'
+            }}
+          />
+        )}
+      </div>
     </div>
   );
 };

@@ -38,9 +38,67 @@
     z-index: 10000;
 }
 
+.buttons {
+    position: absolute;
+    right: 20px;
+    top: 4px;
+}
+
+.close {
+    min-width: 120px;
+    margin-left: 10px;
+    border-radius: 4px;
+}
+
 .button {
     min-width: 120px;
-    margin-left: 30px;
+    margin-left: 10px;
+    border-radius: 4px;
+}
+
+.circle {
+    border: 3px solid white;
+    height: 44px;
+    border-radius: 50%;
+    width: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circle:after {
+    opacity: 0.15;
+}
+
+.icon {
+    height: 22px;
+    color: white;
+}
+
+.text {
+    padding-left: 11px;
+    width: 60%;
+}
+
+.title {
+    height: 15px;
+    font-family: OpenSans;
+    font-size: 11px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+}
+
+.message {
+    font-family: OpenSans;
+    font-size: 14px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
 }
 
 @media mobile {
