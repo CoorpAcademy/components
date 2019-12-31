@@ -28,7 +28,11 @@ const ICONS = {
   }
 };
 
-const NotificationBanner = props => {
+const NotificationBanner = (props, context) => {
+  const {skin} = context;
+  const primaryColor = get('common.primary', skin);
+  const whiteColor = get('common.white', skin);
+
   const {type, message, acceptOnClick, acceptLabel, closeLabel, closeOnClick} = props;
   const {icon: Icon, title, color} = get([type], ICONS);
   const handleOnClickAcceptButton = acceptOnClick;
@@ -58,7 +62,7 @@ const NotificationBanner = props => {
           submitValue={closeLabel}
           onClick={handleOnClickCloseButton}
           style={{
-            backgroundColor: '#ffffff',
+            backgroundColor: whiteColor,
             color: '#546e7a'
           }}
         />
@@ -71,7 +75,7 @@ const NotificationBanner = props => {
             onClick={handleOnClickAcceptButton}
             target="_blank"
             style={{
-              backgroundColor: '#00b0ff'
+              backgroundColor: primaryColor
             }}
           />
         )}
