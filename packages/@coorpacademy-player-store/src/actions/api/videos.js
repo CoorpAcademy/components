@@ -4,7 +4,8 @@ import buildTask from '@coorpacademy/redux-task';
 
 import {getVideoUri, getVideoTracks} from '../../utils/state-extract';
 import type {Services} from '../../definitions/services';
-import type {VideoProvider} from '../../definitions/models';
+import type {VideoProvider, VideoTrackType} from '../../definitions/models';
+import {VIDEO_TRACK_TYPE} from '../../definitions/models';
 import type {
   Action,
   Dispatch,
@@ -39,7 +40,10 @@ DispatchedAction => {
   return dispatch(action);
 };
 
-export const fetchVideoTracks = (id: string): ThunkAction => (
+export const fetchVideoTracks = (
+  id: string,
+  type?: VideoTrackType = VIDEO_TRACK_TYPE.SRT
+): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
@@ -49,8 +53,8 @@ DispatchedAction => {
 
   const action: Action = buildTask({
     types: [FETCH_VIDEOS_TRACKS_REQUEST, FETCH_VIDEOS_TRACKS_SUCCESS, FETCH_VIDEOS_TRACKS_FAILURE],
-    task: () => VideosService.findTracksById(id),
-    meta: {id},
+    task: () => VideosService.findTracksById(id, type),
+    meta: {id, type},
     bailout: getVideoTracks(id)
   });
 
