@@ -82,7 +82,7 @@
 
 .title {
     height: 15px;
-    font-family: OpenSans;
+    font-family: 'Open Sans';
     font-size: 11px;
     font-weight: bold;
     font-stretch: normal;
@@ -92,7 +92,7 @@
 }
 
 .message {
-    font-family: OpenSans;
+    font-family: 'Open Sans';
     font-size: 14px;
     font-weight: bold;
     font-stretch: normal;
