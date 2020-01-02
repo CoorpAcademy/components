@@ -74,6 +74,7 @@ import MoleculeMessagePopin from './../src/molecule/message-popin';
 import MoleculeModuleBubble from './../src/molecule/module-bubble';
 import MoleculeModuleCard from './../src/molecule/module-card';
 import MoleculeNews from './../src/molecule/news';
+import MoleculeNotificationBanner from './../src/molecule/notification-banner';
 import MoleculePagination from './../src/molecule/pagination';
 import MoleculePaymentForm from './../src/molecule/payment-form';
 import MoleculePdf from './../src/molecule/pdf';
@@ -429,6 +430,9 @@ import MoleculeNewsFixtureLongDescription from '../src/molecule/news/test/fixtur
 import MoleculeNewsFixtureLongTitle from '../src/molecule/news/test/fixtures/long-title';
 import MoleculeNewsFixtureSmallDesciption from '../src/molecule/news/test/fixtures/small-desciption';
 import MoleculeNewsFixtureSmallTitle from '../src/molecule/news/test/fixtures/small-title';
+import MoleculeNotificationBannerFixtureDefault from '../src/molecule/notification-banner/test/fixtures/default';
+import MoleculeNotificationBannerFixtureFeature from '../src/molecule/notification-banner/test/fixtures/feature';
+import MoleculeNotificationBannerFixtureSurvey from '../src/molecule/notification-banner/test/fixtures/survey';
 import MoleculePaginationFixtureDefault from '../src/molecule/pagination/test/fixtures/default';
 import MoleculePaginationFixtureDisabled from '../src/molecule/pagination/test/fixtures/disabled';
 import MoleculePaymentFormFixtureDefault from '../src/molecule/payment-form/test/fixtures/default';
@@ -818,6 +822,7 @@ export const components = {
     MoleculeModuleBubble,
     MoleculeModuleCard,
     MoleculeNews,
+    MoleculeNotificationBanner,
     MoleculePagination,
     MoleculePaymentForm,
     MoleculePdf,
@@ -1320,6 +1325,11 @@ export const fixtures = {
       LongTitle: MoleculeNewsFixtureLongTitle,
       SmallDesciption: MoleculeNewsFixtureSmallDesciption,
       SmallTitle: MoleculeNewsFixtureSmallTitle
+    },
+    MoleculeNotificationBanner: {
+      Default: MoleculeNotificationBannerFixtureDefault,
+      Feature: MoleculeNotificationBannerFixtureFeature,
+      Survey: MoleculeNotificationBannerFixtureSurvey
     },
     MoleculePagination: {
       Default: MoleculePaginationFixtureDefault,
