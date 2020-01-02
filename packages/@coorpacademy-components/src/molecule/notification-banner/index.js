@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {get, isUndefined, keys} from 'lodash/fp';
+import {get, getOr, isUndefined, keys} from 'lodash/fp';
 import {
   NovaLineToolsWrenchScrewdriver as MaintenanceIcon,
   NovaLineLeisureLeisurePartyPopper as FeatureIcon,
@@ -30,7 +30,7 @@ const ICONS = {
 
 const NotificationBanner = (props, context) => {
   const {skin} = context;
-  const primaryColor = get('common.primary', skin);
+  const primaryColor = getOr('#00B0FF', 'common.primary', skin);
   const whiteColor = get('common.white', skin);
 
   const {type, message, acceptOnClick, acceptLabel, closeLabel, closeOnClick} = props;
