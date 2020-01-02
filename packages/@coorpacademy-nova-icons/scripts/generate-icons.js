@@ -239,10 +239,17 @@ const files: Array<OutputFile> = glob
     path: outputFileName.replace('.js', '')
   }));
 
-const componentsImports = files
+const sortedFiles = files.sort(
+  (a, b): number => {
+    if (a.name > b.name) return 1;
+    else if (a.name < b.name) return -1;
+    return 0;
+  }
+);
+const componentsImports = sortedFiles
   .map(({name, path: filePath}) => `import _${name} from './components/${filePath}';`)
   .join('\n');
-const componentsExports = files
+const componentsExports = sortedFiles
   .map(({name, path: filePath}) => `export const ${name}: Icon = _${name};`)
   .join('\n');
 
