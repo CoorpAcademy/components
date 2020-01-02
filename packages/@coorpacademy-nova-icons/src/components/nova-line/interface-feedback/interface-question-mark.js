@@ -8,7 +8,7 @@ const SvgComponent = props => (
       fill="currentColor"
     />
     <path
-      d="M13 15h-2v-3h1a2 2 0 1 0-2-2H8c0-2.205 1.795-4 4-4s4 1.795 4 4a4.011 4.011 0 0 1-3 3.875V15z"
+      d="M13 15h-2v-3h1a2 2 0 10-2-2H8c0-2.205 1.795-4 4-4s4 1.795 4 4a4.011 4.011 0 01-3 3.875V15z"
       fill="currentColor"
     />
     <circle cx={12} cy={17} r={1.25} fill="currentColor" />
