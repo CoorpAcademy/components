@@ -11,7 +11,7 @@ import {
   FETCH_VIDEOS_TRACKS_SUCCESS,
   FETCH_VIDEOS_TRACKS_FAILURE
 } from '../videos';
-
+import {VIDEO_TRACK_TYPE} from '../../../definitions/models';
 import tracks from '../../../fixtures/tracks';
 
 test(
@@ -94,11 +94,39 @@ test(
   [
     {
       type: FETCH_VIDEOS_TRACKS_REQUEST,
-      meta: {id: '1234'}
+      meta: {id: '1234', type: VIDEO_TRACK_TYPE.SRT}
     },
     {
       type: FETCH_VIDEOS_TRACKS_SUCCESS,
-      meta: {id: '1234'},
+      meta: {id: '1234', type: VIDEO_TRACK_TYPE.SRT},
+      payload: tracks
+    }
+  ],
+  1
+);
+
+test(
+  'should fetch a subtitle (vtt)',
+  macro,
+  {},
+  t => ({
+    Videos: {
+      findTracksById: id => {
+        t.is(id, '1234');
+
+        return tracks;
+      }
+    }
+  }),
+  fetchVideoTracks('1234', VIDEO_TRACK_TYPE.VTT),
+  [
+    {
+      type: FETCH_VIDEOS_TRACKS_REQUEST,
+      meta: {id: '1234', type: VIDEO_TRACK_TYPE.VTT}
+    },
+    {
+      type: FETCH_VIDEOS_TRACKS_SUCCESS,
+      meta: {id: '1234', type: VIDEO_TRACK_TYPE.VTT},
       payload: tracks
     }
   ],
@@ -127,11 +155,11 @@ test(
   [
     {
       type: FETCH_VIDEOS_TRACKS_REQUEST,
-      meta: {id: '456'}
+      meta: {id: '456', type: VIDEO_TRACK_TYPE.SRT}
     },
     {
       type: FETCH_VIDEOS_TRACKS_FAILURE,
-      meta: {id: '456'},
+      meta: {id: '456', type: VIDEO_TRACK_TYPE.SRT},
       error: true,
       payload: new Error('some error')
     }
