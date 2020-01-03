@@ -6,8 +6,6 @@
 
 import type {Icon} from './types';
 
-export type {Icon};
-
 import _NovaCompositionCoorpacademyAdaptive from './components/nova-composition/coorpacademy/adaptive';
 import _NovaCompositionCoorpacademyBolt from './components/nova-composition/coorpacademy/bolt';
 import _NovaCompositionCoorpacademyBrokenHeart from './components/nova-composition/coorpacademy/broken-heart';
@@ -17,6 +15,7 @@ import _NovaCompositionCoorpacademyCheck from './components/nova-composition/coo
 import _NovaCompositionCoorpacademyClock from './components/nova-composition/coorpacademy/clock';
 import _NovaCompositionCoorpacademyClue from './components/nova-composition/coorpacademy/clue';
 import _NovaCompositionCoorpacademyCog from './components/nova-composition/coorpacademy/cog';
+import _NovaCompositionCoorpacademyDraft from './components/nova-composition/coorpacademy/draft';
 import _NovaCompositionCoorpacademyEye from './components/nova-composition/coorpacademy/eye';
 import _NovaCompositionCoorpacademyFilterVideo2 from './components/nova-composition/coorpacademy/filter-video2';
 import _NovaCompositionCoorpacademyFunnel from './components/nova-composition/coorpacademy/funnel';
@@ -39,6 +38,7 @@ import _NovaCompositionCoorpacademyTarget from './components/nova-composition/co
 import _NovaCompositionCoorpacademyTimer from './components/nova-composition/coorpacademy/timer';
 import _NovaCompositionCoorpacademyTooltipCorner from './components/nova-composition/coorpacademy/tooltip-corner';
 import _NovaCompositionCoorpacademyTrophyCup from './components/nova-composition/coorpacademy/trophy-cup';
+import _NovaCompositionCoorpacademyValidate from './components/nova-composition/coorpacademy/validate';
 import _NovaCompositionCoorpacademyVoteHeartOutline from './components/nova-composition/coorpacademy/vote-heart-outline';
 import _NovaCompositionNavigationArrowDown from './components/nova-composition/navigation/arrow-down';
 import _NovaCompositionNavigationArrowLeft from './components/nova-composition/navigation/arrow-left';
@@ -104,6 +104,8 @@ import _NovaSolidVoteRewardsRewardsTrophy5 from './components/nova-solid/vote-re
 import _NovaSolidVoteRewardsVoteHeart from './components/nova-solid/vote-rewards/vote-heart';
 import _NovaSolidVoteRewardsVoteStar from './components/nova-solid/vote-rewards/vote-star';
 
+export type {Icon};
+
 export const NovaCompositionCoorpacademyAdaptive: Icon = _NovaCompositionCoorpacademyAdaptive;
 export const NovaCompositionCoorpacademyBolt: Icon = _NovaCompositionCoorpacademyBolt;
 export const NovaCompositionCoorpacademyBrokenHeart: Icon = _NovaCompositionCoorpacademyBrokenHeart;
@@ -113,6 +115,7 @@ export const NovaCompositionCoorpacademyCheck: Icon = _NovaCompositionCoorpacade
 export const NovaCompositionCoorpacademyClock: Icon = _NovaCompositionCoorpacademyClock;
 export const NovaCompositionCoorpacademyClue: Icon = _NovaCompositionCoorpacademyClue;
 export const NovaCompositionCoorpacademyCog: Icon = _NovaCompositionCoorpacademyCog;
+export const NovaCompositionCoorpacademyDraft: Icon = _NovaCompositionCoorpacademyDraft;
 export const NovaCompositionCoorpacademyEye: Icon = _NovaCompositionCoorpacademyEye;
 export const NovaCompositionCoorpacademyFilterVideo2: Icon = _NovaCompositionCoorpacademyFilterVideo2;
 export const NovaCompositionCoorpacademyFunnel: Icon = _NovaCompositionCoorpacademyFunnel;
@@ -135,6 +138,7 @@ export const NovaCompositionCoorpacademyTarget: Icon = _NovaCompositionCoorpacad
 export const NovaCompositionCoorpacademyTimer: Icon = _NovaCompositionCoorpacademyTimer;
 export const NovaCompositionCoorpacademyTooltipCorner: Icon = _NovaCompositionCoorpacademyTooltipCorner;
 export const NovaCompositionCoorpacademyTrophyCup: Icon = _NovaCompositionCoorpacademyTrophyCup;
+export const NovaCompositionCoorpacademyValidate: Icon = _NovaCompositionCoorpacademyValidate;
 export const NovaCompositionCoorpacademyVoteHeartOutline: Icon = _NovaCompositionCoorpacademyVoteHeartOutline;
 export const NovaCompositionNavigationArrowDown: Icon = _NovaCompositionNavigationArrowDown;
 export const NovaCompositionNavigationArrowLeft: Icon = _NovaCompositionNavigationArrowLeft;
