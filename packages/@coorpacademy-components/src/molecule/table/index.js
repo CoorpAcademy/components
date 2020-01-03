@@ -5,14 +5,14 @@ import {get} from 'lodash/fp';
 import {
   NovaCompositionNavigationArrowDown as ArrowDown,
   NovaCompositionCoorpacademyFunnel as FunnelIcon,
-  NovaSolidContentEditionPencil1 as PencilIcon
+  NovaSolidContentEditionPencil1 as PencilIcon,
+  NovaCompositionCoorpacademyDraft as DraftIcon,
+  NovaCompositionCoorpacademyValidate as ValidateIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import Checkbox from '../../atom/checkbox';
 import Link from '../../atom/link';
 import style from './style.css';
-// import { NovaSolidDraft } from '@coorpacademy/nova-icons';
-// import { NovaSolidValidate } from '@coorpacademy/nova-icons';
 
 const createOptionsView = (_options, hasOptions) => {
   const optionsView = _options.map((option, oIndex) => {
@@ -77,13 +77,21 @@ const Table = (props, context) => {
     const trClasses = classnames({[style.highlighted]: row.highlighted});
 
     const tableRows = fields.map((field, fIndex) => {
-      // if (field === 'icon-draft') {
-      //   return <td key={fIndex}><img className="icon" src={NovaSolidDraft} /></td>;
-      // }
-      // if (field === 'icon-validated') {
-      //   return <td key={fIndex}><img className="icon" src={NovaSolidValidate} /></td>;
-      // }
-      return <td key={fIndex}><img src={field} /></td>;
+      if (field === 'icon-draft') {
+        return (
+          <td key={fIndex}>
+            <DraftIcon width={25} height={25} />
+          </td>
+        );
+      }
+      if (field === 'icon-validated') {
+        return (
+          <td key={fIndex}>
+            <ValidateIcon width={25} height={25} />
+          </td>
+        );
+      }
+      return <td key={fIndex}>{field}</td>;
     });
 
     if (editable) {
