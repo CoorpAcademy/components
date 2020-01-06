@@ -27,7 +27,7 @@ const QrCodeImage = ({showMobileAppAccess, url, preMessage, linkMessage, endMess
         <div className={style.qrcodeOverlay}>
           <div className={style.qrcodeModal}>
             <span>{preMessage}</span>
-            <a href="mailto:assistance@coorpacademy.com">
+            <a href="mailto:assistance@coorpacademy.com" className={style.qrcodeModalLink}>
               <span>{linkMessage}</span>
             </a>
             <span>{endMessage}</span>
