@@ -2,14 +2,17 @@ import classnames from 'classnames';
 import React from 'react';
 import ReactTooltip from 'react-tooltip';
 import PropTypes from 'prop-types';
-import {get} from 'lodash/fp';
+import {get, noop} from 'lodash/fp';
 import {
   NovaCompositionCoorpacademyStar as StarIcon,
   NovaCompositionCoorpacademyTimer as TimerIcon,
   NovaCompositionCoorpacademyBolt as BoltIcon,
   NovaSolidSchoolScienceGraduationHat as CertificationIcon,
   NovaSolidContentContentBook1 as LearnerIcon,
-  NovaSolidVoteRewardsRewardsBadge1 as BonusIcon
+  NovaSolidVoteRewardsRewardsBadge1 as BonusIcon,
+  NovaCompositionCoorpacademyScorm as ScormIcon,
+  NovaCompositionCoorpacademyArticle as ArticleIcon,
+  NovaCompositionCoorpacademyVideo as VideoIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import Link from '../../atom/link';
@@ -20,7 +23,10 @@ const ICONS = {
   learner: LearnerIcon,
   battle: BoltIcon,
   certifications: CertificationIcon,
-  bonus: BonusIcon
+  bonus: BonusIcon,
+  article: ArticleIcon,
+  scorm: ScormIcon,
+  video: VideoIcon
 };
 
 const ToolTip = ({toolTip, id}, context) => {
@@ -63,45 +69,82 @@ ToolTip.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
-const EngineStars = (props, context) => {
-  const {skin} = context;
-  const {disabled, type, stars, title, toolTip = null} = props;
-  const dark = get('common.dark', skin);
-  const light = get('common.light', skin);
-  const IconType = ICONS[type];
+class EngineStars extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-  return (
-    <div
-      data-tip={disabled}
-      data-for={disabled && type}
-      className={classnames([style.engineStars, disabled ? style.disabled : ''])}
-    >
-      <ToolTip toolTip={toolTip} id={type} />
+  handleClick = e => {
+    e.stopPropagation();
+    e.preventDefault();
+    const {onClick} = this.props;
+    onClick && onClick(e);
+  };
 
-      <span
-        className={style.engineIcon}
-        style={{
-          backgroundColor: light
-        }}
+  render() {
+    const {skin} = this.context;
+    const {
+      disabled,
+      type,
+      stars,
+      title,
+      active = false,
+      onClick = noop,
+      toolTip = null
+    } = this.props;
+    const dark = get('common.dark', skin);
+    const light = get('common.light', skin);
+    const primary = get('common.primary', skin);
+    const IconType = ICONS[type];
+
+    return (
+      <div
+        data-tip={disabled}
+        data-type={type}
+        onClick={disabled || active ? noop : this.handleClick}
+        data-for={disabled && type}
+        className={classnames([
+          style.engineStars,
+          disabled ? style.disabled : '',
+          active ? style.active : '',
+          onClick !== noop ? style.clickable : null
+        ])}
       >
-        <IconType className={style.iconHeader} color={dark} width="30" />
-      </span>
-      <div className={style.score}>
-        <p data-name="star-counter">{stars}</p>
-        <span>
-          <StarIcon className={style.iconStar} color={dark} />
+        <ToolTip toolTip={toolTip} id={type} />
+
+        <span
+          className={style.engineIcon}
+          style={{
+            backgroundColor: onClick === noop ? light : primary
+          }}
+        >
+          <IconType className={style.iconHeader} width="30" />
         </span>
+        <div
+          className={style.score}
+          style={{
+            color: active ? primary : dark
+          }}
+        >
+          <p data-name="star-counter">{stars}</p>
+          <span>
+            <StarIcon className={style.iconStar} color={active ? primary : dark} />
+          </span>
+        </div>
+        <div className={style.scoreTitle}>{title}</div>
       </div>
-      <div className={style.scoreTitle}>{title}</div>
-    </div>
-  );
-};
+    );
+  }
+}
 
 EngineStars.propTypes = {
   type: PropTypes.string.isRequired,
   stars: PropTypes.number.isRequired,
   title: PropTypes.string.isRequired,
+  active: PropTypes.bool,
   disabled: PropTypes.bool,
+  onClick: PropTypes.func,
   toolTip: PropTypes.shape({
     preMessage: PropTypes.string,
     linkMessage: PropTypes.string,

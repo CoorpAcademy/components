@@ -18,17 +18,42 @@ export default {
       {
         type: 'learner',
         title: 'Courses',
-        stars: 100
+        stars: 100,
+        disabled: false,
+        onClick: () => console.log('learner')
       },
       {
         type: 'microlearning',
         title: 'Microlearning',
-        stars: 70
+        stars: 70,
+        active: true
       },
       {
         type: 'battle',
         title: 'Battles',
-        stars: 230
+        stars: 230,
+        toolTip: {
+          preMessage:
+            'This feature is currently unavailable on your platform. If you want to activate it, contact your manager or',
+          linkMessage: 'click here',
+          endMessage: 'and we will pass the message on.',
+          onClick: e => console.log(e)
+        }
+      },
+      {
+        type: 'scorm',
+        title: 'Interactive slides',
+        stars: 70
+      },
+      {
+        type: 'video',
+        title: 'Video',
+        stars: 50
+      },
+      {
+        type: 'article',
+        title: 'Article',
+        stars: 50
       }
     ],
     progressions: [
@@ -36,6 +61,7 @@ export default {
         ref: '05',
         completion: 0.3,
         stars: 400,
+        maxStars: 500,
         disabled: false,
         label: 'Big Data',
         level: 'Basic',
@@ -74,7 +100,7 @@ export default {
         }
       },
       {
-        ref: '05',
+        ref: '06',
         completion: 0.75,
         stars: 400,
         disabled: true,

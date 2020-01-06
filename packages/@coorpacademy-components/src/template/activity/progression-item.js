@@ -1,17 +1,33 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {get, noop} from 'lodash/fp';
 import {
   NovaCompositionNavigationArrowRight as ArrowRightIcon,
   NovaCompositionCoorpacademyStar as StarIcon,
   NovaCompositionCoorpacademyTimer as TimerIcon,
+  NovaCompositionCoorpacademyBolt as BoltIcon,
+  NovaSolidSchoolScienceGraduationHat as CertificationIcon,
   NovaCompositionCoorpacademyAdaptive as AdaptiveIcon,
-  NovaSolidContentContentBook1 as LearnerIcon
+  NovaSolidContentContentBook1 as LearnerIcon,
+  NovaCompositionCoorpacademyScorm as ScormIcon,
+  NovaCompositionCoorpacademyArticle as ArticleIcon,
+  NovaCompositionCoorpacademyVideo as VideoIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import ProgressBar from '../../molecule/progress-bar';
 import Link from '../../atom/link';
 import style from './progression-item.css';
+
+const ICONS = {
+  chapter: TimerIcon,
+  course: LearnerIcon,
+  battle: BoltIcon,
+  certification: CertificationIcon,
+  article: ArticleIcon,
+  scorm: ScormIcon,
+  video: VideoIcon
+};
 
 const ProgressionItem = (props, context) => {
   const {skin} = context;
@@ -23,12 +39,16 @@ const ProgressionItem = (props, context) => {
     level,
     onClick = noop,
     stars,
+    maxStars,
     state,
-    type
+    type,
+    steps = 0
   } = props;
+
   const dark = get('common.dark', skin);
   const primary = get('common.primary', skin);
   const white = get('common.white', skin);
+  const IconType = ICONS[type];
 
   const adaptiveIcon = adaptive ? (
     <div
@@ -44,7 +64,7 @@ const ProgressionItem = (props, context) => {
   const handleCTAClick = e => {
     e.stopPropagation();
     e.preventDefault();
-    onClick(e);
+    onClick && onClick(e);
   };
 
   const link = disabled ? null : (
@@ -54,14 +74,11 @@ const ProgressionItem = (props, context) => {
       </span>
     </Link>
   );
+
   return (
-    <div className={disabled ? style.disabled : ''}>
+    <div className={classnames(style.progressionItem, disabled ? style.disabled : '')}>
       <div className={style.wrapperTitle}>
-        {type === 'course' ? (
-          <LearnerIcon className={style.iconType} color={dark} />
-        ) : (
-          <TimerIcon className={style.iconType} color={dark} />
-        )}
+        <IconType className={style.iconType} color={dark} />
         <div data-name="activityLabel" className={style.label} title={label}>
           {label}
           {adaptiveIcon}
@@ -74,20 +91,23 @@ const ProgressionItem = (props, context) => {
             color: primary
           }}
         >
-          {stars} <StarIcon className={style.iconStar} color={primary} />
+          {stars}
+          {maxStars ? ' /' : null}
+          {maxStars ? <span className={style.smallStars}>{maxStars}</span> : null}{' '}
+          <StarIcon className={style.iconStar} color={primary} />
         </div>
       </div>
       <ProgressBar
         className={style.completion}
         value={completion * 100}
         max={100}
-        style={{backgroundColor: primary}}
+        steps={steps}
+        style={{backgroundColor: primary, borderRadius: 0}}
       />
       <div className={style.state}>
         {link}
         <span className={style.level}>{level}</span>
       </div>
-      <div className={style.separation} />
     </div>
   );
 };
@@ -95,6 +115,8 @@ const ProgressionItem = (props, context) => {
 ProgressionItem.propTypes = {
   completion: PropTypes.number.isRequired,
   stars: PropTypes.number.isRequired,
+  maxStars: PropTypes.number,
+  steps: PropTypes.number,
   disabled: PropTypes.bool,
   label: PropTypes.string.isRequired,
   level: PropTypes.string.isRequired,
