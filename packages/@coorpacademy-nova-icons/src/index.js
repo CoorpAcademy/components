@@ -47,6 +47,7 @@ import _NovaCompositionNavigationArrowDown from './components/nova-composition/n
 import _NovaCompositionNavigationArrowLeft from './components/nova-composition/navigation/arrow-left';
 import _NovaLineBusinessCircleView from './components/nova-line/business/circle-view';
 import _NovaLineLoginKey1 from './components/nova-line/login/key-1';
+import _NovaLineContentEditionQuillCircle from './components/nova-line/content-edition/quill-circle';
 import _NovaLineContentEditionLinkBroken from './components/nova-line/content-edition/link-broken';
 import _NovaLineContentEditionPencil2 from './components/nova-line/content-edition/pencil-2';
 import _NovaLineInterfaceFeedbackInterfaceQuestionMark from './components/nova-line/interface-feedback/interface-question-mark';
@@ -93,6 +94,7 @@ import _NovaSolidContentContentBook1 from './components/nova-solid/content/conte
 import _NovaSolidMessagesChatChatBubblesCircle from './components/nova-solid/messages-chat/chat-bubbles-circle';
 import _NovaSolidContentEditionPencil1 from './components/nova-solid/content-edition/pencil-1';
 import _NovaSolidRemoveAddAdd1 from './components/nova-solid/remove-add/add-1';
+import _NovaSolidRemoveAddAddCircle2 from './components/nova-solid/remove-add/add-circle-2';
 import _NovaSolidRemoveAddSubtract1 from './components/nova-solid/remove-add/subtract-1';
 import _NovaSolidAudioAudioControlFastForward from './components/nova-solid/audio/audio-control-fast-forward';
 import _NovaSolidAudioAudioControlPlay from './components/nova-solid/audio/audio-control-play';
@@ -139,6 +141,7 @@ export const NovaCompositionNavigationArrowDown: Icon = _NovaCompositionNavigati
 export const NovaCompositionNavigationArrowLeft: Icon = _NovaCompositionNavigationArrowLeft;
 export const NovaLineBusinessCircleView: Icon = _NovaLineBusinessCircleView;
 export const NovaLineLoginKey1: Icon = _NovaLineLoginKey1;
+export const NovaLineContentEditionQuillCircle: Icon = _NovaLineContentEditionQuillCircle;
 export const NovaLineContentEditionLinkBroken: Icon = _NovaLineContentEditionLinkBroken;
 export const NovaLineContentEditionPencil2: Icon = _NovaLineContentEditionPencil2;
 export const NovaLineInterfaceFeedbackInterfaceQuestionMark: Icon = _NovaLineInterfaceFeedbackInterfaceQuestionMark;
@@ -185,6 +188,7 @@ export const NovaSolidContentContentBook1: Icon = _NovaSolidContentContentBook1;
 export const NovaSolidMessagesChatChatBubblesCircle: Icon = _NovaSolidMessagesChatChatBubblesCircle;
 export const NovaSolidContentEditionPencil1: Icon = _NovaSolidContentEditionPencil1;
 export const NovaSolidRemoveAddAdd1: Icon = _NovaSolidRemoveAddAdd1;
+export const NovaSolidRemoveAddAddCircle2: Icon = _NovaSolidRemoveAddAddCircle2;
 export const NovaSolidRemoveAddSubtract1: Icon = _NovaSolidRemoveAddSubtract1;
 export const NovaSolidAudioAudioControlFastForward: Icon = _NovaSolidAudioAudioControlFastForward;
 export const NovaSolidAudioAudioControlPlay: Icon = _NovaSolidAudioAudioControlPlay;
