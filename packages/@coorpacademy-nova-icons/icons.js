@@ -42,6 +42,7 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/timer.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/tooltip-corner.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/magic-wand.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/import-icon.svg')},
   {
     filePath: path.resolve('./third-party/nova-composition.iconjar/icons/trophy-cup.svg'),
     replaceColors: false

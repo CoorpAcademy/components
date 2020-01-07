@@ -1,7 +1,4 @@
 @value colors: "../../variables/colors.css";
-@value dark from colors;
-@value brand from colors;
-@value xtraLightGrey from colors;
 @value lightMediumGray from colors;
 
 .modalWrapper {
@@ -12,8 +9,7 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: dark;
-  opacity: 0.67;
+  background-color: rgba(0, 0, 0, 0.67);
 }
 
 .modal {
@@ -58,14 +54,25 @@
   align-items: center;
 }
 
+.shadow {
+  width: 12px;
+  height: 12px;
+  background-color: #ffffff;
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+}
+
 .headerIcons {
   width: 16px;
   height: 16px;
+  z-index: 1;
 }
 
 .headerCloseIcon {
   width: 16px;
   height: 16px;
+  color: #90a4ae;
 }
 
 .headerCloseIcon:hover {
@@ -157,7 +164,7 @@
 }
 
 .choice .choiceLeftIcon {
-  filter: grayscale(1) brightness(0.4) contrast(2.5);
+  filter: grayscale(1) contrast(1);
   width: 40px;
   height: 30px;
 }
