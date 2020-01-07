@@ -1,6 +1,7 @@
 export default {
   props: {
     editable: false,
+    headerTitle: 'Course Edition Status',
     columns: [
       '',
       {

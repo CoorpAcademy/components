@@ -29,7 +29,7 @@ const createOptionsView = (_options, hasOptions) => {
 };
 
 const Table = (props, context) => {
-  const {rows = [], columns = [], editable = true, theme} = props;
+  const {rows = [], columns = [], editable = true, theme, headerTitle = ''} = props;
   const {skin} = context;
 
   const mediumColor = get('common.medium', skin);
@@ -63,6 +63,22 @@ const Table = (props, context) => {
   });
 
   const mainClass = classnames(theme ? style.cockpit : style.wrapper);
+
+  const cockpitHeader = theme === 'cockpit' && (
+    <div className={style.header}>
+      <h1 className={style.title}>{headerTitle}</h1>
+      <div className={style.legend}>
+        <div className={style.icon}>
+          <DraftIcon width={25} height={25} />
+          <span className={style.label}>Draft</span>
+        </div>
+        <div className={style.icon}>
+          <ValidateIcon width={25} height={25} />
+          <span className={style.label}>Validated</span>
+        </div>
+      </div>
+    </div>
+  );
 
   if (editable) {
     headerView.unshift(
@@ -114,6 +130,7 @@ const Table = (props, context) => {
 
   return (
     <div className={mainClass}>
+      {cockpitHeader}
       <table className={classnames(style.table, {[style.readonly]: !editable})}>
         <thead>
           <tr>{headerView}</tr>
@@ -151,7 +168,8 @@ Table.propTypes = {
       )
     })
   ),
-  theme: PropTypes.string
+  theme: PropTypes.string,
+  headerTitle: PropTypes.string
 };
 
 export default Table;
