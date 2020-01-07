@@ -27,11 +27,13 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/less.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/lightbulb.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/list-bullets-3.svg')},
-  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/draft.svg'),
+  {
+    filePath: path.resolve('./third-party/nova-composition.iconjar/icons/draft.svg'),
     replaceColors: false
   },
-  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/validate.svg'),
-  replaceColors: false
+  {
+    filePath: path.resolve('./third-party/nova-composition.iconjar/icons/validate.svg'),
+    replaceColors: false
   },
   {
     filePath: path.resolve('./third-party/nova-composition.iconjar/icons/lock.svg'),
