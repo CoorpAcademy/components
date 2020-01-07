@@ -2,7 +2,6 @@
 /* eslint-disable react/jsx-no-comment-textnodes */
 
 import React from 'react';
-import get from 'lodash/fp/get';
 import {
   NovaLineContentEditionQuillCircle as QuillCircle,
   NovaSolidRemoveAddAddCircle2 as AddCircle,
@@ -14,7 +13,7 @@ import PropTypes from 'prop-types';
 import Provider from '../../atom/provider';
 import style from './style.css';
 
-const Choice = ({title, subtitle, link, color, children}) => {
+const Choice = ({title, subtitle, link, children}) => {
   return (
     <a className={style.choice} href={link}>
       <div className={style.choiceContent}>
@@ -25,26 +24,21 @@ const Choice = ({title, subtitle, link, color, children}) => {
         </div>
       </div>
       <div className={style.choiceRightIconWrapper}>
-        <Check className={style.choiceRightIcon} color={color} />
+        <Check className={style.choiceRightIcon} />
       </div>
     </a>
   );
 };
 
-const Modal = (props, context) => {
-  const {skin} = context;
-  const primarySkinColor = get('common.primary', skin);
+const Modal = props => {
   const {header, description, choices, onClose} = props;
-  const choicesStyles = {
-    borderColor: primarySkinColor
-  };
   return (
     <div className={style.modalWrapper}>
       <div className={style.modal}>
         <header className={style.header}>
           <div className={style.headerRightContent}>
             <div className={style.headerRightIconWrapper}>
-              <AddCircle className={style.headerIcons} color={primarySkinColor} />
+              <AddCircle className={style.headerAddIcon} />
               <div className={style.shadow} />
             </div>
             <h3>{header}</h3>
@@ -52,24 +46,22 @@ const Modal = (props, context) => {
           <Close onClick={onClose} className={style.headerCloseIcon} />
         </header>
         <div className={style.description} dangerouslySetInnerHTML={{__html: description}} />
-        <div className={style.choices} style={choicesStyles}>
+        <div className={style.choices}>
           <Choice
             key={choices.left.title}
-            color={primarySkinColor}
             title={choices.left.title}
             subtitle={choices.left.subtitle}
             link={choices.left.link}
           >
-            <QuillCircle className={style.choiceLeftIcon} color={primarySkinColor} />
+            <QuillCircle className={style.choiceLeftIcon} />
           </Choice>
           <Choice
             key={choices.right.title}
-            color={primarySkinColor}
             title={choices.right.title}
             subtitle={choices.right.subtitle}
             link={choices.right.link}
           >
-            <ImportIcon className={style.choiceLeftIcon} color={primarySkinColor} />
+            <ImportIcon className={style.choiceLeftIcon} />
           </Choice>
         </div>
       </div>
