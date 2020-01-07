@@ -2,14 +2,17 @@
 
 Components bank (react and react-native) based on Nova SVG icons (through [Iconjar](https://geticonjar.com) files)
 
+## Before all
+
+- download iconjar application for macos (https://geticonjar.com/)
+
 ## Adding an icon
 
-- Open the Iconjar collection that's in the `third-party` folder or add a new one
-- Drag and drop your SVG file into a collection (be careful of having a SVG without any custom color)
-- Export the new updated iconjar collection
-- Add the the brand new svg icon's path into `icons.js` file that's in root project
+- import your icon's collection from the folder you need in `packages/@coorpacademy-nova-icons/third-party` or add a new one
+- Drag and drop your SVG file into a collection
+- Export the new updated iconjar collection (be careful to have the same name when you export, to erase the old one)
+- Add the brand new svg icon's path into `icons.js` file that's in root project (if you're SVG has a color and you want to keep it, you can add the property: `replaceColors: false`)
 - Generate the component using `yarn prepare`
-
 
 ## Usage
 
