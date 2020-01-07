@@ -1,0 +1,219 @@
+@value colors: "../../variables/colors.css";
+@value lightMediumGray from colors;
+@value brand from colors;
+@value white from colors;
+@value lightDark from colors;
+@value darkGrey from colors;
+@value dark from colors;
+@value medium from colors;
+@value light from colors;
+@value xtraLightGrey from colors;
+@value shadow from colors;
+
+.modalWrapper {
+  display: flex;
+  font-family: "Open Sans";
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: lightDark;
+}
+
+.modal {
+  margin: auto;
+  padding: 20px;
+  min-width: 640px;
+  min-height: 285px;
+  border-radius: 4px;
+  box-shadow: 0 0 5px 6px shadow;
+  background-color: xtraLightGrey;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.header {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.headerRightContent {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.headerRightContent h3 {
+  margin: 0;
+}
+
+.headerRightIconWrapper {
+  width: 24px;
+  height: 24px;
+  background-color: darkGrey;
+  border-radius: 50%;
+  margin: 0 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shadow {
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  position: absolute;
+  z-index: 0;
+  border-radius: 50%;
+}
+
+.headerAddIcon {
+  width: 16px;
+  height: 16px;
+  color: brand;
+  z-index: 1;
+}
+
+.headerCloseIcon {
+  width: 16px;
+  height: 16px;
+  color: medium;
+}
+
+.headerCloseIcon:hover {
+  cursor: pointer;
+}
+
+.description {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.description p {
+  margin: 0;
+  margin-left: 64px;
+  font-size: 14px;
+}
+
+.choices {
+  flex-grow: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.choice {
+  width: 292px;
+  height: 94px;
+  padding: 8px;
+  border-radius: 4px;
+  border: solid 1px light;
+  background-color: white;
+  border-left: 4px solid lightMediumGray;
+  color: black;
+  text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.choice:hover {
+  border-left-color: brand;
+}
+
+.choiceContent {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-grow: 1;
+  padding: 8px;
+}
+
+.choiceDescription {
+  font-family: "Open Sans";
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  padding-left: 8px;
+}
+
+.choiceDescriptionTitle {
+  margin: 0;
+  font-size: 20px;
+  align-self: flex-start;
+}
+
+.choiceDescriptionSubtitle {
+  font-size: 14px;
+  line-height: 1.43;
+  color: dark;
+  align-self: flex-start;
+}
+
+.choiceLeftIconWrapper {
+  justify-self: flex-start;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: lightMediumGray;
+}
+
+.choice:hover .choiceLeftIconWrapper {
+  background-color: darkGrey;
+}
+
+.choiceLeftIcon {
+  color: dark;
+  width: 40px;
+  height: 30px;
+}
+
+.choice:hover .choiceLeftIcon {
+  color: brand;
+}
+
+.choiceRightIconWrapper {
+  top: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  justify-self: flex-end;
+  align-self: flex-start;
+  display: flex;
+  justify-content: center;
+  border: solid 1px light;
+}
+
+.choiceRightIcon {
+  top: 0;
+  right: 0;
+  width: 16px;
+  height: 16px;
+  margin: 0 auto;
+  color: brand;
+  visibility: hidden;
+}
+
+.choice:active .choiceRightIcon {
+  visibility: visible;
+}
+
+.choice:active .choiceRightIconWrapper {
+  border: none;
+}
