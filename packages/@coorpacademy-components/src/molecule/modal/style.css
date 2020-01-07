@@ -1,5 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value lightMediumGray from colors;
+@value brand from colors;
 
 .modalWrapper {
   display: flex;
@@ -116,8 +117,8 @@
   align-items: center;
 }
 
-.choices .choice:hover {
-  border-left-color: inherit;
+.choice:hover {
+  border-left-color: brand;
 }
 
 .choiceContent {
@@ -163,16 +164,18 @@
   background-color: lightMediumGray;
 }
 
+.choiceLeftIconWrapper:hover {
+  background-color: brand;
+}
+
 .choice .choiceLeftIcon {
-  filter: grayscale(1) contrast(1);
+  color: #546E7A;
   width: 40px;
   height: 30px;
 }
 
-.choice:hover .choiceLeftIcon {
-  filter: none;
-  width: 40px;
-  height: 30px;
+.choiceLeftIcon:hover {
+  color: brand;
 }
 
 .choiceRightIconWrapper {
