@@ -120,7 +120,8 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/video-control-play.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/vote-heart.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/vote-star.svg')},
-  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/ring-planet.svg')}
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/ring-planet.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/video-subtitle.svg')}
 ];
 
 export default icons;
