@@ -15,6 +15,8 @@ import Checkbox from '../../atom/checkbox';
 import Link from '../../atom/link';
 import style from './style.css';
 
+const THEMES = {COCKPIT: 'cockpit'};
+
 const createOptionsView = (_options, hasOptions) => {
   const optionsView = _options.map((option, oIndex) => {
     const {onChange, selected} = option;
@@ -63,9 +65,9 @@ const Table = (props, context) => {
     );
   });
 
-  const mainClass = classnames(theme ? style.cockpit : style.wrapper);
+  const mainClass = classnames(theme === THEMES.COCKPIT ? style.cockpit : style.wrapper);
 
-  const cockpitHeader = theme === 'cockpit' && (
+  const cockpitHeader = theme === THEMES.COCKPIT && (
     <div className={style.header}>
       <h1 className={style.title}>{headerTitle}</h1>
       <div className={style.legend}>
@@ -94,30 +96,29 @@ const Table = (props, context) => {
     const trClasses = classnames({[style.highlighted]: row.highlighted});
 
     const tableRows = fields.map((field, fIndex) => {
-      if (field === 'icon-draft') {
-        return (
-          <td key={fIndex}>
-            <DraftIcon width={25} height={25} />
-          </td>
-        );
+      switch (field) {
+        case 'icon-draft':
+          return (
+            <td key={fIndex}>
+              <DraftIcon width={25} height={25} />
+            </td>
+          );
+        case 'icon-validated':
+          return (
+            <td key={fIndex}>
+              <ValidateIcon width={25} height={25} />
+            </td>
+          );
+        case startsWith('[CC]', field):
+          return (
+            <td key={fIndex}>
+              <VideoSubtitleIcon width={25} height={25} style={{verticalAlign: 'middle'}} />
+              {field.replace(/\[CC\]/, '')}
+            </td>
+          );
+        default:
+          return <td key={fIndex}>{field}</td>;
       }
-      if (field === 'icon-validated') {
-        return (
-          <td key={fIndex}>
-            <ValidateIcon width={25} height={25} />
-          </td>
-        );
-      }
-      if (startsWith('[CC]', field)) {
-        return (
-          <td key={fIndex}>
-            <VideoSubtitleIcon width={25} height={25} style={{verticalAlign: 'middle'}} />
-            {field.replace(/\[CC\]/, '')}
-          </td>
-        );
-      }
-
-      return <td key={fIndex}>{field}</td>;
     });
 
     if (editable) {
@@ -178,7 +179,7 @@ Table.propTypes = {
       )
     })
   ),
-  theme: PropTypes.string,
+  theme: PropTypes.oneOf([THEMES.COCKPIT]),
   headerTitle: PropTypes.string
 };
 

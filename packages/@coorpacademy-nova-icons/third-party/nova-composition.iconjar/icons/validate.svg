@@ -2,18 +2,14 @@
 <!-- Generator: Adobe Illustrator 23.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="0 0 170 170" style="enable-background:new 0 0 170 170;" xml:space="preserve">
-<style type="text/css">
-	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#3EC483;}
-	.st1{fill:#FFFFFF;}
-</style>
 <title>Group</title>
 <desc>Created with Sketch.</desc>
 <g id="Page-1">
 	<g id="Draft-Icon" transform="translate(-1730.000000, -209.000000)">
 		<g id="Group" transform="translate(1730.000000, 209.000000)">
-			<path id="Rectangle" class="st0" d="M85,0L85,0c46.9,0,85,38.1,85,85l0,0c0,46.9-38.1,85-85,85l0,0c-46.9,0-85-38.1-85-85l0,0
+			<path id="Rectangle" fill-rule="evenodd" clip-rule="evenodd" fill="#3EC483" d="M85,0L85,0c46.9,0,85,38.1,85,85l0,0c0,46.9-38.1,85-85,85l0,0c-46.9,0-85-38.1-85-85l0,0
 				C0,38.1,38.1,0,85,0z"/>
-			<polygon id="Path" class="st1" points="76.9,114.5 47,84.6 58.4,73.1 76.9,91.7 111.6,57 123,68.4 			"/>
+			<polygon id="Path" fill="#FFFFFF" points="76.9,114.5 47,84.6 58.4,73.1 76.9,91.7 111.6,57 123,68.4 			"/>
 		</g>
 	</g>
 </g>

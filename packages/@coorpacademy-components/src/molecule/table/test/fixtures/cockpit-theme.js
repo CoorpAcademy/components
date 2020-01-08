@@ -3,7 +3,10 @@ export default {
     editable: false,
     headerTitle: 'Course Edition Status',
     columns: [
-      '',
+      {
+        title: '',
+        info: ''
+      },
       {
         title: '🇫🇷',
         info: 'French'
