@@ -156,7 +156,7 @@
 .cockpit {
   padding-bottom: 0;
   border-radius: 4px;
-  overflow: hidden;
+  overflow: scroll;
   box-shadow: 0 0 2px 0 rgba(0,0,0,.19);
   font-family: 'Open Sans';
   background-color: #fff;
@@ -188,6 +188,7 @@
 
 .cockpit td {
   border: none;
+  text-align: center;
 }
 
 .cockpit tr td {
@@ -195,15 +196,24 @@
   border-bottom: 1px solid #ECEFF1;
 }
 
+.cockpit tr th {
+  text-align: center;
+}
+
 .cockpit tr td:first-child {
+  text-align: left;
   text-overflow: ellipsis;
   overflow: hidden;
-  width: 77%;
-  max-width: 600px;
+  min-width: 600px;
+  width: 60%;
+}
+
+.cockpit tr th:first-child {
+  text-align: left;
 }
 
 .cockpit thead tr th .noOptions label {
-  padding: 0px 0 0 23px;
+  padding: 0;
   font-size: 23px;
   margin: 0;
   line-height: 38px;
@@ -217,7 +227,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 95%;
+  width: 85%;
   margin: 0 auto;
 }
 
@@ -230,7 +240,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 15%;
+  width: 25%;
 }
 
 .cockpit .icon {
