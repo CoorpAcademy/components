@@ -30,7 +30,7 @@ const createOptionsView = (_options, hasOptions) => {
 };
 
 const Table = (props, context) => {
-  const {rows = [], columns = [], editable = true, theme, headerTitle = ''} = props;
+  const {rows = [], columns = [], editable = true, theme = false, headerTitle = ''} = props;
   const {skin} = context;
 
   const mediumColor = get('common.medium', skin);
