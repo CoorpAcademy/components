@@ -6,6 +6,8 @@
 
 import type {Icon} from './types';
 
+export type {Icon};
+
 import _NovaCompositionCoorpacademyAdaptive from './components/nova-composition/coorpacademy/adaptive';
 import _NovaCompositionCoorpacademyBolt from './components/nova-composition/coorpacademy/bolt';
 import _NovaCompositionCoorpacademyBrokenHeart from './components/nova-composition/coorpacademy/broken-heart';
@@ -103,8 +105,6 @@ import _NovaSolidVoteRewardsRewardsBadge1 from './components/nova-solid/vote-rew
 import _NovaSolidVoteRewardsRewardsTrophy5 from './components/nova-solid/vote-rewards/rewards-trophy-5';
 import _NovaSolidVoteRewardsVoteHeart from './components/nova-solid/vote-rewards/vote-heart';
 import _NovaSolidVoteRewardsVoteStar from './components/nova-solid/vote-rewards/vote-star';
-
-export type {Icon};
 
 export const NovaCompositionCoorpacademyAdaptive: Icon = _NovaCompositionCoorpacademyAdaptive;
 export const NovaCompositionCoorpacademyBolt: Icon = _NovaCompositionCoorpacademyBolt;
