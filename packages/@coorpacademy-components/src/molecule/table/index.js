@@ -1,13 +1,14 @@
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import {get} from 'lodash/fp';
+import {get, startsWith} from 'lodash/fp';
 import {
   NovaCompositionNavigationArrowDown as ArrowDown,
   NovaCompositionCoorpacademyFunnel as FunnelIcon,
   NovaSolidContentEditionPencil1 as PencilIcon,
   NovaCompositionCoorpacademyDraft as DraftIcon,
-  NovaCompositionCoorpacademyValidate as ValidateIcon
+  NovaCompositionCoorpacademyValidate as ValidateIcon,
+  NovaSolidVideosVideoSubtitle as VideoSubtitleIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import Checkbox from '../../atom/checkbox';
@@ -107,6 +108,15 @@ const Table = (props, context) => {
           </td>
         );
       }
+      if (startsWith('[CC]', field)) {
+        return (
+          <td key={fIndex}>
+            <VideoSubtitleIcon width={25} height={25} style={{verticalAlign: 'middle'}} />
+            {field.replace(/\[CC\]/, '')}
+          </td>
+        );
+      }
+
       return <td key={fIndex}>{field}</td>;
     });
 
