@@ -75,6 +75,7 @@ import _NovaSolidContentContentBook1 from './components/nova-solid/content/conte
 import _NovaSolidContentEditionPencil1 from './components/nova-solid/content-edition/pencil-1';
 import _NovaSolidDataTransferDataUpload1 from './components/nova-solid/data-transfer/data-upload-1';
 import _NovaSolidDesignActionsRedo from './components/nova-solid/design-actions/redo';
+import _NovaSolidEmailEmailEnvelope from './components/nova-solid/email/email-envelope';
 import _NovaSolidInterfaceFeedbackInterfaceAlertCircle from './components/nova-solid/interface-feedback/interface-alert-circle';
 import _NovaSolidLightsLightbulb4 from './components/nova-solid/lights/lightbulb-4';
 import _NovaSolidLocationsCompass3 from './components/nova-solid/locations/compass-3';
@@ -170,6 +171,7 @@ export const NovaSolidContentContentBook1: Icon = _NovaSolidContentContentBook1;
 export const NovaSolidContentEditionPencil1: Icon = _NovaSolidContentEditionPencil1;
 export const NovaSolidDataTransferDataUpload1: Icon = _NovaSolidDataTransferDataUpload1;
 export const NovaSolidDesignActionsRedo: Icon = _NovaSolidDesignActionsRedo;
+export const NovaSolidEmailEmailEnvelope: Icon = _NovaSolidEmailEmailEnvelope;
 export const NovaSolidInterfaceFeedbackInterfaceAlertCircle: Icon = _NovaSolidInterfaceFeedbackInterfaceAlertCircle;
 export const NovaSolidLightsLightbulb4: Icon = _NovaSolidLightsLightbulb4;
 export const NovaSolidLocationsCompass3: Icon = _NovaSolidLocationsCompass3;
