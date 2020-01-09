@@ -7,12 +7,12 @@ export default {
       left: {
         title: 'Create course',
         subtitle: 'with Coorpacademy',
-        link: 'https://www.coordacademy.com'
+        onClick: () => console.log('https://www.coordacademy.com')
       },
       right: {
         title: 'Import course',
         subtitle: 'Scorm, Youtube, Link',
-        link: 'https://www.google.com'
+        onClick: () => console.log('https://www.google.com')
       }
     },
     onClose: () => console.log('Gotchaaaa 😂')
