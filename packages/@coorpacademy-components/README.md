@@ -21,7 +21,7 @@ This library provide sharable components for web applications, either :
 
 ```sh
 npm install
-npm start
+npm run start
 ```
 
 Then open `http://localhost:3004`.
@@ -68,6 +68,24 @@ npm run generate
 ```
 
 which is also launched automatically whenever you run `npm start`
+
+### Adding a locale
+
+- you need to add your locale in en/global.json file
+- be sure to have `translate: Provider.childContextTypes.translate` in the contextTypes object of your component
+
+example:
+```
+  ....
+
+  const YourComponent = (props, context) => {
+    const {translate} = context;
+
+    return <p>{translate('your new locale')}</p>
+  }
+
+  ...
+```
 
 ## Locally use in an external project
 
