@@ -1,7 +1,7 @@
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import {get, startsWith} from 'lodash/fp';
+import {get, isString} from 'lodash/fp';
 import {
   NovaCompositionNavigationArrowDown as ArrowDown,
   NovaCompositionCoorpacademyFunnel as FunnelIcon,
@@ -33,7 +33,7 @@ const createOptionsView = (_options, hasOptions) => {
 
 const Table = (props, context) => {
   const {rows = [], columns = [], editable = true, theme = false, headerTitle = ''} = props;
-  const {skin} = context;
+  const {skin, translate} = context;
 
   const mediumColor = get('common.medium', skin);
 
@@ -73,11 +73,11 @@ const Table = (props, context) => {
       <div className={style.legend}>
         <div className={style.icon}>
           <DraftIcon width={25} height={25} />
-          <span className={style.label}>Draft</span>
+          <span className={style.label}>{translate('Draft')}</span>
         </div>
         <div className={style.icon}>
           <ValidateIcon width={25} height={25} />
-          <span className={style.label}>Validated</span>
+          <span className={style.label}>{translate('Validated')}</span>
         </div>
       </div>
     </div>
@@ -91,34 +91,32 @@ const Table = (props, context) => {
     );
   }
 
+  const renderIcon = field => {
+    switch (field.icon) {
+      case 'draft':
+        return <DraftIcon width={25} height={25} />;
+      case 'validate':
+        return <ValidateIcon width={25} height={25} />;
+      case 'videosubtitle':
+        return (
+          <>
+            <VideoSubtitleIcon
+              width={25}
+              height={25}
+              style={{verticalAlign: 'text-top', paddingRight: '4px'}}
+            />
+            {field.title}
+          </>
+        );
+    }
+  };
+
   const bodyView = rows.map((row, index) => {
     const {fields = [], editHref} = row;
     const trClasses = classnames({[style.highlighted]: row.highlighted});
 
     const tableRows = fields.map((field, fIndex) => {
-      switch (field) {
-        case 'icon-draft':
-          return (
-            <td key={fIndex}>
-              <DraftIcon width={25} height={25} />
-            </td>
-          );
-        case 'icon-validated':
-          return (
-            <td key={fIndex}>
-              <ValidateIcon width={25} height={25} />
-            </td>
-          );
-        case startsWith('[CC]', field):
-          return (
-            <td key={fIndex}>
-              <VideoSubtitleIcon width={25} height={25} style={{verticalAlign: 'middle'}} />
-              {field.replace(/\[CC\]/, '')}
-            </td>
-          );
-        default:
-          return <td key={fIndex}>{field}</td>;
-      }
+      return <td key={fIndex}>{isString(field) ? field : renderIcon(field)}</td>;
     });
 
     if (editable) {
@@ -153,14 +151,21 @@ const Table = (props, context) => {
 };
 
 Table.contextTypes = {
-  skin: Provider.childContextTypes.skin
+  skin: Provider.childContextTypes.skin,
+  translate: Provider.childContextTypes.translate
 };
 
 Table.propTypes = {
   editable: PropTypes.bool,
   rows: PropTypes.arrayOf(
     PropTypes.shape({
-      fields: PropTypes.arrayOf(PropTypes.string),
+      fields: PropTypes.arrayOf(
+        PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.shape({icon: PropTypes.string}),
+          PropTypes.shape({icon: PropTypes.string, title: PropTypes.string})
+        ])
+      ),
       editHref: PropTypes.string,
       highlighted: PropTypes.bool
     })

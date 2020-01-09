@@ -36,68 +36,68 @@ export default {
       {
         fields: [
           'Course: Cours avec la vidéo des fleurs',
-          'icon-validated',
-          'icon-validated',
-          'icon-validated',
-          'icon-draft',
-          'icon-validated',
-          'icon-validated'
+          {icon: 'validate'},
+          {icon: 'validate'},
+          {icon: 'validate'},
+          {icon: 'draft'},
+          {icon: 'validate'},
+          {icon: 'validate'}
         ]
       },
       {
         fields: [
-          '[CC] Cours avec la vidéo des fleurs',
-          'icon-draft',
-          'icon-validated',
-          'icon-draft',
-          'icon-draft',
-          'icon-draft',
-          'icon-draft'
+          {icon: 'videosubtitle', title: 'Course: Cours avec la vidéo des fleurs'},
+          {icon: 'draft'},
+          {icon: 'validate'},
+          {icon: 'draft'},
+          {icon: 'draft'},
+          {icon: 'draft'},
+          {icon: 'draft'}
         ]
       },
       {
         fields: [
           'Level1',
-          'icon-validated',
-          'icon-validated',
-          'icon-validated',
-          'icon-draft',
-          'icon-validated',
-          'icon-validated'
+          {icon: 'validate'},
+          {icon: 'validate'},
+          {icon: 'validate'},
+          {icon: 'draft'},
+          {icon: 'validate'},
+          {icon: 'validate'}
         ],
         highlighted: true
       },
       {
         fields: [
           'Chapter: Chapitre 1',
-          'icon-validated',
-          'icon-validated',
-          'icon-validated',
-          'icon-draft',
-          'icon-validated',
-          'icon-validated'
+          {icon: 'validate'},
+          {icon: 'validate'},
+          {icon: 'validate'},
+          {icon: 'draft'},
+          {icon: 'validate'},
+          {icon: 'validate'}
         ]
       },
       {
         fields: [
-          '[CC] Subtitles: Leçon 1',
-          'icon-validated',
-          'icon-validated',
-          'icon-draft',
-          'icon-draft',
-          'icon-validated',
-          'icon-validated'
+          {icon: 'videosubtitle', title: 'Subtitles: Leçon 1'},
+          {icon: 'validate'},
+          {icon: 'validate'},
+          {icon: 'draft'},
+          {icon: 'draft'},
+          {icon: 'validate'},
+          {icon: 'validate'}
         ]
       },
       {
         fields: [
-          '[CC] Subtitles: leçon 2',
-          'icon-validated',
-          'icon-validated',
-          'icon-draft',
-          'icon-draft',
-          'icon-validated',
-          'icon-draft'
+          {icon: 'videosubtitle', title: 'Subtitles: leçon 2'},
+          {icon: 'validate'},
+          {icon: 'validate'},
+          {icon: 'draft'},
+          {icon: 'draft'},
+          {icon: 'validate'},
+          {icon: 'draft'}
         ]
       }
     ],

@@ -159,7 +159,7 @@
   overflow: scroll;
   box-shadow: 0 0 2px 0 rgba(0,0,0,.19);
   font-family: 'Open Sans';
-  background-color: #fff;
+  background-color: white;
 }
 
 .cockpit > table {
@@ -172,7 +172,7 @@
 
 
 .cockpit table > thead > tr {
-  background-color: #fafafa;
+  background-color: xtraLightGrey;
 }
 
 .cockpit tbody td {
@@ -192,8 +192,8 @@
 }
 
 .cockpit tr td {
-  border-right: 1px solid #ECEFF1;
-  border-bottom: 1px solid #ECEFF1;
+  border-right: 1px solid light;
+  border-bottom: 1px solid light;
 }
 
 .cockpit tr th {
@@ -220,7 +220,7 @@
 }
 
 .cockpit tbody tr.highlighted {
-  background-color: #eceff1;
+  background-color: light;
 }
 
 .cockpit .header {
@@ -233,7 +233,7 @@
 
 .cockpit .title {
   font-weight: 500;
-  color: #546e7a;
+  color: dark;
 }
 
 .cockpit .legend {
