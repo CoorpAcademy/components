@@ -13,9 +13,9 @@ import PropTypes from 'prop-types';
 import Provider from '../../atom/provider';
 import style from './style.css';
 
-const Choice = ({title, subtitle, link, children}) => {
+const Choice = ({title, subtitle, onClick, children}) => {
   return (
-    <a className={style.choice} href={link}>
+    <a className={style.choice} onClick={onClick}>
       <div className={style.choiceContent}>
         <div className={style.choiceLeftIconWrapper}>{children}</div>
         <div className={style.choiceDescription}>
@@ -51,7 +51,7 @@ const Modal = props => {
             key={choices.left.title}
             title={choices.left.title}
             subtitle={choices.left.subtitle}
-            link={choices.left.link}
+            onClick={choices.left.onClick}
           >
             <QuillCircle className={style.choiceLeftIcon} />
           </Choice>
@@ -59,7 +59,7 @@ const Modal = props => {
             key={choices.right.title}
             title={choices.right.title}
             subtitle={choices.right.subtitle}
-            link={choices.right.link}
+            onClick={choices.right.onClick}
           >
             <ImportIcon className={style.choiceLeftIcon} />
           </Choice>
@@ -76,12 +76,12 @@ Modal.propTypes = {
     left: PropTypes.shape({
       title: PropTypes.string,
       subtitle: PropTypes.string,
-      link: PropTypes.string
+      onClick: PropTypes.string
     }),
     right: PropTypes.shape({
       title: PropTypes.string,
       subtitle: PropTypes.string,
-      link: PropTypes.string
+      onClick: PropTypes.string
     })
   }),
   onClose: PropTypes.func
