@@ -71,8 +71,8 @@ which is also launched automatically whenever you run `npm start`
 
 ### Adding a locale
 
-- you need to add your locale in en/global.json file
-- be sure to have `translate: Provider.childContextTypes.translate` in the contextTypes object of your component
+- You need to add your locale in en/global.json file
+- Be sure to have `translate: Provider.childContextTypes.translate` in the contextTypes object of your component
 
 example:
 ```
@@ -83,6 +83,10 @@ example:
 
     return <p>{translate('your new locale')}</p>
   }
+
+  YourComponent.contextTypes = {
+    translate: Provider.childContextTypes.translate
+};
 
   ...
 ```

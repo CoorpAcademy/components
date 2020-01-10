@@ -4,7 +4,7 @@ Components bank (react and react-native) based on Nova SVG icons (through [Iconj
 
 ## Before all
 
-- download iconjar application for macos (https://geticonjar.com/) or free app nucleoapp (https://nucleoapp.com/)
+- Download iconjar application for macos (https://geticonjar.com/) or free app nucleoapp (https://nucleoapp.com/)
 
 ## Adding an icon
 

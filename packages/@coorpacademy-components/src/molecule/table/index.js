@@ -79,6 +79,10 @@ const Table = (props, context) => {
           <ValidateIcon width={25} height={25} />
           <span className={style.label}>{translate('Validated')}</span>
         </div>
+        <div className={style.icon}>
+          <span>{'\u26A0️'}</span>
+          <span className={style.label}>{translate('No status')}</span>
+        </div>
       </div>
     </div>
   );
@@ -97,6 +101,8 @@ const Table = (props, context) => {
         return <DraftIcon width={25} height={25} />;
       case 'validate':
         return <ValidateIcon width={25} height={25} />;
+      case 'nostatus':
+        return <span>{'\u26A0️'}</span>;
       case 'videosubtitle':
         return (
           <>
@@ -108,6 +114,8 @@ const Table = (props, context) => {
             {field.title}
           </>
         );
+      default:
+        null;
     }
   };
 
