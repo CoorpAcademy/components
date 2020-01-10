@@ -3,6 +3,7 @@
 @value black from colors;
 @value white from colors;
 @value negative from colors;
+@value transparentRed from colors;
 
 
 
@@ -12,12 +13,13 @@
     border-left: 2px solid negative;
     display: flex;
     overflow: hidden;
-    background-color: rgba(247, 63, 82, 0.1);
+    background-color: transparentRed;
   }
 
 .content {
     color : black;
-    padding-left : 15px;
+    padding : 10px 15px;
+    text-align: left;
 }
 
 .iconContainer {
