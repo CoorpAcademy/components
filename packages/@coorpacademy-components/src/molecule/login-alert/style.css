@@ -1,33 +1,30 @@
 
 @value colors: "../../variables/colors.css";
-@value dark from colors;
+@value black from colors;
 @value white from colors;
-@value positive from colors;
+@value negative from colors;
 
 
 
 .container {
     width: 100%;
     border-radius : 4px;
-    border-left: 2px solid positive;
+    border-left: 2px solid negative;
     display: flex;
     overflow: hidden;
-    background-color : rgba(62, 196, 131, 0.1);
+    background-color: rgba(247, 63, 82, 0.1);
   }
 
 .content {
-    margin: 0 15px;
-    flex-grow: 1;
-    color : dark
+    color : black;
+    padding-left : 15px;
 }
-
 
 .iconContainer {
     color : white;
-    width : 15px;
-    padding: 3px;
-    background-color: positive;
-    height:  15px;
+    align-self: flex-start;
+    padding : 3px 3px 0;
+    background-color: negative;
     border-bottom-left-radius : 4px;
 }
 

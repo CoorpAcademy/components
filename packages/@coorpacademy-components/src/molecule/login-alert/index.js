@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {NovaSolidEmailEmailEnvelope as EnvelopeIcon} from '@coorpacademy/nova-icons';
+import {NovaSolidInterfaceFeedbackInterfaceAlertTriangle as AlertIcon} from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
-import {container, iconContainer, content} from './style.css';
+import {container, iconContainer, content, icon} from './style.css';
 
 const LoginAlert = ({body}, context) => (
   <div className={container}>
@@ -12,7 +12,7 @@ const LoginAlert = ({body}, context) => (
       dangerouslySetInnerHTML={{__html: body}}
     />
     <div className={iconContainer}>
-      <EnvelopeIcon />
+      <AlertIcon height={16} className={icon} />
     </div>
   </div>
 );
