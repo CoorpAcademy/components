@@ -15,8 +15,8 @@
 }
 
 .content {
-    color : black;
-    padding : 8px 18px;
+    color: black;
+    padding: 8px 18px;
     text-align: left;
 }
 
@@ -25,9 +25,9 @@
 }
 
 .iconContainer {
-    color : white;
+    color: white;
     align-self: flex-start;
-    padding : 3px 3px 0;
+    padding: 3px 3px 0;
     background-color: negative;
-    border-bottom-left-radius : 4px;
+    border-bottom-left-radius: 4px;
 }
