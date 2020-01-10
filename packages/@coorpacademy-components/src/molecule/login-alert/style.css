@@ -1,0 +1,33 @@
+
+@value colors: "../../variables/colors.css";
+@value black from colors;
+@value white from colors;
+@value negative from colors;
+@value transparentRed from colors;
+
+.container {
+    width: 100%;
+    border-radius : 4px;
+    border-left: 2px solid negative;
+    display: flex;
+    overflow: hidden;
+    background-color: transparentRed;
+}
+
+.content {
+    color: black;
+    padding: 8px 18px;
+    text-align: left;
+}
+
+.icon {
+    height: 16px;
+}
+
+.iconContainer {
+    color: white;
+    align-self: flex-start;
+    padding: 3px 3px 0;
+    background-color: negative;
+    border-bottom-left-radius: 4px;
+}
