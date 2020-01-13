@@ -80,7 +80,7 @@ const Table = (props, context) => {
           <span className={style.label}>{translate('Validated')}</span>
         </div>
         <div className={style.icon}>
-          <span>{'\u26A0️'}</span>
+          <span className={style.nostatus}>{'\u26A0️'}</span>
           <span className={style.label}>{translate('No status')}</span>
         </div>
       </div>
@@ -102,7 +102,7 @@ const Table = (props, context) => {
       case 'validate':
         return <ValidateIcon width={25} height={25} />;
       case 'nostatus':
-        return <span>{'\u26A0️'}</span>;
+        return <span className={style.nostatus}>{'\u26A0️'}</span>;
       case 'videosubtitle':
         return (
           <>

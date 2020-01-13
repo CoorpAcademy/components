@@ -105,3 +105,9 @@ Build modifications:
 ```sh
 [@coorpacademy-components] > npm run build:es
 ```
+
+## Troubleshooting
+
+Error when trying to launch the storybook:
+
+Try to delete your ```node_modules```, go to the project's root and launch: ```yarn && yarn bootstrap``` 

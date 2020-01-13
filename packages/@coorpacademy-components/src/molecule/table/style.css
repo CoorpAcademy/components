@@ -252,3 +252,7 @@
 .cockpit .label {
   padding-left: 10px;
 }
+
+.cockpit .nostatus {
+  font-size: 20px;
+}
