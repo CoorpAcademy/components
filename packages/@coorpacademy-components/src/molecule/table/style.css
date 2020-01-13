@@ -256,3 +256,8 @@
 .cockpit .nostatus {
   font-size: 20px;
 }
+
+.cockpit .videosubtitle {
+  vertical-align: text-top;
+  padding-right: 4px;
+}

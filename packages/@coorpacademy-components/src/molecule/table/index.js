@@ -32,7 +32,7 @@ const createOptionsView = (_options, hasOptions) => {
 };
 
 const Table = (props, context) => {
-  const {rows = [], columns = [], editable = true, theme = false, headerTitle = ''} = props;
+  const {rows = [], columns = [], editable = true, theme, headerTitle = ''} = props;
   const {skin, translate} = context;
 
   const mediumColor = get('common.medium', skin);
@@ -64,8 +64,6 @@ const Table = (props, context) => {
       </th>
     );
   });
-
-  const mainClass = classnames(theme === THEMES.COCKPIT ? style.cockpit : style.wrapper);
 
   const cockpitHeader = theme === THEMES.COCKPIT && (
     <div className={style.header}>
@@ -106,11 +104,7 @@ const Table = (props, context) => {
       case 'videosubtitle':
         return (
           <>
-            <VideoSubtitleIcon
-              width={25}
-              height={25}
-              style={{verticalAlign: 'text-top', paddingRight: '4px'}}
-            />
+            <VideoSubtitleIcon className={style.videosubtitle} width={25} height={25} />
             {field.title}
           </>
         );
@@ -144,6 +138,8 @@ const Table = (props, context) => {
       </tr>
     );
   });
+
+  const mainClass = classnames(theme === THEMES.COCKPIT ? style.cockpit : style.wrapper);
 
   return (
     <div className={mainClass}>
