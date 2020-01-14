@@ -17,6 +17,7 @@ import _NovaCompositionCoorpacademyCheck from './components/nova-composition/coo
 import _NovaCompositionCoorpacademyClock from './components/nova-composition/coorpacademy/clock';
 import _NovaCompositionCoorpacademyClue from './components/nova-composition/coorpacademy/clue';
 import _NovaCompositionCoorpacademyCog from './components/nova-composition/coorpacademy/cog';
+import _NovaCompositionCoorpacademyDraft from './components/nova-composition/coorpacademy/draft';
 import _NovaCompositionCoorpacademyEye from './components/nova-composition/coorpacademy/eye';
 import _NovaCompositionCoorpacademyFilterVideo2 from './components/nova-composition/coorpacademy/filter-video2';
 import _NovaCompositionCoorpacademyFunnel from './components/nova-composition/coorpacademy/funnel';
@@ -39,6 +40,7 @@ import _NovaCompositionCoorpacademyTarget from './components/nova-composition/co
 import _NovaCompositionCoorpacademyTimer from './components/nova-composition/coorpacademy/timer';
 import _NovaCompositionCoorpacademyTooltipCorner from './components/nova-composition/coorpacademy/tooltip-corner';
 import _NovaCompositionCoorpacademyTrophyCup from './components/nova-composition/coorpacademy/trophy-cup';
+import _NovaCompositionCoorpacademyValidate from './components/nova-composition/coorpacademy/validate';
 import _NovaCompositionCoorpacademyVoteHeartOutline from './components/nova-composition/coorpacademy/vote-heart-outline';
 import _NovaCompositionNavigationArrowDown from './components/nova-composition/navigation/arrow-down';
 import _NovaCompositionNavigationArrowLeft from './components/nova-composition/navigation/arrow-left';
@@ -99,6 +101,7 @@ import _NovaSolidStatusClose from './components/nova-solid/status/close';
 import _NovaSolidUsersUserShield1 from './components/nova-solid/users/user-shield-1';
 import _NovaSolidVideosVideoClip3 from './components/nova-solid/videos/video-clip-3';
 import _NovaSolidVideosVideoControlPlay from './components/nova-solid/videos/video-control-play';
+import _NovaSolidVideosVideoSubtitle from './components/nova-solid/videos/video-subtitle';
 import _NovaSolidVoteRewardsRewardsBadge1 from './components/nova-solid/vote-rewards/rewards-badge-1';
 import _NovaSolidVoteRewardsRewardsTrophy5 from './components/nova-solid/vote-rewards/rewards-trophy-5';
 import _NovaSolidVoteRewardsVoteHeart from './components/nova-solid/vote-rewards/vote-heart';
@@ -113,6 +116,7 @@ export const NovaCompositionCoorpacademyCheck: Icon = _NovaCompositionCoorpacade
 export const NovaCompositionCoorpacademyClock: Icon = _NovaCompositionCoorpacademyClock;
 export const NovaCompositionCoorpacademyClue: Icon = _NovaCompositionCoorpacademyClue;
 export const NovaCompositionCoorpacademyCog: Icon = _NovaCompositionCoorpacademyCog;
+export const NovaCompositionCoorpacademyDraft: Icon = _NovaCompositionCoorpacademyDraft;
 export const NovaCompositionCoorpacademyEye: Icon = _NovaCompositionCoorpacademyEye;
 export const NovaCompositionCoorpacademyFilterVideo2: Icon = _NovaCompositionCoorpacademyFilterVideo2;
 export const NovaCompositionCoorpacademyFunnel: Icon = _NovaCompositionCoorpacademyFunnel;
@@ -135,6 +139,7 @@ export const NovaCompositionCoorpacademyTarget: Icon = _NovaCompositionCoorpacad
 export const NovaCompositionCoorpacademyTimer: Icon = _NovaCompositionCoorpacademyTimer;
 export const NovaCompositionCoorpacademyTooltipCorner: Icon = _NovaCompositionCoorpacademyTooltipCorner;
 export const NovaCompositionCoorpacademyTrophyCup: Icon = _NovaCompositionCoorpacademyTrophyCup;
+export const NovaCompositionCoorpacademyValidate: Icon = _NovaCompositionCoorpacademyValidate;
 export const NovaCompositionCoorpacademyVoteHeartOutline: Icon = _NovaCompositionCoorpacademyVoteHeartOutline;
 export const NovaCompositionNavigationArrowDown: Icon = _NovaCompositionNavigationArrowDown;
 export const NovaCompositionNavigationArrowLeft: Icon = _NovaCompositionNavigationArrowLeft;
@@ -195,6 +200,7 @@ export const NovaSolidStatusClose: Icon = _NovaSolidStatusClose;
 export const NovaSolidUsersUserShield1: Icon = _NovaSolidUsersUserShield1;
 export const NovaSolidVideosVideoClip3: Icon = _NovaSolidVideosVideoClip3;
 export const NovaSolidVideosVideoControlPlay: Icon = _NovaSolidVideosVideoControlPlay;
+export const NovaSolidVideosVideoSubtitle: Icon = _NovaSolidVideosVideoSubtitle;
 export const NovaSolidVoteRewardsRewardsBadge1: Icon = _NovaSolidVoteRewardsRewardsBadge1;
 export const NovaSolidVoteRewardsRewardsTrophy5: Icon = _NovaSolidVoteRewardsRewardsTrophy5;
 export const NovaSolidVoteRewardsVoteHeart: Icon = _NovaSolidVoteRewardsVoteHeart;

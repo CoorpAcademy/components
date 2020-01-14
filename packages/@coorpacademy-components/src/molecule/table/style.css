@@ -150,3 +150,114 @@
 .selected button {
   color: dark;
 }
+
+/* ----------------- cockpit theme ------------------------- */
+
+.cockpit {
+  padding-bottom: 0;
+  border-radius: 4px;
+  overflow: scroll;
+  box-shadow: 0 0 2px 0 rgba(0,0,0,.19);
+  font-family: 'Open Sans';
+  background-color: white;
+}
+
+.cockpit > table {
+  width: 100%;
+}
+
+.cockpit > table {
+  border: 0;
+}
+
+
+.cockpit table > thead > tr {
+  background-color: xtraLightGrey;
+}
+
+.cockpit tbody td {
+  width: 26px;
+  height: 50px;
+  line-height: 0;
+}
+
+.cockpit th {
+  border-top: none;
+  border-left: none;
+}
+
+.cockpit td {
+  border: none;
+  text-align: center;
+}
+
+.cockpit tr td {
+  border-right: 1px solid light;
+  border-bottom: 1px solid light;
+}
+
+.cockpit tr th {
+  text-align: center;
+}
+
+.cockpit tr td:first-child {
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  min-width: 600px;
+  width: 60%;
+}
+
+.cockpit tr th:first-child {
+  text-align: left;
+}
+
+.cockpit thead tr th .noOptions label {
+  padding: 0;
+  font-size: 23px;
+  margin: 0;
+  line-height: 38px;
+}
+
+.cockpit tbody tr.highlighted {
+  background-color: light;
+}
+
+.cockpit .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 85%;
+  margin: 0 auto;
+}
+
+.cockpit .title {
+  font-weight: 500;
+  color: dark;
+}
+
+.cockpit .legend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30%;
+}
+
+.cockpit .icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cockpit .label {
+  padding-left: 10px;
+}
+
+.cockpit .nostatus {
+  font-size: 20px;
+}
+
+.cockpit .videosubtitle {
+  vertical-align: text-top;
+  padding-right: 4px;
+}

@@ -28,6 +28,14 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/lightbulb.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/list-bullets-3.svg')},
   {
+    filePath: path.resolve('./third-party/nova-composition.iconjar/icons/draft.svg'),
+    replaceColors: false
+  },
+  {
+    filePath: path.resolve('./third-party/nova-composition.iconjar/icons/validate.svg'),
+    replaceColors: false
+  },
+  {
     filePath: path.resolve('./third-party/nova-composition.iconjar/icons/lock.svg'),
     replaceColors: false
   },
@@ -112,7 +120,8 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/video-control-play.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/vote-heart.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/vote-star.svg')},
-  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/ring-planet.svg')}
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/ring-planet.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/video-subtitle.svg')}
 ];
 
 export default icons;

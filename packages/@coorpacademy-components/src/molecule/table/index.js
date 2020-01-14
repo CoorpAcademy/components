@@ -1,16 +1,21 @@
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import {get} from 'lodash/fp';
+import {get, isString} from 'lodash/fp';
 import {
   NovaCompositionNavigationArrowDown as ArrowDown,
   NovaCompositionCoorpacademyFunnel as FunnelIcon,
-  NovaSolidContentEditionPencil1 as PencilIcon
+  NovaSolidContentEditionPencil1 as PencilIcon,
+  NovaCompositionCoorpacademyDraft as DraftIcon,
+  NovaCompositionCoorpacademyValidate as ValidateIcon,
+  NovaSolidVideosVideoSubtitle as VideoSubtitleIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import Checkbox from '../../atom/checkbox';
 import Link from '../../atom/link';
 import style from './style.css';
+
+const THEMES = {COCKPIT: 'cockpit'};
 
 const createOptionsView = (_options, hasOptions) => {
   const optionsView = _options.map((option, oIndex) => {
@@ -27,8 +32,8 @@ const createOptionsView = (_options, hasOptions) => {
 };
 
 const Table = (props, context) => {
-  const {rows = [], columns = [], editable = true} = props;
-  const {skin} = context;
+  const {rows = [], columns = [], editable = true, theme, headerTitle = ''} = props;
+  const {skin, translate} = context;
 
   const mediumColor = get('common.medium', skin);
 
@@ -60,6 +65,26 @@ const Table = (props, context) => {
     );
   });
 
+  const cockpitHeader = theme === THEMES.COCKPIT && (
+    <div className={style.header}>
+      <h1 className={style.title}>{headerTitle}</h1>
+      <div className={style.legend}>
+        <div className={style.icon}>
+          <DraftIcon width={25} height={25} />
+          <span className={style.label}>{translate('Draft')}</span>
+        </div>
+        <div className={style.icon}>
+          <ValidateIcon width={25} height={25} />
+          <span className={style.label}>{translate('Validated')}</span>
+        </div>
+        <div className={style.icon}>
+          <span className={style.nostatus}>{'\u26A0️'}</span>
+          <span className={style.label}>{translate('No status')}</span>
+        </div>
+      </div>
+    </div>
+  );
+
   if (editable) {
     headerView.unshift(
       <th key="header">
@@ -68,12 +93,32 @@ const Table = (props, context) => {
     );
   }
 
+  const renderIcon = field => {
+    switch (field.icon) {
+      case 'draft':
+        return <DraftIcon width={25} height={25} />;
+      case 'validate':
+        return <ValidateIcon width={25} height={25} />;
+      case 'nostatus':
+        return <span className={style.nostatus}>{'\u26A0️'}</span>;
+      case 'videosubtitle':
+        return (
+          <>
+            <VideoSubtitleIcon className={style.videosubtitle} width={25} height={25} />
+            {field.title}
+          </>
+        );
+      default:
+        null;
+    }
+  };
+
   const bodyView = rows.map((row, index) => {
     const {fields = [], editHref} = row;
     const trClasses = classnames({[style.highlighted]: row.highlighted});
 
     const tableRows = fields.map((field, fIndex) => {
-      return <td key={fIndex}>{field}</td>;
+      return <td key={fIndex}>{isString(field) ? field : renderIcon(field)}</td>;
     });
 
     if (editable) {
@@ -94,8 +139,11 @@ const Table = (props, context) => {
     );
   });
 
+  const mainClass = classnames(theme === THEMES.COCKPIT ? style.cockpit : style.wrapper);
+
   return (
-    <div className={style.wrapper}>
+    <div className={mainClass}>
+      {cockpitHeader}
       <table className={classnames(style.table, {[style.readonly]: !editable})}>
         <thead>
           <tr>{headerView}</tr>
@@ -107,14 +155,21 @@ const Table = (props, context) => {
 };
 
 Table.contextTypes = {
-  skin: Provider.childContextTypes.skin
+  skin: Provider.childContextTypes.skin,
+  translate: Provider.childContextTypes.translate
 };
 
 Table.propTypes = {
   editable: PropTypes.bool,
   rows: PropTypes.arrayOf(
     PropTypes.shape({
-      fields: PropTypes.arrayOf(PropTypes.string),
+      fields: PropTypes.arrayOf(
+        PropTypes.oneOfType([
+          PropTypes.string,
+          PropTypes.shape({icon: PropTypes.string}),
+          PropTypes.shape({icon: PropTypes.string, title: PropTypes.string})
+        ])
+      ),
       editHref: PropTypes.string,
       highlighted: PropTypes.bool
     })
@@ -132,7 +187,9 @@ Table.propTypes = {
         })
       )
     })
-  )
+  ),
+  theme: PropTypes.oneOf([THEMES.COCKPIT]),
+  headerTitle: PropTypes.string
 };
 
 export default Table;

@@ -510,6 +510,7 @@ import MoleculeSsmenuListFixtureSolutions from '../src/molecule/ssmenu-list/test
 import MoleculeSubscriptionFreemiumFixtureDefault from '../src/molecule/subscription-freemium/test/fixtures/default';
 import MoleculeSubscriptionPremiumFixtureDefault from '../src/molecule/subscription-premium/test/fixtures/default';
 import MoleculeSubscriptionPremiumFixturePromoCode from '../src/molecule/subscription-premium/test/fixtures/promo-code';
+import MoleculeTableFixtureCockpitTheme from '../src/molecule/table/test/fixtures/cockpit-theme';
 import MoleculeTableFixtureDefault from '../src/molecule/table/test/fixtures/default';
 import MoleculeTableFixtureNoOptions from '../src/molecule/table/test/fixtures/no-options';
 import MoleculeTableFixtureReadonly from '../src/molecule/table/test/fixtures/readonly';
@@ -1441,6 +1442,7 @@ export const fixtures = {
       PromoCode: MoleculeSubscriptionPremiumFixturePromoCode
     },
     MoleculeTable: {
+      CockpitTheme: MoleculeTableFixtureCockpitTheme,
       Default: MoleculeTableFixtureDefault,
       NoOptions: MoleculeTableFixtureNoOptions,
       Readonly: MoleculeTableFixtureReadonly
