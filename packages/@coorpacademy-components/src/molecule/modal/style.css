@@ -128,6 +128,7 @@
 
 .choice:hover {
   border-left-color: brand;
+  cursor: pointer;
 }
 
 .choiceContent {
