@@ -24,7 +24,7 @@
 .modal {
   margin: auto;
   padding: 20px;
-  min-width: 640px;
+  min-width: 650px;
   min-height: 285px;
   border-radius: 4px;
   box-shadow: 0 0 5px 6px shadow;
@@ -49,6 +49,7 @@
 }
 
 .headerRightContent h3 {
+  font-size: 20px;
   margin: 0;
 }
 
@@ -98,8 +99,9 @@
 
 .description p {
   margin: 0;
-  margin-left: 64px;
+  margin-left: 41px;
   font-size: 14px;
+  color: dark;
 }
 
 .choices {
@@ -128,6 +130,7 @@
 
 .choice:hover {
   border-left-color: brand;
+  cursor: pointer;
 }
 
 .choiceContent {
