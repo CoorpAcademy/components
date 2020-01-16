@@ -79,16 +79,8 @@ jobs:
       env: PACKAGE_NAME=@coorpacademy/webpack-config
 
     - stage: deploy
-      name: Publish Player web
-      script: skip
-      deploy:
-        provider: script
-        skip_cleanup: true
-        script: npm run static
-
-    - stage: deploy
-      name: Publish Player web on github pages
-      script: skip
+      name: Publish on github pages
+      script: npm run static
       deploy:
         provider: pages
         skip_cleanup: true
