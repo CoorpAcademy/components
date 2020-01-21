@@ -19,6 +19,8 @@ class DragAndDrop extends React.Component {
   }
 
   handleDragStart() {
+
+    console.log("HELLLO")
     this.setState(prevState => ({
       dragging: true
     }));
@@ -67,18 +69,22 @@ class DragAndDrop extends React.Component {
       );
     } else {
       previewView = <span>{previewLabel}</span>;
-    }
+    };
+
+
+
+    // <div className={modified ? style.modified : style.previewWrapper}>{previewView}</div>
 
     return (
       <div className={style.wrapper}>
         <div className={style.title}>{title}</div>
-        <div className={modified ? style.modified : style.previewWrapper}>{previewView}</div>
-        <div className={this.state.dragging ? style.dragging : style.inputWrapper} id={idBox}>
-          <UploadIcon className={style.arrow} color={brandColor} />
-          <div className={style.uploadLabel}>{uploadLabel}</div>
-          {children(this.handleDragStart, this.handleDragStop)}
+        <div className={style.inputWrapper}>
+        <div className={style.uploadLabel}>{uploadLabel}</div>
+        {children(this.handleDragStart, this.handleDragStop)}
         </div>
-        {description && <div className={style.description}>{description}</div>}
+       
+
+        <div className={style.overlay}/> 
       </div>
     );
   }

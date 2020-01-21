@@ -1,8 +1,8 @@
 export default {
   props: {
-    title: 'Drag & Drop',
+    title: 'Import SCORM file',
     description: 'Drag and drop component',
-    uploadLabel: 'Upload',
+    uploadLabel: 'Drag & Drop your SCORM file here',
     previewLabel: 'File Preview'
   }
 };

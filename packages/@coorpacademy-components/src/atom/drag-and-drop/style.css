@@ -4,16 +4,36 @@
 @value medium from colors;
 @value battle from colors;
 
+
+.overlay {
+  position: absolute;
+  top : 0;
+  left :0;
+  width: 360px;
+  min-height: 200px;
+  background-color: rgba(0,0,0,0.5);
+  padding: 32px;
+}
+
+
 .wrapper {
   width: 360px;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color: #fafafa;
+  padding: 32px;
 }
 
 .title {
   font-family: "Open Sans";
-  font-size: 15px;
+  font-size: 20px;
   text-transform: none;
-  color: dark;
-  margin-bottom: 20px;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 30px;
 }
 
 .description {
@@ -64,8 +84,7 @@
 
 .inputWrapper {
   width: 100%;
-  height: 70px;
-  box-sizing: border-box;
+  min-height: 112px;
   border: 1px dashed medium;
   border-radius: 3px;
   position: relative;
@@ -92,8 +111,7 @@
 
 .uploadLabel {
   font-family: 'Open Sans';
-  font-size: 18px;
-  text-transform: uppercase;
+  font-size: 16px;
   font-weight: 700;
   color: dark;
 }
@@ -103,3 +121,4 @@
   border: none;
   position: relative;
 }
+
