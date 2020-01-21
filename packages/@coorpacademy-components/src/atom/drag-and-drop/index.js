@@ -1,10 +1,10 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import {uniqueId, get} from 'lodash/fp';
-import {NovaSolidDataTransferDataUpload1 as UploadIcon} from '@coorpacademy/nova-icons';
-import Provider from '../provider';
-import Loader from '../loader';
-import style from './style.css';
+import React from "react";
+import PropTypes from "prop-types";
+import { uniqueId, get } from "lodash/fp";
+import { NovaSolidDataTransferDataUpload1 as UploadIcon } from "@coorpacademy/nova-icons";
+import Provider from "../provider";
+import Loader from "../loader";
+import style from "./style.css";
 
 class DragAndDrop extends React.Component {
   constructor(props) {
@@ -19,8 +19,6 @@ class DragAndDrop extends React.Component {
   }
 
   handleDragStart() {
-
-    console.log("HELLLO")
     this.setState(prevState => ({
       dragging: true
     }));
@@ -33,15 +31,16 @@ class DragAndDrop extends React.Component {
   }
 
   render() {
-    const {skin} = this.context;
-    const brandColor = get('common.brand', skin);
-    const idBox = uniqueId('drop-box-');
+    const { skin } = this.context;
+    const { dragging } = this.state;
+    const brandColor = get("common.brand", skin);
+    const idBox = uniqueId("drop-box-");
     const {
       children = () => null,
       title,
       description,
       uploadLabel,
-      previewLabel = '',
+      previewLabel = "",
       previewContent,
       loading = false,
       modified = false
@@ -49,16 +48,23 @@ class DragAndDrop extends React.Component {
 
     let previewView = null;
 
-    if (previewContent && previewContent.type === 'image') {
+    console.log("DRAGGING", dragging);
+
+    if (previewContent && previewContent.type === "image") {
       previewView = (
         <div className={style.previewView}>
           <img src={previewContent.src} />
         </div>
       );
-    } else if (previewContent && previewContent.type === 'video') {
+    } else if (previewContent && previewContent.type === "video") {
       previewView = (
-        <div className={{...style.previewView, width: '300px'}}>
-          <video width="100%" controls src={previewContent.src} type="video/*" />
+        <div className={{ ...style.previewView, width: "300px" }}>
+          <video
+            width="100%"
+            controls
+            src={previewContent.src}
+            type="video/*"
+          />
         </div>
       );
     } else if (loading) {
@@ -69,9 +75,14 @@ class DragAndDrop extends React.Component {
       );
     } else {
       previewView = <span>{previewLabel}</span>;
-    };
+    }
 
-
+    const overlay = (
+      <div className={style.overlay}>
+        <UploadIcon className={style.arrow} />
+        <p>{"description"}</p>
+      </div>
+    );
 
     // <div className={modified ? style.modified : style.previewWrapper}>{previewView}</div>
 
@@ -79,12 +90,12 @@ class DragAndDrop extends React.Component {
       <div className={style.wrapper}>
         <div className={style.title}>{title}</div>
         <div className={style.inputWrapper}>
-        <div className={style.uploadLabel}>{uploadLabel}</div>
-        {children(this.handleDragStart, this.handleDragStop)}
+          <div className={style.uploadLabel}>{uploadLabel}</div>
+          {dragging
+            ? children(this.handleDragStart, this.handleDragStop)
+            : null}
         </div>
-       
-
-        <div className={style.overlay}/> 
+        {overlay}
       </div>
     );
   }
