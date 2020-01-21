@@ -70,6 +70,13 @@ test(
       }
     },
     {
+      type: UI_SELECT_ROUTE,
+      payload: 'correction',
+      meta: {
+        progressionId: 'foo'
+      }
+    },
+    {
       type: PROGRESSION_CREATE_ANSWER_SUCCESS,
       meta: {
         progressionId: 'foo',
@@ -83,13 +90,6 @@ test(
         set('state.content.ref', 'slideRef'),
         set('state.nextContent', {type: 'success', ref: 'successExitNode'})
       )({})
-    },
-    {
-      type: UI_SELECT_ROUTE,
-      payload: 'correction',
-      meta: {
-        progressionId: 'foo'
-      }
     },
     accordionIsOpenAt(0),
     progressionUpdated,

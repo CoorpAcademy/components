@@ -119,9 +119,11 @@ export const validateAnswer = (partialPayload: PostAnswerPartialPayload) => asyn
   const progressionId = getCurrentProgressionId(initialState);
   const answer = getAnswerValues(slide, initialState);
 
-  const createAnswerResponse = await dispatch(createAnswer(progressionId, answer, partialPayload));
-  if (createAnswerResponse.error) return createAnswerResponse;
-  await dispatch(selectRoute('correction'));
+  const [createAnswerResponse] = await Promise.all([
+    dispatch(createAnswer(progressionId, answer, partialPayload)),
+    dispatch(selectRoute('correction'))
+  ]);
+  if (createAnswerResponse.error) return dispatch(selectRoute('answer'));
 
   const payload = createAnswerResponse.payload;
 

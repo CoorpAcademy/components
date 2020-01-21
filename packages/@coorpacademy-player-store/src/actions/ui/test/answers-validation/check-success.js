@@ -76,32 +76,6 @@ const successfullyFetchAnswer = [
   }
 ];
 
-const createCorrectAnswer = [
-  {
-    type: PROGRESSION_CREATE_ANSWER_REQUEST,
-    meta: {
-      progressionId: 'foo',
-      answer: ['bar'],
-      content: {
-        ref: 'baz',
-        type: 'slide'
-      }
-    }
-  },
-  {
-    type: PROGRESSION_CREATE_ANSWER_SUCCESS,
-    meta: {
-      progressionId: 'foo',
-      answer: ['bar'],
-      content: {
-        ref: 'baz',
-        type: 'slide'
-      }
-    },
-    payload: postAnswerPayload
-  }
-];
-
 test(
   'should submit answer with the current content and refresh progression state',
   macro,
@@ -156,13 +130,35 @@ test(
   }),
   validateAnswer(),
   flatten([
-    createCorrectAnswer,
+    {
+      type: PROGRESSION_CREATE_ANSWER_REQUEST,
+      meta: {
+        progressionId: 'foo',
+        answer: ['bar'],
+        content: {
+          ref: 'baz',
+          type: 'slide'
+        }
+      }
+    },
     {
       type: UI_SELECT_ROUTE,
       payload: 'correction',
       meta: {
         progressionId: 'foo'
       }
+    },
+    {
+      type: PROGRESSION_CREATE_ANSWER_SUCCESS,
+      meta: {
+        progressionId: 'foo',
+        answer: ['bar'],
+        content: {
+          ref: 'baz',
+          type: 'slide'
+        }
+      },
+      payload: postAnswerPayload
     },
     contentFetchActions,
     accordionIsOpenAt(2),

@@ -80,6 +80,13 @@ test(
       }
     },
     {
+      type: UI_SELECT_ROUTE,
+      payload: 'correction',
+      meta: {
+        progressionId: 'foo'
+      }
+    },
+    {
       type: PROGRESSION_CREATE_ANSWER_FAILURE,
       meta: {
         progressionId: 'foo',
@@ -91,6 +98,13 @@ test(
       },
       error: true,
       payload: new Error('some error')
+    },
+    {
+      type: UI_SELECT_ROUTE,
+      payload: 'answer',
+      meta: {
+        progressionId: 'foo'
+      }
     }
   ],
   3
@@ -171,6 +185,13 @@ test(
       }
     },
     {
+      type: UI_SELECT_ROUTE,
+      payload: 'correction',
+      meta: {
+        progressionId: 'foo'
+      }
+    },
+    {
       type: PROGRESSION_CREATE_ANSWER_SUCCESS,
       meta: {
         progressionId: 'foo',
@@ -186,13 +207,6 @@ test(
         set('state.isCorrect', false),
         set('state.viewedResources', [])
       )({})
-    },
-    {
-      type: UI_SELECT_ROUTE,
-      payload: 'correction',
-      meta: {
-        progressionId: 'foo'
-      }
     },
     {
       type: UI_TOGGLE_ACCORDION,

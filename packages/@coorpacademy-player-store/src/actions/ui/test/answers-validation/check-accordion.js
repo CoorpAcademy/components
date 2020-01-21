@@ -132,6 +132,13 @@ const answer = result => [
     }
   },
   {
+    type: UI_SELECT_ROUTE,
+    payload: 'correction',
+    meta: {
+      progressionId: 'foo'
+    }
+  },
+  {
     type: PROGRESSION_CREATE_ANSWER_SUCCESS,
     meta: {
       progressionId: 'foo',
@@ -142,13 +149,6 @@ const answer = result => [
       }
     },
     payload: result
-  },
-  {
-    type: UI_SELECT_ROUTE,
-    payload: 'correction',
-    meta: {
-      progressionId: 'foo'
-    }
   }
 ];
 
