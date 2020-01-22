@@ -118,6 +118,7 @@ const Table = (props, context) => {
     const trClasses = classnames({[style.highlighted]: row.highlighted});
 
     const tableRows = fields.map((field, fIndex) => {
+      if (!field) return <td key={fIndex}>{''}</td>;
       return <td key={fIndex}>{isString(field) ? field : renderIcon(field)}</td>;
     });
 
