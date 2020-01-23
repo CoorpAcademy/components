@@ -177,6 +177,24 @@ test("should select chapterRule with 'slide' scope", t => {
             field: 'answer'
           },
           operator: 'EQUALS',
+          values: [['otherValue']]
+        }
+      ],
+      priority: 0,
+      ref: 'answerOtherValue'
+    },
+    {
+      source,
+      destination,
+      instructions: [],
+      conditions: [
+        {
+          target: {
+            scope: 'slide',
+            ref: '1.A1.1',
+            field: 'answer'
+          },
+          operator: 'EQUALS',
           values: [['foo']]
         }
       ],
@@ -206,6 +224,11 @@ test("should select chapterRule with 'slide' scope", t => {
   const answerState = {
     ...defaultState,
     allAnswers: [
+      {
+        slideRef: '1.A1.1',
+        answer: ['bar'],
+        isCorrect: true
+      },
       {
         slideRef: '1.A1.1',
         answer: ['foo'],
