@@ -1,5 +1,16 @@
 // @flow
-import {get, head, isEqual, filter, sortBy} from 'lodash/fp';
+import {
+  get,
+  head,
+  isEqual,
+  filter,
+  sortBy,
+  pipe,
+  find,
+  values as objectValues,
+  set,
+  reduce
+} from 'lodash/fp';
 import type {Content, State} from '../types';
 import type {ChapterRule} from './types';
 import checkCondition from './condition-operators';
@@ -30,11 +41,13 @@ const matchWithState = (state: State) => (chapterRule: ChapterRule): boolean => 
       switch (target.scope) {
         case 'slide': {
           const {ref, field} = target;
-          const answerRecord = state.allAnswers.reverse().find(
-            (record): boolean => {
-              return record.slideRef === ref;
-            }
-          );
+
+          const answerRecord = pipe(
+            reduce((res, answer) => set([answer.slideRef], answer, res), {}),
+            objectValues,
+            find({slideRef: ref})
+          )(state.allAnswers);
+
           if (!answerRecord) return false;
 
           const value = answerRecord[field];
