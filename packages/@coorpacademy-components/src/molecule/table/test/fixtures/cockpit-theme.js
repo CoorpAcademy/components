@@ -36,7 +36,7 @@ export default {
       {
         fields: [
           'Course: Cours avec la vidéo des fleurs',
-          {icon: 'validate'},
+          undefined,
           {icon: 'nostatus'},
           {icon: 'validate'},
           {icon: 'draft'},
@@ -50,7 +50,7 @@ export default {
           {icon: 'draft'},
           {icon: 'validate'},
           {icon: 'nostatus'},
-          {icon: 'draft'},
+          undefined,
           {icon: 'draft'},
           {icon: 'draft'}
         ]
@@ -61,7 +61,7 @@ export default {
           {icon: 'validate'},
           {icon: 'validate'},
           {icon: 'validate'},
-          {icon: 'nostatus'},
+          '',
           {icon: 'validate'},
           {icon: 'validate'}
         ],
@@ -72,7 +72,7 @@ export default {
           'Chapter: Chapitre 1',
           {icon: 'nostatus'},
           {icon: 'validate'},
-          {icon: 'validate'},
+          '',
           {icon: 'draft'},
           {icon: 'validate'},
           {icon: 'validate'}
