@@ -94,7 +94,7 @@ const Table = (props, context) => {
   }
 
   const renderIcon = field => {
-    switch (field.icon) {
+    switch (get('icon', field)) {
       case 'draft':
         return <DraftIcon width={25} height={25} />;
       case 'validate':
