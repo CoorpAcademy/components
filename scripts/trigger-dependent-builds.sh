@@ -6,6 +6,6 @@ for build in api-progression:master app-backoffice:master coorpacademy-cockpit:m
 do
     echo "Triggering build for Coorpacademy/${build%:*}"
      curl -s -X POST -H "Content-Type: application/json" -H "Accept:application/json" -H "Travis-API-Version: 3" \
-      -H "Authorization: token $TRAVIS_TOKEN" -d '{"request":{"branch":"'${build#*:}'"}}' \
+      -H "Authorization: token $TRAVIS_TOKEN" -d '{"request":{"branch":"'${build#*:}'","message":"Update-Node trigger :trackball:"}}' \
       https://api.travis-ci.com/repo/CoorpAcademy%2F${build%:*}/requests
 done
