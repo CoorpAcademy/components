@@ -240,7 +240,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 30%;
+  width: 35%;
 }
 
 .cockpit .icon {
@@ -258,6 +258,6 @@
 }
 
 .cockpit .videosubtitle {
-  vertical-align: text-top;
+  vertical-align: middle;
   padding-right: 4px;
 }

@@ -189,5 +189,5 @@ If so, you may need to remove the current tag (be sure to play with `canary` onl
 then publish with a new `preid`
 
 ```
-> npx lerna publish --canary --exact --cd-version=patch --skip-git --npm-client npm --preid alpha2
+> npx lerna publish --canary --exact --cd-version=patch --skip-git --preid alpha2
 ```
