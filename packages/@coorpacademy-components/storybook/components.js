@@ -7,6 +7,7 @@ import AtomCenteredText from './../src/atom/centered-text';
 import AtomCheckbox from './../src/atom/checkbox';
 import AtomClue from './../src/atom/clue';
 import AtomCta from './../src/atom/cta';
+import AtomDragAndDrop from './../src/atom/drag-and-drop';
 import AtomDragAndDropV2 from './../src/atom/drag-and-drop-v2';
 import AtomImageUpload from './../src/atom/image-upload';
 import AtomInputCheckbox from './../src/atom/input-checkbox';
@@ -177,6 +178,11 @@ import AtomCtaFixturePrimarySmall from '../src/atom/cta/test/fixtures/primary-sm
 import AtomCtaFixturePrimary from '../src/atom/cta/test/fixtures/primary';
 import AtomCtaFixtureSecondarySmall from '../src/atom/cta/test/fixtures/secondary-small';
 import AtomCtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
+import AtomDragAndDropFixtureDefault from '../src/atom/drag-and-drop/test/fixtures/default';
+import AtomDragAndDropFixtureLoading from '../src/atom/drag-and-drop/test/fixtures/loading';
+import AtomDragAndDropFixtureWithChildren from '../src/atom/drag-and-drop/test/fixtures/with-children';
+import AtomDragAndDropFixtureWithImage from '../src/atom/drag-and-drop/test/fixtures/with-image';
+import AtomDragAndDropFixtureWithVideo from '../src/atom/drag-and-drop/test/fixtures/with-video';
 import AtomDragAndDropV2FixtureDefault from '../src/atom/drag-and-drop-v2/test/fixtures/default';
 import AtomDragAndDropV2FixtureErrored from '../src/atom/drag-and-drop-v2/test/fixtures/errored';
 import AtomDragAndDropV2FixtureLoading from '../src/atom/drag-and-drop-v2/test/fixtures/loading';
@@ -765,6 +771,7 @@ export const components = {
     AtomCheckbox,
     AtomClue,
     AtomCta,
+    AtomDragAndDrop,
     AtomDragAndDropV2,
     AtomImageUpload,
     AtomInputCheckbox,
@@ -983,6 +990,13 @@ export const fixtures = {
       Primary: AtomCtaFixturePrimary,
       SecondarySmall: AtomCtaFixtureSecondarySmall,
       Secondary: AtomCtaFixtureSecondary
+    },
+    AtomDragAndDrop: {
+      Default: AtomDragAndDropFixtureDefault,
+      Loading: AtomDragAndDropFixtureLoading,
+      WithChildren: AtomDragAndDropFixtureWithChildren,
+      WithImage: AtomDragAndDropFixtureWithImage,
+      WithVideo: AtomDragAndDropFixtureWithVideo
     },
     AtomDragAndDropV2: {
       Default: AtomDragAndDropV2FixtureDefault,
