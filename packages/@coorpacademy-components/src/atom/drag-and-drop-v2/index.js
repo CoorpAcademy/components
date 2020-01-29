@@ -1,14 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {uniqueId, get} from 'lodash/fp';
+import {uniqueId, get, last} from 'lodash/fp';
 import {
   NovaSolidDataTransferDataUpload1 as UploadIcon,
-  NovaSolidVoteRewardsVoteHeart as HeartIcon,
   NovaCompositionCoorpacademyBrokenHeart as HeartBrokenIcon,
-  NovaCompositionCoorpacademyVoteHeartOutline as HeartIconOutline
+  NovaCompositionCoorpacademyValidate as Validated
 } from '@coorpacademy/nova-icons';
 import Provider from '../provider';
 import Loader from '../loader';
+import {getFileNameFromUrl} from './helper';
 import style from './style.css';
 
 class DragAndDrop extends React.Component {
@@ -79,7 +79,33 @@ class DragAndDrop extends React.Component {
       previewView = <span>{previewLabel}</span>;
     }
 
-    const displayReporting = errors.length > 0;
+    const canDisplayPreview = previewContent && previewContent.src && previewContent.type;
+
+    const getPreview = () => {
+      if (!canDisplayPreview) return <span>{previewLabel}</span>;
+      if (previewContent.type === 'image') {
+        return (
+          <div className={style.previewView}>
+            <img src={previewContent.src} />
+
+            <p> {getFileNameFromUrl(previewContent.src)}</p>
+            <div>
+              <Validated className={style.previewIcon} />
+            </div>
+          </div>
+        );
+      }
+
+      if (previewContent.type === 'video') {
+        return (
+          <div className={{...style.previewView, width: '300px'}}>
+            <video width="100%" controls src={previewContent.src} type="video/*" />
+          </div>
+        );
+      }
+
+      return;
+    };
 
     const dropZonePlaceHolder = (
       <div className={style.dropZonePlaceHolder}>
@@ -106,21 +132,43 @@ class DragAndDrop extends React.Component {
       </div>
     );
 
-    const reporting = (
+    const errorRepport = (
       <div className={style.reportingContainer}>
-        <div className={style.preview}>
+        <div className={style.previewContainer}>
           <HeartBrokenIcon className={style.icon} />
         </div>
 
-        <div className={style.reporting}>
+        <div className={style.errorReport}>
           <ol>
             {errors.map((error, index) => (
-              <li key={index}> {error}</li>
+              <li key={`${index}`}> {error}</li>
             ))}
           </ol>
         </div>
       </div>
     );
+
+    const successReport = (
+      <div className={style.reportingContainer}>
+        <div className={style.previewContainer}>{getPreview()}</div>
+        <div className={style.repport}>
+          <p>🎉</p>
+        </div>
+      </div>
+    );
+
+    const isErrored = errors.length > 0;
+
+    const getView = () => {
+      if (isErrored) {
+        return errorRepport;
+      }
+      if (canDisplayPreview) {
+        return successReport;
+      }
+
+      return dropZonePlaceHolder;
+    };
 
     // <div className={modified ? style.modified : style.previewWrapper}>{previewView}</div>
 
@@ -130,7 +178,7 @@ class DragAndDrop extends React.Component {
         onDragLeave={this.handleDragLeave}
         className={style.wrapper}
       >
-        {displayReporting ? reporting : dropZonePlaceHolder}
+        {getView()}
         {dragging ? dropOverlay : null}
         {loading ? loadingOverlay : null}
       </div>
