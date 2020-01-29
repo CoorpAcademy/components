@@ -9,7 +9,8 @@ export default {
     },
     title: 'Desktop (*)',
     displayName: 'Upload image',
-    uploadLabel: 'Upload'
+    uploadLabel: 'Upload',
+    description : "Upldoad here",
   },
   // eslint-disable-next-line react/display-name
   children: (onDragStart, onDragStop) => (
