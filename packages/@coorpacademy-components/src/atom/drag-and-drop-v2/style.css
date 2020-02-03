@@ -57,12 +57,27 @@
   font-weight: bold;
 }
 
+.input {
+  width: 25%;
+  height: 25%;
+  cursor: pointer;
+  opacity: 0;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  pointer-events: initial;
+}
+
 /* DropZonePlaceholder  */
 
 .dropZonePlaceHolder {
   composes: makeItFlex;
   pointer-events: none;
   margin: 32px;
+  width: 100%;
 }
 
 .inputWrapper {
@@ -72,6 +87,7 @@
   min-height: 112px;
   justify-content: center;
   border: 1px dashed medium;
+  width: 100%;
   text-align: center;
   border-radius: 3px;
 }
@@ -111,21 +127,50 @@
 
 /*Reporting*/
 
-.repport {
-  height: 60%;
-}
-
 .reportingContainer {
-  pointer-events: none;
   width: 100%;
+  pointer-events: none;
 }
 
-.previewContainer {
-  compose: makeItFlex;
-  justify-content: center;
-  height: 40%;
+.repport {
+  padding: 15px;
   display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid #eceff1;
   background-color: white;
+  height: 20%;
+}
+
+.reportIcon {
+  width: 20px;
+}
+
+.reportError {
+  color: red;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.repport p {
+  pointer-events: none;
+  font-family: 'Open Sans';
+  margin: 0;
+  padding: 0;
+}
+
+.successLabel {
+  color: dark;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.fileName {
+  font-size: 12px;
+}
+
+.repport span {
+  font-size: 40px;
 }
 
 .errorReport {
@@ -141,26 +186,16 @@
 
 /*Preview*/
 
-.previewView {
-  width: 100%;
-  padding: 15px;
-  display: flex;
-  align-items: center;
+.previewContainer {
+  composes: makeItFlex;
   justify-content: center;
-  border-bottom: 1px solid #eceff1;
+
+  height: 70%;
+}
+.previewContainer img {
+  width: 60%;
 }
 
-.previewView p {
-  color: dark;
-  font-family: 'Open Sans';
-  font-size: 14px;
-  padding: 0 12px;
-}
-
-.previewView img {
-  width: 30%;
-}
-
-.previewIcon {
-  width: 20px;
+.previewContainer video {
+  width: 70%;
 }

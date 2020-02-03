@@ -16,16 +16,9 @@ class DragAndDrop extends React.Component {
     super(props);
 
     this.state = {
-      dragging: false
+      dragging: true
     };
   }
-
-  handleDragLeave = e => {
-    e.stopPropagation();
-    this.setState({
-      dragging: false
-    });
-  };
 
   handleDragEnter = e => {
     e.stopPropagation();
@@ -34,9 +27,12 @@ class DragAndDrop extends React.Component {
     });
   };
 
-  handleDragStart = () => {};
-
-  handleDragStop = () => {};
+  handleDragLeave = e => {
+    e.stopPropagation();
+    this.setState({
+      dragging: false
+    });
+  };
 
   render() {
     const {skin} = this.context;
@@ -52,67 +48,16 @@ class DragAndDrop extends React.Component {
       previewContent,
       errors = [],
       loading = false,
-      modified = false
+      onChange
     } = this.props;
 
-    let previewView = null;
-
-    if (previewContent && previewContent.type === 'image') {
-      previewView = (
-        <div className={style.previewView}>
-          <img src={previewContent.src} />
-        </div>
-      );
-    } else if (previewContent && previewContent.type === 'video') {
-      previewView = (
-        <div className={{...style.previewView, width: '300px'}}>
-          <video width="100%" controls src={previewContent.src} type="video/*" />
-        </div>
-      );
-    } else if (loading) {
-      previewView = (
-        <div className={style.loading}>
-          <Loader />
-        </div>
-      );
-    } else {
-      previewView = <span>{previewLabel}</span>;
-    }
-
     const canDisplayPreview = previewContent && previewContent.src && previewContent.type;
-
-    const getPreview = () => {
-      if (!canDisplayPreview) return <span>{previewLabel}</span>;
-      if (previewContent.type === 'image') {
-        return (
-          <div className={style.previewView}>
-            <img src={previewContent.src} />
-
-            <p> {getFileNameFromUrl(previewContent.src)}</p>
-            <div>
-              <Validated className={style.previewIcon} />
-            </div>
-          </div>
-        );
-      }
-
-      if (previewContent.type === 'video') {
-        return (
-          <div className={{...style.previewView, width: '300px'}}>
-            <video width="100%" controls src={previewContent.src} type="video/*" />
-          </div>
-        );
-      }
-
-      return;
-    };
 
     const dropZonePlaceHolder = (
       <div className={style.dropZonePlaceHolder}>
         <div className={style.title}>{title}</div>
         <div className={style.inputWrapper}>
           <p className={style.uploadLabel}>{uploadLabel}</p>
-          {/* {dragging ? children(this.handleDragStart, this.handleDragStop) : null} */}
         </div>
       </div>
     );
@@ -123,6 +68,14 @@ class DragAndDrop extends React.Component {
           <UploadIcon color="#00b0ff" />
         </div>
         <p>{description}</p>
+        <input
+          type="file"
+          name={name}
+          accept="image/*"
+          disabled={loading}
+          className={style.input}
+          onChange={onChange}
+        />
       </div>
     );
 
@@ -134,26 +87,44 @@ class DragAndDrop extends React.Component {
 
     const errorRepport = (
       <div className={style.reportingContainer}>
-        <div className={style.previewContainer}>
-          <HeartBrokenIcon className={style.icon} />
+        <div className={style.repport}>
+          <span> 🥺 </span>
+          <div>
+            <p className={style.successLabel}>{'Upload Failed !'}</p>
+            <p className={style.reportError}>{errors[1]}</p>
+          </div>
+          <Validated className={style.reportIcon} />
         </div>
-
-        <div className={style.errorReport}>
-          <ol>
-            {errors.map((error, index) => (
-              <li key={`${index}`}> {error}</li>
-            ))}
-          </ol>
+        <div className={style.previewContainer}>
+          <p>{'Oh snap'}</p>
         </div>
       </div>
     );
 
+    const getPreview = () => {
+      if (!canDisplayPreview) return <span>{previewLabel}</span>;
+      if (previewContent.type === 'image') {
+        return <img src={previewContent.src} />;
+      }
+
+      if (previewContent.type === 'video') {
+        return <video controls width="100%" src={previewContent.src} type="video/*" />;
+      }
+    };
+
     const successReport = (
       <div className={style.reportingContainer}>
-        <div className={style.previewContainer}>{getPreview()}</div>
         <div className={style.repport}>
-          <p>🎉</p>
+          <span>🎉</span>
+          <div>
+            <p className={style.successLabel}>{'Upload Suceeded !'}</p>
+            <p className={style.fileName}>
+              {canDisplayPreview && getFileNameFromUrl(previewContent.src)}
+            </p>
+          </div>
+          <Validated className={style.reportIcon} />
         </div>
+        <div className={style.previewContainer}>{getPreview()}</div>
       </div>
     );
 
@@ -170,8 +141,6 @@ class DragAndDrop extends React.Component {
       return dropZonePlaceHolder;
     };
 
-    // <div className={modified ? style.modified : style.previewWrapper}>{previewView}</div>
-
     return (
       <div
         onDragEnter={this.handleDragEnter}
@@ -179,8 +148,8 @@ class DragAndDrop extends React.Component {
         className={style.wrapper}
       >
         {getView()}
-        {dragging ? dropOverlay : null}
         {loading ? loadingOverlay : null}
+        {dragging ? dropOverlay : null}
       </div>
     );
   }
@@ -200,8 +169,7 @@ DragAndDrop.propTypes = {
     src: PropTypes.string
   }),
   errors: PropTypes.arrayOf(PropTypes.string),
-  loading: PropTypes.bool,
-  modified: PropTypes.bool
+  loading: PropTypes.bool
 };
 
 export default DragAndDrop;

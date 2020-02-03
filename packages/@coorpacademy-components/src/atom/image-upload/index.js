@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DragAndDrop from '../drag-and-drop';
+import DragAndDrop from '../drag-and-drop-v2';
 import style from './style.css';
 
 const ImageUpload = ({
@@ -23,19 +23,14 @@ const ImageUpload = ({
     loading={loading}
     modified={modified}
   >
-    {(onDragStart, onDragStop) => (
-      <input
-        type="file"
-        name={name}
-        accept="image/*"
-        disabled={loading}
-        className={style.input}
-        onChange={onChange}
-        onDragEnter={onDragStart}
-        onDrop={onDragStop}
-        onDragLeave={onDragStop}
-      />
-    )}
+    <input
+      type="file"
+      name={name}
+      accept="image/*"
+      disabled={loading}
+      className={style.input}
+      onChange={onChange}
+    />
   </DragAndDrop>
 );
 
