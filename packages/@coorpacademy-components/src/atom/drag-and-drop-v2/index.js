@@ -31,10 +31,6 @@ export const DragAndDrop = props => {
       <Dropzone disabled={loading} onDrop={onDrop}>
         {({getRootProps, getInputProps, isDragActive}) => {
           const getView = () => {
-            if (isDragActive || loading) {
-              return <Overlay description={description} isLoading={loading} />;
-            }
-
             if (error || canDisplayPreview) {
               return (
                 <UploadReport
@@ -54,6 +50,9 @@ export const DragAndDrop = props => {
             <div className={style.wrapper} {...getRootProps()}>
               <input {...getInputProps()} />
               {getView()}
+              {isDragActive || loading ? (
+                <Overlay description={description} isLoading={loading} />
+              ) : null}
             </div>
           );
         }}
