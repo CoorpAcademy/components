@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   NovaCompositionCoorpacademyValidate as Validated,
-  NovaCompositionCoorpacademyBrokenHeart as RedCross
+  NovaCompositionCoorpacademyBrokenHeart as BrokenHeart
 } from '@coorpacademy/nova-icons';
 
 import last from 'lodash/fp/last';
@@ -16,22 +16,22 @@ export const UploadReport = ({
   uploadErrorMessage,
   uploadSuccessMessage
 }) => {
-  const errorReport = (
-    <div className={style.reportingContainer}>
-      <div className={style.repport}>
-        <span> 🥺 </span>
-        <div>
-          <p className={style.label}>{uploadErrorMessage}</p>
-          <p className={style.uploadErrorMessage}>{error}</p>
+  if (error) {
+    return (
+      <div className={style.reportingContainer}>
+        <div className={style.repport}>
+          <span> 🥺 </span>
+          <div>
+            <p className={style.label}>{uploadErrorMessage}</p>
+            <p className={style.uploadErrorMessage}>{error}</p>
+          </div>
+        </div>
+        <div className={style.previewContainer}>
+          <BrokenHeart className={style.brokenHeartIcon} />
         </div>
       </div>
-      <div className={style.previewContainer}>
-        <RedCross className={style.brokenHeartIcon} />
-      </div>
-    </div>
-  );
-
-  if (error) return errorReport;
+    );
+  }
   return (
     <div id="upload-report" className={style.reportingContainer}>
       <div className={style.repport}>

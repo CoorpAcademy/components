@@ -12,7 +12,7 @@ export const Preview = ({type, src}) => {
     case 'scorm':
       return <p>Scorm</p>;
     default:
-      <p>No Preview Available</p>;
+      return <p>No Preview Available</p>;
   }
 };
 
