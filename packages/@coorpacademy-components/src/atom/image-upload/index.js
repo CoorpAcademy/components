@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DragAndDrop from '../drag-and-drop-v2';
+import {DragAndDrop} from '../drag-and-drop-v2';
 import style from './style.css';
 
 const ImageUpload = ({

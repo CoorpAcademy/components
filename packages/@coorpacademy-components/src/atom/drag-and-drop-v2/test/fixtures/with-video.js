@@ -1,5 +1,8 @@
+import Default from './default';
+
 export default {
   props: {
+    ...Default.props,
     title: 'Drag & Drop',
     description: 'Drag and drop component with a video',
     uploadLabel: 'Upload',

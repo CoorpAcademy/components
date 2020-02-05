@@ -1,0 +1,33 @@
+@import './common.css';
+
+.icon {
+  color: brand;
+}
+
+.overlay {
+  composes: makeItFlex box;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0.95;
+  justify-content: center;
+  pointer-events: none;
+  height: 100%;
+}
+
+.overlay p {
+  justify-content: center;
+  text-transform: none;
+  color: dark;
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.arrow {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: xtraLightGrey;
+  border: 10px solid rgba(0, 176, 255, 0.1);
+}

@@ -186,7 +186,6 @@ import AtomDragAndDropFixtureWithVideo from '../src/atom/drag-and-drop/test/fixt
 import AtomDragAndDropV2FixtureDefault from '../src/atom/drag-and-drop-v2/test/fixtures/default';
 import AtomDragAndDropV2FixtureErrored from '../src/atom/drag-and-drop-v2/test/fixtures/errored';
 import AtomDragAndDropV2FixtureLoading from '../src/atom/drag-and-drop-v2/test/fixtures/loading';
-import AtomDragAndDropV2FixtureWithChildren from '../src/atom/drag-and-drop-v2/test/fixtures/with-children';
 import AtomDragAndDropV2FixtureWithImage from '../src/atom/drag-and-drop-v2/test/fixtures/with-image';
 import AtomDragAndDropV2FixtureWithVideo from '../src/atom/drag-and-drop-v2/test/fixtures/with-video';
 import AtomImageUploadFixtureDesktop from '../src/atom/image-upload/test/fixtures/desktop';
@@ -1001,7 +1000,6 @@ export const fixtures = {
       Default: AtomDragAndDropV2FixtureDefault,
       Errored: AtomDragAndDropV2FixtureErrored,
       Loading: AtomDragAndDropV2FixtureLoading,
-      WithChildren: AtomDragAndDropV2FixtureWithChildren,
       WithImage: AtomDragAndDropV2FixtureWithImage,
       WithVideo: AtomDragAndDropV2FixtureWithVideo
     },

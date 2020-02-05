@@ -59,6 +59,7 @@
     "postcss-modules-values-replace": "^3.0.1",
     "qs": "6.8.0",
     "react": "~16.4.0",
+    "react-dropzone": "9.0.0",
     "react-jw-player": "1.18.0",
     "react-tooltip": "^3.6.1"
   },

@@ -1,0 +1,41 @@
+@import './common.css';
+
+.dropZoneContainer {
+  composes: makeItFlex;
+  pointer-events: none;
+  margin: 32px;
+  width: 100%;
+}
+
+.dropZone {
+  composes: makeItFlex;
+  align-items: center;
+  padding: 22px;
+  min-height: 112px;
+  justify-content: center;
+  border: 1px dashed medium;
+  width: 100%;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.title {
+  composes: baseText;
+  font-size: 20px;
+  text-transform: none;
+  color: black;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+
+.uploadLabel {
+  composes: baseText;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.uploadLabel {
+  composes: baseText;
+  font-size: 16px;
+  font-weight: 700;
+}

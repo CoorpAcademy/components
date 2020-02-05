@@ -1,8 +1,8 @@
+import Default from './default';
+
 export default {
   props: {
-    title: 'Drag & Drop With Image',
-    description: 'Drag and drop component with an image',
-    uploadLabel: 'Upload Image(s)',
+    ...Default.props,
     previewLabel: 'File Preview',
     previewContent: {
       type: 'image',
