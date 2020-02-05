@@ -5,10 +5,9 @@ import {
   NovaCompositionCoorpacademyBrokenHeart as RedCross
 } from '@coorpacademy/nova-icons';
 
+import last from 'lodash/fp/last';
 import style from './upload-report.css';
 import {Preview} from './preview';
-
-import {getFileNameFromUrl} from './helper';
 
 export const UploadReport = ({
   error,
@@ -39,7 +38,7 @@ export const UploadReport = ({
         <span>🎉</span>
         <div>
           <p className={style.label}>{uploadSuccessMessage}</p>
-          <p className={style.fileName}>{getFileNameFromUrl(previewContent.src)}</p>
+          <p className={style.fileName}>{last(previewContent.src.split('/'))}</p>
         </div>
         <Validated className={style.reportIcon} />
       </div>

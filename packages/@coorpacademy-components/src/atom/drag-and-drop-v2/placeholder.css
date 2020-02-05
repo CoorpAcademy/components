@@ -33,9 +33,3 @@
   font-size: 16px;
   font-weight: 700;
 }
-
-.uploadLabel {
-  composes: baseText;
-  font-size: 16px;
-  font-weight: 700;
-}
