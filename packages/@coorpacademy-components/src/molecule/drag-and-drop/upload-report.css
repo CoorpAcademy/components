@@ -1,4 +1,8 @@
 @import './common.css';
+@value colors: "../../variables/colors.css";
+@value negative from colors;
+@value dark from colors;
+@value light from colors;
 
 .reportingContainer {
   width: 100%;
@@ -9,7 +13,7 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border-bottom: 1px solid #eceff1;
+  border-bottom: 1px solid light;
   background-color: white;
   height: 20%;
 }
@@ -45,7 +49,7 @@
 }
 
 .brokenHeartIcon {
-  color: rgb(231, 223, 223);
+  color: light;
   font-size: 20px;
 }
 

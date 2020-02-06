@@ -8,7 +8,6 @@ import AtomCheckbox from './../src/atom/checkbox';
 import AtomClue from './../src/atom/clue';
 import AtomCta from './../src/atom/cta';
 import AtomDragAndDrop from './../src/atom/drag-and-drop';
-import AtomDragAndDropV2 from './../src/atom/drag-and-drop-v2';
 import AtomImageUpload from './../src/atom/image-upload';
 import AtomInputCheckbox from './../src/atom/input-checkbox';
 import AtomInputColor from './../src/atom/input-color';
@@ -64,6 +63,7 @@ import MoleculeDisciplineCta from './../src/molecule/discipline-cta';
 import MoleculeDisciplineHeader from './../src/molecule/discipline-header';
 import MoleculeDisciplinePartners from './../src/molecule/discipline-partners';
 import MoleculeDisciplineScope from './../src/molecule/discipline-scope';
+import MoleculeDragAndDrop from './../src/molecule/drag-and-drop';
 import MoleculeFeedback from './../src/molecule/feedback';
 import MoleculeFilters from './../src/molecule/filters';
 import MoleculeForumForumComment from './../src/molecule/forum/forum-comment';
@@ -183,11 +183,6 @@ import AtomDragAndDropFixtureLoading from '../src/atom/drag-and-drop/test/fixtur
 import AtomDragAndDropFixtureWithChildren from '../src/atom/drag-and-drop/test/fixtures/with-children';
 import AtomDragAndDropFixtureWithImage from '../src/atom/drag-and-drop/test/fixtures/with-image';
 import AtomDragAndDropFixtureWithVideo from '../src/atom/drag-and-drop/test/fixtures/with-video';
-import AtomDragAndDropV2FixtureDefault from '../src/atom/drag-and-drop-v2/test/fixtures/default';
-import AtomDragAndDropV2FixtureErrored from '../src/atom/drag-and-drop-v2/test/fixtures/errored';
-import AtomDragAndDropV2FixtureLoading from '../src/atom/drag-and-drop-v2/test/fixtures/loading';
-import AtomDragAndDropV2FixtureWithImage from '../src/atom/drag-and-drop-v2/test/fixtures/with-image';
-import AtomDragAndDropV2FixtureWithVideo from '../src/atom/drag-and-drop-v2/test/fixtures/with-video';
 import AtomImageUploadFixtureDesktop from '../src/atom/image-upload/test/fixtures/desktop';
 import AtomImageUploadFixtureEmail from '../src/atom/image-upload/test/fixtures/email';
 import AtomImageUploadFixtureMobile from '../src/atom/image-upload/test/fixtures/mobile';
@@ -391,6 +386,11 @@ import MoleculeDisciplineScopeFixtureDefault from '../src/molecule/discipline-sc
 import MoleculeDisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
 import MoleculeDisciplineScopeFixtureMedias from '../src/molecule/discipline-scope/test/fixtures/medias';
 import MoleculeDisciplineScopeFixtureWithOnclick from '../src/molecule/discipline-scope/test/fixtures/with-onclick';
+import MoleculeDragAndDropFixtureDefault from '../src/molecule/drag-and-drop/test/fixtures/default';
+import MoleculeDragAndDropFixtureErrored from '../src/molecule/drag-and-drop/test/fixtures/errored';
+import MoleculeDragAndDropFixtureLoading from '../src/molecule/drag-and-drop/test/fixtures/loading';
+import MoleculeDragAndDropFixtureWithImage from '../src/molecule/drag-and-drop/test/fixtures/with-image';
+import MoleculeDragAndDropFixtureWithVideo from '../src/molecule/drag-and-drop/test/fixtures/with-video';
 import MoleculeFeedbackFixtureDefault from '../src/molecule/feedback/test/fixtures/default';
 import MoleculeFeedbackFixtureFailExitNode from '../src/molecule/feedback/test/fixtures/fail-exit-node';
 import MoleculeFeedbackFixtureFailureWithTitleAndDescriptionAndVideo from '../src/molecule/feedback/test/fixtures/failure-with-title-and-description-and-video';
@@ -770,7 +770,6 @@ export const components = {
     AtomClue,
     AtomCta,
     AtomDragAndDrop,
-    AtomDragAndDropV2,
     AtomImageUpload,
     AtomInputCheckbox,
     AtomInputColor,
@@ -826,6 +825,7 @@ export const components = {
     MoleculeDisciplineHeader,
     MoleculeDisciplinePartners,
     MoleculeDisciplineScope,
+    MoleculeDragAndDrop,
     MoleculeFeedback,
     MoleculeFilters,
     MoleculeHero,
@@ -995,13 +995,6 @@ export const fixtures = {
       WithChildren: AtomDragAndDropFixtureWithChildren,
       WithImage: AtomDragAndDropFixtureWithImage,
       WithVideo: AtomDragAndDropFixtureWithVideo
-    },
-    AtomDragAndDropV2: {
-      Default: AtomDragAndDropV2FixtureDefault,
-      Errored: AtomDragAndDropV2FixtureErrored,
-      Loading: AtomDragAndDropV2FixtureLoading,
-      WithImage: AtomDragAndDropV2FixtureWithImage,
-      WithVideo: AtomDragAndDropV2FixtureWithVideo
     },
     AtomImageUpload: {
       Desktop: AtomImageUploadFixtureDesktop,
@@ -1299,6 +1292,13 @@ export const fixtures = {
       Empty: MoleculeDisciplineScopeFixtureEmpty,
       Medias: MoleculeDisciplineScopeFixtureMedias,
       WithOnclick: MoleculeDisciplineScopeFixtureWithOnclick
+    },
+    MoleculeDragAndDrop: {
+      Default: MoleculeDragAndDropFixtureDefault,
+      Errored: MoleculeDragAndDropFixtureErrored,
+      Loading: MoleculeDragAndDropFixtureLoading,
+      WithImage: MoleculeDragAndDropFixtureWithImage,
+      WithVideo: MoleculeDragAndDropFixtureWithVideo
     },
     MoleculeFeedback: {
       Default: MoleculeFeedbackFixtureDefault,

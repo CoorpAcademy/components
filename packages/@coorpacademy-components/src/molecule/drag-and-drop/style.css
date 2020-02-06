@@ -1,4 +1,6 @@
 @import './common.css';
+@value colors: "../../variables/colors.css";
+@value light from colors;
 
 .wrapper {
   composes: box;
@@ -7,4 +9,5 @@
   position: relative;
   border-radius: 2%;
   border: solid 1px light;
+  cursor: pointer;
 }

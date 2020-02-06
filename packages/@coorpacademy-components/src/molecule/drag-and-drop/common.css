@@ -1,10 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value dark from colors;
-@value medium from colors;
-@value negative from colors;
 @value xtraLightGrey from colors;
-@value light from colors;
-@value brand from colors;
 
 .makeItFlex {
   display: flex;
@@ -15,7 +10,7 @@
 .box {
   width: 360px;
   height: 300px;
-  background-color: #fafafa;
+  background-color: xtraLightGrey;
 }
 
 .baseText {

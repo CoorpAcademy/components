@@ -1,8 +1,7 @@
 @import './common.css';
-
-.icon {
-  color: brand;
-}
+@value colors: "../../variables/colors.css";
+@value brand from colors;
+@value dark from colors;
 
 .overlay {
   composes: makeItFlex box;
@@ -29,5 +28,4 @@
   height: 60px;
   border-radius: 50%;
   background-color: xtraLightGrey;
-  border: 10px solid rgba(0, 176, 255, 0.1);
 }

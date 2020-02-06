@@ -1,4 +1,6 @@
 @import './common.css';
+@value colors: "../../variables/colors.css";
+@value medium from colors;
 
 .dropZoneContainer {
   composes: makeItFlex;

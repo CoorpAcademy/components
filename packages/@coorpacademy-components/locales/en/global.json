@@ -69,5 +69,9 @@
   "Write something here": "Write something here",
   "zuora_discount_code_submit": "Apply",
   "zuora_discount_code": "Promo code",
-  "mandatory_fields": "*Mandatory fields"
+  "mandatory_fields": "*Mandatory fields",
+  "sad_face": "🥺",
+  "tada": "🎉",
+  "scorm": "Scorm",
+  "no_preview_available": "No preview available"
 }
