@@ -13,19 +13,19 @@ import style from './upload-report.css';
 import {Preview} from './preview';
 
 export const UploadReport = (
-  {error, previewContent, previewLabel, uploadErrorMessage, uploadSuccessMessage},
+  {errorMessage, previewContent, previewLabel, uploadSuccessMessage},
   context
 ) => {
   const translate = get('translate', context);
 
-  if (error) {
+  if (errorMessage) {
     return (
       <div className={style.reportingContainer}>
         <div className={style.repport}>
           <span> {translate('sad_face:emoji')}</span>
           <div>
-            <p className={style.label}>{uploadErrorMessage}</p>
-            <p className={style.uploadErrorMessage}>{error}</p>
+            <p className={style.label}>{translate('something_went_wrong')}</p>
+            <p className={style.uploadErrorMessage}>{errorMessage}</p>
           </div>
         </div>
         <div className={style.previewContainer}>

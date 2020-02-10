@@ -19,7 +19,7 @@ export const DragAndDrop = props => {
     previewContent,
     uploadSuccessMessage,
     uploadErrorMessage,
-    error,
+    errorMessage,
     loading = false,
     onDrop
   } = props;
@@ -31,12 +31,12 @@ export const DragAndDrop = props => {
       <Dropzone disabled={loading} onDrop={onDrop}>
         {({getRootProps, getInputProps, isDragActive}) => {
           const getView = () => {
-            if (error || canDisplayPreview) {
+            if (errorMessage || canDisplayPreview) {
               return (
                 <UploadReport
                   uploadErrorMessage={uploadErrorMessage}
                   uploadSuccessMessage={uploadSuccessMessage}
-                  error={error}
+                  errorMessage={errorMessage}
                   previewContent={previewContent}
                   previewLabel={previewLabel}
                 />
