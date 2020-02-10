@@ -22,7 +22,7 @@ export const UploadReport = (
     return (
       <div className={style.reportingContainer}>
         <div className={style.repport}>
-          <span> {translate('sad_face')}</span>
+          <span> {translate('sad_face:emoji')}</span>
           <div>
             <p className={style.label}>{uploadErrorMessage}</p>
             <p className={style.uploadErrorMessage}>{error}</p>
@@ -37,7 +37,7 @@ export const UploadReport = (
   return (
     <div id="upload-report" className={style.reportingContainer}>
       <div className={style.repport}>
-        <span> {translate('tada')}</span>
+        <span> {translate('tada:emoji')}</span>
         <div>
           <p className={style.label}>{uploadSuccessMessage}</p>
           <p className={style.fileName}>
