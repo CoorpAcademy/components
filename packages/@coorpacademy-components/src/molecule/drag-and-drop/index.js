@@ -31,7 +31,7 @@ export const DragAndDrop = (props, context) => {
 
   return (
     <Dropzone key={idBox} accept={accept} disabled={loading} onDrop={onDrop}>
-      {({getRootProps, getInputProps, ...rest}) => {
+      {({getRootProps, getInputProps, isDragActive}) => {
         const getView = () => {
           if (errorMessage || canDisplayPreview) {
             return (
@@ -52,7 +52,7 @@ export const DragAndDrop = (props, context) => {
           <div className={style.wrapper} {...getRootProps()}>
             <input {...getInputProps()} />
             {getView()}
-            {rest.isDragActive || loading ? (
+            {isDragActive || loading ? (
               <Overlay iconColor={primaryColor} description={description} isLoading={loading} />
             ) : null}
           </div>
