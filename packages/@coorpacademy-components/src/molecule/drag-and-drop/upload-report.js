@@ -35,7 +35,7 @@ export const UploadReport = (
     );
   }
   return (
-    <div id="upload-report" className={style.reportingContainer}>
+    <div className={style.reportingContainer}>
       <div className={style.repport}>
         <span> {translate('tada:emoji')}</span>
         <div>
