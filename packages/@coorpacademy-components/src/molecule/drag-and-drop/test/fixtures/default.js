@@ -7,6 +7,6 @@ export default {
     accept: 'image/*',
     uploadErrorMessage: 'Oh Snap, something went wrong !',
     uploadSuccessMessage: 'Oh yeah! Upload Succeeded!',
-    onDrop: files => console.log(files.map(item => item))
+    onDrop: () => console.log('file dropped')
   }
 };

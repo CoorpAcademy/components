@@ -1,23 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/fp/get';
+
 import {NovaSolidDataTransferDataUpload1 as UploadIcon} from '@coorpacademy/nova-icons';
 import {convert} from 'css-color-function';
-import Provider from '../../atom/provider';
 
 import Loader from '../../atom/loader';
 
 import style from './overlay.css';
 
-export const Overlay = ({description, isLoading}, context) => {
-  const primaryColor = get('skin.common.primary', context);
+export const Overlay = ({description, isLoading, iconColor}) => {
   const dropOverlay = (
     <React.Fragment>
       <div
         className={style.arrow}
-        style={{border: `15px solid ${convert(`color(${primaryColor} a(-20%))`)}`}}
+        style={{border: `15px solid ${convert(`color(${iconColor} a(-20%))`)}`}}
       >
-        <UploadIcon color={primaryColor} />
+        <UploadIcon color={iconColor} />
       </div>
       <p>{description}</p>
     </React.Fragment>
@@ -27,10 +25,6 @@ export const Overlay = ({description, isLoading}, context) => {
 };
 
 export default Overlay;
-
-Overlay.contextTypes = {
-  skin: Provider.childContextTypes.skin
-};
 
 Overlay.propTypes = {
   description: PropTypes.string

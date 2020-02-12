@@ -1,15 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {uniqueId} from 'lodash/fp';
-
+import {uniqueId, get} from 'lodash/fp';
 import Dropzone from 'react-dropzone';
+import Provider from '../../atom/provider';
+
 import {Overlay} from './overlay';
 import {UploadReport} from './upload-report';
 import {PlaceHolder} from './placeholder';
 
 import style from './style.css';
 
-export const DragAndDrop = props => {
+export const DragAndDrop = (props, context) => {
+  const primaryColor = get('skin.common.primary', context);
   const idBox = uniqueId('drop-box-');
   const {
     title,
@@ -20,6 +22,7 @@ export const DragAndDrop = props => {
     uploadSuccessMessage,
     uploadErrorMessage,
     errorMessage,
+    accept,
     loading = false,
     onDrop
   } = props;
@@ -27,38 +30,39 @@ export const DragAndDrop = props => {
   const canDisplayPreview = previewContent && previewContent.src && previewContent.type;
 
   return (
-    <section key={idBox}>
-      <Dropzone disabled={loading} onDrop={onDrop}>
-        {({getRootProps, getInputProps, isDragActive}) => {
-          const getView = () => {
-            if (errorMessage || canDisplayPreview) {
-              return (
-                <UploadReport
-                  uploadErrorMessage={uploadErrorMessage}
-                  uploadSuccessMessage={uploadSuccessMessage}
-                  errorMessage={errorMessage}
-                  previewContent={previewContent}
-                  previewLabel={previewLabel}
-                />
-              );
-            }
+    <Dropzone key={idBox} accept={accept} disabled={loading} onDrop={onDrop}>
+      {({getRootProps, getInputProps, ...rest}) => {
+        const getView = () => {
+          if (errorMessage || canDisplayPreview) {
+            return (
+              <UploadReport
+                uploadErrorMessage={uploadErrorMessage}
+                uploadSuccessMessage={uploadSuccessMessage}
+                errorMessage={errorMessage}
+                previewContent={previewContent}
+                previewLabel={previewLabel}
+              />
+            );
+          }
 
-            return <PlaceHolder title={title} uploadLabel={uploadLabel} />;
-          };
+          return <PlaceHolder title={title} uploadLabel={uploadLabel} />;
+        };
 
-          return (
-            <div className={style.wrapper} {...getRootProps()}>
-              <input {...getInputProps()} />
-              {getView()}
-              {isDragActive || loading ? (
-                <Overlay description={description} isLoading={loading} />
-              ) : null}
-            </div>
-          );
-        }}
-      </Dropzone>
-    </section>
+        return (
+          <div className={style.wrapper} {...getRootProps()}>
+            <input {...getInputProps()} />
+            {getView()}
+            {rest.isDragActive || loading ? (
+              <Overlay iconColor={primaryColor} description={description} isLoading={loading} />
+            ) : null}
+          </div>
+        );
+      }}
+    </Dropzone>
   );
+};
+DragAndDrop.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 
 DragAndDrop.propTypes = {
