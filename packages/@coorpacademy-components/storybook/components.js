@@ -63,6 +63,7 @@ import MoleculeDisciplineCta from './../src/molecule/discipline-cta';
 import MoleculeDisciplineHeader from './../src/molecule/discipline-header';
 import MoleculeDisciplinePartners from './../src/molecule/discipline-partners';
 import MoleculeDisciplineScope from './../src/molecule/discipline-scope';
+import MoleculeDragAndDrop from './../src/molecule/drag-and-drop';
 import MoleculeFeedback from './../src/molecule/feedback';
 import MoleculeFilters from './../src/molecule/filters';
 import MoleculeForumForumComment from './../src/molecule/forum/forum-comment';
@@ -385,6 +386,11 @@ import MoleculeDisciplineScopeFixtureDefault from '../src/molecule/discipline-sc
 import MoleculeDisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
 import MoleculeDisciplineScopeFixtureMedias from '../src/molecule/discipline-scope/test/fixtures/medias';
 import MoleculeDisciplineScopeFixtureWithOnclick from '../src/molecule/discipline-scope/test/fixtures/with-onclick';
+import MoleculeDragAndDropFixtureDefault from '../src/molecule/drag-and-drop/test/fixtures/default';
+import MoleculeDragAndDropFixtureErrored from '../src/molecule/drag-and-drop/test/fixtures/errored';
+import MoleculeDragAndDropFixtureLoading from '../src/molecule/drag-and-drop/test/fixtures/loading';
+import MoleculeDragAndDropFixtureWithImage from '../src/molecule/drag-and-drop/test/fixtures/with-image';
+import MoleculeDragAndDropFixtureWithVideo from '../src/molecule/drag-and-drop/test/fixtures/with-video';
 import MoleculeFeedbackFixtureDefault from '../src/molecule/feedback/test/fixtures/default';
 import MoleculeFeedbackFixtureFailExitNode from '../src/molecule/feedback/test/fixtures/fail-exit-node';
 import MoleculeFeedbackFixtureFailureWithTitleAndDescriptionAndVideo from '../src/molecule/feedback/test/fixtures/failure-with-title-and-description-and-video';
@@ -819,6 +825,7 @@ export const components = {
     MoleculeDisciplineHeader,
     MoleculeDisciplinePartners,
     MoleculeDisciplineScope,
+    MoleculeDragAndDrop,
     MoleculeFeedback,
     MoleculeFilters,
     MoleculeHero,
@@ -1285,6 +1292,13 @@ export const fixtures = {
       Empty: MoleculeDisciplineScopeFixtureEmpty,
       Medias: MoleculeDisciplineScopeFixtureMedias,
       WithOnclick: MoleculeDisciplineScopeFixtureWithOnclick
+    },
+    MoleculeDragAndDrop: {
+      Default: MoleculeDragAndDropFixtureDefault,
+      Errored: MoleculeDragAndDropFixtureErrored,
+      Loading: MoleculeDragAndDropFixtureLoading,
+      WithImage: MoleculeDragAndDropFixtureWithImage,
+      WithVideo: MoleculeDragAndDropFixtureWithVideo
     },
     MoleculeFeedback: {
       Default: MoleculeFeedbackFixtureDefault,

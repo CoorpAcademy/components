@@ -1,0 +1,68 @@
+@import './common.css';
+@value colors: "../../variables/colors.css";
+@value negative from colors;
+@value dark from colors;
+@value light from colors;
+
+.reportingContainer {
+  width: 100%;
+}
+
+.repport {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom: 1px solid light;
+  background-color: white;
+  height: 20%;
+}
+
+.reportIcon {
+  width: 20px;
+}
+
+.repport p {
+  font-family: 'Open Sans';
+  margin: 0;
+  padding: 0;
+}
+
+.label {
+  color: dark;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.fileName {
+  font-size: 12px;
+}
+
+.repport span {
+  font-size: 40px;
+}
+
+.uploadErrorMessage {
+  composes: baseText;
+  height: 60%;
+  color: negative;
+}
+
+.brokenHeartIcon {
+  color: light;
+  font-size: 20px;
+}
+
+.previewContainer {
+  composes: makeItFlex;
+  justify-content: center;
+
+  height: 70%;
+}
+.previewContainer img {
+  width: 60%;
+}
+
+.previewContainer video {
+  width: 70%;
+}
