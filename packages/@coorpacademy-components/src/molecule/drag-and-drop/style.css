@@ -8,6 +8,6 @@
   justify-content: center;
   position: relative;
   border-radius: 2%;
-  border: solid 1px light;
+  border: 1px solid light;
   cursor: pointer;
 }
