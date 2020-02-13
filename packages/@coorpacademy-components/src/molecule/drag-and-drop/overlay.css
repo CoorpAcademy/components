@@ -1,6 +1,6 @@
 @import './common.css';
 @value colors: "../../variables/colors.css";
-@value brand from colors;
+@value xtraLightGrey from colors;
 @value dark from colors;
 
 .overlay {
