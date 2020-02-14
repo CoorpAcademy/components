@@ -7,6 +7,7 @@ import AtomCenteredText from './../src/atom/centered-text';
 import AtomCheckbox from './../src/atom/checkbox';
 import AtomClue from './../src/atom/clue';
 import AtomCta from './../src/atom/cta';
+import AtomDifficultyLevel from './../src/atom/difficulty-level';
 import AtomDragAndDrop from './../src/atom/drag-and-drop';
 import AtomImageUpload from './../src/atom/image-upload';
 import AtomInputCheckbox from './../src/atom/input-checkbox';
@@ -178,6 +179,10 @@ import AtomCtaFixturePrimarySmall from '../src/atom/cta/test/fixtures/primary-sm
 import AtomCtaFixturePrimary from '../src/atom/cta/test/fixtures/primary';
 import AtomCtaFixtureSecondarySmall from '../src/atom/cta/test/fixtures/secondary-small';
 import AtomCtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
+import AtomDifficultyLevelFixtureEasy from '../src/atom/difficulty-level/test/fixtures/easy';
+import AtomDifficultyLevelFixtureHard from '../src/atom/difficulty-level/test/fixtures/hard';
+import AtomDifficultyLevelFixtureNormal from '../src/atom/difficulty-level/test/fixtures/normal';
+import AtomDifficultyLevelFixtureUnknown from '../src/atom/difficulty-level/test/fixtures/unknown';
 import AtomDragAndDropFixtureDefault from '../src/atom/drag-and-drop/test/fixtures/default';
 import AtomDragAndDropFixtureLoading from '../src/atom/drag-and-drop/test/fixtures/loading';
 import AtomDragAndDropFixtureWithChildren from '../src/atom/drag-and-drop/test/fixtures/with-children';
@@ -769,6 +774,7 @@ export const components = {
     AtomCheckbox,
     AtomClue,
     AtomCta,
+    AtomDifficultyLevel,
     AtomDragAndDrop,
     AtomImageUpload,
     AtomInputCheckbox,
@@ -988,6 +994,12 @@ export const fixtures = {
       Primary: AtomCtaFixturePrimary,
       SecondarySmall: AtomCtaFixtureSecondarySmall,
       Secondary: AtomCtaFixtureSecondary
+    },
+    AtomDifficultyLevel: {
+      Easy: AtomDifficultyLevelFixtureEasy,
+      Hard: AtomDifficultyLevelFixtureHard,
+      Normal: AtomDifficultyLevelFixtureNormal,
+      Unknown: AtomDifficultyLevelFixtureUnknown
     },
     AtomDragAndDrop: {
       Default: AtomDragAndDropFixtureDefault,

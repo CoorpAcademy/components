@@ -23,6 +23,10 @@ import _NovaCompositionCoorpacademyFilterVideo2 from './components/nova-composit
 import _NovaCompositionCoorpacademyFunnel from './components/nova-composition/coorpacademy/funnel';
 import _NovaCompositionCoorpacademyIconFaq from './components/nova-composition/coorpacademy/icon-faq';
 import _NovaCompositionCoorpacademyImportIcon from './components/nova-composition/coorpacademy/import-icon';
+import _NovaCompositionCoorpacademyLevel0 from './components/nova-composition/coorpacademy/level-0';
+import _NovaCompositionCoorpacademyLevel1 from './components/nova-composition/coorpacademy/level-1';
+import _NovaCompositionCoorpacademyLevel2 from './components/nova-composition/coorpacademy/level-2';
+import _NovaCompositionCoorpacademyLevel3 from './components/nova-composition/coorpacademy/level-3';
 import _NovaCompositionCoorpacademyLightbulb from './components/nova-composition/coorpacademy/lightbulb';
 import _NovaCompositionCoorpacademyListBullets3 from './components/nova-composition/coorpacademy/list-bullets-3';
 import _NovaCompositionCoorpacademyLock from './components/nova-composition/coorpacademy/lock';
@@ -123,6 +127,10 @@ export const NovaCompositionCoorpacademyFilterVideo2: Icon = _NovaCompositionCoo
 export const NovaCompositionCoorpacademyFunnel: Icon = _NovaCompositionCoorpacademyFunnel;
 export const NovaCompositionCoorpacademyIconFaq: Icon = _NovaCompositionCoorpacademyIconFaq;
 export const NovaCompositionCoorpacademyImportIcon: Icon = _NovaCompositionCoorpacademyImportIcon;
+export const NovaCompositionCoorpacademyLevel0: Icon = _NovaCompositionCoorpacademyLevel0;
+export const NovaCompositionCoorpacademyLevel1: Icon = _NovaCompositionCoorpacademyLevel1;
+export const NovaCompositionCoorpacademyLevel2: Icon = _NovaCompositionCoorpacademyLevel2;
+export const NovaCompositionCoorpacademyLevel3: Icon = _NovaCompositionCoorpacademyLevel3;
 export const NovaCompositionCoorpacademyLightbulb: Icon = _NovaCompositionCoorpacademyLightbulb;
 export const NovaCompositionCoorpacademyListBullets3: Icon = _NovaCompositionCoorpacademyListBullets3;
 export const NovaCompositionCoorpacademyLock: Icon = _NovaCompositionCoorpacademyLock;
