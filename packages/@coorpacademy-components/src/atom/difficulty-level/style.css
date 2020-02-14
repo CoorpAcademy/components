@@ -1,0 +1,46 @@
+
+@value colors: "../../variables/colors.css";
+@value primaryAdd2 from colors;
+@value positive from colors;
+@value negative from colors;
+@value grey from colors;
+
+.icon {
+  width: 18px;
+  height: 15px;
+}
+
+.text {
+  padding: 3px 5px 0 5px;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+}
+
+.inlineContainer {
+  display: inline-block;
+}
+
+.unknownContainer {
+  border-radius: 31px;
+  background-color: grey;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  padding: 0 6px 0 6px;
+}
+
+.easyContainer {
+    composes: unknownContainer;
+    background-color: primaryAdd2;
+}
+
+.normalContainer {
+    composes: unknownContainer;
+    background-color: positive;
+}
+
+.hardContainer {
+    composes: unknownContainer;
+    background-color: negative;
+}
