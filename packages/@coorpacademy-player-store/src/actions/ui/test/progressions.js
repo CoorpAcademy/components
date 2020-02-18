@@ -819,7 +819,7 @@ test(
       findById: (progressionId, slideId, givenAnswers) => {
         t.is(slideId, slide._id);
         t.is(progressionId, 'xtralife');
-        t.deepEqual(givenAnswers, []);
+        t.deepEqual(givenAnswers, ['qux']);
         return ['a', 'n', 's', 'w', 'e', 'r', 's'];
       }
     },
@@ -830,7 +830,14 @@ test(
           _id: 'xtralife',
           state: {
             content: {type: 'slide', ref: 'bar'},
-            nextContent: {type: 'node', ref: 'extraLife'}
+            nextContent: {type: 'node', ref: 'extraLife'},
+            allAnswers: [
+              {
+                slideRef: 'bar',
+                isCorrect: true,
+                answer: ['qux']
+              }
+            ]
           },
           content: {type: 'chapter', ref: 'baz'},
           engine: {ref: 'qux', version: 'quux'}
@@ -881,7 +888,14 @@ test(
         _id: 'xtralife',
         state: {
           content: {type: 'slide', ref: 'bar'},
-          nextContent: {type: 'node', ref: 'extraLife'}
+          nextContent: {type: 'node', ref: 'extraLife'},
+          allAnswers: [
+            {
+              slideRef: 'bar',
+              isCorrect: true,
+              answer: ['qux']
+            }
+          ]
         },
         content: {type: 'chapter', ref: 'baz'},
         engine: {ref: 'qux', version: 'quux'}

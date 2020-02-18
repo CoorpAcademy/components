@@ -12,12 +12,13 @@ import {fetchNext} from '../api/next-content';
 
 import {fetchAnswer} from '../api/answers';
 import {
-  getEngine,
-  getProgressionContent,
   getCurrentProgressionId,
-  getStepContent,
+  getEngine,
+  getPrevAnswer,
   getPrevStepContent,
-  getSlide
+  getProgressionContent,
+  getSlide,
+  getStepContent
 } from '../../utils/state-extract';
 import type {Action, DispatchedAction, GetState, Options} from '../../definitions/redux';
 import type {ExitNodeRef} from '../../definitions/models';
@@ -156,10 +157,12 @@ export const selectProgression = (id: ProgressionId) => async (
             });
           }
 
+          const prevAnswer = getPrevAnswer(getState());
+
           return Promise.all([
             fetchData(engine, progressionId, progressionContent)(dispatch),
             dispatch(fetchContent(prevContent.type, prevContent.ref)),
-            dispatch(fetchAnswer(progressionId, get('ref', prevContent), []))
+            dispatch(fetchAnswer(progressionId, get('ref', prevContent), prevAnswer))
           ]).then(last);
         }
       }

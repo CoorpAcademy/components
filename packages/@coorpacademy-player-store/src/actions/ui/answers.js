@@ -6,6 +6,7 @@ import {
   getAnswerValues,
   getCurrentProgressionId,
   getCurrentSlide,
+  getPrevAnswer,
   getQuestionType,
   hasSeenLesson
 } from '../../utils/state-extract';
@@ -150,5 +151,6 @@ export const validateAnswer = (partialPayload: PostAnswerPartialPayload) => asyn
   }
 
   await dispatch(progressionUpdated(progressionId, PROGRESSION_UPDATED_ON_MOVE));
-  return dispatch(fetchAnswer(progressionId, slideId, answer));
+  const prevAnswer = getPrevAnswer(state);
+  return dispatch(fetchAnswer(progressionId, slideId, prevAnswer));
 };

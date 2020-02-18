@@ -543,5 +543,217 @@
         }
       }
     ]
+  },
+  "extralife": {
+    "_id": "extralife",
+    "engine": {
+      "ref": "learner",
+      "version": "2"
+    },
+    "engineOptions": {
+      "livesDisabled": false
+    },
+    "content": {
+      "ref": "mod_E15Bh1hDM",
+      "type": "level",
+      "version": "2"
+    },
+    "actions": [
+      {
+        "payload": {
+          "instructions": null,
+          "nextContent": {
+            "type": "slide",
+            "ref": "sli_4JGaactjS"
+          }
+        },
+        "type": "move"
+      },
+      {
+        "payload": {
+          "answer": [
+            "It comes in different forms",
+            "It is expensive to store"
+          ],
+          "instructions": null,
+          "content": {
+            "ref": "sli_4JGaactjS",
+            "type": "slide"
+          },
+          "nextContent": {
+            "ref": "sli_N1sSU2Kjr",
+            "type": "slide"
+          },
+          "isCorrect": false,
+          "godMode": false
+        },
+        "type": "answer"
+      },
+      {
+        "type": "resource",
+        "payload": {
+          "resource": {
+            "ref": "les_V1RNjcOAS",
+            "type": "video",
+            "version": "1"
+          },
+          "content": {
+            "type": "chapter",
+            "ref": "cha_VJ9Gx~EqS"
+          }
+        }
+      },
+      {
+        "payload": {
+          "answer": [
+            "A sense of diplomacy and a certain political acumen"
+          ],
+          "instructions": null,
+          "content": {
+            "ref": "sli_N1sSU2Kjr",
+            "type": "slide"
+          },
+          "nextContent": {
+            "ref": "sli_NJtyhcYiS",
+            "type": "slide"
+          },
+          "isCorrect": false,
+          "godMode": false
+        },
+        "type": "answer"
+      },
+      {
+        "payload": {
+          "answer": [
+            "decreases"
+          ],
+          "instructions": null,
+          "content": {
+            "ref": "sli_NJtyhcYiS",
+            "type": "slide"
+          },
+          "nextContent": {
+            "ref": "sli_Vk3JSnKiB",
+            "type": "slide"
+          },
+          "isCorrect": true,
+          "godMode": false
+        },
+        "type": "answer"
+      },
+      {
+        "payload": {
+          "answer": [
+            "relevant"
+          ],
+          "instructions": null,
+          "content": {
+            "ref": "sli_Vk3JSnKiB",
+            "type": "slide"
+          },
+          "nextContent": {
+            "ref": "sli_NJxCH5jjS",
+            "type": "slide"
+          },
+          "isCorrect": true,
+          "godMode": false
+        },
+        "type": "answer"
+      },
+      {
+        "payload": {
+          "answer": [
+            "easy to use"
+          ],
+          "instructions": null,
+          "content": {
+            "ref": "sli_NJxCH5jjS",
+            "type": "slide"
+          },
+          "nextContent": {
+            "ref": "sli_VJLDzciiB",
+            "type": "slide"
+          },
+          "isCorrect": true,
+          "godMode": false
+        },
+        "type": "answer"
+      },
+      {
+        "payload": {
+          "answer": [
+            "Focus on their core business",
+            "Quickly acquire users",
+            "Reduce costs",
+            "Profit from their innovations",
+            "Develop goodwill with third parties"
+          ],
+          "instructions": null,
+          "content": {
+            "ref": "sli_VJLDzciiB",
+            "type": "slide"
+          },
+          "nextContent": {
+            "ref": "sli_VJ0nnKjsr",
+            "type": "slide"
+          },
+          "isCorrect": false,
+          "godMode": false
+        },
+        "type": "answer"
+      },
+      {
+        "type": "resource",
+        "payload": {
+          "resource": {
+            "ref": "les_N1mDoc-CB",
+            "type": "video",
+            "version": "1"
+          },
+          "content": {
+            "type": "chapter",
+            "ref": "cha_VyIVx~N9S"
+          }
+        }
+      },
+      {
+        "payload": {
+          "answer": [
+            "They enable a company’s applications to communicate with each another internally"
+          ],
+          "instructions": null,
+          "content": {
+            "ref": "sli_VJ0nnKjsr",
+            "type": "slide"
+          },
+          "nextContent": {
+            "type": "slide",
+            "ref": "sli_NJenMOm2f"
+          },
+          "isCorrect": true,
+          "godMode": false
+        },
+        "type": "answer"
+      },
+      {
+        "payload": {
+          "answer": [
+            "12"
+          ],
+          "instructions": null,
+          "content": {
+            "type": "slide",
+            "ref": "sli_NJenMOm2f"
+          },
+          "nextContent": {
+            "ref": "extraLife",
+            "type": "node"
+          },
+          "isCorrect": false,
+          "godMode": false
+        },
+        "type": "answer"
+      }
+    ]
   }
 }
