@@ -42,7 +42,8 @@ import {
   hasSeenLesson,
   getQuestionMedia,
   isContentAdaptive,
-  getVideoTracks
+  getVideoTracks,
+  getPrevAnswer
 } from '../state-extract';
 
 import tracksFixture from '../../fixtures/tracks';
@@ -1086,4 +1087,57 @@ test('should return true if slide is at previous step and at least one lesson ha
   );
 
   return t.is(result, true);
+});
+
+test('getPrevAnswer should return the given answer of the last answered slide', t => {
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {
+      '0': {
+        state: {
+          content: {
+            ref: 'sli_1',
+            type: 'slide'
+          },
+          allAnswers: [
+            {
+              slideRef: 'sli_1',
+              answer: ['bar', 'foo'],
+              isCorrect: false
+            },
+            {
+              slideRef: 'sli_1',
+              answer: ['foo', 'bar'],
+              isCorrect: true
+            }
+          ]
+        }
+      }
+    })
+  )({});
+
+  const result = getPrevAnswer(state);
+
+  return t.deepEqual(result, ['foo', 'bar']);
+});
+
+test('getPrevAnswer should return empty answer if there are not an previous slide', t => {
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {
+      '0': {
+        state: {
+          nextContent: {
+            ref: 'sli_1',
+            type: 'slide'
+          },
+          allAnswers: []
+        }
+      }
+    })
+  )({});
+
+  const result = getPrevAnswer(state);
+
+  return t.deepEqual(result, []);
 });

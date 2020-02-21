@@ -517,3 +517,13 @@ export const getVideoUri = (id: string) => (state: State): string | void =>
 
 export const getVideoTracks = (id: string) => (state: State): Array<VideoTrack> | void =>
   get(['data', 'videos', 'entities', id, 'tracks'], state);
+
+export const getPrevAnswer = (state: State): Answer => {
+  const progression = getCurrentProgression(state);
+
+  return pipe(
+    get('state.allAnswers'),
+    last,
+    getOr([], 'answer')
+  )(progression);
+};
