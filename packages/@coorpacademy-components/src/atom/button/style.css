@@ -44,6 +44,6 @@
   min-width: 200px;
   text-transform: inherit;
   border-radius: 2px;
-  line-height: 52px;
+  line-height: inherit;
   pointer-events: none;
 }
