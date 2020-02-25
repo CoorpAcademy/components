@@ -153,6 +153,7 @@ import TemplateCommonCoorpHeader from './../src/template/common/coorp-header';
 import TemplateCommonDashboard from './../src/template/common/dashboard';
 import TemplateCommonDiscipline from './../src/template/common/discipline';
 import TemplateCommonSearchPage from './../src/template/common/search-page';
+import TemplateExternalCourse from './../src/template/external-course';
 import AtomAvatarFixtureDefault from '../src/atom/avatar/test/fixtures/default';
 import AtomButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import AtomButtonFixtureClassName from '../src/atom/button/test/fixtures/class-name';
@@ -764,6 +765,9 @@ import TemplateCommonDisciplineFixtureWithOnclick from '../src/template/common/d
 import TemplateCommonSearchPageFixtureDefault from '../src/template/common/search-page/test/fixtures/default';
 import TemplateCommonSearchPageFixtureNoResultWithRecommendations from '../src/template/common/search-page/test/fixtures/no-result-with-recommendations';
 import TemplateCommonSearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
+import TemplateExternalCourseFixtureArticle from '../src/template/external-course/test/fixtures/article';
+import TemplateExternalCourseFixtureDefault from '../src/template/external-course/test/fixtures/default';
+import TemplateExternalCourseFixtureVideo from '../src/template/external-course/test/fixtures/video';
 
 export const components = {
   Atom: {
@@ -919,7 +923,8 @@ export const components = {
   },
   Template: {
     TemplateActivity,
-    TemplateBattleRequests
+    TemplateBattleRequests,
+    TemplateExternalCourse
   },
   TemplateAppPlayer: {
     TemplateAppPlayerLoading,
@@ -1701,6 +1706,11 @@ export const fixtures = {
     },
     TemplateBattleRequests: {
       Default: TemplateBattleRequestsFixtureDefault
+    },
+    TemplateExternalCourse: {
+      Article: TemplateExternalCourseFixtureArticle,
+      Default: TemplateExternalCourseFixtureDefault,
+      Video: TemplateExternalCourseFixtureVideo
     }
   },
   TemplateAppPlayer: {
