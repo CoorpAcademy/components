@@ -7,7 +7,7 @@ import {
 } from '@coorpacademy/nova-icons';
 import {convert} from 'css-color-function';
 import classnames from 'classnames';
-import {get, keys} from 'lodash/fp';
+import {get, getOr, keys} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import Provider from '../../atom/provider';
 import Button from '../../atom/button';
@@ -20,52 +20,60 @@ const ICONS = {
 };
 
 class ExternalCourse extends React.Component {
+  handleOnClick = field => e => {
+    e.stopPropagation();
+    e.preventDefault();
+    const onClick = get('onClick', field);
+    return onClick && onClick(e);
+  };
+
   render() {
     const {name, type, url, warning, complete, quit} = this.props;
     const {skin} = this.context;
-    const primary = get('common.primary', skin);
+    const primary = getOr('#00B0FF', 'common.primary', skin);
     const IconType = ICONS[type].icon;
     const IconColor = ICONS[type].color;
-
-    const handleOnClick = field => e => {
-      e.stopPropagation();
-      e.preventDefault();
-      return get('onClick', field) && field.onClick(e);
-    };
 
     return (
       <div className={style.default}>
         <div className={style.header}>
-          <a onClick={handleOnClick(quit)} className={style.quitCta}>
-            {quit.label}
-          </a>
+          <div className={style.leftSection}>
+            <span className={style.quitCta} onClick={this.handleOnClick(quit)}>
+              {quit.label}
+            </span>
+          </div>
           <div className={classnames(style.iconLabel, style.title)}>
             <div className={style.oval} style={{backgroundColor: IconColor}}>
               <IconType className={style.iconHeader} />
             </div>
             <span>{name}</span>
           </div>
-          <div className={style.empty} />
+          <div className={style.rightSection} />
         </div>
         <iframe src={url} frameBorder={0} className={style.iframe} allowFullScreen />
         <div className={style.footer}>
-          <div onClick={handleOnClick(warning)} className={classnames(style.iconLabel, style.link)}>
-            <div className={classnames(style.oval, style.warn)}>
-              <WarnIcon className={style.iconWarm} />
+          <div className={style.leftSection}>
+            <div
+              onClick={this.handleOnClick(warning)}
+              className={classnames(style.iconLabel, style.link)}
+            >
+              <div className={classnames(style.oval, style.warn)}>
+                <WarnIcon className={style.iconWarm} />
+              </div>
+              <span>{warning.label}</span>
             </div>
-            <span>{warning.label}</span>
           </div>
           <Button
             type="button"
             disabled={complete.disabled}
-            onClick={handleOnClick(complete)}
+            onClick={this.handleOnClick(complete)}
             submitValue={complete.label}
             style={{
               backgroundColor: complete.disabled ? convert(`color(${primary} a(-50%))`) : primary
             }}
             className={classnames(style.completeCta, complete.disabled ? style.disabled : null)}
           />
-          <div className={style.empty} />
+          <div className={style.rightSection} />
         </div>
       </div>
     );
