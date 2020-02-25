@@ -69,5 +69,10 @@
   "Write something here": "Écrire ici",
   "zuora_discount_code_submit": "Appliquer",
   "zuora_discount_code": "Code promo",
-  "mandatory_fields": "* Champs obligatoires"
+  "mandatory_fields": "* Champs obligatoires",
+  "sad_face_emoji": "🥺",
+  "tada_emoji": "🎉",
+  "scorm": "Scorm",
+  "no_preview_available": "Aucun aperçu disponible",
+  "something_went_wrong": "Oh Snap! Quelque chose a mal tourné."
 }
