@@ -69,5 +69,10 @@
   "Write something here": "U kunt hier iets schrijven",
   "zuora_discount_code_submit": "Toepassen",
   "zuora_discount_code": "Promo-code",
-  "mandatory_fields": "*Mandatory fields"
+  "mandatory_fields": "*Mandatory fields",
+  "sad_face_emoji": "🥺",
+  "tada_emoji": "🎉",
+  "scorm": "Scorm",
+  "no_preview_available": "No preview available",
+  "something_went_wrong": "Oh Snap! Something went wrong."
 }
