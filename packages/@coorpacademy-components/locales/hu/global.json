@@ -69,5 +69,10 @@
   "Write something here": "Írjon ide valamit",
   "zuora_discount_code_submit": "Alkalmaz",
   "zuora_discount_code": "Promóciókód",
-  "mandatory_fields": "*Mandatory fields"
+  "mandatory_fields": "*Mandatory fields",
+  "sad_face_emoji": "🥺",
+  "tada_emoji": "🎉",
+  "scorm": "Scorm",
+  "no_preview_available": "No preview available",
+  "something_went_wrong": "Oh Snap! Something went wrong."
 }
