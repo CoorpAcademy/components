@@ -69,5 +69,10 @@
   "Write something here": "Напишите здесь что-нибудь",
   "zuora_discount_code_submit": "Применить",
   "zuora_discount_code": "Промо-код",
-  "mandatory_fields": "*Обязательные поля"
+  "mandatory_fields": "*Обязательные поля",
+  "sad_face_emoji": "🥺",
+  "tada_emoji": "🎉",
+  "scorm": "Scorm",
+  "no_preview_available": "No preview available",
+  "something_went_wrong": "Oh Snap! Something went wrong."
 }
