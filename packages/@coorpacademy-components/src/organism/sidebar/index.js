@@ -80,7 +80,7 @@ export const LinkItem = props => {
 export const TitleItem = props => {
   return (
     <ul data-name={props.name || `item-title-${props.index}`} className={style.titleItem}>
-      <li className={style.infoItemTitle}>{props.title}</li>
+      <li className={style.titleItemTitle}>{props.title}</li>
     </ul>
   );
 };
