@@ -8,6 +8,8 @@ import Select from '../../atom/select';
 import SelectMultiple from '../../molecule/select-multiple';
 import style from './style.css';
 
+const NEUTRAL_COLOR = '#607D8B';
+
 export const InputTextItem = props => {
   const {title, placeholder = '', value, onChange = noop, disabled} = props;
   const handleOnChange = e => onChange(e.target.value);
@@ -60,7 +62,7 @@ export const LinkItem = props => {
       data-name={props.name || `link-item-${props.index}`}
       style={{
         textDecoration: 'none',
-        color: props.selected ? props.color : '#607D8B'
+        color: props.selected ? props.color : NEUTRAL_COLOR
       }}
     >
       <li
@@ -75,15 +77,28 @@ export const LinkItem = props => {
   );
 };
 
+export const TitleItem = props => {
+  return (
+    <ul data-name={props.name || `item-title-${props.index}`} className={style.titleItem}>
+      <li className={style.infoItemTitle}>{props.title}</li>
+    </ul>
+  );
+};
+
 export const InfoItem = props => {
+  const handleOnClick = e => {
+    props.onClick && props.onClick(e);
+  };
+  const color = props.neutralColor === true ? NEUTRAL_COLOR : props.color;
   return (
     <ul data-name={props.name || `item-info-${props.index}`} className={style.infoItem}>
       <li className={style.infoItemTitle}>{props.title}</li>
       <li
         className={style.infoItemContent}
+        onClick={handleOnClick}
         style={{
-          borderLeftColor: props.color,
-          color: props.color
+          borderLeftColor: color,
+          color
         }}
       >
         {props.value}
@@ -155,6 +170,8 @@ const SidebarItem = ({item, color, index}) => {
           color={color}
         />
       );
+    case 'title':
+      return <TitleItem title={item.title} name={item.name} index={index} />;
     case 'info':
       return (
         <InfoItem
@@ -163,6 +180,8 @@ const SidebarItem = ({item, color, index}) => {
           index={index}
           value={item.value}
           color={color}
+          neutralColor={item.neutralColor}
+          onClick={handleOnClick}
         />
       );
     case 'inputtext':
@@ -179,10 +198,16 @@ const SidebarItem = ({item, color, index}) => {
       );
   }
 };
+const TitleItemSchema = {
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string
+};
 const InfoItemSchema = {
   title: PropTypes.string.isRequired,
   name: PropTypes.string,
-  value: PropTypes.string.isRequired
+  neutralColor: PropTypes.bool,
+  value: PropTypes.string.isRequired,
+  onClick: PropTypes.func
 };
 const LinkItemSchema = {
   title: PropTypes.string.isRequired,
@@ -213,11 +238,13 @@ const SelectItemSchema = {
   onChange: PropTypes.func
 };
 
+TitleItem.propTypes = TitleItemSchema;
 InfoItem.propTypes = InfoItemSchema;
 LinkItem.propTypes = LinkItemSchema;
 InputTextItem.propTypes = InputTextItemSchema;
 SelectItem.propTypes = SelectItemSchema;
 const SectionProptype = PropTypes.oneOfType([
+  PropTypes.shape({...TitleItemSchema, type: PropTypes.oneOf(['title']).isRequired}),
   PropTypes.shape({...InfoItemSchema, type: PropTypes.oneOf(['info']).isRequired}),
   PropTypes.shape({...LinkItemSchema, type: PropTypes.oneOf(['link']).isRequired}),
   PropTypes.shape({...InputTextItemSchema, type: PropTypes.oneOf(['inputtext']).isRequired}),

@@ -48,6 +48,11 @@
   background-color: light;
 }
 
+.titleItem {
+  list-style-type: none;
+  padding: 0;
+}
+
 .infoItem {
   list-style-type: none;
   padding: 0;
