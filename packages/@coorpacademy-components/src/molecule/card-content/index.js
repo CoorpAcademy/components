@@ -48,10 +48,10 @@ const ContentInfo = (
   context
 ) => {
   const {skin} = context;
-  const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
+  const progressBarColor = '#3EC483';
   const inlineProgressValueStyle = {
-    backgroundColor: primaryColor,
+    backgroundColor: progressBarColor,
     width: `${progress * 100}%`
   };
 
