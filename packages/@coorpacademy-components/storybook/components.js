@@ -605,6 +605,7 @@ import OrganismSidebarFixtureAnalytics from '../src/organism/sidebar/test/fixtur
 import OrganismSidebarFixtureCustom from '../src/organism/sidebar/test/fixtures/custom';
 import OrganismSidebarFixtureDashboards from '../src/organism/sidebar/test/fixtures/dashboards';
 import OrganismSidebarFixtureDefault from '../src/organism/sidebar/test/fixtures/default';
+import OrganismSidebarFixtureOldAnalytics from '../src/organism/sidebar/test/fixtures/old-analytics';
 import OrganismSliderFixtureDefault from '../src/organism/slider/test/fixtures/default';
 import OrganismSliderFixtureMultipleSlides from '../src/organism/slider/test/fixtures/multiple-slides';
 import OrganismUserPreferencesFixtureDefault from '../src/organism/user-preferences/test/fixtures/default';
@@ -1681,7 +1682,8 @@ export const fixtures = {
       Analytics: OrganismSidebarFixtureAnalytics,
       Custom: OrganismSidebarFixtureCustom,
       Dashboards: OrganismSidebarFixtureDashboards,
-      Default: OrganismSidebarFixtureDefault
+      Default: OrganismSidebarFixtureDefault,
+      OldAnalytics: OrganismSidebarFixtureOldAnalytics
     },
     OrganismSlider: {
       Default: OrganismSliderFixtureDefault,

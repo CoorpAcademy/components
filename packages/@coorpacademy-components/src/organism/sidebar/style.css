@@ -6,6 +6,8 @@
 @value light from colors;
 @value white from colors;
 @value dark from colors;
+@value lightMediumGray from colors;
+@value lightMediumGray from colors;
 @value medium from colors;
 @value transparent from colors;
 
@@ -46,6 +48,18 @@
 .linkItem:hover {
   border-left-color: medium;
   background-color: light;
+}
+
+.titleItem {
+  background-color: lightMediumGray;
+  list-style-type: none;
+  padding: 0;
+}
+
+.titleItemTitle {
+  font-weight: bold;
+  padding: 12px;
+  color: dark;
 }
 
 .infoItem {

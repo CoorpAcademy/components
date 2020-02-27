@@ -3,40 +3,6 @@ export default {
     items: [
       [
         {
-          title: 'Dashboards',
-          type: 'title'
-        },
-        {
-          title: 'Engagement',
-          type: 'link',
-          onClick: value => {
-            console.log('Clicked on Engagement', value);
-          },
-          selected: true,
-          name: 'analytics.dashboard'
-        },
-        {
-          title: 'Per User',
-          type: 'link',
-          name: 'analytics.users'
-        },
-        {
-          title: 'Per Module',
-          type: 'link',
-          name: 'analytics.modules'
-        },
-        {
-          title: 'Exports',
-          type: 'link',
-          name: 'analytics.exports'
-        }
-      ],
-      [
-        {
-          title: 'Filters',
-          type: 'title'
-        },
-        {
           title: 'Provider',
           type: 'multi-select',
           onChange: value => {
@@ -83,25 +49,37 @@ export default {
               selected: false
             }
           ]
+        },
+        {
+          title: 'Engagement',
+          type: 'link',
+          onClick: value => {
+            console.log('Clicked on Engagement', value);
+          },
+          selected: true,
+          name: 'analytics.dashboard'
+        },
+        {
+          title: 'Per User',
+          type: 'link',
+          name: 'analytics.users'
+        },
+        {
+          title: 'Per Module',
+          type: 'link',
+          name: 'analytics.modules'
+        },
+        {
+          title: 'Exports',
+          type: 'link',
+          name: 'analytics.exports'
         }
       ],
       [
         {
           title: 'Date lancement',
           type: 'info',
-          value: '30 février',
-          onClick: () => {
-            console.log('About to launch!');
-          }
-        },
-        {
-          title: 'Date lancement but neutral',
-          type: 'info',
-          value: '36 février',
-          neutralColor: true,
-          onClick: () => {
-            console.log('About to launch, neutraly!');
-          }
+          value: '30 février'
         }
       ]
     ]
