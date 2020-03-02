@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import {noop, getOr} from 'lodash/fp';
 import Link from '../../atom/link';
+import Button from '../../atom/button';
 import Provider from '../../atom/provider';
 import Select from '../../atom/select';
 import SelectMultiple from '../../molecule/select-multiple';
@@ -82,6 +83,20 @@ export const TitleItem = props => {
     <ul data-name={props.name || `item-title-${props.index}`} className={style.titleItem}>
       <li className={style.titleItemTitle}>{props.title}</li>
     </ul>
+  );
+};
+
+export const ButtonItem = props => {
+  const handleOnClick = e => {
+    props.onClick && props.onClick(e);
+  };
+  const backgroundColor = props.neutralColor === true ? NEUTRAL_COLOR : props.color;
+  return (
+    <li data-name={props.name || `button-item-${props.index}`} className={style.buttonItem}>
+      <Button type="link" href={props.href} onClick={handleOnClick} style={{backgroundColor}}>
+        {props.title}
+      </Button>
+    </li>
   );
 };
 
@@ -172,6 +187,18 @@ const SidebarItem = ({item, color, index}) => {
       );
     case 'title':
       return <TitleItem title={item.title} name={item.name} index={index} />;
+    case 'button':
+      return (
+        <ButtonItem
+          title={item.title}
+          name={item.name}
+          index={index}
+          color={color}
+          href={item.href}
+          neutralColor={item.neutralColor}
+          onClick={handleOnClick}
+        />
+      );
     case 'info':
       return (
         <InfoItem
@@ -201,6 +228,13 @@ const SidebarItem = ({item, color, index}) => {
 const TitleItemSchema = {
   title: PropTypes.string.isRequired,
   name: PropTypes.string
+};
+const ButtonItemSchema = {
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  href: PropTypes.string,
+  neutralColor: PropTypes.bool,
+  onClick: PropTypes.func
 };
 const InfoItemSchema = {
   title: PropTypes.string.isRequired,
@@ -239,12 +273,14 @@ const SelectItemSchema = {
 };
 
 TitleItem.propTypes = TitleItemSchema;
+ButtonItem.propTypes = ButtonItemSchema;
 InfoItem.propTypes = InfoItemSchema;
 LinkItem.propTypes = LinkItemSchema;
 InputTextItem.propTypes = InputTextItemSchema;
 SelectItem.propTypes = SelectItemSchema;
 const SectionProptype = PropTypes.oneOfType([
   PropTypes.shape({...TitleItemSchema, type: PropTypes.oneOf(['title']).isRequired}),
+  PropTypes.shape({...ButtonItemSchema, type: PropTypes.oneOf(['button']).isRequired}),
   PropTypes.shape({...InfoItemSchema, type: PropTypes.oneOf(['info']).isRequired}),
   PropTypes.shape({...LinkItemSchema, type: PropTypes.oneOf(['link']).isRequired}),
   PropTypes.shape({...InputTextItemSchema, type: PropTypes.oneOf(['inputtext']).isRequired}),

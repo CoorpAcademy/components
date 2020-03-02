@@ -35,6 +35,15 @@
   display: block;
 }
 
+.buttonItem {
+  padding: 10px 20px;
+}
+
+.buttonItem > div{
+  width: 100%;
+  text-transform: uppercase;
+}
+
 .selectItem {
   padding: 10px 20px;
 }

@@ -102,6 +102,16 @@ export default {
           onClick: () => {
             console.log('About to launch, neutraly!');
           }
+        },
+        {
+          title: 'Goto Home',
+          type: 'button',
+          href: 'http://localhost:3004',
+          neutralColor: true,
+          onClick: e => {
+            console.log('Clicked on the button!');
+            e.preventDefault();
+          }
         }
       ]
     ]
