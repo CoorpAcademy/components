@@ -8,7 +8,7 @@ import style from './style.css';
 const ButtonContent = props => {
   const {
     color,
-    submitValue = 'submit',
+    submitValue,
     disabled,
     download,
     href,
@@ -34,7 +34,7 @@ const ButtonContent = props => {
           className={anchorClassName}
           style={props.style}
         >
-          {submitValue || children}
+          {submitValue || children || 'submit'}
         </Link>
       );
 
