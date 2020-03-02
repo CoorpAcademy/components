@@ -15,6 +15,7 @@ export const DragAndDrop = (props, context) => {
   const idBox = uniqueId('drop-box-');
   const {
     title,
+    buttonTitle,
     description,
     uploadLabel,
     previewLabel = '',
@@ -45,7 +46,12 @@ export const DragAndDrop = (props, context) => {
             );
           }
 
-          return <PlaceHolder title={title} uploadLabel={uploadLabel} />;
+          return <PlaceHolder
+            title={title}
+            buttonTitle={buttonTitle}
+            uploadLabel={uploadLabel}
+            primaryColor={primaryColor}
+          />;
         };
 
         return (
