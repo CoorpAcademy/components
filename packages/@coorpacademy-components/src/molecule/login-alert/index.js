@@ -17,7 +17,7 @@ const LoginAlert = ({body}) => (
 );
 
 LoginAlert.propTypes = {
-  body: PropTypes.text
+  body: PropTypes.string.isRequired
 };
 
 export default LoginAlert;
