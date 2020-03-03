@@ -13,9 +13,9 @@ export const Overlay = ({description, isLoading, iconColor}) => {
     <React.Fragment>
       <div
         className={style.arrow}
-        style={{border: `15px solid ${convert(`color(${iconColor} a(-20%))`)}`}}
+        style={{border: `15px solid ${convert(`color(${iconColor} a(-90%))`)}`}}
       >
-        <UploadIcon color={iconColor} />
+        <UploadIcon color={iconColor} className={style.icon} />
       </div>
       <p>{description}</p>
     </React.Fragment>

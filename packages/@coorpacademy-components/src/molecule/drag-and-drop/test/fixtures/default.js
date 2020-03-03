@@ -2,7 +2,7 @@ export default {
   props: {
     title: 'Import SCORM file',
     buttonTitle: 'Or select a file',
-    description: 'Drag and drop component',
+    description: 'Drop you file to import',
     uploadLabel: 'Drag & Drop your SCORM file here',
     previewLabel: 'File Preview',
     accept: 'image/*',
