@@ -1,13 +1,12 @@
 export default {
   props: {
+    type: 'default',
     title: 'Import SCORM file',
     buttonTitle: 'Or select a file',
-    description: 'Drop you file to import',
-    uploadLabel: 'Drag & Drop your SCORM file here',
-    previewLabel: 'File Preview',
+    message: 'Drag & Drop your SCORM file here',
+    dragAndDropMessage: 'Drop you file to import',
     accept: 'image/*',
     uploadErrorMessage: 'Oh Snap, something went wrong !',
-    uploadSuccessMessage: 'Oh yeah! Upload Succeeded!',
     onDrop: () => console.log('file dropped')
   }
 };

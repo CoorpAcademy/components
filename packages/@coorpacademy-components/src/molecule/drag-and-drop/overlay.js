@@ -27,5 +27,7 @@ export const Overlay = ({description, isLoading, iconColor}) => {
 export default Overlay;
 
 Overlay.propTypes = {
-  description: PropTypes.string
+  description: PropTypes.string,
+  isLoading: PropTypes.bool,
+  iconColor: PropTypes.string
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {uniqueId, get} from 'lodash/fp';
+import {uniqueId, getOr} from 'lodash/fp';
 import Dropzone from 'react-dropzone';
 import Provider from '../../atom/provider';
 
@@ -11,47 +11,51 @@ import {PlaceHolder} from './placeholder';
 import style from './style.css';
 
 export const DragAndDrop = (props, context) => {
-  const primaryColor = get('skin.common.primary', context);
+  const {skin} = context;
+  const primaryColor = getOr('#00B0FF', 'common.primary', skin);
+
   const idBox = uniqueId('drop-box-');
   const {
+    type,
     title,
+    message,
+    dragAndDropMessage,
     buttonTitle,
-    description,
-    uploadLabel,
-    previewLabel = '',
-    previewContent,
-    uploadSuccessMessage,
-    uploadErrorMessage,
-    errorMessage,
     accept,
-    loading = false,
-    onDrop
+    content,
+    onDrop,
+    onDelete
   } = props;
 
-  const canDisplayPreview = previewContent && previewContent.src && previewContent.type;
+  const loading = type === 'loading';
 
   return (
     <Dropzone key={idBox} accept={accept} disabled={loading} onDrop={onDrop}>
       {({getRootProps, getInputProps, isDragActive}) => {
         const getView = () => {
-          if (errorMessage || canDisplayPreview) {
+          if (type === 'success' || type === 'error') {
             return (
               <UploadReport
-                uploadErrorMessage={uploadErrorMessage}
-                uploadSuccessMessage={uploadSuccessMessage}
-                errorMessage={errorMessage}
-                previewContent={previewContent}
-                previewLabel={previewLabel}
+                type={type}
+                message={message}
+                content={content}
+                onClick={onDrop}
+                onDelete={onDelete}
+                buttonTitle={buttonTitle}
+                primaryColor={primaryColor}
               />
             );
           }
 
-          return <PlaceHolder
-            title={title}
-            buttonTitle={buttonTitle}
-            uploadLabel={uploadLabel}
-            primaryColor={primaryColor}
-          />;
+          return (
+            <PlaceHolder
+              title={title}
+              buttonTitle={buttonTitle}
+              uploadLabel={message}
+              primaryColor={primaryColor}
+              onClick={onDrop}
+            />
+          );
         };
 
         return (
@@ -59,7 +63,11 @@ export const DragAndDrop = (props, context) => {
             <input {...getInputProps()} />
             {getView()}
             {isDragActive || loading ? (
-              <Overlay iconColor={primaryColor} description={description} isLoading={loading} />
+              <Overlay
+                iconColor={primaryColor}
+                description={dragAndDropMessage}
+                isLoading={loading}
+              />
             ) : null}
           </div>
         );
@@ -72,19 +80,18 @@ DragAndDrop.contextTypes = {
 };
 
 DragAndDrop.propTypes = {
+  type: PropTypes.oneOf(['default', 'loading', 'success', 'error']).isRequired,
   title: PropTypes.string,
-  description: PropTypes.string,
-  uploadLabel: PropTypes.string,
-  previewLabel: PropTypes.string,
+  message: PropTypes.string,
+  dragAndDropMessage: PropTypes.string,
+  buttonTitle: PropTypes.string,
   accept: PropTypes.string,
-  uploadErrorMessage: PropTypes.string,
-  uploadSuccessMessage: PropTypes.string,
-  previewContent: PropTypes.shape({
+  content: PropTypes.shape({
     type: PropTypes.string,
     src: PropTypes.string
   }),
-  error: PropTypes.string,
-  loading: PropTypes.bool
+  onDrop: PropTypes.func,
+  onDelete: PropTypes.func
 };
 
 export default DragAndDrop;

@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import style from './placeholder.css';
 import Button from '../../atom/button';
+import style from './placeholder.css';
 
 export const PlaceHolder = ({title, uploadLabel, primaryColor, buttonTitle}) => {
   return (
@@ -12,12 +12,13 @@ export const PlaceHolder = ({title, uploadLabel, primaryColor, buttonTitle}) => 
         <p className={style.uploadLabel}>{uploadLabel}</p>
       </div>
       <div>
-        <Button data-name="cta"
-                type="link"
-                onClick={() => {}}
-                submitValue={buttonTitle}
-                className={style.selectButton}
-                style={{backgroundColor: primaryColor}}/>
+        <Button
+          data-name="cta"
+          type="link"
+          submitValue={buttonTitle}
+          className={style.selectButton}
+          style={{backgroundColor: primaryColor}}
+        />
       </div>
     </div>
   );
@@ -27,5 +28,7 @@ export default PlaceHolder;
 
 PlaceHolder.propTypes = {
   title: PropTypes.string,
-  uploadLabel: PropTypes.string
+  uploadLabel: PropTypes.string,
+  primaryColor: PropTypes.string,
+  buttonTitle: PropTypes.string
 };

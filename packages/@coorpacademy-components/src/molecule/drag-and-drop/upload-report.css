@@ -8,61 +8,82 @@
   width: 100%;
 }
 
-.repport {
+.reportHeader {
+  width: 100%;
   padding: 15px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: space-around;
   border-bottom: 1px solid light;
   background-color: white;
-  height: 20%;
+  box-sizing: border-box;
 }
 
-.reportIcon {
-  width: 20px;
+.iconContainer {
+  width: 43px;
+  height: 43px;
+  border-radius: 4px;
+  padding: 9px;
+  justify-content: center;
+  margin-left: 24px;
 }
 
-.repport p {
-  font-family: 'Open Sans';
-  margin: 0;
-  padding: 0;
+.oval {
+  width: 43px;
+  height: 43px;
+  border-radius: 50%;
+  padding: 9px;
+  box-sizing: border-box;
+  margin-right: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  justify-content: center;
 }
 
-.label {
-  color: dark;
-  font-size: 16px;
-  font-weight: bold;
+.iconHeader {
+  color: white;
+  width: 18px;
+  height: 18px;
+  margin: 4px;
 }
 
 .fileName {
-  font-size: 12px;
+  margin-left: 15px;
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-weight: bold;
+  color: dark;
+  width: 230px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.repport span {
+.validateIcon {
+  width: 20px;
+}
+
+.trashIcon {
+  width: 20px;
+  margin-left: 20px;
+  color: #f73f52;
+}
+
+.reportContainer {
+  padding-top: 53px;
+  justify-content: center;
+  text-align: center;
+}
+
+.emoticon {
   font-size: 40px;
 }
 
-.uploadErrorMessage {
-  composes: baseText;
-  height: 60%;
-  color: negative;
+.message {
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-weight: bold;
+  color: dark;
 }
 
-.brokenHeartIcon {
-  color: light;
-  font-size: 20px;
-}
-
-.previewContainer {
-  composes: makeItFlex;
-  justify-content: center;
-
-  height: 70%;
-}
-.previewContainer img {
-  width: 60%;
-}
-
-.previewContainer video {
-  width: 70%;
+.selectButton {
+  margin-top: 26px;
 }
