@@ -41,6 +41,13 @@ export const UploadReport = (
     );
   }
 
+  const Message = () => (
+    <div>
+      <span className={style.emoticon}>{translate('tada_emoji')}</span>
+      <p className={style.message}>{message}</p>
+    </div>
+  );
+
   const {src} = content;
   const IconColor = '#FFB800';
   const fileName = pipe(
@@ -64,10 +71,7 @@ export const UploadReport = (
           <TrashIcon className={style.trashIcon} />
         </div>
       </div>
-      <div className={style.reportContainer}>
-        <span className={style.emoticon}>{translate('tada_emoji')}</span>
-        <p className={style.message}>{message}</p>
-      </div>
+      <div className={style.reportContainer}>{type === 'success' && <Message />}</div>
     </div>
   );
 };

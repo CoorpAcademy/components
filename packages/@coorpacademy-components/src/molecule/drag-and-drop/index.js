@@ -33,7 +33,7 @@ export const DragAndDrop = (props, context) => {
     <Dropzone key={idBox} accept={accept} disabled={loading} onDrop={onDrop}>
       {({getRootProps, getInputProps, isDragActive}) => {
         const getView = () => {
-          if (type === 'success' || type === 'error') {
+          if (type === 'success' || type === 'error' || type === 'ready') {
             return (
               <UploadReport
                 type={type}
@@ -80,7 +80,7 @@ DragAndDrop.contextTypes = {
 };
 
 DragAndDrop.propTypes = {
-  type: PropTypes.oneOf(['default', 'loading', 'success', 'error']).isRequired,
+  type: PropTypes.oneOf(['default', 'ready', 'loading', 'success', 'error']).isRequired,
   title: PropTypes.string,
   message: PropTypes.string,
   dragAndDropMessage: PropTypes.string,
