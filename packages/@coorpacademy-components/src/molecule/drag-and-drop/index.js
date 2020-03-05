@@ -58,9 +58,11 @@ export const DragAndDrop = (props, context) => {
           );
         };
 
+        const disableFileInput = type === 'success' || type === 'ready';
+
         return (
           <div className={style.wrapper} {...getRootProps()}>
-            <input {...getInputProps()} />
+            <input {...getInputProps()} disabled={disableFileInput} />
             {getView()}
             {isDragActive || loading ? (
               <Overlay

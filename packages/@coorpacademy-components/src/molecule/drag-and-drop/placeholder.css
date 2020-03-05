@@ -4,7 +4,6 @@
 
 .dropZoneContainer {
   composes: makeItFlex;
-  pointer-events: none;
   padding: 32px 87px 24px 87px;
   width: 100%;
 }
