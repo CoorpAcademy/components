@@ -5,7 +5,6 @@ import {
   NovaCompositionCoorpacademyScorm as ScormIcon,
   NovaLineContentEditionBin as TrashIcon
 } from '@coorpacademy/nova-icons';
-import get from 'lodash/fp/get';
 
 import {pipe, split, last} from 'lodash/fp';
 import Provider from '../../atom/provider';
@@ -17,14 +16,12 @@ export const UploadReport = (
   {type, message, content, buttonTitle, primaryColor, onDelete},
   context
 ) => {
-  const translate = get('translate', context);
-
   if (type === 'error') {
     return (
       <div className={style.reportingContainer}>
         <div className={style.reportContainer}>
           <div>
-            <span className={style.emoticon}> {translate('sad_face_emoji')}</span>
+            <span className={style.emoticon}>🥺</span>
             <p className={style.message}>{message}</p>
           </div>
           <div>
@@ -43,7 +40,7 @@ export const UploadReport = (
 
   const Message = () => (
     <div>
-      <span className={style.emoticon}>{translate('tada_emoji')}</span>
+      <span className={style.emoticon}>🎉</span>
       <p className={style.message}>{message}</p>
     </div>
   );

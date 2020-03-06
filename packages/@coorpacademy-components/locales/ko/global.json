@@ -70,9 +70,5 @@
   "zuora_discount_code_submit": "적용",
   "zuora_discount_code": "프로모션 코드",
   "mandatory_fields": "*Mandatory fields",
-  "sad_face_emoji": "🥺",
-  "tada_emoji": "🎉",
-
-
   "something_went_wrong": "Oh Snap! Something went wrong."
 }
