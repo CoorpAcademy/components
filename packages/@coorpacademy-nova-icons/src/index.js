@@ -61,6 +61,7 @@ import _NovaLineAudioAudioControlPlay from './components/nova-line/audio/audio-c
 import _NovaLineBookmarksTagsBookmark5 from './components/nova-line/bookmarks-tags/bookmark-5';
 import _NovaLineBusinessCircleView from './components/nova-line/business/circle-view';
 import _NovaLineComputersComputerScreen1 from './components/nova-line/computers/computer-screen-1';
+import _NovaLineContentEditionBin from './components/nova-line/content-edition/bin';
 import _NovaLineContentEditionLinkBroken from './components/nova-line/content-edition/link-broken';
 import _NovaLineContentEditionPencil2 from './components/nova-line/content-edition/pencil-2';
 import _NovaLineContentEditionQuillCircle from './components/nova-line/content-edition/quill-circle';
@@ -169,6 +170,7 @@ export const NovaLineAudioAudioControlPlay: Icon = _NovaLineAudioAudioControlPla
 export const NovaLineBookmarksTagsBookmark5: Icon = _NovaLineBookmarksTagsBookmark5;
 export const NovaLineBusinessCircleView: Icon = _NovaLineBusinessCircleView;
 export const NovaLineComputersComputerScreen1: Icon = _NovaLineComputersComputerScreen1;
+export const NovaLineContentEditionBin: Icon = _NovaLineContentEditionBin;
 export const NovaLineContentEditionLinkBroken: Icon = _NovaLineContentEditionLinkBroken;
 export const NovaLineContentEditionPencil2: Icon = _NovaLineContentEditionPencil2;
 export const NovaLineContentEditionQuillCircle: Icon = _NovaLineContentEditionQuillCircle;
