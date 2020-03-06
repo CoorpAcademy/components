@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {uniqueId, getOr} from 'lodash/fp';
+import uniqueId from 'lodash/fp/uniqueId';
+import getOr from 'lodash/fp/getOr';
+import includes from 'lodash/fp/includes';
 import Dropzone from 'react-dropzone';
 import Provider from '../../atom/provider';
 
@@ -33,7 +35,7 @@ export const DragAndDrop = (props, context) => {
     <Dropzone key={idBox} accept={accept} disabled={loading} onDrop={onDrop}>
       {({getRootProps, getInputProps, isDragActive}) => {
         const getView = () => {
-          if (type === 'success' || type === 'error' || type === 'ready') {
+          if (includes(type, ['success', 'error', 'ready'])) {
             return (
               <UploadReport
                 type={type}
