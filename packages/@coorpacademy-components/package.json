@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/components",
-  "version": "9.9.7",
+  "version": "9.9.8",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -45,7 +45,7 @@
     "Adrien Becchis <adrien.becchis@coorpacademy.com>"
   ],
   "dependencies": {
-    "@coorpacademy/nova-icons": "3.5.1",
+    "@coorpacademy/nova-icons": "3.6.0",
     "autoprefixer": "^9.7.0",
     "classnames": "^2.2.6",
     "css-color-function": "^1.3.3",
