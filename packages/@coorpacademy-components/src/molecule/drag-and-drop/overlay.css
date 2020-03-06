@@ -10,7 +10,6 @@
   left: 0;
   opacity: 0.95;
   justify-content: center;
-  pointer-events: none;
   height: 100%;
 }
 
@@ -27,5 +26,29 @@
   width: 60px;
   height: 60px;
   border-radius: 50%;
-  background-color: xtraLightGrey;
+  border: none;
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.6);
+  transform: scale(1);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.1);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+.icon{
+  margin: -5px;
 }

@@ -35,7 +35,7 @@ const context = {
 };
 
 test('should show the overlay when a file is dragged', async t => {
-  const component = mount(<DragDrop {...Default} />, {context});
+  const component = mount(<DragDrop {...Default.props} />, {context});
   component.simulate('dragEnter');
   const updatedDropzone = await flushPromises(component);
   t.true(updatedDropzone.exists(Overlay));
