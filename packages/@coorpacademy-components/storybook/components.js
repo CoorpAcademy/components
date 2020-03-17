@@ -535,12 +535,14 @@ import MoleculeUnsubscribeFixtureSubscribed from '../src/molecule/unsubscribe/te
 import MoleculeVideoIframeFixtureEmpty from '../src/molecule/video-iframe/test/fixtures/empty';
 import MoleculeVideoIframeFixtureImagePlaceholder from '../src/molecule/video-iframe/test/fixtures/image-placeholder';
 import MoleculeVideoIframeFixtureJwplayer from '../src/molecule/video-iframe/test/fixtures/jwplayer';
+import MoleculeVideoIframeFixtureOmniPlayer from '../src/molecule/video-iframe/test/fixtures/omni-player';
 import MoleculeVideoIframeFixtureUptale from '../src/molecule/video-iframe/test/fixtures/uptale';
 import MoleculeVideoIframeFixtureYoutube from '../src/molecule/video-iframe/test/fixtures/youtube';
 import MoleculeVideoPlayerFixtureJwplayerWithSubtitles from '../src/molecule/video-player/test/fixtures/jwplayer-with-subtitles';
 import MoleculeVideoPlayerFixtureJwplayer from '../src/molecule/video-player/test/fixtures/jwplayer';
 import MoleculeVideoPlayerFixtureKontiki from '../src/molecule/video-player/test/fixtures/kontiki';
 import MoleculeVideoPlayerFixtureMp4 from '../src/molecule/video-player/test/fixtures/mp4';
+import MoleculeVideoPlayerFixtureOmniPlayer from '../src/molecule/video-player/test/fixtures/omni-player';
 import MoleculeVideoPlayerFixtureUptale from '../src/molecule/video-player/test/fixtures/uptale';
 import MoleculeVideoPlayerFixtureVimeo from '../src/molecule/video-player/test/fixtures/vimeo';
 import MoleculeVideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
@@ -590,6 +592,7 @@ import OrganismResourceBrowserFixtureJwplayerWithOverlay from '../src/organism/r
 import OrganismResourceBrowserFixtureJwplayer from '../src/organism/resource-browser/test/fixtures/jwplayer';
 import OrganismResourceBrowserFixtureKontiki from '../src/organism/resource-browser/test/fixtures/kontiki';
 import OrganismResourceBrowserFixtureMp4 from '../src/organism/resource-browser/test/fixtures/mp4';
+import OrganismResourceBrowserFixtureOmniPlayer from '../src/organism/resource-browser/test/fixtures/omni-player';
 import OrganismResourceBrowserFixtureOneVideo from '../src/organism/resource-browser/test/fixtures/one-video';
 import OrganismResourceBrowserFixturePdfWithOverlay from '../src/organism/resource-browser/test/fixtures/pdf-with-overlay';
 import OrganismResourceBrowserFixturePdf from '../src/organism/resource-browser/test/fixtures/pdf';
@@ -637,6 +640,7 @@ import TemplateAppPlayerPlayerSlidesFixtureDropDown from '../src/template/app-pl
 import TemplateAppPlayerPlayerSlidesFixtureError from '../src/template/app-player/player/slides/test/fixtures/error';
 import TemplateAppPlayerPlayerSlidesFixtureFreeText from '../src/template/app-player/player/slides/test/fixtures/free-text';
 import TemplateAppPlayerPlayerSlidesFixtureLoading from '../src/template/app-player/player/slides/test/fixtures/loading';
+import TemplateAppPlayerPlayerSlidesFixtureMediaOmniPlayer from '../src/template/app-player/player/slides/test/fixtures/media-omni-player';
 import TemplateAppPlayerPlayerSlidesFixtureMedia from '../src/template/app-player/player/slides/test/fixtures/media';
 import TemplateAppPlayerPlayerSlidesFixtureNoClue from '../src/template/app-player/player/slides/test/fixtures/no-clue';
 import TemplateAppPlayerPlayerSlidesFixtureNoQuestion from '../src/template/app-player/player/slides/test/fixtures/no-question';
@@ -662,6 +666,7 @@ import TemplateAppPlayerPlayerFixtureEmpty from '../src/template/app-player/play
 import TemplateAppPlayerPlayerFixtureError from '../src/template/app-player/player/test/fixtures/error';
 import TemplateAppPlayerPlayerFixtureFreeText from '../src/template/app-player/player/test/fixtures/free-text';
 import TemplateAppPlayerPlayerFixtureMediaImage from '../src/template/app-player/player/test/fixtures/media-image';
+import TemplateAppPlayerPlayerFixtureMediaOmniPlayer from '../src/template/app-player/player/test/fixtures/media-omni-player';
 import TemplateAppPlayerPlayerFixtureMedia from '../src/template/app-player/player/test/fixtures/media';
 import TemplateAppPlayerPlayerFixtureNoClue from '../src/template/app-player/player/test/fixtures/no-clue';
 import TemplateAppPlayerPlayerFixtureOnlyClue from '../src/template/app-player/player/test/fixtures/only-clue';
@@ -1495,6 +1500,7 @@ export const fixtures = {
       Empty: MoleculeVideoIframeFixtureEmpty,
       ImagePlaceholder: MoleculeVideoIframeFixtureImagePlaceholder,
       Jwplayer: MoleculeVideoIframeFixtureJwplayer,
+      OmniPlayer: MoleculeVideoIframeFixtureOmniPlayer,
       Uptale: MoleculeVideoIframeFixtureUptale,
       Youtube: MoleculeVideoIframeFixtureYoutube
     },
@@ -1503,6 +1509,7 @@ export const fixtures = {
       Jwplayer: MoleculeVideoPlayerFixtureJwplayer,
       Kontiki: MoleculeVideoPlayerFixtureKontiki,
       Mp4: MoleculeVideoPlayerFixtureMp4,
+      OmniPlayer: MoleculeVideoPlayerFixtureOmniPlayer,
       Uptale: MoleculeVideoPlayerFixtureUptale,
       Vimeo: MoleculeVideoPlayerFixtureVimeo,
       Youtube: MoleculeVideoPlayerFixtureYoutube
@@ -1662,6 +1669,7 @@ export const fixtures = {
       Jwplayer: OrganismResourceBrowserFixtureJwplayer,
       Kontiki: OrganismResourceBrowserFixtureKontiki,
       Mp4: OrganismResourceBrowserFixtureMp4,
+      OmniPlayer: OrganismResourceBrowserFixtureOmniPlayer,
       OneVideo: OrganismResourceBrowserFixtureOneVideo,
       PdfWithOverlay: OrganismResourceBrowserFixturePdfWithOverlay,
       Pdf: OrganismResourceBrowserFixturePdf,
@@ -1731,6 +1739,7 @@ export const fixtures = {
       Error: TemplateAppPlayerPlayerFixtureError,
       FreeText: TemplateAppPlayerPlayerFixtureFreeText,
       MediaImage: TemplateAppPlayerPlayerFixtureMediaImage,
+      MediaOmniPlayer: TemplateAppPlayerPlayerFixtureMediaOmniPlayer,
       Media: TemplateAppPlayerPlayerFixtureMedia,
       NoClue: TemplateAppPlayerPlayerFixtureNoClue,
       OnlyClue: TemplateAppPlayerPlayerFixtureOnlyClue,
@@ -1819,6 +1828,7 @@ export const fixtures = {
       Error: TemplateAppPlayerPlayerSlidesFixtureError,
       FreeText: TemplateAppPlayerPlayerSlidesFixtureFreeText,
       Loading: TemplateAppPlayerPlayerSlidesFixtureLoading,
+      MediaOmniPlayer: TemplateAppPlayerPlayerSlidesFixtureMediaOmniPlayer,
       Media: TemplateAppPlayerPlayerSlidesFixtureMedia,
       NoClue: TemplateAppPlayerPlayerSlidesFixtureNoClue,
       NoQuestion: TemplateAppPlayerPlayerSlidesFixtureNoQuestion,
