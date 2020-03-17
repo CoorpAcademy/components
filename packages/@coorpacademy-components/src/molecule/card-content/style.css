@@ -101,13 +101,15 @@
 
 .progress {
   display: block;
-  height: 3px;
+  height: 4px;
   animation: progressbar 2s ease-in-out;
 }
 
 .specificIcon {
   font-size: 5px;
   filter: drop-shadow(1px 1px 6px grey);
+  width: 25px;
+  height: 25px;
 }
 
 .authorIcon {
@@ -128,8 +130,9 @@
   position: relative;
   left: 0;
   width: 194px;
-  height: 3px;
-  border-radius: 1px;
+  height: 4px;
+  border-radius: 2px;
+  overflow: hidden;
   margin: 16px auto;
   background: light;
 }
