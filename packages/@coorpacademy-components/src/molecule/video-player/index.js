@@ -45,6 +45,7 @@ class VideoPlayer extends React.Component {
 
       case 'application/youtube':
       case 'application/uptale':
+      case 'application/omniPlayer':
         return (
           <VideoIframe
             key={id}
@@ -106,6 +107,7 @@ VideoPlayer.propTypes = {
     'application/vimeo',
     'application/youtube',
     'application/jwplayer',
+    'application/omniPlayer',
     'video/mp4'
   ]).isRequired
 };

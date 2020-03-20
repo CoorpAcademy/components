@@ -31,3 +31,15 @@ test('should render properly a youtube iframe', t => {
   t.truthy(video.find('.iframe'));
   video.unmount();
 });
+
+test('should render properly a omniPlayer iframe', t => {
+  const props = {
+    type: 'omniPlayer',
+    id: 'foo'
+  };
+
+  const component = <VideoIframe {...props} />;
+  const video = mount(component);
+  t.truthy(video.find('.iframe'));
+  video.unmount();
+});
