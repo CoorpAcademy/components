@@ -63,6 +63,7 @@ test('it should expose all api', t => {
     'getEndRank',
     'getBestScore',
     'getQuestionMedia',
+    'getContextMedia',
     'getResourceToPlay',
     'getLives',
     'getCoaches',
