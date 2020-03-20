@@ -435,17 +435,7 @@ export const getBestScore = (state: State): number | void => {
   }
 };
 
-export const getQuestionMedia = (state: State): void | Media => {
-  const slide = getCurrentSlide(state);
-
-  if (!slide) {
-    return;
-  }
-
-  const media: Media = get('question.medias.0', slide);
-  if (!media) {
-    return;
-  }
+const getMedia = (media: Media): Media | void => {
   const {type} = media;
   const resource = get('src.0', media);
   switch (type) {
@@ -461,6 +451,36 @@ export const getQuestionMedia = (state: State): void | Media => {
         type
       };
   }
+};
+
+export const getQuestionMedia = (state: State): void | Media => {
+  const slide = getCurrentSlide(state);
+
+  if (!slide) {
+    return;
+  }
+
+  const media: Media = get('question.medias.0', slide);
+  if (!media) {
+    return;
+  }
+
+  return getMedia(media);
+};
+
+export const getContextMedia = (state: State): void | Media => {
+  const slide = getCurrentSlide(state);
+
+  if (!slide) {
+    return;
+  }
+
+  const media: Media = get('context.media', slide);
+  if (!media) {
+    return;
+  }
+
+  return getMedia(media);
 };
 
 export const getResourceToPlay: State => string = get('ui.corrections.playResource');

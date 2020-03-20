@@ -41,6 +41,7 @@ import {
   hasViewedAResourceAtThisStep,
   hasSeenLesson,
   getQuestionMedia,
+  getContextMedia,
   isContentAdaptive,
   getVideoTracks,
   getPrevAnswer
@@ -828,6 +829,84 @@ test('getQuestionMedia should return video media from state', t => {
   )({});
 
   t.deepEqual(getQuestionMedia(state), {
+    type: 'video',
+    mimeType: 'application/vimeo',
+    videoId: '231095700'
+  });
+});
+
+test('getContextMedia should return undefined if no slide is found', t => {
+  const progression = {state: {nextContent: {ref: '0'}}};
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': progression})
+  )({});
+
+  t.is(getContextMedia(state), undefined);
+});
+
+test('getContextMedia should return nothing if media is not provided', t => {
+  const slide = {
+    _id: '0',
+    context: {}
+  };
+  const progression = {state: {nextContent: {ref: '0'}}};
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': progression}),
+    set('data.contents.slide.entities', {'0': slide})
+  )({});
+
+  t.is(getContextMedia(state), undefined);
+});
+
+test('getContextMedia should return image media from state', t => {
+  const slide = {
+    _id: '0',
+    context: {
+      media: {
+        type: 'img',
+        src: [
+          {
+            url: 'http://monimage.jpg'
+          }
+        ]
+      }
+    }
+  };
+  const progression = {state: {nextContent: {ref: '0'}}};
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': progression}),
+    set('data.contents.slide.entities', {'0': slide})
+  )({});
+
+  t.deepEqual(getContextMedia(state), {type: 'img', url: 'http://monimage.jpg'});
+});
+
+test('getContextMedia should return video media from state', t => {
+  const slide = {
+    _id: '0',
+    context: {
+      media: {
+        type: 'video',
+        src: [
+          {
+            mimeType: 'application/vimeo',
+            videoId: '231095700'
+          }
+        ]
+      }
+    }
+  };
+  const progression = {state: {nextContent: {ref: '0'}}};
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': progression}),
+    set('data.contents.slide.entities', {'0': slide})
+  )({});
+
+  t.deepEqual(getContextMedia(state), {
     type: 'video',
     mimeType: 'application/vimeo',
     videoId: '231095700'
