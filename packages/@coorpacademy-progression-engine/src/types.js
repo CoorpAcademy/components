@@ -13,6 +13,8 @@ export type ResourceMimeType =
   | 'image/png'
   | 'application/pdf'
   | 'application/jwplayer'
+  | 'application/youtube'
+  | 'application/omniPlayer'
   | 'application/vimeo';
 
 export type Answer = Array<string>;

@@ -226,7 +226,7 @@ type ExitNodeAPI = {|
 
 export type RestrictedResourceType = 'level' | 'chapter' | 'slide';
 
-type VideoProvider = 'jwplayer' | 'kontiki' | 'vimeo';
+type VideoProvider = 'jwplayer' | 'kontiki' | 'vimeo' | 'omniPlayer' | 'youtube';
 
 type VideoTrack = {|
   kind: $Values<typeof VIDEO_TRACK_KIND>,
