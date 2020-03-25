@@ -7,15 +7,19 @@ export type Step = {|
   total?: number
 |};
 
+export type VideoMimeType =
+  | 'application/kontiki'
+  | 'application/jwplayer'
+  | 'application/youtube'
+  | 'application/omniPlayer'
+  | 'application/vimeo';
+
 export type ResourceMimeType =
   | 'video/mp4'
   | 'image/jpeg'
   | 'image/png'
   | 'application/pdf'
-  | 'application/jwplayer'
-  | 'application/youtube'
-  | 'application/omniPlayer'
-  | 'application/vimeo';
+  | VideoMimeType;
 
 export type Answer = Array<string>;
 
