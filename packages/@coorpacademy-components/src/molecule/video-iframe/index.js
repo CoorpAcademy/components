@@ -13,7 +13,7 @@ const getUrl = ({url, type, id, query = {}, opts = {}}) => {
     case 'uptale':
       return `https://my.uptale.io/Experience/Launch?id=${id}`;
     case 'omniPlayer':
-      return `https://mms.myomni.live/${id}`;
+      return `https://upec.player.myomni.live/?k=${id}`;
     case 'jwplayer':
       return `https://content.jwplatform.com/players/${id}-7IMa4DCK.html`;
     default:
