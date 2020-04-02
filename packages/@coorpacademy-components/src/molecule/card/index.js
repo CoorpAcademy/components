@@ -9,6 +9,7 @@ import {
 import Provider from '../../atom/provider';
 import CardContentInfo, {MODES} from '../card-content';
 import Customer from './customer';
+// import CardBackground from './card-background';
 import Favorite from './favorite';
 import Notification from './notification';
 import style from './style.css';
@@ -22,6 +23,31 @@ const isExternalContent = type => {
     default:
       return false;
   }
+};
+
+const CardBackground = ({type, image, empty}, context) => {
+  const {skin} = context;
+  const primaryColor = get('common.primary', skin);
+  const whiteColor = get('common.white', skin);
+  const externalContent = isExternalContent(type);
+  console.log(type, externalContent);
+
+  const emptyIcon = empty ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
+
+  return (
+    <div className={externalContent ? style.half : style.imageWrapper}>
+      <div
+        data-name="cover"
+        className={style.image}
+        style={{
+          backgroundColor: primaryColor,
+          backgroundImage: image ? `url('${image}')` : 'none'
+        }}
+      >
+        {emptyIcon}
+      </div>
+    </div>
+  );
 };
 
 const Card = (props, context) => {
@@ -52,14 +78,11 @@ const Card = (props, context) => {
     empty ? style.empty : null
   );
   const handleClick = e => !disabled && onClick(e);
-  const emptyIcon = empty ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
 
   const lock = disabled ? (
     <LockIcon className={style.lockIcon} color={whiteColor} height={40} />
   ) : null;
   const inlineBadgeStyle = {color: primaryColor};
-
-  const externalContent = isExternalContent(type);
 
   return (
     <div
@@ -70,21 +93,7 @@ const Card = (props, context) => {
       disabled={disabled}
       onClick={handleClick}
     >
-      {
-        // fond de la carte pour
-      }
-      <div className={externalContent ? style.half : style.imageWrapper}>
-        <div
-          data-name="cover"
-          className={style.image}
-          style={{
-            backgroundColor: primaryColor,
-            backgroundImage: image ? `url('${image}')` : 'none'
-          }}
-        >
-          {emptyIcon}
-        </div>
-      </div>
+      <CardBackground type={type} image={image} empty={empty} />
       {!isUndefined(favorite) && (
         <Favorite
           className={style.favorite}
