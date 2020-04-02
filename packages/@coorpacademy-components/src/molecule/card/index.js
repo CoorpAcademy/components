@@ -4,25 +4,23 @@ import classnames from 'classnames';
 import {get, isEmpty, isUndefined, pick} from 'lodash/fp';
 import {
   NovaSolidLocksLock11 as LockIcon,
-  NovaCompositionCoorpacademyPictures as PicturesIcon
+  NovaCompositionCoorpacademyPictures as PicturesIcon,
+  NovaCompositionCoorpacademyScorm as ScormIcon,
+  NovaCompositionCoorpacademyArticle as ArticleIcon,
+  NovaCompositionCoorpacademyVideo as VideoIcon
 } from '@coorpacademy/nova-icons';
+import isExternalContent from '../../util/external-content';
 import Provider from '../../atom/provider';
 import CardContentInfo, {MODES} from '../card-content';
 import Customer from './customer';
-// import CardBackground from './card-background';
 import Favorite from './favorite';
 import Notification from './notification';
 import style from './style.css';
 
-const isExternalContent = type => {
-  switch (type) {
-    case 'scorm':
-    case 'video':
-    case 'article':
-      return true;
-    default:
-      return false;
-  }
+const ICONS = {
+  scorm: {icon: ScormIcon, color: '#FFB800'},
+  article: {icon: ArticleIcon, color: '#365FCD'},
+  video: {icon: VideoIcon, color: '#E8335E'}
 };
 
 const CardBackground = ({type, image, empty}, context) => {
@@ -30,12 +28,32 @@ const CardBackground = ({type, image, empty}, context) => {
   const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
   const externalContent = isExternalContent(type);
-  console.log(type, externalContent);
+
+  if (externalContent) {
+    const IconType = ICONS[type].icon;
+    const IconColor = ICONS[type].color;
+    const backgroundIcon = (
+      <div className={style.externalIconCircleWrapper}>
+        <IconType className={style.externalIcon} />
+      </div>
+    );
+
+    return (
+      <div className={style.imageWrapper}>
+        <div
+          data-name="cover"
+          style={{backgroundColor: IconColor}}
+          className={style.externalContentHeader}
+        >
+          {backgroundIcon}
+        </div>
+      </div>
+    );
+  }
 
   const emptyIcon = empty ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
-
   return (
-    <div className={externalContent ? style.half : style.imageWrapper}>
+    <div className={style.imageWrapper}>
       <div
         data-name="cover"
         className={style.image}
@@ -112,7 +130,6 @@ const Card = (props, context) => {
         disabled={disabled}
         empty={empty}
         progress={progress}
-        style={style}
         title={title}
         type={type}
       />

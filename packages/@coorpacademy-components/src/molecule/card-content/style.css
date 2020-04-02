@@ -20,14 +20,16 @@
 
 .title {
   text-align: left;
-  color: white;
-  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
   margin-top: 5px;
   font-size: 17px;
   letter-spacing: 0;
   font-family: 'Open Sans';
   overflow: hidden;
   user-select: none;
+}
+
+.shadow {
+  text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
 }
 
 .title a {
@@ -39,10 +41,8 @@
 .author {
   display: flex;
   text-align: left;
-  text-shadow: 1px 1px 6px black;
   align-items: center;
   font-size: 12px;
-  color: white;
   width: 100%;
   font-family: 'Open Sans';
   white-space: nowrap;
@@ -114,10 +114,13 @@
 
 .authorIcon {
   fill: white;
-  filter: drop-shadow(1px 1px 6px grey);
   width: 12px;
   height: 12px;
   margin-left: 0.25em;
+}
+
+.iconShadow {
+  filter: drop-shadow(1px 1px 6px grey);
 }
 
 @keyframes progressbar {

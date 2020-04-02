@@ -79,14 +79,6 @@
   left: 0;
 }
 
-.course .half {
-  width: 100%;
-  height: 50%;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
 .default .image {
   overflow: hidden;
   background-position: 50%;
@@ -244,6 +236,37 @@
   right: 50%;
   transform: translate(50%, 50%);
   top: 0;
+}
+
+.course .externalContentHeader {
+  width: 100%;
+  height: 40%;
+  position: relative;
+  display: flex;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.externalIconCircleWrapper {
+  width: 60px;
+  height: 60px;
+  margin-top: 25px;
+  border-radius: 50%;
+  padding: 9px;
+  box-sizing: border-box;
+  margin-right: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  justify-content: center;
+}
+
+.externalIcon {
+  color: white;
+  width: 35px;
+  height: 35px;
+  margin: 4px;
 }
 
 @media (hover: none) {

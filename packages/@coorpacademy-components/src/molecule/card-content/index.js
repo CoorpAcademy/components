@@ -7,6 +7,7 @@ import {
   NovaSolidStatusCheckCircle2 as CheckIcon,
   NovaCompositionCoorpacademyTimer as TimerIcon
 } from '@coorpacademy/nova-icons';
+import isExternalContent from '../../util/external-content';
 import Provider from '../../atom/provider';
 import style from './style.css';
 
@@ -54,6 +55,9 @@ const ContentInfo = (
     backgroundColor: progressBarColor,
     width: `${progress * 100}%`
   };
+  const externalContent = isExternalContent(type);
+  const titleColor = externalContent ? '13171a' : whiteColor;
+  const authorColor = externalContent ? '#546e7a' : whiteColor;
 
   const progressBar =
     mode === MODES.HERO || (!empty && !disabled) ? (
@@ -68,7 +72,10 @@ const ContentInfo = (
     mode === MODES.CARD ? createContentTypeIcon(whiteColor, adaptiv, type) : null;
 
   const checkIcon = certifiedAuthor ? (
-    <CheckIcon className={style.authorIcon} color="inherit" />
+    <CheckIcon
+      className={classnames(style.authorIcon, !externalContent ? style.iconShadow : null)}
+      color="inherit"
+    />
   ) : null;
 
   return (
@@ -81,15 +88,26 @@ const ContentInfo = (
       )}
     >
       {contentTypeIcon}
-      <div className={classnames(style.title, empty ? style.empty : null)}>
-        <div data-name="title" title={title}>
+      <div
+        className={classnames(
+          style.title,
+          !externalContent ? style.shadow : null,
+          empty ? style.empty : null
+        )}
+      >
+        <div data-name="title" title={title} style={{color: titleColor}}>
           {title}
         </div>
       </div>
       <div
         data-name="author"
         title={author}
-        className={classnames(style.author, empty ? style.empty : null)}
+        className={classnames(
+          style.author,
+          !externalContent ? style.shadow : null,
+          empty ? style.empty : null
+        )}
+        style={{color: authorColor}}
       >
         <span>{author}</span>
         {checkIcon}

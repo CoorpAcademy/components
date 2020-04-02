@@ -7,6 +7,10 @@ export default {
   props: defaultsDeep(props, {
     disabled: false,
     type: 'scorm',
-    image: null
+    image: null,
+    customer: {
+      coorpOriginal: false,
+      name: 'Decathlon creation'
+    }
   })
 };
