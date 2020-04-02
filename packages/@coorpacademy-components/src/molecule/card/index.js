@@ -13,6 +13,17 @@ import Favorite from './favorite';
 import Notification from './notification';
 import style from './style.css';
 
+const isExternalContent = type => {
+  switch (type) {
+    case 'scorm':
+    case 'video':
+    case 'article':
+      return true;
+    default:
+      return false;
+  }
+};
+
 const Card = (props, context) => {
   const {skin} = context;
   const {
@@ -47,6 +58,9 @@ const Card = (props, context) => {
     <LockIcon className={style.lockIcon} color={whiteColor} height={40} />
   ) : null;
   const inlineBadgeStyle = {color: primaryColor};
+
+  const externalContent = isExternalContent(type);
+
   return (
     <div
       className={cardStyle}
@@ -56,7 +70,10 @@ const Card = (props, context) => {
       disabled={disabled}
       onClick={handleClick}
     >
-      <div className={style.imageWrapper}>
+      {
+        // fond de la carte pour
+      }
+      <div className={externalContent ? style.half : style.imageWrapper}>
         <div
           data-name="cover"
           className={style.image}

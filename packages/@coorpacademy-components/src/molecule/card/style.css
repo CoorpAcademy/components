@@ -79,6 +79,14 @@
   left: 0;
 }
 
+.course .half {
+  width: 100%;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 .default .image {
   overflow: hidden;
   background-position: 50%;
