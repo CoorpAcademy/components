@@ -16,7 +16,9 @@ export const MODES = {
   CARD: 'card'
 };
 
-const ContentTypeInfo = ({mode, adaptiv, type, externalContent}, {translate, skin}) => {
+const ContentTypeInfo = ({mode, adaptiv, type, externalContent}, context) => {
+  const {skin, translate} = context;
+
   if (mode !== MODES.CARD) {
     return null;
   }
@@ -38,9 +40,11 @@ const ContentTypeInfo = ({mode, adaptiv, type, externalContent}, {translate, ski
   }
   if (externalContent && EXTERNAL_CONTENT_ICONS[type]) {
     const textColor = EXTERNAL_CONTENT_ICONS[type].color;
+    const localKey = 'external_content_scorm';
+
     return (
       <div className={style.contentTypeInfo} style={{color: textColor}}>
-        {translate(`external_content_${type}`)}
+        {translate(localKey)}
       </div>
     );
   }
@@ -49,8 +53,8 @@ const ContentTypeInfo = ({mode, adaptiv, type, externalContent}, {translate, ski
 };
 
 ContentTypeInfo.contextTypes = {
-  translate: Provider.childContextTypes.translate,
-  skin: Provider.childContextTypes.skin
+  skin: Provider.childContextTypes.skin,
+  translate: Provider.childContextTypes.translate
 };
 
 const CardTitle = ({title, empty, externalContent}) => {

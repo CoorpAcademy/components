@@ -266,7 +266,8 @@ class CardsList extends React.Component {
 }
 
 CardsList.contextTypes = {
-  skin: Provider.childContextTypes.skin
+  skin: Provider.childContextTypes.skin,
+  translate: Provider.childContextTypes.translate
 };
 
 CardsList.propTypes = {
