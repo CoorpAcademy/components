@@ -29,9 +29,9 @@ const CardBackground = ({type, image, empty}, context) => {
   const whiteColor = get('common.white', skin);
   const externalContent = isExternalContent(type);
 
-  if (externalContent) {
+  if (externalContent && ICONS[type]) {
     const IconType = ICONS[type].icon;
-    const IconColor = ICONS[type].color;
+    const iconColor = ICONS[type].color;
     const backgroundIcon = (
       <div className={style.externalIconCircleWrapper}>
         <IconType className={style.externalIcon} />
@@ -42,7 +42,7 @@ const CardBackground = ({type, image, empty}, context) => {
       <div className={style.imageWrapper}>
         <div
           data-name="cover"
-          style={{backgroundColor: IconColor}}
+          style={{backgroundColor: iconColor}}
           className={style.externalContentHeader}
         >
           {backgroundIcon}

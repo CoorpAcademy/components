@@ -56,8 +56,6 @@ const ContentInfo = (
     width: `${progress * 100}%`
   };
   const externalContent = isExternalContent(type);
-  const titleColor = externalContent ? '13171a' : whiteColor;
-  const authorColor = externalContent ? '#546e7a' : whiteColor;
 
   const progressBar =
     mode === MODES.HERO || (!empty && !disabled) ? (
@@ -91,11 +89,11 @@ const ContentInfo = (
       <div
         className={classnames(
           style.title,
-          !externalContent ? style.shadow : null,
+          externalContent ? style.darkTitle : style.lightTitle,
           empty ? style.empty : null
         )}
       >
-        <div data-name="title" title={title} style={{color: titleColor}}>
+        <div data-name="title" title={title}>
           {title}
         </div>
       </div>
@@ -104,10 +102,9 @@ const ContentInfo = (
         title={author}
         className={classnames(
           style.author,
-          !externalContent ? style.shadow : null,
+          externalContent ? style.darkAuthorTitle : style.lightTitle,
           empty ? style.empty : null
         )}
-        style={{color: authorColor}}
       >
         <span>{author}</span>
         {checkIcon}

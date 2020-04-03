@@ -1,12 +1,5 @@
-const isExternalContent = type => {
-  switch (type) {
-    case 'scorm':
-    case 'video':
-    case 'article':
-      return true;
-    default:
-      return false;
-  }
-};
+import includes from 'lodash/fp/includes';
+
+const isExternalContent = type => includes(type, ['scorm', 'video', 'article']);
 
 export default isExternalContent;
