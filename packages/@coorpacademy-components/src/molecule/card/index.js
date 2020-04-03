@@ -4,12 +4,9 @@ import classnames from 'classnames';
 import {get, isEmpty, isUndefined, pick} from 'lodash/fp';
 import {
   NovaSolidLocksLock11 as LockIcon,
-  NovaCompositionCoorpacademyPictures as PicturesIcon,
-  NovaCompositionCoorpacademyScorm as ScormIcon,
-  NovaCompositionCoorpacademyArticle as ArticleIcon,
-  NovaCompositionCoorpacademyVideo as VideoIcon
+  NovaCompositionCoorpacademyPictures as PicturesIcon
 } from '@coorpacademy/nova-icons';
-import isExternalContent from '../../util/external-content';
+import {isExternalContent, EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
 import Provider from '../../atom/provider';
 import CardContentInfo, {MODES} from '../card-content';
 import Customer from './customer';
@@ -17,21 +14,14 @@ import Favorite from './favorite';
 import Notification from './notification';
 import style from './style.css';
 
-const ICONS = {
-  scorm: {icon: ScormIcon, color: '#FFB800'},
-  article: {icon: ArticleIcon, color: '#365FCD'},
-  video: {icon: VideoIcon, color: '#E8335E'}
-};
-
-const CardBackground = ({type, image, empty}, context) => {
-  const {skin} = context;
+const CardBackground = ({type, image, empty}, {skin}) => {
+  const externalContent = isExternalContent(type);
   const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
-  const externalContent = isExternalContent(type);
 
-  if (externalContent && ICONS[type]) {
-    const IconType = ICONS[type].icon;
-    const iconColor = ICONS[type].color;
+  if (externalContent && EXTERNAL_CONTENT_ICONS[type]) {
+    const IconType = EXTERNAL_CONTENT_ICONS[type].icon;
+    const iconColor = EXTERNAL_CONTENT_ICONS[type].color;
     const backgroundIcon = (
       <div className={style.externalIconCircleWrapper}>
         <IconType className={style.externalIcon} />
@@ -66,6 +56,10 @@ const CardBackground = ({type, image, empty}, context) => {
       </div>
     </div>
   );
+};
+
+CardBackground.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 
 const Card = (props, context) => {
@@ -142,9 +136,11 @@ const Card = (props, context) => {
     </div>
   );
 };
+
 Card.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
+
 Card.propTypes = {
   badge: PropTypes.string,
   image: PropTypes.string,

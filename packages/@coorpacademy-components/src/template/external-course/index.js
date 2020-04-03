@@ -1,23 +1,13 @@
 import React from 'react';
-import {
-  NovaCompositionCoorpacademyScorm as ScormIcon,
-  NovaCompositionCoorpacademyArticle as ArticleIcon,
-  NovaCompositionCoorpacademyVideo as VideoIcon,
-  NovaCompositionCoorpacademyWarn as WarnIcon
-} from '@coorpacademy/nova-icons';
+import {NovaCompositionCoorpacademyWarn as WarnIcon} from '@coorpacademy/nova-icons';
 import {convert} from 'css-color-function';
 import classnames from 'classnames';
 import {get, getOr, keys} from 'lodash/fp';
 import PropTypes from 'prop-types';
+import {EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
 import Provider from '../../atom/provider';
 import Button from '../../atom/button';
 import style from './style.css';
-
-const ICONS = {
-  scorm: {icon: ScormIcon, color: '#FFB800'},
-  article: {icon: ArticleIcon, color: '#365FCD'},
-  video: {icon: VideoIcon, color: '#E8335E'}
-};
 
 class ExternalCourse extends React.Component {
   handleOnClick = field => e => {
@@ -31,8 +21,8 @@ class ExternalCourse extends React.Component {
     const {name, type, url, warning, complete, quit} = this.props;
     const {skin} = this.context;
     const primary = getOr('#00B0FF', 'common.primary', skin);
-    const IconType = ICONS[type].icon;
-    const IconColor = ICONS[type].color;
+    const IconType = EXTERNAL_CONTENT_ICONS[type].icon;
+    const IconColor = EXTERNAL_CONTENT_ICONS[type].color;
 
     return (
       <div className={style.default}>
@@ -86,7 +76,7 @@ ExternalCourse.contextTypes = {
 
 ExternalCourse.propTypes = {
   name: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(keys(ICONS)),
+  type: PropTypes.oneOf(keys(EXTERNAL_CONTENT_ICONS)),
   url: PropTypes.string.isRequired,
   quit: PropTypes.shape({
     label: PropTypes.string.isRequired,
