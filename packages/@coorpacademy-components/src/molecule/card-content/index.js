@@ -40,7 +40,7 @@ const ContentTypeInfo = ({mode, adaptiv, type, externalContent}, context) => {
   }
   if (externalContent && EXTERNAL_CONTENT_ICONS[type]) {
     const textColor = EXTERNAL_CONTENT_ICONS[type].color;
-    const localKey = 'external_content_scorm';
+    const localKey = `external_content_${type}`;
 
     return (
       <div className={style.contentTypeInfo} style={{color: textColor}}>
@@ -130,7 +130,8 @@ const ContentInfo = ({
       className={classnames(
         style.infoWrapper,
         mode === MODES.HERO ? style.hero : style.card,
-        disabled ? style.progressBarDisabled : null
+        disabled ? style.progressBarDisabled : null,
+        externalContent ? style.externalContent : null
       )}
     >
       <ContentTypeInfo
@@ -139,13 +140,15 @@ const ContentInfo = ({
         type={type}
         externalContent={externalContent}
       />
-      <CardTitle title={title} empty={empty} externalContent={externalContent} />
-      <AuthorName
-        author={author}
-        empty={empty}
-        externalContent={externalContent}
-        certifiedAuthor={certifiedAuthor}
-      />
+      <div className={style.cardInfo}>
+        <CardTitle title={title} empty={empty} externalContent={externalContent} />
+        <AuthorName
+          author={author}
+          empty={empty}
+          externalContent={externalContent}
+          certifiedAuthor={certifiedAuthor}
+        />
+      </div>
       {progressBar}
     </div>
   );

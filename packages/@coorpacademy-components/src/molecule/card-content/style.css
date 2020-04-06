@@ -158,9 +158,14 @@
 }
 
 .contentTypeInfo {
-  font-family: 'OpenSans';
+  font-family: 'Open Sans';
   font-size: 10px;
   font-weight: 700;
+}
+.externalContent .cardInfo {
+  flex-grow: 2;
+  max-height: 95px;
+  overflow: hidden;
 }
 
 @media mobile {
