@@ -40,11 +40,12 @@ const ContentTypeInfo = ({mode, adaptiv, type, externalContent}, context) => {
   }
   if (externalContent && EXTERNAL_CONTENT_ICONS[type]) {
     const textColor = EXTERNAL_CONTENT_ICONS[type].color;
-    const localKey = `external_content_${type}`;
 
     return (
       <div className={style.contentTypeInfo} style={{color: textColor}}>
-        {translate(localKey)}
+        {type === 'scorm' ? translate('external_content_scorm') : ''}
+        {type === 'video' ? translate('external_content_video') : ''}
+        {type === 'article' ? translate('external_content_article') : ''}
       </div>
     );
   }
