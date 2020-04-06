@@ -95,13 +95,22 @@ const Card = (props, context) => {
     <LockIcon className={style.lockIcon} color={whiteColor} height={40} />
   ) : null;
   const inlineBadgeStyle = {color: primaryColor};
-
+  const getType = contentType => {
+    switch (contentType) {
+      case 'chapter':
+        return 'microlearning';
+      case 'course':
+        return 'learner';
+      default:
+        return contentType;
+    }
+  };
   return (
     <div
       className={cardStyle}
       data-name="card"
       data-lock={disabled}
-      data-type={type === 'chapter' ? 'microlearning' : 'learner'}
+      data-type={getType(type)}
       disabled={disabled}
       onClick={handleClick}
     >
