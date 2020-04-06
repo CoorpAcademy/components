@@ -4,6 +4,7 @@ import React from 'react';
 import {unset} from 'lodash/fp';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import {wrappingComponent} from '../../../../test/helpers/render-component';
 import Card from '../../../card/test/fixtures/default';
 import CardsList from '..';
 
@@ -12,7 +13,7 @@ configure({adapter: new Adapter()});
 
 const mountCardsList = props => {
   const component = <CardsList {...props} />;
-  const cards = mount(component);
+  const cards = mount(component, {wrappingComponent});
   return cards;
 };
 

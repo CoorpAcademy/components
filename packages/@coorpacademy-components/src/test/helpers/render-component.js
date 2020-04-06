@@ -25,4 +25,6 @@ const renderComponent = (t, Component, fixture) => {
   return ReactDOM.renderToStaticMarkup(wrappedVTree);
 };
 
+export const wrappingComponent = ({children}) => <Provider {...context}>{children}</Provider>;
+
 export default renderComponent;

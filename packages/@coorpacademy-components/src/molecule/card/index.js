@@ -6,12 +6,61 @@ import {
   NovaSolidLocksLock11 as LockIcon,
   NovaCompositionCoorpacademyPictures as PicturesIcon
 } from '@coorpacademy/nova-icons';
+import {isExternalContent, EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
 import Provider from '../../atom/provider';
 import CardContentInfo, {MODES} from '../card-content';
 import Customer from './customer';
 import Favorite from './favorite';
 import Notification from './notification';
 import style from './style.css';
+
+const CardBackground = ({type, image, empty}, {skin}) => {
+  const externalContent = isExternalContent(type);
+  const primaryColor = get('common.primary', skin);
+  const whiteColor = get('common.white', skin);
+
+  if (externalContent && EXTERNAL_CONTENT_ICONS[type]) {
+    const IconType = EXTERNAL_CONTENT_ICONS[type].icon;
+    const iconColor = EXTERNAL_CONTENT_ICONS[type].color;
+    const backgroundIcon = (
+      <div className={style.externalIconCircleWrapper}>
+        <IconType className={style.externalIcon} />
+      </div>
+    );
+
+    return (
+      <div className={style.imageWrapper}>
+        <div
+          data-name="cover"
+          style={{backgroundColor: iconColor}}
+          className={style.externalContentHeader}
+        >
+          {backgroundIcon}
+        </div>
+      </div>
+    );
+  }
+
+  const emptyIcon = empty ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
+  return (
+    <div className={style.imageWrapper}>
+      <div
+        data-name="cover"
+        className={style.image}
+        style={{
+          backgroundColor: primaryColor,
+          backgroundImage: image ? `url('${image}')` : 'none'
+        }}
+      >
+        {emptyIcon}
+      </div>
+    </div>
+  );
+};
+
+CardBackground.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
 
 const Card = (props, context) => {
   const {skin} = context;
@@ -41,33 +90,31 @@ const Card = (props, context) => {
     empty ? style.empty : null
   );
   const handleClick = e => !disabled && onClick(e);
-  const emptyIcon = empty ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
 
   const lock = disabled ? (
     <LockIcon className={style.lockIcon} color={whiteColor} height={40} />
   ) : null;
   const inlineBadgeStyle = {color: primaryColor};
+  const getType = contentType => {
+    switch (contentType) {
+      case 'chapter':
+        return 'microlearning';
+      case 'course':
+        return 'learner';
+      default:
+        return contentType;
+    }
+  };
   return (
     <div
       className={cardStyle}
       data-name="card"
       data-lock={disabled}
-      data-type={type === 'chapter' ? 'microlearning' : 'learner'}
+      data-type={getType(type)}
       disabled={disabled}
       onClick={handleClick}
     >
-      <div className={style.imageWrapper}>
-        <div
-          data-name="cover"
-          className={style.image}
-          style={{
-            backgroundColor: primaryColor,
-            backgroundImage: image ? `url('${image}')` : 'none'
-          }}
-        >
-          {emptyIcon}
-        </div>
-      </div>
+      <CardBackground type={type} image={image} empty={empty} />
       {!isUndefined(favorite) && (
         <Favorite
           className={style.favorite}
@@ -86,7 +133,6 @@ const Card = (props, context) => {
         disabled={disabled}
         empty={empty}
         progress={progress}
-        style={style}
         title={title}
         type={type}
       />
@@ -99,9 +145,11 @@ const Card = (props, context) => {
     </div>
   );
 };
+
 Card.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
+
 Card.propTypes = {
   badge: PropTypes.string,
   image: PropTypes.string,

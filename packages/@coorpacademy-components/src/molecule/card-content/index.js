@@ -7,6 +7,7 @@ import {
   NovaSolidStatusCheckCircle2 as CheckIcon,
   NovaCompositionCoorpacademyTimer as TimerIcon
 } from '@coorpacademy/nova-icons';
+import {isExternalContent, EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
 import Provider from '../../atom/provider';
 import style from './style.css';
 
@@ -15,7 +16,14 @@ export const MODES = {
   CARD: 'card'
 };
 
-const createContentTypeIcon = (whiteColor, adaptiv, type) => {
+const ContentTypeInfo = ({mode, adaptiv, type, externalContent}, context) => {
+  const {skin, translate} = context;
+
+  if (mode !== MODES.CARD) {
+    return null;
+  }
+
+  const whiteColor = get('common.white', skin);
   if (adaptiv) {
     return (
       <div className={style.specificIcon}>
@@ -30,30 +38,83 @@ const createContentTypeIcon = (whiteColor, adaptiv, type) => {
       </div>
     );
   }
+  if (externalContent && EXTERNAL_CONTENT_ICONS[type]) {
+    const textColor = EXTERNAL_CONTENT_ICONS[type].color;
+
+    return (
+      <div className={style.contentTypeInfo} style={{color: textColor}}>
+        {type === 'scorm' ? translate('external_content_scorm') : ''}
+        {type === 'video' ? translate('external_content_video') : ''}
+        {type === 'article' ? translate('external_content_article') : ''}
+      </div>
+    );
+  }
+
   return null;
 };
 
-const ContentInfo = (
-  {
-    adaptiv,
-    author,
-    certifiedAuthor = false,
-    disabled = false,
-    empty = false,
-    mode = MODES.CARD,
-    progress,
-    title,
-    type
-  },
-  context
-) => {
-  const {skin} = context;
-  const whiteColor = get('common.white', skin);
+ContentTypeInfo.contextTypes = {
+  skin: Provider.childContextTypes.skin,
+  translate: Provider.childContextTypes.translate
+};
+
+const CardTitle = ({title, empty, externalContent}) => {
+  return (
+    <div
+      className={classnames(
+        style.title,
+        externalContent ? style.darkTitle : style.lightTitle,
+        empty ? style.empty : null
+      )}
+    >
+      <div data-name="title" title={title}>
+        {title}
+      </div>
+    </div>
+  );
+};
+
+const AuthorName = ({author, empty, externalContent, certifiedAuthor}) => {
+  const checkIcon = certifiedAuthor ? (
+    <CheckIcon
+      className={classnames(style.authorIcon, !externalContent ? style.iconShadow : null)}
+      color="inherit"
+    />
+  ) : null;
+
+  return (
+    <div
+      data-name="author"
+      title={author}
+      className={classnames(
+        style.author,
+        externalContent ? style.darkAuthorTitle : style.lightTitle,
+        empty ? style.empty : null
+      )}
+    >
+      <span>{author}</span>
+      {checkIcon}
+    </div>
+  );
+};
+
+const ContentInfo = ({
+  adaptiv,
+  author,
+  certifiedAuthor = false,
+  disabled = false,
+  empty = false,
+  mode = MODES.CARD,
+  progress,
+  title,
+  type
+}) => {
   const progressBarColor = '#3EC483';
   const inlineProgressValueStyle = {
     backgroundColor: progressBarColor,
     width: `${progress * 100}%`
   };
+  const externalContent = isExternalContent(type);
 
   const progressBar =
     mode === MODES.HERO || (!empty && !disabled) ? (
@@ -64,37 +125,31 @@ const ContentInfo = (
       </div>
     ) : null;
 
-  const contentTypeIcon =
-    mode === MODES.CARD ? createContentTypeIcon(whiteColor, adaptiv, type) : null;
-
-  const checkIcon = certifiedAuthor ? (
-    <CheckIcon className={style.authorIcon} color="inherit" />
-  ) : null;
-
   return (
     <div
       data-name="info"
       className={classnames(
         style.infoWrapper,
         mode === MODES.HERO ? style.hero : style.card,
-        disabled ? style.progressBarDisabled : null
+        disabled ? style.progressBarDisabled : null,
+        externalContent ? style.externalContent : null
       )}
     >
-      {contentTypeIcon}
-      <div className={classnames(style.title, empty ? style.empty : null)}>
-        <div data-name="title" title={title}>
-          {title}
-        </div>
+      <ContentTypeInfo
+        mode={mode}
+        adaptiv={adaptiv}
+        type={type}
+        externalContent={externalContent}
+      />
+      <div className={style.cardInfo}>
+        <CardTitle title={title} empty={empty} externalContent={externalContent} />
+        <AuthorName
+          author={author}
+          empty={empty}
+          externalContent={externalContent}
+          certifiedAuthor={certifiedAuthor}
+        />
       </div>
-      <div
-        data-name="author"
-        title={author}
-        className={classnames(style.author, empty ? style.empty : null)}
-      >
-        <span>{author}</span>
-        {checkIcon}
-      </div>
-
       {progressBar}
     </div>
   );
