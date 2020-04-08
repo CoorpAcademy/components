@@ -276,6 +276,7 @@
 .default:hover .externalIconCircleWrapper::after,
 .default:hover .externalIconCircleWrapper::before {
   animation-play-state: running;
+  box-shadow: inset 0 0 7px 0 rgba(255, 255, 255, 0.37);
 }
 .externalIconCircleWrapper::after,
 .externalIconCircleWrapper::before {
@@ -285,10 +286,12 @@
   top: 0;
   left: 0;
   position: absolute;
-  box-shadow: inset 0 0 7px 0 rgba(255, 255, 255, 0.37);
+  
   border-radius: 50%;
   transform: scale(1);
   opacity: 0;
+  box-shadow: inset 0 0 7px 0 rgba(255, 255, 255, 0);
+  transition: box-shadow 0.25s linear;
 }
 
 @keyframes pulse {
