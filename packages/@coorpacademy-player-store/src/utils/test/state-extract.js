@@ -3,6 +3,7 @@ import {set, pipe} from 'lodash/fp';
 import {
   getAnswers,
   getAnswerValues,
+  isQuestionCtaDisabled,
   extractClue,
   getChoices,
   getCurrentClue,
@@ -292,6 +293,82 @@ test('getAnswerValues should not use defaultValue from slide if answers is an em
   )({});
 
   t.deepEqual(getAnswerValues(slide, state), []);
+});
+
+test('isQuestionCtaDisabled should return true in case of empty answers', t => {
+  const state = pipe(
+    set('data.contents.slide.entities.42.question.type', 'qcm'),
+    set('ui.answers.12.value', [])
+  )(getStateWithContent(false));
+  const result = isQuestionCtaDisabled(state);
+
+  t.true(result);
+});
+
+test('isQuestionCtaDisabled should return false in case of answers', t => {
+  const answers = {value: ['foo']};
+  const state = pipe(
+    set('data.contents.slide.entities.42.question.type', 'qcm'),
+    set('ui.answers.12.value', [answers])
+  )(getStateWithContent(false));
+  const result = isQuestionCtaDisabled(state);
+
+  t.false(result);
+});
+
+test('isQuestionCtaDisabled should return false in case of adaptive with 1 answer on qcm', t => {
+  const answers = {value: ['foo']};
+  const state = pipe(
+    set('data.contents.slide.entities.42.question.type', 'qcm'),
+    set('ui.answers.12.value', [answers])
+  )(getStateWithContent(true));
+  const result = isQuestionCtaDisabled(state);
+
+  t.false(result);
+});
+
+test('isQuestionCtaDisabled should return false in case of adaptive with 1 answer on qcmGraphic', t => {
+  const answers = {value: ['foo']};
+  const state = pipe(
+    set('data.contents.slide.entities.42.question.type', 'qcmGraphic'),
+    set('ui.answers.12.value', [answers])
+  )(getStateWithContent(true));
+  const result = isQuestionCtaDisabled(state);
+
+  t.false(result);
+});
+
+test('isQuestionCtaDisabled should return true in case of adaptive with more than 1 answer on qcm', t => {
+  const answers = {value: ['foo']};
+  const state = pipe(
+    set('data.contents.slide.entities.42.question.type', 'qcm'),
+    set('ui.answers.12.value', [answers, answers])
+  )(getStateWithContent(true));
+  const result = isQuestionCtaDisabled(state);
+
+  t.true(result);
+});
+
+test('isQuestionCtaDisabled should return true in case of adaptive with more than 1 answer on qcmGraphic', t => {
+  const answers = {value: ['foo']};
+  const state = pipe(
+    set('data.contents.slide.entities.42.question.type', 'qcmGraphic'),
+    set('ui.answers.12.value', [answers, answers])
+  )(getStateWithContent(true));
+  const result = isQuestionCtaDisabled(state);
+
+  t.true(result);
+});
+
+test('isQuestionCtaDisabled should return false in case of adaptive with more than 1 answer on other question types', t => {
+  const answers = {value: ['foo']};
+  const state = pipe(
+    set('data.contents.slide.entities.42.question.type', 'bar'),
+    set('ui.answers.12.value', [answers, answers])
+  )(getStateWithContent(true));
+  const result = isQuestionCtaDisabled(state);
+
+  t.false(result);
 });
 
 test("getQuestionType should get question's type from state", t => {

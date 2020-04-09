@@ -16,7 +16,8 @@ import {
   selectClue,
   selectRoute,
   startChat,
-  validateAnswer
+  validateAnswer,
+  isQuestionCtaDisabled
 } from '@coorpacademy/player-store';
 import {createGetAnswerProps, createGetHelp} from './answer';
 import createHeaderStateToProps from './header';
@@ -56,7 +57,6 @@ const playerProps = (options, store) => state => {
   const help = createGetHelp(options, store)(slide);
   const notifyNewMedia = !hasSeenLesson(state);
   const starsDiff = get(STARS_DIFF[route], engineConfig) || 0;
-  const isAdaptive = isContentAdaptive(state);
   const clickClueHandler = () => dispatch(selectClue);
   const clickSeeClueHandler = () => dispatch(getClue);
   const clickBackToAnswerHandler = () => dispatch(selectRoute('answer'));
@@ -110,13 +110,6 @@ const playerProps = (options, store) => state => {
   ];
   const headerProps = createHeaderStateToProps(options, store)(state);
 
-  const answers = getAnswerValues(slide, state);
-  const ctaDisabled =
-    isEmpty(answers) ||
-    some(isEmpty, answers) ||
-    (isAdaptive &&
-      answers.length > 1 &&
-      includes(get('question.type', slide), ['qcm', 'qcmGraphic']));
   if (!includes(route, ROUTES)) {
     return {};
   }
@@ -128,7 +121,7 @@ const playerProps = (options, store) => state => {
     small: false,
     name: 'validateAnswerCTA',
     secondary: false,
-    disabled: ctaDisabled
+    disabled: isQuestionCtaDisabled(state)
   };
 
   const ctaButtonBackToQuestion = {
