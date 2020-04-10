@@ -1,6 +1,5 @@
-import {includes, isEmpty, some, get, isNil} from 'lodash/fp';
+import {includes, isEmpty, get, isNil} from 'lodash/fp';
 import {
-  getAnswerValues,
   getClue,
   getCoaches,
   getCurrentClue,
