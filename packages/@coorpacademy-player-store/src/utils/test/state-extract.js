@@ -305,6 +305,16 @@ test('isQuestionCtaDisabled should return true in case of empty answers', t => {
   t.true(result);
 });
 
+test('isQuestionCtaDisabled should return true in case of empty slide', t => {
+  const state = pipe(
+    set('data.contents.slide.entities.42', null),
+    set('ui.answers.12.value', [])
+  )(getStateWithContent(false));
+  const result = isQuestionCtaDisabled(state);
+
+  t.true(result);
+});
+
 test('isQuestionCtaDisabled should return false in case of answers', t => {
   const answers = {value: ['foo']};
   const state = pipe(
