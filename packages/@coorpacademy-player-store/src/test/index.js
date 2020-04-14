@@ -71,6 +71,7 @@ test('it should expose all api', t => {
     'getVideoUri',
     'getVideoTracks',
     'getPrevAnswer',
+    'isQuestionCtaDisabled',
     'MEDIA_VIEWED_ANALYTICS_REQUEST',
     'MEDIA_VIEWED_ANALYTICS_SUCCESS',
     'MEDIA_VIEWED_ANALYTICS_FAILURE',

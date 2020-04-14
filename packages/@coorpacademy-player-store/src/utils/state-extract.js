@@ -10,6 +10,7 @@ import {
   includes,
   isEmpty,
   map,
+  some,
   toString as _toString
 } from 'lodash/fp';
 import type {
@@ -546,4 +547,17 @@ export const getPrevAnswer = (state: State): Answer => {
     last,
     getOr([], 'answer')
   )(progression);
+};
+
+export const isQuestionCtaDisabled = (state: State): boolean => {
+  const slide = getCurrentSlide(state);
+  const isAdaptive = isContentAdaptive(state);
+  const answers = slide ? getAnswerValues(slide, state) : [];
+  const questionType = slide ? getQuestionType(slide) : null;
+
+  return (
+    isEmpty(answers) ||
+    some(isEmpty, answers) ||
+    (isAdaptive && answers.length > 1 && includes(questionType, ['qcm', 'qcmGraphic']))
+  );
 };
