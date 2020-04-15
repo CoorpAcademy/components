@@ -60,6 +60,7 @@ export type {
   Question,
   ContentService,
   ChapterRule,
+  ExitNodesService,
   VideoProvider,
   VideoTrack,
   VideoTrackType,
