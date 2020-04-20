@@ -73,6 +73,10 @@
   left: 0;
 }
 
+.chapterImageWrapper {
+  max-height: 75px;
+}
+
 .default .image {
   overflow: hidden;
   background-position: 50%;
@@ -160,6 +164,7 @@
   display: flex;
   padding-top: 50px;
   justify-content: center;
+  box-sizing: border-box;
 }
 
 .lockWrapper::before {

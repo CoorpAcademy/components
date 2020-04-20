@@ -43,7 +43,12 @@ const CardBackground = ({type, image, empty}, {skin}) => {
 
   const emptyIcon = empty ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
   return (
-    <div className={style.imageWrapper}>
+    <div
+      className={classnames(
+        style.imageWrapper,
+        type === 'chapter' ? style.chapterImageWrapper : null
+      )}
+    >
       <div
         data-name="cover"
         className={style.image}

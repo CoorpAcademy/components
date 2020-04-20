@@ -5,9 +5,31 @@
 @value light from colors;
 @value grey from colors;
 @value dark from colors;
+@value black from colors;
 @value xtraLightGrey from colors;
 @value white from colors;
 
+
+.microLearningIcon {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  flex: 1 0 auto;
+  margin-top: 50px;
+}
+.microLearningIcon svg {
+  background:white;
+  border-radius: 50%;
+  margin: 0px auto;
+  padding: 2px;
+  box-sizing: content-box; 
+}
+.microLearninglabel {
+  font-family: 'Open Sans';
+  font-size: 10px;
+  font-weight: 800;
+  color: black;
+}
 .infoWrapper {
   display: flex;
   flex-direction: column;
@@ -34,15 +56,15 @@
 }
 
 .darkTitle {
-  color: #13171a;
+  color: black
 }
 
 .darkAuthorTitle {
-  color: dark;
+  color: black;
 }
 
 .title a {
-  color: dark;
+  color: black;
   text-decoration: none;
   cursor: pointer;
 }
@@ -114,11 +136,11 @@
   animation: progressbar 2s ease-in-out;
 }
 
-.specificIcon {
+.adaptiveIcon {
   font-size: 5px;
-  filter: drop-shadow(1px 1px 6px grey);
   width: 25px;
   height: 25px;
+  margin-top: -25px;
 }
 
 .authorIcon {

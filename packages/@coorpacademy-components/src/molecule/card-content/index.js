@@ -17,24 +17,17 @@ export const MODES = {
 };
 
 const ContentTypeInfo = ({mode, adaptiv, type, externalContent}, context) => {
-  const {skin, translate} = context;
-
+  const {translate, skin} = context;
+  const blackColor = get('common.black', skin);
   if (mode !== MODES.CARD) {
     return null;
   }
 
-  const whiteColor = get('common.white', skin);
-  if (adaptiv) {
-    return (
-      <div className={style.specificIcon}>
-        <AdaptivIcon color={whiteColor} height={25} />
-      </div>
-    );
-  }
   if (type === 'chapter') {
     return (
-      <div className={style.specificIcon}>
-        <TimerIcon color={whiteColor} height={25} />
+      <div className={style.microLearningIcon}>
+        <TimerIcon color={blackColor} height={40} />
+        <span className={style.microLearninglabel}>{"5' learning"}</span>
       </div>
     );
   }
@@ -58,12 +51,12 @@ ContentTypeInfo.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
-const CardTitle = ({title, empty, externalContent}) => {
+const CardTitle = ({title, empty, courseContent}) => {
   return (
     <div
       className={classnames(
         style.title,
-        externalContent ? style.darkTitle : style.lightTitle,
+        courseContent ? style.lightTitle : style.darkTitle,
         empty ? style.empty : null
       )}
     >
@@ -74,10 +67,10 @@ const CardTitle = ({title, empty, externalContent}) => {
   );
 };
 
-const AuthorName = ({author, empty, externalContent, certifiedAuthor}) => {
+const AuthorName = ({author, empty, courseContent, certifiedAuthor}) => {
   const checkIcon = certifiedAuthor ? (
     <CheckIcon
-      className={classnames(style.authorIcon, !externalContent ? style.iconShadow : null)}
+      className={classnames(style.authorIcon, courseContent ? style.iconShadow : null)}
       color="inherit"
     />
   ) : null;
@@ -88,7 +81,7 @@ const AuthorName = ({author, empty, externalContent, certifiedAuthor}) => {
       title={author}
       className={classnames(
         style.author,
-        externalContent ? style.darkAuthorTitle : style.lightTitle,
+        courseContent ? style.lightTitle : style.darkAuthorTitle,
         empty ? style.empty : null
       )}
     >
@@ -98,23 +91,30 @@ const AuthorName = ({author, empty, externalContent, certifiedAuthor}) => {
   );
 };
 
-const ContentInfo = ({
-  adaptiv,
-  author,
-  certifiedAuthor = false,
-  disabled = false,
-  empty = false,
-  mode = MODES.CARD,
-  progress,
-  title,
-  type
-}) => {
+const ContentInfo = (
+  {
+    adaptiv,
+    author,
+    certifiedAuthor = false,
+    disabled = false,
+    empty = false,
+    mode = MODES.CARD,
+    progress,
+    title,
+    type
+  },
+  context
+) => {
+  const {skin} = context;
+  const whiteColor = get('common.white', skin);
+  const blackColor = get('common.black', skin);
   const progressBarColor = '#3EC483';
   const inlineProgressValueStyle = {
     backgroundColor: progressBarColor,
     width: `${progress * 100}%`
   };
   const externalContent = isExternalContent(type);
+  const courseContent = type === 'course';
 
   const progressBar =
     mode === MODES.HERO || (!empty && !disabled) ? (
@@ -124,6 +124,12 @@ const ContentInfo = ({
         )}
       </div>
     ) : null;
+
+  const adaptiveIcon = adaptiv ? (
+    <div className={classnames(style.adaptiveIcon, courseContent ? style.iconShadow : null)}>
+      <AdaptivIcon color={courseContent ? whiteColor : blackColor} height={25} />
+    </div>
+  ) : null;
 
   return (
     <div
@@ -142,11 +148,12 @@ const ContentInfo = ({
         externalContent={externalContent}
       />
       <div className={style.cardInfo}>
-        <CardTitle title={title} empty={empty} externalContent={externalContent} />
+        {adaptiveIcon}
+        <CardTitle title={title} empty={empty} courseContent={courseContent} />
         <AuthorName
           author={author}
           empty={empty}
-          externalContent={externalContent}
+          courseContent={courseContent}
           certifiedAuthor={certifiedAuthor}
         />
       </div>
