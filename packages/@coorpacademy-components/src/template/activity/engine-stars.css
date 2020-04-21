@@ -215,7 +215,7 @@
     flex: 1 2;
     justify-content: flex-end;
     padding-bottom: 8px;
-    overflow-x: scroll;
+    overflow: none;
     top: 0;
   }
   .engineStars:first-child {

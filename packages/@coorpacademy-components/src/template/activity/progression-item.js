@@ -70,7 +70,7 @@ const ProgressionItem = (props, context) => {
   const link = disabled ? null : (
     <Link style={{color: primary}} onClick={handleCTAClick} data-progression-state={state}>
       <span className={style.cta}>
-        {state} <ArrowRightIcon color={primary} height={12} />
+        {state} <ArrowRightIcon color={primary} height={12} width={20} />
       </span>
     </Link>
   );
