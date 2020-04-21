@@ -9,6 +9,14 @@
 @value white from colors;
 @value xtraLightGrey from colors;
 
+.progressionItem {
+  margin: 0 0 10px 0;
+  padding: 10px;
+  box-sizing: border-box;
+  border: 1px solid   light;
+  border-radius: 4px;
+  background: xtraLightGrey;
+}
 .adaptiveIcon {
   width: 20px;
   height: 20px;
@@ -88,6 +96,11 @@
   display: flex;
   align-items: center;
 }
+.smallStars{
+  font-size: 12px;
+  font-weight: normal;
+  margin: 3px 3px 0;
+}
 
 .iconStar {
   width: 15px;
@@ -143,14 +156,6 @@
   right: 0;
   text-transform: capitalize;
   flex: auto;
-}
-
-.separation {
-  display: block;
-  margin: 24px 0;
-  width: 100%;
-  height: 1px;
-  background-color: light;
 }
 
 @media tablet, mobile {

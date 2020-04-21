@@ -1,7 +1,7 @@
 import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
-import {shallow, configure} from 'enzyme';
+import {shallow, mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {set} from 'lodash/fp';
 import Button from '../../../atom/button';
@@ -11,13 +11,22 @@ import Activity from '..';
 
 browserEnv();
 configure({adapter: new Adapter()});
+const context = {
+  skin: {
+    common: {
+      primary: '#FF7043',
+      light: '#FF7043',
+      dark: '#FF7043'
+    }
+  }
+};
 
 test('should call the onClick function with click on cta', t => {
   t.plan(3);
 
   const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
   const props = set('recommendation.onClick', e => t.is(e, clickEvent), defaultFixture.props);
-  const wrapper = shallow(<Activity {...props} />);
+  const wrapper = shallow(<Activity {...props} />, {context});
 
   wrapper
     .find(Button)
@@ -33,7 +42,7 @@ test('should call onChange with the target value', t => {
     ({target}) => t.is(target.value, 'foo'),
     defaultFixture.props
   );
-  const wrapper = shallow(<Activity {...props} />);
+  const wrapper = shallow(<Activity {...props} />, {context});
 
   wrapper
     .find(Select)
@@ -44,4 +53,26 @@ test('should call onChange with the target value', t => {
         selectedOptions: []
       }
     });
+});
+
+test('should call the onClick function with click on engine tab', t => {
+  t.plan(4);
+
+  const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
+  const props = set('engines[2].onClick', e => t.pass(), defaultFixture.props);
+  const wrapper = mount(<Activity {...props} />, {context});
+  const battleTab = wrapper.find('[data-type="battle"]');
+  t.is(battleTab.exists(), true);
+  battleTab.simulate('click', clickEvent);
+});
+
+test('should not call the onClick function with click on engine tab', t => {
+  t.plan(3);
+
+  const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
+  const props = set('engines[2].onClick', null, defaultFixture.props);
+  const wrapper = mount(<Activity {...props} />, {context});
+  const battleTab = wrapper.find('[data-type="battle"]');
+  t.is(battleTab.exists(), true);
+  battleTab.simulate('click', clickEvent);
 });

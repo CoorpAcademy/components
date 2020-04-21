@@ -44,6 +44,22 @@
   composes: text;
   margin-right: 10px;
 }
+.step {
+  flex: 1 1 0px;
+  border-right: 2px solid xtraLightGrey;
+}
+.step:last-child {
+  opacity: 0;
+}
+.steps {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+}
 
 @keyframes progressbar {
   0% {

@@ -124,6 +124,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  max-width: 690px;
 }
 
 .allStars {
@@ -132,10 +133,11 @@
   display: flex;
   flex-direction: row;
   min-width: 180px;
+  overflow: auto;
 }
 
 .core {
-  margin-top: 24px;
+  margin-top: 16px;
 }
 
 .wrapperProgression {
@@ -227,11 +229,11 @@
 
   .myStars {
     height: auto;
+    max-width: 100%;
   }
 
   .allStars {
     height: auto;
-    border-top: 1px solid light;
     min-width: 100%;
     max-width: 100%;
     overflow-x: auto;
@@ -243,6 +245,6 @@
   }
 
   .core {
-    margin: 24px 16px 0;
+    margin: 10px 10px 0;
   }
 }
