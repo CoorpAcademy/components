@@ -26,7 +26,7 @@ const ContentTypeInfo = ({mode, adaptiv, type, externalContent}, context) => {
   if (type === 'chapter') {
     return (
       <div className={style.microLearningIcon}>
-        <TimerIcon color={blackColor} height={40} />
+        <TimerIcon color={blackColor} height={40} width={40} />
         <span className={style.microLearninglabel}>{"5' learning"}</span>
       </div>
     );
