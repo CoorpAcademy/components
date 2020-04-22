@@ -9,12 +9,13 @@
 @value xtraLightGrey from colors;
 @value white from colors;
 
-
+.microLearningCardInfo {
+  flex: 1 0 auto;
+}
 .microLearningIcon {
   display: flex;
   flex-direction: column;
   align-self: center;
-  flex: 1 0 auto;
   margin-top: 50px;
 }
 .microLearningIcon svg {

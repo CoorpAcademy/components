@@ -115,6 +115,7 @@ const ContentInfo = (
   };
   const externalContent = isExternalContent(type);
   const courseContent = type === 'course';
+  const chapterContent = type === 'chapter';
 
   const progressBar =
     mode === MODES.HERO || (!empty && !disabled) ? (
@@ -147,7 +148,9 @@ const ContentInfo = (
         type={type}
         externalContent={externalContent}
       />
-      <div className={style.cardInfo}>
+      <div
+        className={classnames(style.cardInfo, chapterContent ? style.microLearningCardInfo : null)}
+      >
         {adaptiveIcon}
         <CardTitle title={title} empty={empty} courseContent={courseContent} />
         <AuthorName
