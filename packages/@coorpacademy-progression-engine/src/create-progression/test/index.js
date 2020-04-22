@@ -83,6 +83,30 @@ test('should create a new progression with the latest version of the engine and 
   t.true(Array.isArray(progression.actions));
 });
 
+test('should create a new progression for external engine', t => {
+  const engine: Engine = {
+    ref: 'external',
+    version: 'latest'
+  };
+  const content: GenericContent = {
+    ref: 'ext_1',
+    type: 'scorm'
+  };
+  const engineOptions: EngineConfig = {
+    version: '1'
+  };
+  const progression = createProgression(engine, content, engineOptions, availableContentWithRules);
+  if (!progression) {
+    throw new Error('progression should not be falsy');
+  }
+  t.deepEqual(progression, {
+    engine: {ref: 'external', version: '1'},
+    content: {ref: 'ext_1', type: 'scorm'},
+    engineOptions: {version: '1'},
+    actions: []
+  });
+});
+
 test('should create a new progression with a custom version of the engine', t => {
   const engine: Engine = {
     ref: 'learner',

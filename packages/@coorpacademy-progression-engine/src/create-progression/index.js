@@ -13,8 +13,6 @@ const createProgression = (
     ...getConfig({ref: engine.ref, version: engine.version || 'latest'}),
     ...engineOptions
   };
-  const initialAction = computeInitialStep(config, availableContent);
-
   return {
     engine: {
       ...engine,
@@ -22,7 +20,7 @@ const createProgression = (
     },
     content,
     engineOptions,
-    actions: [initialAction]
+    actions: engine.ref === 'external' ? [] : [computeInitialStep(config, availableContent)]
   };
 };
 

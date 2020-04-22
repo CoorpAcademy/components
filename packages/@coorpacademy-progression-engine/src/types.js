@@ -25,8 +25,9 @@ export type Answer = Array<string>;
 
 export type MICROLEARNING = 'microlearning';
 export type LEARNER = 'learner';
+export type EXTERNAL = 'external';
 
-export type Engines = MICROLEARNING | LEARNER;
+export type Engines = MICROLEARNING | LEARNER | EXTERNAL;
 
 export type CHAPTER = 'chapter';
 export type DISCIPLINE = 'discipline';
@@ -38,6 +39,8 @@ export type SUCCESS = 'success';
 export type IMG = 'img';
 export type VIDEO = 'video';
 export type PDF = 'pdf';
+export type SCORM = 'scorm';
+export type ARTICLE = 'article';
 export type ContentType =
   | DISCIPLINE
   | CHAPTER
@@ -48,7 +51,9 @@ export type ContentType =
   | SUCCESS
   | IMG
   | PDF
-  | VIDEO;
+  | VIDEO
+  | SCORM
+  | ARTICLE;
 
 export type LessonType = VIDEO | PDF | IMG;
 
