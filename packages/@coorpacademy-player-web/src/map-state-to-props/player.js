@@ -42,6 +42,7 @@ const playerProps = (options, store) => state => {
   const resources = getResourcesProps(options, store)(state, slide);
   const help = createGetHelp(options, store)(slide);
   const notifyNewMedia = !hasSeenLesson(state);
+  const notifyReviewMedia = hasSeenLesson(state);
   const starsDiff = get(STARS_DIFF[route], engineConfig) || 0;
   const clickClueHandler = () => dispatch(selectClue);
   const clickSeeClueHandler = () => dispatch(getClue);
@@ -138,6 +139,7 @@ const playerProps = (options, store) => state => {
       media: mediaQuestion
     },
     showNewMedia: (isNil(route) || route === 'answer') && notifyNewMedia,
+    showReviewMedia: (isNil(route) || route === 'answer') && notifyReviewMedia,
     buttons,
     header: headerProps
   };

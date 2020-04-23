@@ -8,6 +8,7 @@
 @value grey from colors;
 @value brand from colors;
 @value negative from colors;
+@value orangeAdd from colors;
 
 .wrapper {
   position: relative;
@@ -105,13 +106,19 @@
 .guideWrapper {
   composes: infos;
   left: 0;
-  padding: 4px 10px;
-  border-bottom-right-radius: 12px;
   cursor: pointer;
-  border-top-left-radius: 3px;
+  border-radius: 3px;
+  margin-top: 24px;
+  margin-left: 24px;
+  padding: 12px;
 }
 
-.guideWrapper span {
+.guideWrapper[data-name="newMedia"] {
+  color: orangeAdd;
+  background-color: rgba(255, 112, 67, 0.1);
+}
+
+.guideWrapper[data-name="newMedia"] span {
   animation: fade 2.5s infinite linear;
 }
 
@@ -134,7 +141,7 @@
   color: black;
   text-align: center;
   margin: 10px 0 4px;
-  max-width: 100%;
+  max-width: 70%;
 }
 
 .helpView {
@@ -227,6 +234,10 @@
     box-shadow: none;
     border-radius: 0;
   }
+
+  .question {
+    max-width: 60%;
+  }
 }
 
 @media mobile {
@@ -255,6 +266,7 @@
   .question {
     margin: 10px 8px 4px;
     font-size: 17px;
+    max-width: initial;
   }
 
   .helpView {
@@ -280,5 +292,15 @@
 
   .contextMedia {
     margin: 0 auto 25px;
+  }
+  .guideWrapper {
+    left: initial;
+    margin-left: initial;
+  }
+  .contentProgression {
+    justify-content: center;
+  }
+  .question {
+    margin-top: 54px;
   }
 }
