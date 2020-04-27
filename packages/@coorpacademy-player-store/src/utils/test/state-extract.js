@@ -26,6 +26,8 @@ import {
   getEngineConfig,
   getLevel,
   getLives,
+  getProgressionSteps,
+  getCurrentStep,
   getPreviousSlide,
   getPrevStepContent,
   getQuestionType,
@@ -811,6 +813,31 @@ test('getLives should throw error if progression.state is not defined', t => {
 
   t.is(getLives(state).count, 0);
 });
+
+test('getProgressionSteps should get current step and total steps from state', t => {
+   /*const state = getStateWithContent(false, {lives: 100, livesDisabled: false});
+ const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': {}})
+  )({});
+  
+  t.deepEqual(getProgressionSteps(state), {
+    current: false,
+    total: 100
+  });
+  */
+});
+
+test('getProgressionSteps should return null if progression ou progression.state is null', t => {
+});
+
+test('getProgressionSteps should return null if progression ou progression.state is undefined', t => {
+});
+
+test('getProgressionSteps should return null if progression ou chapter is null', t => {
+});
+
+
 
 test('getNextContent should return nextChapter if microlearning progression', t => {
   const progression = {
