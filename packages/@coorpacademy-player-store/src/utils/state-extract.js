@@ -48,7 +48,6 @@ export const getChoices = (slide: Slide): Array<Choice> | void => {
   if (!slide || !slide.question || !slide.question.content || !slide.question.content.choices) {
     return undefined;
   }
-
   // $FlowFixMe flow cannot cast here "property choices of unknown type is incompatible with array type"
   return slide.question.content.choices;
 };
@@ -274,7 +273,7 @@ export const isContentAdaptive = (state: State): boolean => {
   const chapter = getCurrentChapter(state);
 
   if (!chapter) {
-    return true;
+    return false;
   }
 
   return getOr(false, 'isConditional', chapter);
@@ -488,7 +487,8 @@ export const getResourceToPlay: State => string = get('ui.corrections.playResour
 
 export const getLives = (state: State): Lives => {
   const progression = getCurrentProgression(state);
-  if (!progression || progression.state === undefined) {
+  const slide = getCurrentSlide(state);
+  if (!progression || progression.state === undefined || !slide || slide === undefined) {
     return {
       hide: true,
       count: 0
