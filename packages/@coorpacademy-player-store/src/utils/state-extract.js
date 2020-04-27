@@ -274,7 +274,7 @@ export const isContentAdaptive = (state: State): boolean => {
   const chapter = getCurrentChapter(state);
 
   if (!chapter) {
-    return false;
+    return true;
   }
 
   return getOr(false, 'isConditional', chapter);
