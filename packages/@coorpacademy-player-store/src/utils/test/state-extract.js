@@ -203,7 +203,9 @@ test('isCommentSent should return comment status for current progression', t => 
 
   t.is(isCommentSent(state), 'plop');
 });
-sion', t => {
+
+test('getRoute should return current route for current progression', t => {
+  const state = pipe(
     set('ui.current.progressionId', '0'),
     set('data.progressions.entities', {'0': {}}),
     set('ui.route.0', 'plop')

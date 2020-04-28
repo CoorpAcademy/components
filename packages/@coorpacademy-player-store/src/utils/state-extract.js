@@ -574,3 +574,4 @@ export const isQuestionCtaDisabled = (state: State): boolean => {
     some(isEmpty, answers) ||
     (isAdaptive && answers.length > 1 && includes(questionType, ['qcm', 'qcmGraphic']))
   );
+};
