@@ -26,6 +26,7 @@ import {
   getEngineConfig,
   getLevel,
   getLives,
+  getProgressionSteps,
   getPreviousSlide,
   getPrevStepContent,
   getQuestionType,
@@ -810,6 +811,48 @@ test('getLives should throw error if progression.state is not defined', t => {
   )({});
 
   t.is(getLives(state).count, 0);
+});
+
+test('getProgressionSteps should get current step and total steps from state', t => {
+  const current = 50;
+  const nbSlides = 100;
+  const state = pipe(
+    set('data.progressions.entities.12.content', {ref: '1337', type: 'chapter'}),
+    set('data.contents.chapter.entities.1337.info', {nbSlides})
+  )(getStateWithContent(false, {step: {current}}));
+
+  t.deepEqual(getProgressionSteps(state), {current, total: nbSlides});
+});
+
+test('getProgressionSteps should return 0 if current progression step is undefined', t => {
+  const nbSlides = 100;
+  const state = pipe(
+    set('data.progressions.entities.12.content', {ref: '1337', type: 'chapter'}),
+    set('data.contents.chapter.entities.1337.info', {nbSlides})
+  )(getStateWithContent());
+
+  t.deepEqual(getProgressionSteps(state), {current: 0, total: nbSlides});
+});
+
+test('getProgressionSteps should return null if chapter is undefined', t => {
+  const current = 50;
+  const state = pipe(
+    set('data.progressions.entities.12.content', {ref: '1337', type: 'chapter'}),
+    set('data.contents.chapter.entities', {})
+  )(getStateWithContent(false, {step: {current}}));
+
+  t.is(getProgressionSteps(state), null);
+});
+
+test('getProgressionSteps should return null if chapter is adaptive', t => {
+  const current = 50;
+  const nbSlides = 100;
+  const state = pipe(
+    set('data.progressions.entities.12.content', {ref: '1337', type: 'chapter'}),
+    set('data.contents.chapter.entities.1337.info', {nbSlides})
+  )(getStateWithContent(true, {step: {current}}));
+
+  t.is(getProgressionSteps(state), null);
 });
 
 test('getNextContent should return nextChapter if microlearning progression', t => {

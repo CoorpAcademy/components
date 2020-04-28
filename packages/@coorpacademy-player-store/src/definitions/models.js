@@ -228,6 +228,11 @@ type Lives = {|
   count: number
 |};
 
+type ProgressionSteps = {|
+  current: number,
+  total: number
+|};
+
 type VideoProvider = 'jwplayer' | 'kontiki' | 'vimeo' | 'omniPlayer' | 'youtube';
 
 type VideoTrack = {|
@@ -248,6 +253,7 @@ export type {
   ExitNodeRef,
   Level,
   Lives,
+  ProgressionSteps,
   Recommendation,
   Resource,
   UserAnswer,

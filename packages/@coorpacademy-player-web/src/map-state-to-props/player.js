@@ -4,19 +4,17 @@ import {
   getCoaches,
   getCurrentClue,
   getCurrentContent,
-  getCurrentProgression,
   getCurrentSlide,
   getEngineConfig,
-  getNbSlides,
   getQuestionMedia,
   getRoute,
   hasSeenLesson,
-  isContentAdaptive,
   selectClue,
   selectRoute,
   startChat,
   validateAnswer,
-  isQuestionCtaDisabled
+  isQuestionCtaDisabled,
+  getProgressionSteps
 } from '@coorpacademy/player-store';
 import {createGetAnswerProps, createGetHelp} from './answer';
 import createHeaderStateToProps from './header';
@@ -27,17 +25,6 @@ const ROUTES = ['media', 'clue', 'context', 'answer'];
 const STARS_DIFF = {
   media: 'starsPerResourceViewed',
   clue: 'starsPerAskingClue'
-};
-
-const getProgressionStep = state => {
-  const progression = getCurrentProgression(state);
-
-  return !isContentAdaptive(state)
-    ? {
-        current: get('state.step.current')(progression),
-        total: getNbSlides(state)
-      }
-    : null;
 };
 
 const playerProps = (options, store) => state => {
@@ -138,7 +125,7 @@ const playerProps = (options, store) => state => {
     text: clue,
     onClickSeeClue: clickSeeClueHandler,
     question: get('question.header')(slide),
-    step: getProgressionStep(state),
+    step: getProgressionSteps(state),
     slideContext,
     backgroundUrl: get('backgroundUrl')(currentContent),
     verticalMargin: 260,

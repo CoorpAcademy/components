@@ -36,6 +36,7 @@ import type {
   ExitNode,
   Level,
   Lives,
+  ProgressionSteps,
   // eslint-disable-next-line no-unused-vars
   Resource,
   Recommendation,
@@ -48,7 +49,6 @@ export const getChoices = (slide: Slide): Array<Choice> | void => {
   if (!slide || !slide.question || !slide.question.content || !slide.question.content.choices) {
     return undefined;
   }
-
   // $FlowFixMe flow cannot cast here "property choices of unknown type is incompatible with array type"
   return slide.question.content.choices;
 };
@@ -488,6 +488,7 @@ export const getResourceToPlay: State => string = get('ui.corrections.playResour
 
 export const getLives = (state: State): Lives => {
   const progression = getCurrentProgression(state);
+
   if (!progression || progression.state === undefined) {
     return {
       hide: true,
@@ -499,6 +500,20 @@ export const getLives = (state: State): Lives => {
   return {
     hide,
     count: progression.state.lives
+  };
+};
+
+export const getProgressionSteps = (state: State): ProgressionSteps | null => {
+  const progression = getCurrentProgression(state);
+  const chapter = getCurrentChapter(state);
+
+  if (!progression || !chapter || isContentAdaptive(state)) {
+    return null;
+  }
+
+  return {
+    current: getOr(0, 'state.step.current')(progression),
+    total: getNbSlides(state)
   };
 };
 

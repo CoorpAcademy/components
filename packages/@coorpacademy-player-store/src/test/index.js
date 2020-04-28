@@ -66,6 +66,7 @@ test('it should expose all api', t => {
     'getContextMedia',
     'getResourceToPlay',
     'getLives',
+    'getProgressionSteps',
     'getCoaches',
     'hasSeenLesson',
     'getVideoUri',
