@@ -575,7 +575,6 @@ const getProgressionSteps = state => {
   const progression = getCurrentProgression(state);
   const chapter = getCurrentChapter(state);
 
-  console.log("progression:", progression)
   return ( !progression || progression.state === undefined || !chapter) 
     ? null
     : { 

@@ -126,7 +126,7 @@ const playerProps = (options, store) => state => {
     text: clue,
     onClickSeeClue: clickSeeClueHandler,
     question: get('question.header')(slide),
-    step: getProgressionSteps,
+    step: getProgressionSteps(state),
     slideContext,
     backgroundUrl: get('backgroundUrl')(currentContent),
     verticalMargin: 260,
