@@ -1,157 +1,159 @@
-"use strict";
+// @flow strict
 
-exports.__esModule = true;
-exports.isQuestionCtaDisabled = exports.getPrevAnswer = exports.getVideoTracks = exports.getVideoUri = exports.hasSeenLesson = exports.getCoaches = exports.getLives = exports.getProgressionSteps = exports.getCurrentStep = exports.getResourceToPlay = exports.getContextMedia = exports.getQuestionMedia = exports.getBestScore = exports.getEndRank = exports.getStartRank = exports.getNextContent = exports.getRecommendations = exports.getRoute = exports.getCurrentClue = exports.extractClue = exports.isCommentSent = exports.getCurrentCorrection = exports.getCorrection = exports.getCurrentExitNode = exports.getExitNode = exports.getPreviousSlide = exports.getEngineConfig = exports.getEngine = exports.hasViewedAResourceAtThisStep = exports.isContentAdaptive = exports.getCurrentChapter = exports.getCurrentChapterId = exports.getChapterIdBySlide = exports.getPrevStepContent = exports.getStepContent = exports.getNbSlides = exports.getContentInfo = exports.getCurrentContent = exports.getContent = exports.getProgressionContent = exports.getDiscipline = exports.getLevel = exports.getChapter = exports.getCurrentSlide = exports.getSlide = exports.getAnswerValues = exports.getAnswers = exports.isCurrentEngineLearner = exports.isCurrentEngineMicrolearning = exports.getCurrentEngine = exports.getCurrentProgression = exports.getProgression = exports.getCurrentProgressionId = exports.getQuestionType = exports.getChapterId = exports.getChoices = void 0;
+import {
+  get,
+  last,
+  getOr,
+  pipe,
+  any,
+  find,
+  includes,
+  isEmpty,
+  map,
+  some,
+  toString as _toString
+} from 'lodash/fp';
+import type {
+  Answer,
+  Choice,
+  Content,
+  ContentType,
+  ContentInfo,
+  Engine,
+  EngineConfig,
+  GenericContent,
+  Lesson,
+  Media,
+  Progression,
+  ProgressionId,
+  QuestionType,
+  Slide
+} from '@coorpacademy/progression-engine';
+import type {
+  Chapter,
+  Correction,
+  Discipline,
+  ExitNode,
+  Level,
+  Lives,
+  // eslint-disable-next-line no-unused-vars
+  Resource,
+  Recommendation,
+  VideoTrack
+} from '../definitions/models';
+import type {ReduxState as State} from '../definitions/redux';
+import {CONTENT_TYPE, ENGINES} from '../definitions/models';
 
-var _toString3 = _interopRequireDefault(require("lodash/fp/toString"));
-
-var _some2 = _interopRequireDefault(require("lodash/fp/some"));
-
-var _map2 = _interopRequireDefault(require("lodash/fp/map"));
-
-var _isEmpty2 = _interopRequireDefault(require("lodash/fp/isEmpty"));
-
-var _includes2 = _interopRequireDefault(require("lodash/fp/includes"));
-
-var _find2 = _interopRequireDefault(require("lodash/fp/find"));
-
-var _any2 = _interopRequireDefault(require("lodash/fp/any"));
-
-var _pipe2 = _interopRequireDefault(require("lodash/fp/pipe"));
-
-var _getOr2 = _interopRequireDefault(require("lodash/fp/getOr"));
-
-var _last2 = _interopRequireDefault(require("lodash/fp/last"));
-
-var _get2 = _interopRequireDefault(require("lodash/fp/get"));
-
-var _models = require("../definitions/models");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
-
-const getChoices = slide => {
+export const getChoices = (slide: Slide): Array<Choice> | void => {
   if (!slide || !slide.question || !slide.question.content || !slide.question.content.choices) {
     return undefined;
-  } // $FlowFixMe flow cannot cast here "property choices of unknown type is incompatible with array type"
-
-
+  }
+  // $FlowFixMe flow cannot cast here "property choices of unknown type is incompatible with array type"
   return slide.question.content.choices;
 };
+export const getChapterId = (slide: Slide): string => slide.chapter_id;
+export const getQuestionType = (slide: Slide): QuestionType => slide.question.type;
+export const getCurrentProgressionId = (state: State): ProgressionId =>
+  state.ui.current.progressionId;
 
-exports.getChoices = getChoices;
+export const getProgression = (id: ProgressionId): (State => Progression) => (
+  state: State
+): Progression =>
+  state && state.data && state.data.progressions.entities && state.data.progressions.entities[id];
 
-const getChapterId = slide => slide.chapter_id;
-
-exports.getChapterId = getChapterId;
-
-const getQuestionType = slide => slide.question.type;
-
-exports.getQuestionType = getQuestionType;
-
-const getCurrentProgressionId = state => state.ui.current.progressionId;
-
-exports.getCurrentProgressionId = getCurrentProgressionId;
-
-const getProgression = id => state => state && state.data && state.data.progressions.entities && state.data.progressions.entities[id];
-
-exports.getProgression = getProgression;
-
-const getCurrentProgression = state => {
+export const getCurrentProgression = (state: State): Progression | void => {
   const id = getCurrentProgressionId(state);
   return getProgression(id)(state);
 };
 
-exports.getCurrentProgression = getCurrentProgression;
-
-const getCurrentEngine = state => {
+export const getCurrentEngine = (state: State): Engine | void => {
   const progression = getCurrentProgression(state);
-
   if (!progression) {
     return;
   }
-
   return progression.engine;
 };
 
-exports.getCurrentEngine = getCurrentEngine;
-
-const isCurrentEngineMicrolearning = state => {
+export const isCurrentEngineMicrolearning = (state: State): boolean => {
   const engine = getCurrentEngine(state);
-
   if (!engine) {
     return false;
   }
 
-  return engine.ref === _models.ENGINES.MICROLEARNING;
+  return engine.ref === ENGINES.MICROLEARNING;
 };
 
-exports.isCurrentEngineMicrolearning = isCurrentEngineMicrolearning;
-
-const isCurrentEngineLearner = state => {
+export const isCurrentEngineLearner = (state: State): boolean => {
   const engine = getCurrentEngine(state);
-
   if (!engine) {
     return false;
   }
 
-  return engine.ref === _models.ENGINES.LEARNER;
+  return engine.ref === ENGINES.LEARNER;
 };
 
-exports.isCurrentEngineLearner = isCurrentEngineLearner;
-
-const getAnswers = state => {
+export const getAnswers = (state: State): Answer => {
   const progressionId = getCurrentProgressionId(state);
-  return (0, _getOr2.default)({}, ['ui', 'answers', progressionId])(state);
+  return getOr({}, ['ui', 'answers', progressionId])(state);
 };
 
-exports.getAnswers = getAnswers;
-
-const getAnswerValues = (slide, state) => {
-  const answers = (0, _get2.default)('value', getAnswers(state));
-  const defaultValue = (0, _get2.default)('question.content.defaultValue', slide);
-
+export const getAnswerValues = (slide: Slide, state: State): Answer => {
+  const answers: Answer = get('value', getAnswers(state));
+  const defaultValue = get('question.content.defaultValue', slide);
   if (answers === undefined && defaultValue !== undefined) {
-    const answer = (0, _toString3.default)(defaultValue);
+    const answer = _toString(defaultValue);
     return [answer];
   }
-
   return answers;
 };
 
-exports.getAnswerValues = getAnswerValues;
+export const getSlide = (id: string): (State => Slide) => (state: State): Slide =>
+  state &&
+  state.data &&
+  state.data.contents &&
+  state.data.contents.slide &&
+  state.data.contents.slide.entities &&
+  state.data.contents.slide.entities[id];
 
-const getSlide = id => state => state && state.data && state.data.contents && state.data.contents.slide && state.data.contents.slide.entities && state.data.contents.slide.entities[id];
-
-exports.getSlide = getSlide;
-
-const getCurrentSlide = state => {
+export const getCurrentSlide = (state: State): Slide | void => {
   const progression = getCurrentProgression(state);
 
   if (!progression || !progression.state) {
     return;
   }
-
   const slideId = progression.state.nextContent.ref;
   return getSlide(slideId)(state);
 };
 
-exports.getCurrentSlide = getCurrentSlide;
+export const getChapter = (ref: string): (State => Chapter | void) => (
+  state: State
+): Chapter | void =>
+  state &&
+  state.data &&
+  state.data.contents &&
+  state.data.contents.chapter &&
+  state.data.contents.chapter.entities &&
+  state.data.contents.chapter.entities[ref];
 
-const getChapter = ref => state => state && state.data && state.data.contents && state.data.contents.chapter && state.data.contents.chapter.entities && state.data.contents.chapter.entities[ref];
+export const getLevel = (ref: string): (State => Level | void) => (state: State): Level | void =>
+  state &&
+  state.data &&
+  state.data.contents &&
+  state.data.contents.level &&
+  state.data.contents.level.entities &&
+  state.data.contents.level.entities[ref];
 
-exports.getChapter = getChapter;
+export const getDiscipline = (ref: string): (State => Discipline | void) => (
+  state: State
+): Discipline | void =>
+  state &&
+  state.data &&
+  state.data.contents &&
+  state.data.contents.discipline &&
+  state.data.contents.discipline.entities &&
+  state.data.contents.discipline.entities[ref];
 
-const getLevel = ref => state => state && state.data && state.data.contents && state.data.contents.level && state.data.contents.level.entities && state.data.contents.level.entities[ref];
-
-exports.getLevel = getLevel;
-
-const getDiscipline = ref => state => state && state.data && state.data.contents && state.data.contents.discipline && state.data.contents.discipline.entities && state.data.contents.discipline.entities[ref];
-
-exports.getDiscipline = getDiscipline;
-
-const getProgressionContent = state => {
+export const getProgressionContent = (state: State): GenericContent | void => {
   const progression = getCurrentProgression(state);
 
   if (!progression) {
@@ -161,50 +163,46 @@ const getProgressionContent = state => {
   return progression.content;
 };
 
-exports.getProgressionContent = getProgressionContent;
+export const getContent: (
+  type: ContentType,
+  ref: string
+) => State => Chapter | Slide | Level | Discipline | string = (
+  type: ContentType,
+  ref: string
+): (State => Chapter | Slide | Level | Discipline | string) =>
+  get(['data', 'contents', type, 'entities', ref]);
 
-const getContent = (type, ref) => (0, _get2.default)(['data', 'contents', type, 'entities', ref]);
-
-exports.getContent = getContent;
-
-const getCurrentContent = state => {
+export const getCurrentContent = (
+  state: State
+): Chapter | Discipline | Slide | Level | string | void => {
   const content = getProgressionContent(state);
 
   if (!content) {
     return;
   }
 
-  const {
-    type,
-    ref
-  } = content;
+  const {type, ref} = content;
   return getContent(type, ref)(state);
 };
 
-exports.getCurrentContent = getCurrentContent;
-
-const getContentInfo = state => {
+export const getContentInfo = (state: State): ContentInfo | void => {
   const content = getProgressionContent(state);
 
   if (!content) {
     return;
   }
 
-  const {
-    type,
-    ref
-  } = content;
-
-  if (type === _models.CONTENT_TYPE.SLIDE) {
+  const {type, ref} = content;
+  if (type === CONTENT_TYPE.SLIDE) {
     return;
   }
 
-  if (type === _models.CONTENT_TYPE.LEVEL) {
+  if (type === CONTENT_TYPE.LEVEL) {
     const level = getLevel(ref)(state);
     return level && level.info;
   }
 
-  if (type === _models.CONTENT_TYPE.CHAPTER) {
+  if (type === CONTENT_TYPE.CHAPTER) {
     const chapter = getChapter(ref)(state);
     return chapter && chapter.info;
   }
@@ -212,16 +210,12 @@ const getContentInfo = state => {
   return;
 };
 
-exports.getContentInfo = getContentInfo;
-
-const getNbSlides = state => {
+export const getNbSlides = (state: State): number => {
   const info = getContentInfo(state);
   return info ? info.nbSlides : 0;
 };
 
-exports.getNbSlides = getNbSlides;
-
-const getStepContent = state => {
+export const getStepContent = (state: State): Content | void => {
   const progression = getCurrentProgression(state);
 
   if (!progression || !progression.state) {
@@ -231,9 +225,7 @@ const getStepContent = state => {
   return progression.state.nextContent;
 };
 
-exports.getStepContent = getStepContent;
-
-const getPrevStepContent = state => {
+export const getPrevStepContent = (state: State): Content | void => {
   const progression = getCurrentProgression(state);
 
   if (!progression || !progression.state) {
@@ -243,42 +235,31 @@ const getPrevStepContent = state => {
   return progression.state.content;
 };
 
-exports.getPrevStepContent = getPrevStepContent;
-
-const getChapterIdBySlide = (state, slideId) => {
+export const getChapterIdBySlide = (state: State, slideId: string): string | void => {
   const slide = getSlide(slideId)(state);
-
   if (!slide) {
     return;
   }
-
   return getChapterId(slide);
 };
 
-exports.getChapterIdBySlide = getChapterIdBySlide;
-
-const getCurrentChapterId = state => {
+export const getCurrentChapterId = (state: State): string | void => {
   const progression = getCurrentProgression(state);
-
   if (!progression || !progression.state || !progression.state.nextContent) {
     return;
   }
-
   if (progression.state.nextContent.type === 'slide') {
     return getChapterIdBySlide(state, progression.state.nextContent.ref);
   } else {
-    if (!progression.state.slides || (0, _isEmpty2.default)(progression.state.slides)) {
+    if (!progression.state.slides || isEmpty(progression.state.slides)) {
       return;
     }
-
-    const lastSlideId = (0, _last2.default)(progression.state.slides);
+    const lastSlideId = last(progression.state.slides);
     return getChapterIdBySlide(state, lastSlideId);
   }
 };
 
-exports.getCurrentChapterId = getCurrentChapterId;
-
-const getCurrentChapter = state => {
+export const getCurrentChapter = (state: State): Chapter | void => {
   const chapterId = getCurrentChapterId(state);
 
   if (!chapterId) {
@@ -288,21 +269,17 @@ const getCurrentChapter = state => {
   return getChapter(chapterId)(state);
 };
 
-exports.getCurrentChapter = getCurrentChapter;
-
-const isContentAdaptive = state => {
+export const isContentAdaptive = (state: State): boolean => {
   const chapter = getCurrentChapter(state);
 
   if (!chapter) {
     return false;
   }
 
-  return (0, _getOr2.default)(false, 'isConditional', chapter);
+  return getOr(false, 'isConditional', chapter);
 };
 
-exports.isContentAdaptive = isContentAdaptive;
-
-const hasViewedAResourceAtThisStep = state => {
+export const hasViewedAResourceAtThisStep = (state: State): boolean => {
   const progression = getCurrentProgression(state);
 
   if (!progression || !progression.state) {
@@ -312,9 +289,7 @@ const hasViewedAResourceAtThisStep = state => {
   return progression.state.hasViewedAResourceAtThisStep;
 };
 
-exports.hasViewedAResourceAtThisStep = hasViewedAResourceAtThisStep;
-
-const getEngine = state => {
+export const getEngine = (state: State): Engine | void => {
   const progression = getCurrentProgression(state);
 
   if (!progression) {
@@ -324,9 +299,7 @@ const getEngine = state => {
   return progression.engine;
 };
 
-exports.getEngine = getEngine;
-
-const getEngineConfig = state => {
+export const getEngineConfig = (state: State): EngineConfig | void => {
   const engine = getEngine(state);
 
   if (!engine) {
@@ -337,9 +310,7 @@ const getEngineConfig = state => {
   return state.data.configs && state.data.configs.entities && state.data.configs.entities[config];
 };
 
-exports.getEngineConfig = getEngineConfig;
-
-const getPreviousSlide = state => {
+export const getPreviousSlide = (state: State): Slide | void => {
   const progression = getCurrentProgression(state);
 
   if (!progression || !progression.state || !progression.state.content) {
@@ -350,16 +321,12 @@ const getPreviousSlide = state => {
   return getSlide(slideId)(state);
 };
 
-exports.getPreviousSlide = getPreviousSlide;
-
-const getExitNode = ref => state => {
-  const entities = (0, _get2.default)('data.exitNodes.entities')(state);
-  return (0, _get2.default)(ref)(entities);
+export const getExitNode = (ref: string) => (state: State): ExitNode => {
+  const entities = get('data.exitNodes.entities')(state);
+  return get(ref)(entities);
 };
 
-exports.getExitNode = getExitNode;
-
-const getCurrentExitNode = state => {
+export const getCurrentExitNode = (state: State): ExitNode | void => {
   const progression = getCurrentProgression(state);
 
   if (!progression || !progression.state) {
@@ -370,15 +337,12 @@ const getCurrentExitNode = state => {
   return getExitNode(ref)(state);
 };
 
-exports.getCurrentExitNode = getCurrentExitNode;
-
-const getCorrection = (progressionId, slideId) => state => {
-  return (0, _get2.default)(['data', 'answers', 'entities', progressionId, slideId], state);
+export const getCorrection = (progressionId: string, slideId: string) => (
+  state: State
+): Correction | void | null => {
+  return get(['data', 'answers', 'entities', progressionId, slideId], state);
 };
-
-exports.getCorrection = getCorrection;
-
-const getCurrentCorrection = state => {
+export const getCurrentCorrection = (state: State): Correction => {
   const defaultCorrection = {
     correctAnswer: [],
     corrections: []
@@ -405,22 +369,16 @@ const getCurrentCorrection = state => {
   return correction;
 };
 
-exports.getCurrentCorrection = getCurrentCorrection;
-
-const isCommentSent = state => {
+export const isCommentSent = (state: State): boolean => {
   const progressionId = getCurrentProgressionId(state);
-  return (0, _get2.default)(['data', 'comments', 'entities', progressionId, 'isSent'], state);
+  return get(['data', 'comments', 'entities', progressionId, 'isSent'], state);
 };
 
-exports.isCommentSent = isCommentSent;
-
-const extractClue = (progressionId, slideId) => state => {
-  return (0, _get2.default)(['data', 'clues', 'entities', progressionId, slideId], state);
+export const extractClue = (progressionId: string, slideId: string) => (state: State): string => {
+  return get(['data', 'clues', 'entities', progressionId, slideId], state);
 };
 
-exports.extractClue = extractClue;
-
-const getCurrentClue = state => {
+export const getCurrentClue = (state: State): string => {
   const progression = getCurrentProgression(state);
 
   if (!progression) {
@@ -437,91 +395,72 @@ const getCurrentClue = state => {
   return extractClue(progressionId, slide._id)(state);
 };
 
-exports.getCurrentClue = getCurrentClue;
-
-const getRoute = state => {
+export const getRoute = (state: State): string => {
   const progressionId = getCurrentProgressionId(state);
-  return (0, _get2.default)(['ui', 'route', progressionId], state);
+  return get(['ui', 'route', progressionId], state);
 };
 
-exports.getRoute = getRoute;
-
-const getRecommendations = state => {
+export const getRecommendations = (state: State): Array<Recommendation> => {
   const id = getCurrentProgressionId(state);
-  return (0, _get2.default)(`data.recommendations.entities.${id}`, state);
+  return get(`data.recommendations.entities.${id}`, state);
 };
 
-exports.getRecommendations = getRecommendations;
-
-const getNextContent = state => {
+export const getNextContent = (state: State): Content | void => {
   const id = getCurrentProgressionId(state);
-  return (0, _get2.default)(`data.nextContent.entities.${id}`, state);
+  return get(`data.nextContent.entities.${id}`, state);
 };
 
-exports.getNextContent = getNextContent;
-const getStartRank = (0, _get2.default)(`data.rank.start`);
-exports.getStartRank = getStartRank;
-const getEndRank = (0, _get2.default)(`data.rank.end`);
-exports.getEndRank = getEndRank;
-
-const getBestScore = state => {
+export const getStartRank: State => number = get(`data.rank.start`);
+export const getEndRank: State => number = get(`data.rank.end`);
+export const getBestScore = (state: State): number | void => {
   const content = getProgressionContent(state);
 
   if (!content) {
     return;
   }
 
-  const {
-    type,
-    ref
-  } = content;
-
-  if (type === _models.CONTENT_TYPE.SLIDE) {
+  const {type, ref} = content;
+  if (type === CONTENT_TYPE.SLIDE) {
     return;
   }
 
-  if (type === _models.CONTENT_TYPE.LEVEL) {
+  if (type === CONTENT_TYPE.LEVEL) {
     const level = getLevel(ref)(state);
     return level && level.bestScore;
   }
 
-  if (type === _models.CONTENT_TYPE.CHAPTER) {
+  if (type === CONTENT_TYPE.CHAPTER) {
     const chapter = getChapter(ref)(state);
     return chapter && chapter.bestScore;
   }
 };
 
-exports.getBestScore = getBestScore;
-
-const getMedia = media => {
-  const {
-    type
-  } = media;
-  const resource = (0, _get2.default)('src.0', media);
-
+const getMedia = (media: Media): Media | void => {
+  const {type} = media;
+  const resource = get('src.0', media);
   switch (type) {
     case 'img':
-      return _extends({}, resource, {
+      return {
+        ...resource,
         type,
         url: resource.url
-      });
-
+      };
     case 'video':
-      return _extends({}, resource, {
+      return {
+        ...resource,
         type
-      });
+      };
   }
 };
 
-const getQuestionMedia = state => {
+export const getQuestionMedia = (state: State): void | Media => {
   const slide = getCurrentSlide(state);
 
   if (!slide) {
     return;
   }
 
-  const media = (0, _get2.default)('question.medias.0', slide);
-
+  const media: Media = get('question.medias.0', slide);
   if (!media) {
     return;
   }
@@ -529,17 +468,14 @@ const getQuestionMedia = state => {
   return getMedia(media);
 };
 
-exports.getQuestionMedia = getQuestionMedia;
-
-const getContextMedia = state => {
+export const getContextMedia = (state: State): void | Media => {
   const slide = getCurrentSlide(state);
 
   if (!slide) {
     return;
   }
 
-  const media = (0, _get2.default)('context.media', slide);
-
+  const media: Media = get('context.media', slide);
   if (!media) {
     return;
   }
@@ -547,13 +483,12 @@ const getContextMedia = state => {
   return getMedia(media);
 };
 
-exports.getContextMedia = getContextMedia;
-const getResourceToPlay = (0, _get2.default)('ui.corrections.playResource');
-exports.getResourceToPlay = getResourceToPlay;
+export const getResourceToPlay: State => string = get('ui.corrections.playResource');
 
-const getLives = state => {
+export const getLives = (state: State): Lives => {
   const progression = getCurrentProgression(state);
   const chapter = getCurrentChapter(state);
+
   if (!progression || progression.state === undefined || !chapter) {
     return {
       hide: true,
@@ -561,43 +496,29 @@ const getLives = state => {
     };
   }
   const hide = Boolean(isContentAdaptive(state) || progression.state.livesDisabled);
+
   return {
     hide,
     count: progression.state.lives
   };
 };
 
-exports.getLives = getLives;
-
-
-const getProgressionSteps = state => {
-
+export const getProgressionSteps = (state: State): {current: number, total: number} | null => {
   const progression = getCurrentProgression(state);
   const chapter = getCurrentChapter(state);
+  const current = get('state.step.current', progression);
 
-  return ( !progression || progression.state === undefined || !chapter) 
+  return (!current || !chapter) 
     ? null
     : { 
-      current: getCurrentStep(state),
+      current,
       total: getNbSlides(state),
     };
-
 };
 
-exports.getProgressionSteps = getProgressionSteps;
+export const getCoaches: State => number = getOr(0, 'ui.coaches.availableCoaches');
 
-const getCurrentStep = state => {
-  const progression = getCurrentProgression(state);
-  return progression && progression.state && progression.state.step.current;
-};
-
-exports.getCurrentStep = getCurrentStep;
-
-
-const getCoaches = (0, _getOr2.default)(0, 'ui.coaches.availableCoaches');
-exports.getCoaches = getCoaches;
-
-const hasSeenLesson = (state, onPreviousSlide = false) => {
+export const hasSeenLesson = (state: State, onPreviousSlide: boolean = false): boolean => {
   const progression = getCurrentProgression(state);
 
   if (!progression || !progression.state) {
@@ -609,42 +530,47 @@ const hasSeenLesson = (state, onPreviousSlide = false) => {
   if (!slide) {
     return false;
   }
-
-  const lessons = (0, _get2.default)('lessons', slide);
-  const viewedResources = (0, _getOr2.default)([], ['state', 'viewedResources'], progression);
+  const lessons: Array<Lesson> = get('lessons', slide);
+  const viewedResources = getOr([], ['state', 'viewedResources'], progression);
   const chapterContent = {
     type: 'chapter',
-    ref: (0, _get2.default)('chapter_id', slide)
-  }; // $FlowFixMe pipe issue with flow typing
+    ref: get('chapter_id', slide)
+  };
 
-  const viewedResourcesForContent = (0, _pipe2.default)([(0, _find2.default)(chapterContent), (0, _getOr2.default)([], 'resources')])(viewedResources);
-  return (0, _isEmpty2.default)(lessons) || (0, _any2.default)(ref => (0, _includes2.default)(ref, (0, _map2.default)('ref', lessons)), viewedResourcesForContent);
+  // $FlowFixMe pipe issue with flow typing
+  const viewedResourcesForContent = pipe([find(chapterContent), getOr([], 'resources')])(
+    viewedResources
+  );
+
+  return (
+    isEmpty(lessons) || any(ref => includes(ref, map('ref', lessons)), viewedResourcesForContent)
+  );
 };
 
-exports.hasSeenLesson = hasSeenLesson;
+export const getVideoUri = (id: string) => (state: State): string | void =>
+  get(['data', 'videos', 'entities', id, 'uri'], state);
 
-const getVideoUri = id => state => (0, _get2.default)(['data', 'videos', 'entities', id, 'uri'], state);
+export const getVideoTracks = (id: string) => (state: State): Array<VideoTrack> | void =>
+  get(['data', 'videos', 'entities', id, 'tracks'], state);
 
-exports.getVideoUri = getVideoUri;
-
-const getVideoTracks = id => state => (0, _get2.default)(['data', 'videos', 'entities', id, 'tracks'], state);
-
-exports.getVideoTracks = getVideoTracks;
-
-const getPrevAnswer = state => {
+export const getPrevAnswer = (state: State): Answer => {
   const progression = getCurrentProgression(state);
-  return (0, _pipe2.default)((0, _get2.default)('state.allAnswers'), _last2.default, (0, _getOr2.default)([], 'answer'))(progression);
+
+  return pipe(
+    get('state.allAnswers'),
+    last,
+    getOr([], 'answer')
+  )(progression);
 };
 
-exports.getPrevAnswer = getPrevAnswer;
-
-const isQuestionCtaDisabled = state => {
+export const isQuestionCtaDisabled = (state: State): boolean => {
   const slide = getCurrentSlide(state);
   const isAdaptive = isContentAdaptive(state);
   const answers = slide ? getAnswerValues(slide, state) : [];
   const questionType = slide ? getQuestionType(slide) : null;
-  return (0, _isEmpty2.default)(answers) || (0, _some2.default)(_isEmpty2.default, answers) || isAdaptive && answers.length > 1 && (0, _includes2.default)(questionType, ['qcm', 'qcmGraphic']);
-};
 
-exports.isQuestionCtaDisabled = isQuestionCtaDisabled;
-//# sourceMappingURL=state-extract.js.map
+  return (
+    isEmpty(answers) ||
+    some(isEmpty, answers) ||
+    (isAdaptive && answers.length > 1 && includes(questionType, ['qcm', 'qcmGraphic']))
+  );

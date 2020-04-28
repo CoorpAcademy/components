@@ -27,7 +27,6 @@ import {
   getLevel,
   getLives,
   getProgressionSteps,
-  getCurrentStep,
   getPreviousSlide,
   getPrevStepContent,
   getQuestionType,
@@ -204,9 +203,7 @@ test('isCommentSent should return comment status for current progression', t => 
 
   t.is(isCommentSent(state), 'plop');
 });
-
-test('getRoute should return current route for current progression', t => {
-  const state = pipe(
+sion', t => {
     set('ui.current.progressionId', '0'),
     set('data.progressions.entities', {'0': {}}),
     set('ui.route.0', 'plop')
@@ -796,7 +793,7 @@ test('getLives should get lives from state', t => {
   });
 });
 
-test('getLives should return null if lives are disabled for the current progression', t => {
+test('getLives should return hidden lives if lives are disabled for the current progression', t => {
   const state = getStateWithContent(false, {lives: 111, livesDisabled: true});
   t.deepEqual(getLives(state), {
     hide: true,
@@ -804,40 +801,61 @@ test('getLives should return null if lives are disabled for the current progress
   });
 });
 
-test('getLives should throw error if progression.state is not defined', t => {
-  const progression = {};
+test('getLives should return hidden lives if current chapter is adaptive', t => {
+  const state = getStateWithContent(true, {lives: 111});
+  t.deepEqual(getLives(state), {
+    hide: true,
+    count: 111
+  });
+});
+
+test('getLives should return 0 lives if progression.state is not defined', t => {
   const state = pipe(
-    set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': progression})
-  )({});
+    set('data.progressions.entities', {})
+  )(getStateWithContent(false, {lives: 111}));
+
+  t.is(getLives(state).count, 0);
+});
+
+test('getLives should return 0 lives if current chapter is not defined', t => {
+  const state = pipe(
+    set('data.contents.chapter.entities', {})
+  )(getStateWithContent(false, {lives: 111}));
 
   t.is(getLives(state).count, 0);
 });
 
 test('getProgressionSteps should get current step and total steps from state', t => {
-   /*const state = getStateWithContent(false, {lives: 100, livesDisabled: false});
- const state = pipe(
-    set('ui.current.progressionId', '0'),
-    set('data.progressions.entities', {'0': {}})
-  )({});
-  
-  t.deepEqual(getProgressionSteps(state), {
-    current: false,
-    total: 100
-  });
-  */
+  const current = 50;
+  const nbSlides = 100;
+  const state = pipe(
+    set('data.progressions.entities.12.content', {ref: '1337', type: 'chapter'}),
+    set('data.contents.chapter.entities.1337.info', {nbSlides})
+  )(getStateWithContent(false, {step: {current}}));
+
+  t.deepEqual(getProgressionSteps(state), {current, total: nbSlides});
 });
 
-test('getProgressionSteps should return null if progression ou progression.state is null', t => {
+test('getProgressionSteps should return null if current progression step is undefined', t => {
+  const nbSlides = 100;
+  const state = pipe(
+    set('data.progressions.entities.12.content', {ref: '1337', type: 'chapter'}),
+    set('data.contents.chapter.entities.1337.info', {nbSlides})
+  )(getStateWithContent());
+
+  t.is(getProgressionSteps(state), null);
 });
 
-test('getProgressionSteps should return null if progression ou progression.state is undefined', t => {
+test('getProgressionSteps should return null if chapter is undefined', t => {
+  const current = 50;
+  const nbSlides = 100;
+  const state = pipe(
+    set('data.progressions.entities.12.content', {ref: '1337', type: 'chapter'}),
+    set('data.contents.chapter.entities', {})
+  )(getStateWithContent(false, {step: {current}}));
+
+  t.is(getProgressionSteps(state), null);
 });
-
-test('getProgressionSteps should return null if progression ou chapter is null', t => {
-});
-
-
 
 test('getNextContent should return nextChapter if microlearning progression', t => {
   const progression = {
