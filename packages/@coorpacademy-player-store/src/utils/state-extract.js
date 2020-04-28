@@ -36,6 +36,7 @@ import type {
   ExitNode,
   Level,
   Lives,
+  ProgressionSteps,
   // eslint-disable-next-line no-unused-vars
   Resource,
   Recommendation,
@@ -502,7 +503,7 @@ export const getLives = (state: State): Lives => {
   };
 };
 
-export const getProgressionSteps = (state: State): {current: number, total: number} | null => {
+export const getProgressionSteps = (state: State): ProgressionSteps | null => {
   const progression = getCurrentProgression(state);
   const chapter = getCurrentChapter(state);
 
