@@ -506,14 +506,21 @@ export const getLives = (state: State): Lives => {
 export const getProgressionSteps = (state: State): {current: number, total: number} | null => {
   const progression = getCurrentProgression(state);
   const chapter = getCurrentChapter(state);
-  const current = get('state.step.current', progression);
 
-  return (!current || !chapter) 
-    ? null
-    : { 
-      current,
-      total: getNbSlides(state),
-    };
+  if (!progression || !chapter || isContentAdaptive(state)) {
+    return null;
+  }
+
+  const current = get('state.step.current')(progression);
+
+  if (!current) {
+    return null;
+  }
+
+  return {
+    current,
+    total: getNbSlides(state)
+  };
 };
 
 export const getCoaches: State => number = getOr(0, 'ui.coaches.availableCoaches');

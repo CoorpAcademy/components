@@ -812,17 +812,13 @@ test('getLives should return hidden lives if current chapter is adaptive', t => 
 });
 
 test('getLives should return 0 lives if progression.state is not defined', t => {
-  const state = pipe(
-    set('data.progressions.entities', {})
-  )(getStateWithContent(false, {lives: 111}));
+  const state = set('data.progressions.entities', {})(getStateWithContent(false, {lives: 111}));
 
   t.is(getLives(state).count, 0);
 });
 
 test('getLives should return 0 lives if current chapter is not defined', t => {
-  const state = pipe(
-    set('data.contents.chapter.entities', {})
-  )(getStateWithContent(false, {lives: 111}));
+  const state = set('data.contents.chapter.entities', {})(getStateWithContent(false, {lives: 111}));
 
   t.is(getLives(state).count, 0);
 });
@@ -850,11 +846,21 @@ test('getProgressionSteps should return null if current progression step is unde
 
 test('getProgressionSteps should return null if chapter is undefined', t => {
   const current = 50;
-  const nbSlides = 100;
   const state = pipe(
     set('data.progressions.entities.12.content', {ref: '1337', type: 'chapter'}),
     set('data.contents.chapter.entities', {})
   )(getStateWithContent(false, {step: {current}}));
+
+  t.is(getProgressionSteps(state), null);
+});
+
+test('getProgressionSteps should return null if chapter is adaptive', t => {
+  const current = 50;
+  const nbSlides = 100;
+  const state = pipe(
+    set('data.progressions.entities.12.content', {ref: '1337', type: 'chapter'}),
+    set('data.contents.chapter.entities.1337.info', {nbSlides})
+  )(getStateWithContent(true, {step: {current}}));
 
   t.is(getProgressionSteps(state), null);
 });
