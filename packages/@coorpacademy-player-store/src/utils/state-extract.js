@@ -487,9 +487,8 @@ export const getResourceToPlay: State => string = get('ui.corrections.playResour
 
 export const getLives = (state: State): Lives => {
   const progression = getCurrentProgression(state);
-  const chapter = getCurrentChapter(state);
 
-  if (!progression || progression.state === undefined || !chapter) {
+  if (!progression || progression.state === undefined) {
     return {
       hide: true,
       count: 0
@@ -511,14 +510,8 @@ export const getProgressionSteps = (state: State): {current: number, total: numb
     return null;
   }
 
-  const current = get('state.step.current')(progression);
-
-  if (!current) {
-    return null;
-  }
-
   return {
-    current,
+    current: getOr(0, 'state.step.current')(progression),
     total: getNbSlides(state)
   };
 };

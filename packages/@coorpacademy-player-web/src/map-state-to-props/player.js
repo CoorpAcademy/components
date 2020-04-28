@@ -27,7 +27,6 @@ const STARS_DIFF = {
   clue: 'starsPerAskingClue'
 };
 
-
 const playerProps = (options, store) => state => {
   const {translate} = options;
   const {dispatch} = store;
