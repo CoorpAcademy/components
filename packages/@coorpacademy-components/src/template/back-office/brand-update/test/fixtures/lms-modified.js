@@ -8,9 +8,9 @@ const {props} = Default;
 const {groups} = Lms.props;
 const {tabs} = BrandTabs.props;
 
-const modifiedGroups = cloneDeep(groups)
-modifiedGroups[0].fields[0].slides[0].fields[0].modified = true
-modifiedGroups[0].fields[0].tabProps[0].isOpen = true
+const modifiedGroups = cloneDeep(groups);
+modifiedGroups[0].fields[0].slides[0].fields[0].modified = true;
+modifiedGroups[0].fields[0].tabProps[0].isOpen = true;
 
 export default {
   props: defaultsDeep(props, {
@@ -19,8 +19,12 @@ export default {
       type: 'form',
       groups: modifiedGroups,
       isModified: true,
-      onReset: () => {console.log('Reset modified values')},
-      onSubmit: () => {console.log('Submit form')},
+      onReset: () => {
+        console.log('Reset modified values');
+      },
+      onSubmit: () => {
+        console.log('Submit form');
+      },
       resetValue: 'Reset changes',
       submitValue: 'Save changes'
     }

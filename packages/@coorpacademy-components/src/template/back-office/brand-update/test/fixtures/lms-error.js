@@ -9,9 +9,9 @@ const {props} = Default;
 const {groups} = Lms.props;
 const {tabs} = BrandTabs.props;
 
-const errorGroups = cloneDeep(groups)
-errorGroups[0].fields[0].slides[0].fields[3].error = 'Client Secret is required'
-errorGroups[0].fields[0].tabProps[0].isOpen = true
+const errorGroups = cloneDeep(groups);
+errorGroups[0].fields[0].slides[0].fields[3].error = 'Client Secret is required';
+errorGroups[0].fields[0].tabProps[0].isOpen = true;
 
 export default {
   props: defaultsDeep(props, {
@@ -22,12 +22,15 @@ export default {
         onClose: noop
       }
     ],
+
     tabs,
     content: {
       type: 'form',
       groups: errorGroups,
       isModified: true,
-      onReset: () => {console.log('Reset modified values')},
+      onReset: () => {
+        console.log('Reset modified values');
+      },
       onSubmit: noop,
       resetValue: 'Reset changes',
       submitValue: 'Save changes'
