@@ -13,7 +13,7 @@ export default {
     tabs,
     content: {
       type: 'form',
-      groups: groups,
+      groups,
       onReset: noop,
       onSubmit: noop,
       resetValue: 'Reset changes',

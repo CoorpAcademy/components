@@ -564,6 +564,7 @@ import OrganismBrandFormFixtureCohort from '../src/organism/brand-form/test/fixt
 import OrganismBrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import OrganismBrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import OrganismBrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
+import OrganismBrandFormFixtureLms from '../src/organism/brand-form/test/fixtures/lms';
 import OrganismBrandFormFixtureLookandfeel from '../src/organism/brand-form/test/fixtures/lookandfeel';
 import OrganismBrandFormFixtureManageusersEdit from '../src/organism/brand-form/test/fixtures/manageusers-edit';
 import OrganismBrandFormFixtureSso from '../src/organism/brand-form/test/fixtures/sso';
@@ -735,10 +736,10 @@ import TemplateBackOfficeBrandUpdateFixtureDashboard from '../src/template/back-
 import TemplateBackOfficeBrandUpdateFixtureDefault from '../src/template/back-office/brand-update/test/fixtures/default';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess from '../src/template/back-office/brand-update/test/fixtures/general-settings-success';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettings from '../src/template/back-office/brand-update/test/fixtures/general-settings';
-import TemplateBackOfficeBrandUpdateFixtureLms from '../src/template/back-office/brand-update/test/fixtures/lms';
-import TemplateBackOfficeBrandUpdateFixtureLmsModified from '../src/template/back-office/brand-update/test/fixtures/lms-modified';
 import TemplateBackOfficeBrandUpdateFixtureLmsError from '../src/template/back-office/brand-update/test/fixtures/lms-error';
+import TemplateBackOfficeBrandUpdateFixtureLmsModified from '../src/template/back-office/brand-update/test/fixtures/lms-modified';
 import TemplateBackOfficeBrandUpdateFixtureLmsSuccess from '../src/template/back-office/brand-update/test/fixtures/lms-success';
+import TemplateBackOfficeBrandUpdateFixtureLms from '../src/template/back-office/brand-update/test/fixtures/lms';
 import TemplateBackOfficeBrandUpdateFixtureLoader from '../src/template/back-office/brand-update/test/fixtures/loader';
 import TemplateBackOfficeBrandUpdateFixtureLookandfeelError from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-error';
 import TemplateBackOfficeBrandUpdateFixtureLookandfeelModified from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-modified';
@@ -1628,6 +1629,7 @@ export const fixtures = {
       Dashboard: OrganismBrandFormFixtureDashboard,
       Default: OrganismBrandFormFixtureDefault,
       GeneralSettings: OrganismBrandFormFixtureGeneralSettings,
+      Lms: OrganismBrandFormFixtureLms,
       Lookandfeel: OrganismBrandFormFixtureLookandfeel,
       ManageusersEdit: OrganismBrandFormFixtureManageusersEdit,
       Sso: OrganismBrandFormFixtureSso
@@ -1879,10 +1881,10 @@ export const fixtures = {
       Default: TemplateBackOfficeBrandUpdateFixtureDefault,
       GeneralSettingsSuccess: TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess,
       GeneralSettings: TemplateBackOfficeBrandUpdateFixtureGeneralSettings,
-      Lms: TemplateBackOfficeBrandUpdateFixtureLms,
-      LmsModified: TemplateBackOfficeBrandUpdateFixtureLmsModified,
       LmsError: TemplateBackOfficeBrandUpdateFixtureLmsError,
+      LmsModified: TemplateBackOfficeBrandUpdateFixtureLmsModified,
       LmsSuccess: TemplateBackOfficeBrandUpdateFixtureLmsSuccess,
+      Lms: TemplateBackOfficeBrandUpdateFixtureLms,
       Loader: TemplateBackOfficeBrandUpdateFixtureLoader,
       LookandfeelError: TemplateBackOfficeBrandUpdateFixtureLookandfeelError,
       LookandfeelModified: TemplateBackOfficeBrandUpdateFixtureLookandfeelModified,
