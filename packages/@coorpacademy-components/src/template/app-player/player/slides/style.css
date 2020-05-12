@@ -9,6 +9,7 @@
 @value brand from colors;
 @value negative from colors;
 @value orangeAdd from colors;
+@value white from colors; 
 
 .wrapper {
   position: relative;
@@ -122,6 +123,18 @@
   animation: fade 2.5s infinite linear;
 }
 
+.guideWrapper:hover {
+  color: white;
+  transition: 1s; 
+}
+
+.guideWrapper[data-name="newMedia"]:hover {
+  background-color: rgba(255, 112, 67, 1);
+}
+
+.guideWrapper[data-name="reviewMedia"]:hover {
+  background-color: rgba(96, 125, 139, 1);
+}
 @keyframes fade {
   0% {
     opacity: 0;
