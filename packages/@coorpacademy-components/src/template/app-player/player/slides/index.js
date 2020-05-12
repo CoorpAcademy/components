@@ -69,7 +69,7 @@ const ReviewMedia = (props, context) => {
 
   return (
     <div className={style.guideWrapper} onClick={onClick} data-name="reviewMedia">
-      <span>{translate('Review media')}</span>
+      <span>{translate('Review lesson')}</span>
     </div>
   );
 };
