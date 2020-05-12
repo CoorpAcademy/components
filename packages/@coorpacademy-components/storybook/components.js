@@ -655,7 +655,7 @@ import TemplateAppPlayerPlayerSlidesFixtureQcmDrag from '../src/template/app-pla
 import TemplateAppPlayerPlayerSlidesFixtureQcmGraphic from '../src/template/app-player/player/slides/test/fixtures/qcm-graphic';
 import TemplateAppPlayerPlayerSlidesFixtureQcmShort from '../src/template/app-player/player/slides/test/fixtures/qcm-short';
 import TemplateAppPlayerPlayerSlidesFixtureQcmTemplate from '../src/template/app-player/player/slides/test/fixtures/qcm-template';
-import TemplateAppPlayerPlayerSlidesFixtureQcmWithReviewMedia from '../src/template/app-player/player/slides/test/fixtures/qcm-with-review-media';
+import TemplateAppPlayerPlayerSlidesFixtureQcmWithReviewLesson from '../src/template/app-player/player/slides/test/fixtures/qcm-with-review-lesson';
 import TemplateAppPlayerPlayerSlidesFixtureQcm from '../src/template/app-player/player/slides/test/fixtures/qcm';
 import TemplateAppPlayerPlayerSlidesFixtureRange from '../src/template/app-player/player/slides/test/fixtures/range';
 import TemplateAppPlayerPlayerSlidesFixtureTemplate from '../src/template/app-player/player/slides/test/fixtures/template';
@@ -1848,7 +1848,7 @@ export const fixtures = {
       QcmGraphic: TemplateAppPlayerPlayerSlidesFixtureQcmGraphic,
       QcmShort: TemplateAppPlayerPlayerSlidesFixtureQcmShort,
       QcmTemplate: TemplateAppPlayerPlayerSlidesFixtureQcmTemplate,
-      QcmWithReviewMedia: TemplateAppPlayerPlayerSlidesFixtureQcmWithReviewMedia,
+      QcmWithReviewLesson: TemplateAppPlayerPlayerSlidesFixtureQcmWithReviewLesson,
       Qcm: TemplateAppPlayerPlayerSlidesFixtureQcm,
       Range: TemplateAppPlayerPlayerSlidesFixtureRange,
       Template: TemplateAppPlayerPlayerSlidesFixtureTemplate,

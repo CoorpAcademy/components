@@ -116,7 +116,7 @@
 
 .guideWrapper[data-name="newMedia"] {
   color: orangeAdd;
-  background-color: rgba(255, 112, 67, 0.1);
+  background-color: color(orangeAdd a(10%));
 }
 
 .guideWrapper[data-name="newMedia"] span {
@@ -129,12 +129,13 @@
 }
 
 .guideWrapper[data-name="newMedia"]:hover {
-  background-color: rgba(255, 112, 67, 1);
+  background-color: orangeAdd;
 }
 
-.guideWrapper[data-name="reviewMedia"]:hover {
-  background-color: rgba(96, 125, 139, 1);
+.guideWrapper[data-name="reviewLesson"]:hover {
+  background-color: grey;
 }
+
 @keyframes fade {
   0% {
     opacity: 0;

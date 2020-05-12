@@ -63,22 +63,22 @@ NewMedia.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
-const ReviewMedia = (props, context) => {
+const ReviewLesson = (props, context) => {
   const {translate} = context;
   const {onClick} = props;
 
   return (
-    <div className={style.guideWrapper} onClick={onClick} data-name="reviewMedia">
+    <div className={style.guideWrapper} onClick={onClick} data-name="reviewLesson">
       <span>{translate('Review lesson')}</span>
     </div>
   );
 };
 
-ReviewMedia.propTypes = {
+ReviewLesson.propTypes = {
   onClick: PropTypes.func
 };
 
-ReviewMedia.contextTypes = {
+ReviewLesson.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
@@ -354,7 +354,7 @@ Content.propTypes = {
  */
 
 const SlidesPlayer = (props, context) => {
-  const {header, step, buttons, showNewMedia = false, showReviewMedia = false} = props;
+  const {header, step, buttons, showNewMedia = false, showReviewLesson = false} = props;
   const {skin} = context;
   const stepColor = get('common.primary', skin);
   const mediaButton = find({type: 'media'}, buttons) || {};
@@ -364,8 +364,8 @@ const SlidesPlayer = (props, context) => {
       {header && <Header {...header} />}
       <div className={style.contentProgression}>
         {step ? <Step step={step} color={stepColor} /> : null}
-        {showNewMedia && !showReviewMedia ? <NewMedia onClick={onClick} /> : null}
-        {showReviewMedia && !showNewMedia ? <ReviewMedia onClick={onClick} /> : null}
+        {showNewMedia && !showReviewLesson ? <NewMedia onClick={onClick} /> : null}
+        {showReviewLesson && !showNewMedia ? <ReviewLesson onClick={onClick} /> : null}
         <Content {...props} />
       </div>
       <Footer buttons={buttons} />
@@ -386,7 +386,7 @@ SlidesPlayer.propTypes = {
   buttons: Footer.propTypes.buttons,
   header: PropTypes.shape(Header.propTypes),
   showNewMedia: PropTypes.bool,
-  showReviewMedia: PropTypes.bool,
+  showReviewLesson: PropTypes.bool,
   backgroundUrl: SrcPropType
 };
 

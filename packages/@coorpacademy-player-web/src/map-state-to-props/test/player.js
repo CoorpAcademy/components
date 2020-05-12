@@ -450,7 +450,7 @@ test('should not display new media notification when user has seen at least one 
   t.false(props.showNewMedia);
 });
 
-test('should display review media notification when user has seen at least one media of the current slide', t => {
+test('should display review lesson notification when user has seen at least one media of the current slide', t => {
   const progression = createProgression(basicSlide);
   progression.state.viewedResources = [
     {
@@ -477,10 +477,10 @@ test('should display review media notification when user has seen at least one m
   };
 
   const props = createPlayerProps(state);
-  t.true(props.showReviewMedia);
+  t.true(props.showReviewLesson);
 });
 
-test('should not display review media notification when user has not seen any media for the current slide', t => {
+test('should not display review lesson notification when user has not seen any media for the current slide', t => {
   const progression = createProgression(basicSlide);
   progression.state.viewedResources = [
     {
@@ -507,7 +507,7 @@ test('should not display review media notification when user has not seen any me
   };
 
   const props = createPlayerProps(state);
-  t.false(props.showReviewMedia);
+  t.false(props.showReviewLesson);
 });
 
 test('should feed step prop in non-adaptive mode', t => {
