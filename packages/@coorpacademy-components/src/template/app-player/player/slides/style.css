@@ -114,12 +114,12 @@
   padding: 12px;
 }
 
-.guideWrapper[data-name="newMedia"] {
+.newMedia {
   color: orangeAdd;
   background-color: color(orangeAdd a(10%));
 }
 
-.guideWrapper[data-name="newMedia"] span {
+.newMedia span {
   animation: fade 2.5s infinite linear;
 }
 
@@ -128,11 +128,11 @@
   transition: 1s; 
 }
 
-.guideWrapper[data-name="newMedia"]:hover {
+.newMedia:hover {
   background-color: orangeAdd;
 }
 
-.guideWrapper[data-name="reviewLesson"]:hover {
+.reviewLesson:hover {
   background-color: grey;
 }
 

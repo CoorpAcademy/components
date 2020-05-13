@@ -49,7 +49,11 @@ const NewMedia = (props, context) => {
   const {onClick} = props;
 
   return (
-    <div className={style.guideWrapper} onClick={onClick} data-name="newMedia">
+    <div
+      className={`${style.guideWrapper} ${style.newMedia}`}
+      onClick={onClick}
+      data-name="newMedia"
+    >
       <span>{translate('New media')}</span>
     </div>
   );
@@ -68,7 +72,11 @@ const ReviewLesson = (props, context) => {
   const {onClick} = props;
 
   return (
-    <div className={style.guideWrapper} onClick={onClick} data-name="reviewLesson">
+    <div
+      className={`${style.guideWrapper} ${style.reviewLesson}`}
+      onClick={onClick}
+      data-name="reviewLesson"
+    >
       <span>{translate('Review lesson')}</span>
     </div>
   );
