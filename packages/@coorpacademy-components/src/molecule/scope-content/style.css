@@ -126,13 +126,18 @@
   padding: 24px 11px 0;
   border: solid 1px light;
   border-top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .media {
   display: inline-block;
-  margin: 0 12px 24px;
+  margin: 0 5px 22px 5px;
   cursor: pointer;
   text-decoration: none;
+  flex: 0 1 auto;
 }
 
 .imgWrapper {

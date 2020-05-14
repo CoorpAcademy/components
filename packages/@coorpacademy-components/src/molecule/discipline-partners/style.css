@@ -1,6 +1,7 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
+@value desktop from breakpoints;
 @value colors: "../../variables/colors.css";
 @value dark from colors;
 @value xtraLightGrey from colors;
@@ -52,31 +53,77 @@
   color: dark;
   border: 1px solid xtraLightGrey;
   border-bottom: 0;
-  padding: 8px;
   text-align: center;
   box-sizing: border-box;
   background-color: white;
-}
-
-.logoLink {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: 1px solid light;
+  cursor: pointer;
 }
 
 .logo {
-  max-width: 100%;
-  width: 100%;
+  max-width: 80%;
+  width: auto;
+  height: 70px;
+  flex: 0 1 auto;
+  margin: 8px;
+}
+.arrowWrapper {
+  border-left: 1px solid light;
+  flex: 0 1 auto;
+  width: 30px;
+  padding-left: 8px;
+  padding-right: 8px;
+  display: flex;
+  box-sizing: border-box;
+}
+.arrow {
+  margin: auto 0px;
+  transition: transform 0.4s ease-out;
+  color: dark;
+}
+
+/** One Author **/
+.authorWrapper:nth-child(2):nth-last-child(1) .logo {
+  height: auto;
+}
+.authorWrapper:nth-child(2):nth-last-child(1) .arrowWrapper {
+  display: none;
+}
+.authorWrapper:nth-child(2):nth-last-child(1) .logoContainer {
+  cursor: initial;
+}
+
+.toggle {
+  display: none;
+}
+.toggle:checked ~ label .arrow {
+  transform: rotate(180deg);
+  transform-origin: 50% 50%;
+  
+}
+.toggle:checked ~ .authorContent {
+  padding: 16px;
+  max-height: 140px;
+  opacity: 1;
+  margin: 0px;
 }
 
 .authorContent {
   width: 100%;
-  padding: 16px;
+  max-height: 0px;
+  overflow: hidden;
+  box-sizing: border-box;
+  padding: 0 16px;
+  transition: all 0.5s linear;
   text-align: left;
   box-sizing: border-box;
   background: xtraLightGrey;
-  border: 1px solid xtraLightGrey;
-  border-top: 1px solid light;
+  opacity: 0;
+  margin-top: -1px;
 }
-
 .links {
   display: flex;
   flex-direction: row;
@@ -85,14 +132,15 @@
 }
 
 .authorWrapper {
-  max-width: 260px;
+  width: 240px;
   display: inline-block;
-  margin: 0 10px 30px 0;
+  margin: 0 0 10px 1px;
   border: 1px solid light;
+  vertical-align: top;
 }
 
 .authorWrapper:last-child {
-  margin: 0 10px 0 0;
+  margin: 0 0 0 1px;
 }
 
 .colDetails {
@@ -106,18 +154,38 @@
   text-align: left;
 }
 
+@media desktop {
+  .authorWrapper {
+    margin: 0 1% 1% 1px;
+    width: 32%;
+  }
+  .authorWrapper:nth-child(3n+4) {
+    margin: 0 0 1% 1px;
+  }
+}
+
 @media tablet {
   .authorWrapper {
-    margin: 0 10px 0 0;
+    margin: 0 1% 1% 0;
+    width: 49%;
+  }
+  .authorWrapper:nth-child(3n+4) {
+    margin: 0 1% 1% 0;
+  }
+  .authorWrapper:nth-child(2n+1) {
+    margin: 0 0 1% 0;
   }
 }
 
 @media mobile {
   .authorWrapper {
-    max-width: 100%;
-    margin: 0 0 30px;
+    width: 100%;
+    margin: 0 0 20px;
   }
-
+  .authorWrapper:nth-child(3n+4),
+  .authorWrapper:nth-child(2n+1) {
+    margin: 0 0 20px;
+  }
   .authorWrapper:last-child {
     margin: 0;
   }

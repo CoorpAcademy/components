@@ -1,4 +1,4 @@
-import {update, uniqueId} from 'lodash/fp';
+import {update, uniqueId, head} from 'lodash/fp';
 import disciplineHeader from '../../../../../molecule/discipline-header/test/fixtures/default';
 import disciplinePartners from '../../../../../molecule/discipline-partners/test/fixtures/more-info';
 import disciplineCTA from '../../../../../molecule/discipline-cta/test/fixtures/default';
@@ -32,7 +32,7 @@ export default {
     title,
     description,
     video,
-    authors,
+    authors: [head(authors)],
     changeLevel: () => true,
     level: content,
     levels
