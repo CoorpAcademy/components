@@ -450,6 +450,66 @@ test('should not display new media notification when user has seen at least one 
   t.false(props.showNewMedia);
 });
 
+test('should display review lesson notification when user has seen at least one media of the current slide', t => {
+  const progression = createProgression(basicSlide);
+  progression.state.viewedResources = [
+    {
+      type: 'chapter',
+      ref: basicSlide.chapter_id,
+      resources: [basicSlide.lessons[0].ref]
+    }
+  ];
+  const state = {
+    data: {
+      contents: data.contents,
+      progressions: {
+        entities: {
+          basic: progression
+        }
+      }
+    },
+    ui: {
+      current: {progressionId: 'basic'},
+      route: {
+        basic: 'answer'
+      }
+    }
+  };
+
+  const props = createPlayerProps(state);
+  t.true(props.showReviewLesson);
+});
+
+test('should not display review lesson notification when user has not seen any media for the current slide', t => {
+  const progression = createProgression(basicSlide);
+  progression.state.viewedResources = [
+    {
+      type: 'chapter',
+      ref: basicSlide.chapter_id,
+      resources: []
+    }
+  ];
+  const state = {
+    data: {
+      contents: data.contents,
+      progressions: {
+        entities: {
+          basic: progression
+        }
+      }
+    },
+    ui: {
+      current: {progressionId: 'basic'},
+      route: {
+        basic: 'answer'
+      }
+    }
+  };
+
+  const props = createPlayerProps(state);
+  t.false(props.showReviewLesson);
+});
+
 test('should feed step prop in non-adaptive mode', t => {
   const state = set(
     'data.contents.level.entities.1.info.nbSlides',

@@ -49,7 +49,11 @@ const NewMedia = (props, context) => {
   const {onClick} = props;
 
   return (
-    <div className={style.guideWrapper} onClick={onClick} data-name="newMedia">
+    <div
+      className={`${style.guideWrapper} ${style.newMedia}`}
+      onClick={onClick}
+      data-name="newMedia"
+    >
       <span>{translate('New media')}</span>
     </div>
   );
@@ -60,6 +64,29 @@ NewMedia.propTypes = {
 };
 
 NewMedia.contextTypes = {
+  translate: Provider.childContextTypes.translate
+};
+
+const ReviewLesson = (props, context) => {
+  const {translate} = context;
+  const {onClick} = props;
+
+  return (
+    <div
+      className={`${style.guideWrapper} ${style.reviewLesson}`}
+      onClick={onClick}
+      data-name="reviewLesson"
+    >
+      <span>{translate('Review lesson')}</span>
+    </div>
+  );
+};
+
+ReviewLesson.propTypes = {
+  onClick: PropTypes.func
+};
+
+ReviewLesson.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
@@ -335,7 +362,7 @@ Content.propTypes = {
  */
 
 const SlidesPlayer = (props, context) => {
-  const {header, step, buttons, showNewMedia = false} = props;
+  const {header, step, buttons, showNewMedia = false, showReviewLesson = false} = props;
   const {skin} = context;
   const stepColor = get('common.primary', skin);
   const mediaButton = find({type: 'media'}, buttons) || {};
@@ -345,7 +372,8 @@ const SlidesPlayer = (props, context) => {
       {header && <Header {...header} />}
       <div className={style.contentProgression}>
         {step ? <Step step={step} color={stepColor} /> : null}
-        {showNewMedia ? <NewMedia onClick={onClick} /> : null}
+        {showNewMedia && !showReviewLesson ? <NewMedia onClick={onClick} /> : null}
+        {showReviewLesson && !showNewMedia ? <ReviewLesson onClick={onClick} /> : null}
         <Content {...props} />
       </div>
       <Footer buttons={buttons} />
@@ -366,6 +394,7 @@ SlidesPlayer.propTypes = {
   buttons: Footer.propTypes.buttons,
   header: PropTypes.shape(Header.propTypes),
   showNewMedia: PropTypes.bool,
+  showReviewLesson: PropTypes.bool,
   backgroundUrl: SrcPropType
 };
 
