@@ -1,5 +1,5 @@
 import test from 'ava';
-import {omit, isFunction, identity} from 'lodash/fp';
+import {omit, isFunction, identity, sortBy, pipe, map, pick} from 'lodash/fp';
 
 import {mockTranslate} from '@coorpacademy/translate';
 import {createGetAnswerProps, createGetHelp} from '../answer';
@@ -153,8 +153,28 @@ test('should create initial qcmGraphic props', t => {
 });
 
 test('should create edited qcmGraphic props', t => {
-  t.plan(8);
+  t.plan(5);
   const state = {
+    data: {
+      configs: {
+        entities: {
+          'learner@2': {
+            version: '2',
+            shuffleChoices: true
+          }
+        }
+      },
+      progressions: {
+        entities: {
+          '1234': {
+            engine: {
+              ref: 'learner',
+              version: '2'
+            }
+          }
+        }
+      }
+    },
     ui: {
       answers: {'1234': {value: ['Vrai']}},
       current: {progressionId: '1234'}
@@ -171,10 +191,13 @@ test('should create edited qcmGraphic props', t => {
 
   t.is(props.type, 'qcmGraphic');
   t.is(props.answers.length, 2);
-  t.is(props.answers[0].title, 'Vrai');
-  t.true(props.answers[0].selected);
-  t.is(props.answers[1].title, 'Faux');
-  t.false(props.answers[1].selected);
+
+  const answers = pipe(
+    map(pick(['title', 'selected'])),
+    sortBy('title')
+  )(props.answers);
+  t.deepEqual(answers, [{title: 'Faux', selected: false}, {title: 'Vrai', selected: true}]);
+
   t.true(isFunction(props.answers[0].onClick));
 
   props.answers[0].onClick();
