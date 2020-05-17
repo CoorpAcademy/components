@@ -2,11 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   NovaCompositionCoorpacademyValidate as Validated,
-  NovaCompositionCoorpacademyScorm as ScormIcon,
   NovaLineContentEditionBin as TrashIcon
 } from '@coorpacademy/nova-icons';
 
 import {pipe, split, last} from 'lodash/fp';
+import {EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
 import Provider from '../../atom/provider';
 
 import Button from '../../atom/button';
@@ -45,19 +45,19 @@ export const UploadReport = (
     </div>
   );
 
-  const {src} = content;
-  const IconColor = '#FFB800';
+  const {src, type: contentType} = content;
   const fileName = pipe(
     split('/'),
     last
   )(src);
-
+  const IconType = EXTERNAL_CONTENT_ICONS[contentType].icon;
+  const iconColor = EXTERNAL_CONTENT_ICONS[contentType].color;
   return (
     <div className={style.reportingContainer}>
       <div className={style.reportHeader}>
-        <div className={style.iconContainer} style={{backgroundColor: IconColor}}>
+        <div className={style.iconContainer} style={{backgroundColor: iconColor}}>
           <div className={style.oval}>
-            <ScormIcon className={style.iconHeader} color={IconColor} />
+            <IconType className={style.iconHeader} color={iconColor} />
           </div>
         </div>
         <div className={style.fileName} title={fileName}>
