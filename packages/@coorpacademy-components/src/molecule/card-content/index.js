@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {get} from 'lodash/fp';
 import classnames from 'classnames';
 import {
   NovaCompositionCoorpacademyAdaptive as AdaptivIcon,
@@ -17,8 +16,7 @@ export const MODES = {
 };
 
 const ContentTypeInfo = ({mode, adaptiv, type, externalContent}, context) => {
-  const {translate, skin} = context;
-  const blackColor = get('common.black', skin);
+  const {translate} = context;
   if (mode !== MODES.CARD) {
     return null;
   }
@@ -26,7 +24,7 @@ const ContentTypeInfo = ({mode, adaptiv, type, externalContent}, context) => {
   if (type === 'chapter') {
     return (
       <div className={style.microLearningIcon}>
-        <TimerIcon color={blackColor} height={40} width={40} />
+        <TimerIcon height={40} width={40} />
         <span className={style.microLearninglabel}>{"5' learning"}</span>
       </div>
     );
@@ -105,9 +103,6 @@ const ContentInfo = (
   },
   context
 ) => {
-  const {skin} = context;
-  const whiteColor = get('common.white', skin);
-  const blackColor = get('common.black', skin);
   const progressBarColor = '#3EC483';
   const inlineProgressValueStyle = {
     backgroundColor: progressBarColor,
@@ -128,7 +123,7 @@ const ContentInfo = (
 
   const adaptiveIcon = adaptiv ? (
     <div className={classnames(style.adaptiveIcon, courseContent ? style.iconShadow : null)}>
-      <AdaptivIcon color={courseContent ? whiteColor : blackColor} height={25} />
+      <AdaptivIcon height={25} />
     </div>
   ) : null;
 

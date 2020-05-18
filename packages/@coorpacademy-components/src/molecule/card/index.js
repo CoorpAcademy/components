@@ -89,7 +89,7 @@ const Card = (props, context) => {
   const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
   const cardStyle = classnames(
-    style.course,
+    type === 'chapter' ? style.chapter : style.course,
     title ? null : style.lazy,
     style.grid,
     empty ? style.empty : null
@@ -129,7 +129,12 @@ const Card = (props, context) => {
         />
       )}
       {notification && <Notification {...notification} />}
-      {customer && <Customer className={style.customer} {...customer} />}
+      {customer && (
+        <Customer
+          className={classnames(style.customer, type === 'chapter' ? style.chapterCustomer : null)}
+          {...customer}
+        />
+      )}
       <CardContentInfo
         mode={MODES.CARD}
         adaptiv={adaptiv}

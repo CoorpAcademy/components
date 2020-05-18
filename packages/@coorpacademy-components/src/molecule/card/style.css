@@ -18,7 +18,6 @@
   display: inline-block;
   box-sizing: border-box;
   vertical-align: top;
-  border: solid 1px light;
   background-color: white;
   overflow: hidden;
   height: 100%;
@@ -29,8 +28,8 @@
   position: relative;
   opacity: 0;
   animation: fadeIn 1s ease-out forwards;
-  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.07);
   cursor: pointer;
+  box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.11);
 }
 
 .default[disabled] .favorite {
@@ -52,6 +51,9 @@
     rgba(0, 0, 0, 0) 20%
   );
 }
+.chapterCustomer {
+  padding-top: 10px;
+}
 
 .grid.empty {
   padding-bottom: 25px;
@@ -62,7 +64,13 @@
   composes: default;
   border-radius: 8px;
   width: 256px;
-  height: 258px;
+  height: 297px;
+}
+.chapter {
+  composes: default;
+  border-radius: 8px;
+  width: 203px;
+  height: 297px;
 }
 
 .course .imageWrapper {
@@ -73,8 +81,12 @@
   left: 0;
 }
 
-.chapterImageWrapper {
-  max-height: 75px;
+.chapter .chapterImageWrapper {
+  max-height: 77px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 .default .image {
@@ -145,7 +157,8 @@
   }
 }
 
-.course .default:hover {
+.course .default:hover,
+.chapter .default:hover {
   background: light;
   cursor: pointer;
   transition: background 0.25s ease-in-out;
@@ -160,7 +173,7 @@
   top: 0;
   right: 0;
   left: 0;
-  height: 258px;
+  height: 297px;
   display: flex;
   padding-top: 50px;
   justify-content: center;
@@ -251,11 +264,11 @@
 }
 
 .externalIconCircleWrapper {
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 65px;
   margin: 10px auto 0;
   border-radius: 50%;
-  padding: 12px;
+  padding: 17px;
   box-sizing: border-box;
   background-color: rgba(255, 255, 255, 0.3);
   justify-content: center;
@@ -265,8 +278,8 @@
 
 .externalIcon {
   color: white;
-  width: 26px;
-  height: 26px;
+  width: 30px;
+  height: 30px;
 }
 
 .externalIconCircleWrapper::after {
@@ -286,8 +299,8 @@
 .externalIconCircleWrapper::after,
 .externalIconCircleWrapper::before {
   content: '';
-  width: 50px;
-  height: 50px;
+  width: 65px;
+  height: 65px;
   top: 0;
   left: 0;
   position: absolute;
