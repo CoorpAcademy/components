@@ -400,6 +400,7 @@ import MoleculeDragAndDropFixtureDefault from '../src/molecule/drag-and-drop/tes
 import MoleculeDragAndDropFixtureError from '../src/molecule/drag-and-drop/test/fixtures/error';
 import MoleculeDragAndDropFixtureLoading from '../src/molecule/drag-and-drop/test/fixtures/loading';
 import MoleculeDragAndDropFixtureReady from '../src/molecule/drag-and-drop/test/fixtures/ready';
+import MoleculeDragAndDropFixtureSuccessVideo from '../src/molecule/drag-and-drop/test/fixtures/success-video';
 import MoleculeDragAndDropFixtureSuccess from '../src/molecule/drag-and-drop/test/fixtures/success';
 import MoleculeFeedbackFixtureDefault from '../src/molecule/feedback/test/fixtures/default';
 import MoleculeFeedbackFixtureFailExitNode from '../src/molecule/feedback/test/fixtures/fail-exit-node';
@@ -1330,6 +1331,7 @@ export const fixtures = {
       Error: MoleculeDragAndDropFixtureError,
       Loading: MoleculeDragAndDropFixtureLoading,
       Ready: MoleculeDragAndDropFixtureReady,
+      SuccessVideo: MoleculeDragAndDropFixtureSuccessVideo,
       Success: MoleculeDragAndDropFixtureSuccess
     },
     MoleculeFeedback: {
