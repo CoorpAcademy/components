@@ -36,7 +36,7 @@ const qcmProps = (options, store) => (state, slide) => {
         selected: includes(choice.label, answers),
         onClick: () => _editAnswerAction(choice)
       }),
-      getChoices(slide)
+      getChoices(slide, state)
     )
   };
 
@@ -55,7 +55,7 @@ const qcmDragProps = (options, store) => (state, slide) => {
         order: indexInAnswer,
         onClick: () => editAnswerAction(options, store)(state, slide)(choice)
       };
-    }, getChoices(slide))
+    }, getChoices(slide, state))
   };
 };
 
@@ -70,7 +70,7 @@ const qcmGraphicProps = (options, store) => (state, slide) => {
         selected: includes(choice.label, answers),
         onClick: () => editAnswerAction(options, store)(state, slide)(choice)
       }),
-      getChoices(slide)
+      getChoices(slide, state)
     )
   };
 };
@@ -130,7 +130,7 @@ const templateProps = (options, store) => (state, slide) => {
   return {
     type: 'template',
     template: slide.question.content.template,
-    answers: slide.question.content.choices.map((choice, index) =>
+    answers: getChoices(slide, state).map((choice, index) =>
       choice.type === 'text'
         ? templateTextProps(options, store)(state, slide, choice, index)
         : templateSelectProps(options, store)(state, slide, choice, index)
