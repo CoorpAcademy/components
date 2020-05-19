@@ -1,5 +1,5 @@
 import test from 'ava';
-import {set, pipe, sortBy, map, omit, update, random} from 'lodash/fp';
+import {set, pipe} from 'lodash/fp';
 import {
   getAnswers,
   getAnswerValues,
@@ -74,7 +74,6 @@ const getStateWithContent = (
 
 test('getChoices should return undefined when no content.choices', t => {
   const slide = {
-    _id: 'sli_00001',
     question: {
       content: {
         defaultValue: 500
@@ -84,206 +83,16 @@ test('getChoices should return undefined when no content.choices', t => {
   t.is(getChoices(slide), undefined);
 });
 
-function macroDoNothing(t, type, shuffleChoices = true) {
-  const state = {
-    data: {
-      configs: {
-        entities: {
-          'learner@2': {version: '2', shuffleChoices}
-        }
-      },
-      progressions: {
-        entities: {
-          '1234': {
-            engine: {ref: 'learner', version: '2'}
-          }
-        }
-      }
-    },
-    ui: {
-      current: {progressionId: '1234'}
-    }
-  };
+test('getChoices should return choices', t => {
   const choices = [{foo: 1}, {bar: 2}];
   const slide = {
-    _id: `sli_00001${random(0, 100000)}`,
     question: {
-      type,
       content: {
         choices
       }
     }
   };
-  t.deepEqual(getChoices(slide, state), choices);
-}
-
-function macroQCM(t, type) {
-  const state = {
-    data: {
-      configs: {
-        entities: {
-          'learner@2': {version: '2', shuffleChoices: true}
-        }
-      },
-      progressions: {
-        entities: {
-          '1234': {
-            engine: {ref: 'learner', version: '2'}
-          }
-        }
-      }
-    },
-    ui: {
-      current: {progressionId: '1234'}
-    }
-  };
-  const choices = [{_id: 1, foo: 1}, {_id: 2, bar: 2}];
-  const slide = {
-    _id: `sli_00001${random(0, 100000)}`,
-    question: {
-      type,
-      content: {
-        choices
-      }
-    }
-  };
-  const resFirstCall = getChoices(slide, state);
-  const resSecondCall = getChoices(slide, state);
-  const resThirdCall = getChoices(slide, state);
-
-  t.deepEqual(sortBy('_id', resFirstCall), sortBy('_id', choices));
-  t.deepEqual(sortBy('_id', resSecondCall), sortBy('_id', choices));
-  t.deepEqual(sortBy('_id', resThirdCall), sortBy('_id', choices));
-  t.deepEqual(resFirstCall, resSecondCall);
-  t.deepEqual(resFirstCall, resThirdCall);
-}
-
-test(
-  'getChoices with shuffle enabled should return choices for basic slide',
-  macroDoNothing,
-  'basic'
-);
-test(
-  'getChoices with shuffle enabled should return choices for slider slide',
-  macroDoNothing,
-  'slider'
-);
-test(
-  'getChoices with shuffle enabled should return shuffle choices for qcm slide',
-  macroQCM,
-  'qcm'
-);
-test(
-  'getChoices with shuffle enabled should return shuffle choices for qcmGraphic slide',
-  macroQCM,
-  'qcmGraphic'
-);
-test(
-  'getChoices with shuffle enabled should return shuffle choices for qcmDrag slide',
-  macroQCM,
-  'qcmDrag'
-);
-
-test(
-  'getChoices with shuffle disabled should return choices for basic slide',
-  macroDoNothing,
-  'basic',
-  false
-);
-test(
-  'getChoices with shuffle disabled should return choices for slider slide',
-  macroDoNothing,
-  'slider',
-  false
-);
-test(
-  'getChoices with shuffle disabled should return choices for qcm slide',
-  macroDoNothing,
-  'qcm',
-  false
-);
-test(
-  'getChoices with shuffle disabled should return choices for qcmGraphic slide',
-  macroDoNothing,
-  'qcmGraphic',
-  false
-);
-test(
-  'getChoices with shuffle disabled should return choices for qcmDrag slide',
-  macroDoNothing,
-  'qcmDrag',
-  false
-);
-test(
-  'getChoices with shuffle disabled should return choices for template slide',
-  macroDoNothing,
-  'template',
-  false
-);
-
-test('getChoices with shuffle enabled should return shuffle choices for template slide', t => {
-  const state = {
-    data: {
-      configs: {
-        entities: {
-          'learner@2': {version: '2', shuffleChoices: true}
-        }
-      },
-      progressions: {
-        entities: {
-          '1234': {
-            engine: {ref: 'learner', version: '2'}
-          }
-        }
-      }
-    },
-    ui: {
-      current: {progressionId: '1234'}
-    }
-  };
-  const itemsForFirstChoice = [
-    {_id: 1, text: 'imaginative'},
-    {_id: 2, text: 'iterative'},
-    {_id: 3, text: 'agile'}
-  ];
-  const itemsForSecondChoice = [
-    {_id: 1, text: 'iterative'},
-    {_id: 2, text: 'imaginative'},
-    {_id: 3, text: 'agile'}
-  ];
-  const choices = [{_id: 1, items: itemsForFirstChoice}, {_id: 2, items: itemsForSecondChoice}];
-  const slide = {
-    _id: 'sli_00002',
-    question: {
-      type: 'template',
-      content: {
-        choices
-      }
-    }
-  };
-
-  const resFirstCall = getChoices(slide, state);
-  const resSecondCall = getChoices(slide, state);
-  const resThirdCall = getChoices(slide, state);
-
-  t.deepEqual(map(omit('items'), resFirstCall), map(omit('items'), choices));
-  t.deepEqual(map(omit('items'), resSecondCall), map(omit('items'), choices));
-  t.deepEqual(map(omit('items'), resThirdCall), map(omit('items'), choices));
-
-  t.deepEqual(
-    map(update('items', sortBy('_id')), resFirstCall),
-    map(update('items', sortBy('_id')), choices)
-  );
-  t.deepEqual(
-    map(update('items', sortBy('_id')), resSecondCall),
-    map(update('items', sortBy('_id')), choices)
-  );
-  t.deepEqual(
-    map(update('items', sortBy('_id')), resThirdCall),
-    map(update('items', sortBy('_id')), choices)
-  );
-  t.deepEqual(resFirstCall, resSecondCall);
-  t.deepEqual(resFirstCall, resThirdCall);
+  t.deepEqual(getChoices(slide), choices);
 });
 
 test("getCurrentProgressionId should get current progression's id from state", t => {

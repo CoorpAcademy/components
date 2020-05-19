@@ -3,38 +3,11 @@ import type {Config} from '../types';
 
 const configurations: Array<Config> = [
   {
-    version: '1-test',
-    lives: 3,
-    livesDisabled: false,
-    maxTypos: 2,
-    slidesToComplete: 4,
-    shuffleChoices: false,
-    answerBoundaryLimit: 5,
-    starsPerAskingClue: -1,
-    starsPerCorrectAnswer: 4,
-    starsPerResourceViewed: 4,
-    remainingLifeRequests: 1
-  },
-  {
-    version: '2-test',
-    lives: 4,
-    livesDisabled: false,
-    maxTypos: 2,
-    slidesToComplete: 4,
-    shuffleChoices: false,
-    answerBoundaryLimit: 5,
-    starsPerAskingClue: -1,
-    starsPerCorrectAnswer: 4,
-    starsPerResourceViewed: 4,
-    remainingLifeRequests: 1
-  },
-  {
     version: '1',
     lives: 3,
     livesDisabled: false,
     maxTypos: 2,
     slidesToComplete: 4,
-    shuffleChoices: true,
     answerBoundaryLimit: 5,
     starsPerAskingClue: -1,
     starsPerCorrectAnswer: 4,
@@ -47,7 +20,6 @@ const configurations: Array<Config> = [
     livesDisabled: false,
     maxTypos: 2,
     slidesToComplete: 4,
-    shuffleChoices: true,
     answerBoundaryLimit: 5,
     starsPerAskingClue: -1,
     starsPerCorrectAnswer: 4,
@@ -58,5 +30,5 @@ const configurations: Array<Config> = [
 
 export default {
   configurations,
-  defaultConfiguration: configurations[3]
+  defaultConfiguration: configurations[1]
 };
