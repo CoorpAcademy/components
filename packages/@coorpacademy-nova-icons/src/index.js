@@ -89,6 +89,7 @@ import _NovaSolidDataTransferDataUpload1 from './components/nova-solid/data-tran
 import _NovaSolidDesignActionsRedo from './components/nova-solid/design-actions/redo';
 import _NovaSolidInterfaceFeedbackInterfaceAlertCircle from './components/nova-solid/interface-feedback/interface-alert-circle';
 import _NovaSolidInterfaceFeedbackInterfaceAlertTriangle from './components/nova-solid/interface-feedback/interface-alert-triangle';
+import _NovaSolidInterfaceFeedbackInterfaceQuestionMark from './components/nova-solid/interface-feedback/interface-question-mark';
 import _NovaSolidLightsLightbulb4 from './components/nova-solid/lights/lightbulb-4';
 import _NovaSolidLocationsCompass3 from './components/nova-solid/locations/compass-3';
 import _NovaSolidLocationsLocationPinQuestionMark1 from './components/nova-solid/locations/location-pin-question-mark-1';
@@ -198,6 +199,7 @@ export const NovaSolidDataTransferDataUpload1: Icon = _NovaSolidDataTransferData
 export const NovaSolidDesignActionsRedo: Icon = _NovaSolidDesignActionsRedo;
 export const NovaSolidInterfaceFeedbackInterfaceAlertCircle: Icon = _NovaSolidInterfaceFeedbackInterfaceAlertCircle;
 export const NovaSolidInterfaceFeedbackInterfaceAlertTriangle: Icon = _NovaSolidInterfaceFeedbackInterfaceAlertTriangle;
+export const NovaSolidInterfaceFeedbackInterfaceQuestionMark: Icon = _NovaSolidInterfaceFeedbackInterfaceQuestionMark;
 export const NovaSolidLightsLightbulb4: Icon = _NovaSolidLightsLightbulb4;
 export const NovaSolidLocationsCompass3: Icon = _NovaSolidLocationsCompass3;
 export const NovaSolidLocationsLocationPinQuestionMark1: Icon = _NovaSolidLocationsLocationPinQuestionMark1;
