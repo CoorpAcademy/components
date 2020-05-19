@@ -1,10 +1,10 @@
-@import './common.css';
 @value colors: "../../variables/colors.css";
 @value xtraLightGrey from colors;
 @value dark from colors;
 
 .overlay {
-  composes: makeItFlex box;
+  composes: makeItFlex from './common.css';
+  composes: box from './common.css';
   position: absolute;
   top: 0;
   left: 0;

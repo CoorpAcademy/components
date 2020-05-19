@@ -33,7 +33,7 @@ test('should call getAvailableContent function', t =>
       type: 'level',
       ref: 'plop'
     }),
-    'level plop has no chapterIds'
+    {message: 'level plop has no chapterIds'}
   ));
 
 test('should create progression for a non-adaptive chapter', async t => {
@@ -150,16 +150,17 @@ test('should override answer action with exitNode if fastSlide is true', async t
 });
 
 test('should fail to postAnswer for wrong progressionId', t => {
-  return t.throwsAsync(() => postAnswer('wrongId', {}), 'progression "wrongId" not found');
+  return t.throwsAsync(() => postAnswer('wrongId', {}), {
+    message: 'progression "wrongId" not found'
+  });
 });
 
 test('should fail for progression with no state', async t => {
   const progression = await create(uniqueId(), engine, {type: 'chapter', ref: '5.C7'});
   delete progression.state;
-  return t.throwsAsync(
-    postAnswer(progression._id, {}),
-    `progression "${progression._id}" has no state`
-  );
+  return t.throwsAsync(postAnswer(progression._id, {}), {
+    message: `progression "${progression._id}" has no state`
+  });
 });
 
 test('should mark a resource as viewed', async t => {
@@ -179,10 +180,9 @@ test('should mark a resource as viewed', async t => {
 });
 
 test('should fail to markResourceAsViewed with wrong progressionId', t => {
-  return t.throwsAsync(
-    () => markResourceAsViewed('wrongId', {}),
-    'progression "wrongId" not found'
-  );
+  return t.throwsAsync(() => markResourceAsViewed('wrongId', {}), {
+    message: 'progression "wrongId" not found'
+  });
 });
 
 test('getEngineConfig should return the value from progression-engine', async t => {

@@ -31,29 +31,29 @@
   },
   "homepage": "https://github.com/CoorpAcademy/components/packages/@coorpacademy-player-store#readme",
   "devDependencies": {
-    "@babel/cli": "^7.6.4",
-    "@babel/core": "^7.6.4",
-    "@babel/plugin-proposal-object-rest-spread": "^7.6.2",
-    "@babel/polyfill": "^7.6.0",
-    "@babel/preset-env": "^7.6.3",
-    "@babel/preset-flow": "^7.0.0",
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.6",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-flow": "^7.9.0",
     "@coorpacademy/eslint-plugin-coorpacademy": "^9.0.1",
-    "ava": "^2.4.0",
-    "babel-plugin-istanbul": "^5.2.0",
+    "ava": "^3.8.2",
+    "babel-plugin-istanbul": "^6.0.0",
     "babel-plugin-lodash": "^3.3.4",
-    "browser-env": "^3.2.6",
-    "concurrently": "^5.0.0",
-    "cross-env": "^6.0.3",
+    "browser-env": "^3.3.0",
+    "concurrently": "^5.2.0",
+    "cross-env": "^7.0.2",
     "eslint": "^6.6.0",
     "flow-bin": "^0.75.0",
-    "flow-copy-source": "^2.0.8",
-    "nyc": "^14.1.1"
+    "flow-copy-source": "^2.0.9",
+    "nyc": "^15.0.1"
   },
   "dependencies": {
     "@coorpacademy/progression-engine": "11.1.7",
     "@coorpacademy/redux-task": "1.1.0",
     "lodash": "^4.17.15",
-    "redux": "^4.0.4",
+    "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
   }
 }

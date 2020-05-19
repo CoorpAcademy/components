@@ -23,12 +23,10 @@ test('should display microlearning header', t => {
       player: {header: headerProps}
     }
   } = vNode;
-
   t.is(headerProps.type, 'microlearning');
   t.is(headerProps.content.title, 'Les réseaux sociaux au service du crowdfunding');
   t.is(headerProps.subcontent, null);
   t.deepEqual(headerProps.lives, {count: 3});
-
   const onClick = headerProps.content.onClick;
   t.true(isFunction(onClick));
   const actionOnClick = onClick();

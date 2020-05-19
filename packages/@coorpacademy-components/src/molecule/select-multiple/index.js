@@ -17,7 +17,7 @@ class SelectMultiple extends React.Component {
     opened: false
   };
 
-  componentWillMount() {
+  componentDidMount() {
     if (typeof document !== 'undefined') {
       document.addEventListener('click', this.closeHandle);
       document.addEventListener('touchstart', this.closeHandle);

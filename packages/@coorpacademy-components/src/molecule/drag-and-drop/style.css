@@ -1,9 +1,8 @@
-@import './common.css';
 @value colors: "../../variables/colors.css";
 @value light from colors;
 
 .wrapper {
-  composes: box;
+  composes: box from './common.css';
   display: flex;
   justify-content: center;
   position: relative;

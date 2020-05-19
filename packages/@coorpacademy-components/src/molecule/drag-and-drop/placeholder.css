@@ -1,16 +1,15 @@
-@import './common.css';
 @value colors: "../../variables/colors.css";
 @value medium from colors;
 
 .dropZoneContainer {
-  composes: makeItFlex;
+  composes: makeItFlex from './common.css';
   padding: 32px 87px 24px 87px;
   width: 100%;
   cursor: pointer;
 }
 
 .dropZone {
-  composes: makeItFlex;
+  composes: makeItFlex from './common.css';
   align-items: center;
   min-height: 112px;
   justify-content: center;
@@ -21,7 +20,7 @@
 }
 
 .title {
-  composes: baseText;
+  composes: baseText from './common.css';
   font-size: 20px;
   text-transform: none;
   color: black;
@@ -30,7 +29,7 @@
 }
 
 .uploadLabel {
-  composes: baseText;
+  composes: baseText from './common.css';
   padding: 34px;
   font-size: 16px;
   font-weight: 700;

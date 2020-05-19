@@ -3,7 +3,7 @@ import test from 'ava';
 import {getConfig} from '..';
 
 test('should throw an error if the engine ref is unknown', t => {
-  t.throws(() => getConfig({ref: 'foobar', version: '1'}), 'Unknown engine foobar');
+  t.throws(() => getConfig({ref: 'foobar', version: '1'}), {message: 'Unknown engine foobar'});
 });
 
 test('should return the configuration with the given version if it exists', t => {

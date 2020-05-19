@@ -29,10 +29,10 @@
   "devDependencies": {
     "@coorpacademy/eslint-plugin-coorpacademy": "^9.0.1",
     "@coorpacademy/update-node": "^3.16.0",
-    "codecov": "^3.6.1",
+    "codecov": "^3.7.0",
     "eslint": "^6.6.0",
     "estraverse-fb": "1.3.2",
     "lerna": "^3.18.3",
-    "mkdirp": "^0.5.1"
+    "mkdirp": "^1.0.4"
   }
 }

@@ -19,24 +19,20 @@ const LoadedClue = ({text}) => {
 };
 
 class Clue extends React.Component {
+  static getDerivedStateFromProps(props) {
+    const {text} = props;
+    const isLoading = isEmpty(text);
+
+    if (isLoading) return null;
+    return {isLoading};
+  }
+
   constructor(props, context) {
     super(props, context);
     this.state = {
       isLoading: false
     };
     this.handleClick = this.handleClick.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const {text} = nextProps;
-    const isLoading = isEmpty(text);
-    if (!isLoading) {
-      return this.setState(() => {
-        return {
-          isLoading
-        };
-      });
-    }
   }
 
   handleClick(e) {

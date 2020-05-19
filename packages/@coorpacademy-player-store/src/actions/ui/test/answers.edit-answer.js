@@ -39,10 +39,10 @@ test('should throw an error if questionType is unknown', t => {
   const dispatch = noop;
   const getState = () => badQuestionType;
 
-  return t.throws(
-    () => editAnswer(['some new answer'])(dispatch, getState),
-    'Cannot find edit action for "bar". It must be within [qcm,qcmGraphic,qcmDrag,template,basic,slider]'
-  );
+  return t.throws(() => editAnswer(['some new answer'])(dispatch, getState), {
+    message:
+      'Cannot find edit action for "bar". It must be within [qcm,qcmGraphic,qcmDrag,template,basic,slider]'
+  });
 });
 
 test('should dispatch an error if slide is not found', t => {

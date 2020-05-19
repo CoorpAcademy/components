@@ -442,10 +442,10 @@ test("should throw if the state's nextContent is not the same as the action's co
     }
   });
 
-  t.throws(
-    () => updateState(config, state, [action]),
-    'The content of the progression state does not match the answer action: state.nextContent: {"ref":"1.A1.2","type":"slide"} | action.payload.content: {"ref":"1.A1.200","type":"slide"}'
-  );
+  t.throws(() => updateState(config, state, [action]), {
+    message:
+      'The content of the progression state does not match the answer action: state.nextContent: {"ref":"1.A1.2","type":"slide"} | action.payload.content: {"ref":"1.A1.200","type":"slide"}'
+  });
 });
 
 test('should add one life when using extra life', t => {

@@ -1,4 +1,3 @@
-@import './common.css';
 @value colors: "../../variables/colors.css";
 @value negative from colors;
 @value dark from colors;

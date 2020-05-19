@@ -1,7 +1,6 @@
 import {join} from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import CompressionPlugin from 'compression-webpack-plugin';
-import {BundleAnalyzerPlugin} from 'webpack-bundle-analyzer';
 
 const hash = '[local]-[hash:base64:5]';
 
@@ -64,8 +63,9 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
             {
               loader: 'css-loader',
               options: {
-                modules: true,
-                localIdentName: hash
+                modules: {
+                  localIdentName: hash
+                }
               }
             },
             'postcss-loader'
@@ -77,11 +77,6 @@ const createConfig = (NODE_ENV = 'development', additionalPlugins = []) => {
     plugins: (() => {
       const plugins = [].concat(
         [
-          new BundleAnalyzerPlugin({
-            analyzerMode: 'static',
-            generateStatsFile: true,
-            openAnalyzer: false
-          }),
           new MiniCssExtractPlugin({
             filename: '[name].css',
             ignoreOrder: true
