@@ -9,9 +9,6 @@ import {
   find,
   includes,
   isEmpty,
-  update,
-  shuffle,
-  memoize,
   map,
   some,
   toString as _toString
@@ -48,10 +45,17 @@ import type {
 import type {ReduxState as State} from '../definitions/redux';
 import {CONTENT_TYPE, ENGINES} from '../definitions/models';
 
+export const getChoices = (slide: Slide): Array<Choice> | void => {
+  if (!slide || !slide.question || !slide.question.content || !slide.question.content.choices) {
+    return undefined;
+  }
+  // $FlowFixMe flow cannot cast here "property choices of unknown type is incompatible with array type"
+  return slide.question.content.choices;
+};
 export const getChapterId = (slide: Slide): string => slide.chapter_id;
 export const getQuestionType = (slide: Slide): QuestionType => slide.question.type;
 export const getCurrentProgressionId = (state: State): ProgressionId =>
-  get('ui.current.progressionId', state);
+  state.ui.current.progressionId;
 
 export const getProgression = (id: ProgressionId): (State => Progression) => (
   state: State
@@ -306,41 +310,6 @@ export const getEngineConfig = (state: State): EngineConfig | void => {
   const config = `${engine.ref}@${engine.version}`;
   return state.data.configs && state.data.configs.entities && state.data.configs.entities[config];
 };
-
-const isEnableShuffleChoices = (state: State): boolean => {
-  const engineConfig = getEngineConfig(state);
-  if (!engineConfig || !engineConfig.shuffleChoices) return false;
-  return engineConfig.shuffleChoices;
-};
-
-const getSlideChoices = (slide: Slide, state: State): Array<Choice> | void => {
-  if (!slide || !slide.question || !slide.question.content || !slide.question.content.choices) {
-    return undefined;
-  }
-  const shuffleChoices = isEnableShuffleChoices(state);
-
-  // $FlowFixMe Cannot assign `slide.question.content.choices` to `choices` because property `choices` of unknown type (see line 51) is incompatible with array type
-  const choices = slide.question.content.choices;
-  if (!shuffleChoices) return choices;
-
-  switch (get(['question', 'type'], slide)) {
-    case 'qcm':
-    case 'qcmGraphic':
-    case 'qcmDrag':
-      return shuffle(choices);
-    case 'template':
-      return map(update('items', shuffle), choices);
-    default:
-      return choices;
-  }
-};
-
-const memoizeWithResolver = memoize.convert({fixed: false});
-
-export const getChoices = memoizeWithResolver(
-  getSlideChoices,
-  (slide: Slide, state: State): string => `${get('_id', slide)}-${getCurrentProgressionId(state)}`
-);
 
 export const getPreviousSlide = (state: State): Slide | void => {
   const progression = getCurrentProgression(state);

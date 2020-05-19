@@ -8,7 +8,6 @@ const configurations: Array<Config> = [
     livesDisabled: true,
     maxTypos: 0,
     slidesToComplete: 0,
-    shuffleChoices: false,
     answerBoundaryLimit: 0,
     starsPerAskingClue: 0,
     starsPerCorrectAnswer: 0,

@@ -26,7 +26,6 @@ test('should return the configuration with the given version if it exists', t =>
     livesDisabled: false,
     maxTypos: 2,
     slidesToComplete: 4,
-    shuffleChoices: true,
     answerBoundaryLimit: 5,
     starsPerAskingClue: -1,
     starsPerCorrectAnswer: 4,
@@ -39,7 +38,6 @@ test('should return the configuration with the given version if it exists', t =>
     livesDisabled: true,
     maxTypos: 2,
     slidesToComplete: 4,
-    shuffleChoices: true,
     answerBoundaryLimit: 5,
     starsPerAskingClue: -1,
     starsPerCorrectAnswer: 4,
@@ -52,7 +50,6 @@ test('should return the configuration with the given version if it exists', t =>
     livesDisabled: false,
     maxTypos: 2,
     slidesToComplete: 4,
-    shuffleChoices: true,
     answerBoundaryLimit: 5,
     starsPerAskingClue: -1,
     starsPerCorrectAnswer: 4,
@@ -65,7 +62,6 @@ test('should return the configuration with the given version if it exists', t =>
     livesDisabled: false,
     maxTypos: 2,
     slidesToComplete: 4,
-    shuffleChoices: true,
     answerBoundaryLimit: 5,
     starsPerAskingClue: -1,
     starsPerCorrectAnswer: 4,
@@ -78,7 +74,6 @@ test('should return the configuration with the given version if it exists', t =>
     livesDisabled: true,
     maxTypos: 0,
     slidesToComplete: 0,
-    shuffleChoices: false,
     answerBoundaryLimit: 0,
     starsPerAskingClue: 0,
     starsPerCorrectAnswer: 0,
@@ -88,11 +83,7 @@ test('should return the configuration with the given version if it exists', t =>
 });
 
 test('should merge the engineOptions values from the progression into the resulting configuration', t => {
-  const engineOptions = {
-    livesDisabled: true,
-    maxTypos: 100,
-    version: 'foobar'
-  };
+  const engineOptions = {livesDisabled: true, maxTypos: 100, version: 'foobar'};
   t.deepEqual(
     getConfigForProgression({
       ...createProgression({ref: 'microlearning', version: '1'}),
@@ -104,7 +95,6 @@ test('should merge the engineOptions values from the progression into the result
       livesDisabled: true,
       maxTypos: 100,
       slidesToComplete: 4,
-      shuffleChoices: true,
       answerBoundaryLimit: 5,
       starsPerAskingClue: -1,
       starsPerCorrectAnswer: 4,
