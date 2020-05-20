@@ -13,10 +13,9 @@ const createProgression = ({ref, version}: {ref: string, version: string}): Prog
 });
 
 test('should throw an error if the engine ref is unknown', t => {
-  t.throws(
-    () => getConfigForProgression(createProgression({ref: 'foobar', version: '1'})),
-    'Unknown engine foobar'
-  );
+  t.throws(() => getConfigForProgression(createProgression({ref: 'foobar', version: '1'})), {
+    message: 'Unknown engine foobar'
+  });
 });
 
 test('should return the configuration with the given version if it exists', t => {

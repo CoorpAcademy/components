@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {noop, getOr} from 'lodash/fp';
+import {noop, getOr, isUndefined} from 'lodash/fp';
 import {
   NovaLineBusinessCircleView as PreviewIcon,
   NovaLineContentEditionPencil2 as PencilIcon
@@ -9,21 +9,23 @@ import InputPreview from './input-preview';
 import style from './style.css';
 
 class InputHtml extends React.Component {
+  static getDerivedStateFromProps(props, state) {
+    const {value} = props;
+
+    if (isUndefined(value)) return null;
+
+    return {
+      text: value,
+      preview: state.preview
+    };
+  }
+
   constructor(props, context) {
     super(props);
     this.state = {
       text: getOr('', 'value', props),
       preview: true
     };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (typeof nextProps.value !== 'undefined') {
-      this.setState(state => ({
-        text: nextProps.value,
-        preview: state.preview
-      }));
-    }
   }
 
   render() {
@@ -82,6 +84,7 @@ InputHtml.propTypes = {
   title: PropTypes.string,
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
+  // eslint-disable-next-line react/no-unused-prop-types
   value: PropTypes.string,
   error: PropTypes.string,
   onChange: PropTypes.func,

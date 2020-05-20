@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {isEqual} from 'lodash/fp';
 import {SrcPropType} from '../../util/proptypes';
 import VideoIframe from '../video-iframe';
 import JWPlayer from './jwplayer';
@@ -8,12 +7,22 @@ import Vimeo from './vimeo';
 import style from './style.css';
 
 class VideoPlayer extends React.Component {
-  state = {
-    played: false
-  };
+  static getDerivedStateFromProps(props, state) {
+    if (props.id === state.id) return null;
 
-  componentWillReceiveProps(nextProps) {
-    if (!isEqual(nextProps.id, this.props.id)) this.setState(() => ({played: false}));
+    return {
+      id: props.id,
+      played: false
+    };
+  }
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      played: false,
+      // eslint-disable-next-line react/no-unused-state
+      id: props.id
+    };
   }
 
   handleOnPlay = e => {

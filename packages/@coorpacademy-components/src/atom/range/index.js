@@ -20,6 +20,14 @@ const extractStateFromProps = props => {
 
 // eslint-disable-next-line no-shadow
 class Range extends React.Component {
+  static getDerivedStateFromProps(props, state) {
+    const {pending} = state;
+
+    if (pending) return null;
+
+    return extractStateFromProps(props);
+  }
+
   constructor(props, context) {
     super(props, context);
 
@@ -34,14 +42,6 @@ class Range extends React.Component {
     this.handleMaxChange = this.handleMaxChange.bind(this);
     this.handleMinChangeEnd = this.handleMinChangeEnd.bind(this);
     this.handleMaxChangeEnd = this.handleMaxChangeEnd.bind(this);
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const {pending} = this.state;
-
-    if (pending) return;
-
-    this.setState(() => extractStateFromProps(nextProps));
   }
 
   setRefTrack(track) {

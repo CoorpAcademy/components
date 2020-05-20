@@ -26,7 +26,13 @@
           }
         ]
       ],
-      "plugins": ["istanbul"]
+      "plugins": [
+        [
+          "css-modules-transform",
+          {
+            "generateScopedName": "[folder]__[local]"
+          }
+        ],"istanbul"]
     },
     "es": {
       "presets": [

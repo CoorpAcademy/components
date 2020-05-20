@@ -30,6 +30,16 @@ const DEFAULT_SKIN = {
 const mergeSkin = (skin = {}) => defaultsDeep(skin, DEFAULT_SKIN);
 
 class Provider extends React.Component {
+  static getDerivedStateFromProps(props) {
+    const {history, skin, translate} = props;
+
+    return {
+      history,
+      skin: mergeSkin(skin),
+      translate
+    };
+  }
+
   constructor(props, context) {
     const {history, skin, translate, Vimeo} = props;
     super(props, context);
@@ -38,15 +48,6 @@ class Provider extends React.Component {
 
   getChildContext() {
     return this.state;
-  }
-
-  componentWillReceiveProps(nextProps) {
-    const {history, skin, translate} = nextProps;
-    this.setState({
-      history,
-      skin: mergeSkin(skin),
-      translate
-    });
   }
 
   render() {

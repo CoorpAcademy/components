@@ -51,9 +51,11 @@ module.exports = ({config}) => {
         {
           loader: 'css-loader',
           options: {
-            modules: true,
+            modules: {
+              exportGlobals: true,
+              localIdentName: `${hash}`
+            },
             importLoaders: 1,
-            localIdentName: `${hash}`
           }
         },
         {

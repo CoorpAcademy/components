@@ -42,9 +42,9 @@ class Animation extends React.Component {
     if (animated) this.startAnimation();
   }
 
-  componentWillReceiveProps(nextProps) {
-    const {animated: nextAnimated = false} = nextProps;
-    const {animated: prevAnimated = false} = this.props;
+  componentDidUpdate(prevProps) {
+    const {animated: nextAnimated = false} = this.props;
+    const {animated: prevAnimated = false} = prevProps;
 
     if (nextAnimated === prevAnimated) return;
 

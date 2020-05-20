@@ -93,7 +93,7 @@ test("should throw error if template isn't a string", t => {
     foo: 0
   });
 
-  t.throws(() => translate('foo'), 'Key foo not found!');
+  t.throws(() => translate('foo'), {message: 'Key foo not found!'});
 });
 
 test("should throw error if template couldn't be found", t => {
@@ -101,5 +101,5 @@ test("should throw error if template couldn't be found", t => {
     foo: 'Foo'
   });
 
-  t.throws(() => translate('bar'), 'Key bar not found!');
+  t.throws(() => translate('bar'), {message: 'Key bar not found!'});
 });

@@ -208,7 +208,7 @@ test('should return defaut props when slide.question.type is not handles', t => 
     }
   };
 
-  t.throws(() => createPlayerProps(state), 'plop is not an handled question.type');
+  t.throws(() => createPlayerProps(state), {message: 'plop is not an handled question.type'});
 });
 
 test('should disable the validate button when no answer is provided', t => {

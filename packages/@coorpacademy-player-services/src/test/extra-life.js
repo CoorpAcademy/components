@@ -28,35 +28,31 @@ test('should add one extra life if call accept', async t => {
 });
 
 test('should fail to acceptExtraLife with wrong progressionId', t => {
-  return t.throwsAsync(
-    () => Progressions.acceptExtraLife('wrongId', {}),
-    'progression "wrongId" not found'
-  );
+  return t.throwsAsync(() => Progressions.acceptExtraLife('wrongId', {}), {
+    message: 'progression "wrongId" not found'
+  });
 });
 
 test('should fail to refuseExtraLife with wrong progressionId', t => {
-  return t.throwsAsync(
-    () => Progressions.refuseExtraLife('wrongId', {}),
-    'progression "wrongId" not found'
-  );
+  return t.throwsAsync(() => Progressions.refuseExtraLife('wrongId', {}), {
+    message: 'progression "wrongId" not found'
+  });
 });
 
 test('should fail to acceptExtraLife with progression without state', async t => {
   const progression = await Progressions.create(uniqueId(), engine, {type: 'chapter', ref: '5.C7'});
   delete progression.state;
-  return t.throwsAsync(
-    () => Progressions.acceptExtraLife(progression._id, {}),
-    `progression "${progression._id}" has no state`
-  );
+  return t.throwsAsync(() => Progressions.acceptExtraLife(progression._id, {}), {
+    message: `progression "${progression._id}" has no state`
+  });
 });
 
 test('should fail to refuseExtraLife with progression without state', async t => {
   const progression = await Progressions.create(uniqueId(), engine, {type: 'chapter', ref: '5.C7'});
   delete progression.state;
-  return t.throwsAsync(
-    () => Progressions.refuseExtraLife(progression._id, {}),
-    `progression "${progression._id}" has no state`
-  );
+  return t.throwsAsync(() => Progressions.refuseExtraLife(progression._id, {}), {
+    message: `progression "${progression._id}" has no state`
+  });
 });
 
 test('should forward to failure if call refuse', async t => {

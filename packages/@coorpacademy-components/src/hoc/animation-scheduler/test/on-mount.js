@@ -19,9 +19,9 @@ class AnimatedComponent extends React.Component {
     });
   }
 
-  componentWillReceiveProps(nextProps) {
-    const {animated: nextAnimated = false, onAnimationEnd = noop} = nextProps;
-    const {animated = false} = this.props;
+  componentDidUpdate(prevProps) {
+    const {animated: nextAnimated = false, onAnimationEnd = noop} = this.props;
+    const {animated = false} = prevProps;
     requestAnimationFrame(() => {
       if (nextAnimated && animated !== nextAnimated) onAnimationEnd();
     });

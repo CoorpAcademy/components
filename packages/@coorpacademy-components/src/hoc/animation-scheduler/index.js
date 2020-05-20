@@ -83,15 +83,15 @@ const mergeAnimationStates = (animations, children) => {
 };
 
 class AnimationScheduler extends React.Component {
+  static getDerivedStateFromProps(props, state) {
+    return {
+      animations: mergeAnimationStates(state.animations, props.children)
+    };
+  }
+
   state = {
     animations: mergeAnimationStates({}, this.props.children)
   };
-
-  componentWillReceiveProps(nextProps) {
-    this.setState(state => ({
-      animations: mergeAnimationStates(state.animations, nextProps.children)
-    }));
-  }
 
   isAnimated(after) {
     if (isNil(after)) return true;
