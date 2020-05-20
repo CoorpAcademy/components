@@ -8,6 +8,7 @@ import {
   any,
   find,
   includes,
+  extend,
   isEmpty,
   update,
   shuffle,
@@ -296,7 +297,7 @@ export const getEngine = (state: State): Engine | void => {
   return progression.engine;
 };
 
-export const getEngineConfig = (state: State): EngineConfig | void => {
+export const getOriginalEngineConfig = (state: State): EngineConfig | void => {
   const engine = getEngine(state);
 
   if (!engine) {
@@ -307,8 +308,17 @@ export const getEngineConfig = (state: State): EngineConfig | void => {
   return state.data.configs && state.data.configs.entities && state.data.configs.entities[config];
 };
 
+export const getEngineConfig = (state: State): EngineConfig | void => {
+  const originalEngineConfig = getOriginalEngineConfig(state);
+  const progression = getCurrentProgression(state);
+  const engineOptions = progression ? get('engineOptions', progression) : null;
+  if (!engineOptions && !originalEngineConfig) return;
+  return extend(originalEngineConfig, engineOptions);
+};
+
 const isEnableShuffleChoices = (state: State): boolean => {
   const engineConfig = getEngineConfig(state);
+
   if (!engineConfig || !engineConfig.shuffleChoices) return false;
   return engineConfig.shuffleChoices;
 };
