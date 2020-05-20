@@ -148,7 +148,7 @@ export default {
             value: false,
             type: 'switch',
             description:
-              'Turn this setting on to make the SSO connection the default way to access the platform, rather than the traditionnal Coorpacademy-specific login',
+              'Turn this setting on to make the SSO connection the default way to access the platform, rather than the traditional Coorpacademy-specific login',
             onChange: () => {}
           }
         ]
