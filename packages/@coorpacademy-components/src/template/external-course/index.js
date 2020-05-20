@@ -1,5 +1,5 @@
 import React from 'react';
-import {NovaCompositionCoorpacademyWarn as WarnIcon} from '@coorpacademy/nova-icons';
+import {NovaSolidInterfaceFeedbackInterfaceQuestionMark as QuestionIcon} from '@coorpacademy/nova-icons';
 import {convert} from 'css-color-function';
 import classnames from 'classnames';
 import {get, getOr, keys} from 'lodash/fp';
@@ -47,9 +47,7 @@ class ExternalCourse extends React.Component {
               onClick={this.handleOnClick(warning)}
               className={classnames(style.iconLabel, style.link)}
             >
-              <div className={classnames(style.oval, style.warn)}>
-                <WarnIcon className={style.iconWarm} />
-              </div>
+              <QuestionIcon className={style.iconQuestion} width={24} height={24} />
               <span>{warning.label}</span>
             </div>
           </div>
