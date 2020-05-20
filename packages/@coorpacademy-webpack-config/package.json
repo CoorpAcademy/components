@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/webpack-config",
-  "version": "9.0.2",
+  "version": "10.0.0",
   "description": "",
   "main": "lib/index.js",
   "files": [
