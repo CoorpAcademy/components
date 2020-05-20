@@ -1,6 +1,6 @@
-import React from "react";
+import * as React from "react";
 
-const SvgComponent = props => (
+const SvgComponent = (props) => (
   <svg
     id="prefix__Calque_1"
     x={0}
