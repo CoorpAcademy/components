@@ -84,6 +84,35 @@ test('getChoices should return undefined when no content.choices', t => {
   t.is(getChoices(slide), undefined);
 });
 
+test('getChoices with progression not found should return choices for qcm slide', t => {
+  const state = {
+    data: {
+      configs: {
+        entities: {
+          'learner@2': {version: '2', shuffleChoices: false}
+        }
+      },
+      progressions: {
+        entities: {}
+      }
+    },
+    ui: {
+      current: {progressionId: '1234'}
+    }
+  };
+  const choices = [{foo: 1}, {bar: 2}];
+  const slide = {
+    _id: `sli_00001${random(0, 100000)}`,
+    question: {
+      type: 'qcm',
+      content: {
+        choices
+      }
+    }
+  };
+  t.deepEqual(getChoices(slide, state), choices);
+});
+
 function macroDoNothing(t, type, shuffleChoices = true) {
   const state = {
     data: {
@@ -117,6 +146,40 @@ function macroDoNothing(t, type, shuffleChoices = true) {
   t.deepEqual(getChoices(slide, state), choices);
 }
 
+function macroDoNothingWithShuffleChoicesEnabledOnConfig(t, type, shuffleChoices = true) {
+  const state = {
+    data: {
+      configs: {
+        entities: {
+          'learner@2': {version: '2', shuffleChoices: true}
+        }
+      },
+      progressions: {
+        entities: {
+          '1234': {
+            engine: {ref: 'learner', version: '2'},
+            engineOptions: {shuffleChoices}
+          }
+        }
+      }
+    },
+    ui: {
+      current: {progressionId: '1234'}
+    }
+  };
+  const choices = [{foo: 1}, {bar: 2}];
+  const slide = {
+    _id: `sli_00001${random(0, 100000)}`,
+    question: {
+      type,
+      content: {
+        choices
+      }
+    }
+  };
+  t.deepEqual(getChoices(slide, state), choices);
+}
+
 function macroQCM(t, type) {
   const state = {
     data: {
@@ -128,7 +191,8 @@ function macroQCM(t, type) {
       progressions: {
         entities: {
           '1234': {
-            engine: {ref: 'learner', version: '2'}
+            engine: {ref: 'learner', version: '2'},
+            engineOptions: {}
           }
         }
       }
@@ -158,6 +222,47 @@ function macroQCM(t, type) {
   t.deepEqual(resFirstCall, resThirdCall);
 }
 
+function macroQCMWithShuffleChoicesEnabledOnEngineOptionsAndDisabledOnConfig(t, type) {
+  const state = {
+    data: {
+      configs: {
+        entities: {
+          'learner@2': {version: '2', shuffleChoices: false}
+        }
+      },
+      progressions: {
+        entities: {
+          '1234': {
+            engine: {ref: 'learner', version: '2'},
+            engineOptions: {shuffleChoices: true}
+          }
+        }
+      }
+    },
+    ui: {
+      current: {progressionId: '1234'}
+    }
+  };
+  const choices = [{_id: 1, foo: 1}, {_id: 2, bar: 2}];
+  const slide = {
+    _id: `sli_00001${random(0, 100000)}`,
+    question: {
+      type,
+      content: {
+        choices
+      }
+    }
+  };
+  const resFirstCall = getChoices(slide, state);
+  const resSecondCall = getChoices(slide, state);
+  const resThirdCall = getChoices(slide, state);
+
+  t.deepEqual(sortBy('_id', resFirstCall), sortBy('_id', choices));
+  t.deepEqual(sortBy('_id', resSecondCall), sortBy('_id', choices));
+  t.deepEqual(sortBy('_id', resThirdCall), sortBy('_id', choices));
+  t.deepEqual(resFirstCall, resSecondCall);
+  t.deepEqual(resFirstCall, resThirdCall);
+}
 test(
   'getChoices with shuffle enabled should return choices for basic slide',
   macroDoNothing,
@@ -166,6 +271,16 @@ test(
 test(
   'getChoices with shuffle enabled should return choices for slider slide',
   macroDoNothing,
+  'slider'
+);
+test(
+  'getChoices with shuffle enabled in (config and engineOptions) should return choices for basic slide',
+  macroDoNothingWithShuffleChoicesEnabledOnConfig,
+  'basic'
+);
+test(
+  'getChoices with shuffle enabled in (config and engineOptions) should return choices for slider slide',
+  macroDoNothingWithShuffleChoicesEnabledOnConfig,
   'slider'
 );
 test(
@@ -181,6 +296,22 @@ test(
 test(
   'getChoices with shuffle enabled should return shuffle choices for qcmDrag slide',
   macroQCM,
+  'qcmDrag'
+);
+
+test(
+  'getChoices with shuffle enabled on EngineOptions and disabled on Config should return shuffle choices for qcm slide',
+  macroQCMWithShuffleChoicesEnabledOnEngineOptionsAndDisabledOnConfig,
+  'qcm'
+);
+test(
+  'getChoices with shuffle enabled on EngineOptions and disabled on Config should return shuffle choices for qcmGraphic slide',
+  macroQCMWithShuffleChoicesEnabledOnEngineOptionsAndDisabledOnConfig,
+  'qcmGraphic'
+);
+test(
+  'getChoices with shuffle enabled on EngineOptions and disabled on Config should return shuffle choices for qcmDrag slide',
+  macroQCMWithShuffleChoicesEnabledOnEngineOptionsAndDisabledOnConfig,
   'qcmDrag'
 );
 
@@ -221,6 +352,43 @@ test(
   false
 );
 
+test(
+  'getChoices with shuffle disabled in engineOptions and enabled in config should return choices for basic slide',
+  macroDoNothingWithShuffleChoicesEnabledOnConfig,
+  'basic',
+  false
+);
+test(
+  'getChoices with shuffle disabled in engineOptions and enabled in config should return choices for slider slide',
+  macroDoNothingWithShuffleChoicesEnabledOnConfig,
+  'slider',
+  false
+);
+test(
+  'getChoices with shuffle disabled in engineOptions and enabled in config should return choices for qcm slide',
+  macroDoNothingWithShuffleChoicesEnabledOnConfig,
+  'qcm',
+  false
+);
+test(
+  'getChoices with shuffle disabled in engineOptions and enabled in config should return choices for qcmGraphic slide',
+  macroDoNothingWithShuffleChoicesEnabledOnConfig,
+  'qcmGraphic',
+  false
+);
+test(
+  'getChoices with shuffle disabled in engineOptions and enabled in config should return choices for qcmDrag slide',
+  macroDoNothingWithShuffleChoicesEnabledOnConfig,
+  'qcmDrag',
+  false
+);
+test(
+  'getChoices with shuffle disabled in engineOptions and enabled in config should return choices for template slide',
+  macroDoNothingWithShuffleChoicesEnabledOnConfig,
+  'template',
+  false
+);
+
 test('getChoices with shuffle enabled should return shuffle choices for template slide', t => {
   const state = {
     data: {
@@ -232,7 +400,8 @@ test('getChoices with shuffle enabled should return shuffle choices for template
       progressions: {
         entities: {
           '1234': {
-            engine: {ref: 'learner', version: '2'}
+            engine: {ref: 'learner', version: '2'},
+            engineOptions: {}
           }
         }
       }
@@ -364,10 +533,24 @@ test('getEngineConfig should return proper engine string', t => {
   const state = pipe(
     set('ui.current.progressionId', '0'),
     set('data.progressions.entities', {'0': {engine}}),
-    set('data.configs.entities', {[tag]: 'plop'})
+    set('data.configs.entities', {[tag]: {bar: 'plop'}})
   )({});
 
-  t.is(getEngineConfig(state), 'plop');
+  t.deepEqual(getEngineConfig(state), {bar: 'plop'});
+});
+
+test('getEngineConfig should return extended config with engineOptions and proper engine string', t => {
+  const engine = {ref: 'microlearning', version: '1.0.0'};
+  const engineOptions = {bar: 'plip', foo: 'flop'};
+  const tag = `${engine.ref}@${engine.version}`;
+
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': {engine, engineOptions}}),
+    set('data.configs.entities', {[tag]: {bar: 'plop', plip: true}})
+  )({});
+
+  t.deepEqual(getEngineConfig(state), {bar: 'plip', foo: 'flop', plip: true});
 });
 
 test('getEngineConfig should return undefined if no engine is found', t => {
