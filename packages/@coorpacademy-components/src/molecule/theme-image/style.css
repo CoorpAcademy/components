@@ -27,46 +27,46 @@
   height: 100%;
 }
 
-.desktop,
-.tablet,
-.mobile {
+.desktopContainer,
+.tabletContainer,
+.mobileContainer {
   display: none;
   width: 100%;
   height: 100%;
 }
 
 @media desktop {
-  .desktop {
+  .desktopContainer {
     display: block;
   }
 
   .default,
-  .tablet,
-  .mobile {
+  .tabletContainer,
+  .mobileContainer {
     display: none;
   }
 }
 
 @media tablet {
-  .tablet {
+  .tabletContainer {
     display: block;
   }
 
   .default,
-  .desktop,
-  .mobile {
+  .desktopContainer,
+  .mobileContainer {
     display: none;
   }
 }
 
 @media mobile {
-  .mobile {
+  .mobileContainer {
     display: block;
   }
 
   .default,
-  .desktop,
-  .tablet {
+  .desktopContainer,
+  .tabletContainer {
     display: none;
   }
 }
