@@ -27,36 +27,36 @@
   background-size: contain;
 }
 
-.mobile,
-.desktop {
+.mobileContainer,
+.desktopContainer {
   width: 100%;
   height: 100%;
 }
 
-.mobile {
+.mobileContainer {
   display: none;
 }
 
-.desktop {
+.desktopContainer {
   display: block;
 }
 
 @media desktop {
-  .mobile {
+  .mobileContainer {
     display: none;
   }
 
-  .desktop {
+  .desktopContainer {
     display: block;
   }
 }
 
 @media mobile {
-  .mobile {
+  .mobileContainer {
     display: block;
   }
 
-  .desktop {
+  .desktopContainer {
     display: none;
   }
 }

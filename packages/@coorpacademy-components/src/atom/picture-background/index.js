@@ -17,7 +17,7 @@ const PictureBackground = props => {
 
   const pictureView = isObject(src) ? (
     <div className={style.deviceView}>
-      <div className={style.mobile}>
+      <div className={style.mobileContainer}>
         <div
           className={classnames(style.picture, bgStyle)}
           style={{
@@ -25,7 +25,7 @@ const PictureBackground = props => {
           }}
         />
       </div>
-      <div className={style.desktop}>
+      <div className={style.desktopContainer}>
         <div
           className={classnames(style.picture, bgStyle)}
           style={{

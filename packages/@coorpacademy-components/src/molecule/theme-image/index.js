@@ -18,13 +18,13 @@ function ThemeImage({image}, {skin}) {
       <div className={style.default}>
         <div className={style.background} style={defaultStyle} />
       </div>
-      <div className={style.desktop}>
+      <div className={style.desktopContainer}>
         <div className={style.background} style={desktopStyle} />
       </div>
-      <div className={style.tablet}>
+      <div className={style.tabletContainer}>
         <div className={style.background} style={tabletStyle} />
       </div>
-      <div className={style.mobile}>
+      <div className={style.mobileContainer}>
         <div className={style.background} style={mobileStyle} />
       </div>
     </div>
