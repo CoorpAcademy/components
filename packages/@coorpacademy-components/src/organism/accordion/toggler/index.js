@@ -1,30 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {map, pipe, set, get, getOr, identity, constant} from 'lodash/fp';
+import {map, pipe, set, get, getOr, identity, constant, zipWith} from 'lodash/fp';
 
 import Accordion from '../container';
 
-const mapi = map.convert({cap: false});
-const map2 = (iteratee, arr1, arr2) => {
-  return mapi((value1, index) => {
-    const value2 = get(index, arr2);
-    return iteratee(value1, value2);
-  }, arr1);
-};
-
 class AccordionToggler extends React.Component {
   static getDerivedStateFromProps(props, state) {
-    if (state.isOpen) return null;
+    if (state.isOpenValues) return null;
 
-    const isOpen = map(getOr(false, 'isOpen'), props.tabProps);
+    const isOpenValues = map(getOr(false, 'isOpen'), props.tabProps);
 
-    return {isOpen};
+    return {isOpenValues};
   }
 
   constructor(props) {
     super(props);
 
-    this.state = {isOpen: null};
+    this.state = {isOpenValues: null};
 
     this.handleOnClick = this.handleOnClick.bind(this);
   }
@@ -32,22 +24,22 @@ class AccordionToggler extends React.Component {
   handleOnClick(key) {
     this.setState(prevState => {
       return {
-        isOpen: pipe(
+        isOpenValues: pipe(
           this.props.oneTabOnly ? map(constant(false)) : identity,
-          set(key, !get(key, prevState.isOpen))
-        )(prevState.isOpen)
+          set(key, !get(key, prevState.isOpenValues))
+        )(prevState.isOpenValues)
       };
     });
   }
 
   mergePropsAndState() {
-    return map2(
+    return zipWith(
       (props, isOpen) => ({
         ...props,
         isOpen
       }),
       this.props.tabProps,
-      this.state.isOpen
+      this.state.isOpenValues
     );
   }
 
