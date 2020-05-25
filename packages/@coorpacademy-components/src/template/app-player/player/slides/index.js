@@ -44,23 +44,77 @@ ClueContent.propTypes = {
   onClickSeeClue: PropTypes.func
 };
 
+const Bar = ({total, color, current}) => {
+  const _current = max([current, 0]);
+
+  if (!total) {
+    return null;
+  }
+
+  const stepWidth = (_current / total) * 100;
+
+  return (
+    <div
+      className={style.stepBar}
+      style={{
+        backgroundColor: color,
+        width: `${stepWidth}%`
+      }}
+    />
+  );
+};
+
+Bar.propTypes = {
+  current: PropTypes.number.isRequired,
+  total: PropTypes.number,
+  color: ColorPropType
+};
+
+const Step = ({step, color}) => {
+  return (
+    <div data-name="step">
+      <div data-name="counter" className={style.stepCount}>
+        <span style={{color}}>{step.current}</span>/{step.total}
+      </div>
+      <div className={style.stepWrapper}>
+        <Swapper color={color} {...step} current={step.current - 1}>
+          <Bar color={color} {...step} />
+        </Swapper>
+      </div>
+    </div>
+  );
+};
+
+Step.propTypes = {
+  step: PropTypes.shape({
+    current: Bar.propTypes.current,
+    total: Bar.propTypes.total
+  }),
+  color: ColorPropType
+};
+
 const NewMedia = (props, context) => {
   const {translate} = context;
-  const {onClick} = props;
-
+  const {onClick, step} = props;
+  const current = step.current;
   return (
     <div
       className={`${style.guideWrapper} ${style.newMedia}`}
       onClick={onClick}
       data-name="newMedia"
     >
-      <span>{translate('New media')}</span>
+      {current !== 1 ? (
+        <span>{translate('New media')}</span>
+      ) : (
+        <span>{translate('See lesson')}</span>
+      )}
     </div>
   );
 };
 
 NewMedia.propTypes = {
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  step: Step.propTypes.step
 };
 
 NewMedia.contextTypes = {
@@ -218,55 +272,6 @@ const CONTENT_TYPE = {
   media: MediaContent
 };
 
-const Bar = ({total, color, current}) => {
-  const _current = max([current, 0]);
-
-  if (!total) {
-    return null;
-  }
-
-  const stepWidth = (_current / total) * 100;
-
-  return (
-    <div
-      className={style.stepBar}
-      style={{
-        backgroundColor: color,
-        width: `${stepWidth}%`
-      }}
-    />
-  );
-};
-
-Bar.propTypes = {
-  current: PropTypes.number.isRequired,
-  total: PropTypes.number,
-  color: ColorPropType
-};
-
-const Step = ({step, color}) => {
-  return (
-    <div data-name="step">
-      <div data-name="counter" className={style.stepCount}>
-        <span style={{color}}>{step.current}</span>/{step.total}
-      </div>
-      <div className={style.stepWrapper}>
-        <Swapper color={color} {...step} current={step.current - 1}>
-          <Bar color={color} {...step} />
-        </Swapper>
-      </div>
-    </div>
-  );
-};
-
-Step.propTypes = {
-  step: PropTypes.shape({
-    current: Bar.propTypes.current,
-    total: Bar.propTypes.total
-  }),
-  color: ColorPropType
-};
-
 const Help = ({help}) => <div className={style.helpView}>{help}</div>;
 
 Help.propTypes = {
@@ -372,7 +377,7 @@ const SlidesPlayer = (props, context) => {
       {header && <Header {...header} />}
       <div className={style.contentProgression}>
         {step ? <Step step={step} color={stepColor} /> : null}
-        {showNewMedia && !showReviewLesson ? <NewMedia onClick={onClick} /> : null}
+        {showNewMedia && !showReviewLesson ? <NewMedia onClick={onClick} step={step} /> : null}
         {showReviewLesson && !showNewMedia ? <ReviewLesson onClick={onClick} /> : null}
         <Content {...props} />
       </div>
