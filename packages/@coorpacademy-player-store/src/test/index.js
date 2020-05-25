@@ -51,6 +51,7 @@ test('it should expose all api', t => {
       'getEngine',
       'getEngineConfig',
       'getOriginalEngineConfig',
+      'getEngineOptions',
       'getPreviousSlide',
       'getExitNode',
       'getCurrentExitNode',
