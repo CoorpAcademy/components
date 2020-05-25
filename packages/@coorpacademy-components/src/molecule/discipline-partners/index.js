@@ -89,7 +89,7 @@ const DisciplinePartners = (props, context) => {
           type="checkbox"
           id={`author-toggle-${index}`}
           className={style.toggle}
-          checked={authors.length === 1 ? true : null}
+          defaultChecked={authors.length === 1 ? true : null}
         />
         <label htmlFor={`author-toggle-${index}`}>{logoView}</label>
         {authorContent}
