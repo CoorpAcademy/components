@@ -76,14 +76,17 @@ BrandUpdate.propTypes = {
   ).isRequired,
   content: PropTypes.oneOfType([
     PropTypes.shape({
+      key: PropTypes.string,
       type: PropTypes.oneOf(['form']),
       ...BrandForm.propTypes
     }),
     PropTypes.shape({
+      key: PropTypes.string,
       type: PropTypes.oneOf(['list']),
       ...BrandTable.propTypes
     }),
     PropTypes.shape({
+      key: PropTypes.string,
       type: PropTypes.oneOf(['upload']),
       ...BrandUpload.propTypes
     })
