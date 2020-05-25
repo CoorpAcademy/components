@@ -1,8 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {get, getOr, isEmpty, map} from 'lodash/fp';
-import {NovaCompositionNavigationArrowRight as ArrowRight} from '@coorpacademy/nova-icons';
-import Link from '../../atom/link';
+import {
+  NovaCompositionNavigationArrowRight as ArrowRight,
+  NovaCompositionNavigationArrowDown as ArrowDown
+} from '@coorpacademy/nova-icons';
 import SocialLink from '../../atom/social-link';
 import Provider from '../../atom/provider';
 import CatalogSection from '../../atom/catalog-section';
@@ -64,9 +66,10 @@ const DisciplinePartners = (props, context) => {
 
     const logoView = authorLogo ? (
       <div className={style.logoContainer}>
-        <Link className={style.logoLink} href={authorLogo.href} target={'_blank'}>
-          <Picture className={style.logo} src={authorLogo.src} />
-        </Link>
+        <Picture className={style.logo} src={authorLogo.src} />
+        <div className={style.arrowWrapper}>
+          <ArrowDown className={style.arrow} height={14} whidth={14} />
+        </div>
       </div>
     ) : null;
 
@@ -82,7 +85,13 @@ const DisciplinePartners = (props, context) => {
 
     return (
       <div key={index} className={style.authorWrapper}>
-        {logoView}
+        <input
+          type="checkbox"
+          id={`author-toggle-${index}`}
+          className={style.toggle}
+          checked={authors.length === 1 ? true : null}
+        />
+        <label htmlFor={`author-toggle-${index}`}>{logoView}</label>
         {authorContent}
       </div>
     );
