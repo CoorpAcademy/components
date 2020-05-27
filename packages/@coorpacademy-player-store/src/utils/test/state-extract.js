@@ -24,6 +24,7 @@ import {
   getDiscipline,
   getEngine,
   getEngineConfig,
+  getEngineOptions,
   getLevel,
   getLives,
   getProgressionSteps,
@@ -537,6 +538,28 @@ test('getEngineConfig should return proper engine string', t => {
   )({});
 
   t.deepEqual(getEngineConfig(state), {bar: 'plop'});
+});
+
+test('getEngineOptions should return undefined with progression not found', t => {
+  const state = {
+    ui: {
+      current: {
+        progressionId: '0'
+      }
+    }
+  };
+
+  t.deepEqual(getEngineOptions(state), undefined);
+});
+test('getEngineOptions should return engineOptions of current progression', t => {
+  const engineOptions = {plop: true};
+
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': {engineOptions}})
+  )({});
+
+  t.deepEqual(getEngineOptions(state), engineOptions);
 });
 
 test('getEngineConfig should return extended config with engineOptions and proper engine string', t => {

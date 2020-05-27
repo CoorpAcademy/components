@@ -308,11 +308,17 @@ export const getOriginalEngineConfig = (state: State): EngineConfig | void => {
   return state.data.configs && state.data.configs.entities && state.data.configs.entities[config];
 };
 
+export const getEngineOptions = (state: State): EngineConfig | void => {
+  const progression = getCurrentProgression(state);
+  if (!progression) return undefined;
+  return progression.engineOptions;
+};
+
 export const getEngineConfig = (state: State): EngineConfig | void => {
   const originalEngineConfig = getOriginalEngineConfig(state);
-  const progression = getCurrentProgression(state);
-  const engineOptions = progression ? get('engineOptions', progression) : null;
-  if (!engineOptions && !originalEngineConfig) return;
+  if (!originalEngineConfig) return;
+
+  const engineOptions = getEngineOptions(state);
   return extend(originalEngineConfig, engineOptions);
 };
 
