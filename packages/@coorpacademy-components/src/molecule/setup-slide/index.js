@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {map} from 'lodash/fp';
 import Select from '../../atom/select';
+import InputReadonly from '../../atom/input-readonly';
 import InputText from '../../atom/input-text';
 import InputCheckbox from '../../atom/input-checkbox';
 import InputSwitch from '../../atom/input-switch';
@@ -27,6 +28,8 @@ const SetupSlide = props => {
         return <SetupCohortItem field={field} />;
       case 'alert':
         return <MessagePopin header={field.title} content={field.subtitle} />;
+      case 'readonly':
+        return <InputReadonly {...field} />;
       default:
         return <InputText {...field} />;
     }

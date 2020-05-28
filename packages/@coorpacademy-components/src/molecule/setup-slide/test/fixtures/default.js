@@ -34,6 +34,11 @@ export default {
         uploadLabel: 'Upload',
         previewLabel: 'Preview',
         onChange: () => true
+      },
+      {
+        type: 'readonly',
+        title: 'Informative input',
+        value: 'Some data displayed to the user'
       }
     ]
   }
