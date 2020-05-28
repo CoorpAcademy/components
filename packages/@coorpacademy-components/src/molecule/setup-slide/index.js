@@ -55,9 +55,40 @@ SetupSlide.defaultProps = {
 
 SetupSlide.propTypes = {
   fields: PropTypes.arrayOf(
-    PropTypes.shape({
-      type: PropTypes.string.isRequired
-    })
+    PropTypes.oneOfType([
+      PropTypes.shape({
+        type: PropTypes.string.isRequired
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['switch']),
+        ...InputSwitch.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['select']),
+        ...Select.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['checkbox']),
+        ...InputCheckbox.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['image']),
+        ...ImageUpload.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['readonly']),
+        ...InputReadonly.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['splitForm']),
+        ...SetupCohortItem.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['alert']),
+        ...MessagePopin.propTypes
+      }),
+      PropTypes.shape(InputText.propTypes)
+    ])
   )
 };
 export default SetupSlide;
