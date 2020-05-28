@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {map} from 'lodash/fp';
 import Select from '../../atom/select';
+import InputReadonly from '../../atom/input-readonly';
 import InputText from '../../atom/input-text';
 import InputCheckbox from '../../atom/input-checkbox';
 import InputSwitch from '../../atom/input-switch';
@@ -27,6 +28,8 @@ const SetupSlide = props => {
         return <SetupCohortItem field={field} />;
       case 'alert':
         return <MessagePopin header={field.title} content={field.subtitle} />;
+      case 'readonly':
+        return <InputReadonly {...field} />;
       default:
         return <InputText {...field} />;
     }
@@ -52,9 +55,37 @@ SetupSlide.defaultProps = {
 
 SetupSlide.propTypes = {
   fields: PropTypes.arrayOf(
-    PropTypes.shape({
-      type: PropTypes.string.isRequired
-    })
+    PropTypes.oneOfType([
+      PropTypes.shape({
+        type: PropTypes.oneOf(['switch']),
+        ...InputSwitch.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['select']),
+        ...Select.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['checkbox']),
+        ...InputCheckbox.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['image']),
+        ...ImageUpload.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['readonly']),
+        ...InputReadonly.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['splitForm']),
+        ...SetupCohortItem.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['alert']),
+        ...MessagePopin.propTypes
+      }),
+      PropTypes.shape(InputText.propTypes)
+    ])
   )
 };
 export default SetupSlide;
