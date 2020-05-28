@@ -7,14 +7,19 @@ import Provider from '../../atom/provider';
 import style from './style.css';
 
 const PDF = (props, context) => {
-  const {description, mediaUrl, onPlay} = props;
+  const {description, mediaUrl, poster, onPlay} = props;
   const {translate, skin} = context;
 
   const white = get('common.white', skin);
   const primary = get('common.primary', skin);
 
   return (
-    <div className={style.pdfFrame}>
+    <div
+      className={style.pdfFrame}
+      style={{
+        backgroundImage: `url(${poster})`
+      }}
+    >
       <PDFIcon color={white} className={style.pdfIcon} />
       <div className={style.pdfDescription} data-name="pdfDescription">
         {description}
@@ -37,6 +42,7 @@ PDF.contextTypes = {
 PDF.propTypes = {
   description: PropTypes.string,
   mediaUrl: PropTypes.string,
+  poster: PropTypes.string,
   onPlay: PropTypes.func
 };
 

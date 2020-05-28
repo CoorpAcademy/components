@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {compact, find, get, getOr, keys, omit, identity, max, pipe, split} from 'lodash/fp';
 import {ColorPropType, SrcPropType} from '../../../../util/proptypes';
 import Cta from '../../../../atom/cta';
@@ -155,7 +156,13 @@ const CONTEXT_MEDIA = {
 const ContextMedia = ({media}) => {
   const ContentType = CONTEXT_MEDIA[media.type];
   return (
-    <div data-name="contextMedia" className={style.contextWrapper}>
+    <div
+      data-name="contextMedia"
+      className={classnames(
+        style.contextWrapper,
+        media.type === 'pdf' ? style.contexPdftWrapper : null
+      )}
+    >
       <ContentType {...media} />
     </div>
   );
