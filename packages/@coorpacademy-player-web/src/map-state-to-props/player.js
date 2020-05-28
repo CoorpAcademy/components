@@ -41,8 +41,6 @@ const playerProps = (options, store) => state => {
   const route = getRoute(state);
   const resources = getResourcesProps(options, store)(state, slide);
   const help = createGetHelp(options, store)(slide);
-  const notifyNewMedia = !hasSeenLesson(state);
-  const notifyReviewLesson = hasSeenLesson(state);
   const starsDiff = get(STARS_DIFF[route], engineConfig) || 0;
   const clickClueHandler = () => dispatch(selectClue);
   const clickSeeClueHandler = () => dispatch(getClue);
@@ -51,6 +49,10 @@ const playerProps = (options, store) => state => {
 
   const hasClue = get('hasClue', slide);
   const slideLessons = get('lessons', slide);
+
+  const notifyNewMedia = !isEmpty(slideLessons) && !hasSeenLesson(state);
+  const notifyReviewLesson = !isEmpty(slideLessons) && hasSeenLesson(state);
+
   const contextButton = get('title', slideContext)
     ? [
         {

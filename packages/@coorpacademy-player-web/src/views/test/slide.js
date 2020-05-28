@@ -5,6 +5,7 @@ import {mockTranslate} from '@coorpacademy/translate';
 import microlearningHeader from '../../map-state-to-props/test/fixtures/progression-state';
 import learnerHeader from '../../map-state-to-props/test/fixtures/progression-learner';
 import stateSlide from '../../map-state-to-props/test/fixtures/player/slide';
+import stateSlideNoLessons from '../../map-state-to-props/test/fixtures/player/slide-no-lessons';
 import stateNoClue from '../../map-state-to-props/test/fixtures/player/no-clue';
 import stateClue from '../../map-state-to-props/test/fixtures/player/clue';
 import stateLoadingClue from '../../map-state-to-props/test/fixtures/player/loading-clue';
@@ -129,7 +130,63 @@ test('should display slide', async t => {
       type: 'coach'
     }
   ]);
+  t.is(playerProps.showNewMedia, true);
+  t.is(playerProps.showReviewLesson, false);
+  return Promise.all(map(button => t.notThrows(button.onClick), playerProps.buttons));
+});
 
+test('should disable lesson button if slide has no lessons', async t => {
+  const vNode = mapStateToVNode(stateSlideNoLessons);
+  testRendering(vNode);
+  const {
+    props: {player: playerProps}
+  } = vNode;
+
+  t.is(playerProps.typeClue, 'answer');
+  t.is(playerProps.text, null);
+
+  t.deepEqual(playerProps.step, {current: 2, total: 4});
+
+  t.is(playerProps.question, "Écrivez le mot Text dans l'input.\n");
+  t.deepEqual(omit('onClick', playerProps.cta), {
+    submitValue: '__Validate',
+    disabled: true,
+    name: 'validateAnswerCTA',
+    light: false,
+    small: false,
+    secondary: false
+  });
+  await t.notThrows(playerProps.cta.onClick);
+  t.is(playerProps.help, 'Saisissez votre réponse.');
+  t.truthy(playerProps.answerType);
+
+  t.deepEqual(map(omit('onClick'), playerProps.buttons), [
+    {
+      title: '__Question',
+      type: 'question',
+      selected: true
+    },
+    {
+      notify: false,
+      disabled: true,
+      title: '__Media',
+      type: 'media',
+      selected: false
+    },
+    {
+      title: '__Clue',
+      type: 'clue',
+      selected: false,
+      disabled: false
+    },
+    {
+      disabled: true,
+      title: '__Coach',
+      type: 'coach'
+    }
+  ]);
+  t.is(playerProps.showNewMedia, false);
+  t.is(playerProps.showReviewLesson, false);
   return Promise.all(map(button => t.notThrows(button.onClick), playerProps.buttons));
 });
 
