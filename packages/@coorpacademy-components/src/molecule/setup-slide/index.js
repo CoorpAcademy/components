@@ -57,9 +57,6 @@ SetupSlide.propTypes = {
   fields: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.shape({
-        type: PropTypes.string.isRequired
-      }),
-      PropTypes.shape({
         type: PropTypes.oneOf(['switch']),
         ...InputSwitch.propTypes
       }),
