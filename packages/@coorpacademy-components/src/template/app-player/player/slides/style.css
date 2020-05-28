@@ -236,6 +236,11 @@
   text-align: center;
 }
 
+.contexPdftWrapper {
+  width: 341px;
+  height: 241px;
+}
+
 .contextMedia {
   max-width: 100%;
   display: flex;
