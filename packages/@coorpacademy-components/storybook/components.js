@@ -325,6 +325,7 @@ import MoleculeBrandDownloadBoxFixtureDefault from '../src/molecule/brand-downlo
 import MoleculeBrandDownloadBoxFixtureDownloadOneLoginTokens from '../src/molecule/brand-download-box/test/fixtures/download-one-login-tokens';
 import MoleculeBrandDownloadBoxFixtureSso from '../src/molecule/brand-download-box/test/fixtures/sso';
 import MoleculeBrandFormGroupFixtureAnalytics from '../src/molecule/brand-form-group/test/fixtures/analytics';
+import MoleculeBrandFormGroupFixtureAnimations from '../src/molecule/brand-form-group/test/fixtures/animations';
 import MoleculeBrandFormGroupFixtureCohort from '../src/molecule/brand-form-group/test/fixtures/cohort';
 import MoleculeBrandFormGroupFixtureDashboard from '../src/molecule/brand-form-group/test/fixtures/dashboard';
 import MoleculeBrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/fixtures/default';
@@ -1251,6 +1252,7 @@ export const fixtures = {
     },
     MoleculeBrandFormGroup: {
       Analytics: MoleculeBrandFormGroupFixtureAnalytics,
+      Animations: MoleculeBrandFormGroupFixtureAnimations,
       Cohort: MoleculeBrandFormGroupFixtureCohort,
       Dashboard: MoleculeBrandFormGroupFixtureDashboard,
       Default: MoleculeBrandFormGroupFixtureDefault,
