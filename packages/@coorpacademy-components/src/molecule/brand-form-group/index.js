@@ -2,6 +2,7 @@ import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import {map, snakeCase} from 'lodash/fp';
+import Autosuggest from 'react-autosuggest';
 import Select from '../../atom/select';
 import SelectMultiple from '../select-multiple';
 import InputText from '../../atom/input-text';
@@ -24,6 +25,8 @@ const buildInput = field => {
   const {type} = field;
 
   switch (type) {
+    case 'autoComplete':
+      return <Autosuggest />;
     case 'color':
       return <InputColor {...field} />;
     case 'readonly':

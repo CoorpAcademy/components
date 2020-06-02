@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 
+import AtomAutocomplete from './../src/atom/autocomplete';
 import AtomAvatar from './../src/atom/avatar';
 import AtomButton from './../src/atom/button';
 import AtomCatalogSection from './../src/atom/catalog-section';
@@ -154,6 +155,8 @@ import TemplateCommonDashboard from './../src/template/common/dashboard';
 import TemplateCommonDiscipline from './../src/template/common/discipline';
 import TemplateCommonSearchPage from './../src/template/common/search-page';
 import TemplateExternalCourse from './../src/template/external-course';
+import AtomAutocompleteFixtureDefault from '../src/atom/autocomplete/test/fixtures/default';
+import AtomAutocompleteFixtureFilled from '../src/atom/autocomplete/test/fixtures/filled';
 import AtomAvatarFixtureDefault from '../src/atom/avatar/test/fixtures/default';
 import AtomButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import AtomButtonFixtureClassName from '../src/atom/button/test/fixtures/class-name';
@@ -784,6 +787,7 @@ import TemplateExternalCourseFixtureVideo from '../src/template/external-course/
 
 export const components = {
   Atom: {
+    AtomAutocomplete,
     AtomAvatar,
     AtomButton,
     AtomCatalogSection,
@@ -973,6 +977,10 @@ export const components = {
 
 export const fixtures = {
   Atom: {
+    AtomAutocomplete: {
+      Default: AtomAutocompleteFixtureDefault,
+      Filled: AtomAutocompleteFixtureFilled
+    },
     AtomAvatar: {
       Default: AtomAvatarFixtureDefault
     },
