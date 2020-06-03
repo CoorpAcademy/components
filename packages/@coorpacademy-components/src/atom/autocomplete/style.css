@@ -4,6 +4,7 @@
 @value light from colors;
 @value dark from colors;
 @value medium from colors;
+@value white from colors;
 
 .default {
     display: flex;
@@ -106,6 +107,7 @@
     margin: 0;
     padding: 0;
     list-style-type: none;
+    background-color: white;
 }
 
 .suggestion {

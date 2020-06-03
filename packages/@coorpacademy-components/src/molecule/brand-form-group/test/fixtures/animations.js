@@ -1,11 +1,13 @@
+import Autocomplete from '../../../../atom/autocomplete/test/fixtures/filled';
+
 export default {
   props: {
     title: 'Massive Battle',
     fields: [
       {
-        title: 'User',
-        value: 'autoComplete',
-        description: 'Lorem ipsum dolor sit amet.'
+        type: 'autoComplete',
+        ...Autocomplete.props,
+        title: 'Users'
       },
       {
         title: 'Population',
@@ -45,9 +47,9 @@ export default {
         modified: false
       },
       {
-        title: 'Course',
-        value: 'autoComplete',
-        description: 'Content used on the battle.'
+        type: 'autoComplete',
+        ...Autocomplete.props,
+        title: 'Cours'
       },
       {
         title: 'Difficulty level',
