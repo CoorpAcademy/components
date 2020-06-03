@@ -160,6 +160,7 @@ type Level = {|
   eligibleBattle?: boolean,
   creditsToAccess?: number,
   infiniteLives?: boolean,
+  shuffleChoices?: boolean,
   isConditional?: boolean,
   acquiredSkills?: Array<string>,
   data: Array<?string>,
