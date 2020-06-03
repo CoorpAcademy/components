@@ -1,5 +1,6 @@
 import React from 'react';
 import Autosuggest from 'react-autosuggest';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {noop, isNil} from 'lodash/fp';
 import getClassState from '../../util/get-class-state';
@@ -57,6 +58,25 @@ const Autocomplete = props => {
       <div className={style.description}>{description}</div>
     </div>
   );
+};
+
+Autocomplete.propTypes = {
+  placeholder: PropTypes.string,
+  value: PropTypes.string,
+  description: PropTypes.string,
+  required: PropTypes.bool,
+  modified: PropTypes.bool,
+  error: PropTypes.bool,
+  suggestions: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string,
+      value: PropTypes.string
+    })
+  ),
+  onChange: PropTypes.func,
+  onFetch: PropTypes.func,
+  onClear: PropTypes.func,
+  onSuggestionSelected: PropTypes.func
 };
 
 export default Autocomplete;

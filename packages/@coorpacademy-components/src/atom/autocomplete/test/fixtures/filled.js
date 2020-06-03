@@ -1,19 +1,19 @@
 const suggestions = [
   {
     name: 'C',
-    year: 1972
+    value: 1972
   },
   {
     name: 'C#',
-    year: 2000
+    value: 2000
   },
   {
     name: 'C++',
-    year: 1983
+    value: 1983
   },
   {
     name: 'Clojure',
-    year: 2007
+    value: 2007
   }
 ];
 
