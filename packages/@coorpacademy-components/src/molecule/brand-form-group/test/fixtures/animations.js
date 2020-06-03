@@ -12,8 +12,6 @@ export default {
       {
         title: 'Population',
         type: 'selectMultiple',
-        key: 'payload.language.supported',
-        description: '',
         options: [
           {
             value: 'pop-1',
@@ -42,7 +40,6 @@ export default {
           }
         ],
         multiple: true,
-        value: ['pop-1', 'pop-2'],
         theme: 'setup',
         modified: false
       },
@@ -54,8 +51,6 @@ export default {
       {
         title: 'Difficulty level',
         type: 'select',
-        key: 'payload.sector',
-        value: 'none',
         options: [
           {
             value: 0.2,
