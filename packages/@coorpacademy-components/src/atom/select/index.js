@@ -107,7 +107,7 @@ const Select = (props, context) => {
 
 export const SelectOptionPropTypes = {
   name: PropTypes.string.isRequired,
-  value: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   selected: PropTypes.bool
 };
 

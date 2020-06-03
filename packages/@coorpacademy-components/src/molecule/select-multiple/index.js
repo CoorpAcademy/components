@@ -123,6 +123,8 @@ SelectMultiple.contextTypes = {
 SelectMultiple.propTypes = {
   title: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes)),
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  multiple: PropTypes.bool,
+  theme: PropTypes.string
 };
 export default SelectMultiple;
