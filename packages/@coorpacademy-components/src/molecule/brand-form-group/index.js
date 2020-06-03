@@ -99,6 +99,10 @@ BrandFormGroup.propTypes = {
   fields: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.shape({
+        type: PropTypes.oneOf(['autoComplete']),
+        ...Autocomplete.propTypes
+      }),
+      PropTypes.shape({
         type: PropTypes.oneOf(['color']),
         ...InputColor.propTypes
       }),
