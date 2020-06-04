@@ -36,6 +36,11 @@ export default {
         onChange: () => true
       },
       {
+        type: 'readonly',
+        title: 'Informative input',
+        value: 'Some data displayed to the user'
+      },
+      {
         type: 'doublestep',
         toggleValue: 'Delete',
         confirmValue: 'Confirm',
