@@ -96,18 +96,15 @@ Step.propTypes = {
 const NewMedia = (props, context) => {
   const {translate} = context;
   const {onClick, step} = props;
-  const current = step.current;
+  const {current} = step;
+
   return (
     <div
       className={`${style.guideWrapper} ${style.newMedia}`}
       onClick={onClick}
       data-name="newMedia"
     >
-      {current !== 1 ? (
-        <span>{translate('New media')}</span>
-      ) : (
-        <span>{translate('See lesson')}</span>
-      )}
+      <span>{translate(current === 1 ? 'See lesson' : 'New media')}</span>
     </div>
   );
 };
