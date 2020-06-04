@@ -156,7 +156,9 @@ import TemplateCommonDiscipline from './../src/template/common/discipline';
 import TemplateCommonSearchPage from './../src/template/common/search-page';
 import TemplateExternalCourse from './../src/template/external-course';
 import AtomAutocompleteFixtureDefault from '../src/atom/autocomplete/test/fixtures/default';
+import AtomAutocompleteFixtureError from '../src/atom/autocomplete/test/fixtures/error';
 import AtomAutocompleteFixtureFilled from '../src/atom/autocomplete/test/fixtures/filled';
+import AtomAutocompleteFixtureModified from '../src/atom/autocomplete/test/fixtures/modified';
 import AtomAvatarFixtureDefault from '../src/atom/avatar/test/fixtures/default';
 import AtomButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import AtomButtonFixtureClassName from '../src/atom/button/test/fixtures/class-name';
@@ -979,7 +981,9 @@ export const fixtures = {
   Atom: {
     AtomAutocomplete: {
       Default: AtomAutocompleteFixtureDefault,
-      Filled: AtomAutocompleteFixtureFilled
+      Error: AtomAutocompleteFixtureError,
+      Filled: AtomAutocompleteFixtureFilled,
+      Modified: AtomAutocompleteFixtureModified
     },
     AtomAvatar: {
       Default: AtomAvatarFixtureDefault

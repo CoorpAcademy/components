@@ -61,6 +61,7 @@ const Autocomplete = props => {
 };
 
 Autocomplete.propTypes = {
+  title: PropTypes.string,
   placeholder: PropTypes.string,
   value: PropTypes.string,
   description: PropTypes.string,
