@@ -36,9 +36,14 @@ export default {
         onChange: () => true
       },
       {
-        type: 'readonly',
-        title: 'Informative input',
-        value: 'Some data displayed to the user'
+        type: 'doublestep',
+        toggleValue: 'Delete',
+        confirmValue: 'Confirm',
+        confirmDisabled: false,
+        cancelValue: 'Cancel',
+        description: "You are about to delete some important data. Click 'Confirm' to proceed.",
+        textValidation: false,
+        isPending: false
       }
     ]
   }
