@@ -40,7 +40,11 @@ const ConfirmationForm = props => {
 
   const form = (
     <div className={style.confirmForm}>
-      {textValidation ? <ConfirmationInput onChange={onChange} placeholder={placeholder} /> : null}
+      {textValidation ? (
+        <ConfirmationInput onChange={onChange} placeholder={placeholder} />
+      ) : (
+        <div className={style.confirmEmptySpace} />
+      )}
       <span onClick={onHandleClose} className={style.cancel}>
         {cancelValue}
       </span>
