@@ -43,7 +43,8 @@ export default {
         cancelValue: 'Cancel',
         description: "You are about to delete some important data. Click 'Confirm' to proceed.",
         textValidation: false,
-        isPending: false
+        isPending: false,
+        onClick: () => true
       }
     ]
   }
