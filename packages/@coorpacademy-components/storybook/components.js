@@ -338,6 +338,7 @@ import MoleculeBrandTabsFixtureAnalytics from '../src/molecule/brand-tabs/test/f
 import MoleculeBrandTabsFixtureCohort from '../src/molecule/brand-tabs/test/fixtures/cohort';
 import MoleculeBrandTabsFixtureDefault from '../src/molecule/brand-tabs/test/fixtures/default';
 import MoleculeBrandTabsFixtureImportusers from '../src/molecule/brand-tabs/test/fixtures/importusers';
+import MoleculeBrandTabsFixtureLms from '../src/molecule/brand-tabs/test/fixtures/lms';
 import MoleculeBrandTabsFixtureLookandfeel from '../src/molecule/brand-tabs/test/fixtures/lookandfeel';
 import MoleculeBrandTabsFixtureManageusers from '../src/molecule/brand-tabs/test/fixtures/manageusers';
 import MoleculeBrandTabsFixtureSso from '../src/molecule/brand-tabs/test/fixtures/sso';
@@ -564,6 +565,7 @@ import OrganismBrandFormFixtureCohort from '../src/organism/brand-form/test/fixt
 import OrganismBrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import OrganismBrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import OrganismBrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
+import OrganismBrandFormFixtureLms from '../src/organism/brand-form/test/fixtures/lms';
 import OrganismBrandFormFixtureLookandfeel from '../src/organism/brand-form/test/fixtures/lookandfeel';
 import OrganismBrandFormFixtureManageusersEdit from '../src/organism/brand-form/test/fixtures/manageusers-edit';
 import OrganismBrandFormFixtureSso from '../src/organism/brand-form/test/fixtures/sso';
@@ -737,6 +739,10 @@ import TemplateBackOfficeBrandUpdateFixtureDashboard from '../src/template/back-
 import TemplateBackOfficeBrandUpdateFixtureDefault from '../src/template/back-office/brand-update/test/fixtures/default';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess from '../src/template/back-office/brand-update/test/fixtures/general-settings-success';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettings from '../src/template/back-office/brand-update/test/fixtures/general-settings';
+import TemplateBackOfficeBrandUpdateFixtureLmsError from '../src/template/back-office/brand-update/test/fixtures/lms-error';
+import TemplateBackOfficeBrandUpdateFixtureLmsModified from '../src/template/back-office/brand-update/test/fixtures/lms-modified';
+import TemplateBackOfficeBrandUpdateFixtureLmsSuccess from '../src/template/back-office/brand-update/test/fixtures/lms-success';
+import TemplateBackOfficeBrandUpdateFixtureLms from '../src/template/back-office/brand-update/test/fixtures/lms';
 import TemplateBackOfficeBrandUpdateFixtureLoader from '../src/template/back-office/brand-update/test/fixtures/loader';
 import TemplateBackOfficeBrandUpdateFixtureLookandfeelError from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-error';
 import TemplateBackOfficeBrandUpdateFixtureLookandfeelModified from '../src/template/back-office/brand-update/test/fixtures/lookandfeel-modified';
@@ -1260,6 +1266,7 @@ export const fixtures = {
       Cohort: MoleculeBrandTabsFixtureCohort,
       Default: MoleculeBrandTabsFixtureDefault,
       Importusers: MoleculeBrandTabsFixtureImportusers,
+      Lms: MoleculeBrandTabsFixtureLms,
       Lookandfeel: MoleculeBrandTabsFixtureLookandfeel,
       Manageusers: MoleculeBrandTabsFixtureManageusers,
       Sso: MoleculeBrandTabsFixtureSso
@@ -1626,6 +1633,7 @@ export const fixtures = {
       Dashboard: OrganismBrandFormFixtureDashboard,
       Default: OrganismBrandFormFixtureDefault,
       GeneralSettings: OrganismBrandFormFixtureGeneralSettings,
+      Lms: OrganismBrandFormFixtureLms,
       Lookandfeel: OrganismBrandFormFixtureLookandfeel,
       ManageusersEdit: OrganismBrandFormFixtureManageusersEdit,
       Sso: OrganismBrandFormFixtureSso
@@ -1879,6 +1887,10 @@ export const fixtures = {
       Default: TemplateBackOfficeBrandUpdateFixtureDefault,
       GeneralSettingsSuccess: TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess,
       GeneralSettings: TemplateBackOfficeBrandUpdateFixtureGeneralSettings,
+      LmsError: TemplateBackOfficeBrandUpdateFixtureLmsError,
+      LmsModified: TemplateBackOfficeBrandUpdateFixtureLmsModified,
+      LmsSuccess: TemplateBackOfficeBrandUpdateFixtureLmsSuccess,
+      Lms: TemplateBackOfficeBrandUpdateFixtureLms,
       Loader: TemplateBackOfficeBrandUpdateFixtureLoader,
       LookandfeelError: TemplateBackOfficeBrandUpdateFixtureLookandfeelError,
       LookandfeelModified: TemplateBackOfficeBrandUpdateFixtureLookandfeelModified,
