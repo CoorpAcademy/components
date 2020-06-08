@@ -5,11 +5,13 @@ import {map, pipe, join, filter, get, set} from 'lodash/fp';
 import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
 import TitledCheckbox from '../titled-checkbox';
 import Provider from '../../atom/provider';
+import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
 const themeStyle = {
   setup: style.setup,
-  cockpit: style.cockpit
+  cockpit: style.cockpit,
+  sidebar: style.sidebar
 };
 
 class SelectMultiple extends React.Component {
@@ -71,7 +73,7 @@ class SelectMultiple extends React.Component {
     const {skin} = this.context;
     const defaultColor = get('common.primary', skin);
     const black = get('common.black', skin);
-    const {title, options, theme, placeholder} = this.props;
+    const {title, options, theme, placeholder, description, modified = false} = this.props;
 
     this._choices = options;
 
@@ -93,18 +95,29 @@ class SelectMultiple extends React.Component {
     )(options);
     const titleView = title && <span className={style.title}>{title}</span>;
     const isActive = this.state.opened === true;
-    const mainClass = classnames(theme ? themeStyle[theme] : style.default);
+    const mainClass = theme ? themeStyle[theme] : style.default;
+    const behaviourClassName = getClassState(style.default, style.modified, style.error, modified);
 
     return (
-      <div className={mainClass} ref={node => (this.node = node)}>
-        {titleView}
-        <div className={style.select} title={selection || placeholder} onClick={this.handleOnClick}>
-          {selection || placeholder}
-          <ArrowDown color={black} className={classnames(style.arrow, {[style.down]: isActive})} />
-        </div>
-        <div className={isActive ? style.activeChoices : style.choices}>
-          <ul className={style.list}>{lines}</ul>
-        </div>
+      <div className={classnames(mainClass, behaviourClassName)} ref={node => (this.node = node)}>
+        <label>
+          {titleView}
+          <div
+            className={style.select}
+            title={selection || placeholder}
+            onClick={this.handleOnClick}
+          >
+            {selection || placeholder}
+            <ArrowDown
+              color={black}
+              className={classnames(style.arrow, {[style.down]: isActive})}
+            />
+          </div>
+          <div className={isActive ? style.activeChoices : style.choices}>
+            <ul className={style.list}>{lines}</ul>
+          </div>
+        </label>
+        <div className={style.description}>{description}</div>
       </div>
     );
   }
@@ -122,9 +135,11 @@ SelectMultiple.contextTypes = {
 
 SelectMultiple.propTypes = {
   title: PropTypes.string,
+  description: PropTypes.string,
   options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes)),
   onChange: PropTypes.func,
   multiple: PropTypes.bool,
-  theme: PropTypes.string
+  theme: PropTypes.string,
+  modified: PropTypes.bool
 };
 export default SelectMultiple;

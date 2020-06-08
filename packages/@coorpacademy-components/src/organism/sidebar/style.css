@@ -23,7 +23,9 @@
   margin-bottom: 20px;
   background-color: white;
 }
-
+.selectMultiple {
+  width: 150px;
+}
 .sidebarTitle {
   text-transform: uppercase;
 }

@@ -5,6 +5,7 @@
 @value light from colors;
 @value lightGrey from colors;
 @value xtraLightGrey from colors;
+@value medium from colors;
 @value defaultText from "../../variables/fonts.css";
 
 /*
@@ -15,6 +16,14 @@
   position: relative;
   user-select: none;
   composes: defaultText;
+}
+
+.error {
+  composes: default;
+}
+
+.modified {
+  composes: default;
 }
 
 .select {
@@ -100,7 +109,20 @@
   margin: 0;
   padding: 0;
 }
-
+.description {
+  font-family: 'Open Sans';
+  font-weight: 500;
+  font-size: 12px;
+  color: medium;
+  font-style: italic;
+  margin: auto 0;
+}
+/*
+  setup sidebar
+*/
+.sidebar {
+  width: 150px;
+}
 /*
   setup theme
 */
@@ -120,11 +142,13 @@
   width: 230px;
   font-weight: normal;
   background-color: white;
-  border: solid 1px light;
+  border: solid 2px light;
+  margin-right: 20px;
 }
 
 .setup .title {
   white-space: nowrap;
+  width: 180px;
 }
 
 .setup .activeChoices {
@@ -134,6 +158,14 @@
   margin-left: 20px;
 }
 
+.setup.modified .select {
+  border: solid 2px orange;
+}
+
+.setup label {
+  display: inline-flex;
+  align-items: center;
+}
 /*
   cockpit theme
 */
