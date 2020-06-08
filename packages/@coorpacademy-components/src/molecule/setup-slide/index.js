@@ -5,6 +5,7 @@ import Select from '../../atom/select';
 import InputReadonly from '../../atom/input-readonly';
 import InputText from '../../atom/input-text';
 import InputCheckbox from '../../atom/input-checkbox';
+import InputDoublestep from '../../atom/input-doublestep';
 import InputSwitch from '../../atom/input-switch';
 import ImageUpload from '../../atom/image-upload';
 import SetupCohortItem from '../setup-cohort-item';
@@ -30,6 +31,8 @@ const SetupSlide = props => {
         return <MessagePopin header={field.title} content={field.subtitle} />;
       case 'readonly':
         return <InputReadonly {...field} />;
+      case 'doublestep':
+        return <InputDoublestep {...field} />;
       default:
         return <InputText {...field} />;
     }
@@ -75,6 +78,10 @@ SetupSlide.propTypes = {
       PropTypes.shape({
         type: PropTypes.oneOf(['readonly']),
         ...InputReadonly.propTypes
+      }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['doublestep']),
+        ...InputDoublestep.propTypes
       }),
       PropTypes.shape({
         type: PropTypes.oneOf(['splitForm']),

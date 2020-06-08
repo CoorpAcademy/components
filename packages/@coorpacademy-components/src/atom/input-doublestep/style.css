@@ -31,6 +31,10 @@
   min-height: 126px;
 }
 
+.confirmEmptySpace {
+  min-height: 63px;
+}
+
 .toggle {
   height: 52px;
   padding: 0 40px;
