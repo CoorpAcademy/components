@@ -97,7 +97,7 @@ Step.propTypes = {
 const NewMedia = (props, context) => {
   const {translate} = context;
   const {onClick, step} = props;
-  const {current} = step;
+  const current = get('current', step);
 
   return (
     <div
