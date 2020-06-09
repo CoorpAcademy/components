@@ -98,14 +98,13 @@ const NewMedia = (props, context) => {
   const {translate} = context;
   const {onClick, step} = props;
   const current = get('current', step);
-
   return (
     <div
       className={`${style.guideWrapper} ${style.newMedia}`}
       onClick={onClick}
       data-name="newMedia"
     >
-      <span>{translate(current === 1 ? 'See lesson' : 'New media')}</span>
+      <span>{translate(step === null || current === 1 ? 'See lesson' : 'New media')}</span>
     </div>
   );
 };
