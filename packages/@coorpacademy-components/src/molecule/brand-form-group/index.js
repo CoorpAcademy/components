@@ -1,7 +1,7 @@
 import React from 'react';
-import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import {map, snakeCase} from 'lodash/fp';
+import Autocomplete from '../../atom/autocomplete';
 import Select from '../../atom/select';
 import SelectMultiple from '../select-multiple';
 import InputText from '../../atom/input-text';
@@ -24,6 +24,8 @@ const buildInput = field => {
   const {type} = field;
 
   switch (type) {
+    case 'autoComplete':
+      return <Autocomplete {...field} />;
     case 'color':
       return <InputColor {...field} />;
     case 'readonly':
@@ -63,12 +65,9 @@ const buildInput = field => {
 
 const buildField = (field, index) => {
   const input = buildInput(field);
-  const className = classnames(style.field, {
-    [style.withMultipleSelect]: field.type === 'selectMultiple'
-  });
 
   return (
-    <div className={className} key={index}>
+    <div className={style.field} key={index}>
       {input}
     </div>
   );
@@ -95,6 +94,10 @@ BrandFormGroup.propTypes = {
   fieldsLayout: PropTypes.string,
   fields: PropTypes.arrayOf(
     PropTypes.oneOfType([
+      PropTypes.shape({
+        type: PropTypes.oneOf(['autoComplete']),
+        ...Autocomplete.propTypes
+      }),
       PropTypes.shape({
         type: PropTypes.oneOf(['color']),
         ...InputColor.propTypes

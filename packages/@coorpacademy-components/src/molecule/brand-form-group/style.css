@@ -41,9 +41,6 @@
   margin-bottom: 20px;
 }
 
-.field.withMultipleSelect {
-  max-width: 430px;
-}
 
 .field:last-child {
   margin-bottom: 0;

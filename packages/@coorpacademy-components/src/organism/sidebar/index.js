@@ -47,7 +47,7 @@ export const MultiSelectItem = props => {
   return (
     <li data-name={props.name || `select-item-${props.index}`} className={style.selectItem}>
       <span className={style.sidebarTitle}>{props.title}</span>
-      <SelectMultiple onChange={props.onChange} options={props.options} />
+      <SelectMultiple theme="sidebar" onChange={props.onChange} options={props.options} />
     </li>
   );
 };

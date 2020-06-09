@@ -1,5 +1,6 @@
 /* eslint-disable max-len */
 
+import AtomAutocomplete from './../src/atom/autocomplete';
 import AtomAvatar from './../src/atom/avatar';
 import AtomButton from './../src/atom/button';
 import AtomCatalogSection from './../src/atom/catalog-section';
@@ -154,6 +155,10 @@ import TemplateCommonDashboard from './../src/template/common/dashboard';
 import TemplateCommonDiscipline from './../src/template/common/discipline';
 import TemplateCommonSearchPage from './../src/template/common/search-page';
 import TemplateExternalCourse from './../src/template/external-course';
+import AtomAutocompleteFixtureDefault from '../src/atom/autocomplete/test/fixtures/default';
+import AtomAutocompleteFixtureError from '../src/atom/autocomplete/test/fixtures/error';
+import AtomAutocompleteFixtureFilled from '../src/atom/autocomplete/test/fixtures/filled';
+import AtomAutocompleteFixtureModified from '../src/atom/autocomplete/test/fixtures/modified';
 import AtomAvatarFixtureDefault from '../src/atom/avatar/test/fixtures/default';
 import AtomButtonFixtureA from '../src/atom/button/test/fixtures/a';
 import AtomButtonFixtureClassName from '../src/atom/button/test/fixtures/class-name';
@@ -325,6 +330,7 @@ import MoleculeBrandDownloadBoxFixtureDefault from '../src/molecule/brand-downlo
 import MoleculeBrandDownloadBoxFixtureDownloadOneLoginTokens from '../src/molecule/brand-download-box/test/fixtures/download-one-login-tokens';
 import MoleculeBrandDownloadBoxFixtureSso from '../src/molecule/brand-download-box/test/fixtures/sso';
 import MoleculeBrandFormGroupFixtureAnalytics from '../src/molecule/brand-form-group/test/fixtures/analytics';
+import MoleculeBrandFormGroupFixtureAnimations from '../src/molecule/brand-form-group/test/fixtures/animations';
 import MoleculeBrandFormGroupFixtureCohort from '../src/molecule/brand-form-group/test/fixtures/cohort';
 import MoleculeBrandFormGroupFixtureDashboard from '../src/molecule/brand-form-group/test/fixtures/dashboard';
 import MoleculeBrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/fixtures/default';
@@ -498,6 +504,7 @@ import MoleculeSelectMultipleFixtureCheckedCockpitTheme from '../src/molecule/se
 import MoleculeSelectMultipleFixtureCheckedSetupTheme from '../src/molecule/select-multiple/test/fixtures/checked-setup-theme';
 import MoleculeSelectMultipleFixtureChecked from '../src/molecule/select-multiple/test/fixtures/checked';
 import MoleculeSelectMultipleFixtureDefault from '../src/molecule/select-multiple/test/fixtures/default';
+import MoleculeSelectMultipleFixtureSetupTheme from '../src/molecule/select-multiple/test/fixtures/setup-theme';
 import MoleculeSetupCohortItemFixtureCreateNewValid from '../src/molecule/setup-cohort-item/test/fixtures/create-new-valid';
 import MoleculeSetupCohortItemFixtureCreateNew from '../src/molecule/setup-cohort-item/test/fixtures/create-new';
 import MoleculeSetupCohortItemFixtureDefault from '../src/molecule/setup-cohort-item/test/fixtures/default';
@@ -791,6 +798,7 @@ import TemplateExternalCourseFixtureVideo from '../src/template/external-course/
 
 export const components = {
   Atom: {
+    AtomAutocomplete,
     AtomAvatar,
     AtomButton,
     AtomCatalogSection,
@@ -980,6 +988,12 @@ export const components = {
 
 export const fixtures = {
   Atom: {
+    AtomAutocomplete: {
+      Default: AtomAutocompleteFixtureDefault,
+      Error: AtomAutocompleteFixtureError,
+      Filled: AtomAutocompleteFixtureFilled,
+      Modified: AtomAutocompleteFixtureModified
+    },
     AtomAvatar: {
       Default: AtomAvatarFixtureDefault
     },
@@ -1252,6 +1266,7 @@ export const fixtures = {
     },
     MoleculeBrandFormGroup: {
       Analytics: MoleculeBrandFormGroupFixtureAnalytics,
+      Animations: MoleculeBrandFormGroupFixtureAnimations,
       Cohort: MoleculeBrandFormGroupFixtureCohort,
       Dashboard: MoleculeBrandFormGroupFixtureDashboard,
       Default: MoleculeBrandFormGroupFixtureDefault,
@@ -1450,7 +1465,8 @@ export const fixtures = {
       CheckedCockpitTheme: MoleculeSelectMultipleFixtureCheckedCockpitTheme,
       CheckedSetupTheme: MoleculeSelectMultipleFixtureCheckedSetupTheme,
       Checked: MoleculeSelectMultipleFixtureChecked,
-      Default: MoleculeSelectMultipleFixtureDefault
+      Default: MoleculeSelectMultipleFixtureDefault,
+      SetupTheme: MoleculeSelectMultipleFixtureSetupTheme
     },
     MoleculeSetupCohortItem: {
       CreateNewValid: MoleculeSetupCohortItemFixtureCreateNewValid,
