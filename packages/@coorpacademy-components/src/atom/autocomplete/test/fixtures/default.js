@@ -3,6 +3,10 @@ export default {
     title: 'Population',
     placeholder: "Type 'c'",
     value: '',
+    description: '',
+    required: false,
+    modified: false,
+    error: true,
     suggestions: [],
     onChange: value => {
       console.log(`onChange ${value}`);
@@ -12,6 +16,9 @@ export default {
     },
     onClear: () => {
       console.log('onClear');
+    },
+    onSuggestionSelected: data => {
+      console.log('onSuggestionSelected', data);
     }
   }
 };
