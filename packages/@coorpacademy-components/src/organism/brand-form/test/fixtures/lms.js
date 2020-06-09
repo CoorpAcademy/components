@@ -2,6 +2,27 @@ export default {
   props: {
     groups: [
       {
+        title: 'Add an LMS configuration',
+        fieldsLayout: 'grid',
+        fields: [
+          {
+            type: 'select',
+            options: [
+              {name: '', value: ''},
+              {name: 'CSOD', value: 'CSOD'},
+              {name: 'SAP', value: 'SAP'},
+              {name: 'XAPI', value: 'XAPI'}
+            ],
+            onChange: () => console.log('dispatch newConfig')
+          },
+          {
+            type: 'button',
+            submitValue: 'Add',
+            onClick: () => console.log('add new slide')
+          }
+        ]
+      },
+      {
         title: 'LMS configuration',
         subtitle: 'Configure the coorpacademy integration to LMS',
         fields: [
@@ -77,6 +98,18 @@ export default {
                     title: 'Chapter',
                     value: false,
                     onChange: () => console.log('dispatch Chapter')
+                  },
+                  {
+                    type: 'doublestep',
+                    toggleValue: 'Delete Configuration',
+                    confirmValue: 'Confirm',
+                    confirmDisabled: false,
+                    cancelValue: 'Cancel',
+                    description:
+                      'You are about to delete the CSOD configuration. Click "confirm" to proceed.',
+                    textValidation: false,
+                    isPending: false,
+                    onClick: () => console.log('dispatch without this config')
                   }
                 ]
               },
@@ -142,7 +175,7 @@ export default {
                   {
                     type: 'text',
                     title: 'Provider',
-                    description: 'This is the name you gave to Coorpacademy in CSOD.',
+                    description: 'This is the name you gave to Coorpacademy in SAP.',
                     required: true,
                     value: '',
                     onChange: () => console.log('dispatch Provider')
@@ -164,6 +197,18 @@ export default {
                     title: 'Chapter',
                     value: false,
                     onChange: () => console.log('dispatch Chapter')
+                  },
+                  {
+                    type: 'doublestep',
+                    toggleValue: 'Delete Configuration',
+                    confirmValue: 'Confirm',
+                    confirmDisabled: false,
+                    cancelValue: 'Cancel',
+                    description:
+                      'You are about to delete the SAP configuration. Click "confirm" to proceed.',
+                    textValidation: false,
+                    isPending: false,
+                    onClick: () => console.log('dispatch without this config')
                   }
                 ]
               },
@@ -199,6 +244,18 @@ export default {
                     required: true,
                     value: '',
                     onChange: () => console.log('dispatch Password')
+                  },
+                  {
+                    type: 'doublestep',
+                    toggleValue: 'Delete Configuration',
+                    confirmValue: 'Confirm',
+                    confirmDisabled: false,
+                    cancelValue: 'Cancel',
+                    description:
+                      'You are about to delete the XAPI configuration. Click "confirm" to proceed.',
+                    textValidation: false,
+                    isPending: false,
+                    onClick: () => console.log('dispatch without this config')
                   }
                 ]
               }

@@ -10,15 +10,15 @@ const {groups} = Lms.props;
 const {tabs} = BrandTabs.props;
 
 const errorGroups = cloneDeep(groups);
-errorGroups[0].fields[0].slides[0].fields[3].error = 'Client Secret is required';
-errorGroups[0].fields[0].tabProps[0].isOpen = true;
+errorGroups[1].fields[0].slides[0].fields[3].error = 'Client Secret is required';
+errorGroups[1].fields[0].tabProps[0].isOpen = true;
 
 export default {
   props: defaultsDeep(props, {
     notifications: [
       {
         type: 'error',
-        message: errorGroups[0].fields[0].slides[0].fields[3].error,
+        message: errorGroups[1].fields[0].slides[0].fields[3].error,
         onClose: noop
       }
     ],
