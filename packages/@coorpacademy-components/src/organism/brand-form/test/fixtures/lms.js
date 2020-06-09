@@ -52,7 +52,6 @@ export default {
                     type: 'text',
                     title: 'URL',
                     placeholder: 'https://some.fake.csod.hostname',
-                    // description: 'This should explain',
                     required: true,
                     value: 'https://partner0125.csod.com',
                     onChange: () => console.log('dispatch URL')
@@ -60,7 +59,6 @@ export default {
                   {
                     type: 'text',
                     title: 'Client ID',
-                    // description: 'This should explain',
                     required: true,
                     value: 'Some-client-id',
                     onChange: () => console.log('dispatch Client ID')
@@ -68,7 +66,6 @@ export default {
                   {
                     type: 'text',
                     title: 'Client Secret',
-                    // description: 'This should explain',
                     required: true,
                     value: '',
                     onChange: () => console.log('dispatch Client Secret')
@@ -140,7 +137,6 @@ export default {
                     type: 'text',
                     title: 'URL',
                     placeholder: 'https://some.fake.sap.hostname',
-                    // description: 'This should explain',
                     required: true,
                     value: '',
                     onChange: () => console.log('dispatch URL')
@@ -148,7 +144,6 @@ export default {
                   {
                     type: 'text',
                     title: 'Client ID',
-                    // description: 'This should explain',
                     required: true,
                     value: '',
                     onChange: () => console.log('dispatch Client ID')
@@ -156,7 +151,6 @@ export default {
                   {
                     type: 'text',
                     title: 'Client Secret',
-                    // description: 'This should explain',
                     required: true,
                     value: '',
                     onChange: () => console.log('dispatch ClientSecret')
@@ -164,7 +158,6 @@ export default {
                   {
                     type: 'text',
                     title: 'Scope User ID',
-                    // description: 'This should explain',
                     required: true,
                     value: '',
                     onChange: () => console.log('dispatch Scope user ID')
@@ -172,7 +165,6 @@ export default {
                   {
                     type: 'text',
                     title: 'Scope Company ID',
-                    // description: 'This should explain',
                     required: true,
                     value: '',
                     onChange: () => console.log('dispatch Scope Company ID')
@@ -229,7 +221,6 @@ export default {
                     type: 'text',
                     title: 'URL',
                     placeholder: 'https://some.fake.csod.hostname',
-                    // description: 'This should explain',
                     required: true,
                     value: '',
                     onChange: () => console.log('dispatch URL')
@@ -243,7 +234,6 @@ export default {
                   {
                     type: 'text',
                     title: 'Username',
-                    // description: 'This should explain',
                     required: true,
                     value: '',
                     onChange: () => console.log('dispatch Username')
