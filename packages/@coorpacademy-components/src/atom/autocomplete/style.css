@@ -84,6 +84,14 @@
     width: 230px;
 }
 
+.error .input {
+    border-color: negative;
+}
+
+.modified .input {
+    border-color: orange;
+}
+
 .suggestionsContainer {
     display: none;
 }

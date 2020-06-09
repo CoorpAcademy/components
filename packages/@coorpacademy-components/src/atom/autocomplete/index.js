@@ -16,7 +16,7 @@ const Autocomplete = props => {
     description,
     required,
     modified = false,
-    error,
+    error = false,
     suggestions = [],
     onChange = noop,
     onFetch = noop,
@@ -27,6 +27,11 @@ const Autocomplete = props => {
 
   const title = `${props.title}${required ? '*' : ''}`;
   const className = getClassState(style.default, style.modified, style.error, modified, error);
+
+  console.log('modified', modified)
+  console.log('error', error)
+  console.log('className', className)
+
   const handleChange = e => onChange(e);
   const handleBlur = (e, selectedSuggestion) => onBlur(e, selectedSuggestion);
   const handleSuggestionsFetchRequested = e => onFetch(e);

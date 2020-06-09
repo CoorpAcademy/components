@@ -6,7 +6,7 @@ export default {
     description: '',
     required: false,
     modified: false,
-    error: true,
+    error: false,
     suggestions: [],
     onChange: value => {
       console.log(`onChange ${value}`);
