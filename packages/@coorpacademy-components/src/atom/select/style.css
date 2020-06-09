@@ -2,6 +2,7 @@
 @value mobile from breakpoints;
 @value colors: "../../variables/colors.css";
 @value orange from colors;
+@value negative from colors;
 @value dark from colors;
 @value light from colors;
 @value medium from colors;
@@ -83,6 +84,10 @@
   outline: none;
   appearance: none;
   cursor: pointer;
+}
+
+.error select {
+  border: solid 2px negative;
 }
 
 .description {

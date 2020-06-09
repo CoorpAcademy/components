@@ -273,6 +273,7 @@ import AtomResourceMiniatureFixtureSelectedVideo from '../src/atom/resource-mini
 import AtomResourceMiniatureFixtureVideo from '../src/atom/resource-miniature/test/fixtures/video';
 import AtomSelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import AtomSelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
+import AtomSelectFixtureError from '../src/atom/select/test/fixtures/error';
 import AtomSelectFixtureFilter from '../src/atom/select/test/fixtures/filter';
 import AtomSelectFixtureInvalid from '../src/atom/select/test/fixtures/invalid';
 import AtomSelectFixtureModified from '../src/atom/select/test/fixtures/modified';
@@ -1169,6 +1170,7 @@ export const fixtures = {
     AtomSelect: {
       Default: AtomSelectFixtureDefault,
       Disabled: AtomSelectFixtureDisabled,
+      Error: AtomSelectFixtureError,
       Filter: AtomSelectFixtureFilter,
       Invalid: AtomSelectFixtureInvalid,
       Modified: AtomSelectFixtureModified,

@@ -3,6 +3,7 @@ export default {
     title: 'Populations',
     type: 'selectMultiple',
     description: 'The cohorte which will receive the battle',
+    required: true,
     options: [
       {
         value: 'connect',

@@ -30,7 +30,8 @@ const Select = (props, context) => {
     required,
     description,
     theme,
-    modified = false
+    modified = false,
+    error = false
   } = props;
 
   const {skin} = context;
@@ -76,7 +77,13 @@ const Select = (props, context) => {
       className={style.arrow}
     />
   ) : null;
-  const behaviourClassName = getClassState(style.default, style.modified, style.error, modified);
+  const behaviourClassName = getClassState(
+    style.default,
+    style.modified,
+    style.error,
+    modified,
+    error
+  );
   const composedClassName = classnames(
     theme ? themeStyle[theme] : behaviourClassName,
     selected ? style.selected : style.unselected,
@@ -127,7 +134,8 @@ Select.propTypes = {
   onChange: PropTypes.func,
   theme: PropTypes.oneOf(keys(themeStyle)),
   options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes)),
-  modified: PropTypes.bool
+  modified: PropTypes.bool,
+  error: PropTypes.bool
 };
 
 export default Select;
