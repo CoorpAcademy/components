@@ -82,6 +82,11 @@ export default {
                     onChange: () => console.log('dispatch Provider')
                   },
                   {
+                    type: 'readonly',
+                    title: 'Material type',
+                    value: 'External Links'
+                  },
+                  {
                     type: 'switch',
                     title: 'Course',
                     value: true,
@@ -228,6 +233,12 @@ export default {
                     required: true,
                     value: '',
                     onChange: () => console.log('dispatch URL')
+                  },
+                  {
+                    type: 'readonly',
+                    title: 'Authentication type',
+                    value: 'basic',
+                    description: 'Authentication type can only have the "basic" value'
                   },
                   {
                     type: 'text',
