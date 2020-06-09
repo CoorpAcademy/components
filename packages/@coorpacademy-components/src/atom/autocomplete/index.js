@@ -21,12 +21,14 @@ const Autocomplete = props => {
     onChange = noop,
     onFetch = noop,
     onClear = noop,
+    onBlur = noop,
     onSuggestionSelected = noop
   } = props;
 
   const title = `${props.title}${required ? '*' : ''}`;
   const className = getClassState(style.default, style.modified, style.error, modified, error);
   const handleChange = e => onChange(e);
+  const handleBlur = (e, selectedSuggestion) => onBlur(e, selectedSuggestion);
   const handleSuggestionsFetchRequested = e => onFetch(e);
   const handleSuggestionsClearRequested = e => onClear(e);
   const handleSuggestionsSelected = (e, data) => onSuggestionSelected(data);
@@ -34,7 +36,8 @@ const Autocomplete = props => {
   const inputProps = {
     placeholder,
     value,
-    onChange: handleChange
+    onChange: handleChange,
+    onBlur: handleBlur
   };
 
   return (
@@ -77,6 +80,7 @@ Autocomplete.propTypes = {
   onChange: PropTypes.func,
   onFetch: PropTypes.func,
   onClear: PropTypes.func,
+  onBlur: PropTypes.func,
   onSuggestionSelected: PropTypes.func
 };
 

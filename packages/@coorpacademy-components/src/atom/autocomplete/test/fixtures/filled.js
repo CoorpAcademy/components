@@ -24,6 +24,23 @@ export default {
         name: 'Clojure',
         value: 2007
       }
-    ]
+    ],
+    onChange: e => {
+      const value = e.target.value;
+      console.log(`onChange ${value}`, e);
+    },
+    onFetch: e => {
+      const {value} = e;
+      console.log(`onFetch ${value}`);
+    },
+    onClear: e => {
+      console.log('onClear', e);
+    },
+    onSuggestionSelected: data => {
+      console.log('onSuggestionSelected', data);
+    },
+    onBlur: (e, selectedSuggestion) => {
+      console.log('onBlur > selected', selectedSuggestion);
+    }
   }
 };
