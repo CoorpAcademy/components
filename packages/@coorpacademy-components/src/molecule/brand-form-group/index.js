@@ -1,5 +1,4 @@
 import React from 'react';
-import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import {map, snakeCase} from 'lodash/fp';
 import Autocomplete from '../../atom/autocomplete';
@@ -66,12 +65,9 @@ const buildInput = field => {
 
 const buildField = (field, index) => {
   const input = buildInput(field);
-  const className = classnames(style.field, {
-    [style.withMultipleSelect]: field.type === 'selectMultiple'
-  });
 
   return (
-    <div className={className} key={index}>
+    <div className={style.field} key={index}>
       {input}
     </div>
   );
