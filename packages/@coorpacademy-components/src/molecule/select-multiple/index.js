@@ -73,7 +73,16 @@ class SelectMultiple extends React.Component {
     const {skin} = this.context;
     const defaultColor = get('common.primary', skin);
     const black = get('common.black', skin);
-    const {title, options, theme, placeholder, description, modified = false} = this.props;
+    const {
+      title,
+      options,
+      theme,
+      placeholder,
+      description,
+      modified = false,
+      required = false,
+      error = false
+    } = this.props;
 
     this._choices = options;
 
@@ -93,10 +102,19 @@ class SelectMultiple extends React.Component {
       map('name'),
       join(', ')
     )(options);
-    const titleView = title && <span className={style.title}>{title}</span>;
+
+    const _title = title && `${title}${required ? ' *' : ''}`;
+
+    const titleView = title && <span className={style.title}>{_title}</span>;
     const isActive = this.state.opened === true;
     const mainClass = theme ? themeStyle[theme] : style.default;
-    const behaviourClassName = getClassState(style.default, style.modified, style.error, modified);
+    const behaviourClassName = getClassState(
+      style.default,
+      style.modified,
+      style.error,
+      modified,
+      error
+    );
 
     return (
       <div className={classnames(mainClass, behaviourClassName)} ref={node => (this.node = node)}>
@@ -140,6 +158,7 @@ SelectMultiple.propTypes = {
   onChange: PropTypes.func,
   multiple: PropTypes.bool,
   theme: PropTypes.string,
-  modified: PropTypes.bool
+  modified: PropTypes.bool,
+  required: PropTypes.bool
 };
 export default SelectMultiple;

@@ -78,6 +78,6 @@ export default {
     ],
     multiple: true,
     theme: 'setup',
-    modified: true
+    error: true
   }
 };

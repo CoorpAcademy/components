@@ -273,6 +273,7 @@ import AtomResourceMiniatureFixtureSelectedVideo from '../src/atom/resource-mini
 import AtomResourceMiniatureFixtureVideo from '../src/atom/resource-miniature/test/fixtures/video';
 import AtomSelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import AtomSelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
+import AtomSelectFixtureError from '../src/atom/select/test/fixtures/error';
 import AtomSelectFixtureFilter from '../src/atom/select/test/fixtures/filter';
 import AtomSelectFixtureInvalid from '../src/atom/select/test/fixtures/invalid';
 import AtomSelectFixtureModified from '../src/atom/select/test/fixtures/modified';
@@ -504,6 +505,7 @@ import MoleculeSelectMultipleFixtureCheckedCockpitTheme from '../src/molecule/se
 import MoleculeSelectMultipleFixtureCheckedSetupTheme from '../src/molecule/select-multiple/test/fixtures/checked-setup-theme';
 import MoleculeSelectMultipleFixtureChecked from '../src/molecule/select-multiple/test/fixtures/checked';
 import MoleculeSelectMultipleFixtureDefault from '../src/molecule/select-multiple/test/fixtures/default';
+import MoleculeSelectMultipleFixtureSetupThemeError from '../src/molecule/select-multiple/test/fixtures/setup-theme-error';
 import MoleculeSelectMultipleFixtureSetupTheme from '../src/molecule/select-multiple/test/fixtures/setup-theme';
 import MoleculeSetupCohortItemFixtureCreateNewValid from '../src/molecule/setup-cohort-item/test/fixtures/create-new-valid';
 import MoleculeSetupCohortItemFixtureCreateNew from '../src/molecule/setup-cohort-item/test/fixtures/create-new';
@@ -1169,6 +1171,7 @@ export const fixtures = {
     AtomSelect: {
       Default: AtomSelectFixtureDefault,
       Disabled: AtomSelectFixtureDisabled,
+      Error: AtomSelectFixtureError,
       Filter: AtomSelectFixtureFilter,
       Invalid: AtomSelectFixtureInvalid,
       Modified: AtomSelectFixtureModified,
@@ -1466,6 +1469,7 @@ export const fixtures = {
       CheckedSetupTheme: MoleculeSelectMultipleFixtureCheckedSetupTheme,
       Checked: MoleculeSelectMultipleFixtureChecked,
       Default: MoleculeSelectMultipleFixtureDefault,
+      SetupThemeError: MoleculeSelectMultipleFixtureSetupThemeError,
       SetupTheme: MoleculeSelectMultipleFixtureSetupTheme
     },
     MoleculeSetupCohortItem: {

@@ -25,7 +25,7 @@ const Autocomplete = props => {
     onSuggestionSelected = noop
   } = props;
 
-  const title = `${props.title}${required ? '*' : ''}`;
+  const title = `${props.title}${required ? ' *' : ''}`;
   const className = getClassState(style.default, style.modified, style.error, modified, error);
 
   const handleChange = e => onChange(e);
