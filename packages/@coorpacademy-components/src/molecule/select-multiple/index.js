@@ -159,6 +159,7 @@ SelectMultiple.propTypes = {
   multiple: PropTypes.bool,
   theme: PropTypes.string,
   modified: PropTypes.bool,
-  required: PropTypes.bool
+  required: PropTypes.bool,
+  error: PropTypes.bool
 };
 export default SelectMultiple;
