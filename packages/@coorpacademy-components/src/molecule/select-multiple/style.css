@@ -4,6 +4,7 @@
 @value white from colors;
 @value light from colors;
 @value lightGrey from colors;
+@value negative from colors;
 @value xtraLightGrey from colors;
 @value medium from colors;
 @value defaultText from "../../variables/fonts.css";
@@ -160,6 +161,10 @@
 
 .setup.modified .select {
   border: solid 2px orange;
+}
+
+.setup.error .select {
+  border: solid 2px negative;
 }
 
 .setup label {

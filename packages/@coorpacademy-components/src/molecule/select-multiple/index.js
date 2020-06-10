@@ -80,7 +80,8 @@ class SelectMultiple extends React.Component {
       placeholder,
       description,
       modified = false,
-      required = false
+      required = false,
+      error = false
     } = this.props;
 
     this._choices = options;
@@ -107,7 +108,13 @@ class SelectMultiple extends React.Component {
     const titleView = title && <span className={style.title}>{_title}</span>;
     const isActive = this.state.opened === true;
     const mainClass = theme ? themeStyle[theme] : style.default;
-    const behaviourClassName = getClassState(style.default, style.modified, style.error, modified);
+    const behaviourClassName = getClassState(
+      style.default,
+      style.modified,
+      style.error,
+      modified,
+      error
+    );
 
     return (
       <div className={classnames(mainClass, behaviourClassName)} ref={node => (this.node = node)}>

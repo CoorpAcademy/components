@@ -505,6 +505,7 @@ import MoleculeSelectMultipleFixtureCheckedCockpitTheme from '../src/molecule/se
 import MoleculeSelectMultipleFixtureCheckedSetupTheme from '../src/molecule/select-multiple/test/fixtures/checked-setup-theme';
 import MoleculeSelectMultipleFixtureChecked from '../src/molecule/select-multiple/test/fixtures/checked';
 import MoleculeSelectMultipleFixtureDefault from '../src/molecule/select-multiple/test/fixtures/default';
+import MoleculeSelectMultipleFixtureSetupThemeError from '../src/molecule/select-multiple/test/fixtures/setup-theme-error';
 import MoleculeSelectMultipleFixtureSetupTheme from '../src/molecule/select-multiple/test/fixtures/setup-theme';
 import MoleculeSetupCohortItemFixtureCreateNewValid from '../src/molecule/setup-cohort-item/test/fixtures/create-new-valid';
 import MoleculeSetupCohortItemFixtureCreateNew from '../src/molecule/setup-cohort-item/test/fixtures/create-new';
@@ -1468,6 +1469,7 @@ export const fixtures = {
       CheckedSetupTheme: MoleculeSelectMultipleFixtureCheckedSetupTheme,
       Checked: MoleculeSelectMultipleFixtureChecked,
       Default: MoleculeSelectMultipleFixtureDefault,
+      SetupThemeError: MoleculeSelectMultipleFixtureSetupThemeError,
       SetupTheme: MoleculeSelectMultipleFixtureSetupTheme
     },
     MoleculeSetupCohortItem: {
