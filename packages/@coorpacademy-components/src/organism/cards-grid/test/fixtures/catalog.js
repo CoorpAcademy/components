@@ -11,6 +11,7 @@ import card9 from '../../../../molecule/card/test/fixtures/empty';
 import card10 from '../../../../molecule/card/test/fixtures/scorm';
 import card11 from '../../../../molecule/card/test/fixtures/article';
 import card12 from '../../../../molecule/card/test/fixtures/video';
+import card13 from '../../../../molecule/card/test/fixtures/podcast';
 
 const list = [
   card1.props,
@@ -23,7 +24,8 @@ const list = [
   card7.props,
   card12.props,
   card8.props,
-  card9.props
+  card9.props,
+  card13.props
 ].map(
   pipe(
     update('key', () => uniqueId()),

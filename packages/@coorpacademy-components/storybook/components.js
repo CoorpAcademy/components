@@ -356,6 +356,7 @@ import MoleculeCardFixtureExternalContent from '../src/molecule/card/test/fixtur
 import MoleculeCardFixtureFavorite from '../src/molecule/card/test/fixtures/favorite';
 import MoleculeCardFixtureFreerunAndDisabled from '../src/molecule/card/test/fixtures/freerun-and-disabled';
 import MoleculeCardFixtureFreerun from '../src/molecule/card/test/fixtures/freerun';
+import MoleculeCardFixturePodcast from '../src/molecule/card/test/fixtures/podcast';
 import MoleculeCardFixtureScorm from '../src/molecule/card/test/fixtures/scorm';
 import MoleculeCardFixtureVideo from '../src/molecule/card/test/fixtures/video';
 import MoleculeCardContentFixtureAdaptivAndDisabled from '../src/molecule/card-content/test/fixtures/adaptiv-and-disabled';
@@ -787,6 +788,7 @@ import TemplateCommonSearchPageFixtureNoResultWithRecommendations from '../src/t
 import TemplateCommonSearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
 import TemplateExternalCourseFixtureArticle from '../src/template/external-course/test/fixtures/article';
 import TemplateExternalCourseFixtureDefault from '../src/template/external-course/test/fixtures/default';
+import TemplateExternalCourseFixturePodcast from '../src/template/external-course/test/fixtures/podcast';
 import TemplateExternalCourseFixtureVideo from '../src/template/external-course/test/fixtures/video';
 
 export const components = {
@@ -1291,6 +1293,7 @@ export const fixtures = {
       Favorite: MoleculeCardFixtureFavorite,
       FreerunAndDisabled: MoleculeCardFixtureFreerunAndDisabled,
       Freerun: MoleculeCardFixtureFreerun,
+      Podcast: MoleculeCardFixturePodcast,
       Scorm: MoleculeCardFixtureScorm,
       Video: MoleculeCardFixtureVideo
     },
@@ -1741,6 +1744,7 @@ export const fixtures = {
     TemplateExternalCourse: {
       Article: TemplateExternalCourseFixtureArticle,
       Default: TemplateExternalCourseFixtureDefault,
+      Podcast: TemplateExternalCourseFixturePodcast,
       Video: TemplateExternalCourseFixtureVideo
     }
   },

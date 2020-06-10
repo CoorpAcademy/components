@@ -36,6 +36,7 @@ import _NovaCompositionCoorpacademyMagicWand1 from './components/nova-compositio
 import _NovaCompositionCoorpacademyMailInbox from './components/nova-composition/coorpacademy/mail-inbox';
 import _NovaCompositionCoorpacademyMailInboxDocument from './components/nova-composition/coorpacademy/mail-inbox-document';
 import _NovaCompositionCoorpacademyMap from './components/nova-composition/coorpacademy/map';
+import _NovaCompositionCoorpacademyMicrophone from './components/nova-composition/coorpacademy/microphone';
 import _NovaCompositionCoorpacademyPictures from './components/nova-composition/coorpacademy/pictures';
 import _NovaCompositionCoorpacademyProfile from './components/nova-composition/coorpacademy/profile';
 import _NovaCompositionCoorpacademyScorm from './components/nova-composition/coorpacademy/scorm';
@@ -146,6 +147,7 @@ export const NovaCompositionCoorpacademyMagicWand1: Icon = _NovaCompositionCoorp
 export const NovaCompositionCoorpacademyMailInbox: Icon = _NovaCompositionCoorpacademyMailInbox;
 export const NovaCompositionCoorpacademyMailInboxDocument: Icon = _NovaCompositionCoorpacademyMailInboxDocument;
 export const NovaCompositionCoorpacademyMap: Icon = _NovaCompositionCoorpacademyMap;
+export const NovaCompositionCoorpacademyMicrophone: Icon = _NovaCompositionCoorpacademyMicrophone;
 export const NovaCompositionCoorpacademyPictures: Icon = _NovaCompositionCoorpacademyPictures;
 export const NovaCompositionCoorpacademyProfile: Icon = _NovaCompositionCoorpacademyProfile;
 export const NovaCompositionCoorpacademyScorm: Icon = _NovaCompositionCoorpacademyScorm;
