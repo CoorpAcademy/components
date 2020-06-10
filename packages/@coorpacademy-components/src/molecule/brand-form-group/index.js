@@ -158,6 +158,10 @@ BrandFormGroup.propTypes = {
         type: PropTypes.oneOf(['button']),
         ...Button.propTypes
       }),
+      PropTypes.shape({
+        type: PropTypes.oneOf(['selectMultiple']),
+        ...SelectMultiple.propTypes
+      }),
       PropTypes.shape(InputText.propTypes)
     ])
   )
