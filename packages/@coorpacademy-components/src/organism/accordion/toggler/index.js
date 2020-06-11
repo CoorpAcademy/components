@@ -6,10 +6,9 @@ import Accordion from '../container';
 
 class AccordionToggler extends React.Component {
   static getDerivedStateFromProps(props, state) {
-    if (state.isOpenValues) return null;
+    if (state.isOpenValues && state.isOpenValues.length === props.tabProps.length) return null;
 
     const isOpenValues = map(getOr(false, 'isOpen'), props.tabProps);
-
     return {isOpenValues};
   }
 

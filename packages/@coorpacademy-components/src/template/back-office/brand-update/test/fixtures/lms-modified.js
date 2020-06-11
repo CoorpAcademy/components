@@ -9,8 +9,8 @@ const {groups} = Lms.props;
 const {tabs} = BrandTabs.props;
 
 const modifiedGroups = cloneDeep(groups);
-modifiedGroups[0].fields[0].slides[0].fields[0].modified = true;
-modifiedGroups[0].fields[0].tabProps[0].isOpen = true;
+modifiedGroups[1].fields[0].slides[0].fields[0].modified = true;
+modifiedGroups[1].fields[0].tabProps[0].isOpen = true;
 
 export default {
   props: defaultsDeep(props, {

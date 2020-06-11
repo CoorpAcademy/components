@@ -10,8 +10,8 @@ const {groups} = Lms.props;
 const {tabs} = BrandTabs.props;
 
 const successGroups = cloneDeep(groups);
-successGroups[0].fields[0].slides[0].fields[3].value = 'jlJkklJbhgTYvghytfgvf(7H77ggbV4T';
-successGroups[0].fields[0].tabProps[0].isOpen = true;
+successGroups[1].fields[0].slides[0].fields[3].value = 'jlJkklJbhgTYvghytfgvf(7H77ggbV4T';
+successGroups[1].fields[0].tabProps[0].isOpen = true;
 
 export default {
   props: defaultsDeep(props, {
