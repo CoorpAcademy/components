@@ -24,6 +24,7 @@
   "external_content_article": "ARTICLE",
   "external_content_scorm": "INTERACTIVE SLIDES",
   "external_content_video": "VIDEO",
+  "external_content_podcast": "PODCAST",
   "keep_subscription": "Keep my subscription",
   "media_stars_to_win_plural": "Win {{count}} additional stars in this chapter the first time you view a lesson!",
   "media_stars_to_win": "Win {{count}} additional star in this chapter the first time you view a lesson!",

@@ -37,6 +37,7 @@ const ContentTypeInfo = ({mode, adaptiv, type, externalContent}, context) => {
         {type === 'scorm' ? translate('external_content_scorm') : ''}
         {type === 'video' ? translate('external_content_video') : ''}
         {type === 'article' ? translate('external_content_article') : ''}
+        {type === 'podcast' ? translate('external_content_podcast') : ''}
       </div>
     );
   }
