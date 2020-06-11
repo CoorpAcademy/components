@@ -102,6 +102,34 @@ export default {
                     onChange: () => console.log('dispatch Chapter')
                   },
                   {
+                    type: 'switch',
+                    title: 'Progression',
+                    value: true,
+                    onChange: () => console.log('dispatch Progression')
+                  },
+                  {
+                    type: 'text',
+                    title: 'Title customization',
+                    description: 'Suffix at the end of the title',
+                    required: false,
+                    value: '- SEIQ',
+                    onChange: () => console.log('dispatch Title customization')
+                  },
+                  {
+                    type: 'readonly',
+                    title: 'API used to send progressions',
+                    value: 'EXPRESS_CLASS',
+                    description: 'This is the API chosen to send progressions'
+                  },
+                  {
+                    type: 'text',
+                    title: 'Facilitator ID',
+                    description: 'Used to prevent errors with Express Class',
+                    required: true,
+                    value: '1223785',
+                    onChange: () => console.log('dispatch Facilitator ID')
+                  },
+                  {
                     type: 'doublestep',
                     toggleValue: 'Delete Configuration',
                     confirmValue: 'Confirm',
