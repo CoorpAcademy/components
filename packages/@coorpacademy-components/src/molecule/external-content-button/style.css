@@ -1,0 +1,57 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value black from colors;
+@value white from colors;
+
+.button {
+  width: 166px;
+  height: 166px;
+  border-radius: 8px;
+  box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.11);
+  background-color: white;
+  display: inline-flex;
+  flex-direction: column;
+  margin: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  user-select: none;
+  transition: box-shadow 0.5s linear;
+}
+.button:hover {
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.3);
+}
+.button:hover .header {
+  opacity: 0.4;
+}
+.header {
+  height: 32px;
+  opacity: 0.2;
+  transition: opacity 0.5s linear;
+}
+.icon {
+  color: white;  
+}
+
+.iconBackground {
+  padding: 7px 7px 4px 7px;
+  border-radius: 10px;
+  width: 16px;
+  margin: -14px 0 0 16px;
+  text-align: center;
+  z-index: 1;
+}
+
+.title {
+  font-family: 'Open Sans';
+  font-size: 17px;
+  font-weight: bold;
+  color: black;
+  padding: 8px 16px 8px 16px
+}
+
+.description {
+  font-family: 'Open Sans';
+  font-size: 14px;
+  color: dark;
+  padding: 0 16px 0 16px;
+}
