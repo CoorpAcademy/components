@@ -27,11 +27,7 @@ import type {
   Config
 } from './types';
 
-const reverseString = pipe(
-  split(''),
-  reverse,
-  join('')
-);
+const reverseString = pipe(split(''), reverse, join(''));
 
 function checkFuzzyAnswer(maxTypos: number, fm: FuzzyMatching, userAnswer: string): boolean {
   if (!userAnswer || userAnswer.length === 0) {
@@ -137,22 +133,20 @@ function matchAnswerForUnorderedItems(
 ): Array<Array<PartialCorrection>> {
   const lowerGivenAnswer = map(toLower, givenAnswer);
 
-  return allowedAnswers.map(
-    (allowedAnswer): Array<PartialCorrection> => {
-      const lowerAllowedAnswer = map(toLower, allowedAnswer);
-      const givenAnswersMap = map(
-        answer => ({
-          answer,
-          isCorrect: includes(toLower(answer), lowerAllowedAnswer)
-        }),
-        givenAnswer
-      );
-      if (lowerAllowedAnswer.some(answer => !includes(answer, lowerGivenAnswer))) {
-        return givenAnswersMap.concat([{answer: undefined, isCorrect: false}]);
-      }
-      return givenAnswersMap;
+  return allowedAnswers.map((allowedAnswer): Array<PartialCorrection> => {
+    const lowerAllowedAnswer = map(toLower, allowedAnswer);
+    const givenAnswersMap = map(
+      answer => ({
+        answer,
+        isCorrect: includes(toLower(answer), lowerAllowedAnswer)
+      }),
+      givenAnswer
+    );
+    if (lowerAllowedAnswer.some(answer => !includes(answer, lowerGivenAnswer))) {
+      return givenAnswersMap.concat([{answer: undefined, isCorrect: false}]);
     }
-  );
+    return givenAnswersMap;
+  });
 }
 
 function matchAnswerForOrderedItems(

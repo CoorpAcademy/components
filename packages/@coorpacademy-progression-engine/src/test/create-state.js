@@ -46,7 +46,10 @@ test('should create a state from a progression with actions', t => {
     type: 'move',
     payload: {
       nextContent,
-      instructions: [{type: 'set', field: 'foo', value: 100}, {type: 'add', field: 'foo', value: 5}]
+      instructions: [
+        {type: 'set', field: 'foo', value: 100},
+        {type: 'add', field: 'foo', value: 5}
+      ]
     }
   };
 

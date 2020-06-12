@@ -4,8 +4,8 @@ import {omit, filter} from 'lodash/fp';
 
 import {getConfig} from '../../config';
 import type {AvailableContent, Config} from '../../types';
-import allSlides from './fixtures/slides';
 import {computeInitialStep} from '..';
+import allSlides from './fixtures/slides';
 
 const config: Config = getConfig({ref: 'learner', version: '1'});
 const availableContent: AvailableContent = [

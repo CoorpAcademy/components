@@ -34,7 +34,10 @@ test('should extract instructions from moveAction and apply them to state', t =>
   const state = stateForFirstSlide;
   const moveActionWithInstructions = set(
     'payload.instructions',
-    [{value: 0, type: 'set', field: 'foo'}, {value: 10, type: 'set', field: 'bar'}],
+    [
+      {value: 0, type: 'set', field: 'foo'},
+      {value: 10, type: 'set', field: 'bar'}
+    ],
     moveAction
   );
 

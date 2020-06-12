@@ -24,45 +24,43 @@ const isSameType = refValue => (value): boolean => {
 
 const matchWithState = (state: State) => (chapterRule: ChapterRule): boolean => {
   const conditions = chapterRule.conditions;
-  return conditions.every(
-    (condition): boolean => {
-      const {target, operator, values} = condition;
-      switch (target.scope) {
-        case 'slide': {
-          const {ref, field} = target;
+  return conditions.every((condition): boolean => {
+    const {target, operator, values} = condition;
+    switch (target.scope) {
+      case 'slide': {
+        const {ref, field} = target;
 
-          const answerRecord = pipe(
-            reverse,
-            uniqBy('slideRef'),
-            find({slideRef: ref})
-          )(state.allAnswers);
+        const answerRecord = pipe(
+          reverse,
+          uniqBy('slideRef'),
+          find({slideRef: ref})
+        )(state.allAnswers);
 
-          if (!answerRecord) return false;
+        if (!answerRecord) return false;
 
-          const value = answerRecord[field];
-          const typedValues = values.filter(isSameType(value));
+        const value = answerRecord[field];
+        const typedValues = values.filter(isSameType(value));
 
-          return checkCondition(operator, typedValues, value);
-        }
-        case 'variable': {
-          const {field} = target;
-          const variables = {
-            lives: state.lives,
-            stars: state.stars,
-            ...state.variables
-          };
+        return checkCondition(operator, typedValues, value);
+      }
+      case 'variable': {
+        const {field} = target;
+        const variables = {
+          lives: state.lives,
+          stars: state.stars,
+          ...state.variables
+        };
 
-          const value = variables[field];
-          const typedValues = values.filter(isSameType(value));
-          return checkCondition(operator, typedValues, value);
-        }
-        /* istanbul ignore next */
-        default: {
-          return false;
-        }
+        const value = variables[field];
+        const typedValues = values.filter(isSameType(value));
+        return checkCondition(operator, typedValues, value);
+      }
+      /* istanbul ignore next */
+      default: {
+        return false;
       }
     }
-  );
+  });
 };
 
 const selectRule = (rules: Array<ChapterRule>, state: State | null): ChapterRule | null => {

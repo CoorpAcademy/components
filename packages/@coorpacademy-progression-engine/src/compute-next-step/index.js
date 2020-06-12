@@ -1,5 +1,7 @@
-import {isEmpty} from 'lodash/fp';
 // @flow
+
+import {isEmpty} from 'lodash/fp';
+
 import type {
   Answer,
   AnswerAction,

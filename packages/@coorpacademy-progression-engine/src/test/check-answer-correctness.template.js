@@ -40,7 +40,11 @@ function createQuestion(
 
 test('should return true when all the given answer matches a possible answer exactly', t => {
   const question = createQuestion(
-    [['2', 'un'], ['deux', 'un'], ['saut', 'parachute']],
+    [
+      ['2', 'un'],
+      ['deux', 'un'],
+      ['saut', 'parachute']
+    ],
     ['text', 'text']
   );
 
@@ -51,7 +55,11 @@ test('should return true when all the given answer matches a possible answer exa
 
 test('should return false when answers are correct but in an incorrect order', t => {
   const question = createQuestion(
-    [['2', 'un'], ['deux', 'un'], ['saut', 'parachute']],
+    [
+      ['2', 'un'],
+      ['deux', 'un'],
+      ['saut', 'parachute']
+    ],
     ['text', 'text']
   );
 
@@ -62,7 +70,11 @@ test('should return false when answers are correct but in an incorrect order', t
 
 test('should return false when the given answer is partially incorrect', t => {
   const question = createQuestion(
-    [['2', 'un'], ['deux', 'un'], ['saut', 'parachute']],
+    [
+      ['2', 'un'],
+      ['deux', 'un'],
+      ['saut', 'parachute']
+    ],
     ['text', 'text']
   );
 
@@ -76,7 +88,11 @@ test('should return false when the given answer is partially incorrect', t => {
 
 test('should allow typos in text inputs', t => {
   const question = createQuestion(
-    [['2', 'un'], ['deux', 'un'], ['saut', 'parachute']],
+    [
+      ['2', 'un'],
+      ['deux', 'un'],
+      ['saut', 'parachute']
+    ],
     ['text', 'text']
   );
 
@@ -90,7 +106,11 @@ test('should allow typos in text inputs', t => {
 
 test('should allow and ignore blank spaces in text inputs', t => {
   const question = createQuestion(
-    [['2', 'un'], ['deux', 'un'], ['saut', 'parachute']],
+    [
+      ['2', 'un'],
+      ['deux', 'un'],
+      ['saut', 'parachute']
+    ],
     ['text', 'text']
   );
 
@@ -156,7 +176,11 @@ test('should not allow typos or additional characters for select inputs', t => {
 
 test('should return false when the given answer has more elements that the accepted answers', t => {
   const question = createQuestion(
-    [['2', 'un'], ['deux', 'un'], ['saut', 'parachute']],
+    [
+      ['2', 'un'],
+      ['deux', 'un'],
+      ['saut', 'parachute']
+    ],
     ['text', 'text']
   );
 
@@ -174,7 +198,11 @@ test('should return false when the given answer has more elements that the accep
 
 test('should return false when the given answer has less elements that the accepted answerss', t => {
   const question = createQuestion(
-    [['2', 'un'], ['deux', 'un'], ['saut', 'parachute']],
+    [
+      ['2', 'un'],
+      ['deux', 'un'],
+      ['saut', 'parachute']
+    ],
     ['text', 'text']
   );
 
