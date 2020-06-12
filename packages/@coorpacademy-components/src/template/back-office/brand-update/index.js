@@ -11,7 +11,7 @@ import Layout from '../layout';
 import style from './style.css';
 
 const BrandUpdate = Layout(props => {
-  const {notifications, links, breadcrumbs, tabs, content} = props;
+  const {notifications, links, breadcrumbs, tabs, content, details} = props;
   const formattedTabs = tabs.map(({title, name, href, selected}) => ({
     title,
     type: 'link',
@@ -41,6 +41,11 @@ const BrandUpdate = Layout(props => {
     }
   };
 
+  const detailsView = cont => {
+    if (!cont) return;
+    return <BrandTable {...cont} />;
+  };
+
   return (
     <div className={style.container}>
       <div>
@@ -53,6 +58,7 @@ const BrandUpdate = Layout(props => {
         </div>
         <div className={style.dashboardContent}>
           <div>{contentView(content)}</div>
+          <div>{detailsView(details)}</div>
         </div>
       </div>
     </div>
@@ -90,7 +96,12 @@ BrandUpdate.propTypes = {
       type: PropTypes.oneOf(['upload']),
       ...BrandUpload.propTypes
     })
-  ])
+  ]),
+  details: PropTypes.shape({
+    key: PropTypes.string,
+    type: PropTypes.oneOf(['list']),
+    ...BrandTable.propTypes
+  })
 };
 
 export default BrandUpdate;
