@@ -66,6 +66,7 @@ import MoleculeDisciplineHeader from './../src/molecule/discipline-header';
 import MoleculeDisciplinePartners from './../src/molecule/discipline-partners';
 import MoleculeDisciplineScope from './../src/molecule/discipline-scope';
 import MoleculeDragAndDrop from './../src/molecule/drag-and-drop';
+import MoleculeExternalContentButton from './../src/molecule/external-content-button';
 import MoleculeFeedback from './../src/molecule/feedback';
 import MoleculeFilters from './../src/molecule/filters';
 import MoleculeForumForumComment from './../src/molecule/forum/forum-comment';
@@ -411,6 +412,10 @@ import MoleculeDragAndDropFixtureLoading from '../src/molecule/drag-and-drop/tes
 import MoleculeDragAndDropFixtureReady from '../src/molecule/drag-and-drop/test/fixtures/ready';
 import MoleculeDragAndDropFixtureSuccessVideo from '../src/molecule/drag-and-drop/test/fixtures/success-video';
 import MoleculeDragAndDropFixtureSuccess from '../src/molecule/drag-and-drop/test/fixtures/success';
+import MoleculeExternalContentButtonFixtureArticle from '../src/molecule/external-content-button/test/fixtures/article';
+import MoleculeExternalContentButtonFixturePodcast from '../src/molecule/external-content-button/test/fixtures/podcast';
+import MoleculeExternalContentButtonFixtureScorm from '../src/molecule/external-content-button/test/fixtures/scorm';
+import MoleculeExternalContentButtonFixtureVideo from '../src/molecule/external-content-button/test/fixtures/video';
 import MoleculeFeedbackFixtureDefault from '../src/molecule/feedback/test/fixtures/default';
 import MoleculeFeedbackFixtureFailExitNode from '../src/molecule/feedback/test/fixtures/fail-exit-node';
 import MoleculeFeedbackFixtureFailureWithTitleAndDescriptionAndVideo from '../src/molecule/feedback/test/fixtures/failure-with-title-and-description-and-video';
@@ -868,6 +873,7 @@ export const components = {
     MoleculeDisciplinePartners,
     MoleculeDisciplineScope,
     MoleculeDragAndDrop,
+    MoleculeExternalContentButton,
     MoleculeFeedback,
     MoleculeFilters,
     MoleculeHero,
@@ -1363,6 +1369,12 @@ export const fixtures = {
       Ready: MoleculeDragAndDropFixtureReady,
       SuccessVideo: MoleculeDragAndDropFixtureSuccessVideo,
       Success: MoleculeDragAndDropFixtureSuccess
+    },
+    MoleculeExternalContentButton: {
+      Article: MoleculeExternalContentButtonFixtureArticle,
+      Podcast: MoleculeExternalContentButtonFixturePodcast,
+      Scorm: MoleculeExternalContentButtonFixtureScorm,
+      Video: MoleculeExternalContentButtonFixtureVideo
     },
     MoleculeFeedback: {
       Default: MoleculeFeedbackFixtureDefault,
