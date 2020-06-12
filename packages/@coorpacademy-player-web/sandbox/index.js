@@ -5,18 +5,19 @@ import {create as createApp} from '../src';
 import Services from './services';
 import * as fixtures from './fixtures';
 
+const translate = (key, data) => {
+  try {
+    return createTranslate({
+      ...localesAppPlayer,
+      ...localesComponents
+    })(key, data);
+  } catch (err) {
+    console.error(err); // eslint-disable-line no-console
+    return createTranslate({[key]: key})(key, data);
+  }
+};
+
 export const create = options => {
-  const translate = (key, data) => {
-    try {
-      return createTranslate({
-        ...localesAppPlayer,
-        ...localesComponents
-      })(key, data);
-    } catch (err) {
-      console.error(err); // eslint-disable-line no-console
-      return createTranslate({[key]: key})(key, data);
-    }
-  };
   return createApp({
     services: Services(fixtures),
     translate,

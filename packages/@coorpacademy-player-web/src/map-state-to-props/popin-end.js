@@ -103,10 +103,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
 
   return cond([
     [
-      pipe(
-        get('type'),
-        isEqual('success')
-      ),
+      pipe(get('type'), isEqual('success')),
       () => ({
         type: 'popinEnd',
         title: getOr('', 'name')(getCurrentContent(state)),
@@ -118,10 +115,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
       })
     ],
     [
-      pipe(
-        get('type'),
-        isEqual('failure')
-      ),
+      pipe(get('type'), isEqual('failure')),
       () => ({
         type: 'popinEnd',
         title: translate('Ooops'),
@@ -168,10 +162,7 @@ const extractAction = ({translate}, {dispatch}) => state => {
   const nextContent = getNextContent(state);
   return cond([
     [
-      pipe(
-        get('type'),
-        isEqual('success')
-      ),
+      pipe(get('type'), isEqual('success')),
       () => {
         if (get('nextContentType', nextContent) === 'chapter') {
           return {
@@ -197,10 +188,7 @@ const extractAction = ({translate}, {dispatch}) => state => {
       }
     ],
     [
-      pipe(
-        get('type'),
-        isEqual('failure')
-      ),
+      pipe(get('type'), isEqual('failure')),
       () => {
         const currentContent = getCurrentContent(state);
         let title = getOr('', 'name', currentContent);

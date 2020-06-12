@@ -20,9 +20,10 @@ import {
 } from 'lodash/fp';
 import {getChoices, getQuestionType, getAnswerValues, editAnswer} from '@coorpacademy/player-store';
 
-const editAnswerAction = (options, {dispatch}) => (state, slide) => newValue => {
-  return dispatch(editAnswer(newValue));
-};
+const editAnswerAction = (options, {dispatch}) =>
+  constant(newValue => {
+    return dispatch(editAnswer(newValue));
+  });
 
 const qcmProps = (options, store) => {
   const getChoices_ = getChoices();
@@ -106,10 +107,7 @@ const templateTextProps = (options, store) => {
       name: choice.name,
       placeholder: translate('Type here'),
       value: get(index, answers),
-      onChange: pipe(
-        updateTemplateAnswer(answers, index),
-        editAnswerAction_(state, slide)
-      )
+      onChange: pipe(updateTemplateAnswer(answers, index), editAnswerAction_(state, slide))
     };
   };
 };
@@ -175,10 +173,7 @@ const basicProps = (options, store) => {
     return {
       type: 'freeText',
       placeholder: translate('Type here'),
-      value: pipe(
-        getAnswerValues,
-        head
-      )(slide, state),
+      value: pipe(getAnswerValues, head)(slide, state),
       onChange: editAnswerAction_(state, slide)
     };
   };
@@ -187,12 +182,7 @@ const basicProps = (options, store) => {
 const toAnswer = values => {
   const maxValue = size(values) - 1;
   return position => {
-    return pipe(
-      multiply(maxValue),
-      round,
-      get(__, values),
-      _toString
-    )(position);
+    return pipe(multiply(maxValue), round, get(__, values), _toString)(position);
   };
 };
 
@@ -206,11 +196,8 @@ const sliderProps = (options, store) => {
       slide.question.content.max + 1
     );
 
-    const stateValue = pipe(
-      getAnswerValues,
-      head
-    )(slide, state);
-    const currentValue = parseInt(stateValue);
+    const stateValue = pipe(getAnswerValues, head)(slide, state);
+    const currentValue = Number.parseInt(stateValue);
 
     const indexValue = indexOf(currentValue, values);
     const handleChange = editAnswerAction_(state, slide);
@@ -223,10 +210,7 @@ const sliderProps = (options, store) => {
       maxLabel: `${slide.question.content.max} ${slide.question.content.unitLabel}`,
       title: `${currentValue} ${slide.question.content.unitLabel}`,
       value: sliderPosition,
-      onChange: pipe(
-        toAnswer(values),
-        handleChange
-      )
+      onChange: pipe(toAnswer(values), handleChange)
     };
   };
 };

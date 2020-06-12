@@ -63,7 +63,7 @@ test('should set properties to open resource tab if wrong answer and no resource
   t.true(props.header.failed);
   t.is(props.header.title, '__Ouch');
   t.is(props.header.subtitle, '__Wrong answer');
-  t.deepEqual(props.question.answer, 'Text');
+  t.is(props.question.answer, 'Text');
   t.true(props.resources.open);
   t.false(props.klf.open);
   t.false(props.tips.open);
@@ -193,7 +193,7 @@ test('should show correction on multiple answers for a slide', t => {
   t.true(props.header.failed);
   t.is(props.header.title, '__Ouch');
   t.is(props.header.subtitle, '__Wrong answer');
-  t.deepEqual(props.question.answer, 'France, Suisse');
+  t.is(props.question.answer, 'France, Suisse');
   t.deepEqual(props.header.corrections, [
     {answer: 'Suisse', isCorrect: true},
     {answer: 'Fiji', isCorrect: false}

@@ -14,9 +14,10 @@ test('should put revival to true if current step is extra life and a lesson has 
     true,
     popinExtraLife
   );
-  const props = popinCorrectionStateToProps({translate: mockTranslate}, {dispatch: identity})(
-    state
-  );
+  const props = popinCorrectionStateToProps(
+    {translate: mockTranslate},
+    {dispatch: identity}
+  )(state);
 
   t.true(get('extraLifeGranted', props));
   t.is(props.quit, undefined);
@@ -24,9 +25,10 @@ test('should put revival to true if current step is extra life and a lesson has 
 
 test('should put revival to false if current step is extra life and a lesson has not been viewed', t => {
   const state = Object.freeze(popinExtraLife);
-  const props = popinCorrectionStateToProps({translate: mockTranslate}, {dispatch: identity})(
-    state
-  );
+  const props = popinCorrectionStateToProps(
+    {translate: mockTranslate},
+    {dispatch: identity}
+  )(state);
 
   t.false(get('extraLifeGranted', props));
   t.is(get('quit.cta.title', props), '__Quit');
@@ -45,9 +47,10 @@ test('should put revival to false if current step is not extra life, even if les
     true,
     popinFailure
   );
-  const props = popinCorrectionStateToProps({translate: mockTranslate}, {dispatch: identity})(
-    state
-  );
+  const props = popinCorrectionStateToProps(
+    {translate: mockTranslate},
+    {dispatch: identity}
+  )(state);
 
   t.false(get('extraLifeGranted', props));
   t.is(props.header.type, 'popinCorrection');
@@ -68,9 +71,10 @@ test('should return lives', t => {
     42,
     popinExtraLife
   );
-  const props = popinCorrectionStateToProps({translate: mockTranslate}, {dispatch: identity})(
-    state
-  );
+  const props = popinCorrectionStateToProps(
+    {translate: mockTranslate},
+    {dispatch: identity}
+  )(state);
 
   t.is(props.header.lives, 42);
 });
@@ -82,9 +86,10 @@ test('should return empty lives if disabled', t => {
     true,
     popinExtraLife
   );
-  const props = popinCorrectionStateToProps({translate: mockTranslate}, {dispatch: identity})(
-    state
-  );
+  const props = popinCorrectionStateToProps(
+    {translate: mockTranslate},
+    {dispatch: identity}
+  )(state);
 
   t.is(props.header.lives, null);
 });
