@@ -41,7 +41,7 @@ test('should use the regular key when count property is passed and equal to 1 or
   });
 
   t.is(translate('foo', {count: 1}), 'I have 1 apple');
-  t.is(translate('foo', {count: NaN}), 'I have NaN apple');
+  t.is(translate('foo', {count: Number.NaN}), 'I have NaN apple');
   t.is(translate('foo', {count: 'not a number'}), 'I have not a number apple');
 });
 

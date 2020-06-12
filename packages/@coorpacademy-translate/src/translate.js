@@ -10,7 +10,7 @@ function getTemplate(locales, key, count) {
   if (count === 0) {
     return locales[`${key}_none`] || regularTemplate;
   }
-  if (count === 1 || isNaN(count)) {
+  if (count === 1 || Number.isNaN(count)) {
     return regularTemplate;
   }
   return locales[`${key}_plural`] || regularTemplate;
