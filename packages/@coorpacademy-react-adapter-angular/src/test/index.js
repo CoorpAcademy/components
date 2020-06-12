@@ -10,14 +10,20 @@ require('angular/angular');
 
 global.angular = global.window.angular;
 
-global.window.mocha = {};
-global.window.beforeEach = hook => test.beforeEach(t => hook.call(t.context));
-global.window.afterEach = hook => test.afterEach(t => hook.call(t.context));
-require('angular-mocks');
-
 test.beforeEach(t => {
   t.context.app = angular.module('myApp', []);
 });
+
+global.window.mocha = {};
+global.window.beforeEach = hook =>
+  test.beforeEach(t => {
+    hook.call(t.context);
+  });
+global.window.afterEach = hook =>
+  test.afterEach(t => {
+    hook.call(t.context);
+  });
+require('angular-mocks');
 
 const macro = (t, {components, template, provider, data}, expected) => {
   createDirectives(t.context.app, provider, components);
