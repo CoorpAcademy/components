@@ -41,7 +41,7 @@ test('should support function as path', t => {
 
   return routerMiddleware({
     getState: () => ({route: {pathname: '/'}}),
-    dispatch: action => t.deepEqual(true, action)
+    dispatch: action => t.true(action)
   })(action => t.is(locationAction, action))(locationAction);
 });
 

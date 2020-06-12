@@ -1,15 +1,12 @@
 import test from 'ava';
-import {map, set} from 'lodash/fp';
+import {map, set, constant} from 'lodash/fp';
 import {createRouter} from '..';
 
 test('should return view function with params', t => {
   t.plan(1);
 
-  // const options = {};
-
   const route = set('route.pathname', '/', {});
-  // const dispatch = () => {};
-  const view = () => 'I am a view';
+  const view = constant('I am a view');
 
   const router = createRouter([
     {
@@ -28,8 +25,8 @@ test('should support function as path', t => {
   t.plan(1);
 
   const route = set('route.pathname', '/foo', {});
-  const path = () => ({0: '/'});
-  const view = () => true;
+  const path = constant({0: '/'});
+  const view = constant(true);
 
   const router = createRouter([
     {
@@ -49,7 +46,7 @@ test("should extract url's params", t => {
   t.plan(1);
 
   const route = set('route.pathname', '/foo', {});
-  const view = () => true;
+  const view = constant(true);
 
   const router = createRouter([
     {
@@ -63,9 +60,9 @@ test("should extract url's params", t => {
 
 test("should respect route's order", t => {
   t.plan(3);
-  const view1 = () => true;
-  const view2 = () => true;
-  const view3 = () => true;
+  const view1 = constant(true);
+  const view2 = constant(true);
+  const view3 = constant(true);
 
   const router = createRouter([
     {
@@ -92,9 +89,9 @@ test("should respect route's order", t => {
 });
 
 test('should ignore the route if its predicate returns false', t => {
-  const view1 = () => true;
-  const view2 = () => true;
-  const view3 = () => true;
+  const view1 = constant(true);
+  const view2 = constant(true);
+  const view3 = constant(true);
 
   const router = createRouter([
     {
