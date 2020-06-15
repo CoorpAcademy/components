@@ -24,6 +24,7 @@
   "external_content_article": "ARTICLE",
   "external_content_scorm": "SLIDES INTERACTIVES",
   "external_content_video": "VIDEO",
+  "external_content_podcast": "PODCAST",
   "keep_subscription": "Garder mon abonnement",
   "media_stars_to_win_plural": "Gagnez {{count}} étoiles supplémentaires par chapitre en consultant la leçon !",
   "media_stars_to_win": "Gagnez {{count}} étoile supplémentaire par chapitre en consultant la leçon !",
