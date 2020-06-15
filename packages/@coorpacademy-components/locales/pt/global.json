@@ -24,6 +24,7 @@
   "external_content_article": "ARTICLE",
   "external_content_scorm": "INTERACTIVE SLIDES",
   "external_content_video": "VIDEO",
+  "external_content_podcast": "PODCAST",
   "keep_subscription": "Manter a minha subscrição",
   "media_stars_to_win_plural": "Ganhe {{count}}  estrelas adicionais neste capítulo na primeira vez que veja esta lição!",
   "media_stars_to_win": "Ganhe {{count}} estrelas adicionais neste capítulo quando vir uma lição pela primeira vez! ",
