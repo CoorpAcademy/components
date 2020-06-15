@@ -24,6 +24,7 @@
   "external_content_article": "ARTICLE",
   "external_content_scorm": "INTERACTIVE SLIDES",
   "external_content_video": "VIDEO",
+  "external_content_podcast": "PODCAST",
   "keep_subscription": "Zadrži moju prijavu",
   "media_stars_to_win_plural": "Osvoji {{count}} dodatnu zvijezdu u ovom poglavlju prvi put kad vidiš lekciju!",
   "media_stars_to_win": "Osvoji {{count}} dodatnu zvijezdu u ovom poglavlju prvi put kad vidiš lekciju!",
