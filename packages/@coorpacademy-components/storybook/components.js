@@ -576,6 +576,7 @@ import OrganismAccordionTogglerFixtureAllAreOpenable from '../src/organism/accor
 import OrganismAccordionTogglerFixtureNoChildrens from '../src/organism/accordion/toggler/test/fixtures/no-childrens';
 import OrganismAccordionTogglerFixtureOnlyOne from '../src/organism/accordion/toggler/test/fixtures/only-one';
 import OrganismBrandFormFixtureAnalytics from '../src/organism/brand-form/test/fixtures/analytics';
+import OrganismBrandFormFixtureAnimations from '../src/organism/brand-form/test/fixtures/animations';
 import OrganismBrandFormFixtureCohort from '../src/organism/brand-form/test/fixtures/cohort';
 import OrganismBrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import OrganismBrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
@@ -584,6 +585,7 @@ import OrganismBrandFormFixtureLms from '../src/organism/brand-form/test/fixture
 import OrganismBrandFormFixtureLookandfeel from '../src/organism/brand-form/test/fixtures/lookandfeel';
 import OrganismBrandFormFixtureManageusersEdit from '../src/organism/brand-form/test/fixtures/manageusers-edit';
 import OrganismBrandFormFixtureSso from '../src/organism/brand-form/test/fixtures/sso';
+import OrganismBrandTableFixtureAnimations from '../src/organism/brand-table/test/fixtures/animations';
 import OrganismBrandTableFixtureDefault from '../src/organism/brand-table/test/fixtures/default';
 import OrganismBrandTableFixtureEmpty from '../src/organism/brand-table/test/fixtures/empty';
 import OrganismBrandTableFixtureLoading from '../src/organism/brand-table/test/fixtures/loading';
@@ -749,6 +751,7 @@ import TemplateBackOfficeBrandListFixtureDefault from '../src/template/back-offi
 import TemplateBackOfficeBrandListFixtureLoading from '../src/template/back-office/brand-list/test/fixtures/loading';
 import TemplateBackOfficeBrandListFixtureRh from '../src/template/back-office/brand-list/test/fixtures/rh';
 import TemplateBackOfficeBrandUpdateFixtureAnalytics from '../src/template/back-office/brand-update/test/fixtures/analytics';
+import TemplateBackOfficeBrandUpdateFixtureAnimations from '../src/template/back-office/brand-update/test/fixtures/animations';
 import TemplateBackOfficeBrandUpdateFixtureCohortError from '../src/template/back-office/brand-update/test/fixtures/cohort-error';
 import TemplateBackOfficeBrandUpdateFixtureCohort from '../src/template/back-office/brand-update/test/fixtures/cohort';
 import TemplateBackOfficeBrandUpdateFixtureDashboard from '../src/template/back-office/brand-update/test/fixtures/dashboard';
@@ -1665,6 +1668,7 @@ export const fixtures = {
   Organism: {
     OrganismBrandForm: {
       Analytics: OrganismBrandFormFixtureAnalytics,
+      Animations: OrganismBrandFormFixtureAnimations,
       Cohort: OrganismBrandFormFixtureCohort,
       Dashboard: OrganismBrandFormFixtureDashboard,
       Default: OrganismBrandFormFixtureDefault,
@@ -1675,6 +1679,7 @@ export const fixtures = {
       Sso: OrganismBrandFormFixtureSso
     },
     OrganismBrandTable: {
+      Animations: OrganismBrandTableFixtureAnimations,
       Default: OrganismBrandTableFixtureDefault,
       Empty: OrganismBrandTableFixtureEmpty,
       Loading: OrganismBrandTableFixtureLoading
@@ -1919,6 +1924,7 @@ export const fixtures = {
     },
     TemplateBackOfficeBrandUpdate: {
       Analytics: TemplateBackOfficeBrandUpdateFixtureAnalytics,
+      Animations: TemplateBackOfficeBrandUpdateFixtureAnimations,
       CohortError: TemplateBackOfficeBrandUpdateFixtureCohortError,
       Cohort: TemplateBackOfficeBrandUpdateFixtureCohort,
       Dashboard: TemplateBackOfficeBrandUpdateFixtureDashboard,

@@ -7,11 +7,15 @@ export default {
       {
         type: 'autoComplete',
         ...Autocomplete.props,
-        title: 'Users'
+        title: 'User',
+        description: 'Name of the fictive user who will send the battle',
+        required: true
       },
       {
-        title: 'Population',
+        title: 'Populations',
         type: 'selectMultiple',
+        description: 'The cohorte which will receive the battle',
+        required: true,
         options: [
           {
             value: 'pop-1',
@@ -46,25 +50,29 @@ export default {
       {
         type: 'autoComplete',
         ...Autocomplete.props,
-        title: 'Cours'
+        title: 'Course',
+        description: 'Name of the course and the level used to make the battle',
+        required: true
       },
       {
         title: 'Difficulty level',
         type: 'select',
+        description: 'Level of difficulty (if it is easy, the population is more likely to win)',
+        required: true,
         options: [
           {
             value: 0.2,
-            name: 'Easy',
+            name: 'Easy (20% of well answered questions)',
             selected: true
           },
           {
             value: 0.5,
-            name: 'Average',
+            name: 'Average (50% of well answered questions)',
             selected: false
           },
           {
             value: 0.8,
-            name: 'Hard',
+            name: 'Hard (80% of well answered questions)',
             selected: false
           }
         ],
