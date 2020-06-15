@@ -24,6 +24,7 @@
   "external_content_article": "ARTICLE",
   "external_content_scorm": "INTERACTIVE SLIDES",
   "external_content_video": "VIDEO",
+  "external_content_podcast": "PODCAST",
   "keep_subscription": "Ponechat předplatné",
   "media_stars_to_win_plural": "Získejte další hvězdy ({{count}}) v této kapitole při prvním zobrazení lekce!",
   "media_stars_to_win": "Vyhrajte další hvězdu ({{count}}) v této kapitole při prvním zobrazení lekce!",
