@@ -24,6 +24,7 @@
   "external_content_article": "ARTICLE",
   "external_content_scorm": "INTERACTIVE SLIDES",
   "external_content_video": "VIDEO",
+  "external_content_podcast": "PODCAST",
   "keep_subscription": "Panatilihin ang aking subscription",
   "media_stars_to_win_plural": "Manalo ng {{count}} karagdagang mga star sa kabanatang ito sa unang pagkakataon na tingnan mo ang isang lesson! ",
   "media_stars_to_win": "Manalo ng {{count}} karagdagang mga star sa kabanatang ito sa unang pagkakataon na tingnan mo ang isang lesson!",
