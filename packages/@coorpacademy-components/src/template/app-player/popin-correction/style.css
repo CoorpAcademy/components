@@ -172,6 +172,10 @@
   .wrapperAssistance {
     margin-bottom: 8px;
   }
+  .finalBackground {
+    display: contents;
+    top: auto;
+  }
 }
 
 @media tablet {
