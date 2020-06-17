@@ -31,6 +31,39 @@ const createOptionsView = (_options, hasOptions) => {
   return hasOptions ? <div className={style.options}>{optionsView}</div> : null;
 };
 
+const buildTableContext = (translate, theme, headerTitle) => {
+  if (theme === THEMES.COCKPIT) {
+    return (
+      <div className={style.header}>
+        <h1 className={style.title}>{headerTitle}</h1>
+        <div className={style.legend}>
+          <div className={style.icon}>
+            <DraftIcon width={25} height={25} />
+            <span className={style.label}>{translate('Draft')}</span>
+          </div>
+          <div className={style.icon}>
+            <ValidateIcon width={25} height={25} />
+            <span className={style.label}>{translate('Validated')}</span>
+          </div>
+          <div className={style.icon}>
+            <span className={style.nostatus}>{'\u26A0️'}</span>
+            <span className={style.label}>{translate('No status')}</span>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (headerTitle) {
+    return (
+      <div className={style.header}>
+        <h2 className={style.title}>{headerTitle}</h2>
+      </div>
+    );
+  }
+  return null;
+};
+
 const Table = (props, context) => {
   const {rows = [], columns = [], editable = true, theme, headerTitle = ''} = props;
   const {skin, translate} = context;
@@ -65,25 +98,7 @@ const Table = (props, context) => {
     );
   });
 
-  const cockpitHeader = theme === THEMES.COCKPIT && (
-    <div className={style.header}>
-      <h1 className={style.title}>{headerTitle}</h1>
-      <div className={style.legend}>
-        <div className={style.icon}>
-          <DraftIcon width={25} height={25} />
-          <span className={style.label}>{translate('Draft')}</span>
-        </div>
-        <div className={style.icon}>
-          <ValidateIcon width={25} height={25} />
-          <span className={style.label}>{translate('Validated')}</span>
-        </div>
-        <div className={style.icon}>
-          <span className={style.nostatus}>{'\u26A0️'}</span>
-          <span className={style.label}>{translate('No status')}</span>
-        </div>
-      </div>
-    </div>
-  );
+  const tableContext = buildTableContext(translate, theme, headerTitle);
 
   if (editable) {
     headerView.unshift(
@@ -144,7 +159,7 @@ const Table = (props, context) => {
 
   return (
     <div className={mainClass}>
-      {cockpitHeader}
+      {tableContext}
       <table className={classnames(style.table, {[style.readonly]: !editable})}>
         <thead>
           <tr>{headerView}</tr>

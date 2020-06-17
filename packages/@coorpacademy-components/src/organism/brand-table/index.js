@@ -15,7 +15,9 @@ const BrandTable = props => {
     editable,
     isPending,
     emptyValue,
-    onRefresh
+    onRefresh,
+    refreshLabel,
+    headerTitle = ''
   } = props;
 
   const pendingView = (
@@ -26,7 +28,7 @@ const BrandTable = props => {
 
   const tableView =
     rows.length > 0 ? (
-      <Table rows={rows} columns={columns} editable={editable} />
+      <Table rows={rows} columns={columns} editable={editable} headerTitle={headerTitle} />
     ) : (
       <div className={style.empty}>{emptyValue}</div>
     );
@@ -43,7 +45,7 @@ const BrandTable = props => {
 
   const refreshView = onRefresh ? (
     <div className={style.refresh} onClick={onRefresh}>
-      🔄 Refresh data
+      🔄 {refreshLabel}
     </div>
   ) : null;
 
@@ -68,7 +70,9 @@ BrandTable.propTypes = {
   editable: PropTypes.bool,
   rows: Table.propTypes.rows,
   columns: Table.propTypes.columns,
-  onRefresh: PropTypes.func
+  onRefresh: PropTypes.func,
+  refreshLabel: PropTypes.string,
+  headerTitle: PropTypes.string
 };
 
 export default BrandTable;
