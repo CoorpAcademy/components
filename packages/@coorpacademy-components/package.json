@@ -112,5 +112,6 @@
     "webpack-dev-middleware": "^3.7.2",
     "webpack-hot-middleware": "^2.25.0"
   },
-  "author": "CoorpAcademy"
+  "author": "CoorpAcademy",
+  "gitHead": "3be3050e700db2d58de6759c1ec7de6869047209"
 }

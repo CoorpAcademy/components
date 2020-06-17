@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {get, keys} from 'lodash/fp';
 import {
-  NovaSolidBookmarksTagsBookmark5 as AddBookmarkIcon,
-  NovaLineBookmarksTagsBookmark5 as RemoveBookmarkIcon,
+  NovaCompositionNavigationMore as MoreIcon,
   NovaSolidLocksLock11 as LockIcon,
-  NovaSolidLocksLockUnlock1 as UnlockIcon
+  NovaSolidLocksLockUnlock1 as UnlockIcon,
+  NovaCompositionCoorpacademyCheck as CheckIcon
 } from '@coorpacademy/nova-icons';
 import style from './notification.css';
 
 const NOTIFICATION_ICON = {
-  addFavorite: AddBookmarkIcon,
-  removeFavorite: RemoveBookmarkIcon,
+  addFavorite: CheckIcon,
+  removeFavorite: MoreIcon,
   lock: LockIcon,
   unlock: UnlockIcon
 };
