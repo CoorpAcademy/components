@@ -1,5 +1,8 @@
 export default {
   props: {
+    onRefresh: () => {
+      console.log('On Refresh');
+    },
     emptyValue: 'There is nothing to display.',
     isPending: false,
     editable: false,

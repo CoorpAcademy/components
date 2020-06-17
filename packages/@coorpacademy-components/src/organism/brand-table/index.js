@@ -7,7 +7,16 @@ import Loader from '../../atom/loader';
 import style from './style.css';
 
 const BrandTable = props => {
-  const {pagination, search, rows = [], columns = [], editable, isPending, emptyValue} = props;
+  const {
+    pagination,
+    search,
+    rows = [],
+    columns = [],
+    editable,
+    isPending,
+    emptyValue,
+    onRefresh
+  } = props;
 
   const pendingView = (
     <div className={style.loading}>
@@ -31,9 +40,17 @@ const BrandTable = props => {
       <Search {...search} />
     </div>
   ) : null;
+
+  const refreshView = onRefresh ? (
+    <div className={style.refresh} onClick={onRefresh}>
+      🔄 Refresh data
+    </div>
+  ) : null;
+
   return (
     <div className={style.wrapper}>
       <div className={style.headerWrapper}>
+        {refreshView}
         {searchView}
         {paginationView}
       </div>
@@ -50,7 +67,8 @@ BrandTable.propTypes = {
   isPending: PropTypes.bool,
   editable: PropTypes.bool,
   rows: Table.propTypes.rows,
-  columns: Table.propTypes.columns
+  columns: Table.propTypes.columns,
+  onRefresh: PropTypes.func
 };
 
 export default BrandTable;
