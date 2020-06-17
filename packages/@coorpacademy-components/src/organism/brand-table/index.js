@@ -7,7 +7,18 @@ import Loader from '../../atom/loader';
 import style from './style.css';
 
 const BrandTable = props => {
-  const {pagination, search, rows = [], columns = [], editable, isPending, emptyValue} = props;
+  const {
+    pagination,
+    search,
+    rows = [],
+    columns = [],
+    editable,
+    isPending,
+    emptyValue,
+    onRefresh,
+    refreshLabel,
+    headerTitle = ''
+  } = props;
 
   const pendingView = (
     <div className={style.loading}>
@@ -17,7 +28,7 @@ const BrandTable = props => {
 
   const tableView =
     rows.length > 0 ? (
-      <Table rows={rows} columns={columns} editable={editable} />
+      <Table rows={rows} columns={columns} editable={editable} headerTitle={headerTitle} />
     ) : (
       <div className={style.empty}>{emptyValue}</div>
     );
@@ -31,9 +42,17 @@ const BrandTable = props => {
       <Search {...search} />
     </div>
   ) : null;
+
+  const refreshView = onRefresh ? (
+    <div className={style.refresh} onClick={onRefresh}>
+      🔄 {refreshLabel}
+    </div>
+  ) : null;
+
   return (
     <div className={style.wrapper}>
       <div className={style.headerWrapper}>
+        {refreshView}
         {searchView}
         {paginationView}
       </div>
@@ -50,7 +69,10 @@ BrandTable.propTypes = {
   isPending: PropTypes.bool,
   editable: PropTypes.bool,
   rows: Table.propTypes.rows,
-  columns: Table.propTypes.columns
+  columns: Table.propTypes.columns,
+  onRefresh: PropTypes.func,
+  refreshLabel: PropTypes.string,
+  headerTitle: PropTypes.string
 };
 
 export default BrandTable;

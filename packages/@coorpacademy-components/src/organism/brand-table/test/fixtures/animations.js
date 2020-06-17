@@ -1,5 +1,10 @@
 export default {
   props: {
+    headerTitle: 'History',
+    onRefresh: () => {
+      console.log('On Refresh');
+    },
+    refreshLabel: 'Refresh data',
     emptyValue: 'There is nothing to display.',
     isPending: false,
     editable: false,

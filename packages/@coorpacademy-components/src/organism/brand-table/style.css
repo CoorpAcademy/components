@@ -11,6 +11,17 @@
   max-width: 100%;
 }
 
+.refresh {
+  font-family: 'Open Sans';
+  color: dark;
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+  width: fit-content;
+  padding-right: 20px
+}
+
 .headerWrapper {
   display: flex;
   align-items: center;

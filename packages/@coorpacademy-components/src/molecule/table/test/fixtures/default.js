@@ -1,5 +1,6 @@
 export default {
   props: {
+    headerTitle: 'Context to explain the data',
     rows: [
       {
         fields: [
