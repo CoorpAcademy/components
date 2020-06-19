@@ -3,12 +3,12 @@
 import type {ProgressionId} from '@coorpacademy/progression-engine';
 import {registerAcceptExtraLife, registerRefuseExtraLife} from '../api/progressions';
 import {getCurrentProgressionId} from '../../utils/state-extract';
-import type {DispatchedAction, GetState} from '../../definitions/redux';
+import type {DispatchedAction, GetState, Dispatch} from '../../definitions/redux';
 import {PROGRESSION_UPDATED_ON_MOVE, progressionUpdated} from '../api/analytics';
 import {selectProgression} from './progressions';
 
 const reset = (progressionId: ProgressionId) => async (
-  dispatch: Function,
+  dispatch: Dispatch,
   getState: GetState
 ): DispatchedAction => {
   await dispatch(progressionUpdated(progressionId, PROGRESSION_UPDATED_ON_MOVE));
@@ -16,7 +16,7 @@ const reset = (progressionId: ProgressionId) => async (
 };
 
 export const refuseExtraLife = () => async (
-  dispatch: Function,
+  dispatch: Dispatch,
   getState: GetState
 ): DispatchedAction => {
   const progressionId = getCurrentProgressionId(getState());
@@ -25,7 +25,7 @@ export const refuseExtraLife = () => async (
 };
 
 export const acceptExtraLife = () => async (
-  dispatch: Function,
+  dispatch: Dispatch,
   getState: GetState
 ): DispatchedAction => {
   const progressionId = getCurrentProgressionId(getState());

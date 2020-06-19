@@ -16,10 +16,7 @@ const uiCorrectionsReducer = (state = {}, {type, payload, meta}) => {
     }
 
     case UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION: {
-      return pipe(
-        set('accordion', [false, false, false]),
-        set('playResource', '')
-      )(state);
+      return pipe(set('accordion', [false, false, false]), set('playResource', ''))(state);
     }
   }
 

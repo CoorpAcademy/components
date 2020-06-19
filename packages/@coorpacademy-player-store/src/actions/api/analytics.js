@@ -10,7 +10,7 @@ import type {
   Action,
   GetState,
   Options,
-  ThunkAction
+  ThunkAction,
 } from '../../definitions/redux';
 
 export const MEDIA_VIEWED_ANALYTICS_REQUEST: string = '@@analytics/MEDIA_VIEWED_REQUEST';
@@ -21,8 +21,7 @@ export const sendMediaViewed = (resource: Lesson): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
-DispatchedAction => {
+): DispatchedAction => {
   const {Analytics} = services;
   const state = getState();
   const location: string = getRoute(state);
@@ -31,10 +30,10 @@ DispatchedAction => {
     types: [
       MEDIA_VIEWED_ANALYTICS_REQUEST,
       MEDIA_VIEWED_ANALYTICS_SUCCESS,
-      MEDIA_VIEWED_ANALYTICS_FAILURE
+      MEDIA_VIEWED_ANALYTICS_FAILURE,
     ],
     task: () => Analytics.sendViewedMediaAnalytics(resource, location),
-    meta: {resource, location}
+    meta: {resource, location},
   });
 
   return dispatch(action);
@@ -49,18 +48,17 @@ export const progressionUpdated = (
   id: ProgressionId,
   type: typeof PROGRESSION_UPDATED_ON_MOVE | typeof PROGRESSION_UPDATED_ON_MOVE
 ): ThunkAction => async (
-  dispatch: Function,
+  dispatch: Dispatch,
   getState: GetState,
   {services}: Options
-): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
-DispatchedAction => {
+): DispatchedAction => {
   const state = getState();
   const currentProgression = getCurrentProgression(state);
 
   if (!currentProgression) {
     return dispatch({
       type: PROGRESSION_UPDATED_FAILURE,
-      payload: `progression "${id}" could not be found.`
+      payload: `progression "${id}" could not be found.`,
     });
   }
 
@@ -68,7 +66,7 @@ DispatchedAction => {
   if (!progressionState) {
     return dispatch({
       type: PROGRESSION_UPDATED_FAILURE,
-      payload: `progression "${id}" has no state.`
+      payload: `progression "${id}" has no state.`,
     });
   }
 
@@ -77,15 +75,15 @@ DispatchedAction => {
   if (!engineConfig) {
     return dispatch({
       type: PROGRESSION_UPDATED_FAILURE,
-      payload: `progression "${id}" has no config.`
+      payload: `progression "${id}" has no config.`,
     });
   }
 
   const progressionUpdatedRequest = await dispatch({
     type,
     meta: {
-      id
-    }
+      id,
+    },
   });
 
   const onMove = type === PROGRESSION_UPDATED_ON_MOVE;

@@ -8,7 +8,7 @@ import type {
   Dispatch,
   DispatchedAction,
   GetState,
-  ThunkAction
+  ThunkAction,
 } from '../../definitions/redux';
 
 export const RANK_FETCH_START_REQUEST: string = '@@rank/FETCH_START_REQUEST';
@@ -24,14 +24,13 @@ const fetchRank = (
   getState: GetState,
   {services}: {services: Services},
   {types, bailout}
-): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
-DispatchedAction => {
+): DispatchedAction => {
   const {LeaderBoard} = services;
 
   const action: Action = buildTask({
     types,
     task: () => LeaderBoard.getRank(),
-    bailout
+    bailout,
   });
 
   return dispatch(action);
@@ -41,11 +40,10 @@ export const fetchStartRank = (): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
-DispatchedAction => {
+): DispatchedAction => {
   return fetchRank(dispatch, getState, ({services}: {services: Services}), {
     bailout: getStartRank,
-    types: [RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS, RANK_FETCH_START_FAILURE]
+    types: [RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS, RANK_FETCH_START_FAILURE],
   });
 };
 
@@ -53,10 +51,9 @@ export const fetchEndRank = (): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
-DispatchedAction => {
+): DispatchedAction => {
   return fetchRank(dispatch, getState, ({services}: {services: Services}), {
     types: [RANK_FETCH_END_REQUEST, RANK_FETCH_END_SUCCESS, RANK_FETCH_END_FAILURE],
-    bailout: undefined
+    bailout: undefined,
   });
 };

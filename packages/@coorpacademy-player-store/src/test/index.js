@@ -7,7 +7,7 @@ import * as api from '..';
 // console.dir({k: keys(api)}, {depth: 10, maxArrayLength: null, colors: true});
 // and launch this specific test with `NODE_ENV=test npx ava src/test/index.js`
 
-test('it should expose all api', t => {
+test('it should expose all api', (t) => {
   t.deepEqual(
     keys(api).sort(),
     [
@@ -230,7 +230,7 @@ test('it should expose all api', t => {
       'play',
       'pause',
       'resume',
-      'ended'
+      'ended',
     ].sort()
   );
 });

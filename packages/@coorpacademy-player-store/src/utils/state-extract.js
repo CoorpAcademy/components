@@ -15,7 +15,7 @@ import {
   memoize,
   map,
   some,
-  toString as _toString
+  toString as _toString,
 } from 'lodash/fp';
 import type {
   Answer,
@@ -31,7 +31,7 @@ import type {
   Progression,
   ProgressionId,
   QuestionType,
-  Slide
+  Slide,
 } from '@coorpacademy/progression-engine';
 import type {
   Chapter,
@@ -44,7 +44,7 @@ import type {
   // eslint-disable-next-line no-unused-vars
   Resource,
   Recommendation,
-  VideoTrack
+  VideoTrack,
 } from '../definitions/models';
 import type {ReduxState as State} from '../definitions/redux';
 import {CONTENT_TYPE, ENGINES} from '../definitions/models';
@@ -54,7 +54,7 @@ export const getQuestionType = (slide: Slide): QuestionType => slide.question.ty
 export const getCurrentProgressionId = (state: State): ProgressionId =>
   get('ui.current.progressionId', state);
 
-export const getProgression = (id: ProgressionId): (State => Progression) => (
+export const getProgression = (id: ProgressionId): ((State) => Progression) => (
   state: State
 ): Progression =>
   state && state.data && state.data.progressions.entities && state.data.progressions.entities[id];
@@ -105,7 +105,7 @@ export const getAnswerValues = (slide: Slide, state: State): Answer => {
   return answers;
 };
 
-export const getSlide = (id: string): (State => Slide) => (state: State): Slide =>
+export const getSlide = (id: string): ((State) => Slide) => (state: State): Slide =>
   state &&
   state.data &&
   state.data.contents &&
@@ -123,7 +123,7 @@ export const getCurrentSlide = (state: State): Slide | void => {
   return getSlide(slideId)(state);
 };
 
-export const getChapter = (ref: string): (State => Chapter | void) => (
+export const getChapter = (ref: string): ((State) => Chapter | void) => (
   state: State
 ): Chapter | void =>
   state &&
@@ -133,7 +133,7 @@ export const getChapter = (ref: string): (State => Chapter | void) => (
   state.data.contents.chapter.entities &&
   state.data.contents.chapter.entities[ref];
 
-export const getLevel = (ref: string): (State => Level | void) => (state: State): Level | void =>
+export const getLevel = (ref: string): ((State) => Level | void) => (state: State): Level | void =>
   state &&
   state.data &&
   state.data.contents &&
@@ -141,7 +141,7 @@ export const getLevel = (ref: string): (State => Level | void) => (state: State)
   state.data.contents.level.entities &&
   state.data.contents.level.entities[ref];
 
-export const getDiscipline = (ref: string): (State => Discipline | void) => (
+export const getDiscipline = (ref: string): ((State) => Discipline | void) => (
   state: State
 ): Discipline | void =>
   state &&
@@ -164,10 +164,10 @@ export const getProgressionContent = (state: State): GenericContent | void => {
 export const getContent: (
   type: ContentType,
   ref: string
-) => State => Chapter | Slide | Level | Discipline | string = (
+) => (State) => Chapter | Slide | Level | Discipline | string = (
   type: ContentType,
   ref: string
-): (State => Chapter | Slide | Level | Discipline | string) =>
+): ((State) => Chapter | Slide | Level | Discipline | string) =>
   get(['data', 'contents', type, 'entities', ref]);
 
 export const getCurrentContent = (
@@ -392,7 +392,7 @@ export const getCorrection = (progressionId: string, slideId: string) => (
 export const getCurrentCorrection = (state: State): Correction => {
   const defaultCorrection = {
     correctAnswer: [],
-    corrections: []
+    corrections: [],
   };
   const progression = getCurrentProgression(state);
   const progressionId = progression && progression._id;
@@ -457,8 +457,8 @@ export const getNextContent = (state: State): Content | void => {
   return get(`data.nextContent.entities.${id}`, state);
 };
 
-export const getStartRank: State => number = get(`data.rank.start`);
-export const getEndRank: State => number = get(`data.rank.end`);
+export const getStartRank: (State) => number = get(`data.rank.start`);
+export const getEndRank: (State) => number = get(`data.rank.end`);
 export const getBestScore = (state: State): number | void => {
   const content = getProgressionContent(state);
 
@@ -490,12 +490,12 @@ const getMedia = (media: Media): Media | void => {
       return {
         ...resource,
         type,
-        url: resource.url
+        url: resource.url,
       };
     case 'video':
       return {
         ...resource,
-        type
+        type,
       };
   }
 };
@@ -530,7 +530,7 @@ export const getContextMedia = (state: State): void | Media => {
   return getMedia(media);
 };
 
-export const getResourceToPlay: State => string = get('ui.corrections.playResource');
+export const getResourceToPlay: (State) => string = get('ui.corrections.playResource');
 
 export const getLives = (state: State): Lives => {
   const progression = getCurrentProgression(state);
@@ -538,14 +538,14 @@ export const getLives = (state: State): Lives => {
   if (!progression || progression.state === undefined) {
     return {
       hide: true,
-      count: 0
+      count: 0,
     };
   }
   const hide = Boolean(isContentAdaptive(state) || progression.state.livesDisabled);
 
   return {
     hide,
-    count: progression.state.lives
+    count: progression.state.lives,
   };
 };
 
@@ -559,11 +559,11 @@ export const getProgressionSteps = (state: State): ProgressionSteps | null => {
 
   return {
     current: getOr(0, 'state.step.current')(progression),
-    total: getNbSlides(state)
+    total: getNbSlides(state),
   };
 };
 
-export const getCoaches: State => number = getOr(0, 'ui.coaches.availableCoaches');
+export const getCoaches: (State) => number = getOr(0, 'ui.coaches.availableCoaches');
 
 export const hasSeenLesson = (state: State, onPreviousSlide: boolean = false): boolean => {
   const progression = getCurrentProgression(state);
@@ -581,7 +581,7 @@ export const hasSeenLesson = (state: State, onPreviousSlide: boolean = false): b
   const viewedResources = getOr([], ['state', 'viewedResources'], progression);
   const chapterContent = {
     type: 'chapter',
-    ref: get('chapter_id', slide)
+    ref: get('chapter_id', slide),
   };
 
   // $FlowFixMe pipe issue with flow typing
@@ -590,7 +590,7 @@ export const hasSeenLesson = (state: State, onPreviousSlide: boolean = false): b
   );
 
   return (
-    isEmpty(lessons) || any(ref => includes(ref, map('ref', lessons)), viewedResourcesForContent)
+    isEmpty(lessons) || any((ref) => includes(ref, map('ref', lessons)), viewedResourcesForContent)
   );
 };
 
@@ -603,11 +603,7 @@ export const getVideoTracks = (id: string) => (state: State): Array<VideoTrack> 
 export const getPrevAnswer = (state: State): Answer => {
   const progression = getCurrentProgression(state);
 
-  return pipe(
-    get('state.allAnswers'),
-    last,
-    getOr([], 'answer')
-  )(progression);
+  return pipe(get('state.allAnswers'), last, getOr([], 'answer'))(progression);
 };
 
 export const isQuestionCtaDisabled = (state: State): boolean => {
