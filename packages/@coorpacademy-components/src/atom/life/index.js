@@ -8,17 +8,17 @@ import {
   NovaCompositionCoorpacademyVoteHeartOutline as HeartIconOutline
 } from '@coorpacademy/nova-icons';
 import Provider from '../provider';
-import style from './style.css';
+import cssStyle from './style.css';
 
 const MODES = {
-  default: style.default,
-  small: style.small
+  default: cssStyle.default,
+  small: cssStyle.small
 };
 
 const BOUNCES = {
-  bounce: style.bounce,
-  bounceTwice: style.bounceTwice,
-  bounceAndPause: style.bounceAndPause
+  bounce: cssStyle.bounce,
+  bounceTwice: cssStyle.bounceTwice,
+  bounceAndPause: cssStyle.bounceAndPause
 };
 
 const Life = (props, context) => {
@@ -49,7 +49,8 @@ const Life = (props, context) => {
     return successStyle;
   };
 
-  const heartWrapper = failed && animated ? style.heartWrapperFailed : style.heartWrapperDefault;
+  const heartWrapper =
+    failed && animated ? cssStyle.heartWrapperFailed : cssStyle.heartWrapperDefault;
   const bounceClass = bounce ? BOUNCES[bounce.type] : null;
   const heartCustomStyle = {
     animationDelay: bounce && bounce.delay,
@@ -57,17 +58,17 @@ const Life = (props, context) => {
     left: heartOnRight && '70px'
   };
 
-  const countStyle = failed ? style.livesCounterFailed : style.livesCounterDefault;
+  const countStyle = failed ? cssStyle.livesCounterFailed : cssStyle.livesCounterDefault;
 
   return (
     <div data-name="life" className={classnames(MODES[mode], className)} style={customStyle}>
-      <div className={style.livesCounterWrapper}>
+      <div className={cssStyle.livesCounterWrapper}>
         <div
           className={pickStyle(
-            style.previousLivesCounterDefault,
-            style.previousLivesCounterDefault,
-            style.previousLivesCounterFailed,
-            style.previousLivesRevival
+            cssStyle.previousLivesCounterDefault,
+            cssStyle.previousLivesCounterDefault,
+            cssStyle.previousLivesCounterFailed,
+            cssStyle.previousLivesRevival
           )}
         >
           {count + 1}
@@ -76,26 +77,26 @@ const Life = (props, context) => {
           {count}
         </div>
       </div>
-      <div className={style.operatorWrapper}>
-        <span className={style.operator}>{operator}</span>
+      <div className={cssStyle.operatorWrapper}>
+        <span className={cssStyle.operator}>{operator}</span>
       </div>
       <div className={classnames(heartWrapper, bounceClass)} style={heartCustomStyle}>
-        <HeartIconOutline className={style.heartOutline} color={white} />
+        <HeartIconOutline className={cssStyle.heartOutline} color={white} />
         <HeartIcon
           className={pickStyle(
-            style.heartNormalDefault,
-            style.heartNormalFailed,
-            style.heartNormalAnimatedFailed,
-            style.heartNormalRevival
+            cssStyle.heartNormalDefault,
+            cssStyle.heartNormalFailed,
+            cssStyle.heartNormalAnimatedFailed,
+            cssStyle.heartNormalRevival
           )}
           color={negativeColor}
         />
         <HeartBrokenIcon
           className={pickStyle(
-            style.heartBrokenDefault,
-            style.heartBrokenFailed,
-            style.heartBrokenAnimatedFailed,
-            style.heartBrokenRevival
+            cssStyle.heartBrokenDefault,
+            cssStyle.heartBrokenFailed,
+            cssStyle.heartBrokenAnimatedFailed,
+            cssStyle.heartBrokenRevival
           )}
           color={negativeColor}
         />
@@ -120,7 +121,8 @@ Life.propTypes = {
   count: PropTypes.number,
   failed: PropTypes.bool,
   className: PropTypes.string,
-  operator: PropTypes.string
+  operator: PropTypes.string,
+  style: PropTypes.shape({})
 };
 
 export default Life;

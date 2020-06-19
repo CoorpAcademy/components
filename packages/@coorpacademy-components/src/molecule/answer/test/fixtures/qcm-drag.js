@@ -5,8 +5,8 @@ const answerProps = QcmDrag.props;
 export default {
   props: {
     model: {
-      type: 'qcmDrag',
-      ...answerProps
+      ...answerProps,
+      type: 'qcmDrag'
     },
     help: 'Help text will appear here'
   }

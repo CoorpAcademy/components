@@ -27,10 +27,7 @@ test('should call the onClick function with click on cta', t => {
   const props = {...defaultFixture.props.progressions[0], onClick: e => t.is(e, clickEvent)};
   const wrapper = shallow(<Wrapper {...props} />);
 
-  wrapper
-    .find(Link)
-    .first()
-    .simulate('click', clickEvent);
+  wrapper.find(Link).first().simulate('click', clickEvent);
 });
 
 test('should not contain a link if progressionItem is disabled', t => {

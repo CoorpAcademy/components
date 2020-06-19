@@ -5,8 +5,8 @@ const answerType = Answer.props;
 
 export default {
   props: {
-    typeClue: 'answer',
     ...Default.props,
+    typeClue: 'answer',
     answerType,
     showNewMedia: false,
     showReviewLesson: true,

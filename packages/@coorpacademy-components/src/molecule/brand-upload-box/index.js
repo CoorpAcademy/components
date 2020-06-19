@@ -6,6 +6,14 @@ import Loader from '../../atom/loader';
 import style from './style.css';
 
 class BrandUploadBox extends React.Component {
+  static propTypes = {
+    name: PropTypes.string,
+    description: PropTypes.string,
+    browse: PropTypes.string,
+    status: PropTypes.oneOf(['default', 'loading']),
+    onLoad: PropTypes.func
+  };
+
   constructor(props) {
     super(props);
 
@@ -32,13 +40,15 @@ class BrandUploadBox extends React.Component {
   render() {
     const idBox = uniqueId('drop-box-');
     const {skin} = this.context;
+    const {status} = this.props;
+    const {dragging} = this.state;
 
     let content;
 
     const {description = '', browse = '', onLoad, name} = this.props;
     const brandColor = get('common.brand', skin);
 
-    switch (this.props.status) {
+    switch (status) {
       case 'loading':
         content = (
           <div className={style.loading}>
@@ -50,7 +60,7 @@ class BrandUploadBox extends React.Component {
       default:
         content = (
           <div className={style.wrapper}>
-            <div id={idBox} className={this.state.dragging ? style.dropping : style.default}>
+            <div id={idBox} className={dragging ? style.dropping : style.default}>
               <div className={style.cont}>
                 <UploadIcon color={brandColor} className={style.arrow} />
                 <div className={style.desc}>{description}</div>
@@ -74,11 +84,4 @@ class BrandUploadBox extends React.Component {
   }
 }
 
-BrandUploadBox.propTypes = {
-  name: PropTypes.string,
-  description: PropTypes.string,
-  browse: PropTypes.string,
-  status: PropTypes.oneOf(['default', 'loading']),
-  onLoad: PropTypes.func
-};
 export default BrandUploadBox;

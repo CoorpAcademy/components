@@ -10,6 +10,29 @@ import Button from '../../atom/button';
 import style from './style.css';
 
 class ExternalCourse extends React.Component {
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    type: PropTypes.oneOf(keys(EXTERNAL_CONTENT_ICONS)),
+    url: PropTypes.string.isRequired,
+    quit: PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      onClick: PropTypes.func
+    }),
+    complete: PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      disabled: PropTypes.bool,
+      onClick: PropTypes.func
+    }),
+    warning: PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      onClick: PropTypes.func
+    })
+  };
+
+  static contextTypes = {
+    skin: Provider.childContextTypes.skin
+  };
+
   handleOnClick = field => e => {
     e.stopPropagation();
     e.preventDefault();
@@ -67,28 +90,5 @@ class ExternalCourse extends React.Component {
     );
   }
 }
-
-ExternalCourse.contextTypes = {
-  skin: Provider.childContextTypes.skin
-};
-
-ExternalCourse.propTypes = {
-  name: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(keys(EXTERNAL_CONTENT_ICONS)),
-  url: PropTypes.string.isRequired,
-  quit: PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    onClick: PropTypes.func
-  }),
-  complete: PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    disabled: PropTypes.bool,
-    onClick: PropTypes.func
-  }),
-  warning: PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    onClick: PropTypes.func
-  })
-};
 
 export default ExternalCourse;

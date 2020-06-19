@@ -6,6 +6,16 @@ import {EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
 import style from './style.css';
 
 class ExternalContentButton extends React.Component {
+  static propTypes = {
+    type: PropTypes.string,
+    description: PropTypes.string,
+    onClick: PropTypes.func
+  };
+
+  static contextTypes = {
+    translate: Provider.childContextTypes.translate
+  };
+
   constructor(props, context) {
     super(props, context);
   }
@@ -39,15 +49,5 @@ class ExternalContentButton extends React.Component {
     );
   }
 }
-
-ExternalContentButton.contextTypes = {
-  translate: Provider.childContextTypes.translate
-};
-
-ExternalContentButton.propTypes = {
-  type: PropTypes.string,
-  description: PropTypes.string,
-  onClick: PropTypes.func
-};
 
 export default ExternalContentButton;

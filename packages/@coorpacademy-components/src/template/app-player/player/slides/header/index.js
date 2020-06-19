@@ -16,9 +16,9 @@ const SlidesHeader = (props = {}, context = undefined) => {
 
   return (
     <div data-name="slidesHeader" className={style.wrapper}>
-      {type === HEADER_TYPE.LEARNER && <Learner content={content} subcontent={subcontent} />}
-      {type === HEADER_TYPE.MICROLEARNING && <Microlearning content={content} />}
-      {lives && <Lives count={lives.count} />}
+      {type === HEADER_TYPE.LEARNER ? <Learner content={content} subcontent={subcontent} /> : null}
+      {type === HEADER_TYPE.MICROLEARNING ? <Microlearning content={content} /> : null}
+      {lives ? <Lives count={lives.count} /> : null}
     </div>
   );
 };

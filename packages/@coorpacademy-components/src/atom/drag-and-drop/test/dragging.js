@@ -4,8 +4,8 @@ import React from 'react';
 import {shallow, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import style from '../../image-upload/style.css';
-import withChildrenFixtures from './fixtures/with-children';
 import DragAndDrop from '..';
+import withChildrenFixtures from './fixtures/with-children';
 
 browserEnv();
 configure({adapter: new Adapter()});

@@ -31,7 +31,7 @@ const ScopeContent = (props, context) => {
 
   const chapters = _chapters.map((chapter, index) => <li key={index}>{chapter.name}</li>);
 
-  const ctaView = onClick && (
+  const ctaView = onClick ? (
     <Button
       data-name="cta"
       type="link"
@@ -42,7 +42,7 @@ const ScopeContent = (props, context) => {
         backgroundColor: get('common.primary', skin)
       }}
     />
-  );
+  ) : null;
 
   const medias = _medias.map((media, index) => {
     const {onClick: handleClick, href = '#', target, type} = media;
@@ -101,7 +101,7 @@ const ScopeContent = (props, context) => {
 
       {mediasView}
       {get('discussion', content) ? (
-        <Discussion className={style.discussion} {...content.discussion} />
+        <Discussion {...content.discussion} className={style.discussion} />
       ) : null}
     </div>
   );

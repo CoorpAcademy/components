@@ -20,7 +20,8 @@ export default {
       </div>
       <div className={style.wrapper}>
         <span>
-          <strong>Avatar </strong>is challenging you
+          <strong>Avatar </strong>
+          is challenging you
           <p>
             <strong>Coorpacademy</strong>
           </p>

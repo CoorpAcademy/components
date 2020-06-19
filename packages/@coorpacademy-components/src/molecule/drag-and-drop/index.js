@@ -83,7 +83,7 @@ export const DragAndDrop = (props, context) => {
           const disableFileInput = ['success', 'ready'].includes(state);
 
           return (
-            <div className={style.wrapper} {...getRootProps()}>
+            <div {...getRootProps()} className={style.wrapper}>
               <input {...getInputProps()} disabled={disableFileInput} />
               {getView()}
               {isDragActive || loading ? (
@@ -119,11 +119,12 @@ DragAndDrop.propTypes = {
   accept: PropTypes.string,
   fields: PropTypes.arrayOf(
     PropTypes.shape({
-      type: PropTypes.oneOf(['text']),
-      ...InputText.propTypes
+      ...InputText.propTypes,
+      type: PropTypes.oneOf(['text'])
     })
   ),
   onDrop: PropTypes.func,
+  onDelete: PropTypes.func,
   actions: PropTypes.arrayOf(
     PropTypes.shape({
       type: PropTypes.oneOf(['edit', 'upload', 'delete']),

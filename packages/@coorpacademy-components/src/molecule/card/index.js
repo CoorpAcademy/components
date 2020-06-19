@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {get, isEmpty, isUndefined, pick} from 'lodash/fp';
@@ -67,6 +67,12 @@ CardBackground.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
+CardBackground.propTypes = {
+  type: PropTypes.string,
+  image: PropTypes.string,
+  empty: PropTypes.bool
+};
+
 const Card = (props, context) => {
   const {skin} = context;
   const {
@@ -96,7 +102,7 @@ const Card = (props, context) => {
     style.grid,
     empty ? style.empty : null
   );
-  const handleClick = e => !disabled && onClick(e);
+  const handleClick = useMemo(() => e => !disabled && onClick(e), [onClick]);
 
   const lock = disabled ? (
     <LockIcon className={style.lockIcon} color={whiteColor} height={40} />
@@ -122,7 +128,7 @@ const Card = (props, context) => {
       onClick={handleClick}
     >
       <CardBackground type={type} image={image} empty={empty} />
-      {!isUndefined(favorite) && (
+      {!isUndefined(favorite) ? (
         <Favorite
           className={style.favorite}
           favorite={favorite}
@@ -131,14 +137,14 @@ const Card = (props, context) => {
           addFavoriteToolTip={addFavoriteToolTip}
           removeFavoriteToolTip={removeFavoriteToolTip}
         />
-      )}
-      {notification && <Notification {...notification} />}
-      {customer && (
+      ) : null}
+      {notification ? <Notification {...notification} /> : null}
+      {customer ? (
         <Customer
-          className={classnames(style.customer, type === 'chapter' ? style.chapterCustomer : null)}
           {...customer}
+          className={classnames(style.customer, type === 'chapter' ? style.chapterCustomer : null)}
         />
-      )}
+      ) : null}
       <CardContentInfo
         mode={MODES.CARD}
         adaptiv={adaptiv}
@@ -150,11 +156,11 @@ const Card = (props, context) => {
         title={title}
         type={type}
       />
-      {badge && (
+      {badge ? (
         <div className={style.badge} style={inlineBadgeStyle}>
           {badge}
         </div>
-      )}
+      ) : null}
       {disabled ? <div className={style.lockWrapper}>{lock}</div> : null}
     </div>
   );

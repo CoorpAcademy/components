@@ -95,72 +95,72 @@ BrandFormGroup.propTypes = {
   fields: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.shape({
-        type: PropTypes.oneOf(['autoComplete']),
-        ...Autocomplete.propTypes
+        ...Autocomplete.propTypes,
+        type: PropTypes.oneOf(['autoComplete'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['color']),
-        ...InputColor.propTypes
+        ...InputColor.propTypes,
+        type: PropTypes.oneOf(['color'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['readonly']),
-        ...InputReadonly.propTypes
+        ...InputReadonly.propTypes,
+        type: PropTypes.oneOf(['readonly'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['switch']),
-        ...InputSwitch.propTypes
+        ...InputSwitch.propTypes,
+        type: PropTypes.oneOf(['switch'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['textarea']),
-        ...InputTextarea.propTypes
+        ...InputTextarea.propTypes,
+        type: PropTypes.oneOf(['textarea'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['html']),
-        ...InputHTML.propTypes
+        ...InputHTML.propTypes,
+        type: PropTypes.oneOf(['html'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['doublestep']),
-        ...InputDoublestep.propTypes
+        ...InputDoublestep.propTypes,
+        type: PropTypes.oneOf(['doublestep'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['select']),
-        ...Select.propTypes
+        ...Select.propTypes,
+        type: PropTypes.oneOf(['select'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['checkbox']),
-        ...InputCheckbox.propTypes
+        ...InputCheckbox.propTypes,
+        type: PropTypes.oneOf(['checkbox'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['image']),
-        ...ImageUpload.propTypes
+        ...ImageUpload.propTypes,
+        type: PropTypes.oneOf(['image'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['slider']),
-        ...SetupSlider.propTypes
+        ...SetupSlider.propTypes,
+        type: PropTypes.oneOf(['slider'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['sections']),
-        ...SetupSections.propTypes
+        ...SetupSections.propTypes,
+        type: PropTypes.oneOf(['sections'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['text']),
-        ...InputText.propTypes
+        ...InputText.propTypes,
+        type: PropTypes.oneOf(['text'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['downloadbox']),
-        ...BrandDownloadBox.propTypes
+        ...BrandDownloadBox.propTypes,
+        type: PropTypes.oneOf(['downloadbox'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['uploadbox']),
-        ...BrandUploadBox.propTypes
+        ...BrandUploadBox.propTypes,
+        type: PropTypes.oneOf(['uploadbox'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['button']),
-        ...Button.propTypes
+        ...Button.propTypes,
+        type: PropTypes.oneOf(['button'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['selectMultiple']),
-        ...SelectMultiple.propTypes
+        ...SelectMultiple.propTypes,
+        type: PropTypes.oneOf(['selectMultiple'])
       }),
       PropTypes.shape(InputText.propTypes)
     ])

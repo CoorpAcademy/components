@@ -47,10 +47,11 @@ Hero.contextTypes = {
 
 Hero.propTypes = {
   image: PropTypes.string,
-  title: PropTypes.string,
-  author: PropTypes.string,
-  progress: PropTypes.number,
-  onClick: PropTypes.func
+  title: CardContentInfo.propTypes.title,
+  author: CardContentInfo.propTypes.author,
+  progress: CardContentInfo.propTypes.progress,
+  onClick: Button.propTypes.onClick,
+  submitValue: Button.propTypes.submitValue
 };
 
 export default Hero;

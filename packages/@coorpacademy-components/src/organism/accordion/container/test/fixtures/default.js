@@ -22,8 +22,8 @@ export default {
     ]
   },
   children: [
-    <QcmGraphic key="1" {...qcmGraphicFixture.props} />,
-    <Qcm key="2" {...qcmFixture.props} />,
-    <QcmDrag key="3" {...qcmDragFixture.props} />
+    <QcmGraphic {...qcmGraphicFixture.props} key="1" />,
+    <Qcm {...qcmFixture.props} key="2" />,
+    <QcmDrag {...qcmDragFixture.props} key="3" />
   ]
 };

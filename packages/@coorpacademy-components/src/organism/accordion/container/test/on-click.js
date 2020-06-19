@@ -3,8 +3,8 @@ import test from 'ava';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import fixture from './fixtures/default';
 import Accordion from '..';
+import fixture from './fixtures/default';
 
 browserEnv();
 configure({adapter: new Adapter()});
@@ -23,24 +23,15 @@ test('should call the onClick function', t => {
   );
   t.is(wrapper.find(`.part__header`).exists(), true);
   selectetKey = 0;
-  wrapper
-    .find('.part__header')
-    .at(selectetKey)
-    .simulate('click', {
-      value: 'foo'
-    });
+  wrapper.find('.part__header').at(selectetKey).simulate('click', {
+    value: 'foo'
+  });
   selectetKey = 1;
-  wrapper
-    .find('.part__header')
-    .at(selectetKey)
-    .simulate('click', {
-      value: 'foo'
-    });
+  wrapper.find('.part__header').at(selectetKey).simulate('click', {
+    value: 'foo'
+  });
   selectetKey = 2;
-  wrapper
-    .find('.part__header')
-    .at(selectetKey)
-    .simulate('click', {
-      value: 'foo'
-    });
+  wrapper.find('.part__header').at(selectetKey).simulate('click', {
+    value: 'foo'
+  });
 });

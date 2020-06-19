@@ -1,13 +1,16 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {snakeCase, omit, noop} from 'lodash/fp';
 import Loader from '../loader';
 import style from './style.css';
 
 const ConfirmationInput = ({onChange, placeholder = ''}) => {
-  const handleOnChange = e => {
-    return onChange(e.target.value);
-  };
+  const handleOnChange = useMemo(
+    () => e => {
+      return onChange(e.target.value);
+    },
+    [onChange]
+  );
 
   return (
     <div>
@@ -20,6 +23,7 @@ const ConfirmationInput = ({onChange, placeholder = ''}) => {
     </div>
   );
 };
+
 ConfirmationInput.propTypes = {
   onChange: PropTypes.func,
   placeholder: PropTypes.string
@@ -90,7 +94,16 @@ Confirmation.propTypes = {
   description: PropTypes.string
 };
 
+const inputDoubleProps = omit(['onConfirm', 'onHandleClose'], {...Confirmation.propTypes});
 class InputDoublestep extends React.Component {
+  static propTypes = {
+    toggleValue: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
+    onOpenConfirmation: PropTypes.func,
+    onCloseConfirmation: PropTypes.func,
+    ...inputDoubleProps
+  };
+
   constructor(props, context) {
     super(props);
     this.state = {
@@ -105,20 +118,23 @@ class InputDoublestep extends React.Component {
       open: !state.open
     }));
 
+    const {open} = this.state;
     const {onCloseConfirmation = noop, onOpenConfirmation = noop} = this.props;
-    this.state.open ? onCloseConfirmation() : onOpenConfirmation();
+    open ? onCloseConfirmation() : onOpenConfirmation();
   }
 
   handleOnClick(e) {
     e.preventDefault();
     this.setState({open: false});
-    return this.props.onClick(e);
+    const {onClick = noop} = this.props;
+    return onClick(e);
   }
 
   render() {
     const {toggleValue, disabled} = this.props;
+    const {open} = this.state;
 
-    const formView = !this.state.open ? (
+    const formView = !open ? (
       <span
         onClick={disabled ? noop : this.handleToggle}
         className={disabled ? style.toggleDisabled : style.toggle}
@@ -143,13 +159,4 @@ class InputDoublestep extends React.Component {
   }
 }
 
-const inputDoubleProps = omit(['onConfirm', 'onHandleClose'], {...Confirmation.propTypes});
-
-InputDoublestep.propTypes = {
-  toggleValue: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired,
-  onOpenConfirmation: PropTypes.func,
-  onCloseConfirmation: PropTypes.func,
-  ...inputDoubleProps
-};
 export default InputDoublestep;

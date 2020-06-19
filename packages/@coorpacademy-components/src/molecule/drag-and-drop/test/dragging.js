@@ -6,9 +6,8 @@ import Adapter from 'enzyme-adapter-react-16';
 import {replace} from 'lodash/fp';
 import {Overlay} from '../overlay';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
-import Default from './fixtures/default';
-
 import DragDrop from '..';
+import Default from './fixtures/default';
 
 browserEnv();
 

@@ -32,31 +32,51 @@ const TABS = {
 };
 
 class Button extends React.Component {
-  constructor(props, context) {
-    super(props, context);
-  }
-
-  state = {
-    hovered: false
+  static propTypes = {
+    disabled: PropTypes.bool,
+    notify: PropTypes.bool,
+    selected: PropTypes.bool,
+    highlighted: PropTypes.bool,
+    title: PropTypes.string,
+    type: PropTypes.oneOf(keys(TABS)).isRequired,
+    onMouseEnter: PropTypes.func,
+    onMouseLeave: PropTypes.func,
+    onClick: PropTypes.func
   };
 
+  static contextTypes = {
+    skin: Provider.childContextTypes.skin
+  };
+
+  constructor(props, context) {
+    super(props, context);
+
+    this.state = {
+      hovered: false
+    };
+  }
+
   handleMouseEnter = () => {
+    const {onMouseEnter} = this.props;
+
     this.setState(prevState => ({
       hovered: true
     }));
-    this.props.onMouseEnter && this.props.onMouseEnter();
+    onMouseEnter && onMouseEnter();
   };
 
   handleMouseLeave = () => {
+    const {onMouseLeave} = this.props;
     this.setState(prevState => ({
       hovered: false
     }));
 
-    this.props.onMouseLeave && this.props.onMouseLeave();
+    onMouseLeave && onMouseLeave();
   };
 
   render() {
     const {skin} = this.context;
+    const {hovered} = this.state;
     const grey = get('common.grey', skin);
     const primaryColor = get('common.primary', skin);
     const {disabled, notify, selected, highlighted, title, type, onClick} = this.props;
@@ -64,7 +84,7 @@ class Button extends React.Component {
     const selectedColor = (selected && {borderTopColor: primaryColor}) || {};
 
     const hoverStyle =
-      !disabled && this.state.hovered
+      !disabled && hovered
         ? {
             borderTopColor: primaryColor
           }
@@ -111,10 +131,6 @@ class Button extends React.Component {
     );
   }
 }
-
-Button.contextTypes = {
-  skin: Provider.childContextTypes.skin
-};
 
 const SlidesFooter = props => {
   const {buttons = []} = props;

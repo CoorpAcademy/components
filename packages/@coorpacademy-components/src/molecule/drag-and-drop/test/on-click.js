@@ -7,9 +7,8 @@ import Adapter from 'enzyme-adapter-react-16';
 import {wrappingComponent} from '../../../test/helpers/render-component';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import uploadReportStyle from '../upload-report.css'; // eslint-disable-line css-modules/no-unused-class
-import readyFixture from './fixtures/ready';
-
 import DragDrop from '..';
+import readyFixture from './fixtures/ready';
 
 browserEnv();
 configure({adapter: new Adapter()});

@@ -4,8 +4,8 @@ import React from 'react';
 import {shallow, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {omit} from 'lodash/fp';
-import defaultFixture from './fixtures/default';
 import InputTextarea from '..';
+import defaultFixture from './fixtures/default';
 
 browserEnv();
 configure({adapter: new Adapter()});

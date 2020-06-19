@@ -6,8 +6,8 @@ import Adapter from 'enzyme-adapter-react-16';
 import {set} from 'lodash/fp';
 import Button from '../../../atom/button';
 import Select from '../../../atom/select';
-import defaultFixture from './fixtures/default';
 import Activity from '..';
+import defaultFixture from './fixtures/default';
 
 browserEnv();
 configure({adapter: new Adapter()});
@@ -28,10 +28,7 @@ test('should call the onClick function with click on cta', t => {
   const props = set('recommendation.onClick', e => t.is(e, clickEvent), defaultFixture.props);
   const wrapper = shallow(<Activity {...props} />, {context});
 
-  wrapper
-    .find(Button)
-    .first()
-    .simulate('click', clickEvent);
+  wrapper.find(Button).first().simulate('click', clickEvent);
 });
 
 test('should call onChange with the target value', t => {

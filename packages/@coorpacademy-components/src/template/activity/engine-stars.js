@@ -69,7 +69,36 @@ ToolTip.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
+ToolTip.propTypes = {
+  toolTip: PropTypes.shape({
+    preMessage: PropTypes.string,
+    linkMessage: PropTypes.string,
+    endMessage: PropTypes.string,
+    onClick: PropTypes.func
+  }),
+  id: PropTypes.string.isRequired
+};
+
 class EngineStars extends React.Component {
+  static propTypes = {
+    type: PropTypes.string.isRequired,
+    stars: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    active: PropTypes.bool,
+    disabled: PropTypes.bool,
+    onClick: PropTypes.func,
+    toolTip: PropTypes.shape({
+      preMessage: PropTypes.string,
+      linkMessage: PropTypes.string,
+      endMessage: PropTypes.string,
+      onClick: PropTypes.func
+    })
+  };
+
+  static contextTypes = {
+    skin: Provider.childContextTypes.skin
+  };
+
   constructor(props, context) {
     super(props, context);
     this.handleClick = this.handleClick.bind(this);
@@ -137,24 +166,5 @@ class EngineStars extends React.Component {
     );
   }
 }
-
-EngineStars.propTypes = {
-  type: PropTypes.string.isRequired,
-  stars: PropTypes.number.isRequired,
-  title: PropTypes.string.isRequired,
-  active: PropTypes.bool,
-  disabled: PropTypes.bool,
-  onClick: PropTypes.func,
-  toolTip: PropTypes.shape({
-    preMessage: PropTypes.string,
-    linkMessage: PropTypes.string,
-    postMessage: PropTypes.string,
-    onClick: PropTypes.func
-  })
-};
-
-EngineStars.contextTypes = {
-  skin: Provider.childContextTypes.skin
-};
 
 export default EngineStars;

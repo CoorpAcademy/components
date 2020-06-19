@@ -4,14 +4,14 @@ import classnames from 'classnames';
 import style from './input-preview.css';
 
 const InputPreview = (props, context) => {
-  const {title, text, placeholder, handleChange, disabled, preview, className} = props;
+  const {title, text, placeholder, onChange, disabled, preview, className} = props;
   return !preview ? (
     <textarea
       className={className}
       name={title}
       value={text}
       placeholder={placeholder}
-      onChange={handleChange}
+      onChange={onChange}
       disabled={disabled}
     />
   ) : (
@@ -31,7 +31,7 @@ InputPreview.propTypes = {
   placeholder: PropTypes.string,
   disabled: PropTypes.bool,
   preview: PropTypes.bool.isRequired,
-  handleChange: PropTypes.func,
+  onChange: PropTypes.func,
   className: PropTypes.string
 };
 export default InputPreview;

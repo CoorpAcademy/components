@@ -10,6 +10,7 @@ const answerType = Answer.props;
 
 export default {
   props: {
+    ...footerProps,
     typeClue: 'answer',
     step: {
       current: 2,
@@ -22,7 +23,6 @@ export default {
       submitValue: 'Validate'
     },
     answerType,
-    header: headerProps,
-    ...footerProps
+    header: headerProps
   }
 };

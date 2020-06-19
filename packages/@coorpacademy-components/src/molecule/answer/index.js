@@ -37,6 +37,22 @@ const MediaView = ({media}) => {
   }
 };
 
+const isType = name => PropTypes.oneOf([name]);
+
+const videoPropType = PropTypes.shape({
+  ...VideoPlayer.propTypes,
+  type: isType(TYPE_VIDEO).isRequired
+});
+
+const imgPropType = PropTypes.shape({
+  type: isType(TYPE_IMAGE).isRequired,
+  url: PropTypes.string.isRequired
+});
+
+MediaView.propTypes = {
+  media: PropTypes.oneOfType([videoPropType, imgPropType])
+};
+
 const Answer = props => {
   const {model, media, help} = props;
   const buildAnswer = () => {
@@ -69,18 +85,6 @@ const Answer = props => {
   );
 };
 
-const isType = name => PropTypes.oneOf([name]);
-
-const videoPropType = PropTypes.shape({
-  ...VideoPlayer.propTypes,
-  type: isType(TYPE_VIDEO).isRequired
-});
-
-const imgPropType = PropTypes.shape({
-  type: isType(TYPE_IMAGE).isRequired,
-  url: PropTypes.string.isRequired
-});
-
 Answer.propTypes = {
   model: PropTypes.shape({
     type: PropTypes.oneOf([
@@ -94,7 +98,7 @@ Answer.propTypes = {
     ]).isRequired
   }),
   help: PropTypes.string,
-  media: PropTypes.oneOfType([videoPropType, imgPropType])
+  media: MediaView.propTypes.media
 };
 
 export default Answer;

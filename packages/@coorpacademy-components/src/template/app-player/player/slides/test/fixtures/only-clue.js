@@ -10,6 +10,8 @@ const clueProps = Clue.props;
 
 export default {
   props: {
+    ...clueProps,
+    ...footerProps,
     typeClue: 'clue',
     step: {
       current: 2,
@@ -23,8 +25,6 @@ export default {
       submitValue: 'Back to Question'
     },
     help: 'En regardant cet indice, vous perdez 1 étoile',
-    header: headerProps,
-    ...clueProps,
-    ...footerProps
+    header: headerProps
   }
 };

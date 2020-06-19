@@ -5,8 +5,8 @@ const answerProps = QcmGraphic.props;
 export default {
   props: {
     model: {
-      type: 'qcmGraphic',
-      ...answerProps
+      ...answerProps,
+      type: 'qcmGraphic'
     }
   }
 };

@@ -5,7 +5,7 @@ import {times} from 'lodash/fp';
 import style from './style.css';
 
 const ProgressBar = props => {
-  const {className, value, max, desc = '', steps = 0} = props;
+  const {className, value, max, desc = '', steps = 0, style: propsStyle} = props;
 
   const ratio = value / max;
   const percentage = Math.floor(ratio * 100);
@@ -16,7 +16,7 @@ const ProgressBar = props => {
       <div
         className={style.progress}
         style={{
-          ...props.style,
+          ...propsStyle,
           width: `${ratio * 100}%`
         }}
       />

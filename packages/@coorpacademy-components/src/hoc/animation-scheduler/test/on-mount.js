@@ -1,6 +1,7 @@
 import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
+import PropTypes from 'prop-types';
 import {mount, shallow, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {noop} from 'lodash/fp';
@@ -12,6 +13,11 @@ configure({adapter: new Adapter()});
 const nextFrame = () => new Promise(requestAnimationFrame);
 
 class AnimatedComponent extends React.Component {
+  static propTypes = {
+    animated: PropTypes.bool,
+    onAnimationEnd: PropTypes.func
+  };
+
   componentDidMount() {
     const {animated = false, onAnimationEnd = noop} = this.props;
     requestAnimationFrame(() => {
@@ -47,14 +53,14 @@ test('should schedule multi', t => {
     </AnimationScheduler>
   );
 
-  t.deepEqual(wrapper.html(), '<li><ul>false</ul><ul>false</ul></li>');
+  t.is(wrapper.html(), '<li><ul>false</ul><ul>false</ul></li>');
 
   wrapper.setProps({
     animated: true
   });
   wrapper.update();
 
-  t.deepEqual(wrapper.html(), '<li><ul>true</ul><ul>true</ul></li>');
+  t.is(wrapper.html(), '<li><ul>true</ul><ul>true</ul></li>');
 });
 
 test('should wait dependencies before start', async t => {
@@ -77,29 +83,29 @@ test('should wait dependencies before start', async t => {
     </AnimationScheduler>
   );
 
-  t.deepEqual(wrapper.html(), '<li><ul>false</ul><ul>false</ul><ul>false</ul><ul>false</ul></li>');
+  t.is(wrapper.html(), '<li><ul>false</ul><ul>false</ul><ul>false</ul><ul>false</ul></li>');
 
   wrapper.setProps({
     animated: true
   });
   wrapper.update();
 
-  t.deepEqual(wrapper.html(), '<li><ul>true</ul><ul>false</ul><ul>false</ul><ul>false</ul></li>');
+  t.is(wrapper.html(), '<li><ul>true</ul><ul>false</ul><ul>false</ul><ul>false</ul></li>');
 
   await nextFrame();
   wrapper.update();
 
-  t.deepEqual(wrapper.html(), '<li><ul>true</ul><ul>true</ul><ul>true</ul><ul>false</ul></li>');
+  t.is(wrapper.html(), '<li><ul>true</ul><ul>true</ul><ul>true</ul><ul>false</ul></li>');
 
   await nextFrame();
   wrapper.update();
 
-  t.deepEqual(wrapper.html(), '<li><ul>true</ul><ul>true</ul><ul>true</ul><ul>true</ul></li>');
+  t.is(wrapper.html(), '<li><ul>true</ul><ul>true</ul><ul>true</ul><ul>true</ul></li>');
 });
 
 test('should ignore text child', t => {
   const wrapper = mount(<AnimationScheduler>foo</AnimationScheduler>);
-  t.deepEqual(wrapper.text(), 'foo');
+  t.is(wrapper.text(), 'foo');
 });
 
 test('AnimationAdapter should call onAnimationEnd', t => {

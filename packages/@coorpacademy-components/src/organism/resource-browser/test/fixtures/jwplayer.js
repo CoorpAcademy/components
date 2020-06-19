@@ -4,6 +4,7 @@ export default {
   props: {
     resources: [
       {
+        ...JWPlayer.props,
         type: 'video',
         poster: '//static.coorpacademy.com/content/digital/miniatures_cours/avance/1A1.png',
         description: 'Le concept de Knowledge Graph',
@@ -12,8 +13,7 @@ export default {
         posters: [],
         src: [],
         onClick: () => {},
-        selected: true,
-        ...JWPlayer.props
+        selected: true
       },
       {
         type: 'video',

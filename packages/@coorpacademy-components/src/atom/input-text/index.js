@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {noop, isNil, keys} from 'lodash/fp';
 import classnames from 'classnames';
@@ -22,18 +22,19 @@ const InputText = props => {
     description,
     disabled,
     required,
-    modified = false
+    modified = false,
+    title: propsTitle
   } = props;
 
-  const title = `${props.title}${required ? '*' : ''}`;
-  const handleChange = e => onChange(e.target.value);
+  const title = `${propsTitle}${required ? '*' : ''}`;
+  const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
   const mainClass = themeStyle[theme];
   const className = getClassState(style.default, style.modified, style.error, modified, error);
   const descriptionView = description ? (
     <div className={style.description}>{description}</div>
   ) : null;
   return (
-    <div className={classnames(mainClass, className, isNil(props.title) && style.isNoTitle)}>
+    <div className={classnames(mainClass, className, isNil(propsTitle) && style.isNoTitle)}>
       <label>
         <span className={style.title}>{title}</span>
         <input

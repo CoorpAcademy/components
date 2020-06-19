@@ -131,13 +131,13 @@ const DashboardPreview = (props, context) => {
     return <Loader />;
   }
 
-  const dashboardList = dashboards.map(d => ({
-    title: d.name,
-    name: `${kebabCase(d.name)}-link`,
+  const dashboardList = dashboards.map(dashboard => ({
+    title: dashboard.name,
+    name: `${kebabCase(dashboard.name)}-link`,
     type: 'link',
-    href: d.href,
-    onClick: () => onSelectDashboard(kebabCase(d.name)),
-    selected: d.name === get('name', currentDashboard)
+    href: dashboard.href,
+    onClick: () => onSelectDashboard(kebabCase(dashboard.name)),
+    selected: dashboard.name === get('name', currentDashboard)
   }));
 
   const sidebarItems = [dashboardList];

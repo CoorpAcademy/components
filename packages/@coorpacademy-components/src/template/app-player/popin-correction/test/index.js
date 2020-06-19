@@ -3,8 +3,8 @@ import test from 'ava';
 import React from 'react';
 import {shallow, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import correctClosed from './fixtures/correct-closed';
 import PopinCorrection from '..';
+import correctClosed from './fixtures/correct-closed';
 
 browserEnv();
 configure({adapter: new Adapter()});

@@ -12,20 +12,17 @@ import InputText from '../../atom/input-text';
 import Button from '../../atom/button';
 import style from './upload-report.css';
 
-export const UploadReport = (
-  {
-    state,
-    message,
-    type: contentType,
-    fields,
-    mode = 'upload',
-    orLabel,
-    buttonTitle,
-    primaryColor,
-    onDelete
-  },
-  context
-) => {
+export const UploadReport = ({
+  state,
+  message,
+  type: contentType,
+  fields,
+  mode = 'upload',
+  orLabel,
+  buttonTitle,
+  primaryColor,
+  onDelete
+}) => {
   const handleDelete = useCallback(
     e => {
       e.stopPropagation();
@@ -59,12 +56,7 @@ export const UploadReport = (
     </div>
   );
   const showMessage = ['success', 'error'].includes(state);
-  const fileName = pipe(
-    head,
-    getOr('', 'value'),
-    split('/'),
-    last
-  )(fields);
+  const fileName = pipe(head, getOr('', 'value'), split('/'), last)(fields);
   const fileView = fileName ? (
     <div className={style.fileWrapper}>
       <div className={style.fileName} title={fileName}>
@@ -78,11 +70,11 @@ export const UploadReport = (
   const IconType = EXTERNAL_CONTENT_ICONS[contentType].icon;
   const iconColor = EXTERNAL_CONTENT_ICONS[contentType].color;
   const buildField = (field, index) => <InputText {...field} key={index} theme={'cockpit'} />;
-  const deleteView = onDelete && (
+  const deleteView = onDelete ? (
     <div onClick={handleDelete} className={classnames(style.actionIcon, style.trashIcon)}>
       <TrashIcon width={20} height={20} />
     </div>
-  );
+  ) : null;
   const fieldsList = map.convert({cap: false})(buildField, fields);
 
   return (
@@ -97,11 +89,11 @@ export const UploadReport = (
         {deleteView}
       </div>
       <div className={style.reportContainer}>
-        {state === 'success' && <SuccessMessage />}
-        {state === 'error' && <ErrorMessage />}
-        {mode === 'edit' && !showMessage && <div>{fieldsList}</div>}
-        {mode === 'edit' && !showMessage && <span className={style.or}>{orLabel}</span>}
-        {!showMessage && (
+        {state === 'success' ? <SuccessMessage /> : null}
+        {state === 'error' ? <ErrorMessage /> : null}
+        {mode === 'edit' && !showMessage ? <div>{fieldsList}</div> : null}
+        {mode === 'edit' && !showMessage ? <span className={style.or}>{orLabel}</span> : null}
+        {!showMessage ? (
           <div className={style.drop}>
             <p className={style.message}>{message}</p>
             <Button
@@ -112,7 +104,7 @@ export const UploadReport = (
               style={{backgroundColor: primaryColor}}
             />
           </div>
-        )}
+        ) : null}
       </div>
     </div>
   );
@@ -127,8 +119,8 @@ UploadReport.propTypes = {
   type: PropTypes.string,
   fields: PropTypes.arrayOf(
     PropTypes.shape({
-      type: PropTypes.oneOf(['text']),
-      ...InputText.propTypes
+      ...InputText.propTypes,
+      type: PropTypes.oneOf(['text'])
     })
   ),
   mode: PropTypes.oneOf(['edit', 'upload']),

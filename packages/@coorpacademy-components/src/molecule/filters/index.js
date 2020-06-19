@@ -8,7 +8,25 @@ import style from './style.css';
 import FiltersWrapper from './filters-wrapper';
 
 class Filters extends React.Component {
-  constructor(props, context) {
+  static propTypes = {
+    filterCTALabel: PropTypes.string,
+    filterTabLabel: PropTypes.string,
+    sortCTALabel: PropTypes.string,
+    sortTabLabel: PropTypes.string,
+    openFilters: PropTypes.bool,
+    openSorts: PropTypes.bool,
+    filters: FiltersWrapper.propTypes.filters,
+    sorting: PropTypes.shape(Select.propTypes),
+    onSearch: PropTypes.func,
+    onToggleFilters: PropTypes.func,
+    onToggleSorts: PropTypes.func
+  };
+
+  static contextTypes = {
+    skin: Provider.childContextTypes.skin
+  };
+
+  constructor(props) {
     super(props);
     this.state = {
       filter: !!props.openFilters,
@@ -21,7 +39,10 @@ class Filters extends React.Component {
   }
 
   handleOpenFilter() {
-    const newValue = !this.state.filter;
+    const {filter} = this.state;
+    const {onToggleFilters} = this.props;
+
+    const newValue = !filter;
 
     this.setState({
       filter: newValue,
@@ -29,13 +50,16 @@ class Filters extends React.Component {
       animated: true
     });
 
-    if (this.props.onToggleFilters) {
-      this.props.onToggleFilters(newValue);
+    if (onToggleFilters) {
+      onToggleFilters(newValue);
     }
   }
 
   handleOpenSort() {
-    const newValue = !this.state.sorted;
+    const {sorted} = this.state;
+    const {onToggleSorts} = this.props;
+
+    const newValue = !sorted;
 
     this.setState({
       sorted: newValue,
@@ -43,20 +67,17 @@ class Filters extends React.Component {
       animated: true
     });
 
-    if (this.props.onToggleSorts) {
-      this.props.onToggleSorts(newValue);
-    }
+    if (onToggleSorts) onToggleSorts(newValue);
   }
 
   handleSearch() {
+    const {onSearch} = this.props;
     this.setState({
       sorted: false,
       filter: false,
       animated: true
     });
-    if (this.props.onSearch) {
-      this.props.onSearch();
-    }
+    if (onSearch) onSearch();
   }
 
   render() {
@@ -68,13 +89,13 @@ class Filters extends React.Component {
       sortTabLabel,
       filters
     } = this.props;
-
+    const {filter, sorted, animated = true} = this.state;
     const {skin} = this.context;
+
     const defaultColor = get('common.primary', skin);
     const darkColor = get('common.dark', skin);
-    const filtersActive = this.state.filter === true;
-    const sortingActive = this.state.sorted === true;
-    const animated = this.state.animated === true;
+    const filtersActive = filter === true;
+    const sortingActive = sorted === true;
 
     const sortView =
       sorting !== undefined ? (
@@ -145,23 +166,5 @@ class Filters extends React.Component {
     );
   }
 }
-
-Filters.contextTypes = {
-  skin: Provider.childContextTypes.skin
-};
-
-Filters.propTypes = {
-  filterCTALabel: PropTypes.string,
-  filterTabLabel: PropTypes.string,
-  sortCTALabel: PropTypes.string,
-  sortTabLabel: PropTypes.string,
-  openFilters: PropTypes.bool,
-  openSorts: PropTypes.bool,
-  filters: FiltersWrapper.propTypes.filters,
-  sorting: PropTypes.shape(Select.propTypes),
-  onSearch: PropTypes.func,
-  onToggleFilters: PropTypes.func,
-  onToggleSorts: PropTypes.func
-};
 
 export default Filters;

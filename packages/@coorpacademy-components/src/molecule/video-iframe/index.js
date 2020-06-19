@@ -22,6 +22,20 @@ const getUrl = ({url, type, id, query = {}, opts = {}}) => {
 };
 
 class VideoIframe extends React.Component {
+  static propTypes = {
+    type: PropTypes.oneOf(['youtube', 'uptale', 'kontiki', 'jwplayer', 'omniPlayer']),
+    width: PropTypes.string,
+    height: PropTypes.string,
+    url: SrcPropType,
+    id: PropTypes.string,
+    autoplay: PropTypes.bool,
+    onPlay: PropTypes.func
+  };
+
+  static contextTypes = {
+    Vimeo: Provider.childContextTypes.Vimeo
+  };
+
   componentDidMount() {
     const {type} = this.props;
     if (type === 'kontiki') {
@@ -48,19 +62,5 @@ class VideoIframe extends React.Component {
     );
   }
 }
-
-VideoIframe.contextTypes = {
-  Vimeo: Provider.childContextTypes.Vimeo
-};
-
-VideoIframe.propTypes = {
-  type: PropTypes.oneOf(['youtube', 'uptale', 'kontiki', 'jwplayer', 'omniPlayer']),
-  width: PropTypes.string,
-  height: PropTypes.string,
-  url: SrcPropType,
-  id: PropTypes.string,
-  autoplay: PropTypes.bool,
-  onPlay: PropTypes.func
-};
 
 export default VideoIframe;

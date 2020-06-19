@@ -34,7 +34,10 @@ test(
   'HexPropType should pass when heximal value is passed',
   validMacro,
   HexPropType,
-  concat(VALID_HEX_CHAR, map(char => `0x${char}`, VALID_HEX_CHAR))
+  concat(
+    VALID_HEX_CHAR,
+    map(char => `0x${char}`, VALID_HEX_CHAR)
+  )
 );
 
 const INVALID_HEX_CHAR = split('', 'GHIJKLMNOPQRSTUVWXYZ&é"\'(§è!çà)-@');
@@ -42,7 +45,10 @@ test(
   'HexPropType should throw error when incorrect value is passed',
   failMacro,
   HexPropType,
-  concat(INVALID_HEX_CHAR, map(char => `0x${char}`, INVALID_HEX_CHAR))
+  concat(
+    INVALID_HEX_CHAR,
+    map(char => `0x${char}`, INVALID_HEX_CHAR)
+  )
 );
 
 test('UrlPropType should pass when valid URL is passed', validMacro, UrlPropType, [

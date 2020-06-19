@@ -46,12 +46,12 @@ const ResourceElement = props => {
     case TYPE_VIDEO:
       return (
         <VideoPlayer
+          {...omit('id', childProps)}
           autoplay={autoplay}
           disableAutostart={disableAutostart}
           id={videoId}
           height="100%"
           width="100%"
-          {...omit('id', childProps)}
         />
       );
   }
@@ -101,6 +101,16 @@ OverlayElement.propTypes = {
 };
 
 class ResourcePlayer extends React.Component {
+  static propTypes = {
+    className: PropTypes.string,
+    resource: PropTypes.oneOfType([videoPropType, pdfPropType, imgPropType]),
+    overlay: PropTypes.shape({
+      title: PropTypes.string,
+      text: PropTypes.string,
+      lifeAmount: PropTypes.number
+    })
+  };
+
   constructor(props, context) {
     super(props);
     this.state = {
@@ -119,7 +129,8 @@ class ResourcePlayer extends React.Component {
   }
 
   render() {
-    const {className: customClassName, resource} = this.props;
+    const {className: customClassName, resource, overlay: propsOverlay} = this.props;
+    const {overlay: stateOverlay, autoplay} = this.state;
     const {type} = resource;
     const className = classnames(
       {
@@ -130,31 +141,17 @@ class ResourcePlayer extends React.Component {
       customClassName
     );
 
-    const overlayView = this.state.overlay ? (
-      <OverlayElement {...this.state.overlay} onClick={this.handleOverlay} />
+    const overlayView = stateOverlay ? (
+      <OverlayElement {...stateOverlay} onClick={this.handleOverlay} />
     ) : null;
 
     return (
       <div data-name={type} className={className}>
         {overlayView}
-        <ResourceElement
-          {...this.props}
-          disableAutostart={!!this.props.overlay}
-          autoplay={this.state.autoplay}
-        />
+        <ResourceElement {...this.props} disableAutostart={!!propsOverlay} autoplay={autoplay} />
       </div>
     );
   }
 }
-
-ResourcePlayer.propTypes = {
-  className: PropTypes.string,
-  resource: PropTypes.oneOfType([videoPropType, pdfPropType, imgPropType]),
-  overlay: PropTypes.shape({
-    title: PropTypes.string,
-    text: PropTypes.string,
-    lifeAmount: PropTypes.number
-  })
-};
 
 export default ResourcePlayer;

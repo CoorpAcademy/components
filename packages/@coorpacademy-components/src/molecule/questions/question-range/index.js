@@ -2,7 +2,7 @@ import React from 'react';
 import {getOr} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import Provider from '../../../atom/provider';
-import Range from '../../../atom/range'; // eslint-disable-line no-shadow
+import Range from '../../../atom/range';
 import style from './style.css';
 
 const QuestionRange = (props, context) => {

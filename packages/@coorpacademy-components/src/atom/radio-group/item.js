@@ -4,11 +4,7 @@ import PropTypes from 'prop-types';
 import Provider from '../provider';
 import style from './item.css';
 
-const getTargetValueAndCall = fun =>
-  pipe(
-    get('target.value'),
-    fun
-  );
+const getTargetValueAndCall = fun => pipe(get('target.value'), fun);
 
 const Item = (props, context) => {
   const idRadioButton = uniqueId('inputRadioButton');

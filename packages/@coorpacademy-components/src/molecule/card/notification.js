@@ -17,14 +17,14 @@ const NOTIFICATION_ICON = {
   unlock: UnlockIcon
 };
 
+const handleOverlayClick = e => {
+  e.stopPropagation();
+  e.preventDefault();
+  return false;
+};
+
 const Notification = props => {
   const {message, icon} = props;
-
-  const handleOverlayClick = e => {
-    e.stopPropagation();
-    e.preventDefault();
-    return false;
-  };
 
   const IconType = get(icon, NOTIFICATION_ICON);
   return (

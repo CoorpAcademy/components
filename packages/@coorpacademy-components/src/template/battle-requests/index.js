@@ -8,8 +8,7 @@ import style from './style.css';
 
 const Battles = (props, context) => {
   const {translate} = context;
-  const battles = props.battles;
-  const trads = props.trads;
+  const {battles, trads} = props;
   return (
     <ul className={style.cards}>
       {map(battle => {
@@ -55,8 +54,20 @@ Battles.contextTypes = {
 };
 
 Battles.propTypes = {
-  battles: PropTypes.arrayOf(PropTypes.shape(CardWithButton.PropTypes)).isRequired,
-  trads: PropTypes.objectOf(PropTypes.string)
+  battles: PropTypes.arrayOf(
+    PropTypes.shape({
+      username: CardWithButton.propTypes.username,
+      courseName: CardWithButton.propTypes.courseName,
+      tagLabel: CardWithButton.propTypes.tagLabel,
+      onLightButtonClick: CardWithButton.propTypes.onLightButtonClick,
+      onPrimaryButtonClick: CardWithButton.propTypes.onPrimaryButtonClick,
+      backgroundImg: CardWithButton.propTypes.backgroundImg
+    })
+  ).isRequired,
+  trads: PropTypes.shape({
+    battleCTA: PropTypes.string.isRequired,
+    reviewCTA: PropTypes.string.isRequired
+  }).isRequired
 };
 
 export default Battles;

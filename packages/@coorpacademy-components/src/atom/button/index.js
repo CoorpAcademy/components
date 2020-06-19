@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {ColorPropType} from '../../util/proptypes';
 import Link from '../link';
-import style from './style.css';
+import cssStyle from './style.css';
 
 const ButtonContent = props => {
   const {
@@ -14,12 +14,13 @@ const ButtonContent = props => {
     href,
     target,
     onClick,
-    className = style.button,
+    className = cssStyle.button,
     children,
-    type
+    type,
+    style,
+    'data-name': dataName
   } = props;
-  const dataName = props['data-name'];
-  const anchorClassName = (disabled && `${className} ${style.disabledAnchor}`) || className;
+  const anchorClassName = (disabled && `${className} ${cssStyle.disabledAnchor}`) || className;
   const anchorOnClick = (disabled && null) || onClick;
   const anchorHref = (disabled && null) || href;
   switch (type) {
@@ -32,7 +33,7 @@ const ButtonContent = props => {
           onClick={anchorOnClick}
           target={target}
           className={anchorClassName}
-          style={props.style}
+          style={style}
         >
           {submitValue || children || 'submit'}
         </Link>
@@ -46,7 +47,7 @@ const ButtonContent = props => {
           target={target}
           className={anchorClassName}
           onClick={anchorOnClick}
-          style={props.style}
+          style={style}
         >
           {submitValue || children}
         </a>
@@ -63,26 +64,41 @@ const ButtonContent = props => {
           className={className}
           style={{
             color,
-            ...props.style
+            ...style
           }}
         />
       );
   }
 };
 
-const Button = ({children, ...props}) => {
-  const {className, isLinkDisabled, type = 'submit'} = props;
+ButtonContent.propTypes = {
+  color: ColorPropType,
+  submitValue: PropTypes.string,
+  disabled: PropTypes.bool,
+  href: PropTypes.string,
+  download: PropTypes.bool,
+  target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+  type: PropTypes.string,
+  onClick: PropTypes.func,
+  children: PropTypes.node,
+  className: PropTypes.string,
+  style: PropTypes.shape({}),
+  'data-name': PropTypes.string
+};
+
+const Button = props => {
+  const {className, isLinkDisabled, type = 'submit', children, style} = props;
   const cNames =
-    (isLinkDisabled && classnames([style.disabledAnchor, className])) ||
-    classnames([style.button, className]);
+    (isLinkDisabled && classnames([cssStyle.disabledAnchor, className])) ||
+    classnames([cssStyle.button, className]);
   return (
     <div className={cNames}>
       <ButtonContent
         {...props}
         type={type}
-        className={style.buttonContent}
+        className={cssStyle.buttonContent}
         style={{
-          ...props.style
+          ...style
         }}
       >
         {children}
@@ -99,9 +115,12 @@ Button.propTypes = {
   href: PropTypes.string,
   download: PropTypes.bool,
   target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+  type: PropTypes.string,
   onClick: PropTypes.func,
   children: PropTypes.node,
-  className: PropTypes.string
+  className: PropTypes.string,
+  style: PropTypes.shape({}),
+  'data-name': PropTypes.string
 };
 
 export default Button;

@@ -7,10 +7,7 @@ import {map, concat, concatMap, sequenceEqual} from 'rxjs/operators';
 import {readStorybookIndex$} from '../../scripts/storybook-index';
 
 const readFile$ = file =>
-  bindNodeCallback(readFile)(file, 'utf8').pipe(
-    map(split('\n')),
-    concatMap(from)
-  );
+  bindNodeCallback(readFile)(file, 'utf8').pipe(map(split('\n')), concatMap(from));
 
 test("storybook's index should be up to date", async t => {
   const cwd = join(__dirname, '..');

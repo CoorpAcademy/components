@@ -28,12 +28,12 @@ const SimpleAction = ({color, prefix, title, button}) => {
         </span>
       </div>
       <Button
+        {...linkProps}
         type="link"
         style={{
           backgroundColor: color
         }}
         className={style.simpleButton}
-        {...linkProps}
         submitValue={buttonTitle}
       />
     </div>
@@ -72,9 +72,9 @@ const Subscribe = ({title, description, button, card}) => {
         <div className={style.subscribeTitle}>{title}</div>
         <div className={style.subscribeButtonWrapper}>
           <Button
+            {...linkProps}
             type="link"
             className={style.subscribeButton}
-            {...linkProps}
             submitValue={buttonTitle}
           />
         </div>
@@ -87,10 +87,8 @@ const Subscribe = ({title, description, button, card}) => {
 };
 
 Subscribe.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  prefix: PropTypes.string,
-  card: PropTypes.shape(CardsList.propTypes)
+  ...Button.propTypes.propTypes,
+  title: Button.propTypes.submitValue
 };
 
 const actions = {
@@ -104,6 +102,10 @@ const Action = props => {
   const Type = get(type, actions);
 
   return Type ? <Type {...actionProps} /> : null;
+};
+
+Action.propTypes = {
+  type: PropTypes.oneOf(keys(actions))
 };
 
 const CardsLoader = () => (
@@ -133,9 +135,9 @@ const CommentConfirmation = (props, context) => {
 };
 
 CommentConfirmation.propTypes = {
-  commentSectionTitle: PropTypes.string.isRequired,
-  confirmationLinkText: PropTypes.string.isRequired,
-  onClick: PropTypes.func.isRequired
+  commentSectionTitle: PropTypes.node,
+  confirmationLinkText: Link.propTypes.children,
+  onClick: Link.propTypes.onClick
 };
 
 CommentConfirmation.contextTypes = {
@@ -161,32 +163,32 @@ const CommentSection = props => {
 CommentSection.propTypes = {
   isSent: PropTypes.bool,
   edition: PropTypes.shape(Discussion.propTypes),
-  confirmation: PropTypes.shape({
-    commentSectionTitle: CommentConfirmation.propTypes.commentSectionTitle,
-    confirmationLinkText: CommentConfirmation.propTypes.confirmationLinkText,
-    onClick: CommentConfirmation.propTypes.onClick
-  })
+  confirmation: PropTypes.shape(CommentConfirmation.propTypes)
 };
 
-const Cards = props =>
-  get('cards', props) === null ? (
+const Cards = props => {
+  const {cards} = props;
+
+  return get('cards', props) === null ? (
     <CardsLoader />
   ) : (
-    (props.cards && (
+    (cards ? (
       <div className={style.cardsWrapper}>
         <CardsList {...props} dataName={'popin-end-recommendation'} />
       </div>
-    )) ||
-    null
+    ) : null) || null
   );
+};
+
+Cards.propTypes = CardsList.propTypes;
 
 const Footer = ({title, color, ...linkProps}) => (
   <Link
+    {...linkProps}
     style={{
       color
     }}
     className={style.footer}
-    {...linkProps}
     data-name="nextLink"
     data-popin="popinEnd"
     data-next="home"
@@ -194,6 +196,12 @@ const Footer = ({title, color, ...linkProps}) => (
     {title}
   </Link>
 );
+
+Footer.propTypes = {
+  ...Link.propTypes,
+  title: Link.propTypes.children,
+  color: PropTypes.string
+};
 
 const Summary = (props, context) => {
   const {header, recommendation, comment, footer, action, feedback} = props;
@@ -205,14 +213,14 @@ const Summary = (props, context) => {
         <CommentSection {...comment} />
       </div>
     ) : null;
-  const footerView = footer && header ? <Footer color={primary} {...footer} /> : null;
+  const footerView = footer && header ? <Footer {...footer} color={primary} /> : null;
   const feedbackView = feedback ? <Feedback {...feedback} /> : null;
 
   return (
     <div className={style.summaryWrapper}>
       <Header {...header} />
       {feedbackView}
-      <Action color={primary} {...action} />
+      <Action {...action} color={primary} />
       <Cards {...recommendation} />
       {commentView}
       {footerView}

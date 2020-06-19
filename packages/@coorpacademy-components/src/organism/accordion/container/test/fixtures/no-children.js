@@ -20,8 +20,8 @@ export default {
     ]
   },
   children: [
-    <QcmGraphic key="1" {...qcmGraphicFixture.props} />,
+    <QcmGraphic {...qcmGraphicFixture.props} key="1" />,
     null,
-    <QcmDrag key="3" {...qcmDragFixture.props} />
+    <QcmDrag {...qcmDragFixture.props} key="3" />
   ]
 };

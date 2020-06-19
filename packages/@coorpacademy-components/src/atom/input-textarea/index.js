@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {noop} from 'lodash/fp';
 import style from './style.css';
@@ -7,7 +7,7 @@ const InputTextarea = props => {
   const {title, name, placeholder, value, onChange = noop, error, description, disabled} = props;
 
   const className = error ? style.error : style.default;
-  const handleChange = e => onChange(e.target.value);
+  const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
 
   return (
     <div className={className}>

@@ -9,6 +9,16 @@ import InputPreview from './input-preview';
 import style from './style.css';
 
 class InputHtml extends React.Component {
+  static propTypes = {
+    title: PropTypes.string,
+    placeholder: PropTypes.string,
+    disabled: PropTypes.bool,
+    value: PropTypes.string,
+    error: PropTypes.string,
+    onChange: PropTypes.func,
+    description: PropTypes.string
+  };
+
   static getDerivedStateFromProps(props, state) {
     const {value} = props;
 
@@ -26,31 +36,37 @@ class InputHtml extends React.Component {
       text: getOr('', 'value', props),
       preview: true
     };
+    this.handleChange = this.handleChange.bind(this);
+    this.handlePreview = this.handlePreview.bind(this);
+  }
+
+  handleChange(e) {
+    const {onChange = noop} = this.props;
+    const value = e.target.value;
+    this.setState(state => ({
+      text: value,
+      preview: state.preview
+    }));
+    onChange(value);
+  }
+
+  handlePreview(e) {
+    e.preventDefault();
+    this.setState(state => ({
+      text: state.text,
+      preview: !state.preview
+    }));
   }
 
   render() {
     const {skin} = this.context;
     const mediumColor = getOr('#999999', 'common.medium', skin);
 
-    const {title, placeholder, onChange = noop, error, description, disabled} = this.props;
+    const {title, placeholder, error, description, disabled} = this.props;
+    const {text, preview} = this.state;
 
     const className = error ? style.error : style.default;
-    const handleChange = e => {
-      const text = e.target.value;
-      this.setState(state => ({
-        text,
-        preview: state.preview
-      }));
-      onChange(text);
-    };
-    const handlePreview = e => {
-      e.preventDefault();
-      this.setState(state => ({
-        text: state.text,
-        preview: !state.preview
-      }));
-    };
-    const iconContent = !this.state.preview ? (
+    const iconContent = !preview ? (
       <PreviewIcon color={mediumColor} height={16} />
     ) : (
       <PencilIcon color={mediumColor} height={16} />
@@ -62,15 +78,15 @@ class InputHtml extends React.Component {
           <div className={style.contentWrapper}>
             <InputPreview
               title={title}
-              text={this.state.text}
+              text={text}
               placeholder={placeholder}
-              handleChange={handleChange}
+              onChange={this.handleChange}
               disabled={disabled}
-              preview={this.state.preview}
+              preview={preview}
               className={style.input}
             />
           </div>
-          <span className={style.toggle} onClick={handlePreview}>
+          <span className={style.toggle} onClick={this.handlePreview}>
             {iconContent}
           </span>
         </label>
@@ -79,15 +95,4 @@ class InputHtml extends React.Component {
     );
   }
 }
-
-InputHtml.propTypes = {
-  title: PropTypes.string,
-  placeholder: PropTypes.string,
-  disabled: PropTypes.bool,
-  // eslint-disable-next-line react/no-unused-prop-types
-  value: PropTypes.string,
-  error: PropTypes.string,
-  onChange: PropTypes.func,
-  description: PropTypes.string
-};
 export default InputHtml;

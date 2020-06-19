@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import {noop} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -13,9 +13,12 @@ const Transition = props => {
       props: {className: propClassName}
     } = child;
 
-    const handlerAnimationEnd = () => {
-      return onAnimationEnd(name);
-    };
+    const handlerAnimationEnd = useMemo(
+      () => () => {
+        return onAnimationEnd(name);
+      },
+      [onAnimationEnd, name]
+    );
 
     return React.cloneElement(child, {
       className: classnames(propClassName, className),

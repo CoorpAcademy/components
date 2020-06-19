@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {get} from 'lodash/fp';
 import {NovaCompositionNavigationArrowLeft as ArrowLeft} from '@coorpacademy/nova-icons';
@@ -25,14 +25,14 @@ function BrandForm(props, context) {
   const {skin} = context;
   const darkColor = get('common.dark', skin);
 
-  const backView = back && (
+  const backView = back ? (
     <p className={style.back}>
       <ArrowLeft color={darkColor} className={style.arrowBack} />
       <Link href={back.link} className={style.backDesc}>
         {back.desc}
       </Link>
     </p>
-  );
+  ) : null;
 
   const brandGroups = groups.map((group, index) => {
     return (
@@ -55,10 +55,13 @@ function BrandForm(props, context) {
       <Button type="submit" disabled={disabledSubmit} submitValue={submitValue} />
     </div>
   ) : null;
-  const handleSubmit = e => {
-    e.preventDefault();
-    return onSubmit(e);
-  };
+  const handleSubmit = useMemo(
+    () => e => {
+      e.preventDefault();
+      return onSubmit(e);
+    },
+    [onSubmit]
+  );
 
   const cancelBackground = {backgroundColor: darkColor};
 
@@ -67,10 +70,13 @@ function BrandForm(props, context) {
       <Button type="reset" submitValue={resetValue} style={cancelBackground} />
     </div>
   ) : null;
-  const handleReset = e => {
-    e.preventDefault();
-    return onReset(e);
-  };
+  const handleReset = useMemo(
+    () => e => {
+      e.preventDefault();
+      return onReset(e);
+    },
+    [onReset]
+  );
 
   return (
     <div>

@@ -1,5 +1,6 @@
+/* eslint-disable node/no-deprecated-api */
 import {parse} from 'url';
-import {getOr, has} from 'lodash/fp';
+import {getOr, has, noop} from 'lodash/fp';
 
 const isLeftClickEvent = e => e.button === 0;
 const isModifiedEvent = e => !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey);
@@ -7,7 +8,7 @@ const isModifiedEvent = e => !!(e.metaKey || e.altKey || e.ctrlKey || e.shiftKey
 const navigation = options => {
   const _history = getOr({}, 'history', options);
   if (!has('push', _history)) {
-    return () => () => {};
+    return () => noop;
   }
 
   return ({href} = {}) => e => {

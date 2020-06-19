@@ -5,8 +5,8 @@ import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {set} from 'lodash/fp';
 import {wrappingComponent} from '../../../test/helpers/render-component';
-import defaultFixture from './fixtures/hero';
 import Hero from '..';
+import defaultFixture from './fixtures/hero';
 
 browserEnv();
 configure({adapter: new Adapter()});

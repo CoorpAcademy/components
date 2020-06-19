@@ -45,6 +45,7 @@ Hero.contextTypes = {
 };
 
 Hero.propTypes = {
+  touch: PropTypes.bool,
   url: PropTypes.oneOfType([SrcPropType, PropTypes.string]).isRequired,
   title: PropTypes.string.isRequired
 };

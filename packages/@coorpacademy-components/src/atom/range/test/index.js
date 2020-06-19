@@ -5,7 +5,7 @@ import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {noop} from 'lodash/fp';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
-import Range from '..'; // eslint-disable-line no-shadow
+import Range from '..';
 
 browserEnv();
 configure({adapter: new Adapter()});
@@ -109,7 +109,14 @@ test('should move handle when range is clicked (single)', t => {
 });
 
 test('should move closest handle when range is clicked (multi)', t => {
-  const expectedValues = [[0.2, 0.7], [0.2, 0.9], [0.4, 0.9], [0.4, 0.7], [0, 0.7], [0, 1]];
+  const expectedValues = [
+    [0.2, 0.7],
+    [0.2, 0.9],
+    [0.4, 0.9],
+    [0.4, 0.7],
+    [0, 0.7],
+    [0, 1]
+  ];
   t.plan(expectedValues.length);
   const onChange = value => {
     t.deepEqual(value, expectedValues.shift());

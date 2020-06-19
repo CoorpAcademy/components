@@ -45,7 +45,9 @@ const SubscriptionPremiumDetails = (props, context) => {
   const {
     isPromoCode,
     subscriptionPremiumDescriptionDate: date,
-    subscriptionPremiumDescriptionPrice: price
+    subscriptionPremiumDescriptionPrice: price,
+    checkImage,
+    subscriptionPremiumDescriptionLink
   } = props;
 
   const {translate} = context;
@@ -54,7 +56,7 @@ const SubscriptionPremiumDetails = (props, context) => {
   return (
     <div>
       <div className={style.premiumTitle}>
-        <img className={style.premiumTitleImage} src={props.checkImage} />
+        <img className={style.premiumTitleImage} src={checkImage} />
         <div className={style.premiumTitleText}>{translate('subscription_premium_title')}</div>
       </div>
       <div>
@@ -64,7 +66,7 @@ const SubscriptionPremiumDetails = (props, context) => {
             {translate('subscription_premium_description_part3')}
             <a
               className={style.cancelSubscriptionLink}
-              href={`${props.subscriptionPremiumDescriptionLink}`}
+              href={`${subscriptionPremiumDescriptionLink}`}
             >
               {translate('subscription_premium_description_part3_with_link')}
             </a>

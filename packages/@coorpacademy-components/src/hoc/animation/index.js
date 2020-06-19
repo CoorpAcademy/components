@@ -9,7 +9,7 @@ export const EASE_IN_QUAD = bezier(0.55, 0.08, 0.68, 0.53, EPSILON);
 export const EASE_IN_CUBIC = bezier(0.55, 0.05, 0.67, 0.19, EPSILON);
 export const EASE_IN_QUART = bezier(0.89, 0.03, 0.68, 0.22, EPSILON);
 export const EASE_IN_QUINT = bezier(0.75, 0.05, 0.85, 0.06, EPSILON);
-export const EASE_IN_SINE = bezier(0.47, 0.0, 0.74, 0.71, EPSILON);
+export const EASE_IN_SINE = bezier(0.47, 0, 0.74, 0.71, EPSILON);
 export const EASE_IN_EXPO = bezier(0.95, 0.05, 0.79, 0.03, EPSILON);
 export const EASE_IN_CIRC = bezier(0.6, 0.04, 0.98, 0.33, EPSILON);
 export const EASE_IN_BACK = bezier(0.6, -0.28, 0.73, 0.04, EPSILON);
@@ -33,9 +33,23 @@ export const SWIFT_OUT = bezier(0.55, 0, 0.1, 1, EPSILON);
 export const BOUNCE = bezier(0.65, 1.95, 0.03, 0.3, EPSILON);
 
 class Animation extends React.Component {
-  state = {
-    progress: 0
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    bezier: PropTypes.func.isRequired,
+    duration: PropTypes.number.isRequired,
+    onAnimationEnd: PropTypes.func,
+    animated: PropTypes.bool,
+    children: PropTypes.func
   };
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      progress: 0,
+      requestID: null
+    };
+  }
 
   componentDidMount() {
     const {animated = false} = this.props;
@@ -56,26 +70,29 @@ class Animation extends React.Component {
     this.stopAnimation();
   }
 
-  requestID = null;
-
   startAnimation() {
-    const {requestID} = this;
+    this.setState(prevState => {
+      const {requestID} = prevState;
 
-    if (requestID) cancelAnimationFrame(requestID);
-    this.requestID = requestAnimationFrame(this.tick.bind(this));
+      if (requestID) cancelAnimationFrame(requestID);
+
+      return {
+        requestID: requestAnimationFrame(this.tick.bind(this))
+      };
+    });
   }
 
   stopAnimation() {
-    const {requestID} = this;
-    if (!requestID) return;
+    this.setState(prevState => {
+      const {requestID} = prevState;
 
-    cancelAnimationFrame(requestID);
-    this.requestID = null;
+      if (requestID) cancelAnimationFrame(requestID);
 
-    this.setState(() => ({
-      lastTimestamp: null,
-      requestID: null
-    }));
+      return {
+        lastTimestamp: null,
+        requestID: null
+      };
+    });
   }
 
   tick(timestamp) {
@@ -116,13 +133,5 @@ class Animation extends React.Component {
     return children(value);
   }
 }
-
-Animation.propTypes = {
-  name: PropTypes.string.isRequired,
-  bezier: PropTypes.func.isRequired,
-  duration: PropTypes.number.isRequired,
-  onAnimationEnd: PropTypes.func,
-  animated: PropTypes.bool
-};
 
 export default Animation;

@@ -1,15 +1,14 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {NovaCompositionCoorpacademyCheck as Check} from '@coorpacademy/nova-icons';
 import {ColorPropType} from '../../util/proptypes';
-import Provider from '../../atom/provider';
 import Checkbox from '../../atom/checkbox';
 import style from './style.css';
 
-const TitledCheckbox = (props, context) => {
+const TitledCheckbox = props => {
   const {choice, background, onToggle} = props;
   const label = choice.name;
-  const handleChange = () => onToggle(choice);
+  const handleChange = useMemo(() => () => onToggle(choice), [onToggle]);
 
   return (
     <div className={style.default}>
@@ -19,7 +18,7 @@ const TitledCheckbox = (props, context) => {
           background: background || '#3d3d3d'
         }}
       >
-        {choice.selected && <Check className={style.icon} color="white" />}
+        {choice.selected ? <Check className={style.icon} color="white" /> : null}
         <Checkbox className={style.input} checked={choice.selected} onChange={handleChange} />
       </label>
       <span title={label} className={style.label}>
@@ -27,10 +26,6 @@ const TitledCheckbox = (props, context) => {
       </span>
     </div>
   );
-};
-
-TitledCheckbox.contextTypes = {
-  skin: Provider.childContextTypes.skin
 };
 
 TitledCheckbox.propTypes = {

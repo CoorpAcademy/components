@@ -8,9 +8,9 @@ export default defaultsDeep(Default, {
   props: {
     filters: [
       {
+        ...types,
         type: 'radio',
         fieldName: 'contentType',
-        ...types,
         title: 'Type:',
         onChange: value => console.log(value)
       }

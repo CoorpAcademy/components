@@ -6,6 +6,43 @@ import {SrcPropType} from '../../util/proptypes';
 import style from './jwplayer.css';
 
 class JWPlayer extends React.Component {
+  static propTypes = {
+    mimeType: PropTypes.string,
+    scriptErrorMessage: PropTypes.string,
+    disableAutostart: PropTypes.bool,
+    // https://developer.jwplayer.com/jwplayer/docs/jw8-player-configuration-reference
+    jwpOptions: PropTypes.shape({
+      file: SrcPropType,
+      customProps: PropTypes.shape({
+        aspectratio: PropTypes.string,
+        tracks: PropTypes.arrayOf(
+          PropTypes.shape({
+            file: SrcPropType,
+            label: PropTypes.string,
+            kind: PropTypes.string,
+            default: PropTypes.boolean
+          })
+        ),
+        autostart: PropTypes.oneOf(['viewable', 'false']),
+        width: PropTypes.string,
+        skin: PropTypes.shape({
+          name: PropTypes.string
+        })
+      }),
+      licenseKey: PropTypes.string.isRequired,
+      playerScript: SrcPropType.isRequired
+    }),
+    onPlay: PropTypes.func,
+    onResume: PropTypes.func,
+    onPause: PropTypes.func,
+    onEnded: PropTypes.func,
+    onError: PropTypes.func,
+    onPlayAttemptFailed: PropTypes.func,
+    onAutostartNotAllowed: PropTypes.func,
+    onSetupError: PropTypes.func,
+    onWarning: PropTypes.func
+  };
+
   constructor(props, context) {
     super(props, context);
     this.state = {
@@ -32,61 +69,75 @@ class JWPlayer extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    const changes = keys(this.props).filter(_name => this.props[_name] !== prevProps[_name]);
+    const changes = keys(this.props).filter(key => {
+      const {[key]: current} = this.props;
+      const {[key]: prev} = prevProps;
+      return current !== prev;
+    });
     const shouldStart = includes('autoplay', changes);
     if (shouldStart) {
       if (isFunction(window.jwplayer)) {
         window.jwplayer().play();
       }
     }
-    if (prevProps.jwpOptions.file !== this.props.jwpOptions.file) {
+    const {jwpOptions} = this.props;
+    if (prevProps.jwpOptions.file !== jwpOptions.file) {
       this.setFileUrl();
     }
   }
 
   setFileUrl() {
-    const {file} = this.props.jwpOptions;
+    const {jwpOptions} = this.props;
+    const {file} = jwpOptions;
 
     return this.setState({fileUrl: file});
   }
 
   handlePlay(e) {
-    this.props.onPlay && this.props.onPlay(e);
+    const {onPlay} = this.props;
+    if (onPlay) onPlay(e);
   }
 
   handleResume(e) {
-    this.props.onResume && this.props.onResume(e);
+    const {onResume} = this.props;
+    if (onResume) onResume(e);
   }
 
   handlePause(e) {
-    this.props.onPause && this.props.onPause(e);
+    const {onPause} = this.props;
+    if (onPause) onPause(e);
   }
 
   handleEnded(e) {
-    this.props.onEnded && this.props.onEnded(e);
+    const {onEnded} = this.props;
+    if (onEnded) onEnded(e);
   }
 
   handleScriptError(script) {
     this.setState({scriptFailedLoading: true});
     if (script) {
-      script.parentNode.removeChild(script);
+      script.parentNode.removeChild();
     }
   }
 
   handleSetupError(error) {
-    this.props.onSetupError && this.props.onSetupError(error);
+    const {onSetupError} = this.props;
+    if (onSetupError) onSetupError(error);
   }
 
   handlePlayAttemptFailed(error) {
-    this.props.onPlayAttemptFailed && this.props.onPlayAttemptFailed(error);
+    const {onPlayAttemptFailed} = this.props;
+    if (onPlayAttemptFailed) onPlayAttemptFailed(error);
   }
 
   handleAutostartNotAllowed(error) {
-    this.props.onAutostartNotAllowed && this.props.onAutostartNotAllowed(error);
+    const {onAutostartNotAllowed} = this.props;
+    if (onAutostartNotAllowed) onAutostartNotAllowed(error);
   }
 
   handleWarning(error) {
-    this.props.onWarning && this.props.onWarning(error);
+    const {onWarning} = this.props;
+    if (onWarning) onWarning(error);
   }
 
   handleError(error) {
@@ -117,7 +168,8 @@ class JWPlayer extends React.Component {
   }
 
   render() {
-    const {jwpOptions, disableAutostart} = this.props;
+    const {jwpOptions, disableAutostart, scriptErrorMessage} = this.props;
+    const {scriptFailedLoading, fileUrl} = this.state;
     const _jwpOptions = {
       ...jwpOptions,
       customProps: {
@@ -128,9 +180,7 @@ class JWPlayer extends React.Component {
 
     return (
       <>
-        {this.state.scriptFailedLoading && (
-          <p className={style.errorMessage}>{this.props.scriptErrorMessage}</p>
-        )}
+        {scriptFailedLoading ? <p className={style.errorMessage}>{scriptErrorMessage} </p> : null}
         <ReactJWPlayer
           {..._jwpOptions}
           className={style.wrapper}
@@ -144,46 +194,11 @@ class JWPlayer extends React.Component {
           onPlayAttemptFailed={this.handlePlayAttemptFailed}
           onWarning={this.handleWarning}
           onAutostartNotAllowed={this.handleAutostartNotAllowed}
-          file={this.state.fileUrl}
+          file={fileUrl}
         />
       </>
     );
   }
 }
-
-JWPlayer.propTypes = {
-  disableAutostart: PropTypes.bool,
-  // https://developer.jwplayer.com/jwplayer/docs/jw8-player-configuration-reference
-  jwpOptions: PropTypes.shape({
-    file: SrcPropType,
-    customProps: PropTypes.shape({
-      aspectratio: PropTypes.string,
-      tracks: PropTypes.arrayOf(
-        PropTypes.shape({
-          file: SrcPropType,
-          label: PropTypes.string,
-          kind: PropTypes.string,
-          default: PropTypes.boolean
-        })
-      ),
-      autostart: PropTypes.oneOf(['viewable', 'false']),
-      width: PropTypes.string,
-      skin: PropTypes.shape({
-        name: PropTypes.string
-      })
-    }),
-    licenseKey: PropTypes.string.isRequired,
-    playerScript: SrcPropType.isRequired
-  }),
-  onPlay: PropTypes.func,
-  onResume: PropTypes.func,
-  onPause: PropTypes.func,
-  onEnded: PropTypes.func,
-  onError: PropTypes.func,
-  onPlayAttemptFailed: PropTypes.func,
-  onAutostartNotAllowed: PropTypes.func,
-  onSetupError: PropTypes.func,
-  onWarning: PropTypes.func
-};
 
 export default JWPlayer;

@@ -23,7 +23,9 @@ const createOptionsView = (_options, hasOptions) => {
 
     return (
       <div key={oIndex} className={selected ? style.selected : style.option}>
-        <button onClick={onChange}>{option.title}</button>
+        <button type="button" onClick={onChange}>
+          {option.title}
+        </button>
       </div>
     );
   });

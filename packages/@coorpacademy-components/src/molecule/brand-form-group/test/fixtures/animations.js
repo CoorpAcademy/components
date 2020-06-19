@@ -5,8 +5,8 @@ export default {
     title: 'Massive Battle',
     fields: [
       {
-        type: 'autoComplete',
         ...Autocomplete.props,
+        type: 'autoComplete',
         title: 'User',
         description: 'Name of the fictive user who will send the battle',
         required: true
@@ -48,8 +48,8 @@ export default {
         modified: false
       },
       {
-        type: 'autoComplete',
         ...Autocomplete.props,
+        type: 'autoComplete',
         title: 'Course',
         description: 'Name of the course and the level used to make the battle',
         required: true

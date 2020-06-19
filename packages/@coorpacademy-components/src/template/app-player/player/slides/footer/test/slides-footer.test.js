@@ -3,9 +3,9 @@ import test from 'ava';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import SlidesFooter from '..';
 import defaultFixture from './fixtures/default';
 import mediaSelectedFixture from './fixtures/media-selected';
-import SlidesFooter from '..';
 
 browserEnv();
 configure({adapter: new Adapter()});

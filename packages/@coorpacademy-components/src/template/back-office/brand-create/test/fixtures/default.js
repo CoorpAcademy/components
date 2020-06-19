@@ -5,7 +5,7 @@ const {props} = CreateForm;
 
 export default {
   props: {
-    header: Header.props,
-    ...props
+    ...props,
+    header: Header.props
   }
 };

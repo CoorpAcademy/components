@@ -18,8 +18,19 @@ const extractStateFromProps = props => {
   };
 };
 
-// eslint-disable-next-line no-shadow
 class Range extends React.Component {
+  static propTypes = {
+    onChange: PropTypes.func,
+    onChangeEnd: PropTypes.func,
+    multi: PropTypes.bool,
+    // eslint-disable-next-line react/no-unused-prop-types
+    value: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)])
+  };
+
+  static contextTypes = {
+    skin: Provider.childContextTypes.skin
+  };
+
   static getDerivedStateFromProps(props, state) {
     const {pending} = state;
 
@@ -85,12 +96,10 @@ class Range extends React.Component {
 
     const nextValue = minValue > maxValue ? prevValue : newValue;
 
-    return this.setState(() => {
-      this.triggerChange(nextValue, pending);
-      return {
-        pending,
-        value: pending ? nextValue : extractStateFromProps(this.props).value
-      };
+    this.triggerChange(nextValue, pending);
+    return this.setState({
+      pending,
+      value: pending ? nextValue : extractStateFromProps(this.props).value
     });
   }
 
@@ -177,17 +186,5 @@ class Range extends React.Component {
     );
   }
 }
-
-Range.contextTypes = {
-  skin: Provider.childContextTypes.skin
-};
-
-Range.propTypes = {
-  onChange: PropTypes.func,
-  onChangeEnd: PropTypes.func,
-  multi: PropTypes.bool,
-  // eslint-disable-next-line react/no-unused-prop-types
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.arrayOf(PropTypes.number)])
-};
 
 export default Range;

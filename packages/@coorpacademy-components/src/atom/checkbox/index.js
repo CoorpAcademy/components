@@ -3,6 +3,15 @@ import PropTypes from 'prop-types';
 import {noop} from 'lodash/fp';
 
 class Checkbox extends React.Component {
+  static propTypes = {
+    checked: PropTypes.bool,
+    onChange: PropTypes.func
+  };
+
+  static defaultProps = {
+    onChange: noop
+  };
+
   constructor(props) {
     super(props);
     const {checked} = props;
@@ -11,7 +20,8 @@ class Checkbox extends React.Component {
   }
 
   handleChange(e) {
-    this.props.onChange(e.target.checked);
+    const {onChange = noop} = this.props;
+    onChange(e.target.checked);
     this.setState({
       checked: e.target.checked
     });
@@ -19,17 +29,8 @@ class Checkbox extends React.Component {
 
   render() {
     const {props, state} = this;
-    return <input type="checkbox" {...props} {...state} onChange={this.handleChangeBound} />;
+    return <input {...props} {...state} type="checkbox" onChange={this.handleChangeBound} />;
   }
 }
-
-Checkbox.defaultProps = {
-  onChange: noop
-};
-
-Checkbox.propTypes = {
-  checked: PropTypes.bool,
-  onChange: PropTypes.func
-};
 
 export default Checkbox;

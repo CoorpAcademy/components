@@ -4,6 +4,29 @@ import Provider from '../../atom/provider';
 import style from './style.css';
 
 class PaymentForm extends React.Component {
+  static propTypes = {
+    stripeKeyPublic: PropTypes.string.isRequired,
+    stripeInstance: PropTypes.func.isRequired,
+    onSubscription: PropTypes.func.isRequired,
+    checkImage: PropTypes.string.isRequired,
+    cardsImage: PropTypes.string.isRequired,
+    cardOwnerEmail: PropTypes.string,
+    securedPaymentImage: PropTypes.string,
+    errors: PropTypes.string,
+    warning: PropTypes.string,
+    onCardNumberChange: PropTypes.func,
+    cardNumberHasError: PropTypes.bool,
+    onCardExpiryChange: PropTypes.func,
+    cardExpiryHasError: PropTypes.bool,
+    onCardCvcChange: PropTypes.func,
+    cardCvcHasError: PropTypes.bool,
+    submitButtonEnabled: PropTypes.bool
+  };
+
+  static contextTypes = {
+    translate: Provider.childContextTypes.translate
+  };
+
   constructor(props) {
     super(props);
     this.stripe = props.stripeInstance ? props.stripeInstance(props.stripeKeyPublic) : null;
@@ -63,9 +86,10 @@ class PaymentForm extends React.Component {
   }
 
   handleSubmit() {
+    const {onSubscription} = this.props;
     if (this.stripe) {
       return this.stripe.createToken(this.cardNumber).then(response => {
-        return this.props.onSubscription(response);
+        return onSubscription(response);
       });
     }
   }
@@ -113,8 +137,8 @@ class PaymentForm extends React.Component {
           <div className={style.creditCardOwnerEmailText}>{cardOwnerEmail}</div>
           <hr className={style.creditCardOwnerEmailSeparator} />
         </div>
-        {errors && <div className={style.paymentErrors}>- {errors}</div>}
-        {warning && <div className={style.paymentWarning}>- {warning}</div>}
+        {errors ? <div className={style.paymentErrors}>-{errors}</div> : null}
+        {warning ? <div className={style.paymentWarning}>-{warning}</div> : null}
         <div className={style.securedPayment}>
           <img className={style.securedPaymentImage} src={securedPaymentImage} />
           <div className={style.securedPaymentText}>{translate('secured_payment')}</div>
@@ -150,28 +174,5 @@ class PaymentForm extends React.Component {
     );
   }
 }
-
-PaymentForm.contextTypes = {
-  translate: Provider.childContextTypes.translate
-};
-
-PaymentForm.propTypes = {
-  stripeKeyPublic: PropTypes.string.isRequired,
-  stripeInstance: PropTypes.func.isRequired,
-  onSubscription: PropTypes.func.isRequired,
-  checkImage: PropTypes.string.isRequired,
-  cardsImage: PropTypes.string.isRequired,
-  cardOwnerEmail: PropTypes.string,
-  securedPaymentImage: PropTypes.string,
-  errors: PropTypes.string,
-  warning: PropTypes.string,
-  onCardNumberChange: PropTypes.func,
-  cardNumberHasError: PropTypes.bool,
-  onCardExpiryChange: PropTypes.func,
-  cardExpiryHasError: PropTypes.bool,
-  onCardCvcChange: PropTypes.func,
-  cardCvcHasError: PropTypes.bool,
-  submitButtonEnabled: PropTypes.bool
-};
 
 export default PaymentForm;

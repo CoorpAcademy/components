@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {get, isEmpty} from 'lodash/fp';
+import {get, isEmpty, noop} from 'lodash/fp';
 import {
   NovaCompositionNavigationMore as MoreIcon,
   NovaCompositionCoorpacademyCheck as CheckIcon
@@ -10,15 +10,29 @@ import Provider from '../../atom/provider';
 import style from './favorite.css';
 
 class Favorite extends React.Component {
+  static propTypes = {
+    className: PropTypes.string,
+    favorite: PropTypes.bool,
+    disabled: PropTypes.bool,
+    addFavoriteToolTip: PropTypes.string,
+    removeFavoriteToolTip: PropTypes.string,
+    onFavoriteClick: PropTypes.func
+  };
+
+  static contextTypes = {
+    skin: Provider.childContextTypes.skin
+  };
+
   constructor(props, context) {
     super(props, context);
     this.handleFavoviteClick = this.handleFavoviteClick.bind(this);
   }
 
   handleFavoviteClick(e) {
+    const {disabled, onFavoriteClick = noop} = this.props;
     e.stopPropagation();
     e.preventDefault();
-    return !this.props.disabled && this.props.onFavoriteClick && this.props.onFavoriteClick(e);
+    if (!disabled) onFavoriteClick(e);
   }
 
   render() {
@@ -28,11 +42,12 @@ class Favorite extends React.Component {
     const primaryColor = get('common.primary', skin);
     const darkColor = get('common.dark', skin);
     const brandColor = get('common.brand', skin);
-    const toolTipView = !isEmpty(removeFavoriteToolTip) && !isEmpty(addFavoriteToolTip) && (
-      <div className={style.showToolTip}>
-        <span>{favorite ? removeFavoriteToolTip : addFavoriteToolTip}</span>
-      </div>
-    );
+    const toolTipView =
+      !isEmpty(removeFavoriteToolTip) && !isEmpty(addFavoriteToolTip) ? (
+        <div className={style.showToolTip}>
+          <span>{favorite ? removeFavoriteToolTip : addFavoriteToolTip}</span>
+        </div>
+      ) : null;
 
     return (
       <div className={style.blocFavorite}>
@@ -40,7 +55,7 @@ class Favorite extends React.Component {
         <div
           data-name="favorite"
           className={classnames(style.favorite, className, favorite && style.selected)}
-          onClick={e => this.handleFavoviteClick(e)}
+          onClick={this.handleFavoviteClick}
           style={{
             color: primaryColor
           }}
@@ -55,16 +70,5 @@ class Favorite extends React.Component {
     );
   }
 }
-Favorite.contextTypes = {
-  skin: Provider.childContextTypes.skin
-};
-Favorite.propTypes = {
-  className: PropTypes.string,
-  favorite: PropTypes.bool,
-  disabled: PropTypes.bool,
-  addFavoriteToolTip: PropTypes.string,
-  removeFavoriteToolTip: PropTypes.string,
-  onFavoriteClick: PropTypes.func
-};
 
 export default Favorite;

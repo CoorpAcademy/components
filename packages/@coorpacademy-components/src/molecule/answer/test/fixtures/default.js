@@ -3,8 +3,8 @@ import FreeText from '../../../questions/free-text/test/fixtures/default';
 export default {
   props: {
     model: {
-      type: 'freeText',
-      ...FreeText.props
+      ...FreeText.props,
+      type: 'freeText'
     },
     media: {
       type: 'img',

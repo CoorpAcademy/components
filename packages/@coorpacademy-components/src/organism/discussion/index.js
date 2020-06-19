@@ -23,9 +23,9 @@ function Discussion(props) {
     className
   } = props;
 
-  const threadsView = threads.map(thread => <ForumThread key={thread.id} {...thread} mainPost />);
+  const threadsView = threads.map(thread => <ForumThread {...thread} key={thread.id} mainPost />);
 
-  const commentView = !hideComments && (
+  const commentView = !hideComments ? (
     <ForumComment
       avatar={avatar}
       value={value}
@@ -35,13 +35,13 @@ function Discussion(props) {
       textareaDisabled={textareaDisabled}
       postDisabled={postDisabled}
     />
-  );
+  ) : null;
 
-  const loader = loading && (
+  const loader = loading ? (
     <div className={style.loader}>
       <Loader />
     </div>
-  );
+  ) : null;
 
   return (
     <div data-name="discussion" className={classnames(style.thread, className)}>
@@ -70,7 +70,8 @@ Discussion.propTypes = {
   threads: PropTypes.arrayOf(PropTypes.shape(postConditions)),
   textareaDisabled: PropTypes.bool,
   postDisabled: PropTypes.bool,
-  className: PropTypes.string
+  className: PropTypes.string,
+  hideComments: PropTypes.bool
 };
 
 export default Discussion;

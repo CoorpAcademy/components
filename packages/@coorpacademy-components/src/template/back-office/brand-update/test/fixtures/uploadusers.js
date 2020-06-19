@@ -7,8 +7,8 @@ const {props} = Users;
 export default {
   props: defaultsDeep(props, {
     content: {
-      type: 'upload',
-      ...BrandUpload.props
+      ...BrandUpload.props,
+      type: 'upload'
     }
   })
 };

@@ -4,6 +4,7 @@ export default {
   props: {
     resources: [
       {
+        ...Kontiki.props,
         type: 'video',
         poster:
           'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/schneider-electric/en/medias/img/poster/vlcsnap-2015-08-18-19h41m19s916-1439919822187.png&h=250&w=250&q=90',
@@ -17,8 +18,7 @@ export default {
           '//schneider-electric.mc.eu1.kontiki.com/global/player?moid=3be700ca-9a15-4c43-bb90-45eae470c55d&repeat=false&client=false&context=embed&overlay=false&name=false&description=false&created_by=false',
         videoId: '3be700ca-9a15-4c43-bb90-45eae470c55d',
         onClick: () => {},
-        selected: true,
-        ...Kontiki.props
+        selected: true
       },
       {
         type: 'video',
