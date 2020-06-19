@@ -1,3 +1,4 @@
+// eslint-disable-next-line node/no-deprecated-api
 import {parse} from 'url';
 import {
   createBrowserHistory as _createBrowserHistory,
