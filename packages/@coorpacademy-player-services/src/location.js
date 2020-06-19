@@ -1,3 +1,4 @@
+/* eslint-disable flowtype-errors/enforce-min-coverage */
 // @flow strict
 
 import type {Content} from '@coorpacademy/progression-engine';
