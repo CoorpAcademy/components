@@ -3,12 +3,16 @@ import Default from './default';
 export default {
   props: {
     ...Default.props,
-    type: 'success',
+    state: 'success',
     message: 'Your file is successfully imported!',
-    content: {
-      type: 'video',
-      src: 'https://static.coorpacademy.com/content/up/raw/logo_mobile-1491560713685.svg'
-    },
+    type: 'video',
+    fields: [
+      {
+        title: 'Url',
+        value: 'https://static.coorpacademy.com/content/up/raw/logo_mobile-1491560713685.svg',
+        type: 'text'
+      }
+    ],
     onDelete: () => console.log('Delete')
   }
 };

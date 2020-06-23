@@ -1,57 +1,90 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 import {
   NovaCompositionCoorpacademyValidate as Validated,
   NovaLineContentEditionBin as TrashIcon
 } from '@coorpacademy/nova-icons';
-
-import {pipe, split, last} from 'lodash/fp';
+import classnames from 'classnames';
+import {pipe, split, last, map, head, getOr} from 'lodash/fp';
 import {EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
-import Provider from '../../atom/provider';
+import InputText from '../../atom/input-text';
 
 import Button from '../../atom/button';
 import style from './upload-report.css';
 
 export const UploadReport = (
-  {type, message, content, buttonTitle, primaryColor, onDelete},
+  {
+    state,
+    message,
+    type: contentType,
+    fields,
+    mode = 'upload',
+    orLabel,
+    buttonTitle,
+    primaryColor,
+    onDelete
+  },
   context
 ) => {
-  if (type === 'error') {
-    return (
-      <div className={style.reportingContainer}>
-        <div className={style.reportContainer}>
-          <div>
-            <span className={style.emoticon}>🥺</span>
-            <p className={style.message}>{message}</p>
-          </div>
-          <div>
-            <Button
-              data-name="cta"
-              type="link"
-              submitValue={buttonTitle}
-              className={style.selectButton}
-              style={{backgroundColor: primaryColor}}
-            />
-          </div>
-        </div>
-      </div>
-    );
-  }
+  const handleDelete = useCallback(
+    e => {
+      e.stopPropagation();
+      e.preventDefault();
+      onDelete && onDelete(e);
+    },
+    [onDelete]
+  );
 
-  const Message = () => (
+  const SuccessMessage = () => (
     <div>
       <span className={style.emoticon}>🎉</span>
       <p className={style.message}>{message}</p>
     </div>
   );
-
-  const {src, type: contentType} = content;
+  const ErrorMessage = () => (
+    <div>
+      <div>
+        <span className={style.emoticon}>🥺</span>
+        <p className={style.message}>{message}</p>
+      </div>
+      <div>
+        <Button
+          data-name="cta"
+          type="link"
+          submitValue={buttonTitle}
+          className={style.selectButton}
+          style={{backgroundColor: primaryColor}}
+        />
+      </div>
+    </div>
+  );
+  const showMessage = ['success', 'error'].includes(state);
   const fileName = pipe(
+    head,
+    getOr('', 'value'),
     split('/'),
     last
-  )(src);
+  )(fields);
+  const fileView = fileName ? (
+    <div className={style.fileWrapper}>
+      <div className={style.fileName} title={fileName}>
+        {fileName}
+      </div>
+      <Validated className={style.validateIcon} />
+    </div>
+  ) : (
+    <div className={style.emptyFileWrapper} />
+  );
   const IconType = EXTERNAL_CONTENT_ICONS[contentType].icon;
   const iconColor = EXTERNAL_CONTENT_ICONS[contentType].color;
+  const buildField = (field, index) => <InputText {...field} key={index} theme={'cockpit'} />;
+  const deleteView = onDelete && (
+    <div onClick={handleDelete} className={classnames(style.actionIcon, style.trashIcon)}>
+      <TrashIcon width={20} height={20} />
+    </div>
+  );
+  const fieldsList = map.convert({cap: false})(buildField, fields);
+
   return (
     <div className={style.reportingContainer}>
       <div className={style.reportHeader}>
@@ -60,15 +93,27 @@ export const UploadReport = (
             <IconType className={style.iconHeader} color={iconColor} />
           </div>
         </div>
-        <div className={style.fileName} title={fileName}>
-          {fileName}
-        </div>
-        <Validated className={style.validateIcon} />
-        <div onClick={onDelete}>
-          <TrashIcon className={style.trashIcon} />
-        </div>
+        {fileView}
+        {deleteView}
       </div>
-      <div className={style.reportContainer}>{type === 'success' && <Message />}</div>
+      <div className={style.reportContainer}>
+        {state === 'success' && <SuccessMessage />}
+        {state === 'error' && <ErrorMessage />}
+        {mode === 'edit' && !showMessage && <div>{fieldsList}</div>}
+        {mode === 'edit' && !showMessage && <span className={style.or}>{orLabel}</span>}
+        {!showMessage && (
+          <div className={style.drop}>
+            <p className={style.message}>{message}</p>
+            <Button
+              data-name="cta"
+              type="link"
+              submitValue={buttonTitle}
+              className={style.selectButton}
+              style={{backgroundColor: primaryColor}}
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
@@ -76,17 +121,18 @@ export const UploadReport = (
 export default UploadReport;
 
 UploadReport.propTypes = {
-  type: PropTypes.string.isRequired,
+  state: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
-  content: PropTypes.shape({
-    type: PropTypes.string,
-    src: PropTypes.string
-  }),
+  orLabel: PropTypes.string,
+  type: PropTypes.string,
+  fields: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.oneOf(['text']),
+      ...InputText.propTypes
+    })
+  ),
+  mode: PropTypes.oneOf(['edit', 'upload']),
   buttonTitle: PropTypes.string,
   primaryColor: PropTypes.string,
   onDelete: PropTypes.func
-};
-
-UploadReport.contextTypes = {
-  translate: Provider.childContextTypes.translate
 };

@@ -1,5 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value light from colors;
+@value dark from colors;
 
 .wrapper {
   composes: box from './common.css';
@@ -8,4 +9,21 @@
   position: relative;
   border-radius: 2%;
   border: 1px solid light;
+  outline: none;
+}
+.arrow {
+  color: inherit;
+  margin: 0 6px;
+}
+
+.back {
+  font-family: 'Open Sans';
+  font-size: 16px;
+  color: dark;
+  cursor: pointer;
+  padding-bottom: 5px;
+  display: inline-block;
+}
+.back:hover {
+  color: color(dark a(60%));
 }
