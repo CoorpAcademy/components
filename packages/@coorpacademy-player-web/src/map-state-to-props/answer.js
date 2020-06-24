@@ -46,19 +46,22 @@ const qcmProps = (options, store) => {
   };
 };
 
-const qcmDragProps = (options, store) => (state, slide) => {
-  const answers = getAnswerValues(slide, state);
-  return {
-    type: 'qcmDrag',
-    answers: map(choice => {
-      const indexInAnswer = indexOf(choice.label, answers);
-      return {
-        title: choice.label,
-        selected: indexInAnswer !== -1,
-        order: indexInAnswer,
-        onClick: () => editAnswerAction(options, store)(state, slide)(choice)
-      };
-    }, getChoices(slide, state))
+const qcmDragProps = (options, store) => {
+  const getChoices_ = getChoices();
+  return (state, slide) => {
+    const answers = getAnswerValues(slide, state);
+    return {
+      type: 'qcmDrag',
+      answers: map(choice => {
+        const indexInAnswer = indexOf(choice.label, answers);
+        return {
+          title: choice.label,
+          selected: indexInAnswer !== -1,
+          order: indexInAnswer,
+          onClick: () => editAnswerAction(options, store)(state, slide)(choice)
+        };
+      }, getChoices_(slide, state))
+    };
   };
 };
 
