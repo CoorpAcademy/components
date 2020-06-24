@@ -82,7 +82,7 @@ test('getChoices should return undefined when no content.choices', t => {
       }
     }
   };
-  t.is(getChoices(slide), undefined);
+  t.is(getChoices()(slide), undefined);
 });
 
 test('getChoices with progression not found should return choices for qcm slide', t => {
@@ -111,7 +111,7 @@ test('getChoices with progression not found should return choices for qcm slide'
       }
     }
   };
-  t.deepEqual(getChoices(slide, state), choices);
+  t.deepEqual(getChoices()(slide, state), choices);
 });
 
 function macroDoNothing(t, type, shuffleChoices = true) {
@@ -144,7 +144,7 @@ function macroDoNothing(t, type, shuffleChoices = true) {
       }
     }
   };
-  t.deepEqual(getChoices(slide, state), choices);
+  t.deepEqual(getChoices()(slide, state), choices);
 }
 
 function macroDoNothingWithShuffleChoicesEnabledOnConfig(t, type, shuffleChoices = true) {
@@ -178,7 +178,7 @@ function macroDoNothingWithShuffleChoicesEnabledOnConfig(t, type, shuffleChoices
       }
     }
   };
-  t.deepEqual(getChoices(slide, state), choices);
+  t.deepEqual(getChoices()(slide, state), choices);
 }
 
 function macroQCM(t, type) {
@@ -212,9 +212,10 @@ function macroQCM(t, type) {
       }
     }
   };
-  const resFirstCall = getChoices(slide, state);
-  const resSecondCall = getChoices(slide, state);
-  const resThirdCall = getChoices(slide, state);
+  const getChoices_ = getChoices();
+  const resFirstCall = getChoices_(slide, state);
+  const resSecondCall = getChoices_(slide, state);
+  const resThirdCall = getChoices_(slide, state);
 
   t.deepEqual(sortBy('_id', resFirstCall), sortBy('_id', choices));
   t.deepEqual(sortBy('_id', resSecondCall), sortBy('_id', choices));
@@ -254,9 +255,10 @@ function macroQCMWithShuffleChoicesEnabledOnEngineOptionsAndDisabledOnConfig(t, 
       }
     }
   };
-  const resFirstCall = getChoices(slide, state);
-  const resSecondCall = getChoices(slide, state);
-  const resThirdCall = getChoices(slide, state);
+  const getChoices_ = getChoices();
+  const resFirstCall = getChoices_(slide, state);
+  const resSecondCall = getChoices_(slide, state);
+  const resThirdCall = getChoices_(slide, state);
 
   t.deepEqual(sortBy('_id', resFirstCall), sortBy('_id', choices));
   t.deepEqual(sortBy('_id', resSecondCall), sortBy('_id', choices));
@@ -432,9 +434,10 @@ test('getChoices with shuffle enabled should return shuffle choices for template
     }
   };
 
-  const resFirstCall = getChoices(slide, state);
-  const resSecondCall = getChoices(slide, state);
-  const resThirdCall = getChoices(slide, state);
+  const getChoices_ = getChoices();
+  const resFirstCall = getChoices_(slide, state);
+  const resSecondCall = getChoices_(slide, state);
+  const resThirdCall = getChoices_(slide, state);
 
   t.deepEqual(map(omit('items'), resFirstCall), map(omit('items'), choices));
   t.deepEqual(map(omit('items'), resSecondCall), map(omit('items'), choices));

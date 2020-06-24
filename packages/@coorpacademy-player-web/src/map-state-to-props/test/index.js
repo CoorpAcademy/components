@@ -1,67 +1,8 @@
 import test from 'ava';
-import {map, get, set, pipe, fromPairs, identity} from 'lodash/fp';
-import {mockTranslate} from '@coorpacademy/translate';
+import {map, get, set} from 'lodash/fp';
 import createPlayer from '../player';
 
-import qcmSlide from './fixtures/slides/qcm';
-import qcmDragSlide from './fixtures/slides/qcm-drag';
-
-const createProgression = (slide, contentRef) => ({
-  engine: {
-    ref: 'microlearning',
-    version: '1'
-  },
-  content: {
-    ref: contentRef,
-    type: 'chapter'
-  },
-  state: {
-    nextContent: {
-      ref: slide._id,
-      type: 'slide'
-    },
-    lives: 1,
-    livesDisabled: false,
-    step: {
-      current: 1
-    },
-    viewedResources: []
-  }
-});
-
-const options = {translate: mockTranslate};
-const store = {dispatch: identity};
-
-const availableSlides = pipe(
-  map(slide => [slide._id, slide]),
-  fromPairs
-)([qcmSlide, qcmDragSlide]);
-
-const data = {
-  contents: {
-    chapter: {
-      entities: {
-        nonAdaptiveContent: {
-          _id: 'nonAdaptiveContent',
-          isConditional: false
-        },
-        adaptiveContent: {
-          _id: 'adaptiveContent',
-          isConditional: true
-        }
-      }
-    },
-    slide: {
-      entities: availableSlides
-    }
-  },
-  progressions: {
-    entities: {
-      qcm: createProgression(qcmSlide, 'nonAdaptiveContent'),
-      qcmDrag: createProgression(qcmDragSlide, 'nonAdaptiveContent')
-    }
-  }
-};
+import {data, options, store} from './player';
 
 test('memoize choices > QCM', t => {
   // state fixture
@@ -83,7 +24,7 @@ test('memoize choices > QCM', t => {
         label: 'bar'
       }
     ],
-    {...initialState}
+    initialState
   );
   const thirdState = set(
     ['data', 'contents', 'slide', 'entities', 'qcmSlide-1', 'question', 'content', 'choices'],
@@ -95,7 +36,7 @@ test('memoize choices > QCM', t => {
         label: '2'
       }
     ],
-    {...initialState}
+    initialState
   );
 
   // initiate player
