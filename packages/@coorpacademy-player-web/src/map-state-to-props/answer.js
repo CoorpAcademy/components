@@ -24,23 +24,26 @@ const editAnswerAction = (options, {dispatch}) => (state, slide) => newValue => 
   return dispatch(editAnswer(newValue));
 };
 
-const qcmProps = (options, store) => (state, slide) => {
-  const answers = getAnswerValues(slide, state);
-  const _editAnswerAction = editAnswerAction(options, store)(state, slide);
+const qcmProps = (options, store) => {
+  const getChoices_ = getChoices();
+  return (state, slide) => {
+    const answers = getAnswerValues(slide, state);
+    const _editAnswerAction = editAnswerAction(options, store)(state, slide);
 
-  const props = {
-    type: 'qcm',
-    answers: map(
-      choice => ({
-        title: choice.label,
-        selected: includes(choice.label, answers),
-        onClick: () => _editAnswerAction(choice)
-      }),
-      getChoices(slide, state)
-    )
+    const props = {
+      type: 'qcm',
+      answers: map(
+        choice => ({
+          title: choice.label,
+          selected: includes(choice.label, answers),
+          onClick: () => _editAnswerAction(choice)
+        }),
+        getChoices_(slide, state)
+      )
+    };
+
+    return props;
   };
-
-  return props;
 };
 
 const qcmDragProps = (options, store) => (state, slide) => {
@@ -194,33 +197,42 @@ const sliderProps = (options, store) => (state, slide) => {
   };
 };
 
-const createGetAnswerProps = (options, store) => (state, slide) => {
-  if (!slide) {
-    return;
-  }
-  const type = getQuestionType(slide);
-  switch (type) {
-    case 'qcm':
-      return qcmProps(options, store)(state, slide);
+const createGetAnswerProps = (options, store) => {
+  const qcmProps_ = qcmProps(options, store);
+  const qcmGraphicProps_ = qcmGraphicProps(options, store);
+  const qcmDragProps_ = qcmDragProps(options, store);
+  const basicProps_ = basicProps(options, store);
+  const templateProps_ = templateProps(options, store);
+  const sliderProps_ = sliderProps(options, store);
 
-    case 'qcmGraphic':
-      return qcmGraphicProps(options, store)(state, slide);
+  return (state, slide) => {
+    if (!slide) {
+      return;
+    }
+    const type = getQuestionType(slide);
+    switch (type) {
+      case 'qcm':
+        return qcmProps_(state, slide);
 
-    case 'qcmDrag':
-      return qcmDragProps(options, store)(state, slide);
+      case 'qcmGraphic':
+        return qcmGraphicProps_(state, slide);
 
-    case 'basic':
-      return basicProps(options, store)(state, slide);
+      case 'qcmDrag':
+        return qcmDragProps_(state, slide);
 
-    case 'template':
-      return templateProps(options, store)(state, slide);
+      case 'basic':
+        return basicProps_(state, slide);
 
-    case 'slider':
-      return sliderProps(options, store)(state, slide);
+      case 'template':
+        return templateProps_(state, slide);
 
-    default:
-      throw new Error(`${type} is not an handled question.type`);
-  }
+      case 'slider':
+        return sliderProps_(state, slide);
+
+      default:
+        throw new Error(`${type} is not an handled question.type`);
+    }
+  };
 };
 
 const createGetHelp = (options, store) => slide => {

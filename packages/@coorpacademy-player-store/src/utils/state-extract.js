@@ -329,34 +329,33 @@ const isEnableShuffleChoices = (state: State): boolean => {
   return engineConfig.shuffleChoices;
 };
 
-const getSlideChoices = (slide: Slide, state: State): Array<Choice> | void => {
-  if (!slide || !slide.question || !slide.question.content || !slide.question.content.choices) {
-    return undefined;
-  }
-  const shuffleChoices = isEnableShuffleChoices(state);
-
-  // $FlowFixMe Cannot assign `slide.question.content.choices` to `choices` because property `choices` of unknown type (see line 51) is incompatible with array type
-  const choices = slide.question.content.choices;
-  if (!shuffleChoices) return choices;
-
-  switch (get(['question', 'type'], slide)) {
-    case 'qcm':
-    case 'qcmGraphic':
-    case 'qcmDrag':
-      return shuffle(choices);
-    case 'template':
-      return map(update('items', shuffle), choices);
-    default:
-      return choices;
-  }
-};
-
 const memoizeWithResolver = memoize.convert({fixed: false});
 
-export const getChoices = memoizeWithResolver(
-  getSlideChoices,
-  (slide: Slide, state: State): string => `${get('_id', slide)}-${getCurrentProgressionId(state)}`
-);
+export const getChoices = () =>
+  memoizeWithResolver(
+    (slide: Slide, state: State): Array<Choice> | void => {
+      if (!slide || !slide.question || !slide.question.content || !slide.question.content.choices) {
+        return undefined;
+      }
+      const shuffleChoices = isEnableShuffleChoices(state);
+
+      // $FlowFixMe Cannot assign `slide.question.content.choices` to `choices` because property `choices` of unknown type (see line 51) is incompatible with array type
+      const choices = slide.question.content.choices;
+      if (!shuffleChoices) return choices;
+
+      switch (get(['question', 'type'], slide)) {
+        case 'qcm':
+        case 'qcmGraphic':
+        case 'qcmDrag':
+          return shuffle(choices);
+        case 'template':
+          return map(update('items', shuffle), choices);
+        default:
+          return choices;
+      }
+    },
+    (slide: Slide, state: State): string => `${get('_id', slide)}-${getCurrentProgressionId(state)}`
+  );
 
 export const getPreviousSlide = (state: State): Slide | void => {
   const progression = getCurrentProgression(state);
