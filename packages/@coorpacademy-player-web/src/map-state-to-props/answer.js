@@ -65,19 +65,22 @@ const qcmDragProps = (options, store) => {
   };
 };
 
-const qcmGraphicProps = (options, store) => (state, slide) => {
-  const answers = getAnswerValues(slide, state);
-  return {
-    type: 'qcmGraphic',
-    answers: map(
-      choice => ({
-        title: choice.label,
-        image: get('media.src.0.url', choice),
-        selected: includes(choice.label, answers),
-        onClick: () => editAnswerAction(options, store)(state, slide)(choice)
-      }),
-      getChoices(slide, state)
-    )
+const qcmGraphicProps = (options, store) => {
+  const getChoices_ = getChoices();
+  return (state, slide) => {
+    const answers = getAnswerValues(slide, state);
+    return {
+      type: 'qcmGraphic',
+      answers: map(
+        choice => ({
+          title: choice.label,
+          image: get('media.src.0.url', choice),
+          selected: includes(choice.label, answers),
+          onClick: () => editAnswerAction(options, store)(state, slide)(choice)
+        }),
+        getChoices_(slide, state)
+      )
+    };
   };
 };
 
@@ -132,15 +135,18 @@ const templateSelectProps = (options, store) => (state, slide, choice, index) =>
   };
 };
 
-const templateProps = (options, store) => (state, slide) => {
-  return {
-    type: 'template',
-    template: slide.question.content.template,
-    answers: getChoices(slide, state).map((choice, index) =>
-      choice.type === 'text'
-        ? templateTextProps(options, store)(state, slide, choice, index)
-        : templateSelectProps(options, store)(state, slide, choice, index)
-    )
+const templateProps = (options, store) => {
+  const getChoices_ = getChoices();
+  return (state, slide) => {
+    return {
+      type: 'template',
+      template: slide.question.content.template,
+      answers: getChoices_(slide, state).map((choice, index) =>
+        choice.type === 'text'
+          ? templateTextProps(options, store)(state, slide, choice, index)
+          : templateSelectProps(options, store)(state, slide, choice, index)
+      )
+    };
   };
 };
 
