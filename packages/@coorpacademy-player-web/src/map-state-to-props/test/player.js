@@ -14,8 +14,8 @@ import qcmSlide from './fixtures/slides/qcm';
 import qcmDragSlide from './fixtures/slides/qcm-drag';
 import qcmGraphicSlide from './fixtures/slides/qcm-graphic';
 
-const options = {translate: mockTranslate};
-const store = {dispatch: identity};
+export const options = {translate: mockTranslate};
+export const store = {dispatch: identity};
 const createPlayerProps = createPlayer(options, store);
 const createHeaderProps = createHeader(options, store);
 
@@ -47,7 +47,7 @@ const createProgression = (slide, contentRef) => ({
   }
 });
 
-const data = {
+export const data = {
   contents: {
     chapter: {
       entities: {

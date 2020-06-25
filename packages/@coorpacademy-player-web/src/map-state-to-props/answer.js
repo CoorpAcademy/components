@@ -24,54 +24,63 @@ const editAnswerAction = (options, {dispatch}) => (state, slide) => newValue => 
   return dispatch(editAnswer(newValue));
 };
 
-const qcmProps = (options, store) => (state, slide) => {
-  const answers = getAnswerValues(slide, state);
-  const _editAnswerAction = editAnswerAction(options, store)(state, slide);
+const qcmProps = (options, store) => {
+  const getChoices_ = getChoices();
+  return (state, slide) => {
+    const answers = getAnswerValues(slide, state);
+    const _editAnswerAction = editAnswerAction(options, store)(state, slide);
 
-  const props = {
-    type: 'qcm',
-    answers: map(
-      choice => ({
-        title: choice.label,
-        selected: includes(choice.label, answers),
-        onClick: () => _editAnswerAction(choice)
-      }),
-      getChoices(slide, state)
-    )
-  };
+    const props = {
+      type: 'qcm',
+      answers: map(
+        choice => ({
+          title: choice.label,
+          selected: includes(choice.label, answers),
+          onClick: () => _editAnswerAction(choice)
+        }),
+        getChoices_(slide, state)
+      )
+    };
 
-  return props;
-};
-
-const qcmDragProps = (options, store) => (state, slide) => {
-  const answers = getAnswerValues(slide, state);
-  return {
-    type: 'qcmDrag',
-    answers: map(choice => {
-      const indexInAnswer = indexOf(choice.label, answers);
-      return {
-        title: choice.label,
-        selected: indexInAnswer !== -1,
-        order: indexInAnswer,
-        onClick: () => editAnswerAction(options, store)(state, slide)(choice)
-      };
-    }, getChoices(slide, state))
+    return props;
   };
 };
 
-const qcmGraphicProps = (options, store) => (state, slide) => {
-  const answers = getAnswerValues(slide, state);
-  return {
-    type: 'qcmGraphic',
-    answers: map(
-      choice => ({
-        title: choice.label,
-        image: get('media.src.0.url', choice),
-        selected: includes(choice.label, answers),
-        onClick: () => editAnswerAction(options, store)(state, slide)(choice)
-      }),
-      getChoices(slide, state)
-    )
+const qcmDragProps = (options, store) => {
+  const getChoices_ = getChoices();
+  return (state, slide) => {
+    const answers = getAnswerValues(slide, state);
+    return {
+      type: 'qcmDrag',
+      answers: map(choice => {
+        const indexInAnswer = indexOf(choice.label, answers);
+        return {
+          title: choice.label,
+          selected: indexInAnswer !== -1,
+          order: indexInAnswer,
+          onClick: () => editAnswerAction(options, store)(state, slide)(choice)
+        };
+      }, getChoices_(slide, state))
+    };
+  };
+};
+
+const qcmGraphicProps = (options, store) => {
+  const getChoices_ = getChoices();
+  return (state, slide) => {
+    const answers = getAnswerValues(slide, state);
+    return {
+      type: 'qcmGraphic',
+      answers: map(
+        choice => ({
+          title: choice.label,
+          image: get('media.src.0.url', choice),
+          selected: includes(choice.label, answers),
+          onClick: () => editAnswerAction(options, store)(state, slide)(choice)
+        }),
+        getChoices_(slide, state)
+      )
+    };
   };
 };
 
@@ -126,15 +135,18 @@ const templateSelectProps = (options, store) => (state, slide, choice, index) =>
   };
 };
 
-const templateProps = (options, store) => (state, slide) => {
-  return {
-    type: 'template',
-    template: slide.question.content.template,
-    answers: getChoices(slide, state).map((choice, index) =>
-      choice.type === 'text'
-        ? templateTextProps(options, store)(state, slide, choice, index)
-        : templateSelectProps(options, store)(state, slide, choice, index)
-    )
+const templateProps = (options, store) => {
+  const getChoices_ = getChoices();
+  return (state, slide) => {
+    return {
+      type: 'template',
+      template: slide.question.content.template,
+      answers: getChoices_(slide, state).map((choice, index) =>
+        choice.type === 'text'
+          ? templateTextProps(options, store)(state, slide, choice, index)
+          : templateSelectProps(options, store)(state, slide, choice, index)
+      )
+    };
   };
 };
 
@@ -194,33 +206,42 @@ const sliderProps = (options, store) => (state, slide) => {
   };
 };
 
-const createGetAnswerProps = (options, store) => (state, slide) => {
-  if (!slide) {
-    return;
-  }
-  const type = getQuestionType(slide);
-  switch (type) {
-    case 'qcm':
-      return qcmProps(options, store)(state, slide);
+const createGetAnswerProps = (options, store) => {
+  const qcmProps_ = qcmProps(options, store);
+  const qcmGraphicProps_ = qcmGraphicProps(options, store);
+  const qcmDragProps_ = qcmDragProps(options, store);
+  const basicProps_ = basicProps(options, store);
+  const templateProps_ = templateProps(options, store);
+  const sliderProps_ = sliderProps(options, store);
 
-    case 'qcmGraphic':
-      return qcmGraphicProps(options, store)(state, slide);
+  return (state, slide) => {
+    if (!slide) {
+      return;
+    }
+    const type = getQuestionType(slide);
+    switch (type) {
+      case 'qcm':
+        return qcmProps_(state, slide);
 
-    case 'qcmDrag':
-      return qcmDragProps(options, store)(state, slide);
+      case 'qcmGraphic':
+        return qcmGraphicProps_(state, slide);
 
-    case 'basic':
-      return basicProps(options, store)(state, slide);
+      case 'qcmDrag':
+        return qcmDragProps_(state, slide);
 
-    case 'template':
-      return templateProps(options, store)(state, slide);
+      case 'basic':
+        return basicProps_(state, slide);
 
-    case 'slider':
-      return sliderProps(options, store)(state, slide);
+      case 'template':
+        return templateProps_(state, slide);
 
-    default:
-      throw new Error(`${type} is not an handled question.type`);
-  }
+      case 'slider':
+        return sliderProps_(state, slide);
+
+      default:
+        throw new Error(`${type} is not an handled question.type`);
+    }
+  };
 };
 
 const createGetHelp = (options, store) => slide => {
