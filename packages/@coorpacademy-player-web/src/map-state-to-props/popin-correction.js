@@ -84,107 +84,117 @@ const noExtraLifeCTAProps = ({translate}, {dispatch}) => state => {
   return omitBy(isUndefined, ctaProps);
 };
 
-export const createHeaderCTA = (options, store) => state => {
-  const progression = getCurrentProgression(state);
-  const isExtraLifeActive = get('state.nextContent.ref', progression) === 'extraLife';
-  const ctaProps = isExtraLifeActive ? extraLifeCTAProps : noExtraLifeCTAProps;
-  const {title, onClick, nextStepTitle} = ctaProps(options, store)(state);
+export const createHeaderCTA = (options, store) => {
+  const extraLifeCTAProps_ = extraLifeCTAProps(options, store);
+  const noExtraLifeCTAProps_ = noExtraLifeCTAProps(options, store);
 
-  return omitBy(isUndefined, {
-    title,
-    onClick,
-    nextStepTitle
-  });
+  return state => {
+    const progression = getCurrentProgression(state);
+    const isExtraLifeActive = get('state.nextContent.ref', progression) === 'extraLife';
+    const ctaProps = isExtraLifeActive ? extraLifeCTAProps_ : noExtraLifeCTAProps_;
+    const {title, onClick, nextStepTitle} = ctaProps(state);
+
+    return omitBy(isUndefined, {
+      title,
+      onClick,
+      nextStepTitle
+    });
+  };
 };
 
 export const openPopinAssistance = (dispatch, progression) => () =>
   dispatch(openAssistance(progression));
 
-export const popinCorrectionStateToProps = (options, store) => state => {
-  const {translate} = options;
-  const {dispatch} = store;
-  const toggleAccordionSection = sectionId => dispatch(toggleAccordion(sectionId));
-  const slide = getPreviousSlide(state);
-  const engineConfig = getEngineConfig(state);
-  const progression = getCurrentProgression(state);
-  const isExtraLifeAvailable = get('remainingLifeRequests', engineConfig) > 0;
-  const remainingLifeRequests = get('state.remainingLifeRequests', progression);
-  const accordion = get('ui.corrections.accordion', state);
-  const correction = getCurrentCorrection(state);
-  const correctAnswer = correction.correctAnswer;
-  const corrections = correction.corrections;
-  const isCorrect = corrections.length === 0 ? null : get('state.isCorrect')(progression);
-  const isLoading = isNil(isCorrect);
+export const popinCorrectionStateToProps = (options, store) => {
+  const getResourcesProps_ = getResourcesProps(options, store);
+  const createHeaderCTA_ = createHeaderCTA(options, store);
 
-  const isExtraLifeActive = get('state.nextContent.ref', progression) === 'extraLife';
-  const extraLifeGranted = isExtraLifeActive && hasViewedAResourceAtThisStep(state);
-  const mayAcceptExtraLife = isExtraLifeActive && !extraLifeGranted;
-  const noMoreExtraLife = isExtraLifeAvailable && !isCorrect && remainingLifeRequests === 0;
-  const {hide, count: lives} = getLives(state);
-  const header = isLoading
-    ? {}
-    : {
-        title: translate(isCorrect ? 'Good job' : 'Ouch'),
-        subtitle: translate(isCorrect ? 'Good answer' : 'Wrong answer'),
-        failed: !isCorrect,
-        lives: hide ? null : lives
-      };
-  const question = {
-    header: getOr('', 'question.header', slide),
-    answerPrefix: translate('Correct answer'),
-    answer: join(', ', correctAnswer)
-  };
+  return state => {
+    const {translate} = options;
+    const {dispatch} = store;
+    const toggleAccordionSection = sectionId => dispatch(toggleAccordion(sectionId));
+    const slide = getPreviousSlide(state);
+    const engineConfig = getEngineConfig(state);
+    const progression = getCurrentProgression(state);
+    const isExtraLifeAvailable = get('remainingLifeRequests', engineConfig) > 0;
+    const remainingLifeRequests = get('state.remainingLifeRequests', progression);
+    const accordion = get('ui.corrections.accordion', state);
+    const correction = getCurrentCorrection(state);
+    const correctAnswer = correction.correctAnswer;
+    const corrections = correction.corrections;
+    const isCorrect = corrections.length === 0 ? null : get('state.isCorrect')(progression);
+    const isLoading = isNil(isCorrect);
 
-  const resources = getResourcesProps(options, store)(state, slide);
-
-  const props = {
-    header: isLoading
-      ? {type: 'popinCorrection'}
+    const isExtraLifeActive = get('state.nextContent.ref', progression) === 'extraLife';
+    const extraLifeGranted = isExtraLifeActive && hasViewedAResourceAtThisStep(state);
+    const mayAcceptExtraLife = isExtraLifeActive && !extraLifeGranted;
+    const noMoreExtraLife = isExtraLifeAvailable && !isCorrect && remainingLifeRequests === 0;
+    const {hide, count: lives} = getLives(state);
+    const header = isLoading
+      ? {}
       : {
-          type: 'popinCorrection',
-          lives: 1,
-          title: '',
-          subtitle: '',
-          corrections,
-          cta: !mayAcceptExtraLife ? createHeaderCTA(options, store)(state) : undefined,
-          ...header
-        },
-    gameOver: noMoreExtraLife,
-    overlay: mayAcceptExtraLife
-      ? {
-          title: translate('Bonus!'),
-          text: translate('Get an extra life by viewing the lesson'),
-          lifeAmount: 1
-        }
-      : undefined,
-    extraLifeGranted,
-    quit: mayAcceptExtraLife
-      ? {
-          cta: createHeaderCTA(options, store)(state)
-        }
-      : undefined,
-    question,
-    resources: {
-      title: translate('Access the lesson'),
-      value: resources,
-      open: getOr(false, '0', accordion)
-    },
-    klf: {
-      title: translate('Key point'),
-      value: getOr('', 'klf', slide),
-      open: getOr(false, '1', accordion)
-    },
-    tips: {
-      title: translate('Did you know that?'),
-      value: getOr('', 'tips', slide),
-      open: getOr(false, '2', accordion)
-    },
-    onClick: toggleAccordionSection,
-    assistanceLink: {
-      title: translate('Need help? Found a bug? Report it here'),
-      onClick: openPopinAssistance(dispatch, progression)
-    }
-  };
+          title: translate(isCorrect ? 'Good job' : 'Ouch'),
+          subtitle: translate(isCorrect ? 'Good answer' : 'Wrong answer'),
+          failed: !isCorrect,
+          lives: hide ? null : lives
+        };
+    const question = {
+      header: getOr('', 'question.header', slide),
+      answerPrefix: translate('Correct answer'),
+      answer: join(', ', correctAnswer)
+    };
 
-  return props;
+    const resources = getResourcesProps_(state, slide);
+
+    const props = {
+      header: isLoading
+        ? {type: 'popinCorrection'}
+        : {
+            type: 'popinCorrection',
+            lives: 1,
+            title: '',
+            subtitle: '',
+            corrections,
+            cta: !mayAcceptExtraLife ? createHeaderCTA_(state) : undefined,
+            ...header
+          },
+      gameOver: noMoreExtraLife,
+      overlay: mayAcceptExtraLife
+        ? {
+            title: translate('Bonus!'),
+            text: translate('Get an extra life by viewing the lesson'),
+            lifeAmount: 1
+          }
+        : undefined,
+      extraLifeGranted,
+      quit: mayAcceptExtraLife
+        ? {
+            cta: createHeaderCTA_(state)
+          }
+        : undefined,
+      question,
+      resources: {
+        title: translate('Access the lesson'),
+        value: resources,
+        open: getOr(false, '0', accordion)
+      },
+      klf: {
+        title: translate('Key point'),
+        value: getOr('', 'klf', slide),
+        open: getOr(false, '1', accordion)
+      },
+      tips: {
+        title: translate('Did you know that?'),
+        value: getOr('', 'tips', slide),
+        open: getOr(false, '2', accordion)
+      },
+      onClick: toggleAccordionSection,
+      assistanceLink: {
+        title: translate('Need help? Found a bug? Report it here'),
+        onClick: openPopinAssistance(dispatch, progression)
+      }
+    };
+
+    return props;
+  };
 };
