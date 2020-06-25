@@ -6,14 +6,18 @@ import {data, options, store} from './player';
 
 test('memoize choices > QCM', t => {
   // state fixture
-  const initialState = {
-    data,
-    ui: {
-      route: {qcm: 'answer'},
-      current: {progressionId: 'qcm'},
-      coaches: {availableCoaches: 1}
+  const initialState = set(
+    ['data', 'configs', 'entities', 'microlearning@1'],
+    {version: '1', shuffleChoices: true},
+    {
+      data,
+      ui: {
+        route: {qcm: 'answer'},
+        current: {progressionId: 'qcm'},
+        coaches: {availableCoaches: 1}
+      }
     }
-  };
+  );
   const secondState = set(
     ['data', 'contents', 'slide', 'entities', 'qcmSlide-1', 'question', 'content', 'choices'],
     [
@@ -26,51 +30,42 @@ test('memoize choices > QCM', t => {
     ],
     initialState
   );
-  const thirdState = set(
-    ['data', 'contents', 'slide', 'entities', 'qcmSlide-1', 'question', 'content', 'choices'],
-    [
-      {
-        label: '1'
-      },
-      {
-        label: '2'
-      }
-    ],
-    initialState
-  );
 
   // initiate player
-  const createPlayerProps = createPlayer(options, store);
+  const player = createPlayer(options, store);
 
   // test answers values
-  const props = createPlayerProps(initialState);
+  const props = player(initialState);
   const expected = map('title', get(['answerType', 'model', 'answers'], props));
-  t.deepEqual(expected, ['Case 1', 'Case 2', 'Case 3', 'Case 4']);
 
   // test new answers values when state is updated
-  const props2 = createPlayerProps(secondState);
+  const props2 = player(secondState);
   const expected2 = map('title', get(['answerType', 'model', 'answers'], props2));
-  t.deepEqual(expected2, ['foo', 'bar']);
+  t.deepEqual(expected2, expected);
 
   // new player instance
-  const createNewPlayerInstance = createPlayer(options, store);
+  const newPlayer = createPlayer(options, store);
 
   // test new answers values when store and state are updated
-  const props3 = createNewPlayerInstance(thirdState);
+  const props3 = newPlayer(secondState);
   const expected3 = map('title', get(['answerType', 'model', 'answers'], props3));
-  t.deepEqual(expected3, ['1', '2']);
+  t.deepEqual([...expected3].sort(), ['bar', 'foo']);
 });
 
 test('memoize choices > QCM DRAG', t => {
   // state fixture
-  const initialState = {
-    data,
-    ui: {
-      route: {qcmDrag: 'answer'},
-      current: {progressionId: 'qcmDrag'},
-      coaches: {availableCoaches: 1}
+  const initialState = set(
+    ['data', 'configs', 'entities', 'microlearning@1'],
+    {version: '1', shuffleChoices: true},
+    {
+      data,
+      ui: {
+        route: {qcmDrag: 'answer'},
+        current: {progressionId: 'qcmDrag'},
+        coaches: {availableCoaches: 1}
+      }
     }
-  };
+  );
   const secondState = set(
     ['data', 'contents', 'slide', 'entities', '8.B2.2', 'question', 'content', 'choices'],
     [
@@ -83,38 +78,26 @@ test('memoize choices > QCM DRAG', t => {
     ],
     {...initialState}
   );
-  const thirdState = set(
-    ['data', 'contents', 'slide', 'entities', '8.B2.2', 'question', 'content', 'choices'],
-    [
-      {
-        label: '1'
-      },
-      {
-        label: '2'
-      }
-    ],
-    {...initialState}
-  );
 
   // initiate player
-  const createPlayerProps = createPlayer(options, store);
+  const player = createPlayer(options, store);
 
   // test answers values
-  const props = createPlayerProps(initialState);
+  const props = player(initialState);
   const expected = map('title', get(['answerType', 'model', 'answers'], props));
-  t.deepEqual(expected, ["L'ordinateur", 'La tablette', 'Le smartphone']);
+  t.deepEqual([...expected].sort(), ["L'ordinateur", 'La tablette', 'Le smartphone']);
 
   // test new answers values when state is updated
-  const props2 = createPlayerProps(secondState);
+  const props2 = player(secondState);
 
   const expected2 = map('title', get(['answerType', 'model', 'answers'], props2));
-  t.deepEqual(expected2, ['foo', 'bar']);
+  t.deepEqual(expected2, expected);
 
   // new player instance
-  const createNewPlayerInstance = createPlayer(options, store);
+  const newPlayer = createPlayer(options, store);
 
   // test new answers values when store and state are updated
-  const props3 = createNewPlayerInstance(thirdState);
+  const props3 = newPlayer(secondState);
   const expected3 = map('title', get(['answerType', 'model', 'answers'], props3));
-  t.deepEqual(expected3, ['1', '2']);
+  t.deepEqual([...expected3].sort(), ['bar', 'foo']);
 });
