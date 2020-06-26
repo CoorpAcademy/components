@@ -26,9 +26,11 @@ const editAnswerAction = (options, {dispatch}) => (state, slide) => newValue => 
 
 const qcmProps = (options, store) => {
   const getChoices_ = getChoices();
+  const editAnswerAction_ = editAnswerAction(options, store);
+
   return (state, slide) => {
     const answers = getAnswerValues(slide, state);
-    const _editAnswerAction = editAnswerAction(options, store)(state, slide);
+    const _editAnswerAction = editAnswerAction_(state, slide);
 
     const props = {
       type: 'qcm',
@@ -48,6 +50,8 @@ const qcmProps = (options, store) => {
 
 const qcmDragProps = (options, store) => {
   const getChoices_ = getChoices();
+  const editAnswerAction_ = editAnswerAction(options, store);
+
   return (state, slide) => {
     const answers = getAnswerValues(slide, state);
     return {
@@ -58,7 +62,7 @@ const qcmDragProps = (options, store) => {
           title: choice.label,
           selected: indexInAnswer !== -1,
           order: indexInAnswer,
-          onClick: () => editAnswerAction(options, store)(state, slide)(choice)
+          onClick: () => editAnswerAction_(state, slide)(choice)
         };
       }, getChoices_(slide, state))
     };
@@ -67,6 +71,8 @@ const qcmDragProps = (options, store) => {
 
 const qcmGraphicProps = (options, store) => {
   const getChoices_ = getChoices();
+  const editAnswerAction_ = editAnswerAction(options, store);
+
   return (state, slide) => {
     const answers = getAnswerValues(slide, state);
     return {
@@ -76,7 +82,7 @@ const qcmGraphicProps = (options, store) => {
           title: choice.label,
           image: get('media.src.0.url', choice),
           selected: includes(choice.label, answers),
-          onClick: () => editAnswerAction(options, store)(state, slide)(choice)
+          onClick: () => editAnswerAction_(state, slide)(choice)
         }),
         getChoices_(slide, state)
       )
@@ -89,77 +95,92 @@ const updateTemplateAnswer = (_answers, index, max) => value => {
   return map(a => (isNil(a) ? '' : a), set(index, value, answers));
 };
 
-const templateTextProps = (options, store) => (state, slide, choice, index) => {
-  const {translate} = options;
-  const answers = getAnswerValues(slide, state);
-  return {
-    type: choice.type,
-    name: choice.name,
-    placeholder: translate('Type here'),
-    value: get(index, answers),
-    onChange: pipe(
-      updateTemplateAnswer(answers, index),
-      editAnswerAction(options, store)(state, slide)
-    )
+const templateTextProps = (options, store) => {
+  const editAnswerAction_ = editAnswerAction(options, store);
+
+  return (state, slide, choice, index) => {
+    const {translate} = options;
+    const answers = getAnswerValues(slide, state);
+    return {
+      type: choice.type,
+      name: choice.name,
+      placeholder: translate('Type here'),
+      value: get(index, answers),
+      onChange: pipe(
+        updateTemplateAnswer(answers, index),
+        editAnswerAction_(state, slide)
+      )
+    };
   };
 };
 
-const templateSelectProps = (options, store) => (state, slide, choice, index) => {
-  const {translate} = options;
-  const answers = getAnswerValues(slide, state);
-  const answer = get(index, answers);
-  const temporaryOption = {
-    name: translate('Select an answer'),
-    value: '',
-    validOption: false,
-    selected: true
-  };
-  const selectOptions = choice.items.map(item => {
-    return {
-      name: item.text,
-      value: item.text,
-      validOption: true,
-      selected: item.text === answer
-    };
-  });
-  const maxLength = get('question.content.choices.length', slide);
+const templateSelectProps = (options, store) => {
+  const editAnswerAction_ = editAnswerAction(options, store);
 
-  return {
-    type: choice.type,
-    name: choice.name,
-    onChange: pipe(
-      updateTemplateAnswer(answers, index, maxLength),
-      editAnswerAction(options, store)(state, slide)
-    ),
-    options: isEmpty(answer) ? [temporaryOption].concat(selectOptions) : selectOptions
+  return (state, slide, choice, index) => {
+    const {translate} = options;
+    const answers = getAnswerValues(slide, state);
+    const answer = get(index, answers);
+    const temporaryOption = {
+      name: translate('Select an answer'),
+      value: '',
+      validOption: false,
+      selected: true
+    };
+    const selectOptions = choice.items.map(item => {
+      return {
+        name: item.text,
+        value: item.text,
+        validOption: true,
+        selected: item.text === answer
+      };
+    });
+    const maxLength = get('question.content.choices.length', slide);
+
+    return {
+      type: choice.type,
+      name: choice.name,
+      onChange: pipe(
+        updateTemplateAnswer(answers, index, maxLength),
+        editAnswerAction_(state, slide)
+      ),
+      options: isEmpty(answer) ? [temporaryOption].concat(selectOptions) : selectOptions
+    };
   };
 };
 
 const templateProps = (options, store) => {
   const getChoices_ = getChoices();
+  const templateTextProps_ = templateTextProps(options, store);
+  const templateSelectProps_ = templateSelectProps(options, store);
+
   return (state, slide) => {
     return {
       type: 'template',
       template: slide.question.content.template,
       answers: getChoices_(slide, state).map((choice, index) =>
         choice.type === 'text'
-          ? templateTextProps(options, store)(state, slide, choice, index)
-          : templateSelectProps(options, store)(state, slide, choice, index)
+          ? templateTextProps_(state, slide, choice, index)
+          : templateSelectProps_(state, slide, choice, index)
       )
     };
   };
 };
 
-const basicProps = (options, store) => (state, slide) => {
-  const {translate} = options;
-  return {
-    type: 'freeText',
-    placeholder: translate('Type here'),
-    value: pipe(
-      getAnswerValues,
-      head
-    )(slide, state),
-    onChange: editAnswerAction(options, store)(state, slide)
+const basicProps = (options, store) => {
+  const editAnswerAction_ = editAnswerAction(options, store);
+
+  return (state, slide) => {
+    const {translate} = options;
+    return {
+      type: 'freeText',
+      placeholder: translate('Type here'),
+      value: pipe(
+        getAnswerValues,
+        head
+      )(slide, state),
+      onChange: editAnswerAction_(state, slide)
+    };
   };
 };
 
@@ -175,34 +196,38 @@ const toAnswer = values => {
   };
 };
 
-const sliderProps = (options, store) => (state, slide) => {
-  const values = rangeStep(
-    slide.question.content.step || 1,
-    slide.question.content.min,
-    slide.question.content.max + 1
-  );
+const sliderProps = (options, store) => {
+  const editAnswerAction_ = editAnswerAction(options, store);
 
-  const stateValue = pipe(
-    getAnswerValues,
-    head
-  )(slide, state);
-  const currentValue = parseInt(stateValue);
+  return (state, slide) => {
+    const values = rangeStep(
+      slide.question.content.step || 1,
+      slide.question.content.min,
+      slide.question.content.max + 1
+    );
 
-  const indexValue = indexOf(currentValue, values);
-  const handleChange = editAnswerAction(options, store)(state, slide);
-  const sliderPosition = divide(indexValue, size(values) - 1);
+    const stateValue = pipe(
+      getAnswerValues,
+      head
+    )(slide, state);
+    const currentValue = parseInt(stateValue);
 
-  return {
-    type: 'slider',
-    placeholder: slide.question.explanation,
-    minLabel: `${slide.question.content.min} ${slide.question.content.unitLabel}`,
-    maxLabel: `${slide.question.content.max} ${slide.question.content.unitLabel}`,
-    title: `${currentValue} ${slide.question.content.unitLabel}`,
-    value: sliderPosition,
-    onChange: pipe(
-      toAnswer(values),
-      handleChange
-    )
+    const indexValue = indexOf(currentValue, values);
+    const handleChange = editAnswerAction_(state, slide);
+    const sliderPosition = divide(indexValue, size(values) - 1);
+
+    return {
+      type: 'slider',
+      placeholder: slide.question.explanation,
+      minLabel: `${slide.question.content.min} ${slide.question.content.unitLabel}`,
+      maxLabel: `${slide.question.content.max} ${slide.question.content.unitLabel}`,
+      title: `${currentValue} ${slide.question.content.unitLabel}`,
+      value: sliderPosition,
+      onChange: pipe(
+        toAnswer(values),
+        handleChange
+      )
+    };
   };
 };
 

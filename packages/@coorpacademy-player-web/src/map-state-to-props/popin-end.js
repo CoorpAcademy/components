@@ -235,35 +235,43 @@ const extractFeedback = pipe(
   omit(['media.ref', 'media.subtitles', 'media.posters'])
 );
 
-const popinEndStateToProps = (options, store) => state => {
-  const progression = getCurrentProgression(state);
+const popinEndStateToProps = (options, store) => {
+  const headerProps_ = headerProps(options, store);
+  const summaryHeader_ = summaryHeader(options, store);
+  const extractAction_ = extractAction(options, store);
+  const extractRecommendation_ = extractRecommendation(options, store);
+  const comment_ = comment(options, store);
 
-  const {translate} = options;
-  const {dispatch} = store;
+  return state => {
+    const progression = getCurrentProgression(state);
 
-  const exitNode = getCurrentExitNode(state);
+    const {translate} = options;
+    const {dispatch} = store;
 
-  const canPostAComment =
-    get('type', exitNode) === 'success' && get('engine.ref', progression) === 'learner';
+    const exitNode = getCurrentExitNode(state);
 
-  const footer = {
-    title: translate('Back to home'),
-    onClick: () => dispatch(exit)
+    const canPostAComment =
+      get('type', exitNode) === 'success' && get('engine.ref', progression) === 'learner';
+
+    const footer = {
+      title: translate('Back to home'),
+      onClick: () => dispatch(exit)
+    };
+
+    const props = {
+      header: headerProps_(state),
+      summary: {
+        header: summaryHeader_(state)(exitNode),
+        action: extractAction_(state)(exitNode),
+        feedback: extractFeedback(exitNode),
+        recommendation: extractRecommendation_(state),
+        comment: canPostAComment ? comment_(state) : null,
+        footer
+      }
+    };
+
+    return props;
   };
-
-  const props = {
-    header: headerProps(options, store)(state),
-    summary: {
-      header: summaryHeader(options, store)(state)(exitNode),
-      action: extractAction(options, store)(state)(exitNode),
-      feedback: extractFeedback(exitNode),
-      recommendation: extractRecommendation(options, store)(state),
-      comment: canPostAComment ? comment(options, store)(state) : null,
-      footer
-    }
-  };
-
-  return props;
 };
 
 export default popinEndStateToProps;
