@@ -5,7 +5,7 @@
     "bootstrap": "lerna run prepare",
     "lint": "lerna run lint",
     "test": "lerna run test",
-    "test:unit": "lerna run test:unit",
+    "test:unit": "lerna run test:unit --stream",
     "prestatic": "rm -rf static && lerna run --scope @coorpacademy/components --scope @coorpacademy/player-web --include-dependencies prepare -- --production",
     "static": "lerna run --scope @coorpacademy/components --scope @coorpacademy/player-web static -- --production",
     "poststatic": "mkdirp static && cp -r packages/@coorpacademy-components/static static/components && cp -r packages/@coorpacademy-player-web/static static/app-player",
@@ -30,9 +30,9 @@
     "@coorpacademy/eslint-plugin-coorpacademy": "^9.0.1",
     "@coorpacademy/update-node": "^3.16.0",
     "codecov": "^3.7.0",
-    "eslint": "^6.6.0",
+   "eslint": "^7.3.1",
     "estraverse-fb": "1.3.2",
-    "lerna": "^3.18.3",
+    "lerna": "^3.22.1",
     "mkdirp": "^1.0.4"
   }
 }
