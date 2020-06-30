@@ -81,6 +81,8 @@ const Card = (props, context) => {
     certifiedAuthor,
     progress,
     favorite,
+    addFavoriteToolTip,
+    removeFavoriteToolTip,
     onClick,
     onFavoriteClick,
     notification
@@ -126,6 +128,8 @@ const Card = (props, context) => {
           favorite={favorite}
           disabled={disabled}
           onFavoriteClick={onFavoriteClick}
+          addFavoriteToolTip={addFavoriteToolTip}
+          removeFavoriteToolTip={removeFavoriteToolTip}
         />
       )}
       {notification && <Notification {...notification} />}
@@ -172,6 +176,8 @@ Card.propTypes = {
   customer: PropTypes.shape(Customer.propTypes),
   progress: PropTypes.number,
   favorite: PropTypes.bool,
+  addFavoriteToolTip: PropTypes.string,
+  removeFavoriteToolTip: PropTypes.string,
   onClick: PropTypes.func,
   onFavoriteClick: PropTypes.func,
   notification: PropTypes.shape(Notification.propTypes)

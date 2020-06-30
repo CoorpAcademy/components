@@ -11,6 +11,8 @@ export default {
     progress: 0.65,
     badge: 'new',
     favorite: true,
+    addFavoriteToolTip: 'Add to my list',
+    removeFavoriteToolTip: 'Remove from my list',
     customer: {
       coorpOriginal: true,
       name: 'Decathlon creation'
