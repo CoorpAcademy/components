@@ -1,10 +1,15 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {noop, isNil} from 'lodash/fp';
+import {noop, isNil, keys} from 'lodash/fp';
 import classnames from 'classnames';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
+const themeStyle = {
+  setup: style.setup,
+  cockpit: style.cockpit,
+  default: style.default
+};
 const InputText = props => {
   const {
     autoFocus = false,
@@ -13,6 +18,7 @@ const InputText = props => {
     defaultValue,
     onChange = noop,
     error,
+    theme = 'default',
     description,
     disabled,
     required,
@@ -21,10 +27,13 @@ const InputText = props => {
 
   const title = `${props.title}${required ? '*' : ''}`;
   const handleChange = e => onChange(e.target.value);
+  const mainClass = themeStyle[theme];
   const className = getClassState(style.default, style.modified, style.error, modified, error);
-
+  const descriptionView = description ? (
+    <div className={style.description}>{description}</div>
+  ) : null;
   return (
-    <div className={classnames(className, isNil(props.title) && style.isNoTitle)}>
+    <div className={classnames(mainClass, className, isNil(props.title) && style.isNoTitle)}>
       <label>
         <span className={style.title}>{title}</span>
         <input
@@ -40,7 +49,7 @@ const InputText = props => {
           onChange={noop}
         />
       </label>
-      <div className={style.description}>{description}</div>
+      {descriptionView}
     </div>
   );
 };
@@ -50,6 +59,7 @@ InputText.propTypes = {
   title: PropTypes.string,
   placeholder: PropTypes.string,
   defaultValue: PropTypes.string,
+  theme: PropTypes.oneOf(keys(themeStyle)),
   disabled: PropTypes.bool,
   required: PropTypes.bool,
   value: PropTypes.string,

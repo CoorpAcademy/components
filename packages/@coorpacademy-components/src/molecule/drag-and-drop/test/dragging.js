@@ -3,7 +3,9 @@ import test from 'ava';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import {replace} from 'lodash/fp';
 import {Overlay} from '../overlay';
+import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import Default from './fixtures/default';
 
 import DragDrop from '..';
@@ -36,7 +38,11 @@ const context = {
 
 test('should show the overlay when a file is dragged', async t => {
   const component = mount(<DragDrop {...Default.props} />, {context});
-  component.simulate('dragEnter');
+  const wrapperStyle = `.${replace(' ', '.', style.wrapper)}`;
+  const wrapper = component.find(wrapperStyle);
+  t.is(wrapper.exists(), true);
+  wrapper.simulate('dragEnter');
   const updatedDropzone = await flushPromises(component);
+
   t.true(updatedDropzone.exists(Overlay));
 });

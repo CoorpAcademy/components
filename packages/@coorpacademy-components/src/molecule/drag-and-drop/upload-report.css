@@ -1,10 +1,13 @@
 @value colors: "../../variables/colors.css";
 @value negative from colors;
 @value dark from colors;
+@value medium from colors;
 @value light from colors;
 
 .reportingContainer {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .reportHeader {
@@ -15,6 +18,7 @@
   border-bottom: 1px solid light;
   background-color: white;
   box-sizing: border-box;
+  border-radius: 6px 6px 0 0;
 }
 
 .iconContainer {
@@ -43,14 +47,31 @@
   height: 18px;
   margin: 4px;
 }
-
+.or {
+  font-family: 'Open Sans';
+  color: #797979;
+}
+.drop {
+  border: 1px dashed medium;
+  margin: 10px 20px 20px 20px;
+  flex: 1 1 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+.drop .message{
+  margin: auto;
+}
+.drop .selectButton {
+  margin: 10px auto 0 auto;
+  line-height: 30px;
+}
 .fileName {
   margin-left: 15px;
   font-family: 'Open Sans';
   font-size: 16px;
   font-weight: bold;
   color: dark;
-  width: 230px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -59,18 +80,49 @@
 .validateIcon {
   width: 20px;
 }
-
-.trashIcon {
-  width: 20px;
-  margin-left: 20px;
-  color: #f73f52;
+.fileWrapper {
+  display: inline-flex;
+  min-width: 0;
+}
+.emptyFileWrapper {
+  display: inline-flex;
+  flex: 1 0 auto;
+}
+.actionIcon {
+  border-radius: 50%;
+  color: white;
   cursor: pointer;
+  margin-left: 10px;
+  box-shadow: 0 0 5px white;
+  transition: all 0.5s linear;
+  position: relative;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  min-width: 36px;
+  position: relative;
 }
 
+.actionIcon:hover {
+  background: white;
+  box-shadow: 0 0 5px dark;
+}
+.actionIcon > svg {
+  margin: auto;
+}
+.trashIcon {
+  background: #f73f52;
+}
+.trashIcon:hover {
+  color: #f73f52;
+}
 .reportContainer {
-  padding-top: 53px;
   justify-content: center;
   text-align: center;
+  width: 100%;
+  flex-direction: column;
+  display: flex;
+  flex: 1 0 auto;
 }
 
 .emoticon {
@@ -85,5 +137,5 @@
 }
 
 .selectButton {
-  margin-top: 26px;
+  margin: auto;
 }
