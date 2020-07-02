@@ -101,21 +101,37 @@ Your branch is now ready to be deployed.
 hashes issues https://github.com/lerna/lerna/issues/277
 
 ## 2 - Release
+- ### Prerequisite 
 
-once your PR is merged on `master` your can publish a release
+  - Have merged your PR on `master` 
 
-go to the lerna root, checkout and pull master
+  - Be at lerna root, checkout and pull master
 
-```
-> git checkout master
-> git pull origin master
-```
+    ```
+    > git checkout master
+    > git pull origin master
+    ```
+    - **warning:** if you have conflicts, be sure to reset your branch to `origin/master` before proceeding!
 
-**warning:** if you have conflicts, be sure to reset your branch to `origin/master` before proceeding!
+      ```
+      > git reset --hard origin/master
+      ```
 
-```
-> git reset --hard origin/master
-```
+  - Check that you are connected to NPM 
+
+    ```
+    > npm whoami
+    ```
+      - If not: 
+        ```
+        > npm login
+        ```
+  - Check that you haven't a package-lock at the root of the project. If the package-lock exists, delete it:
+    ```
+    > git clean -xdf
+    ```
+
+### Publish a release
 
 call lerna publish
 
@@ -165,6 +181,11 @@ you have to revert the commit and delete the tags before to run the publish agai
 > git tag -d @coorpacademy/package2@x.x.x
 > git tag -d @coorpacademy/package3@x.x.x
 > npm run publish:latest
+```
+
+if your release is successful, but the packages don't make it to npmjs.com, republish the packages manually by going to each package that should have been released, and for each of them, do :
+```
+ > npm publish
 ```
 
 ## issues with tags

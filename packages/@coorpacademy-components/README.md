@@ -20,7 +20,7 @@ This library provide sharable components for web applications, either :
 ### Seeing the components on Storybook
 
 ```sh
-npm install
+yarn
 npm run start
 ```
 
