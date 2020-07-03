@@ -11,10 +11,10 @@
   ],
   "scripts": {
     "ava": "ava",
-    "test:only": "nyc npm run ava",
+    "test:unit": "nyc npm run ava",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib -s --ignore test --copy-files",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es -s --ignore test --copy-files",
-    "test": "npm run lint && npm run test:only",
+    "test": "npm run lint && npm run test:unit",
     "lint": "eslint . --ext .js,.json",
     "build": "npm run build:commonjs && npm run build:es",
     "clean:commonjs": "rm -rf lib",

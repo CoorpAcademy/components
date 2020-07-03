@@ -11,8 +11,8 @@
   ],
   "scripts": {
     "ava": "ava",
-    "test:only": "nyc npm run ava",
-    "test": "npm run lint && npm run flow && npm run flow -- stop && npm run test:only",
+    "test:unit": "nyc npm run ava",
+    "test": "npm run lint && npm run flow && npm run flow -- stop && npm run test:unit",
     "flow": "flow",
     "lint": "eslint . --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\"",
     "build:commonjs": "npm run build:babel:commonjs && npm run build:types:commonjs",
