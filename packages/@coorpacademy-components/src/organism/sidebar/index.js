@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import {noop, getOr} from 'lodash/fp';
@@ -12,10 +12,10 @@ import style from './style.css';
 const NEUTRAL_COLOR = '#607D8B';
 
 export const InputTextItem = props => {
-  const {title, placeholder = '', value, onChange = noop, disabled} = props;
-  const handleOnChange = e => onChange(e.target.value);
+  const {title, placeholder = '', value, onChange = noop, disabled, name, index} = props;
+  const handleOnChange = useMemo(() => e => onChange(e.target.value), [onChange]);
   return (
-    <li data-name={props.name || `inputtext-item-${props.index}`} className={style.selectItem}>
+    <li data-name={name || `inputtext-item-${index}`} className={style.selectItem}>
       <span className={style.sidebarTitle}>{title}</span>
       <input
         type="text"
@@ -30,100 +30,217 @@ export const InputTextItem = props => {
   );
 };
 
-export const SelectItem = props => {
+InputTextItem.propTypes = {
+  index: PropTypes.number,
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  disabled: PropTypes.bool,
+  value: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  onChange: PropTypes.func
+};
+
+export const SelectItem = ({name, index, onChange, title, options}) => {
   return (
-    <li data-name={props.name || `select-item-${props.index}`} className={style.selectItem}>
-      <span className={style.sidebarTitle}>{props.title}</span>
-      <Select
-        title={props.title}
-        onChange={props.onChange}
-        theme="header"
-        options={props.options}
-      />
+    <li data-name={name || `select-item-${index}`} className={style.selectItem}>
+      <span className={style.sidebarTitle}>{title}</span>
+      <Select title={title} onChange={onChange} theme="header" options={options} />
     </li>
   );
 };
-export const MultiSelectItem = props => {
+
+SelectItem.propTypes = {
+  index: PropTypes.number,
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      value: PropTypes.string.isRequired,
+      selected: PropTypes.bool.isRequired
+    })
+  ).isRequired,
+  onChange: PropTypes.func
+};
+
+export const MultiSelectItem = ({name, index, onChange, title, options}) => {
   return (
-    <li data-name={props.name || `select-item-${props.index}`} className={style.selectItem}>
-      <span className={style.sidebarTitle}>{props.title}</span>
-      <SelectMultiple theme="sidebar" onChange={props.onChange} options={props.options} />
+    <li data-name={name || `select-item-${index}`} className={style.selectItem}>
+      <span className={style.sidebarTitle}>{title}</span>
+      <SelectMultiple theme="sidebar" onChange={onChange} options={options} />
     </li>
   );
 };
-export const LinkItem = props => {
-  const handleOnClick = e => {
-    props.onClick && props.onClick(e);
-  };
+
+MultiSelectItem.propTypes = SelectItem.propTypes;
+
+export const LinkItem = ({href, index, name, selected, color, title, onClick}) => {
+  const handleOnClick = useMemo(
+    () => e => {
+      onClick && onClick(e);
+    },
+    [onClick]
+  );
   return (
     <Link
       onClick={handleOnClick}
       skinHover
-      href={props.href}
-      data-name={props.name || `link-item-${props.index}`}
+      href={href}
+      data-name={name || `link-item-${index}`}
       style={{
         textDecoration: 'none',
-        color: props.selected ? props.color : NEUTRAL_COLOR
+        color: selected ? color : NEUTRAL_COLOR
       }}
     >
       <li
         className={classnames(style.linkItem, style.sidebarTitle)}
         style={{
-          borderLeftColor: props.selected ? props.color : null
+          borderLeftColor: selected ? color : null
         }}
       >
-        {props.title}
+        {title}
       </li>
     </Link>
   );
 };
 
-export const TitleItem = props => {
+LinkItem.propTypes = {
+  index: PropTypes.number,
+  title: PropTypes.string.isRequired,
+  selected: PropTypes.bool,
+  name: PropTypes.string,
+  href: PropTypes.string,
+  color: PropTypes.string,
+  onClick: PropTypes.func
+};
+
+export const TitleItem = ({name, index, title}) => {
   return (
-    <ul data-name={props.name || `item-title-${props.index}`} className={style.titleItem}>
-      <li className={style.titleItemTitle}>{props.title}</li>
+    <ul data-name={name || `item-title-${index}`} className={style.titleItem}>
+      <li className={style.titleItemTitle}>{title}</li>
     </ul>
   );
 };
 
-export const ButtonItem = props => {
-  const handleOnClick = e => {
-    props.onClick && props.onClick(e);
-  };
-  const backgroundColor = props.neutralColor === true ? NEUTRAL_COLOR : props.color;
+TitleItem.propTypes = {
+  index: PropTypes.number,
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string
+};
+
+export const ButtonItem = ({index, onClick, color, neutralColor, name, href, title}) => {
+  const handleOnClick = useMemo(
+    () => e => {
+      onClick && onClick(e);
+    },
+    [onClick]
+  );
+  const backgroundColor = neutralColor === true ? NEUTRAL_COLOR : color;
   return (
-    <li data-name={props.name || `button-item-${props.index}`} className={style.buttonItem}>
-      <Button type="link" href={props.href} onClick={handleOnClick} style={{backgroundColor}}>
-        {props.title}
+    <li data-name={name || `button-item-${index}`} className={style.buttonItem}>
+      <Button type="link" href={href} onClick={handleOnClick} style={{backgroundColor}}>
+        {title}
       </Button>
     </li>
   );
 };
 
-export const InfoItem = props => {
-  const handleOnClick = e => {
-    props.onClick && props.onClick(e);
-  };
-  const color = props.neutralColor === true ? NEUTRAL_COLOR : props.color;
+ButtonItem.propTypes = {
+  index: PropTypes.number,
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  href: PropTypes.string,
+  color: PropTypes.string,
+  neutralColor: PropTypes.bool,
+  onClick: PropTypes.func
+};
+
+export const InfoItem = ({onClick, index, name, color, neutralColor, title, value}) => {
+  const handleOnClick = useMemo(
+    () => e => {
+      onClick && onClick(e);
+    },
+    [onClick]
+  );
+  const color_ = neutralColor === true ? NEUTRAL_COLOR : color;
   return (
-    <ul data-name={props.name || `item-info-${props.index}`} className={style.infoItem}>
-      <li className={style.infoItemTitle}>{props.title}</li>
+    <ul data-name={name || `item-info-${index}`} className={style.infoItem}>
+      <li className={style.infoItemTitle}>{title}</li>
       <li
         className={style.infoItemContent}
         onClick={handleOnClick}
         style={{
-          borderLeftColor: color,
-          color
+          borderLeftColor: color_,
+          color: color_
         }}
       >
-        {props.value}
+        {value}
       </li>
     </ul>
   );
 };
 
-const Sidebar = (props, context) => {
-  const sections = Array.isArray(props.items[0]) ? props.items : [props.items];
+InfoItem.propTypes = {
+  index: PropTypes.number,
+  title: PropTypes.string.isRequired,
+  name: PropTypes.string,
+  color: PropTypes.string,
+  neutralColor: PropTypes.bool,
+  value: PropTypes.string.isRequired,
+  onClick: PropTypes.func
+};
+
+const SidebarItem = ({item, color, index}) => {
+  switch (item.type) {
+    case 'select': {
+      return <SelectItem {...item} color={color} index={index} />;
+    }
+    case 'multi-select':
+      return <MultiSelectItem {...item} color={color} index={index} />;
+    case 'link':
+      return <LinkItem {...item} color={color} index={index} />;
+    case 'title':
+      return <TitleItem {...item} color={color} index={index} />;
+    case 'button':
+      return <ButtonItem {...item} color={color} index={index} />;
+    case 'info':
+      return <InfoItem {...item} color={color} index={index} />;
+    case 'inputtext':
+      return <InputTextItem {...item} color={color} index={index} />;
+  }
+};
+
+SidebarItem.propTypes = {
+  item: PropTypes.oneOfType([
+    PropTypes.shape({...TitleItem.propTypes, type: PropTypes.oneOf(['title']).isRequired}),
+    PropTypes.shape({...ButtonItem.propTypes, type: PropTypes.oneOf(['button']).isRequired}),
+    PropTypes.shape({...InfoItem.propTypes, type: PropTypes.oneOf(['info']).isRequired}),
+    PropTypes.shape({...LinkItem.propTypes, type: PropTypes.oneOf(['link']).isRequired}),
+    PropTypes.shape({...InputTextItem.propTypes, type: PropTypes.oneOf(['inputtext']).isRequired}),
+    PropTypes.shape({...SelectItem.propTypes, type: PropTypes.oneOf(['select']).isRequired}),
+    PropTypes.shape({...SelectItem.propTypes, type: PropTypes.oneOf(['multi-select']).isRequired})
+  ]),
+  index: PropTypes.number,
+  color: PropTypes.string
+};
+
+const SidebarItems = ({items, color}) => {
+  return (
+    <ul className={style.sectionItems}>
+      {items.map((item, index) => (
+        <SidebarItem item={item} key={index} index={index} color={color} />
+      ))}
+    </ul>
+  );
+};
+
+SidebarItems.propTypes = {
+  color: PropTypes.string,
+  items: PropTypes.arrayOf(PropTypes.shape(SidebarItem.propTypes))
+};
+
+const Sidebar = ({items}, context) => {
+  const sections = Array.isArray(items[0]) ? items : [items];
   const {skin} = context;
   const defaultColor = getOr('#00B0FF', 'common.primary', skin);
   return (
@@ -137,161 +254,15 @@ const Sidebar = (props, context) => {
   );
 };
 
-const SidebarItems = props => {
-  return (
-    <ul className={style.sectionItems}>
-      {props.items.map((item, index) => (
-        <SidebarItem item={item} key={index} index={index} color={props.color} />
-      ))}
-    </ul>
-  );
-};
-
-const SidebarItem = ({item, color, index}) => {
-  const handleOnChange = item.onChange;
-  const handleOnClick = item.onClick;
-  switch (item.type) {
-    case 'select':
-      return (
-        <SelectItem
-          title={item.title}
-          name={item.name}
-          index={index}
-          options={item.options}
-          onChange={handleOnChange}
-          color={color}
-        />
-      );
-    case 'multi-select':
-      return (
-        <MultiSelectItem
-          title={item.title}
-          name={item.name}
-          index={index}
-          options={item.options}
-          onChange={handleOnChange}
-          color={color}
-        />
-      );
-    case 'link':
-      return (
-        <LinkItem
-          title={item.title}
-          href={item.href}
-          onClick={handleOnClick}
-          name={item.name}
-          index={index}
-          selected={item.selected || false}
-          color={color}
-        />
-      );
-    case 'title':
-      return <TitleItem title={item.title} name={item.name} index={index} />;
-    case 'button':
-      return (
-        <ButtonItem
-          title={item.title}
-          name={item.name}
-          index={index}
-          color={color}
-          href={item.href}
-          neutralColor={item.neutralColor}
-          onClick={handleOnClick}
-        />
-      );
-    case 'info':
-      return (
-        <InfoItem
-          title={item.title}
-          name={item.name}
-          index={index}
-          value={item.value}
-          color={color}
-          neutralColor={item.neutralColor}
-          onClick={handleOnClick}
-        />
-      );
-    case 'inputtext':
-      return (
-        <InputTextItem
-          title={item.title}
-          name={item.name}
-          index={index}
-          placeholder={item.placeholder}
-          value={item.value}
-          onChange={handleOnChange}
-          disabled={item.disabled}
-        />
-      );
-  }
-};
-const TitleItemSchema = {
-  title: PropTypes.string.isRequired,
-  name: PropTypes.string
-};
-const ButtonItemSchema = {
-  title: PropTypes.string.isRequired,
-  name: PropTypes.string,
-  href: PropTypes.string,
-  neutralColor: PropTypes.bool,
-  onClick: PropTypes.func
-};
-const InfoItemSchema = {
-  title: PropTypes.string.isRequired,
-  name: PropTypes.string,
-  neutralColor: PropTypes.bool,
-  value: PropTypes.string.isRequired,
-  onClick: PropTypes.func
-};
-const LinkItemSchema = {
-  title: PropTypes.string.isRequired,
-  selected: PropTypes.bool,
-  name: PropTypes.string,
-  href: PropTypes.string,
-  onClick: PropTypes.func
-};
-const InputTextItemSchema = {
-  title: PropTypes.string.isRequired,
-  name: PropTypes.string,
-  disabled: PropTypes.bool,
-  value: PropTypes.string.isRequired,
-  placeholder: PropTypes.string,
-  onChange: PropTypes.func
-};
-
-const SelectItemSchema = {
-  title: PropTypes.string.isRequired,
-  name: PropTypes.string,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      value: PropTypes.string.isRequired,
-      selected: PropTypes.bool.isRequired
-    })
-  ).isRequired,
-  onChange: PropTypes.func
-};
-
-TitleItem.propTypes = TitleItemSchema;
-ButtonItem.propTypes = ButtonItemSchema;
-InfoItem.propTypes = InfoItemSchema;
-LinkItem.propTypes = LinkItemSchema;
-InputTextItem.propTypes = InputTextItemSchema;
-SelectItem.propTypes = SelectItemSchema;
-const SectionProptype = PropTypes.oneOfType([
-  PropTypes.shape({...TitleItemSchema, type: PropTypes.oneOf(['title']).isRequired}),
-  PropTypes.shape({...ButtonItemSchema, type: PropTypes.oneOf(['button']).isRequired}),
-  PropTypes.shape({...InfoItemSchema, type: PropTypes.oneOf(['info']).isRequired}),
-  PropTypes.shape({...LinkItemSchema, type: PropTypes.oneOf(['link']).isRequired}),
-  PropTypes.shape({...InputTextItemSchema, type: PropTypes.oneOf(['inputtext']).isRequired}),
-  PropTypes.shape({...SelectItemSchema, type: PropTypes.oneOf(['select']).isRequired}),
-  PropTypes.shape({...SelectItemSchema, type: PropTypes.oneOf(['multi-select']).isRequired})
-]);
 Sidebar.propTypes = {
   items: PropTypes.arrayOf(
-    PropTypes.oneOfType([SectionProptype, PropTypes.arrayOf(SectionProptype).isRequired])
+    PropTypes.oneOfType([
+      SidebarItem.propTypes.item,
+      PropTypes.arrayOf(SidebarItem.propTypes.item).isRequired
+    ])
   ).isRequired
 };
+
 Sidebar.contextTypes = {
   skin: Provider.childContextTypes.skin
 };

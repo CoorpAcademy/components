@@ -22,6 +22,10 @@ const Icon = ({level = 0}) => {
   }
 };
 
+Icon.propTypes = {
+  level: PropTypes.oneOf([1, 2, 3])
+};
+
 const DifficultyLevel = ({level, children}) => (
   <div className={style.inlineContainer}>
     <div
@@ -39,7 +43,7 @@ const DifficultyLevel = ({level, children}) => (
 );
 
 DifficultyLevel.propTypes = {
-  level: PropTypes.oneOf([1, 2, 3]),
+  level: Icon.propTypes.level,
   children: PropTypes.string
 };
 

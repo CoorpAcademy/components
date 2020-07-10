@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {get, noop} from 'lodash/fp';
@@ -61,11 +61,14 @@ const ProgressionItem = (props, context) => {
     </div>
   ) : null;
 
-  const handleCTAClick = e => {
-    e.stopPropagation();
-    e.preventDefault();
-    onClick && onClick(e);
-  };
+  const handleCTAClick = useMemo(
+    () => e => {
+      e.stopPropagation();
+      e.preventDefault();
+      onClick && onClick(e);
+    },
+    [onClick]
+  );
 
   const link = disabled ? null : (
     <Link style={{color: primary}} onClick={handleCTAClick} data-progression-state={state}>

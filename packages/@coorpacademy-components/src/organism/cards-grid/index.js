@@ -8,11 +8,11 @@ import style from './style.css';
 function CardsGrid(props) {
   const {list = [], loading = false} = props;
 
-  const loader = loading && (
+  const loader = loading ? (
     <div className={style.loader}>
       <Loader />
     </div>
-  );
+  ) : null;
 
   const cards = map(cardProps => {
     return (
@@ -31,7 +31,7 @@ function CardsGrid(props) {
 }
 
 CardsGrid.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.shape(Card.PropTypes)),
+  list: PropTypes.arrayOf(PropTypes.shape(Card.propTypes)),
   loading: PropTypes.bool
 };
 

@@ -10,8 +10,8 @@
   "scripts": {
     "build": "cross-env babel src --out-dir lib -s --ignore test --copy-files",
     "ava": "ava",
-    "test:only": "nyc npm run ava",
-    "test": "npm run lint && npm run test:only",
+    "test:unit": "nyc npm run ava",
+    "test": "npm run lint && npm run test:unit",
     "lint": "eslint . --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\"",
     "clean": "rm -rf lib",
     "prepare": "npm run clean && npm run build --production"
@@ -42,11 +42,11 @@
   "devDependencies": {
     "@babel/core": "^7.9.6",
     "@babel/register": "^7.9.0",
-    "@coorpacademy/eslint-plugin-coorpacademy": "^9.0.1",
+    "@coorpacademy/eslint-plugin-coorpacademy": "^10.0.0",
     "ava": "^3.8.2",
     "babel-plugin-istanbul": "^6.0.0",
     "cross-env": "^7.0.2",
-    "eslint": "^6.6.0",
+   "eslint": "^7.3.1",
     "nyc": "^15.0.1",
     "webpack": "^4.43.0"
   },

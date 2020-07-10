@@ -4,8 +4,8 @@ import React from 'react';
 import {take} from 'lodash/fp';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import onlyOneFixture from './fixtures/only-one';
 import Accordion from '..';
+import onlyOneFixture from './fixtures/only-one';
 
 browserEnv();
 configure({adapter: new Adapter()});
@@ -32,10 +32,7 @@ test(`should keep isOpen in state`, t => {
 
   t.false(wrapper.find('.part__openHeader').exists());
 
-  wrapper
-    .find('.part__header')
-    .at(0)
-    .simulate('click');
+  wrapper.find('.part__header').at(0).simulate('click');
 
   t.true(wrapper.find('.part__openHeader').exists());
 

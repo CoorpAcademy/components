@@ -10,6 +10,8 @@ const clueProps = Clue.props;
 
 export default {
   props: {
+    ...clueProps,
+    ...footerProps,
     typeClue: 'clue',
     step: {
       current: 2,
@@ -21,8 +23,6 @@ export default {
       ...props,
       submitValue: 'Back to Question'
     },
-    header: headerProps,
-    ...clueProps,
-    ...footerProps
+    header: headerProps
   }
 };

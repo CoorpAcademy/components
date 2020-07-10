@@ -25,6 +25,10 @@ const MediaView = ({media}) => {
   );
 };
 
+MediaView.propTypes = {
+  media: Picture.propTypes.src
+};
+
 /*
  * Content types
  */
@@ -78,8 +82,8 @@ const Step = ({step, color}) => {
         <span style={{color}}>{step.current}</span>/{step.total}
       </div>
       <div className={style.stepWrapper}>
-        <Swapper color={color} {...step} current={step.current - 1}>
-          <Bar color={color} {...step} />
+        <Swapper {...step} color={color} current={step.current - 1}>
+          <Bar {...step} color={color} />
         </Swapper>
       </div>
     </div>
@@ -144,7 +148,7 @@ ReviewLesson.contextTypes = {
 const AnswerContent = ({answerType, help}) => <Answer {...answerType} help={help} />;
 
 AnswerContent.propTypes = {
-  answerType: PropTypes.shape(Answer.PropTypes),
+  answerType: PropTypes.shape(Answer.propTypes),
   help: PropTypes.string
 };
 
@@ -187,8 +191,9 @@ ContextImage.propTypes = {
 };
 
 const ContextVideo = props => {
-  const videos = props.src.map(({videoId, ...childProps}) => (
-    <VideoPlayer id={videoId} key={videoId} autoplay={false} {...omit('id', childProps)} />
+  const {src} = props;
+  const videos = src.map(({videoId, ...childProps}) => (
+    <VideoPlayer {...omit('id', childProps)} id={videoId} key={videoId} autoplay={false} />
   ));
   return <div>{videos}</div>;
 };
@@ -236,11 +241,7 @@ ContextMedia.propTypes = {
 };
 
 const ContextContent = ({slideContext}) => {
-  const descriptionParagraphs = pipe(
-    getOr('', 'description'),
-    split('\n'),
-    compact
-  )(slideContext);
+  const descriptionParagraphs = pipe(getOr('', 'description'), split('\n'), compact)(slideContext);
   const paragraphs = descriptionParagraphs.map((paragraph, index) => (
     <p
       key={index}
@@ -288,7 +289,7 @@ const ValidateButton = ({cta}) => {
 
   return (
     <div className={style.ctaWrapper}>
-      <Cta className={style.cta} {...cta} />
+      <Cta {...cta} className={style.cta} />
     </div>
   );
 };
@@ -298,7 +299,7 @@ ValidateButton.propTypes = {
 };
 
 const ContentLayout = (props, context) => {
-  const {typeClue, answerType: {model: {type} = {}} = {}, question, help} = props;
+  const {typeClue, answerType: {model: {type} = {}} = {}, question, help, slideContext} = props;
   const ContentType = CONTENT_TYPE[typeClue];
   const noPaddingRessources =
     ContentType === MediaContent ? `${style.contentWrapperNoPadding}` : `${style.contentWrapper}`;
@@ -310,7 +311,7 @@ const ContentLayout = (props, context) => {
         className={style.question}
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
-          __html: typeClue === 'context' ? props.slideContext.title : question
+          __html: typeClue === 'context' ? slideContext.title : question
         }}
       />
       {help && typeClue === 'answer' && type !== 'qcmDrag' ? <Help help={help} /> : null}
@@ -342,7 +343,12 @@ const LoadingLayout = () => (
 );
 
 const LoadedLayout = ({question, step, ...props}) =>
-  question ? <ContentLayout question={question} step={step} {...props} /> : <LoadingLayout />;
+  question ? <ContentLayout {...props} question={question} /> : <LoadingLayout />;
+
+LoadedLayout.propTypes = {
+  ...ContentLayout.propTypes,
+  question: ContentLayout.propTypes.question
+};
 
 /*
  * Errors
@@ -377,7 +383,7 @@ const SlidesPlayer = (props, context) => {
   const {onClick = identity} = mediaButton;
   return (
     <div className={style.wrapper} data-name="slidesPlayer">
-      {header && <Header {...header} />}
+      {header ? <Header {...header} /> : null}
       <div className={style.contentProgression}>
         {step ? <Step step={step} color={stepColor} /> : null}
         {showNewMedia && !showReviewLesson ? <NewMedia onClick={onClick} step={step} /> : null}

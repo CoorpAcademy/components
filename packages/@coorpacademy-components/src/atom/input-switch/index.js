@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {noop, uniqueId} from 'lodash/fp';
 import getClassState from '../../util/get-class-state';
@@ -9,7 +9,7 @@ const InputSwitch = props => {
 
   const idSwitch = id || uniqueId('input-switch-');
   const isDisabled = disabled ? 'disabled' : '';
-  const handleChange = e => onChange(e.target.checked);
+  const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
 
   const titleView = title ? <span className={style.title}>{`${title} `}</span> : null;
 

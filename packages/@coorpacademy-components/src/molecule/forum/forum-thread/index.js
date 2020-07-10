@@ -1,13 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import {isEmpty} from 'lodash/fp';
-import threadShape from '../post-conditions';
 import ForumPost from '../forum-post';
 import style from './style.css';
 
 const ForumThread = props => {
   const {answers = [], mainPost = false} = props;
-  const answersView = answers.map((answerProps, index) => (
-    <ForumThread key={index} {...answerProps} />
+  const answersView = answers.map(answerProps => (
+    <ForumThread {...answerProps} key={answerProps.id} />
   ));
 
   return (
@@ -21,6 +21,7 @@ const ForumThread = props => {
 };
 
 ForumThread.propTypes = {
-  ...threadShape
+  answers: PropTypes.arrayOf(PropTypes.shape(ForumThread.propTypes)),
+  mainPost: PropTypes.bool
 };
 export default ForumThread;

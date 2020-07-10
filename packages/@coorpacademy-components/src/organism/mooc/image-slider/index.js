@@ -5,7 +5,7 @@ import Slide from '../../../atom/slide';
 import Slider from '../../slider';
 
 const ImageSlider = ({slides = []}) => {
-  const allSlides = map(slide => <Slide key={slide.title} {...slide} />, slides);
+  const allSlides = map(slide => <Slide {...slide} key={slide.title} />, slides);
   return <Slider>{allSlides}</Slider>;
 };
 

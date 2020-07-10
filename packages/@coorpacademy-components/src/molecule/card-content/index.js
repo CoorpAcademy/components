@@ -50,6 +50,13 @@ ContentTypeInfo.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
+ContentTypeInfo.propTypes = {
+  adaptiv: PropTypes.bool,
+  externalContent: PropTypes.bool,
+  type: PropTypes.string,
+  mode: PropTypes.string
+};
+
 const CardTitle = ({title, empty, courseContent}) => {
   return (
     <div
@@ -64,6 +71,12 @@ const CardTitle = ({title, empty, courseContent}) => {
       </div>
     </div>
   );
+};
+
+CardTitle.propTypes = {
+  title: PropTypes.string,
+  empty: PropTypes.bool,
+  courseContent: PropTypes.bool
 };
 
 const AuthorName = ({author, empty, courseContent, certifiedAuthor}) => {
@@ -90,20 +103,24 @@ const AuthorName = ({author, empty, courseContent, certifiedAuthor}) => {
   );
 };
 
-const ContentInfo = (
-  {
-    adaptiv,
-    author,
-    certifiedAuthor = false,
-    disabled = false,
-    empty = false,
-    mode = MODES.CARD,
-    progress,
-    title,
-    type
-  },
-  context
-) => {
+AuthorName.propTypes = {
+  author: PropTypes.string,
+  empty: PropTypes.bool,
+  courseContent: PropTypes.bool,
+  certifiedAuthor: PropTypes.bool
+};
+
+const ContentInfo = ({
+  adaptiv,
+  author,
+  certifiedAuthor = false,
+  disabled = false,
+  empty = false,
+  mode = MODES.CARD,
+  progress,
+  title,
+  type
+}) => {
   const progressBarColor = '#3EC483';
   const inlineProgressValueStyle = {
     backgroundColor: progressBarColor,
@@ -116,9 +133,9 @@ const ContentInfo = (
   const progressBar =
     mode === MODES.HERO || (!empty && !disabled) ? (
       <div className={style.progressWrapper}>
-        {!disabled && (
+        {!disabled ? (
           <div data-name="progress" className={style.progress} style={inlineProgressValueStyle} />
-        )}
+        ) : null}
       </div>
     ) : null;
 

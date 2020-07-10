@@ -18,12 +18,12 @@ test('should increase progression each frame', async t => {
     </Animation>
   );
 
-  t.deepEqual(wrapper.text(), '0');
+  t.is(wrapper.text(), '0');
 
   await nextFrame();
   wrapper.update();
 
-  t.deepEqual(wrapper.text(), '0');
+  t.is(wrapper.text(), '0');
 
   // Start
   wrapper.setProps({
@@ -64,7 +64,7 @@ test('should start and stop on receive props', async t => {
     </Animation>
   );
 
-  t.deepEqual(wrapper.text(), '0');
+  t.is(wrapper.text(), '0');
 
   await nextFrame();
   await nextFrame();
@@ -117,7 +117,7 @@ test('should call onAnimationEnd', async t => {
     });
   });
 
-  t.deepEqual(name, 'test');
+  t.is(name, 'test');
 
   const wrapperWithoutHandler = shallow(
     <Animation name="test" bezier={LINEAR} duration={1} animated>
@@ -129,5 +129,5 @@ test('should call onAnimationEnd', async t => {
   await nextFrame();
 
   const firstFrameValue = LINEAR(wrapperWithoutHandler.state('progress'));
-  t.deepEqual(firstFrameValue, 1);
+  t.is(firstFrameValue, 1);
 });

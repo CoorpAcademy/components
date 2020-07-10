@@ -5,8 +5,8 @@ const answerProps = Qcm.props;
 export default {
   props: {
     model: {
-      type: 'qcm',
-      ...answerProps
+      ...answerProps,
+      type: 'qcm'
     },
     media: {
       type: 'video',

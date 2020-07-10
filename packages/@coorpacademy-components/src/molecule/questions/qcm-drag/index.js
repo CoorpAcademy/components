@@ -20,6 +20,10 @@ EmptyView.contextTypes = {
   translate: Provider.childContextTypes.translate
 };
 
+EmptyView.propTypes = {
+  help: PropTypes.string
+};
+
 const Choices = ({answers}) => {
   const answersViews = answers.map((answer, key) => {
     const {onClick, title, selected} = answer;
@@ -45,10 +49,7 @@ Choices.propTypes = {
 };
 
 const SelectionBox = ({answers, help}) => {
-  const selectedAnswers = pipe(
-    filter('selected'),
-    orderBy('order', 'asc')
-  )(answers);
+  const selectedAnswers = pipe(filter('selected'), orderBy('order', 'asc'))(answers);
   const selectedAnswersViews = selectedAnswers.map((answer, key) => {
     const {onClick, title} = answer;
     return (
@@ -77,7 +78,8 @@ const SelectionBox = ({answers, help}) => {
 };
 
 SelectionBox.propTypes = {
-  answers: AnswersPropTypes
+  answers: AnswersPropTypes,
+  help: EmptyView.propTypes.help
 };
 
 const QcmDrag = ({answers, help}, context) => (
@@ -90,7 +92,8 @@ const QcmDrag = ({answers, help}, context) => (
 );
 
 QcmDrag.propTypes = {
-  answers: AnswersPropTypes
+  answers: AnswersPropTypes,
+  help: SelectionBox.propTypes.help
 };
 
 export default QcmDrag;

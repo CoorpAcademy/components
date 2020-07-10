@@ -24,6 +24,17 @@ Preview.propTypes = {
 };
 
 class DisciplineHeader extends React.Component {
+  static propTypes = {
+    title: PropTypes.string,
+    description: PropTypes.string,
+    image: Preview.propTypes.image,
+    video: Preview.propTypes.video
+  };
+
+  static contextTypes = {
+    translate: PropTypes.func
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -40,9 +51,10 @@ class DisciplineHeader extends React.Component {
 
   render() {
     const {image, title, description, video} = this.props;
+    const {fullDisplay} = this.state;
     const {translate} = this.context;
 
-    const toggleLabel = this.state.fullDisplay ? translate('See less') : translate('Show more');
+    const toggleLabel = fullDisplay ? translate('See less') : translate('Show more');
 
     return (
       <div data-name="disciplineHeader" className={style.wrapper}>
@@ -53,7 +65,7 @@ class DisciplineHeader extends React.Component {
           <div data-name="title" className={style.title}>
             {title}
           </div>
-          <div className={this.state.fullDisplay ? style.desc : style.shortDesc}>
+          <div className={fullDisplay ? style.desc : style.shortDesc}>
             <div
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{
@@ -69,16 +81,5 @@ class DisciplineHeader extends React.Component {
     );
   }
 }
-
-DisciplineHeader.contextTypes = {
-  translate: PropTypes.func
-};
-
-DisciplineHeader.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: Preview.propTypes.image,
-  video: Preview.propTypes.video
-};
 
 export default DisciplineHeader;

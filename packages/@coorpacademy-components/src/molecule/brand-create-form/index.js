@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import Button from '../../atom/button';
 import Loader from '../../atom/loader';
@@ -14,7 +14,7 @@ const BrandCreateForm = (props, context) => {
     isModified || isPending || field.error ? style.modifiedWrapper : style.wrapper;
   const fieldClass = field.error ? style.error : style.default;
   const disabled = isPending || !isModified;
-  const handleChange = e => field.onChange(e.target.value);
+  const handleChange = useMemo(() => e => field.onChange(e.target.value), [field.onChange]);
 
   const actionView = isPending ? (
     <div>

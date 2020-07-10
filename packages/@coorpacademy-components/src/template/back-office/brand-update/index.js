@@ -82,25 +82,25 @@ BrandUpdate.propTypes = {
   ).isRequired,
   content: PropTypes.oneOfType([
     PropTypes.shape({
+      ...BrandForm.propTypes,
       key: PropTypes.string,
-      type: PropTypes.oneOf(['form']),
-      ...BrandForm.propTypes
+      type: PropTypes.oneOf(['form'])
     }),
     PropTypes.shape({
+      ...BrandTable.propTypes,
       key: PropTypes.string,
-      type: PropTypes.oneOf(['list']),
-      ...BrandTable.propTypes
+      type: PropTypes.oneOf(['list'])
     }),
     PropTypes.shape({
+      ...BrandUpload.propTypes,
       key: PropTypes.string,
-      type: PropTypes.oneOf(['upload']),
-      ...BrandUpload.propTypes
+      type: PropTypes.oneOf(['upload'])
     })
   ]),
   details: PropTypes.shape({
+    ...BrandTable.propTypes,
     key: PropTypes.string,
-    type: PropTypes.oneOf(['list']),
-    ...BrandTable.propTypes
+    type: PropTypes.oneOf(['list'])
   })
 };
 

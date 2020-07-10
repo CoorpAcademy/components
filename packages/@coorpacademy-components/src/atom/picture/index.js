@@ -21,11 +21,12 @@ const toSrcSet = ({src}) => {
 };
 
 const Picture = props => {
-  if (isNil(props.src)) {
+  const {src} = props;
+  if (isNil(src)) {
     return <div className={style.empty} />;
   }
 
-  return <img alt="" {...props} {...toSrcSet(props)} />;
+  return <img {...props} {...toSrcSet(props)} alt="" />;
 };
 
 Picture.propTypes = {

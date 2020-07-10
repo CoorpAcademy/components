@@ -5,47 +5,66 @@ import {get} from 'lodash/fp';
 import Button from '../../atom/button';
 import style from './style.css';
 
-const Header = ({step = undefined, header, subHeader = undefined}) => {
-  return (
-    <div className={style.headerContainer}>
-      {(step && (
-        <div className={style.headerWrapper}>
-          <h1 className={style.step}>{step}</h1>
-          <h1 className={style.header}>{header}</h1>
-        </div>
-      )) || <h1 className={style.header}>{header}</h1>}
-      {subHeader && <h4 className={style.subHeader}>{subHeader}</h4>}
-    </div>
-  );
+const Header = ({step, header, subHeader}) => (
+  <div className={style.headerContainer}>
+    {step ? (
+      <div className={style.headerWrapper}>
+        <h1 className={style.step}>{step}</h1>
+        <h1 className={style.header}>{header}</h1>
+      </div>
+    ) : (
+      <h1 className={style.header}>{header} </h1>
+    )}
+    {subHeader ? <h4 className={style.subHeader}>{subHeader} </h4> : null}
+  </div>
+);
+
+Header.propTypes = {
+  step: PropTypes.string,
+  header: PropTypes.string,
+  subHeader: PropTypes.string
 };
 
-const QrCodeImage = ({showMobileAppAccess, url, preMessage, linkMessage, endMessage}) => {
+const QrCodeImage = ({
+  showMobileAppAccess,
+  qrCodeImageUrl,
+  preMessage,
+  linkMessage,
+  endMessage
+}) => {
   return (
     <div className={style.qrcodeWrapper}>
-      <img src={url} />
-      {showMobileAppAccess && (
+      <img src={qrCodeImageUrl} />
+      {showMobileAppAccess ? (
         <div className={style.qrcodeOverlay}>
           <div className={style.qrcodeModal}>
-            <span>{preMessage}</span>
+            <span>{preMessage} </span>
             <a href="mailto:assistance@coorpacademy.com" className={style.qrcodeModalLink}>
-              <span>{linkMessage}</span>
+              <span>{linkMessage} </span>
             </a>
-            <span>{endMessage}</span>
+            <span>{endMessage} </span>
           </div>
         </div>
-      )}
+      ) : null}
     </div>
   );
 };
+QrCodeImage.propTypes = {
+  showMobileAppAccess: PropTypes.bool,
+  qrCodeImageUrl: PropTypes.string,
+  preMessage: PropTypes.string,
+  linkMessage: PropTypes.string,
+  endMessage: PropTypes.string
+};
 
-const MagicLink = ({disabled, submitValue, url, color}) => {
+const MagicLink = ({disabled, submitValue, magicLinkUrl, color}) => {
   return (
     <div className={style.buttonWrapper}>
       <Button
         color={color}
         disabled={disabled}
         isLinkDisabled={disabled}
-        href={url}
+        href={magicLinkUrl}
         type="link"
         submitValue={null}
       >
@@ -58,18 +77,29 @@ const MagicLink = ({disabled, submitValue, url, color}) => {
   );
 };
 
+MagicLink.propTypes = {
+  magicLinkUrl: PropTypes.string,
+  disabled: PropTypes.bool,
+  submitValue: PropTypes.string
+};
+
 const StoresLinks = ({
   onAppStoreButtonClick,
   appStoreButtonImageUrl,
   playStoreButtonImageUrl,
   onPlayStoreButtonClick
-}) => {
-  return (
-    <div className={style.storeLinksContainer}>
-      <img className={style.img} src={appStoreButtonImageUrl} onClick={onAppStoreButtonClick} />
-      <img className={style.img} src={playStoreButtonImageUrl} onClick={onPlayStoreButtonClick} />
-    </div>
-  );
+}) => (
+  <div className={style.storeLinksContainer}>
+    <img className={style.img} src={appStoreButtonImageUrl} onClick={onAppStoreButtonClick} />
+    <img className={style.img} src={playStoreButtonImageUrl} onClick={onPlayStoreButtonClick} />
+  </div>
+);
+
+StoresLinks.propTypes = {
+  onAppStoreButtonClick: PropTypes.func,
+  appStoreButtonImageUrl: PropTypes.string,
+  playStoreButtonImageUrl: PropTypes.string,
+  onPlayStoreButtonClick: PropTypes.func
 };
 
 const Divider = ({word}) => (
@@ -80,102 +110,81 @@ const Divider = ({word}) => (
   </div>
 );
 
-// eslint-disable-next-line react/prefer-stateless-function
-class GetTheApp extends React.Component {
-  render() {
-    const {
-      onAppStoreButtonClick,
-      appStoreButtonImageUrl,
-      playStoreButtonImageUrl,
-      onPlayStoreButtonClick,
-      storeStep,
-      connectionStep,
-      qrCodeStep,
-      magicLinkStep,
-      diviserWord,
-      qrCodeImageUrl,
-      magicLinkUrl,
-      disabled,
-      showMobileAppAccess,
-      submitValue,
-      preMessage,
-      linkMessage,
-      endMessage
-    } = this.props;
-    const {skin} = this.context;
-    const primaryColor = get('common.primary', skin);
-    return (
-      <div className={style.container}>
-        <div className={style.store}>
-          <Header {...storeStep} />
-          <StoresLinks
-            onAppStoreButtonClick={onAppStoreButtonClick}
-            appStoreButtonImageUrl={appStoreButtonImageUrl}
-            playStoreButtonImageUrl={playStoreButtonImageUrl}
-            onPlayStoreButtonClick={onPlayStoreButtonClick}
-          />
-        </div>
-        <div className={style.secondStepWrapper}>
-          <Header {...connectionStep} />
-          <div className={style.connectionWrapper}>
-            <div className={style.wrapper}>
-              <Header {...qrCodeStep} />
-              <QrCodeImage
-                showMobileAppAccess={showMobileAppAccess}
-                url={qrCodeImageUrl}
-                preMessage={preMessage}
-                linkMessage={linkMessage}
-                endMessage={endMessage}
-              />
-            </div>
-            <Divider word={diviserWord} />
-            <div className={style.wrapper}>
-              <Header {...magicLinkStep} />
-              <MagicLink
-                color={primaryColor}
-                submitValue={submitValue}
-                disabled={disabled}
-                url={magicLinkUrl}
-              />
-            </div>
+Divider.propTypes = {
+  word: PropTypes.string
+};
+
+const GetTheApp = (props, context) => {
+  const {
+    onAppStoreButtonClick,
+    appStoreButtonImageUrl,
+    playStoreButtonImageUrl,
+    onPlayStoreButtonClick,
+    storeStep,
+    connectionStep,
+    qrCodeStep,
+    magicLinkStep,
+    diviserWord,
+    qrCodeImageUrl,
+    magicLinkUrl,
+    disabled,
+    showMobileAppAccess,
+    submitValue,
+    preMessage,
+    linkMessage,
+    endMessage
+  } = props;
+  const {skin} = context;
+  const primaryColor = get('common.primary', skin);
+  return (
+    <div className={style.container}>
+      <div className={style.store}>
+        <Header {...storeStep} />
+        <StoresLinks
+          onAppStoreButtonClick={onAppStoreButtonClick}
+          appStoreButtonImageUrl={appStoreButtonImageUrl}
+          playStoreButtonImageUrl={playStoreButtonImageUrl}
+          onPlayStoreButtonClick={onPlayStoreButtonClick}
+        />
+      </div>
+      <div className={style.secondStepWrapper}>
+        <Header {...connectionStep} />
+        <div className={style.connectionWrapper}>
+          <div className={style.wrapper}>
+            <Header {...qrCodeStep} />
+            <QrCodeImage
+              showMobileAppAccess={showMobileAppAccess}
+              qrCodeImageUrl={qrCodeImageUrl}
+              preMessage={preMessage}
+              linkMessage={linkMessage}
+              endMessage={endMessage}
+            />
+          </div>
+          <Divider word={diviserWord} />
+          <div className={style.wrapper}>
+            <Header {...magicLinkStep} />
+            <MagicLink
+              color={primaryColor}
+              submitValue={submitValue}
+              disabled={disabled}
+              magicLinkUrl={magicLinkUrl}
+            />
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 GetTheApp.propTypes = {
-  onAppStoreButtonClick: PropTypes.func,
-  appStoreButtonImageUrl: PropTypes.string,
-  playStoreButtonImageUrl: PropTypes.string,
-  onPlayStoreButtonClick: PropTypes.func,
-  storeStep: PropTypes.shape({
-    step: PropTypes.string,
-    header: PropTypes.string,
-    subHeader: PropTypes.string
-  }),
-  connectionStep: PropTypes.shape({
-    step: PropTypes.string,
-    header: PropTypes.string
-  }),
-  qrCodeStep: PropTypes.shape({
-    header: PropTypes.string,
-    subHeader: PropTypes.string
-  }),
-  magicLinkStep: PropTypes.shape({
-    header: PropTypes.string,
-    subHeader: PropTypes.string
-  }),
-  preMessage: PropTypes.string,
-  linkMessage: PropTypes.string,
-  endMessage: PropTypes.string,
-  diviserWord: PropTypes.string,
-  qrCodeImageUrl: PropTypes.string,
-  magicLinkUrl: PropTypes.string,
-  disabled: PropTypes.bool,
-  showMobileAppAccess: PropTypes.bool,
-  submitValue: PropTypes.string
+  ...StoresLinks.propTypes,
+  storeStep: PropTypes.shape(Header.propTypes),
+  connectionStep: PropTypes.shape(Header.propTypes),
+  qrCodeStep: PropTypes.shape(Header.propTypes),
+  magicLinkStep: PropTypes.shape(Header.propTypes),
+  ...QrCodeImage.propTypes,
+  diviserWord: Divider.propTypes.word,
+  ...MagicLink.propTypes
 };
 
 export default GetTheApp;

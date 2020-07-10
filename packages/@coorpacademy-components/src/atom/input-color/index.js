@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {noop} from 'lodash/fp';
 import getClassState from '../../util/get-class-state';
@@ -20,7 +20,7 @@ const InputColor = props => {
   const inlineStyle = {
     backgroundColor: value
   };
-  const handleChange = e => onChange(e.target.value);
+  const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
   const className = getClassState(style.default, style.modified, style.error, modified, error);
 
   return (

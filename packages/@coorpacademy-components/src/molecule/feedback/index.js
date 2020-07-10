@@ -10,14 +10,11 @@ const Feedback = (props, context) => {
   const resource = media &&
     media.type && {
       ...media,
-      ...pipe(
-        get('src.0'),
-        extend({description: mediaDescription})
-      )(media)
+      ...pipe(get('src.0'), extend({description: mediaDescription}))(media)
     };
 
   return (
-    ((resource || title || description) && (
+    (resource || title || description ? (
       <div className={style.feedback} data-name="feedback">
         <div className={style.title} data-name="title">
           {title}
@@ -29,18 +26,17 @@ const Feedback = (props, context) => {
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{__html: description}}
           />
-          {resource && (
+          {resource ? (
             <div>
               <ResourcePlayer className={style.resourcePlayer} resource={resource} />
               <div data-name="mediaDescription" className={style.mediaDescription}>
                 {mediaDescription}
               </div>
             </div>
-          )}
+          ) : null}
         </div>
       </div>
-    )) ||
-    ''
+    ) : null) || ''
   );
 };
 

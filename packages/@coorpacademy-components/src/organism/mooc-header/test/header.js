@@ -3,16 +3,15 @@ import test from 'ava';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import defaultFixture from './fixtures/default';
+import {identity} from 'lodash/fp';
 import MoocHeader from '..';
+import defaultFixture from './fixtures/default';
 
 browserEnv();
 configure({adapter: new Adapter()});
 
 test('should focus when in searchBar input', t => {
-  const translate = value => {
-    return value;
-  };
+  const translate = identity;
 
   const wrapper = mount(<MoocHeader {...defaultFixture.props} />, {
     context: {translate}
@@ -23,9 +22,7 @@ test('should focus when in searchBar input', t => {
 });
 
 test('should submit when submit value in searchBar input', t => {
-  const translate = value => {
-    return value;
-  };
+  const translate = identity;
 
   const wrapper = mount(<MoocHeader {...defaultFixture.props} />, {
     context: {translate}

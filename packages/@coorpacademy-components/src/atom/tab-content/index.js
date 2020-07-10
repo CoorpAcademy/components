@@ -3,16 +3,14 @@ import PropTypes from 'prop-types';
 import Provider from '../provider';
 import style from './style.css';
 
-const TabContent = (props, context) => {
-  const {tabTitle} = props;
+const TabContent = props => {
+  const {tabTitle, hideContentBackground, children} = props;
 
-  const backgroundClassName = props.hideContentBackground
-    ? style.hiddenBackground
-    : style.greyBackground;
+  const backgroundClassName = hideContentBackground ? style.hiddenBackground : style.greyBackground;
   return (
     <div className={style.content}>
       <div className={style.contentTitle}>{tabTitle}</div>
-      <div className={backgroundClassName}>{props.children}</div>
+      <div className={backgroundClassName}>{children}</div>
     </div>
   );
 };

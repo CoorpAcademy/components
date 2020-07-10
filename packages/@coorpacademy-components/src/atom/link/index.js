@@ -1,51 +1,81 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {identity, getOr} from 'lodash/fp';
+import {identity, getOr, noop} from 'lodash/fp';
 import Provider from '../provider';
 import pushToHistory from '../../util/navigation';
 
 class Link extends React.Component {
-  state = {
-    hovered: false
+  static propTypes = {
+    children: PropTypes.node,
+    className: PropTypes.string,
+    href: PropTypes.string,
+    'data-name': PropTypes.string,
+    target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+    skinHover: PropTypes.bool,
+    download: PropTypes.bool,
+    onClick: PropTypes.func,
+    onMouseEnter: PropTypes.func,
+    onMouseLeave: PropTypes.func,
+    style: PropTypes.shape({})
   };
 
-  handleMouseEnter = () => {
-    this.setState(prevState => ({
-      hovered: true
-    }));
+  static contextTypes = {
+    skin: Provider.childContextTypes.skin,
+    history: Provider.childContextTypes.history
+  };
 
-    this.props.onMouseEnter && this.props.onMouseEnter();
+  constructor(props) {
+    super(props);
+    this.state = {
+      hovered: false
+    };
+  }
+
+  handleMouseEnter = () => {
+    const {onMouseEnter = noop} = this.props;
+
+    this.setState({
+      hovered: true
+    });
+
+    onMouseEnter();
   };
 
   handleMouseLeave = () => {
-    this.setState(prevState => ({
-      hovered: false
-    }));
+    const {onMouseLeave = noop} = this.props;
 
-    this.props.onMouseLeave && this.props.onMouseLeave();
+    this.setState({
+      hovered: false
+    });
+
+    onMouseLeave();
   };
 
   handleOnClick = e => {
-    if (this.props.onClick) this.props.onClick(e);
+    const {onClick = noop, download} = this.props;
 
-    if (!this.props.download) {
-      const onClick = pushToHistory(this.context)(this.props);
-      onClick(e);
+    onClick(e);
+
+    if (!download) {
+      const navigate = pushToHistory(this.context)(this.props);
+      navigate(e);
     }
   };
 
   render() {
     const {skin, history: {createHref = identity} = {}} = this.context;
-    const {skinHover, ...aProps} = this.props;
+    const {skinHover, 'data-name': dataName = 'link', ...aProps} = this.props;
+    const {href, onClick, className, style: propsStyle, children} = this.props;
+    const {hovered} = this.state;
     const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
     const _style =
-      this.props.href || this.props.onClick
+      href || onClick
         ? null
         : {
             pointerEvents: 'none'
           };
     const _hoverStyle =
-      skinHover && this.state.hovered
+      skinHover && hovered
         ? {
             color: primarySkinColor
           }
@@ -53,40 +83,23 @@ class Link extends React.Component {
 
     return (
       <a
-        data-name="link"
         {...aProps}
-        href={this.props.href ? createHref(this.props.href) : undefined}
+        data-name={dataName}
+        href={href ? createHref(href) : undefined}
         onClick={this.handleOnClick}
         onMouseEnter={this.handleMouseEnter}
         onMouseLeave={this.handleMouseLeave}
-        className={this.props.className}
+        className={className}
         style={{
-          ...this.props.style,
+          ...propsStyle,
           ..._style,
           ..._hoverStyle
         }}
       >
-        {this.props.children}
+        {children}
       </a>
     );
   }
 }
-
-Link.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  href: PropTypes.string,
-  target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-  skinHover: PropTypes.bool,
-  download: PropTypes.bool,
-  onClick: PropTypes.func,
-  onMouseEnter: PropTypes.func,
-  onMouseLeave: PropTypes.func
-};
-
-Link.contextTypes = {
-  skin: Provider.childContextTypes.skin,
-  history: Provider.childContextTypes.history
-};
 
 export default Link;

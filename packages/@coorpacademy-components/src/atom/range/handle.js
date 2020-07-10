@@ -5,9 +5,20 @@ import Provider from '../provider';
 import style from './handle.css';
 
 const Hammer =
+  // eslint-disable-next-line no-undef
   typeof window !== 'undefined' ? require('hammerjs') : /* istanbul ignore next */ undefined;
 
 class Handle extends React.Component {
+  static propTypes = {
+    onPan: PropTypes.func,
+    onPanStart: PropTypes.func,
+    onPanEnd: PropTypes.func
+  };
+
+  static contextTypes = {
+    skin: Provider.childContextTypes.skin
+  };
+
   constructor(props, context) {
     super(props, context);
 
@@ -54,15 +65,5 @@ class Handle extends React.Component {
     );
   }
 }
-
-Handle.contextTypes = {
-  skin: Provider.childContextTypes.skin
-};
-
-Handle.propTypes = {
-  onPan: PropTypes.func,
-  onPanStart: PropTypes.func,
-  onPanEnd: PropTypes.func
-};
 
 export default Handle;

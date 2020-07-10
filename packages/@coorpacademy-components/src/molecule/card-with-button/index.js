@@ -27,7 +27,8 @@ const CardWithButton = (props, context) => {
     tagLabel,
     onLightButtonClick,
     onPrimaryButtonClick,
-    backgroundImg
+    backgroundImg,
+    children
   } = props;
   const {skin} = context;
   const primaryColor = get('common.primary', skin);
@@ -45,7 +46,7 @@ const CardWithButton = (props, context) => {
                   </div>
                 </div>
               ) : null}
-              {props.children ? <div className={style.avatar}>{props.children}</div> : null}
+              {children ? <div className={style.avatar}>{children}</div> : null}
             </div>
           </div>
         </div>
@@ -78,7 +79,8 @@ CardWithButton.propTypes = {
   tagLabel: Link.propTypes.children,
   onLightButtonClick: Button.propTypes.onClick,
   onPrimaryButtonClick: Button.propTypes.onClick.isRequired,
-  backgroundImg: PropTypes.string.isRequired
+  backgroundImg: PropTypes.string.isRequired,
+  children: PropTypes.node
 };
 
 export default CardWithButton;

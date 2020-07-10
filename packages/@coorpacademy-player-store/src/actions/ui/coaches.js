@@ -12,7 +12,7 @@ export const startChat = () => (dispatch, getState, {services}) => {
   const action = buildTask({
     types: [START_CHAT_REQUEST, START_CHAT_SUCCESS, START_CHAT_FAILURE],
     task: () => Coach.startChat(),
-    meta: {contentRef}
+    meta: {contentRef},
   });
 
   return dispatch(action);
@@ -20,9 +20,9 @@ export const startChat = () => (dispatch, getState, {services}) => {
 
 export const UI_UPDATE_COACHES = '@@ui/UPDATE_COACHES';
 
-export const updateCoaches = chatState => dispatch => {
+export const updateCoaches = (chatState) => (dispatch) => {
   return dispatch({
     type: UI_UPDATE_COACHES,
-    payload: chatState
+    payload: chatState,
   });
 };

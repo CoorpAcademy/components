@@ -1,15 +1,11 @@
 {
   "env": {
-    "browser": true,
-    "commonjs": true,
     "es6": true,
+    "browser": true,
     "node": true
   },
   "plugins": [
-    "@coorpacademy/coorpacademy",
-    "flowtype",
-    "flowtype-errors",
-    "css-modules"
+    "@coorpacademy/coorpacademy"
   ],
   "extends": [
     "plugin:@coorpacademy/coorpacademy/core",
@@ -20,67 +16,26 @@
   ],
   "parser": "babel-eslint",
   "rules": {
-    "@coorpacademy/coorpacademy/no-overwriting-spread": "off",
-    "ava/no-ignored-test-files": ["error", { "files": ["**/test/**/*.js"] }],
-    "css-modules/no-undef-class": "error",
-    "css-modules/no-unused-class": "error",
-    "flowtype-errors/show-errors": "error",
-    "flowtype/boolean-style": ["error", "boolean"],
-    "flowtype/define-flow-type": "error",
-    "flowtype/no-primitive-constructor-types": "error",
-    "flowtype/no-types-missing-file-annotation": "error",
-    "flowtype/no-weak-types": "error",
-    "flowtype/require-parameter-type": [
-      "error",
-      { "excludeArrowFunctions": true }
-    ],
-    "flowtype/require-return-type": [
-      "error",
-      "always",
-      { "excludeArrowFunctions": "expressionsOnly" }
-    ],
-    "flowtype/type-id-match": ["error", "^([A-Z][a-z0-9]*)+$"],
-    "flowtype/use-flow-type": "error",
-    "fp/no-class": "off",
-    "import/no-extraneous-dependencies": "off",
-    "no-shadow": [
-      "error",
-      {
-        "builtinGlobals": true,
-        "hoist": "all",
-        "allow": [
-          "Promise",
-          "history",
-          "location",
-          "find",
-          "name",
-          "Notification",
-          "Animation",
-          "T"
-        ]
-      }
-    ],
     "no-restricted-properties": ["error", {
       "object": "Object",
       "property": "keys",
       "message": "IE doesn't support Object.keys with non-Object value. Use _.keys instead."
     }],
-    "promise/no-native": "off"
+    "node/file-extension-in-import": ["error", "always", {".js": "never", ".ts": "never", ".json": "never"}],
+    "promise/no-native": "off",
+    "node/no-unsupported-features/es-syntax": [
+      "error",
+      { "ignores": ["modules"] }
+    ]
   },
   "settings": {
-    "import/ignore": ["node_modules", "\\.css$"],
-    "flowtype": {
-      "onlyFilesWithFlowAnnotation": true
-    }
+    "import/ignore": ["node_modules", "\\.css$"]
   },
   "overrides": [
     {
-      "files": [
-        "packages/@coorpacademy-components/src/**/test/fixtures/*.js",
-        "packages/@coorpacademy-components/scripts/**/*.js"
-      ],
-      "rules": {
-        "no-console": "off"
+      "files": ["./ava.config.cjs", "./nyc.config.js", "**/webpack.config.js"],
+      "env": {
+        "commonjs": true
       }
     }
   ]

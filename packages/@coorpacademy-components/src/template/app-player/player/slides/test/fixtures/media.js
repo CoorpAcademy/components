@@ -8,6 +8,8 @@ const resourceProps = ResourceBrowser.props;
 
 export default {
   props: {
+    ...resourceProps,
+    ...footerProps,
     typeClue: 'media',
     starsDiff: 4,
     step: {
@@ -20,8 +22,6 @@ export default {
     cta: {
       ...props,
       submitValue: 'Back to Question'
-    },
-    ...resourceProps,
-    ...footerProps
+    }
   }
 };

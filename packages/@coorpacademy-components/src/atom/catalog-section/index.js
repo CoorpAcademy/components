@@ -10,7 +10,8 @@ const CatalogSection = ({title, children}, context) => (
 );
 
 CatalogSection.propTypes = {
-  title: PropTypes.string
+  title: PropTypes.string,
+  children: PropTypes.node
 };
 
 export default CatalogSection;

@@ -1,4 +1,4 @@
-import {getOr, get, isNil, join, indexOf, omitBy, isUndefined, includes} from 'lodash/fp';
+import {assign, getOr, get, isNil, join, indexOf, omitBy, isUndefined, includes} from 'lodash/fp';
 
 import {
   acceptExtraLife,
@@ -146,18 +146,20 @@ export const popinCorrectionStateToProps = (options, store) => {
 
     const resources = getResourcesProps_(state, slide);
 
-    const props = {
+    return {
       header: isLoading
         ? {type: 'popinCorrection'}
-        : {
-            type: 'popinCorrection',
-            lives: 1,
-            title: '',
-            subtitle: '',
-            corrections,
-            cta: !mayAcceptExtraLife ? createHeaderCTA_(state) : undefined,
-            ...header
-          },
+        : assign(
+            {
+              type: 'popinCorrection',
+              lives: 1,
+              title: '',
+              subtitle: '',
+              corrections,
+              cta: !mayAcceptExtraLife ? createHeaderCTA_(state) : undefined
+            },
+            header
+          ),
       gameOver: noMoreExtraLife,
       overlay: mayAcceptExtraLife
         ? {
@@ -194,7 +196,5 @@ export const popinCorrectionStateToProps = (options, store) => {
         onClick: openPopinAssistance(dispatch, progression)
       }
     };
-
-    return props;
   };
 };

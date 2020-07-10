@@ -4,6 +4,7 @@ import Provider from '../../atom/provider';
 import style from './style.css';
 
 const SubscriptionFreemiumDetails = (props, context) => {
+  const {onSubscriptionFreemiumButtonClick} = props;
   const {translate} = context;
 
   return (
@@ -15,8 +16,9 @@ const SubscriptionFreemiumDetails = (props, context) => {
         {translate('subscription_freemium_description')}
       </div>
       <button
+        type="button"
         className={style.subscriptionFreemiumButton}
-        onClick={props.onSubscriptionFreemiumButtonClick}
+        onClick={onSubscriptionFreemiumButtonClick}
       >
         {translate('subscription_freemium_button')}
       </button>

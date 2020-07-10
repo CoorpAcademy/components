@@ -4,6 +4,7 @@ export default {
   props: {
     resources: [
       {
+        ...mp4.props,
         type: 'video',
         poster: '//static.coorpacademy.com/content/digital/miniatures_cours/avance/1A1.png',
         description: 'Big Buck Bunny video',
@@ -12,8 +13,7 @@ export default {
         posters: [],
         src: [],
         onClick: () => {},
-        selected: true,
-        ...mp4.props
+        selected: true
       },
       {
         type: 'video',

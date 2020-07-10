@@ -10,6 +10,7 @@ const answerType = Answer.props;
 
 export default {
   props: {
+    ...footerProps,
     typeClue: 'answer',
     step: {
       current: 2,
@@ -26,7 +27,6 @@ export default {
     backgroundUrl:
       'http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_527bf56961712_1.JPG',
     answerType,
-    header: headerProps,
-    ...footerProps
+    header: headerProps
   }
 };

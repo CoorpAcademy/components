@@ -25,7 +25,7 @@ import {
   openRecommendation,
   LOCATION_OPEN_RECOMMENDATION_REQUEST,
   LOCATION_OPEN_RECOMMENDATION_SUCCESS,
-  LOCATION_OPEN_RECOMMENDATION_FAILURE
+  LOCATION_OPEN_RECOMMENDATION_FAILURE,
 } from '../location';
 
 test(
@@ -35,25 +35,25 @@ test(
     set('ui.current.progressionId', '0'),
     set('data.progressions.entities.0.content.ref', 'foo')
   )({}),
-  t => ({
+  (t) => ({
     Location: {
-      retry: contentRef => {
+      retry: (contentRef) => {
         t.is(contentRef, 'foo');
         return 'foo';
-      }
-    }
+      },
+    },
   }),
   retry,
   [
     {
       type: LOCATION_RETRY_REQUEST,
-      meta: {contentRef: 'foo'}
+      meta: {contentRef: 'foo'},
     },
     {
       type: LOCATION_RETRY_SUCCESS,
       meta: {contentRef: 'foo'},
-      payload: 'foo'
-    }
+      payload: 'foo',
+    },
   ],
   1
 );
@@ -65,31 +65,31 @@ test(
     set('ui.current.progressionId', '0'),
     set('data.progressions.entities.0.content.ref', 'foo')
   )({}),
-  t => ({
+  (t) => ({
     Logger: {
       error(err) {
         t.is(err.message, 'some error');
-      }
+      },
     },
     Location: {
-      retry: contentRef => {
+      retry: (contentRef) => {
         t.is(contentRef, 'foo');
         throw new Error('some error');
-      }
-    }
+      },
+    },
   }),
   retry,
   [
     {
       type: LOCATION_RETRY_REQUEST,
-      meta: {contentRef: 'foo'}
+      meta: {contentRef: 'foo'},
     },
     {
       type: LOCATION_RETRY_FAILURE,
       meta: {contentRef: 'foo'},
       error: true,
-      payload: new Error('some error')
-    }
+      payload: new Error('some error'),
+    },
   ],
   2
 );
@@ -98,23 +98,23 @@ test(
   'should call exit location service and dispatch SUCCESS action',
   macro,
   {},
-  t => ({
+  (t) => ({
     Location: {
       exit: () => {
         t.pass();
         return 'foo';
-      }
-    }
+      },
+    },
   }),
   exit,
   [
     {
-      type: LOCATION_EXIT_REQUEST
+      type: LOCATION_EXIT_REQUEST,
     },
     {
       type: LOCATION_EXIT_SUCCESS,
-      payload: 'foo'
-    }
+      payload: 'foo',
+    },
   ],
   1
 );
@@ -123,29 +123,29 @@ test(
   'should call exit location service and dispatch FAILURE action on error',
   macro,
   {},
-  t => ({
+  (t) => ({
     Logger: {
       error(err) {
         t.is(err.message, 'some error');
-      }
+      },
     },
     Location: {
       exit: () => {
         t.pass();
         throw new Error('some error');
-      }
-    }
+      },
+    },
   }),
   exit,
   [
     {
-      type: LOCATION_EXIT_REQUEST
+      type: LOCATION_EXIT_REQUEST,
     },
     {
       type: LOCATION_EXIT_FAILURE,
       error: true,
-      payload: new Error('some error')
-    }
+      payload: new Error('some error'),
+    },
   ],
   2
 );
@@ -158,23 +158,23 @@ test(
     set('data.contents.level.entities.foo', {}),
     set('data.progressions.entities.0.content', {type: 'level', ref: 'foo'})
   )({}),
-  t => ({
+  (t) => ({
     Location: {
       back: () => {
         t.pass();
         return 'foo';
-      }
-    }
+      },
+    },
   }),
   back,
   [
     {
-      type: LOCATION_BACK_REQUEST
+      type: LOCATION_BACK_REQUEST,
     },
     {
       type: LOCATION_BACK_SUCCESS,
-      payload: 'foo'
-    }
+      payload: 'foo',
+    },
   ],
   1
 );
@@ -187,29 +187,29 @@ test(
     set('data.contents.level.entities.foo', {}),
     set('data.progressions.entities.0.content', {type: 'level', ref: 'foo'})
   )({}),
-  t => ({
+  (t) => ({
     Logger: {
       error(err) {
         t.is(err.message, 'some error');
-      }
+      },
     },
     Location: {
       back: () => {
         t.pass();
         throw new Error('some error');
-      }
-    }
+      },
+    },
   }),
   back,
   [
     {
-      type: LOCATION_BACK_REQUEST
+      type: LOCATION_BACK_REQUEST,
     },
     {
       type: LOCATION_BACK_FAILURE,
       error: true,
-      payload: new Error('some error')
-    }
+      payload: new Error('some error'),
+    },
   ],
   2
 );
@@ -223,23 +223,23 @@ test(
     set(['data', 'nextContent', 'entities', '0'], {ref: '1.A'}),
     set(['data', 'contents', 'level', 'entities', '1.B'], {ref: '1.B', level: 'base'})
   )({}),
-  t => ({
+  (t) => ({
     Location: {
-      nextLevel: contentRef => {
+      nextLevel: (contentRef) => {
         t.is(contentRef, '1.A');
         return contentRef;
-      }
-    }
+      },
+    },
   }),
   nextLevel,
   [
     {
-      type: LOCATION_NEXT_CONTENT_REQUEST
+      type: LOCATION_NEXT_CONTENT_REQUEST,
     },
     {
       type: LOCATION_NEXT_CONTENT_SUCCESS,
-      payload: '1.A'
-    }
+      payload: '1.A',
+    },
   ],
   1
 );
@@ -253,29 +253,29 @@ test(
     set(['data', 'nextContent', 'entities', '0'], {ref: '1.A'}),
     set(['data', 'contents', 'level', 'entities', '1.B'], {ref: '1.B', level: 'base'})
   )({}),
-  t => ({
+  (t) => ({
     Logger: {
       error(err) {
         t.is(err.message, 'some error');
-      }
+      },
     },
     Location: {
-      nextLevel: contentRef => {
+      nextLevel: (contentRef) => {
         t.is(contentRef, '1.A');
         throw new Error('some error');
-      }
-    }
+      },
+    },
   }),
   nextLevel,
   [
     {
-      type: LOCATION_NEXT_CONTENT_REQUEST
+      type: LOCATION_NEXT_CONTENT_REQUEST,
     },
     {
       type: LOCATION_NEXT_CONTENT_FAILURE,
       error: true,
-      payload: new Error('some error')
-    }
+      payload: new Error('some error'),
+    },
   ],
   2
 );
@@ -289,12 +289,12 @@ test(
     set(['data', 'nextContent', 'entities', '0'], null),
     set(['data', 'contents', 'level', 'entities', '1.B'], {ref: '1.B', level: 'base'})
   )({}),
-  t => ({
+  (t) => ({
     Location: {
-      nextLevel: contentRef => {
+      nextLevel: (contentRef) => {
         t.fail();
-      }
-    }
+      },
+    },
   }),
   nextLevel,
   [],
@@ -309,23 +309,23 @@ test(
     set(['data', 'progressions', 'entities', '0'], {content: {ref: '1.B', type: 'level'}}),
     set(['data', 'contents', 'level', 'entities', '1.B'], {ref: '1.B', level: 'base'})
   )({}),
-  t => ({
+  (t) => ({
     Location: {
-      seeComment: content => {
+      seeComment: (content) => {
         t.deepEqual(content, {ref: '1.B', level: 'base'});
         return 'foo';
-      }
-    }
+      },
+    },
   }),
   seeComment,
   [
     {
-      type: LOCATION_SEE_COMMENT_REQUEST
+      type: LOCATION_SEE_COMMENT_REQUEST,
     },
     {
       type: LOCATION_SEE_COMMENT_SUCCESS,
-      payload: 'foo'
-    }
+      payload: 'foo',
+    },
   ],
   1
 );
@@ -338,29 +338,29 @@ test(
     set(['data', 'progressions', 'entities', '0'], {content: {ref: '1.B', type: 'level'}}),
     set(['data', 'contents', 'level', 'entities', '1.B'], {ref: '1.B', level: 'base'})
   )({}),
-  t => ({
+  (t) => ({
     Logger: {
       error(err) {
         t.is(err.message, 'some error');
-      }
+      },
     },
     Location: {
-      seeComment: content => {
+      seeComment: (content) => {
         t.deepEqual(content, {ref: '1.B', level: 'base'});
         throw new Error('some error');
-      }
-    }
+      },
+    },
   }),
   seeComment,
   [
     {
-      type: LOCATION_SEE_COMMENT_REQUEST
+      type: LOCATION_SEE_COMMENT_REQUEST,
     },
     {
       type: LOCATION_SEE_COMMENT_FAILURE,
       error: true,
-      payload: new Error('some error')
-    }
+      payload: new Error('some error'),
+    },
   ],
   2
 );
@@ -369,29 +369,29 @@ test(
   'should call openRecommendation and dispatch FAILURE action on error',
   macro,
   {},
-  t => ({
+  (t) => ({
     Logger: {
       error(err) {
         t.is(err.message, 'some error');
-      }
+      },
     },
     Location: {
-      openRecommendation: reco => {
+      openRecommendation: (reco) => {
         t.is(reco, 'bar');
         throw new Error('some error');
-      }
-    }
+      },
+    },
   }),
   openRecommendation('bar'),
   [
     {
-      type: LOCATION_OPEN_RECOMMENDATION_REQUEST
+      type: LOCATION_OPEN_RECOMMENDATION_REQUEST,
     },
     {
       type: LOCATION_OPEN_RECOMMENDATION_FAILURE,
       error: true,
-      payload: new Error('some error')
-    }
+      payload: new Error('some error'),
+    },
   ],
   2
 );
@@ -400,23 +400,23 @@ test(
   'should call openRecommendation location service and dispatch SUCCESS action',
   macro,
   {},
-  t => ({
+  (t) => ({
     Location: {
-      openRecommendation: reco => {
+      openRecommendation: (reco) => {
         t.is(reco, 'foo');
         return 'bar';
-      }
-    }
+      },
+    },
   }),
   openRecommendation('foo'),
   [
     {
-      type: LOCATION_OPEN_RECOMMENDATION_REQUEST
+      type: LOCATION_OPEN_RECOMMENDATION_REQUEST,
     },
     {
       type: LOCATION_OPEN_RECOMMENDATION_SUCCESS,
-      payload: 'bar'
-    }
+      payload: 'bar',
+    },
   ],
   1
 );
@@ -425,8 +425,8 @@ test(
   'should not call openRecommendation if no implementation is found within services',
   macro,
   {},
-  t => ({
-    Location: {}
+  (t) => ({
+    Location: {},
   }),
   openRecommendation('foo'),
   [],

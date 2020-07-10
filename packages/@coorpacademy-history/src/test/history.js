@@ -1,6 +1,10 @@
 import test from 'ava';
 import {useBasename} from '../history';
 
+const historyFactory = () => {
+  return {};
+};
+
 [
   [{basename: '/foo'}, '/bar', '/foo/bar'],
   [undefined, '/bar', '/bar'],
@@ -9,10 +13,6 @@ import {useBasename} from '../history';
   [{basename: '/foo'}, '#', '#']
 ].forEach(([options, input, expect]) => {
   test(`should add createHref with ${JSON.stringify(options)} and return '${expect}'`, t => {
-    const historyFactory = () => {
-      return {};
-    };
-
     const history = useBasename(historyFactory)(options);
 
     t.truthy(history.createHref);

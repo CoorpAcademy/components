@@ -8,8 +8,8 @@ const Customer = props => {
   return (
     <div className={className}>
       <div className={style.content}>
-        {coorpOriginal && <span className={style.coorp}>Coorp</span>}
-        {coorpOriginal && <span className={style.original}>Original</span>}
+        {coorpOriginal ? <span className={style.coorp}>Coorp </span> : null}
+        {coorpOriginal ? <span className={style.original}>Original </span> : null}
         {!coorpOriginal && name}
       </div>
     </div>

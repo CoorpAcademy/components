@@ -1,6 +1,3 @@
-/* eslint-disable react/no-danger */
-/* eslint-disable react/jsx-no-comment-textnodes */
-
 import React from 'react';
 import {
   NovaLineContentEditionQuillCircle as QuillCircle,
@@ -13,9 +10,9 @@ import PropTypes from 'prop-types';
 import Provider from '../../atom/provider';
 import style from './style.css';
 
-const Choice = ({title, subtitle, handleOnClick, children}) => {
+const Choice = ({title, subtitle, onClick, children}) => {
   return (
-    <a className={style.choice} onClick={handleOnClick}>
+    <a className={style.choice} onClick={onClick}>
       <div className={style.choiceContent}>
         <div className={style.choiceLeftIconWrapper}>{children}</div>
         <div className={style.choiceDescription}>
@@ -28,6 +25,13 @@ const Choice = ({title, subtitle, handleOnClick, children}) => {
       </div>
     </a>
   );
+};
+
+Choice.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  onClick: PropTypes.func,
+  children: PropTypes.node
 };
 
 const Modal = props => {
@@ -45,13 +49,18 @@ const Modal = props => {
           </div>
           <Close onClick={onClose} className={style.headerCloseIcon} />
         </header>
-        <div className={style.description} dangerouslySetInnerHTML={{__html: description}} />
+        <div
+          className={style.description}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{__html: description}}
+        />
         <div className={style.choices}>
           <Choice
             key={choices.left.title}
             title={choices.left.title}
             subtitle={choices.left.subtitle}
-            handleOnClick={choices.left.onClick}
+            // eslint-disable-next-line react/jsx-handler-names
+            onClick={choices.left.onClick}
           >
             <QuillCircle className={style.choiceLeftIcon} />
           </Choice>
@@ -59,7 +68,8 @@ const Modal = props => {
             key={choices.right.title}
             title={choices.right.title}
             subtitle={choices.right.subtitle}
-            handleOnClick={choices.right.onClick}
+            // eslint-disable-next-line react/jsx-handler-names
+            onClick={choices.right.onClick}
           >
             <ImportIcon className={style.choiceLeftIcon} />
           </Choice>
@@ -74,14 +84,14 @@ Modal.propTypes = {
   description: PropTypes.string,
   choices: PropTypes.shape({
     left: PropTypes.shape({
-      title: PropTypes.string,
-      subtitle: PropTypes.string,
-      onClick: PropTypes.func
+      title: Choice.propTypes.title,
+      subtitle: Choice.propTypes.subtitle,
+      onClick: Choice.propTypes.onClick
     }),
     right: PropTypes.shape({
-      title: PropTypes.string,
-      subtitle: PropTypes.string,
-      onClick: PropTypes.func
+      title: Choice.propTypes.title,
+      subtitle: Choice.propTypes.subtitle,
+      onClick: Choice.propTypes.onClick
     })
   }),
   onClose: PropTypes.func

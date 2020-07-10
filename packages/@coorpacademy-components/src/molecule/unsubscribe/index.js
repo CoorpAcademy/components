@@ -6,30 +6,34 @@ import style from './style.css';
 
 const Unsubscribe = (props, context) => {
   const {translate} = context;
-  const {moocUrl} = props;
+  const {moocUrl, hasUnsubscribed, onUnsubscribeButtonClick} = props;
 
   return (
     <div>
-      {!props.hasUnsubscribed && (
+      {!hasUnsubscribed ? (
         <div className={style.unsubscribe}>
-          <div className={style.description}>{translate('confirm_unsubscribe')}</div>
+          <div className={style.description}>{translate('confirm_unsubscribe')} </div>
           <div className={style.buttonContainer}>
             <Link className={style.keepSubscriptionButton} href={moocUrl}>
               {translate('keep_subscription')}
             </Link>
           </div>
           <div className={style.buttonContainer}>
-            <button className={style.unsubscribeButton} onClick={props.onUnsubscribeButtonClick}>
+            <button
+              type="button"
+              className={style.unsubscribeButton}
+              onClick={onUnsubscribeButtonClick}
+            >
               {translate('unsubscribe')}
             </button>
           </div>
         </div>
-      )}
-      {props.hasUnsubscribed && (
+      ) : null}
+      {hasUnsubscribed ? (
         <div className={style.unsubscribeConfirmation}>
           {translate('premium_unsubscribe_confirmation')}
         </div>
-      )}
+      ) : null}
     </div>
   );
 };

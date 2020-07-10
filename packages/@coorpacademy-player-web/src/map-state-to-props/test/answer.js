@@ -192,11 +192,11 @@ test('should create edited qcmGraphic props', t => {
   t.is(props.type, 'qcmGraphic');
   t.is(props.answers.length, 2);
 
-  const answers = pipe(
-    map(pick(['title', 'selected'])),
-    sortBy('title')
-  )(props.answers);
-  t.deepEqual(answers, [{title: 'Faux', selected: false}, {title: 'Vrai', selected: true}]);
+  const answers = pipe(map(pick(['title', 'selected'])), sortBy('title'))(props.answers);
+  t.deepEqual(answers, [
+    {title: 'Faux', selected: false},
+    {title: 'Vrai', selected: true}
+  ]);
 
   t.true(isFunction(props.answers[0].onClick));
 

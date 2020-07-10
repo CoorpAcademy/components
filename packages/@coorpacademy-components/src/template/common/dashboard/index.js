@@ -9,8 +9,13 @@ import StartBattle from '../../../molecule/dashboard/start-battle';
 import style from './style.css';
 
 const Hero = ({hero, welcome}) => (
-  <div className={style.hero}>{hero ? <HeroCard hero {...hero} /> : <Slide {...welcome} />}</div>
+  <div className={style.hero}>{hero ? <HeroCard {...hero} /> : <Slide {...welcome} />}</div>
 );
+
+Hero.propTypes = {
+  hero: PropTypes.shape(HeroCard.propTypes),
+  welcome: PropTypes.shape(Slide.propTypes)
+};
 
 const Dashboard = props => {
   const {sections = [], hero, welcome} = props;
@@ -47,8 +52,8 @@ const Dashboard = props => {
 };
 
 Dashboard.propTypes = {
-  hero: PropTypes.shape(HeroCard.propTypes),
-  welcome: PropTypes.shape(Slide.propTypes),
+  hero: Hero.propTypes.hero,
+  welcome: Hero.propTypes.welcome,
   sections: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.shape(BattleRequestList.propTypes),

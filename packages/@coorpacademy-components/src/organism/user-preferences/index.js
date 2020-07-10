@@ -14,6 +14,11 @@ const Settings = props => {
   );
 };
 
+Settings.propTypes = {
+  ...InputSwitch.propTypes,
+  label: PropTypes.string
+};
+
 const UserPreferences = props => {
   const {preferences = []} = props;
 
@@ -30,13 +35,7 @@ const UserPreferences = props => {
 };
 
 UserPreferences.propTypes = {
-  preferences: PropTypes.arrayOf(
-    PropTypes.shape({
-      value: PropTypes.bool,
-      label: PropTypes.string,
-      onChange: PropTypes.func
-    })
-  )
+  preferences: PropTypes.arrayOf(PropTypes.shape(Settings.propTypes))
 };
 
 export default UserPreferences;

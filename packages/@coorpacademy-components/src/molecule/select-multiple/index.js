@@ -15,9 +15,32 @@ const themeStyle = {
 };
 
 class SelectMultiple extends React.Component {
-  state = {
-    opened: false
+  static propTypes = {
+    title: PropTypes.string,
+    placeholder: PropTypes.string,
+    description: PropTypes.string,
+    options: PropTypes.arrayOf(TitledCheckbox.propTypes.choice),
+    onChange: PropTypes.func,
+    multiple: PropTypes.bool,
+    theme: PropTypes.string,
+    modified: PropTypes.bool,
+    required: PropTypes.bool,
+    error: PropTypes.bool
   };
+
+  static contextTypes = {
+    skin: Provider.childContextTypes.skin
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      opened: false
+    };
+
+    this.node = null;
+    this.setNode = el => (this.node = el);
+  }
 
   componentDidMount() {
     if (typeof document !== 'undefined') {
@@ -34,14 +57,15 @@ class SelectMultiple extends React.Component {
   }
 
   handleOnClick = e => {
+    const {opened} = this.state;
     e.preventDefault();
     e.stopPropagation();
 
-    this.setState({opened: !this.state.opened});
+    this.setState({opened: !opened});
   };
 
   closeHandle = e => {
-    if (!this.node.contains(e.target)) {
+    if (this.node && !this.node.contains(e.target)) {
       this.setState({opened: false});
     }
   };
@@ -83,6 +107,7 @@ class SelectMultiple extends React.Component {
       required = false,
       error = false
     } = this.props;
+    const {opened} = this.state;
 
     this._choices = options;
 
@@ -97,16 +122,12 @@ class SelectMultiple extends React.Component {
         </li>
       );
     }, options);
-    const selection = pipe(
-      filter({selected: true}),
-      map('name'),
-      join(', ')
-    )(options);
+    const selection = pipe(filter({selected: true}), map('name'), join(', '))(options);
 
     const _title = title && `${title}${required ? ' *' : ''}`;
 
-    const titleView = title && <span className={style.title}>{_title}</span>;
-    const isActive = this.state.opened === true;
+    const titleView = title ? <span className={style.title}>{_title} </span> : null;
+    const isActive = opened === true;
     const mainClass = theme ? themeStyle[theme] : style.default;
     const behaviourClassName = getClassState(
       style.default,
@@ -117,7 +138,7 @@ class SelectMultiple extends React.Component {
     );
 
     return (
-      <div className={classnames(mainClass, behaviourClassName)} ref={node => (this.node = node)}>
+      <div className={classnames(mainClass, behaviourClassName)} ref={this.setNode}>
         <label>
           {titleView}
           <div
@@ -141,25 +162,4 @@ class SelectMultiple extends React.Component {
   }
 }
 
-const SelectOptionPropTypes = {
-  name: PropTypes.string.isRequired,
-  value: PropTypes.string,
-  selected: PropTypes.bool
-};
-
-SelectMultiple.contextTypes = {
-  skin: Provider.childContextTypes.skin
-};
-
-SelectMultiple.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes)),
-  onChange: PropTypes.func,
-  multiple: PropTypes.bool,
-  theme: PropTypes.string,
-  modified: PropTypes.bool,
-  required: PropTypes.bool,
-  error: PropTypes.bool
-};
 export default SelectMultiple;

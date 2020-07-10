@@ -8,12 +8,12 @@ import {
   getCurrentSlide,
   getPrevAnswer,
   getQuestionType,
-  hasSeenLesson
+  hasSeenLesson,
 } from '../../utils/state-extract';
 import {createAnswer} from '../api/progressions';
 import {fetchAnswer} from '../api/answers';
 import {fetchSlideChapter} from '../api/contents';
-import type {DispatchedAction, GetState, Options} from '../../definitions/redux';
+import type {DispatchedAction, GetState, Options, Dispatch} from '../../definitions/redux';
 import type {PostAnswerPartialPayload} from '../../definitions/services/progressions';
 import {PROGRESSION_UPDATED_ON_MOVE, progressionUpdated} from '../api/analytics';
 import {selectRoute} from './route';
@@ -29,7 +29,7 @@ export const ANSWER_EDIT = {
   qcmDrag: '@@answer/EDIT_QCM_DRAG',
   template: '@@answer/EDIT_TEMPLATE',
   basic: '@@answer/EDIT_BASIC',
-  slider: '@@answer/EDIT_SLIDER'
+  slider: '@@answer/EDIT_SLIDER',
 };
 
 type PayloadEditAnswer = Array<string>;
@@ -49,7 +49,7 @@ const newState = (
       // $FlowFixMe string [1] is incompatible with property label of unknown type
       if (includes(newValue.label, state)) {
         // $FlowFixMe dont see if (newValue.label === undefined) above...
-        return remove(label => label === newValue.label)(state);
+        return remove((label) => label === newValue.label)(state);
       } else {
         // $FlowFixMe property label of unknown type [1] is incompatible with string
         return [...state, newValue.label];
@@ -67,7 +67,7 @@ const newState = (
 };
 
 export const editAnswer = (newValue: string | Array<string> | Choice) => (
-  dispatch: Function,
+  dispatch: Dispatch,
   getState: GetState
 ): DispatchedAction => {
   const state = getState();
@@ -76,7 +76,8 @@ export const editAnswer = (newValue: string | Array<string> | Choice) => (
   if (!slide) {
     return dispatch({
       type: EDIT_ANSWER_ERROR,
-      meta: 'Cannot edit this answer, slide is not found'
+      // $FlowFixMe meta should not be a string
+      meta: 'Cannot edit this answer, slide is not found',
     });
   }
 
@@ -96,14 +97,14 @@ export const editAnswer = (newValue: string | Array<string> | Choice) => (
   return dispatch({
     type,
     meta: {
-      progressionId
+      progressionId,
     },
-    payload: newState(userAnswers, questionType, newValue)
+    payload: newState(userAnswers, questionType, newValue),
   });
 };
 
 export const validateAnswer = (partialPayload: PostAnswerPartialPayload) => async (
-  dispatch: Function,
+  dispatch: Dispatch,
   getState: GetState,
   {services}: Options
 ): DispatchedAction => {
@@ -113,7 +114,8 @@ export const validateAnswer = (partialPayload: PostAnswerPartialPayload) => asyn
   if (!slide) {
     return dispatch({
       type: VALIDATE_ERROR,
-      meta: 'Cannot validate answer without a slide or o progressionId'
+      // $FlowFixMe meta should not be a string
+      meta: 'Cannot validate answer without a slide or o progressionId',
     });
   }
 
@@ -121,8 +123,9 @@ export const validateAnswer = (partialPayload: PostAnswerPartialPayload) => asyn
   const answer = getAnswerValues(slide, initialState);
 
   const [createAnswerResponse] = await Promise.all([
+    // $FlowFixMe Action is incompatible
     dispatch(createAnswer(progressionId, answer, partialPayload)),
-    dispatch(selectRoute('correction'))
+    dispatch(selectRoute('correction')),
   ]);
   if (createAnswerResponse.error) return dispatch(selectRoute('answer'));
 
@@ -143,10 +146,13 @@ export const validateAnswer = (partialPayload: PostAnswerPartialPayload) => asyn
   if (isNull(isCorrect)) return dispatch(selectProgression(progressionId));
 
   if (isCorrect) {
+    // $FlowFixMe Action is incompatible
     await dispatch(toggleAccordion(ACCORDION_TIPS));
   } else if (nextContentRef !== 'extraLife' && hasSeenLesson(state, true)) {
+    // $FlowFixMe Action is incompatible
     await dispatch(toggleAccordion(ACCORDION_KLF));
   } else {
+    // $FlowFixMe Action is incompatible
     await dispatch(toggleAccordion(ACCORDION_LESSON));
   }
 

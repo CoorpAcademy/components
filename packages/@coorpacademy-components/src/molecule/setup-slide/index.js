@@ -60,36 +60,36 @@ SetupSlide.propTypes = {
   fields: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.shape({
-        type: PropTypes.oneOf(['switch']),
-        ...InputSwitch.propTypes
+        ...InputSwitch.propTypes,
+        type: PropTypes.oneOf(['switch'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['select']),
-        ...Select.propTypes
+        ...Select.propTypes,
+        type: PropTypes.oneOf(['select'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['checkbox']),
-        ...InputCheckbox.propTypes
+        ...InputCheckbox.propTypes,
+        type: PropTypes.oneOf(['checkbox'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['image']),
-        ...ImageUpload.propTypes
+        ...ImageUpload.propTypes,
+        type: PropTypes.oneOf(['image'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['readonly']),
-        ...InputReadonly.propTypes
+        ...InputReadonly.propTypes,
+        type: PropTypes.oneOf(['readonly'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['doublestep']),
-        ...InputDoublestep.propTypes
+        ...InputDoublestep.propTypes,
+        type: PropTypes.oneOf(['doublestep'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['splitForm']),
-        ...SetupCohortItem.propTypes
+        ...SetupCohortItem.propTypes,
+        type: PropTypes.oneOf(['splitForm'])
       }),
       PropTypes.shape({
-        type: PropTypes.oneOf(['alert']),
-        ...MessagePopin.propTypes
+        ...MessagePopin.propTypes,
+        type: PropTypes.oneOf(['alert'])
       }),
       PropTypes.shape(InputText.propTypes)
     ])

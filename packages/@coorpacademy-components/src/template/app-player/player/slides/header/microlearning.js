@@ -13,6 +13,11 @@ const Content = ({onClick, title}, context) => (
   </Link>
 );
 
+Content.propTypes = {
+  onClick: Link.propTypes.onClick,
+  title: PropTypes.node
+};
+
 const MicrolearningHeader = (props, context) => {
   const {content} = props;
   return <Content {...content} />;

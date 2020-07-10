@@ -45,7 +45,7 @@ News.propTypes = {
   date: PropTypes.string,
   description: PropTypes.string,
   authorLogo: PropTypes.string,
-  cta: PropTypes.shape(Cta.PropTypes)
+  cta: PropTypes.shape(Cta.propTypes)
 };
 
 export default News;

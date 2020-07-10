@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {find, keys, map, get, filter} from 'lodash/fp';
@@ -31,12 +31,13 @@ const Select = (props, context) => {
     description,
     theme,
     modified = false,
-    error = false
+    error = false,
+    title: propTitle
   } = props;
 
   const {skin} = context;
 
-  const title = props.title && `${props.title}${required ? '*' : ''}`;
+  const title = propTitle ? `${propTitle}${required ? '*' : ''}` : null;
 
   const optionList =
     options &&
@@ -48,7 +49,7 @@ const Select = (props, context) => {
       );
     });
 
-  const titleView = title && <span className={style.title}>{title}</span>;
+  const titleView = title ? <span className={style.title}>{title} </span> : null;
 
   const selected = multiple
     ? map(get('value'), filter({selected: true}, options))
@@ -57,13 +58,17 @@ const Select = (props, context) => {
     ? map(get('name'), filter({selected: true}, options))
     : get('name', find({selected: true}, options));
 
-  const handleChange = multiple
-    ? e => {
-        onChange(map(get('value'), e.target.selectedOptions));
-      }
-    : e => {
-        onChange(e.target.value);
-      };
+  const handleChange = useMemo(
+    () =>
+      multiple
+        ? e => {
+            onChange(map(get('value'), e.target.selectedOptions));
+          }
+        : e => {
+            onChange(e.target.value);
+          },
+    [onChange, multiple]
+  );
 
   const black = get('common.black', skin);
   const color = get('common.primary', skin);

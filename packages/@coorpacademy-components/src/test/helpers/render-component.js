@@ -1,9 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/server';
+import PropTypes from 'prop-types';
 import {mockTranslate} from '@coorpacademy/translate';
 import Provider from '../../atom/provider';
 
-const context = {
+export const context = {
   skin: {
     images: {
       tree: 'dummy.url'
@@ -26,5 +27,9 @@ const renderComponent = (t, Component, fixture) => {
 };
 
 export const wrappingComponent = ({children}) => <Provider {...context}>{children}</Provider>;
+
+wrappingComponent.propTypes = {
+  children: PropTypes.node
+};
 
 export default renderComponent;

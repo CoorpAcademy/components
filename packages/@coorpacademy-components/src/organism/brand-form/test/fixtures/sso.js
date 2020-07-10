@@ -14,8 +14,8 @@ export default {
         title: '1. Download Coorpacademy’s Service Provider (SP) Metadata',
         fields: [
           {
-            type: 'downloadbox',
-            ...Download.props
+            ...Download.props,
+            type: 'downloadbox'
           }
         ]
       },
@@ -68,8 +68,8 @@ export default {
           'This is the information Coorpacademy needs to connect to your IdP as a Service Provider',
         fields: [
           {
-            type: 'uploadbox',
-            ...Upload.props
+            ...Upload.props,
+            type: 'uploadbox'
           }
         ]
       },
@@ -77,8 +77,8 @@ export default {
         title: '5. Test your connection',
         fields: [
           {
-            type: 'button',
-            ...Connection.props
+            ...Connection.props,
+            type: 'button'
           }
         ]
       },

@@ -28,7 +28,8 @@ const DisciplinePartners = (props, context) => {
     const linkView = (
       <div className={style.authorLink}>
         <a
-          target={'_blank'}
+          target="_blank"
+          rel="noopener noreferrer"
           style={{
             color: defaultColor
           }}
@@ -58,11 +59,11 @@ const DisciplinePartners = (props, context) => {
       </div>
     ));
 
-    const aNameView = autName && (
+    const aNameView = autName ? (
       <div data-name="authorName" className={style.authorName}>
         {autName}
       </div>
-    );
+    ) : null;
 
     const logoView = authorLogo ? (
       <div className={style.logoContainer}>

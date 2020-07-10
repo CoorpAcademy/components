@@ -14,11 +14,11 @@ const ForumComment = (props, context) => {
   const primary = get('common.primary', skin);
   const light = get('common.light', skin);
 
-  const avatarView = avatar && (
+  const avatarView = avatar ? (
     <div className={style.image}>
       <img src={avatar} />
     </div>
-  );
+  ) : null;
 
   const button = (
     <div className={style.post}>
@@ -66,6 +66,8 @@ ForumComment.propTypes = {
   avatar: SrcPropType,
   onChange: PropTypes.func,
   onPost: PropTypes.func,
-  newPost: PropTypes.bool
+  newPost: PropTypes.bool,
+  textareaDisabled: PropTypes.bool,
+  postDisabled: PropTypes.bool
 };
 export default ForumComment;

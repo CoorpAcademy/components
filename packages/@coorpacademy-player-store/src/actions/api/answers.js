@@ -8,7 +8,7 @@ import type {
   Dispatch,
   DispatchedAction,
   GetState,
-  ThunkAction
+  ThunkAction,
 } from '../../definitions/redux';
 
 export const ANSWER_FETCH_REQUEST: string = '@@answer/FETCH_REQUEST';
@@ -23,14 +23,13 @@ export const fetchAnswer = (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
-DispatchedAction => {
+): DispatchedAction => {
   const {Answers} = services;
 
   const action: Action = buildTask({
     types: [ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS, ANSWER_FETCH_FAILURE],
     task: () => Answers.findById(progressionId, slideId, givenAnswers),
-    meta: {progressionId, slideId}
+    meta: {progressionId, slideId},
   });
   return dispatch(action);
 };

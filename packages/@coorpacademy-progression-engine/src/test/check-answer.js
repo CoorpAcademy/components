@@ -39,7 +39,11 @@ test("should return the value of `isCorrect` in checkAnswerCorrectness's result 
     type: 'qcm',
     content: {
       choices: [],
-      answers: [['answer1', 'answer3'], ['answer2', 'answer4'], ['answer1', 'answer4']]
+      answers: [
+        ['answer1', 'answer3'],
+        ['answer2', 'answer4'],
+        ['answer1', 'answer4']
+      ]
     }
   };
 
@@ -55,7 +59,11 @@ test("should return the value of `isCorrect` in checkAnswerCorrectness's result 
     type: 'qcmDrag',
     content: {
       matchOrder: true,
-      answers: [['answer1', 'answer3'], ['answer2', 'answer4'], ['answer1', 'answer4']]
+      answers: [
+        ['answer1', 'answer3'],
+        ['answer2', 'answer4'],
+        ['answer1', 'answer4']
+      ]
     }
   };
 
@@ -71,7 +79,11 @@ test("should return the value of `isCorrect` in checkAnswerCorrectness's result 
     type: 'qcmDrag',
     content: {
       matchOrder: false,
-      answers: [['answer1', 'answer3'], ['answer2', 'answer4'], ['answer1', 'answer4']]
+      answers: [
+        ['answer1', 'answer3'],
+        ['answer2', 'answer4'],
+        ['answer1', 'answer4']
+      ]
     }
   };
 

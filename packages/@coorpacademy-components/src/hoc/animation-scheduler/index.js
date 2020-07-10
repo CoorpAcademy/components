@@ -83,15 +83,28 @@ const mergeAnimationStates = (animations, children) => {
 };
 
 class AnimationScheduler extends React.Component {
+  static propTypes = {
+    onAnimationEnd: PropTypes.func,
+    animated: PropTypes.bool,
+    children: PropTypes.node
+  };
+
   static getDerivedStateFromProps(props, state) {
+    const {children} = props;
+    const {animations} = state;
     return {
-      animations: mergeAnimationStates(state.animations, props.children)
+      animations: mergeAnimationStates(animations, children)
     };
   }
 
-  state = {
-    animations: mergeAnimationStates({}, this.props.children)
-  };
+  constructor(props) {
+    super(props);
+
+    const {children} = props;
+    this.state = {
+      animations: mergeAnimationStates({}, children)
+    };
+  }
 
   isAnimated(after) {
     if (isNil(after)) return true;
@@ -140,11 +153,6 @@ class AnimationScheduler extends React.Component {
     )(children);
   }
 }
-
-AnimationScheduler.propTypes = {
-  onAnimationEnd: PropTypes.func,
-  animated: PropTypes.bool
-};
 
 export default AnimationScheduler;
 

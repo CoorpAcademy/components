@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {get} from 'lodash/fp';
 import {NovaCompositionNavigationMore as ClearIcon} from '@coorpacademy/nova-icons';
@@ -7,10 +7,13 @@ import style from './style.css';
 
 const SearchForm = (props, context) => {
   const {action, method, onSubmit, onReset, search, onSearchFocus, onSearchBlur} = props;
-  const handleSubmit = evt => {
-    evt.preventDefault();
-    return onSubmit && onSubmit(evt);
-  };
+  const handleSubmit = useMemo(
+    () => evt => {
+      evt.preventDefault();
+      return onSubmit && onSubmit(evt);
+    },
+    [onSubmit]
+  );
   const {skin} = context;
   const dark = get('common.dark', skin);
 

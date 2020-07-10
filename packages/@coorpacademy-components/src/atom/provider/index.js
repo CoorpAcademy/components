@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unused-state */
 import React from 'react';
 import PropTypes from 'prop-types';
 import {defaultsDeep} from 'lodash/fp';
@@ -29,32 +28,6 @@ const DEFAULT_SKIN = {
 
 const mergeSkin = (skin = {}) => defaultsDeep(skin, DEFAULT_SKIN);
 
-class Provider extends React.Component {
-  static getDerivedStateFromProps(props) {
-    const {history, skin, translate} = props;
-
-    return {
-      history,
-      skin: mergeSkin(skin),
-      translate
-    };
-  }
-
-  constructor(props, context) {
-    const {history, skin, translate, Vimeo} = props;
-    super(props, context);
-    this.state = {history, skin: mergeSkin(skin), translate, Vimeo};
-  }
-
-  getChildContext() {
-    return this.state;
-  }
-
-  render() {
-    return React.Children.only(this.props.children);
-  }
-}
-
 const historyShape = PropTypes.shape({
   createHref: PropTypes.func,
   push: PropTypes.func
@@ -76,21 +49,49 @@ const skinShape = PropTypes.shape({
 
 const translateShape = PropTypes.func;
 
-Provider.propTypes = {
-  history: historyShape,
-  skin: skinShape,
-  translate: translateShape,
-  children: PropTypes.element.isRequired,
-  Vimeo: PropTypes.shape({
-    common: PropTypes.func
-  })
-};
+class Provider extends React.Component {
+  static propTypes = {
+    history: historyShape,
+    skin: skinShape,
+    translate: translateShape,
+    children: PropTypes.node.isRequired,
+    Vimeo: PropTypes.shape({
+      common: PropTypes.func
+    })
+  };
 
-Provider.childContextTypes = {
-  history: historyShape,
-  skin: skinShape,
-  translate: translateShape.isRequired,
-  Vimeo: PropTypes.object
-};
+  static childContextTypes = {
+    history: historyShape,
+    skin: skinShape,
+    translate: translateShape.isRequired,
+    Vimeo: PropTypes.object
+  };
+
+  static getDerivedStateFromProps(props) {
+    const {history, skin, translate} = props;
+
+    return {
+      history,
+      skin: mergeSkin(skin),
+      translate
+    };
+  }
+
+  constructor(props, context) {
+    super(props, context);
+    const {history, skin, translate, Vimeo} = props;
+    // eslint-disable-next-line react/no-unused-state
+    this.state = {history, skin: mergeSkin(skin), translate, Vimeo};
+  }
+
+  getChildContext() {
+    return this.state;
+  }
+
+  render() {
+    const {children} = this.props;
+    return React.Children.only(children);
+  }
+}
 
 export default Provider;

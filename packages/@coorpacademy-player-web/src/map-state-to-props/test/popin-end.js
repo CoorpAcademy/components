@@ -33,17 +33,20 @@ const services = {
   }
 };
 
-const createDispatch = state => async action => {
-  const dispatched = [];
+const createDispatch = state => {
   const getState = () => state;
-  const dispatch = maybeAction =>
-    isFunction(maybeAction)
-      ? maybeAction(dispatch, getState, {services})
-      : dispatched.push(maybeAction);
 
-  await dispatch(action);
+  return async action => {
+    const dispatched = [];
+    const dispatch = maybeAction =>
+      isFunction(maybeAction)
+        ? maybeAction(dispatch, getState, {services})
+        : dispatched.push(maybeAction);
 
-  return dispatched;
+    await dispatch(action);
+
+    return dispatched;
+  };
 };
 
 const actionTypes = actions => map(({type}) => type, actions);

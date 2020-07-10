@@ -10,9 +10,9 @@ export default {
     sortCTALabel: 'Sort',
     filters: [
       {
+        ...selectFilter,
         type: 'select',
         fieldName: 'Thematic',
-        ...selectFilter,
         title: 'Thematic:',
         options: [
           {
@@ -34,8 +34,8 @@ export default {
         onChange: value => console.log(value)
       },
       {
-        type: 'select',
         ...selectFilter,
+        type: 'select',
         fieldName: 'Authors',
         title: 'Authors:',
         options: [
@@ -60,8 +60,8 @@ export default {
         onChange: value => console.log(value)
       },
       {
-        type: 'select',
         ...selectFilter,
+        type: 'select',
         fieldName: 'Courses',
         title: 'Learning Paths:',
         options: [

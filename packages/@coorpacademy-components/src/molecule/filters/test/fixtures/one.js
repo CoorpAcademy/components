@@ -12,9 +12,9 @@ export default {
     sortCTALabel: 'Sort',
     filters: [
       {
+        ...selectFilter,
         type: 'select',
         fieldName: 'Thematic',
-        ...selectFilter,
         title: 'Thematic:',
         options: [
           {

@@ -10,8 +10,11 @@ import type {SlidesService} from './slides';
 import type {VideosService} from './videos';
 
 type Services = {
+  // eslint-disable-next-line flowtype/no-weak-types
   Analytics: any,
+  // eslint-disable-next-line flowtype/no-weak-types
   Comments: any,
+  // eslint-disable-next-line flowtype/no-weak-types
   LeaderBoard: any,
   Answers: AnswersService,
   Clues: CluesService,
@@ -20,7 +23,7 @@ type Services = {
   Progressions: ProgressionsService,
   Recommendations: RecommendationsService,
   Slides: SlidesService,
-  Videos: VideosService
+  Videos: VideosService,
 };
 
 export type {Services};

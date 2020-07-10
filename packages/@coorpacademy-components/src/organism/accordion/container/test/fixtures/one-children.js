@@ -10,5 +10,5 @@ export default {
       }
     ]
   },
-  children: [<QcmGraphic key="1" {...qcmGraphicFixture.props} />]
+  children: [<QcmGraphic {...qcmGraphicFixture.props} key="1" />]
 };

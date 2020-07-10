@@ -4,14 +4,14 @@ import {find} from 'lodash/fp';
 import Select, {SelectOptionPropTypes} from '../../../atom/select';
 import style from './style.css';
 
-const DropDown = (props, context) => {
-  const {options, onChange} = props;
+const DropDown = props => {
+  const {options, onChange, theme: propsTheme} = props;
 
   const currentSelection = find('selected', options);
   const defaultTheme =
     !currentSelection || currentSelection.validOption === false ? 'invalid' : 'question';
 
-  const theme = props.theme || defaultTheme;
+  const theme = propsTheme || defaultTheme;
 
   return (
     <div className={style.wrapper}>
@@ -24,7 +24,8 @@ DropDown.propTypes = {
   onChange: Select.propTypes.onChange,
   options: PropTypes.arrayOf(
     PropTypes.shape({...SelectOptionPropTypes, validOption: PropTypes.bool})
-  )
+  ),
+  theme: Select.propTypes.theme
 };
 
 export default DropDown;

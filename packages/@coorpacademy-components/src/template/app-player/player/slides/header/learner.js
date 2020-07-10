@@ -35,12 +35,23 @@ Content.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
+Content.propTypes = {
+  onClick: Link.propTypes.onClick,
+  title: PropTypes.string.isRequired,
+  details: PropTypes.string
+};
+
 const Subcontent = ({title, details}, context) => (
   <div className={style.subcontent}>
     <div className={style.subcontentDetails}>{details}</div>
     <div className={style.subcontentTitle}>{title}</div>
   </div>
 );
+
+Subcontent.propTypes = {
+  title: PropTypes.string.isRequired,
+  details: PropTypes.string
+};
 
 const LearnerHeader = (props, context) => {
   const {content, subcontent} = props;
@@ -54,15 +65,8 @@ const LearnerHeader = (props, context) => {
 };
 
 LearnerHeader.propTypes = {
-  content: PropTypes.shape({
-    onClick: Link.propTypes.onClick,
-    title: PropTypes.string.isRequired,
-    details: PropTypes.string
-  }).isRequired,
-  subcontent: PropTypes.shape({
-    title: PropTypes.string.isRequired,
-    details: PropTypes.string
-  }).isRequired
+  content: PropTypes.shape(Content.propTypes).isRequired,
+  subcontent: PropTypes.shape(Subcontent.propTypes).isRequired
 };
 
 export default LearnerHeader;

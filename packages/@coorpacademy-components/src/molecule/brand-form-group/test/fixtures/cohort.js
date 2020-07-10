@@ -8,8 +8,8 @@ export default {
     subtitle: 'Explanation about',
     fields: [
       {
-        type: 'slider',
-        ...props
+        ...props,
+        type: 'slider'
       }
     ]
   }

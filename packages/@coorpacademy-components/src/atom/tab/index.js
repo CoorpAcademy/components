@@ -1,20 +1,20 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {map} from 'lodash/fp';
 import style from './style.css';
 
-const Tab = props => {
-  const handleTabClick = () => props.onClick(props.targetContent);
+const Tab = ({onClick, links, title, targetContent}) => {
+  const handleTabClick = useMemo(() => () => onClick(targetContent), [onClick, targetContent]);
 
   return (
     <div className={style.tab} onClick={handleTabClick}>
-      <div className={style.title}>{props.title}</div>
+      <div className={style.title}>{title}</div>
       <div className={style.link}>
         {map(
           link => (
             <div key={link.title}>{link.title}</div>
           ),
-          props.links
+          links
         )}
       </div>
     </div>

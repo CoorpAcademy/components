@@ -6,8 +6,8 @@ import DropDown from '../drop-down';
 import FreeText from '../free-text';
 import style from './style.css';
 
-const Template = props => {
-  const totalTemplate = parseTemplateString(props.template);
+const Template = ({template, answers}) => {
+  const totalTemplate = parseTemplateString(template);
   const templateCompose = map.convert({cap: false})((part, key) => {
     const type = part.type;
     if (type === 'string') {
@@ -22,7 +22,7 @@ const Template = props => {
       );
     }
     if (type === 'answerField') {
-      const field = find({name: part.value}, props.answers);
+      const field = find({name: part.value}, answers);
       if (!field) return null;
       const fieldView =
         field.type === 'text' ? (

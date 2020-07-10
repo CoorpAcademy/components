@@ -8,8 +8,8 @@ const content = UserEdit.props;
 export default {
   props: defaultsDeep(props, {
     content: {
-      type: 'form',
-      ...content
+      ...content,
+      type: 'form'
     }
   })
 };

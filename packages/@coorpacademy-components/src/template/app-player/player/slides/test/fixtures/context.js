@@ -10,6 +10,8 @@ const resourceProps = ResourceBrowser.props;
 
 export default {
   props: {
+    ...resourceProps,
+    ...footerProps,
     typeClue: 'context',
     answerType: {
       model: []
@@ -34,8 +36,6 @@ export default {
       ...props,
       submitValue: 'Back to Question'
     },
-    header: headerProps,
-    ...resourceProps,
-    ...footerProps
+    header: headerProps
   }
 };

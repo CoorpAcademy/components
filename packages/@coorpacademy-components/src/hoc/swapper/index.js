@@ -1,15 +1,24 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 export const safeCancelAnimationFrame = requestId => requestId && cancelAnimationFrame(requestId);
 
 class Swapper extends React.Component {
-  state = {
-    init: true
+  static propTypes = {
+    children: PropTypes.node
   };
+
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      init: true
+    };
+  }
 
   componentDidMount() {
     if (typeof requestAnimationFrame !== 'undefined') {
-      this.requestID = requestAnimationFrame(() => this.setState(() => ({init: false})));
+      this.requestID = requestAnimationFrame(() => this.setState({init: false}));
     }
   }
 

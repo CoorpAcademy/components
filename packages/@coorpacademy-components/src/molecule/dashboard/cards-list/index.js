@@ -23,8 +23,14 @@ const ShowMoreLink = (props, context) => {
     </div>
   );
 };
+
 ShowMoreLink.contextTypes = {
   skin: Provider.childContextTypes.skin
+};
+
+ShowMoreLink.propTypes = {
+  onShowMore: PropTypes.func,
+  showMore: PropTypes.string
 };
 
 const IconView = (props, context) => {
@@ -53,7 +59,26 @@ IconView.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
+IconView.propTypes = {
+  contentType: PropTypes.string
+};
+
 class CardsList extends React.Component {
+  static propTypes = {
+    contentType: PropTypes.string,
+    dataName: PropTypes.string,
+    title: PropTypes.string,
+    showMore: PropTypes.string,
+    cards: PropTypes.arrayOf(PropTypes.shape(Card.protoTypes)),
+    onScroll: PropTypes.func,
+    onShowMore: PropTypes.func
+  };
+
+  static contextTypes = {
+    skin: Provider.childContextTypes.skin,
+    translate: Provider.childContextTypes.translate
+  };
+
   constructor(props) {
     super(props);
     this.cards = [];
@@ -145,7 +170,8 @@ class CardsList extends React.Component {
   }
 
   handleScroll(scrollEvent) {
-    if (this.props.onScroll) {
+    const {onScroll} = this.props;
+    if (onScroll) {
       const leftBound = this.leftBound();
       const rightBound = this.rightBound();
 
@@ -155,7 +181,7 @@ class CardsList extends React.Component {
       const limit = this.getPossiblePositions((el, index) => {
         return el + getOr(0, [index, 'scrollWidth'], this.cards) > leftBound && el < rightBound;
       }).length;
-      this.props.onScroll(skip, limit);
+      onScroll(skip, limit);
     }
   }
 
@@ -216,6 +242,7 @@ class CardsList extends React.Component {
 
   render() {
     const {title, showMore, cards, onShowMore, dataName, contentType} = this.props;
+    const {left, right} = this.state;
     const {skin} = this.context;
 
     const mediumColor = getOr('#90A4AE', 'common.medium', skin);
@@ -228,11 +255,11 @@ class CardsList extends React.Component {
       );
     }, cards);
 
-    const leftArrowView = this.state.left.hidden ? null : (
+    const leftArrowView = left.hidden ? null : (
       <ArrowLeft color={mediumColor} className={style.left} onClick={this.handleOnLeft} />
     );
 
-    const rightArrowView = this.state.right.hidden ? null : (
+    const rightArrowView = right.hidden ? null : (
       <ArrowRight color={mediumColor} className={style.right} onClick={this.handleOnRight} />
     );
 
@@ -264,20 +291,5 @@ class CardsList extends React.Component {
     );
   }
 }
-
-CardsList.contextTypes = {
-  skin: Provider.childContextTypes.skin,
-  translate: Provider.childContextTypes.translate
-};
-
-CardsList.propTypes = {
-  contentType: PropTypes.string,
-  dataName: PropTypes.string,
-  title: PropTypes.string,
-  showMore: PropTypes.string,
-  cards: PropTypes.arrayOf(PropTypes.shape(Card.protoTypes)),
-  onScroll: PropTypes.func,
-  onShowMore: PropTypes.func
-};
 
 export default CardsList;

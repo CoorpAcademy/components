@@ -19,6 +19,87 @@ import SearchForm from '../../molecule/search-form';
 import style from './style.css';
 
 class MoocHeader extends React.Component {
+  static propTypes = {
+    logo: PropTypes.shape({
+      src: PropTypes.string,
+      srcMobile: PropTypes.string,
+      href: PropTypes.string
+    }),
+    search: PropTypes.shape(Search.propTypes),
+    onSubmitSearch: PropTypes.func,
+    onResetSearch: PropTypes.func,
+    pages: PropTypes.shape({
+      displayed: PropTypes.arrayOf(
+        PropTypes.shape({
+          target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+          title: PropTypes.string,
+          name: PropTypes.string,
+          href: PropTypes.string,
+          selected: PropTypes.bool,
+          counter: PropTypes.number
+        })
+      ),
+      more: PropTypes.arrayOf(
+        PropTypes.shape({
+          target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+          title: PropTypes.string,
+          name: PropTypes.string,
+          href: PropTypes.string,
+          selected: PropTypes.bool,
+          counter: PropTypes.number
+        })
+      )
+    }),
+    links: PropTypes.arrayOf(PropTypes.shape(Cta.propTypes)),
+    user: PropTypes.shape({
+      picture: PropTypes.string,
+      href: PropTypes.string,
+      notifications: PropTypes.shape({
+        href: PropTypes.string,
+        value: PropTypes.number
+      }),
+      stats: PropTypes.shape({
+        stars: PropTypes.shape({
+          href: PropTypes.string,
+          label: PropTypes.string
+        }),
+        ranking: PropTypes.shape({
+          href: PropTypes.string,
+          label: PropTypes.string
+        }),
+        badge: PropTypes.shape({
+          href: PropTypes.string,
+          label: PropTypes.string
+        })
+      })
+    }),
+    settings: PropTypes.arrayOf(
+      PropTypes.shape({
+        title: PropTypes.string,
+        name: PropTypes.string,
+        type: PropTypes.oneOf(['select', 'switch', 'link']),
+        options: PropTypes.shape({
+          href: PropTypes.string,
+          onChange: PropTypes.func,
+          value: PropTypes.bool,
+          target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
+          values: PropTypes.arrayOf(
+            PropTypes.shape({
+              value: PropTypes.string,
+              name: PropTypes.string,
+              selected: PropTypes.bool
+            })
+          )
+        })
+      })
+    )
+  };
+
+  static contextTypes = {
+    translate: Provider.childContextTypes.translate,
+    skin: Provider.childContextTypes.skin
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -39,7 +120,8 @@ class MoocHeader extends React.Component {
   }
 
   componentDidUpdate(prevProps, prevState, prevContext) {
-    if (this.state.isSettingsOpen) {
+    const {isSettingsOpen} = this.state;
+    if (isSettingsOpen) {
       document.addEventListener('click', this._checkOnClose);
       document.addEventListener('touchstart', this._checkOnClose);
     } else {
@@ -53,7 +135,8 @@ class MoocHeader extends React.Component {
   }
 
   _checkOnClose(clickEvent) {
-    if (this.state.isSettingsOpen) {
+    const {isSettingsOpen} = this.state;
+    if (isSettingsOpen) {
       const menu = this.menuSettings;
       if (menu && !menu.contains(clickEvent.target)) {
         this.handleSettingsToggle();
@@ -62,7 +145,8 @@ class MoocHeader extends React.Component {
   }
 
   handleLinkClick() {
-    this.state.isMenuOpen && this.handleMenuToggle();
+    const {isMenuOpen} = this.state;
+    isMenuOpen && this.handleMenuToggle();
   }
 
   handleSettingsToggle() {
@@ -78,14 +162,16 @@ class MoocHeader extends React.Component {
   }
 
   handleSubmitSearch() {
-    if (this.props.onSubmitSearch) {
-      this.props.onSubmitSearch();
+    const {onSubmitSearch} = this.props;
+    if (onSubmitSearch) {
+      onSubmitSearch();
     }
   }
 
   handleResetSearch() {
-    if (this.props.onResetSearch) {
-      this.props.onResetSearch();
+    const {onResetSearch} = this.props;
+    if (onResetSearch) {
+      onResetSearch();
     }
   }
 
@@ -103,6 +189,7 @@ class MoocHeader extends React.Component {
 
   render() {
     const {logo = {}, pages, settings, user, links, search} = this.props;
+    const {isFocus, isSettingsOpen, isMenuOpen} = this.state;
     if (isEmpty(this.props)) return null;
     const {translate, skin} = this.context;
 
@@ -190,9 +277,7 @@ class MoocHeader extends React.Component {
       });
 
       pagesView = (
-        <div
-          className={this.props.search.value || this.state.isFocus ? style.noPages : style.pages}
-        >
+        <div className={search.value || isFocus ? style.noPages : style.pages}>
           {displayedPages}
           <div className={style.more}>
             <div className={style.currentOption} aria-haspopup="true" data-name="page-more">
@@ -207,7 +292,7 @@ class MoocHeader extends React.Component {
 
     if (links) {
       const ctas = links.map((cta, index) => {
-        return <Cta key={index} {...cta} />;
+        return <Cta {...cta} key={index} />;
       });
 
       linksView = <div className={style.links}>{ctas}</div>;
@@ -346,11 +431,7 @@ class MoocHeader extends React.Component {
             className={style.settingsToggle}
             onClick={this.handleSettingsToggle}
           />
-          <div
-            className={
-              this.state.isSettingsOpen ? style.settingsWrapper : style.settingsWrapperHidden
-            }
-          >
+          <div className={isSettingsOpen ? style.settingsWrapper : style.settingsWrapperHidden}>
             <div data-name="settings" className={style.settingsGroup}>
               {settingsElements}
             </div>
@@ -378,8 +459,8 @@ class MoocHeader extends React.Component {
       <div className={style.wrapper}>
         <div
           data-name="moocHeader"
-          data-open={this.state.isMenuOpen}
-          className={this.state.isMenuOpen ? style.open : style.header}
+          data-open={isMenuOpen}
+          className={isMenuOpen ? style.open : style.header}
         >
           <div className={style.logoWrapper}>
             <div
@@ -389,10 +470,7 @@ class MoocHeader extends React.Component {
             >
               <Picture src={logoMobileUrl} />
               {notificationsView}
-              <ArrowDown
-                color={mediumColor}
-                className={this.state.isMenuOpen ? style.caretUp : style.caret}
-              />
+              <ArrowDown color={mediumColor} className={isMenuOpen ? style.caretUp : style.caret} />
             </div>
             <Link className={style.logo} data-name="logo" href={logo.href}>
               <Picture src={logoUrl} />
@@ -412,84 +490,4 @@ class MoocHeader extends React.Component {
   }
 }
 
-MoocHeader.contextTypes = {
-  translate: Provider.childContextTypes.translate,
-  skin: Provider.childContextTypes.skin
-};
-
-MoocHeader.propTypes = {
-  logo: PropTypes.shape({
-    src: PropTypes.string,
-    srcMobile: PropTypes.string,
-    href: PropTypes.string
-  }),
-  search: PropTypes.shape(Search.propTypes),
-  onSubmitSearch: PropTypes.func,
-  onResetSearch: PropTypes.func,
-  pages: PropTypes.shape({
-    displayed: PropTypes.arrayOf(
-      PropTypes.shape({
-        target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-        title: PropTypes.string,
-        name: PropTypes.string,
-        href: PropTypes.string,
-        selected: PropTypes.bool,
-        counter: PropTypes.number
-      })
-    ),
-    more: PropTypes.arrayOf(
-      PropTypes.shape({
-        target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-        title: PropTypes.string,
-        name: PropTypes.string,
-        href: PropTypes.string,
-        selected: PropTypes.bool,
-        counter: PropTypes.number
-      })
-    )
-  }),
-  links: PropTypes.arrayOf(PropTypes.shape(Cta.propTypes)),
-  user: PropTypes.shape({
-    picture: PropTypes.string,
-    href: PropTypes.string,
-    notifications: PropTypes.shape({
-      href: PropTypes.string,
-      value: PropTypes.number
-    }),
-    stats: PropTypes.shape({
-      stars: PropTypes.shape({
-        href: PropTypes.string,
-        label: PropTypes.string
-      }),
-      ranking: PropTypes.shape({
-        href: PropTypes.string,
-        label: PropTypes.string
-      }),
-      badge: PropTypes.shape({
-        href: PropTypes.string,
-        label: PropTypes.string
-      })
-    })
-  }),
-  settings: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string,
-      name: PropTypes.string,
-      type: PropTypes.oneOf(['select', 'switch', 'link']),
-      options: PropTypes.shape({
-        href: PropTypes.string,
-        onChange: PropTypes.func,
-        value: PropTypes.bool,
-        target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
-        values: PropTypes.arrayOf(
-          PropTypes.shape({
-            value: PropTypes.string,
-            name: PropTypes.string,
-            selected: PropTypes.bool
-          })
-        )
-      })
-    })
-  )
-};
 export default MoocHeader;

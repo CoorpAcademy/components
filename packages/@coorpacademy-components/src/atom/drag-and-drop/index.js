@@ -1,12 +1,32 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {uniqueId, get} from 'lodash/fp';
+import {uniqueId, get, constant} from 'lodash/fp';
 import {NovaSolidDataTransferDataUpload1 as UploadIcon} from '@coorpacademy/nova-icons';
 import Provider from '../provider';
 import Loader from '../loader';
 import style from './style.css';
 
+const constantNull = constant(null);
+
 class DragAndDrop extends React.Component {
+  static propTypes = {
+    title: PropTypes.string,
+    description: PropTypes.string,
+    uploadLabel: PropTypes.string,
+    previewLabel: PropTypes.string,
+    previewContent: PropTypes.shape({
+      type: PropTypes.string,
+      src: PropTypes.string
+    }),
+    loading: PropTypes.bool,
+    modified: PropTypes.bool,
+    children: PropTypes.func
+  };
+
+  static contextTypes = {
+    skin: Provider.childContextTypes.skin
+  };
+
   constructor(props) {
     super(props);
 
@@ -19,15 +39,15 @@ class DragAndDrop extends React.Component {
   }
 
   handleDragStart() {
-    this.setState(prevState => ({
+    this.setState({
       dragging: true
-    }));
+    });
   }
 
   handleDragStop() {
-    this.setState(prevState => ({
+    this.setState({
       dragging: false
-    }));
+    });
   }
 
   render() {
@@ -35,7 +55,7 @@ class DragAndDrop extends React.Component {
     const brandColor = get('common.brand', skin);
     const idBox = uniqueId('drop-box-');
     const {
-      children = () => null,
+      children = constantNull,
       title,
       description,
       uploadLabel,
@@ -44,6 +64,7 @@ class DragAndDrop extends React.Component {
       loading = false,
       modified = false
     } = this.props;
+    const {dragging} = this.state;
 
     let previewView = null;
 
@@ -73,32 +94,15 @@ class DragAndDrop extends React.Component {
       <div className={style.wrapper}>
         <div className={style.title}>{title}</div>
         <div className={modified ? style.modified : style.previewWrapper}>{previewView}</div>
-        <div className={this.state.dragging ? style.dragging : style.inputWrapper} id={idBox}>
+        <div className={dragging ? style.dragging : style.inputWrapper} id={idBox}>
           <UploadIcon className={style.arrow} color={brandColor} />
           <div className={style.uploadLabel}>{uploadLabel}</div>
           {children(this.handleDragStart, this.handleDragStop)}
         </div>
-        {description && <div className={style.description}>{description}</div>}
+        {description ? <div className={style.description}>{description} </div> : null}
       </div>
     );
   }
 }
-
-DragAndDrop.contextTypes = {
-  skin: Provider.childContextTypes.skin
-};
-
-DragAndDrop.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  uploadLabel: PropTypes.string,
-  previewLabel: PropTypes.string,
-  previewContent: PropTypes.shape({
-    type: PropTypes.string,
-    src: PropTypes.string
-  }),
-  loading: PropTypes.bool,
-  modified: PropTypes.bool
-};
 
 export default DragAndDrop;

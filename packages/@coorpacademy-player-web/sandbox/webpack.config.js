@@ -6,7 +6,4 @@ const entry = {
   Player: ['@babel/polyfill', './sandbox']
 };
 
-module.exports = pipe(
-  set('entry', entry),
-  set('devServer.disableHostCheck', true)
-)(config);
+module.exports = pipe(set('entry', entry), set('devServer.disableHostCheck', true))(config);

@@ -8,10 +8,7 @@ const {pascalCase} = require('./string');
 const readComponentFixtures$ = ({title, path, type}) =>
   readFixtureFiles$(join(path, 'test')).pipe(
     map(fixturePath => {
-      const fixture = pipe(
-        f => basename(f, '.js'),
-        pascalCase
-      )(fixturePath);
+      const fixture = pipe(f => basename(f, '.js'), pascalCase)(fixturePath);
       return {
         title,
         path,

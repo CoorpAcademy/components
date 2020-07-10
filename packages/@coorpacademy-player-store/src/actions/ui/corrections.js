@@ -10,29 +10,29 @@ export const ACCORDION_TIPS = 2;
 type AccordionId = 0 | 1 | 2;
 
 type ToggleAccordionAction = {
-  type: '@@ui/TOGGLE_ACCORDION',
+  type: string, // '@@ui/TOGGLE_ACCORDION',
   payload: {
-    id: AccordionId
-  }
+    id: AccordionId,
+  },
 };
 
 type SelectResourceAction = {
-  type: '@@ui/SELECT_RESOURCE_IN_POPIN',
+  type: string, // | '@@ui/SELECT_RESOURCE_IN_POPIN',
   payload: {
-    id: string
-  }
+    id: string,
+  },
 };
 
 export const toggleAccordion = (id: AccordionId): ToggleAccordionAction => ({
   type: UI_TOGGLE_ACCORDION,
   payload: {
-    id
-  }
+    id,
+  },
 });
 
 export const selectResource = (id: string): SelectResourceAction => ({
   type: UI_SELECT_RESOURCE_IN_POPIN,
   payload: {
-    id
-  }
+    id,
+  },
 });

@@ -8,8 +8,8 @@ export default defaultsDeep(Default, {
   props: {
     filters: [
       {
-        type: 'range',
         ...timer,
+        type: 'range',
         fieldName: 'Time',
         title: 'Time:',
         subtitle: '2 mins - 3 hours +'

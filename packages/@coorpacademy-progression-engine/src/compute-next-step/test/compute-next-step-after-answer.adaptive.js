@@ -4,9 +4,9 @@ import {omit, filter} from 'lodash/fp';
 
 import {getConfig} from '../../config';
 import type {AvailableContent, Config, State} from '../../types';
+import {computeNextStepAfterAnswer, type PartialAnswerAction} from '..';
 import allSlides from './fixtures/slides';
 import getSlide from './helpers/get-slide';
-import {computeNextStepAfterAnswer, type PartialAnswerAction} from '..';
 
 const config: Config = getConfig({ref: 'learner', version: '1'});
 const partialAction = (state: State): PartialAnswerAction => ({

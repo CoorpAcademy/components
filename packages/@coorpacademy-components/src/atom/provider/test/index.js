@@ -4,8 +4,8 @@ import React from 'react';
 import {shallow, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {noop} from 'lodash/fp';
-import defaultFixture from './fixtures/default';
 import Provider from '..';
+import defaultFixture from './fixtures/default';
 
 browserEnv();
 configure({adapter: new Adapter()});

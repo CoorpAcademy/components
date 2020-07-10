@@ -5,7 +5,7 @@ const answer = Post.props;
 
 const answer1 = {
   ...answer,
-  answers: [{showEditBox: true, ...answer}, answer]
+  answers: [{...answer, showEditBox: true}, answer]
 };
 
 const answer2 = {

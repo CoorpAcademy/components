@@ -1,5 +1,5 @@
 import React from 'react';
-import {get, isEmpty} from 'lodash/fp';
+import {get, isEmpty, noop} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Provider from '../provider';
@@ -18,7 +18,22 @@ const LoadedClue = ({text}) => {
   );
 };
 
+LoadedClue.propTypes = {
+  text: PropTypes.string
+};
+
 class Clue extends React.Component {
+  static propTypes = {
+    text: LoadedClue.propTypes.text,
+    onClick: Cta.propTypes.onClick,
+    starsDiff: PropTypes.number
+  };
+
+  static contextTypes = {
+    skin: Provider.childContextTypes.skin,
+    translate: Provider.childContextTypes.translate
+  };
+
   static getDerivedStateFromProps(props) {
     const {text} = props;
     const isLoading = isEmpty(text);
@@ -38,13 +53,11 @@ class Clue extends React.Component {
   handleClick(e) {
     e.stopPropagation();
     e.preventDefault();
-    const {text, onClick} = this.props;
-    onClick && onClick(e);
+    const {text, onClick = noop} = this.props;
+    onClick(e);
     const isLoading = isEmpty(text);
-    return this.setState(() => {
-      return {
-        isLoading
-      };
+    return this.setState({
+      isLoading
     });
   }
 
@@ -75,15 +88,5 @@ class Clue extends React.Component {
     );
   }
 }
-
-Clue.contextTypes = {
-  skin: Provider.childContextTypes.skin,
-  translate: Provider.childContextTypes.translate
-};
-
-Clue.propTypes = {
-  text: PropTypes.string,
-  onClick: PropTypes.func
-};
 
 export default Clue;

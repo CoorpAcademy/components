@@ -28,7 +28,7 @@ const DisciplineCTA = (props, context) => {
 
   const startColor = getOr('#f0f', 'common.primary', skin);
 
-  const startButton = start && (
+  const startButton = start ? (
     <a
       data-name="start"
       className={style.start}
@@ -39,13 +39,13 @@ const DisciplineCTA = (props, context) => {
     >
       {startLearning}
     </a>
-  );
+  ) : null;
 
-  const buyButton = buy && (
+  const buyButton = buy ? (
     <a data-name="buy" className={style.buy} onClick={buy}>
       {premium}
     </a>
-  );
+  ) : null;
 
   return (
     <div data-name="disciplineCta" className={style.head}>

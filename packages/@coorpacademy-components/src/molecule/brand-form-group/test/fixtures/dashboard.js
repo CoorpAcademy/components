@@ -8,8 +8,8 @@ export default {
     subtitle: 'Explanation about the dashboard',
     fields: [
       {
-        type: 'sections',
-        ...props
+        ...props,
+        type: 'sections'
       }
     ]
   }

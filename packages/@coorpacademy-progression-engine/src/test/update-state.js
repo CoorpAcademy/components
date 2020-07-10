@@ -114,7 +114,7 @@ test('should return a valid state when there are no actions and state is empty',
   t.is(state.stars, 0);
   t.true(state.isCorrect);
   t.is(state.content, undefined);
-  t.deepEqual(state.nextContent, undefined);
+  t.is(state.nextContent, undefined);
   t.deepEqual(state.slides, []);
   t.deepEqual(state.requestedClues, []);
   t.deepEqual(state.viewedResources, []);
@@ -151,7 +151,7 @@ test('should update state when answering the first question correctly', t => {
   );
   t.deepEqual(newState.slides, ['1.A1.1'], 'answered slide should have been stored in `slides`');
   t.deepEqual(newState.step, {current: 2}, 'step progression is wrong');
-  t.deepEqual(newState.stars, 4, 'step progression is wrong');
+  t.is(newState.stars, 4, 'step progression is wrong');
   t.deepEqual(
     newState.content,
     state.nextContent,
@@ -203,7 +203,7 @@ test('should update state when answering the another question correctly', t => {
     'answered slide should have been stored in `slides`'
   );
   t.deepEqual(newState.step, {current: 3}, 'step progression is wrong');
-  t.deepEqual(newState.stars, 8, 'step progression is wrong');
+  t.is(newState.stars, 8, 'step progression is wrong');
   t.deepEqual(
     newState.allAnswers,
     [

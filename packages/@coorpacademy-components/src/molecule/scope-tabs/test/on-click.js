@@ -1,10 +1,10 @@
 import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
-import {shallow, configure} from 'enzyme';
+import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import fixture from './fixtures/without-status';
 import ScopeTabs from '..';
+import fixture from './fixtures/without-status';
 
 browserEnv();
 configure({adapter: new Adapter()});
@@ -15,12 +15,12 @@ test('should call onClick with the index value', t => {
   const onClick = index => {
     t.is(index, selectedIndex);
   };
-  const wrapper = shallow(<ScopeTabs {...fixture.props} onClick={onClick} />);
+  const wrapper = mount(<ScopeTabs {...fixture.props} onClick={onClick} />);
 
   [0, 1, 2].forEach(index => {
     selectedIndex = index;
     const selector = `li[data-name="scopeTab"][data-index=${selectedIndex}]`;
-    t.is(wrapper.find(selector).exists(), true);
+    t.true(wrapper.find(selector).exists());
     wrapper.find(selector).simulate('click');
   });
 });

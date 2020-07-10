@@ -3,8 +3,8 @@ import Template from '../../../questions/template/test/fixtures/multiple';
 export default {
   props: {
     model: {
-      type: 'template',
-      ...Template.props
+      ...Template.props,
+      type: 'template'
     },
     media: {
       type: 'img',

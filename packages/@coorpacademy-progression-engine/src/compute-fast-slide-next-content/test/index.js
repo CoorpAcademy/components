@@ -4,8 +4,8 @@ import test from 'ava';
 import {filter} from 'lodash/fp';
 import {getConfig} from '../../config';
 import type {AvailableContent, Config} from '../../types';
-import slide from './fixtures/slide';
 import getFastSlideExitNode from '..';
+import slide from './fixtures/slide';
 
 test('should compute a successExitNode', t => {
   const config: Config = getConfig({ref: 'learner', version: '1'});
@@ -29,7 +29,7 @@ test('should compute a successExitNode', t => {
       ref: 'successExitNode'
     }
   };
-  // $FlowFixMe
+
   const nextContent = getFastSlideExitNode(config, true, availableContent);
   t.deepEqual(nextContent, expected);
 });
@@ -56,7 +56,7 @@ test('should compute failExitNode', t => {
       ref: 'failExitNode'
     }
   };
-  // $FlowFixMe
+
   const nextContent = getFastSlideExitNode(config, false, availableContent);
   t.deepEqual(nextContent, expected);
 });

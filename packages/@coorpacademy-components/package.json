@@ -32,9 +32,12 @@
     "storybook:export": "cross-env BABEL_ENV=es build-storybook -c .storybook -o static",
     "preava": "npm run generate:fixtures",
     "ava": "ava",
-    "test:only": "nyc npm run ava",
-    "test": " npm run lint && npm run test:only",
-    "lint": "eslint . --ext .js,.json"
+    "test:unit": "nyc npm run ava",
+    "test": " npm run lint && npm run test:unit",
+    "lint": "eslint . --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\""
+  },
+  "engines": {
+    "node": ">=8.3.0"
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",
@@ -81,7 +84,7 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "@coorpacademy/css-modules-require-hook": "2.1.1",
-    "@coorpacademy/eslint-plugin-coorpacademy": "^9.0.1",
+    "@coorpacademy/eslint-plugin-coorpacademy": "^10.0.0",
     "@coorpacademy/translate": "6.1.1",
     "@coorpacademy/webpack-config": "10.0.0",
     "@storybook/addon-knobs": "^5.3.18",
@@ -97,10 +100,11 @@
     "cross-env": "^7.0.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
-    "eslint": "^6.6.0",
+   "eslint": "^7.3.1",
     "file-loader": "^6.0.0",
     "glob": "^7.1.6",
     "madge": "^3.5.0",
+    "minimatch": "^3.0.4",
     "nyc": "^15.0.1",
     "postcss-loader": "^3.0.0",
     "prop-types": "^15.7.2",

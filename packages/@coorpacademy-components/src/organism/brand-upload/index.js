@@ -22,14 +22,14 @@ const BrandUpload = props => {
     </div>
   ));
 
-  const oneLoginTokensView = oneLoginTokens && (
+  const oneLoginTokensView = oneLoginTokens ? (
     <div>
       <div className={style.title}>
-        <h3>{oneLoginTokens.title}</h3>
+        <h3>{oneLoginTokens.title} </h3>
       </div>
-      {oneLoginTokens.download && <DownloadBox {...oneLoginTokens.download} />}
+      {oneLoginTokens.download ? <DownloadBox {...oneLoginTokens.download} /> : null}
     </div>
-  );
+  ) : null;
 
   return (
     <div className={style.wrapper}>
@@ -37,9 +37,9 @@ const BrandUpload = props => {
       <div className={style.title}>
         <h3>{title}</h3>
       </div>
-      {download && <DownloadBox {...download} />}
+      {download ? <DownloadBox {...download} /> : null}
       <UploadBox {...upload} />
-      {progress && <ProgressBar {...progress} className={style.progress} />}
+      {progress ? <ProgressBar {...progress} className={style.progress} /> : null}
       <ul className={style.notifications}>{notificationsItems}</ul>
     </div>
   );

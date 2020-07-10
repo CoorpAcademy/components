@@ -2,32 +2,32 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {isObject, keys} from 'lodash/fp';
-import style from './style.css';
+import cssStyle from './style.css';
 
 const viewStyle = {
-  cover: style.cover,
-  contain: style.contain
+  cover: cssStyle.cover,
+  contain: cssStyle.contain
 };
 
 const PictureBackground = props => {
-  const {src, view} = props;
+  const {src, view, style} = props;
   const mobile = src.mobile;
   const desktop = src.desktop;
   const bgStyle = viewStyle[view];
 
   const pictureView = isObject(src) ? (
-    <div className={style.deviceView}>
-      <div className={style.mobileContainer}>
+    <div className={cssStyle.deviceView}>
+      <div className={cssStyle.mobileContainer}>
         <div
-          className={classnames(style.picture, bgStyle)}
+          className={classnames(cssStyle.picture, bgStyle)}
           style={{
             backgroundImage: `url(${mobile})`
           }}
         />
       </div>
-      <div className={style.desktopContainer}>
+      <div className={cssStyle.desktopContainer}>
         <div
-          className={classnames(style.picture, bgStyle)}
+          className={classnames(cssStyle.picture, bgStyle)}
           style={{
             backgroundImage: `url(${desktop})`
           }}
@@ -35,16 +35,14 @@ const PictureBackground = props => {
       </div>
     </div>
   ) : (
-    <div className={classnames(style.default, bgStyle)} style={{backgroundImage: `url(${src})`}} />
+    <div
+      className={classnames(cssStyle.default, bgStyle)}
+      style={{backgroundImage: `url(${src})`}}
+    />
   );
 
   return (
-    <div
-      className={style.wrapper}
-      style={{
-        ...props.style
-      }}
-    >
+    <div className={cssStyle.wrapper} style={style}>
       {pictureView}
     </div>
   );

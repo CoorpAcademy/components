@@ -8,6 +8,23 @@ import Link from '../link';
 import style from './style.css';
 
 class CTA extends React.Component {
+  static propTypes = {
+    submitValue: Link.propTypes.children,
+    href: Link.propTypes.href,
+    onClick: Link.propTypes.onClick,
+    target: Link.propTypes.target,
+    name: PropTypes.string,
+    disabled: PropTypes.bool,
+    light: PropTypes.bool,
+    secondary: PropTypes.bool,
+    small: PropTypes.bool,
+    className: PropTypes.string
+  };
+
+  static contextTypes = {
+    skin: Provider.childContextTypes.skin
+  };
+
   constructor(props) {
     super(props);
     this.state = {
@@ -18,15 +35,15 @@ class CTA extends React.Component {
   }
 
   handleMouseEnter() {
-    return this.setState(prevState => ({
+    return this.setState({
       hovered: true
-    }));
+    });
   }
 
   handleMouseLeave() {
-    return this.setState(prevState => ({
+    return this.setState({
       hovered: false
-    }));
+    });
   }
 
   getStyle() {
@@ -79,7 +96,8 @@ class CTA extends React.Component {
       light = false,
       small = false,
       secondary = false,
-      onClick
+      onClick,
+      className
     } = this.props;
 
     return (
@@ -95,7 +113,7 @@ class CTA extends React.Component {
           small ? style.smallButton : null,
           light ? style.lightButton : null,
           secondary ? style.secondaryButton : null,
-          this.props.className
+          className
         )}
         data-name={ctaName || 'cta'}
         style={this.getStyle()}
@@ -105,20 +123,5 @@ class CTA extends React.Component {
     );
   }
 }
-
-CTA.contextTypes = {
-  skin: Provider.childContextTypes.skin
-};
-
-CTA.propTypes = {
-  submitValue: Link.propTypes.children,
-  href: Link.propTypes.href,
-  onClick: Link.propTypes.onClick,
-  target: Link.propTypes.target,
-  name: PropTypes.string,
-  disabled: PropTypes.bool,
-  light: PropTypes.bool,
-  small: PropTypes.bool
-};
 
 export default CTA;

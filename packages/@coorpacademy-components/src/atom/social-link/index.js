@@ -18,7 +18,7 @@ const SocialLink = props => {
   const {type, link} = props;
 
   return (
-    <a href={link} className={style.link} target={'_blank'}>
+    <a href={link} className={style.link} target="_blank" rel="noopener noreferrer">
       {String.fromCharCode(icons[type])}
     </a>
   );

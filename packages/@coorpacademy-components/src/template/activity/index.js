@@ -11,6 +11,35 @@ import EngineStars from './engine-stars';
 import style from './style.css';
 
 class Progression extends React.Component {
+  static propTypes = {
+    mainTitle: PropTypes.string.isRequired,
+    mainSubtitle: PropTypes.string.isRequired,
+    total: PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      stars: PropTypes.number.isRequired
+    }).isRequired,
+    engines: PropTypes.arrayOf(PropTypes.shape(EngineStars.propTypes)),
+    loading: PropTypes.bool.isRequired,
+    progressions: PropTypes.arrayOf(
+      PropTypes.shape({...ProgressionItem.propTypes, ref: PropTypes.string.isRequired})
+    ),
+    themeFilter: PropTypes.shape({
+      options: Select.propTypes.options.isRequired,
+      onChange: Select.propTypes.onChange
+    }),
+    recommendation: PropTypes.shape({
+      cta: PropTypes.string.isRequired,
+      title: PropTypes.string.isRequired,
+      subtitle: PropTypes.string.isRequired,
+      courseTitle: PropTypes.string.isRequired,
+      onClick: PropTypes.func
+    })
+  };
+
+  static contextTypes = {
+    skin: Provider.childContextTypes.skin
+  };
+
   constructor(props, context) {
     super(props, context);
     this.handleClick = this.handleClick.bind(this);
@@ -18,14 +47,17 @@ class Progression extends React.Component {
   }
 
   handleClick = e => {
+    const {recommendation} = this.props;
     e.stopPropagation();
     e.preventDefault();
-    const {onClick} = this.props.recommendation;
+    const {onClick} = recommendation;
     onClick && onClick(e);
   };
 
   handleSelectTheme = e => {
-    const {onChange} = this.props.themeFilter;
+    const {
+      themeFilter: {onChange}
+    } = this.props;
     onChange && onChange(e);
   };
 
@@ -43,11 +75,11 @@ class Progression extends React.Component {
     const {skin} = this.context;
 
     const primary = get('common.primary', skin);
-    const loader = loading && (
+    const loader = loading ? (
       <div className={style.loader}>
         <Loader />
       </div>
-    );
+    ) : null;
     const allProgressions = progressions.map(progression => (
       <ProgressionItem {...omit(['ref'], progression)} key={progression.ref} />
     ));
@@ -57,7 +89,7 @@ class Progression extends React.Component {
         {allProgressions}
       </div>
     );
-    const themeSelect = !isEmpty(themeFilter.options) && (
+    const themeSelect = !isEmpty(themeFilter.options) ? (
       <Select
         borderClassName={style.selectBorder}
         className={style.select}
@@ -65,13 +97,13 @@ class Progression extends React.Component {
         options={themeFilter.options}
         onChange={this.handleSelectTheme}
       />
-    );
-    const recommendationSection = !isEmpty(recommendation) && (
+    ) : null;
+    const recommendationSection = !isEmpty(recommendation) ? (
       <div className={style.recommendationWrapper}>
-        <p>{recommendation.title}</p>
+        <p>{recommendation.title} </p>
         <p>
-          <span>{recommendation.subtitle}</span>
-          <span className={style.course}>{recommendation.courseTitle}</span>
+          <span>{recommendation.subtitle} </span>
+          <span className={style.course}>{recommendation.courseTitle} </span>
         </p>
         <Button
           type="link"
@@ -83,7 +115,7 @@ class Progression extends React.Component {
           className={style.cta}
         />
       </div>
-    );
+    ) : null;
     return (
       <div className={style.default}>
         <div data-name="activity-header">
@@ -120,34 +152,5 @@ class Progression extends React.Component {
     );
   }
 }
-
-Progression.contextTypes = {
-  skin: Provider.childContextTypes.skin
-};
-
-Progression.propTypes = {
-  mainTitle: PropTypes.string.isRequired,
-  mainSubtitle: PropTypes.string.isRequired,
-  total: PropTypes.shape({
-    label: PropTypes.string.isRequired,
-    stars: PropTypes.number.isRequired
-  }).isRequired,
-  engines: PropTypes.arrayOf(PropTypes.shape(EngineStars.propTypes)),
-  loading: PropTypes.bool.isRequired,
-  progressions: PropTypes.arrayOf(
-    PropTypes.shape({...ProgressionItem.propTypes, ref: PropTypes.string.isRequired})
-  ),
-  themeFilter: PropTypes.shape({
-    options: Select.propTypes.options.isRequired,
-    onChange: Select.propTypes.onChange
-  }),
-  recommendation: PropTypes.shape({
-    cta: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    subtitle: PropTypes.string.isRequired,
-    courseTitle: PropTypes.string.isRequired,
-    onClick: PropTypes.func
-  })
-};
 
 export default Progression;

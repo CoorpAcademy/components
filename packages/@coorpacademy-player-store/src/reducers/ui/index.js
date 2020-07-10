@@ -12,5 +12,5 @@ export default combineReducers({
   comments,
   corrections,
   current,
-  route
+  route,
 });

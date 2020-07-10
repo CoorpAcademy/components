@@ -4,10 +4,10 @@ import {omit, pipe, assign, filter} from 'lodash/fp';
 
 import {getConfig} from '../../config';
 import type {AvailableContent, Config, State, Slide} from '../../types';
+import {computeNextStepAfterAnswer, type PartialAnswerAction} from '..';
 import allSlides from './fixtures/slides';
 import getSlide from './helpers/get-slide';
 import {firstState, stateBeforeGettingNextContent, oneLifeLeftState} from './fixtures/states';
-import {computeNextStepAfterAnswer, type PartialAnswerAction} from '..';
 
 const config: Config = getConfig({ref: 'learner', version: '1'});
 const availableContent: AvailableContent = [
@@ -19,11 +19,9 @@ const availableContent: AvailableContent = [
 ];
 
 const merge = arr2 => (arr: Array<Slide>): Array<Slide> => {
-  return arr.map(
-    (v, i): Slide => {
-      return assign(v, arr2[i]);
-    }
-  );
+  return arr.map((v, i): Slide => {
+    return assign(v, arr2[i]);
+  });
 };
 
 const createPartialAction = (state: State): PartialAnswerAction => ({

@@ -16,10 +16,15 @@ const Resources = ({resources, className}) => {
   return (
     <div className={style.resourcesList}>
       {resources.map(resource => (
-        <ResourceMiniature key={resource._id} {...omit('ref', resource)} />
+        <ResourceMiniature {...omit('ref', resource)} key={resource._id} />
       ))}
     </div>
   );
+};
+
+Resources.propTypes = {
+  resources: PropTypes.arrayOf(PropTypes.shape(omit('ref', ResourceMiniature.propTypes))),
+  className: PropTypes.string
 };
 
 const ResourceBrowser = props => {
@@ -28,13 +33,13 @@ const ResourceBrowser = props => {
 
   return (
     <div data-name="resourceBrowser" className={classnames(style.default, className)}>
-      {selectedResource && (
+      {selectedResource ? (
         <ResourcePlayer
           overlay={overlay}
           className={style.resourcePlayer}
           resource={selectedResource}
         />
-      )}
+      ) : null}
       <Resources resources={resources} className={className} />
     </div>
   );
@@ -42,7 +47,7 @@ const ResourceBrowser = props => {
 
 ResourceBrowser.propTypes = {
   className: PropTypes.string,
-  resources: PropTypes.arrayOf(ResourcePlayer.propTypes.resource),
+  resources: Resources.propTypes.resources,
   overlay: ResourcePlayer.propTypes.overlay
 };
 

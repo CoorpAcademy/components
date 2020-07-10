@@ -7,6 +7,30 @@ import Vimeo from './vimeo';
 import style from './style.css';
 
 class VideoPlayer extends React.Component {
+  static propTypes = {
+    id: PropTypes.string,
+    width: PropTypes.string,
+    height: PropTypes.string,
+    url: SrcPropType,
+    onPlay: PropTypes.func,
+    onResume: PropTypes.func,
+    onPause: PropTypes.func,
+    onEnded: PropTypes.func,
+    onError: PropTypes.func,
+    autoplay: PropTypes.bool,
+    disableAutostart: PropTypes.bool,
+    jwpOptions: JWPlayer.propTypes.jwpOptions,
+    mimeType: PropTypes.oneOf([
+      'application/kontiki',
+      'application/uptale',
+      'application/vimeo',
+      'application/youtube',
+      'application/jwplayer',
+      'application/omniPlayer',
+      'video/mp4'
+    ]).isRequired
+  };
+
   static getDerivedStateFromProps(props, state) {
     if (props.id === state.id) return null;
 
@@ -20,17 +44,16 @@ class VideoPlayer extends React.Component {
     super(props);
     this.state = {
       played: false,
-      // eslint-disable-next-line react/no-unused-state
       id: props.id
     };
   }
 
   handleOnPlay = e => {
-    if (this.state.played) {
-      this.props.onResume && this.props.onResume(e);
-    } else {
-      this.props.onPlay && this.props.onPlay(e);
-    }
+    const {played} = this.state;
+    const {onResume, onPlay} = this.props;
+    if (played) {
+      if (onResume) onResume(e);
+    } else if (onPlay) onPlay(e);
     this.setState({
       played: true
     });
@@ -42,8 +65,8 @@ class VideoPlayer extends React.Component {
       case 'application/vimeo':
         return (
           <Vimeo
-            key={id}
             {...this.props}
+            key={id}
             width={width}
             height={height}
             video={id}
@@ -77,9 +100,9 @@ class VideoPlayer extends React.Component {
 
         return (
           <JWPlayer
+            {...otherProps}
             disableAutostart={disableAutostart}
             jwpOptions={jwpOptions}
-            {...otherProps}
             onPlay={this.handleOnPlay}
             key={id}
           />
@@ -89,36 +112,13 @@ class VideoPlayer extends React.Component {
   };
 
   render() {
+    const {id} = this.props;
     return (
-      <div data-name="video-player" className={style.wrapper} key={this.props.id}>
+      <div data-name="video-player" className={style.wrapper} key={id}>
         {this.renderPlayer()}
       </div>
     );
   }
 }
-
-VideoPlayer.propTypes = {
-  id: PropTypes.string,
-  width: PropTypes.string,
-  height: PropTypes.string,
-  url: SrcPropType,
-  onPlay: PropTypes.func,
-  onResume: PropTypes.func,
-  onPause: PropTypes.func,
-  onEnded: PropTypes.func,
-  onError: PropTypes.func,
-  autoplay: PropTypes.bool,
-  disableAutostart: PropTypes.bool,
-  jwpOptions: JWPlayer.propTypes.jwpOptions,
-  mimeType: PropTypes.oneOf([
-    'application/kontiki',
-    'application/uptale',
-    'application/vimeo',
-    'application/youtube',
-    'application/jwplayer',
-    'application/omniPlayer',
-    'video/mp4'
-  ]).isRequired
-};
 
 export default VideoPlayer;

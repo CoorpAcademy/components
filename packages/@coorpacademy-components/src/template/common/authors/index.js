@@ -8,6 +8,29 @@ import Link from '../../../atom/link';
 import style from './style.css';
 
 class Authors extends React.Component {
+  static propTypes = {
+    cards: PropTypes.shape(CardsGrid.propTypes),
+    cardsTitle: PropTypes.string,
+    image: PropTypes.string,
+    title: PropTypes.string,
+    website: PropTypes.string,
+    urlcontent: PropTypes.string,
+    urlwebsite: PropTypes.string,
+    description: PropTypes.string,
+    socialTitle: PropTypes.string,
+    sociallinks: PropTypes.arrayOf(
+      PropTypes.shape({
+        type: PropTypes.string,
+        link: PropTypes.string
+      })
+    )
+  };
+
+  static contextTypes = {
+    translate: Provider.childContextTypes.translate,
+    skin: Provider.childContextTypes.skin
+  };
+
   constructor(props, context) {
     super(props);
     this.state = {
@@ -35,10 +58,11 @@ class Authors extends React.Component {
       urlwebsite,
       urlcontent
     } = this.props;
+    const {fullDisplay} = this.state;
 
     const {translate, skin} = this.context;
     const defaultColor = getOr('#00B0FF', 'common.primary', skin);
-    const toggleLabel = this.state.fullDisplay ? translate('See less') : translate('Show more');
+    const toggleLabel = fullDisplay ? translate('See less') : translate('Show more');
 
     const socialView = map.convert({cap: false})(
       (sociallink, i) => (
@@ -83,10 +107,7 @@ class Authors extends React.Component {
                 </Link>
                 {authorSocial}
               </div>
-              <div
-                data-name="description"
-                className={this.state.fullDisplay ? style.desc : style.shortDesc}
-              >
+              <div data-name="description" className={fullDisplay ? style.desc : style.shortDesc}>
                 <div
                   // eslint-disable-next-line react/no-danger
                   dangerouslySetInnerHTML={{
@@ -106,27 +127,5 @@ class Authors extends React.Component {
     );
   }
 }
-
-Authors.contextTypes = {
-  translate: Provider.childContextTypes.translate,
-  skin: Provider.childContextTypes.skin
-};
-Authors.propTypes = {
-  cards: PropTypes.shape(CardsGrid.propTypes),
-  cardsTitle: PropTypes.string,
-  image: PropTypes.string,
-  title: PropTypes.string,
-  website: PropTypes.string,
-  urlcontent: PropTypes.string,
-  urlwebsite: PropTypes.string,
-  description: PropTypes.string,
-  socialTitle: PropTypes.string,
-  sociallinks: PropTypes.arrayOf(
-    PropTypes.shape({
-      type: PropTypes.string,
-      link: PropTypes.string
-    })
-  )
-};
 
 export default Authors;

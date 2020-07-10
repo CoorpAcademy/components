@@ -10,16 +10,16 @@ export default {
     fieldsLayout: 'grid',
     fields: [
       {
-        type: 'image',
-        ...Desktop.props
+        ...Desktop.props,
+        type: 'image'
       },
       {
-        type: 'image',
-        ...Mobile.props
+        ...Mobile.props,
+        type: 'image'
       },
       {
-        type: 'image',
-        ...Email.props
+        ...Email.props,
+        type: 'image'
       }
     ]
   }

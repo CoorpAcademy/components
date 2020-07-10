@@ -14,8 +14,8 @@ export default {
       }
     ],
     content: {
-      type: 'upload',
-      ...BrandUpload.props
+      ...BrandUpload.props,
+      type: 'upload'
     }
   })
 };

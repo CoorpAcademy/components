@@ -1,6 +1,7 @@
 import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
+import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -11,6 +12,11 @@ browserEnv();
 configure({adapter: new Adapter()});
 
 class CSSTransitionFaker extends React.Component {
+  static propTypes = {
+    onTransitionEnd: PropTypes.func,
+    className: PropTypes.string
+  };
+
   componentDidMount() {
     const {onTransitionEnd = noop} = this.props;
     onTransitionEnd();
@@ -24,6 +30,11 @@ class CSSTransitionFaker extends React.Component {
 }
 
 class CSSAnimationFaker extends React.Component {
+  static propTypes = {
+    onAnimationEnd: PropTypes.func,
+    className: PropTypes.string
+  };
+
   componentDidMount() {
     const {onAnimationEnd = noop} = this.props;
     onAnimationEnd();

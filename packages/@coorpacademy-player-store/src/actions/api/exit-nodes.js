@@ -9,7 +9,7 @@ import type {
   DispatchedAction,
   Action,
   GetState,
-  ThunkAction
+  ThunkAction,
 } from '../../definitions/redux';
 
 export const EXIT_NODE_FETCH_REQUEST: string = '@@exit_node/FETCH_REQUEST';
@@ -20,15 +20,14 @@ export const fetchExitNode = (id: ExitNodeRef): ThunkAction => (
   dispatch: Dispatch,
   getState: GetState,
   {services}: {services: Services}
-): // $FlowFixMe circular declaration issue with gen-flow-files : type ThunkAction = (Dispatch, GetState, Options) => DispatchedAction
-DispatchedAction => {
+): DispatchedAction => {
   const {ExitNodes} = services;
 
   const action: Action = buildTask({
     types: [EXIT_NODE_FETCH_REQUEST, EXIT_NODE_FETCH_SUCCESS, EXIT_NODE_FETCH_FAILURE],
     task: () => ExitNodes.findById(id),
     meta: {id},
-    bailout: getExitNode(id)
+    bailout: getExitNode(id),
   });
 
   return dispatch(action);

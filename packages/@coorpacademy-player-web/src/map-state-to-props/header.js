@@ -54,8 +54,8 @@ const headerProps = (options, {dispatch}) => state => {
   return {
     type: engineRef,
     content: {
-      onClick: () => dispatch(back),
-      ...headerContent(engineRef, state)
+      ...headerContent(engineRef, state),
+      onClick: () => dispatch(back)
     },
     subcontent: headerSubcontent(engineRef, state),
     lives: hide ? false : {count}

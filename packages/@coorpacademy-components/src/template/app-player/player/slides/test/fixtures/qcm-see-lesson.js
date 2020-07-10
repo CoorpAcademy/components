@@ -5,8 +5,8 @@ const answerType = Answer.props;
 
 export default {
   props: {
-    typeClue: 'answer',
     ...Default.props,
+    typeClue: 'answer',
     step: {current: 1, total: 6},
     answerType,
     showNewMedia: true,

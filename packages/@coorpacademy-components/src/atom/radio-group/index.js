@@ -13,7 +13,7 @@ const RadioGroup = (props, context) => {
   const borderColor = color || get('common.primary', skin);
 
   const items = map(itemProps => {
-    return <Item color={color} {...itemProps} onChange={onChange} key={itemProps.value} />;
+    return <Item {...itemProps} color={color} onChange={onChange} key={itemProps.value} />;
   }, list);
 
   return (
@@ -30,7 +30,7 @@ RadioGroup.contextTypes = {
 RadioGroup.propTypes = {
   color: PropTypes.string,
   className: PropTypes.string,
-  list: PropTypes.arrayOf(PropTypes.shape(Item.PropTypes)),
+  list: PropTypes.arrayOf(PropTypes.shape(Item.propTypes)),
   onChange: PropTypes.func
 };
 

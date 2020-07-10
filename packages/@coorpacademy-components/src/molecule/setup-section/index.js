@@ -24,7 +24,7 @@ const ContentTypesToggler = (props, context) => {
 
   return (
     <div className={style.contentTypeWrapper}>
-      <RadioGroup color={contentTypesColor} {...contentTypes} />
+      <RadioGroup {...contentTypes} color={contentTypesColor} />
     </div>
   );
 };
@@ -35,8 +35,8 @@ ContentTypesToggler.contextTypes = {
 
 ContentTypesToggler.propTypes = {
   contentTypes: PropTypes.shape({
-    modified: PropTypes.bool,
-    ...RadioGroup.propTypes
+    ...RadioGroup.propTypes,
+    modified: PropTypes.bool
   })
 };
 

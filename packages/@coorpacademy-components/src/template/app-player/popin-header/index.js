@@ -10,7 +10,8 @@ import {
   zip,
   round,
   parseInt as _parseInt,
-  multiply
+  multiply,
+  isEmpty
 } from 'lodash/fp';
 import {
   NovaCompositionNavigationArrowRight as ArrowRight,
@@ -35,11 +36,7 @@ const separator = index => (
 
 const joinBySeparator = elements => {
   const separators = times(separator, elements.length - 1);
-  return pipe(
-    zip,
-    flatten,
-    compact
-  )(elements, separators);
+  return pipe(zip, flatten, compact)(elements, separators);
 };
 
 const AnswersCorrection = ({corrections}) => {
@@ -85,14 +82,7 @@ const Rank = ({failed, rank, animated, onAnimationEnd}, {skin}) => {
         </Transition>
         <span className={style.iconText}>
           <Animation name="counter" bezier={EASE_OUT_CUBIC} duration={1000}>
-            {progress =>
-              pipe(
-                _parseInt(10),
-                multiply(progress),
-                round,
-                formatPlusSign
-              )(rank)
-            }
+            {progress => pipe(_parseInt(10), multiply(progress), round, formatPlusSign)(rank)}
           </Animation>
         </span>
       </div>
@@ -125,14 +115,7 @@ const Stars = ({failed, stars, animated, onAnimationEnd}, {skin}) => {
         </Transition>
         <span data-name="iconText" className={style.iconText}>
           <Animation name="counter" bezier={EASE_OUT_CUBIC} duration={1000}>
-            {progress =>
-              pipe(
-                _parseInt(10),
-                multiply(progress),
-                round,
-                formatPlusSign
-              )(stars)
-            }
+            {progress => pipe(_parseInt(10), multiply(progress), round, formatPlusSign)(stars)}
           </Animation>
         </span>
       </div>
@@ -215,7 +198,7 @@ const getLinkStyle = ({gameOver, extraLifeGranted}) => {
 };
 
 const CorrectionPart = props => {
-  const {failed, corrections = [], title, subtitle, stars, rank, gameOver} = props;
+  const {failed, corrections, title, subtitle, stars, rank, gameOver} = props;
   const isLoading = isNil(failed);
   const className = buildClass(
     failed,
@@ -232,11 +215,22 @@ const CorrectionPart = props => {
           {title}
         </h1>
         <h2 className={style.subtitle}>{subtitle}</h2>
-        {failed && corrections.length ? <AnswersCorrection corrections={corrections} /> : null}
+        {failed && !isEmpty(corrections) ? <AnswersCorrection corrections={corrections} /> : null}
       </div>
       <IconsPart {...props} />
     </div>
   );
+};
+
+CorrectionPart.propTypes = {
+  ...IconsPart.propTypes,
+  failed: PropTypes.bool,
+  corrections: AnswersCorrection.propTypes.corrections,
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  stars: PropTypes.string,
+  rank: PropTypes.string,
+  gameOver: PropTypes.bool
 };
 
 const NextQuestionPart = (props, context) => {
@@ -277,11 +271,11 @@ const NextQuestionPart = (props, context) => {
 
   return (
     <Link
+      {...linkProps}
       className={classnames(style.nextSection, getLinkStyle({gameOver, extraLifeGranted}))}
       data-name="nextLink"
       data-popin={type}
       data-next={dataNext}
-      {...linkProps}
     >
       <div className={style.wrapperNextSection}>
         <div className={style.nextButton}>
@@ -292,6 +286,20 @@ const NextQuestionPart = (props, context) => {
       </div>
     </Link>
   );
+};
+
+NextQuestionPart.propTypes = {
+  cta: PropTypes.shape({
+    ...Link.propTypes,
+    title: PropTypes.string,
+    nextStepTitle: PropTypes.string,
+    showNextLevel: PropTypes.bool
+  }),
+  type: PropTypes.oneOf(['popinCorrection', 'popinEnd']).isRequired,
+  extraLifeGranted: PropTypes.bool,
+  gameOver: PropTypes.bool,
+  failed: PropTypes.bool,
+  lives: PropTypes.number
 };
 
 const PopinHeader = (props, context) => {
@@ -353,23 +361,18 @@ PopinHeader.contextTypes = {
 };
 
 PopinHeader.propTypes = {
-  failed: Life.propTypes.failed,
-  gameOver: PropTypes.bool,
-  lives: Life.propTypes.count,
-  extraLifeGranted: PropTypes.bool,
-  animated: Life.propTypes.animated,
-  stars: PropTypes.string,
-  rank: PropTypes.string,
-  subtitle: PropTypes.string,
-  title: PropTypes.string,
-  type: PropTypes.oneOf(['popinCorrection', 'popinEnd']).isRequired,
-  corrections: AnswersCorrection.propTypes.corrections,
-  cta: PropTypes.shape({
-    ...Link.propTypes,
-    title: PropTypes.string,
-    nextStepTitle: PropTypes.string,
-    showNextLevel: PropTypes.bool
-  })
+  cta: NextQuestionPart.propTypes.cta,
+  type: NextQuestionPart.propTypes.type,
+  extraLifeGranted: NextQuestionPart.propTypes.extraLifeGranted,
+  failed: NextQuestionPart.propTypes.failed,
+  gameOver: NextQuestionPart.propTypes.gameOver,
+  lives: NextQuestionPart.propTypes.lives,
+  title: CorrectionPart.propTypes.title,
+  subtitle: CorrectionPart.propTypes.subtitle,
+  animated: CorrectionPart.propTypes.animated,
+  stars: CorrectionPart.propTypes.stars,
+  rank: CorrectionPart.propTypes.rank,
+  corrections: CorrectionPart.propTypes.corrections
 };
 
 export default PopinHeader;

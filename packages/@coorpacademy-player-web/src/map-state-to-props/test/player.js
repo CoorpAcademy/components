@@ -562,51 +562,51 @@ const createLearnerProgression = (slide, contentRef) => ({
   }
 });
 
-test('should allow multi answers on adaptive level if the current chapter is not adaptive', t => {
-  const check = (slide, answer) => {
-    const progressionId = 'progression';
-    const levelId = 'level';
-    const chapterId = 'chapter';
-    return createPlayerProps({
-      data: {
-        contents: {
-          slide: {
-            entities: {
-              [slide._id]: {...slide, chapter_id: chapterId}
-            }
-          },
-          level: {
-            entities: {
-              [levelId]: {
-                ref: levelId,
-                chapterIds: [chapterId],
-                isConditional: true
-              }
-            }
-          },
-          chapter: {
-            entities: {
-              [chapterId]: {
-                _id: chapterId,
-                isConditional: false
-              }
+const check = (slide, answer) => {
+  const progressionId = 'progression';
+  const levelId = 'level';
+  const chapterId = 'chapter';
+  return createPlayerProps({
+    data: {
+      contents: {
+        slide: {
+          entities: {
+            [slide._id]: {...slide, chapter_id: chapterId}
+          }
+        },
+        level: {
+          entities: {
+            [levelId]: {
+              ref: levelId,
+              chapterIds: [chapterId],
+              isConditional: true
             }
           }
         },
-        progressions: {
+        chapter: {
           entities: {
-            [progressionId]: createLearnerProgression(slide, levelId)
+            [chapterId]: {
+              _id: chapterId,
+              isConditional: false
+            }
           }
         }
       },
-      ui: {
-        route: {[progressionId]: 'answer'},
-        current: {progressionId},
-        answers: {[progressionId]: {value: answer}}
+      progressions: {
+        entities: {
+          [progressionId]: createLearnerProgression(slide, levelId)
+        }
       }
-    }).cta.disabled;
-  };
+    },
+    ui: {
+      route: {[progressionId]: 'answer'},
+      current: {progressionId},
+      answers: {[progressionId]: {value: answer}}
+    }
+  }).cta.disabled;
+};
 
+test('should allow multi answers on adaptive level if the current chapter is not adaptive', t => {
   t.true(check(basicSlide, []));
   t.true(check(qcmSlide, []));
   t.true(check(qcmGraphicSlide, []));

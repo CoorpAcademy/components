@@ -1,9 +1,10 @@
 import React from 'react';
 import {get, identity} from 'lodash/fp';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
+import {SrcPropType} from '../../../util/proptypes';
 import Provider from '../../../atom/provider';
 import Picture from '../../../atom/picture';
-import threadShape from '../post-conditions';
 import ForumComment from '../forum-comment';
 import style from './style.css';
 
@@ -156,7 +157,34 @@ ForumPost.contextTypes = {
 };
 
 ForumPost.propTypes = {
-  ...threadShape
+  id: PropTypes.string,
+  author: PropTypes.string,
+  date: PropTypes.string,
+  message: PropTypes.string,
+  avatar: SrcPropType,
+  answerAvatar: SrcPropType,
+  answer: PropTypes.string,
+  edition: PropTypes.string,
+  showAnswerBox: PropTypes.bool,
+  showEditBox: PropTypes.bool,
+  mainPost: PropTypes.bool,
+  onAnswer: PropTypes.func,
+  onEdit: PropTypes.func,
+  onPostAnswer: PropTypes.func,
+  onPostEdition: PropTypes.func,
+  onChangeAnswer: PropTypes.func,
+  onChangeEdition: PropTypes.func,
+  onModerate: PropTypes.func,
+  onDelete: PropTypes.func,
+  answerPostDisabled: PropTypes.bool,
+  answerTextareaDisabled: PropTypes.bool,
+  answerable: PropTypes.bool,
+  editable: PropTypes.bool,
+  rejectable: PropTypes.bool,
+  rejected: PropTypes.bool,
+  deleted: PropTypes.bool,
+  editionPostDisabled: PropTypes.bool,
+  editionTextareaDisabled: PropTypes.bool
 };
 
 export default ForumPost;

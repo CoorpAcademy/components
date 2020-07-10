@@ -25,6 +25,13 @@ const Resources = ({resources, overlay}) => (
   </div>
 );
 
+Resources.propTypes = {
+  resources: PropTypes.shape({
+    value: ResourceBrowser.propTypes.resources
+  }),
+  overlay: ResourceBrowser.propTypes.overlay
+};
+
 const SimpleText = ({text}) => (
   <div data-name="simpleText" className={style.simpleTextWrapper}>
     <p
@@ -36,6 +43,10 @@ const SimpleText = ({text}) => (
     />
   </div>
 );
+
+SimpleText.propTypes = {
+  text: PropTypes.string
+};
 
 const AssistanceLink = (props, context) => {
   if (isEmpty(props)) return null;
@@ -55,8 +66,9 @@ AssistanceLink.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
-SimpleText.propTypes = {
-  text: PropTypes.string
+AssistanceLink.propTypes = {
+  title: PropTypes.string,
+  onClick: PropTypes.func
 };
 
 const Question = ({header, answer, answerPrefix}) => (
@@ -89,6 +101,30 @@ Question.propTypes = {
 };
 
 class PopinCorrection extends Component {
+  static propTypes = {
+    resources: Resources.propTypes.resources,
+    overlay: ResourceBrowser.propTypes.overlay,
+    assistanceLink: PropTypes.shape(AssistanceLink.propTypes),
+    header: PropTypes.shape(omit(['animated'], Header.propTypes)),
+    extraLifeGranted: Header.propTypes.extraLifeGranted,
+    gameOver: Header.propTypes.gameOver,
+    question: PropTypes.shape(Question.propTypes),
+    klf: PropTypes.shape(SimpleText.propTypes),
+    tips: PropTypes.shape(SimpleText.propTypes),
+    onClick: Accordion.propTypes.onClick,
+    quit: PropTypes.shape({
+      cta: PropTypes.shape({
+        ...Link.propTypes,
+        title: PropTypes.string
+      })
+    }),
+    onOpen: PropTypes.func
+  };
+
+  static contextTypes = {
+    skin: Provider.childContextTypes.skin
+  };
+
   constructor(props) {
     super(props);
     this.state = {open: false};
@@ -103,8 +139,9 @@ class PopinCorrection extends Component {
     clearTimeout(this.deferedOpen);
 
     this.deferedOpen = defer(() => {
+      const {onOpen} = this.props;
       this.setState({open: true});
-      this.props.onOpen && this.props.onOpen();
+      onOpen && onOpen();
     });
   }
 
@@ -127,17 +164,20 @@ class PopinCorrection extends Component {
       assistanceLink = {}
     } = this.props;
 
+    const {open} = this.state;
+
     const {skin} = this.context;
     const primary = getOr('#f0f', 'common.primary', skin);
 
     const tabs = extractTabs({resources, klf, tips});
     const isLoading = isNil(header.failed);
-    const className = this.state.open ? style.finalBackground : style.initialBackground;
+    const className = open ? style.finalBackground : style.initialBackground;
     const {title, ...linkProps} = quit.cta || {};
 
     const quitCta =
       title || extraLifeGranted ? (
         <Link
+          {...linkProps}
           style={{
             color: primary
           }}
@@ -145,7 +185,6 @@ class PopinCorrection extends Component {
           data-name="nextLink"
           data-popin="popinCorrection"
           data-next="quit-with-extra-life"
-          {...linkProps}
         >
           {title}
         </Link>
@@ -180,36 +219,5 @@ class PopinCorrection extends Component {
     );
   }
 }
-
-PopinCorrection.contextTypes = {
-  skin: Provider.childContextTypes.skin
-};
-
-PopinCorrection.propTypes = {
-  resources: PropTypes.shape({
-    title: PropTypes.string,
-    value: ResourceBrowser.propTypes.resources,
-    open: PropTypes.bool
-  }),
-  assistanceLink: PropTypes.shape({
-    title: PropTypes.string,
-    onClick: PropTypes.func
-  }),
-  overlay: ResourceBrowser.propTypes.overlay,
-  header: PropTypes.shape(omit(['animated'], Header.propTypes)),
-  question: PropTypes.shape(Question.propTypes),
-  klf: PropTypes.shape(SimpleText.propTypes),
-  tips: PropTypes.shape(SimpleText.propTypes),
-  onClick: PropTypes.func,
-  extraLifeGranted: PropTypes.bool,
-  gameOver: PropTypes.bool,
-  quit: PropTypes.shape({
-    cta: PropTypes.shape({
-      ...Link.propTypes,
-      title: PropTypes.string
-    })
-  }),
-  onOpen: PropTypes.func
-};
 
 export default PopinCorrection;
