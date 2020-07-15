@@ -168,7 +168,7 @@ class CardsList extends React.Component {
       const rightBound = this.rightBound();
 
       const skip = this.getPossiblePositions().filter((el, index) => {
-        return el + getOr(0, [index, 'scrollWidth'], this.cards) <= leftBound;
+        return el + this.getScrollWidth(this.cards[index]) <= leftBound;
       }).length;
       const limit = this.getPossiblePositions().filter((el, index) => {
         return el + this.getScrollWidth(this.cards[index]) > leftBound && el < rightBound;
@@ -202,12 +202,21 @@ class CardsList extends React.Component {
 
   updatePages(event_) {
     const isResize = typeof event_ === 'object' && event_.type === 'resize';
-    if (isResize) this.forceUpdate();
-
     const {actualPage} = this.state;
-    const nextState = {
-      actualPage: typeof event_ === 'number' ? event_ : actualPage || 1
-    };
+    let nextState;
+    if (isResize) {
+      const leftBound = this.leftBound();
+      const skip = this.getPossiblePositions().filter(el => {
+        return el <= leftBound;
+      }).length;
+      nextState = {
+        actualPage: this.getPossiblePages()[skip + 1]
+      };
+    } else {
+      nextState = {
+        actualPage: typeof event_ === 'number' ? event_ : actualPage || 1
+      };
+    }
     if (!isEqual(this.state, nextState)) this.setState(nextState);
   }
 
@@ -219,7 +228,6 @@ class CardsList extends React.Component {
     const {title, showMore, cards, onShowMore, dataName, contentType} = this.props;
     const {skin} = this.context;
     const {actualPage} = this.state;
-
     const dark = getOr('#90A4AE', 'common.dark', skin);
     const titleStyle = onShowMore ? style.titleLink : style.title;
     const cardsView = map.convert({cap: false})((card, key) => {

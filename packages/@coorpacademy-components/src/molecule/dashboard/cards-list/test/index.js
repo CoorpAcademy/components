@@ -100,12 +100,12 @@ test('should return scrollWidth and call onScroll if exist', t => {
 
   instance_.getScrollWidth = () => 272;
   instance_.handleScroll({});
-  t.is(scrollData.skip, 1);
+  t.is(scrollData.skip, 0);
   t.is(scrollData.limit, 4);
 
   instance_.leftBound = () => 1088;
   instance_.handleScroll({});
-  t.is(scrollData.skip, 5);
+  t.is(scrollData.skip, 4);
   t.is(scrollData.limit, 4);
 
   cardsList.unmount();
@@ -122,10 +122,10 @@ test('should update componenet when resizing', t => {
   instance.getScrollWidth = () => 272;
   instance.wrapperWidth = () => 1088;
   const state = {isUpdated: false};
-  const forceUpdate = () => {
+  const setState = () => {
     state.isUpdated = true;
   };
-  instance.forceUpdate = forceUpdate;
+  instance.setState = setState;
   t.is(instance.maxPages(), 1);
 
   instance.wrapperWidth = () => 600;
