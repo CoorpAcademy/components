@@ -79,10 +79,14 @@
 
 .validateIcon {
   width: 20px;
+  min-width: 20px;
+  margin-left: 10px;
+  
 }
 .fileWrapper {
   display: inline-flex;
   min-width: 0;
+  width: 276px;
 }
 .emptyFileWrapper {
   display: inline-flex;

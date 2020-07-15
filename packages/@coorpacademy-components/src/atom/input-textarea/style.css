@@ -12,6 +12,10 @@
   composes: default;
 }
 
+.modified {
+  composes: default;
+}
+
 .default label {
   display: flex;
   align-items: center;
@@ -53,4 +57,115 @@
   font-size: 12px;
   color: medium;
   font-style: italic;
+}
+
+.modified textarea {
+  border-color: orange;
+}
+
+.setup {
+}
+
+.cockpit {
+  position: relative;
+}
+
+.cockpit label {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  height: 70px;
+}
+
+.cockpit textarea {
+  line-height: 35px;
+  height: 30px;
+  font-weight: normal;
+  background-color: transparent;
+  width: 100%;
+  font-weight: normal;
+  font-size: 14px;
+  font-family: 'Open Sans';
+  padding: 0 0 0 3px;
+  border: 0;
+  border-radius: 0px;
+  border-bottom: solid 0.5px rgba(0,0,0,0.12);
+  color: rgba(0,0,0,0.87);
+  resize: none;
+  padding: 0;
+  margin: 0 0 0 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.cockpit .description {
+  font-size: 12px;
+  opacity: 0%;
+  background-color: black;
+  position: absolute;
+  z-index: 100;
+  pointer-events: none;
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 500;
+  color: white;
+  padding: 6px 8px;
+  display: block;
+  bottom: 65px;
+  left: 20px;
+  max-width: 380px;
+  transition: opacity 0.5s ease-in;
+}
+
+.cockpit .description:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 10px;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.cockpit label:hover ~* {
+  opacity: 80%;
+}
+
+.cockpit.error .title {
+  color: negative;
+}
+
+.cockpit.error .description:after {
+  border-color: negative transparent transparent transparent;
+}
+
+.cockpit.error .description {
+  background-color: negative;
+}
+
+.cockpit.error textarea,
+.cockpit.error textarea:focus,
+.cockpit.error textarea:hover {
+  border-bottom: solid 2px negative;
+  color: negative;
+}
+
+.cockpit textarea:focus,
+.cockpit textarea:hover{
+  outline: none;
+  border-bottom: solid 2px grey;
+}
+
+.cockpit .title {
+  color: #797979;
+  font-weight: bold;
+  font-family: 'Open Sans';
+  text-transform: capitalize;
+  font-size: 11px;
+  align-self: flex-start;
+  padding-left: 13px;
 }

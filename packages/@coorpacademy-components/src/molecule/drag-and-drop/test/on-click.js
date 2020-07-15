@@ -30,7 +30,7 @@ test('should call the onBack function', t => {
 });
 
 test('should call the onDelete function', t => {
-  t.plan(5);
+  t.plan(7);
 
   const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
   const props = {
