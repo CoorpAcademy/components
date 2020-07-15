@@ -7,7 +7,11 @@ export default {
   props: {
     title: 'Microlearning: Most popular',
     showMore: 'See all',
-    cards: [props, props, props, props, props, props, props, props, props, props],
+    cards: [props, props, props, props, props, props, props, props, props, props, props, props].map(
+      (p, index) => {
+        return {...p, title: `${p.title}#${index}`};
+      }
+    ),
     onScroll: (skip, limit) => {
       console.log(skip, limit);
     },
