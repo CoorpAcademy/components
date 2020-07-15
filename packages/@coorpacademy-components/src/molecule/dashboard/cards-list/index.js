@@ -141,27 +141,23 @@ class CardsList extends React.Component {
     return getOr(0, 'offsetWidth', this.cardsWrapper);
   }
 
-  getPossiblePositions() {
-    return this.cards.map((card, index, arr) => {
-      return arr.slice(0, index).reduce((a, b) => {
-        return a + getOr(0, 'scrollWidth', b);
-      }, 0);
-    });
-  }
-
   // eslint-disable-next-line class-methods-use-this
   getScrollWidth(b) {
     return getOr(0, 'scrollWidth', b);
   }
 
+  getPossiblePositions() {
+    return this.cards.map((card, index, arr) => {
+      return arr.slice(0, index).reduce((a, b) => {
+        return a + this.getScrollWidth(b);
+      }, 0);
+    });
+  }
+
   getPossiblePages() {
-    return this.cards
-      .map((card, index, arr) => {
-        return arr.slice(0, index).reduce((a, b) => {
-          return a + this.getScrollWidth(b);
-        }, 0);
-      })
-      .map(el => Math.floor(el / this.wrapperWidth() + 1));
+    return this.getPossiblePositions().map((el, index) =>
+      Math.floor((el + this.getScrollWidth(this.cards[index])) / this.wrapperWidth() + 1)
+    );
   }
 
   handleScroll(scrollEvent) {
@@ -203,9 +199,12 @@ class CardsList extends React.Component {
     this.updatePages(page);
   }
 
-  updatePages(page) {
+  updatePages(event_) {
+    const isResize = typeof event_ === 'object' && event_.type === 'resize';
+    if (isResize) this.forceUpdate();
+
     const nextState = {
-      actualPage: page ? page : this.state.actualPage || 1
+      actualPage: typeof event_ === 'number' ? event_ : this.state.actualPage || 1
     };
     if (!isEqual(this.state, nextState)) this.setState(nextState);
   }
