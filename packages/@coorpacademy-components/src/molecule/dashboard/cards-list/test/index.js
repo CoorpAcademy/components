@@ -114,7 +114,7 @@ test('should return scrollWidth and call onScroll if exist', t => {
 test('should update componenet when resizing', t => {
   const {props} = Card;
   const props_ = {
-    cards: [props, props, props, props, props, props, props, props, props, props, props]
+    cards: [props, props, props]
   };
 
   const cardsList = mountCardsList(props_);
@@ -126,8 +126,12 @@ test('should update componenet when resizing', t => {
     state.isUpdated = true;
   };
   instance.forceUpdate = forceUpdate;
+  t.is(instance.maxPages(), 1);
+
+  instance.wrapperWidth = () => 600;
   instance.updatePages({type: 'resize'});
   t.is(state.isUpdated, true);
+  t.is(instance.maxPages(), 2);
 
   cardsList.unmount();
 });

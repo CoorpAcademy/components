@@ -12,9 +12,9 @@ import Card from '../../card';
 import style from './style.css';
 
 const ShowMoreLink = props => {
-  const {onShowMore, showMore} = props;
+  const {onShowMore, showMore, className} = props;
   return (
-    <div className={style.showMore} onClick={onShowMore}>
+    <div className={className} onClick={onShowMore}>
       {showMore}
     </div>
   );
@@ -26,7 +26,8 @@ ShowMoreLink.contextTypes = {
 
 ShowMoreLink.propTypes = {
   onShowMore: PropTypes.func,
-  showMore: PropTypes.string
+  showMore: PropTypes.string,
+  className: PropTypes.string
 };
 
 const IconView = (props, context) => {
@@ -156,7 +157,7 @@ class CardsList extends React.Component {
 
   getPossiblePages() {
     return this.getPossiblePositions().map((el, index) =>
-      Math.floor((el + this.getScrollWidth(this.cards[index])) / this.wrapperWidth() + 1)
+      Math.ceil((el + this.getScrollWidth(this.cards[index])) / this.wrapperWidth())
     );
   }
 
@@ -177,7 +178,7 @@ class CardsList extends React.Component {
   }
 
   handleOnLeft() {
-    const actualPage = this.state.actualPage;
+    const {actualPage} = this.state;
     if (actualPage === 1) {
       return;
     }
@@ -185,7 +186,7 @@ class CardsList extends React.Component {
   }
 
   handleOnRight() {
-    const actualPage = this.state.actualPage;
+    const {actualPage} = this.state;
     if (actualPage === this.maxPages()) {
       return;
     }
@@ -203,8 +204,9 @@ class CardsList extends React.Component {
     const isResize = typeof event_ === 'object' && event_.type === 'resize';
     if (isResize) this.forceUpdate();
 
+    const {actualPage} = this.state;
     const nextState = {
-      actualPage: typeof event_ === 'number' ? event_ : this.state.actualPage || 1
+      actualPage: typeof event_ === 'number' ? event_ : actualPage || 1
     };
     if (!isEqual(this.state, nextState)) this.setState(nextState);
   }
@@ -216,6 +218,7 @@ class CardsList extends React.Component {
   render() {
     const {title, showMore, cards, onShowMore, dataName, contentType} = this.props;
     const {skin} = this.context;
+    const {actualPage} = this.state;
 
     const dark = getOr('#90A4AE', 'common.dark', skin);
     const titleStyle = onShowMore ? style.titleLink : style.title;
@@ -227,14 +230,13 @@ class CardsList extends React.Component {
       );
     }, cards);
 
-    const leftCircleStyle = this.state.actualPage === 1 ? style.disabledCircle : style.circle;
+    const leftCircleStyle = actualPage === 1 ? style.disabledCircle : style.circle;
     const leftArrowView = (
       <div className={leftCircleStyle} onClick={this.handleOnLeft}>
         <ArrowLeft color={dark} className={style.left} width={10} height={10} />
       </div>
     );
-    const rightCircleStyle =
-      this.state.actualPage === this.maxPages() ? style.disabledCircle : style.circle;
+    const rightCircleStyle = actualPage === this.maxPages() ? style.disabledCircle : style.circle;
     const rightArrowView = (
       <div className={rightCircleStyle} onClick={this.handleOnRight}>
         <ArrowRight color={dark} className={style.right} width={10} height={10} />
@@ -248,11 +250,18 @@ class CardsList extends React.Component {
       </span>
     );
 
+    const hasPages = this.maxPages() > 1;
     const showMoreView =
-      showMore && onShowMore ? <ShowMoreLink onShowMore={onShowMore} showMore={showMore} /> : null;
+      showMore && onShowMore ? (
+        <ShowMoreLink
+          className={hasPages ? style.showMoreBar : style.showMore}
+          onShowMore={onShowMore}
+          showMore={showMore}
+        />
+      ) : null;
 
     const maxPages = this.maxPages();
-    const restPages = this.state.actualPage || 0;
+    const restPages = actualPage || 0;
     const paging = `${restPages}/${maxPages}`;
 
     const pagingView = (
@@ -260,18 +269,23 @@ class CardsList extends React.Component {
         <span className={style.paging}>{paging}</span>
       </span>
     );
+    const switchPagesView = hasPages ? (
+      <div className={style.pagingWrapper}>
+        {showMoreView}
+        {pagingView}
+        {leftArrowView}
+        {rightArrowView}
+      </div>
+    ) : (
+      <div className={style.pagingWrapper}>{showMoreView}</div>
+    );
     return (
       <div className={style.wrapper} data-name="cardsList">
         <div className={style.list}>
           <div className={style.listWrapper}>
             <div data-name="header" className={style.header}>
               {titleView}
-              <div className={style.pagingWrapper}>
-                {showMoreView}
-                {pagingView}
-                {leftArrowView}
-                {rightArrowView}
-              </div>
+              {switchPagesView}
             </div>
             <div className={style.cards} ref={this.setCardsWrapper}>
               {cardsView}

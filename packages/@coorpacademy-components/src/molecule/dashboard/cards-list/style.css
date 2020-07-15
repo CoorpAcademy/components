@@ -70,6 +70,9 @@
   color: dark;
   padding-right: 16px;
   margin-right: 16px;
+}
+.showMoreBar {
+  composes: showMore;
   border-right: 1px solid color(dark a(70%));
 }
 
