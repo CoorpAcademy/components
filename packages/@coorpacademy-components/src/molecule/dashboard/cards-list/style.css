@@ -4,6 +4,10 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 @value dark from colors;
+@value black from colors;
+@value lightMediumGray from colors;
+@value medium from colors;
+@value light from colors;
 
 .wrapper {
   padding: 16px 30px 8px;
@@ -33,7 +37,6 @@
 }
 
 .listWrapper {
-  overflow: hidden;
 }
 
 .title {
@@ -60,28 +63,38 @@
   font-family: 'Open Sans';
   font-size: 14px;
   line-height: 20px;
-  font-weight: 600;
+  font-weight: bold;
   cursor: pointer;
   display: flex;
   align-items: center;
   color: dark;
+  padding-right: 16px;
+  margin-right: 16px;
+  border-right: 1px solid color(dark a(70%));
+}
+
+.paging {
+  font-family: 'Open Sans';
+  font-size: 14px;
+  font-weight: normal;
+  letter-spacing: 4px;
+  color: dark;
+  margin-right: 10px;
+  line-height: 28px;
 }
 
 .showMore:hover {
   text-decoration: underline;
-}
-
-.showMoreIcon {
-  margin-left: 8px;
-  width: 8px;
-  height: 8px;
+  color: black;
 }
 
 .cards {
   display: flex;
   overflow: hidden;
   margin-left: -8px;
-  margin-right: -8px;
+  margin-right: 0px;
+  overflow: hidden;
+  scroll-behavior: smooth;
 }
 
 .card {
@@ -91,16 +104,39 @@
 }
 
 .arrow {
-  position: absolute;
-  width: 28px;
-  height: 28px;
-  margin-top: -8px;
-  top: 50%;
+  position: flex;
+  padding: 9px;
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 1;
   user-select: none;
 }
 
+.circle:hover {
+  box-shadow: 0 0 10px 0  color(medium a(70%));
+}
+
+.circle {
+  box-shadow: 0 0px 4px 0 color(lightMediumGray a(70%));
+  border: solid 1px light;
+  border-radius: 50%;
+  cursor: pointer;
+  line-height: 0;
+  margin-left: 5px;
+}
+.pagingWrapper {
+  display: inline-flex;
+}
+.disabledCircle {
+  box-shadow: 0 0px 4px 0 color(lightMediumGray a(70%));
+  border: solid 1px light;
+  border-radius: 50%;
+  cursor: default;
+  pointer-events: none;
+  opacity: 0.5;
+  background: #CCC;
+  line-height: 0;
+  margin-left: 5px;
+}
 .arrow:hover {
   opacity: 1;
 }
@@ -117,16 +153,6 @@
   text-align: left;
 }
 
-@media desktop {
-  .left {
-    left: -25px;
-  }
-
-  .right {
-    right: -25px;
-  }
-}
-
 @media tablet {
   .cards {
     overflow-x: scroll;
@@ -134,7 +160,7 @@
     -ms-overflow-style: -ms-autohiding-scrollbar;
   }
 
-  .arrow {
+  .pagingWrapper {
     display: none;
   }
 }
