@@ -80,7 +80,9 @@ class CardsList extends React.Component {
     super(props);
     this.cards = [];
 
-    this.state = {};
+    this.state = {
+      actualPage: null
+    };
 
     this.leftBound = this.leftBound.bind(this);
     this.rightBound = this.rightBound.bind(this);
