@@ -121,13 +121,13 @@ class CardsList extends React.Component {
   }
 
   setCards(key) {
-    return el => {
-      this.cards[key] = el;
+    return element => {
+      this.cards[key] = element;
     };
   }
 
-  setCardsWrapper(el) {
-    this.cardsWrapper = el;
+  setCardsWrapper(element) {
+    this.cardsWrapper = element;
   }
 
   leftBound() {
@@ -143,8 +143,8 @@ class CardsList extends React.Component {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  getScrollWidth(b) {
-    return getOr(0, 'scrollWidth', b);
+  getScrollWidth(card) {
+    return getOr(0, 'scrollWidth', card);
   }
 
   getPossiblePositions() {
@@ -156,8 +156,8 @@ class CardsList extends React.Component {
   }
 
   getPossiblePages() {
-    return this.getPossiblePositions().map((el, index) =>
-      Math.ceil((el + this.getScrollWidth(this.cards[index])) / this.wrapperWidth())
+    return this.getPossiblePositions().map((position, index) =>
+      Math.ceil((position + this.getScrollWidth(this.cards[index])) / this.wrapperWidth())
     );
   }
 
@@ -167,11 +167,13 @@ class CardsList extends React.Component {
       const leftBound = this.leftBound();
       const rightBound = this.rightBound();
 
-      const skip = this.getPossiblePositions().filter((el, index) => {
-        return el + this.getScrollWidth(this.cards[index]) <= leftBound;
+      const skip = this.getPossiblePositions().filter((position, index) => {
+        return position + this.getScrollWidth(this.cards[index]) <= leftBound;
       }).length;
-      const limit = this.getPossiblePositions().filter((el, index) => {
-        return el + this.getScrollWidth(this.cards[index]) > leftBound && el < rightBound;
+      const limit = this.getPossiblePositions().filter((position, index) => {
+        return (
+          position + this.getScrollWidth(this.cards[index]) > leftBound && position < rightBound
+        );
       }).length;
       onScroll(skip, limit);
     }
@@ -179,23 +181,21 @@ class CardsList extends React.Component {
 
   handleOnLeft() {
     const {actualPage} = this.state;
-    if (actualPage === 1) {
-      return;
+    if (actualPage > 1) {
+      this.scrollTo(actualPage - 1);
     }
-    this.scrollTo(actualPage - 1);
   }
 
   handleOnRight() {
     const {actualPage} = this.state;
-    if (actualPage === this.maxPages()) {
-      return;
+    if (actualPage < this.maxPages()) {
+      this.scrollTo(actualPage + 1);
     }
-    this.scrollTo(actualPage + 1);
   }
 
   scrollTo(page) {
-    const indexOfnextFirstCard = this.getPossiblePages().indexOf(page);
-    const nextPosition = sumBy('scrollWidth', this.cards.slice(0, indexOfnextFirstCard));
+    const indexOfNextFirstCard = this.getPossiblePages().indexOf(page);
+    const nextPosition = sumBy('scrollWidth', this.cards.slice(0, indexOfNextFirstCard));
     this.cardsWrapper.scrollLeft = nextPosition;
     this.updatePages(page);
   }
@@ -203,20 +203,15 @@ class CardsList extends React.Component {
   updatePages(event_) {
     const isResize = typeof event_ === 'object' && event_.type === 'resize';
     const {actualPage} = this.state;
-    let nextState;
+    let nextPage;
     if (isResize) {
       const leftBound = this.leftBound();
-      const skip = this.getPossiblePositions().filter(el => {
-        return el <= leftBound;
-      }).length;
-      nextState = {
-        actualPage: this.getPossiblePages()[skip + 1]
-      };
+      const skip = this.getPossiblePositions().filter(position => position <= leftBound).length;
+      nextPage = this.getPossiblePages()[skip + 1];
     } else {
-      nextState = {
-        actualPage: typeof event_ === 'number' ? event_ : actualPage || 1
-      };
+      nextPage = typeof event_ === 'number' ? event_ : actualPage || 1;
     }
+    const nextState = {actualPage: nextPage};
     if (!isEqual(this.state, nextState)) this.setState(nextState);
   }
 
@@ -239,12 +234,13 @@ class CardsList extends React.Component {
     }, cards);
 
     const leftCircleStyle = actualPage === 1 ? style.disabledCircle : style.circle;
+    const rightCircleStyle = actualPage === this.maxPages() ? style.disabledCircle : style.circle;
+
     const leftArrowView = (
       <div className={leftCircleStyle} onClick={this.handleOnLeft}>
         <ArrowLeft color={dark} className={style.left} width={10} height={10} />
       </div>
     );
-    const rightCircleStyle = actualPage === this.maxPages() ? style.disabledCircle : style.circle;
     const rightArrowView = (
       <div className={rightCircleStyle} onClick={this.handleOnRight}>
         <ArrowRight color={dark} className={style.right} width={10} height={10} />
@@ -284,9 +280,7 @@ class CardsList extends React.Component {
         {leftArrowView}
         {rightArrowView}
       </div>
-    ) : (
-      <div className={style.pagingWrapper}>{showMoreView}</div>
-    );
+    ) : null;
     return (
       <div className={style.wrapper} data-name="cardsList">
         <div className={style.list}>

@@ -3,6 +3,7 @@ import test from 'ava';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import {times} from 'lodash/fp';
 import {wrappingComponent} from '../../../../test/helpers/render-component';
 import Card from '../../../card/test/fixtures/default';
 import CardsList from '..';
@@ -27,7 +28,7 @@ test('should call cardsWidth', t => {
 test('should move cards by pages', t => {
   const {props} = Card;
   const props_ = {
-    cards: [props, props, props, props, props, props, props, props, props, props, props]
+    cards: times(() => props, 11)
   };
 
   const cardsList = mountCardsList(props_);
@@ -78,7 +79,7 @@ test('should move cards by pages', t => {
 test('should return scrollWidth and call onScroll if exist', t => {
   const {props} = Card;
   const props_ = {
-    cards: [props, props, props, props, props, props, props, props, props, props, props]
+    cards: times(() => props, 11)
   };
 
   const cardsList = mountCardsList(props_);
@@ -114,7 +115,7 @@ test('should return scrollWidth and call onScroll if exist', t => {
 test('should update componenet when resizing', t => {
   const {props} = Card;
   const props_ = {
-    cards: [props, props, props]
+    cards: times(() => props, 3)
   };
 
   const cardsList = mountCardsList(props_);
