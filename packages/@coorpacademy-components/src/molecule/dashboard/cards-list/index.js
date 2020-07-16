@@ -1,5 +1,5 @@
 import React from 'react';
-import {debounce, get, getOr, head, map, sumBy, last, isEqual} from 'lodash/fp';
+import {debounce, get, getOr, map, sumBy, last, isEqual} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import {
   NovaCompositionNavigationArrowLeft as ArrowLeft,
@@ -11,15 +11,11 @@ import Provider from '../../../atom/provider';
 import Card from '../../card';
 import style from './style.css';
 
-const ShowMoreLink = (props, context) => {
-  const {onShowMore, showMore} = props;
-  const {skin} = context;
-  const dark = get('common.dark', skin);
-
+const ShowMoreLink = props => {
+  const {onShowMore, showMore, className} = props;
   return (
-    <div className={style.showMore} onClick={onShowMore}>
+    <div className={className} onClick={onShowMore}>
       {showMore}
-      <ArrowRight color={dark} className={style.showMoreIcon} />
     </div>
   );
 };
@@ -30,7 +26,8 @@ ShowMoreLink.contextTypes = {
 
 ShowMoreLink.propTypes = {
   onShowMore: PropTypes.func,
-  showMore: PropTypes.string
+  showMore: PropTypes.string,
+  className: PropTypes.string
 };
 
 const IconView = (props, context) => {
@@ -84,67 +81,59 @@ class CardsList extends React.Component {
     this.cards = [];
 
     this.state = {
-      left: {
-        hidden: true
-      },
-      right: {
-        hidden: true
-      }
+      actualPage: null
     };
 
     this.leftBound = this.leftBound.bind(this);
-    this.maxLeftBound = this.maxLeftBound.bind(this);
     this.rightBound = this.rightBound.bind(this);
     this.wrapperWidth = this.wrapperWidth.bind(this);
-    this.cardsWidth = this.cardsWidth.bind(this);
     this.getPossiblePositions = this.getPossiblePositions.bind(this);
     this.handleScroll = this.handleScroll.bind(this);
     this.handleOnLeft = this.handleOnLeft.bind(this);
     this.handleOnRight = this.handleOnRight.bind(this);
     this.scrollTo = this.scrollTo.bind(this);
-    this.updateArrowsState = debounce(200, this.updateArrowsState.bind(this));
+    this.updateState = debounce(200, this.updatePages.bind(this));
+    this.updatePages = this.updatePages.bind(this);
     this.setCardsWrapper = this.setCardsWrapper.bind(this);
+    this.maxPages = this.maxPages.bind(this);
+    this.getScrollWidth = this.getScrollWidth.bind(this);
   }
 
   componentDidMount() {
     this.cardsWrapper.addEventListener('scroll', this.handleScroll);
 
     if (window) {
-      window.addEventListener('resize', this.updateArrowsState);
+      window.addEventListener('resize', this.updateState);
     }
 
-    this.updateArrowsState();
+    this.updateState();
   }
 
   componentDidUpdate(prevProps, prevState) {
-    this.updateArrowsState();
+    this.updateState();
   }
 
   componentWillUnmount() {
     this.cardsWrapper.removeEventListener('scroll', this.handleScroll);
 
     if (window) {
-      window.removeEventListener('resize', this.updateArrowsState);
+      window.removeEventListener('resize', this.updateState);
     }
-    this.updateArrowsState.cancel();
+    this.updateState.cancel();
   }
 
   setCards(key) {
-    return el => {
-      this.cards[key] = el;
+    return element => {
+      this.cards[key] = element;
     };
   }
 
-  setCardsWrapper(el) {
-    this.cardsWrapper = el;
+  setCardsWrapper(element) {
+    this.cardsWrapper = element;
   }
 
   leftBound() {
     return getOr(0, 'scrollLeft', this.cardsWrapper);
-  }
-
-  maxLeftBound() {
-    return this.cardsWidth() - this.wrapperWidth();
   }
 
   rightBound() {
@@ -155,18 +144,23 @@ class CardsList extends React.Component {
     return getOr(0, 'offsetWidth', this.cardsWrapper);
   }
 
-  cardsWidth() {
-    return sumBy('scrollWidth', this.cards);
+  // eslint-disable-next-line class-methods-use-this
+  getScrollWidth(card) {
+    return getOr(0, 'scrollWidth', card);
   }
 
-  getPossiblePositions(filter) {
-    return this.cards
-      .map((card, index, arr) => {
-        return arr.slice(0, index).reduce((a, b) => {
-          return a + getOr(0, 'scrollWidth', b);
-        }, 0);
-      })
-      .filter(filter);
+  getPossiblePositions() {
+    return this.cards.map((card, index, arr) => {
+      return arr.slice(0, index).reduce((a, b) => {
+        return a + this.getScrollWidth(b);
+      }, 0);
+    });
+  }
+
+  getPossiblePages() {
+    return this.getPossiblePositions().map((position, index) =>
+      Math.ceil((position + this.getScrollWidth(this.cards[index])) / this.wrapperWidth())
+    );
   }
 
   handleScroll(scrollEvent) {
@@ -175,77 +169,63 @@ class CardsList extends React.Component {
       const leftBound = this.leftBound();
       const rightBound = this.rightBound();
 
-      const skip = this.getPossiblePositions((el, index) => {
-        return el + getOr(0, [index, 'scrollWidth'], this.cards) <= leftBound;
+      const skip = this.getPossiblePositions().filter((position, index) => {
+        return position + this.getScrollWidth(this.cards[index]) <= leftBound;
       }).length;
-      const limit = this.getPossiblePositions((el, index) => {
-        return el + getOr(0, [index, 'scrollWidth'], this.cards) > leftBound && el < rightBound;
+      const limit = this.getPossiblePositions().filter((position, index) => {
+        return (
+          position + this.getScrollWidth(this.cards[index]) > leftBound && position < rightBound
+        );
       }).length;
       onScroll(skip, limit);
     }
   }
 
   handleOnLeft() {
-    const currentScrollPos = this.leftBound();
-    if (currentScrollPos <= 0) {
-      return;
+    const {actualPage} = this.state;
+    if (actualPage > 1) {
+      this.scrollTo(actualPage - 1);
     }
-
-    this.scrollTo(currentScrollPos, true);
   }
 
   handleOnRight() {
-    const currentScrollPos = this.leftBound();
-    if (currentScrollPos >= this.maxLeftBound()) {
-      return;
+    const {actualPage} = this.state;
+    if (actualPage < this.maxPages()) {
+      this.scrollTo(actualPage + 1);
     }
-
-    this.scrollTo(currentScrollPos, false);
   }
 
-  scrollTo(currentScrollPos, toPrevious) {
-    const possiblePositions = this.getPossiblePositions(el => {
-      return toPrevious ? el < currentScrollPos : el > currentScrollPos + this.wrapperWidth();
-    });
-
-    if (!toPrevious) {
-      possiblePositions.push(this.cardsWidth());
-    }
-
-    if (possiblePositions.length === 0) {
-      return;
-    }
-
-    const actualPosition = toPrevious
-      ? last(possiblePositions)
-      : head(possiblePositions) - this.wrapperWidth();
-    this.cardsWrapper.scrollLeft = actualPosition;
-    this.updateArrowsState();
+  scrollTo(page) {
+    const indexOfNextFirstCard = this.getPossiblePages().indexOf(page);
+    const nextPosition = sumBy('scrollWidth', this.cards.slice(0, indexOfNextFirstCard));
+    this.cardsWrapper.scrollLeft = nextPosition;
+    this.updatePages(page);
   }
 
-  updateArrowsState() {
-    const shouldHideArrows = this.cardsWidth() <= this.wrapperWidth();
-    const leftArrowDisabled = this.leftBound() <= 0;
-    const rightArrowDisabled = this.rightBound() >= this.cardsWidth();
-
-    const nextState = {
-      left: {
-        hidden: shouldHideArrows || leftArrowDisabled
-      },
-      right: {
-        hidden: shouldHideArrows || rightArrowDisabled
-      }
-    };
-
+  updatePages(event_) {
+    const isResize = typeof event_ === 'object' && event_.type === 'resize';
+    const {actualPage} = this.state;
+    let nextPage;
+    if (isResize) {
+      const leftBound = this.leftBound();
+      const skip = this.getPossiblePositions().filter(position => position <= leftBound).length;
+      nextPage = this.getPossiblePages()[skip + 1];
+    } else {
+      nextPage = typeof event_ === 'number' ? event_ : actualPage || 1;
+    }
+    const nextState = {actualPage: nextPage};
     if (!isEqual(this.state, nextState)) this.setState(nextState);
+  }
+
+  maxPages() {
+    return last(this.getPossiblePages()) || 0;
   }
 
   render() {
     const {title, showMore, cards, onShowMore, dataName, contentType} = this.props;
-    const {left, right} = this.state;
     const {skin} = this.context;
-
-    const mediumColor = getOr('#90A4AE', 'common.medium', skin);
+    const {actualPage} = this.state;
+    const dark = getOr('#90A4AE', 'common.dark', skin);
     const titleStyle = onShowMore ? style.titleLink : style.title;
     const cardsView = map.convert({cap: false})((card, key) => {
       return (
@@ -255,12 +235,18 @@ class CardsList extends React.Component {
       );
     }, cards);
 
-    const leftArrowView = left.hidden ? null : (
-      <ArrowLeft color={mediumColor} className={style.left} onClick={this.handleOnLeft} />
-    );
+    const leftCircleStyle = actualPage === 1 ? style.disabledCircle : style.circle;
+    const rightCircleStyle = actualPage === this.maxPages() ? style.disabledCircle : style.circle;
 
-    const rightArrowView = right.hidden ? null : (
-      <ArrowRight color={mediumColor} className={style.right} onClick={this.handleOnRight} />
+    const leftArrowView = (
+      <div className={leftCircleStyle} onClick={this.handleOnLeft}>
+        <ArrowLeft color={dark} className={style.left} width={10} height={10} />
+      </div>
+    );
+    const rightArrowView = (
+      <div className={rightCircleStyle} onClick={this.handleOnRight}>
+        <ArrowRight color={dark} className={style.right} width={10} height={10} />
+      </div>
     );
 
     const titleView = (
@@ -270,22 +256,45 @@ class CardsList extends React.Component {
       </span>
     );
 
+    const hasPages = this.maxPages() > 1;
     const showMoreView =
-      showMore && onShowMore ? <ShowMoreLink onShowMore={onShowMore} showMore={showMore} /> : null;
+      showMore && onShowMore ? (
+        <ShowMoreLink
+          className={hasPages ? style.showMoreBar : style.showMore}
+          onShowMore={onShowMore}
+          showMore={showMore}
+        />
+      ) : null;
+
+    const maxPages = this.maxPages();
+    const restPages = actualPage || 0;
+    const paging = `${restPages}/${maxPages}`;
+
+    const pagingView = (
+      <span data-name="paging">
+        <span className={style.paging}>{paging}</span>
+      </span>
+    );
+    const switchPagesView = hasPages ? (
+      <div className={style.pagingWrapper}>
+        {showMoreView}
+        {pagingView}
+        {leftArrowView}
+        {rightArrowView}
+      </div>
+    ) : null;
     return (
       <div className={style.wrapper} data-name="cardsList">
         <div className={style.list}>
           <div className={style.listWrapper}>
             <div data-name="header" className={style.header}>
               {titleView}
-              {showMoreView}
+              {switchPagesView}
             </div>
             <div className={style.cards} ref={this.setCardsWrapper}>
               {cardsView}
             </div>
           </div>
-          {leftArrowView}
-          {rightArrowView}
         </div>
       </div>
     );
