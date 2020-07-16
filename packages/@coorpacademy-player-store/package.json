@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/player-store",
-  "version": "4.1.25",
+  "version": "4.1.26",
   "description": "Redux store for slide players",
   "main": "lib",
   "module": "es",
@@ -47,14 +47,14 @@
     "browser-env": "^3.3.0",
     "concurrently": "^5.2.0",
     "cross-env": "^7.0.2",
-   "eslint": "^7.3.1",
+    "eslint": "^7.3.1",
     "flow-bin": "^0.75.0",
     "flow-copy-source": "^2.0.9",
     "nyc": "^15.1.0"
   },
   "dependencies": {
-    "@coorpacademy/progression-engine": "11.1.9",
-    "@coorpacademy/redux-task": "1.1.1",
+    "@coorpacademy/progression-engine": "11.1.10",
+    "@coorpacademy/redux-task": "1.1.2",
     "lodash": "^4.17.15",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"

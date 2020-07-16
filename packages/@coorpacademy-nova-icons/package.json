@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/nova-icons",
-  "version": "3.7.3",
+  "version": "3.7.4",
   "description": "React components bank based on Nova SVG icons",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -52,7 +52,7 @@
     "codecov": "^3.7.0",
     "concurrently": "^5.2.0",
     "cross-env": "^7.0.2",
-   "eslint": "^7.3.1",
+    "eslint": "^7.3.1",
     "flow-bin": "^0.125.1",
     "flow-copy-source": "^2.0.9",
     "glob": "^7.1.6",

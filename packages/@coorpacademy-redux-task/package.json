@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/redux-task",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "",
   "main": "lib/index.js",
   "module": "es/index.js",
@@ -43,7 +43,7 @@
     "babel-plugin-istanbul": "^6.0.0",
     "babel-plugin-lodash": "^3.3.4",
     "cross-env": "^7.0.2",
-   "eslint": "^7.3.1",
+    "eslint": "^7.3.1",
     "nyc": "^15.0.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
