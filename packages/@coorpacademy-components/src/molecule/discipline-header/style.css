@@ -64,11 +64,11 @@
   text-decoration: underline;
 }
 
-.toggle {
+.showMoreHidden {
   display: none;
 }
 
-.toggle {
+.showMore {
   display: block;
   font-size: 14px;
   margin: 0 14px 0 0;
@@ -81,7 +81,7 @@
   color: brand;
 }
 
-.toggle:hover {
+.showMore:hover {
   opacity: 0.8;
 }
 
