@@ -794,6 +794,9 @@ import TemplateCommonDashboardFixtureWithHeroCard from '../src/template/common/d
 import TemplateCommonDisciplineFixtureDefault from '../src/template/common/discipline/test/fixtures/default';
 import TemplateCommonDisciplineFixtureDoubleAuthor from '../src/template/common/discipline/test/fixtures/double-author';
 import TemplateCommonDisciplineFixtureEmpty from '../src/template/common/discipline/test/fixtures/empty';
+import TemplateCommonDisciplineFixtureExternalCourseWithVideo from '../src/template/common/discipline/test/fixtures/external-course-with-video';
+import TemplateCommonDisciplineFixtureExternalCourseWithoutImage from '../src/template/common/discipline/test/fixtures/external-course-without-image';
+import TemplateCommonDisciplineFixtureExternalCourse from '../src/template/common/discipline/test/fixtures/external-course';
 import TemplateCommonDisciplineFixtureJwplayer from '../src/template/common/discipline/test/fixtures/jwplayer';
 import TemplateCommonDisciplineFixtureLoading from '../src/template/common/discipline/test/fixtures/loading';
 import TemplateCommonDisciplineFixtureNoAuthor from '../src/template/common/discipline/test/fixtures/no-author';
@@ -1982,6 +1985,9 @@ export const fixtures = {
       Default: TemplateCommonDisciplineFixtureDefault,
       DoubleAuthor: TemplateCommonDisciplineFixtureDoubleAuthor,
       Empty: TemplateCommonDisciplineFixtureEmpty,
+      ExternalCourseWithVideo: TemplateCommonDisciplineFixtureExternalCourseWithVideo,
+      ExternalCourseWithoutImage: TemplateCommonDisciplineFixtureExternalCourseWithoutImage,
+      ExternalCourse: TemplateCommonDisciplineFixtureExternalCourse,
       Jwplayer: TemplateCommonDisciplineFixtureJwplayer,
       Loading: TemplateCommonDisciplineFixtureLoading,
       NoAuthor: TemplateCommonDisciplineFixtureNoAuthor,

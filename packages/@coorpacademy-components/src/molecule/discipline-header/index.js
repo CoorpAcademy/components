@@ -58,9 +58,11 @@ class DisciplineHeader extends React.Component {
 
     return (
       <div data-name="disciplineHeader" className={style.wrapper}>
-        <div className={style.imgWrapper}>
-          <Preview image={image} video={video} />
-        </div>
+        {image || video ? (
+          <div className={style.imgWrapper}>
+            <Preview image={image} video={video} />
+          </div>
+        ) : null}
         <div className={style.courseWrapper}>
           <div data-name="title" className={style.title}>
             {title}
