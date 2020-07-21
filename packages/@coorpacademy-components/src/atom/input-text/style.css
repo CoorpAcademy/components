@@ -79,11 +79,22 @@
 .cockpit label:hover ~* {
   opacity: 80%;
 }
+.cockpit.error .title {
+  color: negative;
+}
+.cockpit.error .description:after {
+  border-color: negative transparent transparent transparent;
+}
+
+.cockpit.error .description {
+  background-color: negative;
+}
 
 .cockpit.error input,
 .cockpit.error input:focus,
 .cockpit.error input:hover {
   border-bottom: solid 2px negative;
+  color: negative;
 }
 .cockpit input:focus,
 .cockpit input:hover{

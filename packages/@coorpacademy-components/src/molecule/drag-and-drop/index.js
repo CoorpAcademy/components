@@ -1,6 +1,5 @@
 import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
-import uniqueId from 'lodash/fp/uniqueId';
 import getOr from 'lodash/fp/getOr';
 import includes from 'lodash/fp/includes';
 import Dropzone from 'react-dropzone';
@@ -16,7 +15,6 @@ export const DragAndDrop = (props, context) => {
   const {skin} = context;
   const primaryColor = getOr('#00B0FF', 'common.primary', skin);
 
-  const idBox = uniqueId('drop-box-');
   const {
     state,
     title,
@@ -50,7 +48,7 @@ export const DragAndDrop = (props, context) => {
         <ArrowLeft width={12} height={12} className={style.arrow} />
         {backLabel}
       </span>
-      <Dropzone key={idBox} accept={accept} disabled={loading} onDrop={onDrop}>
+      <Dropzone accept={accept} disabled={loading} onDrop={onDrop}>
         {({getRootProps, getInputProps, isDragActive}) => {
           const getView = () => {
             if (contentType !== 'scorm' || includes(state, ['success', 'error', 'ready'])) {
@@ -80,7 +78,7 @@ export const DragAndDrop = (props, context) => {
             );
           };
 
-          const disableFileInput = ['success', 'ready'].includes(state);
+          const disableFileInput = ['success'].includes(state);
 
           return (
             <div {...getRootProps()} className={style.wrapper}>

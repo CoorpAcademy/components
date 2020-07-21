@@ -32,6 +32,11 @@ export const UploadReport = ({
     [onDelete]
   );
 
+  const stopPropagationHandler = useCallback(e => {
+    e.stopPropagation();
+    e.preventDefault();
+  }, []);
+
   const SuccessMessage = () => (
     <div>
       <span className={style.emoticon}>🎉</span>
@@ -76,10 +81,9 @@ export const UploadReport = ({
     </div>
   ) : null;
   const fieldsList = map.convert({cap: false})(buildField, fields);
-
   return (
     <div className={style.reportingContainer}>
-      <div className={style.reportHeader}>
+      <div className={style.reportHeader} onClick={stopPropagationHandler}>
         <div className={style.iconContainer} style={{backgroundColor: iconColor}}>
           <div className={style.oval}>
             <IconType className={style.iconHeader} color={iconColor} />
@@ -88,24 +92,24 @@ export const UploadReport = ({
         {fileView}
         {deleteView}
       </div>
-      <div className={style.reportContainer}>
+      <div className={style.reportContainer} onClick={stopPropagationHandler}>
         {state === 'success' ? <SuccessMessage /> : null}
         {state === 'error' ? <ErrorMessage /> : null}
         {mode === 'edit' && !showMessage ? <div>{fieldsList}</div> : null}
         {mode === 'edit' && !showMessage ? <span className={style.or}>{orLabel}</span> : null}
-        {!showMessage ? (
-          <div className={style.drop}>
-            <p className={style.message}>{message}</p>
-            <Button
-              data-name="cta"
-              type="link"
-              submitValue={buttonTitle}
-              className={style.selectButton}
-              style={{backgroundColor: primaryColor}}
-            />
-          </div>
-        ) : null}
       </div>
+      {!showMessage ? (
+        <div className={style.drop}>
+          <p className={style.message}>{message}</p>
+          <Button
+            data-name="cta"
+            type="link"
+            submitValue={buttonTitle}
+            className={style.selectButton}
+            style={{backgroundColor: primaryColor}}
+          />
+        </div>
+      ) : null}
     </div>
   );
 };
