@@ -258,7 +258,7 @@ class CardsList extends React.Component {
 
     const hasPages = this.maxPages() > 1;
     const showMoreView =
-      showMore && onShowMore ? (
+      hasPages && showMore && onShowMore ? (
         <ShowMoreLink
           className={hasPages ? style.showMoreBar : style.showMore}
           onShowMore={onShowMore}
@@ -286,7 +286,7 @@ class CardsList extends React.Component {
     return (
       <div className={style.wrapper} data-name="cardsList">
         <div className={style.list}>
-          <div className={style.listWrapper}>
+          <div>
             <div data-name="header" className={style.header}>
               {titleView}
               {switchPagesView}

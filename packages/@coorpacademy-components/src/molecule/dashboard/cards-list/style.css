@@ -12,6 +12,7 @@
 .wrapper {
   padding: 16px 30px 8px;
   position: relative;
+  overflow: hidden;
 }
 
 .icon {
@@ -34,9 +35,6 @@
   align-items: center;
   margin-bottom: 8px;
   margin-top: 16px;
-}
-
-.listWrapper {
 }
 
 .title {
@@ -74,6 +72,11 @@
 .showMoreBar {
   composes: showMore;
   border-right: 1px solid color(dark a(70%));
+  height: 24px;
+  margin: auto 10px auto auto;
+  padding-top: 2px;
+  padding-bottom: 2px;
+
 }
 
 .paging {
