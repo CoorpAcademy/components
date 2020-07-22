@@ -393,6 +393,7 @@ import MoleculeDisciplineCtaFixtureDefault from '../src/molecule/discipline-cta/
 import MoleculeDisciplineCtaFixtureNoStart from '../src/molecule/discipline-cta/test/fixtures/no-start';
 import MoleculeDisciplineHeaderFixtureDefault from '../src/molecule/discipline-header/test/fixtures/default';
 import MoleculeDisciplineHeaderFixtureJwplayer from '../src/molecule/discipline-header/test/fixtures/jwplayer';
+import MoleculeDisciplineHeaderFixtureLongDescription from '../src/molecule/discipline-header/test/fixtures/long-description';
 import MoleculeDisciplineHeaderFixtureNoVideoNoImage from '../src/molecule/discipline-header/test/fixtures/no-video-no-image';
 import MoleculeDisciplineHeaderFixtureNoVideo from '../src/molecule/discipline-header/test/fixtures/no-video';
 import MoleculeDisciplineHeaderFixturePortaitRatio from '../src/molecule/discipline-header/test/fixtures/portait-ratio';
@@ -1347,6 +1348,7 @@ export const fixtures = {
     MoleculeDisciplineHeader: {
       Default: MoleculeDisciplineHeaderFixtureDefault,
       Jwplayer: MoleculeDisciplineHeaderFixtureJwplayer,
+      LongDescription: MoleculeDisciplineHeaderFixtureLongDescription,
       NoVideoNoImage: MoleculeDisciplineHeaderFixtureNoVideoNoImage,
       NoVideo: MoleculeDisciplineHeaderFixtureNoVideo,
       PortaitRatio: MoleculeDisciplineHeaderFixturePortaitRatio,
