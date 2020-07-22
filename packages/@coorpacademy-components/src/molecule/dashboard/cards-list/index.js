@@ -268,7 +268,7 @@ class CardsList extends React.Component {
 
     const maxPages = this.maxPages();
     const restPages = actualPage || 0;
-    const paging = `${restPages}/${maxPages}`;
+    const paging = `${restPages} / ${maxPages}`;
 
     const pagingView = (
       <span data-name="paging">

@@ -83,7 +83,7 @@
   font-family: 'Open Sans';
   font-size: 14px;
   font-weight: normal;
-  letter-spacing: 4px;
+  letter-spacing: 2px;
   color: dark;
   margin-right: 10px;
   line-height: 28px;
@@ -101,6 +101,7 @@
   margin-right: 0px;
   overflow: hidden;
   scroll-behavior: smooth;
+  transform: scale3d(1, 1, 1);
 }
 
 .card {
