@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {get} from 'lodash/fp';
+import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import VideoPlayer from '../video-player';
 import Picture from '../../atom/picture';
 import style from './style.css';
@@ -38,9 +39,11 @@ class DisciplineHeader extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      fullDisplay: false
+      fullDisplay: false,
+      offsetHeightShowMore: 0
     };
     this.handleToggleDisplay = this.handleToggleDisplay.bind(this);
+    this.setHandle = this.setHandle.bind(this);
   }
 
   handleToggleDisplay() {
@@ -49,12 +52,19 @@ class DisciplineHeader extends React.Component {
     }));
   }
 
+  setHandle(el) {
+    this.setState({offsetHeightShowMore: getOr(0, 'offsetHeight', el)});
+  }
+
   render() {
     const {image, title, description, video} = this.props;
-    const {fullDisplay} = this.state;
+    const {fullDisplay, offsetHeightShowMore} = this.state;
     const {translate} = this.context;
+    const maxHeightDescription = 219;
 
     const toggleLabel = fullDisplay ? translate('See less') : translate('Show more');
+    const descritpionViewStyle =
+      offsetHeightShowMore <= maxHeightDescription ? style.showMoreHidden : style.showMore;
 
     return (
       <div data-name="disciplineHeader" className={style.wrapper}>
@@ -71,9 +81,10 @@ class DisciplineHeader extends React.Component {
               dangerouslySetInnerHTML={{
                 __html: description
               }}
+              ref={this.setHandle}
             />
           </div>
-          <div className={style.toggle} onClick={this.handleToggleDisplay}>
+          <div className={descritpionViewStyle} onClick={this.handleToggleDisplay}>
             {toggleLabel}
           </div>
         </div>
