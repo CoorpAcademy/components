@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {get, getOr} from 'lodash/fp';
+import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import VideoPlayer from '../video-player';
 import Picture from '../../atom/picture';
 import style from './style.css';
