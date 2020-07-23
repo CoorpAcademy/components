@@ -33,8 +33,7 @@ test('should move cards by pages', t => {
 
   const cardsList = mountCardsList(props_);
   const instance = cardsList.instance();
-  instance.getScrollWidth = () => 272;
-  instance.wrapperWidth = () => 1088;
+  instance.setState({scrollLeft: 271, offsetWidth: 1088});
   instance.updatePages();
 
   t.is(instance.maxPages(), 3);
@@ -94,17 +93,16 @@ test('should return scrollWidth and call onScroll if exist', t => {
 
   const cardsList_ = mountCardsList({...props_, onScroll});
   const instance_ = cardsList_.instance();
-  instance_.wrapperWidth = () => 1088;
-  instance_.updatePages();
 
   t.is(instance_.getScrollWidth({scrollWidth: 272}), 272);
 
-  instance_.getScrollWidth = () => 272;
+  instance_.setState({scrollLeft: 0, offsetWidth: 1088});
+
   instance_.handleScroll({});
   t.is(scrollData.skip, 0);
   t.is(scrollData.limit, 4);
 
-  instance_.leftBound = () => 1088;
+  instance_.setState({scrollLeft: 1088, offsetWidth: 1088});
   instance_.handleScroll({});
   t.is(scrollData.skip, 4);
   t.is(scrollData.limit, 4);
@@ -120,18 +118,13 @@ test('should update componenet when resizing', t => {
 
   const cardsList = mountCardsList(props_);
   const instance = cardsList.instance();
-  instance.getScrollWidth = () => 272;
-  instance.wrapperWidth = () => 1088;
-  const state = {isUpdated: false};
-  const setState = () => {
-    state.isUpdated = true;
-  };
-  instance.setState = setState;
+  instance.setState({scrollLeft: 271, offsetWidth: 1088});
+
   t.is(instance.maxPages(), 1);
 
-  instance.wrapperWidth = () => 600;
+  instance.setState({scrollLeft: 272, offsetWidth: 600});
   instance.updatePages({type: 'resize'});
-  t.is(state.isUpdated, true);
+
   t.is(instance.maxPages(), 2);
 
   cardsList.unmount();

@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useMemo, memo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {get, isEmpty, isUndefined, pick} from 'lodash/fp';
@@ -73,7 +73,7 @@ CardBackground.propTypes = {
   empty: PropTypes.bool
 };
 
-const Card = (props, context) => {
+const Card = memo(function Card(props, context) {
   const {skin} = context;
   const {
     image,
@@ -164,7 +164,7 @@ const Card = (props, context) => {
       {disabled ? <div className={style.lockWrapper}>{lock}</div> : null}
     </div>
   );
-};
+});
 
 Card.contextTypes = {
   skin: Provider.childContextTypes.skin

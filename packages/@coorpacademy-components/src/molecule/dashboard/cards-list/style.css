@@ -72,8 +72,8 @@
 .showMoreBar {
   composes: showMore;
   border-right: 1px solid color(dark a(70%));
-  height: 24px;
-  margin: auto 10px auto auto;
+  height: 16px;
+  margin: auto 16px auto auto;
   padding-top: 2px;
   padding-bottom: 2px;
 
