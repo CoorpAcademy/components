@@ -129,8 +129,8 @@ class CardsList extends React.Component {
   setCardsWrapper(element) {
     this.cardsWrapper = element;
     this.setState({
-      scrollLeft: this.cardsWrapper.scrollLeft,
-      offsetWidth: this.cardsWrapper.offsetWidth
+      scrollLeft: this.cardsWrapper?.scrollLeft,
+      offsetWidth: this.cardsWrapper?.offsetWidth
     });
   }
 
@@ -167,7 +167,7 @@ class CardsList extends React.Component {
   }
 
   handleScroll() {
-    const scrollLeft = this.cardsWrapper.scrollLeft || 0;
+    const {scrollLeft = 0} = this.state;
 
     const {onScroll} = this.props;
     const {offsetWidth} = this.state;
@@ -186,10 +186,6 @@ class CardsList extends React.Component {
 
       onScroll(skip, limit);
     }
-
-    this.setState({
-      scrollLeft
-    });
   }
 
   handleOnLeft() {
