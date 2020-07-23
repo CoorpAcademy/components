@@ -26,7 +26,7 @@ const ScopeContent = (props, context) => {
 
   const onClick = get('onClick', content);
   const buttonLabel = get('buttonLabel', content);
-
+  const discussion = get('discussion', content);
   const skills = _skills.map((skill, index) => <li key={index}>{skill}</li>);
 
   const chapters = _chapters.map((chapter, index) => <li key={index}>{chapter.name}</li>);
@@ -73,7 +73,7 @@ const ScopeContent = (props, context) => {
       </div>
     ) : null;
 
-  return (
+  return content && title ? (
     <div data-name="scopeContent">
       <div data-name="description" className={style.desc}>
         <div className={style.infos}>
@@ -100,9 +100,11 @@ const ScopeContent = (props, context) => {
       </div>
 
       {mediasView}
-      {get('discussion', content) ? (
-        <Discussion {...content.discussion} className={style.discussion} />
-      ) : null}
+      {discussion ? <Discussion {...discussion} className={style.discussion} /> : null}
+    </div>
+  ) : (
+    <div data-name="discussion">
+      <Discussion {...discussion} className={style.discussion} />
     </div>
   );
 };
