@@ -1,7 +1,7 @@
 import {
   pipe,
   includes,
-  parseInt,
+  toInteger,
   head,
   map,
   get,
@@ -198,7 +198,7 @@ const sliderProps = (options, store) => {
     );
 
     const stateValue = pipe(getAnswerValues, head)(slide, state);
-    const currentValue = parseInt(10, stateValue);
+    const currentValue = toInteger(stateValue);
 
     const indexValue = indexOf(currentValue, values);
     const handleChange = editAnswerAction_(state, slide);
