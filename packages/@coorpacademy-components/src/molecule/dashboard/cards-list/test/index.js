@@ -17,14 +17,6 @@ const mountCardsList = props => {
   return cards;
 };
 
-test('should call cardsWidth', t => {
-  const {props} = Card;
-  const props_ = {cards: [props, props, props]};
-  const cardsList = mountCardsList(props_);
-  const width = cardsList.instance().wrapperWidth();
-  t.is(width, 0);
-});
-
 test('should move cards by pages', t => {
   const {props} = Card;
   const props_ = {
@@ -33,43 +25,42 @@ test('should move cards by pages', t => {
 
   const cardsList = mountCardsList(props_);
   const instance = cardsList.instance();
-  instance.setState({scrollLeft: 271, offsetWidth: 1088});
-  instance.updatePages();
+  instance.cardsWrapper = {offsetWidth: 1088, scrollLeft: 271, removeEventListener: () => {}};
+  instance.setState({offsetWidth: 1088});
 
-  t.is(instance.maxPages(), 3);
+  t.is(instance.state.maxPages, 3);
   t.is(instance.state.actualPage, 1);
 
   instance.handleOnLeft();
-  t.is(instance.maxPages(), 3);
+  t.is(instance.state.maxPages, 3);
   t.is(instance.state.actualPage, 1);
-  instance.updatePages();
 
   instance.handleOnRight();
-  t.is(instance.maxPages(), 3);
+  t.is(instance.state.maxPages, 3);
   t.is(instance.state.actualPage, 2);
 
   instance.handleOnLeft();
-  t.is(instance.maxPages(), 3);
+  t.is(instance.state.maxPages, 3);
   t.is(instance.state.actualPage, 1);
 
   instance.handleOnRight();
-  t.is(instance.maxPages(), 3);
+  t.is(instance.state.maxPages, 3);
   t.is(instance.state.actualPage, 2);
 
   instance.handleOnRight();
-  t.is(instance.maxPages(), 3);
+  t.is(instance.state.maxPages, 3);
   t.is(instance.state.actualPage, 3);
 
   instance.handleOnRight();
-  t.is(instance.maxPages(), 3);
+  t.is(instance.state.maxPages, 3);
   t.is(instance.state.actualPage, 3);
 
   instance.handleOnLeft();
-  t.is(instance.maxPages(), 3);
+  t.is(instance.state.maxPages, 3);
   t.is(instance.state.actualPage, 2);
 
   instance.handleOnLeft();
-  t.is(instance.maxPages(), 3);
+  t.is(instance.state.maxPages, 3);
   t.is(instance.state.actualPage, 1);
 
   cardsList.unmount();
@@ -104,6 +95,7 @@ test('should return scrollWidth and call onScroll if exist', t => {
 
   instance_.setState({scrollLeft: 1088, offsetWidth: 1088});
   instance_.handleScroll({});
+
   t.is(scrollData.skip, 4);
   t.is(scrollData.limit, 4);
 
@@ -118,14 +110,16 @@ test('should update componenet when resizing', t => {
 
   const cardsList = mountCardsList(props_);
   const instance = cardsList.instance();
-  instance.setState({scrollLeft: 271, offsetWidth: 1088});
+  instance.cardsWrapper = {offsetWidth: 1088, scrollLeft: 272, removeEventListener: () => {}};
+  instance.setState({scrollLeft: 1088, offsetWidth: 1088});
 
-  t.is(instance.maxPages(), 1);
+  t.is(instance.state.maxPages, 1);
 
-  instance.setState({scrollLeft: 272, offsetWidth: 600});
-  instance.updatePages({type: 'resize'});
+  instance.cardsWrapper = {offsetWidth: 600, scrollLeft: 272, removeEventListener: () => {}};
 
-  t.is(instance.maxPages(), 2);
+  instance.handleResize();
+
+  t.is(instance.state.maxPages, 2);
 
   cardsList.unmount();
 });

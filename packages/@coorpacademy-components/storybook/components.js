@@ -384,6 +384,7 @@ import MoleculeDashboardCardsListFixtureManyEmpty from '../src/molecule/dashboar
 import MoleculeDashboardCardsListFixtureMany from '../src/molecule/dashboard/cards-list/test/fixtures/many';
 import MoleculeDashboardCardsListFixtureMicrolearning from '../src/molecule/dashboard/cards-list/test/fixtures/microlearning';
 import MoleculeDashboardCardsListFixtureNoIcon from '../src/molecule/dashboard/cards-list/test/fixtures/no-icon';
+import MoleculeDashboardCardsListFixturePerformance from '../src/molecule/dashboard/cards-list/test/fixtures/performance';
 import MoleculeDashboardNewsListFixtureDefault from '../src/molecule/dashboard/news-list/test/fixtures/default';
 import MoleculeDashboardNewsListFixtureLoading from '../src/molecule/dashboard/news-list/test/fixtures/loading';
 import MoleculeDashboardNewsListFixtureMore from '../src/molecule/dashboard/news-list/test/fixtures/more';
@@ -1588,7 +1589,8 @@ export const fixtures = {
       ManyEmpty: MoleculeDashboardCardsListFixtureManyEmpty,
       Many: MoleculeDashboardCardsListFixtureMany,
       Microlearning: MoleculeDashboardCardsListFixtureMicrolearning,
-      NoIcon: MoleculeDashboardCardsListFixtureNoIcon
+      NoIcon: MoleculeDashboardCardsListFixtureNoIcon,
+      Performance: MoleculeDashboardCardsListFixturePerformance
     },
     MoleculeDashboardNewsList: {
       Default: MoleculeDashboardNewsListFixtureDefault,
