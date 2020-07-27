@@ -27,7 +27,6 @@ test('should move cards by pages', t => {
   const instance = cardsList.instance();
   instance.cardsWrapper = {offsetWidth: 1088, scrollLeft: 271, removeEventListener: () => {}};
   instance.setState({offsetWidth: 1088});
-  instance.handleChanges();
 
   t.is(instance.state.maxPages, 3);
   t.is(instance.state.actualPage, 1);
@@ -114,13 +113,11 @@ test('should update componenet when resizing', t => {
   instance.cardsWrapper = {offsetWidth: 1088, scrollLeft: 272, removeEventListener: () => {}};
   instance.setState({scrollLeft: 1088, offsetWidth: 1088});
 
-  instance.handleChanges();
-
   t.is(instance.state.maxPages, 1);
 
   instance.cardsWrapper = {offsetWidth: 600, scrollLeft: 272, removeEventListener: () => {}};
 
-  instance.handleChanges('resize');
+  instance.handleResize();
 
   t.is(instance.state.maxPages, 2);
 

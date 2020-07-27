@@ -107,55 +107,64 @@ class CardsList extends React.Component {
     this.updatePages = this.updatePages.bind(this);
     this.setCardsWrapper = this.setCardsWrapper.bind(this);
     this.getScrollWidth = this.getScrollWidth.bind(this);
-    this.handleChanges = this.handleChanges.bind(this);
+    this.handleResize = this.handleResize.bind(this);
   }
 
   componentDidMount() {
     this.cardsWrapper.addEventListener('scroll', this.handleScroll_);
 
     if (window) {
-      window.addEventListener('resize', () => this.handleChanges('resize'));
+      window.addEventListener('resize', this.handleResize);
     }
   }
 
   componentDidUpdate() {
-    this.handleChanges();
+    const {cards = []} = this.props;
+    const {offsetWidth, cardsWidth} = this.state;
+    const newCardsWidth = pipe(map(computeWidth), sum)(cards);
+
+    if (newCardsWidth !== cardsWidth && offsetWidth !== 0) {
+      this.updatePaginationState(cards);
+      // eslint-disable-next-line react/no-did-update-set-state
+      this.setState({
+        cardsWidth: newCardsWidth
+      });
+    }
   }
 
   componentWillUnmount() {
     this.cardsWrapper.removeEventListener('scroll', this.handleScroll_);
 
     if (window) {
-      window.removeEventListener('resize', () => this.handleChanges('resize'));
+      window.removeEventListener('resize', this.handleResize);
     }
     this.updateState.cancel();
   }
 
-  handleChanges(event) {
+  handleResize() {
     const {cards = []} = this.props;
-    const {offsetWidth, cardsWidth} = this.state;
-    const newCardsWidth = pipe(map(computeWidth), sum)(cards);
-    if ((newCardsWidth !== cardsWidth && offsetWidth !== 0) || event === 'resize') {
-      const possiblePositions = cards.map((card, index, arr) => {
-        return arr.slice(0, index).reduce((a, b, currentIndex) => {
-          return a + computeWidth(cards[currentIndex]);
-        }, 0);
-      });
-      const possiblePages = possiblePositions.map((position, index) =>
-        Math.ceil((position + computeWidth(cards[index])) / this.cardsWrapper?.offsetWidth)
-      );
-      const skip = possiblePositions.filter(position => position < this.cardsWrapper?.scrollLeft)
-        .length;
-      const actualPage = possiblePages[skip + 1];
+    this.updatePaginationState(cards);
+  }
 
-      this.setState({
-        possiblePositions,
-        possiblePages,
-        maxPages: last(possiblePages),
-        actualPage,
-        cardsWidth: newCardsWidth
-      });
-    }
+  updatePaginationState(cards) {
+    const possiblePositions = cards.map((card, index, arr) => {
+      return arr.slice(0, index).reduce((a, b, currentIndex) => {
+        return a + computeWidth(cards[currentIndex]);
+      }, 0);
+    });
+    const possiblePages = possiblePositions.map((position, index) =>
+      Math.ceil((position + computeWidth(cards[index])) / this.cardsWrapper?.offsetWidth)
+    );
+    const skip = possiblePositions.filter(position => position < this.cardsWrapper?.scrollLeft)
+      .length;
+    const actualPage = possiblePages[skip + 1];
+
+    this.setState({
+      possiblePositions,
+      possiblePages,
+      maxPages: last(possiblePages),
+      actualPage
+    });
   }
 
   setCardsWrapper(element) {
