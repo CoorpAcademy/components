@@ -1,5 +1,5 @@
 import React from 'react';
-import {debounce, get, getOr, map, sum, last, pipe, toPairs} from 'lodash/fp';
+import {debounce, throttle, get, getOr, map, sum, last, pipe, toPairs} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import {
   NovaCompositionNavigationArrowLeft as ArrowLeft,
@@ -89,14 +89,16 @@ class CardsList extends React.Component {
     super(props);
 
     this.state = {
-      actualPage: null,
+      actualPage: 0,
+      maxPages: 0,
       scrollLeft: 0,
-      offsetWidth: 0
+      offsetWidth: 0,
+      possiblePositions: [],
+      possiblePages: [],
+      cardsWidth: 0
     };
 
-    this.leftBound = this.leftBound.bind(this);
-    this.wrapperWidth = this.wrapperWidth.bind(this);
-    this.getPossiblePositions = this.getPossiblePositions.bind(this);
+    this.handleScroll_ = throttle(200, this.handleScroll.bind(this));
     this.handleScroll = this.handleScroll.bind(this);
     this.handleOnLeft = this.handleOnLeft.bind(this);
     this.handleOnRight = this.handleOnRight.bind(this);
@@ -104,26 +106,56 @@ class CardsList extends React.Component {
     this.updateState = debounce(200, this.updatePages.bind(this));
     this.updatePages = this.updatePages.bind(this);
     this.setCardsWrapper = this.setCardsWrapper.bind(this);
-    this.maxPages = this.maxPages.bind(this);
     this.getScrollWidth = this.getScrollWidth.bind(this);
+    this.handleChanges = this.handleChanges.bind(this);
   }
 
   componentDidMount() {
-    this.cardsWrapper.addEventListener('scroll', this.handleScroll);
+    this.cardsWrapper.addEventListener('scroll', this.handleScroll_);
 
     if (window) {
-      window.addEventListener('resize', this.updateState);
+      window.addEventListener('resize', () => this.handleChanges('resize'));
     }
-    this.updateState();
+  }
+
+  componentDidUpdate() {
+    this.handleChanges();
   }
 
   componentWillUnmount() {
-    this.cardsWrapper.removeEventListener('scroll', this.handleScroll);
+    this.cardsWrapper.removeEventListener('scroll', this.handleScroll_);
 
     if (window) {
-      window.removeEventListener('resize', this.updateState);
+      window.removeEventListener('resize', () => this.handleChanges('resize'));
     }
     this.updateState.cancel();
+  }
+
+  handleChanges(event) {
+    const {cards = []} = this.props;
+    const {offsetWidth, cardsWidth} = this.state;
+    const newCardsWidth = pipe(map(computeWidth), sum)(cards);
+    if ((newCardsWidth !== cardsWidth && offsetWidth !== 0) || event === 'resize') {
+      const possiblePositions = cards.map((card, index, arr) => {
+        return arr.slice(0, index).reduce((a, b, currentIndex) => {
+          return a + computeWidth(cards[currentIndex]);
+        }, 0);
+      });
+      const possiblePages = possiblePositions.map((position, index) =>
+        Math.ceil((position + computeWidth(cards[index])) / this.cardsWrapper?.offsetWidth)
+      );
+      const skip = possiblePositions.filter(position => position < this.cardsWrapper?.scrollLeft)
+        .length;
+      const actualPage = possiblePages[skip + 1];
+
+      this.setState({
+        possiblePositions,
+        possiblePages,
+        maxPages: last(possiblePages),
+        actualPage,
+        cardsWidth: newCardsWidth
+      });
+    }
   }
 
   setCardsWrapper(element) {
@@ -134,48 +166,18 @@ class CardsList extends React.Component {
     });
   }
 
-  leftBound() {
-    const {scrollLeft} = this.state;
-    return scrollLeft;
-  }
-
-  wrapperWidth() {
-    const {offsetWidth} = this.state;
-    return offsetWidth;
-  }
-
   getScrollWidth(index) {
     const {cards = []} = this.props;
     const card = cards[index];
-
     return computeWidth(card);
   }
 
-  getPossiblePositions() {
-    const {cards = []} = this.props;
-    return cards.map((card, index, arr) => {
-      return arr.slice(0, index).reduce((a, b, currentIndex) => {
-        return a + this.getScrollWidth(currentIndex);
-      }, 0);
-    });
-  }
-
-  getPossiblePages() {
-    return this.getPossiblePositions().map((position, index) =>
-      Math.ceil((position + this.getScrollWidth(index)) / this.wrapperWidth())
-    );
-  }
-
   handleScroll() {
-    const {scrollLeft = 0} = this.state;
-
+    const {scrollLeft, possiblePositions, offsetWidth} = this.state;
     const {onScroll} = this.props;
-    const {offsetWidth} = this.state;
     if (onScroll) {
       const leftBound = scrollLeft;
       const rightBound = scrollLeft + offsetWidth;
-
-      const possiblePositions = this.getPossiblePositions();
 
       const skip = possiblePositions.filter((position, index) => {
         return position + this.getScrollWidth(index) <= leftBound;
@@ -204,7 +206,8 @@ class CardsList extends React.Component {
 
   scrollTo(page) {
     const {cards = []} = this.props;
-    const indexOfNextFirstCard = this.getPossiblePages().indexOf(page);
+    const {possiblePages} = this.state;
+    const indexOfNextFirstCard = possiblePages.indexOf(page);
     const nextPosition = pipe(map(computeWidth), sum)(cards.slice(0, indexOfNextFirstCard));
     this.cardsWrapper.scrollLeft = nextPosition;
     this.updatePages(page);
@@ -213,29 +216,10 @@ class CardsList extends React.Component {
     });
   }
 
-  updatePages(event_) {
-    const isResize = typeof event_ === 'object' && event_.type === 'resize';
-
-    const {actualPage, scrollLeft} = this.state;
-
-    let nextPage;
-    if (isResize) {
-      this.cardsWidths = [];
-      const leftBound = scrollLeft;
-      const skip = this.getPossiblePositions().filter(position => position <= leftBound).length;
-      nextPage = this.getPossiblePages()[skip + 1];
-    } else {
-      nextPage = typeof event_ === 'number' ? event_ : actualPage || 1;
-    }
-
+  updatePages(actualPage) {
     this.setState({
-      actualPage: nextPage,
-      maxPages: this.maxPages()
+      actualPage
     });
-  }
-
-  maxPages() {
-    return last(this.getPossiblePages()) || 0;
   }
 
   render() {
