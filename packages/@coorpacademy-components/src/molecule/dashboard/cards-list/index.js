@@ -10,7 +10,9 @@ import {
   pipe,
   toPairs,
   reduce,
-  head
+  head,
+  findIndex,
+  findLastIndex
 } from 'lodash/fp';
 import PropTypes from 'prop-types';
 import {
@@ -216,16 +218,19 @@ class CardsList extends React.Component {
   }
 
   handleScroll() {
-    const {scrollLeft, possiblePositions, offsetWidth} = this.state;
+    const scrollLeft = this.cardsWrapper?.scrollLeft;
+    this.setState({scrollLeft});
+
+    const {possiblePositions, offsetWidth} = this.state;
     const {onScroll} = this.props;
     if (onScroll) {
       const leftBound = scrollLeft;
       const rightBound = scrollLeft + offsetWidth;
 
-      const leftIndex = possiblePositions.findIndex(position => position > leftBound);
-      const rightIndex = possiblePositions.findIndex(position => position >= rightBound);
-      const skip = leftIndex - 1;
-      const limit = rightIndex - skip;
+      const leftIndex = findIndex(position => position > leftBound, possiblePositions) - 1;
+      const rightIndex = findLastIndex(position => position < rightBound, possiblePositions);
+      const skip = leftIndex;
+      const limit = rightIndex - skip + 1;
 
       onScroll(skip, limit);
     }
@@ -292,7 +297,7 @@ class CardsList extends React.Component {
       </span>
     );
 
-    const hasPages = maxPages > 1;
+    const hasPages = maxPages > 0;
     const showMoreView =
       hasPages && showMore && onShowMore ? (
         <ShowMoreLink

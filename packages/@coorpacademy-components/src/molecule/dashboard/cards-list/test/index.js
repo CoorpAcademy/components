@@ -73,7 +73,7 @@ test('should move cards by pages', t => {
 test('should return scrollWidth and call onScroll if exist', t => {
   const {props} = Card;
   const props_ = {
-    cards: times(() => props, 11)
+    cards: times(() => props, 3)
   };
 
   const cardsList = mountCardsList(props_);
@@ -89,19 +89,42 @@ test('should return scrollWidth and call onScroll if exist', t => {
   const cardsList_ = mountCardsList({...props_, onScroll});
   const instance_ = cardsList_.instance();
 
-  t.is(instance_.getScrollWidth({scrollWidth: 272}), 272);
+  const CARD_WIDTH = 272;
 
-  instance_.setState({scrollLeft: 0, offsetWidth: 1088});
+  t.is(instance_.getScrollWidth(0), 272);
 
-  instance_.handleScroll({});
+  instance_.cardsWrapper = {
+    scrollLeft: 0,
+    offsetWidth: CARD_WIDTH * 2,
+    removeEventListener: () => {}
+  };
+  instance_.setState({scrollLeft: 0, offsetWidth: CARD_WIDTH * 2});
+
+  instance_.handleScroll();
   t.is(scrollData.skip, 0);
-  t.is(scrollData.limit, 4);
+  t.is(scrollData.limit, 2);
 
-  instance_.setState({scrollLeft: 1088, offsetWidth: 1088});
-  instance_.handleScroll({});
+  instance_.cardsWrapper = {
+    scrollLeft: CARD_WIDTH / 2,
+    offsetWidth: CARD_WIDTH * 2,
+    removeEventListener: () => {}
+  };
+  instance_.setState({scrollLeft: CARD_WIDTH / 2});
+  instance_.handleScroll();
 
-  t.is(scrollData.skip, 4);
-  t.is(scrollData.limit, 4);
+  t.is(scrollData.skip, 0);
+  t.is(scrollData.limit, 3);
+
+  instance_.cardsWrapper = {
+    scrollLeft: CARD_WIDTH,
+    offsetWidth: CARD_WIDTH * 2,
+    removeEventListener: () => {}
+  };
+  instance_.setState({scrollLeft: CARD_WIDTH});
+  instance_.handleScroll();
+
+  t.is(scrollData.skip, 1);
+  t.is(scrollData.limit, 2);
 
   cardsList.unmount();
 });
