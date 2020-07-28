@@ -1,5 +1,17 @@
 import React from 'react';
-import {debounce, throttle, get, getOr, map, sum, last, pipe, toPairs} from 'lodash/fp';
+import {
+  debounce,
+  throttle,
+  get,
+  getOr,
+  map,
+  sum,
+  last,
+  pipe,
+  toPairs,
+  reduce,
+  head
+} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import {
   NovaCompositionNavigationArrowLeft as ArrowLeft,
@@ -60,13 +72,11 @@ const computeWidth = card => {
       return 272;
   }
 };
-const nexttPage = (page, maxPages) => {
-  const remain = page % maxPages;
-  return Math.floor(remain > 0 ? remain : remain + maxPages);
-};
 
-IconView.contextTypes = {
-  skin: Provider.childContextTypes.skin
+const nextPage = (page, maxPages) => {
+  if (page < 0) return maxPages;
+  if (page > maxPages) return 0;
+  return page;
 };
 
 IconView.propTypes = {
@@ -151,16 +161,36 @@ class CardsList extends React.Component {
   }
 
   updatePaginationState(cards) {
-    const possiblePositions = cards.map((card, index, arr) => {
-      return arr.slice(0, index).reduce((a, b, currentIndex) => {
-        return a + computeWidth(cards[currentIndex]);
-      }, 0);
-    });
-    const possiblePages = possiblePositions.map((position, index) =>
-      Math.ceil((position + computeWidth(cards[index])) / this.cardsWrapper?.offsetWidth)
-    );
-    const skip = possiblePositions.filter(position => position < this.cardsWrapper?.scrollLeft)
-      .length;
+    const {offsetWidth: wrapperWidth, scrollLeft: wrapperScrollLeft} = this.state;
+
+    const cardWidths = map(computeWidth)(cards);
+
+    const possiblePositions = pipe(
+      reduce(
+        ([cardPositions, accWidth], cardWidth) => [
+          [...cardPositions, accWidth],
+          cardWidth + accWidth
+        ],
+        [[], 0]
+      ),
+      head
+    )(cardWidths);
+
+    const possiblePages = pipe(
+      reduce(
+        ([acc, pageIndex, accPageWidth], cardWidth) => {
+          const pageWidth = accPageWidth + cardWidth;
+          if (pageWidth > wrapperWidth) {
+            return [[...acc, pageIndex + 1], pageIndex + 1, cardWidth];
+          }
+          return [[...acc, pageIndex], pageIndex, pageWidth];
+        },
+        [[], 0, 0]
+      ),
+      head
+    )(cardWidths);
+
+    const skip = possiblePositions.findIndex(position => position >= wrapperScrollLeft);
     const actualPage = possiblePages[skip + 1];
 
     this.setState({
@@ -192,12 +222,10 @@ class CardsList extends React.Component {
       const leftBound = scrollLeft;
       const rightBound = scrollLeft + offsetWidth;
 
-      const skip = possiblePositions.filter((position, index) => {
-        return position + this.getScrollWidth(index) <= leftBound;
-      }).length;
-      const limit = possiblePositions.filter((position, index) => {
-        return position + this.getScrollWidth(index) > leftBound && position < rightBound;
-      }).length;
+      const leftIndex = possiblePositions.findIndex(position => position > leftBound);
+      const rightIndex = possiblePositions.findIndex(position => position >= rightBound);
+      const skip = leftIndex - 1;
+      const limit = rightIndex - skip;
 
       onScroll(skip, limit);
     }
@@ -205,19 +233,18 @@ class CardsList extends React.Component {
 
   handleOnLeft() {
     const {actualPage, maxPages} = this.state;
-    this.scrollTo(nexttPage(actualPage - 1, maxPages));
+    this.scrollTo(nextPage(actualPage - 1, maxPages));
   }
 
   handleOnRight() {
     const {actualPage, maxPages} = this.state;
-    this.scrollTo(nexttPage(actualPage + 1, maxPages));
+    this.scrollTo(nextPage(actualPage + 1, maxPages));
   }
 
   scrollTo(page) {
-    const {cards = []} = this.props;
-    const {possiblePages} = this.state;
+    const {possiblePages, possiblePositions} = this.state;
     const indexOfNextFirstCard = possiblePages.indexOf(page);
-    const nextPosition = pipe(map(computeWidth), sum)(cards.slice(0, indexOfNextFirstCard));
+    const nextPosition = possiblePositions[indexOfNextFirstCard];
     this.cardsWrapper.scrollLeft = nextPosition;
     this.updatePages(page);
     this.setState({

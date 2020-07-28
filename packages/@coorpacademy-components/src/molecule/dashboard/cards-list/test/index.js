@@ -28,44 +28,44 @@ test('should move cards by pages', t => {
   instance.cardsWrapper = {offsetWidth: 1088, scrollLeft: 271, removeEventListener: () => {}};
   instance.setState({offsetWidth: 1088});
 
-  t.is(instance.state.maxPages, 3);
-  t.is(instance.state.actualPage, 1);
+  t.is(instance.state.maxPages, 2);
+  t.is(instance.state.actualPage, 0);
 
   instance.handleOnLeft();
-  t.is(instance.state.maxPages, 3);
-  t.is(instance.state.actualPage, 3);
-
-  instance.handleOnRight();
-  t.is(instance.state.maxPages, 3);
-  t.is(instance.state.actualPage, 1);
-
-  instance.handleOnRight();
-  t.is(instance.state.maxPages, 3);
+  t.is(instance.state.maxPages, 2);
   t.is(instance.state.actualPage, 2);
 
   instance.handleOnRight();
-  t.is(instance.state.maxPages, 3);
-  t.is(instance.state.actualPage, 3);
+  t.is(instance.state.maxPages, 2);
+  t.is(instance.state.actualPage, 0);
 
   instance.handleOnRight();
-  t.is(instance.state.maxPages, 3);
+  t.is(instance.state.maxPages, 2);
   t.is(instance.state.actualPage, 1);
 
   instance.handleOnRight();
-  t.is(instance.state.maxPages, 3);
+  t.is(instance.state.maxPages, 2);
   t.is(instance.state.actualPage, 2);
 
-  instance.handleOnLeft();
-  t.is(instance.state.maxPages, 3);
+  instance.handleOnRight();
+  t.is(instance.state.maxPages, 2);
+  t.is(instance.state.actualPage, 0);
+
+  instance.handleOnRight();
+  t.is(instance.state.maxPages, 2);
   t.is(instance.state.actualPage, 1);
 
   instance.handleOnLeft();
-  t.is(instance.state.maxPages, 3);
-  t.is(instance.state.actualPage, 3);
+  t.is(instance.state.maxPages, 2);
+  t.is(instance.state.actualPage, 0);
 
   instance.handleOnLeft();
-  t.is(instance.state.maxPages, 3);
+  t.is(instance.state.maxPages, 2);
   t.is(instance.state.actualPage, 2);
+
+  instance.handleOnLeft();
+  t.is(instance.state.maxPages, 2);
+  t.is(instance.state.actualPage, 1);
 
   cardsList.unmount();
 });
@@ -117,13 +117,14 @@ test('should update componenet when resizing', t => {
   instance.cardsWrapper = {offsetWidth: 1088, scrollLeft: 272, removeEventListener: () => {}};
   instance.setState({scrollLeft: 1088, offsetWidth: 1088});
 
-  t.is(instance.state.maxPages, 1);
+  t.is(instance.state.maxPages, 0);
 
   instance.cardsWrapper = {offsetWidth: 600, scrollLeft: 272, removeEventListener: () => {}};
+  instance.setState({offsetWidth: 600, scrollLeft: 272});
 
   instance.handleResize();
 
-  t.is(instance.state.maxPages, 2);
+  t.is(instance.state.maxPages, 1);
 
   cardsList.unmount();
 });
