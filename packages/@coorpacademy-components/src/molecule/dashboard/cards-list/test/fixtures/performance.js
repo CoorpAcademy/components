@@ -1,4 +1,4 @@
-import {times, flatMap, get, flatten, map, pipe} from 'lodash/fp';
+import {times, flatMap, get, flatten, map, pipe, isEmpty} from 'lodash/fp';
 import Default from './default';
 import Many from './many';
 import ManyEmpty from './many-empty';
@@ -12,12 +12,12 @@ const cards = pipe(
   cs => times(() => cs, 35),
   flatten,
   mapValuesWithIndex((p, index) =>
-    p
-      ? {
+    isEmpty(p)
+      ? p
+      : {
           ...p,
           title: `${p.title}#${index}`
         }
-      : p
   )
 )([Default, Many, ManyEmpty, Microlearning, NoIcon]);
 

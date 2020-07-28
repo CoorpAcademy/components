@@ -1,5 +1,19 @@
 import React from 'react';
-import {debounce, throttle, get, getOr, map, sum, last, pipe, toPairs} from 'lodash/fp';
+import {
+  debounce,
+  throttle,
+  get,
+  getOr,
+  map,
+  sum,
+  last,
+  pipe,
+  toPairs,
+  reduce,
+  head,
+  findIndex,
+  findLastIndex
+} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import {
   NovaCompositionNavigationArrowLeft as ArrowLeft,
@@ -61,8 +75,10 @@ const computeWidth = card => {
   }
 };
 
-IconView.contextTypes = {
-  skin: Provider.childContextTypes.skin
+const nextPage = (page, maxPages) => {
+  if (page < 0) return maxPages;
+  if (page > maxPages) return 0;
+  return page;
 };
 
 IconView.propTypes = {
@@ -147,16 +163,36 @@ class CardsList extends React.Component {
   }
 
   updatePaginationState(cards) {
-    const possiblePositions = cards.map((card, index, arr) => {
-      return arr.slice(0, index).reduce((a, b, currentIndex) => {
-        return a + computeWidth(cards[currentIndex]);
-      }, 0);
-    });
-    const possiblePages = possiblePositions.map((position, index) =>
-      Math.ceil((position + computeWidth(cards[index])) / this.cardsWrapper?.offsetWidth)
-    );
-    const skip = possiblePositions.filter(position => position < this.cardsWrapper?.scrollLeft)
-      .length;
+    const {offsetWidth: wrapperWidth, scrollLeft: wrapperScrollLeft} = this.state;
+
+    const cardWidths = map(computeWidth)(cards);
+
+    const possiblePositions = pipe(
+      reduce(
+        ([cardPositions, accWidth], cardWidth) => [
+          [...cardPositions, accWidth],
+          cardWidth + accWidth
+        ],
+        [[], 0]
+      ),
+      head
+    )(cardWidths);
+
+    const possiblePages = pipe(
+      reduce(
+        ([acc, pageIndex, accPageWidth], cardWidth) => {
+          const pageWidth = accPageWidth + cardWidth;
+          if (pageWidth > wrapperWidth) {
+            return [[...acc, pageIndex + 1], pageIndex + 1, cardWidth];
+          }
+          return [[...acc, pageIndex], pageIndex, pageWidth];
+        },
+        [[], 0, 0]
+      ),
+      head
+    )(cardWidths);
+
+    const skip = possiblePositions.findIndex(position => position >= wrapperScrollLeft);
     const actualPage = possiblePages[skip + 1];
 
     this.setState({
@@ -182,42 +218,38 @@ class CardsList extends React.Component {
   }
 
   handleScroll() {
-    const {scrollLeft, possiblePositions, offsetWidth} = this.state;
+    const scrollLeft = this.cardsWrapper?.scrollLeft;
+    this.setState({scrollLeft});
+
+    const {possiblePositions, offsetWidth} = this.state;
     const {onScroll} = this.props;
     if (onScroll) {
       const leftBound = scrollLeft;
       const rightBound = scrollLeft + offsetWidth;
 
-      const skip = possiblePositions.filter((position, index) => {
-        return position + this.getScrollWidth(index) <= leftBound;
-      }).length;
-      const limit = possiblePositions.filter((position, index) => {
-        return position + this.getScrollWidth(index) > leftBound && position < rightBound;
-      }).length;
+      const leftIndex = findIndex(position => position > leftBound, possiblePositions) - 1;
+      const rightIndex = findLastIndex(position => position < rightBound, possiblePositions);
+      const skip = leftIndex;
+      const limit = rightIndex - skip + 1;
 
       onScroll(skip, limit);
     }
   }
 
   handleOnLeft() {
-    const {actualPage} = this.state;
-    if (actualPage > 1) {
-      this.scrollTo(actualPage - 1);
-    }
+    const {actualPage, maxPages} = this.state;
+    this.scrollTo(nextPage(actualPage - 1, maxPages));
   }
 
   handleOnRight() {
     const {actualPage, maxPages} = this.state;
-    if (actualPage < maxPages) {
-      this.scrollTo(actualPage + 1);
-    }
+    this.scrollTo(nextPage(actualPage + 1, maxPages));
   }
 
   scrollTo(page) {
-    const {cards = []} = this.props;
-    const {possiblePages} = this.state;
+    const {possiblePages, possiblePositions} = this.state;
     const indexOfNextFirstCard = possiblePages.indexOf(page);
-    const nextPosition = pipe(map(computeWidth), sum)(cards.slice(0, indexOfNextFirstCard));
+    const nextPosition = possiblePositions[indexOfNextFirstCard];
     this.cardsWrapper.scrollLeft = nextPosition;
     this.updatePages(page);
     this.setState({
@@ -234,7 +266,7 @@ class CardsList extends React.Component {
   render() {
     const {title, showMore, cards, onShowMore, dataName, contentType} = this.props;
     const {skin} = this.context;
-    const {actualPage, maxPages} = this.state;
+    const {maxPages} = this.state;
     const dark = getOr('#90A4AE', 'common.dark', skin);
     const titleStyle = onShowMore ? style.titleLink : style.title;
     const cardsView = pipe(
@@ -247,17 +279,13 @@ class CardsList extends React.Component {
         );
       })
     )(cards);
-
-    const leftCircleStyle = actualPage === 1 ? style.disabledCircle : style.circle;
-    const rightCircleStyle = actualPage === maxPages ? style.disabledCircle : style.circle;
-
     const leftArrowView = (
-      <div className={leftCircleStyle} onClick={this.handleOnLeft}>
+      <div className={style.circle} onClick={this.handleOnLeft}>
         <ArrowLeft color={dark} className={style.left} width={10} height={10} />
       </div>
     );
     const rightArrowView = (
-      <div className={rightCircleStyle} onClick={this.handleOnRight}>
+      <div className={style.circle} onClick={this.handleOnRight}>
         <ArrowRight color={dark} className={style.right} width={10} height={10} />
       </div>
     );
@@ -269,7 +297,7 @@ class CardsList extends React.Component {
       </span>
     );
 
-    const hasPages = maxPages > 1;
+    const hasPages = maxPages > 0;
     const showMoreView =
       hasPages && showMore && onShowMore ? (
         <ShowMoreLink
@@ -279,18 +307,9 @@ class CardsList extends React.Component {
         />
       ) : null;
 
-    const restPages = actualPage || 0;
-    const paging = `${restPages} / ${maxPages}`;
-
-    const pagingView = (
-      <span data-name="paging">
-        <span className={style.paging}>{paging}</span>
-      </span>
-    );
     const switchPagesView = hasPages ? (
       <div className={style.pagingWrapper}>
         {showMoreView}
-        {pagingView}
         {leftArrowView}
         {rightArrowView}
       </div>

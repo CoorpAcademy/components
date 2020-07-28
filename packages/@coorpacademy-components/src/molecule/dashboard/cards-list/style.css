@@ -79,16 +79,6 @@
 
 }
 
-.paging {
-  font-family: 'Open Sans';
-  font-size: 14px;
-  font-weight: normal;
-  letter-spacing: 2px;
-  color: dark;
-  margin-right: 10px;
-  line-height: 28px;
-}
-
 .showMore:hover {
   text-decoration: underline;
   color: black;
@@ -133,17 +123,7 @@
 .pagingWrapper {
   display: inline-flex;
 }
-.disabledCircle {
-  box-shadow: 0 0px 4px 0 color(lightMediumGray a(70%));
-  border: solid 1px light;
-  border-radius: 50%;
-  cursor: default;
-  pointer-events: none;
-  opacity: 0.5;
-  background: #CCC;
-  line-height: 0;
-  margin-left: 5px;
-}
+
 .arrow:hover {
   opacity: 1;
 }
