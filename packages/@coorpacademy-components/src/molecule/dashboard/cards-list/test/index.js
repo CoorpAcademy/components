@@ -33,13 +33,9 @@ test('should move cards by pages', t => {
 
   instance.handleOnLeft();
   t.is(instance.state.maxPages, 3);
-  t.is(instance.state.actualPage, 1);
+  t.is(instance.state.actualPage, 3);
 
   instance.handleOnRight();
-  t.is(instance.state.maxPages, 3);
-  t.is(instance.state.actualPage, 2);
-
-  instance.handleOnLeft();
   t.is(instance.state.maxPages, 3);
   t.is(instance.state.actualPage, 1);
 
@@ -53,15 +49,23 @@ test('should move cards by pages', t => {
 
   instance.handleOnRight();
   t.is(instance.state.maxPages, 3);
-  t.is(instance.state.actualPage, 3);
+  t.is(instance.state.actualPage, 1);
 
-  instance.handleOnLeft();
+  instance.handleOnRight();
   t.is(instance.state.maxPages, 3);
   t.is(instance.state.actualPage, 2);
 
   instance.handleOnLeft();
   t.is(instance.state.maxPages, 3);
   t.is(instance.state.actualPage, 1);
+
+  instance.handleOnLeft();
+  t.is(instance.state.maxPages, 3);
+  t.is(instance.state.actualPage, 3);
+
+  instance.handleOnLeft();
+  t.is(instance.state.maxPages, 3);
+  t.is(instance.state.actualPage, 2);
 
   cardsList.unmount();
 });

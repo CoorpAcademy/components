@@ -60,6 +60,10 @@ const computeWidth = card => {
       return 272;
   }
 };
+const nexttPage = (page, maxPages) => {
+  const remain = page % maxPages;
+  return Math.floor(remain > 0 ? remain : remain + maxPages);
+};
 
 IconView.contextTypes = {
   skin: Provider.childContextTypes.skin
@@ -200,17 +204,13 @@ class CardsList extends React.Component {
   }
 
   handleOnLeft() {
-    const {actualPage} = this.state;
-    if (actualPage > 1) {
-      this.scrollTo(actualPage - 1);
-    }
+    const {actualPage, maxPages} = this.state;
+    this.scrollTo(nexttPage(actualPage - 1, maxPages));
   }
 
   handleOnRight() {
     const {actualPage, maxPages} = this.state;
-    if (actualPage < maxPages) {
-      this.scrollTo(actualPage + 1);
-    }
+    this.scrollTo(nexttPage(actualPage + 1, maxPages));
   }
 
   scrollTo(page) {
@@ -234,7 +234,7 @@ class CardsList extends React.Component {
   render() {
     const {title, showMore, cards, onShowMore, dataName, contentType} = this.props;
     const {skin} = this.context;
-    const {actualPage, maxPages} = this.state;
+    const {maxPages} = this.state;
     const dark = getOr('#90A4AE', 'common.dark', skin);
     const titleStyle = onShowMore ? style.titleLink : style.title;
     const cardsView = pipe(
@@ -247,17 +247,13 @@ class CardsList extends React.Component {
         );
       })
     )(cards);
-
-    const leftCircleStyle = actualPage === 1 ? style.disabledCircle : style.circle;
-    const rightCircleStyle = actualPage === maxPages ? style.disabledCircle : style.circle;
-
     const leftArrowView = (
-      <div className={leftCircleStyle} onClick={this.handleOnLeft}>
+      <div className={style.circle} onClick={this.handleOnLeft}>
         <ArrowLeft color={dark} className={style.left} width={10} height={10} />
       </div>
     );
     const rightArrowView = (
-      <div className={rightCircleStyle} onClick={this.handleOnRight}>
+      <div className={style.circle} onClick={this.handleOnRight}>
         <ArrowRight color={dark} className={style.right} width={10} height={10} />
       </div>
     );
@@ -279,18 +275,9 @@ class CardsList extends React.Component {
         />
       ) : null;
 
-    const restPages = actualPage || 0;
-    const paging = `${restPages} / ${maxPages}`;
-
-    const pagingView = (
-      <span data-name="paging">
-        <span className={style.paging}>{paging}</span>
-      </span>
-    );
     const switchPagesView = hasPages ? (
       <div className={style.pagingWrapper}>
         {showMoreView}
-        {pagingView}
         {leftArrowView}
         {rightArrowView}
       </div>
