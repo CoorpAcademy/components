@@ -1,7 +1,7 @@
 export default {
   props: {
     mimeType: 'application/omniPlayer',
-    id: '5e429de5be444d66709af632',
+    id: 'c6a552f0-f00a-5da6-83ac-8446eeb58790',
     width: '100%',
     height: '343px',
     onPlay: () => console.log('onPlay omniPlayer'),
