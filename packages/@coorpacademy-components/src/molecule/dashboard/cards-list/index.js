@@ -192,7 +192,7 @@ class CardsList extends React.Component {
       head
     )(cardWidths);
 
-    const skip = possiblePositions.findIndex(position => position >= wrapperScrollLeft);
+    const skip = findIndex(position => position >= wrapperScrollLeft, possiblePositions);
     const actualPage = possiblePages[skip + 1];
 
     this.setState({
