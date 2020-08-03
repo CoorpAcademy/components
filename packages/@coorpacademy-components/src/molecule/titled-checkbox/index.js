@@ -8,7 +8,7 @@ import style from './style.css';
 const TitledCheckbox = props => {
   const {choice, background, onToggle} = props;
   const label = choice.name;
-  const handleChange = useMemo(() => () => onToggle(choice), [onToggle]);
+  const handleChange = useMemo(() => () => onToggle(choice), [onToggle, choice]);
 
   return (
     <div className={style.default}>
