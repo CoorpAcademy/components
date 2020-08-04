@@ -3,6 +3,7 @@
 @value tablet from breakpoints;
 @value colors: "../../variables/colors.css";
 @value medium from colors;
+@value light from colors;
 @value dark from colors;
 @value warn from colors;
 
@@ -36,16 +37,31 @@
   margin: 0 auto;
   z-index: 1;
 }
+
 .leftSection, .rightSection {
   align-self: center;
   flex: 1;
 }
+
+.loader {
+  position: relative;
+  min-height: 86%;
+  width: 100%;
+}
+
 .quitCta {
   cursor: pointer;
   color: medium;
 }
 .quitCta:hover {
   color: dark;
+}
+.loading {
+  cursor: default;
+  color: light;
+}
+.loading:hover {
+  color: light;
 }
 
 .title {
@@ -79,7 +95,10 @@
   overflow-x: hidden;
   overflow-y: hidden;
 }
+
 .link {
+  display: inline-flex;
+  align-items: center;
   cursor: pointer;
   color: medium;
 }
@@ -89,6 +108,7 @@
 .link:hover .iconQuestion{
   color: warn;
 }
+
 .iconQuestion {
   color: color(warn a(70%));
   margin-right: 8px;
@@ -101,6 +121,7 @@
   margin: 0 auto;
   cursor: pointer;
 }
+
 .disabled{
   pointer-events: none;
   cursor: initial;
