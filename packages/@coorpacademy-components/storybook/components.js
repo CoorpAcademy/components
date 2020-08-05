@@ -810,6 +810,7 @@ import TemplateCommonSearchPageFixtureNoResultWithRecommendations from '../src/t
 import TemplateCommonSearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
 import TemplateExternalCourseFixtureArticle from '../src/template/external-course/test/fixtures/article';
 import TemplateExternalCourseFixtureDefault from '../src/template/external-course/test/fixtures/default';
+import TemplateExternalCourseFixtureLoading from '../src/template/external-course/test/fixtures/loading';
 import TemplateExternalCourseFixturePodcast from '../src/template/external-course/test/fixtures/podcast';
 import TemplateExternalCourseFixtureVideo from '../src/template/external-course/test/fixtures/video';
 
@@ -1788,6 +1789,7 @@ export const fixtures = {
     TemplateExternalCourse: {
       Article: TemplateExternalCourseFixtureArticle,
       Default: TemplateExternalCourseFixtureDefault,
+      Loading: TemplateExternalCourseFixtureLoading,
       Podcast: TemplateExternalCourseFixturePodcast,
       Video: TemplateExternalCourseFixtureVideo
     }

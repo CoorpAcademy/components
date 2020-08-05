@@ -16,6 +16,6 @@ export default {
       label: 'Report an error',
       onClick: () => console.log('Report an error')
     },
-    loading: false
+    loading: true
   }
 };

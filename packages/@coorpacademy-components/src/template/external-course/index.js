@@ -2,10 +2,11 @@ import React from 'react';
 import {NovaSolidInterfaceFeedbackInterfaceQuestionMark as QuestionIcon} from '@coorpacademy/nova-icons';
 import {convert} from 'css-color-function';
 import classnames from 'classnames';
-import {get, getOr, keys} from 'lodash/fp';
+import {get, getOr, keys, identity} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import {EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
 import Provider from '../../atom/provider';
+import Loader from '../../atom/loader';
 import Button from '../../atom/button';
 import style from './style.css';
 
@@ -26,7 +27,8 @@ class ExternalCourse extends React.Component {
     warning: PropTypes.shape({
       label: PropTypes.string.isRequired,
       onClick: PropTypes.func
-    })
+    }),
+    loading: PropTypes.bool
   };
 
   static contextTypes = {
@@ -41,17 +43,28 @@ class ExternalCourse extends React.Component {
   };
 
   render() {
-    const {name, type, url, warning, complete, quit} = this.props;
+    const {name, type, url, warning, complete, quit, loading} = this.props;
     const {skin} = this.context;
     const primary = getOr('#00B0FF', 'common.primary', skin);
     const IconType = EXTERNAL_CONTENT_ICONS[type].icon;
     const IconColor = EXTERNAL_CONTENT_ICONS[type].color;
 
+    const mainContent = loading ? (
+      <div className={style.loader}>
+        <Loader />
+      </div>
+    ) : (
+      <iframe src={url} frameBorder={0} className={style.iframe} allowFullScreen />
+    );
+
     return (
       <div className={style.default}>
         <div className={style.header}>
           <div className={style.leftSection}>
-            <span className={style.quitCta} onClick={this.handleOnClick(quit)}>
+            <span
+              className={classnames(style.quitCta, loading ? style.loading : null)}
+              onClick={loading ? identity : this.handleOnClick(quit)}
+            >
               {quit.label}
             </span>
           </div>
@@ -63,7 +76,7 @@ class ExternalCourse extends React.Component {
           </div>
           <div className={style.rightSection} />
         </div>
-        <iframe src={url} frameBorder={0} className={style.iframe} allowFullScreen />
+        {mainContent}
         <div className={style.footer}>
           <div className={style.leftSection}>
             <div
@@ -76,13 +89,19 @@ class ExternalCourse extends React.Component {
           </div>
           <Button
             type="button"
-            disabled={complete.disabled}
-            onClick={this.handleOnClick(complete)}
+            disabled={loading ? true : complete.disabled}
+            onClick={loading ? identity : this.handleOnClick(complete)}
             submitValue={complete.label}
             style={{
-              backgroundColor: complete.disabled ? convert(`color(${primary} a(-50%))`) : primary
+              backgroundColor:
+                complete.disabled || loading ? convert(`color(${primary} a(-50%))`) : primary,
+              cursor: loading ? 'progress' : 'pointer'
             }}
-            className={classnames(style.completeCta, complete.disabled ? style.disabled : null)}
+            className={classnames(
+              style.completeCta,
+              complete.disabled || loading ? style.disabled : null,
+              loading ? style.loading : null
+            )}
           />
           <div className={style.rightSection} />
         </div>
