@@ -18,6 +18,6 @@ export default {
     video: null,
     image,
     levels: [],
-    level: {...props.content, title: null}
+    level: {...props.content, title: null, discussion: {}}
   }
 };
