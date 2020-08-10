@@ -285,7 +285,7 @@
 .externalIconCircleWithImageExternalWrapper {
   position:absolute;
   margin: 17px auto 0;
-  padding: 3px;
+  padding: 6px;
   width: 70px;
   height: 70px;
   border-radius: 50%;
@@ -301,7 +301,7 @@
   position: absolute;
   width: 30px;
   height: 30px;
-  padding: 17px;
+  padding: 15px;
   border-radius: 50%;
   justify-content: center;
   transform: scale(1);
