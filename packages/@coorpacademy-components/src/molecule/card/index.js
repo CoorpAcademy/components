@@ -28,11 +28,42 @@ const CardBackground = ({type, image, empty}, {skin}) => {
       </div>
     );
 
+    if (image) {
+      const _backgroundIcon = (
+        <div className={style.externalIconCircleWithImageExternalWrapper}>
+          <div
+            className={style.externalIconCircleWithImageInternalWrapper}
+            style={{
+              backgroundColor: iconColor
+            }}
+          >
+            <IconType className={style.externalIconWithImage} />
+          </div>
+        </div>
+      );
+
+      return (
+        <div className={style.imageWrapper}>
+          <div
+            data-name="cover"
+            style={{
+              backgroundColor: iconColor,
+              backgroundImage: image ? `url('${image}')` : 'none'
+            }}
+            className={style.externalContentHeader}
+          >
+            {_backgroundIcon}
+          </div>
+        </div>
+      );
+    }
     return (
       <div className={style.imageWrapper}>
         <div
           data-name="cover"
-          style={{backgroundColor: iconColor}}
+          style={{
+            backgroundColor: iconColor
+          }}
           className={style.externalContentHeader}
         >
           {backgroundIcon}

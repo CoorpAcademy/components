@@ -264,9 +264,9 @@
 }
 
 .externalIconCircleWrapper {
-  width: 65px;
-  height: 65px;
-  margin: 10px auto 0;
+  width: 80px;
+  height: 80px;
+  margin: 20px auto 0;
   border-radius: 50%;
   padding: 17px;
   box-sizing: border-box;
@@ -277,6 +277,38 @@
 }
 
 .externalIcon {
+  color: white;
+  width: 45px;
+  height: 45px;
+}
+
+.externalIconCircleWithImageExternalWrapper {
+  position:absolute;
+  margin: 17px auto 0;
+  padding: 3px;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.3);
+  justify-content: center;
+  transform: scale(1);
+  transition: transform 0.25s ease-in-out;
+}
+
+.externalIconCircleWithImageInternalWrapper {
+  margin: auto;
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  padding: 17px;
+  border-radius: 50%;
+  justify-content: center;
+  transform: scale(1);
+  transition: transform 0.25s ease-in-out;
+}
+
+.externalIconWithImage {
   color: white;
   width: 30px;
   height: 30px;
@@ -299,8 +331,8 @@
 .externalIconCircleWrapper::after,
 .externalIconCircleWrapper::before {
   content: '';
-  width: 65px;
-  height: 65px;
+  width: 80px;
+  height: 80px;
   top: 0;
   left: 0;
   position: absolute;
