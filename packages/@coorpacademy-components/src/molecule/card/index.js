@@ -49,7 +49,7 @@ const CardBackground = ({type, image, empty}, {skin}) => {
             data-name="cover"
             style={{
               backgroundColor: iconColor,
-              backgroundImage: image ? `url('${image}')` : 'none'
+              backgroundImage: `url('${image}')`
             }}
             className={style.externalContentHeader}
           >
