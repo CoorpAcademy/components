@@ -104,7 +104,7 @@ const ScopeContent = (props, context) => {
     </div>
   ) : (
     <div data-name="discussion">
-      <Discussion {...discussion} className={style.discussion} />
+      {discussion ? <Discussion {...discussion} className={style.discussion} /> : null}
     </div>
   );
 };
