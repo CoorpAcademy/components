@@ -263,6 +263,33 @@
   overflow: hidden;
 }
 
+.course .externalContentHeader::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(
+          to bottom,
+          color(black a(0%)),
+          color(black a(80%))
+  );
+}
+
+.course .externalContentHeader::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  transition: opacity 0.25s ease-in-out;
+  background: black;
+}
+
 .externalIconCircleWrapper {
   width: 80px;
   height: 80px;
