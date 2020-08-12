@@ -48,6 +48,7 @@ const CardBackground = ({type, image, empty}, {skin}) => {
           <div
             data-name="cover"
             style={{
+              backgroundColor: iconColor,
               backgroundImage: `url('${image}')`
             }}
             className={style.externalContentHeader}
