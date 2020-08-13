@@ -8,7 +8,7 @@ import card6 from '../../../../molecule/card/test/fixtures/freerun-and-disabled'
 import card7 from '../../../../molecule/card/test/fixtures/adaptiv-and-disabled';
 import card8 from '../../../../molecule/card/test/fixtures/favorite';
 import card9 from '../../../../molecule/card/test/fixtures/empty';
-import card10 from '../../../../molecule/card/test/fixtures/scorm';
+import card10 from '../../../../molecule/card/test/fixtures/external-content';
 import card11 from '../../../../molecule/card/test/fixtures/article';
 import card12 from '../../../../molecule/card/test/fixtures/video';
 import card13 from '../../../../molecule/card/test/fixtures/podcast';
