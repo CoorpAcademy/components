@@ -261,6 +261,7 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  background-position: 50%;
 }
 
 .course .externalContentHeader::after {
