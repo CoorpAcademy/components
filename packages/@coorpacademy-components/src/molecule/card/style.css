@@ -261,10 +261,13 @@
   align-items: center;
   justify-content: center;
   overflow: hidden;
+}
+
+.course .externalBackground {
   background-position: 50%;
 }
 
-.course .externalContentHeader::after {
+.course .externalBackground::after {
   position: absolute;
   content: '';
   width: 100%;
@@ -279,7 +282,7 @@
   );
 }
 
-.course .externalContentHeader::before {
+.course .externalBackground::before {
   position: absolute;
   content: '';
   width: 100%;
