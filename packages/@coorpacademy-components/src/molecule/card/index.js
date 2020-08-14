@@ -51,7 +51,7 @@ const CardBackground = ({type, image, empty}, {skin}) => {
               backgroundColor: iconColor,
               backgroundImage: `url('${image}')`
             }}
-            className={style.externalContentHeader}
+            className={classnames(style.externalContentHeader, style.externalBackground)}
           >
             {_backgroundIcon}
           </div>
