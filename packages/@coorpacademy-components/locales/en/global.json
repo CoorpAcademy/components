@@ -76,5 +76,9 @@
   "zuora_discount_code_submit": "Apply",
   "zuora_discount_code": "Promo code",
   "mandatory_fields": "*Mandatory fields",
-  "something_went_wrong": "Oh Snap! Something went wrong."
+  "something_went_wrong": "Oh Snap! Something went wrong.",
+  "coorp_mobile_marketing_text": "GET THE COORPACADEMY EXPERIENCE ON YOUR PHONE!",
+  "help": "HELP",
+  "toolbox": "TOOLBOX",
+  "ressources": "RESSOURCES"
 }

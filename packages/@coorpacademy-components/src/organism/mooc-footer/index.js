@@ -11,7 +11,6 @@ import style from './style.css';
 
 const socialLinksTypes = ['facebook', 'twitter', 'linkedIn'];
 
-// eslint-disable-next-line react/prefer-stateless-function
 class MoocFooter extends React.Component {
   static propTypes = {
     headSection: PropTypes.shape({
@@ -65,6 +64,7 @@ class MoocFooter extends React.Component {
       return (
         <div key={index}>
           <Title>{this.translate(section.title)}</Title>
+          {/* TODO: take this out to an atom as a Link List */}
           <ul>
             {/* TODO: are dynamic translations managed?? */}
             {section.pages.map((page, pindex) => {
@@ -78,15 +78,20 @@ class MoocFooter extends React.Component {
         </div>
       );
     });
+    const socialNetworks = (
+      <div data-name="logo-social-networks-wrapper">
+        <div data-name="bw-logo-wrapper">
+          <Picture src="bwlogourl" />
+        </div>
+        <div data-name="social-networks-wrapper">
+          test blabla <div>blabla</div>
+        </div>
+      </div>
+    );
     const siteMap = (
       <div data-name="siteMap">
         <div data-name="sections">{sections}</div>
-        <ul>
-          {this.siteMapSections.map((section, index) => {
-            // return <li key={index}>{section}</li>;
-            return null;
-          })}
-        </ul>
+        {socialNetworks}
       </div>
     );
     // return <div>Just a plain test</div>;

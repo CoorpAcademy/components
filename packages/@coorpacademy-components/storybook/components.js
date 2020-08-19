@@ -127,6 +127,7 @@ import OrganismGridList from './../src/organism/grid-list';
 import OrganismHeader from './../src/organism/header';
 import OrganismHero from './../src/organism/hero';
 import OrganismMoocImageSlider from './../src/organism/mooc/image-slider';
+import OrganismMoocFooter from './../src/organism/mooc-footer';
 import OrganismMoocHeader from './../src/organism/mooc-header';
 import OrganismPopin from './../src/organism/popin';
 import OrganismResourceBrowser from './../src/organism/resource-browser';
@@ -956,6 +957,7 @@ export const components = {
     OrganismGridList,
     OrganismHeader,
     OrganismHero,
+    OrganismMoocFooter,
     OrganismMoocHeader,
     OrganismPopin,
     OrganismResourceBrowser,
