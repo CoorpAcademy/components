@@ -611,6 +611,7 @@ import OrganismHeroFixtureNoTouch from '../src/organism/hero/test/fixtures/no-to
 import OrganismHeroFixtureTouch from '../src/organism/hero/test/fixtures/touch';
 import OrganismMoocImageSliderFixtureDefault from '../src/organism/mooc/image-slider/test/fixtures/default';
 import OrganismMoocImageSliderFixtureMultipleSlides from '../src/organism/mooc/image-slider/test/fixtures/multiple-slides';
+import OrganismMoocFooterFixtureDefault from '../src/organism/mooc-footer/test/fixtures/default';
 import OrganismMoocHeaderFixtureDefault from '../src/organism/mooc-header/test/fixtures/default';
 import OrganismMoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/logged';
 import OrganismMoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
@@ -1726,6 +1727,9 @@ export const fixtures = {
       Default: OrganismHeroFixtureDefault,
       NoTouch: OrganismHeroFixtureNoTouch,
       Touch: OrganismHeroFixtureTouch
+    },
+    OrganismMoocFooter: {
+      Default: OrganismMoocFooterFixtureDefault
     },
     OrganismMoocHeader: {
       Default: OrganismMoocHeaderFixtureDefault,

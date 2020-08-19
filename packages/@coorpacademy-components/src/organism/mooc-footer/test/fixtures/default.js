@@ -1,7 +1,16 @@
 export default {
   props: {
     headSection: {},
-    socialLinks: {},
+    socialLinks: [
+      {
+        type: 'facebook',
+        link: 'https://www.facebook.com/coorpacademy'
+      },
+      {
+        type: 'twitter',
+        link: 'https://twitter.com/coorpacademy'
+      }
+    ],
     siteMapSections: [
       {
         title: 'HELP',
