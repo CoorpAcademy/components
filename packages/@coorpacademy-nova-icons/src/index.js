@@ -73,6 +73,7 @@ import _NovaLineInterfaceFeedbackInterfaceAlertCircle from './components/nova-li
 import _NovaLineInterfaceFeedbackInterfaceQuestionMark from './components/nova-line/interface-feedback/interface-question-mark';
 import _NovaLineLeisureLeisurePartyPopper from './components/nova-line/leisure/leisure-party-popper';
 import _NovaLineLoginKey1 from './components/nova-line/login/key-1';
+import _NovaLineMobilephoneMobilePhoneBroken from './components/nova-line/mobilephone/mobile-phone-broken';
 import _NovaLineMobilephoneMobilePhoneClose1 from './components/nova-line/mobilephone/mobile-phone-close-1';
 import _NovaLineMobilephoneQrCode1 from './components/nova-line/mobilephone/qr-code.1';
 import _NovaLineNetworkNetworkMobile from './components/nova-line/network/network-mobile';
@@ -186,6 +187,7 @@ export const NovaLineInterfaceFeedbackInterfaceAlertCircle: Icon = _NovaLineInte
 export const NovaLineInterfaceFeedbackInterfaceQuestionMark: Icon = _NovaLineInterfaceFeedbackInterfaceQuestionMark;
 export const NovaLineLeisureLeisurePartyPopper: Icon = _NovaLineLeisureLeisurePartyPopper;
 export const NovaLineLoginKey1: Icon = _NovaLineLoginKey1;
+export const NovaLineMobilephoneMobilePhoneBroken: Icon = _NovaLineMobilephoneMobilePhoneBroken;
 export const NovaLineMobilephoneMobilePhoneClose1: Icon = _NovaLineMobilephoneMobilePhoneClose1;
 export const NovaLineMobilephoneQrCode1: Icon = _NovaLineMobilephoneQrCode1;
 export const NovaLineNetworkNetworkMobile: Icon = _NovaLineNetworkNetworkMobile;
