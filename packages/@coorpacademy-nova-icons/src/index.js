@@ -18,6 +18,8 @@ import _NovaCompositionCoorpacademyCheck from './components/nova-composition/coo
 import _NovaCompositionCoorpacademyClock from './components/nova-composition/coorpacademy/clock';
 import _NovaCompositionCoorpacademyClue from './components/nova-composition/coorpacademy/clue';
 import _NovaCompositionCoorpacademyCog from './components/nova-composition/coorpacademy/cog';
+import _NovaCompositionCoorpacademyCoorpApp from './components/nova-composition/coorpacademy/coorp-app';
+import _NovaCompositionCoorpacademyCoorpLogo from './components/nova-composition/coorpacademy/coorp-logo';
 import _NovaCompositionCoorpacademyDraft from './components/nova-composition/coorpacademy/draft';
 import _NovaCompositionCoorpacademyEye from './components/nova-composition/coorpacademy/eye';
 import _NovaCompositionCoorpacademyFilterVideo2 from './components/nova-composition/coorpacademy/filter-video2';
@@ -129,6 +131,8 @@ export const NovaCompositionCoorpacademyCheck: Icon = _NovaCompositionCoorpacade
 export const NovaCompositionCoorpacademyClock: Icon = _NovaCompositionCoorpacademyClock;
 export const NovaCompositionCoorpacademyClue: Icon = _NovaCompositionCoorpacademyClue;
 export const NovaCompositionCoorpacademyCog: Icon = _NovaCompositionCoorpacademyCog;
+export const NovaCompositionCoorpacademyCoorpApp: Icon = _NovaCompositionCoorpacademyCoorpApp;
+export const NovaCompositionCoorpacademyCoorpLogo: Icon = _NovaCompositionCoorpacademyCoorpLogo;
 export const NovaCompositionCoorpacademyDraft: Icon = _NovaCompositionCoorpacademyDraft;
 export const NovaCompositionCoorpacademyEye: Icon = _NovaCompositionCoorpacademyEye;
 export const NovaCompositionCoorpacademyFilterVideo2: Icon = _NovaCompositionCoorpacademyFilterVideo2;

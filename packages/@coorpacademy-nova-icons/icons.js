@@ -31,6 +31,8 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/level-3.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/lightbulb.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/scorm.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/coorp-app.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/coorp-logo.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/microphone.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/article.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/video.svg')},
