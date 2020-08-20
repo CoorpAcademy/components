@@ -2,9 +2,13 @@ import React from 'react';
 import PropTypes from 'prop-types';
 // eslint-disable-next-line no-unused-vars
 import {isEmpty} from 'lodash/fp';
+import {
+  NovaCompositionCoorpacademyCoorpApp as CoorpAppLogo,
+  NovaCompositionCoorpacademyCoorpLogo as CoorpLogo
+} from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import Link from '../../atom/link';
-import Picture from '../../atom/picture';
+// import Picture from '../../atom/picture';
 import SocialLink from '../../atom/social-link';
 // eslint-disable-next-line css-modules/no-unused-class
 import style from './style.css';
@@ -48,24 +52,24 @@ class MoocFooter extends React.Component {
     const {translate, skin} = this.context;
 
     const headSectionView = isEmpty(headSection) ? (
-      <div data-name="headSection">
+      <div data-name="headSection" className={style.headSectionWrapper}>
         <div className={`${style.logoWrapper} ${style.vertLineRight}`}>
-          <div className={style.logoMobile} data-name="logo-mobile">
-            <Picture src="logourl" />
-          </div>
+          <CoorpAppLogo className={style.coorpAppLogo} />
         </div>
-        <div data-name="mobile-marketing-text">
-          <p>{translate('coorp_mobile_marketing_text')}</p>
+        <div data-name="mobile-marketing-text" className={style.marketingLabel}>
+          <span className={style.marketingLabel}>
+            {translate('GET THE COORPACADEMY EXPERIENCE ON YOUR PHONE!')}
+          </span>
         </div>
-        <div data-name="mobile-apps-buttons-wrapper">
-          <p>testing, store buttons go here</p>
+        <div data-name="mobile-apps-buttons-wrapper" className={style.mobileAppLinks}>
+          <p>store buttons go here</p>
         </div>
       </div>
     ) : null;
     const sections = siteMapSections.map((section, index) => {
       return (
         <div key={index}>
-          <h2>{section.title}</h2>
+          <h4>{section.title}</h4>
           {/* TODO: take this out to an atom as a Link List */}
           <ul>
             {section.pages
@@ -89,8 +93,7 @@ class MoocFooter extends React.Component {
     const socialNetworks = (
       <div data-name="logo-social-networks-wrapper">
         <div data-name="bw-logo-wrapper">
-          {/* <Picture src="bwlogourl" /> */}
-          <button type="button">bwLOGO</button>
+          <CoorpLogo className={style.coorpLogo} />
         </div>
         <div data-name="social-networks-wrapper">
           {/* SocialLink socialLinks*/}
@@ -99,7 +102,7 @@ class MoocFooter extends React.Component {
       </div>
     );
     const siteMap = (
-      <div data-name="siteMap">
+      <div data-name="siteMap" className={style.siteMapContainer}>
         <div data-name="sections">{sections}</div>
         {socialNetworks}
       </div>
