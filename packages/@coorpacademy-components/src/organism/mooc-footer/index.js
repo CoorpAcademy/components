@@ -85,15 +85,13 @@ class MoocFooter extends React.Component {
     });
     const socialLinksView = socialLinks
       ? socialLinks.map((socialLink, index) => {
-          return <SocialLink type={socialLink.type} link={socialLink.link} key={index} />;
+          return <SocialLink type={socialLink.type} link={socialLink.link} key={index} mode="footer"/>;
         })
       : null;
     const socialNetworks = (
-      <div data-name="logo-social-networks-wrapper">
-        <div data-name="bw-logo-wrapper">
-          <CoorpLogo className={style.coorpLogo} />
-        </div>
-        <div data-name="social-networks-wrapper">{socialLinksView}</div>
+      <div data-name="logo-social-networks-container" className={style.logoSocialNetworksContainer}>
+        <CoorpLogo className={style.coorpLogo} />
+        <div data-name="social-networks-wrapper" className={style.socialNetworksWrapper}>{socialLinksView}</div>
       </div>
     );
     const siteMap = (

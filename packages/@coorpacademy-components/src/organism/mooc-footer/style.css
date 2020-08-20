@@ -95,6 +95,7 @@
 }
 
 .sectionTitle {
+  padding-top: 16px;
   color: lightMediumGray;
   width: 41px;
   height: 16px;
@@ -112,12 +113,26 @@
   padding-left: 0;
 }
 
-.coorpLogo {
-  color: white;
+.logoSocialNetworksContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   margin-right: 260px;
+}
+
+.coorpLogo {
+  padding-top: 32px;
+  color: white;
   width: 120.1px;
   height: 65px;
-  border-right:1px white; 
+  /* align-self: baseline; */
+}
+
+.socialNetworksWrapper {
+  padding-top: 24px;
+  /* align-self: baseline; */
 }
 
 
