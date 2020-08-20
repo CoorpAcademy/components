@@ -69,7 +69,7 @@ class MoocFooter extends React.Component {
         <div key={index}>
           <p className={style.sectionTitle}>{section.title}</p>
           {/* TODO: take this out to an atom as a Link List */}
-          <ul>
+          <ul className={style.pagesList}>
             {section.pages
               ? section.pages.map((page, pindex) => {
                   return (

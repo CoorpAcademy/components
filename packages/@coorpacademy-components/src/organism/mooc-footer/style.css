@@ -8,6 +8,7 @@
 @value dark from colors;
 @value transparent from colors;
 @value lightBlack from colors;
+@value lightMediumGray from colors;
 @value primaryAdd2 from colors;
 @value defaultText from "../../variables/fonts.css";
 
@@ -21,24 +22,28 @@
   background-color: lightBlack;
   align-items: baseline;
   display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
 }
 
 .logoWrapper {
   margin-left: 255px;
   height: 100%;
   /* background-color: white; */
-  display: inline-block;
+  /* display: inline-block; */
   align-self: center;
   /* max-width: 180px; */
   background-color:lightBlack;
   /* box-sizing: border-box; */
 }
-
+/* close take out on mobile */
 .line {
   align-self: center;
   width: 1px;
   height: 24px;
   border-right: solid 1px white;
+  margin-right: 20px;
+  margin-left: 20px;
 }
 
 .coorpAppLogo {
@@ -47,12 +52,10 @@
   width: 176.4px;
   height: 100px;
   align-self: center;
-  padding-right: 20px;
 }
 
 .marketingLabel {
-  padding-left: 20px;
-  display: inline-block;
+  /* display: inline-block; */
   align-self: center;
   background-color:lightBlack;
   width: 444px;
@@ -70,26 +73,29 @@
 }
 
 .mobileAppLinks {
-  display: inline-block;
+  /* display: inline-block; */
+  align-self: center;
 }
 
 .siteMapContainer {
   display: flex;
   flex-wrap: nowrap;
-  flex-direction: column;
+  flex-direction: row;
   /* justify-items: center;*/
   align-items: flex-start; 
   font-family: "Open Sans";
   background-color: black;
   margin-bottom: 10px;
+  justify-content: space-between;
 }
 
 .sectionsContainer {
   margin-left: 255px;
+  display: flex;
 }
 
 .sectionTitle {
-  color: white;
+  color: lightMediumGray;
   width: 41px;
   height: 16px;
   font-size: 16px;
@@ -100,9 +106,15 @@
   letter-spacing: 1px;
 }
 
+.pagesList {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
 .coorpLogo {
   color: white;
-  padding: 0 5px;
+  margin-right: 260px;
   width: 120.1px;
   height: 65px;
   border-right:1px white; 
