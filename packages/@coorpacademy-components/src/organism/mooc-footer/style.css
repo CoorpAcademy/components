@@ -11,10 +11,6 @@
 @value primaryAdd2 from colors;
 @value defaultText from "../../variables/fonts.css";
 
-.vertLineRight {
-  border-right:1px white;    /* line 1 pixel width, length of "Some content" */
-}
-
 .wrapper {
   min-height: 193px;
 }
@@ -23,27 +19,41 @@
   width: 100%;
   height: 101px;
   background-color: lightBlack;
+  align-items: baseline;
+  display: flex;
 }
 
 .logoWrapper {
+  margin-left: 255px;
   height: 100%;
   /* background-color: white; */
   display: inline-block;
+  align-self: center;
   /* max-width: 180px; */
   background-color:lightBlack;
   /* box-sizing: border-box; */
 }
 
+.line {
+  align-self: center;
+  width: 1px;
+  height: 24px;
+  border-right: solid 1px white;
+}
+
 .coorpAppLogo {
   color: primaryAdd2;
-  padding: 0 5px;
+  /* padding: 0 5px; */
   width: 176.4px;
-  height: 36px;
-  border-right:1px white; 
+  height: 100px;
+  align-self: center;
+  padding-right: 20px;
 }
 
 .marketingLabel {
+  padding-left: 20px;
   display: inline-block;
+  align-self: center;
   background-color:lightBlack;
   width: 444px;
   height: 19px;
@@ -67,11 +77,27 @@
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
-  /* justify-items: center;
-  align-items: center; */
+  /* justify-items: center;*/
+  align-items: flex-start; 
   font-family: "Open Sans";
   background-color: black;
   margin-bottom: 10px;
+}
+
+.sectionsContainer {
+  margin-left: 255px;
+}
+
+.sectionTitle {
+  color: white;
+  width: 41px;
+  height: 16px;
+  font-size: 16px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 1px;
 }
 
 .coorpLogo {

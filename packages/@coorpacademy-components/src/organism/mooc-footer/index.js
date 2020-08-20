@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// eslint-disable-next-line no-unused-vars
 import {isEmpty} from 'lodash/fp';
 import {
   NovaCompositionCoorpacademyCoorpApp as CoorpAppLogo,
@@ -53,13 +52,12 @@ class MoocFooter extends React.Component {
 
     const headSectionView = isEmpty(headSection) ? (
       <div data-name="headSection" className={style.headSectionWrapper}>
-        <div className={`${style.logoWrapper} ${style.vertLineRight}`}>
+        <div className={style.logoWrapper}>
           <CoorpAppLogo className={style.coorpAppLogo} />
         </div>
+        <div className={style.line}> </div>
         <div data-name="mobile-marketing-text" className={style.marketingLabel}>
-          <span className={style.marketingLabel}>
-            {translate('GET THE COORPACADEMY EXPERIENCE ON YOUR PHONE!')}
-          </span>
+          {translate('GET THE COORPACADEMY EXPERIENCE ON YOUR PHONE !')}
         </div>
         <div data-name="mobile-apps-buttons-wrapper" className={style.mobileAppLinks}>
           <p>store buttons go here</p>
@@ -69,7 +67,7 @@ class MoocFooter extends React.Component {
     const sections = siteMapSections.map((section, index) => {
       return (
         <div key={index}>
-          <h4>{section.title}</h4>
+          <p className={style.sectionTitle}>{section.title}</p>
           {/* TODO: take this out to an atom as a Link List */}
           <ul>
             {section.pages
@@ -95,15 +93,14 @@ class MoocFooter extends React.Component {
         <div data-name="bw-logo-wrapper">
           <CoorpLogo className={style.coorpLogo} />
         </div>
-        <div data-name="social-networks-wrapper">
-          {/* SocialLink socialLinks*/}
-          {socialLinksView}
-        </div>
+        <div data-name="social-networks-wrapper">{socialLinksView}</div>
       </div>
     );
     const siteMap = (
       <div data-name="siteMap" className={style.siteMapContainer}>
-        <div data-name="sections">{sections}</div>
+        <div data-name="sections" className={style.sectionsContainer}>
+          {sections}
+        </div>
         {socialNetworks}
       </div>
     );
