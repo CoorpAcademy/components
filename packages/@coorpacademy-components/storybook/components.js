@@ -294,6 +294,7 @@ import AtomSlideFixtureLeft from '../src/atom/slide/test/fixtures/left';
 import AtomSlideFixtureLight from '../src/atom/slide/test/fixtures/light';
 import AtomSlideFixtureNoCta from '../src/atom/slide/test/fixtures/no-cta';
 import AtomSlideFixtureRight from '../src/atom/slide/test/fixtures/right';
+import AtomSocialLinkFixtureFacebookFooter from '../src/atom/social-link/test/fixtures/facebook-footer';
 import AtomSocialLinkFixtureFacebook from '../src/atom/social-link/test/fixtures/facebook';
 import AtomSocialLinkFixtureTwitter from '../src/atom/social-link/test/fixtures/twitter';
 import AtomSpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default';
@@ -1214,6 +1215,7 @@ export const fixtures = {
       Right: AtomSlideFixtureRight
     },
     AtomSocialLink: {
+      FacebookFooter: AtomSocialLinkFixtureFacebookFooter,
       Facebook: AtomSocialLinkFixtureFacebook,
       Twitter: AtomSocialLinkFixtureTwitter
     },

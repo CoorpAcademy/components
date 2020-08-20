@@ -1,22 +1,36 @@
 @value colors: "../../variables/colors.css";
 @value dark from colors;
+@value white from colors;
+@value black from colors;
 
-.link {
+.defaultLink{
   font-family: 'social-icons';
   font-size: 13px;
   line-height: 19px;
   text-align: center;
   width: 19px;
   padding: 4px;
-  border: 1px solid dark;
-  color: dark;
-  border-radius: 50%;
   box-sizing: content-box;
   text-decoration: none;
   display: inline-block;
 }
-
+.link {
+  composes: defaultLink;
+  border: 1px solid dark;
+  color: dark;
+  border-radius: 50%;
+}
+.linkFooter {
+  composes: defaultLink;
+  color: white;
+  background-color: dark;
+  border-radius: 50%;
+}
 .link:hover {
   border-color: color(dark lightness(60%));
   color: color(dark lightness(60%));
+}
+.linkFooter:hover {
+  /* color: color(white lightness(60%)); */
+  background-color: color(dark lightness(60%));
 }
