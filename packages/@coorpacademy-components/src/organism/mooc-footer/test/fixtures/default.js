@@ -32,7 +32,10 @@ export default {
         title: 'HELP',
         pages: [
           {title: 'FAQ', link: 'https://www.support.coorpacademy.com/faq-users-fr'},
-          {title: 'Data privacy policy', link: 'https://www.support.coorpacademy.com/faq-users-fr'},
+          {
+            title: 'Data privacy policy 1234567890',
+            link: 'https://www.support.coorpacademy.com/faq-users-fr'
+          },
           {title: 'Client support', link: 'https://www.support.coorpacademy.com/faq-users-fr'}
         ]
       },

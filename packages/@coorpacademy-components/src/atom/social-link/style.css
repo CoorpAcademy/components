@@ -23,6 +23,9 @@
 }
 .linkFooter {
   composes: defaultLink;
+  font-size: 14px;
+  line-height: 24px;
+  width: 24px;
   color: white;
   background-color: color(black lightness(20%));
   border-radius: 50%;

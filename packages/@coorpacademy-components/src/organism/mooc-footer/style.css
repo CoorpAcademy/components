@@ -27,7 +27,7 @@
 }
 
 .logoWrapper {
-  margin-left: 255px;
+  margin-left: 225px;
   height: 100%;
   /* background-color: white; */
   /* display: inline-block; */
@@ -90,13 +90,14 @@
 }
 
 .sectionsContainer {
-  margin-left: 255px;
+  margin-left: 225px;
   display: flex;
 }
 
 .sectionWrapper {
-  padding-right: 40px;
+  padding-right: 60px;
   padding-bottom: 24px;
+  max-width: 130px;
 }
 
 .sectionTitle {
@@ -117,6 +118,7 @@
   list-style: none;
   margin-left: 0;
   padding-left: 0;
+  /* min-width: 140px; */
 }
 
 .pageLink {
@@ -124,6 +126,10 @@
   color: lightMediumGray;
   font-weight: normal;
   font-size: 14px;
+}
+
+.pageLink:hover {
+  font-weight: bold;
 }
 
 .logoSocialNetworksContainer {
@@ -146,7 +152,13 @@
 
 .socialNetworksWrapper {
   padding-top: 24px;
+  display: flex;
+  flex-wrap: nowrap;
   /* align-self: baseline; */
+}
+
+.socialLink {
+  padding-right: 9px;
 }
 
 
