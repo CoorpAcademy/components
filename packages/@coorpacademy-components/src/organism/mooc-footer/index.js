@@ -12,6 +12,7 @@ import SocialLink from '../../atom/social-link';
 // eslint-disable-next-line css-modules/no-unused-class
 import style from './style.css';
 
+
 const socialLinksTypes = ['facebook', 'twitter', 'linkedIn'];
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -66,7 +67,7 @@ class MoocFooter extends React.Component {
     ) : null;
     const sections = siteMapSections.map((section, index) => {
       return (
-        <div key={index}>
+        <div key={index} className={style.sectionWrapper}>
           <p className={style.sectionTitle}>{section.title}</p>
           {/* TODO: take this out to an atom as a Link List */}
           <ul className={style.pagesList}>
@@ -74,7 +75,9 @@ class MoocFooter extends React.Component {
               ? section.pages.map((page, pindex) => {
                   return (
                     <li key={pindex}>
-                      <Link href={page.link}>{page.title}</Link>
+                      <Link href={page.link} className={style.pageLink}>
+                        {page.title}
+                      </Link>
                     </li>
                   );
                 })
@@ -85,7 +88,9 @@ class MoocFooter extends React.Component {
     });
     const socialLinksView = socialLinks
       ? socialLinks.map((socialLink, index) => {
-          return <SocialLink type={socialLink.type} link={socialLink.link} key={index} mode="footer"/>;
+          return (
+            <SocialLink type={socialLink.type} link={socialLink.link} key={index} mode="footer" />
+          );
         })
       : null;
     const socialNetworks = (

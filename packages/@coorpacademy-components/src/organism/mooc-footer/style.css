@@ -94,6 +94,11 @@
   display: flex;
 }
 
+.sectionWrapper {
+  padding-right: 40px;
+  padding-bottom: 24px;
+}
+
 .sectionTitle {
   padding-top: 16px;
   color: lightMediumGray;
@@ -107,10 +112,18 @@
   letter-spacing: 1px;
 }
 
+/* The list of page links under each title */
 .pagesList {
   list-style: none;
   margin-left: 0;
   padding-left: 0;
+}
+
+.pageLink {
+  text-decoration: none;
+  color: lightMediumGray;
+  font-weight: normal;
+  font-size: 14px;
 }
 
 .logoSocialNetworksContainer {
@@ -120,6 +133,7 @@
   align-items: center;
   justify-content: center;
   margin-right: 260px;
+  padding-bottom: 24px;
 }
 
 .coorpLogo {
