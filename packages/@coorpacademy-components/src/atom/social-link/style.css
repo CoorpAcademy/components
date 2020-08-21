@@ -2,6 +2,7 @@
 @value dark from colors;
 @value white from colors;
 @value black from colors;
+@value lightBlack from colors;
 
 .defaultLink{
   font-family: 'social-icons';
@@ -23,7 +24,7 @@
 .linkFooter {
   composes: defaultLink;
   color: white;
-  background-color: dark;
+  background-color: color(black lightness(20%));
   border-radius: 50%;
 }
 .link:hover {
@@ -32,5 +33,5 @@
 }
 .linkFooter:hover {
   /* color: color(white lightness(60%)); */
-  background-color: color(dark lightness(60%));
+  background-color: color(dark lightness(30%));
 }
