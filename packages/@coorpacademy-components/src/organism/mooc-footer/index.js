@@ -12,12 +12,31 @@ import SocialLink from '../../atom/social-link';
 // eslint-disable-next-line css-modules/no-unused-class
 import style from './style.css';
 
+const socialLinksTypes = ['facebook', 'twitter', 'linkedIn', 'youtube', 'instagram'];
 
-const socialLinksTypes = ['facebook', 'twitter', 'linkedIn'];
+const StoresLinks = ({
+  onAppStoreButtonClick,
+  appStoreButtonImageUrl,
+  playStoreButtonImageUrl,
+  onPlayStoreButtonClick
+}) => (
+  <div className={style.storeLinksContainer}>
+    <img className={style.img} src={appStoreButtonImageUrl} onClick={onAppStoreButtonClick} />
+    <img className={style.img} src={playStoreButtonImageUrl} onClick={onPlayStoreButtonClick} />
+  </div>
+);
+
+StoresLinks.propTypes = {
+  onAppStoreButtonClick: PropTypes.func,
+  appStoreButtonImageUrl: PropTypes.string,
+  playStoreButtonImageUrl: PropTypes.string,
+  onPlayStoreButtonClick: PropTypes.func
+};
 
 // eslint-disable-next-line react/prefer-stateless-function
 class MoocFooter extends React.Component {
   static propTypes = {
+    ...StoresLinks.propTypes,
     headSection: PropTypes.shape({
       title: PropTypes.string,
       androidLink: PropTypes.string,
@@ -46,7 +65,15 @@ class MoocFooter extends React.Component {
   }
 
   render() {
-    const {headSection = {}, socialLinks = [], siteMapSections = []} = this.props;
+    const {
+      headSection = {},
+      socialLinks = [],
+      siteMapSections = [],
+      onAppStoreButtonClick,
+      appStoreButtonImageUrl,
+      playStoreButtonImageUrl,
+      onPlayStoreButtonClick
+    } = this.props;
 
     // eslint-disable-next-line no-unused-vars
     const {translate, skin} = this.context;
@@ -61,7 +88,12 @@ class MoocFooter extends React.Component {
           {translate('GET THE COORPACADEMY EXPERIENCE ON YOUR PHONE !')}
         </div>
         <div data-name="mobile-apps-buttons-wrapper" className={style.mobileAppLinks}>
-          <p>store buttons go here</p>
+          <StoresLinks
+            onAppStoreButtonClick={onAppStoreButtonClick}
+            appStoreButtonImageUrl={appStoreButtonImageUrl}
+            playStoreButtonImageUrl={playStoreButtonImageUrl}
+            onPlayStoreButtonClick={onPlayStoreButtonClick}
+          />
         </div>
       </div>
     ) : null;

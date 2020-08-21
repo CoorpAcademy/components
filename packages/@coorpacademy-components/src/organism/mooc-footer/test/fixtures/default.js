@@ -1,9 +1,12 @@
 export default {
   props: {
+    onAppStoreButtonClick: () => window.open('https://apps.apple.com/app/id1448348795'),
     appStoreButtonImageUrl:
       'https://user-images.githubusercontent.com/23306911/56896744-e915da80-6a8c-11e9-98ca-c50e7c4358db.png',
     playStoreButtonImageUrl:
       'https://user-images.githubusercontent.com/23306911/56896745-e9ae7100-6a8c-11e9-9c3c-4a13d8e7c096.png',
+    onPlayStoreButtonClick: () =>
+      window.open('https://play.google.com/store/apps/details?id=com.coorpacademy.app'),
     headSection: {},
     socialLinks: [
       {
@@ -33,7 +36,8 @@ export default {
         pages: [
           {title: 'FAQ', link: 'https://www.support.coorpacademy.com/faq-users-fr'},
           {
-            title: 'Data privacy policy 1234567890',
+            title: 'Data privacy policy',
+            // title: 'Data privacy policy 1234567890',
             link: 'https://www.support.coorpacademy.com/faq-users-fr'
           },
           {title: 'Client support', link: 'https://www.support.coorpacademy.com/faq-users-fr'}

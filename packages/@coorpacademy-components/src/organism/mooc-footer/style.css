@@ -74,6 +74,7 @@
 
 .mobileAppLinks {
   /* display: inline-block; */
+  padding-left: 95px;
   align-self: center;
 }
 
@@ -171,3 +172,19 @@
   min-width: 15em;
 } */
 
+
+/* take out to a molecule */
+.storeLinksContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.img {
+  /* margin: 30px; */
+  width: 108px;
+  height: 35px;
+  cursor: pointer;
+  padding-right: 8.8px;
+}
