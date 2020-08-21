@@ -82,11 +82,11 @@
   flex-wrap: nowrap;
   flex-direction: row;
   /* justify-items: center;*/
-  align-items: flex-start; 
+  /* align-items: flex-start; */
   font-family: "Open Sans";
   background-color: black;
   margin-bottom: 10px;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .sectionsContainer {
@@ -133,12 +133,13 @@
 }
 
 .logoSocialNetworksContainer {
+  flex: 1;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  margin-right: 260px;
+  /* justify-content: baseline; */
+  /* margin-right: 190px; */
   padding-bottom: 24px;
 }
 
