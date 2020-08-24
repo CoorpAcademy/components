@@ -29,7 +29,7 @@
 }
 
 .logoWrapper {
-  margin-left: 225px;
+  /* margin-left: 225px; */
   height: 100%;
   align-self: center;
   /* max-width: 180px; */
@@ -67,8 +67,6 @@
 }
 
 .mobileAppLinks {
-  /* display: inline-block; */
-  padding-left: 95px;
   align-self: center;
 }
 
@@ -87,7 +85,7 @@
 }
 
 .sectionsContainer {
-  margin-left: 225px;
+  /* margin-left: 225px; */
   display: flex;
 }
 
@@ -143,6 +141,7 @@
   align-items: center;
   /* justify-content: baseline; */
   /* margin-right: 190px; */
+  max-width: 195px;
   padding-bottom: 24px;
 }
 
@@ -171,6 +170,8 @@
   .headSectionWrapper {
     height: 101px;
     flex-direction: row;
+    justify-content: center;
+    align-items: center;
   }
 
   .line {
@@ -187,9 +188,14 @@
     text-overflow: ellipsis;
   }
 
+  .mobileAppLinks {
+    padding-left: 50px;
+  }
+
   /* Site map */
   .siteMapContainer {
     flex-direction: row;
+    justify-content: center;
   }
 
   .sectionWrapper {
@@ -198,7 +204,7 @@
   }
 
   .sectionsContainer {
-    margin-left: 225px;
+    /* margin-left: 225px; */
   }
 
   /* The list of page links under each title */
