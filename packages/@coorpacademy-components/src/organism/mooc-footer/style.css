@@ -1,6 +1,7 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value tablet from breakpoints;
 @value desktop from breakpoints;
+@value wide from breakpoints;
 @value colors: "../../variables/colors.css";
 @value light from colors;
 @value white from colors;
@@ -86,14 +87,15 @@
 }
 
 .sectionsContainer {
-  /* margin-left: 225px; */
+  margin-left: 225px;
   display: flex;
 }
 
 .sectionWrapper {
   padding-right: 60px;
   padding-bottom: 24px;
-  max-width: 130px;
+  /* max-width: 135px;
+  min-width: 90px; */
 }
 
 .sectionMobileDivisor {
@@ -164,7 +166,7 @@
 
 
 
-@media desktop {
+@media desktop, wide, (max-width: 4000px) {
   .headSectionWrapper {
     height: 101px;
     flex-direction: row;
@@ -189,14 +191,39 @@
     flex-direction: row;
   }
 
+  .sectionWrapper {
+    max-width: 135px;
+    width: max-content;
+    /* box-sizing: border-box; */
+  }
+
   .sectionsContainer {
     margin-left: 225px;
+    /* box-sizing: border-box; */
   }
 
-  .sectionMobileDivisor {
-    align-self: center;
+  /* The list of page links under each title */
+  /* .pagesList {
+    box-sizing: border-box;
   }
 
+  .pageLink {
+    box-sizing: border-box;
+  } */
+
+  /* .pageLink:hover {
+    box-sizing: border-box;
+  } */
+
+  .pageLink:before {
+    display: block;
+    content: attr(data-text);
+    font-weight: bold;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    /* margin-right: -1px; */
+  }
 
 }
 
@@ -283,7 +310,19 @@
     padding-left: 40px; */
   }
 
-  
+  .socialNetworksWrapper {
+    padding-bottom: 24px;
+  }
+
+  .sectionTitle {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  .pagesList {
+    margin-top: 8px;
+    margin-bottom: 24px;
+  }
 }
 
 

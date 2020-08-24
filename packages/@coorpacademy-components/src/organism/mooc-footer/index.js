@@ -10,7 +10,7 @@ import Link from '../../atom/link';
 import SocialLink from '../../atom/social-link';
 import style from './style.css';
 
-const socialLinksTypes = ['facebook', 'twitter', 'linkedIn', 'youtube', 'instagram'];
+const socialLinksTypes = ['facebook', 'twitter', 'linkedin', 'youtube', 'instagram'];
 
 const StoresLinks = ({
   onAppStoreButtonClick,
@@ -105,7 +105,11 @@ class MoocFooter extends React.Component {
               ? section.pages.map((page, pindex) => {
                   return (
                     <li key={pindex}>
-                      <Link href={page.link} className={style.pageLink}>
+                      <Link
+                        href={page.link}
+                        data-text={`${page.title} `}
+                        className={style.pageLink}
+                      >
                         {page.title}
                       </Link>
                     </li>
