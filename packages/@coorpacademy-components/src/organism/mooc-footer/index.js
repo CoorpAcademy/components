@@ -37,8 +37,10 @@ class MoocFooter extends React.Component {
     ...StoresLinks.propTypes,
     headSection: PropTypes.shape({
       title: PropTypes.string,
-      androidLink: PropTypes.string,
-      iosLink: PropTypes.string
+      onAppStoreButtonClick: PropTypes.func,
+      appStoreButtonImageUrl: PropTypes.string,
+      playStoreButtonImageUrl: PropTypes.string,
+      onPlayStoreButtonClick: PropTypes.func
     }),
     siteMapSections: PropTypes.arrayOf(
       PropTypes.shape({
@@ -63,33 +65,30 @@ class MoocFooter extends React.Component {
   }
 
   render() {
-    const {
-      headSection = {},
-      socialLinks = [],
-      siteMapSections = [],
-      onAppStoreButtonClick,
-      appStoreButtonImageUrl,
-      playStoreButtonImageUrl,
-      onPlayStoreButtonClick
-    } = this.props;
+    const {headSection = {}, socialLinks = [], siteMapSections = []} = this.props;
 
     const {translate} = this.context;
 
-    const headSectionView = isEmpty(headSection) ? (
+    // eslint-disable-next-line no-console
+    console.log(`cond: ${isEmpty(headSection)} ${headSection} `);
+
+    const headSectionView = !isEmpty(headSection) ? (
       <div data-name="headSection" className={style.headSectionWrapper}>
         <div className={style.logoWrapper}>
           <CoorpAppLogo className={style.coorpAppLogo} />
         </div>
         <div className={style.line}> </div>
         <div data-name="mobile-marketing-text" className={style.marketingLabel}>
-          {translate('GET THE COORPACADEMY EXPERIENCE ON YOUR PHONE !')}
+          {translate(headSection.title)}
         </div>
         <div data-name="mobile-apps-buttons-wrapper" className={style.mobileAppLinks}>
           <StoresLinks
-            onAppStoreButtonClick={onAppStoreButtonClick}
-            appStoreButtonImageUrl={appStoreButtonImageUrl}
-            playStoreButtonImageUrl={playStoreButtonImageUrl}
-            onPlayStoreButtonClick={onPlayStoreButtonClick}
+            // eslint-disable-next-line react/jsx-handler-names
+            onAppStoreButtonClick={headSection.onAppStoreButtonClick}
+            appStoreButtonImageUrl={headSection.appStoreButtonImageUrl}
+            playStoreButtonImageUrl={headSection.playStoreButtonImageUrl}
+            // eslint-disable-next-line react/jsx-handler-names
+            onPlayStoreButtonClick={headSection.onPlayStoreButtonClick}
           />
         </div>
       </div>
