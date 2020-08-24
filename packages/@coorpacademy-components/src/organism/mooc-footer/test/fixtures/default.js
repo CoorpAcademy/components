@@ -59,6 +59,10 @@ export default {
           {
             title: 'How to use',
             link: 'https://fab404.com/wp-content/uploads/2013/05/androiddev101404.jpg'
+          },
+          {
+            title: 'Over 30 character csm page link',
+            link: 'https://fab404.com/wp-content/uploads/2013/05/androiddev101404.jpg'
           }
         ]
       }
