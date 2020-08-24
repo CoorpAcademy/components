@@ -128,6 +128,7 @@
   color: lightMediumGray;
   font-weight: normal;
   font-size: 14px;
+  max-width: 200px;
 }
 
 .pageLink:hover {
@@ -192,28 +193,22 @@
   }
 
   .sectionWrapper {
-    max-width: 135px;
+    max-width: 300px;
     width: max-content;
-    /* box-sizing: border-box; */
   }
 
   .sectionsContainer {
     margin-left: 225px;
-    /* box-sizing: border-box; */
   }
 
   /* The list of page links under each title */
-  /* .pagesList {
-    box-sizing: border-box;
-  }
 
   .pageLink {
-    box-sizing: border-box;
-  } */
-
-  /* .pageLink:hover {
-    box-sizing: border-box;
-  } */
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+  }
 
   .pageLink:before {
     display: block;
@@ -223,6 +218,8 @@
     overflow: hidden;
     visibility: hidden;
     /* margin-right: -1px; */
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 
 }
@@ -295,7 +292,17 @@
 
   .pageLink {
     font-weight: bold;
+    /* overflow: hidden !important; */
+    white-space: normal;
+    text-overflow: unset;
+    display: block;
   }
+
+  /* .pageLink:before {
+    overflow: auto;
+    white-space: normal;
+    text-overflow: unset;
+  } */
 
   .sectionMobileDivisor {
     /* width: 250px; */
