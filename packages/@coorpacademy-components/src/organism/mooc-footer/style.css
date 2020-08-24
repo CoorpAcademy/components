@@ -29,13 +29,11 @@
 .logoWrapper {
   margin-left: 225px;
   height: 100%;
-  /* background-color: white; */
-  /* display: inline-block; */
   align-self: center;
   /* max-width: 180px; */
   background-color:lightBlack;
-  /* box-sizing: border-box; */
 }
+
 /* close take out on mobile */
 .line {
   align-self: center;
@@ -48,14 +46,12 @@
 
 .coorpAppLogo {
   color: primaryAdd2;
-  /* padding: 0 5px; */
   width: 176.4px;
   height: 100px;
   align-self: center;
 }
 
 .marketingLabel {
-  /* display: inline-block; */
   align-self: center;
   background-color:lightBlack;
   width: 444px;
@@ -76,6 +72,46 @@
   /* display: inline-block; */
   padding-left: 95px;
   align-self: center;
+}
+
+@media tablet {
+  .headSectionWrapper {
+    height: 221px;
+    flex-direction: column;
+  }
+
+  .line {
+    align-self: center;
+    width: 0px;
+    height: 0px;
+    border-right: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+  .logoWrapper {
+    padding-top: 10px;
+    margin-left: 0px;
+    height: auto;
+  }
+
+  .coorpAppLogo {
+    height: 80px;
+    align-self: center;
+  }
+
+  .marketingLabel {
+    width: 276px;
+    height: 42px;
+    overflow-wrap: normal;
+    text-align: center;
+    padding-bottom: 17px;
+  }
+
+  .mobileAppLinks {
+    padding-left: 0px;
+    align-self: center;
+  }
+  
 }
 
 .siteMapContainer {
@@ -188,3 +224,11 @@
   cursor: pointer;
   padding-right: 8.8px;
 }
+
+@media desktop {
+
+}
+
+
+
+
