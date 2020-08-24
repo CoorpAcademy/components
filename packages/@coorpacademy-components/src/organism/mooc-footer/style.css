@@ -16,9 +16,10 @@
   min-height: 193px;
 }
 
+/* Mobile App marketing header container */
+
 .headSectionWrapper {
   width: 100%;
-  height: 101px;
   background-color: lightBlack;
   align-items: baseline;
   display: flex;
@@ -34,14 +35,9 @@
   background-color:lightBlack;
 }
 
-/* close take out on mobile */
+/* separates the mkting logo from the label */
 .line {
   align-self: center;
-  width: 1px;
-  height: 24px;
-  border-right: solid 1px white;
-  margin-right: 20px;
-  margin-left: 20px;
 }
 
 .coorpAppLogo {
@@ -54,7 +50,8 @@
 .marketingLabel {
   align-self: center;
   background-color:lightBlack;
-  width: 444px;
+  /* width: 444px; */
+  width: auto;
   height: 19px;
   font-weight: bold;
   font-stretch: normal;
@@ -74,45 +71,7 @@
   align-self: center;
 }
 
-@media tablet {
-  .headSectionWrapper {
-    height: 221px;
-    flex-direction: column;
-  }
-
-  .line {
-    align-self: center;
-    width: 0px;
-    height: 0px;
-    border-right: 0px;
-    margin-right: 0px;
-    margin-left: 0px;
-  }
-  .logoWrapper {
-    padding-top: 10px;
-    margin-left: 0px;
-    height: auto;
-  }
-
-  .coorpAppLogo {
-    height: 80px;
-    align-self: center;
-  }
-
-  .marketingLabel {
-    width: 276px;
-    height: 42px;
-    overflow-wrap: normal;
-    text-align: center;
-    padding-bottom: 17px;
-  }
-
-  .mobileAppLinks {
-    padding-left: 0px;
-    align-self: center;
-  }
-  
-}
+/* Site map */
 
 .siteMapContainer {
   display: flex;
@@ -127,7 +86,7 @@
 }
 
 .sectionsContainer {
-  margin-left: 225px;
+  /* margin-left: 225px; */
   display: flex;
 }
 
@@ -135,6 +94,10 @@
   padding-right: 60px;
   padding-bottom: 24px;
   max-width: 130px;
+}
+
+.sectionMobileDivisor {
+  align-self: center;
 }
 
 .sectionTitle {
@@ -200,13 +163,128 @@
 }
 
 
-/* .links {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  min-width: 15em;
-} */
+
+@media desktop {
+  .headSectionWrapper {
+    height: 101px;
+    flex-direction: row;
+  }
+
+  .line {
+    width: 1px;
+    height: 24px;
+    border-right: solid 1px white;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
+
+  .marketingLabel {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  /* Site map */
+  .siteMapContainer {
+    flex-direction: row;
+  }
+
+  .sectionsContainer {
+    margin-left: 225px;
+  }
+
+  .sectionMobileDivisor {
+    align-self: center;
+  }
+
+
+}
+
+@media tablet {
+  .headSectionWrapper {
+    height: 221px;
+    flex-direction: column;
+  }
+
+  .logoWrapper {
+    padding-top: 10px;
+    margin-left: 0px;
+    height: auto;
+  }
+
+  .line {
+    width: 0px;
+    height: 0px;
+    border-right: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+  }
+
+  .coorpAppLogo {
+    height: 80px;
+    align-self: center;
+  }
+
+  .marketingLabel {
+    width: 276px;
+    height: 42px;
+    overflow-wrap: normal;
+    white-space: normal;
+    text-align: center;
+    padding-bottom: 17px;
+  }
+
+  .mobileAppLinks {
+    padding-left: 0px;
+    align-self: center;
+  }
+
+  /* Site map */
+  .siteMapContainer {
+    flex-direction: column;
+  }
+
+  .sectionsContainer {
+    margin-left: 0px;
+    align-self: flex-start;
+    flex-direction: column;
+    /* may not be supported by all the browsers, tests this*/
+    min-width: -webkit-fill-available;
+    min-width: stretch;
+    padding-left: 40px;
+    padding-right: 40px;
+    flex-grow: 1;
+  }
+
+  .sectionWrapper {
+    padding-right: 0px;
+    padding-bottom: 0px;
+    /* width: 100%;
+    max-width: none; */
+    min-width: 100%;
+    flex-grow: 1;
+    align-content: flex-start;
+  }
+
+  .pageLink {
+    font-weight: bold;
+  }
+
+  .sectionMobileDivisor {
+    /* width: 250px; */
+    width: 100%;
+    min-width: 100%;
+    height: 1px;
+    border-bottom: solid 1px lightBlack;
+    align-self: center;
+    align-content: center;
+    flex-grow: 1;
+    /* padding-right: 40px;
+    padding-left: 40px; */
+  }
+
+  
+}
 
 
 /* take out to a molecule */
@@ -225,9 +303,6 @@
   padding-right: 8.8px;
 }
 
-@media desktop {
-
-}
 
 
 

@@ -7,9 +7,7 @@ import {
 } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import Link from '../../atom/link';
-// import Picture from '../../atom/picture';
 import SocialLink from '../../atom/social-link';
-// eslint-disable-next-line css-modules/no-unused-class
 import style from './style.css';
 
 const socialLinksTypes = ['facebook', 'twitter', 'linkedIn', 'youtube', 'instagram'];
@@ -75,8 +73,7 @@ class MoocFooter extends React.Component {
       onPlayStoreButtonClick
     } = this.props;
 
-    // eslint-disable-next-line no-unused-vars
-    const {translate, skin} = this.context;
+    const {translate} = this.context;
 
     const headSectionView = isEmpty(headSection) ? (
       <div data-name="headSection" className={style.headSectionWrapper}>
@@ -101,7 +98,8 @@ class MoocFooter extends React.Component {
       return (
         <div key={index} className={style.sectionWrapper}>
           <p className={style.sectionTitle}>{section.title}</p>
-          {/* TODO: take this out to an atom as a Link List */}
+          {/* eslint-disable-next-line no-warning-comments */
+          /* TODO: take this out to an atom as a Link List */}
           <ul className={style.pagesList}>
             {section.pages
               ? section.pages.map((page, pindex) => {
@@ -115,6 +113,7 @@ class MoocFooter extends React.Component {
                 })
               : null}
           </ul>
+          <div className={style.sectionMobileDivisor} />
         </div>
       );
     });
@@ -143,7 +142,7 @@ class MoocFooter extends React.Component {
         {socialNetworks}
       </div>
     );
-    // return <div>Just a plain test</div>;
+
     return (
       <div className={style.wrapper}>
         {headSectionView}
