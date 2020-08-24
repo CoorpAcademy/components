@@ -2,10 +2,11 @@ import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 import {
   NovaCompositionCoorpacademyValidate as Validated,
-  NovaLineContentEditionBin as TrashIcon
+  NovaLineContentEditionBin as TrashIcon,
+  NovaCompositionCoorpacademyWarn as WarnIcon
 } from '@coorpacademy/nova-icons';
 import classnames from 'classnames';
-import {pipe, split, last, map, head, getOr} from 'lodash/fp';
+import {pipe, split, last, map, head, getOr, isEmpty} from 'lodash/fp';
 import {EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
 import InputText from '../../atom/input-text';
 
@@ -15,6 +16,7 @@ import style from './upload-report.css';
 export const UploadReport = ({
   state,
   message,
+  warningMessage,
   type: contentType,
   fields,
   mode = 'upload',
@@ -67,7 +69,7 @@ export const UploadReport = ({
       <div className={style.fileName} title={fileName}>
         {fileName}
       </div>
-      <Validated className={style.validateIcon} />
+      {isEmpty(warningMessage) ? <Validated className={style.validateIcon} /> : <WarnIcon />}
     </div>
   ) : (
     <div className={style.emptyFileWrapper} />
@@ -119,6 +121,7 @@ export default UploadReport;
 UploadReport.propTypes = {
   state: PropTypes.string.isRequired,
   message: PropTypes.string.isRequired,
+  warningMessage: PropTypes.string,
   orLabel: PropTypes.string,
   type: PropTypes.string,
   fields: PropTypes.arrayOf(
