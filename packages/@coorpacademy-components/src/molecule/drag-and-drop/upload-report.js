@@ -79,7 +79,7 @@ export const UploadReport = ({
       {isEmpty(warningMessage) ? (
         <Validated className={style.validateIcon} />
       ) : (
-        <div>
+        <div className={style.warning}>
           {warningMessageView}
           <div className={style.warningIcon}>
             <WarnIcon width={11} height={11} />
