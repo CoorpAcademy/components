@@ -34,7 +34,6 @@ StoresLinks.propTypes = {
 // eslint-disable-next-line react/prefer-stateless-function
 class MoocFooter extends React.Component {
   static propTypes = {
-    ...StoresLinks.propTypes,
     headSection: PropTypes.shape({
       title: PropTypes.string,
       onAppStoreButtonClick: PropTypes.func,
@@ -69,9 +68,6 @@ class MoocFooter extends React.Component {
 
     const {translate} = this.context;
 
-    // eslint-disable-next-line no-console
-    console.log(`cond: ${isEmpty(headSection)} ${headSection} `);
-
     const headSectionView = !isEmpty(headSection) ? (
       <div data-name="headSection" className={style.headSectionWrapper}>
         <div className={style.logoWrapper}>
@@ -97,8 +93,6 @@ class MoocFooter extends React.Component {
       return (
         <div key={index} className={style.sectionWrapper}>
           <p className={style.sectionTitle}>{section.title}</p>
-          {/* eslint-disable-next-line no-warning-comments */
-          /* TODO: take this out to an atom as a Link List */}
           <ul className={style.pagesList}>
             {section.pages
               ? section.pages.map((page, pindex) => {
