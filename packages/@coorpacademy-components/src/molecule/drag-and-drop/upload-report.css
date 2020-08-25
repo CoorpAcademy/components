@@ -3,6 +3,8 @@
 @value dark from colors;
 @value medium from colors;
 @value light from colors;
+@value orangeAdd from colors;
+@value negative from colors;
 
 .reportingContainer {
   width: 100%;
@@ -115,9 +117,9 @@
 
 .warningIcon {
   border-radius: 50%;
-  background: #ff7043;
+  background: orangeAdd;
   color: white;
-  cursor: pointer;
+  cursor: help;
   margin-left: 10px;
   box-shadow: 0 0 5px white;
   position: relative;
@@ -137,11 +139,11 @@
 }
 
 .trashIcon {
-  color: #f73f52;
+  color: negative;
 }
 
 .trashIcon:hover {
-  color: #f73f52;
+  color: negative;
 }
 
 .reportContainer {
