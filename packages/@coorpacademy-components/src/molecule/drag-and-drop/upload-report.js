@@ -63,6 +63,13 @@ export const UploadReport = ({
     </div>
   );
   const showMessage = ['success', 'error'].includes(state);
+
+  const warningMessageView = warningMessage ? (
+    <div className={style.showToolTip}>
+      <span>{warningMessage}</span>
+    </div>
+  ) : null;
+
   const fileName = pipe(head, getOr('', 'value'), split('/'), last)(fields);
   const fileView = fileName ? (
     <div className={style.fileWrapper}>
@@ -72,8 +79,11 @@ export const UploadReport = ({
       {isEmpty(warningMessage) ? (
         <Validated className={style.validateIcon} />
       ) : (
-        <div className={style.warningIcon}>
-          <WarnIcon width={11} height={11} />
+        <div>
+          {warningMessageView}
+          <div className={style.warningIcon}>
+            <WarnIcon width={11} height={11} />
+          </div>
         </div>
       )}
     </div>

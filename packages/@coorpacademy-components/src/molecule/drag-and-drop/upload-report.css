@@ -167,3 +167,36 @@
 .selectButton {
   margin: auto;
 }
+
+.showToolTip {
+  background-color: color(black a(80%));
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  z-index: 1;
+  transition: opacity 0.8s;
+  position: absolute;
+  right: 45px;
+  bottom: 270px;
+  max-width: 200px;
+}
+
+.showToolTip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 20px;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.showToolTip span {
+  display: block;
+  word-wrap: break-word;
+  padding: 3px 10px 5px;
+  font-family: "Open Sans";
+  font-size: 12px;
+  font-weight: bold;
+}
