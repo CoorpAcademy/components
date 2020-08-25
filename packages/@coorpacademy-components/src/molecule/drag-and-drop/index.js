@@ -19,6 +19,7 @@ export const DragAndDrop = (props, context) => {
     state,
     title,
     message,
+    warningMessage,
     mode,
     dragAndDropMessage,
     buttonTitle,
@@ -56,6 +57,7 @@ export const DragAndDrop = (props, context) => {
                 <UploadReport
                   state={state}
                   message={message}
+                  warningMessage={warningMessage}
                   fields={fields}
                   type={contentType}
                   onDelete={onDelete}
@@ -109,6 +111,7 @@ DragAndDrop.propTypes = {
   title: PropTypes.string,
   type: PropTypes.string,
   message: PropTypes.string,
+  warningMessage: PropTypes.string,
   dragAndDropMessage: PropTypes.string,
   buttonTitle: PropTypes.string,
   backLabel: PropTypes.string,

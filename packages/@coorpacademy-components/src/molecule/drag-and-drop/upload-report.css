@@ -3,6 +3,8 @@
 @value dark from colors;
 @value medium from colors;
 @value light from colors;
+@value orangeAdd from colors;
+@value negative from colors;
 
 .reportingContainer {
   width: 100%;
@@ -47,10 +49,12 @@
   height: 18px;
   margin: 4px;
 }
+
 .or {
   font-family: 'Open Sans';
   color: #797979;
 }
+
 .drop {
   border: 1px dashed medium;
   margin: 10px 20px 20px 20px;
@@ -59,13 +63,16 @@
   flex-direction: column;
   padding: 10px;
 }
+
 .drop .message{
   margin: auto;
 }
+
 .drop .selectButton {
   margin: 10px auto 0 auto;
   line-height: 30px;
 }
+
 .fileName {
   margin-left: 15px;
   font-family: 'Open Sans';
@@ -81,45 +88,64 @@
   width: 20px;
   min-width: 20px;
   margin-left: 10px;
-  
 }
+
 .fileWrapper {
   display: inline-flex;
   min-width: 0;
   width: 276px;
 }
+
 .emptyFileWrapper {
   display: inline-flex;
   flex: 1 0 auto;
 }
+
 .actionIcon {
-  border-radius: 50%;
   color: white;
   cursor: pointer;
   margin-left: 10px;
   box-shadow: 0 0 5px white;
   transition: all 0.5s linear;
   position: relative;
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   display: flex;
-  min-width: 36px;
+  min-width: 30px;
   position: relative;
 }
 
-.actionIcon:hover {
-  background: white;
-  box-shadow: 0 0 5px dark;
+.warningIcon {
+  border-radius: 50%;
+  background: orangeAdd;
+  color: white;
+  cursor: help;
+  margin-left: 10px;
+  box-shadow: 0 0 5px white;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  min-width: 20px;
+  position: relative;
 }
-.actionIcon > svg {
+
+.warningIcon > svg {
   margin: auto;
 }
+
+.actionIcon > svg {
+  margin: 3px 5px 0 5px;
+}
+
 .trashIcon {
-  background: #f73f52;
+  color: negative;
 }
+
 .trashIcon:hover {
-  color: #f73f52;
+  color: negative;
 }
+
 .reportContainer {
   justify-content: center;
   text-align: center;
@@ -142,4 +168,44 @@
 
 .selectButton {
   margin: auto;
+}
+
+.showToolTip {
+  visibility: hidden;
+  background-color: color(black a(80%));
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.8s;
+  position: absolute;
+  right: 45px;
+  bottom: 270px;
+  max-width: 230px;
+}
+
+.showToolTip::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: 20px;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+
+.warning:hover .showToolTip{
+  visibility: visible;
+  opacity: 1;
+}
+
+.showToolTip span {
+  display: block;
+  word-wrap: break-word;
+  padding: 3px 10px 5px;
+  font-family: "Open Sans";
+  font-size: 12px;
+  font-weight: bold;
 }
