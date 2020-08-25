@@ -16,8 +16,8 @@ test('if section pages are not provided, no element should be rendered on place'
   const wrapper = mount(<MoocFooter {...nopropsFixture.props} />, {
     context: {translate}
   });
-  const coorpLogo = wrapper.find('[data-name="pages-list"]');
-  t.is(coorpLogo.exists(), true);
+  const pages = wrapper.find('[data-name="pages-list"]').children().length;
+  t.is(pages, 0);
   t.pass();
 });
 
