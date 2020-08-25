@@ -31,133 +31,126 @@ StoresLinks.propTypes = {
   onPlayStoreButtonClick: PropTypes.func
 };
 
-// eslint-disable-next-line react/prefer-stateless-function
-class MoocFooter extends React.Component {
-  static propTypes = {
-    headSection: PropTypes.shape({
-      title: PropTypes.string,
-      onAppStoreButtonClick: PropTypes.func,
-      appStoreButtonImageUrl: PropTypes.string,
-      playStoreButtonImageUrl: PropTypes.string,
-      onPlayStoreButtonClick: PropTypes.func
-    }),
-    siteMapSections: PropTypes.arrayOf(
-      PropTypes.shape({
-        title: PropTypes.string,
-        pages: PropTypes.arrayOf(PropTypes.shape({title: PropTypes.string, link: PropTypes.string}))
-      })
-    ),
-    socialLinks: PropTypes.arrayOf(
-      PropTypes.shape({
-        type: PropTypes.oneOf(socialLinksTypes),
-        link: PropTypes.string
-      })
-    )
-  };
+function MoocFooter(props, context) {
+  // istanbul doesn't get decomposed default prop values, thus %Branch output is lower
+  // eventhough the branching case is already taken care of by defaulting.
+  /* istanbul ignore next-line */
+  const {headSection = {}, socialLinks = [], siteMapSections = []} = props;
 
-  static contextTypes = {
-    translate: Provider.childContextTypes.translate
-  };
+  const {translate} = context;
 
-  constructor(props) {
-    super(props);
-  }
+  // Header section of the footer (the marketing banner)
 
-  render() {
-    // istanbul doesn't get decomposed default prop values, thus %Branch output is lower
-    // eventhough the branching case is already taken care of by defaulting.
-    /* istanbul ignore next-line */
-    const {headSection = {}, socialLinks = [], siteMapSections = []} = this.props;
-
-    const {translate} = this.context;
-
-    // Header section of the footer (the marketing banner)
-
-    const headSectionView = !isEmpty(headSection) ? (
-      <div data-name="headSection" className={style.headSectionWrapper}>
-        <div className={style.logoWrapper}>
-          <CoorpAppLogo className={style.coorpAppLogo} />
-        </div>
-        <div className={style.line}> </div>
-        <div data-name="mobile-marketing-text" className={style.marketingLabel}>
-          {translate(headSection.title)}
-        </div>
-        <div data-name="mobile-apps-buttons-wrapper" className={style.mobileAppLinks}>
-          <StoresLinks
-            // eslint-disable-next-line react/jsx-handler-names
-            onAppStoreButtonClick={headSection.onAppStoreButtonClick}
-            appStoreButtonImageUrl={headSection.appStoreButtonImageUrl}
-            playStoreButtonImageUrl={headSection.playStoreButtonImageUrl}
-            // eslint-disable-next-line react/jsx-handler-names
-            onPlayStoreButtonClick={headSection.onPlayStoreButtonClick}
-          />
-        </div>
+  const headSectionView = !isEmpty(headSection) ? (
+    <div data-name="headSection" className={style.headSectionWrapper}>
+      <div className={style.logoWrapper}>
+        <CoorpAppLogo className={style.coorpAppLogo} />
       </div>
-    ) : null;
-
-    // Sitemap section of the footer (contains HELP, TOOLBOX... and other pages, as well as social links)
-
-    const renderPagesFromSection = pages => {
-      return (
-        <ul className={style.pagesList} data-name="pages-list">
-          {pages.map((page, pindex) => {
-            return (
-              <li key={pindex}>
-                <Link href={page.link} data-text={`${page.title} `} className={style.pageLink}>
-                  {page.title}
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      );
-    };
-
-    const sections = !isEmpty(siteMapSections)
-      ? siteMapSections.map((section, index) => {
-          return (
-            <div key={index} className={style.sectionWrapper}>
-              <p className={style.sectionTitle}>{section.title}</p>
-              {renderPagesFromSection(section.pages)}
-              <div className={style.sectionMobileDivisor} />
-            </div>
-          );
-        })
-      : null;
-
-    const socialLinksView = socialLinks.map((socialLink, index) => {
-      return (
-        <div className={style.socialLink} key={index}>
-          <SocialLink type={socialLink.type} link={socialLink.link} mode="footer" />
-        </div>
-      );
-    });
-
-    const socialNetworks = (
-      <div data-name="logo-social-networks-container" className={style.logoSocialNetworksContainer}>
-        <CoorpLogo className={style.coorpLogo} data-name="coorp-social-networks-logo" />
-        <div data-name="social-networks-wrapper" className={style.socialNetworksWrapper}>
-          {socialLinksView}
-        </div>
+      <div className={style.line}> </div>
+      <div data-name="mobile-marketing-text" className={style.marketingLabel}>
+        {translate(headSection.title)}
       </div>
-    );
-
-    const siteMap = (
-      <div data-name="siteMap" className={style.siteMapContainer}>
-        <div data-name="sections" className={style.sectionsContainer}>
-          {sections}
-        </div>
-        {socialNetworks}
+      <div data-name="mobile-apps-buttons-wrapper" className={style.mobileAppLinks}>
+        <StoresLinks
+          // eslint-disable-next-line react/jsx-handler-names
+          onAppStoreButtonClick={headSection.onAppStoreButtonClick}
+          appStoreButtonImageUrl={headSection.appStoreButtonImageUrl}
+          playStoreButtonImageUrl={headSection.playStoreButtonImageUrl}
+          // eslint-disable-next-line react/jsx-handler-names
+          onPlayStoreButtonClick={headSection.onPlayStoreButtonClick}
+        />
       </div>
-    );
+    </div>
+  ) : null;
 
+  // Sitemap section of the footer (contains HELP, TOOLBOX... and other pages, as well as social links)
+
+  const renderPagesFromSection = pages => {
     return (
-      <div className={style.wrapper}>
-        {headSectionView}
-        {siteMap}
+      <ul className={style.pagesList} data-name="pages-list">
+        {pages.map((page, pindex) => {
+          return (
+            <li key={pindex}>
+              <Link href={page.link} data-text={`${page.title} `} className={style.pageLink}>
+                {page.title}
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
+    );
+  };
+
+  const sections = !isEmpty(siteMapSections)
+    ? siteMapSections.map((section, index) => {
+        return (
+          <div key={index} className={style.sectionWrapper}>
+            <p className={style.sectionTitle}>{section.title}</p>
+            {renderPagesFromSection(section.pages)}
+            <div className={style.sectionMobileDivisor} />
+          </div>
+        );
+      })
+    : null;
+
+  const socialLinksView = socialLinks.map((socialLink, index) => {
+    return (
+      <div className={style.socialLink} key={index}>
+        <SocialLink type={socialLink.type} link={socialLink.link} mode="footer" />
       </div>
     );
-  }
+  });
+
+  const socialNetworks = (
+    <div data-name="logo-social-networks-container" className={style.logoSocialNetworksContainer}>
+      <CoorpLogo className={style.coorpLogo} data-name="coorp-social-networks-logo" />
+      <div data-name="social-networks-wrapper" className={style.socialNetworksWrapper}>
+        {socialLinksView}
+      </div>
+    </div>
+  );
+
+  const siteMap = (
+    <div data-name="siteMap" className={style.siteMapContainer}>
+      <div data-name="sections" className={style.sectionsContainer}>
+        {sections}
+      </div>
+      {socialNetworks}
+    </div>
+  );
+
+  return (
+    <div className={style.wrapper}>
+      {headSectionView}
+      {siteMap}
+    </div>
+  );
 }
+
+MoocFooter.propTypes = {
+  headSection: PropTypes.shape({
+    title: PropTypes.string,
+    onAppStoreButtonClick: PropTypes.func,
+    appStoreButtonImageUrl: PropTypes.string,
+    playStoreButtonImageUrl: PropTypes.string,
+    onPlayStoreButtonClick: PropTypes.func
+  }),
+  siteMapSections: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string,
+      pages: PropTypes.arrayOf(PropTypes.shape({title: PropTypes.string, link: PropTypes.string}))
+    })
+  ),
+  socialLinks: PropTypes.arrayOf(
+    PropTypes.shape({
+      type: PropTypes.oneOf(socialLinksTypes),
+      link: PropTypes.string
+    })
+  )
+};
+
+MoocFooter.contextTypes = {
+  translate: Provider.childContextTypes.translate
+};
 
 export default MoocFooter;
