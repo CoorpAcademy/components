@@ -228,6 +228,10 @@
     text-overflow: ellipsis;
   }
 
+  .logoSocialNetworksContainer {
+    padding-left: 80px;
+  }
+
 }
 
 @media tablet {
@@ -321,6 +325,11 @@
     flex-grow: 1;
     /* padding-right: 40px;
     padding-left: 40px; */
+  }
+
+  .logoSocialNetworksContainer {
+    align-self: center;
+    padding-left: 0px;
   }
 
   .socialNetworksWrapper {
