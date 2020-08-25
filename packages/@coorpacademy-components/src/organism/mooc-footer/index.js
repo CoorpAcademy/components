@@ -64,9 +64,14 @@ class MoocFooter extends React.Component {
   }
 
   render() {
+    // istanbul doesn't get decomposed default prop values, thus %Branch output is lower
+    // eventhough the branching case is already taken care of by defaulting.
+    /* istanbul ignore next-line */
     const {headSection = {}, socialLinks = [], siteMapSections = []} = this.props;
 
     const {translate} = this.context;
+
+    // Header section of the footer (the marketing banner)
 
     const headSectionView = !isEmpty(headSection) ? (
       <div data-name="headSection" className={style.headSectionWrapper}>
@@ -89,48 +94,54 @@ class MoocFooter extends React.Component {
         </div>
       </div>
     ) : null;
-    const sections = siteMapSections.map((section, index) => {
+
+    // Sitemap section of the footer (contains HELP, TOOLBOX... and other pages, as well as social links)
+
+    const renderPagesFromSection = pages => {
       return (
-        <div key={index} className={style.sectionWrapper}>
-          <p className={style.sectionTitle}>{section.title}</p>
-          <ul className={style.pagesList}>
-            {section.pages
-              ? section.pages.map((page, pindex) => {
-                  return (
-                    <li key={pindex}>
-                      <Link
-                        href={page.link}
-                        data-text={`${page.title} `}
-                        className={style.pageLink}
-                      >
-                        {page.title}
-                      </Link>
-                    </li>
-                  );
-                })
-              : null}
-          </ul>
-          <div className={style.sectionMobileDivisor} />
-        </div>
+        <ul className={style.pagesList} data-name="pages-list">
+          {pages.map((page, pindex) => {
+            return (
+              <li key={pindex}>
+                <Link href={page.link} data-text={`${page.title} `} className={style.pageLink}>
+                  {page.title}
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
       );
-    });
-    const socialLinksView = socialLinks
-      ? socialLinks.map((socialLink, index) => {
+    };
+
+    const sections = !isEmpty(siteMapSections)
+      ? siteMapSections.map((section, index) => {
           return (
-            <div className={style.socialLink} key={index}>
-              <SocialLink type={socialLink.type} link={socialLink.link} mode="footer" />
+            <div key={index} className={style.sectionWrapper}>
+              <p className={style.sectionTitle}>{section.title}</p>
+              {renderPagesFromSection(section.pages)}
+              <div className={style.sectionMobileDivisor} />
             </div>
           );
         })
       : null;
+
+    const socialLinksView = socialLinks.map((socialLink, index) => {
+      return (
+        <div className={style.socialLink} key={index}>
+          <SocialLink type={socialLink.type} link={socialLink.link} mode="footer" />
+        </div>
+      );
+    });
+
     const socialNetworks = (
       <div data-name="logo-social-networks-container" className={style.logoSocialNetworksContainer}>
-        <CoorpLogo className={style.coorpLogo} />
+        <CoorpLogo className={style.coorpLogo} data-name="coorp-social-networks-logo" />
         <div data-name="social-networks-wrapper" className={style.socialNetworksWrapper}>
           {socialLinksView}
         </div>
       </div>
     );
+
     const siteMap = (
       <div data-name="siteMap" className={style.siteMapContainer}>
         <div data-name="sections" className={style.sectionsContainer}>

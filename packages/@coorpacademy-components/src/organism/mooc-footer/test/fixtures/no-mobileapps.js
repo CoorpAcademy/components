@@ -1,5 +1,6 @@
 export default {
   props: {
+    headSection: {},
     socialLinks: [
       {
         type: 'facebook',

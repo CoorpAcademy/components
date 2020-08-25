@@ -613,6 +613,11 @@ import OrganismHeroFixtureTouch from '../src/organism/hero/test/fixtures/touch';
 import OrganismMoocImageSliderFixtureDefault from '../src/organism/mooc/image-slider/test/fixtures/default';
 import OrganismMoocImageSliderFixtureMultipleSlides from '../src/organism/mooc/image-slider/test/fixtures/multiple-slides';
 import OrganismMoocFooterFixtureDefault from '../src/organism/mooc-footer/test/fixtures/default';
+import OrganismMoocFooterFixtureNoMobileapps from '../src/organism/mooc-footer/test/fixtures/no-mobileapps';
+import OrganismMoocFooterFixtureNoProps from '../src/organism/mooc-footer/test/fixtures/no-props';
+import OrganismMoocFooterFixtureNoSections from '../src/organism/mooc-footer/test/fixtures/no-sections';
+import OrganismMoocFooterFixtureNotEnoughPermissionsRoleNoMobileapp from '../src/organism/mooc-footer/test/fixtures/not-enough-permissions-role-no-mobileapp';
+import OrganismMoocFooterFixtureNotEnoughPermissionsRole from '../src/organism/mooc-footer/test/fixtures/not-enough-permissions-role';
 import OrganismMoocHeaderFixtureDefault from '../src/organism/mooc-header/test/fixtures/default';
 import OrganismMoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/logged';
 import OrganismMoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
@@ -1731,7 +1736,12 @@ export const fixtures = {
       Touch: OrganismHeroFixtureTouch
     },
     OrganismMoocFooter: {
-      Default: OrganismMoocFooterFixtureDefault
+      Default: OrganismMoocFooterFixtureDefault,
+      NoMobileapps: OrganismMoocFooterFixtureNoMobileapps,
+      NoProps: OrganismMoocFooterFixtureNoProps,
+      NoSections: OrganismMoocFooterFixtureNoSections,
+      NotEnoughPermissionsRoleNoMobileapp: OrganismMoocFooterFixtureNotEnoughPermissionsRoleNoMobileapp,
+      NotEnoughPermissionsRole: OrganismMoocFooterFixtureNotEnoughPermissionsRole
     },
     OrganismMoocHeader: {
       Default: OrganismMoocHeaderFixtureDefault,
