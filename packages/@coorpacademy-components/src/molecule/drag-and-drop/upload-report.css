@@ -47,10 +47,12 @@
   height: 18px;
   margin: 4px;
 }
+
 .or {
   font-family: 'Open Sans';
   color: #797979;
 }
+
 .drop {
   border: 1px dashed medium;
   margin: 10px 20px 20px 20px;
@@ -59,13 +61,16 @@
   flex-direction: column;
   padding: 10px;
 }
+
 .drop .message{
   margin: auto;
 }
+
 .drop .selectButton {
   margin: 10px auto 0 auto;
   line-height: 30px;
 }
+
 .fileName {
   margin-left: 15px;
   font-family: 'Open Sans';
@@ -81,45 +86,64 @@
   width: 20px;
   min-width: 20px;
   margin-left: 10px;
-  
 }
+
 .fileWrapper {
   display: inline-flex;
   min-width: 0;
   width: 276px;
 }
+
 .emptyFileWrapper {
   display: inline-flex;
   flex: 1 0 auto;
 }
+
 .actionIcon {
-  border-radius: 50%;
   color: white;
   cursor: pointer;
   margin-left: 10px;
   box-shadow: 0 0 5px white;
   transition: all 0.5s linear;
   position: relative;
-  width: 36px;
-  height: 36px;
+  width: 30px;
+  height: 30px;
   display: flex;
-  min-width: 36px;
+  min-width: 30px;
   position: relative;
 }
 
-.actionIcon:hover {
-  background: white;
-  box-shadow: 0 0 5px dark;
+.warningIcon {
+  border-radius: 50%;
+  background: #ff7043;
+  color: white;
+  cursor: pointer;
+  margin-left: 10px;
+  box-shadow: 0 0 5px white;
+  position: relative;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  min-width: 20px;
+  position: relative;
 }
-.actionIcon > svg {
+
+.warningIcon > svg {
   margin: auto;
 }
-.trashIcon {
-  background: #f73f52;
+
+.actionIcon > svg {
+  margin: 3px 5px 0 5px;
 }
+
+.trashIcon {
+  color: #f73f52;
+}
+
 .trashIcon:hover {
   color: #f73f52;
 }
+
 .reportContainer {
   justify-content: center;
   text-align: center;

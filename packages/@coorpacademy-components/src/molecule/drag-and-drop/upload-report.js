@@ -69,7 +69,13 @@ export const UploadReport = ({
       <div className={style.fileName} title={fileName}>
         {fileName}
       </div>
-      {isEmpty(warningMessage) ? <Validated className={style.validateIcon} /> : <WarnIcon />}
+      {isEmpty(warningMessage) ? (
+        <Validated className={style.validateIcon} />
+      ) : (
+        <div className={style.warningIcon}>
+          <WarnIcon width={11} height={11} />
+        </div>
+      )}
     </div>
   ) : (
     <div className={style.emptyFileWrapper} />
