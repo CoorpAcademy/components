@@ -12,14 +12,14 @@ configure({adapter: new Adapter()});
 
 test('when no mode is provided it should render with the default link styling class', t => {
   const wrapper = mount(<SocialLink {...fixtureFacebook.props} />);
-  const link = wrapper.find('a.link');
+  const link = wrapper.find('a.social-link__link');
   t.assert(link.exists());
   t.pass();
 });
 
 test('when footer mode is provided it should render with the linkFooter class', t => {
   const wrapper = mount(<SocialLink {...fixtureFacebookFooter.props} />);
-  const link = wrapper.find('a.linkFooter');
+  const link = wrapper.find('a.social-link__linkFooter');
   t.assert(link.exists());
   t.pass();
 });
