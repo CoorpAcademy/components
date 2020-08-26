@@ -615,8 +615,8 @@ import OrganismMoocImageSliderFixtureDefault from '../src/organism/mooc/image-sl
 import OrganismMoocImageSliderFixtureMultipleSlides from '../src/organism/mooc/image-slider/test/fixtures/multiple-slides';
 import OrganismMoocFooterFixtureDefault from '../src/organism/mooc-footer/test/fixtures/default';
 import OrganismMoocFooterFixtureNoMobileapps from '../src/organism/mooc-footer/test/fixtures/no-mobileapps';
-import OrganismMoocFooterFixtureNoProps from '../src/organism/mooc-footer/test/fixtures/no-props';
 import OrganismMoocFooterFixtureNoSections from '../src/organism/mooc-footer/test/fixtures/no-sections';
+import OrganismMoocFooterFixtureNoSocialLinks from '../src/organism/mooc-footer/test/fixtures/no-social-links';
 import OrganismMoocFooterFixtureNotEnoughPermissionsRoleNoMobileapp from '../src/organism/mooc-footer/test/fixtures/not-enough-permissions-role-no-mobileapp';
 import OrganismMoocFooterFixtureNotEnoughPermissionsRole from '../src/organism/mooc-footer/test/fixtures/not-enough-permissions-role';
 import OrganismMoocHeaderFixtureDefault from '../src/organism/mooc-header/test/fixtures/default';
@@ -1740,8 +1740,8 @@ export const fixtures = {
     OrganismMoocFooter: {
       Default: OrganismMoocFooterFixtureDefault,
       NoMobileapps: OrganismMoocFooterFixtureNoMobileapps,
-      NoProps: OrganismMoocFooterFixtureNoProps,
       NoSections: OrganismMoocFooterFixtureNoSections,
+      NoSocialLinks: OrganismMoocFooterFixtureNoSocialLinks,
       NotEnoughPermissionsRoleNoMobileapp: OrganismMoocFooterFixtureNotEnoughPermissionsRoleNoMobileapp,
       NotEnoughPermissionsRole: OrganismMoocFooterFixtureNotEnoughPermissionsRole
     },
