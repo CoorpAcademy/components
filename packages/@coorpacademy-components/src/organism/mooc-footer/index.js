@@ -5,7 +5,6 @@ import {
   NovaCompositionCoorpacademyCoorpApp as CoorpAppLogo,
   NovaCompositionCoorpacademyCoorpLogo as CoorpLogo
 } from '@coorpacademy/nova-icons';
-import Provider from '../../atom/provider';
 import Link from '../../atom/link';
 import SocialLink from '../../atom/social-link';
 import style from './style.css';
