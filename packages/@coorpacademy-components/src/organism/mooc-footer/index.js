@@ -31,9 +31,6 @@ StoresLinks.propTypes = {
 };
 
 function MoocFooter(props) {
-  // istanbul doesn't get decomposed default prop values, thus %Branch output is lower
-  // eventhough the branching case is already taken care of by defaulting.
-  /* istanbul ignore next-line */
   const {headSection = {}, socialLinks = [], siteMapSections = []} = props;
 
   // Header section of the footer (the marketing banner)
@@ -43,12 +40,12 @@ function MoocFooter(props) {
       <div className={style.logoWrapper}>
         <CoorpAppLogo className={style.coorpAppLogo} />
       </div>
-      <div className={style.line}> </div>
       <div data-name="mobile-marketing-text" className={style.marketingLabel}>
         {headSection.title}
       </div>
       <div data-name="mobile-apps-buttons-wrapper" className={style.mobileAppLinks}>
         <StoresLinks
+          // ignored due to naming conventions in JSX rather than a linting error
           // eslint-disable-next-line react/jsx-handler-names
           onAppStoreButtonClick={headSection.onAppStoreButtonClick}
           appStoreButtonImageUrl={headSection.appStoreButtonImageUrl}
@@ -68,7 +65,12 @@ function MoocFooter(props) {
         {pages.map((page, pindex) => {
           return (
             <li key={pindex}>
-              <Link href={page.link} data-text={`${page.title} `} className={style.pageLink}>
+              <Link
+                href={page.link}
+                title={page.title}
+                data-text={page.title}
+                className={style.pageLink}
+              >
                 {page.title}
               </Link>
             </li>
@@ -84,7 +86,6 @@ function MoocFooter(props) {
           <div key={index} className={style.sectionWrapper}>
             <p className={style.sectionTitle}>{section.title}</p>
             {renderPagesFromSection(section.pages)}
-            <div className={style.sectionMobileDivisor} />
           </div>
         );
       })

@@ -1,7 +1,7 @@
 export default {
   props: {
     headSection: {
-      title: 'GET THE COORPACADEMY EXPERIENCE ON YOUR PHONE !',
+      title: 'get the coorpacademy experience on your phone !',
       onAppStoreButtonClick: () => window.open('https://apps.apple.com/app/id1448348795'),
       appStoreButtonImageUrl: 'https://static.coorpacademy.com/content/Apple-Store.png',
       playStoreButtonImageUrl: 'https://static.coorpacademy.com/content/Google-Play-Store.png',
@@ -29,7 +29,6 @@ export default {
         type: 'instagram',
         link: 'https://www.instagram.com/coorpacademy'
       }
-    ],
-    siteMapSections: []
+    ]
   }
 };

@@ -5,6 +5,7 @@ import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import MoocFooter from '..';
 import nopropsFixture from './fixtures/no-props';
+import defaultFixture from './fixtures/default';
 
 browserEnv();
 configure({adapter: new Adapter()});

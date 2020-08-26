@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.css';
+import { getOr } from 'lodash/fp';
 
 const icons = {
   mail: '0xe902',
@@ -18,9 +19,6 @@ const themeStyle = {
   footer: style.linkFooter
 };
 const SocialLink = props => {
-  // istanbul doesn't get decomposed default prop values, thus %Branch output is lower
-  // eventhough the branching case is already taken care of by defaulting and other tests.
-  /* istanbul ignore next-line */
   const {type, link, mode = 'default'} = props;
 
   return (

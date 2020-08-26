@@ -1,6 +1,5 @@
 export default {
   props: {
-    headSection: {},
     socialLinks: [
       {
         type: 'facebook',
@@ -25,7 +24,7 @@ export default {
     ],
     siteMapSections: [
       {
-        title: 'HELP',
+        title: 'help',
         pages: [
           {title: 'FAQ', link: 'https://www.support.coorpacademy.com/faq-users-fr'},
           {
@@ -37,7 +36,7 @@ export default {
         ]
       },
       {
-        title: 'TOOLBOX',
+        title: 'toolbox',
         pages: [
           {title: 'CMS', link: 'https://onboarding.coorpacademy.com/cms/pages'},
           {title: 'Analytics', link: 'https://onboarding.coorpacademy.com/analytics/dashboard'},
@@ -46,7 +45,7 @@ export default {
         ]
       },
       {
-        title: 'RESSOURCES',
+        title: 'ressources',
         pages: [
           {title: 'Terms & conditions', link: 'https://www.privacy.coorpacademy.com/fr'},
           {

@@ -2,7 +2,6 @@
 @value dark from colors;
 @value white from colors;
 @value black from colors;
-@value lightBlack from colors;
 
 .defaultLink{
   font-family: 'social-icons';
@@ -14,27 +13,25 @@
   box-sizing: content-box;
   text-decoration: none;
   display: inline-block;
+  border-radius: 50%;
 }
 .link {
   composes: defaultLink;
   border: 1px solid dark;
   color: dark;
-  border-radius: 50%;
 }
 .linkFooter {
   composes: defaultLink;
   font-size: 14px;
   line-height: 24px;
   width: 24px;
-  color: white;
   background-color: color(black lightness(20%));
-  border-radius: 50%;
+  color: white;
 }
 .link:hover {
   border-color: color(dark lightness(60%));
   color: color(dark lightness(60%));
 }
 .linkFooter:hover {
-  /* color: color(white lightness(60%)); */
   background-color: color(dark lightness(30%));
 }

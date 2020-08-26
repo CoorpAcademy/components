@@ -1,7 +1,7 @@
 export default {
   props: {
     headSection: {
-      title: 'GET THE COORPACADEMY EXPERIENCE ON YOUR PHONE !',
+      title: 'get the coorpacademy experience on your phone !',
       onAppStoreButtonClick: () => window.open('https://apps.apple.com/app/id1448348795'),
       appStoreButtonImageUrl: 'https://static.coorpacademy.com/content/Apple-Store.png',
       playStoreButtonImageUrl: 'https://static.coorpacademy.com/content/Google-Play-Store.png',
@@ -32,7 +32,7 @@ export default {
     ],
     siteMapSections: [
       {
-        title: 'HELP',
+        title: 'help',
         pages: [
           {title: 'FAQ', link: 'https://www.support.coorpacademy.com/faq-users-fr'},
           {
@@ -44,7 +44,7 @@ export default {
         ]
       },
       {
-        title: 'RESSOURCES',
+        title: 'ressources',
         pages: [
           {title: 'Terms & conditions', link: 'https://www.privacy.coorpacademy.com/fr'},
           {
