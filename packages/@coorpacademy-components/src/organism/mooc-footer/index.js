@@ -31,13 +31,11 @@ StoresLinks.propTypes = {
   onPlayStoreButtonClick: PropTypes.func
 };
 
-function MoocFooter(props, context) {
+function MoocFooter(props) {
   // istanbul doesn't get decomposed default prop values, thus %Branch output is lower
   // eventhough the branching case is already taken care of by defaulting.
   /* istanbul ignore next-line */
   const {headSection = {}, socialLinks = [], siteMapSections = []} = props;
-
-  const {translate} = context;
 
   // Header section of the footer (the marketing banner)
 
@@ -48,7 +46,7 @@ function MoocFooter(props, context) {
       </div>
       <div className={style.line}> </div>
       <div data-name="mobile-marketing-text" className={style.marketingLabel}>
-        {translate(headSection.title)}
+        {headSection.title}
       </div>
       <div data-name="mobile-apps-buttons-wrapper" className={style.mobileAppLinks}>
         <StoresLinks
@@ -147,10 +145,6 @@ MoocFooter.propTypes = {
       link: PropTypes.string
     })
   )
-};
-
-MoocFooter.contextTypes = {
-  translate: Provider.childContextTypes.translate
 };
 
 export default MoocFooter;
