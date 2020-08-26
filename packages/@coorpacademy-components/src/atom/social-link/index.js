@@ -1,7 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.css';
-import { getOr } from 'lodash/fp';
 
 const icons = {
   mail: '0xe902',
