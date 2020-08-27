@@ -1,0 +1,323 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+@value wide from breakpoints;
+@value colors: "../../variables/colors.css";
+@value light from colors;
+@value white from colors;
+@value black from colors;
+@value transparent from colors;
+@value lightBlack from colors;
+@value lightMediumGray from colors;
+@value primaryAdd2 from colors;
+
+.wrapper {
+  min-height: 193px;
+}
+
+.headSectionWrapper {
+  width: 100%;
+  background-color: lightBlack;
+  align-items: baseline;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+}
+
+.logoWrapper {
+  height: 100%;
+  align-self: center;
+  background-color:lightBlack;
+}
+
+.coorpAppLogo {
+  color: primaryAdd2;
+  width: 176.4px;
+  height: 100px;
+  align-self: center;
+}
+
+.marketingLabel {
+  align-self: center;
+  background-color:lightBlack;
+  width: auto;
+  height: 19px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: 1px;
+  color: white;
+  font-family: "Open Sans";
+  font-size: 14px;
+  text-transform: uppercase;
+}
+
+.mobileAppLinks {
+  align-self: center;
+}
+
+.siteMapContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  font-family: "Open Sans";
+  background-color: black;
+  margin-bottom: 10px;
+}
+
+.sectionsContainer {
+  display: flex;
+}
+
+.sectionWrapper {
+  padding-right: 60px;
+  padding-bottom: 24px;
+}
+
+.sectionTitle {
+  padding-top: 16px;
+  color: lightMediumGray;
+  width: 41px;
+  height: 16px;
+  font-size: 16px;
+  font-weight: 300;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+/* The list of page links under each title */
+.pagesList {
+  list-style: none;
+  margin-left: 0;
+  padding-left: 0;
+}
+
+.pageLink {
+  text-decoration: none;
+  color: lightMediumGray;
+  font-weight: normal;
+  font-size: 14px;
+  max-width: 200px;
+}
+
+.pageLink:hover {
+  font-weight: bold;
+}
+
+.logoSocialNetworksContainer {
+  flex: 1;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+  max-width: 195px;
+  padding-bottom: 24px;
+}
+
+.coorpLogo {
+  padding-top: 32px;
+  color: white;
+  width: 120.1px;
+  height: 65px;
+}
+
+.socialNetworksWrapper {
+  padding-top: 24px;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.socialLink {
+  padding-right: 9px;
+}
+
+
+
+@media desktop, wide, (max-width: 4000px) {
+  .headSectionWrapper {
+    height: 101px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* separates the mkting logo from the label */
+  .logoWrapper::after {
+    align-self: center;
+    content: '';
+    display: inline-block;
+    width: 1px;
+    height: 24px;
+    border-right: solid 1px white;
+    margin-right: 20px;
+    margin-left: 20px;
+    -webkit-transform: translateY(-150%);
+    -moz-transform: translateY(-150%);
+    -ms-transform: translateY(-150%);
+    transform: translateY(-150%);
+  }
+
+  .marketingLabel {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .mobileAppLinks {
+    padding-left: 50px;
+  }
+
+  .siteMapContainer {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .sectionWrapper {
+    max-width: 300px;
+    width: max-content;
+  }
+
+  .pageLink {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display: block;
+  }
+
+  .pageLink:before {
+    display: block;
+    content: attr(data-text);
+    font-weight: bold;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
+  .logoSocialNetworksContainer {
+    padding-left: 80px;
+  }
+
+}
+
+@media tablet {
+  .headSectionWrapper {
+    height: 221px;
+    flex-direction: column;
+  }
+
+  .logoWrapper {
+    padding-top: 10px;
+    margin-left: 0px;
+    height: auto;
+  }
+
+  .logoWrapper::after {
+    display: none;
+  }
+
+  .coorpAppLogo {
+    height: 80px;
+    align-self: center;
+  }
+
+  .marketingLabel {
+    width: 276px;
+    height: 42px;
+    overflow-wrap: normal;
+    white-space: normal;
+    text-align: center;
+    padding-bottom: 17px;
+  }
+
+  .mobileAppLinks {
+    padding-left: 0px;
+    align-self: center;
+  }
+
+  .siteMapContainer {
+    flex-direction: column;
+  }
+
+  .sectionsContainer {
+    margin-left: 0px;
+    align-self: flex-start;
+    flex-direction: column;
+    min-width: -webkit-fill-available;
+    min-width: stretch;
+    padding-left: 40px;
+    padding-right: 40px;
+    flex-grow: 1;
+  }
+
+  .sectionWrapper {
+    padding-right: 0px;
+    padding-bottom: 0px;
+    min-width: 100%;
+    flex-grow: 1;
+    align-content: flex-start;
+  }
+
+  .pageLink {
+    font-weight: bold;
+    white-space: normal;
+    text-overflow: unset;
+    display: block;
+  }
+
+  .logoSocialNetworksContainer {
+    align-self: center;
+    padding-left: 0px;
+  }
+
+  .socialNetworksWrapper {
+    padding-bottom: 24px;
+  }
+
+  .sectionTitle {
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+  }
+
+  .pagesList {
+    margin-top: 8px;
+    margin-bottom: 4px;
+    border-bottom: solid 2em transparent;
+    box-shadow: 0 1px 0 -1px lightBlack;
+    background: black padding-box;
+  }
+}
+
+
+/* take out to a molecule */
+.storeLinksContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.img {
+  width: 110px;
+  height: 35px;
+  cursor: pointer;
+  padding-right: 8.8px;
+}
+
+.imgApple {
+  width: 110px;
+  height: 35px;
+  cursor: pointer;
+  padding-right: 8.8px;
+  border-radius: 5px 10.5px 10.5px 5px;
+}
+
+
+
+
+

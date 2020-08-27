@@ -13,18 +13,22 @@ const icons = {
   vimeo: '0xe909',
   pinterest: '0xe910'
 };
-
+const themeStyle = {
+  default: style.link,
+  footer: style.linkFooter
+};
 const SocialLink = props => {
-  const {type, link} = props;
+  const {type, link, mode = 'default'} = props;
 
   return (
-    <a href={link} className={style.link} target="_blank" rel="noopener noreferrer">
+    <a href={link} className={themeStyle[mode]} target="_blank" rel="noopener noreferrer">
       {String.fromCharCode(icons[type])}
     </a>
   );
 };
 
 SocialLink.propTypes = {
+  mode: PropTypes.string,
   type: PropTypes.string.isRequired,
   link: PropTypes.string.isRequired
 };

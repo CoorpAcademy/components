@@ -127,6 +127,7 @@ import OrganismGridList from './../src/organism/grid-list';
 import OrganismHeader from './../src/organism/header';
 import OrganismHero from './../src/organism/hero';
 import OrganismMoocImageSlider from './../src/organism/mooc/image-slider';
+import OrganismMoocFooter from './../src/organism/mooc-footer';
 import OrganismMoocHeader from './../src/organism/mooc-header';
 import OrganismPopin from './../src/organism/popin';
 import OrganismResourceBrowser from './../src/organism/resource-browser';
@@ -293,6 +294,7 @@ import AtomSlideFixtureLeft from '../src/atom/slide/test/fixtures/left';
 import AtomSlideFixtureLight from '../src/atom/slide/test/fixtures/light';
 import AtomSlideFixtureNoCta from '../src/atom/slide/test/fixtures/no-cta';
 import AtomSlideFixtureRight from '../src/atom/slide/test/fixtures/right';
+import AtomSocialLinkFixtureFacebookFooter from '../src/atom/social-link/test/fixtures/facebook-footer';
 import AtomSocialLinkFixtureFacebook from '../src/atom/social-link/test/fixtures/facebook';
 import AtomSocialLinkFixtureTwitter from '../src/atom/social-link/test/fixtures/twitter';
 import AtomSpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default';
@@ -611,6 +613,12 @@ import OrganismHeroFixtureNoTouch from '../src/organism/hero/test/fixtures/no-to
 import OrganismHeroFixtureTouch from '../src/organism/hero/test/fixtures/touch';
 import OrganismMoocImageSliderFixtureDefault from '../src/organism/mooc/image-slider/test/fixtures/default';
 import OrganismMoocImageSliderFixtureMultipleSlides from '../src/organism/mooc/image-slider/test/fixtures/multiple-slides';
+import OrganismMoocFooterFixtureDefault from '../src/organism/mooc-footer/test/fixtures/default';
+import OrganismMoocFooterFixtureNoMobileapps from '../src/organism/mooc-footer/test/fixtures/no-mobileapps';
+import OrganismMoocFooterFixtureNoSections from '../src/organism/mooc-footer/test/fixtures/no-sections';
+import OrganismMoocFooterFixtureNoSocialLinks from '../src/organism/mooc-footer/test/fixtures/no-social-links';
+import OrganismMoocFooterFixtureNotEnoughPermissionsRoleNoMobileapp from '../src/organism/mooc-footer/test/fixtures/not-enough-permissions-role-no-mobileapp';
+import OrganismMoocFooterFixtureNotEnoughPermissionsRole from '../src/organism/mooc-footer/test/fixtures/not-enough-permissions-role';
 import OrganismMoocHeaderFixtureDefault from '../src/organism/mooc-header/test/fixtures/default';
 import OrganismMoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/logged';
 import OrganismMoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
@@ -957,6 +965,7 @@ export const components = {
     OrganismGridList,
     OrganismHeader,
     OrganismHero,
+    OrganismMoocFooter,
     OrganismMoocHeader,
     OrganismPopin,
     OrganismResourceBrowser,
@@ -1212,6 +1221,7 @@ export const fixtures = {
       Right: AtomSlideFixtureRight
     },
     AtomSocialLink: {
+      FacebookFooter: AtomSocialLinkFixtureFacebookFooter,
       Facebook: AtomSocialLinkFixtureFacebook,
       Twitter: AtomSocialLinkFixtureTwitter
     },
@@ -1726,6 +1736,14 @@ export const fixtures = {
       Default: OrganismHeroFixtureDefault,
       NoTouch: OrganismHeroFixtureNoTouch,
       Touch: OrganismHeroFixtureTouch
+    },
+    OrganismMoocFooter: {
+      Default: OrganismMoocFooterFixtureDefault,
+      NoMobileapps: OrganismMoocFooterFixtureNoMobileapps,
+      NoSections: OrganismMoocFooterFixtureNoSections,
+      NoSocialLinks: OrganismMoocFooterFixtureNoSocialLinks,
+      NotEnoughPermissionsRoleNoMobileapp: OrganismMoocFooterFixtureNotEnoughPermissionsRoleNoMobileapp,
+      NotEnoughPermissionsRole: OrganismMoocFooterFixtureNotEnoughPermissionsRole
     },
     OrganismMoocHeader: {
       Default: OrganismMoocHeaderFixtureDefault,
