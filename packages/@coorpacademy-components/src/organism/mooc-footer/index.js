@@ -70,6 +70,7 @@ function MoocFooter(props) {
                 title={page.title}
                 data-text={page.title}
                 className={style.pageLink}
+                target={page.target}
               >
                 {page.title}
               </Link>
@@ -136,7 +137,9 @@ MoocFooter.propTypes = {
   siteMapSections: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
-      pages: PropTypes.arrayOf(PropTypes.shape({title: PropTypes.string, link: PropTypes.string}))
+      pages: PropTypes.arrayOf(
+        PropTypes.shape({title: PropTypes.string, link: PropTypes.string, target: PropTypes.string})
+      )
     })
   ),
   socialLinks: PropTypes.arrayOf(
