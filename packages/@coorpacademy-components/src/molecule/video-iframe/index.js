@@ -23,7 +23,7 @@ const getUrl = ({url, type, id, query = {}, opts = {}}) => {
 
 class VideoIframe extends React.Component {
   static propTypes = {
-    type: PropTypes.oneOf(['youtube', 'uptale', 'kontiki', 'jwplayer', 'omniPlayer']),
+    type: PropTypes.oneOf(['youtube', 'uptale', 'kontiki', 'jwplayer', 'omniPlayer', 'h5p']),
     width: PropTypes.string,
     height: PropTypes.string,
     url: SrcPropType,

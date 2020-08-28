@@ -27,6 +27,7 @@ class VideoPlayer extends React.Component {
       'application/youtube',
       'application/jwplayer',
       'application/omniPlayer',
+      'application/h5p',
       'video/mp4'
     ]).isRequired
   };
@@ -77,6 +78,7 @@ class VideoPlayer extends React.Component {
 
       case 'application/youtube':
       case 'application/uptale':
+      case 'application/h5p':
       case 'application/omniPlayer':
         return (
           <VideoIframe
