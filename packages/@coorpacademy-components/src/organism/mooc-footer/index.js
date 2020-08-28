@@ -71,6 +71,7 @@ function MoocFooter(props) {
                 data-text={page.title}
                 className={style.pageLink}
                 target={page.target}
+                data-name={page.title}
               >
                 {page.title}
               </Link>
