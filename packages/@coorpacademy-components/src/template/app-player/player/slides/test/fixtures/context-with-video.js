@@ -10,10 +10,10 @@ export default {
         src: [
           {
             _id: '5996ba9794cdfe4468eafe16',
-            videoId: '91775232',
-            mimeType: 'application/vimeo',
-            width: '640px',
-            height: '360px'
+            mimeType: 'application/h5p',
+            url: 'https://coorpacademy.h5p.com/content/1291025352652664897/embed',
+            width: '100%',
+            height: '343px'
           }
         ]
       }
