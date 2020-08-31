@@ -61,9 +61,9 @@ class Favorite extends React.Component {
           }}
         >
           {favorite ? (
-            <CheckIcon className={style.checkIcon} color={brandColor} />
+            <CheckIcon className={style.checkIcon} color={brandColor} width={13} height={13} />
           ) : (
-            <MoreIcon className={style.moreIcon} color={darkColor} />
+            <MoreIcon className={style.moreIcon} color={darkColor} width={13} height={13} />
           )}
         </div>
       </div>
