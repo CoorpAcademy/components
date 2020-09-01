@@ -64,9 +64,9 @@
 }
 
 .logo {
-  max-width: 80%;
+  max-width: 190px;
   width: auto;
-  height: 70px;
+  max-height: 70px;
   flex: 0 1 auto;
   margin: 8px;
 }
@@ -88,6 +88,7 @@
 /** One Author **/
 .authorWrapper:nth-child(2):nth-last-child(1) .logo {
   height: auto;
+  max-height: none;
 }
 .authorWrapper:nth-child(2):nth-last-child(1) .arrowWrapper {
   display: none;
