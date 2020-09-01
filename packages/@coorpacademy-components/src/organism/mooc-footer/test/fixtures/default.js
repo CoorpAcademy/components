@@ -41,11 +41,13 @@ export default {
           },
           {
             title: 'Data privacy policy',
-            // title: 'Data privacy policy 1234567890',
+            onClick: () => console.log('click')
+          },
+          {
+            title: 'Client support',
             link: 'https://www.support.coorpacademy.com/faq-users-fr',
             target: '_blank'
-          },
-          {title: 'Client support', link: 'https://www.support.coorpacademy.com/faq-users-fr'}
+          }
         ]
       },
       {
