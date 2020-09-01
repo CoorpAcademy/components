@@ -63,10 +63,12 @@ function MoocFooter(props) {
     return (
       <ul className={style.pagesList} data-name="pages-list">
         {pages.map((page, pindex) => {
+          const handleClick = page.onClick;
           return (
             <li key={pindex}>
               <Link
                 href={page.link}
+                onClick={handleClick}
                 title={page.title}
                 data-text={page.title}
                 className={style.pageLink}
@@ -146,7 +148,8 @@ MoocFooter.propTypes = {
   socialLinks: PropTypes.arrayOf(
     PropTypes.shape({
       type: PropTypes.oneOf(socialLinksTypes),
-      link: PropTypes.string
+      link: PropTypes.string,
+      onClick: PropTypes.func
     })
   )
 };
