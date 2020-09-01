@@ -2,13 +2,14 @@ export default {
   props: {
     resources: [
       {
+        _id: '590b862e2e967f64333ad45f',
         type: 'video',
-        poster: 'https://huep.aphp.fr/wp-content/blogs.dir/80/files/2012/11/logo-aphp.png',
+        poster:
+          '//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/default/popeye-1598889976702.jpeg',
         description: 'Suspects 1',
         mimeType: 'application/h5p',
         url: 'https://coorpacademy.h5p.com/content/1291025352652664897/embed',
         width: '100%',
-        height: '343px',
         subtitles: [],
         posters: [],
         src: [],
@@ -16,13 +17,14 @@ export default {
         selected: true
       },
       {
+        _id: '590b862e2e967f64333ad407',
         type: 'video',
-        poster: 'https://huep.aphp.fr/wp-content/blogs.dir/80/files/2012/11/logo-aphp.png',
-        description: 'Suspects 1',
+        poster:
+          '//static.coorpacademy.com/content/CoorpAcademy/content/cockpitRecette-joan/default/popeye2-1598889983417.jpeg',
+        description: 'Suspects 2',
         mimeType: 'application/h5p',
         url: 'https://coorpacademy.h5p.com/content/1291025352652664897/embed',
         width: '100%',
-        height: '343px',
         subtitles: [],
         posters: [],
         src: [],
