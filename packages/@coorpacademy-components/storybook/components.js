@@ -559,11 +559,13 @@ import MoleculeTitledCheckboxFixtureNotChecked from '../src/molecule/titled-chec
 import MoleculeUnsubscribeFixtureDefault from '../src/molecule/unsubscribe/test/fixtures/default';
 import MoleculeUnsubscribeFixtureSubscribed from '../src/molecule/unsubscribe/test/fixtures/subscribed';
 import MoleculeVideoIframeFixtureEmpty from '../src/molecule/video-iframe/test/fixtures/empty';
+import MoleculeVideoIframeFixtureH5P from '../src/molecule/video-iframe/test/fixtures/h5p';
 import MoleculeVideoIframeFixtureImagePlaceholder from '../src/molecule/video-iframe/test/fixtures/image-placeholder';
 import MoleculeVideoIframeFixtureJwplayer from '../src/molecule/video-iframe/test/fixtures/jwplayer';
 import MoleculeVideoIframeFixtureOmniPlayer from '../src/molecule/video-iframe/test/fixtures/omni-player';
 import MoleculeVideoIframeFixtureUptale from '../src/molecule/video-iframe/test/fixtures/uptale';
 import MoleculeVideoIframeFixtureYoutube from '../src/molecule/video-iframe/test/fixtures/youtube';
+import MoleculeVideoPlayerFixtureH5P from '../src/molecule/video-player/test/fixtures/h5p';
 import MoleculeVideoPlayerFixtureJwplayerWithSubtitles from '../src/molecule/video-player/test/fixtures/jwplayer-with-subtitles';
 import MoleculeVideoPlayerFixtureJwplayer from '../src/molecule/video-player/test/fixtures/jwplayer';
 import MoleculeVideoPlayerFixtureKontiki from '../src/molecule/video-player/test/fixtures/kontiki';
@@ -623,6 +625,7 @@ import OrganismMoocHeaderFixtureDefault from '../src/organism/mooc-header/test/f
 import OrganismMoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/logged';
 import OrganismMoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
 import OrganismPopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
+import OrganismResourceBrowserFixtureH5P from '../src/organism/resource-browser/test/fixtures/h5p';
 import OrganismResourceBrowserFixtureJwplayerWithOverlay from '../src/organism/resource-browser/test/fixtures/jwplayer-with-overlay';
 import OrganismResourceBrowserFixtureJwplayer from '../src/organism/resource-browser/test/fixtures/jwplayer';
 import OrganismResourceBrowserFixtureKontiki from '../src/organism/resource-browser/test/fixtures/kontiki';
@@ -675,6 +678,7 @@ import TemplateAppPlayerPlayerSlidesFixtureDropDown from '../src/template/app-pl
 import TemplateAppPlayerPlayerSlidesFixtureError from '../src/template/app-player/player/slides/test/fixtures/error';
 import TemplateAppPlayerPlayerSlidesFixtureFreeText from '../src/template/app-player/player/slides/test/fixtures/free-text';
 import TemplateAppPlayerPlayerSlidesFixtureLoading from '../src/template/app-player/player/slides/test/fixtures/loading';
+import TemplateAppPlayerPlayerSlidesFixtureMediaH5P from '../src/template/app-player/player/slides/test/fixtures/media-h5p';
 import TemplateAppPlayerPlayerSlidesFixtureMediaOmniPlayer from '../src/template/app-player/player/slides/test/fixtures/media-omni-player';
 import TemplateAppPlayerPlayerSlidesFixtureMedia from '../src/template/app-player/player/slides/test/fixtures/media';
 import TemplateAppPlayerPlayerSlidesFixtureNoClue from '../src/template/app-player/player/slides/test/fixtures/no-clue';
@@ -1575,6 +1579,7 @@ export const fixtures = {
     },
     MoleculeVideoIframe: {
       Empty: MoleculeVideoIframeFixtureEmpty,
+      H5P: MoleculeVideoIframeFixtureH5P,
       ImagePlaceholder: MoleculeVideoIframeFixtureImagePlaceholder,
       Jwplayer: MoleculeVideoIframeFixtureJwplayer,
       OmniPlayer: MoleculeVideoIframeFixtureOmniPlayer,
@@ -1582,6 +1587,7 @@ export const fixtures = {
       Youtube: MoleculeVideoIframeFixtureYoutube
     },
     MoleculeVideoPlayer: {
+      H5P: MoleculeVideoPlayerFixtureH5P,
       JwplayerWithSubtitles: MoleculeVideoPlayerFixtureJwplayerWithSubtitles,
       Jwplayer: MoleculeVideoPlayerFixtureJwplayer,
       Kontiki: MoleculeVideoPlayerFixtureKontiki,
@@ -1754,6 +1760,7 @@ export const fixtures = {
       Default: OrganismPopinFixtureDefault
     },
     OrganismResourceBrowser: {
+      H5P: OrganismResourceBrowserFixtureH5P,
       JwplayerWithOverlay: OrganismResourceBrowserFixtureJwplayerWithOverlay,
       Jwplayer: OrganismResourceBrowserFixtureJwplayer,
       Kontiki: OrganismResourceBrowserFixtureKontiki,
@@ -1919,6 +1926,7 @@ export const fixtures = {
       Error: TemplateAppPlayerPlayerSlidesFixtureError,
       FreeText: TemplateAppPlayerPlayerSlidesFixtureFreeText,
       Loading: TemplateAppPlayerPlayerSlidesFixtureLoading,
+      MediaH5P: TemplateAppPlayerPlayerSlidesFixtureMediaH5P,
       MediaOmniPlayer: TemplateAppPlayerPlayerSlidesFixtureMediaOmniPlayer,
       Media: TemplateAppPlayerPlayerSlidesFixtureMedia,
       NoClue: TemplateAppPlayerPlayerSlidesFixtureNoClue,
