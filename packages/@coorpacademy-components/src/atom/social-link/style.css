@@ -4,14 +4,10 @@
 @value black from colors;
 
 .defaultLink{
-  font-family: 'social-icons';
-  font-size: 13px;
-  line-height: 19px;
-  text-align: center;
+  height: 19px;
   width: 19px;
   padding: 4px;
   box-sizing: content-box;
-  text-decoration: none;
   display: inline-block;
   border-radius: 50%;
 }
@@ -22,8 +18,7 @@
 }
 .linkFooter {
   composes: defaultLink;
-  font-size: 14px;
-  line-height: 24px;
+  height: 24px;
   width: 24px;
   background-color: color(black lightness(20%));
   color: white;
@@ -34,4 +29,15 @@
 }
 .linkFooter:hover {
   background-color: color(dark lightness(30%));
+}
+.icon {
+  width: 14px;
+  height: 14px;
+  display: block;
+}
+.linkFooter .icon {
+  margin: 5px auto;
+}
+.link .icon {
+  margin: 3px auto;
 }
