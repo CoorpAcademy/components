@@ -43,3 +43,15 @@ test('should render properly a omniPlayer iframe', t => {
   t.truthy(video.find('.iframe'));
   video.unmount();
 });
+
+test('should render properly a h5p iframe', t => {
+  const props = {
+    type: 'h5p',
+    url: 'https://coorpacademy.h5p.com/content/1291025352652664897/embed'
+  };
+
+  const component = <VideoIframe {...props} />;
+  const video = mount(component);
+  t.truthy(video.find('.iframe'));
+  video.unmount();
+});
