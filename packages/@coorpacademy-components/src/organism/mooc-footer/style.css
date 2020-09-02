@@ -114,6 +114,7 @@
   font-size: 14px;
   max-width: 200px;
   cursor: pointer;
+  padding-bottom: 6.5px;
 }
 
 .pageLink:hover {
@@ -316,7 +317,7 @@
 
   .sectionWrapper {
     padding-right: 0px;
-    padding-bottom: 0px;
+    padding-bottom: 10px;
     min-width: 100%;
     flex-grow: 1;
     align-content: flex-start;
@@ -348,9 +349,19 @@
   .pagesList {
     margin-top: 8px;
     margin-bottom: 4px;
-    border-bottom: solid 2em transparent;
-    box-shadow: 0 1px 0 -1px lightBlack;
     background: black padding-box;
+    position: relative;
+  }
+
+  .pagesList::after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    bottom: -15px;
+    left: 0px;
+    border-bottom: solid 2em transparent;
+    box-shadow: 0 1px 0 lightBlack;
   }
 }
 
