@@ -11,10 +11,6 @@
 @value lightMediumGray from colors;
 @value primaryAdd2 from colors;
 
-.wrapper {
-  min-height: 193px;
-}
-
 .headSpacingContainer {
   width: 100%;
   background-color: lightBlack;

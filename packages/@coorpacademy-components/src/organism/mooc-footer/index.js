@@ -128,7 +128,7 @@ function MoocFooter(props) {
   );
 
   return (
-    <div className={style.wrapper}>
+    <div data-name="mooc-footer">
       {headSectionView}
       {siteMap}
     </div>
