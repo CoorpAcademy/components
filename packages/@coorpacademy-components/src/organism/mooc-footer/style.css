@@ -15,6 +15,13 @@
   min-height: 193px;
 }
 
+.headSpacingContainer {
+  width: 100%;
+  background-color: lightBlack;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
 .headSectionWrapper {
   width: 100%;
   background-color: lightBlack;
@@ -27,7 +34,6 @@
 .logoWrapper {
   height: 100%;
   align-self: center;
-  background-color:lightBlack;
 }
 
 .coorpAppLogo {
@@ -135,14 +141,25 @@
   padding-right: 9px;
 }
 
-
-
 @media desktop, wide, (max-width: 4000px) {
+  .headSpacingContainer {
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: center;
+  }
+
   .headSectionWrapper {
     height: 101px;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    max-width: 1080px;
+  }
+
+  .logoAndLabelWrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
   }
 
   /* separates the mkting logo from the label */
@@ -205,9 +222,29 @@
 
 }
 
-@media tablet {
+@media (max-width: 1140px) {
   .headSectionWrapper {
+    max-width: calc(100% - 60px);
+  }
+}
+
+@media tablet, (max-width: 1010px) {
+  .headSpacingContainer {
+    align-items: baseline;
+    flex-direction: column;
+    justify-content: center;
     height: 221px;
+  }
+
+  .headSectionWrapper {
+    max-width: 100%;
+    height: 157px;
+    flex-direction: column;
+  }
+
+  .logoAndLabelWrapper {
+    display: flex;
+    flex-wrap: nowrap;
     flex-direction: column;
   }
 
@@ -294,8 +331,6 @@
   }
 }
 
-
-/* take out to a molecule */
 .storeLinksContainer {
   display: flex;
   justify-content: center;
