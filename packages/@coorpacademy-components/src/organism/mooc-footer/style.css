@@ -121,12 +121,12 @@
 }
 
 .logoSocialNetworksContainer {
-  flex: 1;
+  flex: 0 0 auto;
   display: flex;
   flex-wrap: nowrap;
   flex-direction: column;
   align-items: center;
-  max-width: 195px;
+  /* width: 195px; */
 }
 
 .coorpLogo {
@@ -231,7 +231,6 @@
   }
 
   .logoSocialNetworksContainer {
-    padding-right: 17px;
     padding-bottom: 24px;
   }
 
@@ -247,7 +246,7 @@
   }
 }
 
-@media tablet, (max-width: 1010px) {
+@media tablet, (max-width: 1080px) {
   .headSpacingContainer {
     align-items: baseline;
     flex-direction: column;
@@ -262,6 +261,7 @@
   }
 
   .logoAndLabelWrapper {
+    width: 100%;
     display: flex;
     flex-wrap: nowrap;
     flex-direction: column;
@@ -283,7 +283,8 @@
   }
 
   .marketingLabel {
-    width: 276px;
+    width: 100%;
+    max-width: 341px;
     height: 42px;
     overflow-wrap: normal;
     white-space: normal;
@@ -307,6 +308,7 @@
     flex-direction: column;
     min-width: -webkit-fill-available;
     min-width: stretch;
+    flex: 1 0 auto;
     padding-left: 40px;
     padding-right: 40px;
     flex-grow: 1;
