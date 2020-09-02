@@ -65,8 +65,6 @@
   align-items: baseline;
   flex-direction: row;
   background-color: black;
-  /* justify-content: center;
-  height: 221px; */
 }
 
 .siteMapContainer {
@@ -89,8 +87,6 @@
 .sectionTitle {
   padding-top: 16px;
   color: lightMediumGray;
-  width: 41px;
-  height: 16px;
   font-size: 16px;
   font-weight: 300;
   font-stretch: normal;
@@ -115,6 +111,9 @@
   max-width: 200px;
   cursor: pointer;
   padding-bottom: 6.5px;
+  /* because when we have an OnClick event, the component "Link"
+   forces the pointer-events to none */
+  pointer-events: initial!important;
 }
 
 .pageLink:hover {
@@ -127,7 +126,6 @@
   flex-wrap: nowrap;
   flex-direction: column;
   align-items: center;
-  /* width: 195px; */
 }
 
 .coorpLogo {
@@ -178,9 +176,6 @@
     border-right: solid 1px white;
     margin-right: 20px;
     margin-left: 20px;
-    -webkit-transform: translateY(-150%);
-    -moz-transform: translateY(-150%);
-    -ms-transform: translateY(-150%);
     transform: translateY(-150%);
   }
 
@@ -204,7 +199,6 @@
     width: 100%;
     flex-direction: row;
     justify-content: space-between;
-    /* align-items: center; */
     max-width: 1080px;
   }
 
@@ -220,6 +214,8 @@
     display: block;
   }
 
+  /* needed because when links are hovered they become bold, therefore they vary their width
+  causing a deplacement of the container to the right */
   .pageLink:before {
     display: block;
     content: attr(data-text);
