@@ -63,6 +63,16 @@
   align-self: center;
 }
 
+.siteMapSpacingContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  flex-direction: row;
+  background-color: black;
+  /* justify-content: center;
+  height: 221px; */
+}
+
 .siteMapContainer {
   display: flex;
   flex-wrap: nowrap;
@@ -121,7 +131,6 @@
   flex-direction: column;
   align-items: center;
   max-width: 195px;
-  padding-bottom: 24px;
 }
 
 .coorpLogo {
@@ -188,9 +197,18 @@
     padding-left: 50px;
   }
 
-  .siteMapContainer {
+  .siteMapSpacingContainer {
+    align-items: baseline;
     flex-direction: row;
     justify-content: center;
+  }
+
+  .siteMapContainer {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    /* align-items: center; */
+    max-width: 1080px;
   }
 
   .sectionWrapper {
@@ -217,13 +235,18 @@
   }
 
   .logoSocialNetworksContainer {
-    padding-left: 80px;
+    padding-right: 17px;
+    padding-bottom: 24px;
   }
 
 }
 
 @media (max-width: 1140px) {
   .headSectionWrapper {
+    max-width: calc(100% - 60px);
+  }
+
+  .siteMapContainer {
     max-width: calc(100% - 60px);
   }
 }
@@ -310,7 +333,8 @@
 
   .logoSocialNetworksContainer {
     align-self: center;
-    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 11px;
   }
 
   .socialNetworksWrapper {
@@ -320,6 +344,7 @@
   .sectionTitle {
     margin-bottom: 0px;
     padding-bottom: 0px;
+    overflow-wrap: normal;
   }
 
   .pagesList {
@@ -342,7 +367,6 @@
   width: 110px;
   height: 35px;
   cursor: pointer;
-  padding-right: 8.8px;
 }
 
 .imgApple {

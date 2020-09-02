@@ -117,11 +117,13 @@ function MoocFooter(props) {
   );
 
   const siteMap = (
-    <div data-name="siteMap" className={style.siteMapContainer}>
-      <div data-name="sections" className={style.sectionsContainer}>
-        {sections}
+    <div data-name="site-map-spacing-container" className={style.siteMapSpacingContainer}>
+      <div data-name="site-map" className={style.siteMapContainer}>
+        <div data-name="sections" className={style.sectionsContainer}>
+          {sections}
+        </div>
+        {socialNetworks}
       </div>
-      {socialNetworks}
     </div>
   );
 
