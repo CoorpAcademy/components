@@ -15,6 +15,13 @@
   min-height: 193px;
 }
 
+.headSpacingContainer {
+  width: 100%;
+  background-color: lightBlack;
+  display: flex;
+  flex-wrap: nowrap;
+}
+
 .headSectionWrapper {
   width: 100%;
   background-color: lightBlack;
@@ -27,7 +34,6 @@
 .logoWrapper {
   height: 100%;
   align-self: center;
-  background-color:lightBlack;
 }
 
 .coorpAppLogo {
@@ -57,13 +63,22 @@
   align-self: center;
 }
 
+.siteMapSpacingContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: baseline;
+  flex-direction: row;
+  background-color: black;
+  /* justify-content: center;
+  height: 221px; */
+}
+
 .siteMapContainer {
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
   font-family: "Open Sans";
   background-color: black;
-  margin-bottom: 10px;
 }
 
 .sectionsContainer {
@@ -116,7 +131,6 @@
   flex-direction: column;
   align-items: center;
   max-width: 195px;
-  padding-bottom: 24px;
 }
 
 .coorpLogo {
@@ -136,14 +150,25 @@
   padding-right: 9px;
 }
 
-
-
 @media desktop, wide, (max-width: 4000px) {
+  .headSpacingContainer {
+    align-items: baseline;
+    flex-direction: row;
+    justify-content: center;
+  }
+
   .headSectionWrapper {
     height: 101px;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    max-width: 1080px;
+  }
+
+  .logoAndLabelWrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
   }
 
   /* separates the mkting logo from the label */
@@ -172,9 +197,18 @@
     padding-left: 50px;
   }
 
-  .siteMapContainer {
+  .siteMapSpacingContainer {
+    align-items: baseline;
     flex-direction: row;
     justify-content: center;
+  }
+
+  .siteMapContainer {
+    width: 100%;
+    flex-direction: row;
+    justify-content: space-between;
+    /* align-items: center; */
+    max-width: 1080px;
   }
 
   .sectionWrapper {
@@ -201,14 +235,39 @@
   }
 
   .logoSocialNetworksContainer {
-    padding-left: 80px;
+    padding-right: 17px;
+    padding-bottom: 24px;
   }
 
 }
 
-@media tablet {
+@media (max-width: 1140px) {
   .headSectionWrapper {
+    max-width: calc(100% - 60px);
+  }
+
+  .siteMapContainer {
+    max-width: calc(100% - 60px);
+  }
+}
+
+@media tablet, (max-width: 1010px) {
+  .headSpacingContainer {
+    align-items: baseline;
+    flex-direction: column;
+    justify-content: center;
     height: 221px;
+  }
+
+  .headSectionWrapper {
+    max-width: 100%;
+    height: 157px;
+    flex-direction: column;
+  }
+
+  .logoAndLabelWrapper {
+    display: flex;
+    flex-wrap: nowrap;
     flex-direction: column;
   }
 
@@ -274,7 +333,8 @@
 
   .logoSocialNetworksContainer {
     align-self: center;
-    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 11px;
   }
 
   .socialNetworksWrapper {
@@ -284,6 +344,7 @@
   .sectionTitle {
     margin-bottom: 0px;
     padding-bottom: 0px;
+    overflow-wrap: normal;
   }
 
   .pagesList {
@@ -295,8 +356,6 @@
   }
 }
 
-
-/* take out to a molecule */
 .storeLinksContainer {
   display: flex;
   justify-content: center;
@@ -308,7 +367,6 @@
   width: 110px;
   height: 35px;
   cursor: pointer;
-  padding-right: 8.8px;
 }
 
 .imgApple {

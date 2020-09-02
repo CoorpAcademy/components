@@ -36,23 +36,27 @@ function MoocFooter(props) {
   // Header section of the footer (the marketing banner)
 
   const headSectionView = !isEmpty(headSection) ? (
-    <div data-name="headSection" className={style.headSectionWrapper}>
-      <div className={style.logoWrapper}>
-        <CoorpAppLogo className={style.coorpAppLogo} />
-      </div>
-      <div data-name="mobile-marketing-text" className={style.marketingLabel}>
-        {headSection.title}
-      </div>
-      <div data-name="mobile-apps-buttons-wrapper" className={style.mobileAppLinks}>
-        <StoresLinks
-          // ignored due to naming conventions in JSX rather than a linting error
-          // eslint-disable-next-line react/jsx-handler-names
-          onAppStoreButtonClick={headSection.onAppStoreButtonClick}
-          appStoreButtonImageUrl={headSection.appStoreButtonImageUrl}
-          playStoreButtonImageUrl={headSection.playStoreButtonImageUrl}
-          // eslint-disable-next-line react/jsx-handler-names
-          onPlayStoreButtonClick={headSection.onPlayStoreButtonClick}
-        />
+    <div data-name="headSpacingContainer" className={style.headSpacingContainer}>
+      <div data-name="headSection" className={style.headSectionWrapper}>
+        <div className={style.logoAndLabelWrapper}>
+          <div className={style.logoWrapper}>
+            <CoorpAppLogo className={style.coorpAppLogo} />
+          </div>
+          <div data-name="mobile-marketing-text" className={style.marketingLabel}>
+            {headSection.title}
+          </div>
+        </div>
+        <div data-name="mobile-apps-buttons-wrapper" className={style.mobileAppLinks}>
+          <StoresLinks
+            // ignored due to naming conventions in JSX rather than a linting error
+            // eslint-disable-next-line react/jsx-handler-names
+            onAppStoreButtonClick={headSection.onAppStoreButtonClick}
+            appStoreButtonImageUrl={headSection.appStoreButtonImageUrl}
+            playStoreButtonImageUrl={headSection.playStoreButtonImageUrl}
+            // eslint-disable-next-line react/jsx-handler-names
+            onPlayStoreButtonClick={headSection.onPlayStoreButtonClick}
+          />
+        </div>
       </div>
     </div>
   ) : null;
@@ -113,11 +117,13 @@ function MoocFooter(props) {
   );
 
   const siteMap = (
-    <div data-name="siteMap" className={style.siteMapContainer}>
-      <div data-name="sections" className={style.sectionsContainer}>
-        {sections}
+    <div data-name="site-map-spacing-container" className={style.siteMapSpacingContainer}>
+      <div data-name="site-map" className={style.siteMapContainer}>
+        <div data-name="sections" className={style.sectionsContainer}>
+          {sections}
+        </div>
+        {socialNetworks}
       </div>
-      {socialNetworks}
     </div>
   );
 
