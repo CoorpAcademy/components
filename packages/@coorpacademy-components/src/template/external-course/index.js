@@ -2,7 +2,7 @@ import React from 'react';
 import {NovaSolidInterfaceFeedbackInterfaceQuestionMark as QuestionIcon} from '@coorpacademy/nova-icons';
 import {convert} from 'css-color-function';
 import classnames from 'classnames';
-import {get, getOr, keys, identity} from 'lodash/fp';
+import {get, getOr, keys, identity, isNil} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import {EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
 import Provider from '../../atom/provider';
@@ -57,6 +57,25 @@ class ExternalCourse extends React.Component {
       <iframe src={url} frameBorder={0} className={style.iframe} allowFullScreen />
     );
 
+    const completeButton = !isNil(complete) ? (
+      <Button
+        type="button"
+        disabled={loading ? true : complete.disabled}
+        onClick={loading ? identity : this.handleOnClick(complete)}
+        submitValue={complete.label}
+        style={{
+          backgroundColor:
+            complete.disabled || loading ? convert(`color(${primary} a(-50%))`) : primary,
+          cursor: loading ? 'progress' : 'pointer'
+        }}
+        className={classnames(
+          style.completeCta,
+          complete.disabled || loading ? style.disabled : null,
+          loading ? style.loading : null
+        )}
+      />
+    ) : null;
+
     return (
       <div className={style.default}>
         <div className={style.header}>
@@ -87,22 +106,7 @@ class ExternalCourse extends React.Component {
               <span>{warning.label}</span>
             </div>
           </div>
-          <Button
-            type="button"
-            disabled={loading ? true : complete.disabled}
-            onClick={loading ? identity : this.handleOnClick(complete)}
-            submitValue={complete.label}
-            style={{
-              backgroundColor:
-                complete.disabled || loading ? convert(`color(${primary} a(-50%))`) : primary,
-              cursor: loading ? 'progress' : 'pointer'
-            }}
-            className={classnames(
-              style.completeCta,
-              complete.disabled || loading ? style.disabled : null,
-              loading ? style.loading : null
-            )}
-          />
+          {completeButton}
           <div className={style.rightSection} />
         </div>
       </div>
