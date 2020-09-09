@@ -20,7 +20,7 @@
   composes: defaultLink;
   height: 24px;
   width: 24px;
-  background-color: color(black lightness(20%));
+  background-color: rgba(255, 255, 255, 0.05);;
   color: white;
 }
 .link:hover {
@@ -28,7 +28,7 @@
   color: color(dark lightness(60%));
 }
 .linkFooter:hover {
-  background-color: color(dark lightness(30%));
+  background-color: rgba(255, 255, 255, 0.2);
 }
 .icon {
   width: 14px;

@@ -13,14 +13,13 @@
 
 .headSpacingContainer {
   width: 100%;
-  background-color: lightBlack;
+  background-color: #2B2E31;
   display: flex;
   flex-wrap: nowrap;
 }
 
 .headSectionWrapper {
   width: 100%;
-  background-color: lightBlack;
   align-items: baseline;
   display: flex;
   flex-wrap: nowrap;
@@ -41,7 +40,6 @@
 
 .marketingLabel {
   align-self: center;
-  background-color:lightBlack;
   width: auto;
   height: 19px;
   font-weight: bold;
@@ -105,8 +103,8 @@
 
 .pageLink {
   text-decoration: none;
-  color: lightMediumGray;
-  font-weight: normal;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: bold;
   font-size: 14px;
   max-width: 200px;
   cursor: pointer;
@@ -117,6 +115,7 @@
 }
 
 .pageLink:hover {
+  color: white;
   font-weight: bold;
 }
 
@@ -212,19 +211,6 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     display: block;
-  }
-
-  /* needed because when links are hovered they become bold, therefore they vary their width
-  causing a deplacement of the container to the right */
-  .pageLink:before {
-    display: block;
-    content: attr(data-text);
-    font-weight: bold;
-    height: 0;
-    overflow: hidden;
-    visibility: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
   }
 
   .logoSocialNetworksContainer {
@@ -324,6 +310,7 @@
     white-space: normal;
     text-overflow: unset;
     display: block;
+    color:white;
   }
 
   .logoSocialNetworksContainer {
@@ -361,6 +348,14 @@
   }
 }
 
+/* support for extra small screens < 340px */
+@media (max-width: 339px) {
+  .sectionsContainer {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
 .storeLinksContainer {
   display: flex;
   justify-content: center;
@@ -378,8 +373,8 @@
   width: 110px;
   height: 35px;
   cursor: pointer;
-  padding-right: 8.8px;
-  border-radius: 5px 10.5px 10.5px 5px;
+  padding-right: 9px;
+  border-radius: 5px 11px 11px 5px;
 }
 
 
