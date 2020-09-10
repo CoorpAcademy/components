@@ -123,7 +123,7 @@
   cursor: pointer;
 }
 
-.disabled{
+.disabled {
   pointer-events: none;
   cursor: initial;
 }
@@ -141,4 +141,18 @@
   .footer .leftSection, .footer .rightSection {
     display: none;
   }
+}
+
+.podcastWrapper {
+  composes: iframe;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+}
+
+.podcast {
+  align-self: center;
 }

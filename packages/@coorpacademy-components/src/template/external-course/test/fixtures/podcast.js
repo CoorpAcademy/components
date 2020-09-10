@@ -1,20 +1,11 @@
+import {defaultsDeep} from 'lodash/fp';
+import Default from './podcast-no-background';
+
+const {props} = Default;
+
 export default {
-  props: {
-    name: 'Weekly wash up',
-    type: 'podcast',
-    url: 'https://static.coorpacademy.com/site/podcasts/Weekly%20wash%20up_20200608_FINAL.mp3',
-    quit: {
-      label: 'close',
-      onClick: () => console.log('close')
-    },
-    complete: {
-      disabled: true,
-      label: 'finish',
-      onClick: () => console.log('finish')
-    },
-    warning: {
-      label: 'Report an error',
-      onClick: () => console.log('Report an error')
-    }
-  }
+  props: defaultsDeep(props, {
+    backgroundImageUrl:
+      'https://i.pinimg.com/originals/31/bf/f7/31bff71dd4b79a76fb3f28a5219486f2.jpg'
+  })
 };

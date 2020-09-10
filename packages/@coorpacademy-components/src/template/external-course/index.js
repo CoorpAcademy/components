@@ -28,7 +28,8 @@ class ExternalCourse extends React.Component {
       label: PropTypes.string.isRequired,
       onClick: PropTypes.func
     }),
-    loading: PropTypes.bool
+    loading: PropTypes.bool,
+    backgroundImageUrl: PropTypes.string
   };
 
   static contextTypes = {
@@ -43,18 +44,43 @@ class ExternalCourse extends React.Component {
   };
 
   render() {
-    const {name, type, url, warning, complete, quit, loading} = this.props;
+    const {name, type, url, warning, complete, quit, loading, backgroundImageUrl = ''} = this.props;
     const {skin} = this.context;
     const primary = getOr('#00B0FF', 'common.primary', skin);
     const IconType = EXTERNAL_CONTENT_ICONS[type].icon;
     const IconColor = EXTERNAL_CONTENT_ICONS[type].color;
 
-    const mainContent = loading ? (
+    const content =
+      type === 'podcast' ? (
+        <div
+          className={style.podcastWrapper}
+          style={{backgroundImage: `url(${backgroundImageUrl})`}}
+        >
+          <audio
+            className={style.podcast}
+            controls
+            autoPlay=""
+            name="media"
+            data-name="external-content-podcast"
+          >
+            <source src={url} type="audio/mp3" />
+          </audio>
+        </div>
+      ) : (
+        <iframe
+          src={url}
+          frameBorder={0}
+          className={style.iframe}
+          allowFullScreen
+          data-name="external-content-iframe"
+        />
+      );
+    const mainContentSlot = loading ? (
       <div className={style.loader}>
         <Loader />
       </div>
     ) : (
-      <iframe src={url} frameBorder={0} className={style.iframe} allowFullScreen />
+      content
     );
 
     const completeButton = !isNil(complete) ? (
@@ -95,7 +121,7 @@ class ExternalCourse extends React.Component {
           </div>
           <div className={style.rightSection} />
         </div>
-        {mainContent}
+        {mainContentSlot}
         <div className={style.footer}>
           <div className={style.leftSection}>
             <div
