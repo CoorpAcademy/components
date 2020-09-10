@@ -825,6 +825,7 @@ import TemplateExternalCourseFixtureArticle from '../src/template/external-cours
 import TemplateExternalCourseFixtureDefault from '../src/template/external-course/test/fixtures/default';
 import TemplateExternalCourseFixtureH5P from '../src/template/external-course/test/fixtures/h5p';
 import TemplateExternalCourseFixtureLoading from '../src/template/external-course/test/fixtures/loading';
+import TemplateExternalCourseFixturePodcastNoBackground from '../src/template/external-course/test/fixtures/podcast-no-background';
 import TemplateExternalCourseFixturePodcast from '../src/template/external-course/test/fixtures/podcast';
 import TemplateExternalCourseFixtureVideo from '../src/template/external-course/test/fixtures/video';
 
@@ -1819,6 +1820,7 @@ export const fixtures = {
       Default: TemplateExternalCourseFixtureDefault,
       H5P: TemplateExternalCourseFixtureH5P,
       Loading: TemplateExternalCourseFixtureLoading,
+      PodcastNoBackground: TemplateExternalCourseFixturePodcastNoBackground,
       Podcast: TemplateExternalCourseFixturePodcast,
       Video: TemplateExternalCourseFixtureVideo
     }
