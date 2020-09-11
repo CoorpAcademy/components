@@ -29,7 +29,8 @@ class ExternalCourse extends React.Component {
       onClick: PropTypes.func
     }),
     loading: PropTypes.bool,
-    backgroundImageUrl: PropTypes.string
+    backgroundImageUrl: PropTypes.string,
+    contentType: PropTypes.string
   };
 
   static contextTypes = {
@@ -44,37 +45,45 @@ class ExternalCourse extends React.Component {
   };
 
   render() {
-    const {name, type, url, warning, complete, quit, loading, backgroundImageUrl = ''} = this.props;
+    const {
+      name,
+      type,
+      url,
+      warning,
+      complete,
+      quit,
+      loading,
+      backgroundImageUrl = '',
+      contentType = ''
+    } = this.props;
     const {skin} = this.context;
     const primary = getOr('#00B0FF', 'common.primary', skin);
     const IconType = EXTERNAL_CONTENT_ICONS[type].icon;
     const IconColor = EXTERNAL_CONTENT_ICONS[type].color;
 
-    const content =
-      type === 'podcast' ? (
-        <div
-          className={style.podcastWrapper}
-          style={{backgroundImage: `url(${backgroundImageUrl})`}}
+    const content = contentType.startsWith('audio') ? (
+      <div className={style.podcastWrapper}>
+        <div className={style.bgPodcast} style={{backgroundImage: `url(${backgroundImageUrl})`}} />
+        <audio
+          className={style.podcast}
+          controls
+          autoPlay=""
+          name="media"
+          data-name="external-content-podcast"
+          preload="auto"
         >
-          <audio
-            className={style.podcast}
-            controls
-            autoPlay=""
-            name="media"
-            data-name="external-content-podcast"
-          >
-            <source src={url} type="audio/mp3" />
-          </audio>
-        </div>
-      ) : (
-        <iframe
-          src={url}
-          frameBorder={0}
-          className={style.iframe}
-          allowFullScreen
-          data-name="external-content-iframe"
-        />
-      );
+          <source src={url} type="audio/mp3" />
+        </audio>
+      </div>
+    ) : (
+      <iframe
+        src={url}
+        frameBorder={0}
+        className={style.iframe}
+        allowFullScreen
+        data-name="external-content-iframe"
+      />
+    );
     const mainContentSlot = loading ? (
       <div className={style.loader}>
         <Loader />

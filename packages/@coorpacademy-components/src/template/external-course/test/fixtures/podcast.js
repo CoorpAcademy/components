@@ -6,6 +6,6 @@ const {props} = Default;
 export default {
   props: defaultsDeep(props, {
     backgroundImageUrl:
-      'https://i.pinimg.com/originals/31/bf/f7/31bff71dd4b79a76fb3f28a5219486f2.jpg'
+      'https://api-staging.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/page_discipline/1_recherche_en_ligne.jpg&amp;h=400&amp;w=400&amp;q=80&amp;m=contain'
   })
 };
