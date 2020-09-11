@@ -15,6 +15,7 @@ export default {
     warning: {
       label: 'Report an error',
       onClick: () => console.log('Report an error')
-    }
+    },
+    contentType: 'audio/mp3'
   }
 };

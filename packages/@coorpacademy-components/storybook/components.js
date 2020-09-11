@@ -828,6 +828,7 @@ import TemplateExternalCourseFixtureLoading from '../src/template/external-cours
 import TemplateExternalCourseFixturePodcastNoBackground from '../src/template/external-course/test/fixtures/podcast-no-background';
 import TemplateExternalCourseFixturePodcast from '../src/template/external-course/test/fixtures/podcast';
 import TemplateExternalCourseFixtureVideo from '../src/template/external-course/test/fixtures/video';
+import TemplateExternalCourseFixtureYoutubePodcast from '../src/template/external-course/test/fixtures/youtube-podcast';
 
 export const components = {
   Atom: {
@@ -1822,7 +1823,8 @@ export const fixtures = {
       Loading: TemplateExternalCourseFixtureLoading,
       PodcastNoBackground: TemplateExternalCourseFixturePodcastNoBackground,
       Podcast: TemplateExternalCourseFixturePodcast,
-      Video: TemplateExternalCourseFixtureVideo
+      Video: TemplateExternalCourseFixtureVideo,
+      YoutubePodcast: TemplateExternalCourseFixtureYoutubePodcast
     }
   },
   TemplateAppPlayer: {
