@@ -5,6 +5,7 @@ const {props} = Default;
 
 export default {
   props: defaultsDeep(props, {
+    url: 'https://www.youtube.com/embed/nLMZd05FQKc',
     contentType: 'video/mp4'
   })
 };

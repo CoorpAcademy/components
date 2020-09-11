@@ -2,7 +2,7 @@ import React from 'react';
 import {NovaSolidInterfaceFeedbackInterfaceQuestionMark as QuestionIcon} from '@coorpacademy/nova-icons';
 import {convert} from 'css-color-function';
 import classnames from 'classnames';
-import {get, getOr, keys, identity, isNil} from 'lodash/fp';
+import {get, getOr, keys, identity, isNil, startsWith} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import {EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
 import Provider from '../../atom/provider';
@@ -53,17 +53,20 @@ class ExternalCourse extends React.Component {
       complete,
       quit,
       loading,
-      backgroundImageUrl = '',
-      contentType = ''
+      backgroundImageUrl,
+      contentType
     } = this.props;
     const {skin} = this.context;
     const primary = getOr('#00B0FF', 'common.primary', skin);
     const IconType = EXTERNAL_CONTENT_ICONS[type].icon;
     const IconColor = EXTERNAL_CONTENT_ICONS[type].color;
 
-    const content = contentType.startsWith('audio') ? (
+    const content = startsWith('audio', contentType) ? (
       <div className={style.podcastWrapper}>
-        <div className={style.bgPodcast} style={{backgroundImage: `url(${backgroundImageUrl})`}} />
+        <div
+          className={style.bgPodcast}
+          style={{backgroundImage: backgroundImageUrl && `url(${backgroundImageUrl})`}}
+        />
         <audio
           className={style.podcast}
           controls
@@ -72,7 +75,7 @@ class ExternalCourse extends React.Component {
           data-name="external-content-podcast"
           preload="auto"
         >
-          <source src={url} type="audio/mp3" />
+          <source src={url} type={contentType} />
         </audio>
       </div>
     ) : (
