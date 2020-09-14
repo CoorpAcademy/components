@@ -151,9 +151,11 @@
   position: relative;
 
 }
+
 .bgPodcast {
-  filter: blur(5px);
-  opacity: 0.5;
+  filter: brightness(40%) blur(5px);
+  /* To take out the white outline caused why the blur */
+  transform: scale(1.04);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
