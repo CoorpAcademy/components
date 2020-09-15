@@ -2,12 +2,13 @@ import React from 'react';
 import {NovaSolidInterfaceFeedbackInterfaceQuestionMark as QuestionIcon} from '@coorpacademy/nova-icons';
 import {convert} from 'css-color-function';
 import classnames from 'classnames';
-import {get, getOr, keys, identity, isNil, startsWith} from 'lodash/fp';
+import {get, getOr, keys, identity, isNil} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import {EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
 import Provider from '../../atom/provider';
 import Loader from '../../atom/loader';
 import Button from '../../atom/button';
+import ExternalContentViewer from '../../molecule/external-content-viewer';
 import style from './style.css';
 
 class ExternalCourse extends React.Component {
@@ -61,38 +62,16 @@ class ExternalCourse extends React.Component {
     const IconType = EXTERNAL_CONTENT_ICONS[type].icon;
     const IconColor = EXTERNAL_CONTENT_ICONS[type].color;
 
-    const content = startsWith('audio', contentType) ? (
-      <div className={style.podcastWrapper}>
-        <div
-          className={style.bgPodcast}
-          style={{backgroundImage: backgroundImageUrl && `url(${backgroundImageUrl})`}}
-        />
-        <audio
-          className={style.podcast}
-          controls
-          autoPlay=""
-          name="media"
-          data-name="external-content-podcast"
-          preload="auto"
-        >
-          <source src={url} type={contentType} />
-        </audio>
-      </div>
-    ) : (
-      <iframe
-        src={url}
-        frameBorder={0}
-        className={style.iframe}
-        allowFullScreen
-        data-name="external-content-iframe"
-      />
-    );
     const mainContentSlot = loading ? (
       <div className={style.loader}>
         <Loader />
       </div>
     ) : (
-      content
+      <ExternalContentViewer
+        url={url}
+        backgroundImageUrl={backgroundImageUrl}
+        contentType={contentType}
+      />
     );
 
     const completeButton = !isNil(complete) ? (
