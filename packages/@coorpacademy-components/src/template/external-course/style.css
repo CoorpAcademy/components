@@ -168,4 +168,6 @@
 
 .podcast {
   align-self: center;
+  z-index: 1;
+  margin: auto;
 }
