@@ -67,6 +67,7 @@ import MoleculeDisciplinePartners from './../src/molecule/discipline-partners';
 import MoleculeDisciplineScope from './../src/molecule/discipline-scope';
 import MoleculeDragAndDrop from './../src/molecule/drag-and-drop';
 import MoleculeExternalContentButton from './../src/molecule/external-content-button';
+import MoleculeExternalContentViewer from './../src/molecule/external-content-viewer';
 import MoleculeFeedback from './../src/molecule/feedback';
 import MoleculeFilters from './../src/molecule/filters';
 import MoleculeForumForumComment from './../src/molecule/forum/forum-comment';
@@ -421,6 +422,13 @@ import MoleculeExternalContentButtonFixtureArticle from '../src/molecule/externa
 import MoleculeExternalContentButtonFixturePodcast from '../src/molecule/external-content-button/test/fixtures/podcast';
 import MoleculeExternalContentButtonFixtureScorm from '../src/molecule/external-content-button/test/fixtures/scorm';
 import MoleculeExternalContentButtonFixtureVideo from '../src/molecule/external-content-button/test/fixtures/video';
+import MoleculeExternalContentViewerFixtureArticle from '../src/molecule/external-content-viewer/test/fixtures/article';
+import MoleculeExternalContentViewerFixtureDefault from '../src/molecule/external-content-viewer/test/fixtures/default';
+import MoleculeExternalContentViewerFixtureH5P from '../src/molecule/external-content-viewer/test/fixtures/h5p';
+import MoleculeExternalContentViewerFixturePodcastNoBackground from '../src/molecule/external-content-viewer/test/fixtures/podcast-no-background';
+import MoleculeExternalContentViewerFixturePodcast from '../src/molecule/external-content-viewer/test/fixtures/podcast';
+import MoleculeExternalContentViewerFixtureVideo from '../src/molecule/external-content-viewer/test/fixtures/video';
+import MoleculeExternalContentViewerFixtureYoutubePodcast from '../src/molecule/external-content-viewer/test/fixtures/youtube-podcast';
 import MoleculeFeedbackFixtureDefault from '../src/molecule/feedback/test/fixtures/default';
 import MoleculeFeedbackFixtureFailExitNode from '../src/molecule/feedback/test/fixtures/fail-exit-node';
 import MoleculeFeedbackFixtureFailureWithTitleAndDescriptionAndVideo from '../src/molecule/feedback/test/fixtures/failure-with-title-and-description-and-video';
@@ -899,6 +907,7 @@ export const components = {
     MoleculeDisciplineScope,
     MoleculeDragAndDrop,
     MoleculeExternalContentButton,
+    MoleculeExternalContentViewer,
     MoleculeFeedback,
     MoleculeFilters,
     MoleculeHero,
@@ -1404,6 +1413,15 @@ export const fixtures = {
       Podcast: MoleculeExternalContentButtonFixturePodcast,
       Scorm: MoleculeExternalContentButtonFixtureScorm,
       Video: MoleculeExternalContentButtonFixtureVideo
+    },
+    MoleculeExternalContentViewer: {
+      Article: MoleculeExternalContentViewerFixtureArticle,
+      Default: MoleculeExternalContentViewerFixtureDefault,
+      H5P: MoleculeExternalContentViewerFixtureH5P,
+      PodcastNoBackground: MoleculeExternalContentViewerFixturePodcastNoBackground,
+      Podcast: MoleculeExternalContentViewerFixturePodcast,
+      Video: MoleculeExternalContentViewerFixtureVideo,
+      YoutubePodcast: MoleculeExternalContentViewerFixtureYoutubePodcast
     },
     MoleculeFeedback: {
       Default: MoleculeFeedbackFixtureDefault,
