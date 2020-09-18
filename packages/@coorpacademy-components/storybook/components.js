@@ -425,6 +425,7 @@ import MoleculeExternalContentButtonFixtureVideo from '../src/molecule/external-
 import MoleculeExternalContentViewerFixtureArticle from '../src/molecule/external-content-viewer/test/fixtures/article';
 import MoleculeExternalContentViewerFixtureDefault from '../src/molecule/external-content-viewer/test/fixtures/default';
 import MoleculeExternalContentViewerFixtureH5P from '../src/molecule/external-content-viewer/test/fixtures/h5p';
+import MoleculeExternalContentViewerFixturePodcastCockpitMode from '../src/molecule/external-content-viewer/test/fixtures/podcast-cockpit-mode';
 import MoleculeExternalContentViewerFixturePodcastNoBackground from '../src/molecule/external-content-viewer/test/fixtures/podcast-no-background';
 import MoleculeExternalContentViewerFixturePodcast from '../src/molecule/external-content-viewer/test/fixtures/podcast';
 import MoleculeExternalContentViewerFixtureVideo from '../src/molecule/external-content-viewer/test/fixtures/video';
@@ -1418,6 +1419,7 @@ export const fixtures = {
       Article: MoleculeExternalContentViewerFixtureArticle,
       Default: MoleculeExternalContentViewerFixtureDefault,
       H5P: MoleculeExternalContentViewerFixtureH5P,
+      PodcastCockpitMode: MoleculeExternalContentViewerFixturePodcastCockpitMode,
       PodcastNoBackground: MoleculeExternalContentViewerFixturePodcastNoBackground,
       Podcast: MoleculeExternalContentViewerFixturePodcast,
       Video: MoleculeExternalContentViewerFixtureVideo,
