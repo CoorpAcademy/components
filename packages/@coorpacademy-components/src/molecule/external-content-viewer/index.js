@@ -3,11 +3,21 @@ import {startsWith} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import style from './style.css';
 
+const podcastWrapperStyle = {
+  default: style.podcastWrapper,
+  cockpit: style.podcastWrapperCockpit
+};
+
+const iframeStyle = {
+  default: style.iframe,
+  cockpit: style.iframeCockpit
+};
+
 function ExternalContentViewer(props) {
-  const {url, backgroundImageUrl, contentType} = props;
+  const {url, backgroundImageUrl, contentType, mode = 'default'} = props;
 
   return startsWith('audio', contentType) ? (
-    <div className={style.podcastWrapper}>
+    <div className={podcastWrapperStyle[mode]}>
       <div
         className={style.bgPodcast}
         style={{backgroundImage: backgroundImageUrl && `url(${backgroundImageUrl})`}}
@@ -27,7 +37,7 @@ function ExternalContentViewer(props) {
     <iframe
       src={url}
       frameBorder={0}
-      className={style.iframe}
+      className={iframeStyle[mode]}
       allowFullScreen
       data-name="external-content-iframe"
     />
@@ -37,7 +47,8 @@ function ExternalContentViewer(props) {
 ExternalContentViewer.propTypes = {
   url: PropTypes.string.isRequired,
   backgroundImageUrl: PropTypes.string,
-  contentType: PropTypes.string
+  contentType: PropTypes.string,
+  mode: PropTypes.string
 };
 
 export default ExternalContentViewer;

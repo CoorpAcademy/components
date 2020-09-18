@@ -34,3 +34,13 @@
   z-index: 1;
   margin: auto;
 }
+
+.podcastWrapperCockpit {
+  composes: podcastWrapper;
+  height: 100%;
+}
+
+.iframeCockpit {
+  composes: iframe;
+  height: 100%;
+}
