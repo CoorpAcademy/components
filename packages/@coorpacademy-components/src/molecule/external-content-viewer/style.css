@@ -12,7 +12,6 @@
   align-content: center;
   justify-content: space-around;
   position: relative;
-
 }
 
 .bgPodcast {
@@ -38,6 +37,7 @@
 .podcastWrapperCockpit {
   composes: podcastWrapper;
   height: 100%;
+  position: sticky;
 }
 
 .iframeCockpit {
