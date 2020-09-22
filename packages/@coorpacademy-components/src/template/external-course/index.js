@@ -11,6 +11,11 @@ import Button from '../../atom/button';
 import ExternalContentViewer from '../../molecule/external-content-viewer';
 import style from './style.css';
 
+const defaultWrapperStyle = {
+  default: style.default,
+  cockpit: style.defaultCockpit
+};
+
 class ExternalCourse extends React.Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
@@ -31,7 +36,8 @@ class ExternalCourse extends React.Component {
     }),
     loading: PropTypes.bool,
     backgroundImageUrl: PropTypes.string,
-    contentType: PropTypes.string
+    contentType: PropTypes.string,
+    mode: PropTypes.string
   };
 
   static contextTypes = {
@@ -55,7 +61,8 @@ class ExternalCourse extends React.Component {
       quit,
       loading,
       backgroundImageUrl,
-      contentType
+      contentType,
+      mode = 'default'
     } = this.props;
     const {skin} = this.context;
     const primary = getOr('#00B0FF', 'common.primary', skin);
@@ -94,7 +101,7 @@ class ExternalCourse extends React.Component {
     ) : null;
 
     return (
-      <div className={style.default}>
+      <div className={defaultWrapperStyle[mode]}>
         <div className={style.header}>
           <div className={style.leftSection}>
             <span
