@@ -158,6 +158,7 @@ import TemplateCommonDashboard from './../src/template/common/dashboard';
 import TemplateCommonDiscipline from './../src/template/common/discipline';
 import TemplateCommonSearchPage from './../src/template/common/search-page';
 import TemplateExternalCourse from './../src/template/external-course';
+import TemplateTeamsDashboard from './../src/template/teams-dashboard';
 import AtomAutocompleteFixtureDefault from '../src/atom/autocomplete/test/fixtures/default';
 import AtomAutocompleteFixtureError from '../src/atom/autocomplete/test/fixtures/error';
 import AtomAutocompleteFixtureFilled from '../src/atom/autocomplete/test/fixtures/filled';
@@ -839,6 +840,7 @@ import TemplateExternalCourseFixturePodcastNoBackground from '../src/template/ex
 import TemplateExternalCourseFixturePodcast from '../src/template/external-course/test/fixtures/podcast';
 import TemplateExternalCourseFixtureVideo from '../src/template/external-course/test/fixtures/video';
 import TemplateExternalCourseFixtureYoutubePodcast from '../src/template/external-course/test/fixtures/youtube-podcast';
+import TemplateTeamsDashboardFixtureDefault from '../src/template/teams-dashboard/test/fixtures/default';
 
 export const components = {
   Atom: {
@@ -999,7 +1001,8 @@ export const components = {
   Template: {
     TemplateActivity,
     TemplateBattleRequests,
-    TemplateExternalCourse
+    TemplateExternalCourse,
+    TemplateTeamsDashboard
   },
   TemplateAppPlayer: {
     TemplateAppPlayerLoading,
@@ -1847,6 +1850,9 @@ export const fixtures = {
       Podcast: TemplateExternalCourseFixturePodcast,
       Video: TemplateExternalCourseFixtureVideo,
       YoutubePodcast: TemplateExternalCourseFixtureYoutubePodcast
+    },
+    TemplateTeamsDashboard: {
+      Default: TemplateTeamsDashboardFixtureDefault
     }
   },
   TemplateAppPlayer: {
