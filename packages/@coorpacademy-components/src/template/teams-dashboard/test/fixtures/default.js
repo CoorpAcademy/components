@@ -1,8 +1,4 @@
 import {defaultsDeep} from 'lodash/fp';
-// import Card from '../../../../molecule/card/test/fixtures/default';
-import ManyCardsList from '../../../../molecule/dashboard/cards-list/test/fixtures/many';
-
-const manyCardsProps = ManyCardsList.props;
 
 const cardProps = {
   image:
@@ -13,17 +9,37 @@ const cardProps = {
   title: 'From Mass Market to One to One targeting Lorem ipsum',
   author: 'Coorpacademy',
   certifiedAuthor: true,
-  // progress: 0.65,
   badge: 'new',
-  // favorite: true,
-  // addFavoriteToolTip: 'Add to my list',
-  // removeFavoriteToolTip: 'Remove from my list',
+  disableProgress: true,
   customer: {
     coorpOriginal: true,
     name: 'Decathlon creation'
   },
-  onClick: () => console.log('click everywhere'),
-  onFavoriteClick: () => console.log('click Favorite')
+  onClick: () => console.log('click everywhere')
+};
+
+const manyCardsProps = {
+  title: 'Most Recent',
+  showMore: 'See all',
+  cards: [
+    defaultsDeep(cardProps, {title: 'First item'}),
+    defaultsDeep(cardProps, {title: 'Second item'}),
+    defaultsDeep(cardProps, {title: 'Third item'}),
+    defaultsDeep(cardProps, {title: 'Fourth item'}),
+    defaultsDeep(cardProps, {title: 'Fifth item'}),
+    defaultsDeep(cardProps, {title: 'Sixth item'}),
+    defaultsDeep(cardProps, {title: 'Seventh item'}),
+    defaultsDeep(cardProps, {title: 'Eigth item'}),
+    defaultsDeep(cardProps, {title: 'Ninth item'}),
+    defaultsDeep(cardProps, {title: 'Tenth item'}),
+    defaultsDeep(cardProps, {type: 'chapter'})
+  ],
+  onScroll: (skip, limit) => {
+    console.log(skip, limit);
+  },
+  onShowMore: () => {
+    console.log('show More');
+  }
 };
 
 const cardsProps = {
@@ -48,28 +64,35 @@ const cardsProps = {
   }
 };
 
+const headerProps = {
+  logo: {
+    src: 'https://static.coorpacademy.com/content/up/raw/logo_coorp-1491561426926.svg',
+    srcMobile: 'https://static.coorpacademy.com/content/up/raw/logo_mobile-1491561428898.svg',
+    href: '#'
+  },
+  platformLink: {
+    submitValue: 'Go to your platform',
+    href: 'https://onboarding.coorpacademy.com/dashboard',
+    target: '_blank',
+    light: false,
+    small: true,
+    secondary: false,
+    className: 'teamsHeader'
+  }
+};
+
+const sections = [
+  defaultsDeep(cardsProps, {
+    type: 'cards'
+  }),
+  defaultsDeep(manyCardsProps, {
+    type: 'cards'
+  })
+];
+
 export default {
   props: {
-    logo: {
-      src: 'https://static.coorpacademy.com/content/up/raw/logo_coorp-1491561426926.svg',
-      srcMobile: 'https://static.coorpacademy.com/content/up/raw/logo_mobile-1491561428898.svg',
-      href: '#'
-    },
-    platformLink: {
-      submitValue: 'Go to your platform',
-      href: '#',
-      target: '_self',
-      light: false,
-      small: true,
-      secondary: false
-    },
-    sections: [
-      defaultsDeep(cardsProps, {
-        type: 'cards'
-      }),
-      defaultsDeep(manyCardsProps, {
-        type: 'cards'
-      })
-    ]
+    ...headerProps,
+    sections
   }
 };

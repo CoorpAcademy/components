@@ -113,6 +113,7 @@ class CTA extends React.Component {
           small ? style.smallButton : null,
           light ? style.lightButton : null,
           secondary ? style.secondaryButton : null,
+          className === 'teamsHeader' ? style.teamsHeader : null,
           className
         )}
         data-name={ctaName || 'cta'}

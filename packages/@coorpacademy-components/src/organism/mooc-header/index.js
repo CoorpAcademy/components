@@ -18,8 +18,13 @@ import Search from '../../molecule/search';
 import SearchForm from '../../molecule/search-form';
 import style from './style.css';
 
+const MoocHeaderSearchBarStyle = {
+  default: style.searchBarDefault,
+  teams_dashboard: style.searchBar
+};
 class MoocHeader extends React.Component {
   static propTypes = {
+    mode: PropTypes.oneOf(['default', 'teams_dashboard']),
     logo: PropTypes.shape({
       src: PropTypes.string,
       srcMobile: PropTypes.string,
@@ -188,7 +193,7 @@ class MoocHeader extends React.Component {
   }
 
   render() {
-    const {logo = {}, pages, settings, user, links, search} = this.props;
+    const {mode = 'default', logo = {}, pages, settings, user, links, search} = this.props;
     const {isFocus, isSettingsOpen, isMenuOpen} = this.state;
     if (isEmpty(this.props)) return null;
     const {translate, skin} = this.context;
@@ -476,7 +481,7 @@ class MoocHeader extends React.Component {
               <Picture src={logoUrl} />
             </Link>
           </div>
-          <div data-name="Search-Bar" className={style.searchBar}>
+          <div data-name="Search-Bar" className={MoocHeaderSearchBarStyle[mode]}>
             {searchFormView}
           </div>
           <div className={style.menuWrapper}>

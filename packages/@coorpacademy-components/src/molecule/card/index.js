@@ -118,6 +118,7 @@ const Card = memo(function Card(props, context) {
     customer,
     certifiedAuthor,
     progress,
+    disableProgress = false,
     favorite,
     addFavoriteToolTip,
     removeFavoriteToolTip,
@@ -185,6 +186,7 @@ const Card = memo(function Card(props, context) {
         disabled={disabled}
         empty={empty}
         progress={progress}
+        disableProgress={disableProgress}
         title={title}
         type={type}
       />
@@ -213,6 +215,7 @@ Card.propTypes = {
   certifiedAuthor: PropTypes.bool,
   customer: PropTypes.shape(Customer.propTypes),
   progress: PropTypes.number,
+  disableProgress: PropTypes.bool,
   favorite: PropTypes.bool,
   addFavoriteToolTip: PropTypes.string,
   removeFavoriteToolTip: PropTypes.string,

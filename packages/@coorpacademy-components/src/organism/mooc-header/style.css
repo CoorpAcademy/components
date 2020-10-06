@@ -29,14 +29,23 @@
   background-color: white;
 }
 
+/*
+  OBS: If you need to modify the searchBar style for Mooc or 
+  other apps that is not Teams, please do it on searchBarDefault
+  which composes this base css class.
+*/
 .searchBar {
   display: flex;
   justify-content: flex-start;
   flex: 1 0 0%;
   height: 100%;
+  background-color: white;
+}
+
+.searchBarDefault {
+  composes: searchBar;
   border-right: solid 1px light;
   border-left: solid 1px light;
-  background-color: white;
 }
 
 .noPages {
