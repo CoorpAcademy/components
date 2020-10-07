@@ -7,15 +7,14 @@ export default {
     },
     links: [
       {
-        submitValue: 'Go to your platform',
-        href: 'https://onboarding.coorpacademy.com/dashboard',
-        target: '_blank',
+        submitValue: 'Go to Platform',
+        href: '#',
+        target: '_self',
         light: false,
         small: true,
         secondary: false,
         className: 'teamsHeader'
       }
-    ],
-    mode: 'teams_dashboard'
+    ]
   }
 };

@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MoocHeader from '../../organism/mooc-header';
+import TeamsHeader from '../../organism/teams-header';
 import Cta from '../../atom/cta';
 import CardsList from '../../molecule/dashboard/cards-list';
 import style from './style.css';
@@ -11,15 +11,15 @@ const TeamsDashboard = ({logo, platformLink, sections}) => {
   };
   const sectionsList = sections.map(buildSection);
   return (
-    <div className={style.teamsDashboard}>
-      <MoocHeader logo={logo} links={[platformLink]} mode="teams_dashboard" />
+    <div data-name="teams-dashboard" className={style.teamsDashboard}>
+      <TeamsHeader logo={logo} links={[platformLink]} />
       {sectionsList}
     </div>
   );
 };
 
 TeamsDashboard.propTypes = {
-  logo: MoocHeader.propTypes.logo,
+  logo: TeamsHeader.propTypes.logo,
   platformLink: PropTypes.shape(Cta.propTypes),
   sections: PropTypes.arrayOf(PropTypes.shape(CardsList.propTypes))
 };
