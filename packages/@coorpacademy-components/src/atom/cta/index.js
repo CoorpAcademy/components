@@ -5,6 +5,7 @@ import {get, noop} from 'lodash/fp';
 import classnames from 'classnames';
 import Provider from '../provider';
 import Link from '../link';
+import {brand} from '../../variables/colors.css';
 import style from './style.css';
 
 class CTA extends React.Component {
@@ -49,8 +50,8 @@ class CTA extends React.Component {
   getStyle() {
     const {skin} = this.context;
     const {hovered} = this.state;
-    const {disabled = false, light = false, secondary = false} = this.props;
-    const color = get('common.primary', skin);
+    const {disabled = false, light = false, secondary = false, className} = this.props;
+    const color = className === 'teamsHeader' ? brand : get('common.primary', skin);
     const grey = get('common.grey', skin);
 
     if (disabled) {
@@ -113,7 +114,6 @@ class CTA extends React.Component {
           small ? style.smallButton : null,
           light ? style.lightButton : null,
           secondary ? style.secondaryButton : null,
-          className === 'teamsHeader' ? style.teamsHeader : null,
           className
         )}
         data-name={ctaName || 'cta'}

@@ -187,6 +187,7 @@ import AtomCtaFixtureDisabled from '../src/atom/cta/test/fixtures/disabled';
 import AtomCtaFixtureLightSmall from '../src/atom/cta/test/fixtures/light-small';
 import AtomCtaFixtureLight from '../src/atom/cta/test/fixtures/light';
 import AtomCtaFixturePrimarySmall from '../src/atom/cta/test/fixtures/primary-small';
+import AtomCtaFixturePrimaryTeams from '../src/atom/cta/test/fixtures/primary-teams';
 import AtomCtaFixturePrimary from '../src/atom/cta/test/fixtures/primary';
 import AtomCtaFixtureSecondarySmall from '../src/atom/cta/test/fixtures/secondary-small';
 import AtomCtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
@@ -1088,6 +1089,7 @@ export const fixtures = {
       LightSmall: AtomCtaFixtureLightSmall,
       Light: AtomCtaFixtureLight,
       PrimarySmall: AtomCtaFixturePrimarySmall,
+      PrimaryTeams: AtomCtaFixturePrimaryTeams,
       Primary: AtomCtaFixturePrimary,
       SecondarySmall: AtomCtaFixtureSecondarySmall,
       Secondary: AtomCtaFixtureSecondary

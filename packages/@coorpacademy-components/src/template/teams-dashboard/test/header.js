@@ -10,7 +10,7 @@ import noHeaderPropsFixture from './fixtures/no-props-for-header';
 browserEnv();
 configure({adapter: new Adapter()});
 
-test('should render only empty TeamsHeader if no header props are pased', t => {
+test('should render only empty TeamsHeader if no header props are passed', t => {
   const wrapper = shallow(<TeamsDashboard {...noHeaderPropsFixture.props} />);
   const childLength = wrapper.find('[data-name="teams-dashboard"]').children().length;
   t.is(childLength, 3);

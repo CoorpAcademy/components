@@ -75,12 +75,3 @@
   border-color: transparent;
   color: brand;
 }
-
-.teamsHeader {
-  border-color: brand!important;
-  background-color: brand!important;
-}
-
-.teamsHeader:hover {
-  background-color: color(brand blackness(+10%))!important;
-}
