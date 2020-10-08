@@ -136,7 +136,6 @@ import OrganismSettings from './../src/organism/settings';
 import OrganismSetupHeader from './../src/organism/setup-header';
 import OrganismSidebar from './../src/organism/sidebar';
 import OrganismSlider from './../src/organism/slider';
-import OrganismTeamsHeader from './../src/organism/teams-header';
 import OrganismUserPreferences from './../src/organism/user-preferences';
 import TemplateActivity from './../src/template/activity';
 import TemplateAppPlayerLoading from './../src/template/app-player/loading';
@@ -662,11 +661,6 @@ import OrganismSidebarFixtureDefault from '../src/organism/sidebar/test/fixtures
 import OrganismSidebarFixtureOldAnalytics from '../src/organism/sidebar/test/fixtures/old-analytics';
 import OrganismSliderFixtureDefault from '../src/organism/slider/test/fixtures/default';
 import OrganismSliderFixtureMultipleSlides from '../src/organism/slider/test/fixtures/multiple-slides';
-import OrganismTeamsHeaderFixtureDefault from '../src/organism/teams-header/test/fixtures/default';
-import OrganismTeamsHeaderFixtureEmptyProps from '../src/organism/teams-header/test/fixtures/empty-props';
-import OrganismTeamsHeaderFixtureLogoOnly from '../src/organism/teams-header/test/fixtures/logo-only';
-import OrganismTeamsHeaderFixtureNoLogo from '../src/organism/teams-header/test/fixtures/no-logo';
-import OrganismTeamsHeaderFixtureTwoLinks from '../src/organism/teams-header/test/fixtures/two-links';
 import OrganismUserPreferencesFixtureDefault from '../src/organism/user-preferences/test/fixtures/default';
 import TemplateActivityFixtureAllEngines from '../src/template/activity/test/fixtures/all-engines';
 import TemplateActivityFixtureDefault from '../src/template/activity/test/fixtures/default';
@@ -1002,7 +996,6 @@ export const components = {
     OrganismSetupHeader,
     OrganismSidebar,
     OrganismSlider,
-    OrganismTeamsHeader,
     OrganismUserPreferences
   },
   OrganismMooc: {
@@ -1831,13 +1824,6 @@ export const fixtures = {
     OrganismSlider: {
       Default: OrganismSliderFixtureDefault,
       MultipleSlides: OrganismSliderFixtureMultipleSlides
-    },
-    OrganismTeamsHeader: {
-      Default: OrganismTeamsHeaderFixtureDefault,
-      EmptyProps: OrganismTeamsHeaderFixtureEmptyProps,
-      LogoOnly: OrganismTeamsHeaderFixtureLogoOnly,
-      NoLogo: OrganismTeamsHeaderFixtureNoLogo,
-      TwoLinks: OrganismTeamsHeaderFixtureTwoLinks
     },
     OrganismUserPreferences: {
       Default: OrganismUserPreferencesFixtureDefault

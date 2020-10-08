@@ -188,9 +188,9 @@ class MoocHeader extends React.Component {
   }
 
   render() {
+    if (isEmpty(this.props)) return null;
     const {logo = {}, pages, settings, user, links, search} = this.props;
     const {isFocus, isSettingsOpen, isMenuOpen} = this.state;
-    if (isEmpty(this.props)) return null;
     const {translate, skin} = this.context;
 
     const logoUrl = get('src', logo) || get('images.logo', skin);
@@ -479,7 +479,7 @@ class MoocHeader extends React.Component {
             </Link>
           </div>
           {searchFormView}
-          <div className={style.menuWrapper}>
+          <div className={style.menuWrapper} data-name="menu-wrapper">
             {pagesView}
             {userView || linksView}
             {settingsView}
