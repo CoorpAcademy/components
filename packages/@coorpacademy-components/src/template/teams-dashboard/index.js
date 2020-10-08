@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {map} from 'lodash/fp';
 import MoocHeader from '../../organism/mooc-header';
 import Cta from '../../atom/cta';
 import CardsList from '../../molecule/dashboard/cards-list';
@@ -9,7 +10,7 @@ const TeamsDashboard = ({logo, platformLink, sections}) => {
   const buildSection = (section, index) => {
     return <CardsList {...section} key={index} />;
   };
-  const sectionsList = sections.map(buildSection);
+  const sectionsList = map(buildSection, sections);
   return (
     <div data-name="teams-dashboard" className={style.teamsDashboard}>
       <MoocHeader logo={logo} links={[platformLink]} />
