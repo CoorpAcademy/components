@@ -42,7 +42,6 @@ const TeamsHeader = (props, context) => {
 TeamsHeader.propTypes = {
   logo: PropTypes.shape({
     src: PropTypes.string,
-    srcMobile: PropTypes.string,
     href: PropTypes.string
   }),
   links: PropTypes.arrayOf(PropTypes.shape(Cta.propTypes))
