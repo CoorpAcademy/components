@@ -445,13 +445,15 @@ class MoocHeader extends React.Component {
 
     if (search) {
       searchFormView = (
-        <SearchForm
-          search={search}
-          onSubmit={this.handleSubmitSearch}
-          onReset={this.handleResetSearch}
-          onSearchFocus={this.handleOnFocus}
-          onSearchBlur={this.handleOnBlur}
-        />
+        <div data-name="Search-Bar" className={style.searchBar}>
+          <SearchForm
+            search={search}
+            onSubmit={this.handleSubmitSearch}
+            onReset={this.handleResetSearch}
+            onSearchFocus={this.handleOnFocus}
+            onSearchBlur={this.handleOnBlur}
+          />
+        </div>
       );
     }
 
@@ -476,9 +478,7 @@ class MoocHeader extends React.Component {
               <Picture src={logoUrl} />
             </Link>
           </div>
-          <div data-name="Search-Bar" className={style.searchBar}>
-            {searchFormView}
-          </div>
+          {searchFormView}
           <div className={style.menuWrapper}>
             {pagesView}
             {userView || linksView}

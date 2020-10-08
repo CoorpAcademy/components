@@ -635,6 +635,7 @@ import OrganismMoocFooterFixtureNotEnoughPermissionsRoleNoMobileapp from '../src
 import OrganismMoocFooterFixtureNotEnoughPermissionsRole from '../src/organism/mooc-footer/test/fixtures/not-enough-permissions-role';
 import OrganismMoocHeaderFixtureDefault from '../src/organism/mooc-header/test/fixtures/default';
 import OrganismMoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/logged';
+import OrganismMoocHeaderFixtureTeams from '../src/organism/mooc-header/test/fixtures/teams';
 import OrganismMoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
 import OrganismPopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
 import OrganismResourceBrowserFixtureH5P from '../src/organism/resource-browser/test/fixtures/h5p';
@@ -1791,6 +1792,7 @@ export const fixtures = {
     OrganismMoocHeader: {
       Default: OrganismMoocHeaderFixtureDefault,
       Logged: OrganismMoocHeaderFixtureLogged,
+      Teams: OrganismMoocHeaderFixtureTeams,
       UserChangePassword: OrganismMoocHeaderFixtureUserChangePassword
     },
     OrganismPopin: {
