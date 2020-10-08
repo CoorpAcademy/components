@@ -8,9 +8,9 @@ import style from './style.css';
 
 const TeamsDashboard = ({logo, platformLink, sections}) => {
   const buildSection = (section, index) => {
-    return <CardsList {...section} key={index} />;
+    return <CardsList {...section} key={section.title + index} />;
   };
-  const sectionsList = map(buildSection, sections);
+  const sectionsList = sections ? map(buildSection, sections) : null;
   return (
     <div data-name="teams-dashboard" className={style.teamsDashboard}>
       <MoocHeader logo={logo} links={[platformLink]} />
