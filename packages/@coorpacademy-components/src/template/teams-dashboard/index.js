@@ -10,7 +10,7 @@ const TeamsDashboard = ({logo, platformLink, sections}) => {
   const buildSection = (section, index) => {
     return <CardsList {...section} key={section.title + index} />;
   };
-  const sectionsList = sections ? map(buildSection, sections) : null;
+  const sectionsList = map(buildSection, sections);
   return (
     <div data-name="teams-dashboard" className={style.teamsDashboard}>
       <MoocHeader logo={logo} links={[platformLink]} />
