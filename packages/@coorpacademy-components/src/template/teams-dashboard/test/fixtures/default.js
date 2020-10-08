@@ -77,8 +77,7 @@ const headerProps = {
     target: '_blank',
     light: false,
     small: true,
-    secondary: false,
-    className: 'teamsHeader'
+    secondary: false
   }
 };
 

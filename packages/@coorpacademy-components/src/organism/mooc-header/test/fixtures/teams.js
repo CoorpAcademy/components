@@ -14,8 +14,7 @@ export default {
         target: '_self',
         light: false,
         small: true,
-        secondary: false,
-        className: 'teamsHeader'
+        secondary: false
       }
     ]
   }
