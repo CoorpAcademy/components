@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import {isNil} from 'lodash/fp';
 import {
   NovaCompositionCoorpacademyAdaptive as AdaptivIcon,
   NovaSolidStatusCheckCircle2 as CheckIcon,
@@ -15,7 +16,7 @@ export const MODES = {
   CARD: 'card'
 };
 
-const ContentTypeInfo = ({mode, adaptiv, type, externalContent}, context) => {
+const ContentTypeInfo = ({mode, type, externalContent}, context) => {
   const {translate} = context;
   if (mode !== MODES.CARD) {
     return null;
@@ -51,7 +52,6 @@ ContentTypeInfo.contextTypes = {
 };
 
 ContentTypeInfo.propTypes = {
-  adaptiv: PropTypes.bool,
   externalContent: PropTypes.bool,
   type: PropTypes.string,
   mode: PropTypes.string
@@ -131,7 +131,7 @@ const ContentInfo = ({
   const chapterContent = type === 'chapter';
 
   const progressBar =
-    mode === MODES.HERO || (!empty && !disabled) ? (
+    mode === MODES.HERO || (!empty && !disabled && !isNil(progress)) ? (
       <div className={style.progressWrapper}>
         {!disabled ? (
           <div data-name="progress" className={style.progress} style={inlineProgressValueStyle} />
@@ -155,12 +155,7 @@ const ContentInfo = ({
         externalContent ? style.externalContent : null
       )}
     >
-      <ContentTypeInfo
-        mode={mode}
-        adaptiv={adaptiv}
-        type={type}
-        externalContent={externalContent}
-      />
+      <ContentTypeInfo mode={mode} type={type} externalContent={externalContent} />
       <div
         className={classnames(style.cardInfo, chapterContent ? style.microLearningCardInfo : null)}
       >

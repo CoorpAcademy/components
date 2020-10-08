@@ -31,3 +31,9 @@ test('should submit when submit value in searchBar input', t => {
   wrapper.find('[data-name="Search-Bar"] input').simulate('submit', {});
   t.pass();
 });
+
+test('render should return null if no props are provided', t => {
+  t.is(new MoocHeader({}).render(), null);
+  t.is(new MoocHeader().render(), null);
+  t.pass();
+});

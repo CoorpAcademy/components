@@ -188,9 +188,9 @@ class MoocHeader extends React.Component {
   }
 
   render() {
+    if (isEmpty(this.props)) return null;
     const {logo = {}, pages, settings, user, links, search} = this.props;
     const {isFocus, isSettingsOpen, isMenuOpen} = this.state;
-    if (isEmpty(this.props)) return null;
     const {translate, skin} = this.context;
 
     const logoUrl = get('src', logo) || get('images.logo', skin);
@@ -445,13 +445,15 @@ class MoocHeader extends React.Component {
 
     if (search) {
       searchFormView = (
-        <SearchForm
-          search={search}
-          onSubmit={this.handleSubmitSearch}
-          onReset={this.handleResetSearch}
-          onSearchFocus={this.handleOnFocus}
-          onSearchBlur={this.handleOnBlur}
-        />
+        <div data-name="Search-Bar" className={style.searchBar}>
+          <SearchForm
+            search={search}
+            onSubmit={this.handleSubmitSearch}
+            onReset={this.handleResetSearch}
+            onSearchFocus={this.handleOnFocus}
+            onSearchBlur={this.handleOnBlur}
+          />
+        </div>
       );
     }
 
@@ -476,10 +478,8 @@ class MoocHeader extends React.Component {
               <Picture src={logoUrl} />
             </Link>
           </div>
-          <div data-name="Search-Bar" className={style.searchBar}>
-            {searchFormView}
-          </div>
-          <div className={style.menuWrapper}>
+          {searchFormView}
+          <div className={style.menuWrapper} data-name="menu-wrapper">
             {pagesView}
             {userView || linksView}
             {settingsView}
