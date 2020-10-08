@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import {isNil} from 'lodash/fp';
 import {
   NovaCompositionCoorpacademyAdaptive as AdaptivIcon,
   NovaSolidStatusCheckCircle2 as CheckIcon,
@@ -117,7 +118,6 @@ const ContentInfo = ({
   empty = false,
   mode = MODES.CARD,
   progress,
-  disableProgress = false,
   title,
   type
 }) => {
@@ -131,7 +131,7 @@ const ContentInfo = ({
   const chapterContent = type === 'chapter';
 
   const progressBar =
-    mode === MODES.HERO || (!empty && !disabled && !disableProgress) ? (
+    mode === MODES.HERO || (!empty && !disabled && !isNil(progress)) ? (
       <div className={style.progressWrapper}>
         {!disabled ? (
           <div data-name="progress" className={style.progress} style={inlineProgressValueStyle} />
@@ -184,7 +184,6 @@ ContentInfo.propTypes = {
   disabled: PropTypes.bool,
   empty: PropTypes.bool,
   progress: PropTypes.number,
-  disableProgress: PropTypes.bool,
   title: PropTypes.string,
   type: PropTypes.string,
   mode: PropTypes.string

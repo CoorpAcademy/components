@@ -10,7 +10,6 @@ const cardProps = {
   author: 'Coorpacademy',
   certifiedAuthor: true,
   badge: 'new',
-  disableProgress: true,
   customer: {
     coorpOriginal: true,
     name: 'Decathlon creation'
