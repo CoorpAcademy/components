@@ -12,7 +12,8 @@ import {
   NovaSolidVoteRewardsRewardsBadge1 as BonusIcon,
   NovaCompositionCoorpacademyScorm as ScormIcon,
   NovaCompositionCoorpacademyArticle as ArticleIcon,
-  NovaCompositionCoorpacademyVideo as VideoIcon
+  NovaCompositionCoorpacademyVideo as VideoIcon,
+  NovaCompositionCoorpacademyMicrophone as PodcastIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import Link from '../../atom/link';
@@ -26,7 +27,8 @@ const ICONS = {
   bonus: BonusIcon,
   article: ArticleIcon,
   scorm: ScormIcon,
-  video: VideoIcon
+  video: VideoIcon,
+  podcast: PodcastIcon
 };
 
 const ToolTip = ({toolTip, id}, context) => {
@@ -130,7 +132,7 @@ class EngineStars extends React.Component {
     return (
       <div
         data-tip={disabled}
-        data-type={type}
+        data-engine={type}
         onClick={disabled || active ? noop : this.handleClick}
         data-for={disabled && type}
         className={classnames([

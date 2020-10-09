@@ -68,15 +68,21 @@ export default {
       },
       {
         type: 'video',
-        title: 'Video',
+        title: 'Videos',
         stars: 50,
         onClick: () => console.log('video')
       },
       {
         type: 'article',
-        title: 'Article',
+        title: 'Articles',
         stars: 50,
         onClick: () => console.log('article')
+      },
+      {
+        type: 'podcast',
+        title: 'Podcasts',
+        stars: 0,
+        onClick: () => console.log('podcast')
       }
     ],
     progressions: [
