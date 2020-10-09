@@ -58,7 +58,7 @@ test('should call the onClick function with click on engine tab', t => {
   const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
   const props = set('engines[2].onClick', e => t.pass(), defaultFixture.props);
   const wrapper = mount(<Activity {...props} />, {context});
-  const battleTab = wrapper.find('[data-type="battle"]');
+  const battleTab = wrapper.find('[data-engine="battle"]');
   t.is(battleTab.exists(), true);
   battleTab.simulate('click', clickEvent);
 });
@@ -69,7 +69,7 @@ test('should not call the onClick function with click on engine tab', t => {
   const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
   const props = set('engines[2].onClick', null, defaultFixture.props);
   const wrapper = mount(<Activity {...props} />, {context});
-  const battleTab = wrapper.find('[data-type="battle"]');
+  const battleTab = wrapper.find('[data-engine="battle"]');
   t.is(battleTab.exists(), true);
   battleTab.simulate('click', clickEvent);
 });
