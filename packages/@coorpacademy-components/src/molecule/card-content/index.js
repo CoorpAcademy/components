@@ -131,8 +131,8 @@ const ContentInfo = ({
   const chapterContent = type === 'chapter';
 
   const progressBar =
-    mode === MODES.HERO || (!empty && !disabled && !isNil(progress)) ? (
-      <div className={style.progressWrapper}>
+    mode === MODES.HERO || (!empty && !disabled) ? (
+      <div className={!isNil(progress) ? style.progressWrapper : style.hideProgressBar}>
         {!disabled ? (
           <div data-name="progress" className={style.progress} style={inlineProgressValueStyle} />
         ) : null}
