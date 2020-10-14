@@ -373,6 +373,7 @@ import MoleculeCardFixtureScorm from '../src/molecule/card/test/fixtures/scorm';
 import MoleculeCardFixtureVideo from '../src/molecule/card/test/fixtures/video';
 import MoleculeCardContentFixtureAdaptivAndDisabled from '../src/molecule/card-content/test/fixtures/adaptiv-and-disabled';
 import MoleculeCardContentFixtureAdaptiv from '../src/molecule/card-content/test/fixtures/adaptiv';
+import MoleculeCardContentFixtureCardNoProgressBar from '../src/molecule/card-content/test/fixtures/card-no-progress-bar';
 import MoleculeCardContentFixtureCard from '../src/molecule/card-content/test/fixtures/card';
 import MoleculeCardContentFixtureDisabled from '../src/molecule/card-content/test/fixtures/disabled';
 import MoleculeCardContentFixtureEmpty from '../src/molecule/card-content/test/fixtures/empty';
@@ -1367,6 +1368,7 @@ export const fixtures = {
     MoleculeCardContent: {
       AdaptivAndDisabled: MoleculeCardContentFixtureAdaptivAndDisabled,
       Adaptiv: MoleculeCardContentFixtureAdaptiv,
+      CardNoProgressBar: MoleculeCardContentFixtureCardNoProgressBar,
       Card: MoleculeCardContentFixtureCard,
       Disabled: MoleculeCardContentFixtureDisabled,
       Empty: MoleculeCardContentFixtureEmpty,

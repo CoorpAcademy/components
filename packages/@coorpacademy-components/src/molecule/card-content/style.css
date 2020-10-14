@@ -205,3 +205,8 @@
     font-size: 12px;
   }
 }
+
+.hideProgressBar {
+  composes: progressWrapper;
+  opacity: 0;
+}
