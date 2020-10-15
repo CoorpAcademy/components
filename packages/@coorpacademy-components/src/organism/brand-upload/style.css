@@ -66,6 +66,7 @@
 
 .progress div {
   background: positive;
+  position: initial;
 }
 
 @keyframes notificationAppear {
