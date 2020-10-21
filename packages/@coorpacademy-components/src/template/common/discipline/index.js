@@ -3,7 +3,6 @@ import DisciplineCTA from '../../../molecule/discipline-cta';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplinePartners from '../../../molecule/discipline-partners';
 import DisciplineScope from '../../../molecule/discipline-scope';
-import Footer from '../../../organism/mooc-footer';
 import style from './style.css';
 
 const Discipline = (props, context) => {
@@ -70,7 +69,6 @@ const Discipline = (props, context) => {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 };
