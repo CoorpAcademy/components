@@ -54,6 +54,7 @@
   .wrapper {
     display: flex;
   }
+  
   .mobileAuthorCtaSection {
     composes: wrapper from '../layout.css';
     position: inherit;

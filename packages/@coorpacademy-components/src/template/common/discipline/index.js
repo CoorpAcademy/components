@@ -3,6 +3,7 @@ import DisciplineCTA from '../../../molecule/discipline-cta';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplinePartners from '../../../molecule/discipline-partners';
 import DisciplineScope from '../../../molecule/discipline-scope';
+import Footer from '../../../organism/mooc-footer';
 import style from './style.css';
 
 const Discipline = (props, context) => {
@@ -23,12 +24,36 @@ const Discipline = (props, context) => {
   } = props;
 
   return (
-    <div data-name="discipline">
-      <div className={style.wrapper}>
-        <div className={style.header}>
-          <DisciplineHeader image={image} video={video} title={title} description={description} />
+    <div>
+      <div data-name="discipline">
+        <div className={style.wrapper}>
+          <div className={style.header}>
+            <DisciplineHeader image={image} video={video} title={title} description={description} />
+          </div>
+          <div className={style.mobileAuthorCtaSection}>
+            <div className={style.cta}>
+              <DisciplineCTA
+                type={'discipline'}
+                start={start}
+                buy={buy}
+                startLabel={startLabel}
+                buyLabel={buyLabel}
+              />
+            </div>
+            <div className={style.partners}>
+              <DisciplinePartners authors={authors} />
+            </div>
+          </div>
+          <div className={style.content}>
+            <DisciplineScope
+              content={level}
+              levels={levels}
+              selected={selected}
+              onClick={changeLevel}
+            />
+          </div>
         </div>
-        <div className={style.mobileAuthorCtaSection}>
+        <div className={style.wideAuthorCtaSection}>
           <div className={style.cta}>
             <DisciplineCTA
               type={'discipline'}
@@ -42,29 +67,8 @@ const Discipline = (props, context) => {
             <DisciplinePartners authors={authors} />
           </div>
         </div>
-        <div className={style.content}>
-          <DisciplineScope
-            content={level}
-            levels={levels}
-            selected={selected}
-            onClick={changeLevel}
-          />
-        </div>
       </div>
-      <div className={style.wideAuthorCtaSection}>
-        <div className={style.cta}>
-          <DisciplineCTA
-            type={'discipline'}
-            start={start}
-            buy={buy}
-            startLabel={startLabel}
-            buyLabel={buyLabel}
-          />
-        </div>
-        <div className={style.partners}>
-          <DisciplinePartners authors={authors} />
-        </div>
-      </div>
+      <Footer />
     </div>
   );
 };
