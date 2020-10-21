@@ -51,6 +51,20 @@ const Discipline = (props, context) => {
           />
         </div>
       </div>
+      <div className={style.sticky2}>
+        <div className={style.cta}>
+          <DisciplineCTA
+            type={'discipline'}
+            start={start}
+            buy={buy}
+            startLabel={startLabel}
+            buyLabel={buyLabel}
+          />
+        </div>
+        <div className={style.partners}>
+          <DisciplinePartners authors={authors} />
+        </div>
+      </div>
     </div>
   );
 };

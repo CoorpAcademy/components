@@ -23,6 +23,14 @@
   width: 280px;
 }
 
+.sticky2 {
+  position: fixed;
+  left: 50%;
+  margin-left: 330px;
+  top: 80px;
+  width: 280px;
+}
+
 .leftColumn {
   composes: column;
   float: left;
@@ -57,6 +65,11 @@
     order: 2;
     margin-left: 0px;
   }
+
+  .sticky2 {
+    display: none;
+  }
+
   .column {
     display: flex;
     flex-basis: 100%;
@@ -85,5 +98,8 @@
   }
   .sticky {
     padding: 0px;
+  }
+  .sticky2 {
+    display: none;
   }
 }
