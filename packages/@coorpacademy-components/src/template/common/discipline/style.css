@@ -42,9 +42,7 @@
 .mobileAuthorCtaSection {
   display: none;
   position: fixed;
-  left: 50%;
   margin-left: 330px;
-  top: 80px;
 }
 
 .header,
@@ -96,6 +94,7 @@
 
   .content {
     order: 4;
+    width: 100%;
   }
 }
 
