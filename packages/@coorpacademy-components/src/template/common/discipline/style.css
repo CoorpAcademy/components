@@ -3,11 +3,36 @@
 @value mobile from breakpoints;
 @value wide from breakpoints;
 
-.wrapper {
+.container {
   composes: wrapper from '../layout.css';
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.leftSection {
   display: block;
   overflow: hidden;
   padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.rightSection {
+  box-sizing: border-box;
+  position: relative;
+  padding-left: 50px;
+}
+
+.stickySection {
+  box-sizing: border-box;
+  position: sticky;
+  top: 80px;
+  z-index: 1;
+  width: 280px;
+  padding: 0 20px;
 }
 
 .column {
@@ -20,41 +45,25 @@
   left: 50%;
   margin-left: 330px;
   top: 80px;
-  width: 280px;
-}
-
-.wideAuthorCtaSection {
-  composes: mobileAuthorCtaSection;
-  display: block;
-}
-
-.leftColumn {
-  composes: column;
-  float: left;
-  width: 840px;
-}
-
-.rightColumn {
-  composes: column;
-  float: right;
-  width: 280px;
 }
 
 .header,
 .content {
-  composes: leftColumn;
+  composes: column;
+  width: 840px;
 }
 
 .cta,
 .partners {
-  composes: rightColumn;
+  composes: column;
+  padding-bottom: 50px;
 }
 
 @media desktop {
-  .wrapper {
+  .container {
     display: flex;
   }
-  
+
   .mobileAuthorCtaSection {
     composes: wrapper from '../layout.css';
     position: inherit;
@@ -64,7 +73,7 @@
     margin-left: 0px;
   }
 
-  .wideAuthorCtaSection {
+  .rightSection {
     display: none;
   }
 
@@ -94,10 +103,12 @@
   .content {
     width: 100%;
   }
+
   .mobileAuthorCtaSection {
     padding: 0px;
   }
-  .wideAuthorCtaSection {
+
+  .rightSection {
     display: none;
   }
 }

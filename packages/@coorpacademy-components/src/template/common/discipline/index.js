@@ -25,8 +25,8 @@ const Discipline = (props, context) => {
 
   return (
     <div>
-      <div data-name="discipline">
-        <div className={style.wrapper}>
+      <div data-name="discipline" className={style.container}>
+        <div className={style.leftSection}>
           <div className={style.header}>
             <DisciplineHeader image={image} video={video} title={title} description={description} />
           </div>
@@ -53,18 +53,20 @@ const Discipline = (props, context) => {
             />
           </div>
         </div>
-        <div className={style.wideAuthorCtaSection}>
-          <div className={style.cta}>
-            <DisciplineCTA
-              type={'discipline'}
-              start={start}
-              buy={buy}
-              startLabel={startLabel}
-              buyLabel={buyLabel}
-            />
-          </div>
-          <div className={style.partners}>
-            <DisciplinePartners authors={authors} />
+        <div className={style.rightSection}>
+          <div className={style.stickySection}>
+            <div className={style.cta}>
+              <DisciplineCTA
+                type={'discipline'}
+                start={start}
+                buy={buy}
+                startLabel={startLabel}
+                buyLabel={buyLabel}
+              />
+            </div>
+            <div className={style.partners}>
+              <DisciplinePartners authors={authors} />
+            </div>
           </div>
         </div>
       </div>
