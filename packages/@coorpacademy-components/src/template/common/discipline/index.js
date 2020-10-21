@@ -23,31 +23,33 @@ const Discipline = (props, context) => {
   } = props;
 
   return (
-    <div data-name="discipline" className={style.wrapper}>
-      <div className={style.header}>
-        <DisciplineHeader image={image} video={video} title={title} description={description} />
-      </div>
-      <div className={style.sticky}>
-        <div className={style.cta}>
-          <DisciplineCTA
-            type={'discipline'}
-            start={start}
-            buy={buy}
-            startLabel={startLabel}
-            buyLabel={buyLabel}
+    <div data-name="discipline">
+      <div className={style.wrapper}>
+        <div className={style.header}>
+          <DisciplineHeader image={image} video={video} title={title} description={description} />
+        </div>
+        <div className={style.sticky}>
+          <div className={style.cta}>
+            <DisciplineCTA
+              type={'discipline'}
+              start={start}
+              buy={buy}
+              startLabel={startLabel}
+              buyLabel={buyLabel}
+            />
+          </div>
+          <div className={style.partners}>
+            <DisciplinePartners authors={authors} />
+          </div>
+        </div>
+        <div className={style.content}>
+          <DisciplineScope
+            content={level}
+            levels={levels}
+            selected={selected}
+            onClick={changeLevel}
           />
         </div>
-        <div className={style.partners}>
-          <DisciplinePartners authors={authors} />
-        </div>
-      </div>
-      <div className={style.content}>
-        <DisciplineScope
-          content={level}
-          levels={levels}
-          selected={selected}
-          onClick={changeLevel}
-        />
       </div>
     </div>
   );

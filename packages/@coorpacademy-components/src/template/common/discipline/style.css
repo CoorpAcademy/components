@@ -15,6 +15,7 @@
 }
 
 .sticky {
+  display: none;
   position: fixed;
   left: 50%;
   margin-left: 330px;
