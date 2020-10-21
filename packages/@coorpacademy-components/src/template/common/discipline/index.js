@@ -28,7 +28,7 @@ const Discipline = (props, context) => {
         <div className={style.header}>
           <DisciplineHeader image={image} video={video} title={title} description={description} />
         </div>
-        <div className={style.sticky}>
+        <div className={style.mobileAuthorCtaSection}>
           <div className={style.cta}>
             <DisciplineCTA
               type={'discipline'}
@@ -51,7 +51,7 @@ const Discipline = (props, context) => {
           />
         </div>
       </div>
-      <div className={style.sticky2}>
+      <div className={style.wideAuthorCtaSection}>
         <div className={style.cta}>
           <DisciplineCTA
             type={'discipline'}

@@ -14,7 +14,7 @@
   margin-bottom: 30px;
 }
 
-.sticky {
+.mobileAuthorCtaSection {
   display: none;
   position: fixed;
   left: 50%;
@@ -23,12 +23,9 @@
   width: 280px;
 }
 
-.sticky2 {
-  position: fixed;
-  left: 50%;
-  margin-left: 330px;
-  top: 80px;
-  width: 280px;
+.wideAuthorCtaSection {
+  composes: mobileAuthorCtaSection;
+  display: block;
 }
 
 .leftColumn {
@@ -57,7 +54,7 @@
   .wrapper {
     display: flex;
   }
-  .sticky {
+  .mobileAuthorCtaSection {
     composes: wrapper from '../layout.css';
     position: inherit;
     display: flex;
@@ -66,7 +63,7 @@
     margin-left: 0px;
   }
 
-  .sticky2 {
+  .wideAuthorCtaSection {
     display: none;
   }
 
@@ -96,10 +93,10 @@
   .content {
     width: 100%;
   }
-  .sticky {
+  .mobileAuthorCtaSection {
     padding: 0px;
   }
-  .sticky2 {
+  .wideAuthorCtaSection {
     display: none;
   }
 }
