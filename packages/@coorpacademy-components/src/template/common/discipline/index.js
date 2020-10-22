@@ -1,4 +1,5 @@
 import React from 'react';
+import isEmpty from 'lodash/fp/isEmpty';
 import DisciplineCTA from '../../../molecule/discipline-cta';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplinePartners from '../../../molecule/discipline-partners';
@@ -21,6 +22,12 @@ const Discipline = (props, context) => {
     startLabel,
     buyLabel
   } = props;
+
+  const authorSection = isEmpty(authors) ? null : (
+    <div className={style.partners}>
+      <DisciplinePartners authors={authors} />
+    </div>
+  );
 
   return (
     <div>
@@ -63,9 +70,7 @@ const Discipline = (props, context) => {
                 buyLabel={buyLabel}
               />
             </div>
-            <div className={style.partners}>
-              <DisciplinePartners authors={authors} />
-            </div>
+            {authorSection}
           </div>
         </div>
       </div>
