@@ -1,4 +1,5 @@
 import React from 'react';
+import isEmpty from 'lodash/fp/isEmpty';
 import DisciplineCTA from '../../../molecule/discipline-cta';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplinePartners from '../../../molecule/discipline-partners';
@@ -22,32 +23,56 @@ const Discipline = (props, context) => {
     buyLabel
   } = props;
 
+  const authorSection = isEmpty(authors) ? null : (
+    <div className={style.partners}>
+      <DisciplinePartners authors={authors} />
+    </div>
+  );
+
   return (
-    <div data-name="discipline" className={style.wrapper}>
-      <div className={style.header}>
-        <DisciplineHeader image={image} video={video} title={title} description={description} />
-      </div>
-      <div className={style.sticky}>
-        <div className={style.cta}>
-          <DisciplineCTA
-            type={'discipline'}
-            start={start}
-            buy={buy}
-            startLabel={startLabel}
-            buyLabel={buyLabel}
-          />
+    <div>
+      <div data-name="discipline" className={style.container}>
+        <div className={style.leftSection}>
+          <div className={style.header}>
+            <DisciplineHeader image={image} video={video} title={title} description={description} />
+          </div>
+          <div className={style.mobileAuthorCtaSection}>
+            <div className={style.cta}>
+              <DisciplineCTA
+                type={'discipline'}
+                start={start}
+                buy={buy}
+                startLabel={startLabel}
+                buyLabel={buyLabel}
+              />
+            </div>
+            <div className={style.partners}>
+              <DisciplinePartners authors={authors} />
+            </div>
+          </div>
+          <div className={style.content}>
+            <DisciplineScope
+              content={level}
+              levels={levels}
+              selected={selected}
+              onClick={changeLevel}
+            />
+          </div>
         </div>
-        <div className={style.partners}>
-          <DisciplinePartners authors={authors} />
+        <div className={style.rightSection}>
+          <div className={style.stickySection}>
+            <div className={style.cta}>
+              <DisciplineCTA
+                type={'discipline'}
+                start={start}
+                buy={buy}
+                startLabel={startLabel}
+                buyLabel={buyLabel}
+              />
+            </div>
+            {authorSection}
+          </div>
         </div>
-      </div>
-      <div className={style.content}>
-        <DisciplineScope
-          content={level}
-          levels={levels}
-          selected={selected}
-          onClick={changeLevel}
-        />
       </div>
     </div>
   );

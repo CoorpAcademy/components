@@ -1,5 +1,5 @@
 import {update, uniqueId, head} from 'lodash/fp';
-import disciplineHeader from '../../../../../molecule/discipline-header/test/fixtures/default';
+import disciplineHeader from '../../../../../molecule/discipline-header/test/fixtures/long-description';
 import disciplinePartners from '../../../../../molecule/discipline-partners/test/fixtures/more-info';
 import disciplineCTA from '../../../../../molecule/discipline-cta/test/fixtures/default';
 import disciplineScope from '../../../../../molecule/discipline-scope/test/fixtures/medias';

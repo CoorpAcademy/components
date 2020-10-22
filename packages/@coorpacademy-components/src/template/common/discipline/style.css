@@ -3,52 +3,68 @@
 @value mobile from breakpoints;
 @value wide from breakpoints;
 
-.wrapper {
+.container {
   composes: wrapper from '../layout.css';
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.leftSection {
   display: block;
   overflow: hidden;
   padding: 20px;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.rightSection {
+  box-sizing: border-box;
+  position: relative;
+  padding-left: 50px;
+  margin-bottom: 50px;
+  margin-top: 60px;
+}
+
+.stickySection {
+  box-sizing: border-box;
+  position: sticky;
+  top: 40px;
+  z-index: 1;
+  width: 280px;
+  padding: 0 20px;
 }
 
 .column {
   margin-bottom: 30px;
 }
 
-.sticky {
+.mobileAuthorCtaSection {
+  display: none;
   position: fixed;
-  left: 50%;
   margin-left: 330px;
-  top: 80px;
-  width: 280px;
-}
-
-.leftColumn {
-  composes: column;
-  float: left;
-  width: 840px;
-}
-
-.rightColumn {
-  composes: column;
-  float: right;
-  width: 280px;
 }
 
 .header,
 .content {
-  composes: leftColumn;
+  composes: column;
+  width: 840px;
 }
 
 .cta,
 .partners {
-  composes: rightColumn;
+  composes: column;
+  padding-top: 20px;
 }
 
 @media desktop {
-  .wrapper {
+  .container {
     display: flex;
   }
-  .sticky {
+
+  .mobileAuthorCtaSection {
     composes: wrapper from '../layout.css';
     position: inherit;
     display: flex;
@@ -56,6 +72,11 @@
     order: 2;
     margin-left: 0px;
   }
+
+  .rightSection {
+    display: none;
+  }
+
   .column {
     display: flex;
     flex-basis: 100%;
@@ -63,6 +84,7 @@
 
   .header {
     order: 1;
+    width: 100%;
   }
 
   .cta {
@@ -75,14 +97,24 @@
 
   .content {
     order: 4;
+    width: 100%;
   }
 }
 
 @media mobile {
+  .header {
+    width: 100%;
+  }
+
   .content {
     width: 100%;
   }
-  .sticky {
+
+  .mobileAuthorCtaSection {
     padding: 0px;
+  }
+
+  .rightSection {
+    display: none;
   }
 }
