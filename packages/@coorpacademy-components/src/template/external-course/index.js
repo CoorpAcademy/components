@@ -2,7 +2,7 @@ import React from 'react';
 import {NovaSolidInterfaceFeedbackInterfaceQuestionMark as QuestionIcon} from '@coorpacademy/nova-icons';
 import {convert} from 'css-color-function';
 import classnames from 'classnames';
-import {get, getOr, keys, identity, isNil} from 'lodash/fp';
+import {get, getOr, keys, identity, isNil, isEmpty} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import {EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
 import Provider from '../../atom/provider';
@@ -18,7 +18,7 @@ const defaultWrapperStyle = {
 
 class ExternalCourse extends React.Component {
   static propTypes = {
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     type: PropTypes.oneOf(keys(EXTERNAL_CONTENT_ICONS)),
     url: PropTypes.string.isRequired,
     quit: PropTypes.shape({
@@ -100,39 +100,61 @@ class ExternalCourse extends React.Component {
       />
     ) : null;
 
+    const warningButton = !isNil(warning) ? (
+      <div className={style.leftSection}>
+        <div
+          onClick={this.handleOnClick(warning)}
+          className={classnames(style.iconLabel, style.link)}
+        >
+          <QuestionIcon className={style.iconQuestion} width={24} height={24} />
+          <span>{warning.label}</span>
+        </div>
+      </div>
+    ) : null;
+
+    const quitButton = !isNil(quit) ? (
+      <div className={style.leftSection}>
+        <span
+          className={classnames(style.quitCta, loading ? style.loading : null)}
+          onClick={loading ? identity : this.handleOnClick(quit)}
+        >
+          {quit.label}
+        </span>
+      </div>
+    ) : null;
+
+    const titleSection = !isNil(name) ? (
+      <div className={classnames(style.iconLabel, style.title)}>
+        <div className={style.oval} style={{backgroundColor: IconColor}}>
+          <IconType className={style.iconHeader} />
+        </div>
+        <span>{name}</span>
+      </div>
+    ) : null;
+
+    const header =
+      !isNil(quit) || !isEmpty(name) ? (
+        <div className={style.header}>
+          {quitButton}
+          {titleSection}
+          {isNil(quit) ? null : <div className={style.rightSection} />}
+        </div>
+      ) : null;
+
+    const footer =
+      !isNil(warning) || !isNil(complete) ? (
+        <div className={style.footer}>
+          {warningButton}
+          {completeButton}
+          {isNil(warning) ? null : <div className={style.rightSection} />}
+        </div>
+      ) : null;
+
     return (
       <div className={defaultWrapperStyle[mode]}>
-        <div className={style.header}>
-          <div className={style.leftSection}>
-            <span
-              className={classnames(style.quitCta, loading ? style.loading : null)}
-              onClick={loading ? identity : this.handleOnClick(quit)}
-            >
-              {quit.label}
-            </span>
-          </div>
-          <div className={classnames(style.iconLabel, style.title)}>
-            <div className={style.oval} style={{backgroundColor: IconColor}}>
-              <IconType className={style.iconHeader} />
-            </div>
-            <span>{name}</span>
-          </div>
-          <div className={style.rightSection} />
-        </div>
+        {header}
         {mainContentSlot}
-        <div className={style.footer}>
-          <div className={style.leftSection}>
-            <div
-              onClick={this.handleOnClick(warning)}
-              className={classnames(style.iconLabel, style.link)}
-            >
-              <QuestionIcon className={style.iconQuestion} width={24} height={24} />
-              <span>{warning.label}</span>
-            </div>
-          </div>
-          {completeButton}
-          <div className={style.rightSection} />
-        </div>
+        {footer}
       </div>
     );
   }

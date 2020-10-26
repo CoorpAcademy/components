@@ -12,10 +12,6 @@ export default {
       label: 'finish',
       onClick: () => console.log('finish')
     },
-    warning: {
-      label: 'Report an error',
-      onClick: () => console.log('Report an error')
-    },
     loading: false
   }
 };
