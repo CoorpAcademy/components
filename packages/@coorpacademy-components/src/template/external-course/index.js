@@ -18,7 +18,7 @@ const defaultWrapperStyle = {
 
 class ExternalCourse extends React.Component {
   static propTypes = {
-    name: PropTypes.string.isRequired,
+    name: PropTypes.string,
     type: PropTypes.oneOf(keys(EXTERNAL_CONTENT_ICONS)),
     url: PropTypes.string.isRequired,
     quit: PropTypes.shape({
