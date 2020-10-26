@@ -3,10 +3,6 @@ export default {
     name: 'Cerise Music Ride',
     type: 'video',
     url: 'https://www.youtube.com/embed/nLMZd05FQKc',
-    quit: {
-      label: 'close',
-      onClick: () => console.log('close')
-    },
     complete: {
       disabled: true,
       label: 'finish',
