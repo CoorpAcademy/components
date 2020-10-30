@@ -8,6 +8,10 @@ const propsOther = SectionOther.props;
 
 export default {
   props: {
-    sections: [propsFirst, props, propsOther]
+    sections: [propsFirst, props, propsOther],
+    onDrop: (dragged, dropped) => {
+      console.log('foo');
+      console.log({dragged, dropped});
+    }
   }
 };

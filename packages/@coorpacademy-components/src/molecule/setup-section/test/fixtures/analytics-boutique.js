@@ -1,6 +1,6 @@
 export default {
   props: {
-    id: '98aze89138',
+    id: 'analytics-boutique',
     title: 'Boutique',
     onUp: e => {
       console.log(e);

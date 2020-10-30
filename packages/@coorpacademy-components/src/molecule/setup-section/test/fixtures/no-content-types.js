@@ -1,6 +1,6 @@
 export default {
   props: {
-    id: '98e898748',
+    id: 'no-content-types',
     title: 'No content types',
     onUp: e => {
       console.log(e);
