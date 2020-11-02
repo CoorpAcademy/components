@@ -10,6 +10,10 @@ const {props: noContentTypes} = NoContentTypes;
 
 export default {
   props: {
-    sections: [propsFirst, props, propsOther, noContentTypes]
+    sections: [propsFirst, props, propsOther, noContentTypes],
+    onDrop: (dragged, dropped) => {
+      console.log('foo');
+      console.log({dragged, dropped});
+    }
   }
 };

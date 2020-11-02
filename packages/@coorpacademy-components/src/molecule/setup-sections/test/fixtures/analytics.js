@@ -8,6 +8,10 @@ const {props: region} = Region;
 
 export default {
   props: {
-    sections: [boutique, branch, region]
+    sections: [boutique, branch, region],
+    onDrop: (dragged, dropped) => {
+      console.log('foo');
+      console.log({dragged, dropped});
+    }
   }
 };

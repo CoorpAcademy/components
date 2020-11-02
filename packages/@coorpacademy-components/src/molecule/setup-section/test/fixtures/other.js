@@ -4,7 +4,7 @@ const {props: contentTypes} = ContentTypes;
 
 export default {
   props: {
-    id: '98e898748',
+    id: 'other',
     title: 'Recommended for you',
     onUp: e => {
       console.log(e);
