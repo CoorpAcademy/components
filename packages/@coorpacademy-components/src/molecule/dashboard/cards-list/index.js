@@ -280,12 +280,12 @@ class CardsList extends React.Component {
       })
     )(cards);
     const leftArrowView = (
-      <div className={style.circle} onClick={this.handleOnLeft}>
+      <div className={style.circle} onClick={this.handleOnLeft} data-name="card-list-left-arrow">
         <ArrowLeft color={dark} className={style.left} width={10} height={10} />
       </div>
     );
     const rightArrowView = (
-      <div className={style.circle} onClick={this.handleOnRight}>
+      <div className={style.circle} onClick={this.handleOnRight} data-name="card-list-right-arrow">
         <ArrowRight color={dark} className={style.right} width={10} height={10} />
       </div>
     );
