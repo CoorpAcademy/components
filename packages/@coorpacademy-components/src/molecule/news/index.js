@@ -10,12 +10,23 @@ const News = (props, context) => {
   return (
     <div className={style.news}>
       <div className={style.image}>
-        <Link href={cta.href} className={style.linkImage} target={cta.target}>
+        <Link
+          href={cta.href}
+          className={style.linkImage}
+          target={cta.target}
+          data-name="news-image"
+        >
           <img src={image} />
         </Link>
       </div>
       <div className={style.infos}>
-        <Link href={cta.href} title={title} className={style.title} target={cta.target}>
+        <Link
+          href={cta.href}
+          title={title}
+          className={style.title}
+          target={cta.target}
+          data-name="news-title"
+        >
           {title}
         </Link>
         <div className={style.date}>{date}</div>
@@ -31,7 +42,7 @@ const News = (props, context) => {
           <div className={style.author}>
             <img src={authorLogo} />
           </div>
-          <Cta {...cta} secondary />
+          <Cta {...cta} secondary name="news-cta" />
         </div>
       </div>
       <Link className={style.link} href={cta.href} target={cta.target} />
