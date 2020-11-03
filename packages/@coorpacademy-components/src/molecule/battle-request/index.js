@@ -19,6 +19,7 @@ const BattleRequest = (props, context) => {
 
   return (
     <Link
+      data-name="battle-request-dashboard"
       className={style.card}
       style={{
         borderColor: primaryColor

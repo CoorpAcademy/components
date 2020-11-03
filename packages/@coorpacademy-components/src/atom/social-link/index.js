@@ -32,7 +32,13 @@ const SocialLink = props => {
   const {type, link, mode = 'default'} = props;
   const IconType = ICONS[type];
   return (
-    <a href={link} className={themeStyle[mode]} target="_blank" rel="noopener noreferrer">
+    <a
+      href={link}
+      className={themeStyle[mode]}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-name={`${mode}-${type}`}
+    >
       <IconType className={style.icon} />
     </a>
   );
