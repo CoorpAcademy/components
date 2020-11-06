@@ -12,7 +12,8 @@ import {
   NovaSolidContentContentBook1 as LearnerIcon,
   NovaCompositionCoorpacademyScorm as ScormIcon,
   NovaCompositionCoorpacademyArticle as ArticleIcon,
-  NovaCompositionCoorpacademyVideo as VideoIcon
+  NovaCompositionCoorpacademyVideo as VideoIcon,
+  NovaCompositionCoorpacademyMicrophone as PodcastIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import ProgressBar from '../../molecule/progress-bar';
@@ -26,7 +27,8 @@ const ICONS = {
   certification: CertificationIcon,
   article: ArticleIcon,
   scorm: ScormIcon,
-  video: VideoIcon
+  video: VideoIcon,
+  podcast: PodcastIcon
 };
 
 const ProgressionItem = (props, context) => {

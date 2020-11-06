@@ -167,7 +167,7 @@ export default {
         label: 'Lead generation',
         level: 'Advanced',
         state: 'Start learning',
-        type: 'chapter',
+        type: 'podcast',
         adaptive: false,
         onClick: () => {
           console.log('chapter');
