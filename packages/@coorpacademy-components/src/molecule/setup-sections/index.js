@@ -1,78 +1,99 @@
-import React, {useCallback} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import SetupSection from '../setup-section';
 import Loader from '../../atom/loader';
 import style from './style.css';
 
 const preventDefault = e => e.preventDefault();
 
-const Item = props => {
-  const {id, onDrop} = props;
+class SetupSections extends React.Component {
+  static propTypes = {
+    sections: PropTypes.arrayOf(PropTypes.shape(SetupSection.propTypes)),
+    loading: PropTypes.bool,
+    onDrop: PropTypes.func
+  };
 
-  const dragHandler = useCallback(
-    e => {
-      if (id) e.dataTransfer.setData('text', id);
-    },
-    [id]
-  );
-  const dropHandler = useCallback(
-    e => {
-      preventDefault(e);
-      const data = e.dataTransfer.getData('text');
-      if (onDrop && data) onDrop(data, id);
-    },
-    [id, onDrop]
-  );
+  constructor(props) {
+    super(props);
+    this.state = {
+      dragTo: null,
+      dragFrom: null
+    };
+    this.handleDrag = this.dragHandler.bind(this);
+    this.handleDrop = this.dropHandler.bind(this);
+    this.handleDragOver = this.dragOverHandler.bind(this);
+    this.handleDragLeave = this.dragLeaveHandler.bind(this);
+  }
 
-  return (
-    <div
-      className={style.section}
-      onDragStart={dragHandler}
-      onDragOver={preventDefault}
-      onDrop={dropHandler}
-      draggable
-    >
-      <SetupSection {...props} />
-    </div>
-  );
-};
-Item.propTypes = {
-  ...SetupSection.propTypes,
-  onDrop: PropTypes.func
-};
+  dragHandler = id => e => {
+    preventDefault(e);
+    this.setState({
+      dragFrom: id
+    });
+  };
 
-const SetupSections = (props, context) => {
-  const {sections, loading = false, onDrop} = props;
+  dropHandler = id => e => {
+    preventDefault(e);
+    const {onDrop} = this.props;
+    const {dragFrom} = this.state;
+    this.setState({
+      dragTo: null,
+      dragFrom: null
+    });
+    if (onDrop && dragFrom) onDrop(dragFrom, id);
+  };
 
-  let sectionsView = null;
+  dragOverHandler = id => e => {
+    preventDefault(e);
+    const {dragTo} = this.state;
+    if (dragTo !== id) {
+      this.setState({
+        dragTo: id
+      });
+    }
+  };
 
-  if (loading) {
-    sectionsView = (
+  dragLeaveHandler = _id => e => {
+    preventDefault(e);
+    this.setState({
+      dragTo: null
+    });
+  };
+
+  render() {
+    const {dragTo} = this.state;
+    const {sections, loading = false, onDrop} = this.props;
+    const loadingView = (
       <div className={style.loading}>
         <Loader />
       </div>
     );
-  } else {
-    sectionsView = sections.map((section, index) => {
-      return (
-        <Item
+    const sectionsView = sections.map((section, index) => (
+      <div
+        key={section.id}
+        className={classnames(
+          dragTo === section.id ? style.dragging : null,
+          style.section,
+          style.draggable
+        )}
+        onDragStart={this.handleDrag(section.id)}
+        onDragOver={this.handleDragOver(section.id)}
+        onDragLeave={this.handleDragLeave(section.id)}
+        onDrop={this.handleDrop(section.id)}
+        draggable
+      >
+        <SetupSection
           {...section}
           key={section.id}
           onUp={index === 0 ? null : section.onUp}
           onDown={index === sections.length - 1 ? null : section.onDown}
           onDrop={onDrop}
         />
-      );
-    });
+      </div>
+    ));
+    return <div>{loading ? loadingView : sectionsView}</div>;
   }
-
-  return <div>{sectionsView}</div>;
-};
-
-SetupSections.propTypes = {
-  sections: PropTypes.arrayOf(PropTypes.shape(SetupSection.propTypes)),
-  loading: PropTypes.bool,
-  onDrop: PropTypes.func
-};
+}
 
 export default SetupSections;

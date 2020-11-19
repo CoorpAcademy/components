@@ -14,41 +14,37 @@ browserEnv();
 configure({adapter: new Adapter()});
 
 test('should trigger onDrop handler', t => {
-  t.plan(6);
+  t.plan(14);
 
   const elementToDrag = fixtures.props.sections[0].id;
   const elementToDrop = fixtures.props.sections[2].id;
 
   const dropHandler = (dragged, dropped) => {
-    t.is(dragged, elementToDrag);
     t.is(dropped, elementToDrop);
+    t.is(dragged, elementToDrag);
   };
 
   const wrapper = mount(<SetupSections {...fixtures.props} onDrop={dropHandler} />, {
     wrappingComponent
   });
 
-  const dragStartEvent = {
-    dataTransfer: {
-      setData: (type, value) => {
-        t.is(type, 'text');
-        t.is(value, elementToDrag);
-      }
-    }
-  };
-  const dragOverEvent = {
-    preventDefault: () => t.pass()
-  };
-  const dropEvent = {
-    dataTransfer: {
-      getData: type => {
-        t.is(type, 'text');
-        return elementToDrag;
-      }
-    }
-  };
+  const dragStartEvent = {preventDefault: () => t.pass()};
+  const dragOverEvent = {preventDefault: () => t.pass()};
+  const dragLeaveEvent = {preventDefault: () => t.pass()};
+  const dropEvent = {preventDefault: () => t.pass()};
+  const instance = wrapper.instance();
+  t.deepEqual(instance.state, {dragFrom: null, dragTo: null});
+
   wrapper.find(`.${style.section}`).at(0).simulate('dragStart', dragStartEvent);
+  t.deepEqual(instance.state, {dragFrom: elementToDrag, dragTo: null});
   wrapper.find(`.${style.section}`).at(0).simulate('dragOver', dragOverEvent);
+  t.deepEqual(instance.state, {dragFrom: elementToDrag, dragTo: elementToDrag});
+  wrapper.find(`.${style.section}`).at(0).simulate('dragOver', dragOverEvent);
+  t.deepEqual(instance.state, {dragFrom: elementToDrag, dragTo: elementToDrag});
+  wrapper.find(`.${style.section}`).at(0).simulate('dragLeave', dragLeaveEvent);
+  t.deepEqual(instance.state, {dragFrom: elementToDrag, dragTo: null});
+  wrapper.find(`.${style.section}`).at(2).simulate('dragOver', dragOverEvent);
+  t.deepEqual(instance.state, {dragFrom: elementToDrag, dragTo: elementToDrop});
   wrapper.find(`.${style.section}`).at(2).simulate('drop', dropEvent);
 });
 
@@ -63,20 +59,12 @@ test('should skip drop event if dragStart is not called', t => {
     wrappingComponent
   });
 
-  const dropEvent = {
-    dataTransfer: {
-      getData: type => {
-        t.is(type, 'text');
-        return;
-      }
-    }
-  };
+  const dropEvent = {preventDefault: () => t.pass()};
   wrapper.find(`.${style.section}`).at(2).simulate('drop', dropEvent);
 });
 
 test('should skip dragStart event if section id is not defined', t => {
-  t.plan(0);
-
+  t.plan(2);
   const dropHandler = (dragged, dropped) => {
     t.fail();
   };
@@ -88,7 +76,9 @@ test('should skip dragStart event if section id is not defined', t => {
     }
   );
 
-  const dragStartEvent = {};
+  const dragStartEvent = {preventDefault: () => t.pass()};
 
   wrapper.find(`.${style.section}`).at(0).simulate('dragStart', dragStartEvent);
+  const instance = wrapper.instance();
+  t.deepEqual(instance.state, {dragFrom: '', dragTo: null});
 });
