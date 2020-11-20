@@ -1,3 +1,5 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
 @value colors: "../../variables/colors.css";
 @value xtraLightGrey from colors;
 @value brand from colors;
@@ -5,7 +7,7 @@
 
 .wrapper {
   width: 100%;
-  background-color: xtraLightGrey;
+  background-color: color(xtraLightGrey a(90%));
   height: 60px;
   display: flex;
   align-items: center;
@@ -35,7 +37,9 @@
   margin-left: 30px;
   margin-right: 16px;
 }
-
+.arrowSection {
+  display: none
+}
 .arrow {
   left: 50%;
   top: 50%;
@@ -56,4 +60,9 @@
 
 .contentTypeWrapper {
   width: 310px;
+}
+@media mobile {
+  .arrowSection {
+    display: block;
+  }
 }

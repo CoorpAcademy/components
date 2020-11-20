@@ -56,16 +56,18 @@ const SetupSection = (props, context) => {
         <ContentTypesToggler contentTypes={contentTypes} />
         <div className={style.label}>{translate('Show')}</div>
         <InputSwitch {...display} />
-        <ArrowDownIcon
-          color={colorUp}
-          className={onDown ? style.arrow : style.disabled}
-          onClick={onDown}
-        />
-        <ArrowUpIcon
-          color={colorDown}
-          className={onUp ? style.arrow : style.disabled}
-          onClick={onUp}
-        />
+        <div className={style.arrowSection}>
+          <ArrowDownIcon
+            color={colorUp}
+            className={onDown ? style.arrow : style.disabled}
+            onClick={onDown}
+          />
+          <ArrowUpIcon
+            color={colorDown}
+            className={onUp ? style.arrow : style.disabled}
+            onClick={onUp}
+          />
+        </div>
       </div>
     </div>
   );
