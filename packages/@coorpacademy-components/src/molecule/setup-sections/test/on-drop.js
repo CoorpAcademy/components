@@ -14,7 +14,7 @@ browserEnv();
 configure({adapter: new Adapter()});
 
 test('should trigger onDrop handler', t => {
-  t.plan(14);
+  t.plan(7);
 
   const elementToDrag = fixtures.props.sections[0].id;
   const elementToDrop = fixtures.props.sections[2].id;
@@ -32,19 +32,12 @@ test('should trigger onDrop handler', t => {
   const dragOverEvent = {preventDefault: () => t.pass()};
   const dragLeaveEvent = {preventDefault: () => t.pass()};
   const dropEvent = {preventDefault: () => t.pass()};
-  const instance = wrapper.instance();
-  t.deepEqual(instance.state, {dragFrom: null, dragTo: null});
 
   wrapper.find(`.${style.section}`).at(0).simulate('dragStart', dragStartEvent);
-  t.deepEqual(instance.state, {dragFrom: elementToDrag, dragTo: null});
   wrapper.find(`.${style.section}`).at(0).simulate('dragOver', dragOverEvent);
-  t.deepEqual(instance.state, {dragFrom: elementToDrag, dragTo: elementToDrag});
   wrapper.find(`.${style.section}`).at(0).simulate('dragOver', dragOverEvent);
-  t.deepEqual(instance.state, {dragFrom: elementToDrag, dragTo: elementToDrag});
   wrapper.find(`.${style.section}`).at(0).simulate('dragLeave', dragLeaveEvent);
-  t.deepEqual(instance.state, {dragFrom: elementToDrag, dragTo: null});
   wrapper.find(`.${style.section}`).at(2).simulate('dragOver', dragOverEvent);
-  t.deepEqual(instance.state, {dragFrom: elementToDrag, dragTo: elementToDrop});
   wrapper.find(`.${style.section}`).at(2).simulate('drop', dropEvent);
 });
 
@@ -64,7 +57,8 @@ test('should skip drop event if dragStart is not called', t => {
 });
 
 test('should skip dragStart event if section id is not defined', t => {
-  t.plan(2);
+  t.plan(0);
+
   const dropHandler = (dragged, dropped) => {
     t.fail();
   };
@@ -76,9 +70,15 @@ test('should skip dragStart event if section id is not defined', t => {
     }
   );
 
-  const dragStartEvent = {preventDefault: () => t.pass()};
+  const dragStartEvent = {preventDefault: () => {}};
+  const dragOverEvent = {preventDefault: () => {}};
+  const dragLeaveEvent = {preventDefault: () => {}};
+  const dropEvent = {preventDefault: () => {}};
 
   wrapper.find(`.${style.section}`).at(0).simulate('dragStart', dragStartEvent);
-  const instance = wrapper.instance();
-  t.deepEqual(instance.state, {dragFrom: '', dragTo: null});
+  wrapper.find(`.${style.section}`).at(0).simulate('dragOver', dragOverEvent);
+  wrapper.find(`.${style.section}`).at(0).simulate('dragOver', dragOverEvent);
+  wrapper.find(`.${style.section}`).at(0).simulate('dragLeave', dragLeaveEvent);
+  wrapper.find(`.${style.section}`).at(2).simulate('dragOver', dragOverEvent);
+  wrapper.find(`.${style.section}`).at(2).simulate('drop', dropEvent);
 });
