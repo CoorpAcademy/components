@@ -109,6 +109,7 @@ import MoleculeSsmenuList from './../src/molecule/ssmenu-list';
 import MoleculeSubscriptionFreemium from './../src/molecule/subscription-freemium';
 import MoleculeSubscriptionPremium from './../src/molecule/subscription-premium';
 import MoleculeTable from './../src/molecule/table';
+import MoleculeTeamsPopin from './../src/molecule/teams-popin';
 import MoleculeThemeImage from './../src/molecule/theme-image';
 import MoleculeTitledCheckbox from './../src/molecule/titled-checkbox';
 import MoleculeUnsubscribe from './../src/molecule/unsubscribe';
@@ -563,6 +564,11 @@ import MoleculeTableFixtureCockpitTheme from '../src/molecule/table/test/fixture
 import MoleculeTableFixtureDefault from '../src/molecule/table/test/fixtures/default';
 import MoleculeTableFixtureNoOptions from '../src/molecule/table/test/fixtures/no-options';
 import MoleculeTableFixtureReadonly from '../src/molecule/table/test/fixtures/readonly';
+import MoleculeTeamsPopinFixtureDefault from '../src/molecule/teams-popin/test/fixtures/default';
+import MoleculeTeamsPopinFixtureLoginFaild from '../src/molecule/teams-popin/test/fixtures/login-faild';
+import MoleculeTeamsPopinFixtureNotTeamsAccount from '../src/molecule/teams-popin/test/fixtures/not-teams-account';
+import MoleculeTeamsPopinFixtureWithoutButton from '../src/molecule/teams-popin/test/fixtures/without-button';
+import MoleculeTeamsPopinFixtureWrong from '../src/molecule/teams-popin/test/fixtures/wrong';
 import MoleculeThemeImageFixtureBg from '../src/molecule/theme-image/test/fixtures/bg';
 import MoleculeTitledCheckboxFixtureChecked from '../src/molecule/titled-checkbox/test/fixtures/checked';
 import MoleculeTitledCheckboxFixtureNoBg from '../src/molecule/titled-checkbox/test/fixtures/no-bg';
@@ -946,6 +952,7 @@ export const components = {
     MoleculeSubscriptionFreemium,
     MoleculeSubscriptionPremium,
     MoleculeTable,
+    MoleculeTeamsPopin,
     MoleculeThemeImage,
     MoleculeTitledCheckbox,
     MoleculeUnsubscribe,
@@ -1595,6 +1602,13 @@ export const fixtures = {
       Default: MoleculeTableFixtureDefault,
       NoOptions: MoleculeTableFixtureNoOptions,
       Readonly: MoleculeTableFixtureReadonly
+    },
+    MoleculeTeamsPopin: {
+      Default: MoleculeTeamsPopinFixtureDefault,
+      LoginFaild: MoleculeTeamsPopinFixtureLoginFaild,
+      NotTeamsAccount: MoleculeTeamsPopinFixtureNotTeamsAccount,
+      WithoutButton: MoleculeTeamsPopinFixtureWithoutButton,
+      Wrong: MoleculeTeamsPopinFixtureWrong
     },
     MoleculeThemeImage: {
       Bg: MoleculeThemeImageFixtureBg
