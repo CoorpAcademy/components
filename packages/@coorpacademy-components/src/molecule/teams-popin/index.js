@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   NovaCompositionCoorpacademyReload as ReloadIcon,
-  NovaCompositionCoorpacademyLoginFaild as LoginFaildIcon,
+  NovaCompositionCoorpacademyLoginFaild as LoginFailedIcon,
   NovaCompositionCoorpacademyAddressError as AddreessErrorIcon
 } from '@coorpacademy/nova-icons';
 import style from './style.css';
@@ -28,10 +28,10 @@ const Icon = props => {
           <AddreessErrorIcon className={style.icon} />
         </div>
       );
-    case 'loginFaild':
+    case 'loginFailed':
       return (
         <div className={style.iconContainer}>
-          <LoginFaildIcon className={style.icon} />
+          <LoginFailedIcon className={style.icon} />
         </div>
       );
     default:
@@ -70,7 +70,7 @@ TeamsPopin.propTypes = {
   content: PropTypes.string.isRequired,
   buttonLabel: PropTypes.string,
   onButtonClick: PropTypes.func,
-  type: PropTypes.oneOf(['reload', 'loginFaild', 'addressError', 'wrong'])
+  type: PropTypes.oneOf(['reload', 'loginFailed', 'addressError', 'wrong'])
 };
 
 Icon.propTypes = {
