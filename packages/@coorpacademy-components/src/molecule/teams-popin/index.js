@@ -7,59 +7,37 @@ import {
 } from '@coorpacademy/nova-icons';
 import style from './style.css';
 
-const Icon = props => {
-  const {type} = props;
-  switch (type) {
-    case 'reload':
-      return (
-        <div className={style.iconContainer}>
-          <ReloadIcon className={style.icon} />
-        </div>
-      );
-    case 'wrong':
-      return (
-        <div className={style.iconContainer}>
-          <ReloadIcon className={style.icon} />
-        </div>
-      );
-    case 'addressError':
-      return (
-        <div className={style.iconContainer}>
-          <AddreessErrorIcon className={style.icon} />
-        </div>
-      );
-    case 'loginFailed':
-      return (
-        <div className={style.iconContainer}>
-          <LoginFailedIcon className={style.icon} />
-        </div>
-      );
-    default:
-      return null;
-  }
+const ICONS = {
+  loginFailed: LoginFailedIcon,
+  addressError: AddreessErrorIcon,
+  reload: ReloadIcon,
+  wrong: ReloadIcon
 };
 
 const TeamsPopin = props => {
   const {header, content, buttonLabel, onButtonClick, type} = props;
+  const IconType = ICONS[type];
+  const Icon = IconType ? (
+    <div className={style.iconContainer}>
+      <IconType className={style.icon} />
+    </div>
+  ) : null;
+
   return (
-    <div className={style.wrapmessage}>
-      <div className={style.disable}>
-        <div className={style.popin}>
-          <Icon type={type} />
-          <div className={style.header} data-name="popin-header">
-            {header}
-          </div>
-          <div className={style.content}>
-            <p>{content}</p>
-          </div>
-          {buttonLabel && onButtonClick ? (
-            <div className={style.buttonContainer}>
-              <button className={style.button} type="button" onClick={onButtonClick}>
-                {buttonLabel}
-              </button>
-            </div>
-          ) : null}
+    <div className={style.background}>
+      <div className={style.popin}>
+        {Icon}
+        <div className={style.header} data-name="popin-header">
+          {header}
         </div>
+        <p className={style.content}>{content}</p>
+        {buttonLabel && onButtonClick ? (
+          <div className={style.buttonContainer}>
+            <button className={style.button} type="button" onClick={onButtonClick}>
+              {buttonLabel}
+            </button>
+          </div>
+        ) : null}
       </div>
     </div>
   );
@@ -73,7 +51,4 @@ TeamsPopin.propTypes = {
   type: PropTypes.oneOf(['reload', 'loginFailed', 'addressError', 'wrong'])
 };
 
-Icon.propTypes = {
-  type: TeamsPopin.propTypes.type
-};
 export default TeamsPopin;
