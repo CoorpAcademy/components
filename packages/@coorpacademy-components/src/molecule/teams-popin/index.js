@@ -5,6 +5,7 @@ import {
   NovaCompositionCoorpacademyLoginFaild as LoginFailedIcon,
   NovaCompositionCoorpacademyAddressError as AddreessErrorIcon
 } from '@coorpacademy/nova-icons';
+import Cta from '../../atom/cta';
 import style from './style.css';
 
 const ICONS = {
@@ -33,9 +34,7 @@ const TeamsPopin = props => {
         <p className={style.content}>{content}</p>
         {buttonLabel && onButtonClick ? (
           <div className={style.buttonContainer}>
-            <button className={style.button} type="button" onClick={onButtonClick}>
-              {buttonLabel}
-            </button>
+            <Cta submitValue={buttonLabel} onClick={onButtonClick} />
           </div>
         ) : null}
       </div>
