@@ -2,13 +2,15 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   NovaCompositionCoorpacademyReload as ReloadIcon,
-  NovaCompositionCoorpacademyLoginFaild as LoginFailedIcon,
-  NovaCompositionCoorpacademyAddressError as AddreessErrorIcon
+  NovaCompositionCoorpacademyLoginFailed as LoginFailedIcon,
+  NovaCompositionCoorpacademyAddressError as AddreessErrorIcon,
+  NovaCompositionCoorpacademySchoolGraduation as SchoolGraduation
 } from '@coorpacademy/nova-icons';
 import Cta from '../../atom/cta';
 import style from './style.css';
 
 const ICONS = {
+  login: SchoolGraduation,
   loginFailed: LoginFailedIcon,
   addressError: AddreessErrorIcon,
   reload: ReloadIcon,
@@ -18,8 +20,9 @@ const ICONS = {
 const TeamsPopin = props => {
   const {header, content, buttonLabel, onButtonClick, type} = props;
   const IconType = ICONS[type];
+  const iconContainerStyle = type === 'login' ? style.iconContainer : style.errorIconContainer;
   const Icon = IconType ? (
-    <div className={style.iconContainer}>
+    <div className={iconContainerStyle}>
       <IconType className={style.icon} />
     </div>
   ) : null;
@@ -47,7 +50,7 @@ TeamsPopin.propTypes = {
   content: PropTypes.string.isRequired,
   buttonLabel: PropTypes.string,
   onButtonClick: PropTypes.func,
-  type: PropTypes.oneOf(['reload', 'loginFailed', 'addressError', 'wrong'])
+  type: PropTypes.oneOf(['login', 'reload', 'loginFailed', 'addressError', 'wrong'])
 };
 
 export default TeamsPopin;

@@ -4,6 +4,8 @@
 @value light from colors;
 @value black from colors;
 @value negative from colors;
+@value lightGreen from colors;
+
 .background {
   top: 0px;
   position: relative;
@@ -50,12 +52,13 @@
   color: black;
   padding-bottom: 20px;
   box-sizing: border-box;
-  width:60%;
+  width: 70%;
 }
 
 .buttonContainer {
   display: flex;
   justify-content: center;
+  margin-bottom: 20px;
 }
 
 .icon {
@@ -71,5 +74,9 @@
   width: 80px;
   height: 80px;
   border-radius: 10px;
+  background-color: color(lightGreen a(10%));
+}
+.errorIconContainer{
+  composes: iconContainer;
   background-color: color(negative a(5%));
 }
