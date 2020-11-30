@@ -38,7 +38,7 @@ import _NovaCompositionCoorpacademyLightbulb from './components/nova-composition
 import _NovaCompositionCoorpacademyLinkedin from './components/nova-composition/coorpacademy/linkedin';
 import _NovaCompositionCoorpacademyListBullets3 from './components/nova-composition/coorpacademy/list-bullets-3';
 import _NovaCompositionCoorpacademyLock from './components/nova-composition/coorpacademy/lock';
-import _NovaCompositionCoorpacademyLoginFaild from './components/nova-composition/coorpacademy/login-faild';
+import _NovaCompositionCoorpacademyLoginFailed from './components/nova-composition/coorpacademy/login-failed';
 import _NovaCompositionCoorpacademyMagicWand from './components/nova-composition/coorpacademy/magic-wand';
 import _NovaCompositionCoorpacademyMagicWand1 from './components/nova-composition/coorpacademy/magic-wand.1';
 import _NovaCompositionCoorpacademyMail from './components/nova-composition/coorpacademy/mail';
@@ -50,6 +50,7 @@ import _NovaCompositionCoorpacademyPictures from './components/nova-composition/
 import _NovaCompositionCoorpacademyPinterest from './components/nova-composition/coorpacademy/pinterest';
 import _NovaCompositionCoorpacademyProfile from './components/nova-composition/coorpacademy/profile';
 import _NovaCompositionCoorpacademyReload from './components/nova-composition/coorpacademy/reload';
+import _NovaCompositionCoorpacademySchoolGraduation from './components/nova-composition/coorpacademy/school-graduation';
 import _NovaCompositionCoorpacademyScorm from './components/nova-composition/coorpacademy/scorm';
 import _NovaCompositionCoorpacademySearch from './components/nova-composition/coorpacademy/search';
 import _NovaCompositionCoorpacademySettings from './components/nova-composition/coorpacademy/settings';
@@ -164,7 +165,7 @@ export const NovaCompositionCoorpacademyLightbulb: Icon = _NovaCompositionCoorpa
 export const NovaCompositionCoorpacademyLinkedin: Icon = _NovaCompositionCoorpacademyLinkedin;
 export const NovaCompositionCoorpacademyListBullets3: Icon = _NovaCompositionCoorpacademyListBullets3;
 export const NovaCompositionCoorpacademyLock: Icon = _NovaCompositionCoorpacademyLock;
-export const NovaCompositionCoorpacademyLoginFaild: Icon = _NovaCompositionCoorpacademyLoginFaild;
+export const NovaCompositionCoorpacademyLoginFailed: Icon = _NovaCompositionCoorpacademyLoginFailed;
 export const NovaCompositionCoorpacademyMagicWand: Icon = _NovaCompositionCoorpacademyMagicWand;
 export const NovaCompositionCoorpacademyMagicWand1: Icon = _NovaCompositionCoorpacademyMagicWand1;
 export const NovaCompositionCoorpacademyMail: Icon = _NovaCompositionCoorpacademyMail;
@@ -176,6 +177,7 @@ export const NovaCompositionCoorpacademyPictures: Icon = _NovaCompositionCoorpac
 export const NovaCompositionCoorpacademyPinterest: Icon = _NovaCompositionCoorpacademyPinterest;
 export const NovaCompositionCoorpacademyProfile: Icon = _NovaCompositionCoorpacademyProfile;
 export const NovaCompositionCoorpacademyReload: Icon = _NovaCompositionCoorpacademyReload;
+export const NovaCompositionCoorpacademySchoolGraduation: Icon = _NovaCompositionCoorpacademySchoolGraduation;
 export const NovaCompositionCoorpacademyScorm: Icon = _NovaCompositionCoorpacademyScorm;
 export const NovaCompositionCoorpacademySearch: Icon = _NovaCompositionCoorpacademySearch;
 export const NovaCompositionCoorpacademySettings: Icon = _NovaCompositionCoorpacademySettings;
