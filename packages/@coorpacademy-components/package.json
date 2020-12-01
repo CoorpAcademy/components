@@ -46,7 +46,8 @@
     "Jeroen Engels <jengels@coorpacademy.com>",
     "Joan Ortega <joan.ortega@coorpacademy.com>",
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>",
-    "Adrien Becchis <adrien.becchis@coorpacademy.com>"
+    "Adrien Becchis <adrien.becchis@coorpacademy.com>",
+    "Soualmi Djamel <djamel.soualmi@coorpacademy.com>"
   ],
   "dependencies": {
     "@coorpacademy/nova-icons": "3.9.2",

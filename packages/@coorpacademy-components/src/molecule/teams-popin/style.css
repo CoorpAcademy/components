@@ -1,0 +1,82 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value brand from colors;
+@value light from colors;
+@value black from colors;
+@value negative from colors;
+@value lightGreen from colors;
+
+.background {
+  top: 0px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 15% 25%;
+  background-color: light;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+.popin {
+  top: 30%;
+  position: absolute;
+  overflow: auto;
+  width: 35%;
+  background: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 15px 0 rgba(166, 166, 166, 0.84);
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.header {
+  font-family: 'Open Sans';
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  width: 70%;
+  padding-top: 20px;
+  box-sizing: border-box;
+}
+
+.content {
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-weight: normal;
+  color: black;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+  width: 70%;
+}
+
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  color: negative;
+}
+.iconContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 80px;
+  height: 80px;
+  border-radius: 10px;
+  background-color: color(lightGreen a(10%));
+}
+.errorIconContainer{
+  composes: iconContainer;
+  background-color: color(negative a(5%));
+}
