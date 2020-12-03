@@ -18,10 +18,10 @@
   justify-content: center;
   box-sizing: border-box;
   overflow: hidden;
+  display: flex;
 }
 
 .popin {
-  top: 30%;
   position: absolute;
   overflow: auto;
   width: 35%;
