@@ -103,7 +103,7 @@ export const editAnswer = (newValue: string | Array<string> | Choice) => (
   });
 };
 
-export const validateAnswer = (partialPayload: PostAnswerPartialPayload) => async (
+export const validateAnswer = (partialPayload: PostAnswerPartialPayload, {skipNextSlideFetch = false}) => async (
   dispatch: Dispatch,
   getState: GetState,
   {services}: Options
@@ -139,7 +139,7 @@ export const validateAnswer = (partialPayload: PostAnswerPartialPayload) => asyn
 
   const state = getState();
 
-  if (get('nextContent.type', progressionState) === 'slide') {
+  if (!skipNextSlideFetch && get('nextContent.type', progressionState) === 'slide') {
     await dispatch(fetchSlideChapter(nextContentRef));
   }
 
