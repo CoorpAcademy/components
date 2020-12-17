@@ -103,11 +103,10 @@ export const editAnswer = (newValue: string | Array<string> | Choice) => (
   });
 };
 
-export const validateAnswer = (partialPayload: PostAnswerPartialPayload, {skipNextSlideFetch = false}) => async (
-  dispatch: Dispatch,
-  getState: GetState,
-  {services}: Options
-): DispatchedAction => {
+export const validateAnswer = (
+  partialPayload: PostAnswerPartialPayload,
+  {skipNextSlideFetch}: {skipNextSlideFetch: boolean} = {skipNextSlideFetch: false}
+) => async (dispatch: Dispatch, getState: GetState, {services}: Options): DispatchedAction => {
   const initialState = getState();
   const slide = getCurrentSlide(initialState);
 

@@ -194,6 +194,21 @@ test(
 );
 
 test(
+  'should provide a correct answer and see tips opened but without fetching next content',
+  macro,
+  stateWithSlideAndManyResources,
+  services(correctAnswer),
+  validateAnswer({}, {skipNextSlideFetch: true}),
+  flatten([
+    answer(correctAnswer),
+    accordionIsOpenAt(ACCORDION_TIPS),
+    progressionUpdated,
+    fetchCorrection,
+  ]),
+  5
+);
+
+test(
   'should provide a wrong answer and see lesson opened',
   macro,
   stateWithSlideAndManyResources,
