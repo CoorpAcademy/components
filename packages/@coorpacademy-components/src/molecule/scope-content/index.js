@@ -1,11 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {get, getOr} from 'lodash/fp';
+import classnames from 'classnames';
 import {NovaLineAudioAudioControlPlay as PlayIcon} from '@coorpacademy/nova-icons';
 import Button from '../../atom/button';
 import Link from '../../atom/link';
 import Provider from '../../atom/provider';
 import Discussion from '../../organism/discussion';
+import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
 
 const ScopeContent = (props, context) => {
@@ -27,9 +29,21 @@ const ScopeContent = (props, context) => {
   const onClick = get('onClick', content);
   const buttonLabel = get('buttonLabel', content);
   const discussion = get('discussion', content);
-  const skills = _skills.map((skill, index) => <li key={index}>{skill}</li>);
+  const skills = _skills.map((skill, index) => (
+    <li
+      key={index}
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{__html: skill}}
+    />
+  ));
 
-  const chapters = _chapters.map((chapter, index) => <li key={index}>{chapter.name}</li>);
+  const chapters = _chapters.map((chapter, index) => (
+    <li
+      key={index}
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{__html: chapter.name}}
+    />
+  ));
 
   const ctaView = onClick ? (
     <Button
@@ -61,7 +75,11 @@ const ScopeContent = (props, context) => {
           <img src={media.image} />
           {type === 'video' ? <PlayIcon className={style.play} color={white} /> : null}
         </div>
-        <div className={style.mediaTitle}>{media.title}</div>
+        <div
+          className={classnames(style.mediaTitle, innerHTML)}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{__html: media.title}}
+        />
       </Link>
     );
   });
@@ -78,7 +96,11 @@ const ScopeContent = (props, context) => {
       <div data-name="description" className={style.desc}>
         <div className={style.infos}>
           <div className={style.title}>
-            {title}
+            <div
+              className={classnames(style.titleWapper, innerHTML)}
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{__html: title}}
+            />
             <div>
               <span data-name="duration" className={style.time}>
                 {time}

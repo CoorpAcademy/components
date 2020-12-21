@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {get, getOr, keys} from 'lodash/fp';
+import classnames from 'classnames';
 import {NovaSolidStatusCheckCircle2 as CheckIcon} from '@coorpacademy/nova-icons';
 import Provider from '../../../atom/provider';
 import Button from '../../../atom/button';
@@ -10,6 +11,7 @@ import Loader from '../../../atom/loader';
 import Card from '../../../molecule/card';
 import Feedback from '../../../molecule/feedback';
 import CardsList from '../../../molecule/dashboard/cards-list';
+import {innerHTML} from '../../../atom/label/style.css';
 import PopinHeader from '../popin-header';
 import style from './summary.css';
 
@@ -50,7 +52,11 @@ const NextCourse = ({title, prefix, card}) => (
   <div data-name="nextCourse" className={style.nextCourseWrapper}>
     <div className={style.nextCourseTexts}>
       <div className={style.nextCoursePrefix}>{prefix}</div>
-      <div className={style.nextCourseTitle}>{title}</div>
+      <div
+        className={classnames(style.nextCourseTitle, innerHTML)}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: title}}
+      />
     </div>
     <div className={style.nextCourseCard}>
       <Card {...card} dataName={'popin-end-next-course'} />
@@ -69,7 +75,11 @@ const Subscribe = ({title, description, button, card}) => {
     <div className={style.subscribeWrapper}>
       <div className={style.subscribeTexts}>
         <div className={style.subscribeDescription}>{description}</div>
-        <div className={style.subscribeTitle}>{title}</div>
+        <div
+          className={classnames(style.subscribeTitle, innerHTML)}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{__html: title}}
+        />
         <div className={style.subscribeButtonWrapper}>
           <Button
             {...linkProps}

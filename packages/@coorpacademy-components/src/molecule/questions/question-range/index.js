@@ -1,8 +1,10 @@
 import React from 'react';
 import {getOr} from 'lodash/fp';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import Provider from '../../../atom/provider';
 import Range from '../../../atom/range';
+import {innerHTML} from '../../../atom/label/style.css';
 import style from './style.css';
 
 const QuestionRange = (props, context) => {
@@ -19,27 +21,21 @@ const QuestionRange = (props, context) => {
     <div className={style.wrapper}>
       <span
         style={titleStyle}
-        className={style.title}
+        className={classnames(style.title, innerHTML)}
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{
-          __html: title
-        }}
+        dangerouslySetInnerHTML={{__html: title}}
       />
       <Range {...rangeProps} />
       <div className={style.labelWrapper}>
         <span
-          className={style.label}
+          className={classnames(style.label, innerHTML)}
           // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{
-            __html: minLabel
-          }}
+          dangerouslySetInnerHTML={{__html: minLabel}}
         />
         <span
-          className={style.label}
+          className={classnames(style.label, innerHTML)}
           // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{
-            __html: maxLabel
-          }}
+          dangerouslySetInnerHTML={{__html: maxLabel}}
         />
       </div>
     </div>

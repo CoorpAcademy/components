@@ -13,6 +13,7 @@ import Swapper from '../../../../hoc/swapper';
 import VideoPlayer from '../../../../molecule/video-player';
 import PDF from '../../../../molecule/pdf';
 import ResourceBrowser from '../../../../organism/resource-browser';
+import {innerHTML} from '../../../../atom/label/style.css';
 import Footer from './footer';
 import Header from './header';
 import style from './style.css';
@@ -246,11 +247,9 @@ const ContextContent = ({slideContext}) => {
     <p
       key={index}
       data-name="contextDescription"
-      className={style.contextDescription}
+      className={classnames(style.contextDescription, innerHTML)}
       // eslint-disable-next-line react/no-danger
-      dangerouslySetInnerHTML={{
-        __html: paragraph
-      }}
+      dangerouslySetInnerHTML={{__html: paragraph}}
     />
   ));
   return (
@@ -276,7 +275,13 @@ const CONTENT_TYPE = {
   media: MediaContent
 };
 
-const Help = ({help}) => <div className={style.helpView}>{help}</div>;
+const Help = ({help}) => (
+  <div
+    className={classnames(style.helpView, innerHTML)}
+    // eslint-disable-next-line react/no-danger
+    dangerouslySetInnerHTML={{__html: help}}
+  />
+);
 
 Help.propTypes = {
   help: PropTypes.string
@@ -308,7 +313,7 @@ const ContentLayout = (props, context) => {
     <div className={noPaddingRessources} style={{backgroundColor: 'white'}}>
       <div
         data-name="question"
-        className={style.question}
+        className={classnames(style.question, innerHTML)}
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: typeClue === 'context' ? slideContext.title : question

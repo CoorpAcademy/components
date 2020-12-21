@@ -33,9 +33,7 @@ const News = (props, context) => {
         <div className={style.description}>
           <div
             // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{
-              __html: description
-            }}
+            dangerouslySetInnerHTML={{__html: description}}
           />
         </div>
         <div className={style.bottom}>

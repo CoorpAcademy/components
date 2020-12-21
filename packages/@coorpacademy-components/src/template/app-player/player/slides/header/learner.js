@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {get} from 'lodash/fp';
+import classnames from 'classnames';
 import {NovaCompositionNavigationArrowLeft as BackIcon} from '@coorpacademy/nova-icons';
 import Link from '../../../../../atom/link';
 import Provider from '../../../../../atom/provider';
+import {innerHTML} from '../../../../../atom/label/style.css';
 import style from './learner.css';
 
 const Content = ({onClick, title, details}, context) => {
@@ -23,9 +25,12 @@ const Content = ({onClick, title, details}, context) => {
           {details}
         </div>
 
-        <span data-name="contentTitle" className={style.contentTitle}>
-          {title}
-        </span>
+        <span
+          data-name="contentTitle"
+          className={classnames(style.contentTitle, innerHTML)}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{__html: title}}
+        />
       </div>
     </Link>
   );
@@ -44,7 +49,11 @@ Content.propTypes = {
 const Subcontent = ({title, details}, context) => (
   <div className={style.subcontent}>
     <div className={style.subcontentDetails}>{details}</div>
-    <div className={style.subcontentTitle}>{title}</div>
+    <div
+      className={classnames(style.subcontentTitle, innerHTML)}
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{__html: title}}
+    />
   </div>
 );
 

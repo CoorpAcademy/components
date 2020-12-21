@@ -18,9 +18,7 @@ const InputPreview = (props, context) => {
     <div
       className={classnames(style.preview, className)}
       // eslint-disable-next-line react/no-danger
-      dangerouslySetInnerHTML={{
-        __html: text
-      }}
+      dangerouslySetInnerHTML={{__html: text}}
     />
   );
 };

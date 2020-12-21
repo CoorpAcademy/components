@@ -102,6 +102,7 @@
 .title {
   composes: titleElement;
   font-size: 17px;
+  display: inline-flex;
 }
 
 .fullAnswer {

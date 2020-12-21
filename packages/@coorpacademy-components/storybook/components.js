@@ -318,6 +318,7 @@ import HocSwapperFixtureDefault from '../src/hoc/swapper/test/fixtures/default';
 import HocTransitionFixtureFlipSquare from '../src/hoc/transition/test/fixtures/flip-square';
 import MoleculeAnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
 import MoleculeAnswerFixtureDropDown from '../src/molecule/answer/test/fixtures/drop-down';
+import MoleculeAnswerFixtureQcmArabic from '../src/molecule/answer/test/fixtures/qcm-arabic';
 import MoleculeAnswerFixtureQcmDrag from '../src/molecule/answer/test/fixtures/qcm-drag';
 import MoleculeAnswerFixtureQcmGraphic from '../src/molecule/answer/test/fixtures/qcm-graphic';
 import MoleculeAnswerFixtureQcmShortVideo from '../src/molecule/answer/test/fixtures/qcm-short-video';
@@ -325,6 +326,7 @@ import MoleculeAnswerFixtureQcmShort from '../src/molecule/answer/test/fixtures/
 import MoleculeAnswerFixtureQcm from '../src/molecule/answer/test/fixtures/qcm';
 import MoleculeAnswerFixtureRange from '../src/molecule/answer/test/fixtures/range';
 import MoleculeAnswerFixtureTemplate from '../src/molecule/answer/test/fixtures/template';
+import MoleculeBattleRequestFixtureArabic from '../src/molecule/battle-request/test/fixtures/arabic';
 import MoleculeBattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import MoleculeBrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
 import MoleculeBrandCardFixtureWithDescription from '../src/molecule/brand-card/test/fixtures/with-description';
@@ -361,6 +363,7 @@ import MoleculeBrandUploadBoxFixtureSso from '../src/molecule/brand-upload-box/t
 import MoleculeBreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
 import MoleculeCardFixtureAdaptivAndDisabled from '../src/molecule/card/test/fixtures/adaptiv-and-disabled';
 import MoleculeCardFixtureAdaptiv from '../src/molecule/card/test/fixtures/adaptiv';
+import MoleculeCardFixtureArabic from '../src/molecule/card/test/fixtures/arabic';
 import MoleculeCardFixtureArticle from '../src/molecule/card/test/fixtures/article';
 import MoleculeCardFixtureDefault from '../src/molecule/card/test/fixtures/default';
 import MoleculeCardFixtureDisabled from '../src/molecule/card/test/fixtures/disabled';
@@ -374,6 +377,7 @@ import MoleculeCardFixtureScorm from '../src/molecule/card/test/fixtures/scorm';
 import MoleculeCardFixtureVideo from '../src/molecule/card/test/fixtures/video';
 import MoleculeCardContentFixtureAdaptivAndDisabled from '../src/molecule/card-content/test/fixtures/adaptiv-and-disabled';
 import MoleculeCardContentFixtureAdaptiv from '../src/molecule/card-content/test/fixtures/adaptiv';
+import MoleculeCardContentFixtureArabicHero from '../src/molecule/card-content/test/fixtures/arabic-hero';
 import MoleculeCardContentFixtureCardNoProgressBar from '../src/molecule/card-content/test/fixtures/card-no-progress-bar';
 import MoleculeCardContentFixtureCard from '../src/molecule/card-content/test/fixtures/card';
 import MoleculeCardContentFixtureDisabled from '../src/molecule/card-content/test/fixtures/disabled';
@@ -398,6 +402,7 @@ import MoleculeDashboardStartBattleFixtureDefault from '../src/molecule/dashboar
 import MoleculeDashboardStartBattleFixtureHref from '../src/molecule/dashboard/start-battle/test/fixtures/href';
 import MoleculeDisciplineCtaFixtureDefault from '../src/molecule/discipline-cta/test/fixtures/default';
 import MoleculeDisciplineCtaFixtureNoStart from '../src/molecule/discipline-cta/test/fixtures/no-start';
+import MoleculeDisciplineHeaderFixtureArabic from '../src/molecule/discipline-header/test/fixtures/arabic';
 import MoleculeDisciplineHeaderFixtureDefault from '../src/molecule/discipline-header/test/fixtures/default';
 import MoleculeDisciplineHeaderFixtureJwplayer from '../src/molecule/discipline-header/test/fixtures/jwplayer';
 import MoleculeDisciplineHeaderFixtureLongDescription from '../src/molecule/discipline-header/test/fixtures/long-description';
@@ -410,6 +415,7 @@ import MoleculeDisciplinePartnersFixtureDoubleAuthors from '../src/molecule/disc
 import MoleculeDisciplinePartnersFixtureMoreInfo from '../src/molecule/discipline-partners/test/fixtures/more-info';
 import MoleculeDisciplinePartnersFixtureNoAuthor from '../src/molecule/discipline-partners/test/fixtures/no-author';
 import MoleculeDisciplinePartnersFixtureNosite from '../src/molecule/discipline-partners/test/fixtures/nosite';
+import MoleculeDisciplineScopeFixtureArabic from '../src/molecule/discipline-scope/test/fixtures/arabic';
 import MoleculeDisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test/fixtures/default';
 import MoleculeDisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
 import MoleculeDisciplineScopeFixtureMedias from '../src/molecule/discipline-scope/test/fixtures/medias';
@@ -467,6 +473,7 @@ import MoleculeForumForumPostFixtureTextareasLocked from '../src/molecule/forum/
 import MoleculeForumForumThreadFixtureDeepAnswers from '../src/molecule/forum/forum-thread/test/fixtures/deep-answers';
 import MoleculeForumForumThreadFixtureDefault from '../src/molecule/forum/forum-thread/test/fixtures/default';
 import MoleculeForumForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
+import MoleculeHeroFixtureArabic from '../src/molecule/hero/test/fixtures/arabic';
 import MoleculeHeroFixtureHero from '../src/molecule/hero/test/fixtures/hero';
 import MoleculeLoginAlertFixtureDefault from '../src/molecule/login-alert/test/fixtures/default';
 import MoleculeMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
@@ -476,6 +483,7 @@ import MoleculeModuleBubbleFixtureDefault from '../src/molecule/module-bubble/te
 import MoleculeModuleBubbleFixtureDisabled from '../src/molecule/module-bubble/test/fixtures/disabled';
 import MoleculeModuleBubbleFixtureFiltered from '../src/molecule/module-bubble/test/fixtures/filtered';
 import MoleculeModuleCardFixtureActive from '../src/molecule/module-card/test/fixtures/active';
+import MoleculeModuleCardFixtureArabic from '../src/molecule/module-card/test/fixtures/arabic';
 import MoleculeModuleCardFixtureRestarted from '../src/molecule/module-card/test/fixtures/restarted';
 import MoleculeNewsFixtureDefault from '../src/molecule/news/test/fixtures/default';
 import MoleculeNewsFixtureLongDescription from '../src/molecule/news/test/fixtures/long-description';
@@ -498,6 +506,7 @@ import MoleculeQuestionsDropDownFixtureDefault from '../src/molecule/questions/d
 import MoleculeQuestionsDropDownFixtureNoSelected from '../src/molecule/questions/drop-down/test/fixtures/no-selected';
 import MoleculeQuestionsFreeTextFixtureDefault from '../src/molecule/questions/free-text/test/fixtures/default';
 import MoleculeQuestionsFreeTextFixtureWithDefaultValue from '../src/molecule/questions/free-text/test/fixtures/with-default-value';
+import MoleculeQuestionsQcmFixtureArabic from '../src/molecule/questions/qcm/test/fixtures/arabic';
 import MoleculeQuestionsQcmFixtureDefault from '../src/molecule/questions/qcm/test/fixtures/default';
 import MoleculeQuestionsQcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no-selected';
 import MoleculeQuestionsQcmFixtureShortAnswers from '../src/molecule/questions/qcm/test/fixtures/short-answers';
@@ -514,6 +523,7 @@ import MoleculeResourcePlayerFixturePdfWithOverlay from '../src/molecule/resourc
 import MoleculeResourcePlayerFixturePdf from '../src/molecule/resource-player/test/fixtures/pdf';
 import MoleculeResourcePlayerFixtureVimeoWithOverlay from '../src/molecule/resource-player/test/fixtures/vimeo-with-overlay';
 import MoleculeResourcePlayerFixtureVimeo from '../src/molecule/resource-player/test/fixtures/vimeo';
+import MoleculeScopeContentFixtureArabic from '../src/molecule/scope-content/test/fixtures/arabic';
 import MoleculeScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import MoleculeScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
 import MoleculeScopeContentFixtureMedias from '../src/molecule/scope-content/test/fixtures/medias';
@@ -645,6 +655,7 @@ import OrganismMoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fi
 import OrganismMoocHeaderFixtureTeams from '../src/organism/mooc-header/test/fixtures/teams';
 import OrganismMoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
 import OrganismPopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
+import OrganismResourceBrowserFixtureArabic from '../src/organism/resource-browser/test/fixtures/arabic';
 import OrganismResourceBrowserFixtureH5P from '../src/organism/resource-browser/test/fixtures/h5p';
 import OrganismResourceBrowserFixtureJwplayerWithOverlay from '../src/organism/resource-browser/test/fixtures/jwplayer-with-overlay';
 import OrganismResourceBrowserFixtureJwplayer from '../src/organism/resource-browser/test/fixtures/jwplayer';
@@ -671,6 +682,7 @@ import OrganismSliderFixtureDefault from '../src/organism/slider/test/fixtures/d
 import OrganismSliderFixtureMultipleSlides from '../src/organism/slider/test/fixtures/multiple-slides';
 import OrganismUserPreferencesFixtureDefault from '../src/organism/user-preferences/test/fixtures/default';
 import TemplateActivityFixtureAllEngines from '../src/template/activity/test/fixtures/all-engines';
+import TemplateActivityFixtureArabic from '../src/template/activity/test/fixtures/arabic';
 import TemplateActivityFixtureDefault from '../src/template/activity/test/fixtures/default';
 import TemplateActivityFixtureEmpty from '../src/template/activity/test/fixtures/empty';
 import TemplateActivityFixtureNoEngines from '../src/template/activity/test/fixtures/no-engines';
@@ -685,9 +697,15 @@ import TemplateAppPlayerPlayerSlidesFooterFixtureNotify from '../src/template/ap
 import TemplateAppPlayerPlayerSlidesFooterFixtureOnlyClue from '../src/template/app-player/player/slides/footer/test/fixtures/only-clue';
 import TemplateAppPlayerPlayerSlidesFooterFixtureWithContext from '../src/template/app-player/player/slides/footer/test/fixtures/with-context';
 import TemplateAppPlayerPlayerSlidesHeaderFixtureAdaptive from '../src/template/app-player/player/slides/header/test/fixtures/adaptive';
+import TemplateAppPlayerPlayerSlidesHeaderFixtureArabicLearner from '../src/template/app-player/player/slides/header/test/fixtures/arabic-learner';
+import TemplateAppPlayerPlayerSlidesHeaderFixtureArabicMicrolearning from '../src/template/app-player/player/slides/header/test/fixtures/arabic-microlearning';
 import TemplateAppPlayerPlayerSlidesHeaderFixtureInfiniteLives from '../src/template/app-player/player/slides/header/test/fixtures/infinite-lives';
 import TemplateAppPlayerPlayerSlidesHeaderFixtureLearner from '../src/template/app-player/player/slides/header/test/fixtures/learner';
 import TemplateAppPlayerPlayerSlidesHeaderFixtureMicrolearning from '../src/template/app-player/player/slides/header/test/fixtures/microlearning';
+import TemplateAppPlayerPlayerSlidesFixtureArabicContext from '../src/template/app-player/player/slides/test/fixtures/arabic-context';
+import TemplateAppPlayerPlayerSlidesFixtureArabicQcm from '../src/template/app-player/player/slides/test/fixtures/arabic-qcm';
+import TemplateAppPlayerPlayerSlidesFixtureArabicResources from '../src/template/app-player/player/slides/test/fixtures/arabic-resources';
+import TemplateAppPlayerPlayerSlidesFixtureArabic from '../src/template/app-player/player/slides/test/fixtures/arabic';
 import TemplateAppPlayerPlayerSlidesFixtureClue from '../src/template/app-player/player/slides/test/fixtures/clue';
 import TemplateAppPlayerPlayerSlidesFixtureContextWithImage from '../src/template/app-player/player/slides/test/fixtures/context-with-image';
 import TemplateAppPlayerPlayerSlidesFixtureContextWithPdf from '../src/template/app-player/player/slides/test/fixtures/context-with-pdf';
@@ -717,6 +735,7 @@ import TemplateAppPlayerPlayerSlidesFixtureQcm from '../src/template/app-player/
 import TemplateAppPlayerPlayerSlidesFixtureRange from '../src/template/app-player/player/slides/test/fixtures/range';
 import TemplateAppPlayerPlayerSlidesFixtureTemplate from '../src/template/app-player/player/slides/test/fixtures/template';
 import TemplateAppPlayerPlayerSlidesFixtureWithMinHeight from '../src/template/app-player/player/slides/test/fixtures/with-min-height';
+import TemplateAppPlayerPlayerFixtureArabicQcm from '../src/template/app-player/player/test/fixtures/arabic-qcm';
 import TemplateAppPlayerPlayerFixtureBackground from '../src/template/app-player/player/test/fixtures/background';
 import TemplateAppPlayerPlayerFixtureClue from '../src/template/app-player/player/test/fixtures/clue';
 import TemplateAppPlayerPlayerFixtureContextWithImage from '../src/template/app-player/player/test/fixtures/context-with-image';
@@ -754,6 +773,9 @@ import TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithVideoExtralif
 import TemplateAppPlayerPopinCorrectionFixtureFailOpenTips from '../src/template/app-player/popin-correction/test/fixtures/fail-open-tips';
 import TemplateAppPlayerPopinCorrectionFixtureLoading from '../src/template/app-player/popin-correction/test/fixtures/loading';
 import TemplateAppPlayerPopinEndFixtureAdaptive from '../src/template/app-player/popin-end/test/fixtures/adaptive';
+import TemplateAppPlayerPopinEndFixtureArabicCorrect from '../src/template/app-player/popin-end/test/fixtures/arabic-correct';
+import TemplateAppPlayerPopinEndFixtureArabicNextLevelAdaptiveImg from '../src/template/app-player/popin-end/test/fixtures/arabic-next-level-adaptive-img';
+import TemplateAppPlayerPopinEndFixtureArabicWithRecommendations from '../src/template/app-player/popin-end/test/fixtures/arabic-with-recommendations';
 import TemplateAppPlayerPopinEndFixtureCommentIsLoading from '../src/template/app-player/popin-end/test/fixtures/comment-is-loading';
 import TemplateAppPlayerPopinEndFixtureCommentSent from '../src/template/app-player/popin-end/test/fixtures/comment-sent';
 import TemplateAppPlayerPopinEndFixtureComment from '../src/template/app-player/popin-end/test/fixtures/comment';
@@ -826,6 +848,7 @@ import TemplateCommonCoorpHeaderFixtureStaging from '../src/template/common/coor
 import TemplateCommonDashboardFixtureDefault from '../src/template/common/dashboard/test/fixtures/default';
 import TemplateCommonDashboardFixtureEmptyRequests from '../src/template/common/dashboard/test/fixtures/empty-requests';
 import TemplateCommonDashboardFixtureWithHeroCard from '../src/template/common/dashboard/test/fixtures/with-hero-card';
+import TemplateCommonDisciplineFixtureArabic from '../src/template/common/discipline/test/fixtures/arabic';
 import TemplateCommonDisciplineFixtureDefault from '../src/template/common/discipline/test/fixtures/default';
 import TemplateCommonDisciplineFixtureDoubleAuthor from '../src/template/common/discipline/test/fixtures/double-author';
 import TemplateCommonDisciplineFixtureEmpty from '../src/template/common/discipline/test/fixtures/empty';
@@ -841,6 +864,7 @@ import TemplateCommonDisciplineFixtureWithOnclick from '../src/template/common/d
 import TemplateCommonSearchPageFixtureDefault from '../src/template/common/search-page/test/fixtures/default';
 import TemplateCommonSearchPageFixtureNoResultWithRecommendations from '../src/template/common/search-page/test/fixtures/no-result-with-recommendations';
 import TemplateCommonSearchPageFixtureNoResult from '../src/template/common/search-page/test/fixtures/no-result';
+import TemplateExternalCourseFixtureArabic from '../src/template/external-course/test/fixtures/arabic';
 import TemplateExternalCourseFixtureArticle from '../src/template/external-course/test/fixtures/article';
 import TemplateExternalCourseFixtureDefault from '../src/template/external-course/test/fixtures/default';
 import TemplateExternalCourseFixtureH5P from '../src/template/external-course/test/fixtures/h5p';
@@ -1298,6 +1322,7 @@ export const fixtures = {
     MoleculeAnswer: {
       Default: MoleculeAnswerFixtureDefault,
       DropDown: MoleculeAnswerFixtureDropDown,
+      QcmArabic: MoleculeAnswerFixtureQcmArabic,
       QcmDrag: MoleculeAnswerFixtureQcmDrag,
       QcmGraphic: MoleculeAnswerFixtureQcmGraphic,
       QcmShortVideo: MoleculeAnswerFixtureQcmShortVideo,
@@ -1307,6 +1332,7 @@ export const fixtures = {
       Template: MoleculeAnswerFixtureTemplate
     },
     MoleculeBattleRequest: {
+      Arabic: MoleculeBattleRequestFixtureArabic,
       Default: MoleculeBattleRequestFixtureDefault
     },
     MoleculeBrandCard: {
@@ -1361,6 +1387,7 @@ export const fixtures = {
     MoleculeCard: {
       AdaptivAndDisabled: MoleculeCardFixtureAdaptivAndDisabled,
       Adaptiv: MoleculeCardFixtureAdaptiv,
+      Arabic: MoleculeCardFixtureArabic,
       Article: MoleculeCardFixtureArticle,
       Default: MoleculeCardFixtureDefault,
       Disabled: MoleculeCardFixtureDisabled,
@@ -1376,6 +1403,7 @@ export const fixtures = {
     MoleculeCardContent: {
       AdaptivAndDisabled: MoleculeCardContentFixtureAdaptivAndDisabled,
       Adaptiv: MoleculeCardContentFixtureAdaptiv,
+      ArabicHero: MoleculeCardContentFixtureArabicHero,
       CardNoProgressBar: MoleculeCardContentFixtureCardNoProgressBar,
       Card: MoleculeCardContentFixtureCard,
       Disabled: MoleculeCardContentFixtureDisabled,
@@ -1395,6 +1423,7 @@ export const fixtures = {
       NoStart: MoleculeDisciplineCtaFixtureNoStart
     },
     MoleculeDisciplineHeader: {
+      Arabic: MoleculeDisciplineHeaderFixtureArabic,
       Default: MoleculeDisciplineHeaderFixtureDefault,
       Jwplayer: MoleculeDisciplineHeaderFixtureJwplayer,
       LongDescription: MoleculeDisciplineHeaderFixtureLongDescription,
@@ -1411,6 +1440,7 @@ export const fixtures = {
       Nosite: MoleculeDisciplinePartnersFixtureNosite
     },
     MoleculeDisciplineScope: {
+      Arabic: MoleculeDisciplineScopeFixtureArabic,
       Default: MoleculeDisciplineScopeFixtureDefault,
       Empty: MoleculeDisciplineScopeFixtureEmpty,
       Medias: MoleculeDisciplineScopeFixtureMedias,
@@ -1464,6 +1494,7 @@ export const fixtures = {
       Zero: MoleculeFiltersFixtureZero
     },
     MoleculeHero: {
+      Arabic: MoleculeHeroFixtureArabic,
       Hero: MoleculeHeroFixtureHero
     },
     MoleculeLoginAlert: {
@@ -1485,6 +1516,7 @@ export const fixtures = {
     },
     MoleculeModuleCard: {
       Active: MoleculeModuleCardFixtureActive,
+      Arabic: MoleculeModuleCardFixtureArabic,
       Restarted: MoleculeModuleCardFixtureRestarted
     },
     MoleculeNews: {
@@ -1527,6 +1559,7 @@ export const fixtures = {
       Vimeo: MoleculeResourcePlayerFixtureVimeo
     },
     MoleculeScopeContent: {
+      Arabic: MoleculeScopeContentFixtureArabic,
       Default: MoleculeScopeContentFixtureDefault,
       Empty: MoleculeScopeContentFixtureEmpty,
       Medias: MoleculeScopeContentFixtureMedias,
@@ -1702,6 +1735,7 @@ export const fixtures = {
       WithDefaultValue: MoleculeQuestionsFreeTextFixtureWithDefaultValue
     },
     MoleculeQuestionsQcm: {
+      Arabic: MoleculeQuestionsQcmFixtureArabic,
       Default: MoleculeQuestionsQcmFixtureDefault,
       NoSelected: MoleculeQuestionsQcmFixtureNoSelected,
       ShortAnswers: MoleculeQuestionsQcmFixtureShortAnswers
@@ -1809,6 +1843,7 @@ export const fixtures = {
       Default: OrganismPopinFixtureDefault
     },
     OrganismResourceBrowser: {
+      Arabic: OrganismResourceBrowserFixtureArabic,
       H5P: OrganismResourceBrowserFixtureH5P,
       JwplayerWithOverlay: OrganismResourceBrowserFixtureJwplayerWithOverlay,
       Jwplayer: OrganismResourceBrowserFixtureJwplayer,
@@ -1855,6 +1890,7 @@ export const fixtures = {
   Template: {
     TemplateActivity: {
       AllEngines: TemplateActivityFixtureAllEngines,
+      Arabic: TemplateActivityFixtureArabic,
       Default: TemplateActivityFixtureDefault,
       Empty: TemplateActivityFixtureEmpty,
       NoEngines: TemplateActivityFixtureNoEngines
@@ -1863,6 +1899,7 @@ export const fixtures = {
       Default: TemplateBattleRequestsFixtureDefault
     },
     TemplateExternalCourse: {
+      Arabic: TemplateExternalCourseFixtureArabic,
       Article: TemplateExternalCourseFixtureArticle,
       Default: TemplateExternalCourseFixtureDefault,
       H5P: TemplateExternalCourseFixtureH5P,
@@ -1882,6 +1919,7 @@ export const fixtures = {
       Default: TemplateAppPlayerLoadingFixtureDefault
     },
     TemplateAppPlayerPlayer: {
+      ArabicQcm: TemplateAppPlayerPlayerFixtureArabicQcm,
       Background: TemplateAppPlayerPlayerFixtureBackground,
       Clue: TemplateAppPlayerPlayerFixtureClue,
       ContextWithImage: TemplateAppPlayerPlayerFixtureContextWithImage,
@@ -1923,6 +1961,9 @@ export const fixtures = {
     },
     TemplateAppPlayerPopinEnd: {
       Adaptive: TemplateAppPlayerPopinEndFixtureAdaptive,
+      ArabicCorrect: TemplateAppPlayerPopinEndFixtureArabicCorrect,
+      ArabicNextLevelAdaptiveImg: TemplateAppPlayerPopinEndFixtureArabicNextLevelAdaptiveImg,
+      ArabicWithRecommendations: TemplateAppPlayerPopinEndFixtureArabicWithRecommendations,
       CommentIsLoading: TemplateAppPlayerPopinEndFixtureCommentIsLoading,
       CommentSent: TemplateAppPlayerPopinEndFixtureCommentSent,
       Comment: TemplateAppPlayerPopinEndFixtureComment,
@@ -1965,6 +2006,8 @@ export const fixtures = {
     },
     TemplateAppPlayerPlayerSlidesHeader: {
       Adaptive: TemplateAppPlayerPlayerSlidesHeaderFixtureAdaptive,
+      ArabicLearner: TemplateAppPlayerPlayerSlidesHeaderFixtureArabicLearner,
+      ArabicMicrolearning: TemplateAppPlayerPlayerSlidesHeaderFixtureArabicMicrolearning,
       InfiniteLives: TemplateAppPlayerPlayerSlidesHeaderFixtureInfiniteLives,
       Learner: TemplateAppPlayerPlayerSlidesHeaderFixtureLearner,
       Microlearning: TemplateAppPlayerPlayerSlidesHeaderFixtureMicrolearning
@@ -1972,6 +2015,10 @@ export const fixtures = {
   },
   TemplateAppPlayerPlayer: {
     TemplateAppPlayerPlayerSlides: {
+      ArabicContext: TemplateAppPlayerPlayerSlidesFixtureArabicContext,
+      ArabicQcm: TemplateAppPlayerPlayerSlidesFixtureArabicQcm,
+      ArabicResources: TemplateAppPlayerPlayerSlidesFixtureArabicResources,
+      Arabic: TemplateAppPlayerPlayerSlidesFixtureArabic,
       Clue: TemplateAppPlayerPlayerSlidesFixtureClue,
       ContextWithImage: TemplateAppPlayerPlayerSlidesFixtureContextWithImage,
       ContextWithPdf: TemplateAppPlayerPlayerSlidesFixtureContextWithPdf,
@@ -2072,6 +2119,7 @@ export const fixtures = {
       WithHeroCard: TemplateCommonDashboardFixtureWithHeroCard
     },
     TemplateCommonDiscipline: {
+      Arabic: TemplateCommonDisciplineFixtureArabic,
       Default: TemplateCommonDisciplineFixtureDefault,
       DoubleAuthor: TemplateCommonDisciplineFixtureDoubleAuthor,
       Empty: TemplateCommonDisciplineFixtureEmpty,

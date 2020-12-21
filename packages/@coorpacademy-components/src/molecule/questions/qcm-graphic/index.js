@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {getOr} from 'lodash/fp';
+import classnames from 'classnames';
 import Provider from '../../../atom/provider';
+import {innerHTML} from '../../../atom/label/style.css';
 import style from './style.css';
 
 const QCMImage = (props, context) => {
@@ -31,11 +33,9 @@ const QCMImage = (props, context) => {
           }}
         />
         <div
-          className={style.titleWrapper}
+          className={classnames(style.titleWrapper, innerHTML)}
           // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{
-            __html: title
-          }}
+          dangerouslySetInnerHTML={{__html: title}}
         />
       </div>
     );
