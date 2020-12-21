@@ -87,7 +87,7 @@ const ProgressionItem = (props, context) => {
         <IconType className={style.iconType} color={dark} />
         <div data-name="activityLabel" className={style.label} title={label}>
           <div
-            className={classnames(style.courseName, innerHTML)}
+            className={innerHTML}
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{__html: label}}
           />

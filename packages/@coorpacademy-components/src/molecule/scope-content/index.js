@@ -97,7 +97,7 @@ const ScopeContent = (props, context) => {
         <div className={style.infos}>
           <div className={style.title}>
             <div
-              className={classnames(style.titleWapper, innerHTML)}
+              className={innerHTML}
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{__html: title}}
             />
