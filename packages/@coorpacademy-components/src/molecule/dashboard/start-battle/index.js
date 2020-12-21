@@ -28,9 +28,7 @@ const StartBattle = (props, context) => {
             <div
               className={style.label}
               // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{
-                __html: label
-              }}
+              dangerouslySetInnerHTML={{__html: label}}
             />
           </Link>
         </div>

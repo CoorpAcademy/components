@@ -12,17 +12,13 @@ const DisciplineCTA = (props, context) => {
   const startLearning = (
     <span
       // eslint-disable-next-line react/no-danger
-      dangerouslySetInnerHTML={{
-        __html: startLabel
-      }}
+      dangerouslySetInnerHTML={{__html: startLabel}}
     />
   );
   const premium = (
     <span
       // eslint-disable-next-line react/no-danger
-      dangerouslySetInnerHTML={{
-        __html: buyLabel
-      }}
+      dangerouslySetInnerHTML={{__html: buyLabel}}
     />
   );
 

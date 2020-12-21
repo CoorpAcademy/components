@@ -9,6 +9,7 @@ import {
 } from '@coorpacademy/nova-icons';
 import {isExternalContent, EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
 import Provider from '../../atom/provider';
+import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
 
 export const MODES = {
@@ -62,14 +63,15 @@ const CardTitle = ({title, empty, courseContent}) => {
     <div
       className={classnames(
         style.title,
+        innerHTML,
         courseContent ? style.lightTitle : style.darkTitle,
         empty ? style.empty : null
       )}
-    >
-      <div data-name="title" title={title}>
-        {title}
-      </div>
-    </div>
+      data-name="title"
+      title={title}
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{__html: title}}
+    />
   );
 };
 

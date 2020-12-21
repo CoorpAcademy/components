@@ -4,3 +4,7 @@
 .default {
   color: black;
 }
+
+.innerHTML > p {
+  margin: 0;
+}

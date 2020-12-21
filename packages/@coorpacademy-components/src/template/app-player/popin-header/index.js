@@ -26,6 +26,7 @@ import Animation, {EASE_OUT_CUBIC} from '../../../hoc/animation';
 import Transition from '../../../hoc/transition';
 import AnimationScheduler, {AnimationAdapter} from '../../../hoc/animation-scheduler';
 import Provider from '../../../atom/provider';
+import {innerHTML} from '../../../atom/label/style.css';
 import style from './style.css';
 
 const separator = index => (
@@ -47,11 +48,12 @@ const AnswersCorrection = ({corrections}) => {
         key={key}
         data-name="answer"
         data-correct={correction.isCorrect}
-        className={correction.isCorrect ? style.correctAnswer : style.wrongAnswer}
+        className={classnames(
+          correction.isCorrect ? style.correctAnswer : style.wrongAnswer,
+          innerHTML
+        )}
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{
-          __html: correction.answer
-        }}
+        dangerouslySetInnerHTML={{__html: correction.answer}}
       />
     );
   }, corrections);
@@ -211,9 +213,12 @@ const CorrectionPart = props => {
     <div data-name="correctionSection" className={className}>
       <div className={style.titlesWrapper}>
         {isLoading ? <Loader /> : null}
-        <h1 data-name="title" className={style.title}>
-          {title}
-        </h1>
+        <h1
+          data-name="title"
+          className={classnames(style.title, innerHTML)}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{__html: title}}
+        />
         <h2 className={style.subtitle}>{subtitle}</h2>
         {failed && !isEmpty(corrections) ? <AnswersCorrection corrections={corrections} /> : null}
       </div>
@@ -266,7 +271,11 @@ const NextQuestionPart = (props, context) => {
   }
 
   const nextStep = nextStepTitle ? (
-    <div className={gameOver ? style.gameOverSubtitle : style.nextStepTitle}>{nextStepTitle}</div>
+    <div
+      className={classnames(gameOver ? style.gameOverSubtitle : style.nextStepTitle, innerHTML)}
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{__html: nextStepTitle}}
+    />
   ) : null;
 
   return (

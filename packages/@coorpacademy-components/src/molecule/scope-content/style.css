@@ -37,7 +37,9 @@
   font-weight: 600;
   font-size: 20px;
   color: dark;
-  max-width: 60%;
+  width: 100%;
+  flex: 1 0 0;
+  padding: 0 15px 0 0;
 }
 
 .time {
@@ -160,6 +162,10 @@
   height: 52px;
   width: 52px;
   margin: -20px 0 0 -20px;
+}
+
+.column li > p {
+  margin: -26px 0 0 15px;
 }
 
 .mediaTitle {

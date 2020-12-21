@@ -5,6 +5,7 @@ import Provider from '../../../atom/provider';
 import CardsGrid from '../../../organism/cards-grid';
 import SocialLink from '../../../atom/social-link';
 import Link from '../../../atom/link';
+import {innerHTML} from '../../../atom/label/style.css';
 import style from './style.css';
 
 class Authors extends React.Component {
@@ -109,10 +110,9 @@ class Authors extends React.Component {
               </div>
               <div data-name="description" className={fullDisplay ? style.desc : style.shortDesc}>
                 <div
+                  className={innerHTML}
                   // eslint-disable-next-line react/no-danger
-                  dangerouslySetInnerHTML={{
-                    __html: description
-                  }}
+                  dangerouslySetInnerHTML={{__html: description}}
                 />
               </div>
               <div data-name="more" className={style.toggle} onClick={this.handleToggleDisplay}>

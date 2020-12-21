@@ -1,9 +1,11 @@
 import React from 'react';
 import {get} from 'lodash/fp';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {NovaLineFilesOfficeFileOfficePdf as PDFIcon} from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
 import Provider from '../../atom/provider';
+import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
 
 const PDF = (props, context) => {
@@ -21,9 +23,13 @@ const PDF = (props, context) => {
       }}
     >
       <PDFIcon color={white} className={style.pdfIcon} />
-      <div className={style.pdfDescription} data-name="pdfDescription">
-        {description}
-      </div>
+      <div
+        className={classnames(style.pdfDescription, innerHTML)}
+        data-name="pdfDescription"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: description}}
+      />
+
       <Link href={mediaUrl} target="_blank" onClick={onPlay}>
         <div className={style.openPDFButton}>
           <div className={style.openPDFButtonBackground} style={{backgroundColor: primary}} />

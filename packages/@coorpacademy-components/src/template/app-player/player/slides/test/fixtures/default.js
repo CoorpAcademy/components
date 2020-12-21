@@ -25,7 +25,7 @@ export default {
       submitValue: 'Validate'
     },
     backgroundUrl:
-      'http://666a658c624a3c03a6b2-25cda059d975d2f318c03e90bcf17c40.r92.cf1.rackcdn.com/unsplash_527bf56961712_1.JPG',
+      'http://static.coorpacademy.com/content/CoorpAcademy/content-tourism/cockpit-tourism/default/shutterstock_256004251-1590486407695.jpg',
     answerType,
     header: headerProps
   }

@@ -5,11 +5,13 @@ import {
   NovaCompositionCoorpacademyCheck as CheckIcon,
   NovaLineInterfaceFeedbackInterfaceAlertCircle as AlertIcon
 } from '@coorpacademy/nova-icons';
+import classnames from 'classnames';
 import Loader from '../../../atom/loader';
 import Link from '../../../atom/link';
 import Provider from '../../../atom/provider';
 import ResourceBrowser from '../../../organism/resource-browser';
 import Accordion from '../../../organism/accordion/container';
+import {innerHTML} from '../../../atom/label/style.css';
 import Header from '../popin-header';
 import style from './style.css';
 
@@ -35,11 +37,9 @@ Resources.propTypes = {
 const SimpleText = ({text}) => (
   <div data-name="simpleText" className={style.simpleTextWrapper}>
     <p
-      className={style.simpleText}
+      className={classnames(style.simpleText, innerHTML)}
       // eslint-disable-next-line react/no-danger
-      dangerouslySetInnerHTML={{
-        __html: text
-      }}
+      dangerouslySetInnerHTML={{__html: text}}
     />
   </div>
 );
@@ -74,21 +74,17 @@ AssistanceLink.propTypes = {
 const Question = ({header, answer, answerPrefix}) => (
   <div className={style.question}>
     <p
-      className={style.questionHeader}
+      className={classnames(style.questionHeader, innerHTML)}
       // eslint-disable-next-line react/no-danger
-      dangerouslySetInnerHTML={{
-        __html: header
-      }}
+      dangerouslySetInnerHTML={{__html: header}}
     />
     <div className={style.answerWrapper}>
       <CheckIcon className={style.checkIcon} color="inherit" />
       {answerPrefix ? <span className={style.answerPrefix}>{answerPrefix}</span> : null}
       <span
-        className={style.answer}
+        className={classnames(style.answer, innerHTML)}
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{
-          __html: answer
-        }}
+        dangerouslySetInnerHTML={{__html: answer}}
       />
     </div>
   </div>

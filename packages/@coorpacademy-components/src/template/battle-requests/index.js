@@ -1,9 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {map} from 'lodash/fp';
+import classnames from 'classnames';
 import Provider from '../../atom/provider';
 import CardWithButton from '../../molecule/card-with-button';
 import Avatar from '../../atom/avatar';
+import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
 
 const Battles = (props, context) => {
@@ -34,11 +36,9 @@ const Battles = (props, context) => {
                   <Avatar url={battle.urlAvatar} />
                 </div>
                 <div
-                  className={style.wrapper}
+                  className={classnames(style.wrapper, innerHTML)}
                   // eslint-disable-next-line react/no-danger
-                  dangerouslySetInnerHTML={{
-                    __html: challengeLabel
-                  }}
+                  dangerouslySetInnerHTML={{__html: challengeLabel}}
                 />
               </CardWithButton>
             </div>

@@ -49,9 +49,7 @@ function Discussion(props) {
         <h1
           id="forum-discussion"
           // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{
-            __html: title
-          }}
+          dangerouslySetInnerHTML={{__html: title}}
         />
         {commentView}
       </div>

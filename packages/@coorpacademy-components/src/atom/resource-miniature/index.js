@@ -5,7 +5,9 @@ import {
   NovaSolidAudioAudioControlPlay as PlayIcon,
   NovaLineFilesOfficeFileOfficePdf as PDFIcon
 } from '@coorpacademy/nova-icons';
+import classnames from 'classnames';
 import Provider from '../provider';
+import {innerHTML} from '../label/style.css';
 import style from './style.css';
 
 const STYLE_TYPES = {
@@ -29,7 +31,11 @@ const ResourceMiniature = (props, context) => {
         {type === 'video' && !selected ? <PlayIcon color={white} className={style.icon} /> : null}
         {type === 'pdf' ? <PDFIcon className={style.icon} color={dark} /> : null}
       </div>
-      <div className={descriptionClassName}>{description}</div>
+      <div
+        className={classnames(descriptionClassName, innerHTML)}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: description}}
+      />
     </div>
   );
 };

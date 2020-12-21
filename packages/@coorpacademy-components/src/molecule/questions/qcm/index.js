@@ -3,6 +3,7 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import {getOr, maxBy} from 'lodash/fp';
 import Provider from '../../../atom/provider';
+import {innerHTML} from '../../../atom/label/style.css';
 import style from './style.css';
 
 const QCM = (props, context) => {
@@ -26,15 +27,13 @@ const QCM = (props, context) => {
     return (
       <div
         data-name="answer"
-        className={className}
+        className={classnames(className, innerHTML)}
         onClick={onClick}
         style={selectedStyle}
         data-selected={selected}
         key={key}
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{
-          __html: title
-        }}
+        dangerouslySetInnerHTML={{__html: title}}
       />
     );
   });

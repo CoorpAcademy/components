@@ -15,9 +15,7 @@ const Template = ({template, answers}) => {
         <span
           key={key}
           // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{
-            __html: part.value
-          }}
+          dangerouslySetInnerHTML={{__html: part.value}}
         />
       );
     }

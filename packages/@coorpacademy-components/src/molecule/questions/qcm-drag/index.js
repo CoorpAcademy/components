@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {pipe, filter, orderBy} from 'lodash/fp';
+import classnames from 'classnames';
 import Provider from '../../../atom/provider';
+import {innerHTML} from '../../../atom/label/style.css';
 import style from './style.css';
 
 const AnswersPropTypes = PropTypes.arrayOf(
@@ -29,14 +31,12 @@ const Choices = ({answers}) => {
     const {onClick, title, selected} = answer;
     return (
       <div
-        className={selected ? style.invisibleAnswer : style.answer}
+        className={classnames(selected ? style.invisibleAnswer : style.answer, innerHTML)}
         data-name="answer"
         onClick={onClick}
         key={key}
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{
-          __html: title
-        }}
+        dangerouslySetInnerHTML={{__html: title}}
       />
     );
   });
@@ -54,14 +54,12 @@ const SelectionBox = ({answers, help}) => {
     const {onClick, title} = answer;
     return (
       <div
-        className={style.selectedAnswer}
+        className={classnames(style.selectedAnswer, innerHTML)}
         data-selected="true"
         onClick={onClick}
         key={key}
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{
-          __html: title
-        }}
+        dangerouslySetInnerHTML={{__html: title}}
       />
     );
   });

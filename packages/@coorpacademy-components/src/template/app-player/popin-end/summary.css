@@ -166,6 +166,7 @@
   composes: text;
   font-size: 15px;
   font-weight: 700;
+  display: inline-flex;
 }
 
 .subscribeButtonWrapper {

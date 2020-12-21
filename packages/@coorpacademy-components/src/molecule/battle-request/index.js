@@ -2,9 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {get} from 'lodash/fp';
 import {NovaCompositionNavigationArrowRight as ArrowRightIcon} from '@coorpacademy/nova-icons';
+import classnames from 'classnames';
 import Link from '../../atom/link';
 import Provider from '../../atom/provider';
 import Avatar from '../../atom/avatar';
+import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
 
 const BattleRequest = (props, context) => {
@@ -35,7 +37,11 @@ const BattleRequest = (props, context) => {
           <span>{challengeLabel}</span>
         </div>
         <div className={style.discipline}>
-          <div className={style.disciplineName}>{discipline}</div>
+          <div
+            className={classnames(style.disciplineName, innerHTML)}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{__html: discipline}}
+          />
           <div className={style.level}>{level}</div>
         </div>
       </div>

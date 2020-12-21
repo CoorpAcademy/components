@@ -30,7 +30,8 @@
   justify-content: center;
   width: 70px;
   height: 45px;
-  border: 1px solid;
+  border: 1px solid ;
+  box-shadow: 1px 1px 3px light;
 }
 
 .poster {
@@ -58,7 +59,8 @@
   font-family: 'Open Sans';
   font-size: 11px;
   margin-left: 16px;
-  max-width: 50vw;
+  margin-right: 16px;
+  flex: 1;
 }
 
 .selectedDescription {

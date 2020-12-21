@@ -2,10 +2,12 @@ import React from 'react';
 import {NovaCompositionCoorpacademyStar as StarIcon} from '@coorpacademy/nova-icons';
 import {get, omit, isEmpty} from 'lodash/fp';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import Provider from '../../atom/provider';
 import Button from '../../atom/button';
 import Select from '../../atom/select';
 import Loader from '../../atom/loader';
+import {innerHTML} from '../../atom/label/style.css';
 import ProgressionItem from './progression-item';
 import EngineStars from './engine-stars';
 import style from './style.css';
@@ -100,10 +102,14 @@ class Progression extends React.Component {
     ) : null;
     const recommendationSection = !isEmpty(recommendation) ? (
       <div className={style.recommendationWrapper}>
-        <p>{recommendation.title} </p>
-        <p>
+        <p className={style.recommendationSection}>{recommendation.title} </p>
+        <p className={style.recommendationSection}>
           <span>{recommendation.subtitle} </span>
-          <span className={style.course}>{recommendation.courseTitle} </span>
+          <span
+            className={classnames(style.course, innerHTML)}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{__html: recommendation.courseTitle}}
+          />
         </p>
         <Button
           type="link"

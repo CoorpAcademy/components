@@ -156,6 +156,9 @@
   text-align: center;
   margin: 24px 0 4px;
   max-width: 70%;
+  width: 100%;
+  padding: 0 9px;
+  box-sizing: border-box;
 }
 
 .helpView {
@@ -166,6 +169,8 @@
   flex-grow: 0.1;
   margin: 4px 0 10px;
   text-align: center;
+  max-width: 70%;
+  width: 100%;
 }
 
 .ctaWrapper > .cta {
@@ -255,6 +260,9 @@
   }
 
   .question {
+    max-width: 60%;
+  }
+  .helpView {
     max-width: 60%;
   }
 }

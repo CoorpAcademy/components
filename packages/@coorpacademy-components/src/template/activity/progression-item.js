@@ -18,6 +18,7 @@ import {
 import Provider from '../../atom/provider';
 import ProgressBar from '../../molecule/progress-bar';
 import Link from '../../atom/link';
+import {innerHTML} from '../../atom/label/style.css';
 import style from './progression-item.css';
 
 const ICONS = {
@@ -85,7 +86,11 @@ const ProgressionItem = (props, context) => {
       <div className={style.wrapperTitle}>
         <IconType className={style.iconType} color={dark} />
         <div data-name="activityLabel" className={style.label} title={label}>
-          {label}
+          <div
+            className={innerHTML}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{__html: label}}
+          />
           {adaptiveIcon}
         </div>
 

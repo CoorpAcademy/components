@@ -64,7 +64,7 @@
   margin: 24px 24px 24px 32px;
 }
 
-.wrapperCta p {
+.recommendationSection {
   font-family: 'Open Sans';
   font-size: 15px;
   font-weight: 300;
@@ -75,7 +75,7 @@
   width: 100%;
 }
 
-.wrapperCta p .course {
+.recommendationSection .course {
   font-family: 'Open Sans';
   font-size: 15px;
   font-weight: bold;
