@@ -28,7 +28,7 @@ const manyCardsProps = {
     defaultsDeep(cardProps, {title: 'Fifth item'}),
     defaultsDeep(cardProps, {title: 'Sixth item'}),
     defaultsDeep(cardProps, {title: 'Seventh item'}),
-    defaultsDeep(cardProps, {title: 'Eigth item'}),
+    defaultsDeep(cardProps, {title: 'Eight item'}),
     defaultsDeep(cardProps, {title: 'Ninth item'}),
     defaultsDeep(cardProps, {title: 'Tenth item'}),
     defaultsDeep(cardProps, {type: 'chapter'})
@@ -69,7 +69,7 @@ export const logo = {
   href: '#'
 };
 
-const headerProps = {
+export const headerProps = {
   logo,
   platformLink: {
     submitValue: 'Go to your platform',
@@ -93,6 +93,7 @@ export const sections = [
 export default {
   props: {
     ...headerProps,
-    sections
+    sections,
+    isLoading: false
   }
 };
