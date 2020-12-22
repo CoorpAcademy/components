@@ -2,3 +2,10 @@
   height: 100%;
   width: 100%;
 }
+
+.loader {
+  composes: teamsDashboard;
+  min-height: 100px;
+  border: none;
+  position: relative;
+}

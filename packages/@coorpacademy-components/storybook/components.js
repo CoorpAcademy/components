@@ -875,6 +875,7 @@ import TemplateExternalCourseFixturePodcast from '../src/template/external-cours
 import TemplateExternalCourseFixtureVideo from '../src/template/external-course/test/fixtures/video';
 import TemplateExternalCourseFixtureYoutubePodcast from '../src/template/external-course/test/fixtures/youtube-podcast';
 import TemplateTeamsDashboardFixtureDefault from '../src/template/teams-dashboard/test/fixtures/default';
+import TemplateTeamsDashboardFixtureIsLoading from '../src/template/teams-dashboard/test/fixtures/is-loading';
 
 export const components = {
   Atom: {
@@ -1911,7 +1912,8 @@ export const fixtures = {
       YoutubePodcast: TemplateExternalCourseFixtureYoutubePodcast
     },
     TemplateTeamsDashboard: {
-      Default: TemplateTeamsDashboardFixtureDefault
+      Default: TemplateTeamsDashboardFixtureDefault,
+      IsLoading: TemplateTeamsDashboardFixtureIsLoading
     }
   },
   TemplateAppPlayer: {
