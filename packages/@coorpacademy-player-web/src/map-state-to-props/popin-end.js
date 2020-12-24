@@ -83,12 +83,35 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
   const {hide, count} = getLives(state);
   const lives = hide ? null : count;
 
+  /*
+   const redirection = getRedirectURLAfterEnd();
+   if getRedirectURLAfterEnd() {
+      const successCta = {
+        title: translate('Continue'),
+        // onClick = () => dispatch(redirectContentAfterEnd);
+        href: '/'
+      };
+   }
+   */
+
+  // {url} = Location.redirectContent;
+  // if non redirectContent
+
   const successCta = {
     title: translate('Back to home'),
     href: '/'
   };
 
+  // if redirect Content
+  /**
+   * const successCta = {
+    title: translate('Continuer'),
+    href: url
+  };
+   */
+
   if (isCurrentEngineLearner(state)) {
+    // if (isCurrentEngineLearner(state)) { and pas de redirectContent
     const level = get('level', getCurrentContent(state));
     if (level === 'advanced' || level === 'base') {
       const _nextLevel = getNextContent(state);
@@ -124,6 +147,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
         lives,
         rank: extractRank(state),
         stars: null,
+        // si redirectContent => redirect au cours qu'on devait faire
         cta: {
           title: isCurrentEngineMicrolearning(state)
             ? translate('Retry chapter')

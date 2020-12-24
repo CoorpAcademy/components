@@ -62,3 +62,5 @@ test('should reload page on openRecommendation', (t) => {
   };
   Location.openRecommendation();
 });
+
+// TODO: add here test
