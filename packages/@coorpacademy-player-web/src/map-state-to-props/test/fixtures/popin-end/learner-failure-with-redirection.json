@@ -205,7 +205,7 @@
     },
     "route": {},
     "location": {
-      "redirectURLAfterEnd": ""
+      "redirectURLAfterEnd": "http://www.google.com"
     }
   }
 }

@@ -34,6 +34,7 @@ test(
       current: {
         progressionId: null
       },
+      location: {},
       route: {}
     }
   }

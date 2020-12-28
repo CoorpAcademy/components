@@ -1,0 +1,278 @@
+{
+  "data": {
+    "answers": {
+      "entities": {
+        "idProgression1234": {
+          "1.B1.2": {
+            "correctAnswer": [
+              "Le Pagerank, c’est-à-dire l’algorithme de mesure quantitatif de la popularité d’une page web\n"
+            ],
+            "corrections": [
+              {
+                "answer": "",
+                "isCorrect": true
+              }
+            ]
+          },
+          "1.B2.2": {
+            "correctAnswer": [
+              "Actualités",
+              "Filmographie",
+              "Images",
+              "Compte Twitter",
+              "Vidéos"
+            ],
+            "corrections": [
+              {
+                "answer": "",
+                "isCorrect": true
+              }
+            ]
+          },
+          "1.B2.3": {
+            "correctAnswer": [
+              "Moment de la journée",
+              "Type de téléphone",
+              "Position GPS"
+            ],
+            "corrections": [
+              {
+                "answer": "",
+                "isCorrect": true
+              }
+            ]
+          },
+          "1.B2.4": {
+            "correctAnswer": [
+              "Moment de la journée",
+              "Type de téléphone",
+              "Position GPS"
+            ],
+            "corrections": [
+              {
+                "answer": "",
+                "isCorrect": true
+              }
+            ]
+          },
+          "1.B2.1": {
+            "correctAnswer": [
+              "Site de marque",
+              "Adresse",
+              "Carte",
+              "Avis de consommateurs",
+              "Prix"
+            ],
+            "corrections": [
+              {
+                "answer": "",
+                "isCorrect": true
+              }
+            ]
+          }
+        }
+      }
+    },
+    "configs": {
+      "entities": {
+        "learner@1": {
+          "version": "1",
+          "lives": 3,
+          "maxTypos": 2,
+          "slidesToComplete": 4,
+          "answerBoundaryLimit": 5,
+          "starsPerAskingClue": -1,
+          "starsPerCorrectAnswer": 4,
+          "starsPerResourceViewed": 4,
+          "remainingLifeRequests": 1
+        }
+      }
+    },
+    "contents": {
+      "level": {
+        "entities": {
+          "1.B": {
+            "_id": "59bf86f5d0e29a28b6b19d90",
+            "timeAlloted": 20,
+            "level": "base",
+            "levelTranslation": "Base",
+            "name": "La recherche en ligne",
+            "ref": "1.B",
+            "eligibleBattle": true,
+            "rewards": [],
+            "creditsToAccess": 0,
+            "infiniteLives": false,
+            "isConditional": false,
+            "data": [],
+            "stats": {
+              "userTriesCount": 0,
+              "userDoneCount": 0
+            },
+            "chapterIds": ["1.B1", "1.B2"],
+            "acquiredSkills": [
+              "discipline_1.module_base.skill1",
+              "discipline_1.module_base.skill2",
+              "discipline_1.module_base.skill3",
+              "discipline_1.module_base.skill4",
+              "discipline_1.module_base.skill5"
+            ],
+            "external_refs": [],
+            "bestScore": 30,
+            "info": {
+              "nbSlides": 8
+            }
+          }
+        }
+      }
+    },
+    "clues": {
+      "entities": {}
+    },
+    "exitNodes": {
+      "entities": {
+        "successExitNode": {
+          "_id": "59bf0da4a0b089a21b2532b4",
+          "ref": "successExitNode",
+          "type": "success",
+          "__v": 0,
+          "media": {
+            "subtitles": [],
+            "posters": [],
+            "src": []
+          }
+        }
+      }
+    },
+    "progressions": {
+      "entities": {
+        "idProgression1234": {
+          "_id": "idProgression1234",
+          "userId": "59d5e8c19405e1ccfca5df8c",
+          "content": {
+            "ref": "1.B",
+            "type": "level"
+          },
+          "engine": {
+            "ref": "learner",
+            "version": "1"
+          },
+          "state": {
+            "nextContent": {
+              "ref": "successExitNode",
+              "type": "success"
+            },
+            "isCorrect": false,
+            "slides": [
+              "1.B1.4",
+              "1.B1.1",
+              "1.B1.3",
+              "1.B1.2",
+              "1.B2.2",
+              "1.B2.3",
+              "1.B2.4",
+              "1.B2.1"
+            ],
+            "lives": 2,
+            "step": {
+              "current": 9
+            },
+            "stars": 32,
+            "requestedClues": [],
+            "viewedResources": [],
+            "remainingLifeRequests": 1,
+            "content": {
+              "ref": "1.B2.1",
+              "type": "slide"
+            }
+          },
+          "correctAnswer": [
+            "Site de marque",
+            "Adresse",
+            "Carte",
+            "Avis de consommateurs",
+            "Prix"
+          ]
+        }
+      }
+    },
+    "rank": {
+      "start": 2,
+      "end": 1
+    },
+    "recommendations": {
+      "entities": {
+        "idProgression1234": [
+          {
+            "view": "grid",
+            "image": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/default/7a2-1503484226173.jpg&h=300&w=300&q=90",
+            "time": "5m",
+            "adaptiv": false,
+            "freerun": true,
+            "certification": false,
+            "type": "chapitre",
+            "title": "Que font les marques pour le consommateur ?",
+            "author": "Coorpacademy",
+            "progress": 0,
+            "key": "7.A2",
+            "disabled": true
+          },
+          {
+            "view": "grid",
+            "image": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/default/7a2-1503484226173.jpg&h=300&w=300&q=90",
+            "time": "5m",
+            "adaptiv": false,
+            "freerun": true,
+            "certification": false,
+            "type": "chapitre",
+            "title": "Que font les marques pour le consommateur ?",
+            "author": "Coorpacademy",
+            "progress": 0,
+            "key": "7.A2",
+            "disabled": true
+          },
+          {
+            "view": "grid",
+            "image": "https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/CoorpAcademy/content-digital-core/cockpit-digital-2016/default/7a2-1503484226173.jpg&h=300&w=300&q=90",
+            "time": "5m",
+            "adaptiv": false,
+            "freerun": true,
+            "certification": false,
+            "type": "chapitre",
+            "title": "Que font les marques pour le consommateur ?",
+            "author": "Coorpacademy",
+            "progress": 0,
+            "key": "7.A2",
+            "disabled": true
+          }
+        ]
+      }
+    },
+    "nextContent": {
+      "entities": {
+        "idProgression1234": {
+          "level": "advanced",
+          "levelTranslation": "Avancé",
+          "name": "La recherche en ligne",
+          "ref": "1.A"
+        }
+      }
+    }
+  },
+  "ui": {
+    "answers": {},
+    "corrections": {
+      "accordion": [false, false, false],
+      "playResource": ""
+    },
+    "current": {
+      "progressionId": "idProgression1234"
+    },
+    "extraLife": {
+      "acceptRevivalPending": false
+    },
+    "route": {},
+    "location": {
+      "redirectURLAfterEnd": "http://www.google.com"
+    }
+  }
+}

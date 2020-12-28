@@ -1,5 +1,5 @@
 import test from 'ava';
-import {get, map, set, pipe, identity, isFunction} from 'lodash/fp';
+import {get, map, set, pipe, identity, isFunction, isUndefined} from 'lodash/fp';
 
 import {mockTranslate} from '@coorpacademy/translate';
 import {
@@ -17,7 +17,9 @@ import {
 import popinEnd from '../popin-end';
 
 import popinLearnerSuccess from './fixtures/popin-end/learner-success';
+import popinLearnerSuccessWithRedirection from './fixtures/popin-end/learner-success-with-redirection';
 import popinLearnerFailure from './fixtures/popin-end/learner-failure';
+import popinLearnerFailureWithRedirection from './fixtures/popin-end/learner-failure-with-redirection';
 import popinLearnerAdaptiveFailure from './fixtures/popin-end/learner-adaptive-failure';
 import popinMicrolearningFailure from './fixtures/popin-end/fail';
 import popinMicrolearningSuccess from './fixtures/popin-end/success';
@@ -132,6 +134,24 @@ test('should not see comment section after failure on learner progression', t =>
   t.is(props.summary.comment, null);
   t.is(props.summary.header.subtitle, '__You are out of lives!');
   t.is(props.summary.header.lives, 0);
+});
+
+test('should verify that cta should redirect if redirectURLAfterEnd is set on state for failure popin', t => {
+  const dispatch = createDispatch(popinLearnerFailureWithRedirection);
+  const props = popinEnd(options, {dispatch})(popinLearnerFailureWithRedirection);
+
+  t.is(props.summary.header.cta.title, '__Click to continue');
+  t.is(props.summary.header.cta.href, 'http://www.google.com');
+  t.true(isUndefined(props.summary.header.cta.onClick));
+});
+
+test('should verify that cta should redirect if redirectURLAfterEnd is set on state for success popin', t => {
+  const dispatch = createDispatch(popinLearnerSuccessWithRedirection);
+  const props = popinEnd(options, {dispatch})(popinLearnerSuccessWithRedirection);
+
+  t.is(props.summary.header.cta.title, '__Click to continue');
+  t.is(props.summary.header.cta.href, 'http://www.google.com');
+  t.true(isUndefined(props.summary.header.cta.onClick));
 });
 
 test('should not see comment section after failure on microlearning progression', t => {
