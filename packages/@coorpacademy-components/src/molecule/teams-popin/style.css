@@ -21,6 +21,14 @@
   display: flex;
 }
 
+.loader {
+  composes: background;
+  min-height: 100px;
+  border: none;
+  position: relative;
+}
+
+
 .popin {
   position: absolute;
   overflow: auto;

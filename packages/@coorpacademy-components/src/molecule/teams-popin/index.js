@@ -7,6 +7,7 @@ import {
   NovaCompositionCoorpacademySchoolGraduation as SchoolGraduation
 } from '@coorpacademy/nova-icons';
 import Cta from '../../atom/cta';
+import Loader from '../../atom/loader';
 import style from './style.css';
 
 const ICONS = {
@@ -18,7 +19,7 @@ const ICONS = {
 };
 
 const TeamsPopin = props => {
-  const {header, content, buttonLabel, onButtonClick, type} = props;
+  const {header, content, buttonLabel, onButtonClick, type, isLoading = false} = props;
   const IconType = ICONS[type];
   const iconContainerStyle = type === 'login' ? style.iconContainer : style.errorIconContainer;
   const Icon = IconType ? (
@@ -29,18 +30,26 @@ const TeamsPopin = props => {
 
   return (
     <div className={style.background}>
-      <div className={style.popin}>
-        {Icon}
-        <div className={style.header} data-name="popin-header">
-          {header}
+      {isLoading ? (
+        <div className={style.loader}>
+          <Loader data-name="teams-pipin-loader" />
         </div>
-        <p className={style.content}>{content}</p>
-        {buttonLabel && onButtonClick ? (
-          <div className={style.buttonContainer}>
-            <Cta submitValue={buttonLabel} onClick={onButtonClick} />
+      ) : (
+        <div className={style.popin}>
+          {Icon}
+          <div className={style.header} data-name="popin-header">
+            {header}
           </div>
-        ) : null}
-      </div>
+          <p className={style.content} data-name="popin-content">
+            {content}
+          </p>
+          {buttonLabel && onButtonClick ? (
+            <div className={style.buttonContainer}>
+              <Cta submitValue={buttonLabel} onClick={onButtonClick} />
+            </div>
+          ) : null}
+        </div>
+      )}
     </div>
   );
 };
@@ -50,7 +59,8 @@ TeamsPopin.propTypes = {
   content: PropTypes.string.isRequired,
   buttonLabel: PropTypes.string,
   onButtonClick: PropTypes.func,
-  type: PropTypes.oneOf(['login', 'reload', 'loginFailed', 'addressError', 'wrong'])
+  type: PropTypes.oneOf(['login', 'reload', 'loginFailed', 'addressError', 'wrong']),
+  isLoading: PropTypes.bool
 };
 
 export default TeamsPopin;
