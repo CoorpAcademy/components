@@ -231,6 +231,10 @@ test('it should expose all api', (t) => {
       'pause',
       'resume',
       'ended',
+      'SET_REDIRECT_URL_AFTER_END_REQUEST',
+      'SET_REDIRECT_URL_AFTER_END_SUCCESS',
+      'SET_REDIRECT_URL_AFTER_END_FAILURE',
+      'setRedirectUrlEnd',
     ].sort()
   );
 });

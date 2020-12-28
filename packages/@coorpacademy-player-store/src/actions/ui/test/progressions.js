@@ -31,6 +31,7 @@ import {
 } from '../../api/contents';
 import {RECO_FETCH_REQUEST, RECO_FETCH_SUCCESS} from '../../api/recommendations';
 import {NEXT_CONTENT_FETCH_REQUEST, NEXT_CONTENT_FETCH_SUCCESS} from '../../api/next-content';
+import {SET_REDIRECT_URL_AFTER_END_REQUEST, SET_REDIRECT_URL_AFTER_END_SUCCESS} from '../location';
 import {UI_SELECT_ROUTE} from '../route';
 
 const slide = {_id: 'bar', chapter_id: 'baz', foo: 1};
@@ -243,6 +244,12 @@ test(
       },
     },
     Content: ContentService(t, false),
+    Location: {
+      getRedirectURLAfterEnd: () => {
+        t.pass();
+        return 'http://www.google.com';
+      },
+    },
   }),
   selectProgression('foo'),
   [
@@ -279,6 +286,9 @@ test(
       type: RANK_FETCH_START_REQUEST,
     },
     {
+      type: SET_REDIRECT_URL_AFTER_END_REQUEST,
+    },
+    {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
       meta: {type: 'chapter', ref: 'baz'},
     },
@@ -297,6 +307,10 @@ test(
     {
       type: RANK_FETCH_START_SUCCESS,
       payload: 1,
+    },
+    {
+      type: SET_REDIRECT_URL_AFTER_END_SUCCESS,
+      payload: 'http://www.google.com',
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
@@ -328,7 +342,7 @@ test(
       meta: {progressionId: 'foo'},
     },
   ],
-  10
+  11
 );
 
 test(
@@ -365,6 +379,12 @@ test(
       },
     },
     Content: ContentService(t, true),
+    Location: {
+      getRedirectURLAfterEnd: () => {
+        t.pass();
+        return 'http://www.google.com';
+      },
+    },
   }),
   selectProgression('foo'),
   [
@@ -404,6 +424,9 @@ test(
       type: RANK_FETCH_START_REQUEST,
     },
     {
+      type: SET_REDIRECT_URL_AFTER_END_REQUEST,
+    },
+    {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
       meta: {type: 'chapter', ref: 'baz'},
     },
@@ -422,6 +445,10 @@ test(
     {
       type: RANK_FETCH_START_SUCCESS,
       payload: 1,
+    },
+    {
+      type: SET_REDIRECT_URL_AFTER_END_SUCCESS,
+      payload: 'http://www.google.com',
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
@@ -453,7 +480,7 @@ test(
       payload: 'context',
     },
   ],
-  10
+  11
 );
 
 test(
@@ -500,6 +527,12 @@ test(
       find: () => 'plop',
       getNext: () => 'plip',
     },
+    Location: {
+      getRedirectURLAfterEnd: () => {
+        t.pass();
+        return '';
+      },
+    },
   }),
   selectProgression('foo'),
   [
@@ -536,6 +569,9 @@ test(
       type: RANK_FETCH_START_REQUEST,
     },
     {
+      type: SET_REDIRECT_URL_AFTER_END_REQUEST,
+    },
+    {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
       meta: {type: 'chapter', ref: 'baz'},
     },
@@ -565,6 +601,10 @@ test(
     {
       type: RANK_FETCH_START_SUCCESS,
       payload: 1,
+    },
+    {
+      type: SET_REDIRECT_URL_AFTER_END_SUCCESS,
+      payload: '',
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
@@ -601,7 +641,7 @@ test(
       payload: 'bar',
     },
   ],
-  11
+  12
 );
 
 const recommendationFixture = {
@@ -706,6 +746,12 @@ test(
         return recommendationFixture.nextLevel;
       },
     },
+    Location: {
+      getRedirectURLAfterEnd: () => {
+        t.pass();
+        return '';
+      },
+    },
   }),
   selectProgression('foo'),
   [
@@ -742,6 +788,9 @@ test(
       type: RANK_FETCH_START_REQUEST,
     },
     {
+      type: SET_REDIRECT_URL_AFTER_END_REQUEST,
+    },
+    {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
       meta: {type: 'level', ref: '1B'},
     },
@@ -771,6 +820,10 @@ test(
     {
       type: RANK_FETCH_START_SUCCESS,
       payload: 1,
+    },
+    {
+      type: SET_REDIRECT_URL_AFTER_END_SUCCESS,
+      payload: '',
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
@@ -807,7 +860,7 @@ test(
       payload: 'bar',
     },
   ],
-  16
+  17
 );
 
 test(
@@ -870,6 +923,12 @@ test(
       find: () => 'plop',
       getNext: () => 'plip',
     },
+    Location: {
+      getRedirectURLAfterEnd: () => {
+        t.pass();
+        return '';
+      },
+    },
   }),
   selectProgression('xtralife'),
   [
@@ -914,6 +973,9 @@ test(
       type: RANK_FETCH_START_REQUEST,
     },
     {
+      type: SET_REDIRECT_URL_AFTER_END_REQUEST,
+    },
+    {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
       meta: {type: 'chapter', ref: 'baz'},
     },
@@ -936,6 +998,10 @@ test(
     {
       type: RANK_FETCH_START_SUCCESS,
       payload: 1,
+    },
+    {
+      type: SET_REDIRECT_URL_AFTER_END_SUCCESS,
+      payload: '',
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
@@ -963,7 +1029,7 @@ test(
       payload: ['a', 'n', 's', 'w', 'e', 'r', 's'],
     },
   ],
-  13
+  14
 );
 
 test(

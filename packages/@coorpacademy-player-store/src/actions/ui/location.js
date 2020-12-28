@@ -105,3 +105,20 @@ export const openRecommendation = (recommendation) => (dispatch, getState, {serv
 
   return dispatch(action);
 };
+
+export const SET_REDIRECT_URL_AFTER_END_REQUEST = '@@location/SET_REDIRECT_URL_AFTER_END_REQUEST';
+export const SET_REDIRECT_URL_AFTER_END_SUCCESS = '@@location/SET_REDIRECT_URL_AFTER_END_SUCCESS';
+export const SET_REDIRECT_URL_AFTER_END_FAILURE = '@@location/SET_REDIRECT_URL_AFTER_END_FAILURE';
+
+export const setRedirectUrlEnd = () => (dispatch, getState, {services}) => {
+  const action = buildTask({
+    types: [
+      SET_REDIRECT_URL_AFTER_END_REQUEST,
+      SET_REDIRECT_URL_AFTER_END_SUCCESS,
+      SET_REDIRECT_URL_AFTER_END_FAILURE,
+    ],
+    task: () => services.Location.getRedirectURLAfterEnd(),
+  });
+
+  return dispatch(action);
+};
