@@ -1,6 +1,7 @@
 /* eslint-disable no-global-assign */
 /* eslint-disable no-native-reassign */
 import test from 'ava';
+import {isString} from 'lodash/fp';
 import * as Location from '../location'; // eslint-disable-line no-shadow
 
 test('should reload page on retry', (t) => {
@@ -63,4 +64,8 @@ test('should reload page on openRecommendation', (t) => {
   Location.openRecommendation();
 });
 
-// TODO: add here test
+// TODO: add here test for getRedirectURLAfterEnd
+test('should return a string on getRedirectURLAfterEnd', (t) => {
+  const url = Location.getRedirectURLAfterEnd();
+  t.true(isString(url));
+});

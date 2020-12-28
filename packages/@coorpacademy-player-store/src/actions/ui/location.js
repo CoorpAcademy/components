@@ -105,10 +105,3 @@ export const openRecommendation = (recommendation) => (dispatch, getState, {serv
 
   return dispatch(action);
 };
-
-export const redirectContentAfterEnd = () => (dispatch, getState, {services}) => {
-  if (!services.Location.redirectContentAfterEnd) {
-    return;
-  }
-  // TODO implement si on garde l'option redirectContentAfterEnd
-};
