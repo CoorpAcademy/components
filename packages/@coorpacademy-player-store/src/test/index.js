@@ -235,6 +235,7 @@ test('it should expose all api', (t) => {
       'SET_REDIRECT_URL_AFTER_END_SUCCESS',
       'SET_REDIRECT_URL_AFTER_END_FAILURE',
       'setRedirectUrlEnd',
+      'getRedirectURLAfterEnd',
     ].sort()
   );
 });

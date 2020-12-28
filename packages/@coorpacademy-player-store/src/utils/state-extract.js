@@ -618,3 +618,7 @@ export const isQuestionCtaDisabled = (state: State): boolean => {
     (isAdaptive && answers.length > 1 && includes(questionType, ['qcm', 'qcmGraphic']))
   );
 };
+
+export const getRedirectURLAfterEnd = (state: State): string => {
+  return getOr('', ['ui', 'location', 'redirectURLAfterEnd'], state);
+};
