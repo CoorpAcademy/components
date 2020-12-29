@@ -26,6 +26,9 @@ import {
   LOCATION_OPEN_RECOMMENDATION_REQUEST,
   LOCATION_OPEN_RECOMMENDATION_SUCCESS,
   LOCATION_OPEN_RECOMMENDATION_FAILURE,
+  redirectToContentAfterEnd,
+  REDIRECT_AFTER_END_REQUEST,
+  REDIRECT_AFTER_END_SUCCESS,
 } from '../location';
 
 test(
@@ -431,4 +434,29 @@ test(
   openRecommendation('foo'),
   [],
   0
+);
+
+test(
+  'should call redirectToContentAfterEnd location service and dispatch SUCCESS action',
+  macro,
+  {},
+  (t) => ({
+    Location: {
+      redirectToContentAfterEnd: () => {
+        t.pass();
+        return 'bar';
+      },
+    },
+  }),
+  redirectToContentAfterEnd(),
+  [
+    {
+      type: REDIRECT_AFTER_END_REQUEST,
+    },
+    {
+      type: REDIRECT_AFTER_END_SUCCESS,
+      payload: 'bar',
+    },
+  ],
+  1
 );
