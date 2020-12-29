@@ -64,8 +64,17 @@ test('should reload page on openRecommendation', (t) => {
   Location.openRecommendation();
 });
 
-// TODO: add here test for getRedirectURLAfterEnd
 test('should return a string on getRedirectURLAfterEnd', (t) => {
   const url = Location.getRedirectURLAfterEnd();
   t.true(isString(url));
+});
+
+test('should reload page on redirectToContentAfterEnd', (t) => {
+  t.plan(1);
+  global.window = {
+    location: {
+      reload: () => t.pass(),
+    },
+  };
+  Location.redirectToContentAfterEnd();
 });
