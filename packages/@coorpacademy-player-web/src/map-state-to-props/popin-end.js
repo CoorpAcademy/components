@@ -34,7 +34,8 @@ import {
   postComment,
   retry,
   seeComment,
-  getRedirectURLAfterEnd
+  getRedirectURLAfterEnd,
+  redirectToContentAfterEnd
 } from '@coorpacademy/player-store';
 import headerProps from './header';
 
@@ -84,7 +85,7 @@ const ctaForFail = (redirection, translate, dispatch, state) => {
   if (redirection) {
     return {
       title: translate('Click to continue'),
-      href: redirection
+      onClick: () => dispatch(redirectToContentAfterEnd)
     };
   }
 
@@ -108,7 +109,8 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
   const redirection = getRedirectURLAfterEnd(state);
   if (redirection) {
     successCta.title = translate('Click to continue');
-    successCta.href = redirection;
+    successCta.href = null;
+    successCta.onClick = () => dispatch(redirectToContentAfterEnd);
   }
 
   if (isCurrentEngineLearner(state) && !redirection) {

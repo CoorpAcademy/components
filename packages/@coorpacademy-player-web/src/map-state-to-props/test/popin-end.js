@@ -12,7 +12,9 @@ import {
   LOCATION_SEE_COMMENT_SUCCESS,
   SEND_POST_COMMENT_REQUEST,
   SEND_POST_COMMENT_SUCCESS,
-  UI_EDIT_COMMENT
+  UI_EDIT_COMMENT,
+  REDIRECT_AFTER_END_REQUEST,
+  REDIRECT_AFTER_END_SUCCESS
 } from '@coorpacademy/player-store';
 import popinEnd from '../popin-end';
 
@@ -31,7 +33,8 @@ const services = {
   Location: {
     openRecommendation: identity,
     nextLevel: identity,
-    seeComment: identity
+    seeComment: identity,
+    redirectToContentAfterEnd: identity
   }
 };
 
@@ -136,22 +139,55 @@ test('should not see comment section after failure on learner progression', t =>
   t.is(props.summary.header.lives, 0);
 });
 
-test('should verify that cta should redirect if redirectURLAfterEnd is set on state for failure popin', t => {
+test('should verify that cta should redirect if redirectURLAfterEnd is set on state for failure popin', async t => {
   const dispatch = createDispatch(popinLearnerFailureWithRedirection);
   const props = popinEnd(options, {dispatch})(popinLearnerFailureWithRedirection);
 
   t.is(props.summary.header.cta.title, '__Click to continue');
-  t.is(props.summary.header.cta.href, 'http://www.google.com');
-  t.true(isUndefined(props.summary.header.cta.onClick));
+  t.true(isUndefined(props.summary.header.cta.href));
+
+  const onClick = props.summary.header.cta.onClick;
+  t.true(isFunction(onClick));
+  const dispatchedOnClick = await onClick();
+
+  console.log(`
+
+  
+  dispatchedOnClick ${dispatchedOnClick}
+  
+  
+  `)
+
+  t.deepEqual(actionTypes(dispatchedOnClick), [
+    REDIRECT_AFTER_END_REQUEST,
+    REDIRECT_AFTER_END_SUCCESS
+  ]);
 });
 
-test('should verify that cta should redirect if redirectURLAfterEnd is set on state for success popin', t => {
+test('should verify that cta should redirect if redirectURLAfterEnd is set on state for success popin', async t => {
   const dispatch = createDispatch(popinLearnerSuccessWithRedirection);
   const props = popinEnd(options, {dispatch})(popinLearnerSuccessWithRedirection);
 
   t.is(props.summary.header.cta.title, '__Click to continue');
-  t.is(props.summary.header.cta.href, 'http://www.google.com');
-  t.true(isUndefined(props.summary.header.cta.onClick));
+  t.is(props.summary.header.cta.href, null);
+
+  const onClick = props.summary.header.cta.onClick;
+  t.true(isFunction(onClick));
+  const dispatchedOnClick = await onClick();
+
+  console.log(`
+  
+  
+  
+  dispatchedOnClick ${dispatchedOnClick}
+  
+  
+  `)
+
+  t.deepEqual(actionTypes(dispatchedOnClick), [
+    REDIRECT_AFTER_END_REQUEST,
+    REDIRECT_AFTER_END_SUCCESS
+  ]);
 });
 
 test('should not see comment section after failure on microlearning progression', t => {
