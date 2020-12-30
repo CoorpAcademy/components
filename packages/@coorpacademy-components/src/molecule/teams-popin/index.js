@@ -37,8 +37,8 @@ const TeamsPopin = props => {
   ) : null;
   const backgroundImageStyle = backgroundImageUrl
     ? {
-        'background-image': `url(${backgroundImageUrl})`,
-        'background-size': 'cover'
+        backgroundImage: `url(${backgroundImageUrl})`,
+        backgroundSize: 'cover'
       }
     : {};
 
