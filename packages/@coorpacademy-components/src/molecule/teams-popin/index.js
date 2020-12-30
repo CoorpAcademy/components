@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {
   NovaCompositionCoorpacademyReload as ReloadIcon,
   NovaCompositionCoorpacademyLoginFailed as LoginFailedIcon,
-  NovaCompositionCoorpacademyAddressError as AddreessErrorIcon,
+  NovaCompositionCoorpacademyAddressError as AddressErrorIcon,
   NovaCompositionCoorpacademySchoolGraduation as SchoolGraduation
 } from '@coorpacademy/nova-icons';
 import Cta from '../../atom/cta';
@@ -13,7 +13,7 @@ import style from './style.css';
 const ICONS = {
   login: SchoolGraduation,
   loginFailed: LoginFailedIcon,
-  addressError: AddreessErrorIcon,
+  addressError: AddressErrorIcon,
   reload: ReloadIcon,
   wrong: ReloadIcon
 };
