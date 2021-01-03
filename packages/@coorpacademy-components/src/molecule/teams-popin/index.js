@@ -32,7 +32,7 @@ const TeamsPopin = props => {
     <div className={style.background}>
       {isLoading ? (
         <div className={style.loader}>
-          <Loader data-name="teams-pipin-loader" />
+          <Loader data-name="teams-popin-loader" />
         </div>
       ) : (
         <div className={style.popin}>
