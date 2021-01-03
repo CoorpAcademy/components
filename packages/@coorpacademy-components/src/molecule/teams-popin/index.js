@@ -37,15 +37,15 @@ const TeamsPopin = props => {
       ) : (
         <div className={style.popin}>
           {Icon}
-          <div className={style.header} data-name="popin-header">
+          <div className={style.header} data-name={`popin-header-${type}`}>
             {header}
           </div>
-          <p className={style.content} data-name="popin-content">
+          <p className={style.content} data-name={`popin-content-${type}`}>
             {content}
           </p>
           {buttonLabel && onButtonClick ? (
             <div className={style.buttonContainer}>
-              <Cta submitValue={buttonLabel} onClick={onButtonClick} />
+              <Cta submitValue={buttonLabel} onClick={onButtonClick} name={`popin-cta-${type}`} />
             </div>
           ) : null}
         </div>
@@ -55,8 +55,8 @@ const TeamsPopin = props => {
 };
 
 TeamsPopin.propTypes = {
-  header: PropTypes.string.isRequired,
-  content: PropTypes.string.isRequired,
+  header: PropTypes.string,
+  content: PropTypes.string,
   buttonLabel: PropTypes.string,
   onButtonClick: PropTypes.func,
   type: PropTypes.oneOf(['login', 'reload', 'loginFailed', 'addressError', 'wrong']),
