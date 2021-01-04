@@ -22,7 +22,6 @@ import {
 } from '../../utils/state-extract';
 import type {Action, DispatchedAction, GetState, Options, Dispatch} from '../../definitions/redux';
 import type {ExitNodeRef} from '../../definitions/models';
-import {setRedirectUrlEnd} from './location';
 import {selectRoute} from './route';
 
 /* eslint-disable flowtype/type-id-match */

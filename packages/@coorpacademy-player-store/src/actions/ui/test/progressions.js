@@ -31,7 +31,6 @@ import {
 } from '../../api/contents';
 import {RECO_FETCH_REQUEST, RECO_FETCH_SUCCESS} from '../../api/recommendations';
 import {NEXT_CONTENT_FETCH_REQUEST, NEXT_CONTENT_FETCH_SUCCESS} from '../../api/next-content';
-import {SET_REDIRECT_URL_AFTER_END_REQUEST, SET_REDIRECT_URL_AFTER_END_SUCCESS} from '../location';
 import {UI_SELECT_ROUTE} from '../route';
 
 const slide = {_id: 'bar', chapter_id: 'baz', foo: 1};
@@ -286,9 +285,6 @@ test(
       type: RANK_FETCH_START_REQUEST,
     },
     {
-      type: SET_REDIRECT_URL_AFTER_END_REQUEST,
-    },
-    {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
       meta: {type: 'chapter', ref: 'baz'},
     },
@@ -307,10 +303,6 @@ test(
     {
       type: RANK_FETCH_START_SUCCESS,
       payload: 1,
-    },
-    {
-      type: SET_REDIRECT_URL_AFTER_END_SUCCESS,
-      payload: 'http://www.google.com',
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
@@ -342,7 +334,7 @@ test(
       meta: {progressionId: 'foo'},
     },
   ],
-  11
+  10
 );
 
 test(
@@ -424,9 +416,6 @@ test(
       type: RANK_FETCH_START_REQUEST,
     },
     {
-      type: SET_REDIRECT_URL_AFTER_END_REQUEST,
-    },
-    {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
       meta: {type: 'chapter', ref: 'baz'},
     },
@@ -445,10 +434,6 @@ test(
     {
       type: RANK_FETCH_START_SUCCESS,
       payload: 1,
-    },
-    {
-      type: SET_REDIRECT_URL_AFTER_END_SUCCESS,
-      payload: 'http://www.google.com',
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
@@ -480,7 +465,7 @@ test(
       payload: 'context',
     },
   ],
-  11
+  10
 );
 
 test(
@@ -569,9 +554,6 @@ test(
       type: RANK_FETCH_START_REQUEST,
     },
     {
-      type: SET_REDIRECT_URL_AFTER_END_REQUEST,
-    },
-    {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
       meta: {type: 'chapter', ref: 'baz'},
     },
@@ -601,10 +583,6 @@ test(
     {
       type: RANK_FETCH_START_SUCCESS,
       payload: 1,
-    },
-    {
-      type: SET_REDIRECT_URL_AFTER_END_SUCCESS,
-      payload: '',
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
@@ -641,7 +619,7 @@ test(
       payload: 'bar',
     },
   ],
-  12
+  11
 );
 
 const recommendationFixture = {
@@ -788,9 +766,6 @@ test(
       type: RANK_FETCH_START_REQUEST,
     },
     {
-      type: SET_REDIRECT_URL_AFTER_END_REQUEST,
-    },
-    {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
       meta: {type: 'level', ref: '1B'},
     },
@@ -820,10 +795,6 @@ test(
     {
       type: RANK_FETCH_START_SUCCESS,
       payload: 1,
-    },
-    {
-      type: SET_REDIRECT_URL_AFTER_END_SUCCESS,
-      payload: '',
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
@@ -860,7 +831,7 @@ test(
       payload: 'bar',
     },
   ],
-  17
+  16
 );
 
 test(
@@ -973,9 +944,6 @@ test(
       type: RANK_FETCH_START_REQUEST,
     },
     {
-      type: SET_REDIRECT_URL_AFTER_END_REQUEST,
-    },
-    {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
       meta: {type: 'chapter', ref: 'baz'},
     },
@@ -998,10 +966,6 @@ test(
     {
       type: RANK_FETCH_START_SUCCESS,
       payload: 1,
-    },
-    {
-      type: SET_REDIRECT_URL_AFTER_END_SUCCESS,
-      payload: '',
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
@@ -1029,7 +993,7 @@ test(
       payload: ['a', 'n', 's', 'w', 'e', 'r', 's'],
     },
   ],
-  14
+  13
 );
 
 test(

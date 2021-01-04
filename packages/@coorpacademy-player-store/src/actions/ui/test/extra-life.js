@@ -15,7 +15,6 @@ import {
   ENGINE_CONFIG_FETCH_REQUEST,
 } from '../../api/progressions';
 import {UI_SELECT_ROUTE} from '../route';
-import {SET_REDIRECT_URL_AFTER_END_REQUEST, SET_REDIRECT_URL_AFTER_END_SUCCESS} from '../location';
 import {RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS} from '../../api/rank';
 import {
   CONTENT_FETCH_REQUEST,
@@ -132,9 +131,6 @@ test(
       type: RANK_FETCH_START_REQUEST,
     },
     {
-      type: SET_REDIRECT_URL_AFTER_END_REQUEST,
-    },
-    {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
       meta: {type: 'chapter', ref: 'chapId'},
     },
@@ -153,10 +149,6 @@ test(
     {
       type: RANK_FETCH_START_SUCCESS,
       payload: 1,
-    },
-    {
-      type: SET_REDIRECT_URL_AFTER_END_SUCCESS,
-      payload: '',
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
@@ -187,7 +179,7 @@ test(
       meta: {progressionId: 'foo'},
     },
   ],
-  13
+  12
 );
 
 test(
@@ -293,9 +285,6 @@ test(
       type: RANK_FETCH_START_REQUEST,
     },
     {
-      type: SET_REDIRECT_URL_AFTER_END_REQUEST,
-    },
-    {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
       meta: {type: 'chapter', ref: 'chapId'},
     },
@@ -314,10 +303,6 @@ test(
     {
       type: RANK_FETCH_START_SUCCESS,
       payload: 1,
-    },
-    {
-      type: SET_REDIRECT_URL_AFTER_END_SUCCESS,
-      payload: '',
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
@@ -348,5 +333,5 @@ test(
       meta: {progressionId: 'foo'},
     },
   ],
-  13
+  12
 );
