@@ -23,6 +23,7 @@
 
 .loader {
   composes: background;
+  background-color: unset;
   min-height: 100px;
   border: none;
   position: relative;

@@ -575,7 +575,9 @@ import MoleculeTableFixtureDefault from '../src/molecule/table/test/fixtures/def
 import MoleculeTableFixtureNoOptions from '../src/molecule/table/test/fixtures/no-options';
 import MoleculeTableFixtureReadonly from '../src/molecule/table/test/fixtures/readonly';
 import MoleculeTeamsPopinFixtureDefault from '../src/molecule/teams-popin/test/fixtures/default';
+import MoleculeTeamsPopinFixtureLoadingBackground from '../src/molecule/teams-popin/test/fixtures/loading-background';
 import MoleculeTeamsPopinFixtureLoading from '../src/molecule/teams-popin/test/fixtures/loading';
+import MoleculeTeamsPopinFixtureLoginBackground from '../src/molecule/teams-popin/test/fixtures/login-background';
 import MoleculeTeamsPopinFixtureLoginFaild from '../src/molecule/teams-popin/test/fixtures/login-faild';
 import MoleculeTeamsPopinFixtureLogin from '../src/molecule/teams-popin/test/fixtures/login';
 import MoleculeTeamsPopinFixtureNotTeamsAccount from '../src/molecule/teams-popin/test/fixtures/not-teams-account';
@@ -1641,7 +1643,9 @@ export const fixtures = {
     },
     MoleculeTeamsPopin: {
       Default: MoleculeTeamsPopinFixtureDefault,
+      LoadingBackground: MoleculeTeamsPopinFixtureLoadingBackground,
       Loading: MoleculeTeamsPopinFixtureLoading,
+      LoginBackground: MoleculeTeamsPopinFixtureLoginBackground,
       LoginFaild: MoleculeTeamsPopinFixtureLoginFaild,
       Login: MoleculeTeamsPopinFixtureLogin,
       NotTeamsAccount: MoleculeTeamsPopinFixtureNotTeamsAccount,

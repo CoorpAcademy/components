@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {
   NovaCompositionCoorpacademyReload as ReloadIcon,
   NovaCompositionCoorpacademyLoginFailed as LoginFailedIcon,
-  NovaCompositionCoorpacademyAddressError as AddreessErrorIcon,
+  NovaCompositionCoorpacademyAddressError as AddressErrorIcon,
   NovaCompositionCoorpacademySchoolGraduation as SchoolGraduation
 } from '@coorpacademy/nova-icons';
 import Cta from '../../atom/cta';
@@ -13,13 +13,21 @@ import style from './style.css';
 const ICONS = {
   login: SchoolGraduation,
   loginFailed: LoginFailedIcon,
-  addressError: AddreessErrorIcon,
+  addressError: AddressErrorIcon,
   reload: ReloadIcon,
   wrong: ReloadIcon
 };
 
 const TeamsPopin = props => {
-  const {header, content, buttonLabel, onButtonClick, type, isLoading = false} = props;
+  const {
+    header,
+    content,
+    buttonLabel,
+    onButtonClick,
+    type,
+    isLoading = false,
+    backgroundImageUrl
+  } = props;
   const IconType = ICONS[type];
   const iconContainerStyle = type === 'login' ? style.iconContainer : style.errorIconContainer;
   const Icon = IconType ? (
@@ -27,12 +35,18 @@ const TeamsPopin = props => {
       <IconType className={style.icon} />
     </div>
   ) : null;
+  const backgroundImageStyle = backgroundImageUrl
+    ? {
+        backgroundImage: `url(${backgroundImageUrl})`,
+        backgroundSize: 'cover'
+      }
+    : {};
 
   return (
-    <div className={style.background}>
+    <div className={style.background} style={backgroundImageStyle}>
       {isLoading ? (
         <div className={style.loader}>
-          <Loader data-name="teams-pipin-loader" />
+          <Loader data-name="teams-popin-loader" />
         </div>
       ) : (
         <div className={style.popin}>
@@ -60,7 +74,8 @@ TeamsPopin.propTypes = {
   buttonLabel: PropTypes.string,
   onButtonClick: PropTypes.func,
   type: PropTypes.oneOf(['login', 'reload', 'loginFailed', 'addressError', 'wrong']),
-  isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
+  backgroundImageUrl: PropTypes.string
 };
 
 export default TeamsPopin;
