@@ -127,7 +127,7 @@ export const REDIRECT_AFTER_END_REQUEST = '@@location/REDIRECT_AFTER_END_REQUEST
 export const REDIRECT_AFTER_END_SUCCESS = '@@location/REDIRECT_AFTER_END_SUCCESS';
 export const REDIRECT_AFTER_END_FAILURE = '@@location/REDIRECT_AFTER_END_FAILURE';
 
-export const redirectToContentAfterEnd = () => (dispatch, getState, {services}) => {
+export const redirectToContentAfterEnd = (dispatch, getState, {services}) => {
   const action = buildTask({
     types: [REDIRECT_AFTER_END_REQUEST, REDIRECT_AFTER_END_SUCCESS, REDIRECT_AFTER_END_FAILURE],
     task: () => services.Location.redirectToContentAfterEnd(),

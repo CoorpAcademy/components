@@ -448,7 +448,7 @@ test(
       },
     },
   }),
-  redirectToContentAfterEnd(),
+  redirectToContentAfterEnd,
   [
     {
       type: REDIRECT_AFTER_END_REQUEST,
