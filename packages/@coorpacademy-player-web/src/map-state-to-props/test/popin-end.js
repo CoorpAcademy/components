@@ -143,22 +143,14 @@ test('should verify that cta should redirect if redirectURLAfterEnd is set on st
   const dispatch = createDispatch(popinLearnerFailureWithRedirection);
   const props = popinEnd(options, {dispatch})(popinLearnerFailureWithRedirection);
 
-  t.is(props.summary.header.cta.title, '__Click to continue');
-  t.true(isUndefined(props.summary.header.cta.href));
+  const header = props.summary.header;
+  const cta = header.cta;
+  t.is(cta.title, '__Click to continue');
+  t.true(isFunction(cta.onClick));
+  t.true(isUndefined(cta.href));
 
-  const onClick = props.summary.header.cta.onClick;
-  t.true(isFunction(onClick));
-  const dispatchedOnClick = await onClick();
-
-  console.log(`
-
-  
-  dispatchedOnClick ${dispatchedOnClick}
-  
-  
-  `)
-
-  t.deepEqual(actionTypes(dispatchedOnClick), [
+  const dispatchedHeaderCta = await cta.onClick();
+  t.deepEqual(actionTypes(dispatchedHeaderCta), [
     REDIRECT_AFTER_END_REQUEST,
     REDIRECT_AFTER_END_SUCCESS
   ]);
@@ -168,23 +160,14 @@ test('should verify that cta should redirect if redirectURLAfterEnd is set on st
   const dispatch = createDispatch(popinLearnerSuccessWithRedirection);
   const props = popinEnd(options, {dispatch})(popinLearnerSuccessWithRedirection);
 
-  t.is(props.summary.header.cta.title, '__Click to continue');
-  t.is(props.summary.header.cta.href, null);
+  const header = props.summary.header;
+  const cta = header.cta;
+  t.is(cta.title, '__Click to continue');
+  t.true(isFunction(cta.onClick));
+  t.falsy(cta.href);
 
-  const onClick = props.summary.header.cta.onClick;
-  t.true(isFunction(onClick));
-  const dispatchedOnClick = await onClick();
-
-  console.log(`
-  
-  
-  
-  dispatchedOnClick ${dispatchedOnClick}
-  
-  
-  `)
-
-  t.deepEqual(actionTypes(dispatchedOnClick), [
+  const dispatchedHeaderCta = await cta.onClick();
+  t.deepEqual(actionTypes(dispatchedHeaderCta), [
     REDIRECT_AFTER_END_REQUEST,
     REDIRECT_AFTER_END_SUCCESS
   ]);
