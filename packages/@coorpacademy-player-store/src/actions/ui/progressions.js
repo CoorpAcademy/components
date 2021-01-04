@@ -69,7 +69,6 @@ const fetchData = (engine: Engine, progressionId: ProgressionId, progressionCont
 ): DispatchedAction =>
   Promise.all([
     dispatch(fetchStartRank()),
-    dispatch(setRedirectUrlEnd()),
     dispatch(fetchBestProgression(progressionContent, progressionId)),
     dispatch(fetchEngineConfig(engine)),
     dispatch(fetchContentInfo(progressionContent, engine)),

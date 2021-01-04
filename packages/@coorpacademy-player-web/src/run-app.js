@@ -1,6 +1,7 @@
-import {selectProgression} from '@coorpacademy/player-store';
+import {selectProgression, setRedirectUrlEnd} from '@coorpacademy/player-store';
 
 const start = ({progression}, {dispatch}) => {
+  dispatch(setRedirectUrlEnd());
   return dispatch(selectProgression(progression));
 };
 
