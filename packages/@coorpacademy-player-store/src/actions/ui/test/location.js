@@ -26,9 +26,6 @@ import {
   LOCATION_OPEN_RECOMMENDATION_REQUEST,
   LOCATION_OPEN_RECOMMENDATION_SUCCESS,
   LOCATION_OPEN_RECOMMENDATION_FAILURE,
-  redirectToContentAfterEnd,
-  REDIRECT_AFTER_END_REQUEST,
-  REDIRECT_AFTER_END_SUCCESS,
   setRedirectUrlEnd,
   SET_REDIRECT_URL_AFTER_END_REQUEST,
   SET_REDIRECT_URL_AFTER_END_SUCCESS,
@@ -458,31 +455,6 @@ test(
     },
     {
       type: SET_REDIRECT_URL_AFTER_END_SUCCESS,
-      payload: 'bar',
-    },
-  ],
-  1
-);
-
-test(
-  'should call redirectToContentAfterEnd location service and dispatch SUCCESS action',
-  macro,
-  {},
-  (t) => ({
-    Location: {
-      redirectToContentAfterEnd: () => {
-        t.pass();
-        return 'bar';
-      },
-    },
-  }),
-  redirectToContentAfterEnd,
-  [
-    {
-      type: REDIRECT_AFTER_END_REQUEST,
-    },
-    {
-      type: REDIRECT_AFTER_END_SUCCESS,
       payload: 'bar',
     },
   ],
