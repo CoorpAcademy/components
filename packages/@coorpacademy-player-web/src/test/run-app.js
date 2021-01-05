@@ -1,4 +1,5 @@
 import test from 'ava';
+import {isFunction} from 'lodash/fp';
 import runApp from '../run-app';
 
 test('it should run app', t => {
@@ -8,9 +9,10 @@ test('it should run app', t => {
     }
   };
 
+  t.plan(3);
   const store = {
     dispatch: action => {
-      t.is(action.constructor.name, 'AsyncFunction');
+      t.true(isFunction(action));
       return 'bar';
     }
   };
