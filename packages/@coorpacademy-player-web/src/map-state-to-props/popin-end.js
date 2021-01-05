@@ -84,16 +84,16 @@ const comment = ({translate}, {dispatch}) => state => {
 const ctaForFail = (redirection, translate, dispatch, state) => {
   if (redirection) {
     return {
-      title: translate('Click to continue'),
-      onClick: () => dispatch(redirectToContentAfterEnd)
+      onClick: () => dispatch(redirectToContentAfterEnd),
+      title: translate('Click to continue')
     };
   }
 
   return {
+    onClick: () => dispatch(retry),
     title: isCurrentEngineMicrolearning(state)
       ? translate('Retry chapter')
-      : translate('Retry level'),
-    onClick: () => dispatch(retry)
+      : translate('Retry level')
   };
 };
 
@@ -109,8 +109,8 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
   const redirection = getRedirectURLAfterEnd(state);
   if (redirection) {
     successCta.title = translate('Click to continue');
-    successCta.href = null;
     successCta.onClick = () => dispatch(redirectToContentAfterEnd);
+    successCta.href = null;
   }
 
   if (isCurrentEngineLearner(state) && !redirection) {
