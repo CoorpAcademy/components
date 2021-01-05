@@ -54,7 +54,7 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
-    "@coorpacademy/components": "9.29.7",
+    "@coorpacademy/components": "9.29.10",
     "@coorpacademy/player-services": "5.1.16",
     "@coorpacademy/player-store": "4.1.28",
     "@coorpacademy/progression-engine": "11.1.11",

@@ -108,8 +108,8 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
 
   const redirection = getRedirectURLAfterEnd(state);
   if (redirection) {
-    successCta.title = translate('Click to continue');
     successCta.onClick = () => dispatch(redirectToContentAfterEnd);
+    successCta.title = translate('Click to continue');
     successCta.href = null;
   }
 
