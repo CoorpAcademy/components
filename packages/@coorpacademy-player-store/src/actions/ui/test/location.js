@@ -29,6 +29,9 @@ import {
   redirectToContentAfterEnd,
   REDIRECT_AFTER_END_REQUEST,
   REDIRECT_AFTER_END_SUCCESS,
+  setRedirectUrlEnd,
+  SET_REDIRECT_URL_AFTER_END_REQUEST,
+  SET_REDIRECT_URL_AFTER_END_SUCCESS,
 } from '../location';
 
 test(
@@ -434,6 +437,31 @@ test(
   openRecommendation('foo'),
   [],
   0
+);
+
+test(
+  'should call setRedirectUrlEnd location service and dispatch SUCCESS action',
+  macro,
+  {},
+  (t) => ({
+    Location: {
+      getRedirectURLAfterEnd: () => {
+        t.pass();
+        return 'bar';
+      },
+    },
+  }),
+  setRedirectUrlEnd(),
+  [
+    {
+      type: SET_REDIRECT_URL_AFTER_END_REQUEST,
+    },
+    {
+      type: SET_REDIRECT_URL_AFTER_END_SUCCESS,
+      payload: 'bar',
+    },
+  ],
+  1
 );
 
 test(
