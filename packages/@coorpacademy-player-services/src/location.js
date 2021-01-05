@@ -29,7 +29,3 @@ export const openRecommendation = (recommendation: RecommendationAPI) => {
 };
 
 export const getRedirectURLAfterEnd = (): string => '';
-
-export const redirectToContentAfterEnd = () => {
-  window.location.reload();
-};
