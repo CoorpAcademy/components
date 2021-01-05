@@ -117,12 +117,6 @@ const services = (result) => (t) => ({
       return 'sent';
     },
   },
-  Location: {
-    getRedirectURLAfterEnd: () => {
-      t.pass();
-      return '';
-    },
-  },
 });
 
 const answer = (result) => [

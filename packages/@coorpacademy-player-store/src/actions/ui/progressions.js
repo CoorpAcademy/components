@@ -86,6 +86,7 @@ export const selectProgression = (id: ProgressionId) => async (
 
   // $FlowFixMe string literal is incompatible with string
   await dispatch(selectAction);
+
   const progressionId = getCurrentProgressionId(getState());
 
   if (!progressionId) {

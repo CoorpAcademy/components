@@ -243,12 +243,6 @@ test(
       },
     },
     Content: ContentService(t, false),
-    Location: {
-      getRedirectURLAfterEnd: () => {
-        t.pass();
-        return 'http://www.google.com';
-      },
-    },
   }),
   selectProgression('foo'),
   [
@@ -371,12 +365,6 @@ test(
       },
     },
     Content: ContentService(t, true),
-    Location: {
-      getRedirectURLAfterEnd: () => {
-        t.pass();
-        return 'http://www.google.com';
-      },
-    },
   }),
   selectProgression('foo'),
   [
@@ -511,12 +499,6 @@ test(
     Recommendations: {
       find: () => 'plop',
       getNext: () => 'plip',
-    },
-    Location: {
-      getRedirectURLAfterEnd: () => {
-        t.pass();
-        return '';
-      },
     },
   }),
   selectProgression('foo'),
@@ -724,12 +706,6 @@ test(
         return recommendationFixture.nextLevel;
       },
     },
-    Location: {
-      getRedirectURLAfterEnd: () => {
-        t.pass();
-        return '';
-      },
-    },
   }),
   selectProgression('foo'),
   [
@@ -893,12 +869,6 @@ test(
     Recommendations: {
       find: () => 'plop',
       getNext: () => 'plip',
-    },
-    Location: {
-      getRedirectURLAfterEnd: () => {
-        t.pass();
-        return '';
-      },
     },
   }),
   selectProgression('xtralife'),

@@ -80,12 +80,6 @@ test(
         return 1;
       },
     },
-    Location: {
-      getRedirectURLAfterEnd: () => {
-        t.pass();
-        return '';
-      },
-    },
   }),
   refuseExtraLife(),
   [
@@ -232,12 +226,6 @@ test(
       getRank: (...args) => {
         t.pass();
         return 1;
-      },
-    },
-    Location: {
-      getRedirectURLAfterEnd: () => {
-        t.pass();
-        return '';
       },
     },
   }),
