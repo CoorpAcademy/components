@@ -108,9 +108,8 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
 
   const redirection = getRedirectURLAfterEnd(state);
   if (redirection) {
-    successCta.onClick = () => dispatch(redirectToContentAfterEnd);
+    successCta.href = redirection;
     successCta.title = translate('Click to continue');
-    successCta.href = null;
   }
 
   if (isCurrentEngineLearner(state) && !redirection) {

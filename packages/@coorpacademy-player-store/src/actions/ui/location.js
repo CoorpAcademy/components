@@ -107,8 +107,8 @@ export const openRecommendation = (recommendation) => (dispatch, getState, {serv
 };
 
 export const SET_REDIRECT_URL_AFTER_END_REQUEST = '@@location/SET_REDIRECT_URL_AFTER_END_REQUEST';
-export const SET_REDIRECT_URL_AFTER_END_FAILURE = '@@location/SET_REDIRECT_URL_AFTER_END_FAILURE';
 export const SET_REDIRECT_URL_AFTER_END_SUCCESS = '@@location/SET_REDIRECT_URL_AFTER_END_SUCCESS';
+export const SET_REDIRECT_URL_AFTER_END_FAILURE = '@@location/SET_REDIRECT_URL_AFTER_END_FAILURE';
 
 export const setRedirectUrlEnd = () => (dispatch, getState, {services}) => {
   const action = buildTask({
@@ -131,5 +131,6 @@ export const redirectToContentAfterEnd = (dispatch, getState, {services}) => {
     types: [REDIRECT_AFTER_END_REQUEST, REDIRECT_AFTER_END_SUCCESS, REDIRECT_AFTER_END_FAILURE],
     task: () => services.Location.redirectToContentAfterEnd(),
   });
+
   return dispatch(action);
 };
