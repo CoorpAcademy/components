@@ -33,7 +33,8 @@ import {
   openRecommendation,
   postComment,
   retry,
-  seeComment
+  seeComment,
+  getRedirectURLAfterEnd
 } from '@coorpacademy/player-store';
 import headerProps from './header';
 
@@ -79,6 +80,22 @@ const comment = ({translate}, {dispatch}) => state => {
   };
 };
 
+const ctaForFail = (redirection, translate, dispatch, state) => {
+  if (redirection) {
+    return {
+      href: redirection,
+      title: translate('Click to continue')
+    };
+  }
+
+  return {
+    onClick: () => dispatch(retry),
+    title: isCurrentEngineMicrolearning(state)
+      ? translate('Retry chapter')
+      : translate('Retry level')
+  };
+};
+
 const summaryHeader = ({translate}, {dispatch}) => state => {
   const {hide, count} = getLives(state);
   const lives = hide ? null : count;
@@ -88,7 +105,13 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
     href: '/'
   };
 
-  if (isCurrentEngineLearner(state)) {
+  const redirection = getRedirectURLAfterEnd(state);
+  if (redirection) {
+    successCta.href = redirection;
+    successCta.title = translate('Click to continue');
+  }
+
+  if (isCurrentEngineLearner(state) && !redirection) {
     const level = get('level', getCurrentContent(state));
     if (level === 'advanced' || level === 'base') {
       const _nextLevel = getNextContent(state);
@@ -124,12 +147,7 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
         lives,
         rank: extractRank(state),
         stars: null,
-        cta: {
-          title: isCurrentEngineMicrolearning(state)
-            ? translate('Retry chapter')
-            : translate('Retry level'),
-          onClick: () => dispatch(retry)
-        }
+        cta: ctaForFail(redirection, translate, dispatch, state)
       })
     ],
     [constant(true), constant({type: 'popinEnd'})]

@@ -48,6 +48,7 @@ import {
   isContentAdaptive,
   getVideoTracks,
   getPrevAnswer,
+  getRedirectURLAfterEnd,
 } from '../state-extract';
 
 import tracksFixture from '../../fixtures/tracks';
@@ -1731,4 +1732,11 @@ test('getPrevAnswer should return empty answer if there are not an previous slid
   const result = getPrevAnswer(state);
 
   return t.deepEqual(result, []);
+});
+
+test('getRedirectURLAfterEnd should return ui.location.redirectURLAfterEnd value on state', (t) => {
+  const state = set('ui.location.redirectURLAfterEnd', 'http://www.google.com', {});
+  const result = getRedirectURLAfterEnd(state);
+
+  return t.is(result, 'http://www.google.com');
 });

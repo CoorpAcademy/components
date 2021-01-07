@@ -27,3 +27,5 @@ export const seeComment = (content: Content) => {
 export const openRecommendation = (recommendation: RecommendationAPI) => {
   window.location.reload();
 };
+
+export const getRedirectURLAfterEnd = (): string => '';

@@ -66,6 +66,9 @@ const services = {
     },
     getInfo: identity
   },
+  Location: {
+    getRedirectURLAfterEnd: () => ''
+  },
   LeaderBoard: {
     getRank: identity
   },
