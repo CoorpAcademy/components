@@ -161,6 +161,18 @@
   box-sizing: border-box;
 }
 
+.contextTitle {
+  font-family: "Open Sans";
+  font-size: 20px;
+  font-weight: normal;
+  color: black;
+  text-align: center;
+  margin: 24px 0 4px;
+  width: 100%;
+  padding: 0 9px;
+  box-sizing: border-box;
+}
+
 .helpView {
   font-family: "Open Sans";
   font-size: 15px;

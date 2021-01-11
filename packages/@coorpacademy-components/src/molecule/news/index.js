@@ -1,7 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import Cta from '../../atom/cta';
 import Link from '../../atom/link';
+import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
 
 const News = (props, context) => {
@@ -23,12 +25,12 @@ const News = (props, context) => {
         <Link
           href={cta.href}
           title={title}
-          className={style.title}
+          className={classnames(style.title, innerHTML)}
           target={cta.target}
           data-name="news-title"
-        >
-          {title}
-        </Link>
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{__html: title}}
+        />
         <div className={style.date}>{date}</div>
         <div className={style.description}>
           <div

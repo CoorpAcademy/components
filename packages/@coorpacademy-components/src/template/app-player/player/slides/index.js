@@ -304,8 +304,14 @@ ValidateButton.propTypes = {
 };
 
 const ContentLayout = (props, context) => {
-  const {typeClue, answerType: {model: {type} = {}} = {}, question, help, slideContext} = props;
-  const ContentType = CONTENT_TYPE[typeClue];
+  const {
+    typeClue: selectedTab,
+    answerType: {model: {type} = {}} = {},
+    question,
+    help,
+    slideContext
+  } = props;
+  const ContentType = CONTENT_TYPE[selectedTab];
   const noPaddingRessources =
     ContentType === MediaContent ? `${style.contentWrapperNoPadding}` : `${style.contentWrapper}`;
 
@@ -313,13 +319,16 @@ const ContentLayout = (props, context) => {
     <div className={noPaddingRessources} style={{backgroundColor: 'white'}}>
       <div
         data-name="question"
-        className={classnames(style.question, innerHTML)}
+        className={classnames(
+          selectedTab === 'context' ? style.contextTitle : style.question,
+          innerHTML
+        )}
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
-          __html: typeClue === 'context' ? slideContext.title : question
+          __html: selectedTab === 'context' ? slideContext.title : question
         }}
       />
-      {help && typeClue === 'answer' && type !== 'qcmDrag' ? <Help help={help} /> : null}
+      {help && selectedTab === 'answer' && type !== 'qcmDrag' ? <Help help={help} /> : null}
       <ContentType {...props} />
       <ValidateButton {...props} />
     </div>
