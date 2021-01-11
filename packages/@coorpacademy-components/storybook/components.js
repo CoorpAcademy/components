@@ -485,6 +485,7 @@ import MoleculeModuleBubbleFixtureFiltered from '../src/molecule/module-bubble/t
 import MoleculeModuleCardFixtureActive from '../src/molecule/module-card/test/fixtures/active';
 import MoleculeModuleCardFixtureArabic from '../src/molecule/module-card/test/fixtures/arabic';
 import MoleculeModuleCardFixtureRestarted from '../src/molecule/module-card/test/fixtures/restarted';
+import MoleculeNewsFixtureArabic from '../src/molecule/news/test/fixtures/arabic';
 import MoleculeNewsFixtureDefault from '../src/molecule/news/test/fixtures/default';
 import MoleculeNewsFixtureLongDescription from '../src/molecule/news/test/fixtures/long-description';
 import MoleculeNewsFixtureLongTitle from '../src/molecule/news/test/fixtures/long-title';
@@ -1524,6 +1525,7 @@ export const fixtures = {
       Restarted: MoleculeModuleCardFixtureRestarted
     },
     MoleculeNews: {
+      Arabic: MoleculeNewsFixtureArabic,
       Default: MoleculeNewsFixtureDefault,
       LongDescription: MoleculeNewsFixtureLongDescription,
       LongTitle: MoleculeNewsFixtureLongTitle,

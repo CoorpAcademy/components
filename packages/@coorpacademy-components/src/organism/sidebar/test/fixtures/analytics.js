@@ -112,6 +112,10 @@ export default {
             console.log('Clicked on the button!');
             e.preventDefault();
           }
+        },
+        {
+          title: '<p align="right">.تدابير الوقاية مهمة للغاية لتجنب الانتشار المحتمل للفيروس</p>',
+          type: 'link'
         }
       ]
     ]

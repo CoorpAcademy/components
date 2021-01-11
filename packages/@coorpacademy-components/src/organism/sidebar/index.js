@@ -7,6 +7,7 @@ import Button from '../../atom/button';
 import Provider from '../../atom/provider';
 import Select from '../../atom/select';
 import SelectMultiple from '../../molecule/select-multiple';
+import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
 
 const NEUTRAL_COLOR = '#607D8B';
@@ -93,13 +94,13 @@ export const LinkItem = ({href, index, name, selected, color, title, onClick}) =
       }}
     >
       <li
-        className={classnames(style.linkItem, style.sidebarTitle)}
+        className={classnames(style.linkItem, style.sidebarTitle, innerHTML)}
         style={{
           borderLeftColor: selected ? color : null
         }}
-      >
-        {title}
-      </li>
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: title}}
+      />
     </Link>
   );
 };
