@@ -313,7 +313,7 @@ const ContentLayout = (props, context) => {
     <div className={noPaddingRessources} style={{backgroundColor: 'white'}}>
       <div
         data-name="question"
-        className={classnames(style.question, innerHTML)}
+        className={classnames(style.contextTitle, innerHTML)}
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{
           __html: typeClue === 'context' ? slideContext.title : question
