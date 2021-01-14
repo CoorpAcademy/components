@@ -37,6 +37,7 @@ import _NovaCompositionCoorpacademyLevel3 from './components/nova-composition/co
 import _NovaCompositionCoorpacademyLightbulb from './components/nova-composition/coorpacademy/lightbulb';
 import _NovaCompositionCoorpacademyLinkedin from './components/nova-composition/coorpacademy/linkedin';
 import _NovaCompositionCoorpacademyListBullets3 from './components/nova-composition/coorpacademy/list-bullets-3';
+import _NovaCompositionCoorpacademyLocales from './components/nova-composition/coorpacademy/locales';
 import _NovaCompositionCoorpacademyLock from './components/nova-composition/coorpacademy/lock';
 import _NovaCompositionCoorpacademyLoginFailed from './components/nova-composition/coorpacademy/login-failed';
 import _NovaCompositionCoorpacademyMagicWand from './components/nova-composition/coorpacademy/magic-wand';
@@ -164,6 +165,7 @@ export const NovaCompositionCoorpacademyLevel3: Icon = _NovaCompositionCoorpacad
 export const NovaCompositionCoorpacademyLightbulb: Icon = _NovaCompositionCoorpacademyLightbulb;
 export const NovaCompositionCoorpacademyLinkedin: Icon = _NovaCompositionCoorpacademyLinkedin;
 export const NovaCompositionCoorpacademyListBullets3: Icon = _NovaCompositionCoorpacademyListBullets3;
+export const NovaCompositionCoorpacademyLocales: Icon = _NovaCompositionCoorpacademyLocales;
 export const NovaCompositionCoorpacademyLock: Icon = _NovaCompositionCoorpacademyLock;
 export const NovaCompositionCoorpacademyLoginFailed: Icon = _NovaCompositionCoorpacademyLoginFailed;
 export const NovaCompositionCoorpacademyMagicWand: Icon = _NovaCompositionCoorpacademyMagicWand;
