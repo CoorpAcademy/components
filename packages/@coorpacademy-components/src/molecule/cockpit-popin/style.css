@@ -1,0 +1,99 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value brand from colors;
+@value light from colors;
+@value black from colors;
+@value negative from colors;
+@value lightGreen from colors;
+
+.background {
+  top: 0px;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 15% 25%;
+  background-color: light;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+}
+
+.loader {
+  composes: background;
+  background-color: unset;
+  min-height: 100px;
+  border: none;
+  position: relative;
+}
+
+
+.popin {
+  position: absolute;
+  overflow: auto;
+  width: 35%;
+  background: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0 0 15px 0 rgba(166, 166, 166, 0.84);
+  border-radius: 8px;
+}
+
+.header {
+  font-family: 'Open Sans';
+  font-size: 24px;
+  font-weight: bold;
+  color: black;
+  width: 70%;
+  box-sizing: border-box;
+}
+
+.content {
+  font-family: 'Open Sans';
+  font-size: 16px;
+  font-weight: normal;
+  color: black;
+  padding-bottom: 20px;
+  box-sizing: border-box;
+  width: 70%;
+}
+
+.buttonContainer {
+  background-color: light;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  margin-right: 10px;
+  margin-left: 10px;
+  border-radius: 4px;
+}
+
+.icon {
+  width: 50px;
+  height: 50px;
+  color: negative;
+  padding-top: 10px;
+}
+
+.headerCloseIcon {
+  width: 16px;
+  height: 16px;
+  color: medium;
+  padding-top: 24px;
+  padding-right: 24px;
+}
+
+.popinHeader {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
