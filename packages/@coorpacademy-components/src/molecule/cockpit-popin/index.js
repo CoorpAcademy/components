@@ -8,10 +8,6 @@ import Cta from '../../atom/button';
 import Loader from '../../atom/loader';
 import style from './style.css';
 
-const ICONS = {
-  videoTranslate: LocalesIcon
-};
-
 const CockpitPopin = props => {
   const {
     header,
@@ -25,12 +21,10 @@ const CockpitPopin = props => {
     isLoading = false,
     backgroundImageUrl
   } = props;
-  const IconType = ICONS[type];
 
   const backgroundImageStyle = backgroundImageUrl
     ? {
-        backgroundImage: `url(${backgroundImageUrl})`,
-        backgroundSize: 'cover'
+        backgroundImage: `url(${backgroundImageUrl})`
       }
     : {};
   return (
@@ -44,7 +38,7 @@ const CockpitPopin = props => {
           <header className={style.popinHeader}>
             <Close onClick={onClose} className={style.headerCloseIcon} />
           </header>
-          <IconType className={style.icon} />
+          <LocalesIcon className={style.icon} />
           <div className={style.header} data-name={`cockpit-popin-header-${type}`}>
             {header}
           </div>
