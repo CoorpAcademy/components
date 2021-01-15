@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  NovaCompositionCoorpacademyReload as ReloadIcon,
+  NovaCompositionCoorpacademyLocales as LocalesIcon,
   NovaSolidStatusClose as Close
 } from '@coorpacademy/nova-icons';
 import Cta from '../../atom/button';
@@ -9,7 +9,7 @@ import Loader from '../../atom/loader';
 import style from './style.css';
 
 const ICONS = {
-  videoTranslate: ReloadIcon
+  videoTranslate: LocalesIcon
 };
 
 const CockpitPopin = props => {
@@ -33,7 +33,6 @@ const CockpitPopin = props => {
         backgroundSize: 'cover'
       }
     : {};
-
   return (
     <div className={style.background} style={backgroundImageStyle}>
       {isLoading ? (
@@ -59,7 +58,10 @@ const CockpitPopin = props => {
                 onClick={onFirstButtonClick}
                 name={`cockpit-popin-cta-${type}`}
                 className={style.button}
-                style={{backgroundColor: '#FFFFFF', color: '#546e7a'}}
+                style={{
+                  backgroundColor: 'white',
+                  color: 'gray'
+                }}
               />
               <Cta
                 submitValue={secondeButtonLabel}
