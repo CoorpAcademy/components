@@ -164,7 +164,7 @@
 .contextTitle {
   font-family: "Open Sans";
   font-size: 20px;
-  font-weight: normal;
+  font-weight: 600;
   color: black;
   text-align: center;
   margin: 24px 0 4px;
@@ -239,7 +239,6 @@
 
 .contextDescription {
   font-family: "Open Sans";
-  font-weight: 700;
   font-size: 14px;
   color: grey;
   width: 100%;
