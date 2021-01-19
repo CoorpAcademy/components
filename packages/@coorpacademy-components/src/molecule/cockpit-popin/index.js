@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {get} from 'lodash/fp';
+import {getOr} from 'lodash/fp';
 
 import {
   NovaCompositionCoorpacademyLocales as LocalesIcon,
@@ -12,7 +12,7 @@ import style from './style.css';
 
 const CockpitPopin = (props, context) => {
   const {skin} = context;
-  const primaryColor = get('common.primary', skin);
+  const primaryColor = getOr('00B0FF', 'common.primary', skin);
   const {
     header,
     content,
