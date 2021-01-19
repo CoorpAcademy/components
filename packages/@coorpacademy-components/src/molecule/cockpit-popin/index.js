@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {getOr} from 'lodash/fp';
+
 import {
   NovaCompositionCoorpacademyLocales as LocalesIcon,
   NovaSolidStatusClose as Close
@@ -8,7 +10,9 @@ import Cta from '../../atom/button';
 import Loader from '../../atom/loader';
 import style from './style.css';
 
-const CockpitPopin = props => {
+const CockpitPopin = (props, context) => {
+  const {skin} = context;
+  const primaryColor = getOr('#00B0FF', 'common.primary', skin);
   const {
     header,
     content,
@@ -38,7 +42,7 @@ const CockpitPopin = props => {
           <header className={style.popinHeader}>
             <Close onClick={onClose} className={style.headerCloseIcon} />
           </header>
-          <LocalesIcon className={style.icon} />
+          <LocalesIcon className={style.icon} style={{color: primaryColor}} />
           <div className={style.header} data-name={`cockpit-popin-header-${type}`}>
             {header}
           </div>
@@ -62,6 +66,7 @@ const CockpitPopin = props => {
                 onClick={onSecondeButtonClick}
                 name={`cockpit-popin-cta-${type}`}
                 className={style.button}
+                style={{backgroundColor: primaryColor}}
               />
             </div>
           ) : null}
