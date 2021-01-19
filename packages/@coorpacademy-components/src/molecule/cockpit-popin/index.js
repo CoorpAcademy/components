@@ -12,7 +12,7 @@ import style from './style.css';
 
 const CockpitPopin = (props, context) => {
   const {skin} = context;
-  const primaryColor = getOr('00B0FF', 'common.primary', skin);
+  const primaryColor = getOr('#00B0FF', 'common.primary', skin);
   const {
     header,
     content,
