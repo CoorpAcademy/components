@@ -126,7 +126,7 @@
   flex-flow: row;
   color: positive;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   min-height: 25px;
 }
 
@@ -139,13 +139,18 @@
 .answerPrefix {
   composes: text;
   margin-right: 5px;
+  min-width: 120px;
 }
 
 .answer {
   composes: text;
   font-weight: 700;
+  width: 100%;
 }
 
+.answer > p {
+  margin-bottom: -10px;
+}
 /* Resources -------------- */
 
 .browserWrapper {

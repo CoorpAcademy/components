@@ -772,6 +772,7 @@ import TemplateAppPlayerPopinCorrectionFixtureCorrectOpenResourcesWithVideo from
 import TemplateAppPlayerPopinCorrectionFixtureCorrectOpenTips from '../src/template/app-player/popin-correction/test/fixtures/correct-open-tips';
 import TemplateAppPlayerPopinCorrectionFixtureCorrectWithoutResources from '../src/template/app-player/popin-correction/test/fixtures/correct-without-resources';
 import TemplateAppPlayerPopinCorrectionFixtureFailClosed from '../src/template/app-player/popin-correction/test/fixtures/fail-closed';
+import TemplateAppPlayerPopinCorrectionFixtureFailMultipleAnswersArabic from '../src/template/app-player/popin-correction/test/fixtures/fail-multiple-answers-arabic';
 import TemplateAppPlayerPopinCorrectionFixtureFailMultipleAnswers from '../src/template/app-player/popin-correction/test/fixtures/fail-multiple-answers';
 import TemplateAppPlayerPopinCorrectionFixtureFailOpenKlf from '../src/template/app-player/popin-correction/test/fixtures/fail-open-klf';
 import TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithPdfAndOverlay from '../src/template/app-player/popin-correction/test/fixtures/fail-open-resources-with-pdf-and-overlay';
@@ -1970,6 +1971,7 @@ export const fixtures = {
       CorrectOpenTips: TemplateAppPlayerPopinCorrectionFixtureCorrectOpenTips,
       CorrectWithoutResources: TemplateAppPlayerPopinCorrectionFixtureCorrectWithoutResources,
       FailClosed: TemplateAppPlayerPopinCorrectionFixtureFailClosed,
+      FailMultipleAnswersArabic: TemplateAppPlayerPopinCorrectionFixtureFailMultipleAnswersArabic,
       FailMultipleAnswers: TemplateAppPlayerPopinCorrectionFixtureFailMultipleAnswers,
       FailOpenKlf: TemplateAppPlayerPopinCorrectionFixtureFailOpenKlf,
       FailOpenResourcesWithPdfAndOverlay: TemplateAppPlayerPopinCorrectionFixtureFailOpenResourcesWithPdfAndOverlay,
