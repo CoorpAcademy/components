@@ -9,6 +9,7 @@
 @value black from colors;
 @value dark from colors;
 @value battle from colors;
+@value orangeAdd from colors;
 @value transparent from colors;
 
 .wrapper {
@@ -234,10 +235,35 @@
   display: block;
   height: 100%;
 }
+.notification {
+  width: 32px;
+  height: 32px;
+  margin: auto 16px auto 4px;
+  padding: 8px;
+  position: relative;
+  color:  dark;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: color(dark a(8%));
+  transition: all 0.5s linear;
+}
+.notification:hover {
+  background-color: color(dark a(17%));
+  color:  dark;
+}
+.active {
+  background-color: color(orangeAdd a(8%));
+  color: orangeAdd;
+}
+.active:hover {
+  background-color: color(orangeAdd a(17%));
+  color: orangeAdd;
+}
 
 .avatarWrapper {
   position: relative;
   margin-left: 20px;
+  display: flex;
 }
 
 .avatar {
@@ -255,7 +281,7 @@
 
 .notifications {
   position: absolute;
-  top: 0;
+  top: -5px;
   right: -5px;
   font-family: 'Open Sans';
   font-weight: 700;
@@ -264,6 +290,7 @@
   color: white;
   border-radius: 8px;
   text-decoration: none;
+  background-color: orangeAdd;
   padding: 0 5px;
 }
 

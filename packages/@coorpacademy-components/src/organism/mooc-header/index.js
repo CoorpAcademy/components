@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {getOr, get, isEmpty} from 'lodash/fp';
+import classnames from 'classnames';
 import {
   NovaCompositionNavigationArrowDown as ArrowDown,
   NovaCompositionCoorpacademyStar as StarIcon,
   NovaCompositionCoorpacademyCharts as ChartsIcon,
   NovaSolidVoteRewardsRewardsTrophy5 as TrophyIcon,
-  NovaCompositionCoorpacademyCog as CogIcon
+  NovaCompositionCoorpacademyCog as CogIcon,
+  NovaSolidTimeAlarm as AlarmIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import Cta from '../../atom/cta';
@@ -299,20 +301,29 @@ class MoocHeader extends React.Component {
     }
 
     if (user) {
+      const nbNotifications = getOr(0, 'notifications.value', user);
       notificationsView =
-        user.notifications && user.notifications.value > 0 ? (
+        nbNotifications > 0 ? (
           <Link
             href={user.notifications.href}
             data-name="user-notifications"
             className={style.notifications}
-            style={{
-              backgroundColor: primaryColor
-            }}
           >
-            {user.notifications.value}
+            {nbNotifications}
           </Link>
         ) : null;
-
+      const notificationPageView = (
+        <Link
+          className={classnames(style.notification, nbNotifications > 0 ? style.active : null)}
+          data-name="stat-notifications"
+          href={user.notifications.href}
+        >
+          <div>
+            <AlarmIcon />
+          </div>
+          {notificationsView}
+        </Link>
+      );
       userView = (
         <div className={style.user}>
           <div className={style.stats}>
@@ -356,12 +367,12 @@ class MoocHeader extends React.Component {
             </Link>
           </div>
           <div className={style.avatarWrapper}>
+            {notificationPageView}
             <div className={style.avatar} data-name="user-avatar">
               <Link href={user.href} className={style.userLink} onClick={this.handleLinkClick}>
                 <Picture src={user.picture} />
               </Link>
             </div>
-            {notificationsView}
           </div>
         </div>
       );
