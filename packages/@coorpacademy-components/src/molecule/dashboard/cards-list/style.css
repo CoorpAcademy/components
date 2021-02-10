@@ -91,7 +91,6 @@
   margin-right: 0px;
   overflow: hidden;
   scroll-behavior: smooth;
-  transform: scale3d(1, 1, 1);
 }
 
 .card {
