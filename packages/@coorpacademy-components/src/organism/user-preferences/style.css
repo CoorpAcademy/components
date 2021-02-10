@@ -1,3 +1,6 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+
 .preferences {
   display: flex;
   flex-direction: column;
@@ -13,8 +16,40 @@
   width: 100%;
 }
 
-.label {
+.fontBase {
   font-family: 'Open Sans';
   font-size: 12px;
+}
+
+.label {
+  composes: fontBase;
   margin-left: 15px;
+}
+
+.showToolTip {
+  visibility: hidden;
+  text-align: center;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.8s;
+  max-width: 185x;
+  top: 8px;
+}
+
+.infoIcon {
+  padding-top: 2px;
+  padding-left: 10px;
+  padding-right: 17px;
+}
+
+.infoIcon:hover  ~ .showToolTip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.descriptionLabel {
+  composes: fontBase;
+  display: block;
+  word-wrap: break-word;
+  color: dark;
 }
