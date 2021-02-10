@@ -2280,11 +2280,6 @@
     lodash "^4.17.15"
     prettier "1.16.4"
 
-"@coorpacademy/nova-icons@3.9.3":
-  version "3.9.3"
-  resolved "https://registry.npmjs.org/@coorpacademy/nova-icons/-/nova-icons-3.9.3.tgz#6f844178c03488629a22d9c10edd78c0e620801f"
-  integrity sha512-FJU2JKkDJQCnFxfaW2QTUnkbUFmtK5/x9NPy6Jdox+EU3QR3Rnr/0R34qblZDewij/KnT7T/GV4cU+rFcSBD0A==
-
 "@coorpacademy/update-node@^3.16.0":
   version "3.16.0"
   resolved "https://registry.yarnpkg.com/@coorpacademy/update-node/-/update-node-3.16.0.tgz#be0e0fb98733fd670a2d519c141363d586430443"
