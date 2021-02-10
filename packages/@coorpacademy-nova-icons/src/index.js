@@ -29,6 +29,7 @@ import _NovaCompositionCoorpacademyFunnel from './components/nova-composition/co
 import _NovaCompositionCoorpacademyGooglePlus from './components/nova-composition/coorpacademy/google-plus';
 import _NovaCompositionCoorpacademyIconFaq from './components/nova-composition/coorpacademy/icon-faq';
 import _NovaCompositionCoorpacademyImportIcon from './components/nova-composition/coorpacademy/import-icon';
+import _NovaCompositionCoorpacademyInformationIcon from './components/nova-composition/coorpacademy/information-icon';
 import _NovaCompositionCoorpacademyInstagram from './components/nova-composition/coorpacademy/instagram';
 import _NovaCompositionCoorpacademyLevel0 from './components/nova-composition/coorpacademy/level-0';
 import _NovaCompositionCoorpacademyLevel1 from './components/nova-composition/coorpacademy/level-1';
@@ -158,6 +159,7 @@ export const NovaCompositionCoorpacademyFunnel: Icon = _NovaCompositionCoorpacad
 export const NovaCompositionCoorpacademyGooglePlus: Icon = _NovaCompositionCoorpacademyGooglePlus;
 export const NovaCompositionCoorpacademyIconFaq: Icon = _NovaCompositionCoorpacademyIconFaq;
 export const NovaCompositionCoorpacademyImportIcon: Icon = _NovaCompositionCoorpacademyImportIcon;
+export const NovaCompositionCoorpacademyInformationIcon: Icon = _NovaCompositionCoorpacademyInformationIcon;
 export const NovaCompositionCoorpacademyInstagram: Icon = _NovaCompositionCoorpacademyInstagram;
 export const NovaCompositionCoorpacademyLevel0: Icon = _NovaCompositionCoorpacademyLevel0;
 export const NovaCompositionCoorpacademyLevel1: Icon = _NovaCompositionCoorpacademyLevel1;
