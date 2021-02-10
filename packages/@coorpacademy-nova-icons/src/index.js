@@ -127,6 +127,7 @@ import _NovaSolidSpaceRingPlanet from './components/nova-solid/space/ring-planet
 import _NovaSolidSpaceSpaceRocket from './components/nova-solid/space/space-rocket';
 import _NovaSolidStatusCheckCircle2 from './components/nova-solid/status/check-circle-2';
 import _NovaSolidStatusClose from './components/nova-solid/status/close';
+import _NovaSolidTimeAlarm from './components/nova-solid/time/alarm';
 import _NovaSolidUsersUserShield1 from './components/nova-solid/users/user-shield-1';
 import _NovaSolidVideosVideoClip3 from './components/nova-solid/videos/video-clip-3';
 import _NovaSolidVideosVideoControlPlay from './components/nova-solid/videos/video-control-play';
@@ -255,6 +256,7 @@ export const NovaSolidSpaceRingPlanet: Icon = _NovaSolidSpaceRingPlanet;
 export const NovaSolidSpaceSpaceRocket: Icon = _NovaSolidSpaceSpaceRocket;
 export const NovaSolidStatusCheckCircle2: Icon = _NovaSolidStatusCheckCircle2;
 export const NovaSolidStatusClose: Icon = _NovaSolidStatusClose;
+export const NovaSolidTimeAlarm: Icon = _NovaSolidTimeAlarm;
 export const NovaSolidUsersUserShield1: Icon = _NovaSolidUsersUserShield1;
 export const NovaSolidVideosVideoClip3: Icon = _NovaSolidVideosVideoClip3;
 export const NovaSolidVideosVideoControlPlay: Icon = _NovaSolidVideosVideoControlPlay;
