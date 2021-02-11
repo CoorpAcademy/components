@@ -1,3 +1,7 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value light from colors;
+
 .preferences {
   display: flex;
   flex-direction: column;
@@ -11,10 +15,73 @@
   box-sizing: border-box;
   align-items: center;
   width: 100%;
+  height: 60px;
+}
+
+.fontBase {
+  font-family: 'Open Sans';
+  font-size: 12px;
 }
 
 .label {
-  font-family: 'Open Sans';
-  font-size: 12px;
+  composes: fontBase;
   margin-left: 15px;
+  min-height: 18px;
+}
+
+.infoIconWrapper {
+  display: flex;
+  align-items: center;
+  overflow: visible;
+}
+
+.showToolTip {
+  margin-top: 5px;
+  text-align: center;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.8s;
+}
+
+.infoIcon {
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 4px;
+}
+
+.showToolTip::before {
+  content: '';
+  display: inline-block;
+  visibility: hidden;
+  opacity: 0;
+  width: 7px;
+  height: 8px;
+  margin: 7.5px -4px 7.5px 0;
+  transform: rotate(-45deg);
+  transition: opacity 0.8s;
+  background-color: light;
+}
+
+.infoIcon:hover  ~ .showToolTip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.infoIcon:hover  ~ .showToolTip::before {
+  visibility: visible;
+  opacity: 1;
+}
+
+.descriptionLabel {
+  composes: fontBase;
+  display: inline-block;
+  background-color: light;
+  padding: 4px 8px;
+  border-radius: 3px;
+  word-wrap: break-word;
+  color: dark;
+  max-width: 220px;
+  overflow: hidden;
+  text-align: left;
+  position: absolute;
 }

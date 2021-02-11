@@ -3,17 +3,26 @@ export default {
     preferences: [
       {
         value: true,
-        label: "Je souhaite recevoir des emails d'information ou de relance",
+        label: 'Monitoring activity',
+        description:
+          'Answers on forum, Challenges to a battle, Course finished, Certificate achieved, Coach unlocked',
         onChange: console.log
       },
       {
         value: false,
-        label: 'Je souhaite recevoir des notifs in-app',
+        label: 'Recommended courses',
+        description: 'Recommended courses, Trending Course',
         onChange: console.log
       },
       {
         value: true,
-        label: 'Je souhaite recevoir des promos',
+        label: 'Newsletters',
+        description: 'Monthly newsletter, Occasional communication',
+        onChange: console.log
+      },
+      {
+        value: true,
+        label: 'No description',
         onChange: console.log
       }
     ]
