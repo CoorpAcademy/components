@@ -19,6 +19,11 @@ export default {
         label: 'Newsletters',
         description: 'Monthly newsletter, Occasional communication',
         onChange: console.log
+      },
+      {
+        value: true,
+        label: 'No description',
+        onChange: console.log
       }
     ]
   }

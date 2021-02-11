@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {map} from 'lodash/fp';
+import {map, isEmpty} from 'lodash/fp';
 import {NovaCompositionCoorpacademyInformationIcon as InfoIcon} from '@coorpacademy/nova-icons';
 import InputSwitch from '../../atom/input-switch';
 import style from './style.css';
@@ -11,17 +11,22 @@ const Settings = props => {
     <div className={style.settings}>
       <InputSwitch {...settings} />
       <span className={style.label}>{label}</span>
-      <InfoIcon height={16} className={style.infoIcon} />
-      <div className={style.showToolTip}>
-        <span className={style.descriptionLabel}>{description}</span>
-      </div>
+      {isEmpty(description) ? null : (
+        <div className={style.infoIconWrapper}>
+          <InfoIcon height={16} className={style.infoIcon} />
+          <span className={style.triangle}> </span>
+          <div className={style.showToolTip}>
+            <span className={style.descriptionLabel}>{description}</span>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
 Settings.propTypes = {
   ...InputSwitch.propTypes,
-  label: PropTypes.string,
+  label: PropTypes.string.isRequired,
   description: PropTypes.string
 };
 

@@ -1,5 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value dark from colors;
+@value light from colors;
 
 .preferences {
   display: flex;
@@ -14,6 +15,7 @@
   box-sizing: border-box;
   align-items: center;
   width: 100%;
+  height: 60px;
 }
 
 .fontBase {
@@ -24,25 +26,52 @@
 .label {
   composes: fontBase;
   margin-left: 15px;
+  min-height: 18px;
+}
+
+.infoIconWrapper {
+  display: flex;
+  align-items: center;
+  overflow: visible;
 }
 
 .showToolTip {
-  visibility: hidden;
   text-align: center;
-  z-index: 1;
+  visibility: hidden;
   opacity: 0;
   transition: opacity 0.8s;
-  max-width: 185x;
-  top: 8px;
+  background-color: light;
+  padding: 4px 8px;
+  border-radius: 3px;
+  position: relative;
+  z-index: 1;
+}
+
+.triangle {
+  visibility: hidden;
+  opacity: 0;
+  width: 7px;
+  height: 8px;
+  margin: 7.5px -4px 7.5px 0;
+  transform: rotate(-45deg);
+  transition: opacity 0.8s;
+  background-color: light;
+  z-index: 1;
 }
 
 .infoIcon {
-  padding-top: 2px;
+  cursor: pointer;
+  padding-top: 4px;
   padding-left: 10px;
-  padding-right: 17px;
+  padding-right: 4px;
 }
 
 .infoIcon:hover  ~ .showToolTip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.infoIcon:hover  ~ .triangle {
   visibility: visible;
   opacity: 1;
 }
@@ -52,4 +81,9 @@
   display: block;
   word-wrap: break-word;
   color: dark;
+  max-width: 240px;
+  max-height: 4.2em;
+  overflow: hidden;
+  text-align: center;
+  position: relative;
 }
