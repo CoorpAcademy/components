@@ -36,18 +36,23 @@
 }
 
 .showToolTip {
+  margin-top: 5px;
   text-align: center;
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.8s;
-  background-color: light;
-  padding: 4px 8px;
-  border-radius: 3px;
-  position: relative;
   z-index: 1;
 }
 
-.triangle {
+.infoIcon {
+  cursor: pointer;
+  padding-left: 10px;
+  padding-right: 4px;
+}
+
+.showToolTip::before {
+  content: '';
+  display: inline-block;
   visibility: hidden;
   opacity: 0;
   width: 7px;
@@ -56,14 +61,6 @@
   transform: rotate(-45deg);
   transition: opacity 0.8s;
   background-color: light;
-  z-index: 1;
-}
-
-.infoIcon {
-  cursor: pointer;
-  padding-top: 4px;
-  padding-left: 10px;
-  padding-right: 4px;
 }
 
 .infoIcon:hover  ~ .showToolTip {
@@ -71,19 +68,22 @@
   opacity: 1;
 }
 
-.infoIcon:hover  ~ .triangle {
+.infoIcon:hover  ~ .showToolTip::before {
   visibility: visible;
   opacity: 1;
 }
 
 .descriptionLabel {
   composes: fontBase;
-  display: block;
+  display: inline-block;
+  background-color: light;
+  padding: 4px 8px;
+  border-radius: 3px;
   word-wrap: break-word;
   color: dark;
   max-width: 240px;
   max-height: 4.2em;
   overflow: hidden;
   text-align: left;
-  position: relative;
+  position: absolute;
 }

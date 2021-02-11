@@ -13,10 +13,9 @@ const Settings = props => {
       <span className={style.label}>{label}</span>
       {isEmpty(description) ? null : (
         <div className={style.infoIconWrapper}>
-          <InfoIcon height={16} className={style.infoIcon} />
-          <span className={style.triangle}> </span>
+          <InfoIcon height={16} width={16} className={style.infoIcon} />
           <div className={style.showToolTip}>
-            <span className={style.descriptionLabel}>{description}</span>
+            <div className={style.descriptionLabel}>{description}</div>
           </div>
         </div>
       )}
