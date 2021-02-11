@@ -41,7 +41,6 @@
   visibility: hidden;
   opacity: 0;
   transition: opacity 0.8s;
-  z-index: 1;
 }
 
 .infoIcon {
@@ -81,8 +80,7 @@
   border-radius: 3px;
   word-wrap: break-word;
   color: dark;
-  max-width: 240px;
-  max-height: 4.2em;
+  max-width: 220px;
   overflow: hidden;
   text-align: left;
   position: absolute;
