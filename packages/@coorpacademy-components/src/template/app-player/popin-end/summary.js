@@ -25,9 +25,12 @@ const SimpleAction = ({color, prefix, title, button}) => {
         <span data-name="simplePrefix" className={style.simplePrefix}>
           {prefix}
         </span>
-        <span data-name="simpleTitle" className={style.simpleTitle}>
-          {title}
-        </span>
+        <span
+          data-name="simpleTitle"
+          className={classnames(style.simpleTitle, innerHTML)}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{__html: title}}
+        />
       </div>
       <Button
         {...linkProps}
