@@ -90,6 +90,7 @@ const icons: Array<Icon> = [
     filePath: path.resolve('./third-party/nova-composition.iconjar/icons/information-icon.svg'),
     replaceColors: false
   },
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/logout.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/audio-control-play.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/bookmark-5.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/bin.svg')},

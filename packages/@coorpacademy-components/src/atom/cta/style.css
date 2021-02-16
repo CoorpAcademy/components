@@ -3,6 +3,7 @@
 @value transparent from colors;
 @value white from colors;
 @value grey from colors;
+@value negative from colors;
 
 .button {
   display: inline-block;
@@ -74,4 +75,33 @@
   background-color: white;
   border-color: transparent;
   color: brand;
+}
+
+/*
+  Logout button
+*/
+.logoutWrapper {
+  display: flex;
+  align-items: center;
+  min-width: 70px;
+  min-width: max-content;
+}
+
+.logoutButton {
+  composes: lightButton;
+  color: negative;
+}
+
+.logoutIcon {
+  composes: lightButton;
+  padding-right: 8px;
+  transition: background 0.5s, color 0.5s, border 0.5s;
+}
+
+.logoutButton path {
+  transition: background 0.5s, stroke 0.5s, border 0.5s;
+}
+
+.logoutButton:hover path {
+  stroke: color(negative blackness(+10%));
 }

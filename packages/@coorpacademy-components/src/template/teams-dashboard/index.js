@@ -7,7 +7,7 @@ import Loader from '../../atom/loader';
 import CardsList from '../../molecule/dashboard/cards-list';
 import style from './style.css';
 
-const TeamsDashboard = ({logo, platformLink, sections, isLoading}) => {
+const TeamsDashboard = ({logo, platformLinks, sections, isLoading}) => {
   const buildSection = (section, index) => {
     return <CardsList {...section} key={section.title + index} />;
   };
@@ -18,7 +18,7 @@ const TeamsDashboard = ({logo, platformLink, sections, isLoading}) => {
     </div>
   ) : (
     <div data-name="teams-dashboard" className={style.teamsDashboard}>
-      <MoocHeader data-name="teams-dashboard-header" logo={logo} links={[platformLink]} />
+      <MoocHeader data-name="teams-dashboard-header" logo={logo} links={platformLinks} />
       {sectionsList}
     </div>
   );
@@ -26,7 +26,7 @@ const TeamsDashboard = ({logo, platformLink, sections, isLoading}) => {
 
 TeamsDashboard.propTypes = {
   logo: MoocHeader.propTypes.logo,
-  platformLink: PropTypes.shape(Cta.propTypes),
+  platformLinks: PropTypes.arrayOf(PropTypes.shape(Cta.propTypes)),
   sections: PropTypes.arrayOf(PropTypes.shape(CardsList.propTypes)),
   isLoading: PropTypes.bool
 };

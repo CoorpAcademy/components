@@ -3,6 +3,7 @@ import {convert} from 'css-color-function';
 import PropTypes from 'prop-types';
 import {get, noop} from 'lodash/fp';
 import classnames from 'classnames';
+import {NovaCompositionCoorpacademyLogout as LogoutIcon} from '@coorpacademy/nova-icons';
 import Provider from '../provider';
 import Link from '../link';
 import style from './style.css';
@@ -18,7 +19,8 @@ class CTA extends React.Component {
     light: PropTypes.bool,
     secondary: PropTypes.bool,
     small: PropTypes.bool,
-    className: PropTypes.string
+    className: PropTypes.string,
+    logout: PropTypes.bool
   };
 
   static contextTypes = {
@@ -49,9 +51,25 @@ class CTA extends React.Component {
   getStyle() {
     const {skin} = this.context;
     const {hovered} = this.state;
-    const {disabled = false, light = false, secondary = false} = this.props;
+    const {disabled = false, light = false, secondary = false, logout = false} = this.props;
     const color = get('common.primary', skin);
     const grey = get('common.grey', skin);
+    const negative = get('common.negative', skin);
+    const white = get('common.white', skin);
+
+    if (logout && hovered) {
+      const darkenColor = convert(`color(${negative} blackness(+10%))`);
+      return {
+        color: darkenColor,
+        backgroundColor: white,
+        borderColor: get('common.transparent', skin)
+      };
+    }
+
+    if (logout)
+      return {
+        color: negative
+      };
 
     if (disabled) {
       return {
@@ -97,7 +115,8 @@ class CTA extends React.Component {
       small = false,
       secondary = false,
       onClick,
-      className
+      className,
+      logout = false
     } = this.props;
 
     return (
@@ -113,12 +132,25 @@ class CTA extends React.Component {
           small ? style.smallButton : null,
           light ? style.lightButton : null,
           secondary ? style.secondaryButton : null,
+          logout ? style.logoutButton : null,
           className
         )}
         data-name={ctaName || 'cta'}
         style={this.getStyle()}
       >
-        {submitValue}
+        {logout ? (
+          <div className={style.logoutWrapper}>
+            <LogoutIcon
+              height={15}
+              width={15}
+              style={this.getStyle()}
+              className={style.logoutIcon}
+            />
+            {submitValue}
+          </div>
+        ) : (
+          submitValue
+        )}
       </Link>
     );
   }
