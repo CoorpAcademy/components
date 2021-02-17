@@ -55,8 +55,7 @@ class CTA extends React.Component {
     const color = get('common.primary', skin);
     const grey = get('common.grey', skin);
 
-    if (logout)
-      return;
+    if (logout) return;
 
     if (disabled) {
       return {
@@ -127,11 +126,7 @@ class CTA extends React.Component {
       >
         {logout ? (
           <div className={style.logoutWrapper}>
-            <LogoutIcon
-              height={15}
-              width={15}
-              className={style.logoutIcon}
-            />
+            <LogoutIcon height={15} width={15} className={style.logoutIcon} />
             {submitValue}
           </div>
         ) : (
