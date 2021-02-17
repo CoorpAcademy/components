@@ -98,16 +98,15 @@
   color: color(negative blackness(+10%));
 }
 
+.logoutButton:hover .logoutIcon {
+  color: color(negative blackness(+10%));
+}
+
 .logoutIcon {
   composes: lightButton;
   padding-right: 8px;
-  transition: background 0.5s, color 0.5s, border 0.5s;
-}
-
-.logoutButton path {
-  transition: background 0.5s, stroke 0.5s, border 0.5s;
-}
-
-.logoutButton:hover path {
-  stroke: color(negative blackness(+10%));
+  transition: all 0.5s;
+  fill: none;
+  stroke-width: 2px;
+  color: negative;
 }
