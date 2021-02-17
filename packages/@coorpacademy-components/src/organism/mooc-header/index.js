@@ -319,7 +319,7 @@ class MoocHeader extends React.Component {
           href={user.notifications.href}
         >
           <div>
-            <AlarmIcon />
+            <AlarmIcon width={16} height={16} />
           </div>
           {notificationsView}
         </Link>
