@@ -13,10 +13,7 @@ configure({adapter: new Adapter()});
 const context = {
   skin: {
     common: {
-      primary: '#FF7043',
-      white: '#FFFFFF',
-      negative: '#F73F52',
-      transparent: '#FFFFFF'
+      primary: '#FF7043'
     }
   }
 };

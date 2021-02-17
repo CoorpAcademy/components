@@ -54,22 +54,9 @@ class CTA extends React.Component {
     const {disabled = false, light = false, secondary = false, logout = false} = this.props;
     const color = get('common.primary', skin);
     const grey = get('common.grey', skin);
-    const negative = get('common.negative', skin);
-    const white = get('common.white', skin);
-
-    if (logout && hovered) {
-      const darkenColor = convert(`color(${negative} blackness(+10%))`);
-      return {
-        color: darkenColor,
-        backgroundColor: white,
-        borderColor: get('common.transparent', skin)
-      };
-    }
 
     if (logout)
-      return {
-        color: negative
-      };
+      return;
 
     if (disabled) {
       return {
@@ -143,7 +130,6 @@ class CTA extends React.Component {
             <LogoutIcon
               height={15}
               width={15}
-              style={this.getStyle()}
               className={style.logoutIcon}
             />
             {submitValue}

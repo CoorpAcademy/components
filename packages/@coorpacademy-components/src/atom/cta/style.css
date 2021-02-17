@@ -83,13 +83,19 @@
 .logoutWrapper {
   display: flex;
   align-items: center;
-  min-width: 70px;
+  min-width: 120px;
   min-width: max-content;
 }
 
 .logoutButton {
   composes: lightButton;
   color: negative;
+}
+
+.logoutButton:hover {
+  background-color: white;
+  border-color: transparent;
+  color: color(negative blackness(+10%));
 }
 
 .logoutIcon {

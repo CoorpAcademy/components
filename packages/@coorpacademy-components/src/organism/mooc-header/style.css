@@ -221,11 +221,11 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  min-width: 18em;
+  min-width: 21em;
 }
 
 .ctaLink {
-  /* ie fallback */
+  /* ie fallback for min(32px, 1%) */
   margin-right: 32px;
   margin-right: min(32px, 1%);
 }
