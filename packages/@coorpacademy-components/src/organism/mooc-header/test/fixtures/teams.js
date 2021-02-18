@@ -9,12 +9,17 @@ export default {
     logo,
     links: [
       {
-        submitValue: 'Go to Platform',
+        submitValue: 'Go to your Platform',
         href: '#',
         target: '_self',
-        light: false,
-        small: true,
-        secondary: false
+        small: false
+      },
+      {
+        submitValue: 'Log out',
+        href: '#',
+        target: '_self',
+        small: false,
+        logout: true
       }
     ]
   }

@@ -294,7 +294,9 @@ class MoocHeader extends React.Component {
 
     if (links) {
       const ctas = links.map((cta, index) => {
-        return <Cta {...cta} key={index} />;
+        return (
+          <Cta {...cta} key={index} className={index + 1 === links.length ? null : style.ctaLink} />
+        );
       });
 
       linksView = <div className={style.links}>{ctas}</div>;

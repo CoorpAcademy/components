@@ -221,7 +221,13 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
-  min-width: 15em;
+  min-width: 21em;
+}
+
+.ctaLink {
+  /* ie fallback for min(32px, 1%) */
+  margin-right: 32px;
+  margin-right: min(32px, 1%);
 }
 
 .user {
@@ -619,6 +625,10 @@
     margin-top: -15px;
     right: auto;
     top: auto;
+  }
+
+  .ctaLink {
+    margin-right: unset;
   }
 
   .links {

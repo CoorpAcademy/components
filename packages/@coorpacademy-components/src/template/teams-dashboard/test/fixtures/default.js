@@ -71,14 +71,21 @@ export const logo = {
 
 export const headerProps = {
   logo,
-  platformLink: {
-    submitValue: 'Go to your platform',
-    href: 'https://onboarding.coorpacademy.com/dashboard',
-    target: '_blank',
-    light: false,
-    small: true,
-    secondary: false
-  }
+  platformLinks: [
+    {
+      submitValue: 'Go to your platform',
+      href: 'https://onboarding.coorpacademy.com/dashboard',
+      target: '_blank',
+      small: false
+    },
+    {
+      submitValue: 'Log out',
+      href: '#',
+      target: '_self',
+      small: false,
+      logout: true
+    }
+  ]
 };
 
 export const sections = [

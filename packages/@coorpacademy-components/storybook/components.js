@@ -187,6 +187,8 @@ import AtomClueFixtureLoading from '../src/atom/clue/test/fixtures/loading';
 import AtomCtaFixtureDisabled from '../src/atom/cta/test/fixtures/disabled';
 import AtomCtaFixtureLightSmall from '../src/atom/cta/test/fixtures/light-small';
 import AtomCtaFixtureLight from '../src/atom/cta/test/fixtures/light';
+import AtomCtaFixtureLogout from '../src/atom/cta/test/fixtures/logout';
+import AtomCtaFixtureNoSubmitValue from '../src/atom/cta/test/fixtures/no-submit-value';
 import AtomCtaFixturePrimarySmall from '../src/atom/cta/test/fixtures/primary-small';
 import AtomCtaFixturePrimary from '../src/atom/cta/test/fixtures/primary';
 import AtomCtaFixtureSecondarySmall from '../src/atom/cta/test/fixtures/secondary-small';
@@ -1126,6 +1128,8 @@ export const fixtures = {
       Disabled: AtomCtaFixtureDisabled,
       LightSmall: AtomCtaFixtureLightSmall,
       Light: AtomCtaFixtureLight,
+      Logout: AtomCtaFixtureLogout,
+      NoSubmitValue: AtomCtaFixtureNoSubmitValue,
       PrimarySmall: AtomCtaFixturePrimarySmall,
       Primary: AtomCtaFixturePrimary,
       SecondarySmall: AtomCtaFixtureSecondarySmall,
