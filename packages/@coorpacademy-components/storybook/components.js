@@ -663,6 +663,7 @@ import OrganismMoocHeaderFixtureDefault from '../src/organism/mooc-header/test/f
 import OrganismMoocHeaderFixtureLinkOnly from '../src/organism/mooc-header/test/fixtures/link-only';
 import OrganismMoocHeaderFixtureLoggedWithBattleNotifications from '../src/organism/mooc-header/test/fixtures/logged-with-battle-notifications';
 import OrganismMoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/logged';
+import OrganismMoocHeaderFixtureTeamsFrench from '../src/organism/mooc-header/test/fixtures/teams-french';
 import OrganismMoocHeaderFixtureTeams from '../src/organism/mooc-header/test/fixtures/teams';
 import OrganismMoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
 import OrganismPopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
@@ -1862,6 +1863,7 @@ export const fixtures = {
       LinkOnly: OrganismMoocHeaderFixtureLinkOnly,
       LoggedWithBattleNotifications: OrganismMoocHeaderFixtureLoggedWithBattleNotifications,
       Logged: OrganismMoocHeaderFixtureLogged,
+      TeamsFrench: OrganismMoocHeaderFixtureTeamsFrench,
       Teams: OrganismMoocHeaderFixtureTeams,
       UserChangePassword: OrganismMoocHeaderFixtureUserChangePassword
     },
