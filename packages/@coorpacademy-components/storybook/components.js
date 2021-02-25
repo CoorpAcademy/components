@@ -324,6 +324,8 @@ import MoleculeAnswerFixtureDropDown from '../src/molecule/answer/test/fixtures/
 import MoleculeAnswerFixtureQcmArabic from '../src/molecule/answer/test/fixtures/qcm-arabic';
 import MoleculeAnswerFixtureQcmDrag from '../src/molecule/answer/test/fixtures/qcm-drag';
 import MoleculeAnswerFixtureQcmGraphic from '../src/molecule/answer/test/fixtures/qcm-graphic';
+import MoleculeAnswerFixtureQcmShortJwplayerPodcast from '../src/molecule/answer/test/fixtures/qcm-short-jwplayer-podcast';
+import MoleculeAnswerFixtureQcmShortJwplayer from '../src/molecule/answer/test/fixtures/qcm-short-jwplayer';
 import MoleculeAnswerFixtureQcmShortVideo from '../src/molecule/answer/test/fixtures/qcm-short-video';
 import MoleculeAnswerFixtureQcmShort from '../src/molecule/answer/test/fixtures/qcm-short';
 import MoleculeAnswerFixtureQcm from '../src/molecule/answer/test/fixtures/qcm';
@@ -410,6 +412,7 @@ import MoleculeDisciplineCtaFixtureDefault from '../src/molecule/discipline-cta/
 import MoleculeDisciplineCtaFixtureNoStart from '../src/molecule/discipline-cta/test/fixtures/no-start';
 import MoleculeDisciplineHeaderFixtureArabic from '../src/molecule/discipline-header/test/fixtures/arabic';
 import MoleculeDisciplineHeaderFixtureDefault from '../src/molecule/discipline-header/test/fixtures/default';
+import MoleculeDisciplineHeaderFixtureJwplayerPodcast from '../src/molecule/discipline-header/test/fixtures/jwplayer-podcast';
 import MoleculeDisciplineHeaderFixtureJwplayer from '../src/molecule/discipline-header/test/fixtures/jwplayer';
 import MoleculeDisciplineHeaderFixtureLongDescription from '../src/molecule/discipline-header/test/fixtures/long-description';
 import MoleculeDisciplineHeaderFixtureNoVideoNoImage from '../src/molecule/discipline-header/test/fixtures/no-video-no-image';
@@ -604,6 +607,7 @@ import MoleculeVideoIframeFixtureOmniPlayer from '../src/molecule/video-iframe/t
 import MoleculeVideoIframeFixtureUptale from '../src/molecule/video-iframe/test/fixtures/uptale';
 import MoleculeVideoIframeFixtureYoutube from '../src/molecule/video-iframe/test/fixtures/youtube';
 import MoleculeVideoPlayerFixtureH5P from '../src/molecule/video-player/test/fixtures/h5p';
+import MoleculeVideoPlayerFixtureJwplayerPodcast from '../src/molecule/video-player/test/fixtures/jwplayer-podcast';
 import MoleculeVideoPlayerFixtureJwplayerWithSubtitles from '../src/molecule/video-player/test/fixtures/jwplayer-with-subtitles';
 import MoleculeVideoPlayerFixtureJwplayer from '../src/molecule/video-player/test/fixtures/jwplayer';
 import MoleculeVideoPlayerFixtureKontiki from '../src/molecule/video-player/test/fixtures/kontiki';
@@ -669,6 +673,7 @@ import OrganismMoocHeaderFixtureUserChangePassword from '../src/organism/mooc-he
 import OrganismPopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
 import OrganismResourceBrowserFixtureArabic from '../src/organism/resource-browser/test/fixtures/arabic';
 import OrganismResourceBrowserFixtureH5P from '../src/organism/resource-browser/test/fixtures/h5p';
+import OrganismResourceBrowserFixtureJwplayerPodcast from '../src/organism/resource-browser/test/fixtures/jwplayer-podcast';
 import OrganismResourceBrowserFixtureJwplayerWithOverlay from '../src/organism/resource-browser/test/fixtures/jwplayer-with-overlay';
 import OrganismResourceBrowserFixtureJwplayer from '../src/organism/resource-browser/test/fixtures/jwplayer';
 import OrganismResourceBrowserFixtureKontiki from '../src/organism/resource-browser/test/fixtures/kontiki';
@@ -720,6 +725,8 @@ import TemplateAppPlayerPlayerSlidesFixtureArabicResources from '../src/template
 import TemplateAppPlayerPlayerSlidesFixtureArabic from '../src/template/app-player/player/slides/test/fixtures/arabic';
 import TemplateAppPlayerPlayerSlidesFixtureClue from '../src/template/app-player/player/slides/test/fixtures/clue';
 import TemplateAppPlayerPlayerSlidesFixtureContextWithImage from '../src/template/app-player/player/slides/test/fixtures/context-with-image';
+import TemplateAppPlayerPlayerSlidesFixtureContextWithJwplayerPodcast from '../src/template/app-player/player/slides/test/fixtures/context-with-jwplayer-podcast';
+import TemplateAppPlayerPlayerSlidesFixtureContextWithJwplayer from '../src/template/app-player/player/slides/test/fixtures/context-with-jwplayer';
 import TemplateAppPlayerPlayerSlidesFixtureContextWithPdf from '../src/template/app-player/player/slides/test/fixtures/context-with-pdf';
 import TemplateAppPlayerPlayerSlidesFixtureContextWithVideo from '../src/template/app-player/player/slides/test/fixtures/context-with-video';
 import TemplateAppPlayerPlayerSlidesFixtureContext from '../src/template/app-player/player/slides/test/fixtures/context';
@@ -1342,6 +1349,8 @@ export const fixtures = {
       QcmArabic: MoleculeAnswerFixtureQcmArabic,
       QcmDrag: MoleculeAnswerFixtureQcmDrag,
       QcmGraphic: MoleculeAnswerFixtureQcmGraphic,
+      QcmShortJwplayerPodcast: MoleculeAnswerFixtureQcmShortJwplayerPodcast,
+      QcmShortJwplayer: MoleculeAnswerFixtureQcmShortJwplayer,
       QcmShortVideo: MoleculeAnswerFixtureQcmShortVideo,
       QcmShort: MoleculeAnswerFixtureQcmShort,
       Qcm: MoleculeAnswerFixtureQcm,
@@ -1447,6 +1456,7 @@ export const fixtures = {
     MoleculeDisciplineHeader: {
       Arabic: MoleculeDisciplineHeaderFixtureArabic,
       Default: MoleculeDisciplineHeaderFixtureDefault,
+      JwplayerPodcast: MoleculeDisciplineHeaderFixtureJwplayerPodcast,
       Jwplayer: MoleculeDisciplineHeaderFixtureJwplayer,
       LongDescription: MoleculeDisciplineHeaderFixtureLongDescription,
       NoVideoNoImage: MoleculeDisciplineHeaderFixtureNoVideoNoImage,
@@ -1694,6 +1704,7 @@ export const fixtures = {
     },
     MoleculeVideoPlayer: {
       H5P: MoleculeVideoPlayerFixtureH5P,
+      JwplayerPodcast: MoleculeVideoPlayerFixtureJwplayerPodcast,
       JwplayerWithSubtitles: MoleculeVideoPlayerFixtureJwplayerWithSubtitles,
       Jwplayer: MoleculeVideoPlayerFixtureJwplayer,
       Kontiki: MoleculeVideoPlayerFixtureKontiki,
@@ -1873,6 +1884,7 @@ export const fixtures = {
     OrganismResourceBrowser: {
       Arabic: OrganismResourceBrowserFixtureArabic,
       H5P: OrganismResourceBrowserFixtureH5P,
+      JwplayerPodcast: OrganismResourceBrowserFixtureJwplayerPodcast,
       JwplayerWithOverlay: OrganismResourceBrowserFixtureJwplayerWithOverlay,
       Jwplayer: OrganismResourceBrowserFixtureJwplayer,
       Kontiki: OrganismResourceBrowserFixtureKontiki,
@@ -2051,6 +2063,8 @@ export const fixtures = {
       Arabic: TemplateAppPlayerPlayerSlidesFixtureArabic,
       Clue: TemplateAppPlayerPlayerSlidesFixtureClue,
       ContextWithImage: TemplateAppPlayerPlayerSlidesFixtureContextWithImage,
+      ContextWithJwplayerPodcast: TemplateAppPlayerPlayerSlidesFixtureContextWithJwplayerPodcast,
+      ContextWithJwplayer: TemplateAppPlayerPlayerSlidesFixtureContextWithJwplayer,
       ContextWithPdf: TemplateAppPlayerPlayerSlidesFixtureContextWithPdf,
       ContextWithVideo: TemplateAppPlayerPlayerSlidesFixtureContextWithVideo,
       Context: TemplateAppPlayerPlayerSlidesFixtureContext,

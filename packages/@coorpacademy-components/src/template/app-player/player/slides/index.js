@@ -216,7 +216,8 @@ const ContextMedia = ({media}) => {
       data-name="contextMedia"
       className={classnames(
         style.contextWrapper,
-        media.type === 'pdf' ? style.contexPdftWrapper : null
+        media.type === 'pdf' ? style.contexPdfWrapper : null,
+        media.type === 'video' ? style.contexVideoWrapper : null
       )}
     >
       <ContentType {...media} />

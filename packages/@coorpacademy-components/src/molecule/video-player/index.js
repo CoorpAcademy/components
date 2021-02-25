@@ -12,6 +12,7 @@ class VideoPlayer extends React.Component {
     width: PropTypes.string,
     height: PropTypes.string,
     url: SrcPropType,
+    poster: PropTypes.string,
     onPlay: PropTypes.func,
     onResume: PropTypes.func,
     onPause: PropTypes.func,
@@ -114,9 +115,15 @@ class VideoPlayer extends React.Component {
   };
 
   render() {
-    const {id} = this.props;
+    const {id, poster} = this.props;
     return (
       <div data-name="video-player" className={style.wrapper} key={id}>
+        <div
+          className={style.background}
+          style={{
+            backgroundImage: `url(${poster})`
+          }}
+        />
         {this.renderPlayer()}
       </div>
     );
