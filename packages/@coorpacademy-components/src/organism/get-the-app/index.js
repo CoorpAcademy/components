@@ -1,6 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {NovaCompositionCoorpacademyMagicWand as MagicWand} from '@coorpacademy/nova-icons';
+import {
+  NovaCompositionCoorpacademyMagicWand as MagicWand,
+  NovaCompositionCoorpacademyCoorpApp as CoorpAppLogo
+} from '@coorpacademy/nova-icons';
 import {get} from 'lodash/fp';
 import Button from '../../atom/button';
 import style from './style.css';
@@ -138,6 +141,9 @@ const GetTheApp = (props, context) => {
   const primaryColor = get('common.primary', skin);
   return (
     <div className={style.container}>
+      <div className={style.coorpAppLogoWrapper}>
+        <CoorpAppLogo height={100} width={178} className={style.coorpAppLogo} />
+      </div>
       <div className={style.store}>
         <Header {...storeStep} />
         <StoresLinks

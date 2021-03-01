@@ -9,7 +9,6 @@
 @value transparent from colors;
 @value lightBlack from colors;
 @value lightMediumGray from colors;
-@value primaryAdd2 from colors;
 
 .headSpacingContainer {
   width: 100%;
@@ -32,7 +31,7 @@
 }
 
 .coorpAppLogo {
-  color: primaryAdd2;
+  color: white;
   width: 176.4px;
   height: 100px;
   align-self: center;
