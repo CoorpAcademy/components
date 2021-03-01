@@ -41,7 +41,8 @@ type JSXElement = {|
   attributes?: Array<JSXAttribute>
 |};
 
-const isFillAttribute = ({name: {name}, value: {value} = {}}: JSXAttribute): boolean => name === 'fill' && value === '#757575';
+const isFillAttribute = ({name: {name}, value: {value} = {}}: JSXAttribute): boolean =>
+  name === 'fill' && value === '#757575';
 
 const isStrokeAttribute = ({name: {name}, value: {value} = {}}: JSXAttribute): boolean =>
   name === 'stroke' && value !== 'none';
