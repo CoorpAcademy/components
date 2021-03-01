@@ -7,16 +7,16 @@
 <g>
 	<g transform="translate(0.000000, 1.000000)">
 		<g transform="translate(0.000000, -0.000000)">
-			<path id="Fill-1" fill="white" fill-rule="evenodd" clip-rule="evenodd" d="M13.2,11L12,9.7l0.6-1.9c0.1-0.3-0.2-0.5-0.4-0.4L10.3,8L9,6.8C8.8,6.5,8.4,6.7,8.5,7l0.2,1.9
+			<path id="Fill-1" fill="#757575" fill-rule="evenodd" clip-rule="evenodd" d="M13.2,11L12,9.7l0.6-1.9c0.1-0.3-0.2-0.5-0.4-0.4L10.3,8L9,6.8C8.8,6.5,8.4,6.7,8.5,7l0.2,1.9
 				L6.8,10c-0.3,0.1-0.2,0.5,0.1,0.6l1.3,0.3l-8,8c-0.3,0.3-0.3,0.7,0,0.9c0.3,0.3,0.7,0.3,0.9,0l8-8l0.3,1.3
 				c0.1,0.3,0.5,0.3,0.6,0.1l1.1-1.9l1.9,0.2C13.3,11.6,13.5,11.2,13.2,11"/>
-			<path id="Stroke-3" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" d="M18.3,10H20"/>
-			<path id="Stroke-5" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" d="M15.8,4.2l1.7-1.7"/>
-			<path id="Stroke-7" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" d="M10,1.7V0"/>
-			<path id="Stroke-9" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" d="M5.8,5L4.3,3.5"/>
-			<path id="Stroke-11" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" d="M2.5,10H0.8"/>
-			<path id="Stroke-13" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" d="M10,16.7v2.5"/>
-			<path id="Stroke-15" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" d="M15.8,14.2l1.7,1.7"/>
+			<path id="Stroke-3" fill="none" stroke="#757575" stroke-linecap="round" stroke-linejoin="round" d="M18.3,10H20"/>
+			<path id="Stroke-5" fill="none" stroke="#757575" stroke-linecap="round" stroke-linejoin="round" d="M15.8,4.2l1.7-1.7"/>
+			<path id="Stroke-7" fill="none" stroke="#757575" stroke-linecap="round" stroke-linejoin="round" d="M10,1.7V0"/>
+			<path id="Stroke-9" fill="none" stroke="#757575" stroke-linecap="round" stroke-linejoin="round" d="M5.8,5L4.3,3.5"/>
+			<path id="Stroke-11" fill="none" stroke="#757575" stroke-linecap="round" stroke-linejoin="round" d="M2.5,10H0.8"/>
+			<path id="Stroke-13" fill="none" stroke="#757575" stroke-linecap="round" stroke-linejoin="round" d="M10,16.7v2.5"/>
+			<path id="Stroke-15" fill="none" stroke="#757575" stroke-linecap="round" stroke-linejoin="round" d="M15.8,14.2l1.7,1.7"/>
 		</g>
 	</g>
 </g>
