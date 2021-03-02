@@ -45,7 +45,16 @@ const isFillAttribute = ({name: {name}, value: {value} = {}}: JSXAttribute): boo
   name === 'fill' && value === '#757575';
 
 const isStrokeAttribute = ({name: {name}, value: {value} = {}}: JSXAttribute): boolean =>
-  name === 'stroke' && value !== 'none';
+  name === 'stroke' && value === '#757575';
+
+const isStringLiteralProp = ({expression: {type} = {}}): boolean => type === 'StringLiteral';
+
+// eslint-disable-next-line flowtype/require-return-type
+const replaceInlineValueByCurrentColor = properties => {
+  // eslint-disable-next-line flowtype-errors/show-errors
+  properties.expression.value = properties.expression.value.replace(/#757575/gm, 'currentColor');
+  return properties;
+};
 
 const replaceWithPropValue = (types, identifier: string) =>
   types.jsxExpressionContainer(types.identifier(identifier));
@@ -72,8 +81,12 @@ const findElementAndReplaceAttributes = (
     });
   }
 
+  const newProperties = isStringLiteralProp(properties)
+    ? replaceInlineValueByCurrentColor(properties)
+    : properties;
+
   return {
-    ...properties,
+    ...newProperties,
     openingElement:
       openingElement !== undefined
         ? findElementAndReplaceAttributes(openingElement, native, types)
