@@ -6,14 +6,14 @@
 	<g id="lightbulb-4">
 		<g id="Filled_Icons">
 			<g id="Group">
-				<polygon fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" points="9,23 11,23 11,24 13,24 13,23 15,23 15,21 9,21" />
-				<path fill="currentColor" d="M12,5c3.9,0,7,3.1,7,7c0,2.7-1.6,5.2-4,6.3V19c0,0.6-0.4,1-1,1h-4c-0.6,0-1-0.4-1-1
+				<polygon fill-rule="evenodd" clip-rule="evenodd" fill="#757575" points="9,23 11,23 11,24 13,24 13,23 15,23 15,21 9,21" />
+				<path fill="#757575" d="M12,5c3.9,0,7,3.1,7,7c0,2.7-1.6,5.2-4,6.3V19c0,0.6-0.4,1-1,1h-4c-0.6,0-1-0.4-1-1
 					v-0.7c-2.4-1.1-4-3.6-4-6.3C5,8.1,8.1,5,12,5z" />
-				<rect id="Rectangle" x="11" y="0" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" width="2" height="4" />
-				<rect y="11" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" width="4" height="2" />
-				<rect x="20" y="11" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" width="4" height="2" />
-				<rect x="17.4" y="3.5" transform="matrix(0.707 -0.7072 0.7072 0.707 2.5311 15.1081)" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" width="4.2" height="2" />
-				<rect x="3.5" y="2.4" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -1.8637 4.5002)" fill-rule="evenodd" clip-rule="evenodd" fill="currentColor" width="2" height="4.2" />
+				<rect id="Rectangle" x="11" y="0" fill-rule="evenodd" clip-rule="evenodd" fill="#757575" width="2" height="4" />
+				<rect y="11" fill-rule="evenodd" clip-rule="evenodd" fill="#757575" width="4" height="2" />
+				<rect x="20" y="11" fill-rule="evenodd" clip-rule="evenodd" fill="#757575" width="4" height="2" />
+				<rect x="17.4" y="3.5" transform="matrix(0.707 -0.7072 0.7072 0.707 2.5311 15.1081)" fill-rule="evenodd" clip-rule="evenodd" fill="#757575" width="4.2" height="2" />
+				<rect x="3.5" y="2.4" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -1.8637 4.5002)" fill-rule="evenodd" clip-rule="evenodd" fill="#757575" width="2" height="4.2" />
 			</g>
 		</g>
 	</g>

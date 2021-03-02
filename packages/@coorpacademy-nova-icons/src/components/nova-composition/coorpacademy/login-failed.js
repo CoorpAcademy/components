@@ -11,7 +11,7 @@ const SvgComponent = (props) => (
   >
     <style>
       {
-        ".prefix__st1{fill:none;stroke:#f73f52;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}"
+        ".prefix__st1{fill:none;stroke:currentColor;stroke-width:3;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}"
       }
     </style>
     <path
