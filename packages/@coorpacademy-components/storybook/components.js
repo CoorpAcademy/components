@@ -191,6 +191,9 @@ import AtomCtaFixtureLogout from '../src/atom/cta/test/fixtures/logout';
 import AtomCtaFixtureNoSubmitValue from '../src/atom/cta/test/fixtures/no-submit-value';
 import AtomCtaFixturePrimarySmall from '../src/atom/cta/test/fixtures/primary-small';
 import AtomCtaFixturePrimary from '../src/atom/cta/test/fixtures/primary';
+import AtomCtaFixtureRectangularSecondaryFullwidth from '../src/atom/cta/test/fixtures/rectangular-secondary-fullwidth';
+import AtomCtaFixtureRectangularSecondary from '../src/atom/cta/test/fixtures/rectangular-secondary';
+import AtomCtaFixtureRectangular from '../src/atom/cta/test/fixtures/rectangular';
 import AtomCtaFixtureSecondarySmall from '../src/atom/cta/test/fixtures/secondary-small';
 import AtomCtaFixtureSecondary from '../src/atom/cta/test/fixtures/secondary';
 import AtomDifficultyLevelFixtureEasy from '../src/atom/difficulty-level/test/fixtures/easy';
@@ -1133,6 +1136,9 @@ export const fixtures = {
       NoSubmitValue: AtomCtaFixtureNoSubmitValue,
       PrimarySmall: AtomCtaFixturePrimarySmall,
       Primary: AtomCtaFixturePrimary,
+      RectangularSecondaryFullwidth: AtomCtaFixtureRectangularSecondaryFullwidth,
+      RectangularSecondary: AtomCtaFixtureRectangularSecondary,
+      Rectangular: AtomCtaFixtureRectangular,
       SecondarySmall: AtomCtaFixtureSecondarySmall,
       Secondary: AtomCtaFixtureSecondary
     },

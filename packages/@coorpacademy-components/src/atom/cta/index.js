@@ -20,7 +20,9 @@ class CTA extends React.Component {
     secondary: PropTypes.bool,
     small: PropTypes.bool,
     className: PropTypes.string,
-    logout: PropTypes.bool
+    logout: PropTypes.bool,
+    rectangular: PropTypes.bool,
+    fullWidth: PropTypes.bool
   };
 
   static contextTypes = {
@@ -102,7 +104,9 @@ class CTA extends React.Component {
       secondary = false,
       onClick,
       className,
-      logout = false
+      logout = false,
+      rectangular = false,
+      fullWidth = false
     } = this.props;
 
     return (
@@ -119,6 +123,8 @@ class CTA extends React.Component {
           light ? style.lightButton : null,
           secondary ? style.secondaryButton : null,
           logout ? style.logoutButton : null,
+          rectangular ? style.rectangularButton : null,
+          fullWidth ? style.fullWidth : null,
           className
         )}
         data-name={ctaName || 'cta'}
