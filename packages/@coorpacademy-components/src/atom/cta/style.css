@@ -110,3 +110,13 @@
   stroke-width: 2px;
   color: negative;
 }
+
+.rectangularButton {
+  composes: button;
+  border-radius: 4px;
+}
+
+.fullWidth {
+  width: 100%;
+  text-align: center;
+}
