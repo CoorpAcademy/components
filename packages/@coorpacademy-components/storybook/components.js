@@ -184,6 +184,7 @@ import AtomCheckboxFixtureRequired from '../src/atom/checkbox/test/fixtures/requ
 import AtomClueFixtureDefault from '../src/atom/clue/test/fixtures/default';
 import AtomClueFixtureLink from '../src/atom/clue/test/fixtures/link';
 import AtomClueFixtureLoading from '../src/atom/clue/test/fixtures/loading';
+import AtomCtaFixtureCertification from '../src/atom/cta/test/fixtures/certification';
 import AtomCtaFixtureDisabled from '../src/atom/cta/test/fixtures/disabled';
 import AtomCtaFixtureLightSmall from '../src/atom/cta/test/fixtures/light-small';
 import AtomCtaFixtureLight from '../src/atom/cta/test/fixtures/light';
@@ -1129,6 +1130,7 @@ export const fixtures = {
       Loading: AtomClueFixtureLoading
     },
     AtomCta: {
+      Certification: AtomCtaFixtureCertification,
       Disabled: AtomCtaFixtureDisabled,
       LightSmall: AtomCtaFixtureLightSmall,
       Light: AtomCtaFixtureLight,
