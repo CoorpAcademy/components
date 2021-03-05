@@ -22,7 +22,8 @@ class CTA extends React.Component {
     className: PropTypes.string,
     logout: PropTypes.bool,
     rectangular: PropTypes.bool,
-    fullWidth: PropTypes.bool
+    fullWidth: PropTypes.bool,
+    certificationButton: PropTypes.bool
   };
 
   static contextTypes = {
@@ -106,7 +107,8 @@ class CTA extends React.Component {
       className,
       logout = false,
       rectangular = false,
-      fullWidth = false
+      fullWidth = false,
+      certificationButton = false
     } = this.props;
 
     return (
@@ -125,6 +127,7 @@ class CTA extends React.Component {
           logout ? style.logoutButton : null,
           rectangular ? style.rectangularButton : null,
           fullWidth ? style.fullWidth : null,
+          certificationButton ? style.certificationButton : null,
           className
         )}
         data-name={ctaName || 'cta'}
