@@ -5,7 +5,7 @@ export default {
     type: 'login',
     buttonLabel: 'Login to my learning platform',
     aboutLabel:
-      'If you want to know more about Coorpacademy, please contact us at contact@coorpacademy.com',
+      'If you want to know more about Coorpacademy, please contact us at <a href="mailto:contact@coorpacademy.com">contact@coorpacademy.com</a>',
     onButtonClick: () => {}
   }
 };

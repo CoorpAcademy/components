@@ -70,6 +70,20 @@
   margin-bottom: 20px;
 }
 
+.about {
+  composes: content;
+}
+
+/* contact link color */
+.about a {
+  color: brand;
+}
+
+/* contact link hover */
+.about a:hover {
+  color: color(brand blackness(+10%));
+}
+
 .icon {
   width: 50px;
   height: 50px;

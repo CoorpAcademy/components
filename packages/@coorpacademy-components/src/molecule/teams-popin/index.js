@@ -69,7 +69,7 @@ const TeamsPopin = props => {
           ) : null}
           {aboutLabel ? (
             <p
-              className={style.content}
+              className={style.about}
               data-name={`popin-about-label-${type}`} // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{__html: aboutLabel}}
             />
