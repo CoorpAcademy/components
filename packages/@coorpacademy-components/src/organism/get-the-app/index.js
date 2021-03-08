@@ -70,6 +70,7 @@ const MagicLink = ({disabled, submitValue, magicLinkUrl, color}) => {
         href={magicLinkUrl}
         type="link"
         submitValue={null}
+        target="_self"
       >
         <div className={style.iconWrapper}>
           <MagicWand className={style.magicLinkIcon} />
