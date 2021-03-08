@@ -142,7 +142,7 @@ const GetTheApp = (props, context) => {
   return (
     <div className={style.container}>
       <div className={style.coorpAppLogoWrapper}>
-        <CoorpAppLogo height={64} width={250} className={style.coorpAppLogo} />
+        <CoorpAppLogo height={51} width={250} className={style.coorpAppLogo} />
       </div>
       <div className={style.store}>
         <Header {...storeStep} />
