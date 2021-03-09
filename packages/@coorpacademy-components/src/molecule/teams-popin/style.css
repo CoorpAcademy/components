@@ -81,7 +81,7 @@
 
 /* contact link hover */
 .about a:hover {
-  color: color(brand blackness(+10%));
+  color: color(brand blackness(+20%));
 }
 
 .icon {
