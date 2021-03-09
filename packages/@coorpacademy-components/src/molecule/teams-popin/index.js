@@ -23,6 +23,7 @@ const TeamsPopin = props => {
     header,
     content,
     buttonLabel,
+    aboutLabel,
     onButtonClick,
     type,
     isLoading = false,
@@ -51,16 +52,27 @@ const TeamsPopin = props => {
       ) : (
         <div className={style.popin}>
           {Icon}
-          <div className={style.header} data-name={`popin-header-${type}`}>
-            {header}
-          </div>
-          <p className={style.content} data-name={`popin-content-${type}`}>
-            {content}
-          </p>
+          <div
+            className={style.header}
+            data-name={`popin-header-${type}`} // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{__html: header}}
+          />
+          <p
+            className={style.content}
+            data-name={`popin-content-${type}`} // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{__html: content}}
+          />
           {buttonLabel && onButtonClick ? (
             <div className={style.buttonContainer}>
               <Cta submitValue={buttonLabel} onClick={onButtonClick} name={`popin-cta-${type}`} />
             </div>
+          ) : null}
+          {aboutLabel ? (
+            <p
+              className={style.about}
+              data-name={`popin-about-label-${type}`} // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{__html: aboutLabel}}
+            />
           ) : null}
         </div>
       )}
@@ -72,6 +84,7 @@ TeamsPopin.propTypes = {
   header: PropTypes.string,
   content: PropTypes.string,
   buttonLabel: PropTypes.string,
+  aboutLabel: PropTypes.string,
   onButtonClick: PropTypes.func,
   type: PropTypes.oneOf(['login', 'reload', 'loginFailed', 'addressError', 'wrong']),
   isLoading: PropTypes.bool,

@@ -33,7 +33,7 @@
 .popin {
   position: absolute;
   overflow: auto;
-  width: 35%;
+  width: 38%;
   background: white;
   text-align: center;
   display: flex;
@@ -68,6 +68,20 @@
   display: flex;
   justify-content: center;
   margin-bottom: 20px;
+}
+
+.about {
+  composes: content;
+}
+
+/* contact link color */
+.about a {
+  color: brand;
+}
+
+/* contact link hover */
+.about a:hover {
+  color: color(brand blackness(+10%));
 }
 
 .icon {
