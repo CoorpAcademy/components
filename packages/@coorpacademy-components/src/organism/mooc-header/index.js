@@ -80,6 +80,7 @@ class MoocHeader extends React.Component {
         title: PropTypes.string,
         name: PropTypes.string,
         type: PropTypes.oneOf(['select', 'switch', 'link']),
+        color: PropTypes.string,
         options: PropTypes.shape({
           href: PropTypes.string,
           onChange: PropTypes.func,
@@ -383,7 +384,7 @@ class MoocHeader extends React.Component {
     if (settings) {
       const settingsElements = settings.map((setting, index) => {
         let settingView = null;
-        const {options, type, title, name: settingName = index} = setting;
+        const {options, type, title, name: settingName = index, color} = setting;
 
         switch (type) {
           case 'link': {
@@ -395,6 +396,9 @@ class MoocHeader extends React.Component {
                   skinHover
                   onClick={this.handleLinkClick}
                   target={options.target || null}
+                  style={{
+                    color
+                  }}
                 >
                   {title}
                 </Link>
