@@ -73,7 +73,6 @@ class Link extends React.Component {
     } = this.props;
     const {href, onClick, className, style: propsStyle, children} = this.props;
     const {hovered} = this.state;
-    const hoverSkinColor = hoverColor;
     const _style =
       href || onClick
         ? null
@@ -83,7 +82,7 @@ class Link extends React.Component {
     const _hoverStyle =
       skinHover && hovered
         ? {
-            color: hoverSkinColor
+            color: hoverColor
           }
         : null;
 
