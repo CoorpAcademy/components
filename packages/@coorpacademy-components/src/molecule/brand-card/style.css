@@ -32,6 +32,33 @@
   box-sizing: border-box;
   position: relative;
 }
+.lockWrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 200px;
+  display: flex;
+  padding-top: 60px;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.lockWrapper::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  content: '';
+  opacity: 0.4;
+  background: black;
+}
+
+.lockIcon {
+  filter: drop-shadow(1px 1px 6px black);
+  color: white;
+}
 
 .picture {
   width: 100%;

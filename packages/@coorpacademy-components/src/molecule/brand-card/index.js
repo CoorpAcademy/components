@@ -1,16 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {NovaSolidLocksLock11 as LockIcon} from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
 import Picture from '../../atom/picture';
 import Description from './description';
 import style from './style.css';
 
 const BrandCard = props => {
-  const {title, edit, editHref, see, seeHref, image, description} = props;
+  const {title, edit, editHref, see, seeHref, image, description, maintenance = false} = props;
+  const maintenanceView = maintenance ? (
+    <div className={style.lockWrapper}>
+      <LockIcon className={style.lockIcon} height={80} />
+    </div>
+  ) : null;
   return (
     <div className={style.wrapper}>
       <div className={style.image}>
         <Picture className={style.picture} src={image} />
+        {maintenanceView}
         <Description description={description} className={style.descriptionWrapper} />
       </div>
       <div className={style.information} data-name={`info-${title}`}>
@@ -37,6 +44,7 @@ BrandCard.propTypes = {
   editHref: PropTypes.string.isRequired,
   see: PropTypes.string.isRequired,
   seeHref: PropTypes.string.isRequired,
-  image: PropTypes.string.isRequired
+  image: PropTypes.string.isRequired,
+  maintenance: PropTypes.bool
 };
 export default BrandCard;
