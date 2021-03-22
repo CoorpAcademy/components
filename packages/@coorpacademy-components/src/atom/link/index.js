@@ -65,10 +65,15 @@ class Link extends React.Component {
 
   render() {
     const {skin, history: {createHref = identity} = {}} = this.context;
-    const {skinHover, hoverColor, 'data-name': dataName = 'link', ...aProps} = this.props;
+    const {
+      skinHover,
+      hoverColor = getOr('#00B0FF', 'common.primary', skin),
+      'data-name': dataName = 'link',
+      ...aProps
+    } = this.props;
     const {href, onClick, className, style: propsStyle, children} = this.props;
     const {hovered} = this.state;
-    const primarySkinColor = hoverColor ? hoverColor : getOr('#00B0FF', 'common.primary', skin);
+    const hoverSkinColor = hoverColor;
     const _style =
       href || onClick
         ? null
@@ -78,7 +83,7 @@ class Link extends React.Component {
     const _hoverStyle =
       skinHover && hovered
         ? {
-            color: primarySkinColor
+            color: hoverSkinColor
           }
         : null;
 
