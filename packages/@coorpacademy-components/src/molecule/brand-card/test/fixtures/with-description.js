@@ -6,6 +6,7 @@ export default {
     editHref: '#',
     see: 'See Platform',
     seeHref: '#',
+    maintenance: true,
     image: 'http://i2.kym-cdn.com/photos/images/facebook/000/437/645/a9d.jpg'
   }
 };
