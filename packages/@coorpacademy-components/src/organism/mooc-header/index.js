@@ -384,7 +384,7 @@ class MoocHeader extends React.Component {
     if (settings) {
       const settingsElements = settings.map((setting, index) => {
         let settingView = null;
-        const {options, type, title, name: settingName = index, color} = setting;
+        const {options, type, title, name: settingName = index, color, hoverColor} = setting;
 
         switch (type) {
           case 'link': {
@@ -394,6 +394,7 @@ class MoocHeader extends React.Component {
                   className={style.link}
                   href={options.href}
                   skinHover
+                  hoverColor={hoverColor}
                   onClick={this.handleLinkClick}
                   target={options.target || null}
                   style={{
