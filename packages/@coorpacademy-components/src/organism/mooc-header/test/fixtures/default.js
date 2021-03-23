@@ -129,6 +129,7 @@ export default {
         title: 'Se déconnecter',
         type: 'link',
         color: '#f73f52',
+        hoverColor: '#C51023',
         options: {
           href: 'https://google.fr'
         }

@@ -12,6 +12,7 @@ class Link extends React.Component {
     'data-name': PropTypes.string,
     target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
     skinHover: PropTypes.bool,
+    hoverColor: PropTypes.string,
     download: PropTypes.bool,
     onClick: PropTypes.func,
     onMouseEnter: PropTypes.func,
@@ -64,10 +65,14 @@ class Link extends React.Component {
 
   render() {
     const {skin, history: {createHref = identity} = {}} = this.context;
-    const {skinHover, 'data-name': dataName = 'link', ...aProps} = this.props;
+    const {
+      skinHover,
+      hoverColor = getOr('#00B0FF', 'common.primary', skin),
+      'data-name': dataName = 'link',
+      ...aProps
+    } = this.props;
     const {href, onClick, className, style: propsStyle, children} = this.props;
     const {hovered} = this.state;
-    const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
     const _style =
       href || onClick
         ? null
@@ -77,7 +82,7 @@ class Link extends React.Component {
     const _hoverStyle =
       skinHover && hovered
         ? {
-            color: primarySkinColor
+            color: hoverColor
           }
         : null;
 
