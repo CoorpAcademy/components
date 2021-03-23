@@ -222,8 +222,12 @@ class MoocHeader extends React.Component {
             }
           : null;
 
-        const battlesView =
-          page.counter > 0 ? <div className={style.battlesCounter}>{page.counter}</div> : null;
+        const pageBadge =
+          page.counter > 0 ? (
+            <Link data-name="page-badge" className={style.pageBadge}>
+              {page.counter}
+            </Link>
+          ) : null;
 
         const {name: pageName = index} = page;
 
@@ -241,7 +245,7 @@ class MoocHeader extends React.Component {
             }}
           >
             {page.title}
-            {battlesView}
+            {pageBadge}
             <span
               className={style.bar}
               style={{

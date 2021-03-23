@@ -193,21 +193,6 @@
   width: 100%;
 }
 
-.battlesCounter {
-  position: absolute;
-  top: 15px;
-  right: 0;
-  background-color: battle;
-  font-family: 'Open Sans';
-  font-weight: 700;
-  font-size: 10px;
-  line-height: 16px;
-  color: black;
-  border-radius: 8px;
-  padding: 0 5px;
-  pointer-events: none;
-}
-
 .more {
   composes: options;
 }
@@ -303,7 +288,17 @@
   padding: 0 5px;
 }
 
+.pageBadge {
+  composes: notifications;
+  top: 10px;
+}
+
 .notifications:hover {
+  transform: scale(1.3);
+  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+}
+
+.pageBadge:hover {
   transform: scale(1.3);
   transition: all 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
@@ -623,7 +618,7 @@
     line-height: 40px;
   }
 
-  .battlesCounter {
+  .pageBadge {
     position: relative;
     margin-top: -15px;
     right: auto;
