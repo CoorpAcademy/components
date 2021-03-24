@@ -202,8 +202,8 @@ class PopinCorrection extends Component {
                 {isEmpty(getOr([], 'value', resources)) ? null : (
                   <Resources resources={resources} overlay={overlay} />
                 )}
-                <SimpleText text={klf.value} />
-                <SimpleText text={tips.value} />
+                {klf.value ? <SimpleText text={klf.value} /> : null}
+                {tips.value ? <SimpleText text={tips.value} /> : null}
               </Accordion>
             </div>
             {quitCta}
