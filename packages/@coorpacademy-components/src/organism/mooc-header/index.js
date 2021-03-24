@@ -192,7 +192,7 @@ class MoocHeader extends React.Component {
 
   render() {
     if (isEmpty(this.props)) return null;
-    const {logo = {}, pages, settings, user, links, search} = this.props;
+    const {logo = {}, pages: items, settings, user, links, search} = this.props;
     const {isFocus, isSettingsOpen, isMenuOpen} = this.state;
     const {translate, skin} = this.context;
 
@@ -214,34 +214,38 @@ class MoocHeader extends React.Component {
     const white = get('common.white', skin);
     const iconWrapperStyle = {backgroundColor: primaryColor};
 
-    if (pages) {
-      const displayedPages = pages.displayed.map((page, index) => {
-        const activeColor = page.selected
+    if (items) {
+      const displayedPages = items.displayed.map((item, index) => {
+        const activeColor = item.selected
           ? {
               color: primaryColor
             }
           : null;
 
-        const battlesView =
-          page.counter > 0 ? <div className={style.battlesCounter}>{page.counter}</div> : null;
+        const pageBadge =
+          item.counter > 0 ? (
+            <Link href={item.href} data-name="item-badge" className={style.itemBadge}>
+              {item.counter}
+            </Link>
+          ) : null;
 
-        const {name: pageName = index} = page;
+        const {name: itemName = index} = item;
 
         return (
           <Link
-            key={pageName}
-            data-name={`page-${pageName}`}
-            href={page.href}
-            className={page.selected ? style.activePage : style.page}
+            key={itemName}
+            data-name={`item-${itemName}`}
+            href={item.href}
+            className={item.selected ? style.activePage : style.item}
             skinHover
             onClick={this.handleLinkClick}
-            target={page.target || null}
+            target={item.target || null}
             style={{
               ...activeColor
             }}
           >
-            {page.title}
-            {battlesView}
+            {item.title}
+            {pageBadge}
             <span
               className={style.bar}
               style={{
@@ -252,38 +256,38 @@ class MoocHeader extends React.Component {
         );
       });
 
-      const optionsView = pages.more.map((page, index) => {
-        const activeColor = page.selected
+      const optionsView = items.more.map((item, index) => {
+        const activeColor = item.selected
           ? {
               color: primaryColor
             }
           : null;
 
-        const {name: pageName = index} = page;
+        const {name: itemName = index} = item;
 
         return (
           <Link
-            href={page.href}
-            key={pageName}
+            href={item.href}
+            key={itemName}
             className={style.option}
-            data-name={`page-more-${pageName}`}
-            target={page.target || null}
+            data-name={`item-more-${itemName}`}
+            target={item.target || null}
             onClick={this.handleLinkClick}
             skinHover
             style={{
               ...activeColor
             }}
           >
-            {page.title}
+            {item.title}
           </Link>
         );
       });
 
       pagesView = (
-        <div className={search.value || isFocus ? style.noPages : style.pages}>
+        <div className={search.value || isFocus ? style.noItems : style.items}>
           {displayedPages}
           <div className={style.more}>
-            <div className={style.currentOption} aria-haspopup="true" data-name="page-more">
+            <div className={style.currentOption} aria-haspopup="true" data-name="item-more">
               {moreLabel}
               <ArrowDown color={mediumColor} className={style.caret} />
             </div>
