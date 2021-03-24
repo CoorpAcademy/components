@@ -772,6 +772,7 @@ import TemplateAppPlayerPlayerFixtureQcmGraphic from '../src/template/app-player
 import TemplateAppPlayerPlayerFixtureQcmShort from '../src/template/app-player/player/test/fixtures/qcm-short';
 import TemplateAppPlayerPlayerFixtureQcm from '../src/template/app-player/player/test/fixtures/qcm';
 import TemplateAppPlayerPlayerFixtureRange from '../src/template/app-player/player/test/fixtures/range';
+import TemplateAppPlayerPopinCorrectionFixtureCorrectClosedWithoutKlfAndTips from '../src/template/app-player/popin-correction/test/fixtures/correct-closed-without-klf-and-tips';
 import TemplateAppPlayerPopinCorrectionFixtureCorrectClosed from '../src/template/app-player/popin-correction/test/fixtures/correct-closed';
 import TemplateAppPlayerPopinCorrectionFixtureCorrectNextChapter from '../src/template/app-player/popin-correction/test/fixtures/correct-next-chapter';
 import TemplateAppPlayerPopinCorrectionFixtureCorrectOpenKlf from '../src/template/app-player/popin-correction/test/fixtures/correct-open-klf';
@@ -1979,6 +1980,7 @@ export const fixtures = {
       Range: TemplateAppPlayerPlayerFixtureRange
     },
     TemplateAppPlayerPopinCorrection: {
+      CorrectClosedWithoutKlfAndTips: TemplateAppPlayerPopinCorrectionFixtureCorrectClosedWithoutKlfAndTips,
       CorrectClosed: TemplateAppPlayerPopinCorrectionFixtureCorrectClosed,
       CorrectNextChapter: TemplateAppPlayerPopinCorrectionFixtureCorrectNextChapter,
       CorrectOpenKlf: TemplateAppPlayerPopinCorrectionFixtureCorrectOpenKlf,
