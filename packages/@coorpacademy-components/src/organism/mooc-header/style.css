@@ -40,7 +40,7 @@
   background-color: white;
 }
 
-.noPages {
+.noItems {
   display: none;
 }
 
@@ -92,7 +92,7 @@
   align-items: center;
 }
 
-.pages .currentOption {
+.items .currentOption {
   padding: 0 0 0 20px;
 }
 
@@ -156,7 +156,7 @@
   opacity: 1;
 }
 
-.page {
+.item {
   position: relative;
   padding: 0 15px;
   cursor: pointer;
@@ -170,10 +170,10 @@
 }
 
 .activePage {
-  composes: page;
+  composes: item;
 }
 
-.page .bar {
+.item .bar {
   background-color: brand;
   height: 3px;
   width: 0;
@@ -188,7 +188,7 @@
   width: 100%;
 }
 
-.page:hover .bar {
+.item:hover .bar {
   left: 0;
   width: 100%;
 }
@@ -288,17 +288,13 @@
   padding: 0 5px;
 }
 
-.pageBadge {
+.itemBadge {
   composes: notifications;
   top: 10px;
 }
 
-.notifications:hover {
-  transform: scale(1.3);
-  transition: all 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
-}
-
-.pageBadge:hover {
+.notifications:hover,
+.itemBadge:hover {
   transform: scale(1.3);
   transition: all 0.2s cubic-bezier(0.68, -0.55, 0.27, 1.55);
 }
@@ -576,7 +572,7 @@
     position: absolute;
   }
 
-  .pages {
+  .items {
     width: 100%;
     padding: 10px 0;
     margin: 10px 0;
@@ -588,20 +584,20 @@
     flex-shrink: 0;
   }
 
-  .pages .page {
+  .items .item {
     line-height: 40px;
     padding: 0;
   }
 
-  .page .bar {
+  .item .bar {
     display: none;
   }
 
-  .pages .currentOption {
+  .items .currentOption {
     display: none;
   }
 
-  .pages .optionsGroup {
+  .items .optionsGroup {
     display: block;
     position: relative;
     top: 0;
@@ -613,12 +609,12 @@
     background-color: transparent;
   }
 
-  .pages .option {
+  .items .option {
     padding: 0;
     line-height: 40px;
   }
 
-  .pageBadge {
+  .itemBadge {
     position: relative;
     margin-top: -15px;
     right: auto;
