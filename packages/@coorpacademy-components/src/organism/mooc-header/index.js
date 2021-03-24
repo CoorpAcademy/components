@@ -287,7 +287,7 @@ class MoocHeader extends React.Component {
         <div className={search.value || isFocus ? style.noItems : style.items}>
           {displayedPages}
           <div className={style.more}>
-            <div className={style.currentOption} aria-haspopup="true" data-name="page-more">
+            <div className={style.currentOption} aria-haspopup="true" data-name="item-more">
               {moreLabel}
               <ArrowDown color={mediumColor} className={style.caret} />
             </div>
