@@ -224,7 +224,7 @@ class MoocHeader extends React.Component {
 
         const pageBadge =
           page.counter > 0 ? (
-            <Link data-name="page-badge" className={style.pageBadge}>
+            <Link href={page.href} data-name="page-badge" className={style.pageBadge}>
               {page.counter}
             </Link>
           ) : null;
