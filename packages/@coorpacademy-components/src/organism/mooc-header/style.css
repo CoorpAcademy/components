@@ -539,8 +539,9 @@
   }
 
   .logoMobile img {
-    height: 100%;
+    height: auto;
     max-height: 50px;
+    width: auto;
     max-width: 100px;
     display: block;
   }
