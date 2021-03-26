@@ -100,17 +100,17 @@ class DragAndDrop extends React.Component {
         <div className={style.resetUploadWrapper}>
           <div className={style.resetSrcLabel}>{previewContent.src}</div>
           <Close
+            data-name="reset-content-icon"
             height={16}
             width={16}
             className={style.closeIcon}
             onClick={onReset}
-            type="reset"
           />
         </div>
       ) : null;
 
     return (
-      <div className={style.wrapper}>
+      <div className={style.wrapper} data-name="drag-and-drop-wrapper" >
         <div className={style.title}>{title}</div>
         <div className={modified ? style.modified : style.previewWrapper}>{previewView}</div>
         <div className={dragging ? style.dragging : style.inputWrapper} id={idBox}>
