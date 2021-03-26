@@ -204,8 +204,11 @@ import AtomDifficultyLevelFixtureUnknown from '../src/atom/difficulty-level/test
 import AtomDragAndDropFixtureDefault from '../src/atom/drag-and-drop/test/fixtures/default';
 import AtomDragAndDropFixtureLoading from '../src/atom/drag-and-drop/test/fixtures/loading';
 import AtomDragAndDropFixtureWithChildren from '../src/atom/drag-and-drop/test/fixtures/with-children';
+import AtomDragAndDropFixtureWithImageReset from '../src/atom/drag-and-drop/test/fixtures/with-image-reset';
 import AtomDragAndDropFixtureWithImage from '../src/atom/drag-and-drop/test/fixtures/with-image';
 import AtomDragAndDropFixtureWithVideo from '../src/atom/drag-and-drop/test/fixtures/with-video';
+import AtomImageUploadFixtureDesktopResetDescription from '../src/atom/image-upload/test/fixtures/desktop-reset-description';
+import AtomImageUploadFixtureDesktopResetNoDescription from '../src/atom/image-upload/test/fixtures/desktop-reset-no-description';
 import AtomImageUploadFixtureDesktop from '../src/atom/image-upload/test/fixtures/desktop';
 import AtomImageUploadFixtureEmail from '../src/atom/image-upload/test/fixtures/email';
 import AtomImageUploadFixtureMobile from '../src/atom/image-upload/test/fixtures/mobile';
@@ -1155,10 +1158,13 @@ export const fixtures = {
       Default: AtomDragAndDropFixtureDefault,
       Loading: AtomDragAndDropFixtureLoading,
       WithChildren: AtomDragAndDropFixtureWithChildren,
+      WithImageReset: AtomDragAndDropFixtureWithImageReset,
       WithImage: AtomDragAndDropFixtureWithImage,
       WithVideo: AtomDragAndDropFixtureWithVideo
     },
     AtomImageUpload: {
+      DesktopResetDescription: AtomImageUploadFixtureDesktopResetDescription,
+      DesktopResetNoDescription: AtomImageUploadFixtureDesktopResetNoDescription,
       Desktop: AtomImageUploadFixtureDesktop,
       Email: AtomImageUploadFixtureEmail,
       Mobile: AtomImageUploadFixtureMobile,
