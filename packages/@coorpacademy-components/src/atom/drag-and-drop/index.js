@@ -110,7 +110,7 @@ class DragAndDrop extends React.Component {
       ) : null;
 
     return (
-      <div className={style.wrapper} data-name="drag-and-drop-wrapper" >
+      <div className={style.wrapper} data-name="drag-and-drop-wrapper">
         <div className={style.title}>{title}</div>
         <div className={modified ? style.modified : style.previewWrapper}>{previewView}</div>
         <div className={dragging ? style.dragging : style.inputWrapper} id={idBox}>
