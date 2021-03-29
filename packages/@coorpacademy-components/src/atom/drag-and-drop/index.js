@@ -1,7 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {uniqueId, get, constant} from 'lodash/fp';
-import {NovaSolidDataTransferDataUpload1 as UploadIcon} from '@coorpacademy/nova-icons';
+import {
+  NovaSolidDataTransferDataUpload1 as UploadIcon,
+  NovaLineStatusClose as Close
+} from '@coorpacademy/nova-icons';
 import Provider from '../provider';
 import Loader from '../loader';
 import style from './style.css';
@@ -20,7 +23,8 @@ class DragAndDrop extends React.Component {
     }),
     loading: PropTypes.bool,
     modified: PropTypes.bool,
-    children: PropTypes.func
+    children: PropTypes.func,
+    onReset: PropTypes.func
   };
 
   static contextTypes = {
@@ -62,7 +66,8 @@ class DragAndDrop extends React.Component {
       previewLabel = '',
       previewContent,
       loading = false,
-      modified = false
+      modified = false,
+      onReset = null
     } = this.props;
     const {dragging} = this.state;
 
@@ -90,8 +95,22 @@ class DragAndDrop extends React.Component {
       previewView = <span>{previewLabel}</span>;
     }
 
+    const resetContent =
+      previewContent && previewContent.src && onReset ? (
+        <div className={style.resetUploadWrapper}>
+          <div className={style.resetSrcLabel}>{previewContent.src}</div>
+          <Close
+            data-name="reset-content-icon"
+            height={16}
+            width={16}
+            className={style.closeIcon}
+            onClick={onReset}
+          />
+        </div>
+      ) : null;
+
     return (
-      <div className={style.wrapper}>
+      <div className={style.wrapper} data-name="drag-and-drop-wrapper">
         <div className={style.title}>{title}</div>
         <div className={modified ? style.modified : style.previewWrapper}>{previewView}</div>
         <div className={dragging ? style.dragging : style.inputWrapper} id={idBox}>
@@ -99,6 +118,7 @@ class DragAndDrop extends React.Component {
           <div className={style.uploadLabel}>{uploadLabel}</div>
           {children(this.handleDragStart, this.handleDragStop)}
         </div>
+        {resetContent}
         {description ? <div className={style.description}>{description} </div> : null}
       </div>
     );

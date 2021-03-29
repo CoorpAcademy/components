@@ -96,6 +96,7 @@ import _NovaLineNetworkNetworkMobile from './components/nova-line/network/networ
 import _NovaLineRemoveAddRemoveCircle1 from './components/nova-line/remove-add/remove-circle-1';
 import _NovaLineSpaceRingPlanet from './components/nova-line/space/ring-planet';
 import _NovaLineStatusCheckCircle1 from './components/nova-line/status/check-circle-1';
+import _NovaLineStatusClose from './components/nova-line/status/close';
 import _NovaLineStatusCloseCircle from './components/nova-line/status/close-circle';
 import _NovaLineToolsWrenchScrewdriver from './components/nova-line/tools/wrench-screwdriver';
 import _NovaLineVideosVideoClip3 from './components/nova-line/videos/video-clip-3';
@@ -227,6 +228,7 @@ export const NovaLineNetworkNetworkMobile: Icon = _NovaLineNetworkNetworkMobile;
 export const NovaLineRemoveAddRemoveCircle1: Icon = _NovaLineRemoveAddRemoveCircle1;
 export const NovaLineSpaceRingPlanet: Icon = _NovaLineSpaceRingPlanet;
 export const NovaLineStatusCheckCircle1: Icon = _NovaLineStatusCheckCircle1;
+export const NovaLineStatusClose: Icon = _NovaLineStatusClose;
 export const NovaLineStatusCloseCircle: Icon = _NovaLineStatusCloseCircle;
 export const NovaLineToolsWrenchScrewdriver: Icon = _NovaLineToolsWrenchScrewdriver;
 export const NovaLineVideosVideoClip3: Icon = _NovaLineVideosVideoClip3;
