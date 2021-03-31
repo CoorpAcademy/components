@@ -207,6 +207,7 @@ import AtomDragAndDropFixtureWithChildren from '../src/atom/drag-and-drop/test/f
 import AtomDragAndDropFixtureWithImageReset from '../src/atom/drag-and-drop/test/fixtures/with-image-reset';
 import AtomDragAndDropFixtureWithImage from '../src/atom/drag-and-drop/test/fixtures/with-image';
 import AtomDragAndDropFixtureWithVideo from '../src/atom/drag-and-drop/test/fixtures/with-video';
+import AtomImageUploadFixtureDesktopResetDescriptionOnlyPng from '../src/atom/image-upload/test/fixtures/desktop-reset-description-only-png';
 import AtomImageUploadFixtureDesktopResetDescription from '../src/atom/image-upload/test/fixtures/desktop-reset-description';
 import AtomImageUploadFixtureDesktopResetNoDescription from '../src/atom/image-upload/test/fixtures/desktop-reset-no-description';
 import AtomImageUploadFixtureDesktop from '../src/atom/image-upload/test/fixtures/desktop';
@@ -1163,6 +1164,7 @@ export const fixtures = {
       WithVideo: AtomDragAndDropFixtureWithVideo
     },
     AtomImageUpload: {
+      DesktopResetDescriptionOnlyPng: AtomImageUploadFixtureDesktopResetDescriptionOnlyPng,
       DesktopResetDescription: AtomImageUploadFixtureDesktopResetDescription,
       DesktopResetNoDescription: AtomImageUploadFixtureDesktopResetNoDescription,
       Desktop: AtomImageUploadFixtureDesktop,

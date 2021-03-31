@@ -119,7 +119,10 @@ class DragAndDrop extends React.Component {
           {children(this.handleDragStart, this.handleDragStop)}
         </div>
         {resetContent}
-        {description ? <div className={style.description}>{description} </div> : null}
+        {description ? (
+          // eslint-disable-next-line react/no-danger
+          <div className={style.description} dangerouslySetInnerHTML={{__html: description}} />
+        ) : null}
       </div>
     );
   }

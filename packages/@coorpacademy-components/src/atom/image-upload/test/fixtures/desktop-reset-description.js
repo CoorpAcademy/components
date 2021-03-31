@@ -6,6 +6,6 @@ export default {
   props: {
     ...props,
     description:
-      'Recommended aspect ratio: 1:1 (e.g. 250px x 250px). Maximum accepted aspect ratio: 2:1 (e.g. 500px x 250px. Meaning, no more than twice as large as it is tall)'
+      'This is where you can load a custom logo (that of Coorpacademy, the client, or one specific to the learning platform) which will be added at the bottom right of the thumbnails of the different courses in SAP.<br /><br />Max file size: 5MO. Format: PNG. NB: The logo will be re-sized by the media service (height = 125px & wide = 400px), therefore, a horizontal format is highly suggested.'
   }
 };

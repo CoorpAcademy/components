@@ -13,7 +13,8 @@ const ImageUpload = ({
   modified,
   onChange,
   onReset = null,
-  name
+  name,
+  imageType = '*'
 }) => {
   const handleReset = onReset
     ? useMemo(
@@ -40,7 +41,7 @@ const ImageUpload = ({
           <input
             type="file"
             name={name}
-            accept="image/*"
+            accept={`image/${imageType}`}
             disabled={loading}
             className={style.input}
             onChange={onChange}
@@ -58,7 +59,8 @@ ImageUpload.propTypes = {
   ...DragAndDrop.propTypes,
   name: PropTypes.string,
   onChange: PropTypes.func,
-  onReset: PropTypes.func
+  onReset: PropTypes.func,
+  imageType: PropTypes.string
 };
 
 export default ImageUpload;
