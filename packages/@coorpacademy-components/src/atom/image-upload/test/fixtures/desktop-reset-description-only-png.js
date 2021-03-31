@@ -5,6 +5,10 @@ const {props} = DesktopReset;
 export default {
   props: {
     ...props,
-    imageType: 'png'
+    previewContent: {
+      type: 'image',
+      src: 'https://static.coorpacademy.com/content/up/raw/batman.png'
+    },
+    imageTypes: ['png']
   }
 };
