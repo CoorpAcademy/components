@@ -97,10 +97,3 @@ test(
   ImagePropType,
   ['pdf', 'another']
 );
-
-test(
-  'ImagePropType should throw error when incorrect image type is passed even if the rest are ok',
-  failMacro,
-  ImagePropType,
-  ['jpg', 'pdf']
-);
