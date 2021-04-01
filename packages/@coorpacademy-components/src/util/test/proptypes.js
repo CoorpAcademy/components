@@ -1,7 +1,14 @@
 import PropTypes from 'prop-types';
 import {forEach, set, split, map, concat} from 'lodash/fp';
 import test from 'ava';
-import {ColorPropType, HexPropType, UrlPropType, PathPropType, SrcPropType} from '../proptypes';
+import {
+  ColorPropType,
+  HexPropType,
+  ImagePropType,
+  UrlPropType,
+  PathPropType,
+  SrcPropType
+} from '../proptypes';
 
 const validMacro = (t, proptype, values) => {
   forEach(value => {
@@ -70,3 +77,23 @@ test('SrcPropType should pass when valid source is passed', validMacro, SrcPropT
   'https://static.coorpacademy.com/content/digital/raw/login-bg-1491236164055.jpg'
 ]);
 test('SrcPropType should throw error when incorrect source is passed', failMacro, SrcPropType, [0]);
+
+test('ImagePropType should pass when correct image type is passed', validMacro, ImagePropType, [
+  'svg',
+  'jpg',
+  'png'
+]);
+
+test(
+  'ImagePropType should throw error when incorrect image type is passed: misspelled',
+  failMacro,
+  ImagePropType,
+  ['sgv']
+);
+
+test(
+  'ImagePropType should throw error when incorrect image type is passed: not included',
+  failMacro,
+  ImagePropType,
+  ['pdf', 'another']
+);
