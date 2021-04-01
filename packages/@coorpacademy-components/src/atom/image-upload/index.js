@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {join} from 'lodash/fp';
+import {join, map, pipe} from 'lodash/fp';
 import DragAndDrop from '../drag-and-drop';
 import {ImagePropType} from '../../util/proptypes';
 import style from './style.css';
@@ -16,7 +16,7 @@ const ImageUpload = ({
   onChange,
   onReset = null,
   name,
-  imageTypes
+  imageTypes = ['*']
 }) => {
   const handleReset = onReset
     ? useMemo(
@@ -27,7 +27,10 @@ const ImageUpload = ({
         [onReset]
       )
     : null;
-  const acceptedImages = imageTypes ? join(',image/', imageTypes) : '*';
+  const acceptedImages = pipe(
+    map(t => `image/${t}`),
+    join(',')
+  )(imageTypes);
   return (
     <DragAndDrop
       title={title}
@@ -44,7 +47,7 @@ const ImageUpload = ({
           <input
             type="file"
             name={name}
-            accept={`image/${acceptedImages}`}
+            accept={acceptedImages}
             disabled={loading}
             className={style.input}
             onChange={onChange}
