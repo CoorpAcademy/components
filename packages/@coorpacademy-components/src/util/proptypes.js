@@ -15,8 +15,8 @@ export const PathPropType = stringMatching(PATH_REGEXP);
 export const SrcPropType = PropTypes.oneOfType([UrlPropType, PathPropType]);
 
 export const ImagePropType = (propValue, key, componentName) => {
-  if (includes(propValue[key], ['jpg', 'png', 'svg'])) return;
+  if (includes(propValue[key], ['jpg', 'png', 'svg+xml'])) return;
   return new Error(
-    `Invalid prop value: ${propValue[key]}, at component: ${componentName}. Expected a valid image type: jpg, png or svg.`
+    `Invalid prop value: ${propValue[key]}, at component: ${componentName}. Expected a valid image type: jpg, png or svg+xml.`
   );
 };

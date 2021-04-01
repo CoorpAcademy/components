@@ -79,7 +79,7 @@ test('SrcPropType should pass when valid source is passed', validMacro, SrcPropT
 test('SrcPropType should throw error when incorrect source is passed', failMacro, SrcPropType, [0]);
 
 test('ImagePropType should pass when correct image type is passed', validMacro, ImagePropType, [
-  'svg',
+  'svg+xml',
   'jpg',
   'png'
 ]);
@@ -88,7 +88,7 @@ test(
   'ImagePropType should throw error when incorrect image type is passed: misspelled',
   failMacro,
   ImagePropType,
-  ['sgv']
+  ['sgv+xml']
 );
 
 test(
@@ -96,4 +96,11 @@ test(
   failMacro,
   ImagePropType,
   ['pdf', 'another']
+);
+
+test(
+  'ImagePropType should throw error when incorrect image type is passed even if the rest are ok',
+  failMacro,
+  ImagePropType,
+  ['jpg', 'pdf']
 );

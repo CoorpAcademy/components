@@ -16,6 +16,7 @@ const ImageUpload = ({
   onChange,
   onReset = null,
   name,
+  // See ImagePropType for accepted values
   imageTypes = ['*']
 }) => {
   const handleReset = onReset
