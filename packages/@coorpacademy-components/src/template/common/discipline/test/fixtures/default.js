@@ -35,6 +35,10 @@ export default {
     authors: [head(authors)],
     changeLevel: () => true,
     level: content,
-    levels
+    levels,
+    shareWording: 'Share',
+    shareText: 'Share this',
+    shareSuccessWording: 'Success',
+    shareErrorWording: 'Error'
   }
 };

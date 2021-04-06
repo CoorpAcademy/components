@@ -47,6 +47,12 @@
   margin-left: 330px;
 }
 
+.columnReverse {
+  display: flex;
+  flex-direction: column-reverse;
+  width: 840px;
+}
+
 .header,
 .content {
   composes: column;
@@ -80,6 +86,7 @@
   .column {
     display: flex;
     flex-basis: 100%;
+    margin-bottom: 0px;
   }
 
   .header {
@@ -111,10 +118,14 @@
   }
 
   .mobileAuthorCtaSection {
-    padding: 0px;
+    padding: 0;
   }
 
   .rightSection {
     display: none;
+  }
+
+  .cta {
+    margin-bottom: 0px;
   }
 }
