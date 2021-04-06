@@ -133,6 +133,11 @@
         width: 100%;
     }
 
+    .footerSummaryStars{
+        width: 100%;
+        height: 50px;
+    }
+
     .totalStars {
         height: 50px;
     }
