@@ -4,6 +4,8 @@
 @value tablet from breakpoints;
 @value medium from colors;
 @value light from colors;
+@value lightMediumGray from colors;
+@value white from colors;
 
 .allStars {
     width: 100%;
@@ -12,6 +14,65 @@
     flex-direction: row;
     min-width: 180px;
     overflow: auto;
+}
+
+.myStars {
+    height: 221px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 690px;
+}
+
+.totalStars {
+    display: flex;
+    width: 100%;
+    height: 68px;
+    border-bottom-right-radius: 3px;
+    justify-content: center;
+    align-items: center;
+}
+
+.totalStars p {
+    padding: 0 0 0 10px;
+    margin: 0;
+    height: auto;
+    font-family: 'Open Sans';
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    text-align: right;
+    margin-right: 8px;
+}
+
+.totalStars span {
+    font-family: 'Open Sans';
+    font-size: 13px;
+    text-align: left;
+    color: white;
+    padding-top: 8px;
+    text-transform: capitalize;
+}
+
+.iconBubble {
+    background-color: white;
+    width: 23px;
+    height: 23px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.iconBubble .iconHeader {
+    width: 17px;
+    height: 17px;
+}
+
+.iconHeader {
+    width: 25px;
+    height: 25px;
 }
 
 .navigationLeft {
@@ -58,8 +119,22 @@
 }
 
 @media tablet, mobile {
-    .allStars {
+    .myStars,
+    .allStars,
+    .totalStars {
         width: 100%;
+    }
+
+    .totalStars {
+        height: 50px;
+    }
+
+    .myStars {
+        height: auto;
+        max-width: 100%;
+    }
+
+    .allStars {
         height: auto;
         min-width: 100%;
         max-width: 100%;
@@ -76,5 +151,10 @@
         position: absolute;
         right: 30px;
         top: 125px;
+    }
+
+    .iconHeader {
+        width: 13px;
+        height: 13px;
     }
 }

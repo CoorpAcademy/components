@@ -1,17 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {getOr} from 'lodash/fp';
+import {get, getOr} from 'lodash/fp';
 import {
   NovaCompositionNavigationArrowLeft as ArrowLeft,
-  NovaCompositionNavigationArrowRight as ArrowRight
+  NovaCompositionNavigationArrowRight as ArrowRight,
+  NovaCompositionCoorpacademyStar as StarIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
 import EngineStars from './engine-stars';
-import style from './engine-list.css';
+import style from './stars-summary.css';
 
 // eslint-disable-next-line react/prefer-stateless-function
-class EngineList extends React.Component {
+class StarsSummary extends React.Component {
   static propTypes = {
+    total: PropTypes.shape({
+      label: PropTypes.string.isRequired,
+      stars: PropTypes.number.isRequired
+    }).isRequired,
     engines: PropTypes.arrayOf(PropTypes.shape(EngineStars.propTypes))
   };
 
@@ -24,9 +29,10 @@ class EngineList extends React.Component {
   }
 
   render() {
-    const {engines = []} = this.props;
+    const {total, engines = []} = this.props;
     const {skin} = this.context;
     const dark = getOr('#90A4AE', 'common.dark', skin);
+    const primary = get('common.primary', skin);
 
     const engineTabs = engines.map(engine => <EngineStars {...engine} key={engine.type} />);
 
@@ -42,13 +48,27 @@ class EngineList extends React.Component {
     );
 
     return (
-      <div className={style.allStars} data-name="engineList">
-        <div className={style.navigationLeft}>{leftArrowView}</div>
-        {engineTabs}
-        <div className={style.navigationRight}>{rightArrowView}</div>
+      <div data-name="myStars" className={style.myStars}>
+        <div className={style.allStars} data-name="engineList">
+          <div className={style.navigationLeft}>{leftArrowView}</div>
+          {engineTabs}
+          <div className={style.navigationRight}>{rightArrowView}</div>
+        </div>
+        <div
+          className={style.totalStars}
+          style={{
+            backgroundColor: primary
+          }}
+        >
+          <span>{total.label}</span>
+          <p data-name="star-counter">{total.stars}</p>
+          <div className={style.iconBubble}>
+            <StarIcon className={style.iconHeader} color={primary} />
+          </div>
+        </div>
       </div>
     );
   }
 }
 
-export default EngineList;
+export default StarsSummary;
