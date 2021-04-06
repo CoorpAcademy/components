@@ -155,15 +155,11 @@
     }
 
     .navigationLeft {
-        position: absolute;
-        top: 125px;
-        z-index: 10;
+        display: none;
     }
 
     .navigationRight {
-        position: absolute;
-        right: 30px;
-        top: 125px;
+        display: none;
     }
 
     .iconHeader {
