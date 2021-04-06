@@ -50,21 +50,23 @@ class StarsSummary extends React.Component {
     return (
       <div data-name="myStars" className={style.myStars}>
         <div className={style.allStars} data-name="engineList">
-          <div className={style.navigationLeft}>{leftArrowView}</div>
           {engineTabs}
-          <div className={style.navigationRight}>{rightArrowView}</div>
         </div>
         <div
-          className={style.totalStars}
+          className={style.footerSummaryStars}
           style={{
             backgroundColor: primary
           }}
         >
-          <span>{total.label}</span>
-          <p data-name="star-counter">{total.stars}</p>
-          <div className={style.iconBubble}>
-            <StarIcon className={style.iconHeader} color={primary} />
+          <div className={style.totalStars}>
+            <span>{total.label}</span>
+            <p data-name="star-counter">{total.stars}</p>
+            <div className={style.iconBubble}>
+              <StarIcon className={style.iconHeader} color={primary} />
+            </div>
           </div>
+          <div className={style.navigationLeft}>{leftArrowView}</div>
+          <div className={style.navigationRight}>{rightArrowView}</div>
         </div>
       </div>
     );
