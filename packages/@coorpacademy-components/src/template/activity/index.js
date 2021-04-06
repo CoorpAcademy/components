@@ -10,6 +10,7 @@ import Loader from '../../atom/loader';
 import {innerHTML} from '../../atom/label/style.css';
 import ProgressionItem from './progression-item';
 import EngineStars from './engine-stars';
+import EngineList from './engine-list';
 import style from './style.css';
 
 class Progression extends React.Component {
@@ -85,7 +86,7 @@ class Progression extends React.Component {
     const allProgressions = progressions.map(progression => (
       <ProgressionItem {...omit(['ref'], progression)} key={progression.ref} />
     ));
-    const engineTabs = engines.map(engine => <EngineStars {...engine} key={engine.type} />);
+
     const coreProgression = (
       <div data-name="activityCore" className={style.core}>
         {allProgressions}
@@ -134,7 +135,7 @@ class Progression extends React.Component {
               {recommendationSection}
             </div>
             <div data-name="myStars" className={style.myStars}>
-              <div className={style.allStars}>{engineTabs}</div>
+              <EngineList engines={engines} />
               <div
                 className={style.totalStars}
                 style={{
