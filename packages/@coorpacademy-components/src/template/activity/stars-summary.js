@@ -10,7 +10,6 @@ import Provider from '../../atom/provider';
 import EngineStars from './engine-stars';
 import style from './stars-summary.css';
 
-// eslint-disable-next-line react/prefer-stateless-function
 class StarsSummary extends React.Component {
   static propTypes = {
     total: PropTypes.shape({
