@@ -68,9 +68,10 @@ class StarsSummary extends React.Component {
     const primary = get('common.primary', skin);
 
     const engineTabs = engines.map((engine, index) => {
+      const state = index < firstItem ? 'hidden' : 'active';
       return (
-        <div className={index < firstItem ? style.hide : style.show} key={engine.type}>
-          <EngineStars {...engine} className={index < firstItem ? style.hide : style.show} />
+        <div className={style[state]} key={engine.type} data-name={`${engine.type}_total_${state}`}>
+          <EngineStars {...engine} className={index < firstItem ? style.hidden : style.active} />
         </div>
       );
     });

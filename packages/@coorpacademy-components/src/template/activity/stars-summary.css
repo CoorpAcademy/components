@@ -7,11 +7,11 @@
 @value lightMediumGray from colors;
 @value white from colors;
 
-.hide {
+.hidden {
     display: none;
 }
 
-.show {
+.active {
     display: block;
 }
 
