@@ -20,7 +20,6 @@
     height: 153px;
     display: flex;
     flex-direction: row;
-    min-width: 180px;
     overflow: hidden;
 }
 
