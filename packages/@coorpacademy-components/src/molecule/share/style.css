@@ -1,0 +1,111 @@
+@value colors: "../../variables/colors.css";
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value light from colors;
+@value white from colors;
+@value dark from colors;
+@value positive from colors;
+@value negative from colors;
+@value black from colors;
+@value xtraLightGrey from colors;
+
+.container {
+  display: flex;
+  align-items: center;
+  margin: 15px 0;
+  font-family: Open Sans, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  overflow: inherit;
+}
+
+.cta {
+  color: dark;
+  background-color: xtraLightGrey;
+  padding: 10px 10px;
+  width: 63px;
+  max-width: 70px;
+  height: 30px;
+  max-height: 30px;
+  border: solid 1px light;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 5px;
+}
+
+.cta:hover {
+  color: black;
+  background-color: light;
+}
+
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.feedback {
+  position: fixed;
+  left: 45%;
+  bottom: 10%;
+  width: max-content;
+  height: 24px;
+  padding: 7px 10px;
+  max-height: 24px;
+  border-radius: 3px;
+  background-color: positive;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  font-family: Open Sans, sans-serif;
+  font-weight: bold;
+  font-size: 13px;
+  box-shadow: 0 -1px 20px 0 rgba(0, 0, 0, 0.25);
+  margin: -25px 0 0 -25px;
+  z-index: 1;
+}
+
+.errorFeedback {
+  background-color: negative;
+}
+
+.shareIcon {
+  margin: 0 4px;
+  color: dark;
+}
+
+.cta:hover .shareIcon {
+  color: black;
+}
+
+.checkIcon {
+  margin: 0 4px;
+  color: white;
+}
+
+@media tablet {
+  .container {
+    flex-direction: column;
+    padding: 0 2px;
+  }
+
+  .cta {
+    width: 100%;
+    max-width: 100%;
+    padding: 10px 0;
+    height: 44px;
+    margin-right: 0;
+  }
+
+  .feedback {
+    position: fixed;
+    left: 45%;
+    bottom: 5%;
+  }
+}

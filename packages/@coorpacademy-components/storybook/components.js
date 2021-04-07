@@ -106,6 +106,7 @@ import MoleculeSetupSection from './../src/molecule/setup-section';
 import MoleculeSetupSections from './../src/molecule/setup-sections';
 import MoleculeSetupSlide from './../src/molecule/setup-slide';
 import MoleculeSetupSlider from './../src/molecule/setup-slider';
+import MoleculeShare from './../src/molecule/share';
 import MoleculeSsmenuList from './../src/molecule/ssmenu-list';
 import MoleculeSubscriptionFreemium from './../src/molecule/subscription-freemium';
 import MoleculeSubscriptionPremium from './../src/molecule/subscription-premium';
@@ -579,6 +580,7 @@ import MoleculeSetupSlideFixtureDefault from '../src/molecule/setup-slide/test/f
 import MoleculeSetupSlideFixtureSplitForm from '../src/molecule/setup-slide/test/fixtures/split-form';
 import MoleculeSetupSliderFixtureDefaultCohort from '../src/molecule/setup-slider/test/fixtures/default-cohort';
 import MoleculeSetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
+import MoleculeShareFixtureDefault from '../src/molecule/share/test/fixtures/default';
 import MoleculeSsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
 import MoleculeSsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
 import MoleculeSsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
@@ -998,6 +1000,7 @@ export const components = {
     MoleculeSetupSections,
     MoleculeSetupSlide,
     MoleculeSetupSlider,
+    MoleculeShare,
     MoleculeSsmenuList,
     MoleculeSubscriptionFreemium,
     MoleculeSubscriptionPremium,
@@ -1659,6 +1662,9 @@ export const fixtures = {
     MoleculeSetupSlider: {
       DefaultCohort: MoleculeSetupSliderFixtureDefaultCohort,
       Default: MoleculeSetupSliderFixtureDefault
+    },
+    MoleculeShare: {
+      Default: MoleculeShareFixtureDefault
     },
     MoleculeSsmenuList: {
       Coorpacademy: MoleculeSsmenuListFixtureCoorpacademy,
