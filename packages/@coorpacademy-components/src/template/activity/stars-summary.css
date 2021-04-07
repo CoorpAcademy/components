@@ -26,7 +26,8 @@
 
 .myStars {
     height: 221px;
-    display: flex;
+    display: block;
+    width: 100%;
     flex-direction: column;
     align-items: flex-start;
     max-width: 690px;

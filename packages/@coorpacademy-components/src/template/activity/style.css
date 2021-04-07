@@ -57,7 +57,7 @@
 }
 
 .wrapperCta {
-  display: flex;
+  display: block;
   flex-direction: column;
   width: 80%;
   box-sizing: border-box;
