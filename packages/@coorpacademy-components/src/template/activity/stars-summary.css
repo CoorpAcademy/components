@@ -93,6 +93,7 @@
     position: relative;
     top: -165px;
     z-index: 10;
+    float: left;
 }
 
 .navigationRight {

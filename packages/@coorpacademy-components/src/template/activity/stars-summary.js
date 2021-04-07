@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {get, getOr, ceil} from 'lodash/fp';
+import {get, getOr} from 'lodash/fp';
 import {
   NovaCompositionNavigationArrowLeft as ArrowLeft,
   NovaCompositionNavigationArrowRight as ArrowRight,
