@@ -10,9 +10,9 @@ import Provider from '../../atom/provider';
 import EngineStars from './engine-stars';
 import style from './stars-summary.css';
 
-const nextPage = (page, maxPages) => {
-  if (page < 0) return maxPages;
-  if (page > maxPages) return 0;
+const nextPage = (page, totalItems) => {
+  if (page < 0) return totalItems;
+  if (page > totalItems) return 0;
   return page;
 };
 
@@ -35,8 +35,8 @@ class StarsSummary extends React.Component {
 
     const {engines = []} = props;
     this.state = {
-      actualPage: 0,
-      maxPages: ceil(engines.length / 6)
+      firstItem: 0,
+      totalItems: engines.length
     };
 
     this.handleOnLeft = this.handleOnLeft.bind(this);
@@ -45,39 +45,45 @@ class StarsSummary extends React.Component {
   }
 
   handleOnLeft() {
-    const {actualPage, maxPages} = this.state;
-    this.scrollTo(nextPage(actualPage - 1, maxPages));
+    const {firstItem, totalItems} = this.state;
+    this.scrollTo(nextPage(firstItem - 1, totalItems));
   }
 
   handleOnRight() {
-    const {actualPage, maxPages} = this.state;
-    this.scrollTo(nextPage(actualPage + 1, maxPages));
+    const {firstItem, totalItems} = this.state;
+    this.scrollTo(nextPage(firstItem + 1, totalItems));
   }
 
   scrollTo(page) {
     this.setState({
-      actualPage: page
+      firstItem: page
     });
   }
 
   render() {
     const {total, engines = []} = this.props;
     const {skin} = this.context;
-    const {actualPage, maxPages} = this.state;
+    const {firstItem, totalItems} = this.state;
     const dark = getOr('#90A4AE', 'common.dark', skin);
     const primary = get('common.primary', skin);
 
-    const engineTabs = engines.map(engine => <EngineStars {...engine} key={engine.type} />);
+    const engineTabs = engines.map((engine, index) => {
+      return (
+        <div className={index < firstItem ? style.hide : style.show} key={engine.type}>
+          <EngineStars {...engine} className={index < firstItem ? style.hide : style.show} />
+        </div>
+      );
+    });
 
     const leftArrowView =
-      maxPages > 1 && actualPage > 1 ? (
+      totalItems > 6 && firstItem > 0 ? (
         <div className={style.circle} onClick={this.handleOnLeft} data-name="left-arrow">
           <ArrowLeft color={dark} className={style.left} width={10} height={10} />
         </div>
       ) : null;
 
     const rightArrowView =
-      maxPages > 1 && actualPage < maxPages ? (
+      totalItems > 6 && firstItem < totalItems - 6 ? (
         <div className={style.circle} onClick={this.handleOnRight} data-name="right-arrow">
           <ArrowRight color={dark} className={style.right} width={10} height={10} />
         </div>
