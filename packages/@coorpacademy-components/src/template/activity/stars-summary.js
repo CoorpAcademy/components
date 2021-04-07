@@ -10,12 +10,6 @@ import Provider from '../../atom/provider';
 import EngineStars from './engine-stars';
 import style from './stars-summary.css';
 
-const nextPage = (page, totalItems) => {
-  if (page < 0) return totalItems;
-  if (page > totalItems) return 0;
-  return page;
-};
-
 // eslint-disable-next-line react/prefer-stateless-function
 class StarsSummary extends React.Component {
   static propTypes = {
@@ -45,13 +39,13 @@ class StarsSummary extends React.Component {
   }
 
   handleOnLeft() {
-    const {firstItem, totalItems} = this.state;
-    this.scrollTo(nextPage(firstItem - 1, totalItems));
+    const {firstItem} = this.state;
+    this.scrollTo(firstItem - 1);
   }
 
   handleOnRight() {
-    const {firstItem, totalItems} = this.state;
-    this.scrollTo(nextPage(firstItem + 1, totalItems));
+    const {firstItem} = this.state;
+    this.scrollTo(firstItem + 1);
   }
 
   scrollTo(page) {

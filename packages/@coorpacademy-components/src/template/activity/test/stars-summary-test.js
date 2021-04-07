@@ -54,6 +54,10 @@ test('when mount component and after click on handleRight, it should update stat
   t.is(activeLearnerStars.exists(), false);
   const hiddenLearnerStars = wrapper.find('[data-name="learner_total_hidden"]');
   t.is(hiddenLearnerStars.exists(), true);
+  const activeMicrolearningStars = wrapper.find('[data-name="microlearning_total_active"]');
+  t.is(activeMicrolearningStars.exists(), true);
+  const hiddenMicrolearningStars = wrapper.find('[data-name="microlearning_total_hidden"]');
+  t.is(hiddenMicrolearningStars.exists(), false);
 
   const leftNavigation = wrapper.find('[data-name="left-arrow"]');
   t.is(leftNavigation.exists(), true);
@@ -89,4 +93,69 @@ test('when mount component with 9 engines and after clicking on handleRight thre
   t.is(leftNavigation.exists(), true);
   const rightNavigation = wrapper.find('[data-name="right-arrow"]');
   t.is(rightNavigation.exists(), false);
+});
+
+test('when mount component and after click on handleRight twice and handleLeft once, it should update state with correct value and display the correct items', t => {
+  const props = {
+    engines: fixtures.props.engines,
+    total: fixtures.props.total
+  };
+  const wrapper = mount(<StarsSummary {...props} />, {context});
+  const instance = wrapper.instance();
+
+  instance.handleOnRight();
+  instance.handleOnRight();
+  t.is(instance.state.firstItem, 2);
+  t.is(instance.state.totalItems, 9);
+  wrapper.update();
+
+  let activeLearnerStars = wrapper.find('[data-name="learner_total_active"]');
+  t.is(activeLearnerStars.exists(), false);
+  let hiddenLearnerStars = wrapper.find('[data-name="learner_total_hidden"]');
+  t.is(hiddenLearnerStars.exists(), true);
+  let activeMicrolearningStars = wrapper.find('[data-name="microlearning_total_active"]');
+  t.is(activeMicrolearningStars.exists(), false);
+  let hiddenMicrolearningStars = wrapper.find('[data-name="microlearning_total_hidden"]');
+  t.is(hiddenMicrolearningStars.exists(), true);
+
+  let leftNavigation = wrapper.find('[data-name="left-arrow"]');
+  t.is(leftNavigation.exists(), true);
+  let rightNavigation = wrapper.find('[data-name="right-arrow"]');
+  t.is(rightNavigation.exists(), true);
+
+  instance.handleOnLeft();
+  t.is(instance.state.firstItem, 1);
+  t.is(instance.state.totalItems, 9);
+  wrapper.update();
+
+  activeLearnerStars = wrapper.find('[data-name="learner_total_active"]');
+  t.is(activeLearnerStars.exists(), false);
+  hiddenLearnerStars = wrapper.find('[data-name="learner_total_hidden"]');
+  t.is(hiddenLearnerStars.exists(), true);
+  activeMicrolearningStars = wrapper.find('[data-name="microlearning_total_active"]');
+  t.is(activeMicrolearningStars.exists(), true);
+  hiddenMicrolearningStars = wrapper.find('[data-name="microlearning_total_hidden"]');
+  t.is(hiddenMicrolearningStars.exists(), false);
+  leftNavigation = wrapper.find('[data-name="left-arrow"]');
+  t.is(leftNavigation.exists(), true);
+  rightNavigation = wrapper.find('[data-name="right-arrow"]');
+  t.is(rightNavigation.exists(), true);
+
+  instance.handleOnLeft();
+  t.is(instance.state.firstItem, 0);
+  t.is(instance.state.totalItems, 9);
+  wrapper.update();
+
+  activeLearnerStars = wrapper.find('[data-name="learner_total_active"]');
+  t.is(activeLearnerStars.exists(), true);
+  hiddenLearnerStars = wrapper.find('[data-name="learner_total_hidden"]');
+  t.is(hiddenLearnerStars.exists(), false);
+  activeMicrolearningStars = wrapper.find('[data-name="microlearning_total_active"]');
+  t.is(activeMicrolearningStars.exists(), true);
+  hiddenMicrolearningStars = wrapper.find('[data-name="microlearning_total_hidden"]');
+  t.is(hiddenMicrolearningStars.exists(), false);
+  leftNavigation = wrapper.find('[data-name="left-arrow"]');
+  t.is(leftNavigation.exists(), false);
+  rightNavigation = wrapper.find('[data-name="right-arrow"]');
+  t.is(rightNavigation.exists(), true);
 });
