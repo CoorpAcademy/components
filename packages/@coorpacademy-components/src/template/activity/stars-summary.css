@@ -33,6 +33,12 @@
     -ms-flex: 0 0 auto;
 }
 
+.myStarsWrapper {
+    display: inline-block;
+    max-width: 690px;
+    float: right;
+}
+
 .footerSummaryStars{
     width: 100%;
     height: 68px;

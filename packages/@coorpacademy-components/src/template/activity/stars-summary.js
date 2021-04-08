@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {get, getOr} from 'lodash/fp';
+import {get, getOr, isEmpty} from 'lodash/fp';
 import {
   NovaCompositionNavigationArrowLeft as ArrowLeft,
   NovaCompositionNavigationArrowRight as ArrowRight,
@@ -60,6 +60,10 @@ class StarsSummary extends React.Component {
     const dark = getOr('#90A4AE', 'common.dark', skin);
     const primary = get('common.primary', skin);
 
+    if (isEmpty(engines)) {
+      return null;
+    }
+
     const engineTabs = engines.map((engine, index) => {
       const state = index < firstItem ? 'hidden' : 'active';
       return (
@@ -85,24 +89,26 @@ class StarsSummary extends React.Component {
 
     return (
       <div data-name="myStars" className={style.myStars}>
-        <div className={style.allStars} data-name="engineList">
-          {engineTabs}
-        </div>
-        <div
-          className={style.footerSummaryStars}
-          style={{
-            backgroundColor: primary
-          }}
-        >
-          <div className={style.totalStars}>
-            <span>{total.label}</span>
-            <p data-name="star-counter">{total.stars}</p>
-            <div className={style.iconBubble}>
-              <StarIcon className={style.iconHeader} color={primary} />
-            </div>
+        <div data-name="myStars-wrapper" className={style.myStarsWrapper}>
+          <div className={style.allStars} data-name="engineList">
+            {engineTabs}
           </div>
-          <div className={style.navigationLeft}>{leftArrowView}</div>
-          <div className={style.navigationRight}>{rightArrowView}</div>
+          <div
+            className={style.footerSummaryStars}
+            style={{
+              backgroundColor: primary
+            }}
+          >
+            <div className={style.totalStars}>
+              <span>{total.label}</span>
+              <p data-name="star-counter">{total.stars}</p>
+              <div className={style.iconBubble}>
+                <StarIcon className={style.iconHeader} color={primary} />
+              </div>
+            </div>
+            <div className={style.navigationLeft}>{leftArrowView}</div>
+            <div className={style.navigationRight}>{rightArrowView}</div>
+          </div>
         </div>
       </div>
     );
