@@ -39,21 +39,6 @@ export default {
           endMessage: 'and we will pass the message on.',
           onClick: e => console.log(e)
         }
-      },
-      {
-        type: 'scorm',
-        title: 'Interactive slides',
-        stars: 70
-      },
-      {
-        type: 'video',
-        title: 'Video',
-        stars: 50
-      },
-      {
-        type: 'article',
-        title: 'Article',
-        stars: 50
       }
     ],
     progressions: [

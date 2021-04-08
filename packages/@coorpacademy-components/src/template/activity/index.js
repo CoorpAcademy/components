@@ -1,5 +1,4 @@
 import React from 'react';
-import {NovaCompositionCoorpacademyStar as StarIcon} from '@coorpacademy/nova-icons';
 import {get, omit, isEmpty} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
@@ -10,6 +9,7 @@ import Loader from '../../atom/loader';
 import {innerHTML} from '../../atom/label/style.css';
 import ProgressionItem from './progression-item';
 import EngineStars from './engine-stars';
+import StarsSummary from './stars-summary';
 import style from './style.css';
 
 class Progression extends React.Component {
@@ -85,7 +85,7 @@ class Progression extends React.Component {
     const allProgressions = progressions.map(progression => (
       <ProgressionItem {...omit(['ref'], progression)} key={progression.ref} />
     ));
-    const engineTabs = engines.map(engine => <EngineStars {...engine} key={engine.type} />);
+
     const coreProgression = (
       <div data-name="activityCore" className={style.core}>
         {allProgressions}
@@ -133,21 +133,7 @@ class Progression extends React.Component {
               {themeSelect}
               {recommendationSection}
             </div>
-            <div data-name="myStars" className={style.myStars}>
-              <div className={style.allStars}>{engineTabs}</div>
-              <div
-                className={style.totalStars}
-                style={{
-                  backgroundColor: primary
-                }}
-              >
-                <span>{total.label}</span>
-                <p data-name="star-counter">{total.stars}</p>
-                <div className={style.iconBubble}>
-                  <StarIcon className={style.iconHeader} color={primary} />
-                </div>
-              </div>
-            </div>
+            <StarsSummary engines={engines} total={total} />
           </div>
         </div>
         <div className={style.wrapperProgression} data-name="activityList">
