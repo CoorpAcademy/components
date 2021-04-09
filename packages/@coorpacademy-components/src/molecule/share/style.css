@@ -21,31 +21,41 @@
 }
 
 .cta {
-  color: dark;
+  padding: 10px 20px;
+  min-width: 63px;
+  max-width: max-content;
+  display: block;
+  text-transform: inherit;
   background-color: xtraLightGrey;
-  padding: 10px 10px;
-  width: 63px;
-  max-width: 70px;
-  height: 30px;
-  max-height: 30px;
+  color: dark;
+  font-family: Open Sans, sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  text-decoration: none;
+  line-height: inherit;
+  text-align: center;
+  box-sizing: border-box;
+  border-radius: inherit;
   border: solid 1px light;
-  border-radius: 3px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  width: 100%;
+  user-select: none;
   cursor: pointer;
-  margin-right: 5px;
+}
+
+.cta p {
+  margin: 0;
+  padding: 0;
 }
 
 .cta:hover {
   color: black;
-  background-color: light;
 }
 
 .wrapper {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0;
 }
 
 .feedback {
@@ -92,14 +102,11 @@
 @media tablet {
   .container {
     flex-direction: column;
-    padding: 0 2px;
   }
 
   .cta {
     width: 100%;
     max-width: 100%;
-    padding: 10px 0;
-    height: 44px;
     margin-right: 0;
   }
 
