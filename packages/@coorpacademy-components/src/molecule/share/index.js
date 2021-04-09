@@ -46,7 +46,7 @@ export const ShareStatusProvider = ({children}) => {
   useEffect(() => {
     let timeoutId;
     if (status !== SHARE_STATUS.IDLE) {
-      timeoutId = setTimeout(() => setStatus(SHARE_STATUS.IDLE), 1000);
+      timeoutId = setTimeout(() => setStatus(SHARE_STATUS.IDLE), 2000);
     }
     return () => clearTimeout(timeoutId);
   }, [status]);
