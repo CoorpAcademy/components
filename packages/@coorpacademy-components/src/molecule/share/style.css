@@ -23,6 +23,7 @@
 .cta {
   padding: 12px 16px;
   min-width: 63px;
+  border-radius: 3px;
   max-width: max-content;
   display: block;
   text-transform: inherit;
@@ -35,7 +36,6 @@
   line-height: inherit;
   text-align: center;
   box-sizing: border-box;
-  border-radius: inherit;
   border: solid 1px light;
   width: 100%;
   user-select: none;
@@ -50,6 +50,7 @@
 
 .cta:hover {
   color: black;
+  background-color: light;
 }
 
 .wrapper {
