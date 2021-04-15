@@ -45,7 +45,7 @@ InputTextItem.propTypes = {
 export const SelectItem = ({name, index, onChange, title, options}) => {
   return (
     <li data-name={name || `select-item-${index}`} className={style.selectItem}>
-      <span className={style.sidebarTitle}>{title}</span>
+      <div className={style.selectTitle}>{title}</div>
       <Select title={title} onChange={onChange} theme="header" options={options} />
     </li>
   );
@@ -68,7 +68,7 @@ SelectItem.propTypes = {
 export const MultiSelectItem = ({name, index, onChange, title, options}) => {
   return (
     <li data-name={name || `select-item-${index}`} className={style.selectItem}>
-      <span className={style.sidebarTitle}>{title}</span>
+      <div className={style.selectTitle}>{title}</div>
       <SelectMultiple theme="sidebar" onChange={onChange} options={options} />
     </li>
   );

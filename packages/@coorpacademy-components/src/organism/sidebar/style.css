@@ -48,6 +48,11 @@
   padding: 10px 20px;
 }
 
+.selectTitle {
+  text-transform: uppercase;
+  padding: 2px 0 4px 0;
+}
+
 .linkItem {
   padding: 12px 15px;
   border-left: 3px solid transparent;
