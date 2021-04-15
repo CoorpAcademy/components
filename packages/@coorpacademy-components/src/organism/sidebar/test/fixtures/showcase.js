@@ -3,8 +3,9 @@ export default {
     items: [
       [
         {
-          title: 'Title',
-          type: 'title'
+          title: 'This is a Title',
+          type: 'title',
+          uppercase: true
         },
         {
           title: 'Title link',
@@ -13,6 +14,16 @@ export default {
             console.log('Clicked on title link', value);
           },
           selected: true,
+          name: 'analytics.dashboard'
+        },
+        {
+          title: 'Title link lowercase',
+          type: 'link',
+          uppercase: false,
+          onClick: value => {
+            console.log('Clicked on title link', value);
+          },
+          selected: false,
           name: 'analytics.dashboard'
         },
         {
@@ -93,6 +104,7 @@ export default {
           type: 'button',
           href: 'http://localhost:3004',
           neutralColor: true,
+          uppercase: true,
           onClick: e => {
             console.log('Clicked on the button!');
             e.preventDefault();

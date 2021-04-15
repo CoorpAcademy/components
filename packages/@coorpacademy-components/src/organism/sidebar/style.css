@@ -24,7 +24,7 @@
   background-color: white;
 }
 
-.sidebarTitle {
+.uppercase {
   text-transform: uppercase;
 }
 
@@ -41,7 +41,6 @@
 
 .buttonItem > div{
   width: 100%;
-  text-transform: uppercase;
 }
 
 .selectItem {
@@ -49,7 +48,6 @@
 }
 
 .selectTitle {
-  text-transform: uppercase;
   padding: 2px 0 4px 0;
 }
 
