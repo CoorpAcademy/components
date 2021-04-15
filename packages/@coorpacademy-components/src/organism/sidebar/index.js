@@ -27,7 +27,7 @@ export const InputTextItem = props => {
   const handleOnChange = useMemo(() => e => onChange(e.target.value), [onChange]);
   return (
     <li data-name={name || `inputtext-item-${index}`} className={style.selectItem}>
-      <span className={classnames({[style.uppercase]: uppercase})}>{title}</span>
+      <div className={classnames(style.selectTitle, {[style.uppercase]: uppercase})}>{title}</div>
       <input
         type="text"
         name={title}
