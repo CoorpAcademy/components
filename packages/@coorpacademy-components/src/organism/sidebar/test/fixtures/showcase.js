@@ -3,32 +3,17 @@ export default {
     items: [
       [
         {
-          title: 'Dashboards',
+          title: 'Title',
           type: 'title'
         },
         {
-          title: 'Engagement',
+          title: 'Title link',
           type: 'link',
           onClick: value => {
-            console.log('Clicked on Engagement', value);
+            console.log('Clicked on title link', value);
           },
           selected: true,
           name: 'analytics.dashboard'
-        },
-        {
-          title: 'Per User',
-          type: 'link',
-          name: 'analytics.users'
-        },
-        {
-          title: 'Per Module',
-          type: 'link',
-          name: 'analytics.modules'
-        },
-        {
-          title: 'Exports',
-          type: 'link',
-          name: 'analytics.exports'
         }
       ],
       [
@@ -37,7 +22,7 @@ export default {
           type: 'title'
         },
         {
-          title: 'Provider',
+          title: 'Multi select',
           type: 'multi-select',
           onChange: value => {
             console.log('NEW provider', value);
@@ -63,7 +48,7 @@ export default {
           ]
         },
         {
-          title: 'Population',
+          title: 'Simple select',
           type: 'select',
           onChange: value => console.log('NEW population', value),
           options: [
@@ -87,7 +72,7 @@ export default {
       ],
       [
         {
-          title: 'Date lancement',
+          title: 'Info',
           type: 'info',
           value: '30 février',
           onClick: () => {
@@ -95,24 +80,60 @@ export default {
           }
         },
         {
-          title: 'Date lancement but neutral',
+          title: 'Info but neutral',
           type: 'info',
           value: '36 février',
           neutralColor: true,
           onClick: () => {
             console.log('About to launch, neutraly!');
           }
-        },
+        }
+      ],
+      [
         {
-          title: 'Goto Home',
+          title: 'Goto Button',
           type: 'button',
           href: 'http://localhost:3004',
-          cta: true,
           neutralColor: true,
           onClick: e => {
             console.log('Clicked on the button!');
             e.preventDefault();
           }
+        },
+        {
+          title: 'Goto CTA simple',
+          type: 'button',
+          href: 'http://localhost:3004',
+          neutralColor: true,
+          cta: true,
+          onClick: e => {
+            console.log('Clicked on the CTA!');
+            e.preventDefault();
+          }
+        },
+        {
+          title: 'Goto CTA custom',
+          type: 'button',
+          href: 'http://localhost:3004',
+          neutralColor: true,
+          cta: {
+            rectangular: false,
+            secondary: false
+          },
+          onClick: e => {
+            console.log('Clicked on the Custom CTA!');
+            e.preventDefault();
+          }
+        }
+      ],
+      [
+        {
+          title: 'Arabic text below using html in title',
+          type: 'title'
+        },
+        {
+          title: '<p align="right">.تدابير الوقاية مهمة للغاية لتجنب الانتشار المحتمل للفيروس</p>',
+          type: 'link'
         }
       ]
     ]

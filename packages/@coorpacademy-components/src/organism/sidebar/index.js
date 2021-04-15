@@ -1,11 +1,12 @@
 import React, {useMemo} from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import {noop, getOr} from 'lodash/fp';
+import {noop, getOr, defaults} from 'lodash/fp';
 import Link from '../../atom/link';
 import Button from '../../atom/button';
 import Provider from '../../atom/provider';
 import Select from '../../atom/select';
+import Cta from '../../atom/cta';
 import SelectMultiple from '../../molecule/select-multiple';
 import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
@@ -129,7 +130,7 @@ TitleItem.propTypes = {
   name: PropTypes.string
 };
 
-export const ButtonItem = ({index, onClick, color, neutralColor, name, href, title}) => {
+export const ButtonItem = ({index, onClick, color, neutralColor, name, href, title, cta}) => {
   const handleOnClick = useMemo(
     () => e => {
       onClick && onClick(e);
@@ -137,11 +138,28 @@ export const ButtonItem = ({index, onClick, color, neutralColor, name, href, tit
     [onClick]
   );
   const backgroundColor = neutralColor === true ? NEUTRAL_COLOR : color;
+  const button = cta ? (
+    <Cta
+      {...defaults(
+        {
+          onClick: handleOnClick,
+          href,
+          rectangular: true,
+          fullWidth: true,
+          secondary: true,
+          submitValue: title
+        },
+        cta
+      )}
+    />
+  ) : (
+    <Button type="link" href={href} onClick={handleOnClick} style={{backgroundColor}}>
+      {title}
+    </Button>
+  );
   return (
     <li data-name={name || `button-item-${index}`} className={style.buttonItem}>
-      <Button type="link" href={href} onClick={handleOnClick} style={{backgroundColor}}>
-        {title}
-      </Button>
+      {button}
     </li>
   );
 };
@@ -153,7 +171,8 @@ ButtonItem.propTypes = {
   href: PropTypes.string,
   color: PropTypes.string,
   neutralColor: PropTypes.bool,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  cta: PropTypes.oneOfType([PropTypes.shape(Cta.propTypes), PropTypes.bool])
 };
 
 export const InfoItem = ({onClick, index, name, color, neutralColor, title, value}) => {
