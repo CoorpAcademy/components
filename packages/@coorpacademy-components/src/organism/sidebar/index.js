@@ -1,11 +1,12 @@
 import React, {useMemo} from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import {noop, getOr} from 'lodash/fp';
+import {noop, getOr, defaults} from 'lodash/fp';
 import Link from '../../atom/link';
 import Button from '../../atom/button';
 import Provider from '../../atom/provider';
 import Select from '../../atom/select';
+import Cta from '../../atom/cta';
 import SelectMultiple from '../../molecule/select-multiple';
 import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
@@ -13,11 +14,20 @@ import style from './style.css';
 const NEUTRAL_COLOR = '#607D8B';
 
 export const InputTextItem = props => {
-  const {title, placeholder = '', value, onChange = noop, disabled, name, index} = props;
+  const {
+    title,
+    placeholder = '',
+    value,
+    onChange = noop,
+    disabled,
+    name,
+    index,
+    uppercase = true
+  } = props;
   const handleOnChange = useMemo(() => e => onChange(e.target.value), [onChange]);
   return (
     <li data-name={name || `inputtext-item-${index}`} className={style.selectItem}>
-      <span className={style.sidebarTitle}>{title}</span>
+      <div className={classnames(style.selectTitle, {[style.uppercase]: uppercase})}>{title}</div>
       <input
         type="text"
         name={title}
@@ -38,13 +48,14 @@ InputTextItem.propTypes = {
   disabled: PropTypes.bool,
   value: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  uppercase: PropTypes.bool
 };
 
-export const SelectItem = ({name, index, onChange, title, options}) => {
+export const SelectItem = ({name, index, onChange, title, options, uppercase = true}) => {
   return (
     <li data-name={name || `select-item-${index}`} className={style.selectItem}>
-      <span className={style.sidebarTitle}>{title}</span>
+      <div className={classnames(style.selectTitle, {[style.uppercase]: uppercase})}>{title}</div>
       <Select title={title} onChange={onChange} theme="header" options={options} />
     </li>
   );
@@ -61,13 +72,14 @@ SelectItem.propTypes = {
       selected: PropTypes.bool.isRequired
     })
   ).isRequired,
-  onChange: PropTypes.func
+  onChange: PropTypes.func,
+  uppercase: PropTypes.bool
 };
 
-export const MultiSelectItem = ({name, index, onChange, title, options}) => {
+export const MultiSelectItem = ({name, index, onChange, title, options, uppercase = true}) => {
   return (
     <li data-name={name || `select-item-${index}`} className={style.selectItem}>
-      <span className={style.sidebarTitle}>{title}</span>
+      <div className={classnames(style.selectTitle, {[style.uppercase]: uppercase})}>{title}</div>
       <SelectMultiple theme="sidebar" onChange={onChange} options={options} />
     </li>
   );
@@ -75,7 +87,16 @@ export const MultiSelectItem = ({name, index, onChange, title, options}) => {
 
 MultiSelectItem.propTypes = SelectItem.propTypes;
 
-export const LinkItem = ({href, index, name, selected, color, title, onClick}) => {
+export const LinkItem = ({
+  href,
+  index,
+  name,
+  selected,
+  color,
+  title,
+  onClick,
+  uppercase = true
+}) => {
   const handleOnClick = useMemo(
     () => e => {
       onClick && onClick(e);
@@ -94,7 +115,7 @@ export const LinkItem = ({href, index, name, selected, color, title, onClick}) =
       }}
     >
       <li
-        className={classnames(style.linkItem, style.sidebarTitle, innerHTML)}
+        className={classnames(style.linkItem, innerHTML, {[style.uppercase]: uppercase})}
         style={{
           borderLeftColor: selected ? color : null
         }}
@@ -112,13 +133,14 @@ LinkItem.propTypes = {
   name: PropTypes.string,
   href: PropTypes.string,
   color: PropTypes.string,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  uppercase: PropTypes.bool
 };
 
-export const TitleItem = ({name, index, title}) => {
+export const TitleItem = ({name, index, title, uppercase}) => {
   return (
     <ul data-name={name || `item-title-${index}`} className={style.titleItem}>
-      <li className={style.titleItemTitle}>{title}</li>
+      <li className={classnames(style.titleItemTitle, {[style.uppercase]: uppercase})}>{title}</li>
     </ul>
   );
 };
@@ -126,10 +148,21 @@ export const TitleItem = ({name, index, title}) => {
 TitleItem.propTypes = {
   index: PropTypes.number,
   title: PropTypes.string.isRequired,
-  name: PropTypes.string
+  name: PropTypes.string,
+  uppercase: PropTypes.bool
 };
 
-export const ButtonItem = ({index, onClick, color, neutralColor, name, href, title}) => {
+export const ButtonItem = ({
+  index,
+  onClick,
+  color,
+  neutralColor,
+  name,
+  href,
+  title,
+  cta,
+  uppercase
+}) => {
   const handleOnClick = useMemo(
     () => e => {
       onClick && onClick(e);
@@ -137,11 +170,31 @@ export const ButtonItem = ({index, onClick, color, neutralColor, name, href, tit
     [onClick]
   );
   const backgroundColor = neutralColor === true ? NEUTRAL_COLOR : color;
+  const button = cta ? (
+    <Cta
+      {...defaults(
+        {
+          onClick: handleOnClick,
+          href,
+          rectangular: true,
+          fullWidth: true,
+          secondary: true,
+          submitValue: title
+        },
+        cta
+      )}
+    />
+  ) : (
+    <Button type="link" href={href} onClick={handleOnClick} style={{backgroundColor}}>
+      {title}
+    </Button>
+  );
   return (
-    <li data-name={name || `button-item-${index}`} className={style.buttonItem}>
-      <Button type="link" href={href} onClick={handleOnClick} style={{backgroundColor}}>
-        {title}
-      </Button>
+    <li
+      data-name={name || `button-item-${index}`}
+      className={classnames(style.buttonItem, {[style.uppercase]: uppercase})}
+    >
+      {button}
     </li>
   );
 };
@@ -153,10 +206,12 @@ ButtonItem.propTypes = {
   href: PropTypes.string,
   color: PropTypes.string,
   neutralColor: PropTypes.bool,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  cta: PropTypes.oneOfType([PropTypes.shape(Cta.propTypes), PropTypes.bool]),
+  uppercase: PropTypes.bool
 };
 
-export const InfoItem = ({onClick, index, name, color, neutralColor, title, value}) => {
+export const InfoItem = ({onClick, index, name, color, neutralColor, title, value, uppercase}) => {
   const handleOnClick = useMemo(
     () => e => {
       onClick && onClick(e);
@@ -168,7 +223,7 @@ export const InfoItem = ({onClick, index, name, color, neutralColor, title, valu
     <ul data-name={name || `item-info-${index}`} className={style.infoItem}>
       <li className={style.infoItemTitle}>{title}</li>
       <li
-        className={style.infoItemContent}
+        className={classnames(style.infoItemContent, {[style.uppercase]: uppercase})}
         onClick={handleOnClick}
         style={{
           borderLeftColor: color_,
@@ -188,7 +243,8 @@ InfoItem.propTypes = {
   color: PropTypes.string,
   neutralColor: PropTypes.bool,
   value: PropTypes.string.isRequired,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
+  uppercase: PropTypes.bool
 };
 
 const SidebarItem = ({item, color, index}) => {
@@ -222,7 +278,8 @@ SidebarItem.propTypes = {
     PropTypes.shape({...SelectItem.propTypes, type: PropTypes.oneOf(['multi-select']).isRequired})
   ]),
   index: PropTypes.number,
-  color: PropTypes.string
+  color: PropTypes.string,
+  uppercase: PropTypes.bool
 };
 
 const SidebarItems = ({items, color}) => {

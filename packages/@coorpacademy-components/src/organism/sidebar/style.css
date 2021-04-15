@@ -24,7 +24,7 @@
   background-color: white;
 }
 
-.sidebarTitle {
+.uppercase {
   text-transform: uppercase;
 }
 
@@ -41,11 +41,14 @@
 
 .buttonItem > div{
   width: 100%;
-  text-transform: uppercase;
 }
 
 .selectItem {
   padding: 10px 20px;
+}
+
+.selectTitle {
+  padding: 2px 0 4px 0;
 }
 
 .linkItem {
@@ -67,7 +70,7 @@
 
 .titleItemTitle {
   font-weight: bold;
-  padding: 12px;
+  padding: 16px 0px 8px 12px;
   color: dark;
 }
 
