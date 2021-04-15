@@ -14,9 +14,7 @@ export default {
           },
           selected: true,
           name: 'analytics.dashboard'
-        }
-      ],
-      [
+        },
         {
           title: 'Filters',
           type: 'title'
