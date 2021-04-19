@@ -80,7 +80,7 @@ const BrandFormGroup = props => {
   return (
     <div data-name={`brand_form_group_${snakeCase(title)}`} className={style.wrapper}>
       <div className={style.title}>
-        <h3>{title}</h3>
+        {title ? <h3>{title}</h3> : null}
         <h4>{subtitle}</h4>
       </div>
       <div className={fieldsLayout === 'grid' ? style.grid : null}>{fieldsList}</div>
@@ -89,7 +89,7 @@ const BrandFormGroup = props => {
 };
 
 BrandFormGroup.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string,
   subtitle: PropTypes.string,
   fieldsLayout: PropTypes.string,
   fields: PropTypes.arrayOf(
