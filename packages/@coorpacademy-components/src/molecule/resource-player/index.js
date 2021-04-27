@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import {omit, get} from 'lodash/fp';
 import {NovaSolidVideosVideoControlPlay as Play} from '@coorpacademy/nova-icons';
 import Pdf from '../pdf';
+import Audio from '../audio';
 import VideoPlayer from '../video-player';
 import Life from '../../atom/life';
 import Provider from '../../atom/provider';
@@ -12,6 +13,7 @@ import style from './style.css';
 export const TYPE_IMAGE = 'img';
 export const TYPE_PDF = 'pdf';
 export const TYPE_VIDEO = 'video';
+export const TYPE_AUDIO = 'audio';
 
 const isType = name => PropTypes.oneOf([name]);
 
@@ -26,6 +28,13 @@ const pdfPropType = PropTypes.shape({
   description: PropTypes.string.isRequired,
   mediaUrl: PropTypes.string.isRequired,
   ...Pdf.propTypes
+});
+
+const audioPropType = PropTypes.shape({
+  type: isType(TYPE_AUDIO).isRequired,
+  description: PropTypes.string.isRequired,
+  mediaUrl: PropTypes.string.isRequired,
+  ...Audio.propTypes
 });
 
 const imgPropType = PropTypes.shape({
@@ -43,6 +52,8 @@ const ResourceElement = props => {
       return <div className={style.img} style={{backgroundImage: `url(${url})`}} />;
     case TYPE_PDF:
       return <Pdf {...childProps} />;
+    case TYPE_AUDIO:
+      return <Audio {...childProps} />;
     case TYPE_VIDEO:
       return (
         <VideoPlayer
@@ -58,7 +69,7 @@ const ResourceElement = props => {
 };
 
 ResourceElement.propTypes = {
-  resource: PropTypes.oneOfType([videoPropType, pdfPropType, imgPropType]),
+  resource: PropTypes.oneOfType([videoPropType, pdfPropType, imgPropType, audioPropType]),
   autoplay: PropTypes.bool,
   disableAutostart: PropTypes.bool
 };
@@ -103,7 +114,7 @@ OverlayElement.propTypes = {
 class ResourcePlayer extends React.Component {
   static propTypes = {
     className: PropTypes.string,
-    resource: PropTypes.oneOfType([videoPropType, pdfPropType, imgPropType]),
+    resource: PropTypes.oneOfType([videoPropType, pdfPropType, imgPropType, audioPropType]),
     overlay: PropTypes.shape({
       title: PropTypes.string,
       text: PropTypes.string,
@@ -136,6 +147,7 @@ class ResourcePlayer extends React.Component {
       {
         [TYPE_IMAGE]: style.image,
         [TYPE_PDF]: style.pdf,
+        [TYPE_AUDIO]: style.audio,
         [TYPE_VIDEO]: style.video
       }[type],
       customClassName

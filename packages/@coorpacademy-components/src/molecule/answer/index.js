@@ -9,10 +9,12 @@ import Qcm from '../questions/qcm';
 import QcmGraphic from '../questions/qcm-graphic';
 import QuestionRange from '../questions/question-range';
 import Template from '../questions/template';
+import Audio from '../audio';
 import style from './style.css';
 
 export const TYPE_IMAGE = 'img';
 export const TYPE_VIDEO = 'video';
+export const TYPE_AUDIO = 'audio';
 
 const MediaView = ({media}) => {
   const {videoId, type, ...childProps} = media;
@@ -32,6 +34,12 @@ const MediaView = ({media}) => {
           <VideoPlayer {...omit('id', childProps)} id={videoId} height="100%" width="100%" />
         </div>
       );
+    case TYPE_AUDIO:
+      return (
+        <div className={style.audio}>
+          <Audio {...omit('id', childProps)} height="100%" width="100%" />
+        </div>
+      );
     default:
       return null;
   }
@@ -49,8 +57,13 @@ const imgPropType = PropTypes.shape({
   url: PropTypes.string.isRequired
 });
 
+const audioPropType = PropTypes.shape({
+  type: isType(TYPE_AUDIO).isRequired,
+  mediaUrl: PropTypes.string.isRequired
+});
+
 MediaView.propTypes = {
-  media: PropTypes.oneOfType([videoPropType, imgPropType])
+  media: PropTypes.oneOfType([videoPropType, imgPropType, audioPropType])
 };
 
 const Answer = props => {

@@ -43,7 +43,7 @@ export const VIDEO_TRACK_TYPE: {
 
 type Url = string;
 type AspectRatio = '16:9' | '4:3';
-type ResourceType = 'video' | 'pdf';
+type ResourceType = 'video' | 'pdf' | 'audio';
 
 // eslint-disable-next-line no-shadow
 type MimeType =

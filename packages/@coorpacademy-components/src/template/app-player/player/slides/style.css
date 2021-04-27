@@ -252,9 +252,14 @@
   text-align: center;
 }
 
-.contexPdftWrapper {
+.contextPdfWrapper {
   width: 341px;
   height: 241px;
+}
+
+.contextAudioWrapper {
+  width: 380px;
+  height: 240px;
 }
 
 .contextMedia {

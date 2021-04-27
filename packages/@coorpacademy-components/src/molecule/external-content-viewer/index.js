@@ -25,6 +25,7 @@ function ExternalContentViewer(props) {
       <audio
         className={style.podcast}
         controls
+        controlsList="nodownload"
         autoPlay=""
         name="media"
         data-name="external-content-podcast"

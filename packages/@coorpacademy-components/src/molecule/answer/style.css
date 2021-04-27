@@ -28,6 +28,14 @@
   justify-content: center;
   margin-bottom: 30px;
 }
+.audio {
+  height: 180px;
+  width: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+}
 
 @media mobile {
   .wrapper {

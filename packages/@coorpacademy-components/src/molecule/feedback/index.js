@@ -4,7 +4,7 @@ import {pipe, get, extend} from 'lodash/fp';
 import classnames from 'classnames';
 
 import {innerHTML} from '../../atom/label/style.css';
-import ResourcePlayer, {TYPE_IMAGE, TYPE_VIDEO, TYPE_PDF} from '../resource-player';
+import ResourcePlayer, {TYPE_IMAGE, TYPE_VIDEO, TYPE_PDF, TYPE_AUDIO} from '../resource-player';
 import style from './style.css';
 
 const Feedback = (props, context) => {
@@ -52,7 +52,7 @@ Feedback.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   media: PropTypes.shape({
-    type: PropTypes.oneOf([TYPE_IMAGE, TYPE_PDF, TYPE_VIDEO]),
+    type: PropTypes.oneOf([TYPE_IMAGE, TYPE_PDF, TYPE_VIDEO, TYPE_AUDIO]),
     src: PropTypes.array
   }),
   mediaDescription: PropTypes.string

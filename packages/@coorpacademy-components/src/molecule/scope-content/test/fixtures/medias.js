@@ -16,27 +16,27 @@ export default {
       medias: [
         {
           title: 'Titre de la vidéo',
-          image: 'http://lorempixel.com/300/300/business',
+          image: 'https://picsum.photos/250/150',
           type: 'video',
           onClick: () => true
         },
         {
           title: 'Titre 2',
-          image: 'http://lorempixel.com/300/300/business',
+          image: 'https://picsum.photos/250/150',
           type: 'video',
           onClick: () => true
         },
         {
           title: 'Blabla vidéo',
-          image: 'http://lorempixel.com/300/300/business',
+          image: 'https://picsum.photos/250/150',
           type: 'pdf',
           href: '#1',
           target: '_blank'
         },
         {
           title: 'Titre de la vidéo',
-          image: 'http://lorempixel.com/300/300/business',
-          type: 'pdf',
+          image: 'https://picsum.photos/250/150',
+          type: 'audio',
           href: '#2',
           target: '_blank'
         }

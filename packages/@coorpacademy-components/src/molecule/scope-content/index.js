@@ -2,7 +2,11 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {get, getOr} from 'lodash/fp';
 import classnames from 'classnames';
-import {NovaLineAudioAudioControlPlay as PlayIcon} from '@coorpacademy/nova-icons';
+import {
+  NovaLineAudioAudioControlPlay as PlayIcon,
+  NovaLineFilesOfficeFileOfficePdf as PDFIcon,
+  NovaCompositionCoorpacademyMicrophone as PodcastIcon
+} from '@coorpacademy/nova-icons';
 import Button from '../../atom/button';
 import Link from '../../atom/link';
 import Provider from '../../atom/provider';
@@ -74,6 +78,8 @@ const ScopeContent = (props, context) => {
         <div className={style.imgWrapper}>
           <img src={media.image} />
           {type === 'video' ? <PlayIcon className={style.play} color={white} /> : null}
+          {type === 'pdf' ? <PDFIcon className={style.play} color={white} /> : null}
+          {type === 'audio' ? <PodcastIcon className={style.play} color={white} /> : null}
         </div>
         <div
           className={classnames(style.mediaTitle, innerHTML)}
