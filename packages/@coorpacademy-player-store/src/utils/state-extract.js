@@ -10,12 +10,15 @@ import {
   includes,
   extend,
   isEmpty,
+  template,
+  omitBy,
   update,
   shuffle,
   memoize,
   map,
   some,
   toString as _toString,
+  isNil,
 } from 'lodash/fp';
 import type {
   Answer,
@@ -381,7 +384,18 @@ export const getCurrentExitNode = (state: State): ExitNode | void => {
   }
 
   const ref = progression.state.nextContent.ref;
-  return getExitNode(ref)(state);
+  const counters = getOr({}, 'state.variables', progression);
+
+  const translateWithCounters = (templateValue) =>
+    templateValue ? template(templateValue)(counters) : null;
+
+  return pipe(
+    getExitNode(ref),
+    update('title', translateWithCounters),
+    update('description', translateWithCounters),
+    update('mediaDescription', translateWithCounters),
+    omitBy(isNil)
+  )(state);
 };
 
 export const getCorrection = (progressionId: string, slideId: string) => (
