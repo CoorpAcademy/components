@@ -314,3 +314,44 @@ test('should extract feedback content from exit node', t => {
     }
   });
 });
+
+test('should extract feedback content from exit node and counters', t => {
+  const ref = 'biba-exit-node-A';
+  const progressionId = getCurrentProgressionId(popinMicrolearningFailure);
+  const state = pipe(
+    set(`data.exitNodes.entities.${ref}`, {
+      ref,
+      _id: '5a4e2adbd56b8b7ddab06532',
+      type: 'success',
+      title: 'title total: {{ success }}',
+      description: 'description {{ success }}/{{ total }}',
+      mediaDescription: 'mediaDescription {{ total }}',
+      media: {
+        ref: 'biba_exit_node_A-media',
+        type: 'pdf',
+        mediaUrl: 'biba_exit_node_A.media.pdf.mediaUrl',
+        mimeType: 'application/pdf',
+        description: 'biba_exit_node_A.media.pdf.description',
+        subtitles: 'biba_exit_node_A.media.pdf.subtitles',
+        posters: []
+      },
+      __v: 0
+    }),
+    set(`data.progressions.entities.${progressionId}.state.nextContent.ref`, ref),
+    set(`data.progressions.entities.${progressionId}.state.variables`, {success: 4, total: 10})
+  )(popinMicrolearningFailure);
+  const dispatch = createDispatch(state);
+  const props = popinEnd(options, {dispatch})(state);
+
+  t.deepEqual(get('summary.feedback', props), {
+    title: 'title total: 4',
+    description: 'description 4/10',
+    mediaDescription: 'mediaDescription 10',
+    media: {
+      type: 'pdf',
+      description: 'biba_exit_node_A.media.pdf.description',
+      mimeType: 'application/pdf',
+      mediaUrl: 'biba_exit_node_A.media.pdf.mediaUrl'
+    }
+  });
+});

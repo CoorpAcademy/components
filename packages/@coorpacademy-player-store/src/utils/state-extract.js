@@ -10,13 +10,17 @@ import {
   includes,
   extend,
   isEmpty,
+  omitBy,
   update,
   shuffle,
   memoize,
   map,
   some,
   toString as _toString,
+  isNil,
 } from 'lodash/fp';
+// eslint-disable-next-line lodash-fp/use-fp
+import {template} from 'lodash';
 import type {
   Answer,
   Choice,
@@ -381,7 +385,24 @@ export const getCurrentExitNode = (state: State): ExitNode | void => {
   }
 
   const ref = progression.state.nextContent.ref;
-  return getExitNode(ref)(state);
+  const counters = getOr({}, 'state.variables', progression);
+
+  const translateWithCounters = (templateValue) =>
+    templateValue
+      ? // eslint-disable-next-line lodash-fp/no-extraneous-args
+        template(templateValue, {
+          interpolate: /{{([\s\S]+?)}}/g,
+          imports: {},
+        })(counters)
+      : null;
+
+  return pipe(
+    getExitNode(ref),
+    update('title', translateWithCounters),
+    update('description', translateWithCounters),
+    update('mediaDescription', translateWithCounters),
+    omitBy(isNil)
+  )(state);
 };
 
 export const getCorrection = (progressionId: string, slideId: string) => (

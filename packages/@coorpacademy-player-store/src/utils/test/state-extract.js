@@ -824,8 +824,29 @@ test('getCurrentExitNode should get current exit node from state', (t) => {
     set('data.progressions.entities', {'0': progression}),
     set('data.exitNodes.entities', {successExitNode: exitNode})
   )({});
+  t.deepEqual(getCurrentExitNode(state), exitNode);
+});
 
-  t.is(getCurrentExitNode(state), exitNode);
+test('getCurrentExitNode should get current exit node from state with counters', (t) => {
+  const exitNode = {
+    ref: 'successExitNode',
+    title: 'Votre score : {{ score }}/{{ total }}',
+    description: 'Votre description : {{ score }}',
+  };
+  const progression = {
+    state: {nextContent: {ref: 'successExitNode'}, variables: {score: 5, total: 10}},
+  };
+  const state = pipe(
+    set('ui.current.progressionId', '0'),
+    set('data.progressions.entities', {'0': progression}),
+    set('data.exitNodes.entities', {successExitNode: exitNode})
+  )({});
+
+  t.deepEqual(getCurrentExitNode(state), {
+    ref: 'successExitNode',
+    title: 'Votre score : 5/10',
+    description: 'Votre description : 5',
+  });
 });
 
 test('getCurrentExitNode should return undefined if no progression is found', (t) => {
