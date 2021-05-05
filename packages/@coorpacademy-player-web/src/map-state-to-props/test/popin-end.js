@@ -323,9 +323,9 @@ test('should extract feedback content from exit node and counters', t => {
       ref,
       _id: '5a4e2adbd56b8b7ddab06532',
       type: 'success',
-      title: 'title total: <%= success %>',
-      description: 'description <%= success %>/<%= total %>',
-      mediaDescription: 'mediaDescription <%= total %>',
+      title: 'title total: {{ success }}',
+      description: 'description {{ success }}/{{ total }}',
+      mediaDescription: 'mediaDescription {{ total }}',
       media: {
         ref: 'biba_exit_node_A-media',
         type: 'pdf',

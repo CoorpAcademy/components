@@ -830,8 +830,8 @@ test('getCurrentExitNode should get current exit node from state', (t) => {
 test('getCurrentExitNode should get current exit node from state with counters', (t) => {
   const exitNode = {
     ref: 'successExitNode',
-    title: 'Votre score : <%= score %>/<%= total %>',
-    description: 'Votre description : <%= score %>',
+    title: 'Votre score : {{ score }}/{{ total }}',
+    description: 'Votre description : {{ score }}',
   };
   const progression = {
     state: {nextContent: {ref: 'successExitNode'}, variables: {score: 5, total: 10}},
