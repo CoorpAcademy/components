@@ -4,10 +4,11 @@ import {snakeCase} from 'lodash/fp';
 import Link from '../../atom/link';
 import style from './style.css';
 
-const buildTab = (tab, index) => {
+const buildTab = isLightTab => (tab, index) => {
   const {title, href, selected, onClick} = tab;
-
-  const className = selected ? style.selected : style.tab;
+  const selectedStyle = isLightTab ? style.selectedlight : style.selected;
+  const unselectedStyle = isLightTab ? style.lighttab : style.tab;
+  const className = selected ? selectedStyle : unselectedStyle;
 
   return (
     <div
@@ -22,11 +23,11 @@ const buildTab = (tab, index) => {
 };
 
 const BrandTabs = props => {
-  const {tabs} = props;
+  const {tabs, type = 'default'} = props;
+  const isLightTab = type === 'light';
+  const tabsList = tabs.map(buildTab(isLightTab));
 
-  const tabsList = tabs.map(buildTab);
-
-  return <div className={style.wrapper}>{tabsList}</div>;
+  return <div className={isLightTab ? style.lightwrapper : style.wrapper}>{tabsList}</div>;
 };
 
 BrandTabs.propTypes = {
@@ -37,6 +38,7 @@ BrandTabs.propTypes = {
       selected: PropTypes.bool,
       onClick: PropTypes.func
     })
-  )
+  ),
+  type: PropTypes.oneOf(['default', 'light'])
 };
 export default BrandTabs;
