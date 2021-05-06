@@ -37,10 +37,17 @@
   padding-left: 0;
 }
 
-.dashboardContent {
+.contentView {
   flex-grow: 1;
-  padding: 1rem;
   width: 980px;
+  text-align: left;
+  position: relative;
+  margin: 0 auto;
+  line-height: 1.4em;
+}
+
+.dashboardContent {
+  padding: 1rem;
   text-align: left;
   position: relative;
   margin: 0 auto;
@@ -72,7 +79,7 @@
     width: 96%;
   }
 
-  .dashboardContent {
+  .contentView {
     width: 92.4%;
     margin: 0 auto;
     margin-right: 17px;
@@ -84,7 +91,7 @@
     scroll-behavior: unset;
   }
 
-  .dashboardContent {
+  .contentView {
     margin: 0 auto;
     margin-right: 16px;
   }

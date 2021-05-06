@@ -366,6 +366,7 @@ import MoleculeBrandTabsFixtureAnalytics from '../src/molecule/brand-tabs/test/f
 import MoleculeBrandTabsFixtureCohort from '../src/molecule/brand-tabs/test/fixtures/cohort';
 import MoleculeBrandTabsFixtureDefault from '../src/molecule/brand-tabs/test/fixtures/default';
 import MoleculeBrandTabsFixtureImportusers from '../src/molecule/brand-tabs/test/fixtures/importusers';
+import MoleculeBrandTabsFixtureLight from '../src/molecule/brand-tabs/test/fixtures/light';
 import MoleculeBrandTabsFixtureLms from '../src/molecule/brand-tabs/test/fixtures/lms';
 import MoleculeBrandTabsFixtureLookandfeel from '../src/molecule/brand-tabs/test/fixtures/lookandfeel';
 import MoleculeBrandTabsFixtureManageusers from '../src/molecule/brand-tabs/test/fixtures/manageusers';
@@ -1411,6 +1412,7 @@ export const fixtures = {
       Cohort: MoleculeBrandTabsFixtureCohort,
       Default: MoleculeBrandTabsFixtureDefault,
       Importusers: MoleculeBrandTabsFixtureImportusers,
+      Light: MoleculeBrandTabsFixtureLight,
       Lms: MoleculeBrandTabsFixtureLms,
       Lookandfeel: MoleculeBrandTabsFixtureLookandfeel,
       Manageusers: MoleculeBrandTabsFixtureManageusers,

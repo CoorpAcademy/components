@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import isEmpty from 'lodash/fp/isEmpty';
 import Breadcrumbs from '../../../molecule/breadcrumbs';
+import BrandTabs from '../../../molecule/brand-tabs';
 import Sidebar from '../../../organism/sidebar';
 import BrandForm from '../../../organism/brand-form';
 import BrandTable from '../../../organism/brand-table';
@@ -11,7 +13,7 @@ import Layout from '../layout';
 import style from './style.css';
 
 const BrandUpdate = Layout(props => {
-  const {notifications, links, breadcrumbs, tabs, content, details} = props;
+  const {notifications, links, breadcrumbs, tabs, content, details, subTabs = []} = props;
   const formattedTabs = tabs.map(({title, name, href, selected}) => ({
     title,
     type: 'link',
@@ -56,9 +58,12 @@ const BrandUpdate = Layout(props => {
         <div className={style.dashboardAside}>
           <Sidebar items={formattedTabs} />
         </div>
-        <div className={style.dashboardContent}>
-          <div>{contentView(content)}</div>
-          <div>{detailsView(details)}</div>
+        <div className={style.contentView}>
+          {!isEmpty(subTabs) ? <BrandTabs type="light" tabs={subTabs} /> : null}
+          <div className={style.dashboardContent}>
+            <div>{contentView(content)}</div>
+            <div>{detailsView(details)}</div>
+          </div>
         </div>
       </div>
     </div>
@@ -80,6 +85,13 @@ BrandUpdate.propTypes = {
       selected: PropTypes.bool.isRequired
     })
   ).isRequired,
+  subTabs: PropTypes.arrayOf(
+    PropTypes.shape({
+      title: PropTypes.string.isRequired,
+      href: PropTypes.string.isRequired,
+      selected: PropTypes.bool.isRequired
+    })
+  ),
   content: PropTypes.oneOfType([
     PropTypes.shape({
       ...BrandForm.propTypes,

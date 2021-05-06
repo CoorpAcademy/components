@@ -37,6 +37,6 @@ export default {
         selected: false
       }
     ],
-    type: 'default'
+    type: 'light'
   }
 };

@@ -11,6 +11,12 @@
   display: flex;
 }
 
+.lightwrapper {
+  composes: wrapper;
+  overflow-x: scroll;
+  height: 55px;
+}
+
 .tab {
   display: inline-block;
   height: 100%;
@@ -19,6 +25,15 @@
   box-sizing: border-box;
   border-right: 1px solid light;
   border-bottom: 3px solid light;
+}
+
+.lighttab {
+  display: inline-block;
+  height: 55px;
+  width: auto;
+  text-align: center;
+  box-sizing: border-box;
+  margin-right: 32px;
 }
 
 .tab:last-child {
@@ -43,11 +58,38 @@
   color: brand;
 }
 
+.lighttab a {
+  display: block;
+  line-height: 72px;
+  font-family: 'Open Sans';
+  font-size: 17px;
+  font-weight: 700;
+  color: medium;
+  text-decoration: none;
+}
+
+.lighttab:hover {
+  border-bottom: 3px solid brand;
+}
+
+.lighttab:hover a {
+  color: brand;
+}
+
 .selected {
   composes: tab;
   border-bottom: 3px solid brand;
 }
 
 .selected a {
+  color: brand;
+}
+
+.selectedlight {
+  composes: lighttab;
+  border-bottom: 3px solid brand;
+}
+
+.selectedlight a {
   color: brand;
 }
