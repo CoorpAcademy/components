@@ -32,6 +32,13 @@
   align-self: center;
   z-index: 1;
   margin: auto;
+  outline: none;
+  transition: all 0.25s linear;
+}
+
+.podcast:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(2px 3px 3px #333);
 }
 
 .podcastWrapperCockpit {

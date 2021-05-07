@@ -44,6 +44,7 @@ import HocAnimationScheduler from './../src/hoc/animation-scheduler';
 import HocSwapper from './../src/hoc/swapper';
 import HocTransition from './../src/hoc/transition';
 import MoleculeAnswer from './../src/molecule/answer';
+import MoleculeAudio from './../src/molecule/audio';
 import MoleculeBattleRequest from './../src/molecule/battle-request';
 import MoleculeBrandCard from './../src/molecule/brand-card';
 import MoleculeBrandCardCreate from './../src/molecule/brand-card-create';
@@ -285,6 +286,7 @@ import AtomRadioGroupFixtureEmpty from '../src/atom/radio-group/test/fixtures/em
 import AtomRadioGroupFixtureLastSelected from '../src/atom/radio-group/test/fixtures/last-selected';
 import AtomRangeFixtureDefault from '../src/atom/range/test/fixtures/default';
 import AtomRangeFixtureMulti from '../src/atom/range/test/fixtures/multi';
+import AtomResourceMiniatureFixtureAudio from '../src/atom/resource-miniature/test/fixtures/audio';
 import AtomResourceMiniatureFixturePdf from '../src/atom/resource-miniature/test/fixtures/pdf';
 import AtomResourceMiniatureFixtureSelectedPdf from '../src/atom/resource-miniature/test/fixtures/selected-pdf';
 import AtomResourceMiniatureFixtureSelectedVideo from '../src/atom/resource-miniature/test/fixtures/selected-video';
@@ -329,16 +331,20 @@ import HocAnimationSchedulerFixtureParallel from '../src/hoc/animation-scheduler
 import HocAnimationSchedulerFixtureSeries from '../src/hoc/animation-scheduler/test/fixtures/series';
 import HocSwapperFixtureDefault from '../src/hoc/swapper/test/fixtures/default';
 import HocTransitionFixtureFlipSquare from '../src/hoc/transition/test/fixtures/flip-square';
+import MoleculeAnswerFixtureAudio from '../src/molecule/answer/test/fixtures/audio';
 import MoleculeAnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
 import MoleculeAnswerFixtureDropDown from '../src/molecule/answer/test/fixtures/drop-down';
 import MoleculeAnswerFixtureQcmArabic from '../src/molecule/answer/test/fixtures/qcm-arabic';
 import MoleculeAnswerFixtureQcmDrag from '../src/molecule/answer/test/fixtures/qcm-drag';
 import MoleculeAnswerFixtureQcmGraphic from '../src/molecule/answer/test/fixtures/qcm-graphic';
+import MoleculeAnswerFixtureQcmShortAudio from '../src/molecule/answer/test/fixtures/qcm-short-audio';
 import MoleculeAnswerFixtureQcmShortVideo from '../src/molecule/answer/test/fixtures/qcm-short-video';
 import MoleculeAnswerFixtureQcmShort from '../src/molecule/answer/test/fixtures/qcm-short';
 import MoleculeAnswerFixtureQcm from '../src/molecule/answer/test/fixtures/qcm';
 import MoleculeAnswerFixtureRange from '../src/molecule/answer/test/fixtures/range';
 import MoleculeAnswerFixtureTemplate from '../src/molecule/answer/test/fixtures/template';
+import MoleculeAudioFixtureDefault from '../src/molecule/audio/test/fixtures/default';
+import MoleculeAudioFixtureWithPoster from '../src/molecule/audio/test/fixtures/with-poster';
 import MoleculeBattleRequestFixtureArabic from '../src/molecule/battle-request/test/fixtures/arabic';
 import MoleculeBattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import MoleculeBrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
@@ -460,6 +466,7 @@ import MoleculeFeedbackFixtureDefault from '../src/molecule/feedback/test/fixtur
 import MoleculeFeedbackFixtureFailExitNode from '../src/molecule/feedback/test/fixtures/fail-exit-node';
 import MoleculeFeedbackFixtureFailureWithTitleAndDescriptionAndVideo from '../src/molecule/feedback/test/fixtures/failure-with-title-and-description-and-video';
 import MoleculeFeedbackFixtureSuccessExitNode from '../src/molecule/feedback/test/fixtures/success-exit-node';
+import MoleculeFeedbackFixtureSuccessWithTitleAndDescriptionAndAudio from '../src/molecule/feedback/test/fixtures/success-with-title-and-description-and-audio';
 import MoleculeFeedbackFixtureSuccessWithTitleAndDescriptionAndImage from '../src/molecule/feedback/test/fixtures/success-with-title-and-description-and-image';
 import MoleculeFeedbackFixtureSuccessWithTitleAndDescriptionAndPdf from '../src/molecule/feedback/test/fixtures/success-with-title-and-description-and-pdf';
 import MoleculeFeedbackFixtureSuccessWithTitleAndDescription from '../src/molecule/feedback/test/fixtures/success-with-title-and-description';
@@ -535,6 +542,7 @@ import MoleculeQuestionsQcmGraphicFixtureNoSelected from '../src/molecule/questi
 import MoleculeQuestionsQuestionRangeFixtureDefault from '../src/molecule/questions/question-range/test/fixtures/default';
 import MoleculeQuestionsTemplateFixtureDefault from '../src/molecule/questions/template/test/fixtures/default';
 import MoleculeQuestionsTemplateFixtureMultiple from '../src/molecule/questions/template/test/fixtures/multiple';
+import MoleculeResourcePlayerFixtureAudio from '../src/molecule/resource-player/test/fixtures/audio';
 import MoleculeResourcePlayerFixtureImage from '../src/molecule/resource-player/test/fixtures/image';
 import MoleculeResourcePlayerFixtureJwplayerWithOverlay from '../src/molecule/resource-player/test/fixtures/jwplayer-with-overlay';
 import MoleculeResourcePlayerFixturePdfWithOverlay from '../src/molecule/resource-player/test/fixtures/pdf-with-overlay';
@@ -680,6 +688,7 @@ import OrganismMoocHeaderFixtureTeams from '../src/organism/mooc-header/test/fix
 import OrganismMoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
 import OrganismPopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
 import OrganismResourceBrowserFixtureArabic from '../src/organism/resource-browser/test/fixtures/arabic';
+import OrganismResourceBrowserFixtureAudio from '../src/organism/resource-browser/test/fixtures/audio';
 import OrganismResourceBrowserFixtureH5P from '../src/organism/resource-browser/test/fixtures/h5p';
 import OrganismResourceBrowserFixtureJwplayerWithOverlay from '../src/organism/resource-browser/test/fixtures/jwplayer-with-overlay';
 import OrganismResourceBrowserFixtureJwplayer from '../src/organism/resource-browser/test/fixtures/jwplayer';
@@ -732,6 +741,7 @@ import TemplateAppPlayerPlayerSlidesFixtureArabicQcm from '../src/template/app-p
 import TemplateAppPlayerPlayerSlidesFixtureArabicResources from '../src/template/app-player/player/slides/test/fixtures/arabic-resources';
 import TemplateAppPlayerPlayerSlidesFixtureArabic from '../src/template/app-player/player/slides/test/fixtures/arabic';
 import TemplateAppPlayerPlayerSlidesFixtureClue from '../src/template/app-player/player/slides/test/fixtures/clue';
+import TemplateAppPlayerPlayerSlidesFixtureContextWithAudio from '../src/template/app-player/player/slides/test/fixtures/context-with-audio';
 import TemplateAppPlayerPlayerSlidesFixtureContextWithImage from '../src/template/app-player/player/slides/test/fixtures/context-with-image';
 import TemplateAppPlayerPlayerSlidesFixtureContextWithPdf from '../src/template/app-player/player/slides/test/fixtures/context-with-pdf';
 import TemplateAppPlayerPlayerSlidesFixtureContextWithVideo from '../src/template/app-player/player/slides/test/fixtures/context-with-video';
@@ -954,6 +964,7 @@ export const components = {
   },
   Molecule: {
     MoleculeAnswer,
+    MoleculeAudio,
     MoleculeBattleRequest,
     MoleculeBrandCard,
     MoleculeBrandCardCreate,
@@ -1287,6 +1298,7 @@ export const fixtures = {
       Multi: AtomRangeFixtureMulti
     },
     AtomResourceMiniature: {
+      Audio: AtomResourceMiniatureFixtureAudio,
       Pdf: AtomResourceMiniatureFixturePdf,
       SelectedPdf: AtomResourceMiniatureFixtureSelectedPdf,
       SelectedVideo: AtomResourceMiniatureFixtureSelectedVideo,
@@ -1361,16 +1373,22 @@ export const fixtures = {
   },
   Molecule: {
     MoleculeAnswer: {
+      Audio: MoleculeAnswerFixtureAudio,
       Default: MoleculeAnswerFixtureDefault,
       DropDown: MoleculeAnswerFixtureDropDown,
       QcmArabic: MoleculeAnswerFixtureQcmArabic,
       QcmDrag: MoleculeAnswerFixtureQcmDrag,
       QcmGraphic: MoleculeAnswerFixtureQcmGraphic,
+      QcmShortAudio: MoleculeAnswerFixtureQcmShortAudio,
       QcmShortVideo: MoleculeAnswerFixtureQcmShortVideo,
       QcmShort: MoleculeAnswerFixtureQcmShort,
       Qcm: MoleculeAnswerFixtureQcm,
       Range: MoleculeAnswerFixtureRange,
       Template: MoleculeAnswerFixtureTemplate
+    },
+    MoleculeAudio: {
+      Default: MoleculeAudioFixtureDefault,
+      WithPoster: MoleculeAudioFixtureWithPoster
     },
     MoleculeBattleRequest: {
       Arabic: MoleculeBattleRequestFixtureArabic,
@@ -1523,6 +1541,7 @@ export const fixtures = {
       FailExitNode: MoleculeFeedbackFixtureFailExitNode,
       FailureWithTitleAndDescriptionAndVideo: MoleculeFeedbackFixtureFailureWithTitleAndDescriptionAndVideo,
       SuccessExitNode: MoleculeFeedbackFixtureSuccessExitNode,
+      SuccessWithTitleAndDescriptionAndAudio: MoleculeFeedbackFixtureSuccessWithTitleAndDescriptionAndAudio,
       SuccessWithTitleAndDescriptionAndImage: MoleculeFeedbackFixtureSuccessWithTitleAndDescriptionAndImage,
       SuccessWithTitleAndDescriptionAndPdf: MoleculeFeedbackFixtureSuccessWithTitleAndDescriptionAndPdf,
       SuccessWithTitleAndDescription: MoleculeFeedbackFixtureSuccessWithTitleAndDescription
@@ -1599,6 +1618,7 @@ export const fixtures = {
       Max: MoleculeProgressBarFixtureMax
     },
     MoleculeResourcePlayer: {
+      Audio: MoleculeResourcePlayerFixtureAudio,
       Image: MoleculeResourcePlayerFixtureImage,
       JwplayerWithOverlay: MoleculeResourcePlayerFixtureJwplayerWithOverlay,
       PdfWithOverlay: MoleculeResourcePlayerFixturePdfWithOverlay,
@@ -1900,6 +1920,7 @@ export const fixtures = {
     },
     OrganismResourceBrowser: {
       Arabic: OrganismResourceBrowserFixtureArabic,
+      Audio: OrganismResourceBrowserFixtureAudio,
       H5P: OrganismResourceBrowserFixtureH5P,
       JwplayerWithOverlay: OrganismResourceBrowserFixtureJwplayerWithOverlay,
       Jwplayer: OrganismResourceBrowserFixtureJwplayer,
@@ -2080,6 +2101,7 @@ export const fixtures = {
       ArabicResources: TemplateAppPlayerPlayerSlidesFixtureArabicResources,
       Arabic: TemplateAppPlayerPlayerSlidesFixtureArabic,
       Clue: TemplateAppPlayerPlayerSlidesFixtureClue,
+      ContextWithAudio: TemplateAppPlayerPlayerSlidesFixtureContextWithAudio,
       ContextWithImage: TemplateAppPlayerPlayerSlidesFixtureContextWithImage,
       ContextWithPdf: TemplateAppPlayerPlayerSlidesFixtureContextWithPdf,
       ContextWithVideo: TemplateAppPlayerPlayerSlidesFixtureContextWithVideo,

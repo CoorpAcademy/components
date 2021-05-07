@@ -12,6 +12,7 @@ import Loader from '../../../../atom/loader';
 import Swapper from '../../../../hoc/swapper';
 import VideoPlayer from '../../../../molecule/video-player';
 import PDF from '../../../../molecule/pdf';
+import Audio from '../../../../molecule/audio';
 import ResourceBrowser from '../../../../organism/resource-browser';
 import {innerHTML} from '../../../../atom/label/style.css';
 import Footer from './footer';
@@ -206,6 +207,7 @@ ContextVideo.propTypes = {
 const CONTEXT_MEDIA = {
   img: ContextImage,
   pdf: PDF,
+  audio: Audio,
   video: ContextVideo
 };
 
@@ -216,7 +218,8 @@ const ContextMedia = ({media}) => {
       data-name="contextMedia"
       className={classnames(
         style.contextWrapper,
-        media.type === 'pdf' ? style.contexPdftWrapper : null
+        media.type === 'pdf' ? style.contextPdfWrapper : null,
+        media.type === 'audio' ? style.contextAudioWrapper : null
       )}
     >
       <ContentType {...media} />
@@ -233,6 +236,10 @@ ContextMedia.propTypes = {
     PropTypes.shape({
       ...PDF.propTypes,
       type: PropTypes.oneOf(['pdf'])
+    }),
+    PropTypes.shape({
+      ...Audio.propTypes,
+      type: PropTypes.oneOf(['audio'])
     }),
     PropTypes.shape({
       ...ContextVideo.propTypes,

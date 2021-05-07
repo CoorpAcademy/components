@@ -14,11 +14,14 @@ export type VideoMimeType =
   | 'application/omniPlayer'
   | 'application/vimeo';
 
+export type AudioMimeType = 'audio/aac' | 'audio/x-aac' | 'audio/mpeg';
+
 export type ResourceMimeType =
   | 'video/mp4'
   | 'image/jpeg'
   | 'image/png'
   | 'application/pdf'
+  | AudioMimeType
   | VideoMimeType;
 
 export type Answer = Array<string>;
@@ -39,8 +42,10 @@ export type SUCCESS = 'success';
 export type IMG = 'img';
 export type VIDEO = 'video';
 export type PDF = 'pdf';
+export type AUDIO = 'audio';
 export type SCORM = 'scorm';
 export type ARTICLE = 'article';
+export type PODCAST = 'podcast';
 export type ContentType =
   | DISCIPLINE
   | CHAPTER
@@ -51,8 +56,10 @@ export type ContentType =
   | SUCCESS
   | IMG
   | PDF
+  | AUDIO
   | VIDEO
   | SCORM
+  | PODCAST
   | ARTICLE;
 
 export type LessonType = VIDEO | PDF | IMG;
@@ -255,7 +262,7 @@ export type Source = {|
   url: Url
 |};
 
-export type MediaType = 'img' | 'video' | 'pdf';
+export type MediaType = 'img' | 'video' | 'pdf' | 'audio';
 export type Media = {
   type?: MediaType,
   description?: string,

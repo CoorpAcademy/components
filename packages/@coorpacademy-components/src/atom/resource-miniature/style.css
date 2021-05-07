@@ -1,5 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value light from colors;
+@value lightMediumGray from colors;
 @value white from colors;
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
@@ -15,11 +15,9 @@
   align-items: center;
 }
 
-.video {
-  composes: resource;
-}
-
-.pdf {
+.video,
+.pdf,
+.audio {
   composes: resource;
 }
 
@@ -31,7 +29,7 @@
   width: 70px;
   height: 45px;
   border: 1px solid ;
-  box-shadow: 1px 1px 3px light;
+  box-shadow: 1px 1px 3px lightMediumGray;
 }
 
 .poster {
@@ -40,10 +38,7 @@
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-}
-
-.pdf .poster {
-  background-color: light;
+  background-color: lightMediumGray;
 }
 
 .icon {

@@ -508,6 +508,7 @@ const getMedia = (media: Media): Media | void => {
   const resource = get('src.0', media);
   switch (type) {
     case 'img':
+    case 'audio':
       return {
         ...resource,
         type,
