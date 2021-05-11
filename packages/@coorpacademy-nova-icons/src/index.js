@@ -50,6 +50,7 @@ import _NovaCompositionCoorpacademyMailInbox from './components/nova-composition
 import _NovaCompositionCoorpacademyMailInboxDocument from './components/nova-composition/coorpacademy/mail-inbox-document';
 import _NovaCompositionCoorpacademyMap from './components/nova-composition/coorpacademy/map';
 import _NovaCompositionCoorpacademyMicrophone from './components/nova-composition/coorpacademy/microphone';
+import _NovaCompositionCoorpacademyOpenInNewTab from './components/nova-composition/coorpacademy/open-in-new-tab';
 import _NovaCompositionCoorpacademyPictures from './components/nova-composition/coorpacademy/pictures';
 import _NovaCompositionCoorpacademyPinterest from './components/nova-composition/coorpacademy/pinterest';
 import _NovaCompositionCoorpacademyProfile from './components/nova-composition/coorpacademy/profile';
@@ -184,6 +185,7 @@ export const NovaCompositionCoorpacademyMailInbox: Icon = _NovaCompositionCoorpa
 export const NovaCompositionCoorpacademyMailInboxDocument: Icon = _NovaCompositionCoorpacademyMailInboxDocument;
 export const NovaCompositionCoorpacademyMap: Icon = _NovaCompositionCoorpacademyMap;
 export const NovaCompositionCoorpacademyMicrophone: Icon = _NovaCompositionCoorpacademyMicrophone;
+export const NovaCompositionCoorpacademyOpenInNewTab: Icon = _NovaCompositionCoorpacademyOpenInNewTab;
 export const NovaCompositionCoorpacademyPictures: Icon = _NovaCompositionCoorpacademyPictures;
 export const NovaCompositionCoorpacademyPinterest: Icon = _NovaCompositionCoorpacademyPinterest;
 export const NovaCompositionCoorpacademyProfile: Icon = _NovaCompositionCoorpacademyProfile;
