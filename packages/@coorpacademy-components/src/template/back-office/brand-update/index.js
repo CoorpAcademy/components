@@ -14,9 +14,9 @@ import style from './style.css';
 
 const BrandUpdate = Layout(props => {
   const {notifications, links, breadcrumbs, tabs, content, details, subTabs = []} = props;
-  const formattedTabs = tabs.map(({title, name, href, selected}) => ({
+  const formattedTabs = tabs.map(({title, name, href, selected, type = 'link'}) => ({
     title,
-    type: 'link',
+    type,
     name,
     selected,
     href
@@ -82,7 +82,8 @@ BrandUpdate.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
-      selected: PropTypes.bool.isRequired
+      selected: PropTypes.bool.isRequired,
+      type: PropTypes.string
     })
   ).isRequired,
   subTabs: PropTypes.arrayOf(

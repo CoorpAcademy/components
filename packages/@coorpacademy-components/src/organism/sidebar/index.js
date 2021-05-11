@@ -2,6 +2,7 @@ import React, {useMemo} from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import {noop, getOr, defaults} from 'lodash/fp';
+import {NovaCompositionCoorpacademyOpenInNewTab} from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
 import Button from '../../atom/button';
 import Provider from '../../atom/provider';
@@ -137,6 +138,58 @@ LinkItem.propTypes = {
   uppercase: PropTypes.bool
 };
 
+export const IconLinkItem = ({
+  href,
+  index,
+  name,
+  selected,
+  color,
+  title,
+  onClick,
+  uppercase = true
+}) => {
+  const handleOnClick = useMemo(
+    () => e => {
+      onClick && onClick(e);
+    },
+    [onClick]
+  );
+  return (
+    <Link
+      onClick={handleOnClick}
+      skinHover
+      href={href}
+      data-name={name || `button-link-item-${index}`}
+      target="_blank"
+      style={{
+        textDecoration: 'none',
+        color: selected ? color : NEUTRAL_COLOR
+      }}
+    >
+      <li
+        className={classnames(style.linkItem, innerHTML, {[style.uppercase]: uppercase})}
+        style={{
+          borderLeftColor: selected ? color : null
+        }}
+      >
+        {title}
+        <NovaCompositionCoorpacademyOpenInNewTab className={style.icon} />
+      </li>
+    </Link>
+  );
+};
+
+IconLinkItem.propTypes = {
+  index: PropTypes.number,
+  title: PropTypes.string.isRequired,
+  selected: PropTypes.bool,
+  name: PropTypes.string,
+  href: PropTypes.string,
+  color: PropTypes.string,
+  onClick: PropTypes.func,
+  uppercase: PropTypes.bool
+};
+
 export const TitleItem = ({name, index, title, uppercase}) => {
   return (
     <ul data-name={name || `item-title-${index}`} className={style.titleItem}>
@@ -256,6 +309,8 @@ const SidebarItem = ({item, color, index}) => {
       return <MultiSelectItem {...item} color={color} index={index} />;
     case 'link':
       return <LinkItem {...item} color={color} index={index} />;
+    case 'iconLink':
+      return <IconLinkItem {...item} color={color} index={index} />;
     case 'title':
       return <TitleItem {...item} color={color} index={index} />;
     case 'button':
@@ -270,6 +325,7 @@ const SidebarItem = ({item, color, index}) => {
 SidebarItem.propTypes = {
   item: PropTypes.oneOfType([
     PropTypes.shape({...TitleItem.propTypes, type: PropTypes.oneOf(['title']).isRequired}),
+    PropTypes.shape({...TitleItem.propTypes, type: PropTypes.oneOf(['buttonLink']).isRequired}),
     PropTypes.shape({...ButtonItem.propTypes, type: PropTypes.oneOf(['button']).isRequired}),
     PropTypes.shape({...InfoItem.propTypes, type: PropTypes.oneOf(['info']).isRequired}),
     PropTypes.shape({...LinkItem.propTypes, type: PropTypes.oneOf(['link']).isRequired}),
