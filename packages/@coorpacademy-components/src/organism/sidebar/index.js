@@ -325,7 +325,7 @@ const SidebarItem = ({item, color, index}) => {
 SidebarItem.propTypes = {
   item: PropTypes.oneOfType([
     PropTypes.shape({...TitleItem.propTypes, type: PropTypes.oneOf(['title']).isRequired}),
-    PropTypes.shape({...TitleItem.propTypes, type: PropTypes.oneOf(['buttonLink']).isRequired}),
+    PropTypes.shape({...IconLinkItem.propTypes, type: PropTypes.oneOf(['iconLink']).isRequired}),
     PropTypes.shape({...ButtonItem.propTypes, type: PropTypes.oneOf(['button']).isRequired}),
     PropTypes.shape({...InfoItem.propTypes, type: PropTypes.oneOf(['info']).isRequired}),
     PropTypes.shape({...LinkItem.propTypes, type: PropTypes.oneOf(['link']).isRequired}),
