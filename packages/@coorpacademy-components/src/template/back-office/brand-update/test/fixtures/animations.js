@@ -11,7 +11,15 @@ const details = BrandTable.props;
 
 export default {
   props: defaultsDeep(props, {
-    tabs,
+    tabs: [
+      ...tabs,
+      {
+        title: 'Create Content',
+        href: '#brand/samsung/catalog',
+        selected: false,
+        type: 'iconLink'
+      }
+    ],
     content: {
       type: 'form',
       groups,
