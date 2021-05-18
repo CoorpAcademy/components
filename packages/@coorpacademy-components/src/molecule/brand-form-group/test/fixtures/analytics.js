@@ -8,6 +8,11 @@ export default {
     subtitle: 'Explanation about the analytics section',
     fields: [
       {
+        submitValue: 'Go To Analytics',
+        href: `/sso/connect?redirect-to=%2Fanalytics`,
+        type: 'link'
+      },
+      {
         ...props,
         type: 'sections'
       }
