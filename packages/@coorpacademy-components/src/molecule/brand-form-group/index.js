@@ -57,6 +57,7 @@ const buildInput = field => {
     case 'uploadbox':
       return <BrandUploadBox {...field} />;
     case 'button':
+    case 'link':
       return <Button {...field} />;
     default:
       return <InputText {...field} />;
