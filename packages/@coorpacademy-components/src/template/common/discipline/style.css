@@ -65,6 +65,22 @@
   padding-top: 20px;
 }
 
+.buttons {
+ display: flex;
+}
+
+.addToMyListBtn {
+  flex: 1.3;
+}
+
+.addToMyListBtnTablet {
+  max-width: max-content;
+}
+
+.shareBtn {
+  flex: 1;
+}
+
 @media desktop {
   .container {
     display: flex;
@@ -127,5 +143,9 @@
 
   .cta {
     margin-bottom: 0px;
+  }
+
+  .addToMyListBtnTablet {
+    max-width: 100%;
   }
 }

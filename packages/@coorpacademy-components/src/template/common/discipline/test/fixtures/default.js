@@ -39,6 +39,11 @@ export default {
     shareWording: 'Share',
     shareText: 'Share this',
     shareSuccessWording: 'Success',
-    shareErrorWording: 'Error'
+    shareErrorWording: 'Error',
+    addToMyListButton: 'My list',
+    favorite: true,
+    onFavoriteClick: () => {},
+    addToMyListText: 'Added to your list',
+    removeFromMyListText: 'Removed from your list'
   }
 };

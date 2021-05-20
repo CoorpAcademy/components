@@ -72,7 +72,7 @@ export const ShareFeedback = ({successWording, errorWording}) => {
   );
 };
 
-const Share = ({text, wording}) => {
+const Share = ({style, text, wording}) => {
   const [, setStatus] = useContext(StatusContext);
   const onClick = useCallback(async () => {
     const browserSupportsClipboardWriteText =
@@ -93,13 +93,15 @@ const Share = ({text, wording}) => {
   }, [setStatus]);
 
   return (
-    <div className={styles.container}>
-      <Link onClick={onClick} className={styles.cta}>
-        <div className={styles.wrapper}>
-          <ShareIcon className={styles.shareIcon} width={18} height={18} />
-          <p>{wording}</p>
-        </div>
-      </Link>
+    <div className={style}>
+      <div className={styles.container}>
+        <Link onClick={onClick} className={styles.cta}>
+          <div className={styles.wrapper}>
+            <ShareIcon className={styles.shareIcon} width={18} height={18} />
+            <p>{wording}</p>
+          </div>
+        </Link>
+      </div>
     </div>
   );
 };
@@ -114,6 +116,7 @@ ShareFeedback.propTypes = {
 };
 
 Share.propTypes = {
+  style: PropTypes.string,
   text: PropTypes.string,
   wording: PropTypes.string
 };
