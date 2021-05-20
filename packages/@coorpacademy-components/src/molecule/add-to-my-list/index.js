@@ -33,7 +33,7 @@ export const AddToMyListFeedback = ({addToMyListText, removeFromMyListText, favo
   if (status === ADD_TO_MY_LIST_STATUS.IDLE) return null;
 
   return (
-    <div className={classnames(styles.feedback)}>
+    <div className={classnames(styles.feedback)} data-name={'add-to-my-list-feedback'}>
       <CheckIcon className={styles.checkIcon} width={13} height={13} />
       <p>{favorite ? addToMyListText : removeFromMyListText}</p>
     </div>
@@ -49,7 +49,7 @@ const AddToMyList = ({style, addToMyListButton, favorite, onFavoriteClick}) => {
   return (
     <div className={style}>
       <div className={styles.container}>
-        <Link onClick={onClick} className={styles.cta}>
+        <Link data-name={'add-to-my-list-button'} onClick={onClick} className={styles.cta}>
           <div className={styles.wrapper}>
             {favorite ? (
               <CheckIcon className={styles.shareIcon} width={15} height={15} />
@@ -71,7 +71,7 @@ AddToMyListStatusProvider.propTypes = {
 AddToMyListFeedback.propTypes = {
   addToMyListText: PropTypes.string,
   removeFromMyListText: PropTypes.string,
-  favorite: AddToMyList.favorite
+  favorite: PropTypes.bool
 };
 
 AddToMyList.propTypes = {

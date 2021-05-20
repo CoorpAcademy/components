@@ -1,5 +1,6 @@
 import React from 'react';
 import isEmpty from 'lodash/fp/isEmpty';
+import PropTypes from 'prop-types';
 import DisciplineCTA from '../../../molecule/discipline-cta';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplinePartners from '../../../molecule/discipline-partners';
@@ -144,11 +145,15 @@ Discipline.propTypes = {
   shareText: Share.propTypes.text,
   shareSuccessWording: ShareFeedback.propTypes.successWording,
   shareErrorWording: ShareFeedback.propTypes.errorWording,
-  addToMyListText: AddToMyListFeedback.addToMyListText,
-  removeFromMyListText: AddToMyListFeedback.removeFromMyListText,
-  addToMyListButton: AddToMyList.addToMyListButton,
-  onFavoriteClick: AddToMyList.onFavoriteClick,
-  favorite: AddToMyList.favorite
+  addToMyListText: AddToMyListFeedback.propTypes.addToMyListText,
+  removeFromMyListText: AddToMyListFeedback.propTypes.removeFromMyListText,
+  addToMyListButton: AddToMyList.propTypes.addToMyListButton,
+  onFavoriteClick: AddToMyList.propTypes.onFavoriteClick,
+  favorite: AddToMyList.propTypes.favorite
+};
+
+Discipline.contextTypes = {
+  translate: PropTypes.func
 };
 
 export default Discipline;

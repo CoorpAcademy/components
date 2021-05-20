@@ -6,8 +6,8 @@ import style from './style.css';
 
 const ForumThread = props => {
   const {answers = [], mainPost = false} = props;
-  const answersView = answers.map(answerProps => (
-    <ForumThread {...answerProps} key={answerProps.id} />
+  const answersView = answers.map((answerProps, index) => (
+    <ForumThread {...answerProps} key={answerProps.id + index} />
   ));
 
   return (
