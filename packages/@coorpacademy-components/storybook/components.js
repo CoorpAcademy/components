@@ -43,6 +43,7 @@ import HocAnimation from './../src/hoc/animation';
 import HocAnimationScheduler from './../src/hoc/animation-scheduler';
 import HocSwapper from './../src/hoc/swapper';
 import HocTransition from './../src/hoc/transition';
+import MoleculeAddToMyList from './../src/molecule/add-to-my-list';
 import MoleculeAnswer from './../src/molecule/answer';
 import MoleculeAudio from './../src/molecule/audio';
 import MoleculeBattleRequest from './../src/molecule/battle-request';
@@ -331,6 +332,8 @@ import HocAnimationSchedulerFixtureParallel from '../src/hoc/animation-scheduler
 import HocAnimationSchedulerFixtureSeries from '../src/hoc/animation-scheduler/test/fixtures/series';
 import HocSwapperFixtureDefault from '../src/hoc/swapper/test/fixtures/default';
 import HocTransitionFixtureFlipSquare from '../src/hoc/transition/test/fixtures/flip-square';
+import MoleculeAddToMyListFixtureDefault from '../src/molecule/add-to-my-list/test/fixtures/default';
+import MoleculeAddToMyListFixtureFavorite from '../src/molecule/add-to-my-list/test/fixtures/favorite';
 import MoleculeAnswerFixtureAudio from '../src/molecule/answer/test/fixtures/audio';
 import MoleculeAnswerFixtureDefault from '../src/molecule/answer/test/fixtures/default';
 import MoleculeAnswerFixtureDropDown from '../src/molecule/answer/test/fixtures/drop-down';
@@ -963,6 +966,7 @@ export const components = {
     HocTransition
   },
   Molecule: {
+    MoleculeAddToMyList,
     MoleculeAnswer,
     MoleculeAudio,
     MoleculeBattleRequest,
@@ -1372,6 +1376,10 @@ export const fixtures = {
     }
   },
   Molecule: {
+    MoleculeAddToMyList: {
+      Default: MoleculeAddToMyListFixtureDefault,
+      Favorite: MoleculeAddToMyListFixtureFavorite
+    },
     MoleculeAnswer: {
       Audio: MoleculeAnswerFixtureAudio,
       Default: MoleculeAnswerFixtureDefault,

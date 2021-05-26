@@ -81,10 +81,6 @@
   z-index: 1;
 }
 
-.errorFeedback {
-  background-color: negative;
-}
-
 .shareIcon {
   margin: 0 4px;
   color: dark;
@@ -112,7 +108,7 @@
 
   .feedback {
     position: fixed;
-    left: 45%;
+    left: 32%;
     bottom: 5%;
   }
 }

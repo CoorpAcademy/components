@@ -1,10 +1,15 @@
 import React from 'react';
 import isEmpty from 'lodash/fp/isEmpty';
+import PropTypes from 'prop-types';
 import DisciplineCTA from '../../../molecule/discipline-cta';
 import DisciplineHeader from '../../../molecule/discipline-header';
 import DisciplinePartners from '../../../molecule/discipline-partners';
 import DisciplineScope from '../../../molecule/discipline-scope';
 import Share, {ShareFeedback, ShareStatusProvider} from '../../../molecule/share';
+import AddToMyList, {
+  AddToMyListFeedback,
+  AddToMyListStatusProvider
+} from '../../../molecule/add-to-my-list';
 import style from './style.css';
 
 const Discipline = (props, context) => {
@@ -25,7 +30,12 @@ const Discipline = (props, context) => {
     shareWording,
     shareText,
     shareSuccessWording,
-    shareErrorWording
+    shareErrorWording,
+    addToMyListButton,
+    favorite,
+    onFavoriteClick,
+    addToMyListText,
+    removeFromMyListText
   } = props;
 
   const authorSection = isEmpty(authors) ? null : (
@@ -36,8 +46,13 @@ const Discipline = (props, context) => {
 
   return (
     <ShareStatusProvider>
-      <div>
+      <AddToMyListStatusProvider>
         <ShareFeedback errorWording={shareErrorWording} successWording={shareSuccessWording} />
+        <AddToMyListFeedback
+          addToMyListText={addToMyListText}
+          removeFromMyListText={removeFromMyListText}
+          favorite={favorite}
+        />
         <div data-name="discipline" className={style.container}>
           <div className={style.leftSection}>
             <div className={style.header}>
@@ -59,7 +74,13 @@ const Discipline = (props, context) => {
                     buyLabel={buyLabel}
                   />
                 </div>
-                <Share wording={shareWording} text={shareText} />
+                <AddToMyList
+                  style={style.addToMyListBtnTablet}
+                  addToMyListButton={addToMyListButton}
+                  favorite={favorite}
+                  onFavoriteClick={onFavoriteClick}
+                />
+                <Share style={style.shareBtnTablet} wording={shareWording} text={shareText} />
               </div>
               <div className={style.partners}>
                 <DisciplinePartners authors={authors} />
@@ -85,13 +106,21 @@ const Discipline = (props, context) => {
                   buyLabel={buyLabel}
                 />
 
-                <Share wording={shareWording} text={shareText} />
+                <div className={style.buttons}>
+                  <Share style={style.shareBtn} wording={shareWording} text={shareText} />
+                  <AddToMyList
+                    style={style.addToMyListBtn}
+                    addToMyListButton={addToMyListButton}
+                    favorite={favorite}
+                    onFavoriteClick={onFavoriteClick}
+                  />
+                </div>
               </div>
               {authorSection}
             </div>
           </div>
         </div>
-      </div>
+      </AddToMyListStatusProvider>
     </ShareStatusProvider>
   );
 };
@@ -113,7 +142,16 @@ Discipline.propTypes = {
   shareWording: Share.propTypes.wording,
   shareText: Share.propTypes.text,
   shareSuccessWording: ShareFeedback.propTypes.successWording,
-  shareErrorWording: ShareFeedback.propTypes.errorWording
+  shareErrorWording: ShareFeedback.propTypes.errorWording,
+  addToMyListText: AddToMyListFeedback.propTypes.addToMyListText,
+  removeFromMyListText: AddToMyListFeedback.propTypes.removeFromMyListText,
+  addToMyListButton: AddToMyList.propTypes.addToMyListButton,
+  onFavoriteClick: AddToMyList.propTypes.onFavoriteClick,
+  favorite: AddToMyList.propTypes.favorite
+};
+
+Discipline.contextTypes = {
+  translate: PropTypes.func
 };
 
 export default Discipline;
