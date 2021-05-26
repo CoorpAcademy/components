@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useContext, useEffect} from 'react';
+import React, {useState, useContext, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
@@ -42,10 +42,10 @@ export const AddToMyListFeedback = ({addToMyListText, removeFromMyListText, favo
 
 const AddToMyList = ({style, addToMyListButton, favorite, onFavoriteClick}) => {
   const [, setStatus] = useContext(StatusContext);
-  const onClick = () => {
+  function onClick() {
     setStatus(ADD_TO_MY_LIST_STATUS.SUCCESS);
     onFavoriteClick();
-  };
+  }
 
   return (
     <div className={(styles.container, style)}>
