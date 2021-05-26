@@ -4,13 +4,11 @@ import disciplinePartners from '../../../../../molecule/discipline-partners/test
 import disciplineCTA from '../../../../../molecule/discipline-cta/test/fixtures/default';
 import disciplineScope from '../../../../../molecule/discipline-scope/test/fixtures/medias';
 import Thread from '../../../../../molecule/forum/forum-thread/test/fixtures/default';
-import ThreadDeep from '../../../../../molecule/forum/forum-thread/test/fixtures/deep-answers';
 import ForumComment from '../../../../../molecule/forum/forum-comment/test/fixtures/default';
 
 const thread = Thread.props;
-const thread2 = ThreadDeep.props;
 
-const threads = [thread, thread2].map(update('id', () => uniqueId()));
+const threads = [thread].map(update('id', () => uniqueId()));
 
 const {title, description, video} = disciplineHeader.props;
 const {start, buy, startLabel, buyLabel} = disciplineCTA.props;

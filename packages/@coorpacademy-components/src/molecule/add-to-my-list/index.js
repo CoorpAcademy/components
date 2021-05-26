@@ -47,19 +47,17 @@ const AddToMyList = ({style, addToMyListButton, favorite, onFavoriteClick}) => {
     onFavoriteClick();
   }, [setStatus]);
   return (
-    <div className={style}>
-      <div className={styles.container}>
-        <Link data-name={'add-to-my-list-button'} onClick={onClick} className={styles.cta}>
-          <div className={styles.wrapper}>
-            {favorite ? (
-              <CheckIcon className={styles.shareIcon} width={15} height={15} />
-            ) : (
-              <MoreIcon className={styles.shareIcon} width={12} height={12} />
-            )}
-            <p>{addToMyListButton}</p>
-          </div>
-        </Link>
-      </div>
+    <div className={(styles.container, style)}>
+      <Link data-name={'add-to-my-list-button'} onClick={onClick} className={styles.cta}>
+        <div className={styles.wrapper}>
+          {favorite ? (
+            <CheckIcon className={styles.shareIcon} width={15} height={15} />
+          ) : (
+            <MoreIcon className={styles.shareIcon} width={12} height={12} />
+          )}
+          <p>{addToMyListButton}</p>
+        </div>
+      </Link>
     </div>
   );
 };

@@ -93,15 +93,13 @@ const Share = ({style, text, wording}) => {
   }, [setStatus]);
 
   return (
-    <div className={style}>
-      <div className={styles.container}>
-        <Link onClick={onClick} className={styles.cta}>
-          <div className={styles.wrapper}>
-            <ShareIcon className={styles.shareIcon} width={18} height={18} />
-            <p>{wording}</p>
-          </div>
-        </Link>
-      </div>
+    <div className={(styles.container, style)}>
+      <Link onClick={onClick} className={styles.cta}>
+        <div className={styles.wrapper}>
+          <ShareIcon className={styles.shareIcon} width={18} height={18} />
+          <p>{wording}</p>
+        </div>
+      </Link>
     </div>
   );
 };
