@@ -77,9 +77,4 @@
   "zuora_discount_code": "Code promo",
   "mandatory_fields": "* Champs obligatoires",
   "something_went_wrong": "Oh Snap! Quelque chose a mal tourné."
-  "custom": {
-      "mylcl-learning": {
-          "product_desc_coach": "Masters en ligne"
-      }
-   }
-}
+ }
