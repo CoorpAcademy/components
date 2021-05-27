@@ -42,9 +42,10 @@ export const AddToMyListFeedback = ({addToMyListText, removeFromMyListText, favo
 
 const AddToMyList = ({style, addToMyListButton, favorite, onFavoriteClick}) => {
   const [, setStatus] = useContext(StatusContext);
+  const cb = () => setStatus(ADD_TO_MY_LIST_STATUS.SUCCESS);
+
   function onClick() {
-    setStatus(ADD_TO_MY_LIST_STATUS.SUCCESS);
-    onFavoriteClick();
+    onFavoriteClick(cb);
   }
 
   return (

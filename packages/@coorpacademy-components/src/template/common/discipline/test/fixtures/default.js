@@ -40,7 +40,7 @@ export default {
     shareErrorWording: 'Error',
     addToMyListButton: 'My list',
     favorite: true,
-    onFavoriteClick: () => {},
+    onFavoriteClick: cb => cb(),
     addToMyListText: 'Added to your list',
     removeFromMyListText: 'Removed from your list'
   }
