@@ -20,6 +20,7 @@ import AtomInputSwitch from './../src/atom/input-switch';
 import AtomInputText from './../src/atom/input-text';
 import AtomInputTextarea from './../src/atom/input-textarea';
 import AtomLabel from './../src/atom/label';
+import AtomLeftArrow from './../src/atom/left-arrow';
 import AtomLife from './../src/atom/life';
 import AtomLink from './../src/atom/link';
 import AtomLoader from './../src/atom/loader';
@@ -31,6 +32,7 @@ import AtomProvider from './../src/atom/provider';
 import AtomRadioGroup from './../src/atom/radio-group';
 import AtomRange from './../src/atom/range';
 import AtomResourceMiniature from './../src/atom/resource-miniature';
+import AtomRightArrow from './../src/atom/right-arrow ';
 import AtomSelect from './../src/atom/select';
 import AtomSlide from './../src/atom/slide';
 import AtomSocialLink from './../src/atom/social-link';
@@ -256,6 +258,9 @@ import AtomInputTextareaFixtureEmpty from '../src/atom/input-textarea/test/fixtu
 import AtomInputTextareaFixtureError from '../src/atom/input-textarea/test/fixtures/error';
 import AtomLabelFixtureOneChild from '../src/atom/label/test/fixtures/one-child';
 import AtomLabelFixtureTwoChildren from '../src/atom/label/test/fixtures/two-children';
+import AtomLeftArrowFixtureBig from '../src/atom/left-arrow/test/fixtures/big';
+import AtomLeftArrowFixtureDefault from '../src/atom/left-arrow/test/fixtures/default';
+import AtomLeftArrowFixtureSmall from '../src/atom/left-arrow/test/fixtures/small';
 import AtomLifeFixtureAnimatedExtraLife from '../src/atom/life/test/fixtures/animated-extra-life';
 import AtomLifeFixtureAnimatedFail from '../src/atom/life/test/fixtures/animated-fail';
 import AtomLifeFixtureDefault from '../src/atom/life/test/fixtures/default';
@@ -292,6 +297,9 @@ import AtomResourceMiniatureFixturePdf from '../src/atom/resource-miniature/test
 import AtomResourceMiniatureFixtureSelectedPdf from '../src/atom/resource-miniature/test/fixtures/selected-pdf';
 import AtomResourceMiniatureFixtureSelectedVideo from '../src/atom/resource-miniature/test/fixtures/selected-video';
 import AtomResourceMiniatureFixtureVideo from '../src/atom/resource-miniature/test/fixtures/video';
+import AtomRightArrowFixtureBig from '../src/atom/right-arrow /test/fixtures/big';
+import AtomRightArrowFixtureDefault from '../src/atom/right-arrow /test/fixtures/default';
+import AtomRightArrowFixtureSmall from '../src/atom/right-arrow /test/fixtures/small';
 import AtomSelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import AtomSelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
 import AtomSelectFixtureError from '../src/atom/select/test/fixtures/error';
@@ -939,6 +947,7 @@ export const components = {
     AtomInputText,
     AtomInputTextarea,
     AtomLabel,
+    AtomLeftArrow,
     AtomLife,
     AtomLink,
     AtomLoader,
@@ -950,6 +959,7 @@ export const components = {
     AtomRadioGroup,
     AtomRange,
     AtomResourceMiniature,
+    AtomRightArrow,
     AtomSelect,
     AtomSlide,
     AtomSocialLink,
@@ -1250,6 +1260,11 @@ export const fixtures = {
       OneChild: AtomLabelFixtureOneChild,
       TwoChildren: AtomLabelFixtureTwoChildren
     },
+    AtomLeftArrow: {
+      Big: AtomLeftArrowFixtureBig,
+      Default: AtomLeftArrowFixtureDefault,
+      Small: AtomLeftArrowFixtureSmall
+    },
     AtomLife: {
       AnimatedExtraLife: AtomLifeFixtureAnimatedExtraLife,
       AnimatedFail: AtomLifeFixtureAnimatedFail,
@@ -1307,6 +1322,11 @@ export const fixtures = {
       SelectedPdf: AtomResourceMiniatureFixtureSelectedPdf,
       SelectedVideo: AtomResourceMiniatureFixtureSelectedVideo,
       Video: AtomResourceMiniatureFixtureVideo
+    },
+    AtomRightArrow: {
+      Big: AtomRightArrowFixtureBig,
+      Default: AtomRightArrowFixtureDefault,
+      Small: AtomRightArrowFixtureSmall
     },
     AtomSelect: {
       Default: AtomSelectFixtureDefault,
