@@ -2,157 +2,17 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
-@value colors: "../../../variables/colors.css";
-@value white from colors;
-@value battle from colors;
-@value black from colors;
-@value light from colors;
-
+ 
 .container {
   width: 100%;
   display: flex;
   justify-content: center;
   padding: 10px 0;
+  background-color: #1d1c31 ;
+  padding: 17vh 0 ;
+  border-radius:20px;
+  font-family: OpenSans;;
+   /* background-image: "https://firebasestorage.googleapis.com/v0/b/easyservice-c679e.appspot.com/o/coorp%2Fstart-battle-background.png?alt=media&token=2f96f198-c32e-4889-9066-9b2f4903a120" */
 }
 
-.wrapper {
-  max-width: 1080px;
-  flex: 1 1 100%;
-  background: white;
-  border: 1px solid light;
-}
-
-.start {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  overflow: hidden;
-}
-
-.button {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  position: relative;
-  border: 1px solid battle;
-  text-decoration: none;
-}
-
-.button:hover .bubble {
-  transform: scale(0);
-}
-
-.button:hover .bubble > .icon {
-  transform: scale(3);
-}
-
-.animate {
-  composes: button;
-  margin: 5px;
-}
-
-.animate::after {
-  animation: pulse 2s linear 0s infinite;
-}
-
-.animate::before {
-  animation: pulse 2s linear 1s infinite;
-}
-
-.animate::after,
-.animate::before {
-  content: '';
-  width: 150px;
-  height: 150px;
-  top: 0;
-  left: 0;
-  position: absolute;
-  box-shadow: inset 0 0 7px 0 rgba(255, 225, 0, 0.37);
-  border-radius: 50%;
-  transform: scale(1);
-}
-
-.bubbleFrame {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  transition: all 0.2s ease-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.bubble {
-  composes: bubbleFrame;
-  background-color: battle;
-}
-
-.backBubble {
-  composes: bubbleFrame;
-}
-
-.iconBubble {
-  composes: bubbleFrame;
-}
-
-.animate:hover .iconBubble {
-  opacity: 0;
-}
-
-.icon {
-  width: 100px;
-  height: 100px;
-}
-
-.label {
-  z-index: 2;
-  font-family: 'Open Sans';
-  color: black;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 15px;
-  text-align: center;
-  padding: 10px;
-  line-height: 20px;
-  letter-spacing: 4px;
-  display: flex;
-  width: inherit;
-  flex-direction: column;
-}
-
-.label span {
-  font-size: 30px;
-  letter-spacing: normal;
-}
-
-@media mobile {
-  .button {
-    margin-top: 20px;
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  50% {
-    transform: scale(2);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(3);
-    opacity: 0;
-  }
-}
+.arrows{}
