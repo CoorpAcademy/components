@@ -12,8 +12,9 @@ configure({adapter: new Adapter()});
 
 test('should show feedback when user click add to my list button', t => {
   t.plan(4);
-  const onFavoriteClick = () => {
+  const onFavoriteClick = cb => {
     t.pass();
+    cb();
   };
   const context = {translate: identity};
   const wrapper = mount(<Discipline {...fixture.props} onFavoriteClick={onFavoriteClick} />, {
