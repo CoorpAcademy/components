@@ -2,27 +2,46 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
+
+
+
+
+
+  
+    
+
+
+
  
 .container {
   width: 100%;
+  padding: 1em 0 1em 0 
+ 
+   /* background-image: "https://firebasestorage.googleapis.com/v0/b/easyservice-c679e.appspot.com/o/coorp%2Fstart-battle-background.png?alt=media&token=2f96f198-c32e-4889-9066-9b2f4903a120" */
+}
+.wrapper{
   display: flex;
   justify-content: center;
-  padding: 10px 0;
+  padding: 1.5em 0 1.5em 0;
   background-color: #1d1c31 ;
   color: #fff;
   border-radius:20px;
   position: relative;
   font-family: OpenSans;
-  font-weight: bold;
+  
   align-items: center;
+  
  
   text-align: center;
-   /* background-image: "https://firebasestorage.googleapis.com/v0/b/easyservice-c679e.appspot.com/o/coorp%2Fstart-battle-background.png?alt=media&token=2f96f198-c32e-4889-9066-9b2f4903a120" */
-}
 
- 
-.left{position:absolute;top:0px; left:3em}
-.right{position:absolute;top:0px; right:3em}
+
+
+
+
+}
+h2{font-weight: bold;}
+
+
  
 .bouton{
   width: 168px;
@@ -32,6 +51,23 @@
   background-color: #ffe100;
   font-size: 16px;
   font-weight: bold;
+  border: none;
 
   color: #111026;
 }
+
+
+
+
+@media tablet{
+  .left{ position:absolute;top:20px; left:-2em}
+  .right{position:absolute; top:-40px; right:-8em}
+  svg{width: 350px; height: 250px;  }
+ 
+  }
+  @media mobile{
+    .left{top:0px; left:2em}
+    .right{top:0px; right:1.0em}
+    svg{width: 50px; height: 90px; }
+    .container {padding:0}
+    }

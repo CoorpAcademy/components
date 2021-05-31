@@ -35,22 +35,23 @@ const StartBattle = (props, context) => {
           </Link>
         </div>
       </div> */}
+      <div className={style.wrapper}>
+        <div className={style.left}>
+          <LeftArrow />
+        </div>
+        <div>
+          <p>Become a champion</p>
+          <h2>Chanlenge your colleagues</h2>
 
-      <div className={style.left}>
-        <LeftArrow />
-      </div>
-      <div>
-        <p>Become a champion</p>
-        <h2>Chanlenge your colleagues</h2>
-
-        <Link onClick={onClick} href={href}>
-          <button className={style.bouton} type="submit">
-            Create a battle
-          </button>
-        </Link>
-      </div>
-      <div className={style.right}>
-        <RightArrow />
+          <Link onClick={onClick} href={href}>
+            <button className={style.bouton} type="submit">
+              Create a battle
+            </button>
+          </Link>
+        </div>
+        <div className={style.right}>
+          <RightArrow />
+        </div>
       </div>
     </div>
   );

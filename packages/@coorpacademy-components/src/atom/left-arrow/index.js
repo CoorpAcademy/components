@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-const LeftArrow = ({size}) => {
+const LeftArrow = ({size, className}) => {
   return (
     <svg
+      className={className}
       width={size.width}
       height={size.height}
       viewBox={size.viewBox}
@@ -59,7 +60,8 @@ LeftArrow.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
     viewBox: PropTypes.string
-  })
+  }),
+  className: PropTypes.string
 };
 
 export default LeftArrow;
