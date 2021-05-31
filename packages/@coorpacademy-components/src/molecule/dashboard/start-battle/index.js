@@ -1,20 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-// import {get} from 'lodash/fp';
-import {NovaCompositionCoorpacademyBolt as BoltIcon} from '@coorpacademy/nova-icons';
-import Provider from '../../../atom/provider';
 import Link from '../../../atom/link';
 import LeftArrow from '../../../atom/left-arrow';
 import RightArrow from '../../../atom/right-arrow ';
 import style from './style.css';
 
-const StartBattle = (props, context) => {
+const StartBattle = props => {
   const {onClick, href} = props;
-  // const {skin} = context;
 
   // const white = get('common.white', skin);
   //  const battleColor = get('common.battle', skin);
 
+  //  TODO : clean up old html
   return (
     <div className={style.container} data-name="start-battle">
       {/* <div className={style.wrapper}>
@@ -45,26 +42,21 @@ const StartBattle = (props, context) => {
           <h2>Chanlenge your colleagues</h2>
 
           <Link onClick={onClick} href={href}>
-            <button className={style.bouton} type="submit">
+            <button className={style.button} type="submit">
               Create a battle
             </button>
           </Link>
         </div>
         <div className={style.right}>
           <RightArrow />
-          <RightArrow className={style.arrowRight}/>
+          <RightArrow className={style.arrowRight} />
         </div>
       </div>
     </div>
   );
 };
 
-StartBattle.contextTypes = {
-  skin: Provider.childContextTypes.skin
-};
-
 StartBattle.propTypes = {
-  label: PropTypes.string,
   onClick: PropTypes.func,
   href: PropTypes.string
 };

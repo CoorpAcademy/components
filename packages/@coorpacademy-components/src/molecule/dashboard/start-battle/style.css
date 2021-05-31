@@ -2,22 +2,12 @@
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
+@value wide from breakpoints;
 
-
-
-
-
-  
-    
-
-
-
- 
 .container {
   width: 100%;
   padding: 1em 0 1em 0 
- 
-   /* background-image: "https://firebasestorage.googleapis.com/v0/b/easyservice-c679e.appspot.com/o/coorp%2Fstart-battle-background.png?alt=media&token=2f96f198-c32e-4889-9066-9b2f4903a120" */
+
 }
 .wrapper{
   display: flex;
@@ -32,18 +22,25 @@
   align-items: center;
   
  
-  text-align: center;
+  text-align: center; 
 
-
-
-
+  /* TODO : Replace  Background image URL */
+  background-image: url("https://firebasestorage.googleapis.com/v0/b/easyservice-c679e.appspot.com/o/coorp%2Fstart-battle-background.png?alt=media&token=2f96f198-c32e-4889-9066-9b2f4903a120")
+ 
 
 }
+.wrapper:hover .left { animation: up 1.2s infinite  alternate;}
+.wrapper:hover .arrowLeft { animation: down  1s infinite  alternate;}
+.wrapper:hover .right { animation: up 1.2s infinite  alternate;}
+.wrapper:hover .arrowRight { animation: down 1s infinite  alternate;}
+.wrapper:hover .button {   box-shadow:  0 0 20px 5px #ffe100c2, 0 0 10px 10px
+ }
+
 h2{font-weight: bold; }
 
 
  
-.bouton{
+.button{
   width: 168px;
   height: 46px;
   border-radius: 36px;
@@ -54,18 +51,23 @@ h2{font-weight: bold; }
   border: none;
 
   color: #111026;
+  transition: all 0.5s ease-in-out
 }
 
 
-@media desktop{
+@media wide{
   
-  .left{ position:absolute;top:0px; left:-2em}
-  .right{position:absolute; top:-50px; right:-8em}
+  .left{ position:absolute;top:0px; left:-2em; }
+  .right{position:absolute; top:-41px; right:-8em}
    svg{width: 430px; height: 300px;  }
   .arrowLeft{display:block; width: 150px; height: 190px; position: absolute; left:190px; top: 0px }
   .arrowRight{display:block; width: 150px; height: 190px;position: absolute; right:100px; top: 120px}
   h2{font-size:32px; margin-top: 0px;}
-  p{font-size: 24px; margin-bottom: 5px;}
+  p{font-size: 24px; margin-bottom: 5px;};
+  
+  
+ 
+ 
    
   }
 
@@ -77,6 +79,7 @@ h2{font-weight: bold; }
   .arrowRight{display:none;}
   h2{font-size:1.5em;}
   p{font-size: 1em}
+  .wrapper{background-image: none;}
  
   }
   @media mobile{
@@ -85,3 +88,18 @@ h2{font-weight: bold; }
     svg{width: 50px; height: 90px; }
     .container {padding:0}
     }
+
+
+
+
+
+    @keyframes up {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-7px); }
+  }
+  
+
+  @keyframes down {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(-10px); }
+}
