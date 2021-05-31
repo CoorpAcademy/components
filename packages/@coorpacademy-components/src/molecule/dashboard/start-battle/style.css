@@ -9,10 +9,29 @@
   justify-content: center;
   padding: 10px 0;
   background-color: #1d1c31 ;
-  padding: 17vh 0 ;
+  color: #fff;
   border-radius:20px;
-  font-family: OpenSans;;
+  position: relative;
+  font-family: OpenSans;
+  font-weight: bold;
+  align-items: center;
+ 
+  text-align: center;
    /* background-image: "https://firebasestorage.googleapis.com/v0/b/easyservice-c679e.appspot.com/o/coorp%2Fstart-battle-background.png?alt=media&token=2f96f198-c32e-4889-9066-9b2f4903a120" */
 }
 
-.arrows{}
+ 
+.left{position:absolute;top:0px; left:3em}
+.right{position:absolute;top:0px; right:3em}
+ 
+.bouton{
+  width: 168px;
+  height: 46px;
+  border-radius: 36px;
+  box-shadow: 0 0 19px 11px rgba(250, 207, 74, 0.15);
+  background-color: #ffe100;
+  font-size: 16px;
+  font-weight: bold;
+
+  color: #111026;
+}

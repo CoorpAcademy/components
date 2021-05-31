@@ -1,17 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {get} from 'lodash/fp';
+// import {get} from 'lodash/fp';
 import {NovaCompositionCoorpacademyBolt as BoltIcon} from '@coorpacademy/nova-icons';
 import Provider from '../../../atom/provider';
 import Link from '../../../atom/link';
+import LeftArrow from '../../../atom/left-arrow';
+import RightArrow from '../../../atom/right-arrow ';
 import style from './style.css';
 
 const StartBattle = (props, context) => {
-  const {label, onClick, href} = props;
-  const {skin} = context;
+  const {onClick, href} = props;
+  // const {skin} = context;
 
-  const white = get('common.white', skin);
-  const battleColor = get('common.battle', skin);
+  // const white = get('common.white', skin);
+  //  const battleColor = get('common.battle', skin);
 
   return (
     <div className={style.container} data-name="start-battle">
@@ -34,8 +36,21 @@ const StartBattle = (props, context) => {
         </div>
       </div> */}
 
-      <div className={style.arrows}>
-      
+      <div className={style.left}>
+        <LeftArrow />
+      </div>
+      <div>
+        <p>Become a champion</p>
+        <h2>Chanlenge your colleagues</h2>
+
+        <Link onClick={onClick} href={href}>
+          <button className={style.bouton} type="submit">
+            Create a battle
+          </button>
+        </Link>
+      </div>
+      <div className={style.right}>
+        <RightArrow />
       </div>
     </div>
   );

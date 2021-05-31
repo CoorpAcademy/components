@@ -51,7 +51,7 @@ const LeftArrow = ({size}) => {
 };
 
 LeftArrow.defaultProps = {
-  size: {width: 50, height: 90, viewBox: '0 0 100 100'}
+  size: {width: 50, height: 90, viewBox: '0 0 150 150'}
 };
 
 LeftArrow.propTypes = {
