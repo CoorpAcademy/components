@@ -38,6 +38,7 @@ const StartBattle = (props, context) => {
       <div className={style.wrapper}>
         <div className={style.left}>
           <LeftArrow />
+          <LeftArrow className={style.arrowLeft} />
         </div>
         <div>
           <p>Become a champion</p>
@@ -51,6 +52,7 @@ const StartBattle = (props, context) => {
         </div>
         <div className={style.right}>
           <RightArrow />
+          <RightArrow className={style.arrowRight}/>
         </div>
       </div>
     </div>

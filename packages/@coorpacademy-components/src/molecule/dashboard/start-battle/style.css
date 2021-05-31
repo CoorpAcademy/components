@@ -39,7 +39,7 @@
 
 
 }
-h2{font-weight: bold;}
+h2{font-weight: bold; }
 
 
  
@@ -57,12 +57,26 @@ h2{font-weight: bold;}
 }
 
 
-
+@media desktop{
+  
+  .left{ position:absolute;top:0px; left:-2em}
+  .right{position:absolute; top:-50px; right:-8em}
+   svg{width: 430px; height: 300px;  }
+  .arrowLeft{display:block; width: 150px; height: 190px; position: absolute; left:190px; top: 0px }
+  .arrowRight{display:block; width: 150px; height: 190px;position: absolute; right:100px; top: 120px}
+  h2{font-size:32px; margin-top: 0px;}
+  p{font-size: 24px; margin-bottom: 5px;}
+   
+  }
 
 @media tablet{
   .left{ position:absolute;top:20px; left:-2em}
   .right{position:absolute; top:-40px; right:-8em}
   svg{width: 350px; height: 250px;  }
+  .arrowLeft{display:none;}
+  .arrowRight{display:none;}
+  h2{font-size:1.5em;}
+  p{font-size: 1em}
  
   }
   @media mobile{
