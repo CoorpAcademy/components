@@ -143,7 +143,7 @@ const BrandDashboard = (props, context) => {
   }
 
   return (
-    <div className={style.container}>
+    <div>
       <Sidebar items={sidebarItems} />
       <div className={style.dashboardContent}>
         <Dashboard error={error} selected={currentDashboard} url={url} />
