@@ -888,6 +888,7 @@ import TemplateCommonCoorpHeaderFixtureStaging from '../src/template/common/coor
 import TemplateCommonDashboardFixtureDefault from '../src/template/common/dashboard/test/fixtures/default';
 import TemplateCommonDashboardFixtureEmptyRequests from '../src/template/common/dashboard/test/fixtures/empty-requests';
 import TemplateCommonDashboardFixtureWithHeroCard from '../src/template/common/dashboard/test/fixtures/with-hero-card';
+import TemplateCommonDisciplineFixtureAddToMyList from '../src/template/common/discipline/test/fixtures/add-to-my-list';
 import TemplateCommonDisciplineFixtureArabic from '../src/template/common/discipline/test/fixtures/arabic';
 import TemplateCommonDisciplineFixtureDefault from '../src/template/common/discipline/test/fixtures/default';
 import TemplateCommonDisciplineFixtureDoubleAuthor from '../src/template/common/discipline/test/fixtures/double-author';
@@ -2209,6 +2210,7 @@ export const fixtures = {
       WithHeroCard: TemplateCommonDashboardFixtureWithHeroCard
     },
     TemplateCommonDiscipline: {
+      AddToMyList: TemplateCommonDisciplineFixtureAddToMyList,
       Arabic: TemplateCommonDisciplineFixtureArabic,
       Default: TemplateCommonDisciplineFixtureDefault,
       DoubleAuthor: TemplateCommonDisciplineFixtureDoubleAuthor,
