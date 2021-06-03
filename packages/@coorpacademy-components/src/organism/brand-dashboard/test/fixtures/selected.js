@@ -38,6 +38,34 @@ export default {
     inputParams: {
       platform: 'up',
       provider: 'connect'
-    }
+    },
+    sidebarItems: [
+      {title: 'Analytics Engagement', type: 'info', value: `Stats d'engagement des utilisateurs`},
+      {
+        title: 'platform',
+        name: 'platform-field',
+        type: 'inputtext',
+        onChange: (field, value) => console.log('UPDATE', field, value),
+        value: 'up'
+      },
+      {
+        title: 'provider',
+        name: 'provider-field',
+        type: 'inputtext',
+        onChange: (field, value) => console.log('UPDATE', field, value),
+        value: 'connect'
+      },
+      {
+        title: 'Version',
+        type: 'select',
+        name: 'version-field',
+        onChange: version => console.log('VERSION', version),
+        options: [
+          {name: 'v1', value: 'v1', selected: false},
+          {name: 'v2', value: 'v2', selected: true},
+          {name: 'v3', value: 'aa-ee-bb-cc-dd-xx', selected: false}
+        ]
+      }
+    ]
   }
 };

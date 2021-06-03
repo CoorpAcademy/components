@@ -17,10 +17,15 @@ const DashboardPopin = (props, context) => {
 
   const primary = getOr('#00B0FF', ['common', 'primary'], skin);
 
+  function onCloseClick(e) {
+    stopPropagation(e);
+    closeOnClick(e);
+  }
+
   return (
-    <div className={style.default} onClick={closeOnClick}>
-      <div className={style.popin} onClick={stopPropagation}>
-        <div className={style.header} onClick={closeOnClick} data-name="popin-header">
+    <div className={style.default} onClick={onCloseClick}>
+      <div className={style.popin}>
+        <div className={style.header} onClick={onCloseClick} data-name="popin-header">
           {header}
         </div>
         <div className={style.content}>

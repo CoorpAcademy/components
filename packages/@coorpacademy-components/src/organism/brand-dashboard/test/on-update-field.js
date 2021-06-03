@@ -11,32 +11,15 @@ browserEnv();
 configure({adapter: new Adapter()});
 
 test('should call the onUpdateField function with the value of the target', t => {
-  t.plan(3);
+  t.plan(2);
 
   const selector = 'li[data-name="platform-field"] input';
-  const onChange = (field, value) => {
-    t.is(field, 'platform');
+  const onChange = value => {
     t.is(value, 'toto');
   };
+  defaultFixture.props.sidebarItems[1].onChange = onChange;
 
   const wrapper = mount(<DashboardPreview {...defaultFixture.props} onUpdateField={onChange} />, {
-    context: {translate: id => id},
-    childContextTypes: {translate: PropTypes.func}
-  });
-
-  t.true(wrapper.find(selector).exists());
-
-  wrapper.find(selector).simulate('change', {
-    target: {
-      value: 'toto'
-    }
-  });
-});
-
-test('should not crash if the onUpdateField function has not been specified', t => {
-  t.plan(1);
-  const selector = 'li[data-name="platform-field"] input';
-  const wrapper = mount(<DashboardPreview {...defaultFixture.props} onUpdateField={undefined} />, {
     context: {translate: id => id},
     childContextTypes: {translate: PropTypes.func}
   });

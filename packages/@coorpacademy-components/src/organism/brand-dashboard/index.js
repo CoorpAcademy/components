@@ -11,7 +11,8 @@ const currentDashboardSidebarSection = ({
   currentDashboard,
   onUpdateVersion,
   onUpdateField,
-  inputParams
+  inputParams,
+  dashboardVersionTitle
 }) => {
   const dashboardDescription = {
     title: currentDashboard.name,
@@ -19,7 +20,7 @@ const currentDashboardSidebarSection = ({
     value: currentDashboard.description
   };
   const dashboardVersion = {
-    title: 'Version',
+    title: dashboardVersionTitle,
     type: 'select',
     name: 'version-field',
     onChange: onUpdateVersion,
@@ -108,12 +109,10 @@ const BrandDashboard = (props, context) => {
   const {
     dashboards = [],
     currentDashboard,
-    onUpdateVersion = noop,
-    onUpdateField = noop,
     onErrorRedirect = noop,
-    inputParams = {},
     url,
-    error
+    error,
+    sidebarItems
   } = props;
 
   const {translate} = context;
@@ -128,18 +127,6 @@ const BrandDashboard = (props, context) => {
         />
       );
     return <Loader />;
-  }
-
-  const sidebarItems = [];
-  if (currentDashboard) {
-    sidebarItems.push(
-      currentDashboardSidebarSection({
-        currentDashboard,
-        onUpdateVersion,
-        onUpdateField,
-        inputParams
-      })
-    );
   }
 
   return (
@@ -177,10 +164,31 @@ BrandDashboard.propTypes = {
     versions: PropTypes.shape({}).isRequired,
     schema: PropTypes.arrayOf(PropTypes.string)
   }),
+  sidebarItems: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired
+      }),
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        name: PropTypes.string,
+        onChange: PropTypes.func.isRequired,
+        option: PropTypes.bool.isRequired
+      }),
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        name: PropTypes.string,
+        value: PropTypes.string,
+        onChange: PropTypes.func
+      })
+    ])
+  ),
   url: PropTypes.string,
   error: PropTypes.string,
-  onUpdateVersion: PropTypes.func,
-  onUpdateField: PropTypes.func,
   onErrorRedirect: PropTypes.func,
   inputParams: PropTypes.shape({})
 };
