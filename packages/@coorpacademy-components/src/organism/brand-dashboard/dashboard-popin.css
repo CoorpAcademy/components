@@ -1,0 +1,65 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value light from colors;
+@value grey from colors;
+@value white from colors;
+
+.default {
+  z-index: 20;
+  top: 0;
+  display: flex;
+  margin: 0;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.7);
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: auto;
+}
+
+.popin {
+  position: fixed;
+  width: 460px;
+  overflow: auto;
+  background: white;
+  text-align: center;
+  padding-bottom: 20px;
+  top: 50%;
+  left: 50%;
+  box-shadow: 0 0 15px 0 rgba(166, 166, 166, 0.84);
+  transform: translate(-50%, -50%);
+}
+
+.header {
+  display: flex;
+  width: 100%;
+  height: 35px;
+  background: light;
+  align-items: center;
+  justify-content: center;
+  color: grey;
+  font-size: 15px;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+
+.content {
+  color: dark;
+  padding: 20px 0;
+  box-sizing: border-box;
+}
+
+.content img,
+.content iframe {
+  max-width: 100%;
+}
+
+@media mobile {
+  .popin {
+    width: 100%;
+    left: 0;
+    margin: 0;
+  }
+}

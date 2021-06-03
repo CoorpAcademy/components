@@ -122,6 +122,7 @@ import MoleculeVideoPlayer from './../src/molecule/video-player';
 import OrganismAccordionContainer from './../src/organism/accordion/container';
 import OrganismAccordionPart from './../src/organism/accordion/part';
 import OrganismAccordionToggler from './../src/organism/accordion/toggler';
+import OrganismBrandDashboard from './../src/organism/brand-dashboard';
 import OrganismBrandForm from './../src/organism/brand-form';
 import OrganismBrandTable from './../src/organism/brand-table';
 import OrganismBrandUpload from './../src/organism/brand-upload';
@@ -643,6 +644,12 @@ import OrganismAccordionPartFixtureOpen from '../src/organism/accordion/part/tes
 import OrganismAccordionTogglerFixtureAllAreOpenable from '../src/organism/accordion/toggler/test/fixtures/all-are-openable';
 import OrganismAccordionTogglerFixtureNoChildrens from '../src/organism/accordion/toggler/test/fixtures/no-childrens';
 import OrganismAccordionTogglerFixtureOnlyOne from '../src/organism/accordion/toggler/test/fixtures/only-one';
+import OrganismBrandDashboardFixtureDefault from '../src/organism/brand-dashboard/test/fixtures/default';
+import OrganismBrandDashboardFixtureError from '../src/organism/brand-dashboard/test/fixtures/error';
+import OrganismBrandDashboardFixtureLoading from '../src/organism/brand-dashboard/test/fixtures/loading';
+import OrganismBrandDashboardFixtureSelectedError from '../src/organism/brand-dashboard/test/fixtures/selected-error';
+import OrganismBrandDashboardFixtureSelectedLoading from '../src/organism/brand-dashboard/test/fixtures/selected-loading';
+import OrganismBrandDashboardFixtureSelected from '../src/organism/brand-dashboard/test/fixtures/selected';
 import OrganismBrandFormFixtureAnalytics from '../src/organism/brand-form/test/fixtures/analytics';
 import OrganismBrandFormFixtureAnimations from '../src/organism/brand-form/test/fixtures/animations';
 import OrganismBrandFormFixtureCohort from '../src/organism/brand-form/test/fixtures/cohort';
@@ -852,6 +859,7 @@ import TemplateBackOfficeBrandUpdateFixtureAnimations from '../src/template/back
 import TemplateBackOfficeBrandUpdateFixtureCohortError from '../src/template/back-office/brand-update/test/fixtures/cohort-error';
 import TemplateBackOfficeBrandUpdateFixtureCohort from '../src/template/back-office/brand-update/test/fixtures/cohort';
 import TemplateBackOfficeBrandUpdateFixtureDashboard from '../src/template/back-office/brand-update/test/fixtures/dashboard';
+import TemplateBackOfficeBrandUpdateFixtureDashboardsAnalytics from '../src/template/back-office/brand-update/test/fixtures/dashboards-analytics';
 import TemplateBackOfficeBrandUpdateFixtureDefault from '../src/template/back-office/brand-update/test/fixtures/default';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess from '../src/template/back-office/brand-update/test/fixtures/general-settings-success';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettings from '../src/template/back-office/brand-update/test/fixtures/general-settings';
@@ -1056,6 +1064,7 @@ export const components = {
     OrganismAccordionToggler
   },
   Organism: {
+    OrganismBrandDashboard,
     OrganismBrandForm,
     OrganismBrandTable,
     OrganismBrandUpload,
@@ -1856,6 +1865,14 @@ export const fixtures = {
     }
   },
   Organism: {
+    OrganismBrandDashboard: {
+      Default: OrganismBrandDashboardFixtureDefault,
+      Error: OrganismBrandDashboardFixtureError,
+      Loading: OrganismBrandDashboardFixtureLoading,
+      SelectedError: OrganismBrandDashboardFixtureSelectedError,
+      SelectedLoading: OrganismBrandDashboardFixtureSelectedLoading,
+      Selected: OrganismBrandDashboardFixtureSelected
+    },
     OrganismBrandForm: {
       Analytics: OrganismBrandFormFixtureAnalytics,
       Animations: OrganismBrandFormFixtureAnimations,
@@ -2159,6 +2176,7 @@ export const fixtures = {
       CohortError: TemplateBackOfficeBrandUpdateFixtureCohortError,
       Cohort: TemplateBackOfficeBrandUpdateFixtureCohort,
       Dashboard: TemplateBackOfficeBrandUpdateFixtureDashboard,
+      DashboardsAnalytics: TemplateBackOfficeBrandUpdateFixtureDashboardsAnalytics,
       Default: TemplateBackOfficeBrandUpdateFixtureDefault,
       GeneralSettingsSuccess: TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess,
       GeneralSettings: TemplateBackOfficeBrandUpdateFixtureGeneralSettings,
