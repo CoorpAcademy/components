@@ -4,7 +4,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import DashboardPreview from '..';
+import BrandDashboard from '..';
 import defaultFixture from './fixtures/selected';
 
 browserEnv();
@@ -19,7 +19,7 @@ test('should call the onUpdateField function with the value of the target', t =>
   };
   defaultFixture.props.sidebarItems[1].onChange = onChange;
 
-  const wrapper = mount(<DashboardPreview {...defaultFixture.props} onUpdateField={onChange} />, {
+  const wrapper = mount(<BrandDashboard {...defaultFixture.props} onUpdateField={onChange} />, {
     context: {translate: id => id},
     childContextTypes: {translate: PropTypes.func}
   });
