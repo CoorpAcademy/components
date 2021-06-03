@@ -7,7 +7,6 @@ import Sidebar from '../../../organism/sidebar';
 import BrandForm from '../../../organism/brand-form';
 import BrandTable from '../../../organism/brand-table';
 import BrandUpload from '../../../organism/brand-upload';
-import BrandDashboard from '../../../organism/brand-dashboard';
 import Notification from '../../../atom/notification';
 import Loader from '../../../atom/loader';
 import Layout from '../layout';
@@ -41,8 +40,6 @@ const BrandUpdate = Layout(props => {
         return <BrandTable {...cont} />;
       case 'upload':
         return <BrandUpload {...cont} />;
-      case 'dashboard':
-        return <BrandDashboard {...cont} />;
     }
   };
 
@@ -111,11 +108,6 @@ BrandUpdate.propTypes = {
       ...BrandUpload.propTypes,
       key: PropTypes.string,
       type: PropTypes.oneOf(['upload'])
-    }),
-    PropTypes.shape({
-      ...BrandDashboard.propTypes,
-      key: PropTypes.string,
-      type: PropTypes.oneOf(['dashboard'])
     })
   ]),
   details: PropTypes.shape({
