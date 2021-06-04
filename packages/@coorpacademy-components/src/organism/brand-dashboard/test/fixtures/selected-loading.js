@@ -37,6 +37,7 @@ export default {
     onUpdateField: (field, value) => console.log('UPDATE', field, value),
     inputParams: {
       provider: 'connect'
-    }
+    },
+    sidebarItems: []
   }
 };

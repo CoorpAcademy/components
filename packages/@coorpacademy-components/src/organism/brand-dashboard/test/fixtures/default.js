@@ -20,6 +20,7 @@ export default {
         href: '/dashboards/analytics-partners'
       }
     ],
-    onSelectDashboard: dashboard => console.log('SELECTED', dashboard)
+    onSelectDashboard: dashboard => console.log('SELECTED', dashboard),
+    sidebarItems: []
   }
 };

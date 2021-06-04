@@ -1,43 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {noop, getOr, kebabCase, keys} from 'lodash/fp';
+import {noop, getOr} from 'lodash/fp';
 import Sidebar from '../sidebar';
 import Provider from '../../atom/provider';
 import Loader from '../../template/app-player/loading';
 import DashboardPopin from './dashboard-popin';
 import style from './style.css';
-
-const currentDashboardSidebarSection = ({
-  currentDashboard,
-  onUpdateVersion,
-  onUpdateField,
-  inputParams
-}) => {
-  const dashboardDescription = {
-    title: currentDashboard.name,
-    type: 'info',
-    value: currentDashboard.description
-  };
-  const dashboardVersion = {
-    title: 'Version',
-    type: 'select',
-    name: 'version-field',
-    onChange: onUpdateVersion,
-    options: keys(currentDashboard.versions).map(v => ({
-      name: v,
-      value: v,
-      selected: v === currentDashboard.currentVersion
-    }))
-  };
-  const paramInputs = currentDashboard.schema.map(schema => ({
-    title: schema,
-    name: `${kebabCase(schema)}-field`,
-    type: 'inputtext',
-    onChange: newValue => onUpdateField(schema, newValue),
-    value: getOr('', schema, inputParams)
-  }));
-  return [dashboardDescription, ...paramInputs, dashboardVersion];
-};
 
 const Dashboard = (props, context) => {
   const {url, error, selected} = props;
@@ -108,12 +76,10 @@ const BrandDashboard = (props, context) => {
   const {
     dashboards = [],
     currentDashboard,
-    onUpdateVersion = noop,
-    onUpdateField = noop,
     onErrorRedirect = noop,
-    inputParams = {},
     url,
-    error
+    error,
+    sidebarItems
   } = props;
 
   const {translate} = context;
@@ -128,18 +94,6 @@ const BrandDashboard = (props, context) => {
         />
       );
     return <Loader />;
-  }
-
-  const sidebarItems = [];
-  if (currentDashboard) {
-    sidebarItems.push(
-      currentDashboardSidebarSection({
-        currentDashboard,
-        onUpdateVersion,
-        onUpdateField,
-        inputParams
-      })
-    );
   }
 
   return (
@@ -177,10 +131,31 @@ BrandDashboard.propTypes = {
     versions: PropTypes.shape({}).isRequired,
     schema: PropTypes.arrayOf(PropTypes.string)
   }),
+  sidebarItems: PropTypes.arrayOf(
+    PropTypes.oneOfType([
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        value: PropTypes.string.isRequired
+      }),
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        name: PropTypes.string,
+        onChange: PropTypes.func.isRequired,
+        option: PropTypes.bool.isRequired
+      }),
+      PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        type: PropTypes.string.isRequired,
+        name: PropTypes.string,
+        value: PropTypes.string,
+        onChange: PropTypes.func
+      })
+    ])
+  ),
   url: PropTypes.string,
   error: PropTypes.string,
-  onUpdateVersion: PropTypes.func,
-  onUpdateField: PropTypes.func,
   onErrorRedirect: PropTypes.func,
   inputParams: PropTypes.shape({})
 };
