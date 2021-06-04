@@ -25,8 +25,11 @@ const copyTextViaExecCommand = text => {
   textarea.setAttribute('readonly', '');
   textarea.value = text;
 
-  document.body.append(textarea);
+  // Element.append is not supported on IE11 :/
+  // eslint-disable-next-line unicorn/prefer-node-append
+  document.body.appendChild(textarea);
   let status = SHARE_STATUS.IDLE;
+
   try {
     textarea.select();
     textarea.setSelectionRange(0, textarea.value.length);
