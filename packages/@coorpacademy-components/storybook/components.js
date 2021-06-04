@@ -908,6 +908,7 @@ import TemplateCommonDisciplineFixtureJwplayer from '../src/template/common/disc
 import TemplateCommonDisciplineFixtureLoading from '../src/template/common/discipline/test/fixtures/loading';
 import TemplateCommonDisciplineFixtureNoAuthor from '../src/template/common/discipline/test/fixtures/no-author';
 import TemplateCommonDisciplineFixtureNoVideo from '../src/template/common/discipline/test/fixtures/no-video';
+import TemplateCommonDisciplineFixtureShare from '../src/template/common/discipline/test/fixtures/share';
 import TemplateCommonDisciplineFixtureVimeo from '../src/template/common/discipline/test/fixtures/vimeo';
 import TemplateCommonDisciplineFixtureWithOnclick from '../src/template/common/discipline/test/fixtures/with-onclick';
 import TemplateCommonSearchPageFixtureDefault from '../src/template/common/search-page/test/fixtures/default';
@@ -2240,6 +2241,7 @@ export const fixtures = {
       Loading: TemplateCommonDisciplineFixtureLoading,
       NoAuthor: TemplateCommonDisciplineFixtureNoAuthor,
       NoVideo: TemplateCommonDisciplineFixtureNoVideo,
+      Share: TemplateCommonDisciplineFixtureShare,
       Vimeo: TemplateCommonDisciplineFixtureVimeo,
       WithOnclick: TemplateCommonDisciplineFixtureWithOnclick
     },

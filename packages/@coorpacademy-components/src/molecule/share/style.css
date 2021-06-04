@@ -21,10 +21,10 @@
 }
 
 .cta {
-  padding: 12px 16px;
+  display: flex;
+  justify-content: center; 
   min-width: 63px;
   border-radius: 3px;
-  display: block;
   text-transform: inherit;
   background-color: xtraLightGrey;
   color: dark;
