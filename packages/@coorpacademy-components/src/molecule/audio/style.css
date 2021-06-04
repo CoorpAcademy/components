@@ -37,6 +37,7 @@
   outline: none;
   transition: all 0.25s linear;
   z-index: 1;
+  max-width: 70%;
 }
 .audio:hover {
   transform: scale(1.05);

@@ -48,9 +48,8 @@
 }
 
 .columnReverse {
-  display: flex;
-  flex-direction: column-reverse;
   width: 840px;
+  display: inline-block;
 }
 
 .header,
