@@ -97,7 +97,7 @@ const Share = ({style, text, wording}) => {
 
   return (
     <div className={(styles.container, style)}>
-      <Link onClick={onClick} className={styles.cta}>
+      <Link onClick={onClick} className={styles.cta} data-name={'share-button'}>
         <div className={styles.wrapper}>
           <ShareIcon className={styles.shareIcon} width={18} height={18} />
           <p>{wording}</p>
