@@ -20,7 +20,9 @@ const copyTextViaExecCommand = text => {
 
   textarea.style.border = '0';
   textarea.style.padding = '0';
-  textarea.style.margin = '0';
+  textarea.style.margin = '0 auto';
+  textarea.style.display = 'none';
+  textarea.style.textAlign = 'center';
   textarea.style.position = 'absolute';
   textarea.setAttribute('readonly', '');
   textarea.value = text;
@@ -38,7 +40,10 @@ const copyTextViaExecCommand = text => {
   } catch (error) {
     status = SHARE_STATUS.ERROR;
   }
-  textarea.remove();
+
+  // eslint-disable-next-line unicorn/prefer-node-remove
+  document.body.removeChild(textarea);
+
   return status;
 };
 
