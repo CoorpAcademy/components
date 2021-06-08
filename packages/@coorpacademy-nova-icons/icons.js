@@ -48,6 +48,11 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/vimeo.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/youtube.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/list-bullets-3.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/big-flash-left.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/big-flash-right.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/small-flash-right.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/small-flash-left.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/start-battle-shape.svg')},
   {
     filePath: path.resolve('./third-party/nova-composition.iconjar/icons/draft.svg'),
     replaceColors: false
