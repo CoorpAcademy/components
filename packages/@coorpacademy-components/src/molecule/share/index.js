@@ -20,7 +20,6 @@ const copyTextViaExecCommand = text => {
 
   textarea.style.border = '0';
   textarea.style.padding = '0';
-  textarea.style.margin = '0 auto';
   textarea.style.display = 'none';
   textarea.style.textAlign = 'center';
   textarea.style.position = 'absolute';
