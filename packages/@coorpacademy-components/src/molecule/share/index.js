@@ -20,6 +20,8 @@ const copyTextViaExecCommand = text => {
 
   textarea.style.border = '0';
   textarea.style.padding = '0';
+  textarea.style.top = '0';
+  textarea.style.left = '0';
   textarea.style.position = 'absolute';
   textarea.setAttribute('readonly', '');
   textarea.value = text;
