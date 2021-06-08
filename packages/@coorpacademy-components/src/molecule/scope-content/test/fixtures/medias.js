@@ -1,3 +1,9 @@
+import ResourceBrowser from '../../../../organism/resource-browser/test/fixtures/jwplayer';
+
+const {
+  props: {resources}
+} = ResourceBrowser;
+
 export default {
   props: {
     content: {
@@ -13,34 +19,7 @@ export default {
         {name: 'Les types de coûts en publicité'},
         {name: 'Le display à la performance'}
       ],
-      medias: [
-        {
-          title: 'Titre de la vidéo',
-          image: 'https://picsum.photos/250/150',
-          type: 'video',
-          onClick: () => true
-        },
-        {
-          title: 'Titre 2',
-          image: 'https://picsum.photos/250/150',
-          type: 'video',
-          onClick: () => true
-        },
-        {
-          title: 'Blabla vidéo',
-          image: 'https://picsum.photos/250/150',
-          type: 'pdf',
-          href: '#1',
-          target: '_blank'
-        },
-        {
-          title: 'Titre de la vidéo',
-          image: 'https://picsum.photos/250/150',
-          type: 'audio',
-          href: '#2',
-          target: '_blank'
-        }
-      ]
+      resources
     }
   }
 };
