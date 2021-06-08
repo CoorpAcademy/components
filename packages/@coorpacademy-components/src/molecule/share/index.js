@@ -38,6 +38,7 @@ const copyTextViaExecCommand = text => {
     status = SHARE_STATUS.ERROR;
   }
 
+  // Element.remove is not supported on IE11 :/
   // eslint-disable-next-line unicorn/prefer-node-remove
   document.body.removeChild(textarea);
 
