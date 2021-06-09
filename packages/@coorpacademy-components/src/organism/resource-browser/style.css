@@ -14,7 +14,6 @@
 }
 
 .resourcePlayer {
-  height: 343px;
   width: 609px;
   display: flex;
   align-items: center;
@@ -30,8 +29,6 @@
 
   .resourcePlayer {
     width: 100%;
-    min-width: 100vw;
-    height: 56.25vw;
   }
 
   .resourcesList {

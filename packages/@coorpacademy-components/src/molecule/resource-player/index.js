@@ -61,8 +61,6 @@ const ResourceElement = props => {
           autoplay={autoplay}
           disableAutostart={disableAutostart}
           id={videoId}
-          height="100%"
-          width="100%"
         />
       );
   }

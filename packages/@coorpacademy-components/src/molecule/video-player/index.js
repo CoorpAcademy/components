@@ -61,7 +61,7 @@ class VideoPlayer extends React.Component {
   };
 
   renderPlayer = () => {
-    const {mimeType, id, url, width = '100%', height = '400px', onPause, onEnded} = this.props;
+    const {mimeType, id, url, onPause, onEnded, width = '100%', height = '343px'} = this.props;
     switch (mimeType) {
       case 'application/vimeo':
         return (
@@ -75,7 +75,6 @@ class VideoPlayer extends React.Component {
             onPlay={this.handleOnPlay}
           />
         );
-
       case 'application/youtube':
       case 'application/uptale':
       case 'application/h5p':
