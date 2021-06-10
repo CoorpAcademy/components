@@ -19,6 +19,7 @@
   background: #111026;
   background-image: url(https://static.coorpacademy.com/site/startBattleBackground.png);
   background-size: cover;
+  border-radius: 16px;
 }
 
 .wrapper {
@@ -28,6 +29,7 @@
   background-size: 100% 100%;
   position: absolute;
   z-index: 1;
+  border-radius: 16px;
 }
 
 .start {
