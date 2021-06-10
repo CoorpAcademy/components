@@ -104,6 +104,7 @@ import _NovaLineStatusCloseCircle from './components/nova-line/status/close-circ
 import _NovaLineToolsWrenchScrewdriver from './components/nova-line/tools/wrench-screwdriver';
 import _NovaLineVideosVideoClip3 from './components/nova-line/videos/video-clip-3';
 import _NovaSolidAudioAudioControlFastForward from './components/nova-solid/audio/audio-control-fast-forward';
+import _NovaSolidAudioAudioControlPause from './components/nova-solid/audio/audio-control-pause';
 import _NovaSolidAudioAudioControlPlay from './components/nova-solid/audio/audio-control-play';
 import _NovaSolidBookmarksTagsBookmark3 from './components/nova-solid/bookmarks-tags/bookmark-3';
 import _NovaSolidBookmarksTagsBookmark5 from './components/nova-solid/bookmarks-tags/bookmark-5';
@@ -239,6 +240,7 @@ export const NovaLineStatusCloseCircle: Icon = _NovaLineStatusCloseCircle;
 export const NovaLineToolsWrenchScrewdriver: Icon = _NovaLineToolsWrenchScrewdriver;
 export const NovaLineVideosVideoClip3: Icon = _NovaLineVideosVideoClip3;
 export const NovaSolidAudioAudioControlFastForward: Icon = _NovaSolidAudioAudioControlFastForward;
+export const NovaSolidAudioAudioControlPause: Icon = _NovaSolidAudioAudioControlPause;
 export const NovaSolidAudioAudioControlPlay: Icon = _NovaSolidAudioAudioControlPlay;
 export const NovaSolidBookmarksTagsBookmark3: Icon = _NovaSolidBookmarksTagsBookmark3;
 export const NovaSolidBookmarksTagsBookmark5: Icon = _NovaSolidBookmarksTagsBookmark5;
