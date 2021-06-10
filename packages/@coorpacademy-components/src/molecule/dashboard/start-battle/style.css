@@ -159,14 +159,12 @@
   box-shadow: 0 0 15px battle;
 }
 
-.smallFlashLeftMobile {
-  display: none;
+.smallFlashLeftMobile,
+.smallFlashRightMobile {
+  visibility: hidden;
+  width: 0;
 }
 
-.smallFlashRightMobile {
-  display: none;
-}
- 
 @keyframes bigFlashLeftAnim {
   0% {margin-top: 0px;}
   10% {margin-top: 10px;} 
@@ -228,12 +226,11 @@
 }
 
 @media tablet {
-  .smallFlashRight {
-    display: none;
-  }
-  
+
+  .smallFlashRight,
   .smallFlashLeft {
-    display: none;
+      visibility: hidden;
+  width: 0;
   }
 
   .bigFlashRight {
@@ -261,12 +258,16 @@
     height: 50px;
     display: block;
     padding-right: 10px;
+    visibility: visible;
+    width: auto;
   }
   
   .smallFlashRightMobile {
     height: 50px;
     display: block;
     padding-left: 10px;
+    visibility: visible;
+    width: auto;
   }
 
   .start {
@@ -297,13 +298,11 @@
     height: 100%;
     width: 100%;
   }
-  
-  .leftFlashes {
-    display: none;
-  }
 
+  .leftFlashes,
   .rightFlashes {
-    display: none;
+    visibility: hidden;
+    width: 0;
   }
 
   .button {
