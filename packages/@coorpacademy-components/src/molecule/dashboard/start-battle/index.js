@@ -29,7 +29,7 @@ const StartBattle = (props, context) => {
             </div>
             <div className={style.challengeText}>{challengeText}</div>
             <Link className={style.button} onClick={onClick} href={href}>
-              <div>{startBattleText}</div>
+              {startBattleText}
             </Link>
           </div>
           <div className={style.rightFlashes}>
