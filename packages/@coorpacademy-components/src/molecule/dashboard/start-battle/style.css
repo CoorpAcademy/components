@@ -246,28 +246,24 @@
   }
 }
 @media mobile {
-  .container {
-    height: 200px;
-  }
-  
+  .container,
   .wrapper {
     height: 200px;
   }
 
-  .smallFlashLeftMobile {
-    height: 50px;
-    display: block;
-    padding-right: 10px;
-    visibility: visible;
-    width: auto;
-  }
-  
+  .smallFlashLeftMobile,
   .smallFlashRightMobile {
     height: 50px;
     display: block;
-    padding-left: 10px;
     visibility: visible;
     width: auto;
+  }
+  .smallFlashLeftMobile {
+    padding-right: 10px;
+  }
+  
+  .smallFlashRightMobile {
+    padding-left: 10px;
   }
 
   .start {

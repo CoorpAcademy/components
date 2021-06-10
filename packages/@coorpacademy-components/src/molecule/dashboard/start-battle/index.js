@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {NovaCompositionCoorpacademyBigFlashRight as BigFlashRight,
+import {
+  NovaCompositionCoorpacademyBigFlashRight as BigFlashRight,
   NovaCompositionCoorpacademyBigFlashLeft as BigFlashLeft,
   NovaCompositionCoorpacademySmallFlashRight as SmallFlashRight,
-  NovaCompositionCoorpacademySmallFlashLeft as SmallFlashLeft,
+  NovaCompositionCoorpacademySmallFlashLeft as SmallFlashLeft
 } from '@coorpacademy/nova-icons';
 import Provider from '../../../atom/provider';
 import Link from '../../../atom/link';
@@ -11,30 +12,29 @@ import style from './style.css';
 
 const StartBattle = (props, context) => {
   const {startBattleText, becomeAChampiontext, challengeText, onClick, href} = props;
-  const {skin} = context;
 
   return (
     <div className={style.container} data-name="start-battle">
       <div className={style.wrapper}>
         <div className={style.start}>
-        <div  className={style.leftFlashes}>
-        <BigFlashLeft className={style.bigFlashLeft}/>
-        <SmallFlashLeft className={style.smallFlashLeft}/>
-        </div>
-          <div  className={style.middle}>
-          <div className={style.becomeText}>
-          <BigFlashLeft className={style.smallFlashLeftMobile}/>
-            {becomeAChampiontext}
-            <BigFlashRight className={style.smallFlashRightMobile} />
+          <div className={style.leftFlashes}>
+            <BigFlashLeft className={style.bigFlashLeft} />
+            <SmallFlashLeft className={style.smallFlashLeft} />
+          </div>
+          <div className={style.middle}>
+            <div className={style.becomeText}>
+              <BigFlashLeft className={style.smallFlashLeftMobile} />
+              {becomeAChampiontext}
+              <BigFlashRight className={style.smallFlashRightMobile} />
             </div>
-          <div className={style.challengeText}>{challengeText}</div>
-          <Link className={style.button} onClick={onClick} href={href}>
-            <div>{startBattleText}</div>
-          </Link>
+            <div className={style.challengeText}>{challengeText}</div>
+            <Link className={style.button} onClick={onClick} href={href}>
+              <div>{startBattleText}</div>
+            </Link>
           </div>
           <div className={style.rightFlashes}>
-          <BigFlashRight className={style.bigFlashRight}/>
-          <SmallFlashRight className={style.smallFlashRight}/>
+            <BigFlashRight className={style.bigFlashRight} />
+            <SmallFlashRight className={style.smallFlashRight} />
           </div>
         </div>
       </div>
