@@ -7,152 +7,302 @@
 @value battle from colors;
 @value black from colors;
 @value light from colors;
+@value battle_bg from colors;
 
 .container {
   width: 100%;
+  max-width: 1080px;
+  height: 214px;
   display: flex;
   justify-content: center;
-  padding: 10px 0;
+  position: relative;
+  z-index: 0;
+  background: battle_bg;
+  background-image: url(https://static.coorpacademy.com/site/startBattleBackground.png);
+  background-size: cover;
+  border-radius: 16px;
 }
 
 .wrapper {
-  max-width: 1080px;
-  flex: 1 1 100%;
-  background: white;
-  border: 1px solid light;
+  width: 100%;
+  height: 214px;
+  background-image: url(https://static.coorpacademy.com/site/start_battle_shape.png);
+  background-size: 100% 100%;
+  position: absolute;
+  z-index: 1;
+  border-radius: 16px;
 }
 
 .start {
   width: 100%;
   display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  position: absolute;
+  z-index: 2;
+}
+
+.middle {
+  display: flex;
   flex-direction: column;
   align-items: center;
-  overflow: hidden;
+  color: white;
+}
+
+.rightFlashes {
+  width: 167px;
+  height: 214px;
+  padding-right: 30px;
+  display: flex;
+  align-items: start;
+}
+
+.leftFlashes {
+  width: 167px;
+  height: 214px;
+  padding-left: 30px;
+  display: flex;
+  align-items: start;
+}
+
+.bigFlashRight {
+  width: 167px;
+  height: 250px;
+  margin-top: -30px;
+  animation-name: bigFlashRightAnim;
+  animation-duration: 12s;
+  animation-delay: 0;
+  animation-iteration-count: infinite;
+  animation-direction: forward;
+}
+
+.bigFlashLeft {
+  width: 167px;
+  height: 250px;
+  animation-name: bigFlashLeftAnim;
+  animation-duration: 12s;
+  animation-delay: 0;
+  animation-iteration-count: infinite;
+  animation-direction: forward;
+}
+
+.smallFlashRight {
+  width: 100px;
+  height: 132px;
+  margin-left: -50px;
+  margin-top: 70px;
+  animation-name: smallFlashRightAnim;
+  animation-duration: 12s;
+  animation-delay: 0;
+  animation-iteration-count: infinite;
+  animation-direction: forward;
+}
+
+.smallFlashLeft {
+  width: 100px;
+  height: 132px;
+  margin-left: -50px;
+  animation-name: smallFlashLeftAnim;
+  animation-duration: 12s;
+  animation-delay: 0;
+  animation-iteration-count: infinite;
+  animation-direction: forward;
+}
+
+.becomeText {
+  font-family: Open Sans;
+  font-size: 24px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+}
+
+.challengeText {
+  font-family: Open Sans;
+  font-size: 32px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  padding-bottom: 15px;
 }
 
 .button {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  position: relative;
-  border: 1px solid battle;
-  text-decoration: none;
-}
-
-.button:hover .bubble {
-  transform: scale(0);
-}
-
-.button:hover .bubble > .icon {
-  transform: scale(3);
-}
-
-.animate {
-  composes: button;
-  margin: 5px;
-}
-
-.animate::after {
-  animation: pulse 2s linear 0s infinite;
-}
-
-.animate::before {
-  animation: pulse 2s linear 1s infinite;
-}
-
-.animate::after,
-.animate::before {
-  content: '';
-  width: 150px;
-  height: 150px;
-  top: 0;
-  left: 0;
-  position: absolute;
-  box-shadow: inset 0 0 7px 0 rgba(255, 225, 0, 0.37);
-  border-radius: 50%;
-  transform: scale(1);
-}
-
-.bubbleFrame {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  position: absolute;
-  overflow: hidden;
-  top: 0;
-  left: 0;
-  transition: all 0.2s ease-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.bubble {
-  composes: bubbleFrame;
+  width: 168px;
+  height: 45px;
+  border-radius: 36px;
+  margin: 10px;
   background-color: battle;
-}
-
-.backBubble {
-  composes: bubbleFrame;
-}
-
-.iconBubble {
-  composes: bubbleFrame;
-}
-
-.animate:hover .iconBubble {
-  opacity: 0;
-}
-
-.icon {
-  width: 100px;
-  height: 100px;
-}
-
-.label {
-  z-index: 2;
-  font-family: 'Open Sans';
-  color: black;
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 15px;
-  text-align: center;
-  padding: 10px;
-  line-height: 20px;
-  letter-spacing: 4px;
-  display: flex;
-  width: inherit;
-  flex-direction: column;
-}
-
-.label span {
-  font-size: 30px;
+  flex-grow: 0;
+  font-family: Open Sans;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
   letter-spacing: normal;
+  text-align: left;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: battle_bg;
 }
 
+.button:hover {
+  box-shadow: 0 0 15px battle;
+}
+
+.smallFlashLeftMobile,
+.smallFlashRightMobile {
+  visibility: hidden;
+  width: 0;
+}
+
+@keyframes bigFlashLeftAnim {
+  0% {margin-top: 0px;}
+  10% {margin-top: 10px;} 
+  20% {margin-top: 0px;} 
+  30% {margin-top: 10px;} 
+  40% {margin-top: 0px;} 
+  45% {margin-left: 0px;}
+  50% {margin-left: 10px;}
+  60% {margin-left: 0px;}
+  70% {margin-left: 10px;}
+  80% {margin-left: 0px;}
+  90% {margin-left: 10px;}
+  100% {margin-left: 0px;}
+}
+
+@keyframes smallFlashLeftAnim {
+  0% {margin-top: 0px}
+  10% {margin-top: 30px;} 
+  20% {margin-top: 0px} 
+  30% {margin-top: 30px;} 
+  40% {margin-top: 0px} 
+  45% {margin-left: -50px;}
+  50% {margin-left: -70px;}
+  60% {margin-left: -50px;}
+  70% {margin-left: -70px;}
+  80% {margin-left: -50px;}
+  90% {margin-left: -70px;}
+  100% {margin-left: -50px;}
+}
+
+@keyframes bigFlashRightAnim {
+  0% {margin-top: -30px;}
+  10% {margin-top: -20px;} 
+  20% {margin-top: -30px;} 
+  30% {margin-top: -20px;} 
+  40% {margin-top: -30px;} 
+  45% {padding-right: 0px;}
+  50% {padding-right: 20px;}
+  60% {padding-right: 0px;}
+  70% {padding-right: 20px;}
+  80% {padding-right: 0px;}
+  90% {padding-right: 20px;}
+  100% {padding-right: 0px;}
+}
+
+@keyframes smallFlashRightAnim {
+  0% {margin-top: 70px}
+  10% {margin-top: 90px;} 
+  20% {margin-top: 70px} 
+  30% {margin-top: 90px;} 
+  40% {margin-top: 70px} 
+  45% {margin-right: 0px;}
+  50% {margin-right: -10px;}
+  60% {margin-right: 0px;}
+  70% {margin-right: -10px;}
+  80% {margin-right: 0px;}
+  90% {margin-right: -10px;}
+  100% {margin-right: 0px;}
+}
+
+@media tablet {
+
+  .smallFlashRight,
+  .smallFlashLeft {
+    visibility: hidden;
+    width: 0;
+  }
+
+  .bigFlashRight {
+    width: 175px;
+    height: 222px;
+    margin-top: -20px;
+  }
+  
+  .bigFlashLeft {
+    width: 175px;
+    height: 222px;
+    margin-bottom: -3 0px;
+  }
+}
 @media mobile {
+  .container,
+  .wrapper {
+    height: 200px;
+  }
+
+  .smallFlashLeftMobile,
+  .smallFlashRightMobile {
+    height: 50px;
+    display: block;
+    visibility: visible;
+    width: auto;
+  }
+  .smallFlashLeftMobile {
+    padding-right: 10px;
+  }
+  
+  .smallFlashRightMobile {
+    padding-left: 10px;
+  }
+
+  .start {
+    display: flex;
+    flex-direction: row;
+    align-items: start;
+    justify-content: space-between;
+    height: 100%;
+  }
+
+  .becomeText {
+    font-size: 16px;
+    padding: 5px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+  }
+  
+  .challengeText {
+    font-family: Open Sans;
+    font-size: 28px;
+    padding-bottom: 20px;
+  }
+
+  .middle {
+    height: 100%;
+    width: 100%;
+  }
+
+  .leftFlashes,
+  .rightFlashes {
+    visibility: hidden;
+    width: 0;
+  }
+
   .button {
-    margin-top: 20px;
-  }
-}
-
-@keyframes pulse {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-
-  50% {
-    transform: scale(2);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(3);
-    opacity: 0;
+    margin: 5px;
   }
 }

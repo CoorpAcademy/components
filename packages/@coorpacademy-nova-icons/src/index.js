@@ -12,6 +12,8 @@ import _NovaCompositionCoorpacademyAdaptive from './components/nova-composition/
 import _NovaCompositionCoorpacademyAddressError from './components/nova-composition/coorpacademy/address-error';
 import _NovaCompositionCoorpacademyArticle from './components/nova-composition/coorpacademy/article';
 import _NovaCompositionCoorpacademyAttention from './components/nova-composition/coorpacademy/attention';
+import _NovaCompositionCoorpacademyBigFlashLeft from './components/nova-composition/coorpacademy/big-flash-left';
+import _NovaCompositionCoorpacademyBigFlashRight from './components/nova-composition/coorpacademy/big-flash-right';
 import _NovaCompositionCoorpacademyBolt from './components/nova-composition/coorpacademy/bolt';
 import _NovaCompositionCoorpacademyBrokenHeart from './components/nova-composition/coorpacademy/broken-heart';
 import _NovaCompositionCoorpacademyCharts from './components/nova-composition/coorpacademy/charts';
@@ -60,8 +62,11 @@ import _NovaCompositionCoorpacademyScorm from './components/nova-composition/coo
 import _NovaCompositionCoorpacademySearch from './components/nova-composition/coorpacademy/search';
 import _NovaCompositionCoorpacademySettings from './components/nova-composition/coorpacademy/settings';
 import _NovaCompositionCoorpacademyShare from './components/nova-composition/coorpacademy/share';
+import _NovaCompositionCoorpacademySmallFlashLeft from './components/nova-composition/coorpacademy/small-flash-left';
+import _NovaCompositionCoorpacademySmallFlashRight from './components/nova-composition/coorpacademy/small-flash-right';
 import _NovaCompositionCoorpacademySpiral from './components/nova-composition/coorpacademy/spiral';
 import _NovaCompositionCoorpacademyStar from './components/nova-composition/coorpacademy/star';
+import _NovaCompositionCoorpacademyStartBattleShape from './components/nova-composition/coorpacademy/start-battle-shape';
 import _NovaCompositionCoorpacademyTarget from './components/nova-composition/coorpacademy/target';
 import _NovaCompositionCoorpacademyTimer from './components/nova-composition/coorpacademy/timer';
 import _NovaCompositionCoorpacademyTooltipCorner from './components/nova-composition/coorpacademy/tooltip-corner';
@@ -148,6 +153,8 @@ export const NovaCompositionCoorpacademyAdaptive: Icon = _NovaCompositionCoorpac
 export const NovaCompositionCoorpacademyAddressError: Icon = _NovaCompositionCoorpacademyAddressError;
 export const NovaCompositionCoorpacademyArticle: Icon = _NovaCompositionCoorpacademyArticle;
 export const NovaCompositionCoorpacademyAttention: Icon = _NovaCompositionCoorpacademyAttention;
+export const NovaCompositionCoorpacademyBigFlashLeft: Icon = _NovaCompositionCoorpacademyBigFlashLeft;
+export const NovaCompositionCoorpacademyBigFlashRight: Icon = _NovaCompositionCoorpacademyBigFlashRight;
 export const NovaCompositionCoorpacademyBolt: Icon = _NovaCompositionCoorpacademyBolt;
 export const NovaCompositionCoorpacademyBrokenHeart: Icon = _NovaCompositionCoorpacademyBrokenHeart;
 export const NovaCompositionCoorpacademyCharts: Icon = _NovaCompositionCoorpacademyCharts;
@@ -196,8 +203,11 @@ export const NovaCompositionCoorpacademyScorm: Icon = _NovaCompositionCoorpacade
 export const NovaCompositionCoorpacademySearch: Icon = _NovaCompositionCoorpacademySearch;
 export const NovaCompositionCoorpacademySettings: Icon = _NovaCompositionCoorpacademySettings;
 export const NovaCompositionCoorpacademyShare: Icon = _NovaCompositionCoorpacademyShare;
+export const NovaCompositionCoorpacademySmallFlashLeft: Icon = _NovaCompositionCoorpacademySmallFlashLeft;
+export const NovaCompositionCoorpacademySmallFlashRight: Icon = _NovaCompositionCoorpacademySmallFlashRight;
 export const NovaCompositionCoorpacademySpiral: Icon = _NovaCompositionCoorpacademySpiral;
 export const NovaCompositionCoorpacademyStar: Icon = _NovaCompositionCoorpacademyStar;
+export const NovaCompositionCoorpacademyStartBattleShape: Icon = _NovaCompositionCoorpacademyStartBattleShape;
 export const NovaCompositionCoorpacademyTarget: Icon = _NovaCompositionCoorpacademyTarget;
 export const NovaCompositionCoorpacademyTimer: Icon = _NovaCompositionCoorpacademyTimer;
 export const NovaCompositionCoorpacademyTooltipCorner: Icon = _NovaCompositionCoorpacademyTooltipCorner;
