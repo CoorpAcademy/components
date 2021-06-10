@@ -1,36 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {get} from 'lodash/fp';
-import {NovaCompositionCoorpacademyBolt as BoltIcon} from '@coorpacademy/nova-icons';
+import {NovaCompositionCoorpacademyBigFlashRight as BigFlashRight,
+  NovaCompositionCoorpacademyBigFlashLeft as BigFlashLeft,
+  NovaCompositionCoorpacademySmallFlashRight as SmallFlashRight,
+  NovaCompositionCoorpacademySmallFlashLeft as SmallFlashLeft,
+} from '@coorpacademy/nova-icons';
 import Provider from '../../../atom/provider';
 import Link from '../../../atom/link';
 import style from './style.css';
 
 const StartBattle = (props, context) => {
-  const {label, onClick, href} = props;
+  const {startBattleText, becomeAChampiontext, challengeText, onClick, href} = props;
   const {skin} = context;
-
-  const white = get('common.white', skin);
-  const battleColor = get('common.battle', skin);
 
   return (
     <div className={style.container} data-name="start-battle">
       <div className={style.wrapper}>
         <div className={style.start}>
-          <Link className={style.animate} onClick={onClick} href={href}>
-            <div className={style.backBubble}>
-              <BoltIcon color={battleColor} className={style.icon} />
+        <div  className={style.leftFlashes}>
+        <BigFlashLeft className={style.bigFlashLeft}/>
+        <SmallFlashLeft className={style.smallFlashLeft}/>
+        </div>
+          <div  className={style.middle}>
+          <div className={style.becomeText}>
+          <BigFlashLeft className={style.smallFlashLeftMobile}/>
+            {becomeAChampiontext}
+            <BigFlashRight className={style.smallFlashRightMobile} />
             </div>
-            <div className={style.bubble} />
-            <div className={style.iconBubble}>
-              <BoltIcon color={white} className={style.icon} />
-            </div>
-            <div
-              className={style.label}
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{__html: label}}
-            />
+          <div className={style.challengeText}>{challengeText}</div>
+          <Link className={style.button} onClick={onClick} href={href}>
+            <div>{startBattleText}</div>
           </Link>
+          </div>
+          <div className={style.rightFlashes}>
+          <BigFlashRight className={style.bigFlashRight}/>
+          <SmallFlashRight className={style.smallFlashRight}/>
+          </div>
         </div>
       </div>
     </div>
@@ -42,7 +47,9 @@ StartBattle.contextTypes = {
 };
 
 StartBattle.propTypes = {
-  label: PropTypes.string,
+  startBattleText: PropTypes.string,
+  becomeAChampiontext: PropTypes.string,
+  challengeText: PropTypes.string,
   onClick: PropTypes.func,
   href: PropTypes.string
 };

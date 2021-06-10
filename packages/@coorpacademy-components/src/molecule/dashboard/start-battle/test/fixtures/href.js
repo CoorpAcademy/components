@@ -1,6 +1,8 @@
 export default {
   props: {
-    label: 'Create a new<span>battle</span>',
+    startBattleText: 'Create a battle',
+    becomeAChampiontext: 'become A Champion',
+    challengeText: 'Challenge your colleagues',
     href: '#'
   }
 };
