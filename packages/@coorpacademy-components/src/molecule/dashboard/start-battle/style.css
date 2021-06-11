@@ -9,6 +9,13 @@
 @value light from colors;
 @value battle_bg from colors;
 
+.root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+}
+
 .container {
   width: 100%;
   max-width: 1080px;
