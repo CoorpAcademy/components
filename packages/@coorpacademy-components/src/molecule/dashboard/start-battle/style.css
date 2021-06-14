@@ -31,6 +31,8 @@
   justify-content: center;
   position: relative;
   z-index: 0;
+  top: 0px;
+  left: 0px;
   background: battle_bg;
   background-image: url(https://static.coorpacademy.com/site/startBattleBackground.png);
   background-size: cover;
@@ -44,6 +46,8 @@
   background-size: 100% 100%;
   position: absolute;
   z-index: 1;
+  top: 0px;
+  left: 0px;
   border-radius: 16px;
 }
 
@@ -55,6 +59,8 @@
   justify-content: space-between;
   position: absolute;
   z-index: 2;
+  top: 0px;
+  left: 0px;
 }
 
 .middle {
@@ -177,7 +183,8 @@
 .smallFlashLeftMobile,
 .smallFlashRightMobile {
   visibility: hidden;
-  width: 0;
+  width: 0px;
+  height: 0px;
 }
 
 @keyframes bigFlashLeftAnim {
@@ -271,7 +278,7 @@
     height: 50px;
     display: block;
     visibility: visible;
-    width: auto;
+    width: 30px;
   }
   .smallFlashLeftMobile {
     padding-right: 10px;
