@@ -1,10 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {
-  NovaCompositionCoorpacademyBigFlashRight as BigFlashRight,
-  NovaCompositionCoorpacademyBigFlashLeft as BigFlashLeft,
-  NovaCompositionCoorpacademySmallFlashRight as SmallFlashRight,
-  NovaCompositionCoorpacademySmallFlashLeft as SmallFlashLeft
+  NovaCompositionCoorpacademyBigFlashRight as FlashRight,
+  NovaCompositionCoorpacademyBigFlashLeft as FlashLeft
 } from '@coorpacademy/nova-icons';
 import Provider from '../../../atom/provider';
 import Link from '../../../atom/link';
@@ -19,14 +17,14 @@ const StartBattle = (props, context) => {
         <div className={style.wrapper}>
           <div className={style.start}>
             <div className={style.leftFlashes}>
-              <BigFlashLeft className={style.bigFlashLeft} />
-              <SmallFlashLeft className={style.smallFlashLeft} />
+              <FlashLeft className={style.bigFlashLeft} />
+              <FlashLeft className={style.smallFlashLeft} />
             </div>
             <div className={style.middle}>
               <div className={style.becomeText}>
-                <SmallFlashLeft className={style.smallFlashLeftMobile} />
+                <FlashLeft className={style.smallFlashLeftMobile} />
                 {becomeAChampiontext}
-                <SmallFlashRight className={style.smallFlashRightMobile} />
+                <FlashRight className={style.smallFlashRightMobile} />
               </div>
               <div className={style.challengeText}>{challengeText}</div>
               <Link className={style.button} onClick={onClick} href={href}>
@@ -34,8 +32,8 @@ const StartBattle = (props, context) => {
               </Link>
             </div>
             <div className={style.rightFlashes}>
-              <BigFlashRight className={style.bigFlashRight} />
-              <SmallFlashRight className={style.smallFlashRight} />
+              <FlashRight className={style.bigFlashRight} />
+              <FlashRight className={style.smallFlashRight} />
             </div>
           </div>
         </div>
