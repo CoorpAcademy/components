@@ -1,7 +1,7 @@
 import * as React from "react";
 
 const SvgComponent = (props) => (
-  <svg viewBox="0 0 150 220" fill="none" {...props}>
+  <svg viewBox="0 0 250 320" fill="none" {...props}>
     <g filter="url(#prefix__filter0_d)">
       <path
         d="M131.249 220L20.087 106.548h48.332L18 18.785l113.452 111.901H80.996L131.25 220z"
