@@ -100,6 +100,10 @@ const icons: Array<Icon> = [
   },
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/logout.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/audio-control-play.svg')},
+  {filePath: path.resolve('./third-party/nova-line.iconjar/icons/audio-control-fast-forward.svg')},
+  {filePath: path.resolve('./third-party/nova-line.iconjar/icons/audio-control-rewind.svg')},
+  {filePath: path.resolve('./third-party/nova-line.iconjar/icons/audio-control-play.svg')},
+  {filePath: path.resolve('./third-party/nova-line.iconjar/icons/audio-control-pause.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/bookmark-5.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/bin.svg')},
   {filePath: path.resolve('./third-party/nova-line.iconjar/icons/check-circle-1.svg')},
@@ -144,6 +148,9 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/lightbulb-4.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/space-rocket.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/audio-control-fast-forward.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/audio-control-rewind.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/audio-control-play.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/audio-control-pause.svg')},
   {
     filePath: path.resolve(
       './third-party/nova-solid.iconjar/icons/location-pin-question-mark-1.svg'

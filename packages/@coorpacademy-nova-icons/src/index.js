@@ -84,7 +84,10 @@ import _NovaCompositionNavigationArrowRight from './components/nova-composition/
 import _NovaCompositionNavigationArrowTop from './components/nova-composition/navigation/arrow-top';
 import _NovaCompositionNavigationLess from './components/nova-composition/navigation/less';
 import _NovaCompositionNavigationMore from './components/nova-composition/navigation/more';
+import _NovaLineAudioAudioControlFastForward from './components/nova-line/audio/audio-control-fast-forward';
+import _NovaLineAudioAudioControlPause from './components/nova-line/audio/audio-control-pause';
 import _NovaLineAudioAudioControlPlay from './components/nova-line/audio/audio-control-play';
+import _NovaLineAudioAudioControlRewind from './components/nova-line/audio/audio-control-rewind';
 import _NovaLineBookmarksTagsBookmark5 from './components/nova-line/bookmarks-tags/bookmark-5';
 import _NovaLineBusinessCircleView from './components/nova-line/business/circle-view';
 import _NovaLineComputersComputerScreen1 from './components/nova-line/computers/computer-screen-1';
@@ -111,6 +114,7 @@ import _NovaLineVideosVideoClip3 from './components/nova-line/videos/video-clip-
 import _NovaSolidAudioAudioControlFastForward from './components/nova-solid/audio/audio-control-fast-forward';
 import _NovaSolidAudioAudioControlPause from './components/nova-solid/audio/audio-control-pause';
 import _NovaSolidAudioAudioControlPlay from './components/nova-solid/audio/audio-control-play';
+import _NovaSolidAudioAudioControlRewind from './components/nova-solid/audio/audio-control-rewind';
 import _NovaSolidBookmarksTagsBookmark3 from './components/nova-solid/bookmarks-tags/bookmark-3';
 import _NovaSolidBookmarksTagsBookmark5 from './components/nova-solid/bookmarks-tags/bookmark-5';
 import _NovaSolidContentContentBook1 from './components/nova-solid/content/content-book-1';
@@ -225,7 +229,10 @@ export const NovaCompositionNavigationArrowRight: Icon = _NovaCompositionNavigat
 export const NovaCompositionNavigationArrowTop: Icon = _NovaCompositionNavigationArrowTop;
 export const NovaCompositionNavigationLess: Icon = _NovaCompositionNavigationLess;
 export const NovaCompositionNavigationMore: Icon = _NovaCompositionNavigationMore;
+export const NovaLineAudioAudioControlFastForward: Icon = _NovaLineAudioAudioControlFastForward;
+export const NovaLineAudioAudioControlPause: Icon = _NovaLineAudioAudioControlPause;
 export const NovaLineAudioAudioControlPlay: Icon = _NovaLineAudioAudioControlPlay;
+export const NovaLineAudioAudioControlRewind: Icon = _NovaLineAudioAudioControlRewind;
 export const NovaLineBookmarksTagsBookmark5: Icon = _NovaLineBookmarksTagsBookmark5;
 export const NovaLineBusinessCircleView: Icon = _NovaLineBusinessCircleView;
 export const NovaLineComputersComputerScreen1: Icon = _NovaLineComputersComputerScreen1;
@@ -252,6 +259,7 @@ export const NovaLineVideosVideoClip3: Icon = _NovaLineVideosVideoClip3;
 export const NovaSolidAudioAudioControlFastForward: Icon = _NovaSolidAudioAudioControlFastForward;
 export const NovaSolidAudioAudioControlPause: Icon = _NovaSolidAudioAudioControlPause;
 export const NovaSolidAudioAudioControlPlay: Icon = _NovaSolidAudioAudioControlPlay;
+export const NovaSolidAudioAudioControlRewind: Icon = _NovaSolidAudioAudioControlRewind;
 export const NovaSolidBookmarksTagsBookmark3: Icon = _NovaSolidBookmarksTagsBookmark3;
 export const NovaSolidBookmarksTagsBookmark5: Icon = _NovaSolidBookmarksTagsBookmark5;
 export const NovaSolidContentContentBook1: Icon = _NovaSolidContentContentBook1;
