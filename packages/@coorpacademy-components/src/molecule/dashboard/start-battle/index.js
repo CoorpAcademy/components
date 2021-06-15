@@ -9,7 +9,7 @@ import Link from '../../../atom/link';
 import style from './style.css';
 
 const StartBattle = (props, context) => {
-  const {startBattleText, becomeAChampiontext, challengeText, onClick, href} = props;
+  const {startBattleText, becomeAChampionText, challengeText, onClick, href} = props;
 
   return (
     <div className={style.root} data-name="start-battle">
@@ -23,7 +23,7 @@ const StartBattle = (props, context) => {
             <div className={style.middle}>
               <div className={style.becomeText}>
                 <FlashLeft className={style.smallFlashLeftMobile} />
-                {becomeAChampiontext}
+                {becomeAChampionText}
                 <FlashRight className={style.smallFlashRightMobile} />
               </div>
               <div className={style.challengeText}>{challengeText}</div>
@@ -48,7 +48,7 @@ StartBattle.contextTypes = {
 
 StartBattle.propTypes = {
   startBattleText: PropTypes.string,
-  becomeAChampiontext: PropTypes.string,
+  becomeAChampionText: PropTypes.string,
   challengeText: PropTypes.string,
   onClick: PropTypes.func,
   href: PropTypes.string
