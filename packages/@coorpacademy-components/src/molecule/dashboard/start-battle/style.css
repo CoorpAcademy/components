@@ -11,16 +11,8 @@
 
 .root {
   width: 100%;
-  max-width: 1080px;
-  height: 214px;
   display: flex;
   justify-content: center;
-  position: relative;
-  z-index: 0;
-  background: battle_bg;
-  background-image: url(https://static.coorpacademy.com/site/startBattleBackground.png);
-  background-size: cover;
-  border-radius: 16px;
 }
 
 .container {
