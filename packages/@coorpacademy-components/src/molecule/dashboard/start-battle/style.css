@@ -260,6 +260,9 @@
   }
 }
 @media mobile {
+  .root {
+    padding: 24px 12px;
+  }
   .container,
   .wrapper {
     height: 230px;
