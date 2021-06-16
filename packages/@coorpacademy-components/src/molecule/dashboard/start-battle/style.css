@@ -10,9 +10,9 @@
 @value battle_bg from colors;
 
 .root {
-  width: 100%;
   display: flex;
   justify-content: center;
+  padding: 24px 30px;
 }
 
 .container {
@@ -262,7 +262,7 @@
 @media mobile {
   .container,
   .wrapper {
-    height: 200px;
+    height: 230px;
   }
 
   .smallFlashLeftMobile,
@@ -317,5 +317,6 @@
 
   .button {
     margin: 5px;
+    height: 40px;
   }
 }
