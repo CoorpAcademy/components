@@ -28,39 +28,38 @@ const getSlide = (state: ReduxState): Slide | void => {
   return isCorrection ? getPreviousSlide(state) : getCurrentSlide(state);
 };
 
-export const play = (): ThunkAction => async (
-  dispatch: Dispatch,
-  getState: GetState
-): DispatchedAction => {
-  const state = getState();
-  const progressionId = getCurrentProgressionId(state);
+export const play =
+  (): ThunkAction =>
+  async (dispatch: Dispatch, getState: GetState): DispatchedAction => {
+    const state = getState();
+    const progressionId = getCurrentProgressionId(state);
 
-  if (!progressionId) {
-    return dispatch({
-      type: UI_VIDEO_ERROR,
-      payload: 'progressionId is required.',
-    });
-  }
+    if (!progressionId) {
+      return dispatch({
+        type: UI_VIDEO_ERROR,
+        payload: 'progressionId is required.',
+      });
+    }
 
-  const slide = getSlide(state);
-  const resources = slide && slide.lessons && slide.lessons;
+    const slide = getSlide(state);
+    const resources = slide && slide.lessons && slide.lessons;
 
-  if (!resources || resources.length === 0) {
-    return dispatch({
-      type: UI_VIDEO_ERROR,
-      payload: `cannot play video for progression "${progressionId}", no resources found.`,
-    });
-  }
+    if (!resources || resources.length === 0) {
+      return dispatch({
+        type: UI_VIDEO_ERROR,
+        payload: `cannot play video for progression "${progressionId}", no resources found.`,
+      });
+    }
 
-  const selectedResourceId: string = getResourceToPlay(state);
-  const resource: Lesson = selectedResourceId
-    ? resources.filter((r) => r._id === selectedResourceId)[0]
-    : resources[0];
+    const selectedResourceId: string = getResourceToPlay(state);
+    const resource: Lesson = selectedResourceId
+      ? resources.filter((r) => r._id === selectedResourceId)[0]
+      : resources[0];
 
-  await dispatch(sendMediaViewed(resource));
-  await dispatch(markResourceAsViewed(progressionId, resource));
-  return dispatch(progressionUpdated(progressionId, PROGRESSION_UPDATED_ON_NODE));
-};
+    await dispatch(sendMediaViewed(resource));
+    await dispatch(markResourceAsViewed(progressionId, resource));
+    return dispatch(progressionUpdated(progressionId, PROGRESSION_UPDATED_ON_NODE));
+  };
 
 export const pause = (resource: Lesson) => ({
   type: UI_VIDEO_PAUSE,

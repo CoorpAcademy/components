@@ -8,27 +8,26 @@ type CluesService = {|
   findById: FindById,
 |};
 
-const findById = (dataLayer: DataLayer): FindById => async (
-  progressionId,
-  slideId
-): Promise<ClueAPI | void> => {
-  const {findProgressionById, getClue} = dataLayer;
-  const progression = await findProgressionById(progressionId);
+const findById =
+  (dataLayer: DataLayer): FindById =>
+  async (progressionId, slideId): Promise<ClueAPI | void> => {
+    const {findProgressionById, getClue} = dataLayer;
+    const progression = await findProgressionById(progressionId);
 
-  if (!progression) {
-    throw new Error(`progression "${progressionId}" not found`);
-  }
+    if (!progression) {
+      throw new Error(`progression "${progressionId}" not found`);
+    }
 
-  const state = progression.state;
+    const state = progression.state;
 
-  if (!state) {
-    throw new Error(`progression "${progressionId}" has no state`);
-  }
+    if (!state) {
+      throw new Error(`progression "${progressionId}" has no state`);
+    }
 
-  if (!includes(slideId, state.requestedClues)) throw new Error('Clue is not available');
+    if (!includes(slideId, state.requestedClues)) throw new Error('Clue is not available');
 
-  return getClue(slideId);
-};
+    return getClue(slideId);
+  };
 
 const createCluesService = (dataLayer: DataLayer): CluesService => ({
   findById: findById(dataLayer),

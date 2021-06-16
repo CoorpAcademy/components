@@ -90,34 +90,38 @@ export const LOCATION_OPEN_RECOMMENDATION_SUCCESS =
 export const LOCATION_OPEN_RECOMMENDATION_FAILURE =
   '@@location/LOCATION_OPEN_RECOMMENDATION_FAILURE';
 
-export const openRecommendation = (recommendation) => (dispatch, getState, {services}) => {
-  if (!services.Location.openRecommendation) {
-    return;
-  }
-  const action = buildTask({
-    types: [
-      LOCATION_OPEN_RECOMMENDATION_REQUEST,
-      LOCATION_OPEN_RECOMMENDATION_SUCCESS,
-      LOCATION_OPEN_RECOMMENDATION_FAILURE,
-    ],
-    task: () => services.Location.openRecommendation(recommendation),
-  });
+export const openRecommendation =
+  (recommendation) =>
+  (dispatch, getState, {services}) => {
+    if (!services.Location.openRecommendation) {
+      return;
+    }
+    const action = buildTask({
+      types: [
+        LOCATION_OPEN_RECOMMENDATION_REQUEST,
+        LOCATION_OPEN_RECOMMENDATION_SUCCESS,
+        LOCATION_OPEN_RECOMMENDATION_FAILURE,
+      ],
+      task: () => services.Location.openRecommendation(recommendation),
+    });
 
-  return dispatch(action);
-};
+    return dispatch(action);
+  };
 
 export const SET_REDIRECT_URL_AFTER_END_REQUEST = '@@location/SET_REDIRECT_URL_AFTER_END_REQUEST';
 export const SET_REDIRECT_URL_AFTER_END_SUCCESS = '@@location/SET_REDIRECT_URL_AFTER_END_SUCCESS';
 export const SET_REDIRECT_URL_AFTER_END_FAILURE = '@@location/SET_REDIRECT_URL_AFTER_END_FAILURE';
 
-export const setRedirectUrlEnd = () => (dispatch, getState, {services}) => {
-  const action = buildTask({
-    types: [
-      SET_REDIRECT_URL_AFTER_END_REQUEST,
-      SET_REDIRECT_URL_AFTER_END_SUCCESS,
-      SET_REDIRECT_URL_AFTER_END_FAILURE,
-    ],
-    task: () => services.Location.getRedirectURLAfterEnd(),
-  });
-  return dispatch(action);
-};
+export const setRedirectUrlEnd =
+  () =>
+  (dispatch, getState, {services}) => {
+    const action = buildTask({
+      types: [
+        SET_REDIRECT_URL_AFTER_END_REQUEST,
+        SET_REDIRECT_URL_AFTER_END_SUCCESS,
+        SET_REDIRECT_URL_AFTER_END_FAILURE,
+      ],
+      task: () => services.Location.getRedirectURLAfterEnd(),
+    });
+    return dispatch(action);
+  };
