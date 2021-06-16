@@ -8,12 +8,12 @@
 
 .resourcesList {
   margin-left: 16px;
+  margin-top: 16px;
   width: 230px;
   height: 100%;
 }
 
 .resourcePlayer {
-  height: 343px;
   width: 609px;
   display: flex;
   align-items: center;
@@ -29,8 +29,6 @@
 
   .resourcePlayer {
     width: 100%;
-    min-width: 100vw;
-    height: 56.25vw;
   }
 
   .resourcesList {

@@ -23,7 +23,7 @@ class JWPlayer extends React.Component {
             default: PropTypes.boolean
           })
         ),
-        autostart: PropTypes.oneOf(['viewable', 'false']),
+        autostart: PropTypes.oneOf(['true', 'viewable', 'false']),
         width: PropTypes.string,
         skin: PropTypes.shape({
           name: PropTypes.string

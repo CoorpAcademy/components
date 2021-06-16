@@ -1,4 +1,4 @@
-import ResourceBrowser from '../../../../organism/resource-browser/test/fixtures/mp4';
+import ResourceBrowser from '../../../../organism/resource-browser/test/fixtures/vimeo';
 
 const {
   props: {resources}

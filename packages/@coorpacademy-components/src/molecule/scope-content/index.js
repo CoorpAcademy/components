@@ -1,16 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {get, getOr} from 'lodash/fp';
-import classnames from 'classnames';
-import {
-  NovaLineAudioAudioControlPlay as PlayIcon,
-  NovaLineFilesOfficeFileOfficePdf as PDFIcon,
-  NovaCompositionCoorpacademyMicrophone as PodcastIcon
-} from '@coorpacademy/nova-icons';
 import Button from '../../atom/button';
-import Link from '../../atom/link';
 import Provider from '../../atom/provider';
 import Discussion from '../../organism/discussion';
+import ResourceBrowser from '../../organism/resource-browser';
 import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
 
@@ -25,7 +19,7 @@ const ScopeContent = (props, context) => {
   const title = getOr('', 'title', content);
   const _skills = getOr([], 'skills', content);
   const _chapters = getOr([], 'chapters', content);
-  const _medias = getOr([], 'medias', content);
+  const _resources = getOr([], 'resources', content);
 
   const skillsTitle = getOr(lstitle, 'skillsTitle', content);
   const chaptersTitle = getOr(_chaptersTitle, 'chaptersTitle', content);
@@ -62,41 +56,6 @@ const ScopeContent = (props, context) => {
     />
   ) : null;
 
-  const medias = _medias.map((media, index) => {
-    const {onClick: handleClick, href = '#', target, type} = media;
-    const white = get('common.white', skin);
-
-    return (
-      <Link
-        key={index}
-        data-name="media"
-        className={style.media}
-        onClick={handleClick}
-        href={href}
-        target={target}
-      >
-        <div className={style.imgWrapper}>
-          <img src={media.image} />
-          {type === 'video' ? <PlayIcon className={style.play} color={white} /> : null}
-          {type === 'pdf' ? <PDFIcon className={style.play} color={white} /> : null}
-          {type === 'audio' ? <PodcastIcon className={style.play} color={white} /> : null}
-        </div>
-        <div
-          className={classnames(style.mediaTitle, innerHTML)}
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{__html: media.title}}
-        />
-      </Link>
-    );
-  });
-
-  const mediasView =
-    _medias.length > 0 ? (
-      <div data-name="medias" className={style.medias}>
-        {medias}
-      </div>
-    ) : null;
-
   return content && title ? (
     <div data-name="scopeContent">
       <div data-name="description" className={style.desc}>
@@ -127,7 +86,11 @@ const ScopeContent = (props, context) => {
         </div>
       </div>
 
-      {mediasView}
+      {_resources ? (
+        <div data-name="description" className={style.bordered}>
+          <ResourceBrowser resources={_resources} />
+        </div>
+      ) : null}
       {discussion ? <Discussion {...discussion} className={style.discussion} /> : null}
     </div>
   ) : (
@@ -153,13 +116,7 @@ ScopeContent.propTypes = {
     skills: PropTypes.arrayOf(PropTypes.string),
     chapters: PropTypes.arrayOf(PropTypes.object),
     course_scope: PropTypes.arrayOf(PropTypes.string),
-    medias: PropTypes.arrayOf(
-      PropTypes.shape({
-        ...Link.propTypes,
-        title: PropTypes.string,
-        image: PropTypes.string
-      })
-    ),
+    resources: ResourceBrowser.propTypes.resources,
     discussion: PropTypes.shape(Discussion.propTypes)
   })
 };

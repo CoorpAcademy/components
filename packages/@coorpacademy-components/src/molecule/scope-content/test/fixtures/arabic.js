@@ -1,3 +1,9 @@
+import ResourceBrowser from '../../../../organism/resource-browser/test/fixtures/arabic';
+
+const {
+  props: {resources}
+} = ResourceBrowser;
+
 export default {
   props: {
     content: {
@@ -16,34 +22,7 @@ export default {
         },
         {name: '<p align="right">إن ريبريهينديرأيت فوليوبتاتي فيلايت</p>'}
       ],
-      medias: [
-        {
-          title: '<p align="right">أدايباأيوسمود تيمبو</p>',
-          image: 'http://lorempixel.com/300/300/business',
-          type: 'video',
-          onClick: () => true
-        },
-        {
-          title: '<p align="right">أدايبا يسكينج أليايت,سيت دو أيوسمود تيمبو</p>',
-          image: 'http://lorempixel.com/300/300/business',
-          type: 'video',
-          onClick: () => true
-        },
-        {
-          title: '<p align="right">أدايبا يسكينج </p>',
-          image: 'http://lorempixel.com/300/300/business',
-          type: 'pdf',
-          href: '#1',
-          target: '_blank'
-        },
-        {
-          title: '<p align="right">أ تيمبو</p>',
-          image: 'http://lorempixel.com/300/300/business',
-          type: 'pdf',
-          href: '#2',
-          target: '_blank'
-        }
-      ]
+      resources
     }
   }
 };

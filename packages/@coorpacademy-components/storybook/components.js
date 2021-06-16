@@ -443,9 +443,12 @@ import MoleculeDisciplinePartnersFixtureMoreInfo from '../src/molecule/disciplin
 import MoleculeDisciplinePartnersFixtureNoAuthor from '../src/molecule/discipline-partners/test/fixtures/no-author';
 import MoleculeDisciplinePartnersFixtureNosite from '../src/molecule/discipline-partners/test/fixtures/nosite';
 import MoleculeDisciplineScopeFixtureArabic from '../src/molecule/discipline-scope/test/fixtures/arabic';
+import MoleculeDisciplineScopeFixtureAudio from '../src/molecule/discipline-scope/test/fixtures/audio';
 import MoleculeDisciplineScopeFixtureDefault from '../src/molecule/discipline-scope/test/fixtures/default';
 import MoleculeDisciplineScopeFixtureEmpty from '../src/molecule/discipline-scope/test/fixtures/empty';
 import MoleculeDisciplineScopeFixtureMedias from '../src/molecule/discipline-scope/test/fixtures/medias';
+import MoleculeDisciplineScopeFixturePdf from '../src/molecule/discipline-scope/test/fixtures/pdf';
+import MoleculeDisciplineScopeFixtureVimeo from '../src/molecule/discipline-scope/test/fixtures/vimeo';
 import MoleculeDisciplineScopeFixtureWithOnclick from '../src/molecule/discipline-scope/test/fixtures/with-onclick';
 import MoleculeDragAndDropFixtureDefault from '../src/molecule/drag-and-drop/test/fixtures/default';
 import MoleculeDragAndDropFixtureError from '../src/molecule/drag-and-drop/test/fixtures/error';
@@ -554,9 +557,12 @@ import MoleculeResourcePlayerFixturePdf from '../src/molecule/resource-player/te
 import MoleculeResourcePlayerFixtureVimeoWithOverlay from '../src/molecule/resource-player/test/fixtures/vimeo-with-overlay';
 import MoleculeResourcePlayerFixtureVimeo from '../src/molecule/resource-player/test/fixtures/vimeo';
 import MoleculeScopeContentFixtureArabic from '../src/molecule/scope-content/test/fixtures/arabic';
+import MoleculeScopeContentFixtureAudio from '../src/molecule/scope-content/test/fixtures/audio';
 import MoleculeScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
 import MoleculeScopeContentFixtureEmpty from '../src/molecule/scope-content/test/fixtures/empty';
 import MoleculeScopeContentFixtureMedias from '../src/molecule/scope-content/test/fixtures/medias';
+import MoleculeScopeContentFixturePdf from '../src/molecule/scope-content/test/fixtures/pdf';
+import MoleculeScopeContentFixtureVimeo from '../src/molecule/scope-content/test/fixtures/vimeo';
 import MoleculeScopeContentFixtureWithOnclick from '../src/molecule/scope-content/test/fixtures/with-onclick';
 import MoleculeScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
 import MoleculeScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
@@ -1525,9 +1531,12 @@ export const fixtures = {
     },
     MoleculeDisciplineScope: {
       Arabic: MoleculeDisciplineScopeFixtureArabic,
+      Audio: MoleculeDisciplineScopeFixtureAudio,
       Default: MoleculeDisciplineScopeFixtureDefault,
       Empty: MoleculeDisciplineScopeFixtureEmpty,
       Medias: MoleculeDisciplineScopeFixtureMedias,
+      Pdf: MoleculeDisciplineScopeFixturePdf,
+      Vimeo: MoleculeDisciplineScopeFixtureVimeo,
       WithOnclick: MoleculeDisciplineScopeFixtureWithOnclick
     },
     MoleculeDragAndDrop: {
@@ -1647,9 +1656,12 @@ export const fixtures = {
     },
     MoleculeScopeContent: {
       Arabic: MoleculeScopeContentFixtureArabic,
+      Audio: MoleculeScopeContentFixtureAudio,
       Default: MoleculeScopeContentFixtureDefault,
       Empty: MoleculeScopeContentFixtureEmpty,
       Medias: MoleculeScopeContentFixtureMedias,
+      Pdf: MoleculeScopeContentFixturePdf,
+      Vimeo: MoleculeScopeContentFixtureVimeo,
       WithOnclick: MoleculeScopeContentFixtureWithOnclick
     },
     MoleculeScopeTabs: {
