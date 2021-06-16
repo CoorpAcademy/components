@@ -10,13 +10,13 @@ const macro = (t, {components, template, provider, data}, expected) => {
   const compiledTemplate = dust.compile(template, 'template');
   dust.loadSource(compiledTemplate);
 
-  return new Promise((resolve, reject) =>
+  return new Promise((resolve, reject) => {
     dust.render('template', data, (err, out) => {
       if (err) return reject(err);
       t.is(out, expected);
       resolve();
-    })
-  );
+    });
+  });
 };
 
 test(

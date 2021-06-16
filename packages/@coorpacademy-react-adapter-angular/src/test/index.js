@@ -1,4 +1,5 @@
 /* global angular */
+/* eslint-disable react/prop-types, react/display-name */
 import test from 'ava';
 import {createElement} from 'react';
 import setupBrower from 'browser-env';

@@ -20,11 +20,11 @@ export const addTimeout = curryN(
   2,
   (timeout, fun) =>
     (...args) =>
-      new Promise(resolve =>
+      new Promise(resolve => {
         setTimeout(() => {
           resolve(fun(...args));
-        }, timeout)
-      )
+        }, timeout);
+      })
 );
 
 const addTimeoutToService = mapValues(addTimeout(TIMEOUT));

@@ -4,23 +4,24 @@ import {snakeCase} from 'lodash/fp';
 import Link from '../../atom/link';
 import style from './style.css';
 
-const buildTab = isLightTab => (tab, index) => {
-  const {title, href, selected, onClick} = tab;
-  const selectedStyle = isLightTab ? style.selectedlight : style.selected;
-  const unselectedStyle = isLightTab ? style.lighttab : style.tab;
-  const className = selected ? selectedStyle : unselectedStyle;
+const buildTab = isLightTab =>
+  function BrandTab(tab, index) {
+    const {title, href, selected, onClick} = tab;
+    const selectedStyle = isLightTab ? style.selectedlight : style.selected;
+    const unselectedStyle = isLightTab ? style.lighttab : style.tab;
+    const className = selected ? selectedStyle : unselectedStyle;
 
-  return (
-    <div
-      data-name={`brand_tab_${snakeCase(title)}`}
-      className={className}
-      key={index}
-      onClick={onClick}
-    >
-      <Link href={href}>{title}</Link>
-    </div>
-  );
-};
+    return (
+      <div
+        data-name={`brand_tab_${snakeCase(title)}`}
+        className={className}
+        key={index}
+        onClick={onClick}
+      >
+        <Link href={href}>{title}</Link>
+      </div>
+    );
+  };
 
 const BrandTabs = props => {
   const {tabs, type = 'default'} = props;

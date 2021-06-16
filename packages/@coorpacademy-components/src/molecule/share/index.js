@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useContext, useEffect} from 'react';
+import React, {useState, useCallback, useContext, useEffect, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
@@ -58,7 +58,8 @@ export const ShareStatusProvider = ({children}) => {
     }
     return () => clearTimeout(timeoutId);
   }, [status]);
-  return <StatusContext.Provider value={[status, setStatus]}>{children}</StatusContext.Provider>;
+  const statusContext = useMemo(() => [status, setStatus], []);
+  return <StatusContext.Provider value={statusContext}>{children}</StatusContext.Provider>;
 };
 
 export const ShareFeedback = ({successWording, errorWording}) => {
@@ -74,6 +75,7 @@ export const ShareFeedback = ({successWording, errorWording}) => {
       ) : (
         <AttentionIcon className={styles.checkIcon} width={13} height={13} />
       )}
+
       <p>{status === SHARE_STATUS.SUCCESS ? successWording : errorWording}</p>
     </div>
   );
@@ -104,6 +106,7 @@ const Share = ({style, text, wording}) => {
       <Link onClick={onClick} className={styles.cta} data-name={'share-button'}>
         <div className={styles.wrapper}>
           <ShareIcon className={styles.shareIcon} width={18} height={18} />
+
           <p>{wording}</p>
         </div>
       </Link>
