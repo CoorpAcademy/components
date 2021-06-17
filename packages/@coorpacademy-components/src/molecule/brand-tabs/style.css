@@ -14,6 +14,7 @@
 .lightwrapper {
   composes: wrapper;
   overflow-x: scroll;
+  overflow-y: hidden;
   height: 55px;
 }
 
