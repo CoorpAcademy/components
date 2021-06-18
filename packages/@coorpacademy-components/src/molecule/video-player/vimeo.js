@@ -269,10 +269,10 @@ class Vimeo extends React.Component {
   }
 
   render() {
-    const {className} = this.props;
+    const {className, height, width} = this.props;
     const {isLoading} = this.state;
     return (
-      <div className={className} ref={this.refContainer}>
+      <div className={className} ref={this.refContainer} style={{height, width}}>
         {isLoading ? <Loader /> : null}
       </div>
     );
