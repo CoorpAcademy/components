@@ -7,12 +7,13 @@
 
 .resource {
   position: relative;
-  width: 230px;
-  height: 47px;
+  width: auto;
+  height: 52px;
   cursor: pointer;
   margin-bottom: 8px;
   display: flex;
   align-items: center;
+  flex: 1 0 52px;
 }
 
 .video,
@@ -66,10 +67,11 @@
 @media tablet {
   .resource {
     width: 100%;
-    height: 75px;
+    height: 52px;
     padding-left: 20px;
     margin-bottom: 0;
     border-bottom: solid 2px white;
     box-sizing: border-box;
+    flex: 1 0 52px;
   }
 }
