@@ -30,7 +30,6 @@ Resources.propTypes = {
 const ResourceBrowser = props => {
   const {resources, className, overlay} = props;
   const selectedResource = find(({selected}) => selected, resources);
-
   return (
     <div data-name="resourceBrowser" className={classnames(style.default, className)}>
       {selectedResource ? (

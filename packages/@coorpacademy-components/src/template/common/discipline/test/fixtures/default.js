@@ -15,11 +15,6 @@ const {start, buy, startLabel, buyLabel} = disciplineCTA.props;
 const {authors} = disciplinePartners.props;
 const {content, levels} = disciplineScope.props;
 
-content.discussion = {
-  ...ForumComment.props,
-  title: 'Sandbox discussion',
-  threads
-};
 export default {
   props: {
     selected: 2,
@@ -33,7 +28,14 @@ export default {
     video,
     authors: [head(authors)],
     changeLevel: () => true,
-    level: content,
+    level: {
+      ...content,
+      discussion: {
+        ...ForumComment.props,
+        title: 'Sandbox discussion',
+        threads
+      }
+    },
     levels,
     shareWording: 'Share',
     shareText: 'Share this',
