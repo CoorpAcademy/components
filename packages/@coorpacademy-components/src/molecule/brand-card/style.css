@@ -103,6 +103,7 @@
 .edit {
   composes: link;
   border-right: 1px solid xtraLightGrey;
+  cursor: pointer;
 }
 
 .edit a:hover {
