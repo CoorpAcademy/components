@@ -51,7 +51,7 @@ BrandCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   edit: PropTypes.string.isRequired,
-  editHref: PropTypes.string.isRequired,
+  editHref: PropTypes.string,
   onEditClick: PropTypes.func,
   see: PropTypes.string.isRequired,
   seeHref: PropTypes.string.isRequired,
