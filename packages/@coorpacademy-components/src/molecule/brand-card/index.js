@@ -54,7 +54,7 @@ BrandCard.propTypes = {
   editHref: PropTypes.string,
   onEditClick: PropTypes.func,
   see: PropTypes.string.isRequired,
-  seeHref: PropTypes.string.isRequired,
+  seeHref: PropTypes.string,
   image: PropTypes.string.isRequired,
   maintenance: PropTypes.bool
 };
