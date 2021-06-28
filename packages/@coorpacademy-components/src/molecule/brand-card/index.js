@@ -7,7 +7,17 @@ import Description from './description';
 import style from './style.css';
 
 const BrandCard = props => {
-  const {title, edit, editHref, see, seeHref, image, description, maintenance = false} = props;
+  const {
+    title,
+    edit,
+    editHref,
+    onEditClick,
+    see,
+    seeHref,
+    image,
+    description,
+    maintenance = false
+  } = props;
   const maintenanceView = maintenance ? (
     <div className={style.lockWrapper}>
       <LockIcon className={style.lockIcon} height={80} />
@@ -23,7 +33,7 @@ const BrandCard = props => {
       <div className={style.information} data-name={`info-${title}`}>
         <h3>{title}</h3>
         <div className={style.edit}>
-          <Link href={editHref} data-name={`edit-${title}`}>
+          <Link href={editHref} onClick={onEditClick} data-name={`edit-${title}`}>
             {edit}
           </Link>
         </div>
@@ -41,9 +51,10 @@ BrandCard.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   edit: PropTypes.string.isRequired,
-  editHref: PropTypes.string.isRequired,
+  editHref: PropTypes.string,
+  onEditClick: PropTypes.func,
   see: PropTypes.string.isRequired,
-  seeHref: PropTypes.string.isRequired,
+  seeHref: PropTypes.string,
   image: PropTypes.string.isRequired,
   maintenance: PropTypes.bool
 };

@@ -3,7 +3,7 @@ export default {
     title: 'Chanel iJoin',
     edit: 'Edit Platform',
     description: '<p>C.C.I. Pays de la loire</p><p>Digital Culture</p>',
-    editHref: '#',
+    onEditClick: () => console.log('onEditClick'),
     see: 'See Platform',
     seeHref: '#',
     maintenance: true,
