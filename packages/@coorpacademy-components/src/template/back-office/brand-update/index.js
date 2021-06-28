@@ -13,7 +13,7 @@ import Loader from '../../../atom/loader';
 import Layout from '../layout';
 import style from './style.css';
 
-const BrandUpdate = Layout(props => {
+const BrandUpdate = props => {
   const {notifications, links, breadcrumbs, tabs, content, details, subTabs = []} = props;
   const formattedTabs = tabs.map(({title, name, href, selected, type = 'link'}) => ({
     title,
@@ -53,25 +53,27 @@ const BrandUpdate = Layout(props => {
 
   return (
     <div className={style.container}>
-      <div>
-        <Breadcrumbs links={links} breadcrumbs={breadcrumbs} />
+      <div className={style.dashboardAside}>
+        <Sidebar items={formattedTabs} />
       </div>
-      <div className={style.notifications}>{notificationsList}</div>
-      <div className={style.contentHandler}>
-        <div className={style.dashboardAside}>
-          <Sidebar items={formattedTabs} />
+      <div className={style.contentWrapper}>
+        <div>
+          <Breadcrumbs links={links} breadcrumbs={breadcrumbs} />
         </div>
-        <div className={style.contentView}>
-          {!isEmpty(subTabs) ? <BrandTabs type="light" tabs={subTabs} /> : null}
-          <div className={style.dashboardContent}>
-            <div>{contentView(content)}</div>
-            <div>{detailsView(details)}</div>
+        <div className={style.notifications}>{notificationsList}</div>
+        <div className={style.contentHandler}>
+          <div className={style.contentView}>
+            {!isEmpty(subTabs) ? <BrandTabs type="light" tabs={subTabs} /> : null}
+            <div className={style.dashboardContent}>
+              <div>{contentView(content)}</div>
+              <div>{detailsView(details)}</div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   );
-});
+};
 
 BrandUpdate.defaultProps = {
   notifications: []

@@ -1,10 +1,12 @@
 @value colors: "../../../variables/colors.css";
 @value light from colors;
+@value xtraLightGrey from colors;
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 @value wide from breakpoints;
+
 
 .container {
   width: 100%;
@@ -12,6 +14,12 @@
   scroll-behavior: unset;
   margin: 0 auto;
   padding-bottom: 80px 20px;
+  display: flex;
+}
+
+.contentWrapper {
+  padding-top: 80px;
+  width: 100%;
 }
 
 .notifications {
@@ -35,6 +43,8 @@
 .dashboardAside {
   padding: 16px;
   padding-left: 0;
+  min-width: 300px;
+  background: xtraLightGrey;
 }
 
 .contentView {
