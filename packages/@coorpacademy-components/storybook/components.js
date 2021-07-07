@@ -789,6 +789,7 @@ import TemplateAppPlayerPlayerSlidesFixtureWithMinHeight from '../src/template/a
 import TemplateAppPlayerPlayerFixtureArabicQcm from '../src/template/app-player/player/test/fixtures/arabic-qcm';
 import TemplateAppPlayerPlayerFixtureBackground from '../src/template/app-player/player/test/fixtures/background';
 import TemplateAppPlayerPlayerFixtureClue from '../src/template/app-player/player/test/fixtures/clue';
+import TemplateAppPlayerPlayerFixtureContextWithAudio from '../src/template/app-player/player/test/fixtures/context-with-audio';
 import TemplateAppPlayerPlayerFixtureContextWithImage from '../src/template/app-player/player/test/fixtures/context-with-image';
 import TemplateAppPlayerPlayerFixtureContextWithPdf from '../src/template/app-player/player/test/fixtures/context-with-pdf';
 import TemplateAppPlayerPlayerFixtureContextWithVideo from '../src/template/app-player/player/test/fixtures/context-with-video';
@@ -2040,6 +2041,7 @@ export const fixtures = {
       ArabicQcm: TemplateAppPlayerPlayerFixtureArabicQcm,
       Background: TemplateAppPlayerPlayerFixtureBackground,
       Clue: TemplateAppPlayerPlayerFixtureClue,
+      ContextWithAudio: TemplateAppPlayerPlayerFixtureContextWithAudio,
       ContextWithImage: TemplateAppPlayerPlayerFixtureContextWithImage,
       ContextWithPdf: TemplateAppPlayerPlayerFixtureContextWithPdf,
       ContextWithVideo: TemplateAppPlayerPlayerFixtureContextWithVideo,
