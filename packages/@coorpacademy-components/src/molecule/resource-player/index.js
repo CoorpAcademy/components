@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import {omit, get} from 'lodash/fp';
 import {NovaSolidVideosVideoControlPlay as Play} from '@coorpacademy/nova-icons';
 import Pdf from '../pdf';
@@ -141,24 +140,26 @@ class ResourcePlayer extends React.Component {
     const {className: customClassName, resource, overlay: propsOverlay} = this.props;
     const {overlay: stateOverlay, autoplay} = this.state;
     const {type} = resource;
-    const className = classnames(
-      {
-        [TYPE_IMAGE]: style.image,
-        [TYPE_PDF]: style.pdf,
-        [TYPE_AUDIO]: style.audio,
-        [TYPE_VIDEO]: style.video
-      }[type],
-      customClassName
-    );
 
     const overlayView = stateOverlay ? (
       <OverlayElement {...stateOverlay} onClick={this.handleOverlay} />
     ) : null;
 
     return (
-      <div data-name={type} className={className}>
-        {overlayView}
-        <ResourceElement {...this.props} disableAutostart={!!propsOverlay} autoplay={autoplay} />
+      <div data-name={type} className={customClassName}>
+        <div
+          className={
+            {
+              [TYPE_IMAGE]: style.image,
+              [TYPE_PDF]: style.pdf,
+              [TYPE_AUDIO]: style.audio,
+              [TYPE_VIDEO]: style.video
+            }[type]
+          }
+        >
+          {overlayView}
+          <ResourceElement {...this.props} disableAutostart={!!propsOverlay} autoplay={autoplay} />
+        </div>
       </div>
     );
   }
