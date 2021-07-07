@@ -2,6 +2,10 @@
 @value dark from colors;
 @value light from colors;
 @value medium from colors;
+@value cm_black from colors;
+@value cm_blue from colors;
+@value cm_grey from colors;
+@value cm_background from colors;
 @value xtraLightGrey from colors;
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
@@ -31,11 +35,32 @@
   composes: header;
 }
 
+.coorpManagerOpenHeader {
+  composes: header;
+  background-color: cm_background;
+  border-bottom: 0px;
+  border-left: solid 5px cm_blue;
+
+}
+
+.coorpManagerClosedHeader {
+  composes: header;
+  background-color: cm_background;
+  border-bottom: 0px;
+}
+
 .header:hover {
   background-color: xtraLightGrey;
 }
 
 .title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 35px;
+}
+
+.selectedTitle {
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -49,6 +74,40 @@
 }
 
 .titleIcon {
+  width: 22px;
+  height: 22px;
+  margin-right: 15px;
+}
+
+.setupTitleActivatedIcon {
+  composes: titleIcon;
+  color: cm_blue;
+}
+
+.setupTitle {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 15px;
+}
+
+.setupSelectedTitle {
+  composes: setupTitle;
+}
+
+.setupTitleLabel {
+  font-size: 17px;
+  font-weight: 700;
+  color: cm_grey;
+}
+
+.setupSelectedTitleLabel {
+  font-size: 17px;
+  font-weight: 700;
+  color: cm_black;
+}
+
+.setupTitleIcon {
   width: 22px;
   height: 22px;
   margin-right: 15px;
@@ -93,18 +152,12 @@
   overflow: hidden;
 }
 
-.setupPart .container  {
+.setupContainer {
   background-color: xtraLightGrey;
   animation: fadeIn 3s forwards;
   overflow: hidden;
-  border-top: 1px solid medium;
 }
-.setupPart .header{
-  background-color: xtraLightGrey;
-}
-.setupPart .header:hover {
-  background-color: light;
-}
+
 @keyframes fadeIn {
   0% {
     max-height: 0;

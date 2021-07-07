@@ -1,28 +1,52 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import isEmpty from 'lodash/fp/isEmpty';
+import map from 'lodash/fp/map';
 import Breadcrumbs from '../../../molecule/breadcrumbs';
 import BrandTabs from '../../../molecule/brand-tabs';
-import Sidebar from '../../../organism/sidebar';
+import {IconLinkItem, LinkItem} from '../../../organism/sidebar';
 import BrandForm from '../../../organism/brand-form';
 import BrandTable from '../../../organism/brand-table';
 import BrandUpload from '../../../organism/brand-upload';
 import BrandDashboard from '../../../organism/brand-dashboard';
 import Notification from '../../../atom/notification';
 import Loader from '../../../atom/loader';
-import Layout from '../layout';
+import Accordion from '../../../organism/accordion/container';
 import style from './style.css';
 
-const BrandUpdate = props => {
-  const {notifications, links, breadcrumbs, tabs, content, details, subTabs = []} = props;
-  const formattedTabs = tabs.map(({title, name, href, selected, type = 'link'}) => ({
-    title,
-    type,
-    name,
-    selected,
-    href
-  }));
+const SubTub = ({title, href, selected}) => {
+  return <h5>{title}</h5>;
+};
 
+SubTub.propTypes = {
+  title: PropTypes.string.isRequired,
+  href: PropTypes.string.isRequired,
+  selected: PropTypes.bool.isRequired
+};
+
+const BrandUpdate = props => {
+  const {notifications, links, breadcrumbs, tabs, content, details} = props;
+
+  const formattedTabs = tabs.map(({title, href, selected, open, type = 'link'}, index) => ({
+    title,
+    isOpen: open,
+    isSelected: selected,
+    type,
+    href,
+    index,
+    children: [],
+    lessMoreIconType: 'arrow',
+    iconType: 'arrow'
+  }));
+  const subTubsView = (_subTubs = []) =>
+    map.convert({cap: false})((subTab, _index) => (
+      <div>
+        {subTab.type === 'iconLink' ? <IconLinkItem {...subTab} /> : <LinkItem {...subTab} />}
+      </div>
+    ))(_subTubs);
+  const formattedTabsViews = map(tab => (
+    <div className={style.subTabs}>{subTubsView(tab.subTabs)}</div>
+  ))(tabs);
   const notificationsList = notifications.map((notification, index) => {
     return (
       <div className={style.notification} key={index}>
@@ -54,7 +78,9 @@ const BrandUpdate = props => {
   return (
     <div className={style.container}>
       <div className={style.dashboardAside}>
-        <Sidebar items={formattedTabs} />
+        <Accordion tabProps={formattedTabs} type={'all'} theme={'setup'}>
+          {formattedTabsViews}
+        </Accordion>
       </div>
       <div className={style.contentWrapper}>
         <div>
@@ -63,7 +89,7 @@ const BrandUpdate = props => {
         <div className={style.notifications}>{notificationsList}</div>
         <div className={style.contentHandler}>
           <div className={style.contentView}>
-            {!isEmpty(subTabs) ? <BrandTabs type="light" tabs={subTabs} /> : null}
+            {/* {!isEmpty(subTabs) ? <BrandTabs type="light" tabs={subTabs} /> : null} */}
             <div className={style.dashboardContent}>
               <div>{contentView(content)}</div>
               <div>{detailsView(details)}</div>
@@ -88,16 +114,18 @@ BrandUpdate.propTypes = {
       title: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
       selected: PropTypes.bool.isRequired,
-      type: PropTypes.string
+      open: PropTypes.bool.isRequired,
+      type: PropTypes.string,
+      subTabs: PropTypes.arrayOf(
+        PropTypes.shape({
+          title: PropTypes.string.isRequired,
+          href: PropTypes.string.isRequired,
+          selected: PropTypes.bool.isRequired,
+          type: PropTypes.string
+        })
+      )
     })
   ).isRequired,
-  subTabs: PropTypes.arrayOf(
-    PropTypes.shape({
-      title: PropTypes.string.isRequired,
-      href: PropTypes.string.isRequired,
-      selected: PropTypes.bool.isRequired
-    })
-  ),
   content: PropTypes.oneOfType([
     PropTypes.shape({
       ...BrandForm.propTypes,

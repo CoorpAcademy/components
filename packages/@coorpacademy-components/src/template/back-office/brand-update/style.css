@@ -1,6 +1,7 @@
 @value colors: "../../../variables/colors.css";
 @value light from colors;
 @value xtraLightGrey from colors;
+@value cm_lightGrey from colors;
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
@@ -10,11 +11,21 @@
 
 .container {
   width: 100%;
+  height: 100%;
   max-width: 100%;
   scroll-behavior: unset;
   margin: 0 auto;
   padding-bottom: 80px 20px;
   display: flex;
+}
+
+.subTabs {
+  margin-left: 30%;
+  padding: 1px 20px 1px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  border-left: solid 3px cm_lightGrey;
+
 }
 
 .contentWrapper {
@@ -41,9 +52,8 @@
 }
 
 .dashboardAside {
-  padding: 16px;
-  padding-left: 0;
-  min-width: 300px;
+  margin: 16px;
+  min-width: 270px;
   background: xtraLightGrey;
 }
 
@@ -81,12 +91,6 @@
 
   .contentHandler:nth-child(2) {
     width: 80%;
-  }
-
-  .dashboardAside {
-    padding-right: 0;
-    padding-left: 18px;
-    width: 96%;
   }
 
   .contentView {
