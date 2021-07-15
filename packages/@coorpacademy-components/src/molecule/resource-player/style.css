@@ -1,6 +1,6 @@
 .image {
   display: flex;
-  height: 343px;
+  height: 100%;
 }
 
 .image .img {
@@ -13,7 +13,7 @@
 .video {
   background-color: black;
   position: relative;
-  height: 343px;
+  height: 100%;
   width: 100%;
 }
 
