@@ -1,0 +1,24 @@
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.css"/>
+<link rel="stylesheet" type="text/css" href="dist/Player.css">
+
+<div id="player" style="height: 100%"></div>
+
+<script src="https://player.vimeo.com/api/player.js"></script>
+<script type="text/javascript" src="dist/Player.js"></script>
+
+<script type="text/javascript">
+  var hash = window.location.hash;
+  var search = window.location.search;
+  var pathname = window.location.pathname;
+  var progressionId = (/[\?\/#]([^\/]*)$/.exec(hash || search || pathname) || [])[1] || '0';
+
+  window.Coorpacademy.Player.create({
+    container: document.getElementById('player'),
+    progression: progressionId,
+    Vimeo: window.Vimeo
+  });
+</script>
