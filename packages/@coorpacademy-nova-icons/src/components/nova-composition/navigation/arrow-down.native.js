@@ -1,21 +1,15 @@
 import * as React from "react";
-import Svg, { G, Path } from "react-native-svg";
-/* SVGR has dropped some elements not supported by react-native-svg: style */
+import Svg, { G, Defs, Path } from "react-native-svg";
 
 const SvgComponent = (props) => (
-  <Svg
-    id="prefix__Calque_1"
-    x={0}
-    y={0}
-    viewBox="0 0 20 20"
-    xmlSpace="preserve"
-    {...props}
-  >
-    <G id="prefix__Page-1">
+  <Svg viewBox="0 0 24 24" {...props}>
+    <G fill="none" fillRule="evenodd">
+      <Defs>
+        <Path id="prefix__a" d="M0 0h24v24H0z" />
+      </Defs>
       <Path
         fill={props.color}
-        d="M0 6.5l3-2.9 7 6.9 7-6.9 3 2.9-10 9.9z"
-        id="prefix__arrow_down"
+        d="M23.8 6.3l-2.6-2.1c-.1-.2-.2-.2-.3-.2-.1 0-.3.1-.3.2L12 13.9 3.5 4.2c-.1-.1-.2-.2-.4-.2-.1 0-.2 0-.3.1L.2 6.3c-.1 0-.2.2-.2.3 0 .1 0 .3.1.4l11.5 12.9c.1.1.2.2.4.2.1 0 .3-.1.4-.2l11.5-13c.1-.1.1-.2.1-.3 0-.1-.1-.3-.2-.3z"
       />
     </G>
   </Svg>

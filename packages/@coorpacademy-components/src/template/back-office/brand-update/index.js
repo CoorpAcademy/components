@@ -28,7 +28,7 @@ SubTab.propTypes = {
 const BrandUpdate = props => {
   const {notifications, links, breadcrumbs, tabs, content, details} = props;
 
-  const formattedTabs = tabs.map(({key, title, href, selected, open, type = 'link'}, index) => console.log({open}) || ({
+  const formattedTabs = tabs.map(({key, title, href, selected, open, type = 'link'}, index) => ({
     title,
     isOpen: open,
     isSelected: selected,
