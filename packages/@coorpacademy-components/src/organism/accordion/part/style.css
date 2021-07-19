@@ -21,7 +21,7 @@
   box-sizing: border-box;
   background-color: light;
   cursor: pointer;
-  border-bottom: 1px solid xtraLightGrey;
+  /* border-bottom: 1px solid xtraLightGrey; */
   transition: background-color 0.3s;
   color: dark;
 }
@@ -38,8 +38,8 @@
 .coorpManagerOpenHeader {
   composes: header;
   background-color: cm_background;
-  border-bottom: 0px;
-  border-left: solid 5px cm_blue;
+  /* border-bottom: 0px; */
+  /* border-left: solid 5px cm_blue; */
 
 }
 
@@ -81,18 +81,31 @@
 
 .setupTitleActivatedIcon {
   composes: titleIcon;
+}
+
+.iconBlue {
   color: cm_blue;
+}
+
+.iconBlack {
+  color: black;
+}
+
+.iconGrey {
+  color: cm_grey;
 }
 
 .setupTitle {
   display: flex;
   flex-direction: row;
   align-items: center;
+  /* justify-content: center; */
   margin-left: 15px;
 }
 
 .setupSelectedTitle {
   composes: setupTitle;
+  /* justify-content: center; */
 }
 
 .setupTitleLabel {

@@ -39,7 +39,7 @@
   padding: 10px 20px;
 }
 
-.buttonItem > div{
+.buttonItem > div {
   width: 100%;
 }
 
@@ -59,7 +59,7 @@
   align-items: center;
 }
 
-.linkItem:hover {
+.linkItemHover:hover {
   border-left-color: medium;
   background-color: light;
 }

@@ -12,13 +12,14 @@ import BrandDashboard from '../../../organism/brand-dashboard';
 import Notification from '../../../atom/notification';
 import Loader from '../../../atom/loader';
 import Accordion from '../../../organism/accordion/container';
+import logo from './logo.svg';
 import style from './style.css';
 
-const SubTub = ({title, href, selected}) => {
+const SubTab = ({title, href, selected}) => {
   return <h5>{title}</h5>;
 };
 
-SubTub.propTypes = {
+SubTab.propTypes = {
   title: PropTypes.string.isRequired,
   href: PropTypes.string.isRequired,
   selected: PropTypes.bool.isRequired
@@ -27,7 +28,7 @@ SubTub.propTypes = {
 const BrandUpdate = props => {
   const {notifications, links, breadcrumbs, tabs, content, details} = props;
 
-  const formattedTabs = tabs.map(({title, href, selected, open, type = 'link'}, index) => ({
+  const formattedTabs = tabs.map(({key, title, href, selected, open, type = 'link'}, index) => console.log({open}) || ({
     title,
     isOpen: open,
     isSelected: selected,
@@ -36,17 +37,26 @@ const BrandUpdate = props => {
     index,
     children: [],
     lessMoreIconType: 'arrow',
-    iconType: 'arrow'
+    iconType: key || 'arrow'
   }));
-  const subTubsView = (_subTubs = []) =>
+
+  const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
+
+  const subTabsView = (_subTabs = []) =>
     map.convert({cap: false})((subTab, _index) => (
       <div>
-        {subTab.type === 'iconLink' ? <IconLinkItem {...subTab} /> : <LinkItem {...subTab} />}
+        {subTab.type === 'iconLink' ? (
+          <IconLinkItem {...subTab} styles={getStyle(subTab.selected)} color={null} uppercase={false} />
+        ) : (
+          <LinkItem {...subTab} styles={getStyle(subTab.selected)} color={null} uppercase={false} />
+        )}
       </div>
-    ))(_subTubs);
+    ))(_subTabs);
+
   const formattedTabsViews = map(tab => (
-    <div className={style.subTabs}>{subTubsView(tab.subTabs)}</div>
+    <div className={style.subTabs}>{subTabsView(tab.subTabs)}</div>
   ))(tabs);
+
   const notificationsList = notifications.map((notification, index) => {
     return (
       <div className={style.notification} key={index}>
@@ -78,6 +88,9 @@ const BrandUpdate = props => {
   return (
     <div className={style.container}>
       <div className={style.dashboardAside}>
+        <div style={{margin: '74px 16px'}}>
+          <img src={logo} height="32" />
+        </div>
         <Accordion tabProps={formattedTabs} type={'all'} theme={'setup'}>
           {formattedTabsViews}
         </Accordion>
@@ -109,8 +122,10 @@ BrandUpdate.propTypes = {
   notifications: PropTypes.arrayOf(PropTypes.shape(Notification.propTypes)),
   breadcrumbs: Breadcrumbs.propTypes.breadcrumbs,
   links: Breadcrumbs.propTypes.links,
+  logo: PropTypes.string.isRequired,
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
+      key: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
       selected: PropTypes.bool.isRequired,

@@ -2,6 +2,7 @@
 @value light from colors;
 @value xtraLightGrey from colors;
 @value cm_lightGrey from colors;
+@value black from colors;
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
@@ -17,15 +18,15 @@
   margin: 0 auto;
   padding-bottom: 80px 20px;
   display: flex;
+  font-family: "Open Sans";
 }
 
 .subTabs {
-  margin-left: 30%;
+  margin-left: 7.5%;
   padding: 1px 20px 1px 20px;
   font-size: 16px;
   font-weight: 700;
   border-left: solid 3px cm_lightGrey;
-
 }
 
 .contentWrapper {
@@ -52,7 +53,8 @@
 }
 
 .dashboardAside {
-  margin: 16px;
+  /* margin: 0 16px; */
+  padding: 24px;
   min-width: 270px;
   background: xtraLightGrey;
 }
@@ -75,6 +77,17 @@
   line-height: 1.4em;
   border: 1px solid light;
 }
+
+.selectedElement {
+  background-color: cm_lightGrey;
+  border-radius: 5px;
+  color: black;
+}
+
+.unselectedElement:hover {
+  color: black;
+}
+
 
 @media desktop {
   .contentHandler {

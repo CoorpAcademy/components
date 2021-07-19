@@ -96,7 +96,9 @@ export const LinkItem = ({
   color,
   title,
   onClick,
-  uppercase = true
+  uppercase = true,
+  styles,
+  children
 }) => {
   const handleOnClick = useMemo(
     () => e => {
@@ -116,13 +118,14 @@ export const LinkItem = ({
       }}
     >
       <li
-        className={classnames(style.linkItem, innerHTML, {[style.uppercase]: uppercase})}
+        className={classnames(style.linkItem, innerHTML, {[style.uppercase]: uppercase}, styles)}
         style={{
           borderLeftColor: selected ? color : null
         }}
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{__html: title}}
-      />
+      >
+        {title}
+        {children}
+      </li>
     </Link>
   );
 };
@@ -139,14 +142,11 @@ LinkItem.propTypes = {
 };
 
 export const IconLinkItem = ({
-  href,
   index,
-  name,
-  selected,
-  color,
-  title,
+  name = `button-link-item-${index}`,
   onClick,
-  uppercase = true
+  uppercase = true,
+  ...props
 }) => {
   const handleOnClick = useMemo(
     () => e => {
@@ -155,40 +155,13 @@ export const IconLinkItem = ({
     [onClick]
   );
   return (
-    <Link
-      onClick={handleOnClick}
-      skinHover
-      href={href}
-      data-name={name || `button-link-item-${index}`}
-      target="_blank"
-      style={{
-        textDecoration: 'none',
-        color: selected ? color : NEUTRAL_COLOR
-      }}
-    >
-      <li
-        className={classnames(style.linkItem, innerHTML, {[style.uppercase]: uppercase})}
-        style={{
-          borderLeftColor: selected ? color : null
-        }}
-      >
-        {title}
-        <NovaCompositionCoorpacademyOpenInNewTab className={style.icon} />
-      </li>
-    </Link>
+    <LinkItem {...props} onClick={handleOnClick} name={name} uppercase={uppercase} index={index}>
+      <NovaCompositionCoorpacademyOpenInNewTab className={style.icon} />
+    </LinkItem>
   );
 };
 
-IconLinkItem.propTypes = {
-  index: PropTypes.number,
-  title: PropTypes.string.isRequired,
-  selected: PropTypes.bool,
-  name: PropTypes.string,
-  href: PropTypes.string,
-  color: PropTypes.string,
-  onClick: PropTypes.func,
-  uppercase: PropTypes.bool
-};
+IconLinkItem.propTypes = LinkItem.propTypes;
 
 export const TitleItem = ({name, index, title, uppercase}) => {
   return (

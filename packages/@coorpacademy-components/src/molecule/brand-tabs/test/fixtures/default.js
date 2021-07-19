@@ -2,57 +2,53 @@ export default {
   props: {
     tabs: [
       {
-        title: 'General Settings',
-        href: '#brand/samsung/settings',
+        title: 'My Dashboard',
+        key: 'dashboard',
+        href: '#brand/samsung/dashboard',
+        hasChild: false,
+        open: undefined,
+        selected: false
+      },
+      {
+        title: 'Administration',
+        key: 'administration',
+        href: '#brand/samsung/administration',
         open: false,
         selected: false
       },
       {
-        title: 'Look & Feel',
-        href: '#brand/samsung/lookandfeel',
+        title: 'Editorialization',
+        key: 'editorialization',
+        href: '#brand/samsung/editorialization',
         type: 'iconLink',
-        open: false,
-        selected: false
-      },
-      {
-        title: 'SSO',
-        href: '#brand/samsung/sso',
+        open: true,
         selected: true,
-        open: false,
         subTabs: [
-          {title: 'SSO', href: '#/sso', selected: true, type: 'iconLink'},
-          {title: 'Look and Feel', href: '#/look-and-feel', selected: false},
+          {title: 'SSO', href: '#/sso', selected: false, type: 'iconLink'},
+          {title: 'Look and Feel', href: '#/look-and-feel', selected: true},
           {title: 'Settings', href: '#/settings', selected: false},
           {title: 'Any', href: '#/any', selected: false},
           {title: 'Many', href: '#/many', selected: false}
         ]
       },
       {
-        title: 'Manage users',
-        href: '#brand/samsung/users',
-        open: true,
-        selected: false,
-        subTabs: [
-          {title: 'Settings', href: '#/settings', selected: false, type: 'iconLink'},
-          {title: 'Any', href: '#/any', selected: false},
-          {title: 'Many', href: '#/many', selected: false}
-        ]
+        title: 'Content Creation',
+        key: 'contentCreation',
+        href: '#brand/samsung/content-creation',
+        open: false,
+        selected: false
       },
       {
-        title: 'Upload users',
-        href: '#brand/samsung/import',
+        title: 'Animation',
+        key: 'animation',
+        href: '#brand/samsung/content-creation',
         open: false,
         selected: false
       },
       {
         title: 'Analytics',
+        key: 'analytics',
         href: '#brand/samsung/analytics',
-        open: false,
-        selected: false
-      },
-      {
-        title: 'Cohort',
-        href: '#brand/samsung/cohort',
         open: false,
         selected: false
       }

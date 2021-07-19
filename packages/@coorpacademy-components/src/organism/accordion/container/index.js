@@ -9,7 +9,17 @@ const themeStyle = {
   default: style.wrapper
 };
 
-const Tab = ({children, index, title, isOpen, isSelected, iconType, lessMoreIconType, onClick, theme}) => {
+const Tab = ({
+  children,
+  index,
+  title,
+  isOpen,
+  isSelected,
+  iconType,
+  lessMoreIconType,
+  onClick,
+  theme
+}) => {
   const handleOnClick = useMemo(() => evt => onClick(index, evt), [onClick]);
   return children ? (
     <div data-name="accordion" className={themeStyle[theme]}>
@@ -37,13 +47,18 @@ Tab.propTypes = {
   lessMoreIconType: Part.propTypes.lessMoreIconType,
   isOpen: Part.propTypes.isOpen,
   theme: Part.propTypes.theme,
-  onClick: Part.propTypes.onClick
+  onClick: Part.propTypes.onClick,
+  isSelected: Part.propTypes.bool
 };
 
 const Accordion = props => {
   const {tabProps, children, theme = 'default', onClick = noop} = props;
 
-  const tabs =  map.convert({cap: false})((tab, index) => ({...tab, child: children[index], children: undefined}))(tabProps);
+  const tabs = map.convert({cap: false})((tab, index) => ({
+    ...tab,
+    child: children[index],
+    children: undefined
+  }))(tabProps);
 
   const accordion = map.convert({cap: false})((tab, index) => {
     return (

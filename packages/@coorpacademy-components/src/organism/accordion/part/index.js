@@ -1,13 +1,20 @@
 import React from 'react';
 import {noop, keys, get} from 'lodash/fp';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {
   NovaCompositionNavigationMore as More,
   NovaLineLoginKey1 as KeyIcon,
   NovaLineVideosVideoClip3 as VideoIcon,
   NovaSolidLightsLightbulb4 as LightBulbIcon,
   NovaCompositionNavigationLess as Less,
-  NovaCompositionNavigationArrowDown as ArrowIcon
+  NovaCompositionNavigationArrowDown as ArrowIcon,
+  NovaCompositionNavigationDashboard as DashboardIcon,
+  NovaCompositionNavigationAnalytics as AnalyticsIcon,
+  NovaCompositionNavigationAnimation as AnimationIcon,
+  NovaCompositionNavigationAdministration as AdministrationIcon,
+  NovaCompositionNavigationContentCreation as ContentCreationIcon,
+  NovaCompositionNavigationEditorialization as EditorializationIcon,
 } from '@coorpacademy/nova-icons';
 import Provider from '../../../atom/provider';
 import style from './style.css';
@@ -16,7 +23,13 @@ const ICON_TYPES = {
   resources: VideoIcon,
   klf: KeyIcon,
   tips: LightBulbIcon,
-  arrow: LightBulbIcon
+  arrow: LightBulbIcon,
+  dashboard: DashboardIcon,
+  analytics: AnalyticsIcon,
+  administration: AdministrationIcon,
+  animation: AnimationIcon,
+  contentCreation: ContentCreationIcon,
+  editorialization: EditorializationIcon
 };
 
 const LESS_ICONS_TYPES = {
@@ -65,10 +78,10 @@ const AccordionPart = (props, context) => {
     lessMoreIconType = 'default',
     theme,
     onClick = noop,
-    isOpen = false,
+    isOpen,
     isSelected = false
   } = props;
-  const TitleIcon = ICON_TYPES[iconType];
+  const Icon = ICON_TYPES[iconType];
   const MoreIcon = MORE_ICONS_TYPES[lessMoreIconType];
   const LessIcon = LESS_ICONS_TYPES[lessMoreIconType];
   const darkColor = get('common.dark', skin);
@@ -77,6 +90,10 @@ const AccordionPart = (props, context) => {
   const closeIconClassName = !isOpen ? style.closeIconActivated : style.closeIcon;
 
   const themeStyle = theme === 'setup' ? setupThemeStyle : defaultStyle;
+  const iconColor = isOpen ? style.iconBlack : isSelected ? style.iconBlue : style.iconGrey;
+
+  const hasChildren = typeof isOpen === 'boolean';
+
   return (
     <div data-name="accordionPart" className={themeStyle[theme]}>
       <div
@@ -88,18 +105,20 @@ const AccordionPart = (props, context) => {
           data-name="title"
           className={isSelected ? themeStyle.setupSelectedTitle : themeStyle.title}
         >
-          {TitleIcon ? (
-            <TitleIcon
-              className={isSelected ? themeStyle.titleActivatedIcon : themeStyle.titleIcon}
-              color="inherit"
+          {Icon ? (
+            <Icon
+              className={classnames(isSelected ? themeStyle.titleActivatedIcon : themeStyle.titleIcon, iconColor)}
             />
           ) : null}
           <h3 className={isOpen || isSelected ? themeStyle.selectedLable : themeStyle.lable}>
             {title}
           </h3>
         </div>
+        {content ? (<div>
         <MoreIcon className={closeIconClassName} color={darkColor} />
         <LessIcon className={openIconClassName} color={mediumColor} />
+        </div>) : null
+        }
       </div>
       {isOpen ? <div className={themeStyle.container}>{content}</div> : null}
     </div>
