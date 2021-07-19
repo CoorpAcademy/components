@@ -36,8 +36,8 @@ const BrandUpdate = props => {
     href,
     index,
     children: [],
-    lessMoreIconType: 'arrow',
-    iconType: key || 'arrow'
+    iconType: key || 'arrow',
+    lessMoreIconType: 'arrow'
   }));
 
   const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
