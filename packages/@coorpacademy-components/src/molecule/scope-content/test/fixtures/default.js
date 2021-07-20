@@ -10,8 +10,7 @@ export default {
       ],
       chapters: [
         {
-          name:
-            'Les leviers pour générer du trafic vers un site web, Les leviers pour générer du trafic vers us...'
+          name: 'Les leviers pour générer du trafic vers un site web, Les leviers pour générer du trafic vers us...'
         },
         {name: 'Les types de coûts en publicité'},
         {name: 'Le display à la performance'}

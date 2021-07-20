@@ -15,32 +15,30 @@ type RecommendationsService = {|
   getNext: GetNextRecommendation,
 |};
 
-const find = (dataLayer: DataLayer): FindRecommendations => (
-  type: ContentType,
-  ref: string
-): Promise<Array<RecommendationAPI>> => {
-  const {findRecommendations} = dataLayer;
-  const recommendations = findRecommendations(type, ref);
-  return Promise.resolve(recommendations);
-};
+const find =
+  (dataLayer: DataLayer): FindRecommendations =>
+  (type: ContentType, ref: string): Promise<Array<RecommendationAPI>> => {
+    const {findRecommendations} = dataLayer;
+    const recommendations = findRecommendations(type, ref);
+    return Promise.resolve(recommendations);
+  };
 
-const getNext = (dataLayer: DataLayer): GetNextRecommendation => (
-  type: ContentType,
-  ref: string
-): Promise<void | ChapterAPI | LevelAPI> => {
-  switch (type) {
-    case CONTENT_TYPE.LEVEL: {
-      const {getNextLevel} = dataLayer;
-      return Promise.resolve(getNextLevel(ref));
+const getNext =
+  (dataLayer: DataLayer): GetNextRecommendation =>
+  (type: ContentType, ref: string): Promise<void | ChapterAPI | LevelAPI> => {
+    switch (type) {
+      case CONTENT_TYPE.LEVEL: {
+        const {getNextLevel} = dataLayer;
+        return Promise.resolve(getNextLevel(ref));
+      }
+      case CONTENT_TYPE.CHAPTER: {
+        const {getNextChapter} = dataLayer;
+        return Promise.resolve(getNextChapter(ref));
+      }
+      default:
+        return Promise.resolve(undefined);
     }
-    case CONTENT_TYPE.CHAPTER: {
-      const {getNextChapter} = dataLayer;
-      return Promise.resolve(getNextChapter(ref));
-    }
-    default:
-      return Promise.resolve(undefined);
-  }
-};
+  };
 
 const createRecommendationsService = (dataLayer: DataLayer): RecommendationsService => ({
   find: find(dataLayer),

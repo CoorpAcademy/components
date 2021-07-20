@@ -66,96 +66,97 @@ const newState = (
   }
 };
 
-export const editAnswer = (newValue: string | Array<string> | Choice) => (
-  dispatch: Dispatch,
-  getState: GetState
-): DispatchedAction => {
-  const state = getState();
-  const slide = getCurrentSlide(state);
+export const editAnswer =
+  (newValue: string | Array<string> | Choice) =>
+  (dispatch: Dispatch, getState: GetState): DispatchedAction => {
+    const state = getState();
+    const slide = getCurrentSlide(state);
 
-  if (!slide) {
+    if (!slide) {
+      return dispatch({
+        type: EDIT_ANSWER_ERROR,
+        // $FlowFixMe meta should not be a string
+        meta: 'Cannot edit this answer, slide is not found',
+      });
+    }
+
+    const questionType = getQuestionType(slide);
+    const type = ANSWER_EDIT[questionType];
+
+    if (!type) {
+      throw new Error(
+        // $FlowFixMe loadsh def
+        `Cannot find edit action for "${questionType}". It must be within [${keys(ANSWER_EDIT)}]`
+      );
+    }
+
+    const userAnswers = getAnswerValues(slide, state);
+    const progressionId = getCurrentProgressionId(state);
+
     return dispatch({
-      type: EDIT_ANSWER_ERROR,
-      // $FlowFixMe meta should not be a string
-      meta: 'Cannot edit this answer, slide is not found',
+      type,
+      meta: {
+        progressionId,
+      },
+      payload: newState(userAnswers, questionType, newValue),
     });
-  }
+  };
 
-  const questionType = getQuestionType(slide);
-  const type = ANSWER_EDIT[questionType];
+export const validateAnswer =
+  (
+    partialPayload: PostAnswerPartialPayload,
+    {skipNextSlideFetch}: {skipNextSlideFetch: boolean} = {skipNextSlideFetch: false}
+  ) =>
+  async (dispatch: Dispatch, getState: GetState, {services}: Options): DispatchedAction => {
+    const initialState = getState();
+    const slide = getCurrentSlide(initialState);
 
-  if (!type) {
-    throw new Error(
-      // $FlowFixMe loadsh def
-      `Cannot find edit action for "${questionType}". It must be within [${keys(ANSWER_EDIT)}]`
-    );
-  }
+    if (!slide) {
+      return dispatch({
+        type: VALIDATE_ERROR,
+        // $FlowFixMe meta should not be a string
+        meta: 'Cannot validate answer without a slide or o progressionId',
+      });
+    }
 
-  const userAnswers = getAnswerValues(slide, state);
-  const progressionId = getCurrentProgressionId(state);
+    const progressionId = getCurrentProgressionId(initialState);
+    const answer = getAnswerValues(slide, initialState);
 
-  return dispatch({
-    type,
-    meta: {
-      progressionId,
-    },
-    payload: newState(userAnswers, questionType, newValue),
-  });
-};
+    const [createAnswerResponse] = await Promise.all([
+      // $FlowFixMe Action is incompatible
+      dispatch(createAnswer(progressionId, answer, partialPayload)),
+      dispatch(selectRoute('correction')),
+    ]);
+    if (createAnswerResponse.error) return dispatch(selectRoute('answer'));
 
-export const validateAnswer = (
-  partialPayload: PostAnswerPartialPayload,
-  {skipNextSlideFetch}: {skipNextSlideFetch: boolean} = {skipNextSlideFetch: false}
-) => async (dispatch: Dispatch, getState: GetState, {services}: Options): DispatchedAction => {
-  const initialState = getState();
-  const slide = getCurrentSlide(initialState);
+    const payload = createAnswerResponse.payload;
 
-  if (!slide) {
-    return dispatch({
-      type: VALIDATE_ERROR,
-      // $FlowFixMe meta should not be a string
-      meta: 'Cannot validate answer without a slide or o progressionId',
-    });
-  }
+    const progressionState = get('state', payload);
+    const slideId = get('content.ref', progressionState);
+    const nextContentRef = get('nextContent.ref', progressionState);
 
-  const progressionId = getCurrentProgressionId(initialState);
-  const answer = getAnswerValues(slide, initialState);
+    const {isCorrect = false} = progressionState;
 
-  const [createAnswerResponse] = await Promise.all([
-    // $FlowFixMe Action is incompatible
-    dispatch(createAnswer(progressionId, answer, partialPayload)),
-    dispatch(selectRoute('correction')),
-  ]);
-  if (createAnswerResponse.error) return dispatch(selectRoute('answer'));
+    const state = getState();
 
-  const payload = createAnswerResponse.payload;
+    if (!skipNextSlideFetch && get('nextContent.type', progressionState) === 'slide') {
+      await dispatch(fetchSlideChapter(nextContentRef));
+    }
 
-  const progressionState = get('state', payload);
-  const slideId = get('content.ref', progressionState);
-  const nextContentRef = get('nextContent.ref', progressionState);
+    if (isNull(isCorrect)) return dispatch(selectProgression(progressionId));
 
-  const {isCorrect = false} = progressionState;
+    if (isCorrect) {
+      // $FlowFixMe Action is incompatible
+      await dispatch(toggleAccordion(ACCORDION_TIPS));
+    } else if (nextContentRef !== 'extraLife' && hasSeenLesson(state, true)) {
+      // $FlowFixMe Action is incompatible
+      await dispatch(toggleAccordion(ACCORDION_KLF));
+    } else {
+      // $FlowFixMe Action is incompatible
+      await dispatch(toggleAccordion(ACCORDION_LESSON));
+    }
 
-  const state = getState();
-
-  if (!skipNextSlideFetch && get('nextContent.type', progressionState) === 'slide') {
-    await dispatch(fetchSlideChapter(nextContentRef));
-  }
-
-  if (isNull(isCorrect)) return dispatch(selectProgression(progressionId));
-
-  if (isCorrect) {
-    // $FlowFixMe Action is incompatible
-    await dispatch(toggleAccordion(ACCORDION_TIPS));
-  } else if (nextContentRef !== 'extraLife' && hasSeenLesson(state, true)) {
-    // $FlowFixMe Action is incompatible
-    await dispatch(toggleAccordion(ACCORDION_KLF));
-  } else {
-    // $FlowFixMe Action is incompatible
-    await dispatch(toggleAccordion(ACCORDION_LESSON));
-  }
-
-  await dispatch(progressionUpdated(progressionId, PROGRESSION_UPDATED_ON_MOVE));
-  const prevAnswer = getPrevAnswer(state);
-  return dispatch(fetchAnswer(progressionId, slideId, prevAnswer));
-};
+    await dispatch(progressionUpdated(progressionId, PROGRESSION_UPDATED_ON_MOVE));
+    const prevAnswer = getPrevAnswer(state);
+    return dispatch(fetchAnswer(progressionId, slideId, prevAnswer));
+  };

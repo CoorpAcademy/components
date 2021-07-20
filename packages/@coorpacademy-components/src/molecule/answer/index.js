@@ -49,6 +49,7 @@ const isType = name => PropTypes.oneOf([name]);
 
 const videoPropType = PropTypes.shape({
   ...VideoPlayer.propTypes,
+  videoId: PropTypes.string,
   type: isType(TYPE_VIDEO).isRequired
 });
 
@@ -93,6 +94,7 @@ const Answer = props => {
   return (
     <div data-name="answer" className={style.wrapper}>
       {media ? <MediaView media={media} /> : null}
+
       {answerView}
     </div>
   );

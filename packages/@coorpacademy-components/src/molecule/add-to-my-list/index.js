@@ -1,4 +1,4 @@
-import React, {useState, useContext, useEffect} from 'react';
+import React, {useState, useContext, useEffect, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
@@ -25,7 +25,8 @@ export const AddToMyListStatusProvider = ({children}) => {
     }
     return () => clearTimeout(timeoutId);
   }, [status]);
-  return <StatusContext.Provider value={[status, setStatus]}>{children}</StatusContext.Provider>;
+  const statusContext = useMemo(() => [status, setStatus], []);
+  return <StatusContext.Provider value={statusContext}>{children}</StatusContext.Provider>;
 };
 
 export const AddToMyListFeedback = ({addToMyListText, removeFromMyListText, favorite}) => {

@@ -19,7 +19,7 @@
     "promise/no-native": "off",
     "default-param-last": "warn",
     "flowtype/define-flow-type": "error",
-    "flowtype-errors/enforce-min-coverage": ["error", 70],
+    "flowtype-errors/enforce-min-coverage": ["error", 60],
     "no-shadow": [
       "error",
       { "builtinGlobals": true, "allow": ["T", "location", "find", "name"]}

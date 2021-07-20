@@ -5,18 +5,20 @@ export const START_CHAT_REQUEST = '@@ui/START_CHAT_REQUEST';
 export const START_CHAT_SUCCESS = '@@ui/START_CHAT_SUCCESS';
 export const START_CHAT_FAILURE = '@@ui/START_CHAT_FAILURE';
 
-export const startChat = () => (dispatch, getState, {services}) => {
-  const {Coach} = services;
-  const {ref: contentRef} = getProgressionContent(getState());
+export const startChat =
+  () =>
+  (dispatch, getState, {services}) => {
+    const {Coach} = services;
+    const {ref: contentRef} = getProgressionContent(getState());
 
-  const action = buildTask({
-    types: [START_CHAT_REQUEST, START_CHAT_SUCCESS, START_CHAT_FAILURE],
-    task: () => Coach.startChat(),
-    meta: {contentRef},
-  });
+    const action = buildTask({
+      types: [START_CHAT_REQUEST, START_CHAT_SUCCESS, START_CHAT_FAILURE],
+      task: () => Coach.startChat(),
+      meta: {contentRef},
+    });
 
-  return dispatch(action);
-};
+    return dispatch(action);
+  };
 
 export const UI_UPDATE_COACHES = '@@ui/UPDATE_COACHES';
 

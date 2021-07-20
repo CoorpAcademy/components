@@ -58,10 +58,10 @@ export const getQuestionType = (slide: Slide): QuestionType => slide.question.ty
 export const getCurrentProgressionId = (state: State): ProgressionId =>
   get('ui.current.progressionId', state);
 
-export const getProgression = (id: ProgressionId): ((State) => Progression) => (
-  state: State
-): Progression =>
-  state && state.data && state.data.progressions.entities && state.data.progressions.entities[id];
+export const getProgression =
+  (id: ProgressionId): ((State) => Progression) =>
+  (state: State): Progression =>
+    state && state.data && state.data.progressions.entities && state.data.progressions.entities[id];
 
 export const getCurrentProgression = (state: State): Progression | void => {
   const id = getCurrentProgressionId(state);
@@ -109,13 +109,15 @@ export const getAnswerValues = (slide: Slide, state: State): Answer => {
   return answers;
 };
 
-export const getSlide = (id: string): ((State) => Slide) => (state: State): Slide =>
-  state &&
-  state.data &&
-  state.data.contents &&
-  state.data.contents.slide &&
-  state.data.contents.slide.entities &&
-  state.data.contents.slide.entities[id];
+export const getSlide =
+  (id: string): ((State) => Slide) =>
+  (state: State): Slide =>
+    state &&
+    state.data &&
+    state.data.contents &&
+    state.data.contents.slide &&
+    state.data.contents.slide.entities &&
+    state.data.contents.slide.entities[id];
 
 export const getCurrentSlide = (state: State): Slide | void => {
   const progression = getCurrentProgression(state);
@@ -127,33 +129,35 @@ export const getCurrentSlide = (state: State): Slide | void => {
   return getSlide(slideId)(state);
 };
 
-export const getChapter = (ref: string): ((State) => Chapter | void) => (
-  state: State
-): Chapter | void =>
-  state &&
-  state.data &&
-  state.data.contents &&
-  state.data.contents.chapter &&
-  state.data.contents.chapter.entities &&
-  state.data.contents.chapter.entities[ref];
+export const getChapter =
+  (ref: string): ((State) => Chapter | void) =>
+  (state: State): Chapter | void =>
+    state &&
+    state.data &&
+    state.data.contents &&
+    state.data.contents.chapter &&
+    state.data.contents.chapter.entities &&
+    state.data.contents.chapter.entities[ref];
 
-export const getLevel = (ref: string): ((State) => Level | void) => (state: State): Level | void =>
-  state &&
-  state.data &&
-  state.data.contents &&
-  state.data.contents.level &&
-  state.data.contents.level.entities &&
-  state.data.contents.level.entities[ref];
+export const getLevel =
+  (ref: string): ((State) => Level | void) =>
+  (state: State): Level | void =>
+    state &&
+    state.data &&
+    state.data.contents &&
+    state.data.contents.level &&
+    state.data.contents.level.entities &&
+    state.data.contents.level.entities[ref];
 
-export const getDiscipline = (ref: string): ((State) => Discipline | void) => (
-  state: State
-): Discipline | void =>
-  state &&
-  state.data &&
-  state.data.contents &&
-  state.data.contents.discipline &&
-  state.data.contents.discipline.entities &&
-  state.data.contents.discipline.entities[ref];
+export const getDiscipline =
+  (ref: string): ((State) => Discipline | void) =>
+  (state: State): Discipline | void =>
+    state &&
+    state.data &&
+    state.data.contents &&
+    state.data.contents.discipline &&
+    state.data.contents.discipline.entities &&
+    state.data.contents.discipline.entities[ref];
 
 export const getProgressionContent = (state: State): GenericContent | void => {
   const progression = getCurrentProgression(state);
@@ -372,10 +376,12 @@ export const getPreviousSlide = (state: State): Slide | void => {
   return getSlide(slideId)(state);
 };
 
-export const getExitNode = (ref: string) => (state: State): ExitNode => {
-  const entities = get('data.exitNodes.entities')(state);
-  return get(ref)(entities);
-};
+export const getExitNode =
+  (ref: string) =>
+  (state: State): ExitNode => {
+    const entities = get('data.exitNodes.entities')(state);
+    return get(ref)(entities);
+  };
 
 export const getCurrentExitNode = (state: State): ExitNode | void => {
   const progression = getCurrentProgression(state);
@@ -405,11 +411,11 @@ export const getCurrentExitNode = (state: State): ExitNode | void => {
   )(state);
 };
 
-export const getCorrection = (progressionId: string, slideId: string) => (
-  state: State
-): Correction | void | null => {
-  return get(['data', 'answers', 'entities', progressionId, slideId], state);
-};
+export const getCorrection =
+  (progressionId: string, slideId: string) =>
+  (state: State): Correction | void | null => {
+    return get(['data', 'answers', 'entities', progressionId, slideId], state);
+  };
 export const getCurrentCorrection = (state: State): Correction => {
   const defaultCorrection = {
     correctAnswer: [],
@@ -442,9 +448,11 @@ export const isCommentSent = (state: State): boolean => {
   return get(['data', 'comments', 'entities', progressionId, 'isSent'], state);
 };
 
-export const extractClue = (progressionId: string, slideId: string) => (state: State): string => {
-  return get(['data', 'clues', 'entities', progressionId, slideId], state);
-};
+export const extractClue =
+  (progressionId: string, slideId: string) =>
+  (state: State): string => {
+    return get(['data', 'clues', 'entities', progressionId, slideId], state);
+  };
 
 export const getCurrentClue = (state: State): string => {
   const progression = getCurrentProgression(state);
@@ -616,11 +624,15 @@ export const hasSeenLesson = (state: State, onPreviousSlide: boolean = false): b
   );
 };
 
-export const getVideoUri = (id: string) => (state: State): string | void =>
-  get(['data', 'videos', 'entities', id, 'uri'], state);
+export const getVideoUri =
+  (id: string) =>
+  (state: State): string | void =>
+    get(['data', 'videos', 'entities', id, 'uri'], state);
 
-export const getVideoTracks = (id: string) => (state: State): Array<VideoTrack> | void =>
-  get(['data', 'videos', 'entities', id, 'tracks'], state);
+export const getVideoTracks =
+  (id: string) =>
+  (state: State): Array<VideoTrack> | void =>
+    get(['data', 'videos', 'entities', id, 'tracks'], state);
 
 export const getPrevAnswer = (state: State): Answer => {
   const progression = getCurrentProgression(state);

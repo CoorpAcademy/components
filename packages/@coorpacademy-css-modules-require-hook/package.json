@@ -32,11 +32,11 @@
     "@babel/core": "^7.9.6",
     "@babel/plugin-proposal-object-rest-spread": "^7.9.6",
     "@babel/preset-env": "^7.9.6",
-    "@coorpacademy/eslint-plugin-coorpacademy": "^10.0.0",
+    "@coorpacademy/eslint-plugin-coorpacademy": "^10.3.1",
     "babel-plugin-istanbul": "^6.0.0",
     "babel-plugin-lodash": "^3.3.4",
     "cross-env": "^7.0.2",
-    "eslint": "^7.3.1"
+    "eslint": "^7.28.0"
   },
   "author": "CoorpAcademy"
 }

@@ -18,11 +18,13 @@ const availableContent: AvailableContent = [
   }
 ];
 
-const merge = arr2 => (arr: Array<Slide>): Array<Slide> => {
-  return arr.map((v, i): Slide => {
-    return assign(v, arr2[i]);
-  });
-};
+const merge =
+  arr2 =>
+  (arr: Array<Slide>): Array<Slide> => {
+    return arr.map((v, i): Slide => {
+      return assign(v, arr2[i]);
+    });
+  };
 
 const createPartialAction = (state: State): PartialAnswerAction => ({
   type: 'answer',

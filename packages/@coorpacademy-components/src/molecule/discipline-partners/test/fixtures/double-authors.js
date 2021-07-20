@@ -5,8 +5,7 @@ export default {
         name: 'ELEPHANT',
         href: 'http://google.fr',
         logo: {
-          src:
-            'https://static-staging.coorpacademy.com/upload/up/partners/1472198693277logo_elephant.png',
+          src: 'https://static-staging.coorpacademy.com/upload/up/partners/1472198693277logo_elephant.png',
           href: '/elephant'
         },
         socialLinks: [
@@ -24,8 +23,7 @@ export default {
         name: 'NEXSTAGE',
         href: 'http://www.nextstage.com/',
         logo: {
-          src:
-            'https://static-staging.coorpacademy.com/upload/up/partners/1472198693277logo_elephant.png',
+          src: 'https://static-staging.coorpacademy.com/upload/up/partners/1472198693277logo_elephant.png',
           href: '/nextstage'
         },
         socialLinks: [

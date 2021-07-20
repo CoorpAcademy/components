@@ -36,24 +36,20 @@ const fetchRank = (
   return dispatch(action);
 };
 
-export const fetchStartRank = (): ThunkAction => (
-  dispatch: Dispatch,
-  getState: GetState,
-  {services}: {services: Services}
-): DispatchedAction => {
-  return fetchRank(dispatch, getState, ({services}: {services: Services}), {
-    bailout: getStartRank,
-    types: [RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS, RANK_FETCH_START_FAILURE],
-  });
-};
+export const fetchStartRank =
+  (): ThunkAction =>
+  (dispatch: Dispatch, getState: GetState, {services}: {services: Services}): DispatchedAction => {
+    return fetchRank(dispatch, getState, ({services}: {services: Services}), {
+      bailout: getStartRank,
+      types: [RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS, RANK_FETCH_START_FAILURE],
+    });
+  };
 
-export const fetchEndRank = (): ThunkAction => (
-  dispatch: Dispatch,
-  getState: GetState,
-  {services}: {services: Services}
-): DispatchedAction => {
-  return fetchRank(dispatch, getState, ({services}: {services: Services}), {
-    types: [RANK_FETCH_END_REQUEST, RANK_FETCH_END_SUCCESS, RANK_FETCH_END_FAILURE],
-    bailout: undefined,
-  });
-};
+export const fetchEndRank =
+  (): ThunkAction =>
+  (dispatch: Dispatch, getState: GetState, {services}: {services: Services}): DispatchedAction => {
+    return fetchRank(dispatch, getState, ({services}: {services: Services}), {
+      types: [RANK_FETCH_END_REQUEST, RANK_FETCH_END_SUCCESS, RANK_FETCH_END_FAILURE],
+      bailout: undefined,
+    });
+  };

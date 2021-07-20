@@ -13,8 +13,7 @@ export default {
         selected: false
       },
       {
-        name:
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
+        name: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut',
         value: 'loremIpsum',
         selected: true
       },

@@ -29,15 +29,17 @@ const ACTIONS_HISTORY = {
   GO_FORWARD: 'goForward'
 };
 
-const createNavigate = action => (...args) => {
-  return {
-    type: NAVIGATE,
-    payload: {
-      action,
-      args
-    }
+const createNavigate =
+  action =>
+  (...args) => {
+    return {
+      type: NAVIGATE,
+      payload: {
+        action,
+        args
+      }
+    };
   };
-};
 
 export const createPushNavigate = createNavigate(ACTIONS_HISTORY.PUSH);
 export const createReplaceNavigate = createNavigate(ACTIONS_HISTORY.REPLACE);
@@ -52,39 +54,41 @@ export const historyReducer = (state, {type, payload}) => {
   return state || INITAL_STATE;
 };
 
-export const historyMiddleware = ({history}) => store => {
-  history.listen(location => {
-    store.dispatch(createLocation(location));
-  });
+export const historyMiddleware =
+  ({history}) =>
+  store => {
+    history.listen(location => {
+      store.dispatch(createLocation(location));
+    });
 
-  return next => action => {
-    if (action.type === NAVIGATE) {
-      const {
-        payload: {action: historyAction, args}
-      } = action;
+    return next => action => {
+      if (action.type === NAVIGATE) {
+        const {
+          payload: {action: historyAction, args}
+        } = action;
 
-      switch (historyAction) {
-        case ACTIONS_HISTORY.PUSH:
-          history.push(...args);
-          break;
-        case ACTIONS_HISTORY.REPLACE:
-          history.replace(...args);
-          break;
-        case ACTIONS_HISTORY.GO:
-          history.go(...args);
-          break;
-        case ACTIONS_HISTORY.GO_BACK:
-          history.goBack(...args);
-          break;
-        case ACTIONS_HISTORY.GO_FORWARD:
-          history.goForward(...args);
-          break;
+        switch (historyAction) {
+          case ACTIONS_HISTORY.PUSH:
+            history.push(...args);
+            break;
+          case ACTIONS_HISTORY.REPLACE:
+            history.replace(...args);
+            break;
+          case ACTIONS_HISTORY.GO:
+            history.go(...args);
+            break;
+          case ACTIONS_HISTORY.GO_BACK:
+            history.goBack(...args);
+            break;
+          case ACTIONS_HISTORY.GO_FORWARD:
+            history.goForward(...args);
+            break;
+        }
       }
-    }
 
-    return next(action);
+      return next(action);
+    };
   };
-};
 
 export const syncStoreWithHistory = (store, history) => {
   const action = createLocation(history.location);

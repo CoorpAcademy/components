@@ -5,4 +5,4 @@
 module.name_mapper='^@coorpacademy/\(.*\)$' -> '<PROJECT_ROOT>/../@coorpacademy-\1/src'
 
 [version]
-^0.75.0
+^0.125.1

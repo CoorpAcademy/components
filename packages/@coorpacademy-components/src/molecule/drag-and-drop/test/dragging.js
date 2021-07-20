@@ -20,12 +20,12 @@ configure({adapter: new Adapter()});
 // This test is heavily inspired by this https://github.com/react-dropzone/react-dropzone/blob/v9.0.0/src/index.spec.js#L853
 
 const flushPromises = wrapper =>
-  new Promise(resolve =>
+  new Promise(resolve => {
     global.setImmediate(() => {
       wrapper.update();
       resolve(wrapper);
-    })
-  );
+    });
+  });
 
 const context = {
   skin: {

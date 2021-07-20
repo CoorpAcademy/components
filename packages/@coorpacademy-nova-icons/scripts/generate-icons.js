@@ -99,23 +99,25 @@ const findElementAndReplaceAttributes = (
   };
 };
 
-const template = (replaceColors?: boolean = true) => (
-  {template: templateAlias, types},
-  opts,
-  {imports: importsAlias, componentName, props, jsx, exports: exportsAlias}
-): // eslint-disable-next-line flowtype/no-weak-types
-Object => {
-  const extendedJsx = replaceColors
-    ? findElementAndReplaceAttributes(jsx, opts.native, types)
-    : jsx;
+const template =
+  (replaceColors?: boolean = true) =>
+  (
+    {template: templateAlias, types},
+    opts,
+    {imports: importsAlias, componentName, props, jsx, exports: exportsAlias}
+  ): // eslint-disable-next-line flowtype/no-weak-types
+  Object => {
+    const extendedJsx = replaceColors
+      ? findElementAndReplaceAttributes(jsx, opts.native, types)
+      : jsx;
 
-  // @todo add flow type
-  return templateAlias.ast`
+    // @todo add flow type
+    return templateAlias.ast`
     ${importsAlias}
     const ${componentName} = props => ${extendedJsx}
     ${exportsAlias}
   `;
-};
+  };
 
 const generateComponent = (
   fileContent: Buffer,
@@ -196,18 +198,23 @@ const files: Array<OutputFile> = glob
             filePath: getSVGFilePath(iconJarFileName, item.file)
           }))
           .filter(({filePath}) => findIcon(filePath))
-          .map(({item, filePath}): {
-            item: IconSetGroupItem,
-            filePath: string,
-            replaceColors?: boolean
-          } => {
-            const {replaceColors} = findIcon(filePath) || {};
-            return {
+          .map(
+            ({
               item,
-              filePath,
-              replaceColors
-            };
-          });
+              filePath
+            }): {
+              item: IconSetGroupItem,
+              filePath: string,
+              replaceColors?: boolean
+            } => {
+              const {replaceColors} = findIcon(filePath) || {};
+              return {
+                item,
+                filePath,
+                replaceColors
+              };
+            }
+          );
 
         return itemArrayFiltered
           .map(({item, filePath, replaceColors}): Array<string> => {

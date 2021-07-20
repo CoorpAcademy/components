@@ -16,40 +16,42 @@ type AnswersService = {|
   findById: FindById,
 |};
 
-const findById = (dataLayer: DataLayer): FindById => async (
-  progressionId: string,
-  slideId: string,
-  givenAnswers: Answer = []
-): Promise<CorrectionAPI> => {
-  const {findProgressionById, findSlideById, getCorrectAnswer} = dataLayer;
-  const progression = await findProgressionById(progressionId);
+const findById =
+  (dataLayer: DataLayer): FindById =>
+  async (
+    progressionId: string,
+    slideId: string,
+    givenAnswers: Answer = []
+  ): Promise<CorrectionAPI> => {
+    const {findProgressionById, findSlideById, getCorrectAnswer} = dataLayer;
+    const progression = await findProgressionById(progressionId);
 
-  if (!progression) {
-    throw new Error(`progression "${progressionId}" not found`);
-  }
+    if (!progression) {
+      throw new Error(`progression "${progressionId}" not found`);
+    }
 
-  const state = progression.state;
+    const state = progression.state;
 
-  if (!state) {
-    throw new Error(`progression "${progressionId}" has no state`);
-  }
+    if (!state) {
+      throw new Error(`progression "${progressionId}" has no state`);
+    }
 
-  const slide = await findSlideById(slideId);
+    const slide = await findSlideById(slideId);
 
-  if (!includes(slideId, state.slides)) throw new Error('Answer is not available');
-  const config = getConfigForProgression(progression);
-  const correctAnswer = await getCorrectAnswer(slideId);
-  const question = assign(slide.question, {
-    answers: [correctAnswer],
-  });
+    if (!includes(slideId, state.slides)) throw new Error('Answer is not available');
+    const config = getConfigForProgression(progression);
+    const correctAnswer = await getCorrectAnswer(slideId);
+    const question = assign(slide.question, {
+      answers: [correctAnswer],
+    });
 
-  const {corrections} = checkAnswerCorrectness(config, question, givenAnswers);
+    const {corrections} = checkAnswerCorrectness(config, question, givenAnswers);
 
-  return {
-    correctAnswer,
-    corrections,
+    return {
+      correctAnswer,
+      corrections,
+    };
   };
-};
 
 const Answers = (dataLayer: DataLayer): AnswersService => ({
   findById: findById(dataLayer),

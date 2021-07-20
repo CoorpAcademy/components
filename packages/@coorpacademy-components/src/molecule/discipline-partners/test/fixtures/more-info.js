@@ -6,8 +6,7 @@ export default {
         href: '/author/elephant',
         more: 'Author Details',
         logo: {
-          src:
-            'https://static-staging.coorpacademy.com/upload/up/partners/1472198693277logo_elephant.png',
+          src: 'https://static-staging.coorpacademy.com/upload/up/partners/1472198693277logo_elephant.png',
           href: 'http://google.fr'
         },
         socialLinks: [
@@ -26,8 +25,7 @@ export default {
         href: '/nextstage',
         more: 'Author Details',
         logo: {
-          src:
-            'https://static-staging.coorpacademy.com/upload/up/partners/1472198693277logo_elephant.png',
+          src: 'https://static-staging.coorpacademy.com/upload/up/partners/1472198693277logo_elephant.png',
           href: 'http://www.nextstage.com/'
         },
         socialLinks: [

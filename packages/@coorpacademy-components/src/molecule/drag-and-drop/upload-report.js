@@ -39,28 +39,34 @@ export const UploadReport = ({
     e.preventDefault();
   }, []);
 
-  const SuccessMessage = () => (
-    <div>
-      <span className={style.emoticon}>🎉</span>
-      <p className={style.message}>{message}</p>
-    </div>
-  );
-  const ErrorMessage = () => (
-    <div>
+  const SuccessMessage = useCallback(
+    () => (
       <div>
-        <span className={style.emoticon}>🥺</span>
+        <span className={style.emoticon}>🎉</span>
         <p className={style.message}>{message}</p>
       </div>
+    ),
+    []
+  );
+  const ErrorMessage = useCallback(
+    () => (
       <div>
-        <Button
-          data-name="cta"
-          type="link"
-          submitValue={buttonTitle}
-          className={style.selectButton}
-          style={{backgroundColor: primaryColor}}
-        />
+        <div>
+          <span className={style.emoticon}>🥺</span>
+          <p className={style.message}>{message}</p>
+        </div>
+        <div>
+          <Button
+            data-name="cta"
+            type="link"
+            submitValue={buttonTitle}
+            className={style.selectButton}
+            style={{backgroundColor: primaryColor}}
+          />
+        </div>
       </div>
-    </div>
+    ),
+    []
   );
   const showMessage = ['success', 'error'].includes(state);
 

@@ -46,20 +46,22 @@ const headerSubcontent = (engineRef, state) => {
   }
 };
 
-const headerProps = (options, {dispatch}) => state => {
-  const engine = getEngine(state);
-  const {ref: engineRef} = engine;
-  const {hide, count} = getLives(state);
+const headerProps =
+  (options, {dispatch}) =>
+  state => {
+    const engine = getEngine(state);
+    const {ref: engineRef} = engine;
+    const {hide, count} = getLives(state);
 
-  return {
-    type: engineRef,
-    content: {
-      ...headerContent(engineRef, state),
-      onClick: () => dispatch(back)
-    },
-    subcontent: headerSubcontent(engineRef, state),
-    lives: hide ? false : {count}
+    return {
+      type: engineRef,
+      content: {
+        ...headerContent(engineRef, state),
+        onClick: () => dispatch(back)
+      },
+      subcontent: headerSubcontent(engineRef, state),
+      lives: hide ? false : {count}
+    };
   };
-};
 
 export default headerProps;
