@@ -26,6 +26,12 @@
   color: dark;
 }
 
+.wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .openHeader {
   composes: header;
   background-color: xtraLightGrey;
@@ -38,6 +44,7 @@
 .coorpManagerOpenHeader {
   composes: header;
   background-color: cm_background;
+  padding: 0 24px;
   /* border-bottom: 0px; */
   /* border-left: solid 5px cm_blue; */
 
@@ -45,8 +52,22 @@
 
 .coorpManagerClosedHeader {
   composes: header;
+  padding: 0 24px;
   background-color: cm_background;
   border-bottom: 0px;
+}
+
+.border {
+  width: 4px;
+  height: 36px;
+}
+
+.borderBgBlue {
+  background-color: cm_blue;
+}
+
+.borderBgNone {
+  background-color: none;
 }
 
 .header:hover {
@@ -60,6 +81,10 @@
   margin-left: 35px;
 }
 
+/* .title:hover {
+  color: red;
+} */
+
 .selectedTitle {
   display: flex;
   flex-direction: row;
@@ -69,15 +94,19 @@
 
 .titleLabel {
   font-family: 'Open Sans';
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 700;
 }
 
 .titleIcon {
-  width: 22px;
-  height: 22px;
+  width: 16px;
+  height: 16px;
   margin-right: 15px;
 }
+
+/* .titleIcon:hover {
+  color: red;
+} */
 
 .setupTitleActivatedIcon {
   composes: titleIcon;
@@ -109,20 +138,20 @@
 }
 
 .setupTitleLabel {
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 700;
   color: cm_grey;
 }
 
 .setupSelectedTitleLabel {
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 700;
-  color: cm_black;
+  color: cm_blue;
 }
 
 .setupTitleIcon {
-  width: 22px;
-  height: 22px;
+  width: 16px;
+  height: 16px;
   margin-right: 15px;
 }
 
@@ -135,6 +164,19 @@
   transition: transform 0.2s, opacity 0.1s;
 }
 
+.header:hover .titleIcon {
+  color: black;
+}
+
+.coorpManagerOpenHeader:hover .titleIcon {
+  color: cm_blue;
+}
+
+.header:hover .setupTitleLabel {
+  color: black;
+}
+
+
 .openIcon {
   composes: icon;
   opacity: 0;
@@ -145,6 +187,12 @@
   composes: icon;
   opacity: 1;
   transform: translate(50%, -50%) rotate(180deg);
+}
+
+.newTabIcon {
+  composes: icon;
+  opacity: 1;
+  transform: translate(50%, -50%);
 }
 
 .closeIcon {

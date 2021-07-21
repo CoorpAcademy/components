@@ -88,8 +88,8 @@ const BrandUpdate = props => {
   return (
     <div className={style.container}>
       <div className={style.dashboardAside}>
-        <div style={{margin: '74px 16px'}}>
-          <img src={logo} height="32" />
+        <div className={style.logo}>
+          <img src={logo} />
         </div>
         <Accordion tabProps={formattedTabs} type={'all'} theme={'setup'}>
           {formattedTabsViews}
@@ -138,9 +138,9 @@ BrandUpdate.propTypes = {
           selected: PropTypes.bool.isRequired,
           type: PropTypes.string
         })
-      )
+        )
     })
-  ).isRequired,
+    ).isRequired,
   content: PropTypes.oneOfType([
     PropTypes.shape({
       ...BrandForm.propTypes,

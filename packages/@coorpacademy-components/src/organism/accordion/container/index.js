@@ -18,6 +18,8 @@ const Tab = ({
   iconType,
   lessMoreIconType,
   onClick,
+  type,
+  href,
   theme
 }) => {
   const handleOnClick = useMemo(() => evt => onClick(index, evt), [onClick]);
@@ -31,6 +33,8 @@ const Tab = ({
         isOpen={isOpen}
         isSelected={isSelected}
         theme={theme}
+        href={href}
+        type={type}
         onClick={handleOnClick}
       />
     </div>
@@ -48,7 +52,8 @@ Tab.propTypes = {
   isOpen: Part.propTypes.isOpen,
   theme: Part.propTypes.theme,
   onClick: Part.propTypes.onClick,
-  isSelected: Part.propTypes.bool
+  isSelected: Part.propTypes.bool,
+  href: Part.propTypes.href,
 };
 
 const Accordion = props => {
@@ -85,7 +90,7 @@ Accordion.propTypes = {
     })
   ),
   onClick: Tab.propTypes.onClick,
-  theme: Tab.propTypes.theme
+  theme: Tab.propTypes.theme,
 };
 
 export default Accordion;

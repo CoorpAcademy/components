@@ -22,7 +22,7 @@
 }
 
 .subTabs {
-  margin-left: 7.5%;
+  margin-left: 18.5%;
   padding: 1px 20px 1px 20px;
   font-size: 16px;
   font-weight: 700;
@@ -53,8 +53,6 @@
 }
 
 .dashboardAside {
-  /* margin: 0 16px; */
-  padding: 24px;
   min-width: 270px;
   background: xtraLightGrey;
 }
@@ -79,13 +77,23 @@
 }
 
 .selectedElement {
+  font-size: 12px;
   background-color: cm_lightGrey;
   border-radius: 5px;
   color: black;
 }
 
+.unselectedElement {
+  font-size: 12px;
+}
+
 .unselectedElement:hover {
   color: black;
+}
+
+.logo {
+  height: 32px;
+  margin: 32px 40px 54px 40px;
 }
 
 
