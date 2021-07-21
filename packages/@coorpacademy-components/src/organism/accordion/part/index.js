@@ -9,12 +9,12 @@ import {
   NovaSolidLightsLightbulb4 as LightBulbIcon,
   NovaCompositionNavigationLess as Less,
   NovaCompositionNavigationArrowDown as ArrowIcon,
-  NovaCompositionNavigationDashboard as DashboardIcon,
-  NovaCompositionNavigationAnalytics as AnalyticsIcon,
-  NovaCompositionNavigationAnimation as AnimationIcon,
-  NovaCompositionNavigationAdministration as AdministrationIcon,
-  NovaCompositionNavigationContentCreation as ContentCreationIcon,
-  NovaCompositionNavigationEditorialization as EditorializationIcon,
+  NovaCompositionCoorpacademyDashboard as DashboardIcon,
+  NovaCompositionCoorpacademyAnalytics as AnalyticsIcon,
+  NovaCompositionCoorpacademyAnimation as AnimationIcon,
+  NovaCompositionCoorpacademyAdministration as AdministrationIcon,
+  NovaCompositionCoorpacademyContentCreation as ContentCreationIcon,
+  NovaCompositionCoorpacademyEditorialization as EditorializationIcon,
   NovaCompositionCoorpacademyOpenInNewTab as OpenInNewTabIcon
 } from '@coorpacademy/nova-icons';
 import Provider from '../../../atom/provider';
