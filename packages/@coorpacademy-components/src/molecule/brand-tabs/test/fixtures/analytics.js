@@ -21,7 +21,7 @@ export default {
         href: '#brand/samsung/editorialization',
         type: 'iconLink',
         open: false,
-        selected: false,
+        selected: false
       },
       {
         title: 'Content Creation',
@@ -29,13 +29,12 @@ export default {
         href: '#brand/samsung/content-creation',
         open: false,
         selected: false,
-        type: 'iconLink',
+        type: 'iconLink'
       },
       {
         title: 'Animation',
         key: 'animation',
         href: '#brand/samsung/content-creation',
-        open: false,
         selected: false,
         subTabs: [
           {title: 'SSO', href: '#/sso', selected: false, type: 'iconLink'},

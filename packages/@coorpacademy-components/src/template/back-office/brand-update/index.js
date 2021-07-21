@@ -12,7 +12,6 @@ import BrandDashboard from '../../../organism/brand-dashboard';
 import Notification from '../../../atom/notification';
 import Loader from '../../../atom/loader';
 import Accordion from '../../../organism/accordion/container';
-import logo from './logo.svg';
 import style from './style.css';
 
 const SubTab = ({title, href, selected}) => {
@@ -26,7 +25,7 @@ SubTab.propTypes = {
 };
 
 const BrandUpdate = props => {
-  const {notifications, links, breadcrumbs, tabs, content, details} = props;
+  const {notifications, links, breadcrumbs, tabs, content, details, logo} = props;
 
   const formattedTabs = tabs.map(({key, title, href, selected, open, type = 'link'}, index) => ({
     title,
