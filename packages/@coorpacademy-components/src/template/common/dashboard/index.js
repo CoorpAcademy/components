@@ -23,6 +23,8 @@ const Dashboard = props => {
   const buildSectionComponent = section => {
     const {type} = section;
     switch (type) {
+      case 'hero':
+        return <Hero hero={hero} welcome={welcome} />;
       case 'battleRequests':
         return <BattleRequestList {...section} />;
       case 'cards':
@@ -42,10 +44,11 @@ const Dashboard = props => {
     return <div key={index}>{sectionView}</div>;
   };
 
-  const sectionsList = sections.map(buildSection);
+  const sectionsList = [{type: 'hero', key: 'hero'}, ...sections].map(section => (
+    <div key={section.key}>{buildSection(section)}</div>
+  ));
   return (
     <div className={style.wrapper} data-name="dashboard">
-      <Hero hero={hero} welcome={welcome} />
       {sectionsList}
     </div>
   );
