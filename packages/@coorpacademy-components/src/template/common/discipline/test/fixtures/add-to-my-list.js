@@ -42,6 +42,8 @@ export default {
     favorite: true,
     onFavoriteClick: cb => cb(),
     addToMyListText: 'Added to your list',
-    removeFromMyListText: 'Removed from your list'
+    removeFromMyListText: 'Removed from your list',
+    disableAddToMyList: false,
+    disableShare: false
   }
 };
