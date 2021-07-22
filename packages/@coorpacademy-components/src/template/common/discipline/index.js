@@ -86,7 +86,7 @@ const Discipline = (props, context) => {
   );
 
   const discipline = (
-    <div data-name="discipline" className={style.container}>
+    <div data-name="discipline" className={style.container} key="discipline">
       <div className={style.leftSection}>
         {disciplineHeader}
         <div className={style.mobileAuthorCtaSection}>
@@ -126,7 +126,11 @@ const Discipline = (props, context) => {
   );
 
   const shareFeedBack = disableShare ? null : (
-    <ShareFeedback errorWording={shareErrorWording} successWording={shareSuccessWording} />
+    <ShareFeedback
+      errorWording={shareErrorWording}
+      successWording={shareSuccessWording}
+      key="shareFeedBack"
+    />
   );
 
   const addToMyListFeedback = disableAddToMyList ? null : (
@@ -147,7 +151,7 @@ const Discipline = (props, context) => {
     </AddToMyListStatusProvider>
   );
   const shareProviderWrap = disableShare ? (
-    [addToMyListProviderWrap]
+    addToMyListProviderWrap
   ) : (
     <ShareStatusProvider>{addToMyListProviderWrap}</ShareStatusProvider>
   );
