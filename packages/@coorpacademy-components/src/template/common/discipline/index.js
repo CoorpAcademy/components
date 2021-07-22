@@ -152,7 +152,7 @@ const Discipline = (props, context) => {
     <ShareStatusProvider>{addToMyListProviderWrap}</ShareStatusProvider>
   );
 
-  return [shareProviderWrap];
+  return shareProviderWrap;
 };
 
 Discipline.propTypes = {
