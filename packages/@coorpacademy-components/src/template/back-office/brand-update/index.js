@@ -101,7 +101,6 @@ const BrandUpdate = props => {
         <div className={style.notifications}>{notificationsList}</div>
         <div className={style.contentHandler}>
           <div className={style.contentView}>
-            {/* {!isEmpty(subTabs) ? <BrandTabs type="light" tabs={subTabs} /> : null} */}
             <div className={style.dashboardContent}>
               <div>{contentView(content)}</div>
               <div>{detailsView(details)}</div>

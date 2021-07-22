@@ -21,7 +21,6 @@
   box-sizing: border-box;
   background-color: light;
   cursor: pointer;
-  /* border-bottom: 1px solid xtraLightGrey; */
   transition: background-color 0.3s;
   color: dark;
 }
@@ -45,9 +44,6 @@
   composes: header;
   background-color: cm_background;
   padding: 0 24px;
-  /* border-bottom: 0px; */
-  /* border-left: solid 5px cm_blue; */
-
 }
 
 .coorpManagerClosedHeader {
@@ -81,10 +77,6 @@
   margin-left: 35px;
 }
 
-/* .title:hover {
-  color: red;
-} */
-
 .selectedTitle {
   display: flex;
   flex-direction: row;
@@ -103,10 +95,6 @@
   height: 16px;
   margin-right: 15px;
 }
-
-/* .titleIcon:hover {
-  color: red;
-} */
 
 .setupTitleActivatedIcon {
   composes: titleIcon;
@@ -128,13 +116,11 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* justify-content: center; */
   margin-left: 15px;
 }
 
 .setupSelectedTitle {
   composes: setupTitle;
-  /* justify-content: center; */
 }
 
 .setupTitleLabel {
