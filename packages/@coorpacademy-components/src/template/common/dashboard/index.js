@@ -8,9 +8,9 @@ import NewsList from '../../../molecule/dashboard/news-list';
 import StartBattle from '../../../molecule/dashboard/start-battle';
 import style from './style.css';
 
-const Hero = ({hero, welcome}) => (
-  <div className={style.hero}>{hero ? <HeroCard {...hero} /> : <Slide {...welcome} />}</div>
-);
+const Hero = React.memo(function Hero({hero, welcome}) {
+  return <div className={style.hero}>{hero ? <HeroCard {...hero} /> : <Slide {...welcome} />}</div>;
+});
 
 Hero.propTypes = {
   hero: PropTypes.shape(HeroCard.propTypes),

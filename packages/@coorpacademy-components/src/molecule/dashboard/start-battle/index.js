@@ -54,4 +54,4 @@ StartBattle.propTypes = {
   href: PropTypes.string
 };
 
-export default StartBattle;
+export default React.memo(StartBattle);

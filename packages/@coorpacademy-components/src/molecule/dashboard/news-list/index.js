@@ -49,4 +49,4 @@ NewsList.propTypes = {
   loading: PropTypes.bool
 };
 
-export default NewsList;
+export default React.memo(NewsList);

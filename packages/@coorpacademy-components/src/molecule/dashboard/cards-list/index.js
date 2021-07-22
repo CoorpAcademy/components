@@ -85,7 +85,7 @@ IconView.propTypes = {
   contentType: PropTypes.string
 };
 
-class CardsList extends React.Component {
+class CardsList extends React.PureComponent {
   static propTypes = {
     contentType: PropTypes.string,
     dataName: PropTypes.string,
