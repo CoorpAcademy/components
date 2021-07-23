@@ -81,22 +81,26 @@
 .bigFlashRight {
   width: 167px;
   height: 250px;
-  margin-top: -30px;
+  margin-top: -40px;
+  animation-play-state: paused;
   animation-name: bigFlashRightAnim;
-  animation-duration: 12s;
+  animation-duration: 2s;
   animation-delay: 0;
   animation-iteration-count: infinite;
   animation-direction: forward;
+  animation-timing-function: ease-in-out;
 }
 
 .bigFlashLeft {
   width: 167px;
   height: 250px;
+  animation-play-state: paused;
   animation-name: bigFlashLeftAnim;
-  animation-duration: 12s;
+  animation-duration: 2s;
   animation-delay: 0;
   animation-iteration-count: infinite;
   animation-direction: forward;
+  animation-timing-function: ease-in-out;
 }
 
 .smallFlashRight {
@@ -104,22 +108,30 @@
   height: 132px;
   margin-left: -50px;
   margin-top: 70px;
+  animation-play-state: paused;
   animation-name: smallFlashRightAnim;
-  animation-duration: 12s;
+  animation-duration: 2s;
   animation-delay: 0;
   animation-iteration-count: infinite;
   animation-direction: forward;
+  animation-timing-function: ease-in-out;
 }
 
 .smallFlashLeft {
   width: 100px;
   height: 132px;
   margin-left: -50px;
+  animation-play-state: paused;
   animation-name: smallFlashLeftAnim;
-  animation-duration: 12s;
+  animation-duration: 2s;
   animation-delay: 0;
   animation-iteration-count: infinite;
   animation-direction: forward;
+  animation-timing-function: ease-in-out;
+}
+
+.wrapper:hover .bigFlashLeft, .wrapper:hover .bigFlashRight, .wrapper:hover .smallFlashRight, .wrapper:hover .smallFlashLeft {
+  animation-play-state: running;
 }
 
 .becomeText {
@@ -180,63 +192,27 @@
 }
 
 @keyframes bigFlashLeftAnim {
-  0% {margin-top: 0px;}
-  10% {margin-top: 10px;} 
-  20% {margin-top: 0px;} 
-  30% {margin-top: 10px;} 
-  40% {margin-top: 0px;} 
-  45% {margin-left: 0px;}
-  50% {margin-left: 10px;}
-  60% {margin-left: 0px;}
-  70% {margin-left: 10px;}
-  80% {margin-left: 0px;}
-  90% {margin-left: 10px;}
-  100% {margin-left: 0px;}
+  0% {transform: translate3d(0, 0, 0);}
+  50% {transform: translate3d(0, 10px, 0);}
+  100% {transform: translate3d(0, 0, 0);}
 }
 
 @keyframes smallFlashLeftAnim {
-  0% {margin-top: 0px}
-  10% {margin-top: 30px;} 
-  20% {margin-top: 0px} 
-  30% {margin-top: 30px;} 
-  40% {margin-top: 0px} 
-  45% {margin-left: -50px;}
-  50% {margin-left: -70px;}
-  60% {margin-left: -50px;}
-  70% {margin-left: -70px;}
-  80% {margin-left: -50px;}
-  90% {margin-left: -70px;}
-  100% {margin-left: -50px;}
+  0% {transform: translate3d(0, 0, 0);}
+  50% {transform: translate3d(0, 20px, 0);}
+  100% {transform: translate3d(0, 0, 0);}
 }
 
 @keyframes bigFlashRightAnim {
-  0% {margin-top: -30px;}
-  10% {margin-top: -20px;} 
-  20% {margin-top: -30px;} 
-  30% {margin-top: -20px;} 
-  40% {margin-top: -30px;} 
-  45% {padding-right: 0px;}
-  50% {padding-right: 20px;}
-  60% {padding-right: 0px;}
-  70% {padding-right: 20px;}
-  80% {padding-right: 0px;}
-  90% {padding-right: 20px;}
-  100% {padding-right: 0px;}
+  0% {transform: translate3d(0, 10px, 0);}
+  50% {transform: translate3d(0, 0, 0);}
+  100% {transform: translate3d(0, 10px, 0);}
 }
 
 @keyframes smallFlashRightAnim {
-  0% {margin-top: 70px}
-  10% {margin-top: 90px;} 
-  20% {margin-top: 70px} 
-  30% {margin-top: 90px;} 
-  40% {margin-top: 70px} 
-  45% {margin-right: 0px;}
-  50% {margin-right: -10px;}
-  60% {margin-right: 0px;}
-  70% {margin-right: -10px;}
-  80% {margin-right: 0px;}
-  90% {margin-right: -10px;}
-  100% {margin-right: 0px;}
+  0% {transform: translate3d(0, 20px, 0);}
+  50% {transform: translate3d(0, 0, 0);}
+  100% {transform: translate3d(0, 20px, 0);}
 }
 
 @media tablet {
