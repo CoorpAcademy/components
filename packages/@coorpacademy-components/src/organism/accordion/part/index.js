@@ -46,8 +46,8 @@ const MORE_ICONS_TYPES = {
 
 const defaultStyle = {
   titleIcon: style.titleIcon,
-  lable: style.titleLabel,
-  selectedLable: style.titleLabel,
+  label: style.titleLabel,
+  selectedLabel: style.titleLabel,
   title: style.setupTitle,
   subTitle: style.setupPart,
   container: style.container,
@@ -60,8 +60,8 @@ const defaultStyle = {
 const setupThemeStyle = {
   titleIcon: style.titleIcon,
   titleActivatedIcon: style.setupTitleActivatedIcon,
-  lable: style.setupTitleLabel,
-  selectedLable: style.setupSelectedTitleLabel,
+  label: style.setupTitleLabel,
+  selectedLabel: style.setupSelectedTitleLabel,
   setupSelectedTitle: style.setupSelectedTitle,
   selectedTitle: style.selectedTitle,
   title: style.setupTitle,
@@ -94,9 +94,11 @@ const PartItem = ({
 
   return (
     <div className={style.wrapper}>
-      <div
-        className={classnames(style.border, isSelected ? style.borderBgBlue : style.borderBgNone)}
-      />
+      {theme === 'setup' ? (
+        <div
+          className={classnames(style.border, isSelected ? style.borderBgBlue : style.borderBgNone)}
+        />
+      ) : null}
       <div
         className={isSelected ? themeStyle.openHeader : themeStyle.closedHeader}
         data-type={iconType}
@@ -114,7 +116,7 @@ const PartItem = ({
               )}
             />
           ) : null}
-          <h3 className={isSelected ? themeStyle.selectedLable : themeStyle.lable}>{title}</h3>
+          <h3 className={isSelected ? themeStyle.selectedLabel : themeStyle.label}>{title}</h3>
         </div>
         {type !== 'iconLink' ? (
           <div>
