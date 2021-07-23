@@ -46,23 +46,6 @@ const Discipline = (props, context) => {
     </div>
   );
 
-  const buildAddToMyList = options => (
-    <AddToMyList
-      style={options.isTablet ? style.addToMyListBtnTablet : style.addToMyListBtn}
-      addToMyListButton={addToMyListButton}
-      favorite={favorite}
-      onFavoriteClick={onFavoriteClick}
-    />
-  );
-
-  const buildShare = options => (
-    <Share
-      style={options.isTablet ? style.shareBtnTablet : style.shareBtn}
-      wording={shareWording}
-      text={shareText}
-    />
-  );
-
   const disciplineCTA = (
     <DisciplineCTA
       type={'discipline'}
@@ -92,12 +75,23 @@ const Discipline = (props, context) => {
         <div className={style.mobileAuthorCtaSection}>
           <div className={style.columnReverse}>
             <div className={style.cta}>{disciplineCTA}</div>
-            {disableAddToMyList
-              ? null
-              : buildAddToMyList({
-                  isTablet: true
-                })}
-            {disableShare ? null : buildShare({isTablet: true})}
+            {disableAddToMyList ? null : (
+              <AddToMyList
+                style={style.addToMyListBtn}
+                addToMyListButton={addToMyListButton}
+                favorite={favorite}
+                onFavoriteClick={onFavoriteClick}
+                key={'addToMyListTablet'}
+              />
+            )}
+            {disableShare ? null : (
+              <Share
+                style={style.shareBtn}
+                wording={shareWording}
+                text={shareText}
+                key={'shareTablet'}
+              />
+            )}
           </div>
           {authorSection}
         </div>
@@ -109,13 +103,23 @@ const Discipline = (props, context) => {
             {disciplineCTA}
             {disableShare && disableAddToMyList ? null : (
               <div className={style.buttons}>
-                <Share style={style.shareBtn} wording={shareWording} text={shareText} />
-                {disableShare ? null : buildShare({isTablet: false})}
-                {disableAddToMyList
-                  ? null
-                  : buildAddToMyList({
-                      isTablet: false
-                    })}
+                {disableShare ? null : (
+                  <Share
+                    style={style.shareBtn}
+                    wording={shareWording}
+                    text={shareText}
+                    key={'shareDesktop'}
+                  />
+                )}
+                {disableAddToMyList ? null : (
+                  <AddToMyList
+                    style={style.addToMyListBtn}
+                    addToMyListButton={addToMyListButton}
+                    favorite={favorite}
+                    onFavoriteClick={onFavoriteClick}
+                    key={'addToMyListDesktop'}
+                  />
+                )}
               </div>
             )}
           </div>
