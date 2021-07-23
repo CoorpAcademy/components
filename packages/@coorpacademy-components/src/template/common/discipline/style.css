@@ -111,7 +111,7 @@
   .addToMyListBtn {
     margin-top: 15px;
     margin-left: unset;
-  }  
+  }
 
   .mobileAuthorCtaSection {
     composes: wrapper from '../layout.css';
