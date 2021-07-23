@@ -25,4 +25,4 @@ BattleRequestList.propTypes = {
   requests: PropTypes.arrayOf(PropTypes.shape(BattleRequest.propTypes))
 };
 
-export default BattleRequestList;
+export default React.memo(BattleRequestList);

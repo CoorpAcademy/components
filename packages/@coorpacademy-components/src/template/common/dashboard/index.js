@@ -8,9 +8,9 @@ import NewsList from '../../../molecule/dashboard/news-list';
 import StartBattle from '../../../molecule/dashboard/start-battle';
 import style from './style.css';
 
-const Hero = ({hero, welcome}) => (
-  <div className={style.hero}>{hero ? <HeroCard {...hero} /> : <Slide {...welcome} />}</div>
-);
+const Hero = React.memo(function Hero({hero, welcome}) {
+  return <div className={style.hero}>{hero ? <HeroCard {...hero} /> : <Slide {...welcome} />}</div>;
+});
 
 Hero.propTypes = {
   hero: PropTypes.shape(HeroCard.propTypes),
@@ -23,6 +23,8 @@ const Dashboard = props => {
   const buildSectionComponent = section => {
     const {type} = section;
     switch (type) {
+      case 'hero':
+        return <Hero hero={hero} welcome={welcome} />;
       case 'battleRequests':
         return <BattleRequestList {...section} />;
       case 'cards':
@@ -42,10 +44,11 @@ const Dashboard = props => {
     return <div key={index}>{sectionView}</div>;
   };
 
-  const sectionsList = sections.map(buildSection);
+  const sectionsList = [{type: 'hero', key: 'hero'}, ...sections].map(section => (
+    <div key={section.key}>{buildSection(section)}</div>
+  ));
   return (
     <div className={style.wrapper} data-name="dashboard">
-      <Hero hero={hero} welcome={welcome} />
       {sectionsList}
     </div>
   );

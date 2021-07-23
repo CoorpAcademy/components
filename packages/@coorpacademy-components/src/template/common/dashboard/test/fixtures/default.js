@@ -23,19 +23,24 @@ export default {
     },
     sections: [
       defaultsDeep(requestsProps, {
-        type: 'battleRequests'
+        type: 'battleRequests',
+        key: 'battleRequests'
       }),
       defaultsDeep(cardsProps, {
-        type: 'cards'
+        type: 'cards',
+        key: 'playlist1'
       }),
       defaultsDeep(manyCardsProps, {
-        type: 'cards'
+        type: 'cards',
+        key: 'playlist2'
       }),
       defaultsDeep(battleProps, {
-        type: 'battle'
+        type: 'battle',
+        key: 'battle'
       }),
       defaultsDeep(newsProps, {
-        type: 'news'
+        type: 'news',
+        key: 'news'
       })
     ]
   }
