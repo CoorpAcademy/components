@@ -35,7 +35,9 @@ const Discipline = (props, context) => {
     favorite,
     onFavoriteClick,
     addToMyListText,
-    removeFromMyListText
+    removeFromMyListText,
+    disableShare = false,
+    disableAddToMyList = false
   } = props;
 
   const authorSection = isEmpty(authors) ? null : (
@@ -44,85 +46,121 @@ const Discipline = (props, context) => {
     </div>
   );
 
-  return (
-    <ShareStatusProvider>
-      <AddToMyListStatusProvider>
-        <ShareFeedback errorWording={shareErrorWording} successWording={shareSuccessWording} />
-        <AddToMyListFeedback
-          addToMyListText={addToMyListText}
-          removeFromMyListText={removeFromMyListText}
-          favorite={favorite}
-        />
-        <div data-name="discipline" className={style.container}>
-          <div className={style.leftSection}>
-            <div className={style.header}>
-              <DisciplineHeader
-                image={image}
-                video={video}
-                title={title}
-                description={description}
-              />
-            </div>
-            <div className={style.mobileAuthorCtaSection}>
-              <div className={style.columnReverse}>
-                <div className={style.cta}>
-                  <DisciplineCTA
-                    type={'discipline'}
-                    start={start}
-                    buy={buy}
-                    startLabel={startLabel}
-                    buyLabel={buyLabel}
-                  />
-                </div>
-                <AddToMyList
-                  style={style.addToMyListBtnTablet}
-                  addToMyListButton={addToMyListButton}
-                  favorite={favorite}
-                  onFavoriteClick={onFavoriteClick}
-                />
-                <Share style={style.shareBtnTablet} wording={shareWording} text={shareText} />
-              </div>
-              <div className={style.partners}>
-                <DisciplinePartners authors={authors} />
-              </div>
-            </div>
-            <div className={style.content}>
-              <DisciplineScope
-                content={level}
-                levels={levels}
-                selected={selected}
-                onClick={changeLevel}
-              />
-            </div>
-          </div>
-          <div className={style.rightSection}>
-            <div className={style.stickySection}>
-              <div className={style.cta}>
-                <DisciplineCTA
-                  type={'discipline'}
-                  start={start}
-                  buy={buy}
-                  startLabel={startLabel}
-                  buyLabel={buyLabel}
-                />
+  const disciplineCTA = (
+    <DisciplineCTA
+      type={'discipline'}
+      start={start}
+      buy={buy}
+      startLabel={startLabel}
+      buyLabel={buyLabel}
+    />
+  );
 
-                <div className={style.buttons}>
-                  <Share style={style.shareBtn} wording={shareWording} text={shareText} />
+  const disciplineContent = (
+    <div className={style.content}>
+      <DisciplineScope content={level} levels={levels} selected={selected} onClick={changeLevel} />
+    </div>
+  );
+
+  const disciplineHeader = (
+    <div className={style.header}>
+      <DisciplineHeader image={image} video={video} title={title} description={description} />
+    </div>
+  );
+
+  const discipline = (
+    <div data-name="discipline" className={style.container} key="discipline">
+      <div className={style.leftSection}>
+        {disciplineHeader}
+        <div className={style.mobileAuthorCtaSection}>
+          <div className={style.columnReverse}>
+            <div className={style.cta}>{disciplineCTA}</div>
+            {disableAddToMyList ? null : (
+              <AddToMyList
+                style={style.addToMyListBtn}
+                addToMyListButton={addToMyListButton}
+                favorite={favorite}
+                onFavoriteClick={onFavoriteClick}
+                key={'addToMyListTablet'}
+              />
+            )}
+            {disableShare ? null : (
+              <Share
+                style={style.shareBtn}
+                wording={shareWording}
+                text={shareText}
+                key={'shareTablet'}
+              />
+            )}
+          </div>
+          {authorSection}
+        </div>
+        {disciplineContent}
+      </div>
+      <div className={style.rightSection}>
+        <div className={style.stickySection}>
+          <div className={style.cta}>
+            {disciplineCTA}
+            {disableShare && disableAddToMyList ? null : (
+              <div className={style.buttons}>
+                {disableShare ? null : (
+                  <Share
+                    style={style.shareBtn}
+                    wording={shareWording}
+                    text={shareText}
+                    key={'shareDesktop'}
+                  />
+                )}
+                {disableAddToMyList ? null : (
                   <AddToMyList
                     style={style.addToMyListBtn}
                     addToMyListButton={addToMyListButton}
                     favorite={favorite}
                     onFavoriteClick={onFavoriteClick}
+                    key={'addToMyListDesktop'}
                   />
-                </div>
+                )}
               </div>
-              {authorSection}
-            </div>
+            )}
           </div>
+          {authorSection}
         </div>
-      </AddToMyListStatusProvider>
-    </ShareStatusProvider>
+      </div>
+    </div>
   );
+
+  const shareFeedBack = disableShare ? null : (
+    <ShareFeedback
+      errorWording={shareErrorWording}
+      successWording={shareSuccessWording}
+      key="shareFeedBack"
+    />
+  );
+
+  const addToMyListFeedback = disableAddToMyList ? null : (
+    <AddToMyListFeedback
+      addToMyListText={addToMyListText}
+      removeFromMyListText={removeFromMyListText}
+      favorite={favorite}
+    />
+  );
+
+  const addToMyListProviderWrap = disableAddToMyList ? (
+    [shareFeedBack, discipline]
+  ) : (
+    <AddToMyListStatusProvider>
+      {shareFeedBack}
+      {addToMyListFeedback}
+      {discipline}
+    </AddToMyListStatusProvider>
+  );
+  const shareProviderWrap = disableShare ? (
+    addToMyListProviderWrap
+  ) : (
+    <ShareStatusProvider>{addToMyListProviderWrap}</ShareStatusProvider>
+  );
+
+  return shareProviderWrap;
 };
 
 Discipline.propTypes = {
@@ -147,7 +185,9 @@ Discipline.propTypes = {
   removeFromMyListText: AddToMyListFeedback.propTypes.removeFromMyListText,
   addToMyListButton: AddToMyList.propTypes.addToMyListButton,
   onFavoriteClick: AddToMyList.propTypes.onFavoriteClick,
-  favorite: AddToMyList.propTypes.favorite
+  favorite: AddToMyList.propTypes.favorite,
+  disableShare: PropTypes.bool,
+  disableAddToMyList: PropTypes.bool
 };
 
 Discipline.contextTypes = {

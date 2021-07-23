@@ -906,6 +906,9 @@ import TemplateCommonDashboardFixtureWithHeroCard from '../src/template/common/d
 import TemplateCommonDisciplineFixtureAddToMyList from '../src/template/common/discipline/test/fixtures/add-to-my-list';
 import TemplateCommonDisciplineFixtureArabic from '../src/template/common/discipline/test/fixtures/arabic';
 import TemplateCommonDisciplineFixtureDefault from '../src/template/common/discipline/test/fixtures/default';
+import TemplateCommonDisciplineFixtureDisableAddToMyList from '../src/template/common/discipline/test/fixtures/disable-add-to-my-list';
+import TemplateCommonDisciplineFixtureDisableShareAndAddToMyList from '../src/template/common/discipline/test/fixtures/disable-share-and-add-to-my-list';
+import TemplateCommonDisciplineFixtureDisableShare from '../src/template/common/discipline/test/fixtures/disable-share';
 import TemplateCommonDisciplineFixtureDoubleAuthor from '../src/template/common/discipline/test/fixtures/double-author';
 import TemplateCommonDisciplineFixtureEmpty from '../src/template/common/discipline/test/fixtures/empty';
 import TemplateCommonDisciplineFixtureExternalCourseWithVideo from '../src/template/common/discipline/test/fixtures/external-course-with-video';
@@ -2246,6 +2249,9 @@ export const fixtures = {
       AddToMyList: TemplateCommonDisciplineFixtureAddToMyList,
       Arabic: TemplateCommonDisciplineFixtureArabic,
       Default: TemplateCommonDisciplineFixtureDefault,
+      DisableAddToMyList: TemplateCommonDisciplineFixtureDisableAddToMyList,
+      DisableShareAndAddToMyList: TemplateCommonDisciplineFixtureDisableShareAndAddToMyList,
+      DisableShare: TemplateCommonDisciplineFixtureDisableShare,
       DoubleAuthor: TemplateCommonDisciplineFixtureDoubleAuthor,
       Empty: TemplateCommonDisciplineFixtureEmpty,
       ExternalCourseWithVideo: TemplateCommonDisciplineFixtureExternalCourseWithVideo,

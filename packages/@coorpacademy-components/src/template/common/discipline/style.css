@@ -66,30 +66,47 @@
 
 .buttons {
  display: flex;
- align-items: center;
  margin-top: 15px;
+ width: unset;
+ flex-direction: row;
+ align-items: center;
 }
 
-.addToMyListBtn {
-  flex: 1.3;
-  margin-left: 15px;
-}
+@media wide {
+  .buttons > * {
+    margin-left: 15px; 
+  }
+  
+  .buttons > *:first-child {
+    margin-left: unset; 
+  }
 
-.addToMyListBtnTablet {
-  margin-top: 15px;
-}
+   .shareBtn {
+    width: unset;
+    display: flex;
+    flex: 1;
+  }
 
-.shareBtnTablet {
-  margin-top: 15px;
-}
-
-.shareBtn {
-  flex: 1;
+  .addToMyListBtn {
+    width: unset;
+    display: flex;
+    flex: 1.3;
+    margin-left: 15px;
+  }
 }
 
 @media desktop {
+
+  .shareBtn {
+    margin-top: 15px;
+  }
   .container {
     display: flex;
+  }
+
+  .addToMyListBtn {
+    margin-top: 15px;
+    margin-left: unset;
   }
 
   .mobileAuthorCtaSection {
@@ -151,12 +168,12 @@
     margin-bottom: 15px;
   }
 
-  .addToMyListBtnTablet {
+  .addToMyListBtn {
     max-width: 100%;
     margin-top: 15px;
   }
 
-  .shareBtnTablet {
+  .shareBtn {
     max-width: 100%;
     margin-top: 15px;
   }
