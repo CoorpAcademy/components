@@ -59,11 +59,6 @@
   align-items: center;
 }
 
-.linkItemHover:hover {
-  border-left-color: medium;
-  background-color: light;
-}
-
 .titleItem {
   background-color: lightMediumGray;
   list-style-type: none;

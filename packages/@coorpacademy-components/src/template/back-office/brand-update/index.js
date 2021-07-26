@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import isEmpty from 'lodash/fp/isEmpty';
 import map from 'lodash/fp/map';
 import Breadcrumbs from '../../../molecule/breadcrumbs';
-import BrandTabs from '../../../molecule/brand-tabs';
 import {IconLinkItem, LinkItem} from '../../../organism/sidebar';
 import BrandForm from '../../../organism/brand-form';
 import BrandTable from '../../../organism/brand-table';
@@ -45,7 +43,12 @@ const BrandUpdate = props => {
     map.convert({cap: false})((subTab, _index) => (
       <div>
         {subTab.type === 'iconLink' ? (
-          <IconLinkItem {...subTab} styles={getStyle(subTab.selected)} color={null} uppercase={false} />
+          <IconLinkItem
+            {...subTab}
+            styles={getStyle(subTab.selected)}
+            color={null}
+            uppercase={false}
+          />
         ) : (
           <LinkItem {...subTab} styles={getStyle(subTab.selected)} color={null} uppercase={false} />
         )}
@@ -136,9 +139,9 @@ BrandUpdate.propTypes = {
           selected: PropTypes.bool.isRequired,
           type: PropTypes.string
         })
-        )
+      )
     })
-    ).isRequired,
+  ).isRequired,
   content: PropTypes.oneOfType([
     PropTypes.shape({
       ...BrandForm.propTypes,

@@ -70,13 +70,6 @@
   background-color: xtraLightGrey;
 }
 
-.title {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-left: 35px;
-}
-
 .selectedTitle {
   display: flex;
   flex-direction: row;
@@ -104,10 +97,6 @@
   color: cm_blue;
 }
 
-.iconBlack {
-  color: black;
-}
-
 .iconGrey {
   color: cm_grey;
 }
@@ -133,12 +122,6 @@
   font-size: 14px;
   font-weight: 700;
   color: cm_blue;
-}
-
-.setupTitleIcon {
-  width: 16px;
-  height: 16px;
-  margin-right: 15px;
 }
 
 .icon {

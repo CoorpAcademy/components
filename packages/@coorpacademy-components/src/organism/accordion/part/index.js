@@ -49,9 +49,7 @@ const defaultStyle = {
   label: style.titleLabel,
   selectedLabel: style.titleLabel,
   title: style.setupTitle,
-  subTitle: style.setupPart,
   container: style.container,
-  setup: style.setupPart,
   openHeader: style.openHeader,
   closedHeader: style.closedHeader,
   default: null
@@ -65,7 +63,6 @@ const setupThemeStyle = {
   setupSelectedTitle: style.setupSelectedTitle,
   selectedTitle: style.selectedTitle,
   title: style.setupTitle,
-  subTitle: style.setupPart,
   container: style.setupContainer,
   openHeader: style.coorpManagerOpenHeader,
   closedHeader: style.coorpManagerClosedHeader

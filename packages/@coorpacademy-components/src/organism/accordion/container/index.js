@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {get, map, noop} from 'lodash/fp';
+import {map, noop} from 'lodash/fp';
 import Part from '../part';
 import style from './style.css';
 
@@ -18,8 +18,8 @@ const Tab = ({
   iconType,
   lessMoreIconType,
   onClick,
-  type,
   href,
+  type,
   theme
 }) => {
   const handleOnClick = useMemo(() => evt => onClick(index, evt), [onClick]);
@@ -53,7 +53,8 @@ Tab.propTypes = {
   theme: Part.propTypes.theme,
   onClick: Part.propTypes.onClick,
   isSelected: Part.propTypes.bool,
-  href: Part.propTypes.href,
+  type: Part.propTypes.type,
+  href: Part.propTypes.href
 };
 
 const Accordion = props => {
@@ -91,6 +92,7 @@ Accordion.propTypes = {
   ),
   onClick: Tab.propTypes.onClick,
   theme: Tab.propTypes.theme,
+  type: PropTypes.oneOf(['setup', 'default'])
 };
 
 export default Accordion;
