@@ -67,7 +67,7 @@
 .buttons {
  display: flex;
  margin-top: 15px;
- width: unset;
+ width: auto;
  flex-direction: row;
  align-items: center;
 }
@@ -77,17 +77,17 @@
 }
 
 .buttons > *:first-child {
-  margin-left: unset; 
+  margin-left: 0px; 
 }
 
  .shareBtn {
-  width: unset;
+  width: auto;
   display: flex;
   flex: 1;
 }
 
 .addToMyListBtn {
-  width: unset;
+  width: auto;
   display: flex;
   flex: 1.3;
 }
@@ -99,14 +99,14 @@
   }
 
   .shareBtn {
-    flex: unset;
+    flex: auto;
     margin-top: 15px;
   }
 
   .addToMyListBtn {
-    flex: unset;
+    flex: auto;
     margin-top: 15px;
-    margin-left: unset;
+    margin-left: 0px;
   }
 
   .mobileAuthorCtaSection {
@@ -169,15 +169,15 @@
   }
 
   .addToMyListBtn {
-    flex: unset;
+    flex: auto;
     max-width: 100%;
     margin-top: 15px;
   }
 
   .shareBtn {
-    flex: unset;
+    flex: auto;
     max-width: 100%;
     margin-top: 15px;
-    margin-left: unset;
+    margin-left: 0px;
   }
 }
