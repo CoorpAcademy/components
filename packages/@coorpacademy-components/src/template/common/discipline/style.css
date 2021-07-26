@@ -67,46 +67,46 @@
 .buttons {
  display: flex;
  margin-top: 15px;
- width: unset;
+ width: auto;
  flex-direction: row;
  align-items: center;
 }
 
-@media wide {
-  .buttons > * {
-    margin-left: 15px; 
-  }
-  
-  .buttons > *:first-child {
-    margin-left: unset; 
-  }
+.buttons > * {
+  margin-left: 15px; 
+}
 
-   .shareBtn {
-    width: unset;
-    display: flex;
-    flex: 1;
-  }
+.buttons > *:first-child {
+  margin-left: 0px; 
+}
 
-  .addToMyListBtn {
-    width: unset;
-    display: flex;
-    flex: 1.3;
-    margin-left: 15px;
-  }
+ .shareBtn {
+  width: auto;
+  display: flex;
+  flex: 1;
+}
+
+.addToMyListBtn {
+  width: auto;
+  display: flex;
+  flex: 1.3;
 }
 
 @media desktop {
 
-  .shareBtn {
-    margin-top: 15px;
-  }
   .container {
     display: flex;
   }
 
-  .addToMyListBtn {
+  .shareBtn {
+    flex: auto;
     margin-top: 15px;
-    margin-left: unset;
+  }
+
+  .addToMyListBtn {
+    flex: auto;
+    margin-top: 15px;
+    margin-left: 0px;
   }
 
   .mobileAuthorCtaSection {
@@ -169,12 +169,15 @@
   }
 
   .addToMyListBtn {
+    flex: auto;
     max-width: 100%;
     margin-top: 15px;
   }
 
   .shareBtn {
+    flex: auto;
     max-width: 100%;
     margin-top: 15px;
+    margin-left: 0px;
   }
 }
