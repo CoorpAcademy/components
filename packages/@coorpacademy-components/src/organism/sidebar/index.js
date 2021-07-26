@@ -98,7 +98,8 @@ export const LinkItem = ({
   onClick,
   uppercase = true,
   styles,
-  children
+  children,
+  setChildrenAsHtml = true
 }) => {
   const handleOnClick = useMemo(
     () => e => {
@@ -106,6 +107,10 @@ export const LinkItem = ({
     },
     [onClick]
   );
+
+  const classNames = classnames(style.linkItem, innerHTML, {[style.uppercase]: uppercase}, styles);
+  const borderStyle = {borderLeftColor: selected ? color : null};
+
   return (
     <Link
       onClick={handleOnClick}
@@ -117,15 +122,19 @@ export const LinkItem = ({
         color: selected ? color : NEUTRAL_COLOR
       }}
     >
-      <li
-        className={classnames(style.linkItem, innerHTML, {[style.uppercase]: uppercase}, styles)}
-        style={{
-          borderLeftColor: selected ? color : null
-        }}
-      >
-        {title}
-        {children}
-      </li>
+      {setChildrenAsHtml ? (
+        <li
+          className={classNames}
+          style={borderStyle}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{__html: title}}
+        />
+      ) : (
+        <li className={classNames} style={borderStyle}>
+          {title}
+          {children}
+        </li>
+      )}
     </Link>
   );
 };
@@ -138,7 +147,8 @@ LinkItem.propTypes = {
   href: PropTypes.string,
   color: PropTypes.string,
   onClick: PropTypes.func,
-  uppercase: PropTypes.bool
+  uppercase: PropTypes.bool,
+  setChildrenAsHtml: PropTypes.bool
 };
 
 export const IconLinkItem = ({
@@ -155,7 +165,14 @@ export const IconLinkItem = ({
     [onClick]
   );
   return (
-    <LinkItem {...props} onClick={handleOnClick} name={name} uppercase={uppercase} index={index}>
+    <LinkItem
+      {...props}
+      setChildrenAsHtml={false}
+      onClick={handleOnClick}
+      name={name}
+      uppercase={uppercase}
+      index={index}
+    >
       <NovaCompositionCoorpacademyOpenInNewTab className={style.icon} />
     </LinkItem>
   );
