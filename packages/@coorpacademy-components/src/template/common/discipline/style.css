@@ -72,30 +72,24 @@
  align-items: center;
 }
 
-/* 
-  not using the defined breakpoints as
-  a max-width is not needed but a min-width to cover
-  all screens over that size (but not affecting other devices
-*/
-@media (min-width: 1281px) {
-  .buttons > * {
-    margin-left: 15px; 
-  }
-  
-  .buttons > *:first-child {
-    margin-left: unset; 
-  }
-   .shareBtn {
-    width: unset;
-    display: flex;
-    flex: 1;
-  }
+.buttons > * {
+  margin-left: 15px; 
+}
 
-  .addToMyListBtn {
-    width: unset;
-    display: flex;
-    flex: 1.3;
-  }
+.buttons > *:first-child {
+  margin-left: unset; 
+}
+
+ .shareBtn {
+  width: unset;
+  display: flex;
+  flex: 1;
+}
+
+.addToMyListBtn {
+  width: unset;
+  display: flex;
+  flex: 1.3;
 }
 
 @media desktop {
@@ -105,10 +99,12 @@
   }
 
   .shareBtn {
+    flex: unset;
     margin-top: 15px;
   }
 
   .addToMyListBtn {
+    flex: unset;
     margin-top: 15px;
     margin-left: unset;
   }
@@ -173,12 +169,15 @@
   }
 
   .addToMyListBtn {
+    flex: unset;
     max-width: 100%;
     margin-top: 15px;
   }
 
   .shareBtn {
+    flex: unset;
     max-width: 100%;
     margin-top: 15px;
+    margin-left: unset;
   }
 }
