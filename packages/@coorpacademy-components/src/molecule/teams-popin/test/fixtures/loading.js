@@ -4,7 +4,7 @@ export default {
     content:
       'To connect your account with Microsoft Teams, please go to your learning platform and log in',
     type: 'login',
-    buttonLabel: 'Login to my learning platform',
+    buttonLabel: 'Login to my platform',
     isLoading: true,
     onButtonClick: () => {}
   }
