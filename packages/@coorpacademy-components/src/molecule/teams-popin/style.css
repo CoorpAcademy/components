@@ -1,3 +1,4 @@
+@value breakpoints: "../../variables/breakpoints.css";
 @value colors: "../../variables/colors.css";
 @value dark from colors;
 @value brand from colors;
@@ -5,6 +6,8 @@
 @value black from colors;
 @value negative from colors;
 @value lightGreen from colors;
+@value mobile from breakpoints;
+@value tablet from breakpoints;
 
 .background {
   top: 0px;
@@ -29,7 +32,6 @@
   position: relative;
 }
 
-
 .popin {
   position: absolute;
   overflow: auto;
@@ -52,6 +54,7 @@
   width: 70%;
   padding-top: 20px;
   box-sizing: border-box;
+  display: flex;
 }
 
 .content {
@@ -61,7 +64,8 @@
   color: black;
   padding-bottom: 20px;
   box-sizing: border-box;
-  width: 70%;
+  max-width: 70%;
+  display: flex;
 }
 
 .buttonContainer {
@@ -72,6 +76,7 @@
 
 .about {
   composes: content;
+  flex-direction: column;
 }
 
 /* contact link color */
@@ -89,6 +94,7 @@
   height: 50px;
   color: negative;
 }
+
 .iconContainer {
   display: flex;
   justify-content: center;
@@ -96,10 +102,83 @@
   margin-top: 20px;
   width: 80px;
   height: 80px;
+  min-width: 80px;
+  min-height: 80px;
   border-radius: 10px;
   background-color: color(lightGreen a(10%));
 }
 .errorIconContainer{
   composes: iconContainer;
   background-color: color(negative a(5%));
+}
+
+@media tablet {
+  .popin {
+    width: 60%;
+    height: 80%;
+  }
+}
+
+@media mobile {
+  .iconContainer {
+    margin-top: 40px;
+  }
+
+  .popin {
+    height: 80%;
+    justify-content: center;
+    min-width: 80%;
+  }
+
+  .header {
+    font-size: 19px;
+    width: 95%;
+  }
+
+  .buttonContainer {
+    width: 85%;
+  }
+
+  .content {
+    max-width: 90%;
+    font-size: 14px;
+  }
+
+  .about {
+    word-wrap: break-word;
+    padding-bottom: 0px;
+  }
+}
+
+/* small mobiles */
+@media (max-width: 250px) {
+  .popin {
+    height: 90%;
+  }
+
+  .buttonContainer {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .content {
+    padding-bottom: 5px;
+    max-width: 100%;
+  }
+
+  .about {
+    padding-bottom: 30px;
+  }
+
+  .icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .iconContainer {
+    min-width: 65px;
+    min-height: 65px;
+    width: 65px;
+    height: 65px;
+  }
 }
