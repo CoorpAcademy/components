@@ -507,10 +507,11 @@
     background-color: white;
     justify-content: flex-start;
     align-items: flex-start;
+    height: auto;
   }
 
   .open {
-    height: 100%;
+    height: auto;
   }
 
   .logoWrapper {
@@ -558,9 +559,9 @@
     flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 0 20px 80px;
+    padding: 0 20px 10px;
     box-sizing: border-box;
-    height: 100%;
+    height: auto;
     background-color: white;
     left: 0;
     top: -100%;
@@ -623,17 +624,22 @@
   }
 
   .ctaLink {
-    margin-right: unset;
+    margin-right: 0px;
+  }
+
+  .links > * {
+    margin-top: 10px;
   }
 
   .links {
     height: auto;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     padding: 10px 0 20px;
     margin: 0 0 10px;
     border-bottom: 1px solid light;
     flex-shrink: 0;
+    flex-direction: column;
   }
 
   .links .link {

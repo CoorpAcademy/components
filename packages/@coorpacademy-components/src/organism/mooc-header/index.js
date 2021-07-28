@@ -95,7 +95,9 @@ class MoocHeader extends React.Component {
           )
         })
       })
-    )
+    ),
+    onMenuOpen: PropTypes.func,
+    onMenuClose: PropTypes.func
   };
 
   static contextTypes = {
@@ -120,6 +122,8 @@ class MoocHeader extends React.Component {
     this.handleResetSearch = this.handleResetSearch.bind(this);
     this.handleOnFocus = this.handleOnFocus.bind(this);
     this.handleOnBlur = this.handleOnBlur.bind(this);
+    this.handleOnMenuOpen = this.handleOnMenuOpen.bind(this);
+    this.handleOnMenuClose = this.handleOnMenuClose.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState, prevContext) {
@@ -159,9 +163,12 @@ class MoocHeader extends React.Component {
   }
 
   handleMenuToggle() {
-    this.setState(prevState => ({
-      isMenuOpen: !prevState.isMenuOpen
-    }));
+    this.setState(prevState => {
+      prevState.isMenuOpen ? this.handleOnMenuClose() : this.handleOnMenuOpen();
+      return {
+        isMenuOpen: !prevState.isMenuOpen
+      };
+    });
   }
 
   handleSubmitSearch() {
@@ -188,6 +195,20 @@ class MoocHeader extends React.Component {
     this.setState(prevState => ({
       isFocus: false
     }));
+  }
+
+  handleOnMenuOpen() {
+    const {onMenuOpen} = this.props;
+    if (onMenuOpen) {
+      onMenuOpen();
+    }
+  }
+
+  handleOnMenuClose() {
+    const {onMenuClose} = this.props;
+    if (onMenuClose) {
+      onMenuClose();
+    }
   }
 
   render() {

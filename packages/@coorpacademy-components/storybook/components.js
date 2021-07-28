@@ -699,6 +699,7 @@ import OrganismMoocHeaderFixtureDefault from '../src/organism/mooc-header/test/f
 import OrganismMoocHeaderFixtureLinkOnly from '../src/organism/mooc-header/test/fixtures/link-only';
 import OrganismMoocHeaderFixtureLoggedWithBattleNotifications from '../src/organism/mooc-header/test/fixtures/logged-with-battle-notifications';
 import OrganismMoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/logged';
+import OrganismMoocHeaderFixtureOnHeaderActionHandlers from '../src/organism/mooc-header/test/fixtures/on-header-action-handlers';
 import OrganismMoocHeaderFixtureTeamsFrench from '../src/organism/mooc-header/test/fixtures/teams-french';
 import OrganismMoocHeaderFixtureTeams from '../src/organism/mooc-header/test/fixtures/teams';
 import OrganismMoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
@@ -936,6 +937,7 @@ import TemplateExternalCourseFixtureVideo from '../src/template/external-course/
 import TemplateExternalCourseFixtureYoutubePodcast from '../src/template/external-course/test/fixtures/youtube-podcast';
 import TemplateTeamsDashboardFixtureDefault from '../src/template/teams-dashboard/test/fixtures/default';
 import TemplateTeamsDashboardFixtureIsLoading from '../src/template/teams-dashboard/test/fixtures/is-loading';
+import TemplateTeamsDashboardFixtureMobile from '../src/template/teams-dashboard/test/fixtures/mobile';
 
 export const components = {
   Atom: {
@@ -1954,6 +1956,7 @@ export const fixtures = {
       LinkOnly: OrganismMoocHeaderFixtureLinkOnly,
       LoggedWithBattleNotifications: OrganismMoocHeaderFixtureLoggedWithBattleNotifications,
       Logged: OrganismMoocHeaderFixtureLogged,
+      OnHeaderActionHandlers: OrganismMoocHeaderFixtureOnHeaderActionHandlers,
       TeamsFrench: OrganismMoocHeaderFixtureTeamsFrench,
       Teams: OrganismMoocHeaderFixtureTeams,
       UserChangePassword: OrganismMoocHeaderFixtureUserChangePassword
@@ -2033,7 +2036,8 @@ export const fixtures = {
     },
     TemplateTeamsDashboard: {
       Default: TemplateTeamsDashboardFixtureDefault,
-      IsLoading: TemplateTeamsDashboardFixtureIsLoading
+      IsLoading: TemplateTeamsDashboardFixtureIsLoading,
+      Mobile: TemplateTeamsDashboardFixtureMobile
     }
   },
   TemplateAppPlayer: {
