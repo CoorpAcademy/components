@@ -9,12 +9,9 @@ import style from './style.css';
 
 const TeamsDashboard = ({logo, platformLinks, sections, isLoading}) => {
   const [isShadowed, setShadowed] = useState(false);
-  const onMenuOpen = function () {
-    setShadowed(true);
-  };
-  const onMenuClose = () => {
-    setShadowed(false);
-  };
+  const onMenuOpen = () => setShadowed(true);
+  const onMenuClose = () => setShadowed(false);
+
   const buildSection = (section, index) => {
     return <CardsList {...section} key={section.title + index} />;
   };
@@ -34,7 +31,7 @@ const TeamsDashboard = ({logo, platformLinks, sections, isLoading}) => {
         // eslint-disable-next-line react/jsx-no-bind
         onMenuClose={onMenuClose}
       />
-      <div data-name="sectionsWrapper" className={isShadowed ? style.sectionsWrapper : null}>
+      <div data-name="sections-wrapper" className={isShadowed ? style.sectionsWrapper : null}>
         {sectionsList}
       </div>
     </div>

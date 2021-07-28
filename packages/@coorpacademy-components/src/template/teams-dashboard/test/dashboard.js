@@ -26,5 +26,5 @@ test('if isLoading is false, then the dashboard content should be rendered (head
   });
   const dashboard = wrapper.find('[data-name="teams-dashboard"]');
   t.true(dashboard.exists());
-  t.is(dashboard.children().length, 3);
+  t.is(dashboard.children().length, 2);
 });

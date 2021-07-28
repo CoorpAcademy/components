@@ -3,7 +3,7 @@ import test from 'ava';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import {identity} from 'lodash/fp';
+import {identity, defaultsDeep} from 'lodash/fp';
 import MoocHeader from '..';
 import defaultFixture from './fixtures/default';
 
@@ -16,19 +16,75 @@ test('should focus when in searchBar input', t => {
   const wrapper = mount(<MoocHeader {...defaultFixture.props} />, {
     context: {translate}
   });
-
-  wrapper.find('[data-name="Search-Bar"] input').simulate('focus', {});
+  const searchInput = wrapper.find('[data-name="search-input"]');
+  t.assert(searchInput.exists());
+  searchInput.simulate('focus', {});
   t.pass();
 });
 
-test('should submit when submit value in searchBar input', t => {
+test('should submit when a submit value exists in the searchBar input', t => {
   const translate = identity;
 
   const wrapper = mount(<MoocHeader {...defaultFixture.props} />, {
     context: {translate}
   });
 
-  wrapper.find('[data-name="Search-Bar"] input').simulate('submit', {});
+  const searchForm = wrapper.find('[data-name="searchForm"]');
+  t.assert(searchForm.exists());
+  searchForm.simulate('submit', {});
+  t.pass();
+});
+
+test('should launch onResetSearch handler when reset is triggered', t => {
+  t.plan(3);
+  const translate = identity;
+
+  const props = defaultsDeep(defaultFixture.props, {
+    onResetSearch: () => t.pass()
+  });
+
+  const wrapper = mount(<MoocHeader {...props} />, {
+    context: {translate}
+  });
+
+  const searchFormReset = wrapper.find('[data-name="search-form-reset"]');
+  t.assert(searchFormReset.exists());
+  searchFormReset.simulate('click', {});
+  t.pass();
+});
+
+test('Launch onMenuOpen & onMenuClose handlers', t => {
+  t.plan(4);
+  const translate = identity;
+
+  const props = defaultsDeep(defaultFixture.props, {
+    onMenuOpen: () => t.pass(),
+    onMenuClose: () => t.pass()
+  });
+  const wrapper = mount(<MoocHeader {...props} />, {
+    context: {translate}
+  });
+
+  const mobileLogo = wrapper.find('[data-name="logo-mobile"]');
+  t.assert(mobileLogo.exists());
+  mobileLogo.simulate('click', {});
+  mobileLogo.simulate('click', {});
+
+  t.pass();
+});
+
+test('Pass if onMenuOpen & onMenuClose are not provided', t => {
+  const translate = identity;
+
+  const wrapper = mount(<MoocHeader {...defaultFixture.props} />, {
+    context: {translate}
+  });
+
+  const mobileLogo = wrapper.find('[data-name="logo-mobile"]');
+  t.assert(mobileLogo.exists());
+  mobileLogo.simulate('click', {});
+  mobileLogo.simulate('click', {});
+
   t.pass();
 });
 
