@@ -515,22 +515,19 @@
     padding: 0;
     background-color: white;
     justify-content: flex-start;
-    align-items: flex-start;
     height: auto;
+    align-items: center;
   }
 
   .open {
     height: auto;
+    display: flex;
   }
 
   .logoWrapper {
     background-color: white;
     z-index: 2;
     margin: 0 8px;
-  }
-
-  .open .logoWrapper {
-    height: 60px;
   }
 
   .logo {
@@ -561,6 +558,11 @@
     right: 10px;
   }
 
+  .hiddenMenuWrapper {
+    display: none;
+    top: 0px;
+  }
+
   .menuWrapper {
     align-items: flex-start;
     display: flex;
@@ -575,16 +577,12 @@
     left: 0;
     top: -100%;
     width: 100%;
-    transition: top 0.4s ease-out;
+    transition: top 0.8s ease-out;
     max-height: 100vh;
   }
 
   .menuWrapper:last-child  {
     padding-bottom: 40px;  
-  }
-
-  .hiddenMenuWrapper {
-    display: none;
   }
 
   .hiddenSearchBar {
