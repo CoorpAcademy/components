@@ -21,7 +21,10 @@ const TeamsDashboard = ({logo, platformLinks, sections, isLoading}) => {
       <Loader data-name="teams-dashboard-loader" />
     </div>
   ) : (
-    <div data-name="teams-dashboard" className={style.teamsDashboard}>
+    <div
+      data-name="teams-dashboard"
+      className={isShadowed ? style.shadowedTeamsDashboard : style.teamsDashboard}
+    >
       <MoocHeader
         data-name="teams-dashboard-header"
         logo={logo}

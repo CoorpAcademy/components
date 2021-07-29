@@ -149,6 +149,7 @@
   display: flex;
   align-items: flex-end;
   height: 60px;
+  overflow-y: auto;
 }
 
 .hiddenMenuWrapper {
@@ -575,6 +576,11 @@
     top: -100%;
     width: 100%;
     transition: top 0.4s ease-out;
+    max-height: 100vh;
+  }
+
+  .menuWrapper:last-child  {
+    padding-bottom: 40px;  
   }
 
   .hiddenMenuWrapper {
@@ -685,6 +691,7 @@
     height: auto;
     margin: 0;
     flex-shrink: 0;
+    padding-bottom: 40px;
   }
 
   .settingsToggle {

@@ -8,6 +8,10 @@
   width: 100%;
 }
 
+.shadowedTeamsDashboard {
+  composes: teamsDashboard;
+}
+
 .loader {
   composes: teamsDashboard;
   min-height: 100px;
@@ -16,6 +20,9 @@
 }
 
 @media tablet {
+  .shadowedTeamsDashboard {
+    overflow-y: hidden; 
+  }
   .sectionsWrapper {
     position: sticky;
     pointer-events: none;
