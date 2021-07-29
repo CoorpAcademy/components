@@ -488,7 +488,10 @@ class MoocHeader extends React.Component {
 
     if (search) {
       searchFormView = (
-        <div data-name="Search-Bar" className={style.searchBar}>
+        <div
+          data-name="Search-Bar"
+          className={isMenuOpen ? style.hiddenSearchBar : style.searchBar}
+        >
           <SearchForm
             search={search}
             onSubmit={this.handleSubmitSearch}
@@ -522,7 +525,10 @@ class MoocHeader extends React.Component {
             </Link>
           </div>
           {searchFormView}
-          <div className={style.menuWrapper} data-name="menu-wrapper">
+          <div
+            className={isMenuOpen ? style.menuWrapper : style.hiddenMenuWrapper}
+            data-name="menu-wrapper"
+          >
             {pagesView}
             {userView || linksView}
             {settingsView}

@@ -40,6 +40,10 @@
   background-color: white;
 }
 
+.hiddenSearchBar {
+  composes: searchBar;
+}
+
 .noItems {
   display: none;
 }
@@ -145,6 +149,10 @@
   display: flex;
   align-items: flex-end;
   height: 60px;
+}
+
+.hiddenMenuWrapper {
+  composes: menuWrapper;
 }
 
 .items {
@@ -567,6 +575,14 @@
     top: -100%;
     width: 100%;
     transition: top 0.4s ease-out;
+  }
+
+  .hiddenMenuWrapper {
+    display: none;
+  }
+
+  .hiddenSearchBar {
+    display: none;
   }
 
   .open .menuWrapper {
