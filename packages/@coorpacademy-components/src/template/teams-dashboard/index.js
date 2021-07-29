@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import {map} from 'lodash/fp';
 import MoocHeader from '../../organism/mooc-header';
@@ -9,8 +9,8 @@ import style from './style.css';
 
 const TeamsDashboard = ({logo, platformLinks, sections, isLoading}) => {
   const [isShadowed, setShadowed] = useState(false);
-  const onMenuOpen = () => setShadowed(true);
-  const onMenuClose = () => setShadowed(false);
+  const onMenuOpen = useCallback(() => setShadowed(true));
+  const onMenuClose = useCallback(() => setShadowed(false));
 
   const buildSection = (section, index) => {
     return <CardsList {...section} key={section.title + index} />;
@@ -26,9 +26,7 @@ const TeamsDashboard = ({logo, platformLinks, sections, isLoading}) => {
         data-name="teams-dashboard-header"
         logo={logo}
         links={platformLinks}
-        // eslint-disable-next-line react/jsx-no-bind
         onMenuOpen={onMenuOpen}
-        // eslint-disable-next-line react/jsx-no-bind
         onMenuClose={onMenuClose}
       />
       <div data-name="sections-wrapper" className={isShadowed ? style.sectionsWrapper : null}>
