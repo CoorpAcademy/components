@@ -6,13 +6,13 @@ test(
   'should set state with selected resource',
   macro,
   {},
-  (t) => ({}),
+  t => ({}),
   selectResource('videoId'),
   [
     {
       type: UI_SELECT_RESOURCE_IN_POPIN,
-      payload: {id: 'videoId'},
-    },
+      payload: {id: 'videoId'}
+    }
   ],
   0
 );

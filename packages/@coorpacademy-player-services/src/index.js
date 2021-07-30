@@ -14,7 +14,7 @@ import type {
   Answer,
   VideoProvider,
   VideoTrack,
-  VideoTrackType,
+  VideoTrackType
 } from './definitions';
 
 import type {AnalyticsService} from './analytics';
@@ -64,20 +64,20 @@ export type {
   VideoProvider,
   VideoTrack,
   VideoTrackType,
-  VideosService,
+  VideosService
 };
 
 export const Analytics = _Analytics;
-export const Answers: (DataLayer) => AnswersService = createAnswersService;
-export const Clues: (DataLayer) => CluesService = createCluesService;
+export const Answers: DataLayer => AnswersService = createAnswersService;
+export const Clues: DataLayer => CluesService = createCluesService;
 export const Coach = CoachService;
 export const Comments = CommentsService;
-export const Content: (DataLayer) => ContentService = createContentService;
-export const ExitNodes: (DataLayer) => ExitNodesService = createExitNodesService;
+export const Content: DataLayer => ContentService = createContentService;
+export const ExitNodes: DataLayer => ExitNodesService = createExitNodesService;
 export const LeaderBoard = LeaderBoardService;
 export const Location = LocationService; // eslint-disable-line no-shadow
 export const Logger = console;
-export const Progressions: (DataLayer) => ProgressionsService = createProgressionsService;
-export const Recommendations: (DataLayer) => RecommendationsService = createRecommendationsService;
-export const Slides: (DataLayer) => SlidesService = createSlidesService;
-export const Videos: (DataLayer) => VideosService = createVideosService;
+export const Progressions: DataLayer => ProgressionsService = createProgressionsService;
+export const Recommendations: DataLayer => RecommendationsService = createRecommendationsService;
+export const Slides: DataLayer => SlidesService = createSlidesService;
+export const Videos: DataLayer => VideosService = createVideosService;

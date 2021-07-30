@@ -10,6 +10,6 @@ const answerStore = pipe(
   )
 )(slidesData);
 
-const getCorrectAnswer = (slideId) => answerStore.get(slideId);
+const getCorrectAnswer = slideId => answerStore.get(slideId);
 
 export {getCorrectAnswer};

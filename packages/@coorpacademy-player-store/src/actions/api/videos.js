@@ -11,7 +11,7 @@ import type {
   Dispatch,
   DispatchedAction,
   GetState,
-  ThunkAction,
+  ThunkAction
 } from '../../definitions/redux';
 
 export const FETCH_VIDEOS_URI_REQUEST: string = '@@videos/FETCH_URI_REQUEST';
@@ -33,7 +33,7 @@ export const fetchVideoUri = (id: string, provider: VideoProvider): ThunkAction 
     types: [FETCH_VIDEOS_URI_REQUEST, FETCH_VIDEOS_URI_SUCCESS, FETCH_VIDEOS_URI_FAILURE],
     task: () => VideosService.findUriById(id, provider),
     meta: {id, provider},
-    bailout: getVideoUri(id),
+    bailout: getVideoUri(id)
   });
 
   return dispatch(action);
@@ -53,7 +53,7 @@ export const fetchVideoTracks = (
     types: [FETCH_VIDEOS_TRACKS_REQUEST, FETCH_VIDEOS_TRACKS_SUCCESS, FETCH_VIDEOS_TRACKS_FAILURE],
     task: () => VideosService.findTracksById(id, type),
     meta: {id, type},
-    bailout: getVideoTracks(id),
+    bailout: getVideoTracks(id)
   });
 
   return dispatch(action);

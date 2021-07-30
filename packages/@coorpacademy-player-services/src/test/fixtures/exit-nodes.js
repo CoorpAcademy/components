@@ -8,7 +8,7 @@ const exitNodeStore = pipe(
   reduce((exitNodeMap, exitNode) => exitNodeMap.set(exitNode.ref, exitNode), new Map())
 )(exitNodesData);
 
-const getExitNode = (id) => {
+const getExitNode = id => {
   if (!exitNodeStore.has(id)) throw new Error('ExitNode not found');
   const exitNode = exitNodeStore.get(id);
   return update('media', appendJWPOptions('src.0.'), exitNode);

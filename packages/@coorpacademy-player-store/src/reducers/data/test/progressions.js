@@ -10,7 +10,7 @@ import {
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_FETCH_SUCCESS,
   PROGRESSION_REQUEST_CLUE_SUCCESS,
-  PROGRESSION_RESOURCE_VIEWED_SUCCESS,
+  PROGRESSION_RESOURCE_VIEWED_SUCCESS
 } from '../../../actions/api/progressions';
 import macro from '../../test/helpers/macro';
 
@@ -23,7 +23,7 @@ test(
   {},
   {
     type: PROGRESSION_CREATE_SUCCESS,
-    payload: {_id: 'foo', baz: 'bar'},
+    payload: {_id: 'foo', baz: 'bar'}
   },
   {entities: {foo: {_id: 'foo', baz: 'bar'}}}
 );
@@ -35,7 +35,7 @@ test(
   {entities: {bar: {_id: 'bar', baz: 'bar'}}},
   {
     type: PROGRESSION_CREATE_SUCCESS,
-    payload: {_id: 'foo', baz: 'bar'},
+    payload: {_id: 'foo', baz: 'bar'}
   },
   {entities: {foo: {_id: 'foo', baz: 'bar'}, bar: {_id: 'bar', baz: 'bar'}}}
 );
@@ -47,7 +47,7 @@ test(
   {},
   {
     type: PROGRESSION_CREATE_SUCCESS,
-    payload: {baz: 'bar'},
+    payload: {baz: 'bar'}
   },
   {entities: {'_no-id': {baz: 'bar'}}}
 );
@@ -59,7 +59,7 @@ test(
   {},
   {
     type: PROGRESSION_FETCH_REQUEST,
-    meta: {id: 'foo'},
+    meta: {id: 'foo'}
   },
   {entities: {foo: null}}
 );
@@ -71,7 +71,7 @@ test(
   {},
   {
     type: PROGRESSION_FETCH_REQUEST,
-    meta: {id: 'foo'},
+    meta: {id: 'foo'}
   },
   {entities: {foo: null}}
 );
@@ -83,7 +83,7 @@ test(
   {entities: {foo: 'foo'}},
   {
     type: PROGRESSION_FETCH_REQUEST,
-    meta: {id: 'foo'},
+    meta: {id: 'foo'}
   },
   {entities: {foo: 'foo'}}
 );
@@ -96,7 +96,7 @@ test(
   {
     type: PROGRESSION_FETCH_SUCCESS,
     meta: {id: 'foo'},
-    payload: 'foo',
+    payload: 'foo'
   },
   {entities: {foo: 'foo'}}
 );
@@ -110,7 +110,7 @@ test(
     type: PROGRESSION_FETCH_FAILURE,
     meta: {id: 'foo'},
     error: true,
-    payload: {},
+    payload: {}
   },
   {entities: {}}
 );
@@ -124,7 +124,7 @@ test(
     type: PROGRESSION_FETCH_FAILURE,
     meta: {id: 'foo'},
     error: true,
-    payload: {},
+    payload: {}
   },
   {entities: {foo: 'foo'}}
 );
@@ -136,7 +136,7 @@ test(
   {},
   {
     type: PROGRESSION_CREATE_ANSWER_REQUEST,
-    meta: {progressionId: 'foo'},
+    meta: {progressionId: 'foo'}
   },
   {entities: {foo: {state: {isCorrect: null}}}}
 );
@@ -149,7 +149,7 @@ test(
   {
     type: PROGRESSION_CREATE_ANSWER_SUCCESS,
     meta: {progressionId: 'foo'},
-    payload: {bar: 'bar'},
+    payload: {bar: 'bar'}
   },
   {entities: {foo: {foo: 'foo', bar: 'bar'}}}
 );
@@ -162,7 +162,7 @@ test(
   {
     type: PROGRESSION_REQUEST_CLUE_SUCCESS,
     meta: {progressionId: 'foo'},
-    payload: {bar: 'bar'},
+    payload: {bar: 'bar'}
   },
   {entities: {foo: {foo: 'foo', bar: 'bar'}}}
 );
@@ -175,7 +175,7 @@ test(
   {
     type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
     meta: {progressionId: 'foo'},
-    payload: {bar: 'bar'},
+    payload: {bar: 'bar'}
   },
   {entities: {foo: {foo: 'foo', bar: 'bar'}}}
 );
@@ -189,8 +189,8 @@ test(
   PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
   PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
   PROGRESSION_CREATE_ANSWER_SUCCESS,
-  PROGRESSION_FETCH_FAILURE,
-].forEach((type) =>
+  PROGRESSION_FETCH_FAILURE
+].forEach(type =>
   test(
     `should return identity for type=${type}`,
     macro,
@@ -198,7 +198,7 @@ test(
     {entities: {foo: {foo: 'foo'}}},
     {
       type,
-      payload: {},
+      payload: {}
     },
     {entities: {foo: {foo: 'foo'}}}
   )

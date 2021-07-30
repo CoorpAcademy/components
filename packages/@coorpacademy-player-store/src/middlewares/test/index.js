@@ -2,21 +2,21 @@ import test from 'ava';
 import {applyMiddleware, createStore} from 'redux';
 import ReduxThunkMemoized from '../redux-thunk-memoized';
 
-const createMiddlewares = (options) => applyMiddleware(ReduxThunkMemoized(options));
+const createMiddlewares = options => applyMiddleware(ReduxThunkMemoized(options));
 
 const appOptions = {
   services: {
     error: () => {
       throw new Error('error logger should not have been called');
-    },
-  },
+    }
+  }
 };
 
-test('should apply redux-thunk', async (t) => {
+test('should apply redux-thunk', async t => {
   t.plan(5);
 
   const store = createStore(
-    (state) => {
+    state => {
       t.pass();
       return state;
     },
@@ -29,7 +29,7 @@ test('should apply redux-thunk', async (t) => {
     t.is(options, appOptions);
     t.is(getState(), 'state');
     return dispatch({
-      type: 2,
+      type: 2
     });
   });
 });

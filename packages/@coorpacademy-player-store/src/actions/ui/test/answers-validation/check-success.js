@@ -5,7 +5,7 @@ import mockContentService from '../../../test/helpers/mock-content-service';
 import {validateAnswer} from '../../answers';
 import {
   PROGRESSION_CREATE_ANSWER_REQUEST,
-  PROGRESSION_CREATE_ANSWER_SUCCESS,
+  PROGRESSION_CREATE_ANSWER_SUCCESS
 } from '../../../api/progressions';
 import {UI_SELECT_ROUTE} from '../../route';
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../../api/answers';
@@ -15,26 +15,26 @@ import {accordionIsOpenAt, progressionUpdated} from './helpers/shared';
 const postAnswerPayload = {
   engine: {
     ref: 'learner',
-    version: '1',
+    version: '1'
   },
   state: {
     content: {
       type: 'slide',
-      ref: 'sli_1',
+      ref: 'sli_1'
     },
     nextContent: {
       type: 'slide',
-      ref: 'slideRef',
+      ref: 'slideRef'
     },
     isCorrect: true,
     allAnswers: [
       {
         slideRef: 'sli_1',
         isCorrect: true,
-        answer: ['bar'],
-      },
-    ],
-  },
+        answer: ['bar']
+      }
+    ]
+  }
 };
 
 const contentFetchActions = [
@@ -42,36 +42,36 @@ const contentFetchActions = [
     type: CONTENT_FETCH_REQUEST,
     meta: {
       type: 'slide',
-      ref: 'slideRef',
-    },
+      ref: 'slideRef'
+    }
   },
   {
     type: CONTENT_FETCH_SUCCESS,
     meta: {
       type: 'slide',
-      ref: 'slideRef',
+      ref: 'slideRef'
     },
     payload: {
       _id: 'slideRef',
       chapter_id: 'chapId',
-      foo: 'bar',
-    },
+      foo: 'bar'
+    }
   },
   {
     type: CONTENT_FETCH_REQUEST,
     meta: {
       type: 'chapter',
-      ref: 'chapId',
-    },
+      ref: 'chapId'
+    }
   },
   {
     type: CONTENT_FETCH_SUCCESS,
     meta: {
       type: 'chapter',
-      ref: 'chapId',
+      ref: 'chapId'
     },
-    payload: {_id: 'chapId', foo: 'baz'},
-  },
+    payload: {_id: 'chapId', foo: 'baz'}
+  }
 ];
 
 const successfullyFetchAnswer = [
@@ -79,20 +79,20 @@ const successfullyFetchAnswer = [
     type: ANSWER_FETCH_REQUEST,
     meta: {
       progressionId: 'foo',
-      slideId: 'sli_1',
-    },
+      slideId: 'sli_1'
+    }
   },
   {
     type: ANSWER_FETCH_SUCCESS,
     meta: {
       progressionId: 'foo',
-      slideId: 'sli_1',
+      slideId: 'sli_1'
     },
     payload: {
       correctAnswer: ['Bonne réponse'],
-      corrections: [{answer: 'bar', isCorrect: false}],
-    },
-  },
+      corrections: [{answer: 'bar', isCorrect: false}]
+    }
+  }
 ];
 
 test(
@@ -104,39 +104,39 @@ test(
     set('data.progressions.entities.foo', {
       engine: {
         ref: 'learner',
-        version: '1',
+        version: '1'
       },
       content: {
         type: 'chapter',
-        ref: 'chapId',
+        ref: 'chapId'
       },
       state: {
         nextContent: {
           type: 'slide',
-          ref: 'sli_1',
-        },
-      },
+          ref: 'sli_1'
+        }
+      }
     }),
     set('data.configs.entities.learner@1', {
-      version: '1',
+      version: '1'
     }),
     set('data.contents.slide.entities.sli_1', {})
   )({}),
-  (t) => ({
+  t => ({
     Content: mockContentService(t),
     Progressions: {
       postAnswer: (id, payload) => {
         t.is(id, 'foo');
         t.deepEqual(payload, {
           content: {type: 'slide', ref: 'sli_1'},
-          answer: ['bar'],
+          answer: ['bar']
         });
         return postAnswerPayload;
       },
-      findById: (id) => {
+      findById: id => {
         t.is(id, 'foo');
         return 'foo';
-      },
+      }
     },
     Answers: {
       findById: (id, slideId, givenAnswer) => {
@@ -144,17 +144,17 @@ test(
         t.deepEqual(givenAnswer, ['bar']);
         return {
           correctAnswer: ['Bonne réponse'],
-          corrections: givenAnswer.map((answer) => ({answer, isCorrect: false})),
+          corrections: givenAnswer.map(answer => ({answer, isCorrect: false}))
         };
-      },
+      }
     },
     Analytics: {
       sendProgressionUpdated: (currentProgression, engineConfig) => {
         t.is(currentProgression.engine.ref, 'learner');
         t.deepEqual(currentProgression.state.nextContent, postAnswerPayload.state.nextContent);
         return 'sent';
-      },
-    },
+      }
+    }
   }),
   validateAnswer(),
   flatten([
@@ -165,16 +165,16 @@ test(
         answer: ['bar'],
         content: {
           ref: 'sli_1',
-          type: 'slide',
-        },
-      },
+          type: 'slide'
+        }
+      }
     },
     {
       type: UI_SELECT_ROUTE,
       payload: 'correction',
       meta: {
-        progressionId: 'foo',
-      },
+        progressionId: 'foo'
+      }
     },
     {
       type: PROGRESSION_CREATE_ANSWER_SUCCESS,
@@ -183,15 +183,15 @@ test(
         answer: ['bar'],
         content: {
           ref: 'sli_1',
-          type: 'slide',
-        },
+          type: 'slide'
+        }
       },
-      payload: postAnswerPayload,
+      payload: postAnswerPayload
     },
     contentFetchActions,
     accordionIsOpenAt(2),
     progressionUpdated,
-    successfullyFetchAnswer,
+    successfullyFetchAnswer
   ]),
   8
 );

@@ -8,14 +8,14 @@ const memoizeService = (options, keyPath) => {
   return service ? set(keyPath, memoizeTask(service), options) : options;
 };
 
-const memoizeMoveTypeServices = (options) =>
+const memoizeMoveTypeServices = options =>
   reduce(memoizeService, options, [
     'services.Progressions.acceptExtraLife',
     'services.Progressions.refuseExtraLife',
-    'services.Progressions.postAnswer',
+    'services.Progressions.postAnswer'
   ]);
 
-const ReduxThunkMemoized = (options) => {
+const ReduxThunkMemoized = options => {
   const optionsWithMemoizedServices = memoizeMoveTypeServices(options);
   return ReduxThunk.withExtraArgument(optionsWithMemoizedServices);
 };

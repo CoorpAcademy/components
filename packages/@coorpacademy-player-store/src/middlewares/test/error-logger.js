@@ -7,19 +7,19 @@ const NORMAL_ACTION = {type: '@test/NORMAL_ACTION'};
 const ERROR_ACTION = {
   type: '@test/ERROR_ACTION',
   error: true,
-  payload: payloadError,
+  payload: payloadError
 };
 
 test(
   'should not call Logger when an action does not have an error',
   macro,
   {},
-  (t) => ({
+  t => ({
     Logger: {
-      error: (e) => {
+      error: e => {
         t.fail();
-      },
-    },
+      }
+    }
   }),
   NORMAL_ACTION,
   [NORMAL_ACTION],
@@ -30,12 +30,12 @@ test(
   'should call Logger when an action have an error',
   macro,
   {},
-  (t) => ({
+  t => ({
     Logger: {
-      error: (e) => {
+      error: e => {
         t.deepEqual(e, payloadError);
-      },
-    },
+      }
+    }
   }),
   ERROR_ACTION,
   [ERROR_ACTION],
@@ -46,12 +46,12 @@ test(
   'should not call Logger which can throw an exception when an action does not have an error',
   macro,
   {},
-  (t) => ({
+  t => ({
     Logger: {
-      error: (e) => {
+      error: e => {
         t.fail();
-      },
-    },
+      }
+    }
   }),
   NORMAL_ACTION,
   [NORMAL_ACTION],
@@ -62,13 +62,13 @@ test(
   'should dispatch error using Logger',
   macro,
   {},
-  (t) => ({
+  t => ({
     Logger: {
-      error: (e) => {
+      error: e => {
         t.pass();
         throw loggerError;
-      },
-    },
+      }
+    }
   }),
   ERROR_ACTION,
   [
@@ -76,10 +76,10 @@ test(
       type: '@@logger/ERROR',
       payload: {
         message: loggerError.message,
-        stack: loggerError.stack,
-      },
+        stack: loggerError.stack
+      }
     },
-    ERROR_ACTION,
+    ERROR_ACTION
   ],
   1
 );

@@ -2,7 +2,7 @@ import {set, update, isNull, get, unset, pipe} from 'lodash/fp';
 import {
   ANSWER_FETCH_REQUEST,
   ANSWER_FETCH_SUCCESS,
-  ANSWER_FETCH_FAILURE,
+  ANSWER_FETCH_FAILURE
 } from '../../actions/api/answers';
 
 const dataAnswersReducer = (state = {entities: {}}, action) => {
@@ -10,7 +10,7 @@ const dataAnswersReducer = (state = {entities: {}}, action) => {
     case ANSWER_FETCH_REQUEST: {
       const {meta} = action;
       const {progressionId, slideId} = meta;
-      return update(['entities', progressionId, slideId], (answers) => answers || null, state);
+      return update(['entities', progressionId, slideId], answers => answers || null, state);
     }
     case ANSWER_FETCH_SUCCESS: {
       const {payload, meta} = action;

@@ -22,5 +22,5 @@ export default combineReducers({
   rank,
   recommendations,
   nextContent,
-  videos,
+  videos
 });

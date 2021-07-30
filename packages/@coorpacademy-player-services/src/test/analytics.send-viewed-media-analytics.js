@@ -10,7 +10,7 @@ import type {Window} from '../definitions';
 // eslint-disable-next-line no-shadow
 declare var global: {|window: Window|};
 
-test('should push an event even if dataLayer is not defined previously', (t) => {
+test('should push an event even if dataLayer is not defined previously', t => {
   global.window = {dataLayer: undefined};
 
   const resource: Lesson = {
@@ -24,7 +24,7 @@ test('should push an event even if dataLayer is not defined previously', (t) => 
     mediaRef: '',
     mediaUrl: '',
     mimeType: 'video/mp4',
-    type: 'video',
+    type: 'video'
   };
 
   sendViewedMediaAnalytics(resource, 'media');
@@ -32,12 +32,12 @@ test('should push an event even if dataLayer is not defined previously', (t) => 
     {
       event: 'mediaViewed',
       mediaType: 'video',
-      location: 'media',
-    },
+      location: 'media'
+    }
   ]);
 });
 
-test('push data to window.dataLayer', (t) => {
+test('push data to window.dataLayer', t => {
   global.window = {dataLayer: []};
   const resource: Lesson = {
     _id: '_foo',
@@ -50,7 +50,7 @@ test('push data to window.dataLayer', (t) => {
     mediaRef: '',
     mediaUrl: '',
     mimeType: 'video/mp4',
-    type: 'video',
+    type: 'video'
   };
 
   sendViewedMediaAnalytics(resource, 'media');
@@ -63,7 +63,7 @@ test('push data to window.dataLayer', (t) => {
     {
       event: 'mediaViewed',
       mediaType: 'video',
-      location: 'media',
-    },
+      location: 'media'
+    }
   ]);
 });

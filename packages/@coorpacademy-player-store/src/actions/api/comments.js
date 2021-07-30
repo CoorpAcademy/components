@@ -8,7 +8,7 @@ import type {
   Dispatch,
   DispatchedAction,
   GetState,
-  ThunkAction,
+  ThunkAction
 } from '../../definitions/redux';
 
 export const SEND_POST_COMMENT_REQUEST: string = '@@comment/SEND_POST_REQUEST';
@@ -29,7 +29,7 @@ export const postComment = (
   const action: Action = buildTask({
     types: [SEND_POST_COMMENT_REQUEST, SEND_POST_COMMENT_SUCCESS, SEND_POST_COMMENT_FAILURE],
     task: () => Comments.post(content, message),
-    meta: {progressionId},
+    meta: {progressionId}
   });
 
   return dispatch(action);

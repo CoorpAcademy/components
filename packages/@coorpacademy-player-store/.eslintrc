@@ -18,16 +18,46 @@
     "promise/no-native": "off",
     "default-param-last": "warn",
     "flowtype/define-flow-type": "error",
-    "flowtype-errors/enforce-min-coverage": ["error", 70],
+    "flowtype-errors/enforce-min-coverage": [
+      "error",
+      70
+    ],
     "no-shadow": [
       "error",
-      { "builtinGlobals": true, "allow": ["T"]}
+      {
+        "builtinGlobals": true,
+        "allow": [
+          "T"
+        ]
+      }
     ],
-    "no-restricted-properties": ["error", {
-      "object": "Object",
-      "property": "keys",
-      "message": "IE doesn't support Object.keys with non-Object value. Use _.keys instead."
-    }]
+    "node/no-unsupported-features/es-syntax": [
+      "error",
+      {
+        "ignores": [
+          "modules"
+        ]
+      }
+    ],
+    "node/file-extension-in-import": [
+      "error",
+      "always",
+      {
+        ".js": "never",
+        ".ts": "never",
+        ".json": "never",
+        ".tsx": "never",
+        ".jsx": "never"
+      }
+    ],
+    "no-restricted-properties": [
+      "error",
+      {
+        "object": "Object",
+        "property": "keys",
+        "message": "IE doesn't support Object.keys with non-Object value. Use _.keys instead."
+      }
+    ]
   },
   "settings": {
     "flowtype": {
@@ -36,7 +66,10 @@
   },
   "overrides": [
     {
-      "files": ["./ava.config.cjs", "./nyc.config.js"],
+      "files": [
+        "./ava.config.cjs",
+        "./nyc.config.js"
+      ],
       "env": {
         "commonjs": true
       }

@@ -13,7 +13,7 @@ test(
   {
     type: ENGINE_CONFIG_FETCH_SUCCESS,
     meta: {engine: {ref: 'foo', version: 'bar'}},
-    payload: {baz: 'qux'},
+    payload: {baz: 'qux'}
   },
   {entities: {'foo@bar': {baz: 'qux'}}}
 );

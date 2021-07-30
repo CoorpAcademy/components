@@ -6,7 +6,7 @@ import {
   FETCH_VIDEOS_URI_FAILURE,
   FETCH_VIDEOS_TRACKS_REQUEST,
   FETCH_VIDEOS_TRACKS_SUCCESS,
-  FETCH_VIDEOS_TRACKS_FAILURE,
+  FETCH_VIDEOS_TRACKS_FAILURE
 } from '../../actions/api/videos';
 
 const dataContentReducer = (state = {entities: {}}, action) => {
@@ -14,7 +14,7 @@ const dataContentReducer = (state = {entities: {}}, action) => {
     case FETCH_VIDEOS_URI_REQUEST: {
       const {meta} = action;
       const {id} = meta;
-      return update(['entities', id, 'uri'], (videos) => videos || null, state);
+      return update(['entities', id, 'uri'], videos => videos || null, state);
     }
     case FETCH_VIDEOS_URI_SUCCESS: {
       const {payload, meta} = action;
@@ -34,7 +34,7 @@ const dataContentReducer = (state = {entities: {}}, action) => {
     case FETCH_VIDEOS_TRACKS_REQUEST: {
       const {meta} = action;
       const {id} = meta;
-      return update(['entities', id, 'tracks'], (tracks) => tracks || null, state);
+      return update(['entities', id, 'tracks'], tracks => tracks || null, state);
     }
 
     case FETCH_VIDEOS_TRACKS_SUCCESS: {

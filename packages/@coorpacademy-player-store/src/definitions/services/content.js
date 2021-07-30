@@ -13,7 +13,7 @@ type GetInfo = (contentRef: string, engineRef: string, version: string) => {nbSl
 
 type ContentService = {|
   find: FindContent,
-  getInfo: GetInfo,
+  getInfo: GetInfo
 |};
 
 export type {GetInfo, ContentService};

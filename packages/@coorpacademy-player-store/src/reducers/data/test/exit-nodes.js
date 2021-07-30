@@ -3,7 +3,7 @@ import reducer from '../exit-nodes';
 import {
   EXIT_NODE_FETCH_REQUEST,
   EXIT_NODE_FETCH_SUCCESS,
-  EXIT_NODE_FETCH_FAILURE,
+  EXIT_NODE_FETCH_FAILURE
 } from '../../../actions/api/exit-nodes';
 import macro from '../../test/helpers/macro';
 
@@ -16,7 +16,7 @@ test(
   {},
   {
     type: EXIT_NODE_FETCH_REQUEST,
-    meta: {id: 'foo'},
+    meta: {id: 'foo'}
   },
   {entities: {foo: null}}
 );
@@ -28,7 +28,7 @@ test(
   {},
   {
     type: EXIT_NODE_FETCH_REQUEST,
-    meta: {id: 'foo'},
+    meta: {id: 'foo'}
   },
   {entities: {foo: null}}
 );
@@ -40,7 +40,7 @@ test(
   {entities: {foo: 'foo'}},
   {
     type: EXIT_NODE_FETCH_REQUEST,
-    meta: {id: 'foo'},
+    meta: {id: 'foo'}
   },
   {entities: {foo: 'foo'}}
 );
@@ -53,7 +53,7 @@ test(
   {
     type: EXIT_NODE_FETCH_SUCCESS,
     meta: {id: 'foo'},
-    payload: 'foo',
+    payload: 'foo'
   },
   {entities: {foo: 'foo'}}
 );
@@ -67,7 +67,7 @@ test(
     type: EXIT_NODE_FETCH_FAILURE,
     meta: {id: 'foo'},
     error: true,
-    payload: {},
+    payload: {}
   },
   {entities: {}}
 );
@@ -81,7 +81,7 @@ test(
     type: EXIT_NODE_FETCH_FAILURE,
     meta: {id: 'foo'},
     error: true,
-    payload: {},
+    payload: {}
   },
   {entities: {foo: 'foo'}}
 );

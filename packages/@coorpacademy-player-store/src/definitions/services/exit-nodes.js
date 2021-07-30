@@ -4,7 +4,7 @@ import type {ExitNode, ExitNodeRef} from '../models';
 
 type FindById = (id: ExitNodeRef) => Promise<ExitNode>;
 type ExitNodesService = {|
-  findById: FindById,
+  findById: FindById
 |};
 
 export type {FindById, ExitNodesService};

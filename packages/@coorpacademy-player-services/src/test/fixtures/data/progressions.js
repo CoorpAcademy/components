@@ -7,14 +7,14 @@ const progressions: Array<Progression> = [
     _id: '0',
     engine: {
       ref: 'microlearning',
-      version: '1',
+      version: '1'
     },
     engineOptions: {
-      version: '1',
+      version: '1'
     },
     content: {
       ref: '5.C7',
-      type: 'chapter',
+      type: 'chapter'
     },
     actions: [
       {
@@ -22,24 +22,24 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'slide',
-            ref: '1.B2.4',
-          },
-        },
-      },
-    ],
+            ref: '1.B2.4'
+          }
+        }
+      }
+    ]
   },
   {
     _id: '1',
     engine: {
       ref: 'microlearning',
-      version: '1',
+      version: '1'
     },
     engineOptions: {
-      version: '1',
+      version: '1'
     },
     content: {
       ref: '5.C7',
-      type: 'chapter',
+      type: 'chapter'
     },
     actions: [
       {
@@ -47,16 +47,16 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'slide',
-            ref: 'sli_VkcAWR-ZQ',
-          },
-        },
+            ref: 'sli_VkcAWR-ZQ'
+          }
+        }
       },
       {
         type: 'answer',
         payload: {
           content: {
             type: 'slide',
-            ref: 'sli_VkcAWR-ZQ',
+            ref: 'sli_VkcAWR-ZQ'
           },
           answer: [],
           isCorrect: true,
@@ -64,24 +64,24 @@ const progressions: Array<Progression> = [
           instructions: null,
           nextContent: {
             type: 'slide',
-            ref: 'sli_E1iEQRuZm',
-          },
-        },
-      },
-    ],
+            ref: 'sli_E1iEQRuZm'
+          }
+        }
+      }
+    ]
   },
   {
     _id: 'slider',
     engine: {
       ref: 'microlearning',
-      version: '1',
+      version: '1'
     },
     engineOptions: {
-      version: '1',
+      version: '1'
     },
     content: {
       ref: '5.C7',
-      type: 'chapter',
+      type: 'chapter'
     },
     actions: [
       {
@@ -89,24 +89,24 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'slide',
-            ref: 'sli_41GXTiG8X',
-          },
-        },
-      },
-    ],
+            ref: 'sli_41GXTiG8X'
+          }
+        }
+      }
+    ]
   },
   {
     _id: '2',
     engine: {
       ref: 'microlearning',
-      version: '1',
+      version: '1'
     },
     engineOptions: {
-      version: '1',
+      version: '1'
     },
     content: {
       ref: '5.C7',
-      type: 'chapter',
+      type: 'chapter'
     },
     actions: [
       {
@@ -114,16 +114,16 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'slide',
-            ref: 'sli_VkcAWR-ZQ',
-          },
-        },
+            ref: 'sli_VkcAWR-ZQ'
+          }
+        }
       },
       {
         type: 'answer',
         payload: {
           content: {
             type: 'slide',
-            ref: 'sli_VkcAWR-ZQ',
+            ref: 'sli_VkcAWR-ZQ'
           },
           answer: [],
           isCorrect: true,
@@ -131,16 +131,16 @@ const progressions: Array<Progression> = [
           instructions: null,
           nextContent: {
             type: 'slide',
-            ref: 'sli_E1iEQRuZm',
-          },
-        },
+            ref: 'sli_E1iEQRuZm'
+          }
+        }
       },
       {
         type: 'answer',
         payload: {
           content: {
             type: 'slide',
-            ref: 'sli_E1iEQRuZm',
+            ref: 'sli_E1iEQRuZm'
           },
           answer: [],
           isCorrect: true,
@@ -148,16 +148,16 @@ const progressions: Array<Progression> = [
           instructions: null,
           nextContent: {
             type: 'slide',
-            ref: 'sli_4kl~7RubX',
-          },
-        },
+            ref: 'sli_4kl~7RubX'
+          }
+        }
       },
       {
         type: 'answer',
         payload: {
           content: {
             type: 'slide',
-            ref: 'sli_4kl~7RubX',
+            ref: 'sli_4kl~7RubX'
           },
           answer: [],
           isCorrect: true,
@@ -165,16 +165,16 @@ const progressions: Array<Progression> = [
           instructions: null,
           nextContent: {
             type: 'slide',
-            ref: 'sli_Vy88~R-bX',
-          },
-        },
+            ref: 'sli_Vy88~R-bX'
+          }
+        }
       },
       {
         type: 'answer',
         payload: {
           content: {
             type: 'slide',
-            ref: 'sli_Vy88~R-bX',
+            ref: 'sli_Vy88~R-bX'
           },
           answer: [],
           isCorrect: true,
@@ -182,24 +182,24 @@ const progressions: Array<Progression> = [
           instructions: null,
           nextContent: {
             type: 'success',
-            ref: 'successExitNode',
-          },
-        },
-      },
-    ],
+            ref: 'successExitNode'
+          }
+        }
+      }
+    ]
   },
   {
     _id: '3',
     engine: {
       ref: 'microlearning',
-      version: '1',
+      version: '1'
     },
     engineOptions: {
-      version: '1',
+      version: '1'
     },
     content: {
       ref: '5.C7',
-      type: 'chapter',
+      type: 'chapter'
     },
     actions: [
       {
@@ -207,24 +207,24 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'failure',
-            ref: 'failExitNode',
-          },
-        },
-      },
-    ],
+            ref: 'failExitNode'
+          }
+        }
+      }
+    ]
   },
   {
     _id: 'template',
     engine: {
       ref: 'microlearning',
-      version: '1',
+      version: '1'
     },
     engineOptions: {
-      version: '1',
+      version: '1'
     },
     content: {
       ref: '5.C7',
-      type: 'chapter',
+      type: 'chapter'
     },
     actions: [
       {
@@ -232,24 +232,24 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             ref: 'sli_Nk2vje~E~',
-            type: 'slide',
-          },
-        },
-      },
-    ],
+            type: 'slide'
+          }
+        }
+      }
+    ]
   },
   {
     _id: 'context',
     engine: {
       ref: 'microlearning',
-      version: '1',
+      version: '1'
     },
     engineOptions: {
-      version: '1',
+      version: '1'
     },
     content: {
       ref: '5.C7',
-      type: 'chapter',
+      type: 'chapter'
     },
     actions: [
       {
@@ -257,24 +257,24 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             ref: '1.B2.9',
-            type: 'slide',
-          },
-        },
-      },
-    ],
+            type: 'slide'
+          }
+        }
+      }
+    ]
   },
   {
     _id: 'context2',
     engine: {
       ref: 'microlearning',
-      version: '1',
+      version: '1'
     },
     engineOptions: {
-      version: '1',
+      version: '1'
     },
     content: {
       ref: '5.C7',
-      type: 'chapter',
+      type: 'chapter'
     },
     actions: [
       {
@@ -282,24 +282,24 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             ref: '1.B2.10',
-            type: 'slide',
-          },
-        },
-      },
-    ],
+            type: 'slide'
+          }
+        }
+      }
+    ]
   },
   {
     _id: 'context3',
     engine: {
       ref: 'microlearning',
-      version: '1',
+      version: '1'
     },
     engineOptions: {
-      version: '1',
+      version: '1'
     },
     content: {
       ref: '5.C7',
-      type: 'chapter',
+      type: 'chapter'
     },
     actions: [
       {
@@ -307,24 +307,24 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             ref: '1.B2.11',
-            type: 'slide',
-          },
-        },
-      },
-    ],
+            type: 'slide'
+          }
+        }
+      }
+    ]
   },
   {
     _id: 'context4',
     engine: {
       ref: 'microlearning',
-      version: '1',
+      version: '1'
     },
     engineOptions: {
-      version: '1',
+      version: '1'
     },
     content: {
       ref: '5.C7',
-      type: 'chapter',
+      type: 'chapter'
     },
     actions: [
       {
@@ -332,24 +332,24 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             ref: '1.B2.12',
-            type: 'slide',
-          },
-        },
-      },
-    ],
+            type: 'slide'
+          }
+        }
+      }
+    ]
   },
   {
     _id: 'context5',
     engine: {
       ref: 'microlearning',
-      version: '1',
+      version: '1'
     },
     engineOptions: {
-      version: '1',
+      version: '1'
     },
     content: {
       ref: '5.C8',
-      type: 'chapter',
+      type: 'chapter'
     },
     actions: [
       {
@@ -357,24 +357,24 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             ref: '1.B2.13',
-            type: 'slide',
-          },
-        },
-      },
-    ],
+            type: 'slide'
+          }
+        }
+      }
+    ]
   },
   {
     _id: 'level1',
     engine: {
       ref: 'learner',
-      version: '1',
+      version: '1'
     },
     engineOptions: {
-      version: '1',
+      version: '1'
     },
     content: {
       ref: '1.A',
-      type: 'level',
+      type: 'level'
     },
     actions: [
       {
@@ -382,16 +382,16 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'slide',
-            ref: 'sli_41GXTiG8',
-          },
-        },
+            ref: 'sli_41GXTiG8'
+          }
+        }
       },
       {
         type: 'answer',
         payload: {
           content: {
             type: 'slide',
-            ref: 'sli_41GXTiG8',
+            ref: 'sli_41GXTiG8'
           },
           answer: [],
           isCorrect: true,
@@ -399,16 +399,16 @@ const progressions: Array<Progression> = [
           instructions: null,
           nextContent: {
             type: 'slide',
-            ref: 'sli_41GXTiG8a',
-          },
-        },
+            ref: 'sli_41GXTiG8a'
+          }
+        }
       },
       {
         type: 'answer',
         payload: {
           content: {
             type: 'slide',
-            ref: 'sli_41GXTiG8a',
+            ref: 'sli_41GXTiG8a'
           },
           answer: [],
           isCorrect: true,
@@ -416,16 +416,16 @@ const progressions: Array<Progression> = [
           instructions: null,
           nextContent: {
             type: 'slide',
-            ref: 'sli_41GXTiG8g',
-          },
-        },
+            ref: 'sli_41GXTiG8g'
+          }
+        }
       },
       {
         type: 'answer',
         payload: {
           content: {
             type: 'slide',
-            ref: 'sli_41GXTiG8g',
+            ref: 'sli_41GXTiG8g'
           },
           answer: [],
           isCorrect: true,
@@ -433,25 +433,25 @@ const progressions: Array<Progression> = [
           instructions: null,
           nextContent: {
             type: 'slide',
-            ref: 'sli_41GXTiG8X',
-          },
-        },
-      },
-    ],
+            ref: 'sli_41GXTiG8X'
+          }
+        }
+      }
+    ]
   },
   {
     _id: 'livesDisabled',
     engine: {
       ref: 'learner',
-      version: '1',
+      version: '1'
     },
     engineOptions: {
       livesDisabled: true,
-      version: '1',
+      version: '1'
     },
     content: {
       ref: '1.A',
-      type: 'level',
+      type: 'level'
     },
     actions: [
       {
@@ -459,24 +459,24 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'slide',
-            ref: 'sli_41GXTiG8X',
-          },
-        },
-      },
-    ],
+            ref: 'sli_41GXTiG8X'
+          }
+        }
+      }
+    ]
   },
   {
     _id: 'extraLife',
     engine: {
       ref: 'microlearning',
-      version: '1',
+      version: '1'
     },
     engineOptions: {
-      version: '1',
+      version: '1'
     },
     content: {
       ref: '5.C7',
-      type: 'chapter',
+      type: 'chapter'
     },
     actions: [
       {
@@ -484,16 +484,16 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'slide',
-            ref: 'sli_VkcAWR-ZQ',
-          },
-        },
+            ref: 'sli_VkcAWR-ZQ'
+          }
+        }
       },
       {
         type: 'answer',
         payload: {
           content: {
             type: 'slide',
-            ref: 'sli_VkcAWR-ZQ',
+            ref: 'sli_VkcAWR-ZQ'
           },
           answer: [],
           isCorrect: false,
@@ -501,24 +501,24 @@ const progressions: Array<Progression> = [
           instructions: null,
           nextContent: {
             type: 'node',
-            ref: 'extraLife',
-          },
-        },
-      },
-    ],
+            ref: 'extraLife'
+          }
+        }
+      }
+    ]
   },
   {
     _id: 'adaptive',
     engine: {
       ref: 'microlearning',
-      version: '1',
+      version: '1'
     },
     engineOptions: {
-      version: '1',
+      version: '1'
     },
     content: {
       ref: 'cha_N19MiQrYG',
-      type: 'chapter',
+      type: 'chapter'
     },
     actions: [
       {
@@ -526,25 +526,25 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'slide',
-            ref: 'sli_4yHKRmBtz',
-          },
-        },
-      },
-    ],
+            ref: 'sli_4yHKRmBtz'
+          }
+        }
+      }
+    ]
   },
   {
     _id: 'partialAdaptive',
     engine: {
       ref: 'learner',
-      version: '1',
+      version: '1'
     },
     engineOptions: {
-      version: '1',
+      version: '1'
     },
     content: {
       ref: 'mod_E15Bh1hDM',
       type: 'level',
-      version: '1',
+      version: '1'
     },
     actions: [
       {
@@ -552,10 +552,10 @@ const progressions: Array<Progression> = [
         payload: {
           nextContent: {
             type: 'slide',
-            ref: 'sli_4JE0EO73M',
+            ref: 'sli_4JE0EO73M'
           },
-          instructions: null,
-        },
+          instructions: null
+        }
       },
       {
         type: 'answer',
@@ -563,19 +563,19 @@ const progressions: Array<Progression> = [
           answer: ['objectif', 'expertises'],
           content: {
             type: 'slide',
-            ref: 'sli_4JE0EO73M',
+            ref: 'sli_4JE0EO73M'
           },
           godMode: false,
           nextContent: {
             type: 'slide',
-            ref: 'sli_NJenMOm2f',
+            ref: 'sli_NJenMOm2f'
           },
           isCorrect: false,
-          instructions: null,
-        },
-      },
-    ],
-  },
+          instructions: null
+        }
+      }
+    ]
+  }
 ];
 
 export default progressions;

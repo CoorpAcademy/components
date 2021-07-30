@@ -15,6 +15,6 @@ export const selectRoute = (route: string) => (
   return dispatch({
     type: UI_SELECT_ROUTE,
     payload: route,
-    meta: {progressionId},
+    meta: {progressionId}
   });
 };

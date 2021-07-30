@@ -8,7 +8,7 @@ const clueStore = reduce(
   slidesData
 );
 
-const getClue = (slideId) => {
+const getClue = slideId => {
   if (!clueStore.has(slideId)) throw new Error('Clue not found');
   return clueStore.get(slideId);
 };

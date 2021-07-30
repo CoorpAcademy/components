@@ -6,18 +6,18 @@ export const progressionUpdated = [
   {
     type: PROGRESSION_UPDATED_ON_MOVE,
     meta: {
-      id: 'foo',
-    },
-  },
+      id: 'foo'
+    }
+  }
 ];
 
-export const accordionIsOpenAt = (i) => [
+export const accordionIsOpenAt = i => [
   {
     type: UI_TOGGLE_ACCORDION,
     payload: {
-      id: i,
-    },
-  },
+      id: i
+    }
+  }
 ];
 
 export const fetchCorrection = [
@@ -25,15 +25,15 @@ export const fetchCorrection = [
     type: ANSWER_FETCH_REQUEST,
     meta: {
       progressionId: 'foo',
-      slideId: 'baz',
-    },
+      slideId: 'baz'
+    }
   },
   {
     type: ANSWER_FETCH_SUCCESS,
     meta: {
       progressionId: 'foo',
-      slideId: 'baz',
+      slideId: 'baz'
     },
-    payload: ['Bonne réponse'],
-  },
+    payload: ['Bonne réponse']
+  }
 ];

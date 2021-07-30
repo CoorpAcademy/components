@@ -9,14 +9,14 @@ import type {
   Engine,
   EngineConfig,
   Progression,
-  ResourceContent,
+  ResourceContent
 } from '@coorpacademy/progression-engine';
 import type {UserAnswer} from '../models';
 
 type AcceptExtraLife = (
   progressionId: string,
   payload: {
-    content: Content,
+    content: Content
   }
 ) => Promise<Progression>;
 
@@ -29,12 +29,12 @@ type FindBestOf = (
   progressionId: string
 ) => Promise<{|stars: number|}>;
 type FindById = (id: string) => Promise<Progression | void>;
-type GetAvailableContent = (Content) => Promise<AvailableContent>;
+type GetAvailableContent = Content => Promise<AvailableContent>;
 type MarkResourceAsViewed = (
   progressionId: string,
   payload: {
     resource: ResourceContent,
-    content: Content,
+    content: Content
   }
 ) => Promise<Progression>;
 type PostAnswerPartialPayload = {|godMode: boolean, fastSlide: boolean|};
@@ -47,7 +47,7 @@ type PostAnswer = (
 type RefuseExtraLife = (
   progressionId: string,
   payload: {
-    content: Content,
+    content: Content
   }
 ) => Promise<Progression>;
 
@@ -62,13 +62,13 @@ type ProgressionsService = {|
   findBestOf: FindBestOf,
   findById: FindById,
   getAvailableContent: GetAvailableContent,
-  getEngineConfig: (Engine) => Promise<Config>,
+  getEngineConfig: Engine => Promise<Config>,
   markResourceAsViewed: MarkResourceAsViewed,
-  openAssistance: (Progression) => Progression,
+  openAssistance: Progression => Progression,
   postAnswer: PostAnswer,
   refuseExtraLife: RefuseExtraLife,
   requestClue: RequestClue,
-  save: (Progression) => Progression,
+  save: Progression => Progression
 |};
 
 export type {
@@ -82,5 +82,5 @@ export type {
   RefuseExtraLife,
   RequestClue,
   ProgressionsService,
-  PostAnswerPartialPayload,
+  PostAnswerPartialPayload
 };

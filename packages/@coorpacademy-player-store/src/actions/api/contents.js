@@ -9,7 +9,7 @@ import type {
   Dispatch,
   DispatchedAction,
   GetState,
-  ThunkAction,
+  ThunkAction
 } from '../../definitions/redux';
 
 export const CONTENT_FETCH_REQUEST: string = '@@content/FETCH_REQUEST';
@@ -34,7 +34,7 @@ export const fetchContent = (
     types: [CONTENT_FETCH_REQUEST, CONTENT_FETCH_SUCCESS, CONTENT_FETCH_FAILURE],
     task: () => ContentService.find(type, ref, options),
     meta: {type, ref},
-    bailout: getContent(type, ref),
+    bailout: getContent(type, ref)
   });
 
   return dispatch(action);
@@ -55,7 +55,7 @@ export const fetchContentInfo = (content: Content, engine: Engine): ThunkAction 
     types: [CONTENT_INFO_FETCH_REQUEST, CONTENT_INFO_FETCH_SUCCESS, CONTENT_INFO_FETCH_FAILURE],
     task: () => ContentService.getInfo(content.ref, engine.ref, engine.version),
     meta: content,
-    bailout: getContentInfo,
+    bailout: getContentInfo
   });
 
   return dispatch(action);

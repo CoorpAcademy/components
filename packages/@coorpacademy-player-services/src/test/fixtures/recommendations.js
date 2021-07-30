@@ -27,10 +27,10 @@ const getNextLevel = (ref: string): LevelAPI | void => {
 
   const {
     name,
-    level,
+    level
   }: {
     name?: string,
-    level: string,
+    level: string
   } = _level;
   if (level === 'coach') {
     return undefined;
@@ -39,7 +39,7 @@ const getNextLevel = (ref: string): LevelAPI | void => {
   return _find(
     {
       name,
-      level: level === 'base' ? 'advanced' : 'coach',
+      level: level === 'base' ? 'advanced' : 'coach'
     },
     levelsData
   );

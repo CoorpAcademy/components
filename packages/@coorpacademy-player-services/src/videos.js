@@ -8,7 +8,7 @@ type FindTracksById = (id: string, type?: VideoTrackType) => Promise<Array<Video
 
 type VideosService = {|
   findUriById: FindUriById,
-  findTracksById: FindTracksById,
+  findTracksById: FindTracksById
 |};
 
 const findUriById = (dataLayer: DataLayer): FindUriById => async (
@@ -33,7 +33,7 @@ const findTracksById = (dataLayer: DataLayer): FindTracksById => async (
 
 const createVideosService = (dataLayer: DataLayer): VideosService => ({
   findUriById: findUriById(dataLayer),
-  findTracksById: findTracksById(dataLayer),
+  findTracksById: findTracksById(dataLayer)
 });
 
 export type {VideosService};

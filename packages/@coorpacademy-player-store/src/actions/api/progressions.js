@@ -9,7 +9,7 @@ import type {
   Engine,
   EngineConfig,
   Progression,
-  ProgressionId,
+  ProgressionId
 } from '@coorpacademy/progression-engine';
 import type {Services} from '../../definitions/services';
 import type {PostAnswerPartialPayload} from '../../definitions/services/progressions';
@@ -19,7 +19,7 @@ import {
   getEngine,
   getEngineConfig,
   getCurrentSlide,
-  getPreviousSlide,
+  getPreviousSlide
 } from '../../utils/state-extract';
 import type {Dispatch, DispatchedAction, GetState, ThunkAction} from '../../definitions/redux';
 
@@ -28,8 +28,8 @@ export type Action = {|
   payload: Progression,
   meta?: {
     id?: ProgressionId,
-    progressionId?: ProgressionId,
-  },
+    progressionId?: ProgressionId
+  }
 |};
 
 export const PROGRESSION_CREATE_REQUEST: string = '@@progression/CREATE_REQUEST';
@@ -51,7 +51,7 @@ export const createProgression = (
   const action = buildTask({
     types: [PROGRESSION_CREATE_REQUEST, PROGRESSION_CREATE_SUCCESS, PROGRESSION_CREATE_FAILURE],
     task: () => Progressions.create(_id, engine, content, config),
-    meta: {},
+    meta: {}
   });
 
   return dispatch(action);
@@ -72,7 +72,7 @@ export const fetchProgression = (id: ProgressionId): ThunkAction => (
     types: [PROGRESSION_FETCH_REQUEST, PROGRESSION_FETCH_SUCCESS, PROGRESSION_FETCH_FAILURE],
     task: () => Progressions.findById(id),
     meta: {id},
-    bailout: getProgression(id),
+    bailout: getProgression(id)
   });
 
   return dispatch(action);
@@ -93,7 +93,7 @@ export const fetchEngineConfig = (engine: Engine): ThunkAction => (
     types: [ENGINE_CONFIG_FETCH_REQUEST, ENGINE_CONFIG_FETCH_SUCCESS, ENGINE_CONFIG_FETCH_FAILURE],
     task: () => Progressions.getEngineConfig(engine),
     meta: {engine},
-    bailout: getEngineConfig,
+    bailout: getEngineConfig
   });
 
   return dispatch(action);
@@ -118,7 +118,7 @@ export const createAnswer = (
   if (!progression.state) {
     return dispatch({
       type: PROGRESSION_CREATE_ANSWER_FAILURE,
-      payload: `progression "${progressionId}" has no state.`,
+      payload: `progression "${progressionId}" has no state.`
     });
   }
 
@@ -128,22 +128,22 @@ export const createAnswer = (
     types: [
       PROGRESSION_CREATE_ANSWER_REQUEST,
       PROGRESSION_CREATE_ANSWER_SUCCESS,
-      PROGRESSION_CREATE_ANSWER_FAILURE,
+      PROGRESSION_CREATE_ANSWER_FAILURE
     ],
     task: () =>
       Progressions.postAnswer(
         progressionId,
         {
           content: nextContent,
-          answer,
+          answer
         },
         partialPayload
       ),
     meta: {
       progressionId,
       content: nextContent,
-      answer,
-    },
+      answer
+    }
   });
 
   return dispatch(action);
@@ -167,17 +167,17 @@ export const requestClue = (progressionId: string, slideId: string): ThunkAction
     types: [
       PROGRESSION_REQUEST_CLUE_REQUEST,
       PROGRESSION_REQUEST_CLUE_SUCCESS,
-      PROGRESSION_REQUEST_CLUE_FAILURE,
+      PROGRESSION_REQUEST_CLUE_FAILURE
     ],
     task: () =>
       Progressions.requestClue(progressionId, {
         content: {
           ref: slideId,
-          type: 'slide',
-        },
+          type: 'slide'
+        }
       }),
     bailout: () => includes(slideId, requestedClues),
-    meta: {progressionId},
+    meta: {progressionId}
   });
 
   return dispatch(action);
@@ -203,13 +203,13 @@ export const registerRefuseExtraLife = (progressionId: string): ThunkAction => (
     types: [
       PROGRESSION_EXTRALIFEREFUSED_REQUEST,
       PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
-      PROGRESSION_EXTRALIFEREFUSED_FAILURE,
+      PROGRESSION_EXTRALIFEREFUSED_FAILURE
     ],
     task: () =>
       Progressions.refuseExtraLife(progressionId, {
-        content: nextContent,
+        content: nextContent
       }),
-    meta: {progressionId},
+    meta: {progressionId}
   });
 
   return dispatch(action);
@@ -235,13 +235,13 @@ export const registerAcceptExtraLife = (progressionId: string): ThunkAction => (
     types: [
       PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
       PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
-      PROGRESSION_EXTRALIFEACCEPTED_FAILURE,
+      PROGRESSION_EXTRALIFEACCEPTED_FAILURE
     ],
     task: () =>
       Progressions.acceptExtraLife(progressionId, {
-        content: nextContent,
+        content: nextContent
       }),
-    meta: {progressionId},
+    meta: {progressionId}
   });
 
   return dispatch(action);
@@ -267,7 +267,7 @@ export const fetchBestProgression = (
   if (!engine) {
     return dispatch({
       type: PROGRESSION_FETCH_BESTOF_FAILURE,
-      payload: `progression "${progressionId}" has no engine.`,
+      payload: `progression "${progressionId}" has no engine.`
     });
   }
 
@@ -275,11 +275,11 @@ export const fetchBestProgression = (
     types: [
       PROGRESSION_FETCH_BESTOF_REQUEST,
       PROGRESSION_FETCH_BESTOF_SUCCESS,
-      PROGRESSION_FETCH_BESTOF_FAILURE,
+      PROGRESSION_FETCH_BESTOF_FAILURE
     ],
     task: () => Progressions.findBestOf(engine.ref, type, ref, progressionId),
-    bailout: force ? undefined : pipe(getBestScore, (score) => score !== undefined && score >= 0),
-    meta: {type, ref},
+    bailout: force ? undefined : pipe(getBestScore, score => score !== undefined && score >= 0),
+    meta: {type, ref}
   });
 
   return dispatch(action);
@@ -302,7 +302,7 @@ export const markResourceAsViewed = (progressionId: string, resource: Lesson): T
   if (!slide) {
     return dispatch({
       type: PROGRESSION_RESOURCE_VIEWED_FAILURE,
-      payload: 'slide not found.',
+      payload: 'slide not found.'
     });
   }
 
@@ -310,22 +310,22 @@ export const markResourceAsViewed = (progressionId: string, resource: Lesson): T
     resource: {
       ref,
       type,
-      version: '1',
+      version: '1'
     },
     content: {
       type: 'chapter',
-      ref: slide.chapter_id,
-    },
+      ref: slide.chapter_id
+    }
   };
 
   const action = buildTask({
     types: [
       PROGRESSION_RESOURCE_VIEWED_REQUEST,
       PROGRESSION_RESOURCE_VIEWED_SUCCESS,
-      PROGRESSION_RESOURCE_VIEWED_FAILURE,
+      PROGRESSION_RESOURCE_VIEWED_FAILURE
     ],
     task: () => Progressions.markResourceAsViewed(progressionId, payload),
-    meta: {progressionId, resource},
+    meta: {progressionId, resource}
   });
 
   return dispatch(action);

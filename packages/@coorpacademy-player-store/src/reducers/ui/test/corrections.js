@@ -10,11 +10,11 @@ test(
   reducer,
   {},
   {
-    type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
+    type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION
   },
   {
     accordion: [false, false, false],
-    playResource: '',
+    playResource: ''
   }
 );
 
@@ -26,11 +26,11 @@ test(
   {
     type: UI_TOGGLE_ACCORDION,
     payload: {
-      id: 2,
-    },
+      id: 2
+    }
   },
   {
-    accordion: [undefined, undefined, true],
+    accordion: [undefined, undefined, true]
   }
 );
 
@@ -40,16 +40,16 @@ test(
   reducer,
   {
     accordion: [false, false, false],
-    playResource: 'video2',
+    playResource: 'video2'
   },
   {
     type: UI_SELECT_RESOURCE_IN_POPIN,
     payload: {
-      id: 'video1',
-    },
+      id: 'video1'
+    }
   },
   {
     accordion: [false, false, false],
-    playResource: 'video1',
+    playResource: 'video1'
   }
 );

@@ -7,14 +7,14 @@ test(
   'should dispatch navigation action',
   macro,
   set('ui.current.progressionId', 'foo')({}),
-  (t) => ({}),
+  t => ({}),
   selectRoute('clue'),
   [
     {
       type: UI_SELECT_ROUTE,
       meta: {progressionId: 'foo'},
-      payload: 'clue',
-    },
+      payload: 'clue'
+    }
   ],
   0
 );
@@ -23,14 +23,14 @@ test(
   'should toggle route',
   macro,
   pipe(set('ui.current.progressionId', 'foo'), set('ui.route.foo', 'clue'))({}),
-  (t) => ({}),
+  t => ({}),
   selectRoute('clue'),
   [
     {
       type: UI_SELECT_ROUTE,
       meta: {progressionId: 'foo'},
-      payload: 'clue',
-    },
+      payload: 'clue'
+    }
   ],
   0
 );

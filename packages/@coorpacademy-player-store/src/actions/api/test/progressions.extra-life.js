@@ -9,14 +9,14 @@ import {
   PROGRESSION_EXTRALIFEACCEPTED_FAILURE,
   PROGRESSION_EXTRALIFEREFUSED_REQUEST,
   PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
-  PROGRESSION_EXTRALIFEREFUSED_FAILURE,
+  PROGRESSION_EXTRALIFEREFUSED_FAILURE
 } from '../progressions';
 
 const initState = pipe(
   set('data.progressions.entities.foo._id', 'foo'),
   set('data.progressions.entities.foo.state.nextContent', {
     type: 'node',
-    ref: 'extraLife',
+    ref: 'extraLife'
   })
 );
 
@@ -24,7 +24,7 @@ test(
   'should call accept extra life and succeed',
   macro,
   initState({}),
-  (t) => ({
+  t => ({
     Progressions: {
       acceptExtraLife: (id, payload) => {
         const contentRef = get('content.ref', payload);
@@ -32,20 +32,20 @@ test(
         t.is(contentRef, 'extraLife');
         t.is(id, 'foo');
         return 'foo';
-      },
-    },
+      }
+    }
   }),
   registerAcceptExtraLife('foo'),
   [
     {
       type: PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
-      meta: {progressionId: 'foo'},
+      meta: {progressionId: 'foo'}
     },
     {
       type: PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
       meta: {progressionId: 'foo'},
-      payload: 'foo',
-    },
+      payload: 'foo'
+    }
   ],
   2
 );
@@ -54,11 +54,11 @@ test(
   'should call accept extra life and fail',
   macro,
   initState({}),
-  (t) => ({
+  t => ({
     Logger: {
       error(err) {
         t.is(err.message, 'some error');
-      },
+      }
     },
     Progressions: {
       acceptExtraLife: (id, payload) => {
@@ -68,21 +68,21 @@ test(
         t.is(id, 'foo');
 
         throw new Error('some error');
-      },
-    },
+      }
+    }
   }),
   registerAcceptExtraLife('foo'),
   [
     {
       type: PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
-      meta: {progressionId: 'foo'},
+      meta: {progressionId: 'foo'}
     },
     {
       type: PROGRESSION_EXTRALIFEACCEPTED_FAILURE,
       meta: {progressionId: 'foo'},
       error: true,
-      payload: new Error('some error'),
-    },
+      payload: new Error('some error')
+    }
   ],
   3
 );
@@ -91,7 +91,7 @@ test(
   'should call refuse extra life and succeed',
   macro,
   initState({}),
-  (t) => ({
+  t => ({
     Progressions: {
       refuseExtraLife: (id, payload) => {
         const contentRef = get('content.ref', payload);
@@ -99,20 +99,20 @@ test(
         t.is(contentRef, 'extraLife');
         t.is(id, 'foo');
         return 'foo';
-      },
-    },
+      }
+    }
   }),
   registerRefuseExtraLife('foo'),
   [
     {
       type: PROGRESSION_EXTRALIFEREFUSED_REQUEST,
-      meta: {progressionId: 'foo'},
+      meta: {progressionId: 'foo'}
     },
     {
       type: PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
       meta: {progressionId: 'foo'},
-      payload: 'foo',
-    },
+      payload: 'foo'
+    }
   ],
   2
 );
@@ -121,11 +121,11 @@ test(
   'should call refuse extra life and fail',
   macro,
   initState({}),
-  (t) => ({
+  t => ({
     Logger: {
       error(err) {
         t.is(err.message, 'some error');
-      },
+      }
     },
     Progressions: {
       refuseExtraLife: (id, payload) => {
@@ -135,21 +135,21 @@ test(
         t.is(id, 'foo');
 
         throw new Error('some error');
-      },
-    },
+      }
+    }
   }),
   registerRefuseExtraLife('foo'),
   [
     {
       type: PROGRESSION_EXTRALIFEREFUSED_REQUEST,
-      meta: {progressionId: 'foo'},
+      meta: {progressionId: 'foo'}
     },
     {
       type: PROGRESSION_EXTRALIFEREFUSED_FAILURE,
       meta: {progressionId: 'foo'},
       error: true,
-      payload: new Error('some error'),
-    },
+      payload: new Error('some error')
+    }
   ],
   3
 );

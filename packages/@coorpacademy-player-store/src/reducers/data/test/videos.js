@@ -7,7 +7,7 @@ import {
   FETCH_VIDEOS_URI_FAILURE,
   FETCH_VIDEOS_TRACKS_REQUEST,
   FETCH_VIDEOS_TRACKS_SUCCESS,
-  FETCH_VIDEOS_TRACKS_FAILURE,
+  FETCH_VIDEOS_TRACKS_FAILURE
 } from '../../../actions/api/videos';
 import macro from '../../test/helpers/macro';
 
@@ -22,7 +22,7 @@ test(
   {},
   {
     type: FETCH_VIDEOS_URI_REQUEST,
-    meta: {id: 'foo', provider: 'foobar'},
+    meta: {id: 'foo', provider: 'foobar'}
   },
   {entities: {foo: {uri: null}}}
 );
@@ -34,7 +34,7 @@ test(
   {entities: {foo: {uri: 'https://foo.bar/baz.mp4'}}},
   {
     type: FETCH_VIDEOS_URI_REQUEST,
-    meta: {id: 'foo', provider: 'foobar'},
+    meta: {id: 'foo', provider: 'foobar'}
   },
   {entities: {foo: {uri: 'https://foo.bar/baz.mp4'}}}
 );
@@ -47,7 +47,7 @@ test(
   {
     type: FETCH_VIDEOS_URI_SUCCESS,
     meta: {id: 'foo', provider: 'foobar'},
-    payload: 'https://foo.bar/baz.mp4',
+    payload: 'https://foo.bar/baz.mp4'
   },
   {entities: {foo: {uri: 'https://foo.bar/baz.mp4'}}}
 );
@@ -61,12 +61,12 @@ test(
     type: FETCH_VIDEOS_URI_FAILURE,
     meta: {id: 'foo', provider: 'foobar'},
     error: true,
-    payload: '',
+    payload: ''
   },
   {
     entities: {
-      foo: {},
-    },
+      foo: {}
+    }
   }
 );
 
@@ -79,7 +79,7 @@ test(
     type: FETCH_VIDEOS_URI_FAILURE,
     meta: {id: 'foo', provider: 'foobar'},
     error: true,
-    payload: '',
+    payload: ''
   },
   {entities: {foo: {uri: 'https://foo.bar/baz.mp4'}}}
 );
@@ -91,7 +91,7 @@ test(
   {},
   {
     type: FETCH_VIDEOS_TRACKS_REQUEST,
-    meta: {id: 'foo'},
+    meta: {id: 'foo'}
   },
   {entities: {foo: {tracks: null}}}
 );
@@ -103,7 +103,7 @@ test(
   {entities: {foo: {tracks: null}}},
   {
     type: FETCH_VIDEOS_TRACKS_REQUEST,
-    meta: {id: 'foo'},
+    meta: {id: 'foo'}
   },
   {entities: {foo: {tracks: null}}}
 );
@@ -116,7 +116,7 @@ test(
   {
     type: FETCH_VIDEOS_TRACKS_SUCCESS,
     meta: {id: 'foo'},
-    payload: tracks,
+    payload: tracks
   },
   {entities: {foo: {tracks}}}
 );
@@ -130,12 +130,12 @@ test(
     type: FETCH_VIDEOS_TRACKS_FAILURE,
     meta: {id: 'foo'},
     error: true,
-    payload: '',
+    payload: ''
   },
   {
     entities: {
-      foo: {},
-    },
+      foo: {}
+    }
   }
 );
 
@@ -148,7 +148,7 @@ test(
     type: FETCH_VIDEOS_URI_FAILURE,
     meta: {id: 'foo', provider: 'foobar'},
     error: true,
-    payload: '',
+    payload: ''
   },
   {entities: {foo: {tracks}}}
 );
@@ -162,7 +162,7 @@ test(
     type: FETCH_VIDEOS_URI_FAILURE,
     meta: {id: 'foo', provider: 'foobar'},
     error: true,
-    payload: '',
+    payload: ''
   },
   {entities: {foo: {tracks, uri: 'foobar.com'}}}
 );
@@ -176,7 +176,7 @@ test(
     type: FETCH_VIDEOS_URI_FAILURE,
     meta: {id: 'foo', provider: 'foobar'},
     error: true,
-    payload: '',
+    payload: ''
   },
   {entities: {foo: {tracks, uri: 'foobar.com'}}}
 );

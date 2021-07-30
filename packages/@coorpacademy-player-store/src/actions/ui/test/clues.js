@@ -5,14 +5,14 @@ import {getClue, selectClue} from '../clues';
 import {UI_SELECT_ROUTE} from '../route';
 import {
   PROGRESSION_REQUEST_CLUE_REQUEST,
-  PROGRESSION_REQUEST_CLUE_SUCCESS,
+  PROGRESSION_REQUEST_CLUE_SUCCESS
 } from '../../api/progressions';
 import {CLUE_FETCH_REQUEST, CLUE_FETCH_SUCCESS} from '../../api/clues';
 import {PROGRESSION_UPDATED_ON_NODE} from '../../api/analytics';
 
 const slide = {
   ref: 'bar',
-  type: 'slide',
+  type: 'slide'
 };
 
 const setNextContent = set('data.progressions.entities.foo.state.nextContent', slide);
@@ -26,14 +26,14 @@ test(
   'should set state with selected clue',
   macro,
   set('ui.current.progressionId', 'foo')({}),
-  (t) => ({}),
+  t => ({}),
   selectClue,
   [
     {
       type: UI_SELECT_ROUTE,
       meta: {progressionId: 'foo'},
-      payload: 'clue',
-    },
+      payload: 'clue'
+    }
   ],
   0
 );
@@ -46,11 +46,11 @@ test(
     set('data.progressions.entities.foo.engine', {ref: 'microlearning', version: 1}),
     setNextContent,
     set('data.configs.entities.microlearning@1', {
-      version: '1',
+      version: '1'
     }),
     set('data.contents.slide.entities.bar._id', 'bar')
   )({}),
-  (t) => ({
+  t => ({
     Analytics: {
       sendProgressionFinished: (currentProgression, engineConfig) => {
         t.fail();
@@ -59,7 +59,7 @@ test(
         t.is(currentProgression.engine.ref, 'microlearning');
         t.deepEqual(currentProgression.state.nextContent, {type: 'slide', ref: 'bar'});
         return 'sent';
-      },
+      }
     },
     Progressions: {
       requestClue: (progressionId, payload) => {
@@ -67,53 +67,53 @@ test(
         t.deepEqual(payload, {
           content: {
             ref: 'bar',
-            type: 'slide',
-          },
+            type: 'slide'
+          }
         });
 
         return requestedCluePayload;
-      },
+      }
     },
     Clues: {
       findById: (progressionId, slideId) => {
         t.is(progressionId, 'foo');
         t.is(slideId, 'bar');
         return ['Clue'];
-      },
-    },
+      }
+    }
   }),
   getClue,
   [
     {
       type: PROGRESSION_REQUEST_CLUE_REQUEST,
-      meta: {progressionId: 'foo'},
+      meta: {progressionId: 'foo'}
     },
     {
       type: PROGRESSION_REQUEST_CLUE_SUCCESS,
       meta: {progressionId: 'foo'},
-      payload: requestedCluePayload,
+      payload: requestedCluePayload
     },
     {
       type: CLUE_FETCH_REQUEST,
       meta: {
         progressionId: 'foo',
-        slideId: 'bar',
-      },
+        slideId: 'bar'
+      }
     },
     {
       type: CLUE_FETCH_SUCCESS,
       meta: {
         progressionId: 'foo',
-        slideId: 'bar',
+        slideId: 'bar'
       },
-      payload: ['Clue'],
+      payload: ['Clue']
     },
     {
       type: PROGRESSION_UPDATED_ON_NODE,
       meta: {
-        id: 'foo',
-      },
-    },
+        id: 'foo'
+      }
+    }
   ],
   6
 );

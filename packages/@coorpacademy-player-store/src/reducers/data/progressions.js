@@ -12,14 +12,14 @@ import {
   PROGRESSION_CREATE_ANSWER_REQUEST,
   PROGRESSION_CREATE_ANSWER_SUCCESS,
   PROGRESSION_REQUEST_CLUE_SUCCESS,
-  PROGRESSION_RESOURCE_VIEWED_SUCCESS,
+  PROGRESSION_RESOURCE_VIEWED_SUCCESS
 } from '../../actions/api/progressions';
 import type {Action} from '../../actions/api/progressions';
 
 type DataProgressionState = {
   entities: {
-    [id: ProgressionId]: Progression,
-  },
+    [id: ProgressionId]: Progression
+  }
 };
 
 const dataProgressionsReducer = (
@@ -78,7 +78,7 @@ const dataProgressionsReducer = (
 
       return update(
         ['entities', progressionId],
-        (progression) => assign(progression, payload),
+        progression => assign(progression, payload),
         state
       );
     }

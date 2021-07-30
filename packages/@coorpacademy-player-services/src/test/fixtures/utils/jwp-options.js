@@ -1,6 +1,6 @@
 import {get, omit, pipe, set} from 'lodash/fp';
 
-const appendJWPOptions = (prefix) => (media) => {
+const appendJWPOptions = prefix => media => {
   const mimeType = get('mimeType', media) || get(`${prefix}mimeType`, media);
 
   if (mimeType === 'video/mp4') {
@@ -17,9 +17,9 @@ const appendJWPOptions = (prefix) => (media) => {
         autostart: false,
         width: '100%',
         skin: {
-          name: 'bekle',
-        },
-      },
+          name: 'bekle'
+        }
+      }
     };
     return pipe(
       set(`${prefix}jwpOptions`, options),

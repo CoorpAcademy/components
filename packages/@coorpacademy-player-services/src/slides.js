@@ -6,7 +6,7 @@ import type {DataLayer} from './definitions';
 type FindSlideById = (slideId: string) => Promise<Slide>;
 
 type SlidesService = {|
-  findById: FindSlideById,
+  findById: FindSlideById
 |};
 
 const findById = (dataLayer: DataLayer): FindSlideById => async (
@@ -18,7 +18,7 @@ const findById = (dataLayer: DataLayer): FindSlideById => async (
 };
 
 const createSlidesService = (dataLayer: DataLayer): SlidesService => ({
-  findById: findById(dataLayer),
+  findById: findById(dataLayer)
 });
 
 export type {SlidesService};

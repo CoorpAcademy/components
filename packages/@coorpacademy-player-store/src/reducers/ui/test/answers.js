@@ -14,9 +14,9 @@ test(
   {
     type: ANSWER_EDIT.qcm,
     meta: {
-      progressionId: 'foo',
+      progressionId: 'foo'
     },
-    payload: 'bar',
+    payload: 'bar'
   },
   {foo: {value: 'bar'}}
 );
@@ -29,8 +29,8 @@ test(
   {
     type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
     payload: {
-      id: 'foo',
-    },
+      id: 'foo'
+    }
   },
   {}
 );

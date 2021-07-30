@@ -6,46 +6,46 @@ import * as fixtures from './fixtures';
 const Recommendations = createRecommendationsService(fixtures);
 const {getNext} = Recommendations;
 
-test('should find recommendations for free run', async (t) => {
+test('should find recommendations for free run', async t => {
   t.is(await getNext('chapter'), undefined);
 });
 
-test('should find next level for learner with base level', async (t) => {
+test('should find next level for learner with base level', async t => {
   t.deepEqual(await getNext('level', '1.B'), {
     ref: '1.A',
     name: 'Level1',
     level: 'advanced',
     meta: {
       updatedAt: '2017-01-26T09:19:06.874Z',
-      createdAt: '2017-01-26T09:19:05.667Z',
+      createdAt: '2017-01-26T09:19:05.667Z'
     },
     poster: {
       subtitles: [],
       posters: [],
-      src: [],
+      src: []
     },
-    chapterIds: ['5.C7', '5.C8'],
+    chapterIds: ['5.C7', '5.C8']
   });
 });
 
-test('should find next level for learner with advanced level', async (t) => {
+test('should find next level for learner with advanced level', async t => {
   t.deepEqual(await getNext('level', '1.A'), {
     ref: '1.C',
     name: 'Level1',
     level: 'coach',
     meta: {
       updatedAt: '2017-01-26T09:19:06.874Z',
-      createdAt: '2017-01-26T09:19:05.667Z',
+      createdAt: '2017-01-26T09:19:05.667Z'
     },
     poster: {
       subtitles: [],
       posters: [],
-      src: [],
+      src: []
     },
-    chapterIds: ['1.C1', '1.C2'],
+    chapterIds: ['1.C1', '1.C2']
   });
 });
 
-test('should find next level for learner with coach level', async (t) => {
+test('should find next level for learner with coach level', async t => {
   t.is(await getNext('level', '1.C'), undefined);
 });

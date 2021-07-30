@@ -6,7 +6,7 @@ import type {Action} from '../../definitions/redux';
 import type {SelectAction} from '../../actions/ui/progressions';
 
 type UiCurrentState = {
-  progressionId: string | null,
+  progressionId: string | null
 };
 
 const uiCurrentReducer = (

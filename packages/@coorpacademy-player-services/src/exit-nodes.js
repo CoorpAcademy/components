@@ -4,7 +4,7 @@ import type {ExitNodeAPI, ExitNodeRef, DataLayer} from './definitions';
 
 type FindById = (id: ExitNodeRef) => Promise<ExitNodeAPI>;
 type ExitNodesService = {|
-  findById: FindById,
+  findById: FindById
 |};
 
 export const findById = (dataLayer: DataLayer): FindById => async (
@@ -16,7 +16,7 @@ export const findById = (dataLayer: DataLayer): FindById => async (
 };
 
 const ExitNodes = (dataLayer: DataLayer): ExitNodesService => ({
-  findById: findById(dataLayer),
+  findById: findById(dataLayer)
 });
 
 export type {ExitNodesService};

@@ -8,7 +8,7 @@ import type {
   Dispatch,
   DispatchedAction,
   GetState,
-  ThunkAction,
+  ThunkAction
 } from '../../definitions/redux';
 
 export const ANSWER_FETCH_REQUEST: string = '@@answer/FETCH_REQUEST';
@@ -29,7 +29,7 @@ export const fetchAnswer = (
   const action: Action = buildTask({
     types: [ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS, ANSWER_FETCH_FAILURE],
     task: () => Answers.findById(progressionId, slideId, givenAnswers),
-    meta: {progressionId, slideId},
+    meta: {progressionId, slideId}
   });
   return dispatch(action);
 };

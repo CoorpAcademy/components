@@ -5,20 +5,20 @@ import {
   progressionUpdated,
   PROGRESSION_UPDATED_FAILURE,
   PROGRESSION_UPDATED_ON_MOVE,
-  PROGRESSION_UPDATED_ON_NODE,
+  PROGRESSION_UPDATED_ON_NODE
 } from '../analytics';
 
 test(
   'should fail if progression is not found',
   macro,
   set('ui.current.progressionId', 'bar')({}),
-  (t) => ({}),
+  t => ({}),
   progressionUpdated('foo', PROGRESSION_UPDATED_ON_MOVE),
   [
     {
       type: PROGRESSION_UPDATED_FAILURE,
-      payload: 'progression "foo" could not be found.',
-    },
+      payload: 'progression "foo" could not be found.'
+    }
   ],
   0
 );
@@ -31,16 +31,16 @@ test(
     set('data.progressions.entities.foo', {
       _id: 'foo',
       content: {ref: '1.B', type: 'level'},
-      engine: {version: '1', ref: 'microlearning'},
+      engine: {version: '1', ref: 'microlearning'}
     })
   )({}),
-  (t) => ({}),
+  t => ({}),
   progressionUpdated('foo', PROGRESSION_UPDATED_ON_MOVE),
   [
     {
       type: PROGRESSION_UPDATED_FAILURE,
-      payload: 'progression "foo" has no state.',
-    },
+      payload: 'progression "foo" has no state.'
+    }
   ],
   0
 );
@@ -54,16 +54,16 @@ test(
       _id: 'foo',
       content: {ref: '1.B', type: 'level'},
       engine: {version: '1', ref: 'microlearning'},
-      state: {nextContent: {type: 'success'}},
+      state: {nextContent: {type: 'success'}}
     })
   )({}),
-  (t) => ({}),
+  t => ({}),
   progressionUpdated('foo', PROGRESSION_UPDATED_ON_MOVE),
   [
     {
       type: PROGRESSION_UPDATED_FAILURE,
-      payload: 'progression "foo" has no config.',
-    },
+      payload: 'progression "foo" has no config.'
+    }
   ],
   0
 );
@@ -77,13 +77,13 @@ test(
       _id: 'foo',
       content: {ref: '1.B', type: 'level'},
       engine: {version: '1', ref: 'microlearning'},
-      state: {nextContent: {type: 'success'}},
+      state: {nextContent: {type: 'success'}}
     }),
     set('data.configs.entities.microlearning@1', {
-      version: '1',
+      version: '1'
     })
   )({}),
-  (t) => ({
+  t => ({
     Analytics: {
       sendProgressionFinished: (currentProgression, engineConfig) => {
         t.is(currentProgression.engine.ref, 'microlearning');
@@ -91,15 +91,15 @@ test(
       },
       sendProgressionUpdated: (currentProgression, engineConfig) => {
         t.fail();
-      },
-    },
+      }
+    }
   }),
   progressionUpdated('foo', PROGRESSION_UPDATED_ON_MOVE),
   [
     {
       type: PROGRESSION_UPDATED_ON_MOVE,
-      meta: {id: 'foo'},
-    },
+      meta: {id: 'foo'}
+    }
   ],
   1
 );
@@ -113,26 +113,26 @@ test(
       _id: 'foo',
       content: {ref: '1.B', type: 'level'},
       engine: {version: '1', ref: 'microlearning'},
-      state: {nextContent: {type: 'success'}},
+      state: {nextContent: {type: 'success'}}
     }),
     set('data.configs.entities.microlearning@1', {
-      version: '1',
+      version: '1'
     })
   )({}),
-  (t) => ({
+  t => ({
     Analytics: {
       sendProgressionUpdated: (currentProgression, engineConfig) => {
         t.is(currentProgression.engine.ref, 'microlearning');
         return 'sent';
-      },
-    },
+      }
+    }
   }),
   progressionUpdated('foo', PROGRESSION_UPDATED_ON_NODE),
   [
     {
       type: PROGRESSION_UPDATED_ON_NODE,
-      meta: {id: 'foo'},
-    },
+      meta: {id: 'foo'}
+    }
   ],
   1
 );
@@ -146,21 +146,21 @@ test(
       _id: 'foo',
       content: {ref: '1.B', type: 'level'},
       engine: {version: '1', ref: 'microlearning'},
-      state: {nextContent: {type: 'success'}},
+      state: {nextContent: {type: 'success'}}
     }),
     set('data.configs.entities.microlearning@1', {
-      version: '1',
+      version: '1'
     })
   )({}),
-  (t) => ({
-    Analytics: {},
+  t => ({
+    Analytics: {}
   }),
   progressionUpdated('foo', PROGRESSION_UPDATED_ON_NODE),
   [
     {
       type: PROGRESSION_UPDATED_ON_NODE,
-      meta: {id: 'foo'},
-    },
+      meta: {id: 'foo'}
+    }
   ],
   0
 );

@@ -5,30 +5,32 @@ import macro from '../../test/helpers/macro';
 import {
   createProgression,
   PROGRESSION_CREATE_REQUEST,
-  PROGRESSION_CREATE_SUCCESS,
+  PROGRESSION_CREATE_SUCCESS
 } from '../progressions';
 
-const slide = {_id: 'bar', chapter_id: 'baz', foo: 1};
+const slide = {
+  _id: 'bar'
+};
 
 const engine = {
   ref: 'learner',
-  version: 'test',
+  version: 'test'
 };
 
 const content = {
   type: 'level',
-  ref: '1B',
+  ref: '1B'
 };
 
 const engineOptions = {
-  lives: 888,
+  lives: 888
 };
 
 test(
   'should throw error if progression has no state',
   macro,
   set('data.progressions.entities.foo._id', 'foo', {}),
-  (t) => ({
+  t => ({
     Progressions: {
       create: (_id, _engine, _content, _engineOptions) => {
         return {
@@ -37,17 +39,17 @@ test(
           content: _content,
           engineOptions: _engineOptions,
           state: {
-            nextContent: {type: 'slide', ref: slide._id},
-          },
+            nextContent: {type: 'slide', ref: slide._id}
+          }
         };
-      },
-    },
+      }
+    }
   }),
   createProgression('foo', engine, content, engineOptions),
   [
     {
       type: PROGRESSION_CREATE_REQUEST,
-      meta: {},
+      meta: {}
     },
     {
       type: PROGRESSION_CREATE_SUCCESS,
@@ -57,14 +59,14 @@ test(
         state: {
           nextContent: {
             type: 'slide',
-            ref: slide._id,
-          },
+            ref: slide._id
+          }
         },
         engine,
         content,
-        engineOptions,
-      },
-    },
+        engineOptions
+      }
+    }
   ],
   0
 );

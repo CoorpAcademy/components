@@ -8,7 +8,7 @@ import {
   computeNextStepOnRefuseExtraLife,
   getConfig,
   getConfigForProgression,
-  getFastSlideExitNode,
+  getFastSlideExitNode
 } from '@coorpacademy/progression-engine';
 import {update, pipe, filter, get, getOr, set, maxBy, map} from 'lodash/fp';
 import type {
@@ -22,7 +22,7 @@ import type {
   EngineConfig,
   GenericContent,
   Progression,
-  ResourceContent,
+  ResourceContent
 } from '@coorpacademy/progression-engine';
 import {CONTENT_TYPE} from './definitions';
 import type {DataLayer, UserAnswerAPI, PartialPayload} from './definitions';
@@ -30,7 +30,7 @@ import type {DataLayer, UserAnswerAPI, PartialPayload} from './definitions';
 type AcceptExtraLife = (
   progressionId: string,
   payload: {
-    content: Content,
+    content: Content
   }
 ) => Promise<Progression>;
 
@@ -43,12 +43,12 @@ type FindBestOf = (
   progressionId: string
 ) => Promise<{|stars: number|}>;
 type FindById = (id: string) => Promise<Progression | void>;
-type GetAvailableContent = (Content) => Promise<AvailableContent>;
+type GetAvailableContent = Content => Promise<AvailableContent>;
 type MarkResourceAsViewed = (
   progressionId: string,
   payload: {
     resource: ResourceContent,
-    content: Content,
+    content: Content
   }
 ) => Promise<Progression>;
 
@@ -60,7 +60,7 @@ type PostAnswer = (
 type RefuseExtraLife = (
   progressionId: string,
   payload: {
-    content: Content,
+    content: Content
   }
 ) => Promise<Progression>;
 
@@ -75,13 +75,13 @@ type ProgressionsService = {|
   findBestOf: FindBestOf,
   findById: FindById,
   getAvailableContent: GetAvailableContent,
-  getEngineConfig: (Engine) => Promise<Config>,
+  getEngineConfig: Engine => Promise<Config>,
   markResourceAsViewed: MarkResourceAsViewed,
-  openAssistance: (Progression) => Progression,
+  openAssistance: Progression => Progression,
   postAnswer: PostAnswer,
   refuseExtraLife: RefuseExtraLife,
   requestClue: RequestClue,
-  save: (Progression) => Promise<Progression>,
+  save: Progression => Promise<Progression>
 |};
 
 const findById = (dataLayer: DataLayer): FindById => async (
@@ -113,21 +113,21 @@ const getAvailableContent = (dataLayer: DataLayer): GetAvailableContent => async
     if (!level) {
       throw new Error(`level ${content.ref} has no chapterIds`);
     }
-    chapters = map((ref) => ({type: CONTENT_TYPE.CHAPTER, ref}), level.chapterIds);
+    chapters = map(ref => ({type: CONTENT_TYPE.CHAPTER, ref}), level.chapterIds);
   } else {
     chapters = [content];
   }
 
   return Promise.all(
-    chapters.map(async (chapter) => ({
+    chapters.map(async chapter => ({
       ref: chapter.ref,
       slides: await findSlideByChapter(chapter.ref),
-      rules: await getChapterRulesByContent(chapter.ref),
+      rules: await getChapterRulesByContent(chapter.ref)
     }))
   );
 };
 
-const createSave = (dataLayer: DataLayer): ((Progression) => Promise<Progression>) => (
+const createSave = (dataLayer: DataLayer): (Progression => Promise<Progression>) => (
   progression: Progression
 ): Promise<Progression> => {
   const {saveProgression} = dataLayer;
@@ -144,12 +144,12 @@ const findBestOf = (dataLayer: DataLayer): FindBestOf => async (
   const progressions = await getAllProgressions();
 
   const bestProgression: Progression | void = pipe(
-    filter((p) => get('content.ref', p) === contentRef && get('_id', p) !== progressionId),
-    maxBy((p) => (p.state && p.state.stars) || 0)
+    filter(p => get('content.ref', p) === contentRef && get('_id', p) !== progressionId),
+    maxBy(p => (p.state && p.state.stars) || 0)
   )(progressions);
 
   return {
-    stars: (bestProgression && get('state.stars', bestProgression)) || 0,
+    stars: (bestProgression && get('state.stars', bestProgression)) || 0
   };
 };
 
@@ -159,7 +159,7 @@ const addActionAndSaveProgression = (
   progression: Progression,
   action: Action
 ): Promise<Progression> => {
-  const newProgression = update('actions', (actions) => actions.concat(action), progression);
+  const newProgression = update('actions', actions => actions.concat(action), progression);
   const newState = createState(newProgression);
   const save = createSave(dataLayer);
   return pipe(set('state', newState), save)(newProgression);
@@ -195,8 +195,8 @@ const postAnswer = (dataLayer: DataLayer): PostAnswer => async (
       content: payload.content,
       answer,
       godMode,
-      fastSlide,
-    },
+      fastSlide
+    }
   };
 
   const _getAvailableContent = getAvailableContent(dataLayer);
@@ -218,7 +218,7 @@ const postAnswer = (dataLayer: DataLayer): PostAnswer => async (
   if (fastSlide) {
     action = {
       ...action,
-      payload: {...action.payload, ...getFastSlideExitNode(config, godMode, availableContent)},
+      payload: {...action.payload, ...getFastSlideExitNode(config, godMode, availableContent)}
     };
   }
 
@@ -239,7 +239,7 @@ const requestClue = (dataLayer: DataLayer): RequestClue => async (
 
   const action = {
     type: 'clue',
-    payload,
+    payload
   };
 
   return addActionAndSaveProgression(dataLayer)(progression, action);
@@ -248,7 +248,7 @@ const requestClue = (dataLayer: DataLayer): RequestClue => async (
 const acceptExtraLife = (dataLayer: DataLayer): AcceptExtraLife => async (
   progressionId: string,
   payload: {
-    content: Content,
+    content: Content
   }
 ): Promise<Progression> => {
   const {findProgressionById} = dataLayer;
@@ -280,7 +280,7 @@ const acceptExtraLife = (dataLayer: DataLayer): AcceptExtraLife => async (
 const refuseExtraLife = (dataLayer: DataLayer): RefuseExtraLife => async (
   progressionId: string,
   payload: {
-    content: Content,
+    content: Content
   }
 ): Promise<Progression> => {
   const {findProgressionById} = dataLayer;
@@ -318,7 +318,7 @@ const create = (dataLayer: DataLayer): CreateProgression => async (
   return save({
     ...newProgression,
     _id,
-    state,
+    state
   });
 };
 
@@ -326,7 +326,7 @@ const markResourceAsViewed = (dataLayer: DataLayer): MarkResourceAsViewed => asy
   progressionId: string,
   payload: {
     resource: ResourceContent,
-    content: Content,
+    content: Content
   }
 ): Promise<Progression> => {
   const {findProgressionById} = dataLayer;
@@ -338,7 +338,7 @@ const markResourceAsViewed = (dataLayer: DataLayer): MarkResourceAsViewed => asy
 
   const action = {
     type: 'resource',
-    payload,
+    payload
   };
 
   return addActionAndSaveProgression(dataLayer)(progression, action);
@@ -356,7 +356,7 @@ const createProgressionsService = (dataLayer: DataLayer): ProgressionsService =>
   postAnswer: postAnswer(dataLayer),
   refuseExtraLife: refuseExtraLife(dataLayer),
   requestClue: requestClue(dataLayer),
-  save: createSave(dataLayer),
+  save: createSave(dataLayer)
 });
 
 export type {ProgressionsService};

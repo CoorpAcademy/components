@@ -4,7 +4,7 @@ import reducer from '../recommendations';
 import {
   RECO_FETCH_REQUEST,
   RECO_FETCH_SUCCESS,
-  RECO_FETCH_FAILURE,
+  RECO_FETCH_FAILURE
 } from '../../../actions/api/recommendations';
 import macro from '../../test/helpers/macro';
 
@@ -20,7 +20,7 @@ test(
   {},
   {
     type: RECO_FETCH_REQUEST,
-    meta: {id: 'foo'},
+    meta: {id: 'foo'}
   },
   {entities: {foo: null}}
 );
@@ -32,7 +32,7 @@ test(
   {},
   {
     type: RECO_FETCH_REQUEST,
-    meta: {id: 'foo'},
+    meta: {id: 'foo'}
   },
   {entities: {foo: null}}
 );
@@ -44,7 +44,7 @@ test(
   {entities: {foo: 'foo'}},
   {
     type: RECO_FETCH_REQUEST,
-    meta: {id: 'foo'},
+    meta: {id: 'foo'}
   },
   {entities: {foo: 'foo'}}
 );
@@ -57,7 +57,7 @@ test(
   {
     type: RECO_FETCH_SUCCESS,
     meta: {id: 'foo'},
-    payload: chapterRecommendations.list,
+    payload: chapterRecommendations.list
   },
   {entities: {foo: chapterRecommendations.list}}
 );
@@ -70,7 +70,7 @@ test(
   {
     type: RECO_FETCH_SUCCESS,
     meta: {id: 'foo'},
-    payload: levelRecommendations.list,
+    payload: levelRecommendations.list
   },
   set('entities.foo', levelRecommendations.list, {})
 );
@@ -84,7 +84,7 @@ test(
     type: RECO_FETCH_FAILURE,
     meta: {id: 'foo'},
     error: true,
-    payload: {},
+    payload: {}
   },
   {entities: {}}
 );
@@ -98,7 +98,7 @@ test(
     type: RECO_FETCH_FAILURE,
     meta: {id: 'foo'},
     error: true,
-    payload: {},
+    payload: {}
   },
   {entities: {foo: 'foo'}}
 );

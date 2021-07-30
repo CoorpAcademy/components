@@ -8,7 +8,7 @@ import type {
   DispatchedAction,
   GetState,
   ThunkAction,
-  Dispatch,
+  Dispatch
 } from '../../definitions/redux';
 
 export const NEXT_CONTENT_FETCH_REQUEST: string = '@@next-content/FETCH_REQUEST';
@@ -27,7 +27,7 @@ export const fetchNext = (progressionId: string): ThunkAction => (
     return dispatch({
       type: NEXT_CONTENT_FETCH_FAILURE,
       meta: {id: progressionId},
-      payload: `progression "${progressionId}" has no content.`,
+      payload: `progression "${progressionId}" has no content.`
     });
   }
 
@@ -37,7 +37,7 @@ export const fetchNext = (progressionId: string): ThunkAction => (
     types: [NEXT_CONTENT_FETCH_REQUEST, NEXT_CONTENT_FETCH_SUCCESS, NEXT_CONTENT_FETCH_FAILURE],
     task: () => Recommendations.getNext(type, ref),
     meta: {id: progressionId},
-    bailout: getNextContent,
+    bailout: getNextContent
   });
 
   return dispatch(action);

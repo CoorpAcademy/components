@@ -10,7 +10,7 @@ import {
   PROGRESSION_FETCH_REQUEST,
   PROGRESSION_FETCH_BESTOF_REQUEST,
   PROGRESSION_FETCH_BESTOF_SUCCESS,
-  ENGINE_CONFIG_FETCH_REQUEST,
+  ENGINE_CONFIG_FETCH_REQUEST
 } from '../../../api/progressions';
 import {UI_SELECT_ROUTE} from '../../route';
 import {RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS} from '../../../api/rank';
@@ -19,7 +19,7 @@ import {
   CONTENT_FETCH_REQUEST,
   CONTENT_FETCH_SUCCESS,
   CONTENT_INFO_FETCH_REQUEST,
-  CONTENT_INFO_FETCH_SUCCESS,
+  CONTENT_INFO_FETCH_SUCCESS
 } from '../../../api/contents';
 import {accordionIsOpenAt, fetchCorrection, progressionUpdated} from './helpers/shared';
 
@@ -63,25 +63,25 @@ const stateWithSlideAndManyResources = pipe(
   set('ui.answers.foo.value', ['bar']),
   set('ui.current.progressionId', 'foo'),
   set('data.configs.entities.microlearning@1', {
-    version: '1',
+    version: '1'
   }),
   set('data.progressions.entities.foo.engine', {version: '1', ref: 'microlearning'}),
   set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'baz'}),
   set('data.progressions.entities.foo.content', {type: 'chapter', ref: 'chapId'}),
   set('data.contents.slide.entities.baz', {
     chapter_id: 'chapId',
-    lessons: map((ref) => ({ref}), ['lesson_1', 'lesson_2', 'lesson_3']),
+    lessons: map(ref => ({ref}), ['lesson_1', 'lesson_2', 'lesson_3'])
   })
 )({});
 
-const services = (result) => (t) => ({
+const services = result => t => ({
   Content: mockContentService(t),
   Progressions: {
     postAnswer: (id, payload) => {
       t.is(id, 'foo');
       t.deepEqual(payload, {
         content: {type: 'slide', ref: 'baz'},
-        answer: ['bar'],
+        answer: ['bar']
       });
       return result;
     },
@@ -89,37 +89,37 @@ const services = (result) => (t) => ({
       t.is(ref, 'chapId');
       return 16;
     },
-    findById: (id) => {
+    findById: id => {
       t.is(id, 'foo');
       return 'foo';
     },
     getEngineConfig: () => {
       t.pass();
       return 42;
-    },
+    }
   },
   Answers: {
-    findById: (id) => {
+    findById: id => {
       t.is(id, 'foo');
       return ['Bonne réponse'];
-    },
+    }
   },
   LeaderBoard: {
     getRank: () => {
       t.pass();
       return 1;
-    },
+    }
   },
   Analytics: {
     sendProgressionUpdated: (currentProgression, engineConfig) => {
       t.is(currentProgression.engine.ref, 'microlearning');
       t.deepEqual(currentProgression.state.nextContent, result.state.nextContent);
       return 'sent';
-    },
-  },
+    }
+  }
 });
 
-const answer = (result) => [
+const answer = result => [
   {
     type: PROGRESSION_CREATE_ANSWER_REQUEST,
     meta: {
@@ -127,16 +127,16 @@ const answer = (result) => [
       answer: ['bar'],
       content: {
         ref: 'baz',
-        type: 'slide',
-      },
-    },
+        type: 'slide'
+      }
+    }
   },
   {
     type: UI_SELECT_ROUTE,
     payload: 'correction',
     meta: {
-      progressionId: 'foo',
-    },
+      progressionId: 'foo'
+    }
   },
   {
     type: PROGRESSION_CREATE_ANSWER_SUCCESS,
@@ -145,11 +145,11 @@ const answer = (result) => [
       answer: ['bar'],
       content: {
         ref: 'baz',
-        type: 'slide',
-      },
+        type: 'slide'
+      }
     },
-    payload: result,
-  },
+    payload: result
+  }
 ];
 
 const contentFetchActions = [
@@ -157,24 +157,24 @@ const contentFetchActions = [
     type: CONTENT_FETCH_REQUEST,
     meta: {
       type: 'slide',
-      ref: 'baz',
-    },
+      ref: 'baz'
+    }
   },
   {
     type: CONTENT_FETCH_REQUEST,
     meta: {
       type: 'chapter',
-      ref: 'chapId',
-    },
+      ref: 'chapId'
+    }
   },
   {
     type: CONTENT_FETCH_SUCCESS,
     meta: {
       type: 'chapter',
-      ref: 'chapId',
+      ref: 'chapId'
     },
-    payload: {_id: 'chapId', foo: 'baz'},
-  },
+    payload: {_id: 'chapId', foo: 'baz'}
+  }
 ];
 
 test(
@@ -188,7 +188,7 @@ test(
     contentFetchActions,
     accordionIsOpenAt(ACCORDION_TIPS),
     progressionUpdated,
-    fetchCorrection,
+    fetchCorrection
   ]),
   6
 );
@@ -203,7 +203,7 @@ test(
     answer(correctAnswer),
     accordionIsOpenAt(ACCORDION_TIPS),
     progressionUpdated,
-    fetchCorrection,
+    fetchCorrection
   ]),
   5
 );
@@ -219,7 +219,7 @@ test(
     contentFetchActions,
     accordionIsOpenAt(ACCORDION_LESSON),
     progressionUpdated,
-    fetchCorrection,
+    fetchCorrection
   ]),
   6
 );
@@ -235,7 +235,7 @@ test(
     contentFetchActions,
     accordionIsOpenAt(ACCORDION_KLF),
     progressionUpdated,
-    fetchCorrection,
+    fetchCorrection
   ]),
   6
 );
@@ -250,7 +250,7 @@ test(
     answer(extraLifeAndViewedThreeLessons),
     accordionIsOpenAt(ACCORDION_LESSON),
     progressionUpdated,
-    fetchCorrection,
+    fetchCorrection
   ]),
   5
 );
@@ -266,58 +266,58 @@ test(
     contentFetchActions,
     {
       type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
-      payload: {id: 'foo'},
+      payload: {id: 'foo'}
     },
     {
       type: PROGRESSION_FETCH_REQUEST,
-      meta: {id: 'foo'},
+      meta: {id: 'foo'}
     },
     {
       type: CONTENT_FETCH_REQUEST,
-      meta: {type: 'chapter', ref: 'chapId'},
+      meta: {type: 'chapter', ref: 'chapId'}
     },
     {
-      type: RANK_FETCH_START_REQUEST,
+      type: RANK_FETCH_START_REQUEST
     },
     {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: {type: 'chapter', ref: 'chapId'},
+      meta: {type: 'chapter', ref: 'chapId'}
     },
     {
       type: ENGINE_CONFIG_FETCH_REQUEST,
-      meta: {engine: {ref: 'microlearning', version: '1'}},
+      meta: {engine: {ref: 'microlearning', version: '1'}}
     },
     {
       type: CONTENT_INFO_FETCH_REQUEST,
-      meta: {type: 'chapter', ref: 'chapId'},
+      meta: {type: 'chapter', ref: 'chapId'}
     },
     {
       type: CONTENT_FETCH_REQUEST,
-      meta: {type: 'slide', ref: 'baz'},
+      meta: {type: 'slide', ref: 'baz'}
     },
     {
       type: CONTENT_FETCH_REQUEST,
-      meta: {type: 'chapter', ref: 'chapId'},
+      meta: {type: 'chapter', ref: 'chapId'}
     },
     {
       type: RANK_FETCH_START_SUCCESS,
-      payload: 1,
+      payload: 1
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
       meta: {type: 'chapter', ref: 'chapId'},
-      payload: 16,
+      payload: 16
     },
     {
       type: CONTENT_INFO_FETCH_SUCCESS,
       meta: {type: 'chapter', ref: 'chapId'},
-      payload: {nbSlides: 20},
+      payload: {nbSlides: 20}
     },
     {
       type: UI_SELECT_ROUTE,
       payload: 'answer',
-      meta: {progressionId: 'foo'},
-    },
+      meta: {progressionId: 'foo'}
+    }
   ]),
   8
 );

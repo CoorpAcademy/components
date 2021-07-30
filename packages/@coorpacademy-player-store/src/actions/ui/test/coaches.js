@@ -6,7 +6,7 @@ import {
   UI_UPDATE_COACHES,
   START_CHAT_REQUEST,
   START_CHAT_SUCCESS,
-  startChat,
+  startChat
 } from '../coaches';
 
 test(
@@ -17,24 +17,24 @@ test(
     set('data.progressions.entities.foo.content.ref', 'bar'),
     set('data.contents.slide.entities.bar._id', 'bar')
   )({}),
-  (t) => ({
+  t => ({
     Coach: {
       startChat: () => {
         t.pass();
-      },
-    },
+      }
+    }
   }),
   startChat(),
   [
     {
       type: START_CHAT_REQUEST,
-      meta: {contentRef: 'bar'},
+      meta: {contentRef: 'bar'}
     },
     {
       type: START_CHAT_SUCCESS,
       meta: {contentRef: 'bar'},
-      payload: undefined,
-    },
+      payload: undefined
+    }
   ],
   1
 );
@@ -50,14 +50,14 @@ const chatState = {
       isSuperCoach: true,
       language: 'fr',
       population: 'coorpacademy',
-      user_id: '00000000000000000000035f',
-    },
-  ],
+      user_id: '00000000000000000000035f'
+    }
+  ]
 };
 
-test('should update coaches values on state', macro, {}, (t) => ({}), updateCoaches(chatState), [
+test('should update coaches values on state', macro, {}, t => ({}), updateCoaches(chatState), [
   {
     type: UI_UPDATE_COACHES,
-    payload: chatState,
-  },
+    payload: chatState
+  }
 ]);

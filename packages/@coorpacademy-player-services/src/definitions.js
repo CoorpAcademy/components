@@ -14,29 +14,29 @@ import type {
   Meta,
   Lesson,
   LessonType,
-  ResourceMimeType,
+  ResourceMimeType
 } from '@coorpacademy/progression-engine';
 
 export const CONTENT_TYPE: {[string]: ContentType} = {
   CHAPTER: 'chapter',
   LEVEL: 'level',
-  SLIDE: 'slide',
+  SLIDE: 'slide'
 };
 
 export const VIDEO_TRACK_KIND: {
   CAPTIONS: 'captions',
-  THUMBNAILS: 'thumbnails',
+  THUMBNAILS: 'thumbnails'
 } = {
   CAPTIONS: 'captions',
-  THUMBNAILS: 'thumbnails',
+  THUMBNAILS: 'thumbnails'
 };
 
 export const VIDEO_TRACK_TYPE: {
   SRT: 'srt',
-  VTT: 'vtt',
+  VTT: 'vtt'
 } = {
   SRT: 'srt',
-  VTT: 'vtt',
+  VTT: 'vtt'
 };
 
 type Url = string;
@@ -51,14 +51,14 @@ type JwPlayerOptions = {|
     aspectratio: AspectRatio,
     autostart: boolean,
     skin: {
-      name: string,
+      name: string
     },
-    width: string,
+    width: string
   },
   file: Url,
   licenseKey: string,
   playerId: string,
-  playerScript: Url,
+  playerScript: Url
 |};
 
 type ResourceTypeAPI = LessonType;
@@ -66,7 +66,7 @@ type ResourceTypeAPI = LessonType;
 type Source = {|
   _id: string,
   mimeType: ResourceMimeType,
-  url: Url,
+  url: Url
 |};
 
 type ResourceAPI = {|
@@ -80,20 +80,20 @@ type ResourceAPI = {|
   poster?: Url,
   subtitles?: Array<string>,
   posters?: Array<Url>,
-  jwpOptions?: JwPlayerOptions,
+  jwpOptions?: JwPlayerOptions
 |};
 
 type MediaViewedEvent = {|
   event: 'mediaViewed',
   mediaType: string,
-  location: string,
+  location: string
 |};
 
 type StartProgressionEvent = {|
   event: 'startProgression',
   startProgression: {
-    type: string,
-  },
+    type: string
+  }
 |};
 
 type FinishProgressionEvent = {|
@@ -101,8 +101,8 @@ type FinishProgressionEvent = {|
   progression?: {
     type: string,
     state: string,
-    extraLife: number,
-  },
+    extraLife: number
+  }
 |};
 
 type UpdateProgressionEvent = {|
@@ -110,8 +110,8 @@ type UpdateProgressionEvent = {|
   progression?: {
     type: string,
     state: string,
-    extraLife: number,
-  },
+    extraLife: number
+  }
 |};
 
 type DataEvent =
@@ -122,7 +122,7 @@ type DataEvent =
 
 // eslint-disable-next-line no-shadow
 type Window = {|
-  dataLayer?: Array<DataEvent>,
+  dataLayer?: Array<DataEvent>
 |};
 
 type Media = {
@@ -133,7 +133,7 @@ type Media = {
   mediaUrl?: Url,
   subtitles?: Array<string>,
   posters?: Array<Url>,
-  src?: Array<Source>,
+  src?: Array<Source>
 };
 
 type RecommendationAPI = {|
@@ -144,7 +144,7 @@ type RecommendationAPI = {|
   title: string,
   author: string,
   cta: string,
-  href: string,
+  href: string
 |};
 
 type Poster = {|
@@ -153,12 +153,12 @@ type Poster = {|
   mediaUrl?: Url,
   subtitles?: Array<string>,
   posters?: Array<Url>,
-  src?: Array<Source>,
+  src?: Array<Source>
 |};
 
 type Stats = {|
   userTriesCount: number,
-  userDoneCount: number,
+  userDoneCount: number
 |};
 
 type LevelAPI = {|
@@ -183,7 +183,7 @@ type LevelAPI = {|
   data: Array<?string>,
   stats: Stats,
   version: string,
-  external_refs: Array<?string>,
+  external_refs: Array<?string>
 |};
 
 type ChapterAPI = {|
@@ -196,20 +196,20 @@ type ChapterAPI = {|
   poster: Poster,
   isConditional: boolean,
   time: number,
-  version: string,
+  version: string
 |};
 
 type ClueAPI = string;
 
 type UserAnswerAPI = {|
   answer: Answer,
-  content: Content,
+  content: Content
 |};
 
 type PartialPayload = {|godMode: boolean, fastSlide: boolean|};
 type CorrectionAPI = {
   correctAnswer: Array<Answer>,
-  corrections: Array<PartialCorrection>,
+  corrections: Array<PartialCorrection>
 };
 
 type ExitNodeRef = 'successExitNode' | 'failureExitNode' | string;
@@ -221,7 +221,7 @@ type ExitNodeAPI = {|
   meta: Meta,
   title?: string,
   description?: string,
-  media: Media,
+  media: Media
 |};
 
 export type RestrictedResourceType = 'level' | 'chapter' | 'slide';
@@ -232,7 +232,7 @@ type VideoTrack = {|
   kind: $Values<typeof VIDEO_TRACK_KIND>,
   file: string,
   label?: string,
-  default?: boolean,
+  default?: boolean
 |};
 
 type VideoTrackType = $Values<typeof VIDEO_TRACK_TYPE>;
@@ -256,9 +256,9 @@ type DataLayer = {
   findRecommendations: (type: string, ref: string) => Promise<Array<RecommendationAPI>>,
   findSlideByChapter: (chapterRef: string) => Promise<Array<Slide>>,
   findSlideById: (id: string) => Promise<Slide>,
-  saveProgression: (Progression) => Promise<Progression>,
+  saveProgression: Progression => Promise<Progression>,
   findVideoUriById: (id: string, provider: VideoProvider) => Promise<string>,
-  findVideoTracksById: (id: string, type?: VideoTrackType) => Promise<Array<VideoTrack>>,
+  findVideoTracksById: (id: string, type?: VideoTrackType) => Promise<Array<VideoTrack>>
 };
 
 export type {
@@ -290,5 +290,5 @@ export type {
   Window,
   VideoProvider,
   VideoTrack,
-  VideoTrackType,
+  VideoTrackType
 };

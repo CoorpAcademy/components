@@ -13,7 +13,7 @@ type FindById = (
 ) => Promise<CorrectionAPI>;
 
 type AnswersService = {|
-  findById: FindById,
+  findById: FindById
 |};
 
 const findById = (dataLayer: DataLayer): FindById => async (
@@ -40,19 +40,19 @@ const findById = (dataLayer: DataLayer): FindById => async (
   const config = getConfigForProgression(progression);
   const correctAnswer = await getCorrectAnswer(slideId);
   const question = assign(slide.question, {
-    answers: [correctAnswer],
+    answers: [correctAnswer]
   });
 
   const {corrections} = checkAnswerCorrectness(config, question, givenAnswers);
 
   return {
     correctAnswer,
-    corrections,
+    corrections
   };
 };
 
 const Answers = (dataLayer: DataLayer): AnswersService => ({
-  findById: findById(dataLayer),
+  findById: findById(dataLayer)
 });
 
 export type {FindById, AnswersService};

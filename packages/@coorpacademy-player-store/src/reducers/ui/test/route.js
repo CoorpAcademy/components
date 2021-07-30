@@ -13,12 +13,12 @@ test(
   {
     type: UI_SELECT_ROUTE,
     meta: {
-      progressionId: 'foo',
+      progressionId: 'foo'
     },
-    payload: 'clue',
+    payload: 'clue'
   },
   {
-    foo: 'clue',
+    foo: 'clue'
   }
 );
 
@@ -27,16 +27,16 @@ test(
   macro,
   reducer,
   {
-    foo: 'clue',
+    foo: 'clue'
   },
   {
     type: UI_SELECT_ROUTE,
     meta: {
-      progressionId: 'foo',
+      progressionId: 'foo'
     },
-    payload: null,
+    payload: null
   },
   {
-    foo: 'answer',
+    foo: 'answer'
   }
 );

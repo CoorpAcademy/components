@@ -13,10 +13,10 @@ test(
   {
     type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
     payload: {
-      id: 'foo',
-    },
+      id: 'foo'
+    }
   },
   {
-    progressionId: 'foo',
+    progressionId: 'foo'
   }
 );

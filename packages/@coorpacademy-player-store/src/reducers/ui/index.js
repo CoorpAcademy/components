@@ -14,5 +14,5 @@ export default combineReducers({
   corrections,
   current,
   location,
-  route,
+  route
 });

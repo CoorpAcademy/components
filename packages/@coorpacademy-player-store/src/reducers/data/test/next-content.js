@@ -4,7 +4,7 @@ import reducer from '../next-content';
 import {
   NEXT_CONTENT_FETCH_REQUEST,
   NEXT_CONTENT_FETCH_SUCCESS,
-  NEXT_CONTENT_FETCH_FAILURE,
+  NEXT_CONTENT_FETCH_FAILURE
 } from '../../../actions/api/next-content';
 import macro from '../../test/helpers/macro';
 
@@ -20,7 +20,7 @@ test(
   {},
   {
     type: NEXT_CONTENT_FETCH_REQUEST,
-    meta: {id: 'foo'},
+    meta: {id: 'foo'}
   },
   {entities: {foo: null}}
 );
@@ -32,7 +32,7 @@ test(
   {},
   {
     type: NEXT_CONTENT_FETCH_REQUEST,
-    meta: {id: 'foo'},
+    meta: {id: 'foo'}
   },
   {entities: {foo: null}}
 );
@@ -44,7 +44,7 @@ test(
   {entities: {foo: 'foo'}},
   {
     type: NEXT_CONTENT_FETCH_REQUEST,
-    meta: {id: 'foo'},
+    meta: {id: 'foo'}
   },
   {entities: {foo: 'foo'}}
 );
@@ -57,12 +57,12 @@ test(
   {
     type: NEXT_CONTENT_FETCH_SUCCESS,
     meta: {id: 'foo'},
-    payload: chapterRecommendations.nextChapter.card,
+    payload: chapterRecommendations.nextChapter.card
   },
   {
     entities: {
-      foo: chapterRecommendations.nextChapter.card,
-    },
+      foo: chapterRecommendations.nextChapter.card
+    }
   }
 );
 
@@ -74,7 +74,7 @@ test(
   {
     type: NEXT_CONTENT_FETCH_SUCCESS,
     meta: {id: 'foo'},
-    payload: levelRecommendations.nextLevel,
+    payload: levelRecommendations.nextLevel
   },
   set('entities.foo', levelRecommendations.nextLevel, {})
 );
@@ -87,7 +87,7 @@ test(
   {
     type: NEXT_CONTENT_FETCH_SUCCESS,
     meta: {id: 'foo'},
-    payload: undefined,
+    payload: undefined
   },
   {entities: {}}
 );
@@ -101,7 +101,7 @@ test(
     type: NEXT_CONTENT_FETCH_FAILURE,
     meta: {id: 'foo'},
     error: true,
-    payload: {},
+    payload: {}
   },
   {entities: {}}
 );
@@ -115,7 +115,7 @@ test(
     type: NEXT_CONTENT_FETCH_FAILURE,
     meta: {id: 'foo'},
     error: true,
-    payload: {},
+    payload: {}
   },
   {entities: {foo: 'foo'}}
 );

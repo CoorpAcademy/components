@@ -19,7 +19,7 @@ type GetInfo = (
 
 type ContentService = {|
   find: FindContent,
-  getInfo: GetInfo,
+  getInfo: GetInfo
 |};
 
 const find = (dataLayer: DataLayer): FindContent => (
@@ -41,7 +41,7 @@ const getNbSlides = (dataLayer: DataLayer): GetNbSlides => async (
     get('slidesToComplete')
   )({
     ref: engineRef,
-    version,
+    version
   });
   const level = await findLevelById(contentRef);
   if (level) {
@@ -66,7 +66,7 @@ const getInfo = (dataLayer: DataLayer): GetInfo => async (
 
 const createContentService = (dataLayer: DataLayer): ContentService => ({
   find: find(dataLayer),
-  getInfo: getInfo(dataLayer),
+  getInfo: getInfo(dataLayer)
 });
 
 export type {ContentService};

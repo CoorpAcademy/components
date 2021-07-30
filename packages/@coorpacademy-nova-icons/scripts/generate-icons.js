@@ -52,6 +52,7 @@ const isStringLiteralProp = ({expression: {type} = {}}): boolean => type === 'St
 // eslint-disable-next-line flowtype/require-return-type
 const replaceInlineValueByCurrentColor = properties => {
   // eslint-disable-next-line flowtype-errors/show-errors
+  // $FlowFixMe Cannot get properties.expression because property expression is missing in rest of object pattern
   properties.expression.value = properties.expression.value.replace(/#757575/gm, 'currentColor');
   return properties;
 };
@@ -81,6 +82,7 @@ const findElementAndReplaceAttributes = (
     });
   }
 
+  // eslint-disable-next-line flowtype-errors/show-errors
   const newProperties = isStringLiteralProp(properties)
     ? replaceInlineValueByCurrentColor(properties)
     : properties;
