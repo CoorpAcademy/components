@@ -163,12 +163,11 @@ class MoocHeader extends React.Component {
   }
 
   handleMenuToggle() {
-    this.setState(prevState => {
-      prevState.isMenuOpen ? this.handleOnMenuClose() : this.handleOnMenuOpen();
-      return {
-        isMenuOpen: !prevState.isMenuOpen
-      };
-    });
+    const {isMenuOpen} = this.state;
+    isMenuOpen ? this.handleOnMenuClose() : this.handleOnMenuOpen();
+    this.setState(prevState => ({
+      isMenuOpen: !prevState.isMenuOpen
+    }));
   }
 
   handleSubmitSearch() {
