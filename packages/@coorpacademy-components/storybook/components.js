@@ -699,6 +699,8 @@ import OrganismMoocHeaderFixtureDefault from '../src/organism/mooc-header/test/f
 import OrganismMoocHeaderFixtureLinkOnly from '../src/organism/mooc-header/test/fixtures/link-only';
 import OrganismMoocHeaderFixtureLoggedWithBattleNotifications from '../src/organism/mooc-header/test/fixtures/logged-with-battle-notifications';
 import OrganismMoocHeaderFixtureLogged from '../src/organism/mooc-header/test/fixtures/logged';
+import OrganismMoocHeaderFixtureMobileSmallLogoFormat from '../src/organism/mooc-header/test/fixtures/mobile-small-logo-format';
+import OrganismMoocHeaderFixtureMobileWideLogoFormat from '../src/organism/mooc-header/test/fixtures/mobile-wide-logo-format';
 import OrganismMoocHeaderFixtureOnHeaderActionHandlers from '../src/organism/mooc-header/test/fixtures/on-header-action-handlers';
 import OrganismMoocHeaderFixtureTeamsFrench from '../src/organism/mooc-header/test/fixtures/teams-french';
 import OrganismMoocHeaderFixtureTeams from '../src/organism/mooc-header/test/fixtures/teams';
@@ -1956,6 +1958,8 @@ export const fixtures = {
       LinkOnly: OrganismMoocHeaderFixtureLinkOnly,
       LoggedWithBattleNotifications: OrganismMoocHeaderFixtureLoggedWithBattleNotifications,
       Logged: OrganismMoocHeaderFixtureLogged,
+      MobileSmallLogoFormat: OrganismMoocHeaderFixtureMobileSmallLogoFormat,
+      MobileWideLogoFormat: OrganismMoocHeaderFixtureMobileWideLogoFormat,
       OnHeaderActionHandlers: OrganismMoocHeaderFixtureOnHeaderActionHandlers,
       TeamsFrench: OrganismMoocHeaderFixtureTeamsFrench,
       Teams: OrganismMoocHeaderFixtureTeams,
