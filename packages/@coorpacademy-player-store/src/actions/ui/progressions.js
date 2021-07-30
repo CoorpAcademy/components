@@ -18,7 +18,7 @@ import {
   getPrevStepContent,
   getProgressionContent,
   getSlide,
-  getStepContent,
+  getStepContent
 } from '../../utils/state-extract';
 import type {Action, DispatchedAction, GetState, Options, Dispatch} from '../../definitions/redux';
 import type {ExitNodeRef} from '../../definitions/models';
@@ -37,30 +37,30 @@ export const UI_PROGRESSION_ACTION_TYPES: {
   SELECT_PROGRESSION_FAILURE: UI_SELECT_PROGRESSION_FAILURE,
   OPEN_ASSISTANCE_REQUEST: OPEN_ASSISTANCE_REQUEST,
   OPEN_ASSISTANCE_SUCCESS: OPEN_ASSISTANCE_SUCCESS,
-  OPEN_ASSISTANCE_FAILURE: OPEN_ASSISTANCE_FAILURE,
+  OPEN_ASSISTANCE_FAILURE: OPEN_ASSISTANCE_FAILURE
 } = {
   SELECT_PROGRESSION: '@@ui/SELECT_PROGRESSION',
   SELECT_PROGRESSION_FAILURE: '@@ui/SELECT_PROGRESSION_FAILURE',
   OPEN_ASSISTANCE_REQUEST: '@@progression/OPEN_ASSISTANCE_REQUEST',
   OPEN_ASSISTANCE_SUCCESS: '@@progression/OPEN_ASSISTANCE_SUCCESS',
-  OPEN_ASSISTANCE_FAILURE: '@@progression/OPEN_ASSISTANCE_FAILURE',
+  OPEN_ASSISTANCE_FAILURE: '@@progression/OPEN_ASSISTANCE_FAILURE'
 };
 
 type SelectProgressionPayload = {
-  id: ProgressionId,
+  id: ProgressionId
 };
 
 export type SelectAction = {
   ...Action,
   type: UI_SELECT_PROGRESSION,
-  payload: SelectProgressionPayload,
+  payload: SelectProgressionPayload
 };
 
 export const unselectProgression: SelectAction = {
   type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
   payload: {
-    id: '',
-  },
+    id: ''
+  }
 };
 
 const fetchData = (engine: Engine, progressionId: ProgressionId, progressionContent: Content) => (
@@ -70,7 +70,7 @@ const fetchData = (engine: Engine, progressionId: ProgressionId, progressionCont
     dispatch(fetchStartRank()),
     dispatch(fetchBestProgression(progressionContent, progressionId)),
     dispatch(fetchEngineConfig(engine)),
-    dispatch(fetchContentInfo(progressionContent, engine)),
+    dispatch(fetchContentInfo(progressionContent, engine))
   ]).then(last);
 
 export const selectProgression = (id: ProgressionId) => async (
@@ -80,8 +80,8 @@ export const selectProgression = (id: ProgressionId) => async (
   const selectAction: SelectAction = {
     type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
     payload: {
-      id,
-    },
+      id
+    }
   };
 
   // $FlowFixMe string literal is incompatible with string
@@ -92,7 +92,7 @@ export const selectProgression = (id: ProgressionId) => async (
   if (!progressionId) {
     return dispatch({
       type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
-      payload: `progressionId must be defined.`,
+      payload: `progressionId must be defined.`
     });
   }
 
@@ -104,7 +104,7 @@ export const selectProgression = (id: ProgressionId) => async (
   if (!progressionContent) {
     return dispatch({
       type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
-      payload: `progression "${progressionId}" has no content.`,
+      payload: `progression "${progressionId}" has no content.`
     });
   }
   const engine = getEngine(getState());
@@ -112,7 +112,7 @@ export const selectProgression = (id: ProgressionId) => async (
   if (!engine) {
     return dispatch({
       type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
-      payload: `progression "${progressionId}" has no engine.`,
+      payload: `progression "${progressionId}" has no engine.`
     });
   }
 
@@ -121,7 +121,7 @@ export const selectProgression = (id: ProgressionId) => async (
   if (!nextContent) {
     return dispatch({
       type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
-      payload: `progression "${progressionId}" has no state.nextContent.`,
+      payload: `progression "${progressionId}" has no state.nextContent.`
     });
   }
 
@@ -133,7 +133,7 @@ export const selectProgression = (id: ProgressionId) => async (
     case 'slide': {
       await Promise.all([
         fetchData(engine, progressionId, progressionContent)(dispatch),
-        dispatch(fetchSlideChapter(ref)),
+        dispatch(fetchSlideChapter(ref))
       ]);
 
       const slideResult = getSlide(ref)(getState());
@@ -151,7 +151,7 @@ export const selectProgression = (id: ProgressionId) => async (
           if (!prevContent) {
             return dispatch({
               type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
-              payload: `progression "${progressionId}" has no state.content.`,
+              payload: `progression "${progressionId}" has no state.content.`
             });
           }
 
@@ -160,7 +160,7 @@ export const selectProgression = (id: ProgressionId) => async (
           return Promise.all([
             fetchData(engine, progressionId, progressionContent)(dispatch),
             dispatch(fetchContent(prevContent.type, prevContent.ref)),
-            dispatch(fetchAnswer(progressionId, get('ref', prevContent), prevAnswer)),
+            dispatch(fetchAnswer(progressionId, get('ref', prevContent), prevAnswer))
           ]).then(last);
         }
       }
@@ -174,13 +174,13 @@ export const selectProgression = (id: ProgressionId) => async (
         dispatch(fetchRecommendations(progressionId)),
         dispatch(fetchEndRank()),
         dispatch(fetchNext(progressionId)),
-        dispatch(fetchExitNode(exitNodeRef)),
+        dispatch(fetchExitNode(exitNodeRef))
       ]).then(last);
     }
     default:
       return dispatch({
         type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION_FAILURE,
-        payload: 'content.type must be either slide, node, success or failure',
+        payload: 'content.type must be either slide, node, success or failure'
       });
   }
 };
@@ -196,10 +196,10 @@ export const openAssistance = (progression: Progression) => (
     types: [
       UI_PROGRESSION_ACTION_TYPES.OPEN_ASSISTANCE_REQUEST,
       UI_PROGRESSION_ACTION_TYPES.OPEN_ASSISTANCE_SUCCESS,
-      UI_PROGRESSION_ACTION_TYPES.OPEN_ASSISTANCE_FAILURE,
+      UI_PROGRESSION_ACTION_TYPES.OPEN_ASSISTANCE_FAILURE
     ],
     task: () => Progressions.openAssistance(progression),
-    meta: {progression},
+    meta: {progression}
   });
 
   return dispatch(action);

@@ -21,7 +21,7 @@ import type {
   Discipline,
   VideoProvider,
   VideoTrack,
-  VideoTrackType,
+  VideoTrackType
 } from './definitions/models';
 
 import type {ReduxState} from './definitions/redux';
@@ -31,7 +31,7 @@ import type {FindById as FindClueById, CluesService} from './definitions/service
 import type {GetInfo, ContentService} from './definitions/services/content';
 import type {
   FindById as FindExitNodeById,
-  ExitNodesService,
+  ExitNodesService
 } from './definitions/services/exit-nodes';
 import type {
   AcceptExtraLife,
@@ -43,12 +43,12 @@ import type {
   PostAnswer,
   RefuseExtraLife,
   RequestClue,
-  ProgressionsService,
+  ProgressionsService
 } from './definitions/services/progressions';
 import type {
   FindRecommendations,
   GetNextRecommendation,
-  RecommendationsService,
+  RecommendationsService
 } from './definitions/services/recommendations';
 import type {FindById as FindSlideById, SlidesService} from './definitions/services/slides';
 import type {FindUriById as FindVideoUriById, VideosService} from './definitions/services/videos';
@@ -129,5 +129,5 @@ export type {
   Discipline,
   VideoProvider,
   VideoTrack,
-  VideoTrackType,
+  VideoTrackType
 };

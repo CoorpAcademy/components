@@ -8,7 +8,7 @@ import type {
   Action,
   GetState,
   ThunkAction,
-  Options,
+  Options
 } from '../../definitions/redux';
 
 export const CLUE_FETCH_REQUEST: string = '@@clue/CREATE_REQUEST';
@@ -27,7 +27,7 @@ DispatchedAction => {
     types: [CLUE_FETCH_REQUEST, CLUE_FETCH_SUCCESS, CLUE_FETCH_FAILURE],
     task: () => Clues.findById(progressionId, slideId),
     meta: {progressionId, slideId},
-    bailout: extractClue(progressionId, slideId),
+    bailout: extractClue(progressionId, slideId)
   });
 
   return dispatch(action);

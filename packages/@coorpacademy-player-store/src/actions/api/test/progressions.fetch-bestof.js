@@ -5,7 +5,7 @@ import {
   fetchBestProgression,
   PROGRESSION_FETCH_BESTOF_REQUEST,
   PROGRESSION_FETCH_BESTOF_SUCCESS,
-  PROGRESSION_FETCH_BESTOF_FAILURE,
+  PROGRESSION_FETCH_BESTOF_FAILURE
 } from '../progressions';
 
 const progressionContent = {type: 'foo', ref: 'bar'};
@@ -21,7 +21,7 @@ test(
   'should fetch best progression',
   macro,
   state,
-  (t) => ({
+  t => ({
     Progressions: {
       findBestOf: (engineRef, contentType, contentRef, id) => {
         t.is(engineRef, 'microlearning');
@@ -29,20 +29,20 @@ test(
         t.is(contentType, 'foo');
         t.is(id, 'foo');
         return 'baz';
-      },
-    },
+      }
+    }
   }),
   fetchBestProgression(progressionContent, 'foo'),
   [
     {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: progressionContent,
+      meta: progressionContent
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
       meta: progressionContent,
-      payload: 'baz',
-    },
+      payload: 'baz'
+    }
   ],
   4
 );
@@ -54,13 +54,13 @@ test(
     set('ui.current.progressionId', 'foo'),
     set('data.progressions.entities.foo.content', progressionContent)
   )({}),
-  (t) => ({}),
+  t => ({}),
   fetchBestProgression(progressionContent, 'foo'),
   [
     {
       type: PROGRESSION_FETCH_BESTOF_FAILURE,
-      payload: 'progression "foo" has no engine.',
-    },
+      payload: 'progression "foo" has no engine.'
+    }
   ],
   0
 );
@@ -73,19 +73,19 @@ test(
     set('data.progressions.entities.foo', {engine, content: {type: 'chapter', ref: 'plop'}}),
     set('data.contents.chapter.entities.plop.bestScore', 0)
   )({}),
-  (t) => ({
+  t => ({
     Progressions: {
       findBestOf: (engineRef, contentType, contentRef, id) => {
         t.fail();
-      },
-    },
+      }
+    }
   }),
   fetchBestProgression(progressionContent, 'foo'),
   [
     {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: progressionContent,
-    },
+      meta: progressionContent
+    }
   ],
   0
 );
@@ -98,7 +98,7 @@ test(
     set('data.progressions.entities.foo', {engine, content: {type: 'chapter', ref: 'plop'}}),
     set('data.contents.chapter.entities.plop.bestScore', 0)
   )({}),
-  (t) => ({
+  t => ({
     Progressions: {
       findBestOf: (engineRef, contentType, contentRef, id) => {
         t.is(engineRef, 'microlearning');
@@ -106,20 +106,20 @@ test(
         t.is(contentType, 'foo');
         t.is(id, 'foo');
         return 'baz';
-      },
-    },
+      }
+    }
   }),
   fetchBestProgression(progressionContent, 'foo', true),
   [
     {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: progressionContent,
+      meta: progressionContent
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
       meta: progressionContent,
-      payload: 'baz',
-    },
+      payload: 'baz'
+    }
   ],
   4
 );
@@ -128,31 +128,31 @@ test(
   'should return error if request failed',
   macro,
   state,
-  (t) => ({
+  t => ({
     Logger: {
       error(err) {
         t.is(err.message, 'some error');
-      },
+      }
     },
     Progressions: {
       findBestOf: (engineRef, contentType, contentRef, id) => {
         t.is(contentRef, 'bar');
         throw new Error('some error');
-      },
-    },
+      }
+    }
   }),
   fetchBestProgression(progressionContent, 'foo'),
   [
     {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: progressionContent,
+      meta: progressionContent
     },
     {
       type: PROGRESSION_FETCH_BESTOF_FAILURE,
       meta: progressionContent,
       error: true,
-      payload: new Error('some error'),
-    },
+      payload: new Error('some error')
+    }
   ],
   2
 );

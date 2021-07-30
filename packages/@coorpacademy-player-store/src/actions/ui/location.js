@@ -1,4 +1,5 @@
 import buildTask from '@coorpacademy/redux-task';
+import {constant} from 'lodash/fp';
 import {getProgressionContent, getCurrentContent, getNextContent} from '../../utils/state-extract';
 
 export const LOCATION_RETRY_REQUEST = '@@location/RETRY_REQUEST';
@@ -11,7 +12,7 @@ export const retry = (dispatch, getState, {services}) => {
   const action = buildTask({
     types: [LOCATION_RETRY_REQUEST, LOCATION_RETRY_SUCCESS, LOCATION_RETRY_FAILURE],
     task: () => services.Location.retry(contentRef),
-    meta: {contentRef},
+    meta: {contentRef}
   });
 
   return dispatch(action);
@@ -24,7 +25,7 @@ export const LOCATION_EXIT_FAILURE = '@@location/EXIT_FAILURE';
 export const exit = (dispatch, getState, {services}) => {
   const action = buildTask({
     types: [LOCATION_EXIT_REQUEST, LOCATION_EXIT_SUCCESS, LOCATION_EXIT_FAILURE],
-    task: () => services.Location.exit(),
+    task: () => services.Location.exit()
   });
 
   return dispatch(action);
@@ -38,7 +39,7 @@ export const back = (dispatch, getState, {services}) => {
   const content = getCurrentContent(getState());
   const action = buildTask({
     types: [LOCATION_BACK_REQUEST, LOCATION_BACK_SUCCESS, LOCATION_BACK_FAILURE],
-    task: () => services.Location.back(content),
+    task: () => services.Location.back(content)
   });
 
   return dispatch(action);
@@ -54,9 +55,9 @@ export const seeComment = (dispatch, getState, {services}) => {
     types: [
       LOCATION_SEE_COMMENT_REQUEST,
       LOCATION_SEE_COMMENT_SUCCESS,
-      LOCATION_SEE_COMMENT_FAILURE,
+      LOCATION_SEE_COMMENT_FAILURE
     ],
-    task: () => services.Location.seeComment(content),
+    task: () => services.Location.seeComment(content)
   });
 
   return dispatch(action);
@@ -74,9 +75,9 @@ export const nextLevel = (dispatch, getState, {services}) => {
       types: [
         LOCATION_NEXT_CONTENT_REQUEST,
         LOCATION_NEXT_CONTENT_SUCCESS,
-        LOCATION_NEXT_CONTENT_FAILURE,
+        LOCATION_NEXT_CONTENT_FAILURE
       ],
-      task: () => services.Location.nextLevel(nextContent.ref),
+      task: () => services.Location.nextLevel(nextContent.ref)
     });
 
     return dispatch(action);
@@ -90,7 +91,7 @@ export const LOCATION_OPEN_RECOMMENDATION_SUCCESS =
 export const LOCATION_OPEN_RECOMMENDATION_FAILURE =
   '@@location/LOCATION_OPEN_RECOMMENDATION_FAILURE';
 
-export const openRecommendation = (recommendation) => (dispatch, getState, {services}) => {
+export const openRecommendation = recommendation => (dispatch, getState, {services}) => {
   if (!services.Location.openRecommendation) {
     return;
   }
@@ -98,9 +99,9 @@ export const openRecommendation = (recommendation) => (dispatch, getState, {serv
     types: [
       LOCATION_OPEN_RECOMMENDATION_REQUEST,
       LOCATION_OPEN_RECOMMENDATION_SUCCESS,
-      LOCATION_OPEN_RECOMMENDATION_FAILURE,
+      LOCATION_OPEN_RECOMMENDATION_FAILURE
     ],
-    task: () => services.Location.openRecommendation(recommendation),
+    task: () => services.Location.openRecommendation(recommendation)
   });
 
   return dispatch(action);
@@ -110,14 +111,14 @@ export const SET_REDIRECT_URL_AFTER_END_REQUEST = '@@location/SET_REDIRECT_URL_A
 export const SET_REDIRECT_URL_AFTER_END_SUCCESS = '@@location/SET_REDIRECT_URL_AFTER_END_SUCCESS';
 export const SET_REDIRECT_URL_AFTER_END_FAILURE = '@@location/SET_REDIRECT_URL_AFTER_END_FAILURE';
 
-export const setRedirectUrlEnd = () => (dispatch, getState, {services}) => {
+export const setRedirectUrlEnd = constant((dispatch, getState, {services}) => {
   const action = buildTask({
     types: [
       SET_REDIRECT_URL_AFTER_END_REQUEST,
       SET_REDIRECT_URL_AFTER_END_SUCCESS,
-      SET_REDIRECT_URL_AFTER_END_FAILURE,
+      SET_REDIRECT_URL_AFTER_END_FAILURE
     ],
-    task: () => services.Location.getRedirectURLAfterEnd(),
+    task: () => services.Location.getRedirectURLAfterEnd()
   });
   return dispatch(action);
-};
+});

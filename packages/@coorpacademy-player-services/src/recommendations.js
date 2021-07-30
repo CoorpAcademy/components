@@ -12,7 +12,7 @@ type GetNextRecommendation = (
 
 type RecommendationsService = {|
   find: FindRecommendations,
-  getNext: GetNextRecommendation,
+  getNext: GetNextRecommendation
 |};
 
 const find = (dataLayer: DataLayer): FindRecommendations => (
@@ -44,7 +44,7 @@ const getNext = (dataLayer: DataLayer): GetNextRecommendation => (
 
 const createRecommendationsService = (dataLayer: DataLayer): RecommendationsService => ({
   find: find(dataLayer),
-  getNext: getNext(dataLayer),
+  getNext: getNext(dataLayer)
 });
 
 export type {RecommendationsService};

@@ -10,7 +10,7 @@ import type {
   Action,
   GetState,
   Options,
-  ThunkAction,
+  ThunkAction
 } from '../../definitions/redux';
 
 export const MEDIA_VIEWED_ANALYTICS_REQUEST: string = '@@analytics/MEDIA_VIEWED_REQUEST';
@@ -30,10 +30,10 @@ export const sendMediaViewed = (resource: Lesson): ThunkAction => (
     types: [
       MEDIA_VIEWED_ANALYTICS_REQUEST,
       MEDIA_VIEWED_ANALYTICS_SUCCESS,
-      MEDIA_VIEWED_ANALYTICS_FAILURE,
+      MEDIA_VIEWED_ANALYTICS_FAILURE
     ],
     task: () => Analytics.sendViewedMediaAnalytics(resource, location),
-    meta: {resource, location},
+    meta: {resource, location}
   });
 
   return dispatch(action);
@@ -58,7 +58,7 @@ export const progressionUpdated = (
   if (!currentProgression) {
     return dispatch({
       type: PROGRESSION_UPDATED_FAILURE,
-      payload: `progression "${id}" could not be found.`,
+      payload: `progression "${id}" could not be found.`
     });
   }
 
@@ -66,7 +66,7 @@ export const progressionUpdated = (
   if (!progressionState) {
     return dispatch({
       type: PROGRESSION_UPDATED_FAILURE,
-      payload: `progression "${id}" has no state.`,
+      payload: `progression "${id}" has no state.`
     });
   }
 
@@ -75,15 +75,15 @@ export const progressionUpdated = (
   if (!engineConfig) {
     return dispatch({
       type: PROGRESSION_UPDATED_FAILURE,
-      payload: `progression "${id}" has no config.`,
+      payload: `progression "${id}" has no config.`
     });
   }
 
   const progressionUpdatedRequest = await dispatch({
     type,
     meta: {
-      id,
-    },
+      id
+    }
   });
 
   const onMove = type === PROGRESSION_UPDATED_ON_MOVE;

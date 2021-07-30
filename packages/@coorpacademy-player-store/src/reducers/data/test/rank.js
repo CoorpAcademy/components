@@ -6,7 +6,7 @@ import {
   RANK_FETCH_START_FAILURE,
   RANK_FETCH_END_REQUEST,
   RANK_FETCH_END_SUCCESS,
-  RANK_FETCH_END_FAILURE,
+  RANK_FETCH_END_FAILURE
 } from '../../../actions/api/rank';
 import macro from '../../test/helpers/macro';
 
@@ -18,7 +18,7 @@ test(
   reducer,
   {},
   {
-    type: RANK_FETCH_START_REQUEST,
+    type: RANK_FETCH_START_REQUEST
   },
   {start: null}
 );
@@ -29,7 +29,7 @@ test(
   reducer,
   {start: 10},
   {
-    type: RANK_FETCH_START_REQUEST,
+    type: RANK_FETCH_START_REQUEST
   },
   {start: 10}
 );
@@ -41,7 +41,7 @@ test(
   {},
   {
     type: RANK_FETCH_START_SUCCESS,
-    payload: 4,
+    payload: 4
   },
   {start: 4}
 );
@@ -54,7 +54,7 @@ test(
   {
     type: RANK_FETCH_START_FAILURE,
     error: true,
-    payload: {},
+    payload: {}
   },
   {}
 );
@@ -67,7 +67,7 @@ test(
   {
     type: RANK_FETCH_START_FAILURE,
     error: true,
-    payload: {},
+    payload: {}
   },
   {start: 10}
 );
@@ -78,7 +78,7 @@ test(
   reducer,
   {},
   {
-    type: RANK_FETCH_END_REQUEST,
+    type: RANK_FETCH_END_REQUEST
   },
   {end: null}
 );
@@ -89,7 +89,7 @@ test(
   reducer,
   {end: 10},
   {
-    type: RANK_FETCH_END_REQUEST,
+    type: RANK_FETCH_END_REQUEST
   },
   {end: 10}
 );
@@ -101,7 +101,7 @@ test(
   {},
   {
     type: RANK_FETCH_END_SUCCESS,
-    payload: 4,
+    payload: 4
   },
   {end: 4}
 );
@@ -114,7 +114,7 @@ test(
   {
     type: RANK_FETCH_END_FAILURE,
     error: true,
-    payload: {},
+    payload: {}
   },
   {}
 );
@@ -127,7 +127,7 @@ test(
   {
     type: RANK_FETCH_END_FAILURE,
     error: true,
-    payload: {},
+    payload: {}
   },
   {end: 10}
 );

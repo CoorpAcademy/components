@@ -7,7 +7,7 @@ type FindTracksById = (id: string, type?: VideoTrackType) => Promise<Array<Video
 
 type VideosService = {|
   findUriById: FindUriById,
-  findTracksById: FindTracksById,
+  findTracksById: FindTracksById
 |};
 
 export type {FindUriById, FindTracksById, VideosService};

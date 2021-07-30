@@ -23,7 +23,7 @@ type Services = {
   Progressions: ProgressionsService,
   Recommendations: RecommendationsService,
   Slides: SlidesService,
-  Videos: VideosService,
+  Videos: VideosService
 };
 
 export type {Services};

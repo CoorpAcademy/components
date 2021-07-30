@@ -5,7 +5,7 @@ import {get, pipe, reduce, values} from 'lodash/fp';
 import type {LevelAPI} from '../../definitions';
 import levelsData from './data/levels';
 
-const mayBy = (key) =>
+const mayBy = key =>
   // $FlowFixMe (typing postponed for this section)
   pipe(
     values,

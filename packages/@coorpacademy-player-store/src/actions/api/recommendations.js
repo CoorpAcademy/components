@@ -8,7 +8,7 @@ import type {
   DispatchedAction,
   GetState,
   ThunkAction,
-  Dispatch,
+  Dispatch
 } from '../../definitions/redux';
 
 export const RECO_FETCH_REQUEST: string = '@@recommendation/FETCH_REQUEST';
@@ -27,7 +27,7 @@ export const fetchRecommendations = (progressionId: string): ThunkAction => (
     return dispatch({
       type: RECO_FETCH_FAILURE,
       meta: {id: progressionId},
-      payload: `progression "${progressionId}" has no content.`,
+      payload: `progression "${progressionId}" has no content.`
     });
   }
 
@@ -37,7 +37,7 @@ export const fetchRecommendations = (progressionId: string): ThunkAction => (
     types: [RECO_FETCH_REQUEST, RECO_FETCH_SUCCESS, RECO_FETCH_FAILURE],
     task: () => Recommendations.find(type, ref),
     meta: {id: progressionId},
-    bailout: getRecommendations,
+    bailout: getRecommendations
   });
 
   return dispatch(action);

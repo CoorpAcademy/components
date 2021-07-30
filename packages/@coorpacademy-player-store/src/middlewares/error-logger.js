@@ -1,6 +1,6 @@
 import {getOr, pick} from 'lodash/fp';
 
-const logger = ({services}) => (store) => (next) => (action) => {
+const logger = ({services}) => store => next => action => {
   const {Logger} = services;
 
   if (action.error) {
@@ -10,7 +10,7 @@ const logger = ({services}) => (store) => (next) => (action) => {
     } catch (err) {
       store.dispatch({
         type: '@@logger/ERROR',
-        payload: pick(['message', 'stack'], err),
+        payload: pick(['message', 'stack'], err)
       });
     }
   }

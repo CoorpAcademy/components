@@ -10,7 +10,7 @@ type FindCorrection = (
 ) => Promise<Correction>;
 
 type AnswersService = {|
-  findById: FindCorrection,
+  findById: FindCorrection
 |};
 
 export type {FindCorrection, AnswersService};

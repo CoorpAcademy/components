@@ -2,7 +2,7 @@ import {set, update, isNull, get, unset, pipe} from 'lodash/fp';
 import {
   EXIT_NODE_FETCH_REQUEST,
   EXIT_NODE_FETCH_SUCCESS,
-  EXIT_NODE_FETCH_FAILURE,
+  EXIT_NODE_FETCH_FAILURE
 } from '../../actions/api/exit-nodes';
 
 const dataExitNodesReducer = (state = {entities: {}}, action) => {
@@ -10,7 +10,7 @@ const dataExitNodesReducer = (state = {entities: {}}, action) => {
     case EXIT_NODE_FETCH_REQUEST: {
       const {meta} = action;
       const {id} = meta;
-      return update(['entities', id], (exitNode) => exitNode || null, state);
+      return update(['entities', id], exitNode => exitNode || null, state);
     }
     case EXIT_NODE_FETCH_SUCCESS: {
       const {payload, meta} = action;

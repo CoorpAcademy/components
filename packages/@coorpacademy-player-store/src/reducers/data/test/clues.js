@@ -3,7 +3,7 @@ import reducer from '../clues';
 import {
   CLUE_FETCH_REQUEST,
   CLUE_FETCH_SUCCESS,
-  CLUE_FETCH_FAILURE,
+  CLUE_FETCH_FAILURE
 } from '../../../actions/api/clues';
 import macro from '../../test/helpers/macro';
 
@@ -16,7 +16,7 @@ test(
   {},
   {
     type: CLUE_FETCH_REQUEST,
-    meta: {progressionId: 'foo', slideId: 'bar'},
+    meta: {progressionId: 'foo', slideId: 'bar'}
   },
   {entities: {foo: {bar: null}}}
 );
@@ -28,7 +28,7 @@ test(
   {},
   {
     type: CLUE_FETCH_REQUEST,
-    meta: {progressionId: 'foo', slideId: 'bar'},
+    meta: {progressionId: 'foo', slideId: 'bar'}
   },
   {entities: {foo: {bar: null}}}
 );
@@ -40,7 +40,7 @@ test(
   {entities: {foo: {bar: 'foo'}}},
   {
     type: CLUE_FETCH_REQUEST,
-    meta: {progressionId: 'foo', slideId: 'bar'},
+    meta: {progressionId: 'foo', slideId: 'bar'}
   },
   {entities: {foo: {bar: 'foo'}}}
 );
@@ -53,7 +53,7 @@ test(
   {
     type: CLUE_FETCH_SUCCESS,
     meta: {progressionId: 'foo', slideId: 'bar'},
-    payload: 'foo',
+    payload: 'foo'
   },
   {entities: {foo: {bar: 'foo'}}}
 );
@@ -67,7 +67,7 @@ test(
     type: CLUE_FETCH_FAILURE,
     meta: {progressionId: 'foo', slideId: 'bar'},
     error: true,
-    payload: {},
+    payload: {}
   },
   {entities: {foo: {}}}
 );
@@ -81,7 +81,7 @@ test(
     type: CLUE_FETCH_FAILURE,
     meta: {progressionId: 'foo', slideId: 'bar'},
     error: true,
-    payload: {},
+    payload: {}
   },
   {entities: {foo: {bar: 'foo'}}}
 );

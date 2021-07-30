@@ -10,18 +10,18 @@ const {findById} = createAnswersService(fixtures);
 
 const engine = {
   ref: 'microlearning',
-  version: '1',
+  version: '1'
 };
 
-test('findById should return the correct answer and corrections for the given answer', async (t) => {
+test('findById should return the correct answer and corrections for the given answer', async t => {
   const progression = await ProgressionsService.create(uniqueId(), engine, {
     type: 'chapter',
-    ref: '5.C7',
+    ref: '5.C7'
   });
   const answer = ['bar'];
   const progressionWithAnswer = await ProgressionsService.postAnswer(progression._id, {
     content: progression.state.nextContent,
-    answer,
+    answer
   });
   const slide = find({_id: progressionWithAnswer.state.content.ref}, slidesData);
 
@@ -42,10 +42,10 @@ test('findById should return the correct answer and corrections for the given an
   t.deepEqual(correctAnswersWithoutGivenAnswer.corrections, []);
 });
 
-test("findById should throw error if slide doesn't exist", async (t) => {
+test("findById should throw error if slide doesn't exist", async t => {
   const progression = await ProgressionsService.create(uniqueId(), engine, {
     type: 'chapter',
-    ref: '5.C7',
+    ref: '5.C7'
   });
   return t.throwsAsync(
     () => findById(progression._id, progression.state.nextContent.ref, ['foo', 'bar']),
@@ -53,19 +53,19 @@ test("findById should throw error if slide doesn't exist", async (t) => {
   );
 });
 
-test('should fail with wrong progressionId', (t) => {
+test('should fail with wrong progressionId', t => {
   return t.throwsAsync(() => findById('wrongId', {}), {message: 'progression "wrongId" not found'});
 });
 
-test('should fail to acceptExtraLife with progression without state', async (t) => {
+test('should fail to acceptExtraLife with progression without state', async t => {
   const progression = await ProgressionsService.create(uniqueId(), engine, {
     type: 'chapter',
-    ref: '5.C7',
+    ref: '5.C7'
   });
   delete progression.state;
   ProgressionsService.save(progression);
 
   return t.throwsAsync(() => findById(progression._id, {}), {
-    message: `progression "${progression._id}" has no state`,
+    message: `progression "${progression._id}" has no state`
   });
 });

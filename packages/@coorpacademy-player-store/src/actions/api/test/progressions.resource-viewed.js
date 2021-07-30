@@ -5,7 +5,7 @@ import {
   markResourceAsViewed,
   PROGRESSION_RESOURCE_VIEWED_REQUEST,
   PROGRESSION_RESOURCE_VIEWED_SUCCESS,
-  PROGRESSION_RESOURCE_VIEWED_FAILURE,
+  PROGRESSION_RESOURCE_VIEWED_FAILURE
 } from '../progressions';
 
 const resource = {_id: 'resourceId', ref: 'resourceRef', type: 'video'};
@@ -33,7 +33,7 @@ test(
   'should mark the resource of the nextContent as viewed',
   macro,
   initState(set('ui.route.foo', 'media', {})),
-  (t) => ({
+  t => ({
     Progressions: {
       markResourceAsViewed: (id, payload) => {
         t.is(id, 'foo');
@@ -41,29 +41,29 @@ test(
           resource: {
             ref: 'resourceRef',
             type: 'video',
-            version: '1',
+            version: '1'
           },
           content: {
             type: 'chapter',
-            ref: 'chapter2',
-          },
+            ref: 'chapter2'
+          }
         });
 
         return stateForViewedResource;
-      },
-    },
+      }
+    }
   }),
   markResourceAsViewed('foo', resource),
   [
     {
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
-      meta: {progressionId: 'foo', resource},
+      meta: {progressionId: 'foo', resource}
     },
     {
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource},
-      payload: stateForViewedResource,
-    },
+      payload: stateForViewedResource
+    }
   ],
   2
 );
@@ -72,13 +72,13 @@ test(
   'should dispatch failure if no slide is found',
   macro,
   pipe(initState, set('data.contents.slide.entities', {}))({}),
-  (t) => ({}),
+  t => ({}),
   markResourceAsViewed('foo', resource),
   [
     {
       type: PROGRESSION_RESOURCE_VIEWED_FAILURE,
-      payload: 'slide not found.',
-    },
+      payload: 'slide not found.'
+    }
   ]
 );
 
@@ -86,7 +86,7 @@ test(
   'should use resource._id as the ref if the resource has no ref',
   macro,
   initState(set('ui.route.foo', 'media', {})),
-  (t) => ({
+  t => ({
     Progressions: {
       markResourceAsViewed: (id, payload) => {
         t.is(id, 'foo');
@@ -94,29 +94,29 @@ test(
           resource: {
             ref: 'resourceId',
             type: 'pdf',
-            version: '1',
+            version: '1'
           },
           content: {
             type: 'chapter',
-            ref: 'chapter2',
-          },
+            ref: 'chapter2'
+          }
         });
 
         return stateForViewedResource;
-      },
-    },
+      }
+    }
   }),
   markResourceAsViewed('foo', resourceWithoutRef),
   [
     {
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
-      meta: {progressionId: 'foo', resource: resourceWithoutRef},
+      meta: {progressionId: 'foo', resource: resourceWithoutRef}
     },
     {
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource: resourceWithoutRef},
-      payload: stateForViewedResource,
-    },
+      payload: stateForViewedResource
+    }
   ],
   2
 );
@@ -129,7 +129,7 @@ test(
     omit('data.progressions.entities.foo.state.nextContent.ref'),
     set('ui.route.foo', 'media')
   )({}),
-  (t) => ({
+  t => ({
     Progressions: {
       markResourceAsViewed: (id, payload) => {
         t.is(id, 'foo');
@@ -137,29 +137,29 @@ test(
           resource: {
             ref: 'resourceRef',
             type: 'video',
-            version: '1',
+            version: '1'
           },
           content: {
             type: 'chapter',
-            ref: 'chapter1',
-          },
+            ref: 'chapter1'
+          }
         });
 
         return stateForViewedResource;
-      },
-    },
+      }
+    }
   }),
   markResourceAsViewed('foo', resource),
   [
     {
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
-      meta: {progressionId: 'foo', resource},
+      meta: {progressionId: 'foo', resource}
     },
     {
       type: PROGRESSION_RESOURCE_VIEWED_SUCCESS,
       meta: {progressionId: 'foo', resource},
-      payload: stateForViewedResource,
-    },
+      payload: stateForViewedResource
+    }
   ],
   2
 );
@@ -168,11 +168,11 @@ test(
   'should return error if request failed',
   macro,
   initState(set('ui.route.foo', 'media', {})),
-  (t) => ({
+  t => ({
     Logger: {
       error(err) {
         t.is(err.message, 'some error');
-      },
+      }
     },
     Progressions: {
       markResourceAsViewed: (id, payload) => {
@@ -181,29 +181,29 @@ test(
           resource: {
             ref: 'resourceRef',
             type: 'video',
-            version: '1',
+            version: '1'
           },
           content: {
             type: 'chapter',
-            ref: 'chapter2',
-          },
+            ref: 'chapter2'
+          }
         });
         throw new Error('some error');
-      },
-    },
+      }
+    }
   }),
   markResourceAsViewed('foo', resource),
   [
     {
       type: PROGRESSION_RESOURCE_VIEWED_REQUEST,
-      meta: {progressionId: 'foo', resource},
+      meta: {progressionId: 'foo', resource}
     },
     {
       type: PROGRESSION_RESOURCE_VIEWED_FAILURE,
       meta: {progressionId: 'foo', resource},
       error: true,
-      payload: new Error('some error'),
-    },
+      payload: new Error('some error')
+    }
   ],
   3
 );

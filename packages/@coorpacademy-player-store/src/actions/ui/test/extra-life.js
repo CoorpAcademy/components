@@ -12,7 +12,7 @@ import {
   PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
   PROGRESSION_FETCH_BESTOF_REQUEST,
   PROGRESSION_FETCH_BESTOF_SUCCESS,
-  ENGINE_CONFIG_FETCH_REQUEST,
+  ENGINE_CONFIG_FETCH_REQUEST
 } from '../../api/progressions';
 import {UI_SELECT_ROUTE} from '../route';
 import {RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS} from '../../api/rank';
@@ -20,7 +20,7 @@ import {
   CONTENT_FETCH_REQUEST,
   CONTENT_FETCH_SUCCESS,
   CONTENT_INFO_FETCH_REQUEST,
-  CONTENT_INFO_FETCH_SUCCESS,
+  CONTENT_INFO_FETCH_SUCCESS
 } from '../../api/contents';
 import {PROGRESSION_UPDATED_ON_MOVE} from '../../api/analytics';
 
@@ -31,23 +31,23 @@ test(
     set('ui.current.progressionId', 'foo'),
     set('data.progressions.entities.foo._id', 'foo'),
     set('data.configs.entities.microlearning@1', {
-      version: '1',
+      version: '1'
     }),
     set('data.progressions.entities.foo.engine', {ref: 'microlearning', version: '1'}),
     set('data.progressions.entities.foo.state.nextContent', {type: 'node', ref: 'extraLife'}),
     set('data.progressions.entities.foo.state.content', {type: 'slide', ref: '1.A2.1'})
   )({}),
-  (t) => ({
+  t => ({
     Analytics: {
       sendProgressionUpdated: (currentProgression, engineConfig) => {
         t.is(currentProgression.engine.ref, 'microlearning');
         t.deepEqual(currentProgression.state.nextContent, {type: 'slide', ref: 'slideRef'});
         return 'sent';
-      },
+      }
     },
     Content: mockContentService(t),
     Progressions: {
-      findById: (id) => {
+      findById: id => {
         t.is(id, 'foo');
         throw new Error('some error');
       },
@@ -59,33 +59,33 @@ test(
       refuseExtraLife: (id, payload) => {
         t.is(id, 'foo');
         t.deepEqual(payload, {
-          content: {type: 'node', ref: 'extraLife'},
+          content: {type: 'node', ref: 'extraLife'}
         });
         return {
           content: {type: 'chapter', ref: 'chapId'},
           state: {
             content: {type: 'slide', ref: '1.A2.1'},
-            nextContent: {type: 'slide', ref: 'slideRef'},
-          },
+            nextContent: {type: 'slide', ref: 'slideRef'}
+          }
         };
       },
-      getEngineConfig: (engine) => {
+      getEngineConfig: engine => {
         t.deepEqual(engine, {ref: 'microlearning', version: '1'});
         return {foo: 'engine'};
-      },
+      }
     },
     LeaderBoard: {
       getRank: () => {
         t.pass();
         return 1;
-      },
-    },
+      }
+    }
   }),
   refuseExtraLife(),
   [
     {
       type: PROGRESSION_EXTRALIFEREFUSED_REQUEST,
-      meta: {progressionId: 'foo'},
+      meta: {progressionId: 'foo'}
     },
     {
       type: PROGRESSION_EXTRALIFEREFUSED_SUCCESS,
@@ -94,65 +94,65 @@ test(
         content: {type: 'chapter', ref: 'chapId'},
         state: {
           content: {type: 'slide', ref: '1.A2.1'},
-          nextContent: {type: 'slide', ref: 'slideRef'},
-        },
-      },
+          nextContent: {type: 'slide', ref: 'slideRef'}
+        }
+      }
     },
     {
       type: PROGRESSION_UPDATED_ON_MOVE,
       meta: {
-        id: 'foo',
-      },
+        id: 'foo'
+      }
     },
     {
       type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
-      payload: {id: 'foo'},
+      payload: {id: 'foo'}
     },
     {
       type: PROGRESSION_FETCH_REQUEST,
-      meta: {id: 'foo'},
+      meta: {id: 'foo'}
     },
     {
       type: CONTENT_FETCH_REQUEST,
-      meta: {type: 'chapter', ref: 'chapId'},
+      meta: {type: 'chapter', ref: 'chapId'}
     },
     {
       type: CONTENT_FETCH_SUCCESS,
       meta: {type: 'chapter', ref: 'chapId'},
-      payload: {_id: 'chapId', foo: 'baz'},
+      payload: {_id: 'chapId', foo: 'baz'}
     },
     {
-      type: RANK_FETCH_START_REQUEST,
+      type: RANK_FETCH_START_REQUEST
     },
     {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: {type: 'chapter', ref: 'chapId'},
+      meta: {type: 'chapter', ref: 'chapId'}
     },
     {
       type: ENGINE_CONFIG_FETCH_REQUEST,
-      meta: {engine: {ref: 'microlearning', version: '1'}},
+      meta: {engine: {ref: 'microlearning', version: '1'}}
     },
     {
       type: CONTENT_INFO_FETCH_REQUEST,
-      meta: {type: 'chapter', ref: 'chapId'},
+      meta: {type: 'chapter', ref: 'chapId'}
     },
     {
       type: CONTENT_FETCH_REQUEST,
-      meta: {type: 'slide', ref: 'slideRef'},
+      meta: {type: 'slide', ref: 'slideRef'}
     },
     {
       type: RANK_FETCH_START_SUCCESS,
-      payload: 1,
+      payload: 1
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
       meta: {type: 'chapter', ref: 'chapId'},
-      payload: 16,
+      payload: 16
     },
     {
       type: CONTENT_INFO_FETCH_SUCCESS,
       meta: {type: 'chapter', ref: 'chapId'},
-      payload: {nbSlides: 20},
+      payload: {nbSlides: 20}
     },
     {
       type: CONTENT_FETCH_SUCCESS,
@@ -160,18 +160,18 @@ test(
       payload: {
         _id: 'slideRef',
         chapter_id: 'chapId',
-        foo: 'bar',
-      },
+        foo: 'bar'
+      }
     },
     {
       type: CONTENT_FETCH_REQUEST,
-      meta: {type: 'chapter', ref: 'chapId'},
+      meta: {type: 'chapter', ref: 'chapId'}
     },
     {
       type: UI_SELECT_ROUTE,
       payload: 'answer',
-      meta: {progressionId: 'foo'},
-    },
+      meta: {progressionId: 'foo'}
+    }
   ],
   12
 );
@@ -183,19 +183,19 @@ test(
     set('ui.current.progressionId', 'foo'),
     set('data.progressions.entities.foo._id', 'foo'),
     set('data.configs.entities.microlearning@1', {
-      version: '1',
+      version: '1'
     }),
     set('data.progressions.entities.foo.engine', {ref: 'microlearning', version: '1'}),
     set('data.progressions.entities.foo.state.nextContent', {type: 'node', ref: 'extraLife'}),
     set('data.progressions.entities.foo.state.content', {type: 'slide', ref: '1.A2.1'})
   )({}),
-  (t) => ({
+  t => ({
     Analytics: {
       sendProgressionUpdated: (currentProgression, engineConfig) => {
         t.is(currentProgression.engine.ref, 'microlearning');
         t.deepEqual(currentProgression.state.nextContent, {type: 'slide', ref: 'slideRef'});
         return 'sent';
-      },
+      }
     },
     Content: mockContentService(t),
     Progressions: {
@@ -207,33 +207,33 @@ test(
       acceptExtraLife: (id, payload) => {
         t.is(id, 'foo');
         t.deepEqual(payload, {
-          content: {type: 'node', ref: 'extraLife'},
+          content: {type: 'node', ref: 'extraLife'}
         });
         return {
           content: {type: 'chapter', ref: 'chapId'},
           state: {
             content: {type: 'slide', ref: '1.A2.1'},
-            nextContent: {type: 'slide', ref: 'slideRef'},
-          },
+            nextContent: {type: 'slide', ref: 'slideRef'}
+          }
         };
       },
-      getEngineConfig: (engine) => {
+      getEngineConfig: engine => {
         t.deepEqual(engine, {ref: 'microlearning', version: '1'});
         return {foo: 'engine'};
-      },
+      }
     },
     LeaderBoard: {
       getRank: (...args) => {
         t.pass();
         return 1;
-      },
-    },
+      }
+    }
   }),
   acceptExtraLife(),
   [
     {
       type: PROGRESSION_EXTRALIFEACCEPTED_REQUEST,
-      meta: {progressionId: 'foo'},
+      meta: {progressionId: 'foo'}
     },
     {
       type: PROGRESSION_EXTRALIFEACCEPTED_SUCCESS,
@@ -242,65 +242,65 @@ test(
         content: {type: 'chapter', ref: 'chapId'},
         state: {
           content: {type: 'slide', ref: '1.A2.1'},
-          nextContent: {type: 'slide', ref: 'slideRef'},
-        },
-      },
+          nextContent: {type: 'slide', ref: 'slideRef'}
+        }
+      }
     },
     {
       type: PROGRESSION_UPDATED_ON_MOVE,
       meta: {
-        id: 'foo',
-      },
+        id: 'foo'
+      }
     },
     {
       type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
-      payload: {id: 'foo'},
+      payload: {id: 'foo'}
     },
     {
       type: PROGRESSION_FETCH_REQUEST,
-      meta: {id: 'foo'},
+      meta: {id: 'foo'}
     },
     {
       type: CONTENT_FETCH_REQUEST,
-      meta: {type: 'chapter', ref: 'chapId'},
+      meta: {type: 'chapter', ref: 'chapId'}
     },
     {
       type: CONTENT_FETCH_SUCCESS,
       meta: {type: 'chapter', ref: 'chapId'},
-      payload: {_id: 'chapId', foo: 'baz'},
+      payload: {_id: 'chapId', foo: 'baz'}
     },
     {
-      type: RANK_FETCH_START_REQUEST,
+      type: RANK_FETCH_START_REQUEST
     },
     {
       type: PROGRESSION_FETCH_BESTOF_REQUEST,
-      meta: {type: 'chapter', ref: 'chapId'},
+      meta: {type: 'chapter', ref: 'chapId'}
     },
     {
       type: ENGINE_CONFIG_FETCH_REQUEST,
-      meta: {engine: {ref: 'microlearning', version: '1'}},
+      meta: {engine: {ref: 'microlearning', version: '1'}}
     },
     {
       type: CONTENT_INFO_FETCH_REQUEST,
-      meta: {type: 'chapter', ref: 'chapId'},
+      meta: {type: 'chapter', ref: 'chapId'}
     },
     {
       type: CONTENT_FETCH_REQUEST,
-      meta: {type: 'slide', ref: 'slideRef'},
+      meta: {type: 'slide', ref: 'slideRef'}
     },
     {
       type: RANK_FETCH_START_SUCCESS,
-      payload: 1,
+      payload: 1
     },
     {
       type: PROGRESSION_FETCH_BESTOF_SUCCESS,
       meta: {type: 'chapter', ref: 'chapId'},
-      payload: 16,
+      payload: 16
     },
     {
       type: CONTENT_INFO_FETCH_SUCCESS,
       meta: {type: 'chapter', ref: 'chapId'},
-      payload: {nbSlides: 20},
+      payload: {nbSlides: 20}
     },
     {
       type: CONTENT_FETCH_SUCCESS,
@@ -308,18 +308,18 @@ test(
       payload: {
         _id: 'slideRef',
         chapter_id: 'chapId',
-        foo: 'bar',
-      },
+        foo: 'bar'
+      }
     },
     {
       type: CONTENT_FETCH_REQUEST,
-      meta: {type: 'chapter', ref: 'chapId'},
+      meta: {type: 'chapter', ref: 'chapId'}
     },
     {
       type: UI_SELECT_ROUTE,
       payload: 'answer',
-      meta: {progressionId: 'foo'},
-    },
+      meta: {progressionId: 'foo'}
+    }
   ],
   12
 );

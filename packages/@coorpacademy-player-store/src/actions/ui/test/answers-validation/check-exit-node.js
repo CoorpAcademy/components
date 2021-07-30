@@ -4,13 +4,13 @@ import macro from '../../../test/helpers/macro';
 import {validateAnswer} from '../../answers';
 import {
   PROGRESSION_CREATE_ANSWER_REQUEST,
-  PROGRESSION_CREATE_ANSWER_SUCCESS,
+  PROGRESSION_CREATE_ANSWER_SUCCESS
 } from '../../../api/progressions';
 import {ANSWER_FETCH_REQUEST, ANSWER_FETCH_SUCCESS} from '../../../api/answers';
 import {UI_SELECT_ROUTE} from '../../route';
 import {accordionIsOpenAt, progressionUpdated} from './helpers/shared';
 
-const services = (t) => ({
+const services = t => ({
   Progressions: {
     postAnswer: (id, payload) => {
       t.is(id, 'foo');
@@ -19,24 +19,24 @@ const services = (t) => ({
         set('state.nextContent', {type: 'success', ref: 'successExitNode'})
       )({});
     },
-    findById: (id) => {
+    findById: id => {
       t.is(id, 'foo');
       return 'foo';
-    },
+    }
   },
   Answers: {
-    findById: (id) => {
+    findById: id => {
       t.is(id, 'foo');
       return ['Bonne réponse'];
-    },
+    }
   },
   Analytics: {
     sendProgressionFinished: (currentProgression, engineConfig) => {
       t.is(currentProgression.engine.ref, 'learner');
       t.deepEqual(currentProgression.state.nextContent, {type: 'success', ref: 'successExitNode'});
       return 'sent';
-    },
-  },
+    }
+  }
 });
 
 test(
@@ -47,10 +47,10 @@ test(
     set('ui.current.progressionId', 'foo'),
     set('data.progressions.entities.foo.engine', {
       ref: 'learner',
-      version: '1',
+      version: '1'
     }),
     set('data.configs.entities.learner@1', {
-      version: '1',
+      version: '1'
     }),
     set('data.progressions.entities.foo.state.nextContent', {type: 'slide', ref: 'slideRef'}),
     set('data.contents.slide.entities.slideRef.lessons', [{ref: 'lesson_ref'}])
@@ -65,16 +65,16 @@ test(
         answer: ['bar'],
         content: {
           ref: 'slideRef',
-          type: 'slide',
-        },
-      },
+          type: 'slide'
+        }
+      }
     },
     {
       type: UI_SELECT_ROUTE,
       payload: 'correction',
       meta: {
-        progressionId: 'foo',
-      },
+        progressionId: 'foo'
+      }
     },
     {
       type: PROGRESSION_CREATE_ANSWER_SUCCESS,
@@ -83,13 +83,13 @@ test(
         answer: ['bar'],
         content: {
           ref: 'slideRef',
-          type: 'slide',
-        },
+          type: 'slide'
+        }
       },
       payload: pipe(
         set('state.content.ref', 'slideRef'),
         set('state.nextContent', {type: 'success', ref: 'successExitNode'})
-      )({}),
+      )({})
     },
     accordionIsOpenAt(0),
     progressionUpdated,
@@ -97,17 +97,17 @@ test(
       type: ANSWER_FETCH_REQUEST,
       meta: {
         progressionId: 'foo',
-        slideId: 'slideRef',
-      },
+        slideId: 'slideRef'
+      }
     },
     {
       type: ANSWER_FETCH_SUCCESS,
       meta: {
         progressionId: 'foo',
-        slideId: 'slideRef',
+        slideId: 'slideRef'
       },
-      payload: ['Bonne réponse'],
-    },
+      payload: ['Bonne réponse']
+    }
   ]),
   4
 );

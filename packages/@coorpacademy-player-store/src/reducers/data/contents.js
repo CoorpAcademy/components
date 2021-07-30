@@ -3,7 +3,7 @@ import {
   CONTENT_FETCH_REQUEST,
   CONTENT_FETCH_SUCCESS,
   CONTENT_FETCH_FAILURE,
-  CONTENT_INFO_FETCH_SUCCESS,
+  CONTENT_INFO_FETCH_SUCCESS
 } from '../../actions/api/contents';
 import {PROGRESSION_FETCH_BESTOF_SUCCESS} from '../../actions/api/progressions';
 
@@ -12,7 +12,7 @@ const dataContentReducer = (state = {}, action) => {
     case CONTENT_FETCH_REQUEST: {
       const {meta} = action;
       const {type, ref} = meta;
-      return update([type, 'entities', ref], (content) => content || null, state);
+      return update([type, 'entities', ref], content => content || null, state);
     }
     case CONTENT_FETCH_SUCCESS: {
       const {payload, meta} = action;

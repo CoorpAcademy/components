@@ -7,12 +7,12 @@ import ErrorLogger from '../../../middlewares/error-logger';
 import data from '../../../reducers/data';
 import ui from '../../../reducers/ui';
 
-const createMiddlewares = (options) =>
+const createMiddlewares = options =>
   applyMiddleware(ReduxThunkMemoized(options), ErrorLogger(options));
 
 const reducer = combineReducers({
   data,
-  ui,
+  ui
 });
 
 const actionMacro = async (
@@ -29,16 +29,16 @@ const actionMacro = async (
 
   const defaultServices = {
     Logger: {
-      error: (err) => {
+      error: err => {
         t.log(`Unexpected error was logged: ${err.message}`);
         t.log(err.stack);
         t.fail();
-      },
-    },
+      }
+    }
   };
 
   const options = {
-    services: defaultsDeep(defaultServices, createServices(t)),
+    services: defaultsDeep(defaultServices, createServices(t))
   };
   const expectedActions = [null, ..._expectedActions];
   let actionIndex = -1;

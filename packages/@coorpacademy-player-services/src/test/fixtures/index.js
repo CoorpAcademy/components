@@ -10,7 +10,7 @@ import {findById as findLevelById} from './levels';
 import {
   findById as findProgressionById,
   getAll as getAllProgressions,
-  save as saveProgression,
+  save as saveProgression
 } from './progressions';
 import {find as findRecommendations, getNextChapter, getNextLevel} from './recommendations';
 import {findById as findSlideById, findByChapter as findSlideByChapter} from './slides';
@@ -33,5 +33,5 @@ export {
   findSlideById,
   saveProgression,
   findVideoUriById,
-  findVideoTracksById,
+  findVideoTracksById
 };

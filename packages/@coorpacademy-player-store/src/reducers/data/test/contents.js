@@ -4,7 +4,7 @@ import {
   CONTENT_FETCH_REQUEST,
   CONTENT_FETCH_SUCCESS,
   CONTENT_FETCH_FAILURE,
-  CONTENT_INFO_FETCH_SUCCESS,
+  CONTENT_INFO_FETCH_SUCCESS
 } from '../../../actions/api/contents';
 import {PROGRESSION_FETCH_BESTOF_SUCCESS} from '../../../actions/api/progressions';
 import macro from '../../test/helpers/macro';
@@ -18,7 +18,7 @@ test(
   {},
   {
     type: CONTENT_FETCH_REQUEST,
-    meta: {type: 'foo', ref: 'bar'},
+    meta: {type: 'foo', ref: 'bar'}
   },
   {foo: {entities: {bar: null}}}
 );
@@ -30,7 +30,7 @@ test(
   {},
   {
     type: CONTENT_FETCH_REQUEST,
-    meta: {type: 'foo', ref: 'bar'},
+    meta: {type: 'foo', ref: 'bar'}
   },
   {foo: {entities: {bar: null}}}
 );
@@ -42,7 +42,7 @@ test(
   {foo: {entities: {bar: 'baz'}}},
   {
     type: CONTENT_FETCH_REQUEST,
-    meta: {type: 'foo', ref: 'bar'},
+    meta: {type: 'foo', ref: 'bar'}
   },
   {foo: {entities: {bar: 'baz'}}}
 );
@@ -55,7 +55,7 @@ test(
   {
     type: CONTENT_FETCH_SUCCESS,
     meta: {type: 'foo', ref: 'bar'},
-    payload: 'baz',
+    payload: 'baz'
   },
   {foo: {entities: {bar: 'baz'}}}
 );
@@ -69,7 +69,7 @@ test(
     type: CONTENT_FETCH_FAILURE,
     meta: {type: 'foo', ref: 'bar'},
     error: true,
-    payload: {},
+    payload: {}
   },
   {foo: {entities: {}}}
 );
@@ -83,7 +83,7 @@ test(
     type: CONTENT_FETCH_FAILURE,
     meta: {type: 'foo', ref: 'bar'},
     error: true,
-    payload: {},
+    payload: {}
   },
   {foo: {entities: {bar: 'baz'}}}
 );
@@ -96,7 +96,7 @@ test(
   {
     type: PROGRESSION_FETCH_BESTOF_SUCCESS,
     meta: {type: 'foo', ref: 'bar'},
-    payload: {stars: 12},
+    payload: {stars: 12}
   },
   {foo: {entities: {bar: {bestScore: 12}}}}
 );
@@ -109,7 +109,7 @@ test(
   {
     type: CONTENT_INFO_FETCH_SUCCESS,
     meta: {type: 'foo', ref: 'bar'},
-    payload: {foo: 'bar'},
+    payload: {foo: 'bar'}
   },
   {foo: {entities: {bar: {info: {foo: 'bar'}}}}}
 );

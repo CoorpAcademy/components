@@ -5,7 +5,7 @@ import type {
   EngineConfig,
   Progression,
   ProgressionId,
-  Slide,
+  Slide
 } from '@coorpacademy/progression-engine';
 import type {Chapter, Discipline, Level, Resource, VideoTrack} from './models';
 import type {Services} from './services';
@@ -16,72 +16,72 @@ type Task = Function;
 type Data = {
   progressions: {
     entities: {
-      [id: ProgressionId]: Progression,
-    },
+      [id: ProgressionId]: Progression
+    }
   },
   configs: {
     entities: {
-      [id: string]: EngineConfig,
-    },
+      [id: string]: EngineConfig
+    }
   },
   contents: {
     chapter: {
       entities: {
-        [id: string]: Chapter,
-      },
+        [id: string]: Chapter
+      }
     },
     discipline: {
       entities: {
-        [id: string]: Discipline,
-      },
+        [id: string]: Discipline
+      }
     },
     level: {
       entities: {
-        [id: string]: Level,
-      },
+        [id: string]: Level
+      }
     },
     slide: {
       entities: {
-        [id: string]: Slide,
-      },
-    },
+        [id: string]: Slide
+      }
+    }
   },
   videos: {
     entities: {
       [id: string]: {
         uri: string,
-        tracks?: Array<VideoTrack>,
-      },
-    },
-  },
+        tracks?: Array<VideoTrack>
+      }
+    }
+  }
 };
 
 type Ui = {
   answers: {
-    [key: string]: {value: Answer},
+    [key: string]: {value: Answer}
   },
   coaches: {
-    availableCoaches: number,
+    availableCoaches: number
   },
   comments: {
-    text: ?string,
+    text: ?string
   },
   corrections: {
     accordion: Array<boolean>,
-    playResource: string,
+    playResource: string
   },
   current: {
-    progressionId: ProgressionId,
+    progressionId: ProgressionId
   },
   route: {
-    [id: ProgressionId]: 'answer' | 'correction',
-  },
+    [id: ProgressionId]: 'answer' | 'correction'
+  }
 };
 
 // Keep it no-strict because some of apps can extend this one
 type ReduxState = {
   data: Data,
-  ui: Ui,
+  ui: Ui
 };
 
 type GetState = () => ReduxState;
@@ -98,13 +98,13 @@ type Action = {
     slideId?: string,
     type?: string,
     ref?: string,
-    answer?: string,
+    answer?: string
   },
-  error?: boolean,
+  error?: boolean
 };
 
 type Options = {
-  services: Services,
+  services: Services
 };
 
 type PromiseAction = Promise<Action>;
@@ -126,5 +126,5 @@ export type {
   ReduxState,
   Resource,
   ThunkAction,
-  Ui,
+  Ui
 };

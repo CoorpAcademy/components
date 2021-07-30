@@ -21,20 +21,20 @@ test(
           population: 'coorpacademy',
           isCoach: true,
           isSuperCoach: true,
-          disciplines: [],
-        },
+          disciplines: []
+        }
       ],
       currentCoachId: '',
       currentChatRoomId: '',
       currentDiscipline: {
         ref: '01',
         universalRef: 'dis_xxx01',
-        name: 'La recherche en ligne',
+        name: 'La recherche en ligne'
       },
-      currentContentRef: '1.B',
-    },
+      currentContentRef: '1.B'
+    }
   },
   {
-    availableCoaches: 1,
+    availableCoaches: 1
   }
 );

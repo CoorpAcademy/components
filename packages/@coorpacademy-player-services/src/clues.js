@@ -5,7 +5,7 @@ import type {ClueAPI, DataLayer} from './definitions';
 
 type FindById = (progressionId: string, slideId: string) => Promise<ClueAPI | void>;
 type CluesService = {|
-  findById: FindById,
+  findById: FindById
 |};
 
 const findById = (dataLayer: DataLayer): FindById => async (
@@ -31,7 +31,7 @@ const findById = (dataLayer: DataLayer): FindById => async (
 };
 
 const createCluesService = (dataLayer: DataLayer): CluesService => ({
-  findById: findById(dataLayer),
+  findById: findById(dataLayer)
 });
 
 export type {CluesService};

@@ -6,7 +6,7 @@ const dataCluesReducer = (state = {entities: {}}, action) => {
     case CLUE_FETCH_REQUEST: {
       const {meta} = action;
       const {progressionId, slideId} = meta;
-      return update(['entities', progressionId, slideId], (clue) => clue || null, state);
+      return update(['entities', progressionId, slideId], clue => clue || null, state);
     }
     case CLUE_FETCH_SUCCESS: {
       const {payload, meta} = action;

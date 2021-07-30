@@ -1,4 +1,4 @@
-const Content = (t) => ({
+const Content = t => ({
   find(type, ref) {
     if (type === 'slide') {
       t.is(ref, 'slideRef');
@@ -15,7 +15,7 @@ const Content = (t) => ({
     t.is(engineRef, 'microlearning');
     t.is(engineVersion, '1');
     return {nbSlides: 20};
-  },
+  }
 });
 
 export default Content;

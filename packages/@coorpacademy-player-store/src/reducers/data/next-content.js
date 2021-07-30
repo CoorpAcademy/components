@@ -2,7 +2,7 @@ import {set, update, isNull, get, unset, pipe} from 'lodash/fp';
 import {
   NEXT_CONTENT_FETCH_SUCCESS,
   NEXT_CONTENT_FETCH_FAILURE,
-  NEXT_CONTENT_FETCH_REQUEST,
+  NEXT_CONTENT_FETCH_REQUEST
 } from '../../actions/api/next-content';
 
 const nextContentReducer = (state = {entities: {}}, action) => {
@@ -10,7 +10,7 @@ const nextContentReducer = (state = {entities: {}}, action) => {
     case NEXT_CONTENT_FETCH_REQUEST: {
       const {meta} = action;
       const {id} = meta;
-      return update(['entities', id], (nextContent) => nextContent || null, state);
+      return update(['entities', id], nextContent => nextContent || null, state);
     }
     case NEXT_CONTENT_FETCH_SUCCESS: {
       const {payload, meta} = action;

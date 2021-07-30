@@ -5,7 +5,7 @@ import {
   fetchNext,
   NEXT_CONTENT_FETCH_REQUEST,
   NEXT_CONTENT_FETCH_SUCCESS,
-  NEXT_CONTENT_FETCH_FAILURE,
+  NEXT_CONTENT_FETCH_FAILURE
 } from '../next-content';
 
 const initState = pipe(
@@ -18,26 +18,26 @@ test(
   'should fetch recommendations',
   macro,
   initState({}),
-  (t) => ({
+  t => ({
     Recommendations: {
       getNext: (type, ref) => {
         t.is(type, 'chapter');
         t.is(ref, 'chapterRef');
         return 'bar';
-      },
-    },
+      }
+    }
   }),
   fetchNext('foo'),
   [
     {
       type: NEXT_CONTENT_FETCH_REQUEST,
-      meta: {id: 'foo'},
+      meta: {id: 'foo'}
     },
     {
       type: NEXT_CONTENT_FETCH_SUCCESS,
       meta: {id: 'foo'},
-      payload: 'bar',
-    },
+      payload: 'bar'
+    }
   ],
   2
 );
@@ -46,19 +46,19 @@ test(
   'should prevent request if next-content are already fetched',
   macro,
   pipe(initState, set('data.nextContent.entities.foo', 'bar'))({}),
-  (t) => ({
+  t => ({
     Recommendations: {
       getNext: (type, ref) => {
         t.fail();
-      },
-    },
+      }
+    }
   }),
   fetchNext('foo'),
   [
     {
       type: NEXT_CONTENT_FETCH_REQUEST,
-      meta: {id: 'foo'},
-    },
+      meta: {id: 'foo'}
+    }
   ],
   0
 );
@@ -67,14 +67,14 @@ test(
   'should dispatch error if no content is found',
   macro,
   {},
-  (t) => ({}),
+  t => ({}),
   fetchNext('foo'),
   [
     {
       type: NEXT_CONTENT_FETCH_FAILURE,
       meta: {id: 'foo'},
-      payload: 'progression "foo" has no content.',
-    },
+      payload: 'progression "foo" has no content.'
+    }
   ],
   0
 );
@@ -83,32 +83,32 @@ test(
   'should return error if request failed',
   macro,
   initState({}),
-  (t) => ({
+  t => ({
     Logger: {
       error(err) {
         t.is(err.message, 'some error');
-      },
+      }
     },
     Recommendations: {
       getNext: (type, ref) => {
         t.is(ref, 'chapterRef');
         t.is(type, 'chapter');
         throw new Error('some error');
-      },
-    },
+      }
+    }
   }),
   fetchNext('foo'),
   [
     {
       type: NEXT_CONTENT_FETCH_REQUEST,
-      meta: {id: 'foo'},
+      meta: {id: 'foo'}
     },
     {
       type: NEXT_CONTENT_FETCH_FAILURE,
       meta: {id: 'foo'},
       error: true,
-      payload: new Error('some error'),
-    },
+      payload: new Error('some error')
+    }
   ],
   3
 );

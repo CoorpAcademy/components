@@ -11,7 +11,7 @@ const recommendations: Array<RecommendationAPI> = [
     title: 'From Mass Market to One to One targeting Lorem ipsum',
     author: 'Coorpacademy',
     cta: 'Continue Chapter',
-    href: '#',
+    href: '#'
   },
   {
     view: 'list',
@@ -21,7 +21,7 @@ const recommendations: Array<RecommendationAPI> = [
     title: 'From Masse Marketingue to One tou One targeting Lorem ipsum',
     author: 'Coorpacademy',
     cta: 'Continue Chapter',
-    href: '#',
+    href: '#'
   },
   {
     view: 'list',
@@ -31,8 +31,8 @@ const recommendations: Array<RecommendationAPI> = [
     title: 'From Mass Market to One to One targeting Lorem ipsum',
     author: 'Coorpacademy',
     cta: 'Continue Chapter',
-    href: '#',
-  },
+    href: '#'
+  }
 ];
 
 export default recommendations;

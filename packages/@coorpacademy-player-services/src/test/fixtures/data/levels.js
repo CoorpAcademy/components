@@ -5,14 +5,14 @@ const levels = [
     level: 'base',
     meta: {
       updatedAt: '2017-01-26T09:19:06.874Z',
-      createdAt: '2017-01-26T09:19:05.667Z',
+      createdAt: '2017-01-26T09:19:05.667Z'
     },
     poster: {
       subtitles: [],
       posters: [],
-      src: [],
+      src: []
     },
-    chapterIds: ['1.B1', '1.B2'],
+    chapterIds: ['1.B1', '1.B2']
   },
   {
     ref: '1.A',
@@ -20,14 +20,14 @@ const levels = [
     level: 'advanced',
     meta: {
       updatedAt: '2017-01-26T09:19:06.874Z',
-      createdAt: '2017-01-26T09:19:05.667Z',
+      createdAt: '2017-01-26T09:19:05.667Z'
     },
     poster: {
       subtitles: [],
       posters: [],
-      src: [],
+      src: []
     },
-    chapterIds: ['5.C7', '5.C8'],
+    chapterIds: ['5.C7', '5.C8']
   },
   {
     ref: '1.C',
@@ -35,14 +35,14 @@ const levels = [
     level: 'coach',
     meta: {
       updatedAt: '2017-01-26T09:19:06.874Z',
-      createdAt: '2017-01-26T09:19:05.667Z',
+      createdAt: '2017-01-26T09:19:05.667Z'
     },
     poster: {
       subtitles: [],
       posters: [],
-      src: [],
+      src: []
     },
-    chapterIds: ['1.C1', '1.C2'],
+    chapterIds: ['1.C1', '1.C2']
   },
   {
     ref: '2.B',
@@ -50,14 +50,14 @@ const levels = [
     level: 'base',
     meta: {
       updatedAt: '2017-01-26T09:19:06.874Z',
-      createdAt: '2017-01-26T09:19:05.667Z',
+      createdAt: '2017-01-26T09:19:05.667Z'
     },
     poster: {
       subtitles: [],
       posters: [],
-      src: [],
+      src: []
     },
-    chapterIds: ['2.B1', '2.B2'],
+    chapterIds: ['2.B1', '2.B2']
   },
   {
     disciplineRef: 'dis_VJE4ukhvf',
@@ -78,18 +78,18 @@ const levels = [
     acquiredSkills: [
       'Comprendre les fondamentaux du mode projet',
       'Appliquer l’approche utilisateur pour faire évoluer un produit ou service',
-      'Mettre en pratique les compétences acquises dans une mise en situation immersive',
+      'Mettre en pratique les compétences acquises dans une mise en situation immersive'
     ],
     meta: {
       updatedAt: '2017-01-26T09:19:06.874Z',
-      createdAt: '2017-01-26T09:19:05.667Z',
+      createdAt: '2017-01-26T09:19:05.667Z'
     },
     poster: {
       subtitles: [],
       posters: [],
-      src: [],
-    },
-  },
+      src: []
+    }
+  }
 ];
 
 export default levels;

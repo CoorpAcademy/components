@@ -11,34 +11,34 @@ import type {
   Media,
   PartialCorrection,
   ResourceMimeType,
-  Source,
+  Source
 } from '@coorpacademy/progression-engine';
 
 export const CONTENT_TYPE: {[string]: ContentType} = {
   CHAPTER: 'chapter',
   LEVEL: 'level',
-  SLIDE: 'slide',
+  SLIDE: 'slide'
 };
 
 export const ENGINES: {[string]: Engines} = {
   MICROLEARNING: 'microlearning',
-  LEARNER: 'learner',
+  LEARNER: 'learner'
 };
 
 export const VIDEO_TRACK_KIND: {
   CAPTIONS: 'captions',
-  THUMBNAILS: 'thumbnails',
+  THUMBNAILS: 'thumbnails'
 } = {
   CAPTIONS: 'captions',
-  THUMBNAILS: 'thumbnails',
+  THUMBNAILS: 'thumbnails'
 };
 
 export const VIDEO_TRACK_TYPE: {
   SRT: 'srt',
-  VTT: 'vtt',
+  VTT: 'vtt'
 } = {
   SRT: 'srt',
-  VTT: 'vtt',
+  VTT: 'vtt'
 };
 
 type Url = string;
@@ -59,14 +59,14 @@ type JwPlayerOptions = {|
     aspectratio: AspectRatio,
     autostart: boolean,
     skin: {
-      name: string,
+      name: string
     },
-    width: string,
+    width: string
   },
   file: Url,
   licenseKey: string,
   playerId: string,
-  playerScript: Url,
+  playerScript: Url
 |};
 
 type Resource = {|
@@ -80,7 +80,7 @@ type Resource = {|
   poster?: Url,
   subtitles?: Array<string>,
   posters?: Array<Url>,
-  jwpOptions?: JwPlayerOptions,
+  jwpOptions?: JwPlayerOptions
 |};
 
 type Clue = string;
@@ -88,7 +88,7 @@ type Clue = string;
 type Meta = {|
   updatedAt: string,
   createdAt: string,
-  taggedNewUntil?: string,
+  taggedNewUntil?: string
 |};
 
 type Recommendation = {|
@@ -99,7 +99,7 @@ type Recommendation = {|
   title: string,
   author: string,
   cta: string,
-  href: string,
+  href: string
 |};
 
 type ExitNodeRef = 'successExitNode' | 'failureExitNode';
@@ -111,7 +111,7 @@ type ExitNode = {|
   meta: Meta,
   title: string,
   description: string,
-  media: Media,
+  media: Media
 |};
 
 type Poster = {|
@@ -120,7 +120,7 @@ type Poster = {|
   mediaUrl?: Url,
   subtitles?: Array<string>,
   posters?: Array<Url>,
-  src?: Array<Source>,
+  src?: Array<Source>
 |};
 
 type Chapter = {|
@@ -135,12 +135,12 @@ type Chapter = {|
   bestScore?: number,
   isConditional: boolean,
   time: number,
-  version: string,
+  version: string
 |};
 
 type Stats = {|
   userTriesCount: number,
-  userDoneCount: number,
+  userDoneCount: number
 |};
 
 type Level = {|
@@ -168,7 +168,7 @@ type Level = {|
   version: string,
   external_refs: Array<?string>,
   info?: ContentInfo,
-  bestScore?: number,
+  bestScore?: number
 |};
 
 type ExtentedMedia = {|
@@ -177,11 +177,11 @@ type ExtentedMedia = {|
   mediaUrl?: Url,
   subtitles: Array<string>,
   posters: Array<string>,
-  src: Array<string>,
+  src: Array<string>
 |};
 type Cover = {|
   description: string,
-  media: ExtentedMedia,
+  media: ExtentedMedia
 |};
 
 type Skill = string;
@@ -191,7 +191,7 @@ type Partner = string;
 
 type Stat = {|
   userTriesCount: number,
-  userDoneCount: number,
+  userDoneCount: number
 |};
 
 type Discipline = {|
@@ -211,27 +211,27 @@ type Discipline = {|
   partners: Array<Partner>,
   modules: Array<Level>,
   cover?: Cover,
-  version: string,
+  version: string
 |};
 
 type UserAnswer = {|
   answer: Answer,
-  content: Content,
+  content: Content
 |};
 
 type Correction = {
   correctAnswer: Array<Answer>,
-  corrections: Array<PartialCorrection>,
+  corrections: Array<PartialCorrection>
 };
 
 type Lives = {|
   hide: boolean,
-  count: number,
+  count: number
 |};
 
 type ProgressionSteps = {|
   current: number,
-  total: number,
+  total: number
 |};
 
 type VideoProvider = 'jwplayer' | 'kontiki' | 'vimeo' | 'omniPlayer' | 'youtube';
@@ -240,7 +240,7 @@ type VideoTrack = {|
   kind: $Values<typeof VIDEO_TRACK_KIND>,
   file: string,
   label?: string,
-  default?: boolean,
+  default?: boolean
 |};
 
 type VideoTrackType = $Values<typeof VIDEO_TRACK_TYPE>;
@@ -260,5 +260,5 @@ export type {
   UserAnswer,
   VideoProvider,
   VideoTrack,
-  VideoTrackType,
+  VideoTrackType
 };

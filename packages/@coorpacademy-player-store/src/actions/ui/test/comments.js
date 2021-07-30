@@ -6,13 +6,13 @@ test(
   'should call edit comment and dispatch edit comment action',
   macro,
   {},
-  (t) => ({}),
+  t => ({}),
   editComment('foo'),
   [
     {
       type: UI_EDIT_COMMENT,
-      payload: {text: 'foo'},
-    },
+      payload: {text: 'foo'}
+    }
   ],
   0
 );

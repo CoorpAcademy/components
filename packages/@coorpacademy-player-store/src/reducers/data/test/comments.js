@@ -14,8 +14,8 @@ test(
   {
     type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
     payload: {
-      id: 'foo',
-    },
+      id: 'foo'
+    }
   },
   {entities: {foo: {isSent: false}}}
 );
@@ -27,7 +27,7 @@ test(
   {entities: {foo: {isSent: false}}},
   {
     type: SEND_POST_COMMENT_REQUEST,
-    meta: {progressionId: 'foo'},
+    meta: {progressionId: 'foo'}
   },
   {entities: {foo: {isSent: true}}}
 );

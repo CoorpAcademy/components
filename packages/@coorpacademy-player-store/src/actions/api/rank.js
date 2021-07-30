@@ -1,6 +1,7 @@
 // @flow
 
 import buildTask from '@coorpacademy/redux-task';
+import {constant} from 'lodash/fp';
 import {getStartRank} from '../../utils/state-extract';
 import type {Services} from '../../definitions/services';
 import type {
@@ -8,7 +9,7 @@ import type {
   Dispatch,
   DispatchedAction,
   GetState,
-  ThunkAction,
+  ThunkAction
 } from '../../definitions/redux';
 
 export const RANK_FETCH_START_REQUEST: string = '@@rank/FETCH_START_REQUEST';
@@ -30,30 +31,26 @@ const fetchRank = (
   const action: Action = buildTask({
     types,
     task: () => LeaderBoard.getRank(),
-    bailout,
+    bailout
   });
 
   return dispatch(action);
 };
 
-export const fetchStartRank = (): ThunkAction => (
-  dispatch: Dispatch,
-  getState: GetState,
-  {services}: {services: Services}
-): DispatchedAction => {
-  return fetchRank(dispatch, getState, ({services}: {services: Services}), {
-    bailout: getStartRank,
-    types: [RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS, RANK_FETCH_START_FAILURE],
-  });
-};
+export const fetchStartRank = constant<ThunkAction>(
+  (dispatch: Dispatch, getState: GetState, {services}: {services: Services}): DispatchedAction => {
+    return fetchRank(dispatch, getState, ({services}: {services: Services}), {
+      bailout: getStartRank,
+      types: [RANK_FETCH_START_REQUEST, RANK_FETCH_START_SUCCESS, RANK_FETCH_START_FAILURE]
+    });
+  }
+);
 
-export const fetchEndRank = (): ThunkAction => (
-  dispatch: Dispatch,
-  getState: GetState,
-  {services}: {services: Services}
-): DispatchedAction => {
-  return fetchRank(dispatch, getState, ({services}: {services: Services}), {
-    types: [RANK_FETCH_END_REQUEST, RANK_FETCH_END_SUCCESS, RANK_FETCH_END_FAILURE],
-    bailout: undefined,
-  });
-};
+export const fetchEndRank = constant<ThunkAction>(
+  (dispatch: Dispatch, getState: GetState, {services}: {services: Services}): DispatchedAction => {
+    return fetchRank(dispatch, getState, ({services}: {services: Services}), {
+      types: [RANK_FETCH_END_REQUEST, RANK_FETCH_END_SUCCESS, RANK_FETCH_END_FAILURE],
+      bailout: undefined
+    });
+  }
+);

@@ -1,6 +1,7 @@
 // @flow strict
 
 import type {ProgressionId} from '@coorpacademy/progression-engine';
+import {constant} from 'lodash/fp';
 import {registerAcceptExtraLife, registerRefuseExtraLife} from '../api/progressions';
 import {getCurrentProgressionId} from '../../utils/state-extract';
 import type {DispatchedAction, GetState, Dispatch} from '../../definitions/redux';
@@ -15,20 +16,18 @@ const reset = (progressionId: ProgressionId) => async (
   return dispatch(selectProgression(progressionId));
 };
 
-export const refuseExtraLife = () => async (
-  dispatch: Dispatch,
-  getState: GetState
-): DispatchedAction => {
-  const progressionId = getCurrentProgressionId(getState());
-  await dispatch(registerRefuseExtraLife(progressionId));
-  return dispatch(reset(progressionId));
-};
+export const refuseExtraLife = constant(
+  async (dispatch: Dispatch, getState: GetState): DispatchedAction => {
+    const progressionId = getCurrentProgressionId(getState());
+    await dispatch(registerRefuseExtraLife(progressionId));
+    return dispatch(reset(progressionId));
+  }
+);
 
-export const acceptExtraLife = () => async (
-  dispatch: Dispatch,
-  getState: GetState
-): DispatchedAction => {
-  const progressionId = getCurrentProgressionId(getState());
-  await dispatch(registerAcceptExtraLife(progressionId));
-  return dispatch(reset(progressionId));
-};
+export const acceptExtraLife = constant(
+  async (dispatch: Dispatch, getState: GetState): DispatchedAction => {
+    const progressionId = getCurrentProgressionId(getState());
+    await dispatch(registerAcceptExtraLife(progressionId));
+    return dispatch(reset(progressionId));
+  }
+);

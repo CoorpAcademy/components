@@ -14,8 +14,8 @@ test(
   {
     type: UI_PROGRESSION_ACTION_TYPES.SELECT_PROGRESSION,
     payload: {
-      id: 'foo',
-    },
+      id: 'foo'
+    }
   },
   {text: null}
 );
@@ -28,8 +28,8 @@ test(
   {
     type: UI_EDIT_COMMENT,
     payload: {
-      text: 'bar',
-    },
+      text: 'bar'
+    }
   },
   {text: 'bar'}
 );

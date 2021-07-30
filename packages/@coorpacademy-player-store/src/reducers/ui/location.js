@@ -1,7 +1,7 @@
 import {set} from 'lodash/fp';
 import {
   SET_REDIRECT_URL_AFTER_END_REQUEST,
-  SET_REDIRECT_URL_AFTER_END_SUCCESS,
+  SET_REDIRECT_URL_AFTER_END_SUCCESS
 } from '../../actions/ui/location';
 
 const uiLocationReducer = (state = {}, action) => {

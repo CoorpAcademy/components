@@ -8,7 +8,7 @@ type GetNextRecommendation = (type: ContentType, ref: string) => Promise<void | 
 
 type RecommendationsService = {|
   find: FindRecommendations,
-  getNext: GetNextRecommendation,
+  getNext: GetNextRecommendation
 |};
 
 export type {FindRecommendations, GetNextRecommendation, RecommendationsService};
