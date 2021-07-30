@@ -13,6 +13,7 @@ import {
 import {storiesOf} from '@storybook/react';
 import {withKnobs, text, number, boolean, object, color} from '@storybook/addon-knobs';
 import createTranslate from '@coorpacademy/translate';
+import {createBrowserHistory} from '@coorpacademy/history';
 import en from '../locales/en/global';
 // import fr from '../locales/fr/global';
 import Provider from '../es/atom/provider';
@@ -26,7 +27,10 @@ const translate = createTranslate(en);
 const context = {
   skin,
   translate,
-  Vimeo: window.Vimeo
+  Vimeo: window.Vimeo,
+  history: createBrowserHistory({
+    basename: new URL('https://onboarding.coorpacademy.com/foo')
+  })
 };
 
 const isColor = value => /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/.test(value);

@@ -1,5 +1,5 @@
 import test from 'ava';
-import {createMemoryHistory} from '@coorpacademy/history';
+import {createMemoryHistory} from 'history';
 import {createStore, applyMiddleware} from 'redux';
 import {
   historyReducer,
