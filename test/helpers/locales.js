@@ -9,7 +9,7 @@ const remove = require('lodash/fp/remove');
 const flatMap = require('lodash/fp/flatMap');
 const mapValues = require('lodash/fp/mapValues');
 const difference = require('lodash/fp/difference');
-const estraverse = require('estraverse-fb');
+const estraverse = require('estraverse');
 const babelESLint = require('babel-eslint');
 
 const forbiddenCharacters = /:/;
@@ -25,6 +25,11 @@ function interpolate(str) {
 
 estraverse.VisitorKeys.ExperimentalRestProperty = [];
 estraverse.VisitorKeys.ExperimentalSpreadProperty = [];
+estraverse.VisitorKeys.ExportDefaultSpecifier = [];
+estraverse.VisitorKeys.JSXElement = [];
+estraverse.VisitorKeys.JSXFragment = [];
+estraverse.VisitorKeys.ClassProperty = [];
+estraverse.VisitorKeys.OptionalMemberExpression = [];
 
 function position(node) {
   return `${node.loc.start.line}:${node.loc.start.column}`;
