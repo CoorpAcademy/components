@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import {map} from 'lodash/fp';
 import MoocHeader from '../../organism/mooc-header';
@@ -8,6 +8,10 @@ import CardsList from '../../molecule/dashboard/cards-list';
 import style from './style.css';
 
 const TeamsDashboard = ({logo, platformLinks, sections, isLoading}) => {
+  const [isShadowed, setShadowed] = useState(false);
+  const onMenuOpen = useCallback(() => setShadowed(true));
+  const onMenuClose = useCallback(() => setShadowed(false));
+
   const buildSection = (section, index) => {
     return <CardsList {...section} key={section.title + index} />;
   };
@@ -17,9 +21,20 @@ const TeamsDashboard = ({logo, platformLinks, sections, isLoading}) => {
       <Loader data-name="teams-dashboard-loader" />
     </div>
   ) : (
-    <div data-name="teams-dashboard" className={style.teamsDashboard}>
-      <MoocHeader data-name="teams-dashboard-header" logo={logo} links={platformLinks} />
-      {sectionsList}
+    <div
+      data-name="teams-dashboard"
+      className={isShadowed ? style.shadowedTeamsDashboard : style.teamsDashboard}
+    >
+      <MoocHeader
+        data-name="teams-dashboard-header"
+        logo={logo}
+        links={platformLinks}
+        onMenuOpen={onMenuOpen}
+        onMenuClose={onMenuClose}
+      />
+      <div data-name="sections-wrapper" className={isShadowed ? style.sectionsWrapper : null}>
+        {sectionsList}
+      </div>
     </div>
   );
 };

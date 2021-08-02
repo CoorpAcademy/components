@@ -17,6 +17,7 @@ const Search = (props, context) => {
         <SearchIcon color={dark} className={style.icon} />
       </label>
       <input
+        data-name="search-input"
         className={style.search}
         type="text"
         name="search"

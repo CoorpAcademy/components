@@ -95,7 +95,9 @@ class MoocHeader extends React.Component {
           )
         })
       })
-    )
+    ),
+    onMenuOpen: PropTypes.func,
+    onMenuClose: PropTypes.func
   };
 
   static contextTypes = {
@@ -120,6 +122,8 @@ class MoocHeader extends React.Component {
     this.handleResetSearch = this.handleResetSearch.bind(this);
     this.handleOnFocus = this.handleOnFocus.bind(this);
     this.handleOnBlur = this.handleOnBlur.bind(this);
+    this.handleOnMenuOpen = this.handleOnMenuOpen.bind(this);
+    this.handleOnMenuClose = this.handleOnMenuClose.bind(this);
   }
 
   componentDidUpdate(prevProps, prevState, prevContext) {
@@ -159,6 +163,8 @@ class MoocHeader extends React.Component {
   }
 
   handleMenuToggle() {
+    const {isMenuOpen} = this.state;
+    isMenuOpen ? this.handleOnMenuClose() : this.handleOnMenuOpen();
     this.setState(prevState => ({
       isMenuOpen: !prevState.isMenuOpen
     }));
@@ -188,6 +194,20 @@ class MoocHeader extends React.Component {
     this.setState(prevState => ({
       isFocus: false
     }));
+  }
+
+  handleOnMenuOpen() {
+    const {onMenuOpen} = this.props;
+    if (onMenuOpen) {
+      onMenuOpen();
+    }
+  }
+
+  handleOnMenuClose() {
+    const {onMenuClose} = this.props;
+    if (onMenuClose) {
+      onMenuClose();
+    }
   }
 
   render() {
@@ -467,7 +487,10 @@ class MoocHeader extends React.Component {
 
     if (search) {
       searchFormView = (
-        <div data-name="Search-Bar" className={style.searchBar}>
+        <div
+          data-name="Search-Bar"
+          className={isMenuOpen ? style.hiddenSearchBar : style.searchBar}
+        >
           <SearchForm
             search={search}
             onSubmit={this.handleSubmitSearch}
@@ -501,7 +524,10 @@ class MoocHeader extends React.Component {
             </Link>
           </div>
           {searchFormView}
-          <div className={style.menuWrapper} data-name="menu-wrapper">
+          <div
+            className={isMenuOpen ? style.menuWrapper : style.hiddenMenuWrapper}
+            data-name="menu-wrapper"
+          >
             {pagesView}
             {userView || linksView}
             {settingsView}

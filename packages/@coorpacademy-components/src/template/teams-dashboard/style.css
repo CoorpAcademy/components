@@ -1,6 +1,15 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value colors: "../../variables/colors.css";
+@value tablet from breakpoints;
+@value black from colors;
+
 .teamsDashboard {
   height: 100%;
   width: 100%;
+}
+
+.shadowedTeamsDashboard {
+  composes: teamsDashboard;
 }
 
 .loader {
@@ -8,4 +17,25 @@
   min-height: 100px;
   border: none;
   position: relative;
+}
+
+@media tablet {
+  .shadowedTeamsDashboard {
+    overflow-y: hidden; 
+  }
+  .sectionsWrapper {
+    position: sticky;
+    pointer-events: none;
+  }
+  .sectionsWrapper::after {
+    content:'';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 70%;
+    transition: opacity 0.8s;
+    background: black;
+  }
 }

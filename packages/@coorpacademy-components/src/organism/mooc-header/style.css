@@ -40,6 +40,10 @@
   background-color: white;
 }
 
+.hiddenSearchBar {
+  composes: searchBar;
+}
+
 .noItems {
   display: none;
 }
@@ -145,6 +149,11 @@
   display: flex;
   align-items: flex-end;
   height: 60px;
+  overflow-y: auto;
+}
+
+.hiddenMenuWrapper {
+  composes: menuWrapper;
 }
 
 .items {
@@ -506,21 +515,19 @@
     padding: 0;
     background-color: white;
     justify-content: flex-start;
-    align-items: flex-start;
+    height: auto;
+    align-items: center;
   }
 
   .open {
-    height: 100%;
+    height: auto;
+    display: flex;
   }
 
   .logoWrapper {
     background-color: white;
     z-index: 2;
     margin: 0 8px;
-  }
-
-  .open .logoWrapper {
-    height: 60px;
   }
 
   .logo {
@@ -536,6 +543,7 @@
     height: 100%;
     box-sizing: border-box;
     background-color: white;
+    min-height: 30px;
   }
 
   .logoMobile img {
@@ -544,11 +552,17 @@
     width: auto;
     max-width: 100px;
     display: block;
+    align-self: center;
   }
 
   .logoMobile .notifications {
     top: 5px;
     right: 10px;
+  }
+
+  .hiddenMenuWrapper {
+    display: none;
+    top: 0px;
   }
 
   .menuWrapper {
@@ -558,14 +572,23 @@
     flex-direction: column;
     overflow-y: auto;
     overflow-x: hidden;
-    padding: 0 20px 80px;
+    padding: 0 20px 10px;
     box-sizing: border-box;
-    height: 100%;
+    height: auto;
     background-color: white;
     left: 0;
     top: -100%;
     width: 100%;
-    transition: top 0.4s ease-out;
+    transition: top 0.8s ease-out;
+    max-height: 100vh;
+  }
+
+  .menuWrapper:last-child  {
+    padding-bottom: 40px;  
+  }
+
+  .hiddenSearchBar {
+    display: none;
   }
 
   .open .menuWrapper {
@@ -623,17 +646,22 @@
   }
 
   .ctaLink {
-    margin-right: unset;
+    margin-right: 0px;
+  }
+
+  .links > * {
+    margin-top: 10px;
   }
 
   .links {
     height: auto;
     justify-content: flex-start;
-    align-items: center;
+    align-items: flex-start;
     padding: 10px 0 20px;
     margin: 0 0 10px;
     border-bottom: 1px solid light;
     flex-shrink: 0;
+    flex-direction: column;
   }
 
   .links .link {
@@ -663,6 +691,7 @@
     height: auto;
     margin: 0;
     flex-shrink: 0;
+    padding-bottom: 40px;
   }
 
   .settingsToggle {
