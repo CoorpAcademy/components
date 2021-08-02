@@ -26,8 +26,17 @@ function interpolate(str) {
 estraverse.VisitorKeys.ExperimentalRestProperty = ['argument'];
 estraverse.VisitorKeys.ExperimentalSpreadProperty = ['argument'];
 estraverse.VisitorKeys.JSXElement = ['openingElement', 'children', 'closingElement'];
+estraverse.VisitorKeys.JSXOpeningElement = ['name', 'attributes'];
+estraverse.VisitorKeys.JSXClosingElement = ['name'];
+estraverse.VisitorKeys.JSXIdentifier = [];
+estraverse.VisitorKeys.JSXText = [];
+estraverse.VisitorKeys.JSXOpeningFragment = ['name', 'attributes'];
+estraverse.VisitorKeys.JSXClosingFragment = ['name'];
+estraverse.VisitorKeys.JSXMemberExpression = ['object', 'property'];
+estraverse.VisitorKeys.JSXAttribute = ['name', 'value'];
+estraverse.VisitorKeys.JSXSpreadAttribute = ['argument'];
+estraverse.VisitorKeys.JSXExpressionContainer = ['expression'];
 estraverse.VisitorKeys.JSXFragment = ['openingFragment', 'children', 'closingFragment'];
-
 estraverse.VisitorKeys.ClassProperty = ['body', 0];
 estraverse.VisitorKeys.OptionalMemberExpression = ['value'];
 estraverse.VisitorKeys.ExportDefaultSpecifier = ['specifiers', 0];
