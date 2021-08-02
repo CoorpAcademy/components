@@ -23,13 +23,14 @@ function interpolate(str) {
   return [value[1]].concat(interpolate(str.substring(value.index + value[0].length)));
 }
 
-estraverse.VisitorKeys.ExperimentalRestProperty = [];
-estraverse.VisitorKeys.ExperimentalSpreadProperty = [];
-estraverse.VisitorKeys.ExportDefaultSpecifier = [];
-estraverse.VisitorKeys.JSXElement = [];
-estraverse.VisitorKeys.JSXFragment = [];
-estraverse.VisitorKeys.ClassProperty = [];
-estraverse.VisitorKeys.OptionalMemberExpression = [];
+estraverse.VisitorKeys.ExperimentalRestProperty = ['argument'];
+estraverse.VisitorKeys.ExperimentalSpreadProperty = ['argument'];
+estraverse.VisitorKeys.JSXElement = ['openingElement', 'children', 'closingElement'];
+estraverse.VisitorKeys.JSXFragment = ['openingFragment', 'children', 'closingFragment'];
+
+estraverse.VisitorKeys.ClassProperty = ['body', 0];
+estraverse.VisitorKeys.OptionalMemberExpression = ['value'];
+estraverse.VisitorKeys.ExportDefaultSpecifier = ['specifiers', 0];
 
 function position(node) {
   return `${node.loc.start.line}:${node.loc.start.column}`;
