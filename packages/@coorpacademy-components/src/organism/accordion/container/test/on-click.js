@@ -13,8 +13,7 @@ test('should call the onClick function', t => {
   t.plan(7);
   let selectetKey = 0;
   const onClick = (key, e) => {
-    // TODO: FIX
-    // t.is(e.value, 'foo');
+    t.is(e.value, 'foo');
     t.is(key, selectetKey);
   };
   const wrapper = mount(
@@ -22,19 +21,15 @@ test('should call the onClick function', t => {
       {fixture.children}
     </Accordion>
   );
-  wrapper.find(`.part__wrapper`).at(0).simulate('click', {value: 'foo'});
   t.is(wrapper.find(`.part__header`).exists(), true);
-
   selectetKey = 0;
   wrapper.find('.part__header').at(selectetKey).simulate('click', {
     value: 'foo'
   });
-
   selectetKey = 1;
   wrapper.find('.part__header').at(selectetKey).simulate('click', {
     value: 'foo'
   });
-
   selectetKey = 2;
   wrapper.find('.part__header').at(selectetKey).simulate('click', {
     value: 'foo'

@@ -97,7 +97,7 @@ const PartItem = ({
         />
       ) : null}
       <div
-        className={selected ? themeStyle.openHeader : themeStyle.closedHeader}
+        className={isOpen || selected ? themeStyle.openHeader : themeStyle.closedHeader}
         data-type={iconType}
         onClick={onClick}
       >
@@ -139,13 +139,16 @@ const AccordionPart = (props, context) => {
     onClick = noop,
     selected = false,
     type,
-    href
+    href,
+    isOpen = false
   } = props;
-  const [isOpen, updateIsOpen] = React.useState(false);
+  const [isOpenState, updateIsOpenState] = React.useState(false);
   const themeStyle = theme === 'setup' ? setupThemeStyle : defaultStyle;
 
   function handleOnClick() {
-    updateIsOpen(state => !state);
+    if (theme === 'setup') {
+      updateIsOpenState(state => !state);
+    }
     onClick();
   }
   return (
@@ -168,7 +171,7 @@ const AccordionPart = (props, context) => {
             lessMoreIconType={lessMoreIconType}
             theme={theme}
             onClick={handleOnClick}
-            isOpen={isOpen}
+            isOpen={theme === 'setup' ? isOpenState : isOpen}
             selected={selected}
             type={type}
           />
@@ -182,7 +185,7 @@ const AccordionPart = (props, context) => {
           lessMoreIconType={lessMoreIconType}
           theme={theme}
           onClick={handleOnClick}
-          isOpen={isOpen}
+          isOpen={theme === 'setup' ? isOpenState : isOpen}
           selected={selected}
           type={type}
         />
@@ -204,6 +207,7 @@ AccordionPart.propTypes = {
   content: PropTypes.node,
   onClick: PropTypes.func,
   selected: PropTypes.bool,
+  isOpen: PropTypes.bool,
   theme: PropTypes.string,
   href: PropTypes.string
 };
