@@ -70,7 +70,7 @@ const setupThemeStyle = {
 
 const PartItem = ({
   skin,
-  isSelected,
+  selected,
   lessMoreIconType,
   iconType,
   onClick,
@@ -86,34 +86,34 @@ const PartItem = ({
   const mediumColor = get('common.medium', skin);
   const openIconClassName = isOpen ? style.openIconActivated : style.openIcon;
   const closeIconClassName = !isOpen ? style.closeIconActivated : style.closeIcon;
-  const iconColor = isSelected ? style.iconBlue : style.iconGrey;
+  const iconColor = selected ? style.iconBlue : style.iconGrey;
   const themeStyle = theme === 'setup' ? setupThemeStyle : defaultStyle;
 
   return (
     <div className={style.wrapper}>
       {theme === 'setup' ? (
         <div
-          className={classnames(style.border, isSelected ? style.borderBgBlue : style.borderBgNone)}
+          className={classnames(style.border, selected ? style.borderBgBlue : style.borderBgNone)}
         />
       ) : null}
       <div
-        className={isSelected ? themeStyle.openHeader : themeStyle.closedHeader}
+        className={selected ? themeStyle.openHeader : themeStyle.closedHeader}
         data-type={iconType}
         onClick={onClick}
       >
         <div
           data-name="title"
-          className={isSelected ? themeStyle.setupSelectedTitle : themeStyle.title}
+          className={selected ? themeStyle.setupSelectedTitle : themeStyle.title}
         >
           {Icon ? (
             <Icon
               className={classnames(
-                isSelected ? themeStyle.titleActivatedIcon : themeStyle.titleIcon,
+                selected ? themeStyle.titleActivatedIcon : themeStyle.titleIcon,
                 iconColor
               )}
             />
           ) : null}
-          <h3 className={isSelected ? themeStyle.selectedLabel : themeStyle.label}>{title}</h3>
+          <h3 className={selected ? themeStyle.selectedLabel : themeStyle.label}>{title}</h3>
         </div>
         {type !== 'iconLink' ? (
           <div>
@@ -137,7 +137,7 @@ const AccordionPart = (props, context) => {
     lessMoreIconType = 'default',
     theme,
     onClick = noop,
-    isSelected = false,
+    selected = false,
     type,
     href
   } = props;
@@ -169,7 +169,7 @@ const AccordionPart = (props, context) => {
             theme={theme}
             onClick={handleOnClick}
             isOpen={isOpen}
-            isSelected={isSelected}
+            selected={selected}
             type={type}
           />
         </Link>
@@ -183,7 +183,7 @@ const AccordionPart = (props, context) => {
           theme={theme}
           onClick={handleOnClick}
           isOpen={isOpen}
-          isSelected={isSelected}
+          selected={selected}
           type={type}
         />
       )}
@@ -203,7 +203,7 @@ AccordionPart.propTypes = {
   title: PropTypes.string,
   content: PropTypes.node,
   onClick: PropTypes.func,
-  isSelected: PropTypes.bool,
+  selected: PropTypes.bool,
   theme: PropTypes.string,
   href: PropTypes.string
 };

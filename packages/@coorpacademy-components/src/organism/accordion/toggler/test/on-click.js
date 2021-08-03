@@ -15,30 +15,30 @@ test('should open/close accordion', t => {
 
   const wrapper = mount(<Accordion {...fixture.props}>{fixture.children}</Accordion>);
   t.true(wrapper.find('.part__header').exists());
-  t.true(wrapper.find('.part__openHeader').exists());
+  t.true(wrapper.find('.part__closedHeader').exists());
   wrapper.find('.part__header').at(1).simulate('click');
-  t.false(wrapper.find(`.part__openHeader`).exists());
+  t.true(wrapper.find(`.part__closedHeader`).exists());
 
   wrapper.find('.part__header').at(0).simulate('click');
-  t.true(wrapper.find('.part__openHeader').exists());
+  t.true(wrapper.find('.part__closedHeader').exists());
   wrapper.find('.part__header').at(0).simulate('click');
-  t.false(wrapper.find('.part__openHeader').exists());
+  t.false(wrapper.find('.part__closedHeader').exists());
 
   wrapper.find('.part__header').at(2).simulate('click');
-  t.true(wrapper.find('.part__openHeader').exists());
+  t.true(wrapper.find('.part__closedHeader').exists());
   wrapper.find('.part__header').at(2).simulate('click');
-  t.false(wrapper.find('.part__openHeader').exists());
+  t.false(wrapper.find('.part__closedHeader').exists());
 
   wrapper.find('.part__header').at(1).simulate('click');
-  t.true(wrapper.find('.part__openHeader').exists());
+  t.true(wrapper.find('.part__closedHeader').exists());
   wrapper.find('.part__header').at(1).simulate('click');
-  t.false(wrapper.find('.part__openHeader').exists());
+  t.false(wrapper.find('.part__closedHeader').exists());
 
   wrapper.find('.part__header').at(0).simulate('click');
   wrapper.find('.part__header').at(1).simulate('click');
   wrapper.find('.part__header').at(2).simulate('click');
-  t.true(wrapper.find('.part__openHeader').exists());
-  t.is(wrapper.find('.part__openHeader').length, 3);
+  t.true(wrapper.find('.part__closedHeader').exists());
+  t.is(wrapper.find('.part__closedHeader').length, 3);
 });
 
 test('should open/close accordion - only one open', t => {
@@ -47,25 +47,25 @@ test('should open/close accordion - only one open', t => {
   const wrapper = mount(<Accordion {...onlyOneFixture.props}>{onlyOneFixture.children}</Accordion>);
   t.true(wrapper.find('.part__header').exists());
 
-  t.true(wrapper.find('.part__openHeader').exists());
+  t.true(wrapper.find('.part__closedHeader').exists());
 
   wrapper.find('.part__header').at(1).simulate('click');
-  t.is(wrapper.find('.part__openHeader').length, 0);
-  t.false(wrapper.find('.part__openHeader').exists());
+  t.is(wrapper.find('.part__closedHeader').length, 0);
+  t.false(wrapper.find('.part__closedHeader').exists());
 
   wrapper.find('.part__header').at(0).simulate('click');
-  t.is(wrapper.find('.part__openHeader').length, 1);
-  t.true(wrapper.find('.part__openHeader').exists());
+  t.is(wrapper.find('.part__closedHeader').length, 1);
+  t.true(wrapper.find('.part__closedHeader').exists());
 
   wrapper.find('.part__header').at(1).simulate('click');
-  t.is(wrapper.find('.part__openHeader').length, 1);
-  t.true(wrapper.find('.part__openHeader').exists());
+  t.is(wrapper.find('.part__closedHeader').length, 1);
+  t.true(wrapper.find('.part__closedHeader').exists());
 
   wrapper.find('.part__header').at(2).simulate('click');
-  t.is(wrapper.find('.part__openHeader').length, 1);
-  t.true(wrapper.find('.part__openHeader').exists());
+  t.is(wrapper.find('.part__closedHeader').length, 1);
+  t.true(wrapper.find('.part__closedHeader').exists());
 
   wrapper.find('.part__header').at(2).simulate('click');
-  t.is(wrapper.find('.part_openHeader').length, 0);
-  t.false(wrapper.find('.part_openHeader').exists());
+  t.is(wrapper.find('.part_closedHeader').length, 0);
+  t.false(wrapper.find('.part_closedHeader').exists());
 });

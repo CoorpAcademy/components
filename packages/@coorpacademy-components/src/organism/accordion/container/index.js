@@ -13,8 +13,7 @@ const Tab = ({
   children,
   index,
   title,
-  isOpen,
-  isSelected,
+  selected,
   iconType,
   lessMoreIconType,
   onClick,
@@ -30,8 +29,7 @@ const Tab = ({
         lessMoreIconType={lessMoreIconType}
         title={title}
         content={children}
-        isOpen={isOpen}
-        isSelected={isSelected}
+        selected={selected}
         theme={theme}
         href={href}
         type={type}
@@ -49,10 +47,9 @@ Tab.propTypes = {
   title: Part.propTypes.title,
   iconType: Part.propTypes.iconType,
   lessMoreIconType: Part.propTypes.lessMoreIconType,
-  isOpen: Part.propTypes.isOpen,
   theme: Part.propTypes.theme,
   onClick: Part.propTypes.onClick,
-  isSelected: Part.propTypes.bool,
+  selected: Part.propTypes.selected,
   type: Part.propTypes.type,
   href: Part.propTypes.href
 };
@@ -87,12 +84,16 @@ Accordion.propTypes = {
     PropTypes.shape({
       title: Tab.propTypes.title,
       iconType: Tab.propTypes.iconType,
-      isOpen: Tab.propTypes.isOpen
+      selected: Tab.propTypes.selected,
+      type: Tab.propTypes.type,
+      href: Tab.propTypes.href,
+      index: Tab.propTypes.index,
+      children: Tab.propTypes.children,
+      lessMoreIconType: Tab.propTypes.lessMoreIconType
     })
   ),
   onClick: Tab.propTypes.onClick,
-  theme: Tab.propTypes.theme,
-  type: PropTypes.oneOf(['setup', 'default'])
+  theme: PropTypes.oneOf(['setup', 'default'])
 };
 
 export default Accordion;

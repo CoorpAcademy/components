@@ -25,10 +25,9 @@ SubTab.propTypes = {
 const BrandUpdate = props => {
   const {notifications, links, breadcrumbs, tabs, content, details, logo} = props;
 
-  const formattedTabs = tabs.map(({key, title, href, selected, open, type = 'link'}, index) => ({
+  const formattedTabs = tabs.map(({key, title, href, selected, type = 'link'}, index) => ({
     title,
-    isOpen: open,
-    isSelected: selected,
+    selected,
     type,
     href,
     index,
@@ -41,7 +40,7 @@ const BrandUpdate = props => {
 
   const subTabsView = (_subTabs = []) =>
     map.convert({cap: false})((subTab, _index) => (
-      <div>
+      <div key={subTab.title}>
         {subTab.type === 'iconLink' ? (
           <IconLinkItem
             {...subTab}
@@ -56,7 +55,9 @@ const BrandUpdate = props => {
     ))(_subTabs);
 
   const formattedTabsViews = map(tab => (
-    <div className={style.subTabs}>{subTabsView(tab.subTabs)}</div>
+    <div key={tab.title} className={style.subTabs}>
+      {subTabsView(tab.subTabs)}
+    </div>
   ))(tabs);
 
   const notificationsList = notifications.map((notification, index) => {
@@ -93,7 +94,7 @@ const BrandUpdate = props => {
         <div className={style.logo}>
           <img src={logo} />
         </div>
-        <Accordion tabProps={formattedTabs} type={'all'} theme={'setup'}>
+        <Accordion tabProps={formattedTabs} theme={'setup'}>
           {formattedTabsViews}
         </Accordion>
       </div>
@@ -126,11 +127,10 @@ BrandUpdate.propTypes = {
   logo: PropTypes.string.isRequired,
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
-      key: PropTypes.string.isRequired,
+      key: PropTypes.string,
       title: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
       selected: PropTypes.bool.isRequired,
-      open: PropTypes.bool.isRequired,
       type: PropTypes.string,
       subTabs: PropTypes.arrayOf(
         PropTypes.shape({

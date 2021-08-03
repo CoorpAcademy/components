@@ -12,6 +12,7 @@ export default {
     breadcrumbs,
     links,
     tabs,
+    logo: '',
     content: {
       type: 'form',
       groups: []

@@ -17,7 +17,8 @@ export default {
         title: 'Create Content',
         href: '#brand/samsung/catalog',
         selected: false,
-        type: 'iconLink'
+        type: 'iconLink',
+        key: 'content-creation'
       }
     ],
     content: {

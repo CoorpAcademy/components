@@ -21,15 +21,19 @@ test('should call the onClick function', t => {
       {fixture.children}
     </Accordion>
   );
+  wrapper.find(`.part__wrapper`).at(0).simulate('click', {value: 'foo'});
   t.is(wrapper.find(`.part__header`).exists(), true);
+
   selectetKey = 0;
   wrapper.find('.part__header').at(selectetKey).simulate('click', {
     value: 'foo'
   });
+
   selectetKey = 1;
   wrapper.find('.part__header').at(selectetKey).simulate('click', {
     value: 'foo'
   });
+
   selectetKey = 2;
   wrapper.find('.part__header').at(selectetKey).simulate('click', {
     value: 'foo'

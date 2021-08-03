@@ -10,14 +10,16 @@ export default {
   props: {
     tabProps: [
       {
-        title: 'Qcm image'
+        title: 'Qcm image',
+        isSelected: false
       },
       {
         title: 'Qcm classique',
-        isOpen: true
+        isSelected: false
       },
       {
-        title: 'Qcm Drag'
+        title: 'Qcm Drag',
+        isSelected: false
       }
     ]
   },
