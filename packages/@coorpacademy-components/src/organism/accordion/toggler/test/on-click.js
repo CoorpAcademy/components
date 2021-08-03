@@ -17,7 +17,7 @@ test('should open/close accordion', t => {
   t.true(wrapper.find('.part__header').exists());
   t.true(wrapper.find('.part__closedHeader').exists());
   wrapper.find('.part__header').at(1).simulate('click');
-  t.true(wrapper.find(`.part__closedHeader`).exists());
+  t.false(wrapper.find(`.part__closedHeader`).exists());
 
   wrapper.find('.part__header').at(0).simulate('click');
   t.true(wrapper.find('.part__closedHeader').exists());
@@ -46,8 +46,6 @@ test('should open/close accordion - only one open', t => {
 
   const wrapper = mount(<Accordion {...onlyOneFixture.props}>{onlyOneFixture.children}</Accordion>);
   t.true(wrapper.find('.part__header').exists());
-
-  t.true(wrapper.find('.part__closedHeader').exists());
 
   wrapper.find('.part__header').at(1).simulate('click');
   t.is(wrapper.find('.part__closedHeader').length, 0);

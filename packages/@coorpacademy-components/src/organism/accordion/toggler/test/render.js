@@ -30,16 +30,16 @@ test(`should keep isOpen in state`, t => {
 
   t.true(wrapper.find('.part__header').exists());
 
-  t.false(wrapper.find('.part__openHeader').exists());
+  t.false(wrapper.find('.part__closedHeader').exists());
 
   wrapper.find('.part__header').at(0).simulate('click');
 
-  t.true(wrapper.find('.part__openHeader').exists());
+  t.true(wrapper.find('.part__closedHeader').exists());
 
   wrapper.setProps({
     ...onlyOneFixture.props,
     children: onlyOneFixture.children
   });
 
-  t.true(wrapper.find('.part__openHeader').exists());
+  t.true(wrapper.find('.part__closedHeader').exists());
 });
