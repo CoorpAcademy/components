@@ -129,7 +129,7 @@ test('should return scrollWidth and call onScroll if exist', t => {
   cardsList.unmount();
 });
 
-test('should update componenet when resizing', t => {
+test('should update component when resizing', t => {
   const {props} = Card;
   const props_ = {
     cards: times(() => props, 3)

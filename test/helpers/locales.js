@@ -9,7 +9,7 @@ const remove = require('lodash/fp/remove');
 const flatMap = require('lodash/fp/flatMap');
 const mapValues = require('lodash/fp/mapValues');
 const difference = require('lodash/fp/difference');
-const estraverse = require('estraverse-fb');
+const estraverse = require('estraverse');
 const babelESLint = require('babel-eslint');
 
 const forbiddenCharacters = /:/;
@@ -23,8 +23,23 @@ function interpolate(str) {
   return [value[1]].concat(interpolate(str.substring(value.index + value[0].length)));
 }
 
-estraverse.VisitorKeys.ExperimentalRestProperty = [];
-estraverse.VisitorKeys.ExperimentalSpreadProperty = [];
+estraverse.VisitorKeys.ExperimentalRestProperty = ['argument'];
+estraverse.VisitorKeys.ExperimentalSpreadProperty = ['argument'];
+estraverse.VisitorKeys.JSXElement = ['openingElement', 'children', 'closingElement'];
+estraverse.VisitorKeys.JSXOpeningElement = ['name', 'attributes'];
+estraverse.VisitorKeys.JSXClosingElement = ['name'];
+estraverse.VisitorKeys.JSXIdentifier = [];
+estraverse.VisitorKeys.JSXText = [];
+estraverse.VisitorKeys.JSXOpeningFragment = ['name', 'attributes'];
+estraverse.VisitorKeys.JSXClosingFragment = ['name'];
+estraverse.VisitorKeys.JSXMemberExpression = ['object', 'property'];
+estraverse.VisitorKeys.JSXAttribute = ['name', 'value'];
+estraverse.VisitorKeys.JSXSpreadAttribute = ['argument'];
+estraverse.VisitorKeys.JSXExpressionContainer = ['expression'];
+estraverse.VisitorKeys.JSXFragment = ['openingFragment', 'children', 'closingFragment'];
+estraverse.VisitorKeys.ClassProperty = ['body', 0];
+estraverse.VisitorKeys.OptionalMemberExpression = ['value'];
+estraverse.VisitorKeys.ExportDefaultSpecifier = ['specifiers', 0];
 
 function position(node) {
   return `${node.loc.start.line}:${node.loc.start.column}`;
