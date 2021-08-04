@@ -120,6 +120,8 @@ import MoleculeUnsubscribe from './../src/molecule/unsubscribe';
 import MoleculeVideoIframe from './../src/molecule/video-iframe';
 import MoleculeVideoPlayer from './../src/molecule/video-player';
 import OrganismAccordionContainer from './../src/organism/accordion/container';
+import OrganismAccordionCoorpManagerPart from './../src/organism/accordion/coorp-manager/part';
+import OrganismAccordionCoorpManager from './../src/organism/accordion/coorp-manager';
 import OrganismAccordionPart from './../src/organism/accordion/part';
 import OrganismAccordionToggler from './../src/organism/accordion/toggler';
 import OrganismBrandDashboard from './../src/organism/brand-dashboard';
@@ -645,7 +647,8 @@ import MoleculeVideoPlayerFixtureYoutube from '../src/molecule/video-player/test
 import OrganismAccordionContainerFixtureDefault from '../src/organism/accordion/container/test/fixtures/default';
 import OrganismAccordionContainerFixtureNoChildren from '../src/organism/accordion/container/test/fixtures/no-children';
 import OrganismAccordionContainerFixtureOneChildren from '../src/organism/accordion/container/test/fixtures/one-children';
-import OrganismAccordionPartFixtureCoorpManager from '../src/organism/accordion/part/test/fixtures/coorp-manager';
+import OrganismAccordionCoorpManagerPartFixtureDefaut from '../src/organism/accordion/coorp-manager/part/test/fixtures/defaut';
+import OrganismAccordionCoorpManagerFixtureDefault from '../src/organism/accordion/coorp-manager/test/fixtures/default';
 import OrganismAccordionPartFixtureDefault from '../src/organism/accordion/part/test/fixtures/default';
 import OrganismAccordionPartFixtureOpen from '../src/organism/accordion/part/test/fixtures/open';
 import OrganismAccordionTogglerFixtureAllAreOpenable from '../src/organism/accordion/toggler/test/fixtures/all-are-openable';
@@ -1068,8 +1071,12 @@ export const components = {
   },
   OrganismAccordion: {
     OrganismAccordionContainer,
+    OrganismAccordionCoorpManager,
     OrganismAccordionPart,
     OrganismAccordionToggler
+  },
+  OrganismAccordionCoorpManager: {
+    OrganismAccordionCoorpManagerPart
   },
   Organism: {
     OrganismBrandDashboard,
@@ -1868,8 +1875,10 @@ export const fixtures = {
       NoChildren: OrganismAccordionContainerFixtureNoChildren,
       OneChildren: OrganismAccordionContainerFixtureOneChildren
     },
+    OrganismAccordionCoorpManager: {
+      Default: OrganismAccordionCoorpManagerFixtureDefault
+    },
     OrganismAccordionPart: {
-      CoorpManager: OrganismAccordionPartFixtureCoorpManager,
       Default: OrganismAccordionPartFixtureDefault,
       Open: OrganismAccordionPartFixtureOpen
     },
@@ -1877,6 +1886,11 @@ export const fixtures = {
       AllAreOpenable: OrganismAccordionTogglerFixtureAllAreOpenable,
       NoChildrens: OrganismAccordionTogglerFixtureNoChildrens,
       OnlyOne: OrganismAccordionTogglerFixtureOnlyOne
+    }
+  },
+  OrganismAccordionCoorpManager: {
+    OrganismAccordionCoorpManagerPart: {
+      Defaut: OrganismAccordionCoorpManagerPartFixtureDefaut
     }
   },
   Organism: {

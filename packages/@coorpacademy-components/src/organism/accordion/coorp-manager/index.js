@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {get, map, noop} from 'lodash/fp';
-import Part from '../part';
+import {map, noop} from 'lodash/fp';
+import Part from './part';
 import style from './style.css';
 
 const themeStyle = {
@@ -9,17 +9,18 @@ const themeStyle = {
   default: style.wrapper
 };
 
-const Tab = ({children, index, title, isOpen, iconType, onClick, theme}) => {
+const Tab = ({children, index, title, selected, iconType, onClick, href, type, theme}) => {
   const handleOnClick = useMemo(() => evt => onClick(index, evt), [onClick]);
-
   return children ? (
     <div data-name="accordion" className={themeStyle[theme]}>
       <Part
         iconType={iconType}
         title={title}
         content={children}
-        isOpen={isOpen}
+        selected={selected}
         theme={theme}
+        href={href}
+        type={type}
         onClick={handleOnClick}
       />
     </div>
@@ -33,21 +34,29 @@ Tab.propTypes = {
   index: PropTypes.number,
   title: Part.propTypes.title,
   iconType: Part.propTypes.iconType,
-  isOpen: Part.propTypes.isOpen,
   theme: Part.propTypes.theme,
-  onClick: Part.propTypes.onClick
+  onClick: Part.propTypes.onClick,
+  selected: Part.propTypes.selected,
+  type: Part.propTypes.type,
+  href: Part.propTypes.href
 };
 
 const Accordion = props => {
   const {tabProps, children, theme = 'default', onClick = noop} = props;
-  const accordion = map.convert({cap: false})((child, index) => {
-    const tabProps_ = get(index, tabProps);
+
+  const tabs = map.convert({cap: false})((tab, index) => ({
+    ...tab,
+    child: children[index],
+    children: undefined
+  }))(tabProps);
+
+  const accordion = map.convert({cap: false})((tab, index) => {
     return (
-      <Tab {...tabProps_} key={index} index={index} theme={theme} onClick={onClick}>
-        {child}
+      <Tab {...tab} key={index} index={index} theme={theme} onClick={onClick}>
+        {tab.child}
       </Tab>
     );
-  }, children);
+  }, tabs);
 
   return <div>{accordion}</div>;
 };
@@ -62,11 +71,15 @@ Accordion.propTypes = {
     PropTypes.shape({
       title: Tab.propTypes.title,
       iconType: Tab.propTypes.iconType,
-      isOpen: Tab.propTypes.isOpen
+      selected: Tab.propTypes.selected,
+      type: Tab.propTypes.type,
+      href: Tab.propTypes.href,
+      index: Tab.propTypes.index,
+      children: Tab.propTypes.children
     })
   ),
   onClick: Tab.propTypes.onClick,
-  theme: Tab.propTypes.theme
+  theme: PropTypes.oneOf(['setup', 'default'])
 };
 
 export default Accordion;

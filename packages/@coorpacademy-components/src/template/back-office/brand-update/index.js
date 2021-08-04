@@ -9,7 +9,7 @@ import BrandUpload from '../../../organism/brand-upload';
 import BrandDashboard from '../../../organism/brand-dashboard';
 import Notification from '../../../atom/notification';
 import Loader from '../../../atom/loader';
-import Accordion from '../../../organism/accordion/container';
+import Accordion from '../../../organism/accordion/coorp-manager';
 import style from './style.css';
 
 const SubTab = ({title, href, selected}) => {
@@ -32,8 +32,7 @@ const BrandUpdate = props => {
     href,
     index,
     children: [],
-    iconType: key || 'arrow',
-    lessMoreIconType: 'arrow'
+    iconType: key || 'arrow'
   }));
 
   const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
