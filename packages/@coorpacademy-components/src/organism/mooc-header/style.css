@@ -516,11 +516,13 @@
     justify-content: flex-start;
     height: auto;
     align-items: center;
+    min-height: 60px;
   }
 
   .open {
     height: auto;
     display: flex;
+    min-height: 60px;
   }
 
   .logoWrapper {
