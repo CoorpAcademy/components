@@ -6,7 +6,6 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 
-
 .header {
   position: relative;
   height: 50px;

@@ -3,22 +3,28 @@ import {noop, keys, get} from 'lodash/fp';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
+  NovaSolidLightsLightbulb4 as LightBulbIcon,
   NovaCompositionNavigationArrowDown as ArrowIcon,
-  NovaCompositionCoorpacademyOpenInNewTab as OpenInNewTabIcon
+  NovaCompositionCoorpacademyOpenInNewTab as OpenInNewTabIcon,
+  NovaCompositionCoorpacademyDashboard as DashboardIcon,
+  NovaCompositionCoorpacademyAnalytics as AnalyticsIcon,
+  NovaCompositionCoorpacademyAnimation as AnimationIcon,
+  NovaCompositionCoorpacademyAdministration as AdministrationIcon,
+  NovaCompositionCoorpacademyContentCreation as ContentCreationIcon,
+  NovaCompositionCoorpacademyEditorialization as EditorializationIcon
 } from '@coorpacademy/nova-icons';
-import Provider from '../../../../atom/provider';
 import Link from '../../../../atom/link';
-import {PartItem} from '../../part';
+import Provider from '../../../../atom/provider';
 import style from './style.css';
 
 const ICON_TYPES = {
-  arrow: 'arrow',
-  dashboard: 'dashboard',
-  analytics: 'analytics',
-  administration: 'administration',
-  animation: 'animation',
-  contentCreation: 'contentCreation',
-  editorialization: 'editorialization'
+  arrow: LightBulbIcon,
+  dashboard: DashboardIcon,
+  analytics: AnalyticsIcon,
+  administration: AdministrationIcon,
+  animation: AnimationIcon,
+  contentCreation: ContentCreationIcon,
+  editorialization: EditorializationIcon
 };
 
 const defaultStyle = {
@@ -56,12 +62,24 @@ const MoreLessIcons = ({type, moreClassName, lessClassName, darkColor, mediumCol
   );
 };
 
-const Part = ({skin, selected, iconType, onParentClick, onClick, isOpen, title, type, theme}) => {
+const Part = ({
+  skin,
+  selected,
+  iconType,
+  onParentClick,
+  onClick,
+  isOpen,
+  title,
+  type,
+  children,
+  theme
+}) => {
   const darkColor = get('common.dark', skin);
   const mediumColor = get('common.medium', skin);
   const lessClassName = isOpen ? style.openIconActivated : style.openIcon;
   const moreClassName = !isOpen ? style.closeIconActivated : style.closeIcon;
   const iconColor = selected ? style.iconBlue : style.iconGrey;
+  const Icon = ICON_TYPES[iconType];
 
   return (
     <div className={style.wrapper}>
@@ -71,25 +89,28 @@ const Part = ({skin, selected, iconType, onParentClick, onClick, isOpen, title, 
         />
       ) : null}
       <div data-type={iconType} onClick={onParentClick} style={{flex: 1}}>
-        <div>
-          <PartItem
-            title={title}
-            iconColor={iconColor}
-            iconType={iconType}
-            theme={theme}
-            mediumColor={mediumColor}
-            darkColor={darkColor}
+        <div data-name="accordionPart" className={style.setupPart}>
+          <div
+            className={isOpen ? style.openHeader : style.closedHeader}
+            data-type={iconType}
             onClick={onClick}
-            iconsChildren={
-              <MoreLessIcons
-                moreClassName={moreClassName}
-                lessClassName={lessClassName}
-                darkColor={darkColor}
-                mediumColor={mediumColor}
-                type={type}
-              />
-            }
-          />
+          >
+            <div data-name="title" className={style.title}>
+              {Icon ? (
+                <Icon className={classnames(style.titleIcon, iconColor)} color="inherit" />
+              ) : null}
+              <h3 className={style.titleLabel}>{title}</h3>
+            </div>
+            {type !== 'iconLink' ? (
+              <div>
+                <ArrowIcon className={moreClassName} color={darkColor} />
+                <ArrowIcon className={lessClassName} color={mediumColor} />
+              </div>
+            ) : (
+              <OpenInNewTabIcon className={style.newTabIcon} />
+            )}
+          </div>
+          {children}
         </div>
       </div>
     </div>
