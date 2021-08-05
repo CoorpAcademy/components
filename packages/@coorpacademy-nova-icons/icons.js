@@ -9,6 +9,12 @@ export type Icon = {|
 
 const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/adaptive.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/administration.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/analytics.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/animation.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/content-creation.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/dashboard.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/editorialization.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/open-in-new-tab.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/arrow-down.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/arrow-left.svg')},

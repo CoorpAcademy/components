@@ -1,17 +1,37 @@
 @value colors: "../../../variables/colors.css";
 @value light from colors;
+@value xtraLightGrey from colors;
+@value cm_lightGrey from colors;
+@value black from colors;
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 @value wide from breakpoints;
 
+
 .container {
   width: 100%;
+  height: 100%;
   max-width: 100%;
   scroll-behavior: unset;
   margin: 0 auto;
   padding-bottom: 80px 20px;
+  display: flex;
+  font-family: "Open Sans";
+}
+
+.subTabs {
+  margin-left: 9.5%;
+  padding: 1px 20px 1px 20px;
+  font-size: 16px;
+  font-weight: 700;
+  border-left: solid 3px cm_lightGrey;
+}
+
+.contentWrapper {
+  padding-top: 80px;
+  width: 100%;
 }
 
 .notifications {
@@ -33,8 +53,8 @@
 }
 
 .dashboardAside {
-  padding: 16px;
-  padding-left: 0;
+  min-width: 270px;
+  background: xtraLightGrey;
 }
 
 .contentView {
@@ -56,6 +76,27 @@
   border: 1px solid light;
 }
 
+.selectedElement {
+  font-size: 12px;
+  background-color: cm_lightGrey;
+  border-radius: 5px;
+  color: black;
+}
+
+.unselectedElement {
+  font-size: 12px;
+}
+
+.unselectedElement:hover {
+  color: black;
+}
+
+.logo {
+  height: 32px;
+  margin: 32px 40px 54px 40px;
+}
+
+
 @media desktop {
   .contentHandler {
     flex-direction: column;
@@ -71,12 +112,6 @@
 
   .contentHandler:nth-child(2) {
     width: 80%;
-  }
-
-  .dashboardAside {
-    padding-right: 0;
-    padding-left: 18px;
-    width: 96%;
   }
 
   .contentView {

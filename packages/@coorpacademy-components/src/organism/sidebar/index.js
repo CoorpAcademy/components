@@ -96,7 +96,10 @@ export const LinkItem = ({
   color,
   title,
   onClick,
-  uppercase = true
+  uppercase = true,
+  styles,
+  children,
+  setChildrenAsHtml = true
 }) => {
   const handleOnClick = useMemo(
     () => e => {
@@ -104,6 +107,10 @@ export const LinkItem = ({
     },
     [onClick]
   );
+
+  const classNames = classnames(style.linkItem, innerHTML, {[style.uppercase]: uppercase}, styles);
+  const borderStyle = {borderLeftColor: selected ? color : null};
+
   return (
     <Link
       onClick={handleOnClick}
@@ -115,14 +122,19 @@ export const LinkItem = ({
         color: selected ? color : NEUTRAL_COLOR
       }}
     >
-      <li
-        className={classnames(style.linkItem, innerHTML, {[style.uppercase]: uppercase})}
-        style={{
-          borderLeftColor: selected ? color : null
-        }}
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{__html: title}}
-      />
+      {setChildrenAsHtml ? (
+        <li
+          className={classNames}
+          style={borderStyle}
+          // eslint-disable-next-line react/no-danger
+          dangerouslySetInnerHTML={{__html: title}}
+        />
+      ) : (
+        <li className={classNames} style={borderStyle}>
+          {title}
+          {children}
+        </li>
+      )}
     </Link>
   );
 };
@@ -135,18 +147,16 @@ LinkItem.propTypes = {
   href: PropTypes.string,
   color: PropTypes.string,
   onClick: PropTypes.func,
-  uppercase: PropTypes.bool
+  uppercase: PropTypes.bool,
+  setChildrenAsHtml: PropTypes.bool
 };
 
 export const IconLinkItem = ({
-  href,
   index,
-  name,
-  selected,
-  color,
-  title,
+  name = `button-link-item-${index}`,
   onClick,
-  uppercase = true
+  uppercase = true,
+  ...props
 }) => {
   const handleOnClick = useMemo(
     () => e => {
@@ -155,40 +165,20 @@ export const IconLinkItem = ({
     [onClick]
   );
   return (
-    <Link
+    <LinkItem
+      {...props}
+      setChildrenAsHtml={false}
       onClick={handleOnClick}
-      skinHover
-      href={href}
-      data-name={name || `button-link-item-${index}`}
-      target="_blank"
-      style={{
-        textDecoration: 'none',
-        color: selected ? color : NEUTRAL_COLOR
-      }}
+      name={name}
+      uppercase={uppercase}
+      index={index}
     >
-      <li
-        className={classnames(style.linkItem, innerHTML, {[style.uppercase]: uppercase})}
-        style={{
-          borderLeftColor: selected ? color : null
-        }}
-      >
-        {title}
-        <NovaCompositionCoorpacademyOpenInNewTab className={style.icon} />
-      </li>
-    </Link>
+      <NovaCompositionCoorpacademyOpenInNewTab className={style.icon} />
+    </LinkItem>
   );
 };
 
-IconLinkItem.propTypes = {
-  index: PropTypes.number,
-  title: PropTypes.string.isRequired,
-  selected: PropTypes.bool,
-  name: PropTypes.string,
-  href: PropTypes.string,
-  color: PropTypes.string,
-  onClick: PropTypes.func,
-  uppercase: PropTypes.bool
-};
+IconLinkItem.propTypes = LinkItem.propTypes;
 
 export const TitleItem = ({name, index, title, uppercase}) => {
   return (
