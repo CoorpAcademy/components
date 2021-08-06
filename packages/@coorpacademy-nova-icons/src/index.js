@@ -8,6 +8,8 @@ import type {Icon} from './types';
 
 export type {Icon};
 
+import _NovaCompositionCoorpacademy10secBack from './components/nova-composition/coorpacademy/10sec-back';
+import _NovaCompositionCoorpacademy10secForward from './components/nova-composition/coorpacademy/10sec-forward';
 import _NovaCompositionCoorpacademyAdaptive from './components/nova-composition/coorpacademy/adaptive';
 import _NovaCompositionCoorpacademyAddressError from './components/nova-composition/coorpacademy/address-error';
 import _NovaCompositionCoorpacademyAdministration from './components/nova-composition/coorpacademy/administration';
@@ -17,6 +19,7 @@ import _NovaCompositionCoorpacademyArticle from './components/nova-composition/c
 import _NovaCompositionCoorpacademyAttention from './components/nova-composition/coorpacademy/attention';
 import _NovaCompositionCoorpacademyBigFlashLeft from './components/nova-composition/coorpacademy/big-flash-left';
 import _NovaCompositionCoorpacademyBigFlashRight from './components/nova-composition/coorpacademy/big-flash-right';
+import _NovaCompositionCoorpacademyBluetooth from './components/nova-composition/coorpacademy/bluetooth';
 import _NovaCompositionCoorpacademyBolt from './components/nova-composition/coorpacademy/bolt';
 import _NovaCompositionCoorpacademyBrokenHeart from './components/nova-composition/coorpacademy/broken-heart';
 import _NovaCompositionCoorpacademyCharts from './components/nova-composition/coorpacademy/charts';
@@ -58,10 +61,15 @@ import _NovaCompositionCoorpacademyMailInbox from './components/nova-composition
 import _NovaCompositionCoorpacademyMailInboxDocument from './components/nova-composition/coorpacademy/mail-inbox-document';
 import _NovaCompositionCoorpacademyMap from './components/nova-composition/coorpacademy/map';
 import _NovaCompositionCoorpacademyMicrophone from './components/nova-composition/coorpacademy/microphone';
+import _NovaCompositionCoorpacademyNext from './components/nova-composition/coorpacademy/next';
 import _NovaCompositionCoorpacademyOpenInNewTab from './components/nova-composition/coorpacademy/open-in-new-tab';
+import _NovaCompositionCoorpacademyPause from './components/nova-composition/coorpacademy/pause';
 import _NovaCompositionCoorpacademyPictures from './components/nova-composition/coorpacademy/pictures';
 import _NovaCompositionCoorpacademyPinterest from './components/nova-composition/coorpacademy/pinterest';
+import _NovaCompositionCoorpacademyPlay from './components/nova-composition/coorpacademy/play';
+import _NovaCompositionCoorpacademyPrev from './components/nova-composition/coorpacademy/prev';
 import _NovaCompositionCoorpacademyProfile from './components/nova-composition/coorpacademy/profile';
+import _NovaCompositionCoorpacademyQueue from './components/nova-composition/coorpacademy/queue';
 import _NovaCompositionCoorpacademyReload from './components/nova-composition/coorpacademy/reload';
 import _NovaCompositionCoorpacademySchoolGraduation from './components/nova-composition/coorpacademy/school-graduation';
 import _NovaCompositionCoorpacademyScorm from './components/nova-composition/coorpacademy/scorm';
@@ -159,6 +167,8 @@ import _NovaSolidVoteRewardsRewardsTrophy5 from './components/nova-solid/vote-re
 import _NovaSolidVoteRewardsVoteHeart from './components/nova-solid/vote-rewards/vote-heart';
 import _NovaSolidVoteRewardsVoteStar from './components/nova-solid/vote-rewards/vote-star';
 
+export const NovaCompositionCoorpacademy10secBack: Icon = _NovaCompositionCoorpacademy10secBack;
+export const NovaCompositionCoorpacademy10secForward: Icon = _NovaCompositionCoorpacademy10secForward;
 export const NovaCompositionCoorpacademyAdaptive: Icon = _NovaCompositionCoorpacademyAdaptive;
 export const NovaCompositionCoorpacademyAddressError: Icon = _NovaCompositionCoorpacademyAddressError;
 export const NovaCompositionCoorpacademyAdministration: Icon = _NovaCompositionCoorpacademyAdministration;
@@ -168,6 +178,7 @@ export const NovaCompositionCoorpacademyArticle: Icon = _NovaCompositionCoorpaca
 export const NovaCompositionCoorpacademyAttention: Icon = _NovaCompositionCoorpacademyAttention;
 export const NovaCompositionCoorpacademyBigFlashLeft: Icon = _NovaCompositionCoorpacademyBigFlashLeft;
 export const NovaCompositionCoorpacademyBigFlashRight: Icon = _NovaCompositionCoorpacademyBigFlashRight;
+export const NovaCompositionCoorpacademyBluetooth: Icon = _NovaCompositionCoorpacademyBluetooth;
 export const NovaCompositionCoorpacademyBolt: Icon = _NovaCompositionCoorpacademyBolt;
 export const NovaCompositionCoorpacademyBrokenHeart: Icon = _NovaCompositionCoorpacademyBrokenHeart;
 export const NovaCompositionCoorpacademyCharts: Icon = _NovaCompositionCoorpacademyCharts;
@@ -209,10 +220,15 @@ export const NovaCompositionCoorpacademyMailInbox: Icon = _NovaCompositionCoorpa
 export const NovaCompositionCoorpacademyMailInboxDocument: Icon = _NovaCompositionCoorpacademyMailInboxDocument;
 export const NovaCompositionCoorpacademyMap: Icon = _NovaCompositionCoorpacademyMap;
 export const NovaCompositionCoorpacademyMicrophone: Icon = _NovaCompositionCoorpacademyMicrophone;
+export const NovaCompositionCoorpacademyNext: Icon = _NovaCompositionCoorpacademyNext;
 export const NovaCompositionCoorpacademyOpenInNewTab: Icon = _NovaCompositionCoorpacademyOpenInNewTab;
+export const NovaCompositionCoorpacademyPause: Icon = _NovaCompositionCoorpacademyPause;
 export const NovaCompositionCoorpacademyPictures: Icon = _NovaCompositionCoorpacademyPictures;
 export const NovaCompositionCoorpacademyPinterest: Icon = _NovaCompositionCoorpacademyPinterest;
+export const NovaCompositionCoorpacademyPlay: Icon = _NovaCompositionCoorpacademyPlay;
+export const NovaCompositionCoorpacademyPrev: Icon = _NovaCompositionCoorpacademyPrev;
 export const NovaCompositionCoorpacademyProfile: Icon = _NovaCompositionCoorpacademyProfile;
+export const NovaCompositionCoorpacademyQueue: Icon = _NovaCompositionCoorpacademyQueue;
 export const NovaCompositionCoorpacademyReload: Icon = _NovaCompositionCoorpacademyReload;
 export const NovaCompositionCoorpacademySchoolGraduation: Icon = _NovaCompositionCoorpacademySchoolGraduation;
 export const NovaCompositionCoorpacademyScorm: Icon = _NovaCompositionCoorpacademyScorm;
