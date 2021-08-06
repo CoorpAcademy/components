@@ -59,6 +59,14 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/small-flash-right.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/small-flash-left.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/start-battle-shape.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/10sec-back.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/10sec-forward.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/bluetooth.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/next.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/prev.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/pause.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/play.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/queue.svg')},
   {
     filePath: path.resolve('./third-party/nova-composition.iconjar/icons/draft.svg'),
     replaceColors: false
