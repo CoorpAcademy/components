@@ -8,11 +8,11 @@
 .resource {
   position: relative;
   width: auto;
-  height: 52px;
+  min-height: 52px;
   cursor: pointer;
   margin-bottom: 8px;
   display: flex;
-  align-items: center;
+  align-items: start;
   flex: 1 0 52px;
 }
 
