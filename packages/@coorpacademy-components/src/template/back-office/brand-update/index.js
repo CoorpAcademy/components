@@ -23,8 +23,8 @@ SubTab.propTypes = {
 };
 
 const BrandUpdate = props => {
-  const {notifications, links, breadcrumbs, tabs, content, details, logo} = props;
-
+  const {notifications, links, breadcrumbs, tabs, content, details} = props;
+  const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
   const formattedTabs = tabs.map(({key, title, href, selected, type = 'link'}, index) => ({
     title,
     selected,
@@ -123,7 +123,6 @@ BrandUpdate.propTypes = {
   notifications: PropTypes.arrayOf(PropTypes.shape(Notification.propTypes)),
   breadcrumbs: Breadcrumbs.propTypes.breadcrumbs,
   links: Breadcrumbs.propTypes.links,
-  logo: PropTypes.string.isRequired,
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string,

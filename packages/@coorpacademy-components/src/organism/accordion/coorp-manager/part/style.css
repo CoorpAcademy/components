@@ -13,9 +13,11 @@
 .wrapper {
   width: 100%;
   box-sizing: border-box;
+  font-family: 'Gilroy';
 }
 
 .header {
+  font-family: 'Gilroy';
   position: relative;
   height: 50px;
   display: flex;
@@ -33,15 +35,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.openHeader {
-  composes: header;
-  background-color: xtraLightGrey;
-}
-
-.closedHeader {
-  composes: header;
 }
 
 .coorpManagerOpenHeader {
@@ -74,6 +67,10 @@
   background-color: xtraLightGrey;
 }
 
+.header:hover .titleLabel {
+  color: cm_black;
+}
+
 .selectedTitle {
   display: flex;
   flex-direction: row;
@@ -82,7 +79,6 @@
 }
 
 .titleLabel {
-  font-family: 'Open Sans';
   font-size: 14px;
   font-weight: 700;
 }
@@ -112,6 +108,10 @@
   margin-left: 15px;
 }
 
+.labelBlack {
+  color: cm_black;
+}
+
 .setupSelectedTitle {
   composes: setupTitle;
 }
@@ -139,6 +139,10 @@
 
 .header:hover .titleIcon {
   color: black;
+}
+
+.header:hover .blueTitleIcon {
+  color: cm_blue;
 }
 
 .coorpManagerOpenHeader:hover .titleIcon {
@@ -182,6 +186,7 @@
 .container {
   background-color: xtraLightGrey;
   animation: fadeIn 3s forwards;
+  font-family: 'Gilroy';
   overflow: hidden;
 }
 
@@ -191,12 +196,12 @@
   overflow: hidden;
 }
 
-
 .header {
   position: relative;
   height: 50px;
   display: flex;
   align-items: center;
+  padding-left: 28px;
   justify-content: space-between;
   width: 100%;
   box-sizing: border-box;
@@ -207,15 +212,6 @@
   color: dark;
 }
 
-.openHeader {
-  composes: header;
-  background-color: xtraLightGrey;
-}
-
-.closedHeader {
-  composes: header;
-}
-
 .header:hover {
   background-color: xtraLightGrey;
 }
@@ -224,11 +220,9 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin-left: 35px;
 }
 
 .titleLabel {
-  font-family: 'Open Sans';
   font-size: 17px;
   font-weight: 700;
 }
