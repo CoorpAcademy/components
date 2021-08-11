@@ -79,6 +79,8 @@ const Part = ({
   const lessClassName = isOpen ? style.openIconActivated : style.openIcon;
   const moreClassName = !isOpen ? style.closeIconActivated : style.closeIcon;
   const iconColor = selected ? style.iconBlue : style.iconGrey;
+  const hoverIconColor = selected && style.blueTitleIcon;
+  const selectedBlackLabel = selected && style.labelBlack;
   const Icon = ICON_TYPES[iconType];
 
   return (
@@ -90,16 +92,15 @@ const Part = ({
       ) : null}
       <div data-type={iconType} onClick={onParentClick} style={{flex: 1}}>
         <div data-name="accordionPart" className={style.setupPart}>
-          <div
-            className={isOpen ? style.openHeader : style.closedHeader}
-            data-type={iconType}
-            onClick={onClick}
-          >
+          <div className={style.header} data-type={iconType} onClick={onClick}>
             <div data-name="title" className={style.title}>
               {Icon ? (
-                <Icon className={classnames(style.titleIcon, iconColor)} color="inherit" />
+                <Icon
+                  className={classnames(style.titleIcon, iconColor, hoverIconColor)}
+                  color="inherit"
+                />
               ) : null}
-              <h3 className={style.titleLabel}>{title}</h3>
+              <h3 className={classnames(style.titleLabel, selectedBlackLabel)}>{title}</h3>
             </div>
             {type !== 'iconLink' ? (
               <div>
