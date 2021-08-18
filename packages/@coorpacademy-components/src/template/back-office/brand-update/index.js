@@ -91,7 +91,9 @@ const BrandUpdate = props => {
     <div className={style.container}>
       <div className={style.dashboardAside}>
         <div className={style.logo}>
-          <img src={logo} />
+          <a href="/">
+            <img src={logo} />
+          </a>
         </div>
         <Accordion tabProps={formattedTabs} theme={'setup'}>
           {formattedTabsViews}

@@ -77,14 +77,16 @@
 }
 
 .selectedElement {
-  font-size: 12px;
+  font-size: 14px;
   background-color: cm_lightGrey;
   border-radius: 5px;
   color: black;
+  font-weight: 600;
 }
 
 .unselectedElement {
-  font-size: 12px;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .unselectedElement:hover {
