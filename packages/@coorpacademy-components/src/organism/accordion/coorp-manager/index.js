@@ -9,7 +9,19 @@ const themeStyle = {
   default: style.wrapper
 };
 
-const Tab = ({children, index, title, selected, iconType, onClick, href, type, theme}) => {
+const Tab = ({
+  children,
+  index,
+  title,
+  selected,
+  iconType,
+  onClick,
+  href,
+  type,
+  theme,
+  isOpen,
+  onUpdateOpenedTab
+}) => {
   const handleOnClick = useMemo(() => evt => onClick(index, evt), [onClick]);
   return children ? (
     <div data-name="accordion" className={themeStyle[theme]}>
@@ -22,6 +34,8 @@ const Tab = ({children, index, title, selected, iconType, onClick, href, type, t
         href={href}
         type={type}
         onClick={handleOnClick}
+        onUpdateOpenedTab={onUpdateOpenedTab}
+        isOpen={isOpen}
       />
     </div>
   ) : (
@@ -38,11 +52,14 @@ Tab.propTypes = {
   onClick: Part.propTypes.onClick,
   selected: Part.propTypes.selected,
   type: Part.propTypes.type,
-  href: Part.propTypes.href
+  href: Part.propTypes.href,
+  isOpen: Part.propTypes.isOpen,
+  onUpdateOpenedTab: Part.propTypes.onUpdateOpenedTab
 };
 
 const Accordion = props => {
   const {tabProps, children, theme = 'default', onClick = noop} = props;
+  const [openedTab, updateOpenedTab] = React.useState(-1);
 
   const tabs = map.convert({cap: false})((tab, index) => ({
     ...tab,
@@ -51,8 +68,20 @@ const Accordion = props => {
   }))(tabProps);
 
   const accordion = map.convert({cap: false})((tab, index) => {
+    const isOpen = openedTab === index;
+    function onUpdateOpenedTab() {
+      updateOpenedTab(isOpen ? -1 : index);
+    }
     return (
-      <Tab {...tab} key={index} index={index} theme={theme} onClick={onClick}>
+      <Tab
+        {...tab}
+        key={index}
+        index={index}
+        theme={theme}
+        onClick={onClick}
+        onUpdateOpenedTab={onUpdateOpenedTab}
+        isOpen={isOpen}
+      >
         {tab.child}
       </Tab>
     );

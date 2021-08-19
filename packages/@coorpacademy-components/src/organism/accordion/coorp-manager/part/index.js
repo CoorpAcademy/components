@@ -120,15 +120,26 @@ const Part = ({
 
 const AccordionPart = (props, context) => {
   const {skin} = context;
-  const {title, content, iconType, theme, onClick = noop, selected = false, type, href} = props;
+  const {
+    title,
+    content,
+    iconType,
+    theme,
+    onClick = noop,
+    selected = false,
+    type,
+    href,
+    isOpen,
+    onUpdateOpenedTab
+  } = props;
 
-  const [isOpenState, updateIsOpenState] = React.useState(false);
   const themeStyle = theme === 'setup' ? setupThemeStyle : defaultStyle;
 
   function handleParentClick() {
-    updateIsOpenState(state => !state);
+    onUpdateOpenedTab();
     onClick();
   }
+
   return (
     <div data-name="accordionPart" className={themeStyle[theme]}>
       {type === 'iconLink' ? (
@@ -149,7 +160,7 @@ const AccordionPart = (props, context) => {
             theme={theme}
             onParentClick={handleParentClick}
             onClick={onClick}
-            isOpen={isOpenState}
+            isOpen={isOpen}
             selected={selected}
             type={type}
           />
@@ -163,12 +174,12 @@ const AccordionPart = (props, context) => {
           theme={theme}
           onParentClick={handleParentClick}
           onClick={onClick}
-          isOpen={isOpenState}
           selected={selected}
+          isOpen={isOpen}
           type={type}
         />
       )}
-      {isOpenState ? <div className={themeStyle.container}>{content}</div> : null}
+      {isOpen ? <div className={themeStyle.container}>{content}</div> : null}
     </div>
   );
 };
@@ -185,7 +196,9 @@ AccordionPart.propTypes = {
   onClick: PropTypes.func,
   selected: PropTypes.bool,
   theme: PropTypes.string,
-  href: PropTypes.string
+  href: PropTypes.string,
+  isOpen: PropTypes.bool,
+  onUpdateOpenedTab: PropTypes.func
 };
 
 MoreLessIcons.propTypes = {
