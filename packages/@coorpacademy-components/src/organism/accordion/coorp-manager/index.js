@@ -59,7 +59,7 @@ Tab.propTypes = {
 
 const Accordion = props => {
   const {tabProps, children, theme = 'default', onClick = noop} = props;
-  const [openedTab, updateOpenedTab] = React.useState(-1);
+  const [openedTab, updateOpenedTab] = React.useState(0);
 
   const tabs = map.convert({cap: false})((tab, index) => ({
     ...tab,
