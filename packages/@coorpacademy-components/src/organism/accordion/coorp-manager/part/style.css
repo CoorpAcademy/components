@@ -181,14 +181,12 @@
 
 .container {
   background-color: xtraLightGrey;
-  animation: fadeIn 3s forwards;
   font-family: 'Gilroy';
   overflow: hidden;
 }
 
 .setupContainer {
   background-color: xtraLightGrey;
-  animation: fadeIn 3s forwards;
   overflow: hidden;
 }
 
@@ -261,29 +259,17 @@
 
 .container {
   background-color: xtraLightGrey;
-  animation: fadeIn 3s forwards;
   overflow: hidden;
 }
 
 .setupPart .container  {
   background-color: xtraLightGrey;
-  animation: fadeIn 3s forwards;
   overflow: hidden;
   border-top: 1px solid medium;
 }
 
 .setupPart .header{
   background-color: xtraLightGrey;
-}
-
-@keyframes fadeIn {
-  0% {
-    max-height: 0;
-  }
-
-  100% {
-    max-height: 10000px;
-  }
 }
 
 @media mobile {
