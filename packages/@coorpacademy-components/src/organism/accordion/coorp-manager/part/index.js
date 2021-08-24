@@ -148,6 +148,7 @@ const AccordionPart = (props, context) => {
           skinHover
           href={href}
           data-name={`link-item`}
+          target={'_blank'}
           style={{
             textDecoration: 'none'
           }}
