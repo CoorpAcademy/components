@@ -159,6 +159,7 @@
   composes: icon;
   opacity: 1;
   transform: translate(50%, -50%) rotate(180deg);
+  color: cm_grey;
 }
 
 .newTabIcon {
@@ -177,6 +178,7 @@
   composes: icon;
   opacity: 1;
   transform: translate(50%, -50%);
+  color: cm_grey;
 }
 
 .container {

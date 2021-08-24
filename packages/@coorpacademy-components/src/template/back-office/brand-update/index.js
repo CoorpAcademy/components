@@ -44,7 +44,7 @@ const BrandUpdate = props => {
           <IconLinkItem
             {...subTab}
             styles={getStyle(subTab.selected)}
-            color={null}
+            color={'#515161'}
             uppercase={false}
           />
         ) : (

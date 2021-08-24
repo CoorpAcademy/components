@@ -3,6 +3,7 @@
 @value xtraLightGrey from colors;
 @value cm_lightGrey from colors;
 @value black from colors;
+@value cm_grey from colors;
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
@@ -88,6 +89,7 @@
 .unselectedElement {
   font-size: 14px;
   font-weight: 600;
+  color: cm_grey;
 }
 
 .unselectedElement:hover {
