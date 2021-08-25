@@ -3,7 +3,7 @@ import BrandTabs from '../../../../../molecule/brand-tabs/test/fixtures/default'
 import Header from '../../../../../organism/setup-header/test/fixtures/default';
 
 const {breadcrumbs, links} = Breadcrumbs.props;
-const {tabs} = BrandTabs.props;
+const {items} = BrandTabs.props;
 
 export default {
   props: {
@@ -11,7 +11,7 @@ export default {
     notifications: [],
     breadcrumbs,
     links,
-    tabs,
+    items,
     logo: '',
     content: {
       type: 'form',

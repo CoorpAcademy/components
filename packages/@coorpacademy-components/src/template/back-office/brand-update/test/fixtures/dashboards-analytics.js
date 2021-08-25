@@ -4,11 +4,11 @@ import BrandDashboard from '../../../../../organism/brand-dashboard/test/fixture
 import Default from './default';
 
 const {props} = Default;
-const {tabs} = BrandTabs.props;
+const {items} = BrandTabs.props;
 
 export default {
   props: defaultsDeep(props, {
-    tabs,
+    items,
     content: defaultsDeep(BrandDashboard.props, {
       type: 'dashboard',
       header: {}

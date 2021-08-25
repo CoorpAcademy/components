@@ -7,7 +7,7 @@ import Default from './default';
 
 const {props} = Default;
 const {groups} = Lms.props;
-const {tabs} = BrandTabs.props;
+const {items} = BrandTabs.props;
 
 const errorGroups = cloneDeep(groups);
 errorGroups[1].fields[0].slides[0].fields[3].error = 'Client Secret is required';
@@ -23,7 +23,7 @@ export default {
       }
     ],
 
-    tabs,
+    items,
     content: {
       type: 'form',
       groups: errorGroups,

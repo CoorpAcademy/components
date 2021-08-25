@@ -6,13 +6,13 @@ import Default from './default';
 
 const {props} = Default;
 const {groups} = Animations.props;
-const {tabs} = BrandTabs.props;
+const {items} = BrandTabs.props;
 const details = BrandTable.props;
 
 export default {
   props: defaultsDeep(props, {
-    tabs: [
-      ...tabs,
+    items: [
+      ...items,
       {
         title: 'Create Content',
         href: '#brand/samsung/catalog',

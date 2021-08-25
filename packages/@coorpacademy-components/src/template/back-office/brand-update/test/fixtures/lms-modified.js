@@ -6,7 +6,7 @@ import Default from './default';
 
 const {props} = Default;
 const {groups} = Lms.props;
-const {tabs} = BrandTabs.props;
+const {items} = BrandTabs.props;
 
 const modifiedGroups = cloneDeep(groups);
 modifiedGroups[1].fields[0].slides[0].fields[0].modified = true;
@@ -14,7 +14,7 @@ modifiedGroups[1].fields[0].tabProps[0].isOpen = true;
 
 export default {
   props: defaultsDeep(props, {
-    tabs,
+    items,
     content: {
       type: 'form',
       groups: modifiedGroups,

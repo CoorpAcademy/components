@@ -7,7 +7,7 @@ import Default from './default';
 
 const {props} = Default;
 const {groups} = Lms.props;
-const {tabs} = BrandTabs.props;
+const {items} = BrandTabs.props;
 
 const successGroups = cloneDeep(groups);
 successGroups[1].fields[0].slides[0].fields[3].value = 'jlJkklJbhgTYvghytfgvf(7H77ggbV4T';
@@ -22,7 +22,7 @@ export default {
         onClose: noop
       }
     ],
-    tabs,
+    items,
     content: {
       type: 'form',
       groups: successGroups,

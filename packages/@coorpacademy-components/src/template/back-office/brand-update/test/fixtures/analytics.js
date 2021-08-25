@@ -5,11 +5,11 @@ import Default from './default';
 
 const {props} = Default;
 const {groups} = Analytics.props;
-const {tabs} = BrandTabs.props;
+const {items} = BrandTabs.props;
 
 export default {
   props: defaultsDeep(props, {
-    tabs,
+    items,
     content: {
       type: 'form',
       groups,
