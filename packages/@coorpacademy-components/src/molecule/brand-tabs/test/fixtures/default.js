@@ -1,6 +1,6 @@
 export default {
   props: {
-    items: [
+    tabs: [
       {
         title: 'My Dashboard',
         key: 'dashboard',

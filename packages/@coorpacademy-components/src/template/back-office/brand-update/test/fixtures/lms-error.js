@@ -1,13 +1,11 @@
 import cloneDeep from 'lodash/fp/cloneDeep';
 import defaultsDeep from 'lodash/fp/defaultsDeep';
 import noop from 'lodash/fp/noop';
-import BrandTabs from '../../../../../molecule/brand-tabs/test/fixtures/lms';
 import Lms from '../../../../../organism/brand-form/test/fixtures/lms';
-import Default from './default';
+import Default, {items} from './default';
 
 const {props} = Default;
 const {groups} = Lms.props;
-const {items} = BrandTabs.props;
 
 const errorGroups = cloneDeep(groups);
 errorGroups[1].fields[0].slides[0].fields[3].error = 'Client Secret is required';
