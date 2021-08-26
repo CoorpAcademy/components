@@ -22,7 +22,8 @@ const link = (Provider, Component) => (scope, element, attrs) => {
   scope.$watch('context', () => refresh(scope.context, scope.props), true);
   scope.$watch('props', () => refresh(scope.context, scope.props), true);
 
-  scope.$on('$destroy', () => window.angular.element(element).remove());
+  scope.$on('$destroy', () => ReactDOM.unmountComponentAtNode(element[0])
+  )
 };
 
 const createDirective = (app, componentName, Provider, Component) => {

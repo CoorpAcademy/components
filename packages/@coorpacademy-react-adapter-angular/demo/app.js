@@ -45,5 +45,10 @@ app.controller('main', [
     $interval(() => {
       $scope.context.value = $scope.context.value === 'blue' ? 'red' : 'blue';
     }, 1000);
+
+    $interval(() => {
+      $scope.$broadcast('$destroy');
+    }, 2000);
+   
   }
 ]);
