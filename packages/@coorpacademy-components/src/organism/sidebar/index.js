@@ -131,7 +131,7 @@ export const LinkItem = ({
         />
       ) : (
         <li className={classNames} style={borderStyle}>
-          {title}
+          <span>{title}</span>
           {children}
         </li>
       )}
@@ -172,6 +172,7 @@ export const IconLinkItem = ({
       name={name}
       uppercase={uppercase}
       index={index}
+      // styles={style.link}
     >
       <NovaCompositionCoorpacademyOpenInNewTab className={style.icon} />
     </LinkItem>

@@ -8,6 +8,7 @@
 @value dark from colors;
 @value lightMediumGray from colors;
 @value lightMediumGray from colors;
+@value cm_grey from colors;
 @value medium from colors;
 @value transparent from colors;
 
@@ -59,6 +60,14 @@
   align-items: center;
 }
 
+.link {
+  padding: 12px 15px;
+  border-left: 3px solid transparent;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+}
+
 .titleItem {
   background-color: lightMediumGray;
   list-style-type: none;
@@ -99,7 +108,9 @@
 }
 
 .icon {
-  width: 16px;
-  height: 16px;
-  padding-left: 10px;
+  width: 10px;
+  height: 10px;
+  opacity: 1;
+  transform: translate(50%, -50%);
+  color: cm_grey;;
 }

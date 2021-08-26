@@ -82,6 +82,7 @@ const Part = ({
   const hoverIconColor = selected && style.blueTitleIcon;
   const selectedBlackLabel = selected && style.labelBlack;
   const Icon = ICON_TYPES[iconType];
+  const isLink = type === 'iconLink' ;
 
   return (
     <div className={style.wrapper}>
@@ -99,16 +100,20 @@ const Part = ({
                   className={classnames(style.titleIcon, iconColor, hoverIconColor)}
                   color="inherit"
                 />
-              ) : null}
-              <h3 className={classnames(style.titleLabel, selectedBlackLabel)}>{title}</h3>
+              ) : null}   <h3 className={classnames(style.titleLabel, selectedBlackLabel)}>{title}
+              {isLink ? (
+                <OpenInNewTabIcon className={style.newTabIcon} color={'#515161'} />
+            ) : (
+              null
+            )}</h3>
             </div>
-            {type !== 'iconLink' ? (
+            {!isLink ? (
               <div>
                 <ArrowIcon className={moreClassName} color={darkColor} />
                 <ArrowIcon className={lessClassName} color={mediumColor} />
               </div>
             ) : (
-              <OpenInNewTabIcon className={style.newTabIcon} />
+              null
             )}
           </div>
           {children}

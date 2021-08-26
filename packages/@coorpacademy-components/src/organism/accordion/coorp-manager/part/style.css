@@ -63,7 +63,15 @@
   background-color: none;
 }
 
-.header:hover .titleLabel {
+.header:hover .titleLabel{
+  color: cm_black;
+}
+
+.header:hover .openIconActivated {
+  color: cm_black;
+}
+
+.header:hover .closeIconActivated {
   color: cm_black;
 }
 
@@ -163,9 +171,12 @@
 }
 
 .newTabIcon {
-  composes: icon;
+  position: absolute;
+  width: 10px;
+  height: 10px;
   opacity: 1;
   transform: translate(50%, -50%);
+  color: cm_grey;;
 }
 
 .closeIcon {
@@ -216,13 +227,14 @@
 }
 
 .titleLabel {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
+  color: cm_grey;
 }
 
 .titleIcon {
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   margin-right: 15px;
 }
 
