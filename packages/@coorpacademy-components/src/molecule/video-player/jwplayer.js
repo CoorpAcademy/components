@@ -30,7 +30,8 @@ class JWPlayer extends React.Component {
         })
       }),
       licenseKey: PropTypes.string.isRequired,
-      playerScript: SrcPropType.isRequired
+      playerScript: SrcPropType.isRequired,
+      playerId: SrcPropType.isRequired
     }),
     onPlay: PropTypes.func,
     onResume: PropTypes.func,
@@ -77,7 +78,7 @@ class JWPlayer extends React.Component {
     const shouldStart = includes('autoplay', changes);
     if (shouldStart) {
       if (isFunction(window.jwplayer)) {
-        window.jwplayer().play();
+        window.jwplayer(prevProps.jwpOptions.playerId).play();
       }
     }
     const {jwpOptions} = this.props;
