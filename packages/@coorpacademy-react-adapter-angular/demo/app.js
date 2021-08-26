@@ -49,6 +49,5 @@ app.controller('main', [
     $interval(() => {
       $scope.$broadcast('$destroy');
     }, 2000);
-   
   }
 ]);

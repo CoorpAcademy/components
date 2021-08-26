@@ -31,7 +31,7 @@ class JWPlayer extends React.Component {
       }),
       licenseKey: PropTypes.string.isRequired,
       playerScript: SrcPropType.isRequired,
-      playerId: SrcPropType.isRequired
+      playerId: PropTypes.string.isRequired
     }),
     onPlay: PropTypes.func,
     onResume: PropTypes.func,
