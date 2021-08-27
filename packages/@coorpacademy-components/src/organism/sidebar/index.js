@@ -131,7 +131,7 @@ export const LinkItem = ({
         />
       ) : (
         <li className={classNames} style={borderStyle}>
-          <span>{title}</span>
+          {title}
           {children}
         </li>
       )}
