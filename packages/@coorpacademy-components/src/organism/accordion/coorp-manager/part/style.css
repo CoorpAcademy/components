@@ -67,6 +67,10 @@
   color: cm_black;
 }
 
+.header:hover .newTabIcon{
+  color: cm_black;
+}
+
 .header:hover .openIconActivated {
   color: cm_black;
 }
@@ -172,8 +176,8 @@
 
 .newTabIcon {
   position: absolute;
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   opacity: 1;
   transform: translate(50%, -50%);
   color: cm_grey;;
@@ -256,6 +260,8 @@
 .openIconActivated {
   composes: icon;
   opacity: 1;
+  width: 12px;
+  height: 12px;
   transform: translate(50%, -50%) rotate(180deg);
 }
 
@@ -268,6 +274,8 @@
 .closeIconActivated {
   composes: icon;
   opacity: 1;
+  width: 12px;
+  height: 12px;
   transform: translate(50%, -50%);
 }
 

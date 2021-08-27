@@ -102,7 +102,7 @@ const Part = ({
                 />
               ) : null}   <h3 className={classnames(style.titleLabel, selectedBlackLabel)}>{title}
               {isLink ? (
-                <OpenInNewTabIcon className={style.newTabIcon} color={'#515161'} />
+                <OpenInNewTabIcon className={style.newTabIcon} />
             ) : (
               null
             )}</h3>

@@ -172,7 +172,6 @@ export const IconLinkItem = ({
       name={name}
       uppercase={uppercase}
       index={index}
-      // styles={style.link}
     >
       <NovaCompositionCoorpacademyOpenInNewTab className={style.icon} />
     </LinkItem>
