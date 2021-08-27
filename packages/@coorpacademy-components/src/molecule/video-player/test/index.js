@@ -20,7 +20,8 @@ test('should emit play only one', t => {
     onEnd: () => t.is('End', events.shift()),
     jwpOptions: {
       licenseKey: '12345',
-      playerScript: '/path/to/jwplayer.js'
+      playerScript: '/path/to/jwplayer.js',
+      playerId: '12345'
     }
   };
 

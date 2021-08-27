@@ -92,3 +92,29 @@ test.serial(
   },
   '<section></section>'
 );
+
+test.serial(
+  'should remove DOM element with unmountComponentAtNode when emiting $destroy',
+  (t, {components, template, provider, data}, expected) => {
+    createDirectives(t.context.app, provider, components);
+    angular.mock.module('myApp');
+    angular.mock.inject(($compile, $rootScope) => {
+      const scope = $rootScope.$new();
+      const element = $compile(template)(scope);
+      Object.assign(scope, data);
+      scope.$broadcast('$destroy');
+      t.is(element.html().replace(' data-reactroot=""', ''), expected);
+    });
+  },
+  {
+    components: {
+      Title: () => createElement('h1')
+    },
+    provider: ({tagName}) => createElement(tagName),
+    template: '<coorp-title context="context"></coorp-title>',
+    data: {
+      context: {tagName: 'section'}
+    }
+  },
+  ''
+);
