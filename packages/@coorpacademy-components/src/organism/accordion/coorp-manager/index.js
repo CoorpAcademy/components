@@ -40,14 +40,11 @@ Tab.propTypes = {
   selected: Part.propTypes.selected,
   type: Part.propTypes.type,
   href: Part.propTypes.href,
-  isOpen: Part.propTypes.isOpen,
-  onUpdateOpenedTab: Part.propTypes.onUpdateOpenedTab
+  isOpen: Part.propTypes.isOpen
 };
 
 const Accordion = props => {
   const {tabProps, children, theme = 'default', onClick = noop} = props;
-  const [openedTab, updateOpenedTab] = React.useState(0);
-
   const tabs = map.convert({cap: false})((tab, index) => ({
     ...tab,
     child: children[index],
