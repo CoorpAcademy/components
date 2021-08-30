@@ -4,7 +4,9 @@ import {getOr} from 'lodash/fp';
 
 import {
   NovaCompositionCoorpacademyLocales as LocalesIcon,
-  NovaSolidStatusClose as Close
+  NovaSolidStatusClose as Close,
+  NovaLineContentEditionBin as Bin,
+  NovaLineContentEditionHide as Hide
 } from '@coorpacademy/nova-icons';
 import Cta from '../../atom/button';
 import Loader from '../../atom/loader';
@@ -26,6 +28,14 @@ const CockpitPopin = (props, context) => {
     backgroundImageUrl
   } = props;
 
+  const logo = {
+    hiddenStateManagment: Hide,
+    deleteContent: Bin,
+    videoTranslate: LocalesIcon
+  };
+
+  const LogoComponent = logo[type];
+
   const backgroundImageStyle = backgroundImageUrl
     ? {
         backgroundImage: `url(${backgroundImageUrl})`
@@ -42,7 +52,7 @@ const CockpitPopin = (props, context) => {
           <header className={style.popinHeader}>
             <Close onClick={onClose} className={style.headerCloseIcon} />
           </header>
-          <LocalesIcon className={style.icon} style={{color: primaryColor}} />
+          <LogoComponent className={style.icon} style={{color: primaryColor}} />
           <div className={style.header} data-name={`cockpit-popin-header-${type}`}>
             {header}
           </div>
@@ -84,7 +94,7 @@ CockpitPopin.propTypes = {
   secondeButtonLabel: PropTypes.string,
   onSecondeButtonClick: PropTypes.func,
   onClose: PropTypes.func,
-  type: PropTypes.oneOf(['videoTranslate']),
+  type: PropTypes.oneOf(['videoTranslate', 'hiddenStateManagment', 'deleteContent']),
   isLoading: PropTypes.bool,
   backgroundImageUrl: PropTypes.string
 };
