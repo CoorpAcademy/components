@@ -41,7 +41,12 @@ const BrandUpdate = props => {
     map.convert({cap: false})((subTab, _index) => (
       <div key={subTab.title}>
         {subTab.type === 'iconLink' ? (
-          <IconLinkItem {...subTab} styles={getStyle(subTab.selected)} uppercase={false} />
+          <IconLinkItem
+            {...subTab}
+            styles={getStyle(subTab.selected)}
+            uppercase={false}
+            target={'_blank'}
+          />
         ) : (
           <LinkItem {...subTab} styles={getStyle(subTab.selected)} uppercase={false} />
         )}
