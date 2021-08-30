@@ -99,7 +99,8 @@ export const LinkItem = ({
   uppercase = true,
   styles,
   children,
-  setChildrenAsHtml = true
+  setChildrenAsHtml = true,
+  target = '_self'
 }) => {
   const handleOnClick = useMemo(
     () => e => {
@@ -113,6 +114,7 @@ export const LinkItem = ({
 
   return (
     <Link
+      target= {target}
       onClick={handleOnClick}
       skinHover
       href={href}
@@ -148,7 +150,8 @@ LinkItem.propTypes = {
   color: PropTypes.string,
   onClick: PropTypes.func,
   uppercase: PropTypes.bool,
-  setChildrenAsHtml: PropTypes.bool
+  setChildrenAsHtml: PropTypes.bool,
+  target: PropTypes.string
 };
 
 export const IconLinkItem = ({
