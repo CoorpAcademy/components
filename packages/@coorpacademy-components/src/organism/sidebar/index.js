@@ -114,7 +114,7 @@ export const LinkItem = ({
 
   return (
     <Link
-      target= {target}
+      target={target}
       onClick={handleOnClick}
       skinHover
       href={href}
