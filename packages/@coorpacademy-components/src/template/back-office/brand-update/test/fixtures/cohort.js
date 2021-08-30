@@ -1,14 +1,12 @@
 import {defaultsDeep} from 'lodash/fp';
 import Cohort from '../../../../../organism/brand-form/test/fixtures/cohort';
-import BrandTabs from '../../../../../molecule/brand-tabs/test/fixtures/cohort';
-import Default from './default';
+import Default, {items} from './default';
 
 const {props} = Default;
 const {groups} = Cohort.props;
-const {tabs} = BrandTabs.props;
 export default {
   props: defaultsDeep(props, {
-    tabs,
+    items,
     content: {
       type: 'form',
       groups,

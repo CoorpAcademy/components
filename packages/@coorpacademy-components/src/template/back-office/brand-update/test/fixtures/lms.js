@@ -1,16 +1,14 @@
 import defaultsDeep from 'lodash/fp/defaultsDeep';
 import noop from 'lodash/fp/noop';
-import BrandTabs from '../../../../../molecule/brand-tabs/test/fixtures/lms';
 import Lms from '../../../../../organism/brand-form/test/fixtures/lms';
-import Default from './default';
+import Default, {items} from './default';
 
 const {props} = Default;
 const {groups} = Lms.props;
-const {tabs} = BrandTabs.props;
 
 export default {
   props: defaultsDeep(props, {
-    tabs,
+    items,
     content: {
       type: 'form',
       groups,

@@ -131,22 +131,16 @@ const AccordionPart = (props, context) => {
     selected = false,
     type,
     href,
-    isOpen,
-    onUpdateOpenedTab
+    isOpen
   } = props;
 
   const themeStyle = theme === 'setup' ? setupThemeStyle : defaultStyle;
-
-  function handleParentClick() {
-    onUpdateOpenedTab();
-    onClick();
-  }
 
   return (
     <div data-name="accordionPart" className={themeStyle[theme]}>
       {type === 'iconLink' ? (
         <Link
-          onClick={handleParentClick}
+          onClick={onClick}
           skinHover
           href={href}
           data-name={`link-item`}
@@ -161,7 +155,7 @@ const AccordionPart = (props, context) => {
             content={content}
             iconType={iconType}
             theme={theme}
-            onParentClick={handleParentClick}
+            onParentClick={onClick}
             onClick={onClick}
             isOpen={isOpen}
             selected={selected}
@@ -175,7 +169,7 @@ const AccordionPart = (props, context) => {
           content={content}
           iconType={iconType}
           theme={theme}
-          onParentClick={handleParentClick}
+          onParentClick={onClick}
           onClick={onClick}
           selected={selected}
           isOpen={isOpen}
@@ -200,8 +194,7 @@ AccordionPart.propTypes = {
   selected: PropTypes.bool,
   theme: PropTypes.string,
   href: PropTypes.string,
-  isOpen: PropTypes.bool,
-  onUpdateOpenedTab: PropTypes.func
+  isOpen: PropTypes.bool
 };
 
 MoreLessIcons.propTypes = {

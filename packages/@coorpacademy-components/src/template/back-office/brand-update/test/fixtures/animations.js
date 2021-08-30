@@ -1,18 +1,16 @@
 import {defaultsDeep} from 'lodash/fp';
 import Animations from '../../../../../organism/brand-form/test/fixtures/animations';
-import BrandTabs from '../../../../../molecule/brand-tabs/test/fixtures/cohort';
 import BrandTable from '../../../../../organism/brand-table/test/fixtures/animations';
-import Default from './default';
+import Default, {items} from './default';
 
 const {props} = Default;
 const {groups} = Animations.props;
-const {tabs} = BrandTabs.props;
 const details = BrandTable.props;
 
 export default {
   props: defaultsDeep(props, {
-    tabs: [
-      ...tabs,
+    items: [
+      ...items,
       {
         title: 'Create Content',
         href: '#brand/samsung/catalog',

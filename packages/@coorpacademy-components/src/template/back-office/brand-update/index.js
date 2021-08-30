@@ -1,7 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
+import pipe from 'lodash/fp/pipe';
+import get from 'lodash/fp/get';
+import isEmpty from 'lodash/fp/isEmpty';
+import filter from 'lodash/fp/filter';
+import head from 'lodash/fp/head';
 import Breadcrumbs from '../../../molecule/breadcrumbs';
+import BrandTabs from '../../../molecule/brand-tabs';
 import {IconLinkItem, LinkItem} from '../../../organism/sidebar';
 import BrandForm from '../../../organism/brand-form';
 import BrandTable from '../../../organism/brand-table';
@@ -23,9 +29,17 @@ SubTab.propTypes = {
 };
 
 const BrandUpdate = props => {
-  const {notifications, links, breadcrumbs, tabs, content, details} = props;
+  const {notifications, links, breadcrumbs, items, content, details} = props;
   const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
-  const formattedTabs = tabs.map(({key, title, href, selected, type = 'link'}, index) => ({
+  const selectedTab = pipe(
+    filter(e => e.selected),
+    head,
+    get('tabs'),
+    filter(e => e.selected),
+    head
+  )(items);
+
+  const formattedTabs = items.map(({key, title, href, selected, type = 'link'}, index) => ({
     title,
     selected,
     type,
@@ -54,10 +68,10 @@ const BrandUpdate = props => {
     ))(_subTabs);
 
   const formattedTabsViews = map(tab => (
-    <div key={tab.title} className={style.subTabs}>
-      {subTabsView(tab.subTabs)}
+    <div key={tab.title} className={style.tabs}>
+      {subTabsView(tab.tabs)}
     </div>
-  ))(tabs);
+  ))(items);
 
   const notificationsList = notifications.map((notification, index) => {
     return (
@@ -106,6 +120,9 @@ const BrandUpdate = props => {
         <div className={style.notifications}>{notificationsList}</div>
         <div className={style.contentHandler}>
           <div className={style.contentView}>
+            {selectedTab && !isEmpty(selectedTab.subTabs) ? (
+              <BrandTabs type="light" tabs={selectedTab.subTabs} />
+            ) : null}
             <div className={style.dashboardContent}>
               <div>{contentView(content)}</div>
               <div>{detailsView(details)}</div>
@@ -125,19 +142,27 @@ BrandUpdate.propTypes = {
   notifications: PropTypes.arrayOf(PropTypes.shape(Notification.propTypes)),
   breadcrumbs: Breadcrumbs.propTypes.breadcrumbs,
   links: Breadcrumbs.propTypes.links,
-  tabs: PropTypes.arrayOf(
+  items: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string,
       title: PropTypes.string.isRequired,
       href: PropTypes.string.isRequired,
       selected: PropTypes.bool.isRequired,
       type: PropTypes.string,
-      subTabs: PropTypes.arrayOf(
+      tabs: PropTypes.arrayOf(
         PropTypes.shape({
           title: PropTypes.string.isRequired,
           href: PropTypes.string.isRequired,
           selected: PropTypes.bool.isRequired,
-          type: PropTypes.string
+          type: PropTypes.string,
+          subTabs: PropTypes.arrayOf(
+            PropTypes.shape({
+              title: PropTypes.string.isRequired,
+              href: PropTypes.string.isRequired,
+              selected: PropTypes.bool.isRequired,
+              type: PropTypes.string
+            })
+          )
         })
       )
     })
