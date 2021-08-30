@@ -73,7 +73,7 @@ const BrandUpdate = props => {
     </div>
   ))(items);
 
-  const notificationsList = notifications.map((notification, index) => {  
+  const notificationsList = notifications.map((notification, index) => {
     return (
       <div className={style.notification} key={index}>
         <Notification {...notification} />
