@@ -29,7 +29,7 @@ SubTab.propTypes = {
 };
 
 const BrandUpdate = props => {
-  const {notifications, links, breadcrumbs, items, content, details} = props;
+  const {notifications, links, breadcrumbs, items, content, details, onItemClick} = props;
   const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
   const selectedTab = pipe(
     filter(e => e.selected),
@@ -109,7 +109,7 @@ const BrandUpdate = props => {
             <img src={logo} />
           </a>
         </div>
-        <Accordion tabProps={formattedTabs} theme={'setup'}>
+        <Accordion tabProps={formattedTabs} theme={'setup'} onClick={onItemClick}>
           {formattedTabsViews}
         </Accordion>
       </div>
@@ -193,7 +193,8 @@ BrandUpdate.propTypes = {
     ...BrandTable.propTypes,
     key: PropTypes.string,
     type: PropTypes.oneOf(['list'])
-  })
+  }),
+  onItemClick: PropTypes.func
 };
 
 export default BrandUpdate;

@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {map, noop} from 'lodash/fp';
+import {map, noop, findIndex} from 'lodash/fp';
 import Part from './part';
 import style from './style.css';
 
@@ -9,7 +9,19 @@ const themeStyle = {
   default: style.wrapper
 };
 
-const Tab = ({children, index, title, selected, iconType, onClick, href, type, theme, isOpen}) => {
+const Tab = ({
+  children,
+  index,
+  title,
+  selected,
+  iconType,
+  onClick,
+  href,
+  type,
+  theme,
+  isOpen,
+  onUpdateOpenedTab
+}) => {
   const handleOnClick = useMemo(() => evt => onClick(index, evt), [onClick]);
   return children ? (
     <div data-name="accordion" className={themeStyle[theme]}>
@@ -22,6 +34,7 @@ const Tab = ({children, index, title, selected, iconType, onClick, href, type, t
         href={href}
         type={type}
         onClick={handleOnClick}
+        onUpdateOpenedTab={onUpdateOpenedTab}
         isOpen={isOpen}
       />
     </div>
@@ -40,11 +53,16 @@ Tab.propTypes = {
   selected: Part.propTypes.selected,
   type: Part.propTypes.type,
   href: Part.propTypes.href,
-  isOpen: Part.propTypes.isOpen
+  isOpen: Part.propTypes.isOpen,
+  onUpdateOpenedTab: Part.propTypes.onUpdateOpenedTab
 };
 
 const Accordion = props => {
   const {tabProps, children, theme = 'default', onClick = noop} = props;
+  const selectedIndex = findIndex(item => item.selected, tabProps);
+  console.log({selectedIndex, tabProps})
+  const [openedTab, updateOpenedTab] = React.useState(selectedIndex);
+
   const tabs = map.convert({cap: false})((tab, index) => ({
     ...tab,
     child: children[index],
@@ -52,8 +70,20 @@ const Accordion = props => {
   }))(tabProps);
 
   const accordion = map.convert({cap: false})((tab, index) => {
+    const isOpen = openedTab === index;
+    function onUpdateOpenedTab() {
+      updateOpenedTab(isOpen ? -1 : index);
+    }
     return (
-      <Tab {...tab} key={index} index={index} theme={theme} onClick={onClick} isOpen={tab.selected}>
+      <Tab
+        {...tab}
+        key={index}
+        index={index}
+        theme={theme}
+        onClick={onClick}
+        onUpdateOpenedTab={onUpdateOpenedTab}
+        isOpen={isOpen}
+      >
         {tab.child}
       </Tab>
     );
