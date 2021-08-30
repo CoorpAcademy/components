@@ -6,8 +6,10 @@
 @value light from colors;
 @value white from colors;
 @value dark from colors;
+@value cm_black from colors;
 @value lightMediumGray from colors;
 @value lightMediumGray from colors;
+@value cm_grey from colors;
 @value medium from colors;
 @value transparent from colors;
 
@@ -99,7 +101,13 @@
 }
 
 .icon {
-  width: 16px;
-  height: 16px;
-  padding-left: 10px;
+  width: 12px;
+  height: 12px;
+  opacity: 1;
+  transform: translate(50%, -50%);
+  color: cm_grey;;
+}
+
+.linkItem:hover .icon {
+  color: cm_black;
 }

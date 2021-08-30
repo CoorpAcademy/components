@@ -82,6 +82,7 @@ const Part = ({
   const hoverIconColor = selected && style.blueTitleIcon;
   const selectedBlackLabel = selected && style.labelBlack;
   const Icon = ICON_TYPES[iconType];
+  const isLink = type === 'iconLink';
 
   return (
     <div className={style.wrapper}>
@@ -100,16 +101,17 @@ const Part = ({
                   color="inherit"
                 />
               ) : null}
-              <h3 className={classnames(style.titleLabel, selectedBlackLabel)}>{title}</h3>
+              <h3 className={classnames(style.titleLabel, selectedBlackLabel)}>
+                {title}
+                {isLink ? <OpenInNewTabIcon className={style.newTabIcon} /> : null}
+              </h3>
             </div>
-            {type !== 'iconLink' ? (
+            {!isLink ? (
               <div>
                 <ArrowIcon className={moreClassName} color={darkColor} />
                 <ArrowIcon className={lessClassName} color={mediumColor} />
               </div>
-            ) : (
-              <OpenInNewTabIcon className={style.newTabIcon} />
-            )}
+            ) : null}
           </div>
           {children}
         </div>
@@ -148,6 +150,7 @@ const AccordionPart = (props, context) => {
           skinHover
           href={href}
           data-name={`link-item`}
+          target={'_blank'}
           style={{
             textDecoration: 'none'
           }}

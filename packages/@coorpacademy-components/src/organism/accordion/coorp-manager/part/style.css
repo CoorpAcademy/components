@@ -63,7 +63,19 @@
   background-color: none;
 }
 
-.header:hover .titleLabel {
+.header:hover .titleLabel{
+  color: cm_black;
+}
+
+.header:hover .newTabIcon{
+  color: cm_black;
+}
+
+.header:hover .openIconActivated {
+  color: cm_black;
+}
+
+.header:hover .closeIconActivated {
   color: cm_black;
 }
 
@@ -159,12 +171,16 @@
   composes: icon;
   opacity: 1;
   transform: translate(50%, -50%) rotate(180deg);
+  color: cm_grey;
 }
 
 .newTabIcon {
-  composes: icon;
+  position: absolute;
+  width: 12px;
+  height: 12px;
   opacity: 1;
   transform: translate(50%, -50%);
+  color: cm_grey;;
 }
 
 .closeIcon {
@@ -177,6 +193,7 @@
   composes: icon;
   opacity: 1;
   transform: translate(50%, -50%);
+  color: cm_grey;
 }
 
 .container {
@@ -214,13 +231,14 @@
 }
 
 .titleLabel {
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 600;
+  color: cm_grey;
 }
 
 .titleIcon {
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   margin-right: 15px;
 }
 
@@ -242,6 +260,8 @@
 .openIconActivated {
   composes: icon;
   opacity: 1;
+  width: 12px;
+  height: 12px;
   transform: translate(50%, -50%) rotate(180deg);
 }
 
@@ -254,6 +274,8 @@
 .closeIconActivated {
   composes: icon;
   opacity: 1;
+  width: 12px;
+  height: 12px;
   transform: translate(50%, -50%);
 }
 

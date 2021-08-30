@@ -3,6 +3,7 @@
 @value xtraLightGrey from colors;
 @value cm_lightGrey from colors;
 @value black from colors;
+@value cm_grey from colors;
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
@@ -22,8 +23,8 @@
 
 .subTabs {
   font-family: 'Gilroy';
-  margin-left: 15%;
-  padding: 1px 20px 1px 20px;
+  margin-left: 16%;
+  padding: 1px 34px 1px 16px;
   font-size: 16px;
   font-weight: 700;
   border-left: solid 3px cm_lightGrey;
@@ -54,7 +55,7 @@
 }
 
 .dashboardAside {
-  min-width: 270px;
+  min-width: 223px;
   background: xtraLightGrey;
 }
 
@@ -78,7 +79,7 @@
 }
 
 .selectedElement {
-  font-size: 14px;
+  font-size: 12px;
   background-color: cm_lightGrey;
   border-radius: 5px;
   color: black;
@@ -86,8 +87,9 @@
 }
 
 .unselectedElement {
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
+  color: cm_grey;
 }
 
 .unselectedElement:hover {
@@ -96,7 +98,7 @@
 
 .logo {
   height: 32px;
-  margin: 32px 40px 54px 40px;
+  margin: 32px 20px 54px 20px;
 }
 
 
