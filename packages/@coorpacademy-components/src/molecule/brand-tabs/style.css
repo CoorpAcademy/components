@@ -38,6 +38,7 @@
   justify-content: center;
   align-items: center;
   padding: 8px 16px;
+  margin-right: 16px;
   border-radius: 5px;
 }
 
@@ -66,9 +67,9 @@
 .lighttab a {
   display: block;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 600;
   line-height: 1.43;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   color: medium;
   text-decoration: none;
 }
@@ -90,11 +91,10 @@
   composes: lighttab;
   background-color: cm_lightBlue;
   border-radius: 5px;
-  font-weight: 600;
 }
 
 .selectedlight a {
   color: cm_blue;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 600;
 }
