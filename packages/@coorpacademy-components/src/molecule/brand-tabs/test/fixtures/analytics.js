@@ -11,7 +11,7 @@ export default {
         name: 'sso',
         title: 'sso',
         href: `sso`,
-        selected: true
+        selected: false
       },
       {
         name: 'danger-zone',
@@ -23,7 +23,7 @@ export default {
         name: 'manage-users',
         title: 'manage-users',
         href: `manage-users`,
-        selected: false
+        selected: true
       },
       {
         name: 'upload-users',
