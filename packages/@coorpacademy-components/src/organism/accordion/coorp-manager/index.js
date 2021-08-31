@@ -60,7 +60,7 @@ Tab.propTypes = {
 const Accordion = props => {
   const {tabProps, children, theme = 'default', onClick = noop} = props;
   const selectedIndex = findIndex(item => item.selected, tabProps);
-  console.log({selectedIndex, tabProps})
+
   const [openedTab, updateOpenedTab] = React.useState(selectedIndex);
 
   const tabs = map.convert({cap: false})((tab, index) => ({
