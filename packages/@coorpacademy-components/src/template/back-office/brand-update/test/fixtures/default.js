@@ -55,7 +55,7 @@ export const items = [
             name: 'sso',
             title: 'sso',
             href: `sso`,
-            selected: true
+            selected: false
           },
           {
             name: 'danger-zone',
@@ -67,7 +67,7 @@ export const items = [
             name: 'manage-users',
             title: 'manage-users',
             href: `manage-users`,
-            selected: false
+            selected: true
           },
           {
             name: 'upload-users',

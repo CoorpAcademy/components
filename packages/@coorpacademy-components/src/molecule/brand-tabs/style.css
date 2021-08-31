@@ -3,6 +3,8 @@
 @value light from colors;
 @value brand from colors;
 @value medium from colors;
+@value cm_lightBlue from colors;
+@value cm_blue from colors;
 
 .wrapper {
   width: 100%;
@@ -29,11 +31,15 @@
 
 .lighttab {
   display: inline-block;
-  height: 55px;
+  height: 36px;
   width: auto;
-  text-align: center;
-  box-sizing: border-box;
-  margin-right: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  margin-right: 16px;
+  border-radius: 5px;
 }
 
 .tab:last-child {
@@ -60,20 +66,16 @@
 
 .lighttab a {
   display: block;
-  line-height: 72px;
-  font-family: 'Open Sans';
-  font-size: 17px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.43;
+  font-family: 'Gilroy';
   color: medium;
   text-decoration: none;
 }
 
-.lighttab:hover {
-  border-bottom: 3px solid brand;
-}
-
 .lighttab:hover a {
-  color: brand;
+  color: cm_blue;
 }
 
 .selected {
@@ -87,9 +89,12 @@
 
 .selectedlight {
   composes: lighttab;
-  border-bottom: 3px solid brand;
+  background-color: cm_lightBlue;
+  border-radius: 5px;
 }
 
 .selectedlight a {
-  color: brand;
+  color: cm_blue;
+  font-size: 14px;
+  font-weight: 600;
 }
