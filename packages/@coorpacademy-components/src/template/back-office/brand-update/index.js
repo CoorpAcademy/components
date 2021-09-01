@@ -15,6 +15,7 @@ import BrandUpload from '../../../organism/brand-upload';
 import BrandDashboard from '../../../organism/brand-dashboard';
 import Notification from '../../../atom/notification';
 import Loader from '../../../atom/loader';
+import Layout from '../layout';
 import Accordion from '../../../organism/accordion/coorp-manager';
 import style from './style.css';
 
@@ -28,7 +29,7 @@ SubTab.propTypes = {
   selected: PropTypes.bool.isRequired
 };
 
-const BrandUpdate = props => {
+const BrandUpdate = Layout(props => {
   const {notifications, links, breadcrumbs, items, content, details, onItemClick} = props;
   const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
   const selectedTab = pipe(
@@ -132,7 +133,7 @@ const BrandUpdate = props => {
       </div>
     </div>
   );
-};
+});
 
 BrandUpdate.defaultProps = {
   notifications: []
