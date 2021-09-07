@@ -12,7 +12,7 @@ import Link from '../../atom/link';
 import style from './style.css';
 
 const SetupHeader = props => {
-  const {platformName, itemsHrefs, href, user = {}, logo, logoMobile, isHome = false} = props;
+  const {platformName, items, href, user = {}, logo, logoMobile, isHome = false} = props;
   const {image = ''} = user;
 
   return (
@@ -27,30 +27,32 @@ const SetupHeader = props => {
       ) : (
         <ul className={style.list}>
           <Link
-            href={itemsHrefs.platformList}
+            href={items.platformList.href}
             className={classnames(style.element, style.platformList)}
           >
             <ListIcon className={style.icon} />
-            <li>Platform list</li>
+            <li>{items.platformList.label}</li>
           </Link>
           <li className={classnames(style.element, style.platformName)}>{platformName}</li>
         </ul>
       )}
       <ul className={style.list}>
-        <Link
-          href={itemsHrefs.globalAnalytics}
-          className={classnames(style.element, style.globalAnalytics)}
-        >
-          <AnalyticsIcon className={style.icon} />
-          <li>Global Analytics</li>
-        </Link>
+        {items.globalAnalytics ? (
+          <Link
+            href={items.globalAnalytics.href}
+            className={classnames(style.element, style.globalAnalytics)}
+          >
+            <AnalyticsIcon className={style.icon} />
+            <li>{items.globalAnalytics.label}</li>
+          </Link>
+        ) : null}
         {isHome ? null : (
           <Link
-            href={itemsHrefs.seeMyPlatform}
+            href={items.seeMyPlatform.href}
             className={classnames(style.element, style.seeMyPlatform)}
           >
             <EyeIcon height={20} width={28} className={style.icon} />
-            <li>See my Platform</li>
+            <li>{items.seeMyPlatform.label}</li>
           </Link>
         )}
         <Link>
@@ -58,9 +60,9 @@ const SetupHeader = props => {
             <img src={image} />
           </li>
         </Link>
-        <Link href={itemsHrefs.logOut} className={classnames(style.element, style.logOut)}>
+        <Link href={items.logOut.href} className={classnames(style.element, style.logOut)}>
           <LogoutIcon className={style.icon} />
-          <li>Log out</li>
+          <li>{items.logOut.label}</li>
         </Link>
       </ul>
     </div>
@@ -68,11 +70,11 @@ const SetupHeader = props => {
 };
 
 SetupHeader.propTypes = {
-  itemsHrefs: PropTypes.shape({
-    seeMyPlatform: PropTypes.string,
-    logOut: PropTypes.string,
-    globalAnalytics: PropTypes.string,
-    platformList: PropTypes.string
+  items: PropTypes.shape({
+    seeMyPlatform: PropTypes.shape({href: PropTypes.string, label: PropTypes.string}),
+    logOut: PropTypes.shape({href: PropTypes.string, label: PropTypes.string}),
+    globalAnalytics: PropTypes.shape({href: PropTypes.string, label: PropTypes.string}),
+    platformList: PropTypes.shape({href: PropTypes.string, label: PropTypes.string})
   }),
   platformName: PropTypes.string,
   isHome: PropTypes.bool,

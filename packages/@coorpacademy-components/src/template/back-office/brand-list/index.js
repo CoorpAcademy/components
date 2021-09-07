@@ -5,9 +5,10 @@ import BrandCard from '../../../molecule/brand-card';
 import BrandCardCreate from '../../../molecule/brand-card-create';
 import Search from '../../../molecule/search';
 import Header from '../../../organism/setup-header';
+import Layout from '../layout';
 import style from './style.css';
 
-const BrandList = props => {
+const BrandList = Layout(props => {
   const {brands = [], create, header, search} = props;
 
   const brandCards = brands.map((brand, index) => {
@@ -28,9 +29,6 @@ const BrandList = props => {
 
   return (
     <div className={style.container}>
-      <div className={style.headerWrapper}>
-        <Header {...header} />
-      </div>
       <div className={style.searchBar}>
         <Search {...search} />
       </div>
@@ -39,7 +37,7 @@ const BrandList = props => {
       </div>
     </div>
   );
-};
+});
 
 BrandList.propTypes = {
   brands: PropTypes.arrayOf(PropTypes.shape(BrandCard.propTypes)),

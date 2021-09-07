@@ -11,11 +11,11 @@ export default {
       image: 'http://lorempixel.com/50/50/people/4'
     },
     platformName: 'Onboarding',
-    itemsHrefs: {
-      platformList: '/list',
-      seeMyPlatform: '/onboardin',
-      logOut: '/logout',
-      globalAnalytics: '/analytics'
+    items: {
+      platformList: {href: '/list', label: 'Platform List'},
+      seeMyPlatform: {href: '/onboardin', label: 'See My Platform'},
+      logOut: {href: '/logout', label: 'Log Out'},
+      globalAnalytics: {href: '/analytics', label: 'Dashboards'}
     },
     href: '#'
   }

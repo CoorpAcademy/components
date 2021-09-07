@@ -6,7 +6,6 @@ import get from 'lodash/fp/get';
 import isEmpty from 'lodash/fp/isEmpty';
 import filter from 'lodash/fp/filter';
 import head from 'lodash/fp/head';
-import Breadcrumbs from '../../../molecule/breadcrumbs';
 import BrandTabs from '../../../molecule/brand-tabs';
 import {IconLinkItem, LinkItem} from '../../../organism/sidebar';
 import BrandForm from '../../../organism/brand-form';
@@ -141,8 +140,6 @@ BrandUpdate.defaultProps = {
 
 BrandUpdate.propTypes = {
   notifications: PropTypes.arrayOf(PropTypes.shape(Notification.propTypes)),
-  breadcrumbs: Breadcrumbs.propTypes.breadcrumbs,
-  links: Breadcrumbs.propTypes.links,
   header: Header.propTypes,
   items: PropTypes.arrayOf(
     PropTypes.shape({
