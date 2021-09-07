@@ -1,7 +1,6 @@
 import React from 'react';
 import {
-  NovaCompositionCoorpacademyEditorialization as EyeIcon,
-  NovaSolidTimeAlarm as AlarmIcon,
+  NovaCompositionCoorpacademyEye as EyeIcon,
   NovaCompositionCoorpacademyAnalytics as AnalyticsIcon,
   NovaSolidContentContentViewModule1 as ListIcon,
   NovaSolidLoginLogout1 as LogoutIcon
@@ -10,64 +9,73 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Picture from '../../atom/picture';
 import Link from '../../atom/link';
-import MenuList from '../../molecule/menu-list';
 import style from './style.css';
 
-const styles = {
-  septenary: style.septenary,
-  senary: style.senary,
-  quinary: style.quinary,
-  tertiary: style.tertiary,
-  octonary: style.octonary,
-  quaternary: style.quaternary
-};
-
-const Icons = {
-  seeMyPlatform: EyeIcon,
-  globalAnalytics: AnalyticsIcon,
-  platformList: ListIcon,
-  logout: LogoutIcon
-};
-
-const HeaderList = ({items, className}) => {
-  return (
-    <ul className={className}>
-      {items.map((item, i) => {
-        const Icon = Icons[item.key];
-        if (item.type === 'image') {
-          return (
-            <li key={item.type + i} className={style.octonary}>
-              <img src={item.image} />
-            </li>
-          );
-        }
-        return (
-          <Link key={item.type + i} className={classnames(style.element, styles[item.variant])}>
-            {/* <Icon height={12} width={12} color="inherit" /> */}
-            <li>{item.title}</li>
-          </Link>
-        );
-      })}
-    </ul>
-  );
-};
-
 const SetupHeader = props => {
-  const {
-    header: {leftItems, rightItems, href, user = {}, logo, logoMobile}
-  } = props;
-  // const {image = ''} = user;
+  const {platformName, itemsHrefs, href, user = {}, logo, logoMobile, isHome = false} = props;
+  const {image = ''} = user;
 
   return (
     <div className={style.wrapper}>
-      <HeaderList className={style.list} items={leftItems} />
-      <HeaderList className={style.list} items={rightItems} />
+      {isHome ? (
+        <div className={style.logo}>
+          <Link href={href}>
+            <Picture className={style.logoDesktop} src={logo} />
+            <Picture className={style.logoMobile} src={logoMobile} />
+          </Link>
+        </div>
+      ) : (
+        <ul className={style.list}>
+          <Link
+            href={itemsHrefs.platformList}
+            className={classnames(style.element, style.platformList)}
+          >
+            <ListIcon className={style.icon} />
+            <li>Platform list</li>
+          </Link>
+          <li className={classnames(style.element, style.platformName)}>{platformName}</li>
+        </ul>
+      )}
+      <ul className={style.list}>
+        <Link
+          href={itemsHrefs.globalAnalytics}
+          className={classnames(style.element, style.globalAnalytics)}
+        >
+          <AnalyticsIcon className={style.icon} />
+          <li>Global Analytics</li>
+        </Link>
+        {isHome ? null : (
+          <Link
+            href={itemsHrefs.seeMyPlatform}
+            className={classnames(style.element, style.seeMyPlatform)}
+          >
+            <EyeIcon height={20} width={28} className={style.icon} />
+            <li>See my Platform</li>
+          </Link>
+        )}
+        <Link>
+          <li className={style.profilePicture}>
+            <img src={image} />
+          </li>
+        </Link>
+        <Link href={itemsHrefs.logOut} className={classnames(style.element, style.logOut)}>
+          <LogoutIcon className={style.icon} />
+          <li>Log out</li>
+        </Link>
+      </ul>
     </div>
   );
 };
 
 SetupHeader.propTypes = {
-  // menuItems: MenuList.propTypes.menuItems,
+  itemsHrefs: PropTypes.shape({
+    seeMyPlatform: PropTypes.string,
+    logOut: PropTypes.string,
+    globalAnalytics: PropTypes.string,
+    platformList: PropTypes.string
+  }),
+  platformName: PropTypes.string,
+  isHome: PropTypes.bool,
   href: Link.propTypes.href,
   user: PropTypes.shape({
     username: PropTypes.string,

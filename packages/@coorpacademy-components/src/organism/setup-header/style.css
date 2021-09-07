@@ -20,67 +20,13 @@
   justify-content: space-between;
 }
 
-.user {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-right: 10px;
-  flex: 2;
-}
-
-.avatar {
-  border-radius: 50%;
-  overflow: hidden;
-  width: 40px;
-  height: 40px;
-  background: light;
-  flex-shrink: 0;
-}
-
-.avatar img {
-  width: 100%;
-}
-
-.username {
-  margin-left: 15px;
-  font-family: 'Open Sans';
-  font-size: 14px;
-  font-weight: 600;
-  color: black;
-}
-
-.logout {
-  margin-left: 10px;
-  flex: 2;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.logout a {
-  padding: 0 15px;
-  line-height: 32px;
-  color: medium;
-  border: 1px solid light;
-  border-radius: 2px;
-  font-size: 12px;
-  text-transform: capitalize;
-  font-family: 'Open Sans';
-  text-decoration: none;
-  display: inline-block;
-}
-
-.logout a:hover {
-  color: white;
-  background-color: medium;
-}
-
 .logo {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   height: 45px;
-  width: 200px;
+  width: 220px;
   overflow: hidden;
-  flex: 2;
 }
 
 .logo a {
@@ -103,16 +49,15 @@
 .list {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
   margin: 0;
   padding: 0;
 }
 
-.tabletList {
-  align-items: center;
-  margin: 0;
-  padding: 0;
-  display: none;
+.list a {
+  cursor: pointer;
+  text-decoration: none;
 }
 
 .element { 
@@ -123,47 +68,56 @@
   height: 32px;
   width: auto;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
+  text-align: center;
   align-items: center;
   padding: 4px 12px;
   margin-right: 12px;
+  color: black;
   background-color: #f1f6fe;
   border-radius: 5px;
 }
 
-.tertiary {
+.icon {
+  height: 19px;
+  width: 25px;
+  top: 0;
+  left: 0;
+  margin: 0 4px;
+}
+
+.seeMyPlatform {
   composes: element;
   color: white;
   background-color: #0061ff;
 }
 
-.quaternary {
+.globalAnalytics {
   composes: element;
-  align-self: flex-start;
   background-color: #eaeaeb;
 }
 
-.quinary {
+.platformList {
   composes: element;
   background-color: #fafafa;
 }
 
-.septenary {
+.logOut {
   composes: element;
-  align-self: flex-end;
   background-color: transparent;
   color: #ed3436;
 }
 
-.senary {
+.platformName {
   composes: element;
   background-color: transparent;
   font-size: 20px;
+  text-align: left;
   color: #111117;
 }
 
-.octonary {
+.profilePicture {
   width: 38px;
   height: 38px;
   display: flex;
@@ -178,25 +132,22 @@
   flex-shrink: 0;
 }
 
-/* .septenary {
-  visibility: hidden;
-}
-
-.octonary:hover + .septenary {
-  visibility: visible;
-} */
-
 @media tablet {
-  /* .septenary {
+  .platformList li {
     display: none;
   }
 
-  .octonary:hover + .septenary {
-    display: block;
-    margin: 20em 0;
-    left: 20em;
-    background-color: #eaeaeb;
-  } */
+  .platformName {
+    font-size: 16px;
+  }
+
+  .logOut li {
+    display: none;
+  }
+
+  .icon {
+    width: 30px;
+  }
 }
 
 @media mobile {
@@ -206,16 +157,6 @@
 
   .logo {
     width: 125px;
-  }
-
-  .avatar {
-    width: 30px;
-    height: 30px;
-  }
-
-  .username {
-    margin-left: 7px;
-    font-size: 11px;
   }
 
   .logoDesktop {

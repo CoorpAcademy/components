@@ -16,7 +16,6 @@ import BrandDashboard from '../../../organism/brand-dashboard';
 import Notification from '../../../atom/notification';
 import Header from '../../../organism/setup-header';
 import Loader from '../../../atom/loader';
-import Layout from '../layout';
 import Accordion from '../../../organism/accordion/coorp-manager';
 import style from './style.css';
 
@@ -31,7 +30,7 @@ SubTab.propTypes = {
 };
 
 const BrandUpdate = props => {
-  const {notifications, links, breadcrumbs, items, content, details, onItemClick} = props;
+  const {notifications, header, items, content, details, onItemClick} = props;
   const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
   const selectedTab = pipe(
     filter(e => e.selected),
@@ -116,7 +115,7 @@ const BrandUpdate = props => {
         </Accordion>
       </div>
       <div style={{width: '100%', overflow: 'auto'}}>
-        <Header header={props.header} />
+        <Header {...header} />
         <div className={style.contentWrapper}>
           <div className={style.notifications}>{notificationsList}</div>
           <div className={style.contentHandler}>
@@ -144,6 +143,7 @@ BrandUpdate.propTypes = {
   notifications: PropTypes.arrayOf(PropTypes.shape(Notification.propTypes)),
   breadcrumbs: Breadcrumbs.propTypes.breadcrumbs,
   links: Breadcrumbs.propTypes.links,
+  header: Header.propTypes,
   items: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string,

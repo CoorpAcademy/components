@@ -10,34 +10,13 @@ export default {
       username: 'Hi, John Doe',
       image: 'http://lorempixel.com/50/50/people/4'
     },
-    leftItems: [
-      {
-        href: '/list',
-        type: 'link',
-        variant: 'primary',
-        title: 'Platform List'
-      },
-      {
-        href: '/list',
-        type: 'link',
-        variant: 'nonary',
-        title: 'Platform Name'
-      }
-    ],
-    rightItems: [
-      {
-        href: '/list',
-        type: 'link',
-        variant: 'tertiary',
-        title: 'See My Platform'
-      },
-      {
-        href: '/list',
-        type: 'link',
-        variant: 'nonary',
-        title: 'Platform Name'
-      }
-    ],
+    platformName: 'Onboarding',
+    itemsHrefs: {
+      platformList: '/list',
+      seeMyPlatform: '/onboardin',
+      logOut: '/logout',
+      globalAnalytics: '/analytics'
+    },
     href: '#'
   }
 };

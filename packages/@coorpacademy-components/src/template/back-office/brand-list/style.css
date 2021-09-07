@@ -6,7 +6,7 @@
 @value desktop from breakpoints;
 
 .container {
-  padding: 40px 0 0;
+  padding: 0;
 }
 
 .wrapper {
@@ -16,6 +16,10 @@
 
 .brand {
   margin: 0 10px 20px;
+}
+
+.headerWrapper {
+  margin-bottom: 40px;
 }
 
 .searchBar {
