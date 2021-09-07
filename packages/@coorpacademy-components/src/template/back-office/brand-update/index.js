@@ -113,19 +113,17 @@ const BrandUpdate = props => {
           {formattedTabsViews}
         </Accordion>
       </div>
-      <div className={style.wrapper}>
+      <div className={style.contentWrapper}>
         <Header {...header} />
-        <div className={style.contentWrapper}>
-          <div className={style.notifications}>{notificationsList}</div>
-          <div className={style.contentHandler}>
-            <div className={style.contentView}>
-              {selectedTab && !isEmpty(selectedTab.subTabs) ? (
-                <BrandTabs type="light" tabs={selectedTab.subTabs} />
-              ) : null}
-              <div className={style.dashboardContent}>
-                <div>{contentView(content)}</div>
-                <div>{detailsView(details)}</div>
-              </div>
+        <div className={style.notifications}>{notificationsList}</div>
+        <div className={style.contentHandler}>
+          <div className={style.contentView}>
+            {selectedTab && !isEmpty(selectedTab.subTabs) ? (
+              <BrandTabs type="light" tabs={selectedTab.subTabs} />
+            ) : null}
+            <div className={style.dashboardContent}>
+              <div>{contentView(content)}</div>
+              <div>{detailsView(details)}</div>
             </div>
           </div>
         </div>
