@@ -14,6 +14,7 @@ import BrandTable from '../../../organism/brand-table';
 import BrandUpload from '../../../organism/brand-upload';
 import BrandDashboard from '../../../organism/brand-dashboard';
 import Notification from '../../../atom/notification';
+import Header from '../../../organism/setup-header';
 import Loader from '../../../atom/loader';
 import Layout from '../layout';
 import Accordion from '../../../organism/accordion/coorp-manager';
@@ -29,7 +30,7 @@ SubTab.propTypes = {
   selected: PropTypes.bool.isRequired
 };
 
-const BrandUpdate = Layout(props => {
+const BrandUpdate = props => {
   const {notifications, links, breadcrumbs, items, content, details, onItemClick} = props;
   const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
   const selectedTab = pipe(
@@ -114,26 +115,26 @@ const BrandUpdate = Layout(props => {
           {formattedTabsViews}
         </Accordion>
       </div>
-      <div className={style.contentWrapper}>
-        <div>
-          <Breadcrumbs links={links} breadcrumbs={breadcrumbs} />
-        </div>
-        <div className={style.notifications}>{notificationsList}</div>
-        <div className={style.contentHandler}>
-          <div className={style.contentView}>
-            {selectedTab && !isEmpty(selectedTab.subTabs) ? (
-              <BrandTabs type="light" tabs={selectedTab.subTabs} />
-            ) : null}
-            <div className={style.dashboardContent}>
-              <div>{contentView(content)}</div>
-              <div>{detailsView(details)}</div>
+      <div style={{width: '100%', overflow: 'auto'}}>
+        <Header header={props.header} />
+        <div className={style.contentWrapper}>
+          <div className={style.notifications}>{notificationsList}</div>
+          <div className={style.contentHandler}>
+            <div className={style.contentView}>
+              {selectedTab && !isEmpty(selectedTab.subTabs) ? (
+                <BrandTabs type="light" tabs={selectedTab.subTabs} />
+              ) : null}
+              <div className={style.dashboardContent}>
+                <div>{contentView(content)}</div>
+                <div>{detailsView(details)}</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </div>
   );
-});
+};
 
 BrandUpdate.defaultProps = {
   notifications: []
