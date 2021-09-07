@@ -133,6 +133,7 @@ import _NovaSolidAudioAudioControlRewind from './components/nova-solid/audio/aud
 import _NovaSolidBookmarksTagsBookmark3 from './components/nova-solid/bookmarks-tags/bookmark-3';
 import _NovaSolidBookmarksTagsBookmark5 from './components/nova-solid/bookmarks-tags/bookmark-5';
 import _NovaSolidContentContentBook1 from './components/nova-solid/content/content-book-1';
+import _NovaSolidContentContentViewModule1 from './components/nova-solid/content/content-view-module-1';
 import _NovaSolidContentEditionPencil1 from './components/nova-solid/content-edition/pencil-1';
 import _NovaSolidDataTransferDataUpload1 from './components/nova-solid/data-transfer/data-upload-1';
 import _NovaSolidDesignActionsRedo from './components/nova-solid/design-actions/redo';
@@ -145,6 +146,7 @@ import _NovaSolidLocationsLocationPinQuestionMark1 from './components/nova-solid
 import _NovaSolidLocksLock11 from './components/nova-solid/locks/lock-1.1';
 import _NovaSolidLocksLockUnlock1 from './components/nova-solid/locks/lock-unlock-1';
 import _NovaSolidLoginKey1 from './components/nova-solid/login/key-1';
+import _NovaSolidLoginLogout1 from './components/nova-solid/login/logout-1';
 import _NovaSolidMessagesChatChatBubblesCircle from './components/nova-solid/messages-chat/chat-bubbles-circle';
 import _NovaSolidPlacesPlacesHome2 from './components/nova-solid/places/places-home-2';
 import _NovaSolidProgrammingProgrammingJigsaw from './components/nova-solid/programming/programming-jigsaw';
@@ -293,6 +295,7 @@ export const NovaSolidAudioAudioControlRewind: Icon = _NovaSolidAudioAudioContro
 export const NovaSolidBookmarksTagsBookmark3: Icon = _NovaSolidBookmarksTagsBookmark3;
 export const NovaSolidBookmarksTagsBookmark5: Icon = _NovaSolidBookmarksTagsBookmark5;
 export const NovaSolidContentContentBook1: Icon = _NovaSolidContentContentBook1;
+export const NovaSolidContentContentViewModule1: Icon = _NovaSolidContentContentViewModule1;
 export const NovaSolidContentEditionPencil1: Icon = _NovaSolidContentEditionPencil1;
 export const NovaSolidDataTransferDataUpload1: Icon = _NovaSolidDataTransferDataUpload1;
 export const NovaSolidDesignActionsRedo: Icon = _NovaSolidDesignActionsRedo;
@@ -305,6 +308,7 @@ export const NovaSolidLocationsLocationPinQuestionMark1: Icon = _NovaSolidLocati
 export const NovaSolidLocksLock11: Icon = _NovaSolidLocksLock11;
 export const NovaSolidLocksLockUnlock1: Icon = _NovaSolidLocksLockUnlock1;
 export const NovaSolidLoginKey1: Icon = _NovaSolidLoginKey1;
+export const NovaSolidLoginLogout1: Icon = _NovaSolidLoginLogout1;
 export const NovaSolidMessagesChatChatBubblesCircle: Icon = _NovaSolidMessagesChatChatBubblesCircle;
 export const NovaSolidPlacesPlacesHome2: Icon = _NovaSolidPlacesPlacesHome2;
 export const NovaSolidProgrammingProgrammingJigsaw: Icon = _NovaSolidProgrammingProgrammingJigsaw;
