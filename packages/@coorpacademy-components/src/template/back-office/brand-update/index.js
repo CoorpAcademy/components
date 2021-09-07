@@ -113,7 +113,7 @@ const BrandUpdate = props => {
           {formattedTabsViews}
         </Accordion>
       </div>
-      <div style={{width: '100%', overflow: 'auto'}}>
+      <div className={style.wrapper}>
         <Header {...header} />
         <div className={style.contentWrapper}>
           <div className={style.notifications}>{notificationsList}</div>

@@ -4,12 +4,11 @@ import GridList from '../../../organism/grid-list';
 import BrandCard from '../../../molecule/brand-card';
 import BrandCardCreate from '../../../molecule/brand-card-create';
 import Search from '../../../molecule/search';
-import Header from '../../../organism/setup-header';
 import Layout from '../layout';
 import style from './style.css';
 
 const BrandList = Layout(props => {
-  const {brands = [], create, header, search} = props;
+  const {brands = [], create, search} = props;
 
   const brandCards = brands.map((brand, index) => {
     return (
@@ -41,7 +40,6 @@ const BrandList = Layout(props => {
 
 BrandList.propTypes = {
   brands: PropTypes.arrayOf(PropTypes.shape(BrandCard.propTypes)),
-  header: Header.propTypes,
   search: PropTypes.shape(Search.propTypes),
   create: PropTypes.shape(BrandCardCreate.propTypes)
 };

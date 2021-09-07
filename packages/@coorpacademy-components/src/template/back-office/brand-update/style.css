@@ -31,9 +31,12 @@
 }
 
 .contentWrapper {
-  /* padding-top: 80px; */
   width: 100%;
   overflow: auto;
+}
+
+.wrapper {
+  width: 100%;
 }
 
 .notifications {
