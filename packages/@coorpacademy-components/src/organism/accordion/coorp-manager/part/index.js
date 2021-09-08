@@ -83,6 +83,7 @@ const Part = ({
   const selectedBlackLabel = selected && style.labelBlack;
   const Icon = ICON_TYPES[iconType];
   const isLink = type === 'iconLink';
+  const isCollapsible = type === 'collapsible-tab';
 
   return (
     <div className={style.wrapper}>
@@ -106,14 +107,14 @@ const Part = ({
                 {isLink ? <OpenInNewTabIcon className={style.newTabIcon} /> : null}
               </h3>
             </div>
-            {!isLink ? (
+            {isCollapsible ? (
               <div>
                 <ArrowIcon className={moreClassName} color={darkColor} />
                 <ArrowIcon className={lessClassName} color={mediumColor} />
               </div>
             ) : null}
           </div>
-          {children}
+          {isCollapsible ? children : null}
         </div>
       </div>
     </div>
