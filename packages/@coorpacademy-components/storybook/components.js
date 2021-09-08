@@ -126,6 +126,7 @@ import OrganismAccordionPart from './../src/organism/accordion/part';
 import OrganismAccordionToggler from './../src/organism/accordion/toggler';
 import OrganismBrandDashboard from './../src/organism/brand-dashboard';
 import OrganismBrandForm from './../src/organism/brand-form';
+import OrganismBrandHome from './../src/organism/brand-home';
 import OrganismBrandTable from './../src/organism/brand-table';
 import OrganismBrandUpload from './../src/organism/brand-upload';
 import OrganismCardsGrid from './../src/organism/cards-grid';
@@ -670,6 +671,7 @@ import OrganismBrandFormFixtureLms from '../src/organism/brand-form/test/fixture
 import OrganismBrandFormFixtureLookandfeel from '../src/organism/brand-form/test/fixtures/lookandfeel';
 import OrganismBrandFormFixtureManageusersEdit from '../src/organism/brand-form/test/fixtures/manageusers-edit';
 import OrganismBrandFormFixtureSso from '../src/organism/brand-form/test/fixtures/sso';
+import OrganismBrandHomeFixtureDefault from '../src/organism/brand-home/test/fixtures/default';
 import OrganismBrandTableFixtureAnimations from '../src/organism/brand-table/test/fixtures/animations';
 import OrganismBrandTableFixtureDefault from '../src/organism/brand-table/test/fixtures/default';
 import OrganismBrandTableFixtureEmpty from '../src/organism/brand-table/test/fixtures/empty';
@@ -877,6 +879,7 @@ import TemplateBackOfficeBrandUpdateFixtureDashboardsAnalytics from '../src/temp
 import TemplateBackOfficeBrandUpdateFixtureDefault from '../src/template/back-office/brand-update/test/fixtures/default';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess from '../src/template/back-office/brand-update/test/fixtures/general-settings-success';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettings from '../src/template/back-office/brand-update/test/fixtures/general-settings';
+import TemplateBackOfficeBrandUpdateFixtureHome from '../src/template/back-office/brand-update/test/fixtures/home';
 import TemplateBackOfficeBrandUpdateFixtureLmsError from '../src/template/back-office/brand-update/test/fixtures/lms-error';
 import TemplateBackOfficeBrandUpdateFixtureLmsModified from '../src/template/back-office/brand-update/test/fixtures/lms-modified';
 import TemplateBackOfficeBrandUpdateFixtureLmsSuccess from '../src/template/back-office/brand-update/test/fixtures/lms-success';
@@ -1089,6 +1092,7 @@ export const components = {
   Organism: {
     OrganismBrandDashboard,
     OrganismBrandForm,
+    OrganismBrandHome,
     OrganismBrandTable,
     OrganismBrandUpload,
     OrganismCardsGrid,
@@ -1922,6 +1926,9 @@ export const fixtures = {
       ManageusersEdit: OrganismBrandFormFixtureManageusersEdit,
       Sso: OrganismBrandFormFixtureSso
     },
+    OrganismBrandHome: {
+      Default: OrganismBrandHomeFixtureDefault
+    },
     OrganismBrandTable: {
       Animations: OrganismBrandTableFixtureAnimations,
       Default: OrganismBrandTableFixtureDefault,
@@ -2222,6 +2229,7 @@ export const fixtures = {
       Default: TemplateBackOfficeBrandUpdateFixtureDefault,
       GeneralSettingsSuccess: TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess,
       GeneralSettings: TemplateBackOfficeBrandUpdateFixtureGeneralSettings,
+      Home: TemplateBackOfficeBrandUpdateFixtureHome,
       LmsError: TemplateBackOfficeBrandUpdateFixtureLmsError,
       LmsModified: TemplateBackOfficeBrandUpdateFixtureLmsModified,
       LmsSuccess: TemplateBackOfficeBrandUpdateFixtureLmsSuccess,

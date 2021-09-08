@@ -6,7 +6,7 @@ export const items = [
     key: 'dashboard',
     href: '#brand/samsung/dashboard',
     open: undefined,
-    selected: false,
+    selected: true,
     type: 'simple-tab'
   },
   {
@@ -37,7 +37,7 @@ export const items = [
     title: 'Animation',
     key: 'animation',
     href: '#brand/samsung/content-creation',
-    selected: true,
+    selected: false,
     isOpen: true,
     type: 'collapsible-tab',
     tabs: [
@@ -100,7 +100,7 @@ export const items = [
     title: 'Analytics',
     key: 'analytics',
     href: '#brand/samsung/analytics',
-    open: true,
+    open: false,
     selected: false,
     type: 'collapsible-tab',
     tabs: [

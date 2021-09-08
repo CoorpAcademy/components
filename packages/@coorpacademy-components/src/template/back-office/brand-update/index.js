@@ -12,6 +12,7 @@ import BrandForm from '../../../organism/brand-form';
 import BrandTable from '../../../organism/brand-table';
 import BrandUpload from '../../../organism/brand-upload';
 import BrandDashboard from '../../../organism/brand-dashboard';
+import BrandHome from '../../../organism/brand-home';
 import Notification from '../../../atom/notification';
 import Header from '../../../organism/setup-header';
 import Loader from '../../../atom/loader';
@@ -93,6 +94,8 @@ const BrandUpdate = props => {
         return <BrandUpload {...cont} />;
       case 'dashboard':
         return <BrandDashboard {...cont} />;
+      case 'home':
+        return <BrandHome {...cont} />;
     }
   };
 
@@ -116,17 +119,21 @@ const BrandUpdate = props => {
       <div className={style.contentWrapper}>
         <Header {...header} />
         <div className={style.notifications}>{notificationsList}</div>
-        <div className={style.contentHandler}>
-          <div className={style.contentView}>
-            {selectedTab && !isEmpty(selectedTab.subTabs) ? (
-              <BrandTabs type="light" tabs={selectedTab.subTabs} />
-            ) : null}
-            <div className={style.dashboardContent}>
-              <div>{contentView(content)}</div>
-              <div>{detailsView(details)}</div>
+        {content.type === 'home' ? (
+          contentView(content)
+        ) : (
+          <div className={style.contentHandler}>
+            <div className={style.contentView}>
+              {selectedTab && !isEmpty(selectedTab.subTabs) ? (
+                <BrandTabs type="light" tabs={selectedTab.subTabs} />
+              ) : null}
+              <div className={style.dashboardContent}>
+                <div>{contentView(content)}</div>
+                <div>{detailsView(details)}</div>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
