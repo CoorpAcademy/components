@@ -138,7 +138,7 @@ BrandUpdate.defaultProps = {
 
 BrandUpdate.propTypes = {
   notifications: PropTypes.arrayOf(PropTypes.shape(Notification.propTypes)),
-  header: Header.propTypes,
+  header: PropTypes.shape({...Header.propTypes}),
   items: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string,
