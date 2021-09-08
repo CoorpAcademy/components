@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  NovaCompositionCoorpacademyEye as EyeIcon,
+  NovaCompositionCoorpacademyTypeEye as EyeIcon,
   NovaCompositionCoorpacademyAnalytics as AnalyticsIcon,
   NovaSolidContentContentViewModule1 as ListIcon,
   NovaSolidLoginLogout1 as LogoutIcon
