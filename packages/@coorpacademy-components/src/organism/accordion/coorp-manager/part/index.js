@@ -194,7 +194,7 @@ AccordionPart.contextTypes = {
 
 AccordionPart.propTypes = {
   iconType: PropTypes.oneOf(keys(ICON_TYPES)),
-  type: PropTypes.oneOf(['link', 'iconLink']),
+  type: PropTypes.oneOf(['simple-item', 'collapsible-tab', 'iconLink']),
   title: PropTypes.string,
   content: PropTypes.node,
   onClick: PropTypes.func,
