@@ -7,9 +7,13 @@
 @value medium from colors;
 @value white from colors;
 @value black from colors;
+@value negative from colors;
+@value xtraLightGrey from colors;
+@value cm_blue from colors;
+@value cm_lightGrey from colors;
+@value cm_black from colors;
 
 .wrapper {
-  position: fixed;
   background-color: white;
   width: 100%;
   height: 80px;
@@ -21,67 +25,13 @@
   justify-content: space-between;
 }
 
-.user {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-right: 10px;
-  flex: 2;
-}
-
-.avatar {
-  border-radius: 50%;
-  overflow: hidden;
-  width: 40px;
-  height: 40px;
-  background: light;
-  flex-shrink: 0;
-}
-
-.avatar img {
-  width: 100%;
-}
-
-.username {
-  margin-left: 15px;
-  font-family: 'Open Sans';
-  font-size: 14px;
-  font-weight: 600;
-  color: black;
-}
-
-.logout {
-  margin-left: 10px;
-  flex: 2;
-  display: flex;
-  justify-content: flex-end;
-}
-
-.logout a {
-  padding: 0 15px;
-  line-height: 32px;
-  color: medium;
-  border: 1px solid light;
-  border-radius: 2px;
-  font-size: 12px;
-  text-transform: capitalize;
-  font-family: 'Open Sans';
-  text-decoration: none;
-  display: inline-block;
-}
-
-.logout a:hover {
-  color: white;
-  background-color: medium;
-}
-
 .logo {
   display: flex;
   justify-content: center;
+  align-items: flex-start;
   height: 45px;
-  width: 200px;
+  width: 220px;
   overflow: hidden;
-  flex: 2;
 }
 
 .logo a {
@@ -101,6 +51,113 @@
   display: none;
 }
 
+.list {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.list a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.element { 
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: 600;
+  list-style: none;
+  height: 32px;
+  width: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  padding: 4px 12px;
+  margin-right: 12px;
+  color: black;
+  border-radius: 5px;
+}
+
+.icon {
+  height: 19px;
+  width: 25px;
+  top: 0;
+  left: 0;
+  margin: 0 4px;
+}
+
+.seeMyPlatform {
+  composes: element;
+  color: white;
+  background-color: cm_blue;
+}
+
+.seeMyPlatform .icon {
+  margin-top: -4px;
+}
+
+.globalAnalytics {
+  composes: element;
+  background-color: cm_lightGrey;
+}
+
+.platformList {
+  composes: element;
+  background-color: xtraLightGrey;
+}
+
+.logOut {
+  composes: element;
+  background-color: transparent;
+  color: negative;
+}
+
+.platformName {
+  composes: element;
+  background-color: transparent;
+  font-size: 20px;
+  text-align: left;
+  color: cm_black;
+}
+
+.profilePicture {
+  width: 38px;
+  height: 38px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  box-shadow: 0 0 11px 0 rgba(0, 0, 0, 0.25);
+  border: solid 2px white;
+  border-radius: 50%;
+  overflow: hidden;
+  background: light;
+  flex-shrink: 0;
+}
+
+@media tablet {
+  .platformList li {
+    display: none;
+  }
+
+  .platformName {
+    font-size: 16px;
+  }
+
+  .logOut li {
+    display: none;
+  }
+
+  .icon {
+    width: 30px;
+  }
+}
+
 @media mobile {
   .wrapper {
     padding: 0 10px;
@@ -108,16 +165,6 @@
 
   .logo {
     width: 125px;
-  }
-
-  .avatar {
-    width: 30px;
-    height: 30px;
-  }
-
-  .username {
-    margin-left: 7px;
-    font-size: 11px;
   }
 
   .logoDesktop {

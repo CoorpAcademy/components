@@ -4,6 +4,7 @@ import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import BrandList from '..';
+import Header from '../../../../organism/setup-header/test/fixtures/default';
 
 browserEnv();
 configure({adapter: new Adapter()});
@@ -44,7 +45,9 @@ test('should only return the right brand', t => {
     placeholder: 'search',
     onChange: value => t.is(value, 'digital')
   };
-  const wrapper = mount(<BrandList brands={brands} search={searchValue} create={create} />);
+  const wrapper = mount(
+    <BrandList brands={brands} search={searchValue} create={create} header={Header.props} />
+  );
   const SearchBar = wrapper.find('div > .layout__contentWrapper').find('div > #search');
   SearchBar.simulate('input', {target: {value: 'digital'}});
 });

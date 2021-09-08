@@ -1,7 +1,5 @@
-import Breadcrumbs from '../../../../../molecule/breadcrumbs/test/fixtures/default';
 import Header from '../../../../../organism/setup-header/test/fixtures/default';
 
-const {breadcrumbs, links} = Breadcrumbs.props;
 export const items = [
   {
     title: 'My Dashboard',
@@ -115,8 +113,6 @@ export default {
   props: {
     header: Header.props,
     notifications: [],
-    breadcrumbs,
-    links,
     items,
     logo: '',
     content: {

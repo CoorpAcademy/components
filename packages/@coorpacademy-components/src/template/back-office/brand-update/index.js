@@ -6,7 +6,6 @@ import get from 'lodash/fp/get';
 import isEmpty from 'lodash/fp/isEmpty';
 import filter from 'lodash/fp/filter';
 import head from 'lodash/fp/head';
-import Breadcrumbs from '../../../molecule/breadcrumbs';
 import BrandTabs from '../../../molecule/brand-tabs';
 import {IconLinkItem, LinkItem} from '../../../organism/sidebar';
 import BrandForm from '../../../organism/brand-form';
@@ -14,8 +13,8 @@ import BrandTable from '../../../organism/brand-table';
 import BrandUpload from '../../../organism/brand-upload';
 import BrandDashboard from '../../../organism/brand-dashboard';
 import Notification from '../../../atom/notification';
+import Header from '../../../organism/setup-header';
 import Loader from '../../../atom/loader';
-import Layout from '../layout';
 import Accordion from '../../../organism/accordion/coorp-manager';
 import style from './style.css';
 
@@ -29,8 +28,8 @@ SubTab.propTypes = {
   selected: PropTypes.bool.isRequired
 };
 
-const BrandUpdate = Layout(props => {
-  const {notifications, links, breadcrumbs, items, content, details, onItemClick} = props;
+const BrandUpdate = props => {
+  const {notifications, header, items, content, details, onItemClick} = props;
   const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
   const selectedTab = pipe(
     filter(e => e.selected),
@@ -115,9 +114,7 @@ const BrandUpdate = Layout(props => {
         </Accordion>
       </div>
       <div className={style.contentWrapper}>
-        <div>
-          <Breadcrumbs links={links} breadcrumbs={breadcrumbs} />
-        </div>
+        <Header {...header} />
         <div className={style.notifications}>{notificationsList}</div>
         <div className={style.contentHandler}>
           <div className={style.contentView}>
@@ -133,7 +130,7 @@ const BrandUpdate = Layout(props => {
       </div>
     </div>
   );
-});
+};
 
 BrandUpdate.defaultProps = {
   notifications: []
@@ -141,8 +138,7 @@ BrandUpdate.defaultProps = {
 
 BrandUpdate.propTypes = {
   notifications: PropTypes.arrayOf(PropTypes.shape(Notification.propTypes)),
-  breadcrumbs: Breadcrumbs.propTypes.breadcrumbs,
-  links: Breadcrumbs.propTypes.links,
+  header: PropTypes.shape({...Header.propTypes}),
   items: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string,

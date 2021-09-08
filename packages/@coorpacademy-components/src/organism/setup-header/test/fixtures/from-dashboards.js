@@ -10,17 +10,13 @@ export default {
       username: 'Hi, John Doe',
       image: 'http://lorempixel.com/50/50/people/4'
     },
-    menuItems: [
-      {
-        href: '/',
-        title: 'Platforms',
-        type: 'primary'
-      },
-      {
-        href: '#logout',
-        title: 'Log out'
-      }
-    ],
+    platformName: 'Onboarding',
+    items: {
+      platformList: {href: '/list', label: 'Platform List'},
+      seeMyPlatform: {href: '/onboardin', label: 'See My Platform'},
+      logOut: {href: '/logout', label: 'Log Out'},
+      globalAnalytics: {href: '/analytics', label: 'Dashboards'}
+    },
     href: '#'
   }
 };
