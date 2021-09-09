@@ -5,7 +5,7 @@ const {props} = BrandCard;
 
 export default {
   props: {
-    header: Header.props,
+    header: {...Header.props, isHome: true},
     brands: [props, props, props, props, props],
     search: {
       value: '',

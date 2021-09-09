@@ -31,14 +31,15 @@
 .logo {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
   height: 45px;
   width: 220px;
   overflow: hidden;
 }
 
 .logo a {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .logo img {
@@ -74,7 +75,6 @@
   font-weight: 600;
   list-style: none;
   height: 32px;
-  /* width: auto; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -98,7 +98,6 @@
   composes: element;
   color: white;
   width: 151px;
-  /* height: 44px; */
   padding: 6px 12px;
   background-color: cm_blue;
 }
@@ -110,7 +109,6 @@
 .globalAnalytics {
   composes: element;
   width: 151px;
-  /* height: 44px; */
   padding: 6px 12px;
   background-color: cm_lightGrey;
 }
@@ -122,7 +120,6 @@
 .platformList {
   composes: element;
   max-width: 121px;
-  /* height: 44px; */
   padding: 6px 24px;
   background-color: xtraLightGrey;
 }
@@ -166,6 +163,12 @@
   flex-shrink: 0;
 }
 
+.profilePicture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
 @media tablet {
   .platformList {
     justify-content: center;
@@ -175,6 +178,10 @@
 
   .platformList li {
     display: none;
+  }
+
+  .platformList .icon {
+    margin-right: 0;
   }
 
   .platformName {

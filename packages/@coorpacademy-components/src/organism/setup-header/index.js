@@ -12,7 +12,7 @@ import Link from '../../atom/link';
 import style from './style.css';
 
 const SetupHeader = props => {
-  const {platformName, items, href, user = {}, logo, logoMobile, isHome = false} = props;
+  const {platformName, items, href, user = {}, logo, logoMobile, isHome = false, isDashboard = false} = props;
   const {image = ''} = user;
 
   return (
@@ -20,8 +20,8 @@ const SetupHeader = props => {
       {isHome ? (
         <div className={style.logo}>
           <Link href={href}>
-            <Picture className={style.logoDesktop} src={logo} />
-            <Picture className={style.logoMobile} src={logoMobile} />
+            <Picture className={style.logoDesktop} src={"https://static.coorpacademy.com/logo/coorp-manager.svg"} />
+            <Picture className={style.logoMobile} src={"https://static.coorpacademy.com/logo/coorp-manager.svg"} />
           </Link>
         </div>
       ) : (
@@ -33,11 +33,13 @@ const SetupHeader = props => {
             <ListIcon className={style.icon} />
             <li>{items.platformList.label}</li>
           </Link>
-          <li className={classnames(style.element, style.platformName)}>{platformName}</li>
+          {!isDashboard ? (
+            <li className={classnames(style.element, style.platformName)}>{platformName}</li>
+          ): null}
         </ul>
       )}
       <ul className={style.list}>
-        {items.globalAnalytics ? (
+        {items.globalAnalytics || !isDashboard ? (
           <Link
             href={items.globalAnalytics.href}
             className={classnames(style.element, style.globalAnalytics)}
@@ -46,7 +48,7 @@ const SetupHeader = props => {
             <li>{items.globalAnalytics.label}</li>
           </Link>
         ) : null}
-        {isHome ? null : (
+        {isHome || isDashboard ? null : (
           <Link
             href={items.seeMyPlatform.href}
             className={classnames(style.element, style.seeMyPlatform)}
@@ -78,6 +80,7 @@ SetupHeader.propTypes = {
   }),
   platformName: PropTypes.string,
   isHome: PropTypes.bool,
+  isDashboard: PropTypes.bool,
   href: Link.propTypes.href,
   user: PropTypes.shape({
     username: PropTypes.string,
