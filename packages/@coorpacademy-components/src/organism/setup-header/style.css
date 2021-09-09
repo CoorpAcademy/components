@@ -10,8 +10,11 @@
 @value negative from colors;
 @value xtraLightGrey from colors;
 @value cm_blue from colors;
+@value cm_darkBlue from colors;
 @value cm_lightGrey from colors;
+@value cm_darkGrey from colors;
 @value cm_black from colors;
+@value cm_darkNegative from colors;
 
 .wrapper {
   background-color: white;
@@ -71,13 +74,13 @@
   font-weight: 600;
   list-style: none;
   height: 32px;
-  width: auto;
+  /* width: auto; */
   display: flex;
   flex-direction: row;
   justify-content: center;
-  text-align: center;
   align-items: center;
-  padding: 4px 12px;
+  text-align: center;
+  padding: 6px 8px;
   margin-right: 12px;
   color: black;
   border-radius: 5px;
@@ -88,23 +91,44 @@
   width: 12px;
   top: 0;
   left: 0;
-  margin: 0 4px;
+  margin-right: 8px;
 }
 
 .seeMyPlatform {
   composes: element;
   color: white;
+  width: 151px;
+  /* height: 44px; */
+  padding: 6px 12px;
   background-color: cm_blue;
+}
+
+.seeMyPlatform:hover {
+  background-color: cm_darkBlue;
 }
 
 .globalAnalytics {
   composes: element;
+  width: 151px;
+  /* height: 44px; */
+  padding: 6px 12px;
   background-color: cm_lightGrey;
+}
+
+.globalAnalytics:hover {
+  background-color: cm_darkGrey;
 }
 
 .platformList {
   composes: element;
+  max-width: 121px;
+  /* height: 44px; */
+  padding: 6px 24px;
   background-color: xtraLightGrey;
+}
+
+.platformList:hover {
+  background-color: cm_lightGrey;
 }
 
 .logOut {
@@ -113,11 +137,17 @@
   color: negative;
 }
 
+.logOut:hover {
+  color: cm_darkNegative;
+}
+
 .platformName {
   composes: element;
   background-color: transparent;
   font-size: 20px;
   text-align: left;
+  width: 145px;
+  height: 44px;
   color: cm_black;
 }
 
@@ -137,6 +167,12 @@
 }
 
 @media tablet {
+  .platformList {
+    justify-content: center;
+    align-items: center;
+    padding: 9px;
+  }
+
   .platformList li {
     display: none;
   }
