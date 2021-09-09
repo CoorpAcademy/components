@@ -124,9 +124,9 @@ import OrganismAccordionCoorpManagerPart from './../src/organism/accordion/coorp
 import OrganismAccordionCoorpManager from './../src/organism/accordion/coorp-manager';
 import OrganismAccordionPart from './../src/organism/accordion/part';
 import OrganismAccordionToggler from './../src/organism/accordion/toggler';
+import OrganismBrandAnalytics from './../src/organism/brand-analytics';
 import OrganismBrandDashboard from './../src/organism/brand-dashboard';
 import OrganismBrandForm from './../src/organism/brand-form';
-import OrganismBrandHome from './../src/organism/brand-home';
 import OrganismBrandTable from './../src/organism/brand-table';
 import OrganismBrandUpload from './../src/organism/brand-upload';
 import OrganismCardsGrid from './../src/organism/cards-grid';
@@ -655,12 +655,13 @@ import OrganismAccordionPartFixtureOpen from '../src/organism/accordion/part/tes
 import OrganismAccordionTogglerFixtureAllAreOpenable from '../src/organism/accordion/toggler/test/fixtures/all-are-openable';
 import OrganismAccordionTogglerFixtureNoChildrens from '../src/organism/accordion/toggler/test/fixtures/no-childrens';
 import OrganismAccordionTogglerFixtureOnlyOne from '../src/organism/accordion/toggler/test/fixtures/only-one';
+import OrganismBrandAnalyticsFixtureDefault from '../src/organism/brand-analytics/test/fixtures/default';
+import OrganismBrandAnalyticsFixtureError from '../src/organism/brand-analytics/test/fixtures/error';
+import OrganismBrandAnalyticsFixtureLoading from '../src/organism/brand-analytics/test/fixtures/loading';
+import OrganismBrandAnalyticsFixtureSelectedError from '../src/organism/brand-analytics/test/fixtures/selected-error';
+import OrganismBrandAnalyticsFixtureSelectedLoading from '../src/organism/brand-analytics/test/fixtures/selected-loading';
+import OrganismBrandAnalyticsFixtureSelected from '../src/organism/brand-analytics/test/fixtures/selected';
 import OrganismBrandDashboardFixtureDefault from '../src/organism/brand-dashboard/test/fixtures/default';
-import OrganismBrandDashboardFixtureError from '../src/organism/brand-dashboard/test/fixtures/error';
-import OrganismBrandDashboardFixtureLoading from '../src/organism/brand-dashboard/test/fixtures/loading';
-import OrganismBrandDashboardFixtureSelectedError from '../src/organism/brand-dashboard/test/fixtures/selected-error';
-import OrganismBrandDashboardFixtureSelectedLoading from '../src/organism/brand-dashboard/test/fixtures/selected-loading';
-import OrganismBrandDashboardFixtureSelected from '../src/organism/brand-dashboard/test/fixtures/selected';
 import OrganismBrandFormFixtureAnalytics from '../src/organism/brand-form/test/fixtures/analytics';
 import OrganismBrandFormFixtureAnimations from '../src/organism/brand-form/test/fixtures/animations';
 import OrganismBrandFormFixtureCohort from '../src/organism/brand-form/test/fixtures/cohort';
@@ -671,7 +672,6 @@ import OrganismBrandFormFixtureLms from '../src/organism/brand-form/test/fixture
 import OrganismBrandFormFixtureLookandfeel from '../src/organism/brand-form/test/fixtures/lookandfeel';
 import OrganismBrandFormFixtureManageusersEdit from '../src/organism/brand-form/test/fixtures/manageusers-edit';
 import OrganismBrandFormFixtureSso from '../src/organism/brand-form/test/fixtures/sso';
-import OrganismBrandHomeFixtureDefault from '../src/organism/brand-home/test/fixtures/default';
 import OrganismBrandTableFixtureAnimations from '../src/organism/brand-table/test/fixtures/animations';
 import OrganismBrandTableFixtureDefault from '../src/organism/brand-table/test/fixtures/default';
 import OrganismBrandTableFixtureEmpty from '../src/organism/brand-table/test/fixtures/empty';
@@ -1090,9 +1090,9 @@ export const components = {
     OrganismAccordionCoorpManagerPart
   },
   Organism: {
+    OrganismBrandAnalytics,
     OrganismBrandDashboard,
     OrganismBrandForm,
-    OrganismBrandHome,
     OrganismBrandTable,
     OrganismBrandUpload,
     OrganismCardsGrid,
@@ -1906,13 +1906,16 @@ export const fixtures = {
     }
   },
   Organism: {
+    OrganismBrandAnalytics: {
+      Default: OrganismBrandAnalyticsFixtureDefault,
+      Error: OrganismBrandAnalyticsFixtureError,
+      Loading: OrganismBrandAnalyticsFixtureLoading,
+      SelectedError: OrganismBrandAnalyticsFixtureSelectedError,
+      SelectedLoading: OrganismBrandAnalyticsFixtureSelectedLoading,
+      Selected: OrganismBrandAnalyticsFixtureSelected
+    },
     OrganismBrandDashboard: {
-      Default: OrganismBrandDashboardFixtureDefault,
-      Error: OrganismBrandDashboardFixtureError,
-      Loading: OrganismBrandDashboardFixtureLoading,
-      SelectedError: OrganismBrandDashboardFixtureSelectedError,
-      SelectedLoading: OrganismBrandDashboardFixtureSelectedLoading,
-      Selected: OrganismBrandDashboardFixtureSelected
+      Default: OrganismBrandDashboardFixtureDefault
     },
     OrganismBrandForm: {
       Analytics: OrganismBrandFormFixtureAnalytics,
@@ -1925,9 +1928,6 @@ export const fixtures = {
       Lookandfeel: OrganismBrandFormFixtureLookandfeel,
       ManageusersEdit: OrganismBrandFormFixtureManageusersEdit,
       Sso: OrganismBrandFormFixtureSso
-    },
-    OrganismBrandHome: {
-      Default: OrganismBrandHomeFixtureDefault
     },
     OrganismBrandTable: {
       Animations: OrganismBrandTableFixtureAnimations,

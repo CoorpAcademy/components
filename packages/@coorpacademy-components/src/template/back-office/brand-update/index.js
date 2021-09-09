@@ -11,8 +11,8 @@ import {IconLinkItem, LinkItem} from '../../../organism/sidebar';
 import BrandForm from '../../../organism/brand-form';
 import BrandTable from '../../../organism/brand-table';
 import BrandUpload from '../../../organism/brand-upload';
+import BrandAnalytics from '../../../organism/brand-analytics';
 import BrandDashboard from '../../../organism/brand-dashboard';
-import BrandHome from '../../../organism/brand-home';
 import Notification from '../../../atom/notification';
 import Header from '../../../organism/setup-header';
 import Loader from '../../../atom/loader';
@@ -93,9 +93,9 @@ const BrandUpdate = props => {
       case 'upload':
         return <BrandUpload {...cont} />;
       case 'dashboard':
-        return <BrandDashboard {...cont} />;
+        return <BrandAnalytics {...cont} />;
       case 'home':
-        return <BrandHome {...cont} />;
+        return <BrandDashboard {...cont} />;
     }
   };
 
@@ -119,7 +119,7 @@ const BrandUpdate = props => {
       <div className={style.contentWrapper}>
         <Header {...header} />
         <div className={style.notifications}>{notificationsList}</div>
-        {content.type === 'home' ? (
+        {content && content.type === 'home' ? (
           contentView(content)
         ) : (
           <div className={style.contentHandler}>
@@ -188,9 +188,14 @@ BrandUpdate.propTypes = {
       type: PropTypes.oneOf(['upload'])
     }),
     PropTypes.shape({
+      ...BrandAnalytics.propTypes,
+      key: PropTypes.string,
+      type: PropTypes.oneOf(['analytics-dashboards'])
+    }),
+    PropTypes.shape({
       ...BrandDashboard.propTypes,
       key: PropTypes.string,
-      type: PropTypes.oneOf(['dashboard'])
+      type: PropTypes.oneOf(['dashoard'])
     })
   ]),
   details: PropTypes.shape({

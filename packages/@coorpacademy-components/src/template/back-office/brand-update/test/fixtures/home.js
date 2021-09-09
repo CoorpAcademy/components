@@ -6,7 +6,7 @@ const {props} = Default;
 export default {
   props: defaultsDeep(props, {
     content: {
-      type: 'home',
+      type: 'dashoard',
       text: 'Welcome to coorpmanager'
     }
   })

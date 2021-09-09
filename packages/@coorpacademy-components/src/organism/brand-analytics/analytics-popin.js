@@ -4,9 +4,9 @@ import {getOr} from 'lodash/fp';
 import stopPropagation from '../../util/bubbling';
 import Provider from '../../atom/provider';
 import Button from '../../atom/button';
-import style from './dashboard-popin.css';
+import style from './analytics-popin.css';
 
-const DashboardPopin = (props, context) => {
+const AnalyticsPopin = (props, context) => {
   const {skin} = context;
 
   const {ctaLabel, ctaOnClick, header, closeOnClick, content} = props;
@@ -47,11 +47,11 @@ const DashboardPopin = (props, context) => {
   );
 };
 
-DashboardPopin.contextTypes = {
+AnalyticsPopin.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
-DashboardPopin.propTypes = {
+AnalyticsPopin.propTypes = {
   ctaLabel: PropTypes.string,
   ctaOnClick: PropTypes.func,
   closeOnClick: PropTypes.func,
@@ -59,4 +59,4 @@ DashboardPopin.propTypes = {
   content: PropTypes.string
 };
 
-export default DashboardPopin;
+export default AnalyticsPopin;

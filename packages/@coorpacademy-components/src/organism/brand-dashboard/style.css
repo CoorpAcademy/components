@@ -1,45 +1,23 @@
-@value breakpoints: "../../variables/breakpoints.css";
-@value mobile from breakpoints;
-@value tablet from breakpoints;
-@value desktop from breakpoints;
 @value colors: "../../variables/colors.css";
 @value dark from colors;
-@value light from colors;
 
-.dashboardContent {
-  font-family: "Open Sans";
-  width: 100%;
-  text-align: center;
-  margin: 0 20px 20px 0px;
-  display: flex;
-  flex-direction: column;  
-  min-height: 700px;
+.home {
+flex: 1;
+display: flex;
+justify-content: center;
+align-content: center;
+align-items: center;
 }
-
-.dashboardSelection {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
-}
-
-.dashboardTitle {
-  font-size: 24px;
-  color: dark;
-  border: 1px solid light;
-  padding: 10px;
-  flex-grow: 0;
-}
-
-.dashboardIframe {
-  width: 100%;
-  height: 100%;
-  flex-grow: 1;
-}
-
-.dashboardNoSelection {
-  font-size: 20px;
+.homeText {
+  width: 611px;
+  height: 58px;
+  font-family: Gilroy;
+  font-size: 48px;
   font-weight: bold;
-  padding: 40px;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #111117;
 }
-
-/* TODO: mobile rendering */
