@@ -39,7 +39,7 @@ const SetupHeader = props => {
         </ul>
       )}
       <ul className={style.list}>
-        {items.globalAnalytics || !isDashboard ? (
+        {items.globalAnalytics || isDashboard === false ? (
           <Link
             href={items.globalAnalytics.href}
             className={classnames(style.element, style.globalAnalytics)}
