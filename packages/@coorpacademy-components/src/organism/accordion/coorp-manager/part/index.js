@@ -143,9 +143,10 @@ const AccordionPart = (props, context) => {
     onClick();
   }
 
+  const isCollapsibleTab = type === 'collapsibleTab';
   return (
     <div data-name="accordionPart" className={themeStyle[theme]}>
-      {type !== 'collapsibleTab' ? (
+      {!isCollapsibleTab ? (
         <Link
           onClick={handleParentClick}
           skinHover
@@ -183,7 +184,7 @@ const AccordionPart = (props, context) => {
           type={type}
         />
       )}
-      {isOpen ? <div className={themeStyle.container}>{content}</div> : null}
+      {isCollapsibleTab && isOpen ? <div className={themeStyle.container}>{content}</div> : null}
     </div>
   );
 };
