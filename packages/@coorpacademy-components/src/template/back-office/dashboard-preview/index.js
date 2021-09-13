@@ -134,7 +134,7 @@ const DashboardPreview = (props, context) => {
   const dashboardList = dashboards.map(dashboard => ({
     title: dashboard.name,
     name: `${kebabCase(dashboard.name)}-link`,
-    type: 'collapsibleTab',
+    type: 'link',
     href: dashboard.href,
     onClick: () => onSelectDashboard(kebabCase(dashboard.name)),
     selected: dashboard.name === get('name', currentDashboard)
