@@ -11,6 +11,7 @@ import {IconLinkItem, LinkItem} from '../../../organism/sidebar';
 import BrandForm from '../../../organism/brand-form';
 import BrandTable from '../../../organism/brand-table';
 import BrandUpload from '../../../organism/brand-upload';
+import BrandAnalytics from '../../../organism/brand-analytics';
 import BrandDashboard from '../../../organism/brand-dashboard';
 import Notification from '../../../atom/notification';
 import Header from '../../../organism/setup-header';
@@ -92,6 +93,8 @@ const BrandUpdate = props => {
       case 'upload':
         return <BrandUpload {...cont} />;
       case 'dashboard':
+        return <BrandAnalytics {...cont} />;
+      case 'home':
         return <BrandDashboard {...cont} />;
     }
   };
@@ -116,17 +119,21 @@ const BrandUpdate = props => {
       <div className={style.contentWrapper}>
         <Header {...header} />
         <div className={style.notifications}>{notificationsList}</div>
-        <div className={style.contentHandler}>
-          <div className={style.contentView}>
-            {selectedTab && !isEmpty(selectedTab.subTabs) ? (
-              <BrandTabs type="light" tabs={selectedTab.subTabs} />
-            ) : null}
-            <div className={style.dashboardContent}>
-              <div>{contentView(content)}</div>
-              <div>{detailsView(details)}</div>
+        {content && content.type === 'home' ? (
+          contentView(content)
+        ) : (
+          <div className={style.contentHandler}>
+            <div className={style.contentView}>
+              {selectedTab && !isEmpty(selectedTab.subTabs) ? (
+                <BrandTabs type="light" tabs={selectedTab.subTabs} />
+              ) : null}
+              <div className={style.dashboardContent}>
+                <div>{contentView(content)}</div>
+                <div>{detailsView(details)}</div>
+              </div>
             </div>
           </div>
-        </div>
+        )}
       </div>
     </div>
   );
@@ -181,9 +188,14 @@ BrandUpdate.propTypes = {
       type: PropTypes.oneOf(['upload'])
     }),
     PropTypes.shape({
+      ...BrandAnalytics.propTypes,
+      key: PropTypes.string,
+      type: PropTypes.oneOf(['analytics-dashboards'])
+    }),
+    PropTypes.shape({
       ...BrandDashboard.propTypes,
       key: PropTypes.string,
-      type: PropTypes.oneOf(['dashboard'])
+      type: PropTypes.oneOf(['dashoard'])
     })
   ]),
   details: PropTypes.shape({

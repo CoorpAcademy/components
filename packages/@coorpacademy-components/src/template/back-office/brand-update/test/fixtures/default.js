@@ -6,14 +6,16 @@ export const items = [
     key: 'dashboard',
     href: '#brand/samsung/dashboard',
     open: undefined,
-    selected: false
+    selected: true,
+    type: 'simpleTab'
   },
   {
     title: 'Administration',
     key: 'administration',
     href: '#brand/samsung/administration',
     open: false,
-    selected: false
+    selected: false,
+    type: 'collapsibleTab'
   },
   {
     title: 'Editorialization',
@@ -35,8 +37,9 @@ export const items = [
     title: 'Animation',
     key: 'animation',
     href: '#brand/samsung/content-creation',
-    selected: true,
+    selected: false,
     isOpen: true,
+    type: 'collapsibleTab',
     tabs: [
       {
         title: 'My platform',
@@ -97,8 +100,9 @@ export const items = [
     title: 'Analytics',
     key: 'analytics',
     href: '#brand/samsung/analytics',
-    open: true,
+    open: false,
     selected: false,
+    type: 'collapsibleTab',
     tabs: [
       {title: 'SSO', href: '#/sso', selected: false, type: 'iconLink'},
       {title: 'Look and Feel', href: '#/look-and-feel', selected: false},

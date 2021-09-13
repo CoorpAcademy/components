@@ -32,6 +32,9 @@
 
 .contentWrapper {
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-top: 16px;
   overflow: auto;
 }
 

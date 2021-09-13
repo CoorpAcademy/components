@@ -83,6 +83,7 @@ const Part = ({
   const selectedBlackLabel = selected && style.labelBlack;
   const Icon = ICON_TYPES[iconType];
   const isLink = type === 'iconLink';
+  const isCollapsible = type === 'collapsibleTab';
 
   return (
     <div className={style.wrapper}>
@@ -106,14 +107,14 @@ const Part = ({
                 {isLink ? <OpenInNewTabIcon className={style.newTabIcon} /> : null}
               </h3>
             </div>
-            {!isLink ? (
+            {isCollapsible ? (
               <div>
                 <ArrowIcon className={moreClassName} color={darkColor} />
                 <ArrowIcon className={lessClassName} color={mediumColor} />
               </div>
             ) : null}
           </div>
-          {children}
+          {isCollapsible ? children : null}
         </div>
       </div>
     </div>
@@ -144,7 +145,7 @@ const AccordionPart = (props, context) => {
 
   return (
     <div data-name="accordionPart" className={themeStyle[theme]}>
-      {type === 'iconLink' ? (
+      {type !== 'collapsibleTab' ? (
         <Link
           onClick={handleParentClick}
           skinHover
@@ -193,7 +194,7 @@ AccordionPart.contextTypes = {
 
 AccordionPart.propTypes = {
   iconType: PropTypes.oneOf(keys(ICON_TYPES)),
-  type: PropTypes.oneOf(['link', 'iconLink']),
+  type: PropTypes.oneOf(['simpleTab', 'collapsibleTab', 'iconLink']),
   title: PropTypes.string,
   content: PropTypes.node,
   onClick: PropTypes.func,

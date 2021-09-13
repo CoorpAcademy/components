@@ -124,6 +124,7 @@ import OrganismAccordionCoorpManagerPart from './../src/organism/accordion/coorp
 import OrganismAccordionCoorpManager from './../src/organism/accordion/coorp-manager';
 import OrganismAccordionPart from './../src/organism/accordion/part';
 import OrganismAccordionToggler from './../src/organism/accordion/toggler';
+import OrganismBrandAnalytics from './../src/organism/brand-analytics';
 import OrganismBrandDashboard from './../src/organism/brand-dashboard';
 import OrganismBrandForm from './../src/organism/brand-form';
 import OrganismBrandTable from './../src/organism/brand-table';
@@ -654,12 +655,13 @@ import OrganismAccordionPartFixtureOpen from '../src/organism/accordion/part/tes
 import OrganismAccordionTogglerFixtureAllAreOpenable from '../src/organism/accordion/toggler/test/fixtures/all-are-openable';
 import OrganismAccordionTogglerFixtureNoChildrens from '../src/organism/accordion/toggler/test/fixtures/no-childrens';
 import OrganismAccordionTogglerFixtureOnlyOne from '../src/organism/accordion/toggler/test/fixtures/only-one';
+import OrganismBrandAnalyticsFixtureDefault from '../src/organism/brand-analytics/test/fixtures/default';
+import OrganismBrandAnalyticsFixtureError from '../src/organism/brand-analytics/test/fixtures/error';
+import OrganismBrandAnalyticsFixtureLoading from '../src/organism/brand-analytics/test/fixtures/loading';
+import OrganismBrandAnalyticsFixtureSelectedError from '../src/organism/brand-analytics/test/fixtures/selected-error';
+import OrganismBrandAnalyticsFixtureSelectedLoading from '../src/organism/brand-analytics/test/fixtures/selected-loading';
+import OrganismBrandAnalyticsFixtureSelected from '../src/organism/brand-analytics/test/fixtures/selected';
 import OrganismBrandDashboardFixtureDefault from '../src/organism/brand-dashboard/test/fixtures/default';
-import OrganismBrandDashboardFixtureError from '../src/organism/brand-dashboard/test/fixtures/error';
-import OrganismBrandDashboardFixtureLoading from '../src/organism/brand-dashboard/test/fixtures/loading';
-import OrganismBrandDashboardFixtureSelectedError from '../src/organism/brand-dashboard/test/fixtures/selected-error';
-import OrganismBrandDashboardFixtureSelectedLoading from '../src/organism/brand-dashboard/test/fixtures/selected-loading';
-import OrganismBrandDashboardFixtureSelected from '../src/organism/brand-dashboard/test/fixtures/selected';
 import OrganismBrandFormFixtureAnalytics from '../src/organism/brand-form/test/fixtures/analytics';
 import OrganismBrandFormFixtureAnimations from '../src/organism/brand-form/test/fixtures/animations';
 import OrganismBrandFormFixtureCohort from '../src/organism/brand-form/test/fixtures/cohort';
@@ -877,6 +879,7 @@ import TemplateBackOfficeBrandUpdateFixtureDashboardsAnalytics from '../src/temp
 import TemplateBackOfficeBrandUpdateFixtureDefault from '../src/template/back-office/brand-update/test/fixtures/default';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess from '../src/template/back-office/brand-update/test/fixtures/general-settings-success';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettings from '../src/template/back-office/brand-update/test/fixtures/general-settings';
+import TemplateBackOfficeBrandUpdateFixtureHome from '../src/template/back-office/brand-update/test/fixtures/home';
 import TemplateBackOfficeBrandUpdateFixtureLmsError from '../src/template/back-office/brand-update/test/fixtures/lms-error';
 import TemplateBackOfficeBrandUpdateFixtureLmsModified from '../src/template/back-office/brand-update/test/fixtures/lms-modified';
 import TemplateBackOfficeBrandUpdateFixtureLmsSuccess from '../src/template/back-office/brand-update/test/fixtures/lms-success';
@@ -1087,6 +1090,7 @@ export const components = {
     OrganismAccordionCoorpManagerPart
   },
   Organism: {
+    OrganismBrandAnalytics,
     OrganismBrandDashboard,
     OrganismBrandForm,
     OrganismBrandTable,
@@ -1902,13 +1906,16 @@ export const fixtures = {
     }
   },
   Organism: {
+    OrganismBrandAnalytics: {
+      Default: OrganismBrandAnalyticsFixtureDefault,
+      Error: OrganismBrandAnalyticsFixtureError,
+      Loading: OrganismBrandAnalyticsFixtureLoading,
+      SelectedError: OrganismBrandAnalyticsFixtureSelectedError,
+      SelectedLoading: OrganismBrandAnalyticsFixtureSelectedLoading,
+      Selected: OrganismBrandAnalyticsFixtureSelected
+    },
     OrganismBrandDashboard: {
-      Default: OrganismBrandDashboardFixtureDefault,
-      Error: OrganismBrandDashboardFixtureError,
-      Loading: OrganismBrandDashboardFixtureLoading,
-      SelectedError: OrganismBrandDashboardFixtureSelectedError,
-      SelectedLoading: OrganismBrandDashboardFixtureSelectedLoading,
-      Selected: OrganismBrandDashboardFixtureSelected
+      Default: OrganismBrandDashboardFixtureDefault
     },
     OrganismBrandForm: {
       Analytics: OrganismBrandFormFixtureAnalytics,
@@ -2222,6 +2229,7 @@ export const fixtures = {
       Default: TemplateBackOfficeBrandUpdateFixtureDefault,
       GeneralSettingsSuccess: TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess,
       GeneralSettings: TemplateBackOfficeBrandUpdateFixtureGeneralSettings,
+      Home: TemplateBackOfficeBrandUpdateFixtureHome,
       LmsError: TemplateBackOfficeBrandUpdateFixtureLmsError,
       LmsModified: TemplateBackOfficeBrandUpdateFixtureLmsModified,
       LmsSuccess: TemplateBackOfficeBrandUpdateFixtureLmsSuccess,
