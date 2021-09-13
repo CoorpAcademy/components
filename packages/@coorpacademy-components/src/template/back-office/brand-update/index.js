@@ -40,7 +40,7 @@ const BrandUpdate = props => {
     head
   )(items);
 
-  const formattedTabs = items.map(({key, title, href, selected, type = 'link'}, index) => ({
+  const formattedTabs = items.map(({key, title, href, selected, type = 'simpleTab'}, index) => ({
     title,
     selected,
     type,
