@@ -105,8 +105,8 @@ SetupHeader.propTypes = {
     platformList: PropTypes.shape({href: PropTypes.string, label: PropTypes.string})
   }),
   platformName: PropTypes.string,
-  isHome: PropTypes.bool,
   isDashboard: PropTypes.bool,
+  isHome: PropTypes.bool,
   href: Link.propTypes.href,
   user: PropTypes.shape({
     username: PropTypes.string,
