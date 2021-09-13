@@ -58,7 +58,7 @@ const SetupHeader = props => {
           </ul>
         )}
         <ul className={style.list}>
-          {items.globalAnalytics || isDashboard === false ? (
+          {items.globalAnalytics && isDashboard === false ? (
             <Link
               href={items.globalAnalytics.href}
               className={classnames(style.element, style.globalAnalytics)}
@@ -86,7 +86,7 @@ const SetupHeader = props => {
         </ul>
       </div>
 
-      <div data-logout={show ? 'show' : 'hide'}>
+      <div data-name={`logout-${show ? 'show' : 'hide'}`}>
         <div className={style.arrowUp} />
         <Link href={items.logOut.href} className={classnames(style.element, style.logOut)}>
           <LogoutIcon className={style.icon} />
