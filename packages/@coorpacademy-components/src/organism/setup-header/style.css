@@ -1,7 +1,6 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
-@value tablet from breakpoints;
-@value desktop from breakpoints;
+@value cm_tablet from breakpoints;
 @value colors: "../../variables/colors.css";
 @value light from colors;
 @value medium from colors;
@@ -16,13 +15,28 @@
 @value cm_black from colors;
 @value cm_darkNegative from colors;
 
-.wrapper {
+.container {
   background-color: white;
-  width: 100%;
   height: 80px;
   box-sizing: border-box;
   z-index: 1100;
-  padding: 0 40px;
+  margin: 24px 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+[data-logout="hide"] {
+  display: none;
+}
+
+[data-logout="show"] {
+  display: none;
+}
+
+.wrapper {
+  background-color: white;
+  box-sizing: border-box;
+  z-index: 1100;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -74,13 +88,12 @@
   font-size: 14px;
   font-weight: 600;
   list-style: none;
-  height: 32px;
+  height: 44px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 6px 8px;
   margin-right: 12px;
   color: black;
   border-radius: 5px;
@@ -88,7 +101,6 @@
 
 .icon {
   height: 12px;
-  width: 12px;
   top: 0;
   left: 0;
   margin-right: 8px;
@@ -97,8 +109,7 @@
 .seeMyPlatform {
   composes: element;
   color: white;
-  width: 151px;
-  padding: 6px 12px;
+  min-width: 175px;
   background-color: cm_blue;
 }
 
@@ -108,8 +119,7 @@
 
 .globalAnalytics {
   composes: element;
-  width: 151px;
-  padding: 6px 12px;
+  min-width: 175px;
   background-color: cm_lightGrey;
 }
 
@@ -119,8 +129,8 @@
 
 .platformList {
   composes: element;
-  max-width: 121px;
-  padding: 6px 24px;
+  width: 145px;
+  margin-right: 16px;
   background-color: xtraLightGrey;
 }
 
@@ -131,6 +141,7 @@
 .logOut {
   composes: element;
   background-color: transparent;
+  width: 100px;
   color: negative;
 }
 
@@ -143,14 +154,13 @@
   background-color: transparent;
   font-size: 20px;
   text-align: left;
-  width: 145px;
   height: 44px;
   color: cm_black;
 }
 
 .profilePicture {
-  width: 40px;
-  height: 40px;
+  width: 39px;
+  height: 39px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -164,16 +174,54 @@
 }
 
 .profilePicture img {
-  width: 42px;
-  height: 42px;
+  width: 41px;
+  height: 41px;
   border-radius: 50%;
 }
 
-@media tablet {
+@media cm_tablet {
+  [data-logout="show"] {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    margin-top: 15px;
+  }
+
+  [data-logout="show"] .logOut {
+    background-color: cm_lightGrey;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    text-decoration: none;
+  }
+
+  .arrowUp {
+    width: 0;
+    height: 0;
+    margin-right: 15px;
+    border-left: 12px solid transparent;
+    border-right: 12px solid transparent;
+    border-bottom: 8px solid cm_lightGrey;
+  }
+
+  [data-logout="show"] .logOut {
+    display: flex;
+    margin: 0;
+    color: black;
+  }
+
+  [data-logout="show"] .logOut:hover {
+    display: flex;
+    margin: 0;
+    color: negative;
+  }
+
   .platformList {
     justify-content: center;
     align-items: center;
-    padding: 9px;
+    padding: 0 8px;
+    width: auto;
   }
 
   .platformList li {
@@ -188,11 +236,11 @@
     font-size: 16px;
   }
 
-  .logOut li {
+  .logOut {
     display: none;
   }
 
-  .icon {
+  .platformList .icon {
     width: 30px;
   }
 }
