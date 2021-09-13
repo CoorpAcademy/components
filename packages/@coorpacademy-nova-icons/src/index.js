@@ -86,6 +86,7 @@ import _NovaCompositionCoorpacademyTimer from './components/nova-composition/coo
 import _NovaCompositionCoorpacademyTooltipCorner from './components/nova-composition/coorpacademy/tooltip-corner';
 import _NovaCompositionCoorpacademyTrophyCup from './components/nova-composition/coorpacademy/trophy-cup';
 import _NovaCompositionCoorpacademyTwitter from './components/nova-composition/coorpacademy/twitter';
+import _NovaCompositionCoorpacademyTypeEye from './components/nova-composition/coorpacademy/type-eye';
 import _NovaCompositionCoorpacademyValidate from './components/nova-composition/coorpacademy/validate';
 import _NovaCompositionCoorpacademyVideo from './components/nova-composition/coorpacademy/video';
 import _NovaCompositionCoorpacademyVimeo from './components/nova-composition/coorpacademy/vimeo';
@@ -248,6 +249,7 @@ export const NovaCompositionCoorpacademyTimer: Icon = _NovaCompositionCoorpacade
 export const NovaCompositionCoorpacademyTooltipCorner: Icon = _NovaCompositionCoorpacademyTooltipCorner;
 export const NovaCompositionCoorpacademyTrophyCup: Icon = _NovaCompositionCoorpacademyTrophyCup;
 export const NovaCompositionCoorpacademyTwitter: Icon = _NovaCompositionCoorpacademyTwitter;
+export const NovaCompositionCoorpacademyTypeEye: Icon = _NovaCompositionCoorpacademyTypeEye;
 export const NovaCompositionCoorpacademyValidate: Icon = _NovaCompositionCoorpacademyValidate;
 export const NovaCompositionCoorpacademyVideo: Icon = _NovaCompositionCoorpacademyVideo;
 export const NovaCompositionCoorpacademyVimeo: Icon = _NovaCompositionCoorpacademyVimeo;

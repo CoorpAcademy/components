@@ -1,6 +1,6 @@
 import React from 'react';
 import {
-  NovaCompositionCoorpacademyEye as EyeIcon,
+  NovaCompositionCoorpacademyTypeEye as EyeIcon,
   NovaCompositionCoorpacademyAnalytics as AnalyticsIcon,
   NovaSolidContentContentViewModule1 as ListIcon,
   NovaSolidLoginLogout1 as LogoutIcon
@@ -12,59 +12,87 @@ import Link from '../../atom/link';
 import style from './style.css';
 
 const SetupHeader = props => {
-  const {platformName, items, href, user = {}, logo, logoMobile, isHome = false} = props;
+  const [show, updateShow] = React.useState(false);
+  const {
+    platformName,
+    items,
+    href,
+    user = {},
+    logo,
+    logoMobile,
+    isHome = false,
+    isDashboard = false
+  } = props;
   const {image = ''} = user;
 
+  function onMouseEnter() {
+    updateShow(true);
+  }
+
+  function onMouseLeave() {
+    updateShow(false);
+  }
+
   return (
-    <div className={style.wrapper}>
-      {isHome ? (
-        <div className={style.logo}>
-          <Link href={href}>
-            <Picture className={style.logoDesktop} src={logo} />
-            <Picture className={style.logoMobile} src={logoMobile} />
-          </Link>
-        </div>
-      ) : (
-        <ul className={style.list}>
-          <Link
-            href={items.platformList.href}
-            className={classnames(style.element, style.platformList)}
-          >
-            <ListIcon className={style.icon} />
-            <li>{items.platformList.label}</li>
-          </Link>
-          <li className={classnames(style.element, style.platformName)}>{platformName}</li>
-        </ul>
-      )}
-      <ul className={style.list}>
-        {items.globalAnalytics ? (
-          <Link
-            href={items.globalAnalytics.href}
-            className={classnames(style.element, style.globalAnalytics)}
-          >
-            <AnalyticsIcon className={style.icon} />
-            <li>{items.globalAnalytics.label}</li>
-          </Link>
-        ) : null}
-        {isHome ? null : (
-          <Link
-            href={items.seeMyPlatform.href}
-            className={classnames(style.element, style.seeMyPlatform)}
-          >
-            <EyeIcon height={20} width={28} className={style.icon} />
-            <li>{items.seeMyPlatform.label}</li>
-          </Link>
+    <div className={style.container} onMouseLeave={onMouseLeave}>
+      <div className={style.wrapper}>
+        {isHome ? (
+          <div className={style.logo}>
+            <Link href={href}>
+              <Picture className={style.logoDesktop} src={logo} />
+              <Picture className={style.logoMobile} src={logoMobile} />
+            </Link>
+          </div>
+        ) : (
+          <ul className={style.list}>
+            <Link
+              href={items.platformList.href}
+              className={classnames(style.element, style.platformList)}
+            >
+              <ListIcon className={style.icon} />
+              <li>{items.platformList.label}</li>
+            </Link>
+            {!isDashboard ? (
+              <li className={classnames(style.element, style.platformName)}>{platformName}</li>
+            ) : null}
+          </ul>
         )}
-        <Link>
-          <li className={style.profilePicture}>
+        <ul className={style.list}>
+          {items.globalAnalytics && isDashboard === false ? (
+            <Link
+              href={items.globalAnalytics.href}
+              className={classnames(style.element, style.globalAnalytics)}
+            >
+              <AnalyticsIcon className={style.icon} />
+              <li>{items.globalAnalytics.label}</li>
+            </Link>
+          ) : null}
+          {isHome || isDashboard ? null : (
+            <Link
+              href={items.seeMyPlatform.href}
+              className={classnames(style.element, style.seeMyPlatform)}
+            >
+              <EyeIcon height={20} width={28} className={style.icon} />
+              <li>{items.seeMyPlatform.label}</li>
+            </Link>
+          )}
+          <li onMouseEnter={onMouseEnter} className={style.profilePicture}>
             <img src={image} />
           </li>
-        </Link>
+          <Link href={items.logOut.href} className={classnames(style.element, style.logOut)}>
+            <LogoutIcon className={style.icon} />
+            <li>{items.logOut.label}</li>
+          </Link>
+        </ul>
+      </div>
+
+      <div data-name={`logout-${show ? 'show' : 'hide'}`}>
+        <div className={style.arrowUp} />
         <Link href={items.logOut.href} className={classnames(style.element, style.logOut)}>
           <LogoutIcon className={style.icon} />
           <li>{items.logOut.label}</li>
         </Link>
-      </ul>
+      </div>
     </div>
   );
 };
@@ -77,6 +105,7 @@ SetupHeader.propTypes = {
     platformList: PropTypes.shape({href: PropTypes.string, label: PropTypes.string})
   }),
   platformName: PropTypes.string,
+  isDashboard: PropTypes.bool,
   isHome: PropTypes.bool,
   href: Link.propTypes.href,
   user: PropTypes.shape({
