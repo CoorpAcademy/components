@@ -72,7 +72,7 @@ const SetupHeader = props => {
               href={items.seeMyPlatform.href}
               className={classnames(style.element, style.seeMyPlatform)}
             >
-              <EyeIcon height={20} width={28} className={style.icon} />
+              <EyeIcon className={style.icon} />
               <li>{items.seeMyPlatform.label}</li>
             </Link>
           )}
