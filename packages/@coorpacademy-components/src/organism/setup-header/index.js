@@ -34,7 +34,7 @@ const SetupHeader = props => {
   }
 
   return (
-    <div className={style.container} onMouseLeave={onMouseLeave}>
+    <div className={style.container}>
       <div className={style.wrapper}>
         {isHome ? (
           <div className={style.logo}>
@@ -88,7 +88,11 @@ const SetupHeader = props => {
 
       <div data-name={`logout-${show ? 'show' : 'hide'}`}>
         <div className={style.arrowUp} />
-        <Link href={items.logOut.href} className={classnames(style.element, style.logOut)}>
+        <Link
+          href={items.logOut.href}
+          className={classnames(style.element, style.logOut)}
+          onMouseLeave={onMouseLeave}
+        >
           <LogoutIcon className={style.icon} />
           <li>{items.logOut.label}</li>
         </Link>

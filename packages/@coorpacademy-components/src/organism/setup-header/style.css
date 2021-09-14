@@ -181,11 +181,14 @@
 
 @media cm_tablet {
   [data-name="logout-show"] {
+    position: absolute;
+    top: 100px;
+    right: 40px;
     display: flex;
+    z-index: 999;
     flex-direction: column;
     align-items: flex-end;
     width: 100%;
-    margin-top: 15px;
   }
 
   [data-name="logout-show"] .logOut {
