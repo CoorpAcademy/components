@@ -70,6 +70,7 @@ const SetupHeader = props => {
           {isHome || isDashboard ? null : (
             <Link
               href={items.seeMyPlatform.href}
+              target="_blank"
               className={classnames(style.element, style.seeMyPlatform)}
             >
               <EyeIcon className={style.icon} />
