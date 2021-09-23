@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {getOr} from 'lodash/fp';
 
@@ -35,12 +35,20 @@ const CockpitPopin = (props, context) => {
   };
 
   const LogoComponent = logo[type];
-
   const backgroundImageStyle = backgroundImageUrl
     ? {
         backgroundImage: `url(${backgroundImageUrl})`
       }
     : {};
+
+  const [value, setValue] = useState({object: '', message: ''});
+
+  const handleChange = useMemo(() => event => {
+    setValue({...value, [event.target.name]: event.target.value});
+  });
+
+  const isAssistancePopin = type === 'assistance';
+
   return (
     <div className={style.background} style={backgroundImageStyle}>
       {isLoading ? (
@@ -52,15 +60,42 @@ const CockpitPopin = (props, context) => {
           <header className={style.popinHeader}>
             <Close onClick={onClose} className={style.headerCloseIcon} />
           </header>
-          <LogoComponent className={style.icon} style={{color: primaryColor}} />
+          {LogoComponent ? (
+            <LogoComponent className={style.icon} style={{color: primaryColor}} />
+          ) : null}
           <div className={style.header} data-name={`cockpit-popin-header-${type}`}>
             {header}
           </div>
-          <p className={style.content} data-name={`cockpit-popin-content-${type}`}>
-            {content}
-          </p>
-          {firstButtonLabel && secondeButtonLabel ? (
-            <div className={style.buttonContainer}>
+          <p
+            className={style.content}
+            data-name={`cockpit-popin-content-${type}`}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{__html: content}}
+          />
+
+          {isAssistancePopin ? (
+            <div style={{width: '70%'}}>
+              <input
+                className={style.inputText}
+                name="object"
+                type="text"
+                placeholder="Object"
+                value={value.object}
+                onChange={handleChange}
+              />
+              <textarea
+                className={(style.inputText, style.inputTextArea)}
+                name="message"
+                type="text"
+                placeholder="Message"
+                value={value.message}
+                onChange={handleChange}
+              />
+            </div>
+          ) : null}
+
+          <div className={style.buttonContainer}>
+            {firstButtonLabel ? (
               <Cta
                 submitValue={firstButtonLabel}
                 onClick={onFirstButtonClick}
@@ -71,15 +106,18 @@ const CockpitPopin = (props, context) => {
                   color: 'gray'
                 }}
               />
+            ) : null}
+            {secondeButtonLabel ? (
               <Cta
                 submitValue={secondeButtonLabel}
                 onClick={onSecondeButtonClick}
                 name={`cockpit-popin-cta-${type}`}
                 className={style.button}
                 style={{backgroundColor: primaryColor}}
+                disabled={isAssistancePopin && !value.message}
               />
-            </div>
-          ) : null}
+            ) : null}
+          </div>
         </div>
       )}
     </div>
@@ -94,7 +132,7 @@ CockpitPopin.propTypes = {
   secondeButtonLabel: PropTypes.string,
   onSecondeButtonClick: PropTypes.func,
   onClose: PropTypes.func,
-  type: PropTypes.oneOf(['videoTranslate', 'hiddenStateManagment', 'deleteContent']),
+  type: PropTypes.oneOf(['videoTranslate', 'hiddenStateManagment', 'deleteContent', 'assistance']),
   isLoading: PropTypes.bool,
   backgroundImageUrl: PropTypes.string
 };
