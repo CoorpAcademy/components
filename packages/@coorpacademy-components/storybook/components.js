@@ -58,7 +58,6 @@ import MoleculeBreadcrumbs from './../src/molecule/breadcrumbs';
 import MoleculeCard from './../src/molecule/card';
 import MoleculeCardContent from './../src/molecule/card-content';
 import MoleculeCardWithButton from './../src/molecule/card-with-button';
-import MoleculeCockpitPopin from './../src/molecule/cockpit-popin';
 import MoleculeCookieBanner from './../src/molecule/cookie-banner';
 import MoleculeDashboardBattleRequestList from './../src/molecule/dashboard/battle-request-list';
 import MoleculeDashboardCardsList from './../src/molecule/dashboard/cards-list';
@@ -88,6 +87,7 @@ import MoleculeNotificationBanner from './../src/molecule/notification-banner';
 import MoleculePagination from './../src/molecule/pagination';
 import MoleculePaymentForm from './../src/molecule/payment-form';
 import MoleculePdf from './../src/molecule/pdf';
+import MoleculePopin from './../src/molecule/popin';
 import MoleculeProductCard from './../src/molecule/product-card';
 import MoleculeProgressBar from './../src/molecule/progress-bar';
 import MoleculeQuestionsDropDown from './../src/molecule/questions/drop-down';
@@ -413,10 +413,6 @@ import MoleculeCardContentFixtureHero from '../src/molecule/card-content/test/fi
 import MoleculeCardWithButtonFixtureDefault from '../src/molecule/card-with-button/test/fixtures/default';
 import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-button/test/fixtures/with-avatar';
 import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
-import MoleculeCockpitPopinFixtureAssistance from '../src/molecule/cockpit-popin/test/fixtures/assistance';
-import MoleculeCockpitPopinFixtureDefault from '../src/molecule/cockpit-popin/test/fixtures/default';
-import MoleculeCockpitPopinFixtureLoading from '../src/molecule/cockpit-popin/test/fixtures/loading';
-import MoleculeCockpitPopinFixtureVideoTranslate from '../src/molecule/cockpit-popin/test/fixtures/video-translate';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
 import MoleculeDashboardBattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
 import MoleculeDashboardBattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
@@ -535,6 +531,10 @@ import MoleculePaymentFormFixtureDefault from '../src/molecule/payment-form/test
 import MoleculePaymentFormFixtureError from '../src/molecule/payment-form/test/fixtures/error';
 import MoleculePaymentFormFixtureWarning from '../src/molecule/payment-form/test/fixtures/warning';
 import MoleculePdfFixtureDefault from '../src/molecule/pdf/test/fixtures/default';
+import MoleculePopinFixtureAssistance from '../src/molecule/popin/test/fixtures/assistance';
+import MoleculePopinFixtureDefault from '../src/molecule/popin/test/fixtures/default';
+import MoleculePopinFixtureLoading from '../src/molecule/popin/test/fixtures/loading';
+import MoleculePopinFixtureVideoTranslate from '../src/molecule/popin/test/fixtures/video-translate';
 import MoleculeProductCardFixtureDefault from '../src/molecule/product-card/test/fixtures/default';
 import MoleculeProgressBarFixtureDefault from '../src/molecule/progress-bar/test/fixtures/default';
 import MoleculeProgressBarFixtureMax from '../src/molecule/progress-bar/test/fixtures/max';
@@ -1013,7 +1013,6 @@ export const components = {
     MoleculeCard,
     MoleculeCardContent,
     MoleculeCardWithButton,
-    MoleculeCockpitPopin,
     MoleculeCookieBanner,
     MoleculeDisciplineCta,
     MoleculeDisciplineHeader,
@@ -1036,6 +1035,7 @@ export const components = {
     MoleculePagination,
     MoleculePaymentForm,
     MoleculePdf,
+    MoleculePopin,
     MoleculeProductCard,
     MoleculeProgressBar,
     MoleculeResourcePlayer,
@@ -1521,12 +1521,6 @@ export const fixtures = {
       WithAvatar: MoleculeCardWithButtonFixtureWithAvatar,
       WithoutLabel: MoleculeCardWithButtonFixtureWithoutLabel
     },
-    MoleculeCockpitPopin: {
-      Assistance: MoleculeCockpitPopinFixtureAssistance,
-      Default: MoleculeCockpitPopinFixtureDefault,
-      Loading: MoleculeCockpitPopinFixtureLoading,
-      VideoTranslate: MoleculeCockpitPopinFixtureVideoTranslate
-    },
     MoleculeCookieBanner: {
       Default: MoleculeCookieBannerFixtureDefault
     },
@@ -1659,6 +1653,12 @@ export const fixtures = {
     },
     MoleculePdf: {
       Default: MoleculePdfFixtureDefault
+    },
+    MoleculePopin: {
+      Assistance: MoleculePopinFixtureAssistance,
+      Default: MoleculePopinFixtureDefault,
+      Loading: MoleculePopinFixtureLoading,
+      VideoTranslate: MoleculePopinFixtureVideoTranslate
     },
     MoleculeProductCard: {
       Default: MoleculeProductCardFixtureDefault
