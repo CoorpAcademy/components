@@ -413,10 +413,10 @@ import MoleculeCardContentFixtureHero from '../src/molecule/card-content/test/fi
 import MoleculeCardWithButtonFixtureDefault from '../src/molecule/card-with-button/test/fixtures/default';
 import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-button/test/fixtures/with-avatar';
 import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
+import MoleculeCockpitPopinFixtureAssistance from '../src/molecule/cockpit-popin/test/fixtures/assistance';
 import MoleculeCockpitPopinFixtureDefault from '../src/molecule/cockpit-popin/test/fixtures/default';
 import MoleculeCockpitPopinFixtureLoading from '../src/molecule/cockpit-popin/test/fixtures/loading';
 import MoleculeCockpitPopinFixtureVideoTranslate from '../src/molecule/cockpit-popin/test/fixtures/video-translate';
-import MoleculeCockpitPopinFixtureAssistance from '../src/molecule/cockpit-popin/test/fixtures/assistance';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
 import MoleculeDashboardBattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
 import MoleculeDashboardBattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
@@ -1522,10 +1522,10 @@ export const fixtures = {
       WithoutLabel: MoleculeCardWithButtonFixtureWithoutLabel
     },
     MoleculeCockpitPopin: {
+      Assistance: MoleculeCockpitPopinFixtureAssistance,
       Default: MoleculeCockpitPopinFixtureDefault,
       Loading: MoleculeCockpitPopinFixtureLoading,
-      VideoTranslate: MoleculeCockpitPopinFixtureVideoTranslate,
-      Assistance: MoleculeCockpitPopinFixtureAssistance
+      VideoTranslate: MoleculeCockpitPopinFixtureVideoTranslate
     },
     MoleculeCookieBanner: {
       Default: MoleculeCookieBannerFixtureDefault
