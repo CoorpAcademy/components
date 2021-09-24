@@ -7,6 +7,6 @@ export default {
     onFirstButtonClick: () => {},
     secondeButtonLabel: 'Np, do not update',
     onSecondeButtonClick: () => {},
-    onClosee: () => {}
+    onClose: () => {}
   }
 };

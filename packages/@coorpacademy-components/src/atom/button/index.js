@@ -23,6 +23,8 @@ const ButtonContent = props => {
   const anchorClassName = (disabled && `${className} ${cssStyle.disabledAnchor}`) || className;
   const anchorOnClick = (disabled && null) || onClick;
   const anchorHref = (disabled && null) || href;
+  const inputClassName = (disabled && `${className} ${cssStyle.buttonDisabled}`) || className;
+
   switch (type) {
     case 'link':
       return (
@@ -61,7 +63,7 @@ const ButtonContent = props => {
           value={submitValue}
           disabled={disabled}
           onClick={onClick}
-          className={className}
+          className={inputClassName}
           style={{
             color,
             ...style
