@@ -12,7 +12,7 @@ import Cta from '../../atom/button';
 import Loader from '../../atom/loader';
 import style from './style.css';
 
-const CockpitPopin = (props, context) => {
+const Popin = (props, context) => {
   const {skin} = context;
   const primaryColor = getOr('#00B0FF', 'common.primary', skin);
   const {
@@ -124,7 +124,7 @@ const CockpitPopin = (props, context) => {
   );
 };
 
-CockpitPopin.propTypes = {
+Popin.propTypes = {
   header: PropTypes.string,
   content: PropTypes.string,
   firstButtonLabel: PropTypes.string,
@@ -137,4 +137,4 @@ CockpitPopin.propTypes = {
   backgroundImageUrl: PropTypes.string
 };
 
-export default CockpitPopin;
+export default Popin;
