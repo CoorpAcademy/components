@@ -49,6 +49,10 @@ const Popin = (props, context) => {
 
   const isAssistancePopin = type === 'assistance';
 
+  const handleClickOnSecondButton = useMemo(() => {
+    return type === 'assistance' ? onSecondeButtonClick(value) : onSecondeButtonClick;
+  }, [value]);
+
   return (
     <div className={style.background} style={backgroundImageStyle}>
       {isLoading ? (
@@ -110,7 +114,7 @@ const Popin = (props, context) => {
             {secondeButtonLabel ? (
               <Cta
                 submitValue={secondeButtonLabel}
-                onClick={onSecondeButtonClick}
+                onClick={handleClickOnSecondButton}
                 name={`cockpit-popin-cta-${type}`}
                 className={style.button}
                 style={{backgroundColor: primaryColor}}
