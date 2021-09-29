@@ -80,6 +80,7 @@ const Popin = (props, context) => {
           {isAssistancePopin ? (
             <div style={{width: '70%'}}>
               <input
+                data-name="contact-object"
                 className={style.inputText}
                 name="object"
                 type="text"
@@ -89,6 +90,7 @@ const Popin = (props, context) => {
               />
               <textarea
                 className={(style.inputText, style.inputTextArea)}
+                data-name="contact-message"
                 name="message"
                 type="text"
                 placeholder="Message"
