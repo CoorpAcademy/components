@@ -41,13 +41,17 @@ const Popin = (props, context) => {
       }
     : {};
 
-  const [value, setValue] = useState({object: '', message: ''});
+  const [value, setValue] = useState({object: '', message: '', email: ''});
 
   const handleChange = useMemo(() => event => {
     setValue({...value, [event.target.name]: event.target.value});
   });
 
   const isAssistancePopin = type === 'assistance';
+
+  const handleClickOnSecondButton = useMemo(() => {
+    return type === 'assistance' ? onSecondeButtonClick(value) : onSecondeButtonClick;
+  }, [value]);
 
   return (
     <div className={style.background} style={backgroundImageStyle}>
@@ -76,6 +80,7 @@ const Popin = (props, context) => {
           {isAssistancePopin ? (
             <div style={{width: '70%'}}>
               <input
+                data-name="contact-object"
                 className={style.inputText}
                 name="object"
                 type="text"
@@ -85,10 +90,20 @@ const Popin = (props, context) => {
               />
               <textarea
                 className={(style.inputText, style.inputTextArea)}
+                data-name="contact-message"
                 name="message"
                 type="text"
                 placeholder="Message"
                 value={value.message}
+                onChange={handleChange}
+              />
+              <input
+                className={style.inputText}
+                data-name="contact-email"
+                name="email"
+                type="text"
+                placeholder="Email"
+                value={value.email}
                 onChange={handleChange}
               />
             </div>
@@ -110,7 +125,7 @@ const Popin = (props, context) => {
             {secondeButtonLabel ? (
               <Cta
                 submitValue={secondeButtonLabel}
-                onClick={onSecondeButtonClick}
+                onClick={handleClickOnSecondButton}
                 name={`cockpit-popin-cta-${type}`}
                 className={style.button}
                 style={{backgroundColor: primaryColor}}

@@ -532,6 +532,7 @@ import MoleculePaymentFormFixtureError from '../src/molecule/payment-form/test/f
 import MoleculePaymentFormFixtureWarning from '../src/molecule/payment-form/test/fixtures/warning';
 import MoleculePdfFixtureDefault from '../src/molecule/pdf/test/fixtures/default';
 import MoleculePopinFixtureAssistance from '../src/molecule/popin/test/fixtures/assistance';
+import MoleculePopinFixtureBackgroundNoSecondButton from '../src/molecule/popin/test/fixtures/background-no-second-button';
 import MoleculePopinFixtureDefault from '../src/molecule/popin/test/fixtures/default';
 import MoleculePopinFixtureLoading from '../src/molecule/popin/test/fixtures/loading';
 import MoleculePopinFixtureVideoTranslate from '../src/molecule/popin/test/fixtures/video-translate';
@@ -1656,6 +1657,7 @@ export const fixtures = {
     },
     MoleculePopin: {
       Assistance: MoleculePopinFixtureAssistance,
+      BackgroundNoSecondButton: MoleculePopinFixtureBackgroundNoSecondButton,
       Default: MoleculePopinFixtureDefault,
       Loading: MoleculePopinFixtureLoading,
       VideoTranslate: MoleculePopinFixtureVideoTranslate
