@@ -41,7 +41,7 @@ const Popin = (props, context) => {
       }
     : {};
 
-  const [value, setValue] = useState({object: '', message: ''});
+  const [value, setValue] = useState({object: '', message: '', email: ''});
 
   const handleChange = useMemo(() => event => {
     setValue({...value, [event.target.name]: event.target.value});
@@ -93,6 +93,15 @@ const Popin = (props, context) => {
                 type="text"
                 placeholder="Message"
                 value={value.message}
+                onChange={handleChange}
+              />
+              <input
+                className={style.inputText}
+                data-name="contact-email"
+                name="email"
+                type="text"
+                placeholder="Email"
+                value={value.email}
                 onChange={handleChange}
               />
             </div>
