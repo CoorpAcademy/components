@@ -1,3 +1,6 @@
 export default {
-  children: 'foo'
+  props: {
+    title: 'Hello Marianna!',
+    subtitle: 'Welcome to the coorpmanager dashboard'
+  }
 };

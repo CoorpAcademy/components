@@ -4,7 +4,6 @@ import Button from '../../../atom/button';
 import Input from '../../../atom/input-text';
 import InputReadonly from '../../../atom/input-readonly';
 import VideoUpload from '../../../atom/video-upload';
-import Title from '../../../atom/title';
 import style from './style.css';
 
 const JwVideoUploader = ({
@@ -19,7 +18,7 @@ const JwVideoUploader = ({
   return (
     <div className={style.container}>
       <div className={style.wrapper}>
-        <Title>Jw Video Upload</Title>
+        <h1>Jw Video Upload</h1>
         <Input placeholder={placeholder} onChange={onInputTextChange} value={inputTextValue} />
         <VideoUpload
           title="Video Preview"

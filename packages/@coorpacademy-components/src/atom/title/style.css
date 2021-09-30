@@ -1,0 +1,20 @@
+@value colors: "../../variables/colors.css";
+@value cm_black from colors;
+
+.title {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 42px;
+    line-height: 52px;
+    color: cm_black;
+}
+
+.subtitle {
+    margin: 8px 0 0;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+}
