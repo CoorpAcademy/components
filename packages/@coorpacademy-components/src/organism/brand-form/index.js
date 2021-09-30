@@ -36,7 +36,7 @@ function BrandForm(props, context) {
 
   const brandGroups = groups.map((group, index) => {
     return (
-      <div className={style.group} key={index}>
+      <div key={index}>
         <BrandFormGroup {...group} />
       </div>
     );
