@@ -136,6 +136,7 @@ import _NovaSolidBookmarksTagsBookmark5 from './components/nova-solid/bookmarks-
 import _NovaSolidContentContentBook1 from './components/nova-solid/content/content-book-1';
 import _NovaSolidContentContentViewList from './components/nova-solid/content/content-view-list';
 import _NovaSolidContentContentViewModule1 from './components/nova-solid/content/content-view-module-1';
+import _NovaSolidContentEditionFlash from './components/nova-solid/content-edition/flash';
 import _NovaSolidContentEditionPencil1 from './components/nova-solid/content-edition/pencil-1';
 import _NovaSolidDataTransferDataUpload1 from './components/nova-solid/data-transfer/data-upload-1';
 import _NovaSolidDesignActionsRedo from './components/nova-solid/design-actions/redo';
@@ -304,6 +305,7 @@ export const NovaSolidBookmarksTagsBookmark5: Icon = _NovaSolidBookmarksTagsBook
 export const NovaSolidContentContentBook1: Icon = _NovaSolidContentContentBook1;
 export const NovaSolidContentContentViewList: Icon = _NovaSolidContentContentViewList;
 export const NovaSolidContentContentViewModule1: Icon = _NovaSolidContentContentViewModule1;
+export const NovaSolidContentEditionFlash: Icon = _NovaSolidContentEditionFlash;
 export const NovaSolidContentEditionPencil1: Icon = _NovaSolidContentEditionPencil1;
 export const NovaSolidDataTransferDataUpload1: Icon = _NovaSolidDataTransferDataUpload1;
 export const NovaSolidDesignActionsRedo: Icon = _NovaSolidDesignActionsRedo;
