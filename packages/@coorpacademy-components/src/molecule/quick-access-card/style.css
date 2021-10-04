@@ -1,0 +1,17 @@
+.card {
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  background-color: white;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  text-align: left;
+  transition: all 0.25s ease-in-out;
+  text-decoration: none;
+  position: relative;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+  cursor: pointer;
+  box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.11);
+}
