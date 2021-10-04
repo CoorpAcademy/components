@@ -1,5 +1,6 @@
 @value colors: "../../variables/colors.css";
-@value dark from colors;
+@value cm_black from colors;
+@value medium from colors;
 
 .wrapper {
   width: 100%;
@@ -21,20 +22,22 @@
 }
 
 .title h3 {
-  font-family: 'Open Sans';
-  font-size: 17px;
-  font-weight: 700;
-  color: dark;
-  margin: 0;
+  font-family: 'Gilroy';
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  color: cm_black;
 }
 
 .title h4 {
-  font-family: 'Open Sans';
-  font-size: 13px;
+  font-family: 'Gilroy';
+  font-size: 14px;
   font-weight: 400;
-  font-style: italic;
-  color: dark;
-  margin: 5px 0;
+  font-style: normal;
+  line-height: 20px;
+  color: medium;
+  margin: 8px 0;
 }
 
 .field {

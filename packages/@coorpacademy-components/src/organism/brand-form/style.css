@@ -15,7 +15,7 @@
 
 .backDesc {
   margin-left: 10px;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 15px;
   font-weight: 700;
   color: dark;
@@ -24,15 +24,6 @@
 
 .backDesc:hover {
   color: brand;
-}
-
-.group {
-  border-bottom: 1px solid light;
-  margin-top: 50px;
-}
-
-.group:first-child {
-  margin-top: 0;
 }
 
 .buttons {
@@ -63,7 +54,7 @@
   padding: 10px;
   margin: 0;
   border-radius: 3px;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 12px;
   width: 270px;
   background-color: white;
