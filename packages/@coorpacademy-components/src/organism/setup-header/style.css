@@ -8,12 +8,12 @@
 @value black from colors;
 @value negative from colors;
 @value xtraLightGrey from colors;
-@value cm_blue from colors;
-@value cm_darkBlue from colors;
-@value cm_lightGrey from colors;
-@value cm_darkGrey from colors;
-@value cm_black from colors;
-@value cm_darkNegative from colors;
+@value cm_primary_blue from colors;
+@value cm_blue_600 from colors;
+@value cm_grey_100 from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_700 from colors;
+@value cm_negative_200 from colors;
 
 .container {
   background-color: white;
@@ -110,21 +110,21 @@
   composes: element;
   color: white;
   min-width: 175px;
-  background-color: cm_blue;
+  background-color: cm_primary_blue;
 }
 
 .seeMyPlatform:hover {
-  background-color: cm_darkBlue;
+  background-color: cm_blue_600;
 }
 
 .globalAnalytics {
   composes: element;
   min-width: 175px;
-  background-color: cm_lightGrey;
+  background-color: cm_grey_100;
 }
 
 .globalAnalytics:hover {
-  background-color: cm_darkGrey;
+  background-color: cm_grey_200;
 }
 
 .platformList {
@@ -135,7 +135,7 @@
 }
 
 .platformList:hover {
-  background-color: cm_lightGrey;
+  background-color: cm_grey_100;
 }
 
 .logOut {
@@ -146,7 +146,7 @@
 }
 
 .logOut:hover {
-  color: cm_darkNegative;
+  color: cm_negative_200;
 }
 
 .platformName {
@@ -155,7 +155,7 @@
   font-size: 20px;
   text-align: left;
   height: 44px;
-  color: cm_black;
+  color: cm_grey_700;
 }
 
 .profilePicture {
@@ -192,7 +192,7 @@
   }
 
   [data-name="logout-show"] .logOut {
-    background-color: cm_lightGrey;
+    background-color: cm_grey_100;
     justify-content: center;
     align-items: center;
     padding: 10px;
@@ -205,7 +205,7 @@
     margin-right: 15px;
     border-left: 12px solid transparent;
     border-right: 12px solid transparent;
-    border-bottom: 8px solid cm_lightGrey;
+    border-bottom: 8px solid cm_grey_100;
   }
 
   [data-name="logout-show"] .logOut {

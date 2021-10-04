@@ -1,9 +1,9 @@
 @value colors: "../../../variables/colors.css";
 @value light from colors;
 @value xtraLightGrey from colors;
-@value cm_lightGrey from colors;
+@value cm_grey_100 from colors;
 @value black from colors;
-@value cm_grey from colors;
+@value cm_grey_500 from colors;
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
@@ -27,7 +27,7 @@
   padding: 1px 34px 1px 16px;
   font-size: 16px;
   font-weight: 700;
-  border-left: solid 3px cm_lightGrey;
+  border-left: solid 3px cm_grey_100;
 }
 
 .contentWrapper {
@@ -82,7 +82,7 @@
 
 .selectedElement {
   font-size: 12px;
-  background-color: cm_lightGrey;
+  background-color: cm_grey_100;
   border-radius: 5px;
   color: black;
   font-weight: 600;
@@ -91,7 +91,7 @@
 .unselectedElement {
   font-size: 12px;
   font-weight: 600;
-  color: cm_grey;
+  color: cm_grey_500;
 }
 
 .unselectedElement:hover {

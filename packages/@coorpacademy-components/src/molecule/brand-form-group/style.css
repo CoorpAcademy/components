@@ -1,5 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value cm_black from colors;
+@value cm_grey_700 from colors;
 @value medium from colors;
 
 .wrapper {
@@ -27,7 +27,7 @@
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
-  color: cm_black;
+  color: cm_grey_700;
 }
 
 .title h4 {
