@@ -1,9 +1,9 @@
 export default {
   props: {
-    title: 'Content creation',
-    description: 'Access to ....',
+    title: 'Create course',
+    description: 'Access to cockpit to create courses',
     _blank: true,
     feature: 'cockpit',
-    onClick: () => {}
+    onClick: () => console.log('click everywhere')
   }
 };
