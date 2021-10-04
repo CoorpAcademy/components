@@ -4,8 +4,8 @@
 .title {
     font-family: Gilroy;
     font-style: normal;
-    font-weight: 600;
-    font-size: 42px;
+    font-weight: bold;
+    font-size: 32px;
     line-height: 52px;
     color: cm_black;
 }
@@ -14,7 +14,8 @@
     margin: 8px 0 0;
     font-family: Gilroy;
     font-style: normal;
-    font-weight: 400;
+    font-weight: normal;
     font-size: 18px;
     line-height: 24px;
+    color: cm_black;
 }
