@@ -138,6 +138,7 @@ import _NovaSolidContentContentViewModule1 from './components/nova-solid/content
 import _NovaSolidContentEditionPencil1 from './components/nova-solid/content-edition/pencil-1';
 import _NovaSolidDataTransferDataUpload1 from './components/nova-solid/data-transfer/data-upload-1';
 import _NovaSolidDesignActionsRedo from './components/nova-solid/design-actions/redo';
+import _NovaSolidFilesBasicFileUpload2 from './components/nova-solid/files-basic/file-upload-2';
 import _NovaSolidInterfaceFeedbackInterfaceAlertCircle from './components/nova-solid/interface-feedback/interface-alert-circle';
 import _NovaSolidInterfaceFeedbackInterfaceAlertTriangle from './components/nova-solid/interface-feedback/interface-alert-triangle';
 import _NovaSolidInterfaceFeedbackInterfaceQuestionMark from './components/nova-solid/interface-feedback/interface-question-mark';
@@ -301,6 +302,7 @@ export const NovaSolidContentContentViewModule1: Icon = _NovaSolidContentContent
 export const NovaSolidContentEditionPencil1: Icon = _NovaSolidContentEditionPencil1;
 export const NovaSolidDataTransferDataUpload1: Icon = _NovaSolidDataTransferDataUpload1;
 export const NovaSolidDesignActionsRedo: Icon = _NovaSolidDesignActionsRedo;
+export const NovaSolidFilesBasicFileUpload2: Icon = _NovaSolidFilesBasicFileUpload2;
 export const NovaSolidInterfaceFeedbackInterfaceAlertCircle: Icon = _NovaSolidInterfaceFeedbackInterfaceAlertCircle;
 export const NovaSolidInterfaceFeedbackInterfaceAlertTriangle: Icon = _NovaSolidInterfaceFeedbackInterfaceAlertTriangle;
 export const NovaSolidInterfaceFeedbackInterfaceQuestionMark: Icon = _NovaSolidInterfaceFeedbackInterfaceQuestionMark;
