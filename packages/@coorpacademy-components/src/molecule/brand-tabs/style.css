@@ -3,8 +3,8 @@
 @value light from colors;
 @value brand from colors;
 @value medium from colors;
-@value cm_lightBlue from colors;
-@value cm_blue from colors;
+@value cm_blue_50 from colors;
+@value cm_primary_blue from colors;
 
 .wrapper {
   width: 100%;
@@ -75,7 +75,7 @@
 }
 
 .lighttab:hover a {
-  color: cm_blue;
+  color: cm_primary_blue;
 }
 
 .selected {
@@ -89,12 +89,12 @@
 
 .selectedlight {
   composes: lighttab;
-  background-color: cm_lightBlue;
+  background-color: cm_blue_50;
   border-radius: 5px;
 }
 
 .selectedlight a {
-  color: cm_blue;
+  color: cm_primary_blue;
   font-size: 14px;
   font-weight: 600;
 }

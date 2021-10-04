@@ -2,10 +2,10 @@
 @value dark from colors;
 @value light from colors;
 @value medium from colors;
-@value cm_black from colors;
-@value cm_blue from colors;
-@value cm_grey from colors;
-@value cm_background from colors;
+@value cm_grey_700 from colors;
+@value cm_primary_blue from colors;
+@value cm_grey_500 from colors;
+@value cm_grey_50 from colors;
 @value xtraLightGrey from colors;
 @value breakpoints: "../../../../variables/breakpoints.css";
 @value mobile from breakpoints;
@@ -39,14 +39,14 @@
 
 .coorpManagerOpenHeader {
   composes: header;
-  background-color: cm_background;
+  background-color: cm_grey_50;
   padding: 0 24px;
 }
 
 .coorpManagerClosedHeader {
   composes: header;
   padding: 0 24px;
-  background-color: cm_background;
+  background-color: cm_grey_50;
   border-bottom: 0px;
 }
 
@@ -56,7 +56,7 @@
 }
 
 .borderBgBlue {
-  background-color: cm_blue;
+  background-color: cm_primary_blue;
 }
 
 .borderBgNone {
@@ -64,19 +64,19 @@
 }
 
 .header:hover .titleLabel{
-  color: cm_black;
+  color: cm_grey_700;
 }
 
 .header:hover .newTabIcon{
-  color: cm_black;
+  color: cm_grey_700;
 }
 
 .header:hover .openIconActivated {
-  color: cm_black;
+  color: cm_grey_700;
 }
 
 .header:hover .closeIconActivated {
-  color: cm_black;
+  color: cm_grey_700;
 }
 
 .selectedTitle {
@@ -102,11 +102,11 @@
 }
 
 .iconBlue {
-  color: cm_blue;
+  color: cm_primary_blue;
 }
 
 .iconGrey {
-  color: cm_grey;
+  color: cm_grey_500;
 }
 
 .setupTitle {
@@ -117,7 +117,7 @@
 }
 
 .labelBlack {
-  color: cm_black;
+  color: cm_grey_700;
 }
 
 .setupSelectedTitle {
@@ -127,13 +127,13 @@
 .setupTitleLabel {
   font-size: 14px;
   font-weight: 700;
-  color: cm_grey;
+  color: cm_grey_500;
 }
 
 .setupSelectedTitleLabel {
   font-size: 14px;
   font-weight: 700;
-  color: cm_blue;
+  color: cm_primary_blue;
 }
 
 .icon {
@@ -150,11 +150,11 @@
 }
 
 .header:hover .blueTitleIcon {
-  color: cm_blue;
+  color: cm_primary_blue;
 }
 
 .coorpManagerOpenHeader:hover .titleIcon {
-  color: cm_blue;
+  color: cm_primary_blue;
 }
 
 .header:hover .setupTitleLabel {
@@ -171,7 +171,7 @@
   composes: icon;
   opacity: 1;
   transform: translate(50%, -50%) rotate(180deg);
-  color: cm_grey;
+  color: cm_grey_500;
 }
 
 .newTabIcon {
@@ -180,7 +180,7 @@
   height: 12px;
   opacity: 1;
   transform: translate(50%, -50%);
-  color: cm_grey;;
+  color: cm_grey_500;;
 }
 
 .closeIcon {
@@ -193,7 +193,7 @@
   composes: icon;
   opacity: 1;
   transform: translate(50%, -50%);
-  color: cm_grey;
+  color: cm_grey_500;
 }
 
 .container {
@@ -233,7 +233,7 @@
 .titleLabel {
   font-size: 14px;
   font-weight: 600;
-  color: cm_grey;
+  color: cm_grey_500;
 }
 
 .titleIcon {
