@@ -15,6 +15,8 @@ const iframeStyle = {
 
 function ExternalContentViewer(props) {
   const {url, backgroundImageUrl, contentType, mode = 'default'} = props;
+  const isPdf = url.includes('.pdf');
+  const googleViewer = `https://docs.google.com/viewerng/viewer?url=${url}&embedded=true`;
 
   return startsWith('audio', contentType) ? (
     <div className={podcastWrapperStyle[mode]}>
@@ -36,7 +38,7 @@ function ExternalContentViewer(props) {
     </div>
   ) : (
     <iframe
-      src={url}
+      src={isPdf ? googleViewer : url}
       frameBorder={0}
       className={iframeStyle[mode]}
       allowFullScreen
