@@ -135,6 +135,7 @@ import _NovaSolidAudioAudioControlRewind from './components/nova-solid/audio/aud
 import _NovaSolidBookmarksTagsBookmark3 from './components/nova-solid/bookmarks-tags/bookmark-3';
 import _NovaSolidBookmarksTagsBookmark5 from './components/nova-solid/bookmarks-tags/bookmark-5';
 import _NovaSolidContentContentBook1 from './components/nova-solid/content/content-book-1';
+import _NovaSolidContentContentBookAdd from './components/nova-solid/content/content-book-add';
 import _NovaSolidContentContentViewList from './components/nova-solid/content/content-view-list';
 import _NovaSolidContentContentViewModule1 from './components/nova-solid/content/content-view-module-1';
 import _NovaSolidContentEditionFlash from './components/nova-solid/content-edition/flash';
@@ -305,6 +306,7 @@ export const NovaSolidAudioAudioControlRewind: Icon = _NovaSolidAudioAudioContro
 export const NovaSolidBookmarksTagsBookmark3: Icon = _NovaSolidBookmarksTagsBookmark3;
 export const NovaSolidBookmarksTagsBookmark5: Icon = _NovaSolidBookmarksTagsBookmark5;
 export const NovaSolidContentContentBook1: Icon = _NovaSolidContentContentBook1;
+export const NovaSolidContentContentBookAdd: Icon = _NovaSolidContentContentBookAdd;
 export const NovaSolidContentContentViewList: Icon = _NovaSolidContentContentViewList;
 export const NovaSolidContentContentViewModule1: Icon = _NovaSolidContentContentViewModule1;
 export const NovaSolidContentEditionFlash: Icon = _NovaSolidContentEditionFlash;
