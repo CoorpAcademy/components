@@ -9,7 +9,8 @@ import {
   NovaSolidContentContentViewList as DashboardIcon,
   NovaSolidContentEditionFlash as MassiveBattleIcon,
   NovaSolidApplicationsWindowApplication5 as CmsIcon,
-  NovaSolidBusinessBusinessGraphLine2 as AnalyticsIcon
+  NovaSolidBusinessBusinessGraphLine2 as AnalyticsIcon,
+  NovaCompositionNavigationArrowRight as ActionIcon
 } from '@coorpacademy/nova-icons';
 import style from './style.css';
 
@@ -96,7 +97,14 @@ const QuickAccessCard = (props, context) => {
         </div>
         <div className={style.title}>{title}</div>
         <div className={style.description}>{description}</div>
-        <div className={style.iconGotoWrapper}>&gt;</div>
+        <div className={style.iconGotoWrapper}>
+          <ActionIcon
+            className={style.iconGoto}
+            style={{
+              color: iconColor
+            }}
+          />
+        </div>
       </div>
     </div>
   );

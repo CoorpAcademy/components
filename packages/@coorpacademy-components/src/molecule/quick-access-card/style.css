@@ -20,9 +20,9 @@
   font-style: normal;
   font-size: 20px;
   line-height: 28px;
-  top: 40px;
+  top: 84px;
   left: 24px;
-  position: relative;
+  position: absolute;
 }
 
 .description {
@@ -31,8 +31,8 @@
   font-style: normal;
   font-size: 16px;
   line-height: 22px;
-  position: relative;
-  top: 52px;
+  position: absolute;
+  top: 120px;
   left: 24px;
   max-width: 212px;
 }
@@ -40,7 +40,7 @@
 .iconWrapper {
   width: 44px;
   height: 44px;
-  position: relative;
+  position: absolute;
   border-radius: 8px;
 }
 
@@ -61,7 +61,15 @@
 
 .iconGotoWrapper {
   composes: iconWrapper;
-  top: 0px;
+  top: 213px;
   left: 200px;
   background-color: white;
+}
+
+.iconGoto {
+  width: 14px;
+  height: 14px;
+  position: relative;
+  top: 15px;
+  left: 15px;
 }
