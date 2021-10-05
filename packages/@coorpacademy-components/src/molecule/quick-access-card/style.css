@@ -1,3 +1,6 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+
 .quickAccess {
   width: 268px;
   height: 281px;
@@ -17,7 +20,7 @@
   font-style: normal;
   font-size: 20px;
   line-height: 28px;
-  top: 84px;
+  top: 40px;
   left: 24px;
   position: relative;
 }
@@ -29,7 +32,25 @@
   font-size: 16px;
   line-height: 22px;
   position: relative;
-  top: 120px;
+  top: 52px;
   left: 24px;
   max-width: 212px;
+}
+
+.iconWrapper {
+  width: 44px;
+  height: 44px;
+  position: relative;
+  top: 24px;
+  left: 24px;
+  border-radius: 8px;
+}
+
+.icon {
+  color: white;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 12px;
+  left: 12px;
 }

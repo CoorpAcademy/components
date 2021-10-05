@@ -1,6 +1,42 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
+import {
+  NovaSolidContentContentBookAdd as CockpitIcon,
+  NovaSolidUsersActionsUser as ManageUserIcon,
+  NovaSolidFilesBasicFileUpload2 as UploadUserIcon,
+  NovaSolidEmailAtSign as ManageEmailIcon,
+  NovaSolidDesignPaintBrush2 as LookAndFeelIcon,
+  NovaSolidContentContentViewList as DashboardIcon,
+  NovaSolidContentEditionFlash as MassiveBattleIcon,
+  NovaSolidApplicationsWindowApplication5 as CmsIcon,
+  NovaSolidBusinessBusinessGraphLine2 as AnalyticsIcon
+} from '@coorpacademy/nova-icons';
 import style from './style.css';
+
+const getIcon = feature => {
+  switch (feature) {
+    case 'manage_users':
+      return ManageUserIcon;
+    case 'upload_users':
+      return UploadUserIcon;
+    case 'manage_email':
+      return ManageEmailIcon;
+    case 'massive_battle':
+      return MassiveBattleIcon;
+    case 'cms':
+      return CmsIcon;
+    case 'look_and_feel':
+      return LookAndFeelIcon;
+    case 'dashboard':
+      return DashboardIcon;
+    case 'cockpit':
+      return CockpitIcon;
+    case 'analytics':
+      return AnalyticsIcon;
+    default:
+      return CockpitIcon;
+  }
+};
 
 const getBackgroudRadialColors = feature => {
   switch (feature) {
@@ -37,18 +73,27 @@ const getBackgroudRadialColors = feature => {
 
 const QuickAccessCard = (props, context) => {
   const {title, description, feature, onClick} = props;
-  const {iconColor} = getBackgroudRadialColors(feature);
+  const {iconColor, r4} = getBackgroudRadialColors(feature);
+  const Icon = getIcon(feature);
   const handleClick = useMemo(() => e => onClick(e), [onClick]);
 
   return (
     <div data-name="card" data-type={feature} className={style.quickAccess} onClick={handleClick}>
       <div
         style={{
-          backgroundColor: iconColor
+          backgroundColor: r4
           // background: radial-gradient(62.12% 56.45% at 0% 77.29%, rgba(255, 65, 5, 0.2) 0%, rgba(255, 65, 5, 0) 100%), radial-gradient(113.85% 103.46% at 93.27% 7.88%, rgba(255, 112, 67, 0.15) 0%, rgba(255, 112, 67, 0) 100%), radial-gradient(49.66% 49.63% at 78.65% 86.26%, #FFE0D6 0%, rgba(255, 224, 214, 0) 100%), #FAFAFA;
         }}
         className={style.content}
       >
+        <div
+          className={style.iconWrapper}
+          style={{
+            backgroundColor: iconColor
+          }}
+        >
+          <Icon className={style.icon} />
+        </div>
         <div className={style.title}>{title}</div>
         <div className={style.description}>{description}</div>
       </div>
