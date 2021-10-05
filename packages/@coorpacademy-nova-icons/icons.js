@@ -191,7 +191,16 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/vote-star.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/ring-planet.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/video-subtitle.svg')},
-  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/interface-question-mark.svg')}
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/interface-question-mark.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/file-upload-2.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/user.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/paint-brush-2.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/content-view-list.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/at-sign.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/flash.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/window-application-5.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/content-book-add.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/business-graph-line-2.svg')}
 ];
 
 export default icons;
