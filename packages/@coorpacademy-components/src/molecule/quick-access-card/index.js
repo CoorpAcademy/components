@@ -10,7 +10,8 @@ import {
   NovaSolidContentEditionFlash as MassiveBattleIcon,
   NovaSolidApplicationsWindowApplication5 as CmsIcon,
   NovaSolidBusinessBusinessGraphLine2 as AnalyticsIcon,
-  NovaCompositionNavigationArrowRight as ActionIcon
+  NovaCompositionNavigationArrowRight as ActionIcon,
+  NovaCompositionCoorpacademyOpenInNewTab as NewTabIcon
 } from '@coorpacademy/nova-icons';
 import style from './style.css';
 
@@ -91,10 +92,11 @@ const getBackgroudRadialColors = feature => {
 };
 
 const QuickAccessCard = (props, context) => {
-  const {title, description, feature, onClick} = props;
+  const {title, description, feature, onClick, _blank} = props;
   const {iconColor, r4} = getBackgroudRadialColors(feature);
   const Icon = getIcon(feature);
   const handleClick = useMemo(() => e => onClick(e), [onClick]);
+  const newTabOnClick = _blank ? <NewTabIcon className={style.newTabIcon} /> : null;
 
   return (
     <div data-name="card" data-type={feature} className={style.quickAccess} onClick={handleClick}>
@@ -113,15 +115,18 @@ const QuickAccessCard = (props, context) => {
         >
           <Icon className={style.iconFeature} />
         </div>
-        <div className={style.title}>{title}</div>
+        <div className={style.title}>
+          {title}
+          {newTabOnClick}
+        </div>
         <div className={style.description}>{description}</div>
-        <div className={style.iconGotoWrapper}>
-          <ActionIcon
-            className={style.iconGoto}
-            style={{
-              color: iconColor
-            }}
-          />
+        <div
+          className={style.iconGotoWrapper}
+          style={{
+            color: iconColor
+          }}
+        >
+          <ActionIcon className={style.iconGoto} />
         </div>
       </div>
     </div>
@@ -132,7 +137,7 @@ QuickAccessCard.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   onClick: PropTypes.func,
-  // _blank: PropTypes.bool,
+  _blank: PropTypes.bool,
   feature: PropTypes.oneOf([
     'analytics',
     'cms',
