@@ -41,16 +41,27 @@
   width: 44px;
   height: 44px;
   position: relative;
-  top: 24px;
-  left: 24px;
   border-radius: 8px;
 }
 
-.icon {
+.iconFeatureWrapper {
+  composes: iconWrapper;
+  top: 24px;
+  left: 24px;
+}
+
+.iconFeature {
   color: white;
   width: 20px;
   height: 20px;
   position: relative;
   top: 12px;
   left: 12px;
+}
+
+.iconGotoWrapper {
+  composes: iconWrapper;
+  top: 0px;
+  left: 200px;
+  background-color: white;
 }

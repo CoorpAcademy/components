@@ -87,15 +87,16 @@ const QuickAccessCard = (props, context) => {
         className={style.content}
       >
         <div
-          className={style.iconWrapper}
+          className={style.iconFeatureWrapper}
           style={{
             backgroundColor: iconColor
           }}
         >
-          <Icon className={style.icon} />
+          <Icon className={style.iconFeature} />
         </div>
         <div className={style.title}>{title}</div>
         <div className={style.description}>{description}</div>
+        <div className={style.iconGotoWrapper}>&gt;</div>
       </div>
     </div>
   );
