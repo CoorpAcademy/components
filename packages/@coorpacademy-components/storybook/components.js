@@ -97,6 +97,7 @@ import MoleculeQuestionsQcmDrag from './../src/molecule/questions/qcm-drag';
 import MoleculeQuestionsQcmGraphic from './../src/molecule/questions/qcm-graphic';
 import MoleculeQuestionsQuestionRange from './../src/molecule/questions/question-range';
 import MoleculeQuestionsTemplate from './../src/molecule/questions/template';
+import MoleculeQuickAccessCard from './../src/molecule/quick-access-card';
 import MoleculeResourcePlayer from './../src/molecule/resource-player';
 import MoleculeScopeContent from './../src/molecule/scope-content';
 import MoleculeScopeTabs from './../src/molecule/scope-tabs';
@@ -554,6 +555,11 @@ import MoleculeQuestionsQcmGraphicFixtureNoSelected from '../src/molecule/questi
 import MoleculeQuestionsQuestionRangeFixtureDefault from '../src/molecule/questions/question-range/test/fixtures/default';
 import MoleculeQuestionsTemplateFixtureDefault from '../src/molecule/questions/template/test/fixtures/default';
 import MoleculeQuestionsTemplateFixtureMultiple from '../src/molecule/questions/template/test/fixtures/multiple';
+import MoleculeQuickAccessCardFixtureAnalytics from '../src/molecule/quick-access-card/test/fixtures/analytics';
+import MoleculeQuickAccessCardFixtureDefault from '../src/molecule/quick-access-card/test/fixtures/default';
+import MoleculeQuickAccessCardFixtureLookAndFeel from '../src/molecule/quick-access-card/test/fixtures/look-and-feel';
+import MoleculeQuickAccessCardFixtureManageEmail from '../src/molecule/quick-access-card/test/fixtures/manage-email';
+import MoleculeQuickAccessCardFixtureUploadUsers from '../src/molecule/quick-access-card/test/fixtures/upload-users';
 import MoleculeResourcePlayerFixtureAudio from '../src/molecule/resource-player/test/fixtures/audio';
 import MoleculeResourcePlayerFixtureImage from '../src/molecule/resource-player/test/fixtures/image';
 import MoleculeResourcePlayerFixtureJwplayerWithOverlay from '../src/molecule/resource-player/test/fixtures/jwplayer-with-overlay';
@@ -1039,6 +1045,7 @@ export const components = {
     MoleculePopin,
     MoleculeProductCard,
     MoleculeProgressBar,
+    MoleculeQuickAccessCard,
     MoleculeResourcePlayer,
     MoleculeScopeContent,
     MoleculeScopeTabs,
@@ -1668,6 +1675,13 @@ export const fixtures = {
     MoleculeProgressBar: {
       Default: MoleculeProgressBarFixtureDefault,
       Max: MoleculeProgressBarFixtureMax
+    },
+    MoleculeQuickAccessCard: {
+      Analytics: MoleculeQuickAccessCardFixtureAnalytics,
+      Default: MoleculeQuickAccessCardFixtureDefault,
+      LookAndFeel: MoleculeQuickAccessCardFixtureLookAndFeel,
+      ManageEmail: MoleculeQuickAccessCardFixtureManageEmail,
+      UploadUsers: MoleculeQuickAccessCardFixtureUploadUsers
     },
     MoleculeResourcePlayer: {
       Audio: MoleculeResourcePlayerFixtureAudio,

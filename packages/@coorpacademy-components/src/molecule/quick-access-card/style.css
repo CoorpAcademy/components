@@ -1,0 +1,103 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+
+.quickAccess {
+  width: 268px;
+  height: 281px;
+  cursor: pointer;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.content:hover {
+  box-shadow: 0px 4px 40px rgba(0, 0, 0, 0.1);
+}
+
+.title {
+  font-family: 'Gilroy';
+  font-weight: 600;
+  font-style: normal;
+  font-size: 20px;
+  line-height: 28px;
+  top: 84px;
+  left: 24px;
+  position: absolute;
+}
+
+.description {
+  font-family: 'Gilroy';
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 22px;
+  position: absolute;
+  top: 120px;
+  left: 24px;
+  max-width: 212px;
+}
+
+.iconWrapper {
+  width: 44px;
+  height: 44px;
+  position: absolute;
+  border-radius: 8px;
+}
+
+.iconFeatureWrapper {
+  composes: iconWrapper;
+  top: 24px;
+  left: 24px;
+}
+
+.iconFeature {
+  color: white;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  top: 12px;
+  left: 12px;
+}
+
+.iconGotoWrapper {
+  composes: iconWrapper;
+  top: 213px;
+  left: 200px;
+  background-color: white;
+}
+
+.hover {
+  composes: iconWrapper;
+}
+
+.iconGotoWrapper:hover .hover{
+  background: inherit;
+  transition: all 0.5s linear;
+}
+
+.iconGotoWrapper .hover{
+  background: white;
+}
+
+.iconGoto {
+  width: 14px;
+  height: 14px;
+  position: relative;
+  top: 15px;
+  left: 15px;
+  color: inherit;
+  transition: all 0.5s linear;
+}
+
+.iconGotoWrapper:hover .iconGoto{
+  color: white;
+}
+
+.newTabIcon {
+  padding-left: 8px;
+  width: 20px;
+  height: 20px;
+}
