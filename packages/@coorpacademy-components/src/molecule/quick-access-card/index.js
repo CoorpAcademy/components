@@ -143,7 +143,7 @@ QuickAccessCard.propTypes = {
     'cms',
     'cockpit',
     'massive_battle',
-    'email_settings',
+    'manage_email',
     'dashboard',
     'look_and_feel',
     'manage_users',
