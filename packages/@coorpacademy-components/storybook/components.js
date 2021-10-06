@@ -98,6 +98,7 @@ import MoleculeQuestionsQcmGraphic from './../src/molecule/questions/qcm-graphic
 import MoleculeQuestionsQuestionRange from './../src/molecule/questions/question-range';
 import MoleculeQuestionsTemplate from './../src/molecule/questions/template';
 import MoleculeQuickAccessCard from './../src/molecule/quick-access-card';
+import MoleculeQuickAccessCardsGroup from './../src/molecule/quick-access-cards-group';
 import MoleculeResourcePlayer from './../src/molecule/resource-player';
 import MoleculeScopeContent from './../src/molecule/scope-content';
 import MoleculeScopeTabs from './../src/molecule/scope-tabs';
@@ -560,6 +561,8 @@ import MoleculeQuickAccessCardFixtureDefault from '../src/molecule/quick-access-
 import MoleculeQuickAccessCardFixtureLookAndFeel from '../src/molecule/quick-access-card/test/fixtures/look-and-feel';
 import MoleculeQuickAccessCardFixtureManageEmail from '../src/molecule/quick-access-card/test/fixtures/manage-email';
 import MoleculeQuickAccessCardFixtureUploadUsers from '../src/molecule/quick-access-card/test/fixtures/upload-users';
+import MoleculeQuickAccessCardsGroupFixtureDefault from '../src/molecule/quick-access-cards-group/test/fixtures/default';
+import MoleculeQuickAccessCardsGroupFixtureLoading from '../src/molecule/quick-access-cards-group/test/fixtures/loading';
 import MoleculeResourcePlayerFixtureAudio from '../src/molecule/resource-player/test/fixtures/audio';
 import MoleculeResourcePlayerFixtureImage from '../src/molecule/resource-player/test/fixtures/image';
 import MoleculeResourcePlayerFixtureJwplayerWithOverlay from '../src/molecule/resource-player/test/fixtures/jwplayer-with-overlay';
@@ -1046,6 +1049,7 @@ export const components = {
     MoleculeProductCard,
     MoleculeProgressBar,
     MoleculeQuickAccessCard,
+    MoleculeQuickAccessCardsGroup,
     MoleculeResourcePlayer,
     MoleculeScopeContent,
     MoleculeScopeTabs,
@@ -1682,6 +1686,10 @@ export const fixtures = {
       LookAndFeel: MoleculeQuickAccessCardFixtureLookAndFeel,
       ManageEmail: MoleculeQuickAccessCardFixtureManageEmail,
       UploadUsers: MoleculeQuickAccessCardFixtureUploadUsers
+    },
+    MoleculeQuickAccessCardsGroup: {
+      Default: MoleculeQuickAccessCardsGroupFixtureDefault,
+      Loading: MoleculeQuickAccessCardsGroupFixtureLoading
     },
     MoleculeResourcePlayer: {
       Audio: MoleculeResourcePlayerFixtureAudio,
