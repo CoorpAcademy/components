@@ -123,10 +123,17 @@ const QuickAccessCard = (props, context) => {
         <div
           className={style.iconGotoWrapper}
           style={{
-            color: iconColor
+            backgroundColor: iconColor
           }}
         >
-          <ActionIcon className={style.iconGoto} />
+          <div
+            className={style.hover}
+            style={{
+              color: iconColor
+            }}
+          >
+            <ActionIcon className={style.iconGoto} />
+          </div>
         </div>
       </div>
     </div>

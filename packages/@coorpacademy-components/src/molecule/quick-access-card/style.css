@@ -66,12 +66,29 @@
   background-color: white;
 }
 
+.hover {
+  composes: iconWrapper;
+}
+
+.iconGotoWrapper:hover .hover{
+  background: inherit;
+}
+
+.iconGotoWrapper .hover{
+  background: white;
+}
+
 .iconGoto {
   width: 14px;
   height: 14px;
   position: relative;
   top: 15px;
   left: 15px;
+  color: inherit;
+}
+
+.iconGotoWrapper:hover .iconGoto{
+  color: white;
 }
 
 .newTabIcon {
