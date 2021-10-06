@@ -75,6 +75,7 @@
 
 .iconGotoWrapper:hover .hover{
   background: inherit;
+  transition: all 0.5s linear;
 }
 
 .iconGotoWrapper .hover{
@@ -88,6 +89,7 @@
   top: 15px;
   left: 15px;
   color: inherit;
+  transition: all 0.5s linear;
 }
 
 .iconGotoWrapper:hover .iconGoto{
