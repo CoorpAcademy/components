@@ -16,7 +16,7 @@ const QuickAccessCardGroup = props => {
 
   const cards = map(cardProps => {
     return (
-      <div className={style.card}>
+      <div className={style.card} key={`card-${cardProps.feature}`}>
         <QuickAccessCard {...cardProps} />
       </div>
     );

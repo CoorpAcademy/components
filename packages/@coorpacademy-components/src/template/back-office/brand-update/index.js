@@ -195,7 +195,7 @@ BrandUpdate.propTypes = {
     PropTypes.shape({
       ...BrandDashboard.propTypes,
       key: PropTypes.string,
-      type: PropTypes.oneOf(['dashoard'])
+      type: PropTypes.oneOf(['home'])
     })
   ]),
   details: PropTypes.shape({
