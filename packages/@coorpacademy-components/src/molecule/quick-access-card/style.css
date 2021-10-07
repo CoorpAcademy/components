@@ -5,6 +5,7 @@
   width: 268px;
   height: 281px;
   cursor: pointer;
+  position: relative;
 }
 
 .content {

@@ -5,5 +5,13 @@
 }
 
 .default {
-  
+  width: 100%;
+  display: flex;
+  overflow-y: inherit;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin-right: 16px;
 }

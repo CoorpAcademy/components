@@ -16,7 +16,7 @@ const QuickAccessCardGrid = props => {
 
   const cards = map(cardProps => {
     return (
-      <div>
+      <div className={style.card}>
         <QuickAccessCard {...cardProps} />
       </div>
     );
