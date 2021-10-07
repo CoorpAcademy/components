@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {map} from 'lodash/fp';
+import {map, slice} from 'lodash/fp';
 import QuickAccessCard from '../quick-access-card';
 import Loader from '../../atom/loader';
 import style from './style.css';
@@ -20,7 +20,7 @@ const QuickAccessCardGrid = props => {
         <QuickAccessCard {...cardProps} />
       </div>
     );
-  }, list);
+  }, slice(0, 4, list));
 
   return (
     <div className={style.default}>
