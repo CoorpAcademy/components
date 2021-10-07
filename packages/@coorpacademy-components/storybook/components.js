@@ -559,7 +559,7 @@ import MoleculeQuestionsTemplateFixtureMultiple from '../src/molecule/questions/
 import MoleculeQuickAccessCardFixtureAnalytics from '../src/molecule/quick-access-card/test/fixtures/analytics';
 import MoleculeQuickAccessCardFixtureDefault from '../src/molecule/quick-access-card/test/fixtures/default';
 import MoleculeQuickAccessCardFixtureLookAndFeel from '../src/molecule/quick-access-card/test/fixtures/look-and-feel';
-import MoleculeQuickAccessCardFixtureManageEmail from '../src/molecule/quick-access-card/test/fixtures/manage-email';
+import MoleculeQuickAccessCardFixtureMassiveBattle from '../src/molecule/quick-access-card/test/fixtures/massive-battle';
 import MoleculeQuickAccessCardFixtureUploadUsers from '../src/molecule/quick-access-card/test/fixtures/upload-users';
 import MoleculeQuickAccessCardsGroupFixtureDefault from '../src/molecule/quick-access-cards-group/test/fixtures/default';
 import MoleculeQuickAccessCardsGroupFixtureLoading from '../src/molecule/quick-access-cards-group/test/fixtures/loading';
@@ -1684,7 +1684,7 @@ export const fixtures = {
       Analytics: MoleculeQuickAccessCardFixtureAnalytics,
       Default: MoleculeQuickAccessCardFixtureDefault,
       LookAndFeel: MoleculeQuickAccessCardFixtureLookAndFeel,
-      ManageEmail: MoleculeQuickAccessCardFixtureManageEmail,
+      MassiveBattle: MoleculeQuickAccessCardFixtureMassiveBattle,
       UploadUsers: MoleculeQuickAccessCardFixtureUploadUsers
     },
     MoleculeQuickAccessCardsGroup: {
