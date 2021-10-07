@@ -1,7 +1,10 @@
 @value colors: "../../variables/colors.css";
+@value breakpoints: "../../variables/breakpoints.css";
+@value desktop from breakpoints;
 @value dark from colors;
 @value brand from colors;
 @value light from colors;
+@value cm_grey_400 from colors;
 
 .back {
   margin-bottom: 30px;
@@ -61,4 +64,56 @@
   border: 1px solid white;
   color: dark;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 8px 3px 10px rgba(0, 0, 0, 0.23);
+}
+
+.title {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.title h3 {
+  font-family: 'Gilroy';
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  color: cm_grey_700;
+}
+
+.title h4 {
+  font-family: 'Gilroy';
+  font-size: 14px;
+  width: 352px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 20px;
+  color: cm_grey_400;
+  margin: 8px 0;
+}
+
+.rolesFormGroup {
+  display: flex;
+  flex-direction: row;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 56px;
+}
+
+.content div {
+  width: unset;
+}
+
+@media desktop {
+  .rolesFormGroup {
+    flex-direction: column;
+  }
+
+  .content {
+    margin-top: 0;
+  }
 }

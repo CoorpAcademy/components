@@ -225,6 +225,7 @@ import AtomImageUploadFixtureEmail from '../src/atom/image-upload/test/fixtures/
 import AtomImageUploadFixtureMobile from '../src/atom/image-upload/test/fixtures/mobile';
 import AtomImageUploadFixtureModified from '../src/atom/image-upload/test/fixtures/modified';
 import AtomImageUploadFixtureWithoutImage from '../src/atom/image-upload/test/fixtures/without-image';
+import AtomInputCheckboxFixtureCheckedDisabled from '../src/atom/input-checkbox/test/fixtures/checked-disabled';
 import AtomInputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import AtomInputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
 import AtomInputCheckboxFixtureDisabled from '../src/atom/input-checkbox/test/fixtures/disabled';
@@ -662,6 +663,8 @@ import OrganismAccordionContainerFixtureDefault from '../src/organism/accordion/
 import OrganismAccordionContainerFixtureNoChildren from '../src/organism/accordion/container/test/fixtures/no-children';
 import OrganismAccordionContainerFixtureOneChildren from '../src/organism/accordion/container/test/fixtures/one-children';
 import OrganismAccordionCoorpManagerPartFixtureDefaut from '../src/organism/accordion/coorp-manager/part/test/fixtures/defaut';
+import OrganismAccordionCoorpManagerPartFixtureIconLink from '../src/organism/accordion/coorp-manager/part/test/fixtures/icon-link';
+import OrganismAccordionCoorpManagerPartFixtureSimpletab from '../src/organism/accordion/coorp-manager/part/test/fixtures/simpletab';
 import OrganismAccordionCoorpManagerFixtureDefault from '../src/organism/accordion/coorp-manager/test/fixtures/default';
 import OrganismAccordionPartFixtureDefault from '../src/organism/accordion/part/test/fixtures/default';
 import OrganismAccordionPartFixtureOpen from '../src/organism/accordion/part/test/fixtures/open';
@@ -1248,6 +1251,7 @@ export const fixtures = {
       WithoutImage: AtomImageUploadFixtureWithoutImage
     },
     AtomInputCheckbox: {
+      CheckedDisabled: AtomInputCheckboxFixtureCheckedDisabled,
       Checked: AtomInputCheckboxFixtureChecked,
       Default: AtomInputCheckboxFixtureDefault,
       Disabled: AtomInputCheckboxFixtureDisabled,
@@ -1932,7 +1936,9 @@ export const fixtures = {
   },
   OrganismAccordionCoorpManager: {
     OrganismAccordionCoorpManagerPart: {
-      Defaut: OrganismAccordionCoorpManagerPartFixtureDefaut
+      Defaut: OrganismAccordionCoorpManagerPartFixtureDefaut,
+      IconLink: OrganismAccordionCoorpManagerPartFixtureIconLink,
+      Simpletab: OrganismAccordionCoorpManagerPartFixtureSimpletab
     }
   },
   Organism: {

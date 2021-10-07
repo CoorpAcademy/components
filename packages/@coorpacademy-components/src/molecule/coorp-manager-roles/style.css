@@ -1,0 +1,51 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_700 from colors;
+@value cm_grey_400 from colors;
+
+.title h3 {
+  font-family: 'Gilroy';
+  font-size: 18px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  color: cm_grey_700;
+}
+
+.title h4 {
+  font-family: 'Gilroy';
+  font-size: 14px;
+  width: 352px;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 20px;
+  color: cm_grey_400;
+}
+
+.rolesGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content > span {
+  margin: 8px 0;
+}
+
+.content div {
+  width: unset;
+}
+
+@media desktop {
+  .rolesGroup {
+    flex-direction: row;
+  }
+
+  .content {
+    margin-top: 0;
+  }
+}
