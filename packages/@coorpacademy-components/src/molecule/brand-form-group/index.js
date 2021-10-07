@@ -18,7 +18,6 @@ import InputDoublestep from '../../atom/input-doublestep';
 import ImageUpload from '../../atom/image-upload';
 import SetupSlider from '../setup-slider';
 import SetupSections from '../setup-sections';
-import QuickAccessCard from '../quick-access-card';
 import style from './style.css';
 
 const buildInput = field => {
@@ -99,10 +98,6 @@ BrandFormGroup.propTypes = {
       PropTypes.shape({
         ...Autocomplete.propTypes,
         type: PropTypes.oneOf(['autoComplete'])
-      }),
-      PropTypes.shape({
-        ...QuickAccessCard.propTypes,
-        type: PropTypes.oneOf(['quickAccessCard'])
       }),
       PropTypes.shape({
         ...InputColor.propTypes,
