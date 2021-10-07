@@ -5,7 +5,7 @@ import QuickAccessCard from '../quick-access-card';
 import Loader from '../../atom/loader';
 import style from './style.css';
 
-const QuickAccessCardGrid = props => {
+const QuickAccessCardGroup = props => {
   const {list = [], loading = false} = props;
 
   const loader = loading ? (
@@ -30,9 +30,9 @@ const QuickAccessCardGrid = props => {
   );
 };
 
-QuickAccessCardGrid.propTypes = {
+QuickAccessCardGroup.propTypes = {
   list: PropTypes.arrayOf(PropTypes.shape(QuickAccessCard.propTypes)),
   loading: PropTypes.bool
 };
 
-export default QuickAccessCardGrid;
+export default QuickAccessCardGroup;
