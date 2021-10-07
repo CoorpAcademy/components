@@ -9,6 +9,22 @@ import Button from '../../atom/button';
 import Link from '../../atom/link';
 import style from './style.css';
 
+const RolesFormGroup = ({title, subtitle, fields}) => {
+  return (
+    <div className={style.rolesFormGroup}>
+      <div className={style.title}>
+        {title ? <h3>{title}</h3> : null}
+        <h4>{subtitle}</h4>
+      </div>
+      <div className={style.content}>
+        {fields.map((role, i) => (
+          <BrandFormGroup {...role} key={i} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
 function BrandForm(props, context) {
   const {
     groups,
@@ -37,7 +53,11 @@ function BrandForm(props, context) {
   const brandGroups = groups.map((group, index) => {
     return (
       <div key={index}>
-        <BrandFormGroup {...group} />
+        {get('type', group) === 'roles' ? (
+          <RolesFormGroup {...group} />
+        ) : (
+          <BrandFormGroup {...group} />
+        )}
       </div>
     );
   });
@@ -101,6 +121,12 @@ BrandForm.defaultProps = {
     title: '',
     place: 'top'
   }
+};
+
+RolesFormGroup.propTypes = {
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  fields: PropTypes.arrayOf(PropTypes.shape(BrandFormGroup.propTypes)).isRequired
 };
 
 BrandForm.propTypes = {
