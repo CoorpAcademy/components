@@ -9,12 +9,14 @@
     color: cm_grey_700;
 }
 
-.title .page {
+.titlePage {
+    composes: title;
     font-size: 32px;
     line-height: 52px;
 }
 
-.title .form-group {
+.titleFormGroup {
+    composes: title;
     font-size: 18px;
 }
 
@@ -24,14 +26,16 @@
     font-style: normal;   
 }
 
-.subtitle .page {
+.subtitlePage {
+    composes: subtitle;
     font-weight: normal;
     font-size: 18px;
     line-height: 24px;
     color: cm_grey_700;
 }
 
-.subtitle .form-group {
+.subtitleFormGroup {
+    composes: subtitle;
     font-size: 14px;
     font-weight: 400;
     line-height: 20px;

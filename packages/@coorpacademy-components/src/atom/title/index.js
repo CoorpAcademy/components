@@ -2,20 +2,34 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.css';
 
+const getTitleStype = type => {
+  switch (type) {
+    case 'page':
+      return style.titlePage;
+    case 'form-group':
+      return style.titleFormGroup;
+  }
+};
+
+const getSubtitleStype = type => {
+  switch (type) {
+    case 'page':
+      return style.subtitlePage;
+    case 'form-group':
+      return style.subtitleFormGroup;
+  }
+};
+
 const Title = props => {
   const {title, subtitle, type} = props;
+  const titleStyle = getTitleStype(type);
+  const subtitleStyle = getSubtitleStype(type);
 
-  const subtitleSection = subtitle ? (
-    <div className={style.subtitle}>
-      <div className={style[type]}>{subtitle}</div>
-    </div>
-  ) : null;
+  const subtitleSection = subtitle ? <div className={subtitleStyle}>{subtitle}</div> : null;
 
   return (
     <div>
-      <div className={style.title}>
-        <div className={style[type]}>{title}</div>
-      </div>
+      <div className={titleStyle}>{title}</div>
       {subtitleSection}
     </div>
   );
