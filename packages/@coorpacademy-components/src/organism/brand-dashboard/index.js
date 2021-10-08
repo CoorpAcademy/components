@@ -6,15 +6,16 @@ import style from './style.css';
 
 const Dashboard = props => {
   const {header, quickAccessCards} = props;
-  console.log('header', quickAccessCards);
   return (
     <div>
       <div>
         <Title {...header} type={'page'} />
       </div>
-      <div>
+      <div className={style.sectionWrapper}>
         <Title title={quickAccessCards.title} type={'form-group'} />
-        <QuickAccessCardGroup {...quickAccessCards.cards} />
+        <div className={style.cardsWrapper}>
+          <QuickAccessCardGroup {...quickAccessCards.cards} />
+        </div>
       </div>
     </div>
   );
