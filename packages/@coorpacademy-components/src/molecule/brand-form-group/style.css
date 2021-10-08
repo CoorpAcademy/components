@@ -1,13 +1,9 @@
-@value colors: "../../variables/colors.css";
-@value cm_grey_700 from colors;
-@value medium from colors;
-
 .wrapper {
   width: 100%;
   padding-bottom: 50px;
 }
 
-.title {
+.titleWrapper {
   margin-top: 20px;
   margin-bottom: 20px;
 }
@@ -21,29 +17,9 @@
   margin-right: 20px;
 }
 
-.title h3 {
-  font-family: 'Gilroy';
-  font-size: 18px;
-  font-weight: bold;
-  font-stretch: normal;
-  font-style: normal;
-  color: cm_grey_700;
-}
-
-.title h4 {
-  font-family: 'Gilroy';
-  font-size: 14px;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 20px;
-  color: medium;
-  margin: 8px 0;
-}
-
 .field {
   margin-bottom: 20px;
 }
-
 
 .field:last-child {
   margin-bottom: 0;

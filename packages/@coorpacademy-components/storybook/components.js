@@ -326,7 +326,9 @@ import AtomSpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default
 import AtomTabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import AtomTabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
 import AtomTabContentFixtureHideContentBackground from '../src/atom/tab-content/test/fixtures/hide-content-background';
-import AtomTitleFixtureFixture from '../src/atom/title/test/fixtures/fixture';
+import AtomTitleFixtureFormGroupTitleWithoutSubtitle from '../src/atom/title/test/fixtures/form-group-title-without-subtitle';
+import AtomTitleFixtureFormGroupTitle from '../src/atom/title/test/fixtures/form-group-title';
+import AtomTitleFixturePageTitle from '../src/atom/title/test/fixtures/page-title';
 import AtomVideoUploadFixtureDesktop from '../src/atom/video-upload/test/fixtures/desktop';
 import AtomVideoUploadFixtureLoading from '../src/atom/video-upload/test/fixtures/loading';
 import AtomVideoUploadFixtureModified from '../src/atom/video-upload/test/fixtures/modified';
@@ -1399,7 +1401,9 @@ export const fixtures = {
       HideContentBackground: AtomTabContentFixtureHideContentBackground
     },
     AtomTitle: {
-      Fixture: AtomTitleFixtureFixture
+      FormGroupTitleWithoutSubtitle: AtomTitleFixtureFormGroupTitleWithoutSubtitle,
+      FormGroupTitle: AtomTitleFixtureFormGroupTitle,
+      PageTitle: AtomTitleFixturePageTitle
     },
     AtomVideoUpload: {
       Desktop: AtomVideoUploadFixtureDesktop,
