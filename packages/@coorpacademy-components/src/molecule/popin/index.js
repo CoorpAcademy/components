@@ -98,7 +98,7 @@ const Popin = (props, context) => {
                 onChange={handleChange}
               />
               <input
-                className={style.inputText}
+                className={style.lastInputText}
                 data-name="contact-email"
                 name="email"
                 type="text"
