@@ -28,7 +28,7 @@ Dashboard.propTypes = {
   }),
   quickAccessCards: PropTypes.shape({
     title: PropTypes.string,
-    cards: QuickAccessCardGroup.propTypes
+    cards: PropTypes.shape(QuickAccessCardGroup.propTypes)
   })
 };
 
