@@ -4,7 +4,6 @@
 @value tablet from breakpoints;
 
 .quickAccess {
-  width: 260px;
   height: 273px;
   cursor: pointer;
   position: relative;
@@ -12,7 +11,6 @@
 
 .content {
   height: 100%;
-  width: 100%;
   border-radius: 8px;
   transition: all 0.5s linear;
 }
@@ -41,7 +39,6 @@
   position: absolute;
   top: 120px;
   left: 24px;
-  max-width: 212px;
 }
 
 .iconWrapper {
@@ -107,10 +104,6 @@
 }
 
 @media tablet {
-  .quickAccess {
-    width: 360.5px;
-  }
-
   .description {
     max-width: 313px;
   }

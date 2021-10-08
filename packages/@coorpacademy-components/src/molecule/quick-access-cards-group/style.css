@@ -16,11 +16,14 @@
 }
 
 .card {
+  width: 23%;
   margin-right: 16px;
 }
 
 @media tablet {
   .card {
     margin-top: 16px;
+    margin-right: 16px;
+    width: 47%;
   }
 }

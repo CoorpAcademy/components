@@ -565,6 +565,7 @@ import MoleculeQuickAccessCardFixtureMassiveBattle from '../src/molecule/quick-a
 import MoleculeQuickAccessCardFixtureUploadUsers from '../src/molecule/quick-access-card/test/fixtures/upload-users';
 import MoleculeQuickAccessCardsGroupFixtureDefault from '../src/molecule/quick-access-cards-group/test/fixtures/default';
 import MoleculeQuickAccessCardsGroupFixtureLoading from '../src/molecule/quick-access-cards-group/test/fixtures/loading';
+import MoleculeQuickAccessCardsGroupFixtureTwoCards from '../src/molecule/quick-access-cards-group/test/fixtures/two-cards';
 import MoleculeResourcePlayerFixtureAudio from '../src/molecule/resource-player/test/fixtures/audio';
 import MoleculeResourcePlayerFixtureImage from '../src/molecule/resource-player/test/fixtures/image';
 import MoleculeResourcePlayerFixtureJwplayerWithOverlay from '../src/molecule/resource-player/test/fixtures/jwplayer-with-overlay';
@@ -1693,7 +1694,8 @@ export const fixtures = {
     },
     MoleculeQuickAccessCardsGroup: {
       Default: MoleculeQuickAccessCardsGroupFixtureDefault,
-      Loading: MoleculeQuickAccessCardsGroupFixtureLoading
+      Loading: MoleculeQuickAccessCardsGroupFixtureLoading,
+      TwoCards: MoleculeQuickAccessCardsGroupFixtureTwoCards
     },
     MoleculeResourcePlayer: {
       Audio: MoleculeResourcePlayerFixtureAudio,
