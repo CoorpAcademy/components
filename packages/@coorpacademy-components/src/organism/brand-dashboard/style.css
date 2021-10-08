@@ -1,7 +1,20 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+
+.wrapper {
+  padding-left: 24px;
+}
+
 .sectionWrapper {
   margin-top: 44px;
 }
 
 .cardsWrapper {
   margin-top: 16px;
+}
+
+@media tablet {
+  .wrapper {
+    padding-left: 32px;
+  }
 }

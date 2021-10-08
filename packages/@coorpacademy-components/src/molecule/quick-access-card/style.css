@@ -68,8 +68,8 @@
 
 .iconGotoWrapper {
   composes: iconWrapper;
-  top: 213px;
-  left: 200px;
+  bottom: 16px;
+  right: 16px;
   background-color: white;
 }
 
@@ -113,9 +113,5 @@
 
   .description {
     max-width: 313px;
-  }
-
-  .iconGotoWrapper {
-    left: 301px;
   }
 }

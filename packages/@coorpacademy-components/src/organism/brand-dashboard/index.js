@@ -7,7 +7,7 @@ import style from './style.css';
 const Dashboard = props => {
   const {header, quickAccessCards} = props;
   return (
-    <div>
+    <div className={style.wrapper}>
       <div>
         <Title {...header} type={'page'} />
       </div>
@@ -22,14 +22,14 @@ const Dashboard = props => {
 };
 
 Dashboard.propTypes = {
-  header: {
+  header: PropTypes.shape({
     title: PropTypes.string,
     subtitle: PropTypes.string
-  },
-  quickAccessCards: {
+  }),
+  quickAccessCards: PropTypes.shape({
     title: PropTypes.string,
     cards: QuickAccessCardGroup.propTypes
-  }
+  })
 };
 
 export default Dashboard;

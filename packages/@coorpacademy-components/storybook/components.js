@@ -892,7 +892,6 @@ import TemplateBackOfficeBrandUpdateFixtureDashboardsAnalytics from '../src/temp
 import TemplateBackOfficeBrandUpdateFixtureDefault from '../src/template/back-office/brand-update/test/fixtures/default';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess from '../src/template/back-office/brand-update/test/fixtures/general-settings-success';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettings from '../src/template/back-office/brand-update/test/fixtures/general-settings';
-import TemplateBackOfficeBrandUpdateFixtureHome from '../src/template/back-office/brand-update/test/fixtures/home';
 import TemplateBackOfficeBrandUpdateFixtureLmsError from '../src/template/back-office/brand-update/test/fixtures/lms-error';
 import TemplateBackOfficeBrandUpdateFixtureLmsModified from '../src/template/back-office/brand-update/test/fixtures/lms-modified';
 import TemplateBackOfficeBrandUpdateFixtureLmsSuccess from '../src/template/back-office/brand-update/test/fixtures/lms-success';
@@ -906,6 +905,7 @@ import TemplateBackOfficeBrandUpdateFixtureLookandfeel from '../src/template/bac
 import TemplateBackOfficeBrandUpdateFixtureManageusersEdit from '../src/template/back-office/brand-update/test/fixtures/manageusers-edit';
 import TemplateBackOfficeBrandUpdateFixtureManageusersList from '../src/template/back-office/brand-update/test/fixtures/manageusers-list';
 import TemplateBackOfficeBrandUpdateFixtureManageusers from '../src/template/back-office/brand-update/test/fixtures/manageusers';
+import TemplateBackOfficeBrandUpdateFixtureQuickAccess from '../src/template/back-office/brand-update/test/fixtures/quick-access';
 import TemplateBackOfficeBrandUpdateFixtureSsoActivate from '../src/template/back-office/brand-update/test/fixtures/sso-activate';
 import TemplateBackOfficeBrandUpdateFixtureSso from '../src/template/back-office/brand-update/test/fixtures/sso';
 import TemplateBackOfficeBrandUpdateFixtureUploadusersLoading from '../src/template/back-office/brand-update/test/fixtures/uploadusers-loading';
@@ -2259,7 +2259,6 @@ export const fixtures = {
       Default: TemplateBackOfficeBrandUpdateFixtureDefault,
       GeneralSettingsSuccess: TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess,
       GeneralSettings: TemplateBackOfficeBrandUpdateFixtureGeneralSettings,
-      Home: TemplateBackOfficeBrandUpdateFixtureHome,
       LmsError: TemplateBackOfficeBrandUpdateFixtureLmsError,
       LmsModified: TemplateBackOfficeBrandUpdateFixtureLmsModified,
       LmsSuccess: TemplateBackOfficeBrandUpdateFixtureLmsSuccess,
@@ -2273,6 +2272,7 @@ export const fixtures = {
       ManageusersEdit: TemplateBackOfficeBrandUpdateFixtureManageusersEdit,
       ManageusersList: TemplateBackOfficeBrandUpdateFixtureManageusersList,
       Manageusers: TemplateBackOfficeBrandUpdateFixtureManageusers,
+      QuickAccess: TemplateBackOfficeBrandUpdateFixtureQuickAccess,
       SsoActivate: TemplateBackOfficeBrandUpdateFixtureSsoActivate,
       Sso: TemplateBackOfficeBrandUpdateFixtureSso,
       UploadusersLoading: TemplateBackOfficeBrandUpdateFixtureUploadusersLoading,

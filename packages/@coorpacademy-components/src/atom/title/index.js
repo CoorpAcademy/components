@@ -21,7 +21,6 @@ const getSubtitleStype = type => {
 };
 
 const Title = props => {
-  console.log('--->', props);
   const {title, subtitle, type} = props;
   const titleStyle = getTitleStype(type);
   const subtitleStyle = getSubtitleStype(type);
