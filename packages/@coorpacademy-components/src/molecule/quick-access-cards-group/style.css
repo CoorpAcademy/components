@@ -1,0 +1,26 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+
+.loader {
+  position: relative;
+  height: 100px;
+  width: 100%;
+}
+
+.default {
+  width: 100%;
+  display: flex;
+  overflow-y: inherit;
+  align-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.card {
+  margin-right: 16px;
+}
+
+@media tablet {
+  .card {
+    margin-top: 16px;
+  }
+}
