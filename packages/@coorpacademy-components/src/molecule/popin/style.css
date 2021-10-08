@@ -113,6 +113,11 @@
   border-radius: 0;
 }
 
+.lastInputText {
+  composes: inputText;
+  margin-bottom: 30px
+}
+
 .inputTextArea {
   border: 2px solid #f7f7f7;
   margin: 10px 0px;
