@@ -18,6 +18,7 @@ import InputDoublestep from '../../atom/input-doublestep';
 import ImageUpload from '../../atom/image-upload';
 import SetupSlider from '../setup-slider';
 import SetupSections from '../setup-sections';
+import Title from '../../atom/title';
 import style from './style.css';
 
 const buildInput = field => {
@@ -80,9 +81,8 @@ const BrandFormGroup = props => {
 
   return (
     <div data-name={`brand_form_group_${snakeCase(title)}`} className={style.wrapper}>
-      <div className={style.title}>
-        {title ? <h3>{title}</h3> : null}
-        <h4>{subtitle}</h4>
+      <div className={style.titleWrapper}>
+        <Title title={title} subtitle={subtitle} type={'form-group'} />
       </div>
       <div className={fieldsLayout === 'grid' ? style.grid : null}>{fieldsList}</div>
     </div>
