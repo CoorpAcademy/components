@@ -1,18 +1,34 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Title from '../../atom/title';
+import QuickAccessCardGroup from '../../molecule/quick-access-cards-group';
 import style from './style.css';
 
 const Dashboard = props => {
-  const {text} = props;
+  const {header, quickAccessCards} = props;
+  console.log('header', quickAccessCards);
   return (
-    <div className={style.home} data-name="home-page">
-      <h1 className={style.homeText}>{text}</h1>
+    <div>
+      <div>
+        <Title {...header} type={'page'} />
+      </div>
+      <div>
+        <Title title={quickAccessCards.title} type={'form-group'} />
+        <QuickAccessCardGroup {...quickAccessCards.cards} />
+      </div>
     </div>
   );
 };
 
 Dashboard.propTypes = {
-  text: PropTypes.string
+  header: {
+    title: PropTypes.string,
+    subtitle: PropTypes.string
+  },
+  quickAccessCards: {
+    title: PropTypes.string,
+    cards: QuickAccessCardGroup.propTypes
+  }
 };
 
 export default Dashboard;
