@@ -678,6 +678,7 @@ import OrganismBrandAnalyticsFixtureSelectedError from '../src/organism/brand-an
 import OrganismBrandAnalyticsFixtureSelectedLoading from '../src/organism/brand-analytics/test/fixtures/selected-loading';
 import OrganismBrandAnalyticsFixtureSelected from '../src/organism/brand-analytics/test/fixtures/selected';
 import OrganismBrandDashboardFixtureDefault from '../src/organism/brand-dashboard/test/fixtures/default';
+import OrganismBrandDashboardFixtureThreeCards from '../src/organism/brand-dashboard/test/fixtures/three-cards';
 import OrganismBrandFormFixtureAnalytics from '../src/organism/brand-form/test/fixtures/analytics';
 import OrganismBrandFormFixtureAnimations from '../src/organism/brand-form/test/fixtures/animations';
 import OrganismBrandFormFixtureCohort from '../src/organism/brand-form/test/fixtures/cohort';
@@ -1951,7 +1952,8 @@ export const fixtures = {
       Selected: OrganismBrandAnalyticsFixtureSelected
     },
     OrganismBrandDashboard: {
-      Default: OrganismBrandDashboardFixtureDefault
+      Default: OrganismBrandDashboardFixtureDefault,
+      ThreeCards: OrganismBrandDashboardFixtureThreeCards
     },
     OrganismBrandForm: {
       Analytics: OrganismBrandFormFixtureAnalytics,
