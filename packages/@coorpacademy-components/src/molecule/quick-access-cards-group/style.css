@@ -17,13 +17,30 @@
 
 .card {
   width: 25%;
-  border-right: 16px solid transparent;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
   border-bottom: 16px solid transparent;
   box-sizing: border-box;
+}
+
+.card:first-child {
+  border-left: 0px solid transparent;
+}
+
+.card:last-child {
+  border-right: 0px solid transparent;
 }
 
 @media cm_tablet {
   .card {
     width: 50%;
+  }
+
+  .card:nth-child(odd) {
+    border-left: 0px solid transparent;
+  }
+
+  .card:nth-child(even) {
+    border-right: 0px solid transparent;
   }
 }
