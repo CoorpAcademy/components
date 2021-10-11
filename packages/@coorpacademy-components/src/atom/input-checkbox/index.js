@@ -41,7 +41,7 @@ const InputCheckbox = props => {
         disabled={disabled}
       />
       <label htmlFor={idCheckbox}>
-        <CheckIcon className={style.icon} witdh={16} height={14} color="#FFF" />
+        <CheckIcon className={style.icon} />
       </label>
       <span className={titleStyleClassName}>{title}</span>
     </div>

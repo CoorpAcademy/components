@@ -2,6 +2,7 @@
 @value dark from colors;
 @value xtraLightGrey from colors;
 @value light from colors;
+@value white from colors;
 @value orange from colors;
 @value brand from colors;
 @value battle from colors;
@@ -33,6 +34,9 @@
 
 .icon {
   display: none;
+  width: 16px;
+  height: 14px;
+  color: white;
 }
 
 .title {
