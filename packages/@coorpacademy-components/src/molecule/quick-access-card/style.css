@@ -68,6 +68,7 @@
   composes: iconWrapper;
   bottom: 16px;
   right: 16px;
+  line-height: 0;
   background-color: white;
 }
 
