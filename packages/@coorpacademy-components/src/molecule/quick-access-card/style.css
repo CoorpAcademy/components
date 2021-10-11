@@ -38,7 +38,8 @@
   line-height: 22px;
   position: absolute;
   top: 120px;
-  left: 24px;
+  padding-left: 24px;
+  padding-right: 24px;
 }
 
 .iconWrapper {
