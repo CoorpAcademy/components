@@ -18,22 +18,28 @@
 
 .groupGrid {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  overflow: hidden;
 }
 
 .groupGrid:first-child {
   flex: 1;
 }
 
-.groupGrid h4 {
+.groupGrid > div {
   width: 352px;
 }
 
 .groupGrid .grid {
   flex: 3;
-  margin-top: 56px;
+  margin-top: 50px;
   flex-wrap: nowrap;
+  overflow: hidden;
   justify-content: space-evenly;
+}
+
+.groupGrid h3 {
+  margin-top: 0;
 }
 
 .grid .field {
@@ -51,9 +57,12 @@
 @media desktop {
   .groupGrid {
     flex-direction: column;
+    justify-content: center;
   }
 
   .groupGrid .grid {
+    width: 100%;
+    align-self: center;
     margin-top: 0;
   }
 }

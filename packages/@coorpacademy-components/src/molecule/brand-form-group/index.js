@@ -19,11 +19,8 @@ import InputDoublestep from '../../atom/input-doublestep';
 import ImageUpload from '../../atom/image-upload';
 import SetupSlider from '../setup-slider';
 import SetupSections from '../setup-sections';
-<<<<<<< HEAD
 import Title from '../../atom/title';
-=======
 import Roles from '../coorp-manager-roles';
->>>>>>> 4e570800b (refactor (#1968))
 import style from './style.css';
 
 const buildInput = field => {
@@ -87,7 +84,10 @@ const BrandFormGroup = props => {
   const fieldsList = map.convert({cap: false})(buildField, fields);
 
   return (
-    <div data-name={`brand_form_group_${snakeCase(title)}`} className={classNames(style.wrapper, groupLayout === 'grid' && style.groupGrid)}>
+    <div
+      data-name={`brand_form_group_${snakeCase(title)}`}
+      className={classNames(style.wrapper, groupLayout === 'grid' && style.groupGrid)}
+    >
       <div className={style.titleWrapper}>
         <Title title={title} subtitle={subtitle} type={'form-group'} />
       </div>
