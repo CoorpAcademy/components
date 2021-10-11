@@ -59,6 +59,7 @@ import MoleculeCard from './../src/molecule/card';
 import MoleculeCardContent from './../src/molecule/card-content';
 import MoleculeCardWithButton from './../src/molecule/card-with-button';
 import MoleculeCookieBanner from './../src/molecule/cookie-banner';
+import MoleculeCoorpManagerRoles from './../src/molecule/coorp-manager-roles';
 import MoleculeDashboardBattleRequestList from './../src/molecule/dashboard/battle-request-list';
 import MoleculeDashboardCardsList from './../src/molecule/dashboard/cards-list';
 import MoleculeDashboardNewsList from './../src/molecule/dashboard/news-list';
@@ -1029,6 +1030,7 @@ export const components = {
     MoleculeCardContent,
     MoleculeCardWithButton,
     MoleculeCookieBanner,
+    MoleculeCoorpManagerRoles,
     MoleculeDisciplineCta,
     MoleculeDisciplineHeader,
     MoleculeDisciplinePartners,

@@ -78,10 +78,12 @@ export default {
         title: 'Roles',
         subtitle:
           'Elit enim viverra enim, blandit turpis quam pretium id. Et, leo, amet odio proin diam sit lorem accumsan.',
-        type: 'roles',
+        fieldsLayout: 'grid',
+        groupLayout: 'grid',
         fields: [
           {
             title: 'Coorp',
+            type: 'roles',
             fields: [
               {
                 type: 'checkbox',
@@ -106,6 +108,7 @@ export default {
           },
           {
             title: 'Mooc',
+            type: 'roles',
             fields: [
               {
                 type: 'checkbox',
@@ -142,6 +145,7 @@ export default {
           },
           {
             title: 'CM',
+            type: 'roles',
             fields: [
               {
                 type: 'checkbox',
