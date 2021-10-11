@@ -1,7 +1,7 @@
 @value colors: "../../variables/colors.css";
 @value breakpoints: "../../variables/breakpoints.css";
 @value white from colors;
-@value tablet from breakpoints;
+@value cm_tablet from breakpoints;
 
 .quickAccess {
   height: 273px;
@@ -104,7 +104,7 @@
   height: 20px;
 }
 
-@media tablet {
+@media cm_tablet {
   .description {
     max-width: 313px;
   }

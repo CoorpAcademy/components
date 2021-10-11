@@ -1,5 +1,5 @@
 @value breakpoints: "../../variables/breakpoints.css";
-@value tablet from breakpoints;
+@value cm_tablet from breakpoints;
 @value desktop from breakpoints;
 .loader {
   position: relative;
@@ -16,20 +16,14 @@
 }
 
 .card {
-  width: 23%;
-  margin-right: 16px;
+  width: 25%;
+  border-right: 16px solid transparent;
+  border-bottom: 16px solid transparent;
+  box-sizing: border-box;
 }
 
-@media desktop {
+@media cm_tablet {
   .card {
-    width: 46%;
-  }
-}
-
-@media tablet {
-  .card {
-    margin-top: 16px;
-    margin-right: 16px;
-    width: 46%;
+    width: 50%;
   }
 }

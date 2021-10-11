@@ -565,6 +565,8 @@ import MoleculeQuickAccessCardFixtureMassiveBattle from '../src/molecule/quick-a
 import MoleculeQuickAccessCardFixtureUploadUsers from '../src/molecule/quick-access-card/test/fixtures/upload-users';
 import MoleculeQuickAccessCardsGroupFixtureDefault from '../src/molecule/quick-access-cards-group/test/fixtures/default';
 import MoleculeQuickAccessCardsGroupFixtureLoading from '../src/molecule/quick-access-cards-group/test/fixtures/loading';
+import MoleculeQuickAccessCardsGroupFixtureOneCard from '../src/molecule/quick-access-cards-group/test/fixtures/one-card';
+import MoleculeQuickAccessCardsGroupFixtureThreeCards from '../src/molecule/quick-access-cards-group/test/fixtures/three-cards';
 import MoleculeQuickAccessCardsGroupFixtureTwoCards from '../src/molecule/quick-access-cards-group/test/fixtures/two-cards';
 import MoleculeResourcePlayerFixtureAudio from '../src/molecule/resource-player/test/fixtures/audio';
 import MoleculeResourcePlayerFixtureImage from '../src/molecule/resource-player/test/fixtures/image';
@@ -1695,6 +1697,8 @@ export const fixtures = {
     MoleculeQuickAccessCardsGroup: {
       Default: MoleculeQuickAccessCardsGroupFixtureDefault,
       Loading: MoleculeQuickAccessCardsGroupFixtureLoading,
+      OneCard: MoleculeQuickAccessCardsGroupFixtureOneCard,
+      ThreeCards: MoleculeQuickAccessCardsGroupFixtureThreeCards,
       TwoCards: MoleculeQuickAccessCardsGroupFixtureTwoCards
     },
     MoleculeResourcePlayer: {

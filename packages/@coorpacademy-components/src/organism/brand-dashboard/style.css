@@ -1,8 +1,10 @@
 @value breakpoints: "../../variables/breakpoints.css";
-@value tablet from breakpoints;
+@value cm_tablet from breakpoints;
 
 .wrapper {
-  padding-left: 24px;
+  border-right: 64px solid transparent;
+  border-left: 64px solid transparent;
+  box-sizing: border-box;
 }
 
 .sectionWrapper {
@@ -13,8 +15,9 @@
   margin-top: 16px;
 }
 
-@media tablet {
+@media cm_tablet {
   .wrapper {
-    padding-left: 32px;
+    border-right: 32px solid transparent;
+    border-left: 32px solid transparent;
   }
 }
