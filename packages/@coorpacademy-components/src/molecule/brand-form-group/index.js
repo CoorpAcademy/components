@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {map, snakeCase} from 'lodash/fp';
+import classNames from 'classnames';
 import Autocomplete from '../../atom/autocomplete';
 import Select from '../../atom/select';
 import SelectMultiple from '../select-multiple';
@@ -18,6 +19,7 @@ import InputDoublestep from '../../atom/input-doublestep';
 import ImageUpload from '../../atom/image-upload';
 import SetupSlider from '../setup-slider';
 import SetupSections from '../setup-sections';
+import Roles from '../coorp-manager-roles';
 import style from './style.css';
 
 const buildInput = field => {
@@ -59,6 +61,8 @@ const buildInput = field => {
     case 'button':
     case 'link':
       return <Button {...field} />;
+    case 'roles':
+      return <Roles {...field} />;
     default:
       return <InputText {...field} />;
   }
@@ -75,11 +79,14 @@ const buildField = (field, index) => {
 };
 
 const BrandFormGroup = props => {
-  const {title, subtitle = '', fieldsLayout = '', fields = []} = props;
+  const {title, subtitle = '', fieldsLayout = '', formLayout = '', fields = []} = props;
   const fieldsList = map.convert({cap: false})(buildField, fields);
 
   return (
-    <div data-name={`brand_form_group_${snakeCase(title)}`} className={style.wrapper}>
+    <div
+      data-name={`brand_form_group_${snakeCase(title)}`}
+      className={classNames(style.wrapper, formLayout === 'grid' && style.formGrid)}
+    >
       <div className={style.title}>
         {title ? <h3>{title}</h3> : null}
         <h4>{subtitle}</h4>
@@ -93,6 +100,7 @@ BrandFormGroup.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   fieldsLayout: PropTypes.string,
+  formLayout: PropTypes.string,
   fields: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.shape({

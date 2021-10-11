@@ -1,4 +1,6 @@
 @value colors: "../../variables/colors.css";
+@value breakpoints: "../../variables/breakpoints.css";
+@value desktop from breakpoints;
 @value cm_grey_700 from colors;
 @value medium from colors;
 
@@ -15,6 +17,26 @@
 .grid {
   display: flex;
   flex-wrap: wrap;
+}
+
+.formGrid {
+  display: flex;
+  justify-content: space-between;
+}
+
+.formGrid:first-child {
+  flex: 1;
+}
+
+.formGrid h4 {
+  width: 352px;
+}
+
+.formGrid .grid {
+  flex: 3;
+  margin-top: 56px;
+  flex-wrap: nowrap;
+  justify-content: space-evenly;
 }
 
 .grid .field {
@@ -44,7 +66,16 @@
   margin-bottom: 20px;
 }
 
-
 .field:last-child {
   margin-bottom: 0;
+}
+
+@media desktop {
+  .formGrid {
+    flex-direction: column;
+  }
+
+  .formGrid .grid {
+    margin-top: 0;
+  }
 }
