@@ -79,7 +79,7 @@ export default {
         subtitle:
           'Elit enim viverra enim, blandit turpis quam pretium id. Et, leo, amet odio proin diam sit lorem accumsan.',
         fieldsLayout: 'grid',
-        formLayout: 'grid',
+        groupLayout: 'grid',
         fields: [
           {
             title: 'Coorp',

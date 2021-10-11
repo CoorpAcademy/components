@@ -21,7 +21,7 @@
   color: cm_grey_300;
 }
 
-.rolesFormGroup {
+.rolesGroup {
   display: flex;
   flex-direction: column;
 }
@@ -41,7 +41,7 @@
 }
 
 @media desktop {
-  .rolesFormGroup {
+  .rolesGroup {
     flex-direction: row;
   }
 

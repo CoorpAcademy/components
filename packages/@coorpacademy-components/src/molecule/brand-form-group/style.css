@@ -19,20 +19,20 @@
   flex-wrap: wrap;
 }
 
-.formGrid {
+.groupGrid {
   display: flex;
   justify-content: space-between;
 }
 
-.formGrid:first-child {
+.groupGrid:first-child {
   flex: 1;
 }
 
-.formGrid h4 {
+.groupGrid h4 {
   width: 352px;
 }
 
-.formGrid .grid {
+.groupGrid .grid {
   flex: 3;
   margin-top: 56px;
   flex-wrap: nowrap;
@@ -71,11 +71,11 @@
 }
 
 @media desktop {
-  .formGrid {
+  .groupGrid {
     flex-direction: column;
   }
 
-  .formGrid .grid {
+  .groupGrid .grid {
     margin-top: 0;
   }
 }

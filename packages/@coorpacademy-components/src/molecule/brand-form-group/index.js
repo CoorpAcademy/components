@@ -79,13 +79,13 @@ const buildField = (field, index) => {
 };
 
 const BrandFormGroup = props => {
-  const {title, subtitle = '', fieldsLayout = '', formLayout = '', fields = []} = props;
+  const {title, subtitle = '', fieldsLayout = '', groupLayout = '', fields = []} = props;
   const fieldsList = map.convert({cap: false})(buildField, fields);
 
   return (
     <div
       data-name={`brand_form_group_${snakeCase(title)}`}
-      className={classNames(style.wrapper, formLayout === 'grid' && style.formGrid)}
+      className={classNames(style.wrapper, groupLayout === 'grid' && style.groupGrid)}
     >
       <div className={style.title}>
         {title ? <h3>{title}</h3> : null}
@@ -100,7 +100,7 @@ BrandFormGroup.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
   fieldsLayout: PropTypes.string,
-  formLayout: PropTypes.string,
+  groupLayout: PropTypes.string,
   fields: PropTypes.arrayOf(
     PropTypes.oneOfType([
       PropTypes.shape({
@@ -170,6 +170,10 @@ BrandFormGroup.propTypes = {
       PropTypes.shape({
         ...SelectMultiple.propTypes,
         type: PropTypes.oneOf(['selectMultiple'])
+      }),
+      PropTypes.shape({
+        ...Roles.propTypes,
+        type: PropTypes.oneOf(['roles'])
       }),
       PropTypes.shape(InputText.propTypes)
     ])
