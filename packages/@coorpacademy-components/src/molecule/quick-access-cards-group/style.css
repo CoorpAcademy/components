@@ -1,6 +1,7 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value cm_tablet from breakpoints;
 @value desktop from breakpoints;
+
 .loader {
   position: relative;
   height: 100px;
@@ -13,34 +14,18 @@
   overflow-y: inherit;
   align-content: flex-start;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 
 .card {
-  width: 25%;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 16px solid transparent;
-  box-sizing: border-box;
-}
-
-.card:first-child {
-  border-left: 0px solid transparent;
-}
-
-.card:last-child {
-  border-right: 0px solid transparent;
+  width: 24%; /* for ie */
+  width: calc(25% - 12px); /* 25% - 16px * 3 space / 4 cards */ 
+  margin-bottom: 16px;
 }
 
 @media cm_tablet {
   .card {
-    width: 50%;
-  }
-
-  .card:nth-child(odd) {
-    border-left: 0px solid transparent;
-  }
-
-  .card:nth-child(even) {
-    border-right: 0px solid transparent;
+    width: 48%; /* for ie */
+    width: calc(50% - 8px); /* 50% - 16px * 1 space / 2 cards */
   }
 }

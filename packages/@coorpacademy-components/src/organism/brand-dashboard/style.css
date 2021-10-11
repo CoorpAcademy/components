@@ -2,9 +2,7 @@
 @value cm_tablet from breakpoints;
 
 .wrapper {
-  border-right: 64px solid transparent;
-  border-left: 64px solid transparent;
-  box-sizing: border-box;
+  margin: 0px 64px;
 }
 
 .sectionWrapper {
@@ -17,7 +15,6 @@
 
 @media cm_tablet {
   .wrapper {
-    border-right: 32px solid transparent;
-    border-left: 32px solid transparent;
+    margin: 0px 32px;
   }
 }
