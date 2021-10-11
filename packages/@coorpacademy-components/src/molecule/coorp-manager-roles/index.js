@@ -6,7 +6,7 @@ import style from './style.css';
 const Roles = ({title, fields}) => {
   return (
     <div className={style.rolesGroup}>
-      <div className={style.title}>{<h3>{title}</h3>}</div>
+      <div className={style.title}><h3>{title}</h3></div>
       <div className={style.content}>
         {fields.map((role, i) => (
           <span key={i}>

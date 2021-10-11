@@ -1,6 +1,4 @@
 @value colors: "../../variables/colors.css";
-@value breakpoints: "../../variables/breakpoints.css";
-@value desktop from breakpoints;
 @value dark from colors;
 @value brand from colors;
 @value light from colors;
