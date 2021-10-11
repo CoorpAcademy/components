@@ -23,7 +23,7 @@ const QuickAccessCardGroup = props => {
   }, slice(0, 4, list));
 
   return (
-    <div className={style.default}>
+    <div className={style.group}>
       {cards}
       {loader}
     </div>

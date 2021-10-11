@@ -8,7 +8,7 @@
   width: 100%;
 }
 
-.default {
+.group {
   width: 100%;
   display: flex;
   overflow-y: inherit;
@@ -16,7 +16,7 @@
   flex-wrap: wrap;
 }
 
-.default > *:not(:last-child) {
+.group > *:not(:last-child) {
   margin-right: 16px; 
 } 
 
@@ -27,14 +27,6 @@
 }
 
 @media cm_tablet {
-  .default > *:nth-child(odd) {
-    margin-right: 16px; 
-  }
-
-  .default > *:nth-child(even) {
-    margin-right: 0px; 
-  }
-
   .card {
     width: 48%; /* for ie */
     width: calc(50% - 16px); /* 50% - 16px * 1 space / 2 cards */
