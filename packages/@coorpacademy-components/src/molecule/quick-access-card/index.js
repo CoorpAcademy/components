@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {
   NovaSolidContentContentBookAdd as CockpitIcon,
@@ -77,17 +77,17 @@ const getBackgroudRadialColors = feature => {
 };
 
 const QuickAccessCard = (props, context) => {
-  const {title, description, feature, onClick, _blank} = props;
+  const {title, description, feature, href, _blank} = props;
   const {iconColor, degrees} = getBackgroudRadialColors(feature);
   const Icon = getIcon(feature);
-  const handleClick = useMemo(() => e => onClick(e), [onClick]);
   const newTabOnClick = _blank ? <NewTabIcon className={style.newTabIcon} /> : null;
 
   return (
-    <div data-name="card" data-type={feature} className={style.quickAccess} onClick={handleClick}>
-      <div
-        style={{
-          background: `radial-gradient(62.12% 56.45% at 0% 77.29%, 
+    <div data-name="card" data-type={feature} className={style.quickAccess}>
+      <a href={href} target={_blank ? '_blank' : '_self'} className={style.link}>
+        <div
+          style={{
+            background: `radial-gradient(62.12% 56.45% at 0% 77.29%, 
             hsl(${degrees}deg 68% 40% / 20%) 0%, 
             hsl(${degrees}deg 68% 40% / 0%) 100%), 
           radial-gradient(113.85% 103.46% at 93.27% 7.88%,
@@ -97,38 +97,39 @@ const QuickAccessCard = (props, context) => {
             hsl(${degrees}deg 87% 91%) 0%, 
             hsl(${degrees}deg 87% 91% / 0%) 100%), 
           #FAFAFA`
-        }}
-        className={style.content}
-      >
-        <div
-          className={style.iconFeatureWrapper}
-          style={{
-            backgroundColor: iconColor
           }}
-        >
-          <Icon className={style.iconFeature} />
-        </div>
-        <div className={style.title}>
-          {title}
-          {newTabOnClick}
-        </div>
-        <div className={style.description}>{description}</div>
-        <div
-          className={style.iconGotoWrapper}
-          style={{
-            backgroundColor: iconColor
-          }}
+          className={style.content}
         >
           <div
-            className={style.hover}
+            className={style.iconFeatureWrapper}
             style={{
-              color: iconColor
+              backgroundColor: iconColor
             }}
           >
-            <ActionIcon className={style.iconGoto} />
+            <Icon className={style.iconFeature} />
+          </div>
+          <div className={style.title}>
+            {title}
+            {newTabOnClick}
+          </div>
+          <div className={style.description}>{description}</div>
+          <div
+            className={style.iconGotoWrapper}
+            style={{
+              backgroundColor: iconColor
+            }}
+          >
+            <div
+              className={style.hover}
+              style={{
+                color: iconColor
+              }}
+            >
+              <ActionIcon className={style.iconGoto} />
+            </div>
           </div>
         </div>
-      </div>
+      </a>
     </div>
   );
 };
@@ -136,7 +137,7 @@ const QuickAccessCard = (props, context) => {
 QuickAccessCard.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
-  onClick: PropTypes.func,
+  href: PropTypes.string,
   _blank: PropTypes.bool,
   feature: PropTypes.oneOf([
     'analytics',

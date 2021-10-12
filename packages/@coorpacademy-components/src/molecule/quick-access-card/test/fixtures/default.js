@@ -4,6 +4,6 @@ export default {
     description: 'Access to cockpit to create courses',
     _blank: true,
     feature: 'cockpit',
-    onClick: () => console.log('click everywhere')
+    href: 'https://cockpit.coorpacademy.com'
   }
 };
