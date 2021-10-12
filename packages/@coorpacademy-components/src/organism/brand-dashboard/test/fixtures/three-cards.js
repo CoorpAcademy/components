@@ -1,4 +1,4 @@
-import QuickAccessCardGroup from '../../../../molecule/quick-access-cards-group/test/fixtures/default';
+import QuickAccessCardGroup from '../../../../molecule/quick-access-cards-group/test/fixtures/three-cards';
 
 export default {
   props: {

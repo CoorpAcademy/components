@@ -565,6 +565,9 @@ import MoleculeQuickAccessCardFixtureMassiveBattle from '../src/molecule/quick-a
 import MoleculeQuickAccessCardFixtureUploadUsers from '../src/molecule/quick-access-card/test/fixtures/upload-users';
 import MoleculeQuickAccessCardsGroupFixtureDefault from '../src/molecule/quick-access-cards-group/test/fixtures/default';
 import MoleculeQuickAccessCardsGroupFixtureLoading from '../src/molecule/quick-access-cards-group/test/fixtures/loading';
+import MoleculeQuickAccessCardsGroupFixtureOneCard from '../src/molecule/quick-access-cards-group/test/fixtures/one-card';
+import MoleculeQuickAccessCardsGroupFixtureThreeCards from '../src/molecule/quick-access-cards-group/test/fixtures/three-cards';
+import MoleculeQuickAccessCardsGroupFixtureTwoCards from '../src/molecule/quick-access-cards-group/test/fixtures/two-cards';
 import MoleculeResourcePlayerFixtureAudio from '../src/molecule/resource-player/test/fixtures/audio';
 import MoleculeResourcePlayerFixtureImage from '../src/molecule/resource-player/test/fixtures/image';
 import MoleculeResourcePlayerFixtureJwplayerWithOverlay from '../src/molecule/resource-player/test/fixtures/jwplayer-with-overlay';
@@ -675,6 +678,7 @@ import OrganismBrandAnalyticsFixtureSelectedError from '../src/organism/brand-an
 import OrganismBrandAnalyticsFixtureSelectedLoading from '../src/organism/brand-analytics/test/fixtures/selected-loading';
 import OrganismBrandAnalyticsFixtureSelected from '../src/organism/brand-analytics/test/fixtures/selected';
 import OrganismBrandDashboardFixtureDefault from '../src/organism/brand-dashboard/test/fixtures/default';
+import OrganismBrandDashboardFixtureThreeCards from '../src/organism/brand-dashboard/test/fixtures/three-cards';
 import OrganismBrandFormFixtureAnalytics from '../src/organism/brand-form/test/fixtures/analytics';
 import OrganismBrandFormFixtureAnimations from '../src/organism/brand-form/test/fixtures/animations';
 import OrganismBrandFormFixtureCohort from '../src/organism/brand-form/test/fixtures/cohort';
@@ -892,7 +896,6 @@ import TemplateBackOfficeBrandUpdateFixtureDashboardsAnalytics from '../src/temp
 import TemplateBackOfficeBrandUpdateFixtureDefault from '../src/template/back-office/brand-update/test/fixtures/default';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess from '../src/template/back-office/brand-update/test/fixtures/general-settings-success';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettings from '../src/template/back-office/brand-update/test/fixtures/general-settings';
-import TemplateBackOfficeBrandUpdateFixtureHome from '../src/template/back-office/brand-update/test/fixtures/home';
 import TemplateBackOfficeBrandUpdateFixtureLmsError from '../src/template/back-office/brand-update/test/fixtures/lms-error';
 import TemplateBackOfficeBrandUpdateFixtureLmsModified from '../src/template/back-office/brand-update/test/fixtures/lms-modified';
 import TemplateBackOfficeBrandUpdateFixtureLmsSuccess from '../src/template/back-office/brand-update/test/fixtures/lms-success';
@@ -906,6 +909,7 @@ import TemplateBackOfficeBrandUpdateFixtureLookandfeel from '../src/template/bac
 import TemplateBackOfficeBrandUpdateFixtureManageusersEdit from '../src/template/back-office/brand-update/test/fixtures/manageusers-edit';
 import TemplateBackOfficeBrandUpdateFixtureManageusersList from '../src/template/back-office/brand-update/test/fixtures/manageusers-list';
 import TemplateBackOfficeBrandUpdateFixtureManageusers from '../src/template/back-office/brand-update/test/fixtures/manageusers';
+import TemplateBackOfficeBrandUpdateFixtureQuickAccess from '../src/template/back-office/brand-update/test/fixtures/quick-access';
 import TemplateBackOfficeBrandUpdateFixtureSsoActivate from '../src/template/back-office/brand-update/test/fixtures/sso-activate';
 import TemplateBackOfficeBrandUpdateFixtureSso from '../src/template/back-office/brand-update/test/fixtures/sso';
 import TemplateBackOfficeBrandUpdateFixtureUploadusersLoading from '../src/template/back-office/brand-update/test/fixtures/uploadusers-loading';
@@ -1693,7 +1697,10 @@ export const fixtures = {
     },
     MoleculeQuickAccessCardsGroup: {
       Default: MoleculeQuickAccessCardsGroupFixtureDefault,
-      Loading: MoleculeQuickAccessCardsGroupFixtureLoading
+      Loading: MoleculeQuickAccessCardsGroupFixtureLoading,
+      OneCard: MoleculeQuickAccessCardsGroupFixtureOneCard,
+      ThreeCards: MoleculeQuickAccessCardsGroupFixtureThreeCards,
+      TwoCards: MoleculeQuickAccessCardsGroupFixtureTwoCards
     },
     MoleculeResourcePlayer: {
       Audio: MoleculeResourcePlayerFixtureAudio,
@@ -1945,7 +1952,8 @@ export const fixtures = {
       Selected: OrganismBrandAnalyticsFixtureSelected
     },
     OrganismBrandDashboard: {
-      Default: OrganismBrandDashboardFixtureDefault
+      Default: OrganismBrandDashboardFixtureDefault,
+      ThreeCards: OrganismBrandDashboardFixtureThreeCards
     },
     OrganismBrandForm: {
       Analytics: OrganismBrandFormFixtureAnalytics,
@@ -2259,7 +2267,6 @@ export const fixtures = {
       Default: TemplateBackOfficeBrandUpdateFixtureDefault,
       GeneralSettingsSuccess: TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess,
       GeneralSettings: TemplateBackOfficeBrandUpdateFixtureGeneralSettings,
-      Home: TemplateBackOfficeBrandUpdateFixtureHome,
       LmsError: TemplateBackOfficeBrandUpdateFixtureLmsError,
       LmsModified: TemplateBackOfficeBrandUpdateFixtureLmsModified,
       LmsSuccess: TemplateBackOfficeBrandUpdateFixtureLmsSuccess,
@@ -2273,6 +2280,7 @@ export const fixtures = {
       ManageusersEdit: TemplateBackOfficeBrandUpdateFixtureManageusersEdit,
       ManageusersList: TemplateBackOfficeBrandUpdateFixtureManageusersList,
       Manageusers: TemplateBackOfficeBrandUpdateFixtureManageusers,
+      QuickAccess: TemplateBackOfficeBrandUpdateFixtureQuickAccess,
       SsoActivate: TemplateBackOfficeBrandUpdateFixtureSsoActivate,
       Sso: TemplateBackOfficeBrandUpdateFixtureSso,
       UploadusersLoading: TemplateBackOfficeBrandUpdateFixtureUploadusersLoading,
