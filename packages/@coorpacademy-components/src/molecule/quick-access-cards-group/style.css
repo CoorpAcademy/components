@@ -16,23 +16,22 @@
   flex-wrap: wrap;
 }
 
-.group > *:not(:last-child) {
-  margin-right: 16px; 
-} 
-
 .card {
   width: 24%; /* for ie */
   width: calc(25% - 12px); /* 25% - 16px * 3 space / 4 cards */ 
   margin: 0 16px 16px 0;
 }
+
 .card:nth-child(4) {
   margin-right: 0px;
 }
+
 @media cm_tablet {
   .card {
     width: 48%; /* for ie */
     width: calc(50% - 16px); /* 50% - 16px * 1 space / 2 cards */
   }
+
   .card:nth-child(2) {
     margin-right: 0px;
   }
