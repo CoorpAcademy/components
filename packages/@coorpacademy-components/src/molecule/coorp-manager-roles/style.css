@@ -2,7 +2,7 @@
 @value cm_grey_700 from colors;
 @value cm_grey_400 from colors;
 
-.title h3 {
+.title {
   font-family: 'Gilroy';
   font-size: 18px;
   font-weight: bold;
@@ -22,12 +22,8 @@
   justify-content: center;
 }
 
-.content > span {
+.field {
   margin: 8px 0;
-}
-
-.content div {
-  width: unset;
 }
 
 @media desktop {

@@ -6,13 +6,11 @@ import style from './style.css';
 const Roles = ({title, fields}) => {
   return (
     <div className={style.rolesGroup}>
-      <div className={style.title}>
-        <h3>{title}</h3>
-      </div>
+      <h3 className={style.title}>{title}</h3>
       <div className={style.content}>
-        {fields.map((role, i) => (
-          <span key={i}>
-            <InputCheckbox {...role} />
+        {fields.map((field, i) => (
+          <span className={style.field} key={i}>
+            <InputCheckbox {...field} />
           </span>
         ))}
       </div>
