@@ -38,10 +38,6 @@
   justify-content: space-evenly;
 }
 
-.groupGrid h3 {
-  margin-top: 0;
-}
-
 .grid .field {
   margin-right: 20px;
 }
@@ -57,12 +53,14 @@
 @media desktop {
   .groupGrid {
     flex-direction: column;
-    justify-content: center;
   }
 
   .groupGrid .grid {
-    width: 100%;
-    align-self: center;
+    justify-content: flex-start;
     margin-top: 0;
+  }
+
+  .groupGrid .grid .field {
+    flex: 1;
   }
 }
