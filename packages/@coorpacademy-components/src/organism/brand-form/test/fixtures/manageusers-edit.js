@@ -76,38 +76,90 @@ export default {
       },
       {
         title: 'Roles',
+        subtitle:
+          'Elit enim viverra enim, blandit turpis quam pretium id. Et, leo, amet odio proin diam sit lorem accumsan.',
+        fieldsLayout: 'grid',
+        groupLayout: 'grid',
         fields: [
           {
-            type: 'checkbox',
-            title: 'RH',
-            checked: true
+            title: 'Coorp',
+            type: 'roles',
+            fields: [
+              {
+                type: 'checkbox',
+                titleStyle: 'primary',
+                title: 'RH',
+                checked: true,
+                disabled: true
+              },
+              {
+                type: 'checkbox',
+                titleStyle: 'primary',
+                title: 'CMS',
+                checked: false
+              },
+              {
+                type: 'checkbox',
+                titleStyle: 'primary',
+                title: 'Admin',
+                checked: true
+              }
+            ]
           },
           {
-            type: 'checkbox',
-            title: 'CMS',
-            checked: false
+            title: 'Mooc',
+            type: 'roles',
+            fields: [
+              {
+                type: 'checkbox',
+                title: 'Admin',
+                titleStyle: 'secondary',
+                checked: true
+              },
+              {
+                type: 'checkbox',
+                title: 'Super coach',
+                titleStyle: 'secondary',
+                disabled: true
+              },
+              {
+                type: 'checkbox',
+                title: 'Moderator',
+                titleStyle: 'secondary',
+                disabled: true
+              },
+              {
+                type: 'checkbox',
+                title: 'System',
+                titleStyle: 'secondary',
+                checked: false
+              },
+              {
+                type: 'checkbox',
+                title: 'Godmode',
+                titleStyle: 'secondary',
+                disabled: true,
+                checked: true
+              }
+            ]
           },
           {
-            type: 'checkbox',
-            title: 'Admin',
-            checked: true
-          },
-          {
-            type: 'checkbox',
-            title: 'Super coach'
-          },
-          {
-            type: 'checkbox',
-            title: 'Moderator'
-          },
-          {
-            type: 'checkbox',
-            title: 'System',
-            checked: false
-          },
-          {
-            type: 'checkbox',
-            title: 'Godmode'
+            title: 'CM',
+            type: 'roles',
+            fields: [
+              {
+                type: 'checkbox',
+                title: 'Admin',
+                titleStyle: 'tertiary',
+                checked: true
+              },
+              {
+                type: 'checkbox',
+                title: 'Super coach',
+                titleStyle: 'tertiary',
+                checked: true
+              }
+            ]
           }
         ]
       },

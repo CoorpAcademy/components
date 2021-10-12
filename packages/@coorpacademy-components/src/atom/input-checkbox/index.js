@@ -1,8 +1,15 @@
 import React, {useMemo} from 'react';
+import {NovaSolidStatusValidate as CheckIcon} from '@coorpacademy/nova-icons';
 import PropTypes from 'prop-types';
 import {noop, uniqueId} from 'lodash/fp';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
+
+const titleStylesClassNames = {
+  primary: style.primary,
+  secondary: style.secondary,
+  tertiary: style.tertiary
+};
 
 const InputCheckbox = props => {
   const {
@@ -11,10 +18,12 @@ const InputCheckbox = props => {
     error,
     disabled,
     required,
+    titleStyle = 'primary',
     modified = false,
     title: propsTitle
   } = props;
 
+  const titleStyleClassName = titleStylesClassNames[titleStyle];
   const idCheckbox = uniqueId('input-checkbox-');
   const title = `${propsTitle}${required ? '*' : ''}`;
   const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
@@ -22,7 +31,6 @@ const InputCheckbox = props => {
 
   return (
     <div className={className}>
-      <span className={style.title}>{title}</span>
       <input
         type="checkbox"
         className={style.checkbox}
@@ -32,7 +40,10 @@ const InputCheckbox = props => {
         onChange={handleChange}
         disabled={disabled}
       />
-      <label htmlFor={idCheckbox} />
+      <label htmlFor={idCheckbox}>
+        <CheckIcon className={style.icon} />
+      </label>
+      <span className={titleStyleClassName}>{title}</span>
     </div>
   );
 };
@@ -44,7 +55,8 @@ InputCheckbox.propTypes = {
   checked: PropTypes.bool,
   error: PropTypes.bool,
   onChange: PropTypes.func,
-  modified: PropTypes.bool
+  modified: PropTypes.bool,
+  titleStyle: PropTypes.oneOf(['primary', 'secondary', 'tertiary'])
 };
 
 export default InputCheckbox;

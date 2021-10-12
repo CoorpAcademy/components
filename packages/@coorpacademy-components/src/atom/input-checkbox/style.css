@@ -2,9 +2,19 @@
 @value dark from colors;
 @value xtraLightGrey from colors;
 @value light from colors;
+@value white from colors;
 @value orange from colors;
 @value brand from colors;
 @value battle from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_100 from colors;
+@value cm_blue_600 from colors;
+@value cm_blue_50 from colors;
+@value cm_orange_700 from colors;
+@value cm_pink_50 from colors;
+@value cm_green_200 from colors;
+@value cm_green_50 from colors;
+@value cm_primary_blue from colors;
 
 .default {
   display: flex;
@@ -22,51 +32,70 @@
   display: none;
 }
 
+.icon {
+  display: none;
+  width: 16px;
+  height: 14px;
+  color: white;
+}
+
 .title {
-  font-family: "Open Sans";
+  font-family: Gilroy;
   font-size: 15px;
   text-transform: none;
-  color: dark;
-  width: 180px;
+  margin: 0 6px;
+  padding: 4px 8px;
+  border-radius: 27px;
 }
 
-.checkbox:not(:checked) + label::after,
-.checkbox:checked + label::after {
-  content: '✔';
-  position: absolute;
-  top: 6px;
-  left: 5px;
-  font-size: 18px;
-  line-height: 0.8;
-  color: brand;
-  transition: all 0.2s;
+.tertiary {
+  composes: title;
+  color: cm_green_200;
+  background-color: cm_green_50;
 }
 
-/* checked mark aspect changes */
-.checkbox:not(:checked) + label::after {
-  opacity: 0;
-  transform: scale(0);
+.secondary {
+  composes: title;
+  color: cm_orange_700;
+  background-color: cm_pink_50;
 }
 
-.checkbox:checked + label::after {
-  opacity: 1;
-  transform: scale(1);
+.primary {
+  composes: title;
+  color: cm_blue_600;
+  background-color: cm_blue_50;
 }
 
 .default label {
-  border: solid 2px light;
-  background-color: xtraLightGrey;
+  border: solid 1px cm_grey_200;
+  background-color: cm_grey_100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 23px;
   height: 23px;
-  border-radius: 2px;
+  border-radius: 5px;
   font-size: 14px;
   color: dark;
-  margin-left: 20px;
+  margin-right: 6px;
   position: relative;
 }
 
+.checkbox:disabled + label {
+  opacity: 0.4;
+}
+
+.checkbox:checked + label {
+  border: solid 1px cm_primary_blue;
+  background-color: cm_primary_blue;
+}
+
+.checkbox:checked + label .icon {
+  display: flex;
+}
+
 .error label {
-  border: 3px solid orange;
+  border: 1px solid orange;
 }
 
 .error input {

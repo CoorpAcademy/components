@@ -1,3 +1,6 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value desktop from breakpoints;
+
 .wrapper {
   width: 100%;
   padding-bottom: 50px;
@@ -13,6 +16,28 @@
   flex-wrap: wrap;
 }
 
+.groupGrid {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.groupGrid:first-child {
+  flex: 1;
+}
+
+.groupGrid .titleWrapper {
+  width: 352px;
+}
+
+.groupGrid .grid {
+  flex: 3;
+  margin-top: 50px;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  justify-content: space-evenly;
+}
+
 .grid .field {
   margin-right: 20px;
 }
@@ -23,4 +48,19 @@
 
 .field:last-child {
   margin-bottom: 0;
+}
+
+@media desktop {
+  .groupGrid {
+    flex-direction: column;
+  }
+
+  .groupGrid .grid {
+    justify-content: flex-start;
+    margin-top: 0;
+  }
+
+  .groupGrid .grid .field {
+    flex: 1;
+  }
 }
