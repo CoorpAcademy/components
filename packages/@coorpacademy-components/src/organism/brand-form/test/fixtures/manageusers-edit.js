@@ -76,6 +76,43 @@ export default {
       },
       {
         title: 'Roles',
+        fields: [
+          {
+            type: 'checkbox',
+            titleStyle: 'primary',
+            title: 'RH',
+            checked: true,
+            disabled: true
+          },
+          {
+            type: 'checkbox',
+            titleStyle: 'primary',
+            title: 'Godmode',
+            checked: true
+          },
+          {
+            type: 'checkbox',
+            titleStyle: 'secondary',
+            title: 'System',
+            checked: false,
+            disabled: false
+          },
+          {
+            type: 'checkbox',
+            titleStyle: 'tertiary',
+            title: 'Admin'
+          },
+          {
+            type: 'checkbox',
+            titleStyle: 'secondary',
+            title: 'CMS',
+            checked: false,
+            disabled: true
+          }
+        ]
+      },
+      {
+        title: 'CM Roles',
         subtitle:
           'Elit enim viverra enim, blandit turpis quam pretium id. Et, leo, amet odio proin diam sit lorem accumsan.',
         fieldsLayout: 'grid',
