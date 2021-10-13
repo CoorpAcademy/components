@@ -4,7 +4,7 @@ import classnames from 'classnames';
 import {get, keys} from 'lodash/fp';
 import {
   NovaCompositionNavigationMore as MoreIcon,
-  NovaSolidLocksLock11 as LockIcon,
+  NovaSolidLoginLocked as LockIcon,
   NovaSolidLocksLockUnlock1 as UnlockIcon,
   NovaCompositionCoorpacademyCheck as CheckIcon
 } from '@coorpacademy/nova-icons';
