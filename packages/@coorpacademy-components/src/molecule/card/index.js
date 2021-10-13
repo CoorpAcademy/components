@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {get, isEmpty, isUndefined, pick} from 'lodash/fp';
 import {
-  NovaSolidLocksLock11 as LockIcon,
+  NovaSolidLoginLock11 as LockIcon,
   NovaCompositionCoorpacademyPictures as PicturesIcon
 } from '@coorpacademy/nova-icons';
 import {isExternalContent, EXTERNAL_CONTENT_ICONS} from '../../util/external-content';

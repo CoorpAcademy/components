@@ -20,12 +20,12 @@ const Roles = ({title, fields}) => {
 
 Roles.propTypes = {
   title: PropTypes.string,
-  fields: PropTypes.arrayOf([
+  fields: PropTypes.arrayOf(
     PropTypes.shape({
       ...InputCheckbox.propTypes,
       type: PropTypes.oneOf(['checkbox'])
     })
-  ])
+  )
 };
 
 export default Roles;
