@@ -483,6 +483,7 @@ import MoleculeFeedbackFixtureSuccessExitNode from '../src/molecule/feedback/tes
 import MoleculeFeedbackFixtureSuccessWithTitleAndDescriptionAndAudio from '../src/molecule/feedback/test/fixtures/success-with-title-and-description-and-audio';
 import MoleculeFeedbackFixtureSuccessWithTitleAndDescriptionAndImage from '../src/molecule/feedback/test/fixtures/success-with-title-and-description-and-image';
 import MoleculeFeedbackFixtureSuccessWithTitleAndDescriptionAndPdf from '../src/molecule/feedback/test/fixtures/success-with-title-and-description-and-pdf';
+import MoleculeFeedbackFixtureSuccessWithTitleAndDescriptionAndVideo from '../src/molecule/feedback/test/fixtures/success-with-title-and-description-and-video';
 import MoleculeFeedbackFixtureSuccessWithTitleAndDescription from '../src/molecule/feedback/test/fixtures/success-with-title-and-description';
 import MoleculeFiltersFixtureDefault from '../src/molecule/filters/test/fixtures/default';
 import MoleculeFiltersFixtureFiltersList from '../src/molecule/filters/test/fixtures/filters-list';
@@ -872,6 +873,7 @@ import TemplateAppPlayerPopinEndFixtureLoading from '../src/template/app-player/
 import TemplateAppPlayerPopinEndFixtureNegativeRank from '../src/template/app-player/popin-end/test/fixtures/negative-rank';
 import TemplateAppPlayerPopinEndFixtureNextCourse from '../src/template/app-player/popin-end/test/fixtures/next-course';
 import TemplateAppPlayerPopinEndFixtureNextLevelAdaptiveImg from '../src/template/app-player/popin-end/test/fixtures/next-level-adaptive-img';
+import TemplateAppPlayerPopinEndFixtureNextLevelAdaptiveVideo from '../src/template/app-player/popin-end/test/fixtures/next-level-adaptive-video';
 import TemplateAppPlayerPopinEndFixtureSimpleAction from '../src/template/app-player/popin-end/test/fixtures/simple-action';
 import TemplateAppPlayerPopinEndFixtureSubscribe from '../src/template/app-player/popin-end/test/fixtures/subscribe';
 import TemplateAppPlayerPopinEndFixtureWithLoadingRecommendations from '../src/template/app-player/popin-end/test/fixtures/with-loading-recommendations';
@@ -1618,6 +1620,7 @@ export const fixtures = {
       SuccessWithTitleAndDescriptionAndAudio: MoleculeFeedbackFixtureSuccessWithTitleAndDescriptionAndAudio,
       SuccessWithTitleAndDescriptionAndImage: MoleculeFeedbackFixtureSuccessWithTitleAndDescriptionAndImage,
       SuccessWithTitleAndDescriptionAndPdf: MoleculeFeedbackFixtureSuccessWithTitleAndDescriptionAndPdf,
+      SuccessWithTitleAndDescriptionAndVideo: MoleculeFeedbackFixtureSuccessWithTitleAndDescriptionAndVideo,
       SuccessWithTitleAndDescription: MoleculeFeedbackFixtureSuccessWithTitleAndDescription
     },
     MoleculeFilters: {
@@ -2181,6 +2184,7 @@ export const fixtures = {
       NegativeRank: TemplateAppPlayerPopinEndFixtureNegativeRank,
       NextCourse: TemplateAppPlayerPopinEndFixtureNextCourse,
       NextLevelAdaptiveImg: TemplateAppPlayerPopinEndFixtureNextLevelAdaptiveImg,
+      NextLevelAdaptiveVideo: TemplateAppPlayerPopinEndFixtureNextLevelAdaptiveVideo,
       SimpleAction: TemplateAppPlayerPopinEndFixtureSimpleAction,
       Subscribe: TemplateAppPlayerPopinEndFixtureSubscribe,
       WithLoadingRecommendations: TemplateAppPlayerPopinEndFixtureWithLoadingRecommendations,
