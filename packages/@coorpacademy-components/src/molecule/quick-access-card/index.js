@@ -78,14 +78,14 @@ const getBackgroudRadialColors = feature => {
 };
 
 const QuickAccessCard = (props, context) => {
-  const {title, description, feature, href, _blank = false} = props;
+  const {title, description, feature, href, openInNewTab = false} = props;
   const {iconColor, degrees} = getBackgroudRadialColors(feature);
   const Icon = getIcon(feature);
-  const newTabOnClick = _blank ? <NewTabIcon className={style.newTabIcon} /> : null;
+  const newTabOnClick = openInNewTab ? <NewTabIcon className={style.newTabIcon} /> : null;
 
   return (
     <div data-name="quick-access-card" data-type={feature} className={style.quickAccess}>
-      <Link href={href} target={_blank ? '_blank' : '_self'} className={style.link}>
+      <Link href={href} target={openInNewTab ? '_blank' : '_self'} className={style.link}>
         <div
           style={{
             background: `radial-gradient(62.12% 56.45% at 0% 77.29%, 
@@ -139,7 +139,7 @@ QuickAccessCard.propTypes = {
   title: PropTypes.string,
   description: PropTypes.string,
   href: PropTypes.string,
-  _blank: PropTypes.bool,
+  openInNewTab: PropTypes.bool,
   feature: PropTypes.oneOf([
     'analytics',
     'cms',
