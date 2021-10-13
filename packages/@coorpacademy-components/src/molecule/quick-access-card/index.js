@@ -78,13 +78,13 @@ const getBackgroudRadialColors = feature => {
 };
 
 const QuickAccessCard = (props, context) => {
-  const {title, description, feature, href, _blank} = props;
+  const {title, description, feature, href, _blank = false} = props;
   const {iconColor, degrees} = getBackgroudRadialColors(feature);
   const Icon = getIcon(feature);
   const newTabOnClick = _blank ? <NewTabIcon className={style.newTabIcon} /> : null;
 
   return (
-    <div data-name="card" data-type={feature} className={style.quickAccess}>
+    <div data-name="quick-access-card" data-type={feature} className={style.quickAccess}>
       <Link href={href} target={_blank ? '_blank' : '_self'} className={style.link}>
         <div
           style={{
