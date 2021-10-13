@@ -13,6 +13,7 @@ import {
   NovaCompositionNavigationArrowRight as ActionIcon,
   NovaCompositionCoorpacademyOpenInNewTab as NewTabIcon
 } from '@coorpacademy/nova-icons';
+import Link from '../../atom/link';
 import style from './style.css';
 
 const getIcon = feature => {
@@ -84,7 +85,7 @@ const QuickAccessCard = (props, context) => {
 
   return (
     <div data-name="card" data-type={feature} className={style.quickAccess}>
-      <a href={href} target={_blank ? '_blank' : '_self'} className={style.link}>
+      <Link href={href} target={_blank ? '_blank' : '_self'} className={style.link}>
         <div
           style={{
             background: `radial-gradient(62.12% 56.45% at 0% 77.29%, 
@@ -129,7 +130,7 @@ const QuickAccessCard = (props, context) => {
             </div>
           </div>
         </div>
-      </a>
+      </Link>
     </div>
   );
 };
