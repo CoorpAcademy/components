@@ -172,7 +172,8 @@ const icons: Array<Icon> = [
       './third-party/nova-solid.iconjar/icons/location-pin-question-mark-1.svg'
     )
   },
-  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/lock-1.1.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/lock-1.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/locked.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/logout-1.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/content-view-module-1.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/lock-unlock-1.svg')},
