@@ -5,6 +5,6 @@ export default {
     href: '#brand/samsung/analytics',
     open: false,
     selected: false,
-    type: 'simpletab'
+    type: 'simpleTab'
   }
 };
