@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {NovaSolidLoginLock11 as LockIcon} from '@coorpacademy/nova-icons';
+import {NovaSolidLocksLock11 as LockIcon} from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
 import Picture from '../../atom/picture';
 import Description from './description';

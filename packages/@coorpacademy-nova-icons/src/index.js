@@ -152,9 +152,9 @@ import _NovaSolidInterfaceFeedbackInterfaceQuestionMark from './components/nova-
 import _NovaSolidLightsLightbulb4 from './components/nova-solid/lights/lightbulb-4';
 import _NovaSolidLocationsCompass3 from './components/nova-solid/locations/compass-3';
 import _NovaSolidLocationsLocationPinQuestionMark1 from './components/nova-solid/locations/location-pin-question-mark-1';
+import _NovaSolidLocksLock11 from './components/nova-solid/locks/lock-1.1';
 import _NovaSolidLocksLockUnlock1 from './components/nova-solid/locks/lock-unlock-1';
 import _NovaSolidLoginKey1 from './components/nova-solid/login/key-1';
-import _NovaSolidLoginLock11 from './components/nova-solid/login/lock-1.1';
 import _NovaSolidLoginLogout1 from './components/nova-solid/login/logout-1';
 import _NovaSolidMessagesChatChatBubblesCircle from './components/nova-solid/messages-chat/chat-bubbles-circle';
 import _NovaSolidPlacesPlacesHome2 from './components/nova-solid/places/places-home-2';
@@ -325,9 +325,9 @@ export const NovaSolidInterfaceFeedbackInterfaceQuestionMark: Icon = _NovaSolidI
 export const NovaSolidLightsLightbulb4: Icon = _NovaSolidLightsLightbulb4;
 export const NovaSolidLocationsCompass3: Icon = _NovaSolidLocationsCompass3;
 export const NovaSolidLocationsLocationPinQuestionMark1: Icon = _NovaSolidLocationsLocationPinQuestionMark1;
+export const NovaSolidLocksLock11: Icon = _NovaSolidLocksLock11;
 export const NovaSolidLocksLockUnlock1: Icon = _NovaSolidLocksLockUnlock1;
 export const NovaSolidLoginKey1: Icon = _NovaSolidLoginKey1;
-export const NovaSolidLoginLock11: Icon = _NovaSolidLoginLock11;
 export const NovaSolidLoginLogout1: Icon = _NovaSolidLoginLogout1;
 export const NovaSolidMessagesChatChatBubblesCircle: Icon = _NovaSolidMessagesChatChatBubblesCircle;
 export const NovaSolidPlacesPlacesHome2: Icon = _NovaSolidPlacesPlacesHome2;
