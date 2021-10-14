@@ -6,7 +6,7 @@ import {
   NovaCompositionCoorpacademyWarn as WarnIcon
 } from '@coorpacademy/nova-icons';
 import classnames from 'classnames';
-import {pipe, split, last, map, head, getOr, isEmpty} from 'lodash/fp';
+import {pipe, split, last, map, head, getOr, isEmpty, includes} from 'lodash/fp';
 import {EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
 import InputText from '../../atom/input-text';
 
@@ -62,7 +62,7 @@ export const UploadReport = ({
       </div>
     </div>
   );
-  const showMessage = ['success', 'error'].includes(state);
+  const showMessage = includes(state, ['success', 'error']);
 
   const fileName = pipe(head, getOr('', 'value'), split('/'), last)(fields);
   const fileView = fileName ? (
