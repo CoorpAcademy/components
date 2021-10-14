@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import includes from 'lodash/fp/includes';
 import {
   NovaCompositionCoorpacademyLevel0,
   NovaCompositionCoorpacademyLevel1,
@@ -30,7 +31,7 @@ const DifficultyLevel = ({level, children}) => (
   <div className={style.inlineContainer}>
     <div
       className={classnames({
-        [style.unknownContainer]: ![1, 2, 3].includes(level),
+        [style.unknownContainer]: !includes(level, [1, 2, 3]),
         [style.easyContainer]: level === 1,
         [style.normalContainer]: level === 2,
         [style.hardContainer]: level === 3

@@ -80,7 +80,7 @@ export const DragAndDrop = (props, context) => {
             );
           };
 
-          const disableFileInput = ['success'].includes(state);
+          const disableFileInput = state === 'success';
 
           return (
             <div {...getRootProps()} className={style.wrapper}>
