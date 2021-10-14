@@ -1,5 +1,6 @@
 import React from 'react';
-import {startsWith, endsWith} from 'lodash/fp';
+import startsWith from 'lodash/fp/startsWith';
+import includes from 'lodash/fp/includes';
 import PropTypes from 'prop-types';
 import style from './style.css';
 
@@ -15,7 +16,7 @@ const iframeStyle = {
 
 function ExternalContentViewer(props) {
   const {url, backgroundImageUrl, contentType, mode = 'default'} = props;
-  const isPdf = endsWith('.pdf', url);
+  const isPdf = includes('.pdf', url);
   const googleViewer = `https://docs.google.com/viewerng/viewer?embedded=true&url=${url}`;
 
   return startsWith('audio', contentType) ? (
