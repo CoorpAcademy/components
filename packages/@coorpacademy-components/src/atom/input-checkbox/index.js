@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
-import {NovaSolidStatusValidate as CheckIcon} from '@coorpacademy/nova-icons';
 import PropTypes from 'prop-types';
+import {NovaSolidStatusValidate as CheckIcon} from '@coorpacademy/nova-icons';
 import {noop, uniqueId} from 'lodash/fp';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
@@ -28,10 +28,15 @@ const InputCheckbox = props => {
   const idCheckbox = uniqueId('input-checkbox-');
   const title = `${propsTitle}${required ? '*' : ''}`;
   const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
+
+  const modifiedClassName = theme === 'coorpmanager' ? style.coorpManagerModified : style.defaultModified;
+  const errorClassName = theme === 'coorpmanager' ? style.coorpManagerError : style.defaultError;
+  const defaultContainerClassName = theme === 'coorpmanager' ? style.coorpManager : style.default;
+
   const className = getClassState(
-    theme === 'coorpmanager' ? style.coorpManager : style.default,
-    style.modified,
-    style.error,
+    defaultContainerClassName,
+    modifiedClassName,
+    errorClassName,
     modified,
     error
   );
