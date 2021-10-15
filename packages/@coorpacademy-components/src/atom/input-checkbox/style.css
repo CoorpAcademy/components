@@ -105,6 +105,10 @@
   position: relative;
 }
 
+.default label {
+  margin-left: 20px;
+}
+
 .checkbox:disabled + label {
   opacity: 0.4;
 }

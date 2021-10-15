@@ -28,7 +28,13 @@ const InputCheckbox = props => {
   const idCheckbox = uniqueId('input-checkbox-');
   const title = `${propsTitle}${required ? '*' : ''}`;
   const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
-  const className = getClassState(theme === 'coorpmanager' ? style.coorpManager : style.default, style.modified, style.error, modified, error);
+  const className = getClassState(
+    theme === 'coorpmanager' ? style.coorpManager : style.default,
+    style.modified,
+    style.error,
+    modified,
+    error
+  );
 
   return (
     <div className={className}>
