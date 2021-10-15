@@ -20,6 +20,7 @@ const InputCheckbox = props => {
     required,
     titleStyle = 'primary',
     modified = false,
+    theme = 'default',
     title: propsTitle
   } = props;
 
@@ -27,7 +28,13 @@ const InputCheckbox = props => {
   const idCheckbox = uniqueId('input-checkbox-');
   const title = `${propsTitle}${required ? '*' : ''}`;
   const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
-  const className = getClassState(style.default, style.modified, style.error, modified, error);
+  const className = getClassState(
+    theme === 'coorpmanager' ? style.coorpManager : style.default,
+    style.modified,
+    style.error,
+    modified,
+    error
+  );
 
   return (
     <div className={className}>
@@ -56,6 +63,7 @@ InputCheckbox.propTypes = {
   error: PropTypes.bool,
   onChange: PropTypes.func,
   modified: PropTypes.bool,
+  theme: PropTypes.oneOf(['coorpmanager', 'default']),
   titleStyle: PropTypes.oneOf(['primary', 'secondary', 'tertiary'])
 };
 

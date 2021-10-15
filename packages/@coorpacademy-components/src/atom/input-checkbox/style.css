@@ -18,6 +18,12 @@
 
 .default {
   display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.coorpManager {
+  display: flex;
   align-items: center;
 }
 
@@ -29,7 +35,8 @@
   composes: default;
 }
 
-.default input {
+.default input,
+.coorpManager input {
   display: none;
 }
 
@@ -40,7 +47,22 @@
   color: white;
 }
 
-.title {
+.default .title {
+  font-family: open sans;
+  font-size: 15px;
+  text-transform: none;
+  color: dark;
+  width: 180px;
+}
+
+.default .tertiary,
+.default .primary,
+.default .secondary {
+  color: dark;
+  background-color: unset;
+}
+
+.coorpManager .title {
   font-family: Gilroy;
   font-size: 15px;
   text-transform: none;
@@ -67,7 +89,8 @@
   background-color: cm_blue_50;
 }
 
-.default label {
+.default label,
+.coorpManager label {
   border: solid 1px cm_grey_200;
   background-color: cm_grey_100;
   display: flex;
@@ -80,6 +103,10 @@
   color: dark;
   margin-right: 6px;
   position: relative;
+}
+
+.default label {
+  margin-left: 20px;
 }
 
 .checkbox:disabled + label {

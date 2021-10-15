@@ -125,6 +125,7 @@ export default {
               {
                 type: 'checkbox',
                 titleStyle: 'primary',
+                theme: 'coorpmanager',
                 title: 'RH',
                 checked: true,
                 disabled: true
@@ -132,12 +133,14 @@ export default {
               {
                 type: 'checkbox',
                 titleStyle: 'primary',
+                theme: 'coorpmanager',
                 title: 'CMS',
                 checked: false
               },
               {
                 type: 'checkbox',
                 titleStyle: 'primary',
+                theme: 'coorpmanager',
                 title: 'Admin',
                 checked: true
               }
@@ -151,30 +154,35 @@ export default {
                 type: 'checkbox',
                 title: 'Admin',
                 titleStyle: 'secondary',
+                theme: 'coorpmanager',
                 checked: true
               },
               {
                 type: 'checkbox',
                 title: 'Super coach',
                 titleStyle: 'secondary',
+                theme: 'coorpmanager',
                 disabled: true
               },
               {
                 type: 'checkbox',
                 title: 'Moderator',
                 titleStyle: 'secondary',
+                theme: 'coorpmanager',
                 disabled: true
               },
               {
                 type: 'checkbox',
                 title: 'System',
                 titleStyle: 'secondary',
+                theme: 'coorpmanager',
                 checked: false
               },
               {
                 type: 'checkbox',
                 title: 'Godmode',
                 titleStyle: 'secondary',
+                theme: 'coorpmanager',
                 disabled: true,
                 checked: true
               }
@@ -188,12 +196,14 @@ export default {
                 type: 'checkbox',
                 title: 'Admin',
                 titleStyle: 'tertiary',
+                theme: 'coorpmanager',
                 checked: true
               },
               {
                 type: 'checkbox',
                 title: 'Super coach',
                 titleStyle: 'tertiary',
+                theme: 'coorpmanager',
                 checked: true
               }
             ]
