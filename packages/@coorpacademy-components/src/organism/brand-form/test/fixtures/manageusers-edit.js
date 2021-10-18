@@ -88,13 +88,15 @@ export default {
             type: 'checkbox',
             titleStyle: 'primary',
             title: 'Godmode',
-            checked: true
+            checked: true,
+            error: true
           },
           {
             type: 'checkbox',
             titleStyle: 'secondary',
             title: 'System',
             checked: false,
+            modified: true,
             disabled: false
           },
           {
@@ -155,7 +157,8 @@ export default {
                 title: 'Admin',
                 titleStyle: 'secondary',
                 theme: 'coorpmanager',
-                checked: true
+                checked: true,
+                modified: true
               },
               {
                 type: 'checkbox',
@@ -176,6 +179,7 @@ export default {
                 title: 'System',
                 titleStyle: 'secondary',
                 theme: 'coorpmanager',
+                modified: true,
                 checked: false
               },
               {
@@ -185,6 +189,15 @@ export default {
                 theme: 'coorpmanager',
                 disabled: true,
                 checked: true
+              },
+              {
+                type: 'checkbox',
+                title: 'Fastslide',
+                titleStyle: 'secondary',
+                theme: 'coorpmanager',
+                disabled: false,
+                checked: true,
+                error: true
               }
             ]
           },

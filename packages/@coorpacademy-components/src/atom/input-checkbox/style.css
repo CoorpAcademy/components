@@ -27,11 +27,19 @@
   align-items: center;
 }
 
-.error {
+.coorpManagerError {
+  composes: coorpManager;
+}
+
+.coorpManagerModified {
+  composes: coorpManager;
+}
+
+.defaultError {
   composes: default;
 }
 
-.modified {
+.defaultModified {
   composes: default;
 }
 
@@ -122,18 +130,16 @@
   display: flex;
 }
 
-.error label {
-  border: 1px solid orange;
+.defaultError label,
+.coorpManagerError label,
+.defaultError .checkbox:checked + label,
+.coorpManagerError .checkbox:checked + label {
+  outline: 2px solid orange;
 }
 
-.error input {
-  border-color: orange;
-}
-
-.modified input {
-  border-color: battle;
-}
-
-.modified label {
-  border: 3px solid battle;
+.defaultModified label,
+.coorpManagerModified label,
+.defaultModified .checkbox:checked + label,
+.coorpManagerModified .checkbox:checked + label {
+  outline: 2px solid battle;
 }
