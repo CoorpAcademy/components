@@ -158,7 +158,7 @@ export default {
                 titleStyle: 'secondary',
                 theme: 'coorpmanager',
                 checked: true,
-                modified: true
+                modified: true,
               },
               {
                 type: 'checkbox',

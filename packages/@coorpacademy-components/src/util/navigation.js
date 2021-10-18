@@ -11,15 +11,14 @@ const navigation = options => {
     return () => noop;
   }
 
-  return ({href} = {}) =>
-    e => {
-      if (!href || e.defaultPrevented || isModifiedEvent(e) || !isLeftClickEvent(e)) {
-        return;
-      }
-      if (parse(href).host) return;
-      e.preventDefault();
-      _history.push(href);
-    };
+  return ({href} = {}) => e => {
+    if (!href || e.defaultPrevented || isModifiedEvent(e) || !isLeftClickEvent(e)) {
+      return;
+    }
+    if (parse(href).host) return;
+    e.preventDefault();
+    _history.push(href);
+  };
 };
 
 export default navigation;

@@ -29,16 +29,14 @@ const Autocomplete = props => {
   const className = getClassState(style.default, style.modified, style.error, modified, error);
 
   const handleChange = useMemo(() => e => onChange(e), [onChange]);
-  const handleBlur = useMemo(
-    () => (e, selectedSuggestion) => onBlur(e, selectedSuggestion),
-    [onBlur]
-  );
+  const handleBlur = useMemo(() => (e, selectedSuggestion) => onBlur(e, selectedSuggestion), [
+    onBlur
+  ]);
   const handleSuggestionsFetchRequested = useMemo(() => e => onFetch(e), [onFetch]);
   const handleSuggestionsClearRequested = useMemo(() => e => onClear(e), [onClear]);
-  const handleSuggestionsSelected = useMemo(
-    () => (e, data) => onSuggestionSelected(data),
-    [onSuggestionSelected]
-  );
+  const handleSuggestionsSelected = useMemo(() => (e, data) => onSuggestionSelected(data), [
+    onSuggestionSelected
+  ]);
 
   const inputProps = {
     placeholder,

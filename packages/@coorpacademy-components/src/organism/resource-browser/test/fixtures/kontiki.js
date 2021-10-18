@@ -14,7 +14,8 @@ export default {
         subtitles: [],
         posters: [],
         src: [],
-        url: '//schneider-electric.mc.eu1.kontiki.com/global/player?moid=3be700ca-9a15-4c43-bb90-45eae470c55d&repeat=false&client=false&context=embed&overlay=false&name=false&description=false&created_by=false',
+        url:
+          '//schneider-electric.mc.eu1.kontiki.com/global/player?moid=3be700ca-9a15-4c43-bb90-45eae470c55d&repeat=false&client=false&context=embed&overlay=false&name=false&description=false&created_by=false',
         videoId: '3be700ca-9a15-4c43-bb90-45eae470c55d',
         onClick: () => {},
         selected: true
