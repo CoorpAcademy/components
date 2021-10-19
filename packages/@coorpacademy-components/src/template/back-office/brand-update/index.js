@@ -92,7 +92,7 @@ const BrandUpdate = props => {
         return <BrandTable {...cont} />;
       case 'upload':
         return <BrandUpload {...cont} />;
-      case 'dashboard':
+      case 'analytics-dashboards':
         return <BrandAnalytics {...cont} />;
       case 'home':
         return <BrandDashboard {...cont} />;
