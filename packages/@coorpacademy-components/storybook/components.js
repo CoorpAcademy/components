@@ -39,6 +39,7 @@ import AtomTab from './../src/atom/tab';
 import AtomTabContent from './../src/atom/tab-content';
 import AtomTitle from './../src/atom/title';
 import AtomVideoUpload from './../src/atom/video-upload';
+import AtomWizardSteps from './../src/atom/wizard-steps';
 import HocAnimation from './../src/hoc/animation';
 import HocAnimationScheduler from './../src/hoc/animation-scheduler';
 import HocSwapper from './../src/hoc/swapper';
@@ -336,6 +337,7 @@ import AtomVideoUploadFixtureLoading from '../src/atom/video-upload/test/fixture
 import AtomVideoUploadFixtureModified from '../src/atom/video-upload/test/fixtures/modified';
 import AtomVideoUploadFixtureNoPreview from '../src/atom/video-upload/test/fixtures/no-preview';
 import AtomVideoUploadFixtureWithoutVideo from '../src/atom/video-upload/test/fixtures/without-video';
+import AtomWizardStepsFixtureDefault from '../src/atom/wizard-steps/test/fixtures/default';
 import HocAnimationFixtureStart from '../src/hoc/animation/test/fixtures/start';
 import HocAnimationFixtureStop from '../src/hoc/animation/test/fixtures/stop';
 import HocAnimationSchedulerFixtureParallel from '../src/hoc/animation-scheduler/test/fixtures/parallel';
@@ -1010,7 +1012,8 @@ export const components = {
     AtomTab,
     AtomTabContent,
     AtomTitle,
-    AtomVideoUpload
+    AtomVideoUpload,
+    AtomWizardSteps
   },
   Hoc: {
     HocAnimation,
@@ -1422,6 +1425,9 @@ export const fixtures = {
       Modified: AtomVideoUploadFixtureModified,
       NoPreview: AtomVideoUploadFixtureNoPreview,
       WithoutVideo: AtomVideoUploadFixtureWithoutVideo
+    },
+    AtomWizardSteps: {
+      Default: AtomWizardStepsFixtureDefault
     }
   },
   Hoc: {
