@@ -17,10 +17,12 @@
 .step {
   width: 100%;
   position: relative;
+  padding: 0px 5px;
   display: flex;
   flex-wrap: wrap;
   -webkit-box-pack: center;
   justify-content: center;
+  align-content: space-between;
 }
 
 .step::before {
@@ -30,22 +32,18 @@
   height: 0px;
   display: block;
   z-index: 1;
-  top: 42px;
+  bottom: 17px;
   content: '';
 }
 
 .step:first-child:before {
   width: 50%;
-  left: unset;
-  right: unset;
-  -webkit-transform: translateX(51%);
-  -ms-transform: translateX(51%);
-  transform: translateX(51%);
+  right: 0px;
 }
 
 .step:last-child:before {
   width: 50%;
-  left: 0;
+  left: 0px;
 }
 
 .step::after {
@@ -98,7 +96,7 @@
   display: inline-block;
   position: relative;
   z-index: 12;
-  margin: auto;
+  margin: 0px auto;
   border: 8px solid white;
 }
 
