@@ -107,10 +107,14 @@
 .label {
   font-size: 12px;
   display: block;
-  margin-bottom: 12px;
   text-align: center;
-  -webkit-box-flex: 0;
-  -webkit-flex: 0 0 100%;
-  -ms-flex: 0 0 100%;
   flex: 0 0 100%;
+  position: relative;
+  min-height: 32px;
+}
+
+.title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
