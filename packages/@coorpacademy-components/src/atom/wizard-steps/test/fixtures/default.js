@@ -18,7 +18,7 @@ export default {
         done: false
       },
       {
-        title: 'Courss settings',
+        title: 'Cours settings',
         done: false
       },
       {

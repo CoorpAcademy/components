@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import style from './style.css';
 
 const WizardSteps = (props, context) => {
@@ -7,10 +8,16 @@ const WizardSteps = (props, context) => {
 
   const wizard = steps.map((step, index) => {
     return (
-      <div className={style.step} key={`step-${index}`} data-step="{index}">
+      <div
+        className={classnames(style.step, step.done && style.done)}
+        key={`step-${index}`}
+        data-step="{index}"
+      >
         <label className={style.label}>{step.title}</label>
-        <div className={style.dot}></div>
-    </div>
+        <div className={style.outerDot}>
+          <div className={style.dot}> </div>
+        </div>
+      </div>
     );
   });
 

@@ -1,3 +1,9 @@
+@value colors: "../../variables/colors.css";
+@value cm_primary_blue from colors;
+@value cm_grey_500 from colors;
+@value cm_grey_100 from colors;
+@value cm_blue_200 from colors;
+
 .container{
   font-family: 'Gilroy';
   flex: 0 0 100%;
@@ -17,7 +23,7 @@
 }
 
 .step::before {
-  border-color: #EAEAEA;
+  border-color: cm_grey_500;
   width: 100%;
   position: absolute;
   border: 1px solid;
@@ -51,18 +57,18 @@
 }
 
 .dot {
-  border-color: #EAEAEA;
-  background-color: #EAEAEA;
-  height: 20px;
-  width: 20px;
-  -webkit-border-radius: 20px;
-  border-radius: 20px;
+  border-color: cm_grey_500;
+  background-color: cm_grey_500;
+  height: 10px;
+  width: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
   display: inline-block;
   position: relative;
-  top: .125em;
   z-index: 2;
-  margin: auto;
-  border: 1px solid;
+  margin-left: 2px;
+  margin-bottom: 1px;
+  border: 1px solid cm_grey_500;
 }
 
 .dot::before {
@@ -70,17 +76,38 @@
   position: absolute;
   top: -1px;
   left: -1px;
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   -webkit-transform: scale(.75);
   -ms-transform: scale(.75);
   transform: scale(.75);
-  -webkit-border-radius: 20px;
-  border-radius: 20px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
 }
 
 .step.done .dot {
-  border-color: #39c0ba;
+  border-color: cm_primary_blue;
+  background-color: cm_primary_blue;
+}
+
+.outerDot {
+  border-color: cm_grey_100;
+  background-color: cm_grey_100;
+  height: 16px;
+  width: 16px;
+  -webkit-border-radius: 16px;
+  border-radius: 16px;
+  display: inline-block;
+  position: relative;
+  top: .125em;
+  z-index: 12;
+  margin: auto;
+  border: 1px solid cm_grey_100;
+}
+
+.step.done .outerDot {
+  border-color: cm_blue_200;
+  background-color: cm_blue_200;
 }
 
 .label {
