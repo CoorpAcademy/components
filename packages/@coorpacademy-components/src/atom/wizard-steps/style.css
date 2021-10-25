@@ -1,8 +1,9 @@
 @value colors: "../../variables/colors.css";
 @value cm_primary_blue from colors;
 @value cm_grey_500 from colors;
-@value cm_grey_100 from colors;
+@value cm_grey_200 from colors;
 @value cm_blue_200 from colors;
+@value white from colors;
 
 .container{
   font-family: 'Gilroy';
@@ -23,14 +24,13 @@
 }
 
 .step::before {
-  border-color: cm_grey_500;
   width: 100%;
   position: absolute;
-  border: 1px solid;
+  border: 1px solid cm_grey_500;
   height: 0px;
   display: block;
   z-index: 1;
-  top: 38px;
+  top: 42px;
   content: '';
 }
 
@@ -57,7 +57,6 @@
 }
 
 .dot {
-  border-color: cm_grey_500;
   background-color: cm_grey_500;
   height: 10px;
   width: 10px;
@@ -66,8 +65,8 @@
   display: inline-block;
   position: relative;
   z-index: 2;
-  margin-left: 2px;
-  margin-bottom: 1px;
+  margin-left: 3px;
+  margin-top: 3px;
   border: 1px solid cm_grey_500;
 }
 
@@ -91,29 +90,26 @@
 }
 
 .outerDot {
-  border-color: cm_grey_100;
-  background-color: cm_grey_100;
-  height: 16px;
-  width: 16px;
-  -webkit-border-radius: 16px;
-  border-radius: 16px;
+  background-color: cm_grey_200;
+  height: 18px;
+  width: 18px;
+  -webkit-border-radius: 18px;
+  border-radius: 18px;
   display: inline-block;
   position: relative;
-  top: .125em;
   z-index: 12;
   margin: auto;
-  border: 1px solid cm_grey_100;
+  border: 8px solid white;
 }
 
 .step.done .outerDot {
-  border-color: cm_blue_200;
   background-color: cm_blue_200;
 }
 
 .label {
   font-size: 12px;
   display: block;
-  margin: .5em 0;
+  margin-bottom: 12px;
   text-align: center;
   -webkit-box-flex: 0;
   -webkit-flex: 0 0 100%;
