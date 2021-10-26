@@ -30,42 +30,49 @@
   position: absolute;
   border: 1px solid cm_grey_500;
   display: block;
-  z-index: 1;
+  z-index: 2;
+  left: -50%;
   bottom: 17px;
   content: '';
+  transition: border 0.5s linear;
+}
+.step:after {
+  width: 50%;
+  position: absolute;
+  border: 1px solid cm_grey_500;
+  display: block;
+  z-index: 1;
+  left: 50%;
+  bottom: 17px;
+  content: '';
+  transition: border 0.5s linear;
 }
 
 .step:first-child:before {
-  width: 50%;
-  right: 0px;
-  content: '';
+  display: none;
 }
 
-.step:last-child:before {
-  width: 50%;
-  left: 0px;
-  content: '';
+.step:last-child:after {
+  display: none;
 }
 
 .step.done:after {
   content: '';
+  width: 50%;
   border: 1px solid cm_primary_blue;
-  width: 100%;
   bottom: 17px;
+  left: 50%;
   z-index: 2;
   position: absolute;
 }
-
-.step.done:first-child:after {
-  width: 50%;
-  right: 0px;
+.step.done:before {
   content: '';
-}
-
-.step.done:last-of-type:after {
   width: 50%;
+  border: 1px solid cm_primary_blue;
+  bottom: 17px;
   left: 0px;
-  content: '';
+  z-index: 2;
+  position: absolute;
 }
 
 .dot {
@@ -80,6 +87,7 @@
   margin-left: 3px;
   margin-top: 3px;
   border: 1px solid cm_grey_500;
+  transition: background-color 0.5s linear;
 }
 
 .dot::before {
@@ -112,6 +120,7 @@
   z-index: 12;
   margin: 0px auto;
   border: 8px solid white;
+  transition: background-color 0.5s linear;
 }
 
 .step.done .outerDot {
