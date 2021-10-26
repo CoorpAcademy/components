@@ -1,8 +1,29 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_100 from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_700 from colors;
+
 .container {
-  width: 153px;
-  height: 64px;
+  width: 121px;
+  height: 32px;
   border-radius: 10px;
   padding: 10px 16px;
+}
+
+.selected {
+  background-color: rgba(53, 204, 127, 0.2);
+}
+
+.selected:hover {
+  background-color: rgba(53, 204, 127, 0.5);
+}
+
+.unselected {
+  background-color: cm_grey_100;
+}
+
+.unselected:hover {
+  background-color: cm_grey_200;
 }
 
 .text {
@@ -10,6 +31,7 @@
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
+  color: cm_grey_700;
 }
 
 .information {
@@ -17,5 +39,6 @@
   font-style: normal;
   font-weight: normal;
   font-size: 10px;
-  opacity: 0.1;
+  opacity: 0.4;
+  color: cm_grey_700;
 }

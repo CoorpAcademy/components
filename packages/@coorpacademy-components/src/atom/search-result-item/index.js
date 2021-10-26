@@ -1,13 +1,13 @@
-/* eslint-disable css-modules/no-undef-class */
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import style from './style.css';
 
 const SearchResultItem = props => {
-  const {text, information} = props;
+  const {text, information, selected} = props;
 
   return (
-    <div className={style.container}>
+    <div className={classnames(style.container, selected ? style.selected : style.unselected)}>
       <div className={style.text}>{text}</div>
       <div className={style.information}>{information}</div>
     </div>
