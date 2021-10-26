@@ -9,7 +9,7 @@ const WizardSteps = (props, context) => {
   const wizard = steps.map((step, index) => {
     return (
       <div
-        className={classnames(style.step, step.done && style.done)}
+        className={classnames(style.step, step.done && style.done, step.current && style.current)}
         key={`step-${index}`}
         data-step="{index}"
       >
@@ -30,7 +30,8 @@ WizardSteps.propTypes = {
   steps: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
-      done: PropTypes.bool
+      done: PropTypes.bool,
+      current: PropTypes.bool
     })
   )
 };

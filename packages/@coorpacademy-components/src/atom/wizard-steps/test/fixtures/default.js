@@ -11,7 +11,8 @@ export default {
       },
       {
         title: 'Assign populations',
-        done: true
+        done: false,
+        current: true
       },
       {
         title: 'Add courses',
@@ -23,6 +24,10 @@ export default {
       },
       {
         title: 'Rewards',
+        done: false
+      },
+      {
+        title: 'Publish settings',
         done: false
       }
     ]

@@ -3,7 +3,8 @@ export default {
     steps: [
       {
         title: 'General Informations',
-        done: true
+        done: false,
+        current: true
       },
       {
         title: 'Translations',
@@ -23,6 +24,10 @@ export default {
       },
       {
         title: 'Rewards',
+        done: false
+      },
+      {
+        title: 'Publish settings',
         done: false
       }
     ]

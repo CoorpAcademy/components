@@ -24,6 +24,11 @@ export default {
       {
         title: 'Rewards',
         done: true
+      },
+      {
+        title: 'Publish settings',
+        done: false,
+        current: true
       }
     ]
   }
