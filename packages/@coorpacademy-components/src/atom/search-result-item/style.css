@@ -1,0 +1,21 @@
+.container {
+  width: 153px;
+  height: 64px;
+  border-radius: 10px;
+  padding: 10px 16px;
+}
+
+.text {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.information {
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  opacity: 0.1;
+}

@@ -31,6 +31,7 @@ import AtomProvider from './../src/atom/provider';
 import AtomRadioGroup from './../src/atom/radio-group';
 import AtomRange from './../src/atom/range';
 import AtomResourceMiniature from './../src/atom/resource-miniature';
+import AtomSearchResultItem from './../src/atom/search-result-item';
 import AtomSelect from './../src/atom/select';
 import AtomSlide from './../src/atom/slide';
 import AtomSocialLink from './../src/atom/social-link';
@@ -301,6 +302,8 @@ import AtomResourceMiniatureFixturePdf from '../src/atom/resource-miniature/test
 import AtomResourceMiniatureFixtureSelectedPdf from '../src/atom/resource-miniature/test/fixtures/selected-pdf';
 import AtomResourceMiniatureFixtureSelectedVideo from '../src/atom/resource-miniature/test/fixtures/selected-video';
 import AtomResourceMiniatureFixtureVideo from '../src/atom/resource-miniature/test/fixtures/video';
+import AtomSearchResultItemFixtureDefault from '../src/atom/search-result-item/test/fixtures/default';
+import AtomSearchResultItemFixtureNonSelected from '../src/atom/search-result-item/test/fixtures/non-selected';
 import AtomSelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import AtomSelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
 import AtomSelectFixtureError from '../src/atom/select/test/fixtures/error';
@@ -1007,6 +1010,7 @@ export const components = {
     AtomRadioGroup,
     AtomRange,
     AtomResourceMiniature,
+    AtomSearchResultItem,
     AtomSelect,
     AtomSlide,
     AtomSocialLink,
@@ -1375,6 +1379,10 @@ export const fixtures = {
       SelectedPdf: AtomResourceMiniatureFixtureSelectedPdf,
       SelectedVideo: AtomResourceMiniatureFixtureSelectedVideo,
       Video: AtomResourceMiniatureFixtureVideo
+    },
+    AtomSearchResultItem: {
+      Default: AtomSearchResultItemFixtureDefault,
+      NonSelected: AtomSearchResultItemFixtureNonSelected
     },
     AtomSelect: {
       Default: AtomSelectFixtureDefault,
