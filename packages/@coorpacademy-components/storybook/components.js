@@ -338,6 +338,8 @@ import AtomVideoUploadFixtureModified from '../src/atom/video-upload/test/fixtur
 import AtomVideoUploadFixtureNoPreview from '../src/atom/video-upload/test/fixtures/no-preview';
 import AtomVideoUploadFixtureWithoutVideo from '../src/atom/video-upload/test/fixtures/without-video';
 import AtomWizardStepsFixtureDefault from '../src/atom/wizard-steps/test/fixtures/default';
+import AtomWizardStepsFixtureFirstStep from '../src/atom/wizard-steps/test/fixtures/first-step';
+import AtomWizardStepsFixtureLastStep from '../src/atom/wizard-steps/test/fixtures/last-step';
 import HocAnimationFixtureStart from '../src/hoc/animation/test/fixtures/start';
 import HocAnimationFixtureStop from '../src/hoc/animation/test/fixtures/stop';
 import HocAnimationSchedulerFixtureParallel from '../src/hoc/animation-scheduler/test/fixtures/parallel';
@@ -1427,7 +1429,9 @@ export const fixtures = {
       WithoutVideo: AtomVideoUploadFixtureWithoutVideo
     },
     AtomWizardSteps: {
-      Default: AtomWizardStepsFixtureDefault
+      Default: AtomWizardStepsFixtureDefault,
+      FirstStep: AtomWizardStepsFixtureFirstStep,
+      LastStep: AtomWizardStepsFixtureLastStep
     }
   },
   Hoc: {
