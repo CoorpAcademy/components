@@ -2,6 +2,7 @@ export default {
   props: {
     text: 'Population 2',
     information: '15739 users',
-    selected: true
+    selected: true,
+    onClick: () => console.log('click')
   }
 };
