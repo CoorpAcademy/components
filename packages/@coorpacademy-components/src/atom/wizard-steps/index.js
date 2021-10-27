@@ -11,7 +11,7 @@ const WizardSteps = (props, context) => {
       <div
         className={classnames(style.step, step.done && style.done, step.current && style.current)}
         key={`step-${index}`}
-        data-step="{index}"
+        data-step={index}
       >
         <div className={style.label}>
           <div className={style.title}>{step.title}</div>
