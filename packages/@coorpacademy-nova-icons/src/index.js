@@ -161,6 +161,7 @@ import _NovaSolidMessagesChatChatBubblesCircle from './components/nova-solid/mes
 import _NovaSolidPlacesPlacesHome2 from './components/nova-solid/places/places-home-2';
 import _NovaSolidProgrammingProgrammingJigsaw from './components/nova-solid/programming/programming-jigsaw';
 import _NovaSolidRemoveAddAdd1 from './components/nova-solid/remove-add/add-1';
+import _NovaSolidRemoveAddAddCircle1 from './components/nova-solid/remove-add/add-circle-1';
 import _NovaSolidRemoveAddAddCircle2 from './components/nova-solid/remove-add/add-circle-2';
 import _NovaSolidRemoveAddSubtract1 from './components/nova-solid/remove-add/subtract-1';
 import _NovaSolidResizeMoveExpandDiagonal3 from './components/nova-solid/resize-move/expand-diagonal-3';
@@ -335,6 +336,7 @@ export const NovaSolidMessagesChatChatBubblesCircle: Icon = _NovaSolidMessagesCh
 export const NovaSolidPlacesPlacesHome2: Icon = _NovaSolidPlacesPlacesHome2;
 export const NovaSolidProgrammingProgrammingJigsaw: Icon = _NovaSolidProgrammingProgrammingJigsaw;
 export const NovaSolidRemoveAddAdd1: Icon = _NovaSolidRemoveAddAdd1;
+export const NovaSolidRemoveAddAddCircle1: Icon = _NovaSolidRemoveAddAddCircle1;
 export const NovaSolidRemoveAddAddCircle2: Icon = _NovaSolidRemoveAddAddCircle2;
 export const NovaSolidRemoveAddSubtract1: Icon = _NovaSolidRemoveAddSubtract1;
 export const NovaSolidResizeMoveExpandDiagonal3: Icon = _NovaSolidResizeMoveExpandDiagonal3;
