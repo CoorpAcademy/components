@@ -1,0 +1,22 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_50 from colors;
+@value cm_grey_900 from colors;
+
+.container {
+  width: 319px;
+  height: 658px;
+  border-radius: 7px;
+  background-color: cm_grey_50;
+  padding-top: 40px;
+  padding-left: 37px;
+  padding-right: 37px;
+  padding-bottom: 32px;
+}
+
+.summaryTitle {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 20px;
+  color: cm_grey_900;
+}
