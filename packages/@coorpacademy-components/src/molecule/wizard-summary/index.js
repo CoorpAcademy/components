@@ -7,7 +7,7 @@ const buildSections = sections => {
     const sectionTitle = section.title ? <div>{section.title}</div> : null;
     return (
       <div key={`section-${index}`} data-step={index}>
-        {sectionTitle}
+        <div className={style.sectionTitle}>{sectionTitle}</div>
       </div>
     );
   });
