@@ -15,7 +15,7 @@
 }
 
 .selected:hover {
-  background-color: rgba(53, 204, 127, 0.5);
+  background-color: rgba(53, 204, 127, 0.35);
 }
 
 .unselected {
