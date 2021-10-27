@@ -1,0 +1,150 @@
+@value colors: "../../variables/colors.css";
+@value cm_primary_blue from colors;
+@value cm_grey_500 from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_700 from colors;
+@value cm_blue_200 from colors;
+@value white from colors;
+
+.container{
+  font-family: 'Gilroy';
+  flex: 0 0 100%;
+  justify-content: space-around;
+  display: flex;
+  padding-top: .3rem;
+  box-sizing: border-box;
+}
+
+.step {
+  width: 100%;
+  position: relative;
+  padding: 0px 5px;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  justify-content: center;
+  align-content: space-between;
+}
+
+.step:before {
+  width: 100%;
+  position: absolute;
+  border: 1px solid cm_grey_500;
+  display: block;
+  z-index: 2;
+  left: -50%;
+  bottom: 17px;
+  content: '';
+  transition: border 0.5s linear;
+}
+.step:after {
+  width: 50%;
+  position: absolute;
+  border: 1px solid cm_grey_500;
+  display: block;
+  z-index: 1;
+  left: 50%;
+  bottom: 17px;
+  content: '';
+  transition: border 0.5s linear;
+}
+
+.step:first-child:before {
+  display: none;
+}
+
+.step:last-child:after {
+  display: none;
+}
+
+.step.done:after, .step.current:after {
+  content: '';
+  width: 50%;
+  border: 1px solid cm_primary_blue;
+  bottom: 17px;
+  left: 50%;
+  z-index: 2;
+  position: absolute;
+}
+.step.done:before, .step.current:before {
+  content: '';
+  width: 50%;
+  border: 1px solid cm_primary_blue;
+  bottom: 17px;
+  left: 0px;
+  z-index: 2;
+  position: absolute;
+}
+
+.dot {
+  background-color: cm_grey_500;
+  height: 10px;
+  width: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  display: inline-block;
+  position: relative;
+  z-index: 2;
+  margin-left: 3px;
+  margin-top: 3px;
+  border: 1px solid cm_grey_500;
+  transition: background-color 0.5s linear;
+}
+
+.dot::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: -1px;
+  width: 10px;
+  height: 10px;
+  -webkit-transform: scale(.75);
+  -ms-transform: scale(.75);
+  transform: scale(.75);
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+}
+
+.step.done .dot, .step.current .dot {
+  border-color: cm_primary_blue;
+  background-color: cm_primary_blue;
+}
+
+.outerDot {
+  background-color: cm_grey_200;
+  height: 18px;
+  width: 18px;
+  -webkit-border-radius: 18px;
+  border-radius: 18px;
+  display: inline-block;
+  position: relative;
+  z-index: 12;
+  margin: 0px auto;
+  border: 8px solid white;
+  transition: background-color 0.5s linear;
+}
+
+.step.done .outerDot, .step.current .outerDot {
+  background-color: cm_blue_200;
+}
+
+.label {
+  font-size: 12px;
+  font-weight: 400;
+  display: block;
+  text-align: center;
+  flex: 0 0 100%;
+  position: relative;
+  min-height: 32px;
+}
+
+.step.current .label {
+  font-weight: bold;
+  color: cm_grey_700;
+}
+
+.title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
