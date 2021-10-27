@@ -2,8 +2,8 @@ import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
-  NovaCompositionNavigationMore as AddIcon,
-  NovaCompositionCoorpacademyCheck as SelectedIcon
+  NovaSolidRemoveAddAddCircle1 as AddIcon,
+  NovaSolidStatusCheckCircle2 as SelectedIcon
 } from '@coorpacademy/nova-icons';
 import style from './style.css';
 
@@ -19,9 +19,11 @@ const SearchResultItem = props => {
     >
       <div className={style.text}>{text}</div>
       <div className={style.information}>{information}</div>
-      <div className={selected ? style.selectedIconWrapper : style.unselectedIconWrapper}>
-        {selected ? <SelectedIcon className={style.icon} /> : <AddIcon className={style.icon} />}
-      </div>
+      {selected ? (
+        <SelectedIcon className={style.selectedIconWrapper} />
+      ) : (
+        <AddIcon className={style.unselectedIconWrapper} />
+      )}
     </div>
   );
 };
