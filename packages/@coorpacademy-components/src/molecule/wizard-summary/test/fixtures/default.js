@@ -50,6 +50,7 @@ export default {
             type: 'course',
             title: 'Markteting and online advertising',
             level: 'base',
+            levelLabel: 'Base',
             author: 'Coorpacademy'
           },
           {
@@ -58,9 +59,10 @@ export default {
             author: 'Global Exam'
           },
           {
-            type: 'content',
+            type: 'course',
             title: 'Cluedo: Meurtre sur Skill Island',
-            level: 'base',
+            level: 'advanced',
+            levelLabel: 'Advanced',
             author: 'Coorpacademy'
           },
           {

@@ -1,7 +1,12 @@
 @value colors: "../../variables/colors.css";
 @value cm_grey_50 from colors;
+@value cm_grey_300 from colors;
 @value cm_grey_400 from colors;
 @value cm_grey_900 from colors;
+@value cm_green_200 from colors;
+@value cm_purple_200 from colors;
+@value cm_orange_200 from colors;
+@value white from colors;
 
 .container {
   width: 319px;
@@ -22,11 +27,63 @@
   color: cm_grey_900;
 }
 
-.sectionTitle {
+.sectionWrapper {
+  margin-top: 32px;
+}
+
+.title {
   font-family: Gilroy;
   font-style: normal;
   font-weight: bold;
   font-size: 12px;
   color: cm_grey_400;
-  margin-top: 32px;
+}
+
+.value {
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+}
+
+.valueSimpleText {
+  composes: value;
+  margin-top: 8px;
+}
+
+.content {
+  margin-top: 8px;
+}
+
+.author {
+  font-family: Gilroy;
+  font-size: 11px;
+  font-weight: 500;
+  font-style: normal;
+  color: cm_grey_300;
+}
+
+.level {
+  padding: 2px 6px;
+  border-radius: 2px;
+  font-size: 7px;
+  font-style: normal;
+  margin-right: 4px;
+  color: white;
+}
+
+.base {
+  composes: level;
+  background-color: cm_green_200;
+}
+
+.advanced {
+  composes: level;
+  background-color: cm_purple_200;
+}
+
+.coach {
+  composes: level;
+  background-color: cm_orange_200;
 }

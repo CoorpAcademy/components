@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import style from './style.css';
 
 const buildItems = items => {
@@ -9,34 +10,44 @@ const buildItems = items => {
       case 'mainElement':
         return (
           <div>
-            <div>{item.title}</div>
-            <div>{item.value}</div>
+            <div className={style.title}>{item.title}</div>
+            <div className={style.value}>{item.value}</div>
           </div>
         );
       case 'text':
-        return <div>{item.text}</div>;
-      case 'course':
+        return <div className={style.valueSimpleText}>{item.text}</div>;
+      case 'course': {
+        const {level} = item;
         return (
-          <div>
-            <div>
-              <span>{item.level}</span>
-              {item.title}
+          <div className={style.contentWrapper}>
+            <div className={style.content}>
+              <div
+                className={classnames(
+                  level === 'base' && style.base,
+                  level === 'advanced' && style.advanced,
+                  level === 'coach' && style.coach
+                )}
+              >
+                {item.levelLabel}
+              </div>
+              <div>{item.title}</div>
             </div>
-            <div>{item.author}</div>
+            <div className={style.author}>{item.author}</div>
           </div>
         );
+      }
       case 'chapter':
         return (
-          <div>
-            <div>{item.title}</div>
-            <div>{item.author}</div>
+          <div className={style.content}>
+            <div className={style.value}>{item.title}</div>
+            <div className={style.author}>{item.author}</div>
           </div>
         );
       default:
         return (
-          <div>
-            <div>{item.title}</div>
-            <div>{item.author}</div>
+          <div className={style.content}>
+            <div className={style.value}>{item.title}</div>
+            <div className={style.author}>{item.author}</div>
           </div>
         );
     }
@@ -48,8 +59,8 @@ const buildSections = sections => {
     const sectionTitle = section.title ? <div>{section.title}</div> : null;
     const itemsView = buildItems(section.items);
     return (
-      <div key={`section-${index}`} data-step={index}>
-        <div className={style.sectionTitle}>{sectionTitle}</div>
+      <div key={`section-${index}`} data-step={index} className={style.sectionWrapper}>
+        <div className={style.title}>{sectionTitle}</div>
         {itemsView}
       </div>
     );
@@ -88,7 +99,8 @@ WizardSummary.propTypes = {
           PropTypes.shape({
             type: PropTypes.oneOf(['course', 'chapter', 'scorm', 'video', 'article', 'podcast']),
             title: PropTypes.string,
-            level: PropTypes.string,
+            level: PropTypes.oneOf(['base', 'advanced', 'coach']),
+            levelLabel: PropTypes.string,
             author: PropTypes.string
           })
         ])
