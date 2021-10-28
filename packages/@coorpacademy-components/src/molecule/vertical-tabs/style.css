@@ -1,0 +1,61 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value light from colors;
+@value cm_grey_400 from colors;
+@value medium from colors;
+@value cm_blue_50 from colors;
+@value cm_primary_blue from colors;
+
+.wrapper {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+}
+
+.notSelectedTab {
+  display: flex;
+  width: 138px;
+  height: 36px;
+  flex-grow: 1;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.title {
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: left;
+  margin-left: 6px;
+  color: cm_grey_400;
+}
+
+.leftIcon {
+  width: 20px;
+  height: 15px;
+  color: cm_primary_blue
+}
+
+.notSelectedTab:hover {
+  color: cm_blue_50;
+}
+
+.notSelectedTab:hover a {
+  color: cm_primary_blue;
+}
+
+.selectedTab {
+  composes: notSelectedTab;
+  background-color: cm_blue_50;
+}
+
+.selectedTab a {
+  color: cm_primary_blue;
+}
