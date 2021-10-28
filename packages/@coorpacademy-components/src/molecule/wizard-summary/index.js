@@ -2,12 +2,55 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import style from './style.css';
 
+const buildItems = items => {
+  return items.map((item, index) => {
+    const {type} = item;
+    switch (type) {
+      case 'mainElement':
+        return (
+          <div>
+            <div>{item.title}</div>
+            <div>{item.value}</div>
+          </div>
+        );
+      case 'text':
+        return <div>{item.text}</div>;
+      case 'course':
+        return (
+          <div>
+            <div>
+              <span>{item.level}</span>
+              {item.title}
+            </div>
+            <div>{item.author}</div>
+          </div>
+        );
+      case 'chapter':
+        return (
+          <div>
+            <div>{item.title}</div>
+            <div>{item.author}</div>
+          </div>
+        );
+      default:
+        return (
+          <div>
+            <div>{item.title}</div>
+            <div>{item.author}</div>
+          </div>
+        );
+    }
+  });
+};
+
 const buildSections = sections => {
   return sections.map((section, index) => {
     const sectionTitle = section.title ? <div>{section.title}</div> : null;
+    const itemsView = buildItems(section.items);
     return (
       <div key={`section-${index}`} data-step={index}>
         <div className={style.sectionTitle}>{sectionTitle}</div>
+        {itemsView}
       </div>
     );
   });
