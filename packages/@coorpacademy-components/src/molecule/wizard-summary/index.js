@@ -14,42 +14,34 @@ const buildItems = items => {
             <div className={style.value}>{item.value}</div>
           </div>
         );
-      case 'text':
-        return <div className={style.valueSimpleText}>{item.text}</div>;
-      case 'course': {
-        const {level} = item;
+      case 'content': {
+        const {category} = item;
         return (
           <div className={style.contentWrapper}>
             <div className={style.content}>
               <div
                 className={classnames(
-                  level === 'base' && style.base,
-                  level === 'advanced' && style.advanced,
-                  level === 'coach' && style.coach
+                  category === 'base' && style.base,
+                  category === 'advanced' && style.advanced,
+                  category === 'coach' && style.coach,
+                  category === 'chapter' && style.chapter,
+                  category === 'scorm' && style.scorm,
+                  category === 'video' && style.video,
+                  category === 'article' && style.article,
+                  category === 'podcast' && style.podcast
                 )}
               >
-                {item.levelLabel}
+                {item.label}
               </div>
-              <div>{item.title}</div>
+              <div className={style.contentTitle}>{item.title}</div>
             </div>
             <div className={style.author}>{item.author}</div>
           </div>
         );
       }
-      case 'chapter':
-        return (
-          <div className={style.content}>
-            <div className={style.value}>{item.title}</div>
-            <div className={style.author}>{item.author}</div>
-          </div>
-        );
+      case 'text':
       default:
-        return (
-          <div className={style.content}>
-            <div className={style.value}>{item.title}</div>
-            <div className={style.author}>{item.author}</div>
-          </div>
-        );
+        return <div className={style.valueSimpleText}>{item.text}</div>;
     }
   });
 };
@@ -97,10 +89,19 @@ WizardSummary.propTypes = {
             text: PropTypes.string
           }),
           PropTypes.shape({
-            type: PropTypes.oneOf(['course', 'chapter', 'scorm', 'video', 'article', 'podcast']),
+            type: PropTypes.string,
+            category: PropTypes.oneOf([
+              'base',
+              'advanced',
+              'coach',
+              'chapter',
+              'scorm',
+              'video',
+              'article',
+              'podcast'
+            ]),
             title: PropTypes.string,
-            level: PropTypes.oneOf(['base', 'advanced', 'coach']),
-            levelLabel: PropTypes.string,
+            label: PropTypes.string,
             author: PropTypes.string
           })
         ])

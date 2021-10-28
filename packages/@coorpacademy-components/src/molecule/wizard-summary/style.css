@@ -7,6 +7,11 @@
 @value cm_purple_200 from colors;
 @value cm_orange_200 from colors;
 @value white from colors;
+@value lightBlack from colors;
+@value cm_yellow_scorm from colors;
+@value cm_bleu_article from colors;
+@value cm_red_video from colors;
+@value cm_violet_podcast from colors;
 
 .container {
   width: 319px;
@@ -48,16 +53,27 @@
 }
 
 .valueSimpleText {
+  font-family: Gilroy;
   composes: value;
   margin-top: 8px;
 }
 
-.content {
+.contentWrapper {
+  font-family: Gilroy;
   margin-top: 8px;
 }
 
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.contentTitle {
+  font-size: 13px;
+  text-overflow: ellipsis;
+}
+
 .author {
-  font-family: Gilroy;
   font-size: 11px;
   font-weight: 500;
   font-style: normal;
@@ -86,4 +102,29 @@
 .coach {
   composes: level;
   background-color: cm_orange_200;
+}
+
+.chapter {
+  composes: level;
+  background-color: lightBlack;
+}
+
+.scorm {
+  composes: level;
+  background-color: cm_yellow_scorm;
+}
+
+.article {
+  composes: level;
+  background-color: cm_bleu_article;
+}
+
+.video {
+  composes: level;
+  background-color: cm_red_video;
+}
+
+.podcast {
+  composes: level;
+  background-color: cm_violet_podcast;
 }

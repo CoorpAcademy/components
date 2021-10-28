@@ -47,37 +47,45 @@ export default {
         title: 'Courses',
         items: [
           {
-            type: 'course',
+            type: 'content',
             title: 'Markteting and online advertising',
-            level: 'base',
-            levelLabel: 'Base',
+            category: 'base',
+            label: 'Base',
             author: 'Coorpacademy'
           },
           {
-            type: 'chapter',
+            type: 'content',
             title: 'Faire une offre',
+            category: 'chapter',
+            label: "5' learning",
             author: 'Global Exam'
           },
           {
-            type: 'course',
+            type: 'content',
             title: 'Cluedo: Meurtre sur Skill Island',
-            level: 'advanced',
-            levelLabel: 'Advanced',
+            category: 'advanced',
+            label: 'Advanced',
             author: 'Coorpacademy'
           },
           {
-            type: 'scorm',
+            type: 'content',
             title: 'Suspects - épisode 1',
+            category: 'scorm',
+            label: 'Interactive slides',
             author: 'Coorpacademy'
           },
           {
-            type: 'video',
-            title: 'Learn Everywhere #10 : Inclusion et Diversité',
+            type: 'content',
+            title: 'Learn Everywhere #10 : Inclusion, Diversité, et autre élements importants',
+            category: 'video',
+            label: 'Video',
             author: 'Coorpacademy, Faurecia University'
           },
           {
-            type: 'chapter',
+            type: 'content',
             title: 'Mesurer la satisfaction client',
+            category: 'coach',
+            label: 'Coach',
             author: 'Dunod Formation'
           }
         ],
