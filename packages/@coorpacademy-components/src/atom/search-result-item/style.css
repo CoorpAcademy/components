@@ -7,7 +7,7 @@
 @value white from colors;
 
 .container {
-  width: 121px;
+  width: 25%;
   height: 32px;
   border-radius: 10px;
   padding: 10px 16px;
@@ -15,11 +15,11 @@
 }
 
 .selected {
-  background-color: rgba(53, 204, 127, 0.2);
+  background-color: color(cm_positive_100 a(20%));
 }
 
 .selected:hover {
-  background-color: rgba(53, 204, 127, 0.35);
+  background-color: color(cm_positive_100 a(35%));
 }
 
 .unselected {
