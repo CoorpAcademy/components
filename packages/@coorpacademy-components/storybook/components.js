@@ -6,6 +6,7 @@ import AtomButton from './../src/atom/button';
 import AtomCatalogSection from './../src/atom/catalog-section';
 import AtomCenteredText from './../src/atom/centered-text';
 import AtomCheckbox from './../src/atom/checkbox';
+import AtomChips from './../src/atom/chips';
 import AtomClue from './../src/atom/clue';
 import AtomCta from './../src/atom/cta';
 import AtomDifficultyLevel from './../src/atom/difficulty-level';
@@ -192,6 +193,8 @@ import AtomCheckboxFixtureChecked from '../src/atom/checkbox/test/fixtures/check
 import AtomCheckboxFixtureDefault from '../src/atom/checkbox/test/fixtures/default';
 import AtomCheckboxFixtureDisabled from '../src/atom/checkbox/test/fixtures/disabled';
 import AtomCheckboxFixtureRequired from '../src/atom/checkbox/test/fixtures/required';
+import AtomChipsFixtureDefault from '../src/atom/chips/test/fixtures/default';
+import AtomChipsFixtureNonSelected from '../src/atom/chips/test/fixtures/non-selected';
 import AtomClueFixtureDefault from '../src/atom/clue/test/fixtures/default';
 import AtomClueFixtureLink from '../src/atom/clue/test/fixtures/link';
 import AtomClueFixtureLoading from '../src/atom/clue/test/fixtures/loading';
@@ -982,6 +985,7 @@ export const components = {
     AtomCatalogSection,
     AtomCenteredText,
     AtomCheckbox,
+    AtomChips,
     AtomClue,
     AtomCta,
     AtomDifficultyLevel,
@@ -1216,6 +1220,10 @@ export const fixtures = {
       Default: AtomCheckboxFixtureDefault,
       Disabled: AtomCheckboxFixtureDisabled,
       Required: AtomCheckboxFixtureRequired
+    },
+    AtomChips: {
+      Default: AtomChipsFixtureDefault,
+      NonSelected: AtomChipsFixtureNonSelected
     },
     AtomClue: {
       Default: AtomClueFixtureDefault,

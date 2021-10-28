@@ -1,0 +1,66 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_100 from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_400 from colors;
+@value cm_grey_700 from colors;
+@value cm_positive_100 from colors;
+@value white from colors;
+
+.container {
+  width: 25%;
+  height: 32px;
+  border-radius: 10px;
+  padding: 10px 16px;
+  position: relative;
+}
+
+.selected {
+  background-color: color(cm_positive_100 a(20%));
+}
+
+.selected:hover {
+  background-color: color(cm_positive_100 a(35%));
+}
+
+.unselected {
+  background-color: cm_grey_100;
+}
+
+.unselected:hover {
+  background-color: cm_grey_200;
+}
+
+.text {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  color: cm_grey_700;
+}
+
+.information {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  opacity: 0.4;
+  color: cm_grey_700;
+}
+
+.icon{
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  right: 18px;
+  top: 16px;
+}
+
+.selectedIconWrapper {
+  composes: icon;
+  color: cm_positive_100;
+}
+
+.unselectedIconWrapper {
+  composes: icon;
+  color: cm_grey_400;
+}
