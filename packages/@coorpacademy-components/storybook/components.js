@@ -6,6 +6,7 @@ import AtomButton from './../src/atom/button';
 import AtomCatalogSection from './../src/atom/catalog-section';
 import AtomCenteredText from './../src/atom/centered-text';
 import AtomCheckbox from './../src/atom/checkbox';
+import AtomChips from './../src/atom/chips';
 import AtomClue from './../src/atom/clue';
 import AtomCta from './../src/atom/cta';
 import AtomDifficultyLevel from './../src/atom/difficulty-level';
@@ -31,7 +32,6 @@ import AtomProvider from './../src/atom/provider';
 import AtomRadioGroup from './../src/atom/radio-group';
 import AtomRange from './../src/atom/range';
 import AtomResourceMiniature from './../src/atom/resource-miniature';
-import AtomSearchResultItem from './../src/atom/search-result-item';
 import AtomSelect from './../src/atom/select';
 import AtomSlide from './../src/atom/slide';
 import AtomSocialLink from './../src/atom/social-link';
@@ -193,6 +193,8 @@ import AtomCheckboxFixtureChecked from '../src/atom/checkbox/test/fixtures/check
 import AtomCheckboxFixtureDefault from '../src/atom/checkbox/test/fixtures/default';
 import AtomCheckboxFixtureDisabled from '../src/atom/checkbox/test/fixtures/disabled';
 import AtomCheckboxFixtureRequired from '../src/atom/checkbox/test/fixtures/required';
+import AtomChipsFixtureDefault from '../src/atom/chips/test/fixtures/default';
+import AtomChipsFixtureNonSelected from '../src/atom/chips/test/fixtures/non-selected';
 import AtomClueFixtureDefault from '../src/atom/clue/test/fixtures/default';
 import AtomClueFixtureLink from '../src/atom/clue/test/fixtures/link';
 import AtomClueFixtureLoading from '../src/atom/clue/test/fixtures/loading';
@@ -302,8 +304,6 @@ import AtomResourceMiniatureFixturePdf from '../src/atom/resource-miniature/test
 import AtomResourceMiniatureFixtureSelectedPdf from '../src/atom/resource-miniature/test/fixtures/selected-pdf';
 import AtomResourceMiniatureFixtureSelectedVideo from '../src/atom/resource-miniature/test/fixtures/selected-video';
 import AtomResourceMiniatureFixtureVideo from '../src/atom/resource-miniature/test/fixtures/video';
-import AtomSearchResultItemFixtureDefault from '../src/atom/search-result-item/test/fixtures/default';
-import AtomSearchResultItemFixtureNonSelected from '../src/atom/search-result-item/test/fixtures/non-selected';
 import AtomSelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import AtomSelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
 import AtomSelectFixtureError from '../src/atom/select/test/fixtures/error';
@@ -985,6 +985,7 @@ export const components = {
     AtomCatalogSection,
     AtomCenteredText,
     AtomCheckbox,
+    AtomChips,
     AtomClue,
     AtomCta,
     AtomDifficultyLevel,
@@ -1010,7 +1011,6 @@ export const components = {
     AtomRadioGroup,
     AtomRange,
     AtomResourceMiniature,
-    AtomSearchResultItem,
     AtomSelect,
     AtomSlide,
     AtomSocialLink,
@@ -1221,6 +1221,10 @@ export const fixtures = {
       Disabled: AtomCheckboxFixtureDisabled,
       Required: AtomCheckboxFixtureRequired
     },
+    AtomChips: {
+      Default: AtomChipsFixtureDefault,
+      NonSelected: AtomChipsFixtureNonSelected
+    },
     AtomClue: {
       Default: AtomClueFixtureDefault,
       Link: AtomClueFixtureLink,
@@ -1379,10 +1383,6 @@ export const fixtures = {
       SelectedPdf: AtomResourceMiniatureFixtureSelectedPdf,
       SelectedVideo: AtomResourceMiniatureFixtureSelectedVideo,
       Video: AtomResourceMiniatureFixtureVideo
-    },
-    AtomSearchResultItem: {
-      Default: AtomSearchResultItemFixtureDefault,
-      NonSelected: AtomSearchResultItemFixtureNonSelected
     },
     AtomSelect: {
       Default: AtomSelectFixtureDefault,

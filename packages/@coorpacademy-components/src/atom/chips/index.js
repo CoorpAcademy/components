@@ -7,7 +7,7 @@ import {
 } from '@coorpacademy/nova-icons';
 import style from './style.css';
 
-const SearchResultItem = props => {
+const Chips = props => {
   const {text, information, selected, onClick} = props;
 
   const handleClick = useMemo(() => () => onClick(), [onClick]);
@@ -28,11 +28,11 @@ const SearchResultItem = props => {
   );
 };
 
-SearchResultItem.propTypes = {
+Chips.propTypes = {
   text: PropTypes.string,
   information: PropTypes.string,
   selected: PropTypes.bool,
   onClick: PropTypes.func
 };
 
-export default SearchResultItem;
+export default Chips;
