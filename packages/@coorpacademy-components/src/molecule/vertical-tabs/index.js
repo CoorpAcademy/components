@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {NovaSolidStatusCheckCircle2 as CheckIcon} from '@coorpacademy/nova-icons';
 import {snakeCase} from 'lodash/fp';
 import Link from '../../atom/link';
@@ -10,23 +11,18 @@ const LeftIcons = {
 };
 
 const buildTab = (tab, index) => {
-  const {title, href, selected, onClick, leftIcon, rightIcon} = tab;
-  const className = selected ? style.selectedTab : style.notSelectedTab;
+  const {title, selected, onClick, leftIcon, rightIcon} = tab;
 
   const LeftIcon = LeftIcons[leftIcon];
   return (
     <li
       data-name={`vertical_tab_${snakeCase(title)}`}
-      className={className}
+      className={classnames(style.tab, selected && style.selected)}
       key={index}
       onClick={onClick}
     >
-      <div>
-        {rightIcon}
-        <Link href={href} className={style.title}>
-          {title}
-        </Link>
-      </div>
+      {rightIcon}
+      <span className={style.title}>{title}</span>
       {LeftIcon ? <LeftIcon className={style.leftIcon} /> : null}
     </li>
   );
