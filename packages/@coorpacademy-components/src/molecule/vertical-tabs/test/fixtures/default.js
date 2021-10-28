@@ -2,7 +2,7 @@ export default {
   props: {
     tabs: [
       {
-        title: 'Franche',
+        title: 'French',
         leftIcon: 'BlueValidatedCircle',
         rightIcon: '🇫🇷',
         onClick: () => console.log,

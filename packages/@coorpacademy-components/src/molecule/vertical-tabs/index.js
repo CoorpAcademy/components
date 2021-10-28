@@ -15,7 +15,7 @@ const buildTab = (tab, index) => {
 
   const LeftIcon = LeftIcons[leftIcon];
   return (
-    <div
+    <li
       data-name={`vertical_tab_${snakeCase(title)}`}
       className={className}
       key={index}
@@ -28,7 +28,7 @@ const buildTab = (tab, index) => {
         </Link>
       </div>
       {LeftIcon ? <LeftIcon className={style.leftIcon} /> : null}
-    </div>
+    </li>
   );
 };
 
@@ -36,7 +36,7 @@ const VerticalTabs = props => {
   const {tabs} = props;
   const tabsList = tabs.map(buildTab);
 
-  return <div className={style.wrapper}>{tabsList}</div>;
+  return <ul className={style.wrapper}>{tabsList}</ul>;
 };
 
 VerticalTabs.propTypes = {

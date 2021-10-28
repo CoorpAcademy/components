@@ -10,18 +10,22 @@
   background-color: white;
   display: flex;
   flex-direction: column;
+  height: 370px;
+  width: 186px;
+  overflow-y: scroll;
+  padding: 8px 24px 24px 9px;
 }
 
 .notSelectedTab {
   display: flex;
-  width: 138px;
   height: 36px;
-  flex-grow: 1;
+  flex-grow: 0;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  padding: 5px 10px;
+  padding: 8px 16px;
   border-radius: 5px;
+  margin-top: 16px;
 }
 
 .title {
