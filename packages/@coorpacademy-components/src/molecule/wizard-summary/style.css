@@ -71,9 +71,29 @@
   margin-top: 8px;
 }
 
+.contentWrapper li {
+  display: flex;
+}
+
 .content {
   display: flex;
   align-items: center;
+}
+.contentCard {
+  display: block;
+  max-width: calc(100% -20px);
+}
+.contentCounter {
+  margin-right: 8px;
+  color: cm_grey_400;
+  font-size: 13px;
+  min-width: 20px;
+  text-align: center;
+}
+
+ul {
+  list-style: none;
+  padding: 0px;
 }
 
 .contentTitle {

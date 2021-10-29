@@ -17,26 +17,31 @@ const buildItemsOfSection = items => {
       case 'content': {
         const {category} = item;
         return (
-          <div className={style.contentWrapper} key={`content-${index}`}>
-            <div className={style.content}>
-              <div
-                className={classnames(
-                  category === 'base' && style.base,
-                  category === 'advanced' && style.advanced,
-                  category === 'coach' && style.coach,
-                  category === 'chapter' && style.chapter,
-                  category === 'scorm' && style.scorm,
-                  category === 'video' && style.video,
-                  category === 'article' && style.article,
-                  category === 'podcast' && style.podcast
-                )}
-              >
-                {item.label}
+          <ul className={style.contentWrapper} key={`content-${index}`}>
+            <li>
+              <span className={style.contentCounter}>{index + 1}</span>
+              <div className={style.contentCard}>
+                <span className={style.content}>
+                  <span
+                    className={classnames(
+                      category === 'base' && style.base,
+                      category === 'advanced' && style.advanced,
+                      category === 'coach' && style.coach,
+                      category === 'chapter' && style.chapter,
+                      category === 'scorm' && style.scorm,
+                      category === 'video' && style.video,
+                      category === 'article' && style.article,
+                      category === 'podcast' && style.podcast
+                    )}
+                  >
+                    {item.label}
+                  </span>
+                  <span className={style.contentTitle}>{item.title}</span>
+                </span>
+                <span className={style.author}>{item.author}</span>
               </div>
-              <div className={style.contentTitle}>{item.title}</div>
-            </div>
-            <div className={style.author}>{item.author}</div>
-          </div>
+            </li>
+          </ul>
         );
       }
       case 'text':
