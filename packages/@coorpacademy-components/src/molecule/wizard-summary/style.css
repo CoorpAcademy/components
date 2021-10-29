@@ -15,14 +15,15 @@
 
 .container {
   font-family: Gilroy;
-  width: 319px;
-  height: 658px;
+  width: 245px;
+  max-height: 586px;
   border-radius: 7px;
   background-color: cm_grey_50;
   padding-top: 40px;
   padding-left: 37px;
   padding-right: 37px;
   padding-bottom: 32px;
+  overflow-y: auto;
 }
 
 .summaryTitle {
@@ -53,6 +54,7 @@
   font-weight: bold;
   font-size: 12px;
   color: cm_grey_400;
+  display: block;
 }
 
 .value {
@@ -60,6 +62,7 @@
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
+  display: block;
 }
 
 .valueSimpleText {
@@ -69,20 +72,19 @@
 
 .contentWrapper {
   margin-top: 8px;
+  display: flex;
 }
 
-.contentWrapper li {
-  display: flex;
+.contentItem {
+  display: block;
+  max-width: calc(100% -20px);
 }
 
 .content {
   display: flex;
   align-items: center;
 }
-.contentCard {
-  display: block;
-  max-width: calc(100% -20px);
-}
+
 .contentCounter {
   margin-right: 8px;
   color: cm_grey_400;

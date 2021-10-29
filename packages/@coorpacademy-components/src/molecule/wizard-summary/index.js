@@ -9,47 +9,47 @@ const buildItemsOfSection = items => {
     switch (type) {
       case 'mainElement':
         return (
-          <div key={`mainElement-${index}`}>
-            <div className={style.title}>{item.title}</div>
-            <div className={style.value}>{item.value}</div>
-          </div>
+          <li key={`mainElement-${index}`}>
+            <span className={style.title}>{item.title}</span>
+            <span className={style.value}>{item.value}</span>
+          </li>
         );
       case 'content': {
         const {category} = item;
         return (
-          <ul className={style.contentWrapper} key={`content-${index}`}>
-            <li>
-              <span className={style.contentCounter}>{index + 1}</span>
-              <div className={style.contentCard}>
-                <span className={style.content}>
-                  <span
-                    className={classnames(
-                      category === 'base' && style.base,
-                      category === 'advanced' && style.advanced,
-                      category === 'coach' && style.coach,
-                      category === 'chapter' && style.chapter,
-                      category === 'scorm' && style.scorm,
-                      category === 'video' && style.video,
-                      category === 'article' && style.article,
-                      category === 'podcast' && style.podcast
-                    )}
-                  >
-                    {item.label}
-                  </span>
-                  <span className={style.contentTitle}>{item.title}</span>
+          <li className={style.contentWrapper} key={`content-${index}`}>
+            <span className={style.contentCounter}>{index + 1}</span>
+            <div className={style.contentItem}>
+              <div className={style.content}>
+                <span
+                  className={classnames(
+                    category === 'base' && style.base,
+                    category === 'advanced' && style.advanced,
+                    category === 'coach' && style.coach,
+                    category === 'chapter' && style.chapter,
+                    category === 'scorm' && style.scorm,
+                    category === 'video' && style.video,
+                    category === 'article' && style.article,
+                    category === 'podcast' && style.podcast
+                  )}
+                >
+                  {item.label}
                 </span>
-                <span className={style.author}>{item.author}</span>
+                <span className={style.contentTitle}>{item.title}</span>
               </div>
-            </li>
-          </ul>
+              <span className={style.author}>{item.author}</span>
+            </div>
+          </li>
         );
       }
       case 'text':
       default:
         return (
-          <div className={style.valueSimpleText} key={`text-${index}`}>
-            {item.text}
-          </div>
+          <li>
+            <span className={style.valueSimpleText} key={`text-${index}`}>
+              {item.text}
+            </span>
+          </li>
         );
     }
   });
@@ -62,8 +62,8 @@ const buildSectionHeader = section => {
   }
   return (
     <div className={style.sectionHeader}>
-      <div className={style.title}>{title}</div>
-      {counterText ? <div className={style.counterText}>{counterText}</div> : null}
+      <span className={style.title}>{title}</span>
+      {counterText ? <span className={style.counterText}>{counterText}</span> : null}
     </div>
   );
 };
@@ -75,7 +75,9 @@ const buildSections = sections => {
     return (
       <div key={`section-${index}`} data-step={index} className={style.sectionWrapper}>
         {sectionHeader}
-        {itemsView}
+        <ul>
+          {itemsView}
+        </ul>
       </div>
     );
   });
@@ -88,7 +90,7 @@ const WizardSummary = props => {
 
   return (
     <div className={style.container}>
-      <div className={style.summaryTitle}>{title}</div>
+      <span className={style.summaryTitle}>{title}</span>
       {sectionView}
     </div>
   );
