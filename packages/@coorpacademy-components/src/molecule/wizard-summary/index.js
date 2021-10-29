@@ -75,9 +75,7 @@ const buildSections = sections => {
     return (
       <div key={`section-${index}`} data-step={index} className={style.sectionWrapper}>
         {sectionHeader}
-        <ul>
-          {itemsView}
-        </ul>
+        <ul>{itemsView}</ul>
       </div>
     );
   });
@@ -91,7 +89,7 @@ const WizardSummary = props => {
   return (
     <div className={style.container}>
       <span className={style.summaryTitle}>{title}</span>
-      {sectionView}
+      <div className={style.summary}>{sectionView}</div>
     </div>
   );
 };
