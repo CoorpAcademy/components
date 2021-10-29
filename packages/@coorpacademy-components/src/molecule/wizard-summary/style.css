@@ -71,6 +71,8 @@
 .contentTitle {
   font-size: 13px;
   text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .author {
