@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import style from './style.css';
 
-const buildItems = items => {
+const buildItemsOfSection = items => {
   return items.map((item, index) => {
     const {type} = item;
     switch (type) {
       case 'mainElement':
         return (
-          <div>
+          <div key={`mainElement-${index}`}>
             <div className={style.title}>{item.title}</div>
             <div className={style.value}>{item.value}</div>
           </div>
@@ -17,7 +17,7 @@ const buildItems = items => {
       case 'content': {
         const {category} = item;
         return (
-          <div className={style.contentWrapper}>
+          <div className={style.contentWrapper} key={`content-${index}`}>
             <div className={style.content}>
               <div
                 className={classnames(
@@ -41,18 +41,35 @@ const buildItems = items => {
       }
       case 'text':
       default:
-        return <div className={style.valueSimpleText}>{item.text}</div>;
+        return (
+          <div className={style.valueSimpleText} key={`text-${index}`}>
+            {item.text}
+          </div>
+        );
     }
   });
 };
 
+const buildSectionHeader = section => {
+  const {title, counterText} = section;
+  if (!title) {
+    return null;
+  }
+  return (
+    <div className={style.sectionHeader}>
+      <div className={style.title}>{title}</div>
+      {counterText ? <div className={style.counterText}>{counterText}</div> : null}
+    </div>
+  );
+};
+
 const buildSections = sections => {
   return sections.map((section, index) => {
-    const sectionTitle = section.title ? <div>{section.title}</div> : null;
-    const itemsView = buildItems(section.items);
+    const sectionHeader = buildSectionHeader(section);
+    const itemsView = buildItemsOfSection(section.items);
     return (
       <div key={`section-${index}`} data-step={index} className={style.sectionWrapper}>
-        <div className={style.title}>{sectionTitle}</div>
+        {sectionHeader}
         {itemsView}
       </div>
     );
