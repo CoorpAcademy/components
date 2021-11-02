@@ -135,6 +135,7 @@ import _NovaSolidAudioAudioControlRewind from './components/nova-solid/audio/aud
 import _NovaSolidBookmarksTagsBookmark3 from './components/nova-solid/bookmarks-tags/bookmark-3';
 import _NovaSolidBookmarksTagsBookmark5 from './components/nova-solid/bookmarks-tags/bookmark-5';
 import _NovaSolidBusinessBusinessGraphLine2 from './components/nova-solid/business/business-graph-line-2';
+import _NovaSolidComputersSdCard from './components/nova-solid/computers/sd-card';
 import _NovaSolidContentContentBook1 from './components/nova-solid/content/content-book-1';
 import _NovaSolidContentContentBookAdd from './components/nova-solid/content/content-book-add';
 import _NovaSolidContentContentViewList from './components/nova-solid/content/content-view-list';
@@ -310,6 +311,7 @@ export const NovaSolidAudioAudioControlRewind: Icon = _NovaSolidAudioAudioContro
 export const NovaSolidBookmarksTagsBookmark3: Icon = _NovaSolidBookmarksTagsBookmark3;
 export const NovaSolidBookmarksTagsBookmark5: Icon = _NovaSolidBookmarksTagsBookmark5;
 export const NovaSolidBusinessBusinessGraphLine2: Icon = _NovaSolidBusinessBusinessGraphLine2;
+export const NovaSolidComputersSdCard: Icon = _NovaSolidComputersSdCard;
 export const NovaSolidContentContentBook1: Icon = _NovaSolidContentContentBook1;
 export const NovaSolidContentContentBookAdd: Icon = _NovaSolidContentContentBookAdd;
 export const NovaSolidContentContentViewList: Icon = _NovaSolidContentContentViewList;
