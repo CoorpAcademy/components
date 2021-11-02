@@ -122,6 +122,7 @@ import MoleculeTeamsPopin from './../src/molecule/teams-popin';
 import MoleculeThemeImage from './../src/molecule/theme-image';
 import MoleculeTitledCheckbox from './../src/molecule/titled-checkbox';
 import MoleculeUnsubscribe from './../src/molecule/unsubscribe';
+import MoleculeVerticalTabs from './../src/molecule/vertical-tabs';
 import MoleculeVideoIframe from './../src/molecule/video-iframe';
 import MoleculeVideoPlayer from './../src/molecule/video-player';
 import OrganismAccordionContainer from './../src/organism/accordion/container';
@@ -655,6 +656,8 @@ import MoleculeTitledCheckboxFixtureNoBg from '../src/molecule/titled-checkbox/t
 import MoleculeTitledCheckboxFixtureNotChecked from '../src/molecule/titled-checkbox/test/fixtures/not-checked';
 import MoleculeUnsubscribeFixtureDefault from '../src/molecule/unsubscribe/test/fixtures/default';
 import MoleculeUnsubscribeFixtureSubscribed from '../src/molecule/unsubscribe/test/fixtures/subscribed';
+import MoleculeVerticalTabsFixtureDefault from '../src/molecule/vertical-tabs/test/fixtures/default';
+import MoleculeVerticalTabsFixtureWithSelectedItem from '../src/molecule/vertical-tabs/test/fixtures/with-selected-item';
 import MoleculeVideoIframeFixtureEmpty from '../src/molecule/video-iframe/test/fixtures/empty';
 import MoleculeVideoIframeFixtureH5P from '../src/molecule/video-iframe/test/fixtures/h5p';
 import MoleculeVideoIframeFixtureImagePlaceholder from '../src/molecule/video-iframe/test/fixtures/image-placeholder';
@@ -1091,6 +1094,7 @@ export const components = {
     MoleculeThemeImage,
     MoleculeTitledCheckbox,
     MoleculeUnsubscribe,
+    MoleculeVerticalTabs,
     MoleculeVideoIframe,
     MoleculeVideoPlayer
   },
@@ -1846,6 +1850,10 @@ export const fixtures = {
     MoleculeUnsubscribe: {
       Default: MoleculeUnsubscribeFixtureDefault,
       Subscribed: MoleculeUnsubscribeFixtureSubscribed
+    },
+    MoleculeVerticalTabs: {
+      Default: MoleculeVerticalTabsFixtureDefault,
+      WithSelectedItem: MoleculeVerticalTabsFixtureWithSelectedItem
     },
     MoleculeVideoIframe: {
       Empty: MoleculeVideoIframeFixtureEmpty,

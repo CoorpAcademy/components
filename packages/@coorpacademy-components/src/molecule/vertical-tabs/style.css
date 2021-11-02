@@ -1,0 +1,69 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value light from colors;
+@value cm_grey_400 from colors;
+@value medium from colors;
+@value cm_blue_50 from colors;
+@value cm_primary_blue from colors;
+
+.wrapper {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden scroll;
+  list-style: none;
+}
+
+.tab {
+  display: flex;
+  width: 100%;
+  height: 36px;
+  flex-grow: 0;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px;
+  border-radius: 5px;
+  margin-bottom: 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.title {
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: left;
+  margin-left: 6px;
+  color: cm_grey_400;
+  flex: 0 1 100%;
+}
+
+.leftIcon {
+  width: 20px;
+  height: 15px;
+  color: cm_primary_blue
+}
+
+.tab:hover {
+  color: cm_blue_50;
+}
+
+.tab:hover a {
+  color: cm_primary_blue;
+}
+
+.tab.selected {
+  background-color: cm_blue_50;
+}
+
+.tab.selected a {
+  color: cm_primary_blue;
+}
