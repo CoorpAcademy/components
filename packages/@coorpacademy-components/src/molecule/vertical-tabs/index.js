@@ -11,7 +11,7 @@ const LeftIcons = {
 };
 
 const buildTab = (tab, index) => {
-  const {title, selected, onClick, leftIcon, rightIcon} = tab;
+  const {title, selected, onClick, leftIcon} = tab;
 
   const LeftIcon = LeftIcons[leftIcon];
   return (
@@ -21,7 +21,6 @@ const buildTab = (tab, index) => {
       key={index}
       onClick={onClick}
     >
-      {rightIcon}
       <span className={style.title}>{title}</span>
       {LeftIcon ? <LeftIcon className={style.leftIcon} /> : null}
     </li>
@@ -41,7 +40,6 @@ VerticalTabs.propTypes = {
       title: Link.propTypes.children,
       selected: PropTypes.bool,
       leftIcon: PropTypes.string,
-      rightIcon: PropTypes.string,
       onClick: PropTypes.func
     })
   )
