@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {get, getOr, isEmpty, map} from 'lodash/fp';
+import {get, getOr, isEmpty, map, uniqueId} from 'lodash/fp';
 import {
   NovaCompositionNavigationArrowRight as ArrowRight,
   NovaCompositionNavigationArrowDown as ArrowDown
@@ -24,7 +24,7 @@ const DisciplinePartners = (props, context) => {
     const authorHref = get('href', author);
     const moreDetails = get('more', author);
     const autName = get('name', author);
-
+    const authorToggleId = uniqueId('author-toggle-');
     const linkView = (
       <div className={style.authorLink}>
         <a
@@ -88,11 +88,11 @@ const DisciplinePartners = (props, context) => {
       <div key={index} className={style.authorWrapper}>
         <input
           type="checkbox"
-          id={`author-toggle-${index}`}
+          id={authorToggleId}
           className={style.toggle}
           defaultChecked={authors.length === 1 ? true : null}
         />
-        <label htmlFor={`author-toggle-${index}`}>{logoView}</label>
+        <label htmlFor={authorToggleId}>{logoView}</label>
         {authorContent}
       </div>
     );
