@@ -39,7 +39,6 @@ VerticalTabs.propTypes = {
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
       title: Link.propTypes.children,
-      href: Link.propTypes.href,
       selected: PropTypes.bool,
       leftIcon: PropTypes.string,
       rightIcon: PropTypes.string,
