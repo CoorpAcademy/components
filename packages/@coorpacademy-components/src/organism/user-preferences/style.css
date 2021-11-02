@@ -47,6 +47,7 @@
   cursor: pointer;
   padding-left: 10px;
   padding-right: 4px;
+  color: dark;
 }
 
 .showToolTip::before {

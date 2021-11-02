@@ -1,12 +1,18 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {noop, isNil, keys} from 'lodash/fp';
+import {noop, isNil, keys, isEmpty} from 'lodash/fp';
+import {
+  NovaSolidStatusCheckCircle2 as CheckIcon,
+  NovaSolidStatusClose as ErrorIcon,
+  NovaCompositionCoorpacademyInformationIcon as InfoIcon
+} from '@coorpacademy/nova-icons';
 import classnames from 'classnames';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
 const themeStyle = {
   setup: style.setup,
+  coorpmanager: style.coorpmanager,
   cockpit: style.cockpit,
   default: style.default
 };
@@ -15,9 +21,11 @@ const InputText = props => {
     autoFocus = false,
     placeholder = '',
     value,
+    hint,
     defaultValue,
     onChange = noop,
     error,
+    valid,
     theme = 'default',
     description,
     disabled,
@@ -30,13 +38,42 @@ const InputText = props => {
   const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
   const mainClass = themeStyle[theme];
   const className = getClassState(style.default, style.modified, style.error, modified, error);
-  const descriptionView = description ? (
-    <div className={style.description}>{description}</div>
-  ) : null;
+  const descriptionView =
+    description && theme !== 'coorpmanager' ? (
+      <div className={style.description}>{description}</div>
+    ) : null;
+  const toolTipView =
+    description && theme === 'coorpmanager' ? (
+      <div className={style.infoIconWrapper}>
+        <InfoIcon className={style.infoIcon} />
+        <div className={style.descriptionLabel}>{description}</div>
+      </div>
+    ) : null;
+  const hintView =
+    error || hint ? (
+      <div
+        className={style.hint}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: error || hint}}
+      />
+    ) : null;
+  const errorIconView = error ? <ErrorIcon className={style.leftIcon} /> : null;
+  const validIconView = valid ? <CheckIcon className={style.leftIcon} /> : null;
   return (
-    <div className={classnames(mainClass, className, isNil(propsTitle) && style.isNoTitle)}>
+    <div
+      className={classnames(
+        mainClass,
+        className,
+        disabled && style.disabled,
+        isNil(propsTitle) && style.isNoTitle
+      )}
+    >
       <label>
-        <span className={style.title}>{title}</span>
+        <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
+          {title}
+          {toolTipView}
+        </span>
+
         <input
           autoFocus={autoFocus}
           type="text"
@@ -44,11 +81,15 @@ const InputText = props => {
           className={style.input}
           placeholder={placeholder}
           defaultValue={defaultValue}
+          autoComplete={'off'}
           value={value}
           onInput={handleChange}
           disabled={disabled}
           onChange={noop}
         />
+        {errorIconView}
+        {validIconView}
+        {hintView}
       </label>
       {descriptionView}
     </div>
@@ -64,9 +105,11 @@ InputText.propTypes = {
   disabled: PropTypes.bool,
   required: PropTypes.bool,
   value: PropTypes.string,
+  hint: PropTypes.string,
   error: PropTypes.string,
   onChange: PropTypes.func,
   description: PropTypes.string,
-  modified: PropTypes.bool
+  modified: PropTypes.bool,
+  valid: PropTypes.bool
 };
 export default InputText;
