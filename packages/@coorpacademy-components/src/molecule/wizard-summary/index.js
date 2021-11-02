@@ -1,6 +1,8 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import {NovaSolidComputersSdCard} from '@coorpacademy/nova-icons';
+import Link from '../../atom/link';
 import style from './style.css';
 
 const buildItemsOfSection = items => {
@@ -84,10 +86,13 @@ const buildSections = sections => {
 const buildAction = action => {
   if (!action) return null;
 
+  const {onClick, text, icon} = action;
+  const handleClick = useMemo(() => () => onClick(), [onClick]);
   return (
-    <div className={style.draftZone}>
-      <span>{action.text}</span>
-    </div>
+    <Link className={style.draftZone} onClick={handleClick}>
+      {icon === 'draft' ? <NovaSolidComputersSdCard className={style.icon} /> : null}
+      <span>{text}</span>
+    </Link>
   );
 };
 

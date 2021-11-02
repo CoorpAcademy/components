@@ -38,6 +38,14 @@
   font-size: 14px;
   font-style: normal;
   font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  width: 14px;
+  height: 14px;
 }
 
 .summaryTitle {
