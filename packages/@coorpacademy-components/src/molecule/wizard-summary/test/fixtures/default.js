@@ -131,7 +131,7 @@ export default {
             author: 'Dunod Formation'
           }
         ],
-        counterText: '6 courses'
+        counterText: '12 courses'
       }
     ],
     action: {

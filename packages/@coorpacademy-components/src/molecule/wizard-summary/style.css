@@ -27,13 +27,16 @@
 }
 
 .summary {
-  max-height: 458px;
+  height: 458px;
   overflow-y: auto;
   overflow-x: hidden;
 }
 
-.draftZone {
+.actionZone {
   margin-top: 24px;
+}
+
+.actionLink {
   text-align: center;
   font-size: 14px;
   font-style: normal;
@@ -41,6 +44,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 .icon {

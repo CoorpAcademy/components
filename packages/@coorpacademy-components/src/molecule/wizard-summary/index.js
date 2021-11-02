@@ -89,7 +89,7 @@ const buildAction = action => {
   const {onClick, text, icon} = action;
   const handleClick = useMemo(() => () => onClick(), [onClick]);
   return (
-    <Link className={style.draftZone} onClick={handleClick}>
+    <Link className={style.actionLink} onClick={handleClick}>
       {icon === 'draft' ? <NovaSolidComputersSdCard className={style.icon} /> : null}
       <span>{text}</span>
     </Link>
@@ -106,7 +106,7 @@ const WizardSummary = props => {
     <div className={style.container}>
       <span className={style.summaryTitle}>{title}</span>
       <div className={style.summary}>{sectionView}</div>
-      {actionView}
+      <div className={style.actionZone}>{actionView}</div>
     </div>
   );
 };
