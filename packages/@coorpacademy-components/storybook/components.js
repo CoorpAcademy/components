@@ -685,6 +685,9 @@ import MoleculeVideoPlayerFixtureUptale from '../src/molecule/video-player/test/
 import MoleculeVideoPlayerFixtureVimeo from '../src/molecule/video-player/test/fixtures/vimeo';
 import MoleculeVideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
 import MoleculeWizardSummaryFixtureDefault from '../src/molecule/wizard-summary/test/fixtures/default';
+import MoleculeWizardSummaryFixtureOneSection from '../src/molecule/wizard-summary/test/fixtures/one-section';
+import MoleculeWizardSummaryFixtureThreeSections from '../src/molecule/wizard-summary/test/fixtures/three-sections';
+import MoleculeWizardSummaryFixtureTwoSections from '../src/molecule/wizard-summary/test/fixtures/two-sections';
 import OrganismAccordionContainerFixtureDefault from '../src/organism/accordion/container/test/fixtures/default';
 import OrganismAccordionContainerFixtureNoChildren from '../src/organism/accordion/container/test/fixtures/no-children';
 import OrganismAccordionContainerFixtureOneChildren from '../src/organism/accordion/container/test/fixtures/one-children';
@@ -1899,7 +1902,10 @@ export const fixtures = {
       Youtube: MoleculeVideoPlayerFixtureYoutube
     },
     MoleculeWizardSummary: {
-      Default: MoleculeWizardSummaryFixtureDefault
+      Default: MoleculeWizardSummaryFixtureDefault,
+      OneSection: MoleculeWizardSummaryFixtureOneSection,
+      ThreeSections: MoleculeWizardSummaryFixtureThreeSections,
+      TwoSections: MoleculeWizardSummaryFixtureTwoSections
     }
   },
   MoleculeDashboard: {
