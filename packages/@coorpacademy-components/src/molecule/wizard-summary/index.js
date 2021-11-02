@@ -81,15 +81,27 @@ const buildSections = sections => {
   });
 };
 
+const buildAction = action => {
+  if (!action) return null;
+
+  return (
+    <div className={style.draftZone}>
+      <span>{action.text}</span>
+    </div>
+  );
+};
+
 const WizardSummary = props => {
-  const {title, sections} = props;
+  const {title, sections, action} = props;
 
   const sectionView = buildSections(sections);
+  const actionView = buildAction(action);
 
   return (
     <div className={style.container}>
       <span className={style.summaryTitle}>{title}</span>
       <div className={style.summary}>{sectionView}</div>
+      {actionView}
     </div>
   );
 };

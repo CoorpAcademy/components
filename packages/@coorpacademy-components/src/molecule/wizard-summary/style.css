@@ -27,9 +27,17 @@
 }
 
 .summary {
-  max-height: 482px;
+  max-height: 458px;
   overflow-y: auto;
   overflow-x: hidden;
+}
+
+.draftZone {
+  margin-top: 24px;
+  text-align: center;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: bold;
 }
 
 .summaryTitle {

@@ -136,7 +136,7 @@ export default {
     ],
     action: {
       icon: 'draft',
-      text: 'Save in draft',
+      text: 'Save in drafts',
       onClick: () => console.log('save')
     }
   }
