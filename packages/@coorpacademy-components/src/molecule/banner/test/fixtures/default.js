@@ -4,7 +4,7 @@ export default {
     message: 'Changes saved but not published. Do you want to update this custom playlist now? ',
     firstCTALabel: 'Undo',
     firstCTA: () => console.log('first cta'),
-    secondeCTALabel: 'Update',
-    secondeCTA: () => console.log('seconde cta')
+    secondCTALabel: 'Update',
+    secondCTA: () => console.log('second cta')
   }
 };

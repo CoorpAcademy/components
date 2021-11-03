@@ -13,7 +13,7 @@
     flex-direction: row;
     justify-content: flex-start;  
     align-items: center; 
-    gap: 40px; 
+    gap: 8px; 
     padding: 16px 24px; 
     border-radius: 5px;
     background-color: cm_warning_50;

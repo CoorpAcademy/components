@@ -6,30 +6,24 @@ import Link from '../../atom/link';
 import style from './style.css';
 
 const Banner = props => {
-  const {type, message, firstCTA, firstCTALabel, secondeCTALabel, secondeCTA} = props;
+  const {type, message, firstCTA, firstCTALabel, secondCTALabel, secondCTA} = props;
   return (
     <div className={classnames(style.banner, type === 'error' && style.errorBanner)}>
-      
       <div data-name={`${type}-banner-message`} className={style.message}>
-      <QuestionIcon className={style.icon} />
+        <QuestionIcon className={style.icon} />
         {message}
       </div>
-        {firstCTALabel ? (
-          <Link
-            data-name="first-banner-cta"
-            className={style.button}
-            onClick={firstCTA}
-        
-          >{firstCTALabel}</Link>
-        ) : null}
-        {firstCTALabel && secondeCTALabel && <div className={style.buttonsBar}/>}
-        {secondeCTALabel ? (
-          <Link
-            data-name="seconde-banner-cta"
-            className={style.button}
-            onClick={secondeCTA}
-            >{secondeCTALabel}</Link>
-        ) : null}
+      {firstCTALabel ? (
+        <Link data-name="first-banner-cta" className={style.button} onClick={firstCTA}>
+          {firstCTALabel}
+        </Link>
+      ) : null}
+      {firstCTALabel && secondCTALabel ? <div className={style.buttonsBar} /> : null}
+      {secondCTALabel ? (
+        <Link data-name="second-banner-cta" className={style.button} onClick={secondCTA}>
+          {secondCTALabel}
+        </Link>
+      ) : null}
     </div>
   );
 };
@@ -39,8 +33,8 @@ Banner.propTypes = {
   message: PropTypes.string.isRequired,
   firstCTA: PropTypes.func,
   firstCTALabel: PropTypes.string,
-  secondeCTALabel: PropTypes.string,
-  secondeCTA: PropTypes.func
+  secondCTALabel: PropTypes.string,
+  secondCTA: PropTypes.func
 };
 
 export default Banner;
