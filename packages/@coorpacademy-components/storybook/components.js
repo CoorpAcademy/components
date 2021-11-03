@@ -426,6 +426,8 @@ import MoleculeCardFixtureFreerunAndDisabled from '../src/molecule/card/test/fix
 import MoleculeCardFixtureFreerun from '../src/molecule/card/test/fixtures/freerun';
 import MoleculeCardFixturePodcast from '../src/molecule/card/test/fixtures/podcast';
 import MoleculeCardFixtureScorm from '../src/molecule/card/test/fixtures/scorm';
+import MoleculeCardFixtureSelectableFalse from '../src/molecule/card/test/fixtures/selectable-false';
+import MoleculeCardFixtureSelectableTrue from '../src/molecule/card/test/fixtures/selectable-true';
 import MoleculeCardFixtureVideo from '../src/molecule/card/test/fixtures/video';
 import MoleculeCardContentFixtureAdaptivAndDisabled from '../src/molecule/card-content/test/fixtures/adaptiv-and-disabled';
 import MoleculeCardContentFixtureAdaptiv from '../src/molecule/card-content/test/fixtures/adaptiv';
@@ -1581,6 +1583,8 @@ export const fixtures = {
       Freerun: MoleculeCardFixtureFreerun,
       Podcast: MoleculeCardFixturePodcast,
       Scorm: MoleculeCardFixtureScorm,
+      SelectableFalse: MoleculeCardFixtureSelectableFalse,
+      SelectableTrue: MoleculeCardFixtureSelectableTrue,
       Video: MoleculeCardFixtureVideo
     },
     MoleculeCardContent: {

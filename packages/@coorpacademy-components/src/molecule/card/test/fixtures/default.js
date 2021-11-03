@@ -13,6 +13,7 @@ export default {
     favorite: true,
     addFavoriteToolTip: 'Add to my list',
     removeFavoriteToolTip: 'Remove from my list',
+    isSelected: undefined,
     customer: {
       coorpOriginal: true,
       name: 'Decathlon creation'

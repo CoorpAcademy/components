@@ -1,0 +1,49 @@
+@value colors: "../../variables/colors.css";
+@value positive from colors;
+@value negative from colors;
+@value cm_grey_400 from colors;
+
+.selectable {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.circle {
+  background-color: white;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+}
+
+.iconWrapper {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+}
+
+.icons {
+  width: 48px;
+  height: 48px;
+}
+
+.checkIcon {
+  color: positive;
+  composes: icons;
+}
+
+.removeIcon {
+  color: negative;
+  composes: icons;
+}
+
+.addIcon {
+  color: cm_grey_400;
+  composes: icons;
+}
