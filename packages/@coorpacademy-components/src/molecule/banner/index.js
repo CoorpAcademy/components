@@ -29,7 +29,7 @@ const Banner = props => {
 };
 
 Banner.propTypes = {
-  type: PropTypes.oneOf('information', 'error'),
+  type: PropTypes.oneOf(['information', 'error']),
   message: PropTypes.string.isRequired,
   firstCTA: PropTypes.func,
   firstCTALabel: PropTypes.string,
