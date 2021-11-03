@@ -16,7 +16,7 @@
 .container {
   font-family: Gilroy;
   width: 245px;
-  min-height: 586px;
+  height: 100%;
   border-radius: 7px;
   background-color: cm_grey_50;
   padding: 40px 37px 32px 37px;
