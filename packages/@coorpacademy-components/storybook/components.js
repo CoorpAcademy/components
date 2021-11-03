@@ -8,6 +8,7 @@ import AtomCenteredText from './../src/atom/centered-text';
 import AtomCheckbox from './../src/atom/checkbox';
 import AtomChips from './../src/atom/chips';
 import AtomClue from './../src/atom/clue';
+import AtomContentBadge from './../src/atom/content-badge';
 import AtomCta from './../src/atom/cta';
 import AtomDifficultyLevel from './../src/atom/difficulty-level';
 import AtomDragAndDrop from './../src/atom/drag-and-drop';
@@ -199,6 +200,14 @@ import AtomChipsFixtureNonSelected from '../src/atom/chips/test/fixtures/non-sel
 import AtomClueFixtureDefault from '../src/atom/clue/test/fixtures/default';
 import AtomClueFixtureLink from '../src/atom/clue/test/fixtures/link';
 import AtomClueFixtureLoading from '../src/atom/clue/test/fixtures/loading';
+import AtomContentBadgeFixtureAdvanced from '../src/atom/content-badge/test/fixtures/advanced';
+import AtomContentBadgeFixtureArticle from '../src/atom/content-badge/test/fixtures/article';
+import AtomContentBadgeFixtureChapter from '../src/atom/content-badge/test/fixtures/chapter';
+import AtomContentBadgeFixtureCoach from '../src/atom/content-badge/test/fixtures/coach';
+import AtomContentBadgeFixtureDefault from '../src/atom/content-badge/test/fixtures/default';
+import AtomContentBadgeFixturePodcast from '../src/atom/content-badge/test/fixtures/podcast';
+import AtomContentBadgeFixtureScorm from '../src/atom/content-badge/test/fixtures/scorm';
+import AtomContentBadgeFixtureVideo from '../src/atom/content-badge/test/fixtures/video';
 import AtomCtaFixtureCertification from '../src/atom/cta/test/fixtures/certification';
 import AtomCtaFixtureDisabled from '../src/atom/cta/test/fixtures/disabled';
 import AtomCtaFixtureLightSmall from '../src/atom/cta/test/fixtures/light-small';
@@ -990,6 +999,7 @@ export const components = {
     AtomCheckbox,
     AtomChips,
     AtomClue,
+    AtomContentBadge,
     AtomCta,
     AtomDifficultyLevel,
     AtomDragAndDrop,
@@ -1233,6 +1243,16 @@ export const fixtures = {
       Default: AtomClueFixtureDefault,
       Link: AtomClueFixtureLink,
       Loading: AtomClueFixtureLoading
+    },
+    AtomContentBadge: {
+      Advanced: AtomContentBadgeFixtureAdvanced,
+      Article: AtomContentBadgeFixtureArticle,
+      Chapter: AtomContentBadgeFixtureChapter,
+      Coach: AtomContentBadgeFixtureCoach,
+      Default: AtomContentBadgeFixtureDefault,
+      Podcast: AtomContentBadgeFixturePodcast,
+      Scorm: AtomContentBadgeFixtureScorm,
+      Video: AtomContentBadgeFixtureVideo
     },
     AtomCta: {
       Certification: AtomCtaFixtureCertification,
