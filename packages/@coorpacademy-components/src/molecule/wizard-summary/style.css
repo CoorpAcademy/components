@@ -101,6 +101,11 @@
 .contentWrapper {
   margin: 8px 0px 0px 0px;
   display: flex;
+  align-items: center;
+}
+
+.contentWrapper p {
+  margin: 0px;
 }
 
 .contentItem {

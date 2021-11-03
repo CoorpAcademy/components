@@ -107,7 +107,7 @@ WizardSummary.propTypes = {
     PropTypes.shape({
       title: PropTypes.string,
       items: PropTypes.arrayOf(
-        PropTypes.oneOf([
+        PropTypes.oneOfType([
           PropTypes.shape({
             type: PropTypes.string,
             title: PropTypes.string,

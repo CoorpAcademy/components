@@ -76,7 +76,8 @@ export default {
           },
           {
             type: 'content',
-            title: 'Learn Everywhere #10 : Inclusion, Diversité, et autre élements importants',
+            title:
+              'Learn <b>Everywhere #10</b> : <u>Inclusion, Diversité</u>, et autre élements importants',
             category: 'video',
             label: 'Video',
             author: 'Coorpacademy, Faurecia University'
@@ -104,7 +105,7 @@ export default {
           },
           {
             type: 'content',
-            title: 'Mesurer la satisfaction client',
+            title: '<p align="right"> وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه</p>',
             category: 'coach',
             label: 'Coach',
             author: 'Dunod Formation'
