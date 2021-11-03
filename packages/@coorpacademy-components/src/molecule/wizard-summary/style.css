@@ -16,15 +16,17 @@
 .container {
   font-family: Gilroy;
   width: 245px;
-  height: 100%;
   border-radius: 7px;
   background-color: cm_grey_50;
   padding: 40px 37px 32px 37px;
-  overflow: hidden auto;
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
 }
 
 .summary {
-  height: 490px;
+  height: calc(100% - 90px);
   overflow: hidden auto;
 }
 
@@ -53,7 +55,7 @@
   font-style: normal;
   font-weight: bold;
   font-size: 20px;
-  margin-bottom: 24px;
+  margin: 0px 0px 24px 0px;
   color: cm_grey_900;
   display: block;
 }
