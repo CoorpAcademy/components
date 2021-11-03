@@ -148,6 +148,7 @@ import _NovaSolidDesignPaintBrush2 from './components/nova-solid/design/paint-br
 import _NovaSolidEmailAtSign from './components/nova-solid/email/at-sign';
 import _NovaSolidFilesBasicFileUpload2 from './components/nova-solid/files-basic/file-upload-2';
 import _NovaSolidInterfaceFeedbackInterfaceAlertCircle from './components/nova-solid/interface-feedback/interface-alert-circle';
+import _NovaSolidInterfaceFeedbackInterfaceAlertDiamond from './components/nova-solid/interface-feedback/interface-alert-diamond';
 import _NovaSolidInterfaceFeedbackInterfaceAlertTriangle from './components/nova-solid/interface-feedback/interface-alert-triangle';
 import _NovaSolidInterfaceFeedbackInterfaceQuestionMark from './components/nova-solid/interface-feedback/interface-question-mark';
 import _NovaSolidLightsLightbulb4 from './components/nova-solid/lights/lightbulb-4';
@@ -324,6 +325,7 @@ export const NovaSolidDesignPaintBrush2: Icon = _NovaSolidDesignPaintBrush2;
 export const NovaSolidEmailAtSign: Icon = _NovaSolidEmailAtSign;
 export const NovaSolidFilesBasicFileUpload2: Icon = _NovaSolidFilesBasicFileUpload2;
 export const NovaSolidInterfaceFeedbackInterfaceAlertCircle: Icon = _NovaSolidInterfaceFeedbackInterfaceAlertCircle;
+export const NovaSolidInterfaceFeedbackInterfaceAlertDiamond: Icon = _NovaSolidInterfaceFeedbackInterfaceAlertDiamond;
 export const NovaSolidInterfaceFeedbackInterfaceAlertTriangle: Icon = _NovaSolidInterfaceFeedbackInterfaceAlertTriangle;
 export const NovaSolidInterfaceFeedbackInterfaceQuestionMark: Icon = _NovaSolidInterfaceFeedbackInterfaceQuestionMark;
 export const NovaSolidLightsLightbulb4: Icon = _NovaSolidLightsLightbulb4;

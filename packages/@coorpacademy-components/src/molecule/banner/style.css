@@ -1,0 +1,64 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value medium from colors;
+@value cm_negative_50 from colors;
+@value cm_negative_200 from colors;
+@value cm_warning_50 from colors;
+@value cm_warning_200 from colors;
+
+.banner {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;  
+    align-items: center; 
+    gap: 40px; 
+    padding: 16px 24px; 
+    border-radius: 5px;
+    background-color: cm_warning_50;
+    color: cm_warning_200;
+    border-radius: 5px;
+}
+
+.errorBanner {
+    composes: banner;
+    background-color: cm_negative_50;
+    color: cm_negative_200;
+}
+
+.button {
+    flex-grow: 0;
+    font-family: Gilroy;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 1.33;
+    background-color: transparent;
+}
+
+.buttonsBar {
+    width: 1px;
+    align-self: stretch;
+    flex-grow: 0;
+    opacity: 0.1;
+    background-color: cm_warning_200;
+}
+
+.icon {
+    height: 22px;
+    margin-right: 16px;
+}
+
+.message {
+    font-family: 'Gilroy';
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    flex: 0 1 100%;
+    display: flex;
+    align-content: center;
+    align-items: center;
+}
