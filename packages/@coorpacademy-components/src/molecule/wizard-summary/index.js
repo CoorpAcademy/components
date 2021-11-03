@@ -1,8 +1,8 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import {NovaSolidComputersSdCard} from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
+import ContentBagde from '../../atom/content-badge';
 import style from './style.css';
 
 const buildItemsOfSection = items => {
@@ -11,35 +11,27 @@ const buildItemsOfSection = items => {
     switch (type) {
       case 'mainElement':
         return (
-          <li key={`mainElement-${index}`}>
+          <li key={`${item.title}-${index}`}>
             <span className={style.title}>{item.title}</span>
             <span className={style.value}>{item.value}</span>
           </li>
         );
       case 'content': {
-        const {category} = item;
+        const {category, label, title, author} = item;
         return (
-          <li className={style.contentWrapper} key={`content-${index}`}>
+          <li className={style.contentWrapper} key={`${title}-${index}`}>
             <span className={style.contentCounter}>{index + 1}</span>
             <div className={style.contentItem}>
               <div className={style.content}>
+                <ContentBagde category={category} label={label} />
                 <span
-                  className={classnames(
-                    category === 'base' && style.base,
-                    category === 'advanced' && style.advanced,
-                    category === 'coach' && style.coach,
-                    category === 'chapter' && style.chapter,
-                    category === 'scorm' && style.scorm,
-                    category === 'video' && style.video,
-                    category === 'article' && style.article,
-                    category === 'podcast' && style.podcast
-                  )}
-                >
-                  {item.label}
-                </span>
-                <span className={style.contentTitle}>{item.title}</span>
+                  className={style.contentTitle}
+                  title={title}
+                  // eslint-disable-next-line react/no-danger
+                  dangerouslySetInnerHTML={{__html: title}}
+                />
               </div>
-              <span className={style.author}>{item.author}</span>
+              {author ? <span className={style.author}>{author}</span> : null}
             </div>
           </li>
         );
@@ -47,10 +39,8 @@ const buildItemsOfSection = items => {
       case 'text':
       default:
         return (
-          <li>
-            <span className={style.valueSimpleText} key={`text-${index}`}>
-              {item.text}
-            </span>
+          <li key={`${item.text}-${index}`}>
+            <span className={style.valueSimpleText}>{item.text}</span>
           </li>
         );
     }
@@ -75,7 +65,7 @@ const buildSections = sections => {
     const sectionHeader = buildSectionHeader(section);
     const itemsView = buildItemsOfSection(section.items);
     return (
-      <div key={`section-${index}`} data-step={index} className={style.sectionWrapper}>
+      <div key={`summary-section-${index}`} data-step={index} className={style.sectionWrapper}>
         {sectionHeader}
         <ul>{itemsView}</ul>
       </div>
