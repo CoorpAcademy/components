@@ -32,11 +32,13 @@
 @value cm_blue_600: #0051d6;
 @value cm_grey_50: #FAFAFA;
 @value cm_grey_100: #EAEAEB;
+@value cm_grey_150: #E1E1E3;
 @value cm_grey_200: #d7d7da;
 @value cm_grey_400: #9999A8;
 @value cm_grey_500: #515161;
 @value cm_grey_700: #1D1D2B;
 @value cm_positive_100: #35CC7F;
+@value cm_negative_100: #ed3436;
 @value cm_negative_200: #b81400;
 @value cm_orange_200: #FF7043;
 @value cm_orange_700: #ff4105;
