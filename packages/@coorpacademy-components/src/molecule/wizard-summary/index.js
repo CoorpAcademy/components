@@ -94,8 +94,13 @@ const WizardSummary = props => {
 
   return (
     <div className={style.container}>
-      <span className={style.summaryTitle}>{title}</span>
-      <div className={style.summary}>{sectionView}</div>
+      <span className={style.desktopSummaryTitle}>{title}</span>
+      <div className={style.summary}>
+        <div className={style.tabletsummaryTitle}>
+          <span>{title}</span>
+        </div>
+        {sectionView}
+      </div>
       <div className={style.actionZone}>{actionView}</div>
     </div>
   );

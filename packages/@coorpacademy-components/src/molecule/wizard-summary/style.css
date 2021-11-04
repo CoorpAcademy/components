@@ -54,7 +54,7 @@
   height: 14px;
 }
 
-.summaryTitle {
+.desktopSummaryTitle {
   font-family: 'Gilroy';
   font-style: normal;
   font-weight: bold;
@@ -64,11 +64,15 @@
   display: block;
 }
 
+.tabletsummaryTitle {
+  display: none;
+}
+
 .sectionWrapper {
   margin: 32px 0px 0px 0px;
 }
 
-.sectionWrapper:first-child {
+.sectionWrapper:nth-child(2) {
   margin: 0px;
 }
 
@@ -165,8 +169,14 @@ ul {
     margin: 0px 32px 0px 32px;
   }
 
-  .summaryTitle {
+  .desktopSummaryTitle {
     display: none;
+  }
+
+  .tabletsummaryTitle {
+    display: block;
+    font-size: 14px;
+    font-weight: bold;
   }
 
   .summary {
@@ -182,5 +192,9 @@ ul {
     display: flex;
     justify-content: center;
     margin: 0px 0px 12px 0px;
+  }
+
+  .sectionWrapper:nth-child(2) {
+    margin: 32px 0px 0px 0px;
   }
 }
