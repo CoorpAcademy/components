@@ -187,9 +187,6 @@ ul {
   .summary {
     width: calc(65% - 48px);
     background-color: cm_grey_50;
-    padding: 24px;
-    max-height: 582px;
-    height: auto;
   }
 
   .actionZone {
@@ -206,5 +203,16 @@ ul {
   label {
     width: 12px;
     right: 0px;
+  }
+
+  .open {
+    height: auto;
+    max-height: 582px;
+    padding: 24px;
+  }
+
+  .closed {
+    height: 20px;
+    padding: 12px 16px 12px 24px;
   }
 }

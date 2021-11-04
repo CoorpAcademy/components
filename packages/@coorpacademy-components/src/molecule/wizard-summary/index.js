@@ -1,5 +1,6 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {
   NovaSolidComputersSdCard as SaveIcon,
   NovaCompositionNavigationArrowDown as ArrowDownIcon,
@@ -90,7 +91,7 @@ const buildAction = action => {
   );
 };
 
-const buildTabletHeader = (title, open = true) => {
+const buildTabletHeader = (title, open) => {
   const idSwitch = 'input-summary-wizard';
   return (
     <div className={style.tabletsummaryTitle}>
@@ -108,16 +109,16 @@ const buildTabletHeader = (title, open = true) => {
 };
 
 const WizardSummary = props => {
-  const {title, sections, action} = props;
+  const {open = false, title, sections, action} = props;
 
   const sectionView = buildSections(sections);
-  const tabletHeader = buildTabletHeader(title);
+  const tabletHeader = buildTabletHeader(title, open);
   const actionView = buildAction(action);
 
   return (
     <div className={style.container}>
       <span className={style.desktopSummaryTitle}>{title}</span>
-      <div className={style.summary}>
+      <div className={classnames(style.summary, open ? style.open : style.closed)}>
         {tabletHeader}
         {sectionView}
       </div>
@@ -127,6 +128,7 @@ const WizardSummary = props => {
 };
 
 WizardSummary.propTypes = {
+  open: PropTypes.bool,
   title: PropTypes.string,
   sections: PropTypes.arrayOf(
     PropTypes.shape({
@@ -140,7 +142,8 @@ WizardSummary.propTypes = {
           }),
           PropTypes.shape({
             type: PropTypes.string,
-            text: PropTypes.string
+            text: PropTypes.string,
+            unsaved: PropTypes.bool
           }),
           PropTypes.shape({
             type: PropTypes.string,
@@ -156,7 +159,8 @@ WizardSummary.propTypes = {
             ]),
             title: PropTypes.string,
             label: PropTypes.string,
-            author: PropTypes.string
+            author: PropTypes.string,
+            unsaved: PropTypes.bool
           })
         ])
       ),
