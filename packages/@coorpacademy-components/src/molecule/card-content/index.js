@@ -166,7 +166,7 @@ const ContentInfo = ({
       >
         <div className={style.iconWrapper}>
           {adaptiveIcon}
-          {!empty && badgeLabel && badgeCategory && (courseContent || chapterContent) ? (
+          {!empty && badgeLabel && badgeCategory && courseContent ? (
             <ContentBadge category={badgeCategory} label={badgeLabel} />
           ) : null}
         </div>
