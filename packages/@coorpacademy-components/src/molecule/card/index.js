@@ -246,6 +246,6 @@ Card.propTypes = {
   isSelected: PropTypes.bool,
   notification: PropTypes.shape(Notification.propTypes),
   badgeCategory: CardContentInfo.propTypes.category,
-  badgeLabel: CardContentInfo.propTypes.label,
+  badgeLabel: CardContentInfo.propTypes.label
 };
 export default Card;

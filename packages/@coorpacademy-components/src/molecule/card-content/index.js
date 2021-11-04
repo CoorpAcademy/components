@@ -167,7 +167,7 @@ const ContentInfo = ({
         <div className={style.iconWrapper}>
           {adaptiveIcon}
           {!empty && badgeLabel && badgeCategory && (courseContent || chapterContent) ? (
-            <ContentBadge category={badgeCategory} label={badgeLabel} /> 
+            <ContentBadge category={badgeCategory} label={badgeLabel} />
           ) : null}
         </div>
         <CardTitle title={title} empty={empty} courseContent={courseContent} />
@@ -198,8 +198,7 @@ ContentInfo.propTypes = {
   type: PropTypes.string,
   mode: PropTypes.string,
   badgeCategory: ContentBadge.propTypes.category,
-  badgeLabel: ContentBadge.propTypes.label,
-
+  badgeLabel: ContentBadge.propTypes.label
 };
 
 export default ContentInfo;
