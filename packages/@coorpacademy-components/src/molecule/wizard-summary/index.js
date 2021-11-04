@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {NovaSolidComputersSdCard} from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
-import ContentBagde from '../../atom/content-badge';
+import ContentBadge from '../../atom/content-badge';
 import style from './style.css';
 
 const buildItemsOfSection = items => {
@@ -23,7 +23,7 @@ const buildItemsOfSection = items => {
             <span className={style.contentCounter}>{index + 1}</span>
             <div className={style.contentItem}>
               <div className={style.content}>
-                <ContentBagde category={category} label={label} />
+                <ContentBadge category={category} label={label} />
                 <span
                   className={style.contentTitle}
                   title={title}

@@ -1,4 +1,5 @@
 @value colors: "../../variables/colors.css";
+@value breakpoints: "../../variables/breakpoints.css";
 @value cm_grey_50 from colors;
 @value cm_grey_300 from colors;
 @value cm_grey_400 from colors;
@@ -12,6 +13,7 @@
 @value cm_bleu_article from colors;
 @value cm_red_video from colors;
 @value cm_violet_podcast from colors;
+@value cm_tablet from breakpoints;
 
 .container {
   font-family: Gilroy;
@@ -23,6 +25,8 @@
   position: absolute;
   top: 0px;
   bottom: 0px;
+  display: flex;
+  flex-direction: column;
 }
 
 .summary {
@@ -147,4 +151,36 @@ ul {
   font-weight: 500;
   font-style: normal;
   color: cm_grey_300;
+}
+
+@media cm_tablet {
+  .container {
+    background-color: white;
+    width: calc(100% - 64px);
+    left: 0px;
+    right: 0px;
+    flex-direction: row;
+    align-items: flex-end;
+    padding: 0px;
+    margin: 0px 32px 0px 32px;
+  }
+
+  .summaryTitle {
+    display: none;
+  }
+
+  .summary {
+    width: calc(65% - 48px);
+    background-color: cm_grey_50;
+    padding: 24px;
+    max-height: 582px;
+    height: auto;
+  }
+
+  .actionZone {
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    margin: 0px 0px 12px 0px;
+  }
 }
