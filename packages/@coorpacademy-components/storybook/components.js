@@ -126,6 +126,7 @@ import MoleculeUnsubscribe from './../src/molecule/unsubscribe';
 import MoleculeVerticalTabs from './../src/molecule/vertical-tabs';
 import MoleculeVideoIframe from './../src/molecule/video-iframe';
 import MoleculeVideoPlayer from './../src/molecule/video-player';
+import MoleculeWizardSummary from './../src/molecule/wizard-summary';
 import OrganismAccordionContainer from './../src/organism/accordion/container';
 import OrganismAccordionCoorpManagerPart from './../src/organism/accordion/coorp-manager/part';
 import OrganismAccordionCoorpManager from './../src/organism/accordion/coorp-manager';
@@ -684,6 +685,10 @@ import MoleculeVideoPlayerFixtureOmniPlayer from '../src/molecule/video-player/t
 import MoleculeVideoPlayerFixtureUptale from '../src/molecule/video-player/test/fixtures/uptale';
 import MoleculeVideoPlayerFixtureVimeo from '../src/molecule/video-player/test/fixtures/vimeo';
 import MoleculeVideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
+import MoleculeWizardSummaryFixtureDefault from '../src/molecule/wizard-summary/test/fixtures/default';
+import MoleculeWizardSummaryFixtureOneSection from '../src/molecule/wizard-summary/test/fixtures/one-section';
+import MoleculeWizardSummaryFixtureThreeSections from '../src/molecule/wizard-summary/test/fixtures/three-sections';
+import MoleculeWizardSummaryFixtureTwoSections from '../src/molecule/wizard-summary/test/fixtures/two-sections';
 import OrganismAccordionContainerFixtureDefault from '../src/organism/accordion/container/test/fixtures/default';
 import OrganismAccordionContainerFixtureNoChildren from '../src/organism/accordion/container/test/fixtures/no-children';
 import OrganismAccordionContainerFixtureOneChildren from '../src/organism/accordion/container/test/fixtures/one-children';
@@ -1107,7 +1112,8 @@ export const components = {
     MoleculeUnsubscribe,
     MoleculeVerticalTabs,
     MoleculeVideoIframe,
-    MoleculeVideoPlayer
+    MoleculeVideoPlayer,
+    MoleculeWizardSummary
   },
   MoleculeDashboard: {
     MoleculeDashboardBattleRequestList,
@@ -1896,6 +1902,12 @@ export const fixtures = {
       Uptale: MoleculeVideoPlayerFixtureUptale,
       Vimeo: MoleculeVideoPlayerFixtureVimeo,
       Youtube: MoleculeVideoPlayerFixtureYoutube
+    },
+    MoleculeWizardSummary: {
+      Default: MoleculeWizardSummaryFixtureDefault,
+      OneSection: MoleculeWizardSummaryFixtureOneSection,
+      ThreeSections: MoleculeWizardSummaryFixtureThreeSections,
+      TwoSections: MoleculeWizardSummaryFixtureTwoSections
     }
   },
   MoleculeDashboard: {
