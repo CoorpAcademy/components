@@ -49,6 +49,7 @@ import HocTransition from './../src/hoc/transition';
 import MoleculeAddToMyList from './../src/molecule/add-to-my-list';
 import MoleculeAnswer from './../src/molecule/answer';
 import MoleculeAudio from './../src/molecule/audio';
+import MoleculeBanner from './../src/molecule/banner';
 import MoleculeBattleRequest from './../src/molecule/battle-request';
 import MoleculeBrandCard from './../src/molecule/brand-card';
 import MoleculeBrandCardCreate from './../src/molecule/brand-card-create';
@@ -377,6 +378,8 @@ import MoleculeAnswerFixtureRange from '../src/molecule/answer/test/fixtures/ran
 import MoleculeAnswerFixtureTemplate from '../src/molecule/answer/test/fixtures/template';
 import MoleculeAudioFixtureDefault from '../src/molecule/audio/test/fixtures/default';
 import MoleculeAudioFixtureWithPoster from '../src/molecule/audio/test/fixtures/with-poster';
+import MoleculeBannerFixtureDefault from '../src/molecule/banner/test/fixtures/default';
+import MoleculeBannerFixtureErrorBanner from '../src/molecule/banner/test/fixtures/error-banner';
 import MoleculeBattleRequestFixtureArabic from '../src/molecule/battle-request/test/fixtures/arabic';
 import MoleculeBattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import MoleculeBrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
@@ -426,6 +429,8 @@ import MoleculeCardFixtureFreerunAndDisabled from '../src/molecule/card/test/fix
 import MoleculeCardFixtureFreerun from '../src/molecule/card/test/fixtures/freerun';
 import MoleculeCardFixturePodcast from '../src/molecule/card/test/fixtures/podcast';
 import MoleculeCardFixtureScorm from '../src/molecule/card/test/fixtures/scorm';
+import MoleculeCardFixtureSelectableFalse from '../src/molecule/card/test/fixtures/selectable-false';
+import MoleculeCardFixtureSelectableTrue from '../src/molecule/card/test/fixtures/selectable-true';
 import MoleculeCardFixtureVideo from '../src/molecule/card/test/fixtures/video';
 import MoleculeCardContentFixtureAdaptivAndDisabled from '../src/molecule/card-content/test/fixtures/adaptiv-and-disabled';
 import MoleculeCardContentFixtureAdaptiv from '../src/molecule/card-content/test/fixtures/adaptiv';
@@ -1050,6 +1055,7 @@ export const components = {
     MoleculeAddToMyList,
     MoleculeAnswer,
     MoleculeAudio,
+    MoleculeBanner,
     MoleculeBattleRequest,
     MoleculeBrandCard,
     MoleculeBrandCardCreate,
@@ -1513,6 +1519,10 @@ export const fixtures = {
       Default: MoleculeAudioFixtureDefault,
       WithPoster: MoleculeAudioFixtureWithPoster
     },
+    MoleculeBanner: {
+      Default: MoleculeBannerFixtureDefault,
+      ErrorBanner: MoleculeBannerFixtureErrorBanner
+    },
     MoleculeBattleRequest: {
       Arabic: MoleculeBattleRequestFixtureArabic,
       Default: MoleculeBattleRequestFixtureDefault
@@ -1581,6 +1591,8 @@ export const fixtures = {
       Freerun: MoleculeCardFixtureFreerun,
       Podcast: MoleculeCardFixturePodcast,
       Scorm: MoleculeCardFixtureScorm,
+      SelectableFalse: MoleculeCardFixtureSelectableFalse,
+      SelectableTrue: MoleculeCardFixtureSelectableTrue,
       Video: MoleculeCardFixtureVideo
     },
     MoleculeCardContent: {

@@ -148,6 +148,7 @@ import _NovaSolidDesignPaintBrush2 from './components/nova-solid/design/paint-br
 import _NovaSolidEmailAtSign from './components/nova-solid/email/at-sign';
 import _NovaSolidFilesBasicFileUpload2 from './components/nova-solid/files-basic/file-upload-2';
 import _NovaSolidInterfaceFeedbackInterfaceAlertCircle from './components/nova-solid/interface-feedback/interface-alert-circle';
+import _NovaSolidInterfaceFeedbackInterfaceAlertDiamond from './components/nova-solid/interface-feedback/interface-alert-diamond';
 import _NovaSolidInterfaceFeedbackInterfaceAlertTriangle from './components/nova-solid/interface-feedback/interface-alert-triangle';
 import _NovaSolidInterfaceFeedbackInterfaceQuestionMark from './components/nova-solid/interface-feedback/interface-question-mark';
 import _NovaSolidLightsLightbulb4 from './components/nova-solid/lights/lightbulb-4';
@@ -164,6 +165,7 @@ import _NovaSolidProgrammingProgrammingJigsaw from './components/nova-solid/prog
 import _NovaSolidRemoveAddAdd1 from './components/nova-solid/remove-add/add-1';
 import _NovaSolidRemoveAddAddCircle1 from './components/nova-solid/remove-add/add-circle-1';
 import _NovaSolidRemoveAddAddCircle2 from './components/nova-solid/remove-add/add-circle-2';
+import _NovaSolidRemoveAddRemoveCircle1 from './components/nova-solid/remove-add/remove-circle-1';
 import _NovaSolidRemoveAddSubtract1 from './components/nova-solid/remove-add/subtract-1';
 import _NovaSolidResizeMoveExpandDiagonal3 from './components/nova-solid/resize-move/expand-diagonal-3';
 import _NovaSolidResizeMoveShrinkDiagonal1 from './components/nova-solid/resize-move/shrink-diagonal-1';
@@ -324,6 +326,7 @@ export const NovaSolidDesignPaintBrush2: Icon = _NovaSolidDesignPaintBrush2;
 export const NovaSolidEmailAtSign: Icon = _NovaSolidEmailAtSign;
 export const NovaSolidFilesBasicFileUpload2: Icon = _NovaSolidFilesBasicFileUpload2;
 export const NovaSolidInterfaceFeedbackInterfaceAlertCircle: Icon = _NovaSolidInterfaceFeedbackInterfaceAlertCircle;
+export const NovaSolidInterfaceFeedbackInterfaceAlertDiamond: Icon = _NovaSolidInterfaceFeedbackInterfaceAlertDiamond;
 export const NovaSolidInterfaceFeedbackInterfaceAlertTriangle: Icon = _NovaSolidInterfaceFeedbackInterfaceAlertTriangle;
 export const NovaSolidInterfaceFeedbackInterfaceQuestionMark: Icon = _NovaSolidInterfaceFeedbackInterfaceQuestionMark;
 export const NovaSolidLightsLightbulb4: Icon = _NovaSolidLightsLightbulb4;
@@ -340,6 +343,7 @@ export const NovaSolidProgrammingProgrammingJigsaw: Icon = _NovaSolidProgramming
 export const NovaSolidRemoveAddAdd1: Icon = _NovaSolidRemoveAddAdd1;
 export const NovaSolidRemoveAddAddCircle1: Icon = _NovaSolidRemoveAddAddCircle1;
 export const NovaSolidRemoveAddAddCircle2: Icon = _NovaSolidRemoveAddAddCircle2;
+export const NovaSolidRemoveAddRemoveCircle1: Icon = _NovaSolidRemoveAddRemoveCircle1;
 export const NovaSolidRemoveAddSubtract1: Icon = _NovaSolidRemoveAddSubtract1;
 export const NovaSolidResizeMoveExpandDiagonal3: Icon = _NovaSolidResizeMoveExpandDiagonal3;
 export const NovaSolidResizeMoveShrinkDiagonal1: Icon = _NovaSolidResizeMoveShrinkDiagonal1;

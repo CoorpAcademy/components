@@ -11,6 +11,7 @@ import Provider from '../../atom/provider';
 import CardContentInfo, {MODES} from '../card-content';
 import Customer from './customer';
 import Favorite from './favorite';
+import Selectable from './selectable';
 import Notification from './notification';
 import style from './style.css';
 
@@ -123,7 +124,10 @@ const Card = memo(function Card(props, context) {
     removeFavoriteToolTip,
     onClick,
     onFavoriteClick,
-    notification
+    isSelected,
+    notification,
+    badgeCategory,
+    badgeLabel
   } = props;
   const empty = isEmpty(pick(['title', 'type', 'author', 'image'], props));
   const primaryColor = get('common.primary', skin);
@@ -135,7 +139,6 @@ const Card = memo(function Card(props, context) {
     empty ? style.empty : null
   );
   const handleClick = useMemo(() => e => !disabled && onClick(e), [onClick]);
-
   const lock = disabled ? (
     <LockIcon className={style.lockIcon} color={whiteColor} height={40} />
   ) : null;
@@ -150,6 +153,7 @@ const Card = memo(function Card(props, context) {
         return contentType;
     }
   };
+
   return (
     <div
       className={cardStyle}
@@ -160,7 +164,7 @@ const Card = memo(function Card(props, context) {
       onClick={handleClick}
     >
       <CardBackground type={type} image={image} empty={empty} />
-      {!isUndefined(favorite) ? (
+      {isUndefined(isSelected) && !isUndefined(favorite) ? (
         <Favorite
           className={style.favorite}
           favorite={favorite}
@@ -170,6 +174,7 @@ const Card = memo(function Card(props, context) {
           removeFavoriteToolTip={removeFavoriteToolTip}
         />
       ) : null}
+      <Selectable isSelected={isSelected} />
       {notification ? <Notification {...notification} /> : null}
       {customer ? (
         <Customer
@@ -187,6 +192,8 @@ const Card = memo(function Card(props, context) {
         progress={progress}
         title={title}
         type={type}
+        badgeCategory={badgeCategory}
+        badgeLabel={badgeLabel}
       />
       {badge ? (
         <div className={style.badge} style={inlineBadgeStyle}>
@@ -218,6 +225,9 @@ Card.propTypes = {
   removeFavoriteToolTip: PropTypes.string,
   onClick: PropTypes.func,
   onFavoriteClick: PropTypes.func,
-  notification: PropTypes.shape(Notification.propTypes)
+  isSelected: PropTypes.bool,
+  notification: PropTypes.shape(Notification.propTypes),
+  badgeCategory: CardContentInfo.propTypes.badgeCategory,
+  badgeLabel: CardContentInfo.propTypes.badgeLabel
 };
 export default Card;

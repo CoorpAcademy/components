@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import style from './style.css';
 
-const ContentBagde = props => {
+const ContentBadge = props => {
   const {category, label} = props;
   return (
     <span
@@ -23,7 +23,7 @@ const ContentBagde = props => {
   );
 };
 
-ContentBagde.propTypes = {
+ContentBadge.propTypes = {
   category: PropTypes.oneOf([
     'base',
     'advanced',
@@ -37,4 +37,4 @@ ContentBagde.propTypes = {
   label: PropTypes.string
 };
 
-export default ContentBagde;
+export default ContentBadge;
