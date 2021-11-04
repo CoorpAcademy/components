@@ -24,7 +24,16 @@ const ContentBagde = props => {
 };
 
 ContentBagde.propTypes = {
-  category: PropTypes.string,
+  category: PropTypes.oneOf([
+    'base',
+    'advanced',
+    'coach',
+    'chapter',
+    'scorm',
+    'video',
+    'article',
+    'podcast'
+  ]),
   label: PropTypes.string
 };
 
