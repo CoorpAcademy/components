@@ -42,13 +42,17 @@
 @value cm_positive_100: #35CC7F;
 @value cm_negative_100: #ed3436;
 @value cm_negative_200: #b81400;
+@value cm_negative_50: #ffe5e6;
+@value cm_green_50: #e8fcf8;
+@value cm_green_200: #16ac8c;
 @value cm_orange_200: #FF7043;
 @value cm_orange_700: #ff4105;
-@value cm_green_200: #16ac8c;
-@value cm_green_50: #e8fcf8;
 @value cm_pink_50: #ffefeb;
 @value cm_purple_200: #7340FF;
 @value cm_yellow_scorm: #FFB800;
 @value cm_bleu_article: #365FCD;
 @value cm_red_video: #E8335E;
 @value cm_violet_podcast: #432ba7;
+@value cm_warning_50: rgba(255, 192, 67, 0.13);
+@value cm_warning_200: #db9200;
+

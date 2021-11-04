@@ -49,6 +49,7 @@ import HocTransition from './../src/hoc/transition';
 import MoleculeAddToMyList from './../src/molecule/add-to-my-list';
 import MoleculeAnswer from './../src/molecule/answer';
 import MoleculeAudio from './../src/molecule/audio';
+import MoleculeBanner from './../src/molecule/banner';
 import MoleculeBattleRequest from './../src/molecule/battle-request';
 import MoleculeBrandCard from './../src/molecule/brand-card';
 import MoleculeBrandCardCreate from './../src/molecule/brand-card-create';
@@ -377,6 +378,8 @@ import MoleculeAnswerFixtureRange from '../src/molecule/answer/test/fixtures/ran
 import MoleculeAnswerFixtureTemplate from '../src/molecule/answer/test/fixtures/template';
 import MoleculeAudioFixtureDefault from '../src/molecule/audio/test/fixtures/default';
 import MoleculeAudioFixtureWithPoster from '../src/molecule/audio/test/fixtures/with-poster';
+import MoleculeBannerFixtureDefault from '../src/molecule/banner/test/fixtures/default';
+import MoleculeBannerFixtureErrorBanner from '../src/molecule/banner/test/fixtures/error-banner';
 import MoleculeBattleRequestFixtureArabic from '../src/molecule/battle-request/test/fixtures/arabic';
 import MoleculeBattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import MoleculeBrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
@@ -1050,6 +1053,7 @@ export const components = {
     MoleculeAddToMyList,
     MoleculeAnswer,
     MoleculeAudio,
+    MoleculeBanner,
     MoleculeBattleRequest,
     MoleculeBrandCard,
     MoleculeBrandCardCreate,
@@ -1512,6 +1516,10 @@ export const fixtures = {
     MoleculeAudio: {
       Default: MoleculeAudioFixtureDefault,
       WithPoster: MoleculeAudioFixtureWithPoster
+    },
+    MoleculeBanner: {
+      Default: MoleculeBannerFixtureDefault,
+      ErrorBanner: MoleculeBannerFixtureErrorBanner
     },
     MoleculeBattleRequest: {
       Arabic: MoleculeBattleRequestFixtureArabic,
