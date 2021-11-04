@@ -9,6 +9,7 @@ import {
 } from '@coorpacademy/nova-icons';
 import {isExternalContent, EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
 import Provider from '../../atom/provider';
+import ContentBadge from '../../atom/content-badge';
 import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
 
@@ -121,7 +122,9 @@ const ContentInfo = ({
   mode = MODES.CARD,
   progress,
   title,
-  type
+  type,
+  badgeCategory,
+  badgeLabel
 }) => {
   const progressBarColor = '#3EC483';
   const inlineProgressValueStyle = {
@@ -161,7 +164,12 @@ const ContentInfo = ({
       <div
         className={classnames(style.cardInfo, chapterContent ? style.microLearningCardInfo : null)}
       >
-        {adaptiveIcon}
+        <div className={style.iconWrapper}>
+          {adaptiveIcon}
+          {!empty && badgeLabel && badgeCategory && (courseContent || chapterContent) ? (
+            <ContentBadge category={badgeCategory} label={badgeLabel} /> 
+          ) : null}
+        </div>
         <CardTitle title={title} empty={empty} courseContent={courseContent} />
         <AuthorName
           author={author}
@@ -188,7 +196,10 @@ ContentInfo.propTypes = {
   progress: PropTypes.number,
   title: PropTypes.string,
   type: PropTypes.string,
-  mode: PropTypes.string
+  mode: PropTypes.string,
+  badgeCategory: ContentBadge.propTypes.category,
+  badgeLabel: ContentBadge.propTypes.label,
+
 };
 
 export default ContentInfo;

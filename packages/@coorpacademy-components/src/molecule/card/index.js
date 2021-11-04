@@ -126,7 +126,9 @@ const Card = memo(function Card(props, context) {
     onClick,
     onFavoriteClick,
     isSelected,
-    notification
+    notification,
+    badgeCategory,
+    badgeLabel
   } = props;
   const empty = isEmpty(pick(['title', 'type', 'author', 'image'], props));
   const primaryColor = get('common.primary', skin);
@@ -208,6 +210,8 @@ const Card = memo(function Card(props, context) {
         progress={progress}
         title={title}
         type={type}
+        badgeCategory={badgeCategory}
+        badgeLabel={badgeLabel}
       />
       {badge ? (
         <div className={style.badge} style={inlineBadgeStyle}>
@@ -240,6 +244,8 @@ Card.propTypes = {
   onClick: PropTypes.func,
   onFavoriteClick: PropTypes.func,
   isSelected: PropTypes.bool,
-  notification: PropTypes.shape(Notification.propTypes)
+  notification: PropTypes.shape(Notification.propTypes),
+  badgeCategory: CardContentInfo.propTypes.category,
+  badgeLabel: CardContentInfo.propTypes.label,
 };
 export default Card;
