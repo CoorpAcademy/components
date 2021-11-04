@@ -227,7 +227,7 @@ Card.propTypes = {
   onFavoriteClick: PropTypes.func,
   isSelected: PropTypes.bool,
   notification: PropTypes.shape(Notification.propTypes),
-  badgeCategory: CardContentInfo.propTypes.category,
-  badgeLabel: CardContentInfo.propTypes.label
+  badgeCategory: CardContentInfo.propTypes.badgeCategory,
+  badgeLabel: CardContentInfo.propTypes.badgeLabel
 };
 export default Card;
