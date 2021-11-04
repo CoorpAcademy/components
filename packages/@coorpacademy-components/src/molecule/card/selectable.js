@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {isUndefined} from 'lodash/fp';
 import {
   NovaSolidStatusCheckCircle2 as CheckIcon,
@@ -14,7 +15,7 @@ const Selectable = props => {
   if (isUndefined(isSelected)) return null;
 
   return (
-    <div className={style.selectable} data-name={`selected-${isSelected}`}>
+    <div className={classnames(style.selectable, isSelected && style.selected)}>
       <div className={style.circle} />
       <div className={style.iconWrapper}>
         <RemoveIcon className={style.removeIcon} />

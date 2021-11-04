@@ -50,30 +50,22 @@
   composes: icons;
 }
 
-[data-name="selected-false"]:hover .addIcon {
+.selectable:hover .addIcon,
+.selectable:hover .circle {
   display: block;
 }
 
-[data-name="selected-false"]:hover .circle {
+.selectable.selected .checkIcon,
+.selectable.selected .circle,
+.selectable.selected:hover .removeIcon {
   display: block;
 }
 
-[data-name="selected-true"] .checkIcon {
+.selectable.selected:hover .circle {
   display: block;
 }
 
-[data-name="selected-true"] .circle {
-  display: block;
-}
-
-[data-name="selected-true"]:hover .removeIcon {
-  display: block;
-}
-
-[data-name="selected-true"]:hover .circle {
-  display: block;
-}
-
-[data-name="selected-true"]:hover .checkIcon {
+.selectable.selected:hover .checkIcon,
+.selectable.selected:hover .addIcon {
   display: none;
 }
