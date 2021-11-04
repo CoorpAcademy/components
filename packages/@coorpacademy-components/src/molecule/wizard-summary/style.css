@@ -157,6 +157,10 @@ ul {
   color: cm_grey_300;
 }
 
+.checkbox {
+  display: none;
+}
+
 @media cm_tablet {
   .container {
     background-color: white;
@@ -174,7 +178,8 @@ ul {
   }
 
   .tabletsummaryTitle {
-    display: block;
+    display: flex;
+    justify-content: space-between;
     font-size: 14px;
     font-weight: bold;
   }
@@ -196,5 +201,10 @@ ul {
 
   .sectionWrapper:nth-child(2) {
     margin: 32px 0px 0px 0px;
+  }
+
+  label {
+    width: 12px;
+    right: 0px;
   }
 }

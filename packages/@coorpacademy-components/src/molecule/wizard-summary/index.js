@@ -1,6 +1,10 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {NovaSolidComputersSdCard} from '@coorpacademy/nova-icons';
+import {
+  NovaSolidComputersSdCard as SaveIcon,
+  NovaCompositionNavigationArrowDown as ArrowDownIcon,
+  NovaCompositionNavigationArrowTop as ArrowUpIcon
+} from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
 import ContentBadge from '../../atom/content-badge';
 import style from './style.css';
@@ -80,9 +84,26 @@ const buildAction = action => {
   const handleClick = useMemo(() => () => onClick(), [onClick]);
   return (
     <Link className={style.actionLink} onClick={handleClick}>
-      {icon === 'draft' ? <NovaSolidComputersSdCard className={style.icon} /> : null}
+      {icon === 'draft' ? <SaveIcon className={style.icon} /> : null}
       <span>{text}</span>
     </Link>
+  );
+};
+
+const buildTabletHeader = (title, open = true) => {
+  const idSwitch = 'input-summary-wizard';
+  return (
+    <div className={style.tabletsummaryTitle}>
+      <span>{title}</span>
+      <input
+        type="checkbox"
+        id={idSwitch}
+        name="toogle"
+        checked={open}
+        className={style.checkbox}
+      />
+      <label htmlFor={idSwitch}>{open ? <ArrowDownIcon /> : <ArrowUpIcon />}</label>
+    </div>
   );
 };
 
@@ -90,15 +111,14 @@ const WizardSummary = props => {
   const {title, sections, action} = props;
 
   const sectionView = buildSections(sections);
+  const tabletHeader = buildTabletHeader(title);
   const actionView = buildAction(action);
 
   return (
     <div className={style.container}>
       <span className={style.desktopSummaryTitle}>{title}</span>
       <div className={style.summary}>
-        <div className={style.tabletsummaryTitle}>
-          <span>{title}</span>
-        </div>
+        {tabletHeader}
         {sectionView}
       </div>
       <div className={style.actionZone}>{actionView}</div>
