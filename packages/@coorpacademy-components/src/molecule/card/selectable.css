@@ -20,6 +20,7 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
+  display: none;
 }
 
 .iconWrapper {
@@ -31,6 +32,7 @@
 .icons {
   width: 48px;
   height: 48px;
+  display: none;
 }
 
 .checkIcon {
@@ -46,4 +48,32 @@
 .addIcon {
   color: cm_grey_400;
   composes: icons;
+}
+
+[data-name="selected-false"]:hover .addIcon {
+  display: block;
+}
+
+[data-name="selected-false"]:hover .circle {
+  display: block;
+}
+
+[data-name="selected-true"] .checkIcon {
+  display: block;
+}
+
+[data-name="selected-true"] .circle {
+  display: block;
+}
+
+[data-name="selected-true"]:hover .removeIcon {
+  display: block;
+}
+
+[data-name="selected-true"]:hover .circle {
+  display: block;
+}
+
+[data-name="selected-true"]:hover .checkIcon {
+  display: none;
 }

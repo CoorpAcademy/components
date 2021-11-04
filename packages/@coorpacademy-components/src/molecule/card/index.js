@@ -1,4 +1,4 @@
-import React, {useMemo, useState, memo} from 'react';
+import React, {useMemo, memo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {get, isEmpty, isUndefined, pick} from 'lodash/fp';
@@ -107,7 +107,6 @@ CardBackground.propTypes = {
 };
 
 const Card = memo(function Card(props, context) {
-  const [isMouseHoverState, updateMouseHoverState] = useState(false);
   const {skin} = context;
   const {
     image,
@@ -140,21 +139,6 @@ const Card = memo(function Card(props, context) {
     empty ? style.empty : null
   );
   const handleClick = useMemo(() => e => !disabled && onClick(e), [onClick]);
-
-  const handleMouseEnter = useMemo(
-    () => e => {
-      updateMouseHoverState(true);
-    },
-    []
-  );
-
-  const handleMouseLeave = useMemo(
-    () => e => {
-      updateMouseHoverState(false);
-    },
-    []
-  );
-
   const lock = disabled ? (
     <LockIcon className={style.lockIcon} color={whiteColor} height={40} />
   ) : null;
@@ -178,8 +162,6 @@ const Card = memo(function Card(props, context) {
       data-type={getType(type)}
       disabled={disabled}
       onClick={handleClick}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
     >
       <CardBackground type={type} image={image} empty={empty} />
       {isUndefined(isSelected) && !isUndefined(favorite) ? (
@@ -192,7 +174,7 @@ const Card = memo(function Card(props, context) {
           removeFavoriteToolTip={removeFavoriteToolTip}
         />
       ) : null}
-      <Selectable isCardHovered={isMouseHoverState} isSelected={isSelected} />
+      <Selectable isSelected={isSelected} />
       {notification ? <Notification {...notification} /> : null}
       {customer ? (
         <Customer
