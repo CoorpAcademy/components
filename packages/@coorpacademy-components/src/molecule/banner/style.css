@@ -22,7 +22,6 @@
 }
 
 .errorBanner {
-    composes: banner;
     background-color: cm_negative_50;
     color: cm_negative_200;
 }
