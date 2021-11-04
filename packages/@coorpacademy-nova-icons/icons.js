@@ -159,6 +159,7 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/data-upload-1.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/expand-diagonal-3.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/graduation-hat.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/remove-circle-1.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/interface-alert-circle.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/interface-alert-diamond.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/interface-alert-triangle.svg')},
