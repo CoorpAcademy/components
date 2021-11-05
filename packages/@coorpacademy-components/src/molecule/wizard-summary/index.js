@@ -113,7 +113,7 @@ const buildTabletHeader = (title, tabletOpen, tabletOnChange) => {
 const WizardSummary = props => {
   const {tabletOpen, tabletOnChange, title, sections, action} = props;
 
-  const sectionView = buildSections(sections);
+  const sectionsView = buildSections(sections);
   const tabletHeader = buildTabletHeader(title, tabletOpen, tabletOnChange);
   const actionView = buildAction(action);
 
@@ -122,7 +122,7 @@ const WizardSummary = props => {
       <span className={style.desktopSummaryTitle}>{title}</span>
       <div className={classnames(style.summary, tabletOpen ? style.open : style.closed)}>
         {tabletHeader}
-        {sectionView}
+        <div className={style.summarySections}>{sectionsView}</div>
       </div>
       <div className={style.actionZone}>{actionView}</div>
     </div>

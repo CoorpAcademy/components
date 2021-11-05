@@ -31,6 +31,10 @@
 
 .summary {
   height: calc(100% - 90px);
+}
+
+.summarySections {
+  height: 100%;
   overflow: hidden auto;
 }
 
@@ -72,7 +76,7 @@
   margin: 32px 0px 0px 0px;
 }
 
-.sectionWrapper:nth-child(2) {
+.sectionWrapper:nth-child(1) {
   margin: 0px;
 }
 
@@ -182,6 +186,7 @@ ul {
     justify-content: space-between;
     font-size: 14px;
     font-weight: bold;
+    padding: 0px 0px 32px 0px;
   }
 
   .summary {
@@ -197,8 +202,8 @@ ul {
     margin: 0px 0px 12px 0px;
   }
 
-  .sectionWrapper:nth-child(2) {
-    margin: 32px 0px 0px 0px;
+  .sectionWrapper:nth-child(1) {
+    margin: 0px;
   }
 
   label {
@@ -207,8 +212,7 @@ ul {
   }
 
   .open {
-    height: auto;
-    max-height: 582px;
+    height: 65%;
     padding: 24px;
     box-shadow: 0 -6px 42px -14px rgba(0, 0, 0, 0.25);
     transition: all 0.5s ease;
