@@ -163,14 +163,14 @@ ul {
 
 @media cm_tablet {
   .container {
-    background-color: white;
+    background-color: transparent;
     width: calc(100% - 64px);
     left: 0px;
     right: 0px;
     flex-direction: row;
     align-items: flex-end;
-    padding: 0px;
-    margin: 0px 32px 0px 32px;
+    padding: 0px 32px 0px 32px;
+    margin: 0px;
   }
 
   .desktopSummaryTitle {
@@ -187,6 +187,7 @@ ul {
   .summary {
     width: calc(65% - 48px);
     background-color: cm_grey_50;
+    border-radius: 7px;
   }
 
   .actionZone {
@@ -209,10 +210,11 @@ ul {
     height: auto;
     max-height: 582px;
     padding: 24px;
+    box-shadow: 0 -6px 42px -14px rgba(0, 0, 0, 0.25);
   }
 
   .closed {
     height: 20px;
-    padding: 12px 16px 12px 24px;
+    padding: 12px 24px 12px 24px;
   }
 }
