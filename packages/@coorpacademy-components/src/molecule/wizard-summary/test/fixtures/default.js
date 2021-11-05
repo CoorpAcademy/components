@@ -31,7 +31,8 @@ export default {
           },
           {
             type: 'text',
-            text: '🇮🇹 Italian'
+            text: '🇮🇹 Italian',
+            unsaved: true
           }
         ]
       },
@@ -41,9 +42,14 @@ export default {
           {
             type: 'text',
             text: 'Population 2'
+          },
+          {
+            type: 'text',
+            text: 'Population 1',
+            unsaved: true
           }
         ],
-        counterText: '1 population'
+        counterText: '2 population'
       },
       {
         title: 'Courses',
@@ -60,7 +66,8 @@ export default {
             title: 'Markteting and online advertising',
             category: 'base',
             label: 'Base',
-            author: 'Coorpacademy'
+            author: 'Coorpacademy',
+            unsaved: true
           },
           {
             type: 'content',
