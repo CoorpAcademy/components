@@ -1,6 +1,7 @@
 export default {
   props: {
-    open: true,
+    tabletOpen: true,
+    tabletOnChange: () => console.log('on change'),
     title: 'Certification summary',
     sections: [
       {

@@ -91,7 +91,8 @@ const buildAction = action => {
   );
 };
 
-const buildTabletHeader = (title, open) => {
+const buildTabletHeader = (title, tabletOpen, tabletOnChange) => {
+  const handleChange = useMemo(() => e => tabletOnChange(e.target.checked), [tabletOnChange]);
   const idSwitch = 'input-summary-wizard';
   return (
     <div className={style.tabletsummaryTitle}>
@@ -100,25 +101,26 @@ const buildTabletHeader = (title, open) => {
         type="checkbox"
         id={idSwitch}
         name="toogle"
-        checked={open}
+        checked={tabletOpen}
         className={style.checkbox}
+        onChange={handleChange}
       />
-      <label htmlFor={idSwitch}>{open ? <ArrowDownIcon /> : <ArrowUpIcon />}</label>
+      <label htmlFor={idSwitch}>{tabletOpen ? <ArrowDownIcon /> : <ArrowUpIcon />}</label>
     </div>
   );
 };
 
 const WizardSummary = props => {
-  const {open = false, title, sections, action} = props;
+  const {tabletOpen, tabletOnChange, title, sections, action} = props;
 
   const sectionView = buildSections(sections);
-  const tabletHeader = buildTabletHeader(title, open);
+  const tabletHeader = buildTabletHeader(title, tabletOpen, tabletOnChange);
   const actionView = buildAction(action);
 
   return (
     <div className={style.container}>
       <span className={style.desktopSummaryTitle}>{title}</span>
-      <div className={classnames(style.summary, open ? style.open : style.closed)}>
+      <div className={classnames(style.summary, tabletOpen ? style.open : style.closed)}>
         {tabletHeader}
         {sectionView}
       </div>
@@ -128,7 +130,8 @@ const WizardSummary = props => {
 };
 
 WizardSummary.propTypes = {
-  open: PropTypes.bool,
+  tabletOpen: PropTypes.bool,
+  tabletOnChange: PropTypes.func,
   title: PropTypes.string,
   sections: PropTypes.arrayOf(
     PropTypes.shape({
