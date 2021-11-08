@@ -1,5 +1,6 @@
 @value colors: "../../variables/colors.css";
 @value breakpoints: "../../variables/breakpoints.css";
+@value cm_primary_blue from colors;
 @value cm_grey_50 from colors;
 @value cm_grey_300 from colors;
 @value cm_grey_400 from colors;
@@ -41,6 +42,8 @@
 
 .actionZone {
   margin: 24px 0px 0px 0px;
+  display: flex;
+  justify-content: center;
 }
 
 .actionLink {
@@ -48,15 +51,20 @@
   font-size: 14px;
   font-style: normal;
   font-weight: bold;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
 }
 
+.actionLink:hover {
+  color: cm_primary_blue;
+}
+
 .icon {
   width: 14px;
   height: 14px;
+  margin: 0 8px 0 0;
 }
 
 .desktopSummaryTitle {
