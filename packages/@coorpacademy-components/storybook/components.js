@@ -62,6 +62,7 @@ import MoleculeBreadcrumbs from './../src/molecule/breadcrumbs';
 import MoleculeCard from './../src/molecule/card';
 import MoleculeCardContent from './../src/molecule/card-content';
 import MoleculeCardWithButton from './../src/molecule/card-with-button';
+import MoleculeCmPopin from './../src/molecule/cm-popin';
 import MoleculeCookieBanner from './../src/molecule/cookie-banner';
 import MoleculeCoorpManagerRoles from './../src/molecule/coorp-manager-roles';
 import MoleculeDashboardBattleRequestList from './../src/molecule/dashboard/battle-request-list';
@@ -443,6 +444,9 @@ import MoleculeCardContentFixtureHero from '../src/molecule/card-content/test/fi
 import MoleculeCardWithButtonFixtureDefault from '../src/molecule/card-with-button/test/fixtures/default';
 import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-button/test/fixtures/with-avatar';
 import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
+import MoleculeCmPopinFixtureDangerous from '../src/molecule/cm-popin/test/fixtures/dangerous';
+import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixtures/default';
+import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/test/fixtures/warning-with-close';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
 import MoleculeCoorpManagerRolesFixtureDefault from '../src/molecule/coorp-manager-roles/test/fixtures/default';
 import MoleculeDashboardBattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
@@ -1068,6 +1072,7 @@ export const components = {
     MoleculeCard,
     MoleculeCardContent,
     MoleculeCardWithButton,
+    MoleculeCmPopin,
     MoleculeCookieBanner,
     MoleculeCoorpManagerRoles,
     MoleculeDisciplineCta,
@@ -1609,6 +1614,11 @@ export const fixtures = {
       Default: MoleculeCardWithButtonFixtureDefault,
       WithAvatar: MoleculeCardWithButtonFixtureWithAvatar,
       WithoutLabel: MoleculeCardWithButtonFixtureWithoutLabel
+    },
+    MoleculeCmPopin: {
+      Dangerous: MoleculeCmPopinFixtureDangerous,
+      Default: MoleculeCmPopinFixtureDefault,
+      WarningWithClose: MoleculeCmPopinFixtureWarningWithClose
     },
     MoleculeCookieBanner: {
       Default: MoleculeCookieBannerFixtureDefault
