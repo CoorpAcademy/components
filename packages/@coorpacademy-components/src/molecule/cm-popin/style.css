@@ -1,0 +1,158 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value brand from colors;
+@value light from colors;
+@value black from colors;
+@value cm_grey_800 from colors;
+@value negative from colors;
+@value lightGreen from colors;
+@value cm_grey_50 from colors;
+@value cm_negative_100 from colors;
+@value cm_primary_blue from colors;
+@value cm_grey_100 from colors;
+@value cm_grey_200 from colors;
+@value cm_blue_600 from colors;
+
+
+.background {
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 15% 25%;
+  background-color: rgba(0, 0, 0, 0.2);
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  background-size: 'cover';
+}
+
+.popin {
+  position: absolute;
+  overflow: auto;
+  width: 500px;
+  height: 414px;
+  flex-grow: 0;
+  margin: 16px;
+  padding: 16px 16px 20px 16px;
+  border-radius: 20px;
+  background-color: cm_grey_50;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contentSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 65%;
+}
+
+.content {
+  font-family: Gilroy;
+  font-size: 20px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.4;
+  letter-spacing: normal;
+  text-align: center;
+  color: cm_grey_800;
+}
+
+.buttonContainer {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.button {
+  min-width: auto;
+  margin: 0px 8px;
+  border-radius: 7px;
+  transform: none;
+  background-color: cm_grey_100;
+}
+
+.dangerousButton {
+  background-color: cm_negative_100;
+  color: white;
+}
+
+.coloredButton {
+  background-color: cm_primary_blue;
+  color: white;
+}
+
+.dangerousButton:hover {
+  background-color: cm_negative_200;
+}
+
+.coloredButton:hover {
+  background-color: cm_blue_600;
+}
+
+.button::after,
+.button:hover::after,
+.button:focus::after,
+.button:active::after {
+  transform: none;
+}
+
+
+.buttonContent {
+  width: 180px;
+  padding: 12px 24px;
+  line-height: 1.43;
+  font-size: 14px;
+  font-weight: bold;
+  display: block;
+  text-transform: inherit;
+  font-family: Open Sans, sans-serif;
+  text-align: center;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+}
+.icon {
+  width: 60px;
+  height: 60px;
+  color: cm_grey_800;
+}
+
+.headerCloseIconContainer {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 16px;
+  margin-right: 16px;
+  border-radius: 7px;
+  cursor: pointer;
+  background-color: cm_grey_100;
+}
+
+.headerCloseIconContainer:hover {
+  background-color: cm_grey_200;
+}
+
+.headerCloseIcon {
+  width: 18px;
+  height: 18px;
+  color: cm_grey_800;
+}
+
+.popinHeader {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
