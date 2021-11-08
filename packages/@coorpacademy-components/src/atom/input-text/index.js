@@ -50,7 +50,7 @@ const InputText = props => {
       </div>
     ) : null;
   const hintView =
-    error || hint ? (
+    theme === 'coorpmanager' ? (
       <div
         className={style.hint}
         // eslint-disable-next-line react/no-danger

@@ -274,6 +274,7 @@ import AtomInputTextFixtureError from '../src/atom/input-text/test/fixtures/erro
 import AtomInputTextFixtureModified from '../src/atom/input-text/test/fixtures/modified';
 import AtomInputTextFixtureNotitle from '../src/atom/input-text/test/fixtures/notitle';
 import AtomInputTextFixtureRequired from '../src/atom/input-text/test/fixtures/required';
+import AtomInputTextareaFixtureCmDefault from '../src/atom/input-textarea/test/fixtures/cm-default';
 import AtomInputTextareaFixtureDefault from '../src/atom/input-textarea/test/fixtures/default';
 import AtomInputTextareaFixtureEmpty from '../src/atom/input-textarea/test/fixtures/empty';
 import AtomInputTextareaFixtureError from '../src/atom/input-textarea/test/fixtures/error';
@@ -1344,6 +1345,7 @@ export const fixtures = {
       Required: AtomInputTextFixtureRequired
     },
     AtomInputTextarea: {
+      CmDefault: AtomInputTextareaFixtureCmDefault,
       Default: AtomInputTextareaFixtureDefault,
       Empty: AtomInputTextareaFixtureEmpty,
       Error: AtomInputTextareaFixtureError
