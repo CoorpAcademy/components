@@ -1,8 +1,12 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {NovaSolidComputersSdCard} from '@coorpacademy/nova-icons';
+import classnames from 'classnames';
+import {
+  NovaSolidComputersSdCard as SaveIcon,
+  NovaCompositionNavigationArrowDown as ArrowDownIcon
+} from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
-import ContentBagde from '../../atom/content-badge';
+import ContentBadge from '../../atom/content-badge';
 import style from './style.css';
 
 const buildItemsOfSection = items => {
@@ -17,15 +21,15 @@ const buildItemsOfSection = items => {
           </li>
         );
       case 'content': {
-        const {category, label, title, author} = item;
+        const {category, label, title, author, unsaved = false} = item;
         return (
           <li className={style.contentWrapper} key={`${title}-${index}`}>
             <span className={style.contentCounter}>{index + 1}</span>
             <div className={style.contentItem}>
               <div className={style.content}>
-                <ContentBagde category={category} label={label} />
+                <ContentBadge category={category} label={label} />
                 <span
-                  className={style.contentTitle}
+                  className={classnames(style.contentTitle, unsaved && style.unsaved)}
                   title={title}
                   // eslint-disable-next-line react/no-danger
                   dangerouslySetInnerHTML={{__html: title}}
@@ -37,12 +41,16 @@ const buildItemsOfSection = items => {
         );
       }
       case 'text':
-      default:
+      default: {
+        const {text, unsaved = false} = item;
         return (
           <li key={`${item.text}-${index}`}>
-            <span className={style.valueSimpleText}>{item.text}</span>
+            <span className={classnames(style.valueSimpleText, unsaved && style.unsaved)}>
+              {text}
+            </span>
           </li>
         );
+      }
     }
   });
 };
@@ -80,7 +88,7 @@ const buildAction = action => {
   const handleClick = useMemo(() => () => onClick(), [onClick]);
   return (
     <Link className={style.actionLink} onClick={handleClick}>
-      {icon === 'draft' ? <NovaSolidComputersSdCard className={style.icon} /> : null}
+      {icon === 'draft' ? <SaveIcon className={style.icon} /> : null}
       <span>{text}</span>
     </Link>
   );
@@ -88,14 +96,29 @@ const buildAction = action => {
 
 const WizardSummary = props => {
   const {title, sections, action} = props;
-
-  const sectionView = buildSections(sections);
+  const sectionsView = buildSections(sections);
   const actionView = buildAction(action);
+  const idSwitch = 'open-summary-wizard';
 
   return (
     <div className={style.container}>
-      <span className={style.summaryTitle}>{title}</span>
-      <div className={style.summary}>{sectionView}</div>
+      <span className={style.desktopSummaryTitle}>{title}</span>
+      <input
+        type="checkbox"
+        id={idSwitch}
+        name="toogle"
+        title={idSwitch}
+        className={style.checkbox}
+      />
+      <div className={style.summary}>
+        <div className={style.tabletSummaryHeader}>
+          <label htmlFor={idSwitch}>
+            <span className={style.tabletSummaryTitle}>{title}</span>
+            <ArrowDownIcon className={style.tabletSummaryIcon} />
+          </label>
+        </div>
+        <div className={style.summarySections}>{sectionsView}</div>
+      </div>
       <div className={style.actionZone}>{actionView}</div>
     </div>
   );
@@ -115,7 +138,8 @@ WizardSummary.propTypes = {
           }),
           PropTypes.shape({
             type: PropTypes.string,
-            text: PropTypes.string
+            text: PropTypes.string,
+            unsaved: PropTypes.bool
           }),
           PropTypes.shape({
             type: PropTypes.string,
@@ -131,7 +155,8 @@ WizardSummary.propTypes = {
             ]),
             title: PropTypes.string,
             label: PropTypes.string,
-            author: PropTypes.string
+            author: PropTypes.string,
+            unsaved: PropTypes.bool
           })
         ])
       ),
