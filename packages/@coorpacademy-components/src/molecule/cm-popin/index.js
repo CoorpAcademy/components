@@ -32,7 +32,11 @@ const CMPopin = props => {
       <div className={style.popin}>
         <header className={style.popinHeader}>
           {type === 'warningWithClose' ? (
-            <div className={style.headerCloseIconContainer} onClick={onClose} data-name={'close-icon'}>
+            <div
+              className={style.headerCloseIconContainer}
+              onClick={onClose}
+              data-name={'close-icon'}
+            >
               <Close className={style.headerCloseIcon} />
             </div>
           ) : null}

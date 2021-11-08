@@ -8,6 +8,7 @@
 @value lightGreen from colors;
 @value cm_grey_50 from colors;
 @value cm_negative_100 from colors;
+@value cm_negative_200 from colors;
 @value cm_primary_blue from colors;
 @value cm_grey_100 from colors;
 @value cm_grey_200 from colors;
@@ -78,7 +79,6 @@
   margin: 0px 8px;
   border-radius: 7px;
   transform: none;
-  background-color: cm_grey_100;
 }
 
 .dangerousButton {
