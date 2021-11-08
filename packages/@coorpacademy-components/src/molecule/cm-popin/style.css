@@ -27,7 +27,6 @@
   box-sizing: border-box;
   overflow: hidden;
   display: flex;
-  background-size: 'cover';
 }
 
 .popin {
@@ -115,7 +114,7 @@
   font-weight: bold;
   display: block;
   text-transform: inherit;
-  font-family: Open Sans, sans-serif;
+  font-family: Gilroy;
   text-align: center;
   box-sizing: border-box;
   border: none;
