@@ -96,17 +96,23 @@ const buildAction = action => {
 
 const WizardSummary = props => {
   const {title, sections, action} = props;
-
   const sectionsView = buildSections(sections);
   const actionView = buildAction(action);
+  const idSwitch = 'open-summary-wizard';
 
   return (
     <div className={style.container}>
       <span className={style.desktopSummaryTitle}>{title}</span>
-      <input type="checkbox" id={'input-summary-wizard'} name="toogle" className={style.checkbox} />
+      <input
+        type="checkbox"
+        id={idSwitch}
+        name="toogle"
+        title={idSwitch}
+        className={style.checkbox}
+      />
       <div className={style.summary}>
         <div className={style.tabletSummaryHeader}>
-          <label htmlFor={'input-summary-wizard'}>
+          <label htmlFor={idSwitch}>
             <span className={style.tabletSummaryTitle}>{title}</span>
             <ArrowDownIcon className={style.tabletSummaryIcon} />
           </label>
