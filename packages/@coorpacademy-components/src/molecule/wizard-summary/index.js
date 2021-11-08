@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
   NovaSolidComputersSdCard as SaveIcon,
-  NovaCompositionNavigationArrowDown as ArrowDownIcon,
-  NovaCompositionNavigationArrowTop as ArrowUpIcon
+  NovaCompositionNavigationArrowDown as ArrowDownIcon
 } from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
 import ContentBadge from '../../atom/content-badge';
@@ -95,7 +94,6 @@ const buildAction = action => {
   );
 };
 
-
 const WizardSummary = props => {
   const {title, sections, action} = props;
 
@@ -110,7 +108,7 @@ const WizardSummary = props => {
         <div className={style.tabletSummaryHeader}>
           <label htmlFor={'input-summary-wizard'}>
             <span className={style.tabletSummaryTitle}>{title}</span>
-            <ArrowDownIcon className={style.tabletSummaryIcon}/>
+            <ArrowDownIcon className={style.tabletSummaryIcon} />
           </label>
         </div>
         <div className={style.summarySections}>{sectionsView}</div>
