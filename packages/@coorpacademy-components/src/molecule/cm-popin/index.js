@@ -10,16 +10,7 @@ import Cta from '../../atom/button';
 import style from './style.css';
 
 const CMPopin = props => {
-  const {
-    content,
-    firstButtonLabel,
-    onFirstButtonClick,
-    secondButtonLabel,
-    onSecondButtonClick,
-    onClose,
-    type,
-    icon
-  } = props;
+  const {content, firstButton, secondButton, onClose, icon} = props;
 
   const logo = {
     AlertDiamond,
@@ -31,7 +22,7 @@ const CMPopin = props => {
     <div className={style.background}>
       <div className={style.popin}>
         <header className={style.popinHeader}>
-          {type === 'warningWithClose' ? (
+          {onClose ? (
             <div
               className={style.headerCloseIconContainer}
               onClick={onClose}
@@ -45,31 +36,31 @@ const CMPopin = props => {
           {LogoComponent ? <LogoComponent className={style.icon} /> : null}
           <p
             className={style.content}
-            data-name={`cm-popin-content-${type}`}
+            data-name={`cm-popin-content`}
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{__html: content}}
           />
         </div>
 
         <div className={style.buttonContainer}>
-          {firstButtonLabel ? (
+          {firstButton ? (
             <Cta
-              submitValue={firstButtonLabel}
-              onClick={onFirstButtonClick}
-              name={`cm-popin-cta-${type}`}
+              submitValue={firstButton.label}
+              onClick={firstButton.handleOnclick}
+              name={`cm-popin-cta`}
               className={style.button}
               buttonContentClassName={style.buttonContent}
             />
           ) : null}
-          {secondButtonLabel ? (
+          {secondButton ? (
             <Cta
-              submitValue={secondButtonLabel}
-              onClick={onSecondButtonClick}
-              name={`cm-popin-cta-${type}`}
+              submitValue={secondButton.label}
+              onClick={secondButton.handleOnclick}
+              name={`cm-popin-cta-${secondButton.type}`}
               className={style.button}
               buttonContentClassName={classNames([
                 style.buttonContent,
-                type === 'dangerous' ? style.dangerousButton : style.coloredButton
+                secondButton.type === 'dangerous' ? style.dangerousButton : style.coloredButton
               ])}
             />
           ) : null}
@@ -82,12 +73,16 @@ const CMPopin = props => {
 
 CMPopin.propTypes = {
   content: PropTypes.string,
-  firstButtonLabel: PropTypes.string,
-  onFirstButtonClick: PropTypes.func,
-  secondButtonLabel: PropTypes.string,
-  onSecondButtonClick: PropTypes.func,
+  firstButton: PropTypes.shape({
+    label: PropTypes.string,
+    handleOnclick: PropTypes.func
+  }),
+  secondButton: PropTypes.shape({
+    label: PropTypes.string,
+    handleOnclick: PropTypes.func,
+    type: PropTypes.oneOf(['warning', 'warningWithClose', 'dangerous', 'default'])
+  }),
   onClose: PropTypes.func,
-  type: PropTypes.oneOf(['warning', 'warningWithClose', 'dangerous']),
   icon: PropTypes.string
 };
 

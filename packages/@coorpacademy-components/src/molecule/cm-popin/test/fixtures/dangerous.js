@@ -1,11 +1,16 @@
 export default {
   props: {
     content: 'Are you sure to undo this changes? This will be permanent',
-    type: 'dangerous',
     icon: 'AlertDiamond',
-    firstButtonLabel: 'Cancel',
-    onFirstButtonClick: () => {},
-    secondButtonLabel: 'Undo',
-    onSecondButtonClick: () => {}
+    firstButton: {
+      label: 'Cancel',
+      type: 'default',
+      handleOnClick: () => {}
+    },
+    secondButton: {
+      label: 'Undo',
+      type: 'dangerous',
+      handleOnClick: () => {}
+    }
   }
 };
