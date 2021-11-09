@@ -4,7 +4,6 @@ export default {
     icon: 'WindowUpload',
     firstButton: {
       label: 'Cancel',
-      type: 'default',
       handleOnClick: () => {}
     },
     secondButton: {

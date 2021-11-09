@@ -4,7 +4,6 @@ export default {
     icon: 'AlertDiamond',
     firstButton: {
       label: 'Cancel',
-      type: 'default',
       handleOnClick: () => {}
     },
     secondButton: {
