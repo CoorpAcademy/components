@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {noop, keys, isNil, isEmpty} from 'lodash/fp';
+import {noop, keys, isEmpty} from 'lodash/fp';
 import classnames from 'classnames';
 import {
   NovaSolidStatusCheckCircle2 as CheckIcon,
