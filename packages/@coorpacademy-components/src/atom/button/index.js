@@ -89,7 +89,14 @@ ButtonContent.propTypes = {
 };
 
 const Button = props => {
-  const {className, isLinkDisabled, type = 'submit', children, style} = props;
+  const {
+    className,
+    buttonContentClassName,
+    isLinkDisabled,
+    type = 'submit',
+    children,
+    style
+  } = props;
   const cNames =
     (isLinkDisabled && classnames([cssStyle.disabledAnchor, className])) ||
     classnames([cssStyle.button, className]);
@@ -98,7 +105,7 @@ const Button = props => {
       <ButtonContent
         {...props}
         type={type}
-        className={cssStyle.buttonContent}
+        className={buttonContentClassName ? buttonContentClassName : cssStyle.buttonContent}
         style={{
           ...style
         }}
@@ -121,6 +128,7 @@ Button.propTypes = {
   onClick: PropTypes.func,
   children: PropTypes.node,
   className: PropTypes.string,
+  buttonContentClassName: PropTypes.string,
   style: PropTypes.shape({}),
   'data-name': PropTypes.string
 };
