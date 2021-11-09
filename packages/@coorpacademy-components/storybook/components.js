@@ -9,6 +9,7 @@ import AtomCenteredText from './../src/atom/centered-text';
 import AtomCheckbox from './../src/atom/checkbox';
 import AtomChips from './../src/atom/chips';
 import AtomClue from './../src/atom/clue';
+import AtomCmInputSearch from './../src/atom/cm-input-search';
 import AtomContentBadge from './../src/atom/content-badge';
 import AtomCta from './../src/atom/cta';
 import AtomDifficultyLevel from './../src/atom/difficulty-level';
@@ -153,6 +154,7 @@ import OrganismMoocFooter from './../src/organism/mooc-footer';
 import OrganismMoocHeader from './../src/organism/mooc-header';
 import OrganismPopin from './../src/organism/popin';
 import OrganismResourceBrowser from './../src/organism/resource-browser';
+import OrganismSearchAndChipsResults from './../src/organism/search-and-chips-results';
 import OrganismSettings from './../src/organism/settings';
 import OrganismSetupHeader from './../src/organism/setup-header';
 import OrganismSidebar from './../src/organism/sidebar';
@@ -216,6 +218,7 @@ import AtomChipsFixtureNonSelected from '../src/atom/chips/test/fixtures/non-sel
 import AtomClueFixtureDefault from '../src/atom/clue/test/fixtures/default';
 import AtomClueFixtureLink from '../src/atom/clue/test/fixtures/link';
 import AtomClueFixtureLoading from '../src/atom/clue/test/fixtures/loading';
+import AtomCmInputSearchFixtureDefault from '../src/atom/cm-input-search/test/fixtures/default';
 import AtomContentBadgeFixtureAdvanced from '../src/atom/content-badge/test/fixtures/advanced';
 import AtomContentBadgeFixtureArticle from '../src/atom/content-badge/test/fixtures/article';
 import AtomContentBadgeFixtureChapter from '../src/atom/content-badge/test/fixtures/chapter';
@@ -804,6 +807,9 @@ import OrganismResourceBrowserFixturePdfWithOverlay from '../src/organism/resour
 import OrganismResourceBrowserFixturePdf from '../src/organism/resource-browser/test/fixtures/pdf';
 import OrganismResourceBrowserFixtureVimeoWithOverlay from '../src/organism/resource-browser/test/fixtures/vimeo-with-overlay';
 import OrganismResourceBrowserFixtureVimeo from '../src/organism/resource-browser/test/fixtures/vimeo';
+import OrganismSearchAndChipsResultsFixtureDefault from '../src/organism/search-and-chips-results/test/fixtures/default';
+import OrganismSearchAndChipsResultsFixtureEmpty from '../src/organism/search-and-chips-results/test/fixtures/empty';
+import OrganismSearchAndChipsResultsFixtureSelectedResults from '../src/organism/search-and-chips-results/test/fixtures/selected-results';
 import OrganismSettingsFixtureDefault from '../src/organism/settings/test/fixtures/default';
 import OrganismSettingsFixtureFreemium from '../src/organism/settings/test/fixtures/freemium';
 import OrganismSettingsFixturePremium from '../src/organism/settings/test/fixtures/premium';
@@ -1038,6 +1044,7 @@ export const components = {
     AtomCheckbox,
     AtomChips,
     AtomClue,
+    AtomCmInputSearch,
     AtomContentBadge,
     AtomCta,
     AtomDifficultyLevel,
@@ -1197,6 +1204,7 @@ export const components = {
     OrganismMoocHeader,
     OrganismPopin,
     OrganismResourceBrowser,
+    OrganismSearchAndChipsResults,
     OrganismSettings,
     OrganismSetupHeader,
     OrganismSidebar,
@@ -1299,6 +1307,9 @@ export const fixtures = {
       Default: AtomClueFixtureDefault,
       Link: AtomClueFixtureLink,
       Loading: AtomClueFixtureLoading
+    },
+    AtomCmInputSearch: {
+      Default: AtomCmInputSearchFixtureDefault
     },
     AtomContentBadge: {
       Advanced: AtomContentBadgeFixtureAdvanced,
@@ -2187,6 +2198,11 @@ export const fixtures = {
       Pdf: OrganismResourceBrowserFixturePdf,
       VimeoWithOverlay: OrganismResourceBrowserFixtureVimeoWithOverlay,
       Vimeo: OrganismResourceBrowserFixtureVimeo
+    },
+    OrganismSearchAndChipsResults: {
+      Default: OrganismSearchAndChipsResultsFixtureDefault,
+      Empty: OrganismSearchAndChipsResultsFixtureEmpty,
+      SelectedResults: OrganismSearchAndChipsResultsFixtureSelectedResults
     },
     OrganismSettings: {
       Default: OrganismSettingsFixtureDefault,
