@@ -6,7 +6,7 @@
 @value cm_negative_50 from colors;
 @value cm_negative_200 from colors;
 @value cm_warning_50 from colors;
-@value cm_warning_200 from colors;
+@value cm_yellow_200 from colors;
 
 .banner {
     display: flex;
@@ -17,7 +17,7 @@
     padding: 16px 24px; 
     border-radius: 5px;
     background-color: cm_warning_50;
-    color: cm_warning_200;
+    color: cm_yellow_200;
     border-radius: 5px;
 }
 
@@ -40,7 +40,7 @@
     align-self: stretch;
     flex-grow: 0;
     opacity: 0.1;
-    background-color: cm_warning_200;
+    background-color: cm_yellow_200;
 }
 
 .icon {
