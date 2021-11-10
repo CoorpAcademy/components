@@ -8,6 +8,7 @@ import AtomCenteredText from './../src/atom/centered-text';
 import AtomCheckbox from './../src/atom/checkbox';
 import AtomChips from './../src/atom/chips';
 import AtomClue from './../src/atom/clue';
+import AtomCmButton from './../src/atom/cm-button';
 import AtomContentBadge from './../src/atom/content-badge';
 import AtomCta from './../src/atom/cta';
 import AtomDifficultyLevel from './../src/atom/difficulty-level';
@@ -203,6 +204,11 @@ import AtomChipsFixtureNonSelected from '../src/atom/chips/test/fixtures/non-sel
 import AtomClueFixtureDefault from '../src/atom/clue/test/fixtures/default';
 import AtomClueFixtureLink from '../src/atom/clue/test/fixtures/link';
 import AtomClueFixtureLoading from '../src/atom/clue/test/fixtures/loading';
+import AtomCmButtonFixtureButtonPrimaryIconLeft from '../src/atom/cm-button/test/fixtures/button-primary-icon-left';
+import AtomCmButtonFixtureButtonPrimaryNoIcon from '../src/atom/cm-button/test/fixtures/button-primary-no-icon';
+import AtomCmButtonFixtureButtonTertiaryIconLeft from '../src/atom/cm-button/test/fixtures/button-tertiary-icon-left';
+import AtomCmButtonFixtureLinkSecondaryIconRight from '../src/atom/cm-button/test/fixtures/link-secondary-icon-right';
+import AtomCmButtonFixtureLinkTextIconRight from '../src/atom/cm-button/test/fixtures/link-text-icon-right';
 import AtomContentBadgeFixtureAdvanced from '../src/atom/content-badge/test/fixtures/advanced';
 import AtomContentBadgeFixtureArticle from '../src/atom/content-badge/test/fixtures/article';
 import AtomContentBadgeFixtureChapter from '../src/atom/content-badge/test/fixtures/chapter';
@@ -1018,6 +1024,7 @@ export const components = {
     AtomCheckbox,
     AtomChips,
     AtomClue,
+    AtomCmButton,
     AtomContentBadge,
     AtomCta,
     AtomDifficultyLevel,
@@ -1265,6 +1272,13 @@ export const fixtures = {
       Default: AtomClueFixtureDefault,
       Link: AtomClueFixtureLink,
       Loading: AtomClueFixtureLoading
+    },
+    AtomCmButton: {
+      ButtonPrimaryIconLeft: AtomCmButtonFixtureButtonPrimaryIconLeft,
+      ButtonPrimaryNoIcon: AtomCmButtonFixtureButtonPrimaryNoIcon,
+      ButtonTertiaryIconLeft: AtomCmButtonFixtureButtonTertiaryIconLeft,
+      LinkSecondaryIconRight: AtomCmButtonFixtureLinkSecondaryIconRight,
+      LinkTextIconRight: AtomCmButtonFixtureLinkTextIconRight
     },
     AtomContentBadge: {
       Advanced: AtomContentBadgeFixtureAdvanced,

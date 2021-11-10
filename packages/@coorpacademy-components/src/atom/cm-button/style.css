@@ -1,0 +1,59 @@
+@value colors: "../../variables/colors.css";
+@value cm_primary_blue from colors;
+@value cm_blue_600 from colors;
+@value cm_grey_50 from colors;
+@value cm_grey_100 from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_900 from colors;
+@value white from colors;
+
+.button {
+  width: 100%;
+  height: 44px;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.primary {
+  background-color: cm_primary_blue;
+  color: white;
+  border-radius: 7px;
+}
+
+.primary:hover {
+  background-color: cm_blue_600;
+}
+
+.secondary {
+  background-color: cm_grey_100;
+  color: cm_grey_900;
+  border-radius: 7px;
+}
+
+.secondary:hover {
+  background-color: cm_grey_200;
+}
+
+.tertiary {
+  background-color: cm_grey_50;
+  color: cm_grey_900;
+  border-radius: 7px;
+}
+
+.tertiary:hover {
+  background-color: cm_grey_100;
+}
+
+.text {
+  color: cm_grey_900;
+  border-radius: 0px;
+  height: auto;
+}
+
+.text:hover {
+  color: cm_primary_blue;
+}
