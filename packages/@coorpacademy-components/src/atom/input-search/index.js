@@ -10,7 +10,7 @@ import Provider from '../provider';
 import style from './style.css';
 
 const Search = (props, context) => {
-  const {value, placeholder, onChange = noop, onFocus, onBlur, theme = 'default'} = props;
+  const {value, placeholder, onChange = noop, onClear, onFocus, onBlur, theme = 'default'} = props;
   const {skin} = context;
   const dark = get('common.dark', skin);
   const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
@@ -40,7 +40,9 @@ const Search = (props, context) => {
         onFocus={onFocus}
         onBlur={onBlur}
       />
-      {value && !isDefaultTheme ? <CloseIcon className={style.clearIcon} /> : null}
+      {value && !isDefaultTheme ? (
+        <CloseIcon onClick={onClear} className={style.clearIcon} />
+      ) : null}
     </div>
   );
 };
@@ -53,6 +55,7 @@ Search.propTypes = {
   value: PropTypes.string,
   placeholder: PropTypes.string.isRequired,
   onChange: PropTypes.func,
+  onClear: PropTypes.func,
   onFocus: PropTypes.func,
   onBlur: PropTypes.func,
   theme: PropTypes.oneOf(['default', 'coorpmanager'])

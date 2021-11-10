@@ -7,6 +7,7 @@ export default {
     },
     onEnter: () => console.log('pressed enter'),
     onFocus: () => console.log('onFocus'),
+    onClear: () => console.log('clear pressed'),
     theme: 'coorpmanager'
   }
 };
