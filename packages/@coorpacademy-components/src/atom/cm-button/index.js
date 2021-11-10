@@ -15,7 +15,7 @@ const ICONS = {
 
 const CMButton = props => {
   const {type, label, icon} = props;
-  const Icon = getOr(null, icon, ICONS);
+ const Icon = getOr(null, icon, ICONS);
 
   return (
     <div
@@ -27,9 +27,7 @@ const CMButton = props => {
         type === 'text' && style.text
       )}
     >
-      {icon.position === 'left' ? <Icon /> : null}
       {label}
-      {icon.position === 'right' ? <Icon /> : null}
     </div>
   );
 };
@@ -39,7 +37,7 @@ CMButton.propTypes = {
   label: PropTypes.string,
   'data-name': PropTypes.string,
   icon: PropTypes.shape({
-    position: PropTypes.oneOf(['right', 'left']),
+    position: PropTypes.oneOf(['right', 'left', 'center']),
     type: PropTypes.string
   }),
   onClick: PropTypes.func,
