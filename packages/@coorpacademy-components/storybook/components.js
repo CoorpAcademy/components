@@ -207,6 +207,7 @@ import AtomClueFixtureLoading from '../src/atom/clue/test/fixtures/loading';
 import AtomCmButtonFixtureButtonPrimaryIconLeft from '../src/atom/cm-button/test/fixtures/button-primary-icon-left';
 import AtomCmButtonFixtureButtonPrimaryNoIcon from '../src/atom/cm-button/test/fixtures/button-primary-no-icon';
 import AtomCmButtonFixtureButtonTertiaryIconLeft from '../src/atom/cm-button/test/fixtures/button-tertiary-icon-left';
+import AtomCmButtonFixtureIconButton from '../src/atom/cm-button/test/fixtures/icon-button';
 import AtomCmButtonFixtureLinkSecondaryIconRight from '../src/atom/cm-button/test/fixtures/link-secondary-icon-right';
 import AtomCmButtonFixtureLinkTextIconRight from '../src/atom/cm-button/test/fixtures/link-text-icon-right';
 import AtomContentBadgeFixtureAdvanced from '../src/atom/content-badge/test/fixtures/advanced';
@@ -1277,6 +1278,7 @@ export const fixtures = {
       ButtonPrimaryIconLeft: AtomCmButtonFixtureButtonPrimaryIconLeft,
       ButtonPrimaryNoIcon: AtomCmButtonFixtureButtonPrimaryNoIcon,
       ButtonTertiaryIconLeft: AtomCmButtonFixtureButtonTertiaryIconLeft,
+      IconButton: AtomCmButtonFixtureIconButton,
       LinkSecondaryIconRight: AtomCmButtonFixtureLinkSecondaryIconRight,
       LinkTextIconRight: AtomCmButtonFixtureLinkTextIconRight
     },
