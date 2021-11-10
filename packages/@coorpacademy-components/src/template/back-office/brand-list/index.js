@@ -29,7 +29,7 @@ const BrandList = Layout(props => {
   return (
     <div className={style.container}>
       <div className={style.searchBar}>
-        <Search theme="coorpmanager" {...search} />
+        <Search {...search} theme="coorpmanager" />
       </div>
       <div className={style.wrapper}>
         <GridList>{brandCards}</GridList>

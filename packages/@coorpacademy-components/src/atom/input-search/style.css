@@ -100,7 +100,6 @@
   position: absolute;
   top: 7px;
   left: 30px;
-  user-select: none;
 }
 
 .coorpmanager .search {
@@ -153,7 +152,6 @@
   height: 8px;
   line-height: 12px;
   color: cm_grey_400;
-  user-select: none;
 }
 
 .coorpmanager .search:hover {
