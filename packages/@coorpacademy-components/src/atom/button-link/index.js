@@ -48,7 +48,7 @@ const getButtonContent = (icon, label) => {
   );
 };
 
-const CMButton = props => {
+const ButtonLink = props => {
   const {type, label, icon = {}} = props;
   const contentView = getButtonContent(icon, label);
 
@@ -67,7 +67,7 @@ const CMButton = props => {
   );
 };
 
-CMButton.propTypes = {
+ButtonLink.propTypes = {
   type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text']),
   label: PropTypes.string,
   'data-name': PropTypes.string,
@@ -83,4 +83,4 @@ CMButton.propTypes = {
   })
 };
 
-export default CMButton;
+export default ButtonLink;
