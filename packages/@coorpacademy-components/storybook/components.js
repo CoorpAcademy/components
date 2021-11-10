@@ -196,6 +196,7 @@ import AtomButtonLinkFixtureButtonPrimaryIconLeft from '../src/atom/button-link/
 import AtomButtonLinkFixtureButtonPrimaryNoIcon from '../src/atom/button-link/test/fixtures/button-primary-no-icon';
 import AtomButtonLinkFixtureButtonTertiaryIconLeft from '../src/atom/button-link/test/fixtures/button-tertiary-icon-left';
 import AtomButtonLinkFixtureIconButton from '../src/atom/button-link/test/fixtures/icon-button';
+import AtomButtonLinkFixtureLinkPrimaryDisabledIconRight from '../src/atom/button-link/test/fixtures/link-primary-disabled-icon-right';
 import AtomButtonLinkFixtureLinkSecondaryIconRight from '../src/atom/button-link/test/fixtures/link-secondary-icon-right';
 import AtomButtonLinkFixtureLinkTextIconRight from '../src/atom/button-link/test/fixtures/link-text-icon-right';
 import AtomCatalogSectionFixtureList from '../src/atom/catalog-section/test/fixtures/list';
@@ -1257,6 +1258,7 @@ export const fixtures = {
       ButtonPrimaryNoIcon: AtomButtonLinkFixtureButtonPrimaryNoIcon,
       ButtonTertiaryIconLeft: AtomButtonLinkFixtureButtonTertiaryIconLeft,
       IconButton: AtomButtonLinkFixtureIconButton,
+      LinkPrimaryDisabledIconRight: AtomButtonLinkFixtureLinkPrimaryDisabledIconRight,
       LinkSecondaryIconRight: AtomButtonLinkFixtureLinkSecondaryIconRight,
       LinkTextIconRight: AtomButtonLinkFixtureLinkTextIconRight
     },

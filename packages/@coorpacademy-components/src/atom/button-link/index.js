@@ -49,17 +49,19 @@ const getButtonContent = (icon, label) => {
 };
 
 const ButtonLink = props => {
-  const {type, label, icon = {}} = props;
+  const {type, label, disabled, icon = {}, 'data-name': dataName} = props;
   const contentView = getButtonContent(icon, label);
 
   return (
     <div
+      data-name={dataName}
       className={classnames(
         style.button,
         type === 'primary' && style.primary,
         type === 'secondary' && style.secondary,
         type === 'tertiary' && style.tertiary,
-        type === 'text' && style.text
+        type === 'text' && style.text,
+        disabled && style.disabled
       )}
     >
       {contentView}
@@ -80,7 +82,8 @@ ButtonLink.propTypes = {
     href: PropTypes.string,
     download: PropTypes.bool,
     target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
-  })
+  }),
+  disabled: PropTypes.bool
 };
 
 export default ButtonLink;

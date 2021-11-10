@@ -1,6 +1,7 @@
 export default {
   props: {
-    type: 'secondary',
+    type: 'primary',
+    disabled: true,
     label: 'Global Analytics',
     'data-name': 'default-button',
     icon: {
