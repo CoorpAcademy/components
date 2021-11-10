@@ -40,13 +40,13 @@ const SearchAndChipsResults = props => {
 
   return (
     <div className={style.container}>
-      <div>
+      <div className={style.header}>
         <Link onClick={handleClick} className={style.button}>
           {selectAllButton.label}
         </Link>
         <Search {...search} />
       </div>
-      <div>{resultView}</div>
+      <div className={style.resultContainer}>{resultView}</div>
     </div>
   );
 };

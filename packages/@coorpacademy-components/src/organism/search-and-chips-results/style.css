@@ -5,9 +5,28 @@
   width: 100%;
 }
 
+.header {
+  display: flex;
+}
+
 .button {
   font-family: Gilroy;
   width: 129px;
   height: 64px;
   background-color: cm_grey_100;
+}
+
+.resultContainer {
+  margin: 24px 0 0 0;
+  width: 100%;
+}
+
+li {
+  width: calc(25% - 20px);
+  display: inline-flex;
+  margin: 0 16px 16px 0px;
+}
+
+li:nth-child(4) {
+  margin-right: 0px;
 }
