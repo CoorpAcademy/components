@@ -193,7 +193,8 @@
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  height: 0px;
+  position: relative;
+  height: 64px;
 }
 
 .coorpmanager .title {
@@ -206,7 +207,6 @@
   line-height: 1.2;
   letter-spacing: normal;
   text-align: left;
-  margin: 7px 0px -19px 16px;
   z-index: 1;
   color: cm_grey_400;
   width: auto;
@@ -215,6 +215,9 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  position: absolute;
+  top: 7px;
+  left: 16px;
 }
 
 .coorpmanager .title.noValue .infoIcon {
@@ -256,14 +259,14 @@
   font-size: 14px;
   font-weight: 500;
   color: cm_grey_700;
-  margin: 14px 0px -30px 16px;
+  top: 14px;
 }
 
 .coorpmanager:focus-within .title.noValue {
   font-size: 10px;
   font-weight: bold;
   color: cm_grey_400;
-  margin: 7px 0px -19px 16px;
+  top: 7px;
 }
 
 .coorpmanager:focus-within input::placeholder {
@@ -283,6 +286,7 @@
 
 .coorpmanager input::placeholder {
   color: transparent;
+  transition: color 0.25s linear;
 }
 
 .coorpmanager .hint {
@@ -309,18 +313,19 @@
   color: white;
   border-radius: 50%;
   padding: 2px;
-  width: 8px;
-  height: 8px;
+  width: 10px;
+  height: 10px;
+  right: 17px;
+  top: 14px;
 }
 
 .coorpmanager .leftIcon {
   color: cm_positive_100;
-  width: 14px;
-  height: 14px;
+  width: 17px;
+  height: 17px;
   position: absolute;
-  right: 15px;
-  top: 16px;
-  line-height: 16px;
+  right: 16px;
+  top: 13px;
 }
 
 .coorpmanager.disabled {

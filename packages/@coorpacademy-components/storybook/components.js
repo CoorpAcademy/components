@@ -278,6 +278,7 @@ import AtomInputTextFixtureModified from '../src/atom/input-text/test/fixtures/m
 import AtomInputTextFixtureNotitle from '../src/atom/input-text/test/fixtures/notitle';
 import AtomInputTextFixtureRequired from '../src/atom/input-text/test/fixtures/required';
 import AtomInputTextareaFixtureCmDefault from '../src/atom/input-textarea/test/fixtures/cm-default';
+import AtomInputTextareaFixtureCmEmpty from '../src/atom/input-textarea/test/fixtures/cm-empty';
 import AtomInputTextareaFixtureDefault from '../src/atom/input-textarea/test/fixtures/default';
 import AtomInputTextareaFixtureEmpty from '../src/atom/input-textarea/test/fixtures/empty';
 import AtomInputTextareaFixtureError from '../src/atom/input-textarea/test/fixtures/error';
@@ -396,6 +397,7 @@ import MoleculeBrandDownloadBoxFixtureDownloadOneLoginTokens from '../src/molecu
 import MoleculeBrandDownloadBoxFixtureSso from '../src/molecule/brand-download-box/test/fixtures/sso';
 import MoleculeBrandFormGroupFixtureAnalytics from '../src/molecule/brand-form-group/test/fixtures/analytics';
 import MoleculeBrandFormGroupFixtureAnimations from '../src/molecule/brand-form-group/test/fixtures/animations';
+import MoleculeBrandFormGroupFixtureCmDefault from '../src/molecule/brand-form-group/test/fixtures/cm-default';
 import MoleculeBrandFormGroupFixtureCohort from '../src/molecule/brand-form-group/test/fixtures/cohort';
 import MoleculeBrandFormGroupFixtureDashboard from '../src/molecule/brand-form-group/test/fixtures/dashboard';
 import MoleculeBrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/fixtures/default';
@@ -1364,6 +1366,7 @@ export const fixtures = {
     },
     AtomInputTextarea: {
       CmDefault: AtomInputTextareaFixtureCmDefault,
+      CmEmpty: AtomInputTextareaFixtureCmEmpty,
       Default: AtomInputTextareaFixtureDefault,
       Empty: AtomInputTextareaFixtureEmpty,
       Error: AtomInputTextareaFixtureError
@@ -1556,6 +1559,7 @@ export const fixtures = {
     MoleculeBrandFormGroup: {
       Analytics: MoleculeBrandFormGroupFixtureAnalytics,
       Animations: MoleculeBrandFormGroupFixtureAnimations,
+      CmDefault: MoleculeBrandFormGroupFixtureCmDefault,
       Cohort: MoleculeBrandFormGroupFixtureCohort,
       Dashboard: MoleculeBrandFormGroupFixtureDashboard,
       Default: MoleculeBrandFormGroupFixtureDefault,
