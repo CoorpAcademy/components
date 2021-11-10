@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
   NovaCompositionCoorpacademySearch as SearchIcon,
-  NovaSolidStatusClose as CloseIcon,
+  NovaSolidStatusClose as CloseIcon
 } from '@coorpacademy/nova-icons';
 import {get, noop, isEmpty} from 'lodash/fp';
 import Provider from '../provider';
@@ -25,22 +25,22 @@ const Search = (props, context) => {
           <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
             {placeholder}
           </span>
-        ): null}
-        </label>
-        <input
-          data-name="search-input"
-          className={style.search}
-          type="text"
-          name="search"
-          id="search"
-          placeholder={placeholder}
-          value={value}
-          onChange={noop}
-          onInput={handleChange}
-          onFocus={onFocus}
-          onBlur={onBlur}
-          />
-        {value && !isDefaultTheme ? <CloseIcon className={style.clearIcon} /> : null}
+        ) : null}
+      </label>
+      <input
+        data-name="search-input"
+        className={style.search}
+        type="text"
+        name="search"
+        id="search"
+        placeholder={placeholder}
+        value={value}
+        onChange={noop}
+        onInput={handleChange}
+        onFocus={onFocus}
+        onBlur={onBlur}
+      />
+      {value && !isDefaultTheme ? <CloseIcon className={style.clearIcon} /> : null}
     </div>
   );
 };
