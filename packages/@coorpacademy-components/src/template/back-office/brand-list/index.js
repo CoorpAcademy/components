@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import GridList from '../../../organism/grid-list';
 import BrandCard from '../../../molecule/brand-card';
 import BrandCardCreate from '../../../molecule/brand-card-create';
-import Search from '../../../molecule/search';
+import Search from '../../../atom/input-search';
 import Layout from '../layout';
 import style from './style.css';
 
@@ -29,7 +29,7 @@ const BrandList = Layout(props => {
   return (
     <div className={style.container}>
       <div className={style.searchBar}>
-        <Search {...search} />
+        <Search theme="coorpmanager" {...search} />
       </div>
       <div className={style.wrapper}>
         <GridList>{brandCards}</GridList>

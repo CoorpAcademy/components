@@ -16,8 +16,8 @@ import Select from '../../atom/select';
 import Picture from '../../atom/picture';
 import InputSwitch from '../../atom/input-switch';
 import Link from '../../atom/link';
-import Search from '../../molecule/search';
-import SearchForm from '../../molecule/search-form';
+import Search from '../../atom/input-search';
+import SearchForm from '../../atom/input-search';
 import style from './style.css';
 
 class MoocHeader extends React.Component {

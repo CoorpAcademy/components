@@ -1,5 +1,5 @@
 import {defaultsDeep} from 'lodash/fp';
-import SearchBar from '../../../../molecule/search/test/fixtures/default';
+import SearchBar from '../../../../atom/input-search/test/fixtures/default';
 import Default from './default';
 
 const research = SearchBar.props;
