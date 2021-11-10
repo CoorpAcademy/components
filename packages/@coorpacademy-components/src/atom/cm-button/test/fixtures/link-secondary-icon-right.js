@@ -1,11 +1,11 @@
 export default {
   props: {
     type: 'secondary',
-    label: 'Button',
+    label: 'Global Analytics',
     'data-name': 'default-button',
     icon: {
       position: 'right',
-      type: 'see'
+      type: 'analytics'
     },
     onClick: () => console.log('click')
   }

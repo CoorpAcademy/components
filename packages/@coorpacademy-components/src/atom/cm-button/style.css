@@ -16,6 +16,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+.buttonContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon {
+  width: 12px;
+  height: 12px;
+}
+
+.label {
+  margin: 0 8px 0 8px;
+  display: block;
 }
 
 .primary {

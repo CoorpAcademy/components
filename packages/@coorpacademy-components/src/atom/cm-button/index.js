@@ -4,18 +4,53 @@ import {getOr} from 'lodash/fp';
 import classnames from 'classnames';
 import {
   NovaCompositionNavigationArrowLeft as ChevronLeftIcon,
-  NovaCompositionNavigationArrowRight as ChevronRightIcon
+  NovaCompositionNavigationArrowRight as ChevronRightIcon,
+  NovaCompositionCoorpacademyEye as EyeIcon,
+  NovaCompositionCoorpacademyAnalytics as AnalyticsIcon,
+  NovaCompositionCoorpacademyNext as CloseIcon
 } from '@coorpacademy/nova-icons';
 import style from './style.css';
 
 const ICONS = {
   'chevron-left': ChevronLeftIcon,
-  'chevron-right': ChevronRightIcon
+  'chevron-right': ChevronRightIcon,
+  see: EyeIcon,
+  analytics: AnalyticsIcon,
+  close: CloseIcon
+};
+
+const getButtonContent = (icon, label) => {
+  const {type, position} = icon;
+  const Icon = getOr(null, type, ICONS);
+
+  if (!Icon) {
+    return (
+      <div className={style.buttonContent}>
+        <span className={style.label}>{label}</span>
+      </div>
+    );
+  }
+
+  if (position === 'center' && Icon) {
+    return (
+      <div className={style.buttonContent}>
+        <Icon className={style.icon} />
+      </div>
+    );
+  }
+
+  return (
+    <div className={style.buttonContent}>
+      {position === 'left' ? <Icon className={style.icon} /> : null}
+      <span className={style.label}>{label}</span>
+      {position === 'right' ? <Icon className={style.icon} /> : null}
+    </div>
+  );
 };
 
 const CMButton = props => {
-  const {type, label, icon} = props;
- const Icon = getOr(null, icon, ICONS);
+  const {type, label, icon = {}} = props;
+  const contentView = getButtonContent(icon, label);
 
   return (
     <div
@@ -27,7 +62,7 @@ const CMButton = props => {
         type === 'text' && style.text
       )}
     >
-      {label}
+      {contentView}
     </div>
   );
 };
