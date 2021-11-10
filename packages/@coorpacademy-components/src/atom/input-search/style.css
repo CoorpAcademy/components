@@ -183,10 +183,6 @@
   line-height: 16px;
 }
 
-.coorpmanager.disabled {
-  opacity: 0.5;
-}
-
 @media tablet {
   .search,
   input {
