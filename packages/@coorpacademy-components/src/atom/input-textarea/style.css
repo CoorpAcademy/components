@@ -196,6 +196,7 @@
   flex-direction: column;
   align-items: flex-start;
   height: auto;
+  position: relative;
 }
 
 .coorpmanager .title {
@@ -208,7 +209,6 @@
   line-height: 1.2;
   letter-spacing: normal;
   text-align: left;
-  margin: 14px 0px -19px 16px;
   z-index: 1;
   color: cm_grey_400;
   width: auto;
@@ -217,6 +217,10 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  top: 15px;
+  left: 16px;
+  position: absolute;
+  margin: 0;
 }
 
 .coorpmanager .title.noValue .infoIcon {
@@ -227,8 +231,8 @@
 }
 
 .coorpmanager textarea {
-  width: 297px;
-  min-height: 148px;
+  width: 285px;
+  min-height: 145px;
   resize: vertical;
   margin: 0px;
   flex-grow: 0;
@@ -237,7 +241,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 31px 0px 1px 17px;
+  padding: 35px 0px 0px 17px;
   border-radius: 7px;
   background-color: transparent;
   font-family: Gilroy;
@@ -245,7 +249,7 @@
   font-weight: 500;
   font-stretch: normal;
   font-style: normal;
-  line-height: 23px;
+  line-height: 21px;
   letter-spacing: normal;
   text-align: left;
   color: cm_grey_700;
@@ -253,18 +257,9 @@
   transition: all 0.25s linear;
   outline: none;
   display: flex;
-  margin: -6px 16px 9px 0px;
+  margin: 0px 16px 13px 0px;
   box-sizing: border-box;
   position: relative;
-}
-
-.coorpmanager .title.noValue + textarea {
-  margin: 0px 16px 9px 0px;
-}
-
-.coorpmanager:focus-within .title.noValue + textarea {
-  padding: 32px 0px 0px 17px;
-  margin: -6px 16px 9px 0px;
 }
 
 .coorpmanager label::before {
@@ -283,14 +278,13 @@
   font-size: 14px;
   font-weight: 500;
   color: cm_grey_700;
-  margin: 15px 0px -30px 16px;
 }
 
 .coorpmanager:focus-within .title.noValue {
   font-size: 10px;
   font-weight: bold;
   color: cm_grey_400;
-  margin: 14px 0px -19px 16px;
+  top: 15px;
 }
 
 .coorpmanager:focus-within textarea::placeholder {
@@ -303,10 +297,7 @@
   line-height: 12px;
   color: cm_grey_400;
 }
-.coorpmanager:focus-within textarea {
-  margin: -6px 16px 9px 0px;
-  padding: 31px 0px 0px 17px;
-}
+
 
 
 .coorpmanager label:hover:before {
@@ -315,6 +306,7 @@
 
 .coorpmanager textarea::placeholder {
   color: transparent;
+  transition: all 0.25s linear;
 }
 
 .coorpmanager .hint {
@@ -330,6 +322,7 @@
   text-align: left;
   padding-top: 8px;
   color: cm_grey_700;
+  height: 12px;
 }
 
 .coorpmanager.error .hint {
