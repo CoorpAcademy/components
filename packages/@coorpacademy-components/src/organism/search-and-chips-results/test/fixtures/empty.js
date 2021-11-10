@@ -2,7 +2,8 @@ export default {
   props: {
     selectAllButton: {
       label: 'Select All',
-      onClick: () => console.log('Select All')
+      onClick: () => console.log('Select All'),
+      disabled: true
     },
     search: {
       title: 'Search...',

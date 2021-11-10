@@ -1,13 +1,52 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
+import {concat, isEmpty, map} from 'lodash/fp';
 import Search from '../../atom/cm-input-search';
+import Link from '../../atom/link';
+import Chips from '../../atom/chips';
 import style from './style.css';
 
+const buildResultView = (selectedResults, results) => {
+  if (isEmpty(results)) {
+    return <div>Nothing</div>;
+  }
+
+  const items = concat(
+    map(s => {
+      return (
+        <li>
+          <Chips {...s} selected />
+        </li>
+      );
+    }, selectedResults),
+    map(r => {
+      return (
+        <li>
+          <Chips {...r} />
+        </li>
+      );
+    }, results)
+  );
+
+  return <ul>{items}</ul>;
+};
+
 const SearchAndChipsResults = props => {
-  const {search} = props;
+  const {search, selectAllButton, selected, results} = props;
+
+  const {onClick} = selectAllButton;
+  const handleClick = useMemo(() => () => onClick(), [onClick]);
+  const resultView = buildResultView(selected, results);
+
   return (
     <div className={style.container}>
-      <Search {...search} />
+      <div>
+        <Link onClick={handleClick} className={style.button}>
+          {selectAllButton.label}
+        </Link>
+        <Search {...search} />
+      </div>
+      <div>{resultView}</div>
     </div>
   );
 };
@@ -15,7 +54,8 @@ const SearchAndChipsResults = props => {
 SearchAndChipsResults.propTypes = {
   selectAllButton: PropTypes.shape({
     label: PropTypes.string,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    disabled: PropTypes.bool
   }),
   search: PropTypes.shape(Search.PropTypes),
   selected: PropTypes.arrayOf(
