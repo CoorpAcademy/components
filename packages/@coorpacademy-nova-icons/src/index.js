@@ -22,6 +22,7 @@ import _NovaCompositionCoorpacademyBigFlashRight from './components/nova-composi
 import _NovaCompositionCoorpacademyBluetooth from './components/nova-composition/coorpacademy/bluetooth';
 import _NovaCompositionCoorpacademyBolt from './components/nova-composition/coorpacademy/bolt';
 import _NovaCompositionCoorpacademyBrokenHeart from './components/nova-composition/coorpacademy/broken-heart';
+import _NovaCompositionCoorpacademyBulletPoint from './components/nova-composition/coorpacademy/bullet-point';
 import _NovaCompositionCoorpacademyCharts from './components/nova-composition/coorpacademy/charts';
 import _NovaCompositionCoorpacademyChat from './components/nova-composition/coorpacademy/chat';
 import _NovaCompositionCoorpacademyCheck from './components/nova-composition/coorpacademy/check';
@@ -201,6 +202,7 @@ export const NovaCompositionCoorpacademyBigFlashRight: Icon = _NovaCompositionCo
 export const NovaCompositionCoorpacademyBluetooth: Icon = _NovaCompositionCoorpacademyBluetooth;
 export const NovaCompositionCoorpacademyBolt: Icon = _NovaCompositionCoorpacademyBolt;
 export const NovaCompositionCoorpacademyBrokenHeart: Icon = _NovaCompositionCoorpacademyBrokenHeart;
+export const NovaCompositionCoorpacademyBulletPoint: Icon = _NovaCompositionCoorpacademyBulletPoint;
 export const NovaCompositionCoorpacademyCharts: Icon = _NovaCompositionCoorpacademyCharts;
 export const NovaCompositionCoorpacademyChat: Icon = _NovaCompositionCoorpacademyChat;
 export const NovaCompositionCoorpacademyCheck: Icon = _NovaCompositionCoorpacademyCheck;
