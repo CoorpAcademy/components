@@ -7,17 +7,19 @@ import {
   NovaCompositionNavigationArrowRight as ChevronRightIcon,
   NovaCompositionCoorpacademyEye as EyeIcon,
   NovaCompositionCoorpacademyAnalytics as AnalyticsIcon,
-  NovaCompositionCoorpacademyNext as CloseIcon
+  NovaCompositionCoorpacademyNext as CloseIcon,
+  NovaSolidComputersSdCard as SaveIcon,
 } from '@coorpacademy/nova-icons';
 import Link from '../link';
 import style from './style.css';
 
 const ICONS = {
+  analytics: AnalyticsIcon,
   'chevron-left': ChevronLeftIcon,
   'chevron-right': ChevronRightIcon,
-  see: EyeIcon,
-  analytics: AnalyticsIcon,
-  close: CloseIcon
+  close: CloseIcon,
+  save: SaveIcon,
+  see: EyeIcon
 };
 
 const getButtonContent = (icon, label) => {

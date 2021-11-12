@@ -7,6 +7,7 @@ import {
 } from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
 import ContentBadge from '../../atom/content-badge';
+import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 
 const buildItemsOfSection = items => {
@@ -86,12 +87,18 @@ const buildAction = action => {
 
   const {onClick, text, icon} = action;
   const handleClick = useMemo(() => () => onClick(), [onClick]);
-  return (
-    <Link className={style.actionLink} onClick={handleClick}>
-      {icon === 'draft' ? <SaveIcon className={style.icon} /> : null}
-      <span>{text}</span>
-    </Link>
-  );
+  const buttonProps = {
+    type: 'text',
+    label: text,
+    'data-name': `${icon}-button`,
+    onClick: handleClick,
+    icon: {
+      position: 'left',
+      type: icon
+    }
+  };
+
+  return <ButtonLink {...buttonProps} />;
 };
 
 const WizardSummary = props => {
