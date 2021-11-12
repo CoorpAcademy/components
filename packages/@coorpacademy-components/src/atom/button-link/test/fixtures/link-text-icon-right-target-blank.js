@@ -8,7 +8,8 @@ export default {
       type: 'chevron-left'
     },
     link: {
-      href: 'http://www.google.com'
+      href: 'http://www.google.com',
+      target: '_blank'
     }
   }
 };

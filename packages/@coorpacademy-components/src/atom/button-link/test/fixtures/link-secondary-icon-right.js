@@ -7,6 +7,10 @@ export default {
       position: 'right',
       type: 'analytics'
     },
+    onClick: () => {
+      console.log('Click on link');
+      return;
+    },
     link: {
       href: 'https://www.google.com'
     }

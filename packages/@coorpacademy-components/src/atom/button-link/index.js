@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {getOr} from 'lodash/fp';
+import {getOr, noop, identity} from 'lodash/fp';
 import classnames from 'classnames';
 import {
   NovaCompositionNavigationArrowLeft as ChevronLeftIcon,
@@ -9,6 +9,8 @@ import {
   NovaCompositionCoorpacademyAnalytics as AnalyticsIcon,
   NovaCompositionCoorpacademyNext as CloseIcon
 } from '@coorpacademy/nova-icons';
+import Provider from '../provider';
+import pushToHistory from '../../util/navigation';
 import style from './style.css';
 
 const ICONS = {
@@ -48,13 +50,52 @@ const getButtonContent = (icon, label) => {
   );
 };
 
-const ButtonLink = props => {
-  const {type, label, disabled, icon = {}, 'data-name': dataName} = props;
-  const contentView = getButtonContent(icon, label);
+const buildOnClickForLink = props => e => {
+  const {onClick = noop, link} = props;
+  const {download} = link;
+  onClick(e);
+
+  if (!download) {
+    const navigate = pushToHistory(this.context)(this.props);
+    navigate(e);
+  }
+};
+
+const ButtonLink = (props, context) => {
+  const {history: {createHref = identity} = {}} = context;
+  const {type, label, disabled, icon = {}, 'data-name': dataName, link, onClick} = props;
+  const _contentView = getButtonContent(icon, label);
+  let contentView = null;
+  const styleButton = classnames(
+    style.button,
+    type === 'primary' && style.primary,
+    type === 'secondary' && style.secondary,
+    type === 'tertiary' && style.tertiary,
+    type === 'text' && style.text,
+    disabled && style.disabled
+  );
+
+  if (link) {
+    const {href} = link;
+    const handleOnClick = buildOnClickForLink(props);
+    return (
+      <a
+        {...link}
+        className={styleButton}
+        data-name={dataName}
+        href={href ? createHref(href) : undefined}
+        onClick={handleOnClick}
+      >
+        {_contentView}
+      </a>
+    );
+  } else {
+    const handleOnClick = useMemo(() => () => onClick(), [onClick]);
+    contentView = _contentView;
+  }
 
   return (
     <div
-      data-name={dataName}
       className={classnames(
         style.button,
         type === 'primary' && style.primary,
@@ -84,6 +125,10 @@ ButtonLink.propTypes = {
     target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
   }),
   disabled: PropTypes.bool
+};
+
+ButtonLink.contextTypes = {
+  history: Provider.childContextTypes.history
 };
 
 export default ButtonLink;
