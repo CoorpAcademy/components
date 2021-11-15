@@ -169,7 +169,6 @@ import TemplateBackOfficeBrandCreate from './../src/template/back-office/brand-c
 import TemplateBackOfficeBrandList from './../src/template/back-office/brand-list';
 import TemplateBackOfficeBrandUpdate from './../src/template/back-office/brand-update';
 import TemplateBackOfficeDashboardPreview from './../src/template/back-office/dashboard-preview';
-import TemplateBackOfficePlaylist from './../src/template/back-office/playlist';
 import TemplateBattleRequests from './../src/template/battle-requests';
 import TemplateCockpitJwUploader from './../src/template/cockpit/jw-uploader';
 import TemplateCommonAuthors from './../src/template/common/authors';
@@ -1212,8 +1211,7 @@ export const components = {
     TemplateBackOfficeBrandCreate,
     TemplateBackOfficeBrandList,
     TemplateBackOfficeBrandUpdate,
-    TemplateBackOfficeDashboardPreview,
-    TemplateBackOfficePlaylist
+    TemplateBackOfficeDashboardPreview
   },
   TemplateCockpit: {
     TemplateCockpitJwUploader
