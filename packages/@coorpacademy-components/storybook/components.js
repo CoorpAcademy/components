@@ -39,6 +39,7 @@ import AtomSocialLink from './../src/atom/social-link';
 import AtomSpinner from './../src/atom/spinner';
 import AtomTab from './../src/atom/tab';
 import AtomTabContent from './../src/atom/tab-content';
+import AtomTag from './../src/atom/tag';
 import AtomTitle from './../src/atom/title';
 import AtomVideoUpload from './../src/atom/video-upload';
 import AtomWizardSteps from './../src/atom/wizard-steps';
@@ -348,6 +349,10 @@ import AtomSpinnerFixtureDefault from '../src/atom/spinner/test/fixtures/default
 import AtomTabFixtureDefault from '../src/atom/tab/test/fixtures/default';
 import AtomTabContentFixtureDefault from '../src/atom/tab-content/test/fixtures/default';
 import AtomTabContentFixtureHideContentBackground from '../src/atom/tab-content/test/fixtures/hide-content-background';
+import AtomTagFixtureArchived from '../src/atom/tag/test/fixtures/archived';
+import AtomTagFixtureDefault from '../src/atom/tag/test/fixtures/default';
+import AtomTagFixturePublish from '../src/atom/tag/test/fixtures/publish';
+import AtomTagFixtureRevision from '../src/atom/tag/test/fixtures/revision';
 import AtomTitleFixtureFormGroupTitleWithoutSubtitle from '../src/atom/title/test/fixtures/form-group-title-without-subtitle';
 import AtomTitleFixtureFormGroupTitle from '../src/atom/title/test/fixtures/form-group-title';
 import AtomTitleFixturePageTitle from '../src/atom/title/test/fixtures/page-title';
@@ -1049,6 +1054,7 @@ export const components = {
     AtomSpinner,
     AtomTab,
     AtomTabContent,
+    AtomTag,
     AtomTitle,
     AtomVideoUpload,
     AtomWizardSteps
@@ -1472,6 +1478,12 @@ export const fixtures = {
     AtomTabContent: {
       Default: AtomTabContentFixtureDefault,
       HideContentBackground: AtomTabContentFixtureHideContentBackground
+    },
+    AtomTag: {
+      Archived: AtomTagFixtureArchived,
+      Default: AtomTagFixtureDefault,
+      Publish: AtomTagFixturePublish,
+      Revision: AtomTagFixtureRevision
     },
     AtomTitle: {
       FormGroupTitleWithoutSubtitle: AtomTitleFixtureFormGroupTitleWithoutSubtitle,

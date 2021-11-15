@@ -1,0 +1,38 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value cm_yellow_200 from colors;
+@value cm_positive_100 from colors;
+@value cm_orange_700 from colors;
+@value black from colors;
+
+.tag {
+  border-radius: 24px;
+  font-family: 'Gilroy';
+  font-size: 14px;
+  font-weight: bold;
+  min-width: 90px;
+  padding: 12px 16px;
+}
+
+.default {
+    composes: tag;
+    color: black;
+}
+
+.revision {
+    composes: tag;
+    background-color: color(cm_yellow_200 a(15%));
+    color: cm_yellow_200;
+}
+
+.published {
+    composes: tag;
+    background-color: color(cm_positive_100 a(15%));
+    color: cm_positive_100;
+}
+
+.archived {
+    composes: tag;
+    background-color: color(cm_orange_700 a(15%));
+    color: cm_orange_700;
+}
