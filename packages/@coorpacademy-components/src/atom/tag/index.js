@@ -1,28 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+import {keys} from 'lodash/fp';
 import style from './style.css';
+
+const TAG_STYLES = {
+  default: style.default,
+  published: style.published,
+  revision: style.revision,
+  archived: style.archived
+};
 
 const Tag = props => {
   const {label, type = 'default'} = props;
 
-  return (
-    <span
-      className={classnames(
-        type === 'default' && style.default,
-        type === 'published' && style.published,
-        type === 'revision' && style.revision,
-        type === 'archived' && style.archived
-      )}
-    >
-      {label}
-    </span>
-  );
+  return <span className={TAG_STYLES[type]}>{label}</span>;
 };
 
 Tag.propTypes = {
   label: PropTypes.string,
-  type: PropTypes.oneOf(['default', 'published', 'revision', 'archived'])
+  type: PropTypes.oneOf(keys(TAG_STYLES))
 };
 
 export default Tag;
