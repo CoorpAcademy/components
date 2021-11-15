@@ -142,11 +142,6 @@
   top: 7px;
 }
 
-.coorpmanager:focus-within .search::placeholder {
-  color: transparent;
-  transition: color 0.25s linear;
-}
-
 .coorpmanager:focus-within .title.noValue {
   width: max-content;
   height: 8px;
