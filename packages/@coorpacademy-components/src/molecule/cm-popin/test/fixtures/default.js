@@ -4,12 +4,14 @@ export default {
     icon: 'WindowUpload',
     firstButton: {
       label: 'Cancel',
-      handleOnClick: () => {}
+      handleOnClick: () => {},
+      'aria-lable': 'Cancel this operation'
     },
     secondButton: {
       label: 'Undo',
-      type: 'warning',
-      handleOnClick: () => {}
+      type: 'primary',
+      handleOnClick: () => {},
+      'aria-lable': 'Undo this operation'
     }
   }
 };

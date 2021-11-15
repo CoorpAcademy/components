@@ -5,6 +5,8 @@
 @value cm_grey_100 from colors;
 @value cm_grey_200 from colors;
 @value cm_grey_900 from colors;
+@value cm_negative_100 from colors;
+@value cm_negative_200 from colors;
 @value white from colors;
 
 .button {
@@ -73,6 +75,14 @@
 
 .tertiary:hover {
   background-color: cm_grey_100;
+}
+
+.dangerous {
+  background-color: cm_negative_100;
+}
+
+.dangerous:hover {
+  background-color: cm_negative_200;
 }
 
 .text {

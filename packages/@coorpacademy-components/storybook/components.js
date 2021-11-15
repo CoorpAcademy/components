@@ -192,6 +192,7 @@ import AtomButtonFixtureDisabled from '../src/atom/button/test/fixtures/disabled
 import AtomButtonFixtureDownload from '../src/atom/button/test/fixtures/download';
 import AtomButtonFixtureLink from '../src/atom/button/test/fixtures/link';
 import AtomButtonFixtureSso from '../src/atom/button/test/fixtures/sso';
+import AtomButtonLinkFixtureButtonDangerousNoIcon from '../src/atom/button-link/test/fixtures/button-dangerous-no-icon';
 import AtomButtonLinkFixtureButtonPrimaryIconLeft from '../src/atom/button-link/test/fixtures/button-primary-icon-left';
 import AtomButtonLinkFixtureButtonPrimaryNoIcon from '../src/atom/button-link/test/fixtures/button-primary-no-icon';
 import AtomButtonLinkFixtureButtonSecondaryNoIconDisabled from '../src/atom/button-link/test/fixtures/button-secondary-no-icon-disabled';
@@ -1259,6 +1260,7 @@ export const fixtures = {
       Sso: AtomButtonFixtureSso
     },
     AtomButtonLink: {
+      ButtonDangerousNoIcon: AtomButtonLinkFixtureButtonDangerousNoIcon,
       ButtonPrimaryIconLeft: AtomButtonLinkFixtureButtonPrimaryIconLeft,
       ButtonPrimaryNoIcon: AtomButtonLinkFixtureButtonPrimaryNoIcon,
       ButtonSecondaryNoIconDisabled: AtomButtonLinkFixtureButtonSecondaryNoIconDisabled,

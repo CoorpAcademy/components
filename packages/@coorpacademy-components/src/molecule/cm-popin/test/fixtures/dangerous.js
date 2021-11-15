@@ -4,11 +4,13 @@ export default {
     icon: 'AlertDiamond',
     firstButton: {
       label: 'Cancel',
+      'aria-lable': 'Cancel this operation',
       handleOnClick: () => {}
     },
     secondButton: {
       label: 'Undo',
       type: 'dangerous',
+      'aria-lable': 'Undo this operation',
       handleOnClick: () => {}
     }
   }
