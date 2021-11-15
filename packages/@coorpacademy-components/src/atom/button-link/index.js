@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {getOr} from 'lodash/fp';
 import classnames from 'classnames';
 import {
+  NovaSolidRemoveAddAddCircle1 as AddIcon,
   NovaCompositionNavigationArrowLeft as ChevronLeftIcon,
   NovaCompositionNavigationArrowRight as ChevronRightIcon,
   NovaCompositionCoorpacademyEye as EyeIcon,
@@ -14,6 +15,7 @@ import Link from '../link';
 import style from './style.css';
 
 const ICONS = {
+  add: AddIcon,
   analytics: AnalyticsIcon,
   'chevron-left': ChevronLeftIcon,
   'chevron-right': ChevronRightIcon,

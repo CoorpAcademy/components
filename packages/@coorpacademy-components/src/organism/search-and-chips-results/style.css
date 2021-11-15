@@ -11,17 +11,13 @@
 
 .search {
   margin: 0 0 0 16px;
+  width: 42%;
+  min-width: 309px;
 }
 
 .button {
-  font-family: Gilroy;
-  width: 144px;
-  height: 44px;
-  border-radius: 7px;
-  background-color: cm_grey_100;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 17%;
+  min-width: 129px;
 }
 
 .resultContainer {

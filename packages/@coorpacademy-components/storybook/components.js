@@ -9,7 +9,6 @@ import AtomCenteredText from './../src/atom/centered-text';
 import AtomCheckbox from './../src/atom/checkbox';
 import AtomChips from './../src/atom/chips';
 import AtomClue from './../src/atom/clue';
-import AtomCmInputSearch from './../src/atom/cm-input-search';
 import AtomContentBadge from './../src/atom/content-badge';
 import AtomCta from './../src/atom/cta';
 import AtomDifficultyLevel from './../src/atom/difficulty-level';
@@ -218,7 +217,6 @@ import AtomChipsFixtureNonSelected from '../src/atom/chips/test/fixtures/non-sel
 import AtomClueFixtureDefault from '../src/atom/clue/test/fixtures/default';
 import AtomClueFixtureLink from '../src/atom/clue/test/fixtures/link';
 import AtomClueFixtureLoading from '../src/atom/clue/test/fixtures/loading';
-import AtomCmInputSearchFixtureDefault from '../src/atom/cm-input-search/test/fixtures/default';
 import AtomContentBadgeFixtureAdvanced from '../src/atom/content-badge/test/fixtures/advanced';
 import AtomContentBadgeFixtureArticle from '../src/atom/content-badge/test/fixtures/article';
 import AtomContentBadgeFixtureChapter from '../src/atom/content-badge/test/fixtures/chapter';
@@ -809,8 +807,9 @@ import OrganismResourceBrowserFixtureVimeoWithOverlay from '../src/organism/reso
 import OrganismResourceBrowserFixtureVimeo from '../src/organism/resource-browser/test/fixtures/vimeo';
 import OrganismSearchAndChipsResultsFixtureDefault from '../src/organism/search-and-chips-results/test/fixtures/default';
 import OrganismSearchAndChipsResultsFixtureEmpty from '../src/organism/search-and-chips-results/test/fixtures/empty';
-import OrganismSearchAndChipsResultsFixtureSortedSelectedResults from '../src/organism/search-and-chips-results/test/fixtures/sorted-selected-results';
-import OrganismSearchAndChipsResultsFixtureUnsortedSelectedResults from '../src/organism/search-and-chips-results/test/fixtures/unsorted-selected-results';
+import OrganismSearchAndChipsResultsFixtureFiltered from '../src/organism/search-and-chips-results/test/fixtures/filtered';
+import OrganismSearchAndChipsResultsFixtureSortedSelected from '../src/organism/search-and-chips-results/test/fixtures/sorted-selected';
+import OrganismSearchAndChipsResultsFixtureUnsortedSelected from '../src/organism/search-and-chips-results/test/fixtures/unsorted-selected';
 import OrganismSettingsFixtureDefault from '../src/organism/settings/test/fixtures/default';
 import OrganismSettingsFixtureFreemium from '../src/organism/settings/test/fixtures/freemium';
 import OrganismSettingsFixturePremium from '../src/organism/settings/test/fixtures/premium';
@@ -1045,7 +1044,6 @@ export const components = {
     AtomCheckbox,
     AtomChips,
     AtomClue,
-    AtomCmInputSearch,
     AtomContentBadge,
     AtomCta,
     AtomDifficultyLevel,
@@ -1308,9 +1306,6 @@ export const fixtures = {
       Default: AtomClueFixtureDefault,
       Link: AtomClueFixtureLink,
       Loading: AtomClueFixtureLoading
-    },
-    AtomCmInputSearch: {
-      Default: AtomCmInputSearchFixtureDefault
     },
     AtomContentBadge: {
       Advanced: AtomContentBadgeFixtureAdvanced,
@@ -2203,8 +2198,9 @@ export const fixtures = {
     OrganismSearchAndChipsResults: {
       Default: OrganismSearchAndChipsResultsFixtureDefault,
       Empty: OrganismSearchAndChipsResultsFixtureEmpty,
-      SortedSelectedResults: OrganismSearchAndChipsResultsFixtureSortedSelectedResults,
-      UnsortedSelectedResults: OrganismSearchAndChipsResultsFixtureUnsortedSelectedResults
+      Filtered: OrganismSearchAndChipsResultsFixtureFiltered,
+      SortedSelected: OrganismSearchAndChipsResultsFixtureSortedSelected,
+      UnsortedSelected: OrganismSearchAndChipsResultsFixtureUnsortedSelected
     },
     OrganismSettings: {
       Default: OrganismSettingsFixtureDefault,
