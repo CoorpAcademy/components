@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Table from '../../molecule/table';
 import Pagination from '../../molecule/pagination';
-import Search from '../../molecule/search';
+import Search from '../../atom/input-search';
 import Loader from '../../atom/loader';
 import style from './style.css';
 

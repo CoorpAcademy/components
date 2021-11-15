@@ -1,0 +1,201 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value medium from colors;
+@value light from colors;
+@value white from colors;
+@value dark from colors;
+@value black from colors;
+@value cm_grey_100 from colors;
+@value cm_grey_150 from colors;
+@value cm_grey_400 from colors;
+@value cm_grey_500 from colors;
+@value cm_grey_700 from colors;
+
+.wrapperSearch {
+  display: flex;
+  width: 100%;
+  flex-flow: nowrap;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+}
+
+.searchIcon {
+  color: dark;
+  position: relative;
+  margin: 0 0 -3px -20px;
+  width: 19px;
+  height: 19px;
+  left: 35px;
+}
+
+.search {
+  font-family: "Open Sans";
+  text-transform: none;
+  margin: 0 3px;
+  padding: 0 15px 0 45px;
+  border: 0;
+  height: 50px;
+  border-radius: 0;
+  font-size: 14px;
+  color: dark;
+  width: 100%;
+  outline: none;
+  font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.search::placeholder {
+  color: medium;
+  font-size: 14px;
+}
+
+.search:focus {
+  outline: none;
+}
+
+.search:-webkit-autofill {
+  background-color: white;
+  background-image: none;
+  color: medium;
+}
+
+.search::placeholder {
+  color: medium;
+  font-size: 14px;
+}
+
+.coorpmanager {
+  position: relative;
+}
+
+.coorpmanager label {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: absolute;
+  height: 64px;
+}
+
+.coorpmanager .title {
+  flex-grow: 0;
+  font-family: Gilroy;
+  font-size: 10px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+  z-index: 1;
+  color: cm_grey_400;
+  width: max-content;
+  transition: all 0.25s ease;
+  pointer-events: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: absolute;
+  top: 7px;
+  left: 30px;
+}
+
+.coorpmanager .search {
+  height: 44px;
+  margin: 0;
+  flex-grow: 0;
+  display: flex;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 19px 30px 5px 30px;
+  border-radius: 7px;
+  background-color: cm_grey_100;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 44px;
+  letter-spacing: normal;
+  text-align: left;
+  color: cm_grey_700;
+  border: none;
+  transition: all 0.25s ease;
+  outline: none;
+}
+
+.coorpmanager .title.noValue {
+  font-size: 14px;
+  font-weight: 500;
+  color: cm_grey_400;
+  top: 14px;
+}
+
+.coorpmanager:focus-within .title.noValue {
+  font-size: 10px;
+  font-weight: bold;
+  color: cm_grey_400;
+  top: 7px;
+}
+
+.coorpmanager:focus-within .title.noValue {
+  width: max-content;
+  height: 8px;
+  line-height: 12px;
+  color: cm_grey_400;
+}
+
+.coorpmanager .search:hover {
+  background-color: cm_grey_150;
+}
+
+.coorpmanager .search::placeholder {
+  color: transparent;
+}
+
+.coorpmanager .clearIcon {
+  color: cm_grey_400;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  right: 15px;
+  top: 16px;
+  line-height: 16px;
+  cursor: pointer;
+}
+
+.coorpmanager .searchIcon {
+  color: #000;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  left: 30px;
+  top: 16px;
+  line-height: 16px;
+}
+
+@media tablet {
+  .search,
+  input {
+    font-size: 12px;
+  }
+
+  .search::placeholder {
+    font-size: 12px;
+  }
+}
+
+@media mobile {
+  .search {
+    font-size: 12px;
+  }
+
+  .search::placeholder {
+    font-size: 12px;
+  }
+}

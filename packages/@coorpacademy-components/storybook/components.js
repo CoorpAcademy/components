@@ -18,6 +18,7 @@ import AtomInputColor from './../src/atom/input-color';
 import AtomInputDoublestep from './../src/atom/input-doublestep';
 import AtomInputHtml from './../src/atom/input-html';
 import AtomInputReadonly from './../src/atom/input-readonly';
+import AtomInputSearch from './../src/atom/input-search';
 import AtomInputSwitch from './../src/atom/input-switch';
 import AtomInputText from './../src/atom/input-text';
 import AtomInputTextarea from './../src/atom/input-textarea';
@@ -108,7 +109,6 @@ import MoleculeQuickAccessCardsGroup from './../src/molecule/quick-access-cards-
 import MoleculeResourcePlayer from './../src/molecule/resource-player';
 import MoleculeScopeContent from './../src/molecule/scope-content';
 import MoleculeScopeTabs from './../src/molecule/scope-tabs';
-import MoleculeSearch from './../src/molecule/search';
 import MoleculeSearchForm from './../src/molecule/search-form';
 import MoleculeSelectMultiple from './../src/molecule/select-multiple';
 import MoleculeSetupCohortItem from './../src/molecule/setup-cohort-item';
@@ -263,6 +263,10 @@ import AtomInputHtmlFixtureDefault from '../src/atom/input-html/test/fixtures/de
 import AtomInputHtmlFixtureEmpty from '../src/atom/input-html/test/fixtures/empty';
 import AtomInputHtmlFixtureError from '../src/atom/input-html/test/fixtures/error';
 import AtomInputReadonlyFixtureDefault from '../src/atom/input-readonly/test/fixtures/default';
+import AtomInputSearchFixtureCoorpmanagerWithValue from '../src/atom/input-search/test/fixtures/coorpmanager-with-value';
+import AtomInputSearchFixtureCoorpmanager from '../src/atom/input-search/test/fixtures/coorpmanager';
+import AtomInputSearchFixtureDefault from '../src/atom/input-search/test/fixtures/default';
+import AtomInputSearchFixtureWithValue from '../src/atom/input-search/test/fixtures/with-value';
 import AtomInputSwitchFixtureChecked from '../src/atom/input-switch/test/fixtures/checked';
 import AtomInputSwitchFixtureDisabled from '../src/atom/input-switch/test/fixtures/disabled';
 import AtomInputSwitchFixtureModified from '../src/atom/input-switch/test/fixtures/modified';
@@ -620,8 +624,6 @@ import MoleculeScopeContentFixtureWithOnclick from '../src/molecule/scope-conten
 import MoleculeScopeTabsFixtureDefault from '../src/molecule/scope-tabs/test/fixtures/default';
 import MoleculeScopeTabsFixtureEmpty from '../src/molecule/scope-tabs/test/fixtures/empty';
 import MoleculeScopeTabsFixtureWithoutStatus from '../src/molecule/scope-tabs/test/fixtures/without-status';
-import MoleculeSearchFixtureDefault from '../src/molecule/search/test/fixtures/default';
-import MoleculeSearchFixtureWithValue from '../src/molecule/search/test/fixtures/with-value';
 import MoleculeSearchFormFixtureDefault from '../src/molecule/search-form/test/fixtures/default';
 import MoleculeSelectMultipleFixtureCheckedCockpitTheme from '../src/molecule/select-multiple/test/fixtures/checked-cockpit-theme';
 import MoleculeSelectMultipleFixtureCheckedSetupTheme from '../src/molecule/select-multiple/test/fixtures/checked-setup-theme';
@@ -1028,6 +1030,7 @@ export const components = {
     AtomInputDoublestep,
     AtomInputHtml,
     AtomInputReadonly,
+    AtomInputSearch,
     AtomInputSwitch,
     AtomInputText,
     AtomInputTextarea,
@@ -1108,7 +1111,6 @@ export const components = {
     MoleculeResourcePlayer,
     MoleculeScopeContent,
     MoleculeScopeTabs,
-    MoleculeSearch,
     MoleculeSearchForm,
     MoleculeSelectMultiple,
     MoleculeSetupCohortItem,
@@ -1345,6 +1347,12 @@ export const fixtures = {
     },
     AtomInputReadonly: {
       Default: AtomInputReadonlyFixtureDefault
+    },
+    AtomInputSearch: {
+      CoorpmanagerWithValue: AtomInputSearchFixtureCoorpmanagerWithValue,
+      Coorpmanager: AtomInputSearchFixtureCoorpmanager,
+      Default: AtomInputSearchFixtureDefault,
+      WithValue: AtomInputSearchFixtureWithValue
     },
     AtomInputSwitch: {
       Checked: AtomInputSwitchFixtureChecked,
@@ -1814,10 +1822,6 @@ export const fixtures = {
       Default: MoleculeScopeTabsFixtureDefault,
       Empty: MoleculeScopeTabsFixtureEmpty,
       WithoutStatus: MoleculeScopeTabsFixtureWithoutStatus
-    },
-    MoleculeSearch: {
-      Default: MoleculeSearchFixtureDefault,
-      WithValue: MoleculeSearchFixtureWithValue
     },
     MoleculeSearchForm: {
       Default: MoleculeSearchFormFixtureDefault

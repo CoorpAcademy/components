@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {get} from 'lodash/fp';
 import {NovaCompositionNavigationMore as ClearIcon} from '@coorpacademy/nova-icons';
-import Search from '../search';
+import Search from '../../atom/input-search';
 import style from './style.css';
 
 const SearchForm = (props, context) => {
