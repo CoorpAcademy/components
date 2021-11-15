@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
-  NovaCompositionCoorpacademySearch as SearchIcon,
+  NovaCompositionCoorpacademySearch1 as SearchIcon,
   NovaSolidStatusClose as CloseIcon
 } from '@coorpacademy/nova-icons';
 import {get, noop, isEmpty} from 'lodash/fp';
