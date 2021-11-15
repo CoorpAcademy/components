@@ -6,25 +6,31 @@ import {
   NovaCompositionCoorpacademySearch as SearchIcon,
   NovaSolidStatusClose as CloseIcon
 } from '@coorpacademy/nova-icons';
-import {get, noop, isEmpty} from 'lodash/fp';
+import {noop, isEmpty} from 'lodash/fp';
 import Provider from '../provider';
 import style from './style.css';
 
-const Search = (props, context) => {
-  const {value, placeholder, onChange = noop, onClear, onFocus, onBlur, theme = 'default'} = props;
-  const {skin} = context;
-  const dark = get('common.dark', skin);
+const Search = props => {
+  const {
+    value,
+    placeholder,
+    onChange = noop,
+    onClear = noop,
+    onFocus,
+    onBlur,
+    theme = 'default'
+  } = props;
   const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
   const cmStyle = classnames(style.coorpmanager);
   const isDefaultTheme = theme === 'default';
 
   return (
     <div className={isDefaultTheme ? style.wrapperSearch : cmStyle}>
-      <label htmlFor="search">
+      <label htmlFor="search" title={placeholder}>
         {!isDefaultTheme ? (
-          <CMSearchIcon color={dark} className={style.searchIcon} />
+          <CMSearchIcon className={style.searchIcon} />
         ) : (
-          <SearchIcon color={dark} className={style.searchIcon} />
+          <SearchIcon className={style.searchIcon} />
         )}
         {!isDefaultTheme ? (
           <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
@@ -40,9 +46,9 @@ const Search = (props, context) => {
         id="search"
         placeholder={placeholder}
         value={value}
-        onChange={noop}
         onInput={handleChange}
         onFocus={onFocus}
+        onChange={noop}
         onBlur={onBlur}
       />
       {value && !isDefaultTheme ? (
