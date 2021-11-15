@@ -31,7 +31,8 @@ const InputText = props => {
     disabled,
     required,
     modified = false,
-    title: propsTitle
+    title: propsTitle,
+    wrapperStyle
   } = props;
 
   const title = `${propsTitle}${required ? '*' : ''}`;
@@ -59,16 +60,18 @@ const InputText = props => {
     ) : null;
   const errorIconView = error ? <ErrorIcon className={style.leftIcon} /> : null;
   const validIconView = valid ? <CheckIcon className={style.leftIcon} /> : null;
+
   return (
     <div
       className={classnames(
         mainClass,
         className,
         disabled && style.disabled,
-        isNil(propsTitle) && style.isNoTitle
+        isNil(propsTitle) && style.isNoTitle,
+        wrapperStyle
       )}
     >
-      <label>
+      <labe>
         <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
           {title}
           {toolTipView}
@@ -110,6 +113,7 @@ InputText.propTypes = {
   onChange: PropTypes.func,
   description: PropTypes.string,
   modified: PropTypes.bool,
-  valid: PropTypes.bool
+  valid: PropTypes.bool,
+  wrapperStyle: PropTypes.string
 };
 export default InputText;

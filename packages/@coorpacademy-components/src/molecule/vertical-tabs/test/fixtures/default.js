@@ -43,6 +43,7 @@ export default {
         onClick: () => console.log('click'),
         selected: false
       }
-    ]
+    ],
+    languageListTitleRgaa: 'Languages list'
   }
 };
