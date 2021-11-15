@@ -28,11 +28,11 @@ const buildTab = (tab, index) => {
 };
 
 const VerticalTabs = props => {
-  const {tabs, className, titleRgaa} = props;
+  const {tabs, className, titleAria} = props;
   const tabsList = tabs.map(buildTab);
 
   return (
-    <ul className={classnames([style.wrapper, className])} title={titleRgaa}>
+    <ul className={classnames([style.wrapper, className])} title={titleAria}>
       {tabsList}
     </ul>
   );
@@ -48,6 +48,6 @@ VerticalTabs.propTypes = {
     })
   ),
   className: PropTypes.string,
-  titleRgaa: PropTypes.string
+  titleAria: PropTypes.string
 };
 export default VerticalTabs;

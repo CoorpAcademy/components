@@ -1,0 +1,118 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value brand from colors;
+@value light from colors;
+@value cm_grey_50 from colors;
+@value cm_primary_blue from colors;
+@value cm_blue_600 from colors;
+@value cm_negative_100 from colors;
+@value cm_negative_200 from colors;
+
+.container {
+  display: flex;
+  background-color: cm_grey_50;
+}
+
+.menu {
+  background-color: cm_grey_50;
+  height: 360px;
+  width: 180px;
+  margin: 24px 8px 24px 24px;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  padding: 24px 24px 8px 8px;
+  width: 100%;
+  align-items: end;
+  justify-content: space-around;
+}
+
+.nameWrapper {
+  height: 70px;
+  width: 100%;
+}
+
+.inputs input{
+  width: 100%;
+}
+
+.inputs label{
+  width: 100%;
+}
+
+.inputs textarea{
+  width: 100%;
+}
+
+.description {
+  width: 100%;
+}
+
+.button {
+  min-width: auto;
+  margin: 0px 8px;
+  border-radius: 7px;
+  transform: none;
+}
+
+.button::after,
+.button:hover::after,
+.button:focus::after,
+.button:active::after {
+  transform: none;
+}
+
+.buttonContent {
+  height: 44px;
+  line-height: 1.43;
+  font-size: 14px;
+  font-weight: bold;
+  display: block;
+  text-transform: inherit;
+  font-family: Gilroy;
+  text-align: center;
+  box-sizing: border-box;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 7px;
+}
+
+.addButton {
+  background-color: cm_primary_blue;
+  color: white;
+}
+
+.deleteButton {
+  background-color: transparent;
+  color: cm_negative_100;
+}
+
+.deleteButton:hover {
+  color: cm_negative_200;
+}
+.button:hover {
+  background-color: cm_blue_600;
+}
+.addButton:hover {
+  background-color: cm_blue_600;
+}
+
+.buttonIcon {
+  width: 12px;
+  height: 12px;
+  color: #fff;
+}
+
+.deleteButtonIcon {
+  width: 12px;
+  height: 12px;
+  color: cm_negative_100;
+}
