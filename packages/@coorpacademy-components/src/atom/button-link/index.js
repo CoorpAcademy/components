@@ -67,6 +67,7 @@ const ButtonLink = (props, context) => {
     type === 'secondary' && style.secondary,
     type === 'tertiary' && style.tertiary,
     type === 'text' && style.text,
+    link && style.link,
     disabled && style.disabled
   );
 
