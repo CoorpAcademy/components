@@ -79,6 +79,7 @@ a {
 }
 
 .text {
+  background: transparent;
   color: cm_grey_900;
   border-radius: 0px;
   height: auto;
