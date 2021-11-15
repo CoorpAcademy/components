@@ -3,7 +3,7 @@ export default {
     type: 'primary',
     disabled: true,
     label: 'Global Analytics',
-    'aria-title': 'aria button',
+    'aria-label': 'aria button',
     'data-name': 'default-button',
     icon: {
       position: 'right',

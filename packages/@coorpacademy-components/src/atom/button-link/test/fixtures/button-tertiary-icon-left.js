@@ -2,7 +2,7 @@ export default {
   props: {
     type: 'tertiary',
     label: 'Button',
-    'aria-title': 'aria button',
+    'aria-label': 'aria button',
     'data-name': 'default-button',
     icon: {
       position: 'left',

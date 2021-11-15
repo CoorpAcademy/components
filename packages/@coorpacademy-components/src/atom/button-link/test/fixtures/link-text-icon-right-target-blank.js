@@ -3,7 +3,7 @@ export default {
     type: 'text',
     label: 'Button',
     'data-name': 'default-button',
-    'aria-title': 'aria button',
+    'aria-label': 'aria button',
     icon: {
       position: 'right',
       type: 'chevron-left'

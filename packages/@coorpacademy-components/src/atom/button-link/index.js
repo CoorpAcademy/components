@@ -49,14 +49,14 @@ const getButtonContent = (icon, label) => {
   );
 };
 
-const ButtonLink = (props, context) => {
+const ButtonLink = props => {
   const {
     type,
     label,
     disabled,
     icon = {},
     'data-name': dataName,
-    'aria-title': ariaTitle,
+    'aria-label': ariaLabel,
     link,
     onClick
   } = props;
@@ -73,7 +73,13 @@ const ButtonLink = (props, context) => {
 
   if (link) {
     return (
-      <Link {...link} className={styleButton} data-name={dataName} title={ariaTitle || label}>
+      <Link
+        {...link}
+        className={styleButton}
+        data-name={dataName}
+        aria-label={ariaLabel || label}
+        title={ariaLabel || label}
+      >
         {contentView}
       </Link>
     );
@@ -83,7 +89,8 @@ const ButtonLink = (props, context) => {
   return (
     <button
       type="button"
-      title={ariaTitle || label}
+      aria-label={ariaLabel || label}
+      title={ariaLabel || label}
       className={styleButton}
       onClick={handleOnClick}
     >
@@ -95,7 +102,7 @@ const ButtonLink = (props, context) => {
 ButtonLink.propTypes = {
   type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text']),
   label: PropTypes.string,
-  'aria-title': PropTypes.string,
+  'aria-label': PropTypes.string,
   'data-name': PropTypes.string,
   icon: PropTypes.shape({
     position: PropTypes.oneOf(['right', 'left', 'center']),
