@@ -8,7 +8,7 @@ import {
   NovaCompositionCoorpacademyEye as EyeIcon,
   NovaCompositionCoorpacademyAnalytics as AnalyticsIcon,
   NovaCompositionCoorpacademyNext as CloseIcon,
-  NovaSolidComputersSdCard as SaveIcon,
+  NovaSolidComputersSdCard as SaveIcon
 } from '@coorpacademy/nova-icons';
 import Link from '../link';
 import style from './style.css';

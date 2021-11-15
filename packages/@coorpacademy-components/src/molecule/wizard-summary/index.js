@@ -1,11 +1,7 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {
-  NovaSolidComputersSdCard as SaveIcon,
-  NovaCompositionNavigationArrowDown as ArrowDownIcon
-} from '@coorpacademy/nova-icons';
-import Link from '../../atom/link';
+import {NovaCompositionNavigationArrowDown as ArrowDownIcon} from '@coorpacademy/nova-icons';
 import ContentBadge from '../../atom/content-badge';
 import ButtonLink from '../../atom/button-link';
 import style from './style.css';
@@ -98,7 +94,11 @@ const buildAction = action => {
     }
   };
 
-  return <ButtonLink {...buttonProps} />;
+  return (
+    <div>
+      <ButtonLink {...buttonProps} />
+    </div>
+  );
 };
 
 const WizardSummary = props => {
