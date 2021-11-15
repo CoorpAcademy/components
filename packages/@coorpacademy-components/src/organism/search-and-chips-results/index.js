@@ -2,7 +2,7 @@ import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {isEmpty, map} from 'lodash/fp';
 import Search from '../../atom/cm-input-search';
-import Link from '../../atom/link';
+import ButtonLink from '../../atom/button-link';
 import Chips from '../../atom/chips';
 import style from './style.css';
 
@@ -32,9 +32,9 @@ const SearchAndChipsResults = props => {
   return (
     <div className={style.container}>
       <div className={style.header}>
-        <Link onClick={handleClick} className={style.button}>
+        <ButtonLink onClick={handleClick} className={style.button}>
           {selectAllButton.label}
-        </Link>
+        </ButtonLink>
         <div className={style.search}>
           <Search {...search} />
         </div>

@@ -8,7 +8,7 @@ import {
 import style from './style.css';
 
 const Chips = props => {
-  const {text, information, selected, onClick} = props;
+  const {text, information, selected = false, onClick} = props;
 
   const handleClick = useMemo(() => () => onClick(), [onClick]);
 

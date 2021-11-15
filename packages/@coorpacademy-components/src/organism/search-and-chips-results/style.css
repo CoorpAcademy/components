@@ -30,11 +30,8 @@
 }
 
 li {
-  width: calc(25% - 20px);
+  min-width: 126px;
+  max-width: 268px;
   display: inline-flex;
   margin: 0 16px 16px 0px;
-}
-
-li:nth-child(4) {
-  margin-right: 0px;
 }

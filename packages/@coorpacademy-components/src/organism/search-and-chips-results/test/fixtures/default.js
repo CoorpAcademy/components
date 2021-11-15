@@ -13,9 +13,9 @@ export default {
     },
     results: [
       {
-        text: 'Population 2',
+        text: 'Population Human resourses filiale Singapour',
         information: '15739 users',
-        onClick: () => console.log('click Population 2')
+        onClick: () => console.log('click Population Human resourses filiale Singapour')
       },
       {
         text: 'Population 1',
@@ -23,9 +23,14 @@ export default {
         onClick: () => console.log('click Population 1')
       },
       {
-        text: 'Population 3',
+        text: 'P',
+        information: '1 p',
+        onClick: () => console.log('click P')
+      },
+      {
+        text: 'Population managed by othes RH in some country',
         information: '10 users',
-        onClick: () => console.log('click Population 3')
+        onClick: () => console.log('click Population managed by othes RH in some country')
       },
       {
         text: 'Population 4',
@@ -33,14 +38,14 @@ export default {
         onClick: () => console.log('click Population 4')
       },
       {
-        text: 'Population 5',
+        text: 'Population a long with a long name',
         information: '105 users',
-        onClick: () => console.log('click Population 5')
+        onClick: () => console.log('click Population a long with a long name')
       },
       {
-        text: 'Population 6',
+        text: 'Result bit that long',
         information: '1067 users',
-        onClick: () => console.log('click Population 6')
+        onClick: () => console.log('click Result bit that long')
       }
     ]
   }
