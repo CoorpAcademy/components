@@ -91,3 +91,7 @@
   border-radius: 0px;
   height: auto;
 }
+
+.text:hover {
+  color: cm_primary_blue;
+}

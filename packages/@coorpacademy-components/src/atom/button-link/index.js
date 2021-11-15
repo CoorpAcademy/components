@@ -10,7 +10,9 @@ import {
   NovaCompositionCoorpacademyAnalytics as AnalyticsIcon,
   NovaCompositionCoorpacademyNext as CloseIcon,
   NovaSolidComputersSdCard as SaveIcon,
-  NovaSolidContentEditionPencilWrite as EditIcon
+  NovaSolidContentEditionPencilWrite as EditIcon,
+  NovaSolidRemoveAddAddCircle1 as AddIcon,
+  NovaSolidContentEditionBin as DeleteIcon
 } from '@coorpacademy/nova-icons';
 import Link from '../link';
 import style from './style.css';
@@ -23,7 +25,10 @@ const ICONS = {
   close: CloseIcon,
   edit: EditIcon,
   save: SaveIcon,
-  see: EyeIcon
+  see: EyeIcon,
+  analytics: AnalyticsIcon,
+  addIcon: AddIcon,
+  deleteIcon: DeleteIcon
 };
 
 const getButtonContent = (icon, label) => {
@@ -74,6 +79,7 @@ const ButtonLink = props => {
     type === 'tertiary' && style.tertiary,
     type === 'text' && style.text,
     type === 'dangerous' && style.dangerous,
+    type === 'text-negative' && style.textNegative,
     link && style.link,
     disabled && style.disabled
   );
@@ -107,7 +113,7 @@ const ButtonLink = props => {
 };
 
 ButtonLink.propTypes = {
-  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text', 'dangerous']),
+  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text', 'dangerous', 'text-negative']),
   label: PropTypes.string,
   'aria-label': PropTypes.string,
   'data-name': PropTypes.string,

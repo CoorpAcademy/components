@@ -71,7 +71,7 @@ const InputText = props => {
         wrapperStyle
       )}
     >
-      <labe>
+      <label>
         <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
           {title}
           {toolTipView}
