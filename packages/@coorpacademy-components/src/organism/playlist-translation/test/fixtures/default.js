@@ -14,6 +14,6 @@ export default {
       type: 'add',
       handleOnClick: () => {}
     },
-    languagesListTitleAria: 'Languages list'
+    'list-aria-label': 'Languages list'
   }
 };

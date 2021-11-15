@@ -92,6 +92,6 @@ export default {
         selected: false
       }
     ],
-    languageListTitleRgaa: 'Languages list'
+    'aria-label': 'Languages list'
   }
 };

@@ -7,14 +7,15 @@ import Button from '../../atom/button-link';
 import style from './style.css';
 
 function PlayListTranslation(props) {
-  const {languageTabs, inputText, textArea, cta, languagesListTitleAria} = props;
+  const {languageTabs, inputText, textArea, cta, 'list-aria-label': listAriaLabel} = props;
 
+  const ariaLabel = {'aria-label': listAriaLabel}
   return (
     <div className={style.container}>
       <VerticalLanguageMenu
         className={style.menu}
         tabs={languageTabs}
-        titleAria={languagesListTitleAria}
+        {...ariaLabel}
       />
       <div className={style.inputs}>
         <InputText {...inputText} wrapperStyle={style.nameWrapper} theme={'coorpmanager'} />
@@ -34,14 +35,14 @@ function PlayListTranslation(props) {
 
 PlayListTranslation.propTypes = {
   languageTabs: VerticalLanguageMenu.propTypes.tabs,
-  inputText: InputText.propTypes,
-  textArea: TextArea.propTypes,
+  inputText:  PropTypes.shape({...InputText.propTypes}),
+  textArea:  PropTypes.shape({...TextArea.propTypes}),
   cta: PropTypes.shape({
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
     type: PropTypes.oneOf(['delete', 'add'])
   }),
-  languagesListTitleAria: PropTypes.string
+  'list-aria-label': PropTypes.string
 };
 
 export default PlayListTranslation;

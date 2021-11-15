@@ -14,6 +14,6 @@ export default {
       type: 'delete',
       handleOnClick: () => {}
     },
-    languagesListTitleAria: 'Languages list'
+    'list-aria-label': 'Languages list'
   }
 };
