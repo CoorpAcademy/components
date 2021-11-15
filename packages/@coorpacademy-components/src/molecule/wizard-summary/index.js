@@ -81,11 +81,12 @@ const buildSections = sections => {
 const buildAction = action => {
   if (!action) return null;
 
-  const {onClick, text, icon} = action;
+  const {onClick, text, icon, 'aria-label': ariaLabel} = action;
   const handleClick = useMemo(() => () => onClick(), [onClick]);
   const buttonProps = {
     type: 'text',
     label: text,
+    'aria-label': ariaLabel,
     'data-name': `${icon}-button`,
     onClick: handleClick,
     icon: {
@@ -173,7 +174,8 @@ WizardSummary.propTypes = {
   action: PropTypes.shape({
     icon: PropTypes.string,
     text: PropTypes.string,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    'aria-label': PropTypes.string
   })
 };
 
