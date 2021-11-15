@@ -9,14 +9,10 @@ import style from './style.css';
 function PlayListTranslation(props) {
   const {languageTabs, inputText, textArea, cta, 'list-aria-label': listAriaLabel} = props;
 
-  const ariaLabel = {'aria-label': listAriaLabel}
+  const ariaLabel = {'aria-label': listAriaLabel};
   return (
     <div className={style.container}>
-      <VerticalLanguageMenu
-        className={style.menu}
-        tabs={languageTabs}
-        {...ariaLabel}
-      />
+      <VerticalLanguageMenu {...ariaLabel} className={style.menu} tabs={languageTabs} />
       <div className={style.inputs}>
         <InputText {...inputText} wrapperStyle={style.nameWrapper} theme={'coorpmanager'} />
         <TextArea {...textArea} wrapperStyle={style.description} theme={'coorpmanager'} />
@@ -35,8 +31,8 @@ function PlayListTranslation(props) {
 
 PlayListTranslation.propTypes = {
   languageTabs: VerticalLanguageMenu.propTypes.tabs,
-  inputText:  PropTypes.shape({...InputText.propTypes}),
-  textArea:  PropTypes.shape({...TextArea.propTypes}),
+  inputText: PropTypes.shape({...InputText.propTypes}),
+  textArea: PropTypes.shape({...TextArea.propTypes}),
   cta: PropTypes.shape({
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
