@@ -1,11 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import { NovaSolidRemoveAddAddCircle1 as AddIcon, NovaLineContentEditionBin as Trash } from '@coorpacademy/nova-icons';
 import VerticalLanguageMenu from '../../molecule/vertical-tabs';
 import InputText from '../../atom/input-text';
 import TextArea from '../../atom/input-textarea';
-import Cta from '../../atom/button';
+import Button from '../../atom/button-link';
 import style from './style.css';
 
 function PlayListTranslation(props) {
@@ -21,18 +19,14 @@ function PlayListTranslation(props) {
       <div className={style.inputs}>
         <InputText {...inputText} wrapperStyle={style.nameWrapper} theme={'coorpmanager'} />
         <TextArea {...textArea} wrapperStyle={style.description} theme={'coorpmanager'} />
-
-        <Cta
-          onClick={cta.handleOnclick}
-          className={style.button}
-          buttonContentClassName={classNames([
-            style.buttonContent,
-            cta.type === 'delete' ? style.deleteButton : style.addButton
-          ])}
-        >
-         { cta.type === 'delete' ? <Trash  className={style.deleteButtonIcon} /> :<AddIcon className={style.buttonIcon}/>}
-          {cta.label}
-        </Cta>
+        <div className={style.button}>
+          <Button
+            onClick={cta.handleOnclick}
+            type={cta.type === 'delete' ? 'text-negative' : 'primary'}
+            icon={{type: cta.type === 'delete' ? 'deleteIcon' : 'addIcon', position: 'left'}}
+            label={cta.label}
+          />
+        </div>
       </div>
     </div>
   );
