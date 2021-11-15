@@ -809,7 +809,8 @@ import OrganismResourceBrowserFixtureVimeoWithOverlay from '../src/organism/reso
 import OrganismResourceBrowserFixtureVimeo from '../src/organism/resource-browser/test/fixtures/vimeo';
 import OrganismSearchAndChipsResultsFixtureDefault from '../src/organism/search-and-chips-results/test/fixtures/default';
 import OrganismSearchAndChipsResultsFixtureEmpty from '../src/organism/search-and-chips-results/test/fixtures/empty';
-import OrganismSearchAndChipsResultsFixtureSelectedResults from '../src/organism/search-and-chips-results/test/fixtures/selected-results';
+import OrganismSearchAndChipsResultsFixtureSortedSelectedResults from '../src/organism/search-and-chips-results/test/fixtures/sorted-selected-results';
+import OrganismSearchAndChipsResultsFixtureUnsortedSelectedResults from '../src/organism/search-and-chips-results/test/fixtures/unsorted-selected-results';
 import OrganismSettingsFixtureDefault from '../src/organism/settings/test/fixtures/default';
 import OrganismSettingsFixtureFreemium from '../src/organism/settings/test/fixtures/freemium';
 import OrganismSettingsFixturePremium from '../src/organism/settings/test/fixtures/premium';
@@ -2202,7 +2203,8 @@ export const fixtures = {
     OrganismSearchAndChipsResults: {
       Default: OrganismSearchAndChipsResultsFixtureDefault,
       Empty: OrganismSearchAndChipsResultsFixtureEmpty,
-      SelectedResults: OrganismSearchAndChipsResultsFixtureSelectedResults
+      SortedSelectedResults: OrganismSearchAndChipsResultsFixtureSortedSelectedResults,
+      UnsortedSelectedResults: OrganismSearchAndChipsResultsFixtureUnsortedSelectedResults
     },
     OrganismSettings: {
       Default: OrganismSettingsFixtureDefault,

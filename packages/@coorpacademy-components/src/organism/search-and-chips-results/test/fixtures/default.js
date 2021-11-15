@@ -11,7 +11,6 @@ export default {
       description: 'Type to filter the populations',
       onChange: value => console.log(value)
     },
-    selected: [],
     results: [
       {
         text: 'Population 2',

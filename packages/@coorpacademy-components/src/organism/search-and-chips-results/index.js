@@ -1,42 +1,33 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {concat, isEmpty, map} from 'lodash/fp';
+import {isEmpty, map} from 'lodash/fp';
 import Search from '../../atom/cm-input-search';
 import Link from '../../atom/link';
 import Chips from '../../atom/chips';
 import style from './style.css';
 
-const buildResultView = (selectedResults, results) => {
+const buildResultView = results => {
   if (isEmpty(results)) {
     return <div>Nothing</div>;
   }
 
-  const items = concat(
-    map(s => {
-      return (
-        <li>
-          <Chips {...s} selected />
-        </li>
-      );
-    }, selectedResults),
-    map(r => {
-      return (
-        <li>
-          <Chips {...r} />
-        </li>
-      );
-    }, results)
-  );
+  const items = map(result => {
+    return (
+      <li>
+        <Chips {...result} />
+      </li>
+    );
+  }, results);
 
   return <ul>{items}</ul>;
 };
 
 const SearchAndChipsResults = props => {
-  const {search, selectAllButton, selected, results} = props;
+  const {search, selectAllButton, results} = props;
 
   const {onClick} = selectAllButton;
   const handleClick = useMemo(() => () => onClick(), [onClick]);
-  const resultView = buildResultView(selected, results);
+  const resultView = buildResultView(results);
 
   return (
     <div className={style.container}>
@@ -60,20 +51,7 @@ SearchAndChipsResults.propTypes = {
     disabled: PropTypes.bool
   }),
   search: PropTypes.shape(Search.PropTypes),
-  selected: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: PropTypes.string,
-      information: PropTypes.string,
-      onClick: PropTypes.func
-    })
-  ),
-  results: PropTypes.arrayOf(
-    PropTypes.shape({
-      text: PropTypes.string,
-      information: PropTypes.string,
-      onClick: PropTypes.func
-    })
-  )
+  results: PropTypes.arrayOf(PropTypes.shape(Chips.propTypes))
 };
 
 export default SearchAndChipsResults;
