@@ -2,7 +2,8 @@ import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
-  NovaCompositionCoorpacademySearch1 as SearchIcon,
+  NovaCompositionCoorpacademySearch1 as CMSearchIcon,
+  NovaCompositionCoorpacademySearch as SearchIcon,
   NovaSolidStatusClose as CloseIcon
 } from '@coorpacademy/nova-icons';
 import {get, noop, isEmpty} from 'lodash/fp';
@@ -20,7 +21,11 @@ const Search = (props, context) => {
   return (
     <div className={isDefaultTheme ? style.wrapperSearch : cmStyle}>
       <label htmlFor="search">
-        <SearchIcon color={dark} className={style.searchIcon} />
+        {!isDefaultTheme ? (
+          <CMSearchIcon color={dark} className={style.searchIcon} />
+        ) : (
+          <SearchIcon color={dark} className={style.searchIcon} />
+        )}
         {!isDefaultTheme ? (
           <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
             {placeholder}
