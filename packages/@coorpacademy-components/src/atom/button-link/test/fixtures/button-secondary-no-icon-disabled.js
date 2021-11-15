@@ -2,7 +2,7 @@ export default {
   props: {
     type: 'secondary',
     label: 'See my platform',
-    'rgaa-title': 'rgaa button',
+    'aria-title': 'aria button',
     'data-name': 'default-button',
     onClick: () => console.log('click'),
     disabled: true

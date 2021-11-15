@@ -2,7 +2,7 @@ export default {
   props: {
     type: 'tertiary',
     label: 'Button',
-    'rgaa-title': 'rgaa button',
+    'aria-title': 'aria button',
     'data-name': 'default-button',
     icon: {
       position: 'left',

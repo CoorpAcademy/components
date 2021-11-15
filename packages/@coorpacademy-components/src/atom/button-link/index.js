@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {getOr, noop, identity} from 'lodash/fp';
+import {getOr} from 'lodash/fp';
 import classnames from 'classnames';
 import {
   NovaCompositionNavigationArrowLeft as ChevronLeftIcon,
@@ -9,8 +9,7 @@ import {
   NovaCompositionCoorpacademyAnalytics as AnalyticsIcon,
   NovaCompositionCoorpacademyNext as CloseIcon
 } from '@coorpacademy/nova-icons';
-import Provider from '../provider';
-import pushToHistory from '../../util/navigation';
+import Link from '../link';
 import style from './style.css';
 
 const ICONS = {
@@ -50,26 +49,14 @@ const getButtonContent = (icon, label) => {
   );
 };
 
-const buildOnClickForLink = props => e => {
-  const {onClick = noop, link} = props;
-  const {download} = link;
-  onClick(e);
-
-  if (!download) {
-    const navigate = pushToHistory(this.context)(this.props);
-    navigate(e);
-  }
-};
-
 const ButtonLink = (props, context) => {
-  const {history: {createHref = identity} = {}} = context;
   const {
     type,
     label,
     disabled,
     icon = {},
     'data-name': dataName,
-    'rgaa-title': rgaaTitle,
+    'aria-title': ariaTitle,
     link,
     onClick
   } = props;
@@ -84,19 +71,10 @@ const ButtonLink = (props, context) => {
   );
 
   if (link) {
-    const {href} = link;
-    const handleOnClick = buildOnClickForLink(props);
     return (
-      <a
-        {...link}
-        className={styleButton}
-        data-name={dataName}
-        title={rgaaTitle || label}
-        href={href ? createHref(href) : undefined}
-        onClick={handleOnClick}
-      >
+      <Link {...link} className={styleButton} data-name={dataName} title={ariaTitle || label}>
         {contentView}
-      </a>
+      </Link>
     );
   }
 
@@ -104,7 +82,7 @@ const ButtonLink = (props, context) => {
   return (
     <button
       type="button"
-      title={rgaaTitle || label}
+      title={ariaTitle || label}
       className={styleButton}
       onClick={handleOnClick}
     >
@@ -116,7 +94,7 @@ const ButtonLink = (props, context) => {
 ButtonLink.propTypes = {
   type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text']),
   label: PropTypes.string,
-  'rgaa-title': PropTypes.string,
+  'aria-title': PropTypes.string,
   'data-name': PropTypes.string,
   icon: PropTypes.shape({
     position: PropTypes.oneOf(['right', 'left', 'center']),
@@ -129,10 +107,6 @@ ButtonLink.propTypes = {
     target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
   }),
   disabled: PropTypes.bool
-};
-
-ButtonLink.contextTypes = {
-  history: Provider.childContextTypes.history
 };
 
 export default ButtonLink;
