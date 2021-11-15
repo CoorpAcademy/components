@@ -3,7 +3,7 @@ export default {
     type: 'tertiary',
     label: 'Go to google',
     'data-name': 'default-button',
-    'aria-title': 'aria button',
+    'aria-label': 'aria button',
     onClick: () => {
       console.log('Click on link');
       return;

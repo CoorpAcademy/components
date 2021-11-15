@@ -2,7 +2,7 @@ export default {
   props: {
     type: 'primary',
     label: 'See my platform',
-    'aria-title': 'aria button',
+    'aria-label': 'aria button',
     'data-name': 'default-button',
     icon: {
       position: 'left',
