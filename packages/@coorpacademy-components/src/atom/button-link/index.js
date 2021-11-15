@@ -63,7 +63,16 @@ const buildOnClickForLink = props => e => {
 
 const ButtonLink = (props, context) => {
   const {history: {createHref = identity} = {}} = context;
-  const {type, label, disabled, icon = {}, 'data-name': dataName, link, onClick} = props;
+  const {
+    type,
+    label,
+    disabled,
+    icon = {},
+    'data-name': dataName,
+    'rgaa-title': rgaaTitle,
+    link,
+    onClick
+  } = props;
   const contentView = getButtonContent(icon, label);
   const styleButton = classnames(
     style.button,
@@ -82,6 +91,7 @@ const ButtonLink = (props, context) => {
         {...link}
         className={styleButton}
         data-name={dataName}
+        title={rgaaTitle || label}
         href={href ? createHref(href) : undefined}
         onClick={handleOnClick}
       >
@@ -92,15 +102,21 @@ const ButtonLink = (props, context) => {
 
   const handleOnClick = useMemo(() => () => onClick(), [onClick]);
   return (
-    <div className={styleButton} onClick={handleOnClick}>
+    <button
+      type="button"
+      title={rgaaTitle || label}
+      className={styleButton}
+      onClick={handleOnClick}
+    >
       {contentView}
-    </div>
+    </button>
   );
 };
 
 ButtonLink.propTypes = {
   type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text']),
   label: PropTypes.string,
+  'rgaa-title': PropTypes.string,
   'data-name': PropTypes.string,
   icon: PropTypes.shape({
     position: PropTypes.oneOf(['right', 'left', 'center']),
