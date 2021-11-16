@@ -6,7 +6,9 @@
 @value cm_negative_50 from colors;
 @value cm_negative_200 from colors;
 @value cm_warning_50 from colors;
+@value cm_yellow_100 from colors;
 @value cm_yellow_200 from colors;
+@value cm_yellow_400 from colors;
 
 .banner {
     display: flex;
@@ -27,19 +29,22 @@
 }
 
 .button {
-    flex-grow: 0;
-    font-family: Gilroy;
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 1.33;
     background-color: transparent;
 }
 
+.button button{
+    color: cm_yellow_200;
+}
+
+.button button:hover{
+    color: cm_yellow_400;
+}
+
 .buttonsBar {
-    width: 1px;
+    width: 2px;
     align-self: stretch;
     flex-grow: 0;
-    opacity: 0.1;
+    opacity: 0.3;
     background-color: cm_yellow_200;
 }
 
