@@ -21,6 +21,9 @@
   align-items: center;
   cursor: pointer;
   border: none;
+  /* prevents text selection when dragging 
+  the mouse over the button */
+  user-select: none;
 }
 
 .disabled {
@@ -61,6 +64,16 @@
 .secondary {
   background-color: cm_grey_100;
   color: cm_grey_900;
+}
+
+.secondaryFlat {
+  composes: secondary;
+  border-radius: 0px;
+}
+
+.secondaryFlatDelete {
+  composes: secondaryFlat;
+  color: cm_negative_100;
 }
 
 .secondary:hover {
