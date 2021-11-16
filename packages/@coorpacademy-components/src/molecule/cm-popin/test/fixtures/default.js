@@ -6,13 +6,13 @@ export default {
       label: 'Cancel',
       type: 'secondary',
       handleOnClick: () => {},
-      'aria-lable': 'Cancel this operation'
+      'aria-label': 'Cancel this operation'
     },
     secondButton: {
       label: 'Undo',
       type: 'primary',
       handleOnClick: () => {},
-      'aria-lable': 'Undo this operation'
+      'aria-label': 'Undo this operation'
     }
   }
 };
