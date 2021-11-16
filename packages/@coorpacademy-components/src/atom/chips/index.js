@@ -21,13 +21,11 @@ const Chips = props => {
         <span className={style.text}>{text}</span>
         <span className={style.information}>{information}</span>
       </div>
-      <div>
-        {selected ? (
-          <SelectedIcon className={style.selectedIconWrapper} />
-        ) : (
-          <AddIcon className={style.unselectedIconWrapper} />
-        )}
-      </div>
+      {selected ? (
+        <SelectedIcon className={style.selectedIconWrapper} />
+      ) : (
+        <AddIcon className={style.unselectedIconWrapper} />
+      )}
     </div>
   );
 };

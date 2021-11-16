@@ -15,6 +15,7 @@
   display: flex;
   align-items: center;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 .selected {
@@ -34,6 +35,8 @@
 }
 
 .textZone {
+  flex: 1 1 100%;
+  padding-right: 32px;
   width: calc(100% - 32px);
 }
 
