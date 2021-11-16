@@ -11,6 +11,7 @@ export default {
       description: 'Type to filter the populations',
       onChange: value => console.log(value)
     },
+    'results-aria-label': 'Population results',
     results: [
       {
         text: 'Population Human resourses filiale Singapour',

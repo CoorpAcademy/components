@@ -12,6 +12,7 @@ export default {
       description: 'Type to find the populations',
       onChange: value => console.log(value)
     },
+    'results-aria-label': 'Population results',
     results: [],
     emptyMessages: {
       firstMessage: 'No results...',
