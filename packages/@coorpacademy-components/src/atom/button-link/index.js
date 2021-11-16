@@ -19,9 +19,9 @@ const ICONS = {
   'chevron-left': ChevronLeftIcon,
   'chevron-right': ChevronRightIcon,
   close: CloseIcon,
+  edit: EditIcon,
   save: SaveIcon,
-  see: EyeIcon,
-  edit: EditIcon
+  see: EyeIcon
 };
 
 const getButtonContent = (icon, label) => {
