@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {isEmpty, map} from 'lodash/fp';
 import Search from '../../atom/input-search';
@@ -44,7 +44,7 @@ const SearchAndChipsResults = props => {
     <div className={style.container}>
       <div className={style.header}>
         <div className={style.button}>
-          <ButtonLink {...buttonProps}/>
+          <ButtonLink {...buttonProps} />
         </div>
         <div className={style.search}>
           <Search {...search} theme="coorpmanager" />
