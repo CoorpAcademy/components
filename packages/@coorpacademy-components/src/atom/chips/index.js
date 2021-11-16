@@ -16,6 +16,7 @@ const Chips = props => {
     <div
       className={classnames(style.container, selected ? style.selected : style.unselected)}
       onClick={handleClick}
+      aria-label={`${text} ${information}`}
     >
       <div className={style.textZone} title={text}>
         <span className={style.text}>{text}</span>
