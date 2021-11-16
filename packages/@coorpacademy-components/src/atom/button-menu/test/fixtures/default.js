@@ -1,5 +1,5 @@
 const actionButtonProps = {
-  'data-name': `menu-publish-button`,
+  'data-name': 'menu-publish-button',
   label: 'Publish',
   onClick: () => console.log('Publish'),
   type: 'secondary'
@@ -14,9 +14,9 @@ const deleteButtonProps = {
 
 export default {
   props: {
-    buttonAriaLabel: 'aria button',
-    menuAriaLabel: 'aria menu',
     buttons: [actionButtonProps, deleteButtonProps],
-    onClick: () => console.log('click on bullet point button - test in a bigger component to see the menu')
+    key: 'default-menu',
+    'aria-label': 'aria button',
+    'data-name': 'default-menu'
   }
 };
