@@ -27,6 +27,7 @@
 
 li {
   min-width: 153px;
+  max-width: 268px;
   display: inline-block;
   margin: 0 16px 16px 0px;
 }
