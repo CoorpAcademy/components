@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {isEmpty, map} from 'lodash/fp';
+import {isEmpty} from 'lodash/fp';
 import Search from '../../atom/input-search';
 import ButtonLink from '../../atom/button-link';
 import Chips from '../../atom/chips';
@@ -8,11 +8,12 @@ import style from './style.css';
 
 const buildResultView = (results, emptyMessages) => {
   if (isEmpty(results)) {
-    console.log('emptyMessages', emptyMessages);
-    return (<div className={style.errorSection}>
-      <span className={style.firstErrorMessage}>{emptyMessages.firstMessage}</span>
-      <span className={style.secondErrorMessage}>{emptyMessages.secondMessage}</span>
-    </div>);
+    return (
+      <div className={style.errorSection}>
+        <span className={style.firstErrorMessage}>{emptyMessages.firstMessage}</span>
+        <span className={style.secondErrorMessage}>{emptyMessages.secondMessage}</span>
+      </div>
+    );
   }
 
   const items = results.map((result, index) => {
