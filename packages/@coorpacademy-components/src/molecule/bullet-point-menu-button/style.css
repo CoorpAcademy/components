@@ -1,5 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value cm_grey_100 from colors;
+@value transparent from colors;
 
 .bulletPointWrapper {
   display: flex;
@@ -15,7 +15,6 @@
 
 .bulletPointMenu {
   min-width: 80px;
-  pointer-events: auto;
   /* positioning */
   position: absolute;
   align-self: flex-end;
@@ -25,8 +24,7 @@
   z-index: 1;
   /* round corners */
   border-radius: 7px;
-  overflow: hidden;
-  background-color: cm_grey_100;
+  background-color: transparent;
 }
 
 /* Fade-in - Fade-out */ 

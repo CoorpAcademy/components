@@ -4,6 +4,7 @@ import AtomAutocomplete from './../src/atom/autocomplete';
 import AtomAvatar from './../src/atom/avatar';
 import AtomButton from './../src/atom/button';
 import AtomButtonLink from './../src/atom/button-link';
+import AtomButtonMenu from './../src/atom/button-menu';
 import AtomCatalogSection from './../src/atom/catalog-section';
 import AtomCenteredText from './../src/atom/centered-text';
 import AtomCheckbox from './../src/atom/checkbox';
@@ -207,6 +208,7 @@ import AtomButtonLinkFixtureLinkSecondaryIconRight from '../src/atom/button-link
 import AtomButtonLinkFixtureLinkTertiaryNoIcon from '../src/atom/button-link/test/fixtures/link-tertiary-no-icon';
 import AtomButtonLinkFixtureLinkTextIconRightTargetBlank from '../src/atom/button-link/test/fixtures/link-text-icon-right-target-blank';
 import AtomButtonLinkFixtureLinkTextNoIconDownload from '../src/atom/button-link/test/fixtures/link-text-no-icon-download';
+import AtomButtonMenuFixtureDefault from '../src/atom/button-menu/test/fixtures/default';
 import AtomCatalogSectionFixtureList from '../src/atom/catalog-section/test/fixtures/list';
 import AtomCatalogSectionFixturePicture from '../src/atom/catalog-section/test/fixtures/picture';
 import AtomCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
@@ -1044,6 +1046,7 @@ export const components = {
     AtomAvatar,
     AtomButton,
     AtomButtonLink,
+    AtomButtonMenu,
     AtomCatalogSection,
     AtomCenteredText,
     AtomCheckbox,
@@ -1291,6 +1294,9 @@ export const fixtures = {
       LinkTertiaryNoIcon: AtomButtonLinkFixtureLinkTertiaryNoIcon,
       LinkTextIconRightTargetBlank: AtomButtonLinkFixtureLinkTextIconRightTargetBlank,
       LinkTextNoIconDownload: AtomButtonLinkFixtureLinkTextNoIconDownload
+    },
+    AtomButtonMenu: {
+      Default: AtomButtonMenuFixtureDefault
     },
     AtomCatalogSection: {
       List: AtomCatalogSectionFixtureList,
