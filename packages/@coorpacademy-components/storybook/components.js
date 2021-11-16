@@ -62,6 +62,7 @@ import MoleculeBrandFormGroup from './../src/molecule/brand-form-group';
 import MoleculeBrandTabs from './../src/molecule/brand-tabs';
 import MoleculeBrandUploadBox from './../src/molecule/brand-upload-box';
 import MoleculeBreadcrumbs from './../src/molecule/breadcrumbs';
+import MoleculeBulletPointMenuButton from './../src/molecule/bullet-point-menu-button';
 import MoleculeCard from './../src/molecule/card';
 import MoleculeCardContent from './../src/molecule/card-content';
 import MoleculeCardWithButton from './../src/molecule/card-with-button';
@@ -198,6 +199,7 @@ import AtomButtonLinkFixtureButtonDangerousNoIcon from '../src/atom/button-link/
 import AtomButtonLinkFixtureButtonPrimaryIconLeft from '../src/atom/button-link/test/fixtures/button-primary-icon-left';
 import AtomButtonLinkFixtureButtonPrimaryNoIcon from '../src/atom/button-link/test/fixtures/button-primary-no-icon';
 import AtomButtonLinkFixtureButtonSecondaryNoIconDisabled from '../src/atom/button-link/test/fixtures/button-secondary-no-icon-disabled';
+import AtomButtonLinkFixtureButtonTertiaryIconBullet from '../src/atom/button-link/test/fixtures/button-tertiary-icon-bullet';
 import AtomButtonLinkFixtureButtonTertiaryIconLeft from '../src/atom/button-link/test/fixtures/button-tertiary-icon-left';
 import AtomButtonLinkFixtureIconButton from '../src/atom/button-link/test/fixtures/icon-button';
 import AtomButtonLinkFixtureLinkPrimaryDisabledIconRight from '../src/atom/button-link/test/fixtures/link-primary-disabled-icon-right';
@@ -443,6 +445,7 @@ import MoleculeBrandUploadBoxFixtureDefault from '../src/molecule/brand-upload-b
 import MoleculeBrandUploadBoxFixtureLoading from '../src/molecule/brand-upload-box/test/fixtures/loading';
 import MoleculeBrandUploadBoxFixtureSso from '../src/molecule/brand-upload-box/test/fixtures/sso';
 import MoleculeBreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
+import MoleculeBulletPointMenuButtonFixtureDefault from '../src/molecule/bullet-point-menu-button/test/fixtures/default';
 import MoleculeCardFixtureAdaptivAndDisabled from '../src/molecule/card/test/fixtures/adaptiv-and-disabled';
 import MoleculeCardFixtureAdaptiv from '../src/molecule/card/test/fixtures/adaptiv';
 import MoleculeCardFixtureArabic from '../src/molecule/card/test/fixtures/arabic';
@@ -1103,6 +1106,7 @@ export const components = {
     MoleculeBrandTabs,
     MoleculeBrandUploadBox,
     MoleculeBreadcrumbs,
+    MoleculeBulletPointMenuButton,
     MoleculeCard,
     MoleculeCardContent,
     MoleculeCardWithButton,
@@ -1279,6 +1283,7 @@ export const fixtures = {
       ButtonPrimaryIconLeft: AtomButtonLinkFixtureButtonPrimaryIconLeft,
       ButtonPrimaryNoIcon: AtomButtonLinkFixtureButtonPrimaryNoIcon,
       ButtonSecondaryNoIconDisabled: AtomButtonLinkFixtureButtonSecondaryNoIconDisabled,
+      ButtonTertiaryIconBullet: AtomButtonLinkFixtureButtonTertiaryIconBullet,
       ButtonTertiaryIconLeft: AtomButtonLinkFixtureButtonTertiaryIconLeft,
       IconButton: AtomButtonLinkFixtureIconButton,
       LinkPrimaryDisabledIconRight: AtomButtonLinkFixtureLinkPrimaryDisabledIconRight,
@@ -1644,6 +1649,9 @@ export const fixtures = {
     },
     MoleculeBreadcrumbs: {
       Default: MoleculeBreadcrumbsFixtureDefault
+    },
+    MoleculeBulletPointMenuButton: {
+      Default: MoleculeBulletPointMenuButtonFixtureDefault
     },
     MoleculeCard: {
       AdaptivAndDisabled: MoleculeCardFixtureAdaptivAndDisabled,

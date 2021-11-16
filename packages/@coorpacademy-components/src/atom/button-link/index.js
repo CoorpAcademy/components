@@ -10,7 +10,8 @@ import {
   NovaCompositionCoorpacademyAnalytics as AnalyticsIcon,
   NovaCompositionCoorpacademyNext as CloseIcon,
   NovaSolidComputersSdCard as SaveIcon,
-  NovaSolidContentEditionPencilWrite as EditIcon
+  NovaSolidContentEditionPencilWrite as EditIcon,
+  NovaCompositionCoorpacademyBulletPoint as BulletPointIcon
 } from '@coorpacademy/nova-icons';
 import Link from '../link';
 import style from './style.css';
@@ -18,6 +19,7 @@ import style from './style.css';
 const ICONS = {
   add: AddIcon,
   analytics: AnalyticsIcon,
+  'bullet-point': BulletPointIcon,
   'chevron-left': ChevronLeftIcon,
   'chevron-right': ChevronRightIcon,
   close: CloseIcon,
@@ -74,6 +76,8 @@ const ButtonLink = props => {
     type === 'tertiary' && style.tertiary,
     type === 'text' && style.text,
     type === 'dangerous' && style.dangerous,
+    type === 'secondary-flat' && style.secondaryFlat,
+    type === 'secondary-flat-delete' && style.secondaryFlatDelete,
     link && style.link,
     disabled && style.disabled
   );
@@ -98,6 +102,7 @@ const ButtonLink = props => {
       type="button"
       aria-label={ariaLabel || label}
       title={ariaLabel || label}
+      data-name={dataName}
       className={styleButton}
       onClick={handleOnClick}
     >
@@ -107,13 +112,13 @@ const ButtonLink = props => {
 };
 
 ButtonLink.propTypes = {
-  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text', 'dangerous']),
+  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text', 'dangerous', 'secondary-flat', 'secondary-flat-delete']),
   label: PropTypes.string,
   'aria-label': PropTypes.string,
   'data-name': PropTypes.string,
   icon: PropTypes.shape({
     position: PropTypes.oneOf(['right', 'left', 'center']),
-    type: PropTypes.string
+    type: PropTypes.oneOf(['chevron-left', 'chevron-right', 'see', 'analytics', 'close', 'bullet-point'])
   }),
   onClick: PropTypes.func,
   link: PropTypes.shape({

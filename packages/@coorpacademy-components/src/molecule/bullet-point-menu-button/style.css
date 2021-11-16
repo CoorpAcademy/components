@@ -1,0 +1,50 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_100 from colors;
+
+.bulletPointWrapper {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: flex-end;
+  width: 44px;
+}
+
+.bulletPointButton {
+  position: relative;
+  cursor: pointer;
+ }
+
+.bulletPointMenu {
+  min-width: 80px;
+  pointer-events: auto;
+  /* positioning */
+  position: absolute;
+  align-self: flex-end;
+  margin-top: -98px;
+  /* elevation shadow */
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  z-index: 1;
+  /* round corners */
+  border-radius: 7px;
+  overflow: hidden;
+  background-color: cm_grey_100;
+}
+
+/* Fade-in - Fade-out */ 
+.bulletPointButton,button + .bulletPointMenu {
+  max-height: 0;
+  /* fade out combo */
+  visibility: hidden;
+  opacity:0;
+  transition:visibility 0.5s ease,opacity 0.5s ease;
+}
+
+.bulletPointButton,button:focus + .bulletPointMenu {
+  /* fade in combo */
+  max-height: 100%;
+  visibility:visible;
+  opacity:1;
+}
+
+/* Recover - unset pointer-events  */
+.bulletPointButton,button:focus { pointer-events: none; }
+.bulletPointButton,button:not(:focus) { pointer-events: auto; }
