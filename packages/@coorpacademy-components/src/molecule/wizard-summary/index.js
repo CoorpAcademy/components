@@ -1,12 +1,9 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {
-  NovaSolidComputersSdCard as SaveIcon,
-  NovaCompositionNavigationArrowDown as ArrowDownIcon
-} from '@coorpacademy/nova-icons';
-import Link from '../../atom/link';
+import {NovaCompositionNavigationArrowDown as ArrowDownIcon} from '@coorpacademy/nova-icons';
 import ContentBadge from '../../atom/content-badge';
+import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 
 const buildItemsOfSection = items => {
@@ -84,13 +81,24 @@ const buildSections = sections => {
 const buildAction = action => {
   if (!action) return null;
 
-  const {onClick, text, icon} = action;
+  const {onClick, text, icon, 'aria-label': ariaLabel} = action;
   const handleClick = useMemo(() => () => onClick(), [onClick]);
+  const buttonProps = {
+    type: 'text',
+    label: text,
+    'aria-label': ariaLabel,
+    'data-name': `${icon}-button`,
+    onClick: handleClick,
+    icon: {
+      position: 'left',
+      type: icon
+    }
+  };
+
   return (
-    <Link className={style.actionLink} onClick={handleClick}>
-      {icon === 'draft' ? <SaveIcon className={style.icon} /> : null}
-      <span>{text}</span>
-    </Link>
+    <div>
+      <ButtonLink {...buttonProps} />
+    </div>
   );
 };
 
@@ -166,7 +174,8 @@ WizardSummary.propTypes = {
   action: PropTypes.shape({
     icon: PropTypes.string,
     text: PropTypes.string,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    'aria-label': PropTypes.string
   })
 };
 
