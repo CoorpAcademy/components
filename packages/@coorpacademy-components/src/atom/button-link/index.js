@@ -8,7 +8,9 @@ import {
   NovaCompositionCoorpacademyEye as EyeIcon,
   NovaCompositionCoorpacademyAnalytics as AnalyticsIcon,
   NovaCompositionCoorpacademyNext as CloseIcon,
-  NovaSolidComputersSdCard as SaveIcon
+  NovaSolidComputersSdCard as SaveIcon,
+  NovaSolidContentEditionPencilWrite as EditIcon
+
 } from '@coorpacademy/nova-icons';
 import Link from '../link';
 import style from './style.css';
@@ -19,7 +21,8 @@ const ICONS = {
   'chevron-right': ChevronRightIcon,
   close: CloseIcon,
   save: SaveIcon,
-  see: EyeIcon
+  see: EyeIcon,
+  edit: EditIcon
 };
 
 const getButtonContent = (icon, label) => {
