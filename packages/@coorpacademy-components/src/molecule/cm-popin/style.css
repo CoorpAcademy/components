@@ -74,52 +74,10 @@
 }
 
 .button {
-  min-width: auto;
-  margin: 0px 8px;
-  border-radius: 7px;
-  transform: none;
+  width: 160px;
+  padding: 8px;
 }
 
-.dangerousButton {
-  background-color: cm_negative_100;
-  color: white;
-}
-
-.coloredButton {
-  background-color: cm_primary_blue;
-  color: white;
-}
-
-.dangerousButton:hover {
-  background-color: cm_negative_200;
-}
-
-.coloredButton:hover {
-  background-color: cm_blue_600;
-}
-
-.button::after,
-.button:hover::after,
-.button:focus::after,
-.button:active::after {
-  transform: none;
-}
-
-
-.buttonContent {
-  width: 180px;
-  padding: 12px 24px;
-  line-height: 1.43;
-  font-size: 14px;
-  font-weight: bold;
-  display: block;
-  text-transform: inherit;
-  font-family: Gilroy;
-  text-align: center;
-  box-sizing: border-box;
-  border: none;
-  cursor: pointer;
-}
 .icon {
   width: 60px;
   height: 60px;

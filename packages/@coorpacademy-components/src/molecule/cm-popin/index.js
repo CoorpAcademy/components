@@ -5,8 +5,7 @@ import {
   NovaSolidApplicationsWindowUpload3 as WindowUpload,
   NovaSolidStatusClose as Close
 } from '@coorpacademy/nova-icons';
-import classNames from 'classnames';
-import Cta from '../../atom/button';
+import Cta from '../../atom/button-link';
 import style from './style.css';
 
 const CMPopin = props => {
@@ -44,25 +43,26 @@ const CMPopin = props => {
 
         <div className={style.buttonContainer}>
           {firstButton ? (
-            <Cta
-              submitValue={firstButton.label}
-              onClick={firstButton.handleOnclick}
-              name={`cm-popin-cta`}
-              className={style.button}
-              buttonContentClassName={style.buttonContent}
-            />
+            <div className={style.button}>
+              <Cta
+                label={firstButton.label}
+                onClick={firstButton.handleOnclick}
+                data-name={`cm-popin-cta`}
+                aria-lable={firstButton.ariaLabel}
+                type={firstButton.type}
+              />
+            </div>
           ) : null}
           {secondButton ? (
-            <Cta
-              submitValue={secondButton.label}
-              onClick={secondButton.handleOnclick}
-              name={`cm-popin-cta-${secondButton.type}`}
-              className={style.button}
-              buttonContentClassName={classNames([
-                style.buttonContent,
-                secondButton.type === 'dangerous' ? style.dangerousButton : style.coloredButton
-              ])}
-            />
+            <div className={style.button}>
+              <Cta
+                label={secondButton.label}
+                onClick={secondButton.handleOnclick}
+                data-name={`cm-popin-cta-${secondButton.type}`}
+                aria-lable={firstButton.ariaLabel}
+                type={secondButton.type}
+              />
+            </div>
           ) : null}
         </div>
       </div>
@@ -75,12 +75,15 @@ CMPopin.propTypes = {
   content: PropTypes.string,
   firstButton: PropTypes.shape({
     label: PropTypes.string,
-    handleOnclick: PropTypes.func
+    handleOnclick: PropTypes.func,
+    ariaLabel: PropTypes.string,
+    type: PropTypes.string
   }),
   secondButton: PropTypes.shape({
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
-    type: PropTypes.oneOf(['warning', 'warningWithClose', 'dangerous', 'default'])
+    type: PropTypes.oneOf(['dangerous', 'primary']),
+    ariaLabel: PropTypes.string
   }),
   onClose: PropTypes.func,
   icon: PropTypes.string

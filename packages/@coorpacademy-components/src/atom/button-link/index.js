@@ -69,6 +69,7 @@ const ButtonLink = props => {
     type === 'secondary' && style.secondary,
     type === 'tertiary' && style.tertiary,
     type === 'text' && style.text,
+    type === 'dangerous' && style.dangerous,
     link && style.link,
     disabled && style.disabled
   );
@@ -102,7 +103,7 @@ const ButtonLink = props => {
 };
 
 ButtonLink.propTypes = {
-  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text']),
+  type: PropTypes.oneOf(['primary', 'secondary', 'tertiary', 'text', 'dangerous']),
   label: PropTypes.string,
   'aria-label': PropTypes.string,
   'data-name': PropTypes.string,
