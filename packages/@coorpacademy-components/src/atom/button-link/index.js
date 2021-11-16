@@ -10,7 +10,6 @@ import {
   NovaCompositionCoorpacademyNext as CloseIcon,
   NovaSolidComputersSdCard as SaveIcon,
   NovaSolidContentEditionPencilWrite as EditIcon
-
 } from '@coorpacademy/nova-icons';
 import Link from '../link';
 import style from './style.css';
