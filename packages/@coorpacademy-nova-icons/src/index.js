@@ -145,6 +145,7 @@ import _NovaSolidContentContentViewList from './components/nova-solid/content/co
 import _NovaSolidContentContentViewModule1 from './components/nova-solid/content/content-view-module-1';
 import _NovaSolidContentEditionFlash from './components/nova-solid/content-edition/flash';
 import _NovaSolidContentEditionPencil1 from './components/nova-solid/content-edition/pencil-1';
+import _NovaSolidContentEditionPencilWrite from './components/nova-solid/content-edition/pencil-write';
 import _NovaSolidDataTransferDataUpload1 from './components/nova-solid/data-transfer/data-upload-1';
 import _NovaSolidDesignActionsRedo from './components/nova-solid/design-actions/redo';
 import _NovaSolidDesignPaintBrush2 from './components/nova-solid/design/paint-brush-2';
@@ -326,6 +327,7 @@ export const NovaSolidContentContentViewList: Icon = _NovaSolidContentContentVie
 export const NovaSolidContentContentViewModule1: Icon = _NovaSolidContentContentViewModule1;
 export const NovaSolidContentEditionFlash: Icon = _NovaSolidContentEditionFlash;
 export const NovaSolidContentEditionPencil1: Icon = _NovaSolidContentEditionPencil1;
+export const NovaSolidContentEditionPencilWrite: Icon = _NovaSolidContentEditionPencilWrite;
 export const NovaSolidDataTransferDataUpload1: Icon = _NovaSolidDataTransferDataUpload1;
 export const NovaSolidDesignActionsRedo: Icon = _NovaSolidDesignActionsRedo;
 export const NovaSolidDesignPaintBrush2: Icon = _NovaSolidDesignPaintBrush2;

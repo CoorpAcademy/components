@@ -8,7 +8,8 @@ import {
   NovaCompositionCoorpacademyEye as EyeIcon,
   NovaCompositionCoorpacademyAnalytics as AnalyticsIcon,
   NovaCompositionCoorpacademyNext as CloseIcon,
-  NovaSolidComputersSdCard as SaveIcon
+  NovaSolidComputersSdCard as SaveIcon,
+  NovaSolidContentEditionPencilWrite as EditIcon
 } from '@coorpacademy/nova-icons';
 import Link from '../link';
 import style from './style.css';
@@ -18,6 +19,7 @@ const ICONS = {
   'chevron-left': ChevronLeftIcon,
   'chevron-right': ChevronRightIcon,
   close: CloseIcon,
+  edit: EditIcon,
   save: SaveIcon,
   see: EyeIcon
 };
