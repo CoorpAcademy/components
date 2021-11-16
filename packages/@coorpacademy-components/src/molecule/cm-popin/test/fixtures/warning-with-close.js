@@ -4,6 +4,7 @@ export default {
     icon: 'AlertDiamond',
     firstButton: {
       label: 'Quit without saving',
+      type: 'secondary',
       'aria-lable': 'Quit this operation without saving',
       handleOnClick: () => {}
     },

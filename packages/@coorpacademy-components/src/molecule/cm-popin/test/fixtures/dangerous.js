@@ -4,6 +4,7 @@ export default {
     icon: 'AlertDiamond',
     firstButton: {
       label: 'Cancel',
+      type: 'secondary',
       'aria-lable': 'Cancel this operation',
       handleOnClick: () => {}
     },

@@ -49,6 +49,7 @@ const CMPopin = props => {
                 onClick={firstButton.handleOnclick}
                 data-name={`cm-popin-cta`}
                 aria-lable={firstButton.ariaLabel}
+                type={firstButton.type}
               />
             </div>
           ) : null}
@@ -75,7 +76,8 @@ CMPopin.propTypes = {
   firstButton: PropTypes.shape({
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
-    ariaLabel: PropTypes.string
+    ariaLabel: PropTypes.string,
+    type: PropTypes.string
   }),
   secondButton: PropTypes.shape({
     label: PropTypes.string,

@@ -4,6 +4,7 @@ export default {
     icon: 'WindowUpload',
     firstButton: {
       label: 'Cancel',
+      type: 'secondary',
       handleOnClick: () => {},
       'aria-lable': 'Cancel this operation'
     },
