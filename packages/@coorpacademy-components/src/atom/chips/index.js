@@ -17,13 +17,17 @@ const Chips = props => {
       className={classnames(style.container, selected ? style.selected : style.unselected)}
       onClick={handleClick}
     >
-      <div className={style.text}>{text}</div>
-      <div className={style.information}>{information}</div>
-      {selected ? (
-        <SelectedIcon className={style.selectedIconWrapper} />
-      ) : (
-        <AddIcon className={style.unselectedIconWrapper} />
-      )}
+      <div className={style.textZone} title={text}>
+        <span className={style.text}>{text}</span>
+        <span className={style.information}>{information}</span>
+      </div>
+      <div>
+        {selected ? (
+          <SelectedIcon className={style.selectedIconWrapper} />
+        ) : (
+          <AddIcon className={style.unselectedIconWrapper} />
+        )}
+      </div>
     </div>
   );
 };

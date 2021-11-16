@@ -213,6 +213,7 @@ import AtomCheckboxFixtureDefault from '../src/atom/checkbox/test/fixtures/defau
 import AtomCheckboxFixtureDisabled from '../src/atom/checkbox/test/fixtures/disabled';
 import AtomCheckboxFixtureRequired from '../src/atom/checkbox/test/fixtures/required';
 import AtomChipsFixtureDefault from '../src/atom/chips/test/fixtures/default';
+import AtomChipsFixtureLongText from '../src/atom/chips/test/fixtures/long-text';
 import AtomChipsFixtureNonSelected from '../src/atom/chips/test/fixtures/non-selected';
 import AtomClueFixtureDefault from '../src/atom/clue/test/fixtures/default';
 import AtomClueFixtureLink from '../src/atom/clue/test/fixtures/link';
@@ -1300,6 +1301,7 @@ export const fixtures = {
     },
     AtomChips: {
       Default: AtomChipsFixtureDefault,
+      LongText: AtomChipsFixtureLongText,
       NonSelected: AtomChipsFixtureNonSelected
     },
     AtomClue: {
