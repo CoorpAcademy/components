@@ -6,14 +6,18 @@ import ButtonLink from '../../atom/button-link';
 import Chips from '../../atom/chips';
 import style from './style.css';
 
-const buildResultView = results => {
+const buildResultView = (results, emptyMessages) => {
   if (isEmpty(results)) {
-    return <div>Nothing</div>;
+    console.log('emptyMessages', emptyMessages);
+    return (<div className={style.errorSection}>
+      <span className={style.firstErrorMessage}>{emptyMessages.firstMessage}</span>
+      <span className={style.secondErrorMessage}>{emptyMessages.secondMessage}</span>
+    </div>);
   }
 
-  const items = map(result => {
+  const items = results.map((result, index) => {
     return (
-      <li>
+      <li key={`result-${index}`}>
         <Chips {...result} />
       </li>
     );
@@ -23,10 +27,10 @@ const buildResultView = results => {
 };
 
 const SearchAndChipsResults = props => {
-  const {search, selectAllButton, results} = props;
+  const {search, selectAllButton, results, emptyMessages} = props;
 
   const {onClick, label, disabled = false, 'aria-label': ariaLabel} = selectAllButton;
-  const resultView = buildResultView(results);
+  const resultView = buildResultView(results, emptyMessages);
   const buttonProps = {
     type: 'secondary',
     label,
@@ -63,7 +67,11 @@ SearchAndChipsResults.propTypes = {
     'aria-label': PropTypes.string
   }),
   search: PropTypes.shape(Search.PropTypes),
-  results: PropTypes.arrayOf(PropTypes.shape(Chips.propTypes))
+  results: PropTypes.arrayOf(PropTypes.shape(Chips.propTypes)),
+  emptyMessages: PropTypes.shape({
+    firstMessage: PropTypes.string,
+    secondMessage: PropTypes.string
+  })
 };
 
 export default SearchAndChipsResults;

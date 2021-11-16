@@ -12,7 +12,10 @@ export default {
       description: 'Type to find the populations',
       onChange: value => console.log(value)
     },
-    selected: [],
-    results: []
+    results: [],
+    emptyMessages: {
+      firstMessage: 'No results...',
+      secondMessage: 'Try something else'
+    }
   }
 };
