@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect, useRef, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {map, pipe, join, filter, get, set} from 'lodash/fp';
@@ -14,152 +14,137 @@ const themeStyle = {
   sidebar: style.sidebar
 };
 
-class SelectMultiple extends React.Component {
-  static propTypes = {
-    title: PropTypes.string,
-    placeholder: PropTypes.string,
-    description: PropTypes.string,
-    options: PropTypes.arrayOf(TitledCheckbox.propTypes.choice),
-    onChange: PropTypes.func,
-    multiple: PropTypes.bool,
-    theme: PropTypes.string,
-    modified: PropTypes.bool,
-    required: PropTypes.bool,
-    error: PropTypes.bool
+export const useChoices = options => {
+  const choicesRef = useRef(options);
+
+  const getChoices = () => {
+    return choicesRef.current;
   };
 
-  static contextTypes = {
-    skin: Provider.childContextTypes.skin
+  const setChoices = choice => {
+    const choices = set(`[${choice.i}].selected`, !choice.selected, getChoices());
+
+    choicesRef.current = choices.filter(c => c.selected);
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      opened: false
-    };
+  return [getChoices, setChoices];
+};
 
-    this.node = null;
-    this.setNode = el => (this.node = el);
-  }
+const SelectMultiple = (
+  {
+    title,
+    options,
+    theme,
+    placeholder,
+    description,
+    multiple,
+    onChange,
+    modified = false,
+    required = false,
+    error = false
+  },
+  {skin}
+) => {
+  const [isOpened, updateIsOpened] = useState(false);
+  const [getChoices, setChoices] = useChoices(options);
+  const nodeRef = useRef(null);
 
-  componentDidMount() {
-    if (typeof document !== 'undefined') {
-      document.addEventListener('click', this.closeHandle);
-      document.addEventListener('touchstart', this.closeHandle);
-    }
-  }
+  const defaultColor = get('common.primary', skin);
+  const black = get('common.black', skin);
 
-  componentWillUnmount() {
-    if (typeof document !== 'undefined') {
-      document.removeEventListener('click', this.closeHandle);
-      document.removeEventListener('touchstart', this.closeHandle);
-    }
-  }
-
-  handleOnClick = e => {
-    const {opened} = this.state;
+  const handleOnClick = useCallback(e => {
     e.preventDefault();
     e.stopPropagation();
 
-    this.setState({opened: !opened});
-  };
+    updateIsOpened(prev => !prev);
+  }, []);
 
-  closeHandle = e => {
-    if (this.node && !this.node.contains(e.target)) {
-      this.setState({opened: false});
+  const closeHandle = useCallback(e => {
+    if (nodeRef && nodeRef.current && !nodeRef.current.contains(e.target)) {
+      updateIsOpened(false);
     }
-  };
+  }, []);
 
-  set choices(choice) {
-    const choices = set(`[${choice.i}].selected`, !choice.selected, this._choices);
+  const handleChange = useCallback(
+    choice => {
+      // if multiple prop is turned on
+      // we return all selected choices
+      if (multiple) {
+        setChoices(choice);
 
-    this._choices = choices.filter(c => c.selected);
-  }
+        return onChange(getChoices());
+      }
 
-  get choices() {
-    return this._choices;
-  }
+      return onChange(choice);
+    },
+    [setChoices, multiple, onChange]
+  );
 
-  handleChange = choice => {
-    const {multiple, onChange} = this.props;
-    // if multiple prop is turned on
-    // we return all selected choices
-    if (multiple) {
-      this.choices = choice;
+  useEffect(() => {
+    document.addEventListener('click', closeHandle);
+    document.addEventListener('touchstart', closeHandle);
 
-      return onChange(this.choices);
-    }
+    return () => {
+      document.removeEventListener('click', closeHandle);
+      document.removeEventListener('touchstart', closeHandle);
+    };
+  }, [closeHandle]);
 
-    return onChange(choice);
-  };
-
-  render() {
-    const {skin} = this.context;
-    const defaultColor = get('common.primary', skin);
-    const black = get('common.black', skin);
-    const {
-      title,
-      options,
-      theme,
-      placeholder,
-      description,
-      modified = false,
-      required = false,
-      error = false
-    } = this.props;
-    const {opened} = this.state;
-
-    this._choices = options;
-
-    const lines = map.convert({cap: false})((choice, i) => {
-      return (
-        <li key={i} className={style.choice}>
-          <TitledCheckbox
-            onToggle={this.handleChange}
-            choice={{...choice, i}}
-            background={defaultColor}
-          />
-        </li>
-      );
-    }, options);
-    const selection = pipe(filter({selected: true}), map('name'), join(', '))(options);
-
-    const _title = title && `${title}${required ? ' *' : ''}`;
-
-    const titleView = title ? <span className={style.title}>{_title} </span> : null;
-    const isActive = opened === true;
-    const mainClass = theme ? themeStyle[theme] : style.default;
-    const behaviourClassName = getClassState(
-      style.default,
-      style.modified,
-      style.error,
-      modified,
-      error
-    );
-
+  const lines = map.convert({cap: false})((choice, i) => {
     return (
-      <div className={classnames(mainClass, behaviourClassName)} ref={this.setNode}>
-        <label>
-          {titleView}
-          <div
-            className={style.select}
-            title={selection || placeholder}
-            onClick={this.handleOnClick}
-          >
-            {selection || placeholder}
-            <ArrowDown
-              color={black}
-              className={classnames(style.arrow, {[style.down]: isActive})}
-            />
-          </div>
-          <div className={isActive ? style.activeChoices : style.choices}>
-            <ul className={style.list}>{lines}</ul>
-          </div>
-        </label>
-        <div className={style.description}>{description}</div>
-      </div>
+      <li key={i} className={style.choice}>
+        <TitledCheckbox onToggle={handleChange} choice={{...choice, i}} background={defaultColor} />
+      </li>
     );
-  }
-}
+  }, options);
+
+  const selection = pipe(filter({selected: true}), map('name'), join(', '))(options);
+
+  const _title = title && `${title}${required ? ' *' : ''}`;
+
+  const titleView = title ? <span className={style.title}>{_title} </span> : null;
+  const isActive = isOpened === true;
+  const mainClass = theme ? themeStyle[theme] : style.default;
+  const behaviourClassName = getClassState(
+    style.default,
+    style.modified,
+    style.error,
+    modified,
+    error
+  );
+
+  return (
+    <div className={classnames(mainClass, behaviourClassName)} ref={nodeRef}>
+      <label>
+        {titleView}
+        <div className={style.select} title={selection || placeholder} onClick={handleOnClick}>
+          {selection || placeholder}
+          <ArrowDown color={black} className={classnames(style.arrow, {[style.down]: isActive})} />
+        </div>
+        <div className={isActive ? style.activeChoices : style.choices}>
+          <ul className={style.list}>{lines}</ul>
+        </div>
+      </label>
+      <div className={style.description}>{description}</div>
+    </div>
+  );
+};
+
+SelectMultiple.contextTypes = {
+  skin: Provider.childContextTypes.skin
+};
+
+SelectMultiple.propTypes = {
+  title: PropTypes.string,
+  placeholder: PropTypes.string,
+  description: PropTypes.string,
+  options: PropTypes.arrayOf(TitledCheckbox.propTypes.choice),
+  onChange: PropTypes.func,
+  multiple: PropTypes.bool,
+  theme: PropTypes.string,
+  modified: PropTypes.bool,
+  required: PropTypes.bool,
+  error: PropTypes.bool
+};
 
 export default SelectMultiple;

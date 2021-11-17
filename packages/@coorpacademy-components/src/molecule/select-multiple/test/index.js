@@ -1,70 +1,25 @@
 import browserEnv from 'browser-env';
 import test from 'ava';
+import flatten from 'lodash/fp/flatten';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
-import SelectMultiple from '..';
+import SelectMultiple, {useChoices} from '..';
 import defaultFixture from './fixtures/checked';
 
 browserEnv();
 configure({adapter: new Adapter()});
 
-test('should open and close list', t => {
-  t.plan(8);
-
-  const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
-  const props = defaultFixture.props;
-  const wrapper = mount(<SelectMultiple {...props} />);
-  const selectWrapper = wrapper.find('.select-multiple__select');
-
-  t.is(wrapper.state().opened, false);
-
-  t.is(selectWrapper.exists(), true);
-
-  selectWrapper.simulate('click', clickEvent);
-
-  t.is(wrapper.state().opened, true);
-
-  selectWrapper.simulate('click', clickEvent);
-
-  t.is(wrapper.state().opened, false);
-});
-
-test('should select choice', t => {
-  t.plan(8);
-
-  const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
-  const props = {
-    ...defaultFixture.props,
-    onChange: evt => {
-      t.is(evt.value, 'digital');
-
-      t.pass();
-    }
+const setup = options => {
+  const returnVal = [];
+  const TestComponent = () => {
+    returnVal.push(useChoices(options));
+    return null;
   };
-  const wrapper = mount(<SelectMultiple {...props} />);
-  const selectWrapper = wrapper.find('.select-multiple__select');
 
-  wrapper.update();
-
-  t.is(wrapper.state().opened, false);
-
-  t.is(selectWrapper.exists(), true);
-
-  selectWrapper.simulate('click', clickEvent);
-
-  wrapper.update();
-
-  t.is(wrapper.state().opened, true);
-
-  const checkbox = wrapper.find('[checked=false]').first();
-
-  checkbox.simulate('change');
-
-  t.is(wrapper.state().opened, true);
-
-  wrapper.update();
-});
+  mount(<TestComponent />);
+  return flatten(returnVal);
+};
 
 test('should select array of choices when props.multiple is set', t => {
   t.plan(2);
@@ -86,61 +41,21 @@ test('should select array of choices when props.multiple is set', t => {
   checkbox.simulate('change', {props});
 });
 
-test('should click outside', t => {
-  t.plan(10);
-
-  const clickEvent = {preventDefault: () => t.pass(), stopPropagation: () => t.pass()};
-  const props = defaultFixture.props;
-  const wrapper = mount(<SelectMultiple {...props} />);
-  const selectWrapper = wrapper.find('.select-multiple__select');
-  const instance = wrapper.instance();
-
-  wrapper.update();
-
-  t.is(wrapper.state().opened, false);
-
-  t.is(selectWrapper.exists(), true);
-
-  selectWrapper.simulate('click', clickEvent);
-
-  wrapper.update();
-
-  t.is(wrapper.state().opened, true);
-
-  instance.closeHandle({target: null});
-
-  t.is(wrapper.state().opened, false);
-
-  selectWrapper.simulate('click', clickEvent);
-
-  wrapper.update();
-
-  t.is(wrapper.state().opened, true);
-
-  instance.closeHandle({target: selectWrapper.getDOMNode()});
-
-  t.is(wrapper.state().opened, true);
-
-  wrapper.update();
-
-  wrapper.unmount();
-});
-
 test('should return choices (getter)', t => {
   const props = {...defaultFixture.props};
-  const wrapper = mount(<SelectMultiple {...props} />);
+  const [getChoices] = setup(props.options);
 
-  t.is(wrapper.instance().choices.length, 4, 'not returning expected choices');
+  t.is(getChoices().length, 4, 'not returning expected choices');
 });
 
 test('should set current choice (setter)', t => {
   const props = {...defaultFixture.props};
-  const wrapper = mount(<SelectMultiple {...props} />);
-  const instance = wrapper.instance();
+  const [getChoices, setChoices] = setup(props.options);
+  const choices = getChoices();
 
-  t.is(instance.choices[0].selected, false, 'not setting correctly expected value for choice[0]');
+  t.is(choices[0].selected, false, 'not setting correctly expected value for choice[0]');
 
-  instance.choices = {...props.options[0], i: 0};
+  setChoices({...props.options[0], i: 0});
 
-  t.is(instance.choices[0].selected, true, 'not updating correctly expected value for choice[0]');
+  t.is(getChoices()[0].selected, true, 'not updating correctly expected value for choice[0]');
 });
