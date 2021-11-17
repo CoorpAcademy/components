@@ -77,11 +77,8 @@ const buildInput = field => {
 
 const buildField = (field, index) => {
   const input = buildInput(field);
-  const {theme, size} = field;
-  const styleInput = classNames(
-    theme !== 'coorpmanager' && style.field,
-    theme === 'coorpmanager' && inputContainerStyle[size]
-  );
+  const {theme, size = 'default'} = field;
+  const styleInput = theme === 'coorpmanager' ? inputContainerStyle[size] : style.field;
 
   return (
     <div className={styleInput} key={index}>
