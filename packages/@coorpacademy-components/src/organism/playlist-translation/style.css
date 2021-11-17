@@ -3,6 +3,8 @@
 @value brand from colors;
 @value light from colors;
 @value cm_grey_50 from colors;
+@value cm_negative_100 from colors;
+@value cm_negative_200 from colors;
 
 .container {
   display: flex;
@@ -27,3 +29,11 @@
 .button {
   width: 170px;
 }
+
+.binButton {
+  color: cm_negative_100;
+}
+
+.binButton:hover {
+  color: cm_negative_200;
+} 

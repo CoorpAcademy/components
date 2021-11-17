@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import VerticalLanguageMenu from '../../molecule/vertical-tabs';
 import InputText from '../../atom/input-text';
 import TextArea from '../../atom/input-textarea';
@@ -16,10 +17,10 @@ const PlayListTranslation = props => {
       <div className={style.inputs}>
         <InputText {...inputText} />
         <TextArea {...textArea} />
-        <div className={style.button}>
+        <div className={classNames(style.button, cta.type === 'delete' && style.binButton)}>
           <Button
             onClick={cta.handleOnclick}
-            type={cta.type === 'delete' ? 'text-negative' : 'primary'}
+            type={cta.type === 'delete' ? 'text' : 'primary'}
             icon={{type: cta.type === 'delete' ? 'bin' : 'add', position: 'left'}}
             label={cta.label}
           />

@@ -11,7 +11,7 @@ import {
   NovaSolidComputersSdCard as SaveIcon,
   NovaSolidContentEditionPencilWrite as EditIcon,
   NovaSolidRemoveAddAddCircle1 as AddIcon,
-  NovaSolidContentEditionBin as DeleteIcon
+  NovaSolidContentEditionBin as BinIcon
 } from '@coorpacademy/nova-icons';
 import Link from '../link';
 import style from './style.css';
@@ -19,7 +19,7 @@ import style from './style.css';
 const ICONS = {
   add: AddIcon,
   analytics: AnalyticsIcon,
-  bin: DeleteIcon,
+  bin: BinIcon,
   'chevron-left': ChevronLeftIcon,
   'chevron-right': ChevronRightIcon,
   close: CloseIcon,
