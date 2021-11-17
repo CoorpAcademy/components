@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import classnames from 'classnames';
@@ -6,13 +6,13 @@ import style from './style.css';
 
 const Button = props => {
   const {
-    type = 'secondary',
-    label,
-    disabled,
     'data-name': dataName,
-    onClick,
+    disabled,
     isFirst,
-    isLast
+    isLast,
+    label,
+    onClick,
+    type = 'secondary'
   } = props;
   const styleButton = classnames(
     style.button,
@@ -23,8 +23,7 @@ const Button = props => {
     disabled && style.disabled
   );
 
-
-  const handleOnClick = useMemo(() => () => onClick(), [onClick]);
+  const handleOnClick = useCallback(() => onClick(), [onClick]);
   return (
     <button
       type="button"
@@ -48,24 +47,22 @@ Button.propTypes = {
   isLast: PropTypes.bool,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  type: PropTypes.oneOf(['secondary', 'dangerous']).isRequired
+  type: PropTypes.oneOf(['secondary', 'dangerous'])
 };
 
 const ButtonMenu = props => {
-  const {'data-name': dataName, key, buttons} = props;
+  const {buttons, 'data-name': dataName} = props;
   const buildButton = (button, index) => {
     const isFirst = index === 0;
     const isLast = index === buttons.length - 1;
-    console.log({isFirst, isLast, index, length: buttons.length});
     const buttonProps = {...button, isFirst, isLast};
-    return <Button {...buttonProps} key={buttonProps.label + index} />;
+    return <Button {...buttonProps} key={button.label + index} />;
   };
-  const buttonList = map.convert({cap: false})(buildButton, buttons);
-  return (
-    <div key={key} data-name={dataName} >
-      {buttonList}
-    </div>
-  );
+  const buttonList = useCallback(map.convert({cap: false})(buildButton, buttons), [
+    buttons,
+    buildButton
+  ]);
+  return <div data-name={dataName}>{buttonList}</div>;
 };
 
 ButtonMenu.propTypes = {
@@ -75,11 +72,10 @@ ButtonMenu.propTypes = {
       disabled: PropTypes.bool,
       label: PropTypes.string.isRequired,
       onClick: PropTypes.func.isRequired,
-      type: PropTypes.oneOf(['secondary', 'dangerous']).isRequired
+      type: PropTypes.oneOf(['secondary', 'dangerous'])
     })
   ).isRequired,
-  'data-name': PropTypes.string,
-  key: PropTypes.string.isRequired
+  'data-name': PropTypes.string
 };
 
 export default ButtonMenu;

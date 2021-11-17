@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 import {getOr} from 'lodash/fp';
 import classnames from 'classnames';
@@ -29,7 +29,7 @@ const ICONS = {
 };
 
 const getButtonContent = (icon, label) => {
-  const {type, position} = icon;
+  const {type, position, size = 12} = icon;
   const Icon = getOr(null, type, ICONS);
 
   if (!Icon) {
@@ -43,16 +43,16 @@ const getButtonContent = (icon, label) => {
   if (position === 'center' && Icon) {
     return (
       <div className={style.buttonContent}>
-        <Icon className={style.icon} />
+        <Icon height={size} width={size} />
       </div>
     );
   }
 
   return (
     <div className={style.buttonContent}>
-      {position === 'left' ? <Icon className={style.icon} /> : null}
+      {position === 'left' ? <Icon height={size} width={size} /> : null}
       <span className={style.label}>{label}</span>
-      {position === 'right' ? <Icon className={style.icon} /> : null}
+      {position === 'right' ? <Icon height={size} width={size} /> : null}
     </div>
   );
 };
@@ -94,7 +94,7 @@ const ButtonLink = props => {
     );
   }
 
-  const handleOnClick = useMemo(() => () => onClick(), [onClick]);
+  const handleOnClick = useCallback(() => onClick(), [onClick]);
   return (
     <button
       type="button"
@@ -116,7 +116,18 @@ ButtonLink.propTypes = {
   'data-name': PropTypes.string,
   icon: PropTypes.shape({
     position: PropTypes.oneOf(['right', 'left', 'center']),
-    type: PropTypes.oneOf(['chevron-left', 'chevron-right', 'see', 'analytics', 'close', 'bullet-point'])
+    type: PropTypes.oneOf([
+      'add',
+      'analytics',
+      'bullet-point',
+      'chevron-left',
+      'chevron-right',
+      'close',
+      'edit',
+      'save',
+      'see'
+    ]),
+    size: PropTypes.number
   }),
   onClick: PropTypes.func,
   link: PropTypes.shape({
