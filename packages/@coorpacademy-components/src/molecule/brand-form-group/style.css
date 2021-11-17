@@ -50,15 +50,22 @@
   margin-bottom: 0;
 }
 
+.fieldCoorpmanager {
+  margin: 0 0 32px 0;
+}
+
 .defaultWidth {
+  composes: fieldCoorpmanager;
   width: 300px;
 }
 
 .mediumWidth {
+  composes: fieldCoorpmanager;
   width: 444px;
 }
 
 .largeWidth {
+  composes: fieldCoorpmanager;
   width: 100%;
 }
 
