@@ -753,6 +753,7 @@ import OrganismBrandFormFixtureLms from '../src/organism/brand-form/test/fixture
 import OrganismBrandFormFixtureLookandfeel from '../src/organism/brand-form/test/fixtures/lookandfeel';
 import OrganismBrandFormFixtureManageusersEdit from '../src/organism/brand-form/test/fixtures/manageusers-edit';
 import OrganismBrandFormFixtureSso from '../src/organism/brand-form/test/fixtures/sso';
+import OrganismBrandFormFixtureWizardPlaylists from '../src/organism/brand-form/test/fixtures/wizard-playlists';
 import OrganismBrandTableFixtureAnimations from '../src/organism/brand-table/test/fixtures/animations';
 import OrganismBrandTableFixtureDefault from '../src/organism/brand-table/test/fixtures/default';
 import OrganismBrandTableFixtureEmpty from '../src/organism/brand-table/test/fixtures/empty';
@@ -2118,7 +2119,8 @@ export const fixtures = {
       Lms: OrganismBrandFormFixtureLms,
       Lookandfeel: OrganismBrandFormFixtureLookandfeel,
       ManageusersEdit: OrganismBrandFormFixtureManageusersEdit,
-      Sso: OrganismBrandFormFixtureSso
+      Sso: OrganismBrandFormFixtureSso,
+      WizardPlaylists: OrganismBrandFormFixtureWizardPlaylists
     },
     OrganismBrandTable: {
       Animations: OrganismBrandTableFixtureAnimations,
