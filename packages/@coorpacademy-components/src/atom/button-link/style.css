@@ -87,11 +87,7 @@
 
 .text {
   background: transparent;
-  color: cm_grey_900;
+  color: inherit;
   border-radius: 0px;
   height: auto;
-}
-
-.text:hover {
-  color: cm_primary_blue;
 }

@@ -157,6 +157,14 @@ ul {
   display: none;
 }
 
+.button{
+  color: cm_grey_900;
+}
+
+.button:hover {
+  color: cm_primary_blue;
+} 
+
 @media cm_tablet {
   .container {
     background-color: transparent;
