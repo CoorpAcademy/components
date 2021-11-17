@@ -27,7 +27,7 @@
   width: 100%;
 }
 
-li {
+.result {
   min-width: 153px;
   max-width: 268px;
   display: inline-block;
