@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {map, snakeCase} from 'lodash/fp';
+import {keys, map, snakeCase} from 'lodash/fp';
 import classNames from 'classnames';
 import Autocomplete from '../../atom/autocomplete';
 import Select from '../../atom/select';
@@ -22,6 +22,12 @@ import SetupSections from '../setup-sections';
 import Title from '../../atom/title';
 import Roles from '../coorp-manager-roles';
 import style from './style.css';
+
+const inputContainerStyle = {
+  default: style.defaultWidth,
+  medium: style.mediumWidth,
+  large: style.largeWidth
+};
 
 const buildInput = field => {
   const {type} = field;
@@ -71,9 +77,11 @@ const buildInput = field => {
 
 const buildField = (field, index) => {
   const input = buildInput(field);
+  const {theme, size} = field;
+  const styleInput = classNames(style.field, theme === 'coorpmanager' && inputContainerStyle[size]);
 
   return (
-    <div className={style.field} key={index}>
+    <div className={styleInput} key={index}>
       {input}
     </div>
   );
@@ -105,7 +113,8 @@ BrandFormGroup.propTypes = {
     PropTypes.oneOfType([
       PropTypes.shape({
         ...Autocomplete.propTypes,
-        type: PropTypes.oneOf(['autoComplete'])
+        type: PropTypes.oneOf(['autoComplete']),
+        size: PropTypes.oneOf(keys(inputContainerStyle))
       }),
       PropTypes.shape({
         ...InputColor.propTypes,
@@ -121,7 +130,8 @@ BrandFormGroup.propTypes = {
       }),
       PropTypes.shape({
         ...InputTextarea.propTypes,
-        type: PropTypes.oneOf(['textarea'])
+        type: PropTypes.oneOf(['textarea']),
+        size: PropTypes.oneOf(keys(inputContainerStyle))
       }),
       PropTypes.shape({
         ...InputHTML.propTypes,
@@ -133,7 +143,8 @@ BrandFormGroup.propTypes = {
       }),
       PropTypes.shape({
         ...Select.propTypes,
-        type: PropTypes.oneOf(['select'])
+        type: PropTypes.oneOf(['select']),
+        size: PropTypes.oneOf(keys(inputContainerStyle))
       }),
       PropTypes.shape({
         ...InputCheckbox.propTypes,
@@ -153,7 +164,8 @@ BrandFormGroup.propTypes = {
       }),
       PropTypes.shape({
         ...InputText.propTypes,
-        type: PropTypes.oneOf(['text'])
+        type: PropTypes.oneOf(['text']),
+        size: PropTypes.oneOf(keys(inputContainerStyle))
       }),
       PropTypes.shape({
         ...BrandDownloadBox.propTypes,

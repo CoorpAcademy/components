@@ -50,6 +50,18 @@
   margin-bottom: 0;
 }
 
+.defaultWidth {
+  width: 300px;
+}
+
+.mediumWidth {
+  width: 444px;
+}
+
+.largeWidth {
+  width: 100%;
+}
+
 @media desktop {
   .groupGrid {
     flex-direction: column;
