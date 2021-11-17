@@ -210,6 +210,7 @@ import AtomButtonLinkFixtureLinkTertiaryNoIcon from '../src/atom/button-link/tes
 import AtomButtonLinkFixtureLinkTextIconRightTargetBlank from '../src/atom/button-link/test/fixtures/link-text-icon-right-target-blank';
 import AtomButtonLinkFixtureLinkTextNoIconDownload from '../src/atom/button-link/test/fixtures/link-text-no-icon-download';
 import AtomButtonMenuFixtureDefault from '../src/atom/button-menu/test/fixtures/default';
+import AtomButtonMenuFixtureMultipleButtons from '../src/atom/button-menu/test/fixtures/multiple-buttons';
 import AtomCatalogSectionFixtureList from '../src/atom/catalog-section/test/fixtures/list';
 import AtomCatalogSectionFixturePicture from '../src/atom/catalog-section/test/fixtures/picture';
 import AtomCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
@@ -449,6 +450,7 @@ import MoleculeBrandUploadBoxFixtureLoading from '../src/molecule/brand-upload-b
 import MoleculeBrandUploadBoxFixtureSso from '../src/molecule/brand-upload-box/test/fixtures/sso';
 import MoleculeBreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
 import MoleculeBulletPointMenuButtonFixtureDefault from '../src/molecule/bullet-point-menu-button/test/fixtures/default';
+import MoleculeBulletPointMenuButtonFixtureMultipleButtons from '../src/molecule/bullet-point-menu-button/test/fixtures/multiple-buttons';
 import MoleculeCardFixtureAdaptivAndDisabled from '../src/molecule/card/test/fixtures/adaptiv-and-disabled';
 import MoleculeCardFixtureAdaptiv from '../src/molecule/card/test/fixtures/adaptiv';
 import MoleculeCardFixtureArabic from '../src/molecule/card/test/fixtures/arabic';
@@ -1300,7 +1302,8 @@ export const fixtures = {
       LinkTextNoIconDownload: AtomButtonLinkFixtureLinkTextNoIconDownload
     },
     AtomButtonMenu: {
-      Default: AtomButtonMenuFixtureDefault
+      Default: AtomButtonMenuFixtureDefault,
+      MultipleButtons: AtomButtonMenuFixtureMultipleButtons
     },
     AtomCatalogSection: {
       List: AtomCatalogSectionFixtureList,
@@ -1661,7 +1664,8 @@ export const fixtures = {
       Default: MoleculeBreadcrumbsFixtureDefault
     },
     MoleculeBulletPointMenuButton: {
-      Default: MoleculeBulletPointMenuButtonFixtureDefault
+      Default: MoleculeBulletPointMenuButtonFixtureDefault,
+      MultipleButtons: MoleculeBulletPointMenuButtonFixtureMultipleButtons
     },
     MoleculeCard: {
       AdaptivAndDisabled: MoleculeCardFixtureAdaptivAndDisabled,

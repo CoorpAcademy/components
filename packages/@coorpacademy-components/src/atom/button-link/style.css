@@ -21,7 +21,7 @@
   align-items: center;
   cursor: pointer;
   border: none;
-  /* prevents text selection when dragging 
+  /* prevents text selection when dragging
   the mouse over the button */
   user-select: none;
 }
@@ -40,11 +40,6 @@
 .link {
   color: inherit;
   text-decoration: none;
-}
-
-.icon {
-  width: 12px;
-  height: 12px;
 }
 
 .label {

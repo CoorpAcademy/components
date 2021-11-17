@@ -1,16 +1,21 @@
-import React, {useMemo}  from 'react';
+import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 import ButtonLink from '../../atom/button-link';
 import ButtonMenu from '../../atom/button-menu';
 import style from './style.css';
 
 const BulletPointMenuButton = props => {
-  const {key, disabled = false, buttonAriaLabel, menuAriaLabel, onClick, buttons} = props;
-  const handleOnClick = useMemo(() => () => onClick(), [onClick]);
+  const {disabled = false, buttonAriaLabel, menuAriaLabel, onClick, buttons} = props;
+  const handleOnClick = useCallback(() => onClick(), [onClick]);
+
+  const menuProps = {
+    'data-name': 'button-menu',
+    buttons
+  };
 
   const menu = (
-    <div key={`${key}-bullet-point-menu`} className={style.bulletPointMenu} aria-label={menuAriaLabel}>
-      <ButtonMenu buttons={buttons} data-name="button-menu" key={`${key}-button-menu`} />
+    <div className={style.bulletPointMenu} data-name="menu-wrapper" aria-label={menuAriaLabel}>
+      <ButtonMenu {...menuProps} />
     </div>
   );
   const bulletPointButtonProps = {
@@ -19,14 +24,15 @@ const BulletPointMenuButton = props => {
     'data-name': 'bullet-point-button',
     icon: {
       position: 'center',
-      type: 'bullet-point'
+      type: 'bullet-point',
+      size: 14
     },
     onClick: handleOnClick,
     disabled
   };
 
   return (
-    <div className={style.bulletPointWrapper} data-name="bullet-point-wrapper" key={key}>
+    <div className={style.bulletPointWrapper} data-name="bullet-point-wrapper">
       <ButtonLink {...bulletPointButtonProps} className={style.bulletPointButton} />
       {menu}
     </div>
@@ -38,9 +44,7 @@ BulletPointMenuButton.propTypes = {
   buttonAriaLabel: PropTypes.string,
   menuAriaLabel: PropTypes.string,
   buttons: ButtonMenu.propTypes.buttons,
-  onClick: PropTypes.func,
-  // provide a key for rendering performance
-  key: PropTypes.string
+  onClick: PropTypes.func
 };
 
 export default BulletPointMenuButton;
