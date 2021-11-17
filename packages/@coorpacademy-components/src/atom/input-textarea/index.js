@@ -30,8 +30,7 @@ const InputTextarea = props => {
     required,
     description,
     disabled,
-    modified = false,
-    wrapperStyle
+    modified = false
   } = props;
 
   const title = `${propsTitle}${required ? '* ' : ' '}`;
@@ -62,7 +61,7 @@ const InputTextarea = props => {
   const validIconView = valid ? <CheckIcon className={style.leftIcon} /> : null;
 
   return (
-    <div className={classnames(mainClass, className, disabled && style.disabled, wrapperStyle)}>
+    <div className={classnames(mainClass, className, disabled && style.disabled)}>
       <label>
         <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
           {title}
@@ -97,7 +96,6 @@ InputTextarea.propTypes = {
   onChange: PropTypes.func,
   description: PropTypes.string,
   modified: PropTypes.bool,
-  valid: PropTypes.bool,
-  wrapperStyle: PropTypes.string
+  valid: PropTypes.bool
 };
 export default InputTextarea;
