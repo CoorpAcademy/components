@@ -31,7 +31,7 @@ const configurations: Array<Config> = [
   {
     version: '3',
     lives: 2,
-    livesDisabled: true,
+    livesDisabled: false,
     maxTypos: 2,
     slidesToComplete: 4,
     shuffleChoices: true,
