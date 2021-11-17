@@ -96,7 +96,7 @@ const buildAction = action => {
   };
 
   return (
-    <div>
+    <div className={style.button}>
       <ButtonLink {...buttonProps} />
     </div>
   );
