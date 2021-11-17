@@ -153,6 +153,7 @@ import OrganismMoocFooter from './../src/organism/mooc-footer';
 import OrganismMoocHeader from './../src/organism/mooc-header';
 import OrganismPopin from './../src/organism/popin';
 import OrganismResourceBrowser from './../src/organism/resource-browser';
+import OrganismSearchAndChipsResults from './../src/organism/search-and-chips-results';
 import OrganismSettings from './../src/organism/settings';
 import OrganismSetupHeader from './../src/organism/setup-header';
 import OrganismSidebar from './../src/organism/sidebar';
@@ -212,6 +213,7 @@ import AtomCheckboxFixtureDefault from '../src/atom/checkbox/test/fixtures/defau
 import AtomCheckboxFixtureDisabled from '../src/atom/checkbox/test/fixtures/disabled';
 import AtomCheckboxFixtureRequired from '../src/atom/checkbox/test/fixtures/required';
 import AtomChipsFixtureDefault from '../src/atom/chips/test/fixtures/default';
+import AtomChipsFixtureLongText from '../src/atom/chips/test/fixtures/long-text';
 import AtomChipsFixtureNonSelected from '../src/atom/chips/test/fixtures/non-selected';
 import AtomClueFixtureDefault from '../src/atom/clue/test/fixtures/default';
 import AtomClueFixtureLink from '../src/atom/clue/test/fixtures/link';
@@ -804,6 +806,11 @@ import OrganismResourceBrowserFixturePdfWithOverlay from '../src/organism/resour
 import OrganismResourceBrowserFixturePdf from '../src/organism/resource-browser/test/fixtures/pdf';
 import OrganismResourceBrowserFixtureVimeoWithOverlay from '../src/organism/resource-browser/test/fixtures/vimeo-with-overlay';
 import OrganismResourceBrowserFixtureVimeo from '../src/organism/resource-browser/test/fixtures/vimeo';
+import OrganismSearchAndChipsResultsFixtureDefault from '../src/organism/search-and-chips-results/test/fixtures/default';
+import OrganismSearchAndChipsResultsFixtureEmpty from '../src/organism/search-and-chips-results/test/fixtures/empty';
+import OrganismSearchAndChipsResultsFixtureFiltered from '../src/organism/search-and-chips-results/test/fixtures/filtered';
+import OrganismSearchAndChipsResultsFixtureSortedSelected from '../src/organism/search-and-chips-results/test/fixtures/sorted-selected';
+import OrganismSearchAndChipsResultsFixtureUnsortedSelected from '../src/organism/search-and-chips-results/test/fixtures/unsorted-selected';
 import OrganismSettingsFixtureDefault from '../src/organism/settings/test/fixtures/default';
 import OrganismSettingsFixtureFreemium from '../src/organism/settings/test/fixtures/freemium';
 import OrganismSettingsFixturePremium from '../src/organism/settings/test/fixtures/premium';
@@ -1197,6 +1204,7 @@ export const components = {
     OrganismMoocHeader,
     OrganismPopin,
     OrganismResourceBrowser,
+    OrganismSearchAndChipsResults,
     OrganismSettings,
     OrganismSetupHeader,
     OrganismSidebar,
@@ -1293,6 +1301,7 @@ export const fixtures = {
     },
     AtomChips: {
       Default: AtomChipsFixtureDefault,
+      LongText: AtomChipsFixtureLongText,
       NonSelected: AtomChipsFixtureNonSelected
     },
     AtomClue: {
@@ -2187,6 +2196,13 @@ export const fixtures = {
       Pdf: OrganismResourceBrowserFixturePdf,
       VimeoWithOverlay: OrganismResourceBrowserFixtureVimeoWithOverlay,
       Vimeo: OrganismResourceBrowserFixtureVimeo
+    },
+    OrganismSearchAndChipsResults: {
+      Default: OrganismSearchAndChipsResultsFixtureDefault,
+      Empty: OrganismSearchAndChipsResultsFixtureEmpty,
+      Filtered: OrganismSearchAndChipsResultsFixtureFiltered,
+      SortedSelected: OrganismSearchAndChipsResultsFixtureSortedSelected,
+      UnsortedSelected: OrganismSearchAndChipsResultsFixtureUnsortedSelected
     },
     OrganismSettings: {
       Default: OrganismSettingsFixtureDefault,

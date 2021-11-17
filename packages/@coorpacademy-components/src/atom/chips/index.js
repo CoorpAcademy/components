@@ -8,7 +8,7 @@ import {
 import style from './style.css';
 
 const Chips = props => {
-  const {text, information, selected, onClick} = props;
+  const {text, information, selected = false, onClick} = props;
 
   const handleClick = useMemo(() => () => onClick(), [onClick]);
 
@@ -16,9 +16,12 @@ const Chips = props => {
     <div
       className={classnames(style.container, selected ? style.selected : style.unselected)}
       onClick={handleClick}
+      aria-label={`${text} ${information}`}
     >
-      <div className={style.text}>{text}</div>
-      <div className={style.information}>{information}</div>
+      <div className={style.textZone} title={text}>
+        <span className={style.text}>{text}</span>
+        <span className={style.information}>{information}</span>
+      </div>
       {selected ? (
         <SelectedIcon className={style.selectedIconWrapper} />
       ) : (

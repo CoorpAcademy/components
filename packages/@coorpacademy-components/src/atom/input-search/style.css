@@ -79,6 +79,7 @@
   align-items: flex-start;
   position: absolute;
   height: 64px;
+  pointer-events: none;
 }
 
 .coorpmanager .title {

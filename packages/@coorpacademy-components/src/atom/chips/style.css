@@ -7,11 +7,15 @@
 @value white from colors;
 
 .container {
-  width: 25%;
-  height: 32px;
+  width: 100%;
+  height: 52px;
   border-radius: 10px;
   padding: 10px 16px;
   position: relative;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  cursor: pointer;
 }
 
 .selected {
@@ -30,12 +34,22 @@
   background-color: cm_grey_200;
 }
 
+.textZone {
+  flex: 1 1 100%;
+  padding-right: 32px;
+  width: calc(100% - 32px);
+}
+
 .text {
   font-family: 'Gilroy';
   font-style: normal;
   font-weight: 600;
   font-size: 14px;
   color: cm_grey_700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
 }
 
 .information {
@@ -45,6 +59,7 @@
   font-size: 10px;
   opacity: 0.4;
   color: cm_grey_700;
+  display: block;
 }
 
 .icon{
