@@ -200,7 +200,6 @@ import AtomButtonLinkFixtureButtonPrimaryIconLeft from '../src/atom/button-link/
 import AtomButtonLinkFixtureButtonPrimaryNoIcon from '../src/atom/button-link/test/fixtures/button-primary-no-icon';
 import AtomButtonLinkFixtureButtonSecondaryNoIconDisabled from '../src/atom/button-link/test/fixtures/button-secondary-no-icon-disabled';
 import AtomButtonLinkFixtureButtonTertiaryIconLeft from '../src/atom/button-link/test/fixtures/button-tertiary-icon-left';
-import AtomButtonLinkFixtureButtonTextNegativeIconLeft from '../src/atom/button-link/test/fixtures/button-text-negative-icon-left';
 import AtomButtonLinkFixtureIconButton from '../src/atom/button-link/test/fixtures/icon-button';
 import AtomButtonLinkFixtureLinkPrimaryDisabledIconRight from '../src/atom/button-link/test/fixtures/link-primary-disabled-icon-right';
 import AtomButtonLinkFixtureLinkSecondaryIconRight from '../src/atom/button-link/test/fixtures/link-secondary-icon-right';
@@ -1284,7 +1283,6 @@ export const fixtures = {
       ButtonPrimaryNoIcon: AtomButtonLinkFixtureButtonPrimaryNoIcon,
       ButtonSecondaryNoIconDisabled: AtomButtonLinkFixtureButtonSecondaryNoIconDisabled,
       ButtonTertiaryIconLeft: AtomButtonLinkFixtureButtonTertiaryIconLeft,
-      ButtonTextNegativeIconLeft: AtomButtonLinkFixtureButtonTextNegativeIconLeft,
       IconButton: AtomButtonLinkFixtureIconButton,
       LinkPrimaryDisabledIconRight: AtomButtonLinkFixtureLinkPrimaryDisabledIconRight,
       LinkSecondaryIconRight: AtomButtonLinkFixtureLinkSecondaryIconRight,
