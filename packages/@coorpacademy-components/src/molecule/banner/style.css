@@ -32,11 +32,11 @@
     background-color: transparent;
 }
 
-.button button{
+.button{
     color: cm_yellow_200;
 }
 
-.button button:hover{
+.button :hover{
     color: cm_yellow_400;
 }
 
