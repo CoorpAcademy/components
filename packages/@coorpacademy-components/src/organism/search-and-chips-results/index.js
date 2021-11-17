@@ -18,7 +18,7 @@ const buildResultView = (results, resultsAriaLabel, emptyMessages) => {
 
   const items = results.map((result, index) => {
     return (
-      <li key={`result-${index}`}>
+      <li className={style.result} key={`result-${index}`}>
         <Chips {...result} />
       </li>
     );
