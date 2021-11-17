@@ -14,6 +14,22 @@ const themeStyle = {
   sidebar: style.sidebar
 };
 
+export const useChoices = options => {
+  const choicesRef = useRef(options);
+
+  const getChoices = () => {
+    return choicesRef.current;
+  };
+
+  const setChoices = choice => {
+    const choices = set(`[${choice.i}].selected`, !choice.selected, getChoices());
+
+    choicesRef.current = choices.filter(c => c.selected);
+  };
+
+  return [getChoices, setChoices];
+};
+
 const SelectMultiple = (
   {
     title,
@@ -30,8 +46,8 @@ const SelectMultiple = (
   {skin}
 ) => {
   const [isOpened, updateIsOpened] = useState(false);
+  const [getChoices, setChoices] = useChoices(options);
   const nodeRef = useRef(null);
-  const choicesRef = useRef(options);
 
   const defaultColor = get('common.primary', skin);
   const black = get('common.black', skin);
@@ -48,16 +64,6 @@ const SelectMultiple = (
       updateIsOpened(false);
     }
   }, []);
-
-  const getChoices = () => {
-    return choicesRef.current;
-  };
-
-  const setChoices = choice => {
-    const choices = set(`[${choice.i}].selected`, !choice.selected, getChoices());
-
-    choicesRef.current = choices.filter(c => c.selected);
-  };
 
   const handleChange = useCallback(
     choice => {
