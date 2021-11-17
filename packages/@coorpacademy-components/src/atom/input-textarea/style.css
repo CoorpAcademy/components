@@ -235,14 +235,13 @@
   width: 99%;
   min-height: 145px;
   resize: vertical;
-  padding-right: 5px;
   flex-grow: 0;
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 35px 24px 0px 17px;
+  padding: 35px 0px 0px 17px;
   border-radius: 7px;
   background-color: transparent;
   font-family: Gilroy;
