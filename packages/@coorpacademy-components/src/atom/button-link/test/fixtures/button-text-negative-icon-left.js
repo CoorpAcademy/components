@@ -7,7 +7,7 @@ export default {
     onClick: () => console.log('click'),
     icon: {
       position: 'left',
-      type: 'deleteIcon'
+      type: 'bin'
     }
   }
 };

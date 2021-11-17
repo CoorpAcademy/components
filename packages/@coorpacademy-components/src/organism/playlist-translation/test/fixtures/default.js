@@ -7,8 +7,8 @@ const languageTabs = vericalMenu.props.tabs;
 export default {
   props: {
     languageTabs,
-    inputText: inputText.props,
-    textArea: textArea.props,
+    inputText: {...inputText.props, theme: 'coorpmanager'},
+    textArea: {...textArea.props, theme: 'coorpmanager'},
     cta: {
       label: 'Add translation',
       type: 'add',

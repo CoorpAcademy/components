@@ -31,8 +31,7 @@ const InputText = props => {
     disabled,
     required,
     modified = false,
-    title: propsTitle,
-    wrapperStyle
+    title: propsTitle
   } = props;
 
   const title = `${propsTitle}${required ? '*' : ''}`;
@@ -67,8 +66,7 @@ const InputText = props => {
         mainClass,
         className,
         disabled && style.disabled,
-        isNil(propsTitle) && style.isNoTitle,
-        wrapperStyle
+        isNil(propsTitle) && style.isNoTitle
       )}
     >
       <label>
@@ -113,7 +111,6 @@ InputText.propTypes = {
   onChange: PropTypes.func,
   description: PropTypes.string,
   modified: PropTypes.bool,
-  valid: PropTypes.bool,
-  wrapperStyle: PropTypes.string
+  valid: PropTypes.bool
 };
 export default InputText;

@@ -12,7 +12,7 @@
 .menu {
   background-color: cm_grey_50;
   height: 360px;
-  width: 180px;
+  width: 200px;
   margin: 24px 8px 24px 24px;
 }
 
@@ -22,30 +22,6 @@
   padding: 24px 24px 24px 8px;
   width: 100%;
   align-items: end;
-}
-
-.nameWrapper {
-  height: 70px;
-  width: 100%;
-  margin-bottom: 16px;
-}
-
-.inputs input{
-  width: 100%;
-}
-
-.inputs label{
-  width: 100%;
-  padding-right: 10px;
-}
-
-.inputs textarea{
-  width: 100%;
-}
-
-.description {
-  width: 100%;
-  margin-bottom: 24px;
 }
 
 .button {
