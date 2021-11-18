@@ -36,16 +36,16 @@
   display: block;
 }
 
-.secondary {
+.default {
   background-color: cm_grey_100;
   color: cm_grey_900;
 }
 
-.secondary:hover {
+.default:hover {
   background-color: cm_grey_200;
 }
 
 .dangerous {
-  composes: secondary;
+  composes: default;
   color: cm_negative_100;
 }

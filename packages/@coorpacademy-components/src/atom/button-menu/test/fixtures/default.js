@@ -2,7 +2,7 @@ export const actionButtonProps = {
   'data-name': 'menu-publish-button',
   label: 'Publish',
   onClick: () => console.log('Publish'),
-  type: 'secondary'
+  type: 'default'
 };
 
 export const deleteButtonProps = {

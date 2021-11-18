@@ -1,14 +1,14 @@
-import React, {useCallback} from 'react';
+import React, {useMemo, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import classnames from 'classnames';
 import style from './style.css';
 
 const Button = props => {
-  const {'data-name': dataName, disabled, label, onClick, type = 'secondary'} = props;
+  const {'data-name': dataName, disabled, label, onClick, type = 'default'} = props;
   const styleButton = classnames(
     style.button,
-    type === 'secondary' && style.secondary,
+    type === 'default' && style.default,
     type === 'dangerous' && style.dangerous,
     disabled && style.disabled
   );
@@ -35,7 +35,7 @@ Button.propTypes = {
   disabled: PropTypes.bool,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
-  type: PropTypes.oneOf(['secondary', 'dangerous'])
+  type: PropTypes.oneOf(['default', 'dangerous'])
 };
 
 const ButtonMenu = props => {
@@ -43,7 +43,7 @@ const ButtonMenu = props => {
   const buildButton = (button, index) => {
     return <Button {...button} key={button.label + index} />;
   };
-  const buttonList = useCallback(map.convert({cap: false})(buildButton, buttons), [
+  const buttonList = useMemo(() => map.convert({cap: false})(buildButton, buttons), [
     buttons,
     buildButton
   ]);
@@ -51,15 +51,7 @@ const ButtonMenu = props => {
 };
 
 ButtonMenu.propTypes = {
-  buttons: PropTypes.arrayOf(
-    PropTypes.shape({
-      'data-name': PropTypes.string,
-      disabled: PropTypes.bool,
-      label: PropTypes.string.isRequired,
-      onClick: PropTypes.func.isRequired,
-      type: PropTypes.oneOf(['secondary', 'dangerous'])
-    })
-  ).isRequired,
+  buttons: PropTypes.arrayOf(PropTypes.shape(Button.propTypes)).isRequired,
   'data-name': PropTypes.string
 };
 
