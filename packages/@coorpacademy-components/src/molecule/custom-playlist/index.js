@@ -12,10 +12,6 @@ import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 
 
-
-
-
-
 const CustomPlaylist = (props, context) => {
   const {translate, skin} = context;
   const brand = get('common.brand', skin);
