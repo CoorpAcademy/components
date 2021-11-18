@@ -1,0 +1,49 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value xtraLightGrey from colors;
+@value cm_grey_900 from colors;
+@value primaryAdd1 from colors;
+
+.wrapper {
+  width: 100%;
+  border-radius: 7px;
+  background-color: color(xtraLightGrey a(90%));
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  box-sizing: border-box;
+}
+
+.title {
+  flex-grow: 0;
+  font-family: Gilroy;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.38;
+  letter-spacing: normal;
+  text-align: left;
+  color: cm_grey_900;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.settings {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+
+.tag {
+  margin: 0 16px 0 0; 
+}
+
+.edit {
+  margin: 0 16px 0 0;
+  min-width: 93px;
+}
