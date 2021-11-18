@@ -2,7 +2,7 @@
 @value mobile from breakpoints;
 @value colors: "../../variables/colors.css";
 @value xtraLightGrey from colors;
-@value brand from colors;
+@value cm_grey_900 from colors;
 @value primaryAdd1 from colors;
 
 .wrapper {
@@ -17,10 +17,19 @@
 }
 
 .title {
-  font-family: 'Open Sans';
-  font-size: 14px;
-  color: brand;
-  font-weight: 700;
+  width: 153px;
+  height: 22px;
+  flex-grow: 0;
+  font-family: Gilroy;
+  font-size: 16px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.38;
+  letter-spacing: normal;
+  text-align: left;
+  color: cm_grey_900;
+  
 }
 
 .settings {

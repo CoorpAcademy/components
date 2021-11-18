@@ -1,10 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  NovaCompositionNavigationArrowDown as ArrowDownIcon,
-  NovaCompositionNavigationArrowTop as ArrowUpIcon
-} from '@coorpacademy/nova-icons';
-import {get} from 'lodash/fp';
+
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
