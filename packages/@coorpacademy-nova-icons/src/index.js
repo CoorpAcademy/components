@@ -143,6 +143,7 @@ import _NovaSolidContentContentBook1 from './components/nova-solid/content/conte
 import _NovaSolidContentContentBookAdd from './components/nova-solid/content/content-book-add';
 import _NovaSolidContentContentViewList from './components/nova-solid/content/content-view-list';
 import _NovaSolidContentContentViewModule1 from './components/nova-solid/content/content-view-module-1';
+import _NovaSolidContentEditionBin from './components/nova-solid/content-edition/bin';
 import _NovaSolidContentEditionFlash from './components/nova-solid/content-edition/flash';
 import _NovaSolidContentEditionPencil1 from './components/nova-solid/content-edition/pencil-1';
 import _NovaSolidContentEditionPencilWrite from './components/nova-solid/content-edition/pencil-write';
@@ -325,6 +326,7 @@ export const NovaSolidContentContentBook1: Icon = _NovaSolidContentContentBook1;
 export const NovaSolidContentContentBookAdd: Icon = _NovaSolidContentContentBookAdd;
 export const NovaSolidContentContentViewList: Icon = _NovaSolidContentContentViewList;
 export const NovaSolidContentContentViewModule1: Icon = _NovaSolidContentContentViewModule1;
+export const NovaSolidContentEditionBin: Icon = _NovaSolidContentEditionBin;
 export const NovaSolidContentEditionFlash: Icon = _NovaSolidContentEditionFlash;
 export const NovaSolidContentEditionPencil1: Icon = _NovaSolidContentEditionPencil1;
 export const NovaSolidContentEditionPencilWrite: Icon = _NovaSolidContentEditionPencilWrite;

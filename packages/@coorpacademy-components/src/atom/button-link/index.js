@@ -3,14 +3,15 @@ import PropTypes from 'prop-types';
 import {getOr} from 'lodash/fp';
 import classnames from 'classnames';
 import {
-  NovaSolidRemoveAddAddCircle1 as AddIcon,
   NovaCompositionNavigationArrowLeft as ChevronLeftIcon,
   NovaCompositionNavigationArrowRight as ChevronRightIcon,
   NovaCompositionCoorpacademyEye as EyeIcon,
   NovaCompositionCoorpacademyAnalytics as AnalyticsIcon,
   NovaCompositionCoorpacademyNext as CloseIcon,
   NovaSolidComputersSdCard as SaveIcon,
-  NovaSolidContentEditionPencilWrite as EditIcon
+  NovaSolidContentEditionPencilWrite as EditIcon,
+  NovaSolidRemoveAddAddCircle1 as AddIcon,
+  NovaSolidContentEditionBin as BinIcon
 } from '@coorpacademy/nova-icons';
 import Link from '../link';
 import style from './style.css';
@@ -18,6 +19,7 @@ import style from './style.css';
 const ICONS = {
   add: AddIcon,
   analytics: AnalyticsIcon,
+  bin: BinIcon,
   'chevron-left': ChevronLeftIcon,
   'chevron-right': ChevronRightIcon,
   close: CloseIcon,

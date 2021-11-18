@@ -151,6 +151,7 @@ import OrganismHero from './../src/organism/hero';
 import OrganismMoocImageSlider from './../src/organism/mooc/image-slider';
 import OrganismMoocFooter from './../src/organism/mooc-footer';
 import OrganismMoocHeader from './../src/organism/mooc-header';
+import OrganismPlaylistTranslation from './../src/organism/playlist-translation';
 import OrganismPopin from './../src/organism/popin';
 import OrganismResourceBrowser from './../src/organism/resource-browser';
 import OrganismSearchAndChipsResults from './../src/organism/search-and-chips-results';
@@ -793,6 +794,8 @@ import OrganismMoocHeaderFixtureOnHeaderActionHandlers from '../src/organism/moo
 import OrganismMoocHeaderFixtureTeamsFrench from '../src/organism/mooc-header/test/fixtures/teams-french';
 import OrganismMoocHeaderFixtureTeams from '../src/organism/mooc-header/test/fixtures/teams';
 import OrganismMoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
+import OrganismPlaylistTranslationFixtureDefault from '../src/organism/playlist-translation/test/fixtures/default';
+import OrganismPlaylistTranslationFixtureDelete from '../src/organism/playlist-translation/test/fixtures/delete';
 import OrganismPopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
 import OrganismResourceBrowserFixtureArabic from '../src/organism/resource-browser/test/fixtures/arabic';
 import OrganismResourceBrowserFixtureAudio from '../src/organism/resource-browser/test/fixtures/audio';
@@ -1203,6 +1206,7 @@ export const components = {
     OrganismHero,
     OrganismMoocFooter,
     OrganismMoocHeader,
+    OrganismPlaylistTranslation,
     OrganismPopin,
     OrganismResourceBrowser,
     OrganismSearchAndChipsResults,
@@ -2180,6 +2184,10 @@ export const fixtures = {
       TeamsFrench: OrganismMoocHeaderFixtureTeamsFrench,
       Teams: OrganismMoocHeaderFixtureTeams,
       UserChangePassword: OrganismMoocHeaderFixtureUserChangePassword
+    },
+    OrganismPlaylistTranslation: {
+      Default: OrganismPlaylistTranslationFixtureDefault,
+      Delete: OrganismPlaylistTranslationFixtureDelete
     },
     OrganismPopin: {
       Default: OrganismPopinFixtureDefault
