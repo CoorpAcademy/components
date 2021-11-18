@@ -24,6 +24,7 @@
   padding: 24px 24px 24px 8px;
   width: 100%;
   align-items: end;
+  gap: 16px;
 }
 
 .button {
