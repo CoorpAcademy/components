@@ -55,33 +55,39 @@ const SetupHeader = props => {
     }
   };
 
-  const goAnalyticsButtonProps = {
-    type: 'secondary',
-    label: items.globalAnalytics.label,
-    'aria-label': items.globalAnalytics.label,
-    'data-name': `platform-list-button`,
-    link: {
-      href: items.globalAnalytics.href
-    },
-    icon: {
-      position: 'left',
-      type: 'analytics'
-    }
-  };
+  const goAnalyticsButtonProps =
+    items.globalAnalytics && isDashboard === false
+      ? {
+          type: 'secondary',
+          label: items.globalAnalytics.label,
+          'aria-label': items.globalAnalytics.label,
+          'data-name': `platform-list-button`,
+          link: {
+            href: items.globalAnalytics.href
+          },
+          icon: {
+            position: 'left',
+            type: 'analytics'
+          }
+        }
+      : null;
 
-  const myPlatformButtonProps = {
-    type: 'primary',
-    label: items.platformList.label,
-    'aria-label': items.platformList.label,
-    'data-name': `platform-list-button`,
-    link: {
-      href
-    },
-    icon: {
-      position: 'left',
-      type: 'see'
-    }
-  };
+  const myPlatformButtonProps =
+    isHome || isDashboard
+      ? null
+      : {
+          type: 'primary',
+          label: items.platformList.label,
+          'aria-label': items.platformList.label,
+          'data-name': `platform-list-button`,
+          link: {
+            href
+          },
+          icon: {
+            position: 'left',
+            type: 'see'
+          }
+        };
 
   const logoutButtonProps = {
     type: 'text',
@@ -120,12 +126,12 @@ const SetupHeader = props => {
           </ul>
         )}
         <ul className={style.list}>
-          {items.globalAnalytics && isDashboard === false ? (
+          {goAnalyticsButtonProps ? (
             <div className={style.button}>
               <ButtonLink {...goAnalyticsButtonProps} />
             </div>
           ) : null}
-          {isHome || isDashboard ? null : (
+          {myPlatformButtonProps ? null : (
             <div className={style.button}>
               <ButtonLink {...myPlatformButtonProps} />
             </div>
