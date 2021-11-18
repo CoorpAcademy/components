@@ -1,6 +1,6 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import {getOr} from 'lodash/fp';
+import {getOr, keys} from 'lodash/fp';
 import classnames from 'classnames';
 import {ICONS} from '../../util/button-icons';
 import Link from '../link';
@@ -71,7 +71,7 @@ ButtonLinkIconOnly.propTypes = {
   size: PropTypes.oneOf(['default', 'small']),
   'aria-label': PropTypes.string,
   'data-name': PropTypes.string,
-  icon: PropTypes.string,
+  icon: PropTypes.oneOf(keys(ICONS)),
   onClick: PropTypes.func,
   link: PropTypes.shape({
     href: PropTypes.string,
