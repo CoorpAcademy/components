@@ -27,7 +27,12 @@
 
 .disabled {
   opacity: 0.3;
+  cursor: default;
   pointer-events: none;
+}
+
+.disabled:hover {
+  background-color: cm_grey_100;
 }
 
 .buttonContent {
