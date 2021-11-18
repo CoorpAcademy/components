@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
-import ButtonLink from '../../atom/button-link';
+import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import ButtonMenu from '../../atom/button-menu';
 import style from './style.css';
 
@@ -19,20 +19,17 @@ const BulletPointMenuButton = props => {
     </div>
   );
   const bulletPointButtonProps = {
-    type: 'secondary',
+    size: 'default',
     'aria-label': buttonAriaLabel,
     'data-name': 'bullet-point-button',
-    icon: {
-      position: 'center',
-      type: 'bullet-point'
-    },
+    icon: 'bullet-point',
     onClick: handleOnClick,
     disabled
   };
 
   return (
     <div className={style.bulletPointWrapper} data-name="bullet-point-wrapper">
-      <ButtonLink {...bulletPointButtonProps} className={style.bulletPointButton} />
+      <ButtonLinkIconOnly {...bulletPointButtonProps} className={style.bulletPointButton} />
       {menu}
     </div>
   );

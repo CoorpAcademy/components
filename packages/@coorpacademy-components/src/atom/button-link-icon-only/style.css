@@ -21,6 +21,10 @@
   background-color: cm_grey_100;
 }
 
+.button:hover {
+  background-color: cm_grey_200;
+}
+
 .disabled {
   opacity: 0.3;
   pointer-events: none;

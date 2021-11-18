@@ -202,13 +202,13 @@ import AtomButtonLinkFixtureButtonDangerousNoIcon from '../src/atom/button-link/
 import AtomButtonLinkFixtureButtonPrimaryIconLeft from '../src/atom/button-link/test/fixtures/button-primary-icon-left';
 import AtomButtonLinkFixtureButtonPrimaryNoIcon from '../src/atom/button-link/test/fixtures/button-primary-no-icon';
 import AtomButtonLinkFixtureButtonSecondaryNoIconDisabled from '../src/atom/button-link/test/fixtures/button-secondary-no-icon-disabled';
-import AtomButtonLinkFixtureButtonTertiaryIconBullet from '../src/atom/button-link/test/fixtures/button-tertiary-icon-bullet';
 import AtomButtonLinkFixtureButtonTertiaryIconLeft from '../src/atom/button-link/test/fixtures/button-tertiary-icon-left';
 import AtomButtonLinkFixtureLinkPrimaryDisabledIconRight from '../src/atom/button-link/test/fixtures/link-primary-disabled-icon-right';
 import AtomButtonLinkFixtureLinkSecondaryIconRight from '../src/atom/button-link/test/fixtures/link-secondary-icon-right';
 import AtomButtonLinkFixtureLinkTertiaryNoIcon from '../src/atom/button-link/test/fixtures/link-tertiary-no-icon';
 import AtomButtonLinkFixtureLinkTextIconRightTargetBlank from '../src/atom/button-link/test/fixtures/link-text-icon-right-target-blank';
 import AtomButtonLinkFixtureLinkTextNoIconDownload from '../src/atom/button-link/test/fixtures/link-text-no-icon-download';
+import AtomButtonLinkIconOnlyFixtureButtonIconBullet from '../src/atom/button-link-icon-only/test/fixtures/button-icon-bullet';
 import AtomButtonLinkIconOnlyFixtureDefault from '../src/atom/button-link-icon-only/test/fixtures/default';
 import AtomButtonLinkIconOnlyFixtureSmallButtonDisabled from '../src/atom/button-link-icon-only/test/fixtures/small-button-disabled';
 import AtomButtonLinkIconOnlyFixtureSmallLinkDownload from '../src/atom/button-link-icon-only/test/fixtures/small-link-download';
@@ -1296,7 +1296,6 @@ export const fixtures = {
       ButtonPrimaryIconLeft: AtomButtonLinkFixtureButtonPrimaryIconLeft,
       ButtonPrimaryNoIcon: AtomButtonLinkFixtureButtonPrimaryNoIcon,
       ButtonSecondaryNoIconDisabled: AtomButtonLinkFixtureButtonSecondaryNoIconDisabled,
-      ButtonTertiaryIconBullet: AtomButtonLinkFixtureButtonTertiaryIconBullet,
       ButtonTertiaryIconLeft: AtomButtonLinkFixtureButtonTertiaryIconLeft,
       LinkPrimaryDisabledIconRight: AtomButtonLinkFixtureLinkPrimaryDisabledIconRight,
       LinkSecondaryIconRight: AtomButtonLinkFixtureLinkSecondaryIconRight,
@@ -1305,6 +1304,7 @@ export const fixtures = {
       LinkTextNoIconDownload: AtomButtonLinkFixtureLinkTextNoIconDownload
     },
     AtomButtonLinkIconOnly: {
+      ButtonIconBullet: AtomButtonLinkIconOnlyFixtureButtonIconBullet,
       Default: AtomButtonLinkIconOnlyFixtureDefault,
       SmallButtonDisabled: AtomButtonLinkIconOnlyFixtureSmallButtonDisabled,
       SmallLinkDownload: AtomButtonLinkIconOnlyFixtureSmallLinkDownload

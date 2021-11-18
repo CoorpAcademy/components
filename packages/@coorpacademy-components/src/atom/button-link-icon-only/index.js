@@ -20,7 +20,7 @@ const getButtonContent = icon => {
   );
 };
 
-const ButtonLink = props => {
+const ButtonLinkIconOnly = props => {
   const {
     size = 'default',
     disabled,
@@ -57,6 +57,7 @@ const ButtonLink = props => {
     <button
       type="button"
       aria-label={ariaLabel}
+      data-name={dataName}
       title={ariaLabel}
       className={styleButton}
       onClick={handleOnClick}
@@ -66,7 +67,7 @@ const ButtonLink = props => {
   );
 };
 
-ButtonLink.propTypes = {
+ButtonLinkIconOnly.propTypes = {
   size: PropTypes.oneOf(['default', 'small']),
   'aria-label': PropTypes.string,
   'data-name': PropTypes.string,
@@ -80,4 +81,4 @@ ButtonLink.propTypes = {
   disabled: PropTypes.bool
 };
 
-export default ButtonLink;
+export default ButtonLinkIconOnly;
