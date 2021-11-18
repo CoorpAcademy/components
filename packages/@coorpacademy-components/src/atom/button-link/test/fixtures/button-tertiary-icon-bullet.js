@@ -5,8 +5,7 @@ export default {
     'data-name': 'bullet-button',
     icon: {
       position: 'center',
-      type: 'bullet-point',
-      size: 14
+      type: 'bullet-point'
     },
     onClick: () => console.log('click')
   }

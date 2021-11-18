@@ -7,7 +7,6 @@
 .button {
   width: 100%;
   height: 40px;
-  border-radius: 7px;
   font-family: Gilroy;
   font-size: 14px;
   display: flex;
@@ -35,14 +34,6 @@
 .label {
   margin: 0 8px 0 8px;
   display: block;
-}
-
-.firstButton {
-  border-radius: 7px 7px 0px 0px;
-}
-
-.lastButton {
-  border-radius: 0px 0px 7px 7px;
 }
 
 .secondary {

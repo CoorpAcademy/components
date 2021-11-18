@@ -24,8 +24,7 @@ const BulletPointMenuButton = props => {
     'data-name': 'bullet-point-button',
     icon: {
       position: 'center',
-      type: 'bullet-point',
-      size: 14
+      type: 'bullet-point'
     },
     onClick: handleOnClick,
     disabled
