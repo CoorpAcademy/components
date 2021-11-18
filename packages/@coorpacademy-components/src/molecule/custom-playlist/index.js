@@ -5,17 +5,16 @@ import {
   NovaCompositionNavigationArrowTop as ArrowUpIcon
 } from '@coorpacademy/nova-icons';
 import {get} from 'lodash/fp';
-import Provider from '../../atom/provider';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
+import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
+
 
 import style from './style.css';
 
 
-const CustomPlaylist = (props, context) => {
-  const {translate, skin} = context;
-  const brand = get('common.brand', skin);
-  const medium = get('common.medium', skin);
+const CustomPlaylist = props => {
+
 
   const {title} = props;
   return (
@@ -35,15 +34,28 @@ const CustomPlaylist = (props, context) => {
                             type: "edit"
                           }}
       />
+
       </div> 
+      <BulletPointMenuButton buttonAriaLabel="aria button" 
+                    menuAriaLabel="aria menu"
+                    buttons={[
+                      {
+                        "data-name": "menu-archive-button",
+                        "label": "Archive",
+                        "type": "default"
+                      },
+                      
+                      {
+                        "data-name": "menu-delete-button",
+                        "label": "Delete",
+                        "type": "dangerous"
+                      }
+                    ]}
+                   
+      />
       </div>
     </div>
   );
-};
-
-CustomPlaylist.contextTypes = {
-  translate: Provider.childContextTypes.translate,
-  skin: Provider.childContextTypes.skin
 };
 
 CustomPlaylist.propTypes = {
