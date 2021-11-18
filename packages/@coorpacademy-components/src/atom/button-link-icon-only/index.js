@@ -24,7 +24,7 @@ const ButtonLinkIconOnly = props => {
   const {
     size = 'default',
     disabled,
-    icon = {},
+    icon,
     'data-name': dataName,
     'aria-label': ariaLabel,
     link,

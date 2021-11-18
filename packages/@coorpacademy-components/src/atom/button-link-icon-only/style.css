@@ -1,13 +1,6 @@
 @value colors: "../../variables/colors.css";
-@value cm_primary_blue from colors;
-@value cm_blue_600 from colors;
-@value cm_grey_50 from colors;
 @value cm_grey_100 from colors;
 @value cm_grey_200 from colors;
-@value cm_grey_900 from colors;
-@value cm_negative_100 from colors;
-@value cm_negative_200 from colors;
-@value white from colors;
 
 .button {
   font-family: Gilroy;
