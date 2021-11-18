@@ -1,0 +1,45 @@
+@value colors: "../../variables/colors.css";
+@value dark from colors;
+@value brand from colors;
+@value light from colors;
+@value cm_grey_50 from colors;
+@value cm_negative_100 from colors;
+@value cm_negative_200 from colors;
+
+.container {
+  display: flex;
+  background-color: cm_grey_50;
+}
+
+.menu {
+  background-color: cm_grey_50;
+  height: 360px;
+  width: 200px;
+  margin: 24px 8px 24px 24px;
+}
+
+.horizontalSection{
+  display: flex;
+  flex-direction: column;
+  padding: 24px 24px 24px 8px;
+  width: 100%;
+  align-items: end;
+}
+
+.input {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.button {
+  width: 170px;
+  margin-top: 16px;
+}
+
+.binButton {
+  color: cm_negative_100;
+}
+
+.binButton:hover {
+  color: cm_negative_200;
+} 

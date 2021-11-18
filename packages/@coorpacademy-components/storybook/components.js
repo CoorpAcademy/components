@@ -4,6 +4,7 @@ import AtomAutocomplete from './../src/atom/autocomplete';
 import AtomAvatar from './../src/atom/avatar';
 import AtomButton from './../src/atom/button';
 import AtomButtonLink from './../src/atom/button-link';
+import AtomButtonMenu from './../src/atom/button-menu';
 import AtomCatalogSection from './../src/atom/catalog-section';
 import AtomCenteredText from './../src/atom/centered-text';
 import AtomCheckbox from './../src/atom/checkbox';
@@ -62,6 +63,7 @@ import MoleculeBrandFormGroup from './../src/molecule/brand-form-group';
 import MoleculeBrandTabs from './../src/molecule/brand-tabs';
 import MoleculeBrandUploadBox from './../src/molecule/brand-upload-box';
 import MoleculeBreadcrumbs from './../src/molecule/breadcrumbs';
+import MoleculeBulletPointMenuButton from './../src/molecule/bullet-point-menu-button';
 import MoleculeCard from './../src/molecule/card';
 import MoleculeCardContent from './../src/molecule/card-content';
 import MoleculeCardWithButton from './../src/molecule/card-with-button';
@@ -152,6 +154,7 @@ import OrganismHero from './../src/organism/hero';
 import OrganismMoocImageSlider from './../src/organism/mooc/image-slider';
 import OrganismMoocFooter from './../src/organism/mooc-footer';
 import OrganismMoocHeader from './../src/organism/mooc-header';
+import OrganismPlaylistTranslation from './../src/organism/playlist-translation';
 import OrganismPopin from './../src/organism/popin';
 import OrganismResourceBrowser from './../src/organism/resource-browser';
 import OrganismSearchAndChipsResults from './../src/organism/search-and-chips-results';
@@ -199,6 +202,7 @@ import AtomButtonLinkFixtureButtonDangerousNoIcon from '../src/atom/button-link/
 import AtomButtonLinkFixtureButtonPrimaryIconLeft from '../src/atom/button-link/test/fixtures/button-primary-icon-left';
 import AtomButtonLinkFixtureButtonPrimaryNoIcon from '../src/atom/button-link/test/fixtures/button-primary-no-icon';
 import AtomButtonLinkFixtureButtonSecondaryNoIconDisabled from '../src/atom/button-link/test/fixtures/button-secondary-no-icon-disabled';
+import AtomButtonLinkFixtureButtonTertiaryIconBullet from '../src/atom/button-link/test/fixtures/button-tertiary-icon-bullet';
 import AtomButtonLinkFixtureButtonTertiaryIconLeft from '../src/atom/button-link/test/fixtures/button-tertiary-icon-left';
 import AtomButtonLinkFixtureIconButton from '../src/atom/button-link/test/fixtures/icon-button';
 import AtomButtonLinkFixtureLinkPrimaryDisabledIconRight from '../src/atom/button-link/test/fixtures/link-primary-disabled-icon-right';
@@ -206,6 +210,8 @@ import AtomButtonLinkFixtureLinkSecondaryIconRight from '../src/atom/button-link
 import AtomButtonLinkFixtureLinkTertiaryNoIcon from '../src/atom/button-link/test/fixtures/link-tertiary-no-icon';
 import AtomButtonLinkFixtureLinkTextIconRightTargetBlank from '../src/atom/button-link/test/fixtures/link-text-icon-right-target-blank';
 import AtomButtonLinkFixtureLinkTextNoIconDownload from '../src/atom/button-link/test/fixtures/link-text-no-icon-download';
+import AtomButtonMenuFixtureDefault from '../src/atom/button-menu/test/fixtures/default';
+import AtomButtonMenuFixtureMultipleButtons from '../src/atom/button-menu/test/fixtures/multiple-buttons';
 import AtomCatalogSectionFixtureList from '../src/atom/catalog-section/test/fixtures/list';
 import AtomCatalogSectionFixturePicture from '../src/atom/catalog-section/test/fixtures/picture';
 import AtomCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
@@ -444,6 +450,8 @@ import MoleculeBrandUploadBoxFixtureDefault from '../src/molecule/brand-upload-b
 import MoleculeBrandUploadBoxFixtureLoading from '../src/molecule/brand-upload-box/test/fixtures/loading';
 import MoleculeBrandUploadBoxFixtureSso from '../src/molecule/brand-upload-box/test/fixtures/sso';
 import MoleculeBreadcrumbsFixtureDefault from '../src/molecule/breadcrumbs/test/fixtures/default';
+import MoleculeBulletPointMenuButtonFixtureDefault from '../src/molecule/bullet-point-menu-button/test/fixtures/default';
+import MoleculeBulletPointMenuButtonFixtureMultipleButtons from '../src/molecule/bullet-point-menu-button/test/fixtures/multiple-buttons';
 import MoleculeCardFixtureAdaptivAndDisabled from '../src/molecule/card/test/fixtures/adaptiv-and-disabled';
 import MoleculeCardFixtureAdaptiv from '../src/molecule/card/test/fixtures/adaptiv';
 import MoleculeCardFixtureArabic from '../src/molecule/card/test/fixtures/arabic';
@@ -801,6 +809,8 @@ import OrganismMoocHeaderFixtureOnHeaderActionHandlers from '../src/organism/moo
 import OrganismMoocHeaderFixtureTeamsFrench from '../src/organism/mooc-header/test/fixtures/teams-french';
 import OrganismMoocHeaderFixtureTeams from '../src/organism/mooc-header/test/fixtures/teams';
 import OrganismMoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
+import OrganismPlaylistTranslationFixtureDefault from '../src/organism/playlist-translation/test/fixtures/default';
+import OrganismPlaylistTranslationFixtureDelete from '../src/organism/playlist-translation/test/fixtures/delete';
 import OrganismPopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
 import OrganismResourceBrowserFixtureArabic from '../src/organism/resource-browser/test/fixtures/arabic';
 import OrganismResourceBrowserFixtureAudio from '../src/organism/resource-browser/test/fixtures/audio';
@@ -1049,6 +1059,7 @@ export const components = {
     AtomAvatar,
     AtomButton,
     AtomButtonLink,
+    AtomButtonMenu,
     AtomCatalogSection,
     AtomCenteredText,
     AtomCheckbox,
@@ -1111,6 +1122,7 @@ export const components = {
     MoleculeBrandTabs,
     MoleculeBrandUploadBox,
     MoleculeBreadcrumbs,
+    MoleculeBulletPointMenuButton,
     MoleculeCard,
     MoleculeCardContent,
     MoleculeCardWithButton,
@@ -1212,6 +1224,7 @@ export const components = {
     OrganismHero,
     OrganismMoocFooter,
     OrganismMoocHeader,
+    OrganismPlaylistTranslation,
     OrganismPopin,
     OrganismResourceBrowser,
     OrganismSearchAndChipsResults,
@@ -1288,6 +1301,7 @@ export const fixtures = {
       ButtonPrimaryIconLeft: AtomButtonLinkFixtureButtonPrimaryIconLeft,
       ButtonPrimaryNoIcon: AtomButtonLinkFixtureButtonPrimaryNoIcon,
       ButtonSecondaryNoIconDisabled: AtomButtonLinkFixtureButtonSecondaryNoIconDisabled,
+      ButtonTertiaryIconBullet: AtomButtonLinkFixtureButtonTertiaryIconBullet,
       ButtonTertiaryIconLeft: AtomButtonLinkFixtureButtonTertiaryIconLeft,
       IconButton: AtomButtonLinkFixtureIconButton,
       LinkPrimaryDisabledIconRight: AtomButtonLinkFixtureLinkPrimaryDisabledIconRight,
@@ -1295,6 +1309,10 @@ export const fixtures = {
       LinkTertiaryNoIcon: AtomButtonLinkFixtureLinkTertiaryNoIcon,
       LinkTextIconRightTargetBlank: AtomButtonLinkFixtureLinkTextIconRightTargetBlank,
       LinkTextNoIconDownload: AtomButtonLinkFixtureLinkTextNoIconDownload
+    },
+    AtomButtonMenu: {
+      Default: AtomButtonMenuFixtureDefault,
+      MultipleButtons: AtomButtonMenuFixtureMultipleButtons
     },
     AtomCatalogSection: {
       List: AtomCatalogSectionFixtureList,
@@ -1653,6 +1671,10 @@ export const fixtures = {
     },
     MoleculeBreadcrumbs: {
       Default: MoleculeBreadcrumbsFixtureDefault
+    },
+    MoleculeBulletPointMenuButton: {
+      Default: MoleculeBulletPointMenuButtonFixtureDefault,
+      MultipleButtons: MoleculeBulletPointMenuButtonFixtureMultipleButtons
     },
     MoleculeCard: {
       AdaptivAndDisabled: MoleculeCardFixtureAdaptivAndDisabled,
@@ -2198,6 +2220,10 @@ export const fixtures = {
       TeamsFrench: OrganismMoocHeaderFixtureTeamsFrench,
       Teams: OrganismMoocHeaderFixtureTeams,
       UserChangePassword: OrganismMoocHeaderFixtureUserChangePassword
+    },
+    OrganismPlaylistTranslation: {
+      Default: OrganismPlaylistTranslationFixtureDefault,
+      Delete: OrganismPlaylistTranslationFixtureDelete
     },
     OrganismPopin: {
       Default: OrganismPopinFixtureDefault

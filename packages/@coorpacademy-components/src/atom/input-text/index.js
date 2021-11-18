@@ -59,6 +59,7 @@ const InputText = props => {
     ) : null;
   const errorIconView = error ? <ErrorIcon className={style.leftIcon} /> : null;
   const validIconView = valid ? <CheckIcon className={style.leftIcon} /> : null;
+
   return (
     <div
       className={classnames(

@@ -1,0 +1,51 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_100 from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_900 from colors;
+@value cm_negative_100 from colors;
+
+.button {
+  width: 100%;
+  height: 40px;
+  font-family: Gilroy;
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  pointer-events: auto;
+  /* prevents text selection when dragging 
+  the mouse over the button */
+  user-select: none;
+}
+
+.disabled {
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.buttonContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.label {
+  margin: 0 8px 0 8px;
+  display: block;
+}
+
+.default {
+  background-color: cm_grey_100;
+  color: cm_grey_900;
+}
+
+.default:hover {
+  background-color: cm_grey_200;
+}
+
+.dangerous {
+  composes: default;
+  color: cm_negative_100;
+}
