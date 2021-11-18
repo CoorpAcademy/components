@@ -5,7 +5,7 @@ import {
   NovaCompositionCoorpacademyBulletPoint as BulletPointIcon,
   NovaCompositionNavigationArrowLeft as ChevronLeftIcon,
   NovaCompositionNavigationArrowRight as ChevronRightIcon,
-  NovaCompositionCoorpacademyNext as CloseIcon,
+  NovaSolidStatusClose as CloseIcon,
   NovaSolidContentEditionPencilWrite as EditIcon,
   NovaCompositionCoorpacademyEye as EyeIcon,
   NovaSolidComputersSdCard as SaveIcon

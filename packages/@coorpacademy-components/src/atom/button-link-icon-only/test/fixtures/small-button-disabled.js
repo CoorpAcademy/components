@@ -1,9 +1,10 @@
 export default {
   props: {
-    size: 'default',
+    size: 'small',
     'data-name': 'default-button',
     'aria-label': 'aria button',
     icon: 'close',
+    disabled: true,
     onClick: () => console.log('click')
   }
 };

@@ -10,9 +10,6 @@
 @value white from colors;
 
 .button {
-  width: 100%;
-  height: 44px;
-  border-radius: 7px;
   font-family: Gilroy;
   font-size: 14px;
   font-weight: bold;
@@ -21,10 +18,11 @@
   align-items: center;
   cursor: pointer;
   border: none;
+  background-color: cm_grey_100;
 }
 
 .disabled {
-  opacity: 0.1;
+  opacity: 0.3;
   pointer-events: none;
 }
 
@@ -39,55 +37,26 @@
   text-decoration: none;
 }
 
-.icon {
+.default {
+  composes: button;
+  width: 44px;
+  height: 44px;
+  border-radius: 7px;
+}
+
+.small {
+  composes: button;
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+}
+
+.default .icon {
+  width: 14px;
+  height: 14px;
+}
+
+.small .icon {
   width: 12px;
   height: 12px;
-}
-
-.label {
-  margin: 0 8px 0 8px;
-  display: block;
-}
-
-.primary {
-  background-color: cm_primary_blue;
-  color: white;
-}
-
-.primary:hover {
-  background-color: cm_blue_600;
-}
-
-.secondary {
-  background-color: cm_grey_100;
-  color: cm_grey_900;
-}
-
-.secondary:hover {
-  background-color: cm_grey_200;
-}
-
-.tertiary {
-  background-color: cm_grey_50;
-  color: cm_grey_900;
-  border-radius: 0px;
-}
-
-.tertiary:hover {
-  background-color: cm_grey_100;
-}
-
-.dangerous {
-  background-color: cm_negative_100;
-}
-
-.dangerous:hover {
-  background-color: cm_negative_200;
-}
-
-.text {
-  background: transparent;
-  color: inherit;
-  border-radius: 0px;
-  height: auto;
 }
