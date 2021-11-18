@@ -1,18 +1,18 @@
-import React from "react";
-import PropTypes from "prop-types";
-import Tag from "../../atom/tag";
-import ButtonLink from "../../atom/button-link";
-import BulletPointMenuButton from "../../molecule/bullet-point-menu-button";
-import style from "./style.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Tag from '../../atom/tag';
+import ButtonLink from '../../atom/button-link';
+import BulletPointMenuButton from '../bullet-point-menu-button';
+import style from './style.css';
 
-const CustomPlaylist = (props) => {
-  const { title } = props;
+const CustomPlaylist = props => {
+  const {title, label, type, editButtonOnClick, bulleetPointButtonOnClick} = props;
   return (
-    <div className={style.wrapper} style={{ marginTop: "150px" }}>
+    <div className={style.wrapper} style={{marginTop: '150px'}}>
       <div className={style.title}>{title}</div>
       <div className={style.settings}>
         <div>
-          <Tag label="Published" type="published" />
+          <Tag label={label} type={type} />
         </div>
         <div className={style.edit}>
           <ButtonLink
@@ -21,9 +21,10 @@ const CustomPlaylist = (props) => {
             ariaLabel="aria button"
             dataName="default-button"
             icon={{
-              position: "left",
-              type: "edit",
+              position: 'left',
+              type: 'edit'
             }}
+            onClick={editButtonOnClick}
           />
         </div>
         <BulletPointMenuButton
@@ -31,16 +32,17 @@ const CustomPlaylist = (props) => {
           menuAriaLabel="aria menu"
           buttons={[
             {
-              "data-name": "menu-archive-button",
-              label: "Archive",
-              type: "default",
+              'data-name': 'CP-archive-button',
+              label: 'Archive',
+              type: 'default'
             },
             {
-              "data-name": "menu-delete-button",
-              label: "Delete",
-              type: "dangerous",
-            },
+              'data-name': 'CP-delete-button',
+              label: 'Delete',
+              type: 'dangerous'
+            }
           ]}
+          onClick={bulleetPointButtonOnClick}
         />
       </div>
     </div>
@@ -48,7 +50,11 @@ const CustomPlaylist = (props) => {
 };
 
 CustomPlaylist.propTypes = {
+  bulleetPointButtonOnClick: PropTypes.func,
+  editButtonOnClick: PropTypes.func,
+  label: PropTypes.string,
   title: PropTypes.string.isRequired,
+  type: PropTypes.oneOf(['default', 'published', 'revision', 'archived'])
 };
 
 export default CustomPlaylist;
