@@ -29,7 +29,6 @@
   letter-spacing: normal;
   text-align: left;
   color: cm_grey_900;
-  
 }
 
 .settings {
@@ -38,14 +37,8 @@
   align-items: center;
 }
 
-.edit { 
+.edit {
   margin-left: 16px;
   margin-right: 16px;
   width: 93px;
 }
-
-
-
-
-
-
