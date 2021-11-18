@@ -16,23 +16,21 @@ import style from './style.css';
 
 
 
-const SetupSection = (props, context) => {
+const CustomPlaylist = (props, context) => {
   const {translate, skin} = context;
   const brand = get('common.brand', skin);
   const medium = get('common.medium', skin);
 
-  const {title, onUp, onDown, display, contentTypes} = props;
-  const colorUp = onDown ? brand : medium;
-  const colorDown = onUp ? brand : medium;
-
+  const {title} = props;
   return (
     <div className={style.wrapper}>
       <div className={style.title}>{title}</div>
-     
       <div className={style.settings}>
+        <div>
       <Tag label="Published" type="published" />
-        
-        <ButtonLink type="tertiary" 
+      </div>
+      <div className={style.edit}>
+      <ButtonLink type="secondary" 
                     label="Edit"
                     ariaLabel="aria button"
                     dataName="default-button"
@@ -40,35 +38,20 @@ const SetupSection = (props, context) => {
                             position: "left",
                             type: "edit"
                           }}
-          />
-        {/* <div className={style.arrowSection}>
-          <ArrowDownIcon
-            color={colorUp}
-            className={onDown ? style.arrow : style.disabled}
-            onClick={onDown}
-          />
-          <ArrowUpIcon
-            color={colorDown}
-            className={onUp ? style.arrow : style.disabled}
-            onClick={onUp}
-          />
-        </div> */}
+      />
+      </div> 
       </div>
     </div>
   );
 };
 
-SetupSection.contextTypes = {
+CustomPlaylist.contextTypes = {
   translate: Provider.childContextTypes.translate,
   skin: Provider.childContextTypes.skin
 };
 
-SetupSection.propTypes = {
+CustomPlaylist.propTypes = {
   title: PropTypes.string.isRequired,
-  onUp: PropTypes.func,
-  onDown: PropTypes.func,
-  
-  
 };
 
-export default SetupSection;
+export default CustomPlaylist;

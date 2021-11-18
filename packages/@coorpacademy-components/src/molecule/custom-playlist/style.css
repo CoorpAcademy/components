@@ -29,40 +29,14 @@
   align-items: center;
 }
 
-.label {
-  font-family: 'Open Sans';
-  font-weight: 600;
-  font-size: 14px;
-  color: brand;
-  margin-left: 30px;
+.edit { 
+  margin-left: 16px;
   margin-right: 16px;
-}
-.arrowSection {
-  display: none
-}
-.arrow {
-  left: 50%;
-  top: 50%;
-  margin: 0 0 0 24px;
-  width: 30px;
-  height: 30px;
-  cursor: pointer;
+  width: 93px;
 }
 
-.arrow:hover path:last-child {
-  fill: primaryAdd1;
-}
 
-.disabled {
-  composes: arrow;
-  pointer-events: none;
-}
 
-.contentTypeWrapper {
-  width: 310px;
-}
-@media mobile {
-  .arrowSection {
-    display: block;
-  }
-}
+
+
+
