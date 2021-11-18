@@ -210,6 +210,7 @@ import AtomButtonLinkFixtureLinkTextIconRightTargetBlank from '../src/atom/butto
 import AtomButtonLinkFixtureLinkTextNoIconDownload from '../src/atom/button-link/test/fixtures/link-text-no-icon-download';
 import AtomButtonLinkIconOnlyFixtureButtonIconBullet from '../src/atom/button-link-icon-only/test/fixtures/button-icon-bullet';
 import AtomButtonLinkIconOnlyFixtureDefault from '../src/atom/button-link-icon-only/test/fixtures/default';
+import AtomButtonLinkIconOnlyFixtureNoIcon from '../src/atom/button-link-icon-only/test/fixtures/no-icon';
 import AtomButtonLinkIconOnlyFixtureSmallButtonDisabled from '../src/atom/button-link-icon-only/test/fixtures/small-button-disabled';
 import AtomButtonLinkIconOnlyFixtureSmallLinkDownload from '../src/atom/button-link-icon-only/test/fixtures/small-link-download';
 import AtomButtonMenuFixtureDefault from '../src/atom/button-menu/test/fixtures/default';
@@ -1306,6 +1307,7 @@ export const fixtures = {
     AtomButtonLinkIconOnly: {
       ButtonIconBullet: AtomButtonLinkIconOnlyFixtureButtonIconBullet,
       Default: AtomButtonLinkIconOnlyFixtureDefault,
+      NoIcon: AtomButtonLinkIconOnlyFixtureNoIcon,
       SmallButtonDisabled: AtomButtonLinkIconOnlyFixtureSmallButtonDisabled,
       SmallLinkDownload: AtomButtonLinkIconOnlyFixtureSmallLinkDownload
     },
