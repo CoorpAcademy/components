@@ -5,21 +5,11 @@ import classnames from 'classnames';
 import style from './style.css';
 
 const Button = props => {
-  const {
-    'data-name': dataName,
-    disabled,
-    isFirst,
-    isLast,
-    label,
-    onClick,
-    type = 'secondary'
-  } = props;
+  const {'data-name': dataName, disabled, label, onClick, type = 'secondary'} = props;
   const styleButton = classnames(
     style.button,
     type === 'secondary' && style.secondary,
     type === 'dangerous' && style.dangerous,
-    isFirst && style.firstButton,
-    isLast && style.lastButton,
     disabled && style.disabled
   );
 
@@ -43,8 +33,6 @@ const Button = props => {
 Button.propTypes = {
   'data-name': PropTypes.string,
   disabled: PropTypes.bool,
-  isFirst: PropTypes.bool,
-  isLast: PropTypes.bool,
   label: PropTypes.string.isRequired,
   onClick: PropTypes.func.isRequired,
   type: PropTypes.oneOf(['secondary', 'dangerous'])
@@ -53,10 +41,7 @@ Button.propTypes = {
 const ButtonMenu = props => {
   const {buttons, 'data-name': dataName} = props;
   const buildButton = (button, index) => {
-    const isFirst = index === 0;
-    const isLast = index === buttons.length - 1;
-    const buttonProps = {...button, isFirst, isLast};
-    return <Button {...buttonProps} key={button.label + index} />;
+    return <Button {...button} key={button.label + index} />;
   };
   const buttonList = useCallback(map.convert({cap: false})(buildButton, buttons), [
     buttons,

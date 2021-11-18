@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
-import {getOr} from 'lodash/fp';
+import {getOr, keys} from 'lodash/fp';
 import classnames from 'classnames';
 import {
   NovaSolidRemoveAddAddCircle1 as AddIcon,
@@ -29,7 +29,7 @@ const ICONS = {
 };
 
 const getButtonContent = (icon, label) => {
-  const {type, position, size = 12} = icon;
+  const {type, position} = icon;
   const Icon = getOr(null, type, ICONS);
 
   if (!Icon) {
@@ -43,16 +43,16 @@ const getButtonContent = (icon, label) => {
   if (position === 'center' && Icon) {
     return (
       <div className={style.buttonContent}>
-        <Icon height={size} width={size} />
+        <Icon className={style.icon} />
       </div>
     );
   }
 
   return (
     <div className={style.buttonContent}>
-      {position === 'left' ? <Icon height={size} width={size} /> : null}
+      {position === 'left' ? <Icon className={style.icon} /> : null}
       <span className={style.label}>{label}</span>
-      {position === 'right' ? <Icon height={size} width={size} /> : null}
+      {position === 'right' ? <Icon className={style.icon} /> : null}
     </div>
   );
 };
@@ -116,18 +116,7 @@ ButtonLink.propTypes = {
   'data-name': PropTypes.string,
   icon: PropTypes.shape({
     position: PropTypes.oneOf(['right', 'left', 'center']),
-    type: PropTypes.oneOf([
-      'add',
-      'analytics',
-      'bullet-point',
-      'chevron-left',
-      'chevron-right',
-      'close',
-      'edit',
-      'save',
-      'see'
-    ]),
-    size: PropTypes.number
+    type: PropTypes.oneOf(keys(ICONS))
   }),
   onClick: PropTypes.func,
   link: PropTypes.shape({
