@@ -68,6 +68,7 @@ import MoleculeCardWithButton from './../src/molecule/card-with-button';
 import MoleculeCmPopin from './../src/molecule/cm-popin';
 import MoleculeCookieBanner from './../src/molecule/cookie-banner';
 import MoleculeCoorpManagerRoles from './../src/molecule/coorp-manager-roles';
+import MoleculeCustomPlaylist from './../src/molecule/custom-playlist';
 import MoleculeDashboardBattleRequestList from './../src/molecule/dashboard/battle-request-list';
 import MoleculeDashboardCardsList from './../src/molecule/dashboard/cards-list';
 import MoleculeDashboardNewsList from './../src/molecule/dashboard/news-list';
@@ -475,6 +476,13 @@ import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixture
 import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/test/fixtures/warning-with-close';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
 import MoleculeCoorpManagerRolesFixtureDefault from '../src/molecule/coorp-manager-roles/test/fixtures/default';
+import MoleculeCustomPlaylistFixtureAnalyticsBoutique from '../src/molecule/custom-playlist/test/fixtures/analytics-boutique';
+import MoleculeCustomPlaylistFixtureAnalyticsBranch from '../src/molecule/custom-playlist/test/fixtures/analytics-branch';
+import MoleculeCustomPlaylistFixtureAnalyticsRegion from '../src/molecule/custom-playlist/test/fixtures/analytics-region';
+import MoleculeCustomPlaylistFixtureDefault from '../src/molecule/custom-playlist/test/fixtures/default';
+import MoleculeCustomPlaylistFixtureFirst from '../src/molecule/custom-playlist/test/fixtures/first';
+import MoleculeCustomPlaylistFixtureNoContentTypes from '../src/molecule/custom-playlist/test/fixtures/no-content-types';
+import MoleculeCustomPlaylistFixtureOther from '../src/molecule/custom-playlist/test/fixtures/other';
 import MoleculeDashboardBattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
 import MoleculeDashboardBattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
 import MoleculeDashboardCardsListFixtureDefault from '../src/molecule/dashboard/cards-list/test/fixtures/default';
@@ -1109,6 +1117,7 @@ export const components = {
     MoleculeCmPopin,
     MoleculeCookieBanner,
     MoleculeCoorpManagerRoles,
+    MoleculeCustomPlaylist,
     MoleculeDisciplineCta,
     MoleculeDisciplineHeader,
     MoleculeDisciplinePartners,
@@ -1688,6 +1697,15 @@ export const fixtures = {
     },
     MoleculeCoorpManagerRoles: {
       Default: MoleculeCoorpManagerRolesFixtureDefault
+    },
+    MoleculeCustomPlaylist: {
+      AnalyticsBoutique: MoleculeCustomPlaylistFixtureAnalyticsBoutique,
+      AnalyticsBranch: MoleculeCustomPlaylistFixtureAnalyticsBranch,
+      AnalyticsRegion: MoleculeCustomPlaylistFixtureAnalyticsRegion,
+      Default: MoleculeCustomPlaylistFixtureDefault,
+      First: MoleculeCustomPlaylistFixtureFirst,
+      NoContentTypes: MoleculeCustomPlaylistFixtureNoContentTypes,
+      Other: MoleculeCustomPlaylistFixtureOther
     },
     MoleculeDisciplineCta: {
       Default: MoleculeDisciplineCtaFixtureDefault,
