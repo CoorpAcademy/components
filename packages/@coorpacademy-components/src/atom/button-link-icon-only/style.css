@@ -1,0 +1,93 @@
+@value colors: "../../variables/colors.css";
+@value cm_primary_blue from colors;
+@value cm_blue_600 from colors;
+@value cm_grey_50 from colors;
+@value cm_grey_100 from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_900 from colors;
+@value cm_negative_100 from colors;
+@value cm_negative_200 from colors;
+@value white from colors;
+
+.button {
+  width: 100%;
+  height: 44px;
+  border-radius: 7px;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+}
+
+.disabled {
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.buttonContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.icon {
+  width: 12px;
+  height: 12px;
+}
+
+.label {
+  margin: 0 8px 0 8px;
+  display: block;
+}
+
+.primary {
+  background-color: cm_primary_blue;
+  color: white;
+}
+
+.primary:hover {
+  background-color: cm_blue_600;
+}
+
+.secondary {
+  background-color: cm_grey_100;
+  color: cm_grey_900;
+}
+
+.secondary:hover {
+  background-color: cm_grey_200;
+}
+
+.tertiary {
+  background-color: cm_grey_50;
+  color: cm_grey_900;
+  border-radius: 0px;
+}
+
+.tertiary:hover {
+  background-color: cm_grey_100;
+}
+
+.dangerous {
+  background-color: cm_negative_100;
+}
+
+.dangerous:hover {
+  background-color: cm_negative_200;
+}
+
+.text {
+  background: transparent;
+  color: inherit;
+  border-radius: 0px;
+  height: auto;
+}
