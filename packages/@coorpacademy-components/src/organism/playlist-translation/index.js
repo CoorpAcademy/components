@@ -14,9 +14,13 @@ const PlayListTranslation = props => {
   return (
     <div className={style.container}>
       <VerticalLanguageMenu {...ariaLabel} className={style.menu} tabs={languageTabs} />
-      <div className={style.inputs}>
-        <InputText {...inputText} />
-        <TextArea {...textArea} />
+      <div className={style.horizontalSection}>
+        <div className={style.input}>
+          <InputText {...inputText} />
+        </div>
+        <div className={style.input}>
+          <TextArea {...textArea} />
+        </div>
         <div className={classNames(style.button, cta.type === 'delete' && style.binButton)}>
           <Button
             onClick={cta.handleOnclick}

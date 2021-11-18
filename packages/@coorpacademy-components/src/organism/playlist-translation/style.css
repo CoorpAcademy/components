@@ -18,17 +18,22 @@
   margin: 24px 8px 24px 24px;
 }
 
-.inputs {
+.horizontalSection{
   display: flex;
   flex-direction: column;
   padding: 24px 24px 24px 8px;
   width: 100%;
   align-items: end;
-  gap: 16px;
+}
+
+.input {
+  width: 100%;
+  margin-bottom: 24px;
 }
 
 .button {
   width: 170px;
+  margin-top: 16px;
 }
 
 .binButton {
