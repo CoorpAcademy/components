@@ -5,7 +5,6 @@ import Picture from '../../atom/picture';
 import Link from '../../atom/link';
 import ButtonLink from '../../atom/button-link';
 import style from './style.css';
-import classNames from 'classnames';
 
 const SetupHeader = props => {
   const [show, updateShow] = React.useState(false);
@@ -109,7 +108,7 @@ const SetupHeader = props => {
           </div>
         ) : (
           <ul className={style.list}>
-            <div className={classNames([style.button, style.platformList])}>
+            <div className={classnames([style.button, style.platformList])}>
               <ButtonLink {...platformListButtonProps} />
             </div>
             <div className={style.platformListIcon}>
