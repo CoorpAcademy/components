@@ -11,7 +11,7 @@ browserEnv();
 configure({adapter: new Adapter()});
 const translate = identity;
 
-test('should launch onClick on click event', t => {
+test('should launch onClick on click event for ButtonLinkIconOnly', t => {
   const wrapper = shallow(<ButtonLinkIconOnly {...defaultFixture.props} />, {
     context: {translate}
   });

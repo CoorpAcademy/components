@@ -32,7 +32,6 @@ const ButtonLinkIconOnly = props => {
   } = props;
   const contentView = getButtonContent(icon);
   const styleButton = classnames(
-    style.button,
     size === 'default' ? style.default : style.small,
     link && style.link,
     disabled && style.disabled
