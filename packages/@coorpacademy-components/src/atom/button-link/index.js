@@ -1,17 +1,18 @@
-import React, {useMemo} from 'react';
+import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
-import {getOr} from 'lodash/fp';
+import {getOr, keys} from 'lodash/fp';
 import classnames from 'classnames';
 import {
+  NovaSolidRemoveAddAddCircle1 as AddIcon,
+  NovaCompositionCoorpacademyAnalytics as AnalyticsIcon,
+  NovaSolidContentEditionBin as BinIcon,
+  NovaCompositionCoorpacademyBulletPoint as BulletPointIcon,
   NovaCompositionNavigationArrowLeft as ChevronLeftIcon,
   NovaCompositionNavigationArrowRight as ChevronRightIcon,
-  NovaCompositionCoorpacademyEye as EyeIcon,
-  NovaCompositionCoorpacademyAnalytics as AnalyticsIcon,
   NovaCompositionCoorpacademyNext as CloseIcon,
-  NovaSolidComputersSdCard as SaveIcon,
   NovaSolidContentEditionPencilWrite as EditIcon,
-  NovaSolidRemoveAddAddCircle1 as AddIcon,
-  NovaSolidContentEditionBin as BinIcon
+  NovaCompositionCoorpacademyEye as EyeIcon,
+  NovaSolidComputersSdCard as SaveIcon
 } from '@coorpacademy/nova-icons';
 import Link from '../link';
 import style from './style.css';
@@ -20,6 +21,7 @@ const ICONS = {
   add: AddIcon,
   analytics: AnalyticsIcon,
   bin: BinIcon,
+  'bullet-point': BulletPointIcon,
   'chevron-left': ChevronLeftIcon,
   'chevron-right': ChevronRightIcon,
   close: CloseIcon,
@@ -94,12 +96,13 @@ const ButtonLink = props => {
     );
   }
 
-  const handleOnClick = useMemo(() => () => onClick(), [onClick]);
+  const handleOnClick = useCallback(() => onClick(), [onClick]);
   return (
     <button
       type="button"
       aria-label={ariaLabel || label}
       title={ariaLabel || label}
+      data-name={dataName}
       className={styleButton}
       onClick={handleOnClick}
     >
@@ -115,7 +118,7 @@ ButtonLink.propTypes = {
   'data-name': PropTypes.string,
   icon: PropTypes.shape({
     position: PropTypes.oneOf(['right', 'left', 'center']),
-    type: PropTypes.string
+    type: PropTypes.oneOf(keys(ICONS))
   }),
   onClick: PropTypes.func,
   link: PropTypes.shape({

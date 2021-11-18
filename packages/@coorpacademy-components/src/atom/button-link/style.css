@@ -21,6 +21,9 @@
   align-items: center;
   cursor: pointer;
   border: none;
+  /* prevents text selection when dragging
+  the mouse over the button */
+  user-select: none;
 }
 
 .disabled {

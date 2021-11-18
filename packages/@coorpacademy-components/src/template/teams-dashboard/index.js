@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from 'react';
+import React, {useState, useCallback, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {map} from 'lodash/fp';
 import MoocHeader from '../../organism/mooc-header';
@@ -15,7 +15,10 @@ const TeamsDashboard = ({logo, platformLinks, sections, isLoading}) => {
   const buildSection = (section, index) => {
     return <CardsList {...section} key={section.title + index} />;
   };
-  const sectionsList = map(buildSection, sections);
+  const sectionsList = useMemo(() => map.convert({cap: false})(buildSection, sections), [
+    buildSection,
+    sections
+  ]);
   return isLoading ? (
     <div className={style.loader}>
       <Loader data-name="teams-dashboard-loader" />
