@@ -1,5 +1,6 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {NovaSolidStatusValidate as CheckIcon} from '@coorpacademy/nova-icons';
 import {noop, uniqueId} from 'lodash/fp';
 import getClassState from '../../util/get-class-state';
@@ -21,6 +22,7 @@ const InputCheckbox = props => {
     titleStyle = 'primary',
     modified = false,
     theme = 'default',
+    extraClassName = null,
     title: propsTitle
   } = props;
 
@@ -35,7 +37,7 @@ const InputCheckbox = props => {
   const defaultContainerClassName = theme === 'coorpmanager' ? style.coorpManager : style.default;
 
   const className = getClassState(
-    defaultContainerClassName,
+    classnames(defaultContainerClassName, extraClassName),
     modifiedClassName,
     errorClassName,
     modified,
@@ -69,6 +71,7 @@ InputCheckbox.propTypes = {
   error: PropTypes.bool,
   onChange: PropTypes.func,
   modified: PropTypes.bool,
+  extraClassName: PropTypes.string,
   theme: PropTypes.oneOf(['coorpmanager', 'default']),
   titleStyle: PropTypes.oneOf(['primary', 'secondary', 'tertiary'])
 };

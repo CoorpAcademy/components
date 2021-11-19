@@ -1,17 +1,24 @@
 import React, {useState, useEffect, useRef, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {map, pipe, join, filter, get, set} from 'lodash/fp';
-import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
+import {map, pipe, join, filter, get, set, isEmpty} from 'lodash/fp';
+import {
+  NovaCompositionNavigationArrowDown as ArrowDown,
+  NovaSolidStatusClose as ErrorIcon,
+  NovaCompositionCoorpacademyInformationIcon as InfoIcon,
+  NovaSolidStatusCheckCircle2 as CheckIcon
+} from '@coorpacademy/nova-icons';
 import TitledCheckbox from '../titled-checkbox';
 import Provider from '../../atom/provider';
+import Checkbox from '../../atom/input-checkbox';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
 const themeStyle = {
   setup: style.setup,
   cockpit: style.cockpit,
-  sidebar: style.sidebar
+  sidebar: style.sidebar,
+  coorpmanager: style.coorpmanager
 };
 
 export const useChoices = options => {
@@ -28,6 +35,30 @@ export const useChoices = options => {
   };
 
   return [getChoices, setChoices];
+};
+
+const CMMultipleView = ({multiple, choice, onChange}) => {
+  const handleChange = useCallback(
+    checked => {
+      if (!multiple) {
+        return onChange(choice);
+      }
+      return onChange({...choice, selected: checked});
+    },
+    [onChange, choice]
+  );
+
+  return multiple ? (
+    <Checkbox
+      extraClassName={style.checkbox}
+      type="checkbox"
+      checked={choice.selected}
+      onChange={handleChange}
+      title={choice.name}
+    />
+  ) : (
+    <span onClick={handleChange}>{choice.name}</span>
+  );
 };
 
 const SelectMultiple = (
@@ -90,10 +121,20 @@ const SelectMultiple = (
     };
   }, [closeHandle]);
 
+  const isCMTheme = theme === 'coorpmanager';
+
   const lines = map.convert({cap: false})((choice, i) => {
     return (
       <li key={i} className={style.choice}>
-        <TitledCheckbox onToggle={handleChange} choice={{...choice, i}} background={defaultColor} />
+        {isCMTheme ? (
+          <CMMultipleView multiple={multiple} choice={{...choice, i}} onChange={handleChange} />
+        ) : (
+          <TitledCheckbox
+            onToggle={handleChange}
+            choice={{...choice, i}}
+            background={defaultColor}
+          />
+        )}
       </li>
     );
   }, options);
@@ -102,9 +143,27 @@ const SelectMultiple = (
 
   const _title = title && `${title}${required ? ' *' : ''}`;
 
-  const titleView = title ? <span className={style.title}>{_title} </span> : null;
   const isActive = isOpened === true;
+  const titleView = title ? (
+    <span
+      className={classnames(
+        style.title,
+        isCMTheme && selection && style.titleWithSelection,
+        isCMTheme && isEmpty(selection) && style.noValue,
+        isActive && style.active
+      )}
+    >
+      {_title}
+      {isCMTheme ? (
+        <div className={style.infoIconWrapper}>
+          <InfoIcon className={style.infoIcon} />
+          <div className={style.descriptionLabel}>{description}</div>
+        </div>
+      ) : null}
+    </span>
+  ) : null;
   const mainClass = theme ? themeStyle[theme] : style.default;
+  const showPlaceholder = isCMTheme && isActive;
   const behaviourClassName = getClassState(
     style.default,
     style.modified,
@@ -113,19 +172,34 @@ const SelectMultiple = (
     error
   );
 
+  const errorIconView = error ? <ErrorIcon className={style.errorIcon} /> : null;
+
   return (
     <div className={classnames(mainClass, behaviourClassName)} ref={nodeRef}>
       <label>
-        {titleView}
+        {!isCMTheme && titleView}
         <div className={style.select} title={selection || placeholder} onClick={handleOnClick}>
-          {selection || placeholder}
-          <ArrowDown color={black} className={classnames(style.arrow, {[style.down]: isActive})} />
+          {isCMTheme && titleView}
+          <span
+            className={classnames(
+              style.selection,
+              isCMTheme && isEmpty(selection) && style.noselection
+            )}
+          >
+            {selection || !isCMTheme || (showPlaceholder && placeholder) || null}
+          </span>
+          {isCMTheme ? (
+            <div className={style.iconsWrapper}>
+              {errorIconView}
+              <ArrowDown color={black} className={classnames(style.arrow, {[style.down]: isActive})} />
+            </div>
+          ) : <ArrowDown color={black} className={classnames(style.arrow, {[style.down]: isActive})} />}
         </div>
         <div className={isActive ? style.activeChoices : style.choices}>
           <ul className={style.list}>{lines}</ul>
         </div>
       </label>
-      <div className={style.description}>{description}</div>
+      {!isCMTheme ? <div className={style.description}>{description}</div> : null}
     </div>
   );
 };
@@ -141,10 +215,10 @@ SelectMultiple.propTypes = {
   options: PropTypes.arrayOf(TitledCheckbox.propTypes.choice),
   onChange: PropTypes.func,
   multiple: PropTypes.bool,
-  theme: PropTypes.string,
   modified: PropTypes.bool,
   required: PropTypes.bool,
-  error: PropTypes.bool
+  error: PropTypes.bool,
+  theme: PropTypes.oneOf(['default', 'coorpmanager', 'cockpit', 'sidebar', 'setup'])
 };
 
 export default SelectMultiple;

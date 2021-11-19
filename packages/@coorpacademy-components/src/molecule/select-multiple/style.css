@@ -6,6 +6,9 @@
 @value lightGrey from colors;
 @value negative from colors;
 @value xtraLightGrey from colors;
+@value cm_grey_400 from colors;
+@value cm_grey_700 from colors;
+@value cm_negative_100 from colors;
 @value medium from colors;
 @value defaultText from "../../variables/fonts.css";
 
@@ -110,6 +113,7 @@
   margin: 0;
   padding: 0;
 }
+
 .description {
   font-family: 'Open Sans';
   font-weight: 500;
@@ -118,12 +122,14 @@
   font-style: italic;
   margin: auto 0;
 }
+
 /*
   setup sidebar
 */
 .sidebar {
   width: 150px;
 }
+
 /*
   setup theme
 */
@@ -201,4 +207,198 @@
 .cockpit .activeChoices {
   width: 170px;
   border-top: none;
+}
+
+/* COORPMANAGER THEME */
+
+.coorpmanager .select {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  border-radius: 8px;
+  width: 100%;
+  font-size: 14px;
+  color: black;
+  height: 44px;
+  padding: 11px 85px 11px 16px;
+}
+
+.coorpmanager .select .title {
+  display: flex;
+  flex-direction: row;
+  /* justify-content: center; */
+  flex-grow: 0;
+  font-family: Gilroy;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+  font-size: 14px;
+  z-index: 1;
+  /* color: cm_grey_400; */
+  color: cm_grey_700;
+  transition: all 0.25s ease;
+  pointer-events: none;
+  flex-wrap: nowrap;
+  position: absolute;
+  top: 7px;
+  left: 16px;
+}
+
+.coorpmanager .select .selection {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1px;
+  padding-top: 15px;
+  transition: all 0.25s ease;
+}
+
+.coorpmanager .select .selection.noselection {
+  color: cm_grey_400;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1px;
+  padding-top: 15px;
+}
+
+.coorpmanager .select .title.noValue.active,
+.coorpmanager .select .title.titleWithSelection {
+  font-size: 10px;
+  width: max-content;
+  height: 8px;
+  line-height: 12px;
+  color: cm_grey_400;
+}
+
+.coorpmanager .select .title.noValue.active,
+.coorpmanager .select .title.titleWithSelection {
+  width: max-content;
+  height: 8px;
+  line-height: 12px;
+  color: cm_grey_400;
+}
+
+/* .coorpmanager .arrow {
+  margin-right: 10px;
+} */
+
+.coorpmanager .arrow:hover {
+  background-color: cm_grey_200;
+}
+
+.coorpmanager .activeChoices {
+  margin-top: 2px;
+  background-color: light;
+  border-radius: 8px;
+}
+
+.checkbox {
+  justify-content: space-between;
+}
+
+.checkbox span {
+  color: black !important;
+}
+
+.coorpmanager .infoIconWrapper {
+  overflow: visible;
+  height: 12px;
+  margin: 0 4px;
+  cursor: pointer;
+  pointer-events: fill;
+  position: relative;
+}
+
+.coorpmanager .infoIcon {
+  cursor: pointer;
+  width: 8px;
+  margin: 4px 4px 0 4px;
+  height: 8px;
+  line-height: 16px;
+  color: cm_grey_400;
+  transition: all 0.25s linear;
+}
+
+.coorpmanager .select .title.noValue .infoIcon {
+  color: cm_grey_700;
+}
+
+.coorpmanager .select .title.noValue.active .infoIcon,
+.coorpmanager .select .title.titleWithSelection .infoIcon {
+  color: cm_grey_400;
+  margin: 0 4px 0 4px;
+}
+
+.coorpmanager .infoIconWrapper:hover .descriptionLabel {
+  visibility: visible;
+  opacity: 1;
+}
+
+.coorpmanager .descriptionLabel {
+  margin: 0 1px 18px 0;
+  padding: 8px 16px;
+  border-radius: 7px;
+  background-color: cm_grey_700;
+  flex-grow: 0;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  max-width: 200px;
+  position: absolute;
+  left: -19px;
+  z-index: 3;
+  bottom: 5px;
+  width: max-content;
+  visibility: hidden;
+  opacity: 0s;
+}
+
+.coorpmanager .descriptionLabel::after {
+  content: '';
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid cm_grey_700;
+  position: absolute;
+  bottom: -6px;
+  left: 21px;
+}
+
+.coorpmanager .title.noValue .descriptionLabel::after {
+  left: 21px;
+}
+
+.coorpmanager:focus-within .title.noValue .descriptionLabel::after {
+  left: 21px;
+}
+
+/* .coorpmanager .errorIcon {
+  background-color: cm_negative_100;
+  color: white;
+  border-radius: 50%;
+  padding: 2px;
+  width: 11px;
+  height: 11px;
+  right: 17px;
+  top: 13px;
+} */
+
+.coorpmanager .errorIcon {
+  background-color: cm_negative_100;
+  color: white;
+  border-radius: 50%;
+  padding: 2px;
+  /* color: cm_positive_100; */
+  width: 14px;
+  height: 14px;
+  /* position: absolute; */
+  right: 15px;
+  /* top: 12px; */
 }
