@@ -488,7 +488,10 @@ import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixture
 import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/test/fixtures/warning-with-close';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
 import MoleculeCoorpManagerRolesFixtureDefault from '../src/molecule/coorp-manager-roles/test/fixtures/default';
+import MoleculeCustomPlaylistFixtureArchived from '../src/molecule/custom-playlist/test/fixtures/archived';
 import MoleculeCustomPlaylistFixtureDefault from '../src/molecule/custom-playlist/test/fixtures/default';
+import MoleculeCustomPlaylistFixtureDraft from '../src/molecule/custom-playlist/test/fixtures/draft';
+import MoleculeCustomPlaylistFixturePublished from '../src/molecule/custom-playlist/test/fixtures/published';
 import MoleculeDashboardBattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
 import MoleculeDashboardBattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
 import MoleculeDashboardCardsListFixtureDefault from '../src/molecule/dashboard/cards-list/test/fixtures/default';
@@ -1725,7 +1728,10 @@ export const fixtures = {
       Default: MoleculeCoorpManagerRolesFixtureDefault
     },
     MoleculeCustomPlaylist: {
-      Default: MoleculeCustomPlaylistFixtureDefault
+      Archived: MoleculeCustomPlaylistFixtureArchived,
+      Default: MoleculeCustomPlaylistFixtureDefault,
+      Draft: MoleculeCustomPlaylistFixtureDraft,
+      Published: MoleculeCustomPlaylistFixturePublished
     },
     MoleculeDisciplineCta: {
       Default: MoleculeDisciplineCtaFixtureDefault,
