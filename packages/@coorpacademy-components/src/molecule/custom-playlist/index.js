@@ -6,7 +6,7 @@ import BulletPointMenuButton from '../bullet-point-menu-button';
 import style from './style.css';
 
 const CustomPlaylist = props => {
-  const {title, label, type, editButtonOnClick, bulleetPointButtonOnClick} = props;
+  const {title, label, type, editButtonOnClick, bulletPointButtonOnClick} = props;
   return (
     <div className={style.wrapper} style={{marginTop: '150px'}}>
       <div className={style.title}>{title}</div>
@@ -42,7 +42,7 @@ const CustomPlaylist = props => {
               type: 'dangerous'
             }
           ]}
-          onClick={bulleetPointButtonOnClick}
+          onClick={bulletPointButtonOnClick}
         />
       </div>
     </div>
@@ -50,9 +50,9 @@ const CustomPlaylist = props => {
 };
 
 CustomPlaylist.propTypes = {
-  bulleetPointButtonOnClick: PropTypes.func,
-  editButtonOnClick: PropTypes.func,
-  label: PropTypes.string,
+  bulletPointButtonOnClick: PropTypes.func.isRequired,
+  editButtonOnClick: PropTypes.func.isRequired,
+  label: PropTypes.oneOf(['Published', 'Draft', 'Archived']),
   title: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['default', 'published', 'revision', 'archived'])
 };
