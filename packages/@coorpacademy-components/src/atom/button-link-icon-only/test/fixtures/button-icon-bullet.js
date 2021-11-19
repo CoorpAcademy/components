@@ -1,12 +1,9 @@
 export default {
   props: {
-    type: 'tertiary',
+    size: 'default',
     'aria-label': 'aria button',
     'data-name': 'bullet-button',
-    icon: {
-      position: 'center',
-      type: 'bullet-point'
-    },
+    icon: 'bullet-point',
     onClick: () => console.log('click')
   }
 };

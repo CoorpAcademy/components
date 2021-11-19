@@ -1,0 +1,64 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_100 from colors;
+@value cm_grey_200 from colors;
+
+.button {
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  background-color: cm_grey_100;
+}
+
+.button:hover {
+  background-color: cm_grey_200;
+}
+
+.disabled {
+  opacity: 0.3;
+  cursor: default;
+  pointer-events: none;
+}
+
+.disabled:hover {
+  background-color: cm_grey_100;
+}
+
+.buttonContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.link {
+  color: inherit;
+  text-decoration: none;
+}
+
+.default {
+  composes: button;
+  width: 44px;
+  height: 44px;
+  border-radius: 7px;
+}
+
+.small {
+  composes: button;
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+}
+
+.default .icon {
+  width: 14px;
+  height: 14px;
+}
+
+.small .icon {
+  width: 12px;
+  height: 12px;
+}

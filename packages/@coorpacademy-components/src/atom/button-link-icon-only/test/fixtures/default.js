@@ -1,12 +1,9 @@
 export default {
   props: {
-    type: 'secondary',
+    size: 'default',
     'data-name': 'default-button',
     'aria-label': 'aria button',
-    icon: {
-      position: 'center',
-      type: 'close'
-    },
+    icon: 'close',
     onClick: () => console.log('click')
   }
 };

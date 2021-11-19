@@ -2,33 +2,9 @@ import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 import {getOr, keys} from 'lodash/fp';
 import classnames from 'classnames';
-import {
-  NovaSolidRemoveAddAddCircle1 as AddIcon,
-  NovaCompositionCoorpacademyAnalytics as AnalyticsIcon,
-  NovaSolidContentEditionBin as BinIcon,
-  NovaCompositionCoorpacademyBulletPoint as BulletPointIcon,
-  NovaCompositionNavigationArrowLeft as ChevronLeftIcon,
-  NovaCompositionNavigationArrowRight as ChevronRightIcon,
-  NovaCompositionCoorpacademyNext as CloseIcon,
-  NovaSolidContentEditionPencilWrite as EditIcon,
-  NovaCompositionCoorpacademyEye as EyeIcon,
-  NovaSolidComputersSdCard as SaveIcon
-} from '@coorpacademy/nova-icons';
 import Link from '../link';
+import {ICONS} from '../../util/button-icons';
 import style from './style.css';
-
-const ICONS = {
-  add: AddIcon,
-  analytics: AnalyticsIcon,
-  bin: BinIcon,
-  'bullet-point': BulletPointIcon,
-  'chevron-left': ChevronLeftIcon,
-  'chevron-right': ChevronRightIcon,
-  close: CloseIcon,
-  edit: EditIcon,
-  save: SaveIcon,
-  see: EyeIcon
-};
 
 const getButtonContent = (icon, label) => {
   const {type, position} = icon;
@@ -38,14 +14,6 @@ const getButtonContent = (icon, label) => {
     return (
       <div className={style.buttonContent}>
         <span className={style.label}>{label}</span>
-      </div>
-    );
-  }
-
-  if (position === 'center' && Icon) {
-    return (
-      <div className={style.buttonContent}>
-        <Icon className={style.icon} />
       </div>
     );
   }
@@ -117,7 +85,7 @@ ButtonLink.propTypes = {
   'aria-label': PropTypes.string,
   'data-name': PropTypes.string,
   icon: PropTypes.shape({
-    position: PropTypes.oneOf(['right', 'left', 'center']),
+    position: PropTypes.oneOf(['right', 'left']),
     type: PropTypes.oneOf(keys(ICONS))
   }),
   onClick: PropTypes.func,
