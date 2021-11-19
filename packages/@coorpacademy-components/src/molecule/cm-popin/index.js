@@ -2,10 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {
   NovaSolidInterfaceFeedbackInterfaceAlertDiamond as AlertDiamond,
-  NovaSolidApplicationsWindowUpload3 as WindowUpload,
-  NovaSolidStatusClose as Close
+  NovaSolidApplicationsWindowUpload3 as WindowUpload
 } from '@coorpacademy/nova-icons';
 import Cta from '../../atom/button-link';
+import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import style from './style.css';
 
 const CMPopin = props => {
@@ -22,13 +22,13 @@ const CMPopin = props => {
       <div className={style.popin}>
         <header className={style.popinHeader}>
           {onClose ? (
-            <div
-              className={style.headerCloseIconContainer}
+            <ButtonLinkIconOnly
               onClick={onClose}
               data-name={'close-icon'}
-            >
-              <Close className={style.headerCloseIcon} />
-            </div>
+              aria-label={'close-icon'}
+              size="small"
+              icon="close"
+            />
           ) : null}
         </header>
         <div className={style.contentSection}>

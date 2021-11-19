@@ -14,7 +14,6 @@
 @value cm_grey_200 from colors;
 @value cm_blue_600 from colors;
 
-
 .background {
   top: 0px;
   width: 100%;
@@ -81,30 +80,6 @@
 .icon {
   width: 60px;
   height: 60px;
-  color: cm_grey_800;
-}
-
-.headerCloseIconContainer {
-  width: 44px;
-  height: 44px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin-top: 16px;
-  margin-right: 16px;
-  border-radius: 7px;
-  cursor: pointer;
-  background-color: cm_grey_100;
-}
-
-.headerCloseIconContainer:hover {
-  background-color: cm_grey_200;
-}
-
-.headerCloseIcon {
-  width: 18px;
-  height: 18px;
   color: cm_grey_800;
 }
 

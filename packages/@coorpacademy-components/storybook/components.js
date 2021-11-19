@@ -4,6 +4,7 @@ import AtomAutocomplete from './../src/atom/autocomplete';
 import AtomAvatar from './../src/atom/avatar';
 import AtomButton from './../src/atom/button';
 import AtomButtonLink from './../src/atom/button-link';
+import AtomButtonLinkIconOnly from './../src/atom/button-link-icon-only';
 import AtomButtonMenu from './../src/atom/button-menu';
 import AtomCatalogSection from './../src/atom/catalog-section';
 import AtomCenteredText from './../src/atom/centered-text';
@@ -202,14 +203,17 @@ import AtomButtonLinkFixtureButtonDangerousNoIcon from '../src/atom/button-link/
 import AtomButtonLinkFixtureButtonPrimaryIconLeft from '../src/atom/button-link/test/fixtures/button-primary-icon-left';
 import AtomButtonLinkFixtureButtonPrimaryNoIcon from '../src/atom/button-link/test/fixtures/button-primary-no-icon';
 import AtomButtonLinkFixtureButtonSecondaryNoIconDisabled from '../src/atom/button-link/test/fixtures/button-secondary-no-icon-disabled';
-import AtomButtonLinkFixtureButtonTertiaryIconBullet from '../src/atom/button-link/test/fixtures/button-tertiary-icon-bullet';
 import AtomButtonLinkFixtureButtonTertiaryIconLeft from '../src/atom/button-link/test/fixtures/button-tertiary-icon-left';
-import AtomButtonLinkFixtureIconButton from '../src/atom/button-link/test/fixtures/icon-button';
 import AtomButtonLinkFixtureLinkPrimaryDisabledIconRight from '../src/atom/button-link/test/fixtures/link-primary-disabled-icon-right';
 import AtomButtonLinkFixtureLinkSecondaryIconRight from '../src/atom/button-link/test/fixtures/link-secondary-icon-right';
 import AtomButtonLinkFixtureLinkTertiaryNoIcon from '../src/atom/button-link/test/fixtures/link-tertiary-no-icon';
 import AtomButtonLinkFixtureLinkTextIconRightTargetBlank from '../src/atom/button-link/test/fixtures/link-text-icon-right-target-blank';
 import AtomButtonLinkFixtureLinkTextNoIconDownload from '../src/atom/button-link/test/fixtures/link-text-no-icon-download';
+import AtomButtonLinkIconOnlyFixtureButtonIconBullet from '../src/atom/button-link-icon-only/test/fixtures/button-icon-bullet';
+import AtomButtonLinkIconOnlyFixtureDefault from '../src/atom/button-link-icon-only/test/fixtures/default';
+import AtomButtonLinkIconOnlyFixtureNoIcon from '../src/atom/button-link-icon-only/test/fixtures/no-icon';
+import AtomButtonLinkIconOnlyFixtureSmallButtonDisabled from '../src/atom/button-link-icon-only/test/fixtures/small-button-disabled';
+import AtomButtonLinkIconOnlyFixtureSmallLinkDownload from '../src/atom/button-link-icon-only/test/fixtures/small-link-download';
 import AtomButtonMenuFixtureDefault from '../src/atom/button-menu/test/fixtures/default';
 import AtomButtonMenuFixtureMultipleButtons from '../src/atom/button-menu/test/fixtures/multiple-buttons';
 import AtomCatalogSectionFixtureList from '../src/atom/catalog-section/test/fixtures/list';
@@ -1053,6 +1057,7 @@ export const components = {
     AtomAvatar,
     AtomButton,
     AtomButtonLink,
+    AtomButtonLinkIconOnly,
     AtomButtonMenu,
     AtomCatalogSection,
     AtomCenteredText,
@@ -1295,14 +1300,19 @@ export const fixtures = {
       ButtonPrimaryIconLeft: AtomButtonLinkFixtureButtonPrimaryIconLeft,
       ButtonPrimaryNoIcon: AtomButtonLinkFixtureButtonPrimaryNoIcon,
       ButtonSecondaryNoIconDisabled: AtomButtonLinkFixtureButtonSecondaryNoIconDisabled,
-      ButtonTertiaryIconBullet: AtomButtonLinkFixtureButtonTertiaryIconBullet,
       ButtonTertiaryIconLeft: AtomButtonLinkFixtureButtonTertiaryIconLeft,
-      IconButton: AtomButtonLinkFixtureIconButton,
       LinkPrimaryDisabledIconRight: AtomButtonLinkFixtureLinkPrimaryDisabledIconRight,
       LinkSecondaryIconRight: AtomButtonLinkFixtureLinkSecondaryIconRight,
       LinkTertiaryNoIcon: AtomButtonLinkFixtureLinkTertiaryNoIcon,
       LinkTextIconRightTargetBlank: AtomButtonLinkFixtureLinkTextIconRightTargetBlank,
       LinkTextNoIconDownload: AtomButtonLinkFixtureLinkTextNoIconDownload
+    },
+    AtomButtonLinkIconOnly: {
+      ButtonIconBullet: AtomButtonLinkIconOnlyFixtureButtonIconBullet,
+      Default: AtomButtonLinkIconOnlyFixtureDefault,
+      NoIcon: AtomButtonLinkIconOnlyFixtureNoIcon,
+      SmallButtonDisabled: AtomButtonLinkIconOnlyFixtureSmallButtonDisabled,
+      SmallLinkDownload: AtomButtonLinkIconOnlyFixtureSmallLinkDownload
     },
     AtomButtonMenu: {
       Default: AtomButtonMenuFixtureDefault,
