@@ -6,7 +6,7 @@ import BulletPointMenuButton from '../bullet-point-menu-button';
 import style from './style.css';
 
 const CustomPlaylist = props => {
-  const {title, label, type, editButtonOnClick, bulletPointButtonOnClick} = props;
+  const {title, label, type, editButtonOnClick, bulletPointButtonOnClick,buttons } = props;
   return (
     <div className={style.wrapper} style={{marginTop: '150px'}}>
       <div className={style.title}>{title}</div>
@@ -30,18 +30,7 @@ const CustomPlaylist = props => {
         <BulletPointMenuButton
           buttonAriaLabel="aria button"
           menuAriaLabel="aria menu"
-          buttons={[
-            {
-              'data-name': 'CP-archive-button',
-              label: 'Archive',
-              type: 'default'
-            },
-            {
-              'data-name': 'CP-delete-button',
-              label: 'Delete',
-              type: 'dangerous'
-            }
-          ]}
+          buttons={buttons}
           onClick={bulletPointButtonOnClick}
         />
       </div>
@@ -51,6 +40,7 @@ const CustomPlaylist = props => {
 
 CustomPlaylist.propTypes = {
   bulletPointButtonOnClick: PropTypes.func.isRequired,
+  buttons: BulletPointMenuButton.propTypes.buttons,
   editButtonOnClick: PropTypes.func.isRequired,
   label: PropTypes.oneOf(['Published', 'Draft', 'Archived']),
   title: PropTypes.string.isRequired,

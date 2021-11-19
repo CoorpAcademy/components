@@ -489,7 +489,6 @@ import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/tes
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
 import MoleculeCoorpManagerRolesFixtureDefault from '../src/molecule/coorp-manager-roles/test/fixtures/default';
 import MoleculeCustomPlaylistFixtureArchived from '../src/molecule/custom-playlist/test/fixtures/archived';
-import MoleculeCustomPlaylistFixtureDefault from '../src/molecule/custom-playlist/test/fixtures/default';
 import MoleculeCustomPlaylistFixtureDraft from '../src/molecule/custom-playlist/test/fixtures/draft';
 import MoleculeCustomPlaylistFixturePublished from '../src/molecule/custom-playlist/test/fixtures/published';
 import MoleculeDashboardBattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
@@ -1729,7 +1728,6 @@ export const fixtures = {
     },
     MoleculeCustomPlaylist: {
       Archived: MoleculeCustomPlaylistFixtureArchived,
-      Default: MoleculeCustomPlaylistFixtureDefault,
       Draft: MoleculeCustomPlaylistFixtureDraft,
       Published: MoleculeCustomPlaylistFixturePublished
     },
