@@ -6,7 +6,7 @@ import BulletPointMenuButton from '../bullet-point-menu-button';
 import style from './style.css';
 
 const CustomPlaylist = props => {
-  const {title, label, type, editButtonOnClick, bulletPointButtonOnClick,buttons } = props;
+  const {title, label, type, editButtonOnClick, bulletPointButtonOnClick, buttons} = props;
   return (
     <div className={style.wrapper} style={{marginTop: '150px'}}>
       <div className={style.title}>{title}</div>
