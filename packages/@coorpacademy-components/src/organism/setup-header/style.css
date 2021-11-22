@@ -83,6 +83,11 @@
   text-decoration: none;
 }
 
+.button {
+  min-width: 175px;
+  margin-right: 16px;
+}
+
 .element { 
   font-family: Gilroy;
   font-size: 14px;
@@ -99,48 +104,7 @@
   border-radius: 5px;
 }
 
-.icon {
-  height: 12px;
-  top: 0;
-  left: 0;
-  margin-right: 8px;
-}
-
-.seeMyPlatform {
-  composes: element;
-  color: white;
-  min-width: 175px;
-  background-color: cm_primary_blue;
-}
-
-.seeMyPlatform:hover {
-  background-color: cm_blue_600;
-}
-
-.globalAnalytics {
-  composes: element;
-  min-width: 175px;
-  background-color: cm_grey_100;
-}
-
-.globalAnalytics:hover {
-  background-color: cm_grey_200;
-}
-
-.platformList {
-  composes: element;
-  width: 145px;
-  margin-right: 16px;
-  background-color: xtraLightGrey;
-}
-
-.platformList:hover {
-  background-color: cm_grey_100;
-}
-
 .logOut {
-  composes: element;
-  background-color: transparent;
   width: 100px;
   color: negative;
 }
@@ -179,6 +143,10 @@
   border-radius: 50%;
 }
 
+.platformListIcon{
+  display: none;
+}
+
 @media cm_tablet {
   [data-name="logout-show"] {
     position: absolute;
@@ -192,11 +160,22 @@
   }
 
   [data-name="logout-show"] .logOut {
+    border-radius: 7px;
+    height: 44px;
+    display: flex;
+    margin: 0;
+    color: negative;
     background-color: cm_grey_100;
     justify-content: center;
     align-items: center;
     padding: 10px;
     text-decoration: none;
+  }
+
+  [data-name="logout-show"] .logOut:hover {
+    display: flex;
+    margin: 0;
+    color: cm_negative_200;
   }
 
   .arrowUp {
@@ -208,31 +187,16 @@
     border-bottom: 8px solid cm_grey_100;
   }
 
-  [data-name="logout-show"] .logOut {
+  .platformListIcon {
     display: flex;
-    margin: 0;
-    color: black;
-  }
-
-  [data-name="logout-show"] .logOut:hover {
-    display: flex;
-    margin: 0;
-    color: negative;
+    justify-content: center;
+    align-items: center;
+    padding: 0 16px 0px 0px;
+    width: 44px;
   }
 
   .platformList {
-    justify-content: center;
-    align-items: center;
-    padding: 0 8px;
-    width: auto;
-  }
-
-  .platformList li {
     display: none;
-  }
-
-  .platformList .icon {
-    margin-right: 0;
   }
 
   .platformName {
@@ -243,9 +207,10 @@
     display: none;
   }
 
-  .platformList .icon {
-    width: 30px;
+  .container {
+    margin: 24px 32px;
   }
+  
 }
 
 @media mobile {
