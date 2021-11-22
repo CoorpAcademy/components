@@ -37,7 +37,7 @@ const subTabsView = (_subTabs = []) =>
     </div>
   ))(_subTabs);
 
-// TODO this fonction should be replaced by a molecule to avoid this file to be unreadable
+// TODO: this fonction should be replaced by a molecule to avoid this file to be unreadable
 const buildLeftNavigation = (logo, items, onItemClick) => {
   const formattedTabs = items.map(({key, title, href, selected, type = 'simpleTab'}, index) => ({
     title,
@@ -115,20 +115,22 @@ const BrandUpdate = props => {
   return (
     <div className={style.container}>
       {leftNavigation}
-      <div className={style.contentWrapper}>
+      <div className={style.rightSide}>
         <Header {...header} />
-        <div className={style.notifications}>{notificationsList}</div>
         {content && content.type === 'home' ? (
           contentView(content)
         ) : (
-          <div className={style.contentHandler}>
-            <div className={style.contentView}>
-              {selectedTab && !isEmpty(selectedTab.subTabs) ? (
-                <BrandTabs type="light" tabs={selectedTab.subTabs} />
-              ) : null}
-              <div className={style.dashboardContent}>
-                <div>{contentView(content)}</div>
-                <div>{detailsView(details)}</div>
+          <div className={style.contentWrapper}>
+            <div className={style.notifications}>{notificationsList}</div>
+            <div className={style.contentHandler}>
+              <div className={style.contentView}>
+                {selectedTab && !isEmpty(selectedTab.subTabs) ? (
+                  <BrandTabs type="light" tabs={selectedTab.subTabs} />
+                ) : null}
+                <div className={style.dashboardContent}>
+                  <div>{contentView(content)}</div>
+                  <div>{detailsView(details)}</div>
+                </div>
               </div>
             </div>
           </div>

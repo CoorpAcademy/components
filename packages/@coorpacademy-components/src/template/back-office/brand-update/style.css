@@ -38,7 +38,7 @@
 }
 
 .notifications {
-  padding: 35px 120px 0;
+  padding: 10px 120px;
 }
 
 .notification {
@@ -61,12 +61,16 @@
   background: xtraLightGrey;
 }
 
+.rightSide {
+  width: 100%;
+}
+
 .contentView {
   flex-grow: 1;
   width: 980px;
   text-align: left;
   position: relative;
-  margin: 0 auto;
+  margin: 0;
   line-height: 1.4em;
 }
 
@@ -75,7 +79,6 @@
   text-align: left;
   position: relative;
   margin: 0 auto;
-  margin-top: 16px;
   line-height: 1.4em;
   border: 1px solid light;
 }
@@ -112,14 +115,6 @@
     margin: 0 auto;
   }
 
-  .contentHandler:first-child {
-    width: 80%;
-  }
-
-  .contentHandler:nth-child(2) {
-    width: 80%;
-  }
-
   .contentView {
     width: 92.4%;
     margin: 0 auto;
@@ -128,19 +123,28 @@
 }
 
 @media tablet {
+  .contentHandler {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+  }
+
   .container {
     scroll-behavior: unset;
+    margin: 0px;
+    padding: 10px 10px;
   }
 
   .contentView {
     margin: 0 auto;
-    margin-right: 16px;
   }
 }
 
 @media mobile {
-  .contentHandler:first-child {
-    width: 85%;
+  .contentHandler {
+    margin: 0px;
+    padding: 10px 10px;
+    width: 100%;
   }
 
   .notification {
