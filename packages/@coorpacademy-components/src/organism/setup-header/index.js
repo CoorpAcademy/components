@@ -4,6 +4,7 @@ import classnames from 'classnames';
 import Picture from '../../atom/picture';
 import Link from '../../atom/link';
 import ButtonLink from '../../atom/button-link';
+import IconLink from '../../atom/button-link-icon-only';
 import style from './style.css';
 
 const SetupHeader = props => {
@@ -43,16 +44,12 @@ const SetupHeader = props => {
   };
 
   const platformListIconButtonProps = {
-    type: 'secondary',
     'aria-label': items.platformList.label,
     'data-name': `platform-list-button`,
     link: {
       href: items.platformList.href
     },
-    icon: {
-      position: 'center',
-      type: 'list'
-    }
+    icon: 'list'
   };
 
   const goAnalyticsButtonProps =
@@ -118,7 +115,7 @@ const SetupHeader = props => {
               <ButtonLink {...platformListButtonProps} />
             </div>
             <div className={style.platformListIcon}>
-              <ButtonLink {...platformListIconButtonProps} />
+              <IconLink {...platformListIconButtonProps} />
             </div>
             {!isDashboard ? (
               <li className={classnames(style.element, style.platformName)}>{platformName}</li>

@@ -8,7 +8,8 @@ import {
   NovaSolidStatusClose as CloseIcon,
   NovaSolidContentEditionPencilWrite as EditIcon,
   NovaCompositionCoorpacademyEye as EyeIcon,
-  NovaSolidComputersSdCard as SaveIcon
+  NovaSolidComputersSdCard as SaveIcon,
+  NovaSolidContentContentViewModule1 as ListIcon
 } from '@coorpacademy/nova-icons';
 
 export const ICONS = {
@@ -20,6 +21,7 @@ export const ICONS = {
   'chevron-right': ChevronRightIcon,
   close: CloseIcon,
   edit: EditIcon,
+  list: ListIcon,
   save: SaveIcon,
   see: EyeIcon
 };
