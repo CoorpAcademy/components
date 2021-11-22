@@ -1,10 +1,6 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value cm_tablet from breakpoints;
 
-.wrapper {
-  margin: 0px 64px;
-}
-
 .sectionWrapper {
   margin-top: 44px;
 }
