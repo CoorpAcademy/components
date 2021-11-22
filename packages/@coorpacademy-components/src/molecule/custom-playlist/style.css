@@ -17,8 +17,6 @@
 }
 
 .title {
-  width: 153px;
-  height: 22px;
   flex-grow: 0;
   font-family: Gilroy;
   font-size: 16px;
