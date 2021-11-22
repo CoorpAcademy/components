@@ -7,7 +7,8 @@ const TAG_STYLES = {
   default: style.default,
   published: style.published,
   revision: style.revision,
-  archived: style.archived
+  archived: style.archived,
+  draft: style.draft
 };
 
 const Tag = props => {

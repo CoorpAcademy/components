@@ -25,6 +25,10 @@
     color: cm_yellow_200;
 }
 
+.draft {
+   composes: revision;
+}
+
 .published {
     composes: tag;
     background-color: color(cm_positive_100 a(15%));
