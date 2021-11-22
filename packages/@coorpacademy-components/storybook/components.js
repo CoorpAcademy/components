@@ -88,7 +88,6 @@ import MoleculeForumForumComment from './../src/molecule/forum/forum-comment';
 import MoleculeForumForumPost from './../src/molecule/forum/forum-post';
 import MoleculeForumForumThread from './../src/molecule/forum/forum-thread';
 import MoleculeHero from './../src/molecule/hero';
-import MoleculeListItem from './../src/molecule/list-item';
 import MoleculeLoginAlert from './../src/molecule/login-alert';
 import MoleculeMenuList from './../src/molecule/menu-list';
 import MoleculeMessagePopin from './../src/molecule/message-popin';
@@ -152,6 +151,7 @@ import OrganismGetTheApp from './../src/organism/get-the-app';
 import OrganismGridList from './../src/organism/grid-list';
 import OrganismHeader from './../src/organism/header';
 import OrganismHero from './../src/organism/hero';
+import OrganismListItem from './../src/organism/list-item';
 import OrganismMoocImageSlider from './../src/organism/mooc/image-slider';
 import OrganismMoocFooter from './../src/organism/mooc-footer';
 import OrganismMoocHeader from './../src/organism/mooc-header';
@@ -581,10 +581,6 @@ import MoleculeForumForumThreadFixtureDefault from '../src/molecule/forum/forum-
 import MoleculeForumForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
 import MoleculeHeroFixtureArabic from '../src/molecule/hero/test/fixtures/arabic';
 import MoleculeHeroFixtureHero from '../src/molecule/hero/test/fixtures/hero';
-import MoleculeListItemFixtureArchived from '../src/molecule/list-item/test/fixtures/archived';
-import MoleculeListItemFixtureDraft from '../src/molecule/list-item/test/fixtures/draft';
-import MoleculeListItemFixturePublished from '../src/molecule/list-item/test/fixtures/published';
-import MoleculeListItemFixtureRevised from '../src/molecule/list-item/test/fixtures/revised';
 import MoleculeLoginAlertFixtureDefault from '../src/molecule/login-alert/test/fixtures/default';
 import MoleculeMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import MoleculeMessagePopinFixtureDefault from '../src/molecule/message-popin/test/fixtures/default';
@@ -793,6 +789,10 @@ import OrganismHeaderFixtureDefault from '../src/organism/header/test/fixtures/d
 import OrganismHeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
 import OrganismHeroFixtureNoTouch from '../src/organism/hero/test/fixtures/no-touch';
 import OrganismHeroFixtureTouch from '../src/organism/hero/test/fixtures/touch';
+import OrganismListItemFixtureArchived from '../src/organism/list-item/test/fixtures/archived';
+import OrganismListItemFixtureDraft from '../src/organism/list-item/test/fixtures/draft';
+import OrganismListItemFixturePublished from '../src/organism/list-item/test/fixtures/published';
+import OrganismListItemFixtureRevised from '../src/organism/list-item/test/fixtures/revised';
 import OrganismMoocImageSliderFixtureDefault from '../src/organism/mooc/image-slider/test/fixtures/default';
 import OrganismMoocImageSliderFixtureMultipleSlides from '../src/organism/mooc/image-slider/test/fixtures/multiple-slides';
 import OrganismMoocFooterFixtureDefault from '../src/organism/mooc-footer/test/fixtures/default';
@@ -1142,7 +1142,6 @@ export const components = {
     MoleculeFeedback,
     MoleculeFilters,
     MoleculeHero,
-    MoleculeListItem,
     MoleculeLoginAlert,
     MoleculeMenuList,
     MoleculeMessagePopin,
@@ -1225,6 +1224,7 @@ export const components = {
     OrganismGridList,
     OrganismHeader,
     OrganismHero,
+    OrganismListItem,
     OrganismMoocFooter,
     OrganismMoocHeader,
     OrganismPlaylistTranslation,
@@ -1812,12 +1812,6 @@ export const fixtures = {
       Arabic: MoleculeHeroFixtureArabic,
       Hero: MoleculeHeroFixtureHero
     },
-    MoleculeListItem: {
-      Archived: MoleculeListItemFixtureArchived,
-      Draft: MoleculeListItemFixtureDraft,
-      Published: MoleculeListItemFixturePublished,
-      Revised: MoleculeListItemFixtureRevised
-    },
     MoleculeLoginAlert: {
       Default: MoleculeLoginAlertFixtureDefault
     },
@@ -2206,6 +2200,12 @@ export const fixtures = {
       Default: OrganismHeroFixtureDefault,
       NoTouch: OrganismHeroFixtureNoTouch,
       Touch: OrganismHeroFixtureTouch
+    },
+    OrganismListItem: {
+      Archived: OrganismListItemFixtureArchived,
+      Draft: OrganismListItemFixtureDraft,
+      Published: OrganismListItemFixturePublished,
+      Revised: OrganismListItemFixtureRevised
     },
     OrganismMoocFooter: {
       Default: OrganismMoocFooterFixtureDefault,

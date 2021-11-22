@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
-import BulletPointMenuButton from '../bullet-point-menu-button';
+import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import style from './style.css';
 
 const ListItem = props => {
@@ -13,7 +13,7 @@ const ListItem = props => {
       <div className={style.settings}>
         {type === 'revised' ? (
           <>
-            <div className={style.onGoingChanges}>
+            <div className={style.revised}>
               <Tag label="Ongoing changes" type="revised" />
             </div>
             <div>
