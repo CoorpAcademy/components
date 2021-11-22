@@ -19,14 +19,54 @@ import Loader from '../../../atom/loader';
 import Accordion from '../../../organism/accordion/coorp-manager';
 import style from './style.css';
 
-const SubTab = ({title, href, selected}) => {
-  return <h5>{title}</h5>;
-};
+const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
 
-SubTab.propTypes = {
-  title: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
-  selected: PropTypes.bool.isRequired
+const subTabsView = (_subTabs = []) =>
+  map.convert({cap: false})((subTab, _index) => (
+    <div key={subTab.title}>
+      {subTab.type === 'iconLink' ? (
+        <IconLinkItem
+          {...subTab}
+          styles={getStyle(subTab.selected)}
+          uppercase={false}
+          target={'_blank'}
+        />
+      ) : (
+        <LinkItem {...subTab} styles={getStyle(subTab.selected)} uppercase={false} />
+      )}
+    </div>
+  ))(_subTabs);
+
+// TODO this fonction should be replaced by a molecule to avoid this file to be unreadable
+const buildLeftNavigation = (logo, items, onItemClick) => {
+  const formattedTabs = items.map(({key, title, href, selected, type = 'simpleTab'}, index) => ({
+    title,
+    selected,
+    type,
+    href,
+    index,
+    children: [],
+    iconType: key || 'arrow'
+  }));
+
+  const formattedTabsViews = map(tab => (
+    <div key={tab.title} className={style.tabs}>
+      {subTabsView(tab.tabs)}
+    </div>
+  ))(items);
+
+  return (
+    <div className={style.dashboardAside}>
+      <div className={style.logo}>
+        <a href="/">
+          <img src={logo} />
+        </a>
+      </div>
+      <Accordion tabProps={formattedTabs} theme={'setup'} onClick={onItemClick}>
+        {formattedTabsViews}
+      </Accordion>
+    </div>
+  );
 };
 
 const BrandUpdate = props => {
@@ -40,39 +80,7 @@ const BrandUpdate = props => {
     head
   )(items);
 
-  const formattedTabs = items.map(({key, title, href, selected, type = 'simpleTab'}, index) => ({
-    title,
-    selected,
-    type,
-    href,
-    index,
-    children: [],
-    iconType: key || 'arrow'
-  }));
-
-  const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
-
-  const subTabsView = (_subTabs = []) =>
-    map.convert({cap: false})((subTab, _index) => (
-      <div key={subTab.title}>
-        {subTab.type === 'iconLink' ? (
-          <IconLinkItem
-            {...subTab}
-            styles={getStyle(subTab.selected)}
-            uppercase={false}
-            target={'_blank'}
-          />
-        ) : (
-          <LinkItem {...subTab} styles={getStyle(subTab.selected)} uppercase={false} />
-        )}
-      </div>
-    ))(_subTabs);
-
-  const formattedTabsViews = map(tab => (
-    <div key={tab.title} className={style.tabs}>
-      {subTabsView(tab.tabs)}
-    </div>
-  ))(items);
+  const leftNavigation = buildLeftNavigation(logo, items, onItemClick);
 
   const notificationsList = notifications.map((notification, index) => {
     return (
@@ -106,16 +114,7 @@ const BrandUpdate = props => {
 
   return (
     <div className={style.container}>
-      <div className={style.dashboardAside}>
-        <div className={style.logo}>
-          <a href="/">
-            <img src={logo} />
-          </a>
-        </div>
-        <Accordion tabProps={formattedTabs} theme={'setup'} onClick={onItemClick}>
-          {formattedTabsViews}
-        </Accordion>
-      </div>
+      {leftNavigation}
       <div className={style.contentWrapper}>
         <Header {...header} />
         <div className={style.notifications}>{notificationsList}</div>
