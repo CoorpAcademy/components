@@ -28,6 +28,9 @@
   letter-spacing: normal;
   text-align: left;
   color: cm_grey_900;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .settings {
@@ -40,6 +43,8 @@
 .onGoingChanges {
   margin-left: 16px;
   margin-right: 16px;
+ 
+  
 }
 
 .edit {
