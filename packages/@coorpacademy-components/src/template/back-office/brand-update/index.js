@@ -69,6 +69,21 @@ const buildLeftNavigation = (logo, items, onItemClick) => {
   );
 };
 
+const buildNotifications = notifications => {
+  if (isEmpty(notifications)) {
+    return null;
+  }
+
+  const notificationsList = notifications.map((notification, index) => {
+    return (
+      <div className={style.notification} key={index}>
+        <Notification {...notification} />
+      </div>
+    );
+  });
+  return <div className={style.notifications}>{notificationsList}</div>;
+};
+
 const BrandUpdate = props => {
   const {notifications, header, items, content, details, onItemClick} = props;
   const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
@@ -81,14 +96,7 @@ const BrandUpdate = props => {
   )(items);
 
   const leftNavigation = buildLeftNavigation(logo, items, onItemClick);
-
-  const notificationsList = notifications.map((notification, index) => {
-    return (
-      <div className={style.notification} key={index}>
-        <Notification {...notification} />
-      </div>
-    );
-  });
+  const notificationsView = buildNotifications(notifications);
 
   const contentView = cont => {
     if (!cont) return <Loader />;
@@ -117,24 +125,12 @@ const BrandUpdate = props => {
       {leftNavigation}
       <div className={style.rightSide}>
         <Header {...header} />
-        {content && content.type === 'home' ? (
-          contentView(content)
-        ) : (
-          <div className={style.contentWrapper}>
-            <div className={style.notifications}>{notificationsList}</div>
-            <div className={style.contentHandler}>
-              <div className={style.contentView}>
-                {selectedTab && !isEmpty(selectedTab.subTabs) ? (
-                  <BrandTabs type="light" tabs={selectedTab.subTabs} />
-                ) : null}
-                <div className={style.dashboardContent}>
-                  <div>{contentView(content)}</div>
-                  <div>{detailsView(details)}</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
+        {notificationsView}
+        {selectedTab && !isEmpty(selectedTab.subTabs) ? (
+          <BrandTabs type="light" tabs={selectedTab.subTabs} />
+        ) : null}
+        <div>{contentView(content)}</div>
+        <div>{detailsView(details)}</div>
       </div>
     </div>
   );

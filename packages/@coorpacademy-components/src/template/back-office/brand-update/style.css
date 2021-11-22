@@ -30,13 +30,6 @@
   border-left: solid 3px cm_grey_100;
 }
 
-.contentWrapper {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  overflow: auto;
-}
-
 .notifications {
   padding: 10px 120px;
 }
@@ -49,12 +42,6 @@
   margin-bottom: 0;
 }
 
-.contentHandler {
-  padding: 10px 40px;
-  display: flex;
-  justify-content: space-between;
-}
-
 .dashboardAside {
   scroll-behavior: unset;
   min-width: 223px;
@@ -63,24 +50,6 @@
 
 .rightSide {
   width: 100%;
-}
-
-.contentView {
-  flex-grow: 1;
-  width: 980px;
-  text-align: left;
-  position: relative;
-  margin: 0;
-  line-height: 1.4em;
-}
-
-.dashboardContent {
-  padding: 1rem;
-  text-align: left;
-  position: relative;
-  margin: 0 auto;
-  line-height: 1.4em;
-  border: 1px solid light;
 }
 
 .selectedElement {
@@ -106,47 +75,15 @@
   margin: 32px 20px 54px 20px;
 }
 
-@media desktop {
-  .contentHandler {
-    flex-direction: column;
-    flex-wrap: wrap;
-    justify-content: center;
-    width: 90%;
-    margin: 0 auto;
-  }
-
-  .contentView {
-    width: 92.4%;
-    margin: 0 auto;
-    margin-right: 17px;
-  }
-}
-
 @media tablet {
-  .contentHandler {
-    margin: 0px;
-    padding: 0px;
-    width: 100%;
-  }
-
   .container {
     scroll-behavior: unset;
     margin: 0px;
     padding: 10px 10px;
   }
-
-  .contentView {
-    margin: 0 auto;
-  }
 }
 
 @media mobile {
-  .contentHandler {
-    margin: 0px;
-    padding: 10px 10px;
-    width: 100%;
-  }
-
   .notification {
     margin: 0 auto;
   }
