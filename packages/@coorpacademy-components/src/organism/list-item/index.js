@@ -9,7 +9,7 @@ const ListItem = props => {
   const {title, label, type, editButtonOnClick, bulletPointButtonOnClick, buttons} = props;
   return (
     <div className={style.wrapper}>
-      <div className={style.title}>{title}</div>
+      <div className={style.title} title={title}>{title}</div>
       <div className={style.settings}>
         {type === 'revised' ? (
           <>
