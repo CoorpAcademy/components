@@ -12,7 +12,14 @@ const CustomPlaylist = props => {
       <div className={style.title}>{title}</div>
       <div className={style.settings}>
         <div>
-          <Tag label={label} type={type} />
+          {type === 'revision' ? (
+            <>
+              <Tag label="Ongoing changs" type="revision" />
+              <Tag label="Published" type="published" />
+            </>
+          ) : (
+            <Tag label={label} type={type} />
+          )}
         </div>
         <div className={style.edit}>
           <ButtonLink
@@ -42,9 +49,9 @@ CustomPlaylist.propTypes = {
   bulletPointButtonOnClick: PropTypes.func.isRequired,
   buttons: BulletPointMenuButton.propTypes.buttons,
   editButtonOnClick: PropTypes.func.isRequired,
-  label: PropTypes.oneOf(['Published', 'Draft', 'Archived']),
+  label: PropTypes.oneOf(['Published', 'Draft', 'Archived', 'Ongoing changes']),
   title: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['default', 'published', 'revision', 'archived'])
+  type: PropTypes.oneOf(['default', 'published', 'revision', 'archived', 'draft'])
 };
 
 export default CustomPlaylist;

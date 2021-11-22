@@ -2,8 +2,8 @@ export default {
   props: {
     id: 'default',
     title: 'Leaders of tomorrow',
-    type: 'draft',
-    label: 'Draft',
+    type: 'revision',
+    label: 'Ongoing changes',
     buttons: [
       {
         'data-name': 'CP-publish-button',
