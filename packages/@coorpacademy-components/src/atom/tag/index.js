@@ -6,7 +6,7 @@ import style from './style.css';
 const TAG_STYLES = {
   default: style.default,
   published: style.published,
-  revision: style.revision,
+  revised: style.revised,
   archived: style.archived,
   draft: style.draft
 };

@@ -381,7 +381,7 @@ import AtomTagFixtureArchived from '../src/atom/tag/test/fixtures/archived';
 import AtomTagFixtureDefault from '../src/atom/tag/test/fixtures/default';
 import AtomTagFixtureDraft from '../src/atom/tag/test/fixtures/draft';
 import AtomTagFixturePublished from '../src/atom/tag/test/fixtures/published';
-import AtomTagFixtureRevision from '../src/atom/tag/test/fixtures/revision';
+import AtomTagFixtureRevised from '../src/atom/tag/test/fixtures/revised';
 import AtomTitleFixtureFormGroupTitleWithoutSubtitle from '../src/atom/title/test/fixtures/form-group-title-without-subtitle';
 import AtomTitleFixtureFormGroupTitle from '../src/atom/title/test/fixtures/form-group-title';
 import AtomTitleFixturePageTitle from '../src/atom/title/test/fixtures/page-title';
@@ -1557,7 +1557,7 @@ export const fixtures = {
       Default: AtomTagFixtureDefault,
       Draft: AtomTagFixtureDraft,
       Published: AtomTagFixturePublished,
-      Revision: AtomTagFixtureRevision
+      Revised: AtomTagFixtureRevised
     },
     AtomTitle: {
       FormGroupTitleWithoutSubtitle: AtomTitleFixtureFormGroupTitleWithoutSubtitle,
