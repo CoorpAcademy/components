@@ -69,22 +69,19 @@ const SetupHeader = props => {
         }
       : null;
 
-  const myPlatformButtonProps =
-    isHome || isDashboard
-      ? null
-      : {
-          type: 'primary',
-          label: items.platformList.label,
-          'aria-label': items.platformList.label,
-          'data-name': `platform-list-button`,
-          link: {
-            href
-          },
-          icon: {
-            position: 'left',
-            type: 'see'
-          }
-        };
+  const myPlatformButtonProps = {
+    type: 'primary',
+    label: items.platformList.label,
+    'aria-label': items.platformList.label,
+    'data-name': `platform-list-button`,
+    link: {
+      href
+    },
+    icon: {
+      position: 'left',
+      type: 'see'
+    }
+  };
 
   const logoutButtonProps = {
     type: 'text',
@@ -99,6 +96,7 @@ const SetupHeader = props => {
       type: 'logout'
     }
   };
+
   return (
     <div className={style.container}>
       <div className={style.wrapper}>
@@ -128,7 +126,7 @@ const SetupHeader = props => {
               <ButtonLink {...goAnalyticsButtonProps} />
             </div>
           ) : null}
-          {myPlatformButtonProps ? null : (
+          {isDashboard || isHome ? null : (
             <div className={style.button}>
               <ButtonLink {...myPlatformButtonProps} />
             </div>
