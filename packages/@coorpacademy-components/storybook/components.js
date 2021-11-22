@@ -146,6 +146,7 @@ import OrganismBrandTable from './../src/organism/brand-table';
 import OrganismBrandUpload from './../src/organism/brand-upload';
 import OrganismCardsGrid from './../src/organism/cards-grid';
 import OrganismCart from './../src/organism/cart';
+import OrganismCourseSelection from './../src/organism/course-selection';
 import OrganismDiscussion from './../src/organism/discussion';
 import OrganismGetTheApp from './../src/organism/get-the-app';
 import OrganismGridList from './../src/organism/grid-list';
@@ -777,6 +778,11 @@ import OrganismCardsGridFixtureEmpty from '../src/organism/cards-grid/test/fixtu
 import OrganismCardsGridFixtureLoading from '../src/organism/cards-grid/test/fixtures/loading';
 import OrganismCardsGridFixtureMany from '../src/organism/cards-grid/test/fixtures/many';
 import OrganismCartFixtureDefault from '../src/organism/cart/test/fixtures/default';
+import OrganismCourseSelectionFixtureDefault from '../src/organism/course-selection/test/fixtures/default';
+import OrganismCourseSelectionFixtureEmpty from '../src/organism/course-selection/test/fixtures/empty';
+import OrganismCourseSelectionFixtureFiltered from '../src/organism/course-selection/test/fixtures/filtered';
+import OrganismCourseSelectionFixtureSortedSelected from '../src/organism/course-selection/test/fixtures/sorted-selected';
+import OrganismCourseSelectionFixtureUnsortedSelected from '../src/organism/course-selection/test/fixtures/unsorted-selected';
 import OrganismDiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/default';
 import OrganismDiscussionFixtureLoadingMore from '../src/organism/discussion/test/fixtures/loading-more';
 import OrganismDiscussionFixtureModeration from '../src/organism/discussion/test/fixtures/moderation';
@@ -1213,6 +1219,7 @@ export const components = {
     OrganismBrandUpload,
     OrganismCardsGrid,
     OrganismCart,
+    OrganismCourseSelection,
     OrganismDiscussion,
     OrganismGetTheApp,
     OrganismGridList,
@@ -2172,6 +2179,13 @@ export const fixtures = {
     },
     OrganismCart: {
       Default: OrganismCartFixtureDefault
+    },
+    OrganismCourseSelection: {
+      Default: OrganismCourseSelectionFixtureDefault,
+      Empty: OrganismCourseSelectionFixtureEmpty,
+      Filtered: OrganismCourseSelectionFixtureFiltered,
+      SortedSelected: OrganismCourseSelectionFixtureSortedSelected,
+      UnsortedSelected: OrganismCourseSelectionFixtureUnsortedSelected
     },
     OrganismDiscussion: {
       Default: OrganismDiscussionFixtureDefault,
