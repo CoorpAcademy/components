@@ -1,18 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {isEmpty} from 'lodash/fp';
+import EmptySearchResult from '../../molecule/empty-search-result';
 import Search from '../../atom/input-search';
 import Card from '../../molecule/card';
 import style from './style.css';
 
 const buildResultView = (courses, coursesSelectionAriaLabel, emptyMessages) => {
   if (isEmpty(courses)) {
-    return (
-      <div className={style.errorSection}>
-        <span className={style.firstErrorMessage}>{emptyMessages.firstMessage}</span>
-        <span className={style.secondErrorMessage}>{emptyMessages.secondMessage}</span>
-      </div>
-    );
+    return <EmptySearchResult {...emptyMessages} />;
   }
 
   const items = courses.map((card, index) => {

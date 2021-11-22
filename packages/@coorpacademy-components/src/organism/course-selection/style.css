@@ -21,25 +21,3 @@
   display: inline-block;
   margin: 0 16px 16px 0px;
 }
-
-.errorSection {
-  margin: 48px 0;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 16px;
-  font-weight: bold;
-  font-family: Gilroy;
-  font-size: 16px;
-}
-
-.firstErrorMessage {
-  color: cm_grey_900;
-  display: block;
-}
-
-.secondErrorMessage {
-  color: cm_primary_blue;
-  display: block;
-}

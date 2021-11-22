@@ -1,0 +1,25 @@
+@value colors: "../../variables/colors.css";
+@value cm_primary_blue from colors;
+@value cm_grey_900 from colors;
+
+.container {
+    margin: 48px 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 16px;
+    font-weight: bold;
+    font-family: Gilroy;
+    font-size: 16px;
+  }
+  
+  .firstMessage {
+    color: cm_grey_900;
+    display: block;
+  }
+  
+  .secondMessage {
+    color: cm_primary_blue;
+    display: block;
+  }
