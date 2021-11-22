@@ -5,22 +5,27 @@ import ButtonLink from '../../atom/button-link';
 import BulletPointMenuButton from '../bullet-point-menu-button';
 import style from './style.css';
 
-const CustomPlaylist = props => {
+const ListItem = props => {
   const {title, label, type, editButtonOnClick, bulletPointButtonOnClick, buttons} = props;
   return (
     <div className={style.wrapper}>
       <div className={style.title}>{title}</div>
       <div className={style.settings}>
-        <div>
-          {type === 'revision' ? (
-            <>
-              <Tag label="Ongoing changs" type="revision" />
+        {type === 'revised' ? (
+          <>
+            <div className={style.onGoingChanges}>
+              <Tag label="Ongoing changes" type="revised" />
+            </div>
+            <div>
               <Tag label="Published" type="published" />
-            </>
-          ) : (
+            </div>
+          </>
+        ) : (
+          <div>
             <Tag label={label} type={type} />
-          )}
-        </div>
+          </div>
+        )}
+
         <div className={style.edit}>
           <ButtonLink
             type="secondary"
@@ -45,13 +50,13 @@ const CustomPlaylist = props => {
   );
 };
 
-CustomPlaylist.propTypes = {
+ListItem.propTypes = {
   bulletPointButtonOnClick: PropTypes.func.isRequired,
   buttons: BulletPointMenuButton.propTypes.buttons,
   editButtonOnClick: PropTypes.func.isRequired,
   label: PropTypes.oneOf(['Published', 'Draft', 'Archived', 'Ongoing changes']),
   title: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['default', 'published', 'revision', 'archived', 'draft'])
+  type: PropTypes.oneOf(['default', 'published', 'revised', 'archived', 'draft'])
 };
 
-export default CustomPlaylist;
+export default ListItem;

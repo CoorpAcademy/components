@@ -71,7 +71,6 @@ import MoleculeCardWithButton from './../src/molecule/card-with-button';
 import MoleculeCmPopin from './../src/molecule/cm-popin';
 import MoleculeCookieBanner from './../src/molecule/cookie-banner';
 import MoleculeCoorpManagerRoles from './../src/molecule/coorp-manager-roles';
-import MoleculeCustomPlaylist from './../src/molecule/custom-playlist';
 import MoleculeDashboardBattleRequestList from './../src/molecule/dashboard/battle-request-list';
 import MoleculeDashboardCardsList from './../src/molecule/dashboard/cards-list';
 import MoleculeDashboardNewsList from './../src/molecule/dashboard/news-list';
@@ -89,6 +88,7 @@ import MoleculeForumForumComment from './../src/molecule/forum/forum-comment';
 import MoleculeForumForumPost from './../src/molecule/forum/forum-post';
 import MoleculeForumForumThread from './../src/molecule/forum/forum-thread';
 import MoleculeHero from './../src/molecule/hero';
+import MoleculeListItem from './../src/molecule/list-item';
 import MoleculeLoginAlert from './../src/molecule/login-alert';
 import MoleculeMenuList from './../src/molecule/menu-list';
 import MoleculeMessagePopin from './../src/molecule/message-popin';
@@ -489,9 +489,6 @@ import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixture
 import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/test/fixtures/warning-with-close';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
 import MoleculeCoorpManagerRolesFixtureDefault from '../src/molecule/coorp-manager-roles/test/fixtures/default';
-import MoleculeCustomPlaylistFixtureArchived from '../src/molecule/custom-playlist/test/fixtures/archived';
-import MoleculeCustomPlaylistFixtureDraft from '../src/molecule/custom-playlist/test/fixtures/draft';
-import MoleculeCustomPlaylistFixturePublished from '../src/molecule/custom-playlist/test/fixtures/published';
 import MoleculeDashboardBattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
 import MoleculeDashboardBattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
 import MoleculeDashboardCardsListFixtureDefault from '../src/molecule/dashboard/cards-list/test/fixtures/default';
@@ -584,6 +581,10 @@ import MoleculeForumForumThreadFixtureDefault from '../src/molecule/forum/forum-
 import MoleculeForumForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
 import MoleculeHeroFixtureArabic from '../src/molecule/hero/test/fixtures/arabic';
 import MoleculeHeroFixtureHero from '../src/molecule/hero/test/fixtures/hero';
+import MoleculeListItemFixtureArchived from '../src/molecule/list-item/test/fixtures/archived';
+import MoleculeListItemFixtureDraft from '../src/molecule/list-item/test/fixtures/draft';
+import MoleculeListItemFixturePublished from '../src/molecule/list-item/test/fixtures/published';
+import MoleculeListItemFixtureRevised from '../src/molecule/list-item/test/fixtures/revised';
 import MoleculeLoginAlertFixtureDefault from '../src/molecule/login-alert/test/fixtures/default';
 import MoleculeMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import MoleculeMessagePopinFixtureDefault from '../src/molecule/message-popin/test/fixtures/default';
@@ -1131,7 +1132,6 @@ export const components = {
     MoleculeCmPopin,
     MoleculeCookieBanner,
     MoleculeCoorpManagerRoles,
-    MoleculeCustomPlaylist,
     MoleculeDisciplineCta,
     MoleculeDisciplineHeader,
     MoleculeDisciplinePartners,
@@ -1142,6 +1142,7 @@ export const components = {
     MoleculeFeedback,
     MoleculeFilters,
     MoleculeHero,
+    MoleculeListItem,
     MoleculeLoginAlert,
     MoleculeMenuList,
     MoleculeMessagePopin,
@@ -1728,11 +1729,6 @@ export const fixtures = {
     MoleculeCoorpManagerRoles: {
       Default: MoleculeCoorpManagerRolesFixtureDefault
     },
-    MoleculeCustomPlaylist: {
-      Archived: MoleculeCustomPlaylistFixtureArchived,
-      Draft: MoleculeCustomPlaylistFixtureDraft,
-      Published: MoleculeCustomPlaylistFixturePublished
-    },
     MoleculeDisciplineCta: {
       Default: MoleculeDisciplineCtaFixtureDefault,
       NoStart: MoleculeDisciplineCtaFixtureNoStart
@@ -1815,6 +1811,12 @@ export const fixtures = {
     MoleculeHero: {
       Arabic: MoleculeHeroFixtureArabic,
       Hero: MoleculeHeroFixtureHero
+    },
+    MoleculeListItem: {
+      Archived: MoleculeListItemFixtureArchived,
+      Draft: MoleculeListItemFixtureDraft,
+      Published: MoleculeListItemFixturePublished,
+      Revised: MoleculeListItemFixtureRevised
     },
     MoleculeLoginAlert: {
       Default: MoleculeLoginAlertFixtureDefault

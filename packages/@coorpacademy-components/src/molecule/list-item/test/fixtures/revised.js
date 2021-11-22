@@ -2,7 +2,7 @@ export default {
   props: {
     id: 'default',
     title: 'Leaders of tomorrow',
-    type: 'revision',
+    type: 'revised',
     label: 'Ongoing changes',
     buttons: [
       {

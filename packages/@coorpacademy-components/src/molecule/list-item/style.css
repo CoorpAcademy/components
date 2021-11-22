@@ -36,6 +36,12 @@
   align-items: center;
 }
 
+
+.onGoingChanges {
+  margin-left: 16px;
+  margin-right: 16px;
+}
+
 .edit {
   margin-left: 16px;
   margin-right: 16px;
