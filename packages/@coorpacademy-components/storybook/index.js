@@ -63,7 +63,7 @@ forEach((folder, folderName) => {
     const componentFixtures = get([folderName, componentName], fixtures);
     const stories = storiesOf(`${componentName}`, module);
     stories.addDecorator(withKnobs);
-      forEach(({props, children}, fixtureName) => {
+    forEach(({props, children}, fixtureName) => {
       stories.add(
         fixtureName,
         () => (

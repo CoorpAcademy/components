@@ -5,8 +5,7 @@ import {map, pipe, join, filter, get, set, isEmpty} from 'lodash/fp';
 import {
   NovaCompositionNavigationArrowDown as ArrowDown,
   NovaSolidStatusClose as ErrorIcon,
-  NovaCompositionCoorpacademyInformationIcon as InfoIcon,
-  NovaSolidStatusCheckCircle2 as CheckIcon
+  NovaCompositionCoorpacademyInformationIcon as InfoIcon
 } from '@coorpacademy/nova-icons';
 import TitledCheckbox from '../titled-checkbox';
 import Provider from '../../atom/provider';
@@ -68,8 +67,10 @@ const SelectMultiple = (
     theme,
     placeholder,
     description,
+    hint,
     multiple,
     onChange,
+    onError,
     modified = false,
     required = false,
     error = false
@@ -144,6 +145,7 @@ const SelectMultiple = (
   const _title = title && `${title}${required ? ' *' : ''}`;
 
   const isActive = isOpened === true;
+
   const titleView = title ? (
     <span
       className={classnames(
@@ -162,6 +164,16 @@ const SelectMultiple = (
       ) : null}
     </span>
   ) : null;
+
+  const hintView =
+    theme === 'coorpmanager' && !isActive ? (
+      <div
+        className={style.hint}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: hint}}
+      />
+    ) : null;
+
   const mainClass = theme ? themeStyle[theme] : style.default;
   const showPlaceholder = isCMTheme && isActive;
   const behaviourClassName = getClassState(
@@ -172,7 +184,7 @@ const SelectMultiple = (
     error
   );
 
-  const errorIconView = error ? <ErrorIcon className={style.errorIcon} /> : null;
+  const errorIconView = error ? <ErrorIcon onClick={onError} className={style.errorIcon} /> : null;
 
   return (
     <div className={classnames(mainClass, behaviourClassName)} ref={nodeRef}>
@@ -190,16 +202,27 @@ const SelectMultiple = (
           </span>
           {isCMTheme ? (
             <div className={style.iconsWrapper}>
-              {errorIconView}
-              <ArrowDown color={black} className={classnames(style.arrow, {[style.down]: isActive})} />
+              <div className={style.flex}>{errorIconView}</div>
+              <div className={classnames(style.flex, isActive && style.clicked)}>
+                <ArrowDown
+                  color={black}
+                  className={classnames(style.arrow, {[style.down]: isActive})}
+                />
+              </div>
             </div>
-          ) : <ArrowDown color={black} className={classnames(style.arrow, {[style.down]: isActive})} />}
+          ) : (
+            <ArrowDown
+              color={black}
+              className={classnames(style.arrow, {[style.down]: isActive})}
+            />
+          )}
         </div>
         <div className={isActive ? style.activeChoices : style.choices}>
           <ul className={style.list}>{lines}</ul>
         </div>
       </label>
       {!isCMTheme ? <div className={style.description}>{description}</div> : null}
+      {hintView}
     </div>
   );
 };
@@ -208,12 +231,20 @@ SelectMultiple.contextTypes = {
   skin: Provider.childContextTypes.skin
 };
 
+CMMultipleView.propTypes = {
+  multiple: PropTypes.bool,
+  choice: TitledCheckbox.propTypes.choice,
+  onChange: PropTypes.func
+};
+
 SelectMultiple.propTypes = {
   title: PropTypes.string,
   placeholder: PropTypes.string,
   description: PropTypes.string,
+  hint: PropTypes.string,
   options: PropTypes.arrayOf(TitledCheckbox.propTypes.choice),
   onChange: PropTypes.func,
+  onError: PropTypes.func,
   multiple: PropTypes.bool,
   modified: PropTypes.bool,
   required: PropTypes.bool,

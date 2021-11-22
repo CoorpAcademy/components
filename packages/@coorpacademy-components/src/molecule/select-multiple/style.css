@@ -8,6 +8,7 @@
 @value xtraLightGrey from colors;
 @value cm_grey_400 from colors;
 @value cm_grey_700 from colors;
+@value cm_grey_200 from colors;
 @value cm_negative_100 from colors;
 @value medium from colors;
 @value defaultText from "../../variables/fonts.css";
@@ -215,7 +216,6 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
   border-radius: 8px;
   width: 100%;
   font-size: 14px;
@@ -227,7 +227,6 @@
 .coorpmanager .select .title {
   display: flex;
   flex-direction: row;
-  /* justify-content: center; */
   flex-grow: 0;
   font-family: Gilroy;
   font-weight: bold;
@@ -237,7 +236,6 @@
   text-align: left;
   font-size: 14px;
   z-index: 1;
-  /* color: cm_grey_400; */
   color: cm_grey_700;
   transition: all 0.25s ease;
   pointer-events: none;
@@ -280,10 +278,6 @@
   color: cm_grey_400;
 }
 
-/* .coorpmanager .arrow {
-  margin-right: 10px;
-} */
-
 .coorpmanager .arrow:hover {
   background-color: cm_grey_200;
 }
@@ -300,6 +294,11 @@
 
 .checkbox span {
   color: black !important;
+}
+
+.checkbox label {
+  margin-right: 0;
+  margin-left: 0;
 }
 
 .coorpmanager .infoIconWrapper {
@@ -379,26 +378,71 @@
   left: 21px;
 }
 
-/* .coorpmanager .errorIcon {
-  background-color: cm_negative_100;
-  color: white;
-  border-radius: 50%;
-  padding: 2px;
-  width: 11px;
-  height: 11px;
-  right: 17px;
-  top: 13px;
-} */
+.coorpmanager .iconsWrapper {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 88px;
+  height: 44px;
+  right: 0;
+}
+
+.coorpmanager .flex {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coorpmanager .flex .arrow {
+  position: relative;
+  right: 0;
+  margin-top: 0;
+  top: 0%;
+  pointer-events: none;
+  width: 12px;
+  height: 12px;
+  transition: transform 0.25s;
+  cursor: pointer;
+}
+
+.coorpmanager .flex.clicked {
+  background-color: cm_grey_200;
+}
+
+.coorpmanager .arrow.down {
+  cursor: pointer;
+  transform: rotate(180deg);
+}
 
 .coorpmanager .errorIcon {
   background-color: cm_negative_100;
   color: white;
+  padding: 4px;
   border-radius: 50%;
-  padding: 2px;
-  /* color: cm_positive_100; */
-  width: 14px;
-  height: 14px;
-  /* position: absolute; */
-  right: 15px;
-  /* top: 12px; */
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
+
+.coorpmanager .hint {
+  flex-grow: 0;
+  opacity: 0.5;
+  font-family: Gilroy;
+  font-size: 10px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  padding-top: 8px;
+  transition: transform 0.25s;
+  color: cm_grey_700;
+}
+
+.coorpmanager.error .hint {
+  color: cm_negative_100;
 }

@@ -5,7 +5,8 @@ export default {
     title: 'Input Name',
     description: 'You should select a language',
     multiple: true,
-    error: false,
+    error: true,
+    hint: 'Hint',
     options: [
       {
         name: 'English',
@@ -28,6 +29,7 @@ export default {
         selected: false
       }
     ],
-    onChange: () => true
+    onChange: () => true,
+    onError: () => true
   }
 };
