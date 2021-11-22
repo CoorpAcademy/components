@@ -1,14 +1,10 @@
 import React from 'react';
-import {
-  NovaCompositionCoorpacademyTypeEye as EyeIcon,
-  NovaCompositionCoorpacademyAnalytics as AnalyticsIcon,
-  NovaSolidContentContentViewModule1 as ListIcon,
-  NovaSolidLoginLogout1 as LogoutIcon
-} from '@coorpacademy/nova-icons';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Picture from '../../atom/picture';
 import Link from '../../atom/link';
+import ButtonLink from '../../atom/button-link';
+import IconLink from '../../atom/button-link-icon-only';
 import style from './style.css';
 
 const SetupHeader = props => {
@@ -33,6 +29,76 @@ const SetupHeader = props => {
     updateShow(false);
   }
 
+  const platformListButtonProps = {
+    type: 'tertiary',
+    label: items.platformList.label,
+    'aria-label': items.platformList.label,
+    'data-name': `platform-list-button`,
+    link: {
+      href: items.platformList.href
+    },
+    icon: {
+      position: 'left',
+      type: 'list'
+    }
+  };
+
+  const platformListIconButtonProps = {
+    'aria-label': items.platformList.label,
+    'data-name': `platform-list-button`,
+    link: {
+      href: items.platformList.href
+    },
+    icon: 'list'
+  };
+
+  const goAnalyticsButtonProps =
+    items.globalAnalytics && isDashboard === false
+      ? {
+          type: 'secondary',
+          label: items.globalAnalytics.label,
+          'aria-label': items.globalAnalytics.label,
+          'data-name': `platform-list-button`,
+          link: {
+            href: items.globalAnalytics.href
+          },
+          icon: {
+            position: 'left',
+            type: 'analytics'
+          }
+        }
+      : null;
+
+  const myPlatformButtonProps =
+    isHome || isDashboard
+      ? null
+      : {
+          type: 'primary',
+          label: items.platformList.label,
+          'aria-label': items.platformList.label,
+          'data-name': `platform-list-button`,
+          link: {
+            href
+          },
+          icon: {
+            position: 'left',
+            type: 'see'
+          }
+        };
+
+  const logoutButtonProps = {
+    type: 'text',
+    label: items.logOut.label,
+    'aria-label': items.logOut.label,
+    'data-name': `logout-list-button`,
+    link: {
+      href: items.logOut.href
+    },
+    icon: {
+      position: 'left',
+      type: 'logout'
+    }
+  };
   return (
     <div className={style.container}>
       <div className={style.wrapper}>
@@ -45,58 +111,41 @@ const SetupHeader = props => {
           </div>
         ) : (
           <ul className={style.list}>
-            <Link
-              href={items.platformList.href}
-              className={classnames(style.element, style.platformList)}
-            >
-              <ListIcon className={style.icon} />
-              <li>{items.platformList.label}</li>
-            </Link>
+            <div className={classnames([style.button, style.platformList])}>
+              <ButtonLink {...platformListButtonProps} />
+            </div>
+            <div className={style.platformListIcon}>
+              <IconLink {...platformListIconButtonProps} />
+            </div>
             {!isDashboard ? (
               <li className={classnames(style.element, style.platformName)}>{platformName}</li>
             ) : null}
           </ul>
         )}
         <ul className={style.list}>
-          {items.globalAnalytics && isDashboard === false ? (
-            <Link
-              href={items.globalAnalytics.href}
-              className={classnames(style.element, style.globalAnalytics)}
-            >
-              <AnalyticsIcon className={style.icon} />
-              <li>{items.globalAnalytics.label}</li>
-            </Link>
+          {goAnalyticsButtonProps ? (
+            <div className={style.button}>
+              <ButtonLink {...goAnalyticsButtonProps} />
+            </div>
           ) : null}
-          {isHome || isDashboard ? null : (
-            <Link
-              href={items.seeMyPlatform.href}
-              target="_blank"
-              className={classnames(style.element, style.seeMyPlatform)}
-            >
-              <EyeIcon className={style.icon} />
-              <li>{items.seeMyPlatform.label}</li>
-            </Link>
+          {myPlatformButtonProps ? null : (
+            <div className={style.button}>
+              <ButtonLink {...myPlatformButtonProps} />
+            </div>
           )}
           <li onMouseEnter={onMouseEnter} className={style.profilePicture}>
             <img src={image} />
           </li>
-          <Link href={items.logOut.href} className={classnames(style.element, style.logOut)}>
-            <LogoutIcon className={style.icon} />
-            <li>{items.logOut.label}</li>
-          </Link>
+          <div className={style.logOut}>
+            <ButtonLink {...logoutButtonProps} />
+          </div>
         </ul>
       </div>
-
       <div data-name={`logout-${show ? 'show' : 'hide'}`}>
         <div className={style.arrowUp} />
-        <Link
-          href={items.logOut.href}
-          className={classnames(style.element, style.logOut)}
-          onMouseLeave={onMouseLeave}
-        >
-          <LogoutIcon className={style.icon} />
-          <li>{items.logOut.label}</li>
-        </Link>
+        <div className={style.logOut} onMouseLeave={onMouseLeave}>
+          <ButtonLink {...logoutButtonProps} />
+        </div>
       </div>
     </div>
   );
