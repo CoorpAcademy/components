@@ -6,8 +6,9 @@ import style from './style.css';
 const TAG_STYLES = {
   default: style.default,
   published: style.published,
-  revision: style.revision,
-  archived: style.archived
+  revised: style.revised,
+  archived: style.archived,
+  draft: style.draft
 };
 
 const Tag = props => {
