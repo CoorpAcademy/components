@@ -4,6 +4,10 @@
 @value light from colors;
 @value cm_grey_400 from colors;
 
+.wrapper {
+  margin: 0px 64px;
+}
+
 .back {
   margin-bottom: 30px;
 }

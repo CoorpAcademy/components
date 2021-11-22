@@ -20,7 +20,7 @@
   height: 80px;
   box-sizing: border-box;
   z-index: 1100;
-  margin: 24px 40px;
+  margin: 24px 64px 0px 64px;
   display: flex;
   flex-direction: column;
 }
