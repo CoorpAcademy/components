@@ -34,6 +34,7 @@ const InputText = props => {
     title: propsTitle
   } = props;
 
+  const isCMTheme = theme === 'coorpmanager';
   const title = `${propsTitle}${required ? '*' : ''}`;
   const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
   const mainClass = themeStyle[theme];
@@ -57,8 +58,8 @@ const InputText = props => {
         dangerouslySetInnerHTML={{__html: error || hint}}
       />
     ) : null;
-  const errorIconView = error ? <ErrorIcon className={style.leftIcon} /> : null;
-  const validIconView = valid ? <CheckIcon className={style.leftIcon} /> : null;
+  const errorIconView = isCMTheme && error ? <ErrorIcon className={style.leftIcon} /> : null;
+  const validIconView = isCMTheme && valid ? <CheckIcon className={style.leftIcon} /> : null;
 
   return (
     <div
