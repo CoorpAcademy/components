@@ -9,7 +9,8 @@ import {
   NovaSolidContentEditionPencilWrite as EditIcon,
   NovaCompositionCoorpacademyEye as EyeIcon,
   NovaSolidComputersSdCard as SaveIcon,
-  NovaSolidContentContentViewModule1 as ListIcon
+  NovaSolidContentContentViewModule1 as ListIcon,
+  NovaSolidLoginLogout1 as LogoutIcon
 } from '@coorpacademy/nova-icons';
 
 export const ICONS = {
@@ -22,6 +23,7 @@ export const ICONS = {
   close: CloseIcon,
   edit: EditIcon,
   list: ListIcon,
+  logout: LogoutIcon,
   save: SaveIcon,
   see: EyeIcon
 };
