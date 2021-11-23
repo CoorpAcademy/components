@@ -6,15 +6,15 @@ import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import style from './style.css';
 
 const ListItem = props => {
-  const {title, label, type, editButtonOnClick, bulletPointButtonOnClick, buttons} = props;
+  const {title, tags, editButtonOnClick, bulletPointButtonOnClick, buttons} = props;
   return (
     <div className={style.wrapper}>
-      <div className={style.title} title={title}>{title}</div>
+      <div className={style.title}>{title}</div>
       <div className={style.settings}>
-        {type === 'revised' ? (
+        {tags.length === 2 ? (
           <>
             <div className={style.revised}>
-              <Tag label="Ongoing changes" type="revised" />
+              <Tag label={tags[0].label} type={tags[0].type} />
             </div>
             <div>
               <Tag label="Published" type="published" />
@@ -22,7 +22,7 @@ const ListItem = props => {
           </>
         ) : (
           <div>
-            <Tag label={label} type={type} />
+            <Tag label={tags[1].label} type={tags[1].type} />
           </div>
         )}
 
@@ -57,11 +57,10 @@ ListItem.propTypes = {
   tags: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
-      type: PropTypes.oneOf(['Published', 'Draft', 'Archived', 'Ongoing changes'])
+      type: PropTypes.oneOf(['published', 'draft', 'archived', 'revised', 'default'])
     })
   ),
-  title: PropTypes.string.isRequired,
-  type: PropTypes.oneOf(['default', 'published', 'revised', 'archived', 'draft'])
+  title: PropTypes.string.isRequired
 };
 
 export default ListItem;
