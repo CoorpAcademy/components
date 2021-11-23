@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {map} from 'lodash/fp';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
 import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
@@ -7,25 +8,20 @@ import style from './style.css';
 
 const ListItem = props => {
   const {title, tags, buttonLink, bulletPointMenuButton} = props;
+  const tagsView = map.convert({cap: false})((tag, index) => {
+    return (
+      <div key={index} className={style.tag}>
+        <Tag {...tag} />
+      </div>
+    );
+  })(tags);
   return (
     <div className={style.wrapper}>
-      <div className={style.title}>{title}</div>
+      <div className={style.title} title={title}>
+        {title}
+      </div>
       <div className={style.settings}>
-        {tags.length === 2 ? (
-          <>
-            <div className={style.revised}>
-              <Tag label={tags[0].label} type={tags[0].type} />
-            </div>
-            <div>
-              <Tag label={tags[1].label} type={tags[1].type} />
-            </div>
-          </>
-        ) : (
-          <div>
-            <Tag label={tags[0].label} type={tags[0].type} />
-          </div>
-        )}
-
+        {tagsView}
         <div className={style.edit}>
           <ButtonLink {...buttonLink} />
         </div>

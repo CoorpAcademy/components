@@ -39,13 +39,11 @@
   align-items: center;
 }
 
-.revised {
-  margin-left: 16px;
-  margin-right: 16px;  
+.tag {
+  margin: 0 16px 0 0; 
 }
 
 .edit {
-  margin-left: 16px;
-  margin-right: 16px;
-  width: 93px;
+  margin: 0 16px 0 0;
+  min-width: 93px;
 }
