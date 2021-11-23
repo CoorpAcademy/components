@@ -1,8 +1,8 @@
-import {defaultsDeep} from 'lodash/fp';
+import {defaultsDeep, cloneDeep} from 'lodash/fp';
 import GeneralSettings from '../../../../../organism/brand-form/test/fixtures/general-settings';
 import Default from './default';
 
-const {props} = Default;
+const props = cloneDeep(Default.props);
 const {groups} = GeneralSettings.props;
 
 props.items[0].selected = false;
