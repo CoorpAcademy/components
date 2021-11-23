@@ -20,6 +20,14 @@
   font-family: "Open Sans";
 }
 
+.header {
+  margin: 24px 0px 56px 0px;
+}
+
+.headerForNotifications {
+  margin: 24px 0px 0px 0px;
+}
+
 .tabs {
   font-family: 'Gilroy';
   margin-left: 16%;

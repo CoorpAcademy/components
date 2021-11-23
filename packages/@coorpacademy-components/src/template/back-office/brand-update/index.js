@@ -84,6 +84,15 @@ const buildNotifications = notifications => {
   return <div className={style.notifications}>{notificationsList}</div>;
 };
 
+const buildHeader = (header, notifications) => {
+  const headerStyle = isEmpty(notifications) ? style.header : style.headerForNotifications;
+  return (
+    <div className={headerStyle}>
+      <Header {...header} />
+    </div>
+  );
+};
+
 const BrandUpdate = props => {
   const {notifications, header, items, content, details, onItemClick} = props;
   const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
@@ -97,7 +106,7 @@ const BrandUpdate = props => {
 
   const leftNavigation = buildLeftNavigation(logo, items, onItemClick);
   const notificationsView = buildNotifications(notifications);
-
+  const headerView = buildHeader(header, notifications);
   const contentView = cont => {
     if (!cont) return <Loader />;
     const {type} = cont;
@@ -114,7 +123,6 @@ const BrandUpdate = props => {
         return <BrandDashboard {...cont} />;
     }
   };
-
   const detailsView = cont => {
     if (!cont) return;
     return <BrandTable {...cont} />;
@@ -124,13 +132,13 @@ const BrandUpdate = props => {
     <div className={style.container}>
       {leftNavigation}
       <div className={style.contentWrapper}>
-        <Header {...header} />
+        {headerView}
         {notificationsView}
         {selectedTab && !isEmpty(selectedTab.subTabs) ? (
           <BrandTabs type="light" tabs={selectedTab.subTabs} />
         ) : null}
-        <div>{contentView(content)}</div>
-        <div>{detailsView(details)}</div>
+        {contentView(content)}
+        {detailsView(details)}
       </div>
     </div>
   );

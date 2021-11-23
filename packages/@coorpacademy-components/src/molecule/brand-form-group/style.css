@@ -11,6 +11,11 @@
   margin-bottom: 20px;
 }
 
+.titleWrapper:first-child {
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
 .grid {
   display: flex;
   flex-wrap: wrap;
