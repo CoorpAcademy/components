@@ -7,29 +7,17 @@
   width: 100%;
 }
 
-.header {
-  display: flex;
-}
-
 .search {
-  margin: 0 0 0 16px;
   width: 42%;
   min-width: 309px;
 }
 
-.button {
-  width: 17%;
-  min-width: 129px;
-}
-
-.resultContainer {
+.cardsContainer {
   margin: 24px 0 0 0;
   width: 100%;
 }
 
-.result {
-  min-width: 153px;
-  max-width: 268px;
+.cards {
   display: inline-block;
   margin: 0 16px 16px 0px;
 }

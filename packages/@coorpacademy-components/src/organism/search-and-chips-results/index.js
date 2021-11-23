@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {isEmpty} from 'lodash/fp';
+import EmptySearchResult from '../../atom/empty-search-result';
 import Search from '../../atom/input-search';
 import ButtonLink from '../../atom/button-link';
 import Chips from '../../atom/chips';
@@ -8,12 +9,7 @@ import style from './style.css';
 
 const buildResultView = (results, resultsAriaLabel, emptyMessages) => {
   if (isEmpty(results)) {
-    return (
-      <div className={style.errorSection}>
-        <span className={style.firstErrorMessage}>{emptyMessages.firstMessage}</span>
-        <span className={style.secondErrorMessage}>{emptyMessages.secondMessage}</span>
-      </div>
-    );
+    return <EmptySearchResult {...emptyMessages} />;
   }
 
   const items = results.map((result, index) => {
@@ -22,7 +18,7 @@ const buildResultView = (results, resultsAriaLabel, emptyMessages) => {
         <Chips {...result} />
       </li>
     );
-  }, results);
+  });
 
   return <ul aria-label={resultsAriaLabel}>{items}</ul>;
 };

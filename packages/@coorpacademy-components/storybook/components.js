@@ -15,6 +15,7 @@ import AtomContentBadge from './../src/atom/content-badge';
 import AtomCta from './../src/atom/cta';
 import AtomDifficultyLevel from './../src/atom/difficulty-level';
 import AtomDragAndDrop from './../src/atom/drag-and-drop';
+import AtomEmptySearchResult from './../src/atom/empty-search-result';
 import AtomImageUpload from './../src/atom/image-upload';
 import AtomInputCheckbox from './../src/atom/input-checkbox';
 import AtomInputColor from './../src/atom/input-color';
@@ -146,6 +147,7 @@ import OrganismBrandTable from './../src/organism/brand-table';
 import OrganismBrandUpload from './../src/organism/brand-upload';
 import OrganismCardsGrid from './../src/organism/cards-grid';
 import OrganismCart from './../src/organism/cart';
+import OrganismCourseSelection from './../src/organism/course-selection';
 import OrganismDiscussion from './../src/organism/discussion';
 import OrganismGetTheApp from './../src/organism/get-the-app';
 import OrganismGridList from './../src/organism/grid-list';
@@ -259,6 +261,7 @@ import AtomDragAndDropFixtureWithChildren from '../src/atom/drag-and-drop/test/f
 import AtomDragAndDropFixtureWithImageReset from '../src/atom/drag-and-drop/test/fixtures/with-image-reset';
 import AtomDragAndDropFixtureWithImage from '../src/atom/drag-and-drop/test/fixtures/with-image';
 import AtomDragAndDropFixtureWithVideo from '../src/atom/drag-and-drop/test/fixtures/with-video';
+import AtomEmptySearchResultFixtureDefault from '../src/atom/empty-search-result/test/fixtures/default';
 import AtomImageUploadFixtureDesktopResetDescriptionMultiple from '../src/atom/image-upload/test/fixtures/desktop-reset-description-multiple';
 import AtomImageUploadFixtureDesktopResetDescriptionOnlyPng from '../src/atom/image-upload/test/fixtures/desktop-reset-description-only-png';
 import AtomImageUploadFixtureDesktopResetDescription from '../src/atom/image-upload/test/fixtures/desktop-reset-description';
@@ -778,6 +781,11 @@ import OrganismCardsGridFixtureEmpty from '../src/organism/cards-grid/test/fixtu
 import OrganismCardsGridFixtureLoading from '../src/organism/cards-grid/test/fixtures/loading';
 import OrganismCardsGridFixtureMany from '../src/organism/cards-grid/test/fixtures/many';
 import OrganismCartFixtureDefault from '../src/organism/cart/test/fixtures/default';
+import OrganismCourseSelectionFixtureDefault from '../src/organism/course-selection/test/fixtures/default';
+import OrganismCourseSelectionFixtureEmpty from '../src/organism/course-selection/test/fixtures/empty';
+import OrganismCourseSelectionFixtureFiltered from '../src/organism/course-selection/test/fixtures/filtered';
+import OrganismCourseSelectionFixtureSortedSelected from '../src/organism/course-selection/test/fixtures/sorted-selected';
+import OrganismCourseSelectionFixtureUnsortedSelected from '../src/organism/course-selection/test/fixtures/unsorted-selected';
 import OrganismDiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/default';
 import OrganismDiscussionFixtureLoadingMore from '../src/organism/discussion/test/fixtures/loading-more';
 import OrganismDiscussionFixtureModeration from '../src/organism/discussion/test/fixtures/moderation';
@@ -1067,6 +1075,7 @@ export const components = {
     AtomCta,
     AtomDifficultyLevel,
     AtomDragAndDrop,
+    AtomEmptySearchResult,
     AtomImageUpload,
     AtomInputCheckbox,
     AtomInputColor,
@@ -1214,6 +1223,7 @@ export const components = {
     OrganismBrandUpload,
     OrganismCardsGrid,
     OrganismCart,
+    OrganismCourseSelection,
     OrganismDiscussion,
     OrganismGetTheApp,
     OrganismGridList,
@@ -1377,6 +1387,9 @@ export const fixtures = {
       WithImageReset: AtomDragAndDropFixtureWithImageReset,
       WithImage: AtomDragAndDropFixtureWithImage,
       WithVideo: AtomDragAndDropFixtureWithVideo
+    },
+    AtomEmptySearchResult: {
+      Default: AtomEmptySearchResultFixtureDefault
     },
     AtomImageUpload: {
       DesktopResetDescriptionMultiple: AtomImageUploadFixtureDesktopResetDescriptionMultiple,
@@ -2174,6 +2187,13 @@ export const fixtures = {
     },
     OrganismCart: {
       Default: OrganismCartFixtureDefault
+    },
+    OrganismCourseSelection: {
+      Default: OrganismCourseSelectionFixtureDefault,
+      Empty: OrganismCourseSelectionFixtureEmpty,
+      Filtered: OrganismCourseSelectionFixtureFiltered,
+      SortedSelected: OrganismCourseSelectionFixtureSortedSelected,
+      UnsortedSelected: OrganismCourseSelectionFixtureUnsortedSelected
     },
     OrganismDiscussion: {
       Default: OrganismDiscussionFixtureDefault,
