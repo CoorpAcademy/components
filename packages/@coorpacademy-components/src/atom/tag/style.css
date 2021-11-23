@@ -22,7 +22,11 @@
 .revised {
     composes: tag;
     background-color: color(cm_yellow_200 a(15%));
-    color: cm_yellow_200;
+    color: cm_yellow_200; 
+}
+
+.draft {
+   composes: revised;
 }
 
 .draft {
