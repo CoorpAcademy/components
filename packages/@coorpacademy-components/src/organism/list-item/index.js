@@ -17,12 +17,12 @@ const ListItem = props => {
               <Tag label={tags[0].label} type={tags[0].type} />
             </div>
             <div>
-              <Tag label="Published" type="published" />
+              <Tag label={tags[1].label} type={tags[1].type} />
             </div>
           </>
         ) : (
           <div>
-            <Tag label={tags[1].label} type={tags[1].type} />
+            <Tag label={tags[0].label} type={tags[0].type} />
           </div>
         )}
 

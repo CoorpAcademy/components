@@ -2,8 +2,12 @@ export default {
   props: {
     id: 'default',
     title: 'Leaders of tomorrow',
-    type: 'published',
-    label: 'Published',
+    tags: [
+      {
+        label: 'Published',
+        type: 'published'
+      }
+    ],
     buttons: [
       {
         'data-name': 'CP-archive-button',
