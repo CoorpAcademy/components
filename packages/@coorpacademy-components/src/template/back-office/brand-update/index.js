@@ -13,7 +13,7 @@ import BrandTable from '../../../organism/brand-table';
 import BrandUpload from '../../../organism/brand-upload';
 import BrandAnalytics from '../../../organism/brand-analytics';
 import BrandDashboard from '../../../organism/brand-dashboard';
-import Notification from '../../../atom/notification';
+import Banner from '../../../molecule/banner';
 import Header from '../../../organism/setup-header';
 import Loader from '../../../atom/loader';
 import Accordion from '../../../organism/accordion/coorp-manager';
@@ -77,7 +77,7 @@ const buildNotifications = notifications => {
   const notificationsList = notifications.map((notification, index) => {
     return (
       <div className={style.notification} key={index}>
-        <Notification {...notification} />
+        <Banner {...notification} />
       </div>
     );
   });
@@ -149,7 +149,7 @@ BrandUpdate.defaultProps = {
 };
 
 BrandUpdate.propTypes = {
-  notifications: PropTypes.arrayOf(PropTypes.shape(Notification.propTypes)),
+  notifications: PropTypes.arrayOf(PropTypes.shape(Banner.propTypes)),
   header: PropTypes.shape({...Header.propTypes}),
   items: PropTypes.arrayOf(
     PropTypes.shape({
