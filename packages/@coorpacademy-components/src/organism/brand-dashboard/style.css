@@ -8,9 +8,3 @@
 .cardsWrapper {
   margin-top: 16px;
 }
-
-@media cm_tablet {
-  .wrapper {
-    margin: 0px 32px;
-  }
-}

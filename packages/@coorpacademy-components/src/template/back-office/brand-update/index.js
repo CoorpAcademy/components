@@ -109,34 +109,38 @@ const buildTabs = items => {
   ) : null;
 };
 
+const buildContentView = cont => {
+  if (!cont) return <Loader />;
+  const {type} = cont;
+  switch (type) {
+    case 'form':
+      return <BrandForm {...cont} />;
+    case 'list':
+      return <BrandTable {...cont} />;
+    case 'upload':
+      return <BrandUpload {...cont} />;
+    case 'analytics-dashboards':
+      return <BrandAnalytics {...cont} />;
+    case 'home':
+      return <BrandDashboard {...cont} />;
+  }
+};
+
+const buildDetailsView = details => {
+  if (!details) return;
+  return <BrandTable {...details} />;
+};
+
 const BrandUpdate = props => {
   const {notifications, header, items, content, details, onItemClick} = props;
   const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
-  
+
   const leftNavigation = buildLeftNavigation(logo, items, onItemClick);
   const notificationsView = buildNotifications(notifications);
   const headerView = buildHeader(header, notifications);
   const tabsView = buildTabs(items);
-  const contentView = cont => {
-    if (!cont) return <Loader />;
-    const {type} = cont;
-    switch (type) {
-      case 'form':
-        return <BrandForm {...cont} />;
-      case 'list':
-        return <BrandTable {...cont} />;
-      case 'upload':
-        return <BrandUpload {...cont} />;
-      case 'analytics-dashboards':
-        return <BrandAnalytics {...cont} />;
-      case 'home':
-        return <BrandDashboard {...cont} />;
-    }
-  };
-  const detailsView = cont => {
-    if (!cont) return;
-    return <BrandTable {...cont} />;
-  };
+  const contentView = buildContentView(content);
+  const detailsView = buildDetailsView(details);
 
   return (
     <div className={style.container}>
@@ -145,8 +149,8 @@ const BrandUpdate = props => {
         {headerView}
         {notificationsView}
         {tabsView}
-        {contentView(content)}
-        {detailsView(details)}
+        {contentView}
+        {detailsView}
       </div>
     </div>
   );
