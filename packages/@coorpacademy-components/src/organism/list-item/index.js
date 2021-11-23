@@ -6,7 +6,7 @@ import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import style from './style.css';
 
 const ListItem = props => {
-  const {title, tags, editButtonOnClick, bulletPointButtonOnClick, buttons} = props;
+  const {title, tags, buttonLink, bulletPointButtonOnClick, buttons} = props;
   return (
     <div className={style.wrapper}>
       <div className={style.title}>{title}</div>
@@ -27,17 +27,7 @@ const ListItem = props => {
         )}
 
         <div className={style.edit}>
-          <ButtonLink
-            type="secondary"
-            label="Edit"
-            ariaLabel="aria button"
-            dataName="default-button"
-            icon={{
-              position: 'left',
-              type: 'edit'
-            }}
-            onClick={editButtonOnClick}
-          />
+          <ButtonLink {...buttonLink} />
         </div>
         <BulletPointMenuButton
           buttonAriaLabel="aria button"
@@ -53,7 +43,17 @@ const ListItem = props => {
 ListItem.propTypes = {
   bulletPointButtonOnClick: PropTypes.func.isRequired,
   buttons: BulletPointMenuButton.propTypes.buttons,
-  editButtonOnClick: PropTypes.func.isRequired,
+  buttonLink: PropTypes.shape({
+    type: PropTypes.string,
+    label: PropTypes.string,
+    ariaLabel: PropTypes.string,
+    dataName: PropTypes.string,
+    icon: PropTypes.shape({
+      position: PropTypes.string,
+      type: PropTypes.string
+    }),
+    onClick: PropTypes.func
+  }),
   tags: PropTypes.arrayOf(
     PropTypes.shape({
       label: PropTypes.string,
