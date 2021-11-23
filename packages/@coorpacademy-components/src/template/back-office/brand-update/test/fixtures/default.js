@@ -39,62 +39,7 @@ export const items = [
     href: '#brand/samsung/content-creation',
     selected: false,
     isOpen: true,
-    type: 'collapsibleTab',
-    tabs: [
-      {
-        title: 'My platform',
-        href: '#/myplatform',
-        selected: true,
-        subTabs: [
-          {
-            name: 'general-settings',
-            title: 'general-settings',
-            href: `general-settings`,
-            selected: false
-          },
-          {
-            name: 'sso',
-            title: 'sso',
-            href: `sso`,
-            selected: false
-          },
-          {
-            name: 'danger-zone',
-            title: 'danger-zone',
-            href: `danger-zone`,
-            selected: false
-          },
-          {
-            name: 'manage-users',
-            title: 'manage-users',
-            href: `manage-users`,
-            selected: true
-          },
-          {
-            name: 'upload-users',
-            title: 'upload-users',
-            href: `upload-users`,
-            selected: false
-          },
-          {
-            name: 'lms',
-            title: 'lms',
-            href: `lms`,
-            selected: false
-          },
-          {
-            name: 'teams',
-            title: 'teams',
-            href: `teams`,
-            selected: false
-          }
-        ]
-      },
-      {title: 'Look and Feel', href: '#/look-and-feel', selected: false},
-      {title: 'Settings', href: '#/settings', selected: false},
-      {title: 'Any', href: '#/any', selected: false},
-      {title: 'Many', href: '#/many', selected: false}
-    ]
+    type: 'collapsibleTab'
   },
   {
     title: 'Analytics',
