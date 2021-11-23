@@ -123,7 +123,7 @@ const BrandUpdate = props => {
   return (
     <div className={style.container}>
       {leftNavigation}
-      <div className={style.rightSide}>
+      <div className={style.contentWrapper}>
         <Header {...header} />
         {notificationsView}
         {selectedTab && !isEmpty(selectedTab.subTabs) ? (

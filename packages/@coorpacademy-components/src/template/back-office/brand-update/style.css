@@ -48,9 +48,10 @@
   background: xtraLightGrey;
 }
 
-.rightSide {
+.contentWrapper {
   width: 100%;
   margin: 0px 64px;
+  overflow: auto;
 }
 
 .selectedElement {
