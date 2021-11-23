@@ -1,6 +1,6 @@
 import {defaultsDeep} from 'lodash/fp';
 import BrandTable from '../../../../../organism/brand-table/test/fixtures/default';
-import Users from './manageusers';
+import Users from './default';
 
 const {props} = Users;
 const content = BrandTable.props;
