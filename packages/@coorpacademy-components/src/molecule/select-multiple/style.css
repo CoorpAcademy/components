@@ -9,6 +9,8 @@
 @value cm_grey_400 from colors;
 @value cm_grey_700 from colors;
 @value cm_grey_200 from colors;
+@value cm_grey_150 from colors;
+@value cm_grey_100 from colors;
 @value cm_negative_100 from colors;
 @value medium from colors;
 @value defaultText from "../../variables/fonts.css";
@@ -245,6 +247,10 @@
   left: 16px;
 }
 
+.coorpmanager .select:hover {
+  background-color: cm_grey_150;
+}
+
 .coorpmanager .select .selection {
   font-size: 14px;
   font-weight: 500;
@@ -396,6 +402,11 @@
   align-items: center;
 }
 
+.coorpmanager .flex:nth-child(2) {
+  padding: 0 16px;
+  margin-left: 16px;
+}
+
 .coorpmanager .flex .arrow {
   position: relative;
   right: 0;
@@ -445,4 +456,30 @@
 
 .coorpmanager.error .hint {
   color: cm_negative_100;
+}
+
+.coorpmanager.disabled .select {
+  background-color: cm_grey_100;
+}
+
+.coorpmanager.disabled .select .selection {
+  color: cm_grey_100;
+}
+
+.coorpmanager.disabled .select .title {
+  color: cm_grey_700;
+}
+
+.coorpmanager.disabled .select .title.noValue,
+.coorpmanager.disabled .select .selection {
+  color: cm_grey_700;
+  opacity: 0.5;
+}
+
+.coorpmanager.disabled .select .title.titleWithSelection {
+  color: cm_grey_400;
+}
+
+.coorpmanager.disabled .arrow {
+  opacity: 0.5;
 }

@@ -73,7 +73,8 @@ const SelectMultiple = (
     onError,
     modified = false,
     required = false,
-    error = false
+    error = false,
+    disabled = false
   },
   {skin}
 ) => {
@@ -88,7 +89,9 @@ const SelectMultiple = (
     e.preventDefault();
     e.stopPropagation();
 
-    updateIsOpened(prev => !prev);
+    if(!disabled) { 
+      updateIsOpened(prev => !prev);
+    }
   }, []);
 
   const closeHandle = useCallback(e => {
@@ -187,7 +190,7 @@ const SelectMultiple = (
   const errorIconView = error ? <ErrorIcon onClick={onError} className={style.errorIcon} /> : null;
 
   return (
-    <div className={classnames(mainClass, behaviourClassName)} ref={nodeRef}>
+    <div className={classnames(mainClass, behaviourClassName, disabled && style.disabled)} ref={nodeRef}>
       <label>
         {!isCMTheme && titleView}
         <div className={style.select} title={selection || placeholder} onClick={handleOnClick}>
@@ -247,6 +250,7 @@ SelectMultiple.propTypes = {
   onError: PropTypes.func,
   multiple: PropTypes.bool,
   modified: PropTypes.bool,
+  disabled: PropTypes.bool,
   required: PropTypes.bool,
   error: PropTypes.bool,
   theme: PropTypes.oneOf(['default', 'coorpmanager', 'cockpit', 'sidebar', 'setup'])

@@ -5,6 +5,7 @@ export default {
     title: 'Input Name',
     description: 'You should select a language',
     multiple: true,
+    disabled: false,
     error: true,
     hint: 'Hint',
     options: [
