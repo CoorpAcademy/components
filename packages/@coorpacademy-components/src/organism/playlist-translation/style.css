@@ -14,7 +14,7 @@
 
 .menu {
   background-color: cm_grey_50;
-  height: 88%;
+  height: auto;
   width: 200px;
   margin: 24px 8px 24px 24px;
   position: absolute;
