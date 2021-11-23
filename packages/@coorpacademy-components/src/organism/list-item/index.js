@@ -54,7 +54,12 @@ ListItem.propTypes = {
   bulletPointButtonOnClick: PropTypes.func.isRequired,
   buttons: BulletPointMenuButton.propTypes.buttons,
   editButtonOnClick: PropTypes.func.isRequired,
-  label: PropTypes.oneOf(['Published', 'Draft', 'Archived', 'Ongoing changes']),
+  tags: PropTypes.arrayOf(
+    PropTypes.shape({
+      label: PropTypes.string,
+      type: PropTypes.oneOf(['Published', 'Draft', 'Archived', 'Ongoing changes'])
+    })
+  ),
   title: PropTypes.string.isRequired,
   type: PropTypes.oneOf(['default', 'published', 'revised', 'archived', 'draft'])
 };
