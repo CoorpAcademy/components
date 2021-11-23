@@ -15,6 +15,7 @@ import AtomContentBadge from './../src/atom/content-badge';
 import AtomCta from './../src/atom/cta';
 import AtomDifficultyLevel from './../src/atom/difficulty-level';
 import AtomDragAndDrop from './../src/atom/drag-and-drop';
+import AtomEmptySearchResult from './../src/atom/empty-search-result';
 import AtomImageUpload from './../src/atom/image-upload';
 import AtomInputCheckbox from './../src/atom/input-checkbox';
 import AtomInputColor from './../src/atom/input-color';
@@ -80,7 +81,6 @@ import MoleculeDisciplineHeader from './../src/molecule/discipline-header';
 import MoleculeDisciplinePartners from './../src/molecule/discipline-partners';
 import MoleculeDisciplineScope from './../src/molecule/discipline-scope';
 import MoleculeDragAndDrop from './../src/molecule/drag-and-drop';
-import MoleculeEmptySearchResult from './../src/molecule/empty-search-result';
 import MoleculeExternalContentButton from './../src/molecule/external-content-button';
 import MoleculeExternalContentViewer from './../src/molecule/external-content-viewer';
 import MoleculeFeedback from './../src/molecule/feedback';
@@ -261,6 +261,7 @@ import AtomDragAndDropFixtureWithChildren from '../src/atom/drag-and-drop/test/f
 import AtomDragAndDropFixtureWithImageReset from '../src/atom/drag-and-drop/test/fixtures/with-image-reset';
 import AtomDragAndDropFixtureWithImage from '../src/atom/drag-and-drop/test/fixtures/with-image';
 import AtomDragAndDropFixtureWithVideo from '../src/atom/drag-and-drop/test/fixtures/with-video';
+import AtomEmptySearchResultFixtureDefault from '../src/atom/empty-search-result/test/fixtures/default';
 import AtomImageUploadFixtureDesktopResetDescriptionMultiple from '../src/atom/image-upload/test/fixtures/desktop-reset-description-multiple';
 import AtomImageUploadFixtureDesktopResetDescriptionOnlyPng from '../src/atom/image-upload/test/fixtures/desktop-reset-description-only-png';
 import AtomImageUploadFixtureDesktopResetDescription from '../src/atom/image-upload/test/fixtures/desktop-reset-description';
@@ -532,7 +533,6 @@ import MoleculeDragAndDropFixtureReadyInvalid from '../src/molecule/drag-and-dro
 import MoleculeDragAndDropFixtureReady from '../src/molecule/drag-and-drop/test/fixtures/ready';
 import MoleculeDragAndDropFixtureSuccessVideo from '../src/molecule/drag-and-drop/test/fixtures/success-video';
 import MoleculeDragAndDropFixtureSuccess from '../src/molecule/drag-and-drop/test/fixtures/success';
-import MoleculeEmptySearchResultFixtureDefault from '../src/molecule/empty-search-result/test/fixtures/default';
 import MoleculeExternalContentButtonFixtureArticle from '../src/molecule/external-content-button/test/fixtures/article';
 import MoleculeExternalContentButtonFixturePodcast from '../src/molecule/external-content-button/test/fixtures/podcast';
 import MoleculeExternalContentButtonFixtureScorm from '../src/molecule/external-content-button/test/fixtures/scorm';
@@ -1074,6 +1074,7 @@ export const components = {
     AtomCta,
     AtomDifficultyLevel,
     AtomDragAndDrop,
+    AtomEmptySearchResult,
     AtomImageUpload,
     AtomInputCheckbox,
     AtomInputColor,
@@ -1139,7 +1140,6 @@ export const components = {
     MoleculeDisciplinePartners,
     MoleculeDisciplineScope,
     MoleculeDragAndDrop,
-    MoleculeEmptySearchResult,
     MoleculeExternalContentButton,
     MoleculeExternalContentViewer,
     MoleculeFeedback,
@@ -1386,6 +1386,9 @@ export const fixtures = {
       WithImageReset: AtomDragAndDropFixtureWithImageReset,
       WithImage: AtomDragAndDropFixtureWithImage,
       WithVideo: AtomDragAndDropFixtureWithVideo
+    },
+    AtomEmptySearchResult: {
+      Default: AtomEmptySearchResultFixtureDefault
     },
     AtomImageUpload: {
       DesktopResetDescriptionMultiple: AtomImageUploadFixtureDesktopResetDescriptionMultiple,
@@ -1770,9 +1773,6 @@ export const fixtures = {
       Ready: MoleculeDragAndDropFixtureReady,
       SuccessVideo: MoleculeDragAndDropFixtureSuccessVideo,
       Success: MoleculeDragAndDropFixtureSuccess
-    },
-    MoleculeEmptySearchResult: {
-      Default: MoleculeEmptySearchResultFixtureDefault
     },
     MoleculeExternalContentButton: {
       Article: MoleculeExternalContentButtonFixtureArticle,
