@@ -49,7 +49,7 @@
 
 .contentWrapper {
   width: 100%;
-  margin: 0px 64px;
+  padding: 0px 64px;
   display: flex;
   flex-direction: column;
   overflow: auto;
