@@ -56,7 +56,7 @@ const buildLeftNavigation = (logo, items, onItemClick) => {
   ))(items);
 
   return (
-    <div className={style.dashboardAside}>
+    <div className={style.leftMenu}>
       <div className={style.logo}>
         <a href="/">
           <img src={logo} />

@@ -1,6 +1,7 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value cm_tablet from breakpoints;
+@value desktop from breakpoints;
 @value colors: "../../variables/colors.css";
 @value light from colors;
 @value medium from colors;
@@ -23,6 +24,7 @@
   margin: 24px 0px 0px 0px;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 [data-name="logout-hide"] {
@@ -147,6 +149,20 @@
   display: none;
 }
 
+@media desktop {
+  .platformListIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 16px 0px 0px;
+    width: 44px;
+  }
+
+  .platformList {
+    display: none;
+  }
+}
+
 @media cm_tablet {
   [data-name="logout-show"] {
     position: absolute;
@@ -206,11 +222,6 @@
   .logOut {
     display: none;
   }
-
-  .container {
-    margin: 24px 32px;
-  }
-  
 }
 
 @media mobile {

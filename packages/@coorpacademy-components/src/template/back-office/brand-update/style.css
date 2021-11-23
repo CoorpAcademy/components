@@ -13,7 +13,6 @@
 .container {
   width: 100%;
   height: 100%;
-  max-width: 100%;
   scroll-behavior: unset;
   margin: 0 auto;
   padding-bottom: 80px 20px;
@@ -42,7 +41,7 @@
   margin-bottom: 0;
 }
 
-.dashboardAside {
+.leftMenu {
   scroll-behavior: unset;
   min-width: 223px;
   background: xtraLightGrey;
@@ -51,6 +50,8 @@
 .contentWrapper {
   width: 100%;
   margin: 0px 64px;
+  display: flex;
+  flex-direction: column;
   overflow: auto;
 }
 
