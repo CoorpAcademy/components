@@ -93,9 +93,7 @@ const buildHeader = (header, notifications) => {
   );
 };
 
-const BrandUpdate = props => {
-  const {notifications, header, items, content, details, onItemClick} = props;
-  const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
+const buildTabs = items => {
   const selectedTab = pipe(
     filter(e => e.selected),
     head,
@@ -104,9 +102,21 @@ const BrandUpdate = props => {
     head
   )(items);
 
+  return selectedTab && !isEmpty(selectedTab.subTabs) ? (
+    <div>
+      <BrandTabs type="light" tabs={selectedTab.subTabs} />
+    </div>
+  ) : null;
+};
+
+const BrandUpdate = props => {
+  const {notifications, header, items, content, details, onItemClick} = props;
+  const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
+  
   const leftNavigation = buildLeftNavigation(logo, items, onItemClick);
   const notificationsView = buildNotifications(notifications);
   const headerView = buildHeader(header, notifications);
+  const tabsView = buildTabs(items);
   const contentView = cont => {
     if (!cont) return <Loader />;
     const {type} = cont;
@@ -134,9 +144,7 @@ const BrandUpdate = props => {
       <div className={style.contentWrapper}>
         {headerView}
         {notificationsView}
-        {selectedTab && !isEmpty(selectedTab.subTabs) ? (
-          <BrandTabs type="light" tabs={selectedTab.subTabs} />
-        ) : null}
+        {tabsView}
         {contentView(content)}
         {detailsView(details)}
       </div>
