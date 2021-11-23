@@ -32,8 +32,19 @@ const ListItem = props => {
 };
 
 ListItem.propTypes = {
-  bulletPointMenuButton: BulletPointMenuButton.propTypes,
-
+  bulletPointMenuButton: PropTypes.shape({
+    buttonAriaLabel: PropTypes.string,
+    menuAriaLabel: PropTypes.string,
+    buttons: PropTypes.arrayOf(
+      PropTypes.shape({
+        'data-name': PropTypes.string,
+        label: PropTypes.string,
+        type: PropTypes.string,
+        onClick: PropTypes.func
+      })
+    ),
+    onClick: PropTypes.func
+  }),
   buttonLink: PropTypes.shape({
     type: PropTypes.string,
     label: PropTypes.string,
