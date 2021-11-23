@@ -22,7 +22,17 @@ export default {
         onClick: () => console.log('click')
       }
     ],
-    editButtonOnClick: () => console.log('click'),
+    buttonLink: {
+      type: 'secondary',
+      label: 'Edit',
+      ariaLabel: 'aria button',
+      dataName: 'default-button',
+      icon: {
+        position: 'left',
+        type: 'edit'
+      },
+      onClick: () => console.log('click')
+    },
     bulletPointButtonOnClick: () => console.log('click')
   }
 };
