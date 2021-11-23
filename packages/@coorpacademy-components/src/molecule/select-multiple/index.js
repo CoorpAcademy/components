@@ -89,7 +89,7 @@ const SelectMultiple = (
     e.preventDefault();
     e.stopPropagation();
 
-    if(!disabled) { 
+    if (!disabled) {
       updateIsOpened(prev => !prev);
     }
   }, []);
@@ -190,7 +190,10 @@ const SelectMultiple = (
   const errorIconView = error ? <ErrorIcon onClick={onError} className={style.errorIcon} /> : null;
 
   return (
-    <div className={classnames(mainClass, behaviourClassName, disabled && style.disabled)} ref={nodeRef}>
+    <div
+      className={classnames(mainClass, behaviourClassName, disabled && style.disabled)}
+      ref={nodeRef}
+    >
       <label>
         {!isCMTheme && titleView}
         <div className={style.select} title={selection || placeholder} onClick={handleOnClick}>
