@@ -8,20 +8,25 @@ export default {
         type: 'draft'
       }
     ],
-    buttons: [
-      {
-        'data-name': 'CP-publish-button',
-        label: 'Publish',
-        type: 'default',
-        onClick: () => console.log('click')
-      },
-      {
-        'data-name': 'CP-delete-button',
-        label: 'Delete',
-        type: 'dangerous',
-        onClick: () => console.log('click')
-      }
-    ],
+    bulletPointMenuButton: {
+      buttonAriaLabel: 'aria button',
+      menuAriaLabel: 'aria menu',
+      buttons: [
+        {
+          'data-name': 'CP-publish-button',
+          label: 'Publish',
+          type: 'default',
+          onClick: () => console.log('click')
+        },
+        {
+          'data-name': 'CP-delete-button',
+          label: 'Delete',
+          type: 'dangerous',
+          onClick: () => console.log('click')
+        }
+      ],
+      onClick: () => console.log('click')
+    },
     buttonLink: {
       type: 'secondary',
       label: 'Edit',
