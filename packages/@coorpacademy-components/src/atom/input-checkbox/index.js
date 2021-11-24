@@ -1,12 +1,12 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import {NovaSolidStatusValidate as CheckIcon} from '@coorpacademy/nova-icons';
 import {noop, uniqueId} from 'lodash/fp';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
 const titleStylesClassNames = {
+  default: style.standard,
   primary: style.primary,
   secondary: style.secondary,
   tertiary: style.tertiary
@@ -22,7 +22,6 @@ const InputCheckbox = props => {
     titleStyle = 'primary',
     modified = false,
     theme = 'default',
-    extraClassName = null,
     title: propsTitle
   } = props;
 
@@ -37,7 +36,7 @@ const InputCheckbox = props => {
   const defaultContainerClassName = theme === 'coorpmanager' ? style.coorpManager : style.default;
 
   const className = getClassState(
-    classnames(defaultContainerClassName, extraClassName),
+    defaultContainerClassName,
     modifiedClassName,
     errorClassName,
     modified,
@@ -58,7 +57,9 @@ const InputCheckbox = props => {
       <label htmlFor={idCheckbox}>
         <CheckIcon className={style.icon} />
       </label>
-      <span className={titleStyleClassName}>{title}</span>
+      <span className={titleStyleClassName} title={title}>
+        {title}
+      </span>
     </div>
   );
 };
@@ -71,7 +72,6 @@ InputCheckbox.propTypes = {
   error: PropTypes.bool,
   onChange: PropTypes.func,
   modified: PropTypes.bool,
-  extraClassName: PropTypes.string,
   theme: PropTypes.oneOf(['coorpmanager', 'default']),
   titleStyle: PropTypes.oneOf(['primary', 'secondary', 'tertiary'])
 };

@@ -27,6 +27,19 @@
   align-items: center;
 }
 
+.standard {
+  color: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.standard label{
+  margin-right: 0;
+  margin-left: 0;
+}
+
 .coorpManagerError {
   composes: coorpManager;
 }

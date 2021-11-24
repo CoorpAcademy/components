@@ -10,7 +10,7 @@ export default {
     hint: 'Hint',
     options: [
       {
-        name: '🇬🇧 English',
+        name: '🇬🇧 English very looooooooonnnnnnnnnnnnnnnnnnngggggggggggg',
         value: 'en',
         selected: true
       },

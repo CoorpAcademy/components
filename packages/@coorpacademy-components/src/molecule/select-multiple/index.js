@@ -48,15 +48,19 @@ const CMMultipleView = ({multiple, choice, onChange}) => {
   );
 
   return multiple ? (
-    <Checkbox
-      extraClassName={style.checkbox}
-      type="checkbox"
-      checked={choice.selected}
-      onChange={handleChange}
-      title={choice.name}
-    />
+    <div className={style.item}>
+      <Checkbox
+        type="checkbox"
+        titleStyle={'default'}
+        checked={choice.selected}
+        onChange={handleChange}
+        title={choice.name}
+      />
+    </div>
   ) : (
-    <span onClick={handleChange}>{choice.name}</span>
+    <span className={style.item} onClick={handleChange} title={choice.name}>
+      {choice.name}
+    </span>
   );
 };
 
@@ -223,7 +227,7 @@ const SelectMultiple = (
             />
           )}
         </div>
-        <div className={isActive ? style.activeChoices : style.choices}>
+        <div className={classnames(style.choices, isActive && style.activeChoices)}>
           <ul className={style.list}>{lines}</ul>
         </div>
       </label>
