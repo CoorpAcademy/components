@@ -29,6 +29,10 @@
 }
 
 .tabs {
+  padding: 0 0 48px 0;
+}
+
+.subTabsView {
   font-family: 'Gilroy';
   margin-left: 16%;
   padding: 1px 34px 1px 16px;

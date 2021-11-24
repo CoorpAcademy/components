@@ -4,8 +4,7 @@ import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import get from 'lodash/fp/get';
 import isEmpty from 'lodash/fp/isEmpty';
-import filter from 'lodash/fp/filter';
-import head from 'lodash/fp/head';
+import find from 'lodash/fp/find';
 import BrandTabs from '../../../molecule/brand-tabs';
 import {IconLinkItem, LinkItem} from '../../../organism/sidebar';
 import BrandForm from '../../../organism/brand-form';
@@ -50,7 +49,7 @@ const buildLeftNavigation = (logo, items, onItemClick) => {
   }));
 
   const formattedTabsViews = map(tab => (
-    <div key={tab.title} className={style.tabs}>
+    <div key={tab.title} className={style.subTabsView}>
       {subTabsView(tab.tabs)}
     </div>
   ))(items);
@@ -95,17 +94,15 @@ const buildHeader = (header, notifications) => {
 
 const buildTabs = items => {
   const selectedTab = pipe(
-    filter(e => e.selected),
-    head,
+    find(e => e.selected),
     get('tabs'),
-    filter(e => e.selected),
-    head
+    find(e => e.selected)
   )(items);
 
   const showTabs = selectedTab && !isEmpty(selectedTab.subTabs);
   if (!showTabs) return null;
   return (
-    <div>
+    <div className={style.tabs}>
       <BrandTabs type="light" tabs={selectedTab.subTabs} />
     </div>
   );
