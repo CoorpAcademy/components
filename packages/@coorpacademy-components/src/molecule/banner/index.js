@@ -9,7 +9,11 @@ const Banner = props => {
   const {type, message, firstCTA, firstCTALabel, secondCTALabel, secondCTA} = props;
   return (
     <div
-      className={classnames(style.banner, type === 'error' && style.errorBanner)}
+      className={classnames(
+        style.banner,
+        type === 'error' && style.errorBanner,
+        type === 'success' && style.successBanner
+      )}
       title={message}
     >
       <div data-name={`${type}-banner-message`} className={style.message}>
