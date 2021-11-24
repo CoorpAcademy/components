@@ -21,4 +21,15 @@
 
 .desktopRight {
   width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+
+.summaryZone {
+  height: 300px;
+  width: 100%;
+}
+
+.actionZone {
+  width: 100%;
 }

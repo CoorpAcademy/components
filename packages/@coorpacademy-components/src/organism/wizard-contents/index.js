@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ButtonLink from '../../atom/button-link';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import WizardSteps from '../../atom/wizard-steps';
 import WizardSummary from '../../molecule/wizard-summary';
@@ -32,14 +33,31 @@ const buildHeader = (wizardHeader, steps) => {
 };
 
 const WizardContents = props => {
-  const {wizardHeader, steps, summary, content} = props;
+  const {wizardHeader, steps, summary, content, nextStep} = props;
   const headerView = buildHeader(wizardHeader, steps);
+
+  const nextStepButton = {
+    type: 'primary',
+    label: nextStep.label,
+    'aria-label': 'next step button',
+    'data-name': 'next-step-button',
+    icon: {
+      position: 'left',
+      type: 'chevron-left'
+    },
+    onClick: nextStep.onClick
+  };
 
   return (
     <div className={style.container}>
       <div className={style.content}>{headerView}</div>
       <div className={style.desktopRight}>
-        <WizardSummary {...summary} />
+        <div className={style.summaryZone}>
+          <WizardSummary {...summary} />
+        </div>
+        <div className={style.actionZone}>
+          <ButtonLink {...nextStepButton} />
+        </div>
       </div>
     </div>
   );
