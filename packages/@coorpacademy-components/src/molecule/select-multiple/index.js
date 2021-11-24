@@ -1,7 +1,7 @@
 import React, {useState, useEffect, useRef, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {map, pipe, join, filter, get, set, isEmpty} from 'lodash/fp';
+import {map, pipe, join, filter, get, set, keys, isEmpty} from 'lodash/fp';
 import {
   NovaCompositionNavigationArrowDown as ArrowDown,
   NovaSolidStatusClose as ErrorIcon,
@@ -73,7 +73,7 @@ const SelectMultiple = (
     onError,
     modified = false,
     required = false,
-    error = false,
+    error = '',
     disabled = false
   },
   {skin}
@@ -169,11 +169,11 @@ const SelectMultiple = (
   ) : null;
 
   const hintView =
-    theme === 'coorpmanager' && !isActive ? (
+    isCMTheme && !isActive ? (
       <div
         className={style.hint}
         // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{__html: hint}}
+        dangerouslySetInnerHTML={{__html: error || hint}}
       />
     ) : null;
 
@@ -255,8 +255,8 @@ SelectMultiple.propTypes = {
   modified: PropTypes.bool,
   disabled: PropTypes.bool,
   required: PropTypes.bool,
-  error: PropTypes.bool,
-  theme: PropTypes.oneOf(['default', 'coorpmanager', 'cockpit', 'sidebar', 'setup'])
+  error: PropTypes.string,
+  theme: PropTypes.oneOf(keys(themeStyle))
 };
 
 export default SelectMultiple;
