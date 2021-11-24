@@ -421,6 +421,8 @@ import MoleculeAudioFixtureDefault from '../src/molecule/audio/test/fixtures/def
 import MoleculeAudioFixtureWithPoster from '../src/molecule/audio/test/fixtures/with-poster';
 import MoleculeBannerFixtureDefault from '../src/molecule/banner/test/fixtures/default';
 import MoleculeBannerFixtureErrorBanner from '../src/molecule/banner/test/fixtures/error-banner';
+import MoleculeBannerFixtureErrorTemporaryBanner from '../src/molecule/banner/test/fixtures/error-temporary-banner';
+import MoleculeBannerFixtureSuccessTemporaryBanner from '../src/molecule/banner/test/fixtures/success-temporary-banner';
 import MoleculeBattleRequestFixtureArabic from '../src/molecule/battle-request/test/fixtures/arabic';
 import MoleculeBattleRequestFixtureDefault from '../src/molecule/battle-request/test/fixtures/default';
 import MoleculeBrandCardFixtureDefault from '../src/molecule/brand-card/test/fixtures/default';
@@ -1636,7 +1638,9 @@ export const fixtures = {
     },
     MoleculeBanner: {
       Default: MoleculeBannerFixtureDefault,
-      ErrorBanner: MoleculeBannerFixtureErrorBanner
+      ErrorBanner: MoleculeBannerFixtureErrorBanner,
+      ErrorTemporaryBanner: MoleculeBannerFixtureErrorTemporaryBanner,
+      SuccessTemporaryBanner: MoleculeBannerFixtureSuccessTemporaryBanner
     },
     MoleculeBattleRequest: {
       Arabic: MoleculeBattleRequestFixtureArabic,

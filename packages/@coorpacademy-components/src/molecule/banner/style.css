@@ -3,12 +3,30 @@
 @value colors: "../../variables/colors.css";
 @value white from colors;
 @value medium from colors;
+@value cm_positive_100 from colors;
 @value cm_negative_50 from colors;
 @value cm_negative_200 from colors;
 @value cm_warning_50 from colors;
 @value cm_yellow_100 from colors;
 @value cm_yellow_200 from colors;
 @value cm_yellow_400 from colors;
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        margin-top: -50px;
+    }
+
+    16% {
+        margin-top: 70px;
+        opacity: 1;
+    }
+
+    100% {
+        margin-top: 70px;
+        opacity: 1;
+    }
+}
 
 .banner {
     display: flex;
@@ -28,13 +46,28 @@
     color: cm_negative_200;
 }
 
-.successBanner {
+.successTemporaryBanner {
     display: inline-flex;
     align-items: center;  
     padding: 16px 24px; 
     border-radius: 5px;
-    background-color: cm_warning_50;
-    color: cm_yellow_200;
+    border-radius: 5px;
+    animation: fadeIn 1800ms;
+    animation-direction: alternate;
+    animation-iteration-count: 2;
+    animation-fill-mode: both;
+    animation-timing-function: ease-in;
+    z-index: 10000;
+    position: fixed;
+    top: 0; 
+    background-color: color(cm_positive_100 a(15%));
+    color: cm_positive_100;
+}
+.errorTemporaryBanner {
+    display: inline-flex;
+    align-items: center;  
+    padding: 16px 24px; 
+    border-radius: 5px;
     border-radius: 5px;
     animation: fadeIn 1800ms;
     animation-direction: alternate;
@@ -44,7 +77,8 @@
     z-index: 10000;
     position: fixed;
     top: 0;
-    
+    background-color: cm_negative_50;
+    color: cm_negative_200;   
 }
 
 
@@ -68,6 +102,12 @@
 .icon {
     height: 22px;
     margin-right: 16px;
+}
+
+.temporaryIcon {
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
 }
 
 .message {
