@@ -10,22 +10,22 @@ export default {
     hint: 'Hint',
     options: [
       {
-        name: 'English',
+        name: '🇬🇧 English',
         value: 'en',
         selected: true
       },
       {
-        name: 'German',
+        name: '🇩🇪 German',
         value: 'de',
         selected: false
       },
       {
-        name: 'Thai',
+        name: '🇹🇭 Thai',
         value: 'th',
         selected: false
       },
       {
-        name: 'Spanish',
+        name: '🇪🇸 Spanish',
         value: 'es',
         selected: false
       }
