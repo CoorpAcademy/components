@@ -167,6 +167,7 @@ import OrganismSetupHeader from './../src/organism/setup-header';
 import OrganismSidebar from './../src/organism/sidebar';
 import OrganismSlider from './../src/organism/slider';
 import OrganismUserPreferences from './../src/organism/user-preferences';
+import OrganismWizardContents from './../src/organism/wizard-contents';
 import TemplateActivity from './../src/template/activity';
 import TemplateAppPlayerLoading from './../src/template/app-player/loading';
 import TemplateAppPlayerPlayerSlidesFooter from './../src/template/app-player/player/slides/footer';
@@ -867,6 +868,8 @@ import OrganismSidebarFixtureShowcase from '../src/organism/sidebar/test/fixture
 import OrganismSliderFixtureDefault from '../src/organism/slider/test/fixtures/default';
 import OrganismSliderFixtureMultipleSlides from '../src/organism/slider/test/fixtures/multiple-slides';
 import OrganismUserPreferencesFixtureDefault from '../src/organism/user-preferences/test/fixtures/default';
+import OrganismWizardContentsFixturePlaylistGeneralSettingsCreate from '../src/organism/wizard-contents/test/fixtures/playlist-general-settings-create';
+import OrganismWizardContentsFixturePlaylistGeneralSettingsEdit from '../src/organism/wizard-contents/test/fixtures/playlist-general-settings-edit';
 import TemplateActivityFixtureAllEngines from '../src/template/activity/test/fixtures/all-engines';
 import TemplateActivityFixtureArabic from '../src/template/activity/test/fixtures/arabic';
 import TemplateActivityFixtureDefault from '../src/template/activity/test/fixtures/default';
@@ -1259,7 +1262,8 @@ export const components = {
     OrganismSetupHeader,
     OrganismSidebar,
     OrganismSlider,
-    OrganismUserPreferences
+    OrganismUserPreferences,
+    OrganismWizardContents
   },
   OrganismMooc: {
     OrganismMoocImageSlider
@@ -2327,6 +2331,10 @@ export const fixtures = {
     },
     OrganismUserPreferences: {
       Default: OrganismUserPreferencesFixtureDefault
+    },
+    OrganismWizardContents: {
+      PlaylistGeneralSettingsCreate: OrganismWizardContentsFixturePlaylistGeneralSettingsCreate,
+      PlaylistGeneralSettingsEdit: OrganismWizardContentsFixturePlaylistGeneralSettingsEdit
     }
   },
   OrganismMooc: {
