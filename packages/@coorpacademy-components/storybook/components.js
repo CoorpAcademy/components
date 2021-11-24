@@ -1024,6 +1024,8 @@ import TemplateBackOfficeBrandUpdateFixtureSso from '../src/template/back-office
 import TemplateBackOfficeBrandUpdateFixtureUploadusersLoading from '../src/template/back-office/brand-update/test/fixtures/uploadusers-loading';
 import TemplateBackOfficeBrandUpdateFixtureUploadusersSuccessful from '../src/template/back-office/brand-update/test/fixtures/uploadusers-successful';
 import TemplateBackOfficeBrandUpdateFixtureUploadusers from '../src/template/back-office/brand-update/test/fixtures/uploadusers';
+import TemplateBackOfficeBrandUpdateFixtureWizardFormCreatePlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-form-create-playlist';
+import TemplateBackOfficeBrandUpdateFixtureWizardFormEditPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-form-edit-playlist';
 import TemplateBackOfficeDashboardPreviewFixtureDefault from '../src/template/back-office/dashboard-preview/test/fixtures/default';
 import TemplateBackOfficeDashboardPreviewFixtureError from '../src/template/back-office/dashboard-preview/test/fixtures/error';
 import TemplateBackOfficeDashboardPreviewFixtureLoading from '../src/template/back-office/dashboard-preview/test/fixtures/loading';
@@ -2541,7 +2543,9 @@ export const fixtures = {
       Sso: TemplateBackOfficeBrandUpdateFixtureSso,
       UploadusersLoading: TemplateBackOfficeBrandUpdateFixtureUploadusersLoading,
       UploadusersSuccessful: TemplateBackOfficeBrandUpdateFixtureUploadusersSuccessful,
-      Uploadusers: TemplateBackOfficeBrandUpdateFixtureUploadusers
+      Uploadusers: TemplateBackOfficeBrandUpdateFixtureUploadusers,
+      WizardFormCreatePlaylist: TemplateBackOfficeBrandUpdateFixtureWizardFormCreatePlaylist,
+      WizardFormEditPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardFormEditPlaylist
     },
     TemplateBackOfficeDashboardPreview: {
       Default: TemplateBackOfficeDashboardPreviewFixtureDefault,
