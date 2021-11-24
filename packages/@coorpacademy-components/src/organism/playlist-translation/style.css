@@ -9,13 +9,19 @@
 .container {
   display: flex;
   background-color: cm_grey_50;
+  position: relative;
 }
 
 .menu {
   background-color: cm_grey_50;
-  height: 360px;
+  height: auto;
   width: 200px;
   margin: 24px 8px 24px 24px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  bottom: 0;
 }
 
 .horizontalSection{
@@ -24,6 +30,7 @@
   padding: 24px 24px 24px 8px;
   width: 100%;
   align-items: end;
+  margin-left: 240px;
 }
 
 .input {
@@ -33,7 +40,7 @@
 
 .button {
   width: 170px;
-  margin-top: 16px;
+  margin-top: 24px;
 }
 
 .binButton {

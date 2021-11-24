@@ -56,7 +56,7 @@
   color: cm_blue_50;
 }
 
-.tab:hover a {
+.tab:hover span {
   color: cm_primary_blue;
 }
 
@@ -64,6 +64,6 @@
   background-color: cm_blue_50;
 }
 
-.tab.selected a {
+.tab.selected span {
   color: cm_primary_blue;
 }
