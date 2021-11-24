@@ -10,3 +10,15 @@
   font-weight: bold;
   margin: 0 0 0 16px;
 }
+
+.container {
+  display: flex;
+}
+
+.content {
+  width: 70%;
+}
+
+.desktopRight {
+  width: 30%;
+}

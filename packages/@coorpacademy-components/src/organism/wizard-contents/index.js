@@ -35,7 +35,14 @@ const WizardContents = props => {
   const {wizardHeader, steps, summary, content} = props;
   const headerView = buildHeader(wizardHeader, steps);
 
-  return <div>{headerView}</div>;
+  return (
+    <div className={style.container}>
+      <div className={style.content}>{headerView}</div>
+      <div className={style.desktopRight}>
+        <WizardSummary {...summary} />
+      </div>
+    </div>
+  );
 };
 
 WizardContents.propTypes = {
