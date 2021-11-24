@@ -111,8 +111,8 @@ const buildTabs = items => {
   );
 };
 
-const buildContentView = cont => {
-  if (!cont) {
+const buildContentView = content => {
+  if (!content) {
     return (
       <div>
         <Loader />
@@ -120,18 +120,18 @@ const buildContentView = cont => {
     );
   }
 
-  const {type} = cont;
+  const {type} = content;
   switch (type) {
     case 'form':
-      return <BrandForm {...cont} />;
+      return <BrandForm {...content} />;
     case 'list':
-      return <BrandTable {...cont} />;
+      return <BrandTable {...content} />;
     case 'upload':
-      return <BrandUpload {...cont} />;
+      return <BrandUpload {...content} />;
     case 'analytics-dashboards':
-      return <BrandAnalytics {...cont} />;
+      return <BrandAnalytics {...content} />;
     case 'home':
-      return <BrandDashboard {...cont} />;
+      return <BrandDashboard {...content} />;
   }
 };
 
