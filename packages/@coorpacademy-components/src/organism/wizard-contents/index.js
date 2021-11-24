@@ -7,24 +7,23 @@ import BrandForm from '../brand-form';
 import ContentTranslate from '../content-translation';
 import OrganismSearchAndChipsResults from '../search-and-chips-results';
 import CourseSelection from '../course-selection';
+import style from './style.css';
 
 const buildHeader = (wizardHeader, steps) => {
   const {title, onClick} = wizardHeader;
 
   const buttonCloseIcon = {
     size: 'small',
-    'data-name': 'default-button',
-    'aria-label': 'aria button',
+    'data-name': 'close-button',
+    'aria-label': 'close button',
     icon: 'close',
     onClick
   };
 
   return (
-    <div>
-      <div>
-        <ButtonLinkIconOnly {...buttonCloseIcon} />
-      </div>
-      <div>{title}</div>
+    <div className={style.header}>
+      <ButtonLinkIconOnly {...buttonCloseIcon} />
+      <div className={style.headerTitle}>{title}</div>
     </div>
   );
 };
