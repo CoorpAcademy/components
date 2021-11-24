@@ -21,9 +21,12 @@ const buildHeader = (wizardHeader, steps) => {
   };
 
   return (
-    <div className={style.header}>
-      <ButtonLinkIconOnly {...buttonCloseIcon} />
-      <div className={style.headerTitle}>{title}</div>
+    <div>
+      <div className={style.header}>
+        <ButtonLinkIconOnly {...buttonCloseIcon} />
+        <div className={style.headerTitle}>{title}</div>
+      </div>
+      <WizardSteps steps={steps} />
     </div>
   );
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import style from './style.css';
 
-const WizardSteps = (props, context) => {
+const WizardSteps = props => {
   const {steps} = props;
 
   const wizard = steps.map((step, index) => {
