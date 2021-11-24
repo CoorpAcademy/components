@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useMemo, useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import {map, noop, findIndex} from 'lodash/fp';
 import Part from './part';
@@ -61,7 +61,10 @@ const Accordion = props => {
   const {tabProps, children, theme = 'default', onClick = noop} = props;
   const selectedIndex = findIndex(item => item.selected, tabProps);
 
-  const [openedTab, updateOpenedTab] = React.useState(selectedIndex);
+  const [openedTab, updateOpenedTab] = useState(selectedIndex);
+  useEffect(() => {
+    updateOpenedTab(selectedIndex);
+  }, [selectedIndex]);
 
   const tabs = map.convert({cap: false})((tab, index) => ({
     ...tab,
