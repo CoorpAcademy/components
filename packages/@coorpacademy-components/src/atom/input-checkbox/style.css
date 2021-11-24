@@ -27,7 +27,7 @@
   align-items: center;
 }
 
-.standard {
+.inherit {
   color: inherit;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -35,7 +35,7 @@
   width: 100%;
 }
 
-.standard label{
+.inherit label{
   margin-right: 0;
   margin-left: 0;
 }

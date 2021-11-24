@@ -1,12 +1,12 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import {NovaSolidStatusValidate as CheckIcon} from '@coorpacademy/nova-icons';
-import {noop, uniqueId} from 'lodash/fp';
+import {keys, noop, uniqueId} from 'lodash/fp';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
 const titleStylesClassNames = {
-  default: style.standard,
+  inherit: style.inherit,
   primary: style.primary,
   secondary: style.secondary,
   tertiary: style.tertiary
@@ -73,7 +73,7 @@ InputCheckbox.propTypes = {
   onChange: PropTypes.func,
   modified: PropTypes.bool,
   theme: PropTypes.oneOf(['coorpmanager', 'default']),
-  titleStyle: PropTypes.oneOf(['primary', 'secondary', 'tertiary'])
+  titleStyle: PropTypes.oneOf(keys(titleStylesClassNames))
 };
 
 export default InputCheckbox;
