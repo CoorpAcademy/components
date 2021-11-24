@@ -7,7 +7,7 @@ import style from './style.css';
 const Dashboard = props => {
   const {header, quickAccessCards} = props;
   return (
-    <div className={style.wrapper}>
+    <div>
       <div>
         <Title {...header} type={'page'} />
       </div>

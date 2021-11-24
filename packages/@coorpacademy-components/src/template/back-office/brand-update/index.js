@@ -4,8 +4,7 @@ import map from 'lodash/fp/map';
 import pipe from 'lodash/fp/pipe';
 import get from 'lodash/fp/get';
 import isEmpty from 'lodash/fp/isEmpty';
-import filter from 'lodash/fp/filter';
-import head from 'lodash/fp/head';
+import find from 'lodash/fp/find';
 import BrandTabs from '../../../molecule/brand-tabs';
 import {IconLinkItem, LinkItem} from '../../../organism/sidebar';
 import BrandForm from '../../../organism/brand-form';
@@ -13,33 +12,32 @@ import BrandTable from '../../../organism/brand-table';
 import BrandUpload from '../../../organism/brand-upload';
 import BrandAnalytics from '../../../organism/brand-analytics';
 import BrandDashboard from '../../../organism/brand-dashboard';
-import Notification from '../../../atom/notification';
+import Banner from '../../../molecule/banner';
 import Header from '../../../organism/setup-header';
 import Loader from '../../../atom/loader';
 import Accordion from '../../../organism/accordion/coorp-manager';
 import style from './style.css';
 
-const SubTab = ({title, href, selected}) => {
-  return <h5>{title}</h5>;
-};
+const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
 
-SubTab.propTypes = {
-  title: PropTypes.string.isRequired,
-  href: PropTypes.string.isRequired,
-  selected: PropTypes.bool.isRequired
-};
+const subTabsView = (_subTabs = []) =>
+  map.convert({cap: false})((subTab, _index) => (
+    <div key={subTab.title}>
+      {subTab.type === 'iconLink' ? (
+        <IconLinkItem
+          {...subTab}
+          styles={getStyle(subTab.selected)}
+          uppercase={false}
+          target={'_blank'}
+        />
+      ) : (
+        <LinkItem {...subTab} styles={getStyle(subTab.selected)} uppercase={false} />
+      )}
+    </div>
+  ))(_subTabs);
 
-const BrandUpdate = props => {
-  const {notifications, header, items, content, details, onItemClick} = props;
-  const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
-  const selectedTab = pipe(
-    filter(e => e.selected),
-    head,
-    get('tabs'),
-    filter(e => e.selected),
-    head
-  )(items);
-
+// TODO: this fonction should be replaced by a molecule to avoid this file to be unreadable
+const buildLeftNavigation = (logo, items, onItemClick) => {
   const formattedTabs = items.map(({key, title, href, selected, type = 'simpleTab'}, index) => ({
     title,
     selected,
@@ -50,90 +48,115 @@ const BrandUpdate = props => {
     iconType: key || 'arrow'
   }));
 
-  const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
-
-  const subTabsView = (_subTabs = []) =>
-    map.convert({cap: false})((subTab, _index) => (
-      <div key={subTab.title}>
-        {subTab.type === 'iconLink' ? (
-          <IconLinkItem
-            {...subTab}
-            styles={getStyle(subTab.selected)}
-            uppercase={false}
-            target={'_blank'}
-          />
-        ) : (
-          <LinkItem {...subTab} styles={getStyle(subTab.selected)} uppercase={false} />
-        )}
-      </div>
-    ))(_subTabs);
-
   const formattedTabsViews = map(tab => (
-    <div key={tab.title} className={style.tabs}>
+    <div key={tab.title} className={style.subTabsView}>
       {subTabsView(tab.tabs)}
     </div>
   ))(items);
 
+  return (
+    <div className={style.leftMenu}>
+      <div className={style.logo}>
+        <a href="/">
+          <img src={logo} />
+        </a>
+      </div>
+      <Accordion tabProps={formattedTabs} theme={'setup'} onClick={onItemClick}>
+        {formattedTabsViews}
+      </Accordion>
+    </div>
+  );
+};
+
+const buildNotifications = notifications => {
+  if (isEmpty(notifications)) {
+    return null;
+  }
+
   const notificationsList = notifications.map((notification, index) => {
     return (
       <div className={style.notification} key={index}>
-        <Notification {...notification} />
+        <Banner {...notification} />
       </div>
     );
   });
+  return <div className={style.notifications}>{notificationsList}</div>;
+};
 
-  const contentView = cont => {
-    if (!cont) return <Loader />;
-    const {type} = cont;
-    switch (type) {
-      case 'form':
-        return <BrandForm {...cont} />;
-      case 'list':
-        return <BrandTable {...cont} />;
-      case 'upload':
-        return <BrandUpload {...cont} />;
-      case 'analytics-dashboards':
-        return <BrandAnalytics {...cont} />;
-      case 'home':
-        return <BrandDashboard {...cont} />;
-    }
-  };
+const buildHeader = (header, notifications) => {
+  const headerStyle = isEmpty(notifications) ? style.header : style.headerForNotifications;
+  return (
+    <div className={headerStyle}>
+      <Header {...header} />
+    </div>
+  );
+};
 
-  const detailsView = cont => {
-    if (!cont) return;
-    return <BrandTable {...cont} />;
-  };
+const buildTabs = items => {
+  const selectedTab = pipe(
+    find(e => e.selected),
+    get('tabs'),
+    find(e => e.selected)
+  )(items);
+
+  const showTabs = selectedTab && !isEmpty(selectedTab.subTabs);
+  if (!showTabs) return null;
+  return (
+    <div className={style.tabs}>
+      <BrandTabs type="light" tabs={selectedTab.subTabs} />
+    </div>
+  );
+};
+
+const buildContentView = content => {
+  if (!content) {
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
+  }
+
+  const {type} = content;
+  switch (type) {
+    case 'form':
+      return <BrandForm {...content} />;
+    case 'list':
+      return <BrandTable {...content} />;
+    case 'upload':
+      return <BrandUpload {...content} />;
+    case 'analytics-dashboards':
+      return <BrandAnalytics {...content} />;
+    case 'home':
+      return <BrandDashboard {...content} />;
+  }
+};
+
+const buildDetailsView = details => {
+  if (!details) return;
+  return <BrandTable {...details} />;
+};
+
+const BrandUpdate = props => {
+  const {notifications, header, items, content, details, onItemClick} = props;
+  const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
+
+  const leftNavigation = buildLeftNavigation(logo, items, onItemClick);
+  const notificationsView = buildNotifications(notifications);
+  const headerView = buildHeader(header, notifications);
+  const tabsView = buildTabs(items);
+  const contentView = buildContentView(content);
+  const detailsView = buildDetailsView(details);
 
   return (
     <div className={style.container}>
-      <div className={style.dashboardAside}>
-        <div className={style.logo}>
-          <a href="/">
-            <img src={logo} />
-          </a>
-        </div>
-        <Accordion tabProps={formattedTabs} theme={'setup'} onClick={onItemClick}>
-          {formattedTabsViews}
-        </Accordion>
-      </div>
+      {leftNavigation}
       <div className={style.contentWrapper}>
-        <Header {...header} />
-        <div className={style.notifications}>{notificationsList}</div>
-        {content && content.type === 'home' ? (
-          contentView(content)
-        ) : (
-          <div className={style.contentHandler}>
-            <div className={style.contentView}>
-              {selectedTab && !isEmpty(selectedTab.subTabs) ? (
-                <BrandTabs type="light" tabs={selectedTab.subTabs} />
-              ) : null}
-              <div className={style.dashboardContent}>
-                <div>{contentView(content)}</div>
-                <div>{detailsView(details)}</div>
-              </div>
-            </div>
-          </div>
-        )}
+        {headerView}
+        {notificationsView}
+        {tabsView}
+        {contentView}
+        {detailsView}
       </div>
     </div>
   );
@@ -144,7 +167,7 @@ BrandUpdate.defaultProps = {
 };
 
 BrandUpdate.propTypes = {
-  notifications: PropTypes.arrayOf(PropTypes.shape(Notification.propTypes)),
+  notifications: PropTypes.arrayOf(PropTypes.shape(Banner.propTypes)),
   header: PropTypes.shape({...Header.propTypes}),
   items: PropTypes.arrayOf(
     PropTypes.shape({

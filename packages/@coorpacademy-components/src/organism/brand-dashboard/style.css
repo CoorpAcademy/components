@@ -1,20 +1,10 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value cm_tablet from breakpoints;
 
-.wrapper {
-  margin: 0px 64px;
-}
-
 .sectionWrapper {
   margin-top: 44px;
 }
 
 .cardsWrapper {
   margin-top: 16px;
-}
-
-@media cm_tablet {
-  .wrapper {
-    margin: 0px 32px;
-  }
 }

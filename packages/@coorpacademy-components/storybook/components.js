@@ -1001,7 +1001,6 @@ import TemplateBackOfficeBrandUpdateFixtureLookandfeelSuccess from '../src/templ
 import TemplateBackOfficeBrandUpdateFixtureLookandfeel from '../src/template/back-office/brand-update/test/fixtures/lookandfeel';
 import TemplateBackOfficeBrandUpdateFixtureManageusersEdit from '../src/template/back-office/brand-update/test/fixtures/manageusers-edit';
 import TemplateBackOfficeBrandUpdateFixtureManageusersList from '../src/template/back-office/brand-update/test/fixtures/manageusers-list';
-import TemplateBackOfficeBrandUpdateFixtureManageusers from '../src/template/back-office/brand-update/test/fixtures/manageusers';
 import TemplateBackOfficeBrandUpdateFixtureQuickAccess from '../src/template/back-office/brand-update/test/fixtures/quick-access';
 import TemplateBackOfficeBrandUpdateFixtureSsoActivate from '../src/template/back-office/brand-update/test/fixtures/sso-activate';
 import TemplateBackOfficeBrandUpdateFixtureSso from '../src/template/back-office/brand-update/test/fixtures/sso';
@@ -2499,7 +2498,6 @@ export const fixtures = {
       Lookandfeel: TemplateBackOfficeBrandUpdateFixtureLookandfeel,
       ManageusersEdit: TemplateBackOfficeBrandUpdateFixtureManageusersEdit,
       ManageusersList: TemplateBackOfficeBrandUpdateFixtureManageusersList,
-      Manageusers: TemplateBackOfficeBrandUpdateFixtureManageusers,
       QuickAccess: TemplateBackOfficeBrandUpdateFixtureQuickAccess,
       SsoActivate: TemplateBackOfficeBrandUpdateFixtureSsoActivate,
       Sso: TemplateBackOfficeBrandUpdateFixtureSso,
