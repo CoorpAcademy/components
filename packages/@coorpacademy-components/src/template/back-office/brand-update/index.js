@@ -102,15 +102,24 @@ const buildTabs = items => {
     head
   )(items);
 
-  return selectedTab && !isEmpty(selectedTab.subTabs) ? (
+  const showTabs = selectedTab && !isEmpty(selectedTab.subTabs);
+  if (!showTabs) return null;
+  return (
     <div>
       <BrandTabs type="light" tabs={selectedTab.subTabs} />
     </div>
-  ) : null;
+  );
 };
 
 const buildContentView = cont => {
-  if (!cont) return <Loader />;
+  if (!cont) {
+    return (
+      <div>
+        <Loader />
+      </div>
+    );
+  }
+
   const {type} = cont;
   switch (type) {
     case 'form':

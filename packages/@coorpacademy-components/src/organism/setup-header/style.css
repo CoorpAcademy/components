@@ -152,7 +152,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 0 16px 0px 0px;
+    padding: 0 16px 0 0;
     width: 44px;
   }
 

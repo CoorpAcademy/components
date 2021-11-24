@@ -21,11 +21,11 @@
 }
 
 .header {
-  margin: 24px 0px 56px 0px;
+  margin: 24px 0 56px 0;
 }
 
 .headerForNotifications {
-  margin: 24px 0px 0px 0px;
+  margin: 24px 0 0 0;
 }
 
 .tabs {
@@ -38,7 +38,7 @@
 }
 
 .notifications {
-  padding: 24px 0px 32px 0px;
+  padding: 24px 0 32px 0;
 }
 
 .notification {
@@ -57,7 +57,7 @@
 
 .contentWrapper {
   width: 100%;
-  padding: 0px 64px;
+  padding: 0 64px;
   display: flex;
   flex-direction: column;
   overflow: auto;
@@ -89,7 +89,7 @@
 @media tablet {
   .container {
     scroll-behavior: unset;
-    margin: 0px;
+    margin: 0;
     padding: 10px 10px;
   }
 }
