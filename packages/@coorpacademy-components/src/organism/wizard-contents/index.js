@@ -32,9 +32,18 @@ const buildHeader = (wizardHeader, steps) => {
   );
 };
 
+const buildContent = content => {
+  const {type} = content;
+  switch (type) {
+    case 'form':
+      return <BrandForm {...content} />;
+  }
+};
+
 const WizardContents = props => {
   const {wizardHeader, steps, summary, content, nextStep} = props;
   const headerView = buildHeader(wizardHeader, steps);
+  const contentView = buildContent(content);
 
   const nextStepButton = {
     type: 'primary',
@@ -50,7 +59,10 @@ const WizardContents = props => {
 
   return (
     <div className={style.container}>
-      <div className={style.content}>{headerView}</div>
+      <div className={style.content}>
+        {headerView}
+        {contentView}
+      </div>
       <div className={style.desktopRight}>
         <div className={style.summaryZone}>
           <WizardSummary {...summary} />
