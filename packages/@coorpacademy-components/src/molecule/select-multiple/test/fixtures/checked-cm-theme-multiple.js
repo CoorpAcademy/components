@@ -10,7 +10,7 @@ export default {
     hint: 'Hint',
     options: [
       {
-        name: '🇬🇧 English',
+        name: '🇬🇧 English very looooooooonnnnnnnnnnnnnnnnnnngggggggggggg',
         value: 'en',
         selected: true
       },
@@ -30,7 +30,7 @@ export default {
         selected: false
       }
     ],
-    onChange: () => true,
+    onChange: value => console.log('onChange', value),
     onError: () => true
   }
 };

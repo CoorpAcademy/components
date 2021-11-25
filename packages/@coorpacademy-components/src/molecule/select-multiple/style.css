@@ -63,24 +63,29 @@
 }
 
 .choices {
-  display: none;
-}
-
-.activeChoices {
   display: block;
+  visibility: hidden;
   width: 100%;
-  height: auto;
   padding: 0 15px;
   box-sizing: border-box;
   background: white;
   position: absolute;
   z-index: 4;
-  top: 100%;
+  top: 48px;
   left: 0;
   border: 1px solid light;
   user-select: none;
-  max-height: 200px;
   overflow: scroll;
+  max-height: 0px;
+  transition: all 0.25s linear;
+  opacity: 1;
+}
+
+.activeChoices {
+  visibility: visible;
+  height: auto;
+  max-height: 200px;
+  opacity: 1;
 }
 
 .choice {
@@ -89,13 +94,16 @@
   padding: 0;
 }
 
-.choice div {
+.choice .item {
+  font-size: 14px;
+  user-select: none;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: 13px;
-  user-select: none;
+  width: 100%;
+  display: block;
 }
+
 
 .arrow {
   position: absolute;
@@ -254,17 +262,18 @@
 .coorpmanager .select .selection {
   font-size: 14px;
   font-weight: 500;
-  line-height: 1px;
-  padding-top: 15px;
   transition: all 0.25s ease;
+  line-height: 20px;
+  margin: 10px 0 -10px 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
 }
 
 .coorpmanager .select .selection.noselection {
   color: cm_grey_400;
-  font-size: 14px;
   font-weight: 500;
-  line-height: 1px;
-  padding-top: 15px;
 }
 
 .coorpmanager .select .title.noValue.active,
@@ -294,17 +303,8 @@
   border-radius: 8px;
 }
 
-.checkbox {
-  justify-content: space-between;
-}
-
-.checkbox span {
-  color: black !important;
-}
-
-.checkbox label {
-  margin-right: 0;
-  margin-left: 0;
+.choice {
+  color: black;
 }
 
 .coorpmanager .infoIconWrapper {

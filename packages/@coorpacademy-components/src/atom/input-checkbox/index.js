@@ -1,12 +1,12 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import {NovaSolidStatusValidate as CheckIcon} from '@coorpacademy/nova-icons';
-import {noop, uniqueId} from 'lodash/fp';
+import {keys, noop, uniqueId} from 'lodash/fp';
 import getClassState from '../../util/get-class-state';
 import style from './style.css';
 
 const titleStylesClassNames = {
+  inherit: style.inherit,
   primary: style.primary,
   secondary: style.secondary,
   tertiary: style.tertiary
@@ -22,8 +22,8 @@ const InputCheckbox = props => {
     titleStyle = 'primary',
     modified = false,
     theme = 'default',
-    extraClassName = null,
-    title: propsTitle
+    title: propsTitle,
+    noLabelMargins = false
   } = props;
 
   const titleStyleClassName = titleStylesClassNames[titleStyle];
@@ -37,7 +37,7 @@ const InputCheckbox = props => {
   const defaultContainerClassName = theme === 'coorpmanager' ? style.coorpManager : style.default;
 
   const className = getClassState(
-    classnames(defaultContainerClassName, extraClassName),
+    defaultContainerClassName,
     modifiedClassName,
     errorClassName,
     modified,
@@ -55,10 +55,12 @@ const InputCheckbox = props => {
         onChange={handleChange}
         disabled={disabled}
       />
-      <label htmlFor={idCheckbox}>
+      <label className={noLabelMargins && style.noLabelMargins} htmlFor={idCheckbox}>
         <CheckIcon className={style.icon} />
       </label>
-      <span className={titleStyleClassName}>{title}</span>
+      <span className={titleStyleClassName} title={title}>
+        {title}
+      </span>
     </div>
   );
 };
@@ -71,9 +73,9 @@ InputCheckbox.propTypes = {
   error: PropTypes.bool,
   onChange: PropTypes.func,
   modified: PropTypes.bool,
-  extraClassName: PropTypes.string,
+  noLabelMargins: PropTypes.bool,
   theme: PropTypes.oneOf(['coorpmanager', 'default']),
-  titleStyle: PropTypes.oneOf(['primary', 'secondary', 'tertiary'])
+  titleStyle: PropTypes.oneOf(keys(titleStylesClassNames))
 };
 
 export default InputCheckbox;

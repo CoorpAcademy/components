@@ -143,3 +143,18 @@
 .coorpManagerModified .checkbox:checked + label {
   outline: 2px solid battle;
 }
+
+.default .inherit,
+.coorpManager .inherit {
+  color: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.coorpManager .noLabelMargins,
+.default .noLabelMargins {
+  margin-right: 0;
+  margin-left: 0;
+}
