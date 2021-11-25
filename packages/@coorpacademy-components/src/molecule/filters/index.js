@@ -81,14 +81,8 @@ class Filters extends React.Component {
   }
 
   render() {
-    const {
-      sorting,
-      filterCTALabel,
-      filterTabLabel,
-      sortCTALabel,
-      sortTabLabel,
-      filters
-    } = this.props;
+    const {sorting, filterCTALabel, filterTabLabel, sortCTALabel, sortTabLabel, filters} =
+      this.props;
     const {filter, sorted, animated = true} = this.state;
     const {skin} = this.context;
 

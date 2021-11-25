@@ -43,10 +43,10 @@ const ButtonMenu = props => {
   const buildButton = (button, index) => {
     return <Button {...button} key={button.label + index} />;
   };
-  const buttonList = useMemo(() => map.convert({cap: false})(buildButton, buttons), [
-    buttons,
-    buildButton
-  ]);
+  const buttonList = useMemo(
+    () => map.convert({cap: false})(buildButton, buttons),
+    [buttons, buildButton]
+  );
   return <div data-name={dataName}>{buttonList}</div>;
 };
 
