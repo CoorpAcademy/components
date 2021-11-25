@@ -23,8 +23,8 @@ const Banner = props => {
       className={classnames(
         style.banner,
         type === 'error' && style.errorBanner,
-        type === 'success' && temporary && style.successTemporaryBanner,
-        type === 'error' && temporary && style.errorTemporaryBanner
+        type === 'success' && style.successBanner,
+        temporary && style.temporaryBanner
       )}
       title={message}
     >

@@ -45,6 +45,10 @@
     background-color: cm_negative_50;
     color: cm_negative_200;
 }
+.successBanner {
+    background-color: color(cm_positive_100 a(15%));
+    color: cm_positive_100;
+}
 
 .temporaryBanner {
     display: inline-flex;
@@ -64,17 +68,6 @@
     transform: translateX(-50%);
 
 }
-.successTemporaryBanner {
-    composes: temporaryBanner;
-    background-color: color(cm_positive_100 a(15%));
-    color: cm_positive_100;
-}
-.errorTemporaryBanner {
-    composes: temporaryBanner;
-    background-color: cm_negative_50;
-    color: cm_negative_200;   
-}
-
 
 .button{
     background-color: transparent;
