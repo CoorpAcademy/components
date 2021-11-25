@@ -42,6 +42,8 @@
 
 .tag {
   margin: 0 16px 0 0; 
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .edit {
