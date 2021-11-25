@@ -7,7 +7,7 @@ import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import style from './style.css';
 
 const ListItem = props => {
-  const {title, tags, buttonLink, bulletPointMenuButton} = props;
+  const {bulletPointMenuButton,buttonLink,tags, title } = props;
   const tagsView = map.convert({cap: false})((tag, index) => {
     return (
       <div key={index} className={style.tag}>
