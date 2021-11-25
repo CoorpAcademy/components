@@ -29,7 +29,7 @@ const BulletPointMenuButton = props => {
 
   return (
     <div className={style.bulletPointWrapper} data-name="bullet-point-wrapper">
-      <ButtonLinkIconOnly {...bulletPointButtonProps} className={style.bulletPointButton} />
+      <ButtonLinkIconOnly {...bulletPointButtonProps} />
       {menu}
     </div>
   );
