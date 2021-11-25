@@ -59,7 +59,10 @@
     animation-timing-function: ease-in;
     z-index: 10000;
     position: fixed;
-    top: 0; 
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+
 }
 .successTemporaryBanner {
     composes: temporaryBanner;
