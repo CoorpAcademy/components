@@ -55,7 +55,7 @@ const InputCheckbox = props => {
         onChange={handleChange}
         disabled={disabled}
       />
-      <label className={noLabelMargins && style.noLabelMargins} htmlFor={idCheckbox}>
+      <label className={noLabelMargins ? style.noLabelMargins : undefined} htmlFor={idCheckbox}>
         <CheckIcon className={style.icon} />
       </label>
       <span className={titleStyleClassName} title={title}>
