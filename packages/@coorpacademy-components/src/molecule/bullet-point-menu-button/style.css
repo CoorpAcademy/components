@@ -10,7 +10,7 @@
   position: relative;
 }
 
-.bulletPointWrapper [data-name="bullet-point-button"] {
+.bulletPointWrapper > button {
   position: relative;
   cursor: pointer;
  }
@@ -52,5 +52,5 @@ button:focus + .bulletPointMenu {
   Recover - unset pointer-events,
   to be able to click on the button when the menu is open to close it
 */
-[data-name="bullet-point-button"]:focus { pointer-events: none; }
-[data-name="bullet-point-button"]:not(:focus) { pointer-events: auto; }
+.bulletPointWrapper > button:focus { pointer-events: none; }
+.bulletPointWrapper > button:not(:focus) { pointer-events: auto; }
