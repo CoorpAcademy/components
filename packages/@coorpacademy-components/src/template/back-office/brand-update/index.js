@@ -143,7 +143,6 @@ const buildDetailsView = details => {
 const BrandUpdate = props => {
   const {notifications, header, items, content, details, onItemClick} = props;
   const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
-  console.log('content', content);
 
   const leftNavigation = buildLeftNavigation(logo, items, onItemClick);
   const notificationsView = buildNotifications(notifications);
