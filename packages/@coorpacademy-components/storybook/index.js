@@ -12,6 +12,7 @@ import {
 } from 'lodash/fp';
 import {storiesOf} from '@storybook/react';
 import {withKnobs, text, number, boolean, object, color} from '@storybook/addon-knobs';
+
 import createTranslate from '@coorpacademy/translate';
 import en from '../locales/en/global';
 // import fr from '../locales/fr/global';

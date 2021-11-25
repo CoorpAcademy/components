@@ -6,6 +6,12 @@
 @value lightGrey from colors;
 @value negative from colors;
 @value xtraLightGrey from colors;
+@value cm_grey_400 from colors;
+@value cm_grey_700 from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_150 from colors;
+@value cm_grey_100 from colors;
+@value cm_negative_100 from colors;
 @value medium from colors;
 @value defaultText from "../../variables/fonts.css";
 
@@ -57,24 +63,29 @@
 }
 
 .choices {
-  display: none;
-}
-
-.activeChoices {
   display: block;
+  visibility: hidden;
   width: 100%;
-  height: auto;
   padding: 0 15px;
   box-sizing: border-box;
   background: white;
   position: absolute;
   z-index: 4;
-  top: 100%;
+  top: 48px;
   left: 0;
   border: 1px solid light;
   user-select: none;
-  max-height: 200px;
   overflow: scroll;
+  max-height: 0px;
+  transition: all 0.25s linear;
+  opacity: 1;
+}
+
+.activeChoices {
+  visibility: visible;
+  height: auto;
+  max-height: 200px;
+  opacity: 1;
 }
 
 .choice {
@@ -83,13 +94,16 @@
   padding: 0;
 }
 
-.choice div {
+.choice .item {
+  font-size: 14px;
+  user-select: none;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: 13px;
-  user-select: none;
+  width: 100%;
+  display: block;
 }
+
 
 .arrow {
   position: absolute;
@@ -110,6 +124,7 @@
   margin: 0;
   padding: 0;
 }
+
 .description {
   font-family: 'Open Sans';
   font-weight: 500;
@@ -118,12 +133,14 @@
   font-style: italic;
   margin: auto 0;
 }
+
 /*
   setup sidebar
 */
 .sidebar {
   width: 150px;
 }
+
 /*
   setup theme
 */
@@ -201,4 +218,268 @@
 .cockpit .activeChoices {
   width: 170px;
   border-top: none;
+}
+
+/* COORPMANAGER THEME */
+
+.coorpmanager .select {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 14px;
+  color: black;
+  height: 44px;
+  padding: 11px 85px 11px 16px;
+}
+
+.coorpmanager .select .title {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 0;
+  font-family: Gilroy;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  letter-spacing: normal;
+  text-align: left;
+  font-size: 14px;
+  z-index: 1;
+  color: cm_grey_700;
+  transition: all 0.25s ease;
+  pointer-events: none;
+  flex-wrap: nowrap;
+  position: absolute;
+  top: 7px;
+  left: 16px;
+}
+
+.coorpmanager .select:hover {
+  background-color: cm_grey_150;
+}
+
+.coorpmanager .select .selection {
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.25s ease;
+  line-height: 20px;
+  margin: 10px 0 -10px 0;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.coorpmanager .select .selection.noselection {
+  color: cm_grey_400;
+  font-weight: 500;
+}
+
+.coorpmanager .select .title.noValue.active,
+.coorpmanager .select .title.titleWithSelection {
+  font-size: 10px;
+  width: max-content;
+  height: 8px;
+  line-height: 12px;
+  color: cm_grey_400;
+}
+
+.coorpmanager .select .title.noValue.active,
+.coorpmanager .select .title.titleWithSelection {
+  width: max-content;
+  height: 8px;
+  line-height: 12px;
+  color: cm_grey_400;
+}
+
+.coorpmanager .arrow:hover {
+  background-color: cm_grey_200;
+}
+
+.coorpmanager .activeChoices {
+  margin-top: 2px;
+  background-color: light;
+  border-radius: 8px;
+}
+
+.choice {
+  color: black;
+}
+
+.coorpmanager .infoIconWrapper {
+  overflow: visible;
+  height: 12px;
+  margin: 0 4px;
+  cursor: pointer;
+  pointer-events: fill;
+  position: relative;
+}
+
+.coorpmanager .infoIcon {
+  cursor: pointer;
+  width: 8px;
+  margin: 4px 4px 0 4px;
+  height: 8px;
+  line-height: 16px;
+  color: cm_grey_400;
+  transition: all 0.25s linear;
+}
+
+.coorpmanager .select .title.noValue .infoIcon {
+  color: cm_grey_700;
+}
+
+.coorpmanager .select .title.noValue.active .infoIcon,
+.coorpmanager .select .title.titleWithSelection .infoIcon {
+  color: cm_grey_400;
+  margin: 0 4px 0 4px;
+}
+
+.coorpmanager .infoIconWrapper:hover .descriptionLabel {
+  visibility: visible;
+  opacity: 1;
+}
+
+.coorpmanager .descriptionLabel {
+  margin: 0 1px 18px 0;
+  padding: 8px 16px;
+  border-radius: 7px;
+  background-color: cm_grey_700;
+  flex-grow: 0;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: center;
+  color: white;
+  max-width: 200px;
+  position: absolute;
+  left: -19px;
+  z-index: 3;
+  bottom: 5px;
+  width: max-content;
+  visibility: hidden;
+  opacity: 0s;
+}
+
+.coorpmanager .descriptionLabel::after {
+  content: '';
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 6px solid cm_grey_700;
+  position: absolute;
+  bottom: -6px;
+  left: 21px;
+}
+
+.coorpmanager .title.noValue .descriptionLabel::after {
+  left: 21px;
+}
+
+.coorpmanager:focus-within .title.noValue .descriptionLabel::after {
+  left: 21px;
+}
+
+.coorpmanager .iconsWrapper {
+  position: absolute;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 88px;
+  height: 44px;
+  right: 0;
+}
+
+.coorpmanager .flex {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.coorpmanager .flex:nth-child(2) {
+  padding: 0 16px;
+  margin-left: 16px;
+}
+
+.coorpmanager .flex .arrow {
+  position: relative;
+  right: 0;
+  margin-top: 0;
+  top: 0%;
+  pointer-events: none;
+  width: 12px;
+  height: 12px;
+  transition: transform 0.25s;
+  cursor: pointer;
+}
+
+.coorpmanager .flex.clicked {
+  background-color: cm_grey_200;
+}
+
+.coorpmanager .arrow.down {
+  cursor: pointer;
+  transform: rotate(180deg);
+}
+
+.coorpmanager .errorIcon {
+  background-color: cm_negative_100;
+  color: white;
+  padding: 4px;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
+
+.coorpmanager .hint {
+  flex-grow: 0;
+  opacity: 0.5;
+  font-family: Gilroy;
+  font-size: 10px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.2;
+  letter-spacing: normal;
+  text-align: left;
+  padding-top: 8px;
+  transition: transform 0.25s;
+  color: cm_grey_700;
+}
+
+.coorpmanager.error .hint {
+  color: cm_negative_100;
+}
+
+.coorpmanager.disabled .select {
+  background-color: cm_grey_100;
+}
+
+.coorpmanager.disabled .select .selection {
+  color: cm_grey_100;
+}
+
+.coorpmanager.disabled .select .title {
+  color: cm_grey_700;
+}
+
+.coorpmanager.disabled .select .title.noValue,
+.coorpmanager.disabled .select .selection {
+  color: cm_grey_700;
+  opacity: 0.5;
+}
+
+.coorpmanager.disabled .select .title.titleWithSelection {
+  color: cm_grey_400;
+}
+
+.coorpmanager.disabled .arrow {
+  opacity: 0.5;
 }
