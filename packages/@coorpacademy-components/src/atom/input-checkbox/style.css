@@ -27,19 +27,6 @@
   align-items: center;
 }
 
-.inherit {
-  color: inherit;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  width: 100%;
-}
-
-.inherit label{
-  margin-right: 0;
-  margin-left: 0;
-}
-
 .coorpManagerError {
   composes: coorpManager;
 }
@@ -155,4 +142,19 @@
 .defaultModified .checkbox:checked + label,
 .coorpManagerModified .checkbox:checked + label {
   outline: 2px solid battle;
+}
+
+.default .inherit,
+.coorpManager .inherit {
+  color: inherit;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+}
+
+.coorpManager .noLabelMargins,
+.default .noLabelMargins {
+  margin-right: 0;
+  margin-left: 0;
 }

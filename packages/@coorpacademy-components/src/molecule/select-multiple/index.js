@@ -50,10 +50,10 @@ const CMMultipleView = ({multiple, choice, onChange}) => {
   return multiple ? (
     <div className={style.item}>
       <Checkbox
-        type="checkbox"
-        titleStyle={'inherit'}
+        titleStyle="inherit"
         checked={choice.selected}
         onChange={handleChange}
+        noLabelMargins
         title={choice.name}
       />
     </div>

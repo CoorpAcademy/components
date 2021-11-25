@@ -264,7 +264,7 @@
   font-weight: 500;
   transition: all 0.25s ease;
   line-height: 20px;
-  margin: 10px 0px -10px 0px;
+  margin: 10px 0 -10px 0;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -303,14 +303,9 @@
   border-radius: 8px;
 }
 
-.checkbox {
-  justify-content: space-between;
-  color: black;
-}
 .choice {
   color: black;
 }
-
 
 .coorpmanager .infoIconWrapper {
   overflow: visible;
