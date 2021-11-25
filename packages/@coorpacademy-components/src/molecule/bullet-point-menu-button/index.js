@@ -24,12 +24,13 @@ const BulletPointMenuButton = props => {
     'data-name': 'bullet-point-button',
     icon: 'bullet-point',
     onClick: handleOnClick,
+    type: 'bulletPoint',
     disabled
   };
 
   return (
     <div className={style.bulletPointWrapper} data-name="bullet-point-wrapper">
-      <ButtonLinkIconOnly {...bulletPointButtonProps} className={style.bulletPointButton} />
+      <ButtonLinkIconOnly {...bulletPointButtonProps} />
       {menu}
     </div>
   );

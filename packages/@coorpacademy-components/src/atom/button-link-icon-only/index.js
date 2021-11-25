@@ -28,13 +28,15 @@ const ButtonLinkIconOnly = props => {
     'data-name': dataName,
     'aria-label': ariaLabel,
     link,
-    onClick
+    onClick,
+    type
   } = props;
   const contentView = getButtonContent(icon);
   const styleButton = classnames(
     size === 'default' ? style.default : style.small,
     link && style.link,
-    disabled && style.disabled
+    disabled && style.disabled,
+    type === 'bulletPoint' && style.bulletPoint
   );
 
   if (link) {
@@ -77,7 +79,8 @@ ButtonLinkIconOnly.propTypes = {
     download: PropTypes.bool,
     target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
   }),
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  type: PropTypes.oneOf(['bulletPoint'])
 };
 
 export default ButtonLinkIconOnly;
