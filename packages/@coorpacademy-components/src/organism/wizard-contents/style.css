@@ -13,21 +13,24 @@
 
 .container {
   display: flex;
+  height: 100%;
 }
 
 .content {
-  width: 70%;
+  flex: 1 0 auto;
 }
 
 .desktopRight {
-  width: 30%;
+  flex: 0 1 320px;
   display: flex;
   flex-direction: column;
 }
 
 .summaryZone {
-  height: 300px;
   width: 100%;
+  position: relative;
+  height: 100%;
+  justify-content: space-between;
 }
 
 .actionZone {
