@@ -11,7 +11,7 @@ export default {
     items,
     content: {
       ...form,
-      key: 'totot',
+      key: 'general-settings',
       type: 'wizard'
     }
   }
