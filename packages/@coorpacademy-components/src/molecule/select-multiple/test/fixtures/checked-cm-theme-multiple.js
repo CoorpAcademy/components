@@ -6,7 +6,7 @@ export default {
     description: 'You should select a language',
     multiple: true,
     disabled: false,
-    error: true,
+    error: '',
     hint: 'Hint',
     options: [
       {
