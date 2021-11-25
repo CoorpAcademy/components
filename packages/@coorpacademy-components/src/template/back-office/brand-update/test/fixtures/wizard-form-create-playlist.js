@@ -1,13 +1,18 @@
-import wizardForm from '../../../../../organism/wizard-contents/test/fixtures/playlist-general-settings-create';
+import WizardForm from '../../../../../organism/wizard-contents/test/fixtures/playlist-general-settings-create';
 import headerAndMenu from './default';
 
 const {header, items} = headerAndMenu.props;
+const form = WizardForm.props;
 
 export default {
   props: {
-    ...wizardForm,
     notifications: {},
     header,
-    items
+    items,
+    content: {
+      ...form,
+      key: 'totot',
+      type: 'wizard'
+    }
   }
 };

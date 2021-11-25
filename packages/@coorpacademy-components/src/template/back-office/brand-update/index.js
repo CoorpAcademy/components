@@ -13,6 +13,7 @@ import BrandTable from '../../../organism/brand-table';
 import BrandUpload from '../../../organism/brand-upload';
 import BrandAnalytics from '../../../organism/brand-analytics';
 import BrandDashboard from '../../../organism/brand-dashboard';
+import WizardContents from '../../../organism/wizard-contents';
 import Banner from '../../../molecule/banner';
 import Header from '../../../organism/setup-header';
 import Loader from '../../../atom/loader';
@@ -129,6 +130,8 @@ const buildContentView = content => {
       return <BrandAnalytics {...content} />;
     case 'home':
       return <BrandDashboard {...content} />;
+    case 'wizard':
+      return <WizardContents {...content} />;
   }
 };
 
@@ -140,6 +143,7 @@ const buildDetailsView = details => {
 const BrandUpdate = props => {
   const {notifications, header, items, content, details, onItemClick} = props;
   const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
+  console.log('content', content);
 
   const leftNavigation = buildLeftNavigation(logo, items, onItemClick);
   const notificationsView = buildNotifications(notifications);
@@ -226,6 +230,11 @@ BrandUpdate.propTypes = {
       ...BrandDashboard.propTypes,
       key: PropTypes.string,
       type: PropTypes.oneOf(['home'])
+    }),
+    PropTypes.shape({
+      ...WizardContents.propTypes,
+      key: PropTypes.string,
+      type: PropTypes.oneOf(['wizard'])
     })
   ]),
   details: PropTypes.shape({
