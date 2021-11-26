@@ -6,7 +6,16 @@ import Search from '../../atom/input-search';
 import style from './style.css';
 
 const SearchForm = (props, context) => {
-  const {action, method, onSubmit, onReset, search, onSearchFocus, onSearchBlur} = props;
+  const {
+    action,
+    method,
+    onSubmit,
+    onReset,
+    search,
+    onSearchFocus,
+    onSearchBlur,
+    'search-reset-aria-label': searchResetAriaLabel
+  } = props;
   const handleSubmit = useMemo(
     () => evt => {
       evt.preventDefault();
@@ -24,10 +33,12 @@ const SearchForm = (props, context) => {
       method={method}
       onSubmit={handleSubmit}
       data-name="searchForm"
+      aria-label={search.placeholder}
     >
       <Search {...search} onFocus={onSearchFocus} onBlur={onSearchBlur} />
       <div
         data-name="search-form-reset"
+        aria-label={searchResetAriaLabel}
         onClick={onReset}
         className={search.value ? style.wrapperClear : style.wrapperNoClear}
       >
@@ -44,7 +55,8 @@ SearchForm.propTypes = {
   onReset: PropTypes.func,
   onSearchFocus: PropTypes.func,
   onSearchBlur: PropTypes.func,
-  search: PropTypes.shape(Search.propTypes)
+  search: PropTypes.shape(Search.propTypes),
+  'search-reset-aria-label': PropTypes.string
 };
 
 export default SearchForm;

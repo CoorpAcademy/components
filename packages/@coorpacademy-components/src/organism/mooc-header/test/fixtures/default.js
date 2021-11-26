@@ -17,6 +17,12 @@ export default {
     },
     onSubmitSearch: () => console.log('onSubmitSearch'),
     onResetSearch: () => console.log('onResetSearch'),
+    'logo-aria-label': 'brand logo up.coorpacademy.com',
+    'logo-button-aria-label': 'brand logo used to open menu',
+    'notifications-aria-label': 'you have 5 new notificationss',
+    'search-reset-aria-label': 'reset search input value',
+    'settings-aria-label': 'account settings',
+    'close-settings-aria-label': 'close account settings',
     themes: [
       {
         title: 'Digital',
@@ -96,6 +102,7 @@ export default {
       {
         title: 'Language',
         type: 'select',
+        'aria-label': 'select language',
         options: {
           onChange: value => console.log(value),
           values: [
@@ -120,6 +127,7 @@ export default {
       {
         title: 'Mon compte',
         type: 'link',
+        'aria-label': 'go to my account',
         options: {
           target: '_blank',
           href: 'https://google.fr'
@@ -127,6 +135,7 @@ export default {
       },
       {
         title: 'Se déconnecter',
+        'aria-label': 'logout',
         type: 'link',
         color: '#f73f52',
         hoverColor: '#C51023',
@@ -137,6 +146,7 @@ export default {
       {
         title: 'Godmode',
         type: 'switch',
+        'aria-label': 'activate godmode',
         options: {
           onChange: value => console.log(value),
           value: true
@@ -145,6 +155,7 @@ export default {
       {
         title: 'Fast slides',
         type: 'switch',
+        'aria-label': 'activate fast slides',
         options: {
           onChange: value => console.log(value),
           value: false

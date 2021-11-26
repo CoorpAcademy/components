@@ -10,6 +10,7 @@ class Link extends React.Component {
     className: PropTypes.string,
     href: PropTypes.string,
     'data-name': PropTypes.string,
+    'aria-label': PropTypes.string,
     target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top']),
     skinHover: PropTypes.bool,
     hoverColor: PropTypes.string,
@@ -69,6 +70,7 @@ class Link extends React.Component {
       skinHover,
       hoverColor = getOr('#00B0FF', 'common.primary', skin),
       'data-name': dataName = 'link',
+      'aria-label': ariaLabel,
       ...aProps
     } = this.props;
     const {href, onClick, className, style: propsStyle, children} = this.props;
@@ -90,6 +92,7 @@ class Link extends React.Component {
       <a
         {...aProps}
         data-name={dataName}
+        aria-label={ariaLabel}
         href={href ? createHref(href) : undefined}
         onClick={this.handleOnClick}
         onMouseEnter={this.handleMouseEnter}
