@@ -1,19 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {NovaSolidInterfaceFeedbackInterfaceAlertDiamond as QuestionIcon} from '@coorpacademy/nova-icons';
+import {keys} from 'lodash/fp';
+import {
+  NovaSolidInterfaceFeedbackInterfaceAlertDiamond as QuestionIcon,
+  NovaCompositionCoorpacademyValidate as ValidateIcon
+} from '@coorpacademy/nova-icons';
 import Link from '../../atom/button-link';
 import style from './style.css';
 
+const ICONS = {
+  success: ValidateIcon,
+  error: QuestionIcon,
+  warning: QuestionIcon
+};
+
 const Banner = props => {
-  const {type, message, firstCTA, firstCTALabel, secondCTALabel, secondCTA} = props;
+  const {type, message, firstCTA, firstCTALabel, secondCTALabel, secondCTA, temporary} = props;
+  const Icon = ICONS[type];
   return (
     <div
-      className={classnames(style.banner, type === 'error' && style.errorBanner)}
+      className={classnames(
+        style.banner,
+        type === 'error' && style.errorBanner,
+        type === 'success' && style.successBanner,
+        temporary && style.temporaryBanner
+      )}
       title={message}
     >
       <div data-name={`${type}-banner-message`} className={style.message}>
-        <QuestionIcon className={style.icon} />
+        <Icon className={classnames(style.icon, temporary && style.temporaryIcon)} />
         {message}
       </div>
       {firstCTALabel ? (
@@ -44,12 +60,13 @@ const Banner = props => {
 };
 
 Banner.propTypes = {
-  type: PropTypes.oneOf(['information', 'error', 'success']),
+  type: PropTypes.oneOf(keys(ICONS)),
   message: PropTypes.string.isRequired,
   firstCTA: PropTypes.func,
   firstCTALabel: PropTypes.string,
   secondCTALabel: PropTypes.string,
-  secondCTA: PropTypes.func
+  secondCTA: PropTypes.func,
+  temporary: PropTypes.bool
 };
 
 export default Banner;

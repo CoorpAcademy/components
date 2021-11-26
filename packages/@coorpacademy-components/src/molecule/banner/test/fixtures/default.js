@@ -1,6 +1,6 @@
 export default {
   props: {
-    type: 'information',
+    type: 'warning',
     message: 'Changes saved but not published. Do you want to update this custom playlist now? ',
     firstCTALabel: 'Undo',
     firstCTA: () => console.log('first cta'),
