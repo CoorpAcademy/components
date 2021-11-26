@@ -1,3 +1,7 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
 .header {
   display: flex;
   flex-direction: row;
@@ -22,7 +26,7 @@
 }
 
 .form {
-  margin: 45px 0;
+  margin: 45px 32px 0 0;
 }
 
 .desktopRight {
@@ -47,4 +51,14 @@
 
 .button {
   width: calc(50% - 8px);
+}
+
+@media tablet {
+  .desktopRight {
+    display: none;
+  }
+
+  .content {
+    width: 100%;
+  }
 }
