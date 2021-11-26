@@ -1,6 +1,6 @@
 export default {
   props: {
-    type: 'information',
+    type: 'warning',
     message: 'Custom playlist successfully published ',
     temporary: true
   }

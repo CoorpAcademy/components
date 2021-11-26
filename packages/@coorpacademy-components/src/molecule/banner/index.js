@@ -12,7 +12,7 @@ import style from './style.css';
 const ICONS = {
   success: ValidateIcon,
   error: QuestionIcon,
-  information: QuestionIcon
+  warning: QuestionIcon
 };
 
 const Banner = props => {
