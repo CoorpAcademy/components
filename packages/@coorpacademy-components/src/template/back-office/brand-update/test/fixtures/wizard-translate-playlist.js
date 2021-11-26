@@ -1,4 +1,4 @@
-import WizardForm from '../../../../../organism/wizard-contents/test/fixtures/playlist-add-courses-create';
+import WizardForm from '../../../../../organism/wizard-contents/test/fixtures/playlist-translate-edit';
 import headerAndMenu from './default';
 
 const {header, items} = headerAndMenu.props;
