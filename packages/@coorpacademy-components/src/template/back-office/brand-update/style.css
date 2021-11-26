@@ -1,5 +1,6 @@
 @value colors: "../../../variables/colors.css";
 @value light from colors;
+@value white from colors;
 @value xtraLightGrey from colors;
 @value cm_grey_100 from colors;
 @value black from colors;
@@ -11,21 +12,28 @@
 @value wide from breakpoints;
 
 .container {
-  width: 100%;
   height: 100%;
   scroll-behavior: unset;
   margin: 0 auto;
-  padding-bottom: 80px 20px;
   display: flex;
   font-family: "Open Sans";
 }
 
-.header {
-  margin: 24px 0 56px 0;
+.contentWrapper {
+  width: 100%;
+  padding: 0 64px 0 287px;
 }
 
-.headerForNotifications {
-  margin: 24px 0 0 0;
+.headerSticky {
+  overflow: hidden;
+  background-color: white;
+  position: fixed;
+  width: calc(100% - 351px);
+  z-index: 999;
+}
+
+.header {
+  padding: 24px 0 5px 0;
 }
 
 .tabs {
@@ -42,7 +50,7 @@
 }
 
 .notifications {
-  padding: 24px 0 32px 0;
+  padding: 0 0 32px 0;
 }
 
 .notification {
@@ -57,14 +65,23 @@
   scroll-behavior: unset;
   min-width: 223px;
   background: xtraLightGrey;
+  position: fixed;
+  left: 0;
+  height: 100%;
+  overflow: scroll;
 }
 
-.contentWrapper {
+.content {
   width: 100%;
-  padding: 0 64px;
   display: flex;
   flex-direction: column;
   overflow: auto;
+  box-sizing: border-box;
+  margin-top: 124px;
+}
+
+.contentWithNotifications {
+  margin-top: 100px;
 }
 
 .selectedElement {
@@ -90,11 +107,33 @@
   margin: 32px 20px 54px 20px;
 }
 
+@media desktop {
+  .container {
+    scroll-behavior: unset;
+    margin: 0;
+  }
+
+  .headerSticky {
+    width: calc(100% - 287px);
+  }
+
+  .contentWrapper {
+    padding: 0 32px 0 255px;
+  }
+}
+
 @media tablet {
   .container {
     scroll-behavior: unset;
     margin: 0;
-    padding: 10px 10px;
+  }
+
+  .headerSticky {
+    width: calc(100% - 287px);
+  }
+
+  .contentWrapper {
+    padding: 0 32px 0 255px;
   }
 }
 

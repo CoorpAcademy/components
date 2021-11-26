@@ -17,6 +17,7 @@ import Header from '../../../organism/setup-header';
 import Loader from '../../../atom/loader';
 import Accordion from '../../../organism/accordion/coorp-manager';
 import style from './style.css';
+import classNames from 'classnames';
 
 const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
 
@@ -83,10 +84,9 @@ const buildNotifications = notifications => {
   return <div className={style.notifications}>{notificationsList}</div>;
 };
 
-const buildHeader = (header, notifications) => {
-  const headerStyle = isEmpty(notifications) ? style.header : style.headerForNotifications;
+const buildHeader = header => {
   return (
-    <div className={headerStyle}>
+    <div className={style.header}>
       <Header {...header} />
     </div>
   );
@@ -148,15 +148,19 @@ const BrandUpdate = props => {
   const contentView = buildContentView(content);
   const detailsView = buildDetailsView(details);
 
+  const contentStyle = classNames([style.content, !isEmpty(notifications) && style.contentWithNotifications])
+
   return (
     <div className={style.container}>
       {leftNavigation}
       <div className={style.contentWrapper}>
-        {headerView}
-        {notificationsView}
-        {tabsView}
-        {contentView}
-        {detailsView}
+        <div className={style.headerSticky}>{headerView}</div>
+        <div className={contentStyle}>
+          {notificationsView}
+          {tabsView}
+          {contentView}
+          {detailsView}
+        </div>
       </div>
     </div>
   );
