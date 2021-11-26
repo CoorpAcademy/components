@@ -40,22 +40,39 @@ const buildContent = content => {
   }
 };
 
+const buildButton = (type, step) => {
+  const {label, onClick} = step;
+  const buttonProps = {
+    type: type === 'next' ? 'primary' : 'secondary',
+    'aria-label': `${type} step button`,
+    'data-name': `${type}-step-button`,
+    icon: {
+      position: type === 'next' ? 'right' : 'left',
+      type: type === 'next' ? 'chevron-right' : 'chevron-left',
+    },
+    label,
+    onClick
+  };
+
+  return <ButtonLink {...buttonProps} />;
+};
+
+const buildActionZone = (previousStep, nextStep) => {
+  const previousButton = previousStep ? buildButton('next', previousStep) : null;
+  const nextButton = nextStep ? buildButton('next', nextStep) : null;
+  return (
+    <div className={style.actionZone}>
+      <div>{previousButton}</div>
+      <div>{nextButton}</div>
+    </div>
+  );
+};
+
 const WizardContents = props => {
-  const {wizardHeader, steps, summary, content, nextStep} = props;
+  const {wizardHeader, steps, summary, content, nextStep, previousStep} = props;
   const headerView = buildHeader(wizardHeader, steps);
   const contentView = buildContent(content);
-
-  const nextStepButton = {
-    type: 'primary',
-    label: nextStep.label,
-    'aria-label': 'next step button',
-    'data-name': 'next-step-button',
-    icon: {
-      position: 'left',
-      type: 'chevron-left'
-    },
-    onClick: nextStep.onClick
-  };
+  const actionView = buildActionZone(previousStep, nextStep);
 
   return (
     <div className={style.container}>
@@ -67,9 +84,7 @@ const WizardContents = props => {
         <div className={style.summaryZone}>
           <WizardSummary {...summary} />
         </div>
-        <div className={style.actionZone}>
-          <ButtonLink {...nextStepButton} />
-        </div>
+        {actionView}
       </div>
     </div>
   );
