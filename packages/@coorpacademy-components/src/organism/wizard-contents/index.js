@@ -82,14 +82,20 @@ const WizardContents = props => {
 
   return (
     <div className={style.container}>
-      <div className={style.content}>
+      <div className={style.leftSection}>
         {headerView}
         <div className={style.form}>{formView}</div>
       </div>
-      <div className={style.desktopRight}>
-        <div className={style.summaryZone}>
-          <WizardSummary {...summary} />
+      <div className={style.rightSection}>
+        <div className={style.stickySection}>
+          <div className={style.summaryZone}>
+            <WizardSummary {...summary} />
+          </div>
+          {actionView}
         </div>
+      </div>
+      <div className={style.footer}>
+        <WizardSummary {...summary} />
         {actionView}
       </div>
     </div>

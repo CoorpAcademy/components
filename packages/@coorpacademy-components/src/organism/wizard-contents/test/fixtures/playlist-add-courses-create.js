@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import wizardSummary from '../../../../molecule/wizard-summary/test/fixtures/one-section';
+import wizardSummary from '../../../../molecule/wizard-summary/test/fixtures/three-sections';
 import addCoursesForm from '../../../course-selection/test/fixtures/default';
 
 export default {

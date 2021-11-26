@@ -15,7 +15,7 @@
 
 .container {
   font-family: Gilroy;
-  width: 245px;
+  width: calc(100% - 74px);
   border-radius: 7px;
   background-color: cm_grey_50;
   padding: 40px 37px 32px 37px;

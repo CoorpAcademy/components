@@ -2,6 +2,14 @@
 @value tablet from breakpoints;
 @value desktop from breakpoints;
 
+.container {
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -15,30 +23,38 @@
   margin: 0 0 0 16px;
 }
 
-.container {
-  display: flex;
-  height: 100%;
-}
-
-.content {
+.leftSection {
+  display: block;
+  overflow: hidden;
+  box-sizing: border-box;
   flex: 1 0 auto;
-  width: 70%;
+  width: 68%;
 }
 
 .form {
   margin: 45px 32px 0 0;
 }
 
-.desktopRight {
-  flex: 0 1 320px;
+.rightSection {
+  box-sizing: border-box;
+  position: relative;
   display: flex;
   flex-direction: column;
+  flex: 0 1 320px;
+  bottom: 0px;
+}
+
+.stickySection {
+  box-sizing: border-box;
+  position: sticky;
+  z-index: 1;
+  top: 10px;
 }
 
 .summaryZone {
   width: 100%;
   position: relative;
-  height: 100%;
+  min-height: 500px;
   justify-content: space-between;
 }
 
@@ -53,12 +69,36 @@
   width: calc(50% - 8px);
 }
 
-@media tablet {
-  .desktopRight {
+.footer {
+  width: 100%;
+  bottom: 0px;
+  display: none;
+}
+
+@media desktop {
+  .rightSection {
     display: none;
   }
 
   .content {
     width: 100%;
+  }
+
+  .footer {
+    display: none;
+  }
+}
+
+@media tablet {
+  .rightSection {
+    display: none;
+  }
+
+  .content {
+    width: 100%;
+  }
+
+  .footer {
+    display: none;
   }
 }
