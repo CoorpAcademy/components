@@ -76,7 +76,7 @@
   border: 1px solid light;
   user-select: none;
   overflow: scroll;
-  max-height: 0px;
+  max-height: 0;
   transition: all 0.25s linear;
   opacity: 1;
 }
@@ -103,7 +103,6 @@
   width: 100%;
   display: block;
 }
-
 
 .arrow {
   position: absolute;
@@ -188,6 +187,7 @@
   display: inline-flex;
   align-items: center;
 }
+
 /*
   cockpit theme
 */
@@ -232,6 +232,7 @@
   color: black;
   height: 44px;
   padding: 11px 85px 11px 16px;
+  background-color: cm_grey_100;
 }
 
 .coorpmanager .select .title {

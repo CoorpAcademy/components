@@ -4,6 +4,38 @@ export default {
       {
         fields: [
           {
+            type: 'selectMultiple',
+            title: 'Languages',
+            placeholder: 'Language selection',
+            description: 'This is the tooltip text',
+            theme: 'coorpmanager',
+            hint: '15 / 30 characters',
+            size: 'default',
+            options: [
+              {
+                name: '🇬🇧 English',
+                value: 'en',
+                selected: true
+              },
+              {
+                name: '🇩🇪 German',
+                value: 'de',
+                selected: false
+              },
+              {
+                name: '🇹🇭 Thai',
+                value: 'th',
+                selected: false
+              },
+              {
+                name: '🇪🇸 Spanish',
+                value: 'es',
+                selected: false
+              }
+            ],
+            multiple: false
+          },
+          {
             type: 'text',
             title: 'Playlist name',
             placeholder: 'Playlist name',

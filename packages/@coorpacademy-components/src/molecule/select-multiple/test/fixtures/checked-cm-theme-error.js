@@ -6,7 +6,7 @@ export default {
     description: 'You should select a language',
     multiple: false,
     disabled: true,
-    error: '',
+    error: 'Select at least one',
     hint: 'Hint',
     options: [
       {
@@ -30,7 +30,7 @@ export default {
         selected: false
       }
     ],
-    onChange: () => true,
+    onChange: value => console.log('onChange', value),
     onError: () => true
   }
 };
