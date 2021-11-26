@@ -4,13 +4,13 @@ export default {
     placeholder: 'Select language(s)',
     title: 'Input Name',
     description: 'You should select a language',
-    multiple: true,
+    multiple: false,
     disabled: true,
     error: '',
     hint: 'Hint',
     options: [
       {
-        name: '🇬🇧 English very looooooooonnnnnnnnnnnnnnnnnnngggggggggggg',
+        name: '🇬🇧 English',
         value: 'en',
         selected: true
       },

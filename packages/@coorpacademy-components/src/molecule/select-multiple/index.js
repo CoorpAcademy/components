@@ -44,7 +44,7 @@ const CMMultipleView = ({multiple, choice, onChange}) => {
       }
       return onChange({...choice, selected: checked});
     },
-    [onChange, choice]
+    [onChange, choice, multiple]
   );
 
   return multiple ? (
@@ -89,14 +89,17 @@ const SelectMultiple = (
   const defaultColor = get('common.primary', skin);
   const black = get('common.black', skin);
 
-  const handleOnClick = useCallback(e => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleOnClick = useCallback(
+    e => {
+      if (disabled) return;
 
-    if (!disabled) {
+      e.preventDefault();
+      e.stopPropagation();
+
       updateIsOpened(prev => !prev);
-    }
-  }, []);
+    },
+    [disabled]
+  );
 
   const closeHandle = useCallback(e => {
     if (nodeRef && nodeRef.current && !nodeRef.current.contains(e.target)) {
