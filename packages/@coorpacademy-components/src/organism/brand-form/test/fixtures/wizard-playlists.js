@@ -33,7 +33,7 @@ export default {
                 selected: false
               }
             ],
-            multiple: true
+            multiple: false
           },
           {
             type: 'text',
