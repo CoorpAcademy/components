@@ -868,8 +868,11 @@ import OrganismSidebarFixtureShowcase from '../src/organism/sidebar/test/fixture
 import OrganismSliderFixtureDefault from '../src/organism/slider/test/fixtures/default';
 import OrganismSliderFixtureMultipleSlides from '../src/organism/slider/test/fixtures/multiple-slides';
 import OrganismUserPreferencesFixtureDefault from '../src/organism/user-preferences/test/fixtures/default';
+import OrganismWizardContentsFixturePlaylistAddCoursesCreate from '../src/organism/wizard-contents/test/fixtures/playlist-add-courses-create';
 import OrganismWizardContentsFixturePlaylistGeneralSettingsCreate from '../src/organism/wizard-contents/test/fixtures/playlist-general-settings-create';
 import OrganismWizardContentsFixturePlaylistGeneralSettingsEdit from '../src/organism/wizard-contents/test/fixtures/playlist-general-settings-edit';
+import OrganismWizardContentsFixturePlaylistPopulationsCreate from '../src/organism/wizard-contents/test/fixtures/playlist-populations-create';
+import OrganismWizardContentsFixturePlaylistTranslateEdit from '../src/organism/wizard-contents/test/fixtures/playlist-translate-edit';
 import TemplateActivityFixtureAllEngines from '../src/template/activity/test/fixtures/all-engines';
 import TemplateActivityFixtureArabic from '../src/template/activity/test/fixtures/arabic';
 import TemplateActivityFixtureDefault from '../src/template/activity/test/fixtures/default';
@@ -1027,8 +1030,11 @@ import TemplateBackOfficeBrandUpdateFixtureSso from '../src/template/back-office
 import TemplateBackOfficeBrandUpdateFixtureUploadusersLoading from '../src/template/back-office/brand-update/test/fixtures/uploadusers-loading';
 import TemplateBackOfficeBrandUpdateFixtureUploadusersSuccessful from '../src/template/back-office/brand-update/test/fixtures/uploadusers-successful';
 import TemplateBackOfficeBrandUpdateFixtureUploadusers from '../src/template/back-office/brand-update/test/fixtures/uploadusers';
+import TemplateBackOfficeBrandUpdateFixtureWizardAddCoursesPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-add-courses-playlist';
 import TemplateBackOfficeBrandUpdateFixtureWizardFormCreatePlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-form-create-playlist';
 import TemplateBackOfficeBrandUpdateFixtureWizardFormEditPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-form-edit-playlist';
+import TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-populations-playlist';
+import TemplateBackOfficeBrandUpdateFixtureWizardTranslatePlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-translate-playlist';
 import TemplateBackOfficeDashboardPreviewFixtureDefault from '../src/template/back-office/dashboard-preview/test/fixtures/default';
 import TemplateBackOfficeDashboardPreviewFixtureError from '../src/template/back-office/dashboard-preview/test/fixtures/error';
 import TemplateBackOfficeDashboardPreviewFixtureLoading from '../src/template/back-office/dashboard-preview/test/fixtures/loading';
@@ -2333,8 +2339,11 @@ export const fixtures = {
       Default: OrganismUserPreferencesFixtureDefault
     },
     OrganismWizardContents: {
+      PlaylistAddCoursesCreate: OrganismWizardContentsFixturePlaylistAddCoursesCreate,
       PlaylistGeneralSettingsCreate: OrganismWizardContentsFixturePlaylistGeneralSettingsCreate,
-      PlaylistGeneralSettingsEdit: OrganismWizardContentsFixturePlaylistGeneralSettingsEdit
+      PlaylistGeneralSettingsEdit: OrganismWizardContentsFixturePlaylistGeneralSettingsEdit,
+      PlaylistPopulationsCreate: OrganismWizardContentsFixturePlaylistPopulationsCreate,
+      PlaylistTranslateEdit: OrganismWizardContentsFixturePlaylistTranslateEdit
     }
   },
   OrganismMooc: {
@@ -2552,8 +2561,11 @@ export const fixtures = {
       UploadusersLoading: TemplateBackOfficeBrandUpdateFixtureUploadusersLoading,
       UploadusersSuccessful: TemplateBackOfficeBrandUpdateFixtureUploadusersSuccessful,
       Uploadusers: TemplateBackOfficeBrandUpdateFixtureUploadusers,
+      WizardAddCoursesPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardAddCoursesPlaylist,
       WizardFormCreatePlaylist: TemplateBackOfficeBrandUpdateFixtureWizardFormCreatePlaylist,
-      WizardFormEditPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardFormEditPlaylist
+      WizardFormEditPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardFormEditPlaylist,
+      WizardPopulationsPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylist,
+      WizardTranslatePlaylist: TemplateBackOfficeBrandUpdateFixtureWizardTranslatePlaylist
     },
     TemplateBackOfficeDashboardPreview: {
       Default: TemplateBackOfficeDashboardPreviewFixtureDefault,

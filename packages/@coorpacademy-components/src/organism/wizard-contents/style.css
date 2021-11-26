@@ -18,6 +18,11 @@
 
 .content {
   flex: 1 0 auto;
+  width: 70%;
+}
+
+.form {
+  margin: 45px 0;
 }
 
 .desktopRight {
@@ -35,4 +40,11 @@
 
 .actionZone {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 16px 0;
+}
+
+.button {
+  width: calc(50% - 8px);
 }

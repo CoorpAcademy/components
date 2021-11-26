@@ -32,11 +32,17 @@ const buildHeader = (wizardHeader, steps) => {
   );
 };
 
-const buildContent = content => {
+const buildForm = content => {
   const {type} = content;
   switch (type) {
     case 'form':
       return <BrandForm {...content} />;
+    case 'translate':
+      return <ContentTranslate {...content} />;
+    case 'populations':
+      return <OrganismSearchAndChipsResults {...content} />;
+    case 'courses':
+      return <CourseSelection {...content} />;
   }
 };
 
@@ -48,7 +54,7 @@ const buildButton = (type, step) => {
     'data-name': `${type}-step-button`,
     icon: {
       position: type === 'next' ? 'right' : 'left',
-      type: type === 'next' ? 'chevron-right' : 'chevron-left',
+      type: type === 'next' ? 'chevron-right' : 'chevron-left'
     },
     label,
     onClick
@@ -58,12 +64,12 @@ const buildButton = (type, step) => {
 };
 
 const buildActionZone = (previousStep, nextStep) => {
-  const previousButton = previousStep ? buildButton('next', previousStep) : null;
+  const previousButton = previousStep ? buildButton('previous', previousStep) : null;
   const nextButton = nextStep ? buildButton('next', nextStep) : null;
   return (
     <div className={style.actionZone}>
-      <div>{previousButton}</div>
-      <div>{nextButton}</div>
+      <div className={style.button}>{previousButton}</div>
+      <div className={style.button}>{nextButton}</div>
     </div>
   );
 };
@@ -71,14 +77,14 @@ const buildActionZone = (previousStep, nextStep) => {
 const WizardContents = props => {
   const {wizardHeader, steps, summary, content, nextStep, previousStep} = props;
   const headerView = buildHeader(wizardHeader, steps);
-  const contentView = buildContent(content);
+  const formView = buildForm(content);
   const actionView = buildActionZone(previousStep, nextStep);
 
   return (
     <div className={style.container}>
       <div className={style.content}>
         {headerView}
-        {contentView}
+        <div className={style.form}>{formView}</div>
       </div>
       <div className={style.desktopRight}>
         <div className={style.summaryZone}>
