@@ -10,6 +10,14 @@ const listeItems = ids.map(id => {
 
 export default {
   props: {
+    title: `${listeItems.length} custom playlists`,
+    buttonLink: {
+      type: 'primary',
+      label: 'Create custom playlist',
+      'aria-label': 'aria button',
+      'data-name': 'default-button',
+      onClick: () => console.log('click')
+    },
     items: listeItems
   }
 };
