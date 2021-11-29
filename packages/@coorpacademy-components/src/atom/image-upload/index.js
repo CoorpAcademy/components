@@ -1,6 +1,6 @@
-import React, {useMemo} from 'react';
+import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
-import {join, map, pipe} from 'lodash/fp';
+import {join, map, pipe, isEmpty} from 'lodash/fp';
 import DragAndDrop from '../drag-and-drop';
 import {ImagePropType} from '../../util/proptypes';
 import style from './style.css';
@@ -19,19 +19,20 @@ const ImageUpload = ({
   // See ImagePropType for accepted values
   imageTypes = ['*']
 }) => {
-  const handleReset = onReset
-    ? useMemo(
-        () => e => {
-          e.preventDefault();
-          return onReset(e);
-        },
-        [onReset]
-      )
-    : null;
+  const handleReset = useCallback(
+    e => {
+      if (isEmpty(onReset)) return;
+      e.preventDefault();
+      return onReset(e);
+    },
+    [onReset]
+  );
+
   const acceptedImages = pipe(
     map(t => `image/${t}`),
     join(',')
   )(imageTypes);
+
   return (
     <DragAndDrop
       title={title}
