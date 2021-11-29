@@ -1,6 +1,6 @@
-import React, {useState, useCallback} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
+
 import ListItem from '../list-item';
 import Title from '../../atom/title';
 
