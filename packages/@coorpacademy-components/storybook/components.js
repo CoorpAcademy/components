@@ -154,6 +154,7 @@ import OrganismGridList from './../src/organism/grid-list';
 import OrganismHeader from './../src/organism/header';
 import OrganismHero from './../src/organism/hero';
 import OrganismListItem from './../src/organism/list-item';
+import OrganismListItems from './../src/organism/list-items';
 import OrganismMoocImageSlider from './../src/organism/mooc/image-slider';
 import OrganismMoocFooter from './../src/organism/mooc-footer';
 import OrganismMoocHeader from './../src/organism/mooc-header';
@@ -809,6 +810,9 @@ import OrganismListItemFixtureArchived from '../src/organism/list-item/test/fixt
 import OrganismListItemFixtureDraft from '../src/organism/list-item/test/fixtures/draft';
 import OrganismListItemFixturePublished from '../src/organism/list-item/test/fixtures/published';
 import OrganismListItemFixtureRevised from '../src/organism/list-item/test/fixtures/revised';
+import OrganismListItemsFixtureArchived from '../src/organism/list-items/test/fixtures/archived';
+import OrganismListItemsFixtureDraft from '../src/organism/list-items/test/fixtures/draft';
+import OrganismListItemsFixturePublished from '../src/organism/list-items/test/fixtures/published';
 import OrganismMoocImageSliderFixtureDefault from '../src/organism/mooc/image-slider/test/fixtures/default';
 import OrganismMoocImageSliderFixtureMultipleSlides from '../src/organism/mooc/image-slider/test/fixtures/multiple-slides';
 import OrganismMoocFooterFixtureDefault from '../src/organism/mooc-footer/test/fixtures/default';
@@ -1242,6 +1246,7 @@ export const components = {
     OrganismHeader,
     OrganismHero,
     OrganismListItem,
+    OrganismListItems,
     OrganismMoocFooter,
     OrganismMoocHeader,
     OrganismPlaylistTranslation,
@@ -2241,6 +2246,11 @@ export const fixtures = {
       Draft: OrganismListItemFixtureDraft,
       Published: OrganismListItemFixturePublished,
       Revised: OrganismListItemFixtureRevised
+    },
+    OrganismListItems: {
+      Archived: OrganismListItemsFixtureArchived,
+      Draft: OrganismListItemsFixtureDraft,
+      Published: OrganismListItemsFixturePublished
     },
     OrganismMoocFooter: {
       Default: OrganismMoocFooterFixtureDefault,
