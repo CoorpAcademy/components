@@ -78,11 +78,12 @@ const buildSections = sections => {
   });
 };
 
-const buildAction = action => {
-  if (!action) return null;
-
+const BuildAction = ({action}) => {
   const {onClick, text, icon, 'aria-label': ariaLabel} = action;
   const handleClick = useMemo(() => () => onClick(), [onClick]);
+
+  if (!action) return null;
+
   const buttonProps = {
     type: 'text',
     label: text,
@@ -105,7 +106,6 @@ const buildAction = action => {
 const WizardSummary = props => {
   const {title, sections, action} = props;
   const sectionsView = buildSections(sections);
-  const actionView = buildAction(action);
   const idSwitch = 'open-summary-wizard';
 
   return (
@@ -127,9 +127,20 @@ const WizardSummary = props => {
         </div>
         <div className={style.summarySections}>{sectionsView}</div>
       </div>
-      <div className={style.actionZone}>{actionView}</div>
+      <div className={style.actionZone}>
+        <BuildAction action={action} />
+      </div>
     </div>
   );
+};
+
+BuildAction.propTypes = {
+  action: PropTypes.shape({
+    icon: PropTypes.string,
+    text: PropTypes.string,
+    onClick: PropTypes.func,
+    'aria-label': PropTypes.string
+  })
 };
 
 WizardSummary.propTypes = {
@@ -171,12 +182,7 @@ WizardSummary.propTypes = {
       counterText: PropTypes.string
     })
   ),
-  action: PropTypes.shape({
-    icon: PropTypes.string,
-    text: PropTypes.string,
-    onClick: PropTypes.func,
-    'aria-label': PropTypes.string
-  })
+  action: BuildAction.propTypes.action
 };
 
 export default WizardSummary;

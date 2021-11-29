@@ -40,13 +40,15 @@ Button.propTypes = {
 
 const ButtonMenu = props => {
   const {buttons, 'data-name': dataName} = props;
-  const buildButton = (button, index) => {
+  const buildButton = useCallback((button, index) => {
     return <Button {...button} key={button.label + index} />;
-  };
+  }, []);
+
   const buttonList = useMemo(() => map.convert({cap: false})(buildButton, buttons), [
     buttons,
     buildButton
   ]);
+
   return <div data-name={dataName}>{buttonList}</div>;
 };
 

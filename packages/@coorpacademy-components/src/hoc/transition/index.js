@@ -8,7 +8,7 @@ const Transition = props => {
 
   if (!animated) return children;
 
-  return React.Children.map(children, child => {
+  const Child = ({child}) => {
     const {
       props: {className: propClassName}
     } = child;
@@ -17,7 +17,7 @@ const Transition = props => {
       () => () => {
         return onAnimationEnd(name);
       },
-      [onAnimationEnd, name]
+      []
     );
 
     return React.cloneElement(child, {
@@ -25,7 +25,9 @@ const Transition = props => {
       onTransitionEnd: handlerAnimationEnd,
       onAnimationEnd: handlerAnimationEnd
     });
-  });
+  };
+
+  return React.Children.map(children, child => <Child child={child} />);
 };
 
 Transition.propTypes = {

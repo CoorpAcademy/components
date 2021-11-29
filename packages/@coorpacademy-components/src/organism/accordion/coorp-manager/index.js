@@ -22,7 +22,7 @@ const Tab = ({
   isOpen,
   onUpdateOpenedTab
 }) => {
-  const handleOnClick = useMemo(() => evt => onClick(index, evt), [onClick]);
+  const handleOnClick = useMemo(() => evt => onClick(index, evt), [index, onClick]);
   return children ? (
     <div data-name="accordion" className={themeStyle[theme]}>
       <Part

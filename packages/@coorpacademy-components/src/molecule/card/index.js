@@ -138,7 +138,7 @@ const Card = memo(function Card(props, context) {
     style.grid,
     empty ? style.empty : null
   );
-  const handleClick = useMemo(() => e => !disabled && onClick(e), [onClick]);
+  const handleClick = useMemo(() => e => !disabled && onClick(e), [disabled, onClick]);
   const lock = disabled ? (
     <LockIcon className={style.lockIcon} color={whiteColor} height={40} />
   ) : null;

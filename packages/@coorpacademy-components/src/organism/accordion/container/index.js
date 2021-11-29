@@ -10,7 +10,7 @@ const themeStyle = {
 };
 
 const Tab = ({children, index, title, isOpen, iconType, onClick, theme}) => {
-  const handleOnClick = useMemo(() => evt => onClick(index, evt), [onClick]);
+  const handleOnClick = useMemo(() => evt => onClick(index, evt), [index, onClick]);
 
   return children ? (
     <div data-name="accordion" className={themeStyle[theme]}>
