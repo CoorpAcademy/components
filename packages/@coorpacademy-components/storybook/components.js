@@ -810,7 +810,9 @@ import OrganismListItemFixtureArchived from '../src/organism/list-item/test/fixt
 import OrganismListItemFixtureDraft from '../src/organism/list-item/test/fixtures/draft';
 import OrganismListItemFixturePublished from '../src/organism/list-item/test/fixtures/published';
 import OrganismListItemFixtureRevised from '../src/organism/list-item/test/fixtures/revised';
-import OrganismListItemsFixtureDefault from '../src/organism/list-items/test/fixtures/default';
+import OrganismListItemsFixtureArchived from '../src/organism/list-items/test/fixtures/archived';
+import OrganismListItemsFixtureDraft from '../src/organism/list-items/test/fixtures/draft';
+import OrganismListItemsFixturePublished from '../src/organism/list-items/test/fixtures/published';
 import OrganismMoocImageSliderFixtureDefault from '../src/organism/mooc/image-slider/test/fixtures/default';
 import OrganismMoocImageSliderFixtureMultipleSlides from '../src/organism/mooc/image-slider/test/fixtures/multiple-slides';
 import OrganismMoocFooterFixtureDefault from '../src/organism/mooc-footer/test/fixtures/default';
@@ -2246,7 +2248,9 @@ export const fixtures = {
       Revised: OrganismListItemFixtureRevised
     },
     OrganismListItems: {
-      Default: OrganismListItemsFixtureDefault
+      Archived: OrganismListItemsFixtureArchived,
+      Draft: OrganismListItemsFixtureDraft,
+      Published: OrganismListItemsFixturePublished
     },
     OrganismMoocFooter: {
       Default: OrganismMoocFooterFixtureDefault,
