@@ -11,6 +11,7 @@ const listeItems = ids.map(id => {
 export default {
   props: {
     title: `${listeItems.length} custom playlists`,
+    'aria-label': 'aria list',
     buttonLink: {
       type: 'primary',
       label: 'Create custom playlist',
