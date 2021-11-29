@@ -26,7 +26,6 @@
 .contentWrapper {
   width: calc(100% - 351px);
   padding: 0 64px 0 64px;
-  left: 223;
 }
 
 .headerSticky {
@@ -81,7 +80,6 @@
   display: flex;
   flex-direction: column;
   overflow: auto;
-  box-sizing: border-box;
   top: 124px;
   position: relative;
 }
