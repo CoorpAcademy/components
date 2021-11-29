@@ -9,23 +9,23 @@ import style from './style.css';
 
 const ListItems = ({title, buttonLink, items}) => {
   const itemsView = items.map(item => (
-    <div key={item.id} className={style.item}>
+    <li key={item.id} className={style.item}>
       <ListItem {...item} />
-    </div>
+    </li>
   ));
 
   return (
-    <>
+    <div>
       <div className={style.header}>
         <div className={style.title}>
           <Title title={title} type={'form-group'} />
         </div>
-        <div className={style.create}>
+        <div className={style.buttonCreate}>
           <ButtonLink {...buttonLink} />
         </div>
       </div>
-      {itemsView}
-    </>
+      <ul className={style.list}>{itemsView}</ul>
+    </div>
   );
 };
 
