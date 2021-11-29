@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
-import {join, map, pipe, isEmpty} from 'lodash/fp';
+import {join, map, pipe, isNil} from 'lodash/fp';
 import DragAndDrop from '../drag-and-drop';
 import {ImagePropType} from '../../util/proptypes';
 import style from './style.css';
@@ -21,7 +21,7 @@ const ImageUpload = ({
 }) => {
   const handleReset = useCallback(
     e => {
-      if (isEmpty(onReset)) return;
+      if (isNil(onReset)) return;
       e.preventDefault();
       return onReset(e);
     },

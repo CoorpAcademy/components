@@ -182,7 +182,7 @@ WizardSummary.propTypes = {
       counterText: PropTypes.string
     })
   ),
-  action: PropTypes.shape(BuildAction.propTypes.action)
+  action: BuildAction.propTypes.action
 };
 
 export default WizardSummary;
