@@ -1,0 +1,12 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value medium from colors;
+@value xtraLightGrey from colors;
+@value dark from colors;
+
+
+.item {
+  margin-bottom: 8px;
+}
+
