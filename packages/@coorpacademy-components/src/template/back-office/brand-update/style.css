@@ -87,7 +87,7 @@
 }
 
 .contentWithNotifications {
-  margin-top: 100px;
+  top: 100px;
 }
 
 .selectedElement {
@@ -122,6 +122,11 @@
   .headerSticky {
     width: calc(100% - 287px);
   }
+
+  .contentWrapper {
+    width: calc(100% - 287px);
+    padding: 0 32px 0 32px;
+  }
 }
 
 @media tablet {
@@ -135,7 +140,8 @@
   }
 
   .contentWrapper {
-    padding: 0 32px 0 255px;
+    width: calc(100% - 287px);
+    padding: 0 32px 0 32px;
   }
 }
 
