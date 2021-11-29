@@ -17,17 +17,14 @@
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  border: 1px solid blue;
 }
 
 .left {
   width: 223px;
-  border: 1px solid red;
 }
 
 .contentWrapper {
   width: calc(100% - 351px);
-  border: 1px solid green;
   padding: 0 64px 0 64px;
   left: 223;
 }
@@ -86,8 +83,7 @@
   overflow: auto;
   box-sizing: border-box;
   top: 124px;
-  position: unset;
-  border: 1px solid yellow;
+  position: relative;
 }
 
 .contentWithNotifications {
