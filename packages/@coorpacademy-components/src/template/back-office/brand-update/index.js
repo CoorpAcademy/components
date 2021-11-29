@@ -5,6 +5,7 @@ import pipe from 'lodash/fp/pipe';
 import get from 'lodash/fp/get';
 import isEmpty from 'lodash/fp/isEmpty';
 import find from 'lodash/fp/find';
+import classNames from 'classnames';
 import BrandTabs from '../../../molecule/brand-tabs';
 import {IconLinkItem, LinkItem} from '../../../organism/sidebar';
 import BrandForm from '../../../organism/brand-form';
@@ -17,7 +18,6 @@ import Header from '../../../organism/setup-header';
 import Loader from '../../../atom/loader';
 import Accordion from '../../../organism/accordion/coorp-manager';
 import style from './style.css';
-import classNames from 'classnames';
 
 const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
 
@@ -56,7 +56,7 @@ const buildLeftNavigation = (logo, items, onItemClick) => {
   ))(items);
 
   return (
-    <div className={style.leftMenu}>
+    <div className={style.navigation}>
       <div className={style.logo}>
         <a href="/">
           <img src={logo} />
@@ -148,11 +148,14 @@ const BrandUpdate = props => {
   const contentView = buildContentView(content);
   const detailsView = buildDetailsView(details);
 
-  const contentStyle = classNames([style.content, !isEmpty(notifications) && style.contentWithNotifications])
+  const contentStyle = classNames([
+    style.content,
+    !isEmpty(notifications) && style.contentWithNotifications
+  ]);
 
   return (
     <div className={style.container}>
-      {leftNavigation}
+      <div className={style.left}>{leftNavigation}</div>
       <div className={style.contentWrapper}>
         <div className={style.headerSticky}>{headerView}</div>
         <div className={contentStyle}>
