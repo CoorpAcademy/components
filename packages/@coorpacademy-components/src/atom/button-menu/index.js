@@ -40,7 +40,7 @@ Button.propTypes = {
 
 const ButtonMenu = props => {
   const {buttons, 'data-name': dataName} = props;
-  const buildButton = React.useCallback((button, index) => {
+  const buildButton = useCallback((button, index) => {
     return <Button {...button} key={button.label + index} />;
   }, []);
 
