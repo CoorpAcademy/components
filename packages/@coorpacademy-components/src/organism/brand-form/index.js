@@ -9,6 +9,51 @@ import Button from '../../atom/button';
 import Link from '../../atom/link';
 import style from './style.css';
 
+const buildButtonSection = (
+  onSubmit,
+  submitValue,
+  onReset,
+  resetValue,
+  tooltip,
+  disabled,
+  isModified,
+  isPending,
+  darkColor
+) => {
+  if (!onSubmit && !onReset) {
+    return null;
+  }
+
+  const disabledSubmit = disabled || isPending || !isModified;
+  const submitButton = onSubmit ? (
+    <div data-tip={tooltip.title} data-for="submitButton" className={style.saveButton}>
+      <ReactTooltip
+        type="light"
+        effect="solid"
+        className={style.toolTipContent}
+        place={tooltip.place}
+        id="submitButton"
+      />
+      <Button type="submit" disabled={disabledSubmit} submitValue={submitValue} />
+    </div>
+  ) : null;
+
+  const cancelBackground = {backgroundColor: darkColor};
+
+  const resetButton = onReset ? (
+    <div className={style.resetButton}>
+      <Button type="reset" submitValue={resetValue} style={cancelBackground} />
+    </div>
+  ) : null;
+
+  return (
+    <div className={style.buttons}>
+      {submitButton}
+      {resetButton}
+    </div>
+  );
+};
+
 function BrandForm(props, context) {
   const {
     groups,
@@ -36,25 +81,24 @@ function BrandForm(props, context) {
 
   const brandGroups = groups.map((group, index) => {
     return (
-      <div key={index}>
+      <div className={style.group} key={index}>
         <BrandFormGroup {...group} />
       </div>
     );
   });
 
-  const disabledSubmit = disabled || isPending || !isModified;
-  const submitButton = onSubmit ? (
-    <div data-tip={tooltip.title} data-for="submitButton" className={style.saveButton}>
-      <ReactTooltip
-        type="light"
-        effect="solid"
-        className={style.toolTipContent}
-        place={tooltip.place}
-        id="submitButton"
-      />
-      <Button type="submit" disabled={disabledSubmit} submitValue={submitValue} />
-    </div>
-  ) : null;
+  const buttonSection = buildButtonSection(
+    onSubmit,
+    submitValue,
+    onReset,
+    resetValue,
+    tooltip,
+    disabled,
+    isModified,
+    isPending,
+    darkColor
+  );
+
   const handleSubmit = useMemo(
     () => e => {
       e.preventDefault();
@@ -63,13 +107,6 @@ function BrandForm(props, context) {
     [onSubmit]
   );
 
-  const cancelBackground = {backgroundColor: darkColor};
-
-  const resetButton = onReset ? (
-    <div className={style.resetButton}>
-      <Button type="reset" submitValue={resetValue} style={cancelBackground} />
-    </div>
-  ) : null;
   const handleReset = useMemo(
     () => e => {
       e.preventDefault();
@@ -83,10 +120,7 @@ function BrandForm(props, context) {
       {backView}
       <form onSubmit={handleSubmit} onReset={handleReset}>
         {brandGroups}
-        <div className={style.buttons}>
-          {submitButton}
-          {resetButton}
-        </div>
+        {buttonSection}
       </form>
     </div>
   );
