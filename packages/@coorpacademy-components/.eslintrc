@@ -4,7 +4,8 @@
     "browser": true
   },
   "plugins": [
-    "@coorpacademy/coorpacademy"
+    "@coorpacademy/coorpacademy",
+    "react-hooks"
   ],
   "extends": [
     "plugin:@coorpacademy/coorpacademy/core",
@@ -22,6 +23,8 @@
     }
   },
   "rules": {
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
     "promise/no-native": "off",
     "fp/no-class": "off",
     "default-param-last": "warn",

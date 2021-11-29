@@ -119,7 +119,7 @@ const SelectMultiple = (
 
       return onChange(choice);
     },
-    [setChoices, multiple, onChange]
+    [multiple, onChange, setChoices, getChoices]
   );
 
   useEffect(() => {
