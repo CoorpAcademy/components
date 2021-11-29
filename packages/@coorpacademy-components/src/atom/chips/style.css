@@ -65,9 +65,8 @@
 .icon{
   position: absolute;
   width: 16px;
-  height: 16px;
+  height: 100%;
   right: 18px;
-  top: 16px;
 }
 
 .selectedIconWrapper {
