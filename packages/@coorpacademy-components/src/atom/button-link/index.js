@@ -50,6 +50,8 @@ const ButtonLink = props => {
     disabled && style.disabled
   );
 
+  const handleOnClick = useCallback(() => onClick(), [onClick]);
+
   if (link) {
     return (
       <Link
@@ -64,7 +66,6 @@ const ButtonLink = props => {
     );
   }
 
-  const handleOnClick = useCallback(() => onClick(), [onClick]);
   return (
     <button
       type="button"

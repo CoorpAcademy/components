@@ -37,6 +37,8 @@ const ButtonLinkIconOnly = props => {
     disabled && style.disabled
   );
 
+  const handleOnClick = useMemo(() => () => onClick(), [onClick]);
+
   if (link) {
     return (
       <Link
@@ -51,7 +53,6 @@ const ButtonLinkIconOnly = props => {
     );
   }
 
-  const handleOnClick = useMemo(() => () => onClick(), [onClick]);
   return (
     <button
       type="button"

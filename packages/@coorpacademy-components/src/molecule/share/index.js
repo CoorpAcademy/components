@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useContext, useEffect} from 'react';
+import React, {useState, useMemo, useCallback, useContext, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {
@@ -58,7 +58,10 @@ export const ShareStatusProvider = ({children}) => {
     }
     return () => clearTimeout(timeoutId);
   }, [status]);
-  return <StatusContext.Provider value={[status, setStatus]}>{children}</StatusContext.Provider>;
+
+  const value = useMemo(() => [status, setStatus], [status]);
+
+  return <StatusContext.Provider value={value}>{children}</StatusContext.Provider>;
 };
 
 export const ShareFeedback = ({successWording, errorWording}) => {
