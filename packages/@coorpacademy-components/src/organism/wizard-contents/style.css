@@ -28,7 +28,7 @@
   overflow: hidden;
   box-sizing: border-box;
   flex: 1 0 auto;
-  width: 68%;
+  width: 65%;
 }
 
 .form {
@@ -80,12 +80,8 @@
     display: none;
   }
 
-  .content {
-    width: 100%;
-  }
-
   .footer {
-    display: none;
+    display: block;
   }
 }
 
@@ -94,11 +90,7 @@
     display: none;
   }
 
-  .content {
-    width: 100%;
-  }
-
   .footer {
-    display: none;
+    display: block;
   }
 }

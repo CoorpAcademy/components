@@ -95,8 +95,10 @@ const WizardContents = props => {
         </div>
       </div>
       <div className={style.footer}>
-        <WizardSummary {...summary} />
-        {actionView}
+        <div>
+          <WizardSummary {...summary} />
+        </div>
+        <div>{actionView}</div>
       </div>
     </div>
   );
