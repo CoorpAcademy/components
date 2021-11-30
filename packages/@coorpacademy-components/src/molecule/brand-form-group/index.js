@@ -72,8 +72,8 @@ const buildInput = field => {
       return <Button {...field} />;
     case 'roles':
       return <Roles {...field} />;
-      case 'listItems':
-        return <ListItems {...field} />;
+    case 'listItems':
+      return <ListItems {...field} />;
     default:
       return <InputText {...field} />;
   }

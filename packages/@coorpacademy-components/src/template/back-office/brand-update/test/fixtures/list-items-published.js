@@ -1,6 +1,6 @@
-import {defaultsDeep,cloneDeep} from 'lodash/fp';
+import {defaultsDeep, cloneDeep} from 'lodash/fp';
 import listItems from '../../../../../organism/brand-form/test/fixtures/list-items';
-import Default, {items} from './default';
+import Default from './default';
 
 const props = cloneDeep(Default.props);
 const {groups} = listItems.props;
@@ -13,22 +13,21 @@ props.items[2].tabs = [
     href: '/brands/7steps/admin/look-and-feel',
     name: 'brand_tab_admin_look_and_feel',
     selected: false,
-    type: 'simpleTab',
+    type: 'simpleTab'
   },
   {
     title: 'Content',
     href: '/brands/7steps/admin/content',
     name: 'brand_tab_admin_user',
     selected: false,
-    type: 'simpleTab',
-    
+    type: 'simpleTab'
   },
   {
     title: 'Dashboard',
     href: '/brands/7steps/admin/user/dashboard',
     name: 'brand_tab_admin_user',
     selected: false,
-    type: 'simpleTab',
+    type: 'simpleTab'
   },
   {
     title: 'Custom Playlists',
@@ -63,15 +62,13 @@ props.items[2].tabs = [
       }
     ]
   }
-  
 ];
 
 export default {
   props: defaultsDeep(props, {
-  
     content: {
       type: 'form',
-      groups,
+      groups
     }
   })
 };
