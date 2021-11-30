@@ -1,5 +1,5 @@
 import {defaultsDeep, cloneDeep} from 'lodash/fp';
-import listItems from '../../../../../organism/brand-form/test/fixtures/list-items-published';
+import listItems from '../../../../../organism/brand-form/test/fixtures/list-items-archived';
 import Default from './default';
 
 const props = cloneDeep(Default.props);
@@ -41,7 +41,7 @@ props.items[2].tabs = [
         href: '/brands/7steps/admin/custom-playlist/published',
         name: 'published',
         permissions: ['published'],
-        selected: true,
+        selected: false,
         type: 'simpleTab'
       },
       {
@@ -57,7 +57,7 @@ props.items[2].tabs = [
         href: '/brands/7steps/admin/custom-playlist/archived',
         name: 'archived',
         permissions: ['archived'],
-        selected: false,
+        selected: true,
         type: 'simpleTab'
       }
     ]
