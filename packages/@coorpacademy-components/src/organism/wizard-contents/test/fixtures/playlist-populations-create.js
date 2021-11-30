@@ -11,16 +11,16 @@ export default {
     steps: [
       {
         title: 'General Informations',
-        done: false,
-        current: true
+        done: true
       },
       {
         title: 'Translations',
-        done: false
+        done: true
       },
       {
         title: 'Assign populations',
-        done: false
+        done: false,
+        current: true
       },
       {
         title: 'Add courses',
