@@ -89,8 +89,20 @@
 
   .footer {
     display: flex;
-    align-items: center;
+    align-items: end;
     bottom: 10px;
+    position: sticky;
+    z-index: 1;
+  }
+  .footer::before {
+    content: '';
+    background: linear-gradient(to top,white 64px, #ffffff00 );
+    bottom: -10px;
+    left: 0px;
+    right: 0px; 
+    height: 84px;
+    position: absolute;
+    z-index: -1;
   }
 
   .summaryFooter {
@@ -99,5 +111,8 @@
 
   .actionFooter {
     width: 43%;
+  }
+  .actionZone {
+    margin: 0;
   }
 }
