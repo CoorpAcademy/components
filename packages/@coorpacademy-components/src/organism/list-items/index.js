@@ -1,9 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import ListItem from '../list-item';
 import Title from '../../atom/title';
-
 import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 

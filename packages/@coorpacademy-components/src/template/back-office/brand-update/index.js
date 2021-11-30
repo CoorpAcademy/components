@@ -14,6 +14,7 @@ import BrandUpload from '../../../organism/brand-upload';
 import BrandAnalytics from '../../../organism/brand-analytics';
 import BrandDashboard from '../../../organism/brand-dashboard';
 import WizardContents from '../../../organism/wizard-contents';
+import ListItems from '../../../organism/list-items';
 import Banner from '../../../molecule/banner';
 import Header from '../../../organism/setup-header';
 import Loader from '../../../atom/loader';
@@ -128,6 +129,8 @@ const buildContentView = content => {
       return <BrandUpload {...content} />;
     case 'analytics-dashboards':
       return <BrandAnalytics {...content} />;
+    case 'list-content':
+      return <ListItems {...content} />;
     case 'home':
       return <BrandDashboard {...content} />;
     case 'wizard':
@@ -238,6 +241,11 @@ BrandUpdate.propTypes = {
       ...WizardContents.propTypes,
       key: PropTypes.string,
       type: PropTypes.oneOf(['wizard'])
+    }),
+    PropTypes.shape({
+      ...ListItems.propTypes,
+      key: PropTypes.string,
+      type: PropTypes.oneOf(['list-content'])
     })
   ]),
   details: PropTypes.shape({

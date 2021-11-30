@@ -1,9 +1,9 @@
 import {defaultsDeep, cloneDeep} from 'lodash/fp';
-import listItems from '../../../../../organism/brand-form/test/fixtures/list-items-archived';
+import listItems from '../../../../../organism/list-items/test/fixtures/archived';
 import Default from './default';
 
 const props = cloneDeep(Default.props);
-const {groups} = listItems.props;
+const listItemsProps = listItems.props;
 
 props.items[0].selected = false;
 props.items[2].selected = true;
@@ -67,8 +67,8 @@ props.items[2].tabs = [
 export default {
   props: defaultsDeep(props, {
     content: {
-      type: 'form',
-      groups
+      ...listItemsProps,
+      type: 'list-content'
     }
   })
 };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {map} from 'lodash/fp';
 import Tag from '../../atom/tag';
 import ButtonLink from '../../atom/button-link';
-import BulletPointMenuButton from '../bullet-point-menu-button';
+import BulletPointMenuButton from '../../molecule/bullet-point-menu-button';
 import style from './style.css';
 
 const ListItem = props => {
