@@ -6,12 +6,13 @@
 @value lightGrey from colors;
 @value negative from colors;
 @value xtraLightGrey from colors;
-@value cm_grey_400 from colors;
-@value cm_grey_700 from colors;
-@value cm_grey_200 from colors;
-@value cm_grey_150 from colors;
-@value cm_grey_100 from colors;
 @value cm_negative_100 from colors;
+@value cm_grey_100 from colors;
+@value cm_grey_150 from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_400 from colors;
+@value cm_grey_500 from colors;
+@value cm_grey_700 from colors;
 @value medium from colors;
 @value defaultText from "../../variables/fonts.css";
 
@@ -227,6 +228,7 @@
   flex-direction: column;
   justify-content: center;
   border-radius: 8px;
+  line-height: 31px;
   width: 100%;
   font-size: 14px;
   color: black;
@@ -265,7 +267,7 @@
   font-weight: 500;
   transition: all 0.25s ease;
   line-height: 20px;
-  margin: 10px 0 -10px 0;
+  margin: 0 0 -10px 0;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -274,6 +276,10 @@
 
 .coorpmanager .select .selection.noselection {
   color: cm_grey_400;
+  font-weight: 500;
+}
+
+.coorpmanager .select .title.noValue {
   font-weight: 500;
 }
 
@@ -310,8 +316,7 @@
 
 .coorpmanager .infoIconWrapper {
   overflow: visible;
-  height: 12px;
-  margin: 0 4px;
+  /* height: 12px; */
   cursor: pointer;
   pointer-events: fill;
   position: relative;
@@ -319,16 +324,16 @@
 
 .coorpmanager .infoIcon {
   cursor: pointer;
-  width: 8px;
+  width: 10px;
+  height: 10px;
   margin: 4px 4px 0 4px;
-  height: 8px;
   line-height: 16px;
   color: cm_grey_400;
   transition: all 0.25s linear;
 }
 
 .coorpmanager .select .title.noValue .infoIcon {
-  color: cm_grey_700;
+  color: cm_grey_500;
 }
 
 .coorpmanager .select .title.noValue.active .infoIcon,
@@ -344,7 +349,6 @@
 
 .coorpmanager .descriptionLabel {
   margin: 0 1px 18px 0;
-  padding: 8px 16px;
   border-radius: 7px;
   background-color: cm_grey_700;
   flex-grow: 0;
@@ -357,14 +361,21 @@
   letter-spacing: normal;
   text-align: center;
   color: white;
+  padding: 8px 16px;
   max-width: 200px;
   position: absolute;
-  left: -19px;
-  z-index: 3;
-  bottom: 5px;
+  left: -20px;
+  z-index: 999;
+  bottom: 18px;
   width: max-content;
   visibility: hidden;
-  opacity: 0s;
+  opacity: 0;
+}
+
+.coorpmanager .title.titleWithSelection .descriptionLabel,
+.coorpmanager .title.noValue.active .descriptionLabel {
+  left: -19px;
+  bottom: 1px;
 }
 
 .coorpmanager .descriptionLabel::after {
@@ -378,7 +389,7 @@
 }
 
 .coorpmanager .title.noValue .descriptionLabel::after {
-  left: 21px;
+  left: 22px;
 }
 
 .coorpmanager:focus-within .title.noValue .descriptionLabel::after {
@@ -483,4 +494,8 @@
 
 .coorpmanager.disabled .arrow {
   opacity: 0.5;
+}
+
+.coorpmanager .hideHint {
+  visibility: hidden;
 }
