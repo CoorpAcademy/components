@@ -447,6 +447,7 @@ import MoleculeBrandFormGroupFixtureDashboard from '../src/molecule/brand-form-g
 import MoleculeBrandFormGroupFixtureDefault from '../src/molecule/brand-form-group/test/fixtures/default';
 import MoleculeBrandFormGroupFixtureDoublefield from '../src/molecule/brand-form-group/test/fixtures/doublefield';
 import MoleculeBrandFormGroupFixtureImages from '../src/molecule/brand-form-group/test/fixtures/images';
+import MoleculeBrandFormGroupFixtureListItems from '../src/molecule/brand-form-group/test/fixtures/list-items';
 import MoleculeBrandFormGroupFixtureLookandfeel from '../src/molecule/brand-form-group/test/fixtures/lookandfeel';
 import MoleculeBrandFormGroupFixtureRoles from '../src/molecule/brand-form-group/test/fixtures/roles';
 import MoleculeBrandFormGroupFixtureSlider from '../src/molecule/brand-form-group/test/fixtures/slider';
@@ -776,6 +777,7 @@ import OrganismBrandFormFixtureCohort from '../src/organism/brand-form/test/fixt
 import OrganismBrandFormFixtureDashboard from '../src/organism/brand-form/test/fixtures/dashboard';
 import OrganismBrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import OrganismBrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
+import OrganismBrandFormFixtureListItems from '../src/organism/brand-form/test/fixtures/list-items';
 import OrganismBrandFormFixtureLms from '../src/organism/brand-form/test/fixtures/lms';
 import OrganismBrandFormFixtureLookandfeel from '../src/organism/brand-form/test/fixtures/lookandfeel';
 import OrganismBrandFormFixtureManageusersEdit from '../src/organism/brand-form/test/fixtures/manageusers-edit';
@@ -1012,6 +1014,7 @@ import TemplateBackOfficeBrandUpdateFixtureDashboardsAnalytics from '../src/temp
 import TemplateBackOfficeBrandUpdateFixtureDefault from '../src/template/back-office/brand-update/test/fixtures/default';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess from '../src/template/back-office/brand-update/test/fixtures/general-settings-success';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettings from '../src/template/back-office/brand-update/test/fixtures/general-settings';
+import TemplateBackOfficeBrandUpdateFixtureListItems from '../src/template/back-office/brand-update/test/fixtures/list-items';
 import TemplateBackOfficeBrandUpdateFixtureLmsError from '../src/template/back-office/brand-update/test/fixtures/lms-error';
 import TemplateBackOfficeBrandUpdateFixtureLmsModified from '../src/template/back-office/brand-update/test/fixtures/lms-modified';
 import TemplateBackOfficeBrandUpdateFixtureLmsSuccess from '../src/template/back-office/brand-update/test/fixtures/lms-success';
@@ -1698,6 +1701,7 @@ export const fixtures = {
       Default: MoleculeBrandFormGroupFixtureDefault,
       Doublefield: MoleculeBrandFormGroupFixtureDoublefield,
       Images: MoleculeBrandFormGroupFixtureImages,
+      ListItems: MoleculeBrandFormGroupFixtureListItems,
       Lookandfeel: MoleculeBrandFormGroupFixtureLookandfeel,
       Roles: MoleculeBrandFormGroupFixtureRoles,
       Slider: MoleculeBrandFormGroupFixtureSlider,
@@ -2201,6 +2205,7 @@ export const fixtures = {
       Dashboard: OrganismBrandFormFixtureDashboard,
       Default: OrganismBrandFormFixtureDefault,
       GeneralSettings: OrganismBrandFormFixtureGeneralSettings,
+      ListItems: OrganismBrandFormFixtureListItems,
       Lms: OrganismBrandFormFixtureLms,
       Lookandfeel: OrganismBrandFormFixtureLookandfeel,
       ManageusersEdit: OrganismBrandFormFixtureManageusersEdit,
@@ -2543,6 +2548,7 @@ export const fixtures = {
       Default: TemplateBackOfficeBrandUpdateFixtureDefault,
       GeneralSettingsSuccess: TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess,
       GeneralSettings: TemplateBackOfficeBrandUpdateFixtureGeneralSettings,
+      ListItems: TemplateBackOfficeBrandUpdateFixtureListItems,
       LmsError: TemplateBackOfficeBrandUpdateFixtureLmsError,
       LmsModified: TemplateBackOfficeBrandUpdateFixtureLmsModified,
       LmsSuccess: TemplateBackOfficeBrandUpdateFixtureLmsSuccess,

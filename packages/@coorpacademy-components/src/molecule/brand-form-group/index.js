@@ -19,6 +19,8 @@ import InputDoublestep from '../../atom/input-doublestep';
 import ImageUpload from '../../atom/image-upload';
 import SetupSlider from '../setup-slider';
 import SetupSections from '../setup-sections';
+import ListItems from '../../organism/list-items';
+
 import Title from '../../atom/title';
 import Roles from '../coorp-manager-roles';
 import style from './style.css';
@@ -70,6 +72,8 @@ const buildInput = field => {
       return <Button {...field} />;
     case 'roles':
       return <Roles {...field} />;
+      case 'listItems':
+        return <ListItems {...field} />;
     default:
       return <InputText {...field} />;
   }
