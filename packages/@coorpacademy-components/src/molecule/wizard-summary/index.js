@@ -5,6 +5,7 @@ import {NovaCompositionNavigationArrowDown as ArrowDownIcon} from '@coorpacademy
 import ContentBadge from '../../atom/content-badge';
 import ButtonLink from '../../atom/button-link';
 import style from './style.css';
+import { uniqueId } from 'lodash/fp';
 
 const buildItemsOfSection = items => {
   return items.map((item, index) => {
@@ -106,7 +107,7 @@ const BuildAction = ({action}) => {
 const WizardSummary = props => {
   const {title, sections, action} = props;
   const sectionsView = buildSections(sections);
-  const idSwitch = 'open-summary-wizard';
+  const idSwitch = uniqueId('open-summary-wizard');
 
   return (
     <div className={style.container}>

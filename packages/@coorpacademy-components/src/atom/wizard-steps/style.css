@@ -24,6 +24,7 @@
   -webkit-box-pack: center;
   justify-content: center;
   align-content: space-between;
+  z-index: 0;
 }
 
 .step:before {
@@ -89,6 +90,7 @@
   margin-top: 3px;
   border: 1px solid cm_grey_500;
   transition: background-color 0.5s linear;
+  z-index: 0;
 }
 
 .dot::before {
@@ -122,6 +124,7 @@
   margin: 0px auto;
   border: 8px solid white;
   transition: background-color 0.5s linear;
+  z-index: 0;
 }
 
 .step.done .outerDot, .step.current .outerDot {
