@@ -10,6 +10,31 @@
   flex-wrap: wrap;
 }
 
+.leftSection {
+  display: block;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 68%;
+  position: relative;
+}
+
+.rightSection {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 320px;
+}
+
+.stickySection {
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  right: 64px;
+  width: 300px;
+}
+
 .header {
   display: flex;
   flex-direction: row;
@@ -23,32 +48,8 @@
   margin: 0 0 0 16px;
 }
 
-.leftSection {
-  display: block;
-  overflow: hidden;
-  box-sizing: border-box;
-  flex: 1 0 auto;
-  width: 65%;
-}
-
 .form {
   margin: 45px 32px 0 0;
-}
-
-.rightSection {
-  box-sizing: border-box;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  flex: 0 1 320px;
-  bottom: 0px;
-}
-
-.stickySection {
-  box-sizing: border-box;
-  position: sticky;
-  z-index: 1;
-  top: 10px;
 }
 
 .summaryZone {
