@@ -89,6 +89,8 @@ import MoleculeForumForumComment from './../src/molecule/forum/forum-comment';
 import MoleculeForumForumPost from './../src/molecule/forum/forum-post';
 import MoleculeForumForumThread from './../src/molecule/forum/forum-thread';
 import MoleculeHero from './../src/molecule/hero';
+import MoleculeListItem from './../src/molecule/list-item';
+import MoleculeListItems from './../src/molecule/list-items';
 import MoleculeLoginAlert from './../src/molecule/login-alert';
 import MoleculeMenuList from './../src/molecule/menu-list';
 import MoleculeMessagePopin from './../src/molecule/message-popin';
@@ -154,8 +156,6 @@ import OrganismGetTheApp from './../src/organism/get-the-app';
 import OrganismGridList from './../src/organism/grid-list';
 import OrganismHeader from './../src/organism/header';
 import OrganismHero from './../src/organism/hero';
-import OrganismListItem from './../src/organism/list-item';
-import OrganismListItems from './../src/organism/list-items';
 import OrganismMoocImageSlider from './../src/organism/mooc/image-slider';
 import OrganismMoocFooter from './../src/organism/mooc-footer';
 import OrganismMoocHeader from './../src/organism/mooc-header';
@@ -591,6 +591,13 @@ import MoleculeForumForumThreadFixtureDefault from '../src/molecule/forum/forum-
 import MoleculeForumForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
 import MoleculeHeroFixtureArabic from '../src/molecule/hero/test/fixtures/arabic';
 import MoleculeHeroFixtureHero from '../src/molecule/hero/test/fixtures/hero';
+import MoleculeListItemFixtureArchived from '../src/molecule/list-item/test/fixtures/archived';
+import MoleculeListItemFixtureDraft from '../src/molecule/list-item/test/fixtures/draft';
+import MoleculeListItemFixturePublished from '../src/molecule/list-item/test/fixtures/published';
+import MoleculeListItemFixtureRevised from '../src/molecule/list-item/test/fixtures/revised';
+import MoleculeListItemsFixtureArchived from '../src/molecule/list-items/test/fixtures/archived';
+import MoleculeListItemsFixtureDraft from '../src/molecule/list-items/test/fixtures/draft';
+import MoleculeListItemsFixturePublished from '../src/molecule/list-items/test/fixtures/published';
 import MoleculeLoginAlertFixtureDefault from '../src/molecule/login-alert/test/fixtures/default';
 import MoleculeMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import MoleculeMessagePopinFixtureDefault from '../src/molecule/message-popin/test/fixtures/default';
@@ -811,13 +818,6 @@ import OrganismHeaderFixtureDefault from '../src/organism/header/test/fixtures/d
 import OrganismHeroFixtureDefault from '../src/organism/hero/test/fixtures/default';
 import OrganismHeroFixtureNoTouch from '../src/organism/hero/test/fixtures/no-touch';
 import OrganismHeroFixtureTouch from '../src/organism/hero/test/fixtures/touch';
-import OrganismListItemFixtureArchived from '../src/organism/list-item/test/fixtures/archived';
-import OrganismListItemFixtureDraft from '../src/organism/list-item/test/fixtures/draft';
-import OrganismListItemFixturePublished from '../src/organism/list-item/test/fixtures/published';
-import OrganismListItemFixtureRevised from '../src/organism/list-item/test/fixtures/revised';
-import OrganismListItemsFixtureArchived from '../src/organism/list-items/test/fixtures/archived';
-import OrganismListItemsFixtureDraft from '../src/organism/list-items/test/fixtures/draft';
-import OrganismListItemsFixturePublished from '../src/organism/list-items/test/fixtures/published';
 import OrganismMoocImageSliderFixtureDefault from '../src/organism/mooc/image-slider/test/fixtures/default';
 import OrganismMoocImageSliderFixtureMultipleSlides from '../src/organism/mooc/image-slider/test/fixtures/multiple-slides';
 import OrganismMoocFooterFixtureDefault from '../src/organism/mooc-footer/test/fixtures/default';
@@ -1014,7 +1014,7 @@ import TemplateBackOfficeBrandUpdateFixtureDashboardsAnalytics from '../src/temp
 import TemplateBackOfficeBrandUpdateFixtureDefault from '../src/template/back-office/brand-update/test/fixtures/default';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess from '../src/template/back-office/brand-update/test/fixtures/general-settings-success';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettings from '../src/template/back-office/brand-update/test/fixtures/general-settings';
-import TemplateBackOfficeBrandUpdateFixtureListItems from '../src/template/back-office/brand-update/test/fixtures/list-items';
+import TemplateBackOfficeBrandUpdateFixtureListItemsPublished from '../src/template/back-office/brand-update/test/fixtures/list-items-published';
 import TemplateBackOfficeBrandUpdateFixtureLmsError from '../src/template/back-office/brand-update/test/fixtures/lms-error';
 import TemplateBackOfficeBrandUpdateFixtureLmsModified from '../src/template/back-office/brand-update/test/fixtures/lms-modified';
 import TemplateBackOfficeBrandUpdateFixtureLmsSuccess from '../src/template/back-office/brand-update/test/fixtures/lms-success';
@@ -1176,6 +1176,8 @@ export const components = {
     MoleculeFeedback,
     MoleculeFilters,
     MoleculeHero,
+    MoleculeListItem,
+    MoleculeListItems,
     MoleculeLoginAlert,
     MoleculeMenuList,
     MoleculeMessagePopin,
@@ -1260,8 +1262,6 @@ export const components = {
     OrganismGridList,
     OrganismHeader,
     OrganismHero,
-    OrganismListItem,
-    OrganismListItems,
     OrganismMoocFooter,
     OrganismMoocHeader,
     OrganismPopin,
@@ -1857,6 +1857,17 @@ export const fixtures = {
       Arabic: MoleculeHeroFixtureArabic,
       Hero: MoleculeHeroFixtureHero
     },
+    MoleculeListItem: {
+      Archived: MoleculeListItemFixtureArchived,
+      Draft: MoleculeListItemFixtureDraft,
+      Published: MoleculeListItemFixturePublished,
+      Revised: MoleculeListItemFixtureRevised
+    },
+    MoleculeListItems: {
+      Archived: MoleculeListItemsFixtureArchived,
+      Draft: MoleculeListItemsFixtureDraft,
+      Published: MoleculeListItemsFixturePublished
+    },
     MoleculeLoginAlert: {
       Default: MoleculeLoginAlertFixtureDefault
     },
@@ -2262,17 +2273,6 @@ export const fixtures = {
       NoTouch: OrganismHeroFixtureNoTouch,
       Touch: OrganismHeroFixtureTouch
     },
-    OrganismListItem: {
-      Archived: OrganismListItemFixtureArchived,
-      Draft: OrganismListItemFixtureDraft,
-      Published: OrganismListItemFixturePublished,
-      Revised: OrganismListItemFixtureRevised
-    },
-    OrganismListItems: {
-      Archived: OrganismListItemsFixtureArchived,
-      Draft: OrganismListItemsFixtureDraft,
-      Published: OrganismListItemsFixturePublished
-    },
     OrganismMoocFooter: {
       Default: OrganismMoocFooterFixtureDefault,
       NoMobileapps: OrganismMoocFooterFixtureNoMobileapps,
@@ -2548,7 +2548,7 @@ export const fixtures = {
       Default: TemplateBackOfficeBrandUpdateFixtureDefault,
       GeneralSettingsSuccess: TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess,
       GeneralSettings: TemplateBackOfficeBrandUpdateFixtureGeneralSettings,
-      ListItems: TemplateBackOfficeBrandUpdateFixtureListItems,
+      ListItemsPublished: TemplateBackOfficeBrandUpdateFixtureListItemsPublished,
       LmsError: TemplateBackOfficeBrandUpdateFixtureLmsError,
       LmsModified: TemplateBackOfficeBrandUpdateFixtureLmsModified,
       LmsSuccess: TemplateBackOfficeBrandUpdateFixtureLmsSuccess,

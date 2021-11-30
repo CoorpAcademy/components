@@ -1,4 +1,4 @@
-import publishedListItems from '../../../../organism/list-items/test/fixtures/published';
+import publishedListItems from '../../../list-items/test/fixtures/published';
 
 const {props} = publishedListItems;
 

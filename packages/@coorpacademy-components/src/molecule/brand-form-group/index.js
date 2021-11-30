@@ -19,7 +19,7 @@ import InputDoublestep from '../../atom/input-doublestep';
 import ImageUpload from '../../atom/image-upload';
 import SetupSlider from '../setup-slider';
 import SetupSections from '../setup-sections';
-import ListItems from '../../organism/list-items';
+import ListItems from '../list-items';
 
 import Title from '../../atom/title';
 import Roles from '../coorp-manager-roles';
