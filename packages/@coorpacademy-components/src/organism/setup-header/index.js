@@ -71,11 +71,11 @@ const SetupHeader = props => {
 
   const myPlatformButtonProps = {
     type: 'primary',
-    label: items.platformList.label,
-    'aria-label': items.platformList.label,
-    'data-name': `platform-list-button`,
+    label: items.seeMyPlatform.label,
+    'aria-label': items.seeMyPlatform.label,
+    'data-name': `see-my-platform`,
     link: {
-      href
+      href: items.seeMyPlatform.href
     },
     icon: {
       position: 'left',
