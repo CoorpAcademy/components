@@ -8,7 +8,7 @@ const createLayout = Template => {
     const {header} = props;
     return (
       <div className={style.header} >
-        <Header {...header}/>
+        <Header {...header} />
         <div className={style.contentWrapper} >
           <Template {...props} />
         </div>
