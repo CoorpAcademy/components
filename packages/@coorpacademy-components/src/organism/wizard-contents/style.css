@@ -74,6 +74,7 @@
   width: 100%;
   bottom: 0px;
   display: none;
+  position: inherit;
 }
 
 @media desktop, tablet {

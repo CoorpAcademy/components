@@ -110,26 +110,15 @@
   margin: 32px 20px 54px 20px;
 }
 
-@media desktop {
+@media desktop, tablet {
   .container {
     scroll-behavior: unset;
     margin: 0;
   }
 
-  .headerSticky {
-    width: calc(100% - 287px);
-  }
-
-  .contentWrapper {
-    width: calc(100% - 287px);
-    padding: 0 32px 0 32px;
-  }
-}
-
-@media tablet {
-  .container {
-    scroll-behavior: unset;
-    margin: 0;
+  .content {
+    height: calc(100% - 124px);
+    border: 1px solid black;
   }
 
   .headerSticky {
