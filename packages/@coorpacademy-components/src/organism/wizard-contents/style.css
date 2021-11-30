@@ -76,22 +76,27 @@
   display: none;
 }
 
-@media desktop {
+@media desktop, tablet {
+  .leftSection {
+    width: 100%;
+    min-height: 500px;
+  }
+
   .rightSection {
     display: none;
   }
 
   .footer {
-    display: block;
-  }
-}
-
-@media tablet {
-  .rightSection {
-    display: none;
+    display: flex;
+    align-items: center;
+    bottom: 10px;
   }
 
-  .footer {
-    display: block;
+  .summaryFooter {
+    width: 57%;
+  }
+
+  .actionFooter {
+    width: 43%;
   }
 }

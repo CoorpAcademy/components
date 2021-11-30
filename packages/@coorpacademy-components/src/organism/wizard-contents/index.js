@@ -95,10 +95,10 @@ const WizardContents = props => {
         </div>
       </div>
       <div className={style.footer}>
-        <div>
+        <div className={style.summaryFooter}>
           <WizardSummary {...summary} />
         </div>
-        <div>{actionView}</div>
+        <div className={style.actionFooter}>{actionView}</div>
       </div>
     </div>
   );
