@@ -11,20 +11,20 @@ export default {
     steps: [
       {
         title: 'General Informations',
-        done: false,
-        current: true
+        done: true
       },
       {
         title: 'Translations',
-        done: false
+        done: true
       },
       {
         title: 'Assign populations',
-        done: false
+        done: true
       },
       {
         title: 'Add courses',
-        done: false
+        done: false,
+        current: true
       }
     ],
     summary: wizardSummary.props,

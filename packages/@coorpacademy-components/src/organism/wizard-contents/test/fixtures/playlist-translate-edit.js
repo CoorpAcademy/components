@@ -11,12 +11,12 @@ export default {
     steps: [
       {
         title: 'General Informations',
-        done: false,
-        current: true
+        done: true
       },
       {
         title: 'Translations',
-        done: false
+        done: false,
+        current: true
       },
       {
         title: 'Assign populations',
