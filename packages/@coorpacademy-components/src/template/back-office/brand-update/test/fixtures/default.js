@@ -21,7 +21,7 @@ export const items = [
     title: 'Editorialization',
     key: 'editorialization',
     href: '#brand/samsung/editorialization',
-    type: 'iconLink',
+    type: 'collapsibleTab',
     open: false,
     selected: false
   },

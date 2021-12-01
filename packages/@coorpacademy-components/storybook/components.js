@@ -1012,6 +1012,9 @@ import TemplateBackOfficeBrandUpdateFixtureDashboardsAnalytics from '../src/temp
 import TemplateBackOfficeBrandUpdateFixtureDefault from '../src/template/back-office/brand-update/test/fixtures/default';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess from '../src/template/back-office/brand-update/test/fixtures/general-settings-success';
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettings from '../src/template/back-office/brand-update/test/fixtures/general-settings';
+import TemplateBackOfficeBrandUpdateFixtureListItemsArchived from '../src/template/back-office/brand-update/test/fixtures/list-items-archived';
+import TemplateBackOfficeBrandUpdateFixtureListItemsDraft from '../src/template/back-office/brand-update/test/fixtures/list-items-draft';
+import TemplateBackOfficeBrandUpdateFixtureListItemsPublished from '../src/template/back-office/brand-update/test/fixtures/list-items-published';
 import TemplateBackOfficeBrandUpdateFixtureLmsError from '../src/template/back-office/brand-update/test/fixtures/lms-error';
 import TemplateBackOfficeBrandUpdateFixtureLmsModified from '../src/template/back-office/brand-update/test/fixtures/lms-modified';
 import TemplateBackOfficeBrandUpdateFixtureLmsSuccess from '../src/template/back-office/brand-update/test/fixtures/lms-success';
@@ -2543,6 +2546,9 @@ export const fixtures = {
       Default: TemplateBackOfficeBrandUpdateFixtureDefault,
       GeneralSettingsSuccess: TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess,
       GeneralSettings: TemplateBackOfficeBrandUpdateFixtureGeneralSettings,
+      ListItemsArchived: TemplateBackOfficeBrandUpdateFixtureListItemsArchived,
+      ListItemsDraft: TemplateBackOfficeBrandUpdateFixtureListItemsDraft,
+      ListItemsPublished: TemplateBackOfficeBrandUpdateFixtureListItemsPublished,
       LmsError: TemplateBackOfficeBrandUpdateFixtureLmsError,
       LmsModified: TemplateBackOfficeBrandUpdateFixtureLmsModified,
       LmsSuccess: TemplateBackOfficeBrandUpdateFixtureLmsSuccess,
