@@ -8,6 +8,14 @@
   margin-bottom: 30px;
 }
 
+.group {
+  margin: 0 0 32px 0;
+}
+
+.group:last-child {
+  margin: 0;
+}
+
 .arrowBack {
   width: 15px;
   height: 15px;
@@ -30,9 +38,6 @@
 .buttons {
   display: flex;
   justify-content: flex-end;
-
-  /* border-top: 1px solid #E0E0E0; */
-  padding-top: 50px;
 }
 
 .button {

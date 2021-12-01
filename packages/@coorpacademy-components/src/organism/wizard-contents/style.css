@@ -1,0 +1,118 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value desktop from breakpoints;
+
+.container {
+  box-sizing: border-box;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+
+.leftSection {
+  display: block;
+  overflow: hidden;
+  box-sizing: border-box;
+  width: 68%;
+  position: relative;
+}
+
+.rightSection {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 0 1 320px;
+}
+
+.stickySection {
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 1;
+  bottom: 0;
+  right: 64px;
+  width: 300px;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.headerTitle {
+  font-family: Gilroy;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0 0 0 16px;
+}
+
+.form {
+  margin: 45px 32px 0 0;
+}
+
+.summaryZone {
+  width: 100%;
+  position: relative;
+  min-height: 500px;
+  justify-content: space-between;
+}
+
+.actionZone {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 16px 0;
+}
+
+.button {
+  width: calc(50% - 8px);
+}
+
+.footer {
+  width: 100%;
+  bottom: 0px;
+  display: none;
+  position: inherit;
+}
+
+@media desktop, tablet {
+  .leftSection {
+    width: 100%;
+    min-height: 500px;
+  }
+
+  .rightSection {
+    display: none;
+  }
+
+  .footer {
+    display: flex;
+    align-items: end;
+    bottom: 10px;
+    position: sticky;
+    z-index: 1;
+  }
+  .footer::before {
+    content: '';
+    background: linear-gradient(to top,white 64px, #ffffff00 );
+    bottom: -10px;
+    left: 0px;
+    right: 0px; 
+    height: 84px;
+    position: absolute;
+    z-index: -1;
+  }
+
+  .summaryFooter {
+    width: 57%;
+  }
+
+  .actionFooter {
+    width: 43%;
+  }
+  .actionZone {
+    margin: 0;
+  }
+}

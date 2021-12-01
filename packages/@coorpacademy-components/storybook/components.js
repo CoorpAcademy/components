@@ -147,6 +147,7 @@ import OrganismBrandTable from './../src/organism/brand-table';
 import OrganismBrandUpload from './../src/organism/brand-upload';
 import OrganismCardsGrid from './../src/organism/cards-grid';
 import OrganismCart from './../src/organism/cart';
+import OrganismContentTranslation from './../src/organism/content-translation';
 import OrganismCourseSelection from './../src/organism/course-selection';
 import OrganismDiscussion from './../src/organism/discussion';
 import OrganismGetTheApp from './../src/organism/get-the-app';
@@ -158,7 +159,6 @@ import OrganismListItems from './../src/organism/list-items';
 import OrganismMoocImageSlider from './../src/organism/mooc/image-slider';
 import OrganismMoocFooter from './../src/organism/mooc-footer';
 import OrganismMoocHeader from './../src/organism/mooc-header';
-import OrganismPlaylistTranslation from './../src/organism/playlist-translation';
 import OrganismPopin from './../src/organism/popin';
 import OrganismResourceBrowser from './../src/organism/resource-browser';
 import OrganismSearchAndChipsResults from './../src/organism/search-and-chips-results';
@@ -167,6 +167,7 @@ import OrganismSetupHeader from './../src/organism/setup-header';
 import OrganismSidebar from './../src/organism/sidebar';
 import OrganismSlider from './../src/organism/slider';
 import OrganismUserPreferences from './../src/organism/user-preferences';
+import OrganismWizardContents from './../src/organism/wizard-contents';
 import TemplateActivity from './../src/template/activity';
 import TemplateAppPlayerLoading from './../src/template/app-player/loading';
 import TemplateAppPlayerPlayerSlidesFooter from './../src/template/app-player/player/slides/footer';
@@ -791,6 +792,8 @@ import OrganismCardsGridFixtureEmpty from '../src/organism/cards-grid/test/fixtu
 import OrganismCardsGridFixtureLoading from '../src/organism/cards-grid/test/fixtures/loading';
 import OrganismCardsGridFixtureMany from '../src/organism/cards-grid/test/fixtures/many';
 import OrganismCartFixtureDefault from '../src/organism/cart/test/fixtures/default';
+import OrganismContentTranslationFixtureDefault from '../src/organism/content-translation/test/fixtures/default';
+import OrganismContentTranslationFixtureDelete from '../src/organism/content-translation/test/fixtures/delete';
 import OrganismCourseSelectionFixtureDefault from '../src/organism/course-selection/test/fixtures/default';
 import OrganismCourseSelectionFixtureEmpty from '../src/organism/course-selection/test/fixtures/empty';
 import OrganismCourseSelectionFixtureFiltered from '../src/organism/course-selection/test/fixtures/filtered';
@@ -831,8 +834,6 @@ import OrganismMoocHeaderFixtureOnHeaderActionHandlers from '../src/organism/moo
 import OrganismMoocHeaderFixtureTeamsFrench from '../src/organism/mooc-header/test/fixtures/teams-french';
 import OrganismMoocHeaderFixtureTeams from '../src/organism/mooc-header/test/fixtures/teams';
 import OrganismMoocHeaderFixtureUserChangePassword from '../src/organism/mooc-header/test/fixtures/user-change-password';
-import OrganismPlaylistTranslationFixtureDefault from '../src/organism/playlist-translation/test/fixtures/default';
-import OrganismPlaylistTranslationFixtureDelete from '../src/organism/playlist-translation/test/fixtures/delete';
 import OrganismPopinFixtureDefault from '../src/organism/popin/test/fixtures/default';
 import OrganismResourceBrowserFixtureArabic from '../src/organism/resource-browser/test/fixtures/arabic';
 import OrganismResourceBrowserFixtureAudio from '../src/organism/resource-browser/test/fixtures/audio';
@@ -867,6 +868,11 @@ import OrganismSidebarFixtureShowcase from '../src/organism/sidebar/test/fixture
 import OrganismSliderFixtureDefault from '../src/organism/slider/test/fixtures/default';
 import OrganismSliderFixtureMultipleSlides from '../src/organism/slider/test/fixtures/multiple-slides';
 import OrganismUserPreferencesFixtureDefault from '../src/organism/user-preferences/test/fixtures/default';
+import OrganismWizardContentsFixturePlaylistAddCoursesCreate from '../src/organism/wizard-contents/test/fixtures/playlist-add-courses-create';
+import OrganismWizardContentsFixturePlaylistGeneralSettingsCreate from '../src/organism/wizard-contents/test/fixtures/playlist-general-settings-create';
+import OrganismWizardContentsFixturePlaylistGeneralSettingsEdit from '../src/organism/wizard-contents/test/fixtures/playlist-general-settings-edit';
+import OrganismWizardContentsFixturePlaylistPopulationsCreate from '../src/organism/wizard-contents/test/fixtures/playlist-populations-create';
+import OrganismWizardContentsFixturePlaylistTranslateEdit from '../src/organism/wizard-contents/test/fixtures/playlist-translate-edit';
 import TemplateActivityFixtureAllEngines from '../src/template/activity/test/fixtures/all-engines';
 import TemplateActivityFixtureArabic from '../src/template/activity/test/fixtures/arabic';
 import TemplateActivityFixtureDefault from '../src/template/activity/test/fixtures/default';
@@ -1024,6 +1030,11 @@ import TemplateBackOfficeBrandUpdateFixtureSso from '../src/template/back-office
 import TemplateBackOfficeBrandUpdateFixtureUploadusersLoading from '../src/template/back-office/brand-update/test/fixtures/uploadusers-loading';
 import TemplateBackOfficeBrandUpdateFixtureUploadusersSuccessful from '../src/template/back-office/brand-update/test/fixtures/uploadusers-successful';
 import TemplateBackOfficeBrandUpdateFixtureUploadusers from '../src/template/back-office/brand-update/test/fixtures/uploadusers';
+import TemplateBackOfficeBrandUpdateFixtureWizardAddCoursesPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-add-courses-playlist';
+import TemplateBackOfficeBrandUpdateFixtureWizardFormCreatePlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-form-create-playlist';
+import TemplateBackOfficeBrandUpdateFixtureWizardFormEditPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-form-edit-playlist';
+import TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-populations-playlist';
+import TemplateBackOfficeBrandUpdateFixtureWizardTranslatePlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-translate-playlist';
 import TemplateBackOfficeDashboardPreviewFixtureDefault from '../src/template/back-office/dashboard-preview/test/fixtures/default';
 import TemplateBackOfficeDashboardPreviewFixtureError from '../src/template/back-office/dashboard-preview/test/fixtures/error';
 import TemplateBackOfficeDashboardPreviewFixtureLoading from '../src/template/back-office/dashboard-preview/test/fixtures/loading';
@@ -1239,6 +1250,7 @@ export const components = {
     OrganismBrandUpload,
     OrganismCardsGrid,
     OrganismCart,
+    OrganismContentTranslation,
     OrganismCourseSelection,
     OrganismDiscussion,
     OrganismGetTheApp,
@@ -1249,7 +1261,6 @@ export const components = {
     OrganismListItems,
     OrganismMoocFooter,
     OrganismMoocHeader,
-    OrganismPlaylistTranslation,
     OrganismPopin,
     OrganismResourceBrowser,
     OrganismSearchAndChipsResults,
@@ -1257,7 +1268,8 @@ export const components = {
     OrganismSetupHeader,
     OrganismSidebar,
     OrganismSlider,
-    OrganismUserPreferences
+    OrganismUserPreferences,
+    OrganismWizardContents
   },
   OrganismMooc: {
     OrganismMoocImageSlider
@@ -2214,6 +2226,10 @@ export const fixtures = {
     OrganismCart: {
       Default: OrganismCartFixtureDefault
     },
+    OrganismContentTranslation: {
+      Default: OrganismContentTranslationFixtureDefault,
+      Delete: OrganismContentTranslationFixtureDelete
+    },
     OrganismCourseSelection: {
       Default: OrganismCourseSelectionFixtureDefault,
       Empty: OrganismCourseSelectionFixtureEmpty,
@@ -2272,10 +2288,6 @@ export const fixtures = {
       Teams: OrganismMoocHeaderFixtureTeams,
       UserChangePassword: OrganismMoocHeaderFixtureUserChangePassword
     },
-    OrganismPlaylistTranslation: {
-      Default: OrganismPlaylistTranslationFixtureDefault,
-      Delete: OrganismPlaylistTranslationFixtureDelete
-    },
     OrganismPopin: {
       Default: OrganismPopinFixtureDefault
     },
@@ -2325,6 +2337,13 @@ export const fixtures = {
     },
     OrganismUserPreferences: {
       Default: OrganismUserPreferencesFixtureDefault
+    },
+    OrganismWizardContents: {
+      PlaylistAddCoursesCreate: OrganismWizardContentsFixturePlaylistAddCoursesCreate,
+      PlaylistGeneralSettingsCreate: OrganismWizardContentsFixturePlaylistGeneralSettingsCreate,
+      PlaylistGeneralSettingsEdit: OrganismWizardContentsFixturePlaylistGeneralSettingsEdit,
+      PlaylistPopulationsCreate: OrganismWizardContentsFixturePlaylistPopulationsCreate,
+      PlaylistTranslateEdit: OrganismWizardContentsFixturePlaylistTranslateEdit
     }
   },
   OrganismMooc: {
@@ -2541,7 +2560,12 @@ export const fixtures = {
       Sso: TemplateBackOfficeBrandUpdateFixtureSso,
       UploadusersLoading: TemplateBackOfficeBrandUpdateFixtureUploadusersLoading,
       UploadusersSuccessful: TemplateBackOfficeBrandUpdateFixtureUploadusersSuccessful,
-      Uploadusers: TemplateBackOfficeBrandUpdateFixtureUploadusers
+      Uploadusers: TemplateBackOfficeBrandUpdateFixtureUploadusers,
+      WizardAddCoursesPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardAddCoursesPlaylist,
+      WizardFormCreatePlaylist: TemplateBackOfficeBrandUpdateFixtureWizardFormCreatePlaylist,
+      WizardFormEditPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardFormEditPlaylist,
+      WizardPopulationsPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylist,
+      WizardTranslatePlaylist: TemplateBackOfficeBrandUpdateFixtureWizardTranslatePlaylist
     },
     TemplateBackOfficeDashboardPreview: {
       Default: TemplateBackOfficeDashboardPreviewFixtureDefault,

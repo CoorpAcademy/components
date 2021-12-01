@@ -13,6 +13,7 @@ import BrandTable from '../../../organism/brand-table';
 import BrandUpload from '../../../organism/brand-upload';
 import BrandAnalytics from '../../../organism/brand-analytics';
 import BrandDashboard from '../../../organism/brand-dashboard';
+import WizardContents from '../../../organism/wizard-contents';
 import Banner from '../../../molecule/banner';
 import Header from '../../../organism/setup-header';
 import Loader from '../../../atom/loader';
@@ -129,6 +130,8 @@ const buildContentView = content => {
       return <BrandAnalytics {...content} />;
     case 'home':
       return <BrandDashboard {...content} />;
+    case 'wizard':
+      return <WizardContents {...content} />;
   }
 };
 
@@ -174,7 +177,11 @@ BrandUpdate.defaultProps = {
 };
 
 BrandUpdate.propTypes = {
-  notifications: PropTypes.arrayOf(PropTypes.shape(Banner.propTypes)),
+  notifications: PropTypes.arrayOf(
+    PropTypes.shape({
+      ...Banner.propTypes
+    })
+  ),
   header: PropTypes.shape({...Header.propTypes}),
   items: PropTypes.arrayOf(
     PropTypes.shape({
@@ -226,6 +233,11 @@ BrandUpdate.propTypes = {
       ...BrandDashboard.propTypes,
       key: PropTypes.string,
       type: PropTypes.oneOf(['home'])
+    }),
+    PropTypes.shape({
+      ...WizardContents.propTypes,
+      key: PropTypes.string,
+      type: PropTypes.oneOf(['wizard'])
     })
   ]),
   details: PropTypes.shape({

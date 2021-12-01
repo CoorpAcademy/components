@@ -46,8 +46,8 @@ export default {
     ],
     action: {
       icon: 'save',
-      text: 'Save in drafts',
-      'aria-label': 'Save in drafts',
+      text: 'Save & quit',
+      'aria-label': 'Save',
       onClick: () => console.log('save')
     }
   }

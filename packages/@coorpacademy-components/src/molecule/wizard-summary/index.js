@@ -1,6 +1,7 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import {uniqueId} from 'lodash/fp';
 import {NovaCompositionNavigationArrowDown as ArrowDownIcon} from '@coorpacademy/nova-icons';
 import ContentBadge from '../../atom/content-badge';
 import ButtonLink from '../../atom/button-link';
@@ -106,7 +107,7 @@ const BuildAction = ({action}) => {
 const WizardSummary = props => {
   const {title, sections, action} = props;
   const sectionsView = buildSections(sections);
-  const idSwitch = 'open-summary-wizard';
+  const idSwitch = uniqueId('open-summary-wizard');
 
   return (
     <div className={style.container}>
