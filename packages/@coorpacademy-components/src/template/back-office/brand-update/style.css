@@ -118,7 +118,6 @@
 
   .content {
     height: calc(100% - 143px);
-    border: 1px solid black;
   }
 
   .headerSticky {
