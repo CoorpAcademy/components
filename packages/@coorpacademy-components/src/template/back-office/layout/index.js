@@ -7,8 +7,10 @@ const createLayout = Template => {
   const Layout = props => {
     const {header} = props;
     return (
-      <div className={style.header}>
-        <Header {...header} />
+      <div>
+        <div className={style.header}>
+          <Header {...header} />
+        </div>
         <div className={style.contentWrapper}>
           <Template {...props} />
         </div>
