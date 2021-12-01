@@ -75,7 +75,8 @@ const SetupHeader = props => {
     'aria-label': items.seeMyPlatform.label,
     'data-name': `see-my-platform`,
     link: {
-      href: items.seeMyPlatform.href
+      href: items.seeMyPlatform.href,
+      target: '_blank'
     },
     icon: {
       position: 'left',
