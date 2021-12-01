@@ -6,7 +6,7 @@ const form = WizardForm.props;
 
 export default {
   props: {
-    notifications: {},
+    notifications: [],
     header,
     items,
     content: {

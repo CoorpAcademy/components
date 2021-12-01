@@ -109,26 +109,28 @@ WizardContents.propTypes = {
     title: PropTypes.string,
     onClick: PropTypes.func
   }).isRequired,
-  steps: PropTypes.arrayOf(PropTypes.shape(WizardSteps.propTypes)).isRequired,
-  summary: PropTypes.shape(WizardSummary.propTypes).isRequired,
-  content: PropTypes.oneOf([
+  steps: WizardSteps.propTypes.steps,
+  summary: PropTypes.shape({
+    ...WizardSummary.propTypes
+  }).isRequired,
+  content: PropTypes.oneOfType([
     PropTypes.shape({
       ...BrandForm.propTypes,
-      type: 'form'
+      type: PropTypes.oneOf(['form'])
     }),
     PropTypes.shape({
       ...ContentTranslate.propTypes,
-      type: 'translate'
+      type: PropTypes.oneOf(['translate'])
     }),
     PropTypes.shape({
       ...OrganismSearchAndChipsResults.propTypes,
-      type: 'populations'
+      type: PropTypes.oneOf(['populations'])
     }),
     PropTypes.shape({
       ...CourseSelection.propTypes,
-      type: 'courses'
+      type: PropTypes.oneOf(['courses'])
     })
-  ]).isRequired,
+  ]),
   previousStep: PropTypes.shape({
     label: PropTypes.string,
     onClick: PropTypes.func

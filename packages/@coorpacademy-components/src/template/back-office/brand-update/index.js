@@ -177,7 +177,11 @@ BrandUpdate.defaultProps = {
 };
 
 BrandUpdate.propTypes = {
-  notifications: PropTypes.arrayOf(PropTypes.shape(Banner.propTypes)),
+  notifications: PropTypes.arrayOf(
+    PropTypes.shape({
+      ...Banner.propTypes
+    })
+  ),
   header: PropTypes.shape({...Header.propTypes}),
   items: PropTypes.arrayOf(
     PropTypes.shape({
