@@ -175,14 +175,13 @@ const SelectMultiple = (
     </span>
   ) : null;
 
-  const hintView =
-    isCMTheme && !isActive ? (
-      <div
-        className={style.hint}
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{__html: error || hint}}
-      />
-    ) : null;
+  const hintView = isCMTheme ? (
+    <div
+      className={classnames(style.hint, isActive && style.hideHint)}
+      // eslint-disable-next-line react/no-danger
+      dangerouslySetInnerHTML={{__html: error || hint}}
+    />
+  ) : null;
 
   const mainClass = theme ? themeStyle[theme] : style.default;
   const showPlaceholder = isCMTheme && isActive;
