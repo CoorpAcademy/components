@@ -69,7 +69,7 @@ const SetupHeader = props => {
         }
       : null;
 
-  const myPlatformButtonProps = {
+  const seeMyPlatformButtonProps = {
     type: 'primary',
     label: items.seeMyPlatform.label,
     'aria-label': items.seeMyPlatform.label,
@@ -128,7 +128,7 @@ const SetupHeader = props => {
           ) : null}
           {isDashboard || isHome ? null : (
             <div className={style.button}>
-              <ButtonLink {...myPlatformButtonProps} />
+              <ButtonLink {...seeMyPlatformButtonProps} />
             </div>
           )}
           <li onMouseEnter={onMouseEnter} className={style.profilePicture}>
