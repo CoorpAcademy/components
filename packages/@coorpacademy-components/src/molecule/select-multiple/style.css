@@ -317,7 +317,6 @@
 
 .coorpmanager .infoIconWrapper {
   overflow: visible;
-  /* height: 12px; */
   cursor: pointer;
   pointer-events: fill;
   position: relative;
@@ -411,6 +410,8 @@
   width: 44px;
   height: 44px;
   display: flex;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
   justify-content: center;
   align-items: center;
 }
