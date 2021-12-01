@@ -86,6 +86,7 @@
 .button {
   min-width: 175px;
   margin-right: 16px;
+  pointer-events: fill;
 }
 
 .element { 
@@ -107,6 +108,7 @@
 .logOut {
   width: 100px;
   color: negative;
+  pointer-events: fill;
 }
 
 .logOut:hover {

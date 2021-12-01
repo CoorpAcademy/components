@@ -33,6 +33,7 @@
   position: fixed;
   width: calc(100% - 351px);
   z-index: 999;
+  pointer-events: none;
 }
 
 .header {
