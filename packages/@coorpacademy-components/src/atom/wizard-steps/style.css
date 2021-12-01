@@ -24,7 +24,6 @@
   -webkit-box-pack: center;
   justify-content: center;
   align-content: space-between;
-  z-index: 0;
 }
 
 .step:before {
@@ -32,7 +31,6 @@
   position: absolute;
   border: 1px solid cm_grey_500;
   display: block;
-  z-index: 2;
   left: -50%;
   bottom: 17px;
   content: '';
@@ -43,7 +41,6 @@
   position: absolute;
   border: 1px solid cm_grey_500;
   display: block;
-  z-index: 1;
   left: 50%;
   bottom: 17px;
   content: '';
@@ -64,7 +61,6 @@
   border: 1px solid cm_primary_blue;
   bottom: 17px;
   left: 50%;
-  z-index: 2;
   position: absolute;
 }
 .step.done:before, .step.current:before {
@@ -73,7 +69,6 @@
   border: 1px solid cm_primary_blue;
   bottom: 17px;
   left: 0px;
-  z-index: 2;
   position: absolute;
 }
 
@@ -85,12 +80,10 @@
   border-radius: 10px;
   display: inline-block;
   position: relative;
-  z-index: 2;
   margin-left: 3px;
   margin-top: 3px;
   border: 1px solid cm_grey_500;
   transition: background-color 0.5s linear;
-  z-index: 0;
 }
 
 .dot::before {
@@ -120,11 +113,10 @@
   border-radius: 18px;
   display: inline-block;
   position: relative;
-  z-index: 12;
   margin: 0px auto;
   border: 8px solid white;
   transition: background-color 0.5s linear;
-  z-index: 0;
+  z-index: 1;
 }
 
 .step.done .outerDot, .step.current .outerDot {
