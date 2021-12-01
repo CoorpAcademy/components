@@ -235,6 +235,7 @@
   height: 44px;
   padding: 11px 85px 11px 16px;
   background-color: cm_grey_100;
+  overflow: visible;
 }
 
 .coorpmanager .select .title {
