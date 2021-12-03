@@ -30,7 +30,8 @@ export default {
       'picture-aria-label': 'Your picture',
       notifications: {
         href: '#notifications',
-        value: 5
+        value: 5,
+        'aria-label': 'you have 5 new notificationss'
       },
       href: '#account',
       stats: {

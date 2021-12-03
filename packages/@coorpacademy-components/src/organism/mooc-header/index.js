@@ -25,9 +25,12 @@ class MoocHeader extends React.Component {
     logo: PropTypes.shape({
       src: PropTypes.string,
       srcMobile: PropTypes.string,
-      href: PropTypes.string
+      href: PropTypes.string,
+      'aria-label': PropTypes.string,
+      'button-aria-label': PropTypes.string
     }),
     search: PropTypes.shape(Search.propTypes),
+    'search-reset-aria-label': PropTypes.string,
     onSubmitSearch: PropTypes.func,
     onResetSearch: PropTypes.func,
     pages: PropTypes.shape({
@@ -53,12 +56,6 @@ class MoocHeader extends React.Component {
         })
       )
     }),
-    'logo-aria-label': PropTypes.string,
-    'logo-button-aria-label': PropTypes.string,
-    'notifications-aria-label': PropTypes.string,
-    'search-reset-aria-label': PropTypes.string,
-    'settings-aria-label': PropTypes.string,
-    'close-settings-aria-label': PropTypes.string,
     links: PropTypes.arrayOf(PropTypes.shape(Cta.propTypes)),
     user: PropTypes.shape({
       picture: PropTypes.string,
@@ -66,7 +63,8 @@ class MoocHeader extends React.Component {
       href: PropTypes.string,
       notifications: PropTypes.shape({
         href: PropTypes.string,
-        value: PropTypes.number
+        value: PropTypes.number,
+        'aria-label': PropTypes.string
       }),
       stats: PropTypes.shape({
         stars: PropTypes.shape({
@@ -86,6 +84,8 @@ class MoocHeader extends React.Component {
         })
       })
     }),
+    'settings-aria-label': PropTypes.string,
+    'close-settings-aria-label': PropTypes.string,
     settings: PropTypes.arrayOf(
       PropTypes.shape({
         title: PropTypes.string,
@@ -231,16 +231,13 @@ class MoocHeader extends React.Component {
       user,
       links,
       search,
-      'logo-aria-label': logoAriaLabel,
-      'logo-button-aria-label': logoButtonAriaLabel,
-      'notifications-aria-label': notificationsAriaLabel,
       'search-reset-aria-label': searchResetAriaLabel,
       'settings-aria-label': settingsAriaLabel,
       'close-settings-aria-label': closeSettingsAriaLabel
     } = this.props;
     const {isFocus, isSettingsOpen, isMenuOpen} = this.state;
     const {translate, skin} = this.context;
-
+    const {'aria-label': logoAriaLabel, 'button-aria-label': logoButtonAriaLabel} = logo;
     const logoUrl = get('src', logo) || get('images.logo', skin);
     const logoMobileUrl = get('srcMobile', logo) || getOr(logoUrl, 'images.logo-mobile', skin);
 
@@ -340,7 +337,12 @@ class MoocHeader extends React.Component {
         <div className={search.value || isFocus ? style.noItems : style.items}>
           {displayedPages}
           <div className={style.more}>
-            <div className={style.currentOption} aria-haspopup="true" data-name="item-more">
+            <div
+              className={style.currentOption}
+              aria-haspopup="true"
+              data-name="item-more"
+              aria-label={moreLabel}
+            >
               {moreLabel}
               <ArrowDown color={mediumColor} className={style.caret} />
             </div>
@@ -362,6 +364,8 @@ class MoocHeader extends React.Component {
 
     if (user) {
       const nbNotifications = getOr(0, 'notifications.value', user);
+      const notificationsAriaLabel = getOr('', 'notifications.aria-label', user);
+
       notificationsView =
         nbNotifications > 0 ? (
           <Link

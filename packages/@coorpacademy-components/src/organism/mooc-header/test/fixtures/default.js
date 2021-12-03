@@ -7,22 +7,19 @@ export default {
     logo: {
       src: 'https://static.coorpacademy.com/content/up/raw/logo_coorp-1491561426926.svg',
       srcMobile: 'https://static.coorpacademy.com/content/up/raw/logo-generique-teams-mobile.png',
-      href: '#'
+      href: '#',
+      'aria-label': 'brand logo up.coorpacademy.com',
+      'button-aria-label': 'brand logo used to open menu'
     },
     search: {
       ...research,
       onChange: value => console.log(value),
       onFocus: () => console.log('on Focus'),
-      onBlur: () => console.log('blur')
+      onBlur: () => console.log('blur'),
+      'search-reset-aria-label': 'reset search input value'
     },
     onSubmitSearch: () => console.log('onSubmitSearch'),
     onResetSearch: () => console.log('onResetSearch'),
-    'logo-aria-label': 'brand logo up.coorpacademy.com',
-    'logo-button-aria-label': 'brand logo used to open menu',
-    'notifications-aria-label': 'you have 5 new notificationss',
-    'search-reset-aria-label': 'reset search input value',
-    'settings-aria-label': 'account settings',
-    'close-settings-aria-label': 'close account settings',
     themes: [
       {
         title: 'Digital',
@@ -98,6 +95,8 @@ export default {
         secondary: false
       }
     ],
+    'settings-aria-label': 'account settings',
+    'close-settings-aria-label': 'close account settings',
     settings: [
       {
         title: 'Language',
