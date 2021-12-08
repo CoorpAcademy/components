@@ -97,8 +97,8 @@
   background-color: cm_blue_50;
 }
 
-.default label,
-.coorpManager label {
+.default .label,
+.coorpManager .label {
   border: solid 1px cm_grey_200;
   background-color: cm_grey_100;
   display: flex;
@@ -113,34 +113,34 @@
   position: relative;
 }
 
-.default label {
+.default .label {
   margin-left: 20px;
 }
 
-.checkbox:disabled + label {
+.checkbox:disabled + .label {
   opacity: 0.4;
 }
 
-.checkbox:checked + label {
+.checkbox:checked + .label {
   border: solid 1px cm_primary_blue;
   background-color: cm_primary_blue;
 }
 
-.checkbox:checked + label .icon {
+.checkbox:checked + .label .icon {
   display: flex;
 }
 
-.defaultError label,
-.coorpManagerError label,
-.defaultError .checkbox:checked + label,
-.coorpManagerError .checkbox:checked + label {
+.defaultError .label,
+.coorpManagerError .label,
+.defaultError .checkbox:checked + .label,
+.coorpManagerError .checkbox:checked + .label {
   outline: 2px solid orange;
 }
 
-.defaultModified label,
-.coorpManagerModified label,
-.defaultModified .checkbox:checked + label,
-.coorpManagerModified .checkbox:checked + label {
+.defaultModified .label,
+.coorpManagerModified .label,
+.defaultModified .checkbox:checked + .label,
+.coorpManagerModified .checkbox:checked + .label {
   outline: 2px solid battle;
 }
 

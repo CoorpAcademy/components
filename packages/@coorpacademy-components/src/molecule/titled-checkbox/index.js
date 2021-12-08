@@ -11,8 +11,8 @@ const TitledCheckbox = props => {
   const handleChange = useMemo(() => () => onToggle(choice), [onToggle, choice]);
 
   return (
-    <div className={style.default}>
-      <label
+    <label className={style.default}>
+      <div
         className={style.box}
         style={{
           background: background || '#3d3d3d'
@@ -20,11 +20,11 @@ const TitledCheckbox = props => {
       >
         {choice.selected ? <Check className={style.icon} color="white" /> : null}
         <Checkbox className={style.input} checked={choice.selected} onChange={handleChange} />
-      </label>
+      </div>
       <span title={label} className={style.label}>
         {label}
       </span>
-    </div>
+    </label>
   );
 };
 
