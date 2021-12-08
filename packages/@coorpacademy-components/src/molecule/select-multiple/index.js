@@ -72,7 +72,7 @@ const SelectMultiple = (
     placeholder,
     description,
     hint,
-    multiple,
+    multiple = true,
     onChange,
     onError,
     modified = false,

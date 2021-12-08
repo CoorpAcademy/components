@@ -78,7 +78,6 @@
   user-select: none;
   overflow: scroll;
   max-height: 0;
-  transition: all 0.25s linear;
   opacity: 1;
 }
 
@@ -185,7 +184,7 @@
 }
 
 .setup label {
-  display: inline-flex;
+  display: flex;
   align-items: center;
 }
 

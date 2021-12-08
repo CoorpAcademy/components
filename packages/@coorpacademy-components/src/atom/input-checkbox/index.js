@@ -1,5 +1,6 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import {NovaSolidStatusValidate as CheckIcon} from '@coorpacademy/nova-icons';
 import {keys, noop, uniqueId} from 'lodash/fp';
 import getClassState from '../../util/get-class-state';
@@ -45,7 +46,7 @@ const InputCheckbox = props => {
   );
 
   return (
-    <div className={className}>
+    <label className={className} htmlFor={idCheckbox}>
       <input
         type="checkbox"
         className={style.checkbox}
@@ -55,13 +56,13 @@ const InputCheckbox = props => {
         onChange={handleChange}
         disabled={disabled}
       />
-      <label className={noLabelMargins ? style.noLabelMargins : undefined} htmlFor={idCheckbox}>
+      <div className={classnames(style.label, noLabelMargins ? style.noLabelMargins : undefined)}>
         <CheckIcon className={style.icon} />
-      </label>
+      </div>
       <span className={titleStyleClassName} title={title}>
         {title}
       </span>
-    </div>
+    </label>
   );
 };
 
