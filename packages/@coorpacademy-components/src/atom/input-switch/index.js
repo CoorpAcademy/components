@@ -33,6 +33,7 @@ const InputSwitch = props => {
         id={idSwitch}
         name={name}
         checked={value}
+        readOnly
         disabled={isDisabled}
         className={style.checkbox}
       />

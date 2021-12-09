@@ -60,6 +60,7 @@ const InputCheckbox = props => {
         name={title}
         id={idCheckbox}
         checked={checked}
+        readOnly
         disabled={disabled}
       />
       <div className={classnames(style.label, noLabelMargins ? style.noLabelMargins : undefined)}>
