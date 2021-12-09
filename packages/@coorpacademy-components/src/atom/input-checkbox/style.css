@@ -20,11 +20,13 @@
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-end;
+  pointer-events: fill;
 }
 
 .coorpManager {
   display: flex;
   align-items: center;
+  pointer-events: fill;
 }
 
 .coorpManagerError {
