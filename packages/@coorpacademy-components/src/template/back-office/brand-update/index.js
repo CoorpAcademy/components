@@ -19,6 +19,7 @@ import Banner from '../../../molecule/banner';
 import Header from '../../../organism/setup-header';
 import Loader from '../../../atom/loader';
 import Accordion from '../../../organism/accordion/coorp-manager';
+import CmPopin from '../../../molecule/cm-popin';
 import style from './style.css';
 
 const getStyle = isSelected => (isSelected ? style.selectedElement : style.unselectedElement);
@@ -94,6 +95,14 @@ const buildHeader = header => {
   );
 };
 
+const buildPopin = popin => {
+  return popin ? (
+    <div className={style.popin}>
+      <CmPopin {...popin} />
+    </div>
+  ) : null;
+};
+
 const buildTabs = items => {
   const selectedTab = pipe(
     find(e => e.selected),
@@ -144,7 +153,7 @@ const buildDetailsView = details => {
 };
 
 const BrandUpdate = props => {
-  const {notifications, header, items, content, details, onItemClick} = props;
+  const {notifications, header, items, content, details, popin, onItemClick} = props;
   const logo = 'https://static.coorpacademy.com/logo/coorp-manager.svg';
 
   const leftNavigation = buildLeftNavigation(logo, items, onItemClick);
@@ -153,6 +162,7 @@ const BrandUpdate = props => {
   const tabsView = buildTabs(items);
   const contentView = buildContentView(content);
   const detailsView = buildDetailsView(details);
+  const popinView = buildPopin(popin);
 
   const contentStyle = classNames([
     style.content,
@@ -171,6 +181,7 @@ const BrandUpdate = props => {
           {detailsView}
         </div>
       </div>
+      {popinView}
     </div>
   );
 };
@@ -248,6 +259,7 @@ BrandUpdate.propTypes = {
       type: PropTypes.oneOf(['list-content'])
     })
   ]),
+  popin: PropTypes.shape({...CmPopin.propTypes}),
   details: PropTypes.shape({
     ...BrandTable.propTypes,
     key: PropTypes.string,

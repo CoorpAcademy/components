@@ -111,6 +111,16 @@
   margin: 32px 20px 54px 20px;
 }
 
+.popin {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 999;
+  pointer-events: fill;
+}
+
 @media desktop, tablet {
   .container {
     scroll-behavior: unset;
