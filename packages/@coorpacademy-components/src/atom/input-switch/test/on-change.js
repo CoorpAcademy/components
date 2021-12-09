@@ -1,6 +1,7 @@
 import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
+import noop from 'lodash/fp/noop';
 import {shallow, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import InputSwitch from '..';
@@ -17,6 +18,6 @@ test('should call the onChange function with the checked value of the target', t
   };
   const wrapper = shallow(<InputSwitch {...defaultFixture.props} onChange={onChange} />);
 
-  wrapper.find('input').simulate('change', {target: {checked: false}});
-  wrapper.find('input').simulate('change', {target: {checked: true}});
+  wrapper.find('div').simulate('click', {preventDefault: noop, stopPropagation: noop});
+  wrapper.find('div').simulate('click', {preventDefault: noop, stopPropagation: noop});
 });

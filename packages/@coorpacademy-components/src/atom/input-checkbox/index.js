@@ -53,7 +53,7 @@ const InputCheckbox = props => {
   );
 
   return (
-    <div className={className} onClick={handleChange}>
+    <div id="main" className={className} onClick={handleChange}>
       <input
         type="checkbox"
         className={style.checkbox}
