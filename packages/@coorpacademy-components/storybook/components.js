@@ -1014,6 +1014,7 @@ import TemplateBackOfficeBrandUpdateFixtureGeneralSettingsSuccess from '../src/t
 import TemplateBackOfficeBrandUpdateFixtureGeneralSettings from '../src/template/back-office/brand-update/test/fixtures/general-settings';
 import TemplateBackOfficeBrandUpdateFixtureListItemsArchived from '../src/template/back-office/brand-update/test/fixtures/list-items-archived';
 import TemplateBackOfficeBrandUpdateFixtureListItemsDraft from '../src/template/back-office/brand-update/test/fixtures/list-items-draft';
+import TemplateBackOfficeBrandUpdateFixtureListItemsPublishedWithPopin from '../src/template/back-office/brand-update/test/fixtures/list-items-published-with-popin';
 import TemplateBackOfficeBrandUpdateFixtureListItemsPublished from '../src/template/back-office/brand-update/test/fixtures/list-items-published';
 import TemplateBackOfficeBrandUpdateFixtureLmsError from '../src/template/back-office/brand-update/test/fixtures/lms-error';
 import TemplateBackOfficeBrandUpdateFixtureLmsModified from '../src/template/back-office/brand-update/test/fixtures/lms-modified';
@@ -1036,6 +1037,7 @@ import TemplateBackOfficeBrandUpdateFixtureUploadusers from '../src/template/bac
 import TemplateBackOfficeBrandUpdateFixtureWizardAddCoursesPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-add-courses-playlist';
 import TemplateBackOfficeBrandUpdateFixtureWizardFormCreatePlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-form-create-playlist';
 import TemplateBackOfficeBrandUpdateFixtureWizardFormEditPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-form-edit-playlist';
+import TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylistWithPopin from '../src/template/back-office/brand-update/test/fixtures/wizard-populations-playlist-with-popin';
 import TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-populations-playlist';
 import TemplateBackOfficeBrandUpdateFixtureWizardTranslatePlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-translate-playlist';
 import TemplateBackOfficeDashboardPreviewFixtureDefault from '../src/template/back-office/dashboard-preview/test/fixtures/default';
@@ -2548,6 +2550,7 @@ export const fixtures = {
       GeneralSettings: TemplateBackOfficeBrandUpdateFixtureGeneralSettings,
       ListItemsArchived: TemplateBackOfficeBrandUpdateFixtureListItemsArchived,
       ListItemsDraft: TemplateBackOfficeBrandUpdateFixtureListItemsDraft,
+      ListItemsPublishedWithPopin: TemplateBackOfficeBrandUpdateFixtureListItemsPublishedWithPopin,
       ListItemsPublished: TemplateBackOfficeBrandUpdateFixtureListItemsPublished,
       LmsError: TemplateBackOfficeBrandUpdateFixtureLmsError,
       LmsModified: TemplateBackOfficeBrandUpdateFixtureLmsModified,
@@ -2570,6 +2573,7 @@ export const fixtures = {
       WizardAddCoursesPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardAddCoursesPlaylist,
       WizardFormCreatePlaylist: TemplateBackOfficeBrandUpdateFixtureWizardFormCreatePlaylist,
       WizardFormEditPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardFormEditPlaylist,
+      WizardPopulationsPlaylistWithPopin: TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylistWithPopin,
       WizardPopulationsPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylist,
       WizardTranslatePlaylist: TemplateBackOfficeBrandUpdateFixtureWizardTranslatePlaylist
     },
