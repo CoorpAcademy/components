@@ -33,7 +33,8 @@ ContentBadge.propTypes = {
     'scorm',
     'video',
     'article',
-    'podcast'
+    'podcast',
+    'course'
   ]),
   label: PropTypes.string
 };
