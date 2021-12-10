@@ -9,11 +9,6 @@ export default {
     languageTabs,
     inputText: {...inputText.props, theme: 'coorpmanager'},
     textArea: {...textArea.props, theme: 'coorpmanager'},
-    cta: {
-      label: 'Add translation',
-      type: 'add',
-      handleOnClick: () => {}
-    },
     'list-aria-label': 'Languages list'
   }
 };
