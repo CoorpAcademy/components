@@ -29,7 +29,7 @@ const themeStyle = {
   footer: style.linkFooter
 };
 const SocialLink = props => {
-  const {type, link, mode = 'default','aria-label': ariaLabel} = props;
+  const {type, link, mode = 'default', 'aria-label': ariaLabel} = props;
   const IconType = ICONS[type];
   return (
     <a

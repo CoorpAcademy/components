@@ -20,8 +20,18 @@ const StoresLinks = ({
   'ios-alt': iosAlt
 }) => (
   <div className={style.storeLinksContainer}>
-    <img className={style.imgApple} src={appStoreButtonImageUrl} onClick={onAppStoreButtonClick} alt={iosAlt}/>
-    <img className={style.img} src={playStoreButtonImageUrl} onClick={onPlayStoreButtonClick} alt={androidAlt}/>
+    <img
+      className={style.imgApple}
+      src={appStoreButtonImageUrl}
+      onClick={onAppStoreButtonClick}
+      alt={iosAlt}
+    />
+    <img
+      className={style.img}
+      src={playStoreButtonImageUrl}
+      onClick={onPlayStoreButtonClick}
+      alt={androidAlt}
+    />
   </div>
 );
 
@@ -35,7 +45,13 @@ StoresLinks.propTypes = {
 };
 
 function MoocFooter(props) {
-  const {headSection = {}, socialLinks = [], 'logo-aria-label' : logoAriaLabel, 'social-links-aria-label': socialLinksAriaLabel, siteMapSections = []} = props;
+  const {
+    headSection = {},
+    socialLinks = [],
+    'logo-aria-label': logoAriaLabel,
+    'social-links-aria-label': socialLinksAriaLabel,
+    siteMapSections = []
+  } = props;
 
   // Header section of the footer (the marketing banner)
 
@@ -43,8 +59,11 @@ function MoocFooter(props) {
     <div data-name="headSpacingContainer" className={style.headSpacingContainer}>
       <div data-name="headSection" className={style.headSectionWrapper}>
         <div className={style.logoAndLabelWrapper}>
-          <div className={style.logoWrapper} >
-            <CoorpAppLogo className={style.coorpAppLogo} aria-label={headSection['mobile-logo-aria-label']}/>
+          <div className={style.logoWrapper}>
+            <CoorpAppLogo
+              className={style.coorpAppLogo}
+              aria-label={headSection['mobile-logo-aria-label']}
+            />
           </div>
           <div data-name="mobile-marketing-text" className={style.marketingLabel}>
             {headSection.title}
@@ -59,8 +78,8 @@ function MoocFooter(props) {
             playStoreButtonImageUrl={headSection.playStoreButtonImageUrl}
             // eslint-disable-next-line react/jsx-handler-names
             onPlayStoreButtonClick={headSection.onPlayStoreButtonClick}
-            android-alt= {headSection['android-alt']}
-            ios-alt= {headSection['ios-alt']}
+            android-alt={headSection['android-alt']}
+            ios-alt={headSection['ios-alt']}
           />
         </div>
       </div>
@@ -108,15 +127,28 @@ function MoocFooter(props) {
   const socialLinksView = socialLinks.map((socialLink, index) => {
     return (
       <li className={style.socialLink} key={index}>
-        <SocialLink type={socialLink.type} link={socialLink.link} mode="footer" aria-label={socialLink['aria-label']} />
+        <SocialLink
+          type={socialLink.type}
+          link={socialLink.link}
+          mode="footer"
+          aria-label={socialLink['aria-label']}
+        />
       </li>
     );
   });
 
   const socialNetworks = (
     <div data-name="logo-social-networks-container" className={style.logoSocialNetworksContainer}>
-      <CoorpLogo className={style.coorpLogo} data-name="coorp-social-networks-logo" aria-label={logoAriaLabel}/>
-      <ul data-name="social-networks-wrapper" className={style.socialNetworksWrapper} aria-label={socialLinksAriaLabel}>
+      <CoorpLogo
+        className={style.coorpLogo}
+        data-name="coorp-social-networks-logo"
+        aria-label={logoAriaLabel}
+      />
+      <ul
+        data-name="social-networks-wrapper"
+        className={style.socialNetworksWrapper}
+        aria-label={socialLinksAriaLabel}
+      >
         {socialLinksView}
       </ul>
     </div>
@@ -168,7 +200,7 @@ MoocFooter.propTypes = {
       'aria-label': PropTypes.string
     })
   ),
-  'logo-aria-label' : PropTypes.string,
+  'logo-aria-label': PropTypes.string,
   'social-links-aria-label': PropTypes.string
 };
 

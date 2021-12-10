@@ -82,7 +82,7 @@ export default {
         ]
       }
     ],
-    'logo-aria-label' : 'Coorpacademy Logo',
+    'logo-aria-label': 'Coorpacademy Logo',
     'social-links-aria-label': 'List of links toour socials pages'
   }
 };
