@@ -15,7 +15,8 @@ const ContentBadge = props => {
         category === 'scorm' && style.scorm,
         category === 'video' && style.video,
         category === 'article' && style.article,
-        category === 'podcast' && style.podcast
+        category === 'podcast' && style.podcast,
+        category === 'course' && style.course
       )}
     >
       {label}
