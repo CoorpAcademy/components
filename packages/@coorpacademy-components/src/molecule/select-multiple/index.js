@@ -21,7 +21,7 @@ const themeStyle = {
 };
 
 export const useChoices = options => {
-  const choicesRef = useRef(options);
+  const choicesRef = {current: options};
 
   const getChoices = () => {
     return choicesRef.current;

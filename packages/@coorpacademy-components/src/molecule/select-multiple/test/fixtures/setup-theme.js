@@ -8,7 +8,7 @@ export default {
       {
         value: 'connect',
         name: 'Connect users',
-        selected: false
+        selected: true
       },
       {
         value: 'coorpacademy',
@@ -18,7 +18,7 @@ export default {
       {
         value: 'fr',
         name: 'country-fr',
-        selected: false
+        selected: true
       },
       {
         value: 'ekino',
@@ -78,6 +78,10 @@ export default {
     ],
     multiple: true,
     theme: 'setup',
-    modified: true
+    modified: true,
+    onChange: value => {
+      console.log(value);
+    },
+    onError: () => true
   }
 };
