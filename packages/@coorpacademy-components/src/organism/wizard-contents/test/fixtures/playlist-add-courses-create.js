@@ -37,7 +37,8 @@ export default {
       onClick: () => console.log('Previous Step')
     },
     nextStep: {
-      label: 'Next Step',
+      type: 'publish',
+      label: 'Publish',
       onClick: () => console.log('Next Step')
     }
   }
