@@ -120,8 +120,8 @@ export default {
           {
             type: 'content',
             title: 'Cluedo: Meurtre sur Skill Island',
-            category: 'advanced',
-            label: 'Advanced',
+            category: 'course',
+            label: 'Course',
             author: 'Coorpacademy'
           },
           {
