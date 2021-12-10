@@ -7,8 +7,26 @@ import TextArea from '../../atom/input-textarea';
 import Button from '../../atom/button-link';
 import style from './style.css';
 
+const buildCtaButton = cta => {
+  if (!cta) {
+    return;
+  }
+
+  return (
+    <div className={classNames(style.button, style.binButton)}>
+      <Button
+        onClick={cta.handleOnclick}
+        type="text"
+        icon={{type: 'bin', position: 'left'}}
+        label={cta.label}
+      />
+    </div>
+  );
+};
+
 const PlayListTranslation = props => {
   const {languageTabs, inputText, textArea, cta, 'list-aria-label': listAriaLabel} = props;
+  const ctaButton = buildCtaButton(cta);
 
   const ariaLabel = {'aria-label': listAriaLabel};
   return (
@@ -21,14 +39,7 @@ const PlayListTranslation = props => {
         <div className={style.input}>
           <TextArea {...textArea} />
         </div>
-        <div className={classNames(style.button, cta.type === 'delete' && style.binButton)}>
-          <Button
-            onClick={cta.handleOnclick}
-            type={cta.type === 'delete' ? 'text' : 'primary'}
-            icon={{type: cta.type === 'delete' ? 'bin' : 'add', position: 'left'}}
-            label={cta.label}
-          />
-        </div>
+        {ctaButton}
       </div>
     </div>
   );
@@ -41,7 +52,7 @@ PlayListTranslation.propTypes = {
   cta: PropTypes.shape({
     label: PropTypes.string,
     handleOnclick: PropTypes.func,
-    type: PropTypes.oneOf(['delete', 'add'])
+    type: PropTypes.oneOf(['delete'])
   }),
   'list-aria-label': PropTypes.string
 };

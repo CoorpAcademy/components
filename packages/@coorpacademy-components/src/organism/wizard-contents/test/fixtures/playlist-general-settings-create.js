@@ -33,6 +33,7 @@ export default {
       type: 'form'
     },
     nextStep: {
+      type: 'next',
       label: 'Next step',
       onClick: () => console.log('Next Step')
     }

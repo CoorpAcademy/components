@@ -171,7 +171,8 @@ WizardSummary.propTypes = {
               'scorm',
               'video',
               'article',
-              'podcast'
+              'podcast',
+              'course'
             ]),
             title: PropTypes.string,
             label: PropTypes.string,

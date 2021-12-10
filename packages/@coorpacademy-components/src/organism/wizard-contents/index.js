@@ -1,4 +1,5 @@
 import React from 'react';
+import getOr from 'lodash/fp/getOr';
 import PropTypes from 'prop-types';
 import ButtonLink from '../../atom/button-link';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
@@ -47,15 +48,27 @@ const buildForm = content => {
 };
 
 const buildButton = (type, step) => {
+  const ICONS = {
+    previous: {
+      position: 'left',
+      type: 'chevron-left'
+    },
+    next: {
+      position: 'right',
+      type: 'chevron-right'
+    },
+    publish: {
+      position: 'left',
+      type: 'publish'
+    }
+  };
+
   const {label, onClick} = step;
   const buttonProps = {
-    type: type === 'next' ? 'primary' : 'secondary',
+    type: type === 'previous' ? 'secondary' : 'primary',
     'aria-label': `${type} step button`,
     'data-name': `${type}-step-button`,
-    icon: {
-      position: type === 'next' ? 'right' : 'left',
-      type: type === 'next' ? 'chevron-right' : 'chevron-left'
-    },
+    icon: ICONS[type],
     label,
     onClick
   };
@@ -65,7 +78,8 @@ const buildButton = (type, step) => {
 
 const buildActionZone = (previousStep, nextStep) => {
   const previousButton = previousStep ? buildButton('previous', previousStep) : null;
-  const nextButton = nextStep ? buildButton('next', nextStep) : null;
+  const nextStepType = getOr('next', 'type', nextStep);
+  const nextButton = nextStep ? buildButton(nextStepType, nextStep) : null;
   return (
     <div className={style.actionZone}>
       <div className={style.button}>{previousButton}</div>
@@ -136,6 +150,7 @@ WizardContents.propTypes = {
     onClick: PropTypes.func
   }),
   nextStep: PropTypes.shape({
+    type: PropTypes.oneOf(['next', 'publish']),
     label: PropTypes.string,
     onClick: PropTypes.func
   })

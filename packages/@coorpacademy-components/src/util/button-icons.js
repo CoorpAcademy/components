@@ -8,9 +8,10 @@ import {
   NovaSolidStatusClose as CloseIcon,
   NovaSolidContentEditionPencilWrite as EditIcon,
   NovaCompositionCoorpacademyEye as EyeIcon,
-  NovaSolidComputersSdCard as SaveIcon,
   NovaSolidContentContentViewModule1 as ListIcon,
-  NovaSolidLoginLogout1 as LogoutIcon
+  NovaSolidLoginLogout1 as LogoutIcon,
+  NovaSolidApplicationsWindowUpload3 as PublishIcon,
+  NovaSolidComputersSdCard as SaveIcon
 } from '@coorpacademy/nova-icons';
 
 export const ICONS = {
@@ -24,6 +25,7 @@ export const ICONS = {
   edit: EditIcon,
   list: ListIcon,
   logout: LogoutIcon,
+  publish: PublishIcon,
   save: SaveIcon,
   see: EyeIcon
 };

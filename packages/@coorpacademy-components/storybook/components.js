@@ -237,6 +237,7 @@ import AtomContentBadgeFixtureAdvanced from '../src/atom/content-badge/test/fixt
 import AtomContentBadgeFixtureArticle from '../src/atom/content-badge/test/fixtures/article';
 import AtomContentBadgeFixtureChapter from '../src/atom/content-badge/test/fixtures/chapter';
 import AtomContentBadgeFixtureCoach from '../src/atom/content-badge/test/fixtures/coach';
+import AtomContentBadgeFixtureCourse from '../src/atom/content-badge/test/fixtures/course';
 import AtomContentBadgeFixtureDefault from '../src/atom/content-badge/test/fixtures/default';
 import AtomContentBadgeFixturePodcast from '../src/atom/content-badge/test/fixtures/podcast';
 import AtomContentBadgeFixtureScorm from '../src/atom/content-badge/test/fixtures/scorm';
@@ -1389,6 +1390,7 @@ export const fixtures = {
       Article: AtomContentBadgeFixtureArticle,
       Chapter: AtomContentBadgeFixtureChapter,
       Coach: AtomContentBadgeFixtureCoach,
+      Course: AtomContentBadgeFixtureCourse,
       Default: AtomContentBadgeFixtureDefault,
       Podcast: AtomContentBadgeFixturePodcast,
       Scorm: AtomContentBadgeFixtureScorm,
