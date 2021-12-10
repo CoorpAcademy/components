@@ -15,11 +15,23 @@ const StoresLinks = ({
   onAppStoreButtonClick,
   appStoreButtonImageUrl,
   playStoreButtonImageUrl,
-  onPlayStoreButtonClick
+  onPlayStoreButtonClick,
+  'android-alt': androidAlt,
+  'ios-alt': iosAlt
 }) => (
   <div className={style.storeLinksContainer}>
-    <img className={style.imgApple} src={appStoreButtonImageUrl} onClick={onAppStoreButtonClick} />
-    <img className={style.img} src={playStoreButtonImageUrl} onClick={onPlayStoreButtonClick} />
+    <img
+      className={style.imgApple}
+      src={appStoreButtonImageUrl}
+      onClick={onAppStoreButtonClick}
+      alt={iosAlt}
+    />
+    <img
+      className={style.img}
+      src={playStoreButtonImageUrl}
+      onClick={onPlayStoreButtonClick}
+      alt={androidAlt}
+    />
   </div>
 );
 
@@ -27,11 +39,19 @@ StoresLinks.propTypes = {
   onAppStoreButtonClick: PropTypes.func,
   appStoreButtonImageUrl: PropTypes.string,
   playStoreButtonImageUrl: PropTypes.string,
-  onPlayStoreButtonClick: PropTypes.func
+  onPlayStoreButtonClick: PropTypes.func,
+  'android-alt': PropTypes.string,
+  'ios-alt': PropTypes.string
 };
 
 function MoocFooter(props) {
-  const {headSection = {}, socialLinks = [], siteMapSections = []} = props;
+  const {
+    headSection = {},
+    socialLinks = [],
+    'logo-aria-label': logoAriaLabel,
+    'social-links-aria-label': socialLinksAriaLabel,
+    siteMapSections = []
+  } = props;
 
   // Header section of the footer (the marketing banner)
 
@@ -40,7 +60,10 @@ function MoocFooter(props) {
       <div data-name="headSection" className={style.headSectionWrapper}>
         <div className={style.logoAndLabelWrapper}>
           <div className={style.logoWrapper}>
-            <CoorpAppLogo className={style.coorpAppLogo} />
+            <CoorpAppLogo
+              className={style.coorpAppLogo}
+              aria-label={headSection['mobile-logo-aria-label']}
+            />
           </div>
           <div data-name="mobile-marketing-text" className={style.marketingLabel}>
             {headSection.title}
@@ -55,6 +78,8 @@ function MoocFooter(props) {
             playStoreButtonImageUrl={headSection.playStoreButtonImageUrl}
             // eslint-disable-next-line react/jsx-handler-names
             onPlayStoreButtonClick={headSection.onPlayStoreButtonClick}
+            android-alt={headSection['android-alt']}
+            ios-alt={headSection['ios-alt']}
           />
         </div>
       </div>
@@ -101,18 +126,31 @@ function MoocFooter(props) {
 
   const socialLinksView = socialLinks.map((socialLink, index) => {
     return (
-      <div className={style.socialLink} key={index}>
-        <SocialLink type={socialLink.type} link={socialLink.link} mode="footer" />
-      </div>
+      <li className={style.socialLink} key={index}>
+        <SocialLink
+          type={socialLink.type}
+          link={socialLink.link}
+          mode="footer"
+          aria-label={socialLink['aria-label']}
+        />
+      </li>
     );
   });
 
   const socialNetworks = (
     <div data-name="logo-social-networks-container" className={style.logoSocialNetworksContainer}>
-      <CoorpLogo className={style.coorpLogo} data-name="coorp-social-networks-logo" />
-      <div data-name="social-networks-wrapper" className={style.socialNetworksWrapper}>
+      <CoorpLogo
+        className={style.coorpLogo}
+        data-name="coorp-social-networks-logo"
+        aria-label={logoAriaLabel}
+      />
+      <ul
+        data-name="social-networks-wrapper"
+        className={style.socialNetworksWrapper}
+        aria-label={socialLinksAriaLabel}
+      >
         {socialLinksView}
-      </div>
+      </ul>
     </div>
   );
 
@@ -128,10 +166,10 @@ function MoocFooter(props) {
   );
 
   return (
-    <div data-name="mooc-footer">
+    <footer data-name="mooc-footer">
       {headSectionView}
       {siteMap}
-    </div>
+    </footer>
   );
 }
 
@@ -141,7 +179,10 @@ MoocFooter.propTypes = {
     onAppStoreButtonClick: PropTypes.func,
     appStoreButtonImageUrl: PropTypes.string,
     playStoreButtonImageUrl: PropTypes.string,
-    onPlayStoreButtonClick: PropTypes.func
+    onPlayStoreButtonClick: PropTypes.func,
+    'mobile-logo-aria-label': PropTypes.string,
+    'android-alt': PropTypes.string,
+    'ios-alt': PropTypes.string
   }),
   siteMapSections: PropTypes.arrayOf(
     PropTypes.shape({
@@ -155,9 +196,12 @@ MoocFooter.propTypes = {
     PropTypes.shape({
       type: PropTypes.oneOf(socialLinksTypes),
       link: PropTypes.string,
-      onClick: PropTypes.func
+      onClick: PropTypes.func,
+      'aria-label': PropTypes.string
     })
-  )
+  ),
+  'logo-aria-label': PropTypes.string,
+  'social-links-aria-label': PropTypes.string
 };
 
 export default MoocFooter;

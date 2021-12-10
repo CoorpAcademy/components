@@ -29,7 +29,7 @@ const themeStyle = {
   footer: style.linkFooter
 };
 const SocialLink = props => {
-  const {type, link, mode = 'default'} = props;
+  const {type, link, mode = 'default', 'aria-label': ariaLabel} = props;
   const IconType = ICONS[type];
   return (
     <a
@@ -37,6 +37,7 @@ const SocialLink = props => {
       className={themeStyle[mode]}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label={ariaLabel}
       data-name={`${mode}-${type}`}
     >
       <IconType className={style.icon} />
@@ -47,7 +48,8 @@ const SocialLink = props => {
 SocialLink.propTypes = {
   mode: PropTypes.string,
   type: PropTypes.string.isRequired,
-  link: PropTypes.string.isRequired
+  link: PropTypes.string.isRequired,
+  'aria-label': PropTypes.string
 };
 
 export default SocialLink;
