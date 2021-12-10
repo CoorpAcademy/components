@@ -7,13 +7,16 @@ export default {
     logo: {
       src: 'https://static.coorpacademy.com/content/up/raw/logo_coorp-1491561426926.svg',
       srcMobile: 'https://static.coorpacademy.com/content/up/raw/logo-generique-teams-mobile.png',
-      href: '#'
+      href: '#',
+      'aria-label': 'brand logo up.coorpacademy.com',
+      'button-aria-label': 'brand logo used to open menu'
     },
     search: {
       ...research,
       onChange: value => console.log(value),
       onFocus: () => console.log('on Focus'),
-      onBlur: () => console.log('blur')
+      onBlur: () => console.log('blur'),
+      'search-reset-aria-label': 'reset search input value'
     },
     onSubmitSearch: () => console.log('onSubmitSearch'),
     onResetSearch: () => console.log('onResetSearch'),
@@ -92,10 +95,13 @@ export default {
         secondary: false
       }
     ],
+    'settings-aria-label': 'account settings',
+    'close-settings-aria-label': 'close account settings',
     settings: [
       {
         title: 'Language',
         type: 'select',
+        'aria-label': 'select language',
         options: {
           onChange: value => console.log(value),
           values: [
@@ -120,6 +126,7 @@ export default {
       {
         title: 'Mon compte',
         type: 'link',
+        'aria-label': 'go to my account',
         options: {
           target: '_blank',
           href: 'https://google.fr'
@@ -127,6 +134,7 @@ export default {
       },
       {
         title: 'Se déconnecter',
+        'aria-label': 'logout',
         type: 'link',
         color: '#f73f52',
         hoverColor: '#C51023',
@@ -137,6 +145,7 @@ export default {
       {
         title: 'Godmode',
         type: 'switch',
+        'aria-label': 'activate godmode',
         options: {
           onChange: value => console.log(value),
           value: true
@@ -145,6 +154,7 @@ export default {
       {
         title: 'Fast slides',
         type: 'switch',
+        'aria-label': 'activate fast slides',
         options: {
           onChange: value => console.log(value),
           value: false

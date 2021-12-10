@@ -12,7 +12,8 @@ export default {
       displayed: [
         {},
         {
-          counter: 3
+          counter: 3,
+          'page-count-aria-label': 'You have 3 waiting battles'
         }
       ]
     },
@@ -26,23 +27,28 @@ export default {
     onResetSearch: () => console.log('onResetSearch'),
     user: {
       picture: 'https://image.freepik.com/free-icon/male-user-shadow_318-34042.jpg',
+      'picture-aria-label': 'Your picture',
       notifications: {
         href: '#notifications',
-        value: 5
+        value: 5,
+        'aria-label': 'you have 5 new notificationss'
       },
       href: '#account',
       stats: {
         stars: {
           href: '#',
-          label: '124'
+          label: '124',
+          'aria-label': 'You have 124 stars'
         },
         ranking: {
           href: '#',
-          label: '5ème'
+          label: '5ème',
+          'aria-label': 'You are ranked 5th'
         },
         badge: {
           href: '#',
-          label: 'Gold'
+          label: 'Gold',
+          'aria-label': 'You have a gold badge'
         }
       }
     }
