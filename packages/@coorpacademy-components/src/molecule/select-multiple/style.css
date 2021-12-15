@@ -78,7 +78,8 @@
   user-select: none;
   overflow: scroll;
   max-height: 0;
-  opacity: 1;
+  opacity: 0;
+  transition: all 0.25s linear;
 }
 
 .activeChoices {

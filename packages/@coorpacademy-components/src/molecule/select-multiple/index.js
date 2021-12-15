@@ -116,7 +116,7 @@ const SelectMultiple = (
 
         return onChange(getChoices());
       }
-
+      updateIsOpened(false);
       return onChange(choice);
     },
     [multiple, onChange, setChoices, getChoices]
