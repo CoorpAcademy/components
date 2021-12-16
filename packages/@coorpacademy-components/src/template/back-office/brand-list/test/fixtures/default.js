@@ -16,13 +16,13 @@ export default {
       list: [
         {
           name: 'customer',
-          value: false,
+          value: 'customer',
           checked: false,
           label: 'Customer platforms'
         },
         {
-          name: 'smb',
-          value: true,
+          name: 'team',
+          value: 'team',
           checked: true,
           label: 'Team platforms'
         }
