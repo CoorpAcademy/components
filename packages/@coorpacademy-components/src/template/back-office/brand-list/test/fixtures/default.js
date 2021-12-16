@@ -12,6 +12,23 @@ export default {
       placeholder: 'Search brand',
       onChange: () => {}
     },
+    filter: {
+      list: [
+        {
+          name: 'customer',
+          value: false,
+          checked: false,
+          label: 'Customer platforms'
+        },
+        {
+          name: 'smb',
+          value: true,
+          checked: true,
+          label: 'Team platforms'
+        }
+      ],
+      onChange: value => console.log(value)
+    },
     create: {
       edit: 'Create a new platform',
       editHref: '#'

@@ -30,6 +30,13 @@
   border-radius: 2px;
 }
 
+.filterBar {
+  width: 800px;
+  margin: auto;
+  padding-bottom: 20px;
+}
+
+
 @media desktop {
   .wrapper {
     width: 960px;
@@ -46,6 +53,12 @@
   }
 
   .searchBar {
+    width: auto;
+    margin: 0 30px;
+    box-sizing: content-box;
+  }
+
+  .filterBar {
     width: auto;
     margin: 0 30px;
     box-sizing: content-box;

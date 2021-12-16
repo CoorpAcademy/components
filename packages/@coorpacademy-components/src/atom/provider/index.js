@@ -5,6 +5,10 @@ import {SrcPropType, ColorPropType, HexPropType} from '../../util/proptypes';
 
 const DEFAULT_SKIN = {
   common: {
+    good: '#24b694',
+    bad: '#ed1c24',
+    primary: '#00B0FF',
+    life: '#ed1c24',
     brand: '#00B0FF',
     primaryAdd1: '#B3E5FC',
     primaryAdd2: '#0091EA',
