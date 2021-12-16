@@ -1,3 +1,9 @@
+@value colors: "../../variables/colors.css";
+@value cm_primary_blue from colors;
+@value cm_blue_50 from colors;
+@value cm_grey_400 from colors;
+
+
 .radio {
   visibility: hidden;
   display: none;
@@ -6,7 +12,6 @@
 .normal {
   flex: 1 1 0;
   line-height: 30px;
-  border-right: solid 1px;
   color: white;
   cursor: pointer;
   min-width: 33%;
@@ -29,8 +34,51 @@
   white-space: nowrap;
   text-align: center;
   box-sizing: border-box;
+  user-select: none;
 }
 
 .normal:last-child {
   border-right-width: 0;
+}
+
+.setup.normal{
+  border-right: solid 1px;
+}
+
+.coorpmanager label {
+  flex-grow: 0;
+  width: 200px;
+  box-sizing: border-box;;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-weight: bold;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.43;
+  letter-spacing: normal;
+  text-align: left;
+  height: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  
+  border-radius: 5px;
+}
+.coorpmanager.normal{
+  border: 0px;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.coorpmanager .label.selected .labelSpan{
+  color: cm_primary_blue;
+  background-color: cm_blue_50;
+}
+.coorpmanager .labelSpan {
+  color: cm_grey_400;
+  background-color: transparent;
+  padding: 8px 16px;
+  transition: color 0.5s linear;
 }

@@ -1,20 +1,27 @@
 import React from 'react';
 import {get, pipe, identity, uniqueId} from 'lodash/fp';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 import Provider from '../provider';
 import style from './item.css';
 
+
 const getTargetValueAndCall = fun => pipe(get('target.value'), fun);
+
+const themeStyle = {
+  setup: style.setup,
+  coorpmanager: style.coorpmanager
+};
 
 const Item = (props, context) => {
   const idRadioButton = uniqueId('inputRadioButton');
   const {skin} = context;
-  const {color, name, value, checked, label, onChange = identity} = props;
+  const {color, name, value, checked, label, onChange = identity, theme} = props;
   const defaultColor = color || get('common.primary', skin);
-
+  const mainClass = themeStyle[theme];
   return (
     <div
-      className={style.normal}
+      className={classNames(style.normal, mainClass)}
       style={{
         backgroundColor: checked && defaultColor,
         borderRightColor: defaultColor,
@@ -31,7 +38,7 @@ const Item = (props, context) => {
         onChange={getTargetValueAndCall(onChange)}
       />
       <label
-        className={style.label}
+        className={classNames(style.label, checked && style.selected)}
         style={{
           color: !checked && defaultColor
         }}
@@ -52,6 +59,7 @@ Item.propTypes = {
   color: PropTypes.string,
   value: PropTypes.string.isRequired,
   name: PropTypes.string,
+  theme: PropTypes.string,
   checked: PropTypes.bool,
   label: PropTypes.string,
   onChange: PropTypes.func
