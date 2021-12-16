@@ -23,6 +23,41 @@ export default {
         disabled: true
       },
       {
+        title: 'Select Multiple',
+        value: '',
+        hint: 'Required',
+        placeholder: 'This is an input',
+        description: 'This is the tooltip text',
+        type: 'selectMultiple',
+        theme: 'coorpmanager',
+        size: 'default',
+        multiple: false,
+        options: [
+          {
+            name: '🇬🇧 English',
+            value: 'en',
+            selected: true
+          },
+          {
+            name: '🇩🇪 German',
+            value: 'de',
+            selected: false
+          },
+          {
+            name: '🇹🇭 Thai',
+            value: 'th',
+            selected: false
+          },
+          {
+            name: '🇪🇸 Spanish',
+            value: 'es',
+            selected: false
+          }
+        ],
+        onChange: value => console.log('onChange', value),
+        onError: () => true
+      },
+      {
         title: 'Description',
         value: '',
         theme: 'coorpmanager',
@@ -45,12 +80,6 @@ export default {
         theme: 'coorpmanager',
         description: 'This is the tooltip text',
         type: 'unknow'
-      },
-      {
-        title: 'Select Multiple',
-        value: '',
-        theme: 'coorpmanager',
-        type: 'selectMultiple'
       }
     ]
   }
