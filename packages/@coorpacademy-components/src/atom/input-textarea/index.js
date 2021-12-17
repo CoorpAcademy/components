@@ -69,9 +69,9 @@ const InputTextarea = props => {
         </span>
         <textarea
           name={name}
-          defaultValue={value}
+          value={value}
           placeholder={placeholder}
-          onInput={handleChange}
+          onChange={handleChange}
           disabled={disabled}
         />
         {errorIconView}
