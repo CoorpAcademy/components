@@ -17,12 +17,12 @@ test('should call the onChange function with the value of the target', t => {
   };
   const wrapper = shallow(<InputTextarea {...defaultFixture.props} onChange={onChange} />);
 
-  wrapper.find('textarea').simulate('input', {target: {value: 'foo'}});
+  wrapper.find('textarea').simulate('change', {target: {value: 'foo'}});
 });
 
 test('should not crash if the onChange function has not been specified', t => {
   const wrapper = shallow(<InputTextarea {...omit('onChange', defaultFixture.props)} />);
 
-  wrapper.find('textarea').simulate('input', {target: {value: 'foo'}});
+  wrapper.find('textarea').simulate('change', {target: {value: 'foo'}});
   t.pass();
 });
