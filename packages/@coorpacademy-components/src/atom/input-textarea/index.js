@@ -71,7 +71,7 @@ const InputTextarea = props => {
           name={name}
           value={value}
           placeholder={placeholder}
-          onInput={handleChange}
+          onChange={handleChange}
           disabled={disabled}
         />
         {errorIconView}
