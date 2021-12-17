@@ -10,7 +10,7 @@
   "challenges you on": "izaziva vas na",
   "is challenging you": "{{username}} vas izaziva {{courseName}}",
   "chapters": "poglavlja",
-  "Close": "Zatvoriti",
+  "Close": "Zatvorite",
   "clue_stars_to_loose_plural": "Otključavanje pomoći smanjuje broj zvjezdica koje možete dobiti za ovo pitanje na {{count}} (ako točno odgovorite)",
   "clue_stars_to_loose": "Otključavanje traga smanjuje zvjezdice koje možete dobiti na ovo pitanje do {{count}} (ako dobro shvatite)",
   "confirm_unsubscribe": "Jeste li sigurni da želite otkazati pretplatu?",
