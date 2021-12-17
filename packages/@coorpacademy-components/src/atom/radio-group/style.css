@@ -6,6 +6,14 @@
   height: 30px;
   line-height: 30px;
   align-items: stretch;
-  width: 100%;
   box-sizing: content-box;
 }
+.setup {
+  width: 100%;
+}
+.coorpmanager {
+  border: 0px;
+  width: 100%;
+  margin: 0px auto;
+}
+

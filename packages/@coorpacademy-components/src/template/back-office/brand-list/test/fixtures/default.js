@@ -12,6 +12,24 @@ export default {
       placeholder: 'Search brand',
       onChange: () => {}
     },
+    filter: {
+      list: [
+        {
+          name: 'customer',
+          value: 'customer',
+          checked: false,
+          label: 'Customer platforms'
+        },
+        {
+          name: 'team',
+          value: 'team',
+          checked: true,
+          label: 'Team platforms'
+        }
+      ],
+      theme: 'coorpmanager',
+      onChange: value => console.log(value)
+    },
     create: {
       edit: 'Create a new platform',
       editHref: '#'
