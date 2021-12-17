@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import Provider from '../provider';
 import style from './item.css';
 
-
 const getTargetValueAndCall = fun => pipe(get('target.value'), fun);
 
 const themeStyle = {
