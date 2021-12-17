@@ -12,7 +12,7 @@ export default {
     cta: {
       label: 'Delete translation',
       type: 'delete',
-      handleOnClick: () => {}
+      handleOnClick: () => console.log('delete locales')
     },
     'list-aria-label': 'Languages list'
   }

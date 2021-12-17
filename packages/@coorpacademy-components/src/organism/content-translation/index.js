@@ -15,7 +15,7 @@ const buildCtaButton = cta => {
   return (
     <div className={classNames(style.button, style.binButton)}>
       <Button
-        onClick={cta.handleOnclick}
+        onClick={cta.handleOnClick}
         type="text"
         icon={{type: 'bin', position: 'left'}}
         label={cta.label}
@@ -51,7 +51,7 @@ PlayListTranslation.propTypes = {
   textArea: PropTypes.shape({...TextArea.propTypes, theme: PropTypes.string}),
   cta: PropTypes.shape({
     label: PropTypes.string,
-    handleOnclick: PropTypes.func,
+    handleOnClick: PropTypes.func,
     type: PropTypes.oneOf(['delete'])
   }),
   'list-aria-label': PropTypes.string
