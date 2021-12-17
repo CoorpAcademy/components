@@ -27,6 +27,7 @@ export default {
           label: 'Team platforms'
         }
       ],
+      theme: 'coorpmanager',
       onChange: value => console.log(value)
     },
     create: {
