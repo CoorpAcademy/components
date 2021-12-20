@@ -33,7 +33,6 @@
 
 /* Fade-in - Fade-out, does target button class but bulletPointMenu only */
 button + .bulletPointMenu {
-  max-height: 0;
   /* fade out combo */
   visibility: hidden;
   opacity:0;
