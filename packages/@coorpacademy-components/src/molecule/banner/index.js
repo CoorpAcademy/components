@@ -16,10 +16,20 @@ const ICONS = {
 };
 
 const Banner = props => {
-  const {type, message, firstCTA, firstCTALabel, secondCTALabel, secondCTA, temporary} = props;
+  const {
+    type,
+    message,
+    firstCTA,
+    firstCTALabel,
+    secondCTALabel,
+    secondCTA,
+    temporary,
+    bannerKey
+  } = props;
   const Icon = ICONS[type];
   return (
     <div
+      key={bannerKey}
       className={classnames(
         style.banner,
         type === 'error' && style.errorBanner,
@@ -60,6 +70,7 @@ const Banner = props => {
 };
 
 Banner.propTypes = {
+  bannerKey: PropTypes.string,
   type: PropTypes.oneOf(keys(ICONS)),
   message: PropTypes.string.isRequired,
   firstCTA: PropTypes.func,
