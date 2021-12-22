@@ -61,6 +61,7 @@ const Banner = props => {
 };
 
 Banner.propTypes = {
+  key: PropTypes.string,
   type: PropTypes.oneOf(keys(ICONS)),
   message: PropTypes.string.isRequired,
   firstCTA: PropTypes.func,
