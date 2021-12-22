@@ -16,10 +16,11 @@ const ICONS = {
 };
 
 const Banner = props => {
-  const {type, message, firstCTA, firstCTALabel, secondCTALabel, secondCTA, temporary} = props;
+  const {type, message, firstCTA, firstCTALabel, secondCTALabel, secondCTA, temporary, key} = props;
   const Icon = ICONS[type];
   return (
     <div
+      key={key}
       className={classnames(
         style.banner,
         type === 'error' && style.errorBanner,
