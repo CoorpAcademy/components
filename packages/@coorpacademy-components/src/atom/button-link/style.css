@@ -81,6 +81,7 @@
 
 .dangerous {
   background-color: cm_negative_100;
+  color: white;
 }
 
 .dangerous:hover {
