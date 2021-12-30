@@ -27,7 +27,7 @@
 }
 
 .disabled {
-  opacity: 0.1;
+  opacity: 0.4;
   pointer-events: none;
 }
 
