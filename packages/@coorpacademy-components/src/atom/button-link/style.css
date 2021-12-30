@@ -27,7 +27,7 @@
 }
 
 .disabled {
-  opacity: 0.1;
+  opacity: 0.4;
   pointer-events: none;
 }
 
@@ -93,8 +93,4 @@
   color: inherit;
   border-radius: 0px;
   height: auto;
-}
-
-.text.disabled {
-  opacity: 0.4;
 }
