@@ -80,7 +80,7 @@ const buildSections = sections => {
 };
 
 const BuildAction = ({action}) => {
-  const {onClick, text, icon, 'aria-label': ariaLabel} = action;
+  const {onClick, text, disabled = false, icon, 'aria-label': ariaLabel} = action;
   const handleClick = useMemo(() => () => onClick(), [onClick]);
 
   if (!action) return null;
@@ -88,6 +88,7 @@ const BuildAction = ({action}) => {
   const buttonProps = {
     type: 'text',
     label: text,
+    disabled,
     'aria-label': ariaLabel,
     'data-name': `${icon}-button`,
     onClick: handleClick,
@@ -138,6 +139,7 @@ const WizardSummary = props => {
 BuildAction.propTypes = {
   action: PropTypes.shape({
     icon: PropTypes.string,
+    disabled: PropTypes.bool,
     text: PropTypes.string,
     onClick: PropTypes.func,
     'aria-label': PropTypes.string
