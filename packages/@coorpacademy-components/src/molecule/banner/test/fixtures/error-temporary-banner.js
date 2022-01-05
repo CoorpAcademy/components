@@ -3,6 +3,7 @@ export default {
     bannerKey: 'key_1',
     type: 'error',
     message: 'There was an error while publishing the custom playlist. Please Try again. ',
-    temporary: true
+    temporary: true,
+    onEnd: () => console.log('end')
   }
 };
