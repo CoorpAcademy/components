@@ -241,7 +241,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding: 35px 0px 0px 17px;
+  padding: 0 0 0 17px;
   border-radius: 7px;
   background-color: transparent;
   font-family: Gilroy;
@@ -257,7 +257,7 @@
   transition: all 0.25s linear;
   outline: none;
   display: flex;
-  margin: 0px 16px 13px 0px;
+  margin: 35px 16px 13px 0;
   box-sizing: border-box;
   position: relative;
 }
