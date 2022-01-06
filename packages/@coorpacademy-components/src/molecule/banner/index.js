@@ -24,7 +24,8 @@ const Banner = props => {
     secondCTALabel,
     secondCTA,
     temporary,
-    bannerKey
+    bannerKey,
+    onEnd
   } = props;
   const Icon = ICONS[type];
   return (
@@ -36,6 +37,7 @@ const Banner = props => {
         type === 'success' && style.successBanner,
         temporary && style.temporaryBanner
       )}
+      onAnimationEnd={onEnd}
       title={message}
     >
       <div data-name={`${type}-banner-message`} className={style.message}>
@@ -77,7 +79,8 @@ Banner.propTypes = {
   firstCTALabel: PropTypes.string,
   secondCTALabel: PropTypes.string,
   secondCTA: PropTypes.func,
-  temporary: PropTypes.bool
+  temporary: PropTypes.bool,
+  onEnd: PropTypes.func
 };
 
 export default Banner;

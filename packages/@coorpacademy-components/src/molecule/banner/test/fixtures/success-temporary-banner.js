@@ -3,6 +3,7 @@ export default {
     bannerKey: 'key_1',
     type: 'success',
     message: 'Custom playlist successfully published ',
-    temporary: true
+    temporary: true,
+    onEnd: () => console.log('end')
   }
 };
