@@ -233,7 +233,7 @@
 
 .coorpmanager textarea {
   width: stretch;
-  min-height: 145px;
+  min-height: 105px;
   resize: vertical;
   flex-grow: 0;
   display: flex;
