@@ -29,13 +29,11 @@ const InputText = props => {
     theme = 'default',
     description,
     disabled,
-    required,
     modified = false,
     title: propsTitle
   } = props;
 
   const isCMTheme = theme === 'coorpmanager';
-  const title = `${propsTitle}${required ? '*' : ''}`;
   const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
   const mainClass = themeStyle[theme];
   const className = getClassState(style.default, style.modified, style.error, modified, error);
@@ -72,14 +70,14 @@ const InputText = props => {
     >
       <label>
         <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
-          {title}
+          {propsTitle}
           {toolTipView}
         </span>
 
         <input
           autoFocus={autoFocus}
           type="text"
-          name={title}
+          name={propsTitle}
           className={style.input}
           placeholder={placeholder}
           defaultValue={defaultValue}
@@ -105,7 +103,6 @@ InputText.propTypes = {
   defaultValue: PropTypes.string,
   theme: PropTypes.oneOf(keys(themeStyle)),
   disabled: PropTypes.bool,
-  required: PropTypes.bool,
   value: PropTypes.string,
   hint: PropTypes.string,
   error: PropTypes.string,

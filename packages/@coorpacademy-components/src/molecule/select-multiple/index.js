@@ -76,7 +76,6 @@ const SelectMultiple = (
     onChange,
     onError,
     modified = false,
-    required = false,
     error = '',
     disabled = false
   },
@@ -152,8 +151,6 @@ const SelectMultiple = (
 
   const selection = pipe(filter({selected: true}), map('name'), join(', '))(options);
 
-  const _title = title && `${title}${required ? ' *' : ''}`;
-
   const isActive = isOpened === true;
 
   const titleView = title ? (
@@ -165,7 +162,7 @@ const SelectMultiple = (
         isActive && style.active
       )}
     >
-      {_title}
+      {title}
       {isCMTheme ? (
         <div className={style.infoIconWrapper}>
           <InfoIcon className={style.infoIcon} />
@@ -260,7 +257,6 @@ SelectMultiple.propTypes = {
   multiple: PropTypes.bool,
   modified: PropTypes.bool,
   disabled: PropTypes.bool,
-  required: PropTypes.bool,
   error: PropTypes.string,
   theme: PropTypes.oneOf(keys(themeStyle))
 };
