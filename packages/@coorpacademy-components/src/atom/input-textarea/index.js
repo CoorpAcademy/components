@@ -27,13 +27,11 @@ const InputTextarea = props => {
     onChange = noop,
     error,
     valid,
-    required,
     description,
     disabled,
     modified = false
   } = props;
 
-  const title = `${propsTitle}${required ? '* ' : ' '}`;
   const mainClass = themeStyle[theme];
   const className = getClassState(style.default, style.modified, style.error, modified, error);
   const handleChange = useMemo(() => e => onChange(e.target.value), [onChange]);
@@ -64,7 +62,7 @@ const InputTextarea = props => {
     <div className={classnames(mainClass, className, disabled && style.disabled)}>
       <label>
         <span className={classnames(style.title, isEmpty(value) && style.noValue)}>
-          {title}
+          {propsTitle}
           {toolTipView}
         </span>
         <textarea
@@ -86,7 +84,6 @@ const InputTextarea = props => {
 InputTextarea.propTypes = {
   placeholder: PropTypes.string,
   title: PropTypes.string,
-  required: PropTypes.bool,
   name: PropTypes.string,
   theme: PropTypes.oneOf(keys(themeStyle)),
   disabled: PropTypes.bool,
