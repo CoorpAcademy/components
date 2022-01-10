@@ -67,7 +67,7 @@
   height: 214px;
   padding-right: 30px;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .leftFlashes {
@@ -75,7 +75,7 @@
   height: 214px;
   padding-left: 30px;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
 }
 
 .bigFlashRight {
@@ -262,7 +262,7 @@
   .start {
     display: flex;
     flex-direction: row;
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-between;
     height: 100%;
   }
