@@ -15,7 +15,9 @@ const WizardSteps = props => {
         data-name={step.current ? `step-${index}` : `current-step-${index}`}
       >
         <div className={style.label}>
-          <div className={style.title} data-name={`step-name`}>{step.title}</div>
+          <div className={style.title} data-name={`step-name`}>
+            {step.title}
+          </div>
         </div>
         <div className={style.outerDot}>
           <div className={style.dot}> </div>

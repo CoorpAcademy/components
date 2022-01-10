@@ -30,7 +30,15 @@ class Checkbox extends React.Component {
 
   render() {
     const {props, state, 'data-name': dataName} = this;
-    return <input {...props} {...state} type="checkbox" data-name={dataName} onChange={this.handleChangeBound} />;
+    return (
+      <input
+        {...props}
+        {...state}
+        type="checkbox"
+        data-name={dataName}
+        onChange={this.handleChangeBound}
+      />
+    );
   }
 }
 
