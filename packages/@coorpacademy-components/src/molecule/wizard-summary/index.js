@@ -13,7 +13,7 @@ const buildItemsOfSection = items => {
     switch (type) {
       case 'mainElement':
         return (
-          <li key={`${item.title}-${index}`}>
+          <li key={`${item.title}-${index}`} data-name={item.title}>
             <span className={style.title}>{item.title}</span>
             <span className={style.value}>{item.value}</span>
           </li>
@@ -21,7 +21,7 @@ const buildItemsOfSection = items => {
       case 'content': {
         const {category, label, title, author, unsaved = false} = item;
         return (
-          <li className={style.contentWrapper} key={`${title}-${index}`}>
+          <li className={style.contentWrapper} key={`${title}-${index}`} data-name={item.title}>
             <span className={style.contentCounter}>{index + 1}</span>
             <div className={style.contentItem}>
               <div className={style.content}>
@@ -42,7 +42,7 @@ const buildItemsOfSection = items => {
       default: {
         const {text, unsaved = false} = item;
         return (
-          <li key={`${item.text}-${index}`}>
+          <li key={`${item.text}-${index}`} data-name={item.title}>
             <span className={classnames(style.valueSimpleText, unsaved && style.unsaved)}>
               {text}
             </span>
@@ -119,6 +119,7 @@ const WizardSummary = props => {
         name="toogle"
         title={idSwitch}
         className={style.checkbox}
+        data-name={'summary-checkbox'}
       />
       <div className={style.summary}>
         <div className={style.tabletSummaryHeader}>

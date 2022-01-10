@@ -6,8 +6,8 @@ import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 
 const ListItems = ({title, buttonLink, items, 'aria-label': ariaLabel}) => {
-  const itemsView = items.map(item => (
-    <li key={item.id} className={style.item}>
+  const itemsView = items.map((item, index) => (
+    <li key={item.id} className={style.item} data-name={`custom-playlist-${index}`}>
       <ListItem {...item} />
     </li>
   ));
@@ -16,13 +16,13 @@ const ListItems = ({title, buttonLink, items, 'aria-label': ariaLabel}) => {
     <div>
       <div className={style.header}>
         <div className={style.title}>
-          <Title title={title} type={'form-group'} />
+          <Title title={title} type={'form-group'} data-name={'list-title'} />
         </div>
         <div className={style.buttonCreate}>
           <ButtonLink {...buttonLink} />
         </div>
       </div>
-      <ul className={style.list} aria-label={ariaLabel}>
+      <ul className={style.list} aria-label={ariaLabel} data-name={'custom-playlist-list'}>
         {itemsView}
       </ul>
     </div>

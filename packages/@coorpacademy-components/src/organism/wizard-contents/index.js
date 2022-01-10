@@ -26,7 +26,7 @@ const buildHeader = (wizardHeader, steps) => {
     <div>
       <div className={style.header}>
         <ButtonLinkIconOnly {...buttonCloseIcon} />
-        <div className={style.headerTitle}>{title}</div>
+        <div className={style.headerTitle} data-name={'custom-playlist-title'}>{title}</div>
       </div>
       <WizardSteps steps={steps} />
     </div>

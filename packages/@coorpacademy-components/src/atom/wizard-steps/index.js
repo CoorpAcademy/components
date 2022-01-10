@@ -12,9 +12,10 @@ const WizardSteps = props => {
         className={classnames(style.step, step.done && style.done, step.current && style.current)}
         key={`step-${index}`}
         data-step={index}
+        data-name={step.current ? `step-${index}` : `current-step-${index}`}
       >
         <div className={style.label}>
-          <div className={style.title}>{step.title}</div>
+          <div className={style.title} data-name={`step-name`}>{step.title}</div>
         </div>
         <div className={style.outerDot}>
           <div className={style.dot}> </div>

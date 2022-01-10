@@ -58,7 +58,7 @@ const CMMultipleView = ({multiple, choice, onChange}) => {
       />
     </div>
   ) : (
-    <span className={style.item} onClick={handleChange} title={choice.name}>
+    <span className={style.item} onClick={handleChange} title={choice.name} data-name={`${choice.name}-language`}>
       {choice.name}
     </span>
   );
@@ -199,7 +199,7 @@ const SelectMultiple = (
     >
       <label>
         {!isCMTheme && titleView}
-        <div className={style.select} title={selection || placeholder} onClick={handleOnClick}>
+        <div className={style.select} title={selection || placeholder} data-name={`select-languages`} onClick={handleOnClick}>
           {isCMTheme && titleView}
           <span
             className={classnames(
