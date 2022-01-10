@@ -13,7 +13,7 @@ const buildResultView = (courses, coursesSelectionAriaLabel, emptyMessages) => {
 
   const items = courses.map((card, index) => {
     return (
-      <li className={style.cards} key={`card-${index}`}>
+      <li className={style.cards} key={`card-${index}`} data-name={`course-${index}`}>
         <Card {...card} />
       </li>
     );

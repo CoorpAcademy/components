@@ -19,7 +19,12 @@ const TitledCheckbox = props => {
         }}
       >
         {choice.selected ? <Check className={style.icon} color="white" /> : null}
-        <Checkbox className={style.input} checked={choice.selected} onChange={handleChange} />
+        <Checkbox
+          className={style.input}
+          checked={choice.selected}
+          onChange={handleChange}
+          data-name={label}
+        />
       </div>
       <span title={label} className={style.label}>
         {label}

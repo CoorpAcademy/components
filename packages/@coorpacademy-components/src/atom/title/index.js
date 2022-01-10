@@ -21,7 +21,7 @@ const getSubtitleStype = type => {
 };
 
 const Title = props => {
-  const {title, subtitle, type} = props;
+  const {title, subtitle, type, 'data-name': dataName} = props;
   const titleStyle = getTitleStype(type);
   const subtitleStyle = getSubtitleStype(type);
 
@@ -29,7 +29,9 @@ const Title = props => {
 
   return (
     <div>
-      <div className={titleStyle}>{title}</div>
+      <div className={titleStyle} data-name={dataName}>
+        {title}
+      </div>
       {subtitleSection}
     </div>
   );
@@ -38,6 +40,7 @@ const Title = props => {
 Title.propTypes = {
   title: PropTypes.string,
   subtitle: PropTypes.string,
-  type: PropTypes.oneOf(['page', 'form-group'])
+  type: PropTypes.oneOf(['page', 'form-group']),
+  'data-name': PropTypes.string
 };
 export default Title;

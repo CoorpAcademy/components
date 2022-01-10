@@ -5,7 +5,8 @@ import {noop} from 'lodash/fp';
 class Checkbox extends React.Component {
   static propTypes = {
     checked: PropTypes.bool,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    'data-name': PropTypes.string
   };
 
   static defaultProps = {
@@ -28,8 +29,16 @@ class Checkbox extends React.Component {
   }
 
   render() {
-    const {props, state} = this;
-    return <input {...props} {...state} type="checkbox" onChange={this.handleChangeBound} />;
+    const {props, state, 'data-name': dataName} = this;
+    return (
+      <input
+        {...props}
+        {...state}
+        type="checkbox"
+        data-name={dataName}
+        onChange={this.handleChangeBound}
+      />
+    );
   }
 }
 
