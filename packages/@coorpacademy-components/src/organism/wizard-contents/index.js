@@ -49,7 +49,7 @@ const buildForm = content => {
   }
 };
 
-const buildButton = (type, step) => {
+const buildButton = (type, step, side) => {
   const ICONS = {
     previous: {
       position: 'left',
@@ -69,7 +69,7 @@ const buildButton = (type, step) => {
   const buttonProps = {
     type: type === 'previous' ? 'secondary' : 'primary',
     'aria-label': `${type} step button`,
-    'data-name': `${type}-step-button`,
+    'data-name': `${type}-step-button-${side}`,
     icon: ICONS[type],
     label,
     onClick
@@ -78,10 +78,10 @@ const buildButton = (type, step) => {
   return <ButtonLink {...buttonProps} />;
 };
 
-const buildActionZone = (previousStep, nextStep) => {
-  const previousButton = previousStep ? buildButton('previous', previousStep) : null;
+const buildActionZone = (previousStep, nextStep, side) => {
+  const previousButton = previousStep ? buildButton('previous', previousStep, side) : null;
   const nextStepType = getOr('next', 'type', nextStep);
-  const nextButton = nextStep ? buildButton(nextStepType, nextStep) : null;
+  const nextButton = nextStep ? buildButton(nextStepType, nextStep, side) : null;
   return (
     <div className={style.actionZone}>
       <div className={style.button}>{previousButton}</div>
@@ -94,27 +94,28 @@ const WizardContents = props => {
   const {wizardHeader, steps, summary, content, nextStep, previousStep} = props;
   const headerView = buildHeader(wizardHeader, steps);
   const formView = buildForm(content);
-  const actionView = buildActionZone(previousStep, nextStep);
+  const rightActionView = buildActionZone(previousStep, nextStep, 'right');
+  const footerActionView = buildActionZone(previousStep, nextStep, 'footer');
 
   return (
-    <div className={style.container}>
+    <div className={style.container} data-name='custom-playlist-summary'>
       <div className={style.leftSection}>
         {headerView}
         <div className={style.form}>{formView}</div>
       </div>
-      <div className={style.rightSection}>
+      <div className={style.rightSection} data-name='summary-right-section'>
         <div className={style.stickySection}>
-          <div className={style.summaryZone}>
-            <WizardSummary {...summary} />
+          <div className={style.summaryZone} data-name='summary-zone'>
+            <WizardSummary {...summary} side={'right'}/>
           </div>
-          {actionView}
+          {rightActionView}
         </div>
       </div>
-      <div className={style.footer}>
+      <div className={style.footer} data-name='summary-footer-section'>
         <div className={style.summaryFooter}>
-          <WizardSummary {...summary} />
+          <WizardSummary {...summary} side={'footer'}/>
         </div>
-        <div className={style.actionFooter}>{actionView}</div>
+        <div className={style.actionFooter}>{footerActionView}</div>
       </div>
     </div>
   );

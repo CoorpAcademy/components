@@ -80,7 +80,7 @@ const buildSections = sections => {
 };
 
 const BuildAction = ({action}) => {
-  const {onClick, text, disabled = false, icon, 'aria-label': ariaLabel} = action;
+  const {onClick, text, disabled = false, icon, 'aria-label': ariaLabel, side} = action;
   const handleClick = useMemo(() => () => onClick(), [onClick]);
 
   if (!action) return null;
@@ -90,7 +90,7 @@ const BuildAction = ({action}) => {
     label: text,
     disabled,
     'aria-label': ariaLabel,
-    'data-name': `${icon}-button`,
+    'data-name': `${icon}-button-${side}`,
     onClick: handleClick,
     icon: {
       position: 'left',
@@ -106,13 +106,13 @@ const BuildAction = ({action}) => {
 };
 
 const WizardSummary = props => {
-  const {title, sections, action} = props;
+  const {title, sections, action, side} = props;
   const sectionsView = buildSections(sections);
   const idSwitch = uniqueId('open-summary-wizard');
 
   return (
     <div className={style.container}>
-      <span className={style.desktopSummaryTitle}>{title}</span>
+      <span className={style.desktopSummaryTitle} data-name={`summary-title-${side}`}>{title}</span>
       <input
         type="checkbox"
         id={idSwitch}
@@ -120,6 +120,7 @@ const WizardSummary = props => {
         title={idSwitch}
         className={style.checkbox}
         data-name={'summary-checkbox'}
+        data-name={`summary-checkbox-${side}`}
       />
       <div className={style.summary}>
         <div className={style.tabletSummaryHeader}>
@@ -128,10 +129,10 @@ const WizardSummary = props => {
             <ArrowDownIcon className={style.tabletSummaryIcon} />
           </label>
         </div>
-        <div className={style.summarySections}>{sectionsView}</div>
+        <div className={style.summarySections} data-name={`summary-section-${side}`}>{sectionsView}</div>
       </div>
-      <div className={style.actionZone}>
-        <BuildAction action={action} />
+      <div className={style.actionZone} data-name={`summary-actions-${side}`}>
+        <BuildAction action={action} side={side}/>
       </div>
     </div>
   );
@@ -142,6 +143,7 @@ BuildAction.propTypes = {
     icon: PropTypes.string,
     disabled: PropTypes.bool,
     text: PropTypes.string,
+    side: PropTypes.string,
     onClick: PropTypes.func,
     'aria-label': PropTypes.string
   })
