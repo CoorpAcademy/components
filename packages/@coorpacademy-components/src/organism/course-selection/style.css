@@ -7,9 +7,19 @@
   width: 100%;
 }
 
+.filters {
+  display: flex;
+}
+
 .search {
-  width: 42%;
+  width: 41%;
   min-width: 309px;
+}
+
+.contentFilter {
+  width: 24%;
+  min-width: 181px;
+  margin: 0 0 0 16px;
 }
 
 .cardsContainer {

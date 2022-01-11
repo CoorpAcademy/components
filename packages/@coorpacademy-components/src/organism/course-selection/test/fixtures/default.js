@@ -13,6 +13,37 @@ export default {
       description: 'Type to filter the courses',
       onChange: value => console.log(value)
     },
+    contentTypeFilter: {
+      type: 'selectMultiple',
+      title: 'Content type',
+      placeholder: 'Content type',
+      description: 'This filters the courses',
+      theme: 'coorpmanager',
+      size: 'default',
+      options: [
+        {
+          name: 'Course',
+          value: 'course',
+          selected: true
+        },
+        {
+          name: "5' learning",
+          value: 'chapter',
+          selected: false
+        },
+        {
+          name: 'Interactive slides',
+          value: 'scorm',
+          selected: false
+        },
+        {
+          name: 'Video',
+          value: 'video',
+          selected: false
+        }
+      ],
+      multiple: false
+    },
     'courses-selection-aria-label': 'Courses results',
     courses: [
       SelectedCard.props,
