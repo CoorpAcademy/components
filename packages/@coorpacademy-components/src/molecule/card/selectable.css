@@ -1,6 +1,5 @@
 @value colors: "../../variables/colors.css";
 @value positive from colors;
-@value negative from colors;
 @value cm_grey_400 from colors;
 
 .selectable {
@@ -40,11 +39,6 @@
   composes: icons;
 }
 
-.removeIcon {
-  color: negative;
-  composes: icons;
-}
-
 .addIcon {
   color: cm_grey_400;
   composes: icons;
@@ -57,7 +51,7 @@
 
 .selectable.selected .checkIcon,
 .selectable.selected .circle,
-.selectable.selected:hover .removeIcon {
+.selectable.selected:hover .checkIcon {
   display: block;
 }
 
@@ -65,7 +59,6 @@
   display: block;
 }
 
-.selectable.selected:hover .checkIcon,
 .selectable.selected:hover .addIcon {
   display: none;
 }
