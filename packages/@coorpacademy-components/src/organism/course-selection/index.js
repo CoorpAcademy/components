@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import {isEmpty} from 'lodash/fp';
 import EmptySearchResult from '../../atom/empty-search-result';
 import Search from '../../atom/input-search';
+import SelectMultiple from '../../molecule/select-multiple';
 import Card from '../../molecule/card';
 import style from './style.css';
 
@@ -25,6 +26,7 @@ const buildResultView = (courses, coursesSelectionAriaLabel, emptyMessages) => {
 const CourseSelection = props => {
   const {
     search,
+    contentTypeFilter,
     courses,
     emptyMessages,
     'courses-selection-aria-label': coursesSelectionAriaLabel
@@ -34,8 +36,13 @@ const CourseSelection = props => {
 
   return (
     <div className={style.container}>
-      <div className={style.search}>
-        <Search {...search} theme="coorpmanager" />
+      <div className={style.filters}>
+        <div className={style.search}>
+          <Search {...search} theme="coorpmanager" />
+        </div>
+        <div className={style.contentFilter}>
+          <SelectMultiple {...contentTypeFilter} />
+        </div>
       </div>
       <div className={style.cardsContainer}>{resultView}</div>
     </div>
@@ -44,6 +51,7 @@ const CourseSelection = props => {
 
 CourseSelection.propTypes = {
   search: PropTypes.shape(Search.PropTypes),
+  contentTypeFilter: PropTypes.shape(SelectMultiple.PropTypes),
   courses: PropTypes.arrayOf(PropTypes.shape(Card.propTypes)),
   'courses-selection-aria-label': PropTypes.string,
   emptyMessages: PropTypes.shape({
