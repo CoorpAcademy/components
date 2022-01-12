@@ -98,22 +98,22 @@ const WizardContents = props => {
   const footerActionView = buildActionZone(previousStep, nextStep, 'footer');
 
   return (
-    <div className={style.container} data-name='custom-playlist-summary'>
+    <div className={style.container} data-name="custom-playlist-summary">
       <div className={style.leftSection}>
         {headerView}
         <div className={style.form}>{formView}</div>
       </div>
-      <div className={style.rightSection} data-name='summary-right-section'>
+      <div className={style.rightSection} data-name="summary-right-section">
         <div className={style.stickySection}>
-          <div className={style.summaryZone} data-name='summary-zone'>
-            <WizardSummary {...summary} side={'right'}/>
+          <div className={style.summaryZone} data-name="summary-zone">
+            <WizardSummary {...summary} side={'right'} />
           </div>
           {rightActionView}
         </div>
       </div>
-      <div className={style.footer} data-name='summary-footer-section'>
+      <div className={style.footer} data-name="summary-footer-section">
         <div className={style.summaryFooter}>
-          <WizardSummary {...summary} side={'footer'}/>
+          <WizardSummary {...summary} side={'footer'} />
         </div>
         <div className={style.actionFooter}>{footerActionView}</div>
       </div>

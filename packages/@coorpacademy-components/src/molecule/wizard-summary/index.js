@@ -112,14 +112,15 @@ const WizardSummary = props => {
 
   return (
     <div className={style.container}>
-      <span className={style.desktopSummaryTitle} data-name={`summary-title-${side}`}>{title}</span>
+      <span className={style.desktopSummaryTitle} data-name={`summary-title-${side}`}>
+        {title}
+      </span>
       <input
         type="checkbox"
         id={idSwitch}
         name="toogle"
         title={idSwitch}
         className={style.checkbox}
-        data-name={'summary-checkbox'}
         data-name={`summary-checkbox-${side}`}
       />
       <div className={style.summary}>
@@ -129,10 +130,12 @@ const WizardSummary = props => {
             <ArrowDownIcon className={style.tabletSummaryIcon} />
           </label>
         </div>
-        <div className={style.summarySections} data-name={`summary-section-${side}`}>{sectionsView}</div>
+        <div className={style.summarySections} data-name={`summary-section-${side}`}>
+          {sectionsView}
+        </div>
       </div>
       <div className={style.actionZone} data-name={`summary-actions-${side}`}>
-        <BuildAction action={action} side={side}/>
+        <BuildAction action={action} side={side} />
       </div>
     </div>
   );
@@ -151,6 +154,7 @@ BuildAction.propTypes = {
 
 WizardSummary.propTypes = {
   title: PropTypes.string,
+  side: PropTypes.string,
   sections: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string,
