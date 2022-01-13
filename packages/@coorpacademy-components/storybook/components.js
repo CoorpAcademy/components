@@ -300,14 +300,15 @@ import AtomInputSearchFixtureCoorpmanager from '../src/atom/input-search/test/fi
 import AtomInputSearchFixtureDefault from '../src/atom/input-search/test/fixtures/default';
 import AtomInputSearchFixtureWithValue from '../src/atom/input-search/test/fixtures/with-value';
 import AtomInputSwitchFixtureChecked from '../src/atom/input-switch/test/fixtures/checked';
+import AtomInputSwitchFixtureCmLeft from '../src/atom/input-switch/test/fixtures/cm-left';
+import AtomInputSwitchFixtureCmRightChecked from '../src/atom/input-switch/test/fixtures/cm-right-checked';
+import AtomInputSwitchFixtureCmRightDisabled from '../src/atom/input-switch/test/fixtures/cm-right-disabled';
+import AtomInputSwitchFixtureCmRightModified from '../src/atom/input-switch/test/fixtures/cm-right-modified';
+import AtomInputSwitchFixtureCmRight from '../src/atom/input-switch/test/fixtures/cm-right';
 import AtomInputSwitchFixtureDisabled from '../src/atom/input-switch/test/fixtures/disabled';
 import AtomInputSwitchFixtureModified from '../src/atom/input-switch/test/fixtures/modified';
 import AtomInputSwitchFixtureNoTitle from '../src/atom/input-switch/test/fixtures/no-title';
 import AtomInputSwitchFixtureSso from '../src/atom/input-switch/test/fixtures/sso';
-import AtomInputSwitchFixtureTitleRightChecked from '../src/atom/input-switch/test/fixtures/title-right-checked';
-import AtomInputSwitchFixtureTitleRightDisabled from '../src/atom/input-switch/test/fixtures/title-right-disabled';
-import AtomInputSwitchFixtureTitleRightModified from '../src/atom/input-switch/test/fixtures/title-right-modified';
-import AtomInputSwitchFixtureTitleRight from '../src/atom/input-switch/test/fixtures/title-right';
 import AtomInputSwitchFixtureUnchecked from '../src/atom/input-switch/test/fixtures/unchecked';
 import AtomInputTextFixtureCmDefault from '../src/atom/input-text/test/fixtures/cm-default';
 import AtomInputTextFixtureDefault from '../src/atom/input-text/test/fixtures/default';
@@ -1482,14 +1483,15 @@ export const fixtures = {
     },
     AtomInputSwitch: {
       Checked: AtomInputSwitchFixtureChecked,
+      CmLeft: AtomInputSwitchFixtureCmLeft,
+      CmRightChecked: AtomInputSwitchFixtureCmRightChecked,
+      CmRightDisabled: AtomInputSwitchFixtureCmRightDisabled,
+      CmRightModified: AtomInputSwitchFixtureCmRightModified,
+      CmRight: AtomInputSwitchFixtureCmRight,
       Disabled: AtomInputSwitchFixtureDisabled,
       Modified: AtomInputSwitchFixtureModified,
       NoTitle: AtomInputSwitchFixtureNoTitle,
       Sso: AtomInputSwitchFixtureSso,
-      TitleRightChecked: AtomInputSwitchFixtureTitleRightChecked,
-      TitleRightDisabled: AtomInputSwitchFixtureTitleRightDisabled,
-      TitleRightModified: AtomInputSwitchFixtureTitleRightModified,
-      TitleRight: AtomInputSwitchFixtureTitleRight,
       Unchecked: AtomInputSwitchFixtureUnchecked
     },
     AtomInputText: {

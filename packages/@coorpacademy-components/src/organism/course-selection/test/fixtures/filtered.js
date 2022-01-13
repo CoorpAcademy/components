@@ -25,7 +25,8 @@ export default {
       title: 'Show selected courses only',
       value: false,
       onChange: value => console.log(value),
-      titlePosition: 'right'
+      titlePosition: 'right',
+      theme: 'coorpmanager'
     }
   }
 };

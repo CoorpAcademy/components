@@ -19,7 +19,8 @@ export default {
       value: false,
       onChange: value => console.log(value),
       titlePosition: 'right',
-      disabled: true
+      disabled: true,
+      theme: 'coorpmanager'
     }
   }
 };

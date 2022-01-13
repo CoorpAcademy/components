@@ -4,6 +4,7 @@ export default {
     title: 'Name',
     value: false,
     onChange: value => console.log(value),
-    titlePosition: 'right'
+    titlePosition: 'right',
+    theme: 'coorpmanager'
   }
 };

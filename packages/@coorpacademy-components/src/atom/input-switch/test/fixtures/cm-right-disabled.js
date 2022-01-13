@@ -4,6 +4,7 @@ export default {
   props: {
     ...checked.props,
     disabled: true,
-    titlePosition: 'right'
+    titlePosition: 'right',
+    theme: 'coorpmanager'
   }
 };

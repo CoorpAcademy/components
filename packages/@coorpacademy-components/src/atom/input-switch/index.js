@@ -14,6 +14,7 @@ const InputSwitch = props => {
     onChange = noop,
     description,
     modified = false,
+    theme,
     titlePosition = 'left'
   } = props;
 
@@ -27,8 +28,8 @@ const InputSwitch = props => {
     <div className={style.description}>{description}</div>
   ) : null;
 
-  const defaultClass = titlePosition === 'right' ? style.titleRight : style.default;
-  const modifiedClass = titlePosition === 'right' ? style.titleRightModified : style.modified;
+  const defaultClass = theme === 'coorpmanager' ? style.coorpmanager : style.default;
+  const modifiedClass = theme === 'coorpmanager' ? style.coorpmanagerModified : style.modified;
   const className = getClassState(defaultClass, modifiedClass, null, modified);
 
   return (
@@ -59,6 +60,7 @@ InputSwitch.propTypes = {
   onChange: PropTypes.func,
   description: PropTypes.string,
   modified: PropTypes.bool,
-  titlePosition: PropTypes.oneOf(['right', 'left'])
+  titlePosition: PropTypes.oneOf(['right', 'left']),
+  theme: PropTypes.oneOf(['coorpmanager'])
 };
 export default InputSwitch;

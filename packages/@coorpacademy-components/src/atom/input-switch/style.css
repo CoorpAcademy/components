@@ -19,11 +19,11 @@
   composes: default;
 }
 
-.titleRight {
+.coorpmanager {
   composes: default;
 }
 
-.titleRightModified {
+.coorpmanagerModified {
   composes: modified;
 }
 
@@ -114,7 +114,7 @@
   margin-left: 20px;
 }
 
-.titleRight label, .titleRightModified label {
+.coorpmanager label, .coorpmanagerModified label {
   width: 48px;
   height: 24px;
   border: solid 2px cm_grey_200;
@@ -122,29 +122,29 @@
   background: cm_grey_200;
 }
 
-.titleRight label::after, .titleRightModified label::after {
+.coorpmanager label::after, .coorpmanagerModified label::after {
   width: 22px;
   height: 22px;
 }
 
-.titleRight span, .titleRightModified span {
+.coorpmanager span, .coorpmanagerModified span {
   font-family: Gilroy;
   font-weight: bold;
   color: black;
   min-width: 190px;
 }
 
-.titleRight .checkbox:checked ~ label {
+.coorpmanager .checkbox:checked ~ label {
   background: cm_primary_blue;
   border-color: cm_primary_blue;
 }
 
-.titleRight .checkbox:disabled ~ label {
+.coorpmanager .checkbox:disabled ~ label {
   background: light;
   border-color: light;
   pointer-events: none;
 }
 
-.titleRight .checkbox:disabled ~ label::after {
+.coorpmanager .checkbox:disabled ~ label::after {
   background: medium;
 }

@@ -2,8 +2,9 @@ export default {
   props: {
     type: 'switch',
     title: 'Name',
-    value: true,
+    value: false,
     onChange: value => console.log(value),
-    titlePosition: 'right'
+    titlePosition: 'left',
+    theme: 'coorpmanager'
   }
 };
