@@ -803,6 +803,7 @@ import OrganismCourseSelectionFixtureDefault from '../src/organism/course-select
 import OrganismCourseSelectionFixtureEmpty from '../src/organism/course-selection/test/fixtures/empty';
 import OrganismCourseSelectionFixtureFiltered from '../src/organism/course-selection/test/fixtures/filtered';
 import OrganismCourseSelectionFixtureSortedSelected from '../src/organism/course-selection/test/fixtures/sorted-selected';
+import OrganismCourseSelectionFixtureSwitchActivated from '../src/organism/course-selection/test/fixtures/switch-activated';
 import OrganismCourseSelectionFixtureUnsortedSelected from '../src/organism/course-selection/test/fixtures/unsorted-selected';
 import OrganismDiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/default';
 import OrganismDiscussionFixtureLoadingMore from '../src/organism/discussion/test/fixtures/loading-more';
@@ -2250,6 +2251,7 @@ export const fixtures = {
       Empty: OrganismCourseSelectionFixtureEmpty,
       Filtered: OrganismCourseSelectionFixtureFiltered,
       SortedSelected: OrganismCourseSelectionFixtureSortedSelected,
+      SwitchActivated: OrganismCourseSelectionFixtureSwitchActivated,
       UnsortedSelected: OrganismCourseSelectionFixtureUnsortedSelected
     },
     OrganismDiscussion: {

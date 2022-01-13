@@ -5,6 +5,7 @@ import EmptySearchResult from '../../atom/empty-search-result';
 import Search from '../../atom/input-search';
 import SelectMultiple from '../../molecule/select-multiple';
 import Card from '../../molecule/card';
+import InputSwitch from '../../atom/input-switch';
 import style from './style.css';
 
 const buildResultView = (courses, coursesSelectionAriaLabel, emptyMessages) => {
@@ -29,7 +30,8 @@ const CourseSelection = props => {
     contentTypeFilter,
     courses,
     emptyMessages,
-    'courses-selection-aria-label': coursesSelectionAriaLabel
+    'courses-selection-aria-label': coursesSelectionAriaLabel,
+    switchButton
   } = props;
 
   const resultView = buildResultView(courses, coursesSelectionAriaLabel, emptyMessages);
@@ -43,6 +45,7 @@ const CourseSelection = props => {
         <div className={style.contentFilter}>
           <SelectMultiple {...contentTypeFilter} />
         </div>
+        <InputSwitch {...switchButton} />
       </div>
       <div className={style.cardsContainer}>{resultView}</div>
     </div>
@@ -57,7 +60,8 @@ CourseSelection.propTypes = {
   emptyMessages: PropTypes.shape({
     firstMessage: PropTypes.string,
     secondMessage: PropTypes.string
-  })
+  }),
+  switchButton: PropTypes.shape(InputSwitch.PropTypes)
 };
 
 export default CourseSelection;
