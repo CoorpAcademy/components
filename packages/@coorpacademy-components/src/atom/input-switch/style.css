@@ -138,3 +138,13 @@
   background: cm_primary_blue;
   border-color: cm_primary_blue;
 }
+
+.titleRight .checkbox:disabled ~ label {
+  background: light;
+  border-color: light;
+  pointer-events: none;
+}
+
+.titleRight .checkbox:disabled ~ label::after {
+  background: medium;
+}
