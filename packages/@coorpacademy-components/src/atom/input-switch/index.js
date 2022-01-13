@@ -14,7 +14,7 @@ const InputSwitch = props => {
     onChange = noop,
     description,
     modified = false,
-    theme,
+    theme = 'default',
     titlePosition = 'left'
   } = props;
 
@@ -61,6 +61,6 @@ InputSwitch.propTypes = {
   description: PropTypes.string,
   modified: PropTypes.bool,
   titlePosition: PropTypes.oneOf(['right', 'left']),
-  theme: PropTypes.oneOf(['coorpmanager'])
+  theme: PropTypes.oneOf(['default', 'coorpmanager'])
 };
 export default InputSwitch;
