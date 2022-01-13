@@ -9,6 +9,8 @@
 
 .filters {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .search {
@@ -19,7 +21,6 @@
 .contentFilter {
   width: 24%;
   min-width: 181px;
-  margin: 0 0 0 16px;
 }
 
 .cardsContainer {

@@ -466,6 +466,7 @@
   padding-top: 8px;
   transition: transform 0.25s;
   color: cm_grey_700;
+  display: inline;
 }
 
 .coorpmanager.error .hint {
