@@ -15,8 +15,11 @@ const LeftIcons = {
   LocaleInError: ErrorIcon
 };
 
+const getIconDataName = iconType =>
+  iconType === 'LocaleInError' ? 'validated-locale-icon' : 'locale-in-error-icon';
+
 const buildTab = (tab, index) => {
-  const {title, selected, onClick, leftIcon} = tab;
+  const {title, selected, onClick, leftIcon, iconAriaLabel} = tab;
 
   const LeftIcon = LeftIcons[leftIcon];
   return (
@@ -28,7 +31,11 @@ const buildTab = (tab, index) => {
     >
       <span className={style.title}>{title}</span>
       {LeftIcon ? (
-        <LeftIcon className={leftIcon === 'LocaleInError' ? style.leftIconError : style.leftIcon} />
+        <LeftIcon
+          data-name={getIconDataName(leftIcon)}
+          aria-label={iconAriaLabel}
+          className={leftIcon === 'LocaleInError' ? style.leftIconError : style.leftIcon}
+        />
       ) : null}
     </li>
   );
@@ -53,7 +60,8 @@ VerticalTabs.propTypes = {
       title: Link.propTypes.children,
       selected: PropTypes.bool,
       leftIcon: PropTypes.oneOf(LeftIconValues),
-      onClick: PropTypes.func
+      onClick: PropTypes.func,
+      iconAriaLabel: PropTypes.string
     })
   ),
   className: PropTypes.string,

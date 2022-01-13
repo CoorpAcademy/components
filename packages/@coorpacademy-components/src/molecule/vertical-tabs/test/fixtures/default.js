@@ -1,3 +1,6 @@
+export const iconAriaLabelError = 'Locale with errors icon';
+export const iconAriaLabelSuccess = 'Validated locale icon';
+
 export default {
   props: {
     tabs: [
@@ -5,19 +8,22 @@ export default {
         title: '🇫🇷 French',
         leftIcon: 'BlueValidatedCircle',
         onClick: () => console.log('click'),
-        selected: false
+        selected: false,
+        iconAriaLabel: iconAriaLabelSuccess
       },
       {
         title: '🇪🇸 Spanish',
         leftIcon: 'BlueValidatedCircle',
         onClick: () => console.log('click'),
-        selected: false
+        selected: false,
+        iconAriaLabel: iconAriaLabelSuccess
       },
       {
         title: '🇮🇹 Italian',
         leftIcon: 'BlueValidatedCircle',
         onClick: () => console.log('click'),
-        selected: false
+        selected: false,
+        iconAriaLabel: iconAriaLabelSuccess
       },
       {
         title: '🇩🇪 German',
