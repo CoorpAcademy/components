@@ -131,6 +131,7 @@
   font-family: Gilroy;
   font-weight: bold;
   color: black;
+  min-width: 190px;
 }
 
 .titleRight .checkbox:checked ~ label {
