@@ -5,6 +5,7 @@
 @value medium from colors;
 @value cm_blue_50 from colors;
 @value cm_primary_blue from colors;
+@value cm_negative_100 from colors;
 
 .wrapper {
   background-color: white;
@@ -50,6 +51,16 @@
   width: 20px;
   height: 15px;
   color: cm_primary_blue
+}
+
+.leftIconError {
+  background-color: cm_negative_100;
+  color: white;
+  border-radius: 50%;
+  padding: 2px;
+  width: 9px;
+  height: 9px;
+  margin-right: 3px;
 }
 
 .tab:hover {

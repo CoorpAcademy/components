@@ -87,7 +87,7 @@ export default {
       },
       {
         title: '🇹🇷 Turkish',
-        leftIcon: '',
+        leftIcon: 'LocaleInError',
         onClick: () => console.log('click'),
         selected: false
       }

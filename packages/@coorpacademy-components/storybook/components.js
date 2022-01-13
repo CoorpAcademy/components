@@ -729,6 +729,7 @@ import MoleculeTitledCheckboxFixtureNotChecked from '../src/molecule/titled-chec
 import MoleculeUnsubscribeFixtureDefault from '../src/molecule/unsubscribe/test/fixtures/default';
 import MoleculeUnsubscribeFixtureSubscribed from '../src/molecule/unsubscribe/test/fixtures/subscribed';
 import MoleculeVerticalTabsFixtureDefault from '../src/molecule/vertical-tabs/test/fixtures/default';
+import MoleculeVerticalTabsFixtureWithMultipleErrors from '../src/molecule/vertical-tabs/test/fixtures/with-multiple-errors';
 import MoleculeVerticalTabsFixtureWithSelectedItem from '../src/molecule/vertical-tabs/test/fixtures/with-selected-item';
 import MoleculeVideoIframeFixtureEmpty from '../src/molecule/video-iframe/test/fixtures/empty';
 import MoleculeVideoIframeFixtureH5P from '../src/molecule/video-iframe/test/fixtures/h5p';
@@ -2054,6 +2055,7 @@ export const fixtures = {
     },
     MoleculeVerticalTabs: {
       Default: MoleculeVerticalTabsFixtureDefault,
+      WithMultipleErrors: MoleculeVerticalTabsFixtureWithMultipleErrors,
       WithSelectedItem: MoleculeVerticalTabsFixtureWithSelectedItem
     },
     MoleculeVideoIframe: {
