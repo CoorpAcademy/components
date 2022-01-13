@@ -1,3 +1,5 @@
+import {iconAriaLabelError, iconAriaLabelSuccess} from './default';
+
 export default {
   props: {
     tabs: [
@@ -5,19 +7,22 @@ export default {
         title: '🇫🇷 French',
         leftIcon: 'BlueValidatedCircle',
         onClick: () => console.log('click'),
-        selected: true
+        selected: true,
+        iconAriaLabel: iconAriaLabelSuccess
       },
       {
         title: '🇪🇸 Spanish',
         leftIcon: 'BlueValidatedCircle',
         onClick: () => console.log('click'),
-        selected: false
+        selected: false,
+        iconAriaLabel: iconAriaLabelSuccess
       },
       {
         title: '🇮🇹 Italian',
         leftIcon: 'BlueValidatedCircle',
         onClick: () => console.log('click'),
-        selected: false
+        selected: false,
+        iconAriaLabel: iconAriaLabelSuccess
       },
       {
         title: '🇩🇪 German',
@@ -87,9 +92,10 @@ export default {
       },
       {
         title: '🇹🇷 Turkish',
-        leftIcon: '',
+        leftIcon: 'LocaleInError',
         onClick: () => console.log('click'),
-        selected: false
+        selected: false,
+        iconAriaLabel: iconAriaLabelError
       }
     ],
     'aria-label': 'Languages list'

@@ -1,17 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {NovaSolidStatusCheckCircle2 as CheckIcon} from '@coorpacademy/nova-icons';
-import {snakeCase} from 'lodash/fp';
+import {
+  NovaSolidStatusCheckCircle2 as CheckIcon,
+  NovaSolidStatusClose as ErrorIcon
+} from '@coorpacademy/nova-icons';
+import keys from 'lodash/fp/keys';
+import snakeCase from 'lodash/fp/snakeCase';
 import Link from '../../atom/link';
 import style from './style.css';
 
 const LeftIcons = {
-  BlueValidatedCircle: CheckIcon
+  BlueValidatedCircle: CheckIcon,
+  LocaleInError: ErrorIcon
 };
 
+const getIconDataName = iconType =>
+  iconType === 'LocaleInError' ? 'validated-locale-icon' : 'locale-in-error-icon';
+
 const buildTab = (tab, index) => {
-  const {title, selected, onClick, leftIcon} = tab;
+  const {title, selected, onClick, leftIcon, iconAriaLabel} = tab;
 
   const LeftIcon = LeftIcons[leftIcon];
   return (
@@ -22,7 +30,13 @@ const buildTab = (tab, index) => {
       onClick={onClick}
     >
       <span className={style.title}>{title}</span>
-      {LeftIcon ? <LeftIcon className={style.leftIcon} /> : null}
+      {LeftIcon ? (
+        <LeftIcon
+          data-name={getIconDataName(leftIcon)}
+          aria-label={iconAriaLabel}
+          className={leftIcon === 'LocaleInError' ? style.leftIconError : style.leftIcon}
+        />
+      ) : null}
     </li>
   );
 };
@@ -38,13 +52,16 @@ const VerticalTabs = props => {
   );
 };
 
+const LeftIconValues = [...keys(LeftIcons), ''];
+
 VerticalTabs.propTypes = {
   tabs: PropTypes.arrayOf(
     PropTypes.shape({
       title: Link.propTypes.children,
       selected: PropTypes.bool,
-      leftIcon: PropTypes.string,
-      onClick: PropTypes.func
+      leftIcon: PropTypes.oneOf(LeftIconValues),
+      onClick: PropTypes.func,
+      iconAriaLabel: PropTypes.string
     })
   ),
   className: PropTypes.string,
