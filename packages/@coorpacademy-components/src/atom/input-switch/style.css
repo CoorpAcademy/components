@@ -5,6 +5,9 @@
 @value positive from colors;
 @value light from colors;
 @value dark from colors;
+@value cm_grey_200 from colors;
+@value black from colors;
+@value cm_primary_blue from colors;
 
 .default {
   display: flex;
@@ -14,6 +17,14 @@
 
 .modified {
   composes: default;
+}
+
+.titleRight {
+  composes: default;
+}
+
+.titleRightModified {
+  composes: modified;
 }
 
 .default label {
@@ -101,4 +112,28 @@
   color: medium;
   font-style: italic;
   margin-left: 20px;
+}
+
+.titleRight label, .titleRightModified label {
+  width: 48px;
+  height: 24px;
+  border: solid 2px cm_grey_200;
+  margin-right: 8px;
+  background: cm_grey_200;
+}
+
+.titleRight label::after, .titleRightModified label::after {
+  width: 22px;
+  height: 22px;
+}
+
+.titleRight span, .titleRightModified span {
+  font-family: Gilroy;
+  font-weight: bold;
+  color: black;
+}
+
+.titleRight .checkbox:checked ~ label {
+  background: cm_primary_blue;
+  border-color: cm_primary_blue;
 }

@@ -304,6 +304,9 @@ import AtomInputSwitchFixtureDisabled from '../src/atom/input-switch/test/fixtur
 import AtomInputSwitchFixtureModified from '../src/atom/input-switch/test/fixtures/modified';
 import AtomInputSwitchFixtureNoTitle from '../src/atom/input-switch/test/fixtures/no-title';
 import AtomInputSwitchFixtureSso from '../src/atom/input-switch/test/fixtures/sso';
+import AtomInputSwitchFixtureTitleRightChecked from '../src/atom/input-switch/test/fixtures/title-right-checked';
+import AtomInputSwitchFixtureTitleRightModified from '../src/atom/input-switch/test/fixtures/title-right-modified';
+import AtomInputSwitchFixtureTitleRight from '../src/atom/input-switch/test/fixtures/title-right';
 import AtomInputSwitchFixtureUnchecked from '../src/atom/input-switch/test/fixtures/unchecked';
 import AtomInputTextFixtureCmDefault from '../src/atom/input-text/test/fixtures/cm-default';
 import AtomInputTextFixtureDefault from '../src/atom/input-text/test/fixtures/default';
@@ -1481,6 +1484,9 @@ export const fixtures = {
       Modified: AtomInputSwitchFixtureModified,
       NoTitle: AtomInputSwitchFixtureNoTitle,
       Sso: AtomInputSwitchFixtureSso,
+      TitleRightChecked: AtomInputSwitchFixtureTitleRightChecked,
+      TitleRightModified: AtomInputSwitchFixtureTitleRightModified,
+      TitleRight: AtomInputSwitchFixtureTitleRight,
       Unchecked: AtomInputSwitchFixtureUnchecked
     },
     AtomInputText: {
