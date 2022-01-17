@@ -67,7 +67,7 @@
   display: block;
   visibility: hidden;
   width: 100%;
-  padding: 0 15px;
+  padding: 0 0;
   box-sizing: border-box;
   background: white;
   position: absolute;
@@ -91,8 +91,7 @@
 
 .choice {
   list-style: none;
-  margin: 15px 0;
-  padding: 0;
+  padding: 12px 15px;
 }
 
 .choice .item {
@@ -103,6 +102,10 @@
   overflow: hidden;
   width: 100%;
   display: block;
+}
+ 
+.coorpmanager .choice:hover {
+  background-color: cm_grey_150;
 }
 
 .arrow {
