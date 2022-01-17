@@ -12,6 +12,7 @@ export default {
     notifications: [warningNotifiation.props],
     content: {
       ...form,
+      isLoading: false,
       key: 'general-settings',
       type: 'wizard'
     }

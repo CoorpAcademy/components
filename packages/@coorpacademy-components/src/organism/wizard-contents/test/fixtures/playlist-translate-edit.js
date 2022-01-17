@@ -4,6 +4,7 @@ import translateForm from '../../../content-translation/test/fixtures/default';
 
 export default {
   props: {
+    isLoading: false,
     wizardHeader: {
       title: 'Edit custom playlist',
       onClick: () => console.log('Close')

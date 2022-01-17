@@ -6,7 +6,7 @@ import style from './style.css';
 
 const Loader = ({className, theme = 'default'}) => {
   return theme !== 'default' ? (
-    <div data-name="loader" className={className}>
+    <div data-name="loader" className={classnames(style.cmLoaderContainer, className)}>
       <CMLoader className={style.cmLoaderGrey} />
       <CMLoader className={style.cmLoaderLightGrey} />
       <CMLoader className={style.cmLoaderBlue} />

@@ -11,6 +11,7 @@ export default {
     items,
     content: {
       ...form,
+      isLoading: false,
       key: 'general-settings',
       type: 'wizard'
     }

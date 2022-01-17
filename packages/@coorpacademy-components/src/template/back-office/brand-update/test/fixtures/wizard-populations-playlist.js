@@ -11,6 +11,7 @@ export default {
     notifications: [],
     content: {
       ...form,
+      isLoading: false,
       key: 'populations',
       type: 'wizard'
     }

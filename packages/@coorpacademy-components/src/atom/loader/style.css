@@ -16,7 +16,7 @@
 @value GREEN_INITIAL translate3d(27.5px, 10px, 0) rotate3d(0, 0, 1, 135deg);
 @value GREEN_FINAL translate3d(55px, -5px, 0) rotate3d(0, 0, 1, 135deg);
 
-.container {
+._container {
   position: absolute;
   width: 60px;
   height: 60px;
@@ -24,7 +24,15 @@
   left: 50%;
   display: flex;
   flex-wrap: wrap;
+}
+
+.container {
+  composes: _container;
   animation: scale 9s ease-in-out infinite;
+}
+
+.cmLoaderContainer {
+  composes: _container;
 }
 
 .dots {
