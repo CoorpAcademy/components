@@ -33,7 +33,7 @@ const InputSwitch = props => {
   const className = getClassState(defaultClass, modifiedClass, null, modified);
 
   return (
-    <div className={className}>
+    <div className={className} data-name={`switch-input-${theme}`}>
       {titlePosition === 'left' ? titleView : null}
       <input
         type="checkbox"
