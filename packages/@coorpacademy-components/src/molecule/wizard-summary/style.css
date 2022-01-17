@@ -233,7 +233,7 @@ ul {
   }
 
   .checkbox:checked + .summary  {
-    height: 70%;
+    min-height: 500px;
     max-height: 1000px;
     padding: 12px 24px 12px 24px;
     box-shadow: 0 -6px 42px -14px rgba(0, 0, 0, 0.25);
