@@ -19,6 +19,7 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/open-in-new-tab.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/arrow-down.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/arrow-left.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/cm-loader.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/arrow-right.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/arrow-top.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/bolt.svg')},

@@ -28,6 +28,7 @@ import _NovaCompositionCoorpacademyChat from './components/nova-composition/coor
 import _NovaCompositionCoorpacademyCheck from './components/nova-composition/coorpacademy/check';
 import _NovaCompositionCoorpacademyClock from './components/nova-composition/coorpacademy/clock';
 import _NovaCompositionCoorpacademyClue from './components/nova-composition/coorpacademy/clue';
+import _NovaCompositionCoorpacademyCmLoader from './components/nova-composition/coorpacademy/cm-loader';
 import _NovaCompositionCoorpacademyCog from './components/nova-composition/coorpacademy/cog';
 import _NovaCompositionCoorpacademyContentCreation from './components/nova-composition/coorpacademy/content-creation';
 import _NovaCompositionCoorpacademyCoorpApp from './components/nova-composition/coorpacademy/coorp-app';
@@ -211,6 +212,7 @@ export const NovaCompositionCoorpacademyChat: Icon = _NovaCompositionCoorpacadem
 export const NovaCompositionCoorpacademyCheck: Icon = _NovaCompositionCoorpacademyCheck;
 export const NovaCompositionCoorpacademyClock: Icon = _NovaCompositionCoorpacademyClock;
 export const NovaCompositionCoorpacademyClue: Icon = _NovaCompositionCoorpacademyClue;
+export const NovaCompositionCoorpacademyCmLoader: Icon = _NovaCompositionCoorpacademyCmLoader;
 export const NovaCompositionCoorpacademyCog: Icon = _NovaCompositionCoorpacademyCog;
 export const NovaCompositionCoorpacademyContentCreation: Icon = _NovaCompositionCoorpacademyContentCreation;
 export const NovaCompositionCoorpacademyCoorpApp: Icon = _NovaCompositionCoorpacademyCoorpApp;
