@@ -4,6 +4,7 @@ import generalInformation from '../../../brand-form/test/fixtures/wizard-playlis
 
 export default {
   props: {
+    isLoading: false,
     wizardHeader: {
       title: 'Edit custom playlist',
       onClick: () => console.log('Close')

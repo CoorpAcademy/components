@@ -4,6 +4,7 @@ import populationsForm from '../../../search-and-chips-results/test/fixtures/sor
 
 export default {
   props: {
+    isLoading: false,
     wizardHeader: {
       title: 'Create custom playlist',
       onClick: () => console.log('Close')

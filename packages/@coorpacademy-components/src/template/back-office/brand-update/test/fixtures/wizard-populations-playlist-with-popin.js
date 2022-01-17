@@ -14,6 +14,7 @@ export default {
     popin: popinProps,
     content: {
       ...form,
+      isLoading: false,
       key: 'populations',
       type: 'wizard'
     }

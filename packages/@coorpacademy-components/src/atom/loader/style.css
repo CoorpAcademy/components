@@ -2,6 +2,9 @@
 @value positive from colors;
 @value negative from colors;
 @value brand from colors;
+@value cm_primary_blue from colors;
+@value cm_grey_100 from colors;
+@value cm_grey_300 from colors;
 @value battle from colors;
 @value TIME 3s;
 @value RED_INITIAL translate3d(-2.5px, 10px, 0) rotate3d(0, 0, 1, 45deg);
@@ -13,7 +16,7 @@
 @value GREEN_INITIAL translate3d(27.5px, 10px, 0) rotate3d(0, 0, 1, 135deg);
 @value GREEN_FINAL translate3d(55px, -5px, 0) rotate3d(0, 0, 1, 135deg);
 
-.container {
+._container {
   position: absolute;
   width: 60px;
   height: 60px;
@@ -21,7 +24,15 @@
   left: 50%;
   display: flex;
   flex-wrap: wrap;
+}
+
+.container {
+  composes: _container;
   animation: scale 9s ease-in-out infinite;
+}
+
+.cmLoaderContainer {
+  composes: _container;
 }
 
 .dots {
@@ -59,6 +70,49 @@
   composes: dot;
   background-color: battle;
   animation: yellow TIME infinite;
+}
+
+.icon {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+}
+
+.cmLoaderGrey {
+  composes: icon;
+  color: cm_grey_100;
+  animation: rotate3 1.5s linear infinite;
+}
+
+.cmLoaderLightGrey {
+  composes: icon;
+  color: cm_grey_300;
+  animation: rotate2 1.5s linear infinite;
+}
+
+.cmLoaderBlue {
+  composes: icon;
+  color: cm_primary_blue;
+  animation: rotate1 1.5s linear infinite;
+}
+
+@keyframes rotate1 {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotate2 {
+  from { transform: rotate(0deg); }
+  20% { transform: rotate(120deg); }
+  50% { transform: rotate(200deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes rotate3 {
+  from { transform: rotate(0deg); }
+  20% { transform: rotate(160deg); }
+  50% { transform: rotate(220deg); }
+  to { transform: rotate(360deg); }
 }
 
 @keyframes scale {

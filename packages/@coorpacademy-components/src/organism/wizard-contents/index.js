@@ -9,6 +9,7 @@ import BrandForm from '../brand-form';
 import ContentTranslate from '../content-translation';
 import OrganismSearchAndChipsResults from '../search-and-chips-results';
 import CourseSelection from '../course-selection';
+import Loader from '../../atom/loader';
 import style from './style.css';
 
 const buildHeader = (wizardHeader, steps) => {
@@ -91,7 +92,7 @@ const buildActionZone = (previousStep, nextStep, side) => {
 };
 
 const WizardContents = props => {
-  const {wizardHeader, steps, summary, content, nextStep, previousStep} = props;
+  const {isLoading, wizardHeader, steps, summary, content, nextStep, previousStep} = props;
   const headerView = buildHeader(wizardHeader, steps);
   const formView = buildForm(content);
   const rightActionView = buildActionZone(previousStep, nextStep, 'right');
@@ -101,7 +102,7 @@ const WizardContents = props => {
     <div className={style.container} data-name="custom-playlist-summary">
       <div className={style.leftSection}>
         {headerView}
-        <div className={style.form}>{formView}</div>
+        <div className={style.form}>{isLoading ? <Loader theme="coorpmanager" /> : formView}</div>
       </div>
       <div className={style.rightSection} data-name="summary-right-section">
         <div className={style.stickySection}>
@@ -122,6 +123,7 @@ const WizardContents = props => {
 };
 
 WizardContents.propTypes = {
+  isLoading: PropTypes.bool,
   wizardHeader: PropTypes.shape({
     title: PropTypes.string,
     onClick: PropTypes.func

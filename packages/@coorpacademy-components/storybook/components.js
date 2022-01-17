@@ -330,6 +330,7 @@ import AtomLifeFixtureSmall from '../src/atom/life/test/fixtures/small';
 import AtomLinkFixtureDownload from '../src/atom/link/test/fixtures/download';
 import AtomLinkFixtureHref from '../src/atom/link/test/fixtures/href';
 import AtomLinkFixtureStyledLink from '../src/atom/link/test/fixtures/styled-link';
+import AtomLoaderFixtureCoorpmanager from '../src/atom/loader/test/fixtures/coorpmanager';
 import AtomLoaderFixtureDefault from '../src/atom/loader/test/fixtures/default';
 import AtomNotificationFixtureDefault from '../src/atom/notification/test/fixtures/default';
 import AtomNotificationFixtureError from '../src/atom/notification/test/fixtures/error';
@@ -1520,6 +1521,7 @@ export const fixtures = {
       StyledLink: AtomLinkFixtureStyledLink
     },
     AtomLoader: {
+      Coorpmanager: AtomLoaderFixtureCoorpmanager,
       Default: AtomLoaderFixtureDefault
     },
     AtomNotification: {
