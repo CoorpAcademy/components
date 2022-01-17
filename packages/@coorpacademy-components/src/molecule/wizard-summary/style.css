@@ -243,6 +243,6 @@ ul {
     transform: rotateZ(180deg);
   }
   .summarySections {
-    max-height: 250px;
+    max-height: 500px;
   }
 }
