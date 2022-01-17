@@ -1,7 +1,7 @@
 language: node_js
 sudo: false
 node_js:
-  - 12.22.8
+  - 12.22.9
 cache: npm
 install:
   - npm install -g yarn@`cat package.json | jq -r '.engines.yarn // "^1.2.1"'`
