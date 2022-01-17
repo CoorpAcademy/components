@@ -233,7 +233,7 @@ ul {
   }
 
   .checkbox:checked + .summary  {
-    height: 65%;
+    height: 70%;
     max-height: 1000px;
     padding: 12px 24px 12px 24px;
     box-shadow: 0 -6px 42px -14px rgba(0, 0, 0, 0.25);
@@ -243,6 +243,6 @@ ul {
     transform: rotateZ(180deg);
   }
   .summarySections {
-    max-height: 250px;
+    max-height: 500px;
   }
 }
