@@ -5,6 +5,9 @@
 @value positive from colors;
 @value light from colors;
 @value dark from colors;
+@value cm_grey_200 from colors;
+@value black from colors;
+@value cm_primary_blue from colors;
 
 .default {
   display: flex;
@@ -14,6 +17,14 @@
 
 .modified {
   composes: default;
+}
+
+.coorpmanager {
+  composes: default;
+}
+
+.coorpmanagerModified {
+  composes: modified;
 }
 
 .default label {
@@ -101,4 +112,39 @@
   color: medium;
   font-style: italic;
   margin-left: 20px;
+}
+
+.coorpmanager label, .coorpmanagerModified label {
+  width: 48px;
+  height: 24px;
+  border: solid 2px cm_grey_200;
+  margin-right: 8px;
+  background: cm_grey_200;
+}
+
+.coorpmanager label::after, .coorpmanagerModified label::after {
+  width: 22px;
+  height: 22px;
+}
+
+.coorpmanager span, .coorpmanagerModified span {
+  font-family: Gilroy;
+  font-weight: bold;
+  color: black;
+  min-width: 190px;
+}
+
+.coorpmanager .checkbox:checked ~ label {
+  background: cm_primary_blue;
+  border-color: cm_primary_blue;
+}
+
+.coorpmanager .checkbox:disabled ~ label {
+  background: light;
+  border-color: light;
+  pointer-events: none;
+}
+
+.coorpmanager .checkbox:disabled ~ label::after {
+  background: medium;
 }

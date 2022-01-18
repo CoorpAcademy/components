@@ -300,6 +300,11 @@ import AtomInputSearchFixtureCoorpmanager from '../src/atom/input-search/test/fi
 import AtomInputSearchFixtureDefault from '../src/atom/input-search/test/fixtures/default';
 import AtomInputSearchFixtureWithValue from '../src/atom/input-search/test/fixtures/with-value';
 import AtomInputSwitchFixtureChecked from '../src/atom/input-switch/test/fixtures/checked';
+import AtomInputSwitchFixtureCmLeft from '../src/atom/input-switch/test/fixtures/cm-left';
+import AtomInputSwitchFixtureCmRightChecked from '../src/atom/input-switch/test/fixtures/cm-right-checked';
+import AtomInputSwitchFixtureCmRightDisabled from '../src/atom/input-switch/test/fixtures/cm-right-disabled';
+import AtomInputSwitchFixtureCmRightModified from '../src/atom/input-switch/test/fixtures/cm-right-modified';
+import AtomInputSwitchFixtureCmRight from '../src/atom/input-switch/test/fixtures/cm-right';
 import AtomInputSwitchFixtureDisabled from '../src/atom/input-switch/test/fixtures/disabled';
 import AtomInputSwitchFixtureModified from '../src/atom/input-switch/test/fixtures/modified';
 import AtomInputSwitchFixtureNoTitle from '../src/atom/input-switch/test/fixtures/no-title';
@@ -801,6 +806,7 @@ import OrganismCourseSelectionFixtureDefault from '../src/organism/course-select
 import OrganismCourseSelectionFixtureEmpty from '../src/organism/course-selection/test/fixtures/empty';
 import OrganismCourseSelectionFixtureFiltered from '../src/organism/course-selection/test/fixtures/filtered';
 import OrganismCourseSelectionFixtureSortedSelected from '../src/organism/course-selection/test/fixtures/sorted-selected';
+import OrganismCourseSelectionFixtureSwitchActivated from '../src/organism/course-selection/test/fixtures/switch-activated';
 import OrganismCourseSelectionFixtureUnsortedSelected from '../src/organism/course-selection/test/fixtures/unsorted-selected';
 import OrganismDiscussionFixtureDefault from '../src/organism/discussion/test/fixtures/default';
 import OrganismDiscussionFixtureLoadingMore from '../src/organism/discussion/test/fixtures/loading-more';
@@ -1479,6 +1485,11 @@ export const fixtures = {
     },
     AtomInputSwitch: {
       Checked: AtomInputSwitchFixtureChecked,
+      CmLeft: AtomInputSwitchFixtureCmLeft,
+      CmRightChecked: AtomInputSwitchFixtureCmRightChecked,
+      CmRightDisabled: AtomInputSwitchFixtureCmRightDisabled,
+      CmRightModified: AtomInputSwitchFixtureCmRightModified,
+      CmRight: AtomInputSwitchFixtureCmRight,
       Disabled: AtomInputSwitchFixtureDisabled,
       Modified: AtomInputSwitchFixtureModified,
       NoTitle: AtomInputSwitchFixtureNoTitle,
@@ -2246,6 +2257,7 @@ export const fixtures = {
       Empty: OrganismCourseSelectionFixtureEmpty,
       Filtered: OrganismCourseSelectionFixtureFiltered,
       SortedSelected: OrganismCourseSelectionFixtureSortedSelected,
+      SwitchActivated: OrganismCourseSelectionFixtureSwitchActivated,
       UnsortedSelected: OrganismCourseSelectionFixtureUnsortedSelected
     },
     OrganismDiscussion: {

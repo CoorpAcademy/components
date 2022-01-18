@@ -23,6 +23,14 @@ export default {
       {...UnSelectedCard.props, isSelected: false},
       {...ExternalContent.props, isSelected: false},
       {...Scorm.props, isSelected: false}
-    ]
+    ],
+    switchButton: {
+      type: 'switch',
+      title: 'Show selected courses only',
+      value: false,
+      onChange: value => console.log(value),
+      titlePosition: 'right',
+      theme: 'coorpmanager'
+    }
   }
 };

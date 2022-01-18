@@ -54,6 +54,14 @@ export default {
       {...UnSelectedCard.props, isSelected: false, title: 'Standard course'},
       {...ExternalContent.props, isSelected: false, title: 'External course'},
       {...Scorm.props, isSelected: false, title: 'Scorm course'}
-    ]
+    ],
+    switchButton: {
+      type: 'switch',
+      title: 'Show selected courses only',
+      value: false,
+      onChange: value => console.log(value),
+      titlePosition: 'right',
+      theme: 'coorpmanager'
+    }
   }
 };
