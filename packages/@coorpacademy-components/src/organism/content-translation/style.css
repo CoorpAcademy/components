@@ -10,6 +10,7 @@
   display: flex;
   background-color: cm_grey_50;
   position: relative;
+  border-radius: 7px;
 }
 
 .menu {
