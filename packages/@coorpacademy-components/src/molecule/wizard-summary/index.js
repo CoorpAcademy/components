@@ -71,7 +71,12 @@ const buildSections = sections => {
     const sectionHeader = buildSectionHeader(section);
     const itemsView = buildItemsOfSection(section.items);
     return (
-      <div key={`summary-section-${index}`} data-step={index} className={style.sectionWrapper}>
+      <div
+        key={`summary-section-${index}`}
+        data-step={index}
+        data-name={`summary-section-${index}`}
+        className={style.sectionWrapper}
+      >
         {sectionHeader}
         <ul>{itemsView}</ul>
       </div>

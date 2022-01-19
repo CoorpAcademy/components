@@ -12,6 +12,15 @@ export default {
     emptyMessages: {
       firstMessage: 'No results...',
       secondMessage: 'Try something else'
+    },
+    switchButton: {
+      type: 'switch',
+      title: 'Show selected courses only',
+      value: false,
+      onChange: value => console.log(value),
+      titlePosition: 'right',
+      disabled: true,
+      theme: 'coorpmanager'
     }
   }
 };

@@ -88,7 +88,6 @@
 
 .footer {
   width: 100%;
-  height: 100%;
   bottom: 0px;
   display: none;
   position: inherit;
@@ -110,7 +109,6 @@
     bottom: 10px;
     position: sticky;
     z-index: 1;
-    min-height: 600px;
   }
   .footer::before {
     content: '';
