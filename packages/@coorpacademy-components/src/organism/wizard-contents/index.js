@@ -94,7 +94,7 @@ const buildActionZone = (previousStep, nextStep, side) => {
 const WizardContents = props => {
   const {isLoading, wizardHeader, steps, summary, content, nextStep, previousStep} = props;
   const headerView = buildHeader(wizardHeader, steps);
-  const formView = buildForm(content);
+  const formView = buildForm({...content, isLoading});
   const rightActionView = buildActionZone(previousStep, nextStep, 'right');
   const footerActionView = buildActionZone(previousStep, nextStep, 'footer');
 
@@ -102,7 +102,15 @@ const WizardContents = props => {
     <div className={style.container} data-name="custom-playlist-summary">
       <div className={style.leftSection}>
         {headerView}
-        <div className={style.form}>{isLoading ? <Loader theme="coorpmanager" /> : formView}</div>
+        <div className={style.form}>
+          {isLoading ? (
+            <div className={style.loader}>
+              <Loader theme="coorpmanager" />
+            </div>
+          ) : (
+            formView
+          )}
+        </div>
       </div>
       <div className={style.rightSection} data-name="summary-right-section">
         <div className={style.stickySection}>
