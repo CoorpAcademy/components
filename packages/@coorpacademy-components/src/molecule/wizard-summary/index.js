@@ -147,7 +147,7 @@ const WizardSummary = props => {
       );
     }
     setChecked(!checked);
-  }, [checked, summaryElement]);
+  }, [checked]);
 
   return (
     <div className={style.container} ref={summaryElement}>
