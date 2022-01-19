@@ -1,4 +1,4 @@
-import React, {useMemo, useState, useCallback} from 'react';
+import React, {useMemo, useState, useCallback, useRef} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {uniqueId} from 'lodash/fp';
@@ -112,7 +112,11 @@ const BuildAction = ({action}) => {
 
 const checkOnClose = (checked, summaryElement, onCloseSummary, clickEvent) => {
   if (checked) {
-    if (summaryElement && !summaryElement.contains(clickEvent.target)) {
+    if (
+      summaryElement &&
+      summaryElement.current &&
+      !summaryElement.current.contains(clickEvent.target)
+    ) {
       onCloseSummary();
     }
   }
@@ -122,7 +126,7 @@ const WizardSummary = props => {
   const {title, sections, action, side} = props;
   const sectionsView = buildSections(sections);
   const idSwitch = uniqueId('open-summary-wizard');
-  const [summaryElement, setSummaryElement] = useState(null);
+  const summaryElement = useRef(null);
   const [checked, setChecked] = useState(false);
 
   const onCloseSummary = () => setChecked(false);
@@ -146,7 +150,7 @@ const WizardSummary = props => {
   }, [checked, summaryElement]);
 
   return (
-    <div className={style.container} ref={setSummaryElement}>
+    <div className={style.container} ref={summaryElement}>
       <span className={style.desktopSummaryTitle} data-name={`summary-title-${side}`}>
         {title}
       </span>
