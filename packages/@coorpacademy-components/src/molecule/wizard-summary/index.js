@@ -1,4 +1,4 @@
-import React, {useMemo} from 'react';
+import React, {useMemo, useState, useCallback, useRef} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {uniqueId} from 'lodash/fp';
@@ -110,13 +110,47 @@ const BuildAction = ({action}) => {
   );
 };
 
+const checkOnClose = (checked, summaryElement, onCloseSummary, clickEvent) => {
+  if (checked) {
+    if (
+      summaryElement &&
+      summaryElement.current &&
+      !summaryElement.current.contains(clickEvent.target)
+    ) {
+      onCloseSummary();
+    }
+  }
+};
+
 const WizardSummary = props => {
   const {title, sections, action, side} = props;
   const sectionsView = buildSections(sections);
   const idSwitch = uniqueId('open-summary-wizard');
+  const summaryElement = useRef(null);
+  const [checked, setChecked] = useState(false);
+
+  const onCloseSummary = () => setChecked(false);
+  const handleOnChange = useCallback(() => {
+    if (!checked) {
+      document.addEventListener('click', clickEvent =>
+        checkOnClose(!checked, summaryElement, onCloseSummary, clickEvent)
+      );
+      document.addEventListener('touchstart', clickEvent =>
+        checkOnClose(!checked, summaryElement, onCloseSummary, clickEvent)
+      );
+    } else {
+      document.removeEventListener('click', clickEvent =>
+        checkOnClose(!checked, summaryElement, onCloseSummary, clickEvent)
+      );
+      document.removeEventListener('touchstart', clickEvent =>
+        checkOnClose(!checked, summaryElement, onCloseSummary, clickEvent)
+      );
+    }
+    setChecked(!checked);
+  }, [checked]);
 
   return (
-    <div className={style.container}>
+    <div className={style.container} ref={summaryElement}>
       <span className={style.desktopSummaryTitle} data-name={`summary-title-${side}`}>
         {title}
       </span>
@@ -127,6 +161,8 @@ const WizardSummary = props => {
         title={idSwitch}
         className={style.checkbox}
         data-name={`summary-checkbox-${side}`}
+        checked={checked}
+        onChange={handleOnChange}
       />
       <div className={style.summary}>
         <div className={style.tabletSummaryHeader}>
