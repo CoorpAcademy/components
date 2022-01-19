@@ -7,8 +7,8 @@ import ButtonLink from '../../atom/button-link';
 import Chips from '../../atom/chips';
 import style from './style.css';
 
-const buildResultView = (results, resultsAriaLabel, emptyMessages) => {
-  if (isEmpty(results)) {
+const buildResultView = (results, resultsAriaLabel, emptyMessages, isLoading) => {
+  if (!isLoading && isEmpty(results)) {
     return <EmptySearchResult {...emptyMessages} />;
   }
 
@@ -29,11 +29,12 @@ const SearchAndChipsResults = props => {
     selectAllButton,
     results,
     emptyMessages,
+    isLoading = false,
     'results-aria-label': resultsAriaLabel
   } = props;
 
   const {onClick, label, disabled = false, 'aria-label': ariaLabel} = selectAllButton;
-  const resultView = buildResultView(results, resultsAriaLabel, emptyMessages);
+  const resultView = buildResultView(results, resultsAriaLabel, emptyMessages, isLoading);
   const buttonProps = {
     type: 'secondary',
     label,
@@ -69,6 +70,7 @@ SearchAndChipsResults.propTypes = {
     disabled: PropTypes.bool,
     'aria-label': PropTypes.string
   }),
+  isLoading: PropTypes.bool,
   search: PropTypes.shape(Search.PropTypes),
   results: PropTypes.arrayOf(PropTypes.shape(Chips.propTypes)),
   'results-aria-label': PropTypes.string,

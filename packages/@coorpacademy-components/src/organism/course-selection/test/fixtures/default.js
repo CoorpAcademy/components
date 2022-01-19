@@ -13,6 +13,7 @@ export default {
       description: 'Type to filter the courses',
       onChange: value => console.log(value)
     },
+    isLoading: false,
     contentTypeFilter: {
       type: 'selectMultiple',
       title: 'Content type',

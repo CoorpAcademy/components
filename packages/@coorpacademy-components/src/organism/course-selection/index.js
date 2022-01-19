@@ -7,8 +7,8 @@ import SelectMultiple from '../../molecule/select-multiple';
 import Card from '../../molecule/card';
 import style from './style.css';
 
-const buildResultView = (courses, coursesSelectionAriaLabel, emptyMessages) => {
-  if (isEmpty(courses)) {
+const buildResultView = (courses, coursesSelectionAriaLabel, emptyMessages, isLoading) => {
+  if (!isLoading && isEmpty(courses)) {
     return <EmptySearchResult {...emptyMessages} />;
   }
 
@@ -29,10 +29,11 @@ const CourseSelection = props => {
     contentTypeFilter,
     courses,
     emptyMessages,
+    isLoading = false,
     'courses-selection-aria-label': coursesSelectionAriaLabel
   } = props;
 
-  const resultView = buildResultView(courses, coursesSelectionAriaLabel, emptyMessages);
+  const resultView = buildResultView(courses, coursesSelectionAriaLabel, emptyMessages, isLoading);
 
   return (
     <div className={style.container}>
@@ -51,6 +52,7 @@ const CourseSelection = props => {
 
 CourseSelection.propTypes = {
   search: PropTypes.shape(Search.PropTypes),
+  isLoading: PropTypes.bool,
   contentTypeFilter: PropTypes.shape(SelectMultiple.PropTypes),
   courses: PropTypes.arrayOf(PropTypes.shape(Card.propTypes)),
   'courses-selection-aria-label': PropTypes.string,

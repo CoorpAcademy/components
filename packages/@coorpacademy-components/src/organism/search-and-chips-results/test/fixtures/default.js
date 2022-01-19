@@ -4,6 +4,7 @@ export default {
       label: 'Select All',
       onClick: () => console.log('Select All')
     },
+    isLoading: false,
     search: {
       title: 'Search...',
       placeholder: 'Search...',
