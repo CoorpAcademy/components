@@ -3,20 +3,30 @@
 @value colors: "../../variables/colors.css";
 @value white from colors;
 
-.content {
+.default {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  padding: 12px 12px 0;
   width: 100%;
   font-family: 'Open Sans';
   box-sizing: border-box;
   text-align: center;
   color: white;
   text-transform: uppercase;
-  font-size: 12px;
   text-shadow: 0 0 4px rgba(0, 0, 0, 0.75);
   user-select: none;
+}
+
+.content {
+  composes: default;
+  padding: 12px 12px 0;
+  font-size: 12px;
+}
+
+.coorpmanager,
+.content {
+  composes: default;
+  font-size: 8px;
 }
 
 .coorp,
@@ -24,10 +34,24 @@
   letter-spacing: 3px;
 }
 
+.coorpmanager,
+.coorp,
+.original {
+  letter-spacing: 2px;
+}
+
+
 .coorp {
   font-weight: 100;
   margin-right: 5px;
   letter-spacing: 4px;
+}
+
+.coorpmanager,
+.coorp {
+  font-weight: 100;
+  margin-right: 5px;
+  letter-spacing: 2px;
 }
 
 .original {
