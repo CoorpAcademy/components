@@ -66,11 +66,19 @@
   width: 256px;
   height: 297px;
 }
+
 .chapter {
   composes: default;
   border-radius: 8px;
   width: 203px;
   height: 297px;
+}
+
+.coorpmanager {
+  composes: default;
+  border-radius: 5px;
+  width: 172px;
+  height: 201px;
 }
 
 .course .imageWrapper {

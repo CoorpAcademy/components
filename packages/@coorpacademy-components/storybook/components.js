@@ -477,6 +477,7 @@ import MoleculeCardFixtureAdaptivAndDisabled from '../src/molecule/card/test/fix
 import MoleculeCardFixtureAdaptiv from '../src/molecule/card/test/fixtures/adaptiv';
 import MoleculeCardFixtureArabic from '../src/molecule/card/test/fixtures/arabic';
 import MoleculeCardFixtureArticle from '../src/molecule/card/test/fixtures/article';
+import MoleculeCardFixtureCoorpmanager from '../src/molecule/card/test/fixtures/coorpmanager';
 import MoleculeCardFixtureDefault from '../src/molecule/card/test/fixtures/default';
 import MoleculeCardFixtureDisabled from '../src/molecule/card/test/fixtures/disabled';
 import MoleculeCardFixtureEmpty from '../src/molecule/card/test/fixtures/empty';
@@ -1752,6 +1753,7 @@ export const fixtures = {
       Adaptiv: MoleculeCardFixtureAdaptiv,
       Arabic: MoleculeCardFixtureArabic,
       Article: MoleculeCardFixtureArticle,
+      Coorpmanager: MoleculeCardFixtureCoorpmanager,
       Default: MoleculeCardFixtureDefault,
       Disabled: MoleculeCardFixtureDisabled,
       Empty: MoleculeCardFixtureEmpty,

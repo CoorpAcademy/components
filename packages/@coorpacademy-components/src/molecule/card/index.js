@@ -106,6 +106,14 @@ CardBackground.propTypes = {
   empty: PropTypes.bool
 };
 
+const getMainClass = (theme, type) => {
+  if (theme === 'coorpmanager') {
+    return classnames(style.coorpmanager, type === 'chapter' ? style.chapter : style.course);
+  }
+
+  return type === 'chapter' ? style.chapter : style.course;
+};
+
 const Card = memo(function Card(props, context) {
   const {skin} = context;
   const {
@@ -127,13 +135,14 @@ const Card = memo(function Card(props, context) {
     isSelected,
     notification,
     badgeCategory,
-    badgeLabel
+    badgeLabel,
+    theme = 'default'
   } = props;
   const empty = isEmpty(pick(['title', 'type', 'author', 'image'], props));
   const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
   const cardStyle = classnames(
-    type === 'chapter' ? style.chapter : style.course,
+    getMainClass(theme, type),
     title ? null : style.lazy,
     style.grid,
     empty ? style.empty : null
@@ -228,6 +237,7 @@ Card.propTypes = {
   isSelected: PropTypes.bool,
   notification: PropTypes.shape(Notification.propTypes),
   badgeCategory: CardContentInfo.propTypes.badgeCategory,
-  badgeLabel: CardContentInfo.propTypes.badgeLabel
+  badgeLabel: CardContentInfo.propTypes.badgeLabel,
+  theme: PropTypes.string
 };
 export default Card;

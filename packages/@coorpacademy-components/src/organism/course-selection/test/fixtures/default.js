@@ -47,14 +47,19 @@ export default {
     },
     'courses-selection-aria-label': 'Courses results',
     courses: [
-      SelectedCard.props,
-      UnSelectedCard.props,
-      {...Article.props, isSelected: false},
-      SelectedCard.props,
-      {...Scorm.props, isSelected: true},
-      {...UnSelectedCard.props, isSelected: false, title: 'Standard course'},
-      {...ExternalContent.props, isSelected: false, title: 'External course'},
-      {...Scorm.props, isSelected: false, title: 'Scorm course'}
+      {...SelectedCard.props, theme: 'coorpmanager'},
+      {...UnSelectedCard.props, theme: 'coorpmanager'},
+      {...Article.props, isSelected: false, theme: 'coorpmanager'},
+      {...SelectedCard.props, theme: 'coorpmanager'},
+      {...Scorm.props, isSelected: true, theme: 'coorpmanager'},
+      {...UnSelectedCard.props, isSelected: false, title: 'Standard course', theme: 'coorpmanager'},
+      {
+        ...ExternalContent.props,
+        isSelected: false,
+        title: 'External course',
+        theme: 'coorpmanager'
+      },
+      {...Scorm.props, isSelected: false, title: 'Scorm course', theme: 'coorpmanager'}
     ],
     switchButton: {
       type: 'switch',
