@@ -15,7 +15,7 @@ import Selectable from './selectable';
 import Notification from './notification';
 import style from './style.css';
 
-const CardBackground = ({type, image, empty}, {skin}) => {
+const CardBackground = ({type, image, empty, theme}, {skin}) => {
   const externalContent = isExternalContent(type);
   const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
@@ -24,8 +24,16 @@ const CardBackground = ({type, image, empty}, {skin}) => {
     const IconType = EXTERNAL_CONTENT_ICONS[type].icon;
     const iconColor = EXTERNAL_CONTENT_ICONS[type].color;
     const backgroundIcon = (
-      <div className={style.externalIconCircleWrapper}>
-        <IconType className={style.externalIcon} />
+      <div
+        className={
+          theme === 'coorpmanager'
+            ? style.externalIconCircleWrapperCoorpmanager
+            : style.externalIconCircleWrapper
+        }
+      >
+        <IconType
+          className={theme === 'coorpmanager' ? style.externalIconCoorpmanager : style.externalIcon}
+        />
       </div>
     );
 
@@ -33,7 +41,9 @@ const CardBackground = ({type, image, empty}, {skin}) => {
       const _backgroundIcon = (
         <div
           className={classnames(
-            style.externalIconCircleWrapper,
+            theme === 'coorpmanager'
+              ? style.externalIconCircleWrapperCoorpmanager
+              : style.externalIconCircleWrapper,
             style.externalIconCircleWithImageWrapper
           )}
           style={{
@@ -101,6 +111,7 @@ CardBackground.contextTypes = {
 };
 
 CardBackground.propTypes = {
+  theme: PropTypes.string,
   type: PropTypes.string,
   image: PropTypes.string,
   empty: PropTypes.bool
@@ -142,7 +153,8 @@ const Card = memo(function Card(props, context) {
   const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
   const cardStyle = classnames(
-    getMainClass(theme, type),
+    theme === 'coorpmanager' ? style.coorpmanager : null,
+    type === 'chapter' ? style.chapter : style.course,
     title ? null : style.lazy,
     style.grid,
     empty ? style.empty : null
@@ -172,7 +184,7 @@ const Card = memo(function Card(props, context) {
       disabled={disabled}
       onClick={handleClick}
     >
-      <CardBackground type={type} image={image} empty={empty} />
+      <CardBackground type={type} image={image} empty={empty} theme={theme} />
       {isUndefined(isSelected) && !isUndefined(favorite) ? (
         <Favorite
           className={style.favorite}
@@ -188,6 +200,7 @@ const Card = memo(function Card(props, context) {
       {customer ? (
         <Customer
           {...customer}
+          theme={theme}
           className={classnames(style.customer, type === 'chapter' ? style.chapterCustomer : null)}
         />
       ) : null}

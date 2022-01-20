@@ -23,9 +23,8 @@
   font-size: 12px;
 }
 
-.coorpmanager,
-.content {
-  composes: default;
+.coorpmanager .content {
+  padding: 8px 12px 0;
   font-size: 8px;
 }
 
@@ -34,9 +33,11 @@
   letter-spacing: 3px;
 }
 
-.coorpmanager,
-.coorp,
-.original {
+.coorpmanager .coorp {
+  letter-spacing: 2px;
+}
+
+.coorpmanager .original {
   letter-spacing: 2px;
 }
 
@@ -46,8 +47,7 @@
   letter-spacing: 4px;
 }
 
-.coorpmanager,
-.coorp {
+.coorpmanager .coorp {
   font-weight: 100;
   margin-right: 5px;
   letter-spacing: 2px;

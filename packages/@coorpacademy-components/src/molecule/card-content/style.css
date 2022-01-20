@@ -92,8 +92,7 @@
   user-select: none;
 }
 
-.coorpmanager,
-.author {
+.coorpmanager .author {
   font-size: 8px;
 }
 

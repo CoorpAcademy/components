@@ -74,12 +74,11 @@
   height: 297px;
 }
 
-.coorpmanager {
-  composes: default;
+.coorpmanager.course {
   border-radius: 5px;
   width: 172px;
   height: 201px;
-} 
+}
 
 .course .imageWrapper {
   width: 100%;
@@ -302,10 +301,7 @@
   background: black;
 }
 
-.externalIconCircleWrapper {
-  width: 80px;
-  height: 80px;
-  margin-top: 20px;
+.defaultExternalIconCircleWrapper {
   border-radius: 50%;
   padding: 17px;
   box-sizing: border-box;
@@ -315,10 +311,31 @@
   transition: transform 0.25s ease-in-out;
 }
 
+.externalIconCircleWrapper {
+  composes: defaultExternalIconCircleWrapper;
+  width: 80px;
+  height: 80px;
+  margin-top: 20px;
+}
+
+.externalIconCircleWrapperCoorpmanager {
+  composes: defaultExternalIconCircleWrapper;
+  width: 57px;
+  height: 57px;
+  margin-top: 12px;
+  padding: 15px;
+}
+
 .externalIcon {
   color: white;
   width: 45px;
   height: 45px;
+}
+
+.externalIconCoorpmanager {
+  color: white;
+  width: 28px;
+  height: 28px;
 }
 
 .externalIconCircleWrapper::after {
