@@ -4,8 +4,10 @@ import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {replace} from 'lodash/fp';
+import {mockTranslate} from '@coorpacademy/translate';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import Clue from '..';
+import Provider from '../../provider';
 import defaultFixture from './fixtures/default';
 
 browserEnv();
@@ -63,4 +65,50 @@ test('should See the clue', t => {
   wrapper.setProps({text: 'This is the new clue ...'});
 
   t.is(wrapper.find(clueTextStyle).text(), 'This is the new clue ...');
+});
+
+test('should clue color is the primary color if color is defined on skin', t => {
+  const context = {
+    skin: {
+      common: {
+        primary: '#FF0000'
+      }
+    },
+    translate: mockTranslate
+  };
+  t.plan(1);
+  const backStyle = `.${replace(' ', '.', style.back)}`;
+
+  const wrapper = mount(
+    <Provider {...context}>
+      <Clue {...defaultFixture.props} />
+    </Provider>
+  );
+
+  t.deepEqual(wrapper.find(backStyle).get(0).props.style, {
+    backgroundColor: '#FF0000'
+  });
+});
+
+test('should clue color is the fallback primary color if color not defined on skin', t => {
+  const context = {
+    skin: {
+      common: {
+        secondary: '#FF0000'
+      }
+    },
+    translate: mockTranslate
+  };
+  t.plan(1);
+  const backStyle = `.${replace(' ', '.', style.back)}`;
+
+  const wrapper = mount(
+    <Provider {...context}>
+      <Clue {...defaultFixture.props} />
+    </Provider>
+  );
+
+  t.deepEqual(wrapper.find(backStyle).get(0).props.style, {
+    backgroundColor: '#00B0FF'
+  });
 });

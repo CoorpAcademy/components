@@ -30,7 +30,7 @@ const DEFAULT_SKIN = {
   }
 };
 
-const mergeSkin = (skin = {}) => defaultsDeep(skin, DEFAULT_SKIN);
+const mergeSkin = (skin = {}) => defaultsDeep(DEFAULT_SKIN, skin);
 
 const historyShape = PropTypes.shape({
   createHref: PropTypes.func,

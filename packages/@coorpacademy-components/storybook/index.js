@@ -16,7 +16,7 @@ import {withKnobs, text, number, boolean, object, color} from '@storybook/addon-
 import createTranslate from '@coorpacademy/translate';
 import en from '../locales/en/global';
 // import fr from '../locales/fr/global';
-import Provider from '../es/atom/provider';
+import Provider from '../src/atom/provider';
 import skin from './skin';
 import {components, fixtures} from './components';
 
