@@ -58,6 +58,13 @@
   user-select: none;
 }
 
+.coorpmanager,
+.title {
+  composes: title;
+  font-size: 12px;
+  font-weight: bold;
+}
+
 .lightTitle {
   color: white;
   text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.5);
@@ -85,6 +92,11 @@
   user-select: none;
 }
 
+.coorpmanager,
+.author {
+  font-size: 8px;
+}
+
 .hero .title {
   text-align: center;
   color: white;
@@ -95,6 +107,11 @@
 
 .card .author {
   margin-top: 5px;
+}
+
+.coorpmanager,
+.card .author {
+  margin-top: 0px;
 }
 
 .hero .author {
@@ -168,7 +185,7 @@
   }
 }
 
-.progressWrapper {
+.progressDefaultWrapper {
   position: relative;
   left: 0;
   width: 194px;
@@ -177,6 +194,19 @@
   overflow: hidden;
   margin: 16px auto;
   background: light;
+}
+
+.progressWrapper {
+  composes: progressDefaultWrapper;
+  height: 4px;
+  margin: 16px auto;
+}
+
+.coorpmanager,
+.progressWrapper {
+  composes: progressDefaultWrapper;
+  height: 2px;
+  margin: 11px auto;
 }
 
 .card .progressWrapper {
