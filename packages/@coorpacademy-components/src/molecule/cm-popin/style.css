@@ -26,6 +26,7 @@
   box-sizing: border-box;
   overflow: hidden;
   display: flex;
+  position:fixed;
 }
 
 .popin {
