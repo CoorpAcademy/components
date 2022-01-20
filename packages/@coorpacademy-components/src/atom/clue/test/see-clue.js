@@ -4,7 +4,6 @@ import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import {replace} from 'lodash/fp';
-import {mockTranslate} from '@coorpacademy/translate';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import Clue from '..';
 import Provider from '../../provider';
@@ -74,7 +73,7 @@ test('should clue color is the primary color if color is defined on skin', t => 
         primary: '#FF0000'
       }
     },
-    translate: mockTranslate
+    translate: key => key
   };
   t.plan(1);
   const backStyle = `.${replace(' ', '.', style.back)}`;
@@ -97,7 +96,7 @@ test('should clue color is the fallback primary color if color not defined on sk
         secondary: '#FF0000'
       }
     },
-    translate: mockTranslate
+    translate: key => key
   };
   t.plan(1);
   const backStyle = `.${replace(' ', '.', style.back)}`;
