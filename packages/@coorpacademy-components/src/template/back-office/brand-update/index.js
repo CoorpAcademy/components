@@ -109,9 +109,8 @@ const buildTabs = items => {
     get('tabs'),
     find(e => e.selected)
   )(items);
-  const selectedSubTab = selectedTab ? find(e => e.selected, selectedTab.subTabs) : undefined;
 
-  const showTabs = selectedTab && selectedSubTab;
+  const showTabs = selectedTab ? find(e => e.selected, selectedTab.subTabs) : undefined;
   if (!showTabs) return null;
   return (
     <div className={style.tabs}>
