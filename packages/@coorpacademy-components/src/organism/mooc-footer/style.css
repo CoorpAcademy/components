@@ -137,6 +137,7 @@
   padding-top: 24px;
   display: flex;
   flex-wrap: nowrap;
+  list-style: non;
 }
 
 .socialLink {
