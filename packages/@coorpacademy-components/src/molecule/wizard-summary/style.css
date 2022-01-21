@@ -26,6 +26,7 @@
   bottom: 0px;
   display: flex;
   flex-direction: column;
+  max-height: 586px;
 }
 
 .summary {
