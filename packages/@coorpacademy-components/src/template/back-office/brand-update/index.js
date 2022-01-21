@@ -109,7 +109,7 @@ const buildTabs = items => {
     get('tabs'),
     find(e => e.selected)
   )(items);
-  const selectedSubTab = find(e => e.selected, selectedTab?.subTabs);
+  const selectedSubTab = selectedTab ? find(e => e.selected, selectedTab.subTabs) : undefined;
 
   const showTabs = selectedTab && selectedSubTab;
   if (!showTabs) return null;
