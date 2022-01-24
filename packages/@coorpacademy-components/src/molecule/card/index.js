@@ -25,14 +25,16 @@ const CardBackground = ({type, image, empty, theme}, {skin}) => {
     const iconColor = EXTERNAL_CONTENT_ICONS[type].color;
     const backgroundIcon = (
       <div
-        className={
-          theme === 'coorpmanager'
-            ? style.externalIconCircleWrapperCoorpmanager
-            : style.externalIconCircleWrapper
-        }
+        className={classnames(
+          theme === 'coorpmanager' ? style.coorpmanager : null,
+          style.externalIconCircleWrapper
+        )}
       >
         <IconType
-          className={theme === 'coorpmanager' ? style.externalIconCoorpmanager : style.externalIcon}
+          className={classnames(
+            theme === 'coorpmanager' ? style.coorpmanager : null,
+            style.externalIcon
+          )}
         />
       </div>
     );
@@ -41,16 +43,19 @@ const CardBackground = ({type, image, empty, theme}, {skin}) => {
       const _backgroundIcon = (
         <div
           className={classnames(
-            theme === 'coorpmanager'
-              ? style.externalIconCircleWrapperCoorpmanager
-              : style.externalIconCircleWrapper,
+            theme === 'coorpmanager' ? style.coorpmanager : null,
             style.externalIconCircleWithImageWrapper
           )}
           style={{
             backgroundColor: iconColor
           }}
         >
-          <IconType className={style.externalIconWithImage} />
+          <IconType
+            className={classnames(
+              theme === 'coorpmanager' ? style.coorpmanager : null,
+              style.externalIconWithImage
+            )}
+          />
         </div>
       );
 
@@ -115,14 +120,6 @@ CardBackground.propTypes = {
   type: PropTypes.string,
   image: PropTypes.string,
   empty: PropTypes.bool
-};
-
-const getMainClass = (theme, type) => {
-  if (theme === 'coorpmanager') {
-    return classnames(style.coorpmanager, type === 'chapter' ? style.chapter : style.course);
-  }
-
-  return type === 'chapter' ? style.chapter : style.course;
 };
 
 const Card = memo(function Card(props, context) {
