@@ -4,10 +4,15 @@ import classnames from 'classnames';
 import style from './customer.css';
 
 const Customer = props => {
-  const {name, className, coorpOriginal, theme} = props;
+  const {name, type, coorpOriginal, theme} = props;
+  const className = classnames(
+    theme === 'coorpmanager' ? style.coorpmanager : null,
+    style.customer,
+    type === 'chapter' ? style.chapterCustomer : null
+  );
 
   return (
-    <div className={classnames(theme === 'coorpmanager' ? style.coorpmanager : null, className)}>
+    <div className={className}>
       <div className={style.content}>
         {coorpOriginal ? <span className={style.coorp}>Coorp </span> : null}
         {coorpOriginal ? <span className={style.original}>Original </span> : null}
@@ -19,7 +24,7 @@ const Customer = props => {
 
 Customer.propTypes = {
   theme: PropTypes.string,
-  className: PropTypes.string,
+  type: PropTypes.string,
   name: PropTypes.string,
   coorpOriginal: PropTypes.bool.isRequired
 };

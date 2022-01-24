@@ -3,6 +3,7 @@ import SelectedCard from '../../../../molecule/card/test/fixtures/selectable-tru
 import Article from '../../../../molecule/card/test/fixtures/article';
 import Scorm from '../../../../molecule/card/test/fixtures/scorm';
 import ExternalContent from '../../../../molecule/card/test/fixtures/external-content';
+import Chaptercard from '../../../../molecule/card/test/fixtures/freerun';
 
 export default {
   props: {
@@ -50,7 +51,13 @@ export default {
       {...SelectedCard.props, theme: 'coorpmanager', progress: undefined},
       {...UnSelectedCard.props, theme: 'coorpmanager', progress: undefined},
       {...Article.props, isSelected: false, theme: 'coorpmanager', progress: undefined},
-      {...SelectedCard.props, theme: 'coorpmanager', progress: undefined},
+      {
+        ...Chaptercard.props,
+        theme: 'coorpmanager',
+        progress: undefined,
+        isSelected: false,
+        favorite: false
+      },
       {...Scorm.props, isSelected: true, theme: 'coorpmanager', progress: undefined},
       {
         ...UnSelectedCard.props,

@@ -194,13 +194,7 @@ const Card = memo(function Card(props, context) {
       ) : null}
       <Selectable isSelected={isSelected} />
       {notification ? <Notification {...notification} /> : null}
-      {customer ? (
-        <Customer
-          {...customer}
-          theme={theme}
-          className={classnames(style.customer, type === 'chapter' ? style.chapterCustomer : null)}
-        />
-      ) : null}
+      {customer ? <Customer {...customer} theme={theme} type={type} /> : null}
       <CardContentInfo
         mode={MODES.CARD}
         adaptiv={adaptiv}
@@ -216,9 +210,10 @@ const Card = memo(function Card(props, context) {
         theme={theme}
       />
       {badge ? (
-        <div className={classnames(
-          theme === 'coorpmanager' ? style.coorpmanager : null,
-          style.badge)} style={inlineBadgeStyle}>
+        <div
+          className={classnames(theme === 'coorpmanager' ? style.coorpmanager : null, style.badge)}
+          style={inlineBadgeStyle}
+        >
           {badge}
         </div>
       ) : null}

@@ -17,6 +17,10 @@
   user-select: none;
 }
 
+.default[disabled] .customer {
+  background: none;
+}
+
 .content {
   composes: default;
   padding: 12px 12px 0;
@@ -28,6 +32,29 @@
   font-size: 8px;
 }
 
+.customer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.customer {
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.2) 0%,
+    rgba(0, 0, 0, 0) 20%
+  );
+}
+.chapterCustomer {
+  padding-top: 10px;
+}
+
+.coorpmanager.customer.chapterCustomer {
+  padding-top: 0px;
+}
+
 .coorp,
 .original {
   letter-spacing: 3px;
@@ -37,8 +64,16 @@
   letter-spacing: 2px;
 }
 
+.coorpmanager.customer.chapterCustomer .coorp {
+  letter-spacing: 1px;
+}
+
 .coorpmanager .original {
   letter-spacing: 2px;
+}
+
+.coorpmanager.customer.chapterCustomer .original {
+  letter-spacing: 1px;
 }
 
 .coorp {
