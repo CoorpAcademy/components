@@ -216,7 +216,9 @@ const Card = memo(function Card(props, context) {
         theme={theme}
       />
       {badge ? (
-        <div className={style.badge} style={inlineBadgeStyle}>
+        <div className={classnames(
+          theme === 'coorpmanager' ? style.coorpmanager : null,
+          style.badge)} style={inlineBadgeStyle}>
           {badge}
         </div>
       ) : null}

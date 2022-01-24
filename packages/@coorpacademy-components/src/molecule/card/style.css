@@ -246,6 +246,11 @@
   user-select: none;
 }
 
+.coorpmanager.badge {
+  padding: 2px 5px;
+  font-size: 7px;
+}
+
 .emptyIcon {
   vertical-align: middle;
   width: 80px;
