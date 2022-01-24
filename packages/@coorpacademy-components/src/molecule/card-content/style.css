@@ -184,7 +184,7 @@
   }
 }
 
-.progressDefaultWrapper {
+.progressWrapper {
   position: relative;
   left: 0;
   width: 194px;
@@ -195,15 +195,7 @@
   background: light;
 }
 
-.progressWrapper {
-  composes: progressDefaultWrapper;
-  height: 4px;
-  margin: 16px auto;
-}
-
-.coorpmanager,
-.progressWrapper {
-  composes: progressDefaultWrapper;
+.coorpmanager .progressWrapper {
   height: 2px;
   margin: 11px auto;
 }
@@ -226,6 +218,11 @@
   flex-grow: 2;
   max-height: 115px;
   overflow: hidden;
+}
+
+.coorpmanager.externalContent .cardInfo {
+  flex-grow: 2;
+  max-height: 67px;
 }
 
 @media mobile {

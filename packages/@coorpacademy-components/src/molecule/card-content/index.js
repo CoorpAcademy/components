@@ -124,7 +124,8 @@ const ContentInfo = ({
   title,
   type,
   badgeCategory,
-  badgeLabel
+  badgeLabel,
+  theme
 }) => {
   const progressBarColor = '#3EC483';
   const inlineProgressValueStyle = {
@@ -154,6 +155,7 @@ const ContentInfo = ({
     <div
       data-name="info"
       className={classnames(
+        theme === 'coorpmanager' ? style.coorpmanager : null,
         style.infoWrapper,
         mode === MODES.HERO ? style.hero : style.card,
         disabled ? style.progressBarDisabled : null,
@@ -198,7 +200,8 @@ ContentInfo.propTypes = {
   type: PropTypes.string,
   mode: PropTypes.string,
   badgeCategory: ContentBadge.propTypes.category,
-  badgeLabel: ContentBadge.propTypes.label
+  badgeLabel: ContentBadge.propTypes.label,
+  theme: PropTypes.string
 };
 
 export default ContentInfo;

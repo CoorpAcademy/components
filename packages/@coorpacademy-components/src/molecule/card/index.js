@@ -213,6 +213,7 @@ const Card = memo(function Card(props, context) {
         type={type}
         badgeCategory={badgeCategory}
         badgeLabel={badgeLabel}
+        theme={theme}
       />
       {badge ? (
         <div className={style.badge} style={inlineBadgeStyle}>
