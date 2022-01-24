@@ -44,6 +44,7 @@ const CardBackground = ({type, image, empty, theme}, {skin}) => {
         <div
           className={classnames(
             theme === 'coorpmanager' ? style.coorpmanager : null,
+            style.externalIconCircleWrapper,
             style.externalIconCircleWithImageWrapper
           )}
           style={{
