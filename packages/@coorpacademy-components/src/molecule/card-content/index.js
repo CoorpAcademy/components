@@ -59,10 +59,11 @@ ContentTypeInfo.propTypes = {
   mode: PropTypes.string
 };
 
-const CardTitle = ({title, empty, courseContent}) => {
+const CardTitle = ({title, empty, courseContent, theme}) => {
   return (
     <div
       className={classnames(
+        theme === 'coorpmanager' ? style.coorpmanager : null,
         style.title,
         innerHTML,
         courseContent ? style.lightTitle : style.darkTitle,
@@ -79,7 +80,8 @@ const CardTitle = ({title, empty, courseContent}) => {
 CardTitle.propTypes = {
   title: PropTypes.string,
   empty: PropTypes.bool,
-  courseContent: PropTypes.bool
+  courseContent: PropTypes.bool,
+  theme: PropTypes.string
 };
 
 const AuthorName = ({author, empty, courseContent, certifiedAuthor}) => {
@@ -172,7 +174,7 @@ const ContentInfo = ({
             <ContentBadge category={badgeCategory} label={badgeLabel} />
           ) : null}
         </div>
-        <CardTitle title={title} empty={empty} courseContent={courseContent} />
+        <CardTitle title={title} empty={empty} courseContent={courseContent} theme={theme} />
         <AuthorName
           author={author}
           empty={empty}

@@ -58,9 +58,7 @@
   user-select: none;
 }
 
-.coorpmanager,
-.title {
-  composes: title;
+.coorpmanager.title {
   font-size: 12px;
   font-weight: bold;
 }
