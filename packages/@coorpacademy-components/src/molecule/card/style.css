@@ -83,6 +83,10 @@
   left: 0;
 }
 
+.coorpmanager.chapter .chapterImageWrapper {
+  max-height: 52px;
+}
+
 .default .image {
   overflow: hidden;
   background-position: 50%;

@@ -21,6 +21,23 @@
   margin-top: 53px;
 }
 
+.coorpmanager .microLearningIcon {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin-top: 35px;
+}
+
+.timerIcon {
+  height: 40px;
+  width: 40px;
+}
+
+.coorpmanager .timerIcon {
+  height: 30px;
+  width: 30px;
+}
+
 .microLearningIcon svg {
   background:white;
   border-radius: 50%;
@@ -36,6 +53,10 @@
   font-weight: 800;
   color: lightBlack;
   text-transform: uppercase;
+}
+
+.coorpmanager.microLearninglabel {
+  font-size: 6px;
 }
 
 .infoWrapper {
@@ -106,9 +127,16 @@
   margin-top: 5px;
 }
 
-.coorpmanager,
-.card .author {
+.card .coorpmanager.author {
   margin-top: 0px;
+}
+
+.microLearningCardInfo .coorpmanager.author {
+  margin-top: 5px;
+}
+
+.externalContent .coorpmanager.author {
+  margin-top: 5px;
 }
 
 .hero .author {
@@ -212,6 +240,10 @@
   font-weight: 700;
 }
 
+.coorpmanager.externalContent .contentTypeInfo {
+  font-size: 6px;
+}
+
 .externalContent .cardInfo {
   flex-grow: 2;
   max-height: 115px;
@@ -220,7 +252,7 @@
 
 .coorpmanager.externalContent .cardInfo {
   flex-grow: 2;
-  max-height: 67px;
+  max-height: 79px;
 }
 
 @media mobile {

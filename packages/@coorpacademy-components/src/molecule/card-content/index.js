@@ -18,7 +18,7 @@ export const MODES = {
   CARD: 'card'
 };
 
-const ContentTypeInfo = ({mode, type, externalContent}, context) => {
+const ContentTypeInfo = ({mode, type, externalContent, theme}, context) => {
   const {translate} = context;
   if (mode !== MODES.CARD) {
     return null;
@@ -26,9 +26,21 @@ const ContentTypeInfo = ({mode, type, externalContent}, context) => {
 
   if (type === 'chapter') {
     return (
-      <div className={style.microLearningIcon}>
-        <TimerIcon height={40} width={40} />
-        <span className={style.microLearninglabel}>{"5' learning"}</span>
+      <div
+        className={classnames(
+          theme === 'coorpmanager' ? style.coorpmanager : null,
+          style.microLearningIcon
+        )}
+      >
+        <TimerIcon className={style.timerIcon} />
+        <span
+          className={classnames(
+            theme === 'coorpmanager' ? style.coorpmanager : null,
+            style.microLearninglabel
+          )}
+        >
+          {"5' learning"}
+        </span>
       </div>
     );
   }
@@ -56,7 +68,8 @@ ContentTypeInfo.contextTypes = {
 ContentTypeInfo.propTypes = {
   externalContent: PropTypes.bool,
   type: PropTypes.string,
-  mode: PropTypes.string
+  mode: PropTypes.string,
+  theme: PropTypes.string
 };
 
 const CardTitle = ({title, empty, courseContent, theme}) => {
@@ -84,7 +97,7 @@ CardTitle.propTypes = {
   theme: PropTypes.string
 };
 
-const AuthorName = ({author, empty, courseContent, certifiedAuthor}) => {
+const AuthorName = ({author, empty, courseContent, certifiedAuthor, theme}) => {
   const checkIcon = certifiedAuthor ? (
     <CheckIcon
       className={classnames(style.authorIcon, courseContent ? style.iconShadow : null)}
@@ -97,6 +110,7 @@ const AuthorName = ({author, empty, courseContent, certifiedAuthor}) => {
       data-name="author"
       title={author}
       className={classnames(
+        theme === 'coorpmanager' ? style.coorpmanager : null,
         style.author,
         courseContent ? style.lightTitle : style.darkAuthorTitle,
         empty ? style.empty : null
@@ -112,7 +126,8 @@ AuthorName.propTypes = {
   author: PropTypes.string,
   empty: PropTypes.bool,
   courseContent: PropTypes.bool,
-  certifiedAuthor: PropTypes.bool
+  certifiedAuthor: PropTypes.bool,
+  theme: PropTypes.string
 };
 
 const ContentInfo = ({
@@ -164,7 +179,7 @@ const ContentInfo = ({
         externalContent ? style.externalContent : null
       )}
     >
-      <ContentTypeInfo mode={mode} type={type} externalContent={externalContent} />
+      <ContentTypeInfo mode={mode} type={type} externalContent={externalContent} theme={theme} />
       <div
         className={classnames(style.cardInfo, chapterContent ? style.microLearningCardInfo : null)}
       >
@@ -180,6 +195,7 @@ const ContentInfo = ({
           empty={empty}
           courseContent={courseContent}
           certifiedAuthor={certifiedAuthor}
+          theme={theme}
         />
       </div>
       {progressBar}
