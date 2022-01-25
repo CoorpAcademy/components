@@ -9,7 +9,6 @@ import BrandForm from '../brand-form';
 import ContentTranslate from '../content-translation';
 import OrganismSearchAndChipsResults from '../search-and-chips-results';
 import CourseSelection from '../course-selection';
-import Loader from '../../atom/loader';
 import style from './style.css';
 
 const buildHeader = (wizardHeader, steps) => {
