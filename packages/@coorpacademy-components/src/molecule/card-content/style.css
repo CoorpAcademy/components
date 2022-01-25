@@ -240,7 +240,7 @@
   font-size: 6px;
 }
 
-.externalContent.cardInfo {
+.externalContent .cardInfo {
   flex-grow: 2;
   max-height: 115px;
   overflow: hidden;
