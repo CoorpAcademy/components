@@ -33,3 +33,9 @@
   display: inline-block;
   margin: 0 16px 16px 0px;
 }
+
+.loader {
+  position: relative;
+  min-height: 50vh;
+  width: 100%;
+}
