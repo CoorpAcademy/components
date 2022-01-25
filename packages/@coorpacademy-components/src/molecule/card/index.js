@@ -1,7 +1,7 @@
 import React, {useMemo, memo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {get, isEmpty, isUndefined, pick} from 'lodash/fp';
+import {get, isEmpty, isUndefined, pick, keys} from 'lodash/fp';
 import {
   NovaSolidLoginLocked as LockIcon,
   NovaCompositionCoorpacademyPictures as PicturesIcon
@@ -14,6 +14,11 @@ import Favorite from './favorite';
 import Selectable from './selectable';
 import Notification from './notification';
 import style from './style.css';
+
+export const THEMES = {
+  default: null,
+  coorpmanager: style.coorpmanager
+};
 
 const CardBackground = ({type, image, empty}, {skin}) => {
   const externalContent = isExternalContent(type);
@@ -127,12 +132,14 @@ const Card = memo(function Card(props, context) {
     isSelected,
     notification,
     badgeCategory,
-    badgeLabel
+    badgeLabel,
+    theme = 'default'
   } = props;
   const empty = isEmpty(pick(['title', 'type', 'author', 'image'], props));
   const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
   const cardStyle = classnames(
+    THEMES[theme],
     type === 'chapter' ? style.chapter : style.course,
     title ? null : style.lazy,
     style.grid,
@@ -176,12 +183,7 @@ const Card = memo(function Card(props, context) {
       ) : null}
       <Selectable isSelected={isSelected} />
       {notification ? <Notification {...notification} /> : null}
-      {customer ? (
-        <Customer
-          {...customer}
-          className={classnames(style.customer, type === 'chapter' ? style.chapterCustomer : null)}
-        />
-      ) : null}
+      {customer ? <Customer {...customer} theme={theme} type={type} disabled={disabled} /> : null}
       <CardContentInfo
         mode={MODES.CARD}
         adaptiv={adaptiv}
@@ -194,6 +196,7 @@ const Card = memo(function Card(props, context) {
         type={type}
         badgeCategory={badgeCategory}
         badgeLabel={badgeLabel}
+        theme={theme}
       />
       {badge ? (
         <div className={style.badge} style={inlineBadgeStyle}>
@@ -228,6 +231,7 @@ Card.propTypes = {
   isSelected: PropTypes.bool,
   notification: PropTypes.shape(Notification.propTypes),
   badgeCategory: CardContentInfo.propTypes.badgeCategory,
-  badgeLabel: CardContentInfo.propTypes.badgeLabel
+  badgeLabel: CardContentInfo.propTypes.badgeLabel,
+  theme: PropTypes.oneOf(keys(THEMES))
 };
 export default Card;

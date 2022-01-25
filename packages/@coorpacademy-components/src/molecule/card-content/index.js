@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {isNil} from 'lodash/fp';
+import {isNil, keys} from 'lodash/fp';
 import {
   NovaCompositionCoorpacademyAdaptive as AdaptivIcon,
   NovaSolidStatusCheckCircle2 as CheckIcon,
@@ -18,6 +18,11 @@ export const MODES = {
   CARD: 'card'
 };
 
+export const THEMES = {
+  default: null,
+  coorpmanager: style.coorpmanager
+};
+
 const ContentTypeInfo = ({mode, type, externalContent}, context) => {
   const {translate} = context;
   if (mode !== MODES.CARD) {
@@ -27,7 +32,7 @@ const ContentTypeInfo = ({mode, type, externalContent}, context) => {
   if (type === 'chapter') {
     return (
       <div className={style.microLearningIcon}>
-        <TimerIcon height={40} width={40} />
+        <TimerIcon className={style.timerIcon} />
         <span className={style.microLearninglabel}>{"5' learning"}</span>
       </div>
     );
@@ -124,7 +129,8 @@ const ContentInfo = ({
   title,
   type,
   badgeCategory,
-  badgeLabel
+  badgeLabel,
+  theme = 'default'
 }) => {
   const progressBarColor = '#3EC483';
   const inlineProgressValueStyle = {
@@ -154,6 +160,7 @@ const ContentInfo = ({
     <div
       data-name="info"
       className={classnames(
+        THEMES[theme],
         style.infoWrapper,
         mode === MODES.HERO ? style.hero : style.card,
         disabled ? style.progressBarDisabled : null,
@@ -198,7 +205,8 @@ ContentInfo.propTypes = {
   type: PropTypes.string,
   mode: PropTypes.string,
   badgeCategory: ContentBadge.propTypes.category,
-  badgeLabel: ContentBadge.propTypes.label
+  badgeLabel: ContentBadge.propTypes.label,
+  theme: PropTypes.oneOf(keys(THEMES))
 };
 
 export default ContentInfo;

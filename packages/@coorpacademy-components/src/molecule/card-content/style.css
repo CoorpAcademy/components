@@ -21,6 +21,23 @@
   margin-top: 53px;
 }
 
+.coorpmanager .microLearningIcon {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  margin-top: 35px;
+}
+
+.timerIcon {
+  height: 40px;
+  width: 40px;
+}
+
+.coorpmanager .timerIcon {
+  height: 30px;
+  width: 30px;
+}
+
 .microLearningIcon svg {
   background:white;
   border-radius: 50%;
@@ -36,6 +53,10 @@
   font-weight: 800;
   color: lightBlack;
   text-transform: uppercase;
+}
+
+.coorpmanager .microLearninglabel {
+  font-size: 6px;
 }
 
 .infoWrapper {
@@ -56,6 +77,11 @@
   font-family: 'Open Sans';
   overflow: hidden;
   user-select: none;
+}
+
+.coorpmanager .title {
+  font-size: 12px;
+  font-weight: bold;
 }
 
 .lightTitle {
@@ -85,6 +111,10 @@
   user-select: none;
 }
 
+.coorpmanager .author {
+  font-size: 8px;
+}
+
 .hero .title {
   text-align: center;
   color: white;
@@ -94,6 +124,14 @@
 }
 
 .card .author {
+  margin-top: 5px;
+}
+
+.card .coorpmanager .author {
+  margin-top: 0px;
+}
+
+.externalContent.coorpmanager .author {
   margin-top: 5px;
 }
 
@@ -179,6 +217,11 @@
   background: light;
 }
 
+.coorpmanager .progressWrapper {
+  height: 2px;
+  margin: 11px auto;
+}
+
 .card .progressWrapper {
   width: 150px;
 }
@@ -193,10 +236,19 @@
   font-weight: 700;
 }
 
+.coorpmanager.externalContent .contentTypeInfo {
+  font-size: 6px;
+}
+
 .externalContent .cardInfo {
   flex-grow: 2;
   max-height: 115px;
   overflow: hidden;
+}
+
+.coorpmanager.externalContent .cardInfo {
+  flex-grow: 2;
+  max-height: 79px;
 }
 
 @media mobile {

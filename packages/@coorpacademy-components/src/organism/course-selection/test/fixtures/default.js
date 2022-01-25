@@ -3,6 +3,7 @@ import SelectedCard from '../../../../molecule/card/test/fixtures/selectable-tru
 import Article from '../../../../molecule/card/test/fixtures/article';
 import Scorm from '../../../../molecule/card/test/fixtures/scorm';
 import ExternalContent from '../../../../molecule/card/test/fixtures/external-content';
+import Chaptercard from '../../../../molecule/card/test/fixtures/freerun';
 
 export default {
   props: {
@@ -47,14 +48,38 @@ export default {
     },
     'courses-selection-aria-label': 'Courses results',
     courses: [
-      SelectedCard.props,
-      UnSelectedCard.props,
-      {...Article.props, isSelected: false},
-      SelectedCard.props,
-      {...Scorm.props, isSelected: true},
-      {...UnSelectedCard.props, isSelected: false, title: 'Standard course'},
-      {...ExternalContent.props, isSelected: false, title: 'External course'},
-      {...Scorm.props, isSelected: false, title: 'Scorm course'}
+      {...SelectedCard.props, theme: 'coorpmanager', progress: undefined},
+      {...UnSelectedCard.props, theme: 'coorpmanager', progress: undefined},
+      {...Article.props, isSelected: false, theme: 'coorpmanager', progress: undefined},
+      {
+        ...Chaptercard.props,
+        theme: 'coorpmanager',
+        progress: undefined,
+        isSelected: false,
+        favorite: false
+      },
+      {...Scorm.props, isSelected: true, theme: 'coorpmanager', progress: undefined},
+      {
+        ...UnSelectedCard.props,
+        isSelected: false,
+        title: 'Standard course',
+        theme: 'coorpmanager',
+        progress: undefined
+      },
+      {
+        ...ExternalContent.props,
+        isSelected: false,
+        title: 'External course',
+        theme: 'coorpmanager',
+        progress: undefined
+      },
+      {
+        ...Scorm.props,
+        isSelected: false,
+        title: 'Scorm course',
+        theme: 'coorpmanager',
+        progress: undefined
+      }
     ],
     switchButton: {
       type: 'switch',

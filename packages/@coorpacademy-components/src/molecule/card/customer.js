@@ -1,12 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
+import {keys} from 'lodash/fp';
 import style from './customer.css';
 
+export const THEMES = {
+  default: null,
+  coorpmanager: style.coorpmanager
+};
+
 const Customer = props => {
-  const {name, className, coorpOriginal} = props;
+  const {name, type, coorpOriginal, theme, disabled = false} = props;
+  const className = classnames(
+    THEMES[theme],
+    style.customer,
+    type === 'chapter' ? style.chapterCustomer : null
+  );
 
   return (
-    <div className={className}>
+    <div className={className} disabled={disabled}>
       <div className={style.content}>
         {coorpOriginal ? <span className={style.coorp}>Coorp </span> : null}
         {coorpOriginal ? <span className={style.original}>Original </span> : null}
@@ -17,9 +29,11 @@ const Customer = props => {
 };
 
 Customer.propTypes = {
-  className: PropTypes.string,
+  theme: PropTypes.oneOf(keys(THEMES)),
+  type: PropTypes.string,
   name: PropTypes.string,
-  coorpOriginal: PropTypes.bool.isRequired
+  coorpOriginal: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool
 };
 
 export default Customer;
