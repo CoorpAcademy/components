@@ -55,7 +55,7 @@
   text-transform: uppercase;
 }
 
-.coorpmanager.microLearninglabel {
+.coorpmanager .microLearninglabel {
   font-size: 6px;
 }
 
@@ -79,7 +79,7 @@
   user-select: none;
 }
 
-.coorpmanager.title {
+.coorpmanager .title {
   font-size: 12px;
   font-weight: bold;
 }
@@ -127,15 +127,11 @@
   margin-top: 5px;
 }
 
-.card .coorpmanager.author {
+.card .coorpmanager .author {
   margin-top: 0px;
 }
 
-.microLearningCardInfo .coorpmanager.author {
-  margin-top: 5px;
-}
-
-.externalContent .coorpmanager.author {
+.externalContent.coorpmanager .author {
   margin-top: 5px;
 }
 
@@ -244,7 +240,7 @@
   font-size: 6px;
 }
 
-.externalContent .cardInfo {
+.externalContent.cardInfo {
   flex-grow: 2;
   max-height: 115px;
   overflow: hidden;

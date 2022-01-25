@@ -20,7 +20,7 @@ export const THEMES = {
   coorpmanager: style.coorpmanager
 };
 
-const CardBackground = ({type, image, empty, theme}, {skin}) => {
+const CardBackground = ({type, image, empty}, {skin}) => {
   const externalContent = isExternalContent(type);
   const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
@@ -29,8 +29,8 @@ const CardBackground = ({type, image, empty, theme}, {skin}) => {
     const IconType = EXTERNAL_CONTENT_ICONS[type].icon;
     const iconColor = EXTERNAL_CONTENT_ICONS[type].color;
     const backgroundIcon = (
-      <div className={classnames(THEMES[theme], style.externalIconCircleWrapper)}>
-        <IconType className={classnames(THEMES[theme], style.externalIcon)} />
+      <div className={style.externalIconCircleWrapper}>
+        <IconType className={style.externalIcon} />
       </div>
     );
 
@@ -38,7 +38,6 @@ const CardBackground = ({type, image, empty, theme}, {skin}) => {
       const _backgroundIcon = (
         <div
           className={classnames(
-            THEMES[theme],
             style.externalIconCircleWrapper,
             style.externalIconCircleWithImageWrapper
           )}
@@ -46,7 +45,7 @@ const CardBackground = ({type, image, empty, theme}, {skin}) => {
             backgroundColor: iconColor
           }}
         >
-          <IconType className={classnames(THEMES[theme], style.externalIconWithImage)} />
+          <IconType className={style.externalIconWithImage} />
         </div>
       );
 
@@ -107,7 +106,6 @@ CardBackground.contextTypes = {
 };
 
 CardBackground.propTypes = {
-  theme: PropTypes.oneOf(keys(THEMES)),
   type: PropTypes.string,
   image: PropTypes.string,
   empty: PropTypes.bool
@@ -172,7 +170,7 @@ const Card = memo(function Card(props, context) {
       disabled={disabled}
       onClick={handleClick}
     >
-      <CardBackground type={type} image={image} empty={empty} theme={theme} />
+      <CardBackground type={type} image={image} empty={empty} />
       {isUndefined(isSelected) && !isUndefined(favorite) ? (
         <Favorite
           className={style.favorite}
@@ -201,7 +199,7 @@ const Card = memo(function Card(props, context) {
         theme={theme}
       />
       {badge ? (
-        <div className={classnames(THEMES[theme], style.badge)} style={inlineBadgeStyle}>
+        <div className={style.badge} style={inlineBadgeStyle}>
           {badge}
         </div>
       ) : null}
