@@ -17,7 +17,7 @@
   user-select: none;
 }
 
-.default[disabled] .customer {
+.customer[disabled] {
   background: none;
 }
 

@@ -185,7 +185,7 @@ const Card = memo(function Card(props, context) {
       ) : null}
       <Selectable isSelected={isSelected} />
       {notification ? <Notification {...notification} /> : null}
-      {customer ? <Customer {...customer} theme={theme} type={type} /> : null}
+      {customer ? <Customer {...customer} theme={theme} type={type} disabled={disabled} /> : null}
       <CardContentInfo
         mode={MODES.CARD}
         adaptiv={adaptiv}

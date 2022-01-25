@@ -10,7 +10,7 @@ export const THEMES = {
 };
 
 const Customer = props => {
-  const {name, type, coorpOriginal, theme} = props;
+  const {name, type, coorpOriginal, theme, disabled = false} = props;
   const className = classnames(
     THEMES[theme],
     style.customer,
@@ -18,7 +18,7 @@ const Customer = props => {
   );
 
   return (
-    <div className={className}>
+    <div className={className} disabled={disabled}>
       <div className={style.content}>
         {coorpOriginal ? <span className={style.coorp}>Coorp </span> : null}
         {coorpOriginal ? <span className={style.original}>Original </span> : null}
@@ -32,7 +32,8 @@ Customer.propTypes = {
   theme: PropTypes.oneOf(keys(THEMES)),
   type: PropTypes.string,
   name: PropTypes.string,
-  coorpOriginal: PropTypes.bool.isRequired
+  coorpOriginal: PropTypes.bool.isRequired,
+  disabled: PropTypes.bool
 };
 
 export default Customer;
