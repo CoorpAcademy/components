@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {isNil} from 'lodash/fp';
+import {isNil, keys} from 'lodash/fp';
 import {
   NovaCompositionCoorpacademyAdaptive as AdaptivIcon,
   NovaSolidStatusCheckCircle2 as CheckIcon,
@@ -18,6 +18,11 @@ export const MODES = {
   CARD: 'card'
 };
 
+export const THEMES = {
+  default: null,
+  coorpmanager: style.coorpmanager
+};
+
 const ContentTypeInfo = ({mode, type, externalContent, theme}, context) => {
   const {translate} = context;
   if (mode !== MODES.CARD) {
@@ -26,21 +31,9 @@ const ContentTypeInfo = ({mode, type, externalContent, theme}, context) => {
 
   if (type === 'chapter') {
     return (
-      <div
-        className={classnames(
-          theme === 'coorpmanager' ? style.coorpmanager : null,
-          style.microLearningIcon
-        )}
-      >
+      <div className={classnames(THEMES[theme], style.microLearningIcon)}>
         <TimerIcon className={style.timerIcon} />
-        <span
-          className={classnames(
-            theme === 'coorpmanager' ? style.coorpmanager : null,
-            style.microLearninglabel
-          )}
-        >
-          {"5' learning"}
-        </span>
+        <span className={classnames(THEMES[theme], style.microLearninglabel)}>{"5' learning"}</span>
       </div>
     );
   }
@@ -69,14 +62,14 @@ ContentTypeInfo.propTypes = {
   externalContent: PropTypes.bool,
   type: PropTypes.string,
   mode: PropTypes.string,
-  theme: PropTypes.string
+  theme: PropTypes.oneOf(keys(THEMES))
 };
 
 const CardTitle = ({title, empty, courseContent, theme}) => {
   return (
     <div
       className={classnames(
-        theme === 'coorpmanager' ? style.coorpmanager : null,
+        THEMES[theme],
         style.title,
         innerHTML,
         courseContent ? style.lightTitle : style.darkTitle,
@@ -94,7 +87,7 @@ CardTitle.propTypes = {
   title: PropTypes.string,
   empty: PropTypes.bool,
   courseContent: PropTypes.bool,
-  theme: PropTypes.string
+  theme: PropTypes.oneOf(keys(THEMES))
 };
 
 const AuthorName = ({author, empty, courseContent, certifiedAuthor, theme}) => {
@@ -110,7 +103,7 @@ const AuthorName = ({author, empty, courseContent, certifiedAuthor, theme}) => {
       data-name="author"
       title={author}
       className={classnames(
-        theme === 'coorpmanager' ? style.coorpmanager : null,
+        THEMES[theme],
         style.author,
         courseContent ? style.lightTitle : style.darkAuthorTitle,
         empty ? style.empty : null
@@ -127,7 +120,7 @@ AuthorName.propTypes = {
   empty: PropTypes.bool,
   courseContent: PropTypes.bool,
   certifiedAuthor: PropTypes.bool,
-  theme: PropTypes.string
+  theme: PropTypes.oneOf(keys(THEMES))
 };
 
 const ContentInfo = ({
@@ -142,7 +135,7 @@ const ContentInfo = ({
   type,
   badgeCategory,
   badgeLabel,
-  theme
+  theme = 'default'
 }) => {
   const progressBarColor = '#3EC483';
   const inlineProgressValueStyle = {
@@ -172,7 +165,7 @@ const ContentInfo = ({
     <div
       data-name="info"
       className={classnames(
-        theme === 'coorpmanager' ? style.coorpmanager : null,
+        THEMES[theme],
         style.infoWrapper,
         mode === MODES.HERO ? style.hero : style.card,
         disabled ? style.progressBarDisabled : null,
@@ -219,7 +212,7 @@ ContentInfo.propTypes = {
   mode: PropTypes.string,
   badgeCategory: ContentBadge.propTypes.category,
   badgeLabel: ContentBadge.propTypes.label,
-  theme: PropTypes.string
+  theme: PropTypes.oneOf(keys(THEMES))
 };
 
 export default ContentInfo;

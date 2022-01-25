@@ -1,7 +1,7 @@
 import React, {useMemo, memo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {get, isEmpty, isUndefined, pick} from 'lodash/fp';
+import {get, isEmpty, isUndefined, pick, keys} from 'lodash/fp';
 import {
   NovaSolidLoginLocked as LockIcon,
   NovaCompositionCoorpacademyPictures as PicturesIcon
@@ -15,6 +15,11 @@ import Selectable from './selectable';
 import Notification from './notification';
 import style from './style.css';
 
+export const THEMES = {
+  default: null,
+  coorpmanager: style.coorpmanager
+};
+
 const CardBackground = ({type, image, empty, theme}, {skin}) => {
   const externalContent = isExternalContent(type);
   const primaryColor = get('common.primary', skin);
@@ -24,18 +29,8 @@ const CardBackground = ({type, image, empty, theme}, {skin}) => {
     const IconType = EXTERNAL_CONTENT_ICONS[type].icon;
     const iconColor = EXTERNAL_CONTENT_ICONS[type].color;
     const backgroundIcon = (
-      <div
-        className={classnames(
-          theme === 'coorpmanager' ? style.coorpmanager : null,
-          style.externalIconCircleWrapper
-        )}
-      >
-        <IconType
-          className={classnames(
-            theme === 'coorpmanager' ? style.coorpmanager : null,
-            style.externalIcon
-          )}
-        />
+      <div className={classnames(THEMES[theme], style.externalIconCircleWrapper)}>
+        <IconType className={classnames(THEMES[theme], style.externalIcon)} />
       </div>
     );
 
@@ -43,7 +38,7 @@ const CardBackground = ({type, image, empty, theme}, {skin}) => {
       const _backgroundIcon = (
         <div
           className={classnames(
-            theme === 'coorpmanager' ? style.coorpmanager : null,
+            THEMES[theme],
             style.externalIconCircleWrapper,
             style.externalIconCircleWithImageWrapper
           )}
@@ -51,12 +46,7 @@ const CardBackground = ({type, image, empty, theme}, {skin}) => {
             backgroundColor: iconColor
           }}
         >
-          <IconType
-            className={classnames(
-              theme === 'coorpmanager' ? style.coorpmanager : null,
-              style.externalIconWithImage
-            )}
-          />
+          <IconType className={classnames(THEMES[theme], style.externalIconWithImage)} />
         </div>
       );
 
@@ -117,7 +107,7 @@ CardBackground.contextTypes = {
 };
 
 CardBackground.propTypes = {
-  theme: PropTypes.string,
+  theme: PropTypes.oneOf(keys(THEMES)),
   type: PropTypes.string,
   image: PropTypes.string,
   empty: PropTypes.bool
@@ -151,7 +141,7 @@ const Card = memo(function Card(props, context) {
   const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
   const cardStyle = classnames(
-    theme === 'coorpmanager' ? style.coorpmanager : null,
+    THEMES[theme],
     type === 'chapter' ? style.chapter : style.course,
     title ? null : style.lazy,
     style.grid,
@@ -211,10 +201,7 @@ const Card = memo(function Card(props, context) {
         theme={theme}
       />
       {badge ? (
-        <div
-          className={classnames(theme === 'coorpmanager' ? style.coorpmanager : null, style.badge)}
-          style={inlineBadgeStyle}
-        >
+        <div className={classnames(THEMES[theme], style.badge)} style={inlineBadgeStyle}>
           {badge}
         </div>
       ) : null}
@@ -247,6 +234,6 @@ Card.propTypes = {
   notification: PropTypes.shape(Notification.propTypes),
   badgeCategory: CardContentInfo.propTypes.badgeCategory,
   badgeLabel: CardContentInfo.propTypes.badgeLabel,
-  theme: PropTypes.string
+  theme: PropTypes.oneOf(keys(THEMES))
 };
 export default Card;
