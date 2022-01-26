@@ -18,6 +18,10 @@
   display: flex;
 }
 
+.loader {
+  height: calc(100% - 143px);
+}
+
 .left {
   width: 223px;
 }

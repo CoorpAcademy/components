@@ -166,7 +166,8 @@ const BrandUpdate = props => {
 
   const contentStyle = classNames([
     style.content,
-    !isEmpty(notifications) && style.contentWithNotifications
+    !isEmpty(notifications) && style.contentWithNotifications,
+    isEmpty(content) && style.loader
   ]);
 
   return (
