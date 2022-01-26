@@ -1,6 +1,6 @@
 import {defaultsDeep} from 'lodash/fp';
 import BrandUpload from '../../../../../organism/brand-upload/test/fixtures/default';
-import Users from './default';
+import Users from './manageusers-edit';
 
 const {props} = Users;
 
