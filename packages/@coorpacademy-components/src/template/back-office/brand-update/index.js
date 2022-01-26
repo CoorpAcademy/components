@@ -123,7 +123,7 @@ const buildContentView = content => {
   if (!content) {
     return (
       <div>
-        <Loader />
+        <Loader theme="coorpmanager" />
       </div>
     );
   }
