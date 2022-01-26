@@ -26,7 +26,7 @@ export default {
         {
           name: 'Course',
           value: 'course',
-          selected: true
+          selected: false
         },
         {
           name: "5' learning",
@@ -36,7 +36,7 @@ export default {
         {
           name: 'Interactive slides',
           value: 'scorm',
-          selected: false
+          selected: true
         },
         {
           name: 'Video',
