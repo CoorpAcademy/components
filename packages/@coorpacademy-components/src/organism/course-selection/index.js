@@ -6,6 +6,7 @@ import Search from '../../atom/input-search';
 import SelectMultiple from '../../molecule/select-multiple';
 import Card from '../../molecule/card';
 import InputSwitch from '../../atom/input-switch';
+import Loader from '../../atom/loader';
 import style from './style.css';
 
 const buildResultView = (courses, coursesSelectionAriaLabel, emptyMessages, isLoading) => {
@@ -48,7 +49,15 @@ const CourseSelection = props => {
         </div>
         <InputSwitch {...switchButton} />
       </div>
-      <div className={style.cardsContainer}>{resultView}</div>
+      <div className={style.cardsContainer}>
+        {isLoading ? (
+          <div className={style.loader}>
+            <Loader theme="coorpmanager" />
+          </div>
+        ) : (
+          resultView
+        )}
+      </div>
     </div>
   );
 };

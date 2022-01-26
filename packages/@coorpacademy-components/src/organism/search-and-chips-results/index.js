@@ -5,6 +5,7 @@ import EmptySearchResult from '../../atom/empty-search-result';
 import Search from '../../atom/input-search';
 import ButtonLink from '../../atom/button-link';
 import Chips from '../../atom/chips';
+import Loader from '../../atom/loader';
 import style from './style.css';
 
 const buildResultView = (results, resultsAriaLabel, emptyMessages, isLoading) => {
@@ -58,7 +59,15 @@ const SearchAndChipsResults = props => {
           <Search {...search} theme="coorpmanager" />
         </div>
       </div>
-      <div className={style.resultContainer}>{resultView}</div>
+      <div className={style.resultContainer}>
+        {isLoading ? (
+          <div className={style.loader}>
+            <Loader theme="coorpmanager" />
+          </div>
+        ) : (
+          resultView
+        )}
+      </div>
     </div>
   );
 };

@@ -9,7 +9,6 @@ import BrandForm from '../brand-form';
 import ContentTranslate from '../content-translation';
 import OrganismSearchAndChipsResults from '../search-and-chips-results';
 import CourseSelection from '../course-selection';
-import Loader from '../../atom/loader';
 import style from './style.css';
 
 const buildHeader = (wizardHeader, steps) => {
@@ -102,15 +101,7 @@ const WizardContents = props => {
     <div className={style.container} data-name="custom-playlist-summary">
       <div className={style.leftSection}>
         {headerView}
-        <div className={style.form}>
-          {isLoading ? (
-            <div className={style.loader}>
-              <Loader theme="coorpmanager" />
-            </div>
-          ) : (
-            formView
-          )}
-        </div>
+        <div className={style.form}>{formView}</div>
       </div>
       <div className={style.rightSection} data-name="summary-right-section">
         <div className={style.stickySection}>

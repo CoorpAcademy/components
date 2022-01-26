@@ -40,12 +40,6 @@
   flex-direction: column;
 }
 
-.loader {
-  position: relative;
-  min-height: 50vh;
-  width: 100%;
-}
-
 .header {
   display: flex;
   flex-direction: row;
