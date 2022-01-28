@@ -20,7 +20,7 @@ function createQuestion(matchOrder: boolean, answers: AcceptedAnswers): QCMDragQ
   };
 }
 
-[true].forEach((bool: boolean) => {
+[true, false].forEach((bool: boolean) => {
   test(`should return true when the given answer is in the accepted answers (matchOrder=${bool.toString()})`, t => {
     const question = createQuestion(bool, [
       ['answer1', 'answer3'],
