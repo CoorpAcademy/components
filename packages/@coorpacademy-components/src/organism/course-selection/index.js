@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {isEmpty} from 'lodash/fp';
+import {isEmpty, get, kebabCase} from 'lodash/fp';
 import EmptySearchResult from '../../atom/empty-search-result';
 import Search from '../../atom/input-search';
 import SelectMultiple from '../../molecule/select-multiple';
@@ -15,8 +15,10 @@ const buildResultView = (courses, coursesSelectionAriaLabel, emptyMessages, isLo
   }
 
   const items = courses.map((card, index) => {
+    const title = get('title', card);
+    const type = get('type', card);
     return (
-      <li className={style.cards} key={`card-${index}`} data-name={`course-${index}`}>
+      <li className={style.cards} key={`card-${index}`} data-name={`${type}-${kebabCase(title)}`}>
         <Card {...card} />
       </li>
     );
@@ -49,7 +51,7 @@ const CourseSelection = props => {
         </div>
         <InputSwitch {...switchButton} />
       </div>
-      <div className={style.cardsContainer}>
+      <div className={style.cardsContainer} data-name={'courses-result'}>
         {isLoading ? (
           <div className={style.loader}>
             <Loader theme="coorpmanager" />

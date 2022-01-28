@@ -15,12 +15,13 @@
 
 .search {
   width: 41%;
-  min-width: 309px;
+  margin-right: 16px;
 }
 
 .contentFilter {
   width: 24%;
   min-width: 181px;
+  margin-right: 16px;
 }
 
 .cardsContainer {

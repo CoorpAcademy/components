@@ -22,7 +22,7 @@ export default {
     ],
     switchButton: {
       type: 'switch',
-      title: 'Show selected courses only',
+      title: 'Show selected only',
       value: false,
       onChange: value => console.log(value),
       titlePosition: 'right',

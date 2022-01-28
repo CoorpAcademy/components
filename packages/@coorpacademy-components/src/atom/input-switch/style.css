@@ -140,11 +140,12 @@
 }
 
 .coorpmanager .checkbox:disabled ~ label {
-  background: light;
-  border-color: light;
+  border-color: cm_grey_200;
   pointer-events: none;
+  background: cm_grey_200;
+  opacity: 0.4;
 }
 
 .coorpmanager .checkbox:disabled ~ label::after {
-  background: medium;
+  background: white;
 }

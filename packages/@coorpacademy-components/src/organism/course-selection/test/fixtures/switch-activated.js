@@ -13,7 +13,7 @@ export default {
     courses: [SelectedCard.props, SelectedCard.props],
     switchButton: {
       type: 'switch',
-      title: 'Show selected courses only',
+      title: 'Show selected only',
       value: true,
       onChange: value => console.log(value),
       titlePosition: 'right',
