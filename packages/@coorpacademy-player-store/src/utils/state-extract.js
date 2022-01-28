@@ -512,7 +512,7 @@ const getMedia = (media: Media): Media | void => {
       return {
         ...resource,
         type,
-        url: resource.url
+        url: get('url', resource)
       };
     case 'video':
       return {
