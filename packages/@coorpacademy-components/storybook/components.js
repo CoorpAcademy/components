@@ -997,6 +997,7 @@ import TemplateAppPlayerPopinEndFixtureSimpleAction from '../src/template/app-pl
 import TemplateAppPlayerPopinEndFixtureSubscribe from '../src/template/app-player/popin-end/test/fixtures/subscribe';
 import TemplateAppPlayerPopinEndFixtureWithLoadingRecommendations from '../src/template/app-player/popin-end/test/fixtures/with-loading-recommendations';
 import TemplateAppPlayerPopinEndFixtureWithRecommendations from '../src/template/app-player/popin-end/test/fixtures/with-recommendations';
+import TemplateAppPlayerPopinEndFixtureWithoutRecommendation from '../src/template/app-player/popin-end/test/fixtures/without-recommendation';
 import TemplateAppPlayerPopinHeaderFixtureExhaustedExtralife from '../src/template/app-player/popin-header/test/fixtures/exhausted-extralife';
 import TemplateAppPlayerPopinHeaderFixtureExtralifeAccepted from '../src/template/app-player/popin-header/test/fixtures/extralife-accepted';
 import TemplateAppPlayerPopinHeaderFixtureExtralife from '../src/template/app-player/popin-header/test/fixtures/extralife';
@@ -2473,7 +2474,8 @@ export const fixtures = {
       SimpleAction: TemplateAppPlayerPopinEndFixtureSimpleAction,
       Subscribe: TemplateAppPlayerPopinEndFixtureSubscribe,
       WithLoadingRecommendations: TemplateAppPlayerPopinEndFixtureWithLoadingRecommendations,
-      WithRecommendations: TemplateAppPlayerPopinEndFixtureWithRecommendations
+      WithRecommendations: TemplateAppPlayerPopinEndFixtureWithRecommendations,
+      WithoutRecommendation: TemplateAppPlayerPopinEndFixtureWithoutRecommendation
     },
     TemplateAppPlayerPopinHeader: {
       ExhaustedExtralife: TemplateAppPlayerPopinHeaderFixtureExhaustedExtralife,

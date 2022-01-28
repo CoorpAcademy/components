@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {get, getOr, keys} from 'lodash/fp';
+import {get, getOr, keys, isEmpty} from 'lodash/fp';
 import classnames from 'classnames';
 import {NovaSolidStatusCheckCircle2 as CheckIcon} from '@coorpacademy/nova-icons';
 import Provider from '../../../atom/provider';
@@ -185,11 +185,11 @@ const Cards = props => {
   return get('cards', props) === null ? (
     <CardsLoader />
   ) : (
-    (cards ? (
+    (isEmpty(cards) ? null : (
       <div className={style.cardsWrapper}>
         <CardsList {...props} dataName={'popin-end-recommendation'} />
       </div>
-    ) : null) || null
+    )) || null
   );
 };
 
