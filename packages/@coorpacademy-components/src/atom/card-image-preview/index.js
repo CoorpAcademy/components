@@ -7,22 +7,18 @@ import Provider from '../provider';
 import style from './style.css';
 
 const CardImagePreview = ({image}, {skin}) => {
-  const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
   const emptyIcon = !image ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
 
   return (
-    <div className={style.container} data-name="card-image-preview">
-      <div
-        data-name="cover"
-        className={style.image}
-        style={{
-          backgroundColor: primaryColor,
-          backgroundImage: image ? `url('${image}')` : 'none'
-        }}
-      >
-        {emptyIcon}
-      </div>
+    <div
+      className={style.image}
+      style={{
+        backgroundImage: image ? `url('${image}')` : 'none'
+      }}
+      data-name="card-image-preview"
+    >
+      {emptyIcon}
     </div>
   );
 };
