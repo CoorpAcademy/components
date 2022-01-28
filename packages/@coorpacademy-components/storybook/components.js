@@ -223,9 +223,6 @@ import AtomButtonMenuFixtureDefault from '../src/atom/button-menu/test/fixtures/
 import AtomButtonMenuFixtureMultipleButtons from '../src/atom/button-menu/test/fixtures/multiple-buttons';
 import AtomCardImagePreviewFixtureDefault from '../src/atom/card-image-preview/test/fixtures/default';
 import AtomCardImagePreviewFixtureEmpty from '../src/atom/card-image-preview/test/fixtures/empty';
-import AtomCardImagePreviewFixturePodcast from '../src/atom/card-image-preview/test/fixtures/podcast';
-import AtomCardImagePreviewFixtureScorm from '../src/atom/card-image-preview/test/fixtures/scorm';
-import AtomCardImagePreviewFixtureVideo from '../src/atom/card-image-preview/test/fixtures/video';
 import AtomCatalogSectionFixtureList from '../src/atom/catalog-section/test/fixtures/list';
 import AtomCatalogSectionFixturePicture from '../src/atom/catalog-section/test/fixtures/picture';
 import AtomCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
@@ -1380,10 +1377,7 @@ export const fixtures = {
     },
     AtomCardImagePreview: {
       Default: AtomCardImagePreviewFixtureDefault,
-      Empty: AtomCardImagePreviewFixtureEmpty,
-      Podcast: AtomCardImagePreviewFixturePodcast,
-      Scorm: AtomCardImagePreviewFixtureScorm,
-      Video: AtomCardImagePreviewFixtureVideo
+      Empty: AtomCardImagePreviewFixtureEmpty
     },
     AtomCatalogSection: {
       List: AtomCatalogSectionFixtureList,
