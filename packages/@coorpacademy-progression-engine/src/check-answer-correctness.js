@@ -135,18 +135,18 @@ function matchAnswerForUnorderedItems(
   allowedAnswers: AcceptedAnswers,
   givenAnswer: Answer
 ): Array<Array<PartialCorrection>> {
-  const lowerGivenAnswer = map(toLower, givenAnswer);
+  // const lowerGivenAnswer = map(toLower, givenAnswer);
 
   return allowedAnswers.map((allowedAnswer): Array<PartialCorrection> => {
-    const lowerAllowedAnswer = map(toLower, allowedAnswer);
+    // const lowerAllowedAnswer = map(toLower, allowedAnswer);
     const givenAnswersMap = map(
       answer => ({
         answer,
-        isCorrect: includes(toLower(answer), lowerAllowedAnswer)
+        isCorrect: includes(answer, allowedAnswer)
       }),
       givenAnswer
     );
-    if (lowerAllowedAnswer.some(answer => !includes(answer, lowerGivenAnswer))) {
+    if (allowedAnswer.some(answer => !includes(answer, givenAnswer))) {
       return givenAnswersMap.concat([{answer: undefined, isCorrect: false}]);
     }
     return givenAnswersMap;
@@ -161,7 +161,7 @@ function matchAnswerForOrderedItems(
     return map(([givenAnswerPart, allowedAnswerPart]): PartialCorrection => {
       return {
         answer: givenAnswerPart,
-        isCorrect: toLower(givenAnswerPart) === toLower(allowedAnswerPart)
+        isCorrect: givenAnswerPart === allowedAnswerPart
       };
     }, zip(givenAnswer, allowedAnswer));
   }, allowedAnswers);

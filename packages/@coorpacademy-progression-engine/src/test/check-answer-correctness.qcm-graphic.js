@@ -33,10 +33,10 @@ test('should return true when the given answer is in the accepted answers', t =>
   assertCorrect(t, config, question, ['answer1', 'answer4']);
 });
 
-test('should return true even when the given answer does not have the same case as the accepted answers', t => {
+test('should return false when the given answer does not have the same case as the accepted answers', t => {
   const question = createQuestion([['answer2']]);
 
-  assertCorrect(t, config, question, ['ANSWER2']);
+  assertIncorrect(t, config, question, ['ANSWER2'], [false]);
 });
 
 test('should return true when the given answer is in the accepted answers but values are in a different order', t => {

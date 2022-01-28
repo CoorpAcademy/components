@@ -20,7 +20,7 @@ function createQuestion(matchOrder: boolean, answers: AcceptedAnswers): QCMDragQ
   };
 }
 
-[true, false].forEach((bool: boolean) => {
+[true].forEach((bool: boolean) => {
   test(`should return true when the given answer is in the accepted answers (matchOrder=${bool.toString()})`, t => {
     const question = createQuestion(bool, [
       ['answer1', 'answer3'],
@@ -33,10 +33,10 @@ function createQuestion(matchOrder: boolean, answers: AcceptedAnswers): QCMDragQ
     assertCorrect(t, config, question, ['answer1', 'answer4']);
   });
 
-  test(`should return true even when the given answer does not have the same case as the accepted answers (matchOrder=${bool.toString()})`, t => {
+  test(`should return false when the given answer does not have the same case as the accepted answers (matchOrder=${bool.toString()})`, t => {
     const question = createQuestion(bool, [['answer2']]);
 
-    assertCorrect(t, config, question, ['ANSWER2']);
+    assertIncorrect(t, config, question, ['ANSWER2'], [false]);
   });
 
   test(`should return false when the given answer is not in the accepted answers (matchOrder=${bool.toString()})`, t => {
