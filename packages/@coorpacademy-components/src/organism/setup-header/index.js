@@ -90,7 +90,8 @@ const SetupHeader = props => {
     'aria-label': items.logOut.label,
     'data-name': `logout-list-button`,
     link: {
-      href: items.logOut.href
+      href: items.logOut.href,
+      onClick: items.logOut.onClick
     },
     icon: {
       position: 'left',
@@ -152,10 +153,10 @@ const SetupHeader = props => {
 
 SetupHeader.propTypes = {
   items: PropTypes.shape({
-    seeMyPlatform: PropTypes.shape({href: PropTypes.string, label: PropTypes.string}),
-    logOut: PropTypes.shape({href: PropTypes.string, label: PropTypes.string}),
-    globalAnalytics: PropTypes.shape({href: PropTypes.string, label: PropTypes.string}),
-    platformList: PropTypes.shape({href: PropTypes.string, label: PropTypes.string})
+    seeMyPlatform: PropTypes.shape(ButtonLink.propTypes),
+    logOut: PropTypes.shape(ButtonLink.propTypes),
+    globalAnalytics: PropTypes.shape(ButtonLink.propTypes),
+    platformList: PropTypes.shape(ButtonLink.propTypes)
   }),
   platformName: PropTypes.string,
   isDashboard: PropTypes.bool,

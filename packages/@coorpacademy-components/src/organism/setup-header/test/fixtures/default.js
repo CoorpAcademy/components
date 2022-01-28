@@ -14,7 +14,13 @@ export default {
     items: {
       platformList: {href: '/list', label: 'Platform List'},
       seeMyPlatform: {href: '/onboardin', label: 'See My Platform'},
-      logOut: {href: '/logout', label: 'Log Out'},
+      logOut: {
+        href: '/logout',
+        label: 'Log Out',
+        onClick: () => {
+          console.log('onClick');
+        }
+      },
       globalAnalytics: {href: '/analytics', label: 'Dashboards'}
     },
     href: '#'
