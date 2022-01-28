@@ -73,7 +73,7 @@ function isTextCorrect(
 
   const answerWithoutCase = toLower(answerWithCase);
   return (
-    checkFuzzyAnswer(maxTypos, fm, answerWithoutCase) ||
+    checkFuzzyAnswer(maxTypos, fm, answerWithCase) ||
     (maxTypos !== 0 &&
       some(
         allowedAnswer => containsAnswer(config, toLower(allowedAnswer), answerWithoutCase),
@@ -135,10 +135,7 @@ function matchAnswerForUnorderedItems(
   allowedAnswers: AcceptedAnswers,
   givenAnswer: Answer
 ): Array<Array<PartialCorrection>> {
-  // const lowerGivenAnswer = map(toLower, givenAnswer);
-
   return allowedAnswers.map((allowedAnswer): Array<PartialCorrection> => {
-    // const lowerAllowedAnswer = map(toLower, allowedAnswer);
     const givenAnswersMap = map(
       answer => ({
         answer,
