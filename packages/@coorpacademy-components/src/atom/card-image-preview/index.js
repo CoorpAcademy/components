@@ -12,7 +12,7 @@ const CardImagePreview = ({image}, {skin}) => {
   const emptyIcon = !image ? <PicturesIcon className={style.emptyIcon} color={whiteColor} /> : null;
 
   return (
-    <div className={style.course} data-name="card-image-preview">
+    <div className={style.container} data-name="card-image-preview">
       <div
         data-name="cover"
         className={style.image}
