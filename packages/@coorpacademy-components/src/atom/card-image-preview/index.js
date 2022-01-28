@@ -1,4 +1,4 @@
-import React, {memo} from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import {get} from 'lodash/fp';
 import {NovaCompositionCoorpacademyPictures as PicturesIcon} from '@coorpacademy/nova-icons';

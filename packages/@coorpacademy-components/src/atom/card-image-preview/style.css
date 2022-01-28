@@ -31,7 +31,6 @@
   width: 17px;
   height: 13px;
   position: absolute;
-  z-index: 1;
   right: 50%;
   transform: translate(50%, 50%);
   top: 0;
