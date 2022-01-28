@@ -66,15 +66,19 @@ function isTextCorrect(
   const allowedAnswers = _allowedAnswers.map(trim);
   const fm = new FuzzyMatching(allowedAnswers);
   const maxTypos = _maxTypos === 0 ? _maxTypos : _maxTypos || config.maxTypos;
-  const answer = toLower(answerWithCase);
 
   if (noFuzzy) {
-    return some(allowedAnswer => toLower(allowedAnswer) === answer, allowedAnswers);
+    return some(allowedAnswer => allowedAnswer === answerWithCase, allowedAnswers);
   }
+
+  const answerWithoutCase = toLower(answerWithCase);
   return (
-    checkFuzzyAnswer(maxTypos, fm, answer) ||
+    checkFuzzyAnswer(maxTypos, fm, answerWithCase) ||
     (maxTypos !== 0 &&
-      some(allowedAnswer => containsAnswer(config, toLower(allowedAnswer), answer), allowedAnswers))
+      some(
+        allowedAnswer => containsAnswer(config, toLower(allowedAnswer), answerWithoutCase),
+        allowedAnswers
+      ))
   );
 }
 
@@ -113,7 +117,7 @@ function matchAnswerForTemplate(
       isTextCorrect(
         config,
         [allowedAnswer[index]],
-        toLower(answer),
+        answer,
         get(['content', 'choices', `${index}`, 'type'], question) === 'text'
           ? question.content.maxTypos
           : 0,
@@ -131,18 +135,15 @@ function matchAnswerForUnorderedItems(
   allowedAnswers: AcceptedAnswers,
   givenAnswer: Answer
 ): Array<Array<PartialCorrection>> {
-  const lowerGivenAnswer = map(toLower, givenAnswer);
-
   return allowedAnswers.map((allowedAnswer): Array<PartialCorrection> => {
-    const lowerAllowedAnswer = map(toLower, allowedAnswer);
     const givenAnswersMap = map(
       answer => ({
         answer,
-        isCorrect: includes(toLower(answer), lowerAllowedAnswer)
+        isCorrect: includes(answer, allowedAnswer)
       }),
       givenAnswer
     );
-    if (lowerAllowedAnswer.some(answer => !includes(answer, lowerGivenAnswer))) {
+    if (allowedAnswer.some(answer => !includes(answer, givenAnswer))) {
       return givenAnswersMap.concat([{answer: undefined, isCorrect: false}]);
     }
     return givenAnswersMap;
@@ -157,7 +158,7 @@ function matchAnswerForOrderedItems(
     return map(([givenAnswerPart, allowedAnswerPart]): PartialCorrection => {
       return {
         answer: givenAnswerPart,
-        isCorrect: toLower(givenAnswerPart) === toLower(allowedAnswerPart)
+        isCorrect: givenAnswerPart === allowedAnswerPart
       };
     }, zip(givenAnswer, allowedAnswer));
   }, allowedAnswers);

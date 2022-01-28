@@ -152,6 +152,7 @@ test('should allow additional characters on the sides of text inputs', t => {
   const question = createQuestion([['parachute']], ['text']);
 
   assertCorrect(t, config, question, ['parachute']);
+  assertCorrect(t, config, question, ['Parachute']);
   assertCorrect(t, config, question, ['parachuté']);
   assertCorrect(t, config, question, ['parachuteZZZZZ']);
   assertCorrect(t, config, question, ['ZZZZZparachute']);
@@ -166,8 +167,8 @@ test('should not allow typos or additional characters for select inputs', t => {
   const question = createQuestion([['parachute']], ['select']);
 
   assertCorrect(t, config, question, ['parachute']);
-  assertCorrect(t, config, question, ['parachUTe']);
-  assertCorrect(t, config, question, ['PARACHUTE']);
+  assertIncorrect(t, config, question, ['Parachute'], [false]);
+  assertIncorrect(t, config, question, ['PARACHUTE'], [false]);
   assertIncorrect(t, config, question, ['parachOte'], [false]);
   assertIncorrect(t, config, question, ['parachuteZ'], [false]);
   assertIncorrect(t, config, question, ['Zparachute'], [false]);
