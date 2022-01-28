@@ -1,0 +1,472 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value desktop from breakpoints;
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value light from colors;
+@value grey from colors;
+@value dark from colors;
+@value xtraLightGrey from colors;
+@value white from colors;
+
+.default[disabled] {
+  pointer-events: none;
+  cursor: inherit;
+}
+
+.default {
+  display: inline-block;
+  box-sizing: border-box;
+  vertical-align: top;
+  background-color: white;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  text-align: left;
+  transition: all 0.25s ease-in-out;
+  text-decoration: none;
+  position: relative;
+  opacity: 0;
+  animation: fadeIn 1s ease-out forwards;
+  cursor: pointer;
+  box-shadow: 0 0 13px 0 rgba(0, 0, 0, 0.11);
+}
+
+.default[disabled] .favorite {
+  z-index: 0;
+}
+
+.grid.empty {
+  padding-bottom: 25px;
+  opacity: 0.6;
+}
+
+.course {
+  composes: default;
+  border-radius: 8px;
+  width: 256px;
+  height: 297px;
+}
+
+.chapter {
+  composes: default;
+  border-radius: 8px;
+  width: 203px;
+  height: 297px;
+}
+
+.coorpmanager.course {
+  border-radius: 5px;
+  width: 172px;
+  height: 201px;
+}
+
+.coorpmanager.chapter {
+  border-radius: 5px;
+  width: 138px;
+  height: 201px;
+}
+
+.course .imageWrapper {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.chapter .chapterImageWrapper {
+  max-height: 77px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.coorpmanager.chapter .chapterImageWrapper {
+  max-height: 52px;
+}
+
+.default .image {
+  overflow: hidden;
+  background-position: 50%;
+  background-size: cover;
+  transition: all 0.25s ease-in-out;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 125px;
+}
+
+.default .image::after {
+  opacity: 0;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.default:hover .image {
+  transform-origin: center;
+  transform: scale(1.1);
+  transition: all 1s ease-in-out;
+}
+
+.default .image::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(
+    to bottom,
+    color(black a(0%)),
+    color(black a(80%))
+  );
+}
+
+.default .image::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  transition: opacity 0.25s ease-in-out;
+  background: black;
+}
+
+.default:hover .image::before {
+  opacity: 0.3;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.lazy {
+  pointer-events: none;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.course .default:hover,
+.chapter .default:hover {
+  background: light;
+  cursor: pointer;
+  transition: background 0.25s ease-in-out;
+}
+
+.default[disabled] .imageWrapper {
+  opacity: 0.4;
+}
+
+.lockWrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 297px;
+  display: flex;
+  padding-top: 50px;
+  justify-content: center;
+  box-sizing: border-box;
+}
+
+.lockWrapper::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  content: '';
+  opacity: 0.4;
+  background: black;
+}
+
+.lockIcon {
+  font-size: 40px;
+  z-index: 1;
+}
+
+.imageWrapper {
+  height: 125px;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-position: 50%;
+  background-size: cover;
+}
+
+.imageWrapper a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.badge {
+  position: absolute;
+  width: auto;
+  height: auto;
+  background-color: white;
+  padding: 3px 11px;
+  top: 0;
+  left: 0;
+  font-family: 'Open Sans';
+  text-transform: uppercase;
+  font-size: 8px;
+  font-weight: bold;
+  border-bottom-right-radius: 7px;
+  z-index: 1;
+  user-select: none;
+}
+
+.coorpmanager .badge {
+  padding: 2px 5px;
+  font-size: 7px;
+}
+
+.emptyIcon {
+  vertical-align: middle;
+  width: 80px;
+  height: 70px;
+  position: absolute;
+  z-index: 1;
+  right: 50%;
+  transform: translate(50%, 50%);
+  top: 0;
+}
+
+.course .externalContentHeader {
+  width: 100%;
+  height: 40%;
+  position: relative;
+  display: flex;
+  top: 0;
+  left: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.course .externalBackground {
+  background-position: 50%;
+}
+
+.course .externalBackground::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  background-image: linear-gradient(
+    to top,
+    color(black a(0%)),
+    color(black a(80%))
+  );
+}
+
+.course .externalBackground::before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  top: 0;
+  left: 0;
+  transition: opacity 0.25s ease-in-out;
+  background: black;
+}
+
+.externalIconCircleWrapper {
+  border-radius: 50%;
+  padding: 17px;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.3);
+  justify-content: center;
+  transform: scale(1);
+  transition: transform 0.25s ease-in-out;
+  width: 80px;
+  height: 80px;
+  margin-top: 20px;
+}
+
+.coorpmanager .externalIconCircleWrapper {
+  width: 50px;
+  height: 50px;
+  margin-top: 12px;
+  padding: 13px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.3);
+  justify-content: center;
+  transform: scale(1);
+  transition: transform 0.25s ease-in-out;
+}
+
+.externalIcon {
+  color: white;
+  width: 45px;
+  height: 45px;
+}
+
+.coorpmanager .externalIcon {
+  color: white;
+  width: 23px;
+  height: 23px;
+}
+
+.externalIconCircleWrapper::after {
+  animation: pulse 3s linear 0s infinite;
+  animation-play-state: paused;
+}
+.externalIconCircleWrapper::before {
+  animation: pulse 3s linear 1.5s infinite;
+  animation-play-state: paused;
+}
+
+.default:hover .externalIconCircleWrapper::after,
+.default:hover .externalIconCircleWrapper::before {
+  animation-play-state: running;
+  box-shadow: inset 0 0 7px 0 rgba(255, 255, 255, 0.37);
+}
+.externalIconCircleWrapper::after,
+.externalIconCircleWrapper::before {
+  content: '';
+  width: 80px;
+  height: 80px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  
+  border-radius: 50%;
+  transform: scale(1);
+  opacity: 0;
+  box-shadow: inset 0 0 7px 0 rgba(255, 255, 255, 0);
+  transition: box-shadow 0.25s linear;
+}
+
+.coorpmanager .externalIconCircleWrapper::after,
+.coorpmanager .externalIconCircleWrapper::before {
+  width: 50px;
+  height: 50px;
+  top: 0;
+  left: 0;
+  transform: scale(1);
+  opacity: 0;
+  box-shadow: inset 0 0 7px 0 rgba(255, 255, 255, 0);
+  transition: box-shadow 0.25s linear;
+}
+
+.externalIconCircleWithImageWrapper {
+  width: 60px;
+  height: 60px;
+  padding: 16px;
+  z-index: 1;
+}
+
+.coorpmanager .externalIconCircleWithImageWrapper {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  padding: 12px;
+  z-index: 1;
+  margin-top: 20px;
+}
+
+.coorpmanager .externalIconWithImage {
+  color: white;
+  width: 25px;
+  height: 25px;
+  padding: 0 0 0 1px;
+}
+
+.externalIconWithImage {
+  color: white;
+  width: 28px;
+  height: 28px;
+}
+
+.externalIconCircleWithImageWrapper::after,
+.externalIconCircleWithImageWrapper::before {
+  content: '';
+  width: 60px;
+  height: 60px;
+  top: 0;
+  left: 0;
+  position: absolute;
+
+  border-radius: 50%;
+  transform: scale(1);
+  opacity: 0;
+  box-shadow: inset 0 0 7px 0 rgba(255, 255, 255, 0);
+  transition: box-shadow 0.25s linear;
+}
+
+.coorpmanager .externalIconCircleWithImageWrapper::after,
+.coorpmanager .externalIconCircleWithImageWrapper::before {
+  content: '';
+  width: 50px;
+  height: 50px;
+  top: 0;
+  left: 0;
+  position: absolute;
+  transform: scale(1);
+  opacity: 0;
+  box-shadow: inset 0 0 7px 0 rgba(255, 255, 255, 0);
+  transition: box-shadow 0.25s linear;
+
+}
+
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(2.5);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@media (hover: none) {
+  .default:hover .image {
+    transform: scale(1);
+  }
+  .default:hover .image::before {
+    opacity: 0;
+  }
+  .default:hover .externalIconCircleWrapper {
+    transform: scale(1);
+  }
+}
+@media mobile {
+  .course {
+    width: 200px;
+  }
+  .externalIconCircleWrapper {
+    margin: 25px auto 0;
+  }
+}
