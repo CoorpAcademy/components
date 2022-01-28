@@ -140,9 +140,9 @@
 }
 
 .coorpmanager .checkbox:disabled ~ label {
-  border-color: cm_primary_blue;
+  border-color: cm_grey_200;
   pointer-events: none;
-  background: cm_primary_blue;
+  background: cm_grey_200;
   opacity: 0.4;
 }
 
