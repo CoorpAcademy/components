@@ -6,6 +6,7 @@ import AtomButton from './../src/atom/button';
 import AtomButtonLink from './../src/atom/button-link';
 import AtomButtonLinkIconOnly from './../src/atom/button-link-icon-only';
 import AtomButtonMenu from './../src/atom/button-menu';
+import AtomCardImagePreview from './../src/atom/card-image-preview';
 import AtomCatalogSection from './../src/atom/catalog-section';
 import AtomCenteredText from './../src/atom/centered-text';
 import AtomCheckbox from './../src/atom/checkbox';
@@ -220,6 +221,8 @@ import AtomButtonLinkIconOnlyFixtureSmallButtonDisabled from '../src/atom/button
 import AtomButtonLinkIconOnlyFixtureSmallLinkDownload from '../src/atom/button-link-icon-only/test/fixtures/small-link-download';
 import AtomButtonMenuFixtureDefault from '../src/atom/button-menu/test/fixtures/default';
 import AtomButtonMenuFixtureMultipleButtons from '../src/atom/button-menu/test/fixtures/multiple-buttons';
+import AtomCardImagePreviewFixtureDefault from '../src/atom/card-image-preview/test/fixtures/default';
+import AtomCardImagePreviewFixtureEmpty from '../src/atom/card-image-preview/test/fixtures/empty';
 import AtomCatalogSectionFixtureList from '../src/atom/catalog-section/test/fixtures/list';
 import AtomCatalogSectionFixturePicture from '../src/atom/catalog-section/test/fixtures/picture';
 import AtomCenteredTextFixtureDefault from '../src/atom/centered-text/test/fixtures/default';
@@ -1109,6 +1112,7 @@ export const components = {
     AtomButtonLink,
     AtomButtonLinkIconOnly,
     AtomButtonMenu,
+    AtomCardImagePreview,
     AtomCatalogSection,
     AtomCenteredText,
     AtomCheckbox,
@@ -1371,6 +1375,10 @@ export const fixtures = {
     AtomButtonMenu: {
       Default: AtomButtonMenuFixtureDefault,
       MultipleButtons: AtomButtonMenuFixtureMultipleButtons
+    },
+    AtomCardImagePreview: {
+      Default: AtomCardImagePreviewFixtureDefault,
+      Empty: AtomCardImagePreviewFixtureEmpty
     },
     AtomCatalogSection: {
       List: AtomCatalogSectionFixtureList,
