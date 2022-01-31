@@ -25,11 +25,10 @@
 }
 
 .emptyIcon {
-  vertical-align: middle;
-  width: 17px;
-  height: 13px;
+  width: 33px;
+  height: 27px;
   position: absolute;
-  right: 50%;
-  transform: translate(50%, 50%);
-  top: 0;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
