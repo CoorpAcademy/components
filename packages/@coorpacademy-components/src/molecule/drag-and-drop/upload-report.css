@@ -51,7 +51,7 @@
 }
 
 .or {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   color: #797979;
 }
 
@@ -75,7 +75,7 @@
 
 .fileName {
   margin-left: 15px;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 16px;
   font-weight: bold;
   color: dark;
@@ -160,7 +160,7 @@
 }
 
 .message {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 16px;
   font-weight: bold;
   color: dark;
@@ -205,7 +205,7 @@
   display: block;
   word-wrap: break-word;
   padding: 3px 10px 5px;
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   font-size: 12px;
   font-weight: bold;
 }

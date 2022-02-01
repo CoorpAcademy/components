@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   margin: 15px 0;
-  font-family: Open Sans, sans-serif;
+  font-family: Gilroy;
   font-weight: bold;
   font-size: 13px;
   overflow: inherit;
@@ -28,7 +28,7 @@
   text-transform: inherit;
   background-color: xtraLightGrey;
   color: dark;
-  font-family: Open Sans, sans-serif;
+  font-family: Gilroy;
   font-weight: 600;
   font-size: 13px;
   text-decoration: none;
@@ -74,7 +74,7 @@
   align-items: center;
   color: white;
   text-align: center;
-  font-family: Open Sans, sans-serif;
+  font-family: Gilroy;
   font-weight: bold;
   font-size: 13px;
   box-shadow: 0 -1px 20px 0 rgba(0, 0, 0, 0.25);

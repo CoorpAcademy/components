@@ -13,7 +13,7 @@
 
 .table {
   border: 1px solid light;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   border-spacing: 0;
 }
 
@@ -75,7 +75,7 @@
 .noOptions label {
   display: inline-block;
   cursor: pointer;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 15px;
   font-weight: 700;
   color: medium;
@@ -124,7 +124,7 @@
   outline: 0;
   padding: 0;
   background: none;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-weight: 600;
   font-size: 15px;
   line-height: 25px;
@@ -155,7 +155,7 @@
   text-align: center;
   width: 100%;
   margin: 0 auto;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   color: dark;
 }
 
@@ -166,7 +166,7 @@
   border-radius: 4px;
   overflow: scroll;
   box-shadow: 0 0 2px 0 rgba(0,0,0,.19);
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   background-color: white;
 }
 

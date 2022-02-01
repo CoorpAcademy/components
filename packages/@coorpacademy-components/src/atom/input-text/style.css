@@ -50,7 +50,7 @@
   width: 100%;
   font-weight: normal;
   font-size: 14px;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   padding: 0 0 0 3px;
   border: 0;
   border-radius: 0px;
@@ -114,7 +114,7 @@
 .cockpit .title {
   color: #797979;
   font-weight: bold;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   text-transform: capitalize;
   font-size: 11px;
   align-self: flex-start;
@@ -130,7 +130,7 @@
 }
 
 .title {
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   font-size: 15px;
   text-transform: none;
   color: dark;
@@ -138,7 +138,7 @@
 }
 
 .input {
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   text-transform: none;
   padding: 0 15px;
   border: solid 1px light;
@@ -171,7 +171,7 @@
 }
 
 .description {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-weight: 500;
   font-size: 12px;
   color: medium;

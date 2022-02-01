@@ -74,7 +74,7 @@
 .label {
   width: 80%;
   height: 23px;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 17px;
   font-weight: 600;
   text-align: left;
@@ -87,7 +87,7 @@
 .stars {
   width: 20%;
   height: 23px;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 17px;
   font-weight: bold;
   text-align: right;
@@ -113,7 +113,7 @@
   flex-direction: row;
   width: auto;
   height: 17px;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 12px;
   font-weight: bold;
   text-align: left;
@@ -147,7 +147,7 @@
 
 .level {
   height: 17px;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 12px;
   font-weight: 100;
   text-align: right;

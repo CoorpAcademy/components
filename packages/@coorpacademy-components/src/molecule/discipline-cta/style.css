@@ -15,7 +15,7 @@
   display: block;
   text-transform: uppercase;
   color: white;
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   font-weight: 600;
   font-size: 13px;
   text-decoration: none;
@@ -31,7 +31,7 @@
 }
 
 .head a span span {
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   font-weight: 800;
 }
 

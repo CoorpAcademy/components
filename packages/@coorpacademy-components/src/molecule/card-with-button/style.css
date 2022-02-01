@@ -105,7 +105,7 @@
 .lightButton{
     display: inline-block;
     box-sizing: border-box;
-    font-family: 'Open Sans';
+    font-family: 'Gilroy';
     font-size: 13px;
     font-weight: 600;
     text-decoration: none;
@@ -129,7 +129,7 @@
 
 .level {
     text-align: center;
-    font-family: 'Open Sans';
+    font-family: 'Gilroy';
     border: solid 1px #ffffff;
     color: white;
     padding: 0px 15px;

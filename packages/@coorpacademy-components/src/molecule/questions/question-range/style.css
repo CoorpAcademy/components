@@ -11,7 +11,7 @@
 .title {
   color: brand;
   display: table;
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   font-size: 24px;
   font-weight: 700;
   margin: 0 auto 15px;
@@ -26,7 +26,7 @@
 }
 
 .label {
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   color: black;
   font-size: 15px;
   font-weight: 700;

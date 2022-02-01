@@ -135,7 +135,7 @@
 }
 
 .becomeText {
-  font-family: Open Sans;
+  font-family: Gilroy;
   font-size: 24px;
   font-weight: normal;
   font-stretch: normal;
@@ -146,7 +146,7 @@
 }
 
 .challengeText {
-  font-family: Open Sans;
+  font-family: Gilroy;
   font-size: 32px;
   font-weight: bold;
   font-stretch: normal;
@@ -164,7 +164,7 @@
   margin: 10px;
   background-color: battle;
   flex-grow: 0;
-  font-family: Open Sans;
+  font-family: Gilroy;
   font-size: 16px;
   font-weight: bold;
   font-stretch: normal;
@@ -278,7 +278,7 @@
   }
   
   .challengeText {
-    font-family: Open Sans;
+    font-family: Gilroy;
     font-size: 28px;
     padding-bottom: 20px;
   }

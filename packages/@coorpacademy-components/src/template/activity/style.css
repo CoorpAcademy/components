@@ -17,7 +17,7 @@
 }
 
 .mainTitle {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 17px;
   font-weight: 300;
   color: black;
@@ -65,7 +65,7 @@
 }
 
 .recommendationSection {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 15px;
   font-weight: 300;
   text-align: left;
@@ -76,7 +76,7 @@
 }
 
 .recommendationSection .course {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 15px;
   font-weight: bold;
   text-align: left;

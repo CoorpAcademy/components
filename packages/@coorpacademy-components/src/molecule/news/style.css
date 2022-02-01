@@ -47,7 +47,7 @@
 }
 
 .title {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 19px;
   font-weight: 700;
   color: dark;
@@ -59,7 +59,7 @@
 }
 
 .date {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 14px;
   font-weight: 500;
   color: medium;
@@ -67,7 +67,7 @@
 }
 
 .description {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   width: 100%;
   font-size: 17px;
   line-height: 20px;

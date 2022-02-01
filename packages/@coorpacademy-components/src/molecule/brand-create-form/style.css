@@ -44,7 +44,7 @@
 }
 
 .header h1 {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-weight: 700;
   font-size: 17px;
   color: dark;
@@ -58,7 +58,7 @@
 }
 
 .content h2 {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-weight: 700;
   font-size: 17px;
   color: dark;
@@ -66,7 +66,7 @@
 }
 
 .description {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-weight: 500;
   font-size: 15px;
   color: medium;
@@ -82,14 +82,14 @@
 }
 
 .default label {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-weight: 600;
   font-size: 18px;
   color: medium;
 }
 
 .default input {
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   text-transform: none;
   padding: 0 15px;
   border: solid 2px light;
@@ -112,7 +112,7 @@
 }
 
 .wait {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 14px;
   color: medium;
   margin-bottom: 40px;

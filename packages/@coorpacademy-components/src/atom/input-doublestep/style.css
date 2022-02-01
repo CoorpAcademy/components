@@ -13,7 +13,7 @@
 }
 
 .value {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 15px;
   font-weight: 700;
   color: dark;
@@ -40,7 +40,7 @@
   padding: 0 40px;
   line-height: 52px;
   border-radius: 2px;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 15px;
   color: white;
   font-weight: 700px;
@@ -62,7 +62,7 @@
   padding: 0 15px;
   text-transform: uppercase;
   border-radius: 2px;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 15px;
   font-weight: 700;
   cursor: pointer;
@@ -103,7 +103,7 @@
 }
 
 .description {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-weight: 500;
   font-size: 14px;
   color: white;
@@ -111,7 +111,7 @@
 }
 
 .input {
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   text-transform: none;
   padding: 0 15px;
   border: solid 2px light;

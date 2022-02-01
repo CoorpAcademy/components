@@ -47,7 +47,7 @@
   line-height: normal;
   letter-spacing: 1px;
   color: white;
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   font-size: 14px;
   text-transform: uppercase;
 }
@@ -68,7 +68,7 @@
   display: flex;
   flex-wrap: nowrap;
   flex-direction: row;
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   background-color: black;
 }
 
