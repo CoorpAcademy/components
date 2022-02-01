@@ -12,6 +12,7 @@
 @value white from colors; 
 
 .wrapper {
+  font-family: Gilroy;
   position: relative;
   box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.04);
   display: flex;

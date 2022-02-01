@@ -90,13 +90,14 @@
   align-items: center;
   justify-content: space-between;
   /* fonts */
-  font-family: OpenSans-SemiBold;
+  font-family: Gilroy;
   font-size: 13px;
   font-weight: 400;
   margin-top: 15px;
 }
 
 .resetSrcLabel {
+  font-family: Gilroy;
   color: dark;
   max-width: 220px;
   display: inline-block;

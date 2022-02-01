@@ -2,6 +2,7 @@
 @value xtraLightGrey from colors;
 
 .container {
+  font-family: Gilroy;
   display: flex;
   height: 100%;
   flex-direction: row;

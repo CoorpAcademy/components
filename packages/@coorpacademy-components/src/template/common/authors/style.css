@@ -12,6 +12,7 @@
 .wrapper {
   composes: wrapper from '../layout.css';
   background: white;
+  font-family: Gilroy;
 }
 
 .authorsWrapper {

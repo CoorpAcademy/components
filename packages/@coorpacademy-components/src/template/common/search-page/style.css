@@ -18,6 +18,7 @@
 }
 
 .noresults {
+  font-family: "Gilroy";
   border-top: solid 1px xtraLightGrey;
   box-sizing: border-box;
   padding: 16px 0;

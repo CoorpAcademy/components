@@ -72,6 +72,7 @@
 }
 
 .label {
+  display: flex;
   width: 80%;
   height: 23px;
   font-family: 'Gilroy';
