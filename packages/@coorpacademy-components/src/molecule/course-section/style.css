@@ -9,6 +9,7 @@
     background-color: cm_grey_50;
     border-radius: 7px;;
     display: flex;
+    font-size: 14px;
     justify-content: start;
     margin-top: 8px;
     padding: 8px 16px;
@@ -35,15 +36,19 @@
 .author {
     color: cm_grey_500;
     font-family: Gilroy;
-    font-size: 14px;
     line-height: 20px;
 }
 
 .position {
     color: cm_grey_400;
     font-family: Gilroy;
-    font-size: 14px;
     font-weight: 600;
     line-height: 20px;
     margin: 0 12px 0 14px;
+}
+
+.contentBadge {
+    font-size: 8px;
+    font-weight: bold;
+    line-height: 10px;;
 }

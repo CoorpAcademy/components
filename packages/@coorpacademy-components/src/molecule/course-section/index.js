@@ -18,7 +18,7 @@ const CourseSection = props => {
       <CardImagePreview image={image} />
       <div className={style.containerInfos}>
         <div className={style.containerMainInfos}>
-          <ContentBadge category={category} label={label} />
+          <ContentBadge className={style.contentBadge} category={category} label={label} />
           <span className={style.title}>{title}</span>
         </div>
         <div>
