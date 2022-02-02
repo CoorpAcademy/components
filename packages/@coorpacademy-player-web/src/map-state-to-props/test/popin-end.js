@@ -182,7 +182,7 @@ test("livesDisabled == true ---> should not see lives and 'You are out of lives!
   t.is(props.summary.header.lives, null);
 });
 
-test('should create a "Back to Home" CTA after success on learner progression with coach content', t => {
+test('should create a "Back to Home" CTA after success on learner progression with coach content', async t => {
   const state = pipe(
     set(['data', 'contents', 'level', 'entities', '1.B', 'level'], 'coach'),
     set('data.nextContent.entities.idProgression1234', null)
@@ -198,13 +198,16 @@ test('should create a "Back to Home" CTA after success on learner progression wi
 
   const cta = header.cta;
   t.is(cta.title, '__Back to home');
-  t.falsy(cta.onClick);
-  t.is(cta.href, '/');
+  t.deepEqual(map('type')(await cta.onClick()), [
+    '@@location/EXIT_REQUEST',
+    '@@location/EXIT_FAILURE'
+  ]);
+  t.falsy(cta.href);
 
   t.falsy(props.summary.action);
 });
 
-test('should create a "Back to Home" CTA after success on learner progression with content with only base level', t => {
+test('should create a "Back to Home" CTA after success on learner progression with content with only base level', async t => {
   const state = set(
     ['data', 'nextContent', 'entities', 'idProgression1234'],
     null,
@@ -221,8 +224,11 @@ test('should create a "Back to Home" CTA after success on learner progression wi
 
   const cta = header.cta;
   t.is(cta.title, '__Back to home');
-  t.falsy(cta.onClick);
-  t.is(cta.href, '/');
+  t.deepEqual(map('type')(await cta.onClick()), [
+    '@@location/EXIT_REQUEST',
+    '@@location/EXIT_FAILURE'
+  ]);
+  t.falsy(cta.href);
 });
 
 test('should create a "Retry Level" CTA after failure on learner progression', t => {
