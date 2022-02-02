@@ -100,15 +100,17 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
   const {hide, count} = getLives(state);
   const lives = hide ? null : count;
 
-  const successCta = {
+  let successCta = {
     title: translate('Back to home'),
-    href: '/'
+    onClick: () => dispatch(exit)
   };
 
   const redirection = getRedirectURLAfterEnd(state);
   if (redirection) {
-    successCta.href = redirection;
-    successCta.title = translate('Click to continue');
+    successCta = {
+      title: translate('Click to continue'),
+      href: redirection
+    };
   }
 
   if (isCurrentEngineLearner(state) && !redirection) {
@@ -116,10 +118,11 @@ const summaryHeader = ({translate}, {dispatch}) => state => {
     if (level === 'advanced' || level === 'base') {
       const _nextLevel = getNextContent(state);
       if (_nextLevel) {
-        successCta.title = translate('Next level');
-        successCta.href = null;
-        successCta.onClick = () => dispatch(nextLevel);
-        successCta.showNextLevel = true;
+        successCta = {
+          title: translate('Next level'),
+          onClick: () => dispatch(nextLevel),
+          showNextLevel: true
+        };
       }
     }
   }
