@@ -9,6 +9,6 @@ export default {
       label: 'course',
       category: 'course'
     },
-    position: '1'
+    position: 1
   }
 };

@@ -8,6 +8,6 @@ export default {
       label: 'chapter',
       category: 'chapter'
     },
-    position: '2'
+    position: 2
   }
 };

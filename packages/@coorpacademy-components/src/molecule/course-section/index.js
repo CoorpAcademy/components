@@ -27,19 +27,17 @@ const CourseSection = props => {
           <ContentBadge className={style.contentBadge} category={category} label={label} />
           <div className={style.title}>{title}</div>
         </div>
-        <div>
-          <span className={style.author} aria-label={author}>
-            {author}
-          </span>
-        </div>
+        <span className={style.author} aria-label={author}>
+          {author}
+        </span>
       </div>
     </div>
   );
 };
 
 CourseSection.propTypes = {
-  image: CardImagePreview.propTypes,
-  contentBadge: ContentBadge.propTypes,
+  image: PropTypes.string,
+  contentBadge: PropTypes.shape(ContentBadge.propTypes),
   title: PropTypes.string,
   author: PropTypes.string,
   position: PropTypes.number
