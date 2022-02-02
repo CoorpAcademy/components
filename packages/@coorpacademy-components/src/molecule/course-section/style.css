@@ -1,0 +1,49 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_50 from colors;
+@value cm_grey_900 from colors;
+@value cm_grey_500 from colors;
+@value cm_grey_400 from colors;
+
+.container {
+    align-items: center;
+    background-color: cm_grey_50;
+    border-radius: 7px;;
+    display: flex;
+    justify-content: start;
+    margin-top: 8px;
+    padding: 8px 16px;
+}
+
+.containerInfos {
+    margin-left: 16px;
+}
+
+.containerMainInfos {
+    display: flex;
+    align-items: center;
+}
+
+.title {
+    color: cm_grey_900;
+    line-height: 22px;
+    font-family: Gilroy;
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 4px;
+}
+
+.author {
+    color: cm_grey_500;
+    font-family: Gilroy;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.position {
+    color: cm_grey_400;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 0 12px 0 14px;
+}
