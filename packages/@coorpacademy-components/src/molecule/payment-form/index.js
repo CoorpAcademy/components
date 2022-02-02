@@ -46,11 +46,11 @@ class PaymentForm extends React.Component {
             iconStyle: 'solid',
             color: '#546E7A',
             fontSize: '16px',
-            fontFamily: '"Gilroy"',
+            fontFamily: 'Gilroy',
             '::placeholder': {
               color: '#546E7A',
               fontSize: '16px',
-              fontFamily: '"Gilroy"'
+              fontFamily: 'Gilroy'
             }
           }
         }
