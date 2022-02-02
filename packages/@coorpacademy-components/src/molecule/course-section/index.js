@@ -13,16 +13,24 @@ const CourseSection = props => {
     position
   } = props;
   return (
-    <div className={style.container}>
+    <div
+      className={style.container}
+      aria-label={`course-section-${position}`}
+      data-name={`course-section-${position}`}
+    >
       <span className={style.position}>{position}</span>
-      <CardImagePreview image={image} />
+      <div className={style.containerImage}>
+        <CardImagePreview image={image} />
+      </div>
       <div className={style.containerInfos}>
         <div className={style.containerMainInfos}>
           <ContentBadge className={style.contentBadge} category={category} label={label} />
-          <span className={style.title}>{title}</span>
+          <div className={style.title}>{title}</div>
         </div>
         <div>
-          <span className={style.author}>{author}</span>
+          <span className={style.author} aria-label={author}>
+            {author}
+          </span>
         </div>
       </div>
     </div>

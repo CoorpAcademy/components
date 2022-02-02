@@ -7,7 +7,7 @@
 .container {
     align-items: center;
     background-color: cm_grey_50;
-    border-radius: 7px;;
+    border-radius: 7px;
     display: flex;
     font-size: 14px;
     justify-content: start;
@@ -17,6 +17,7 @@
 
 .containerInfos {
     margin-left: 16px;
+    overflow: hidden;
 }
 
 .containerMainInfos {
@@ -31,6 +32,10 @@
     font-size: 16px;
     font-weight: bold;
     margin-left: 4px;
+    overflow:hidden;
+    white-space:nowrap;
+    display:inline-block;
+    text-overflow:ellipsis;
 }
 
 .author {
@@ -51,4 +56,9 @@
     font-size: 8px;
     font-weight: bold;
     line-height: 10px;;
+}
+
+.containerImage {
+    min-height: 56px;
+    min-width: 56px;
 }
