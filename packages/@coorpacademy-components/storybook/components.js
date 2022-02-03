@@ -73,6 +73,7 @@ import MoleculeCardWithButton from './../src/molecule/card-with-button';
 import MoleculeCmPopin from './../src/molecule/cm-popin';
 import MoleculeCookieBanner from './../src/molecule/cookie-banner';
 import MoleculeCoorpManagerRoles from './../src/molecule/coorp-manager-roles';
+import MoleculeCourseSection from './../src/molecule/course-section';
 import MoleculeDashboardBattleRequestList from './../src/molecule/dashboard/battle-request-list';
 import MoleculeDashboardCardsList from './../src/molecule/dashboard/cards-list';
 import MoleculeDashboardNewsList from './../src/molecule/dashboard/news-list';
@@ -509,6 +510,8 @@ import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixture
 import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/test/fixtures/warning-with-close';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
 import MoleculeCoorpManagerRolesFixtureDefault from '../src/molecule/coorp-manager-roles/test/fixtures/default';
+import MoleculeCourseSectionFixtureChapter from '../src/molecule/course-section/test/fixtures/chapter';
+import MoleculeCourseSectionFixtureCourse from '../src/molecule/course-section/test/fixtures/course';
 import MoleculeDashboardBattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
 import MoleculeDashboardBattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
 import MoleculeDashboardCardsListFixtureDefault from '../src/molecule/dashboard/cards-list/test/fixtures/default';
@@ -1183,6 +1186,7 @@ export const components = {
     MoleculeCmPopin,
     MoleculeCookieBanner,
     MoleculeCoorpManagerRoles,
+    MoleculeCourseSection,
     MoleculeDisciplineCta,
     MoleculeDisciplineHeader,
     MoleculeDisciplinePartners,
@@ -1801,6 +1805,10 @@ export const fixtures = {
     },
     MoleculeCoorpManagerRoles: {
       Default: MoleculeCoorpManagerRolesFixtureDefault
+    },
+    MoleculeCourseSection: {
+      Chapter: MoleculeCourseSectionFixtureChapter,
+      Course: MoleculeCourseSectionFixtureCourse
     },
     MoleculeDisciplineCta: {
       Default: MoleculeDisciplineCtaFixtureDefault,
