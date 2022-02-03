@@ -1,0 +1,77 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value medium from colors;
+@value xtraLightGrey from colors;
+@value dark from colors;
+@value cm_grey_100 from colors
+
+
+.section {
+  border-top: 1px;
+  border-left: 1px;
+  border-right: 1px;
+  border-style: solid;
+  border-color: medium;
+  border-bottom: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.section:last-child {
+  border-bottom: 1px solid medium;
+}
+
+.draggable {
+  cursor: grab;
+  position: relative;
+  background: transparent;
+  margin: 8px 0;
+  border-radius: 7px;
+}
+.draggable:hover{
+  background: rgba(0, 0, 0, 0.3);
+}
+.draggable:active{
+  background: transparent;
+}
+.draggable:before {
+  content: '.';
+  position: absolute;
+  left: 23px;
+  top: 5px;
+  width: 12px;
+  font-size: 25px;
+  color: medium;
+  pointer-events: none;
+  text-shadow: 0 0 medium,    0 5px medium,    0 10px medium,    0 15px medium,
+            5px 0 medium ,   5px 5px medium,  5px 10px medium,  5px 15px medium;
+}
+.dragging {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.dragging:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: color(black lightness(95%));
+  pointer-events: none;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: dark;
+  font-family: 'Open Sans';
+  font-weight: 600;
+  font-size: 14px;
+}
+
+@media mobile {
+  .draggable:before {
+    content: none;
+  }
+}
