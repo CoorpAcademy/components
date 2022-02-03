@@ -10,12 +10,13 @@ const CourseSection = props => {
     contentBadge: {category, label},
     title,
     author,
-    position
+    position,
+    'aria-label': {title: ariaLabelTitle, author: ariaLabelAuthor}
   } = props;
   return (
     <div
       className={style.container}
-      aria-label={`course-section-${position}`}
+      aria-label={ariaLabelTitle}
       data-name={`course-section-${position}`}
     >
       <span className={style.position}>{position}</span>
@@ -27,7 +28,7 @@ const CourseSection = props => {
           <ContentBadge className={style.contentBadge} category={category} label={label} />
           <div className={style.title}>{title}</div>
         </div>
-        <span className={style.author} aria-label={author}>
+        <span className={style.author} aria-label={ariaLabelAuthor}>
           {author}
         </span>
       </div>
@@ -36,6 +37,10 @@ const CourseSection = props => {
 };
 
 CourseSection.propTypes = {
+  'aria-label': PropTypes.shape({
+    title: PropTypes.string,
+    author: PropTypes.string
+  }),
   image: PropTypes.string,
   contentBadge: PropTypes.shape(ContentBadge.propTypes),
   title: PropTypes.string,

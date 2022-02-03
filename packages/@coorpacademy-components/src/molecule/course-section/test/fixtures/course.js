@@ -1,5 +1,9 @@
 export default {
   props: {
+    'aria-label': {
+      title: 'aria label title',
+      author: 'aria label author'
+    },
     title:
       'Marketing and online advertising Marketing and online advertising Marketing and online advertising Marketing and online advertising',
     author: 'Author',
