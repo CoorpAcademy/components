@@ -130,7 +130,8 @@ const ContentInfo = ({
   type,
   badgeCategory,
   badgeLabel,
-  theme = 'default'
+  theme = 'default',
+  'aria-label': ariaLabel
 }) => {
   const progressBarColor = '#3EC483';
   const inlineProgressValueStyle = {
@@ -145,13 +146,21 @@ const ContentInfo = ({
     mode === MODES.HERO || (!empty && !disabled) ? (
       <div className={!isNil(progress) ? style.progressWrapper : style.hideProgressBar}>
         {!disabled ? (
-          <div data-name="progress" className={style.progress} style={inlineProgressValueStyle} />
+          <div
+            data-name="progress"
+            className={style.progress}
+            style={inlineProgressValueStyle}
+            aria-label={ariaLabel.progression}
+          />
         ) : null}
       </div>
     ) : null;
 
   const adaptiveIcon = adaptiv ? (
-    <div className={classnames(style.adaptiveIcon, courseContent ? style.iconShadow : null)}>
+    <div
+      className={classnames(style.adaptiveIcon, courseContent ? style.iconShadow : null)}
+      aria-label={ariaLabel.adaptive}
+    >
       <AdaptivIcon height={25} />
     </div>
   ) : null;
@@ -183,6 +192,7 @@ const ContentInfo = ({
           empty={empty}
           courseContent={courseContent}
           certifiedAuthor={certifiedAuthor}
+          aria-label={ariaLabel.author}
         />
       </div>
       {progressBar}
@@ -206,7 +216,12 @@ ContentInfo.propTypes = {
   mode: PropTypes.string,
   badgeCategory: ContentBadge.propTypes.category,
   badgeLabel: ContentBadge.propTypes.label,
-  theme: PropTypes.oneOf(keys(THEMES))
+  theme: PropTypes.oneOf(keys(THEMES)),
+  'aria-label': PropTypes.shape({
+    author: PropTypes.string,
+    progression: PropTypes.string,
+    adaptive: PropTypes.string
+  })
 };
 
 export default ContentInfo;

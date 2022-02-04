@@ -16,7 +16,12 @@ class Favorite extends React.Component {
     disabled: PropTypes.bool,
     addFavoriteToolTip: PropTypes.string,
     removeFavoriteToolTip: PropTypes.string,
-    onFavoriteClick: PropTypes.func
+    onFavoriteClick: PropTypes.func,
+    'aria-label': PropTypes.shape({
+      favorite: PropTypes.string,
+      addToFavorite: PropTypes.string,
+      removeFromFavorite: PropTypes.string
+    })
   };
 
   static contextTypes = {
@@ -37,7 +42,13 @@ class Favorite extends React.Component {
 
   render() {
     const {skin} = this.context;
-    const {favorite, addFavoriteToolTip, removeFavoriteToolTip, className} = this.props;
+    const {
+      favorite,
+      addFavoriteToolTip,
+      removeFavoriteToolTip,
+      className,
+      'aria-label': ariaLabel = {}
+    } = this.props;
 
     const primaryColor = get('common.primary', skin);
     const darkColor = get('common.dark', skin);
@@ -54,6 +65,7 @@ class Favorite extends React.Component {
         {toolTipView}
         <div
           data-name="favorite"
+          aria-label={ariaLabel.favorite}
           className={classnames(style.favorite, className, favorite && style.selected)}
           onClick={this.handleFavoviteClick}
           style={{
@@ -61,9 +73,21 @@ class Favorite extends React.Component {
           }}
         >
           {favorite ? (
-            <CheckIcon className={style.checkIcon} color={brandColor} width={13} height={13} />
+            <CheckIcon
+              className={style.checkIcon}
+              color={brandColor}
+              width={13}
+              height={13}
+              aria-label={ariaLabel.removeFromFavorite}
+            />
           ) : (
-            <MoreIcon className={style.moreIcon} color={darkColor} width={13} height={13} />
+            <MoreIcon
+              className={style.moreIcon}
+              color={darkColor}
+              width={13}
+              height={13}
+              aria-label={ariaLabel.addToFavorite}
+            />
           )}
         </div>
       </div>

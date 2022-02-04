@@ -20,7 +20,7 @@ export const THEMES = {
   coorpmanager: style.coorpmanager
 };
 
-const CardBackground = ({type, image, empty}, {skin}) => {
+const CardBackground = ({type, image, empty, 'aria-label': ariaLabel}, {skin}) => {
   const externalContent = isExternalContent(type);
   const primaryColor = get('common.primary', skin);
   const whiteColor = get('common.white', skin);
@@ -53,6 +53,7 @@ const CardBackground = ({type, image, empty}, {skin}) => {
         <div className={style.imageWrapper}>
           <div
             data-name="cover"
+            aria-label={ariaLabel}
             style={{
               backgroundColor: iconColor,
               backgroundImage: `url('${image}')`
@@ -68,6 +69,7 @@ const CardBackground = ({type, image, empty}, {skin}) => {
       <div className={style.imageWrapper}>
         <div
           data-name="cover"
+          aria-label={ariaLabel}
           style={{
             backgroundColor: iconColor
           }}
@@ -89,6 +91,7 @@ const CardBackground = ({type, image, empty}, {skin}) => {
     >
       <div
         data-name="cover"
+        aria-label={ariaLabel}
         className={style.image}
         style={{
           backgroundColor: primaryColor,
@@ -108,7 +111,8 @@ CardBackground.contextTypes = {
 CardBackground.propTypes = {
   type: PropTypes.string,
   image: PropTypes.string,
-  empty: PropTypes.bool
+  empty: PropTypes.bool,
+  'aria-label': PropTypes.string
 };
 
 const Card = memo(function Card(props, context) {
@@ -133,7 +137,15 @@ const Card = memo(function Card(props, context) {
     notification,
     badgeCategory,
     badgeLabel,
-    theme = 'default'
+    theme = 'default',
+    'aria-label': cardArialabel,
+    'background-aria-label': backgroundAriaLabel,
+    'favorite-aria-label': favoriteAriaLabel,
+    'selectable-aria-label': selectableAriaLabel,
+    'customer-aria-label': customerAriaLabel,
+    'badge-aria-label': badgeAriaLabel,
+    'disabled-aria-label': disabledArialabel,
+    'card-content-aria-label': cardContentLabelAriaLabel
   } = props;
   const empty = isEmpty(pick(['title', 'type', 'author', 'image'], props));
   const primaryColor = get('common.primary', skin);
@@ -169,8 +181,9 @@ const Card = memo(function Card(props, context) {
       data-type={getType(type)}
       disabled={disabled}
       onClick={handleClick}
+      aria-label={cardArialabel}
     >
-      <CardBackground type={type} image={image} empty={empty} />
+      <CardBackground type={type} image={image} empty={empty} aria-label={backgroundAriaLabel} />
       {isUndefined(isSelected) && !isUndefined(favorite) ? (
         <Favorite
           className={style.favorite}
@@ -179,11 +192,20 @@ const Card = memo(function Card(props, context) {
           onFavoriteClick={onFavoriteClick}
           addFavoriteToolTip={addFavoriteToolTip}
           removeFavoriteToolTip={removeFavoriteToolTip}
+          aria-label={favoriteAriaLabel}
         />
       ) : null}
-      <Selectable isSelected={isSelected} />
+      <Selectable isSelected={isSelected} aria-label={selectableAriaLabel} />
       {notification ? <Notification {...notification} /> : null}
-      {customer ? <Customer {...customer} theme={theme} type={type} disabled={disabled} /> : null}
+      {customer ? (
+        <Customer
+          {...customer}
+          theme={theme}
+          type={type}
+          disabled={disabled}
+          aria-label={customerAriaLabel}
+        />
+      ) : null}
       <CardContentInfo
         mode={MODES.CARD}
         adaptiv={adaptiv}
@@ -197,13 +219,18 @@ const Card = memo(function Card(props, context) {
         badgeCategory={badgeCategory}
         badgeLabel={badgeLabel}
         theme={theme}
+        aria-label={cardContentLabelAriaLabel}
       />
       {badge ? (
-        <div className={style.badge} style={inlineBadgeStyle}>
+        <div className={style.badge} style={inlineBadgeStyle} aria-label={badgeAriaLabel}>
           {badge}
         </div>
       ) : null}
-      {disabled ? <div className={style.lockWrapper}>{lock}</div> : null}
+      {disabled ? (
+        <div className={style.lockWrapper} aria-label={disabledArialabel}>
+          {lock}
+        </div>
+      ) : null}
     </div>
   );
 });
@@ -232,6 +259,14 @@ Card.propTypes = {
   notification: PropTypes.shape(Notification.propTypes),
   badgeCategory: CardContentInfo.propTypes.badgeCategory,
   badgeLabel: CardContentInfo.propTypes.badgeLabel,
-  theme: PropTypes.oneOf(keys(THEMES))
+  theme: PropTypes.oneOf(keys(THEMES)),
+  'aria-label': PropTypes.string,
+  'background-aria-label': PropTypes.string,
+  'favorite-aria-label': Favorite.propTypes['aria-label'],
+  'selectable-aria-label': Selectable.propTypes['aria-label'],
+  'customer-aria-label': Customer.propTypes['aria-label'],
+  'badge-aria-label': PropTypes.string,
+  'disabled-aria-label': PropTypes.string,
+  'card-content-aria-label': CardContentInfo.propTypes['aria-label']
 };
 export default Card;
