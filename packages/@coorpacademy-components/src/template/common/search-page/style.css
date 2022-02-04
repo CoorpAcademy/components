@@ -18,6 +18,7 @@
 }
 
 .noresults {
+  font-family: "Gilroy";
   border-top: solid 1px xtraLightGrey;
   box-sizing: border-box;
   padding: 16px 0;
@@ -30,7 +31,7 @@
 }
 
 .title {
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   font-size: 20px;
   font-weight: 700;
   color: dark;

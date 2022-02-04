@@ -22,7 +22,7 @@
 .title {
   width: 100%;
   margin-bottom: 20px;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 25px;
   font-weight: bold;
   text-align: left;
@@ -38,7 +38,7 @@
 .description {
   width: 476px;
   margin-right: 32px;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 13px;
   letter-spacing: -0.1px;
   text-align: left;
@@ -47,7 +47,7 @@
 
 .mediaDescription {
   width: 341px;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 12px;
   padding-top: 4px;
   color: medium;

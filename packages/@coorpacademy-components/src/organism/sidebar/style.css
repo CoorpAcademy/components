@@ -16,7 +16,7 @@
 .sidebar {
   color: dark;
   width: 100%;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
 }
 
 .sidebarPart {
@@ -89,7 +89,7 @@
 }
 
 .input {
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   text-transform: none;
   padding: 0 15px;
   border: solid 1px light;

@@ -27,7 +27,7 @@
 }
 
 .breadcrumb a {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-weight: 700;
   font-size: 17px;
   color: medium;
@@ -35,7 +35,7 @@
 }
 
 .breadcrumb span {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-weight: 700;
   font-size: 17px;
   color: dark;
@@ -61,7 +61,7 @@
 }
 
 .link > * {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 15px;
   line-height: 52px;
   color: white;

@@ -89,7 +89,7 @@
 }
 .score {
   display: flex;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 22px;
   font-weight: bold;
   text-align: left;
@@ -114,7 +114,7 @@
 .scoreTitle {
   display: block;
   height: auto;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 13px;
   text-align: left;
   color: dark;
@@ -171,7 +171,7 @@
   padding: 10px;
   margin: 0;
   border-radius: 3px;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 12px;
   width: 270px;
   background-color: white;

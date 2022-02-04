@@ -29,7 +29,7 @@
 
 .footer {
   composes: hoverFill from '../../../atom/button/hover-fill.css';
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 16px;
   font-weight: 700;
   background-color: white;
@@ -59,7 +59,7 @@
 }
 
 .text {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   color: dark;
 }
 
@@ -243,7 +243,7 @@
 }
 
 .commentSectionTexts p {
-  font-family: Open Sans;
+  font-family: Gilroy;
   color: dark;
   font-size: 19px;
   font-weight: 700;
@@ -267,7 +267,7 @@
 }
 
 .commentSectionLink {
-  font-family: Open Sans;
+  font-family: Gilroy;
   font-size: 12px;
   color: dark;
   text-decoration: underline;

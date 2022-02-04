@@ -48,7 +48,7 @@
 }
 
 .microLearninglabel {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 10px;
   font-weight: 800;
   color: lightBlack;
@@ -74,7 +74,7 @@
   margin-top: 5px;
   font-size: 17px;
   letter-spacing: 0;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   overflow: hidden;
   user-select: none;
 }
@@ -103,7 +103,7 @@
   align-items: center;
   font-size: 12px;
   width: 100%;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -231,7 +231,7 @@
 }
 
 .contentTypeInfo {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 10px;
   font-weight: 700;
 }

@@ -41,7 +41,7 @@
 }
 
 .name {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 14px;
   font-weight: 700;
   text-align: left;
@@ -65,7 +65,7 @@
 }
 
 .disciplineName {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 12px;
   font-weight: 700;
   text-align: left;
@@ -76,7 +76,7 @@
 }
 
 .level {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   color: white;
   background-color: dark;
   text-transform: uppercase;
@@ -90,7 +90,7 @@
   margin-left: 20px;
   font-size: 14px;
   line-height: 20px;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-weight: 600;
   color: dark;
 }

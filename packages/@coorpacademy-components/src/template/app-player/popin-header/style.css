@@ -15,7 +15,7 @@
   display: flex;
   height: 100px;
   width: 100%;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   flex-wrap: wrap;
 }
 
@@ -23,7 +23,7 @@
   display: flex;
   height: 100px;
   width: 100%;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   top: 0;
   z-index: 2;
   border-bottom: solid 1px light;
@@ -178,7 +178,7 @@
 }
 
 .iconText {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   color: white;
   font-weight: 600;
   font-size: 22px;
@@ -248,7 +248,7 @@
 }
 
 .nextButton {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   color: dark;
   font-size: 17px;
   font-weight: bold;
@@ -277,7 +277,7 @@
   max-width: 90%;
   min-height: 17px;
   height: auto;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 12px;
   font-weight: 600;
   text-align: center;

@@ -89,7 +89,7 @@
   padding: 0 20px;
   cursor: pointer;
   color: dark;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 13px;
   font-weight: 600;
   display: flex;
@@ -130,7 +130,7 @@
   padding: 0 10px;
   font-size: 13px;
   color: dark;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   line-height: 40px;
   font-weight: 600;
   align-items: center;
@@ -169,7 +169,7 @@
   padding: 0 15px;
   cursor: pointer;
   color: dark;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 13px;
   font-weight: 600;
   display: flex;
@@ -285,7 +285,7 @@
   position: absolute;
   top: -5px;
   right: -5px;
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-weight: 700;
   font-size: 10px;
   line-height: 16px;
@@ -357,7 +357,7 @@
 }
 
 .stat .label {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 10px;
   font-weight: 700;
   color: dark;
@@ -446,7 +446,7 @@
 }
 
 .setting .label {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 13px;
   font-weight: 600;
   color: dark;
@@ -457,7 +457,7 @@
 }
 
 .setting .link {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 13px;
   font-weight: 600;
   color: dark;
@@ -465,7 +465,7 @@
 }
 
 .closeSettings {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 13px;
   font-weight: 600;
   color: medium;

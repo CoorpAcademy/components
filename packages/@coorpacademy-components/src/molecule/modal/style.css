@@ -12,7 +12,7 @@
 
 .modalWrapper {
   display: flex;
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   margin: auto;
   justify-content: center;
   align-items: center;
@@ -142,7 +142,7 @@
 }
 
 .choiceDescription {
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   display: flex;
   flex-direction: column;
   justify-content: center;

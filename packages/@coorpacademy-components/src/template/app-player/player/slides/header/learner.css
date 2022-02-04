@@ -43,7 +43,7 @@
 }
 
 .contentTitle {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 16px;
   color: inherit;
   font-weight: 700;
@@ -55,7 +55,7 @@
 }
 
 .contentDetails {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 10px;
   font-weight: 700;
 }
@@ -71,7 +71,7 @@
 }
 
 .subcontentTitle {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 13px;
   font-weight: 500;
   color: dark;
@@ -81,7 +81,7 @@
 }
 
 .subcontentDetails {
-  font-family: 'Open Sans';
+  font-family: 'Gilroy';
   font-size: 15px;
   font-weight: 700;
   color: dark;

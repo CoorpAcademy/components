@@ -14,7 +14,7 @@
   width: 100%;
   position: relative;
   z-index: 4;
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   background: xtraLightGrey;
   min-height: 50px;
   box-sizing: border-box;
@@ -58,7 +58,7 @@
   font-weight: 600;
   line-height: 50px;
   text-align: center;
-  font-family: Open Sans;
+  font-family: Gilroy;
   position: relative;
   cursor: pointer;
 }

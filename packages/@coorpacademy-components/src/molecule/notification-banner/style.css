@@ -25,7 +25,7 @@
     display: flex;
     align-items: center;
     position: fixed;
-    font-family: 'Open Sans';
+    font-family: 'Gilroy';
     top: 0;
     left: 0;
     right: 0;
@@ -82,7 +82,7 @@
 
 .title {
     height: 15px;
-    font-family: 'Open Sans';
+    font-family: 'Gilroy';
     font-size: 11px;
     font-weight: bold;
     font-stretch: normal;
@@ -92,7 +92,7 @@
 }
 
 .message {
-    font-family: 'Open Sans';
+    font-family: 'Gilroy';
     font-size: 14px;
     font-weight: bold;
     font-stretch: normal;

@@ -7,6 +7,7 @@
 @value white from colors;
 
 .default {
+  font-family: Gilroy;
   z-index: 20;
   top: 0;
   display: flex;

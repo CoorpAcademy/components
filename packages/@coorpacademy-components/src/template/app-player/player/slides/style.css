@@ -12,6 +12,7 @@
 @value white from colors; 
 
 .wrapper {
+  font-family: Gilroy;
   position: relative;
   box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.04);
   display: flex;
@@ -92,7 +93,7 @@
   z-index: 1;
   background-color: light;
   color: dark;
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   font-weight: 700;
   font-size: 15px;
   line-height: 17px;
@@ -150,7 +151,7 @@
 }
 
 .question {
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   font-size: 20px;
   font-weight: 600;
   color: black;
@@ -163,7 +164,7 @@
 }
 
 .contextTitle {
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   font-size: 20px;
   font-weight: 600;
   color: black;
@@ -175,7 +176,7 @@
 }
 
 .helpView {
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   font-size: 15px;
   font-weight: 500;
   color: medium;
@@ -190,7 +191,7 @@
   padding-left: 25px;
   padding-right: 25px;
   font-size: 16px;
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   min-width: 160px;
   text-align: center;
 }
@@ -204,7 +205,7 @@
   flex-grow: 0.1;
   padding-top: 15px;
   align-items: flex-end;
-  font-family: "Open Sans";
+  font-family: "Gilroy";
 }
 
 .resourcesWrapper {
@@ -222,7 +223,7 @@
 }
 
 .stars {
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   font-weight: 700;
   font-size: 15px;
   color: grey;
@@ -239,7 +240,7 @@
 }
 
 .contextDescription {
-  font-family: "Open Sans";
+  font-family: "Gilroy";
   font-size: 14px;
   color: grey;
   width: 100%;
