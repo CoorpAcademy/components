@@ -84,8 +84,8 @@ const buildSections = sections => {
   });
 };
 
-const BuildAction = ({action}) => {
-  const {onClick, text, disabled = false, icon, 'aria-label': ariaLabel, side} = action;
+const BuildAction = ({action, side}) => {
+  const {onClick, text, disabled = false, icon, 'aria-label': ariaLabel} = action;
   const handleClick = useMemo(() => () => onClick(), [onClick]);
 
   if (!action) return null;
@@ -187,10 +187,10 @@ BuildAction.propTypes = {
     icon: PropTypes.string,
     disabled: PropTypes.bool,
     text: PropTypes.string,
-    side: PropTypes.string,
     onClick: PropTypes.func,
     'aria-label': PropTypes.string
-  })
+  }),
+  side: PropTypes.string
 };
 
 WizardSummary.propTypes = {
