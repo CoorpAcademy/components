@@ -2,8 +2,8 @@
 @value mobile from breakpoints;
 @value colors: "../../../variables/colors.css";
 @value white from colors;
-@value black from colors;
-@value light from colors;
+@value cm_grey_75 from colors;
+@value box_shadow_light_dark from colors;
 
 .wrapper {
   text-align: center;
@@ -18,8 +18,7 @@
   font-size: 15px;
   font-weight: 600;
   background-color: white;
-  border: 1px solid color(black lightness(85%));
-  border-radius: 3px;
+  border-radius: 8px;
   box-sizing: border-box;
   margin-bottom: 8px;
   cursor: pointer;
@@ -33,20 +32,16 @@
   width: auto;
 }
 
+.unselectedAnswer {
+  box-shadow: 0px 4px 16px box_shadow_light_dark;
+}
+
+.unselectedAnswer:hover {
+  background-color: cm_grey_75;
+}
+
 .answer:last-child {
   margin-bottom: 0;
-}
-
-.answer:hover {
-  background-color: light;
-}
-
-.unselectedAnswer {
-  color: black;
-}
-
-.selectedAnswer {
-  color: white;
 }
 
 @media mobile {
@@ -57,10 +52,6 @@
   .longestAnswer {
     composes: answer;
     width: 100%;
-  }
-
-  .answer:hover {
-    background-color: white;
   }
 
   .answer {
