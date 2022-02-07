@@ -40,7 +40,7 @@ const QCM = (props, context) => {
         const isHovered = get(answerKey, selectedHoveredAnswers);
         const answerStyle = getAnswerStyle(selected, isHovered, primarySkinColor);
         const longAnswerClass = longestAnswer.title === title ? style.longestAnswer : style.answer;
-        const selectedAnswerClass = selected ? style.selectedAnswer : style.unselectedAnswer;
+        const selectedAnswerClass = selected ? null : style.unselectedAnswer;
 
         return (
           <div
