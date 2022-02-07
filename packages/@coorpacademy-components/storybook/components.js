@@ -769,6 +769,7 @@ import MoleculeVideoPlayerFixtureVimeo from '../src/molecule/video-player/test/f
 import MoleculeVideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
 import MoleculeWizardSummaryFixtureDefault from '../src/molecule/wizard-summary/test/fixtures/default';
 import MoleculeWizardSummaryFixtureOneSection from '../src/molecule/wizard-summary/test/fixtures/one-section';
+import MoleculeWizardSummaryFixtureOrganizeCourses from '../src/molecule/wizard-summary/test/fixtures/organize-courses';
 import MoleculeWizardSummaryFixtureTabletClosed from '../src/molecule/wizard-summary/test/fixtures/tablet-closed';
 import MoleculeWizardSummaryFixtureThreeSections from '../src/molecule/wizard-summary/test/fixtures/three-sections';
 import MoleculeWizardSummaryFixtureTwoSections from '../src/molecule/wizard-summary/test/fixtures/two-sections';
@@ -2135,6 +2136,7 @@ export const fixtures = {
     MoleculeWizardSummary: {
       Default: MoleculeWizardSummaryFixtureDefault,
       OneSection: MoleculeWizardSummaryFixtureOneSection,
+      OrganizeCourses: MoleculeWizardSummaryFixtureOrganizeCourses,
       TabletClosed: MoleculeWizardSummaryFixtureTabletClosed,
       ThreeSections: MoleculeWizardSummaryFixtureThreeSections,
       TwoSections: MoleculeWizardSummaryFixtureTwoSections
