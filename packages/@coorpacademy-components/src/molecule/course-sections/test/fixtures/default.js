@@ -15,7 +15,8 @@ export default {
           label: 'course',
           category: 'course'
         },
-        position: 1
+        position: 1,
+        id: 'disc_1'
       },
       {
         'aria-label': {
@@ -30,7 +31,9 @@ export default {
           label: "5' learning",
           category: 'chapter'
         },
-        position: 2
+        position: 2,
+        id: 'chap_1'
+
       },
       {
         'aria-label': {
@@ -45,7 +48,8 @@ export default {
           label: 'course',
           category: 'course'
         },
-        position: 3
+        position: 3,
+        id: 'disc_2'
       },
       {
         'aria-label': {
@@ -60,7 +64,8 @@ export default {
           label: "5' learning",
           category: 'chapter'
         },
-        position: 4
+        position: 4,
+        id: 'chap_2'
       }
     ],
     isLoading: false,

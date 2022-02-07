@@ -561,6 +561,7 @@ import MoleculeDragAndDropFixtureReady from '../src/molecule/drag-and-drop/test/
 import MoleculeDragAndDropFixtureSuccessVideo from '../src/molecule/drag-and-drop/test/fixtures/success-video';
 import MoleculeDragAndDropFixtureSuccess from '../src/molecule/drag-and-drop/test/fixtures/success';
 import MoleculeDraggableFixtureDefault from '../src/molecule/draggable/test/fixtures/default';
+import MoleculeDraggableListFixtureCourseSections from '../src/molecule/draggable-list/test/fixtures/course-sections';
 import MoleculeDraggableListFixtureDashboardSections from '../src/molecule/draggable-list/test/fixtures/dashboard-sections';
 import MoleculeExternalContentButtonFixtureArticle from '../src/molecule/external-content-button/test/fixtures/article';
 import MoleculeExternalContentButtonFixturePodcast from '../src/molecule/external-content-button/test/fixtures/podcast';
@@ -1871,6 +1872,7 @@ export const fixtures = {
       Default: MoleculeDraggableFixtureDefault
     },
     MoleculeDraggableList: {
+      CourseSections: MoleculeDraggableListFixtureCourseSections,
       DashboardSections: MoleculeDraggableListFixtureDashboardSections
     },
     MoleculeExternalContentButton: {
