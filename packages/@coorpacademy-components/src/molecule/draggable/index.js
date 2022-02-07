@@ -40,7 +40,7 @@ const Draggable = props => {
 
   return (
     <div
-      className={classnames(dragging ? style.dragging : null, style.section, style.draggable)}
+      className={classnames(dragging ? style.dragging : null, style.draggable)}
       onDragStart={dragStartHandler}
       onDragOver={dragOverHandler}
       onDragLeave={dragLeaveHandler}

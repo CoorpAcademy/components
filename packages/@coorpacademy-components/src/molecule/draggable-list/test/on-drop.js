@@ -33,12 +33,12 @@ test('should trigger onDrop handler', t => {
   const dragLeaveEvent = {preventDefault: () => t.pass()};
   const dropEvent = {preventDefault: () => t.pass()};
 
-  wrapper.find(`.${style.section}`).at(0).simulate('dragStart', dragStartEvent);
-  wrapper.find(`.${style.section}`).at(0).simulate('dragOver', dragOverEvent);
-  wrapper.find(`.${style.section}`).at(0).simulate('dragOver', dragOverEvent);
-  wrapper.find(`.${style.section}`).at(0).simulate('dragLeave', dragLeaveEvent);
-  wrapper.find(`.${style.section}`).at(2).simulate('dragOver', dragOverEvent);
-  wrapper.find(`.${style.section}`).at(2).simulate('drop', dropEvent);
+  wrapper.find(`.${style.draggable}`).at(0).simulate('dragStart', dragStartEvent);
+  wrapper.find(`.${style.draggable}`).at(0).simulate('dragOver', dragOverEvent);
+  wrapper.find(`.${style.draggable}`).at(0).simulate('dragOver', dragOverEvent);
+  wrapper.find(`.${style.draggable}`).at(0).simulate('dragLeave', dragLeaveEvent);
+  wrapper.find(`.${style.draggable}`).at(2).simulate('dragOver', dragOverEvent);
+  wrapper.find(`.${style.draggable}`).at(2).simulate('drop', dropEvent);
 });
 
 test('should skip drop event if dragStart is not called', t => {
@@ -53,7 +53,7 @@ test('should skip drop event if dragStart is not called', t => {
   });
 
   const dropEvent = {preventDefault: () => t.pass()};
-  wrapper.find(`.${style.section}`).at(2).simulate('drop', dropEvent);
+  wrapper.find(`.${style.draggable}`).at(2).simulate('drop', dropEvent);
 });
 
 test('should skip dragStart event if section id is not defined', t => {
@@ -75,10 +75,10 @@ test('should skip dragStart event if section id is not defined', t => {
   const dragLeaveEvent = {preventDefault: () => {}};
   const dropEvent = {preventDefault: () => {}};
 
-  wrapper.find(`.${style.section}`).at(0).simulate('dragStart', dragStartEvent);
-  wrapper.find(`.${style.section}`).at(0).simulate('dragOver', dragOverEvent);
-  wrapper.find(`.${style.section}`).at(0).simulate('dragOver', dragOverEvent);
-  wrapper.find(`.${style.section}`).at(0).simulate('dragLeave', dragLeaveEvent);
-  wrapper.find(`.${style.section}`).at(2).simulate('dragOver', dragOverEvent);
-  wrapper.find(`.${style.section}`).at(2).simulate('drop', dropEvent);
+  wrapper.find(`.${style.draggable}`).at(0).simulate('dragStart', dragStartEvent);
+  wrapper.find(`.${style.draggable}`).at(0).simulate('dragOver', dragOverEvent);
+  wrapper.find(`.${style.draggable}`).at(0).simulate('dragOver', dragOverEvent);
+  wrapper.find(`.${style.draggable}`).at(0).simulate('dragLeave', dragLeaveEvent);
+  wrapper.find(`.${style.draggable}`).at(2).simulate('dragOver', dragOverEvent);
+  wrapper.find(`.${style.draggable}`).at(2).simulate('drop', dropEvent);
 });
