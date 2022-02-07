@@ -352,6 +352,7 @@
 
 .coorpmanager .descriptionLabel {
   margin: 0 1px 18px 0;
+  padding: 8px 16px;
   border-radius: 7px;
   background-color: cm_grey_700;
   flex-grow: 0;
@@ -365,14 +366,16 @@
   text-align: center;
   color: white;
   padding: 8px 16px;
-  max-width: 200px;
-  position: absolute;
-  left: -20px;
-  z-index: 999;
-  bottom: 18px;
+  max-width: 348px;
   width: max-content;
+  position: absolute;
+  left: -24px;
+  z-index: 3;
+  bottom: 5px;
   visibility: hidden;
   opacity: 0;
+  overflow-wrap: break-word;
+  white-space: break-spaces;
 }
 
 .coorpmanager .title.titleWithSelection .descriptionLabel,
