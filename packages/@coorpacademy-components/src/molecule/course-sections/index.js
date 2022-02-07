@@ -10,7 +10,7 @@ const Loading = () => (
   </div>
 );
 
-const CourseSections = ({sections, onDrop, loading}) => {
+const CourseSections = ({sections, onDrop, isLoading}) => {
   const [dragTo, setDragTo] = useState(null);
   const [dragFrom, setDragFrom] = useState(null);
 
@@ -59,13 +59,13 @@ const CourseSections = ({sections, onDrop, loading}) => {
       </Draggable>
     );
   });
-  return loading ? <Loading /> : <div>{sectionView}</div>;
+  return isLoading ? <Loading /> : <div>{sectionView}</div>;
 };
 
 CourseSections.propTypes = {
-  sections: PropTypes.arrayOf(PropTypes.shape(CourseSection)),
+  sections: PropTypes.arrayOf(PropTypes.shape(CourseSection.propTypes)),
   onDrop: PropTypes.func,
-  loading: PropTypes.bool
+  isLoading: PropTypes.bool
 };
 
 export default CourseSections;

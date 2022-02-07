@@ -63,7 +63,7 @@ export default {
         position: 4
       }
     ],
-    loading: false,
+    isLoading: false,
     onDrop: () => console.log('on drop')
   }
 };

@@ -1,7 +1,7 @@
 export default {
   props: {
     sections: [],
-    loading: true,
+    isLoading: true,
     onDrop: () => console.log('on drop')
   }
 };
