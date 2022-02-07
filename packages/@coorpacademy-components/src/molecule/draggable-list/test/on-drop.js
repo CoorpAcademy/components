@@ -8,7 +8,7 @@ import {wrappingComponent} from '../../../test/helpers/render-component';
 import SetupSections from '..';
 // eslint-disable-next-line css-modules/no-unused-class
 import style from '../../draggable/style.css';
-import fixtures from './fixtures/default';
+import fixtures from './fixtures/dashboard-sections';
 
 browserEnv();
 configure({adapter: new Adapter()});
@@ -16,8 +16,8 @@ configure({adapter: new Adapter()});
 test('should trigger onDrop handler', t => {
   t.plan(7);
 
-  const elementToDrag = fixtures.props.sections[0].id;
-  const elementToDrop = fixtures.props.sections[2].id;
+  const elementToDrag = fixtures.props.items[0].id;
+  const elementToDrop = fixtures.props.items[2].id;
 
   const dropHandler = (dragged, dropped) => {
     t.is(dropped, elementToDrop);
@@ -64,7 +64,7 @@ test('should skip dragStart event if section id is not defined', t => {
   };
 
   const wrapper = mount(
-    <SetupSections {...set('sections.0.id', '', fixtures.props)} onDrop={dropHandler} />,
+    <SetupSections {...set('items.0.id', '', fixtures.props)} onDrop={dropHandler} />,
     {
       wrappingComponent
     }

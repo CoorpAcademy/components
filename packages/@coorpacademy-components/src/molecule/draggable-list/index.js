@@ -1,17 +1,11 @@
 import React, {useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
-import DraggableList from '../draggable-list';
+import Draggable from '../draggable';
 import SetupSection from '../setup-section';
-import Loader from '../../atom/loader';
-import style from './style.css';
 
-const Loading = () => (
-  <div className={style.loading}>
-    <Loader />
-  </div>
-);
+const ITEMS = {'setup-section': SetupSection};
 
-const SetupSections = ({sections, loading, onDrop}) => {
+const SetupSections = ({items, onDrop, itemType}) => {
   const [dragTo, setDragTo] = useState(null);
   const [dragFrom, setDragFrom] = useState(null);
 
@@ -47,19 +41,27 @@ const SetupSections = ({sections, loading, onDrop}) => {
     [onDrop, setDragTo, setDragFrom, dragFrom]
   );
 
-  if (loading) return <Loading />;
-
-  return (
-    <div>
-      <DraggableList itemType="setup-section" items={sections} />
-    </div>
-  );
+  const Item = ITEMS[itemType];
+  const itemsView = items.map(item => (
+    <Draggable
+      key={item.id}
+      id={item.id}
+      dragging={dragTo === item.id}
+      onDragStart={dragStartHandler}
+      onDragOver={dragOverHandler}
+      onDragLeave={dragLeaveHandler}
+      onDrop={dropHandler}
+    >
+      <Item {...item} key={item.id} />
+    </Draggable>
+  ));
+  return <div>{itemsView}</div>;
 };
 
 SetupSections.propTypes = {
-  sections: PropTypes.arrayOf(PropTypes.shape(SetupSection.propTypes)),
-  loading: PropTypes.bool,
-  onDrop: PropTypes.func
+  items: PropTypes.arrayOf(PropTypes.shape(SetupSection.propTypes)),
+  onDrop: PropTypes.func,
+  itemType: PropTypes.string
 };
 
 export default SetupSections;
