@@ -12,46 +12,11 @@ const Loading = () => (
 );
 
 const SetupSections = ({sections, loading, onDrop}) => {
-  const [dragTo, setDragTo] = useState(null);
-  const [dragFrom, setDragFrom] = useState(null);
-
-  const dragStartHandler = useCallback(
-    id => {
-      setDragFrom(id);
-    },
-    [setDragFrom]
-  );
-
-  const dragOverHandler = useCallback(
-    id => {
-      if (dragTo === id) return;
-      setDragTo(id);
-    },
-    [dragTo, setDragTo]
-  );
-
-  const dragLeaveHandler = useCallback(
-    id => {
-      setDragTo(null);
-    },
-    [setDragTo]
-  );
-
-  const dropHandler = useCallback(
-    id => {
-      if (onDrop && dragFrom) onDrop(dragFrom, id);
-
-      setDragTo(null);
-      setDragFrom(null);
-    },
-    [onDrop, setDragTo, setDragFrom, dragFrom]
-  );
-
   if (loading) return <Loading />;
 
   return (
     <div>
-      <DraggableList itemType="setup-section" items={sections} />
+      <DraggableList itemType="setup-section" items={sections} onDrop={onDrop} />
     </div>
   );
 };
