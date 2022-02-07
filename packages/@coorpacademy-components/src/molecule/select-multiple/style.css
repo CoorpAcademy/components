@@ -366,7 +366,8 @@
   text-align: center;
   color: white;
   padding: 8px 16px;
-  width: 348px;
+  max-width: 348px;
+  width: max-content;
   position: absolute;
   left: -24px;
   z-index: 3;

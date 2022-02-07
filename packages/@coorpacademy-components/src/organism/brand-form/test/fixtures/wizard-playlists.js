@@ -40,7 +40,7 @@ export default {
             type: 'text',
             title: 'Playlist name',
             placeholder: 'Playlist name',
-            description: 'The name and description of your custom playlist will be displayed in the selected language. Only the selected language will be saved. You can translate during step 2 "Translations".',
+            description: 'This is the tooltip tex',
             theme: 'coorpmanager',
             hint: '15 / 30 characters',
             value: 'Marketing expert',
