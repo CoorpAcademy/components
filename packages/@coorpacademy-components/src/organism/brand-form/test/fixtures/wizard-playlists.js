@@ -40,7 +40,7 @@ export default {
             type: 'text',
             title: 'Playlist name',
             placeholder: 'Playlist name',
-            description: 'This is the tooltip tex',
+            description: 'This is the tooltip text',
             theme: 'coorpmanager',
             hint: '15 / 30 characters',
             value: 'Marketing expert',
