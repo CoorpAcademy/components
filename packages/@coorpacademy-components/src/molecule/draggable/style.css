@@ -4,22 +4,12 @@
 @value medium from colors;
 @value xtraLightGrey from colors;
 @value dark from colors;
-@value cm_grey_100 from colors
+@value cm_grey_100 from colors;
 
 
 .section {
-  border-top: 1px;
-  border-left: 1px;
-  border-right: 1px;
-  border-style: solid;
-  border-color: medium;
-  border-bottom: 0;
   display: flex;
   justify-content: center;
-}
-
-.section:last-child {
-  border-bottom: 1px solid medium;
 }
 
 .draggable {
