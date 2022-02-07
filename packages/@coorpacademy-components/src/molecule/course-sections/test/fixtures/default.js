@@ -33,7 +33,6 @@ export default {
         },
         position: 2,
         id: 'chap_1'
-
       },
       {
         'aria-label': {
