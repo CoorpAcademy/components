@@ -18,10 +18,6 @@
   justify-content: center;
 }
 
-.section:last-child {
-  border-bottom: 1px solid medium;
-}
-
 .draggable {
   cursor: grab;
   position: relative;
