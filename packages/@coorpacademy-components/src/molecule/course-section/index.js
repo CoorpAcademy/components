@@ -11,14 +11,11 @@ const CourseSection = props => {
     title,
     author,
     position,
-    'aria-label': {title: ariaLabelTitle, author: ariaLabelAuthor}
+    'aria-label': {title: ariaLabelTitle, author: ariaLabelAuthor},
+    id
   } = props;
   return (
-    <div
-      className={style.container}
-      aria-label={ariaLabelTitle}
-      data-name={`course-section-${position}`}
-    >
+    <div className={style.container} aria-label={ariaLabelTitle} data-name={`course-section-${id}`}>
       <span className={style.position}>{position}</span>
       <div className={style.containerImage}>
         <CardImagePreview image={image} />
@@ -45,7 +42,8 @@ CourseSection.propTypes = {
   contentBadge: PropTypes.shape(ContentBadge.propTypes),
   title: PropTypes.string,
   author: PropTypes.string,
-  position: PropTypes.number
+  position: PropTypes.number,
+  id: PropTypes.string
 };
 
 export default CourseSection;
