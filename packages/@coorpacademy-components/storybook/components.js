@@ -894,6 +894,7 @@ import OrganismUserPreferencesFixtureDefault from '../src/organism/user-preferen
 import OrganismWizardContentsFixturePlaylistAddCoursesCreate from '../src/organism/wizard-contents/test/fixtures/playlist-add-courses-create';
 import OrganismWizardContentsFixturePlaylistGeneralSettingsCreate from '../src/organism/wizard-contents/test/fixtures/playlist-general-settings-create';
 import OrganismWizardContentsFixturePlaylistGeneralSettingsEdit from '../src/organism/wizard-contents/test/fixtures/playlist-general-settings-edit';
+import OrganismWizardContentsFixturePlaylistOrganizeCourses from '../src/organism/wizard-contents/test/fixtures/playlist-organize-courses';
 import OrganismWizardContentsFixturePlaylistPopulationsCreate from '../src/organism/wizard-contents/test/fixtures/playlist-populations-create';
 import OrganismWizardContentsFixturePlaylistTranslateEdit from '../src/organism/wizard-contents/test/fixtures/playlist-translate-edit';
 import TemplateActivityFixtureAllEngines from '../src/template/activity/test/fixtures/all-engines';
@@ -1061,6 +1062,7 @@ import TemplateBackOfficeBrandUpdateFixtureUploadusers from '../src/template/bac
 import TemplateBackOfficeBrandUpdateFixtureWizardAddCoursesPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-add-courses-playlist';
 import TemplateBackOfficeBrandUpdateFixtureWizardFormCreatePlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-form-create-playlist';
 import TemplateBackOfficeBrandUpdateFixtureWizardFormEditPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-form-edit-playlist';
+import TemplateBackOfficeBrandUpdateFixtureWizardOrganizeCoursesPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-organize-courses-playlist';
 import TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylistWithPopin from '../src/template/back-office/brand-update/test/fixtures/wizard-populations-playlist-with-popin';
 import TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-populations-playlist';
 import TemplateBackOfficeBrandUpdateFixtureWizardTranslatePlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-translate-playlist';
@@ -2404,6 +2406,7 @@ export const fixtures = {
       PlaylistAddCoursesCreate: OrganismWizardContentsFixturePlaylistAddCoursesCreate,
       PlaylistGeneralSettingsCreate: OrganismWizardContentsFixturePlaylistGeneralSettingsCreate,
       PlaylistGeneralSettingsEdit: OrganismWizardContentsFixturePlaylistGeneralSettingsEdit,
+      PlaylistOrganizeCourses: OrganismWizardContentsFixturePlaylistOrganizeCourses,
       PlaylistPopulationsCreate: OrganismWizardContentsFixturePlaylistPopulationsCreate,
       PlaylistTranslateEdit: OrganismWizardContentsFixturePlaylistTranslateEdit
     }
@@ -2631,6 +2634,7 @@ export const fixtures = {
       WizardAddCoursesPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardAddCoursesPlaylist,
       WizardFormCreatePlaylist: TemplateBackOfficeBrandUpdateFixtureWizardFormCreatePlaylist,
       WizardFormEditPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardFormEditPlaylist,
+      WizardOrganizeCoursesPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardOrganizeCoursesPlaylist,
       WizardPopulationsPlaylistWithPopin: TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylistWithPopin,
       WizardPopulationsPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylist,
       WizardTranslatePlaylist: TemplateBackOfficeBrandUpdateFixtureWizardTranslatePlaylist
