@@ -1,9 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {
-  NovaCompositionNavigationArrowDown as ArrowDownIcon,
-  NovaCompositionNavigationArrowTop as ArrowUpIcon
-} from '@coorpacademy/nova-icons';
 import {get} from 'lodash/fp';
 import Provider from '../../atom/provider';
 import InputSwitch from '../../atom/input-switch';
@@ -41,13 +37,9 @@ ContentTypesToggler.propTypes = {
 };
 
 const SetupSection = (props, context) => {
-  const {translate, skin} = context;
-  const brand = get('common.brand', skin);
-  const medium = get('common.medium', skin);
+  const {translate} = context;
 
-  const {title, onUp, onDown, display, contentTypes} = props;
-  const colorUp = onDown ? brand : medium;
-  const colorDown = onUp ? brand : medium;
+  const {title, display, contentTypes} = props;
 
   return (
     <div className={style.wrapper}>
@@ -56,18 +48,6 @@ const SetupSection = (props, context) => {
         <ContentTypesToggler contentTypes={contentTypes} />
         <div className={style.label}>{translate('Show')}</div>
         <InputSwitch {...display} />
-        <div className={style.arrowSection}>
-          <ArrowDownIcon
-            color={colorUp}
-            className={onDown ? style.arrow : style.disabled}
-            onClick={onDown}
-          />
-          <ArrowUpIcon
-            color={colorDown}
-            className={onUp ? style.arrow : style.disabled}
-            onClick={onUp}
-          />
-        </div>
       </div>
     </div>
   );

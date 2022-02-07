@@ -7,7 +7,7 @@ import Adapter from 'enzyme-adapter-react-16';
 import {wrappingComponent} from '../../../test/helpers/render-component';
 import SetupSections from '..';
 // eslint-disable-next-line css-modules/no-unused-class
-import style from '../style.css';
+import style from '../../draggable/style.css';
 import fixtures from './fixtures/default';
 
 browserEnv();

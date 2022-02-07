@@ -83,6 +83,7 @@ import MoleculeDisciplineHeader from './../src/molecule/discipline-header';
 import MoleculeDisciplinePartners from './../src/molecule/discipline-partners';
 import MoleculeDisciplineScope from './../src/molecule/discipline-scope';
 import MoleculeDragAndDrop from './../src/molecule/drag-and-drop';
+import MoleculeDraggable from './../src/molecule/draggable';
 import MoleculeExternalContentButton from './../src/molecule/external-content-button';
 import MoleculeExternalContentViewer from './../src/molecule/external-content-viewer';
 import MoleculeFeedback from './../src/molecule/feedback';
@@ -555,6 +556,7 @@ import MoleculeDragAndDropFixtureReadyInvalid from '../src/molecule/drag-and-dro
 import MoleculeDragAndDropFixtureReady from '../src/molecule/drag-and-drop/test/fixtures/ready';
 import MoleculeDragAndDropFixtureSuccessVideo from '../src/molecule/drag-and-drop/test/fixtures/success-video';
 import MoleculeDragAndDropFixtureSuccess from '../src/molecule/drag-and-drop/test/fixtures/success';
+import MoleculeDraggableFixtureDefault from '../src/molecule/draggable/test/fixtures/default';
 import MoleculeExternalContentButtonFixtureArticle from '../src/molecule/external-content-button/test/fixtures/article';
 import MoleculeExternalContentButtonFixturePodcast from '../src/molecule/external-content-button/test/fixtures/podcast';
 import MoleculeExternalContentButtonFixtureScorm from '../src/molecule/external-content-button/test/fixtures/scorm';
@@ -1192,6 +1194,7 @@ export const components = {
     MoleculeDisciplinePartners,
     MoleculeDisciplineScope,
     MoleculeDragAndDrop,
+    MoleculeDraggable,
     MoleculeExternalContentButton,
     MoleculeExternalContentViewer,
     MoleculeFeedback,
@@ -1849,6 +1852,9 @@ export const fixtures = {
       Ready: MoleculeDragAndDropFixtureReady,
       SuccessVideo: MoleculeDragAndDropFixtureSuccessVideo,
       Success: MoleculeDragAndDropFixtureSuccess
+    },
+    MoleculeDraggable: {
+      Default: MoleculeDraggableFixtureDefault
     },
     MoleculeExternalContentButton: {
       Article: MoleculeExternalContentButtonFixtureArticle,
