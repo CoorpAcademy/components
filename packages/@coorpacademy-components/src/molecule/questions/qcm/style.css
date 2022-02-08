@@ -32,8 +32,29 @@
   width: auto;
 }
 
+.selectedAnswer:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: color(white a(50%));
+}
+
+.selectedAnswer:hover:before {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: color(white a(20%));
+}
+
 .unselectedAnswer {
   box-shadow: 0px 4px 16px box_shadow_light_dark;
+
 }
 
 .unselectedAnswer:hover {

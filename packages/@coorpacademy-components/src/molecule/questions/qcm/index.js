@@ -14,9 +14,10 @@ import style from './style.css';
 const getAnswerStyle = (selected, isHovered, primarySkinColor) => ({
   color: selected ? primarySkinColor : convert(`color(${primarySkinColor} lightness(15%))`),
   ...(selected && {
-    backgroundColor: isHovered
-      ? convert(`color(${primarySkinColor} a(10%))`)
-      : convert(`color(${primarySkinColor} a(5%))`),
+    // backgroundColor: isHovered
+    //   ? convert(`color(${primarySkinColor} a(10%))`)
+    //   : convert(`color(${primarySkinColor} a(5%))`),
+    backgroundColor: primarySkinColor,
     boxShadow: `0 4px 16px ${convert(`color(${primarySkinColor} a(20%))`)}`
   })
 });
@@ -40,7 +41,7 @@ const QCM = (props, context) => {
         const isHovered = get(answerKey, selectedHoveredAnswers);
         const answerStyle = getAnswerStyle(selected, isHovered, primarySkinColor);
         const longAnswerClass = longestAnswer.title === title ? style.longestAnswer : style.answer;
-        const selectedAnswerClass = selected ? null : style.unselectedAnswer;
+        const selectedAnswerClass = selected ? style.selectedAnswer : style.unselectedAnswer;
 
         return (
           <div
@@ -57,9 +58,13 @@ const QCM = (props, context) => {
             style={answerStyle}
             data-selected={selected}
             key={key}
-            // eslint-disable-next-line react/no-danger
-            dangerouslySetInnerHTML={{__html: title}}
-          />
+            // // eslint-disable-next-line react/no-danger
+            // dangerouslySetInnerHTML={{__html: title}}
+          >
+            <span // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{__html: title}}
+            />
+          </div>
         );
       }),
     [answers, longestAnswer, primarySkinColor, selectedHoveredAnswers]
