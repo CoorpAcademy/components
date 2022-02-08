@@ -21,15 +21,6 @@ const QCM = (props, context) => {
         const longAnswerClass = longestAnswer.title === title ? style.longestAnswer : style.answer;
         const selectedAnswerClass = selected ? style.selectedAnswer : style.unselectedAnswer;
 
-        // const hoverReplaceActions = selected
-        //   ? {
-        //       // can't access dynamic skin color on :hover, so an artificial
-        //       // hover has to be made for selected answers
-        //       onMouseEnter: () => dispatch([answerKey, true]),
-        //       onMouseLeave: () => dispatch([answerKey, false])
-        //     }
-        //   : {};
-
         return (
           <div
             data-name="answer"
@@ -37,18 +28,20 @@ const QCM = (props, context) => {
             className={classnames(longAnswerClass, innerHTML, selectedAnswerClass)}
             onClick={onClick}
             style={{
-              boxShadow: selected
-                ? `0 4px 16px ${convert(`color(${primarySkinColor} a(20%))`)}`
-                : null
+              ...(selected && {
+                boxShadow: `0 4px 16px ${convert(`color(${primarySkinColor} a(20%))`)}`
+              })
             }}
             data-selected={selected}
             key={key}
           >
             <div
+              data-name="answer-background"
               style={{backgroundColor: selected ? primarySkinColor : '#F4F4F5' /* cm_grey_75 */}}
               className={style.background}
             />
             <span
+              data-name="answer-label"
               className={style.answerText}
               style={{
                 color: selected
