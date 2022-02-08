@@ -2,7 +2,6 @@
 @value mobile from breakpoints;
 @value colors: "../../../variables/colors.css";
 @value white from colors;
-@value cm_grey_75 from colors;
 @value box_shadow_light_dark from colors;
 
 .wrapper {
