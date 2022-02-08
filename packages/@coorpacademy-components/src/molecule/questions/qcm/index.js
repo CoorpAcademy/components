@@ -3,9 +3,9 @@ import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import maxBy from 'lodash/fp/maxBy';
-import {convert} from 'css-color-function';
 import Provider from '../../../atom/provider';
 import {innerHTML} from '../../../atom/label/style.css';
+import {getShadowBoxColorFromPrimary} from '../../../util/get-shadow-box-color-from-primary';
 import style from './style.css';
 
 const QCM = (props, context) => {
@@ -29,7 +29,7 @@ const QCM = (props, context) => {
             onClick={onClick}
             style={{
               ...(selected && {
-                boxShadow: `0 4px 16px ${convert(`color(${primarySkinColor} a(20%))`)}`
+                boxShadow: `0 4px 16px ${getShadowBoxColorFromPrimary(primarySkinColor)}`
               })
             }}
             data-selected={selected}
@@ -44,9 +44,7 @@ const QCM = (props, context) => {
               data-name="answer-label"
               className={style.answerText}
               style={{
-                color: selected
-                  ? primarySkinColor
-                  : convert(`color(${primarySkinColor} lightness(15%))`)
+                ...(selected && {color: primarySkinColor})
               }}
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{__html: title}}

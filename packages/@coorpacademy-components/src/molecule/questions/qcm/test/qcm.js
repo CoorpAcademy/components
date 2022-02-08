@@ -3,7 +3,6 @@ import test from 'ava';
 import React from 'react';
 import {shallow, mount, configure} from 'enzyme';
 import {identity} from 'lodash/fp';
-import {convert} from 'css-color-function';
 import Adapter from 'enzyme-adapter-react-16';
 import Qcm from '..';
 import defaultFixture from './fixtures/default';
@@ -42,12 +41,10 @@ test("should set: selected's background to Primary w/ alpha 5% && color to prima
   t.true(unselectedAnswer.exists());
   t.deepEqual(unselectedAnswer.props().style, {});
 
-  // should have only color prop in label style, transformed by lightness 15%
+  // should not have any styles (color should be picked from the css for unselected)
   const unselectedLabel = unselectedAnswer.children().at(1);
   t.true(unselectedLabel.exists());
-  t.deepEqual(unselectedLabel.props().style, {
-    color: convert(`color(${expectedPrimaryColor} lightness(15%))`)
-  });
+  t.deepEqual(unselectedLabel.props().style, {});
 
   // check dangerouslySetInnerHTML
   t.deepEqual(unselectedLabel.props().dangerouslySetInnerHTML, {
@@ -67,7 +64,7 @@ test("should set: selected's background to Primary w/ alpha 5% && color to prima
   const selectedAnswer = answers.at(2);
   t.true(selectedAnswer.exists());
   t.deepEqual(selectedAnswer.props().style, {
-    boxShadow: `0 4px 16px ${convert(`color(${expectedPrimaryColor} a(20%))`)}`
+    boxShadow: '0 4px 16px rgba(0, 122, 179, 0.25)'
   });
 
   // should have only color prop in label style, w/o transforming expectedPrimaryColor
