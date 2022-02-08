@@ -1,45 +1,23 @@
-import React, {useMemo, useReducer} from 'react';
+import React, {useMemo} from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import maxBy from 'lodash/fp/maxBy';
-import set from 'lodash/fp/set';
-import toString from 'lodash/fp/toString';
 import {convert} from 'css-color-function';
 import Provider from '../../../atom/provider';
 import {innerHTML} from '../../../atom/label/style.css';
 import style from './style.css';
-
-const getAnswerStyle = (selected, isHovered, primarySkinColor) => ({
-  color: selected ? primarySkinColor : convert(`color(${primarySkinColor} lightness(15%))`),
-  ...(selected && {
-    // backgroundColor: isHovered
-    //   ? convert(`color(${primarySkinColor} a(10%))`)
-    //   : convert(`color(${primarySkinColor} a(5%))`),
-    backgroundColor: primarySkinColor,
-    boxShadow: `0 4px 16px ${convert(`color(${primarySkinColor} a(20%))`)}`
-  })
-});
 
 const QCM = (props, context) => {
   const {answers} = props;
   const longestAnswer = maxBy(({title}) => title.length, answers);
   const {skin} = context;
   const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
-  const initialState = useMemo(() => ({}), []);
-  const [selectedHoveredAnswers, dispatch] = useReducer((state, action) => {
-    const [key, result] = action;
-    return set(key, result, state);
-  }, initialState);
 
   const answersViews = useMemo(
     () =>
       answers.map((answer, key) => {
         const {onClick, title, selected, 'aria-label': ariaLabel} = answer;
-        const answerKey = toString(key);
-        const isHovered = get(answerKey, selectedHoveredAnswers);
-        const answerStyle = getAnswerStyle(selected, isHovered, primarySkinColor);
         const longAnswerClass = longestAnswer.title === title ? style.longestAnswer : style.answer;
         const selectedAnswerClass = selected ? style.selectedAnswer : style.unselectedAnswer;
 
@@ -49,25 +27,32 @@ const QCM = (props, context) => {
             aria-label={ariaLabel || title}
             className={classnames(longAnswerClass, innerHTML, selectedAnswerClass)}
             onClick={onClick}
-            // can't access dynamic skin color on :hover, so an artificial
-            // hover has to be made for selected answers
-            // eslint-disable-next-line react/jsx-no-bind
-            onMouseEnter={() => (selected ? dispatch([answerKey, true]) : null)}
-            // eslint-disable-next-line react/jsx-no-bind
-            onMouseLeave={() => (selected ? dispatch([answerKey, false]) : null)}
-            style={answerStyle}
+            style={{
+              boxShadow: selected
+                ? `0 4px 16px ${convert(`color(${primarySkinColor} a(20%))`)}`
+                : null
+            }}
             data-selected={selected}
             key={key}
-            // // eslint-disable-next-line react/no-danger
-            // dangerouslySetInnerHTML={{__html: title}}
           >
-            <span // eslint-disable-next-line react/no-danger
+            <div
+              style={{backgroundColor: selected ? primarySkinColor : '#F4F4F5' /* cm_grey_75 */}}
+              className={style.background}
+            />
+            <span
+              className={style.answerText}
+              style={{
+                color: selected
+                  ? primarySkinColor
+                  : convert(`color(${primarySkinColor} lightness(15%))`)
+              }}
+              // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{__html: title}}
             />
           </div>
         );
       }),
-    [answers, longestAnswer, primarySkinColor, selectedHoveredAnswers]
+    [answers, longestAnswer, primarySkinColor]
   );
 
   return (
