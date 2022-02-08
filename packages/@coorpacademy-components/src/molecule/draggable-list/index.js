@@ -2,10 +2,11 @@ import React, {useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import Draggable from '../draggable';
 import SetupSection from '../setup-section';
+import CourseSection from '../course-section';
 
-const ITEMS = {'setup-section': SetupSection};
+const ITEMS = {'setup-section': SetupSection, 'course-section': CourseSection};
 
-const SetupSections = ({items, onDrop, itemType}) => {
+const DraggableList = ({items, onDrop, itemType}) => {
   const [dragTo, setDragTo] = useState(null);
   const [dragFrom, setDragFrom] = useState(null);
 
@@ -58,10 +59,10 @@ const SetupSections = ({items, onDrop, itemType}) => {
   return <div>{itemsView}</div>;
 };
 
-SetupSections.propTypes = {
+DraggableList.propTypes = {
   items: PropTypes.arrayOf(PropTypes.shape(SetupSection.propTypes)),
   onDrop: PropTypes.func,
   itemType: PropTypes.string
 };
 
-export default SetupSections;
+export default DraggableList;

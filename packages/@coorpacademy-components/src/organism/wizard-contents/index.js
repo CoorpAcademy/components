@@ -9,6 +9,7 @@ import BrandForm from '../brand-form';
 import ContentTranslate from '../content-translation';
 import OrganismSearchAndChipsResults from '../search-and-chips-results';
 import CourseSelection from '../course-selection';
+import CourseSections from '../../molecule/course-sections';
 import style from './style.css';
 
 const buildHeader = (wizardHeader, steps) => {
@@ -46,6 +47,8 @@ const buildForm = content => {
       return <OrganismSearchAndChipsResults {...content} />;
     case 'courses':
       return <CourseSelection {...content} />;
+    case 'organize-courses':
+      return <CourseSections {...content} />;
   }
 };
 
@@ -147,6 +150,10 @@ WizardContents.propTypes = {
     PropTypes.shape({
       ...CourseSelection.propTypes,
       type: PropTypes.oneOf(['courses'])
+    }),
+    PropTypes.shape({
+      ...CourseSections.propTypes,
+      type: PropTypes.oneOf(['organize-courses'])
     })
   ]),
   previousStep: PropTypes.shape({

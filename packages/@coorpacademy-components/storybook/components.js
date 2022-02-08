@@ -74,6 +74,7 @@ import MoleculeCmPopin from './../src/molecule/cm-popin';
 import MoleculeCookieBanner from './../src/molecule/cookie-banner';
 import MoleculeCoorpManagerRoles from './../src/molecule/coorp-manager-roles';
 import MoleculeCourseSection from './../src/molecule/course-section';
+import MoleculeCourseSections from './../src/molecule/course-sections';
 import MoleculeDashboardBattleRequestList from './../src/molecule/dashboard/battle-request-list';
 import MoleculeDashboardCardsList from './../src/molecule/dashboard/cards-list';
 import MoleculeDashboardNewsList from './../src/molecule/dashboard/news-list';
@@ -514,6 +515,8 @@ import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/te
 import MoleculeCoorpManagerRolesFixtureDefault from '../src/molecule/coorp-manager-roles/test/fixtures/default';
 import MoleculeCourseSectionFixtureChapter from '../src/molecule/course-section/test/fixtures/chapter';
 import MoleculeCourseSectionFixtureCourse from '../src/molecule/course-section/test/fixtures/course';
+import MoleculeCourseSectionsFixtureDefault from '../src/molecule/course-sections/test/fixtures/default';
+import MoleculeCourseSectionsFixtureLoading from '../src/molecule/course-sections/test/fixtures/loading';
 import MoleculeDashboardBattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
 import MoleculeDashboardBattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
 import MoleculeDashboardCardsListFixtureDefault from '../src/molecule/dashboard/cards-list/test/fixtures/default';
@@ -558,6 +561,7 @@ import MoleculeDragAndDropFixtureReady from '../src/molecule/drag-and-drop/test/
 import MoleculeDragAndDropFixtureSuccessVideo from '../src/molecule/drag-and-drop/test/fixtures/success-video';
 import MoleculeDragAndDropFixtureSuccess from '../src/molecule/drag-and-drop/test/fixtures/success';
 import MoleculeDraggableFixtureDefault from '../src/molecule/draggable/test/fixtures/default';
+import MoleculeDraggableListFixtureCourseSections from '../src/molecule/draggable-list/test/fixtures/course-sections';
 import MoleculeDraggableListFixtureDashboardSections from '../src/molecule/draggable-list/test/fixtures/dashboard-sections';
 import MoleculeExternalContentButtonFixtureArticle from '../src/molecule/external-content-button/test/fixtures/article';
 import MoleculeExternalContentButtonFixturePodcast from '../src/molecule/external-content-button/test/fixtures/podcast';
@@ -766,6 +770,7 @@ import MoleculeVideoPlayerFixtureVimeo from '../src/molecule/video-player/test/f
 import MoleculeVideoPlayerFixtureYoutube from '../src/molecule/video-player/test/fixtures/youtube';
 import MoleculeWizardSummaryFixtureDefault from '../src/molecule/wizard-summary/test/fixtures/default';
 import MoleculeWizardSummaryFixtureOneSection from '../src/molecule/wizard-summary/test/fixtures/one-section';
+import MoleculeWizardSummaryFixtureOrganizeCourses from '../src/molecule/wizard-summary/test/fixtures/organize-courses';
 import MoleculeWizardSummaryFixtureTabletClosed from '../src/molecule/wizard-summary/test/fixtures/tablet-closed';
 import MoleculeWizardSummaryFixtureThreeSections from '../src/molecule/wizard-summary/test/fixtures/three-sections';
 import MoleculeWizardSummaryFixtureTwoSections from '../src/molecule/wizard-summary/test/fixtures/two-sections';
@@ -891,6 +896,7 @@ import OrganismUserPreferencesFixtureDefault from '../src/organism/user-preferen
 import OrganismWizardContentsFixturePlaylistAddCoursesCreate from '../src/organism/wizard-contents/test/fixtures/playlist-add-courses-create';
 import OrganismWizardContentsFixturePlaylistGeneralSettingsCreate from '../src/organism/wizard-contents/test/fixtures/playlist-general-settings-create';
 import OrganismWizardContentsFixturePlaylistGeneralSettingsEdit from '../src/organism/wizard-contents/test/fixtures/playlist-general-settings-edit';
+import OrganismWizardContentsFixturePlaylistOrganizeCourses from '../src/organism/wizard-contents/test/fixtures/playlist-organize-courses';
 import OrganismWizardContentsFixturePlaylistPopulationsCreate from '../src/organism/wizard-contents/test/fixtures/playlist-populations-create';
 import OrganismWizardContentsFixturePlaylistTranslateEdit from '../src/organism/wizard-contents/test/fixtures/playlist-translate-edit';
 import TemplateActivityFixtureAllEngines from '../src/template/activity/test/fixtures/all-engines';
@@ -1058,6 +1064,7 @@ import TemplateBackOfficeBrandUpdateFixtureUploadusers from '../src/template/bac
 import TemplateBackOfficeBrandUpdateFixtureWizardAddCoursesPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-add-courses-playlist';
 import TemplateBackOfficeBrandUpdateFixtureWizardFormCreatePlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-form-create-playlist';
 import TemplateBackOfficeBrandUpdateFixtureWizardFormEditPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-form-edit-playlist';
+import TemplateBackOfficeBrandUpdateFixtureWizardOrganizeCoursesPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-organize-courses-playlist';
 import TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylistWithPopin from '../src/template/back-office/brand-update/test/fixtures/wizard-populations-playlist-with-popin';
 import TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-populations-playlist';
 import TemplateBackOfficeBrandUpdateFixtureWizardTranslatePlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-translate-playlist';
@@ -1191,6 +1198,7 @@ export const components = {
     MoleculeCookieBanner,
     MoleculeCoorpManagerRoles,
     MoleculeCourseSection,
+    MoleculeCourseSections,
     MoleculeDisciplineCta,
     MoleculeDisciplineHeader,
     MoleculeDisciplinePartners,
@@ -1816,6 +1824,10 @@ export const fixtures = {
       Chapter: MoleculeCourseSectionFixtureChapter,
       Course: MoleculeCourseSectionFixtureCourse
     },
+    MoleculeCourseSections: {
+      Default: MoleculeCourseSectionsFixtureDefault,
+      Loading: MoleculeCourseSectionsFixtureLoading
+    },
     MoleculeDisciplineCta: {
       Default: MoleculeDisciplineCtaFixtureDefault,
       NoStart: MoleculeDisciplineCtaFixtureNoStart
@@ -1860,6 +1872,7 @@ export const fixtures = {
       Default: MoleculeDraggableFixtureDefault
     },
     MoleculeDraggableList: {
+      CourseSections: MoleculeDraggableListFixtureCourseSections,
       DashboardSections: MoleculeDraggableListFixtureDashboardSections
     },
     MoleculeExternalContentButton: {
@@ -2125,6 +2138,7 @@ export const fixtures = {
     MoleculeWizardSummary: {
       Default: MoleculeWizardSummaryFixtureDefault,
       OneSection: MoleculeWizardSummaryFixtureOneSection,
+      OrganizeCourses: MoleculeWizardSummaryFixtureOrganizeCourses,
       TabletClosed: MoleculeWizardSummaryFixtureTabletClosed,
       ThreeSections: MoleculeWizardSummaryFixtureThreeSections,
       TwoSections: MoleculeWizardSummaryFixtureTwoSections
@@ -2396,6 +2410,7 @@ export const fixtures = {
       PlaylistAddCoursesCreate: OrganismWizardContentsFixturePlaylistAddCoursesCreate,
       PlaylistGeneralSettingsCreate: OrganismWizardContentsFixturePlaylistGeneralSettingsCreate,
       PlaylistGeneralSettingsEdit: OrganismWizardContentsFixturePlaylistGeneralSettingsEdit,
+      PlaylistOrganizeCourses: OrganismWizardContentsFixturePlaylistOrganizeCourses,
       PlaylistPopulationsCreate: OrganismWizardContentsFixturePlaylistPopulationsCreate,
       PlaylistTranslateEdit: OrganismWizardContentsFixturePlaylistTranslateEdit
     }
@@ -2623,6 +2638,7 @@ export const fixtures = {
       WizardAddCoursesPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardAddCoursesPlaylist,
       WizardFormCreatePlaylist: TemplateBackOfficeBrandUpdateFixtureWizardFormCreatePlaylist,
       WizardFormEditPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardFormEditPlaylist,
+      WizardOrganizeCoursesPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardOrganizeCoursesPlaylist,
       WizardPopulationsPlaylistWithPopin: TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylistWithPopin,
       WizardPopulationsPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylist,
       WizardTranslatePlaylist: TemplateBackOfficeBrandUpdateFixtureWizardTranslatePlaylist

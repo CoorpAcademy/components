@@ -7,11 +7,6 @@
 @value cm_grey_100 from colors;
 
 
-.section {
-  display: flex;
-  justify-content: center;
-}
-
 .draggable {
   cursor: grab;
   position: relative;
