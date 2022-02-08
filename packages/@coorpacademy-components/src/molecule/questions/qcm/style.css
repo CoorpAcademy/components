@@ -49,11 +49,11 @@
 }
 
 .selectedAnswer:hover .background{
-  opacity: 0.2;
+  opacity: 0.1;
 }
 
 .selectedAnswer .background{
-  opacity: 0.5;
+  opacity: 0.05;
 }
 .selectedAnswer,
 .unselectedAnswer {
