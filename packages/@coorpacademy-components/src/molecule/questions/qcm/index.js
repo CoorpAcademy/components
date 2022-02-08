@@ -42,18 +42,22 @@ const QCM = (props, context) => {
         const longAnswerClass = longestAnswer.title === title ? style.longestAnswer : style.answer;
         const selectedAnswerClass = selected ? null : style.unselectedAnswer;
 
+        const hoverReplaceActions = selected
+          ? {
+              // can't access dynamic skin color on :hover, so an artificial
+              // hover has to be made for selected answers
+              onMouseEnter: () => dispatch([answerKey, true]),
+              onMouseLeave: () => dispatch([answerKey, false])
+            }
+          : {};
+
         return (
           <div
+            {...hoverReplaceActions}
             data-name="answer"
             aria-label={ariaLabel || title}
             className={classnames(longAnswerClass, innerHTML, selectedAnswerClass)}
             onClick={onClick}
-            // can't access dynamic skin color on :hover, so an artificial
-            // hover has to be made for selected answers
-            // eslint-disable-next-line react/jsx-no-bind
-            onMouseEnter={() => (selected ? dispatch([answerKey, true]) : null)}
-            // eslint-disable-next-line react/jsx-no-bind
-            onMouseLeave={() => (selected ? dispatch([answerKey, false]) : null)}
             style={answerStyle}
             data-selected={selected}
             key={key}

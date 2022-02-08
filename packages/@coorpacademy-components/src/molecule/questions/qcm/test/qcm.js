@@ -24,36 +24,44 @@ test('onClick should be reachable, should match given aria-label', t => {
   const wrapper = shallow(<Qcm {...defaultFixture.props} />, {
     context: {translate}
   });
-  const answer = wrapper.find(`[data-name="answer"]`);
-  t.true(answer.at(1).exists());
-  t.is(answer.at(1).props()['aria-label'], 'aria Answer');
-  answer.at(1).simulate('click', {});
+  const answers = wrapper.find(`[data-name="answer"]`);
+  t.true(answers.at(1).exists());
+  t.is(answers.at(1).props()['aria-label'], 'aria Answer');
+  answers.at(1).simulate('click', {});
   t.true(answerWasClicked);
   t.pass();
 });
 
 test("should set: selected's background to Primary w/ alpha 5% && color to primary, unselected's no background && color to a nuance of primary", t => {
   const wrapper = mount(<Qcm {...defaultFixture.props} />);
-  const answer = wrapper.find(`[data-name="answer"]`);
+  const answers = wrapper.find(`[data-name="answer"]`);
   const expectedPrimaryColor = '#00B0FF';
-  // unselected, should have only color prop in style, transformed by lightness 15%
-  t.true(answer.at(1).exists());
-  t.deepEqual(answer.at(1).props().style, {
+  // unselected, should have only color prop in style, transformed by lightness 15%,
+  // should not have onMouseLeave prop nor onMouseEnter (should rely on css)
+  t.true(answers.at(1).exists());
+  t.deepEqual(answers.at(1).props().style, {
     color: convert(`color(${expectedPrimaryColor} lightness(15%))`)
   });
 
+  t.is(answers.at(1).props().onMouseEnter, undefined);
+  t.is(answers.at(1).props().onMouseLeave, undefined);
+
   // selected, should have alpha for the backgroundColor, primary #00B0FF for color
-  t.true(answer.at(2).exists());
-  t.deepEqual(answer.at(2).props().style, {
+  // should have hover replacement functions
+  t.true(answers.at(2).exists());
+  t.deepEqual(answers.at(2).props().style, {
     backgroundColor: 'rgba(0, 176, 255, 0.05)',
     boxShadow: '0 4px 16px rgba(0, 176, 255, 0.2)',
     color: expectedPrimaryColor
   });
 
+  t.truthy(answers.at(2).props().onMouseEnter);
+  t.truthy(answers.at(2).props().onMouseLeave);
+
   t.pass();
 });
 
-test('should set className to longAnswer if the answer has the biggest length', t => {
+test('should set className to longAnswer if the answer is the longest of the set', t => {
   const wrapper = mount(<Qcm {...defaultFixture.props} />);
   const answer = wrapper.find(`[data-name="answer"]`);
   // regular answer
@@ -71,8 +79,35 @@ test('should set className to longAnswer if the answer has the biggest length', 
 
 test('should use title as default aria-label if no aria-label is provided', t => {
   const wrapper = mount(<Qcm {...noAriaLabelFixture.props} />);
-  const answer = wrapper.find(`[data-name="answer"]`);
-  t.is(answer.at(6).text(), 'Lorem ipsum dolor');
-  t.is(answer.at(6).props()['aria-label'], 'Lorem ipsum dolor');
+  const answers = wrapper.find(`[data-name="answer"]`);
+  t.is(answers.at(6).text(), 'Lorem ipsum dolor');
+  t.is(answers.at(6).props()['aria-label'], 'Lorem ipsum dolor');
+  t.pass();
+});
+
+test('should change background color on selected + hovered (less transparency)', t => {
+  const wrapper = mount(<Qcm {...defaultFixture.props} />);
+  let answers = wrapper.find(`[data-name="answer"]`);
+  const expectedPrimaryColor = '#00B0FF';
+
+  // selected, should have alpha for the backgroundColor, primary #00B0FF for color
+  t.true(answers.at(2).exists());
+  answers.at(2).simulate('mouseEnter', {});
+  wrapper.update();
+  answers = wrapper.find(`[data-name="answer"]`);
+  t.deepEqual(answers.at(2).props().style, {
+    backgroundColor: 'rgba(0, 176, 255, 0.1)',
+    boxShadow: '0 4px 16px rgba(0, 176, 255, 0.2)',
+    color: expectedPrimaryColor
+  });
+  answers.at(2).simulate('mouseleave', {});
+  wrapper.update();
+  answers = wrapper.find(`[data-name="answer"]`);
+  t.deepEqual(answers.at(2).props().style, {
+    backgroundColor: 'rgba(0, 176, 255, 0.05)',
+    boxShadow: '0 4px 16px rgba(0, 176, 255, 0.2)',
+    color: expectedPrimaryColor
+  });
+
   t.pass();
 });
