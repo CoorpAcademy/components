@@ -11,18 +11,12 @@ const QCMImage = (props, context) => {
 
   const answersViews = answers.map((answer, key) => {
     const {onClick, title, selected, image} = answer;
-    const {skin} = context;
 
-    const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
-    const selectedStyle = selected
-      ? {backgroundColor: primarySkinColor, borderColor: primarySkinColor}
-      : null;
     return (
       <div
         className={selected ? style.selected : style.answer}
         onClick={onClick}
         data-selected={selected}
-        style={selectedStyle}
         key={key}
       >
         <div
@@ -32,11 +26,13 @@ const QCMImage = (props, context) => {
             backgroundImage: `url(${image})`
           }}
         />
-        <div
-          className={classnames(style.titleWrapper, innerHTML)}
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{__html: title}}
-        />
+        <div className={style.titleWrapper}>
+          <div
+            className={classnames(style.title, innerHTML)}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{__html: title}}
+          />
+        </div>
       </div>
     );
   });
