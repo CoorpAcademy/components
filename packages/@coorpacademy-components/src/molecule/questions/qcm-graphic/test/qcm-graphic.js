@@ -38,13 +38,21 @@ test("should set: selected's background to Primary w/ alpha 5% && color to prima
   const wrapper = shallow(<QCMImage {...defaultFixture.props} />, {
     context: {translate}
   });
-  const answerBackgrounds = wrapper.find('[data-name="answerBackground"]');
+  const answers = wrapper.find('[data-name="answerGraphic"]');
 
-  const unselectedAnswer = answerBackgrounds.at(0);
-  t.true(unselectedAnswer.exists());
-  t.deepEqual(unselectedAnswer.props().style, {backgroundColor: '#F4F4F5'});
+  const firstAnswer = answers.at(0);
+  t.true(firstAnswer.exists());
+  t.deepEqual(firstAnswer.props().style, {});
+  const unselectedBackgroundAnswer = firstAnswer.children().at(0);
+  t.true(unselectedBackgroundAnswer.exists());
+  t.deepEqual(unselectedBackgroundAnswer.props().style, {backgroundColor: '#F4F4F5'});
+  const firstAnswerText = firstAnswer.children().at(1).children().at(1).children().at(0);
+  t.true(firstAnswerText.exists());
 
-  const selectedAnswer = answerBackgrounds.at(2);
-  t.true(selectedAnswer.exists());
-  t.deepEqual(selectedAnswer.props().style, {backgroundColor: '#00B0FF'});
+  const thirdAnswer = answers.at(2);
+  t.true(thirdAnswer.exists());
+  t.deepEqual(thirdAnswer.props().style, {boxShadow: '0 4px 16px rgba(0, 122, 179, 0.25)'});
+  const selectedBackgroundAnswer = thirdAnswer.children().at(0);
+  t.true(selectedBackgroundAnswer.exists());
+  t.deepEqual(selectedBackgroundAnswer.props().style, {backgroundColor: '#00B0FF'});
 });

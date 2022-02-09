@@ -40,6 +40,7 @@
 
 .content {
   height: 100%;
+  position: relative;
 }
 
 .imageWrapper {
@@ -79,6 +80,10 @@
 
 .answer .background{
   opacity: 0;
+}
+
+.answer:hover .background{
+  opacity: 1;
 }
 
 .selected {
