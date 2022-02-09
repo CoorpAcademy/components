@@ -30,8 +30,10 @@
 @value cm_blue_50: #f1f6fe;
 @value cm_blue_200: #74A5F6;
 @value cm_blue_600: #0051d6;
+@value cm_blue_900: #06265B;
 @value cm_bleu_article: #365FCD;
 @value cm_grey_50: #FAFAFA;
+@value cm_grey_75: #F4F4F5;
 @value cm_grey_100: #EAEAEB;
 @value cm_grey_150: #E1E1E3;
 @value cm_grey_200: #d7d7da;
@@ -59,3 +61,4 @@
 @value cm_red_video: #E8335E;
 @value cm_violet_podcast: #432ba7;
 @value cm_warning_50: rgba(255, 192, 67, 0.13);
+@value box_shadow_light_dark: rgba(0, 0, 0, 0.12);
