@@ -40,6 +40,7 @@
 
 .content {
   height: 100%;
+  width: 100%;
   position: relative;
 }
 
@@ -119,10 +120,11 @@
     overflow: hidden;
   }
 
-  .answer:hover {
-    background-color: white;
+  .content {
+    display: flex;
+    align-items: center;
   }
-
+  
   .answer:last-child {
     margin-bottom: 0;
   }
@@ -139,7 +141,7 @@
     white-space: wrap;
     overflow: hidden;
     padding: 0;
-    text-align: left;
+    justify-content: left;
     font-size: 15px;
   }
 }
