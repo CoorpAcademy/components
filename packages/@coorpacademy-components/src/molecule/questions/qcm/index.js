@@ -1,59 +1,42 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
-import maxBy from 'lodash/fp/maxBy';
+import {getOr, maxBy} from 'lodash/fp';
 import Provider from '../../../atom/provider';
 import {innerHTML} from '../../../atom/label/style.css';
-import {getShadowBoxColorFromPrimary} from '../../../util/get-shadow-box-color-from-primary';
 import style from './style.css';
 
 const QCM = (props, context) => {
   const {answers} = props;
   const longestAnswer = maxBy(({title}) => title.length, answers);
-  const {skin} = context;
-  const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
 
-  const answersViews = useMemo(
-    () =>
-      answers.map((answer, key) => {
-        const {onClick, title, selected, 'aria-label': ariaLabel} = answer;
-        const longAnswerClass = longestAnswer.title === title ? style.longestAnswer : style.answer;
-        const selectedAnswerClass = selected ? style.selectedAnswer : style.unselectedAnswer;
+  const answersViews = answers.map((answer, key) => {
+    const {onClick, title, selected} = answer;
+    const {skin} = context;
 
-        return (
-          <div
-            data-name="answer"
-            aria-label={ariaLabel || title}
-            className={classnames(longAnswerClass, innerHTML, selectedAnswerClass)}
-            onClick={onClick}
-            style={{
-              ...(selected && {
-                boxShadow: `0 4px 16px ${getShadowBoxColorFromPrimary(primarySkinColor)}`
-              })
-            }}
-            data-selected={selected}
-            key={key}
-          >
-            <div
-              data-name="answer-background"
-              style={{backgroundColor: selected ? primarySkinColor : '#F4F4F5' /* cm_grey_75 */}}
-              className={style.background}
-            />
-            <span
-              data-name="answer-label"
-              className={style.answerText}
-              style={{
-                ...(selected && {color: primarySkinColor})
-              }}
-              // eslint-disable-next-line react/no-danger
-              dangerouslySetInnerHTML={{__html: title}}
-            />
-          </div>
-        );
-      }),
-    [answers, longestAnswer, primarySkinColor]
-  );
+    const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
+    const selectedStyle = selected
+      ? {backgroundColor: primarySkinColor, borderColor: primarySkinColor}
+      : null;
+
+    const className = classnames(
+      longestAnswer === answer ? style.longestAnswer : style.answer,
+      selected ? style.selectedAnswer : style.unselectedAnswer
+    );
+
+    return (
+      <div
+        data-name="answer"
+        className={classnames(className, innerHTML)}
+        onClick={onClick}
+        style={selectedStyle}
+        data-selected={selected}
+        key={key}
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{__html: title}}
+      />
+    );
+  });
 
   return (
     <div data-name="qcm" className={style.wrapper}>
@@ -71,8 +54,7 @@ QCM.propTypes = {
     PropTypes.shape({
       title: PropTypes.string,
       selected: PropTypes.bool,
-      onClick: PropTypes.func,
-      'aria-label': PropTypes.string
+      onClick: PropTypes.func
     })
   )
 };
