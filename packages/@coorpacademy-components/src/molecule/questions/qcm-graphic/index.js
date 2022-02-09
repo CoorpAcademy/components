@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {getOr} from 'lodash/fp';
 import classnames from 'classnames';
 import Provider from '../../../atom/provider';
 import {innerHTML} from '../../../atom/label/style.css';
