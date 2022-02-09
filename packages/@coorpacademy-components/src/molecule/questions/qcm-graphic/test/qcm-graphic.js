@@ -24,12 +24,27 @@ test('onClick should be reachable, should match given aria-label', t => {
     context: {translate}
   });
 
-  const answers = wrapper.find('[data-name="answerGraphic"]');
-  t.true(answers.at(1).exists());
-  t.is(answers.at(1).props()['aria-label'], 'Lorem ipsum');
+  const answersImages = wrapper.find('[data-name="answerImage"]');
+  t.true(answersImages.at(1).exists());
+  t.is(answersImages.at(1).props()['aria-label'], 'Lorem ipsum');
 
-  const answerWrappers = wrapper.find('[data-name="answerGraphicWrapper"]');
-  answerWrappers.at(1).simulate('click');
+  const answers = wrapper.find('[data-name="answerGraphic"]');
+  answers.at(1).simulate('click');
   t.true(answerWasClicked);
   t.pass();
+});
+
+test("should set: selected's background to Primary w/ alpha 5% && color to primary, unselected's no background && color to a nuance of primary", t => {
+  const wrapper = shallow(<QCMImage {...defaultFixture.props} />, {
+    context: {translate}
+  });
+  const answerBackgrounds = wrapper.find('[data-name="answerBackground"]');
+
+  const unselectedAnswer = answerBackgrounds.at(0);
+  t.true(unselectedAnswer.exists());
+  t.deepEqual(unselectedAnswer.props().style, {backgroundColor: '#F4F4F5'});
+
+  const selectedAnswer = answerBackgrounds.at(2);
+  t.true(selectedAnswer.exists());
+  t.deepEqual(selectedAnswer.props().style, {backgroundColor: '#00B0FF'});
 });
