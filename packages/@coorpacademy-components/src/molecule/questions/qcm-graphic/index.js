@@ -9,18 +9,20 @@ const QCMImage = (props, context) => {
   const {answers} = props;
 
   const answersViews = answers.map((answer, key) => {
-    const {onClick, title, selected, image} = answer;
+    const {onClick, title, selected, image, ariaLabel} = answer;
 
     return (
       <div
         className={selected ? style.selected : style.answer}
         onClick={onClick}
         data-selected={selected}
+        data-name="answerGraphicWrapper"
         key={key}
       >
         <div
           className={style.imageWrapper}
           data-name="answerGraphic"
+          aria-label={ariaLabel || title}
           style={{
             backgroundImage: `url(${image})`
           }}
@@ -53,7 +55,8 @@ QCMImage.propTypes = {
       title: PropTypes.string,
       selected: PropTypes.bool,
       onClick: PropTypes.func,
-      image: PropTypes.string
+      image: PropTypes.string,
+      ariaLabel: PropTypes.string
     })
   )
 };
