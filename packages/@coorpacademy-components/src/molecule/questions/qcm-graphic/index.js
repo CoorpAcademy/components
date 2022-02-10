@@ -4,39 +4,57 @@ import {getOr} from 'lodash/fp';
 import classnames from 'classnames';
 import Provider from '../../../atom/provider';
 import {innerHTML} from '../../../atom/label/style.css';
+import {getShadowBoxColorFromPrimary} from '../../../util/get-shadow-box-color-from-primary';
 import style from './style.css';
 
 const QCMImage = (props, context) => {
   const {answers} = props;
+  const {skin} = context;
+  const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
 
   const answersViews = answers.map((answer, key) => {
-    const {onClick, title, selected, image} = answer;
-    const {skin} = context;
+    const {onClick, title, selected, image, ariaLabel} = answer;
 
-    const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
-    const selectedStyle = selected
-      ? {backgroundColor: primarySkinColor, borderColor: primarySkinColor}
-      : null;
     return (
       <div
-        className={selected ? style.selected : style.answer}
         onClick={onClick}
         data-selected={selected}
-        style={selectedStyle}
+        data-name="answerGraphic"
+        style={{
+          ...(selected && {
+            boxShadow: `0 4px 16px ${getShadowBoxColorFromPrimary(primarySkinColor)}`
+          })
+        }}
+        className={selected ? style.selected : style.answer}
         key={key}
       >
         <div
-          className={style.imageWrapper}
-          data-name="answerGraphic"
+          data-name="answerBackground"
           style={{
-            backgroundImage: `url(${image})`
+            backgroundColor: selected ? primarySkinColor : '#F4F4F5'
           }}
+          className={style.background}
         />
-        <div
-          className={classnames(style.titleWrapper, innerHTML)}
-          // eslint-disable-next-line react/no-danger
-          dangerouslySetInnerHTML={{__html: title}}
-        />
+        <div data-name="answerContent" className={style.content}>
+          <div
+            className={style.imageWrapper}
+            data-name="answerImage"
+            aria-label={ariaLabel || title}
+            style={{
+              backgroundImage: `url(${image})`
+            }}
+          />
+          <div data-name="answerText" className={style.titleWrapper}>
+            <div
+              className={classnames(style.title, innerHTML)}
+              style={{
+                ...(selected && {color: primarySkinColor})
+              }}
+              // eslint-disable-next-line react/no-danger
+              dangerouslySetInnerHTML={{__html: title}}
+            />
+          </div>
+        </div>
       </div>
     );
   });
@@ -58,7 +76,8 @@ QCMImage.propTypes = {
       title: PropTypes.string,
       selected: PropTypes.bool,
       onClick: PropTypes.func,
-      image: PropTypes.string
+      image: PropTypes.string,
+      ariaLabel: PropTypes.string
     })
   )
 };
