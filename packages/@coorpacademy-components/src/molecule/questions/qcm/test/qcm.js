@@ -31,7 +31,7 @@ test('onClick should be reachable, should match given aria-label', t => {
   t.pass();
 });
 
-test("should set: selected's background to Primary w/ alpha 5% && color to primary, unselected's no background && color to a nuance of primary", t => {
+test("should set: selected's background to Primary, unselected's no background", t => {
   const wrapper = mount(<Qcm {...defaultFixture.props} />);
   const answers = wrapper.find('[data-name="answer"]');
   const unselectedAnswer = answers.at(1);
@@ -44,7 +44,7 @@ test("should set: selected's background to Primary w/ alpha 5% && color to prima
   // should not have any styles (color should be picked from the css for unselected)
   const unselectedLabel = unselectedAnswer.children().at(1);
   t.true(unselectedLabel.exists());
-  t.deepEqual(unselectedLabel.props().style, {});
+  t.falsy(unselectedLabel.props().style);
 
   // check dangerouslySetInnerHTML
   t.deepEqual(unselectedLabel.props().dangerouslySetInnerHTML, {
@@ -67,12 +67,10 @@ test("should set: selected's background to Primary w/ alpha 5% && color to prima
     boxShadow: '0 4px 16px rgba(0, 122, 179, 0.25)'
   });
 
-  // should have only color prop in label style, w/o transforming expectedPrimaryColor
+  // should not have any prop in label style
   const selectedLabel = selectedAnswer.children().at(1);
   t.true(selectedLabel.exists());
-  t.deepEqual(selectedLabel.props().style, {
-    color: expectedPrimaryColor
-  });
+  t.falsy(selectedLabel.props().style);
 
   // check dangerouslySetInnerHTML
   t.deepEqual(selectedLabel.props().dangerouslySetInnerHTML, {

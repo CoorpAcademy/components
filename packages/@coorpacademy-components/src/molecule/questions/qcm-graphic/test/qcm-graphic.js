@@ -34,7 +34,7 @@ test('onClick should be reachable, should match given aria-label', t => {
   t.pass();
 });
 
-test("should set: selected's background to Primary w/ alpha 5% && color to primary, unselected's no background && color to a nuance of primary", t => {
+test("should set: selected's background to Primary, unselected's no background", t => {
   const wrapper = shallow(<QCMImage {...defaultFixture.props} />, {
     context: {translate}
   });

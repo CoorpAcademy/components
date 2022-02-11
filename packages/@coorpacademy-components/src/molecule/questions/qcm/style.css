@@ -2,6 +2,7 @@
 @value mobile from breakpoints;
 @value colors: "../../../variables/colors.css";
 @value white from colors;
+@value black from colors;
 @value box_shadow_light_dark from colors;
 @value cm_blue_900 from colors;
 
@@ -49,13 +50,22 @@
   color: cm_blue_900;
 }
 
+.selectedAnswer .answerText {
+  color: white;
+}
+
 .selectedAnswer:hover .background{
-  opacity: 0.1;
+  opacity: 0.8;
+}
+
+.selectedAnswer.answer:hover {
+  background-color: black;
 }
 
 .selectedAnswer .background{
-  opacity: 0.05;
+  opacity: 1;
 }
+
 .selectedAnswer,
 .unselectedAnswer {
   position: relative;

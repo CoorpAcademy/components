@@ -43,9 +43,6 @@ const QCM = (props, context) => {
             <span
               data-name="answer-label"
               className={style.answerText}
-              style={{
-                ...(selected && {color: primarySkinColor})
-              }}
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{__html: title}}
             />
