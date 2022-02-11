@@ -47,9 +47,6 @@ const QCMImage = (props, context) => {
           <div data-name="answerText" className={style.titleWrapper}>
             <div
               className={classnames(style.title, innerHTML)}
-              style={{
-                ...(selected && {color: primarySkinColor})
-              }}
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{__html: title}}
             />
