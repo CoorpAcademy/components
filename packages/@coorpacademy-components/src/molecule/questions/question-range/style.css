@@ -1,19 +1,18 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value colors: "../../../variables/colors.css";
-@value brand from colors;
-@value black from colors;
+@value cm_blue_900 from colors;
 
 .wrapper {
   width: 500px;
 }
 
 .title {
-  color: brand;
   display: table;
   font-family: "Gilroy";
-  font-size: 24px;
-  font-weight: 700;
+  font-size: 28px;
+  font-weight: bold;
+  line-height: 36px;
   margin: 0 auto 15px;
   text-align: center;
   user-select: none;
@@ -27,11 +26,13 @@
 
 .label {
   font-family: "Gilroy";
-  color: black;
-  font-size: 15px;
-  font-weight: 700;
+  color: cm_blue_900;
+  font-size: 18px;
+  font-weight: 600;
   display: inline-block;
+  line-height: 24px;
   user-select: none;
+  font-style: normal;
 }
 
 @media mobile {
