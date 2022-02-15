@@ -3,11 +3,24 @@
 @value cm_grey_200 from colors;
 @value cm_grey_500 from colors;
 
+.wrapper {
+  height: 100%;
+  width: 100%;
+  border-radius: 100%; 
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+  overflow: hidden;
+}
+
+.wrapper:hover {
+  box-shadow: none;
+  overflow: visible;
+}
+
 .default {
   border-radius: 100%;
   border: 4px solid white;
   box-sizing: border-box;
   height: 100%;
   width: 100%;
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+  border-radius: 100%; 
 }
