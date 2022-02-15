@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {find, keys, map, get, filter} from 'lodash/fp';
+import {find, keys, map, get, getOr, filter, includes, size} from 'lodash/fp';
 import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
 import Provider from '../provider';
 import getClassState from '../../util/get-class-state';
@@ -15,7 +15,8 @@ const themeStyle = {
   question: style.question,
   sort: style.sort,
   thematiques: style.thematiques,
-  template: style.template
+  player: style.player,
+  template: style.template // we keep template in case it is used anywhere else?
 };
 
 const Select = (props, context) => {
@@ -43,7 +44,7 @@ const Select = (props, context) => {
     options &&
     options.map((option, index) => {
       return (
-        <option key={index} value={option.value}>
+        <option key={index} value={option.value} className={style.selectOption}>
           {option.name}
         </option>
       );
@@ -57,6 +58,9 @@ const Select = (props, context) => {
   const selectedLabel = multiple
     ? map(get('name'), filter({selected: true}, options))
     : get('name', find({selected: true}, options));
+
+  const isSelectedInValidOption =
+    theme === 'player' && getOr(false, 'name', find({validOption: false, selected: true}, options));
 
   const handleChange = useMemo(
     () =>
@@ -72,9 +76,8 @@ const Select = (props, context) => {
 
   const black = get('common.black', skin);
   const color = get('common.primary', skin);
-  const skinColor = {
-    color: selected && (theme === 'question' || theme === 'template') ? color : null
-  };
+  const shouldUseSkinFontColor =
+    !isSelectedInValidOption && selected && includes(theme, ['question', 'template', 'player']);
 
   const arrowView = !multiple ? (
     <ArrowDown
@@ -95,13 +98,36 @@ const Select = (props, context) => {
     className
   );
 
+  const labelSize = size(selectedLabel);
+
+  const isLongLabel = labelSize >= 80;
+
   return (
     <div className={composedClassName}>
-      <label style={skinColor}>
+      <label
+        style={{
+          ...(shouldUseSkinFontColor && {
+            color
+          })
+        }}
+        className={style.selectWrapper}
+      >
         {titleView}
-        <span className={classnames(style.label, borderClassName)}>{selectedLabel}</span>
+        <span
+          className={classnames(
+            style.selectSpan,
+            includes(theme, ['player', 'invalid', 'question', 'thematiques', 'template'])
+              ? style.noLabelCommon
+              : null,
+            borderClassName,
+            isLongLabel ? style.longLabel : null
+          )}
+        >
+          {selectedLabel}
+        </span>
         {arrowView}
         <select
+          className={style.selectBox}
           title={selectedLabel}
           name={name}
           onChange={handleChange}
@@ -120,7 +146,8 @@ const Select = (props, context) => {
 export const SelectOptionPropTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  selected: PropTypes.bool
+  selected: PropTypes.bool,
+  validOption: PropTypes.bool
 };
 
 Select.contextTypes = {

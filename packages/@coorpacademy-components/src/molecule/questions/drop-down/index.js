@@ -22,9 +22,7 @@ const DropDown = props => {
 
 DropDown.propTypes = {
   onChange: Select.propTypes.onChange,
-  options: PropTypes.arrayOf(
-    PropTypes.shape({...SelectOptionPropTypes, validOption: PropTypes.bool})
-  ),
+  options: PropTypes.arrayOf(PropTypes.shape(SelectOptionPropTypes)),
   theme: Select.propTypes.theme
 };
 

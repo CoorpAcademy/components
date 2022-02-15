@@ -10,6 +10,8 @@
 @value white from colors;
 @value xtraLightGrey from colors;
 @value transparent from colors;
+@value box_shadow_light_dark from colors;
+@value cm_blue_900 from colors;
 
 .default {
   display: flex;
@@ -23,7 +25,9 @@
   composes: default;
 }
 
-.default label {
+.selectWrapper,
+
+.default .selectWrapper {
   display: flex;
   align-items: center;
   height: 50px;
@@ -41,20 +45,20 @@
   width: 180px;
 }
 
-.label {
+.selectSpan {
   display: none;
   position: absolute;
   white-space: nowrap;
-  overflow: hidden;
+  /* overflow: hidden; */
   left: 0;
   right: 0;
   bottom: 0;
   pointer-events: none;
-  text-overflow: ellipsis;
+  /* text-overflow: ellipsis; */
   height: 18px;
 }
 
-.default select {
+.default .selectBox {
   font-family: "Gilroy";
   text-transform: none;
   padding: 0 15px;
@@ -69,6 +73,21 @@
   appearance: none;
   cursor: pointer;
 }
+
+.selectOption {}
+
+/* div:not(.player) */
+.player .selectWrapper {
+  /* appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background-color: cadetblue; */
+  min-width: min-content;
+}
+
+/* select::-ms-expand{
+  display: none;
+} */
 
 .modified select {
   font-family: "Gilroy";
@@ -121,7 +140,7 @@
   }
 }
 
-.default select[multiple] {
+.default .selectBox[multiple] {
   padding: 0;
   height: 80px;
 }
@@ -130,7 +149,7 @@
   Filter
 */
 
-.filter label {
+.filter .selectWrapper {
   display: flex;
   align-items: center;
   position: relative;
@@ -140,7 +159,7 @@
   margin: 0;
 }
 
-.filter .label {
+.filter .selectSpan {
   display: block;
   padding: 15px 30px 15px 15px;
   font-size: 12px;
@@ -157,7 +176,8 @@
   margin-bottom: 10px;
 }
 
-.filter select {
+/* check this */
+.filter .selectBox {
   display: block;
   width: 100%;
   height: 50px;
@@ -186,33 +206,48 @@
   position: relative;
 }
 
-.no-label label {
+.no-label .selectWrapper {
   display: flex;
   align-items: center;
-  height: 44px;
+  height: 54px;
   position: relative;
   flex-grow: 0;
 }
 
-.no-label .label {
+.noLabelCommon {
   display: block;
   padding: 0 30px 0 10px;
   font-size: 14px;
+  height: 54px;
+  line-height: 52px;
+  box-sizing: border-box;
+  /* white-space: nowrap;
+  text-overflow: ellipsis; */
+}
+
+.noLabelCommon.longLabel,
+
+div:not(.player) .noLabelCommon.selectSpan {
   border: 1px solid light;
   background: white;
   border-radius: 2px;
-  height: 44px;
-  line-height: 42px;
-  box-sizing: border-box;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
 
-.no-label select {
+div.player .noLabelCommon.selectSpan {
+  box-shadow: 0px 4px 16px box_shadow_light_dark;
+  border-radius: 8px;
+
+  min-width: min-content;
+  width: 100%;
+  white-space: nowrap;
+}
+
+.no-label .selectBox {
+  min-width: inherit;
   font-family: "Gilroy";
   text-transform: none;
   padding: 0 15px;
-  height: 44px;
+  height: 54px;
   border-radius: 2px;
   font-size: 16px;
   color: black;
@@ -225,19 +260,50 @@
 }
 
 @media mobile {
-  .no-label select {
-    height: 100%;
-    width: 100%;
+  div.player .selectBox {
+    min-width: 0;
+  }
+
+  .no-label .selectBox {
+    /* max-width: 300px; */
     margin-left: 0;
     border-radius: 0;
   }
 
-  .no-label label {
+  .no-label .selectWrapper {
     display: block;
     margin-right: 0;
     width: 100%;
     height: 44px;
   }
+
+  .player .selectWrapper {
+    min-width: 250px;
+    height: 54px;
+  }
+
+  .player .noLabelCommon {
+    height: min-content;
+  }
+
+  div.player .noLabelCommon.selectSpan {
+    min-width: 250px;
+    white-space: pre-wrap;
+  }
+
+  .noLabelCommon.longLabel {
+    line-height: 22px;
+    height: 100%;
+  }
+
+  .player.default .selectBox {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+  }
+  
 }
 
 /*
@@ -248,12 +314,16 @@
   composes: no-label;
 }
 
-.invalid label {
+.invalid .player {
+  color: cm_blue_900;
+}
+
+.invalid .selectWrapper {
   height: 54px;
   color: black;
 }
 
-.invalid .label {
+.invalid .selectSpan {
   font-size: 15px;
   font-weight: 700;
   border: 2px solid;
@@ -271,7 +341,7 @@
   width: 150px;
 }
 
-.mooc label {
+.mooc .selectWrapper {
   margin: 0;
   height: 35px;
   border: 0;
@@ -307,11 +377,11 @@
   composes: no-label;
 }
 
-.question label {
+.question .selectWrapper {
   height: 54px;
 }
 
-.question .label {
+.question .selectSpan {
   font-size: 15px;
   font-weight: 700;
   border: 2px solid;
@@ -328,7 +398,7 @@
   margin-bottom: 10px;
 }
 
-.sort label {
+.sort .selectWrapper {
   display: flex;
   align-items: center;
   position: relative;
@@ -338,7 +408,7 @@
   margin: 0;
 }
 
-.sort .label {
+.sort .selectSpan {
   display: block;
   padding: 15px 30px 15px 15px;
   font-size: 12px;
@@ -379,6 +449,14 @@
   composes: no-label;
 }
 
+/* 
+  Player
+*/
+
+.player {
+  composes: no-label;
+}
+
 /*
   Header
 */
@@ -387,6 +465,26 @@
   composes: mooc;
   width: auto;
 }
+
+.selectBox {
+  /* composes: noLabelCommon; */
+  /* display: none; */
+  /* position: absolute; */
+  /* white-space: nowrap; */
+  /* overflow: hidden; */
+  /* left: 0;
+  right: 0;
+  bottom: 0; */
+}
+
+ /*hide original SELECT element: */
+/* .selectWrapper select.customSelect {
+  display: none;
+} */
+
+/* .selectOption {
+  cursor: pointer;
+} */
 
 .header select {
   background-color: light;
@@ -420,7 +518,7 @@
   composes: no-label;
 }
 
-.template select {
+.template .selectBox {
   width: auto;
   height: 54px;
   padding: 0 50px 0 0;
@@ -428,22 +526,22 @@
   max-width: 100%;
 }
 
-.template .label {
+.template .selectSpan {
   font-size: 15px;
   font-weight: 700;
   height: 54px;
   line-height: 52px;
 }
 
-.selected.template .label {
+.selected.template .selectSpan {
   border: 1px solid;
 }
 
-.unselected.template .label {
+.unselected.template .selectSpan {
   border: 1px solid color(black lightness(85%));
 }
 
-.template label {
+.template .selectWrapper {
   display: block;
   width: auto;
   margin-right: 0;
