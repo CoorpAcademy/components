@@ -46,6 +46,7 @@ const QCMImage = (props, context) => {
           />
           <div data-name="answerText" className={style.titleWrapper}>
             <div
+              title={title}
               className={classnames(style.title, innerHTML)}
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{__html: title}}
