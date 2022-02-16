@@ -648,7 +648,8 @@ import MoleculeProgressBarFixtureMax from '../src/molecule/progress-bar/test/fix
 import MoleculeQuestionsDropDownFixtureDefault from '../src/molecule/questions/drop-down/test/fixtures/default';
 import MoleculeQuestionsDropDownFixtureNoSelected from '../src/molecule/questions/drop-down/test/fixtures/no-selected';
 import MoleculeQuestionsFreeTextFixtureDefault from '../src/molecule/questions/free-text/test/fixtures/default';
-import MoleculeQuestionsFreeTextFixtureWithDefaultValue from '../src/molecule/questions/free-text/test/fixtures/with-default-value';
+import MoleculeQuestionsFreeTextFixtureWithValueOnChange from '../src/molecule/questions/free-text/test/fixtures/with-value-on-change';
+import MoleculeQuestionsFreeTextFixtureWithValue from '../src/molecule/questions/free-text/test/fixtures/with-value';
 import MoleculeQuestionsQcmFixtureArabic from '../src/molecule/questions/qcm/test/fixtures/arabic';
 import MoleculeQuestionsQcmFixtureDefault from '../src/molecule/questions/qcm/test/fixtures/default';
 import MoleculeQuestionsQcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no-selected';
@@ -2198,7 +2199,8 @@ export const fixtures = {
     },
     MoleculeQuestionsFreeText: {
       Default: MoleculeQuestionsFreeTextFixtureDefault,
-      WithDefaultValue: MoleculeQuestionsFreeTextFixtureWithDefaultValue
+      WithValueOnChange: MoleculeQuestionsFreeTextFixtureWithValueOnChange,
+      WithValue: MoleculeQuestionsFreeTextFixtureWithValue
     },
     MoleculeQuestionsQcm: {
       Arabic: MoleculeQuestionsQcmFixtureArabic,
