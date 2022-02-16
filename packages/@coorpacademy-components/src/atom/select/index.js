@@ -38,7 +38,10 @@ const Select = (props, context) => {
 
   const {skin} = context;
 
-  const title = propTitle ? `${propTitle}${required ? '*' : ''}` : null;
+  const title = useMemo(() => (propTitle ? `${propTitle}${required ? '*' : ''}` : null), [
+    propTitle,
+    required
+  ]);
 
   const optionList =
     options &&
@@ -52,15 +55,27 @@ const Select = (props, context) => {
 
   const titleView = title ? <span className={style.title}>{title} </span> : null;
 
-  const selected = multiple
-    ? map(get('value'), filter({selected: true}, options))
-    : get('value', find({selected: true}, options));
-  const selectedLabel = multiple
-    ? map(get('name'), filter({selected: true}, options))
-    : get('name', find({selected: true}, options));
+  const selected = useMemo(
+    () =>
+      multiple
+        ? map(get('value'), filter({selected: true}, options))
+        : get('value', find({selected: true}, options)),
+    [multiple, options]
+  );
+  const selectedLabel = useMemo(
+    () =>
+      multiple
+        ? map(get('name'), filter({selected: true}, options))
+        : get('name', find({selected: true}, options)),
+    [multiple, options]
+  );
 
-  const isSelectedInValidOption =
-    theme === 'player' && getOr(false, 'name', find({validOption: false, selected: true}, options));
+  const isSelectedInValidOption = useMemo(
+    () =>
+      theme === 'player' &&
+      getOr(false, 'name', find({validOption: false, selected: true}, options)),
+    [options, theme]
+  );
 
   const handleChange = useMemo(
     () =>
@@ -74,10 +89,13 @@ const Select = (props, context) => {
     [onChange, multiple]
   );
 
-  const black = get('common.black', skin);
-  const color = get('common.primary', skin);
-  const shouldUseSkinFontColor =
-    !isSelectedInValidOption && selected && includes(theme, ['question', 'template', 'player']);
+  const black = useMemo(() => getOr('#14171A', 'common.black', skin), [skin]);
+  const color = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
+  const shouldUseSkinFontColor = useMemo(
+    () =>
+      !isSelectedInValidOption && selected && includes(theme, ['question', 'template', 'player']),
+    [isSelectedInValidOption, selected, theme]
+  );
 
   const arrowView = !multiple ? (
     <ArrowDown
@@ -85,26 +103,28 @@ const Select = (props, context) => {
       className={style.arrow}
     />
   ) : null;
-  const behaviourClassName = getClassState(
-    style.default,
-    style.modified,
-    style.error,
-    modified,
-    error
+  const behaviourClassName = useMemo(
+    () => getClassState(style.default, style.modified, style.error, modified, error),
+    [error, modified]
   );
-  const composedClassName = classnames(
-    theme ? themeStyle[theme] : behaviourClassName,
-    selected ? style.selected : style.unselected,
-    className
+  const composedClassName = useMemo(
+    () =>
+      classnames(
+        theme ? themeStyle[theme] : behaviourClassName,
+        selected ? style.selected : style.unselected,
+        className
+      ),
+    [behaviourClassName, className, selected, theme]
   );
 
-  const labelSize = size(selectedLabel);
+  const labelSize = useMemo(() => size(selectedLabel), [selectedLabel]);
 
-  const isLongLabel = labelSize >= 65;
+  const isLongLabel = useMemo(() => labelSize >= 65, [labelSize]);
 
   return (
     <div className={composedClassName}>
       <label
+        data-name="select-wrapper"
         style={{
           ...(shouldUseSkinFontColor && {
             color
@@ -114,6 +134,7 @@ const Select = (props, context) => {
       >
         {titleView}
         <span
+          data-name="select-span"
           className={classnames(
             style.selectSpan,
             includes(theme, ['player', 'invalid', 'question', 'thematiques', 'template'])
@@ -127,6 +148,7 @@ const Select = (props, context) => {
         </span>
         {arrowView}
         <select
+          data-name="native-select"
           className={style.selectBox}
           title={selectedLabel}
           name={name}

@@ -378,6 +378,7 @@ import AtomSelectFixtureModified from '../src/atom/select/test/fixtures/modified
 import AtomSelectFixtureMooc from '../src/atom/select/test/fixtures/mooc';
 import AtomSelectFixtureMultipleSelected from '../src/atom/select/test/fixtures/multiple-selected';
 import AtomSelectFixtureMultiple from '../src/atom/select/test/fixtures/multiple';
+import AtomSelectFixturePlayer from '../src/atom/select/test/fixtures/player';
 import AtomSelectFixtureQuestion from '../src/atom/select/test/fixtures/question';
 import AtomSelectFixtureRequiredWithTitle from '../src/atom/select/test/fixtures/required-with-title';
 import AtomSelectFixtureRequired from '../src/atom/select/test/fixtures/required';
@@ -1615,6 +1616,7 @@ export const fixtures = {
       Mooc: AtomSelectFixtureMooc,
       MultipleSelected: AtomSelectFixtureMultipleSelected,
       Multiple: AtomSelectFixtureMultiple,
+      Player: AtomSelectFixturePlayer,
       Question: AtomSelectFixtureQuestion,
       RequiredWithTitle: AtomSelectFixtureRequiredWithTitle,
       Required: AtomSelectFixtureRequired,

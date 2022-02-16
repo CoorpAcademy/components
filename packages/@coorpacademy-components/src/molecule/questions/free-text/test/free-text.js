@@ -14,11 +14,13 @@ configure({adapter: new Adapter()});
 const translate = identity;
 
 test('onInput should be reachable and replace onChange, onChange should not trigger value changes, should use aria-label', t => {
+  t.plan(7);
   let onInputWasTriggered = false;
   const props = {
     ...withValueOnChangeFixture.props,
-    onChange: () => {
+    onChange: value => {
       onInputWasTriggered = true;
+      t.is(value, 'new value');
     }
   };
   const wrapper = shallow(<FreeText {...props} />, {
@@ -31,6 +33,7 @@ test('onInput should be reachable and replace onChange, onChange should not trig
   // should not trigger a value change with onChange
   freeText.at(0).simulate('change', {target: {value: 'new value'}});
   wrapper.update();
+  // should not update the trigger flag with onChange
   t.false(onInputWasTriggered);
   freeText.at(0).simulate('input', {target: {value: 'new value'}});
   wrapper.update();
