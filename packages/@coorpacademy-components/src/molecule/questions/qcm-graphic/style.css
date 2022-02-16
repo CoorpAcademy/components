@@ -144,10 +144,17 @@
   }
 
   .titleWrapper {
+    height: 100%;
+    width: 100%;
+    display: flex;
     white-space: wrap;
     overflow: hidden;
     padding: 0;
     justify-content: left;
     font-size: 15px;
+  }
+
+  .title {
+    text-align: left;
   }
 }
