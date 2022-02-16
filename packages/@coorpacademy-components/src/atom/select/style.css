@@ -76,17 +76,13 @@
   bottom: 0;
 }
 
-.selectOption {}
+.selectOption,
 
 .no-label .selectWrapper,
 .player .selectWrapper {
   min-width: min-content;
   height: min-content;
 }
-
-/* select::-ms-expand{
-  display: none;
-} */
 
 .modified select {
   font-family: "Gilroy";
@@ -176,7 +172,6 @@
   margin-bottom: 10px;
 }
 
-/* check this */
 .filter .selectBox {
   display: block;
   width: 100%;
@@ -271,7 +266,6 @@ div.player .noLabelCommon.selectSpan {
   }
 
   .no-label .selectBox {
-    /* max-width: 300px; */
     margin-left: 0;
     border-radius: 0;
     position: absolute;
@@ -287,7 +281,7 @@ div.player .noLabelCommon.selectSpan {
     min-height: 44px;
     height: min-content;
     min-width: 250px;
-    max-width: 300px;
+    max-width: 280px;
   }
 
   .player .noLabelCommon {
@@ -296,7 +290,7 @@ div.player .noLabelCommon.selectSpan {
 
   div.player .noLabelCommon.selectSpan {
     min-width: 250px;
-    max-width: 300px;
+    max-width: 280px;
     white-space: pre-wrap;
   }
 
@@ -312,7 +306,6 @@ div.player .noLabelCommon.selectSpan {
     width: 100%;
     height: 100%;
   }
-  
 }
 
 /*
