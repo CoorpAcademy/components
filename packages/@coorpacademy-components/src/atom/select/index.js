@@ -100,7 +100,7 @@ const Select = (props, context) => {
 
   const labelSize = size(selectedLabel);
 
-  const isLongLabel = labelSize >= 80;
+  const isLongLabel = labelSize >= 65;
 
   return (
     <div className={composedClassName}>

@@ -25,7 +25,9 @@
   composes: default;
 }
 
-.selectWrapper,
+.selectWrapper {
+  position: relative;
+}
 
 .default .selectWrapper {
   display: flex;
@@ -47,14 +49,10 @@
 
 .selectSpan {
   display: none;
-  position: absolute;
+  position: relative;
+  z-index: 10;
   white-space: nowrap;
-  /* overflow: hidden; */
-  left: 0;
-  right: 0;
-  bottom: 0;
   pointer-events: none;
-  /* text-overflow: ellipsis; */
   height: 18px;
 }
 
@@ -72,17 +70,18 @@
   outline: none;
   appearance: none;
   cursor: pointer;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
 .selectOption {}
 
-/* div:not(.player) */
+.no-label .selectWrapper,
 .player .selectWrapper {
-  /* appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  background-color: cadetblue; */
   min-width: min-content;
+  height: min-content;
 }
 
 /* select::-ms-expand{
@@ -131,6 +130,7 @@
   pointer-events: none;
   width: 12px;
   height: 12px;
+  z-index: 11;
 }
 
 @media mobile {
@@ -209,7 +209,7 @@
 .no-label .selectWrapper {
   display: flex;
   align-items: center;
-  height: 54px;
+  min-height: 54px;
   position: relative;
   flex-grow: 0;
 }
@@ -221,11 +221,18 @@
   height: 54px;
   line-height: 52px;
   box-sizing: border-box;
-  /* white-space: nowrap;
-  text-overflow: ellipsis; */
 }
 
-.noLabelCommon.longLabel,
+div.default label.selectWrapper span.longLabel {
+    min-width: 230px;
+    max-width: 280px;
+    white-space: pre-wrap;
+    line-height: 22px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    height: auto;
+    border: none;
+}
 
 div:not(.player) .noLabelCommon.selectSpan {
   border: 1px solid light;
@@ -236,24 +243,23 @@ div:not(.player) .noLabelCommon.selectSpan {
 div.player .noLabelCommon.selectSpan {
   box-shadow: 0px 4px 16px box_shadow_light_dark;
   border-radius: 8px;
-
   min-width: min-content;
   width: 100%;
   white-space: nowrap;
 }
 
 .no-label .selectBox {
-  min-width: inherit;
   font-family: "Gilroy";
   text-transform: none;
   padding: 0 15px;
   height: 54px;
   border-radius: 2px;
-  font-size: 16px;
+  font-size: 14px;
   color: black;
   font-weight: normal;
   margin-left: 0;
   width: 230px;
+  max-width: 280px;
   cursor: pointer;
   background: white;
   border: 2px solid xtraLightGrey;
@@ -268,18 +274,20 @@ div.player .noLabelCommon.selectSpan {
     /* max-width: 300px; */
     margin-left: 0;
     border-radius: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
   }
 
   .no-label .selectWrapper {
     display: block;
     margin-right: 0;
     width: 100%;
-    height: 44px;
-  }
-
-  .player .selectWrapper {
+    min-height: 44px;
+    height: min-content;
     min-width: 250px;
-    height: 54px;
+    max-width: 300px;
   }
 
   .player .noLabelCommon {
@@ -288,6 +296,7 @@ div.player .noLabelCommon.selectSpan {
 
   div.player .noLabelCommon.selectSpan {
     min-width: 250px;
+    max-width: 300px;
     white-space: pre-wrap;
   }
 
@@ -466,25 +475,14 @@ div.player .noLabelCommon.selectSpan {
   width: auto;
 }
 
-.selectBox {
-  /* composes: noLabelCommon; */
-  /* display: none; */
-  /* position: absolute; */
-  /* white-space: nowrap; */
-  /* overflow: hidden; */
-  /* left: 0;
-  right: 0;
-  bottom: 0; */
+.default .selectWrapper select.selectBox {
+  max-width: 280px;
+  width: inherit;
+  border-radius: 8px;
+  padding: 0;
+  height: 100%;
+  top: 0;
 }
-
- /*hide original SELECT element: */
-/* .selectWrapper select.customSelect {
-  display: none;
-} */
-
-/* .selectOption {
-  cursor: pointer;
-} */
 
 .header select {
   background-color: light;

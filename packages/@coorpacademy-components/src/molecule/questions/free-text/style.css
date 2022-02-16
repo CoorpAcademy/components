@@ -13,9 +13,11 @@
   height: 50px;
   border-radius: 8px;
   font-size: 14px;
-  max-width: calc(100% - 4px);
+  max-width: calc(100% - 24px);
   width: 100%;
   outline: none;
+  padding-left: 12px;
+  padding-right: 12px;
 }
 
 .freeText::placeholder {
@@ -51,6 +53,7 @@
   }
 
   .freeText {
+    min-width: fit-content;
     width: 100%;
     box-sizing: border-box;
   }

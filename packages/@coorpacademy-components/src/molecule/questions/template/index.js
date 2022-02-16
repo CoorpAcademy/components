@@ -23,16 +23,11 @@ const Template = ({template, answers}) => {
       const field = find({name: part.value}, answers);
       if (!field) return null;
       const {type: fieldType, ...fieldProps} = field;
-      // TO BE REMOVED
-      // just to test old dropdowns (that must be kept) vs players dropdowns
-      const optTheme =
-        field.name === 'sel31192' || field.name === 'sel31193' ? 'player' : 'template';
       const fieldView =
         fieldType === 'text' ? (
           <FreeText {...fieldProps} className={style.text} />
         ) : (
-          <DropDown {...fieldProps} theme={optTheme} />
-          // <DropDown {...fieldProps} theme="player" />
+          <DropDown {...fieldProps} theme="player" />
         );
 
       return (
