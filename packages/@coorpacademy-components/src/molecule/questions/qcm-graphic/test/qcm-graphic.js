@@ -26,7 +26,10 @@ test('onClick should be reachable, should match given aria-label', t => {
 
   const answersImages = wrapper.find('[data-name="answerImage"]');
   t.true(answersImages.at(1).exists());
-  t.is(answersImages.at(1).props()['aria-label'], 'Lorem ipsum');
+  t.is(
+    answersImages.at(1).props()['aria-label'],
+    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sut labore et dolore magna aliqua.'
+  );
 
   const answers = wrapper.find('[data-name="answerGraphic"]');
   answers.at(1).simulate('click');
