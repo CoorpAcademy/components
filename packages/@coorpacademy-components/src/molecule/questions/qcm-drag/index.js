@@ -55,17 +55,31 @@ const SelectionBox = ({answers, help, backgroundColor}) => {
     const {onClick, title} = answer;
     return (
       <div
-        className={classnames(style.selectedAnswer, innerHTML)}
-        style={{
-          backgroundColor,
-          boxShadow: `0px 4px 16px ${getShadowBoxColorFromPrimary(backgroundColor)}`
-        }}
         data-selected="true"
         onClick={onClick}
         key={key}
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{__html: title}}
-      />
+        data-name="selectedAnswer"
+        className={style.selected}
+        style={{
+          boxShadow: `0px 4px 16px ${getShadowBoxColorFromPrimary(backgroundColor)}`
+        }}
+      >
+        <div
+          data-name="answerBackground"
+          style={{
+            backgroundColor
+          }}
+          className={style.background}
+        />
+        <div className={style.content}>
+          <div
+            data-name="answerContent"
+            className={classnames(style.selectedAnswer, innerHTML)}
+            // eslint-disable-next-line react/no-danger
+            dangerouslySetInnerHTML={{__html: title}}
+          />
+        </div>
+      </div>
     );
   });
 
