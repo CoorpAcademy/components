@@ -1,9 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {pipe, filter, orderBy} from 'lodash/fp';
+import {pipe, filter, orderBy, getOr} from 'lodash/fp';
 import classnames from 'classnames';
 import Provider from '../../../atom/provider';
 import {innerHTML} from '../../../atom/label/style.css';
+import {getShadowBoxColorFromPrimary} from '../../../util/get-shadow-box-color-from-primary';
 import style from './style.css';
 
 const AnswersPropTypes = PropTypes.arrayOf(
@@ -41,20 +42,24 @@ const Choices = ({answers}) => {
     );
   });
 
-  return <div className={style.qcmDrag}>{answersViews}</div>;
+  return <div className={style.choices}>{answersViews}</div>;
 };
 
 Choices.propTypes = {
   answers: AnswersPropTypes
 };
 
-const SelectionBox = ({answers, help}) => {
+const SelectionBox = ({answers, help, backgroundColor}) => {
   const selectedAnswers = pipe(filter('selected'), orderBy('order', 'asc'))(answers);
   const selectedAnswersViews = selectedAnswers.map((answer, key) => {
     const {onClick, title} = answer;
     return (
       <div
         className={classnames(style.selectedAnswer, innerHTML)}
+        style={{
+          backgroundColor,
+          boxShadow: `0px 4px 16px ${getShadowBoxColorFromPrimary(backgroundColor)}`
+        }}
         data-selected="true"
         onClick={onClick}
         key={key}
@@ -77,21 +82,31 @@ const SelectionBox = ({answers, help}) => {
 
 SelectionBox.propTypes = {
   answers: AnswersPropTypes,
-  help: EmptyView.propTypes.help
+  help: EmptyView.propTypes.help,
+  backgroundColor: PropTypes.string
 };
 
-const QcmDrag = ({answers, help}, context) => (
-  <div className={style.qcmDrag}>
-    <SelectionBox answers={answers} help={help} />
-    <div data-name="qcm-drag-answers" className={style.answers}>
-      <Choices answers={answers} />
+const QcmDrag = ({answers, help}, context) => {
+  const {skin} = context;
+  const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
+
+  return (
+    <div className={style.wrapper}>
+      <SelectionBox answers={answers} help={help} backgroundColor={primarySkinColor} />
+      <div data-name="qcm-drag-answers" className={style.answers}>
+        <Choices answers={answers} />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 QcmDrag.propTypes = {
   answers: AnswersPropTypes,
   help: SelectionBox.propTypes.help
+};
+
+QcmDrag.contextTypes = {
+  skin: Provider.childContextTypes.skin
 };
 
 export default QcmDrag;

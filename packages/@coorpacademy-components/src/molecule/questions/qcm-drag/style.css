@@ -7,6 +7,16 @@
 @value black from colors;
 @value medium from colors;
 @value dark from colors;
+@value cm_grey_75 from colors;
+@value cm_grey_150 from colors;
+@value cm_blue_900 from colors;
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: auto;
+}
 
 .answers {
   width: 100%;
@@ -19,17 +29,17 @@
   padding: 0 24px 0 0;
 }
 
-.qcmDrag {
+.choices {
   width: 100%;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   flex-basis: auto;
 }
 
 .selectedAnswers {
   composes: answers;
-  border: 2px dashed color(dark lightness(85%));
-  background-color: xtraLightGrey;
+  border-bottom: 2px solid cm_grey_150;
   padding: 16px 8px 8px 16px;
   margin: 0 0 24px;
 }
@@ -51,26 +61,27 @@
 
 .answer {
   font-family: 'Gilroy';
-  font-size: 13px;
-  font-weight: 600;
-  color: black;
-  line-height: 22px;
+  font-size: 14px;
+  font-weight: 700;
+  color: cm_blue_900;
+  line-height: 20px;
   background-color: white;
-  border: 1px solid color(dark lightness(85%));
   box-sizing: border-box;
   margin-right: 8px;
   margin-bottom: 8px;
-  border-radius: 3px;
+  border-radius: 8px;
   padding: 13px 16px;
   cursor: pointer;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
 }
 
 .answer:hover {
-  background-color: light;
+  background-color: cm_grey_75;
 }
 
 .selectedAnswer {
   composes: answer;
+  color: white;
 }
 
 .invisibleAnswer {
