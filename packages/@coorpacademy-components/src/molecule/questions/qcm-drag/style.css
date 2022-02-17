@@ -59,7 +59,7 @@
   color: medium;
 }
 
-.answerCM {
+.choice {
   font-family: 'Gilroy';
   font-size: 14px;
   font-weight: 700;
@@ -68,10 +68,12 @@
   border-radius: 8px;
   padding: 13px 16px;
   cursor: pointer;
+  margin-bottom: 8px;
+  margin-right: 8px;
 }
 
-.answer {
-  composes: answerCM;
+.unselected {
+  composes: choice;
   color: cm_blue_900;
   line-height: 20px;
   background-color: white;
@@ -79,7 +81,7 @@
 }
 
 .selected {
-  composes: answerCM;
+  composes: choice;
   position: relative;
   border-radius: 8px;
 }
@@ -109,25 +111,21 @@
   position: relative;
 }
 
-.answer:hover {
+.unselected:hover {
   background-color: cm_grey_75;
 }
 
-.selectedAnswer {
+.selectedAnswerText {
   color: white;
 }
 
 .invisibleAnswer {
-  composes: answer;
+  composes: choice;
   display: none;
 }
 
 @media mobile {
   .selectedAnswers {
     min-height: auto;
-  }
-
-  .answer:hover {
-    background-color: white;
   }
 }

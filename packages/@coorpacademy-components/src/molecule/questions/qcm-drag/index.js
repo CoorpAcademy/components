@@ -32,7 +32,7 @@ const Choices = ({answers}) => {
     const {onClick, title, selected} = answer;
     return (
       <div
-        className={classnames(selected ? style.invisibleAnswer : style.answer, innerHTML)}
+        className={classnames(selected ? style.invisibleAnswer : style.unselected, innerHTML)}
         data-name="answer"
         onClick={onClick}
         key={key}
@@ -49,7 +49,7 @@ Choices.propTypes = {
   answers: AnswersPropTypes
 };
 
-const SelectionBox = ({answers, help, backgroundColor}) => {
+const SelectedAnswerSections = ({answers, help, backgroundColor}) => {
   const selectedAnswers = pipe(filter('selected'), orderBy('order', 'asc'))(answers);
   const selectedAnswersViews = selectedAnswers.map((answer, key) => {
     const {onClick, title} = answer;
@@ -74,7 +74,7 @@ const SelectionBox = ({answers, help, backgroundColor}) => {
         <div className={style.content}>
           <div
             data-name="answerContent"
-            className={classnames(style.selectedAnswer, innerHTML)}
+            className={classnames(style.selectedAnswerText, innerHTML)}
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{__html: title}}
           />
@@ -94,7 +94,7 @@ const SelectionBox = ({answers, help, backgroundColor}) => {
   }
 };
 
-SelectionBox.propTypes = {
+SelectedAnswerSections.propTypes = {
   answers: AnswersPropTypes,
   help: EmptyView.propTypes.help,
   backgroundColor: PropTypes.string
@@ -106,7 +106,7 @@ const QcmDrag = ({answers, help}, context) => {
 
   return (
     <div className={style.wrapper}>
-      <SelectionBox answers={answers} help={help} backgroundColor={primarySkinColor} />
+      <SelectedAnswerSections answers={answers} help={help} backgroundColor={primarySkinColor} />
       <div data-name="qcm-drag-answers" className={style.answers}>
         <Choices answers={answers} />
       </div>
@@ -116,7 +116,7 @@ const QcmDrag = ({answers, help}, context) => {
 
 QcmDrag.propTypes = {
   answers: AnswersPropTypes,
-  help: SelectionBox.propTypes.help
+  help: SelectedAnswerSections.propTypes.help
 };
 
 QcmDrag.contextTypes = {
