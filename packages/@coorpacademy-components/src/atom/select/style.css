@@ -487,13 +487,17 @@ div.player .noLabelCommon.selectSpan {
   top: 0;
 }
 
-.header .title {
-  display: flex;
+.header .title,
+
+.header .selectWrapper span.selectSpan {
+  min-width: 150px;
+  color: transparent;
 }
 
 .header .selectWrapper select.selectBox {
   padding-left: 10px;
   border-radius: 2px;
+  padding-right: 30px;
 }
 
 .header .selectBox {
