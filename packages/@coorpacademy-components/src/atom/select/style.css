@@ -78,7 +78,11 @@
 
 .selectOption,
 
-.no-label .selectWrapper,
+.no-label .selectWrapper{
+  min-width: min-content;
+  height: min-content;
+}
+
 .player .selectWrapper {
   min-width: min-content;
   height: min-content;
@@ -233,6 +237,8 @@ div:not(.player) .noLabelCommon.selectSpan {
   border: 1px solid light;
   background: white;
   border-radius: 2px;
+  min-width: min-content;
+  width: 100%;
 }
 
 div.player .noLabelCommon.selectSpan {
@@ -465,7 +471,11 @@ div.player .noLabelCommon.selectSpan {
 
 .header {
   composes: mooc;
-  width: auto;
+  /* width: auto; */
+}
+
+.header .selectBox {
+  margin-left: 0;
 }
 
 .default .selectWrapper select.selectBox {
@@ -477,7 +487,16 @@ div.player .noLabelCommon.selectSpan {
   top: 0;
 }
 
-.header select {
+.header .title {
+  display: flex;
+}
+
+.header .selectWrapper select.selectBox {
+  padding-left: 10px;
+  border-radius: 2px;
+}
+
+.header .selectBox {
   background-color: light;
   border: 0;
   font-weight: 700;
