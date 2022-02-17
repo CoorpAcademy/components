@@ -353,6 +353,7 @@ div.player .noLabelCommon.selectSpan {
   margin: 0;
   height: 35px;
   border: 0;
+  width: inherit;
 }
 
 .mooc select {
