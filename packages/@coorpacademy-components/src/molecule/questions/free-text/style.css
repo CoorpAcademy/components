@@ -25,6 +25,10 @@
   color: color(cm_blue_900 a(0.3));
 }
 
+.freeText:-ms-input-placeholder {
+  color: color(cm_blue_900 a(0.3))!important;
+}
+
 .freeText:focus {
   outline: none;
 }
