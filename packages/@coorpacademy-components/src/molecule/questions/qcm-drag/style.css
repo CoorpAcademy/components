@@ -7,6 +7,16 @@
 @value black from colors;
 @value medium from colors;
 @value dark from colors;
+@value cm_grey_75 from colors;
+@value cm_grey_150 from colors;
+@value cm_blue_900 from colors;
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-basis: auto;
+}
 
 .answers {
   width: 100%;
@@ -19,17 +29,17 @@
   padding: 0 24px 0 0;
 }
 
-.qcmDrag {
+.choices {
   width: 100%;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   flex-basis: auto;
 }
 
 .selectedAnswers {
   composes: answers;
-  border: 2px dashed color(dark lightness(85%));
-  background-color: xtraLightGrey;
+  border-bottom: 2px solid cm_grey_150;
   padding: 16px 8px 8px 16px;
   margin: 0 0 24px;
 }
@@ -49,41 +59,82 @@
   color: medium;
 }
 
-.answer {
+.choice {
   font-family: 'Gilroy';
-  font-size: 13px;
-  font-weight: 600;
-  color: black;
-  line-height: 22px;
-  background-color: white;
-  border: 1px solid color(dark lightness(85%));
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 20px;
   box-sizing: border-box;
-  margin-right: 8px;
-  margin-bottom: 8px;
-  border-radius: 3px;
+  border-radius: 8px;
   padding: 13px 16px;
   cursor: pointer;
+  margin-bottom: 8px;
+  margin-right: 8px;
+  overflow: hidden;
+  hyphens: auto;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
 }
 
-.answer:hover {
-  background-color: light;
+.unselected {
+  composes: choice;
+  color: cm_blue_900;
+  line-height: 20px;
+  background-color: white;
+  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
 }
 
-.selectedAnswer {
-  composes: answer;
+.selected {
+  composes: choice;
+  position: relative;
+  border-radius: 8px;
+}
+
+.background {
+  top: 0;
+  left: 0;
+  position: absolute;
+  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+  transition: opacity 0.25s linear, background-color 0.25s linear;
+}
+
+.selected .background{
+  opacity: 1;
+}
+
+.selected:hover {
+  background: black;
+}
+
+.selected:hover .background{
+  opacity: 0.8;
+}
+
+.content {
+  height: 100%;
+  width: 100%;
+  border-radius: 8px;
+  position: relative;
+}
+
+.unselected:hover {
+  background-color: cm_grey_75;
+}
+
+.selectedAnswerText {
+  color: white;
 }
 
 .invisibleAnswer {
-  composes: answer;
+  composes: choice;
   display: none;
 }
 
 @media mobile {
   .selectedAnswers {
     min-height: auto;
-  }
-
-  .answer:hover {
-    background-color: white;
   }
 }
