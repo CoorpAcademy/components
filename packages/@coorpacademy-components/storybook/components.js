@@ -378,6 +378,7 @@ import AtomSelectFixtureModified from '../src/atom/select/test/fixtures/modified
 import AtomSelectFixtureMooc from '../src/atom/select/test/fixtures/mooc';
 import AtomSelectFixtureMultipleSelected from '../src/atom/select/test/fixtures/multiple-selected';
 import AtomSelectFixtureMultiple from '../src/atom/select/test/fixtures/multiple';
+import AtomSelectFixturePlayer from '../src/atom/select/test/fixtures/player';
 import AtomSelectFixtureQuestion from '../src/atom/select/test/fixtures/question';
 import AtomSelectFixtureRequiredWithTitle from '../src/atom/select/test/fixtures/required-with-title';
 import AtomSelectFixtureRequired from '../src/atom/select/test/fixtures/required';
@@ -648,7 +649,8 @@ import MoleculeProgressBarFixtureMax from '../src/molecule/progress-bar/test/fix
 import MoleculeQuestionsDropDownFixtureDefault from '../src/molecule/questions/drop-down/test/fixtures/default';
 import MoleculeQuestionsDropDownFixtureNoSelected from '../src/molecule/questions/drop-down/test/fixtures/no-selected';
 import MoleculeQuestionsFreeTextFixtureDefault from '../src/molecule/questions/free-text/test/fixtures/default';
-import MoleculeQuestionsFreeTextFixtureWithDefaultValue from '../src/molecule/questions/free-text/test/fixtures/with-default-value';
+import MoleculeQuestionsFreeTextFixtureWithValueOnChange from '../src/molecule/questions/free-text/test/fixtures/with-value-on-change';
+import MoleculeQuestionsFreeTextFixtureWithValue from '../src/molecule/questions/free-text/test/fixtures/with-value';
 import MoleculeQuestionsQcmFixtureArabic from '../src/molecule/questions/qcm/test/fixtures/arabic';
 import MoleculeQuestionsQcmFixtureDefault from '../src/molecule/questions/qcm/test/fixtures/default';
 import MoleculeQuestionsQcmFixtureNoSelected from '../src/molecule/questions/qcm/test/fixtures/no-selected';
@@ -1614,6 +1616,7 @@ export const fixtures = {
       Mooc: AtomSelectFixtureMooc,
       MultipleSelected: AtomSelectFixtureMultipleSelected,
       Multiple: AtomSelectFixtureMultiple,
+      Player: AtomSelectFixturePlayer,
       Question: AtomSelectFixtureQuestion,
       RequiredWithTitle: AtomSelectFixtureRequiredWithTitle,
       Required: AtomSelectFixtureRequired,
@@ -2198,7 +2201,8 @@ export const fixtures = {
     },
     MoleculeQuestionsFreeText: {
       Default: MoleculeQuestionsFreeTextFixtureDefault,
-      WithDefaultValue: MoleculeQuestionsFreeTextFixtureWithDefaultValue
+      WithValueOnChange: MoleculeQuestionsFreeTextFixtureWithValueOnChange,
+      WithValue: MoleculeQuestionsFreeTextFixtureWithValue
     },
     MoleculeQuestionsQcm: {
       Arabic: MoleculeQuestionsQcmFixtureArabic,
