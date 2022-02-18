@@ -77,7 +77,6 @@
 }
 
 .selectOption,
-
 .no-label .selectWrapper{
   min-width: min-content;
   height: min-content;
@@ -472,7 +471,6 @@ div.player .noLabelCommon.selectSpan {
 
 .header {
   composes: mooc;
-  /* width: auto; */
 }
 
 .header .selectBox {
@@ -489,7 +487,6 @@ div.player .noLabelCommon.selectSpan {
 }
 
 .header .title,
-
 .header .selectWrapper span.selectSpan {
   min-width: 150px;
   color: transparent;
