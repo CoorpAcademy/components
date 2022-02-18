@@ -70,6 +70,11 @@
   cursor: pointer;
   margin-bottom: 8px;
   margin-right: 8px;
+  overflow: hidden;
+  hyphens: auto;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
 }
 
 .unselected {

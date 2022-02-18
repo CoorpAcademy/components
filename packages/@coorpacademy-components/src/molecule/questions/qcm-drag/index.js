@@ -72,9 +72,10 @@ const SelectedAnswerSections = ({answers, help, backgroundColor}) => {
           className={style.background}
         />
         <div className={style.content}>
-          <div
+          <span
             data-name="answerContent"
             className={classnames(style.selectedAnswerText, innerHTML)}
+            title={title}
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{__html: title}}
           />
