@@ -87,7 +87,7 @@ CardTitle.propTypes = {
   courseContent: PropTypes.bool
 };
 
-const AuthorName = ({author, empty, courseContent, certifiedAuthor}) => {
+const AuthorName = ({author, empty, courseContent, certifiedAuthor, 'aria-label': ariaLabel}) => {
   const checkIcon = certifiedAuthor ? (
     <CheckIcon
       className={classnames(style.authorIcon, courseContent ? style.iconShadow : null)}
@@ -99,6 +99,7 @@ const AuthorName = ({author, empty, courseContent, certifiedAuthor}) => {
     <div
       data-name="author"
       title={author}
+      aria-label={ariaLabel}
       className={classnames(
         style.author,
         courseContent ? style.lightTitle : style.darkAuthorTitle,
@@ -115,7 +116,8 @@ AuthorName.propTypes = {
   author: PropTypes.string,
   empty: PropTypes.bool,
   courseContent: PropTypes.bool,
-  certifiedAuthor: PropTypes.bool
+  certifiedAuthor: PropTypes.bool,
+  'aria-label': PropTypes.string
 };
 
 const ContentInfo = ({

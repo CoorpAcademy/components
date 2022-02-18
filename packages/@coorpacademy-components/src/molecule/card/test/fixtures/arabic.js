@@ -18,11 +18,6 @@ export default {
       name: 'Decathlon creation'
     },
     onClick: () => console.log('click everywhere'),
-    onFavoriteClick: () => console.log('click Favorite'),
-    'card-content-aria-label': {
-      author: 'auther name',
-      progression: 'you have done 65% of the course',
-      adaptive: 'this is an adaptive course'
-    }
+    onFavoriteClick: () => console.log('click Favorite')
   }
 };
