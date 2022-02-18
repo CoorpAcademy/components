@@ -176,6 +176,8 @@
 }
 
 .filter .selectBox {
+  position: absolute;
+  top: 27px;
   display: block;
   width: 100%;
   height: 50px;
