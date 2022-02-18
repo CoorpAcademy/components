@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {isNil, keys} from 'lodash/fp';
+import {get, isNil, keys} from 'lodash/fp';
 import {
   NovaCompositionCoorpacademyAdaptive as AdaptivIcon,
   NovaSolidStatusCheckCircle2 as CheckIcon,
@@ -150,7 +150,7 @@ const ContentInfo = ({
             data-name="progress"
             className={style.progress}
             style={inlineProgressValueStyle}
-            aria-label={ariaLabel.progression}
+            aria-label={get('progression', ariaLabel)}
           />
         ) : null}
       </div>
@@ -159,7 +159,7 @@ const ContentInfo = ({
   const adaptiveIcon = adaptiv ? (
     <div
       className={classnames(style.adaptiveIcon, courseContent ? style.iconShadow : null)}
-      aria-label={ariaLabel.adaptive}
+      aria-label={get('adaptive', ariaLabel)}
     >
       <AdaptivIcon height={25} />
     </div>
@@ -192,7 +192,7 @@ const ContentInfo = ({
           empty={empty}
           courseContent={courseContent}
           certifiedAuthor={certifiedAuthor}
-          aria-label={ariaLabel.author}
+          aria-label={get('author', ariaLabel)}
         />
       </div>
       {progressBar}
