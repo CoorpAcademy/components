@@ -19,6 +19,25 @@ export default {
       name: 'Decathlon creation'
     },
     onClick: () => console.log('click everywhere'),
-    onFavoriteClick: () => console.log('click Favorite')
+    onFavoriteClick: () => console.log('click Favorite'),
+    'aria-label': 'course card',
+    'background-aria-label': 'image wthout informations',
+    'favorite-aria-label': {
+      favorite: 'this cours is your favorite',
+      addToFavorite: 'add to favorite',
+      removeFromFavorite: 'remove from favorite'
+    },
+    'selectable-aria-label': {
+      select: 'select course',
+      unSelect: 'unselect course'
+    },
+    'customer-aria-label': 'made by',
+    'badge-aria-label': 'new course',
+    'disabled-aria-label': 'the course is disabled',
+    'card-content-aria-label': {
+      author: 'auther name',
+      progression: 'you have done 65% of the course',
+      adaptive: 'this is an adaptive course'
+    }
   }
 };

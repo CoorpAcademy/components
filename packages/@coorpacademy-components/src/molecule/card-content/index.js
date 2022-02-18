@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {isNil, keys} from 'lodash/fp';
+import {get, isNil, keys} from 'lodash/fp';
 import {
   NovaCompositionCoorpacademyAdaptive as AdaptivIcon,
   NovaSolidStatusCheckCircle2 as CheckIcon,
@@ -87,7 +87,7 @@ CardTitle.propTypes = {
   courseContent: PropTypes.bool
 };
 
-const AuthorName = ({author, empty, courseContent, certifiedAuthor}) => {
+const AuthorName = ({author, empty, courseContent, certifiedAuthor, 'aria-label': ariaLabel}) => {
   const checkIcon = certifiedAuthor ? (
     <CheckIcon
       className={classnames(style.authorIcon, courseContent ? style.iconShadow : null)}
@@ -99,6 +99,7 @@ const AuthorName = ({author, empty, courseContent, certifiedAuthor}) => {
     <div
       data-name="author"
       title={author}
+      aria-label={ariaLabel}
       className={classnames(
         style.author,
         courseContent ? style.lightTitle : style.darkAuthorTitle,
@@ -115,7 +116,8 @@ AuthorName.propTypes = {
   author: PropTypes.string,
   empty: PropTypes.bool,
   courseContent: PropTypes.bool,
-  certifiedAuthor: PropTypes.bool
+  certifiedAuthor: PropTypes.bool,
+  'aria-label': PropTypes.string
 };
 
 const ContentInfo = ({
@@ -130,7 +132,8 @@ const ContentInfo = ({
   type,
   badgeCategory,
   badgeLabel,
-  theme = 'default'
+  theme = 'default',
+  'aria-label': ariaLabel
 }) => {
   const progressBarColor = '#3EC483';
   const inlineProgressValueStyle = {
@@ -145,13 +148,21 @@ const ContentInfo = ({
     mode === MODES.HERO || (!empty && !disabled) ? (
       <div className={!isNil(progress) ? style.progressWrapper : style.hideProgressBar}>
         {!disabled ? (
-          <div data-name="progress" className={style.progress} style={inlineProgressValueStyle} />
+          <div
+            data-name="progress"
+            className={style.progress}
+            style={inlineProgressValueStyle}
+            aria-label={get('progression', ariaLabel)}
+          />
         ) : null}
       </div>
     ) : null;
 
   const adaptiveIcon = adaptiv ? (
-    <div className={classnames(style.adaptiveIcon, courseContent ? style.iconShadow : null)}>
+    <div
+      className={classnames(style.adaptiveIcon, courseContent ? style.iconShadow : null)}
+      aria-label={get('adaptive', ariaLabel)}
+    >
       <AdaptivIcon height={25} />
     </div>
   ) : null;
@@ -183,6 +194,7 @@ const ContentInfo = ({
           empty={empty}
           courseContent={courseContent}
           certifiedAuthor={certifiedAuthor}
+          aria-label={get('author', ariaLabel)}
         />
       </div>
       {progressBar}
@@ -206,7 +218,12 @@ ContentInfo.propTypes = {
   mode: PropTypes.string,
   badgeCategory: ContentBadge.propTypes.category,
   badgeLabel: ContentBadge.propTypes.label,
-  theme: PropTypes.oneOf(keys(THEMES))
+  theme: PropTypes.oneOf(keys(THEMES)),
+  'aria-label': PropTypes.shape({
+    author: PropTypes.string,
+    progression: PropTypes.string,
+    adaptive: PropTypes.string
+  })
 };
 
 export default ContentInfo;

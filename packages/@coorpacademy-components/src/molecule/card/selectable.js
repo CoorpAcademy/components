@@ -9,7 +9,7 @@ import {
 import style from './selectable.css';
 
 const Selectable = props => {
-  const {isSelected} = props;
+  const {isSelected, 'aria-label': ariaLabel = {}} = props;
 
   if (isUndefined(isSelected)) return null;
 
@@ -17,15 +17,19 @@ const Selectable = props => {
     <div className={classnames(style.selectable, isSelected && style.selected)}>
       <div className={style.circle} />
       <div className={style.iconWrapper}>
-        <AddIcon className={style.addIcon} />
-        <CheckIcon className={style.checkIcon} />
+        <AddIcon className={style.addIcon} aria-label={ariaLabel.select} />
+        <CheckIcon className={style.checkIcon} aria-label={ariaLabel.unSelect} />
       </div>
     </div>
   );
 };
 
 Selectable.propTypes = {
-  isSelected: PropTypes.bool
+  isSelected: PropTypes.bool,
+  'aria-label': PropTypes.shape({
+    select: PropTypes.string,
+    unSelect: PropTypes.string
+  })
 };
 
 export default Selectable;

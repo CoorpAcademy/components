@@ -10,7 +10,7 @@ export const THEMES = {
 };
 
 const Customer = props => {
-  const {name, type, coorpOriginal, theme, disabled = false} = props;
+  const {name, type, coorpOriginal, theme, disabled = false, 'aria-label': ariaLabel} = props;
   const className = classnames(
     THEMES[theme],
     style.customer,
@@ -18,7 +18,7 @@ const Customer = props => {
   );
 
   return (
-    <div className={className} disabled={disabled}>
+    <div className={className} disabled={disabled} aria-label={ariaLabel}>
       <div className={style.content}>
         {coorpOriginal ? <span className={style.coorp}>Coorp </span> : null}
         {coorpOriginal ? <span className={style.original}>Original </span> : null}
@@ -33,7 +33,8 @@ Customer.propTypes = {
   type: PropTypes.string,
   name: PropTypes.string,
   coorpOriginal: PropTypes.bool.isRequired,
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  'aria-label': PropTypes.string
 };
 
 export default Customer;
