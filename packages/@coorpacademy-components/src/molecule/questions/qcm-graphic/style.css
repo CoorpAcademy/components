@@ -27,7 +27,6 @@
   margin: 0 4px 8px;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.12);
   border-radius: 16px;
-  transition: background-color 0.25s linear;
 }
 
 .background {
@@ -37,7 +36,6 @@
   border-radius: 16px;
   height: 100%;
   width: 100%;
-  transition: opacity 0.25s linear, background-color 0.25s linear;
 }
 
 .content {

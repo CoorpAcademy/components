@@ -98,7 +98,6 @@
   border-radius: 8px;
   height: 100%;
   width: 100%;
-  transition: opacity 0.25s linear, background-color 0.25s linear;
 }
 
 .selected .background{
