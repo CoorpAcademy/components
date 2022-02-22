@@ -96,11 +96,12 @@ const Select = (props, context) => {
       !isSelectedInValidOption && selected && includes(theme, ['question', 'template', 'player']),
     [isSelectedInValidOption, selected, theme]
   );
+  const arrowColor = selected ? color : undefined;
 
   const arrowView = !multiple ? (
     <ArrowDown
-      color={selected && (theme === 'question' || theme === 'template') ? color : black}
-      className={style.arrow}
+      color={includes(theme, ['question', 'template', 'player']) ? arrowColor : black}
+      className={shouldUseSkinFontColor ? style.selectedArrow : style.arrow}
     />
   ) : null;
   const behaviourClassName = useMemo(

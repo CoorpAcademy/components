@@ -11,7 +11,9 @@
 @value xtraLightGrey from colors;
 @value transparent from colors;
 @value box_shadow_light_dark from colors;
+@value box_shadow_medium_dark from colors;
 @value cm_blue_900 from colors;
+@value cm_grey_450 from colors;
 
 .default {
   display: flex;
@@ -85,6 +87,7 @@
 .player .selectWrapper {
   min-width: min-content;
   height: min-content;
+  margin-right: 0;
 }
 
 .modified select {
@@ -130,6 +133,22 @@
   width: 12px;
   height: 12px;
   z-index: 11;
+}
+
+.selectedArrow {
+  composes: arrow;
+}
+
+.player .selectWrapper .arrow {
+  color: cm_grey_450;
+}
+
+.player:hover .arrow {
+  color: cm_blue_900;
+}
+
+.player:hover .selectedArrow {
+  color: inherit;
 }
 
 @media mobile {
@@ -248,6 +267,10 @@ div.player .noLabelCommon.selectSpan {
   min-width: min-content;
   width: 100%;
   white-space: nowrap;
+}
+
+div.player:hover span.selectSpan {
+  box-shadow: 0px 4px 16px box_shadow_medium_dark;
 }
 
 .no-label .selectBox {
@@ -465,6 +488,17 @@ div.player .noLabelCommon.selectSpan {
 
 .player {
   composes: no-label;
+}
+
+.player .selectBox {
+  border: 0;
+}
+
+/* mozilla specific styling */
+@supports (-moz-appearance:none) {
+  .player .selectWrapper select.selectBox {
+    width: 100%;
+  } 
 }
 
 /*

@@ -14,6 +14,7 @@ const Template = ({template, answers}) => {
       return (
         <span
           key={key}
+          className={style.textPart}
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{__html: part.value}}
         />
