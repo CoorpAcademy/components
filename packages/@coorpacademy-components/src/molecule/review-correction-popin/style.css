@@ -5,18 +5,29 @@
 
 .wrapper {
   width: 100%;
+  height: 134px;
   font-family: Gilroy;
+  color: white;
+  display: flex;
+  justify-content: center;
+  overflow: visible;
 }
 
 .popin {
-  width: calc(100% - 80 px);
+  width: calc(100% - 80px);
+  padding: 40px;
+  border-radius: 16px;
   display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .right {
   background-color: cm_positive_100;
+  box-shadow: 0px 0px 68px rgba(53, 204, 127, 0.4);
 }
 
 .wrong {
   background-color: cm_negative_100;
+  box-shadow: 0px 0px 68px rgba(239, 72, 74, 0.4);
 }
