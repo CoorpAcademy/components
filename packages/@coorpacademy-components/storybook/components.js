@@ -118,6 +118,7 @@ import MoleculeQuestionsTemplate from './../src/molecule/questions/template';
 import MoleculeQuickAccessCard from './../src/molecule/quick-access-card';
 import MoleculeQuickAccessCardsGroup from './../src/molecule/quick-access-cards-group';
 import MoleculeResourcePlayer from './../src/molecule/resource-player';
+import MoleculeReviewCorrectionPopin from './../src/molecule/review-correction-popin';
 import MoleculeScopeContent from './../src/molecule/scope-content';
 import MoleculeScopeTabs from './../src/molecule/scope-tabs';
 import MoleculeSearchForm from './../src/molecule/search-form';
@@ -680,6 +681,8 @@ import MoleculeResourcePlayerFixturePdfWithOverlay from '../src/molecule/resourc
 import MoleculeResourcePlayerFixturePdf from '../src/molecule/resource-player/test/fixtures/pdf';
 import MoleculeResourcePlayerFixtureVimeoWithOverlay from '../src/molecule/resource-player/test/fixtures/vimeo-with-overlay';
 import MoleculeResourcePlayerFixtureVimeo from '../src/molecule/resource-player/test/fixtures/vimeo';
+import MoleculeReviewCorrectionPopinFixtureRight from '../src/molecule/review-correction-popin/test/fixtures/right';
+import MoleculeReviewCorrectionPopinFixtureWrong from '../src/molecule/review-correction-popin/test/fixtures/wrong';
 import MoleculeScopeContentFixtureArabic from '../src/molecule/scope-content/test/fixtures/arabic';
 import MoleculeScopeContentFixtureAudio from '../src/molecule/scope-content/test/fixtures/audio';
 import MoleculeScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
@@ -1231,6 +1234,7 @@ export const components = {
     MoleculeQuickAccessCard,
     MoleculeQuickAccessCardsGroup,
     MoleculeResourcePlayer,
+    MoleculeReviewCorrectionPopin,
     MoleculeScopeContent,
     MoleculeScopeTabs,
     MoleculeSearchForm,
@@ -2006,6 +2010,10 @@ export const fixtures = {
       Pdf: MoleculeResourcePlayerFixturePdf,
       VimeoWithOverlay: MoleculeResourcePlayerFixtureVimeoWithOverlay,
       Vimeo: MoleculeResourcePlayerFixtureVimeo
+    },
+    MoleculeReviewCorrectionPopin: {
+      Right: MoleculeReviewCorrectionPopinFixtureRight,
+      Wrong: MoleculeReviewCorrectionPopinFixtureWrong
     },
     MoleculeScopeContent: {
       Arabic: MoleculeScopeContentFixtureArabic,

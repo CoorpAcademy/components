@@ -1,0 +1,22 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value cm_positive_100 from colors;
+@value cm_negative_100 from colors;
+
+.wrapper {
+  width: 100%;
+  font-family: Gilroy;
+}
+
+.popin {
+  width: calc(100% - 80 px);
+  display: flex;
+}
+
+.right {
+  background-color: cm_positive_100;
+}
+
+.wrong {
+  background-color: cm_negative_100;
+}
