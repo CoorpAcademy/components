@@ -12,18 +12,22 @@ const ReviewCorrectionPopin = (props, context) => {
     <div className={style.wrapper}>
       <div className={classnames(style.popin, type === 'right' ? style.right : style.wrong)}>
         <div className={style.iconCircle} />
-        <div className={style.result}>{resultLabel}</div>
-        <div className={style.information}>
-          <span className={style.label}>{information.label}</span>
-          <span className={style.message}>{information.message}</span>
+        <div className={style.result} aria-label="result">
+          <span aria-label={resultLabel}>{resultLabel}</span>
+        </div>
+        <div className={style.information} aria-label="answer-information">
+          <span className={style.label} aria-label={information.label}>
+            {information.label}
+          </span>
+          <span className={style.message} aria-label={information.message}>
+            {information.message}
+          </span>
         </div>
         {cta}
       </div>
     </div>
   );
 };
-
-// TODO RESET ET RECOMMIT
 
 ReviewCorrectionPopin.propTypes = {
   type: PropTypes.oneOf(['right', 'wrong']),

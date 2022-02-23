@@ -36,12 +36,22 @@
   width: 60px;
   height: 60px;
   background: white;
+  opacity: 0.7;
   border-radius: 60px;
+}
+
+.result {
+  margin-left: 12px;
+  width: 114px;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 24px;
 }
 
 .information {
   display: flex;
   flex-direction: column;
+  margin-left: 23px;
 }
 
 .information .label {
@@ -54,16 +64,12 @@
   font-weight: 900;
   font-size: 14px;
   line-height: 17px;
-  display: block;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .information .message {
   display: block;
-}
-
-.result {
-  width: 114px;
-  font-weight: 900;
-  font-size: 24px;
-  line-height: 24px;
+  margin-top: 4px;
 }
