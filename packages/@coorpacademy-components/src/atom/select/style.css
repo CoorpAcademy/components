@@ -267,6 +267,8 @@ div.player .noLabelCommon.selectSpan {
   min-width: min-content;
   width: 100%;
   white-space: nowrap;
+  color: cm_blue_900;
+  border-width: 0;
 }
 
 div.player:hover span.selectSpan {
@@ -496,7 +498,7 @@ div.player:hover span.selectSpan {
 
 /* mozilla specific styling */
 @supports (-moz-appearance:none) {
-  .player .selectWrapper select.selectBox {
+  .player label.selectWrapper select.selectBox {
     width: 100%;
   } 
 }
