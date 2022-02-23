@@ -9,6 +9,8 @@ export default {
     },
     next: {
       label: 'Next Question',
+      'aria-label': 'next question button',
+      'data-name': 'next-question-button',
       onClick: () => console.log('Next Question')
     }
   }

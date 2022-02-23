@@ -32,6 +32,14 @@
   box-shadow: 0px 0px 68px rgba(239, 72, 74, 0.4);
 }
 
+.result {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: left;
+  width: 64%;
+}
+
 .iconCircle {
   width: 60px;
   height: 60px;
@@ -40,7 +48,7 @@
   border-radius: 60px;
 }
 
-.result {
+.resultLabel {
   margin-left: 12px;
   width: 114px;
   font-weight: 900;
@@ -72,4 +80,15 @@
 .information .message {
   display: block;
   margin-top: 4px;
+}
+
+.actions {
+  width: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.nextQuestion {
+  width: 138px;
 }
