@@ -39,6 +39,7 @@
 @value cm_grey_200: #d7d7da;
 @value cm_grey_300: #C5C5C9;
 @value cm_grey_400: #9999A8;
+@value cm_grey_450: #8393ad;
 @value cm_grey_500: #515161;
 @value cm_grey_700: #1D1D2B;
 @value cm_grey_800: #3a3a4a;
@@ -62,3 +63,4 @@
 @value cm_violet_podcast: #432ba7;
 @value cm_warning_50: rgba(255, 192, 67, 0.13);
 @value box_shadow_light_dark: rgba(0, 0, 0, 0.12);
+@value box_shadow_medium_dark: rgba(0, 0, 0, 0.2);
