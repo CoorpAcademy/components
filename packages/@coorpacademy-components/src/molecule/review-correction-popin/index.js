@@ -1,6 +1,10 @@
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
+import {
+  NovaCompositionCoorpacademyCheck as RightIcon,
+  NovaSolidStatusClose as WrongIcon
+} from '@coorpacademy/nova-icons';
 import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 
@@ -13,10 +17,18 @@ const ReviewCorrectionPopin = (props, context) => {
     type: 'primary'
   };
 
+  const ICONS = {
+    right: RightIcon,
+    wrong: WrongIcon
+  };
+  const Icon = ICONS[type];
+
   return (
     <div className={style.wrapper}>
       <div className={classnames(style.popin, type === 'right' ? style.right : style.wrong)}>
-        <div className={style.iconCircle} />
+        <div className={style.iconCircle}>
+          <Icon className={type === 'right' ? style.iconRight : style.iconWrong}/>
+        </div>
         <div className={style.result}>
           <div className={style.resultLabel} aria-label="result">
             <span aria-label={resultLabel}>{resultLabel}</span>

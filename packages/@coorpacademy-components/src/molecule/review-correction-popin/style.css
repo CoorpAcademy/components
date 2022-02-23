@@ -48,6 +48,22 @@
   border-radius: 60px;
 }
 
+.icon {
+  width: 32px;
+  height: 32px;
+  margin: 14px;
+}
+
+.iconRight {
+  composes: icon;
+  color: cm_positive_100;
+}
+
+.iconWrong {
+  composes: icon;
+  color: cm_negative_100;
+}
+
 .resultLabel {
   margin-left: 12px;
   width: 114px;
