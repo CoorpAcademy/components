@@ -31,3 +31,39 @@
   background-color: cm_negative_100;
   box-shadow: 0px 0px 68px rgba(239, 72, 74, 0.4);
 }
+
+.iconCircle {
+  width: 60px;
+  height: 60px;
+  background: white;
+  border-radius: 60px;
+}
+
+.information {
+  display: flex;
+  flex-direction: column;
+}
+
+.information .label {
+  width: 140px;
+  height: 25px;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 56px;
+  font-style: normal;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 17px;
+  display: block;
+}
+
+.information .message {
+  display: block;
+}
+
+.result {
+  width: 114px;
+  font-weight: 900;
+  font-size: 24px;
+  line-height: 24px;
+}

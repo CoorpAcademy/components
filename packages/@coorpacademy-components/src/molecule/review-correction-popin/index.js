@@ -4,16 +4,26 @@ import PropTypes from 'prop-types';
 import style from './style.css';
 
 const ReviewCorrectionPopin = (props, context) => {
-  const {information, type} = props;
+  const {information, resultLabel, type} = props;
+
+  const cta = null;
+
   return (
     <div className={style.wrapper}>
       <div className={classnames(style.popin, type === 'right' ? style.right : style.wrong)}>
-        <span>{information.label}</span>
-        <span>{information.message}</span>
+        <div className={style.iconCircle} />
+        <div className={style.result}>{resultLabel}</div>
+        <div className={style.information}>
+          <span className={style.label}>{information.label}</span>
+          <span className={style.message}>{information.message}</span>
+        </div>
+        {cta}
       </div>
     </div>
   );
 };
+
+// TODO RESET ET RECOMMIT
 
 ReviewCorrectionPopin.propTypes = {
   type: PropTypes.oneOf(['right', 'wrong']),
