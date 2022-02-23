@@ -11,11 +11,18 @@ import style from './style.css';
 const ReviewCorrectionPopin = (props, context) => {
   const {information, resultLabel, type, next} = props;
 
-  const cta = null;
-  const buttonProps = {
+  const nextQuestionButtonProps = {
     ...next,
     type: 'primary'
   };
+  const klfButtonProps = {
+    ...next,
+    type: 'secondary'
+  };
+
+  const cta = type === 'wrong' ? (<div className={style.klf}>
+    <ButtonLink {...klfButtonProps} />
+  </div>) : null;
 
   const ICONS = {
     right: RightIcon,
@@ -45,7 +52,7 @@ const ReviewCorrectionPopin = (props, context) => {
         <div className={style.actions}>
           {cta}
           <div className={style.nextQuestion}>
-            <ButtonLink {...buttonProps} />
+            <ButtonLink {...nextQuestionButtonProps} />
           </div>
         </div>
       </div>
