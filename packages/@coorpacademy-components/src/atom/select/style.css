@@ -267,6 +267,7 @@ div.player .noLabelCommon.selectSpan {
   min-width: min-content;
   width: 100%;
   white-space: nowrap;
+  color: cm_blue_900;
 }
 
 div.player:hover span.selectSpan {
