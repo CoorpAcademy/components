@@ -3,7 +3,8 @@
 @value colors: "../../../variables/colors.css";
 @value white from colors;
 @value black from colors;
-@value light from colors;
+@value box_shadow_light_dark from colors;
+@value cm_blue_900 from colors;
 
 .wrapper {
   text-align: center;
@@ -18,14 +19,15 @@
   font-size: 15px;
   font-weight: 600;
   background-color: white;
-  border: 1px solid color(black lightness(85%));
-  border-radius: 3px;
+  border-radius: 8px;
   box-sizing: border-box;
   margin-bottom: 8px;
   cursor: pointer;
   padding: 11px 24px;
   line-height: 24px;
   white-space: normal;
+  overflow: hidden;
+  transition: all 0.25s linear;
 }
 
 .longestAnswer {
@@ -33,20 +35,60 @@
   width: auto;
 }
 
-.answer:last-child {
-  margin-bottom: 0;
+
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: opacity 0.25s linear, background-color 0.25s linear;
 }
 
-.answer:hover {
-  background-color: light;
+.answerText {
+  position: relative;
+  color: cm_blue_900;
+  hyphens: auto;
+  -ms-word-break: break-all;
+  word-break: break-all;
+  word-break: break-word;
+}
+
+.selectedAnswer .answerText {
+  color: white;
+}
+
+.selectedAnswer:hover .background{
+  opacity: 0.8;
+}
+
+.selectedAnswer.answer:hover {
+  background-color: black;
+}
+
+.selectedAnswer .background{
+  opacity: 1;
+}
+
+.selectedAnswer,
+.unselectedAnswer {
+  position: relative;
 }
 
 .unselectedAnswer {
-  color: black;
+  box-shadow: 0px 4px 16px box_shadow_light_dark;
 }
 
-.selectedAnswer {
-  color: white;
+.unselectedAnswer .background {
+  opacity: 0;
+}
+
+.unselectedAnswer:hover .background{
+  opacity: 1;
+}
+
+.answer:last-child {
+  margin-bottom: 0;
 }
 
 @media mobile {
@@ -57,10 +99,6 @@
   .longestAnswer {
     composes: answer;
     width: 100%;
-  }
-
-  .answer:hover {
-    background-color: white;
   }
 
   .answer {

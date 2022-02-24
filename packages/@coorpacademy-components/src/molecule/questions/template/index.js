@@ -14,6 +14,7 @@ const Template = ({template, answers}) => {
       return (
         <span
           key={key}
+          className={style.textPart}
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{__html: part.value}}
         />
@@ -22,11 +23,12 @@ const Template = ({template, answers}) => {
     if (type === 'answerField') {
       const field = find({name: part.value}, answers);
       if (!field) return null;
+      const {type: fieldType, ...fieldProps} = field;
       const fieldView =
-        field.type === 'text' ? (
-          <FreeText {...field} className={style.text} />
+        fieldType === 'text' ? (
+          <FreeText {...fieldProps} className={style.text} />
         ) : (
-          <DropDown {...field} theme="template" />
+          <DropDown {...fieldProps} theme="player" />
         );
 
       return (
@@ -46,20 +48,13 @@ const Template = ({template, answers}) => {
 
 const TextPropTypes = {
   ...DropDown.propTypes,
-  type: PropTypes.string,
-  name: PropTypes.string
-};
-
-const DropDownPropTypes = {
-  ...DropDown.propTypes,
-  type: PropTypes.string,
-  name: PropTypes.string
+  type: PropTypes.string
 };
 
 Template.propTypes = {
   template: PropTypes.string,
   answers: PropTypes.arrayOf(
-    PropTypes.oneOfType([PropTypes.shape(DropDownPropTypes), PropTypes.shape(TextPropTypes)])
+    PropTypes.oneOfType([PropTypes.shape(DropDown.propTypes), PropTypes.shape(TextPropTypes)])
   )
 };
 

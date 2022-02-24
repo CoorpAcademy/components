@@ -9,7 +9,8 @@ export default {
           'https://images.unsplash.com/photo-1467890947394-8171244e5410?dpr=2&auto=format&fit=crop&w=1080&h=720&q=80&cs=tinysrgb&crop=&bg='
       },
       {
-        title: 'Lorem ipsum',
+        title:
+          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sut labore et dolore magna aliqua.',
         onClick: () => {},
         selected: false,
         image:

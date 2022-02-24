@@ -2,6 +2,7 @@ import {noop, getOr} from 'lodash/fp';
 import React from 'react';
 import PropTypes from 'prop-types';
 import Provider from '../provider';
+import {getShadowBoxColorFromPrimary} from '../../util/get-shadow-box-color-from-primary';
 import style from './handle.css';
 
 const Hammer =
@@ -53,15 +54,20 @@ class Handle extends React.Component {
   render() {
     const {skin} = this.context;
     const primaryColor = getOr('#00B0FF', 'common.primary', skin);
-    const borderColor = primaryColor;
+    const backgroundColor = primaryColor;
 
     return (
-      <div
-        style={{borderColor}}
-        className={style.default}
-        ref={this.setHandle}
-        data-name={'handle'}
-      />
+      <div className={style.wrapper}>
+        <div
+          style={{
+            backgroundColor,
+            boxShadow: `0px 0px 20px ${getShadowBoxColorFromPrimary(primaryColor)}`
+          }}
+          className={style.default}
+          ref={this.setHandle}
+          data-name={'handle'}
+        />
+      </div>
     );
   }
 }

@@ -1,7 +1,7 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {find, keys, map, get, filter} from 'lodash/fp';
+import {find, keys, map, get, getOr, filter, includes, size} from 'lodash/fp';
 import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
 import Provider from '../provider';
 import getClassState from '../../util/get-class-state';
@@ -15,7 +15,8 @@ const themeStyle = {
   question: style.question,
   sort: style.sort,
   thematiques: style.thematiques,
-  template: style.template
+  player: style.player,
+  template: style.template // we keep template in case it is used anywhere else?
 };
 
 const Select = (props, context) => {
@@ -37,13 +38,16 @@ const Select = (props, context) => {
 
   const {skin} = context;
 
-  const title = propTitle ? `${propTitle}${required ? '*' : ''}` : null;
+  const title = useMemo(() => (propTitle ? `${propTitle}${required ? '*' : ''}` : null), [
+    propTitle,
+    required
+  ]);
 
   const optionList =
     options &&
     options.map((option, index) => {
       return (
-        <option key={index} value={option.value}>
+        <option key={index} value={option.value} className={style.selectOption}>
           {option.name}
         </option>
       );
@@ -51,12 +55,27 @@ const Select = (props, context) => {
 
   const titleView = title ? <span className={style.title}>{title} </span> : null;
 
-  const selected = multiple
-    ? map(get('value'), filter({selected: true}, options))
-    : get('value', find({selected: true}, options));
-  const selectedLabel = multiple
-    ? map(get('name'), filter({selected: true}, options))
-    : get('name', find({selected: true}, options));
+  const selected = useMemo(
+    () =>
+      multiple
+        ? map(get('value'), filter({selected: true}, options))
+        : get('value', find({selected: true}, options)),
+    [multiple, options]
+  );
+  const selectedLabel = useMemo(
+    () =>
+      multiple
+        ? map(get('name'), filter({selected: true}, options))
+        : get('name', find({selected: true}, options)),
+    [multiple, options]
+  );
+
+  const isSelectedInValidOption = useMemo(
+    () =>
+      theme === 'player' &&
+      getOr(false, 'name', find({validOption: false, selected: true}, options)),
+    [options, theme]
+  );
 
   const handleChange = useMemo(
     () =>
@@ -70,38 +89,68 @@ const Select = (props, context) => {
     [onChange, multiple]
   );
 
-  const black = get('common.black', skin);
-  const color = get('common.primary', skin);
-  const skinColor = {
-    color: selected && (theme === 'question' || theme === 'template') ? color : null
-  };
+  const black = useMemo(() => getOr('#14171A', 'common.black', skin), [skin]);
+  const color = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
+  const shouldUseSkinFontColor = useMemo(
+    () =>
+      !isSelectedInValidOption && selected && includes(theme, ['question', 'template', 'player']),
+    [isSelectedInValidOption, selected, theme]
+  );
+  const arrowColor = selected ? color : undefined;
 
   const arrowView = !multiple ? (
     <ArrowDown
-      color={selected && (theme === 'question' || theme === 'template') ? color : black}
-      className={style.arrow}
+      color={includes(theme, ['question', 'template', 'player']) ? arrowColor : black}
+      className={shouldUseSkinFontColor ? style.selectedArrow : style.arrow}
     />
   ) : null;
-  const behaviourClassName = getClassState(
-    style.default,
-    style.modified,
-    style.error,
-    modified,
-    error
+  const behaviourClassName = useMemo(
+    () => getClassState(style.default, style.modified, style.error, modified, error),
+    [error, modified]
   );
-  const composedClassName = classnames(
-    theme ? themeStyle[theme] : behaviourClassName,
-    selected ? style.selected : style.unselected,
-    className
+  const composedClassName = useMemo(
+    () =>
+      classnames(
+        theme ? themeStyle[theme] : behaviourClassName,
+        selected ? style.selected : style.unselected,
+        className
+      ),
+    [behaviourClassName, className, selected, theme]
   );
+
+  const labelSize = useMemo(() => size(selectedLabel), [selectedLabel]);
+
+  const isLongLabel = useMemo(() => labelSize >= 65, [labelSize]);
 
   return (
     <div className={composedClassName}>
-      <label style={skinColor}>
+      <label
+        data-name="select-wrapper"
+        style={{
+          ...(shouldUseSkinFontColor && {
+            color
+          })
+        }}
+        className={style.selectWrapper}
+      >
         {titleView}
-        <span className={classnames(style.label, borderClassName)}>{selectedLabel}</span>
+        <span
+          data-name="select-span"
+          className={classnames(
+            style.selectSpan,
+            includes(theme, ['player', 'invalid', 'question', 'thematiques', 'template'])
+              ? style.noLabelCommon
+              : null,
+            borderClassName,
+            isLongLabel ? style.longLabel : null
+          )}
+        >
+          {selectedLabel}
+        </span>
         {arrowView}
         <select
+          data-name="native-select"
+          className={style.selectBox}
           title={selectedLabel}
           name={name}
           onChange={handleChange}
@@ -120,7 +169,8 @@ const Select = (props, context) => {
 export const SelectOptionPropTypes = {
   name: PropTypes.string.isRequired,
   value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  selected: PropTypes.bool
+  selected: PropTypes.bool,
+  validOption: PropTypes.bool
 };
 
 Select.contextTypes = {
