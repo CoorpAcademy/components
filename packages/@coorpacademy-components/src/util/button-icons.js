@@ -11,7 +11,8 @@ import {
   NovaSolidContentContentViewModule1 as ListIcon,
   NovaSolidLoginLogout1 as LogoutIcon,
   NovaSolidApplicationsWindowUpload3 as PublishIcon,
-  NovaSolidComputersSdCard as SaveIcon
+  NovaSolidComputersSdCard as SaveIcon,
+  NovaLineLoginKey1 as KlfIcon
 } from '@coorpacademy/nova-icons';
 
 export const ICONS = {
@@ -23,6 +24,7 @@ export const ICONS = {
   'chevron-right': ChevronRightIcon,
   close: CloseIcon,
   edit: EditIcon,
+  key: KlfIcon,
   list: ListIcon,
   logout: LogoutIcon,
   publish: PublishIcon,

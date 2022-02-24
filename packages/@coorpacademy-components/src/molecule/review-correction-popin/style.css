@@ -126,7 +126,12 @@
 }
 
 .klfButton {
-  
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.klfButton:hover {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), rgba(255, 255, 255, 0.1)
 }
 
 .nextQuestionContainer {
@@ -134,6 +139,10 @@
 }
 
 .nextQuestionButton {
-  background-color: white;
+  background: white;
   color: cm_primary_blue;
+}
+
+.nextQuestionButton:hover {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.07), rgba(0, 0, 0, 0.07)), #FFFFFF;
 }

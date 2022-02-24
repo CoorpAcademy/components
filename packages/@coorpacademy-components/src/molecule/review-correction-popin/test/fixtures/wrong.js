@@ -6,8 +6,8 @@ export default {
       label: 'Correct Answer',
       message: 'Corporate lawyers trying to understand software.'
     },
-    cta: {
-      label: 'Kery learning favor',
+    klf: {
+      label: 'Key learning factor',
       tooltip:
         '17 frustrated software engineers grappling with the complexities of software development.'
     },

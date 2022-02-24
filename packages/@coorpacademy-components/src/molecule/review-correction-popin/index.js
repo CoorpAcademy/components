@@ -1,31 +1,31 @@
 import React from 'react';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
 import {
   NovaCompositionCoorpacademyCheck as RightIcon,
   NovaSolidStatusClose as WrongIcon
 } from '@coorpacademy/nova-icons';
-import Provider from '../../atom/provider';
 import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 
-const ReviewCorrectionPopin = (props, context) => {
-  const {information, resultLabel, type, next} = props;
-  const {skin} = context;
-  const primaryColor = getOr('#00B0FF', 'common.primary', skin);
+const ReviewCorrectionPopin = props => {
+  const {information, resultLabel, type, klf, next} = props;
 
   const nextQuestionButtonProps = {
     ...next,
     type: 'primary'
   };
   const klfButtonProps = {
-    ...next,
-    type: 'secondary'
+    ...klf,
+    icon: {
+      position: 'left',
+      type: 'key'
+    },
+    type: 'primary'
   };
   
   const cta = type === 'wrong' ? (<div className={style.klfContainer}>
-    <ButtonLink {...klfButtonProps} />
+    <ButtonLink {...klfButtonProps} className={style.klfButton} />
   </div>) : null;
 
   const ICONS = {
@@ -74,11 +74,11 @@ ReviewCorrectionPopin.propTypes = {
   next: PropTypes.shape({
     label: PropTypes.string,
     onClick: PropTypes.func
+  }),
+  klf: PropTypes.shape({
+    label: PropTypes.string,
+    onClick: PropTypes.func
   })
-};
-
-ReviewCorrectionPopin.contextTypes = {
-  skin: Provider.childContextTypes.skin
 };
 
 export default ReviewCorrectionPopin;
