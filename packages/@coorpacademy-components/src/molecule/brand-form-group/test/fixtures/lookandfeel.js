@@ -6,46 +6,49 @@ export default {
       {
         title: 'Primary color',
         name: 'primary-color',
-        value: '#ececec',
-        placeholder: '#ffffff',
+        placeholder: '#FFFFFF',
         type: 'color',
-        description: 'Lorem ipsum dolor sit amet.',
-        onChange: () => {}
-      },
-      {
-        title: 'Secondary color',
-        name: 'secondary-color',
-        value: '#ececec',
-        placeholder: '#ffffff',
-        type: 'color',
-        description: 'Lorem ipsum dolor sit amet.',
-        onChange: () => {}
-      },
-      {
-        title: 'Tertirary color',
-        name: 'tertirary-color',
-        value: '#ececec',
-        placeholder: '#ffffff',
-        type: 'color',
-        description: 'Lorem ipsum dolor sit amet.',
+        error: '',
+        description: 'CTA buttons, icons, hovers, menu backgrounds...',
+        value: '#00B0FF',
+        options: [],
+        modified: false,
         onChange: () => {}
       },
       {
         title: 'Validation color',
-        name: 'validation-color',
-        value: '#ececec',
-        placeholder: '#ffffff',
+        name: 'good-color',
+        placeholder: '#FFFFFF',
         type: 'color',
-        description: 'Lorem ipsum dolor sit amet.',
+        error: '',
+        description: 'Success messages',
+        value: '#66BB6A',
+        options: [],
+        modified: false,
         onChange: () => {}
       },
       {
         title: 'Error color',
         name: 'error-color',
-        value: '#ff0000',
-        placeholder: '#ffffff',
+        placeholder: '#FFFFFF',
         type: 'color',
-        description: 'Lorem ipsum dolor sit amet.',
+        error: '',
+        description: 'Error messages',
+        value: '#F73F52',
+        options: [],
+        modified: false,
+        onChange: () => {}
+      },
+      {
+        title: 'Lives color',
+        name: 'life-color',
+        placeholder: '#FFFFFF',
+        type: 'color',
+        error: '',
+        description: 'Slides lives',
+        value: '#F73F52',
+        options: [],
+        modified: false,
         onChange: () => {}
       }
     ]
