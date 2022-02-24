@@ -37,6 +37,15 @@
   flex-direction: row;
   align-items: center;
   justify-content: left;
+}
+
+.rightResult {
+  composes: result;
+  width: 77%;
+}
+
+.wrongResult {
+  composes: result;
   width: 64%;
 }
 
@@ -99,10 +108,15 @@
 }
 
 .actions {
-  width: 30%;
+  width: 20%;
   display: flex;
   align-items: center;
   justify-content: flex-end;
+}
+
+.actionsWrong {
+  composes: actions;
+  width: 34%;
 }
 
 .klf {

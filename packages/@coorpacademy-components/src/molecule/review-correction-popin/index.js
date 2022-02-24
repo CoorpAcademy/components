@@ -36,7 +36,7 @@ const ReviewCorrectionPopin = (props, context) => {
         <div className={style.iconCircle}>
           <Icon className={type === 'right' ? style.iconRight : style.iconWrong}/>
         </div>
-        <div className={style.result}>
+        <div className={type === 'right' ? style.rightResult : style.wrongResult}>
           <div className={style.resultLabel} aria-label="result">
             <span aria-label={resultLabel}>{resultLabel}</span>
           </div>
@@ -49,7 +49,7 @@ const ReviewCorrectionPopin = (props, context) => {
             </span>
           </div>
         </div>
-        <div className={style.actions}>
+        <div className={type === 'right' ? style.actions : style.actionsWrong}>
           {cta}
           <div className={style.nextQuestion}>
             <ButtonLink {...nextQuestionButtonProps} />
