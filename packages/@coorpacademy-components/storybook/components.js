@@ -369,6 +369,7 @@ import AtomResourceMiniatureFixturePdf from '../src/atom/resource-miniature/test
 import AtomResourceMiniatureFixtureSelectedPdf from '../src/atom/resource-miniature/test/fixtures/selected-pdf';
 import AtomResourceMiniatureFixtureSelectedVideo from '../src/atom/resource-miniature/test/fixtures/selected-video';
 import AtomResourceMiniatureFixtureVideo from '../src/atom/resource-miniature/test/fixtures/video';
+import AtomSelectFixtureCoorpmanager from '../src/atom/select/test/fixtures/coorpmanager';
 import AtomSelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import AtomSelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
 import AtomSelectFixtureError from '../src/atom/select/test/fixtures/error';
@@ -1607,6 +1608,7 @@ export const fixtures = {
       Video: AtomResourceMiniatureFixtureVideo
     },
     AtomSelect: {
+      Coorpmanager: AtomSelectFixtureCoorpmanager,
       Default: AtomSelectFixtureDefault,
       Disabled: AtomSelectFixtureDisabled,
       Error: AtomSelectFixtureError,

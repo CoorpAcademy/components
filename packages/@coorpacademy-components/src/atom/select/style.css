@@ -1,5 +1,6 @@
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
+@value tablet from breakpoints;
 @value colors: "../../variables/colors.css";
 @value orange from colors;
 @value negative from colors;
@@ -19,6 +20,35 @@
   display: flex;
 }
 
+.coorpmanager {
+  composes: default;
+}
+
+div.coorpmanager label.selectWrapper {
+  max-width: fit-content;
+}
+
+.coorpmanager label.selectWrapper select.selectBox {
+  padding-left: 10px;
+  position: relative;
+  border-radius: 2px;
+  border-width: 1px;
+  width: 260px;
+  min-width: 194px;
+}
+
+@media tablet {
+  .coorpmanager label.selectWrapper .description {
+    max-width: 120px;
+  }
+}
+
+@media mobile {
+  .coorpmanager label.selectWrapper select.selectBox {
+    width: 100%;
+    min-width: 180px;
+  }
+}
 .error {
   composes: default;
 }
