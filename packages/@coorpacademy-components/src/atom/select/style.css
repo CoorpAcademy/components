@@ -29,6 +29,7 @@ div.coorpmanager label.selectWrapper {
 }
 
 .coorpmanager label.selectWrapper select.selectBox {
+  padding-left: 10px;
   position: relative;
   border-radius: 2px;
   border-width: 1px;
