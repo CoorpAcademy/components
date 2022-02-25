@@ -133,7 +133,7 @@
   text-align: center;
 }
 
-ul {
+.container ul {
   list-style: none;
   padding: 0px;
   margin: 0px;
@@ -215,7 +215,7 @@ ul {
     margin: 0px;
   }
 
-  label {
+  .container label {
     width: 100%;
     right: 0px;
     display: flex;
@@ -223,11 +223,11 @@ ul {
     cursor: pointer;
   }
 
-  label .tabletSummaryTitle{
+  .container label .tabletSummaryTitle{
     flex: 0 1 100%;
   }
   
-  label .tabletSummaryIcon{
+  .container label .tabletSummaryIcon{
     width: 12px;
     transition: all 0.5s ease;
   }
