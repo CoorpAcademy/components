@@ -1,7 +1,14 @@
 import React, {useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import {find, keys, map, get, getOr, filter, includes, size} from 'lodash/fp';
+import filter from 'lodash/fp/filter';
+import find from 'lodash/fp/find';
+import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
+import includes from 'lodash/fp/includes';
+import keys from 'lodash/fp/keys';
+import map from 'lodash/fp/map';
+import size from 'lodash/fp/size';
 import {NovaCompositionNavigationArrowDown as ArrowDown} from '@coorpacademy/nova-icons';
 import Provider from '../provider';
 import getClassState from '../../util/get-class-state';
@@ -16,7 +23,8 @@ const themeStyle = {
   sort: style.sort,
   thematiques: style.thematiques,
   player: style.player,
-  template: style.template // we keep template in case it is used anywhere else?
+  template: style.template,
+  coorpmanager: null
 };
 
 const Select = (props, context) => {
@@ -111,7 +119,7 @@ const Select = (props, context) => {
   const composedClassName = useMemo(
     () =>
       classnames(
-        theme ? themeStyle[theme] : behaviourClassName,
+        theme && theme !== 'coorpmanager' ? themeStyle[theme] : behaviourClassName,
         selected ? style.selected : style.unselected,
         className
       ),
@@ -123,7 +131,12 @@ const Select = (props, context) => {
   const isLongLabel = useMemo(() => labelSize >= 65, [labelSize]);
 
   return (
-    <div className={composedClassName}>
+    <div
+      className={classnames(
+        composedClassName,
+        theme === 'coorpmanager' ? style.coorpmanager : null
+      )}
+    >
       <label
         data-name="select-wrapper"
         style={{

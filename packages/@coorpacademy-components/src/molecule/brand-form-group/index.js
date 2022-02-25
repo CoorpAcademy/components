@@ -48,7 +48,7 @@ const buildInput = field => {
     case 'doublestep':
       return <InputDoublestep {...field} />;
     case 'select':
-      return <Select {...field} />;
+      return <Select {...field} theme={'coorpmanager'} />;
     case 'selectMultiple':
       return <SelectMultiple {...field} />;
     case 'checkbox':
