@@ -15,7 +15,8 @@ const buildKlfButton = klf => {
       position: 'left',
       type: 'key'
     },
-    type: 'primary'
+    type: 'primary',
+    onClick: () => {} // TODO: on mobile it should show the tooltip
   };
 
   return (
@@ -49,13 +50,15 @@ const ReviewCorrectionPopin = props => {
   return (
     <div className={style.wrapper}>
       <div className={classnames(style.popin, type === 'right' ? style.right : style.wrong)}>
-        <div className={style.iconCircle}>
-          <Icon className={type === 'right' ? style.iconRight : style.iconWrong}/>
-        </div>
-        <div className={type === 'right' ? style.rightResult : style.wrongResult}>
+        <div className={style.correctionSection}>
+          <div className={style.iconCircle}>
+            <Icon className={type === 'right' ? style.iconRight : style.iconWrong}/>
+          </div>
           <div className={style.resultLabel} aria-label="result">
             <span aria-label={resultLabel}>{resultLabel}</span>
           </div>
+        </div>
+        <div className={type === 'right' ? style.rightMiddleSection : style.wrongMiddleSection}>
           <div className={style.information} aria-label="answer-information">
             <span className={style.label} aria-label={information.label}>
               {information.label}
