@@ -71,6 +71,20 @@ Successfully published:
 lerna success publish finished
 ```
 
+If the publish failed because of a `lerna` error that resembles the following message:
+
+```
+  lerna ERR! E403 You cannot publish over the previously published versions: 10.5.7-alpha.13.xxxxx
+```
+
+Then you can re-try the canary publish, you have take the version that follows the `-alpha.` string,
+`13` in this example, add one version to that number `14`now and run the command as follows `--preid alpha.THE_NEXT_VERSION`:
+
+```
+npm run publish:canary -- --preid alpha.14
+```
+
+
 ### mooc
 
 deps are now ready to be used for the mooc.
@@ -96,7 +110,7 @@ info Direct dependencies
 
 Your branch is now ready to be deployed.
 
-### canary know issues
+### canary known issues
 
 hashes issues https://github.com/lerna/lerna/issues/277
 
