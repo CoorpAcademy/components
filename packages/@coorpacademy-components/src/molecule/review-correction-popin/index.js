@@ -8,13 +8,7 @@ import {
 import ButtonLink from '../../atom/button-link';
 import style from './style.css';
 
-const ReviewCorrectionPopin = props => {
-  const {information, resultLabel, type, klf, next} = props;
-
-  const nextQuestionButtonProps = {
-    ...next,
-    type: 'primary'
-  };
+const buildKlfButton = klf => {
   const klfButtonProps = {
     ...klf,
     icon: {
@@ -23,10 +17,28 @@ const ReviewCorrectionPopin = props => {
     },
     type: 'primary'
   };
-  
-  const cta = type === 'wrong' ? (<div className={style.klfContainer}>
-    <ButtonLink {...klfButtonProps} className={style.klfButton} />
-  </div>) : null;
+
+  return (
+    <div className={style.klfContainer}>
+      <div className={style.klfButtonContainer}>
+        <ButtonLink {...klfButtonProps} className={style.klfButton} />
+      </div>
+      <div className={style.toolTip}>
+        <div className={style.tooltipText}>{klf.tooltip}</div>
+      </div>
+    </div>
+  );
+};
+
+const ReviewCorrectionPopin = props => {
+  const {information, resultLabel, type, klf, next} = props;
+
+  const nextQuestionButtonProps = {
+    ...next,
+    type: 'primary'
+  };
+
+  const cta = type === 'wrong' ? buildKlfButton(klf) : null;
 
   const ICONS = {
     right: RightIcon,

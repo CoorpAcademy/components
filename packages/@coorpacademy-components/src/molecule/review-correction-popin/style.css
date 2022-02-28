@@ -3,6 +3,7 @@
 @value cm_positive_100 from colors;
 @value cm_negative_100 from colors;
 @value cm_primary_blue from colors;
+@value cm_blue_900 from colors;
 
 .wrapper {
   width: 100%;
@@ -120,7 +121,60 @@
   width: 34%;
 }
 
+.toolTip {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.8s;
+  position: absolute;
+  width: 273px;
+  border-radius: 15px;
+  background-color: white;
+  right: calc(16%);
+  top: -64px;
+}
+
+.toolTip::before {
+  content: '';
+  display: inline-block;
+  visibility: hidden;
+  opacity: 0;
+  width: 15px;
+  height: 15px;
+  transform: rotate(-45deg);
+  transition: opacity 0.8s;
+  background-color: white;
+  position: inherit;
+  bottom: -7px;
+  left: 129px;
+}
+
+.tooltipText {
+  display: inline-block;
+  margin: 16px;
+  border-radius: 3px;
+  word-wrap: break-word;
+  color: cm_blue_900;
+  max-width: 241px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 16px;
+}
+
 .klfContainer {
+  overflow: visible;
+}
+
+.klfButtonContainer:hover ~ .toolTip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.klfButtonContainer:hover ~ .toolTip::before {
+  visibility: visible;
+  opacity: 1;
+}
+
+.klfButtonContainer {
   width: 191px;
   margin-right: 16px;
 }
