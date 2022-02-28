@@ -21,10 +21,10 @@ export default {
           label: 'Customer platforms'
         },
         {
-          name: 'team',
-          value: 'team',
+          name: 'other',
+          value: 'other',
           checked: true,
-          label: 'Team platforms'
+          label: 'other platforms'
         }
       ],
       theme: 'coorpmanager',

@@ -4,12 +4,13 @@ import GridList from '../../../organism/grid-list';
 import BrandCard from '../../../molecule/brand-card';
 import BrandCardCreate from '../../../molecule/brand-card-create';
 import Search from '../../../atom/input-search';
+import Select from '../../../atom/select';
 import RadioGroup from '../../../atom/radio-group';
 import Layout from '../layout';
 import style from './style.css';
 
 const BrandList = Layout(props => {
-  const {brands = [], create, search, filter} = props;
+  const {brands = [], create, search: {select, ...search} = {}, filter} = props;
 
   const brandCards = brands.map((brand, index) => {
     return (
@@ -36,6 +37,7 @@ const BrandList = Layout(props => {
       ) : null}
       <div className={style.searchBar}>
         <Search {...search} theme="coorpmanager" />
+        {select ? <Select {...select} theme="coorpmanager" /> : null}
       </div>
       <div className={style.wrapper}>
         <GridList>{brandCards}</GridList>
