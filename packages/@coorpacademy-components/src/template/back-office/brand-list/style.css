@@ -18,11 +18,21 @@
   margin: 0 10px 20px;
 }
 
+.filters {
+  display: flex;
+  padding-right: 30px;
+}
+
 .searchBar {
   width: 800px;
   height: 100px;
   margin: auto;
   padding-bottom: 10px;
+  flex: 1 1 100%;
+}
+
+.provider {
+  flex: 0 1 300px;
 }
 
 .searchBar div {

@@ -4,7 +4,7 @@ import GridList from '../../../organism/grid-list';
 import BrandCard from '../../../molecule/brand-card';
 import BrandCardCreate from '../../../molecule/brand-card-create';
 import Search from '../../../atom/input-search';
-import Select from '../../../atom/select';
+import Select from '../../../molecule/select-multiple';
 import RadioGroup from '../../../atom/radio-group';
 import Layout from '../layout';
 import style from './style.css';
@@ -35,9 +35,15 @@ const BrandList = Layout(props => {
           <RadioGroup {...filter} />
         </div>
       ) : null}
-      <div className={style.searchBar}>
-        <Search {...search} theme="coorpmanager" />
-        {select ? <Select {...select} theme="coorpmanager" /> : null}
+      <div className={style.filters}>
+        <div className={style.searchBar}>
+          <Search {...search} theme="coorpmanager" />
+        </div>
+        {select ? (
+          <div className={style.provider}>
+            <Select {...select} theme="coorpmanager" />
+          </div>
+        ) : null}
       </div>
       <div className={style.wrapper}>
         <GridList>{brandCards}</GridList>

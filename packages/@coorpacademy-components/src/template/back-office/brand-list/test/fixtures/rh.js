@@ -8,6 +8,12 @@ export default {
       ...Default.props.search,
       select: {
         placeholder: 'Provider',
+        title: 'Provider',
+        description: 'You should select a provider',
+        multiple: false,
+        disabled: false,
+        error: '',
+        hint: '',
         options: [
           {
             name: 'Team platforms',
@@ -20,7 +26,8 @@ export default {
             selected: true
           }
         ],
-        onChange: value => console.log(value)
+        onChange: value => console.log('onChange', value),
+        onError: () => false
       }
     }
   }
