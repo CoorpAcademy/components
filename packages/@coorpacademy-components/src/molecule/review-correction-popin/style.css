@@ -55,16 +55,6 @@
   flex: 1 1 100%;
 }
 
-.rightFeedbackSection {
-  composes: feedbackSection;
-  flex: 1 1 100%;
-}
-
-.wrongFeedbackSection {
-  composes: feedbackSection;
-  flex: 1 1 100%;
-}
-
 .iconCircle {
   width: 52px;
   min-width: 52px;
@@ -239,14 +229,6 @@
     min-width: 60px;
   }  
 
-  .rightFeedbackSection {
-    width: 73%;
-  }
-
-  .wrongFeedbackSection {
-    width: 46%;
-  }
-
   .actions {
     width: 25%;
   }
@@ -269,22 +251,18 @@
     flex-direction: column;
   }
 
-  .resultLabel {
-    display: block;
-  }
-
   .correctionSection {
     width: 77%;
     justify-content: center;
     margin-bottom: 32px;
   }
 
-  .rightFeedbackSection {
-    width: 100%;
+  .resultLabel {
+    display: block;
   }
 
-  .wrongFeedbackSection {
-    width: 100%;
+  .feedbackSection {
+    margin: 0;
   }
 
   .information .message {

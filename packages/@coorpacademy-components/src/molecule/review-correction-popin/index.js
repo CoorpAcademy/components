@@ -58,7 +58,7 @@ const ReviewCorrectionPopin = props => {
             <span aria-label={resultLabel}>{resultLabel}</span>
           </div>
         </div>
-        <div className={type === 'right' ? style.rightFeedbackSection : style.wrongFeedbackSection}>
+        <div className={style.feedbackSection}>
           <div className={style.information} aria-label="answer-information">
             <span className={style.label} aria-label={information.label}>
               {information.label}
