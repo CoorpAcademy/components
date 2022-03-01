@@ -39,7 +39,8 @@
 }
 
 .correctionSection {
-  width: 17%;
+  flex: 0 1 auto;
+  min-width: 187px;
   display: flex;
   align-content: center;
   align-items: center;
@@ -51,16 +52,17 @@
   flex-direction: row;
   align-items: center;
   justify-content: left;
+  flex: 1 1 100%;
 }
 
 .rightMiddleSection {
   composes: result;
-  width: 70%;
+  flex: 1 1 100%;
 }
 
 .wrongMiddleSection {
   composes: result;
-  width: 51%;
+  flex: 1 1 100%;
 }
 
 .iconCircle {
@@ -120,6 +122,7 @@
   justify-content: center;
   hyphens: auto;
   -ms-word-break: break-word;
+  word-break: break-word;
 }
 
 .information .message {
@@ -128,7 +131,8 @@
 }
 
 .actions {
-  width: 13%;
+  flex: 0 1 auto;
+  min-width: 138px;
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -136,7 +140,8 @@
 
 .actionsWrong {
   composes: actions;
-  width: 32%;
+  min-width: 345px;
+  flex: 0 1 auto;
 }
 
 .toolTip {
@@ -231,7 +236,7 @@
   }
 
   .correctionSection {
-    width: auto;
+    min-width: 60px;
   }  
 
   .rightMiddleSection {
@@ -266,5 +271,25 @@
 
   .resultLabel {
     display: block;
+  }
+
+  .correctionSection {
+    width: 100%;
+  }
+
+  .rightMiddleSection {
+    width: 100%;
+  }
+
+  .wrongMiddleSection {
+    width: 100%;
+  }
+
+  .actions {
+    width: 100%;
+  }
+
+  .actionsWrong {
+    width: 100%;
   }
 }
