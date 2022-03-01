@@ -246,27 +246,34 @@
 @media mobile {
   .popin {
     width: 100%;
-    height: auto;
+    min-height: 100px;
     padding: 32px;
     flex-direction: column;
   }
 
   .popin > div {
     min-width: auto;
+    width: 100%; 
+    border: 1px solid white;
   }
 
   .correctionSection {
-    width: 77%;
+    /*width: 77%; sans cette partie on a l'icon qui n'est pas centré */
     justify-content: center;
     margin-bottom: 32px;
   }
 
   .resultLabel {
     display: block;
+    text-align: center;
+    width: calc(100% - 52px);
   }
 
   .feedbackSection {
     margin: 0;
+    width: 100%;
+    min-height: 100px;
+    display: block;
   }
 
   .information .message {
