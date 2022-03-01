@@ -20,15 +20,17 @@
 
 .filters {
   display: flex;
-  padding-right: 30px;
+  max-width: 600px;
+  margin: auto;
+  padding: 0 10px;
 }
 
 .searchBar {
   width: 800px;
   height: 100px;
   margin: auto;
-  padding-bottom: 10px;
   flex: 1 1 100%;
+  margin-right: 20px;
 }
 
 .provider {
@@ -59,7 +61,6 @@
 
   .searchBar {
     width: auto;
-    margin: 0 30px;
     box-sizing: content-box;
   }
 
