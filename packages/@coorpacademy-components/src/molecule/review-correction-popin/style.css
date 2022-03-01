@@ -251,6 +251,10 @@
     flex-direction: column;
   }
 
+  .popin > div {
+    min-width: auto;
+  }
+
   .correctionSection {
     width: 77%;
     justify-content: center;
