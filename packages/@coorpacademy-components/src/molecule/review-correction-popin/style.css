@@ -46,7 +46,7 @@
   align-items: center;
 }
 
-.result {
+.feedbackSection {
   display: flex;
   margin: 0 23px;
   flex-direction: row;
@@ -55,13 +55,13 @@
   flex: 1 1 100%;
 }
 
-.rightMiddleSection {
-  composes: result;
+.rightFeedbackSection {
+  composes: feedbackSection;
   flex: 1 1 100%;
 }
 
-.wrongMiddleSection {
-  composes: result;
+.wrongFeedbackSection {
+  composes: feedbackSection;
   flex: 1 1 100%;
 }
 
@@ -103,7 +103,7 @@
 }
 
 .information {
-  display: flex;
+  display: block;
   flex-direction: column;
 }
 
@@ -239,11 +239,11 @@
     min-width: 60px;
   }  
 
-  .rightMiddleSection {
+  .rightFeedbackSection {
     width: 73%;
   }
 
-  .wrongMiddleSection {
+  .wrongFeedbackSection {
     width: 46%;
   }
 
@@ -274,15 +274,21 @@
   }
 
   .correctionSection {
+    width: 77%;
+    justify-content: center;
+    margin-bottom: 32px;
+  }
+
+  .rightFeedbackSection {
     width: 100%;
   }
 
-  .rightMiddleSection {
+  .wrongFeedbackSection {
     width: 100%;
   }
 
-  .wrongMiddleSection {
-    width: 100%;
+  .information .message {
+    margin: 8px 0 32px 0;
   }
 
   .actions {
@@ -291,5 +297,25 @@
 
   .actionsWrong {
     width: 100%;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .actionsWrong .nextQuestionContainer {
+    width: 100%;
+  }
+
+  .klfContainer {
+    width: 100%;
+    margin: 0 0 8px 0;
+  }
+
+  .klfButtonContainer {
+    margin: 0;
+  }
+
+  .toolTip {
+    width: 250px;
+    right: 5%;
   }
 }
