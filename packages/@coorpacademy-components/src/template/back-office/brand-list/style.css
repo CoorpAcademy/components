@@ -35,11 +35,6 @@
   flex: 0 1 300px;
 }
 
-.searchBar div {
-  border: 2px solid xtraLightGrey;
-  border-radius: 2px;
-}
-
 .filterBar {
   width: 400px;
   margin: auto;
