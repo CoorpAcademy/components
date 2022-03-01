@@ -65,16 +65,19 @@
 
 .iconCircle {
   width: 52px;
+  min-width: 52px;
   height: 52px;
+  min-height: 52px;
   background: white;
   opacity: 0.7;
   border-radius: 50%;
+  box-sizing: border-box;
 }
 
 .icon {
   width: 24px;
   height: 24px;
-  margin: 14px;
+  padding: 14px 0 0 14px;
 }
 
 .iconRight {
