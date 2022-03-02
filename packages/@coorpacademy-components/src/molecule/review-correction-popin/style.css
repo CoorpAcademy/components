@@ -249,6 +249,7 @@
     min-height: 100px;
     padding: 32px;
     flex-direction: column;
+    display: block;
   }
 
   .popin > div {
@@ -270,7 +271,6 @@
   .feedbackSection {
     margin: 0;
     width: 100%;
-    min-height: 100px;
     display: block;
   }
 
