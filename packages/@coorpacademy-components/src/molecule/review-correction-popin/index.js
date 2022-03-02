@@ -16,7 +16,7 @@ const buildKlfButton = klf => {
       type: 'key'
     },
     type: 'primary',
-    onClick: () => {} // TODO: on mobile it should show the tooltip
+    onClick: () => {}
   };
 
   return (
@@ -71,7 +71,7 @@ const ReviewCorrectionPopin = props => {
         <div className={type === 'right' ? style.actions : style.actionsWrong}>
           {cta}
           <div className={style.nextQuestionContainer}>
-            <ButtonLink {...nextQuestionButtonProps} className={style.nextQuestionButton}/>
+            <ButtonLink {...nextQuestionButtonProps} className={style.nextQuestionButton} />
           </div>
         </div>
       </div>

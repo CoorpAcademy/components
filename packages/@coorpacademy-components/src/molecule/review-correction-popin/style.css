@@ -253,8 +253,7 @@
 
   .popin > div {
     min-width: auto;
-    width: 100%; 
-    border: 1px solid white;
+    width: 100%;
   }
 
   .correctionSection {
@@ -297,6 +296,7 @@
   .klfContainer {
     width: 100%;
     margin: 0 0 8px 0;
+    position: relative;
   }
 
   .klfButtonContainer {
@@ -304,7 +304,13 @@
   }
 
   .toolTip {
-    width: 250px;
-    right: 5%;
+    width: 106%;
+    right: -3%;
+    top: auto;
+    bottom: 52px;
+  }
+
+  .tooltipText {
+    max-width: none;
   }
 }
