@@ -1,0 +1,13 @@
+.root {
+  display: flex;
+  justify-content: center;
+  padding: 24px 30px;
+}
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  height: 214px;
+  background-image: url(https://static.coorpacademy.com/site/startBattleBackground.png);
+  background-size: cover;
+}

@@ -78,6 +78,7 @@ import MoleculeCourseSections from './../src/molecule/course-sections';
 import MoleculeDashboardBattleRequestList from './../src/molecule/dashboard/battle-request-list';
 import MoleculeDashboardCardsList from './../src/molecule/dashboard/cards-list';
 import MoleculeDashboardNewsList from './../src/molecule/dashboard/news-list';
+import MoleculeDashboardReviewBanner from './../src/molecule/dashboard/review-banner';
 import MoleculeDashboardStartBattle from './../src/molecule/dashboard/start-battle';
 import MoleculeDisciplineCta from './../src/molecule/discipline-cta';
 import MoleculeDisciplineHeader from './../src/molecule/discipline-header';
@@ -531,6 +532,7 @@ import MoleculeDashboardCardsListFixturePerformance from '../src/molecule/dashbo
 import MoleculeDashboardNewsListFixtureDefault from '../src/molecule/dashboard/news-list/test/fixtures/default';
 import MoleculeDashboardNewsListFixtureLoading from '../src/molecule/dashboard/news-list/test/fixtures/loading';
 import MoleculeDashboardNewsListFixtureMore from '../src/molecule/dashboard/news-list/test/fixtures/more';
+import MoleculeDashboardReviewBannerFixtureDefault from '../src/molecule/dashboard/review-banner/test/fixtures/default';
 import MoleculeDashboardStartBattleFixtureDefault from '../src/molecule/dashboard/start-battle/test/fixtures/default';
 import MoleculeDashboardStartBattleFixtureHref from '../src/molecule/dashboard/start-battle/test/fixtures/href';
 import MoleculeDisciplineCtaFixtureDefault from '../src/molecule/discipline-cta/test/fixtures/default';
@@ -1262,6 +1264,7 @@ export const components = {
     MoleculeDashboardBattleRequestList,
     MoleculeDashboardCardsList,
     MoleculeDashboardNewsList,
+    MoleculeDashboardReviewBanner,
     MoleculeDashboardStartBattle
   },
   MoleculeForum: {
@@ -2174,6 +2177,9 @@ export const fixtures = {
       Default: MoleculeDashboardNewsListFixtureDefault,
       Loading: MoleculeDashboardNewsListFixtureLoading,
       More: MoleculeDashboardNewsListFixtureMore
+    },
+    MoleculeDashboardReviewBanner: {
+      Default: MoleculeDashboardReviewBannerFixtureDefault
     },
     MoleculeDashboardStartBattle: {
       Default: MoleculeDashboardStartBattleFixtureDefault,
