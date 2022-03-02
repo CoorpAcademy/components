@@ -257,14 +257,13 @@
   }
 
   .correctionSection {
-    /*width: 77%; sans cette partie on a l'icon qui n'est pas centré */
     justify-content: center;
     margin-bottom: 32px;
   }
 
   .resultLabel {
     display: block;
-    text-align: center;
+    text-align: left;
     width: calc(100% - 52px);
   }
 
