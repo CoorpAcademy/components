@@ -15,7 +15,7 @@ const Tag = props => {
   const {label, type = 'default'} = props;
 
   return (
-    <span className={TAG_STYLES[type]} data-name={`custom-playlist-tag-${label}`}>
+    <span className={TAG_STYLES[type]} data-name={`content-tag-${label}`}>
       {label}
     </span>
   );

@@ -7,7 +7,7 @@ import style from './style.css';
 
 const ListItems = ({title, buttonLink, items, 'aria-label': ariaLabel}) => {
   const itemsView = items.map((item, index) => (
-    <li key={item.id} className={style.item} data-name={`custom-playlist-${index}`}>
+    <li key={item.id} className={style.item} data-name={`content-${index}`}>
       <ListItem {...item} />
     </li>
   ));
@@ -22,7 +22,7 @@ const ListItems = ({title, buttonLink, items, 'aria-label': ariaLabel}) => {
           <ButtonLink {...buttonLink} />
         </div>
       </div>
-      <ul className={style.list} aria-label={ariaLabel} data-name={'custom-playlist-list'}>
+      <ul className={style.list} aria-label={ariaLabel} data-name={'content-list'}>
         {itemsView}
       </ul>
     </div>

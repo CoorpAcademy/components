@@ -27,7 +27,7 @@ const buildHeader = (wizardHeader, steps) => {
     <div>
       <div className={style.header}>
         <ButtonLinkIconOnly {...buttonCloseIcon} />
-        <div className={style.headerTitle} data-name={'custom-playlist-title'}>
+        <div className={style.headerTitle} data-name={'content-title'}>
           {title}
         </div>
       </div>
@@ -101,7 +101,7 @@ const WizardContents = props => {
   const footerActionView = buildActionZone(previousStep, nextStep, 'footer');
 
   return (
-    <div className={style.container} data-name="custom-playlist-summary">
+    <div className={style.container} data-name="content-summary">
       <div className={style.leftSection}>
         {headerView}
         <div className={style.form}>{formView}</div>
