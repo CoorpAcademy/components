@@ -3,7 +3,7 @@ export default {
     title: 'Revision mode',
     subtitle: 'Become A Champion',
     cta: {
-      title: 'Start revision',
+      label: 'Start revision',
       onClick: () => {}
     }
   }

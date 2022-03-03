@@ -1,14 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import ButtonLink from '../../../atom/button-link';
 import style from './style.css';
 
 const ReviewBanner = (props, context) => {
   const {title, subtitle, cta} = props;
 
+  const buttonProps = {
+    ...cta,
+    type: 'primary'
+  };
+
   return (<div className={style.root} data-name="start-battle">
       <div className={style.container}>
         <div className={style.middle}>
-          
+          <ButtonLink {...buttonProps} />
         </div>
       </div>
     </div>);
@@ -16,11 +22,12 @@ const ReviewBanner = (props, context) => {
 
 
 ReviewBanner.propTypes = {
-  startBattleText: PropTypes.string,
-  becomeAChampionText: PropTypes.string,
-  challengeText: PropTypes.string,
-  onClick: PropTypes.func,
-  href: PropTypes.string
+  title: PropTypes.string,
+  subtitle: PropTypes.string,
+  cta: PropTypes.shape({
+    onClick: PropTypes.func,
+    label: PropTypes.string
+  })
 };
 
 export default React.memo(ReviewBanner);
