@@ -1,17 +1,55 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value colors: "../../../variables/colors.css";
+@value white from colors;
+@value battle_bg from colors;
+
 .root {
   display: flex;
   justify-content: center;
   padding: 24px 30px;
+  font-family: Gilroy;
 }
 
 .container {
   width: 100%;
   max-width: 1080px;
   height: 214px;
+  background: battle_bg;
   background-image: url(https://static.coorpacademy.com/site/startBattleBackground.png);
   background-size: cover;
+  border-radius: 16px;
 }
 
 .middle {
-  
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  padding-top: 30px;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 59px;
+  color: white;
+  display: block;
+}
+
+.subtitle {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  opacity: 0.9;
+  display: block;
+  color: white;
+}
+
+.cta {
+  margin-top: 22px;
+  max-width: 200px;
+  border-radius: 36px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
 }

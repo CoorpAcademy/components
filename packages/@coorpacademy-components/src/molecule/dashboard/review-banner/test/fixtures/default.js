@@ -1,7 +1,7 @@
 export default {
   props: {
     title: 'Revision mode',
-    subtitle: 'Become A Champion',
+    subtitle: 'Lorem ipsum dolor sit amet consectur',
     cta: {
       label: 'Start revision',
       onClick: () => {}
