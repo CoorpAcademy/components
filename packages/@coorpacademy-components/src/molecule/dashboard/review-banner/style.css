@@ -1,5 +1,6 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value colors: "../../../variables/colors.css";
+@value mobile from breakpoints;
 @value white from colors;
 @value battle_bg from colors;
 
@@ -89,4 +90,38 @@
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
+}
+
+@media mobile {
+  .container {
+    height: 161px;
+    max-width: 327px;
+  }
+
+  .banner {
+    justify-content: center;
+  }
+
+  .right {
+    display: none;
+  }
+
+  .left {
+    display: none;
+  }
+
+  .title {
+    padding-top: 5px;
+    font-size: 32px;
+    line-height: 39px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .cta {
+    max-width: 150px;
+  }
 }
