@@ -1,5 +1,6 @@
 @value breakpoints: "../../../variables/breakpoints.css";
 @value colors: "../../../variables/colors.css";
+@value tablet from breakpoints;
 @value mobile from breakpoints;
 @value white from colors;
 @value battle_bg from colors;
@@ -81,6 +82,7 @@
   opacity: 0.9;
   display: block;
   color: white;
+  text-align: center;
 }
 
 .cta {
@@ -90,6 +92,35 @@
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
+}
+
+@media tablet {
+  .right {
+    width: 170px;
+    height: 100px;
+    top: -67px
+  }
+
+  .left {
+    width: 170px;
+    height: 146px;
+    bottom: -45px;
+  }
+
+  .title {
+    padding-top: 5px;
+    font-size: 32px;
+    line-height: 39px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 19px;
+  }
+  
+  .cta {
+    max-width: 175px;
+  }
 }
 
 @media mobile {
