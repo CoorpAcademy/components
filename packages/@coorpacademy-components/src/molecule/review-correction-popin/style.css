@@ -30,12 +30,12 @@
 
 .right {
   background-color: cm_positive_100;
-  box-shadow: 0px 0px 68px rgba(53, 204, 127, 0.4);
+  box-shadow: 0px 0px 68px rgba(cm_positive_100, 0.4);
 }
 
 .wrong {
   background-color: cm_negative_100;
-  box-shadow: 0px 0px 68px rgba(239, 72, 74, 0.4);
+  box-shadow: 0px 0px 68px rgba(cm_negative_100, 0.4);
 }
 
 .correctionSection {

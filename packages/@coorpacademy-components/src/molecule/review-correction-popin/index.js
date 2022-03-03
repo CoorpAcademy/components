@@ -15,8 +15,7 @@ const buildKlfButton = klf => {
       position: 'left',
       type: 'key'
     },
-    type: 'primary',
-    onClick: () => {}
+    type: 'primary'
   };
 
   return (

@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
-import {getOr, keys} from 'lodash/fp';
+import {getOr, keys, noop} from 'lodash/fp';
 import classnames from 'classnames';
 import Link from '../link';
 import {ICONS} from '../../util/button-icons';
@@ -36,7 +36,7 @@ const ButtonLink = props => {
     'data-name': dataName,
     'aria-label': ariaLabel,
     link,
-    onClick,
+    onClick = noop,
     className,
     customStyle
   } = props;
