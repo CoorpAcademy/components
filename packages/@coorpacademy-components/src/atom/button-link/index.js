@@ -1,6 +1,6 @@
 import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
-import {getOr, keys} from 'lodash/fp';
+import {getOr, keys, noop} from 'lodash/fp';
 import classnames from 'classnames';
 import Link from '../link';
 import {ICONS} from '../../util/button-icons';
@@ -36,10 +36,13 @@ const ButtonLink = props => {
     'data-name': dataName,
     'aria-label': ariaLabel,
     link,
-    onClick
+    onClick = noop,
+    className,
+    customStyle
   } = props;
   const contentView = getButtonContent(icon, label);
   const styleButton = classnames(
+    className,
     style.button,
     type === 'primary' && style.primary,
     type === 'secondary' && style.secondary,
@@ -56,6 +59,7 @@ const ButtonLink = props => {
     return (
       <Link
         {...link}
+        style={customStyle}
         className={styleButton}
         data-name={dataName}
         aria-label={ariaLabel || label}
@@ -72,6 +76,7 @@ const ButtonLink = props => {
       aria-label={ariaLabel || label}
       title={ariaLabel || label}
       data-name={dataName}
+      style={customStyle}
       className={styleButton}
       onClick={handleOnClick}
     >
@@ -95,7 +100,9 @@ ButtonLink.propTypes = {
     download: PropTypes.bool,
     target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
   }),
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  className: PropTypes.string,
+  customStyle: PropTypes.shape({})
 };
 
 export default ButtonLink;
