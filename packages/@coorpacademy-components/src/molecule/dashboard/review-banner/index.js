@@ -20,10 +20,18 @@ const ReviewBanner = (props, context) => {
 
   return (<div className={style.root} data-name="start-review-banner">
       <div className={style.container}>
-        <div className={style.middle}>
-          <span className={style.title} data-name="review-banner-title" aria-label='{title}'>{title}</span>
-          <span className={style.subtitle} data-name="review-banner-subtitle" aria-label='{subtitle}'>{subtitle}</span>
-          <ButtonLink {...buttonProps} className={style.cta} customStyle={ctaStyle} />
+        <div className={style.banner}>
+          <div className={style.right}>
+            <img className={style.image} src='https://static.coorpacademy.com/site/book.png' />
+          </div>
+          <div className={style.middle}>
+            <span className={style.title} data-name="review-banner-title" aria-label='{title}'>{title}</span>
+            <span className={style.subtitle} data-name="review-banner-subtitle" aria-label='{subtitle}'>{subtitle}</span>
+            <ButtonLink {...buttonProps} className={style.cta} customStyle={ctaStyle} />
+          </div>
+          <div className={style.left}>
+            <img className={style.image} src='https://static.coorpacademy.com/site/dumbell.png' />
+          </div>
         </div>
       </div>
     </div>);
