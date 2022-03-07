@@ -22,8 +22,12 @@ const ReviewBanner = (props, context) => {
     <div className={style.root} data-name="start-review-banner">
       <div className={style.container}>
         <div className={style.banner}>
-          <div className={style.right}>
-            <img className={style.image} src="https://static.coorpacademy.com/site/book.png" />
+          <div className={style.left} role="img" aria-label="Left image container">
+            <img
+              className={style.image}
+              src="https://static.coorpacademy.com/site/book.png"
+              alt="Book image"
+            />
           </div>
           <div className={style.middle}>
             <span className={style.title} data-name="review-banner-title" aria-label="{title}">
@@ -38,8 +42,12 @@ const ReviewBanner = (props, context) => {
             </span>
             <ButtonLink {...buttonProps} className={style.cta} customStyle={ctaStyle} />
           </div>
-          <div className={style.left}>
-            <img className={style.image} src="https://static.coorpacademy.com/site/dumbell.png" />
+          <div className={style.right} role="img" aria-label="Rigth image container">
+            <img
+              className={style.image}
+              src="https://static.coorpacademy.com/site/dumbell.png"
+              alt="Dumbbell image"
+            />
           </div>
         </div>
       </div>

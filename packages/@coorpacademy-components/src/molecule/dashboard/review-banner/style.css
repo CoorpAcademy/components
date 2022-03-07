@@ -19,7 +19,6 @@
   display: flex;
   justify-content: center;
   position: relative;
-  z-index: 0;
   top: 0px;
   left: 0px;
   background: battle_bg;
@@ -37,7 +36,7 @@
   justify-content: space-between;
 }
 
-.right {
+.left {
   width: 210px;
   height: 123px;
   position: relative;
@@ -45,7 +44,7 @@
   left: 2%
 }
 
-.left {
+.right {
   position: relative;
   bottom: -32px;
   width: 210px;
@@ -94,13 +93,13 @@
 }
 
 @media tablet {
-  .right {
+  .left {
     width: 170px;
     height: 100px;
     top: -67px
   }
 
-  .left {
+  .right {
     width: 170px;
     height: 146px;
     bottom: -45px;
