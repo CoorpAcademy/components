@@ -1,0 +1,186 @@
+@value breakpoints: "../../../variables/breakpoints.css";
+@value colors: "../../../variables/colors.css";
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+@value white from colors;
+@value battle_bg from colors;
+
+.root {
+  display: flex;
+  justify-content: center;
+  padding: 24px 30px;
+  font-family: Gilroy;
+}
+
+.container {
+  width: 100%;
+  max-width: 1080px;
+  height: 214px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 0px;
+  left: 0px;
+  background: battle_bg;
+  background-image: url(https://static.coorpacademy.com/site/startBattleBackground.png);
+  background-size: cover;
+  border-radius: 16px;
+}
+
+.container:hover .right, .container:hover .left {
+  animation-play-state: running;
+}
+
+.banner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left {
+  width: 210px;
+  height: 123px;
+  position: relative;
+  top: -57px;
+  left: 2%;
+  animation-play-state: paused;
+  animation-name: leftAnimation;
+  animation-duration: 2s;
+  animation-delay: 0;
+  animation-iteration-count: infinite;
+  animation-direction: forward;
+  animation-timing-function: ease-in-out;
+}
+
+.right {
+  position: relative;
+  bottom: -32px;
+  width: 210px;
+  height: 180px;
+  right: 2%;
+  animation-play-state: paused;
+  animation-name: rightAnimation;
+  animation-duration: 2s;
+  animation-delay: 0;
+  animation-iteration-count: infinite;
+  animation-direction: forward;
+  animation-timing-function: ease-in-out;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+}
+
+.middle {
+  display: flex;  
+  flex-direction: column;
+  align-items: center;
+}
+
+.title {
+  padding-top: 30px;
+  font-weight: 800;
+  font-size: 48px;
+  line-height: 59px;
+  color: white;
+  display: block;
+}
+
+.subtitle {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  line-height: 24px;
+  opacity: 0.9;
+  display: block;
+  color: white;
+  text-align: center;
+}
+
+.cta {
+  margin-top: 22px;
+  max-width: 200px;
+  border-radius: 36px;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+@media tablet {
+  .left {
+    width: 170px;
+    height: 100px;
+    top: -67px
+  }
+
+  .right {
+    width: 170px;
+    height: 146px;
+    bottom: -45px;
+  }
+
+  .title {
+    padding-top: 5px;
+    font-size: 32px;
+    line-height: 39px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 19px;
+  }
+  
+  .cta {
+    max-width: 175px;
+  }
+}
+
+@media mobile {
+  .container {
+    height: 161px;
+    max-width: 327px;
+  }
+
+  .banner {
+    justify-content: center;
+  }
+
+  .right {
+    display: none;
+  }
+
+  .left {
+    display: none;
+  }
+
+  .title {
+    padding-top: 5px;
+    font-size: 32px;
+    line-height: 39px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+    line-height: 19px;
+  }
+
+  .cta {
+    max-width: 150px;
+  }
+}
+
+@keyframes rightAnimation {
+  0% {transform: translate3d(0, 10px, 0);}
+  50% {transform: translate3d(0, 0, 0);}
+  100% {transform: translate3d(0, 10px, 0);}
+}
+
+@keyframes leftAnimation {
+  0% {transform: translate3d(0, 0, 0);}
+  50% {transform: translate3d(0, 10px, 0);}
+  100% {transform: translate3d(0, 0, 0);}
+}
