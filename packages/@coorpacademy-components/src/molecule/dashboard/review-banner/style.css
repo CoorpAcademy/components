@@ -27,6 +27,10 @@
   border-radius: 16px;
 }
 
+.container:hover .right, .container:hover .left {
+  animation-play-state: running;
+}
+
 .banner {
   width: 100%;
   height: 100%;
@@ -41,7 +45,14 @@
   height: 123px;
   position: relative;
   top: -57px;
-  left: 2%
+  left: 2%;
+  animation-play-state: paused;
+  animation-name: leftAnimation;
+  animation-duration: 2s;
+  animation-delay: 0;
+  animation-iteration-count: infinite;
+  animation-direction: forward;
+  animation-timing-function: ease-in-out;
 }
 
 .right {
@@ -50,6 +61,13 @@
   width: 210px;
   height: 180px;
   right: 2%;
+  animation-play-state: paused;
+  animation-name: rightAnimation;
+  animation-duration: 2s;
+  animation-delay: 0;
+  animation-iteration-count: infinite;
+  animation-direction: forward;
+  animation-timing-function: ease-in-out;
 }
 
 .image {
@@ -153,4 +171,16 @@
   .cta {
     max-width: 150px;
   }
+}
+
+@keyframes rightAnimation {
+  0% {transform: translate3d(0, 10px, 0);}
+  50% {transform: translate3d(0, 0, 0);}
+  100% {transform: translate3d(0, 10px, 0);}
+}
+
+@keyframes leftAnimation {
+  0% {transform: translate3d(0, 0, 0);}
+  50% {transform: translate3d(0, 10px, 0);}
+  100% {transform: translate3d(0, 0, 0);}
 }
