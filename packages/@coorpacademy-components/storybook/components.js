@@ -119,6 +119,7 @@ import MoleculeQuickAccessCard from './../src/molecule/quick-access-card';
 import MoleculeQuickAccessCardsGroup from './../src/molecule/quick-access-cards-group';
 import MoleculeResourcePlayer from './../src/molecule/resource-player';
 import MoleculeReviewCorrectionPopin from './../src/molecule/review-correction-popin';
+import MoleculeRewardTitle from './../src/molecule/reward-title';
 import MoleculeScopeContent from './../src/molecule/scope-content';
 import MoleculeScopeTabs from './../src/molecule/scope-tabs';
 import MoleculeSearchForm from './../src/molecule/search-form';
@@ -683,6 +684,9 @@ import MoleculeResourcePlayerFixtureVimeoWithOverlay from '../src/molecule/resou
 import MoleculeResourcePlayerFixtureVimeo from '../src/molecule/resource-player/test/fixtures/vimeo';
 import MoleculeReviewCorrectionPopinFixtureRight from '../src/molecule/review-correction-popin/test/fixtures/right';
 import MoleculeReviewCorrectionPopinFixtureWrong from '../src/molecule/review-correction-popin/test/fixtures/wrong';
+import MoleculeRewardTitleFixtureChecked from '../src/molecule/reward-title/test/fixtures/checked';
+import MoleculeRewardTitleFixtureDefault from '../src/molecule/reward-title/test/fixtures/default';
+import MoleculeRewardTitleFixtureDisabled from '../src/molecule/reward-title/test/fixtures/disabled';
 import MoleculeScopeContentFixtureArabic from '../src/molecule/scope-content/test/fixtures/arabic';
 import MoleculeScopeContentFixtureAudio from '../src/molecule/scope-content/test/fixtures/audio';
 import MoleculeScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
@@ -1235,6 +1239,7 @@ export const components = {
     MoleculeQuickAccessCardsGroup,
     MoleculeResourcePlayer,
     MoleculeReviewCorrectionPopin,
+    MoleculeRewardTitle,
     MoleculeScopeContent,
     MoleculeScopeTabs,
     MoleculeSearchForm,
@@ -2014,6 +2019,11 @@ export const fixtures = {
     MoleculeReviewCorrectionPopin: {
       Right: MoleculeReviewCorrectionPopinFixtureRight,
       Wrong: MoleculeReviewCorrectionPopinFixtureWrong
+    },
+    MoleculeRewardTitle: {
+      Checked: MoleculeRewardTitleFixtureChecked,
+      Default: MoleculeRewardTitleFixtureDefault,
+      Disabled: MoleculeRewardTitleFixtureDisabled
     },
     MoleculeScopeContent: {
       Arabic: MoleculeScopeContentFixtureArabic,
