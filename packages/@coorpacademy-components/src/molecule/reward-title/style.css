@@ -1,9 +1,5 @@
 @value colors: "../../variables/colors.css";
-@value orange from colors;
-@value medium from colors;
 @value white from colors;
-@value positive from colors;
-@value light from colors;
 @value dark from colors;
 @value cm_grey_200 from colors;
 @value cm_grey_100 from colors;
@@ -29,8 +25,8 @@
 
 .default .title {
   font-family: "Gilroy";
-  font-size: 15px;
-  text-transform: none;
+  font-weight: bold;
+  font-size: 20px;
   color: dark;
   width: 180px;
   margin-right: 20px;
@@ -38,7 +34,6 @@
   display: flex;
   align-items: center;
   align-content: center;
-  font-weight: bold;
   color: black;
 }
 
@@ -53,12 +48,8 @@
   border-radius: 5px;
   font-size: 14px;
   color: dark;
-  margin-right: 6px;
+  margin-right: 8px;
   position: relative;
-}
-
-.checkbox:disabled + .label {
-  opacity: 0.4;
 }
 
 .checkbox:checked + .label {

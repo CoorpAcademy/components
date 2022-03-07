@@ -686,7 +686,6 @@ import MoleculeReviewCorrectionPopinFixtureRight from '../src/molecule/review-co
 import MoleculeReviewCorrectionPopinFixtureWrong from '../src/molecule/review-correction-popin/test/fixtures/wrong';
 import MoleculeRewardTitleFixtureChecked from '../src/molecule/reward-title/test/fixtures/checked';
 import MoleculeRewardTitleFixtureDefault from '../src/molecule/reward-title/test/fixtures/default';
-import MoleculeRewardTitleFixtureDisabled from '../src/molecule/reward-title/test/fixtures/disabled';
 import MoleculeScopeContentFixtureArabic from '../src/molecule/scope-content/test/fixtures/arabic';
 import MoleculeScopeContentFixtureAudio from '../src/molecule/scope-content/test/fixtures/audio';
 import MoleculeScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
@@ -2022,8 +2021,7 @@ export const fixtures = {
     },
     MoleculeRewardTitle: {
       Checked: MoleculeRewardTitleFixtureChecked,
-      Default: MoleculeRewardTitleFixtureDefault,
-      Disabled: MoleculeRewardTitleFixtureDisabled
+      Default: MoleculeRewardTitleFixtureDefault
     },
     MoleculeScopeContent: {
       Arabic: MoleculeScopeContentFixtureArabic,

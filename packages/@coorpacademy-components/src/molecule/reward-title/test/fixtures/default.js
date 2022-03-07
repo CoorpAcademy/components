@@ -1,6 +1,6 @@
 export default {
   props: {
-    title: 'Name',
+    title: 'Create badge',
     checked: false,
     onChange: value => console.log(value)
   }
