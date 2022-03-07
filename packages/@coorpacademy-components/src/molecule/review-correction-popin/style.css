@@ -146,7 +146,7 @@
   width: 25%;
   border-radius: 15px;
   background-color: white;
-  right: 17.5%;
+  right: 211px;
   top: -64px;
 }
 
@@ -162,7 +162,7 @@
   background-color: white;
   position: inherit;
   bottom: -7px;
-  left: 129px;
+  right: 10%;
 }
 
 .tooltipText {
@@ -242,8 +242,8 @@
   }
 
   .toolTip {
-    width: 250px;
-    right: 25%;
+    width: 35%;
+    right: 211px;
   }
 }
 
@@ -311,6 +311,10 @@
     right: -3%;
     top: auto;
     bottom: 52px;
+  }
+
+  .toolTip::before {
+    right: 50%
   }
 
   .tooltipText {
