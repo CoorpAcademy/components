@@ -48,7 +48,7 @@
 
 .feedbackSection {
   display: flex;
-  margin: 0 23px;
+  margin: 0 48px;
   flex-direction: row;
   align-items: center;
   justify-content: left;
@@ -84,7 +84,7 @@
 
 .resultLabel {
   margin-left: 12px;
-  font-weight: 900;
+  font-weight: 600;
   font-size: 24px;
   line-height: 24px;
   hyphens: auto;
@@ -95,21 +95,25 @@
 .information {
   display: block;
   flex-direction: column;
+  width: 100%;
 }
 
-.information .label {
-  width: 140px;
+.labelContainer {
+  width: fit-content;
   height: 25px;
   padding: 4px 8px;
   background: rgba(255, 255, 255, 0.3);
   border-radius: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.label {
   font-style: normal;
   font-weight: 900;
   font-size: 14px;
   line-height: 17px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   hyphens: auto;
   -ms-word-break: break-word;
   word-break: break-word;
