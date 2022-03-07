@@ -6,13 +6,13 @@
 @value black from colors;
 @value cm_primary_blue from colors;
 
-.default {
+.container {
   display: flex;
   align-items: center;
   align-content: flex-start;
 }
 
-.default input {
+.container input {
   display: none;
 }
 
@@ -23,7 +23,7 @@
   color: white;
 }
 
-.default .title {
+.container .title {
   font-family: "Gilroy";
   font-weight: bold;
   font-size: 20px;
@@ -37,7 +37,7 @@
   color: black;
 }
 
-.default .label {
+.container .label {
   border: solid 1px cm_grey_200;
   background-color: cm_grey_100;
   display: flex;

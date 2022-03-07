@@ -685,7 +685,7 @@ import MoleculeResourcePlayerFixtureVimeo from '../src/molecule/resource-player/
 import MoleculeReviewCorrectionPopinFixtureRight from '../src/molecule/review-correction-popin/test/fixtures/right';
 import MoleculeReviewCorrectionPopinFixtureWrong from '../src/molecule/review-correction-popin/test/fixtures/wrong';
 import MoleculeRewardTitleFixtureChecked from '../src/molecule/reward-title/test/fixtures/checked';
-import MoleculeRewardTitleFixtureDefault from '../src/molecule/reward-title/test/fixtures/default';
+import MoleculeRewardTitleFixtureUnchecked from '../src/molecule/reward-title/test/fixtures/unchecked';
 import MoleculeScopeContentFixtureArabic from '../src/molecule/scope-content/test/fixtures/arabic';
 import MoleculeScopeContentFixtureAudio from '../src/molecule/scope-content/test/fixtures/audio';
 import MoleculeScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
@@ -2021,7 +2021,7 @@ export const fixtures = {
     },
     MoleculeRewardTitle: {
       Checked: MoleculeRewardTitleFixtureChecked,
-      Default: MoleculeRewardTitleFixtureDefault
+      Unchecked: MoleculeRewardTitleFixtureUnchecked
     },
     MoleculeScopeContent: {
       Arabic: MoleculeScopeContentFixtureArabic,

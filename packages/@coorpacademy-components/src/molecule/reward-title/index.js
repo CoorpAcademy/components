@@ -4,14 +4,14 @@ import {noop, uniqueId} from 'lodash/fp';
 import {NovaSolidStatusValidate as CheckIcon} from '@coorpacademy/nova-icons';
 import style from './style.css';
 
-const InputSwitch = props => {
+const RewardTitle = props => {
   const {title, name, checked, onChange = noop} = props;
 
   const idCheckbox = uniqueId('input-checkbox-');
   const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
 
   return (
-    <label className={style.default} htmlFor={idCheckbox}>
+    <label className={style.container} htmlFor={idCheckbox}>
       <input
         type="checkbox"
         id={idCheckbox}
@@ -28,10 +28,10 @@ const InputSwitch = props => {
   );
 };
 
-InputSwitch.propTypes = {
+RewardTitle.propTypes = {
   title: PropTypes.string,
   name: PropTypes.string,
   checked: PropTypes.bool,
   onChange: PropTypes.func
 };
-export default InputSwitch;
+export default RewardTitle;
