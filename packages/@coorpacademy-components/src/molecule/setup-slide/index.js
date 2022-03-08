@@ -20,7 +20,7 @@ const SetupSlide = props => {
       case 'switch':
         return <InputSwitch {...field} />;
       case 'select':
-        return <Select {...field} />;
+        return <Select {...field} theme={'coorpmanager'} />;
       case 'checkbox':
         return <InputCheckbox {...field} />;
       case 'image':
