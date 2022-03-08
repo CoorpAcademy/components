@@ -59,9 +59,11 @@ const ReviewCorrectionPopin = props => {
         </div>
         <div className={style.feedbackSection}>
           <div className={style.information} aria-label="answer-information">
-            <span className={style.label} aria-label={information.label}>
-              {information.label}
-            </span>
+            <div className={style.labelContainer}>
+              <span className={style.label} aria-label={information.label}>
+                {information.label}
+              </span>
+            </div>
             <span className={style.message} aria-label={information.message}>
               {information.message}
             </span>
