@@ -70,6 +70,7 @@ import MoleculeBulletPointMenuButton from './../src/molecule/bullet-point-menu-b
 import MoleculeCard from './../src/molecule/card';
 import MoleculeCardContent from './../src/molecule/card-content';
 import MoleculeCardWithButton from './../src/molecule/card-with-button';
+import MoleculeCheckboxWithTitle from './../src/molecule/checkbox-with-title';
 import MoleculeCmPopin from './../src/molecule/cm-popin';
 import MoleculeCookieBanner from './../src/molecule/cookie-banner';
 import MoleculeCoorpManagerRoles from './../src/molecule/coorp-manager-roles';
@@ -512,6 +513,8 @@ import MoleculeCardContentFixtureHero from '../src/molecule/card-content/test/fi
 import MoleculeCardWithButtonFixtureDefault from '../src/molecule/card-with-button/test/fixtures/default';
 import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-button/test/fixtures/with-avatar';
 import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
+import MoleculeCheckboxWithTitleFixtureChecked from '../src/molecule/checkbox-with-title/test/fixtures/checked';
+import MoleculeCheckboxWithTitleFixtureUnchecked from '../src/molecule/checkbox-with-title/test/fixtures/unchecked';
 import MoleculeCmPopinFixtureDangerous from '../src/molecule/cm-popin/test/fixtures/dangerous';
 import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixtures/default';
 import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/test/fixtures/warning-with-close';
@@ -1202,6 +1205,7 @@ export const components = {
     MoleculeCard,
     MoleculeCardContent,
     MoleculeCardWithButton,
+    MoleculeCheckboxWithTitle,
     MoleculeCmPopin,
     MoleculeCookieBanner,
     MoleculeCoorpManagerRoles,
@@ -1820,6 +1824,10 @@ export const fixtures = {
       Default: MoleculeCardWithButtonFixtureDefault,
       WithAvatar: MoleculeCardWithButtonFixtureWithAvatar,
       WithoutLabel: MoleculeCardWithButtonFixtureWithoutLabel
+    },
+    MoleculeCheckboxWithTitle: {
+      Checked: MoleculeCheckboxWithTitleFixtureChecked,
+      Unchecked: MoleculeCheckboxWithTitleFixtureUnchecked
     },
     MoleculeCmPopin: {
       Dangerous: MoleculeCmPopinFixtureDangerous,

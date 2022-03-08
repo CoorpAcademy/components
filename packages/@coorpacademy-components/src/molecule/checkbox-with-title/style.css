@@ -1,0 +1,62 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value dark from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_100 from colors;
+@value black from colors;
+@value cm_primary_blue from colors;
+
+.container {
+  display: flex;
+  align-items: center;
+  align-content: flex-start;
+}
+
+.container input {
+  display: none;
+}
+
+.icon {
+  display: none;
+  width: 16px;
+  height: 14px;
+  color: white;
+}
+
+.container .title {
+  font-family: "Gilroy";
+  font-weight: bold;
+  font-size: 20px;
+  color: dark;
+  width: 180px;
+  margin-right: 20px;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  color: black;
+}
+
+.container .label {
+  border: solid 1px cm_grey_200;
+  background-color: cm_grey_100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 23px;
+  height: 23px;
+  border-radius: 5px;
+  font-size: 14px;
+  color: dark;
+  margin-right: 8px;
+  position: relative;
+}
+
+.checkbox:checked + .label {
+  border: solid 1px cm_primary_blue;
+  background-color: cm_primary_blue;
+}
+
+.checkbox:checked + .label .icon {
+  display: flex;
+}
