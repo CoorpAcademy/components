@@ -70,6 +70,7 @@ import MoleculeBulletPointMenuButton from './../src/molecule/bullet-point-menu-b
 import MoleculeCard from './../src/molecule/card';
 import MoleculeCardContent from './../src/molecule/card-content';
 import MoleculeCardWithButton from './../src/molecule/card-with-button';
+import MoleculeCheckboxWithTitle from './../src/molecule/checkbox-with-title';
 import MoleculeCmPopin from './../src/molecule/cm-popin';
 import MoleculeCookieBanner from './../src/molecule/cookie-banner';
 import MoleculeCoorpManagerRoles from './../src/molecule/coorp-manager-roles';
@@ -119,7 +120,6 @@ import MoleculeQuickAccessCard from './../src/molecule/quick-access-card';
 import MoleculeQuickAccessCardsGroup from './../src/molecule/quick-access-cards-group';
 import MoleculeResourcePlayer from './../src/molecule/resource-player';
 import MoleculeReviewCorrectionPopin from './../src/molecule/review-correction-popin';
-import MoleculeRewardTitle from './../src/molecule/reward-title';
 import MoleculeScopeContent from './../src/molecule/scope-content';
 import MoleculeScopeTabs from './../src/molecule/scope-tabs';
 import MoleculeSearchForm from './../src/molecule/search-form';
@@ -512,6 +512,8 @@ import MoleculeCardContentFixtureHero from '../src/molecule/card-content/test/fi
 import MoleculeCardWithButtonFixtureDefault from '../src/molecule/card-with-button/test/fixtures/default';
 import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-button/test/fixtures/with-avatar';
 import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
+import MoleculeCheckboxWithTitleFixtureChecked from '../src/molecule/checkbox-with-title/test/fixtures/checked';
+import MoleculeCheckboxWithTitleFixtureUnchecked from '../src/molecule/checkbox-with-title/test/fixtures/unchecked';
 import MoleculeCmPopinFixtureDangerous from '../src/molecule/cm-popin/test/fixtures/dangerous';
 import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixtures/default';
 import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/test/fixtures/warning-with-close';
@@ -684,8 +686,6 @@ import MoleculeResourcePlayerFixtureVimeoWithOverlay from '../src/molecule/resou
 import MoleculeResourcePlayerFixtureVimeo from '../src/molecule/resource-player/test/fixtures/vimeo';
 import MoleculeReviewCorrectionPopinFixtureRight from '../src/molecule/review-correction-popin/test/fixtures/right';
 import MoleculeReviewCorrectionPopinFixtureWrong from '../src/molecule/review-correction-popin/test/fixtures/wrong';
-import MoleculeRewardTitleFixtureChecked from '../src/molecule/reward-title/test/fixtures/checked';
-import MoleculeRewardTitleFixtureUnchecked from '../src/molecule/reward-title/test/fixtures/unchecked';
 import MoleculeScopeContentFixtureArabic from '../src/molecule/scope-content/test/fixtures/arabic';
 import MoleculeScopeContentFixtureAudio from '../src/molecule/scope-content/test/fixtures/audio';
 import MoleculeScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
@@ -1203,6 +1203,7 @@ export const components = {
     MoleculeCard,
     MoleculeCardContent,
     MoleculeCardWithButton,
+    MoleculeCheckboxWithTitle,
     MoleculeCmPopin,
     MoleculeCookieBanner,
     MoleculeCoorpManagerRoles,
@@ -1238,7 +1239,6 @@ export const components = {
     MoleculeQuickAccessCardsGroup,
     MoleculeResourcePlayer,
     MoleculeReviewCorrectionPopin,
-    MoleculeRewardTitle,
     MoleculeScopeContent,
     MoleculeScopeTabs,
     MoleculeSearchForm,
@@ -1822,6 +1822,10 @@ export const fixtures = {
       WithAvatar: MoleculeCardWithButtonFixtureWithAvatar,
       WithoutLabel: MoleculeCardWithButtonFixtureWithoutLabel
     },
+    MoleculeCheckboxWithTitle: {
+      Checked: MoleculeCheckboxWithTitleFixtureChecked,
+      Unchecked: MoleculeCheckboxWithTitleFixtureUnchecked
+    },
     MoleculeCmPopin: {
       Dangerous: MoleculeCmPopinFixtureDangerous,
       Default: MoleculeCmPopinFixtureDefault,
@@ -2018,10 +2022,6 @@ export const fixtures = {
     MoleculeReviewCorrectionPopin: {
       Right: MoleculeReviewCorrectionPopinFixtureRight,
       Wrong: MoleculeReviewCorrectionPopinFixtureWrong
-    },
-    MoleculeRewardTitle: {
-      Checked: MoleculeRewardTitleFixtureChecked,
-      Unchecked: MoleculeRewardTitleFixtureUnchecked
     },
     MoleculeScopeContent: {
       Arabic: MoleculeScopeContentFixtureArabic,
