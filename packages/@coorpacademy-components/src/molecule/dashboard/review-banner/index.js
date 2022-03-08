@@ -1,21 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import getOr from 'lodash/fp/getOr';
-import Provider from '../../../atom/provider';
 import ButtonLink from '../../../atom/button-link';
 import style from './style.css';
 
-const ReviewBanner = (props, context) => {
+const ReviewBanner = props => {
   const {title, subtitle, cta} = props;
-  const {skin} = context;
-  const primary = getOr('#00B0FF', 'common.primary', skin);
 
   const buttonProps = {
     ...cta,
     type: 'primary'
-  };
-  const ctaStyle = {
-    background: primary
   };
 
   return (
@@ -40,7 +33,7 @@ const ReviewBanner = (props, context) => {
             >
               {subtitle}
             </span>
-            <ButtonLink {...buttonProps} className={style.cta} customStyle={ctaStyle} />
+            <ButtonLink {...buttonProps} className={style.cta} />
           </div>
           <div className={style.right} role="img" aria-label="Rigth image container">
             <img
@@ -62,10 +55,6 @@ ReviewBanner.propTypes = {
     onClick: PropTypes.func,
     label: PropTypes.string
   })
-};
-
-ReviewBanner.contextTypes = {
-  skin: Provider.childContextTypes.skin
 };
 
 export default React.memo(ReviewBanner);
