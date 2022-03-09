@@ -85,7 +85,6 @@
 }
 
 .title {
-  padding-top: 30px;
   font-weight: 800;
   font-size: 48px;
   line-height: 59px;
@@ -133,7 +132,6 @@
   }
 
   .title {
-    padding-top: 5px;
     font-size: 32px;
     line-height: 39px;
   }
@@ -167,7 +165,6 @@
   }
 
   .title {
-    padding-top: 5px;
     font-size: 32px;
     line-height: 39px;
   }
