@@ -84,6 +84,28 @@ export default {
                     value: 'External Links'
                   },
                   {
+                    type: 'select',
+                    title: 'LMS Available Language Source',
+                    options: [
+                      {
+                        name: 'English',
+                        value: 'English',
+                        selected: false
+                      },
+                      {
+                        name: 'Français',
+                        value: 'Français',
+                        selected: true
+                      },
+                      {
+                        name: 'Español',
+                        value: 'Español',
+                        selected: true
+                      }
+                    ],
+                    onChange: value => console.log(value)
+                  },
+                  {
                     type: 'switch',
                     title: 'Course',
                     value: true,
