@@ -30,7 +30,9 @@ const InputText = props => {
     description,
     disabled,
     modified = false,
-    title: propsTitle
+    title: propsTitle,
+    'data-name': dataName = 'input-text',
+    'aria-label': ariaLabel = 'Input Text'
   } = props;
 
   const isCMTheme = theme === 'coorpmanager';
@@ -86,6 +88,8 @@ const InputText = props => {
           onInput={handleChange}
           disabled={disabled}
           onChange={noop}
+          data-name={dataName}
+          aria-label={ariaLabel}
         />
         {errorIconView}
         {validIconView}
@@ -109,6 +113,8 @@ InputText.propTypes = {
   onChange: PropTypes.func,
   description: PropTypes.string,
   modified: PropTypes.bool,
-  valid: PropTypes.bool
+  valid: PropTypes.bool,
+  'aria-label': PropTypes.string,
+  'data-name': PropTypes.string
 };
 export default InputText;

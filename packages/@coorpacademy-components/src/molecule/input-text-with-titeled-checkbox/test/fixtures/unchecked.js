@@ -8,6 +8,7 @@ export default {
     inputTextValue: '250',
     inputTextDescription: 'This is the tooltip text',
     inputTextDisabled: true,
-    inputTextOnChange: value => console.log(value)
+    inputTextOnChange: value => console.log(value),
+    'aria-label': {checkbox: 'check box', input: 'input text'}
   }
 };
