@@ -7,11 +7,6 @@ import {
 } from '@coorpacademy/nova-icons';
 import style from './style.css';
 
-const ICONS = {
-  right: RightIcon,
-  wrong: WrongIcon
-};
-
 const getContent = (icon, current, value) => {
   if (!icon) {
     return <span className={style.value}>{value}</span>;
