@@ -7,7 +7,7 @@ export default {
         value: '1'
       },
       {
-        icon: 'wrong',
+        icon: 'right',
         current: false,
         value: '2'
       },

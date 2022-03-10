@@ -694,6 +694,7 @@ import MoleculeResourcePlayerFixtureVimeoWithOverlay from '../src/molecule/resou
 import MoleculeResourcePlayerFixtureVimeo from '../src/molecule/resource-player/test/fixtures/vimeo';
 import MoleculeReviewCorrectionPopinFixtureRight from '../src/molecule/review-correction-popin/test/fixtures/right';
 import MoleculeReviewCorrectionPopinFixtureWrong from '../src/molecule/review-correction-popin/test/fixtures/wrong';
+import MoleculeReviewHeaderStepsFixtureAllQuestionsOk from '../src/molecule/review-header-steps/test/fixtures/all-questions-ok';
 import MoleculeReviewHeaderStepsFixtureCurrentQuestionNoAswered from '../src/molecule/review-header-steps/test/fixtures/current-question-no-aswered';
 import MoleculeReviewHeaderStepsFixtureCurrentQuestionWrong from '../src/molecule/review-header-steps/test/fixtures/current-question-wrong';
 import MoleculeReviewHeaderStepsFixtureFirstQuestionCurrentRight from '../src/molecule/review-header-steps/test/fixtures/first-question-current-right';
@@ -2046,6 +2047,7 @@ export const fixtures = {
       Wrong: MoleculeReviewCorrectionPopinFixtureWrong
     },
     MoleculeReviewHeaderSteps: {
+      AllQuestionsOk: MoleculeReviewHeaderStepsFixtureAllQuestionsOk,
       CurrentQuestionNoAswered: MoleculeReviewHeaderStepsFixtureCurrentQuestionNoAswered,
       CurrentQuestionWrong: MoleculeReviewHeaderStepsFixtureCurrentQuestionWrong,
       FirstQuestionCurrentRight: MoleculeReviewHeaderStepsFixtureFirstQuestionCurrentRight,

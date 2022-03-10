@@ -2,13 +2,14 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import map from 'lodash/fp/map';
 import ReviewHeaderStepItem from '../../atom/review-header-step-item';
+import style from './style.css';
 
 const ReviewHeaderStep = props => {
   const {steps} = props;
 
   const items = map(step => <ReviewHeaderStepItem {...step} />, steps);
 
-  return <div>{items}</div>;
+  return <div className={style.wrapper}>{items}</div>;
 };
 
 ReviewHeaderStep.propTypes = {
