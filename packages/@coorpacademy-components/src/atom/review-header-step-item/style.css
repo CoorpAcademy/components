@@ -1,5 +1,8 @@
 @value colors: "../../variables/colors.css";
 @value cm_grey_100 from colors;
+@value cm_positive_100 from colors;
+@value cm_negative_100 from colors;
+@value white from colors;
 
 .default {
   width: 32px;
@@ -25,6 +28,44 @@
   line-height: 22px;
 }
 
+.right {
+  background-color: cm_positive_100;
+}
+
+.wrong {
+  background-color: cm_negative_100;
+}
+
 .value {
   display: block;
 }
+
+.rightIcon {
+  color: white;
+  width: 12px;
+  height: 10px;
+  margin: 2px 0px 0px 1px;
+}
+
+.currentRightIcon {
+  composes: rightIcon;
+  width: 16px;
+  height: 14px;
+  margin: 3px 0px 0px 1px;
+}
+
+.wrongIcon {
+  color: white;
+  width: 10px;
+  height: 10px;
+  margin-top: 3px;
+}
+
+.currentWrongIcon {
+  composes: wrongIcon;
+  width: 15px;
+  height: 15px;
+  margin-top: 5px;
+}
+
+
