@@ -4,17 +4,17 @@ import style from './style.css';
 
 const ReviewHeaderStepItem = props => {
   const {icon, current, value} = props;
-  return <div className={current ? style.current : style.default}>{value}</div>;
+  return (
+    <div className={current ? style.current : style.default}>
+      <span className={style.value}>{value}</span>
+    </div>
+  );
 };
 
-ReviewHeaderStepItem.propTypes = {
-  steps: PropTypes.arrayOf(
-    PropTypes.shape({
-      icon: PropTypes.string,
-      current: PropTypes.bool,
-      value: PropTypes.string
-    })
-  )
-};
+ReviewHeaderStepItem.propTypes = PropTypes.shape({
+  icon: PropTypes.string,
+  current: PropTypes.bool,
+  value: PropTypes.string
+});
 
 export default ReviewHeaderStepItem;
