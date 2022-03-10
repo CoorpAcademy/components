@@ -39,6 +39,7 @@ import AtomProvider from './../src/atom/provider';
 import AtomRadioGroup from './../src/atom/radio-group';
 import AtomRange from './../src/atom/range';
 import AtomResourceMiniature from './../src/atom/resource-miniature';
+import AtomReviewHeaderStepItem from './../src/atom/review-header-step-item';
 import AtomSelect from './../src/atom/select';
 import AtomSlide from './../src/atom/slide';
 import AtomSocialLink from './../src/atom/social-link';
@@ -372,6 +373,10 @@ import AtomResourceMiniatureFixturePdf from '../src/atom/resource-miniature/test
 import AtomResourceMiniatureFixtureSelectedPdf from '../src/atom/resource-miniature/test/fixtures/selected-pdf';
 import AtomResourceMiniatureFixtureSelectedVideo from '../src/atom/resource-miniature/test/fixtures/selected-video';
 import AtomResourceMiniatureFixtureVideo from '../src/atom/resource-miniature/test/fixtures/video';
+import AtomReviewHeaderStepItemFixtureCurrent from '../src/atom/review-header-step-item/test/fixtures/current';
+import AtomReviewHeaderStepItemFixtureDefault from '../src/atom/review-header-step-item/test/fixtures/default';
+import AtomReviewHeaderStepItemFixtureRight from '../src/atom/review-header-step-item/test/fixtures/right';
+import AtomReviewHeaderStepItemFixtureWrong from '../src/atom/review-header-step-item/test/fixtures/wrong';
 import AtomSelectFixtureCoorpmanager from '../src/atom/select/test/fixtures/coorpmanager';
 import AtomSelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import AtomSelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
@@ -1170,6 +1175,7 @@ export const components = {
     AtomRadioGroup,
     AtomRange,
     AtomResourceMiniature,
+    AtomReviewHeaderStepItem,
     AtomSelect,
     AtomSlide,
     AtomSocialLink,
@@ -1617,6 +1623,12 @@ export const fixtures = {
       SelectedPdf: AtomResourceMiniatureFixtureSelectedPdf,
       SelectedVideo: AtomResourceMiniatureFixtureSelectedVideo,
       Video: AtomResourceMiniatureFixtureVideo
+    },
+    AtomReviewHeaderStepItem: {
+      Current: AtomReviewHeaderStepItemFixtureCurrent,
+      Default: AtomReviewHeaderStepItemFixtureDefault,
+      Right: AtomReviewHeaderStepItemFixtureRight,
+      Wrong: AtomReviewHeaderStepItemFixtureWrong
     },
     AtomSelect: {
       Coorpmanager: AtomSelectFixtureCoorpmanager,
