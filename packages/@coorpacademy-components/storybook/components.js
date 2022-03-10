@@ -122,6 +122,7 @@ import MoleculeQuickAccessCard from './../src/molecule/quick-access-card';
 import MoleculeQuickAccessCardsGroup from './../src/molecule/quick-access-cards-group';
 import MoleculeResourcePlayer from './../src/molecule/resource-player';
 import MoleculeReviewCorrectionPopin from './../src/molecule/review-correction-popin';
+import MoleculeReviewHeaderSteps from './../src/molecule/review-header-steps';
 import MoleculeScopeContent from './../src/molecule/scope-content';
 import MoleculeScopeTabs from './../src/molecule/scope-tabs';
 import MoleculeSearchForm from './../src/molecule/search-form';
@@ -693,6 +694,11 @@ import MoleculeResourcePlayerFixtureVimeoWithOverlay from '../src/molecule/resou
 import MoleculeResourcePlayerFixtureVimeo from '../src/molecule/resource-player/test/fixtures/vimeo';
 import MoleculeReviewCorrectionPopinFixtureRight from '../src/molecule/review-correction-popin/test/fixtures/right';
 import MoleculeReviewCorrectionPopinFixtureWrong from '../src/molecule/review-correction-popin/test/fixtures/wrong';
+import MoleculeReviewHeaderStepsFixtureCurrentQuestionNoAswered from '../src/molecule/review-header-steps/test/fixtures/current-question-no-aswered';
+import MoleculeReviewHeaderStepsFixtureCurrentQuestionWrong from '../src/molecule/review-header-steps/test/fixtures/current-question-wrong';
+import MoleculeReviewHeaderStepsFixtureFirstQuestionCurrentRight from '../src/molecule/review-header-steps/test/fixtures/first-question-current-right';
+import MoleculeReviewHeaderStepsFixtureNoAnsweredQuestion from '../src/molecule/review-header-steps/test/fixtures/no-answered-question';
+import MoleculeReviewHeaderStepsFixtureQuestionToRepeat from '../src/molecule/review-header-steps/test/fixtures/question-to-repeat';
 import MoleculeScopeContentFixtureArabic from '../src/molecule/scope-content/test/fixtures/arabic';
 import MoleculeScopeContentFixtureAudio from '../src/molecule/scope-content/test/fixtures/audio';
 import MoleculeScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
@@ -1247,6 +1253,7 @@ export const components = {
     MoleculeQuickAccessCardsGroup,
     MoleculeResourcePlayer,
     MoleculeReviewCorrectionPopin,
+    MoleculeReviewHeaderSteps,
     MoleculeScopeContent,
     MoleculeScopeTabs,
     MoleculeSearchForm,
@@ -2037,6 +2044,13 @@ export const fixtures = {
     MoleculeReviewCorrectionPopin: {
       Right: MoleculeReviewCorrectionPopinFixtureRight,
       Wrong: MoleculeReviewCorrectionPopinFixtureWrong
+    },
+    MoleculeReviewHeaderSteps: {
+      CurrentQuestionNoAswered: MoleculeReviewHeaderStepsFixtureCurrentQuestionNoAswered,
+      CurrentQuestionWrong: MoleculeReviewHeaderStepsFixtureCurrentQuestionWrong,
+      FirstQuestionCurrentRight: MoleculeReviewHeaderStepsFixtureFirstQuestionCurrentRight,
+      NoAnsweredQuestion: MoleculeReviewHeaderStepsFixtureNoAnsweredQuestion,
+      QuestionToRepeat: MoleculeReviewHeaderStepsFixtureQuestionToRepeat
     },
     MoleculeScopeContent: {
       Arabic: MoleculeScopeContentFixtureArabic,
