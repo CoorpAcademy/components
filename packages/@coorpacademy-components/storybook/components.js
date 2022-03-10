@@ -10,6 +10,7 @@ import AtomCardImagePreview from './../src/atom/card-image-preview';
 import AtomCatalogSection from './../src/atom/catalog-section';
 import AtomCenteredText from './../src/atom/centered-text';
 import AtomCheckbox from './../src/atom/checkbox';
+import AtomCheckboxWithTitle from './../src/atom/checkbox-with-title';
 import AtomChips from './../src/atom/chips';
 import AtomClue from './../src/atom/clue';
 import AtomContentBadge from './../src/atom/content-badge';
@@ -70,7 +71,6 @@ import MoleculeBulletPointMenuButton from './../src/molecule/bullet-point-menu-b
 import MoleculeCard from './../src/molecule/card';
 import MoleculeCardContent from './../src/molecule/card-content';
 import MoleculeCardWithButton from './../src/molecule/card-with-button';
-import MoleculeCheckboxWithTitle from './../src/molecule/checkbox-with-title';
 import MoleculeCmPopin from './../src/molecule/cm-popin';
 import MoleculeCookieBanner from './../src/molecule/cookie-banner';
 import MoleculeCoorpManagerRoles from './../src/molecule/coorp-manager-roles';
@@ -96,6 +96,7 @@ import MoleculeForumForumComment from './../src/molecule/forum/forum-comment';
 import MoleculeForumForumPost from './../src/molecule/forum/forum-post';
 import MoleculeForumForumThread from './../src/molecule/forum/forum-thread';
 import MoleculeHero from './../src/molecule/hero';
+import MoleculeInputTextWithTiteledCheckbox from './../src/molecule/input-text-with-titeled-checkbox';
 import MoleculeLoginAlert from './../src/molecule/login-alert';
 import MoleculeMenuList from './../src/molecule/menu-list';
 import MoleculeMessagePopin from './../src/molecule/message-popin';
@@ -237,6 +238,8 @@ import AtomCheckboxFixtureChecked from '../src/atom/checkbox/test/fixtures/check
 import AtomCheckboxFixtureDefault from '../src/atom/checkbox/test/fixtures/default';
 import AtomCheckboxFixtureDisabled from '../src/atom/checkbox/test/fixtures/disabled';
 import AtomCheckboxFixtureRequired from '../src/atom/checkbox/test/fixtures/required';
+import AtomCheckboxWithTitleFixtureChecked from '../src/atom/checkbox-with-title/test/fixtures/checked';
+import AtomCheckboxWithTitleFixtureUnchecked from '../src/atom/checkbox-with-title/test/fixtures/unchecked';
 import AtomChipsFixtureDefault from '../src/atom/chips/test/fixtures/default';
 import AtomChipsFixtureLongText from '../src/atom/chips/test/fixtures/long-text';
 import AtomChipsFixtureNonSelected from '../src/atom/chips/test/fixtures/non-selected';
@@ -513,8 +516,6 @@ import MoleculeCardContentFixtureHero from '../src/molecule/card-content/test/fi
 import MoleculeCardWithButtonFixtureDefault from '../src/molecule/card-with-button/test/fixtures/default';
 import MoleculeCardWithButtonFixtureWithAvatar from '../src/molecule/card-with-button/test/fixtures/with-avatar';
 import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with-button/test/fixtures/without-label';
-import MoleculeCheckboxWithTitleFixtureChecked from '../src/molecule/checkbox-with-title/test/fixtures/checked';
-import MoleculeCheckboxWithTitleFixtureUnchecked from '../src/molecule/checkbox-with-title/test/fixtures/unchecked';
 import MoleculeCmPopinFixtureDangerous from '../src/molecule/cm-popin/test/fixtures/dangerous';
 import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixtures/default';
 import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/test/fixtures/warning-with-close';
@@ -620,6 +621,8 @@ import MoleculeForumForumThreadFixtureDefault from '../src/molecule/forum/forum-
 import MoleculeForumForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
 import MoleculeHeroFixtureArabic from '../src/molecule/hero/test/fixtures/arabic';
 import MoleculeHeroFixtureHero from '../src/molecule/hero/test/fixtures/hero';
+import MoleculeInputTextWithTiteledCheckboxFixtureChecked from '../src/molecule/input-text-with-titeled-checkbox/test/fixtures/checked';
+import MoleculeInputTextWithTiteledCheckboxFixtureUnchecked from '../src/molecule/input-text-with-titeled-checkbox/test/fixtures/unchecked';
 import MoleculeLoginAlertFixtureDefault from '../src/molecule/login-alert/test/fixtures/default';
 import MoleculeMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import MoleculeMessagePopinFixtureDefault from '../src/molecule/message-popin/test/fixtures/default';
@@ -1141,6 +1144,7 @@ export const components = {
     AtomCatalogSection,
     AtomCenteredText,
     AtomCheckbox,
+    AtomCheckboxWithTitle,
     AtomChips,
     AtomClue,
     AtomContentBadge,
@@ -1205,7 +1209,6 @@ export const components = {
     MoleculeCard,
     MoleculeCardContent,
     MoleculeCardWithButton,
-    MoleculeCheckboxWithTitle,
     MoleculeCmPopin,
     MoleculeCookieBanner,
     MoleculeCoorpManagerRoles,
@@ -1223,6 +1226,7 @@ export const components = {
     MoleculeFeedback,
     MoleculeFilters,
     MoleculeHero,
+    MoleculeInputTextWithTiteledCheckbox,
     MoleculeLoginAlert,
     MoleculeMenuList,
     MoleculeMessagePopin,
@@ -1424,6 +1428,10 @@ export const fixtures = {
       Default: AtomCheckboxFixtureDefault,
       Disabled: AtomCheckboxFixtureDisabled,
       Required: AtomCheckboxFixtureRequired
+    },
+    AtomCheckboxWithTitle: {
+      Checked: AtomCheckboxWithTitleFixtureChecked,
+      Unchecked: AtomCheckboxWithTitleFixtureUnchecked
     },
     AtomChips: {
       Default: AtomChipsFixtureDefault,
@@ -1825,10 +1833,6 @@ export const fixtures = {
       WithAvatar: MoleculeCardWithButtonFixtureWithAvatar,
       WithoutLabel: MoleculeCardWithButtonFixtureWithoutLabel
     },
-    MoleculeCheckboxWithTitle: {
-      Checked: MoleculeCheckboxWithTitleFixtureChecked,
-      Unchecked: MoleculeCheckboxWithTitleFixtureUnchecked
-    },
     MoleculeCmPopin: {
       Dangerous: MoleculeCmPopinFixtureDangerous,
       Default: MoleculeCmPopinFixtureDefault,
@@ -1937,6 +1941,10 @@ export const fixtures = {
     MoleculeHero: {
       Arabic: MoleculeHeroFixtureArabic,
       Hero: MoleculeHeroFixtureHero
+    },
+    MoleculeInputTextWithTiteledCheckbox: {
+      Checked: MoleculeInputTextWithTiteledCheckboxFixtureChecked,
+      Unchecked: MoleculeInputTextWithTiteledCheckboxFixtureUnchecked
     },
     MoleculeLoginAlert: {
       Default: MoleculeLoginAlertFixtureDefault
