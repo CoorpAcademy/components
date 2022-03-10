@@ -229,6 +229,10 @@
     display: none;
   }
 
+  .feedbackSection {
+    margin: 0 20px 0 20px;
+  }
+
   .correctionSection {
     min-width: 60px;
   }  
