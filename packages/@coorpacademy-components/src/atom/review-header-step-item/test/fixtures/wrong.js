@@ -2,6 +2,6 @@ export default {
   props: {
     icon: 'wrong',
     current: false,
-    value: 2
+    value: '2'
   }
 };
