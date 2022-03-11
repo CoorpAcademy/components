@@ -504,6 +504,7 @@ div.player:hover span.selectSpan {
   padding: 0 15px;
   color: dark;
   cursor: pointer;
+  position: absolute;
 }
 
 /*
