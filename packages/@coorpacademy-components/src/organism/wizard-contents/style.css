@@ -60,7 +60,6 @@
 .summaryZone {
   width: 100%;
   position: relative;
-  min-height: 500px;
   display: flex;
   flex-direction: column;
   flex-grow: 1;
