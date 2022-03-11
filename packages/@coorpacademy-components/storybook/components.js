@@ -40,6 +40,7 @@ import AtomProvider from './../src/atom/provider';
 import AtomRadioGroup from './../src/atom/radio-group';
 import AtomRange from './../src/atom/range';
 import AtomResourceMiniature from './../src/atom/resource-miniature';
+import AtomReviewHeaderStepItem from './../src/atom/review-header-step-item';
 import AtomSelect from './../src/atom/select';
 import AtomSlide from './../src/atom/slide';
 import AtomSocialLink from './../src/atom/social-link';
@@ -122,6 +123,7 @@ import MoleculeQuickAccessCard from './../src/molecule/quick-access-card';
 import MoleculeQuickAccessCardsGroup from './../src/molecule/quick-access-cards-group';
 import MoleculeResourcePlayer from './../src/molecule/resource-player';
 import MoleculeReviewCorrectionPopin from './../src/molecule/review-correction-popin';
+import MoleculeReviewHeaderSteps from './../src/molecule/review-header-steps';
 import MoleculeScopeContent from './../src/molecule/scope-content';
 import MoleculeScopeTabs from './../src/molecule/scope-tabs';
 import MoleculeSearchForm from './../src/molecule/search-form';
@@ -375,6 +377,10 @@ import AtomResourceMiniatureFixturePdf from '../src/atom/resource-miniature/test
 import AtomResourceMiniatureFixtureSelectedPdf from '../src/atom/resource-miniature/test/fixtures/selected-pdf';
 import AtomResourceMiniatureFixtureSelectedVideo from '../src/atom/resource-miniature/test/fixtures/selected-video';
 import AtomResourceMiniatureFixtureVideo from '../src/atom/resource-miniature/test/fixtures/video';
+import AtomReviewHeaderStepItemFixtureCurrent from '../src/atom/review-header-step-item/test/fixtures/current';
+import AtomReviewHeaderStepItemFixtureDefault from '../src/atom/review-header-step-item/test/fixtures/default';
+import AtomReviewHeaderStepItemFixtureRight from '../src/atom/review-header-step-item/test/fixtures/right';
+import AtomReviewHeaderStepItemFixtureWrong from '../src/atom/review-header-step-item/test/fixtures/wrong';
 import AtomSelectFixtureCoorpmanager from '../src/atom/select/test/fixtures/coorpmanager';
 import AtomSelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import AtomSelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
@@ -691,6 +697,12 @@ import MoleculeResourcePlayerFixtureVimeoWithOverlay from '../src/molecule/resou
 import MoleculeResourcePlayerFixtureVimeo from '../src/molecule/resource-player/test/fixtures/vimeo';
 import MoleculeReviewCorrectionPopinFixtureRight from '../src/molecule/review-correction-popin/test/fixtures/right';
 import MoleculeReviewCorrectionPopinFixtureWrong from '../src/molecule/review-correction-popin/test/fixtures/wrong';
+import MoleculeReviewHeaderStepsFixtureAllQuestionsOk from '../src/molecule/review-header-steps/test/fixtures/all-questions-ok';
+import MoleculeReviewHeaderStepsFixtureCurrentQuestionNoAswered from '../src/molecule/review-header-steps/test/fixtures/current-question-no-aswered';
+import MoleculeReviewHeaderStepsFixtureCurrentQuestionWrong from '../src/molecule/review-header-steps/test/fixtures/current-question-wrong';
+import MoleculeReviewHeaderStepsFixtureFirstQuestionCurrentRight from '../src/molecule/review-header-steps/test/fixtures/first-question-current-right';
+import MoleculeReviewHeaderStepsFixtureNoAnsweredQuestion from '../src/molecule/review-header-steps/test/fixtures/no-answered-question';
+import MoleculeReviewHeaderStepsFixtureQuestionToRepeat from '../src/molecule/review-header-steps/test/fixtures/question-to-repeat';
 import MoleculeScopeContentFixtureArabic from '../src/molecule/scope-content/test/fixtures/arabic';
 import MoleculeScopeContentFixtureAudio from '../src/molecule/scope-content/test/fixtures/audio';
 import MoleculeScopeContentFixtureDefault from '../src/molecule/scope-content/test/fixtures/default';
@@ -1174,6 +1186,7 @@ export const components = {
     AtomRadioGroup,
     AtomRange,
     AtomResourceMiniature,
+    AtomReviewHeaderStepItem,
     AtomSelect,
     AtomSlide,
     AtomSocialLink,
@@ -1245,6 +1258,7 @@ export const components = {
     MoleculeQuickAccessCardsGroup,
     MoleculeResourcePlayer,
     MoleculeReviewCorrectionPopin,
+    MoleculeReviewHeaderSteps,
     MoleculeScopeContent,
     MoleculeScopeTabs,
     MoleculeSearchForm,
@@ -1625,6 +1639,12 @@ export const fixtures = {
       SelectedPdf: AtomResourceMiniatureFixtureSelectedPdf,
       SelectedVideo: AtomResourceMiniatureFixtureSelectedVideo,
       Video: AtomResourceMiniatureFixtureVideo
+    },
+    AtomReviewHeaderStepItem: {
+      Current: AtomReviewHeaderStepItemFixtureCurrent,
+      Default: AtomReviewHeaderStepItemFixtureDefault,
+      Right: AtomReviewHeaderStepItemFixtureRight,
+      Wrong: AtomReviewHeaderStepItemFixtureWrong
     },
     AtomSelect: {
       Coorpmanager: AtomSelectFixtureCoorpmanager,
@@ -2033,6 +2053,14 @@ export const fixtures = {
     MoleculeReviewCorrectionPopin: {
       Right: MoleculeReviewCorrectionPopinFixtureRight,
       Wrong: MoleculeReviewCorrectionPopinFixtureWrong
+    },
+    MoleculeReviewHeaderSteps: {
+      AllQuestionsOk: MoleculeReviewHeaderStepsFixtureAllQuestionsOk,
+      CurrentQuestionNoAswered: MoleculeReviewHeaderStepsFixtureCurrentQuestionNoAswered,
+      CurrentQuestionWrong: MoleculeReviewHeaderStepsFixtureCurrentQuestionWrong,
+      FirstQuestionCurrentRight: MoleculeReviewHeaderStepsFixtureFirstQuestionCurrentRight,
+      NoAnsweredQuestion: MoleculeReviewHeaderStepsFixtureNoAnsweredQuestion,
+      QuestionToRepeat: MoleculeReviewHeaderStepsFixtureQuestionToRepeat
     },
     MoleculeScopeContent: {
       Arabic: MoleculeScopeContentFixtureArabic,
