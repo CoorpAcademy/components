@@ -7,14 +7,18 @@ import {
 } from '@coorpacademy/nova-icons';
 import style from './style.css';
 
-const getContent = (icon, current, value) => {
+const Content = ({icon, current, value}) => {
   if (!icon) {
-    return <span className={style.value}>{value}</span>;
+    return (
+      <span className={style.value} aria-label={`step ${value}`}>
+        {value}
+      </span>
+    );
   }
 
   if (icon === 'right') {
     return (
-      <span className={style.value}>
+      <span className={style.value} aria-label={`step ${value}`}>
         <RightIcon className={current ? style.currentRightIcon : style.rightIcon} />
       </span>
     );
@@ -22,7 +26,7 @@ const getContent = (icon, current, value) => {
 
   if (icon === 'wrong') {
     return (
-      <span className={style.value}>
+      <span className={style.value} aria-label={`step ${value}`}>
         <WrongIcon className={current ? style.currentWrongIcon : style.wrongIcon} />
       </span>
     );
@@ -30,8 +34,7 @@ const getContent = (icon, current, value) => {
 };
 
 const ReviewHeaderStepItem = props => {
-  const {icon, current, value} = props;
-  const content = getContent(icon, current, value);
+  const {icon, current} = props;
   return (
     <div
       className={classnames(
@@ -39,8 +42,9 @@ const ReviewHeaderStepItem = props => {
         icon === 'wrong' ? style.wrong : null,
         current ? style.current : style.default
       )}
+      data-name="header-step-item"
     >
-      {content}
+      <Content {...props} />
     </div>
   );
 };

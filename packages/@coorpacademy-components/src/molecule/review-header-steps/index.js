@@ -9,7 +9,11 @@ const ReviewHeaderStep = props => {
 
   const items = map(step => <ReviewHeaderStepItem {...step} key={step.value} />, steps);
 
-  return <div className={style.wrapper}>{items}</div>;
+  return (
+    <div className={style.wrapper} data-name="header-steps">
+      {items}
+    </div>
+  );
 };
 
 ReviewHeaderStep.propTypes = {
