@@ -157,6 +157,11 @@ const Select = (props, context) => {
             borderClassName,
             isLongLabel ? style.longLabel : null
           )}
+          style={{
+            ...(shouldUseSkinFontColor && {
+              color
+            })
+          }}
         >
           {selectedLabel}
         </span>
