@@ -27,6 +27,7 @@ import AtomInputReadonly from './../src/atom/input-readonly';
 import AtomInputSearch from './../src/atom/input-search';
 import AtomInputSwitch from './../src/atom/input-switch';
 import AtomInputText from './../src/atom/input-text';
+import AtomInputTextWithTitle from './../src/atom/input-text-with-title';
 import AtomInputTextarea from './../src/atom/input-textarea';
 import AtomLabel from './../src/atom/label';
 import AtomLife from './../src/atom/life';
@@ -331,6 +332,8 @@ import AtomInputTextFixtureError from '../src/atom/input-text/test/fixtures/erro
 import AtomInputTextFixtureModified from '../src/atom/input-text/test/fixtures/modified';
 import AtomInputTextFixtureNotitle from '../src/atom/input-text/test/fixtures/notitle';
 import AtomInputTextFixtureRequired from '../src/atom/input-text/test/fixtures/required';
+import AtomInputTextWithTitleFixtureDefault from '../src/atom/input-text-with-title/test/fixtures/default';
+import AtomInputTextWithTitleFixtureError from '../src/atom/input-text-with-title/test/fixtures/error';
 import AtomInputTextareaFixtureCmDefault from '../src/atom/input-textarea/test/fixtures/cm-default';
 import AtomInputTextareaFixtureCmEmpty from '../src/atom/input-textarea/test/fixtures/cm-empty';
 import AtomInputTextareaFixtureDefault from '../src/atom/input-textarea/test/fixtures/default';
@@ -525,6 +528,7 @@ import MoleculeCourseSectionFixtureChapter from '../src/molecule/course-section/
 import MoleculeCourseSectionFixtureCourse from '../src/molecule/course-section/test/fixtures/course';
 import MoleculeCourseSectionsFixtureDefault from '../src/molecule/course-sections/test/fixtures/default';
 import MoleculeCourseSectionsFixtureLoading from '../src/molecule/course-sections/test/fixtures/loading';
+import MoleculeCourseSectionsFixtureWithMandatoryCoursesInput from '../src/molecule/course-sections/test/fixtures/with-mandatory-courses-input';
 import MoleculeDashboardBattleRequestListFixtureDefault from '../src/molecule/dashboard/battle-request-list/test/fixtures/default';
 import MoleculeDashboardBattleRequestListFixtureEmpty from '../src/molecule/dashboard/battle-request-list/test/fixtures/empty';
 import MoleculeDashboardCardsListFixtureDefault from '../src/molecule/dashboard/cards-list/test/fixtures/default';
@@ -1161,6 +1165,7 @@ export const components = {
     AtomInputSearch,
     AtomInputSwitch,
     AtomInputText,
+    AtomInputTextWithTitle,
     AtomInputTextarea,
     AtomLabel,
     AtomLife,
@@ -1556,6 +1561,10 @@ export const fixtures = {
       Notitle: AtomInputTextFixtureNotitle,
       Required: AtomInputTextFixtureRequired
     },
+    AtomInputTextWithTitle: {
+      Default: AtomInputTextWithTitleFixtureDefault,
+      Error: AtomInputTextWithTitleFixtureError
+    },
     AtomInputTextarea: {
       CmDefault: AtomInputTextareaFixtureCmDefault,
       CmEmpty: AtomInputTextareaFixtureCmEmpty,
@@ -1850,7 +1859,8 @@ export const fixtures = {
     },
     MoleculeCourseSections: {
       Default: MoleculeCourseSectionsFixtureDefault,
-      Loading: MoleculeCourseSectionsFixtureLoading
+      Loading: MoleculeCourseSectionsFixtureLoading,
+      WithMandatoryCoursesInput: MoleculeCourseSectionsFixtureWithMandatoryCoursesInput
     },
     MoleculeDisciplineCta: {
       Default: MoleculeDisciplineCtaFixtureDefault,

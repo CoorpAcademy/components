@@ -1,6 +1,6 @@
 /* eslint-disable no-console */
 import wizardSummaryOrganizeCourses from '../../../../molecule/wizard-summary/test/fixtures/organize-courses';
-import organizeCoursesForm from '../../../../molecule/course-sections/test/fixtures/default';
+import organizeCoursesForm from '../../../../molecule/course-sections/test/fixtures/with-mandatory-courses-input';
 
 export default {
   props: {

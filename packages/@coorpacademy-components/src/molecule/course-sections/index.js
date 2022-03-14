@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import InputTextWithTitle from '../../atom/input-text-with-title';
 import CourseSection from '../course-section';
 import DraggableList from '../draggable-list';
 import Loader from '../../atom/loader';
@@ -12,11 +13,28 @@ const Loading = () => (
   </div>
 );
 
-const CourseSections = ({sections, onDrop, isLoading, title}) => {
+const CourseSections = ({
+  sections,
+  onDrop,
+  isLoading,
+  title,
+  mandatoryCoursesInput,
+  inputTitle
+}) => {
   if (isLoading) return <Loading />;
 
   return (
     <div>
+      {inputTitle ? (
+        <div className={style.title}>
+          <Title title={inputTitle} type={'form-group'} data-name={'course-sections-title'} />
+        </div>
+      ) : null}
+      {mandatoryCoursesInput ? (
+        <div className={style.mandatoryCoursesInput}>
+          <InputTextWithTitle {...mandatoryCoursesInput} />
+        </div>
+      ) : null}
       {title ? (
         <div className={style.title}>
           <Title title={title} type={'form-group'} data-name={'course-sections-title'} />
@@ -28,10 +46,12 @@ const CourseSections = ({sections, onDrop, isLoading, title}) => {
 };
 
 CourseSections.propTypes = {
+  inputTitle: PropTypes.string,
   title: PropTypes.string,
   sections: PropTypes.arrayOf(PropTypes.shape(CourseSection.propTypes)),
   onDrop: PropTypes.func,
-  isLoading: PropTypes.bool
+  isLoading: PropTypes.bool,
+  mandatoryCoursesInput: InputTextWithTitle.propTypes
 };
 
 export default CourseSections;
