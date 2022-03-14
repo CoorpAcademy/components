@@ -27,7 +27,11 @@ const CourseSections = ({
     <div>
       {inputTitle ? (
         <div className={style.title}>
-          <Title title={inputTitle} type={'form-group'} data-name={'course-sections-title'} />
+          <Title
+            title={inputTitle}
+            type={'form-group'}
+            data-name={'mandatory-courses-input-title'}
+          />
         </div>
       ) : null}
       {mandatoryCoursesInput ? (
