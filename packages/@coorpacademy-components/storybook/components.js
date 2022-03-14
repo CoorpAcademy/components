@@ -88,6 +88,7 @@ import MoleculeDisciplineHeader from './../src/molecule/discipline-header';
 import MoleculeDisciplinePartners from './../src/molecule/discipline-partners';
 import MoleculeDisciplineScope from './../src/molecule/discipline-scope';
 import MoleculeDragAndDrop from './../src/molecule/drag-and-drop';
+import MoleculeDragAndDropWrapper from './../src/molecule/drag-and-drop-wrapper';
 import MoleculeDraggable from './../src/molecule/draggable';
 import MoleculeDraggableList from './../src/molecule/draggable-list';
 import MoleculeExternalContentButton from './../src/molecule/external-content-button';
@@ -579,6 +580,8 @@ import MoleculeDragAndDropFixtureReadyInvalid from '../src/molecule/drag-and-dro
 import MoleculeDragAndDropFixtureReady from '../src/molecule/drag-and-drop/test/fixtures/ready';
 import MoleculeDragAndDropFixtureSuccessVideo from '../src/molecule/drag-and-drop/test/fixtures/success-video';
 import MoleculeDragAndDropFixtureSuccess from '../src/molecule/drag-and-drop/test/fixtures/success';
+import MoleculeDragAndDropWrapperFixtureDefault from '../src/molecule/drag-and-drop-wrapper/test/fixtures/default';
+import MoleculeDragAndDropWrapperFixtureTwoDragAndDrops from '../src/molecule/drag-and-drop-wrapper/test/fixtures/two-drag-and-drops';
 import MoleculeDraggableFixtureDefault from '../src/molecule/draggable/test/fixtures/default';
 import MoleculeDraggableListFixtureCourseSections from '../src/molecule/draggable-list/test/fixtures/course-sections';
 import MoleculeDraggableListFixtureDashboardSections from '../src/molecule/draggable-list/test/fixtures/dashboard-sections';
@@ -1237,6 +1240,7 @@ export const components = {
     MoleculeDisciplinePartners,
     MoleculeDisciplineScope,
     MoleculeDragAndDrop,
+    MoleculeDragAndDropWrapper,
     MoleculeDraggable,
     MoleculeDraggableList,
     MoleculeExternalContentButton,
@@ -1921,6 +1925,10 @@ export const fixtures = {
       Ready: MoleculeDragAndDropFixtureReady,
       SuccessVideo: MoleculeDragAndDropFixtureSuccessVideo,
       Success: MoleculeDragAndDropFixtureSuccess
+    },
+    MoleculeDragAndDropWrapper: {
+      Default: MoleculeDragAndDropWrapperFixtureDefault,
+      TwoDragAndDrops: MoleculeDragAndDropWrapperFixtureTwoDragAndDrops
     },
     MoleculeDraggable: {
       Default: MoleculeDraggableFixtureDefault
