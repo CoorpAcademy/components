@@ -51,7 +51,7 @@ CourseSections.propTypes = {
   sections: PropTypes.arrayOf(PropTypes.shape(CourseSection.propTypes)),
   onDrop: PropTypes.func,
   isLoading: PropTypes.bool,
-  mandatoryCoursesInput: InputTextWithTitle.propTypes
+  mandatoryCoursesInput: PropTypes.shape(InputTextWithTitle.propTypes)
 };
 
 export default CourseSections;
