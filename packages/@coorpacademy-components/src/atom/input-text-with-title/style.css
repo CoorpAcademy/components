@@ -1,0 +1,24 @@
+@value colors: "../../variables/colors.css";
+@value white from colors;
+@value dark from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_100 from colors;
+@value black from colors;
+@value cm_primary_blue from colors;
+
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  padding-bottom: 8px;
+  font-family: "Gilroy";
+  font-weight: bold;
+  font-size: 16px;
+  font-style: normal;
+}
+
+.inputText {
+  width: 173px;
+}
