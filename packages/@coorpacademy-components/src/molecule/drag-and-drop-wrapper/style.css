@@ -12,7 +12,3 @@
 .dragAndDrop {
   margin-right: 16px;
 }
-
-.dragAndDrop:nth-child(4) {
-  margin-right: 0px;
-}
