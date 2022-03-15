@@ -3,6 +3,7 @@ import style from '../../../image-upload/style.css';
 
 export default {
   props: {
+    modified: true,
     previewContent: {
       type: 'image',
       src: 'https://static.coorpacademy.com/content/up/raw/logo_coorp-1491560495763.svg'

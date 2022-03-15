@@ -6,145 +6,180 @@
 @value battle from colors;
 @value light from colors;
 @value xtraLightGrey from colors;
+@value cm_grey_300 from colors;
+@value cm_grey_700 from colors;
+@value cm_grey_50 from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_100 from colors;
+@value cm_grey_400 from colors;
 
 .wrapper {
-  width: 360px;
+  font-family: "Gilroy";
+  /* height: 100%;
+  width: 100%; */
+  height: 133px;
+  width: 202px;
+  border-radius: 3px;
 }
 
 .title {
-  font-family: "Gilroy";
-  font-size: 15px;
-  text-transform: none;
-  color: dark;
-  margin-bottom: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  color: cm_grey_700;
+  margin-bottom: 14px;
 }
 
 .description {
-  font-family: 'Gilroy';
-  font-size: 13px;
+  font-size: 10px;
   font-weight: 400;
-  font-style: italic;
-  color: dark;
-  margin: 10px 0;
-  text-align: justify;
-}
-
-.previewWrapper {
+  color: cm_grey_300;
+  margin-bottom: 8px;
+  text-align: center;
   width: 100%;
-  box-sizing: border-box;
-  border: 1px dashed medium;
-  margin-bottom: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
-.modified {
-  composes: previewWrapper;
-  border: 2px solid battle;
-}
-
-.previewWrapper span {
-  font-family: 'Gilroy';
-  color: dark;
-  font-size: 15px;
-  font-weight: 700;
-  line-height: 100px;
-}
-
-.previewView {
-  padding: 10px;
+.modificationsContainer {
   width: 100%;
-  height: 100px;
+  height: 100%;
+  border: none;
+  border-radius: 3px;;
+  background: cm_grey_50;
+}
+
+.preview {
+  padding: 8px;
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
   display: flex;
 }
 
-.previewView img {
-  max-width: 100%;
-  max-height: 100%;
-  margin: auto;
+.preview img, video {
+  width: 100%;
+  height: 100%;
+  border: 1px cm_grey_100 solid;
 }
 
 .inputWrapper {
+  background: cm_grey_50;
   width: 100%;
-  height: 70px;
+  height: 100%;
   box-sizing: border-box;
-  border: 1px dashed medium;
-  border-radius: 3px;
+  border: 1px dashed cm_grey_200;
+  border-radius: 7px;
   position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 14px 8px 8px 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .resetUploadWrapper {
   width: 100%;
-  height: 30px;
+  height: 20px;
   box-sizing: border-box;
-  background-color: xtraLightGrey;
-  border: solid 1px light;
+  background-color: cm_grey_50;
   border-radius: 3px;
-  position: relative;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* fonts */
-  font-family: Gilroy;
-  font-size: 13px;
+  margin-top: 16px;
+  padding: 4px 8px;
+  font-size: 10px;
   font-weight: 400;
-  margin-top: 15px;
 }
 
 .resetSrcLabel {
-  font-family: Gilroy;
-  color: dark;
-  max-width: 220px;
+  color: cm_grey_700;
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   direction: rtl;
   text-align: left;
-  margin-left: 9px;
 }
 
 .closeIcon {
-  margin-right: 9px;
   cursor: pointer;
-  color: dark;
-}
-
-.closeIcon:hover {
-  color: black;
+  color: cm_grey_400;
+  padding: 6px;
 }
 
 .dragging {
   composes: inputWrapper;
-  border: 3px dashed brand;
+  border: 1px solid cm_grey_200;
+  background: cm_grey_100;
 }
 
-.arrow {
-  width: 34px;
-  height: 34px;
-  margin-right: 10px;
+.dragging .description .icon .title {
+  font-size: 8px;
+}
+
+.dragging .title {
+  font-size: 10px;
+}
+
+.dragging .icon {
+  transform: scale(0.85);
+}
+
+.icon {
+  width: 14px;
+  height: 14px;
   transition: all 0.2s cubic-bezier(0.47, 1.04, 0.46, 2.16);
-}
-
-.dragging .arrow {
-  transform: scale(1.2);
+  margin-bottom: 4px;
 }
 
 .uploadLabel {
-  font-family: 'Gilroy';
-  font-size: 18px;
-  text-transform: uppercase;
+  font-size: 14px;
   font-weight: 700;
-  color: dark;
+  color: cm_grey_700;
 }
 
-.loading {
-  min-height: 100px;
-  border: none;
+.loaderWrapper {
   position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  margin-bottom: 8px;
+  height: 14px;
+  width: 14px;
+}
+
+.loaderText {
+  font-size: 10px;
+  font-weight: 400;
+}
+
+.loadingCancel {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.folderIcon {
+  margin-right: 8px;
+}
+
+.wrapper:hover .loadingCancel {
+  display: block;
 }
