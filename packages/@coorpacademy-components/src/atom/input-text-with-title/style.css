@@ -19,6 +19,10 @@
   font-style: normal;
 }
 
-.inputText {
-  width: 173px;
+.defaultInputText {
+  width: 100%;
+}
+
+.smallInputText {
+  width: max-content;
 }
