@@ -54,7 +54,9 @@ const buildInput = field => {
     case 'checkbox':
       return <InputCheckbox {...field} />;
     case 'image':
-      return <ImageUpload {...field} />;
+      return <div className={style.imageUploadContainer}>
+          <ImageUpload {...field} />
+        </div>
     case 'slider':
       return <SetupSlider {...field} />;
     case 'sections':

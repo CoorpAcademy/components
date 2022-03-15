@@ -15,7 +15,8 @@ export default {
       },
       {
         ...Mobile.props,
-        type: 'image'
+        type: 'image',
+        previewContent: {}
       },
       {
         ...Email.props,

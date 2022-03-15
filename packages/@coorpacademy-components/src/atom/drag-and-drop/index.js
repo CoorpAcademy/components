@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {uniqueId, get, constant} from 'lodash/fp';
+import {uniqueId, get, constant, isEmpty} from 'lodash/fp';
 import {
   NovaLineStatusClose as Close,
   NovaSolidFilesBasicFileUpload2 as FileUploadIcon
@@ -26,10 +26,6 @@ class DragAndDrop extends React.Component {
     modified: PropTypes.bool,
     children: PropTypes.func,
     onReset: PropTypes.func
-  };
-
-  static contextTypes = {
-    skin: Provider.childContextTypes.skin
   };
 
   constructor(props) {
@@ -132,7 +128,7 @@ class DragAndDrop extends React.Component {
 
     return (
       <div className={style.wrapper} data-name="drag-and-drop-wrapper">
-        {modified || loading ? 
+        {!isEmpty(previewContent) || modified || loading ? 
           <div className={style.modificationsContainer}>{previewView}</div> 
           : 
           <div className={dragging ? style.dragging : style.inputWrapper} id={idBox}>
@@ -142,7 +138,7 @@ class DragAndDrop extends React.Component {
             ) : null}
             <div className={style.title}>{title}</div>
             {dragging ? null : <Button {...buttonProps} />}
-            {children(this.handleDragStart, this.handleDragStop)}
+            <div style={{display: 'none'}}>{children(this.handleDragStart, this.handleDragStop)}</div>
           </div>
         }
         {resetContent}

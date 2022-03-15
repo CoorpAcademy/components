@@ -73,6 +73,11 @@
   width: 100%;
 }
 
+.imageUploadContainer {
+  height: 320px;
+  width: 360px;
+}
+
 @media desktop {
   .groupGrid {
     flex-direction: column;
