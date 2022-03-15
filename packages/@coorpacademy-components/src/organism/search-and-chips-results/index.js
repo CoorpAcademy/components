@@ -61,8 +61,8 @@ const SearchAndChipsResults = props => {
       </div>
       <div className={style.resultContainer}>
         {isLoading ? (
-          <div className={style.loader}>
-            <Loader theme="coorpmanager" />
+          <div className={style.loaderContainer}>
+            <Loader className={style.loader} theme="coorpmanager" />
           </div>
         ) : (
           resultView

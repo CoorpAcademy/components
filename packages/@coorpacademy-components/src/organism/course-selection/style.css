@@ -4,6 +4,7 @@
 @value cm_grey_900 from colors;
 
 .container {
+  height: 100%;
   width: 100%;
 }
 
@@ -26,6 +27,7 @@
 
 .cardsContainer {
   margin: 24px 0 0 0;
+  height: 100%;
   width: 100%;
 }
 
@@ -34,8 +36,15 @@
   margin: 0 16px 16px 0px;
 }
 
-.loader {
-  position: relative;
-  min-height: 50vh;
+.loaderContainer {
   width: 100%;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  height: 60px;
+  width: 60px;
 }

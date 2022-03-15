@@ -122,8 +122,8 @@ const buildTabs = items => {
 const buildContentView = content => {
   if (!content) {
     return (
-      <div>
-        <Loader theme="coorpmanager" />
+      <div className={style.loaderContainer}>
+        <Loader className={style.loader} theme="coorpmanager" />
       </div>
     );
   }

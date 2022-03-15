@@ -18,8 +18,17 @@
   display: flex;
 }
 
+.loaderContainer {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .loader {
-  height: calc(100% - 143px);
+  height: 60px;
+  width: 60px;
 }
 
 .left {

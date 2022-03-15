@@ -854,6 +854,7 @@ import OrganismContentTranslationFixtureDelete from '../src/organism/content-tra
 import OrganismCourseSelectionFixtureDefault from '../src/organism/course-selection/test/fixtures/default';
 import OrganismCourseSelectionFixtureEmpty from '../src/organism/course-selection/test/fixtures/empty';
 import OrganismCourseSelectionFixtureFiltered from '../src/organism/course-selection/test/fixtures/filtered';
+import OrganismCourseSelectionFixtureLoading from '../src/organism/course-selection/test/fixtures/loading';
 import OrganismCourseSelectionFixtureSortedSelected from '../src/organism/course-selection/test/fixtures/sorted-selected';
 import OrganismCourseSelectionFixtureSwitchActivated from '../src/organism/course-selection/test/fixtures/switch-activated';
 import OrganismCourseSelectionFixtureUnsortedSelected from '../src/organism/course-selection/test/fixtures/unsorted-selected';
@@ -909,6 +910,7 @@ import OrganismResourceBrowserFixtureVimeo from '../src/organism/resource-browse
 import OrganismSearchAndChipsResultsFixtureDefault from '../src/organism/search-and-chips-results/test/fixtures/default';
 import OrganismSearchAndChipsResultsFixtureEmpty from '../src/organism/search-and-chips-results/test/fixtures/empty';
 import OrganismSearchAndChipsResultsFixtureFiltered from '../src/organism/search-and-chips-results/test/fixtures/filtered';
+import OrganismSearchAndChipsResultsFixtureLoading from '../src/organism/search-and-chips-results/test/fixtures/loading';
 import OrganismSearchAndChipsResultsFixtureSortedSelected from '../src/organism/search-and-chips-results/test/fixtures/sorted-selected';
 import OrganismSearchAndChipsResultsFixtureUnsortedSelected from '../src/organism/search-and-chips-results/test/fixtures/unsorted-selected';
 import OrganismSettingsFixtureDefault from '../src/organism/settings/test/fixtures/default';
@@ -2383,6 +2385,7 @@ export const fixtures = {
       Default: OrganismCourseSelectionFixtureDefault,
       Empty: OrganismCourseSelectionFixtureEmpty,
       Filtered: OrganismCourseSelectionFixtureFiltered,
+      Loading: OrganismCourseSelectionFixtureLoading,
       SortedSelected: OrganismCourseSelectionFixtureSortedSelected,
       SwitchActivated: OrganismCourseSelectionFixtureSwitchActivated,
       UnsortedSelected: OrganismCourseSelectionFixtureUnsortedSelected
@@ -2460,6 +2463,7 @@ export const fixtures = {
       Default: OrganismSearchAndChipsResultsFixtureDefault,
       Empty: OrganismSearchAndChipsResultsFixtureEmpty,
       Filtered: OrganismSearchAndChipsResultsFixtureFiltered,
+      Loading: OrganismSearchAndChipsResultsFixtureLoading,
       SortedSelected: OrganismSearchAndChipsResultsFixtureSortedSelected,
       UnsortedSelected: OrganismSearchAndChipsResultsFixtureUnsortedSelected
     },
