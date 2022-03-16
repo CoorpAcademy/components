@@ -20,7 +20,8 @@ export default {
       },
       {
         ...Email.props,
-        type: 'image'
+        type: 'image',
+        modified: false
       }
     ]
   }

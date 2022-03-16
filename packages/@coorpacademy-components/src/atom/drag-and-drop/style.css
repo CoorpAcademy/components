@@ -41,12 +41,17 @@
   white-space: pre-wrap;
 }
 
-.modificationsContainer {
+.previewContainer {
   width: 100%;
   height: 80%;
   border: none;
   border-radius: 7px;
   background: cm_grey_50;
+}
+
+.modifiedPreviewContainer {
+  composes: previewContainer;
+  border: 3px solid #FFC043;
 }
 
 .preview {
@@ -83,6 +88,11 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.modifiedInputWrapper {
+  composes: inputWrapper;
+  border: 3px solid #FFC043;
 }
 
 .resetUploadWrapper {

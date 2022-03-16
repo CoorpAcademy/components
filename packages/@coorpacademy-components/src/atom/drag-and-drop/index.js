@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {uniqueId, get, constant, isEmpty} from 'lodash/fp';
+import {uniqueId, constant, isEmpty} from 'lodash/fp';
 import {
   NovaLineStatusClose as Close,
   NovaSolidFilesBasicFileUpload2 as FileUploadIcon
@@ -9,6 +9,7 @@ import Provider from '../provider';
 import Loader from '../loader';
 import style from './style.css';
 import Button from '../button-link';
+import getClassState from '../../util/get-class-state';
 
 const constantNull = constant(null);
 
@@ -126,12 +127,15 @@ class DragAndDrop extends React.Component {
           },
       }
 
+    const previewContainer = getClassState(style.previewContainer, style.modifiedPreviewContainer, null, modified, null);
+    const inputWrapper = getClassState(style.inputWrapper, style.modifiedInputWrapper, null, modified, null);
+
     return (
       <div className={style.wrapper} data-name="drag-and-drop-wrapper">
-        {!isEmpty(previewContent) || modified || loading ? 
-          <div className={style.modificationsContainer}>{previewView}</div> 
+        {!isEmpty(previewContent) || loading ? 
+          <div className={previewContainer}>{previewView}</div> 
           : 
-          <div className={dragging ? style.dragging : style.inputWrapper} id={idBox}>
+          <div className={dragging ? style.dragging : inputWrapper} id={idBox}>
             <FileUploadIcon className={style.icon} />
             {description ? (
             <div className={style.description}>{description}</div>
