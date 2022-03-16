@@ -277,6 +277,7 @@ import AtomDifficultyLevelFixtureHard from '../src/atom/difficulty-level/test/fi
 import AtomDifficultyLevelFixtureNormal from '../src/atom/difficulty-level/test/fixtures/normal';
 import AtomDifficultyLevelFixtureUnknown from '../src/atom/difficulty-level/test/fixtures/unknown';
 import AtomDragAndDropFixtureDefault from '../src/atom/drag-and-drop/test/fixtures/default';
+import AtomDragAndDropFixtureError from '../src/atom/drag-and-drop/test/fixtures/error';
 import AtomDragAndDropFixtureLoading from '../src/atom/drag-and-drop/test/fixtures/loading';
 import AtomDragAndDropFixtureModified from '../src/atom/drag-and-drop/test/fixtures/modified';
 import AtomDragAndDropFixtureWithChildren from '../src/atom/drag-and-drop/test/fixtures/with-children';
@@ -1504,6 +1505,7 @@ export const fixtures = {
     },
     AtomDragAndDrop: {
       Default: AtomDragAndDropFixtureDefault,
+      Error: AtomDragAndDropFixtureError,
       Loading: AtomDragAndDropFixtureLoading,
       Modified: AtomDragAndDropFixtureModified,
       WithChildren: AtomDragAndDropFixtureWithChildren,

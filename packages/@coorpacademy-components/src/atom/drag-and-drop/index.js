@@ -26,7 +26,8 @@ class DragAndDrop extends React.Component {
     loading: PropTypes.bool,
     modified: PropTypes.bool,
     children: PropTypes.func,
-    onReset: PropTypes.func
+    onReset: PropTypes.func,
+    error: PropTypes.string
   };
 
   constructor(props) {
@@ -63,7 +64,8 @@ class DragAndDrop extends React.Component {
       previewContent,
       loading = false,
       modified = false,
-      onReset = null
+      onReset = null,
+      error = false
     } = this.props;
     const {dragging} = this.state;
 
@@ -117,7 +119,9 @@ class DragAndDrop extends React.Component {
         </div>
       ) : null;
 
-      const buttonProps = {
+      
+    const buildButton = (dragging, error) => {
+      const defaultButtonProps = {
           label: uploadLabel,
           'aria-label': 'aria button',
           'data-name': 'default-button',
@@ -125,10 +129,21 @@ class DragAndDrop extends React.Component {
             position: 'left',
             type: 'folders'
           },
+      };
+      if (dragging) {
+        return null;
+      } else if (error) {
+        const errorButtonProps = {...defaultButtonProps, label: 'Try again', icon: {}}
+        return <Button {...errorButtonProps} />;
+      } else {
+        return <Button {...defaultButtonProps} />;
       }
+    }
 
-    const previewContainer = getClassState(style.previewContainer, style.modifiedPreviewContainer, null, modified, null);
-    const inputWrapper = getClassState(style.inputWrapper, style.modifiedInputWrapper, null, modified, null);
+    const button = buildButton(dragging, error);
+
+    const previewContainer = getClassState(style.previewContainer, style.modifiedPreviewContainer, null, modified, error);
+    const inputWrapper = getClassState(style.inputWrapper, style.modifiedInputWrapper, style.errorInputWrapper, modified, error);
 
     return (
       <div className={style.wrapper} data-name="drag-and-drop-wrapper">
@@ -140,12 +155,12 @@ class DragAndDrop extends React.Component {
             {description ? (
             <div className={style.description}>{description}</div>
             ) : null}
-            <div className={style.title}>{title}</div>
-            {dragging ? null : <Button {...buttonProps} />}
+            {error ? null : <div className={style.title}>{title}</div>}
+            {button}
             <div style={{display: 'none'}}>{children(this.handleDragStart, this.handleDragStop)}</div>
           </div>
         }
-        {resetContent}
+        {error ? <span className={style.errorMessage}>{error}</span> : resetContent}
       </div>
     );
   }

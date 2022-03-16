@@ -13,6 +13,8 @@
 @value cm_grey_100 from colors;
 @value cm_grey_400 from colors;
 @value white from colors;
+@value cm_negative_100 from colors;
+@value cm_yellow_100 from colors;
 
 .wrapper {
   font-family: "Gilroy";
@@ -23,7 +25,7 @@
 }
 
 .title {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 700;
   color: cm_grey_700;
   margin-bottom: 14px;
@@ -51,7 +53,7 @@
 
 .modifiedPreviewContainer {
   composes: previewContainer;
-  border: 3px solid #FFC043;
+  border: 3px solid cm_yellow_100;
 }
 
 .preview {
@@ -93,6 +95,14 @@
 .modifiedInputWrapper {
   composes: inputWrapper;
   border: 3px solid #FFC043;
+}
+
+.errorInputWrapper {
+  composes: inputWrapper;
+}
+
+.errorInputWrapper .icon {
+  color: cm_negative_100;
 }
 
 .resetUploadWrapper {
@@ -149,6 +159,7 @@
   height: 15%;
   transition: all 0.2s cubic-bezier(0.47, 1.04, 0.46, 2.16);
   margin-bottom: 4px;
+  margin-top: 18px;
 }
 
 .uploadLabel {
@@ -202,4 +213,10 @@
 
 .loaderWrapper:hover {
   background-color: #EAEAEB;
+}
+
+.errorMessage {
+  color: cm_negative_100;
+  font-size: 12px;
+  margin-top: 8px;
 }
