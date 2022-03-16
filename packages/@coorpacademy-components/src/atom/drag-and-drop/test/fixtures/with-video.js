@@ -1,6 +1,6 @@
 export default {
   props: {
-    modified: true,
+    modified: false,
     title: 'Drag & Drop',
     description: 'Drag and drop component with a video',
     uploadLabel: 'Upload',
