@@ -194,7 +194,7 @@
   flex-direction: column;
   align-items: flex-start;
   position: relative;
-  height: 64px;
+  height: 100%;
 }
 
 .coorpmanager .title {
