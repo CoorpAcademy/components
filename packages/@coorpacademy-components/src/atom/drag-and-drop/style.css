@@ -92,6 +92,16 @@
   text-overflow: ellipsis;
 }
 
+.inputWrapper:before {
+  content: "";
+  position: absolute;
+  border: 10px dashed cm_grey_200;
+  top: -8px;
+  bottom: -8px;
+  left: -8px;
+  right: -8px;
+}
+
 .modifiedInputWrapper {
   composes: inputWrapper;
   border: 3px solid #FFC043;
