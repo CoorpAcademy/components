@@ -62,12 +62,12 @@
   border-radius: 5px;
 }
 @media tablet {
-  .review.default {
+  .review {
     width: 32px;
     height: 32px;
   }
 
-  .review.default .icon {
+  .review .buttonContent .icon {
     width: 12px;
     height: 12px;
   }

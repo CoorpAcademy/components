@@ -59,6 +59,7 @@
 @media tablet and (min-width: 641px) {
   .titlesWrapper {
     margin-left: 32px;
+    width: 100%;
   }
   
   .fontDefault {
@@ -75,9 +76,7 @@
   .skillName {
     font-size: 14px;
     line-height: 20px;
-    /* ie11 fallback */
-    max-width: 23vw;
-    max-width: min(225px, 23vw);
+    max-width: 28%;
     display:inline-block;
     overflow: hidden;
     white-space: nowrap;
