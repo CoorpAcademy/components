@@ -4,7 +4,6 @@
 @value cm_grey_100 from colors;
 @value cm_grey_200 from colors;
 @value white from colors;
-@value box_shadow_light_dark from colors;
 
 .button {
   font-family: Gilroy;
@@ -50,9 +49,16 @@
   border-radius: 7px;
 }
 
-.review {
-  background-color: white;
-  box-shadow: 0px 4px 16px box_shadow_light_dark;
+.responsive {
+  composes: button;
+  width: 44px;
+  height: 44px;
+  border-radius: 7px;
+}
+
+.responsive .icon {
+  width: 14px;
+  height: 14px;
 }
 
 .small {
@@ -61,13 +67,16 @@
   height: 32px;
   border-radius: 5px;
 }
+
 @media tablet {
-  .review {
+  .responsive {
+    composes: button;
     width: 32px;
     height: 32px;
+    border-radius: 5px;
   }
 
-  .review .buttonContent .icon {
+  .responsive .icon {
     width: 12px;
     height: 12px;
   }

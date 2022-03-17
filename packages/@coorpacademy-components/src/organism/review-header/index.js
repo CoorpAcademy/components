@@ -22,7 +22,8 @@ const ReviewHeader = (props, context) => {
     'data-name': 'review-header-close-button',
     'aria-label': closeButtonAriaLabel,
     onClick: onQuitClick,
-    type: 'review'
+    size: 'responsive',
+    className: style.review
   };
 
   return (
