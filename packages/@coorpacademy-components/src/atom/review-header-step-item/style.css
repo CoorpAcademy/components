@@ -17,10 +17,11 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: all 0.25s ease;
+  user-select: none;
 }
 
 .current {
-  composes: default;
   width: 40px;
   height: 40px;
   opacity: 1;
@@ -45,10 +46,10 @@
   width: 12px;
   height: 10px;
   margin: 2px 0px 0px 1px;
+  transition: all 0.25s ease;
 }
 
 .currentRightIcon {
-  composes: rightIcon;
   width: 16px;
   height: 14px;
   margin: 3px 0px 0px 1px;
@@ -59,10 +60,10 @@
   width: 10px;
   height: 10px;
   margin-top: 3px;
+  transition: all 0.25s ease;
 }
 
 .currentWrongIcon {
-  composes: wrongIcon;
   width: 15px;
   height: 15px;
   margin-top: 5px;
