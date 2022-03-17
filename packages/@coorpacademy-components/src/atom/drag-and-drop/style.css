@@ -6,19 +6,19 @@
 @value battle from colors;
 @value light from colors;
 @value xtraLightGrey from colors;
-@value cm_grey_300 from colors;
-@value cm_grey_700 from colors;
 @value cm_grey_50 from colors;
-@value cm_grey_200 from colors;
 @value cm_grey_100 from colors;
+@value cm_grey_200 from colors;
+@value cm_grey_300 from colors;
 @value cm_grey_400 from colors;
+@value cm_grey_700 from colors;
 @value white from colors;
 @value cm_negative_100 from colors;
 @value cm_yellow_100 from colors;
 
 .wrapper {
   font-family: "Gilroy";
-  max-height: 320px;
+  max-height: 260px;
   max-width: 360px;
   height: 100%;
   width: 100%;
@@ -193,12 +193,6 @@
   color: cm_negative_100;
 }
 
-.uploadLabel {
-  font-size: 14px;
-  font-weight: 700;
-  color: cm_grey_700;
-}
-
 .loaderWrapper {
   position: relative;
   height: 100%;
@@ -228,22 +222,12 @@
   right: 0;
 }
 
-.button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.folderIcon {
-  margin-right: 8px;
-}
-
 .loaderWrapper:hover .loadingCancel {
   display: block;
 }
 
 .loaderWrapper:hover {
-  background-color: #EAEAEB;
+  background-color: cm_grey_100;
 }
 
 .errorMessage {

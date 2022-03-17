@@ -24,7 +24,11 @@ const SetupSlide = props => {
       case 'checkbox':
         return <InputCheckbox {...field} />;
       case 'image':
-        return <div className={style.imageUploadContainer}><ImageUpload {...field} /></div>;
+        return (
+          <div className={style.imageUploadContainer}>
+            <ImageUpload {...field} />
+          </div>
+        );
       case 'splitForm':
         return <SetupCohortItem field={field} />;
       case 'alert':

@@ -17,7 +17,8 @@ const ImageUpload = ({
   onReset = null,
   name,
   // See ImagePropType for accepted values
-  imageTypes = ['*']
+  imageTypes = ['*'],
+  error = ''
 }) => {
   const handleReset = useCallback(
     e => {
@@ -43,6 +44,7 @@ const ImageUpload = ({
       loading={loading}
       modified={modified}
       onReset={handleReset}
+      error={error}
     >
       {(onDragStart, onDragStop) => (
         <div>
@@ -68,7 +70,8 @@ ImageUpload.propTypes = {
   name: PropTypes.string,
   onChange: PropTypes.func,
   onReset: PropTypes.func,
-  imageTypes: PropTypes.arrayOf(ImagePropType)
+  imageTypes: PropTypes.arrayOf(ImagePropType),
+  error: PropTypes.string
 };
 
 export default ImageUpload;

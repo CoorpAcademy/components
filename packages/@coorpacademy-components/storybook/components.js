@@ -276,6 +276,7 @@ import AtomDifficultyLevelFixtureEasy from '../src/atom/difficulty-level/test/fi
 import AtomDifficultyLevelFixtureHard from '../src/atom/difficulty-level/test/fixtures/hard';
 import AtomDifficultyLevelFixtureNormal from '../src/atom/difficulty-level/test/fixtures/normal';
 import AtomDifficultyLevelFixtureUnknown from '../src/atom/difficulty-level/test/fixtures/unknown';
+import AtomDragAndDropFixtureCleanAndModified from '../src/atom/drag-and-drop/test/fixtures/clean-and-modified';
 import AtomDragAndDropFixtureDefault from '../src/atom/drag-and-drop/test/fixtures/default';
 import AtomDragAndDropFixtureError from '../src/atom/drag-and-drop/test/fixtures/error';
 import AtomDragAndDropFixtureLoading from '../src/atom/drag-and-drop/test/fixtures/loading';
@@ -283,8 +284,8 @@ import AtomDragAndDropFixtureModified from '../src/atom/drag-and-drop/test/fixtu
 import AtomDragAndDropFixtureWithChildren from '../src/atom/drag-and-drop/test/fixtures/with-children';
 import AtomDragAndDropFixtureWithImageReset from '../src/atom/drag-and-drop/test/fixtures/with-image-reset';
 import AtomDragAndDropFixtureWithImage from '../src/atom/drag-and-drop/test/fixtures/with-image';
+import AtomDragAndDropFixtureWithLongDescription from '../src/atom/drag-and-drop/test/fixtures/with-long-description';
 import AtomDragAndDropFixtureWithVideo from '../src/atom/drag-and-drop/test/fixtures/with-video';
-import AtomDragAndDropFixtureWithLongDescription from '../src/atom/drag-and-drop/test/fixtures/withLongDescription';
 import AtomEmptySearchResultFixtureDefault from '../src/atom/empty-search-result/test/fixtures/default';
 import AtomImageUploadFixtureCleanModified from '../src/atom/image-upload/test/fixtures/clean-modified';
 import AtomImageUploadFixtureDefault from '../src/atom/image-upload/test/fixtures/default';
@@ -1505,6 +1506,7 @@ export const fixtures = {
       Unknown: AtomDifficultyLevelFixtureUnknown
     },
     AtomDragAndDrop: {
+      CleanAndModified: AtomDragAndDropFixtureCleanAndModified,
       Default: AtomDragAndDropFixtureDefault,
       Error: AtomDragAndDropFixtureError,
       Loading: AtomDragAndDropFixtureLoading,
@@ -1512,8 +1514,8 @@ export const fixtures = {
       WithChildren: AtomDragAndDropFixtureWithChildren,
       WithImageReset: AtomDragAndDropFixtureWithImageReset,
       WithImage: AtomDragAndDropFixtureWithImage,
-      WithVideo: AtomDragAndDropFixtureWithVideo,
-      WithLongDescription: AtomDragAndDropFixtureWithLongDescription
+      WithLongDescription: AtomDragAndDropFixtureWithLongDescription,
+      WithVideo: AtomDragAndDropFixtureWithVideo
     },
     AtomEmptySearchResult: {
       Default: AtomEmptySearchResultFixtureDefault
