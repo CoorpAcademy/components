@@ -19,7 +19,7 @@ const Content = ({icon, current, value}) => {
   if (icon === 'right') {
     return (
       <span className={style.value} aria-label={`step ${value}`}>
-        <RightIcon className={current ? style.currentRightIcon : style.rightIcon} />
+        <RightIcon className={classnames(style.rightIcon, current && style.currentRightIcon)} />
       </span>
     );
   }
@@ -27,7 +27,7 @@ const Content = ({icon, current, value}) => {
   if (icon === 'wrong') {
     return (
       <span className={style.value} aria-label={`step ${value}`}>
-        <WrongIcon className={current ? style.currentWrongIcon : style.wrongIcon} />
+        <WrongIcon className={classnames(style.wrongIcon, current && style.currentWrongIcon)} />
       </span>
     );
   }
@@ -38,9 +38,10 @@ const ReviewHeaderStepItem = props => {
   return (
     <div
       className={classnames(
-        icon === 'right' ? style.right : null,
-        icon === 'wrong' ? style.wrong : null,
-        current ? style.current : style.default
+        style.default,
+        icon === 'right' && style.right,
+        icon === 'wrong' && style.wrong,
+        current && style.current
       )}
       data-name="header-step-item"
     >

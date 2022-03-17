@@ -105,6 +105,9 @@
   .titlesWrapper {
     margin-top: 16px;
     margin-left: 20px;
+    margin-right: 10px;
+    width: 100%;
+    overflow: hidden;
   }
 
   .iconButtonWrapper {
@@ -120,5 +123,10 @@
   .skillName {
     font-size: 14px;
     line-height: 20px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: inherit;
+    display: block;
   }
 }
