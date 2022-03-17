@@ -1,5 +1,5 @@
 @value breakpoints: "../../variables/breakpoints.css";
-@value mobile from breakpoints;
+@value tablet from breakpoints;
 @value colors: "../../variables/colors.css";
 @value cm_grey_100 from colors;
 @value cm_grey_200 from colors;
@@ -60,6 +60,17 @@
   width: 32px;
   height: 32px;
   border-radius: 5px;
+}
+@media tablet {
+  .review.default {
+    width: 32px;
+    height: 32px;
+  }
+
+  .review.default .icon {
+    width: 12px;
+    height: 12px;
+  }
 }
 
 .default .icon {
