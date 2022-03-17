@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import {uniqueId, constant, isEmpty} from 'lodash/fp';
 import {
   NovaLineStatusClose as Close,
-  NovaSolidFilesBasicFileUpload2 as FileUploadIcon
+  NovaSolidFilesBasicFileUpload2 as FileUploadIcon,
+  NovaSolidFilesBasicFileBlock2 as FileUploadBlockedIcon,
 } from '@coorpacademy/nova-icons';
-import Provider from '../provider';
 import Loader from '../loader';
 import style from './style.css';
 import Button from '../button-link';
@@ -151,11 +151,13 @@ class DragAndDrop extends React.Component {
           <div className={previewContainer}>{previewView}</div> 
           : 
           <div className={dragging ? style.dragging : inputWrapper} id={idBox}>
-            <FileUploadIcon className={style.icon} />
-            {description ? (
-            <div className={style.description}>{description}</div>
-            ) : null}
-            {error ? null : <div className={style.title}>{title}</div>}
+            <div className={style.infosContainer}>
+              {error ? <FileUploadBlockedIcon className={style.iconError} /> : <FileUploadIcon className={style.icon} />}
+              {description ? (
+              <div className={style.description}>{description}</div>
+              ) : null}
+              {error ? null : <div className={style.title}>{title}</div>}
+            </div>
             {button}
             <div style={{display: 'none'}}>{children(this.handleDragStart, this.handleDragStop)}</div>
           </div>

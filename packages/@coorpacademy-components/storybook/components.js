@@ -286,6 +286,8 @@ import AtomDragAndDropFixtureWithImage from '../src/atom/drag-and-drop/test/fixt
 import AtomDragAndDropFixtureWithVideo from '../src/atom/drag-and-drop/test/fixtures/with-video';
 import AtomDragAndDropFixtureWithLongDescription from '../src/atom/drag-and-drop/test/fixtures/withLongDescription';
 import AtomEmptySearchResultFixtureDefault from '../src/atom/empty-search-result/test/fixtures/default';
+import AtomImageUploadFixtureCleanModified from '../src/atom/image-upload/test/fixtures/clean-modified';
+import AtomImageUploadFixtureDefault from '../src/atom/image-upload/test/fixtures/default';
 import AtomImageUploadFixtureDesktopResetDescriptionMultiple from '../src/atom/image-upload/test/fixtures/desktop-reset-description-multiple';
 import AtomImageUploadFixtureDesktopResetDescriptionOnlyPng from '../src/atom/image-upload/test/fixtures/desktop-reset-description-only-png';
 import AtomImageUploadFixtureDesktopResetDescription from '../src/atom/image-upload/test/fixtures/desktop-reset-description';
@@ -294,7 +296,6 @@ import AtomImageUploadFixtureDesktop from '../src/atom/image-upload/test/fixture
 import AtomImageUploadFixtureEmail from '../src/atom/image-upload/test/fixtures/email';
 import AtomImageUploadFixtureMobile from '../src/atom/image-upload/test/fixtures/mobile';
 import AtomImageUploadFixtureModified from '../src/atom/image-upload/test/fixtures/modified';
-import AtomImageUploadFixtureWithoutImage from '../src/atom/image-upload/test/fixtures/without-image';
 import AtomInputCheckboxFixtureCheckedDisabled from '../src/atom/input-checkbox/test/fixtures/checked-disabled';
 import AtomInputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import AtomInputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
@@ -1518,6 +1519,8 @@ export const fixtures = {
       Default: AtomEmptySearchResultFixtureDefault
     },
     AtomImageUpload: {
+      CleanModified: AtomImageUploadFixtureCleanModified,
+      Default: AtomImageUploadFixtureDefault,
       DesktopResetDescriptionMultiple: AtomImageUploadFixtureDesktopResetDescriptionMultiple,
       DesktopResetDescriptionOnlyPng: AtomImageUploadFixtureDesktopResetDescriptionOnlyPng,
       DesktopResetDescription: AtomImageUploadFixtureDesktopResetDescription,
@@ -1525,8 +1528,7 @@ export const fixtures = {
       Desktop: AtomImageUploadFixtureDesktop,
       Email: AtomImageUploadFixtureEmail,
       Mobile: AtomImageUploadFixtureMobile,
-      Modified: AtomImageUploadFixtureModified,
-      WithoutImage: AtomImageUploadFixtureWithoutImage
+      Modified: AtomImageUploadFixtureModified
     },
     AtomInputCheckbox: {
       CheckedDisabled: AtomInputCheckboxFixtureCheckedDisabled,

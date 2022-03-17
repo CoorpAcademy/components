@@ -12,3 +12,8 @@
 .field:last-child {
   margin-bottom: 0;
 }
+
+.imageUploadContainer {
+  height: 260px;
+  width: 360px;
+}

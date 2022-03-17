@@ -21,7 +21,9 @@ export default {
       {
         ...Email.props,
         type: 'image',
-        modified: false
+        modified: false,
+        loading: true,
+        previewContent: {}
       }
     ]
   }

@@ -8,6 +8,6 @@ export default {
       type: 'image',
       src: 'https://static.coorpacademy.com/content/up/raw/logo_coorp-1491560495763.svg'
     },
-    modified: true
+    modified: false
   }
 };
