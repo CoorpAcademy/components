@@ -6,13 +6,13 @@ import CheckboxWithTitle from '../../atom/checkbox-with-title';
 import style from './style.css';
 
 const DragAndDropWrapper = props => {
-  const {list = [], checkBoxTitle} = props;
+  const {list = [], checkBoxTitle, 'data-name': dataName} = props;
 
   const dragAndDropList = map(dragAndDropProps => {
     return (
-      <div className={style.dragAndDrop} key={`dragAndDrop-${dragAndDropProps.title}`}>
+      <li className={style.dragAndDrop} key={`dragAndDrop-${dragAndDropProps.title}`}>
         <DragAndDrop {...dragAndDropProps} />
-      </div>
+      </li>
     );
   }, list);
 
@@ -21,14 +21,17 @@ const DragAndDropWrapper = props => {
       <div className={style.title}>
         <CheckboxWithTitle {...checkBoxTitle} />
       </div>
-      <div className={style.group}>{dragAndDropList}</div>
+      <ul className={style.group} data-name={dataName}>
+        {dragAndDropList}
+      </ul>
     </div>
   );
 };
 
 DragAndDropWrapper.propTypes = {
   list: PropTypes.arrayOf(PropTypes.shape(DragAndDrop.propTypes)),
-  checkBoxTitle: PropTypes.shape({...CheckboxWithTitle.propTypes})
+  checkBoxTitle: PropTypes.shape({...CheckboxWithTitle.propTypes}),
+  'data-name': PropTypes.string
 };
 
 export default DragAndDropWrapper;

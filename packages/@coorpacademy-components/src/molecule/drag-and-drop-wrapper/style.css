@@ -7,6 +7,7 @@
   align-content: flex-start;
   flex-wrap: wrap;
   margin-left: 31px;
+  list-style-type: none;
 }
 
 .dragAndDrop {
