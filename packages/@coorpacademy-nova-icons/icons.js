@@ -213,7 +213,8 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/business-graph-line-2.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/validate.svg')},
   {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/sd-card.svg')},
-  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/folders.svg')}
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/folders.svg')},
+  {filePath: path.resolve('./third-party/nova-solid.iconjar/icons/file-block-2.svg')}
 ];
 
 export default icons;
