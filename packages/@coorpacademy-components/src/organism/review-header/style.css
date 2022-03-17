@@ -1,0 +1,125 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+@value colors: "../../variables/colors.css";
+@value cm_blue_900 from colors;
+
+.headerWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 98px;
+}
+
+.titlesWrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: 64px;
+}
+
+.fontDefault {
+  font-family: 'Gilroy';
+  font-weight: 700;
+  display: flex;
+}
+
+.title {
+  composes: fontDefault;
+  color: cm_blue_900;
+  font-size: 20px;
+  line-height: 28px;
+  cursor: pointer;
+}
+
+.skillName {
+  composes: fontDefault;
+  font-size: 16px;
+  line-height: 22px;
+  cursor: pointer;
+}
+
+.stepsWrapper {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+}
+
+.iconButtonWrapper {
+  margin-top: 0;
+  margin-right: 64px;
+  position: relative;
+}
+
+/* 
+ parenthesis doesn't work with @values &&
+ not using them gives lparentexpected lint error
+*/
+@media tablet and (min-width: 641px) {
+  .titlesWrapper {
+    margin-left: 32px;
+  }
+  
+  .fontDefault {
+    font-family: 'Gilroy';
+    font-weight: 700;
+    display: flex;
+  }
+  
+  .title {
+    font-size: 18px;
+    line-height: 24px;
+  }
+  
+  .skillName {
+    font-size: 14px;
+    line-height: 20px;
+    /* ie11 fallback */
+    max-width: 23vw;
+    max-width: min(225px, 23vw);
+    display:inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  
+  .iconButtonWrapper {
+    margin-right: 33px;
+  }
+
+}
+
+@media mobile {
+  .headerWrapper {
+    height: 126px;
+    align-items: start;
+  }
+
+  .stepsWrapper {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    bottom: 20px;
+  }
+
+  .titlesWrapper {
+    margin-top: 16px;
+    margin-left: 20px;
+  }
+
+  .iconButtonWrapper {
+    margin-top: 20px;
+    margin-right: 20px;
+  }
+
+  .title {
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  .skillName {
+    font-size: 14px;
+    line-height: 20px;
+  }
+}
