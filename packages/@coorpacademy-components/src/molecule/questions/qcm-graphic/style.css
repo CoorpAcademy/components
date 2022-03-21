@@ -50,7 +50,7 @@
   align-items: center;
   height: 110px;
   margin-bottom: 16px;
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
   border-radius: 12px;
