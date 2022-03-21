@@ -1,6 +1,8 @@
-import Slide from '../../../setup-slide/test/fixtures/default';
+import withUploadImage from '../../../setup-slide/test/fixtures/default';
+import withoutUploadImage from '../../../setup-slide/test/fixtures/without-upload-image';
 
-const {props} = Slide;
+const {props: withImage} = withUploadImage;
+const {props: withoutImage} = withoutUploadImage;
 
 export default {
   props: {
@@ -15,6 +17,6 @@ export default {
         title: '3'
       }
     ],
-    slides: [props, props, props]
+    slides: [withImage, withoutImage, withoutImage]
   }
 };

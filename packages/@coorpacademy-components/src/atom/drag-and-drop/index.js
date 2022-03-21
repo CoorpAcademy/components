@@ -106,16 +106,18 @@ class DragAndDrop extends React.Component {
     }
 
     const resetContent =
-      previewContent && previewContent.src && onReset ? (
+      previewContent && previewContent.src ? (
         <div className={style.resetUploadWrapper}>
           <div className={style.resetSrcLabel}>{previewContent.src}</div>
-          <Close
-            data-name="reset-content-icon"
-            height={16}
-            width={16}
-            className={style.closeIcon}
-            onClick={onReset}
-          />
+          {onReset ? (
+            <Close
+              data-name="reset-content-icon"
+              height={16}
+              width={16}
+              className={style.closeIcon}
+              onClick={onReset}
+            />
+          ) : null}
         </div>
       ) : null;
 

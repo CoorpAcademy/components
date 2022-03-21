@@ -228,6 +228,22 @@ export default {
                     onChange: () => console.log('dispatch Provider')
                   },
                   {
+                    description:
+                      'This is where you can load a custom logo (that of Coorpacademy, the client, or one specific to the learning platform) which will be added at the bottom right of the thumbnails of the different courses in SAP.<br /><br />Max file size: 5MO. Recommended format: PNG. NB: The logo will be re-sized by the media service (height = 125px & wide = 400px), therefore, a horizontal format is highly suggested.',
+                    error: null,
+                    imageTypes: ['svg+xml', 'jpg', 'png'],
+                    key: 'payload.lms.92be090d-12a8-4a8c-a04a-5f2e89989169.watermark',
+                    loading: false,
+                    modified: true,
+                    onChange: () => console.log('on change'),
+                    onReset: () => console.log('on reset'),
+                    previewLabel: 'Preview',
+                    required: false,
+                    title: 'Thumbnail Logo',
+                    type: 'image',
+                    uploadLabel: 'Upload'
+                  },
+                  {
                     type: 'switch',
                     title: 'Course',
                     value: false,
