@@ -174,6 +174,7 @@ import OrganismMoocFooter from './../src/organism/mooc-footer';
 import OrganismMoocHeader from './../src/organism/mooc-header';
 import OrganismPopin from './../src/organism/popin';
 import OrganismResourceBrowser from './../src/organism/resource-browser';
+import OrganismReviewHeader from './../src/organism/review-header';
 import OrganismSearchAndChipsResults from './../src/organism/search-and-chips-results';
 import OrganismSettings from './../src/organism/settings';
 import OrganismSetupHeader from './../src/organism/setup-header';
@@ -229,6 +230,7 @@ import AtomButtonLinkFixtureLinkTextNoIconDownload from '../src/atom/button-link
 import AtomButtonLinkIconOnlyFixtureButtonIconBullet from '../src/atom/button-link-icon-only/test/fixtures/button-icon-bullet';
 import AtomButtonLinkIconOnlyFixtureDefault from '../src/atom/button-link-icon-only/test/fixtures/default';
 import AtomButtonLinkIconOnlyFixtureNoIcon from '../src/atom/button-link-icon-only/test/fixtures/no-icon';
+import AtomButtonLinkIconOnlyFixtureReviewHeader from '../src/atom/button-link-icon-only/test/fixtures/review-header';
 import AtomButtonLinkIconOnlyFixtureSmallButtonDisabled from '../src/atom/button-link-icon-only/test/fixtures/small-button-disabled';
 import AtomButtonLinkIconOnlyFixtureSmallLinkDownload from '../src/atom/button-link-icon-only/test/fixtures/small-link-download';
 import AtomButtonMenuFixtureDefault from '../src/atom/button-menu/test/fixtures/default';
@@ -906,6 +908,12 @@ import OrganismResourceBrowserFixturePdfWithOverlay from '../src/organism/resour
 import OrganismResourceBrowserFixturePdf from '../src/organism/resource-browser/test/fixtures/pdf';
 import OrganismResourceBrowserFixtureVimeoWithOverlay from '../src/organism/resource-browser/test/fixtures/vimeo-with-overlay';
 import OrganismResourceBrowserFixtureVimeo from '../src/organism/resource-browser/test/fixtures/vimeo';
+import OrganismReviewHeaderFixtureAllQuestionsOk from '../src/organism/review-header/test/fixtures/all-questions-ok';
+import OrganismReviewHeaderFixtureCurrentQuestionNoAnswered from '../src/organism/review-header/test/fixtures/current-question-no-answered';
+import OrganismReviewHeaderFixtureCurrentQuestionWrong from '../src/organism/review-header/test/fixtures/current-question-wrong';
+import OrganismReviewHeaderFixtureFirstQuestionCurrentRight from '../src/organism/review-header/test/fixtures/first-question-current-right';
+import OrganismReviewHeaderFixtureNoAnsweredQuestion from '../src/organism/review-header/test/fixtures/no-answered-question';
+import OrganismReviewHeaderFixtureQuestionToRepeat from '../src/organism/review-header/test/fixtures/question-to-repeat';
 import OrganismSearchAndChipsResultsFixtureDefault from '../src/organism/search-and-chips-results/test/fixtures/default';
 import OrganismSearchAndChipsResultsFixtureEmpty from '../src/organism/search-and-chips-results/test/fixtures/empty';
 import OrganismSearchAndChipsResultsFixtureFiltered from '../src/organism/search-and-chips-results/test/fixtures/filtered';
@@ -1342,6 +1350,7 @@ export const components = {
     OrganismMoocHeader,
     OrganismPopin,
     OrganismResourceBrowser,
+    OrganismReviewHeader,
     OrganismSearchAndChipsResults,
     OrganismSettings,
     OrganismSetupHeader,
@@ -1428,6 +1437,7 @@ export const fixtures = {
       ButtonIconBullet: AtomButtonLinkIconOnlyFixtureButtonIconBullet,
       Default: AtomButtonLinkIconOnlyFixtureDefault,
       NoIcon: AtomButtonLinkIconOnlyFixtureNoIcon,
+      ReviewHeader: AtomButtonLinkIconOnlyFixtureReviewHeader,
       SmallButtonDisabled: AtomButtonLinkIconOnlyFixtureSmallButtonDisabled,
       SmallLinkDownload: AtomButtonLinkIconOnlyFixtureSmallLinkDownload
     },
@@ -2455,6 +2465,14 @@ export const fixtures = {
       Pdf: OrganismResourceBrowserFixturePdf,
       VimeoWithOverlay: OrganismResourceBrowserFixtureVimeoWithOverlay,
       Vimeo: OrganismResourceBrowserFixtureVimeo
+    },
+    OrganismReviewHeader: {
+      AllQuestionsOk: OrganismReviewHeaderFixtureAllQuestionsOk,
+      CurrentQuestionNoAnswered: OrganismReviewHeaderFixtureCurrentQuestionNoAnswered,
+      CurrentQuestionWrong: OrganismReviewHeaderFixtureCurrentQuestionWrong,
+      FirstQuestionCurrentRight: OrganismReviewHeaderFixtureFirstQuestionCurrentRight,
+      NoAnsweredQuestion: OrganismReviewHeaderFixtureNoAnsweredQuestion,
+      QuestionToRepeat: OrganismReviewHeaderFixtureQuestionToRepeat
     },
     OrganismSearchAndChipsResults: {
       Default: OrganismSearchAndChipsResultsFixtureDefault,

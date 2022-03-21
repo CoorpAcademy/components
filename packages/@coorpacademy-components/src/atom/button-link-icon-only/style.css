@@ -1,6 +1,9 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
 @value colors: "../../variables/colors.css";
 @value cm_grey_100 from colors;
 @value cm_grey_200 from colors;
+@value white from colors;
 
 .button {
   font-family: Gilroy;
@@ -46,11 +49,37 @@
   border-radius: 7px;
 }
 
+.responsive {
+  composes: button;
+  width: 44px;
+  height: 44px;
+  border-radius: 7px;
+}
+
+.responsive .icon {
+  width: 14px;
+  height: 14px;
+}
+
 .small {
   composes: button;
   width: 32px;
   height: 32px;
   border-radius: 5px;
+}
+
+@media tablet {
+  .responsive {
+    composes: button;
+    width: 32px;
+    height: 32px;
+    border-radius: 5px;
+  }
+
+  .responsive .icon {
+    width: 12px;
+    height: 12px;
+  }
 }
 
 .default .icon {

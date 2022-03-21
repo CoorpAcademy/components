@@ -20,6 +20,17 @@ const getButtonContent = icon => {
   );
 };
 
+const getSizeStyle = size => {
+  switch (size) {
+    case 'small':
+      return style.small;
+    case 'responsive':
+      return style.responsive;
+    default:
+      return style.default;
+  }
+};
+
 const ButtonLinkIconOnly = props => {
   const {
     size = 'default',
@@ -28,13 +39,15 @@ const ButtonLinkIconOnly = props => {
     'data-name': dataName,
     'aria-label': ariaLabel,
     link,
-    onClick
+    onClick,
+    className
   } = props;
   const contentView = getButtonContent(icon);
   const styleButton = classnames(
-    size === 'default' ? style.default : style.small,
+    getSizeStyle(size),
     link && style.link,
-    disabled && style.disabled
+    disabled && style.disabled,
+    className
   );
 
   const handleOnClick = useMemo(() => () => onClick(), [onClick]);
@@ -68,7 +81,7 @@ const ButtonLinkIconOnly = props => {
 };
 
 ButtonLinkIconOnly.propTypes = {
-  size: PropTypes.oneOf(['default', 'small']),
+  size: PropTypes.oneOf(['default', 'small', 'responsive']),
   'aria-label': PropTypes.string,
   'data-name': PropTypes.string,
   icon: PropTypes.oneOf(keys(ICONS)),
@@ -78,7 +91,8 @@ ButtonLinkIconOnly.propTypes = {
     download: PropTypes.bool,
     target: PropTypes.oneOf(['_self', '_blank', '_parent', '_top'])
   }),
-  disabled: PropTypes.bool
+  disabled: PropTypes.bool,
+  className: PropTypes.string
 };
 
 export default ButtonLinkIconOnly;
