@@ -1,0 +1,12 @@
+.item {
+  margin-bottom: 34px;
+}
+.inputText {
+  width: 175px;
+}
+
+.list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
