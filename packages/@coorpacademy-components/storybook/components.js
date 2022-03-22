@@ -758,6 +758,7 @@ import MoleculeSetupSlideFixtureCohort from '../src/molecule/setup-slide/test/fi
 import MoleculeSetupSlideFixtureCreateNewCohort from '../src/molecule/setup-slide/test/fixtures/create-new-cohort';
 import MoleculeSetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
 import MoleculeSetupSlideFixtureSplitForm from '../src/molecule/setup-slide/test/fixtures/split-form';
+import MoleculeSetupSlideFixtureWithoutUploadImage from '../src/molecule/setup-slide/test/fixtures/without-upload-image';
 import MoleculeSetupSliderFixtureDefaultCohort from '../src/molecule/setup-slider/test/fixtures/default-cohort';
 import MoleculeSetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
 import MoleculeShareFixtureDefault from '../src/molecule/share/test/fixtures/default';
@@ -2149,7 +2150,8 @@ export const fixtures = {
       Cohort: MoleculeSetupSlideFixtureCohort,
       CreateNewCohort: MoleculeSetupSlideFixtureCreateNewCohort,
       Default: MoleculeSetupSlideFixtureDefault,
-      SplitForm: MoleculeSetupSlideFixtureSplitForm
+      SplitForm: MoleculeSetupSlideFixtureSplitForm,
+      WithoutUploadImage: MoleculeSetupSlideFixtureWithoutUploadImage
     },
     MoleculeSetupSlider: {
       DefaultCohort: MoleculeSetupSliderFixtureDefaultCohort,
