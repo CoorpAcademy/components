@@ -45,14 +45,14 @@
   color: white;
   width: 12px;
   height: 10px;
-  margin: 2px 0px 0px 1px;
+  margin: 4px 0px 0px 1px;
   transition: all 0.25s ease;
 }
 
 .currentRightIcon {
   width: 16px;
   height: 14px;
-  margin: 3px 0px 0px 1px;
+  margin: 5px 0px 0px 1px;
 }
 
 .wrongIcon {
