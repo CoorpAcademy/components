@@ -53,8 +53,8 @@ const CourseSelection = props => {
       </div>
       <div className={style.cardsContainer} data-name={'courses-result'}>
         {isLoading ? (
-          <div className={style.loader}>
-            <Loader theme="coorpmanager" />
+          <div className={style.loaderContainer}>
+            <Loader className={style.loader} theme="coorpmanager" />
           </div>
         ) : (
           resultView

@@ -278,13 +278,19 @@ import AtomDifficultyLevelFixtureEasy from '../src/atom/difficulty-level/test/fi
 import AtomDifficultyLevelFixtureHard from '../src/atom/difficulty-level/test/fixtures/hard';
 import AtomDifficultyLevelFixtureNormal from '../src/atom/difficulty-level/test/fixtures/normal';
 import AtomDifficultyLevelFixtureUnknown from '../src/atom/difficulty-level/test/fixtures/unknown';
+import AtomDragAndDropFixtureCleanAndModified from '../src/atom/drag-and-drop/test/fixtures/clean-and-modified';
 import AtomDragAndDropFixtureDefault from '../src/atom/drag-and-drop/test/fixtures/default';
+import AtomDragAndDropFixtureError from '../src/atom/drag-and-drop/test/fixtures/error';
 import AtomDragAndDropFixtureLoading from '../src/atom/drag-and-drop/test/fixtures/loading';
+import AtomDragAndDropFixtureModified from '../src/atom/drag-and-drop/test/fixtures/modified';
 import AtomDragAndDropFixtureWithChildren from '../src/atom/drag-and-drop/test/fixtures/with-children';
 import AtomDragAndDropFixtureWithImageReset from '../src/atom/drag-and-drop/test/fixtures/with-image-reset';
 import AtomDragAndDropFixtureWithImage from '../src/atom/drag-and-drop/test/fixtures/with-image';
+import AtomDragAndDropFixtureWithLongDescription from '../src/atom/drag-and-drop/test/fixtures/with-long-description';
 import AtomDragAndDropFixtureWithVideo from '../src/atom/drag-and-drop/test/fixtures/with-video';
 import AtomEmptySearchResultFixtureDefault from '../src/atom/empty-search-result/test/fixtures/default';
+import AtomImageUploadFixtureCleanModified from '../src/atom/image-upload/test/fixtures/clean-modified';
+import AtomImageUploadFixtureDefault from '../src/atom/image-upload/test/fixtures/default';
 import AtomImageUploadFixtureDesktopResetDescriptionMultiple from '../src/atom/image-upload/test/fixtures/desktop-reset-description-multiple';
 import AtomImageUploadFixtureDesktopResetDescriptionOnlyPng from '../src/atom/image-upload/test/fixtures/desktop-reset-description-only-png';
 import AtomImageUploadFixtureDesktopResetDescription from '../src/atom/image-upload/test/fixtures/desktop-reset-description';
@@ -293,7 +299,6 @@ import AtomImageUploadFixtureDesktop from '../src/atom/image-upload/test/fixture
 import AtomImageUploadFixtureEmail from '../src/atom/image-upload/test/fixtures/email';
 import AtomImageUploadFixtureMobile from '../src/atom/image-upload/test/fixtures/mobile';
 import AtomImageUploadFixtureModified from '../src/atom/image-upload/test/fixtures/modified';
-import AtomImageUploadFixtureWithoutImage from '../src/atom/image-upload/test/fixtures/without-image';
 import AtomInputCheckboxFixtureCheckedDisabled from '../src/atom/input-checkbox/test/fixtures/checked-disabled';
 import AtomInputCheckboxFixtureChecked from '../src/atom/input-checkbox/test/fixtures/checked';
 import AtomInputCheckboxFixtureDefault from '../src/atom/input-checkbox/test/fixtures/default';
@@ -755,6 +760,7 @@ import MoleculeSetupSlideFixtureCohort from '../src/molecule/setup-slide/test/fi
 import MoleculeSetupSlideFixtureCreateNewCohort from '../src/molecule/setup-slide/test/fixtures/create-new-cohort';
 import MoleculeSetupSlideFixtureDefault from '../src/molecule/setup-slide/test/fixtures/default';
 import MoleculeSetupSlideFixtureSplitForm from '../src/molecule/setup-slide/test/fixtures/split-form';
+import MoleculeSetupSlideFixtureWithoutUploadImage from '../src/molecule/setup-slide/test/fixtures/without-upload-image';
 import MoleculeSetupSliderFixtureDefaultCohort from '../src/molecule/setup-slider/test/fixtures/default-cohort';
 import MoleculeSetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
 import MoleculeShareFixtureDefault from '../src/molecule/share/test/fixtures/default';
@@ -856,6 +862,7 @@ import OrganismContentTranslationFixtureDelete from '../src/organism/content-tra
 import OrganismCourseSelectionFixtureDefault from '../src/organism/course-selection/test/fixtures/default';
 import OrganismCourseSelectionFixtureEmpty from '../src/organism/course-selection/test/fixtures/empty';
 import OrganismCourseSelectionFixtureFiltered from '../src/organism/course-selection/test/fixtures/filtered';
+import OrganismCourseSelectionFixtureLoading from '../src/organism/course-selection/test/fixtures/loading';
 import OrganismCourseSelectionFixtureSortedSelected from '../src/organism/course-selection/test/fixtures/sorted-selected';
 import OrganismCourseSelectionFixtureSwitchActivated from '../src/organism/course-selection/test/fixtures/switch-activated';
 import OrganismCourseSelectionFixtureUnsortedSelected from '../src/organism/course-selection/test/fixtures/unsorted-selected';
@@ -917,6 +924,7 @@ import OrganismReviewHeaderFixtureQuestionToRepeat from '../src/organism/review-
 import OrganismSearchAndChipsResultsFixtureDefault from '../src/organism/search-and-chips-results/test/fixtures/default';
 import OrganismSearchAndChipsResultsFixtureEmpty from '../src/organism/search-and-chips-results/test/fixtures/empty';
 import OrganismSearchAndChipsResultsFixtureFiltered from '../src/organism/search-and-chips-results/test/fixtures/filtered';
+import OrganismSearchAndChipsResultsFixtureLoading from '../src/organism/search-and-chips-results/test/fixtures/loading';
 import OrganismSearchAndChipsResultsFixtureSortedSelected from '../src/organism/search-and-chips-results/test/fixtures/sorted-selected';
 import OrganismSearchAndChipsResultsFixtureUnsortedSelected from '../src/organism/search-and-chips-results/test/fixtures/unsorted-selected';
 import OrganismSettingsFixtureDefault from '../src/organism/settings/test/fixtures/default';
@@ -1509,17 +1517,23 @@ export const fixtures = {
       Unknown: AtomDifficultyLevelFixtureUnknown
     },
     AtomDragAndDrop: {
+      CleanAndModified: AtomDragAndDropFixtureCleanAndModified,
       Default: AtomDragAndDropFixtureDefault,
+      Error: AtomDragAndDropFixtureError,
       Loading: AtomDragAndDropFixtureLoading,
+      Modified: AtomDragAndDropFixtureModified,
       WithChildren: AtomDragAndDropFixtureWithChildren,
       WithImageReset: AtomDragAndDropFixtureWithImageReset,
       WithImage: AtomDragAndDropFixtureWithImage,
+      WithLongDescription: AtomDragAndDropFixtureWithLongDescription,
       WithVideo: AtomDragAndDropFixtureWithVideo
     },
     AtomEmptySearchResult: {
       Default: AtomEmptySearchResultFixtureDefault
     },
     AtomImageUpload: {
+      CleanModified: AtomImageUploadFixtureCleanModified,
+      Default: AtomImageUploadFixtureDefault,
       DesktopResetDescriptionMultiple: AtomImageUploadFixtureDesktopResetDescriptionMultiple,
       DesktopResetDescriptionOnlyPng: AtomImageUploadFixtureDesktopResetDescriptionOnlyPng,
       DesktopResetDescription: AtomImageUploadFixtureDesktopResetDescription,
@@ -1527,8 +1541,7 @@ export const fixtures = {
       Desktop: AtomImageUploadFixtureDesktop,
       Email: AtomImageUploadFixtureEmail,
       Mobile: AtomImageUploadFixtureMobile,
-      Modified: AtomImageUploadFixtureModified,
-      WithoutImage: AtomImageUploadFixtureWithoutImage
+      Modified: AtomImageUploadFixtureModified
     },
     AtomInputCheckbox: {
       CheckedDisabled: AtomInputCheckboxFixtureCheckedDisabled,
@@ -2147,7 +2160,8 @@ export const fixtures = {
       Cohort: MoleculeSetupSlideFixtureCohort,
       CreateNewCohort: MoleculeSetupSlideFixtureCreateNewCohort,
       Default: MoleculeSetupSlideFixtureDefault,
-      SplitForm: MoleculeSetupSlideFixtureSplitForm
+      SplitForm: MoleculeSetupSlideFixtureSplitForm,
+      WithoutUploadImage: MoleculeSetupSlideFixtureWithoutUploadImage
     },
     MoleculeSetupSlider: {
       DefaultCohort: MoleculeSetupSliderFixtureDefaultCohort,
@@ -2393,6 +2407,7 @@ export const fixtures = {
       Default: OrganismCourseSelectionFixtureDefault,
       Empty: OrganismCourseSelectionFixtureEmpty,
       Filtered: OrganismCourseSelectionFixtureFiltered,
+      Loading: OrganismCourseSelectionFixtureLoading,
       SortedSelected: OrganismCourseSelectionFixtureSortedSelected,
       SwitchActivated: OrganismCourseSelectionFixtureSwitchActivated,
       UnsortedSelected: OrganismCourseSelectionFixtureUnsortedSelected
@@ -2478,6 +2493,7 @@ export const fixtures = {
       Default: OrganismSearchAndChipsResultsFixtureDefault,
       Empty: OrganismSearchAndChipsResultsFixtureEmpty,
       Filtered: OrganismSearchAndChipsResultsFixtureFiltered,
+      Loading: OrganismSearchAndChipsResultsFixtureLoading,
       SortedSelected: OrganismSearchAndChipsResultsFixtureSortedSelected,
       UnsortedSelected: OrganismSearchAndChipsResultsFixtureUnsortedSelected
     },

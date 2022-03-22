@@ -1,6 +1,3 @@
-import React from 'react';
-import style from '../../../image-upload/style.css';
-
 export default {
   props: {
     previewContent: {
@@ -10,18 +7,5 @@ export default {
     title: 'Desktop (*)',
     displayName: 'Upload image',
     uploadLabel: 'Upload'
-  },
-  // eslint-disable-next-line react/display-name
-  children: (onDragStart, onDragStop) => (
-    <input
-      className={style.input}
-      key="1"
-      type="file"
-      accept="image*/"
-      onChange={() => true}
-      onDragEnter={onDragStart}
-      onDrop={onDragStop}
-      onDragLeave={onDragStop}
-    />
-  )
+  }
 };

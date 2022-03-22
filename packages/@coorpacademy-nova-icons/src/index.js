@@ -152,7 +152,9 @@ import _NovaSolidDataTransferDataUpload1 from './components/nova-solid/data-tran
 import _NovaSolidDesignActionsRedo from './components/nova-solid/design-actions/redo';
 import _NovaSolidDesignPaintBrush2 from './components/nova-solid/design/paint-brush-2';
 import _NovaSolidEmailAtSign from './components/nova-solid/email/at-sign';
+import _NovaSolidFilesBasicFileBlock2 from './components/nova-solid/files-basic/file-block-2';
 import _NovaSolidFilesBasicFileUpload2 from './components/nova-solid/files-basic/file-upload-2';
+import _NovaSolidFilesFoldersFolders from './components/nova-solid/files-folders/folders';
 import _NovaSolidInterfaceFeedbackInterfaceAlertCircle from './components/nova-solid/interface-feedback/interface-alert-circle';
 import _NovaSolidInterfaceFeedbackInterfaceAlertDiamond from './components/nova-solid/interface-feedback/interface-alert-diamond';
 import _NovaSolidInterfaceFeedbackInterfaceAlertTriangle from './components/nova-solid/interface-feedback/interface-alert-triangle';
@@ -336,7 +338,9 @@ export const NovaSolidDataTransferDataUpload1: Icon = _NovaSolidDataTransferData
 export const NovaSolidDesignActionsRedo: Icon = _NovaSolidDesignActionsRedo;
 export const NovaSolidDesignPaintBrush2: Icon = _NovaSolidDesignPaintBrush2;
 export const NovaSolidEmailAtSign: Icon = _NovaSolidEmailAtSign;
+export const NovaSolidFilesBasicFileBlock2: Icon = _NovaSolidFilesBasicFileBlock2;
 export const NovaSolidFilesBasicFileUpload2: Icon = _NovaSolidFilesBasicFileUpload2;
+export const NovaSolidFilesFoldersFolders: Icon = _NovaSolidFilesFoldersFolders;
 export const NovaSolidInterfaceFeedbackInterfaceAlertCircle: Icon = _NovaSolidInterfaceFeedbackInterfaceAlertCircle;
 export const NovaSolidInterfaceFeedbackInterfaceAlertDiamond: Icon = _NovaSolidInterfaceFeedbackInterfaceAlertDiamond;
 export const NovaSolidInterfaceFeedbackInterfaceAlertTriangle: Icon = _NovaSolidInterfaceFeedbackInterfaceAlertTriangle;

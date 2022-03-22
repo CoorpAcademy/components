@@ -8,8 +8,8 @@ import Title from '../../atom/title';
 import style from './style.css';
 
 const Loading = () => (
-  <div>
-    <Loader theme="coorpmanager" />
+  <div className={style.loaderContainer}>
+    <Loader className={style.loader} theme="coorpmanager" />
   </div>
 );
 

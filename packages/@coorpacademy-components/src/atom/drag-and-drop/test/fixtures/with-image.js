@@ -6,7 +6,7 @@ export default {
     previewLabel: 'File Preview',
     previewContent: {
       type: 'image',
-      src: 'https://static.coorpacademy.com/content/up/raw/logo_mobile-1491560713685.svg'
+      src: 'https://static.coorpacademy.com/content/up/raw/logo_coorp-1491560495763.svg'
     }
   }
 };

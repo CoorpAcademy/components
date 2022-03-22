@@ -1,8 +1,8 @@
 export default {
   props: {
-    title: 'Drag & Drop',
-    description: 'Drag and drop component',
-    uploadLabel: 'Upload',
+    title: 'Drag & drop here',
+    description: 'JPG or PNG, smaller than 5mb',
+    uploadLabel: 'Browse',
     previewLabel: 'File Preview'
   }
 };

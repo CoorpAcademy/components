@@ -122,8 +122,8 @@ const buildTabs = items => {
 const buildContentView = content => {
   if (!content) {
     return (
-      <div>
-        <Loader theme="coorpmanager" />
+      <div className={style.loaderContainer}>
+        <Loader className={style.loader} theme="coorpmanager" />
       </div>
     );
   }
@@ -166,8 +166,7 @@ const BrandUpdate = props => {
 
   const contentStyle = classNames([
     style.content,
-    !isEmpty(notifications) && style.contentWithNotifications,
-    isEmpty(content) && style.loader
+    !isEmpty(notifications) && style.contentWithNotifications
   ]);
 
   return (

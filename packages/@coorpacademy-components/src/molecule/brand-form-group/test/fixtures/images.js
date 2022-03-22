@@ -15,11 +15,15 @@ export default {
       },
       {
         ...Mobile.props,
-        type: 'image'
+        type: 'image',
+        previewContent: {}
       },
       {
         ...Email.props,
-        type: 'image'
+        type: 'image',
+        modified: false,
+        loading: true,
+        previewContent: {}
       }
     ]
   }

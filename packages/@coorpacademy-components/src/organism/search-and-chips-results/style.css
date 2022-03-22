@@ -34,8 +34,15 @@
   margin: 0 16px 16px 0px;
 }
 
-.loader {
-  position: relative;
-  min-height: 50vh;
+.loaderContainer {
   width: 100%;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  height: 60px;
+  width: 60px;
 }

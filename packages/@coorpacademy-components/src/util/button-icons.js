@@ -12,7 +12,8 @@ import {
   NovaSolidLoginLogout1 as LogoutIcon,
   NovaSolidApplicationsWindowUpload3 as PublishIcon,
   NovaSolidComputersSdCard as SaveIcon,
-  NovaLineLoginKey1 as KlfIcon
+  NovaLineLoginKey1 as KlfIcon,
+  NovaSolidFilesFoldersFolders as FoldersIcon
 } from '@coorpacademy/nova-icons';
 
 export const ICONS = {
@@ -29,5 +30,6 @@ export const ICONS = {
   logout: LogoutIcon,
   publish: PublishIcon,
   save: SaveIcon,
-  see: EyeIcon
+  see: EyeIcon,
+  folders: FoldersIcon
 };

@@ -7,6 +7,7 @@ export default {
     previewContent: {
       type: 'video',
       src: 'https://www.w3schools.com/tags/movie.mp4'
-    }
+    },
+    onReset: () => console.log('reset')
   }
 };

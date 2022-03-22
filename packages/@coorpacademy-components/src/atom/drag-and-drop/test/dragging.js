@@ -10,9 +10,11 @@ import withChildrenFixtures from './fixtures/with-children';
 browserEnv();
 configure({adapter: new Adapter()});
 
+const {props} = withChildrenFixtures;
+
 test('should set state to dragging when user starts dragging', t => {
   const wrapper = shallow(
-    <DragAndDrop {...withChildrenFixtures.props}>
+    <DragAndDrop {...props} previewContent={{}}>
       {(onDragStart, onDragStop) => (
         <input
           className={style.input}
