@@ -1,0 +1,15 @@
+.item {
+  margin-right: 8px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+
+.contentBadge {
+  font-size: 8px;
+  font-weight: bold;
+  line-height: 10px;;
+}

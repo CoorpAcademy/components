@@ -1,16 +1,5 @@
 /* eslint-disable max-len */
 
-import AtomAutocomplete from './../src/atom/autocomplete';
-import AtomAvatar from './../src/atom/avatar';
-import AtomButton from './../src/atom/button';
-import AtomButtonLink from './../src/atom/button-link';
-import AtomButtonLinkIconOnly from './../src/atom/button-link-icon-only';
-import AtomButtonMenu from './../src/atom/button-menu';
-import AtomCardImagePreview from './../src/atom/card-image-preview';
-import AtomCatalogSection from './../src/atom/catalog-section';
-import AtomCenteredText from './../src/atom/centered-text';
-import AtomCheckbox from './../src/atom/checkbox';
-import AtomCheckboxWithTitle from './../src/atom/checkbox-with-title';
 import AtomChips from './../src/atom/chips';
 import AtomClue from './../src/atom/clue';
 import AtomContentBadge from './../src/atom/content-badge';
@@ -100,6 +89,7 @@ import MoleculeForumForumPost from './../src/molecule/forum/forum-post';
 import MoleculeForumForumThread from './../src/molecule/forum/forum-thread';
 import MoleculeHero from './../src/molecule/hero';
 import MoleculeInputTextWithTitledCheckbox from './../src/molecule/input-text-with-titled-checkbox';
+import MoleculeListBadges from './../src/molecule/list-badges';
 import MoleculeLoginAlert from './../src/molecule/login-alert';
 import MoleculeMenuList from './../src/molecule/menu-list';
 import MoleculeMessagePopin from './../src/molecule/message-popin';
@@ -539,7 +529,10 @@ import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixture
 import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/test/fixtures/warning-with-close';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
 import MoleculeCoorpManagerRolesFixtureDefault from '../src/molecule/coorp-manager-roles/test/fixtures/default';
+import MoleculeCourseSectionFixtureAdvancedLevel from '../src/molecule/course-section/test/fixtures/advanced-level';
+import MoleculeCourseSectionFixtureBaseLevel from '../src/molecule/course-section/test/fixtures/base-level';
 import MoleculeCourseSectionFixtureChapter from '../src/molecule/course-section/test/fixtures/chapter';
+import MoleculeCourseSectionFixtureCoachLevel from '../src/molecule/course-section/test/fixtures/coach-level';
 import MoleculeCourseSectionFixtureCourse from '../src/molecule/course-section/test/fixtures/course';
 import MoleculeCourseSectionsFixtureDefault from '../src/molecule/course-sections/test/fixtures/default';
 import MoleculeCourseSectionsFixtureLoading from '../src/molecule/course-sections/test/fixtures/loading';
@@ -644,6 +637,10 @@ import MoleculeHeroFixtureArabic from '../src/molecule/hero/test/fixtures/arabic
 import MoleculeHeroFixtureHero from '../src/molecule/hero/test/fixtures/hero';
 import MoleculeInputTextWithTitledCheckboxFixtureChecked from '../src/molecule/input-text-with-titled-checkbox/test/fixtures/checked';
 import MoleculeInputTextWithTitledCheckboxFixtureUnchecked from '../src/molecule/input-text-with-titled-checkbox/test/fixtures/unchecked';
+import MoleculeListBadgesFixtureAdvanced from '../src/molecule/list-badges/test/fixtures/advanced';
+import MoleculeListBadgesFixtureBase from '../src/molecule/list-badges/test/fixtures/base';
+import MoleculeListBadgesFixtureCoach from '../src/molecule/list-badges/test/fixtures/coach';
+import MoleculeListBadgesFixtureCourse from '../src/molecule/list-badges/test/fixtures/course';
 import MoleculeLoginAlertFixtureDefault from '../src/molecule/login-alert/test/fixtures/default';
 import MoleculeMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import MoleculeMessagePopinFixtureDefault from '../src/molecule/message-popin/test/fixtures/default';
@@ -1173,6 +1170,17 @@ import TemplateExternalCourseFixtureYoutubePodcast from '../src/template/externa
 import TemplateTeamsDashboardFixtureDefault from '../src/template/teams-dashboard/test/fixtures/default';
 import TemplateTeamsDashboardFixtureIsLoading from '../src/template/teams-dashboard/test/fixtures/is-loading';
 import TemplateTeamsDashboardFixtureMobile from '../src/template/teams-dashboard/test/fixtures/mobile';
+import AtomAvatar from './../src/atom/avatar';
+import AtomAutocomplete from "../src/atom/autocomplete";
+import AtomButtonLink from './../src/atom/button-link';
+import AtomButton from "../src/atom/button";
+import AtomButtonMenu from './../src/atom/button-menu';
+import AtomButtonLinkIconOnly from "../src/atom/button-link-icon-only";
+import AtomCatalogSection from './../src/atom/catalog-section';
+import AtomCardImagePreview from "../src/atom/card-image-preview";
+import AtomCheckbox from './../src/atom/checkbox';
+import AtomCenteredText from "../src/atom/centered-text";
+import AtomCheckboxWithTitle from './../src/atom/checkbox-with-title';
 
 export const components = {
   Atom: {
@@ -1272,6 +1280,7 @@ export const components = {
     MoleculeFilters,
     MoleculeHero,
     MoleculeInputTextWithTitledCheckbox,
+    MoleculeListBadges,
     MoleculeLoginAlert,
     MoleculeMenuList,
     MoleculeMessagePopin,
@@ -1909,7 +1918,10 @@ export const fixtures = {
       Default: MoleculeCoorpManagerRolesFixtureDefault
     },
     MoleculeCourseSection: {
+      AdvancedLevel: MoleculeCourseSectionFixtureAdvancedLevel,
+      BaseLevel: MoleculeCourseSectionFixtureBaseLevel,
       Chapter: MoleculeCourseSectionFixtureChapter,
+      CoachLevel: MoleculeCourseSectionFixtureCoachLevel,
       Course: MoleculeCourseSectionFixtureCourse
     },
     MoleculeCourseSections: {
@@ -2014,6 +2026,12 @@ export const fixtures = {
     MoleculeInputTextWithTitledCheckbox: {
       Checked: MoleculeInputTextWithTitledCheckboxFixtureChecked,
       Unchecked: MoleculeInputTextWithTitledCheckboxFixtureUnchecked
+    },
+    MoleculeListBadges: {
+      Advanced: MoleculeListBadgesFixtureAdvanced,
+      Base: MoleculeListBadgesFixtureBase,
+      Coach: MoleculeListBadgesFixtureCoach,
+      Course: MoleculeListBadgesFixtureCourse
     },
     MoleculeLoginAlert: {
       Default: MoleculeLoginAlertFixtureDefault

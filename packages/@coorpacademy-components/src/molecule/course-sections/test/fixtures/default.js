@@ -11,10 +11,12 @@ export default {
         author: 'Author',
         image:
           'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90',
-        contentBadge: {
-          label: 'course',
-          category: 'course'
-        },
+        badgeList: [
+          {
+            label: 'course',
+            category: 'course'
+          }
+        ],
         position: 1,
         id: 'disc_1'
       },
@@ -27,10 +29,12 @@ export default {
         author: 'Author',
         image:
           'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90',
-        contentBadge: {
-          label: "5' learning",
-          category: 'chapter'
-        },
+        badgeList: [
+          {
+            label: "5' learning",
+            category: 'chapter'
+          }
+        ],
         position: 2,
         id: 'chap_1'
       },
@@ -43,10 +47,12 @@ export default {
         author: 'Author 2',
         image:
           'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90',
-        contentBadge: {
-          label: 'course',
-          category: 'course'
-        },
+        badgeList: [
+          {
+            label: 'course',
+            category: 'course'
+          }
+        ],
         position: 3,
         id: 'disc_2'
       },
@@ -59,10 +65,12 @@ export default {
         author: 'Author XXX',
         image:
           'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90',
-        contentBadge: {
-          label: "5' learning",
-          category: 'chapter'
-        },
+        badgeList: [
+          {
+            label: "5' learning",
+            category: 'chapter'
+          }
+        ],
         position: 4,
         id: 'chap_2'
       },
@@ -75,10 +83,12 @@ export default {
         author: 'Author XXX',
         image:
           'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90',
-        contentBadge: {
-          label: "5' learning",
-          category: 'chapter'
-        },
+        badgeList: [
+          {
+            label: "5' learning",
+            category: 'chapter'
+          }
+        ],
         position: 5,
         id: 'chap_3'
       },
@@ -91,10 +101,12 @@ export default {
         author: 'Author XXX',
         image:
           'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90',
-        contentBadge: {
-          label: 'course',
-          category: 'course'
-        },
+        badgeList: [
+          {
+            label: 'course',
+            category: 'course'
+          }
+        ],
         position: 6,
         id: 'disc_3'
       },
@@ -107,10 +119,12 @@ export default {
         author: 'Author XXX',
         image:
           'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90',
-        contentBadge: {
-          label: "5' learning",
-          category: 'chapter'
-        },
+        badgeList: [
+          {
+            label: "5' learning",
+            category: 'chapter'
+          }
+        ],
         position: 7,
         id: 'chap_4'
       },
@@ -123,10 +137,12 @@ export default {
         author: 'Author XXX',
         image:
           'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90',
-        contentBadge: {
-          label: 'course',
-          category: 'course'
-        },
+        badgeList: [
+          {
+            label: 'course',
+            category: 'course'
+          }
+        ],
         position: 8,
         id: 'disc_4'
       },
@@ -139,10 +155,12 @@ export default {
         author: 'Author XXX',
         image:
           'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90',
-        contentBadge: {
-          label: 'course',
-          category: 'course'
-        },
+        badgeList: [
+          {
+            label: 'course',
+            category: 'course'
+          }
+        ],
         position: 9,
         id: 'disc_5'
       },
@@ -155,10 +173,12 @@ export default {
         author: 'Author XXX',
         image:
           'https://api.coorpacademy.com/api-service/medias?url=https://static.coorpacademy.com/content/partner-wedemain/fr/medias/img/cover/shutterstock_248741149-1470302136299.jpg&h=500&w=500&q=90',
-        contentBadge: {
-          label: "5' learning",
-          category: 'chapter'
-        },
+        badgeList: [
+          {
+            label: "5' learning",
+            category: 'chapter'
+          }
+        ],
         position: 10,
         id: 'chap_5'
       }
