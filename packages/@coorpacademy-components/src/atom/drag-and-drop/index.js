@@ -89,8 +89,8 @@ class DragAndDrop extends React.Component {
           <div className={style.loadingCancel}>
             <Close
               data-name="reset-content-icon"
-              height={16}
-              width={16}
+              height={24}
+              width={24}
               className={style.closeIcon}
               onClick={onReset}
             />
@@ -112,8 +112,8 @@ class DragAndDrop extends React.Component {
           {onReset ? (
             <Close
               data-name="reset-content-icon"
-              height={16}
-              width={16}
+              height={24}
+              width={24}
               className={style.closeIcon}
               onClick={onReset}
             />
@@ -159,6 +159,7 @@ class DragAndDrop extends React.Component {
 
     return (
       <div className={style.wrapper} data-name="drag-and-drop-wrapper">
+        <div className={style.title}>{title}</div>
         {!isEmpty(previewContent) || loading ? (
           <div className={previewContainer}>{previewView}</div>
         ) : (
@@ -170,7 +171,7 @@ class DragAndDrop extends React.Component {
                 <FileUploadIcon className={style.icon} />
               )}
               {description ? <div className={style.description}>{description}</div> : null}
-              {error ? null : <div className={style.title}>{title}</div>}
+              {error ? null : <div className={style.dragAndDropLabel}>{'Drag & Drop here'}</div>}
             </div>
             {button}
             <div>{children(this.handleDragStart, this.handleDragStop)}</div>

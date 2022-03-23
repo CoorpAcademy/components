@@ -25,10 +25,16 @@
 }
 
 .title {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: cm_grey_700;
-  margin-bottom: 14px;
+  margin-bottom: 8px;
+}
+
+.dragAndDropLabel {
+  composes: title;
+  margin-bottom: 12px;
+  font-size: 14px;
 }
 
 .description {
@@ -131,7 +137,7 @@
 
 .resetUploadWrapper {
   width: 100%;
-  min-height: 24px;
+  height: 24px;
   box-sizing: border-box;
   background-color: cm_grey_50;
   border-radius: 3px;
@@ -140,7 +146,7 @@
   justify-content: space-between;
   margin-top: 16px;
   padding: 4px 8px;
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 400;
 }
 
@@ -157,7 +163,7 @@
 .closeIcon {
   cursor: pointer;
   color: cm_grey_400;
-  padding: 6px;
+  margin-left: 6px;
 }
 
 .dragging {
@@ -166,12 +172,18 @@
   background: cm_grey_100;
 }
 
-.dragging .description .icon .title {
-  font-size: 8px;
+.dragging:before {
+  content: "";
+  position: absolute;
+  border: none;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 }
 
-.dragging .title {
-  font-size: 10px;
+.dragging .description .icon {
+  font-size: 8px;
 }
 
 .dragging .icon {
@@ -206,12 +218,12 @@
 
 .loader {
   margin-bottom: 8px;
-  height: 14px;
-  width: 14px;
+  height: 32px;
+  width: 32px;
 }
 
 .loaderText {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: 400;
 }
 
@@ -220,6 +232,7 @@
   position: absolute;
   top: 0;
   right: 0;
+  padding: 6px;
 }
 
 .loaderWrapper:hover .loadingCancel {
