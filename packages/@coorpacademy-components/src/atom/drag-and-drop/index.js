@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {uniqueId, constant, isEmpty} from 'lodash/fp';
 import {
-  NovaLineStatusClose as Close,
+  NovaSolidStatusClose as Close,
   NovaSolidFilesBasicFileUpload2 as FileUploadIcon,
   NovaSolidFilesBasicFileBlock2 as FileUploadBlockedIcon
 } from '@coorpacademy/nova-icons';
@@ -89,8 +89,8 @@ class DragAndDrop extends React.Component {
           <div className={style.loadingCancel}>
             <Close
               data-name="reset-content-icon"
-              height={24}
-              width={24}
+              height={12}
+              width={12}
               className={style.closeIcon}
               onClick={onReset}
             />
@@ -112,8 +112,8 @@ class DragAndDrop extends React.Component {
           {onReset ? (
             <Close
               data-name="reset-content-icon"
-              height={24}
-              width={24}
+              height={12}
+              width={12}
               className={style.closeIcon}
               onClick={onReset}
             />
