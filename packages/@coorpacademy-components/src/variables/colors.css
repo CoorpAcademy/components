@@ -62,6 +62,7 @@
 @value cm_red_video: #E8335E;
 @value cm_violet_podcast: #432ba7;
 @value cm_warning_50: rgba(255, 192, 67, 0.13);
+@value box_shadow_medium_dark: rgba(0, 0, 0, 0.15);
 @value box_shadow_light_dark: rgba(0, 0, 0, 0.12);
 @value box_shadow_medium_dark: rgba(0, 0, 0, 0.2);
 @value box_shadow_orange_700: rgba(255, 84, 31, 0.15);
