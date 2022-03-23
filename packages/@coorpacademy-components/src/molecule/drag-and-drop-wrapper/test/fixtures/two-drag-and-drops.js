@@ -5,6 +5,9 @@ import checkBoxTitle from '../../../../atom/checkbox-with-title/test/fixtures/ch
 export default {
   props: {
     checkBoxTitle: {...checkBoxTitle.props, title: 'Create diploma'},
-    list: [firstdDragAndDrop.props, secondDragAndDrop.props]
+    list: [
+      {...firstdDragAndDrop.props, title: 'Upload Company logo'},
+      {...secondDragAndDrop.props, title: 'Upload digital signature'}
+    ]
   }
 };
