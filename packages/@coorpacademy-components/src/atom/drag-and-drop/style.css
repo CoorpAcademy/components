@@ -158,12 +158,15 @@
   text-overflow: ellipsis;
   direction: rtl;
   text-align: left;
+  max-width: 90%;
 }
 
 .closeIcon {
   cursor: pointer;
   color: cm_grey_400;
   margin-left: 6px;
+  height: 15px;
+  width: 15px;
 }
 
 .dragging {
