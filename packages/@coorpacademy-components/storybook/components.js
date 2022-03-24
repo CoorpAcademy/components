@@ -1,5 +1,16 @@
 /* eslint-disable max-len */
 
+import AtomAutocomplete from './../src/atom/autocomplete';
+import AtomAvatar from './../src/atom/avatar';
+import AtomButton from './../src/atom/button';
+import AtomButtonLink from './../src/atom/button-link';
+import AtomButtonLinkIconOnly from './../src/atom/button-link-icon-only';
+import AtomButtonMenu from './../src/atom/button-menu';
+import AtomCardImagePreview from './../src/atom/card-image-preview';
+import AtomCatalogSection from './../src/atom/catalog-section';
+import AtomCenteredText from './../src/atom/centered-text';
+import AtomCheckbox from './../src/atom/checkbox';
+import AtomCheckboxWithTitle from './../src/atom/checkbox-with-title';
 import AtomChips from './../src/atom/chips';
 import AtomClue from './../src/atom/clue';
 import AtomContentBadge from './../src/atom/content-badge';
@@ -1170,17 +1181,6 @@ import TemplateExternalCourseFixtureYoutubePodcast from '../src/template/externa
 import TemplateTeamsDashboardFixtureDefault from '../src/template/teams-dashboard/test/fixtures/default';
 import TemplateTeamsDashboardFixtureIsLoading from '../src/template/teams-dashboard/test/fixtures/is-loading';
 import TemplateTeamsDashboardFixtureMobile from '../src/template/teams-dashboard/test/fixtures/mobile';
-import AtomAvatar from './../src/atom/avatar';
-import AtomAutocomplete from "../src/atom/autocomplete";
-import AtomButtonLink from './../src/atom/button-link';
-import AtomButton from "../src/atom/button";
-import AtomButtonMenu from './../src/atom/button-menu';
-import AtomButtonLinkIconOnly from "../src/atom/button-link-icon-only";
-import AtomCatalogSection from './../src/atom/catalog-section';
-import AtomCardImagePreview from "../src/atom/card-image-preview";
-import AtomCheckbox from './../src/atom/checkbox';
-import AtomCenteredText from "../src/atom/centered-text";
-import AtomCheckboxWithTitle from './../src/atom/checkbox-with-title';
 
 export const components = {
   Atom: {
