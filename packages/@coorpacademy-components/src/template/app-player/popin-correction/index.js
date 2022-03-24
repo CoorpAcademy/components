@@ -209,7 +209,7 @@ class PopinCorrection extends Component {
             {quitCta}
             <AssistanceLink {...assistanceLink} />
           </div>
-          <Loader className={isLoading ? style.activeLoader : style.inactiveLoader} />
+          {isLoading ? <Loader className={style.activeLoader} /> : null}
         </div>
       </div>
     );
