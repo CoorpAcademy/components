@@ -104,10 +104,6 @@
   transition: opacity 0.3s;
 }
 
-.inactiveLoader {
-  opacity: 0;
-}
-
 /* Question -------------- */
 
 .question {
