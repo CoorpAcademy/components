@@ -5,25 +5,26 @@
 @value cm_grey_400 from colors;
 
 .container {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     background-color: cm_grey_50;
-    border-radius: 7px;
-    display: flex;
     font-size: 14px;
-    justify-content: flex-start;
     margin-top: 8px;
     padding: 8px 16px;
     border-radius: 7px;
 }
 
+.wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 83%;
+}
+
 .containerInfos {
     margin-left: 16px;
     overflow: hidden;
-}
-
-.containerMainInfos {
-    display: flex;
-    align-items: center;
 }
 
 .title {
@@ -32,11 +33,11 @@
     font-family: Gilroy;
     font-size: 16px;
     font-weight: bold;
-    margin-left: 4px;
     overflow:hidden;
     white-space:nowrap;
     display:inline-block;
     text-overflow:ellipsis;
+    width: 100%;
 }
 
 .author {
@@ -54,13 +55,9 @@
     margin: 0 12px 0 32px;
 }
 
-.contentBadge {
-    font-size: 8px;
-    font-weight: bold;
-    line-height: 10px;;
-}
-
 .containerImage {
     min-height: 56px;
     min-width: 56px;
 }
+
+
