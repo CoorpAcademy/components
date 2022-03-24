@@ -767,6 +767,7 @@ import MoleculeSetupSliderFixtureDefault from '../src/molecule/setup-slider/test
 import MoleculeShareFixtureDefault from '../src/molecule/share/test/fixtures/default';
 import MoleculeSkillCardFixtureCustomSkill from '../src/molecule/skill-card/test/fixtures/custom-skill';
 import MoleculeSkillCardFixtureDefault from '../src/molecule/skill-card/test/fixtures/default';
+import MoleculeSkillCardFixtureNoAriaLabels from '../src/molecule/skill-card/test/fixtures/no-aria-labels';
 import MoleculeSkillCardFixtureShortSkillTitle from '../src/molecule/skill-card/test/fixtures/short-skill-title';
 import MoleculeSsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
 import MoleculeSsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
@@ -2178,6 +2179,7 @@ export const fixtures = {
     MoleculeSkillCard: {
       CustomSkill: MoleculeSkillCardFixtureCustomSkill,
       Default: MoleculeSkillCardFixtureDefault,
+      NoAriaLabels: MoleculeSkillCardFixtureNoAriaLabels,
       ShortSkillTitle: MoleculeSkillCardFixtureShortSkillTitle
     },
     MoleculeSsmenuList: {
