@@ -1,4 +1,4 @@
-import checkedInputText from '../../../../molecule/input-text-with-titeled-checkbox/test/fixtures/checked';
+import checkedInputText from '../../../../molecule/input-text-with-titled-checkbox/test/fixtures/checked';
 import singleDragAndDrop from '../../../../molecule/drag-and-drop-wrapper/test/fixtures/default';
 import doubleDragAndDrop from '../../../../molecule/drag-and-drop-wrapper/test/fixtures/two-drag-and-drops';
 

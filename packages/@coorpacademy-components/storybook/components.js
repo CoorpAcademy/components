@@ -99,7 +99,7 @@ import MoleculeForumForumComment from './../src/molecule/forum/forum-comment';
 import MoleculeForumForumPost from './../src/molecule/forum/forum-post';
 import MoleculeForumForumThread from './../src/molecule/forum/forum-thread';
 import MoleculeHero from './../src/molecule/hero';
-import MoleculeInputTextWithTiteledCheckbox from './../src/molecule/input-text-with-titeled-checkbox';
+import MoleculeInputTextWithTitledCheckbox from './../src/molecule/input-text-with-titled-checkbox';
 import MoleculeLoginAlert from './../src/molecule/login-alert';
 import MoleculeMenuList from './../src/molecule/menu-list';
 import MoleculeMessagePopin from './../src/molecule/message-popin';
@@ -642,8 +642,8 @@ import MoleculeForumForumThreadFixtureDefault from '../src/molecule/forum/forum-
 import MoleculeForumForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
 import MoleculeHeroFixtureArabic from '../src/molecule/hero/test/fixtures/arabic';
 import MoleculeHeroFixtureHero from '../src/molecule/hero/test/fixtures/hero';
-import MoleculeInputTextWithTiteledCheckboxFixtureChecked from '../src/molecule/input-text-with-titeled-checkbox/test/fixtures/checked';
-import MoleculeInputTextWithTiteledCheckboxFixtureUnchecked from '../src/molecule/input-text-with-titeled-checkbox/test/fixtures/unchecked';
+import MoleculeInputTextWithTitledCheckboxFixtureChecked from '../src/molecule/input-text-with-titled-checkbox/test/fixtures/checked';
+import MoleculeInputTextWithTitledCheckboxFixtureUnchecked from '../src/molecule/input-text-with-titled-checkbox/test/fixtures/unchecked';
 import MoleculeLoginAlertFixtureDefault from '../src/molecule/login-alert/test/fixtures/default';
 import MoleculeMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import MoleculeMessagePopinFixtureDefault from '../src/molecule/message-popin/test/fixtures/default';
@@ -1271,7 +1271,7 @@ export const components = {
     MoleculeFeedback,
     MoleculeFilters,
     MoleculeHero,
-    MoleculeInputTextWithTiteledCheckbox,
+    MoleculeInputTextWithTitledCheckbox,
     MoleculeLoginAlert,
     MoleculeMenuList,
     MoleculeMessagePopin,
@@ -2011,9 +2011,9 @@ export const fixtures = {
       Arabic: MoleculeHeroFixtureArabic,
       Hero: MoleculeHeroFixtureHero
     },
-    MoleculeInputTextWithTiteledCheckbox: {
-      Checked: MoleculeInputTextWithTiteledCheckboxFixtureChecked,
-      Unchecked: MoleculeInputTextWithTiteledCheckboxFixtureUnchecked
+    MoleculeInputTextWithTitledCheckbox: {
+      Checked: MoleculeInputTextWithTitledCheckboxFixtureChecked,
+      Unchecked: MoleculeInputTextWithTitledCheckboxFixtureUnchecked
     },
     MoleculeLoginAlert: {
       Default: MoleculeLoginAlertFixtureDefault

@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import InputTextWithTiteledCheckbox from '../../molecule/input-text-with-titeled-checkbox';
+import InputTextWithTitledCheckbox from '../../molecule/input-text-with-titled-checkbox';
 import DragAndDropWrapper from '../../molecule/drag-and-drop-wrapper';
 import style from './style.css';
 
 const ITEM = {
-  'input-text': InputTextWithTiteledCheckbox,
+  'input-text': InputTextWithTitledCheckbox,
   'drag-and-drop': DragAndDropWrapper
 };
 
@@ -29,7 +29,7 @@ const RewardsForm = ({items}) => {
 RewardsForm.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.oneOfType([
-      PropTypes.shape({...InputTextWithTiteledCheckbox.propTypes}),
+      PropTypes.shape({...InputTextWithTitledCheckbox.propTypes}),
       PropTypes.shape({...DragAndDropWrapper.propTypes})
     ])
   )
