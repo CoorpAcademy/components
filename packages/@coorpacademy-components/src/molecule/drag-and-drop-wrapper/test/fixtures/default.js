@@ -3,7 +3,7 @@ import checkBoxTitle from '../../../../atom/checkbox-with-title/test/fixtures/ch
 
 export default {
   props: {
-    checkBoxTitle: checkBoxTitle.props,
-    list: [firstdDragAndDrop.props]
+    checkBoxTitle: {...checkBoxTitle.props, title: 'Create badge'},
+    list: [{...firstdDragAndDrop.props, title: 'Add a badge'}]
   }
 };

@@ -99,7 +99,7 @@ import MoleculeForumForumComment from './../src/molecule/forum/forum-comment';
 import MoleculeForumForumPost from './../src/molecule/forum/forum-post';
 import MoleculeForumForumThread from './../src/molecule/forum/forum-thread';
 import MoleculeHero from './../src/molecule/hero';
-import MoleculeInputTextWithTiteledCheckbox from './../src/molecule/input-text-with-titeled-checkbox';
+import MoleculeInputTextWithTitledCheckbox from './../src/molecule/input-text-with-titled-checkbox';
 import MoleculeLoginAlert from './../src/molecule/login-alert';
 import MoleculeMenuList from './../src/molecule/menu-list';
 import MoleculeMessagePopin from './../src/molecule/message-popin';
@@ -175,6 +175,7 @@ import OrganismMoocHeader from './../src/organism/mooc-header';
 import OrganismPopin from './../src/organism/popin';
 import OrganismResourceBrowser from './../src/organism/resource-browser';
 import OrganismReviewHeader from './../src/organism/review-header';
+import OrganismRewardsForm from './../src/organism/rewards-form';
 import OrganismSearchAndChipsResults from './../src/organism/search-and-chips-results';
 import OrganismSettings from './../src/organism/settings';
 import OrganismSetupHeader from './../src/organism/setup-header';
@@ -641,8 +642,8 @@ import MoleculeForumForumThreadFixtureDefault from '../src/molecule/forum/forum-
 import MoleculeForumForumThreadFixtureWithAnswers from '../src/molecule/forum/forum-thread/test/fixtures/with-answers';
 import MoleculeHeroFixtureArabic from '../src/molecule/hero/test/fixtures/arabic';
 import MoleculeHeroFixtureHero from '../src/molecule/hero/test/fixtures/hero';
-import MoleculeInputTextWithTiteledCheckboxFixtureChecked from '../src/molecule/input-text-with-titeled-checkbox/test/fixtures/checked';
-import MoleculeInputTextWithTiteledCheckboxFixtureUnchecked from '../src/molecule/input-text-with-titeled-checkbox/test/fixtures/unchecked';
+import MoleculeInputTextWithTitledCheckboxFixtureChecked from '../src/molecule/input-text-with-titled-checkbox/test/fixtures/checked';
+import MoleculeInputTextWithTitledCheckboxFixtureUnchecked from '../src/molecule/input-text-with-titled-checkbox/test/fixtures/unchecked';
 import MoleculeLoginAlertFixtureDefault from '../src/molecule/login-alert/test/fixtures/default';
 import MoleculeMenuListFixtureDefault from '../src/molecule/menu-list/test/fixtures/default';
 import MoleculeMessagePopinFixtureDefault from '../src/molecule/message-popin/test/fixtures/default';
@@ -921,6 +922,10 @@ import OrganismReviewHeaderFixtureCurrentQuestionWrong from '../src/organism/rev
 import OrganismReviewHeaderFixtureFirstQuestionCurrentRight from '../src/organism/review-header/test/fixtures/first-question-current-right';
 import OrganismReviewHeaderFixtureNoAnsweredQuestion from '../src/organism/review-header/test/fixtures/no-answered-question';
 import OrganismReviewHeaderFixtureQuestionToRepeat from '../src/organism/review-header/test/fixtures/question-to-repeat';
+import OrganismRewardsFormFixtureDefault from '../src/organism/rewards-form/test/fixtures/default';
+import OrganismRewardsFormFixtureNoRewards from '../src/organism/rewards-form/test/fixtures/no-rewards';
+import OrganismRewardsFormFixtureOneReward from '../src/organism/rewards-form/test/fixtures/one-reward';
+import OrganismRewardsFormFixtureTwoRewards from '../src/organism/rewards-form/test/fixtures/two-rewards';
 import OrganismSearchAndChipsResultsFixtureDefault from '../src/organism/search-and-chips-results/test/fixtures/default';
 import OrganismSearchAndChipsResultsFixtureEmpty from '../src/organism/search-and-chips-results/test/fixtures/empty';
 import OrganismSearchAndChipsResultsFixtureFiltered from '../src/organism/search-and-chips-results/test/fixtures/filtered';
@@ -942,6 +947,7 @@ import OrganismSidebarFixtureShowcase from '../src/organism/sidebar/test/fixture
 import OrganismSliderFixtureDefault from '../src/organism/slider/test/fixtures/default';
 import OrganismSliderFixtureMultipleSlides from '../src/organism/slider/test/fixtures/multiple-slides';
 import OrganismUserPreferencesFixtureDefault from '../src/organism/user-preferences/test/fixtures/default';
+import OrganismWizardContentsFixtureCertificationRewards from '../src/organism/wizard-contents/test/fixtures/certification-rewards';
 import OrganismWizardContentsFixturePlaylistAddCoursesCreate from '../src/organism/wizard-contents/test/fixtures/playlist-add-courses-create';
 import OrganismWizardContentsFixturePlaylistGeneralSettingsCreate from '../src/organism/wizard-contents/test/fixtures/playlist-general-settings-create';
 import OrganismWizardContentsFixturePlaylistGeneralSettingsEdit from '../src/organism/wizard-contents/test/fixtures/playlist-general-settings-edit';
@@ -1116,6 +1122,7 @@ import TemplateBackOfficeBrandUpdateFixtureWizardFormEditPlaylist from '../src/t
 import TemplateBackOfficeBrandUpdateFixtureWizardOrganizeCoursesPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-organize-courses-playlist';
 import TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylistWithPopin from '../src/template/back-office/brand-update/test/fixtures/wizard-populations-playlist-with-popin';
 import TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-populations-playlist';
+import TemplateBackOfficeBrandUpdateFixtureWizardRewardsCertification from '../src/template/back-office/brand-update/test/fixtures/wizard-rewards-certification';
 import TemplateBackOfficeBrandUpdateFixtureWizardTranslatePlaylist from '../src/template/back-office/brand-update/test/fixtures/wizard-translate-playlist';
 import TemplateBackOfficeDashboardPreviewFixtureDefault from '../src/template/back-office/dashboard-preview/test/fixtures/default';
 import TemplateBackOfficeDashboardPreviewFixtureError from '../src/template/back-office/dashboard-preview/test/fixtures/error';
@@ -1264,7 +1271,7 @@ export const components = {
     MoleculeFeedback,
     MoleculeFilters,
     MoleculeHero,
-    MoleculeInputTextWithTiteledCheckbox,
+    MoleculeInputTextWithTitledCheckbox,
     MoleculeLoginAlert,
     MoleculeMenuList,
     MoleculeMessagePopin,
@@ -1359,6 +1366,7 @@ export const components = {
     OrganismPopin,
     OrganismResourceBrowser,
     OrganismReviewHeader,
+    OrganismRewardsForm,
     OrganismSearchAndChipsResults,
     OrganismSettings,
     OrganismSetupHeader,
@@ -2003,9 +2011,9 @@ export const fixtures = {
       Arabic: MoleculeHeroFixtureArabic,
       Hero: MoleculeHeroFixtureHero
     },
-    MoleculeInputTextWithTiteledCheckbox: {
-      Checked: MoleculeInputTextWithTiteledCheckboxFixtureChecked,
-      Unchecked: MoleculeInputTextWithTiteledCheckboxFixtureUnchecked
+    MoleculeInputTextWithTitledCheckbox: {
+      Checked: MoleculeInputTextWithTitledCheckboxFixtureChecked,
+      Unchecked: MoleculeInputTextWithTitledCheckboxFixtureUnchecked
     },
     MoleculeLoginAlert: {
       Default: MoleculeLoginAlertFixtureDefault
@@ -2489,6 +2497,12 @@ export const fixtures = {
       NoAnsweredQuestion: OrganismReviewHeaderFixtureNoAnsweredQuestion,
       QuestionToRepeat: OrganismReviewHeaderFixtureQuestionToRepeat
     },
+    OrganismRewardsForm: {
+      Default: OrganismRewardsFormFixtureDefault,
+      NoRewards: OrganismRewardsFormFixtureNoRewards,
+      OneReward: OrganismRewardsFormFixtureOneReward,
+      TwoRewards: OrganismRewardsFormFixtureTwoRewards
+    },
     OrganismSearchAndChipsResults: {
       Default: OrganismSearchAndChipsResultsFixtureDefault,
       Empty: OrganismSearchAndChipsResultsFixtureEmpty,
@@ -2523,6 +2537,7 @@ export const fixtures = {
       Default: OrganismUserPreferencesFixtureDefault
     },
     OrganismWizardContents: {
+      CertificationRewards: OrganismWizardContentsFixtureCertificationRewards,
       PlaylistAddCoursesCreate: OrganismWizardContentsFixturePlaylistAddCoursesCreate,
       PlaylistGeneralSettingsCreate: OrganismWizardContentsFixturePlaylistGeneralSettingsCreate,
       PlaylistGeneralSettingsEdit: OrganismWizardContentsFixturePlaylistGeneralSettingsEdit,
@@ -2757,6 +2772,7 @@ export const fixtures = {
       WizardOrganizeCoursesPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardOrganizeCoursesPlaylist,
       WizardPopulationsPlaylistWithPopin: TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylistWithPopin,
       WizardPopulationsPlaylist: TemplateBackOfficeBrandUpdateFixtureWizardPopulationsPlaylist,
+      WizardRewardsCertification: TemplateBackOfficeBrandUpdateFixtureWizardRewardsCertification,
       WizardTranslatePlaylist: TemplateBackOfficeBrandUpdateFixtureWizardTranslatePlaylist
     },
     TemplateBackOfficeDashboardPreview: {

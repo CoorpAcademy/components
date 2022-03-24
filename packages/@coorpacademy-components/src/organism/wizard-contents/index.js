@@ -10,6 +10,7 @@ import ContentTranslate from '../content-translation';
 import OrganismSearchAndChipsResults from '../search-and-chips-results';
 import CourseSelection from '../course-selection';
 import CourseSections from '../../molecule/course-sections';
+import RewardsForm from '../rewards-form';
 import style from './style.css';
 
 const buildHeader = (wizardHeader, steps) => {
@@ -49,6 +50,8 @@ const buildForm = content => {
       return <CourseSelection {...content} />;
     case 'organize-courses':
       return <CourseSections {...content} />;
+    case 'rewards':
+      return <RewardsForm {...content} />;
   }
 };
 
@@ -154,6 +157,10 @@ WizardContents.propTypes = {
     PropTypes.shape({
       ...CourseSections.propTypes,
       type: PropTypes.oneOf(['organize-courses'])
+    }),
+    PropTypes.shape({
+      ...RewardsForm.propTypes,
+      type: PropTypes.oneOf(['rewards'])
     })
   ]),
   previousStep: PropTypes.shape({

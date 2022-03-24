@@ -2,14 +2,17 @@
   margin-bottom: 18px;
 }
 .group {
+  list-style-type: none;
+  padding: 0;
+  margin-left: 31px;
   display: flex;
   overflow-y: inherit;
   align-content: flex-start;
   flex-wrap: wrap;
-  margin-left: 31px;
-  list-style-type: none;
 }
 
 .dragAndDrop {
   margin-right: 16px;
+  width: 202px;
+  height: 183px;
 }
