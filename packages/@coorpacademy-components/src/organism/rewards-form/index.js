@@ -5,20 +5,24 @@ import InputTextWithTiteledCheckbox from '../../molecule/input-text-with-titeled
 import DragAndDropWrapper from '../../molecule/drag-and-drop-wrapper';
 import style from './style.css';
 
+const ITEM = {
+  'input-text': InputTextWithTiteledCheckbox,
+  'drag-and-drop': DragAndDropWrapper
+};
+
 const RewardsForm = ({items}) => {
-  const itemsView = items.map((item, index) => (
-    <li
-      key={index}
-      className={classnames(style.item, item.type === 'input-text' && style.inputText)}
-      data-name={`reward-${index}`}
-    >
-      {item.type === 'input-text' ? (
-        <InputTextWithTiteledCheckbox {...item} />
-      ) : (
-        <DragAndDropWrapper {...item} />
-      )}
-    </li>
-  ));
+  const itemsView = items.map(({type, ...item}, index) => {
+    const Component = ITEM[type];
+    return (
+      <li
+        key={index}
+        className={classnames(style.item, type === 'input-text' && style.inputText)}
+        data-name={`reward-${index}`}
+      >
+        <Component {...item} />
+      </li>
+    );
+  });
   return <ul className={style.list}>{itemsView}</ul>;
 };
 
