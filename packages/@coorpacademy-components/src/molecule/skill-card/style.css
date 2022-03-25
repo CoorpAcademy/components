@@ -1,0 +1,60 @@
+@value colors: "../../variables/colors.css";
+@value cm_grey_400 from colors;
+@value white from colors;
+@value box_shadow_light_dark from colors;
+@value box_shadow_medium_dark from colors;
+
+.textBase {
+  font-family: "Gilroy";
+  font-style: normal;
+}
+
+.skillCardWrapper {
+  display: flex;
+  flex-direction: column;
+  max-width: 353px;
+  min-width: 245px;
+  height: 242px;
+  box-shadow: 0px 4px 16px box_shadow_light_dark;
+  transition: box-shadow 0.15s ease-in-out;
+  border-radius: 8px 8px 12px 12px;
+}
+
+.skillCardWrapper:hover {
+  box-shadow: 0px 4px 48px box_shadow_medium_dark;
+}
+
+.skillTitle {
+  composes: textBase;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 28px;
+  display: flex;
+  align-items: center;
+  height: 112px;
+  border-radius: 8px 8px 0px 0px;
+  color: white;
+  padding: 0px 24px;
+  user-select: none;
+}
+
+.questionReviseIcon {
+  padding-right : 8px;
+}
+
+.questionReviseText {
+  composes: textBase;
+  display: flex;
+  align-items : center;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  color: cm_grey_400;
+  padding: 16px 24px 24px;
+  user-select: none;
+
+}
+
+.buttonWrapper {
+  padding: 0px 24px;
+}

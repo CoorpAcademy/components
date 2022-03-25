@@ -137,6 +137,7 @@ import MoleculeSetupSections from './../src/molecule/setup-sections';
 import MoleculeSetupSlide from './../src/molecule/setup-slide';
 import MoleculeSetupSlider from './../src/molecule/setup-slider';
 import MoleculeShare from './../src/molecule/share';
+import MoleculeSkillCard from './../src/molecule/skill-card';
 import MoleculeSsmenuList from './../src/molecule/ssmenu-list';
 import MoleculeSubscriptionFreemium from './../src/molecule/subscription-freemium';
 import MoleculeSubscriptionPremium from './../src/molecule/subscription-premium';
@@ -773,6 +774,10 @@ import MoleculeSetupSlideFixtureWithoutUploadImage from '../src/molecule/setup-s
 import MoleculeSetupSliderFixtureDefaultCohort from '../src/molecule/setup-slider/test/fixtures/default-cohort';
 import MoleculeSetupSliderFixtureDefault from '../src/molecule/setup-slider/test/fixtures/default';
 import MoleculeShareFixtureDefault from '../src/molecule/share/test/fixtures/default';
+import MoleculeSkillCardFixtureCustomSkill from '../src/molecule/skill-card/test/fixtures/custom-skill';
+import MoleculeSkillCardFixtureDefault from '../src/molecule/skill-card/test/fixtures/default';
+import MoleculeSkillCardFixtureNoAriaLabels from '../src/molecule/skill-card/test/fixtures/no-aria-labels';
+import MoleculeSkillCardFixtureShortSkillTitle from '../src/molecule/skill-card/test/fixtures/short-skill-title';
 import MoleculeSsmenuListFixtureCoorpacademy from '../src/molecule/ssmenu-list/test/fixtures/coorpacademy';
 import MoleculeSsmenuListFixtureEmpty from '../src/molecule/ssmenu-list/test/fixtures/empty';
 import MoleculeSsmenuListFixtureFormations from '../src/molecule/ssmenu-list/test/fixtures/formations';
@@ -1310,6 +1315,7 @@ export const components = {
     MoleculeSetupSlide,
     MoleculeSetupSlider,
     MoleculeShare,
+    MoleculeSkillCard,
     MoleculeSsmenuList,
     MoleculeSubscriptionFreemium,
     MoleculeSubscriptionPremium,
@@ -2195,6 +2201,12 @@ export const fixtures = {
     },
     MoleculeShare: {
       Default: MoleculeShareFixtureDefault
+    },
+    MoleculeSkillCard: {
+      CustomSkill: MoleculeSkillCardFixtureCustomSkill,
+      Default: MoleculeSkillCardFixtureDefault,
+      NoAriaLabels: MoleculeSkillCardFixtureNoAriaLabels,
+      ShortSkillTitle: MoleculeSkillCardFixtureShortSkillTitle
     },
     MoleculeSsmenuList: {
       Coorpacademy: MoleculeSsmenuListFixtureCoorpacademy,
