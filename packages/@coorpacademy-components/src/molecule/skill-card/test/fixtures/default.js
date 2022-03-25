@@ -7,7 +7,7 @@ export const defaultProps = {
   reviseLabel: '75 questions to revise',
   reviseAriaLabel: 'revise aria label',
   isCustom: undefined,
-  onClick: () => {}
+  onClick: () => console.log('revise')
 };
 
 export default {

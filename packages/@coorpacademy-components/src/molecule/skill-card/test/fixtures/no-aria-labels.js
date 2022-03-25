@@ -4,7 +4,7 @@ export const defaultProps = {
   buttonLabel: 'Revise this skill',
   reviseLabel: '75 questions to revise',
   isCustom: undefined,
-  onClick: () => {}
+  onClick: () => console.log('revise - no aria')
 };
 
 export default {
