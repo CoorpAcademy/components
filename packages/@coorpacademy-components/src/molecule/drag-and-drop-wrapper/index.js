@@ -18,9 +18,11 @@ const DragAndDropWrapper = props => {
 
   return (
     <div>
-      <div className={style.title}>
-        <CheckboxWithTitle {...checkBoxTitle} />
-      </div>
+      {checkBoxTitle ? (
+        <div className={style.title}>
+          <CheckboxWithTitle {...checkBoxTitle} />
+        </div>
+      ) : null}
       <ul className={style.group} data-name={dataName}>
         {dragAndDropList}
       </ul>

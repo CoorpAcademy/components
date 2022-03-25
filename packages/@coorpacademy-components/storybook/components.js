@@ -595,6 +595,7 @@ import MoleculeDragAndDropFixtureSuccessVideo from '../src/molecule/drag-and-dro
 import MoleculeDragAndDropFixtureSuccess from '../src/molecule/drag-and-drop/test/fixtures/success';
 import MoleculeDragAndDropWrapperFixtureDefault from '../src/molecule/drag-and-drop-wrapper/test/fixtures/default';
 import MoleculeDragAndDropWrapperFixtureTwoDragAndDrops from '../src/molecule/drag-and-drop-wrapper/test/fixtures/two-drag-and-drops';
+import MoleculeDragAndDropWrapperFixtureWithoutCheckbox from '../src/molecule/drag-and-drop-wrapper/test/fixtures/without-checkbox';
 import MoleculeDraggableFixtureDefault from '../src/molecule/draggable/test/fixtures/default';
 import MoleculeDraggableListFixtureCourseSections from '../src/molecule/draggable-list/test/fixtures/course-sections';
 import MoleculeDraggableListFixtureDashboardSections from '../src/molecule/draggable-list/test/fixtures/dashboard-sections';
@@ -1977,7 +1978,8 @@ export const fixtures = {
     },
     MoleculeDragAndDropWrapper: {
       Default: MoleculeDragAndDropWrapperFixtureDefault,
-      TwoDragAndDrops: MoleculeDragAndDropWrapperFixtureTwoDragAndDrops
+      TwoDragAndDrops: MoleculeDragAndDropWrapperFixtureTwoDragAndDrops,
+      WithoutCheckbox: MoleculeDragAndDropWrapperFixtureWithoutCheckbox
     },
     MoleculeDraggable: {
       Default: MoleculeDraggableFixtureDefault
