@@ -541,7 +541,6 @@ import MoleculeCmPopinFixtureDangerous from '../src/molecule/cm-popin/test/fixtu
 import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixtures/default';
 import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/test/fixtures/warning-with-close';
 import MoleculeComponentsWrapperFixtureDefault from '../src/molecule/components-wrapper/test/fixtures/default';
-import MoleculeComponentsWrapperFixtureDragDropCheckboxWithoutSubtitle from '../src/molecule/components-wrapper/test/fixtures/drag-drop-checkbox-without-subtitle';
 import MoleculeComponentsWrapperFixtureDragDropCheckbox from '../src/molecule/components-wrapper/test/fixtures/drag-drop-checkbox';
 import MoleculeComponentsWrapperFixtureInputTextTitle from '../src/molecule/components-wrapper/test/fixtures/input-text-title';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
@@ -1926,7 +1925,6 @@ export const fixtures = {
     },
     MoleculeComponentsWrapper: {
       Default: MoleculeComponentsWrapperFixtureDefault,
-      DragDropCheckboxWithoutSubtitle: MoleculeComponentsWrapperFixtureDragDropCheckboxWithoutSubtitle,
       DragDropCheckbox: MoleculeComponentsWrapperFixtureDragDropCheckbox,
       InputTextTitle: MoleculeComponentsWrapperFixtureInputTextTitle
     },

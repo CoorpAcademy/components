@@ -24,7 +24,7 @@ const CourseSections = ({
 }) => {
   if (isLoading) return <Loading />;
 
-  const child = {...mandatoryCoursesInput, childType: 'inputText'};
+  const child = {...mandatoryCoursesInput, childType: 'input-text'};
   const sectionTitle = {title: inputTitle, 'data-name': 'mandatory-courses-input-title'};
   return (
     <div>
