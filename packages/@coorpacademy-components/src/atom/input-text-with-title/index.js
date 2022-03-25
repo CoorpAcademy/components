@@ -9,7 +9,7 @@ const InputTextWithTitle = props => {
 
   return (
     <div className={style.container} data-name={dataName} aria-label={ariaLabel}>
-      <span className={style.title}>{title}</span>
+      {title ? <span className={style.title}>{title}</span> : null}
       <div className={inputTextClass}>
         <InputText {...inputText} />
       </div>

@@ -6,6 +6,7 @@ import DraggableList from '../draggable-list';
 import Loader from '../../atom/loader';
 import Title from '../../atom/title';
 import style from './style.css';
+import ComponentWrapper from '../components-wrapper';
 
 const Loading = () => (
   <div className={style.loaderContainer}>
@@ -23,21 +24,12 @@ const CourseSections = ({
 }) => {
   if (isLoading) return <Loading />;
 
+  const child = {...mandatoryCoursesInput, childType: 'inputText'};
+  const sectionTitle = {title: inputTitle, 'data-name': 'mandatory-courses-input-title'};
   return (
     <div>
-      {inputTitle ? (
-        <div className={style.title}>
-          <Title
-            title={inputTitle}
-            type={'form-group'}
-            data-name={'mandatory-courses-input-title'}
-          />
-        </div>
-      ) : null}
-      {mandatoryCoursesInput ? (
-        <div className={style.mandatoryCoursesInput}>
-          <InputTextWithTitle {...mandatoryCoursesInput} />
-        </div>
+      {mandatoryCoursesInput && sectionTitle ? (
+        <ComponentWrapper child={child} sectionTitle={sectionTitle} />
       ) : null}
       {title ? (
         <div className={style.title}>

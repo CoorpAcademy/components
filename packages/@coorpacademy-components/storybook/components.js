@@ -74,6 +74,7 @@ import MoleculeCard from './../src/molecule/card';
 import MoleculeCardContent from './../src/molecule/card-content';
 import MoleculeCardWithButton from './../src/molecule/card-with-button';
 import MoleculeCmPopin from './../src/molecule/cm-popin';
+import MoleculeComponentsWrapper from './../src/molecule/components-wrapper';
 import MoleculeCookieBanner from './../src/molecule/cookie-banner';
 import MoleculeCoorpManagerRoles from './../src/molecule/coorp-manager-roles';
 import MoleculeCourseSection from './../src/molecule/course-section';
@@ -539,6 +540,10 @@ import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with
 import MoleculeCmPopinFixtureDangerous from '../src/molecule/cm-popin/test/fixtures/dangerous';
 import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixtures/default';
 import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/test/fixtures/warning-with-close';
+import MoleculeComponentsWrapperFixtureDefault from '../src/molecule/components-wrapper/test/fixtures/default';
+import MoleculeComponentsWrapperFixtureDragDropCheckboxWithoutSubtitle from '../src/molecule/components-wrapper/test/fixtures/drag-drop-checkbox-without-subtitle';
+import MoleculeComponentsWrapperFixtureDragDropCheckbox from '../src/molecule/components-wrapper/test/fixtures/drag-drop-checkbox';
+import MoleculeComponentsWrapperFixtureInputTextTitle from '../src/molecule/components-wrapper/test/fixtures/input-text-title';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
 import MoleculeCoorpManagerRolesFixtureDefault from '../src/molecule/coorp-manager-roles/test/fixtures/default';
 import MoleculeCourseSectionFixtureAdvancedLevel from '../src/molecule/course-section/test/fixtures/advanced-level';
@@ -1268,6 +1273,7 @@ export const components = {
     MoleculeCardContent,
     MoleculeCardWithButton,
     MoleculeCmPopin,
+    MoleculeComponentsWrapper,
     MoleculeCookieBanner,
     MoleculeCoorpManagerRoles,
     MoleculeCourseSection,
@@ -1917,6 +1923,12 @@ export const fixtures = {
       Dangerous: MoleculeCmPopinFixtureDangerous,
       Default: MoleculeCmPopinFixtureDefault,
       WarningWithClose: MoleculeCmPopinFixtureWarningWithClose
+    },
+    MoleculeComponentsWrapper: {
+      Default: MoleculeComponentsWrapperFixtureDefault,
+      DragDropCheckboxWithoutSubtitle: MoleculeComponentsWrapperFixtureDragDropCheckboxWithoutSubtitle,
+      DragDropCheckbox: MoleculeComponentsWrapperFixtureDragDropCheckbox,
+      InputTextTitle: MoleculeComponentsWrapperFixtureInputTextTitle
     },
     MoleculeCookieBanner: {
       Default: MoleculeCookieBannerFixtureDefault
