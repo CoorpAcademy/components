@@ -1,0 +1,81 @@
+@value colors: "../../variables/colors.css";
+@value xtraLightGrey from colors;
+@value cm_blue_900 from colors;
+@value cm_grey_75 from colors;
+@value cm_grey_300 from colors;
+@value cm_grey_700 from colors;
+@value white from colors;
+
+.textBase {
+  font-family: "Gilroy";
+  font-style: normal;
+  color: cm_blue_900;
+}
+
+.reviewWrapper {
+  width: 348px;
+  height: 598px;
+  border-radius: 16px;
+  background-color: xtraLightGrey;
+  position: sticky;
+}
+
+.reviewTitle {
+  composes: textBase;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 36px;
+  padding: 40px 40px 16px;
+  height: 72px;
+}
+
+.reviewText {
+  composes: textBase;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  margin-bottom: 32px;
+  padding: 0 40px;
+  height: 198px;
+  opacity: 0.7;
+  overflow: hidden;
+}
+
+.reviewListItemWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  margin: 16px 40px;
+  background: cm_grey_75;
+  border-radius: 8px;
+}
+
+.reviewListText {
+  composes: textBase;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  padding-left: 12px;
+}
+
+.labelIcon {
+  padding-right: 12px;
+  height: 16px;
+  width: 16px;
+}
+
+.informationIcon {
+  color: cm_grey_300;
+}
+
+.reviewTooltip {
+  composes: textBase;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  border-radius: 7px;
+  background: cm_grey_700;
+}
