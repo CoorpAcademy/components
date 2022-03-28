@@ -39,7 +39,7 @@ TitleAndCheckBoxWrapper.propTypes = {
     }),
     PropTypes.shape({
       ...DragAndDropWrapper.propTypes,
-      childType: PropTypes.oneOf(['drag-and-drop'])
+      childType: PropTypes.oneOf(['drag-and-drop-wrapper'])
     })
   ])
 };
