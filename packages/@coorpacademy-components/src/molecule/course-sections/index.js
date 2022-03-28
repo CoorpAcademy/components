@@ -5,8 +5,8 @@ import CourseSection from '../course-section';
 import DraggableList from '../draggable-list';
 import Loader from '../../atom/loader';
 import Title from '../../atom/title';
+import TitleAndCheckBoxWrapper from '../title-and-checkbox-wrapper';
 import style from './style.css';
-import ComponentWrapper from '../components-wrapper';
 
 const Loading = () => (
   <div className={style.loaderContainer}>
@@ -29,7 +29,7 @@ const CourseSections = ({
   return (
     <div>
       {mandatoryCoursesInput && sectionTitle ? (
-        <ComponentWrapper child={child} sectionTitle={sectionTitle} />
+        <TitleAndCheckBoxWrapper child={child} sectionTitle={sectionTitle} />
       ) : null}
       {title ? (
         <div className={style.title}>

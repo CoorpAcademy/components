@@ -74,7 +74,6 @@ import MoleculeCard from './../src/molecule/card';
 import MoleculeCardContent from './../src/molecule/card-content';
 import MoleculeCardWithButton from './../src/molecule/card-with-button';
 import MoleculeCmPopin from './../src/molecule/cm-popin';
-import MoleculeComponentsWrapper from './../src/molecule/components-wrapper';
 import MoleculeCookieBanner from './../src/molecule/cookie-banner';
 import MoleculeCoorpManagerRoles from './../src/molecule/coorp-manager-roles';
 import MoleculeCourseSection from './../src/molecule/course-section';
@@ -145,6 +144,7 @@ import MoleculeSubscriptionPremium from './../src/molecule/subscription-premium'
 import MoleculeTable from './../src/molecule/table';
 import MoleculeTeamsPopin from './../src/molecule/teams-popin';
 import MoleculeThemeImage from './../src/molecule/theme-image';
+import MoleculeTitleAndCheckboxWrapper from './../src/molecule/title-and-checkbox-wrapper';
 import MoleculeTitledCheckbox from './../src/molecule/titled-checkbox';
 import MoleculeUnsubscribe from './../src/molecule/unsubscribe';
 import MoleculeVerticalTabs from './../src/molecule/vertical-tabs';
@@ -540,9 +540,6 @@ import MoleculeCardWithButtonFixtureWithoutLabel from '../src/molecule/card-with
 import MoleculeCmPopinFixtureDangerous from '../src/molecule/cm-popin/test/fixtures/dangerous';
 import MoleculeCmPopinFixtureDefault from '../src/molecule/cm-popin/test/fixtures/default';
 import MoleculeCmPopinFixtureWarningWithClose from '../src/molecule/cm-popin/test/fixtures/warning-with-close';
-import MoleculeComponentsWrapperFixtureDefault from '../src/molecule/components-wrapper/test/fixtures/default';
-import MoleculeComponentsWrapperFixtureDragDropCheckbox from '../src/molecule/components-wrapper/test/fixtures/drag-drop-checkbox';
-import MoleculeComponentsWrapperFixtureInputTextTitle from '../src/molecule/components-wrapper/test/fixtures/input-text-title';
 import MoleculeCookieBannerFixtureDefault from '../src/molecule/cookie-banner/test/fixtures/default';
 import MoleculeCoorpManagerRolesFixtureDefault from '../src/molecule/coorp-manager-roles/test/fixtures/default';
 import MoleculeCourseSectionFixtureAdvancedLevel from '../src/molecule/course-section/test/fixtures/advanced-level';
@@ -804,6 +801,9 @@ import MoleculeTeamsPopinFixtureNotTeamsAccount from '../src/molecule/teams-popi
 import MoleculeTeamsPopinFixtureWithoutButton from '../src/molecule/teams-popin/test/fixtures/without-button';
 import MoleculeTeamsPopinFixtureWrong from '../src/molecule/teams-popin/test/fixtures/wrong';
 import MoleculeThemeImageFixtureBg from '../src/molecule/theme-image/test/fixtures/bg';
+import MoleculeTitleAndCheckboxWrapperFixtureDefault from '../src/molecule/title-and-checkbox-wrapper/test/fixtures/default';
+import MoleculeTitleAndCheckboxWrapperFixtureDragDropCheckbox from '../src/molecule/title-and-checkbox-wrapper/test/fixtures/drag-drop-checkbox';
+import MoleculeTitleAndCheckboxWrapperFixtureInputTextTitle from '../src/molecule/title-and-checkbox-wrapper/test/fixtures/input-text-title';
 import MoleculeTitledCheckboxFixtureChecked from '../src/molecule/titled-checkbox/test/fixtures/checked';
 import MoleculeTitledCheckboxFixtureNoBg from '../src/molecule/titled-checkbox/test/fixtures/no-bg';
 import MoleculeTitledCheckboxFixtureNotChecked from '../src/molecule/titled-checkbox/test/fixtures/not-checked';
@@ -1272,7 +1272,6 @@ export const components = {
     MoleculeCardContent,
     MoleculeCardWithButton,
     MoleculeCmPopin,
-    MoleculeComponentsWrapper,
     MoleculeCookieBanner,
     MoleculeCoorpManagerRoles,
     MoleculeCourseSection,
@@ -1328,6 +1327,7 @@ export const components = {
     MoleculeTable,
     MoleculeTeamsPopin,
     MoleculeThemeImage,
+    MoleculeTitleAndCheckboxWrapper,
     MoleculeTitledCheckbox,
     MoleculeUnsubscribe,
     MoleculeVerticalTabs,
@@ -1923,11 +1923,6 @@ export const fixtures = {
       Default: MoleculeCmPopinFixtureDefault,
       WarningWithClose: MoleculeCmPopinFixtureWarningWithClose
     },
-    MoleculeComponentsWrapper: {
-      Default: MoleculeComponentsWrapperFixtureDefault,
-      DragDropCheckbox: MoleculeComponentsWrapperFixtureDragDropCheckbox,
-      InputTextTitle: MoleculeComponentsWrapperFixtureInputTextTitle
-    },
     MoleculeCookieBanner: {
       Default: MoleculeCookieBannerFixtureDefault
     },
@@ -2252,6 +2247,11 @@ export const fixtures = {
     },
     MoleculeThemeImage: {
       Bg: MoleculeThemeImageFixtureBg
+    },
+    MoleculeTitleAndCheckboxWrapper: {
+      Default: MoleculeTitleAndCheckboxWrapperFixtureDefault,
+      DragDropCheckbox: MoleculeTitleAndCheckboxWrapperFixtureDragDropCheckbox,
+      InputTextTitle: MoleculeTitleAndCheckboxWrapperFixtureInputTextTitle
     },
     MoleculeTitledCheckbox: {
       Checked: MoleculeTitledCheckboxFixtureChecked,

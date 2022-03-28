@@ -10,7 +10,7 @@ const CHILD = {
   'input-text': InputTextWithTitle,
   'drag-and-drop-wrapper': DragAndDropWrapper
 };
-const ComponentWrapper = props => {
+const TitleAndCheckBoxWrapper = props => {
   const {checkboxWithTitle, child, sectionTitle} = props;
 
   const Child = CHILD[child.childType];
@@ -29,7 +29,7 @@ const ComponentWrapper = props => {
   );
 };
 
-ComponentWrapper.propTypes = {
+TitleAndCheckBoxWrapper.propTypes = {
   checkboxWithTitle: CheckboxWithTitle.propTypes,
   sectionTitle: Title.propTypes,
   child: PropTypes.oneOfType([
@@ -43,4 +43,4 @@ ComponentWrapper.propTypes = {
     })
   ])
 };
-export default ComponentWrapper;
+export default TitleAndCheckBoxWrapper;

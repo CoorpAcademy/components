@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import ComponentWrapper from '../../molecule/components-wrapper';
+import TitleAndCheckBoxWrapper from '../../molecule/title-and-checkbox-wrapper';
 import style from './style.css';
 
 const RewardsForm = ({items}) => {
@@ -12,7 +12,7 @@ const RewardsForm = ({items}) => {
         className={classnames(style.item, childType === 'input-text' && style.inputText)}
         data-name={`reward-${index}`}
       >
-        <ComponentWrapper {...item} />
+        <TitleAndCheckBoxWrapper {...item} />
       </li>
     );
   });
@@ -20,7 +20,7 @@ const RewardsForm = ({items}) => {
 };
 
 RewardsForm.propTypes = {
-  items: PropTypes.arrayOf(PropTypes.shape(ComponentWrapper.propTypes))
+  items: PropTypes.arrayOf(PropTypes.shape(TitleAndCheckBoxWrapper.propTypes))
 };
 
 export default RewardsForm;
