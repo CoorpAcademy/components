@@ -30,8 +30,8 @@ const TitleAndCheckBoxWrapper = props => {
 };
 
 TitleAndCheckBoxWrapper.propTypes = {
-  checkboxWithTitle: CheckboxWithTitle.propTypes,
-  sectionTitle: Title.propTypes,
+  checkboxWithTitle: PropTypes.shape(CheckboxWithTitle.propTypes),
+  sectionTitle: PropTypes.shape(Title.propTypes),
   child: PropTypes.oneOfType([
     PropTypes.shape({
       ...InputTextWithTitle.propTypes,
