@@ -124,6 +124,7 @@ import _NovaLineMobilephoneMobilePhoneClose1 from './components/nova-line/mobile
 import _NovaLineMobilephoneQrCode1 from './components/nova-line/mobilephone/qr-code.1';
 import _NovaLineNetworkNetworkMobile from './components/nova-line/network/network-mobile';
 import _NovaLineRemoveAddRemoveCircle1 from './components/nova-line/remove-add/remove-circle-1';
+import _NovaLineSelectionCursorsCursorArrowTarget from './components/nova-line/selection-cursors/cursor-arrow-target';
 import _NovaLineSpaceRingPlanet from './components/nova-line/space/ring-planet';
 import _NovaLineStatusCheckCircle1 from './components/nova-line/status/check-circle-1';
 import _NovaLineStatusClose from './components/nova-line/status/close';
@@ -310,6 +311,7 @@ export const NovaLineMobilephoneMobilePhoneClose1: Icon = _NovaLineMobilephoneMo
 export const NovaLineMobilephoneQrCode1: Icon = _NovaLineMobilephoneQrCode1;
 export const NovaLineNetworkNetworkMobile: Icon = _NovaLineNetworkNetworkMobile;
 export const NovaLineRemoveAddRemoveCircle1: Icon = _NovaLineRemoveAddRemoveCircle1;
+export const NovaLineSelectionCursorsCursorArrowTarget: Icon = _NovaLineSelectionCursorsCursorArrowTarget;
 export const NovaLineSpaceRingPlanet: Icon = _NovaLineSpaceRingPlanet;
 export const NovaLineStatusCheckCircle1: Icon = _NovaLineStatusCheckCircle1;
 export const NovaLineStatusClose: Icon = _NovaLineStatusClose;

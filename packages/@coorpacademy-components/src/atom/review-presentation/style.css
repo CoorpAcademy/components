@@ -1,3 +1,6 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value mobile from breakpoints;
 @value colors: "../../variables/colors.css";
 @value xtraLightGrey from colors;
 @value cm_blue_900 from colors;
@@ -5,6 +8,7 @@
 @value cm_grey_300 from colors;
 @value cm_grey_700 from colors;
 @value white from colors;
+
 
 .textBase {
   font-family: "Gilroy";
@@ -58,7 +62,6 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 22px;
-  padding-left: 12px;
 }
 
 .labelIcon {
@@ -71,11 +74,77 @@
   color: cm_grey_300;
 }
 
-.reviewTooltip {
+.toolTip {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.8s;
+  position: absolute;
+  width: 103px;
+  height: 56px;
+  border-radius: 7px;
+  background-color: cm_grey_700;
+  right: -40px;
+  bottom: 32px;
+}
+
+.toolTip::before {
+  content: '';
+  display: inline-block;
+  visibility: hidden;
+  opacity: 0;
+  width: 15px;
+  height: 15px;
+  transform: rotate(-45deg);
+  transition: opacity 0.8s;
+  background-color: cm_grey_700;
+  position: inherit;
+  bottom: -4px;
+  right: 40%;
+  border-radius: 2px;
+}
+
+.tooltipText {
   composes: textBase;
   font-weight: 500;
   font-size: 14px;
   line-height: 20px;
-  border-radius: 7px;
-  background: cm_grey_700;
+  display: inline-block;
+  border-radius: 3px;
+  word-wrap: break-word;
+  color: white;
+  padding: 8px 16px;
+  overflow: hidden;
+  text-align: center;
+}
+
+.tooltipContainer {
+  overflow: visible;
+  position: relative;
+}
+
+.reviewListItemWrapper:hover .tooltipContainer .toolTip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.reviewListItemWrapper:hover .tooltipContainer .toolTip::before {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltipIconContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media tablet {
+  .reviewWrapper{
+    width: 326px;
+  }
+}
+
+@media mobile {
+  .reviewWrapper{
+    width: 100%;
+  }
 }
