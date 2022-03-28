@@ -1,7 +1,6 @@
 .group {
   list-style-type: none;
   padding: 0;
-  margin-left: 31px;
   display: flex;
   overflow-y: inherit;
   align-content: flex-start;

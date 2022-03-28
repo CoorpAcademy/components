@@ -21,6 +21,7 @@ import SetupSlider from '../setup-slider';
 import SetupSections from '../setup-sections';
 import Title from '../../atom/title';
 import Roles from '../coorp-manager-roles';
+import TitleAndCheckBoxWrapper from '../title-and-checkbox-wrapper';
 import style from './style.css';
 
 const inputContainerStyle = {
@@ -74,6 +75,8 @@ const buildInput = field => {
       return <Button {...field} />;
     case 'roles':
       return <Roles {...field} />;
+    case 'titleAndCheckBoxWrapper':
+      return <TitleAndCheckBoxWrapper {...field} />;
     default:
       return <InputText {...field} />;
   }

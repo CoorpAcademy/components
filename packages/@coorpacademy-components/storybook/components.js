@@ -494,6 +494,7 @@ import MoleculeBrandFormGroupFixtureLookandfeel from '../src/molecule/brand-form
 import MoleculeBrandFormGroupFixtureRoles from '../src/molecule/brand-form-group/test/fixtures/roles';
 import MoleculeBrandFormGroupFixtureSlider from '../src/molecule/brand-form-group/test/fixtures/slider';
 import MoleculeBrandFormGroupFixtureSso from '../src/molecule/brand-form-group/test/fixtures/sso';
+import MoleculeBrandFormGroupFixtureTitleAndCheckboxWrapper from '../src/molecule/brand-form-group/test/fixtures/title-and-checkbox-wrapper';
 import MoleculeBrandTabsFixtureAnalytics from '../src/molecule/brand-tabs/test/fixtures/analytics';
 import MoleculeBrandTabsFixtureCohort from '../src/molecule/brand-tabs/test/fixtures/cohort';
 import MoleculeBrandTabsFixtureDefault from '../src/molecule/brand-tabs/test/fixtures/default';
@@ -803,6 +804,7 @@ import MoleculeTeamsPopinFixtureWrong from '../src/molecule/teams-popin/test/fix
 import MoleculeThemeImageFixtureBg from '../src/molecule/theme-image/test/fixtures/bg';
 import MoleculeTitleAndCheckboxWrapperFixtureDefault from '../src/molecule/title-and-checkbox-wrapper/test/fixtures/default';
 import MoleculeTitleAndCheckboxWrapperFixtureDragDropCheckbox from '../src/molecule/title-and-checkbox-wrapper/test/fixtures/drag-drop-checkbox';
+import MoleculeTitleAndCheckboxWrapperFixtureDragDropWithoutTitle from '../src/molecule/title-and-checkbox-wrapper/test/fixtures/drag-drop-without-title';
 import MoleculeTitleAndCheckboxWrapperFixtureInputTextTitle from '../src/molecule/title-and-checkbox-wrapper/test/fixtures/input-text-title';
 import MoleculeTitledCheckboxFixtureChecked from '../src/molecule/titled-checkbox/test/fixtures/checked';
 import MoleculeTitledCheckboxFixtureNoBg from '../src/molecule/titled-checkbox/test/fixtures/no-bg';
@@ -864,6 +866,7 @@ import OrganismBrandFormFixtureLms from '../src/organism/brand-form/test/fixture
 import OrganismBrandFormFixtureLookandfeel from '../src/organism/brand-form/test/fixtures/lookandfeel';
 import OrganismBrandFormFixtureManageusersEdit from '../src/organism/brand-form/test/fixtures/manageusers-edit';
 import OrganismBrandFormFixtureSso from '../src/organism/brand-form/test/fixtures/sso';
+import OrganismBrandFormFixtureWizardCertification from '../src/organism/brand-form/test/fixtures/wizard-certification';
 import OrganismBrandFormFixtureWizardPlaylists from '../src/organism/brand-form/test/fixtures/wizard-playlists';
 import OrganismBrandTableFixtureAnimations from '../src/organism/brand-table/test/fixtures/animations';
 import OrganismBrandTableFixtureDefault from '../src/organism/brand-table/test/fixtures/default';
@@ -965,6 +968,7 @@ import OrganismSidebarFixtureShowcase from '../src/organism/sidebar/test/fixture
 import OrganismSliderFixtureDefault from '../src/organism/slider/test/fixtures/default';
 import OrganismSliderFixtureMultipleSlides from '../src/organism/slider/test/fixtures/multiple-slides';
 import OrganismUserPreferencesFixtureDefault from '../src/organism/user-preferences/test/fixtures/default';
+import OrganismWizardContentsFixtureCertificationGeneralSettingsEdit from '../src/organism/wizard-contents/test/fixtures/certification-general-settings-edit';
 import OrganismWizardContentsFixtureCertificationRewards from '../src/organism/wizard-contents/test/fixtures/certification-rewards';
 import OrganismWizardContentsFixturePlaylistAddCoursesCreate from '../src/organism/wizard-contents/test/fixtures/playlist-add-courses-create';
 import OrganismWizardContentsFixturePlaylistGeneralSettingsCreate from '../src/organism/wizard-contents/test/fixtures/playlist-general-settings-create';
@@ -1859,7 +1863,8 @@ export const fixtures = {
       Lookandfeel: MoleculeBrandFormGroupFixtureLookandfeel,
       Roles: MoleculeBrandFormGroupFixtureRoles,
       Slider: MoleculeBrandFormGroupFixtureSlider,
-      Sso: MoleculeBrandFormGroupFixtureSso
+      Sso: MoleculeBrandFormGroupFixtureSso,
+      TitleAndCheckboxWrapper: MoleculeBrandFormGroupFixtureTitleAndCheckboxWrapper
     },
     MoleculeBrandTabs: {
       Analytics: MoleculeBrandTabsFixtureAnalytics,
@@ -2251,6 +2256,7 @@ export const fixtures = {
     MoleculeTitleAndCheckboxWrapper: {
       Default: MoleculeTitleAndCheckboxWrapperFixtureDefault,
       DragDropCheckbox: MoleculeTitleAndCheckboxWrapperFixtureDragDropCheckbox,
+      DragDropWithoutTitle: MoleculeTitleAndCheckboxWrapperFixtureDragDropWithoutTitle,
       InputTextTitle: MoleculeTitleAndCheckboxWrapperFixtureInputTextTitle
     },
     MoleculeTitledCheckbox: {
@@ -2428,6 +2434,7 @@ export const fixtures = {
       Lookandfeel: OrganismBrandFormFixtureLookandfeel,
       ManageusersEdit: OrganismBrandFormFixtureManageusersEdit,
       Sso: OrganismBrandFormFixtureSso,
+      WizardCertification: OrganismBrandFormFixtureWizardCertification,
       WizardPlaylists: OrganismBrandFormFixtureWizardPlaylists
     },
     OrganismBrandTable: {
@@ -2579,6 +2586,7 @@ export const fixtures = {
       Default: OrganismUserPreferencesFixtureDefault
     },
     OrganismWizardContents: {
+      CertificationGeneralSettingsEdit: OrganismWizardContentsFixtureCertificationGeneralSettingsEdit,
       CertificationRewards: OrganismWizardContentsFixtureCertificationRewards,
       PlaylistAddCoursesCreate: OrganismWizardContentsFixturePlaylistAddCoursesCreate,
       PlaylistGeneralSettingsCreate: OrganismWizardContentsFixturePlaylistGeneralSettingsCreate,
