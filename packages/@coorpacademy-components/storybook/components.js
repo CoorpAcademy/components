@@ -144,6 +144,7 @@ import MoleculeSubscriptionPremium from './../src/molecule/subscription-premium'
 import MoleculeTable from './../src/molecule/table';
 import MoleculeTeamsPopin from './../src/molecule/teams-popin';
 import MoleculeThemeImage from './../src/molecule/theme-image';
+import MoleculeTitleAndCheckboxWrapper from './../src/molecule/title-and-checkbox-wrapper';
 import MoleculeTitledCheckbox from './../src/molecule/titled-checkbox';
 import MoleculeUnsubscribe from './../src/molecule/unsubscribe';
 import MoleculeVerticalTabs from './../src/molecule/vertical-tabs';
@@ -595,6 +596,7 @@ import MoleculeDragAndDropFixtureSuccessVideo from '../src/molecule/drag-and-dro
 import MoleculeDragAndDropFixtureSuccess from '../src/molecule/drag-and-drop/test/fixtures/success';
 import MoleculeDragAndDropWrapperFixtureDefault from '../src/molecule/drag-and-drop-wrapper/test/fixtures/default';
 import MoleculeDragAndDropWrapperFixtureTwoDragAndDrops from '../src/molecule/drag-and-drop-wrapper/test/fixtures/two-drag-and-drops';
+import MoleculeDragAndDropWrapperFixtureWithoutCheckbox from '../src/molecule/drag-and-drop-wrapper/test/fixtures/without-checkbox';
 import MoleculeDraggableFixtureDefault from '../src/molecule/draggable/test/fixtures/default';
 import MoleculeDraggableListFixtureCourseSections from '../src/molecule/draggable-list/test/fixtures/course-sections';
 import MoleculeDraggableListFixtureDashboardSections from '../src/molecule/draggable-list/test/fixtures/dashboard-sections';
@@ -799,6 +801,9 @@ import MoleculeTeamsPopinFixtureNotTeamsAccount from '../src/molecule/teams-popi
 import MoleculeTeamsPopinFixtureWithoutButton from '../src/molecule/teams-popin/test/fixtures/without-button';
 import MoleculeTeamsPopinFixtureWrong from '../src/molecule/teams-popin/test/fixtures/wrong';
 import MoleculeThemeImageFixtureBg from '../src/molecule/theme-image/test/fixtures/bg';
+import MoleculeTitleAndCheckboxWrapperFixtureDefault from '../src/molecule/title-and-checkbox-wrapper/test/fixtures/default';
+import MoleculeTitleAndCheckboxWrapperFixtureDragDropCheckbox from '../src/molecule/title-and-checkbox-wrapper/test/fixtures/drag-drop-checkbox';
+import MoleculeTitleAndCheckboxWrapperFixtureInputTextTitle from '../src/molecule/title-and-checkbox-wrapper/test/fixtures/input-text-title';
 import MoleculeTitledCheckboxFixtureChecked from '../src/molecule/titled-checkbox/test/fixtures/checked';
 import MoleculeTitledCheckboxFixtureNoBg from '../src/molecule/titled-checkbox/test/fixtures/no-bg';
 import MoleculeTitledCheckboxFixtureNotChecked from '../src/molecule/titled-checkbox/test/fixtures/not-checked';
@@ -1322,6 +1327,7 @@ export const components = {
     MoleculeTable,
     MoleculeTeamsPopin,
     MoleculeThemeImage,
+    MoleculeTitleAndCheckboxWrapper,
     MoleculeTitledCheckbox,
     MoleculeUnsubscribe,
     MoleculeVerticalTabs,
@@ -1977,7 +1983,8 @@ export const fixtures = {
     },
     MoleculeDragAndDropWrapper: {
       Default: MoleculeDragAndDropWrapperFixtureDefault,
-      TwoDragAndDrops: MoleculeDragAndDropWrapperFixtureTwoDragAndDrops
+      TwoDragAndDrops: MoleculeDragAndDropWrapperFixtureTwoDragAndDrops,
+      WithoutCheckbox: MoleculeDragAndDropWrapperFixtureWithoutCheckbox
     },
     MoleculeDraggable: {
       Default: MoleculeDraggableFixtureDefault
@@ -2240,6 +2247,11 @@ export const fixtures = {
     },
     MoleculeThemeImage: {
       Bg: MoleculeThemeImageFixtureBg
+    },
+    MoleculeTitleAndCheckboxWrapper: {
+      Default: MoleculeTitleAndCheckboxWrapperFixtureDefault,
+      DragDropCheckbox: MoleculeTitleAndCheckboxWrapperFixtureDragDropCheckbox,
+      InputTextTitle: MoleculeTitleAndCheckboxWrapperFixtureInputTextTitle
     },
     MoleculeTitledCheckbox: {
       Checked: MoleculeTitledCheckboxFixtureChecked,

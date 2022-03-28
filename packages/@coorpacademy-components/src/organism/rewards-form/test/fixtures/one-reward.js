@@ -2,6 +2,6 @@ import singleDragAndDrop from '../../../../molecule/drag-and-drop-wrapper/test/f
 
 export default {
   props: {
-    items: [{...singleDragAndDrop.props, type: 'drag-and-drop'}]
+    items: [{child: {...singleDragAndDrop.props, childType: 'drag-and-drop-wrapper'}}]
   }
 };

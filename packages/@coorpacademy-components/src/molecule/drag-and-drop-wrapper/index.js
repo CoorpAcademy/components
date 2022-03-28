@@ -6,7 +6,7 @@ import CheckboxWithTitle from '../../atom/checkbox-with-title';
 import style from './style.css';
 
 const DragAndDropWrapper = props => {
-  const {list = [], checkBoxTitle, 'data-name': dataName} = props;
+  const {list = [], 'data-name': dataName} = props;
 
   const dragAndDropList = map(dragAndDropProps => {
     return (
@@ -18,9 +18,6 @@ const DragAndDropWrapper = props => {
 
   return (
     <div>
-      <div className={style.title}>
-        <CheckboxWithTitle {...checkBoxTitle} />
-      </div>
       <ul className={style.group} data-name={dataName}>
         {dragAndDropList}
       </ul>

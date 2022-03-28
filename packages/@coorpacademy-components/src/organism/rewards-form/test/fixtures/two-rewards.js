@@ -1,11 +1,11 @@
-import checkedInputText from '../../../../molecule/input-text-with-titled-checkbox/test/fixtures/checked';
+import inputText from '../../../../atom/input-text-with-title/test/fixtures/error';
 import doubleDragAndDrop from '../../../../molecule/drag-and-drop-wrapper/test/fixtures/two-drag-and-drops';
 
 export default {
   props: {
     items: [
-      {...checkedInputText.props, type: 'input-text'},
-      {...doubleDragAndDrop.props, type: 'drag-and-drop'}
+      {child: {...inputText.props, childType: 'input-text'}},
+      {child: {...doubleDragAndDrop.props, childType: 'drag-and-drop-wrapper'}}
     ]
   }
 };

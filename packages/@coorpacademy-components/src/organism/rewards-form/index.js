@@ -1,25 +1,18 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
-import InputTextWithTitledCheckbox from '../../molecule/input-text-with-titled-checkbox';
-import DragAndDropWrapper from '../../molecule/drag-and-drop-wrapper';
+import TitleAndCheckBoxWrapper from '../../molecule/title-and-checkbox-wrapper';
 import style from './style.css';
 
-const ITEM = {
-  'input-text': InputTextWithTitledCheckbox,
-  'drag-and-drop': DragAndDropWrapper
-};
-
 const RewardsForm = ({items}) => {
-  const itemsView = items.map(({type, ...item}, index) => {
-    const Component = ITEM[type];
+  const itemsView = items.map(({childType, ...item}, index) => {
     return (
       <li
         key={index}
-        className={classnames(style.item, type === 'input-text' && style.inputText)}
+        className={classnames(style.item, childType === 'input-text' && style.inputText)}
         data-name={`reward-${index}`}
       >
-        <Component {...item} />
+        <TitleAndCheckBoxWrapper {...item} />
       </li>
     );
   });
@@ -27,12 +20,7 @@ const RewardsForm = ({items}) => {
 };
 
 RewardsForm.propTypes = {
-  items: PropTypes.arrayOf(
-    PropTypes.oneOfType([
-      PropTypes.shape({...InputTextWithTitledCheckbox.propTypes}),
-      PropTypes.shape({...DragAndDropWrapper.propTypes})
-    ])
-  )
+  items: PropTypes.arrayOf(PropTypes.shape(TitleAndCheckBoxWrapper.propTypes))
 };
 
 export default RewardsForm;
