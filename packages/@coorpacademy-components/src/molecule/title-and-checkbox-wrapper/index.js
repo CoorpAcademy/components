@@ -22,7 +22,7 @@ const TitleAndCheckBoxWrapper = props => {
           <Title {...sectionTitle} type={'form-group'} />
         </div>
       ) : null}
-      <div className={style.child}>
+      <div className={checkboxWithTitle || sectionTitle ? style.child : null}>
         <Child {...child} />
       </div>
     </div>
