@@ -27,7 +27,9 @@ class DragAndDrop extends React.Component {
     modified: PropTypes.bool,
     children: PropTypes.func,
     onReset: PropTypes.func,
-    error: PropTypes.string
+    error: PropTypes.string,
+    buttonAriaLabel: PropTypes.string,
+    errorButtonLabel: PropTypes.string
   };
 
   constructor(props) {
@@ -65,7 +67,9 @@ class DragAndDrop extends React.Component {
       loading = false,
       modified = false,
       onReset = null,
-      error = ''
+      error = '',
+      buttonAriaLabel = '',
+      errorButtonLabel = ''
     } = this.props;
     const {dragging} = this.state;
 
@@ -124,7 +128,7 @@ class DragAndDrop extends React.Component {
     const buildButton = () => {
       const defaultButtonProps = {
         label: uploadLabel,
-        'aria-label': 'aria button',
+        'aria-label': buttonAriaLabel,
         'data-name': 'default-button',
         icon: {
           position: 'left',
@@ -134,7 +138,7 @@ class DragAndDrop extends React.Component {
       if (dragging) {
         return null;
       } else if (error) {
-        return <Button {...defaultButtonProps} label="Try again" icon={{}} />;
+        return <Button {...defaultButtonProps} label={errorButtonLabel} icon={{}} />;
       } else {
         return <Button {...defaultButtonProps} />;
       }

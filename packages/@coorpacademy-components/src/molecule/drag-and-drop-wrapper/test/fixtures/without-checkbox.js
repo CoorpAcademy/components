@@ -1,4 +1,4 @@
-import firstdDragAndDrop from '../../../../atom/drag-and-drop/test/fixtures/default';
+import firstdDragAndDrop from '../../../../atom/image-upload/test/fixtures/default';
 
 export default {
   props: {

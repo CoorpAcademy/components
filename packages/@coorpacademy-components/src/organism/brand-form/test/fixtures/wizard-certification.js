@@ -1,4 +1,4 @@
-import SetupSlider from '../../../../molecule/title-and-checkbox-wrapper/test/fixtures/drag-drop-without-title';
+import logoUpload from '../../../../molecule/title-and-checkbox-wrapper/test/fixtures/drag-drop-without-title';
 
 export default {
   props: {
@@ -60,7 +60,7 @@ export default {
               'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis fermentum sem ac fermentum luctus. Integer eu dui magna. Donec ut tristique dui. Vestibulum non accumsan tellus. Donec luctus erat vitae aliquet viverra. Mauris malesuada tortor quis viverra vestibulum. Nullam laoreet porta massa vitae porta.'
           },
           {
-            ...SetupSlider.props,
+            ...logoUpload.props,
             type: 'titleAndCheckBoxWrapper'
           }
         ]
