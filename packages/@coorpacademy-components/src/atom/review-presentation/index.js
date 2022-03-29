@@ -37,7 +37,7 @@ const ToolTip = ({tooltipText}) => {
 };
 
 const ReviewPresentation = props => {
-  const {'aria-label': ariaLabel, reviewTitle, reviewText, labelList} = props;
+  const {'aria-label': ariaLabel, reviewTitle, reviewText, labelsList} = props;
 
   return (
     <div className={style.reviewWrapper} aria-label={ariaLabel}>
@@ -54,7 +54,7 @@ const ReviewPresentation = props => {
       <ul>
         {map.convert({cap: false})((label, key) => {
           return (
-            <li key={key} className={style.reviewList}>
+            <li key={`step-${key}`} className={style.reviewList}>
               <div className={style.reviewListItemWrapper} data-tip data-for="reviewListItem">
                 <div className={style.reviewListText}>
                   {getIcon(key)} {label.text}
@@ -63,7 +63,7 @@ const ReviewPresentation = props => {
               </div>
             </li>
           );
-        }, labelList)}
+        }, labelsList)}
       </ul>
     </div>
   );
@@ -79,10 +79,10 @@ ToolTip.propTypes = {
 };
 
 ReviewPresentation.propTypes = {
-  'aria-label': PropTypes.string.isRequired,
+  'aria-label': PropTypes.string,
   reviewTitle: PropTypes.string,
   reviewText: PropTypes.string,
-  labelList: PropTypes.shape({
+  labelsList: PropTypes.shape({
     skills: levelItem,
     questions: levelItem,
     lifes: levelItem,
