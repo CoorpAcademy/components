@@ -5,7 +5,7 @@
 @value xtraLightGrey from colors;
 @value cm_blue_900 from colors;
 @value cm_grey_75 from colors;
-@value cm_grey_300 from colors;
+@value cm_grey_500 from colors;
 @value cm_grey_700 from colors;
 @value white from colors;
 
@@ -45,12 +45,16 @@
   overflow: hidden;
 }
 
+.reviewList {
+  list-style: none;
+}
+
 .reviewListItemWrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 8px 16px;
-  margin: 16px 40px;
+  margin: 16px 40px 16px 0px;
   background: cm_grey_75;
   border-radius: 8px;
 }
@@ -62,6 +66,7 @@
   font-weight: 500;
   font-size: 16px;
   line-height: 22px;
+  margin-right: 12px;
 }
 
 .labelIcon {
@@ -71,7 +76,7 @@
 }
 
 .informationIcon {
-  color: cm_grey_300;
+  color: cm_grey_500;
 }
 
 .toolTip {
@@ -83,7 +88,7 @@
   height: 56px;
   border-radius: 7px;
   background-color: cm_grey_700;
-  right: -40px;
+  right: -42px;
   bottom: 32px;
 }
 
@@ -95,10 +100,9 @@
   width: 15px;
   height: 15px;
   transform: rotate(-45deg);
-  transition: opacity 0.8s;
   background-color: cm_grey_700;
   position: inherit;
-  bottom: -4px;
+  bottom: -5px;
   right: 40%;
   border-radius: 2px;
 }
@@ -112,8 +116,7 @@
   border-radius: 3px;
   word-wrap: break-word;
   color: white;
-  padding: 8px 16px;
-  overflow: hidden;
+  padding: 8px 14px;
   text-align: center;
 }
 

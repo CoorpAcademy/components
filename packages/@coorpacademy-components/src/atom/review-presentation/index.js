@@ -2,7 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import get from 'lodash/fp/get';
 import map from 'lodash/fp/map';
-
 import {
   NovaSolidStatusCheckCircle2 as CheckIcon,
   NovaSolidVoteRewardsVoteHeart as HeartIcon,
@@ -52,18 +51,20 @@ const ReviewPresentation = props => {
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{__html: reviewText}}
       />
-      {map.convert({cap: false})((el, key) => {
-        return (
-          <div key={key}>
-            <div className={style.reviewListItemWrapper} data-tip data-for="reviewListItem">
-              <div className={style.reviewListText}>
-                {getIcon(key)} {el.text}
+      <ul>
+        {map.convert({cap: false})((el, key) => {
+          return (
+            <li key={key} className={style.reviewList}>
+              <div className={style.reviewListItemWrapper} data-tip data-for="reviewListItem">
+                <div className={style.reviewListText}>
+                  {getIcon(key)} {el.text}
+                </div>
+                {buildTooltip(el.tooltipText)}
               </div>
-              {buildTooltip(el.tooltipText)}
-            </div>
-          </div>
-        );
-      }, labelList)}
+            </li>
+          );
+        }, labelList)}
+      </ul>
     </div>
   );
 };
