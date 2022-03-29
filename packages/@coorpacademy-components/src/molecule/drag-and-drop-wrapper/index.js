@@ -1,8 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {map} from 'lodash/fp';
-import DragAndDrop from '../../atom/drag-and-drop';
-import CheckboxWithTitle from '../../atom/checkbox-with-title';
+import ImageUpload from '../../atom/image-upload';
 import style from './style.css';
 
 const DragAndDropWrapper = props => {
@@ -11,7 +10,7 @@ const DragAndDropWrapper = props => {
   const dragAndDropList = map(dragAndDropProps => {
     return (
       <li className={style.dragAndDrop} key={`dragAndDrop-${dragAndDropProps.title}`}>
-        <DragAndDrop {...dragAndDropProps} />
+        <ImageUpload {...dragAndDropProps} />
       </li>
     );
   }, list);
@@ -26,8 +25,7 @@ const DragAndDropWrapper = props => {
 };
 
 DragAndDropWrapper.propTypes = {
-  list: PropTypes.arrayOf(PropTypes.shape(DragAndDrop.propTypes)),
-  checkBoxTitle: PropTypes.shape({...CheckboxWithTitle.propTypes}),
+  list: PropTypes.arrayOf(PropTypes.shape(ImageUpload.propTypes)),
   'data-name': PropTypes.string
 };
 

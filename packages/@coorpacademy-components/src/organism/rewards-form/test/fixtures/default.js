@@ -16,11 +16,11 @@ export default {
           childType: 'drag-and-drop-wrapper',
           title: 'Create badge'
         },
-        sectionTitle: {title: 'Create badge'}
+        checkboxWithTitle: {title: 'Create badge'}
       },
       {
         child: {...doubleDragAndDrop.props, childType: 'drag-and-drop-wrapper'},
-        sectionTitle: {title: 'Create diploma'}
+        checkboxWithTitle: {title: 'Create diploma'}
       }
     ]
   }

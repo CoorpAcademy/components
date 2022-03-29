@@ -1,9 +1,7 @@
-import firstdDragAndDrop from '../../../../atom/drag-and-drop/test/fixtures/default';
-import checkBoxTitle from '../../../../atom/checkbox-with-title/test/fixtures/checked';
+import firstdDragAndDrop from '../../../../atom/image-upload/test/fixtures/default';
 
 export default {
   props: {
-    checkBoxTitle: {...checkBoxTitle.props, title: 'Create badge'},
     list: [{...firstdDragAndDrop.props, title: 'Add a badge'}]
   }
 };
