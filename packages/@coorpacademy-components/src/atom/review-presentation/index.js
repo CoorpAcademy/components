@@ -23,14 +23,14 @@ const getIcon = icon => {
   return <Icon className={style.labelIcon} />;
 };
 
-const buildTooltip = tooltip => {
+const ToolTip = ({tooltipText}) => {
   return (
     <div className={style.tooltipContainer}>
       <div className={style.tooltipIconContainer}>
         <InformationIcon className={style.informationIcon} width={12} height={12} />
       </div>
       <div className={style.toolTip}>
-        <div className={style.tooltipText}>{tooltip}</div>
+        <div className={style.tooltipText}>{tooltipText}</div>
       </div>
     </div>
   );
@@ -52,14 +52,14 @@ const ReviewPresentation = props => {
         dangerouslySetInnerHTML={{__html: reviewText}}
       />
       <ul>
-        {map.convert({cap: false})((el, key) => {
+        {map.convert({cap: false})((label, key) => {
           return (
             <li key={key} className={style.reviewList}>
               <div className={style.reviewListItemWrapper} data-tip data-for="reviewListItem">
                 <div className={style.reviewListText}>
-                  {getIcon(key)} {el.text}
+                  {getIcon(key)} {label.text}
                 </div>
-                {buildTooltip(el.tooltipText)}
+                <ToolTip tooltipText={label.tooltipText} />
               </div>
             </li>
           );
@@ -73,6 +73,10 @@ const levelItem = PropTypes.shape({
   text: PropTypes.string,
   tooltipText: PropTypes.string
 });
+
+ToolTip.propTypes = {
+  tooltipText: PropTypes.string
+};
 
 ReviewPresentation.propTypes = {
   'aria-label': PropTypes.string.isRequired,
