@@ -7,6 +7,6 @@ export default {
     ...props,
     error: 'The file is invalid',
     errorButtonLabel: 'Try again',
-    buttonAriaLabel: 'aria error label'
+    buttonAriaLabel: 'Aria label'
   }
 };
