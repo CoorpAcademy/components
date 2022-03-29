@@ -42,6 +42,7 @@ import AtomRadioGroup from './../src/atom/radio-group';
 import AtomRange from './../src/atom/range';
 import AtomResourceMiniature from './../src/atom/resource-miniature';
 import AtomReviewHeaderStepItem from './../src/atom/review-header-step-item';
+import AtomReviewPresentation from './../src/atom/review-presentation';
 import AtomSelect from './../src/atom/select';
 import AtomSlide from './../src/atom/slide';
 import AtomSocialLink from './../src/atom/social-link';
@@ -396,6 +397,7 @@ import AtomReviewHeaderStepItemFixtureCurrent from '../src/atom/review-header-st
 import AtomReviewHeaderStepItemFixtureDefault from '../src/atom/review-header-step-item/test/fixtures/default';
 import AtomReviewHeaderStepItemFixtureRight from '../src/atom/review-header-step-item/test/fixtures/right';
 import AtomReviewHeaderStepItemFixtureWrong from '../src/atom/review-header-step-item/test/fixtures/wrong';
+import AtomReviewPresentationFixtureDefault from '../src/atom/review-presentation/test/fixtures/default';
 import AtomSelectFixtureCoorpmanager from '../src/atom/select/test/fixtures/coorpmanager';
 import AtomSelectFixtureDefault from '../src/atom/select/test/fixtures/default';
 import AtomSelectFixtureDisabled from '../src/atom/select/test/fixtures/disabled';
@@ -1240,6 +1242,7 @@ export const components = {
     AtomRange,
     AtomResourceMiniature,
     AtomReviewHeaderStepItem,
+    AtomReviewPresentation,
     AtomSelect,
     AtomSlide,
     AtomSocialLink,
@@ -1714,6 +1717,9 @@ export const fixtures = {
       Default: AtomReviewHeaderStepItemFixtureDefault,
       Right: AtomReviewHeaderStepItemFixtureRight,
       Wrong: AtomReviewHeaderStepItemFixtureWrong
+    },
+    AtomReviewPresentation: {
+      Default: AtomReviewPresentationFixtureDefault
     },
     AtomSelect: {
       Coorpmanager: AtomSelectFixtureCoorpmanager,

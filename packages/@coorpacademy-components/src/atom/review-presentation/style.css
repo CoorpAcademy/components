@@ -1,0 +1,152 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value xtraLightGrey from colors;
+@value cm_blue_900 from colors;
+@value cm_grey_75 from colors;
+@value cm_grey_500 from colors;
+@value cm_grey_700 from colors;
+@value white from colors;
+
+
+.textBase {
+  font-family: "Gilroy";
+  font-style: normal;
+  color: cm_blue_900;
+}
+
+.reviewWrapper {
+  width: 100%;
+  height: 598px;
+  border-radius: 16px;
+  background-color: xtraLightGrey;
+}
+
+.reviewTitle {
+  composes: textBase;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 36px;
+  padding: 40px 40px 16px;
+  height: 72px;
+}
+
+.reviewText {
+  composes: textBase;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 22px;
+  margin-bottom: 32px;
+  padding: 0 40px;
+  height: 198px;
+  opacity: 0.7;
+  overflow: hidden;
+}
+
+.reviewList {
+  list-style: none;
+}
+
+.reviewListItemWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 16px;
+  margin: 16px 40px 16px 0px;
+  background: cm_grey_75;
+  border-radius: 8px;
+}
+
+.reviewListText {
+  composes: textBase;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+  margin-right: 12px;
+}
+
+.labelIcon {
+  padding-right: 12px;
+  height: 16px;
+  width: 16px;
+}
+
+.informationIcon {
+  color: cm_grey_500;
+}
+
+.toolTip {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.8s;
+  position: absolute;
+  width: 103px;
+  height: 56px;
+  border-radius: 7px;
+  background-color: cm_grey_700;
+  right: -42px;
+  bottom: 32px;
+}
+
+.toolTip::before {
+  content: '';
+  display: inline-block;
+  visibility: hidden;
+  opacity: 0;
+  width: 15px;
+  height: 15px;
+  transform: rotate(-45deg);
+  background-color: cm_grey_700;
+  position: inherit;
+  bottom: -5px;
+  right: 40%;
+  border-radius: 2px;
+}
+
+.tooltipText {
+  composes: textBase;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 20px;
+  display: inline-block;
+  border-radius: 3px;
+  word-wrap: break-word;
+  color: white;
+  padding: 8px 14px;
+  text-align: center;
+}
+
+.tooltipContainer {
+  overflow: visible;
+  position: relative;
+}
+
+.reviewListItemWrapper:hover .tooltipContainer .toolTip {
+  visibility: visible;
+  opacity: 1;
+}
+
+.reviewListItemWrapper:hover .tooltipContainer .toolTip::before {
+  visibility: visible;
+  opacity: 1;
+}
+
+.tooltipIconContainer {
+  display: flex;
+  justify-content: flex-end;
+}
+
+@media tablet {
+  .reviewWrapper{
+    width: 100%;
+  }
+}
+
+@media mobile {
+  .reviewWrapper{
+    width: 100%;
+  }
+}
