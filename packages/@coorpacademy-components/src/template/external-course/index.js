@@ -14,7 +14,8 @@ import style from './style.css';
 
 const defaultWrapperStyle = {
   default: style.default,
-  cockpit: style.defaultCockpit
+  cockpit: style.defaultCockpit,
+  mobile: style.default
 };
 
 class ExternalCourse extends React.Component {
@@ -77,6 +78,7 @@ class ExternalCourse extends React.Component {
     ) : (
       <ExternalContentViewer
         url={url}
+        mode={mode}
         backgroundImageUrl={backgroundImageUrl}
         contentType={contentType}
       />

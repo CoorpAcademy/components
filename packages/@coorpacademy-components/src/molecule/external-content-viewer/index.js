@@ -11,7 +11,8 @@ const podcastWrapperStyle = {
 
 const iframeStyle = {
   default: style.iframe,
-  cockpit: style.iframeCockpit
+  cockpit: style.iframeCockpit,
+  mobile: style.iframe
 };
 
 function ExternalContentViewer(props) {
@@ -39,7 +40,7 @@ function ExternalContentViewer(props) {
     </div>
   ) : (
     <iframe
-      src={isPdf ? googleViewer : url}
+      src={isPdf && mode === 'mobile' ? googleViewer : url}
       frameBorder={0}
       className={iframeStyle[mode]}
       allowFullScreen

@@ -1189,6 +1189,8 @@ import TemplateExternalCourseFixtureArticle from '../src/template/external-cours
 import TemplateExternalCourseFixtureDefault from '../src/template/external-course/test/fixtures/default';
 import TemplateExternalCourseFixtureH5P from '../src/template/external-course/test/fixtures/h5p';
 import TemplateExternalCourseFixtureLoading from '../src/template/external-course/test/fixtures/loading';
+import TemplateExternalCourseFixturePdfMobile from '../src/template/external-course/test/fixtures/pdf-mobile';
+import TemplateExternalCourseFixturePdfNoMobile from '../src/template/external-course/test/fixtures/pdf-no-mobile';
 import TemplateExternalCourseFixturePodcastCockpitMode from '../src/template/external-course/test/fixtures/podcast-cockpit-mode';
 import TemplateExternalCourseFixturePodcastNoBackground from '../src/template/external-course/test/fixtures/podcast-no-background';
 import TemplateExternalCourseFixturePodcast from '../src/template/external-course/test/fixtures/podcast';
@@ -2625,6 +2627,8 @@ export const fixtures = {
       Default: TemplateExternalCourseFixtureDefault,
       H5P: TemplateExternalCourseFixtureH5P,
       Loading: TemplateExternalCourseFixtureLoading,
+      PdfMobile: TemplateExternalCourseFixturePdfMobile,
+      PdfNoMobile: TemplateExternalCourseFixturePdfNoMobile,
       PodcastCockpitMode: TemplateExternalCourseFixturePodcastCockpitMode,
       PodcastNoBackground: TemplateExternalCourseFixturePodcastNoBackground,
       Podcast: TemplateExternalCourseFixturePodcast,
