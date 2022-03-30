@@ -34,8 +34,8 @@
   margin-top: 24px;
 }
 
-.listSkillsContainer  {
-
+.listSkillsContainer:first-child.skillCardContainer {
+  margin-left: 0;
 }
 
 .skillCardContainer {
