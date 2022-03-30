@@ -36,6 +36,7 @@ import _NovaCompositionCoorpacademyCoorpLogo from './components/nova-composition
 import _NovaCompositionCoorpacademyDashboard from './components/nova-composition/coorpacademy/dashboard';
 import _NovaCompositionCoorpacademyDraft from './components/nova-composition/coorpacademy/draft';
 import _NovaCompositionCoorpacademyEditorialization from './components/nova-composition/coorpacademy/editorialization';
+import _NovaCompositionCoorpacademyEmptyStateHomeRevision from './components/nova-composition/coorpacademy/empty-state-home-revision';
 import _NovaCompositionCoorpacademyEye from './components/nova-composition/coorpacademy/eye';
 import _NovaCompositionCoorpacademyFacebook from './components/nova-composition/coorpacademy/facebook';
 import _NovaCompositionCoorpacademyFilterVideo2 from './components/nova-composition/coorpacademy/filter-video2';
@@ -223,6 +224,7 @@ export const NovaCompositionCoorpacademyCoorpLogo: Icon = _NovaCompositionCoorpa
 export const NovaCompositionCoorpacademyDashboard: Icon = _NovaCompositionCoorpacademyDashboard;
 export const NovaCompositionCoorpacademyDraft: Icon = _NovaCompositionCoorpacademyDraft;
 export const NovaCompositionCoorpacademyEditorialization: Icon = _NovaCompositionCoorpacademyEditorialization;
+export const NovaCompositionCoorpacademyEmptyStateHomeRevision: Icon = _NovaCompositionCoorpacademyEmptyStateHomeRevision;
 export const NovaCompositionCoorpacademyEye: Icon = _NovaCompositionCoorpacademyEye;
 export const NovaCompositionCoorpacademyFacebook: Icon = _NovaCompositionCoorpacademyFacebook;
 export const NovaCompositionCoorpacademyFilterVideo2: Icon = _NovaCompositionCoorpacademyFilterVideo2;
