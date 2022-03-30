@@ -34,10 +34,6 @@
   margin-top: 24px;
 }
 
-.listSkillsContainer:first-child.skillCardContainer {
-  margin-left: 0;
-}
-
 .skillCardContainer {
   margin: 0px 16px 16px 0px;
   width: 298px;
@@ -63,7 +59,6 @@
   color: cm_grey_400;
   font-family: "Gilroy";
   font-size: 20px;
-  font-style: normal;
   font-weight: 100;
   line-height: 28px;
   margin-top: 8px;
@@ -84,12 +79,9 @@
 }
 
 @media mobile {
-  .title {
-    display: none;
-  }
-
   .skillCardContainer {
     width: 335px;
+    margin-right: 0px;
   }
 
   .textNoSkills {

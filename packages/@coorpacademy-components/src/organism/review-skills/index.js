@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {map} from 'lodash/fp';
 import {
-  NovaCompositionCoorpacademyInformationIcon as InformationIcon,
-  NovaCompositionCoorpacademyEmptyStateHomeRevision as EmptyStateHomeRevision
+  NovaCompositionCoorpacademyEmptyStateHomeRevision as EmptyStateHomeRevision,
+  NovaCompositionCoorpacademyInformationIcon as InformationIcon
 } from '@coorpacademy/nova-icons';
 import SkillCard from '../../molecule/skill-card';
 import style from './style.css';
@@ -23,18 +23,18 @@ const ReviewListSkills = ({listSkills}) => {
   );
 };
 
-const ReviewNoSkills = ({titleNoSkills, textNoSkills}) => {
+const ReviewNoSkills = ({titleNoSkills, textNoSkills, imgAlt}) => {
   return (
     <div className={style.noSkillsContainer}>
       <div className={style.titleNoSkills}>{titleNoSkills}</div>
       <div className={style.textNoSkills}> {textNoSkills}</div>
-      <EmptyStateHomeRevision className={style.imgNoSkills} />
+      <EmptyStateHomeRevision className={style.imgNoSkills} alt={imgAlt} />
     </div>
   );
 };
 
 const ReviewSkills = props => {
-  const {'aria-label': ariaLabel, title, listSkills, titleNoSkills, textNoSkills} = props;
+  const {'aria-label': ariaLabel, title, listSkills, titleNoSkills, textNoSkills, imgAlt} = props;
 
   return (
     <div className={style.containerReviewSkill} aria-label={ariaLabel}>
@@ -45,7 +45,7 @@ const ReviewSkills = props => {
       {listSkills.length > 0 ? (
         <ReviewListSkills listSkills={listSkills} />
       ) : (
-        <ReviewNoSkills titleNoSkills={titleNoSkills} textNoSkills={textNoSkills} />
+        <ReviewNoSkills titleNoSkills={titleNoSkills} textNoSkills={textNoSkills} imgAlt={imgAlt} />
       )}
     </div>
   );
@@ -57,7 +57,8 @@ ReviewListSkills.propTypes = {
 
 ReviewNoSkills.propTypes = {
   titleNoSkills: PropTypes.string,
-  textNoSkills: PropTypes.string
+  textNoSkills: PropTypes.string,
+  imgAlt: PropTypes.string
 };
 
 ReviewSkills.propTypes = {
@@ -65,7 +66,8 @@ ReviewSkills.propTypes = {
   title: PropTypes.string.isRequired,
   listSkills: PropTypes.arrayOf(PropTypes.shape(SkillCard.propTypes)).isRequired,
   titleNoSkills: PropTypes.string,
-  textNoSkills: PropTypes.string
+  textNoSkills: PropTypes.string,
+  imgAlt: PropTypes.string
 };
 
 export default ReviewSkills;

@@ -14,6 +14,7 @@ export default {
     title: 'Skills you can revise',
     listSkills,
     titleNoSkills: undefined,
-    textNoSkills: undefined
+    textNoSkills: undefined,
+    imgAlt: undefined
   }
 };
