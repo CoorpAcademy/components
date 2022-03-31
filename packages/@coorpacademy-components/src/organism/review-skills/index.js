@@ -63,7 +63,7 @@ const ReviewSkills = props => {
 };
 
 ReviewListSkills.propTypes = {
-  listSkills: PropTypes.arrayOf(PropTypes.shape(SkillCard.propTypes))
+  listSkills: PropTypes.arrayOf(PropTypes.shape(SkillCard.propTypes)).isRequired
 };
 
 ReviewNoSkills.propTypes = {
@@ -75,10 +75,8 @@ ReviewNoSkills.propTypes = {
 ReviewSkills.propTypes = {
   'aria-label': PropTypes.string,
   title: PropTypes.string.isRequired,
-  listSkills: PropTypes.arrayOf(PropTypes.shape(SkillCard.propTypes)).isRequired,
-  titleNoSkills: PropTypes.string,
-  textNoSkills: PropTypes.string,
-  iconSkillAriaLabel: PropTypes.string
+  ...ReviewListSkills.propTypes,
+  ...ReviewNoSkills.propTypes
 };
 
 export default ReviewSkills;
