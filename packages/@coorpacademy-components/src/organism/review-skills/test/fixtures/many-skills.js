@@ -15,6 +15,6 @@ export default {
     listSkills,
     titleNoSkills: undefined,
     textNoSkills: undefined,
-    imgAlt: undefined
+    iconSkillAriaLabel: undefined
   }
 };

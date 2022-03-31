@@ -23,18 +23,25 @@ const ReviewListSkills = ({listSkills}) => {
   );
 };
 
-const ReviewNoSkills = ({titleNoSkills, textNoSkills, imgAlt}) => {
+const ReviewNoSkills = ({titleNoSkills, textNoSkills, iconSkillAriaLabel}) => {
   return (
     <div className={style.noSkillsContainer}>
       <div className={style.titleNoSkills}>{titleNoSkills}</div>
       <div className={style.textNoSkills}> {textNoSkills}</div>
-      <EmptyStateHomeRevision className={style.imgNoSkills} alt={imgAlt} />
+      <EmptyStateHomeRevision className={style.imgNoSkills} aria-label={iconSkillAriaLabel} />
     </div>
   );
 };
 
 const ReviewSkills = props => {
-  const {'aria-label': ariaLabel, title, listSkills, titleNoSkills, textNoSkills, imgAlt} = props;
+  const {
+    'aria-label': ariaLabel,
+    title,
+    listSkills,
+    titleNoSkills,
+    textNoSkills,
+    iconSkillAriaLabel
+  } = props;
 
   return (
     <div className={style.containerReviewSkill} aria-label={ariaLabel}>
@@ -45,7 +52,11 @@ const ReviewSkills = props => {
       {listSkills.length > 0 ? (
         <ReviewListSkills listSkills={listSkills} />
       ) : (
-        <ReviewNoSkills titleNoSkills={titleNoSkills} textNoSkills={textNoSkills} imgAlt={imgAlt} />
+        <ReviewNoSkills
+          titleNoSkills={titleNoSkills}
+          textNoSkills={textNoSkills}
+          iconSkillAriaLabel={iconSkillAriaLabel}
+        />
       )}
     </div>
   );
@@ -58,7 +69,7 @@ ReviewListSkills.propTypes = {
 ReviewNoSkills.propTypes = {
   titleNoSkills: PropTypes.string,
   textNoSkills: PropTypes.string,
-  imgAlt: PropTypes.string
+  iconSkillAriaLabel: PropTypes.string
 };
 
 ReviewSkills.propTypes = {
@@ -67,7 +78,7 @@ ReviewSkills.propTypes = {
   listSkills: PropTypes.arrayOf(PropTypes.shape(SkillCard.propTypes)).isRequired,
   titleNoSkills: PropTypes.string,
   textNoSkills: PropTypes.string,
-  imgAlt: PropTypes.string
+  iconSkillAriaLabel: PropTypes.string
 };
 
 export default ReviewSkills;

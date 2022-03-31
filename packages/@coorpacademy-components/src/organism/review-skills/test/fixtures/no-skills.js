@@ -6,6 +6,6 @@ export default {
     titleNoSkills: 'You have no skill to revise yet',
     textNoSkills:
       'Massa molestie ut sed malesuada. Cursus aliquet enim scelerisque sagittis at rutrum aliquam.',
-    imgAlt: 'Image without information'
+    iconSkillAriaLabel: 'Image without information'
   }
 };
