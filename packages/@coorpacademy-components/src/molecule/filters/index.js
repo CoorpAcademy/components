@@ -30,8 +30,7 @@ class Filters extends React.Component {
     super(props);
     this.state = {
       filter: !!props.openFilters,
-      sorted: !!props.openSorts,
-      animated: false
+      sorted: !!props.openSorts
     };
     this.handleOpenFilter = this.handleOpenFilter.bind(this);
     this.handleOpenSort = this.handleOpenSort.bind(this);
@@ -46,8 +45,7 @@ class Filters extends React.Component {
 
     this.setState({
       filter: newValue,
-      sorted: false,
-      animated: true
+      sorted: false
     });
 
     if (onToggleFilters) {
@@ -63,8 +61,7 @@ class Filters extends React.Component {
 
     this.setState({
       sorted: newValue,
-      filter: false,
-      animated: true
+      filter: false
     });
 
     if (onToggleSorts) onToggleSorts(newValue);
@@ -74,8 +71,7 @@ class Filters extends React.Component {
     const {onSearch} = this.props;
     this.setState({
       sorted: false,
-      filter: false,
-      animated: true
+      filter: false
     });
     if (onSearch) onSearch();
   }
@@ -89,7 +85,7 @@ class Filters extends React.Component {
       sortTabLabel,
       filters
     } = this.props;
-    const {filter, sorted, animated = true} = this.state;
+    const {filter, sorted} = this.state;
     const {skin} = this.context;
 
     const defaultColor = get('common.primary', skin);
@@ -105,7 +101,7 @@ class Filters extends React.Component {
       ) : null;
 
     return (
-      <div data-name="search" className={style.search} data-animated={animated}>
+      <div data-name="search" className={style.search}>
         <div
           data-name="filter"
           data-open={filtersActive}

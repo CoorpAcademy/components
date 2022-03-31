@@ -151,6 +151,7 @@
   width: 100%;
   box-sizing: border-box;
   background: light;
+  transition: all 0.4s ease-out;
 }
 
 .activeSorting {
@@ -211,60 +212,6 @@
   display: none;
 }
 
-[data-animated='true'] .sorting {
-  transition: all 0.4s ease-out;
-}
-
-[data-animated='true'] .activeSorting {
-  transition: all 0.4s ease-out;
-}
-
-[data-animated='true'] .wrapperFilters {
-  transition: all 0.4s ease-out;
-}
-
-[data-animated='true'] .activeWrapperFilters {
-  transition: all 0.4s ease-out;
-}
-
-[data-animated='false'] .activeWrapperFilters {
-  animation: open-filters-desktop 0.4s ease-out 0s;
-}
-
-[data-animated='false'] .activeSorting {
-  animation: open-sorts 0.4s ease-out 0s;
-}
-
-[data-animated='false'] .activeDefault .arrow,
-[data-animated='false'] .activeWrapperSortBy .arrow {
-  animation: rotate 0.4s ease-out 0.2s;
-}
-
-@keyframes open-filters-desktop {
-  0% {max-height: 0px;}
-  100% {max-height: 270px;}
-}
-
-@keyframes open-filters-tablet {
-  0% {max-height: 0px;}
-  100% {max-height: 380px;}
-}
-
-@keyframes open-filters-mobile {
-  0% {max-height: 0px;}
-  100% {max-height: 850px;}
-}
-
-@keyframes open-sorts {
-  0% {max-height: 0px;}
-  100% {max-height: 150px;}
-}
-
-@keyframes rotate {
-  0% {transform: rotate(0deg);}
-  100% {transform: rotate(180deg);}
-}
-
 @media tablet {
   .search {
     border-top: 1px solid light;
@@ -272,10 +219,6 @@
 
   .activeWrapperFilters {
     max-height: 380px;
-  }
-
-  [data-animated='false'] .activeWrapperFilters {
-    animation: open-filters-tablet 0.4s ease-out 0s;
   }
 
   .select {
@@ -306,10 +249,6 @@
 
   .activeWrapperFilters {
     max-height: 850px;
-  }
-
-  [data-animated='false'] .activeWrapperFilters {
-    animation: open-filters-mobile 0.4s ease-out 0s;
   }
 
   .sorting,
