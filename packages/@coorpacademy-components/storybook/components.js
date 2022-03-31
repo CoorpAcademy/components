@@ -179,6 +179,7 @@ import OrganismMoocHeader from './../src/organism/mooc-header';
 import OrganismPopin from './../src/organism/popin';
 import OrganismResourceBrowser from './../src/organism/resource-browser';
 import OrganismReviewHeader from './../src/organism/review-header';
+import OrganismReviewSkills from './../src/organism/review-skills';
 import OrganismRewardsForm from './../src/organism/rewards-form';
 import OrganismSearchAndChipsResults from './../src/organism/search-and-chips-results';
 import OrganismSettings from './../src/organism/settings';
@@ -945,6 +946,8 @@ import OrganismReviewHeaderFixtureCurrentQuestionWrong from '../src/organism/rev
 import OrganismReviewHeaderFixtureFirstQuestionCurrentRight from '../src/organism/review-header/test/fixtures/first-question-current-right';
 import OrganismReviewHeaderFixtureNoAnsweredQuestion from '../src/organism/review-header/test/fixtures/no-answered-question';
 import OrganismReviewHeaderFixtureQuestionToRepeat from '../src/organism/review-header/test/fixtures/question-to-repeat';
+import OrganismReviewSkillsFixtureManySkills from '../src/organism/review-skills/test/fixtures/many-skills';
+import OrganismReviewSkillsFixtureNoSkills from '../src/organism/review-skills/test/fixtures/no-skills';
 import OrganismRewardsFormFixtureDefault from '../src/organism/rewards-form/test/fixtures/default';
 import OrganismRewardsFormFixtureNoRewards from '../src/organism/rewards-form/test/fixtures/no-rewards';
 import OrganismRewardsFormFixtureOneReward from '../src/organism/rewards-form/test/fixtures/one-reward';
@@ -1396,6 +1399,7 @@ export const components = {
     OrganismPopin,
     OrganismResourceBrowser,
     OrganismReviewHeader,
+    OrganismReviewSkills,
     OrganismRewardsForm,
     OrganismSearchAndChipsResults,
     OrganismSettings,
@@ -2553,6 +2557,10 @@ export const fixtures = {
       FirstQuestionCurrentRight: OrganismReviewHeaderFixtureFirstQuestionCurrentRight,
       NoAnsweredQuestion: OrganismReviewHeaderFixtureNoAnsweredQuestion,
       QuestionToRepeat: OrganismReviewHeaderFixtureQuestionToRepeat
+    },
+    OrganismReviewSkills: {
+      ManySkills: OrganismReviewSkillsFixtureManySkills,
+      NoSkills: OrganismReviewSkillsFixtureNoSkills
     },
     OrganismRewardsForm: {
       Default: OrganismRewardsFormFixtureDefault,

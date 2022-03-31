@@ -1,0 +1,100 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value cm_blue_900 from colors;
+@value cm_grey_400 from colors;
+@value cm_grey_500 from colors;
+
+.textBase {
+  color: cm_blue_900;
+  font-family: "Gilroy";
+  font-style: normal;
+  user-select: none;
+}
+
+.containerReviewSkill {
+  width: 100%;
+  position: relative;
+}
+
+.title {
+  composes: textBase;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+}
+
+.informationIcon {
+  color: cm_grey_500;
+  padding-left: 8px;
+}
+
+.listSkillsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 24px;
+}
+
+.skillCardContainer {
+  margin: 0px 16px 16px 0px;
+  width: 298px;
+}
+
+.noSkillsContainer {
+  margin-top: 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.titleNoSkills {
+  composes: textBase;
+  font-weight: 10;
+  font-size: 28px;
+  line-height: 36px;
+  text-align: center;
+}
+
+.textNoSkills {
+  color: cm_grey_400;
+  font-family: "Gilroy";
+  font-size: 20px;
+  line-height: 28px;
+  margin-top: 8px;
+  text-align: center;
+  user-select: none;
+  width: 493px;
+}
+
+.imgNoSkills {
+  width: 361px;
+  height: 361px;
+  margin-top: 48px;
+}
+
+@media tablet {
+  .skillCardContainer {
+    width: 257px;
+  }
+}
+
+@media mobile {
+  .skillCardContainer {
+    width: 100%;
+    margin-right: 0px;
+  }
+
+  .titleNoSkills,
+  .textNoSkills {
+    width: 85%;
+  }
+
+  .imgNoSkills {
+    margin-top: 33px;
+    width: 85%;
+    height: auto;
+  }
+}
