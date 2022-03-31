@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {map} from 'lodash/fp';
+import isEmpty from 'lodash/fp/isEmpty';
+import map from 'lodash/fp/map';
 import {
   NovaCompositionCoorpacademyEmptyStateHomeRevision as EmptyStateHomeRevision,
   NovaCompositionCoorpacademyInformationIcon as InformationIcon
@@ -49,7 +50,7 @@ const ReviewSkills = props => {
         {title}
         <InformationIcon className={style.informationIcon} width={12} height={12} />
       </div>
-      {listSkills.length > 0 ? (
+      {!isEmpty(listSkills) ? (
         <ReviewListSkills listSkills={listSkills} />
       ) : (
         <ReviewNoSkills
