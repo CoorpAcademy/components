@@ -1,0 +1,43 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+
+.reviewDashboardContainer {
+  display: flex;
+}
+
+.reviewPresentationContainer {
+  margin-right: 40px;
+  max-width: 348px;
+  min-width: 348px;
+  position: sticky;
+}
+
+.reviewSkillsContainer {
+  position: relative;
+}
+
+
+@media tablet {
+  .reviewPresentationContainer {
+    max-width: 326px;
+    min-width: 326px;
+  }
+}
+
+@media mobile {
+  .reviewDashboardContainer {
+    display: block;
+    position: relative;
+    margin: 0 20px;
+  }
+
+  .reviewPresentationContainer {
+    margin-bottom: 40px;
+    margin-right: 0px;
+    max-width: 100%;
+    min-width: 100%;
+    /* width: 100%; */
+    position: relative;
+  }
+}

@@ -209,6 +209,7 @@ import TemplateCommonDashboard from './../src/template/common/dashboard';
 import TemplateCommonDiscipline from './../src/template/common/discipline';
 import TemplateCommonSearchPage from './../src/template/common/search-page';
 import TemplateExternalCourse from './../src/template/external-course';
+import TemplateReviewDashboardSkills from './../src/template/review-dashboard-skills';
 import TemplateTeamsDashboard from './../src/template/teams-dashboard';
 import AtomAutocompleteFixtureDefault from '../src/atom/autocomplete/test/fixtures/default';
 import AtomAutocompleteFixtureError from '../src/atom/autocomplete/test/fixtures/error';
@@ -1200,6 +1201,8 @@ import TemplateExternalCourseFixturePodcastNoBackground from '../src/template/ex
 import TemplateExternalCourseFixturePodcast from '../src/template/external-course/test/fixtures/podcast';
 import TemplateExternalCourseFixtureVideo from '../src/template/external-course/test/fixtures/video';
 import TemplateExternalCourseFixtureYoutubePodcast from '../src/template/external-course/test/fixtures/youtube-podcast';
+import TemplateReviewDashboardSkillsFixtureManySkills from '../src/template/review-dashboard-skills/test/fixtures/many-skills';
+import TemplateReviewDashboardSkillsFixtureNoSkills from '../src/template/review-dashboard-skills/test/fixtures/no-skills';
 import TemplateTeamsDashboardFixtureDefault from '../src/template/teams-dashboard/test/fixtures/default';
 import TemplateTeamsDashboardFixtureIsLoading from '../src/template/teams-dashboard/test/fixtures/is-loading';
 import TemplateTeamsDashboardFixtureMobile from '../src/template/teams-dashboard/test/fixtures/mobile';
@@ -1417,6 +1420,7 @@ export const components = {
     TemplateActivity,
     TemplateBattleRequests,
     TemplateExternalCourse,
+    TemplateReviewDashboardSkills,
     TemplateTeamsDashboard
   },
   TemplateAppPlayer: {
@@ -2644,6 +2648,10 @@ export const fixtures = {
       Podcast: TemplateExternalCourseFixturePodcast,
       Video: TemplateExternalCourseFixtureVideo,
       YoutubePodcast: TemplateExternalCourseFixtureYoutubePodcast
+    },
+    TemplateReviewDashboardSkills: {
+      ManySkills: TemplateReviewDashboardSkillsFixtureManySkills,
+      NoSkills: TemplateReviewDashboardSkillsFixtureNoSkills
     },
     TemplateTeamsDashboard: {
       Default: TemplateTeamsDashboardFixtureDefault,
