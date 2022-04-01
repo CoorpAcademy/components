@@ -7,6 +7,7 @@ import {
   NovaCompositionCoorpacademyInformationIcon as InformationIcon
 } from '@coorpacademy/nova-icons';
 import Loader from '../../atom/loader';
+
 import SkillCard from '../../molecule/skill-card';
 import style from './style.css';
 
