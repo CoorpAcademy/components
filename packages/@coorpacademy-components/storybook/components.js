@@ -1201,6 +1201,7 @@ import TemplateExternalCourseFixturePodcastNoBackground from '../src/template/ex
 import TemplateExternalCourseFixturePodcast from '../src/template/external-course/test/fixtures/podcast';
 import TemplateExternalCourseFixtureVideo from '../src/template/external-course/test/fixtures/video';
 import TemplateExternalCourseFixtureYoutubePodcast from '../src/template/external-course/test/fixtures/youtube-podcast';
+import TemplateReviewDashboardSkillsFixtureLoading from '../src/template/review-dashboard-skills/test/fixtures/loading';
 import TemplateReviewDashboardSkillsFixtureManySkills from '../src/template/review-dashboard-skills/test/fixtures/many-skills';
 import TemplateReviewDashboardSkillsFixtureNoSkills from '../src/template/review-dashboard-skills/test/fixtures/no-skills';
 import TemplateTeamsDashboardFixtureDefault from '../src/template/teams-dashboard/test/fixtures/default';
@@ -2650,6 +2651,7 @@ export const fixtures = {
       YoutubePodcast: TemplateExternalCourseFixtureYoutubePodcast
     },
     TemplateReviewDashboardSkills: {
+      Loading: TemplateReviewDashboardSkillsFixtureLoading,
       ManySkills: TemplateReviewDashboardSkillsFixtureManySkills,
       NoSkills: TemplateReviewDashboardSkillsFixtureNoSkills
     },
