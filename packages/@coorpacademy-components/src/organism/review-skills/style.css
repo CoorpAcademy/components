@@ -75,6 +75,19 @@
   margin-top: 48px;
 }
 
+.loaderContainer {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader {
+  height: 60px;
+  width: 60px;
+}
+
 @media tablet {
   .skillCardContainer {
     width: 257px;

@@ -6,6 +6,7 @@ import {
   NovaCompositionCoorpacademyEmptyStateHomeRevision as EmptyStateHomeRevision,
   NovaCompositionCoorpacademyInformationIcon as InformationIcon
 } from '@coorpacademy/nova-icons';
+import Loader from '../../atom/loader';
 import SkillCard from '../../molecule/skill-card';
 import style from './style.css';
 
@@ -41,7 +42,9 @@ const ReviewSkills = props => {
     listSkills,
     titleNoSkills,
     textNoSkills,
-    iconSkillAriaLabel
+    iconSkillAriaLabel,
+    isLoading = false,
+    isLoadingAriaLabel
   } = props;
 
   return (
@@ -50,21 +53,29 @@ const ReviewSkills = props => {
         {title}
         <InformationIcon className={style.informationIcon} width={12} height={12} />
       </div>
-      {!isEmpty(listSkills) ? (
-        <ReviewListSkills listSkills={listSkills} />
+      {isLoading ? (
+        <div className={style.loaderContainer}>
+          <Loader className={style.loader} theme="default" aria-label={isLoadingAriaLabel} />
+        </div>
       ) : (
-        <ReviewNoSkills
-          titleNoSkills={titleNoSkills}
-          textNoSkills={textNoSkills}
-          iconSkillAriaLabel={iconSkillAriaLabel}
-        />
+        <div>
+          {!isEmpty(listSkills) ? (
+            <ReviewListSkills listSkills={listSkills} />
+          ) : (
+            <ReviewNoSkills
+              titleNoSkills={titleNoSkills}
+              textNoSkills={textNoSkills}
+              iconSkillAriaLabel={iconSkillAriaLabel}
+            />
+          )}
+        </div>
       )}
     </div>
   );
 };
 
 ReviewListSkills.propTypes = {
-  listSkills: PropTypes.arrayOf(PropTypes.shape(SkillCard.propTypes)).isRequired
+  listSkills: PropTypes.arrayOf(PropTypes.shape(SkillCard.propTypes))
 };
 
 ReviewNoSkills.propTypes = {
@@ -76,6 +87,8 @@ ReviewNoSkills.propTypes = {
 ReviewSkills.propTypes = {
   'aria-label': PropTypes.string,
   title: PropTypes.string.isRequired,
+  isLoading: PropTypes.bool,
+  isLoadingAriaLabel: PropTypes.string,
   ...ReviewListSkills.propTypes,
   ...ReviewNoSkills.propTypes
 };
