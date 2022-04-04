@@ -75,7 +75,7 @@ const ReviewSkills = props => {
 };
 
 ReviewListSkills.propTypes = {
-  listSkills: PropTypes.arrayOf(PropTypes.shape(SkillCard.propTypes)).isRequired
+  listSkills: PropTypes.arrayOf(PropTypes.shape(SkillCard.propTypes))
 };
 
 ReviewNoSkills.propTypes = {
