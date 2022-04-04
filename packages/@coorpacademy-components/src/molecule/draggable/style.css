@@ -24,7 +24,8 @@
   content: '.';
   position: absolute;
   left: 23px;
-  top: 5px;
+  top: 50%;
+  transform: translateY(-100%);
   width: 12px;
   font-size: 25px;
   color: medium;
