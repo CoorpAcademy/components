@@ -13,7 +13,6 @@ export default {
     'aria-label': 'Review Skills Container',
     title: 'Skills you can revise',
     listSkills,
-    isLoading: false,
     titleNoSkills: undefined,
     textNoSkills: undefined,
     iconSkillAriaLabel: undefined

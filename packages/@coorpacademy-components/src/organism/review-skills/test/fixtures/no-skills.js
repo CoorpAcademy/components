@@ -3,7 +3,6 @@ export default {
     'aria-label': 'Review Skills Container',
     title: 'Skills you can revise',
     listSkills: [],
-    isLoading: false,
     titleNoSkills: 'You have no skill to revise yet',
     textNoSkills:
       'Massa molestie ut sed malesuada. Cursus aliquet enim scelerisque sagittis at rutrum aliquam.',

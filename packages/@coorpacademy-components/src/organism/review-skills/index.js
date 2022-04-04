@@ -43,7 +43,7 @@ const ReviewSkills = props => {
     titleNoSkills,
     textNoSkills,
     iconSkillAriaLabel,
-    isLoading,
+    isLoading = false,
     isLoadingAriaLabel
   } = props;
 

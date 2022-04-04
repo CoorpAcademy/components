@@ -3,7 +3,6 @@ export default {
     'aria-label': 'Review Skills Container',
     title: 'Skills you can revise',
     isLoading: true,
-    isLoadingAriaLabel: 'Review skills container is loading',
-    listSkills: undefined
+    isLoadingAriaLabel: 'Review skills container is loading'
   }
 };
