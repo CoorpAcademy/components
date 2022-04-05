@@ -21,7 +21,7 @@ const ReviewDashboardSkills = props => {
 
 ReviewDashboardSkills.propTypes = {
   'aria-label': PropTypes.string,
-  reviewPresentation: PropTypes.ReviewPresentation,
-  reviewSkills: PropTypes.ReviewSkills
+  reviewPresentation: ReviewPresentation.propTypes,
+  reviewSkills: ReviewSkills.propTypes
 };
 export default ReviewDashboardSkills;

@@ -39,7 +39,7 @@
 .skillCardContainer {
   margin: 0px 16px 16px 0px;
   max-width: 298px;
-  min-width: 257px;
+  min-width: 205px;
   width: 100%;    
   flex: 1 0 33%;
 }
@@ -73,9 +73,9 @@
 }
 
 .imgNoSkills {
-  width: 361px;
   height: 361px;
   margin-top: 48px;
+  width: 361px;
 }
 
 .loaderContainer {
@@ -92,14 +92,6 @@
 }
 
 @media tablet {
-  .skillCardContainer {
-    /* border: dashed red; */
-    max-width: 257px;
-    min-width: 245px;
-    width: 100%;    
-    flex: 1 0 50%;
-  }
-
   .textNoSkills {
     width: 90%;
   }
@@ -112,12 +104,13 @@
   }
 }
 
-@media mobile {
+@media mobile {  
   .skillCardContainer {
-    /* border: dashed green; */
-    max-width: 100%;
-    margin-right: 0px;
+    display: flex;
     flex: 1 0 100%;
+    justify-content: center;
+    margin-right: 0px;
+    max-width: 100%;
   }
 
   .titleNoSkills,

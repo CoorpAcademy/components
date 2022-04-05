@@ -4,6 +4,7 @@
 
 .reviewDashboardContainer {
   display: flex;
+  margin: 48px 64px;
 }
 
 .reviewPresentationContainer {
@@ -30,7 +31,7 @@
   .reviewDashboardContainer {
     display: block;
     position: relative;
-    margin: 0 20px;
+    margin: 16px 20px;
   }
 
   .reviewPresentationContainer {

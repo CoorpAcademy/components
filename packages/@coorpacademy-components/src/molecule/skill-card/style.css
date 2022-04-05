@@ -13,8 +13,8 @@
   display: flex;
   flex-direction: column;
   max-width: 353px;
-  min-width: 245px;
-  height: 242px;
+  width: 100%;
+  min-height: 242px;
   box-shadow: 0px 4px 16px box_shadow_light_dark;
   transition: box-shadow 0.15s ease-in-out;
   border-radius: 8px 8px 12px 12px;
@@ -52,9 +52,8 @@
   color: cm_grey_400;
   padding: 16px 24px 24px;
   user-select: none;
-
 }
 
 .buttonWrapper {
-  padding: 0px 24px;
+  padding: 0px 24px 24px;
 }
