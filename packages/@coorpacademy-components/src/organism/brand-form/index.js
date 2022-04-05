@@ -118,7 +118,7 @@ function BrandForm(props, context) {
   return (
     <div>
       {backView}
-      <form onSubmit={handleSubmit} onReset={handleReset}>
+      <form onSubmit={handleSubmit} onReset={handleReset} className={style.form}>
         {brandGroups}
         {buttonSection}
       </form>

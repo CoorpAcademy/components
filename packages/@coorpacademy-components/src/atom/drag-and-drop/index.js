@@ -21,7 +21,8 @@ class DragAndDrop extends React.Component {
     previewLabel: PropTypes.string,
     previewContent: PropTypes.shape({
       type: PropTypes.string,
-      src: PropTypes.string
+      src: PropTypes.string,
+      label: PropTypes.string
     }),
     loading: PropTypes.bool,
     modified: PropTypes.bool,
@@ -112,7 +113,9 @@ class DragAndDrop extends React.Component {
     const resetContent =
       previewContent && previewContent.src ? (
         <div className={style.resetUploadWrapper}>
-          <div className={style.resetSrcLabel}>{previewContent.src}</div>
+          <div className={style.resetSrcLabel}>
+            {previewContent.label ? previewContent.label : previewContent.src}
+          </div>
           {onReset ? (
             <Close
               data-name="reset-content-icon"
