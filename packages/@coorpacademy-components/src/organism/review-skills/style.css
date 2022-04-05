@@ -92,7 +92,7 @@
 }
 
 @media tablet {
-  .textNoSkills {
+  .titleNoSkills, .textNoSkills {
     width: 90%;
   }
 
