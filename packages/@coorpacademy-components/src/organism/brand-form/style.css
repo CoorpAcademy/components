@@ -12,6 +12,10 @@
   margin: 0 0 32px 0;
 }
 
+.form {
+  margin: 0 0 48px 0;
+}
+
 .group:last-child {
   margin: 0;
 }
