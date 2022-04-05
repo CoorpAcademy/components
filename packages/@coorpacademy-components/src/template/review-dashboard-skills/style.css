@@ -25,6 +25,9 @@
     max-width: 326px;
     min-width: 326px;
   }
+  .reviewDashboardContainer {
+    margin: 36px 48px;
+  }
 }
 
 @media mobile {
