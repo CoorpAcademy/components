@@ -51,7 +51,7 @@ const ReviewPresentation = props => {
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{__html: reviewText}}
       />
-      <ul>
+      <ul className={style.reviewListWrapper}>
         {map.convert({cap: false})((label, key) => {
           return (
             <li key={`step-${key}`} className={style.reviewList}>
