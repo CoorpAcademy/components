@@ -37,7 +37,7 @@
 }
 
 .skillCardContainer {
-  margin: 0px 16px 16px 0px;
+  margin: 0 16px 16px 0;
   max-width: 298px;
   min-width: 205px;
   width: 100%;    
@@ -109,7 +109,7 @@
     display: flex;
     flex: 1 0 100%;
     justify-content: center;
-    margin-right: 0px;
+    margin-right: 0;
     max-width: 100%;
   }
 

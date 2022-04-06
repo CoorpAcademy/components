@@ -15,13 +15,13 @@
   max-width: 353px;
   width: 100%;
   min-height: 242px;
-  box-shadow: 0px 4px 16px box_shadow_light_dark;
+  box-shadow: 0 4px 16px box_shadow_light_dark;
   transition: box-shadow 0.15s ease-in-out;
   border-radius: 8px 8px 12px 12px;
 }
 
 .skillCardWrapper:hover {
-  box-shadow: 0px 4px 48px box_shadow_medium_dark;
+  box-shadow: 0 4px 48px box_shadow_medium_dark;
 }
 
 .skillTitle {
@@ -32,9 +32,9 @@
   display: flex;
   align-items: center;
   height: 112px;
-  border-radius: 8px 8px 0px 0px;
+  border-radius: 8px 8px 0 0;
   color: white;
-  padding: 0px 24px;
+  padding: 0 24px;
   user-select: none;
 }
 
@@ -55,5 +55,5 @@
 }
 
 .buttonWrapper {
-  padding: 0px 24px 24px;
+  padding: 0 24px 24px;
 }
