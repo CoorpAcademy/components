@@ -1,0 +1,60 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
+@value mobile from breakpoints;
+
+.reviewDashboardContainer {
+  display: flex;
+  margin: 48px 64px;
+  position: relative;
+  box-sizing: border-box;
+  overflow: auto;
+  height: 100%;
+}
+
+.reviewPresentationContainer {
+  box-sizing: border-box;
+  height: 100%;
+  margin-right: 40px;
+  max-width: 348px;
+  min-width: 348px;
+  position: sticky;
+  top: 0;
+}
+
+.reviewSkillsContainer {
+  overflow: auto;
+  display: block;
+  box-sizing: border-box;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+
+
+@media tablet {
+  .reviewDashboardContainer {
+    margin: 27px 0px 27px 36px;
+  }
+
+  .reviewPresentationContainer {
+    max-width: 326px;
+    min-width: 326px;
+  }
+}
+
+@media mobile {
+  .reviewDashboardContainer {
+    display: block;
+    height: auto;
+    margin: 16px 20px;
+    position: relative;
+  }
+
+  .reviewPresentationContainer {
+    margin-bottom: 40px;
+    margin-right: 0;
+    max-width: 100%;
+    min-width: 100%;
+    position: relative;
+  }
+}
