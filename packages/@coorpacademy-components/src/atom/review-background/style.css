@@ -3,16 +3,15 @@
 @value mobile from breakpoints;
 
 .interrogationBase {
+  position: absolute;
   font-family: "Gilroy";
-  font-size: 800px;
+  font-size: 700px;
   font-weight: 700;
   text-align: center;
-  background: linear-gradient(180deg, #000000 0%, rgba(0, 0, 0, 0) 100%);
-  opacity: 0.06;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  z-index: 1;
+  color: black;
+  opacity: 0.02;
   user-select: none;
+  z-index: 1;
 }
 
 .mainContainer {
@@ -35,7 +34,6 @@
 
 .interrogationLeft {
   composes: interrogationBase;
-  position: absolute;
   left: -14%;
   top: -15%;
   transform: rotate(49.77deg);
@@ -43,7 +41,6 @@
 
 .interrogationRight {
   composes: interrogationBase;
-  position: absolute;
   left: 72%;
   top: -10%;
   transform: rotate(135deg);
@@ -51,16 +48,16 @@
 
 .recYellow {
   position: absolute;
-  left: -50.79%;
-  right: 77.63%;
-  top: 5.34%;
+  left: -40.79%;
+  right: 60.63%;
+  top: 0.34%;
   bottom: 24.77%;
   background: radial-gradient(
-    57.72% 58.96% at 57.97% 41.54%,
+    circle closest-side at 57.97% 41.54%,
     #ffc043 0%,
     rgba(255, 255, 255, 0) 100%
   );
-  opacity: 0.3;
+  opacity: 0.4;
   filter: blur(80px);
 }
 
@@ -71,11 +68,11 @@
   top: 23.04%;
   bottom: -9.22%;
   background: radial-gradient(
-    47.72% 48.96% at 57.97% 41.54%,
+    circle closest-side at 57.97% 41.54%,
     #ff7043 0%,
     rgba(255, 255, 255, 0) 100%
   );
-  opacity: 0.3;
+  opacity: 0.2;
   filter: blur(60px);
 }
 
@@ -86,7 +83,7 @@
   top: 40.78%;
   bottom: -67.67%;
   background: radial-gradient(
-    51.64% 56.95% at 39.9% 50%,
+    circle closest-side at 39.9% 50%,
     rgba(0, 97, 255, 0.55) 0%,
     rgba(255, 255, 255, 0) 100%
   );
@@ -99,29 +96,29 @@
   left: 64.14%;
   right: -20.87%;
   top: -27.96%;
-  bottom: 35.85%;
+  bottom: 45.85%;
   background: radial-gradient(
-    51.64% 56.95% at 56.78% 61.36%,
+    circle closest-side at 56.78% 61.36%,
     #2199ab 0%,
     rgba(255, 255, 255, 0) 100%
   );
-  opacity: 0.3;
-  filter: blur(80px);
+  opacity: 0.5;
+  filter: blur(100px);
 }
 
 .recGreenLight {
   position: absolute;
-  left: 60.13%;
+  left: 50.13%;
   right: -18.51%;
   top: 13.13%;
   bottom: 6.78%;
   background: radial-gradient(
-    51.64% 56.95% at 54.18% 40.45%,
+    circle closest-side at 54.18% 40.45%,
     #18bb98 0%,
     rgba(255, 255, 255, 0) 100%
   );
-  opacity: 0.3;
-  filter: blur(80px);
+  opacity: 0.5;
+  filter: blur(100px);
 }
 
 @media tablet {
@@ -143,30 +140,30 @@
     top: 5.34%;
     bottom: 34.77%;
     background: radial-gradient(
-      37.72% 38.96% at 57.97% 41.54%,
+      circle closest-side at 57.97% 41.54%,
       #ffc043 0%,
       rgba(255, 255, 255, 0) 100%
     );
-    
   }
 
   .recRed {
-    position: absolute;
-    left: 3.72%;
-    right: 32.62%;
-    top: 23.04%;
+    left: 10.72%;
+    right: 42.62%;
+    top: 33.04%;
     bottom: -9.22%;
     background: radial-gradient(
-      27.72% 28.96% at 57.97% 41.54%,
+      circle closest-side at 57.97% 41.54%,
       #ff7043 0%,
       rgba(255, 255, 255, 0) 100%
     );
+    filter: blur(50px);
+    opacity: 0.2;
   }
 
   .recBlue {
-    top: 30.78%; 
+    bottom: -80.78%;
     background: radial-gradient(
-      21.64% 26.95% at 39.9% 50%,
+      circle closest-side at 39.9% 50%,
       rgba(0, 97, 255, 0.55) 0%,
       rgba(255, 255, 255, 0) 100%
     );
@@ -175,22 +172,21 @@
   .recGreen {
     bottom: 43.13%;
     background: radial-gradient(
-      31.64% 36.95% at 56.78% 61.36%,
+      circle closest-side at 56.78% 61.36%,
       #2199ab 0%,
       rgba(255, 255, 255, 0) 100%
     );
-    opacity: 0.4;
+    opacity: 0.3;
   }
-  
+
   .recGreenLight {
-    left:40%;
+    left: 40%;
     top: 13.13%;
     background: radial-gradient(
-      31.64% 36.95% at 54.18% 40.45%,
+      circle closest-side at 54.18% 40.45%,
       #18bb98 0%,
       rgba(255, 255, 255, 0) 100%
     );
-    opacity: 0.4;
   }
 }
 
@@ -205,5 +201,34 @@
     left: 55%;
     top: 36%;
     font-size: 400px;
+  }
+
+  .recYellow {
+    right: 50%;
+    top: -5.34%;
+    opacity: 0.5;
+  }
+
+  .recRed {
+    opacity: 0.5;
+  }
+
+  .recBlue {
+    left: 48.5%;
+    right: -35%;
+    bottom: -50.78%;
+    opacity: 0.5;
+  }
+
+  .recGreen {
+    top: -23.13%;
+    left: 30%;
+    opacity: 0.5;
+  }
+
+  .recGreenLight {
+    top: -3.13%;
+    left: 30%;
+    opacity: 0.5;
   }
 }
