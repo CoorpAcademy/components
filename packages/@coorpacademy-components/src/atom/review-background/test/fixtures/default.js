@@ -1,1 +1,5 @@
-export default {props: {}};
+export default {
+  props: {
+    'aria-label': 'Review Background Container'
+  }
+};
