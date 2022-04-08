@@ -41,6 +41,7 @@ import AtomProvider from './../src/atom/provider';
 import AtomRadioGroup from './../src/atom/radio-group';
 import AtomRange from './../src/atom/range';
 import AtomResourceMiniature from './../src/atom/resource-miniature';
+import AtomReviewBackground from './../src/atom/review-background';
 import AtomReviewHeaderStepItem from './../src/atom/review-header-step-item';
 import AtomReviewPresentation from './../src/atom/review-presentation';
 import AtomSelect from './../src/atom/select';
@@ -395,6 +396,7 @@ import AtomResourceMiniatureFixturePdf from '../src/atom/resource-miniature/test
 import AtomResourceMiniatureFixtureSelectedPdf from '../src/atom/resource-miniature/test/fixtures/selected-pdf';
 import AtomResourceMiniatureFixtureSelectedVideo from '../src/atom/resource-miniature/test/fixtures/selected-video';
 import AtomResourceMiniatureFixtureVideo from '../src/atom/resource-miniature/test/fixtures/video';
+import AtomReviewBackgroundFixtureDefault from '../src/atom/review-background/test/fixtures/default';
 import AtomReviewHeaderStepItemFixtureCurrent from '../src/atom/review-header-step-item/test/fixtures/current';
 import AtomReviewHeaderStepItemFixtureDefault from '../src/atom/review-header-step-item/test/fixtures/default';
 import AtomReviewHeaderStepItemFixtureRight from '../src/atom/review-header-step-item/test/fixtures/right';
@@ -1251,6 +1253,7 @@ export const components = {
     AtomRadioGroup,
     AtomRange,
     AtomResourceMiniature,
+    AtomReviewBackground,
     AtomReviewHeaderStepItem,
     AtomReviewPresentation,
     AtomSelect,
@@ -1723,6 +1726,9 @@ export const fixtures = {
       SelectedPdf: AtomResourceMiniatureFixtureSelectedPdf,
       SelectedVideo: AtomResourceMiniatureFixtureSelectedVideo,
       Video: AtomResourceMiniatureFixtureVideo
+    },
+    AtomReviewBackground: {
+      Default: AtomReviewBackgroundFixtureDefault
     },
     AtomReviewHeaderStepItem: {
       Current: AtomReviewHeaderStepItemFixtureCurrent,
