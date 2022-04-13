@@ -1,0 +1,235 @@
+@value colors: "../../variables/colors.css";
+@value black from colors;
+@value white from colors;
+@value cm_blue_900 from colors;
+@value cm_grey_400 from colors;
+
+.slidesRevisionContainer {
+  position: relative;
+  /* display: flex; */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.fontBase {
+  font-family: "Gilroy";
+}
+
+.stackedSlidesContainer {
+  position: relative;
+  /* justify-items: center; */
+  /* display: flex; */
+  /* height: 100%; */
+  margin-top: 50px;
+  height: 738px;
+  width: 1240px;
+  align-self: center;
+}
+
+.playerBackground {
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.slideBase {
+  box-shadow: 0px 4px 77px rgba(0, 0, 0, 0.05);
+  background: white;
+  height: 706px;
+  /* width: 600px; */
+  border-radius: 24px;
+  overflow: hidden;
+  position: absolute;
+
+  /* justify-content: center; */
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+
+.position0 {
+  z-index: 50;
+  width: 100%;
+  transform: translate(0, 0);
+  transition: transform 0.25s ease-in;
+}
+
+.position1 {
+  z-index: 45;
+  width: 97%;
+  pointer-events: none;
+  transform: translate(10px, -10px);
+  transition: transform 1s ease-in;
+}
+
+.position2 {
+  z-index: 40;
+  width: 94%;
+  pointer-events: none;
+  transform: translate(20px, -20px);
+  transition: transform 1s ease-in;
+}
+
+.position3 {
+  z-index: 35;
+  width: 91%;
+  pointer-events: none;
+  transform: translate(30px, -30px);
+  /* 0.5s */
+  transition: transform 1s ease-in;
+}
+
+.position4 {
+  z-index: 30;
+  width: 88%;
+  pointer-events: none;
+  transform: translate(40px, -40px);
+  /* transition: transform 0.25s ease-in, width 0.25s ease-in; */
+  transition: transform 1s ease-in;
+}
+
+@keyframes slideOutHideAndSlideIn {
+  0% {
+    width: 100%;
+    z-index: 55;
+    transform: translate(0, 0);
+  }
+  50% {
+    width: 100%;
+    z-index: 50;
+    transform: translate(0, 800px);
+    opacity: 0;
+  }
+  51% {
+    width: 88%;
+    z-index: 30;
+  }
+  100% {
+    width: 88%;
+    z-index: 30;
+    transform: translate(40px, -40px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideOutAndIn {
+  0% {
+    width: 100%;
+    z-index: 55;
+    transform: translate(0, 0);
+  }
+  50% {
+    width: 100%;
+    z-index: 50;
+    transform: translate(0, 800px);
+  }
+  51% {
+    width: 88%;
+    z-index: 30;
+  }
+  100% {
+    z-index: 30;
+    width: 88%;
+    transform: translate(40px, -40px);
+  }
+}
+
+.slideOutHideAndIn {
+  animation: slideOutHideAndSlideIn 4s forwards;
+}
+
+.slideOutAndIn {
+  animation: slideOutAndIn 4s forwards;
+}
+
+.slideContentContainer {
+  /* height: 90%; */
+  /* 706px total */
+  /* 64 + 44 , 598*/
+  /* top: 0; */
+  margin-top: 15px;
+  /* 583 cause -15 */
+  height: 563px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.validateButtonWrapper {
+  position: absolute;
+  bottom: 64px;
+  background-color: black;
+  border-radius: 7px;
+  min-width: 250px;
+  width: min-content;
+  /* height: 10%; */
+  /* padding-bottom: 5%; */
+}
+
+.question {
+  composes: fontBase;
+  font-size: 20px;
+  font-weight: bold;
+  color: cm_blue_900;
+  text-align: center;
+  margin: 24px 0 4px;
+  max-width: 70%;
+  width: 100%;
+  padding: 0 9px;
+  box-sizing: border-box;
+}
+
+.help {
+  composes: fontBase;
+  font-size: 15px;
+  color: cm_grey_400;
+  flex-grow: 0.1;
+  margin: 4px 0 10px;
+  text-align: center;
+  max-width: 70%;
+  width: 100%;
+}
+
+.questionOrigin {
+  composes: help;
+  color: cm_grey_400;
+}
+
+@keyframes popInAnimation {
+  from {
+    transform: translate3d(0, 200px, 0);
+    /* transform: translateY(200px); */
+  }
+  to {
+    transform: translate3d(0, -40px, 0);
+    /* transform: translateY(-40px); */
+  }
+}
+
+.correctionPopinWrapper {
+  position: absolute;
+  bottom: 0px;
+  /* background-color: black; */
+  border-radius: 7px;
+  /* min-width: 250px; */
+  margin: 0 15px;
+  /* height: 200px; */
+  width: 95%;
+
+  animation: popInAnimation 1s forwards;
+}
+
+.validateButton {
+  color: white;
+  transition: opacity 0.25s ease-in-out;
+}
+
+.validateButton:hover {
+  opacity: 0.8;
+}
