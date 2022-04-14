@@ -7,6 +7,7 @@ import BrandFormGroup from '../../molecule/brand-form-group';
 import Provider from '../../atom/provider';
 import Button from '../../atom/button';
 import Link from '../../atom/link';
+import Loader from '../../atom/loader';
 import style from './style.css';
 
 const buildButtonSection = (
@@ -65,7 +66,8 @@ function BrandForm(props, context) {
     onReset,
     resetValue,
     back,
-    tooltip
+    tooltip,
+    isLoading
   } = props;
   const {skin} = context;
   const darkColor = get('common.dark', skin);
@@ -118,10 +120,16 @@ function BrandForm(props, context) {
   return (
     <div>
       {backView}
-      <form onSubmit={handleSubmit} onReset={handleReset} className={style.form}>
-        {brandGroups}
-        {buttonSection}
-      </form>
+      {isLoading ? (
+        <div className={style.loaderContainer}>
+          <Loader className={style.loader} theme="coorpmanager" />
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} onReset={handleReset} className={style.form}>
+          {brandGroups}
+          {buttonSection}
+        </form>
+      )}
     </div>
   );
 }
@@ -153,7 +161,8 @@ BrandForm.propTypes = {
   tooltip: PropTypes.shape({
     title: PropTypes.string,
     place: PropTypes.string
-  })
+  }),
+  isLoading: PropTypes.bool
 };
 
 export default BrandForm;

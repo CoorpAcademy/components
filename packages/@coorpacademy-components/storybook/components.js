@@ -869,6 +869,7 @@ import OrganismBrandFormFixtureDashboard from '../src/organism/brand-form/test/f
 import OrganismBrandFormFixtureDefault from '../src/organism/brand-form/test/fixtures/default';
 import OrganismBrandFormFixtureGeneralSettings from '../src/organism/brand-form/test/fixtures/general-settings';
 import OrganismBrandFormFixtureLms from '../src/organism/brand-form/test/fixtures/lms';
+import OrganismBrandFormFixtureLoading from '../src/organism/brand-form/test/fixtures/loading';
 import OrganismBrandFormFixtureLookandfeel from '../src/organism/brand-form/test/fixtures/lookandfeel';
 import OrganismBrandFormFixtureManageusersEdit from '../src/organism/brand-form/test/fixtures/manageusers-edit';
 import OrganismBrandFormFixtureSso from '../src/organism/brand-form/test/fixtures/sso';
@@ -2455,6 +2456,7 @@ export const fixtures = {
       Default: OrganismBrandFormFixtureDefault,
       GeneralSettings: OrganismBrandFormFixtureGeneralSettings,
       Lms: OrganismBrandFormFixtureLms,
+      Loading: OrganismBrandFormFixtureLoading,
       Lookandfeel: OrganismBrandFormFixtureLookandfeel,
       ManageusersEdit: OrganismBrandFormFixtureManageusersEdit,
       Sso: OrganismBrandFormFixtureSso,
