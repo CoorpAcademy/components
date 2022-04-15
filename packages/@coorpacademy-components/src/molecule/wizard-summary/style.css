@@ -120,11 +120,6 @@
   max-width: calc(100% -25px);
 }
 
-.content {
-  display: flex;
-  align-items: center;
-}
-
 .contentCounter {
   margin-right: 8px;
   color: cm_grey_400;

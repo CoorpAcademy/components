@@ -55,57 +55,58 @@ export default {
           {
             type: 'content',
             title: 'Learn Everywhere #10 : Inclusion, Diversité, et autre élements importants',
-            category: 'video',
-            label: 'Video',
+            badgeList: [{category: 'video', label: 'Video'}],
             author: 'Coorpacademy, Faurecia University'
           },
           {
             type: 'content',
             title: 'Markteting and online advertising',
-            category: 'base',
-            label: 'Base',
+            badgeList: [{category: 'base', label: 'Base'}],
             author: 'Coorpacademy',
             unsaved: true
           },
           {
             type: 'content',
             title: 'Faire une offre',
-            category: 'chapter',
-            label: "5' learning",
+            badgeList: [{category: 'chapter', label: "5' learning"}],
             author: 'Global Exam'
           },
           {
             type: 'content',
             title: 'Cluedo: Meurtre sur Skill Island',
-            category: 'advanced',
-            label: 'Advanced',
+            badgeList: [{category: 'advanced', label: 'Advanced'}],
             author: 'Coorpacademy'
           },
           {
             type: 'content',
             title:
               'Learn <b>Everywhere #10</b> : <u>Inclusion, Diversité</u>, et autre élements importants',
-            category: 'video',
-            label: 'Video',
+            badgeList: [{category: 'video', label: 'Video'}],
             author: 'Coorpacademy, Faurecia University'
           },
           {
             type: 'content',
             title: 'Mesurer la satisfaction client',
-            category: 'coach',
-            label: 'Coach',
+            badgeList: [
+              {category: 'base', label: 'Base'},
+              {category: 'advanced', label: 'Advenced'},
+              {category: 'coach', label: 'Coach'}
+            ],
             author: 'Dunod Formation'
           },
           {
             type: 'content',
             title: 'Cluedo: Meurtre sur Skill Island',
-            category: 'advanced',
-            label: 'Advanced',
+            badgeList: [
+              {category: 'base', label: 'Base'},
+              {category: 'advanced', label: 'Advenced'}
+            ],
             author: 'Coorpacademy'
           },
           {
             type: 'content',
             title: 'Suspects - épisode 1',
+            badgeList: [{category: 'scorm', label: 'Interactive slides'}],
             category: 'scorm',
             label: 'Interactive slides',
             author: 'Coorpacademy'
@@ -113,29 +114,33 @@ export default {
           {
             type: 'content',
             title: '<p align="right"> وضع النصوص بالتصاميم سواء كانت تصاميم مطبوعه</p>',
-            category: 'coach',
-            label: 'Coach',
+            badgeList: [
+              {category: 'base', label: 'Base'},
+              {category: 'advanced', label: 'Advenced'},
+              {category: 'coach', label: 'Coach'}
+            ],
             author: 'Dunod Formation'
           },
           {
             type: 'content',
             title: 'Cluedo: Meurtre sur Skill Island',
-            category: 'course',
-            label: 'Course',
+            badgeList: [{category: 'course', label: 'Course'}],
             author: 'Coorpacademy'
           },
           {
             type: 'content',
             title: 'Suspects - épisode 1',
-            category: 'scorm',
-            label: 'Interactive slides',
+            badgeList: [{category: 'scorm', label: 'Interactive slides'}],
             author: 'Coorpacademy'
           },
           {
             type: 'content',
             title: 'Mesurer la satisfaction client',
-            category: 'coach',
-            label: 'Coach',
+            badgeList: [
+              {category: 'base', label: 'Base'},
+              {category: 'advanced', label: 'Advenced'},
+              {category: 'coach', label: 'Coach'}
+            ],
             author: 'Dunod Formation'
           }
         ],

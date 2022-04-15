@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {uniqueId} from 'lodash/fp';
 import {NovaCompositionNavigationArrowDown as ArrowDownIcon} from '@coorpacademy/nova-icons';
-import ContentBadge from '../../atom/content-badge';
+import ListBadges from '../list-badges';
 import ButtonLink from '../../atom/button-link';
+import ContentBadge from '../../atom/content-badge';
 import style from './style.css';
 
 const buildItemsOfSection = items => {
@@ -19,20 +20,18 @@ const buildItemsOfSection = items => {
           </li>
         );
       case 'content': {
-        const {category, label, title, author, unsaved = false} = item;
+        const {badgeList, badgeAriaLabel, title, author, unsaved = false} = item;
         return (
           <li className={style.contentWrapper} key={`${title}-${index}`} data-name={item.title}>
             <span className={style.contentCounter}>{index + 1}</span>
             <div className={style.contentItem}>
-              <div className={style.content}>
-                <ContentBadge category={category} label={label} />
-                <span
-                  className={classnames(style.contentTitle, unsaved && style.unsaved)}
-                  title={title}
-                  // eslint-disable-next-line react/no-danger
-                  dangerouslySetInnerHTML={{__html: title}}
-                />
-              </div>
+              <ListBadges aria-label={badgeAriaLabel} items={badgeList} />
+              <div
+                className={classnames(style.contentTitle, unsaved && style.unsaved)}
+                title={title}
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{__html: title}}
+              />
               {author ? <span className={style.author}>{author}</span> : null}
             </div>
           </li>
@@ -213,19 +212,9 @@ WizardSummary.propTypes = {
           }),
           PropTypes.shape({
             type: PropTypes.string,
-            category: PropTypes.oneOf([
-              'base',
-              'advanced',
-              'coach',
-              'chapter',
-              'scorm',
-              'video',
-              'article',
-              'podcast',
-              'course'
-            ]),
+            badgeList: PropTypes.arrayOf(PropTypes.shape(ContentBadge.propTypes)),
+            badgeAriaLabel: PropTypes.string,
             title: PropTypes.string,
-            label: PropTypes.string,
             author: PropTypes.string,
             unsaved: PropTypes.bool
           })
