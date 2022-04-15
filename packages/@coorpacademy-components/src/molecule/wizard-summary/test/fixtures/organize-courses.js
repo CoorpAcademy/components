@@ -51,71 +51,61 @@ export default {
             title:
               'Marketing and online advertising Marketing and online advertising Marketing and online advertising Marketing and online advertising',
             author: 'Author',
-            category: 'course',
-            label: 'Course'
+            badgeList: [{category: 'course', label: 'Course'}]
           },
           {
             type: 'content',
             title: 'Social networks',
             author: 'Author',
-            category: 'chapter',
-            label: "5' learning"
+            badgeList: [{category: 'chapter', label: "5' learning"}]
           },
           {
             type: 'content',
             title: 'Other title',
             author: 'Author 2',
-            category: 'course',
-            label: 'Course'
+            badgeList: [{category: 'course', label: 'Course'}]
           },
           {
             type: 'content',
             title: 'Social others',
             author: 'Author XXX',
-            category: 'chapter',
-            label: "5' learning"
+            badgeList: [{category: 'chapter', label: "5' learning"}]
           },
           {
             type: 'content',
             title: 'Social others others',
             author: 'Author XXX',
-            label: "5' learning",
-            category: 'chapter'
+            badgeList: [{category: 'chapter', label: "5' learning"}]
           },
           {
             type: 'content',
             title: 'Something about empowerment',
             author: 'Author XXX',
-            label: 'course',
-            category: 'course'
+            eList: [{category: 'course', label: 'Course'}]
           },
           {
             type: 'content',
             title: 'Be a better human being',
             author: 'Author XXX',
-            label: "5' learning",
-            category: 'chapter'
+            badgeList: [{category: 'chapter', label: "5' learning"}]
           },
           {
             type: 'content',
             title: 'Stronger faster better',
             author: 'Author XXX',
-            label: 'course',
-            category: 'course'
+            eList: [{category: 'course', label: 'Course'}]
           },
           {
             type: 'content',
             title: 'Relativity beyond time',
             author: 'Author XXX',
-            label: 'course',
-            category: 'course'
+            eList: [{category: 'course', label: 'Course'}]
           },
           {
             type: 'content',
             title: 'Are you awake?',
             author: 'Author XXX',
-            label: "5' learning",
-            category: 'chapter'
+            badgeList: [{category: 'chapter', label: "5' learning"}]
           }
         ],
         counterText: '12 courses'

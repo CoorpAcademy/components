@@ -120,11 +120,6 @@
   max-width: calc(100% -25px);
 }
 
-.content {
-  display: flex;
-  align-items: center;
-}
-
 .contentCounter {
   margin-right: 8px;
   color: cm_grey_400;
@@ -140,7 +135,7 @@
 }
 
 .contentTitle {
-  margin: 0px 0px 0px 4px;
+  margin: 0px 0px 0px 0px;
   font-size: 13px;
   text-overflow: ellipsis;
   white-space: nowrap;
