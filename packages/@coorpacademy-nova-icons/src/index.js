@@ -27,6 +27,7 @@ import _NovaCompositionCoorpacademyCharts from './components/nova-composition/co
 import _NovaCompositionCoorpacademyChat from './components/nova-composition/coorpacademy/chat';
 import _NovaCompositionCoorpacademyCheck from './components/nova-composition/coorpacademy/check';
 import _NovaCompositionCoorpacademyClock from './components/nova-composition/coorpacademy/clock';
+import _NovaCompositionCoorpacademyClockTime from './components/nova-composition/coorpacademy/clock-time';
 import _NovaCompositionCoorpacademyClue from './components/nova-composition/coorpacademy/clue';
 import _NovaCompositionCoorpacademyCmLoader from './components/nova-composition/coorpacademy/cm-loader';
 import _NovaCompositionCoorpacademyCog from './components/nova-composition/coorpacademy/cog';
@@ -42,6 +43,7 @@ import _NovaCompositionCoorpacademyFacebook from './components/nova-composition/
 import _NovaCompositionCoorpacademyFilterVideo2 from './components/nova-composition/coorpacademy/filter-video2';
 import _NovaCompositionCoorpacademyFunnel from './components/nova-composition/coorpacademy/funnel';
 import _NovaCompositionCoorpacademyGooglePlus from './components/nova-composition/coorpacademy/google-plus';
+import _NovaCompositionCoorpacademyHeart from './components/nova-composition/coorpacademy/heart';
 import _NovaCompositionCoorpacademyIconFaq from './components/nova-composition/coorpacademy/icon-faq';
 import _NovaCompositionCoorpacademyImportIcon from './components/nova-composition/coorpacademy/import-icon';
 import _NovaCompositionCoorpacademyInformationIcon from './components/nova-composition/coorpacademy/information-icon';
@@ -215,6 +217,7 @@ export const NovaCompositionCoorpacademyCharts: Icon = _NovaCompositionCoorpacad
 export const NovaCompositionCoorpacademyChat: Icon = _NovaCompositionCoorpacademyChat;
 export const NovaCompositionCoorpacademyCheck: Icon = _NovaCompositionCoorpacademyCheck;
 export const NovaCompositionCoorpacademyClock: Icon = _NovaCompositionCoorpacademyClock;
+export const NovaCompositionCoorpacademyClockTime: Icon = _NovaCompositionCoorpacademyClockTime;
 export const NovaCompositionCoorpacademyClue: Icon = _NovaCompositionCoorpacademyClue;
 export const NovaCompositionCoorpacademyCmLoader: Icon = _NovaCompositionCoorpacademyCmLoader;
 export const NovaCompositionCoorpacademyCog: Icon = _NovaCompositionCoorpacademyCog;
@@ -230,6 +233,7 @@ export const NovaCompositionCoorpacademyFacebook: Icon = _NovaCompositionCoorpac
 export const NovaCompositionCoorpacademyFilterVideo2: Icon = _NovaCompositionCoorpacademyFilterVideo2;
 export const NovaCompositionCoorpacademyFunnel: Icon = _NovaCompositionCoorpacademyFunnel;
 export const NovaCompositionCoorpacademyGooglePlus: Icon = _NovaCompositionCoorpacademyGooglePlus;
+export const NovaCompositionCoorpacademyHeart: Icon = _NovaCompositionCoorpacademyHeart;
 export const NovaCompositionCoorpacademyIconFaq: Icon = _NovaCompositionCoorpacademyIconFaq;
 export const NovaCompositionCoorpacademyImportIcon: Icon = _NovaCompositionCoorpacademyImportIcon;
 export const NovaCompositionCoorpacademyInformationIcon: Icon = _NovaCompositionCoorpacademyInformationIcon;
