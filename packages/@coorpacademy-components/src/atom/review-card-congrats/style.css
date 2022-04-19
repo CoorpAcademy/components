@@ -1,0 +1,72 @@
+@value colors: "../../variables/colors.css";
+@value cm_blue_900 from colors;
+
+.textBase {
+  font-family: "Gilroy";
+  font-style: normal;
+  user-select: none;
+}
+
+.cardContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  backdrop-filter: blur(36px);
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 24px;
+  box-shadow: 0px 0px 45px 6px rgba(255, 206, 10, 0.1);
+  width: 280px;
+}
+
+.mainIcon {
+  background: linear-gradient(
+    180deg,
+    rgba(255, 222, 3, 0.15) 0%,
+    rgba(255, 222, 3, 0.15) 100%
+  );
+  border-radius: 50%;
+  margin: 40px 74px 24px;
+  height: 132px;
+  width: 132px;
+}
+
+.title {
+  composes: textBase;
+  color: cm_blue_900;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  text-align: center;
+}
+
+.textContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.textStar {
+  composes: textBase;
+  color: #ffde03;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 77px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.textRating {
+  composes: textBase;
+  color: cm_blue_900;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 77px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.icon {
+  color: #ffde03;
+  border-radius: 1.3px;
+}

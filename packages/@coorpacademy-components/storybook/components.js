@@ -43,6 +43,7 @@ import AtomRadioGroup from './../src/atom/radio-group';
 import AtomRange from './../src/atom/range';
 import AtomResourceMiniature from './../src/atom/resource-miniature';
 import AtomReviewBackground from './../src/atom/review-background';
+import AtomReviewCardCongrats from './../src/atom/review-card-congrats';
 import AtomReviewHeaderStepItem from './../src/atom/review-header-step-item';
 import AtomReviewPresentation from './../src/atom/review-presentation';
 import AtomSelect from './../src/atom/select';
@@ -402,6 +403,8 @@ import AtomResourceMiniatureFixtureSelectedPdf from '../src/atom/resource-miniat
 import AtomResourceMiniatureFixtureSelectedVideo from '../src/atom/resource-miniature/test/fixtures/selected-video';
 import AtomResourceMiniatureFixtureVideo from '../src/atom/resource-miniature/test/fixtures/video';
 import AtomReviewBackgroundFixtureDefault from '../src/atom/review-background/test/fixtures/default';
+import AtomReviewCardCongratsFixtureStar from '../src/atom/review-card-congrats/test/fixtures/star';
+import AtomReviewCardCongratsFixtureRating from '../src/atom/review-card-congrats/test/fixtures/rating';
 import AtomReviewHeaderStepItemFixtureCurrent from '../src/atom/review-header-step-item/test/fixtures/current';
 import AtomReviewHeaderStepItemFixtureDefault from '../src/atom/review-header-step-item/test/fixtures/default';
 import AtomReviewHeaderStepItemFixtureRight from '../src/atom/review-header-step-item/test/fixtures/right';
@@ -1261,6 +1264,7 @@ export const components = {
     AtomRange,
     AtomResourceMiniature,
     AtomReviewBackground,
+    AtomReviewCardCongrats,
     AtomReviewHeaderStepItem,
     AtomReviewPresentation,
     AtomSelect,
@@ -1742,6 +1746,10 @@ export const fixtures = {
     },
     AtomReviewBackground: {
       Default: AtomReviewBackgroundFixtureDefault
+    },
+    AtomReviewCardCongrats: {
+      Star: AtomReviewCardCongratsFixtureStar,
+      Rating: AtomReviewCardCongratsFixtureRating,
     },
     AtomReviewHeaderStepItem: {
       Current: AtomReviewHeaderStepItemFixtureCurrent,
