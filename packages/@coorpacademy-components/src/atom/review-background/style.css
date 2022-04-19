@@ -42,7 +42,7 @@
 .interrogationRight {
   composes: interrogationBase;
   left: 72%;
-  top: -10%;
+  top: 12%;
   transform: rotate(135deg);
 }
 
@@ -73,7 +73,7 @@
     rgba(255, 255, 255, 0) 100%
   );
   opacity: 0.2;
-  filter: blur(60px);
+  filter: blur(80px);
 }
 
 .recBlue {
