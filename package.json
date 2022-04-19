@@ -19,7 +19,7 @@
     "update": "update-node"
   },
   "engines": {
-    "node": "^12.22.11",
+    "node": "^12.22.12",
     "npm": "^6.14.16",
     "yarn": "^1.12.3"
   },
