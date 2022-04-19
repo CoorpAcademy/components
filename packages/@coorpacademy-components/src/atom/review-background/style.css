@@ -17,7 +17,7 @@
 .mainContainer {
   position: relative;
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   background: #ffffff;
   padding: 0;
   margin: 0;
@@ -42,7 +42,7 @@
 .interrogationRight {
   composes: interrogationBase;
   left: 72%;
-  top: -10%;
+  top: 12%;
   transform: rotate(135deg);
 }
 
