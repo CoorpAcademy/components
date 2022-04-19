@@ -8,6 +8,7 @@ Components bank (react and react-native) based on Nova SVG icons (through [Iconj
 
 ## Adding an icon
 
+- Open `IconJar` <https://geticonjar.com/>
 - Import your icon's collection from the folder you need in `packages/@coorpacademy-nova-icons/third-party` or add a new one
 - If you want any path's color to be injected (to be replaced by currentColor), give fill or stroke the color `#757575` ex (the last path is going to keep
 `#4B4C4C` as its color) anything else will remain __as is__:
