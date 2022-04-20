@@ -37,7 +37,7 @@
     "lint": "eslint . --ext .js,.json --cache --cache-location \"node_modules/.cache/.eslintcache\""
   },
   "engines": {
-    "node": ">=8.3.0"
+    "node": ">=12.22.12"
   },
   "contributors": [
     "Arthur Weber <arthur.weber@coorpacademy.com>",
@@ -58,7 +58,9 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "extended-proptypes": "^1.3.0",
     "hammerjs": "^2.0.8",
+    "isomorphic-unfetch": "^3.1.0",
     "lodash": "^4.17.15",
+    "lottie-web": "^5.9.2",
     "postcss-calc": "^7.0.2",
     "postcss-color-function": "^4.1.0",
     "postcss-modules-values-replace": "^3.1.0",
