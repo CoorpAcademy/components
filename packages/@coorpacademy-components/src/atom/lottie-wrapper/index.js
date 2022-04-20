@@ -1,34 +1,50 @@
 import React, {useMemo, useRef, useEffect} from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import lottie from 'lottie-web';
 import unfetch from 'isomorphic-unfetch';
-import {getOr, keys, noop, T} from 'lodash/fp';
-import classnames from 'classnames';
 import style from './style.css';
 
-/**
- * Parse a resource into a JSON object or a URL string
- */
-const getAnimationData = src => {
-  if (typeof src === 'object') {
-    return src;
-  }
+const useAsyncEffect = (effect, dependencies) => {
+  useEffect(() => {
+    effect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dependencies]);
+};
 
-  try {
-    const parsed = JSON.parse(src);
-    return parsed;
-  } catch (e) {
-    console.log('parseSrc error', e);
-  }
+export const fetchAndLoadAnimation = async (
+  animationSrc,
+  containerRef,
+  loop,
+  animationClassnames,
+  hideOnTransparent,
+  _lottie,
+  _fetch
+) => {
+  const animationUrl = new URL(animationSrc).toString();
+  const fetchResult = await _fetch(animationUrl, {
+    headers: {
+      'X-Requested-With': 'XMLHttpRequest',
+      'Content-Type': 'application/json'
+    }
+  });
+  // the animation data could be already fetched and passed down as a prop
+  // to modify if needed:
+  const animationData = await fetchResult.json();
 
-  // Try construct an absolute URL from the src URL
-  try {
-    return new URL(src).toString();
-  } catch (e) {
-    // Do nothing...
-  }
-
-  return src;
+  const animation = _lottie.loadAnimation({
+    container: containerRef.current, // the dom element that will contain the animation
+    renderer: 'svg',
+    autoplay: true,
+    loop,
+    animationData,
+    rendererSettings: {
+      className: animationClassnames,
+      hideOnTransparent,
+      preserveAspectRatio: 'xMidYMid meet' // same options as a preserveAspectRatio prop
+    }
+  });
+  return animation;
 };
 
 const LottieWrapper = props => {
@@ -53,44 +69,23 @@ const LottieWrapper = props => {
     animationClassName
   ]);
 
-  useEffect(() => {
+  useAsyncEffect(async () => {
+    /* istanbul ignore next */
     if (typeof window !== 'undefined') {
       window.lottie = lottie;
     }
-    let animation;
-    const fetchAndLoadAnimation = async animationSrc => {
-      const animationUrl = new URL(animationSrc).toString();
-      const fetchResult = await unfetch(animationUrl, {
-        headers: {
-          'X-Requested-With': 'XMLHttpRequest',
-          'Content-Type': 'application/json'
-        }
-      });
-      const animationData = await fetchResult.json();
 
-      // containerRef.
+    const animation = await fetchAndLoadAnimation(
+      src,
+      containerRef,
+      loop,
+      animationClassnames,
+      hideOnTransparent,
+      lottie,
+      unfetch
+    );
 
-      animation = lottie.loadAnimation({
-        container: containerRef.current, // the dom element that will contain the animation
-        renderer: 'svg',
-        // renderer: 'canvas',
-        autoplay: true,
-        loop,
-        // animationData: {...animationData, w: width, h: height},
-        animationData,
-        rendererSettings: {
-          // context: containerRef,
-          className: animationClassnames,
-          hideOnTransparent,
-          preserveAspectRatio: 'xMidYMid meet'
-          // viewBoxOnly: true
-          // viewBoxSize: `0 0 ${width} ${height}`
-        }
-      });
-      return () => lottie.destroy(animation?.name);
-    };
-    fetchAndLoadAnimation(src);
-
+    // istanbul ignore next
     return () => lottie.destroy(animation?.name);
   }, [
     animationClassName,
@@ -110,11 +105,7 @@ const LottieWrapper = props => {
       data-name={dataName}
       className={wrapperClassName}
       style={{
-        margin: '0 auto',
-        outline: 'none',
-        overflow: 'hidden',
         width: `${width}px`,
-        // height: 'auto',
         height: `${height}px`,
         maxWidth: `${width}px`,
         maxHeight: `${height}px`

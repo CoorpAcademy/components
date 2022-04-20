@@ -4,7 +4,7 @@ export default {
     'data-name': 'default-lottie',
     className: undefined,
     src: 'https://static-staging.coorpacademy.com/animations/review/confetti.json',
-    loop: false,
+    loop: undefined,
     rendererSettings: {
       hideOnTransparent: false,
       animationClassName: ''

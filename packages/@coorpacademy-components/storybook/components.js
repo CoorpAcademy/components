@@ -372,8 +372,8 @@ import AtomLinkFixtureHref from '../src/atom/link/test/fixtures/href';
 import AtomLinkFixtureStyledLink from '../src/atom/link/test/fixtures/styled-link';
 import AtomLoaderFixtureCoorpmanager from '../src/atom/loader/test/fixtures/coorpmanager';
 import AtomLoaderFixtureDefault from '../src/atom/loader/test/fixtures/default';
-import AtomLottieWrapperFixtureDefault from '../src/atom/lottie-wrapper/test/fixtures/default';
 import AtomLottieWrapperFixtureConfetti from '../src/atom/lottie-wrapper/test/fixtures/confetti';
+import AtomLottieWrapperFixtureDefault from '../src/atom/lottie-wrapper/test/fixtures/default';
 import AtomLottieWrapperFixtureRank from '../src/atom/lottie-wrapper/test/fixtures/rank';
 import AtomNotificationFixtureDefault from '../src/atom/notification/test/fixtures/default';
 import AtomNotificationFixtureError from '../src/atom/notification/test/fixtures/error';
@@ -1693,8 +1693,8 @@ export const fixtures = {
       Default: AtomLoaderFixtureDefault
     },
     AtomLottieWrapper: {
-      Default: AtomLottieWrapperFixtureDefault,
       Confetti: AtomLottieWrapperFixtureConfetti,
+      Default: AtomLottieWrapperFixtureDefault,
       Rank: AtomLottieWrapperFixtureRank
     },
     AtomNotification: {
