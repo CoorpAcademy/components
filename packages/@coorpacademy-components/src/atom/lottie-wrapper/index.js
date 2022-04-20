@@ -54,6 +54,9 @@ const LottieWrapper = props => {
   ]);
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      window.lottie = lottie;
+    }
     let animation;
     const fetchAndLoadAnimation = async animationSrc => {
       const animationUrl = new URL(animationSrc).toString();
@@ -65,9 +68,13 @@ const LottieWrapper = props => {
       });
       const animationData = await fetchResult.json();
 
+      // containerRef.
+
       animation = lottie.loadAnimation({
         container: containerRef.current, // the dom element that will contain the animation
         renderer: 'svg',
+        // renderer: 'canvas',
+        autoplay: true,
         loop,
         // animationData: {...animationData, w: width, h: height},
         animationData,
@@ -76,6 +83,8 @@ const LottieWrapper = props => {
           className: animationClassnames,
           hideOnTransparent,
           preserveAspectRatio: 'xMidYMid meet'
+          // viewBoxOnly: true
+          // viewBoxSize: `0 0 ${width} ${height}`
         }
       });
       return () => lottie.destroy(animation?.name);
@@ -94,10 +103,6 @@ const LottieWrapper = props => {
     width
   ]);
 
-  if (typeof window !== 'undefined') {
-    window.lottie = lottie;
-  }
-
   return (
     <div
       ref={containerRef}
@@ -105,8 +110,14 @@ const LottieWrapper = props => {
       data-name={dataName}
       className={wrapperClassName}
       style={{
+        margin: '0 auto',
+        outline: 'none',
+        overflow: 'hidden',
         width: `${width}px`,
-        height: `${height}px`
+        // height: 'auto',
+        height: `${height}px`,
+        maxWidth: `${width}px`,
+        maxHeight: `${height}px`
       }}
     />
   );

@@ -9,7 +9,7 @@ export default {
       hideOnTransparent: false,
       animationClassName: ''
     },
-    height: 400,
-    width: 400
+    height: 200,
+    width: 200
   }
 };

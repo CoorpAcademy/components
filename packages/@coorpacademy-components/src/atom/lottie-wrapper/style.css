@@ -1,9 +1,10 @@
 .lottieContainer {
-  /* position: relative; */
+  position: relative;
   display: flex;
-  align-items: center;
-  justify-items: center;
+  /* align-items: center;
+  justify-items: center; */
   border: 1px solid brown;
+  /* overflow: hidden; */
   /* height: 100%;
   width: 100%; */
   /* height: fit-content;
@@ -11,18 +12,23 @@
   /* opacity: 1; */
 }
 
-/* .lottieContainer svg {
-  height: 100%;
-  width: 100%;
-} */
-
 .animation {
   display: flex;
+  /* 
   max-width: inherit;
   min-width: inherit;
-  /* height: 100%;
-  width: 100%; */
+  width: auto;
+  height: auto;
+  */
+  /* width: inherit;
+  height: inherit; */
+  height: 100%;
+  width: 100%;
   /* display: block; */
   /* display: flex; */
   /* position: absolute; */
+}
+
+svg.animation clipPath rect {
+  /* overflow: hidden; */
 }
