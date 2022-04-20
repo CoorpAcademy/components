@@ -135,7 +135,7 @@
 }
 
 .contentTitle {
-  margin: 0px 0px 0px 0px;
+  margin: 0;
   font-size: 13px;
   line-height: 20px;
   text-overflow: ellipsis;
