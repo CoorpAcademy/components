@@ -3,7 +3,11 @@ export default {
     'aria-label': 'aria lottie',
     'data-name': 'default-lottie',
     className: undefined,
-    src: 'https://static-staging.coorpacademy.com/animations/review/rank.json',
-    loop: true
+    animationSrc: 'https://static-staging.coorpacademy.com/animations/review/rank.json',
+    loop: true,
+    height: 200,
+    width: 200,
+    ie11ImageBackup:
+      'https://static-staging.coorpacademy.com/animations/review/rank_icon_congrats.svg'
   }
 };

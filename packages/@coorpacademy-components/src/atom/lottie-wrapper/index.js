@@ -2,6 +2,9 @@ import React, {useMemo, useRef, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import lottie from 'lottie-web';
+import get from 'lodash/fp/get';
+import has from 'lodash/fp/has';
+import includes from 'lodash/fp/includes';
 import unfetch from 'isomorphic-unfetch';
 import style from './style.css';
 
@@ -10,6 +13,16 @@ const useAsyncEffect = (effect, dependencies) => {
     effect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dependencies]);
+};
+
+const isIE11 = () => {
+  if (typeof window === 'undefined') return;
+  const userAgent = get('navigator.userAgent', window);
+  const hasMsCrypto = has('msCrypto', window);
+  const hasRevision = includes('rv:', userAgent);
+  const hasTrident = includes('Trident/', userAgent);
+
+  return hasMsCrypto || (hasRevision && hasTrident);
 };
 
 export const fetchAndLoadAnimation = async (
@@ -28,8 +41,7 @@ export const fetchAndLoadAnimation = async (
       'Content-Type': 'application/json'
     }
   });
-  // the animation data could be already fetched and passed down as a prop
-  // to modify if needed:
+
   const animationData = await fetchResult.json();
 
   const animation = _lottie.loadAnimation({
@@ -52,51 +64,52 @@ const LottieWrapper = props => {
     className,
     'data-name': dataName,
     'aria-label': ariaLabel,
-    src,
+    animationSrc,
     loop = false,
     rendererSettings = {},
-    width = 100,
-    height = 100
+    width,
+    height,
+    ie11ImageBackup,
+    backupImageClassName
   } = props;
 
   const {className: animationClassName, hideOnTransparent = true} = rendererSettings;
 
   const containerRef = useRef(null);
 
+  const _isIE11 = useMemo(() => isIE11(), []);
+
   const wrapperClassName = useMemo(() => classnames(className, style.lottieContainer), [className]);
 
-  const animationClassnames = useMemo(() => classnames(animationClassName, style.animation), [
+  const lottieAnimationClassName = useMemo(() => classnames(animationClassName, style.animation), [
     animationClassName
   ]);
 
+  const ie11BackupImageClassName = useMemo(
+    () => classnames(backupImageClassName, style.backupImage),
+    [backupImageClassName]
+  );
+
   useAsyncEffect(async () => {
-    /* istanbul ignore next */
-    if (typeof window !== 'undefined') {
-      window.lottie = lottie;
+    if (!_isIE11) {
+      /* istanbul ignore next */
+      if (typeof window !== 'undefined') {
+        window.lottie = lottie;
+      }
+      const animation = await fetchAndLoadAnimation(
+        animationSrc,
+        containerRef,
+        loop,
+        lottieAnimationClassName,
+        hideOnTransparent,
+        lottie,
+        unfetch
+      );
+
+      /* istanbul ignore next */
+      return () => lottie.destroy(animation?.name);
     }
-
-    const animation = await fetchAndLoadAnimation(
-      src,
-      containerRef,
-      loop,
-      animationClassnames,
-      hideOnTransparent,
-      lottie,
-      unfetch
-    );
-
-    // istanbul ignore next
-    return () => lottie.destroy(animation?.name);
-  }, [
-    animationClassName,
-    animationClassnames,
-    containerRef,
-    height,
-    hideOnTransparent,
-    loop,
-    src,
-    width
-  ]);
+  }, [lottieAnimationClassName, containerRef, hideOnTransparent, loop, animationSrc, _isIE11]);
 
   return (
     <div
@@ -105,19 +118,33 @@ const LottieWrapper = props => {
       data-name={dataName}
       className={wrapperClassName}
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
-        maxWidth: `${width}px`,
-        maxHeight: `${height}px`
+        ...(width &
+          {
+            width: `${width}px`,
+            maxWidth: `${width}px`
+          }),
+        ...(height &
+          {
+            height: `${height}px`,
+            maxHeight: `${height}px`
+          })
       }}
-    />
+    >
+      {_isIE11 ? (
+        <img
+          src={ie11ImageBackup}
+          className={ie11BackupImageClassName}
+          data-name="ie11-backup-image"
+        />
+      ) : null}
+    </div>
   );
 };
 
 LottieWrapper.propTypes = {
   'aria-label': PropTypes.string,
   'data-name': PropTypes.string,
-  src: PropTypes.string,
+  animationSrc: PropTypes.string,
   loop: PropTypes.bool,
   rendererSettings: PropTypes.shape({
     hideOnTransparent: PropTypes.bool,
@@ -125,7 +152,9 @@ LottieWrapper.propTypes = {
   }),
   height: PropTypes.number,
   width: PropTypes.number,
-  className: PropTypes.string
+  className: PropTypes.string,
+  ie11ImageBackup: PropTypes.string,
+  backupImageClassName: PropTypes.string
 };
 
 export default LottieWrapper;
