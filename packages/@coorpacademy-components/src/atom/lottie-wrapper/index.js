@@ -118,16 +118,14 @@ const LottieWrapper = props => {
       data-name={dataName}
       className={wrapperClassName}
       style={{
-        ...(width &
-          {
-            width: `${width}px`,
-            maxWidth: `${width}px`
-          }),
-        ...(height &
-          {
-            height: `${height}px`,
-            maxHeight: `${height}px`
-          })
+        ...(width && {
+          width: `${width}px`,
+          maxWidth: `${width}px`
+        }),
+        ...(height && {
+          height: `${height}px`,
+          maxHeight: `${height}px`
+        })
       }}
     >
       {_isIE11 ? (

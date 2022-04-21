@@ -9,8 +9,8 @@ export default {
       hideOnTransparent: false,
       animationClassName: ''
     },
-    height: 400,
-    width: 400,
+    height: 600,
+    width: 1000,
     ie11ImageBackup:
       'https://static-staging.coorpacademy.com/animations/review/conffeti_congrats.svg'
   }
