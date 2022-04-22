@@ -194,6 +194,7 @@ import _NovaSolidVideosVideoClip3 from './components/nova-solid/videos/video-cli
 import _NovaSolidVideosVideoControlPlay from './components/nova-solid/videos/video-control-play';
 import _NovaSolidVideosVideoSubtitle from './components/nova-solid/videos/video-subtitle';
 import _NovaSolidVoteRewardsRewardsBadge1 from './components/nova-solid/vote-rewards/rewards-badge-1';
+import _NovaSolidVoteRewardsRewardsBadge5 from './components/nova-solid/vote-rewards/rewards-badge-5';
 import _NovaSolidVoteRewardsRewardsTrophy5 from './components/nova-solid/vote-rewards/rewards-trophy-5';
 import _NovaSolidVoteRewardsVoteHeart from './components/nova-solid/vote-rewards/vote-heart';
 import _NovaSolidVoteRewardsVoteStar from './components/nova-solid/vote-rewards/vote-star';
@@ -384,6 +385,7 @@ export const NovaSolidVideosVideoClip3: Icon = _NovaSolidVideosVideoClip3;
 export const NovaSolidVideosVideoControlPlay: Icon = _NovaSolidVideosVideoControlPlay;
 export const NovaSolidVideosVideoSubtitle: Icon = _NovaSolidVideosVideoSubtitle;
 export const NovaSolidVoteRewardsRewardsBadge1: Icon = _NovaSolidVoteRewardsRewardsBadge1;
+export const NovaSolidVoteRewardsRewardsBadge5: Icon = _NovaSolidVoteRewardsRewardsBadge5;
 export const NovaSolidVoteRewardsRewardsTrophy5: Icon = _NovaSolidVoteRewardsRewardsTrophy5;
 export const NovaSolidVoteRewardsVoteHeart: Icon = _NovaSolidVoteRewardsVoteHeart;
 export const NovaSolidVoteRewardsVoteStar: Icon = _NovaSolidVoteRewardsVoteStar;
