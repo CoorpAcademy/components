@@ -43,7 +43,6 @@ import AtomRadioGroup from './../src/atom/radio-group';
 import AtomRange from './../src/atom/range';
 import AtomResourceMiniature from './../src/atom/resource-miniature';
 import AtomReviewBackground from './../src/atom/review-background';
-import AtomReviewCardCongrats from './../src/atom/review-card-congrats';
 import AtomReviewHeaderStepItem from './../src/atom/review-header-step-item';
 import AtomReviewPresentation from './../src/atom/review-presentation';
 import AtomSelect from './../src/atom/select';
@@ -129,6 +128,7 @@ import MoleculeQuestionsTemplate from './../src/molecule/questions/template';
 import MoleculeQuickAccessCard from './../src/molecule/quick-access-card';
 import MoleculeQuickAccessCardsGroup from './../src/molecule/quick-access-cards-group';
 import MoleculeResourcePlayer from './../src/molecule/resource-player';
+import MoleculeReviewCardCongrats from './../src/molecule/review-card-congrats';
 import MoleculeReviewCorrectionPopin from './../src/molecule/review-correction-popin';
 import MoleculeReviewHeaderSteps from './../src/molecule/review-header-steps';
 import MoleculeScopeContent from './../src/molecule/scope-content';
@@ -181,6 +181,7 @@ import OrganismMoocFooter from './../src/organism/mooc-footer';
 import OrganismMoocHeader from './../src/organism/mooc-header';
 import OrganismPopin from './../src/organism/popin';
 import OrganismResourceBrowser from './../src/organism/resource-browser';
+import OrganismReviewCongrats from './../src/organism/review-congrats';
 import OrganismReviewHeader from './../src/organism/review-header';
 import OrganismReviewSkills from './../src/organism/review-skills';
 import OrganismRewardsForm from './../src/organism/rewards-form';
@@ -403,8 +404,6 @@ import AtomResourceMiniatureFixtureSelectedPdf from '../src/atom/resource-miniat
 import AtomResourceMiniatureFixtureSelectedVideo from '../src/atom/resource-miniature/test/fixtures/selected-video';
 import AtomResourceMiniatureFixtureVideo from '../src/atom/resource-miniature/test/fixtures/video';
 import AtomReviewBackgroundFixtureDefault from '../src/atom/review-background/test/fixtures/default';
-import AtomReviewCardCongratsFixtureStar from '../src/atom/review-card-congrats/test/fixtures/star';
-import AtomReviewCardCongratsFixtureRating from '../src/atom/review-card-congrats/test/fixtures/rating';
 import AtomReviewHeaderStepItemFixtureCurrent from '../src/atom/review-header-step-item/test/fixtures/current';
 import AtomReviewHeaderStepItemFixtureDefault from '../src/atom/review-header-step-item/test/fixtures/default';
 import AtomReviewHeaderStepItemFixtureRight from '../src/atom/review-header-step-item/test/fixtures/right';
@@ -736,6 +735,8 @@ import MoleculeResourcePlayerFixturePdfWithOverlay from '../src/molecule/resourc
 import MoleculeResourcePlayerFixturePdf from '../src/molecule/resource-player/test/fixtures/pdf';
 import MoleculeResourcePlayerFixtureVimeoWithOverlay from '../src/molecule/resource-player/test/fixtures/vimeo-with-overlay';
 import MoleculeResourcePlayerFixtureVimeo from '../src/molecule/resource-player/test/fixtures/vimeo';
+import MoleculeReviewCardCongratsFixtureRank from '../src/molecule/review-card-congrats/test/fixtures/rank';
+import MoleculeReviewCardCongratsFixtureStar from '../src/molecule/review-card-congrats/test/fixtures/star';
 import MoleculeReviewCorrectionPopinFixtureRight from '../src/molecule/review-correction-popin/test/fixtures/right';
 import MoleculeReviewCorrectionPopinFixtureWrong from '../src/molecule/review-correction-popin/test/fixtures/wrong';
 import MoleculeReviewHeaderStepsFixtureAllQuestionsOk from '../src/molecule/review-header-steps/test/fixtures/all-questions-ok';
@@ -952,6 +953,7 @@ import OrganismResourceBrowserFixturePdfWithOverlay from '../src/organism/resour
 import OrganismResourceBrowserFixturePdf from '../src/organism/resource-browser/test/fixtures/pdf';
 import OrganismResourceBrowserFixtureVimeoWithOverlay from '../src/organism/resource-browser/test/fixtures/vimeo-with-overlay';
 import OrganismResourceBrowserFixtureVimeo from '../src/organism/resource-browser/test/fixtures/vimeo';
+import OrganismReviewCongratsFixtureDefault from '../src/organism/review-congrats/test/fixtures/default';
 import OrganismReviewHeaderFixtureAllQuestionsOk from '../src/organism/review-header/test/fixtures/all-questions-ok';
 import OrganismReviewHeaderFixtureCurrentQuestionNoAnswered from '../src/organism/review-header/test/fixtures/current-question-no-answered';
 import OrganismReviewHeaderFixtureCurrentQuestionWrong from '../src/organism/review-header/test/fixtures/current-question-wrong';
@@ -1264,7 +1266,6 @@ export const components = {
     AtomRange,
     AtomResourceMiniature,
     AtomReviewBackground,
-    AtomReviewCardCongrats,
     AtomReviewHeaderStepItem,
     AtomReviewPresentation,
     AtomSelect,
@@ -1339,6 +1340,7 @@ export const components = {
     MoleculeQuickAccessCard,
     MoleculeQuickAccessCardsGroup,
     MoleculeResourcePlayer,
+    MoleculeReviewCardCongrats,
     MoleculeReviewCorrectionPopin,
     MoleculeReviewHeaderSteps,
     MoleculeScopeContent,
@@ -1417,6 +1419,7 @@ export const components = {
     OrganismMoocHeader,
     OrganismPopin,
     OrganismResourceBrowser,
+    OrganismReviewCongrats,
     OrganismReviewHeader,
     OrganismReviewSkills,
     OrganismRewardsForm,
@@ -1746,10 +1749,6 @@ export const fixtures = {
     },
     AtomReviewBackground: {
       Default: AtomReviewBackgroundFixtureDefault
-    },
-    AtomReviewCardCongrats: {
-      Star: AtomReviewCardCongratsFixtureStar,
-      Rating: AtomReviewCardCongratsFixtureRating,
     },
     AtomReviewHeaderStepItem: {
       Current: AtomReviewHeaderStepItemFixtureCurrent,
@@ -2180,6 +2179,10 @@ export const fixtures = {
       VimeoWithOverlay: MoleculeResourcePlayerFixtureVimeoWithOverlay,
       Vimeo: MoleculeResourcePlayerFixtureVimeo
     },
+    MoleculeReviewCardCongrats: {
+      Rank: MoleculeReviewCardCongratsFixtureRank,
+      Star: MoleculeReviewCardCongratsFixtureStar
+    },
     MoleculeReviewCorrectionPopin: {
       Right: MoleculeReviewCorrectionPopinFixtureRight,
       Wrong: MoleculeReviewCorrectionPopinFixtureWrong
@@ -2583,6 +2586,9 @@ export const fixtures = {
       Pdf: OrganismResourceBrowserFixturePdf,
       VimeoWithOverlay: OrganismResourceBrowserFixtureVimeoWithOverlay,
       Vimeo: OrganismResourceBrowserFixtureVimeo
+    },
+    OrganismReviewCongrats: {
+      Default: OrganismReviewCongratsFixtureDefault
     },
     OrganismReviewHeader: {
       AllQuestionsOk: OrganismReviewHeaderFixtureAllQuestionsOk,
