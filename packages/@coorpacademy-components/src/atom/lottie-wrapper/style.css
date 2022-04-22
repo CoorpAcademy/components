@@ -1,0 +1,15 @@
+.lottieContainer {
+  position: relative;
+  display: flex;
+}
+
+.animation {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+
+.backupImage {
+  height: 100%;
+  width: 100%;
+}

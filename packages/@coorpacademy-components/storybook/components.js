@@ -33,6 +33,7 @@ import AtomLabel from './../src/atom/label';
 import AtomLife from './../src/atom/life';
 import AtomLink from './../src/atom/link';
 import AtomLoader from './../src/atom/loader';
+import AtomLottieWrapper from './../src/atom/lottie-wrapper';
 import AtomNotification from './../src/atom/notification';
 import AtomPicture from './../src/atom/picture';
 import AtomPictureBackground from './../src/atom/picture-background';
@@ -371,6 +372,9 @@ import AtomLinkFixtureHref from '../src/atom/link/test/fixtures/href';
 import AtomLinkFixtureStyledLink from '../src/atom/link/test/fixtures/styled-link';
 import AtomLoaderFixtureCoorpmanager from '../src/atom/loader/test/fixtures/coorpmanager';
 import AtomLoaderFixtureDefault from '../src/atom/loader/test/fixtures/default';
+import AtomLottieWrapperFixtureConfetti from '../src/atom/lottie-wrapper/test/fixtures/confetti';
+import AtomLottieWrapperFixtureDefault from '../src/atom/lottie-wrapper/test/fixtures/default';
+import AtomLottieWrapperFixtureRank from '../src/atom/lottie-wrapper/test/fixtures/rank';
 import AtomNotificationFixtureDefault from '../src/atom/notification/test/fixtures/default';
 import AtomNotificationFixtureError from '../src/atom/notification/test/fixtures/error';
 import AtomNotificationFixtureWarning from '../src/atom/notification/test/fixtures/warning';
@@ -1246,6 +1250,7 @@ export const components = {
     AtomLife,
     AtomLink,
     AtomLoader,
+    AtomLottieWrapper,
     AtomNotification,
     AtomPicture,
     AtomPictureBackground,
@@ -1686,6 +1691,11 @@ export const fixtures = {
     AtomLoader: {
       Coorpmanager: AtomLoaderFixtureCoorpmanager,
       Default: AtomLoaderFixtureDefault
+    },
+    AtomLottieWrapper: {
+      Confetti: AtomLottieWrapperFixtureConfetti,
+      Default: AtomLottieWrapperFixtureDefault,
+      Rank: AtomLottieWrapperFixtureRank
     },
     AtomNotification: {
       Default: AtomNotificationFixtureDefault,

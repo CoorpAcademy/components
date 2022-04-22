@@ -91,6 +91,40 @@ example:
   ...
 ```
 
+### Using a Lottie Animation
+
+To use a lottie animation, you need to use the LottieWrapper Atom.
+
+Among the Lottie Atom's props, there are two *important* props: animationSrc & ie11ImageBackup,
+that need an additional step, the ie11ImageBackup is needed as it's name implies because ie11 doesn't
+support Lottie (more specifically Web Components due to the Shadow DOM).
+
+First, you must upload to AWS S3 any new animation, in one of the static buckets (depending on the desired env), ex: 
+`https://static-staging.coorpacademy.com/animations/review/`.
+
+This animation must be paired with a backup image (svg) that'll be used for the ie11 scenario.
+
+Then, use the urls as props for animationSrc & ie11ImageBackup, ex:
+
+```javascript
+const props = {
+    'aria-label': 'aria lottie',
+    'data-name': 'default-lottie',
+    className: undefined,
+    animationSrc: 'https://static-staging.coorpacademy.com/animations/review/rank.json',
+    loop: true,
+    height: 200,
+    width: 200,
+    ie11ImageBackup:
+      'https://static-staging.coorpacademy.com/animations/review/rank_icon_congrats.svg'
+}
+```
+
+#### Additional information:
+
+The props include classNames && size control to handle additional styling.
+
+
 ## Locally use in an external project
 
 Link your dependencies:
