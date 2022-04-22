@@ -148,9 +148,9 @@ const LottieWrapper = props => {
 };
 
 LottieWrapper.propTypes = {
-  'aria-label': PropTypes.string,
+  'aria-label': PropTypes.string.isRequired,
   'data-name': PropTypes.string,
-  animationSrc: PropTypes.string,
+  animationSrc: PropTypes.string.isRequired,
   loop: PropTypes.bool,
   rendererSettings: PropTypes.shape({
     hideOnTransparent: PropTypes.bool,
@@ -159,7 +159,7 @@ LottieWrapper.propTypes = {
   height: PropTypes.number,
   width: PropTypes.number,
   className: PropTypes.string,
-  ie11ImageBackup: PropTypes.string,
+  ie11ImageBackup: PropTypes.string.isRequired,
   backupImageClassName: PropTypes.string
 };
 
