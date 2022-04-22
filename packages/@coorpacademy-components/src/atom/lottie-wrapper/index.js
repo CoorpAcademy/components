@@ -1,4 +1,4 @@
-import React, {useMemo, useRef, useEffect} from 'react';
+import React, {useMemo, useRef, useEffect, useState} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import lottie from 'lottie-web';
@@ -7,13 +7,6 @@ import has from 'lodash/fp/has';
 import includes from 'lodash/fp/includes';
 import unfetch from 'isomorphic-unfetch';
 import style from './style.css';
-
-const useAsyncEffect = (effect, dependencies) => {
-  useEffect(() => {
-    effect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [dependencies]);
-};
 
 const isIE11 = () => {
   if (typeof window === 'undefined') return;
@@ -77,6 +70,8 @@ const LottieWrapper = props => {
 
   const containerRef = useRef(null);
 
+  const [animationItem, setAnimationItem] = useState(null);
+
   const _isIE11 = useMemo(() => isIE11(), []);
 
   const wrapperClassName = useMemo(() => classnames(className, style.lottieContainer), [className]);
@@ -90,26 +85,39 @@ const LottieWrapper = props => {
     [backupImageClassName]
   );
 
-  useAsyncEffect(async () => {
-    if (!_isIE11) {
-      /* istanbul ignore next */
-      if (typeof window !== 'undefined') {
-        window.lottie = lottie;
-      }
-      const animation = await fetchAndLoadAnimation(
-        animationSrc,
-        containerRef,
-        loop,
-        lottieAnimationClassName,
-        hideOnTransparent,
-        lottie,
-        unfetch
-      );
+  useEffect(() => {
+    const loadAnimation = async () => {
+      if (!_isIE11 && !animationItem) {
+        /* istanbul ignore next */
+        if (typeof window !== 'undefined') {
+          window.lottie = lottie;
+        }
+        const animation = await fetchAndLoadAnimation(
+          animationSrc,
+          containerRef,
+          loop,
+          lottieAnimationClassName,
+          hideOnTransparent,
+          lottie,
+          unfetch
+        );
 
-      /* istanbul ignore next */
-      return () => lottie.destroy(animation?.name);
-    }
-  }, [lottieAnimationClassName, containerRef, hideOnTransparent, loop, animationSrc, _isIE11]);
+        /* istanbul ignore next */
+        setAnimationItem(animation);
+      }
+    };
+
+    loadAnimation();
+    return () => animationItem && /* istanbul ignore next */ lottie.destroy(animationItem.name);
+  }, [
+    lottieAnimationClassName,
+    containerRef,
+    hideOnTransparent,
+    loop,
+    animationSrc,
+    _isIE11,
+    animationItem
+  ]);
 
   return (
     <div

@@ -86,7 +86,7 @@ test('fetchAndLoadAnimation', async t => {
     };
   };
   const animation = await fetchAndLoadAnimation(
-    props.src,
+    props.animationSrc,
     '123456',
     true,
     'test',
