@@ -116,7 +116,27 @@ const props = {
     height: 200,
     width: 200,
     ie11ImageBackup:
-      'https://static-staging.coorpacademy.com/animations/review/rank_icon_congrats.svg'
+      'https://static-staging.coorpacademy.com/animations/review/rank_icon_congrats.svg',
+    // autoplay: true // autoplay is true by default
+}
+```
+
+If you need to control the animation (play/pause/stop), then you must set autoplay to false &
+add your desired state, among the available states: `play, pause, stop, loading`
+
+```javascript
+const props = {
+    'aria-label': 'aria lottie',
+    'data-name': 'default-lottie',
+    className: undefined,
+    animationSrc: 'https://static-staging.coorpacademy.com/animations/review/rank.json',
+    loop: true,
+    height: 200,
+    width: 200,
+    ie11ImageBackup:
+      'https://static-staging.coorpacademy.com/animations/review/rank_icon_congrats.svg',
+    autoplay: false,
+    animationControl: 'loading' // play can be passed directly without using loading first
 }
 ```
 

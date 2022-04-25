@@ -5,6 +5,7 @@ export default {
     className: undefined,
     animationSrc: 'https://static-staging.coorpacademy.com/animations/review/confetti.json',
     loop: undefined,
+    autoplay: true,
     rendererSettings: {
       hideOnTransparent: false,
       animationClassName: ''
@@ -12,6 +13,7 @@ export default {
     height: 600,
     width: 1000,
     ie11ImageBackup:
-      'https://static-staging.coorpacademy.com/animations/review/conffeti_congrats.svg'
+      'https://static-staging.coorpacademy.com/animations/review/conffeti_congrats.svg',
+    animationControl: undefined
   }
 };
