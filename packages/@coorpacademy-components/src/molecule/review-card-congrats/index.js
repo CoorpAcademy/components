@@ -17,7 +17,7 @@ const ReviewCardCongrats = props => {
     cardType,
     reviewCardTitle,
     reviewCardValue,
-    rankText
+    rankSuffix
   } = props;
 
   return (
@@ -26,34 +26,25 @@ const ReviewCardCongrats = props => {
         <AtomLottieWrapper {...animationLottie} width={165} height={165} loop={false} />
       </div>
       <div className={style.title}>{reviewCardTitle}</div>
-      {cardType === 'card-star' ? (
-        <div className={style.textContainer}>
-          <AnimationScheduler animated>
-            <div className={style.centerContent}>
-              <span className={style.textStar}>
-                <Animation name="counter" bezier={EASE_OUT_CUBIC} duration={2000}>
-                  {progress => pipe(_parseInt(10), multiply(progress), round)(reviewCardValue)}
-                </Animation>
-              </span>
-            </div>
-          </AnimationScheduler>
+      <div className={cardType === 'card-star' ? style.textContainerStar : style.textContainerRank}>
+        {cardType === 'card-rank' ? (
+          <RankIcon className={style.iconRank} width={40} height={40} />
+        ) : null}
+        <AnimationScheduler animated>
+          <div>
+            <span className={cardType === 'card-star' ? style.textStar : style.textRank}>
+              <Animation name="counter" bezier={EASE_OUT_CUBIC} duration={2000}>
+                {progress => pipe(_parseInt(10), multiply(progress), round)(reviewCardValue)}
+              </Animation>
+            </span>
+          </div>
+        </AnimationScheduler>
+        {cardType === 'card-star' ? (
           <StarIcon className={style.iconStar} width={53} height={53} />
-        </div>
-      ) : (
-        <div className={style.textContainer}>
-          <RankIcon className={style.iconRank} width={33} />
-          <AnimationScheduler animated>
-            <div className={style.centerContent}>
-              <span className={style.textRating}>
-                <Animation name="counter" bezier={EASE_OUT_CUBIC} duration={2000}>
-                  {progress => pipe(_parseInt(10), multiply(progress), round)(reviewCardValue)}
-                </Animation>
-              </span>
-            </div>
-          </AnimationScheduler>
-          <div className={style.rankText}>{rankText}</div>
-        </div>
-      )}
+        ) : (
+          <div className={style.rankSuffix}>{rankSuffix}</div>
+        )}
+      </div>
     </div>
   );
 };
@@ -64,7 +55,7 @@ ReviewCardCongrats.propTypes = {
   cardType: PropTypes.string,
   reviewCardTitle: PropTypes.string,
   reviewCardValue: PropTypes.string,
-  rankText: PropTypes.string
+  rankSuffix: PropTypes.string
 };
 
 export default ReviewCardCongrats;

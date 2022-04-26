@@ -8,12 +8,17 @@
   user-select: none;
 }
 
+.textContainerBase {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
 .textIconBase {
   composes: textBase;
   font-weight: 700;
   font-size: 64px;
   line-height: 77px;
-  text-align: center;
 }
 
 .cardContainer {
@@ -42,16 +47,15 @@
   text-align: center;
 }
 
-.textContainer {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 40px;
+.textContainerStar {
+  composes: textContainerBase;
+  justify-content: flex-end;
 }
 
-.centerContent {
-  display: flex;
-  align-items: center;
+.textContainerRank {
+  composes: textContainerBase;
+  justify-content: space-between;
+  padding: 0 45px;
 }
 
 .textStar {
@@ -59,26 +63,21 @@
   color: #ffde03;
 }
 
-.textRating {
+.textRank {
   composes: textIconBase;
   color: cm_blue_900;
-  margin-right: 80px;
 }
 
 .iconStar {
   color: #ffde03;
-  position: fixed;
-  bottom: 55px;
-  right: 50px;
+  padding: 0 55px 0 10px;
 }
 
 .iconRank {
   color: cm_positive_100;
 }
 
-.rankText {
+.rankSuffix {
   composes: textIconBase;
-  position: fixed;
-  bottom: 40px;
-  right: 50px;
+  color: cm_blue_900;
 }
