@@ -5,6 +5,7 @@ export default {
     className: undefined,
     animationSrc: 'https://static-staging.coorpacademy.com/animations/review/star.json',
     loop: false,
+    autoplay: undefined,
     rendererSettings: {
       hideOnTransparent: false,
       animationClassName: ''
@@ -12,6 +13,7 @@ export default {
     height: 200,
     width: 200,
     ie11ImageBackup:
-      'https://static-staging.coorpacademy.com/animations/review/stars_icon_congrats.svg'
+      'https://static-staging.coorpacademy.com/animations/review/stars_icon_congrats.svg',
+    animationControl: undefined
   }
 };

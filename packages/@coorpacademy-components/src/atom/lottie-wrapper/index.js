@@ -5,8 +5,17 @@ import lottie from 'lottie-web';
 import get from 'lodash/fp/get';
 import has from 'lodash/fp/has';
 import includes from 'lodash/fp/includes';
+import keys from 'lodash/fp/keys';
+import omit from 'lodash/fp/omit';
 import unfetch from 'isomorphic-unfetch';
 import style from './style.css';
+
+export const ANIMATION_CONTROL = {
+  play: 'play',
+  pause: 'pause',
+  stop: 'stop',
+  loading: 'loading'
+};
 
 const isIE11 = () => {
   if (typeof window === 'undefined') return;
@@ -19,13 +28,14 @@ const isIE11 = () => {
 };
 
 export const fetchAndLoadAnimation = async (
+  _lottie,
+  _fetch,
   animationSrc,
   containerRef,
   loop,
   animationClassnames,
   hideOnTransparent,
-  _lottie,
-  _fetch
+  autoplay
 ) => {
   const animationUrl = new URL(animationSrc).toString();
   const fetchResult = await _fetch(animationUrl, {
@@ -40,7 +50,7 @@ export const fetchAndLoadAnimation = async (
   const animation = _lottie.loadAnimation({
     container: containerRef.current, // the dom element that will contain the animation
     renderer: 'svg',
-    autoplay: true,
+    autoplay,
     loop,
     animationData,
     rendererSettings: {
@@ -63,14 +73,19 @@ const LottieWrapper = props => {
     width,
     height,
     ie11ImageBackup,
-    backupImageClassName
+    backupImageClassName,
+    autoplay = true,
+    animationControl
   } = props;
 
   const {className: animationClassName, hideOnTransparent = true} = rendererSettings;
 
   const containerRef = useRef(null);
 
+  // lottie's animation instance
   const [animationItem, setAnimationItem] = useState(null);
+
+  const [isAnimationVisible, setIsAnimationVisible] = useState(autoplay);
 
   const _isIE11 = useMemo(() => isIE11(), []);
 
@@ -86,20 +101,36 @@ const LottieWrapper = props => {
   );
 
   useEffect(() => {
+    // enzyme does not handle well the state update after an async useEffect in tests
+    // to remove when the migration towards @testing-library/react is done
+    /* istanbul ignore next */
+    if (
+      animationItem &&
+      includes(animationControl, keys(omit('loading', ANIMATION_CONTROL))) &&
+      !autoplay
+    ) {
+      setIsAnimationVisible(true);
+      animationItem[animationControl]();
+      if (animationControl === ANIMATION_CONTROL.stop) setIsAnimationVisible(false);
+    }
+  }, [animationControl, animationItem, autoplay]);
+
+  useEffect(() => {
     const loadAnimation = async () => {
       if (!_isIE11 && !animationItem) {
-        /* istanbul ignore next */
+        /* istanbul ignore else */
         if (typeof window !== 'undefined') {
           window.lottie = lottie;
         }
         const animation = await fetchAndLoadAnimation(
+          lottie,
+          unfetch,
           animationSrc,
           containerRef,
           loop,
           lottieAnimationClassName,
           hideOnTransparent,
-          lottie,
-          unfetch
+          autoplay
         );
 
         /* istanbul ignore next */
@@ -116,7 +147,8 @@ const LottieWrapper = props => {
     loop,
     animationSrc,
     _isIE11,
-    animationItem
+    animationItem,
+    autoplay
   ]);
 
   return (
@@ -133,7 +165,9 @@ const LottieWrapper = props => {
         ...(height && {
           height: `${height}px`,
           maxHeight: `${height}px`
-        })
+        }),
+        opacity: isAnimationVisible ? 1 : 0,
+        transition: 'opacity 0.25s ease-in'
       }}
     >
       {_isIE11 ? (
@@ -160,7 +194,9 @@ LottieWrapper.propTypes = {
   width: PropTypes.number,
   className: PropTypes.string,
   ie11ImageBackup: PropTypes.string.isRequired,
-  backupImageClassName: PropTypes.string
+  backupImageClassName: PropTypes.string,
+  autoplay: PropTypes.bool,
+  animationControl: PropTypes.oneOf(keys(ANIMATION_CONTROL))
 };
 
 export default LottieWrapper;
