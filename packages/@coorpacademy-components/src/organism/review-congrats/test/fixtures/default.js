@@ -1,11 +1,13 @@
 import animationLottie from '../../../../atom/lottie-wrapper/test/fixtures/confetti';
-import moleculeReviewCardCongrats from '../../../../molecule/review-card-congrats/test/fixtures/star';
+import moleculeReviewCardStar from '../../../../molecule/review-card-congrats/test/fixtures/star';
+import moleculeReviewCardRank from '../../../../molecule/review-card-congrats/test/fixtures/rank';
 
 export const defaultProps = {
   'aria-label': 'Review Congratulations',
   animationLottie: animationLottie.props,
   title: 'Congratulations!',
-  cardCongratsStar: moleculeReviewCardCongrats.props,
+  cardCongratsStar: moleculeReviewCardStar.props,
+  cardCongratsRank: moleculeReviewCardRank.props,
   buttonLabelReviseSkill: 'Revise another skill',
   buttonLabelRevise: 'Continue revising',
   buttonAriaLabel: 'Continue revising',

@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {pipe, round, parseInt as _parseInt, multiply} from 'lodash/fp';
 import {
-  NovaCompositionCoorpacademyStar as StarIcon,
-  NovaSolidVoteRewardsRewardsBadge5 as RankIcon
+  NovaCompositionCoorpacademyStar as StarIcon
+  // NovaSolidVoteRewardsRewardsBadge5 as RankIcon
 } from '@coorpacademy/nova-icons';
 import AtomLottieWrapper from '../../atom/lottie-wrapper';
 import Animation, {EASE_OUT_CUBIC} from '../../hoc/animation';
@@ -28,7 +28,7 @@ const ReviewCardCongrats = props => {
       <div className={style.title}>{reviewCardTitle}</div>
       <div className={cardType === 'card-star' ? style.textContainerStar : style.textContainerRank}>
         {cardType === 'card-rank' ? (
-          <RankIcon className={style.iconRank} width={40} height={40} />
+          <StarIcon className={style.iconRank} width={40} height={40} />
         ) : null}
         <AnimationScheduler animated>
           <div>
