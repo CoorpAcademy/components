@@ -13,6 +13,7 @@ const ImageUpload = ({
   uploadLabel,
   loading,
   modified,
+  disabled = false,
   onChange,
   onReset = null,
   name,
@@ -47,6 +48,7 @@ const ImageUpload = ({
       modified={modified}
       onReset={handleReset}
       error={error}
+      disabled={disabled}
       buttonAriaLabel={buttonAriaLabel}
       errorButtonLabel={errorButtonLabel}
     >
@@ -56,7 +58,7 @@ const ImageUpload = ({
             type="file"
             name={name}
             accept={acceptedImages}
-            disabled={loading}
+            disabled={loading || disabled}
             className={style.input}
             onChange={onChange}
             onDragEnter={onDragStart}

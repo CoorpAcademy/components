@@ -24,6 +24,10 @@
   width: 100%;
 }
 
+.disabled {
+  opacity: 0.5;
+}
+
 .title {
   font-size: 16px;
   font-weight: 700;

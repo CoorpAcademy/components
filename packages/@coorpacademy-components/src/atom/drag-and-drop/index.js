@@ -6,6 +6,7 @@ import {
   NovaSolidFilesBasicFileUpload2 as FileUploadIcon,
   NovaSolidFilesBasicFileBlock2 as FileUploadBlockedIcon
 } from '@coorpacademy/nova-icons';
+import classnames from 'classnames';
 import Loader from '../loader';
 import Button from '../button-link';
 import getClassState from '../../util/get-class-state';
@@ -26,6 +27,7 @@ class DragAndDrop extends React.Component {
     }),
     loading: PropTypes.bool,
     modified: PropTypes.bool,
+    disabled: PropTypes.bool,
     children: PropTypes.func,
     onReset: PropTypes.func,
     error: PropTypes.string,
@@ -70,7 +72,8 @@ class DragAndDrop extends React.Component {
       onReset = null,
       error = '',
       buttonAriaLabel = '',
-      errorButtonLabel = ''
+      errorButtonLabel = '',
+      disabled = false
     } = this.props;
     const {dragging} = this.state;
 
@@ -168,9 +171,17 @@ class DragAndDrop extends React.Component {
       <div className={style.wrapper} data-name="drag-and-drop-wrapper">
         <div className={style.title}>{title}</div>
         {!isEmpty(previewContent) || loading ? (
-          <div className={previewContainer}>{previewView}</div>
+          <div className={classnames(previewContainer, disabled && style.disabled)}>
+            {previewView}
+          </div>
         ) : (
-          <div className={dragging ? style.dragging : inputWrapper} id={idBox}>
+          <div
+            className={classnames(
+              dragging ? style.dragging : inputWrapper,
+              disabled && style.disabled
+            )}
+            id={idBox}
+          >
             <div className={style.infosContainer}>
               {error ? (
                 <FileUploadBlockedIcon className={style.iconError} />
