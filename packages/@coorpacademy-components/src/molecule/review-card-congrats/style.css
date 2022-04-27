@@ -2,6 +2,17 @@
 @value cm_blue_900 from colors;
 @value cm_positive_100 from colors;
 
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
 .textBase {
   font-family: 'Gilroy';
   font-style: normal;
@@ -30,6 +41,7 @@
   border-radius: 24px;
   box-shadow: 0px 0px 45px 6px rgba(255, 206, 10, 0.1);
   width: 280px;
+  animation: fadeIn 2s ease-in-out forwards;
 }
 
 .mainIcon {
