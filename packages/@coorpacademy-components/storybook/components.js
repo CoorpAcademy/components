@@ -289,6 +289,7 @@ import AtomDifficultyLevelFixtureNormal from '../src/atom/difficulty-level/test/
 import AtomDifficultyLevelFixtureUnknown from '../src/atom/difficulty-level/test/fixtures/unknown';
 import AtomDragAndDropFixtureCleanAndModified from '../src/atom/drag-and-drop/test/fixtures/clean-and-modified';
 import AtomDragAndDropFixtureDefault from '../src/atom/drag-and-drop/test/fixtures/default';
+import AtomDragAndDropFixtureDisabled from '../src/atom/drag-and-drop/test/fixtures/disabled';
 import AtomDragAndDropFixtureError from '../src/atom/drag-and-drop/test/fixtures/error';
 import AtomDragAndDropFixtureLoading from '../src/atom/drag-and-drop/test/fixtures/loading';
 import AtomDragAndDropFixtureModified from '../src/atom/drag-and-drop/test/fixtures/modified';
@@ -305,6 +306,7 @@ import AtomImageUploadFixtureDesktopResetDescriptionOnlyPng from '../src/atom/im
 import AtomImageUploadFixtureDesktopResetDescription from '../src/atom/image-upload/test/fixtures/desktop-reset-description';
 import AtomImageUploadFixtureDesktopResetNoDescription from '../src/atom/image-upload/test/fixtures/desktop-reset-no-description';
 import AtomImageUploadFixtureDesktop from '../src/atom/image-upload/test/fixtures/desktop';
+import AtomImageUploadFixtureDisabled from '../src/atom/image-upload/test/fixtures/disabled';
 import AtomImageUploadFixtureEmail from '../src/atom/image-upload/test/fixtures/email';
 import AtomImageUploadFixtureMobile from '../src/atom/image-upload/test/fixtures/mobile';
 import AtomImageUploadFixtureModified from '../src/atom/image-upload/test/fixtures/modified';
@@ -607,8 +609,8 @@ import MoleculeDragAndDropFixtureReady from '../src/molecule/drag-and-drop/test/
 import MoleculeDragAndDropFixtureSuccessVideo from '../src/molecule/drag-and-drop/test/fixtures/success-video';
 import MoleculeDragAndDropFixtureSuccess from '../src/molecule/drag-and-drop/test/fixtures/success';
 import MoleculeDragAndDropWrapperFixtureDefault from '../src/molecule/drag-and-drop-wrapper/test/fixtures/default';
+import MoleculeDragAndDropWrapperFixtureDisabled from '../src/molecule/drag-and-drop-wrapper/test/fixtures/disabled';
 import MoleculeDragAndDropWrapperFixtureTwoDragAndDrops from '../src/molecule/drag-and-drop-wrapper/test/fixtures/two-drag-and-drops';
-import MoleculeDragAndDropWrapperFixtureWithoutCheckbox from '../src/molecule/drag-and-drop-wrapper/test/fixtures/without-checkbox';
 import MoleculeDraggableFixtureDefault from '../src/molecule/draggable/test/fixtures/default';
 import MoleculeDraggableListFixtureCourseSections from '../src/molecule/draggable-list/test/fixtures/course-sections';
 import MoleculeDraggableListFixtureDashboardSections from '../src/molecule/draggable-list/test/fixtures/dashboard-sections';
@@ -1577,6 +1579,7 @@ export const fixtures = {
     AtomDragAndDrop: {
       CleanAndModified: AtomDragAndDropFixtureCleanAndModified,
       Default: AtomDragAndDropFixtureDefault,
+      Disabled: AtomDragAndDropFixtureDisabled,
       Error: AtomDragAndDropFixtureError,
       Loading: AtomDragAndDropFixtureLoading,
       Modified: AtomDragAndDropFixtureModified,
@@ -1597,6 +1600,7 @@ export const fixtures = {
       DesktopResetDescription: AtomImageUploadFixtureDesktopResetDescription,
       DesktopResetNoDescription: AtomImageUploadFixtureDesktopResetNoDescription,
       Desktop: AtomImageUploadFixtureDesktop,
+      Disabled: AtomImageUploadFixtureDisabled,
       Email: AtomImageUploadFixtureEmail,
       Mobile: AtomImageUploadFixtureMobile,
       Modified: AtomImageUploadFixtureModified
@@ -2025,8 +2029,8 @@ export const fixtures = {
     },
     MoleculeDragAndDropWrapper: {
       Default: MoleculeDragAndDropWrapperFixtureDefault,
-      TwoDragAndDrops: MoleculeDragAndDropWrapperFixtureTwoDragAndDrops,
-      WithoutCheckbox: MoleculeDragAndDropWrapperFixtureWithoutCheckbox
+      Disabled: MoleculeDragAndDropWrapperFixtureDisabled,
+      TwoDragAndDrops: MoleculeDragAndDropWrapperFixtureTwoDragAndDrops
     },
     MoleculeDraggable: {
       Default: MoleculeDraggableFixtureDefault
