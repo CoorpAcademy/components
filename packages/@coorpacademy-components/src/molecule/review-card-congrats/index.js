@@ -28,8 +28,9 @@ const ReviewCardCongrats = props => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setIsAnimationVisible('play');
-      setIsAnimated(true);
+      setIsAnimated(!isAnimated);
     }, 200);
+    /* istanbul ignore next */
     return () => clearTimeout(timer);
   }, []);
 

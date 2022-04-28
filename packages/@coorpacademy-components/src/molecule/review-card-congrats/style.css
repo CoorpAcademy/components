@@ -1,3 +1,5 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
 @value colors: "../../variables/colors.css";
 @value cm_blue_900 from colors;
 @value cm_positive_100 from colors;
@@ -92,4 +94,14 @@
 .rankSuffix {
   composes: textIconBase;
   color: cm_blue_900;
+}
+
+@media mobile {
+  .mainIcon {
+    margin: 14px 0px 6px;
+  }
+
+  .textContainerBase {
+    margin-bottom: 20px;
+  }
 }
