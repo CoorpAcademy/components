@@ -33,17 +33,11 @@ const ReviewCongrats = props => {
     onClick: () => linkRevise
   };
 
-  const [changeContainer, setChangeContainer] = useState(false);
-  const [displayTitle, setDisplayTitle] = useState(false);
-  const [displayButton, setDisplayButton] = useState(false);
   const [displayCardStar, setDisplayCardStar] = useState(false);
   const [displayCardRank, setDisplayCardRank] = useState(false);
 
   useEffect(() => {
     const timerFirstStep = setTimeout(() => {
-      setChangeContainer(true);
-      setDisplayTitle(true);
-      setDisplayButton(true);
       setDisplayCardStar(true);
     }, 800);
     const timerCardRank = setTimeout(() => {
@@ -52,36 +46,30 @@ const ReviewCongrats = props => {
     return () => clearTimeout(timerFirstStep, timerCardRank);
   }, []);
 
-  const wrapperStyleContainer = classnames(
-    style.containerCongrats,
-    changeContainer ? style.containerCongrats2 : style.containerCongrats
-  );
-  const wrapperStyleTitle = classnames(
-    style.title,
-    displayTitle ? style.titleAnimation : style.title
-  );
-  const wrapperStyleButton = classnames(
-    style.buttonContainer,
-    displayButton ? style.buttonAnimation : style.buttonContainer
-  );
   const wrapperStyleCardStar = classnames(
-    displayCardStar ? style.cardStarTranslateY : style.hiddenCardStar,
+    displayCardStar ? style.cardStarTranslateY : null,
     displayCardRank ? style.cardStarTranslateX : style.cardStarTranslateY
   );
   const wrapperStyleCardRank = classnames(displayCardRank ? style.cardRank : style.hiddenCardRank);
 
   return (
-    <div className={wrapperStyleContainer} aria-label={ariaLabel}>
-      <div className={wrapperStyleTitle}>{title}</div>
-      <div className={style.containerCards}>
-        <MoleculeReviewCardCongrats {...cardCongratsStar} className={wrapperStyleCardStar} />
-        {displayCardRank ? (
-          <MoleculeReviewCardCongrats {...cardCongratsRank} className={wrapperStyleCardRank} />
-        ) : null}
-      </div>
-      <div className={wrapperStyleButton}>
-        <ButtonLink {...buttonReviseSkillProps} className={style.buttonRevise} />
-        <ButtonLink {...buttonReviseProps} className={style.buttonRevise} />
+    <div className={style.mainContainer} aria-label={ariaLabel}>
+      <div className={style.containerCongrats}>
+        <div className={style.title}>{title}</div>
+        <div className={style.containerCards}>
+          {displayCardStar ? (
+            <MoleculeReviewCardCongrats {...cardCongratsStar} className={wrapperStyleCardStar} />
+          ) : (
+            <div className={style.hiddenCardStar} />
+          )}
+          {displayCardRank ? (
+            <MoleculeReviewCardCongrats {...cardCongratsRank} className={wrapperStyleCardRank} />
+          ) : null}
+        </div>
+        <div className={style.buttonContainer}>
+          <ButtonLink {...buttonReviseSkillProps} className={style.buttonRevise} />
+          <ButtonLink {...buttonReviseProps} className={style.buttonRevise} />
+        </div>
       </div>
     </div>
   );

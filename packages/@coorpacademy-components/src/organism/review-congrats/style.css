@@ -5,20 +5,14 @@
 @value cm_blue_900 from colors;
 
 @keyframes translateTitle {
-  from {
-    transform: translateY(400%) scale(1.5);
+  0% {
+    transform: translate(0, 50%);
   }
-  to {
-    transform: translateY(0%) scale(1);
+  50% {
+    transform: translate(0, 50%) scale(1);
   }
-}
-
-@keyframes translateButton {
-  from {
-    transform: translateY(150%);
-  }
-  to {
-    transform: translateY(0%);
+  100% {
+    transform: translate(0, -350%) scale(0.6);
   }
 }
 
@@ -29,7 +23,7 @@
   }
   to {
     opacity: 1;
-    transform: translateY(0%);
+    transform: translateY(0);
   }
 }
 
@@ -38,7 +32,7 @@
     transform: translateX(50%);
   }
   to {
-    transform: translateX(0%);
+    transform: translateX(0);
   }
 }
 
@@ -49,50 +43,48 @@
   }
   to {
     opacity: 1;
-    transform: translateX(0%);
+    transform: translateX(0);
   }
 }
 
+.mainContainer {
+  height: 100vh;
+  position: relative;
+}
+
 .containerCongrats {
+  flex-basis: auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  min-height: 100vh;
-}
-
-.containerCongrats2 {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  min-height: auto;
+  height: 100%;
+  width: 100%;
 }
 
 .title {
+  animation: translateTitle 1.4s ease-out forwards;
   color: cm_blue_900;
   font-family: 'Gilroy';
-  font-style: normal;
   font-size: 65px;
+  font-style: normal;
   font-weight: 500;
-}
-
-.titleAnimation {
-  animation: translateTitle 0.5s ease-out forwards;
-  font-size: 42px;
-  line-height: 52px;
-  margin-top: 80px;
-  margin-bottom: 64px;
-  min-height: auto;
+  display: flex;
+  flex-shrink: 1;
+  flex-basis: auto;
+  position: absolute;
 }
 
 .containerCards {
   display: flex;
-  margin-bottom: 64px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 64px;
 }
 
 .hiddenCardStar {
-  display: none;
+  opacity: 0;
+  height: 350px;
 }
 
 .cardStarTranslateY {
@@ -115,15 +107,10 @@
 .buttonContainer {
   display: flex;
   justify-content: center;
+  align-content: center;
   align-items: center;
-  text-align: center;
   position: relative;
-  bottom:0;
-}
-
-.buttonAnimation {
-  animation: translateButton 0.5s ease-out forwards;
-  min-height: auto;
+  margin-top: 64px;
 }
 
 .buttonRevise {
@@ -133,13 +120,15 @@
 }
 
 @media mobile {
-
   @keyframes translateTitle {
-    from {
-      transform: translateY(400%) scale(1.2);
+    0% {
+      transform: translate(0, 50%);
     }
-    to {
-      transform: translateY(0%) scale(1);
+    50% {
+      transform: translate(0, 50%) scale(1);
+    }
+    100% {
+      transform: translate(0, -450%) scale(0.8);
     }
   }
   /* @keyframes translateXCardStar {
@@ -172,20 +161,27 @@
   } */
 
   .containerCongrats {
-    /* background-color: green; */
-    padding: 0 20px;
+    background-color: green;
   }
 
   .title {
-    font-size: 38px;
+    font-size: 48px;
   }
 
-  .titleAnimation {
-    font-size: 32px;
-    line-height: 40px;
-    margin-bottom: 24px;
+  .buttonContainer {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 60px;
   }
 
+  .buttonRevise {
+    width: 100%;
+    margin-left: 0;
+    margin-bottom: 8px;
+  }
+
+  /* 
   .containerCards {
     align-items: stretch;
     border-radius: 24px;
@@ -197,7 +193,7 @@
     overflow-y: hidden;
     overflow-x: auto;
     padding-bottom: 10px;
-    width:280px;
+    width: 280px;
   }
 
   .cardRank {
@@ -209,19 +205,5 @@
     animation: none;
     flex-shrink: 0;
   }
-
-  .buttonContainer {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  .buttonRevise {
-    width: 100%;
-    margin-left: 0;
-    margin-bottom: 8px;
-  }
+   */
 }
