@@ -30,11 +30,14 @@ const ReviewCardCongrats = props => {
       setIsAnimationVisible('play');
       setIsAnimated(!isAnimated);
     }, 200);
-    /* istanbul ignore next */
     return () => clearTimeout(timer);
   }, []);
 
-  const wrapperClassName = classnames(className, style.cardContainer);
+  const wrapperClassName = classnames(
+    className,
+    style.cardContainer,
+    cardType === 'card-star' ? style.cardStar : style.cardRank
+  );
 
   return (
     <div className={wrapperClassName} aria-label={ariaLabel}>

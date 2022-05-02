@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useRef} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import ButtonLink from '../../atom/button-link';
@@ -35,6 +35,7 @@ const ReviewCongrats = props => {
 
   const [displayCardStar, setDisplayCardStar] = useState(false);
   const [displayCardRank, setDisplayCardRank] = useState(false);
+  const container = useRef(null);
 
   useEffect(() => {
     const timerFirstStep = setTimeout(() => {
@@ -43,7 +44,15 @@ const ReviewCongrats = props => {
     const timerCardRank = setTimeout(() => {
       setDisplayCardRank(true);
     }, 2000);
-    return () => clearTimeout(timerFirstStep, timerCardRank);
+
+    const timer = setTimeout(() => {
+      // const container = document.getElementById('container');
+      container.current.scrollTo({
+        left: 1000,
+        behavior: 'smooth'
+      });
+    }, 2000);
+    return () => clearTimeout(timerFirstStep, timerCardRank, timer);
   }, []);
 
   const wrapperStyleCardStar = classnames(
@@ -56,7 +65,7 @@ const ReviewCongrats = props => {
     <div className={style.mainContainer} aria-label={ariaLabel}>
       <div className={style.containerCongrats}>
         <div className={style.title}>{title}</div>
-        <div className={style.containerCards}>
+        <div ref={container} className={style.containerCards}>
           {displayCardStar ? (
             <MoleculeReviewCardCongrats {...cardCongratsStar} className={wrapperStyleCardStar} />
           ) : (
