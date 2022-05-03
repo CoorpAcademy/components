@@ -115,7 +115,7 @@ class DragAndDrop extends React.Component {
 
     const resetContent =
       previewContent && previewContent.src ? (
-        <div className={style.resetUploadWrapper}>
+        <div className={classnames(style.resetUploadWrapper, disabled && style.disabled)}>
           <div className={style.resetSrcLabel}>
             {previewContent.label ? previewContent.label : previewContent.src}
           </div>
@@ -195,7 +195,13 @@ class DragAndDrop extends React.Component {
             <div>{children(this.handleDragStart, this.handleDragStop)}</div>
           </div>
         )}
-        {error ? <span className={style.errorMessage}>{error}</span> : resetContent}
+        {error ? (
+          <span className={classnames(style.errorMessage, disabled && style.disabled)}>
+            {error}
+          </span>
+        ) : (
+          resetContent
+        )}
       </div>
     );
   }
