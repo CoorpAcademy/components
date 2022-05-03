@@ -2,46 +2,51 @@ import headerProps from '../../../../organism/review-header/test/fixtures/no-ans
 import AnswerQCMDrag from '../../../../molecule/answer/test/fixtures/qcm-drag';
 import AnswerQCMGraphic from '../../../../molecule/answer/test/fixtures/qcm-graphic';
 
-// const qcmDrag = AnswerQCMDrag.props;
-// const qcmGraphic = AnswerQCMGraphic.props;
+const qcmDrag = AnswerQCMDrag.props;
+const qcmGraphic = AnswerQCMGraphic.props;
 
-const qcmGraphic = AnswerQCMDrag.props;
-const qcmDrag = AnswerQCMGraphic.props;
-
-const onValidateClick = async () => {
+const onValidateClick = lastSlide => {
   console.log('onValidateClick');
-  await new Promise(resolve => setTimeout(resolve, 500));
   return Promise.resolve({
+    // validationResult: !lastSlide ? 'success' : 'failure',
     validationResult: 'success',
     nextSlide: {question: 'other question?', answer: qcmGraphic},
+    // end: true
     end: false
   });
 };
 
-const onNextSlideClick = () => {
-  console.log('onNextSlideClick');
-  return;
-  // await new Promise(resolve => setTimeout(resolve, 2000));
-  // return Promise.resolve({validationResult: 'failure', nextSlide: {}, end: false});
+export const correctionPopinProps = {
+  klf: {
+    label: 'Key learning factor',
+    tooltip: 'Some tooltip info.',
+    onClick: () => {
+      console.log('klf onClick');
+    }
+  },
+  information: {
+    label: 'Key learning factor',
+    message: 'info msg'
+  },
+  next: {
+    label: 'Next'
+  },
+  successLabel: 'CORRECT ANSWER',
+  failureLabel: 'WRONG ANSWER'
 };
 
 export default {
   props: {
     headerProps: headerProps.props,
     reviewBackgroundAriaLabel: 'review BG Aria',
-    previousSlide: {
-      title: 'previousSlide',
-      answer: 'previousSlide'
+    validate: {
+      label: 'Validate',
+      onClick: onValidateClick
     },
-    actualSlide: {
-      title: 'actualSlide',
-      answer: 'actualSlide'
-    },
-    onValidateClick,
-    onNextSlideClick,
     firstSlide: {
       question: 'Hey there, ..........suspense......... ready to review some questions?',
       answer: qcmDrag
-    }
+    },
+    correctionPopinProps
   }
 };

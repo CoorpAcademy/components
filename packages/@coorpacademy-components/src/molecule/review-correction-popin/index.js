@@ -93,7 +93,8 @@ ReviewCorrectionPopin.propTypes = {
   }),
   klf: PropTypes.shape({
     label: PropTypes.string,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    tooltip: PropTypes.string
   })
 };
 

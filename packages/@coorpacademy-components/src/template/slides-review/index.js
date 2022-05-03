@@ -2,10 +2,10 @@ import React, {useState, useCallback, useEffect, useReducer, useMemo} from 'reac
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import getOr from 'lodash/fp/getOr';
-// import map from 'lodash/fp/map';
+import omit from 'lodash/fp/omit';
 import isNil from 'lodash/fp/isNil';
 import ReviewBackground from '../../atom/review-background';
-// templateslidesreview
+import {ICON_VALUES} from '../../atom/review-header-step-item';
 // import Loader from '../../atom/loader';
 import ReviewHeader from '../../organism/review-header';
 import ReviewCorrectionPopin from '../../molecule/review-correction-popin';
@@ -22,6 +22,9 @@ const stylesByPosition = {
 };
 
 const TOTAL_SLIDES_STACK = 5;
+const HIGHEST_INDEX = TOTAL_SLIDES_STACK - 1;
+
+// last incorrect -> how to handle nextSlide?
 
 const getSlideAnimation = (action, position, hidden) => {
   switch (action) {
@@ -36,94 +39,105 @@ const getSlideAnimation = (action, position, hidden) => {
 
 const buildSlide = (
   slideNumber,
-  slidesPositions,
-  updateSlide,
+  slidesState,
+  updateSlides,
   primarySkinColor,
-  onValidateClick,
-  onNextSlideClick
+  validate,
+  correctionPopinProps,
+  updateStepItems,
+  finishedSlides,
+  updateFinishedSlides,
+  updateRevisionState
 ) => {
-  const {
-    hidden,
-    playable,
-    position,
-    action,
-    validationResult,
-    question,
-    answer
-  } = slidesPositions.get(slideNumber);
-  const highestIndex = TOTAL_SLIDES_STACK - 1;
+  const {hidden, end, position, action, validationResult, question, answer} = slidesState.get(
+    slideNumber
+  );
+  const {onClick: onValidateClick, label: validateLabel} = validate;
 
   const validateButtonProps = {
     customStyle: {
-      backgroundColor: primarySkinColor,
-      // color: hovered ? '#FFFFFF' : primarySkinColor,
-      transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
+      backgroundColor: primarySkinColor
     },
-    // update slide && use a 4th state that is slide out && hide || slide out && slide in && then normal
     onClick: async () => {
-      const {validationResult: result, nextSlide} = await onValidateClick();
-      // update all slides, each slide has to move a prop, probably use Maps ???
-      updateSlide([
+      const lastSlide = finishedSlides.size >= HIGHEST_INDEX;
+      const {validationResult: result, nextSlide, end: _end} = await onValidateClick(lastSlide);
+      // && !finishedSlides.has(slideNumber)
+      updateSlides([
         slideNumber,
         {
           hidden,
-          playable,
           position,
           validationResult: result,
           answer,
           question,
-          nextSlide
+          nextSlide,
+          numberOfFinishedSlides: finishedSlides.size,
+          end: _end
           // action: validationResult === 'success' ? 'unstack' : 'restack'
         }
       ]);
+      if (_end) setTimeout(() => updateRevisionState('finished'), 3000);
+      updateStepItems([
+        slideNumber,
+        {
+          // current: true,
+          icon: result === 'success' ? ICON_VALUES.right : ICON_VALUES.wrong,
+          finishedSlides
+        }
+      ]);
+      if (result === 'success') updateFinishedSlides([slideNumber, true]);
     },
-    'aria-label': 'buttonAriaLabel', // buttonAriaLabel
-    label: `Validate ${slideNumber}`, // 'Validate', // buttonLabel
-    'data-name': 'skill-card-button',
+    'aria-label': validateLabel,
+    label: validateLabel, // `Validate ${slideNumber}`, // validateLabel
+    'data-name': 'slide-validate-button',
+    // not position0 && validate Button in css then disable user-select
     className: style.validateButton,
     disabled: !isNil(validationResult)
   };
 
-  const correctionPopinProps = {
-    customStyle: {
-      backgroundColor: primarySkinColor,
-      transition: 'background-color 0.15s ease-in-out, color 0.15s ease-in-out'
-    },
-    // 'aria-label': 'correctionPlugin',
+  const {klf, information, next, successLabel, failureLabel} = correctionPopinProps;
+
+  const _correctionPopinProps = {
+    // 'aria-label': 'correctionPopin',
     next: {
-      // 'aria-label': 'buttonAriaNext',
       onClick: () => {
-        onNextSlideClick();
-        // update all slides, each slide has to move a prop, probably use Maps ???
-        updateSlide([
+        // next.onClick();
+        // if (validationResult === 'success' && !finishedSlides.has(slideNumber))
+        //   updateFinishedSlides([slideNumber, true]);
+        updateSlides([
           slideNumber,
           {
             hidden: validationResult === 'success',
-            playable,
-            position: highestIndex,
+            // not highest but - answered
+            // position: HIGHEST_INDEX
+            position: HIGHEST_INDEX - finishedSlides.size,
             action: validationResult === 'success' ? 'unstack' : 'restack',
             answer,
-            question
+            question,
+            validationResult,
+            //
+            numberOfFinishedSlides: finishedSlides.size,
+            end
           }
         ]);
+        updateStepItems([
+          slideNumber,
+          {
+            // current: finishedSlides.size >= HIGHEST_INDEX,
+            setNext: true,
+            finishedSlides,
+            current: finishedSlides.size === HIGHEST_INDEX && validationResult !== 'success'
+          }
+        ]);
+        if (finishedSlides.size === TOTAL_SLIDES_STACK)
+          setTimeout(() => updateRevisionState('finished'), 3000);
       },
-      label: 'Next'
+      label: next.label
     },
-    klf: {
-      label: 'key learning factor',
-      tooltip: 'Some tooltip info.',
-      onClick: () => {
-        console.log('key learning factor');
-      }
-    },
-    information: {
-      label: 'Key learning factor',
-      message: 'info msg'
-    },
+    klf,
+    information,
     type: validationResult === 'success' ? 'right' : 'wrong',
-    resultLabel: 'resultLabel'
-    // 'data-name': 'skill-card-next',
-    // className: style.validateButton
+    resultLabel: validationResult === 'success' ? successLabel : failureLabel
   };
 
   const questionOrigin = 'From "Master Design Thinking to become more agile" course';
@@ -132,21 +146,27 @@ const buildSlide = (
     <div
       key={`slide-${slideNumber}`}
       data-name={`slide-${slideNumber}`}
-      className={classnames(style.slideBase, getSlideAnimation(action, position, hidden))}
-      // style={{
-      //   opacity: hidden ? 0 : 1
-      // }}
+      className={classnames(
+        style.slideBase,
+        getSlideAnimation(action, position, hidden),
+        end ? style.endRevision : null
+      )}
     >
       {answer && question ? (
-        <div className={style.slideContentContainer}>
+        // maybe extract this as a molecule/ organism??
+        <div key="content-container" className={style.slideContentContainer}>
           <div key="from-course" className={style.questionOrigin}>
             {questionOrigin}
           </div>
           <div key="title" className={style.question}>
             {question}
           </div>
-          <div className={style.help}>{answer.help}</div>
-          <Answer {...answer} key="answer" />
+          <div key="help" className={style.help}>
+            {answer.help}
+          </div>
+          <div key="answer-container" className={style.answerContainer}>
+            <Answer {...answer} key="answer" />
+          </div>
         </div>
       ) : null}
 
@@ -157,111 +177,250 @@ const buildSlide = (
         className={
           validationResult ? style.correctionPopinWrapper : style.hiddenCorrectionPopinWrapper
         }
+        style={{
+          ...(finishedSlides.size !== HIGHEST_INDEX &&
+            !validationResult && {
+              display: 'none'
+            })
+        }}
       >
-        <ReviewCorrectionPopin {...correctionPopinProps} />
+        <ReviewCorrectionPopin {..._correctionPopinProps} />
       </div>
     </div>
   );
 };
 
+// ----------------------
+// when a correct answer is given, it should remain at the latest position,
+// then the re-stacking must only be allowed to happen from stack - n_correct_slides
 export const slidePositionReducer = (
-  // Map<string, { hidden, playable, position, action, validationResult, question, answer}>
+  // Map<string, { hidden, position, action, validationResult, question, answer}>
   state,
-  // tuple id, value
+  // [id, value]
   action
 ) => {
   const [id, value] = action;
   const _state = new Map();
 
-  const {nextSlide, ...newValue} = value;
-
-  console.log('slidePositionReducer', id, newValue.position, newValue.hidden, state);
+  const {nextSlide, numberOfFinishedSlides, ...newValue} = value;
+  // const numberOfCorrectlyAnsweredSlides = finishedSlides.size;
 
   // eslint-disable-next-line fp/no-loops
   for (let index = 0; index < state.size; index++) {
     // this may be the same than validationResult presence
-    if (index === id) _state.set(id, newValue);
-    else {
-      const {hidden, playable, position, validationResult, answer, question} = state.get(index);
-      // const _hidden = !!hidden;
-      if (newValue.validationResult) {
-        _state.set(index, {...nextSlide, hidden, playable, position});
-      } else
+    if (index === id) {
+      const previousValue = state.get(id);
+      if (nextSlide && numberOfFinishedSlides === HIGHEST_INDEX) {
+        _state.set(index, {
+          ...previousValue,
+          nextSlide,
+          position: newValue.position,
+          validationResult: newValue.validationResult
+        });
+      } else if (numberOfFinishedSlides === HIGHEST_INDEX && previousValue.nextSlide) {
+        _state.set(index, {...previousValue.nextSlide, position: previousValue.position});
+      } else _state.set(id, newValue);
+      // or early return
+      // if (numberOfFinishedSlides >= HIGHEST_INDEX) {
+      //   _state.set(id, {
+      //     ...newValue,
+      //     validationResult:
+      //       newValue.validationResult === 'success' ? newValue.validationResult : null
+      //   });
+      // } else {
+      //   _state.set(id, newValue);
+      // }
+    } else {
+      const {hidden, position, validationResult, answer, question} = state.get(index);
+      // if (newValue.validationResult) {
+      if (nextSlide) {
+        _state.set(index, {...nextSlide, end: newValue.end, hidden, position});
+      } else {
         _state.set(index, {
           ...(validationResult === 'success' ? {validationResult} : null),
           hidden,
-          playable,
           position: position - 1,
           answer,
-          question
+          question,
+          end: newValue.end
         });
+      }
     }
   }
 
-  console.log('_state', _state);
+  return _state;
+};
+
+const getNextIndex = currentIndex => (currentIndex === HIGHEST_INDEX ? 0 : currentIndex + 1);
+
+const calculateNextStepIndex = (currentSlideIndex, finishedSlides, lastVisitedIndex = null) => {
+  // only one slide remaining
+  if (lastVisitedIndex === currentSlideIndex) {
+    return currentSlideIndex;
+  }
+
+  const indexToVisit = getNextIndex(isNil(lastVisitedIndex) ? currentSlideIndex : lastVisitedIndex);
+
+  // console.log('calculateNextStepIndex', {
+  //   lastVisitedIndex,
+  //   currentSlideIndex,
+  //   indexToVisit,
+  //   finishedSlidesHas: finishedSlides.has(indexToVisit)
+  // });
+
+  return finishedSlides.has(indexToVisit)
+    ? calculateNextStepIndex(currentSlideIndex, finishedSlides, indexToVisit)
+    : indexToVisit;
+};
+
+const stepItemsReducer = (
+  // Map<string, {current, value, icon}>
+  state,
+  action
+) => {
+  const [id, value] = action;
+  const {setNext, finishedSlides, ...rest} = value;
+  const _state = new Map();
+  const nextIndex = !rest.current && setNext ? calculateNextStepIndex(id, finishedSlides) : null;
+
+  // eslint-disable-next-line fp/no-loops
+  for (let index = 0; index < state.size; index++) {
+    const previousValue = state.get(index);
+    if (id === index)
+      _state.set(id, {
+        ...previousValue,
+        ...rest
+      });
+    else if (setNext && nextIndex === index) {
+      _state.set(index, {...previousValue, current: true});
+    } else _state.set(index, previousValue);
+  }
+
+  return _state;
+};
+
+const finishedSlidesReducer = (state, action) => {
+  const [id, value] = action;
+  // const _state = new Map(state);
+  const _state = new Map();
+  // eslint-disable-next-line fp/no-loops
+  for (const [index, previousValue] of state) {
+    _state.set(index, previousValue);
+  }
+
+  _state.set(id, value);
+
   return _state;
 };
 
 const SlidesReview = (
-  {headerProps, reviewBackgroundAriaLabel, onValidateClick, onNextSlideClick, firstSlide},
+  {headerProps, reviewBackgroundAriaLabel, validate, correctionPopinProps, firstSlide},
   context
 ) => {
   const {skin} = context;
   const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
 
-  const initialState = useMemo(() => {
+  const slidesInitialState = useMemo(() => {
     const states = new Map();
     const {answer, question} = firstSlide;
     // eslint-disable-next-line fp/no-loops
     for (let index = 0; index < TOTAL_SLIDES_STACK; index++) {
       const content = index === 0 ? {answer, question} : {};
-      states.set(index, {...content, playable: index === 0, hidden: false, position: index});
+      states.set(index, {...content, hidden: false, position: index});
     }
     return states;
   }, [firstSlide]);
 
-  const [slidesPositions, dispatch] = useReducer(slidePositionReducer, initialState);
+  const stepItemsInitialState = useMemo(() => {
+    const states = new Map();
+    // eslint-disable-next-line fp/no-loops
+    for (let index = 0; index < TOTAL_SLIDES_STACK; index++) {
+      const current = index === 0;
+      states.set(index, {current, value: `${index + 1}`, icon: null});
+    }
+    return states;
+  }, []);
 
+  const [finishedSlides, updateFinishedSlides] = useReducer(finishedSlidesReducer, new Map());
+
+  const [slidesState, updateSlides] = useReducer(slidePositionReducer, slidesInitialState);
+
+  const [stepItemsState, updateStepItems] = useReducer(stepItemsReducer, stepItemsInitialState);
+
+  // use w/ congrats && header animation
+  const [revisionState, updateRevisionState] = useState('ongoing');
+
+  // maybe the use memo should be at buildSlide Scale, for each slide state (slidesState) change
   const builtStackedSlides = useMemo(() => {
-    console.log('buildSlides');
     const StackedSlides = [];
     // eslint-disable-next-line fp/no-loops
     for (let slideNumber = 0; slideNumber < TOTAL_SLIDES_STACK; slideNumber++) {
       StackedSlides.push(
         buildSlide(
           slideNumber,
-          slidesPositions,
-          dispatch,
+          slidesState,
+          updateSlides,
           primarySkinColor,
-          onValidateClick,
-          onNextSlideClick
+          validate,
+          correctionPopinProps,
+          updateStepItems,
+          finishedSlides,
+          updateFinishedSlides,
+          updateRevisionState
         )
       );
     }
 
     return StackedSlides;
-  }, [onNextSlideClick, onValidateClick, primarySkinColor, slidesPositions]);
+  }, [slidesState, primarySkinColor, validate, correctionPopinProps, finishedSlides]);
+
+  const stepItemsArray = useMemo(() => {
+    // return [...stepItemsState.values()];
+    // eslint-disable-next-line unicorn/prefer-spread
+    return Array.from(stepItemsState.values());
+  }, [stepItemsState]);
+
+  const _headerProps = {
+    ...headerProps,
+    steps: stepItemsArray,
+    key: 'review-header'
+  };
 
   return (
-    <div data-name="slides-revision-container" className={style.slidesRevisionContainer}>
-      <div className={style.playerBackground}>
+    <div
+      key="slides-revision-container"
+      data-name="slides-revision-container"
+      className={style.slidesRevisionContainer}
+    >
+      <div key="player-background-container" className={style.playerBackground}>
         <ReviewBackground aria-label={reviewBackgroundAriaLabel} />
       </div>
 
-      <ReviewHeader {...headerProps} />
+      <ReviewHeader {..._headerProps} />
 
-      <div data-name="stacked-slides-container" className={style.stackedSlidesContainer}>
-        {builtStackedSlides}
-      </div>
+      {revisionState === 'ongoing' ? (
+        <div
+          key="stacked-slides-container"
+          data-name="stacked-slides-container"
+          className={style.stackedSlidesContainer}
+        >
+          {builtStackedSlides}
+        </div>
+      ) : (
+        <div className={style.congrats}>Congrats!</div>
+      )}
     </div>
   );
 };
 
 SlidesReview.propTypes = {
-  headerProps: PropTypes.shape(ReviewHeader.propTypes),
+  // headerProps: PropTypes.shape(ReviewHeader.propTypes),
+  headerProps: PropTypes.shape(omit(['steps', ''], ReviewHeader.propTypes)),
   reviewBackgroundAriaLabel: ReviewBackground.propTypes['aria-label'],
-  onValidateClick: PropTypes.func,
-  onNextSlideClick: PropTypes.func,
+  validate: PropTypes.shape({
+    label: PropTypes.string,
+    onClick: PropTypes.func
+  }),
   firstSlide: {
     question: PropTypes.string,
     answer: PropTypes.shape(Answer.propTypes)
@@ -269,8 +428,11 @@ SlidesReview.propTypes = {
   correctionPopinProps: {
     klf: ReviewCorrectionPopin.propTypes.klf,
     information: ReviewCorrectionPopin.propTypes.information,
-    next: ReviewCorrectionPopin.propTypes.next,
-    resultLabel: ReviewCorrectionPopin.propTypes.resultLabel
+    next: PropTypes.shape({
+      label: PropTypes.string
+    }),
+    successLabel: ReviewCorrectionPopin.propTypes.resultLabel,
+    failureLabel: ReviewCorrectionPopin.propTypes.resultLabel
   }
 };
 

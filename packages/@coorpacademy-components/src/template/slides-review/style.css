@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  height: 100vh;
 }
 
 .fontBase {
@@ -27,9 +28,15 @@
   align-self: center;
 }
 
+.congrats {
+  width: 100%;
+  /* height: 100%; */
+  position: relative;
+}
+
 .playerBackground {
   position: absolute;
-  height: 100%;
+  height: 100vh;
   top: 0;
   left: 0;
 }
@@ -48,117 +55,145 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  transition: transform 1s ease-in;
+  pointer-events: none;
 }
 
 
 .position0 {
   z-index: 50;
-  width: 100%;
+  /* width: 100%; */
+  width: 1240px;
   transform: translate(0, 0);
-  transition: transform 0.25s ease-in;
+  transition: transform 0.5s ease-in;
+}
+
+.slideBase.position0 {
+  pointer-events: auto;
 }
 
 .position1 {
   z-index: 45;
-  width: 97%;
-  pointer-events: none;
-  transform: translate(10px, -10px);
-  transition: transform 1s ease-in;
+  /* width: 98%; */
+  width: 1224px;
+  /* pointer-events: none; */
+  transform: translate(8px, -8px);
+  transition: transform 0.5s ease-in;
 }
 
 .position2 {
   z-index: 40;
-  width: 94%;
-  pointer-events: none;
-  transform: translate(20px, -20px);
-  transition: transform 1s ease-in;
+  /* width: 96%; */
+  width: 1200px;
+  /* pointer-events: none; */
+  transform: translate(20px, -16px);
+  transition: transform 0.5s ease-in;
 }
 
 .position3 {
+  /* opacity: 0; */
   z-index: 35;
-  width: 91%;
-  pointer-events: none;
-  transform: translate(30px, -30px);
+  /* width: 91%; */
+  width: 1176px;
+  /* pointer-events: none; */
+  transform: translate(32px, -24px);
   /* 0.5s */
-  transition: transform 1s ease-in;
+  transition: transform 0.5 ease-in;
 }
 
 .position4 {
   z-index: 30;
-  width: 88%;
-  pointer-events: none;
-  transform: translate(40px, -40px);
-  /* transition: transform 0.25s ease-in, width 0.25s ease-in; */
-  transition: transform 1s ease-in;
+  /* width: 88%; */
+  width: 1152px;
+  /* pointer-events: none; */
+  transform: translate(44px, -32px);
+  transition: transform 0.5 ease-in;
 }
 
 @keyframes slideOutHideAndSlideIn {
   0% {
-    width: 100%;
     z-index: 55;
     transform: translate(0, 0);
   }
-  50% {
-    width: 100%;
+  40% {
     z-index: 50;
     transform: translate(0, 800px);
-    opacity: 0;
+  }
+  50% {
+    z-index: 50;
+    transform: translate(0, 1000px);
+    opacity: 1;
   }
   51% {
-    width: 88%;
     z-index: 30;
+    opacity: 0;
   }
   100% {
-    width: 88%;
     z-index: 30;
-    transform: translate(40px, -40px);
+    transform: translate(44px, -32px);
     opacity: 0;
   }
 }
 
 @keyframes slideOutAndIn {
   0% {
-    width: 100%;
+    /* width: 1240px; */
     z-index: 55;
     transform: translate(0, 0);
   }
-  50% {
-    width: 100%;
+  40% {
     z-index: 50;
     transform: translate(0, 800px);
   }
-  51% {
-    width: 88%;
+  50% {
+    width: 1240px;
+    z-index: 50;
+    transform: translate(0, 1000px);
+  }
+  60% {
+    /* width: 88%; */
+    width: 1152px;
     z-index: 30;
+    transform: translate(44px, 800px);
   }
   100% {
     z-index: 30;
-    width: 88%;
-    transform: translate(40px, -40px);
+    /* width: 88%; */
+    width: 1152px;
+    transform: translate(44px, -32px);
   }
 }
 
 .slideOutHideAndIn {
-  animation: slideOutHideAndSlideIn 4s forwards;
+  pointer-events: none;
+  animation: slideOutHideAndSlideIn 3s ease forwards;
 }
 
 .slideOutAndIn {
-  animation: slideOutAndIn 4s forwards;
+  pointer-events: none;
+  animation: slideOutAndIn 3s ease forwards;
 }
 
+.hiddenSlide {
+  display: none;
+}
+
+
 .slideContentContainer {
-  /* height: 90%; */
-  /* 706px total */
-  /* 64 + 44 , 598*/
-  /* top: 0; */
   margin-top: 15px;
-  /* 583 cause -15 */
+  /* 583 cause -15 margin top & -20 button & - 20 margin */
   height: 563px;
   display: flex;
   justify-items: center;
   align-items: center;
   flex-direction: column;
   overflow-y: auto;
+  position: relative;
+}
+
+/* ie fallback */
+_:-ms-fullscreen, :root .slideContentContainer {
+  width: 100%;
 }
 
 .validateButtonWrapper {
@@ -168,8 +203,20 @@
   border-radius: 7px;
   min-width: 250px;
   width: min-content;
-  /* height: 10%; */
-  /* padding-bottom: 5%; */
+}
+
+/* ie fallback */
+_:-ms-fullscreen, :root .validateButtonWrapper {
+  width: 300px;
+  left: 40%;
+  right: 40%;
+}
+
+.answerContainer {
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  height: 100%;
 }
 
 .question {
@@ -185,6 +232,19 @@
   box-sizing: border-box;
 }
 
+.questionOrigin {
+  composes: fontBase;
+  font-size: 15px;
+  color: cm_blue_900;
+  /* 64 - 15 margin */
+  margin-top: 49px;
+  /* min-height: 15px; */
+}
+
+.questionOrigin:empty:after {
+  content: "\a0";
+}
+
 .help {
   composes: fontBase;
   font-size: 15px;
@@ -196,40 +256,71 @@
   width: 100%;
 }
 
-.questionOrigin {
-  composes: help;
-  color: cm_grey_400;
+/* to keep the content space even if the help label is empty */
+.help:empty:after {
+  content: "\a0";
 }
 
 @keyframes popInAnimation {
   from {
     transform: translate3d(0, 200px, 0);
-    /* transform: translateY(200px); */
   }
   to {
     transform: translate3d(0, -40px, 0);
-    /* transform: translateY(-40px); */
   }
 }
 
 .correctionPopinWrapper {
   position: absolute;
   bottom: 0px;
-  /* background-color: black; */
   border-radius: 7px;
-  /* min-width: 250px; */
   margin: 0 15px;
   /* height: 200px; */
   width: 95%;
+  animation: popInAnimation 0.5s ease-out forwards;
+}
 
-  animation: popInAnimation 1s forwards;
+/* ie fallback */
+_:-ms-fullscreen, :root .correctionPopinWrapper {
+  left: 15px;
+}
+
+@keyframes popOutAnimation {
+  from {
+    transform: translate3d(0, -40px, 0);
+  }
+  to {
+    transform: translate3d(0, 200px, 0);
+  }
+}
+
+.hiddenCorrectionPopinWrapper {
+  composes: correctionPopinWrapper;
+  animation: popOutAnimation 0.5s ease-out forwards;
 }
 
 .validateButton {
   color: white;
-  transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in;
 }
 
 .validateButton:hover {
   opacity: 0.8;
+}
+
+@keyframes slideOut {
+  0% {
+    /* opacity: 0; */
+  }
+  90% {
+    transform: translate(0, 1000px);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.endRevision {
+  pointer-events: none;
+  animation: slideOut 2.5s ease forwards;
 }
