@@ -16,7 +16,22 @@
   }
 }
 
+
 @keyframes translateYCardStar {
+  0% {
+    height: 350px;
+  }
+  30% {
+    opacity: 0;
+    transform: translateY(40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+} 
+
+/* @keyframes translateYCardStar {
   from {
     opacity: 0;
     transform: translateY(40%);
@@ -25,20 +40,11 @@
     opacity: 1;
     transform: translateY(0);
   }
-}
+} */
 
 @keyframes translateXCardStar {
   from {
-    transform: translateX(50%);
-  }
-  to {
-    transform: translateX(0);
-  }
-}
-
-@keyframes translateCardRank {
-  from {
-    opacity: 0;
+    opacity: 1;
     transform: translateX(50%);
   }
   to {
@@ -46,6 +52,43 @@
     transform: translateX(0);
   }
 }
+
+@keyframes translateCardRank {
+  0% {
+    position: absolute;
+    visibility: hidden;
+    z-index: -1;
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  1% {
+    position: relative;
+  }
+  100% {
+    position: relative;
+    visibility: visible;
+    z-index: 0;
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+/* 
+@keyframes translateCardRank {
+  from {
+    position: absolute;
+    visibility: hidden;
+    z-index: -1;
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  to {
+    position: relative;
+    visibility: visible;
+    z-index: 0;
+    opacity: 1;
+    transform: translateX(0);
+  }
+} */
 
 .mainContainer {
   height: 100%;
@@ -64,7 +107,7 @@
 }
 
 .title {
-  animation: translateTitle 1.4s 5s ease-out forwards;
+  animation: translateTitle 1.4s ease-out forwards;
   color: cm_blue_900;
   font-family: 'Gilroy';
   font-size: 65px;
@@ -83,25 +126,29 @@
   margin-top: 64px;
 }
 
-.hiddenCardStar {
+/* .hiddenCardStar {
   opacity: 0;
   height: 350px;
-}
-
-.cardStarTranslateY {
-  animation: translateYCardStar 0.5s ease-in-out forwards;
-}
-
-.cardStarTranslateX {
-  animation: translateXCardStar 0.2s ease-in-out forwards;
-}
-
-.hiddenCardRank {
+} */
+/* .hiddenCardRank {
   display: none;
+} */
+
+/* .cardStarTranslateX {
+  animation: translateXCardStar 0.2s ease-in-out 2s forwards;
+} */
+
+.cardStar {
+  opacity: 0;
+  animation: translateYCardStar 0.5s ease-out 0.8s forwards,
+  translateXCardStar 0.2s ease-in-out 2s forwards;
 }
 
 .cardRank {
-  animation: translateCardRank 0.2s ease-in-out forwards;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  animation: translateCardRank 0.2s ease-in-out 2s forwards;
   margin-left: 32px;
 }
 
@@ -158,16 +205,20 @@
     animation: translateTitle 1.6s ease-out forwards;
   }
 
+  .test {
+    content:"\a0";
+    font-size: 85px;
+    height: 85px;
+    min-height: 85px;
+  }
+
   .containerCards {
     padding-bottom: 10px;
     width: 100%;
     min-height: 350px;
     overflow-x: auto;
     overflow-y: hidden;
-  }
-
-  .cardRank, .cardStarTranslateX {
-    /* /scroll-snap-align: start; */
+    margin-top: 24px;
   }
 
   .hiddenCardStar {

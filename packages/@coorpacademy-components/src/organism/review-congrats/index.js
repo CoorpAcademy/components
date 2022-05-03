@@ -33,14 +33,14 @@ const ReviewCongrats = props => {
     onClick: () => linkRevise
   };
 
-  const [displayCardStar, setDisplayCardStar] = useState(false);
+  // const [displayCardStar, setDisplayCardStar] = useState(false);
   const [displayCardRank, setDisplayCardRank] = useState(false);
   const container = useRef(null);
 
   useEffect(() => {
-    const timerFirstStep = setTimeout(() => {
-      setDisplayCardStar(true);
-    }, 800);
+    // const timerFirstStep = setTimeout(() => {
+    //   setDisplayCardStar(true);
+    // }, 800);
     const timerCardRank = setTimeout(() => {
       setDisplayCardRank(true);
     }, 2000);
@@ -55,30 +55,34 @@ const ReviewCongrats = props => {
     return () => clearTimeout(timerFirstStep, timerCardRank, timer);
   }, []);
 
-  const wrapperStyleCardStar = classnames(
-    displayCardStar ? style.cardStarTranslateY : null,
-    displayCardRank ? style.cardStarTranslateX : style.cardStarTranslateY
-  );
-  const wrapperStyleCardRank = classnames(displayCardRank ? style.cardRank : style.hiddenCardRank);
+  // const wrapperStyleCardStar = classnames(
+  //   // displayCardStar ? style.cardStarTranslateY : null,
+  //   displayCardRank ? style.cardStarTranslateX : style.cardStarTranslateY
+  // );
+  // const wrapperStyleCardRank = classnames(displayCardRank ? style.cardRank : style.hiddenCardRank);
 
   return (
     <div className={style.mainContainer} aria-label={ariaLabel}>
       <div className={style.containerCongrats}>
         <div className={style.title}>{title}</div>
+        <div className={style.test} />
         <div ref={container} className={style.containerCards}>
-          {displayCardStar ? (
+          <MoleculeReviewCardCongrats {...cardCongratsStar} className={style.cardStar} />
+          {/* {displayCardStar ? (
             <MoleculeReviewCardCongrats {...cardCongratsStar} className={wrapperStyleCardStar} />
           ) : (
             <div className={style.hiddenCardStar} />
-          )}
-          {displayCardRank ? (
+          )} */}
+          {/* {displayCardRank ? (
             <MoleculeReviewCardCongrats {...cardCongratsRank} className={wrapperStyleCardRank} />
-          ) : null}
+          ) : null} */}
+
+          <MoleculeReviewCardCongrats {...cardCongratsRank} className={style.cardRank} />
         </div>
-        <div className={style.buttonContainer}>
+        {/* <div className={style.buttonContainer}>
           <ButtonLink {...buttonReviseSkillProps} className={style.buttonRevise} />
           <ButtonLink {...buttonReviseProps} className={style.buttonRevise} />
-        </div>
+        </div> */}
       </div>
     </div>
   );
