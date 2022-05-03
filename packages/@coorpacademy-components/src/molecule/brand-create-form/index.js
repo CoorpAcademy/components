@@ -47,6 +47,7 @@ const BrandCreateForm = (props, context) => {
           <label>
             <input
               type="text"
+              maxLength="40"
               data-name="brand_create_text_input"
               placeholder={field.placeholder}
               defaultValue={field.value}
