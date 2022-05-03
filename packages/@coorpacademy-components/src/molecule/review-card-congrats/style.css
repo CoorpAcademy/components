@@ -9,7 +9,6 @@
   0% {
     opacity: 0;
   }
-
   100% {
     opacity: 1;
   }
@@ -35,14 +34,14 @@
 }
 
 .cardContainer {
+  animation: fadeIn 2s ease-in-out forwards;
+  backdrop-filter: blur(36px);
+  border-radius: 24px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  backdrop-filter: blur(36px);
-  border-radius: 24px;
-  box-shadow: 0px 0px 45px 6px rgba(255, 206, 10, 0.1);
   width: 280px;
-  animation: fadeIn 2s ease-in-out forwards;
+  /* min-width: 220px; */
 }
 
 .cardStar {
@@ -57,6 +56,17 @@
   display: flex;
   justify-content: center;
   margin: 20px 0px 12px;
+}
+
+.wrapperLottie {
+  width: 165px;
+  height: 165px;
+  /* max-width: 165px;
+  max-height: 165px; */
+  /* max-width: 165px;
+  min-width: 100px;
+  max-height: 165px;
+  min-height: 100px; */
 }
 
 .title {

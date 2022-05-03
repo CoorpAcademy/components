@@ -1,7 +1,7 @@
 import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
-import {render, cleanup, useRealTimers} from '@testing-library/react';
+import {render, cleanup, useRealTimers, act} from '@testing-library/react';
 import ReviewCardCongrats from '..';
 import starFixture from './fixtures/star';
 
@@ -13,17 +13,26 @@ test.before(() => {
 
 test.afterEach(cleanup);
 
-test('should load animation', t => {
-  const {container, rerender, unmount} = render(<ReviewCardCongrats {...starFixture.props} />);
+test('should load and update lottie animation', t => {
+  // const {container, result, waitForNextUpdate, unmount} = render(
 
-  rerender(<ReviewCardCongrats {...starFixture.props} />);
+  const propsAnimation = {
+    ...starFixture.props,
+    animationLottie: {...animationLottie.props, animationControl: 'loading'}
+  };
 
-  // const wrapper = container.querySelectorAll('[data-name="default-lottie"]');
+  const {container, unmount} = render(<ReviewCardCongrats {...propsAnimation} />);
+
+  // const wrapper = container.querySelectorAll('[data-name="card-star"]');
   // t.truthy(wrapper);
 
-  // const backupImage = wrapper[0].querySelector('[data-name="ie11-backup-image"]');
-  // t.falsy(backupImage);
+  act(() => {
+    t.runAllTimers();
+  });
 
+  // await waitForNextUpdate();
+
+  // expect(result.current.isAnimationVisible).toEqual('play');
   unmount();
 
   t.pass();

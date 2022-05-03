@@ -16,7 +16,6 @@
   }
 }
 
-
 @keyframes translateYCardStar {
   0% {
     height: 350px;
@@ -30,17 +29,6 @@
     transform: translateY(0);
   }
 } 
-
-/* @keyframes translateYCardStar {
-  from {
-    opacity: 0;
-    transform: translateY(40%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-} */
 
 @keyframes translateXCardStar {
   from {
@@ -72,23 +60,6 @@
     transform: translateX(0);
   }
 }
-/* 
-@keyframes translateCardRank {
-  from {
-    position: absolute;
-    visibility: hidden;
-    z-index: -1;
-    opacity: 0;
-    transform: translateX(50%);
-  }
-  to {
-    position: relative;
-    visibility: visible;
-    z-index: 0;
-    opacity: 1;
-    transform: translateX(0);
-  }
-} */
 
 .mainContainer {
   height: 100%;
@@ -96,14 +67,15 @@
 }
 
 .containerCongrats {
-  flex-basis: auto;
+  align-items: center;
   display: flex;
+  flex-basis: auto;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  overflow-y: auto;
   height: 100%;
   width: 100%;
-  overflow-y: auto;
+
 }
 
 .title {
@@ -117,46 +89,35 @@
   flex-shrink: 1;
   flex-basis: auto;
   position: absolute;
+  user-select: none;
 }
 
 .containerCards {
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
   margin-top: 64px;
 }
 
-/* .hiddenCardStar {
-  opacity: 0;
-  height: 350px;
-} */
-/* .hiddenCardRank {
-  display: none;
-} */
-
-/* .cardStarTranslateX {
-  animation: translateXCardStar 0.2s ease-in-out 2s forwards;
-} */
-
 .cardStar {
-  opacity: 0;
   animation: translateYCardStar 0.5s ease-out 0.8s forwards,
   translateXCardStar 0.2s ease-in-out 2s forwards;
+  opacity: 0;
 }
 
 .cardRank {
+  animation: translateCardRank 0.2s ease-in-out 2s forwards;
   position: absolute;
   visibility: hidden;
   opacity: 0;
-  animation: translateCardRank 0.2s ease-in-out 2s forwards;
   margin-left: 32px;
 }
 
 .buttonContainer {
   display: flex;
-  justify-content: center;
   align-content: center;
   align-items: center;
+  justify-content: center;
   position: relative;
   margin-top: 64px;
 }
@@ -168,6 +129,7 @@
 }
 
 @media mobile {
+
   @keyframes translateTitle {
     0% {
       transform: translate(0, 50%);
@@ -176,15 +138,38 @@
       transform: translate(0, 50%) scale(1);
     }
     100% {
-      transform: translate(0, -450%) scale(0.8);
+      transform: translate(0, -550%) scale(0.9);
     }
   }
-  @keyframes translateCardRank {
+
+  @keyframes translateXCardStar {
     from {
-      opacity: 0;
+      opacity: 1;
+      transform: translateX(0);
+      /* margin-left: calc(100% - (100% - 280px)); */
     }
     to {
       opacity: 1;
+      transform: translateX(0);
+      /* margin-left: calc(100% - (100% - 280px));
+      margin-right: calc((100% - 280px)/2); */
+    }
+  }
+
+  @keyframes translateCardRank {
+    from {
+      opacity: 0;
+      position: absolute;
+      transform: translateX(0);
+      visibility: hidden;
+      z-index: -1;
+    }
+    to {
+      opacity: 1;
+      position: relative;
+      transform: translateX(0);
+      visibility: visible;
+      z-index: 0;
     }
   }
 
@@ -201,8 +186,8 @@
   }
 
   .title {
-    font-size: 48px;
     animation: translateTitle 1.6s ease-out forwards;
+    font-size: 35px;
   }
 
   .test {
@@ -213,46 +198,51 @@
   }
 
   .containerCards {
-    padding-bottom: 10px;
     width: 100%;
     min-height: 350px;
     overflow-x: auto;
     overflow-y: hidden;
     margin-top: 24px;
+    padding-bottom: 10px;
   }
 
-  .hiddenCardStar {
-    height: 318px;
-  }
 
-  .cardStarTranslateY {
+  /* .cardStarTranslateY {
     animation: translateYCardStar 0.6s ease-in-out forwards;
-  }
+  } */
 
-  .cardRank {
-    /* animation: none; */
-    animation: translateCardRank 0.2s ease-in-out forwards;
-    flex-shrink: 0;
-    margin-right: calc((100% - 280px)/2);
-  }
-
-  .cardStarTranslateX {
+    /* .cardStarTranslateX {
     animation: none;
     flex-shrink: 0;
     margin-left: calc(100% - (100% - 280px));
+    margin-right: calc((100% - 280px)/2);
+  } */
+
+  .cardStar {
+    animation: translateYCardStar 0.6s ease-out 0.8s forwards,
+    translateXCardStar 0.2s ease-in-out 2s forwards;
+    flex-shrink: 0;
+    margin-left: calc(100% - (100% - 280px));
+    margin-right: calc((100% - 280px)/2);
+    opacity: 0;
+  }
+
+  .cardRank {
+    animation: translateCardRank 0.2s ease-in-out 2s forwards;
+    flex-shrink: 0;
     margin-right: calc((100% - 280px)/2);
   }
 
   .buttonContainer {
     display: flex;
     flex-direction: column;
+    margin-top: 40px;
     width: 90%;
-    margin-top: 50px;
   }
 
   .buttonRevise {
-    width: 100%;
-    margin-left: 0;
     margin-bottom: 8px;
+    margin-left: 0;
+    width: 100%;
   }
 }

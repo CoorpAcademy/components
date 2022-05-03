@@ -14,12 +14,14 @@ import style from './style.css';
 const ReviewCardCongrats = props => {
   const {
     'aria-label': ariaLabel,
+    'data-name': dataName,
     animationLottie,
     cardType,
     className,
     reviewCardTitle,
     reviewCardValue,
-    rankSuffix
+    rankSuffix,
+    timerAnimation
   } = props;
 
   const [isAnimationVisible, setIsAnimationVisible] = useState('loading');
@@ -29,9 +31,9 @@ const ReviewCardCongrats = props => {
     const timer = setTimeout(() => {
       setIsAnimationVisible('play');
       setIsAnimated(!isAnimated);
-    }, 200);
+    }, timerAnimation);
     return () => clearTimeout(timer);
-  }, []);
+  }, [timerAnimation]);
 
   const wrapperClassName = classnames(
     className,
@@ -40,15 +42,17 @@ const ReviewCardCongrats = props => {
   );
 
   return (
-    <div className={wrapperClassName} aria-label={ariaLabel}>
+    <div className={wrapperClassName} aria-label={ariaLabel} data-name={dataName}>
       <div className={style.mainIcon}>
         <AtomLottieWrapper
           {...animationLottie}
-          width={165}
-          height={165}
+          // width={165}
+          // height={165}
           loop={false}
           animationControl={isAnimationVisible}
           autoplay={false}
+          data-name="lottie-wrapper"
+          className={style.wrapperLottie}
         />
       </div>
       <div className={style.title}>{reviewCardTitle}</div>
@@ -56,7 +60,7 @@ const ReviewCardCongrats = props => {
         {cardType === 'card-rank' ? (
           <RankIcon className={style.iconRank} width={40} height={40} />
         ) : null}
-        <AnimationScheduler animated={isAnimated}>
+        <AnimationScheduler animated={isAnimated} data-name="animation-scheluder-wrapper">
           <div>
             <span className={cardType === 'card-star' ? style.textStar : style.textRank}>
               <Animation name="counter" bezier={EASE_OUT_CUBIC} duration={2000}>
@@ -77,12 +81,14 @@ const ReviewCardCongrats = props => {
 
 ReviewCardCongrats.propTypes = {
   'aria-label': PropTypes.string,
+  'data-name': PropTypes.string,
   animationLottie: PropTypes.shape(AtomLottieWrapper.propTypes),
   cardType: PropTypes.string,
   className: PropTypes.string,
   reviewCardTitle: PropTypes.string,
   reviewCardValue: PropTypes.string,
-  rankSuffix: PropTypes.string
+  rankSuffix: PropTypes.string,
+  timerAnimation: PropTypes.number
 };
 
 export default ReviewCardCongrats;

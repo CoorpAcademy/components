@@ -1,6 +1,5 @@
-import React, {useEffect, useState, useRef} from 'react';
+import React, {useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
-import classnames from 'classnames';
 import ButtonLink from '../../atom/button-link';
 import MoleculeReviewCardCongrats from '../../molecule/review-card-congrats';
 import style from './style.css';
@@ -33,33 +32,17 @@ const ReviewCongrats = props => {
     onClick: () => linkRevise
   };
 
-  // const [displayCardStar, setDisplayCardStar] = useState(false);
-  const [displayCardRank, setDisplayCardRank] = useState(false);
   const container = useRef(null);
 
   useEffect(() => {
-    // const timerFirstStep = setTimeout(() => {
-    //   setDisplayCardStar(true);
-    // }, 800);
-    const timerCardRank = setTimeout(() => {
-      setDisplayCardRank(true);
-    }, 2000);
-
     const timer = setTimeout(() => {
-      // const container = document.getElementById('container');
       container.current.scrollTo({
         left: 1000,
         behavior: 'smooth'
       });
     }, 2000);
-    return () => clearTimeout(timerFirstStep, timerCardRank, timer);
+    return () => clearTimeout(timer);
   }, []);
-
-  // const wrapperStyleCardStar = classnames(
-  //   // displayCardStar ? style.cardStarTranslateY : null,
-  //   displayCardRank ? style.cardStarTranslateX : style.cardStarTranslateY
-  // );
-  // const wrapperStyleCardRank = classnames(displayCardRank ? style.cardRank : style.hiddenCardRank);
 
   return (
     <div className={style.mainContainer} aria-label={ariaLabel}>
@@ -77,12 +60,16 @@ const ReviewCongrats = props => {
             <MoleculeReviewCardCongrats {...cardCongratsRank} className={wrapperStyleCardRank} />
           ) : null} */}
 
-          <MoleculeReviewCardCongrats {...cardCongratsRank} className={style.cardRank} />
+          <MoleculeReviewCardCongrats
+            {...cardCongratsRank}
+            timerAnimation={1800}
+            className={style.cardRank}
+          />
         </div>
-        {/* <div className={style.buttonContainer}>
+        <div className={style.buttonContainer}>
           <ButtonLink {...buttonReviseSkillProps} className={style.buttonRevise} />
           <ButtonLink {...buttonReviseProps} className={style.buttonRevise} />
-        </div> */}
+        </div>
       </div>
     </div>
   );
