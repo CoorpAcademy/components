@@ -51,15 +51,6 @@ const ReviewCongrats = props => {
         <div className={style.test} />
         <div ref={container} className={style.containerCards}>
           <MoleculeReviewCardCongrats {...cardCongratsStar} className={style.cardStar} />
-          {/* {displayCardStar ? (
-            <MoleculeReviewCardCongrats {...cardCongratsStar} className={wrapperStyleCardStar} />
-          ) : (
-            <div className={style.hiddenCardStar} />
-          )} */}
-          {/* {displayCardRank ? (
-            <MoleculeReviewCardCongrats {...cardCongratsRank} className={wrapperStyleCardRank} />
-          ) : null} */}
-
           <MoleculeReviewCardCongrats
             {...cardCongratsRank}
             timerAnimation={1800}

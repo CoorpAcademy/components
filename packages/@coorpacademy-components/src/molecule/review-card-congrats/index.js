@@ -46,13 +46,12 @@ const ReviewCardCongrats = props => {
       <div className={style.mainIcon}>
         <AtomLottieWrapper
           {...animationLottie}
-          // width={165}
-          // height={165}
           loop={false}
           animationControl={isAnimationVisible}
           autoplay={false}
           data-name="lottie-wrapper"
           className={style.wrapperLottie}
+          backupImageClassName={style.ie11Backup}
         />
       </div>
       <div className={style.title}>{reviewCardTitle}</div>

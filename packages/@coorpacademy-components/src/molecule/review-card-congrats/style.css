@@ -4,7 +4,6 @@
 @value cm_blue_900 from colors;
 @value cm_positive_100 from colors;
 
-
 @keyframes fadeIn {
   0% {
     opacity: 0;
@@ -41,7 +40,6 @@
   flex-direction: column;
   justify-content: center;
   width: 280px;
-  /* min-width: 220px; */
 }
 
 .cardStar {
@@ -61,12 +59,10 @@
 .wrapperLottie {
   width: 165px;
   height: 165px;
-  /* max-width: 165px;
-  max-height: 165px; */
-  /* max-width: 165px;
-  min-width: 100px;
-  max-height: 165px;
-  min-height: 100px; */
+}
+
+.ie11Backup {
+  composes: wrapperLottie; 
 }
 
 .title {
@@ -114,11 +110,29 @@
 }
 
 @media mobile {
+  .cardContainer {
+    width: 240px;
+  }
+
   .mainIcon {
     margin: 14px 0px 6px;
   }
 
   .textContainerBase {
     margin-bottom: 20px;
+  }
+
+  .iconStar {
+    color: #ffde03;
+    padding: 0 35px 0 10px;
+  }
+
+  .wrapperLottie {
+    width: 140px;
+    height: 140px;
+  }
+
+  .textStar, .textRank, .rankSuffix {
+    font-size: 54px;
   }
 }
