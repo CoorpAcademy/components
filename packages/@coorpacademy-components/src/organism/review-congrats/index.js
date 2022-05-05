@@ -7,6 +7,7 @@ import style from './style.css';
 const ReviewCongrats = props => {
   const {
     'aria-label': ariaLabel,
+    'data-name': dataName,
     title,
     cardCongratsStar,
     cardCongratsRank,
@@ -45,7 +46,7 @@ const ReviewCongrats = props => {
   }, []);
 
   return (
-    <div className={style.containerCongrats} aria-label={ariaLabel}>
+    <div className={style.containerCongrats} aria-label={ariaLabel} data-name={dataName}>
       <div className={style.title}>{title}</div>
       <div ref={container} className={style.containerCards}>
         <MoleculeReviewCardCongrats {...cardCongratsStar} className={style.cardStar} />
@@ -56,8 +57,12 @@ const ReviewCongrats = props => {
         />
       </div>
       <div className={style.buttonContainer}>
-        <ButtonLink {...buttonReviseSkillProps} className={style.buttonRevise} />
-        <ButtonLink {...buttonReviseProps} className={style.buttonRevise} />
+        <ButtonLink
+          {...buttonReviseSkillProps}
+          className={style.buttonRevise}
+          data-name="revise-skill-link"
+        />
+        <ButtonLink {...buttonReviseProps} className={style.buttonRevise} data-name="revise-link" />
       </div>
     </div>
   );
@@ -65,6 +70,7 @@ const ReviewCongrats = props => {
 
 ReviewCongrats.propTypes = {
   'aria-label': PropTypes.string,
+  'data-name': PropTypes.string,
   title: PropTypes.string,
   cardCongratsStar: PropTypes.shape(MoleculeReviewCardCongrats.propTypes),
   cardCongratsRank: PropTypes.shape(MoleculeReviewCardCongrats.propTypes),

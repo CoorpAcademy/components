@@ -3,6 +3,7 @@ import moleculeReviewCardRank from '../../../../molecule/review-card-congrats/te
 
 export const defaultProps = {
   'aria-label': 'Review Congratulations',
+  'data-name': 'review-congrats',
   title: 'Congratulations!',
   cardCongratsStar: moleculeReviewCardStar.props,
   cardCongratsRank: moleculeReviewCardRank.props,

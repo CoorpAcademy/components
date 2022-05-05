@@ -1,39 +1,61 @@
 import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
-import {render, cleanup, useRealTimers, act} from '@testing-library/react';
+import {render, cleanup, waitFor} from '@testing-library/react';
 import ReviewCardCongrats from '..';
 import starFixture from './fixtures/star';
 
 browserEnv();
 
-test.before(() => {
-  useRealTimers();
-});
-
 test.afterEach(cleanup);
 
-test('should load and update lottie animation', t => {
-  // const {container, result, waitForNextUpdate, unmount} = render(
+test('should trigger lottie animation', async t => {
+  const {container, unmount, rerender} = render(<ReviewCardCongrats {...starFixture.props} />);
+  const lottieWrapper = container.querySelectorAll('[data-name="lottie-wrapper"]');
+  t.truthy(lottieWrapper);
 
-  const propsAnimation = {
-    ...starFixture.props,
-    animationLottie: {...animationLottie.props, animationControl: 'loading'}
-  };
+  // const propsReviewCardCongrats = {
+  //   animationLottie: {
+  //     ...starFixture.animationLottie.props,
+  //     animationControl: 'play',
+  //     autoplay: false
+  //   }
+  // };
 
-  const {container, unmount} = render(<ReviewCardCongrats {...propsAnimation} />);
+  await waitFor(async () => {
+    // const result = await t.try(tt => {
+    //   <ReviewCardCongrats {...starFixture.props} {...propsReviewCardCongrats} />;
+    // });
 
-  // const wrapper = container.querySelectorAll('[data-name="card-star"]');
-  // t.truthy(wrapper);
+    const result = await t.try(tt => {
+      rerender(<ReviewCardCongrats {...starFixture.props} />);
+    });
 
-  act(() => {
-    t.runAllTimers();
+    if (result.passed) return result.commit();
+    result.discard();
+    throw result.errors;
   });
+  // await waitFor(() => t.is(lottieWrapper.animationControl, 'play'));
 
-  // await waitForNextUpdate();
+  // await waitFor(() => t.is(lottieWrapper, {animationControl: 'play'}), {
+  //   timeout: starFixture.props.timerAnimation
+  // });
 
-  // expect(result.current.isAnimationVisible).toEqual('play');
   unmount();
 
   t.pass();
 });
+
+// test('should trigger lottie animation scheluder', async t => {
+//   const {container, unmount} = render(<ReviewCardCongrats {...starFixture.props} />);
+//   const scheluderWrapper = container.querySelectorAll('[data-name="animation-scheluder-wrapper"]');
+//   t.truthy(scheluderWrapper);
+
+//   await waitFor(() => t.is(scheluderWrapper.props.animated, true), {
+//     timeout: starFixture.props.timerAnimation
+//   });
+
+//   unmount();
+
+//   t.pass();
+// });
