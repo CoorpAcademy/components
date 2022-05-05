@@ -45,22 +45,19 @@ const ReviewCongrats = props => {
   }, []);
 
   return (
-    <div className={style.mainContainer} aria-label={ariaLabel}>
-      <div className={style.containerCongrats}>
-        <div className={style.title}>{title}</div>
-        <div className={style.test} />
-        <div ref={container} className={style.containerCards}>
-          <MoleculeReviewCardCongrats {...cardCongratsStar} className={style.cardStar} />
-          <MoleculeReviewCardCongrats
-            {...cardCongratsRank}
-            timerAnimation={1800}
-            className={style.cardRank}
-          />
-        </div>
-        <div className={style.buttonContainer}>
-          <ButtonLink {...buttonReviseSkillProps} className={style.buttonRevise} />
-          <ButtonLink {...buttonReviseProps} className={style.buttonRevise} />
-        </div>
+    <div className={style.containerCongrats} aria-label={ariaLabel}>
+      <div className={style.title}>{title}</div>
+      <div ref={container} className={style.containerCards}>
+        <MoleculeReviewCardCongrats {...cardCongratsStar} className={style.cardStar} />
+        <MoleculeReviewCardCongrats
+          {...cardCongratsRank}
+          timerAnimation={1800}
+          className={style.cardRank}
+        />
+      </div>
+      <div className={style.buttonContainer}>
+        <ButtonLink {...buttonReviseSkillProps} className={style.buttonRevise} />
+        <ButtonLink {...buttonReviseProps} className={style.buttonRevise} />
       </div>
     </div>
   );
