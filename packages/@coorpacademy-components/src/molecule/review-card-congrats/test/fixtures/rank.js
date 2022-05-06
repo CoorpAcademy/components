@@ -5,6 +5,7 @@ export const defaultProps = {
   'data-name': 'card-rank',
   animationLottie: {...animationLottie.props, height: undefined, width: undefined},
   cardType: 'card-rank',
+  iconAriaLabel: 'Image without information',
   className: undefined,
   reviewCardTitle: 'You are now',
   reviewCardValue: '14',

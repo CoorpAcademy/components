@@ -4,6 +4,13 @@ import ButtonLink from '../../atom/button-link';
 import MoleculeReviewCardCongrats from '../../molecule/review-card-congrats';
 import style from './style.css';
 
+export const setScroll = container => () => {
+  container.current.scrollTo({
+    left: 1000,
+    behavior: 'smooth'
+  });
+};
+
 const ReviewCongrats = props => {
   const {
     'aria-label': ariaLabel,
@@ -11,38 +18,15 @@ const ReviewCongrats = props => {
     title,
     cardCongratsStar,
     cardCongratsRank,
-    buttonLabelRevise,
-    buttonLabelReviseSkill,
-    buttonAriaLabel,
-    linkReviseSkill,
-    linkRevise
+    buttonRevising,
+    buttonRevisingSkill
   } = props;
-
-  const buttonReviseSkillProps = {
-    type: 'tertiary',
-    'aria-label': buttonAriaLabel,
-    label: buttonLabelReviseSkill,
-    'data-name': 'button-revise',
-    onClick: () => linkReviseSkill
-  };
-  const buttonReviseProps = {
-    type: 'primary',
-    'aria-label': buttonAriaLabel,
-    label: buttonLabelRevise,
-    'data-name': 'button-revise',
-    onClick: () => linkRevise
-  };
 
   const container = useRef(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      container.current.scrollTo({
-        left: 1000,
-        behavior: 'smooth'
-      });
-    }, 2000);
-    return () => clearTimeout(timer);
+    const timer = setTimeout(setScroll(container), 2000);
+    return () => timer && clearTimeout(timer);
   }, []);
 
   return (
@@ -58,11 +42,11 @@ const ReviewCongrats = props => {
       </div>
       <div className={style.buttonContainer}>
         <ButtonLink
-          {...buttonReviseSkillProps}
+          {...buttonRevising}
           className={style.buttonRevise}
           data-name="revise-skill-link"
         />
-        <ButtonLink {...buttonReviseProps} className={style.buttonRevise} data-name="revise-link" />
+        <ButtonLink {...buttonRevisingSkill} className={style.buttonRevise} />
       </div>
     </div>
   );
@@ -74,11 +58,16 @@ ReviewCongrats.propTypes = {
   title: PropTypes.string,
   cardCongratsStar: PropTypes.shape(MoleculeReviewCardCongrats.propTypes),
   cardCongratsRank: PropTypes.shape(MoleculeReviewCardCongrats.propTypes),
-  buttonLabelRevise: PropTypes.string,
-  buttonLabelReviseSkill: PropTypes.string,
-  buttonAriaLabel: PropTypes.string,
-  linkReviseSkill: PropTypes.string,
-  linkRevise: PropTypes.string
+  buttonRevising: PropTypes.shape({
+    label: PropTypes.string,
+    onClick: PropTypes.func,
+    type: PropTypes.string
+  }),
+  buttonRevisingSkill: PropTypes.shape({
+    label: PropTypes.string,
+    onClick: PropTypes.func,
+    type: PropTypes.string
+  })
 };
 
 export default ReviewCongrats;

@@ -6,15 +6,12 @@
 @keyframes translateTitle {
   0% {
     transform: translateY(50%) scale(1);
-    -ms-transform: translateY(50%) scale(1);
   }
   50% {
     transform: translateY(50%) scale(1);
-    -ms-transform: translateY(50%) scale(1);
   }
   100% {
     transform: translateY(-300%) scale(0.6);
-    -ms-transform: translateY(-300%) scale(0.6);
   }
 }
 
@@ -22,28 +19,23 @@
   0% {
     opacity: 0;
     transform: translateY(0%);
-    -ms-transform: translateY(0%);
   }
   30% {
     opacity: 0;
     transform: translateY(40%);
-    -ms-transform: translateY(40%);
   }
   100% {
     opacity: 1;
     transform: translateY(0%);
-    -ms-transform: translateY(0%);
   }
 }
 
 @keyframes translateXCardStar {
   0% {
     transform: translateX(50%);
-    -ms-transform: translateX(50%);
   }
   100% {
     transform: translateX(0%);
-    -ms-transform: translateX(0%);
   }
 }
 
@@ -54,7 +46,6 @@
     z-index: -1;
     opacity: 0;
     transform: translateX(50%);
-    -ms-transform: translateX(50%);
   }
   1% {
     position: relative;
@@ -62,7 +53,6 @@
     z-index: -1;
     opacity: 0;
     transform: translateX(50%);
-    -ms-transform: translateX(50%);
   }
   100% {
     position: relative;
@@ -70,7 +60,6 @@
     z-index: 0;
     opacity: 1;
     transform: translateX(0%);
-    -ms-transform: translateX(0%);
   }
 }
 
@@ -128,7 +117,6 @@ _:-ms-fullscreen,
 :root .cardStar,
 .cardRank {
   transform: translateX(50%);
-  -ms-transform: translateX(50%);
 }
 
 .buttonContainer {
@@ -150,15 +138,12 @@ _:-ms-fullscreen,
   @keyframes translateTitle {
     0% {
       transform: translateY(50%) scale(1);
-      -ms-transform: translateY(50%) scale(1);
     }
     50% {
       transform: translateY(50%) scale(1);
-      -ms-transform: translateY(50%) scale(1);
     }
     100% {
       transform: translateY(-400%) scale(0.9);
-      -ms-transform: translateY(-400%) scale(0.9);
     }
   }
 
@@ -178,7 +163,6 @@ _:-ms-fullscreen,
       opacity: 0;
       position: absolute;
       transform: translateX(0);
-      -ms-transform: translateX(0);
       visibility: hidden;
       z-index: -1;
     }
@@ -186,7 +170,6 @@ _:-ms-fullscreen,
       opacity: 1;
       position: relative;
       transform: translateX(0);
-      -ms-transform: translateX(0);
       visibility: visible;
       z-index: 0;
     }
@@ -218,9 +201,7 @@ _:-ms-fullscreen,
       translateXCardStar 0.2s ease-in-out 2s forwards;
     flex-shrink: 0;
     opacity: 0;
-    /* margin-left: calc(100% - (100% - 240px)); */
-    /* margin-right: calc((100% - 240px) / 2); */
-    /* transform: translateX(0); */
+    transform: translateX(0);
   }
 
   .cardRank {

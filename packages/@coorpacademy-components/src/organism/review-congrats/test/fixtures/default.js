@@ -7,11 +7,18 @@ export const defaultProps = {
   title: 'Congratulations!',
   cardCongratsStar: moleculeReviewCardStar.props,
   cardCongratsRank: moleculeReviewCardRank.props,
-  buttonLabelReviseSkill: 'Revise another skill',
-  buttonLabelRevise: 'Continue revising',
-  buttonAriaLabel: 'Continue revising',
-  linkReviseSkill: '',
-  linkRevise: ''
+  buttonRevising: {
+    'aria-label': 'Continue revising button',
+    label: 'Continue revising',
+    onClick: () => console.log('Continue revising'),
+    type: 'tertiary'
+  },
+  buttonRevisingSkill: {
+    label: 'Revise another skill',
+    'aria-label': 'Revise another skill button',
+    onClick: () => console.log('Revise another skill'),
+    type: 'primary'
+  }
 };
 
 export default {props: defaultProps};

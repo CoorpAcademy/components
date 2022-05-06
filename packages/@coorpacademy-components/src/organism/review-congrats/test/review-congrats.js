@@ -2,17 +2,15 @@ import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
 import {render, cleanup, fireEvent, waitFor} from '@testing-library/react';
-import ReviewCongrats from '..';
+import ReviewCongrats, {setScroll} from '..';
 import defaultFixture from './fixtures/default';
 
 browserEnv();
 
 test.afterEach(cleanup);
 
-test('should click on skill link', async t => {
-  const {container, unmount} = render(<ReviewCongrats {...defaultFixture.props} />);
-  const wrapper = container.querySelectorAll('[data-name="review-congrats"]');
-  t.truthy(wrapper);
+test('should click on skill button', async t => {
+  const {container} = render(<ReviewCongrats {...defaultFixture.props} />);
 
   await waitFor(() => {
     const skillLink = container.querySelector('[data-name="revise-skill-link"]');
@@ -23,26 +21,20 @@ test('should click on skill link', async t => {
       });
   });
 
-  unmount();
-
   t.pass();
 });
 
-test('should click on revise link', async t => {
-  const {container, unmount} = render(<ReviewCongrats {...defaultFixture.props} />);
-  const wrapper = container.querySelectorAll('[data-name="review-congrats"]');
-  t.truthy(wrapper);
+test('setScroll', t => {
+  t.plan(2);
 
-  await waitFor(() => {
-    const reviseLink = container.querySelector('[data-name="revise-link"]');
-    t.truthy(reviseLink);
-    if (reviseLink)
-      t.notThrows(() => {
-        return fireEvent.click(reviseLink);
-      });
-  });
+  const _container = {
+    current: {
+      scrollTo: ({left, behavior}) => {
+        t.is(left, 1000);
+        t.is(behavior, 'smooth');
+      }
+    }
+  };
 
-  unmount();
-
-  t.pass();
+  setScroll(_container)();
 });

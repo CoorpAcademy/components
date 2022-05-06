@@ -11,12 +11,18 @@ import Animation, {EASE_OUT_CUBIC} from '../../hoc/animation';
 import AnimationScheduler from '../../hoc/animation-scheduler';
 import style from './style.css';
 
+export const setAnimations = (setIsAnimationVisible, setIsAnimated) => () => {
+  setIsAnimationVisible('play');
+  setIsAnimated(true);
+};
+
 const ReviewCardCongrats = props => {
   const {
     'aria-label': ariaLabel,
     'data-name': dataName,
     animationLottie,
     cardType,
+    iconAriaLabel,
     className,
     reviewCardTitle,
     reviewCardValue,
@@ -28,11 +34,12 @@ const ReviewCardCongrats = props => {
   const [isAnimated, setIsAnimated] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsAnimationVisible('play');
-      setIsAnimated(!isAnimated);
-    }, timerAnimation);
-    return () => clearTimeout(timer);
+    let timer;
+    // istanbul ignore else
+    if (!isAnimationVisible || !isAnimated) {
+      timer = setTimeout(setAnimations(setIsAnimationVisible, setIsAnimated), timerAnimation);
+    }
+    return () => timer && clearTimeout(timer);
   }, [timerAnimation]);
 
   const wrapperClassName = classnames(
@@ -57,9 +64,9 @@ const ReviewCardCongrats = props => {
       <div className={style.title}>{reviewCardTitle}</div>
       <div className={cardType === 'card-star' ? style.textContainerStar : style.textContainerRank}>
         {cardType === 'card-rank' ? (
-          <RankIcon className={style.iconRank} width={40} height={40} />
+          <RankIcon className={style.iconRank} width={40} height={40} aria-label={iconAriaLabel} />
         ) : null}
-        <AnimationScheduler animated={isAnimated} data-name="animation-scheluder-wrapper">
+        <AnimationScheduler animated={isAnimated}>
           <div>
             <span className={cardType === 'card-star' ? style.textStar : style.textRank}>
               <Animation name="counter" bezier={EASE_OUT_CUBIC} duration={2000}>
@@ -69,7 +76,7 @@ const ReviewCardCongrats = props => {
           </div>
         </AnimationScheduler>
         {cardType === 'card-star' ? (
-          <StarIcon className={style.iconStar} width={53} height={53} />
+          <StarIcon className={style.iconStar} width={53} height={53} aria-label={iconAriaLabel} />
         ) : (
           <div className={style.rankSuffix}>{rankSuffix}</div>
         )}
@@ -83,6 +90,7 @@ ReviewCardCongrats.propTypes = {
   'data-name': PropTypes.string,
   animationLottie: PropTypes.shape(AtomLottieWrapper.propTypes),
   cardType: PropTypes.string,
+  iconAriaLabel: PropTypes.string,
   className: PropTypes.string,
   reviewCardTitle: PropTypes.string,
   reviewCardValue: PropTypes.string,

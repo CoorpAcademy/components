@@ -4,6 +4,7 @@ export const defaultProps = {
   'aria-label': 'Review Card Congrats Container',
   'data-name': 'card-star',
   animationLottie: {...animationLottie.props, height: undefined, width: undefined},
+  iconAriaLabel: 'Image without information',
   className: undefined,
   cardType: 'card-star',
   reviewCardTitle: 'You have won',
