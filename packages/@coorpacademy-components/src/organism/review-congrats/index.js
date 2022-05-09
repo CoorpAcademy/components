@@ -1,6 +1,8 @@
 import React, {useEffect, useRef} from 'react';
 import PropTypes from 'prop-types';
+import AtomLottieWrapper from '../../atom/lottie-wrapper';
 import ButtonLink from '../../atom/button-link';
+
 import MoleculeReviewCardCongrats from '../../molecule/review-card-congrats';
 import style from './style.css';
 
@@ -15,6 +17,7 @@ const ReviewCongrats = props => {
   const {
     'aria-label': ariaLabel,
     'data-name': dataName,
+    animationLottie,
     title,
     cardCongratsStar,
     cardCongratsRank,
@@ -31,6 +34,14 @@ const ReviewCongrats = props => {
 
   return (
     <div className={style.containerCongrats} aria-label={ariaLabel} data-name={dataName}>
+      <div>
+        <AtomLottieWrapper
+          {...animationLottie}
+          loop={false}
+          autoplay={false}
+          data-name="lottie-wrapper"
+        />
+      </div>
       <div className={style.title}>{title}</div>
       <div ref={container} className={style.containerCards}>
         <MoleculeReviewCardCongrats {...cardCongratsStar} className={style.cardStar} />
@@ -55,6 +66,7 @@ const ReviewCongrats = props => {
 ReviewCongrats.propTypes = {
   'aria-label': PropTypes.string,
   'data-name': PropTypes.string,
+  animationLottie: PropTypes.shape(AtomLottieWrapper.propTypes),
   title: PropTypes.string,
   cardCongratsStar: PropTypes.shape(MoleculeReviewCardCongrats.propTypes),
   cardCongratsRank: PropTypes.shape(MoleculeReviewCardCongrats.propTypes),
