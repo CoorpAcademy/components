@@ -3,6 +3,7 @@
 @value colors: "../../variables/colors.css";
 @value cm_blue_900 from colors;
 @value cm_positive_100 from colors;
+@value cm_yellow_secondary_200 from colors;
 
 @keyframes fadeIn {
   0% {
@@ -87,7 +88,7 @@
 
 .textStar {
   composes: textIconBase;
-  color: #ffde03;
+  color: cm_yellow_secondary_200;
 }
 
 .textRank {
@@ -96,7 +97,7 @@
 }
 
 .iconStar {
-  color: #ffde03;
+  color: cm_yellow_secondary_200;
   padding: 0 55px 0 10px;
 }
 
@@ -123,7 +124,7 @@
   }
 
   .iconStar {
-    color: #ffde03;
+    color: cm_yellow_secondary_200;
     padding: 0 35px 0 10px;
   }
 
