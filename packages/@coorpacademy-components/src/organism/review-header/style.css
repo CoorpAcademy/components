@@ -5,22 +5,6 @@
 @value cm_blue_900 from colors;
 @value box_shadow_light_dark from colors;
 
-@keyframes stepsAnimation {
-  0% {
-    opacity: 1;
-    transform: translate(-50%, 0);
-
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -180%);
-
-  }
-}
-
 .headerWrapper {
   position: relative;
   display: flex;
@@ -61,11 +45,13 @@
   left: 50%;
   transform: translate(-50%, 0);
   display: flex;
+  opacity: 1;
 }
 
 .stepsWrapperAnimation {
-  composes: stepsWrapper;
-  animation: stepsAnimation 0.5s ease-in-out 0.5s forwards;
+  opacity: 0;
+  transform: translate(-50%, -180%);
+  transition: opacity 0.5s ease-in-out 0.5s, transform 0.5s ease-in-out 0.5s;
 }
 
 .iconButtonWrapper {
@@ -118,15 +104,6 @@
 
 @media mobile {
 
-  @keyframes stepsAnimation {
-    0% {
-      opacity: 1;
-    }
-    100% {
-      opacity: 0;  
-    }
-  }
-
   .headerWrapper {
     height: 126px;
     align-items: start;
@@ -140,8 +117,8 @@
   }
 
   .stepsWrapperAnimation {
-    composes: stepsWrapper;
-    animation: stepsAnimation 0.5s ease-in-out 0.5s forwards;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out 0.5s;
   }
 
   .titlesWrapper {

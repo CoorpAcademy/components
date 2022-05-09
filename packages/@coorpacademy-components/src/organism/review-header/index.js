@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import getOr from 'lodash/fp/getOr';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import ReviewHeaderStep from '../../molecule/review-header-steps';
@@ -27,6 +28,11 @@ const ReviewHeader = (props, context) => {
     className: style.review
   };
 
+  const stepsWrapper = classnames(
+    style.stepsWrapper,
+    hiddenSteps ? style.stepsWrapperAnimation : null
+  );
+
   return (
     <div className={style.headerWrapper} data-name="review-header" aria-label={ariaLabel}>
       <div className={style.titlesWrapper}>
@@ -46,7 +52,7 @@ const ReviewHeader = (props, context) => {
         </div>
       </div>
 
-      <div className={hiddenSteps ? style.stepsWrapperAnimation : style.stepsWrapper}>
+      <div className={stepsWrapper}>
         <ReviewHeaderStep steps={steps} key={'review-header-steps'} />
       </div>
 
