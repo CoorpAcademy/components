@@ -101,15 +101,10 @@ const buildSlide = (
     // 'aria-label': 'correctionPopin',
     next: {
       onClick: () => {
-        // next.onClick();
-        // if (validationResult === 'success' && !finishedSlides.has(slideNumber))
-        //   updateFinishedSlides([slideNumber, true]);
         updateSlides([
           slideNumber,
           {
             hidden: validationResult === 'success',
-            // not highest but - answered
-            // position: HIGHEST_INDEX
             position: HIGHEST_INDEX - finishedSlides.size,
             action: validationResult === 'success' ? 'unstack' : 'restack',
             answer,
@@ -375,7 +370,6 @@ const SlidesReview = (
   }, [slidesState, primarySkinColor, validate, correctionPopinProps, finishedSlides]);
 
   const stepItemsArray = useMemo(() => {
-    // return [...stepItemsState.values()];
     // eslint-disable-next-line unicorn/prefer-spread
     return Array.from(stepItemsState.values());
   }, [stepItemsState]);
