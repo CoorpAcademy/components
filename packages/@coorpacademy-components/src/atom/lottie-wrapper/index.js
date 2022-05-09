@@ -104,13 +104,9 @@ const LottieWrapper = props => {
     // enzyme does not handle well the state update after an async useEffect in tests
     // to remove when the migration towards @testing-library/react is done
     /* istanbul ignore next */
-    if (
-      animationItem &&
-      includes(animationControl, keys(omit('loading', ANIMATION_CONTROL))) &&
-      !autoplay
-    ) {
+    if (includes(animationControl, keys(omit('loading', ANIMATION_CONTROL))) && !autoplay) {
       setIsAnimationVisible(true);
-      animationItem[animationControl]();
+      if (animationItem) animationItem[animationControl]();
       if (animationControl === ANIMATION_CONTROL.stop) setIsAnimationVisible(false);
     }
   }, [animationControl, animationItem, autoplay]);

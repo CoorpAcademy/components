@@ -1,0 +1,225 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value cm_blue_900 from colors;
+
+@keyframes translateTitle {
+  0% {
+    transform: translateY(50%) scale(1);
+  }
+  50% {
+    transform: translateY(50%) scale(1);
+  }
+  100% {
+    transform: translateY(-300%) scale(0.6);
+  }
+}
+
+@keyframes translateYCardStar {
+  0% {
+    opacity: 0;
+    transform: translateY(0%);
+  }
+  30% {
+    opacity: 0;
+    transform: translateY(40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+@keyframes translateXCardStar {
+  0% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+@keyframes translateCardRank {
+  0% {
+    position: absolute;
+    visibility: hidden;
+    z-index: -1;
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  1% {
+    position: relative;
+    visibility: hidden;
+    z-index: -1;
+    opacity: 0;
+    transform: translateX(50%);
+  }
+  100% {
+    position: relative;
+    visibility: visible;
+    z-index: 0;
+    opacity: 1;
+    transform: translateX(0%);
+  }
+}
+
+.containerCongrats {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.title {
+  color: cm_blue_900;
+  font-family: 'Gilroy';
+  font-size: 65px;
+  font-style: normal;
+  font-weight: 500;
+  position: relative;
+  top: 200px;
+  user-select: none;
+  animation: translateTitle 1.4s ease-out 0s forwards;
+}
+
+.containerCards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.cardStar {
+  animation: translateYCardStar 0.5s ease-out 0.8s forwards,
+    translateXCardStar 0.2s ease-in-out 2s forwards;
+  opacity: 0;
+}
+
+.cardRank {
+  animation: translateCardRank 0.2s ease-in-out 2s forwards;
+  position: absolute;
+  visibility: hidden;
+  opacity: 0;
+  margin-left: 32px;
+}
+
+/* ie fallback */
+_:-ms-fullscreen,
+:root .cardRank {
+  position: inherit;
+}
+
+_:-ms-fullscreen,
+:root .cardStar,
+.cardRank {
+  transform: translateX(50%);
+}
+
+.buttonContainer {
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 50px;
+}
+
+.buttonRevise {
+  width: fit-content;
+  margin-left: 16px;
+  padding: 12px 16px;
+}
+
+@media mobile {
+  @keyframes translateTitle {
+    0% {
+      transform: translateY(50%) scale(1);
+    }
+    50% {
+      transform: translateY(50%) scale(1);
+    }
+    100% {
+      transform: translateY(-400%) scale(0.9);
+    }
+  }
+
+  @keyframes translateXCardStar {
+    0% {
+      margin-left: calc(100% - (100% - 240px));
+      margin-right: calc((100% - 240px) / 2);
+    }
+    100% {
+      margin-left: 100%;
+      margin-right: calc((100% - 240px) / 2);
+    }
+  }
+
+  @keyframes translateCardRank {
+    0% {
+      opacity: 0;
+      position: absolute;
+      transform: translateX(0);
+      visibility: hidden;
+      z-index: -1;
+    }
+    100% {
+      opacity: 1;
+      position: relative;
+      transform: translateX(0);
+      visibility: visible;
+      z-index: 0;
+    }
+  }
+
+  .containerCongrats {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .title {
+    animation: translateTitle 1.6s ease-out forwards;
+    font-size: 35px;
+  }
+
+  .containerCards {
+    width: 100%;
+    min-height: 350px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    margin-top: 54px;
+    padding-bottom: 10px;
+  }
+
+  .cardStar {
+    animation: translateYCardStar 0.6s ease-out 0.8s forwards,
+      translateXCardStar 0.2s ease-in-out 2s forwards;
+    flex-shrink: 0;
+    opacity: 0;
+    transform: translateX(0);
+  }
+
+  .cardRank {
+    animation: translateCardRank 0.2s ease-in-out 2s forwards;
+    flex-shrink: 0;
+    margin-right: calc((100% - 240px) / 2);
+  }
+
+  .buttonContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 25px;
+    width: 90%;
+  }
+
+  .buttonRevise {
+    margin-bottom: 8px;
+    margin-left: 0;
+    width: 100%;
+  }
+}

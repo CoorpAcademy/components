@@ -1,0 +1,139 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value colors: "../../variables/colors.css";
+@value cm_blue_900 from colors;
+@value cm_positive_100 from colors;
+@value cm_yellow_secondary_200 from colors;
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.textBase {
+  font-family: 'Gilroy';
+  font-style: normal;
+  user-select: none;
+}
+
+.textContainerBase {
+  display: flex;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.textIconBase {
+  composes: textBase;
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 77px;
+}
+
+.cardContainer {
+  animation: fadeIn 2s ease-in-out forwards;
+  backdrop-filter: blur(36px);
+  border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 280px;
+}
+
+.cardStar {
+  box-shadow: 0px 0px 45px 6px rgba(255, 206, 10, 0.1);
+}
+
+.cardRank {
+  box-shadow: 0px 0px 45px 6px rgba(24, 187, 152, 0.1);
+}
+
+.mainIcon {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0px 12px;
+}
+
+.wrapperLottie {
+  width: 165px;
+  height: 165px;
+}
+
+.ie11Backup {
+  composes: wrapperLottie; 
+}
+
+.title {
+  composes: textBase;
+  color: cm_blue_900;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 36px;
+  text-align: center;
+}
+
+.textContainerStar {
+  composes: textContainerBase;
+  justify-content: flex-end;
+}
+
+.textContainerRank {
+  composes: textContainerBase;
+  justify-content: space-between;
+  padding: 0 45px;
+}
+
+.textStar {
+  composes: textIconBase;
+  color: cm_yellow_secondary_200;
+}
+
+.textRank {
+  composes: textIconBase;
+  color: cm_blue_900;
+}
+
+.iconStar {
+  color: cm_yellow_secondary_200;
+  padding: 0 55px 0 10px;
+}
+
+.iconRank {
+  color: cm_positive_100;
+}
+
+.rankSuffix {
+  composes: textIconBase;
+  color: cm_blue_900;
+}
+
+@media mobile {
+  .cardContainer {
+    width: 240px;
+  }
+
+  .mainIcon {
+    margin: 14px 0px 6px;
+  }
+
+  .textContainerBase {
+    margin-bottom: 20px;
+  }
+
+  .iconStar {
+    color: cm_yellow_secondary_200;
+    padding: 0 35px 0 10px;
+  }
+
+  .wrapperLottie {
+    width: 140px;
+    height: 140px;
+  }
+
+  .textStar, .textRank, .rankSuffix {
+    font-size: 54px;
+  }
+}
