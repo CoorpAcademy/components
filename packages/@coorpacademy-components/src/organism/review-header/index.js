@@ -12,7 +12,8 @@ const ReviewHeader = (props, context) => {
     skillName,
     'aria-label': ariaLabel,
     closeButtonAriaLabel,
-    onQuitClick
+    onQuitClick,
+    hiddenSteps
   } = props;
   const {skin} = context;
   const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
@@ -45,7 +46,7 @@ const ReviewHeader = (props, context) => {
         </div>
       </div>
 
-      <div className={style.stepsWrapper}>
+      <div className={hiddenSteps ? style.stepsWrapperAnimation : style.stepsWrapper}>
         <ReviewHeaderStep steps={steps} key={'review-header-steps'} />
       </div>
 
@@ -62,7 +63,8 @@ ReviewHeader.propTypes = {
   skillName: PropTypes.string.isRequired,
   'aria-label': PropTypes.string,
   closeButtonAriaLabel: PropTypes.string,
-  onQuitClick: PropTypes.func
+  onQuitClick: PropTypes.func,
+  hiddenSteps: PropTypes.bool
 };
 
 export default ReviewHeader;
