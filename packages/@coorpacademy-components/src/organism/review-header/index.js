@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 import getOr from 'lodash/fp/getOr';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
 import ReviewHeaderStep from '../../molecule/review-header-steps';
@@ -12,7 +13,8 @@ const ReviewHeader = (props, context) => {
     skillName,
     'aria-label': ariaLabel,
     closeButtonAriaLabel,
-    onQuitClick
+    onQuitClick,
+    hiddenSteps
   } = props;
   const {skin} = context;
   const primarySkinColor = getOr('#00B0FF', 'common.primary', skin);
@@ -25,6 +27,11 @@ const ReviewHeader = (props, context) => {
     size: 'responsive',
     className: style.review
   };
+
+  const stepsWrapper = classnames(
+    style.stepsWrapper,
+    hiddenSteps ? style.stepsWrapperAnimation : null
+  );
 
   return (
     <div className={style.headerWrapper} data-name="review-header" aria-label={ariaLabel}>
@@ -45,7 +52,7 @@ const ReviewHeader = (props, context) => {
         </div>
       </div>
 
-      <div className={style.stepsWrapper}>
+      <div className={stepsWrapper}>
         <ReviewHeaderStep steps={steps} key={'review-header-steps'} />
       </div>
 
@@ -62,7 +69,8 @@ ReviewHeader.propTypes = {
   skillName: PropTypes.string.isRequired,
   'aria-label': PropTypes.string,
   closeButtonAriaLabel: PropTypes.string,
-  onQuitClick: PropTypes.func
+  onQuitClick: PropTypes.func,
+  hiddenSteps: PropTypes.bool
 };
 
 export default ReviewHeader;

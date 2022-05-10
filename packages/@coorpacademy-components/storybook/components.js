@@ -963,6 +963,7 @@ import OrganismReviewHeaderFixtureCurrentQuestionWrong from '../src/organism/rev
 import OrganismReviewHeaderFixtureFirstQuestionCurrentRight from '../src/organism/review-header/test/fixtures/first-question-current-right';
 import OrganismReviewHeaderFixtureNoAnsweredQuestion from '../src/organism/review-header/test/fixtures/no-answered-question';
 import OrganismReviewHeaderFixtureQuestionToRepeat from '../src/organism/review-header/test/fixtures/question-to-repeat';
+import OrganismReviewHeaderFixtureStepsAnimation from '../src/organism/review-header/test/fixtures/steps-animation';
 import OrganismReviewSkillsFixtureLoading from '../src/organism/review-skills/test/fixtures/loading';
 import OrganismReviewSkillsFixtureManySkills from '../src/organism/review-skills/test/fixtures/many-skills';
 import OrganismReviewSkillsFixtureNoSkills from '../src/organism/review-skills/test/fixtures/no-skills';
@@ -2602,7 +2603,8 @@ export const fixtures = {
       CurrentQuestionWrong: OrganismReviewHeaderFixtureCurrentQuestionWrong,
       FirstQuestionCurrentRight: OrganismReviewHeaderFixtureFirstQuestionCurrentRight,
       NoAnsweredQuestion: OrganismReviewHeaderFixtureNoAnsweredQuestion,
-      QuestionToRepeat: OrganismReviewHeaderFixtureQuestionToRepeat
+      QuestionToRepeat: OrganismReviewHeaderFixtureQuestionToRepeat,
+      StepsAnimation: OrganismReviewHeaderFixtureStepsAnimation
     },
     OrganismReviewSkills: {
       Loading: OrganismReviewSkillsFixtureLoading,
