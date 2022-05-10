@@ -215,16 +215,6 @@ export const slidePositionReducer = (
       } else if (numberOfFinishedSlides === HIGHEST_INDEX && previousValue.nextSlide) {
         _state.set(index, {...previousValue.nextSlide, position: previousValue.position});
       } else _state.set(id, newValue);
-      // or early return
-      // if (numberOfFinishedSlides >= HIGHEST_INDEX) {
-      //   _state.set(id, {
-      //     ...newValue,
-      //     validationResult:
-      //       newValue.validationResult === 'success' ? newValue.validationResult : null
-      //   });
-      // } else {
-      //   _state.set(id, newValue);
-      // }
     } else {
       const {hidden, position, validationResult, answer, question} = state.get(index);
       // if (newValue.validationResult) {
@@ -377,7 +367,8 @@ const SlidesReview = (
   const _headerProps = {
     ...headerProps,
     steps: stepItemsArray,
-    key: 'review-header'
+    key: 'review-header',
+    hiddenSteps: revisionState !== 'ongoing'
   };
 
   return (
