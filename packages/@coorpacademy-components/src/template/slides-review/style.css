@@ -5,12 +5,10 @@
 @value cm_grey_400 from colors;
 @value breakpoints: "../../variables/breakpoints.css";
 @value mobile from breakpoints;
-@value desktop from breakpoints;
 @value tablet from breakpoints;
 
 .slidesRevisionContainer {
   position: relative;
-  /* display: flex; */
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -19,6 +17,7 @@
 
 .fontBase {
   font-family: "Gilroy";
+  user-select: none;
 }
 
 .stackedSlidesContainer {
@@ -61,7 +60,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  transition: transform 1s ease-in;
+  transition: transform 0.5s ease-in;
   pointer-events: none;
 }
 
@@ -244,9 +243,8 @@ _:-ms-fullscreen, :root .validateButtonWrapper {
   composes: fontBase;
   font-size: 15px;
   color: cm_blue_900;
-  /* 64 - 15 margin */
   margin-top: 49px;
-  /* min-height: 15px; */
+  text-align: center;
 }
 
 .questionOrigin:empty:after {
@@ -343,64 +341,63 @@ _:-ms-fullscreen, :root .correctionPopinWrapper {
     height: 606px;
   }
 
-  /* .slideBase {
-    height: 606px;
+  .slideContentContainer {
+    /* 583 cause -15 margin top & -20 button & - 20 margin */
+    height: 473px;
   }
   
-  
-  .position0 {
-    width: 630px;
+
+  @keyframes popInAnimation {
+    from {
+      transform: translate3d(0, 400px, 0);
+    }
+    to {
+      transform: translate3d(0, -40px, 0);
+    }
   }
-  
-  .position1 {
-    width: 616px;
+
+  @keyframes popOutAnimation {
+    from {
+      transform: translate3d(0, -40px, 0);
+    }
+    to {
+      transform: translate3d(0, 400px, 0);
+    }
   }
-  
-  .position2 {
-    width: 600px;
-  }
-  
-  .position3 {
-    width: 580px;
-  }
-  
-  .position4 {
-    width: 562px;
-  } */
 }
 
 @media mobile {
   .stackedSlidesContainer {
     height: 670px;
-    /* width: 335px; */
     max-width: 335px;
   }
 
+  /* 143 */
   .slideBase {
     height: 654px;
   }
-  
-  /* .position0 {
-    width: 335px;
+
+  .slideContentContainer {
+    /* 583 cause -15 margin top & -20 button & - 20 margin */
+    height: 511px;
   }
   
-  .position1 {
-    width: 327px;
-    transform: translate(4px, -8px);
+
+  @keyframes popInAnimation {
+    from {
+      transform: translate3d(0, 500px, 0);
+    }
+    to {
+      transform: translate3d(0, -40px, 0);
+    }
   }
-  
-  .position2 {
-    width: 319px;
-    transform: translate(8px, -16px);
+
+  @keyframes popOutAnimation {
+    from {
+      transform: translate3d(0, -40px, 0);
+    }
+    to {
+      transform: translate3d(0, 500px, 0);
+    }
   }
-  
-  .position3 {
-    width: 311px;
-    transform: translate(12px, -24px);
-  }
-  
-  .position4 {
-    width: 303px;
-    transform: translate(16px, -32px);
-  } */
 }

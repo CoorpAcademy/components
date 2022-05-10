@@ -61,7 +61,6 @@ const buildSlide = (
     onClick: async () => {
       const lastSlide = finishedSlides.size >= HIGHEST_INDEX;
       const {validationResult: result, nextSlide, end: _end} = await onValidateClick(lastSlide);
-      // && !finishedSlides.has(slideNumber)
       updateSlides([
         slideNumber,
         {
@@ -73,14 +72,12 @@ const buildSlide = (
           nextSlide,
           numberOfFinishedSlides: finishedSlides.size,
           end: _end
-          // action: validationResult === 'success' ? 'unstack' : 'restack'
         }
       ]);
       if (_end) setTimeout(() => updateRevisionState('finished'), 3000);
       updateStepItems([
         slideNumber,
         {
-          // current: true,
           icon: result === 'success' ? ICON_VALUES.right : ICON_VALUES.wrong,
           finishedSlides
         }
@@ -110,7 +107,6 @@ const buildSlide = (
             answer,
             question,
             validationResult,
-            //
             numberOfFinishedSlides: finishedSlides.size,
             end
           }
@@ -118,14 +114,13 @@ const buildSlide = (
         updateStepItems([
           slideNumber,
           {
-            // current: finishedSlides.size >= HIGHEST_INDEX,
             setNext: true,
             finishedSlides,
             current: finishedSlides.size === HIGHEST_INDEX && validationResult !== 'success'
           }
         ]);
         if (finishedSlides.size === TOTAL_SLIDES_STACK)
-          setTimeout(() => updateRevisionState('finished'), 3000);
+          setTimeout(() => updateRevisionState('finished'), 2000);
       },
       label: next.label
     },
@@ -399,7 +394,6 @@ const SlidesReview = (
 };
 
 SlidesReview.propTypes = {
-  // headerProps: PropTypes.shape(ReviewHeader.propTypes),
   headerProps: PropTypes.shape(omit(['steps', ''], ReviewHeader.propTypes)),
   reviewBackgroundAriaLabel: ReviewBackground.propTypes['aria-label'],
   validate: PropTypes.shape({
