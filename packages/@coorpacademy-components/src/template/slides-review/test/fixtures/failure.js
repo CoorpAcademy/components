@@ -11,7 +11,7 @@ const onValidateClick = () => {
   return Promise.resolve({
     validationResult: 'failure',
     nextSlide: {question: 'Other question?', answer: qcmGraphic},
-    end: false
+    endRevision: false
   });
 };
 
@@ -24,7 +24,7 @@ export default {
       onClick: onValidateClick
     },
     firstSlide: {
-      question: 'Hey there! ..........dramatic suspense......... ready to answer?',
+      question: 'Hey there! ......dramatic suspense..... ready to answer?',
       answer: qcmDrag
     },
     correctionPopinProps

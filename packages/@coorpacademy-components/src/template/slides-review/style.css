@@ -22,22 +22,17 @@
 
 .stackedSlidesContainer {
   position: relative;
-  /* justify-items: center; */
-  /* display: flex; */
-  /* height: 100%; */
   margin-top: 50px;
   height: 738px;
   max-width: 1240px;
   width: 85%;
-  /* width: 90%; */
   align-self: center;
 }
 
-.congrats {
+/* .congrats {
   width: 100%;
-  /* height: 100%; */
   position: relative;
-}
+} */
 
 .playerBackground {
   position: absolute;
@@ -50,12 +45,10 @@
   box-shadow: 0px 4px 77px rgba(0, 0, 0, 0.05);
   background: white;
   height: 706px;
-  /* width: 600px; */
   border-radius: 24px;
   overflow: hidden;
   position: absolute;
 
-  /* justify-content: center; */
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -68,7 +61,6 @@
 .position0 {
   z-index: 50;
   width: 100%;
-  /* width: 1240px; */
   transform: translate(0, 0);
   transition: transform 0.5s ease-in;
 }
@@ -80,9 +72,6 @@
 .position1 {
   z-index: 45;
   width: 98%;
-  /* width: 1224px; */
-  /* pointer-events: none; */
-  /* transform: translate(8px, -8px); */
   transform: translate(0.8%, -8px);
   transition: transform 0.5s ease-in;
 }
@@ -90,31 +79,20 @@
 .position2 {
   z-index: 40;
   width: 96%;
-  /* width: 1200px; */
-  /* pointer-events: none; */
-  /* transform: translate(20px, -16px); */
   transform: translate(1.6%, -16px);
   transition: transform 0.5s ease-in;
 }
 
 .position3 {
-  /* opacity: 0; */
   z-index: 35;
   width: 94%;
-  /* width: 1176px; */
-  /* pointer-events: none; */
-  /* transform: translate(32px, -24px); */
   transform: translate(2.4%, -24px);
-  /* 0.5s */
   transition: transform 0.5 ease-in;
 }
 
 .position4 {
   z-index: 30;
   width: 92%;
-  /* width: 1152px; */
-  /* pointer-events: none; */
-  /* transform: translate(44px, -32px); */
   transform: translate(3.2%, -32px);
   transition: transform 0.5 ease-in;
 }
@@ -135,7 +113,6 @@
   }
   100% {
     z-index: 30;
-    /* transform: translate(44px, -32px); */
     transform: translate(3.2%, -32px);
     opacity: 0;
   }
@@ -143,30 +120,22 @@
 
 @keyframes slideOutAndIn {
   0% {
-    /* width: 1240px; */
     z-index: 55;
     transform: translate(0, 0);
   }
   50% {
-    /* width: 1240px; */
     width: 100%;
     z-index: 50;
     transform: translate(0, 1000px);
   }
   60% {
-    /* width: 88%; */
     width: 92%;
-    /* width: 1152px; */
     z-index: 30;
-    /* transform: translate(44px, 900px); */
     transform: translate(3.2%, 900px);
   }
   100% {
     z-index: 30;
     width: 92%;
-    /* width: 88%; */
-    /* width: 1152px; */
-    /* transform: translate(44px, -32px); */
     transform: translate(3.2%, -32px);
   }
 }
@@ -188,7 +157,6 @@
 
 .slideContentContainer {
   margin-top: 15px;
-  /* 583 cause -15 margin top & -20 button & - 20 margin */
   height: 563px;
   display: flex;
   justify-items: center;
@@ -224,6 +192,11 @@ _:-ms-fullscreen, :root .validateButtonWrapper {
   display: flex;
   justify-content: center;
   height: 100%;
+  /*
+    To break wrappers layout (to enclose large answers in the scroll bar), works like
+    display: contents for this use case but w ie11 support
+  */
+  display: grid;
 }
 
 .question {
@@ -281,7 +254,6 @@ _:-ms-fullscreen, :root .validateButtonWrapper {
   bottom: 0px;
   border-radius: 7px;
   margin: 0 15px;
-  /* height: 200px; */
   width: 95%;
   animation: popInAnimation 0.5s ease-out forwards;
 }
@@ -315,9 +287,7 @@ _:-ms-fullscreen, :root .correctionPopinWrapper {
 }
 
 @keyframes slideOut {
-  0% {
-    /* opacity: 0; */
-  }
+  0% {}
   90% {
     transform: translate(0, 1000px);
   }
@@ -342,7 +312,6 @@ _:-ms-fullscreen, :root .correctionPopinWrapper {
   }
 
   .slideContentContainer {
-    /* 583 cause -15 margin top & -20 button & - 20 margin */
     height: 473px;
   }
   
@@ -372,13 +341,11 @@ _:-ms-fullscreen, :root .correctionPopinWrapper {
     max-width: 335px;
   }
 
-  /* 143 */
   .slideBase {
     height: 654px;
   }
 
   .slideContentContainer {
-    /* 583 cause -15 margin top & -20 button & - 20 margin */
     height: 511px;
   }
   

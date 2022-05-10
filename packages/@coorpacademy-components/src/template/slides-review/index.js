@@ -1,4 +1,4 @@
-import React, {useState, useCallback, useEffect, useReducer, useMemo} from 'react';
+import React, {useState, useReducer, useMemo} from 'react';
 import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import getOr from 'lodash/fp/getOr';
@@ -6,7 +6,6 @@ import omit from 'lodash/fp/omit';
 import isNil from 'lodash/fp/isNil';
 import ReviewBackground from '../../atom/review-background';
 import {ICON_VALUES} from '../../atom/review-header-step-item';
-// import Loader from '../../atom/loader';
 import ReviewHeader from '../../organism/review-header';
 import ReviewCorrectionPopin from '../../molecule/review-correction-popin';
 import Answer from '../../molecule/answer';
@@ -23,8 +22,6 @@ const stylesByPosition = {
 
 const TOTAL_SLIDES_STACK = 5;
 const HIGHEST_INDEX = TOTAL_SLIDES_STACK - 1;
-
-// last incorrect -> how to handle nextSlide?
 
 const getSlideAnimation = (action, position, hidden) => {
   switch (action) {
@@ -59,8 +56,11 @@ const buildSlide = (
       backgroundColor: primarySkinColor
     },
     onClick: async () => {
-      const lastSlide = finishedSlides.size >= HIGHEST_INDEX;
-      const {validationResult: result, nextSlide, end: _end} = await onValidateClick(lastSlide);
+      const {
+        validationResult: result,
+        nextSlide,
+        endRevision: _endRevision
+      } = await onValidateClick();
       updateSlides([
         slideNumber,
         {
@@ -71,10 +71,10 @@ const buildSlide = (
           question,
           nextSlide,
           numberOfFinishedSlides: finishedSlides.size,
-          end: _end
+          end: _endRevision
         }
       ]);
-      if (_end) setTimeout(() => updateRevisionState('finished'), 3000);
+      if (_endRevision) setTimeout(() => updateRevisionState('finished'), 3000);
       updateStepItems([
         slideNumber,
         {
@@ -85,9 +85,8 @@ const buildSlide = (
       if (result === 'success') updateFinishedSlides([slideNumber, true]);
     },
     'aria-label': validateLabel,
-    label: validateLabel, // `Validate ${slideNumber}`, // validateLabel
+    label: validateLabel,
     'data-name': 'slide-validate-button',
-    // not position0 && validate Button in css then disable user-select
     className: style.validateButton,
     disabled: !isNil(validationResult)
   };
@@ -95,7 +94,6 @@ const buildSlide = (
   const {klf, information, next, successLabel, failureLabel} = correctionPopinProps;
 
   const _correctionPopinProps = {
-    // 'aria-label': 'correctionPopin',
     next: {
       onClick: () => {
         updateSlides([
@@ -143,7 +141,6 @@ const buildSlide = (
       )}
     >
       {answer && question ? (
-        // maybe extract this as a molecule/ organism??
         <div key="content-container" className={style.slideContentContainer}>
           <div key="from-course" className={style.questionOrigin}>
             {questionOrigin}
@@ -180,26 +177,15 @@ const buildSlide = (
   );
 };
 
-// ----------------------
-// when a correct answer is given, it should remain at the latest position,
-// then the re-stacking must only be allowed to happen from stack - n_correct_slides
-export const slidePositionReducer = (
-  // Map<string, { hidden, position, action, validationResult, question, answer}>
-  state,
-  // [id, value]
-  action
-) => {
+export const slidePositionReducer = (state, action) => {
   const [id, value] = action;
   const _state = new Map();
 
   const {nextSlide, numberOfFinishedSlides, ...newValue} = value;
-  // const numberOfCorrectlyAnsweredSlides = finishedSlides.size;
 
   // eslint-disable-next-line fp/no-loops
-  for (let index = 0; index < state.size; index++) {
-    // this may be the same than validationResult presence
+  for (const [index, previousValue] of state) {
     if (index === id) {
-      const previousValue = state.get(id);
       if (nextSlide && numberOfFinishedSlides === HIGHEST_INDEX) {
         _state.set(index, {
           ...previousValue,
@@ -211,8 +197,7 @@ export const slidePositionReducer = (
         _state.set(index, {...previousValue.nextSlide, position: previousValue.position});
       } else _state.set(id, newValue);
     } else {
-      const {hidden, position, validationResult, answer, question} = state.get(index);
-      // if (newValue.validationResult) {
+      const {hidden, position, validationResult, answer, question} = previousValue;
       if (nextSlide) {
         _state.set(index, {...nextSlide, end: newValue.end, hidden, position});
       } else {
@@ -241,31 +226,19 @@ const calculateNextStepIndex = (currentSlideIndex, finishedSlides, lastVisitedIn
 
   const indexToVisit = getNextIndex(isNil(lastVisitedIndex) ? currentSlideIndex : lastVisitedIndex);
 
-  // console.log('calculateNextStepIndex', {
-  //   lastVisitedIndex,
-  //   currentSlideIndex,
-  //   indexToVisit,
-  //   finishedSlidesHas: finishedSlides.has(indexToVisit)
-  // });
-
   return finishedSlides.has(indexToVisit)
     ? calculateNextStepIndex(currentSlideIndex, finishedSlides, indexToVisit)
     : indexToVisit;
 };
 
-const stepItemsReducer = (
-  // Map<string, {current, value, icon}>
-  state,
-  action
-) => {
+const stepItemsReducer = (state, action) => {
   const [id, value] = action;
   const {setNext, finishedSlides, ...rest} = value;
   const _state = new Map();
   const nextIndex = !rest.current && setNext ? calculateNextStepIndex(id, finishedSlides) : null;
 
   // eslint-disable-next-line fp/no-loops
-  for (let index = 0; index < state.size; index++) {
-    const previousValue = state.get(index);
+  for (const [index, previousValue] of state) {
     if (id === index)
       _state.set(id, {
         ...previousValue,
@@ -281,7 +254,6 @@ const stepItemsReducer = (
 
 const finishedSlidesReducer = (state, action) => {
   const [id, value] = action;
-  // const _state = new Map(state);
   const _state = new Map();
   // eslint-disable-next-line fp/no-loops
   for (const [index, previousValue] of state) {
@@ -327,10 +299,8 @@ const SlidesReview = (
 
   const [stepItemsState, updateStepItems] = useReducer(stepItemsReducer, stepItemsInitialState);
 
-  // use w/ congrats && header animation
   const [revisionState, updateRevisionState] = useState('ongoing');
 
-  // maybe the use memo should be at buildSlide Scale, for each slide state (slidesState) change
   const builtStackedSlides = useMemo(() => {
     const StackedSlides = [];
     // eslint-disable-next-line fp/no-loops
@@ -386,9 +356,9 @@ const SlidesReview = (
         >
           {builtStackedSlides}
         </div>
-      ) : (
-        <div className={style.congrats}>Congrats!</div>
-      )}
+      ) : // slot toPlug congrats component
+      // <div className={style.congrats}/>
+      null}
     </div>
   );
 };

@@ -5,14 +5,12 @@ import AnswerQCMGraphic from '../../../../molecule/answer/test/fixtures/qcm-grap
 const qcmDrag = AnswerQCMDrag.props;
 const qcmGraphic = AnswerQCMGraphic.props;
 
-const onValidateClick = lastSlide => {
+const onValidateClick = () => {
   console.log('onValidateClick');
   return Promise.resolve({
-    // validationResult: !lastSlide ? 'success' : 'failure',
     validationResult: 'success',
     nextSlide: {question: 'other question?', answer: qcmGraphic},
-    // end: true
-    end: false
+    endRevision: false
   });
 };
 
@@ -44,7 +42,7 @@ export default {
       onClick: onValidateClick
     },
     firstSlide: {
-      question: 'Hey there, ..........suspense......... ready to review some questions?',
+      question: 'Hey there, .....suspense.... ready to select some answers?',
       answer: qcmDrag
     },
     correctionPopinProps
