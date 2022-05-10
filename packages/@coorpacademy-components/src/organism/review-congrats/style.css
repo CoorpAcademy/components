@@ -63,7 +63,32 @@
   }
 }
 
+.mainContainer {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.lottie {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+}
+
+/* .test {
+border: solid 16px red;
+} */
+
+.ie11Backup {
+  composes: lottie;
+}
+
 .containerCongrats {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -71,7 +96,6 @@
   overflow-y: auto;
   height: 100%;
   width: 100%;
-  position: absolute;
 }
 
 .title {
@@ -84,6 +108,7 @@
   top: 200px;
   user-select: none;
   animation: translateTitle 1.4s ease-out 0s forwards;
+  background-color: white;
 }
 
 .containerCards {
@@ -175,11 +200,43 @@ _:-ms-fullscreen,
     }
   }
 
-  .containerCongrats {
+  .mainContainer {
     width: 100%;
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
+    position: relative;
+    z-index: 3;
+  }
+  /* 
+  .lottie {
+    position: absolute;
+    top:0;
+    left: 0;
+    z-index: 1;
+    width: 1350px;
+    height: auto;
+    overflow:hidden;
+  } */
+
+  .lottie {
+    /* position: relative;
+    z-index: 1; */
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    /* border: solid 1em rgba(#000, .2); */
+    /* border: solid 1em rgba(#000, .5);   */
+    border: solid 10px red;
+  }
+
+  .test {
+    height: 100%;
+    width: 200vw;
+  }
+
+  .ie11Backup {
+    composes: lottie;
   }
 
   .title {
