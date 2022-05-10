@@ -89,7 +89,9 @@ ReviewCorrectionPopin.propTypes = {
   }),
   next: PropTypes.shape({
     label: PropTypes.string,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
+    'data-name': PropTypes.string,
+    'aria-label': PropTypes.string
   }),
   klf: PropTypes.shape({
     label: PropTypes.string,

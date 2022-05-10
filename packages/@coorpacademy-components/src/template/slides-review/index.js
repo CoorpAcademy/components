@@ -46,9 +46,15 @@ const buildSlide = (
   updateFinishedSlides,
   updateRevisionState
 ) => {
-  const {hidden, end, position, action, validationResult, question, answer} = slidesState.get(
-    slideNumber
-  );
+  const {
+    hidden,
+    endRevision,
+    position,
+    action,
+    validationResult,
+    question,
+    answer
+  } = slidesState.get(slideNumber);
   const {onClick: onValidateClick, label: validateLabel} = validate;
 
   const validateButtonProps = {
@@ -71,10 +77,10 @@ const buildSlide = (
           question,
           nextSlide,
           numberOfFinishedSlides: finishedSlides.size,
-          end: _endRevision
+          endRevision: _endRevision
         }
       ]);
-      if (_endRevision) setTimeout(() => updateRevisionState('finished'), 3000);
+      if (_endRevision) setTimeout(() => updateRevisionState('finished'), 2000);
       updateStepItems([
         slideNumber,
         {
@@ -86,7 +92,7 @@ const buildSlide = (
     },
     'aria-label': validateLabel,
     label: validateLabel,
-    'data-name': 'slide-validate-button',
+    'data-name': `slide-validate-button-${slideNumber}`,
     className: style.validateButton,
     disabled: !isNil(validationResult)
   };
@@ -106,7 +112,7 @@ const buildSlide = (
             question,
             validationResult,
             numberOfFinishedSlides: finishedSlides.size,
-            end
+            endRevision
           }
         ]);
         updateStepItems([
@@ -120,7 +126,9 @@ const buildSlide = (
         if (finishedSlides.size === TOTAL_SLIDES_STACK)
           setTimeout(() => updateRevisionState('finished'), 2000);
       },
-      label: next.label
+      label: next.label,
+      'data-name': `next-question-button-${slideNumber}`,
+      'aria-label': next['aria-label']
     },
     klf,
     information,
@@ -137,7 +145,7 @@ const buildSlide = (
       className={classnames(
         style.slideBase,
         getSlideAnimation(action, position, hidden),
-        end ? style.endRevision : null
+        endRevision ? style.endRevision : null
       )}
     >
       {answer && question ? (
@@ -197,17 +205,16 @@ export const slidePositionReducer = (state, action) => {
         _state.set(index, {...previousValue.nextSlide, position: previousValue.position});
       } else _state.set(id, newValue);
     } else {
-      const {hidden, position, validationResult, answer, question} = previousValue;
+      const {hidden, position, answer, question} = previousValue;
       if (nextSlide) {
-        _state.set(index, {...nextSlide, end: newValue.end, hidden, position});
+        _state.set(index, {...nextSlide, endRevision: newValue.endRevision, hidden, position});
       } else {
         _state.set(index, {
-          ...(validationResult === 'success' ? {validationResult} : null),
           hidden,
           position: position - 1,
           answer,
           question,
-          end: newValue.end
+          endRevision: newValue.endRevision
         });
       }
     }
@@ -370,19 +377,20 @@ SlidesReview.propTypes = {
     label: PropTypes.string,
     onClick: PropTypes.func
   }),
-  firstSlide: {
+  firstSlide: PropTypes.shape({
     question: PropTypes.string,
     answer: PropTypes.shape(Answer.propTypes)
-  },
-  correctionPopinProps: {
+  }),
+  correctionPopinProps: PropTypes.shape({
     klf: ReviewCorrectionPopin.propTypes.klf,
     information: ReviewCorrectionPopin.propTypes.information,
     next: PropTypes.shape({
-      label: PropTypes.string
+      label: PropTypes.string,
+      'aria-label': PropTypes.string
     }),
     successLabel: ReviewCorrectionPopin.propTypes.resultLabel,
     failureLabel: ReviewCorrectionPopin.propTypes.resultLabel
-  }
+  })
 };
 
 export default SlidesReview;

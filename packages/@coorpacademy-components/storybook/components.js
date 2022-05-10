@@ -1223,6 +1223,7 @@ import TemplateReviewDashboardSkillsFixtureLoading from '../src/template/review-
 import TemplateReviewDashboardSkillsFixtureManySkills from '../src/template/review-dashboard-skills/test/fixtures/many-skills';
 import TemplateReviewDashboardSkillsFixtureNoSkills from '../src/template/review-dashboard-skills/test/fixtures/no-skills';
 import TemplateSlidesReviewFixtureFailure from '../src/template/slides-review/test/fixtures/failure';
+import TemplateSlidesReviewFixtureOnlyOnceOnLastSlide from '../src/template/slides-review/test/fixtures/only-once-on-last-slide';
 import TemplateSlidesReviewFixtureRandomResponses from '../src/template/slides-review/test/fixtures/random-responses';
 import TemplateSlidesReviewFixtureSuccess from '../src/template/slides-review/test/fixtures/success';
 import TemplateTeamsDashboardFixtureDefault from '../src/template/teams-dashboard/test/fixtures/default';
@@ -2704,6 +2705,7 @@ export const fixtures = {
     },
     TemplateSlidesReview: {
       Failure: TemplateSlidesReviewFixtureFailure,
+      OnlyOnceOnLastSlide: TemplateSlidesReviewFixtureOnlyOnceOnLastSlide,
       RandomResponses: TemplateSlidesReviewFixtureRandomResponses,
       Success: TemplateSlidesReviewFixtureSuccess
     },
