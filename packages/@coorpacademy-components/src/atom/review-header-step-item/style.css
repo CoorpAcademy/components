@@ -22,23 +22,18 @@
 }
 
 .current {
-  /* width: 40px;
-  height: 40px; */
   opacity: 1;
   font-size: 16px;
-  /* line-height: 22px; */
   transform: scale(1.25);
   transition: transform 0.25s ease;
 }
 
 .right {
   background-color: cm_positive_100;
-  /* transition: background-color 0.2s ease; */
 }
 
 .wrong {
   background-color: cm_negative_100;
-  /* transition: background-color 0.2s ease; */
 }
 
 .value {
@@ -49,13 +44,10 @@
   color: white;
   width: 12px;
   height: 10px;
-  /* transition: transform 0.25s ease, color 0.25s ease, color 0.25s ease; */
   transition: transform 0.25s ease;
 }
 
 .currentRightIcon {
-  /* width: 16px;
-  height: 14px; */
   transform: scale(1.333, 1.166);
 }
 
@@ -67,8 +59,6 @@
 }
 
 .currentWrongIcon {
-  /* width: 15px;
-  height: 15px; */
   transform: scale(1.5);
 }
 
