@@ -133,7 +133,7 @@ test.serial('should end Revision on signal && unmount the stacked slides after',
     return Promise.resolve({
       validationResult: 'failure',
       nextSlide: {question: 'Other question?', answer: qcmDrag},
-      endRevision: true
+      endReview: true
     });
   };
 

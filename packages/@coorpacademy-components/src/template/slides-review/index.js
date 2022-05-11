@@ -44,29 +44,26 @@ const buildSlide = (
   updateStepItems,
   finishedSlides,
   updateFinishedSlides,
-  updateRevisionState
+  updateReviewState
 ) => {
-  const {
-    hidden,
-    endRevision,
-    position,
-    action,
-    validationResult,
-    question,
-    answer
-  } = slidesState.get(slideNumber);
+  const {hidden, endReview, position, action, validationResult, question, answer} = slidesState.get(
+    slideNumber
+  );
   const {onClick: onValidateClick, label: validateLabel} = validate;
 
   const validateButtonProps = {
     customStyle: {
       backgroundColor: primarySkinColor
     },
+    /* 
+      slide validation action, this will trigger the correction popin but will not trigger any
+      animations unless the endReview signal is received (all slides will disappear),
+      if there is a nextSlide content, it will be loaded here
+      if it is the last slide and the content needs to be different, then that update will
+      be handled on the next slide logic but the content will be carried from here.
+    */
     onClick: async () => {
-      const {
-        validationResult: result,
-        nextSlide,
-        endRevision: _endRevision
-      } = await onValidateClick();
+      const {validationResult: result, nextSlide, endReview: _endReview} = await onValidateClick();
       updateSlides([
         slideNumber,
         {
@@ -77,10 +74,12 @@ const buildSlide = (
           question,
           nextSlide,
           numberOfFinishedSlides: finishedSlides.size,
-          endRevision: _endRevision
+          endReview: _endReview
         }
       ]);
-      if (_endRevision) setTimeout(() => updateRevisionState('finished'), 2000);
+      // on endReview, this gives some time for the slides to slide out && then launch
+      // the 'finished' logic as it would happen when normally finishing the review
+      if (_endReview) setTimeout(() => updateReviewState('finished'), 2000);
       updateStepItems([
         slideNumber,
         {
@@ -88,6 +87,7 @@ const buildSlide = (
           finishedSlides
         }
       ]);
+      // only stores successful slides
       if (result === 'success') updateFinishedSlides([slideNumber, true]);
     },
     'aria-label': validateLabel,
@@ -101,6 +101,12 @@ const buildSlide = (
 
   const _correctionPopinProps = {
     next: {
+      /* 
+        next slide action, this will trigger the slides animations
+        if it is the last slide AND the content needs to be different, then that update
+        of the content will be handled here (and in the validate as it happens normally )
+        from the content carried from the validate action.
+      */
       onClick: () => {
         updateSlides([
           slideNumber,
@@ -112,7 +118,7 @@ const buildSlide = (
             question,
             validationResult,
             numberOfFinishedSlides: finishedSlides.size,
-            endRevision
+            endReview
           }
         ]);
         updateStepItems([
@@ -123,8 +129,9 @@ const buildSlide = (
             current: finishedSlides.size === HIGHEST_INDEX && validationResult !== 'success'
           }
         ]);
+        // if slides are successfully reviewed, then trigger the 'finished' state
         if (finishedSlides.size === TOTAL_SLIDES_STACK)
-          setTimeout(() => updateRevisionState('finished'), 2000);
+          setTimeout(() => updateReviewState('finished'), 2000);
       },
       label: next.label,
       'data-name': `next-question-button-${slideNumber}`,
@@ -145,7 +152,7 @@ const buildSlide = (
       className={classnames(
         style.slideBase,
         getSlideAnimation(action, position, hidden),
-        endRevision ? style.endRevision : null
+        endReview ? style.endReview : null
       )}
     >
       {answer && question ? (
@@ -185,6 +192,8 @@ const buildSlide = (
   );
 };
 
+// ||-------> Handles the updates of a given slide (using the 'id' in the action),
+// & then updates de remaining slides if this given change should impact their content
 const slidesStateReducer = (state, action) => {
   const [id, value] = action;
   const _state = new Map();
@@ -194,6 +203,7 @@ const slidesStateReducer = (state, action) => {
   // eslint-disable-next-line fp/no-loops
   for (const [index, previousValue] of state) {
     if (index === id) {
+      // update the given slide
       if (nextSlide && numberOfFinishedSlides === HIGHEST_INDEX) {
         _state.set(index, {
           ...previousValue,
@@ -205,16 +215,17 @@ const slidesStateReducer = (state, action) => {
         _state.set(index, {...previousValue.nextSlide, position: previousValue.position});
       } else _state.set(id, newValue);
     } else {
+      // updates the rest of the slides here
       const {hidden, position, answer, question} = previousValue;
       if (nextSlide) {
-        _state.set(index, {...nextSlide, endRevision: newValue.endRevision, hidden, position});
+        _state.set(index, {...nextSlide, endReview: newValue.endReview, hidden, position});
       } else {
         _state.set(index, {
           hidden,
           position: position - 1,
           answer,
           question,
-          endRevision: newValue.endRevision
+          endReview: newValue.endReview
         });
       }
     }
@@ -223,8 +234,11 @@ const slidesStateReducer = (state, action) => {
   return _state;
 };
 
+// ||-------> aux function, finds the consecutive index to loop from 0 to HIGHEST_INDEX (4) & again to 0
 const getNextIndex = currentIndex => (currentIndex === HIGHEST_INDEX ? 0 : currentIndex + 1);
 
+// ||-------> calculates which should be the next step to visit (as there can be already answered slides &&
+// they have to be skipped)
 const calculateNextStepIndex = (currentSlideIndex, finishedSlides, lastVisitedIndex = null) => {
   // only one slide remaining
   if (lastVisitedIndex === currentSlideIndex) {
@@ -238,6 +252,8 @@ const calculateNextStepIndex = (currentSlideIndex, finishedSlides, lastVisitedIn
     : indexToVisit;
 };
 
+// ||-------> Handles the updates of a given step item (using the 'id' in the action),
+// & then updates de remaining step items if this given change should impact their content
 const stepItemsReducer = (state, action) => {
   const [id, value] = action;
   const {setNext, finishedSlides, ...rest} = value;
@@ -259,9 +275,11 @@ const stepItemsReducer = (state, action) => {
   return _state;
 };
 
+// ||-------> Stores the correctly answered (finished) slides, the initial state is an empty Map
 const finishedSlidesReducer = (state, action) => {
   const [id, value] = action;
   const _state = new Map();
+
   // eslint-disable-next-line fp/no-loops
   for (const [index, previousValue] of state) {
     _state.set(index, previousValue);
@@ -279,6 +297,7 @@ const SlidesReview = (
   const {skin} = context;
   const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
 
+  // ||-------> States init: build initial states && memoize them + reducers creation
   const slidesInitialState = useMemo(() => {
     const states = new Map();
     const {answer, question} = firstSlide;
@@ -306,7 +325,9 @@ const SlidesReview = (
 
   const [stepItemsState, updateStepItems] = useReducer(stepItemsReducer, stepItemsInitialState);
 
-  const [revisionState, updateRevisionState] = useState('ongoing');
+  const [reviewState, updateReviewState] = useState('ongoing');
+
+  // ||-------> build each slide, passing down the reducers that will act on validation & next clicks
 
   const builtStackedSlides = useMemo(() => {
     const StackedSlides = [];
@@ -323,7 +344,7 @@ const SlidesReview = (
           updateStepItems,
           finishedSlides,
           updateFinishedSlides,
-          updateRevisionState
+          updateReviewState
         )
       );
     }
@@ -331,6 +352,7 @@ const SlidesReview = (
     return StackedSlides;
   }, [slidesState, primarySkinColor, validate, correctionPopinProps, finishedSlides]);
 
+  // ||-------> transform the step items state (Map structure) to an Array
   const stepItemsArray = useMemo(() => {
     // eslint-disable-next-line unicorn/prefer-spread
     return Array.from(stepItemsState.values());
@@ -340,7 +362,7 @@ const SlidesReview = (
     ...headerProps,
     steps: stepItemsArray,
     key: 'review-header',
-    hiddenSteps: revisionState !== 'ongoing'
+    hiddenSteps: reviewState !== 'ongoing'
   };
 
   return (
@@ -355,7 +377,7 @@ const SlidesReview = (
 
       <ReviewHeader {..._headerProps} />
 
-      {revisionState === 'ongoing' ? (
+      {reviewState === 'ongoing' ? (
         <div
           key="stacked-slides-container"
           data-name="stacked-slides-container"

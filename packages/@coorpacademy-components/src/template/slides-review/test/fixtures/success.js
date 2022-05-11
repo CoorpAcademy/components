@@ -10,7 +10,7 @@ const onValidateClick = () => {
   return Promise.resolve({
     validationResult: 'success',
     nextSlide: {question: 'other question?', answer: qcmGraphic},
-    endRevision: false
+    endReview: false
   });
 };
 

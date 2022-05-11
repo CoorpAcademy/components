@@ -296,7 +296,7 @@ _:-ms-fullscreen, :root .correctionPopinWrapper {
   }
 }
 
-.endRevision {
+.endReview {
   pointer-events: none;
   animation: slideOut 2.5s ease forwards;
 }

@@ -10,7 +10,7 @@ const onValidateClick = () => {
   return Promise.resolve({
     validationResult: numberOfTries === 5 ? 'failure' : 'success',
     nextSlide: {question: 'other question?', answer: qcmGraphic},
-    endRevision: false
+    endReview: false
   });
 };
 
