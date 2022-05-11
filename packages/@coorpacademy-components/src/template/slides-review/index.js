@@ -185,7 +185,7 @@ const buildSlide = (
   );
 };
 
-export const slidePositionReducer = (state, action) => {
+const slidesStateReducer = (state, action) => {
   const [id, value] = action;
   const _state = new Map();
 
@@ -302,7 +302,7 @@ const SlidesReview = (
 
   const [finishedSlides, updateFinishedSlides] = useReducer(finishedSlidesReducer, new Map());
 
-  const [slidesState, updateSlides] = useReducer(slidePositionReducer, slidesInitialState);
+  const [slidesState, updateSlides] = useReducer(slidesStateReducer, slidesInitialState);
 
   const [stepItemsState, updateStepItems] = useReducer(stepItemsReducer, stepItemsInitialState);
 
