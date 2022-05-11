@@ -18,22 +18,24 @@ const CheckboxWithTitle = props => {
   const handleChange = useMemo(() => e => onChange(e.target.checked), [onChange]);
 
   return (
-    <label className={style.container} htmlFor={idCheckbox}>
-      <input
-        type="checkbox"
-        id={idCheckbox}
-        name={name}
-        onChange={handleChange}
-        checked={checked}
-        className={style.checkbox}
-        data-name={dataName}
-        aria-label={ariaLabel}
-      />
-      <div className={style.label}>
-        <CheckIcon className={style.icon} />
-      </div>
+    <div className={style.container}>
+      <label htmlFor={idCheckbox}>
+        <input
+          type="checkbox"
+          id={idCheckbox}
+          name={name}
+          onChange={handleChange}
+          checked={checked}
+          className={style.checkbox}
+          data-name={dataName}
+          aria-label={ariaLabel}
+        />
+        <div className={style.label}>
+          <CheckIcon className={style.icon} />
+        </div>
+      </label>
       <span className={style.title}>{title}</span>
-    </label>
+    </div>
   );
 };
 
