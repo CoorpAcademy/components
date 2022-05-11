@@ -76,9 +76,9 @@
   width: 100%;
 }
 
-/* .test {
+.test {
 border: solid 16px red;
-} */
+}
 
 .ie11Backup {
   composes: lottie;
@@ -208,26 +208,11 @@ _:-ms-fullscreen,
     position: relative;
     z-index: 3;
   }
-  /* 
-  .lottie {
-    position: absolute;
-    top:0;
-    left: 0;
-    z-index: 1;
-    width: 1350px;
-    height: auto;
-    overflow:hidden;
-  } */
 
   .lottie {
-    /* position: relative;
-    z-index: 1; */
     height: 100%;
     width: 100%;
     overflow: hidden;
-    /* border: solid 1em rgba(#000, .2); */
-    /* border: solid 1em rgba(#000, .5);   */
-    border: solid 10px red;
   }
 
   .test {
