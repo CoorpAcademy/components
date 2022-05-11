@@ -8,6 +8,19 @@ export type Icon = {|
 |};
 
 const icons: Array<Icon> = [
+  // podcast
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/arrow-nav.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/backward-10s.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/backward.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/forward-10s.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/forward.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/heartrounded.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/pauserounded.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/playrounded.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/search2.svg')},
+  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/settings2.svg')},
+
+  // coorpacademy
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/adaptive.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/administration.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/analytics.svg')},
