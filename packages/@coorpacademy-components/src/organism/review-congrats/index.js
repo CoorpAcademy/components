@@ -33,6 +33,15 @@ const ReviewCongrats = props => {
 
   return (
     <div className={style.mainContainer} aria-label={ariaLabel} data-name={dataName}>
+      <AtomLottieWrapper
+        {...animationLottie}
+        loop={false}
+        animationControl={'play'}
+        autoplay
+        data-name="lottie-wrapper"
+        className={style.lottie}
+        backupImageClassName={style.ie11Backup}
+      />
       <div className={style.containerCongrats}>
         <div className={style.title}>{title}</div>
         <div ref={container} className={style.containerCards}>
@@ -52,16 +61,6 @@ const ReviewCongrats = props => {
           <ButtonLink {...buttonRevisingSkill} className={style.buttonRevise} />
         </div>
       </div>
-      <AtomLottieWrapper
-        {...animationLottie}
-        loop={false}
-        animationControl={'play'}
-        autoplay
-        data-name="lottie-wrapper"
-        className={style.lottie}
-        backupImageClassName={style.ie11Backup}
-        rendererSettings={{animationClassName: style.test}}
-      />
     </div>
   );
 };

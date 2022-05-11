@@ -41,6 +41,7 @@
   flex-direction: column;
   justify-content: center;
   width: 280px;
+  background-color: white;
 }
 
 .cardStar {
