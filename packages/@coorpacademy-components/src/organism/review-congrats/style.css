@@ -3,6 +3,7 @@
 @value mobile from breakpoints;
 @value colors: "../../variables/colors.css";
 @value cm_blue_900 from colors;
+@value white from colors;
 
 @keyframes translateTitle {
   0% {

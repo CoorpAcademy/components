@@ -4,6 +4,7 @@
 @value cm_blue_900 from colors;
 @value cm_positive_100 from colors;
 @value cm_yellow_secondary_200 from colors;
+@value white from colors;
 
 @keyframes fadeIn {
   0% {
@@ -41,7 +42,7 @@
   flex-direction: column;
   justify-content: center;
   width: 280px;
-  background-color: white;
+  background-color: white; /* add background-color to resolve opacity on Firefox and stacking order on IE11 */
 }
 
 .cardStar {
