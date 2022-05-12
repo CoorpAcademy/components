@@ -29,10 +29,11 @@
   align-self: center;
 }
 
-/* .congrats {
+.congrats {
   width: 100%;
-  position: relative;
-} */
+  height: 100%;
+  position: absolute;
+}
 
 .playerBackground {
   position: absolute;

@@ -8,9 +8,9 @@ import successFixture from './fixtures/success';
 import failureFixture from './fixtures/failure';
 import failOnceOnLastSlideFixture from './fixtures/only-once-on-last-slide';
 
-browserEnv();
+browserEnv({pretendToBeVisual: true});
 
-test.afterEach(cleanup);
+test.after(cleanup);
 
 const elementExists = foundElements => foundElements && foundElements[0];
 
