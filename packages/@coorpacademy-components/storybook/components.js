@@ -214,6 +214,7 @@ import TemplateCommonDiscipline from './../src/template/common/discipline';
 import TemplateCommonSearchPage from './../src/template/common/search-page';
 import TemplateExternalCourse from './../src/template/external-course';
 import TemplateReviewDashboardSkills from './../src/template/review-dashboard-skills';
+import TemplateSlidesReview from './../src/template/slides-review';
 import TemplateTeamsDashboard from './../src/template/teams-dashboard';
 import AtomAutocompleteFixtureDefault from '../src/atom/autocomplete/test/fixtures/default';
 import AtomAutocompleteFixtureError from '../src/atom/autocomplete/test/fixtures/error';
@@ -1221,6 +1222,10 @@ import TemplateExternalCourseFixtureYoutubePodcast from '../src/template/externa
 import TemplateReviewDashboardSkillsFixtureLoading from '../src/template/review-dashboard-skills/test/fixtures/loading';
 import TemplateReviewDashboardSkillsFixtureManySkills from '../src/template/review-dashboard-skills/test/fixtures/many-skills';
 import TemplateReviewDashboardSkillsFixtureNoSkills from '../src/template/review-dashboard-skills/test/fixtures/no-skills';
+import TemplateSlidesReviewFixtureFailure from '../src/template/slides-review/test/fixtures/failure';
+import TemplateSlidesReviewFixtureOnlyOnceOnLastSlide from '../src/template/slides-review/test/fixtures/only-once-on-last-slide';
+import TemplateSlidesReviewFixtureRandomResponses from '../src/template/slides-review/test/fixtures/random-responses';
+import TemplateSlidesReviewFixtureSuccess from '../src/template/slides-review/test/fixtures/success';
 import TemplateTeamsDashboardFixtureDefault from '../src/template/teams-dashboard/test/fixtures/default';
 import TemplateTeamsDashboardFixtureIsLoading from '../src/template/teams-dashboard/test/fixtures/is-loading';
 import TemplateTeamsDashboardFixtureMobile from '../src/template/teams-dashboard/test/fixtures/mobile';
@@ -1443,6 +1448,7 @@ export const components = {
     TemplateBattleRequests,
     TemplateExternalCourse,
     TemplateReviewDashboardSkills,
+    TemplateSlidesReview,
     TemplateTeamsDashboard
   },
   TemplateAppPlayer: {
@@ -2696,6 +2702,12 @@ export const fixtures = {
       Loading: TemplateReviewDashboardSkillsFixtureLoading,
       ManySkills: TemplateReviewDashboardSkillsFixtureManySkills,
       NoSkills: TemplateReviewDashboardSkillsFixtureNoSkills
+    },
+    TemplateSlidesReview: {
+      Failure: TemplateSlidesReviewFixtureFailure,
+      OnlyOnceOnLastSlide: TemplateSlidesReviewFixtureOnlyOnceOnLastSlide,
+      RandomResponses: TemplateSlidesReviewFixtureRandomResponses,
+      Success: TemplateSlidesReviewFixtureSuccess
     },
     TemplateTeamsDashboard: {
       Default: TemplateTeamsDashboardFixtureDefault,

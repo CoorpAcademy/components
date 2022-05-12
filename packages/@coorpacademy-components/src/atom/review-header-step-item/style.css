@@ -17,16 +17,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  transition: all 0.25s ease;
+  transition: opacity 0.25s ease, font-size 0.25s ease, transform 0.25s ease, line-height 0.25s ease;
   user-select: none;
 }
 
 .current {
-  width: 40px;
-  height: 40px;
   opacity: 1;
   font-size: 16px;
-  line-height: 22px;
+  transform: scale(1.25);
+  transition: transform 0.25s ease;
 }
 
 .right {
@@ -45,24 +44,22 @@
   color: white;
   width: 12px;
   height: 10px;
-  transition: all 0.25s ease;
+  transition: transform 0.25s ease;
 }
 
 .currentRightIcon {
-  width: 16px;
-  height: 14px;
+  transform: scale(1.333, 1.166);
 }
 
 .wrongIcon {
   color: white;
   width: 10px;
   height: 10px;
-  transition: all 0.25s ease;
+  transition: color 0.25s ease;
 }
 
 .currentWrongIcon {
-  width: 15px;
-  height: 15px;
+  transform: scale(1.5);
 }
 
 

@@ -4,7 +4,7 @@ import map from 'lodash/fp/map';
 import ReviewHeaderStepItem from '../../atom/review-header-step-item';
 import style from './style.css';
 
-const ReviewHeaderStep = props => {
+const ReviewHeaderSteps = props => {
   const {steps} = props;
 
   const items = map(step => <ReviewHeaderStepItem {...step} key={step.value} />, steps);
@@ -16,8 +16,8 @@ const ReviewHeaderStep = props => {
   );
 };
 
-ReviewHeaderStep.propTypes = {
+ReviewHeaderSteps.propTypes = {
   steps: PropTypes.arrayOf(PropTypes.shape(ReviewHeaderStepItem.props))
 };
 
-export default ReviewHeaderStep;
+export default ReviewHeaderSteps;

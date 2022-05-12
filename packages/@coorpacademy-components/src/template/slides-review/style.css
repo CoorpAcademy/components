@@ -1,0 +1,370 @@
+@value colors: "../../variables/colors.css";
+@value black from colors;
+@value white from colors;
+@value cm_blue_900 from colors;
+@value cm_grey_400 from colors;
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
+@value tablet from breakpoints;
+
+.slidesRevisionContainer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 100vh;
+}
+
+.fontBase {
+  font-family: "Gilroy";
+  user-select: none;
+}
+
+.stackedSlidesContainer {
+  position: relative;
+  margin-top: 50px;
+  height: 738px;
+  max-width: 1240px;
+  width: 85%;
+  align-self: center;
+}
+
+/* .congrats {
+  width: 100%;
+  position: relative;
+} */
+
+.playerBackground {
+  position: absolute;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+.slideBase {
+  box-shadow: 0px 4px 77px rgba(0, 0, 0, 0.05);
+  background: white;
+  height: 706px;
+  border-radius: 24px;
+  overflow: hidden;
+  position: absolute;
+
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.5s ease-in;
+  pointer-events: none;
+}
+
+
+.position0 {
+  z-index: 50;
+  width: 100%;
+  transform: translate(0, 0);
+  transition: transform 0.5s ease-in;
+}
+
+.slideBase.position0 {
+  pointer-events: auto;
+}
+
+.position1 {
+  z-index: 45;
+  width: 98%;
+  transform: translate(0.8%, -8px);
+  transition: transform 0.5s ease-in;
+}
+
+.position2 {
+  z-index: 40;
+  width: 96%;
+  transform: translate(1.6%, -16px);
+  transition: transform 0.5s ease-in;
+}
+
+.position3 {
+  z-index: 35;
+  width: 94%;
+  transform: translate(2.4%, -24px);
+  transition: transform 0.5 ease-in;
+}
+
+.position4 {
+  z-index: 30;
+  width: 92%;
+  transform: translate(3.2%, -32px);
+  transition: transform 0.5 ease-in;
+}
+
+@keyframes slideOutHideAndSlideIn {
+  0% {
+    z-index: 55;
+    transform: translate(0, 0);
+  }
+  50% {
+    z-index: 50;
+    transform: translate(0, 1000px);
+    opacity: 1;
+  }
+  51% {
+    z-index: 30;
+    opacity: 0;
+  }
+  100% {
+    z-index: 30;
+    transform: translate(3.2%, -32px);
+    opacity: 0;
+  }
+}
+
+@keyframes slideOutAndIn {
+  0% {
+    z-index: 55;
+    transform: translate(0, 0);
+  }
+  50% {
+    width: 100%;
+    z-index: 50;
+    transform: translate(0, 1000px);
+  }
+  60% {
+    width: 92%;
+    z-index: 30;
+    transform: translate(3.2%, 900px);
+  }
+  100% {
+    z-index: 30;
+    width: 92%;
+    transform: translate(3.2%, -32px);
+  }
+}
+
+.slideOutHideAndIn {
+  pointer-events: none;
+  animation: slideOutHideAndSlideIn 3s ease forwards;
+}
+
+.slideOutAndIn {
+  pointer-events: none;
+  animation: slideOutAndIn 3s ease forwards;
+}
+
+.hiddenSlide {
+  display: none;
+}
+
+
+.slideContentContainer {
+  margin-top: 15px;
+  height: 563px;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* ie fallback */
+_:-ms-fullscreen, :root .slideContentContainer {
+  width: 100%;
+}
+
+.validateButtonWrapper {
+  position: absolute;
+  bottom: 64px;
+  background-color: black;
+  border-radius: 7px;
+  min-width: 250px;
+  width: min-content;
+}
+
+/* ie fallback */
+_:-ms-fullscreen, :root .validateButtonWrapper {
+  width: 300px;
+  left: 40%;
+  right: 40%;
+}
+
+.answerContainer {
+  width: 95%;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  /*
+    To break wrappers layout (to enclose large answers in the scroll bar), works like
+    display: contents for this use case but w ie11 support
+  */
+  display: grid;
+}
+
+.question {
+  composes: fontBase;
+  font-size: 20px;
+  font-weight: bold;
+  color: cm_blue_900;
+  text-align: center;
+  margin: 24px 0 4px;
+  max-width: 70%;
+  width: 100%;
+  padding: 0 9px;
+  box-sizing: border-box;
+}
+
+.questionOrigin {
+  composes: fontBase;
+  font-size: 15px;
+  color: cm_blue_900;
+  margin-top: 49px;
+  text-align: center;
+}
+
+.questionOrigin:empty:after {
+  content: "\a0";
+}
+
+.help {
+  composes: fontBase;
+  font-size: 15px;
+  color: cm_grey_400;
+  flex-grow: 0.1;
+  margin: 4px 0 10px;
+  text-align: center;
+  max-width: 70%;
+  width: 100%;
+}
+
+/* to keep the content space even if the help label is empty */
+.help:empty:after {
+  content: "\a0";
+}
+
+@keyframes popInAnimation {
+  from {
+    transform: translate3d(0, 200px, 0);
+  }
+  to {
+    transform: translate3d(0, -40px, 0);
+  }
+}
+
+.correctionPopinWrapper {
+  position: absolute;
+  bottom: 0px;
+  border-radius: 7px;
+  margin: 0 15px;
+  width: 95%;
+  animation: popInAnimation 0.5s ease-out forwards;
+}
+
+/* ie fallback */
+_:-ms-fullscreen, :root .correctionPopinWrapper {
+  left: 15px;
+}
+
+@keyframes popOutAnimation {
+  from {
+    transform: translate3d(0, -40px, 0);
+  }
+  to {
+    transform: translate3d(0, 200px, 0);
+  }
+}
+
+.hiddenCorrectionPopinWrapper {
+  composes: correctionPopinWrapper;
+  animation: popOutAnimation 0.5s ease-out forwards;
+}
+
+.validateButton {
+  color: white;
+  transition: opacity 0.25s ease-in;
+}
+
+.validateButton:hover {
+  opacity: 0.8;
+}
+
+@keyframes slideOut {
+  0% {}
+  90% {
+    transform: translate(0, 1000px);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+
+.endReview {
+  pointer-events: none;
+  animation: slideOut 2.5s ease forwards;
+}
+
+@media tablet {
+  .stackedSlidesContainer {
+    height: 638px;
+    max-width: 960px;
+  }
+
+  .slideBase {
+    height: 606px;
+  }
+
+  .slideContentContainer {
+    height: 473px;
+  }
+  
+
+  @keyframes popInAnimation {
+    from {
+      transform: translate3d(0, 400px, 0);
+    }
+    to {
+      transform: translate3d(0, -40px, 0);
+    }
+  }
+
+  @keyframes popOutAnimation {
+    from {
+      transform: translate3d(0, -40px, 0);
+    }
+    to {
+      transform: translate3d(0, 400px, 0);
+    }
+  }
+}
+
+@media mobile {
+  .stackedSlidesContainer {
+    height: 670px;
+    max-width: 335px;
+  }
+
+  .slideBase {
+    height: 654px;
+  }
+
+  .slideContentContainer {
+    height: 511px;
+  }
+  
+
+  @keyframes popInAnimation {
+    from {
+      transform: translate3d(0, 500px, 0);
+    }
+    to {
+      transform: translate3d(0, -40px, 0);
+    }
+  }
+
+  @keyframes popOutAnimation {
+    from {
+      transform: translate3d(0, -40px, 0);
+    }
+    to {
+      transform: translate3d(0, 500px, 0);
+    }
+  }
+}

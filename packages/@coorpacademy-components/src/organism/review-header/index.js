@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import getOr from 'lodash/fp/getOr';
 import ButtonLinkIconOnly from '../../atom/button-link-icon-only';
-import ReviewHeaderStep from '../../molecule/review-header-steps';
+import ReviewHeaderSteps from '../../molecule/review-header-steps';
 import style from './style.css';
 
 const ReviewHeader = (props, context) => {
@@ -53,7 +53,7 @@ const ReviewHeader = (props, context) => {
       </div>
 
       <div className={stepsWrapper}>
-        <ReviewHeaderStep steps={steps} key={'review-header-steps'} />
+        <ReviewHeaderSteps steps={steps} key={'review-header-steps'} />
       </div>
 
       <div className={style.iconButtonWrapper} data-name="review-header-close-button-wrapper">
@@ -64,7 +64,7 @@ const ReviewHeader = (props, context) => {
 };
 
 ReviewHeader.propTypes = {
-  steps: ReviewHeaderStep.propTypes.steps,
+  steps: ReviewHeaderSteps.propTypes.steps,
   mode: PropTypes.string.isRequired,
   skillName: PropTypes.string.isRequired,
   'aria-label': PropTypes.string,

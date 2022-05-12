@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import get from 'lodash/fp/get';
+import getOr from 'lodash/fp/getOr';
 import map from 'lodash/fp/map';
 import {
   NovaSolidStatusCheckCircle2 as CheckIcon,
@@ -19,7 +19,12 @@ const ICONS = {
 };
 
 const getIcon = icon => {
-  const Icon = get(icon, ICONS);
+  const Icon = getOr(null, icon, ICONS);
+
+  /* istanbul ignore next */
+  if (!Icon) {
+    return <div className={style.labelIcon} />;
+  }
   return <Icon className={style.labelIcon} />;
 };
 

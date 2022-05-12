@@ -3,7 +3,9 @@ import stepsProps from '../../../../molecule/review-header-steps/test/fixtures/a
 export const defaultHeaderProps = {
   mode: 'Revision mode',
   skillName: 'Agility',
-  onQuitClick: () => {},
+  onQuitClick: () => {
+    console.log('onQuitClick');
+  },
   'aria-label': 'aria-header-wrapper',
   closeButtonAriaLabel: 'aria-close-button'
 };
