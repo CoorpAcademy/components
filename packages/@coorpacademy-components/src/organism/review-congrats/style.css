@@ -1,7 +1,9 @@
 @value breakpoints: "../../variables/breakpoints.css";
+@value tablet from breakpoints;
 @value mobile from breakpoints;
 @value colors: "../../variables/colors.css";
 @value cm_blue_900 from colors;
+@value white from colors;
 
 @keyframes translateTitle {
   0% {
@@ -63,7 +65,35 @@
   }
 }
 
+.mainContainer {
+  height: 100%;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.lottie {
+  display: flex;
+  position: relative;
+  height: 135%;
+  width: 135%;
+  transform: translate(-13%, -13%);
+  z-index: 1;
+}
+
+.ie11Backup {
+  position: relative;
+  transform: translate(0%, 10%);
+  height: 80%;
+  width: 80%;
+  margin: 0 auto;
+  z-index: 1;
+}
+
 .containerCongrats {
+  position: absolute;
+  top: 0;
+  left: 0;
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -71,7 +101,7 @@
   overflow-y: auto;
   height: 100%;
   width: 100%;
-  position: absolute;
+  z-index: 2;
 }
 
 .title {
@@ -84,6 +114,7 @@
   top: 200px;
   user-select: none;
   animation: translateTitle 1.4s ease-out 0s forwards;
+  background-color: white;
 }
 
 .containerCards {
@@ -134,6 +165,20 @@ _:-ms-fullscreen,
   padding: 12px 16px;
 }
 
+@media tablet {
+  .lottie {
+    height: 195%;
+    width: 195%;
+    transform: translate(-25%, -25%);
+  }
+
+  .ie11Backup {
+    height: 60%;
+    width: 60%;
+    transform: translate(0%, 30%);
+  }
+}
+
 @media mobile {
   @keyframes translateTitle {
     0% {
@@ -175,11 +220,24 @@ _:-ms-fullscreen,
     }
   }
 
-  .containerCongrats {
-    width: 100%;
+  .mainContainer {
     height: 100%;
-    overflow-x: hidden;
-    overflow-y: auto;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 3;
+  }
+
+  .lottie {
+    height: 410%;
+    width: 410%;
+    transform: translate(-38%, -38%);
+  }
+
+  .ie11Backup {
+    height: 85%;
+    width: 85%;
+    transform: translate(-35%, 10%);
   }
 
   .title {
@@ -194,6 +252,12 @@ _:-ms-fullscreen,
     overflow-y: hidden;
     margin-top: 54px;
     padding-bottom: 10px;
+  }
+
+  /* ie fallback */
+  _:-ms-fullscreen,
+  :root .containerCards {
+    margin-top: 80px;
   }
 
   .cardStar {
