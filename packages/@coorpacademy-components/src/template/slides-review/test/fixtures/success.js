@@ -1,4 +1,5 @@
 import headerProps from '../../../../organism/review-header/test/fixtures/no-answered-question';
+import congratsProps from '../../../../organism/review-congrats/test/fixtures/default';
 import AnswerQCMDrag from '../../../../molecule/answer/test/fixtures/qcm-drag';
 import AnswerQCMGraphic from '../../../../molecule/answer/test/fixtures/qcm-graphic';
 
@@ -45,6 +46,7 @@ export default {
       question: 'Hey there, .....suspense.... ready to select some answers?',
       answer: qcmDrag
     },
-    correctionPopinProps
+    correctionPopinProps,
+    congratsProps: congratsProps.props
   }
 };

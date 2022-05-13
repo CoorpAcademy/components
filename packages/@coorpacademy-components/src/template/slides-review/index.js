@@ -6,6 +6,7 @@ import omit from 'lodash/fp/omit';
 import isNil from 'lodash/fp/isNil';
 import ReviewBackground from '../../atom/review-background';
 import {ICON_VALUES} from '../../atom/review-header-step-item';
+import ReviewCongrats from '../../organism/review-congrats';
 import ReviewHeader from '../../organism/review-header';
 import ReviewCorrectionPopin from '../../molecule/review-correction-popin';
 import Answer from '../../molecule/answer';
@@ -44,7 +45,8 @@ const buildSlide = (
   updateStepItems,
   finishedSlides,
   updateFinishedSlides,
-  updateReviewState
+  updateReviewState,
+  updateShouldMountSlides
 ) => {
   const {hidden, endReview, position, action, validationResult, question, answer} = slidesState.get(
     slideNumber
@@ -79,7 +81,10 @@ const buildSlide = (
       ]);
       // on endReview, this gives some time for the slides to slide out && then launch
       // the 'finished' logic as it would happen when normally finishing the review
-      if (_endReview) setTimeout(() => updateReviewState('finished'), 2000);
+      if (_endReview) {
+        updateReviewState('finished');
+        setTimeout(() => updateShouldMountSlides(false), 2000);
+      }
       updateStepItems([
         slideNumber,
         {
@@ -130,8 +135,10 @@ const buildSlide = (
           }
         ]);
         // if slides are successfully reviewed, then trigger the 'finished' state
-        if (finishedSlides.size === TOTAL_SLIDES_STACK)
-          setTimeout(() => updateReviewState('finished'), 2000);
+        if (finishedSlides.size === TOTAL_SLIDES_STACK) {
+          updateReviewState('finished');
+          setTimeout(() => updateShouldMountSlides(false), 2000);
+        }
       },
       label: next.label,
       'data-name': `next-question-button-${slideNumber}`,
@@ -291,7 +298,14 @@ const finishedSlidesReducer = (state, action) => {
 };
 
 const SlidesReview = (
-  {headerProps, reviewBackgroundAriaLabel, validate, correctionPopinProps, firstSlide},
+  {
+    headerProps,
+    reviewBackgroundAriaLabel,
+    validate,
+    correctionPopinProps,
+    firstSlide,
+    congratsProps
+  },
   context
 ) => {
   const {skin} = context;
@@ -327,8 +341,15 @@ const SlidesReview = (
 
   const [reviewState, updateReviewState] = useState('ongoing');
 
-  // ||-------> build each slide, passing down the reducers that will act on validation & next clicks
+  /*
+    ||-------> the slides have an slightly longer lifespan than the "ongoing" review State,
+    after reviewState changes to "finished" the slides don't have to unmount until the last
+    slide-out animation is finished, the slides have to be unmounted to be RGAA complaint 
+    (if they are only invisible but still mounted, then they will be found the assisting tools & clutter it)
+  */
+  const [shouldMountSlides, updateShouldMountSlides] = useState(true);
 
+  // ||-------> build each slide, passing down the reducers that will act on validation & next clicks
   const builtStackedSlides = useMemo(() => {
     const StackedSlides = [];
     // eslint-disable-next-line fp/no-loops
@@ -344,7 +365,8 @@ const SlidesReview = (
           updateStepItems,
           finishedSlides,
           updateFinishedSlides,
-          updateReviewState
+          updateReviewState,
+          updateShouldMountSlides
         )
       );
     }
@@ -377,7 +399,7 @@ const SlidesReview = (
 
       <ReviewHeader {..._headerProps} />
 
-      {reviewState === 'ongoing' ? (
+      {shouldMountSlides ? (
         <div
           key="stacked-slides-container"
           data-name="stacked-slides-container"
@@ -385,9 +407,13 @@ const SlidesReview = (
         >
           {builtStackedSlides}
         </div>
-      ) : // slot toPlug congrats component
-      // <div className={style.congrats}/>
-      null}
+      ) : null}
+
+      {reviewState === 'finished' ? (
+        <div className={style.congrats}>
+          <ReviewCongrats {...congratsProps} />
+        </div>
+      ) : null}
     </div>
   );
 };
@@ -412,7 +438,8 @@ SlidesReview.propTypes = {
     }),
     successLabel: ReviewCorrectionPopin.propTypes.resultLabel,
     failureLabel: ReviewCorrectionPopin.propTypes.resultLabel
-  })
+  }),
+  congratsProps: PropTypes.shape(ReviewCongrats.propTypes)
 };
 
 export default SlidesReview;

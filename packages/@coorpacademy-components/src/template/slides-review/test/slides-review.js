@@ -1,16 +1,14 @@
 import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
-import {render, cleanup, fireEvent, act} from '@testing-library/react';
+import {render, fireEvent, act} from '@testing-library/react';
 import SlidesReview from '..';
 import AnswerQCMDrag from '../../../molecule/answer/test/fixtures/qcm-drag';
 import successFixture from './fixtures/success';
 import failureFixture from './fixtures/failure';
 import failOnceOnLastSlideFixture from './fixtures/only-once-on-last-slide';
 
-browserEnv();
-
-test.afterEach(cleanup);
+browserEnv({pretendToBeVisual: true});
 
 const elementExists = foundElements => foundElements && foundElements[0];
 

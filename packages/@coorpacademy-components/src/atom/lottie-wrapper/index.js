@@ -47,18 +47,20 @@ export const fetchAndLoadAnimation = async (
 
   const animationData = await fetchResult.json();
 
-  const animation = _lottie.loadAnimation({
-    container: containerRef.current, // the dom element that will contain the animation
-    renderer: 'svg',
-    autoplay,
-    loop,
-    animationData,
-    rendererSettings: {
-      className: animationClassnames,
-      hideOnTransparent,
-      preserveAspectRatio: 'xMidYMid meet' // same options as a preserveAspectRatio prop
-    }
-  });
+  const animation =
+    _lottie.loadAnimation &&
+    _lottie.loadAnimation({
+      container: containerRef.current, // the dom element that will contain the animation
+      renderer: 'svg',
+      autoplay,
+      loop,
+      animationData,
+      rendererSettings: {
+        className: animationClassnames,
+        hideOnTransparent,
+        preserveAspectRatio: 'xMidYMid meet' // same options as a preserveAspectRatio prop
+      }
+    });
   return animation;
 };
 

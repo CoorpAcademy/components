@@ -6,10 +6,11 @@ import MoleculeReviewCardCongrats from '../../molecule/review-card-congrats';
 import style from './style.css';
 
 export const setScroll = container => () => {
-  container.current.scrollTo({
-    left: 1000,
-    behavior: 'smooth'
-  });
+  container.current?.scrollTo &&
+    container.current.scrollTo({
+      left: 1000,
+      behavior: 'smooth'
+    });
 };
 
 const ReviewCongrats = props => {
