@@ -1,45 +1,31 @@
-import React from 'react';
+import React, {useState, useCallback} from 'react';
 import PropTypes from 'prop-types';
 import {noop} from 'lodash/fp';
 
-class Checkbox extends React.Component {
-  static propTypes = {
-    checked: PropTypes.bool,
-    onChange: PropTypes.func,
-    'data-name': PropTypes.string
-  };
+const Checkbox = props => {
+  const {checked, onChange = noop, type = 'checkbox', ...rest} = props;
+  const [_checked, setChecked] = useState(checked);
 
-  static defaultProps = {
-    onChange: noop
-  };
+  const handleChange = useCallback(
+    e => {
+      onChange(e.target.checked);
+      setChecked(!_checked);
+    },
+    [_checked, onChange]
+  );
 
-  constructor(props) {
-    super(props);
-    const {checked} = props;
-    this.state = {checked};
-    this.handleChangeBound = this.handleChange.bind(this);
-  }
+  return <input {...rest} checked={_checked} type={type} onChange={handleChange} />;
+};
 
-  handleChange(e) {
-    const {onChange = noop} = this.props;
-    onChange(e.target.checked);
-    this.setState({
-      checked: e.target.checked
-    });
-  }
-
-  render() {
-    const {props, state, 'data-name': dataName} = this;
-    return (
-      <input
-        {...props}
-        {...state}
-        type="checkbox"
-        data-name={dataName}
-        onChange={this.handleChangeBound}
-      />
-    );
-  }
-}
+Checkbox.propTypes = {
+  checked: PropTypes.bool,
+  onChange: PropTypes.func,
+  title: PropTypes.string,
+  type: PropTypes.string,
+  required: PropTypes.bool,
+  disabled: PropTypes.bool,
+  'data-name': PropTypes.string,
+  'aria-label': PropTypes.string
+};
 
 export default Checkbox;

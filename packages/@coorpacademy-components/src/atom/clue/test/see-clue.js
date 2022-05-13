@@ -1,23 +1,37 @@
 import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
-import {mount, configure} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
-import {replace} from 'lodash/fp';
+import {fireEvent} from '@testing-library/react';
+import forEach from 'lodash/fp/forEach';
+import replace from 'lodash/fp/replace';
+import {renderWithContext} from '../../../util/render-with-context';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import Clue from '..';
-import Provider from '../../provider';
 import defaultFixture from './fixtures/default';
 
 browserEnv();
-configure({adapter: new Adapter()});
+
+const checkStyles = (stylesToCheck, container, t) => {
+  forEach(([styleToCheck, shouldBePresent]) => {
+    const styledClue = container.querySelector(styleToCheck);
+    shouldBePresent ? t.truthy(styledClue) : t.falsy(styledClue);
+  }, stylesToCheck);
+};
+
+const findElementAndCheckText = (container, selector, expectedText, t) => {
+  const element = container.querySelector(selector);
+  t.is(element.textContent, expectedText);
+};
 
 test('should See the clue', t => {
   const context = {
     skin: {},
-    translate: key => key
+    translate: key => {
+      t.pass();
+      return key;
+    }
   };
-  t.plan(16);
+  t.plan(26);
 
   const clueCardStyle = `.${replace(' ', '.', style.clueCard)}`;
   const flipStyle = `.${replace(' ', '.', style.flip)}`;
@@ -31,39 +45,52 @@ test('should See the clue', t => {
     t.pass();
   };
 
-  const wrapper = mount(<Clue {...defaultFixture.props} onClick={onClick} />, {context});
+  const {container, rerender} = renderWithContext(
+    <Clue {...defaultFixture.props} onClick={onClick} />,
+    {
+      context
+    }
+  );
 
-  t.is(wrapper.find(clueCardStyle).exists(), true);
-  t.is(wrapper.find(flipStyle).exists(), false);
-  t.is(wrapper.find(loadingStyle).exists(), false);
-  t.is(wrapper.find(backContentStyle).exists(), true);
+  const stylesToCheckPreClick = [
+    [clueCardStyle, true],
+    [flipStyle, false],
+    [loadingStyle, false],
+    [backContentStyle, true]
+  ];
 
-  wrapper.find('a').simulate('click', {
-    preventDefault: () => {},
-    stopPropagation: () => {}
-  });
+  checkStyles(stylesToCheckPreClick, container, t);
 
-  t.is(wrapper.find(clueCardStyle).exists(), true);
-  t.is(wrapper.find(flipStyle).exists(), false);
-  t.is(wrapper.find(loadingStyle).exists(), true);
-  t.is(wrapper.find(backContentStyle).exists(), true);
+  const link = container.querySelector('a');
 
-  wrapper.setProps({text: 'This is the clue ...'});
+  fireEvent.click(link);
 
-  t.is(wrapper.find(clueTextStyle).text(), 'This is the clue ...');
+  const stylesToCheckPostClick = [
+    [clueCardStyle, true],
+    [flipStyle, false],
+    [loadingStyle, true],
+    [backContentStyle, true]
+  ];
 
-  t.is(wrapper.find(clueCardStyle).exists(), true);
-  t.is(wrapper.find(flipStyle).exists(), true);
-  t.is(wrapper.find(loadingStyle).exists(), false);
-  t.is(wrapper.find(backContentStyle).exists(), true);
+  checkStyles(stylesToCheckPostClick, container, t);
 
-  wrapper.setProps({text: ''});
+  rerender(<Clue {...defaultFixture.props} text="This is the clue ..." onClick={onClick} />);
+  findElementAndCheckText(container, clueTextStyle, 'This is the clue ...', t);
 
-  t.is(wrapper.find(clueTextStyle).text(), '');
+  const stylesToCheckPostTextChange = [
+    [clueCardStyle, true],
+    [flipStyle, true],
+    [loadingStyle, false],
+    [backContentStyle, true]
+  ];
 
-  wrapper.setProps({text: 'This is the new clue ...'});
+  checkStyles(stylesToCheckPostTextChange, container, t);
 
-  t.is(wrapper.find(clueTextStyle).text(), 'This is the new clue ...');
+  rerender(<Clue {...defaultFixture.props} text="" onClick={onClick} />);
+  findElementAndCheckText(container, clueTextStyle, '', t);
+
+  rerender(<Clue {...defaultFixture.props} text="This is the new clue ..." onClick={onClick} />);
+  findElementAndCheckText(container, clueTextStyle, 'This is the new clue ...', t);
 });
 
 test('should clue color is the primary color if color is defined on skin', t => {
@@ -73,20 +100,29 @@ test('should clue color is the primary color if color is defined on skin', t => 
         primary: '#FF0000'
       }
     },
-    translate: key => key
+    translate: key => {
+      t.pass();
+      return key;
+    }
   };
-  t.plan(1);
-  const backStyle = `.${replace(' ', '.', style.back)}`;
+  t.plan(6);
 
-  const wrapper = mount(
-    <Provider {...context}>
-      <Clue {...defaultFixture.props} />
-    </Provider>
+  const {container} = renderWithContext(<Clue {...defaultFixture.props} />, {
+    context
+  });
+
+  // inline  '#FF0000' becomes  rgb(255, 0, 0)
+  const cardReverse = container.querySelector(
+    '[data-name="clue-back-side"][style="background-color: rgb(255, 0, 0);"]'
   );
 
-  t.deepEqual(wrapper.find(backStyle).get(0).props.style, {
-    backgroundColor: '#FF0000'
-  });
+  t.truthy(cardReverse);
+
+  const seeClueCta = cardReverse.querySelector('a[data-name="cta"]');
+
+  t.truthy(seeClueCta);
+
+  fireEvent.click(seeClueCta);
 });
 
 test('should clue color is the fallback primary color if color not defined on skin', t => {
@@ -96,18 +132,21 @@ test('should clue color is the fallback primary color if color not defined on sk
         secondary: '#FF0000'
       }
     },
-    translate: key => key
+    translate: key => {
+      t.pass();
+      return key;
+    }
   };
-  t.plan(1);
-  const backStyle = `.${replace(' ', '.', style.back)}`;
+  t.plan(3);
 
-  const wrapper = mount(
-    <Provider {...context}>
-      <Clue {...defaultFixture.props} />
-    </Provider>
+  const {container} = renderWithContext(<Clue {...defaultFixture.props} />, {
+    context
+  });
+
+  // inline  '#00B0FF' becomes  rgb(0, 176, 255)
+  const cardReverse = container.querySelector(
+    '[data-name="clue-back-side"][style="background-color: rgb(0, 176, 255);"]'
   );
 
-  t.deepEqual(wrapper.find(backStyle).get(0).props.style, {
-    backgroundColor: '#00B0FF'
-  });
+  t.truthy(cardReverse);
 });

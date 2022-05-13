@@ -3,6 +3,6 @@ export default {
     type: 'checkbox',
     title: 'OK',
     checked: false,
-    onChange: value => console.log(value)
+    onChange: value => console.log('onChange', value)
   }
 };
