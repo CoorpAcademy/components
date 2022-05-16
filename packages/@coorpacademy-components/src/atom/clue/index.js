@@ -73,7 +73,7 @@ class Clue extends React.Component {
     return (
       <div data-name="clue" className={style.wrapperClue}>
         <div className={classnames(style.clueCard, !isEmpty(text) && style.flip)}>
-          <div className={style.back} style={inlineStyle}>
+          <div className={style.back} style={inlineStyle} data-name="clue-back-side">
             {isLoading ? <Loader /> : null}
             <div className={classnames(style.backContent, isLoading && style.loading)}>
               <div className={style.stars}>{starsToLoose}</div>

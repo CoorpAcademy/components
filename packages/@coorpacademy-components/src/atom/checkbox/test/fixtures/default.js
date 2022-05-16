@@ -3,6 +3,7 @@ export default {
     type: 'checkbox',
     title: 'OK',
     checked: false,
-    onChange: value => console.log(value)
+    'aria-label': 'checkbox-aria-label',
+    onChange: value => console.log('onChange', value)
   }
 };
