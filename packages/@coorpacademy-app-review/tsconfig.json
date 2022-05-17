@@ -1,0 +1,17 @@
+{
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    "rootDir": "./src",
+    "declaration": true,
+    "outDir": "dist",
+    "declarationMap": true,
+    "moduleResolution": "node",
+    "target": "es2017",
+    "jsx": "react",
+  }
+}
