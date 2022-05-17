@@ -7,15 +7,12 @@
     "node_modules"
   ],
   "compilerOptions": {
-    // Generate d.ts files
+    "rootDir": "./src",
     "declaration": true,
-    // Types should go into this directory.
-    // Removing this would place the .d.ts files
-    // next to the .js files
     "outDir": "dist",
-    // go to js file when using IDE functions like
-    // "Go to Definition" in VSCode
     "declarationMap": true,
+    "moduleResolution": "node",
     "target": "es2017",
+    "jsx": "react",
   }
 }
