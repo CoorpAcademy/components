@@ -2,9 +2,9 @@
   "name": "@coorpacademy/app-review",
   "version": "0.0.3",
   "description": "",
-  "main": "index.js",
+  "type": "module",
   "engines": {
-    "node": ">=12.22.12"
+    "node": ">=16.15.0"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -14,13 +14,21 @@
     "src",
     "readme.md"
   ],
+  "exports": {
+    ".": {
+      "import": "./src/index.tsx",
+      "types": "./types/index.d.ts"
+    }
+  },
   "dependencies": {
+    "react": "^18.1.0",
     "react-native": "^0.68.2",
     "react-redux": "^8.0.1",
     "redux": "^4.2.0"
   },
   "devDependencies": {
     "@storybook/react-native": "^5.3.25",
-    "redux-devtools-extension": "^2.13.9"
+    "redux-devtools-extension": "^2.13.9",
+    "typescript": "^4.6.4"
   }
 }

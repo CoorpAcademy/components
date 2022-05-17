@@ -1,7 +1,7 @@
 {
   // Change this to match your project
   "include": [
-    "src/**/*"
+    "./src/**/*"
   ],
   "exclude": [
     "node_modules"
@@ -15,6 +15,7 @@
     "outDir": "dist",
     // go to js file when using IDE functions like
     // "Go to Definition" in VSCode
-    "declarationMap": true
+    "declarationMap": true,
+    "target": "es2017",
   }
 }
