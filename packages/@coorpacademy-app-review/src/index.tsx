@@ -19,7 +19,6 @@ const styles = StyleSheet.create({
 // -----------------------------------------------------------------------------
 
 const NavText = ({viewName, navigateTo}) => {
-  console.log({viewName});
   switch (viewName) {
     case 'home':
       return (

@@ -15,6 +15,7 @@
     "src",
     "readme.md"
   ],
+  "main": "./dist/index.js",
   "exports": {
     ".": {
       "import": "./dist/index.js",
@@ -23,7 +24,7 @@
     "./package.json": "./package.json"
   },
   "dependencies": {
-    "react": "^18.1.0",
+    "react": "^17.0.2",
     "react-native": "0.68.1",
     "react-redux": "^8.0.1",
     "redux": "^4.2.0"
