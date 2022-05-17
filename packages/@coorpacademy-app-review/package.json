@@ -11,13 +11,14 @@
   },
   "author": "CoorpAcademy",
   "files": [
+    "dist",
     "src",
     "readme.md"
   ],
   "exports": {
     ".": {
-      "import": "./src/index.tsx",
-      "types": "./types/index.d.ts"
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
     }
   },
   "dependencies": {
