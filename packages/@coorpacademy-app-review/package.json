@@ -1,0 +1,26 @@
+{
+  "name": "@coorpacademy/app-review",
+  "version": "0.0.2",
+  "description": "",
+  "main": "index.js",
+  "engines": {
+    "node": ">=12.22.12"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "CoorpAcademy",
+  "files": [
+    "src",
+    "readme.md"
+  ],
+  "dependencies": {
+    "react-native": "^0.68.2",
+    "react-redux": "^8.0.1",
+    "redux": "^4.2.0"
+  },
+  "devDependencies": {
+    "@storybook/react-native": "^5.3.25",
+    "redux-devtools-extension": "^2.13.9"
+  }
+}
