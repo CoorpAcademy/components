@@ -7,7 +7,9 @@
     "node": ">=16.15.0"
   },
   "scripts": {
-    "start": "node sandbox/server.js",
+    "start": "node scripts/start.js",
+    "static": "node scripts/build.js",
+    "poststatic": "cp -r public static",
     "test:unit": "echo @todo setup unit tests"
   },
   "author": "CoorpAcademy",
