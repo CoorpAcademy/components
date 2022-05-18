@@ -35,6 +35,9 @@ jobs:
       env: PACKAGE_NAME=@coorpacademy/components
 
     - <<: *test-job
+      name: App review
+      env: PACKAGE_NAME=@coorpacademy/app-review
+    - <<: *test-job
       name: Player store
       env: PACKAGE_NAME=@coorpacademy/player-store
     - <<: *test-job
