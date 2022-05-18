@@ -13,5 +13,6 @@
     "moduleResolution": "node",
     "target": "es2017",
     "jsx": "react",
+    "allowSyntheticDefaultImports": true
   }
 }
