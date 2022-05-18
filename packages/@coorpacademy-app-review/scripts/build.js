@@ -1,25 +1,21 @@
-import chalk from 'chalk';
 import esbuild from 'esbuild';
-import liveServer from 'live-server';
-import historyApiFallback from 'connect-history-api-fallback';
 import svgrPlugin from 'esbuild-plugin-svgr';
 import cssModulesPlugin from 'esbuild-css-modules-plugin';
 
 // -----------------------------------------------------------------------------
 
-const SANDBOX = 'sandbox';
-const entry = `${SANDBOX}/sandbox.js`;
+const PUBLIC = 'public';
+const entry = `${PUBLIC}/sandbox.js`;
 
 // -----------------------------------------------------------------------------
-// inspired by reactor start command https://github.com/uralys/reactor/blob/master/src/commands/start.js
 
-const start = () => {
+const build = () => {
   console.log('☢️  building', { entry });
 
-  esbuild
+  return esbuild
     .build({
       entryPoints: [entry],
-      outfile: `${SANDBOX}/app.min.js`,
+      outfile: `${PUBLIC}/app.min.js`,
       format: 'cjs',
       loader: {
         '.js': 'jsx'
@@ -27,7 +23,6 @@ const start = () => {
       bundle: true,
       sourcemap: true,
       watch: true,
-      logLevel: "info",
       plugins: [
         svgrPlugin(),
         cssModulesPlugin({
@@ -41,19 +36,23 @@ const start = () => {
         global: 'globalThis'
       }
     })
-    .then((result) => {
-      console.log('☢️  server running:');
-      console.log(chalk.bold.blue(`  - http://localhost:8080`));
-      console.log(' ');
-
-      liveServer.start({
-        root: SANDBOX,
-        open: false,
-        middleware: [historyApiFallback()]
-      });
-    });
 };
 
 // -----------------------------------------------------------------------------
+// binary runner
 
-start();
+const isRunner = () => {
+  const splitters = process.argv[1].split('/');
+  return splitters[splitters.length - 1].indexOf('build') !== -1;
+};
+
+if (isRunner()) {
+  build().then(() => {
+    console.log('✅ success');
+    process.exit(0)
+  });
+}
+
+// -----------------------------------------------------------------------------
+
+export default build

@@ -1,1 +1,2 @@
-sandbox/app*
+public/*.min*
+static
