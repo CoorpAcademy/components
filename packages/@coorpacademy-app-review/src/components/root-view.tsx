@@ -5,7 +5,9 @@ import styles from './root-view.modules.css';
 
 const Button = (props) => <p {...props} className={styles.textButton} />;
 
-const NavText = ({viewName, navigateTo}) => {
+// -----------------------------------------------------------------------------
+
+const RootView = ({viewName, navigateTo}) => {
   switch (viewName) {
     case 'home':
       return <Button onClick={() => navigateTo('onboarding')}>view home</Button>;
@@ -16,16 +18,6 @@ const NavText = ({viewName, navigateTo}) => {
     default:
       return <Button>view (none selected)</Button>;
   }
-};
-
-// -----------------------------------------------------------------------------
-
-const RootView = (props) => {
-  return (
-    <div>
-      <NavText viewName={props.viewName} navigateTo={props.navigateTo} />
-    </div>
-  );
 };
 
 // -----------------------------------------------------------------------------
