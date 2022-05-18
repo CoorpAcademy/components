@@ -19,7 +19,9 @@
     "update": "update-node"
   },
   "engines": {
-    "yarn": "^1.12.3"
+    "yarn": "^1.12.3",
+    "node": "^8.17.0",
+    "npm": "^6.13.4"
   },
   "workspaces": [
     "packages/*"
