@@ -3,6 +3,7 @@ import esbuild from 'esbuild';
 import liveServer from 'live-server';
 import historyApiFallback from 'connect-history-api-fallback';
 import svgrPlugin from 'esbuild-plugin-svgr';
+import cssModulesPlugin from 'esbuild-css-modules-plugin';
 
 // -----------------------------------------------------------------------------
 
@@ -13,7 +14,7 @@ const entry = `${SANDBOX}/sandbox.js`;
 // inspired by reactor start command https://github.com/uralys/reactor/blob/master/src/commands/start.js
 
 const start = () => {
-  console.log('☢️  building', {entry});
+  console.log('☢️  building', { entry });
 
   esbuild
     .build({
@@ -26,15 +27,23 @@ const start = () => {
       bundle: true,
       sourcemap: true,
       watch: true,
-      plugins: [svgrPlugin()],
+      logLevel: "info",
+      plugins: [
+        svgrPlugin(),
+        cssModulesPlugin({
+          cssModulesOption: {
+            generateScopedName: '[name]__[local]___[hash:base64:8]'
+          }
+        })
+      ],
       define: {
         'process.env.NODE_ENV': '"development"',
         global: 'globalThis'
-      },
+      }
     })
-    .then(result => {
+    .then((result) => {
       console.log('☢️  server running:');
-      console.log(chalk.bold.blue(`  - http://localhost:8080`))
+      console.log(chalk.bold.blue(`  - http://localhost:8080`));
       console.log(' ');
 
       liveServer.start({
@@ -42,7 +51,7 @@ const start = () => {
         open: false,
         middleware: [historyApiFallback()]
       });
-    })
+    });
 };
 
 // -----------------------------------------------------------------------------

@@ -1,8 +1,10 @@
 # App Review
 
-tmp notes:
+## start local sandbox
 
-export: <https://stackoverflow.com/a/70020984/959219>
+```sh
+npm start
+```
 
 ## dependencies notes
 
@@ -11,3 +13,7 @@ export: <https://stackoverflow.com/a/70020984/959219>
 
 `react` must also be the same version on this package and the rootApp
 *(possible generic error Warning: Invalid hook call. [...] 3. You might have more than one copy of React in the same app)*
+
+### tmp notes
+
+export: <https://stackoverflow.com/a/70020984/959219>
