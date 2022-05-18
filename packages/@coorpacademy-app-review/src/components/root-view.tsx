@@ -1,17 +1,20 @@
 import React from 'react';
+import styles from './root-view.modules.css';
 
 // -----------------------------------------------------------------------------
+
+const Button = (props) => <p {...props} className={styles.textButton} />;
 
 const NavText = ({viewName, navigateTo}) => {
   switch (viewName) {
     case 'home':
-      return <p onClick={() => navigateTo('onboarding')}>view home</p>;
+      return <Button onClick={() => navigateTo('onboarding')}>view home</Button>;
     case 'onboarding':
-      return <p onClick={() => navigateTo('quizzer')}>view onboarding</p>;
+      return <Button onClick={() => navigateTo('quizzer')}>view onboarding</Button>;
     case 'quizzer':
-      return <p onClick={() => navigateTo('home')}>view quizzer</p>;
+      return <Button onClick={() => navigateTo('home')}>view quizzer</Button>;
     default:
-      return <p>view (none selected)</p>;
+      return <Button>view (none selected)</Button>;
   }
 };
 
