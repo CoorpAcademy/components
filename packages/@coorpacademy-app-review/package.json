@@ -10,19 +10,28 @@
     "start": "node scripts/start.js",
     "static": "node scripts/build.js",
     "poststatic": "cp -r public static",
+    "prepare": "npm run clean && npm run build --production",
+    "build:commonjs": "tsc -p tsconfig.lib.json",
+    "build:es": "tsc -p tsconfig.es.json",
+    "build": "concurrently \"npm run build:commonjs\" \"npm run build:es\"",
+    "clean:commonjs": "rm -rf lib",
+    "clean:es": "rm -rf es",
+    "clean": "concurrently \"npm run clean:commonjs\" \"npm run clean:es\"",
     "test:unit": "echo @todo setup unit tests"
   },
   "author": "CoorpAcademy",
   "files": [
-    "dist",
+    "lib",
+    "es",
     "src",
     "readme.md"
   ],
-  "main": "./dist/index.js",
+  "main": "./es/index.js",
   "exports": {
     ".": {
-      "import": "./dist/index.js",
-      "types": "./dist/index.d.ts"
+      "import": "./es/index.js",
+      "commonjs": "./lib/index.js",
+      "types": "./es/index.d.ts"
     },
     "./package.json": "./package.json"
   },
