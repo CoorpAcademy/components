@@ -14,26 +14,24 @@ const styles = StyleSheet.create({
 // -----------------------------------------------------------------------------
 
 const NavText = ({viewName, navigateTo}) => {
+  const handlePress = v => () => navigateTo(v);
+
   switch (viewName) {
     case 'home':
       return (
-        <Pressable
-          onPress={() => {
-            navigateTo('onboarding');
-          }}
-        >
+        <Pressable onPress={handlePress('onboarding')}>
           <Text>view home</Text>
         </Pressable>
       );
     case 'onboarding':
       return (
-        <Pressable onPress={() => navigateTo('quizzer')}>
+        <Pressable onPress={handlePress('quizzer')}>
           <Text>view onboarding</Text>
         </Pressable>
       );
     case 'quizzer':
       return (
-        <Pressable onPress={() => navigateTo('home')}>
+        <Pressable onPress={handlePress('home')}>
           <Text>view quizzer</Text>
         </Pressable>
       );
@@ -44,13 +42,13 @@ const NavText = ({viewName, navigateTo}) => {
 
 // -----------------------------------------------------------------------------
 
-const RootView = (props) => {
-  const backAction = () => {
-    props.navigateBack();
-    return true;
-  };
-
+const RootView = props => {
   useEffect(() => {
+    const backAction = () => {
+      props.navigateBack();
+      return true;
+    };
+
     // https://reactnative.dev/docs/backhandler
     const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
 
