@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {Text, StyleSheet, Pressable, View, BackHandler} from 'react-native';
+import propTypes from './prop-types';
 
 // -----------------------------------------------------------------------------
 
@@ -42,10 +43,10 @@ const NavText = ({viewName, navigateTo}) => {
 
 // -----------------------------------------------------------------------------
 
-const RootView = props => {
+const RootView = ({viewName, navigateBack, navigateTo}) => {
   useEffect(() => {
     const backAction = () => {
-      props.navigateBack();
+      navigateBack();
       return true;
     };
 
@@ -57,10 +58,15 @@ const RootView = props => {
 
   return (
     <View style={styles.rootView}>
-      <NavText viewName={props.viewName} navigateTo={props.navigateTo} />
+      <NavText viewName={viewName} navigateTo={navigateTo} />
     </View>
   );
 };
+
+// -----------------------------------------------------------------------------
+
+RootView.propTypes = propTypes;
+NavText.propTypes = RootView.propTypes;
 
 // -----------------------------------------------------------------------------
 

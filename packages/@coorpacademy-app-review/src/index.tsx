@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import {connect, Provider} from 'react-redux';
-import AppReviewRootView from '@coorpacademy/components/es/template/app-review/root-view';
+import AppReviewRootView from '@coorpacademy/components/es/template/app-review/root-view/root-view';
 
 import configureStore from './configure-store';
 import {navigateTo, navigateBack} from './actions/navigation';
