@@ -10,32 +10,31 @@ const entry = `${PUBLIC}/sandbox.js`;
 // -----------------------------------------------------------------------------
 
 const build = () => {
-  console.log('☢️  building', { entry });
+  console.log('☢️  building', {entry});
 
-  return esbuild
-    .build({
-      entryPoints: [entry],
-      outfile: `${PUBLIC}/app.min.js`,
-      format: 'cjs',
-      loader: {
-        '.js': 'jsx'
-      },
-      bundle: true,
-      sourcemap: true,
-      watch: true,
-      plugins: [
-        svgrPlugin(),
-        cssModulesPlugin({
-          cssModulesOption: {
-            generateScopedName: '[name]__[local]___[hash:base64:8]'
-          }
-        })
-      ],
-      define: {
-        'process.env.NODE_ENV': '"development"',
-        global: 'globalThis'
-      }
-    })
+  return esbuild.build({
+    entryPoints: [entry],
+    outfile: `${PUBLIC}/app.min.js`,
+    format: 'cjs',
+    loader: {
+      '.js': 'jsx'
+    },
+    bundle: true,
+    sourcemap: true,
+    watch: true,
+    plugins: [
+      svgrPlugin(),
+      cssModulesPlugin({
+        cssModulesOption: {
+          generateScopedName: '[name]__[local]___[hash:base64:8]'
+        }
+      })
+    ],
+    define: {
+      'process.env.NODE_ENV': '"development"',
+      global: 'globalThis'
+    }
+  });
 };
 
 // -----------------------------------------------------------------------------
@@ -49,10 +48,10 @@ const isRunner = () => {
 if (isRunner()) {
   build().then(() => {
     console.log('✅ success');
-    process.exit(0)
+    process.exit(0);
   });
 }
 
 // -----------------------------------------------------------------------------
 
-export default build
+export default build;

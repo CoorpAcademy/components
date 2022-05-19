@@ -1,7 +1,7 @@
 import chalk from 'chalk';
 import liveServer from 'live-server';
 import historyApiFallback from 'connect-history-api-fallback';
-import build from './build.js';
+import build from './build-static-webapp.js';
 
 const PUBLIC = 'public';
 
@@ -16,4 +16,3 @@ build().then(() => {
   console.log(chalk.bold.blue(`  - http://localhost:8080`));
   console.log(' ');
 });
-
