@@ -7,7 +7,7 @@
     "node_modules"
   ],
   "compilerOptions": {
-    "rootDir": ".",
+    "rootDir": "src",
     "declaration": true,
     "declarationMap": true,
     "skipLibCheck": true,
