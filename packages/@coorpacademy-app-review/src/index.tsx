@@ -4,7 +4,7 @@ import {connect, Provider} from 'react-redux';
 import configureStore from './configure-store';
 import {navigateTo, navigateBack} from './actions/navigation';
 import {getCurrentViewName} from './reducers/navigation';
-import RootView from './components/root-view';
+import AppReviewRootView from '@coorpacademy/components';
 
 // -----------------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = {navigateTo, navigateBack};
-const App = connect(mapStateToProps, mapDispatchToProps)(RootView);
+const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewRootView);
 
 // -----------------------------------------------------------------------------
 
