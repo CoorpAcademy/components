@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from './prop-types';
 import styles from './root-view.modules.css';
 
 // -----------------------------------------------------------------------------
@@ -24,6 +25,8 @@ const RootView = ({viewName, navigateTo}) => {
       return <Button>view (none selected)</Button>;
   }
 };
+
+RootView.propTypes = propTypes;
 
 // -----------------------------------------------------------------------------
 
