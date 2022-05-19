@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/app-review",
-  "version": "0.0.8",
+  "version": "0.0.10",
   "description": "",
   "type": "module",
   "engines": {
@@ -44,6 +44,7 @@
   "devDependencies": {
     "@storybook/react-native": "^5.3.25",
     "chalk": "^5.0.1",
+    "concurrently": "^5.2.0",
     "connect-history-api-fallback": "^1.6.0",
     "esbuild": "^0.14.39",
     "esbuild-css-modules-plugin": "^2.2.16",
