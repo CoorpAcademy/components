@@ -1,15 +1,16 @@
 {
   "include": [
-    "./src/**/*",
+    "src/**/*",
     "globals.d.ts"
   ],
   "exclude": [
     "node_modules"
   ],
   "compilerOptions": {
-    "rootDir": "./src",
+    "rootDir": "src",
     "declaration": true,
     "declarationMap": true,
+    "skipLibCheck": true,
     "moduleResolution": "node",
     "jsx": "react",
     "allowSyntheticDefaultImports": true
