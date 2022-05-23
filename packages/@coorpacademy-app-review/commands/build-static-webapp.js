@@ -1,11 +1,14 @@
 import esbuild from 'esbuild';
 import svgrPlugin from 'esbuild-plugin-svgr';
 import cssModulesPlugin from 'esbuild-css-modules-plugin';
+import dotenv from 'dotenv';
 
 // -----------------------------------------------------------------------------
 
 const PUBLIC = 'public';
-const entry = `${PUBLIC}/sandbox.js`;
+const entry = `${PUBLIC}/sandbox.tsx`;
+
+dotenv.config();
 
 // -----------------------------------------------------------------------------
 
@@ -16,9 +19,6 @@ const build = () => {
     entryPoints: [entry],
     outfile: `${PUBLIC}/app.min.js`,
     format: 'cjs',
-    loader: {
-      '.js': 'jsx'
-    },
     bundle: true,
     sourcemap: true,
     watch: true,
@@ -31,6 +31,7 @@ const build = () => {
       })
     ],
     define: {
+      'process.env.API_TEST_TOKEN': `'${process.env.API_TEST_TOKEN}'`,
       'process.env.NODE_ENV': '"development"',
       global: 'globalThis'
     }
