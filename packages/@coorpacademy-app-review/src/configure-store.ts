@@ -6,7 +6,7 @@ import rootReducer from './reducers';
 
 const preloadedState = undefined;
 
-export default function configureStore(services) {
+export default function configureStore() {
   const _compose =
     process.env.NODE_ENV !== 'production'
       ? composeWithDevTools({
