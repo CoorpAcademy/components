@@ -35,6 +35,10 @@ const fetchCourse = async (token, language, universalRef) => {
     lang: language
   };
 
+  // const response = await fetch(`${jwt.host}/api/v2/contents?${buildUrlQueryParams(query)}`, {
+  //   credentials: 'omit',
+  //   headers: {authorization: token, 'X-Requested-With': 'XMLHttpRequest'}
+  // });
   const response = await fetch(`${jwt.host}/api/v2/contents?${buildUrlQueryParams(query)}`, {
     headers: {authorization: token}
   });
