@@ -4,7 +4,13 @@ import {composeWithDevTools} from 'redux-devtools-extension';
 
 import rootReducer from './reducers';
 
+import {State as NavigationState} from './reducers/navigation';
+import {State as TokenState} from './reducers/token';
+import onStartApp from './middlewares/onStartApp';
+
 const preloadedState = undefined;
+
+// -----------------------------------------------------------------------------
 
 export default function configureStore() {
   const _compose =
@@ -16,8 +22,15 @@ export default function configureStore() {
         })
       : compose;
 
-  const enhancer = _compose(applyMiddleware(thunk));
+  const enhancer = _compose(applyMiddleware(thunk, onStartApp));
   const store = createStore(rootReducer, preloadedState, enhancer);
 
   return store;
 }
+
+// -----------------------------------------------------------------------------
+
+export type StoreState = {
+  navigation: NavigationState;
+  token: TokenState;
+};

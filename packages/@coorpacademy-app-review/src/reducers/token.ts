@@ -1,5 +1,4 @@
-import {START_APP} from '../actions/navigation';
-import type {$START_APP} from '../actions/navigation';
+import {$STORE_TOKEN, STORE_TOKEN} from '../actions';
 
 // -----------------------------------------------------------------------------
 
@@ -8,10 +7,10 @@ export const initialState: State = null;
 
 // -----------------------------------------------------------------------------
 
-const reducer = (state: State = initialState, action: $START_APP): State => {
+const reducer = (state: State = initialState, action: $STORE_TOKEN): State => {
   switch (action.type) {
-    case START_APP: {
-      return action.payload.token;
+    case STORE_TOKEN: {
+      return action.payload;
     }
     default:
       return state;

@@ -41,6 +41,8 @@ type Props = {options: AppOptions};
 
 export type AppOptions = {
   token: string;
+  theme?: any;
+  translations?: any;
 };
 
 export default AppRevision;
