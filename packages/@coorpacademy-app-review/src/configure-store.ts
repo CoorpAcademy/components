@@ -6,7 +6,7 @@ import rootReducer from './reducers';
 
 import {State as NavigationState} from './reducers/navigation';
 import {State as TokenState} from './reducers/token';
-import onStartApp from './middlewares/onStartApp';
+import onStartApp from './middlewares/on-start-app';
 
 const preloadedState = undefined;
 

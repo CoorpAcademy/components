@@ -1,13 +1,16 @@
 import test from 'ava';
-import fetchCourse from './fetch-demo.js';
-import dotenv from 'dotenv';
-dotenv.config();
+import {fetchCourse as _fetchCourse} from './fetch-demo';
+import {okJSONResponse} from './fetch.mocks';
+import type {CatalogHits} from './fetch-demo';
 
-test('should fetch a demo course with mobile-staging dev token', async t => {
-  const token = process.env.API_TEST_TOKEN;
+test('should fetch a demo course', async t => {
+  const token =
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c';
   const language = 'fr';
-  const universalRef = 'dis_NkAPG3m4U';
+  const universalRef = 'bar';
 
+  const result: CatalogHits = {hits: [{title: 'Digital IQ test'}]};
+  const fetchCourse = _fetchCourse(okJSONResponse(result));
   const course = await fetchCourse(token, language, universalRef);
-  t.is(course.title, 'March-ing towards a greener tomorrow');
+  t.is(course.title, 'Digital IQ test');
 });

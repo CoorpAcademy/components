@@ -46,3 +46,5 @@ css modules:
 
 - <https://github.com/evanw/esbuild/issues/20>
 - <https://github.com/indooorsman/esbuild-css-modules-plugin/issues/35>
+- <https://github.com/princed/postcss-modules-values-replace>
+- <https://github.com/CoorpAcademy/coorpacademy-lambda/blob/master/teams/postcss.config.js#L4>
