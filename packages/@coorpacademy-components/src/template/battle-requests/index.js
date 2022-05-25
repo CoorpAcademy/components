@@ -5,7 +5,6 @@ import classnames from 'classnames';
 import Provider from '../../atom/provider';
 import CardWithButton from '../../molecule/card-with-button';
 import Avatar from '../../atom/avatar';
-import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
 
 const Battles = (props, context) => {
@@ -36,7 +35,7 @@ const Battles = (props, context) => {
                   <Avatar url={battle.urlAvatar} />
                 </div>
                 <div
-                  className={classnames(style.wrapper, innerHTML)}
+                  className={classnames(style.wrapper, style.innerHTML)}
                   // eslint-disable-next-line react/no-danger
                   dangerouslySetInnerHTML={{__html: challengeLabel}}
                 />

@@ -111,3 +111,7 @@
 .linkItem:hover .icon {
   color: cm_grey_700;
 }
+
+.innerHTML {
+  composes: innerHTML from '../../atom/label/style.css'
+}

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Cta from '../../atom/cta';
 import Link from '../../atom/link';
-import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
 
 const News = (props, context) => {
@@ -25,7 +24,7 @@ const News = (props, context) => {
         <Link
           href={cta.href}
           title={title}
-          className={classnames(style.title, innerHTML)}
+          className={classnames(style.title, style.innerHTML)}
           target={cta.target}
           data-name="news-title"
           // eslint-disable-next-line react/no-danger

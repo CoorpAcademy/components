@@ -139,3 +139,7 @@
     display: none;
   }
 }
+
+.innerHTML {
+  composes: innerHTML from '../../atom/label/style.css'
+}

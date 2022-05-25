@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import {NovaCompositionCoorpacademyMicrophone as PodcastIcon} from '@coorpacademy/nova-icons';
 import Provider from '../../atom/provider';
-import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
 
 class Audio extends React.Component {
@@ -54,7 +53,7 @@ class Audio extends React.Component {
         <PodcastIcon color={white} className={style.icon} />
         {description ? (
           <div
-            className={classnames(style.description, innerHTML)}
+            className={classnames(style.description, style.innerHTML)}
             data-name="audioDescription"
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{__html: description}}

@@ -5,7 +5,6 @@ import classnames from 'classnames';
 import {NovaLineFilesOfficeFileOfficePdf as PDFIcon} from '@coorpacademy/nova-icons';
 import Link from '../../atom/link';
 import Provider from '../../atom/provider';
-import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
 
 const PDF = (props, context) => {
@@ -24,7 +23,7 @@ const PDF = (props, context) => {
     >
       <PDFIcon color={white} className={style.pdfIcon} />
       <div
-        className={classnames(style.pdfDescription, innerHTML)}
+        className={classnames(style.pdfDescription, style.innerHTML)}
         data-name="pdfDescription"
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{__html: description}}

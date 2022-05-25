@@ -5,7 +5,6 @@ import Button from '../../atom/button';
 import Provider from '../../atom/provider';
 import Discussion from '../../organism/discussion';
 import ResourceBrowser from '../../organism/resource-browser';
-import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
 
 const ScopeContent = (props, context) => {
@@ -62,7 +61,7 @@ const ScopeContent = (props, context) => {
         <div className={style.infos}>
           <div className={style.title}>
             <div
-              className={innerHTML}
+              className={style.innerHTML}
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{__html: title}}
             />

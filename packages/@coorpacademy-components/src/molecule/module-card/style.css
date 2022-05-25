@@ -63,3 +63,7 @@
     margin-left: 10px;
   }
 }
+
+.innerHTML {
+  composes: innerHTML from '../../atom/label/style.css'
+}

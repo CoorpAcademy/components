@@ -6,7 +6,6 @@ import classnames from 'classnames';
 import Link from '../../atom/link';
 import Provider from '../../atom/provider';
 import Avatar from '../../atom/avatar';
-import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
 
 const BattleRequest = (props, context) => {
@@ -38,7 +37,7 @@ const BattleRequest = (props, context) => {
         </div>
         <div className={style.discipline}>
           <div
-            className={classnames(style.disciplineName, innerHTML)}
+            className={classnames(style.disciplineName, style.innerHTML)}
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{__html: discipline}}
           />
