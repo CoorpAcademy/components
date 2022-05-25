@@ -1,4 +1,4 @@
-import AnswerQCMGraphic from '../../../../molecule/answer/test/fixtures/qcm-graphic';
+import AnswerQCMGraphic from '../../../../../molecule/answer/test/fixtures/qcm-graphic';
 import successFixture from './success';
 
 const qcmGraphic = AnswerQCMGraphic.props;

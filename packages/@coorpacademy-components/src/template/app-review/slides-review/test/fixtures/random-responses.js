@@ -1,6 +1,6 @@
 import random from 'lodash/fp/random';
-import AnswerQCMDrag from '../../../../molecule/answer/test/fixtures/qcm-drag';
-import AnswerQCMGraphic from '../../../../molecule/answer/test/fixtures/qcm-graphic';
+import AnswerQCMDrag from '../../../../../molecule/answer/test/fixtures/qcm-drag';
+import AnswerQCMGraphic from '../../../../../molecule/answer/test/fixtures/qcm-graphic';
 import successFixture from './success';
 
 const getRandomResult = () => (random(0, 100) >= 45 ? 'success' : 'failure');

@@ -4,13 +4,13 @@ import classnames from 'classnames';
 import getOr from 'lodash/fp/getOr';
 import omit from 'lodash/fp/omit';
 import isNil from 'lodash/fp/isNil';
-import ReviewBackground from '../../atom/review-background';
-import {ICON_VALUES} from '../../atom/review-header-step-item';
-import ReviewCongrats from '../../organism/review-congrats';
-import ReviewHeader from '../../organism/review-header';
-import ReviewCorrectionPopin from '../../molecule/review-correction-popin';
-import Answer from '../../molecule/answer';
-import ButtonLink from '../../atom/button-link';
+import ReviewBackground from '../../../atom/review-background';
+import {ICON_VALUES} from '../../../atom/review-header-step-item';
+import ReviewCongrats from '../../../organism/review-congrats';
+import ReviewHeader from '../../../organism/review-header';
+import ReviewCorrectionPopin from '../../../molecule/review-correction-popin';
+import Answer from '../../../molecule/answer';
+import ButtonLink from '../../../atom/button-link';
 import style from './style.css';
 
 const stylesByPosition = {
