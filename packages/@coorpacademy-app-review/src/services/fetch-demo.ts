@@ -1,5 +1,6 @@
-import fetch from 'cross-fetch';
+import crossFetch from 'cross-fetch';
 import decode from 'jwt-decode';
+import {Fetch, toJSON} from './fetch-responses';
 
 // -----------------------------------------------------------------------------
 
@@ -27,7 +28,7 @@ const buildUrlQueryParams = (params: QueryParams) =>
 
 // -----------------------------------------------------------------------------
 
-const fetchCourse = async (token, language, universalRef) => {
+const fetchCourse = (fetch: Fetch) => async (token, language, universalRef): Promise<Course> => {
   const jwt: JWT = decode(token);
   const query = {
     type: 'course',
@@ -35,18 +36,20 @@ const fetchCourse = async (token, language, universalRef) => {
     lang: language
   };
 
-  // const response = await fetch(`${jwt.host}/api/v2/contents?${buildUrlQueryParams(query)}`, {
-  //   credentials: 'omit',
-  //   headers: {authorization: token, 'X-Requested-With': 'XMLHttpRequest'}
-  // });
   const response = await fetch(`${jwt.host}/api/v2/contents?${buildUrlQueryParams(query)}`, {
     headers: {authorization: token}
   });
 
-  const {hits} = await response.json();
+  const {hits} = (await toJSON(response)) as CatalogHits;
   return hits?.[0];
 };
 
 // -----------------------------------------------------------------------------
 
-export default fetchCourse;
+export type Course = {title};
+export type CatalogHits = {hits: Course[]};
+
+// -----------------------------------------------------------------------------
+
+export {fetchCourse};
+export default fetchCourse(crossFetch);

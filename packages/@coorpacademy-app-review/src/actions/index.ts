@@ -1,9 +1,9 @@
-import {$RECEIVED_COURSE} from './courses';
-import {$NAVIGATE_BACK, $NAVIGATE_TO, $START_APP} from './navigation';
-import {$STORE_TOKEN} from './token';
+import {ReceivedCourse} from './courses';
+import {NavigateBack, NavigateTo, StartApp} from './navigation';
+import {StoreToken} from './token';
 
 export * from './courses';
 export * from './navigation';
 export * from './token';
 
-export type Action = $START_APP | $STORE_TOKEN | $NAVIGATE_BACK | $NAVIGATE_TO | $RECEIVED_COURSE;
+export type Action = StartApp | StoreToken | NavigateBack | NavigateTo | ReceivedCourse;

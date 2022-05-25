@@ -1,4 +1,4 @@
-import {$RECEIVED_COURSE, RECEIVED_COURSE} from '../actions';
+import {ReceivedCourse, RECEIVED_COURSE} from '../actions';
 
 // -----------------------------------------------------------------------------
 
@@ -7,7 +7,7 @@ export const initialState: State = [];
 
 // -----------------------------------------------------------------------------
 
-const reducer = (state: State = initialState, action: $RECEIVED_COURSE): State => {
+const reducer = (state: State = initialState, action: ReceivedCourse): State => {
   switch (action.type) {
     case RECEIVED_COURSE: {
       return [...state, action.payload];

@@ -1,5 +1,5 @@
 import {NAVIGATE_BACK, NAVIGATE_TO} from '../actions/navigation';
-import type {$NAVIGATE_TO, $NAVIGATE_BACK} from '../actions/navigation';
+import type {NavigateTo, NavigateBack} from '../actions/navigation';
 
 // -----------------------------------------------------------------------------
 
@@ -8,7 +8,7 @@ export const initialState: State = ['home'];
 
 // -----------------------------------------------------------------------------
 
-const reducer = (state: State = initialState, action: $NAVIGATE_TO | $NAVIGATE_BACK): State => {
+const reducer = (state: State = initialState, action: NavigateTo | NavigateBack): State => {
   switch (action.type) {
     case NAVIGATE_TO: {
       return [...state, action.payload];

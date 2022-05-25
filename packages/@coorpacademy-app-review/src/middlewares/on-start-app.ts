@@ -1,12 +1,14 @@
-import type {Middleware, MiddlewareAPI, Dispatch} from 'redux';
+import fetch from 'cross-fetch';
+import type {Middleware} from 'redux';
+import {Dispatch} from 'redux';
 
 import {Action, receivedCourse, START_APP, storeToken} from '../actions';
 import {StoreState} from '../configure-store';
 import fetchCourse from '../services/fetch-demo';
 
-type $Middleware = (StoreState) => (next: Dispatch<Action>) => (Action) => Action;
-
-const onStartApp: $Middleware = ({dispatch, getState}) => next => (action: Action) => {
+const onStartApp: Middleware<{}, StoreState, Dispatch<Action>> = ({dispatch}) => next => (
+  action: Action
+) => {
   if (action.type === START_APP) {
     const {token} = action.payload;
     dispatch(storeToken(token));
@@ -15,9 +17,9 @@ const onStartApp: $Middleware = ({dispatch, getState}) => next => (action: Actio
     // demo service
 
     const language = 'fr';
-    const universalRef = 'dis_NkAPG3m4U';
+    const universalRef = 'dis_xxx15';
+
     fetchCourse(token, language, universalRef).then(course => {
-      console.log({course});
       dispatch(receivedCourse(course));
     });
   }
