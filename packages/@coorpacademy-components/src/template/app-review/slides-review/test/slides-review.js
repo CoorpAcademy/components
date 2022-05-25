@@ -3,7 +3,7 @@ import test from 'ava';
 import React from 'react';
 import {render, fireEvent, act} from '@testing-library/react';
 import SlidesReview from '..';
-import AnswerQCMDrag from '../../../molecule/answer/test/fixtures/qcm-drag';
+import AnswerQCMDrag from '../../../../molecule/answer/test/fixtures/qcm-drag';
 import successFixture from './fixtures/success';
 import failureFixture from './fixtures/failure';
 import failOnceOnLastSlideFixture from './fixtures/only-once-on-last-slide';

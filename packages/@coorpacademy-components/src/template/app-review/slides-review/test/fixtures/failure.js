@@ -1,7 +1,7 @@
-import headerProps from '../../../../organism/review-header/test/fixtures/no-answered-question';
-import congratsProps from '../../../../organism/review-congrats/test/fixtures/default';
-import AnswerQCMDrag from '../../../../molecule/answer/test/fixtures/qcm-drag';
-import AnswerQCMGraphic from '../../../../molecule/answer/test/fixtures/qcm-graphic';
+import headerProps from '../../../../../organism/review-header/test/fixtures/no-answered-question';
+import congratsProps from '../../../../../organism/review-congrats/test/fixtures/default';
+import AnswerQCMDrag from '../../../../../molecule/answer/test/fixtures/qcm-drag';
+import AnswerQCMGraphic from '../../../../../molecule/answer/test/fixtures/qcm-graphic';
 import {correctionPopinProps} from './success';
 
 const qcmDrag = AnswerQCMDrag.props;

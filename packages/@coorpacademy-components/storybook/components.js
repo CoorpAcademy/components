@@ -201,6 +201,8 @@ import TemplateAppPlayerPlayer from './../src/template/app-player/player';
 import TemplateAppPlayerPopinCorrection from './../src/template/app-player/popin-correction';
 import TemplateAppPlayerPopinEnd from './../src/template/app-player/popin-end';
 import TemplateAppPlayerPopinHeader from './../src/template/app-player/popin-header';
+import TemplateAppReviewReviewDashboardSkills from './../src/template/app-review/review-dashboard-skills';
+import TemplateAppReviewSlidesReview from './../src/template/app-review/slides-review';
 import TemplateBackOfficeBrandCreate from './../src/template/back-office/brand-create';
 import TemplateBackOfficeBrandList from './../src/template/back-office/brand-list';
 import TemplateBackOfficeBrandUpdate from './../src/template/back-office/brand-update';
@@ -213,8 +215,6 @@ import TemplateCommonDashboard from './../src/template/common/dashboard';
 import TemplateCommonDiscipline from './../src/template/common/discipline';
 import TemplateCommonSearchPage from './../src/template/common/search-page';
 import TemplateExternalCourse from './../src/template/external-course';
-import TemplateReviewDashboardSkills from './../src/template/review-dashboard-skills';
-import TemplateSlidesReview from './../src/template/slides-review';
 import TemplateTeamsDashboard from './../src/template/teams-dashboard';
 import AtomAutocompleteFixtureDefault from '../src/atom/autocomplete/test/fixtures/default';
 import AtomAutocompleteFixtureError from '../src/atom/autocomplete/test/fixtures/error';
@@ -1125,6 +1125,13 @@ import TemplateAppPlayerPopinHeaderFixtureLoading from '../src/template/app-play
 import TemplateAppPlayerPopinHeaderFixtureNextChapter from '../src/template/app-player/popin-header/test/fixtures/next-chapter';
 import TemplateAppPlayerPopinHeaderFixtureStarsRank from '../src/template/app-player/popin-header/test/fixtures/stars-rank';
 import TemplateAppPlayerPopinHeaderFixtureSuccess from '../src/template/app-player/popin-header/test/fixtures/success';
+import TemplateAppReviewReviewDashboardSkillsFixtureLoading from '../src/template/app-review/review-dashboard-skills/test/fixtures/loading';
+import TemplateAppReviewReviewDashboardSkillsFixtureManySkills from '../src/template/app-review/review-dashboard-skills/test/fixtures/many-skills';
+import TemplateAppReviewReviewDashboardSkillsFixtureNoSkills from '../src/template/app-review/review-dashboard-skills/test/fixtures/no-skills';
+import TemplateAppReviewSlidesReviewFixtureFailure from '../src/template/app-review/slides-review/test/fixtures/failure';
+import TemplateAppReviewSlidesReviewFixtureOnlyOnceOnLastSlide from '../src/template/app-review/slides-review/test/fixtures/only-once-on-last-slide';
+import TemplateAppReviewSlidesReviewFixtureRandomResponses from '../src/template/app-review/slides-review/test/fixtures/random-responses';
+import TemplateAppReviewSlidesReviewFixtureSuccess from '../src/template/app-review/slides-review/test/fixtures/success';
 import TemplateBackOfficeBrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import TemplateBackOfficeBrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import TemplateBackOfficeBrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -1219,13 +1226,6 @@ import TemplateExternalCourseFixturePodcastNoBackground from '../src/template/ex
 import TemplateExternalCourseFixturePodcast from '../src/template/external-course/test/fixtures/podcast';
 import TemplateExternalCourseFixtureVideo from '../src/template/external-course/test/fixtures/video';
 import TemplateExternalCourseFixtureYoutubePodcast from '../src/template/external-course/test/fixtures/youtube-podcast';
-import TemplateReviewDashboardSkillsFixtureLoading from '../src/template/review-dashboard-skills/test/fixtures/loading';
-import TemplateReviewDashboardSkillsFixtureManySkills from '../src/template/review-dashboard-skills/test/fixtures/many-skills';
-import TemplateReviewDashboardSkillsFixtureNoSkills from '../src/template/review-dashboard-skills/test/fixtures/no-skills';
-import TemplateSlidesReviewFixtureFailure from '../src/template/slides-review/test/fixtures/failure';
-import TemplateSlidesReviewFixtureOnlyOnceOnLastSlide from '../src/template/slides-review/test/fixtures/only-once-on-last-slide';
-import TemplateSlidesReviewFixtureRandomResponses from '../src/template/slides-review/test/fixtures/random-responses';
-import TemplateSlidesReviewFixtureSuccess from '../src/template/slides-review/test/fixtures/success';
 import TemplateTeamsDashboardFixtureDefault from '../src/template/teams-dashboard/test/fixtures/default';
 import TemplateTeamsDashboardFixtureIsLoading from '../src/template/teams-dashboard/test/fixtures/is-loading';
 import TemplateTeamsDashboardFixtureMobile from '../src/template/teams-dashboard/test/fixtures/mobile';
@@ -1447,8 +1447,6 @@ export const components = {
     TemplateActivity,
     TemplateBattleRequests,
     TemplateExternalCourse,
-    TemplateReviewDashboardSkills,
-    TemplateSlidesReview,
     TemplateTeamsDashboard
   },
   TemplateAppPlayer: {
@@ -1464,6 +1462,10 @@ export const components = {
   },
   TemplateAppPlayerPlayer: {
     TemplateAppPlayerPlayerSlides
+  },
+  TemplateAppReview: {
+    TemplateAppReviewReviewDashboardSkills,
+    TemplateAppReviewSlidesReview
   },
   TemplateBackOffice: {
     TemplateBackOfficeBrandCreate,
@@ -2698,17 +2700,6 @@ export const fixtures = {
       Video: TemplateExternalCourseFixtureVideo,
       YoutubePodcast: TemplateExternalCourseFixtureYoutubePodcast
     },
-    TemplateReviewDashboardSkills: {
-      Loading: TemplateReviewDashboardSkillsFixtureLoading,
-      ManySkills: TemplateReviewDashboardSkillsFixtureManySkills,
-      NoSkills: TemplateReviewDashboardSkillsFixtureNoSkills
-    },
-    TemplateSlidesReview: {
-      Failure: TemplateSlidesReviewFixtureFailure,
-      OnlyOnceOnLastSlide: TemplateSlidesReviewFixtureOnlyOnceOnLastSlide,
-      RandomResponses: TemplateSlidesReviewFixtureRandomResponses,
-      Success: TemplateSlidesReviewFixtureSuccess
-    },
     TemplateTeamsDashboard: {
       Default: TemplateTeamsDashboardFixtureDefault,
       IsLoading: TemplateTeamsDashboardFixtureIsLoading,
@@ -2854,6 +2845,19 @@ export const fixtures = {
       Range: TemplateAppPlayerPlayerSlidesFixtureRange,
       Template: TemplateAppPlayerPlayerSlidesFixtureTemplate,
       WithMinHeight: TemplateAppPlayerPlayerSlidesFixtureWithMinHeight
+    }
+  },
+  TemplateAppReview: {
+    TemplateAppReviewReviewDashboardSkills: {
+      Loading: TemplateAppReviewReviewDashboardSkillsFixtureLoading,
+      ManySkills: TemplateAppReviewReviewDashboardSkillsFixtureManySkills,
+      NoSkills: TemplateAppReviewReviewDashboardSkillsFixtureNoSkills
+    },
+    TemplateAppReviewSlidesReview: {
+      Failure: TemplateAppReviewSlidesReviewFixtureFailure,
+      OnlyOnceOnLastSlide: TemplateAppReviewSlidesReviewFixtureOnlyOnceOnLastSlide,
+      RandomResponses: TemplateAppReviewSlidesReviewFixtureRandomResponses,
+      Success: TemplateAppReviewSlidesReviewFixtureSuccess
     }
   },
   TemplateBackOffice: {
