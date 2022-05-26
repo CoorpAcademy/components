@@ -17,7 +17,7 @@
     "clean:commonjs": "rm -rf lib",
     "clean:es": "rm -rf es",
     "clean": "concurrently \"npm run clean:commonjs\" \"npm run clean:es\"",
-    "test:unit": "ava --config ava.config.cjs"
+    "test:unit": "ava"
   },
   "author": "CoorpAcademy",
   "files": [
