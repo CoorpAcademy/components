@@ -2,7 +2,7 @@ import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
 import {mount, configure} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import SkillCard from '..';
 import customSkillFixture from './fixtures/custom-skill';
 import noAriaLabelsFixtures from './fixtures/no-aria-labels';

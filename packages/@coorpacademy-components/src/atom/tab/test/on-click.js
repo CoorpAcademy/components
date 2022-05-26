@@ -2,7 +2,7 @@ import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
 import {shallow, configure} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import Tab from '..';
 import defaultFixture from './fixtures/default';

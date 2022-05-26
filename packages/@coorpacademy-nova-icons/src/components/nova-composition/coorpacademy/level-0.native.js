@@ -1,7 +1,7 @@
-import * as React from "react";
-import Svg, { G, Path } from "react-native-svg";
+import * as React from 'react';
+import Svg, {G, Path} from 'react-native-svg';
 
-const SvgComponent = (props) => (
+const SvgComponent = props => (
   <Svg viewBox="0 0 10 12" {...props}>
     <G fillRule="evenodd" clipRule="evenodd" fill={props.color}>
       <Path

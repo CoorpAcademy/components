@@ -1,16 +1,9 @@
-import * as React from "react";
-import Svg, { G, Path } from "react-native-svg";
+import * as React from 'react';
+import Svg, {G, Path} from 'react-native-svg';
 /* SVGR has dropped some elements not supported by react-native-svg: style */
 
-const SvgComponent = (props) => (
-  <Svg
-    id="prefix__Calque_1"
-    x={0}
-    y={0}
-    viewBox="0 0 24 24"
-    xmlSpace="preserve"
-    {...props}
-  >
+const SvgComponent = props => (
+  <Svg id="prefix__Calque_1" x={0} y={0} viewBox="0 0 24 24" xmlSpace="preserve" {...props}>
     <G fill="none" fillRule="evenodd">
       <Path
         className="prefix__st0"

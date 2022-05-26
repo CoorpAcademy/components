@@ -2,7 +2,7 @@ import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
 import {mount, configure} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import {noop} from 'lodash/fp';
 import style from '../style.css'; // eslint-disable-line css-modules/no-unused-class
 import Range from '..';

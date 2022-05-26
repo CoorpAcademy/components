@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react';
 
-const SvgComponent = (props) => (
+const SvgComponent = props => (
   <svg viewBox="0 0 10 12" {...props}>
     <g fillRule="evenodd" clipRule="evenodd" fill="currentColor">
       <path

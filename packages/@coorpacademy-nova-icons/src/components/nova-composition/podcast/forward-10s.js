@@ -1,15 +1,8 @@
-import * as React from "react";
+import * as React from 'react';
 
-const SvgComponent = (props) => (
-  <svg
-    id="prefix__Calque_1"
-    x={0}
-    y={0}
-    viewBox="0 0 16 16"
-    xmlSpace="preserve"
-    {...props}
-  >
-    <style>{".prefix__st0{fill:#515161}"}</style>
+const SvgComponent = props => (
+  <svg id="prefix__Calque_1" x={0} y={0} viewBox="0 0 16 16" xmlSpace="preserve" {...props}>
+    <style>{'.prefix__st0{fill:#515161}'}</style>
     <path
       className="prefix__st0"
       d="M7.4 1.4c1.8 0 3.5.7 4.7 1.9l.6-.6c.3-.3.7-.1.7.3v2.6c0 .2-.1.4-.4.4h-2.6c-.3 0-.6-.4-.3-.7l1.1-1.1c-1-1-2.3-1.6-3.8-1.6C4.4 2.6 2 5 2 8c0 2.8 2.2 5.1 5 5.3.2 0 .4.2.4.4v.6c0 .2-.2.4-.4.4C3.5 14.5.8 11.6.8 8.1.6 4.3 3.7 1.4 7.4 1.4z"

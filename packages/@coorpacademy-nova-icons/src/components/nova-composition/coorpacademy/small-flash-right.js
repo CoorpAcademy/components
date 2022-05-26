@@ -1,12 +1,9 @@
-import * as React from "react";
+import * as React from 'react';
 
-const SvgComponent = (props) => (
+const SvgComponent = props => (
   <svg viewBox="0 0 94 139" fill="none" {...props}>
     <g filter="url(#prefix__filter0_d)">
-      <path
-        d="M75.896 18l-56.83 58h24.71L18 120.867 76 63.66H50.205L75.896 18z"
-        fill="#FFD942"
-      />
+      <path d="M75.896 18l-56.83 58h24.71L18 120.867 76 63.66H50.205L75.896 18z" fill="#FFD942" />
       <path
         d="M75.896 18l-11.67 11.915L45.23 63.66h4.966L75.896 18zm-4.862 45.66l-46.538 45.896L18 120.867 76 63.66h-4.966z"
         fill="#FFA81C"
@@ -23,10 +20,7 @@ const SvgComponent = (props) => (
         colorInterpolationFilters="sRGB"
       >
         <feFlood floodOpacity={0} result="BackgroundImageFix" />
-        <feColorMatrix
-          in="SourceAlpha"
-          values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"
-        />
+        <feColorMatrix in="SourceAlpha" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" />
         <feOffset />
         <feGaussianBlur stdDeviation={9} />
         <feColorMatrix values="0 0 0 0 1 0 0 0 0 0.658824 0 0 0 0 0.109804 0 0 0 0.5 0" />

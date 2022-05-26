@@ -2,7 +2,7 @@ import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
 import {configure, shallow} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Template from '..';
 import fixture from './fixtures/default';
 

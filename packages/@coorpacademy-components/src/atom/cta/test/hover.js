@@ -2,7 +2,7 @@ import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
 import {shallow, configure} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Cta from '..';
 import ctaFixture from './fixtures/primary';
 import logoutFixture from './fixtures/logout';

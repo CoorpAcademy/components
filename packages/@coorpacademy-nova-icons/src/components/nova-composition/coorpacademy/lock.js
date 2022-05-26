@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react';
 
-const SvgComponent = (props) => (
+const SvgComponent = props => (
   <svg viewBox="0 0 16 25" {...props}>
     <path
       fill="#8D8D8D"
@@ -10,14 +10,8 @@ const SvgComponent = (props) => (
       fill="#D0D0D0"
       d="M13.406 7.528l-1.477.26-.417-2.363c-.434-2.462-2.751-4.084-5.115-3.667L6.137.28c3.25-.574 6.378 1.617 6.95 4.866l.319 2.381z"
     />
-    <path
-      fill="#F6CD5B"
-      d="M8.3 11.4H1.6c-.6 0-1.2.5-1.2 1.2v10.8c0 .6.5 1.2 1.2 1.2h6.7V11.4"
-    />
-    <path
-      fill="#F5AF3F"
-      d="M8.2 11.4h6.6c.6 0 1.1.5 1.1 1.2v10.8c0 .6-.5 1.2-1.1 1.2H8.2V11.4"
-    />
+    <path fill="#F6CD5B" d="M8.3 11.4H1.6c-.6 0-1.2.5-1.2 1.2v10.8c0 .6.5 1.2 1.2 1.2h6.7V11.4" />
+    <path fill="#F5AF3F" d="M8.2 11.4h6.6c.6 0 1.1.5 1.1 1.2v10.8c0 .6-.5 1.2-1.1 1.2H8.2V11.4" />
     <path fill="#F5AF3F" d="M1.5 23.4h6.9V12.5H1.5z" />
     <path fill="#F6CD5B" d="M8.2 23.4h6.6V12.5H8.2z" />
     <path

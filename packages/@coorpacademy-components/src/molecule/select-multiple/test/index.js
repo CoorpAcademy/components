@@ -3,7 +3,7 @@ import test from 'ava';
 import flatten from 'lodash/fp/flatten';
 import React from 'react';
 import {mount, configure} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import SelectMultiple, {useChoices} from '..';
 import defaultFixture from './fixtures/checked';
 

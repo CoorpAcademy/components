@@ -3,7 +3,7 @@ import test from 'ava';
 import React from 'react';
 import PropTypes from 'prop-types';
 import {mount, configure} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import BrandDashboard from '..';
 import defaultFixture from './fixtures/selected';
 

@@ -1,17 +1,8 @@
-import * as React from "react";
-import Svg, {
-  G,
-  Circle,
-  Rect,
-  Path,
-  Defs,
-  RadialGradient,
-  Stop,
-  ClipPath,
-} from "react-native-svg";
+import * as React from 'react';
+import Svg, {G, Circle, Rect, Path, Defs, RadialGradient, Stop, ClipPath} from 'react-native-svg';
 /* SVGR has dropped some elements not supported by react-native-svg: filter */
 
-const SvgComponent = (props) => (
+const SvgComponent = props => (
   <Svg viewBox="0 0 379 356" fill="none" {...props}>
     <G clipPath="url(#prefix__clip0_2979_4237)">
       <Circle cx={180.5} cy={180.5} r={180.5} fill="#F1F6FE" />
@@ -181,24 +172,11 @@ const SvgComponent = (props) => (
       </G>
       <G filter="url(#prefix__filter4_d_2979_4237)">
         <G clipPath="url(#prefix__clip5_2979_4237)">
-          <Rect
-            x={97.352}
-            y={141}
-            width={256}
-            height={230}
-            rx={20}
-            fill="#fff"
-          />
+          <Rect x={97.352} y={141} width={256} height={230} rx={20} fill="#fff" />
           <G clipPath="url(#prefix__clip6_2979_4237)">
-            <Path
-              d="M97.352 149a8 8 0 018-8h240a8 8 0 018 8v104h-256V149z"
-              fill="#0061FF"
-            />
+            <Path d="M97.352 149a8 8 0 018-8h240a8 8 0 018 8v104h-256V149z" fill="#0061FF" />
             <G filter="url(#prefix__filter5_d_2979_4237)">
-              <Path
-                d="M97.352 149a8 8 0 018-8h240a8 8 0 018 8v104h-256V149z"
-                fill="#0061FF"
-              />
+              <Path d="M97.352 149a8 8 0 018-8h240a8 8 0 018 8v104h-256V149z" fill="#0061FF" />
               <Path
                 d="M97.352 149a8 8 0 018-8h240a8 8 0 018 8v104h-256V149z"
                 fill="url(#prefix__paint6_radial_2979_4237)"
@@ -213,49 +191,13 @@ const SvgComponent = (props) => (
                 fillOpacity={0.7}
               />
             </G>
-            <Rect
-              x={121.352}
-              y={179}
-              width={154}
-              height={12}
-              rx={6}
-              fill="#fff"
-            />
+            <Rect x={121.352} y={179} width={154} height={12} rx={6} fill="#fff" />
             <Rect x={121} y={203} width={188} height={12} rx={6} fill="#fff" />
           </G>
-          <Rect
-            x={121.352}
-            y={269}
-            width={10}
-            height={10}
-            rx={5}
-            fill="#E1E1E3"
-          />
-          <Rect
-            x={139.352}
-            y={269}
-            width={138}
-            height={10}
-            rx={5}
-            fill="#E1E1E3"
-          />
-          <Rect
-            x={121.352}
-            y={303}
-            width={208}
-            height={44}
-            rx={7}
-            fill="#F1F6FE"
-          />
-          <Rect
-            opacity={0.4}
-            x={164.852}
-            y={321}
-            width={121}
-            height={8}
-            rx={4}
-            fill="#0061FF"
-          />
+          <Rect x={121.352} y={269} width={10} height={10} rx={5} fill="#E1E1E3" />
+          <Rect x={139.352} y={269} width={138} height={10} rx={5} fill="#E1E1E3" />
+          <Rect x={121.352} y={303} width={208} height={44} rx={7} fill="#F1F6FE" />
+          <Rect opacity={0.4} x={164.852} y={321} width={121} height={8} rx={4} fill="#0061FF" />
         </G>
       </G>
     </G>
@@ -426,10 +368,7 @@ const SvgComponent = (props) => (
         <Rect x={97.352} y={141} width={256} height={230} rx={20} fill="#fff" />
       </ClipPath>
       <ClipPath id="prefix__clip6_2979_4237">
-        <Path
-          d="M97.352 149a8 8 0 018-8h240a8 8 0 018 8v104h-256V149z"
-          fill="#fff"
-        />
+        <Path d="M97.352 149a8 8 0 018-8h240a8 8 0 018 8v104h-256V149z" fill="#fff" />
       </ClipPath>
     </Defs>
   </Svg>

@@ -27,7 +27,7 @@
   },
   "author": "CoorpAcademy",
   "peerDependencies": {
-    "react": "~16.8.0",
+    "react": "^17.0.2",
     "react-native-svg": "^9.4.0"
   },
   "devDependencies": {
@@ -57,7 +57,7 @@
     "flow-copy-source": "^2.0.9",
     "glob": "^7.1.6",
     "mkdirp-promise": "^5.0.1",
-    "react": "~16.13.1",
+    "react": "^17.0.2",
     "react-native-svg": "^9.13.6"
   }
 }

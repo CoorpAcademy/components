@@ -1,14 +1,7 @@
-import * as React from "react";
+import * as React from 'react';
 
-const SvgComponent = (props) => (
-  <svg
-    id="prefix__Calque_1"
-    x={0}
-    y={0}
-    viewBox="0 0 20 20"
-    xmlSpace="preserve"
-    {...props}
-  >
+const SvgComponent = props => (
+  <svg id="prefix__Calque_1" x={0} y={0} viewBox="0 0 20 20" xmlSpace="preserve" {...props}>
     <style />
     <g id="prefix__Page-1">
       <path
