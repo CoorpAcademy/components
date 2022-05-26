@@ -26,9 +26,11 @@
     "Julien Seren-Rosso <julien.seren-rosso@coorpacademy.com>"
   ],
   "dependencies": {
-    "lodash": "^4.17.15",
-    "react": "~16.13.1",
-    "react-dom": "~16.13.1"
+    "lodash": "^4.17.15"
+  },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
@@ -42,7 +44,9 @@
     "cross-env": "^7.0.2",
     "dustjs-linkedin": "^2.7.5",
     "eslint": "^7.3.1",
-    "nyc": "^15.0.1"
+    "nyc": "^15.0.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "author": "CoorpAcademy"
 }

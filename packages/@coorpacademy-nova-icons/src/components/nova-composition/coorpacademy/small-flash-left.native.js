@@ -1,8 +1,8 @@
-import * as React from "react";
-import Svg, { G, Path, Defs } from "react-native-svg";
+import * as React from 'react';
+import Svg, {G, Path, Defs} from 'react-native-svg';
 /* SVGR has dropped some elements not supported by react-native-svg: filter */
 
-const SvgComponent = (props) => (
+const SvgComponent = props => (
   <Svg viewBox="0 0 90 130" fill="none" {...props}>
     <G filter="url(#prefix__filter0_d)">
       <Path

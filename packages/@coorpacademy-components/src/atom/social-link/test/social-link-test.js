@@ -2,7 +2,7 @@ import browserEnv from 'browser-env';
 import test from 'ava';
 import React from 'react';
 import {mount, configure} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import SocialLink from '..';
 import fixtureFacebook from './fixtures/facebook';
 import fixtureFacebookFooter from './fixtures/facebook-footer';

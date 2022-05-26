@@ -3,7 +3,7 @@ import test from 'ava';
 import React from 'react';
 import {shallow, mount, configure} from 'enzyme';
 import {identity} from 'lodash/fp';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import FreeText from '..';
 import defaultFixture from './fixtures/default';
 import withValueFixture from './fixtures/with-value';

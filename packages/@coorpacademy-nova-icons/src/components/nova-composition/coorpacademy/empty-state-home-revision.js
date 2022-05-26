@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react';
 
-const SvgComponent = (props) => (
+const SvgComponent = props => (
   <svg viewBox="0 0 379 356" fill="none" {...props}>
     <g clipPath="url(#prefix__clip0_2979_4237)">
       <circle cx={180.5} cy={180.5} r={180.5} fill="#F1F6FE" />
@@ -170,24 +170,11 @@ const SvgComponent = (props) => (
       </g>
       <g filter="url(#prefix__filter4_d_2979_4237)">
         <g clipPath="url(#prefix__clip5_2979_4237)">
-          <rect
-            x={97.352}
-            y={141}
-            width={256}
-            height={230}
-            rx={20}
-            fill="#fff"
-          />
+          <rect x={97.352} y={141} width={256} height={230} rx={20} fill="#fff" />
           <g clipPath="url(#prefix__clip6_2979_4237)">
-            <path
-              d="M97.352 149a8 8 0 018-8h240a8 8 0 018 8v104h-256V149z"
-              fill="#0061FF"
-            />
+            <path d="M97.352 149a8 8 0 018-8h240a8 8 0 018 8v104h-256V149z" fill="#0061FF" />
             <g filter="url(#prefix__filter5_d_2979_4237)">
-              <path
-                d="M97.352 149a8 8 0 018-8h240a8 8 0 018 8v104h-256V149z"
-                fill="#0061FF"
-              />
+              <path d="M97.352 149a8 8 0 018-8h240a8 8 0 018 8v104h-256V149z" fill="#0061FF" />
               <path
                 d="M97.352 149a8 8 0 018-8h240a8 8 0 018 8v104h-256V149z"
                 fill="url(#prefix__paint6_radial_2979_4237)"
@@ -202,49 +189,13 @@ const SvgComponent = (props) => (
                 fillOpacity={0.7}
               />
             </g>
-            <rect
-              x={121.352}
-              y={179}
-              width={154}
-              height={12}
-              rx={6}
-              fill="#fff"
-            />
+            <rect x={121.352} y={179} width={154} height={12} rx={6} fill="#fff" />
             <rect x={121} y={203} width={188} height={12} rx={6} fill="#fff" />
           </g>
-          <rect
-            x={121.352}
-            y={269}
-            width={10}
-            height={10}
-            rx={5}
-            fill="#E1E1E3"
-          />
-          <rect
-            x={139.352}
-            y={269}
-            width={138}
-            height={10}
-            rx={5}
-            fill="#E1E1E3"
-          />
-          <rect
-            x={121.352}
-            y={303}
-            width={208}
-            height={44}
-            rx={7}
-            fill="#F1F6FE"
-          />
-          <rect
-            opacity={0.4}
-            x={164.852}
-            y={321}
-            width={121}
-            height={8}
-            rx={4}
-            fill="#0061FF"
-          />
+          <rect x={121.352} y={269} width={10} height={10} rx={5} fill="#E1E1E3" />
+          <rect x={139.352} y={269} width={138} height={10} rx={5} fill="#E1E1E3" />
+          <rect x={121.352} y={303} width={208} height={44} rx={7} fill="#F1F6FE" />
+          <rect opacity={0.4} x={164.852} y={321} width={121} height={8} rx={4} fill="#0061FF" />
         </g>
       </g>
     </g>
@@ -415,10 +366,7 @@ const SvgComponent = (props) => (
         <rect x={97.352} y={141} width={256} height={230} rx={20} fill="#fff" />
       </clipPath>
       <clipPath id="prefix__clip6_2979_4237">
-        <path
-          d="M97.352 149a8 8 0 018-8h240a8 8 0 018 8v104h-256V149z"
-          fill="#fff"
-        />
+        <path d="M97.352 149a8 8 0 018-8h240a8 8 0 018 8v104h-256V149z" fill="#fff" />
       </clipPath>
       <filter
         id="prefix__filter0_d_2979_4237"
@@ -439,15 +387,8 @@ const SvgComponent = (props) => (
         <feGaussianBlur stdDeviation={8} />
         <feComposite in2="hardAlpha" operator="out" />
         <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0" />
-        <feBlend
-          in2="BackgroundImageFix"
-          result="effect1_dropShadow_2979_4237"
-        />
-        <feBlend
-          in="SourceGraphic"
-          in2="effect1_dropShadow_2979_4237"
-          result="shape"
-        />
+        <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2979_4237" />
+        <feBlend in="SourceGraphic" in2="effect1_dropShadow_2979_4237" result="shape" />
       </filter>
       <filter
         id="prefix__filter1_d_2979_4237"
@@ -468,15 +409,8 @@ const SvgComponent = (props) => (
         <feGaussianBlur stdDeviation={20} />
         <feComposite in2="hardAlpha" operator="out" />
         <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
-        <feBlend
-          in2="BackgroundImageFix"
-          result="effect1_dropShadow_2979_4237"
-        />
-        <feBlend
-          in="SourceGraphic"
-          in2="effect1_dropShadow_2979_4237"
-          result="shape"
-        />
+        <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2979_4237" />
+        <feBlend in="SourceGraphic" in2="effect1_dropShadow_2979_4237" result="shape" />
       </filter>
       <filter
         id="prefix__filter2_d_2979_4237"
@@ -497,15 +431,8 @@ const SvgComponent = (props) => (
         <feGaussianBlur stdDeviation={8} />
         <feComposite in2="hardAlpha" operator="out" />
         <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0" />
-        <feBlend
-          in2="BackgroundImageFix"
-          result="effect1_dropShadow_2979_4237"
-        />
-        <feBlend
-          in="SourceGraphic"
-          in2="effect1_dropShadow_2979_4237"
-          result="shape"
-        />
+        <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2979_4237" />
+        <feBlend in="SourceGraphic" in2="effect1_dropShadow_2979_4237" result="shape" />
       </filter>
       <filter
         id="prefix__filter3_d_2979_4237"
@@ -526,15 +453,8 @@ const SvgComponent = (props) => (
         <feGaussianBlur stdDeviation={20} />
         <feComposite in2="hardAlpha" operator="out" />
         <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
-        <feBlend
-          in2="BackgroundImageFix"
-          result="effect1_dropShadow_2979_4237"
-        />
-        <feBlend
-          in="SourceGraphic"
-          in2="effect1_dropShadow_2979_4237"
-          result="shape"
-        />
+        <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2979_4237" />
+        <feBlend in="SourceGraphic" in2="effect1_dropShadow_2979_4237" result="shape" />
       </filter>
       <filter
         id="prefix__filter4_d_2979_4237"
@@ -555,15 +475,8 @@ const SvgComponent = (props) => (
         <feGaussianBlur stdDeviation={8} />
         <feComposite in2="hardAlpha" operator="out" />
         <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.12 0" />
-        <feBlend
-          in2="BackgroundImageFix"
-          result="effect1_dropShadow_2979_4237"
-        />
-        <feBlend
-          in="SourceGraphic"
-          in2="effect1_dropShadow_2979_4237"
-          result="shape"
-        />
+        <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2979_4237" />
+        <feBlend in="SourceGraphic" in2="effect1_dropShadow_2979_4237" result="shape" />
       </filter>
       <filter
         id="prefix__filter5_d_2979_4237"
@@ -584,15 +497,8 @@ const SvgComponent = (props) => (
         <feGaussianBlur stdDeviation={20} />
         <feComposite in2="hardAlpha" operator="out" />
         <feColorMatrix values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0" />
-        <feBlend
-          in2="BackgroundImageFix"
-          result="effect1_dropShadow_2979_4237"
-        />
-        <feBlend
-          in="SourceGraphic"
-          in2="effect1_dropShadow_2979_4237"
-          result="shape"
-        />
+        <feBlend in2="BackgroundImageFix" result="effect1_dropShadow_2979_4237" />
+        <feBlend in="SourceGraphic" in2="effect1_dropShadow_2979_4237" result="shape" />
       </filter>
     </defs>
   </svg>

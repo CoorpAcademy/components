@@ -1,7 +1,7 @@
-import * as React from "react";
-import Svg, { Path } from "react-native-svg";
+import * as React from 'react';
+import Svg, {Path} from 'react-native-svg';
 
-const SvgComponent = (props) => (
+const SvgComponent = props => (
   <Svg viewBox="0 0 139 175" {...props}>
     <Path
       fill="#FCB23A"
@@ -19,10 +19,7 @@ const SvgComponent = (props) => (
       fill="#FCC23A"
       d="M83.3.2h15.8c1.7 42.1-3.9 80-24.9 104.6 2.3 5.4 1.5 10.1-2.8 14.1l-.1 10.4c3.4 2.2 4.5 4.5 4.5 7.7 3.6.9 6 2.6 7 4.7v5.8h-2v-5.8c-1.9-2.8-6-4.2-7.7-4.4 0-1.7.8-4.7-3.7-8V119c.2-.4-2.2-.3-1.8-.4 4-1.2 5.7-9.7 1.6-13.2-3.5-2.9-3.7.7 1-3.4 2-1.8 4-7.4 5.2-11.6 7.8-26.7 11-58.3 7.9-90.2"
     />
-    <Path
-      fill="#FFEE8F"
-      d="M50.8.2c-.6 15.9-1 46.3 2.4 71.1C46 56.5 42 22.9 42.2.2h8.6"
-    />
+    <Path fill="#FFEE8F" d="M50.8.2c-.6 15.9-1 46.3 2.4 71.1C46 56.5 42 22.9 42.2.2h8.6" />
     <Path
       fill="#FFF475"
       d="M64.6 104.6c-1.1 1.9-1.6 4.2-1.3 7.4-1.9-2.3-1.5-6.4 1.3-7.4M67.7 129.5c-1.3.8-2.5 2-3.5 4.1-.3-2.1 1.5-4.5 3.5-4.1M62.8 137.4c-1.7.8-3.5 2-5.7 4 1-1.9 4.2-4.1 5.7-4"

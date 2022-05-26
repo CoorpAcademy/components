@@ -3,7 +3,7 @@ import test from 'ava';
 import React from 'react';
 import PropTypes from 'prop-types';
 import {mount, shallow, configure} from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import {noop} from 'lodash/fp';
 import AnimationScheduler, {AnimationAdapter} from '..';
 

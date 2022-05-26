@@ -1,17 +1,8 @@
-import * as React from "react";
+import * as React from 'react';
 
-const SvgComponent = (props) => (
-  <svg
-    id="prefix__Calque_1"
-    x={0}
-    y={0}
-    viewBox="0 0 177 36"
-    xmlSpace="preserve"
-    {...props}
-  >
-    <style>
-      {".prefix__st1{fill-rule:evenodd;clip-rule:evenodd;fill:#fff}"}
-    </style>
+const SvgComponent = props => (
+  <svg id="prefix__Calque_1" x={0} y={0} viewBox="0 0 177 36" xmlSpace="preserve" {...props}>
+    <style>{'.prefix__st1{fill-rule:evenodd;clip-rule:evenodd;fill:#fff}'}</style>
     <path
       fill="#0091EA"
       d="M8 0h20c4.4 0 8 3.6 8 8v20c0 4.4-3.6 8-8 8H8c-4.4 0-8-3.6-8-8V8c0-4.4 3.6-8 8-8z"

@@ -1,6 +1,6 @@
-import * as React from "react";
+import * as React from 'react';
 
-const SvgComponent = (props) => (
+const SvgComponent = props => (
   <svg viewBox="0 0 18.1 18" {...props}>
     <path stroke="currentColor" d="M1 9h10.9M9 6.1L11.9 9 9 11.9" />
     <path

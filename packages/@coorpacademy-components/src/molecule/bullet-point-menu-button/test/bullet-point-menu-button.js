@@ -3,7 +3,7 @@ import test from 'ava';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import {identity} from 'lodash/fp';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import BulletPointMenuButton from '..';
 import defaultFixture from './fixtures/default';
 

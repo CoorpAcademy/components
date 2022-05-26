@@ -4,7 +4,7 @@ import React from 'react';
 import {mount, configure} from 'enzyme';
 import cloneDeep from 'lodash/fp/cloneDeep';
 import noop from 'lodash/fp/noop';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import Select from '..';
 import playerFixture from './fixtures/player';
 
