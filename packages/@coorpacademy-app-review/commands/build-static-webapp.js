@@ -1,7 +1,8 @@
-import esbuild from 'esbuild';
-import svgrPlugin from 'esbuild-plugin-svgr';
-import cssModulesPlugin from 'esbuild-css-modules-plugin';
-import dotenv from 'dotenv';
+const esbuild = require('esbuild');
+const svgrPlugin = require('esbuild-plugin-svgr');
+const cssModulesPlugin = require('esbuild-css-modules-plugin');
+const dotenv = require('dotenv');
+const {isModuleDeclaration} = require('typescript');
 
 // -----------------------------------------------------------------------------
 
@@ -55,4 +56,4 @@ if (isRunner()) {
 
 // -----------------------------------------------------------------------------
 
-export default build;
+module.exports = build;

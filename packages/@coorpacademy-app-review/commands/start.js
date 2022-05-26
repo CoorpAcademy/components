@@ -1,7 +1,7 @@
-import chalk from 'chalk';
-import liveServer from 'live-server';
-import historyApiFallback from 'connect-history-api-fallback';
-import build from './build-static-webapp.js';
+const chalk = require('chalk');
+const liveServer = require('live-server');
+const historyApiFallback = require('connect-history-api-fallback');
+const build = require('./build-static-webapp.js');
 
 const PUBLIC = 'public';
 
