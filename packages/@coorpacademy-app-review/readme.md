@@ -6,6 +6,11 @@
 npm start
 ```
 
+requirements:
+
+- [mooc](https://github.com/CoorpAcademy/coorpacademy) installed and running to expose a local API.
+- duplicated `.env.sample` to `.env` with a local token to access the mooc API.
+
 ## generate /static
 
 ```sh
@@ -16,15 +21,11 @@ npm run static
 
 ## unit tests
 
-(requirements: duplicate `.env.sample` to `.env` and ask for the tokens)
-
-Open a terminal and run a compilation in watch mode:
-
 ```sh
-npm run build:es -- --watch
+npm run test:unit
 ```
 
-Now open a 2nd terminal and run ava in watch mode:
+or
 
 ```sh
 npx ava --watch
