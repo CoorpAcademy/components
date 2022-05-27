@@ -10217,10 +10217,9 @@ esbuild-android-arm64@0.14.39:
   resolved "https://registry.yarnpkg.com/esbuild-android-arm64/-/esbuild-android-arm64-0.14.39.tgz#f608d00ea03fe26f3b1ab92a30f99220390f3071"
   integrity sha512-+twajJqO7n3MrCz9e+2lVOnFplRsaGRwsq1KL/uOy7xK7QdRSprRQcObGDeDZUZsacD5gUkk6OiHiYp6RzU3CA==
 
-esbuild-css-modules-plugin@^2.2.16:
+"esbuild-css-modules-plugin@https://github.com/chrisdugne/esbuild-css-modules-plugin#main":
   version "2.2.16"
-  resolved "https://registry.yarnpkg.com/esbuild-css-modules-plugin/-/esbuild-css-modules-plugin-2.2.16.tgz#90a4fc39950e55b52fbaa0656a47640ec348c65b"
-  integrity sha512-01AMiaYC9FoysqrjOXgpuWtnetKrzGacWnIRJUIZ4GUVc0uSq/kEPprfjbrUBsfVa+//h0mFYIuy0ibD8AVqpg==
+  resolved "https://github.com/chrisdugne/esbuild-css-modules-plugin#15107ecf90f6ee6e190903b2557453f9aead27ef"
   dependencies:
     "@parcel/css" "1.7.3"
     fs-extra "^10.1.0"
@@ -17588,6 +17587,18 @@ postcss-modules-values-replace@^3.1.0:
     enhanced-resolve "^3.1.0"
     es6-promisify "^5.0.0"
     postcss "^6.0.1"
+    postcss-values-parser "^1.3.1"
+
+postcss-modules-values-replace@^3.4.0:
+  version "3.4.0"
+  resolved "https://registry.yarnpkg.com/postcss-modules-values-replace/-/postcss-modules-values-replace-3.4.0.tgz#259192a73a291888816edb93934dd7177fb877ac"
+  integrity sha512-pY8iCSKxdt25uE+N4dO1PUUDOl8FIuvtZfT5964TuFJVhq+CEG8uqDpOCpCnqda/3K9ZFCNo4prn84H9SgP4Rw==
+  dependencies:
+    enhanced-resolve "^3.1.0"
+    es6-promisify "^5.0.0"
+    icss-utils "^4.0.0"
+    loader-utils "^2.0.0"
+    postcss "^7.0.0"
     postcss-values-parser "^1.3.1"
 
 postcss-modules-values@^1.1.1:
