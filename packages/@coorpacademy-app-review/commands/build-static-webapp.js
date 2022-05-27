@@ -2,7 +2,6 @@ const esbuild = require('esbuild');
 const svgrPlugin = require('esbuild-plugin-svgr');
 const cssModulesPlugin = require('esbuild-css-modules-plugin');
 const dotenv = require('dotenv');
-const {isModuleDeclaration} = require('typescript');
 
 // -----------------------------------------------------------------------------
 
@@ -26,6 +25,7 @@ const build = () => {
     plugins: [
       svgrPlugin(),
       cssModulesPlugin({
+        postcssPlugins: [postcssValuesReplace()],
         cssModulesOption: {
           generateScopedName: '[name]__[local]___[hash:base64:8]'
         }
