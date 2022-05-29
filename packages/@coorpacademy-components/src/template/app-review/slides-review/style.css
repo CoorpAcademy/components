@@ -24,7 +24,7 @@
   flex child height differently than chromium browsers
 */
 @supports (-moz-appearance:none) {
-  .slidesRevisionContainer {
+  div.slidesRevisionContainer {
     height: 100%;
   } 
 }
@@ -71,8 +71,9 @@
 
 .playerBackground {
   position: absolute;
+  display: block;
   height: 100%;
-  min-height: 832px;
+  min-height: 120vh;
   top: 0;
   left: 0;
 }
