@@ -3,7 +3,7 @@
 @value white from colors;
 @value cm_blue_900 from colors;
 @value cm_grey_400 from colors;
-@value breakpoints: "../../variables/breakpoints.css";
+@value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 
@@ -11,8 +11,22 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  overflow-y: auto;
-  height: 100vh;
+  /* --- ie11 fallback --- */
+  height: 100%;
+  /* --------------------- */
+  height: min-content;
+  min-height: 832px;
+}
+
+/* 
+  mozilla specific styling
+  - supports min-content but it calculates dynamic
+  flex child height differently than chromium browsers
+*/
+@supports (-moz-appearance:none) {
+  .slidesRevisionContainer {
+    height: 100%;
+  } 
 }
 
 .fontBase {
@@ -20,13 +34,32 @@
   user-select: none;
 }
 
+.stackedSlidesYAxisOverflowContainer {
+  width: 100%;
+  padding-top: 20px;
+  height: 100%;
+  min-height: 870px;
+  /* --- ie11 fallback --- */
+  overflow-y: hidden;
+  /* --------------------- */
+  overflow-y: clip;
+  overflow-x: visible;
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+}
+
 .stackedSlidesContainer {
   position: relative;
-  margin-top: 50px;
-  height: 738px;
+  padding-top: 20px;
+  height: 788px;
   max-width: 1240px;
   width: 85%;
   align-self: center;
+}
+
+.reviewHeaderContainer {
+  width: 100%;
 }
 
 .congrats {
@@ -38,14 +71,14 @@
 
 .playerBackground {
   position: absolute;
-  height: 100vh;
+  height: 100%;
   min-height: 832px;
   top: 0;
   left: 0;
 }
 
 .slideBase {
-  box-shadow: 0px 4px 77px rgba(0, 0, 0, 0.05);
+  box-shadow: 0px 4px 58px rgba(0, 0, 0, 0.05);
   background: white;
   height: 706px;
   border-radius: 24px;

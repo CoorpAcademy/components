@@ -397,15 +397,22 @@ const SlidesReview = (
         <ReviewBackground aria-label={reviewBackgroundAriaLabel} />
       </div>
 
-      <ReviewHeader {..._headerProps} />
+      <div key="review-header-wrapper" className={style.reviewHeaderContainer}>
+        <ReviewHeader {..._headerProps} />
+      </div>
 
       {shouldMountSlides ? (
         <div
-          key="stacked-slides-container"
-          data-name="stacked-slides-container"
-          className={style.stackedSlidesContainer}
+          key="stacked-slides-container-y-overflow"
+          className={style.stackedSlidesYAxisOverflowContainer}
         >
-          {builtStackedSlides}
+          <div
+            key="stacked-slides-container"
+            data-name="stacked-slides-container"
+            className={style.stackedSlidesContainer}
+          >
+            {builtStackedSlides}
+          </div>
         </div>
       ) : null}
 
