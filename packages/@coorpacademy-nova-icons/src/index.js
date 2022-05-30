@@ -78,6 +78,7 @@ import _NovaCompositionCoorpacademyReload from './components/nova-composition/co
 import _NovaCompositionCoorpacademySchoolGraduation from './components/nova-composition/coorpacademy/school-graduation';
 import _NovaCompositionCoorpacademyScorm from './components/nova-composition/coorpacademy/scorm';
 import _NovaCompositionCoorpacademySearch from './components/nova-composition/coorpacademy/search';
+import _NovaCompositionCoorpacademySearchThin from './components/nova-composition/coorpacademy/search-thin';
 import _NovaCompositionCoorpacademySettings from './components/nova-composition/coorpacademy/settings';
 import _NovaCompositionCoorpacademyShare from './components/nova-composition/coorpacademy/share';
 import _NovaCompositionCoorpacademySmallFlashLeft from './components/nova-composition/coorpacademy/small-flash-left';
@@ -104,7 +105,6 @@ import _NovaCompositionNavigationArrowTop from './components/nova-composition/na
 import _NovaCompositionNavigationLess from './components/nova-composition/navigation/less';
 import _NovaCompositionNavigationMore from './components/nova-composition/navigation/more';
 import _NovaCompositionPodcastPause from './components/nova-composition/podcast/pause';
-import _NovaCompositionPodcastSearchThin from './components/nova-composition/podcast/search-thin';
 import _NovaLineAudioAudioControlFastForward from './components/nova-line/audio/audio-control-fast-forward';
 import _NovaLineAudioAudioControlPause from './components/nova-line/audio/audio-control-pause';
 import _NovaLineAudioAudioControlPlay from './components/nova-line/audio/audio-control-play';
@@ -208,7 +208,6 @@ import _PodcastPodcastForward10s from './components/podcast/podcast/forward-10s'
 import _PodcastPodcastHeartrounded from './components/podcast/podcast/heartrounded';
 import _PodcastPodcastPause from './components/podcast/podcast/pause';
 import _PodcastPodcastPlayrounded from './components/podcast/podcast/playrounded';
-import _PodcastPodcastSearchThin from './components/podcast/podcast/search-thin';
 import _PodcastPodcastSettings2 from './components/podcast/podcast/settings2';
 
 export const NovaCompositionCoorpacademy10secBack: Icon = _NovaCompositionCoorpacademy10secBack;
@@ -281,6 +280,7 @@ export const NovaCompositionCoorpacademyReload: Icon = _NovaCompositionCoorpacad
 export const NovaCompositionCoorpacademySchoolGraduation: Icon = _NovaCompositionCoorpacademySchoolGraduation;
 export const NovaCompositionCoorpacademyScorm: Icon = _NovaCompositionCoorpacademyScorm;
 export const NovaCompositionCoorpacademySearch: Icon = _NovaCompositionCoorpacademySearch;
+export const NovaCompositionCoorpacademySearchThin: Icon = _NovaCompositionCoorpacademySearchThin;
 export const NovaCompositionCoorpacademySettings: Icon = _NovaCompositionCoorpacademySettings;
 export const NovaCompositionCoorpacademyShare: Icon = _NovaCompositionCoorpacademyShare;
 export const NovaCompositionCoorpacademySmallFlashLeft: Icon = _NovaCompositionCoorpacademySmallFlashLeft;
@@ -307,7 +307,6 @@ export const NovaCompositionNavigationArrowTop: Icon = _NovaCompositionNavigatio
 export const NovaCompositionNavigationLess: Icon = _NovaCompositionNavigationLess;
 export const NovaCompositionNavigationMore: Icon = _NovaCompositionNavigationMore;
 export const NovaCompositionPodcastPause: Icon = _NovaCompositionPodcastPause;
-export const NovaCompositionPodcastSearchThin: Icon = _NovaCompositionPodcastSearchThin;
 export const NovaLineAudioAudioControlFastForward: Icon = _NovaLineAudioAudioControlFastForward;
 export const NovaLineAudioAudioControlPause: Icon = _NovaLineAudioAudioControlPause;
 export const NovaLineAudioAudioControlPlay: Icon = _NovaLineAudioAudioControlPlay;
@@ -411,5 +410,4 @@ export const PodcastPodcastForward10s: Icon = _PodcastPodcastForward10s;
 export const PodcastPodcastHeartrounded: Icon = _PodcastPodcastHeartrounded;
 export const PodcastPodcastPause: Icon = _PodcastPodcastPause;
 export const PodcastPodcastPlayrounded: Icon = _PodcastPodcastPlayrounded;
-export const PodcastPodcastSearchThin: Icon = _PodcastPodcastSearchThin;
 export const PodcastPodcastSettings2: Icon = _PodcastPodcastSettings2;

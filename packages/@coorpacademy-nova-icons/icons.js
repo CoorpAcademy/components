@@ -18,7 +18,6 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/podcast.iconjar/icons/heartrounded.svg')},
   {filePath: path.resolve('./third-party/podcast.iconjar/icons/pause.svg')},
   {filePath: path.resolve('./third-party/podcast.iconjar/icons/playrounded.svg')},
-  {filePath: path.resolve('./third-party/podcast.iconjar/icons/search-thin.svg')},
   {filePath: path.resolve('./third-party/podcast.iconjar/icons/settings2.svg')},
 
   // coorpacademy
