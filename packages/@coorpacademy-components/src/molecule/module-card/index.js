@@ -4,7 +4,6 @@ import {getOr} from 'lodash/fp';
 import classnames from 'classnames';
 import ModuleBubble from '../module-bubble';
 import Provider from '../../atom/provider';
-import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
 
 function ModuleCard(props, context) {
@@ -15,7 +14,7 @@ function ModuleCard(props, context) {
   return (
     <div className={style.default} data-name="module-card" onClick={onClick}>
       <div
-        className={classnames(style.title, innerHTML)}
+        className={classnames(style.title, style.innerHTML)}
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{__html: label}}
       />

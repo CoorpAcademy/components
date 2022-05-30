@@ -174,3 +174,7 @@
   border-right: solid 1px light;
   border-bottom: 1px solid light;
 }
+
+.innerHTML {
+  composes: innerHTML from '../../atom/label/style.css'
+}

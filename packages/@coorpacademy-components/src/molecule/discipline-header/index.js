@@ -5,7 +5,6 @@ import getOr from 'lodash/fp/getOr';
 import classnames from 'classnames';
 import VideoPlayer from '../video-player';
 import Picture from '../../atom/picture';
-import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
 
 const Preview = ({image, video}) => {
@@ -78,13 +77,13 @@ class DisciplineHeader extends React.Component {
         <div className={style.courseWrapper}>
           <div
             data-name="title"
-            className={classnames(style.title, innerHTML)}
+            className={classnames(style.title, style.innerHTML)}
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{__html: title}}
           />
           <div className={fullDisplay ? style.desc : style.shortDesc}>
             <div
-              className={innerHTML}
+              className={style.innerHTML}
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{__html: description}}
               ref={this.setHandle}

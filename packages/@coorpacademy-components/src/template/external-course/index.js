@@ -8,7 +8,6 @@ import {EXTERNAL_CONTENT_ICONS} from '../../util/external-content';
 import Provider from '../../atom/provider';
 import Loader from '../../atom/loader';
 import Button from '../../atom/button';
-import {innerHTML} from '../../atom/label/style.css';
 import ExternalContentViewer from '../../molecule/external-content-viewer';
 import style from './style.css';
 
@@ -132,7 +131,7 @@ class ExternalCourse extends React.Component {
           <IconType className={style.iconHeader} />
         </div>
         <span
-          className={innerHTML}
+          className={style.innerHTML}
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{__html: name}}
         />

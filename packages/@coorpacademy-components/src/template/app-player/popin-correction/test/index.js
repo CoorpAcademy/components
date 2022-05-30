@@ -9,9 +9,18 @@ import correctClosed from './fixtures/correct-closed';
 browserEnv();
 configure({adapter: new Adapter()});
 
-test.cb('should open with transition', t => {
-  const props = {onOpen: t.end, ...correctClosed.props};
-  const context = {skin: {}};
+test('should open with transition', async t => {
+  t.plan(1);
+  await new Promise(resolve => {
+    const props = {
+      onOpen: () => {
+        t.pass();
+        resolve();
+      },
+      ...correctClosed.props
+    };
+    const context = {skin: {}};
 
-  shallow(<PopinCorrection {...props} />, context);
+    shallow(<PopinCorrection {...props} />, context);
+  });
 });

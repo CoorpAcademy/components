@@ -18,7 +18,6 @@ import {
 import Provider from '../../atom/provider';
 import ProgressBar from '../../molecule/progress-bar';
 import Link from '../../atom/link';
-import {innerHTML} from '../../atom/label/style.css';
 import style from './progression-item.css';
 
 const ICONS = {
@@ -87,7 +86,7 @@ const ProgressionItem = (props, context) => {
         <IconType className={style.iconType} color={dark} />
         <div data-name="activityLabel" className={style.label} title={label}>
           <div
-            className={innerHTML}
+            className={style.innerHTML}
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{__html: label}}
           />

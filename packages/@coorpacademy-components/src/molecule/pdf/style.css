@@ -96,3 +96,7 @@
 .openPDFButton:active {
   transform: scale(0.95);
 }
+
+.innerHTML {
+  composes: innerHTML from '../../atom/label/style.css'
+}

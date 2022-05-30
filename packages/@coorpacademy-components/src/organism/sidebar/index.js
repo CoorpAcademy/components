@@ -9,7 +9,6 @@ import Provider from '../../atom/provider';
 import Select from '../../atom/select';
 import Cta from '../../atom/cta';
 import SelectMultiple from '../../molecule/select-multiple';
-import {innerHTML} from '../../atom/label/style.css';
 import style from './style.css';
 
 const NEUTRAL_COLOR = '#607D8B';
@@ -109,7 +108,12 @@ export const LinkItem = ({
     [onClick]
   );
 
-  const classNames = classnames(style.linkItem, innerHTML, {[style.uppercase]: uppercase}, styles);
+  const classNames = classnames(
+    style.linkItem,
+    style.innerHTML,
+    {[style.uppercase]: uppercase},
+    styles
+  );
   const borderStyle = {borderLeftColor: selected ? color : null};
 
   return (

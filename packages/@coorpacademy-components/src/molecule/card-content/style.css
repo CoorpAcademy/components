@@ -272,3 +272,7 @@
   composes: progressWrapper;
   opacity: 0;
 }
+
+.innerHTML {
+  composes: innerHTML from '../../atom/label/style.css'
+}

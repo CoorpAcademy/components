@@ -167,3 +167,7 @@
     font-size: 13px;
   }
 }
+
+.innerHTML {
+  composes: innerHTML from '../../atom/label/style.css'
+}

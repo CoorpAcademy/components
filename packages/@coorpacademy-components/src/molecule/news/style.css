@@ -173,3 +173,7 @@
     height: 100%;
   }
 }
+
+.innerHTML {
+  composes: innerHTML from '../../atom/label/style.css'
+}

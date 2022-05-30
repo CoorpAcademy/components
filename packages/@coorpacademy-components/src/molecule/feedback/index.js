@@ -2,8 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {pipe, get, extend} from 'lodash/fp';
 import classnames from 'classnames';
-
-import {innerHTML} from '../../atom/label/style.css';
 import ResourcePlayer, {TYPE_IMAGE, TYPE_VIDEO, TYPE_PDF, TYPE_AUDIO} from '../resource-player';
 import style from './style.css';
 
@@ -19,14 +17,14 @@ const Feedback = (props, context) => {
     (resource || title || description ? (
       <div className={style.feedback} data-name="feedback">
         <div
-          className={classnames(style.title, innerHTML)}
+          className={classnames(style.title, style.innerHTML)}
           data-name="title"
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{__html: title}}
         />
         <div className={style.descWrapper}>
           <div
-            className={classnames(style.description, innerHTML)}
+            className={classnames(style.description, style.innerHTML)}
             data-name="description"
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{__html: description}}
@@ -36,7 +34,7 @@ const Feedback = (props, context) => {
               <ResourcePlayer className={style.resourcePlayer} resource={resource} />
               <div
                 data-name="mediaDescription"
-                className={classnames(style.mediaDescription, innerHTML)}
+                className={classnames(style.mediaDescription, style.innerHTML)}
                 // eslint-disable-next-line react/no-danger
                 dangerouslySetInnerHTML={{__html: mediaDescription}}
               />

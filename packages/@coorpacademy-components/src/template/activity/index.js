@@ -6,7 +6,6 @@ import Provider from '../../atom/provider';
 import Button from '../../atom/button';
 import Select from '../../atom/select';
 import Loader from '../../atom/loader';
-import {innerHTML} from '../../atom/label/style.css';
 import ProgressionItem from './progression-item';
 import EngineStars from './engine-stars';
 import StarsSummary from './stars-summary';
@@ -106,7 +105,7 @@ class Progression extends React.Component {
         <p className={style.recommendationSection}>
           <span>{recommendation.subtitle} </span>
           <span
-            className={classnames(style.course, innerHTML)}
+            className={classnames(style.course, style.innerHTML)}
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{__html: recommendation.courseTitle}}
           />
