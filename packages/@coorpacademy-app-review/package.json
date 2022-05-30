@@ -1,6 +1,6 @@
 {
   "name": "@coorpacademy/app-review",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": "",
   "type": "module",
   "engines": {
@@ -36,7 +36,7 @@
     "./package.json": "./package.json"
   },
   "dependencies": {
-    "@coorpacademy/components": "10.19.5",
+    "@coorpacademy/components": "10.19.6",
     "react-redux": "^8.0.1",
     "redux": "^4.2.0"
   },
