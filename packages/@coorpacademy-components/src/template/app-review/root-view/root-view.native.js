@@ -1,6 +1,7 @@
 import React, {useEffect} from 'react';
 import {Text, StyleSheet, Pressable, View, BackHandler} from 'react-native';
 import propTypes from './prop-types';
+import {ViewNames} from './common';
 
 // -----------------------------------------------------------------------------
 
@@ -18,19 +19,19 @@ const NavText = ({viewName, navigateTo}) => {
   const handlePress = v => () => navigateTo(v);
 
   switch (viewName) {
-    case 'home':
+    case ViewNames.home:
       return (
         <Pressable onPress={handlePress('onboarding')}>
           <Text>view home</Text>
         </Pressable>
       );
-    case 'onboarding':
+    case ViewNames.onboarding:
       return (
         <Pressable onPress={handlePress('quizzer')}>
           <Text>view onboarding</Text>
         </Pressable>
       );
-    case 'quizzer':
+    case ViewNames.slides:
       return (
         <Pressable onPress={handlePress('home')}>
           <Text>view quizzer</Text>
