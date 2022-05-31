@@ -100,7 +100,7 @@ const Share = ({style, text, wording}) => {
       setStatus(copyStatus);
     }
     return;
-  }, [setStatus]);
+  }, [setStatus, text]);
 
   return (
     <div className={(styles.container, style)}>

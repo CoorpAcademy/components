@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import wizardSummary from '../../../../molecule/wizard-summary/test/fixtures/three-sections';
 import populationsForm from '../../../search-and-chips-results/test/fixtures/sorted-selected';
 

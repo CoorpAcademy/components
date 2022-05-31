@@ -40,7 +40,7 @@ const ReviewCardCongrats = props => {
       timer = setTimeout(setAnimations(setIsAnimationVisible, setIsAnimated), timerAnimation);
     }
     return () => timer && clearTimeout(timer);
-  }, [timerAnimation]);
+  }, [timerAnimation, isAnimated, isAnimationVisible]);
 
   const wrapperClassName = classnames(
     className,
