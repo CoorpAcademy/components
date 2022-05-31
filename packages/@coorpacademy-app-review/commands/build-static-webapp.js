@@ -1,6 +1,7 @@
 const esbuild = require('esbuild');
 const svgrPlugin = require('esbuild-plugin-svgr');
 const cssModulesPlugin = require('esbuild-css-modules-plugin');
+const postcssValuesReplace = require('postcss-modules-values-replace');
 const dotenv = require('dotenv');
 
 // -----------------------------------------------------------------------------
