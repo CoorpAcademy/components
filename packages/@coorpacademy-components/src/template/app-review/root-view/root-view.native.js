@@ -54,7 +54,7 @@ const RootView = ({viewName, navigateBack, navigateTo}) => {
     const backHandler = BackHandler.addEventListener('hardwareBackPress', backAction);
 
     return () => backHandler.remove();
-  }, []);
+  }, [navigateBack]);
 
   return (
     <View style={styles.rootView}>

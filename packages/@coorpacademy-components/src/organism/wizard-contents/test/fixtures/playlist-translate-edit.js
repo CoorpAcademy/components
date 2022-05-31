@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import wizardSummary from '../../../../molecule/wizard-summary/test/fixtures/three-sections';
 import translateForm from '../../../content-translation/test/fixtures/default';
 

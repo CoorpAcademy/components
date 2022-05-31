@@ -43,15 +43,18 @@ const Popin = (props, context) => {
 
   const [value, setValue] = useState({object: '', message: '', email: ''});
 
-  const handleChange = useMemo(() => event => {
-    setValue({...value, [event.target.name]: event.target.value});
-  });
+  const handleChange = useMemo(
+    () => event => {
+      setValue({...value, [event.target.name]: event.target.value});
+    },
+    [value]
+  );
 
   const isAssistancePopin = type === 'assistance';
 
   const handleClickOnSecondButton = useMemo(() => {
     return type === 'assistance' ? onSecondeButtonClick(value) : onSecondeButtonClick;
-  }, [value]);
+  }, [value, type, onSecondeButtonClick]);
 
   return (
     <div className={style.background} style={backgroundImageStyle}>

@@ -27,7 +27,6 @@ const News = (props, context) => {
           className={classnames(style.title, style.innerHTML)}
           target={cta.target}
           data-name="news-title"
-          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{__html: title}}
         />
         <div className={style.date}>{date}</div>
