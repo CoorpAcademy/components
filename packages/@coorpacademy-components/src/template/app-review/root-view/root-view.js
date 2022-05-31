@@ -1,28 +1,20 @@
 import React from 'react';
+import ReviewDashboardSkills from '../review-dashboard-skills';
+import SlidesReview from '../slides-review';
 import propTypes from './prop-types';
-import styles from './root-view.modules.css';
+import {ViewNames} from './common';
 
 // -----------------------------------------------------------------------------
 
-const Button = props => <p {...props} className={styles.textButton} />;
-
-// -----------------------------------------------------------------------------
-
-const RootView = ({viewName, navigateTo}) => {
-  const handleClick = v => () => navigateTo(v);
-
+const RootView = ({viewName, onboarding, slidesReview}) => {
   switch (viewName) {
-    case 'home': {
-      return <Button onClick={handleClick('onboarding')}>view home</Button>;
+    case ViewNames.home:
+    case ViewNames.onboarding: {
+      return <ReviewDashboardSkills {...onboarding} />;
     }
-    case 'onboarding': {
-      return <Button onClick={handleClick('quizzer')}>view onboarding</Button>;
+    case ViewNames.slides: {
+      return <SlidesReview {...slidesReview} />;
     }
-    case 'quizzer': {
-      return <Button onClick={handleClick('home')}>view quizzer</Button>;
-    }
-    default:
-      return <Button>view (none selected)</Button>;
   }
 };
 
