@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {pipe, filter, orderBy, getOr} from 'lodash/fp';
 import classnames from 'classnames';
 import Provider from '../../../atom/provider';
-import {innerHTML} from '../../../atom/label/style.css';
 import {getShadowBoxColorFromPrimary} from '../../../util/get-shadow-box-color-from-primary';
 import style from './style.css';
 
@@ -32,7 +31,7 @@ const Choices = ({answers}) => {
     const {onClick, title, selected} = answer;
     return (
       <div
-        className={classnames(selected ? style.invisibleAnswer : style.unselected, innerHTML)}
+        className={classnames(selected ? style.invisibleAnswer : style.unselected, style.innerHTML)}
         data-name="answer"
         onClick={onClick}
         key={key}
@@ -74,7 +73,7 @@ const SelectedAnswerSections = ({answers, help, backgroundColor}) => {
         <div className={style.content}>
           <span
             data-name="answerContent"
-            className={classnames(style.selectedAnswerText, innerHTML)}
+            className={classnames(style.selectedAnswerText, style.innerHTML)}
             title={title}
             // eslint-disable-next-line react/no-danger
             dangerouslySetInnerHTML={{__html: title}}

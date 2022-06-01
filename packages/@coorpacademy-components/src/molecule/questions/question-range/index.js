@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import classnames from 'classnames';
 import Provider from '../../../atom/provider';
 import Range from '../../../atom/range';
-import {innerHTML} from '../../../atom/label/style.css';
 import style from './style.css';
 
 const QuestionRange = (props, context) => {
@@ -21,19 +20,19 @@ const QuestionRange = (props, context) => {
     <div className={style.wrapper}>
       <span
         style={titleStyle}
-        className={classnames(style.title, innerHTML)}
+        className={classnames(style.title, style.innerHTML)}
         // eslint-disable-next-line react/no-danger
         dangerouslySetInnerHTML={{__html: title}}
       />
       <Range {...rangeProps} />
       <div className={style.labelWrapper}>
         <span
-          className={classnames(style.label, innerHTML)}
+          className={classnames(style.label, style.innerHTML)}
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{__html: minLabel}}
         />
         <span
-          className={classnames(style.label, innerHTML)}
+          className={classnames(style.label, style.innerHTML)}
           // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{__html: maxLabel}}
         />

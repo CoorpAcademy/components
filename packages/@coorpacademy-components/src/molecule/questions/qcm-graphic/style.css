@@ -133,7 +133,7 @@
     display: flex;
     align-items: center;
   }
-  
+
   .answer:last-child {
     margin-bottom: 0;
   }
@@ -160,4 +160,8 @@
   .title {
     text-align: left;
   }
+}
+
+.innerHTML {
+  composes: innerHTML from '../../../atom/label/style.css'
 }

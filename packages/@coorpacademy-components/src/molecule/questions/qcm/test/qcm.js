@@ -94,13 +94,16 @@ test('should set className to longAnswer if the answer is the longest of the set
   const answer = wrapper.find('[data-name="answer"]');
   // regular answer
   t.true(answer.at(4).exists());
-  t.is(answer.at(4).props().className, 'qcm__answer label__innerHTML qcm__selectedAnswer');
+  t.is(
+    answer.at(4).props().className,
+    'qcm__answer qcm__innerHTML label__innerHTML qcm__selectedAnswer'
+  );
 
   // long answer
   t.true(answer.at(5).exists());
   t.is(
     answer.at(5).props().className,
-    'qcm__longestAnswer qcm__answer qcm__answer label__innerHTML qcm__unselectedAnswer'
+    'qcm__longestAnswer qcm__answer qcm__answer qcm__innerHTML label__innerHTML qcm__unselectedAnswer'
   );
   t.pass();
 });

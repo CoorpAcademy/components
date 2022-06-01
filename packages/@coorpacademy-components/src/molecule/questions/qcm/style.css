@@ -105,3 +105,7 @@
     padding: 8px 24px;
   }
 }
+
+.innerHTML {
+  composes: innerHTML from '../../../atom/label/style.css'
+}

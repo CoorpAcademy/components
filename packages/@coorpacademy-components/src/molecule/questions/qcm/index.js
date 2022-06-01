@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';
 import maxBy from 'lodash/fp/maxBy';
 import Provider from '../../../atom/provider';
-import {innerHTML} from '../../../atom/label/style.css';
 import {getShadowBoxColorFromPrimary} from '../../../util/get-shadow-box-color-from-primary';
 import style from './style.css';
 
@@ -25,7 +24,7 @@ const QCM = (props, context) => {
           <div
             data-name="answer"
             aria-label={ariaLabel || title}
-            className={classnames(longAnswerClass, innerHTML, selectedAnswerClass)}
+            className={classnames(longAnswerClass, style.innerHTML, selectedAnswerClass)}
             onClick={onClick}
             style={{
               ...(selected && {

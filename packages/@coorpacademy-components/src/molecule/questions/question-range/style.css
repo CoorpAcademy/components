@@ -41,3 +41,7 @@
     width: 90%;
   }
 }
+
+.innerHTML {
+  composes: innerHTML from '../../../atom/label/style.css'
+}
