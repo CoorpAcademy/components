@@ -8,8 +8,10 @@
 ## Static demos
 
 If you want to see what theses packages have to look there: :wink:
+
 - :open_book: [Story book](http://coorpacademy.github.io/components/components)
 - :joystick: [AppPlayer](http://coorpacademy.github.io/components/app-player)
+- 📚 [AppReview](http://coorpacademy.github.io/components/app-review)
 
 ## Packages
 

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import {getOr} from 'lodash/fp';
 import classnames from 'classnames';
 import Provider from '../../../atom/provider';
-import {innerHTML} from '../../../atom/label/style.css';
 import {getShadowBoxColorFromPrimary} from '../../../util/get-shadow-box-color-from-primary';
 import style from './style.css';
 
@@ -47,7 +46,7 @@ const QCMImage = (props, context) => {
           <div data-name="answerText" className={style.titleWrapper}>
             <div
               title={title}
-              className={classnames(style.title, innerHTML)}
+              className={classnames(style.title, style.innerHTML)}
               // eslint-disable-next-line react/no-danger
               dangerouslySetInnerHTML={{__html: title}}
             />

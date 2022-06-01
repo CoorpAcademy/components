@@ -137,3 +137,7 @@
     min-height: auto;
   }
 }
+
+.innerHTML {
+  composes: innerHTML from '../../../atom/label/style.css'
+}
