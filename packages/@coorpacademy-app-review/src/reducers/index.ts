@@ -2,12 +2,12 @@ import {combineReducers} from 'redux';
 
 import courses from './courses';
 import navigation from './navigation';
+import slide from './slide';
 import token from './token';
 
-const rootReducer = combineReducers({
+export default combineReducers({
   courses,
   navigation,
+  slide,
   token
 });
-
-export default rootReducer;

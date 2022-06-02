@@ -1,17 +1,14 @@
 import * as React from 'react';
-import {View, FlatList, Pressable, StyleSheet, Text, ImageBackground} from 'react-native';
+import PropTypes from 'prop-types';
+import {View, FlatList, Pressable, StyleSheet, Text} from 'react-native';
 import {NovaCompositionNavigationArrowRight as ArrowRight} from '@coorpacademy/nova-icons';
+import SkillsWeb, {ListSkillsPropTypes, NoSkillsPropTypes} from '../../../organism/review-skills';
 
 // import theme from '../../../modules/theme';
 // import translations from '../../../translations';
 // import {HEADER_HEIGHT} from '../../../app-shared/components/header-v2';
 // import noSkillsImage from '../../../assets/images/revision-no-skills.png';
 // import Touchable from '../../../app-shared/components/touchable';
-
-type _Skill_ = {title?: string; info?: string; isExtraSpace?: boolean};
-interface Props {
-  skillsToRevise: {title?: string; info?: string}[];
-}
 
 const styles = StyleSheet.create({
   container: {
@@ -80,13 +77,16 @@ const styles = StyleSheet.create({
   }
 });
 
-const onSelectSkill = (title: string) => () => {
+// -----------------------------------------------------------------------------
+
+const onSelectSkill = title => () => {
+  // eslint-disable-next-line no-console
   console.log('pressed on', {title});
 };
 
-const ExtraSpace = () => <View style={styles.extraSpace}></View>;
+const ExtraSpace = () => <View style={styles.extraSpace} />;
 
-const Skill = ({title, info}: _Skill_) => (
+const Skill = ({title, info}) => (
   <Pressable style={styles.skill} onPress={onSelectSkill(title)}>
     <View style={styles.skillTexts}>
       <Text style={styles.skillTitle}>{title}</Text>
@@ -96,30 +96,69 @@ const Skill = ({title, info}: _Skill_) => (
   </Pressable>
 );
 
-const renderSkill = ({item: {title, info, isExtraSpace = false}}: {item: _Skill_}) =>
+Skill.propTypes = {
+  title: PropTypes.string,
+  info: PropTypes.string
+};
+
+// -----------------------------------------------------------------------------
+
+const Item = ({item: {title, info, isExtraSpace = false}}) =>
   isExtraSpace ? <ExtraSpace /> : <Skill title={title} info={info} />;
 
-const Skills = (props: {skills: _Skill_[]}) => (
-  <FlatList contentContainerStyle={styles.skills} data={props.skills} renderItem={renderSkill} />
+const List = ({skills}) => (
+  <FlatList contentContainerStyle={styles.skills} data={skills} renderItem={Item} />
 );
 
-const NoSkills = () => (
+Item.propTypes = {
+  item: PropTypes.shape({
+    title: PropTypes.string,
+    info: PropTypes.string,
+    isExtraSpace: PropTypes.bool
+  })
+};
+
+List.propTypes = {
+  skills: ListSkillsPropTypes.listSkills
+};
+
+// -----------------------------------------------------------------------------
+
+/*
+  title: translations.revision.home.noSkills
+  text: translations.revision.home.noSkillsDetails
+  image: use web svg
+  <ImageBackground source={noSkillsImage} style={styles.noSkillsImage} />
+*/
+const NoSkills = ({titleNoSkills, textNoSkills}) => (
   <>
-    {/* <Text style={styles.subtitle}>{translations.revision.home.noSkills}</Text>
-    <Text style={styles.text}>{translations.revision.home.noSkillsDetails}</Text>
-    <ImageBackground source={noSkillsImage} style={styles.noSkillsImage} /> */}
+    <Text style={styles.subtitle}>{titleNoSkills}</Text>
+    <Text style={styles.text}>{textNoSkills}</Text>
   </>
 );
 
-const RevisionHome = (props: Props) => (
-  <View style={styles.container}>
-    {/* <Text style={styles.title}>{translations.revision.home.title}</Text> */}
-    {!props.skillsToRevise || props.skillsToRevise.length === 0 ? (
-      <NoSkills />
-    ) : (
-      <Skills skills={[...props.skillsToRevise, {isExtraSpace: true}]} />
-    )}
-  </View>
-);
+NoSkills.propTypes = NoSkillsPropTypes;
 
-export default RevisionHome;
+// -----------------------------------------------------------------------------
+
+//  title --> translations.revision.home.title
+const Skills = props => {
+  const {title, listSkills} = props;
+
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>{title}</Text>
+      {!listSkills || listSkills.length === 0 ? (
+        <NoSkills />
+      ) : (
+        <List skills={[...listSkills, {isExtraSpace: true}]} />
+      )}
+    </View>
+  );
+};
+
+Skills.propTypes = SkillsWeb.propTypes;
+
+// -----------------------------------------------------------------------------
+
+export default Skills;

@@ -6,6 +6,7 @@ import rootReducer from './reducers';
 import {State as NavigationState} from './reducers/navigation';
 import {State as TokenState} from './reducers/token';
 import onStartApp from './middlewares/on-start-app';
+import {Slide} from './types/slide';
 
 const preloadedState = undefined;
 
@@ -33,5 +34,6 @@ export default async function configureStore() {
 
 export type StoreState = {
   navigation: NavigationState;
+  slide: Slide;
   token: TokenState;
 };

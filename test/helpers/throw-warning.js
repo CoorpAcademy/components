@@ -11,5 +11,10 @@ console.error = (...args) => {
   if (ignored.includes(args[0])) {
     return;
   }
-  throw new Error(...args);
+
+  if (args.length > 3) {
+    throw new Error(args.join(''));
+  } else {
+    throw new Error(...args);
+  }
 };

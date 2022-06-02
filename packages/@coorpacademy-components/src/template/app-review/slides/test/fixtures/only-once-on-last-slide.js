@@ -18,8 +18,8 @@ export default {
   props: {
     ...successFixture.props,
     validate: {
-      label: 'Validate',
-      onClick: onValidateClick
-    }
+      label: 'Validate'
+    },
+    validateSlide: onValidateClick
   }
 };

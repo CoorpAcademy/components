@@ -1,8 +1,7 @@
 import React, {useState, useReducer, useMemo} from 'react';
-import PropTypes from 'prop-types';
 import classnames from 'classnames';
+import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
-import omit from 'lodash/fp/omit';
 import isNil from 'lodash/fp/isNil';
 import ReviewBackground from '../../../atom/review-background';
 import {ICON_VALUES} from '../../../atom/review-header-step-item';
@@ -12,6 +11,7 @@ import ReviewCorrectionPopin from '../../../molecule/review-correction-popin';
 import Answer from '../../../molecule/answer';
 import ButtonLink from '../../../atom/button-link';
 import style from './style.css';
+import propTypes from './prop-types';
 
 const stylesByPosition = {
   0: style.position0,
@@ -41,23 +41,25 @@ const buildSlide = (
   updateSlides,
   primarySkinColor,
   validate,
-  correctionPopinProps,
+  validateSlide,
   updateStepItems,
   finishedSlides,
   updateFinishedSlides,
   updateReviewState,
-  updateShouldMountSlides
+  updateShouldMountSlides,
+  correctionPopinProps = {}
 ) => {
   const {hidden, endReview, position, action, validationResult, question, answer} = slidesState.get(
     slideNumber
   );
-  const {onClick: onValidateClick, label: validateLabel} = validate;
+
+  const {label: validateLabel} = validate;
 
   const validateButtonProps = {
     customStyle: {
       backgroundColor: primarySkinColor
     },
-    /* 
+    /*
       slide validation action, this will trigger the correction popin but will not trigger any
       animations unless the endReview signal is received (all slides will disappear),
       if there is a nextSlide content, it will be loaded here
@@ -65,7 +67,7 @@ const buildSlide = (
       be handled on the next slide logic but the content will be carried from here.
     */
     onClick: async () => {
-      const {validationResult: result, nextSlide, endReview: _endReview} = await onValidateClick();
+      const {validationResult: result, nextSlide, endReview: _endReview} = await validateSlide();
       updateSlides([
         slideNumber,
         {
@@ -102,11 +104,17 @@ const buildSlide = (
     disabled: !isNil(validationResult)
   };
 
-  const {klf, information, next, successLabel, failureLabel} = correctionPopinProps;
+  const {
+    klf = {},
+    information = {label: '', message: ''},
+    next,
+    successLabel = '',
+    failureLabel = ''
+  } = correctionPopinProps;
 
   const _correctionPopinProps = {
     next: {
-      /* 
+      /*
         next slide action, this will trigger the slides animations
         if it is the last slide AND the content needs to be different, then that update
         of the content will be handled here (and in the validate as it happens normally )
@@ -140,9 +148,9 @@ const buildSlide = (
           setTimeout(() => updateShouldMountSlides(false), 2000);
         }
       },
-      label: next.label,
+      label: next && next.label,
       'data-name': `next-question-button-${slideNumber}`,
-      'aria-label': next['aria-label']
+      'aria-label': next && next['aria-label']
     },
     klf,
     information,
@@ -151,6 +159,15 @@ const buildSlide = (
   };
 
   const questionOrigin = 'From "Master Design Thinking to become more agile" course';
+  const answerProps = get(['model', 'choices'], answer)
+    ? {
+        ...answer,
+        model: {
+          ...answer.model,
+          answers: answer.model.choices
+        }
+      }
+    : answer;
 
   return (
     <div
@@ -174,7 +191,7 @@ const buildSlide = (
             {answer.help}
           </div>
           <div key="answer-container" className={style.answerContainer}>
-            <Answer {...answer} key="answer" />
+            <Answer {...answerProps} key="answer" />
           </div>
         </div>
       ) : null}
@@ -303,8 +320,9 @@ const SlidesReview = (
     reviewBackgroundAriaLabel,
     validate,
     correctionPopinProps,
-    firstSlide,
-    congratsProps
+    slide,
+    congratsProps,
+    validateSlide
   },
   context
 ) => {
@@ -314,14 +332,14 @@ const SlidesReview = (
   // ||-------> States init: build initial states && memoize them + reducers creation
   const slidesInitialState = useMemo(() => {
     const states = new Map();
-    const {answer, question} = firstSlide;
+    const {answerUI: answer, questionText: question} = slide;
     // eslint-disable-next-line fp/no-loops
     for (let index = 0; index < TOTAL_SLIDES_STACK; index++) {
       const content = index === 0 ? {answer, question} : {};
       states.set(index, {...content, hidden: false, position: index});
     }
     return states;
-  }, [firstSlide]);
+  }, [slide]);
 
   const stepItemsInitialState = useMemo(() => {
     const states = new Map();
@@ -344,7 +362,7 @@ const SlidesReview = (
   /*
     ||-------> the slides have an slightly longer lifespan than the "ongoing" review State,
     after reviewState changes to "finished" the slides don't have to unmount until the last
-    slide-out animation is finished, the slides have to be unmounted to be RGAA complaint 
+    slide-out animation is finished, the slides have to be unmounted to be RGAA complaint
     (if they are only invisible but still mounted, then they will be found the assisting tools & clutter it)
   */
   const [shouldMountSlides, updateShouldMountSlides] = useState(true);
@@ -361,6 +379,7 @@ const SlidesReview = (
           updateSlides,
           primarySkinColor,
           validate,
+          validateSlide,
           correctionPopinProps,
           updateStepItems,
           finishedSlides,
@@ -372,7 +391,14 @@ const SlidesReview = (
     }
 
     return StackedSlides;
-  }, [slidesState, primarySkinColor, validate, correctionPopinProps, finishedSlides]);
+  }, [
+    slidesState,
+    primarySkinColor,
+    validate,
+    validateSlide,
+    correctionPopinProps,
+    finishedSlides
+  ]);
 
   // ||-------> transform the step items state (Map structure) to an Array
   const stepItemsArray = useMemo(() => {
@@ -425,28 +451,6 @@ const SlidesReview = (
   );
 };
 
-SlidesReview.propTypes = {
-  headerProps: PropTypes.shape(omit(['steps', ''], ReviewHeader.propTypes)),
-  reviewBackgroundAriaLabel: ReviewBackground.propTypes['aria-label'],
-  validate: PropTypes.shape({
-    label: PropTypes.string,
-    onClick: PropTypes.func
-  }),
-  firstSlide: PropTypes.shape({
-    question: PropTypes.string,
-    answer: PropTypes.shape(Answer.propTypes)
-  }),
-  correctionPopinProps: PropTypes.shape({
-    klf: ReviewCorrectionPopin.propTypes.klf,
-    information: ReviewCorrectionPopin.propTypes.information,
-    next: PropTypes.shape({
-      label: PropTypes.string,
-      'aria-label': PropTypes.string
-    }),
-    successLabel: ReviewCorrectionPopin.propTypes.resultLabel,
-    failureLabel: ReviewCorrectionPopin.propTypes.resultLabel
-  }),
-  congratsProps: PropTypes.shape(ReviewCongrats.propTypes)
-};
+SlidesReview.propTypes = propTypes;
 
 export default SlidesReview;

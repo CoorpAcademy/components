@@ -19,12 +19,12 @@ export type StartApp = {
   payload: AppOptions;
 };
 
-export const navigateTo: ActionCreator<NavigateTo> = (newPath: string) => ({
+export const navigateTo = (newPath: string): NavigateTo => ({
   type: NAVIGATE_TO,
   payload: newPath
 });
 
-export const navigateBack: ActionCreator<NavigateBack> = () => ({
+export const navigateBack = (): NavigateBack => ({
   type: NAVIGATE_BACK
 });
 

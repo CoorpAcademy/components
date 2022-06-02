@@ -1,4 +1,4 @@
-import {StoreToken, STORE_TOKEN} from '../actions';
+import {StoreToken, STORE_TOKEN} from '../actions/token';
 
 // -----------------------------------------------------------------------------
 

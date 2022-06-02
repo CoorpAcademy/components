@@ -1,23 +1,56 @@
 import React, {useEffect, useState} from 'react';
 import {connect, Provider} from 'react-redux';
-import AppReviewRootView from '@coorpacademy/components/es/template/app-review/root-view/root-view';
+import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
 
-import configureStore from './configure-store';
+import configureStore, {StoreState} from './configure-store';
 import {navigateTo, navigateBack, startApp} from './actions/navigation';
+import {validateSlide} from './actions/slide';
 import {getCurrentViewName} from './reducers/navigation';
+import {Slide} from './types/slide';
+import {SlidesViewProps} from './types/views';
 
 // -----------------------------------------------------------------------------
 
-const mapStateToProps = (state, ownProps) => {
-  return {...ownProps, viewName: getCurrentViewName(state)};
+const VIEWS = {
+  home: 'home',
+  onboarding: 'onboarding',
+  slides: 'slides'
 };
 
-const mapDispatchToProps = {navigateTo, navigateBack};
-const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewRootView);
+// -----------------------------------------------------------------------------
+
+type Dispatchers = {
+  navigateTo: typeof navigateTo;
+  navigateBack: typeof navigateBack;
+  validateSlide: typeof validateSlide;
+};
+
+type Props = {
+  viewName: 'home' | 'onboarding' | 'slides';
+  slides: SlidesViewProps;
+};
+
+type RootProps = Props & Dispatchers;
 
 // -----------------------------------------------------------------------------
 
-const AppRevision = ({options}: Props) => {
+const mapDispatchToProps: Dispatchers = {navigateTo, navigateBack, validateSlide};
+
+const mapStateToProps = (state: StoreState): Props => ({
+  viewName: getCurrentViewName(state),
+  slides: {
+    slide: state.slide,
+    validate: {
+      label: '__validate'
+    }
+  }
+});
+
+const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewTemplate);
+
+// -----------------------------------------------------------------------------
+
+const AppRevision = ({options}: {options: AppOptions}) => {
   const [store, setStore] = useState(null);
 
   useEffect(() => {
@@ -47,12 +80,16 @@ declare global {
   }
 }
 
-type Props = {options: AppOptions};
+// type Props = {options: AppOptions};
 
-export type AppOptions = {
+type AppOptions = {
   token: string;
   theme?: any;
   translations?: any;
+  slide?: Slide;
 };
 
+// -----------------------------------------------------------------------------
+
+export {AppOptions, VIEWS};
 export default AppRevision;

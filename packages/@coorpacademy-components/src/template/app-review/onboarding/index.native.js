@@ -1,7 +1,8 @@
 import * as React from 'react';
 import {View, StyleSheet, Text} from 'react-native';
+import OnboardingWeb from '../../../atom/review-presentation';
 
-import {NovaLineSelectionCursorsCursorArrowTarget as TargetIcon} from '@coorpacademy/nova-icons';
+// import {NovaLineSelectionCursorsCursorArrowTarget as TargetIcon} from '@coorpacademy/nova-icons';
 
 // import theme from '../../../modules/theme';
 // import translations from '../../../translations';
@@ -55,30 +56,34 @@ const styles = StyleSheet.create({
   }
 });
 
-const onButtonPress = () => {};
+// const Tip = ({Icon, text}) => (
+//   <View style={styles.tip}>
+//     {/* <Icon height={16} width={16} style={styles.icon} color={theme.colors.text.primary} /> */}
+//     <Text style={styles.tipText}>{text}</Text>
+//   </View>
+// );
 
-const Tip = ({Icon, text}) => (
-  <View style={styles.tip}>
-    {/* <Icon height={16} width={16} style={styles.icon} color={theme.colors.text.primary} /> */}
-    <Text style={styles.tipText}>{text}</Text>
-  </View>
-);
+/*
+reviewTitle --> translations.revision.onboarding.title
+*/
+// {/* <Text style={styles.title}>{translations.revision.onboarding.title}</Text>
+// <Text style={styles.text}>{translations.revision.onboarding.intro1}</Text>
+// <Text style={styles.text}>{translations.revision.onboarding.intro2}</Text>
 
-const RevisionOnboarding = () => (
+// <Tip Icon={TargetIcon} text={translations.revision.onboarding.tip1} />
+// <Tip Icon={TargetIcon} text={translations.revision.onboarding.tip2} />
+// <Tip Icon={TargetIcon} text={translations.revision.onboarding.tip3} />
+// <Tip Icon={TargetIcon} text={translations.revision.onboarding.tip4} /> */}
+
+// {/* <Button style={styles.button} onPress={onButtonPress} testID={`button-quit-revision-onboarding`}>
+//   {translations.revision.onboarding.validate}
+// </Button> */}
+const Onboarding = ({reviewTitle}) => (
   <View style={styles.container}>
-    {/* <Text style={styles.title}>{translations.revision.onboarding.title}</Text>
-    <Text style={styles.text}>{translations.revision.onboarding.intro1}</Text>
-    <Text style={styles.text}>{translations.revision.onboarding.intro2}</Text>
-
-    <Tip Icon={TargetIcon} text={translations.revision.onboarding.tip1} />
-    <Tip Icon={TargetIcon} text={translations.revision.onboarding.tip2} />
-    <Tip Icon={TargetIcon} text={translations.revision.onboarding.tip3} />
-    <Tip Icon={TargetIcon} text={translations.revision.onboarding.tip4} /> */}
-
-    {/* <Button style={styles.button} onPress={onButtonPress} testID={`button-quit-revision-onboarding`}>
-      {translations.revision.onboarding.validate}
-    </Button> */}
+    <Text style={styles.title}>{reviewTitle}</Text>
   </View>
 );
 
-export default RevisionOnboarding;
+Onboarding.propTypes = OnboardingWeb.propTypes;
+
+export default Onboarding;
