@@ -21,12 +21,12 @@ export default {
     headerProps: headerProps.props,
     reviewBackgroundAriaLabel: 'review BG Aria',
     validate: {
-      label: 'Validate',
-      onClick: onValidateClick
+      label: 'Validate'
     },
-    firstSlide: {
-      question: 'Hey there! ......dramatic suspense..... ready to answer?',
-      answer: qcmDrag
+    validateSlide: onValidateClick,
+    slide: {
+      questionText: 'Hey there! ......dramatic suspense..... ready to answer?',
+      answerUI: qcmDrag
     },
     correctionPopinProps,
     congratsProps: congratsProps.props

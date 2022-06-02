@@ -1,5 +1,8 @@
 import * as React from 'react';
-import {View, StyleSheet, Text, useWindowDimensions} from 'react-native';
+import PropTypes from 'prop-types';
+import {View, StyleSheet, Text, useWindowDimensions, Button} from 'react-native';
+
+import propTypes from './prop-types';
 
 // import theme from '../../../modules/theme';
 // import translations from '../../../translations';
@@ -7,23 +10,23 @@ import {View, StyleSheet, Text, useWindowDimensions} from 'react-native';
 // import Button from '../../../app-shared/components/button';
 // import {HEADER_HEIGHT} from '../../../app-shared/components/header-v2';
 
-export type _Choice_ = {
-  text?: string;
-  selected: boolean;
-};
+// export type _Choice_ = {
+//   text?: string,
+//   selected: boolean
+// };
 
-export type _Slide_ = {
-  category: string;
-  question: string;
-  instruction: string;
-  type: 'multiSelection' | 'singleSelection' | 'trueOrFalse';
-  choices?: _Choice_[];
-};
+// export type _Slide_ = {
+//   category: string,
+//   question: string,
+//   instruction: string,
+//   type: 'multiSelection' | 'singleSelection' | 'trueOrFalse',
+//   choices?: _Choice_[]
+// };
 
-interface Props {
-  slide: _Slide_;
-  num: number;
-}
+// interface Props {
+//   slide: _Slide_;
+//   num: number;
+// }
 
 const quizzerStyle = StyleSheet.create({
   container: {
@@ -38,15 +41,16 @@ const quizzerStyle = StyleSheet.create({
 
 const SLIDE_HEIGHT = () => useWindowDimensions().height * 0.75;
 
-const creatSlideStyle = (num: number) =>
+// const creatSlideStyle = (num: number) =>
+const creatSlideStyle = (num, width, height) =>
   StyleSheet.create({
     slide: {
       position: 'absolute',
       // backgroundColor: theme.colors.white, @todo with props
-      top: useWindowDimensions().height / 2 - SLIDE_HEIGHT() / 2 - num * 4,
+      top: height / 2 - SLIDE_HEIGHT() / 2 - num * 4,
       flex: 1,
       height: SLIDE_HEIGHT(),
-      width: useWindowDimensions().width - 40 - num * 8,
+      width: width - 40 - num * 8,
       justifyContent: 'space-between',
       alignItems: 'center',
       padding: 25,
@@ -88,7 +92,7 @@ const creatSlideStyle = (num: number) =>
     }
   });
 
-const createOptionStyle = (selected: boolean) => {
+const createOptionStyle = selected => {
   // const brandTheme = React.useContext(BrandThemeContext); @todo with props
 
   return StyleSheet.create({
@@ -125,14 +129,15 @@ const choicesStyle = StyleSheet.create({
   }
 });
 
-const onButtonPress = () => {};
+// -----------------------------------------------------------------------------
 
-const Choices = ({choices}: any) => (
+/* {choices.map(({text, selected = false}: _Choice_) => { */
+const Choices = ({choices}) => (
   <View style={choicesStyle.container}>
-    {choices.map(({text, selected = false}: _Choice_) => {
+    {choices.map(({text, selected = false}, index) => {
       const optionStyle = createOptionStyle(selected);
       return (
-        <View style={optionStyle.box}>
+        <View style={optionStyle.box} key={`choice-${index}`}>
           <Text style={optionStyle.text}>
             {text} {selected}
           </Text>
@@ -142,9 +147,22 @@ const Choices = ({choices}: any) => (
   </View>
 );
 
-const Slide = ({slide, num}: Props) => {
-  const slideStyle = creatSlideStyle(num);
+Choices.propTypes = {
+  choices: PropTypes.arrayOf({
+    text: PropTypes.text,
+    selected: PropTypes.bool
+  })
+};
 
+// -----------------------------------------------------------------------------
+
+// const Slide = ({slide, num}: Props) => {
+const Slide = ({validateSlide, slide, num}) => {
+  const {width, height} = useWindowDimensions();
+  const slideStyle = creatSlideStyle(num, width, height);
+  const validateLabel = '__validate'; // translations.validate
+
+  // TODO replace choices with <Answer>; move mobile answers in the package..
   return (
     <View style={slideStyle.slide}>
       <Text style={slideStyle.category}>
@@ -155,22 +173,40 @@ const Slide = ({slide, num}: Props) => {
 
       <Choices choices={slide.choices} />
 
-      {/* <Button style={slideStyle.button} onPress={onButtonPress} testID={`button-quizzer-validate`}>
-        {translations.validate}
-      </Button> */}
+      <Button style={slideStyle.button} onPress={validateSlide} testID={`button-quizzer-validate`}>
+        {validateLabel}
+      </Button>
     </View>
   );
 };
 
-const RevisionQuizzer = ({slide}: Props) => {
+Slide.propTypes = {
+  slide: propTypes.slide,
+  validateSlide: propTypes.validateSlide,
+  num: PropTypes.number
+};
+
+// -----------------------------------------------------------------------------
+
+// const Slides = ({slide}: Props) => {
+const Slides = ({slide, validateSlide}) => {
   const slides = [slide, slide, slide, slide, slide];
   return (
     <View style={quizzerStyle.container}>
-      {slides.reverse().map((slide, index) => (
-        <Slide slide={slide} num={slides.length - index} />
+      {slides.reverse().map((_slide, index) => (
+        <Slide
+          validateSlide={validateSlide}
+          slide={_slide}
+          num={slides.length - index}
+          key={`slide-${index}`}
+        />
       ))}
     </View>
   );
 };
 
-export default RevisionQuizzer;
+Slides.propTypes = propTypes;
+
+// -----------------------------------------------------------------------------
+
+export default Slides;

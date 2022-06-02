@@ -1,7 +1,6 @@
 import React, {useEffect} from 'react';
 import {Text, StyleSheet, Pressable, View, BackHandler} from 'react-native';
-import propTypes from './prop-types';
-import {ViewNames} from './common';
+import propTypes, {ViewNames} from './prop-types';
 
 // -----------------------------------------------------------------------------
 

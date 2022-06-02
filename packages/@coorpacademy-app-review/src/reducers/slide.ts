@@ -1,16 +1,17 @@
-import {ReceivedCourse, RECEIVED_COURSE} from '../actions/courses';
+import {StoreSlide, STORE_SLIDE} from '../actions/slide';
+import {Slide} from '../types/slide';
 
 // -----------------------------------------------------------------------------
 
-export type State = Array<any>;
-export const initialState: State = [];
+export type State = Slide;
+export const initialState: State = null;
 
 // -----------------------------------------------------------------------------
 
-const reducer = (state: State = initialState, action: ReceivedCourse): State => {
+const reducer = (state: State = initialState, action: StoreSlide): State => {
   switch (action.type) {
-    case RECEIVED_COURSE: {
-      return [...state, action.payload];
+    case STORE_SLIDE: {
+      return action.payload;
     }
     default:
       return state;
