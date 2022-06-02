@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ReviewPresentation from '../../../atom/review-presentation';
-import ReviewSkills from '../../../organism/review-skills';
+import ReviewPresentation from '../../atom/review-presentation';
+import ReviewSkills from '../../organism/review-skills';
 import style from './style.css';
 
 const ReviewDashboardSkills = props => {
