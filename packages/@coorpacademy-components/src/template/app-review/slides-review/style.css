@@ -1,9 +1,9 @@
-@value colors: "../../variables/colors.css";
+@value colors: "../../../variables/colors.css";
 @value black from colors;
 @value white from colors;
 @value cm_blue_900 from colors;
 @value cm_grey_400 from colors;
-@value breakpoints: "../../variables/breakpoints.css";
+@value breakpoints: "../../../variables/breakpoints.css";
 @value mobile from breakpoints;
 @value tablet from breakpoints;
 
