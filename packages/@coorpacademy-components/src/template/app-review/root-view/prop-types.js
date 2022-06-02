@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import keys from 'lodash/fp/keys';
-import ReviewDashboardSkills from '../review-dashboard-skills';
+import ReviewDashboardSkills from '../../review-dashboard-skills';
 import SlidesReview from '../slides-review';
 import {ViewNames} from './common';
 
