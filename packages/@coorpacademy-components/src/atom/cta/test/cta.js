@@ -52,19 +52,15 @@ test('should be considered as hovered when mouse enters', t => {
 test("The hover action should not change the cta's (Link wrapper) style when the mouse enters the logout label", t => {
   const {container} = renderWithContext(<Cta {...logoutFixture.props} />, {context});
   const logout = container.querySelector('[data-name="cta-logout-label"]');
-  let cta = container.querySelector('[data-name="cta"]');
+  const cta = container.querySelector('[data-name="cta"]');
 
   // no styles should be returned for logout either on hover/ unhovered
   t.deepEqual(cta.style._values, {});
 
   fireEvent.mouseOver(logout);
-
-  cta = container.querySelector('[data-name="cta"]');
   t.deepEqual(cta.style._values, {});
 
   fireEvent.mouseLeave(logout);
-
-  cta = container.querySelector('[data-name="cta"]');
   t.deepEqual(cta.style._values, {});
 });
 
@@ -78,7 +74,7 @@ test('Onclick test', t => {
   const {container, rerender} = renderWithContext(<Cta {...ctaFixture.props} onClick={onClick} />, {
     context
   });
-  let cta = container.querySelector('[data-name="cta"]');
+  const cta = container.querySelector('[data-name="cta"]');
   t.truthy(cta);
 
   fireEvent.click(cta);
@@ -89,7 +85,6 @@ test('Onclick test', t => {
 
   rerender(<Cta {...ctaFixture.props} disabled onClick={onClick2} />);
 
-  cta = container.querySelector('[data-name="cta"]');
   t.truthy(cta);
 
   fireEvent.click(cta);
