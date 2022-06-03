@@ -67,3 +67,30 @@ test("The hover action should not change the cta's (Link wrapper) style when the
   cta = container.querySelector('[data-name="cta"]');
   t.deepEqual(cta.style._values, {});
 });
+
+test('Onclick test', t => {
+  t.plan(3);
+
+  const onClick = () => {
+    t.pass();
+  };
+
+  const {container, rerender} = renderWithContext(<Cta {...ctaFixture.props} onClick={onClick} />, {
+    context
+  });
+  let cta = container.querySelector('[data-name="cta"]');
+  t.truthy(cta);
+
+  fireEvent.click(cta);
+
+  const onClick2 = () => {
+    t.fail();
+  };
+
+  rerender(<Cta {...ctaFixture.props} disabled onClick={onClick2} />);
+
+  cta = container.querySelector('[data-name="cta"]');
+  t.truthy(cta);
+
+  fireEvent.click(cta);
+});
