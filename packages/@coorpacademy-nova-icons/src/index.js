@@ -104,7 +104,6 @@ import _NovaCompositionNavigationArrowRight from './components/nova-composition/
 import _NovaCompositionNavigationArrowTop from './components/nova-composition/navigation/arrow-top';
 import _NovaCompositionNavigationLess from './components/nova-composition/navigation/less';
 import _NovaCompositionNavigationMore from './components/nova-composition/navigation/more';
-import _NovaCompositionPodcastPause from './components/nova-composition/podcast/pause';
 import _NovaLineAudioAudioControlFastForward from './components/nova-line/audio/audio-control-fast-forward';
 import _NovaLineAudioAudioControlPause from './components/nova-line/audio/audio-control-pause';
 import _NovaLineAudioAudioControlPlay from './components/nova-line/audio/audio-control-play';
@@ -306,7 +305,6 @@ export const NovaCompositionNavigationArrowRight: Icon = _NovaCompositionNavigat
 export const NovaCompositionNavigationArrowTop: Icon = _NovaCompositionNavigationArrowTop;
 export const NovaCompositionNavigationLess: Icon = _NovaCompositionNavigationLess;
 export const NovaCompositionNavigationMore: Icon = _NovaCompositionNavigationMore;
-export const NovaCompositionPodcastPause: Icon = _NovaCompositionPodcastPause;
 export const NovaLineAudioAudioControlFastForward: Icon = _NovaLineAudioAudioControlFastForward;
 export const NovaLineAudioAudioControlPause: Icon = _NovaLineAudioAudioControlPause;
 export const NovaLineAudioAudioControlPlay: Icon = _NovaLineAudioAudioControlPlay;

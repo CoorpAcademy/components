@@ -88,7 +88,6 @@ const icons: Array<Icon> = [
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/bluetooth.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/next.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/prev.svg')},
-  {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/pause.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/play.svg')},
   {filePath: path.resolve('./third-party/nova-composition.iconjar/icons/queue.svg')},
   {

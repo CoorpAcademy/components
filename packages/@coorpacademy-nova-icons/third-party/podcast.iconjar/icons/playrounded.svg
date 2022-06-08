@@ -1,19 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!-- Generator: Adobe Illustrator 26.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<?xml version="1.0" encoding="UTF-8"?>
 <svg
-		version="1.1"
-		id="Calque_1"
-		xmlns="http://www.w3.org/2000/svg"
-		xmlns:xlink="http://www.w3.org/1999/xlink"
-		x="0px"
-		y="0px"
-		viewBox="0 0 16 16"
-		style="enable-background:new 0 0 16 16;"
-		xml:space="preserve">
-	<style type="text/css">
-	.st0{fill:#757575;}
-</style>
-	<path
-			class="st0"
-			d="M13.3,9c0.8-0.5,0.8-1.6,0-2.1l-11-5.5c-0.7-0.3-1.6,0.2-1.6,1v11c0,0.8,0.9,1.4,1.6,1L13.3,9z" />
+    id="a"
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 20.76 20.77">
+  <path
+      d="M20.21,11.28c.74-.37,.74-1.42,0-1.79L1.45,.11C.78-.23,0,.26,0,1V19.77c0,.74,.78,1.23,1.45,.89L20.21,11.28Z"
+      fill="#757575" />
 </svg>
