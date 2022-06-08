@@ -134,7 +134,7 @@ class CTA extends React.Component {
         style={this.getStyle()}
       >
         {logout ? (
-          <div className={style.logoutWrapper}>
+          <div className={style.logoutWrapper} data-name="cta-logout-label">
             <LogoutIcon height={15} width={15} className={style.logoutIcon} />
             {submitValue}
           </div>
