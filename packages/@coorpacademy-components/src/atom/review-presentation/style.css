@@ -87,7 +87,7 @@
   transition: opacity 0.8s;
   position: absolute;
   width: 103px;
-  height: 56px;
+  height: auto;
   border-radius: 7px;
   background-color: cm_grey_700;
   right: -42px;

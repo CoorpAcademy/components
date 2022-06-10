@@ -6,8 +6,11 @@ export const defaultProps = {
   labelsList: {
     skills: {text: 'Choose 1 Skill', tooltipText: 'This is the tooltip text'},
     questions: {text: 'Answer 5 Questions', tooltipText: 'This is the tooltip text'},
-    lifes: {text: 'You have Infinite Lifes', tooltipText: 'This is the tooltip text'},
-    allright: {text: 'Get it all right', tooltipText: 'This is the tooltip text'}
+    lifes: {
+      text: 'You have Infinite Lifes',
+      tooltipText: 'This is the tooltip text, a tooltip text'
+    },
+    allright: {text: 'Get it all right', tooltipText: 'Egestas elementum duis bibendum'}
   }
 };
 
