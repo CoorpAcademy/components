@@ -139,6 +139,7 @@ import _NovaSolidAudioAudioControlFastForward from './components/nova-solid/audi
 import _NovaSolidAudioAudioControlPause from './components/nova-solid/audio/audio-control-pause';
 import _NovaSolidAudioAudioControlPlay from './components/nova-solid/audio/audio-control-play';
 import _NovaSolidAudioAudioControlRewind from './components/nova-solid/audio/audio-control-rewind';
+import _NovaSolidAudioHeadphone from './components/nova-solid/audio/headphone';
 import _NovaSolidBookmarksTagsBookmark3 from './components/nova-solid/bookmarks-tags/bookmark-3';
 import _NovaSolidBookmarksTagsBookmark5 from './components/nova-solid/bookmarks-tags/bookmark-5';
 import _NovaSolidBusinessBusinessGraphLine2 from './components/nova-solid/business/business-graph-line-2';
@@ -340,6 +341,7 @@ export const NovaSolidAudioAudioControlFastForward: Icon = _NovaSolidAudioAudioC
 export const NovaSolidAudioAudioControlPause: Icon = _NovaSolidAudioAudioControlPause;
 export const NovaSolidAudioAudioControlPlay: Icon = _NovaSolidAudioAudioControlPlay;
 export const NovaSolidAudioAudioControlRewind: Icon = _NovaSolidAudioAudioControlRewind;
+export const NovaSolidAudioHeadphone: Icon = _NovaSolidAudioHeadphone;
 export const NovaSolidBookmarksTagsBookmark3: Icon = _NovaSolidBookmarksTagsBookmark3;
 export const NovaSolidBookmarksTagsBookmark5: Icon = _NovaSolidBookmarksTagsBookmark5;
 export const NovaSolidBusinessBusinessGraphLine2: Icon = _NovaSolidBusinessBusinessGraphLine2;
