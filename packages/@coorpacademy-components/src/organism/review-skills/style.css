@@ -23,6 +23,7 @@
   font-size: 20px;
   font-weight: 600;
   line-height: 28px;
+  margin-left: 40px;
 }
 
 .informationIcon {
@@ -33,7 +34,7 @@
 .listSkillsContainer {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 24px;
+  margin: 24px 24px 0 40px;
 }
 
 .skillCardContainer {
@@ -111,6 +112,14 @@
     justify-content: center;
     margin-right: 0;
     max-width: 100%;
+  }
+
+  .listSkillsContainer {
+    margin: 24px 20px;
+  }
+
+  .title {
+  margin-left: 0;
   }
 
   .titleNoSkills,

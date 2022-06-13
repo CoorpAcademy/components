@@ -4,7 +4,7 @@
 
 .reviewDashboardContainer {
   display: flex;
-  margin: 48px 64px;
+  margin: 48px 24px 48px 64px;
   position: relative;
   box-sizing: border-box;
   overflow: auto;
@@ -14,7 +14,6 @@
 .reviewPresentationContainer {
   box-sizing: border-box;
   height: 100%;
-  margin-right: 40px;
   max-width: 348px;
   min-width: 348px;
   position: sticky;

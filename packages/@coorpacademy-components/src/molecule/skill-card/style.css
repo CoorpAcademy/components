@@ -1,3 +1,5 @@
+@value breakpoints: "../../variables/breakpoints.css";
+@value mobile from breakpoints;
 @value colors: "../../variables/colors.css";
 @value cm_grey_400 from colors;
 @value white from colors;
@@ -21,7 +23,7 @@
 }
 
 .skillCardWrapper:hover {
-  box-shadow: 0 4px 48px box_shadow_medium_dark;
+  box-shadow: 0 4px 40px box_shadow_medium_dark;
 }
 
 .skillTitle {
@@ -56,4 +58,10 @@
 
 .buttonWrapper {
   padding: 0 24px 24px;
+}
+
+@media mobile {
+  .skillCardWrapper:hover {
+    box-shadow: 0 4px 20px box_shadow_medium_dark;
+  }
 }
