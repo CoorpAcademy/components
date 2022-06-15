@@ -11,7 +11,7 @@ const configurations: Array<Config> = [
     shuffleChoices: true,
     answerBoundaryLimit: 5,
     starsPerAskingClue: 0,
-    starsPerCorrectAnswer: 10, // waiting Laurence validation
+    starsPerCorrectAnswer: 8,
     starsPerResourceViewed: 0,
     remainingLifeRequests: 0
   }
