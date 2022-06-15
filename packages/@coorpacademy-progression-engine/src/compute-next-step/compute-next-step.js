@@ -23,7 +23,7 @@ import type {
   Answer,
   AnswerRecord,
   AvailableContent,
-  ChapterContent,
+  ContentContainer,
   Config,
   Content,
   Slide,
@@ -40,7 +40,7 @@ const getContentRef: State => string = get('content.ref');
 const hasRemainingLifeRequests = (state: State): boolean => state.remainingLifeRequests > 0;
 const stepIsAlreadyExtraLife = (state: State): boolean => getContentRef(state) === 'extraLife';
 
-const hasRulesToApply = (chapterContent: ChapterContent | null): boolean => {
+const hasRulesToApply = (chapterContent: ContentContainer | null): boolean => {
   return !!(
     chapterContent &&
     Array.isArray(chapterContent.rules) &&
@@ -64,8 +64,8 @@ export type PartialExtraLifeAcceptedAction = {
 type PartialAction = PartialAnswerActionWithIsCorrect | PartialExtraLifeAcceptedAction | null;
 
 type ChapterContentSelection = {
-  currentChapterContent: ChapterContent | null,
-  nextChapterContent: ChapterContent | null,
+  currentChapterContent: ContentContainer | null,
+  nextChapterContent: ContentContainer | null,
   temporaryNextContent: Content
 };
 
@@ -84,11 +84,11 @@ export const nextSlidePool = (
   }
   const lastSlideRef = pipe(get('slides'), last)(state);
   const _currentIndex: number = findIndex(
-    ({slides}: ChapterContent): boolean => !!find({_id: lastSlideRef}, slides),
+    ({slides}: ContentContainer): boolean => !!find({_id: lastSlideRef}, slides),
     availableContent
   );
   const currentIndex = _currentIndex !== -1 ? _currentIndex : 0;
-  const currentChapterPool: ChapterContent | null = availableContent[currentIndex] || null;
+  const currentChapterPool: ContentContainer | null = availableContent[currentIndex] || null;
 
   const currentChapterSlideIds = pipe(get('slides'), map('_id'))(currentChapterPool || []);
   const slidesAnsweredForThisChapter = intersection(state.slides, currentChapterSlideIds);
@@ -171,7 +171,7 @@ type Result = {
 
 const computeNextSlide = (
   config: Config,
-  chapterContent: ChapterContent,
+  chapterContent: ContentContainer,
   state: State | null
 ): Content => {
   const remainingSlides = filter(

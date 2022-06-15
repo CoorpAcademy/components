@@ -46,6 +46,7 @@ export type AUDIO = 'audio';
 export type SCORM = 'scorm';
 export type ARTICLE = 'article';
 export type PODCAST = 'podcast';
+export type SKILL = 'skill';
 export type ContentType =
   | DISCIPLINE
   | CHAPTER
@@ -60,7 +61,8 @@ export type ContentType =
   | VIDEO
   | SCORM
   | PODCAST
-  | ARTICLE;
+  | ARTICLE
+  | SKILL;
 
 export type LessonType = VIDEO | PDF | IMG;
 

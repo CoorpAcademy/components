@@ -17,6 +17,7 @@ import type {
 import checkAnswer from '../check-answer';
 import {
   computeNextStep,
+  computeNextStepForReview,
   type PartialAnswerActionWithIsCorrect,
   type PartialExtraLifeAcceptedAction
 } from './compute-next-step';
@@ -77,7 +78,7 @@ export const computeInitialStepForReview = (
   };
 
   if (isEmpty(availableContent)) return defaultSuccess;
-  const initialStep = computeNextStep(config, null, availableContent, null);
+  const initialStep = computeNextStepForReview(config, null, availableContent);
   if (!initialStep) return defaultSuccess;
   const {instructions, nextContent} = initialStep;
 
