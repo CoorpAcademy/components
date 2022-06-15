@@ -408,10 +408,10 @@ export type Slide = {|
   lessons: Array<Lesson>
 |};
 
-export type ChapterContent = {|
+export type ContentContainer = {|
   ref: string,
   slides: Array<Slide>,
   rules: Array<ChapterRule> | null
 |};
 
-export type AvailableContent = Array<ChapterContent>;
+export type AvailableContent = Array<ContentContainer>;

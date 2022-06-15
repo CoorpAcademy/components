@@ -261,7 +261,7 @@ const extendPartialAction = (action: PartialAction, state: State | null): Action
   }
 };
 
-const computeNextStep = (
+export const computeNextStep = (
   config: Config,
   _state: State | null,
   availableContent: AvailableContent,
@@ -357,4 +357,22 @@ const computeNextStep = (
   return null;
 };
 
-export default computeNextStep;
+export const computeNextStepForReview = (
+  config: Config,
+  _state: State | null,
+  availableContent: AvailableContent
+): Result => {
+  const nextSlide = get(['0', 'slides', '0'], availableContent);
+  if (!nextSlide) {
+    return null;
+  }
+
+  return {
+    nextContent: {
+      type: 'slide',
+      ref: nextSlide._id
+    },
+    instructions: null,
+    isCorrect: false
+  };
+};
