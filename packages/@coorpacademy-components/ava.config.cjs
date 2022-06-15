@@ -7,5 +7,6 @@ module.exports = Object.assign({}, config, {
     '../../test/helpers/throw-warning',
     'ts-node/register/transpile-only'
   ],
-  timeout: '45s'
+  timeout: '45s',
+  concurrency: 8
 });
