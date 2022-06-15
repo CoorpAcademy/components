@@ -1,6 +1,8 @@
 import type {Props} from '../..';
 
-const fixture: {props: Props} = {
+type Fixture = {props: Props};
+
+const fixture: Fixture = {
   props: {
     plop: 'plip'
   }

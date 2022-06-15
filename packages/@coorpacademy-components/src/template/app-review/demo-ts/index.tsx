@@ -1,7 +1,7 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 
 export type Props = {plop: string};
 
-const DemoTs = ({plop}: Props) => <p>{plop}</p>;
+const DemoTs: FunctionComponent = ({plop}: Props) => <p>{plop}</p>;
 
 export default DemoTs;

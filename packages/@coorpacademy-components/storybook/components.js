@@ -1126,6 +1126,7 @@ import TemplateAppPlayerPopinHeaderFixtureLoading from '../src/template/app-play
 import TemplateAppPlayerPopinHeaderFixtureNextChapter from '../src/template/app-player/popin-header/test/fixtures/next-chapter';
 import TemplateAppPlayerPopinHeaderFixtureStarsRank from '../src/template/app-player/popin-header/test/fixtures/stars-rank';
 import TemplateAppPlayerPopinHeaderFixtureSuccess from '../src/template/app-player/popin-header/test/fixtures/success';
+import TemplateAppReviewDemoTsFixtureDefaultTs from '../src/template/app-review/demo-ts/test/fixtures/default.ts';
 import TemplateAppReviewSlidesReviewFixtureFailure from '../src/template/app-review/slides-review/test/fixtures/failure';
 import TemplateAppReviewSlidesReviewFixtureOnlyOnceOnLastSlide from '../src/template/app-review/slides-review/test/fixtures/only-once-on-last-slide';
 import TemplateAppReviewSlidesReviewFixtureRandomResponses from '../src/template/app-review/slides-review/test/fixtures/random-responses';
@@ -2855,6 +2856,9 @@ export const fixtures = {
     }
   },
   TemplateAppReview: {
+    TemplateAppReviewDemoTs: {
+      DefaultTs: TemplateAppReviewDemoTsFixtureDefaultTs
+    },
     TemplateAppReviewSlidesReview: {
       Failure: TemplateAppReviewSlidesReviewFixtureFailure,
       OnlyOnceOnLastSlide: TemplateAppReviewSlidesReviewFixtureOnlyOnceOnLastSlide,

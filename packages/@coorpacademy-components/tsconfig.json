@@ -6,7 +6,6 @@
     "node_modules"
   ],
   "compilerOptions": {
-    "rootDir": "src",
     "target": "es2020",
     "allowJs": true,
     "declaration": true,
@@ -17,5 +16,7 @@
     "allowSyntheticDefaultImports": true,
     // Don't emit; only do type-checking, leave trasformation to Babel.
     "noEmit": true,
+    // https://stackoverflow.com/questions/39423054/react-jsx-file-giving-error-cannot-read-property-createelement-of-undefined#comment103952221_56015464
+    "esModuleInterop": true
   }
 }
