@@ -201,6 +201,7 @@ import TemplateAppPlayerPlayer from './../src/template/app-player/player';
 import TemplateAppPlayerPopinCorrection from './../src/template/app-player/popin-correction';
 import TemplateAppPlayerPopinEnd from './../src/template/app-player/popin-end';
 import TemplateAppPlayerPopinHeader from './../src/template/app-player/popin-header';
+import TemplateAppReviewDemoTs from './../src/template/app-review/demo-ts';
 import TemplateAppReviewSlidesReview from './../src/template/app-review/slides-review';
 import TemplateBackOfficeBrandCreate from './../src/template/back-office/brand-create';
 import TemplateBackOfficeBrandList from './../src/template/back-office/brand-list';
@@ -1465,6 +1466,7 @@ export const components = {
     TemplateAppPlayerPlayerSlides
   },
   TemplateAppReview: {
+    TemplateAppReviewDemoTs,
     TemplateAppReviewSlidesReview
   },
   TemplateBackOffice: {

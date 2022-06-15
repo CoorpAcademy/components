@@ -3,6 +3,10 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = ({config}) => {
+  config.resolve = {
+    extensions: ['.tsx', '.ts', '.js', '.jsx', '.json']
+  };
+
   config.module.rules = [
     {
       test: /\.(ttf|otf|eot|svg|woff)$/,
@@ -25,13 +29,7 @@ module.exports = ({config}) => {
             }
           ],
           '@babel/preset-react',
-          [
-            '@babel/preset-typescript',
-            {
-              allExtensions: true,
-              isTSX: true
-            }
-          ],
+          '@babel/preset-typescript',
           '@babel/preset-flow'
         ]
       }
