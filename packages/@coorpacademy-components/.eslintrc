@@ -31,25 +31,65 @@
     "react/jsx-one-expression-per-line": "off",
     "react/jsx-curly-newline": "off",
     "react/jsx-max-depth": "off",
-    "no-shadow": ["error", {"allow": ["Notification"]}],
-    "no-restricted-properties": ["error", {
-      "object": "Object",
-      "property": "keys",
-      "message": "IE doesn't support Object.keys with non-Object value. Use _.keys instead."
-    }],
+    "react/jsx-filename-extension": [
+      1,
+      {
+        "extensions": [
+          ".jsx",
+          ".tsx"
+        ]
+      }
+    ],
+    "no-shadow": [
+      "error",
+      {
+        "allow": [
+          "Notification"
+        ]
+      }
+    ],
+    "no-restricted-properties": [
+      "error",
+      {
+        "object": "Object",
+        "property": "keys",
+        "message": "IE doesn't support Object.keys with non-Object value. Use _.keys instead."
+      }
+    ],
     "node/no-unsupported-features/es-syntax": [
       "error",
-      { "ignores": ["modules"] }
+      {
+        "ignores": [
+          "modules"
+        ]
+      }
     ],
-    "node/file-extension-in-import": ["error", "always", {".js": "never", ".ts": "never", ".json": "never"}]
+    "node/file-extension-in-import": [
+      "error",
+      "always",
+      {
+        ".js": "never",
+        ".ts": "never",
+        ".json": "never"
+      }
+    ]
   },
   "overrides": [
     {
-      "files": ["./ava.config.cjs", "./nyc.config.js", "./webpack.config.js", "./postcss.config.js", "**/test/**", "storybook/**", "./scripts/**", "./locales/**"],
+      "files": [
+        "./ava.config.cjs",
+        "./nyc.config.js",
+        "./webpack.config.js",
+        "./postcss.config.js",
+        "**/test/**",
+        "storybook/**",
+        "./scripts/**",
+        "./locales/**"
+      ],
       "env": {
         "commonjs": true,
         "node": true
-      }, 
+      },
       "rules": {
         "no-console": "off",
         "react/jsx-no-bind": "off"

@@ -2,12 +2,24 @@
   "plugins": [
     "@babel/plugin-proposal-export-default-from",
     "@babel/plugin-proposal-export-namespace-from",
-    ["@babel/plugin-proposal-object-rest-spread", {"loose": true}],
+    [
+      "@babel/plugin-proposal-object-rest-spread",
+      {
+        "loose": true
+      }
+    ],
     "@babel/plugin-proposal-class-properties",
     "lodash"
   ],
   "presets": [
-    "@babel/preset-react"
+    "@babel/preset-react",
+    [
+      "@babel/preset-typescript",
+      {
+        "allExtensions": true,
+        "isTSX": true
+      }
+    ]
   ],
   "env": {
     "commonjs": {

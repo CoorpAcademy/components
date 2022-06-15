@@ -9,6 +9,34 @@ module.exports = ({config}) => {
       loader: 'file-loader'
     },
     {
+      test: /\.(ts|tsx)$/,
+      loader: 'babel-loader',
+      options: {
+        cacheDirectory: true,
+        presets: [
+          [
+            '@babel/preset-env',
+            {
+              targets: {
+                browsers: ['last 2 versions']
+              },
+              modules: false,
+              loose: true
+            }
+          ],
+          '@babel/preset-react',
+          [
+            '@babel/preset-typescript',
+            {
+              allExtensions: true,
+              isTSX: true
+            }
+          ],
+          '@babel/preset-flow'
+        ]
+      }
+    },
+    {
       test: /\.js$/,
       loader: 'babel-loader',
       options: {
@@ -24,7 +52,6 @@ module.exports = ({config}) => {
               loose: true
             }
           ],
-
           '@babel/preset-react',
           '@babel/preset-flow'
         ],
@@ -55,7 +82,7 @@ module.exports = ({config}) => {
               exportGlobals: true,
               localIdentName: `${hash}`
             },
-            importLoaders: 1,
+            importLoaders: 1
           }
         },
         {
