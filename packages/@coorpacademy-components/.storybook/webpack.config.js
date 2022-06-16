@@ -3,10 +3,36 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = ({config}) => {
+  config.resolve = {
+    extensions: ['.tsx', '.ts', '.js', '.jsx', '.json']
+  };
+
   config.module.rules = [
     {
       test: /\.(ttf|otf|eot|svg|woff)$/,
       loader: 'file-loader'
+    },
+    {
+      test: /\.(ts|tsx)$/,
+      loader: 'babel-loader',
+      options: {
+        cacheDirectory: true,
+        presets: [
+          [
+            '@babel/preset-env',
+            {
+              targets: {
+                browsers: ['last 2 versions']
+              },
+              modules: false,
+              loose: true
+            }
+          ],
+          '@babel/preset-react',
+          '@babel/preset-typescript',
+          '@babel/preset-flow'
+        ]
+      }
     },
     {
       test: /\.js$/,
@@ -24,7 +50,6 @@ module.exports = ({config}) => {
               loose: true
             }
           ],
-
           '@babel/preset-react',
           '@babel/preset-flow'
         ],
@@ -55,7 +80,7 @@ module.exports = ({config}) => {
               exportGlobals: true,
               localIdentName: `${hash}`
             },
-            importLoaders: 1,
+            importLoaders: 1
           }
         },
         {

@@ -201,6 +201,7 @@ import TemplateAppPlayerPlayer from './../src/template/app-player/player';
 import TemplateAppPlayerPopinCorrection from './../src/template/app-player/popin-correction';
 import TemplateAppPlayerPopinEnd from './../src/template/app-player/popin-end';
 import TemplateAppPlayerPopinHeader from './../src/template/app-player/popin-header';
+import TemplateAppReviewDemoTs from './../src/template/app-review/demo-ts';
 import TemplateAppReviewSlidesReview from './../src/template/app-review/slides-review';
 import TemplateBackOfficeBrandCreate from './../src/template/back-office/brand-create';
 import TemplateBackOfficeBrandList from './../src/template/back-office/brand-list';
@@ -1125,6 +1126,7 @@ import TemplateAppPlayerPopinHeaderFixtureLoading from '../src/template/app-play
 import TemplateAppPlayerPopinHeaderFixtureNextChapter from '../src/template/app-player/popin-header/test/fixtures/next-chapter';
 import TemplateAppPlayerPopinHeaderFixtureStarsRank from '../src/template/app-player/popin-header/test/fixtures/stars-rank';
 import TemplateAppPlayerPopinHeaderFixtureSuccess from '../src/template/app-player/popin-header/test/fixtures/success';
+import TemplateAppReviewDemoTsFixtureDefaultTs from '../src/template/app-review/demo-ts/test/fixtures/default.ts';
 import TemplateAppReviewSlidesReviewFixtureFailure from '../src/template/app-review/slides-review/test/fixtures/failure';
 import TemplateAppReviewSlidesReviewFixtureOnlyOnceOnLastSlide from '../src/template/app-review/slides-review/test/fixtures/only-once-on-last-slide';
 import TemplateAppReviewSlidesReviewFixtureRandomResponses from '../src/template/app-review/slides-review/test/fixtures/random-responses';
@@ -1465,6 +1467,7 @@ export const components = {
     TemplateAppPlayerPlayerSlides
   },
   TemplateAppReview: {
+    TemplateAppReviewDemoTs,
     TemplateAppReviewSlidesReview
   },
   TemplateBackOffice: {
@@ -2853,6 +2856,9 @@ export const fixtures = {
     }
   },
   TemplateAppReview: {
+    TemplateAppReviewDemoTs: {
+      DefaultTs: TemplateAppReviewDemoTsFixtureDefaultTs
+    },
     TemplateAppReviewSlidesReview: {
       Failure: TemplateAppReviewSlidesReviewFixtureFailure,
       OnlyOnceOnLastSlide: TemplateAppReviewSlidesReviewFixtureOnlyOnceOnLastSlide,
