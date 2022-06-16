@@ -17,7 +17,7 @@ const availableContent: AvailableContent = [
 ];
 
 test('should return successExitNode if availableContent is empty', t => {
-  t.deepEqual(computeInitialStepForReview(config, []), {
+  t.deepEqual(computeInitialStepForReview(config), {
     type: 'move',
     payload: {
       nextContent: {
