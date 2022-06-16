@@ -7,7 +7,10 @@ import style from './style.css';
 const ReviewHeaderSteps = props => {
   const {steps} = props;
 
-  const items = map(step => <ReviewHeaderStepItem {...step} key={step.value} />, steps);
+  const items = map.convert({cap: false})(
+    (step, index) => <ReviewHeaderStepItem {...step} key={index} />,
+    steps
+  );
 
   return (
     <div className={style.wrapper} data-name="header-steps">

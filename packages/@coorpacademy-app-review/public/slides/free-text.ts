@@ -1,4 +1,4 @@
-import {Slide} from '../../src/types/slide';
+import {Slide} from '../../src/types/slides';
 
 const slide: Slide = {
   questionText: 'plop ?',
@@ -9,6 +9,7 @@ const slide: Slide = {
       placeholder: 'plop!',
       value: '',
       onChange: () => {
+        // eslint-disable-next-line no-console
         console.log('on change');
       },
       ariaLabel: ''

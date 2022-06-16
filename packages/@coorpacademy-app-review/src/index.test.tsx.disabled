@@ -1,0 +1,89 @@
+import browserEnv from 'browser-env';
+import test from 'ava';
+import type {ExecutionContext} from 'ava';
+import React from 'react';
+import {render, fireEvent, act} from '@testing-library/react';
+import {slide} from './fixtures/qcm-slide';
+import type {AppOptions} from './types/common';
+import AppReview from '.';
+
+browserEnv({pretendToBeVisual: true});
+
+const elementExists = (foundElements: NodeListOf<Element>): Element =>
+  foundElements && foundElements[0];
+
+const sleep = (msToSleep: number): Promise<void> =>
+  new Promise(resolve => {
+    setTimeout(resolve, msToSleep);
+  });
+
+const waitForRevisionEndChanges = async (): Promise<void> => {
+  await act(async () => {
+    await sleep(2500); // wait *just* a little longer than the timeout in the component
+  });
+};
+
+const LIMIT = 5;
+
+const clickAllSlides = async (
+  t: ExecutionContext<unknown>,
+  container: HTMLElement,
+  accumulator = 0
+): Promise<void> => {
+  if (accumulator === LIMIT) return;
+
+  // last one needs to wait for more calculations && components updates
+  if (accumulator === 4)
+    await act(async () => {
+      await sleep(2000);
+    });
+
+  const validateButton = container.querySelectorAll(
+    `[data-name="slide-validate-button-${accumulator}"]`
+  );
+  t.truthy(elementExists(validateButton));
+
+  await act(async () => {
+    await fireEvent.click(validateButton[0]);
+  });
+
+  const nextButton = container.querySelectorAll(
+    `[data-name="next-question-button-${accumulator}"]`
+  );
+  t.truthy(elementExists(nextButton));
+
+  await act(async () => {
+    await fireEvent.click(nextButton[0]);
+  });
+
+  await clickAllSlides(t, container, accumulator + 1);
+};
+
+const appOptions: AppOptions = {
+  token:
+    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c',
+  slide
+};
+
+const props = {
+  options: appOptions
+};
+
+test.serial('should validate all the slides && unmount the stacked slides after', async t => {
+  const {container} = render(<AppReview {...props} key={0} />);
+
+  const wrapper = container.querySelectorAll('[data-name="slides-revision-container"]');
+  t.truthy(wrapper);
+
+  let stackedSlidesContainer = container.querySelectorAll('[data-name="stacked-slides-container"]');
+  t.truthy(elementExists(stackedSlidesContainer));
+
+  await clickAllSlides(t, container);
+
+  await waitForRevisionEndChanges();
+
+  stackedSlidesContainer = container.querySelectorAll('[data-name="stacked-slides-container"]');
+  t.falsy(elementExists(stackedSlidesContainer));
+
+  t.pass();
+});

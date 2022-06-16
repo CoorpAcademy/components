@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import {View, StyleSheet, Text, useWindowDimensions, Button} from 'react-native';
 
-import propTypes from './prop-types';
+import {SlidesReviewPropTypes} from './prop-types';
 
 // import theme from '../../../modules/theme';
 // import translations from '../../../translations';
@@ -181,8 +181,8 @@ const Slide = ({validateSlide, slide, num}) => {
 };
 
 Slide.propTypes = {
-  slide: propTypes.slide,
-  validateSlide: propTypes.validateSlide,
+  slide: SlidesReviewPropTypes.slide,
+  validateSlide: SlidesReviewPropTypes.validateSlide,
   num: PropTypes.number
 };
 
@@ -205,7 +205,7 @@ const Slides = ({slide, validateSlide}) => {
   );
 };
 
-Slides.propTypes = propTypes;
+Slides.propTypes = SlidesReviewPropTypes;
 
 // -----------------------------------------------------------------------------
 

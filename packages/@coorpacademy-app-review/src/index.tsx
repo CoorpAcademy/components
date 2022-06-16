@@ -2,66 +2,87 @@ import React, {useEffect, useState} from 'react';
 import {connect, Provider} from 'react-redux';
 import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
 
-import configureStore, {StoreState} from './configure-store';
+import configureStore from './configure-store';
 import {navigateTo, navigateBack, startApp} from './actions/navigation';
-import {validateSlide} from './actions/slide';
+import {updateSlidesOnNext, updateSlidesOnValidation} from './actions/slides';
 import {getCurrentViewName} from './reducers/navigation';
-import {Slide} from './types/slide';
-import {SlidesViewProps} from './types/views';
+import type {SlidesViewStaticProps} from './types/views';
+import type {AppOptions} from './types/common';
+import type {StoreState} from './types/store-state';
+import {congratsProps, correctionPopinProps} from './fixtures/temp-fixture';
+import {updateFinishedSlides} from './actions/finished-slides';
+import {updateReviewStatus} from './actions/review-status';
+import {updateStepItemsOnValidation, updateStepItemsOnNext} from './actions/step-items';
+import type {Dispatchers} from './types/dispatchers';
+import {validateSlide} from './actions/api/validate-slide';
 
 // -----------------------------------------------------------------------------
 
-const VIEWS = {
-  home: 'home',
-  onboarding: 'onboarding',
-  slides: 'slides'
-};
-
-// -----------------------------------------------------------------------------
-
-type Dispatchers = {
-  navigateTo: typeof navigateTo;
-  navigateBack: typeof navigateBack;
-  validateSlide: typeof validateSlide;
-};
-
-type Props = {
+type StaticProps = {
   viewName: 'home' | 'onboarding' | 'slides';
-  slides: SlidesViewProps;
+  slides: SlidesViewStaticProps;
 };
-
-type RootProps = Props & Dispatchers;
 
 // -----------------------------------------------------------------------------
 
-const mapDispatchToProps: Dispatchers = {navigateTo, navigateBack, validateSlide};
+const mapDispatchToProps: Dispatchers = {
+  navigateTo,
+  navigateBack,
+  validateSlide,
+  updateSlidesOnValidation,
+  updateSlidesOnNext,
+  updateReviewStatus,
+  updateStepItemsOnValidation,
+  updateStepItemsOnNext,
+  updateFinishedSlides
+};
 
-const mapStateToProps = (state: StoreState): Props => ({
-  viewName: getCurrentViewName(state),
-  slides: {
-    slide: state.slide,
-    validate: {
-      label: '__validate'
+const mapStateToProps = (state: StoreState): StaticProps => {
+  return {
+    viewName: getCurrentViewName(state),
+    slides: {
+      headerProps: {
+        mode: '__revision_mode',
+        skillName: '__agility',
+        onQuitClick: (): void => {
+          // eslint-disable-next-line no-console
+          console.log('onQuitClick');
+        },
+        'aria-label': 'aria-header-wrapper',
+        closeButtonAriaLabel: 'aria-close-button'
+      },
+      slides: state.slides,
+      validate: {
+        label: '__validate'
+      },
+      finishedSlides: state.finishedSlides,
+      stepItems: state.stepItems,
+      reviewStatus: state.reviewStatus,
+      correctionPopinProps,
+      congratsProps,
+      slideValidationResult: state.api.entities.slideValidationResult
     }
-  }
-});
+  };
+};
+
+// Props = StaticProps && Dispatchers
 
 const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewTemplate);
 
 // -----------------------------------------------------------------------------
 
-const AppRevision = ({options}: {options: AppOptions}) => {
+const AppReview = ({options}: {options: AppOptions}): JSX.Element => {
   const [store, setStore] = useState(null);
 
   useEffect(() => {
-    const _configure = async () => {
-      const store = await configureStore();
-      store.dispatch(startApp(options));
-      setStore(store);
+    const _configure = async (): Promise<void> => {
+      const _store = await configureStore();
+      _store.dispatch(startApp(options));
+      setStore(_store);
     };
 
     _configure();
-  }, []);
+  }, [options]);
 
   if (!store) return null;
 
@@ -75,21 +96,12 @@ const AppRevision = ({options}: {options: AppOptions}) => {
 // -----------------------------------------------------------------------------
 
 declare global {
+  // eslint-disable-next-line no-shadow
   interface Window {
     __REDUX_DEVTOOLS_EXTENSION__?: boolean;
   }
 }
 
-// type Props = {options: AppOptions};
-
-type AppOptions = {
-  token: string;
-  theme?: any;
-  translations?: any;
-  slide?: Slide;
-};
-
 // -----------------------------------------------------------------------------
 
-export {AppOptions, VIEWS};
-export default AppRevision;
+export default AppReview;

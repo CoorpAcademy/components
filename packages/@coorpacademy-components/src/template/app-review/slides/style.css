@@ -136,10 +136,12 @@
 
 @keyframes slideOutHideAndSlideIn {
   0% {
+    width: 100%;
     z-index: 55;
     transform: translate(0, 0);
   }
   50% {
+    width: 100%;
     z-index: 50;
     transform: translate(0, 1000px);
     opacity: 1;

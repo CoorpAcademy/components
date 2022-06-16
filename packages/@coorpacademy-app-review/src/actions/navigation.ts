@@ -1,13 +1,14 @@
-import {ActionCreator} from 'redux';
-import {AppOptions} from '..';
+import {AppOptions} from '../types/common';
 
 export const NAVIGATE_TO = '@@navigation/NAVIGATE_TO';
 export const NAVIGATE_BACK = '@@navigation/NAVIGATE_BACK';
 export const START_APP = '@@navigation/START_APP';
 
+export type ViewPath = 'home' | 'onboarding' | 'slides';
+
 export type NavigateTo = {
   type: '@@navigation/NAVIGATE_TO';
-  payload: string;
+  payload: ViewPath;
 };
 
 export type NavigateBack = {
@@ -19,7 +20,7 @@ export type StartApp = {
   payload: AppOptions;
 };
 
-export const navigateTo = (newPath: string): NavigateTo => ({
+export const navigateTo = (newPath: ViewPath): NavigateTo => ({
   type: NAVIGATE_TO,
   payload: newPath
 });

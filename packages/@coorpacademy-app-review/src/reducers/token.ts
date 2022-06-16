@@ -1,12 +1,15 @@
 import {StoreToken, STORE_TOKEN} from '../actions/token';
+import {StoreState} from '../types/store-state';
+import {TokenState as State} from '../types/states';
 
 // -----------------------------------------------------------------------------
 
-export type State = string;
+// export type State = string;
 export const initialState: State = null;
 
 // -----------------------------------------------------------------------------
 
+// eslint-disable-next-line default-param-last
 const reducer = (state: State = initialState, action: StoreToken): State => {
   switch (action.type) {
     case STORE_TOKEN: {
@@ -19,7 +22,7 @@ const reducer = (state: State = initialState, action: StoreToken): State => {
 
 // -----------------------------------------------------------------------------
 
-export const getToken = appState => appState.token;
+export const getToken = (appState: StoreState): StoreState['token'] => appState.token;
 
 // -----------------------------------------------------------------------------
 

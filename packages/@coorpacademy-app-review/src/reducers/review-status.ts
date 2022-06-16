@@ -1,16 +1,16 @@
-import {StoreSlide, STORE_SLIDE} from '../actions/slide';
-import {Slide} from '../types/slide';
+import {UpdateReviewStatus, UPDATE_REVIEW_STATUS} from '../actions/review-status';
 
 // -----------------------------------------------------------------------------
 
-export type State = Slide;
-export const initialState: State = null;
+export type State = 'finished' | 'ongoing';
+export const initialState: State = 'ongoing';
 
 // -----------------------------------------------------------------------------
 
-const reducer = (state: State = initialState, action: StoreSlide): State => {
+// eslint-disable-next-line default-param-last
+const reducer = (state: State = initialState, action: UpdateReviewStatus): State => {
   switch (action.type) {
-    case STORE_SLIDE: {
+    case UPDATE_REVIEW_STATUS: {
       return action.payload;
     }
     default:

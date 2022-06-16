@@ -3,7 +3,7 @@ import {ViewNames} from '../../prop-types';
 
 export default {
   props: {
-    onboarding,
+    onboarding: onboarding.props,
     viewName: ViewNames.onboarding
   }
 };

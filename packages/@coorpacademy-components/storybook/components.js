@@ -202,7 +202,6 @@ import TemplateAppPlayerPopinCorrection from './../src/template/app-player/popin
 import TemplateAppPlayerPopinEnd from './../src/template/app-player/popin-end';
 import TemplateAppPlayerPopinHeader from './../src/template/app-player/popin-header';
 import TemplateAppReviewDemoTs from './../src/template/app-review/demo-ts';
-import TemplateAppReviewSlidesReview from './../src/template/app-review/slides-review';
 import TemplateAppReviewOnboarding from './../src/template/app-review/onboarding';
 import TemplateAppReviewSkills from './../src/template/app-review/skills';
 import TemplateAppReviewSlides from './../src/template/app-review/slides';
@@ -1131,18 +1130,18 @@ import TemplateAppPlayerPopinHeaderFixtureNextChapter from '../src/template/app-
 import TemplateAppPlayerPopinHeaderFixtureStarsRank from '../src/template/app-player/popin-header/test/fixtures/stars-rank';
 import TemplateAppPlayerPopinHeaderFixtureSuccess from '../src/template/app-player/popin-header/test/fixtures/success';
 import TemplateAppReviewDemoTsFixtureDefaultTs from '../src/template/app-review/demo-ts/test/fixtures/default.ts';
-import TemplateAppReviewSlidesReviewFixtureFailure from '../src/template/app-review/slides-review/test/fixtures/failure';
-import TemplateAppReviewSlidesReviewFixtureOnlyOnceOnLastSlide from '../src/template/app-review/slides-review/test/fixtures/only-once-on-last-slide';
-import TemplateAppReviewSlidesReviewFixtureRandomResponses from '../src/template/app-review/slides-review/test/fixtures/random-responses';
-import TemplateAppReviewSlidesReviewFixtureSuccess from '../src/template/app-review/slides-review/test/fixtures/success';
 import TemplateAppReviewOnboardingFixtureDefault from '../src/template/app-review/onboarding/test/fixtures/default';
 import TemplateAppReviewSkillsFixtureManySkills from '../src/template/app-review/skills/test/fixtures/many-skills';
 import TemplateAppReviewSkillsFixtureNoSkills from '../src/template/app-review/skills/test/fixtures/no-skills';
-import TemplateAppReviewSlidesFixtureFailure from '../src/template/app-review/slides/test/fixtures/failure';
-import TemplateAppReviewSlidesFixtureOnlyOnceOnLastSlide from '../src/template/app-review/slides/test/fixtures/only-once-on-last-slide';
-import TemplateAppReviewSlidesFixtureRandomResponses from '../src/template/app-review/slides/test/fixtures/random-responses';
-import TemplateAppReviewSlidesFixtureSuccess from '../src/template/app-review/slides/test/fixtures/success';
+import TemplateAppReviewSlidesFixtureAllOk from '../src/template/app-review/slides/test/fixtures/all-ok';
+import TemplateAppReviewSlidesFixtureEndReview from '../src/template/app-review/slides/test/fixtures/end-review';
+import TemplateAppReviewSlidesFixtureFinished from '../src/template/app-review/slides/test/fixtures/finished';
+import TemplateAppReviewSlidesFixtureInitialState from '../src/template/app-review/slides/test/fixtures/initial-state';
+import TemplateAppReviewSlidesFixtureOneFail from '../src/template/app-review/slides/test/fixtures/one-fail';
+import TemplateAppReviewSlidesFixtureOneRight from '../src/template/app-review/slides/test/fixtures/one-right';
 import TemplateAppReviewFixtureOnboarding from '../src/template/app-review/test/fixtures/onboarding';
+import TemplateAppReviewFixtureSkills from '../src/template/app-review/test/fixtures/skills';
+import TemplateAppReviewFixtureSlides from '../src/template/app-review/test/fixtures/slides';
 import TemplateBackOfficeBrandCreateFixtureDefault from '../src/template/back-office/brand-create/test/fixtures/default';
 import TemplateBackOfficeBrandCreateFixtureError from '../src/template/back-office/brand-create/test/fixtures/error';
 import TemplateBackOfficeBrandCreateFixtureLoading from '../src/template/back-office/brand-create/test/fixtures/loading';
@@ -1481,7 +1480,6 @@ export const components = {
   },
   TemplateAppReview: {
     TemplateAppReviewDemoTs,
-    TemplateAppReviewSlidesReview,
     TemplateAppReviewOnboarding,
     TemplateAppReviewSkills,
     TemplateAppReviewSlides
@@ -2703,7 +2701,9 @@ export const fixtures = {
       NoEngines: TemplateActivityFixtureNoEngines
     },
     TemplateAppReview: {
-      Onboarding: TemplateAppReviewFixtureOnboarding
+      Onboarding: TemplateAppReviewFixtureOnboarding,
+      Skills: TemplateAppReviewFixtureSkills,
+      Slides: TemplateAppReviewFixtureSlides
     },
     TemplateBattleRequests: {
       Default: TemplateBattleRequestsFixtureDefault
@@ -2878,12 +2878,6 @@ export const fixtures = {
     TemplateAppReviewDemoTs: {
       DefaultTs: TemplateAppReviewDemoTsFixtureDefaultTs
     },
-    TemplateAppReviewSlidesReview: {
-      Failure: TemplateAppReviewSlidesReviewFixtureFailure,
-      OnlyOnceOnLastSlide: TemplateAppReviewSlidesReviewFixtureOnlyOnceOnLastSlide,
-      RandomResponses: TemplateAppReviewSlidesReviewFixtureRandomResponses,
-      Success: TemplateAppReviewSlidesReviewFixtureSuccess
-    },
     TemplateAppReviewOnboarding: {
       Default: TemplateAppReviewOnboardingFixtureDefault
     },
@@ -2892,10 +2886,12 @@ export const fixtures = {
       NoSkills: TemplateAppReviewSkillsFixtureNoSkills
     },
     TemplateAppReviewSlides: {
-      Failure: TemplateAppReviewSlidesFixtureFailure,
-      OnlyOnceOnLastSlide: TemplateAppReviewSlidesFixtureOnlyOnceOnLastSlide,
-      RandomResponses: TemplateAppReviewSlidesFixtureRandomResponses,
-      Success: TemplateAppReviewSlidesFixtureSuccess
+      AllOk: TemplateAppReviewSlidesFixtureAllOk,
+      EndReview: TemplateAppReviewSlidesFixtureEndReview,
+      Finished: TemplateAppReviewSlidesFixtureFinished,
+      InitialState: TemplateAppReviewSlidesFixtureInitialState,
+      OneFail: TemplateAppReviewSlidesFixtureOneFail,
+      OneRight: TemplateAppReviewSlidesFixtureOneRight
     }
   },
   TemplateBackOffice: {
