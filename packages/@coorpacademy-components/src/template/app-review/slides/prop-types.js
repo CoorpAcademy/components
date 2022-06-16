@@ -13,11 +13,16 @@ export default {
   validate: PropTypes.shape({
     label: PropTypes.string
   }),
-  slide: PropTypes.shape({
-    questionText: PropTypes.string,
-    answerUI: PropTypes.shape(Answer.propTypes)
-  }),
+  slides: PropTypes.instanceOf(Map),
+  finishedSlides: PropTypes.instanceOf(Map),
+  stepItems: PropTypes.instanceOf(Map),
+  // .shape({
+  //   questionText: PropTypes.string,
+  //   answerUI: PropTypes.shape(Answer.propTypes)
+  // }),
   correctionPopinProps: PropTypes.shape({
+    // ---------------
+    // klf on click uses  Dispatcher
     klf: ReviewCorrectionPopin.propTypes.klf,
     information: ReviewCorrectionPopin.propTypes.information,
     next: PropTypes.shape({
@@ -29,6 +34,6 @@ export default {
   }),
   congratsProps: PropTypes.shape(ReviewCongrats.propTypes),
   // ---------------
-  // Dispatchers
+  // Dispatcher
   validateSlide: PropTypes.func.isRequired
 };

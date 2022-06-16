@@ -1,10 +1,12 @@
 {
   "include": [
-    "src/**/*",
+    "src/**/*.ts",
+    "src/**/*.tsx",
     "globals.d.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/**/*.js",
   ],
   "compilerOptions": {
     "rootDir": "src",
@@ -13,6 +15,8 @@
     "skipLibCheck": true,
     "moduleResolution": "node",
     "jsx": "react",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "downlevelIteration": true,
+    "target": "ES2020"
   }
 }

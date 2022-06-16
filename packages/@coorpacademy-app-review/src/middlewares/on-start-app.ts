@@ -4,9 +4,9 @@ import {Dispatch} from 'redux';
 import {Action} from '../actions';
 // import fetchCourse from '../services/fetch-demo';
 import {VIEWS} from '../common';
-import {navigateTo, START_APP} from '../actions/navigation';
+import {navigateTo, START_APP, ViewPath} from '../actions/navigation';
 import {storeToken} from '../actions/token';
-import {storeFirstSlide} from '../actions/slide';
+import {storeFirstSlide} from '../actions/slides';
 // import {receivedCourse} from '../actions/courses';
 import {StoreState} from '../types/store-state';
 
@@ -19,7 +19,7 @@ const onStartApp: Middleware<{}, StoreState, Dispatch<Action>> =
       dispatch(storeToken(token));
       dispatch(storeFirstSlide(slide));
 
-      const initialView = slide ? VIEWS.slides : VIEWS.onboarding;
+      const initialView: ViewPath = slide ? VIEWS.slides : VIEWS.onboarding;
 
       dispatch(navigateTo(initialView));
 

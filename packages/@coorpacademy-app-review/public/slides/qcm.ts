@@ -1,4 +1,4 @@
-import {Slide} from '../../src/types/slide';
+import {Slide} from '../../src/types/slides';
 
 const slide: Slide = {
   questionText: 'QCM',

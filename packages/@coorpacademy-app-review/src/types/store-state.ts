@@ -1,9 +1,8 @@
-import {Slides} from './slides';
-import {NavigationState, TokenState} from './states';
+import {NavigationState, SlidesState, TokenState} from './states';
 
 export type StoreState = {
   navigation: NavigationState;
-  slides: Slides;
+  slides: SlidesState;
   token: TokenState;
   courses: unknown;
 };

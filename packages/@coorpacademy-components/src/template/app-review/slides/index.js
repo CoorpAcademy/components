@@ -21,8 +21,8 @@ const stylesByPosition = {
   4: style.position4
 };
 
-const TOTAL_SLIDES_STACK = 5;
-const HIGHEST_INDEX = TOTAL_SLIDES_STACK - 1;
+export const TOTAL_SLIDES_STACK = 5;
+export const HIGHEST_INDEX = TOTAL_SLIDES_STACK - 1;
 
 const getSlideAnimation = (action, position, hidden) => {
   switch (action) {
@@ -126,10 +126,10 @@ const buildSlide = (
           {
             hidden: validationResult === 'success',
             position: HIGHEST_INDEX - finishedSlides.size,
+            validationResult,
             action: validationResult === 'success' ? 'unstack' : 'restack',
             answer,
             question,
-            validationResult,
             numberOfFinishedSlides: finishedSlides.size,
             endReview
           }
@@ -320,7 +320,7 @@ const SlidesReview = (
     reviewBackgroundAriaLabel,
     validate,
     correctionPopinProps,
-    slide,
+    slides,
     congratsProps,
     validateSlide
   },
@@ -332,14 +332,14 @@ const SlidesReview = (
   // ||-------> States init: build initial states && memoize them + reducers creation
   const slidesInitialState = useMemo(() => {
     const states = new Map();
-    const {answerUI: answer, questionText: question} = slide;
+    const {answerUI: answer, questionText: question} = slides;
     // eslint-disable-next-line fp/no-loops
     for (let index = 0; index < TOTAL_SLIDES_STACK; index++) {
       const content = index === 0 ? {answer, question} : {};
       states.set(index, {...content, hidden: false, position: index});
     }
     return states;
-  }, [slide]);
+  }, [slides]);
 
   const stepItemsInitialState = useMemo(() => {
     const states = new Map();

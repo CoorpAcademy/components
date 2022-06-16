@@ -1,7 +1,8 @@
-import {Slide} from './slide';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import {Slides} from './slides';
 
 type SlidesViewProps = {
-  slide: Slide;
+  slides: Slides;
   validate: {
     label: string;
   };

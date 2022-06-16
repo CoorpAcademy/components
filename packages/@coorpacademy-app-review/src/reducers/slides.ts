@@ -3,7 +3,7 @@ import {
   STORE_FIRST_SLIDE,
   UPDATE_SLIDES_ON_NEXT,
   UPDATE_SLIDES_ON_VALIDATION
-} from '../actions/slide';
+} from '../actions/slides';
 import {HIGHEST_INDEX, TOTAL_SLIDES_STACK} from '../common';
 import {
   Slide,

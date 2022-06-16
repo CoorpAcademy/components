@@ -2,20 +2,13 @@ import React, {useEffect, useState} from 'react';
 import {connect, Provider} from 'react-redux';
 import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
 
-import configureStore, {StoreState} from './configure-store';
+import configureStore from './configure-store';
 import {navigateTo, navigateBack, startApp} from './actions/navigation';
-import {validateSlide} from './actions/slide';
+import {validateSlide} from './actions/slides';
 import {getCurrentViewName} from './reducers/navigation';
-import {Slide} from './types/slide';
 import {SlidesViewProps} from './types/views';
-
-// -----------------------------------------------------------------------------
-
-const VIEWS = {
-  home: 'home',
-  onboarding: 'onboarding',
-  slides: 'slides'
-};
+import {AppOptions} from './types/common';
+import {StoreState} from './types/store-state';
 
 // -----------------------------------------------------------------------------
 
@@ -30,7 +23,7 @@ type Props = {
   slides: SlidesViewProps;
 };
 
-type RootProps = Props & Dispatchers;
+// type RootProps = Props & Dispatchers;
 
 // -----------------------------------------------------------------------------
 
@@ -39,7 +32,7 @@ const mapDispatchToProps: Dispatchers = {navigateTo, navigateBack, validateSlide
 const mapStateToProps = (state: StoreState): Props => ({
   viewName: getCurrentViewName(state),
   slides: {
-    slide: state.slide,
+    slides: state.slides,
     validate: {
       label: '__validate'
     }
@@ -50,18 +43,18 @@ const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewTemplate);
 
 // -----------------------------------------------------------------------------
 
-const AppRevision = ({options}: {options: AppOptions}) => {
+const AppReview = ({options}: {options: AppOptions}): JSX.Element => {
   const [store, setStore] = useState(null);
 
   useEffect(() => {
-    const _configure = async () => {
-      const store = await configureStore();
-      store.dispatch(startApp(options));
-      setStore(store);
+    const _configure = async (): Promise<void> => {
+      const _store = await configureStore();
+      _store.dispatch(startApp(options));
+      setStore(_store);
     };
 
     _configure();
-  }, []);
+  }, [options]);
 
   if (!store) return null;
 
@@ -75,6 +68,7 @@ const AppRevision = ({options}: {options: AppOptions}) => {
 // -----------------------------------------------------------------------------
 
 declare global {
+  // eslint-disable-next-line no-shadow
   interface Window {
     __REDUX_DEVTOOLS_EXTENSION__?: boolean;
   }
@@ -82,14 +76,6 @@ declare global {
 
 // type Props = {options: AppOptions};
 
-type AppOptions = {
-  token: string;
-  theme?: any;
-  translations?: any;
-  slide?: Slide;
-};
-
 // -----------------------------------------------------------------------------
 
-export {AppOptions, VIEWS};
-export default AppRevision;
+export default AppReview;

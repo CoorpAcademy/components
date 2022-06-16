@@ -18,7 +18,7 @@ type QueryParams = {
   [key: string]: string | number | boolean;
 };
 
-const buildUrlQueryParams = (params: QueryParams) =>
+const buildUrlQueryParams = (params: QueryParams): string =>
   Object.keys(params)
     .map(key => {
       const value = params[key].toString();
@@ -28,21 +28,23 @@ const buildUrlQueryParams = (params: QueryParams) =>
 
 // -----------------------------------------------------------------------------
 
-const fetchCourse = (fetch: Fetch) => async (token, language, universalRef): Promise<Course> => {
-  const jwt: JWT = decode(token);
-  const query = {
-    type: 'course',
-    universalRef,
-    lang: language
+const fetchCourse =
+  (fetch: Fetch) =>
+  async (token, language, universalRef): Promise<Course> => {
+    const jwt: JWT = decode(token);
+    const query = {
+      type: 'course',
+      universalRef,
+      lang: language
+    };
+
+    const response = await fetch(`${jwt.host}/api/v2/contents?${buildUrlQueryParams(query)}`, {
+      headers: {authorization: token}
+    });
+
+    const {hits} = (await toJSON(response)) as CatalogHits;
+    return hits?.[0];
   };
-
-  const response = await fetch(`${jwt.host}/api/v2/contents?${buildUrlQueryParams(query)}`, {
-    headers: {authorization: token}
-  });
-
-  const {hits} = (await toJSON(response)) as CatalogHits;
-  return hits?.[0];
-};
 
 // -----------------------------------------------------------------------------
 

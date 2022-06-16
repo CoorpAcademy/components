@@ -202,7 +202,6 @@ import TemplateAppPlayerPopinCorrection from './../src/template/app-player/popin
 import TemplateAppPlayerPopinEnd from './../src/template/app-player/popin-end';
 import TemplateAppPlayerPopinHeader from './../src/template/app-player/popin-header';
 import TemplateAppReviewDemoTs from './../src/template/app-review/demo-ts';
-import TemplateAppReviewSlidesReview from './../src/template/app-review/slides-review';
 import TemplateAppReviewOnboarding from './../src/template/app-review/onboarding';
 import TemplateAppReviewSkills from './../src/template/app-review/skills';
 import TemplateAppReviewSlides from './../src/template/app-review/slides';
@@ -1131,10 +1130,6 @@ import TemplateAppPlayerPopinHeaderFixtureNextChapter from '../src/template/app-
 import TemplateAppPlayerPopinHeaderFixtureStarsRank from '../src/template/app-player/popin-header/test/fixtures/stars-rank';
 import TemplateAppPlayerPopinHeaderFixtureSuccess from '../src/template/app-player/popin-header/test/fixtures/success';
 import TemplateAppReviewDemoTsFixtureDefaultTs from '../src/template/app-review/demo-ts/test/fixtures/default.ts';
-import TemplateAppReviewSlidesReviewFixtureFailure from '../src/template/app-review/slides-review/test/fixtures/failure';
-import TemplateAppReviewSlidesReviewFixtureOnlyOnceOnLastSlide from '../src/template/app-review/slides-review/test/fixtures/only-once-on-last-slide';
-import TemplateAppReviewSlidesReviewFixtureRandomResponses from '../src/template/app-review/slides-review/test/fixtures/random-responses';
-import TemplateAppReviewSlidesReviewFixtureSuccess from '../src/template/app-review/slides-review/test/fixtures/success';
 import TemplateAppReviewOnboardingFixtureDefault from '../src/template/app-review/onboarding/test/fixtures/default';
 import TemplateAppReviewSkillsFixtureManySkills from '../src/template/app-review/skills/test/fixtures/many-skills';
 import TemplateAppReviewSkillsFixtureNoSkills from '../src/template/app-review/skills/test/fixtures/no-skills';
@@ -1481,7 +1476,6 @@ export const components = {
   },
   TemplateAppReview: {
     TemplateAppReviewDemoTs,
-    TemplateAppReviewSlidesReview,
     TemplateAppReviewOnboarding,
     TemplateAppReviewSkills,
     TemplateAppReviewSlides
@@ -2877,12 +2871,6 @@ export const fixtures = {
   TemplateAppReview: {
     TemplateAppReviewDemoTs: {
       DefaultTs: TemplateAppReviewDemoTsFixtureDefaultTs
-    },
-    TemplateAppReviewSlidesReview: {
-      Failure: TemplateAppReviewSlidesReviewFixtureFailure,
-      OnlyOnceOnLastSlide: TemplateAppReviewSlidesReviewFixtureOnlyOnceOnLastSlide,
-      RandomResponses: TemplateAppReviewSlidesReviewFixtureRandomResponses,
-      Success: TemplateAppReviewSlidesReviewFixtureSuccess
     },
     TemplateAppReviewOnboarding: {
       Default: TemplateAppReviewOnboardingFixtureDefault

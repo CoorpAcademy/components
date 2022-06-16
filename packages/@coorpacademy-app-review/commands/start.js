@@ -1,18 +1,24 @@
-const chalk = require('chalk');
-const liveServer = require('live-server');
-const historyApiFallback = require('connect-history-api-fallback');
-const build = require('./build-static-webapp.js');
+/* eslint-disable no-console */
+import chalk from 'chalk';
+import liveServer from 'live-server';
+import historyApiFallback from 'connect-history-api-fallback';
+import {build} from './build-static-webapp';
 
 const PUBLIC = 'public';
 
-build().then(() => {
-  liveServer.start({
-    root: PUBLIC,
-    open: false,
-    middleware: [historyApiFallback()]
+build()
+  .then(() => {
+    liveServer.start({
+      root: PUBLIC,
+      open: false,
+      middleware: [historyApiFallback()]
+    });
+    console.log('☢️  server running:');
+    console.log(chalk.bold.blue(`  - http://localhost:8080`));
+    console.log(' ');
+    return;
+  })
+  .catch(error => {
+    console.error('Server start error', error);
+    throw new Error(error);
   });
-
-  console.log('☢️  server running:');
-  console.log(chalk.bold.blue(`  - http://localhost:8080`));
-  console.log(' ');
-});
