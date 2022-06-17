@@ -11,12 +11,11 @@ const preloadedState = undefined;
 
 // -----------------------------------------------------------------------------
 
-export default function configureStore() {
+export default async function configureStore() {
   let _compose = compose;
 
-  // if (process.env.NODE_ENV !== 'production') {
   if (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__) {
-    const composeWithDevTools = require('redux-devtools-extension').default;
+    const {composeWithDevTools} = await import('redux-devtools-extension');
     _compose = composeWithDevTools({
       name: 'app-review',
       trace: true,

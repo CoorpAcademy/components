@@ -3,5 +3,6 @@
   "compilerOptions": {
     "outDir": "lib",
     "target": "es5",
+    "module": "esnext"
   }
 }

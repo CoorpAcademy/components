@@ -21,9 +21,13 @@ const AppRevision = ({options}: Props) => {
   const [store, setStore] = useState(null);
 
   useEffect(() => {
-    const store = configureStore();
-    store.dispatch(startApp(options));
-    setStore(store);
+    const _configure = async () => {
+      const store = await configureStore();
+      store.dispatch(startApp(options));
+      setStore(store);
+    };
+
+    _configure();
   }, []);
 
   if (!store) return null;
