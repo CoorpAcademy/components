@@ -1,6 +1,5 @@
 import {applyMiddleware, compose, createStore} from 'redux';
 import thunk from 'redux-thunk';
-import {composeWithDevTools} from 'redux-devtools-extension';
 
 import rootReducer from './reducers';
 
@@ -13,14 +12,17 @@ const preloadedState = undefined;
 // -----------------------------------------------------------------------------
 
 export default function configureStore() {
-  const _compose =
-    process.env.NODE_ENV !== 'production'
-      ? composeWithDevTools({
-          name: 'app-review',
-          trace: true,
-          traceLimit: 25
-        })
-      : compose;
+  let _compose = compose;
+
+  // if (process.env.NODE_ENV !== 'production') {
+  if (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__) {
+    const composeWithDevTools = require('redux-devtools-extension').default;
+    _compose = composeWithDevTools({
+      name: 'app-review',
+      trace: true,
+      traceLimit: 25
+    });
+  }
 
   const enhancer = _compose(applyMiddleware(thunk, onStartApp));
   const store = createStore(rootReducer, preloadedState, enhancer);

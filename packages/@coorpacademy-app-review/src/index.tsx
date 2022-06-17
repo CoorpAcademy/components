@@ -37,6 +37,12 @@ const AppRevision = ({options}: Props) => {
 
 // -----------------------------------------------------------------------------
 
+declare global {
+  interface Window {
+    __REDUX_DEVTOOLS_EXTENSION__?: boolean;
+  }
+}
+
 type Props = {options: AppOptions};
 
 export type AppOptions = {
