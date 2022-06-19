@@ -11,22 +11,17 @@ const preloadedState: unknown = undefined;
 
 // -----------------------------------------------------------------------------
 
-export default function configureStore(): Store<EmptyObject & StoreState, AnyAction> & {
-  dispatch: {};
-} {
-  // let _compose = compose;
-
-  // if (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__) {
-  //   const {composeWithDevTools} = await import('redux-devtools-extension');
-  //   _compose = composeWithDevTools({
-  //     name: 'app-review',
-  //     trace: true,
-  //     traceLimit: 25
-  //   });
-  // }
-  const {composeWithDevTools} = await import('redux-devtools-extension');
+export default async function configureStore(): Promise<
+  Store<EmptyObject & StoreState, AnyAction> & {
+    dispatch: {};
+  }
+> {
+  const isExtensionEnabled = typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION__;
+  const isProd = process.env.NODE_ENV !== 'production';
+  // eslint-disable-next-line node/no-unsupported-features/es-syntax, import/dynamic-import-chunkname
+  const {composeWithDevTools} = isProd ? null : await import('redux-devtools-extension');
   const _compose =
-    process.env.NODE_ENV !== 'production'
+    !isProd && isExtensionEnabled
       ? composeWithDevTools({
           name: 'app-review',
           trace: true,

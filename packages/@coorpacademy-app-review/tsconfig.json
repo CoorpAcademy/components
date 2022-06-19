@@ -9,6 +9,7 @@
     "src/**/*.js",
   ],
   "compilerOptions": {
+    "module": "ES2020",
     "rootDir": "src",
     "declaration": true,
     "declarationMap": true,
