@@ -130,6 +130,47 @@ export const computeNextStepAfterAnswer = (
   };
 };
 
+export const computeNextStepAfterAnswerForReview = (
+  config: Config,
+  state: State,
+  availableContent: AvailableContent,
+  currentSlide: Slide,
+  action: PartialAnswerAction
+): AnswerAction | null => {
+  const answerIsCorrect =
+    action.payload.godMode || checkAnswer(config, currentSlide.question, action.payload.answer);
+
+  console.log('answerIsCorrect', answerIsCorrect);
+
+  const actionWithIsCorrect: PartialAnswerActionWithIsCorrect = {
+    type: 'answer',
+    payload: {
+      answer: action.payload.answer,
+      content: action.payload.content,
+      godMode: action.payload.godMode,
+      isCorrect: answerIsCorrect
+    }
+  };
+
+  const stepResult = computeNextStepForReview(config, state, availableContent, actionWithIsCorrect);
+  if (!stepResult) {
+    return null;
+  }
+
+  const {nextContent, instructions, isCorrect} = stepResult;
+  return {
+    type: 'answer',
+    payload: {
+      answer: action.payload.answer,
+      content: action.payload.content,
+      godMode: action.payload.godMode,
+      nextContent,
+      isCorrect,
+      instructions
+    }
+  };
+};
+
 export const computeNextStepOnAcceptExtraLife = (
   config: Config,
   state: State,

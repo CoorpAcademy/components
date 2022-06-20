@@ -360,8 +360,12 @@ export const computeNextStep = (
 export const computeNextStepForReview = (
   config: Config,
   _state: State | null,
-  availableContent: AvailableContent
+  availableContent: AvailableContent,
+  partialAction: PartialAction
 ): Result => {
+  const action = extendPartialAction(partialAction, _state);
+  const isCorrect = !!action && action.type === 'answer' && !!action.payload.isCorrect;
+
   const nextSlide = get(['0', 'slides', '0'], availableContent);
   if (!nextSlide) {
     return null;
@@ -373,6 +377,6 @@ export const computeNextStepForReview = (
       ref: nextSlide._id
     },
     instructions: null,
-    isCorrect: false
+    isCorrect
   };
 };
