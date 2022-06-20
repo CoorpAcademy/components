@@ -46,6 +46,7 @@ export type AUDIO = 'audio';
 export type SCORM = 'scorm';
 export type ARTICLE = 'article';
 export type PODCAST = 'podcast';
+export type SKILL = 'skill';
 export type ContentType =
   | DISCIPLINE
   | CHAPTER
@@ -60,7 +61,8 @@ export type ContentType =
   | VIDEO
   | SCORM
   | PODCAST
-  | ARTICLE;
+  | ARTICLE
+  | SKILL;
 
 export type LessonType = VIDEO | PDF | IMG;
 
@@ -408,10 +410,10 @@ export type Slide = {|
   lessons: Array<Lesson>
 |};
 
-export type ChapterContent = {|
+export type ContentContainer = {|
   ref: string,
   slides: Array<Slide>,
   rules: Array<ChapterRule> | null
 |};
 
-export type AvailableContent = Array<ChapterContent>;
+export type AvailableContent = Array<ContentContainer>;

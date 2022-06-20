@@ -1,7 +1,31 @@
 // @flow
 import {getConfig} from '../config';
-import type {AvailableContent, GenericContent, Progression, Engine, EngineConfig} from '../types';
-import {computeInitialStep} from '../compute-next-step';
+import type {
+  Action,
+  AvailableContent,
+  Config,
+  GenericContent,
+  Progression,
+  Engine,
+  EngineConfig
+} from '../types';
+import {computeInitialStep, computeInitialStepForReview} from '../compute-next-step';
+
+const getActions = (
+  engine: Engine,
+  config: Config,
+  availableContent: AvailableContent
+): Array<Action> => {
+  if (engine.ref === 'external') {
+    return [];
+  }
+
+  if (engine.ref === 'review') {
+    return [computeInitialStepForReview(config, availableContent)];
+  }
+
+  return [computeInitialStep(config, availableContent)];
+};
 
 const createProgression = (
   engine: Engine,
@@ -13,6 +37,7 @@ const createProgression = (
     ...getConfig({ref: engine.ref, version: engine.version || 'latest'}),
     ...engineOptions
   };
+
   return {
     engine: {
       ...engine,
@@ -20,7 +45,7 @@ const createProgression = (
     },
     content,
     engineOptions,
-    actions: engine.ref === 'external' ? [] : [computeInitialStep(config, availableContent)]
+    actions: getActions(engine, config, availableContent)
   };
 };
 

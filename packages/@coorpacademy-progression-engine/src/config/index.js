@@ -4,10 +4,12 @@ import type {Config, Engine, Progression} from '../types';
 import microlearning from './microlearning';
 import learner from './learner';
 import externalConfig from './external';
+import review from './review';
 
 const engineConfigurations = {
   microlearning,
   learner,
+  review,
   external: externalConfig
 };
 

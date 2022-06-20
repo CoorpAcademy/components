@@ -15,7 +15,9 @@ import type {
   Slide
 } from '../types';
 import checkAnswer from '../check-answer';
-import computeNextStep, {
+import {
+  computeNextStep,
+  computeNextStepForReview,
   type PartialAnswerActionWithIsCorrect,
   type PartialExtraLifeAcceptedAction
 } from './compute-next-step';
@@ -51,6 +53,35 @@ export const computeInitialStep = (
   }
 
   const {nextContent, instructions} = initialStep;
+  return {
+    type: 'move',
+    payload: {
+      instructions,
+      nextContent
+    }
+  };
+};
+
+export const computeInitialStepForReview = (
+  config: Config,
+  availableContent: AvailableContent = []
+): MoveAction => {
+  const defaultSuccess = {
+    type: 'move',
+    payload: {
+      nextContent: {
+        type: 'success',
+        ref: 'successExitNode'
+      },
+      instructions: null
+    }
+  };
+
+  if (isEmpty(availableContent)) return defaultSuccess;
+  const initialStep = computeNextStepForReview(config, null, availableContent);
+  if (!initialStep) return defaultSuccess;
+  const {instructions, nextContent} = initialStep;
+
   return {
     type: 'move',
     payload: {

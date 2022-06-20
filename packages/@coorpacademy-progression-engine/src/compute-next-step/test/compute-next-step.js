@@ -4,7 +4,8 @@ import {filter, concat} from 'lodash/fp';
 
 import {getConfig} from '../../config';
 import type {AvailableContent, Config, State} from '../../types';
-import computeNextStep, {
+import {
+  computeNextStep,
   nextSlidePool,
   computeNextStepForNewChapter,
   prepareStateToSwitchChapters

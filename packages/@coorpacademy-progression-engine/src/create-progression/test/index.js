@@ -107,6 +107,41 @@ test('should create a new progression for external engine', t => {
   });
 });
 
+test('should create a new progression for review engine', t => {
+  const engine: Engine = {
+    ref: 'review',
+    version: 'latest'
+  };
+  const content: GenericContent = {
+    ref: 'skill_41BBqFKoS',
+    type: 'skill'
+  };
+  const engineOptions: EngineConfig = {
+    version: '1'
+  };
+  const progression = createProgression(engine, content, engineOptions, availableContentWithRules);
+  if (!progression) {
+    throw new Error('progression should not be falsy');
+  }
+  t.deepEqual(progression, {
+    engine: {ref: 'review', version: '1'},
+    content: {ref: 'skill_41BBqFKoS', type: 'skill'},
+    engineOptions: {version: '1'},
+    actions: [
+      {
+        type: 'move',
+        payload: {
+          nextContent: {
+            type: 'slide',
+            ref: '1.A1.1'
+          },
+          instructions: null
+        }
+      }
+    ]
+  });
+});
+
 test('should create a new progression with a custom version of the engine', t => {
   const engine: Engine = {
     ref: 'learner',
