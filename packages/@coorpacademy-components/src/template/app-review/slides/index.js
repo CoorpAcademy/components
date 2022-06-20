@@ -41,6 +41,7 @@ const buildSlide = (
   validate,
   validateSlide,
   finishedSlides,
+  loadNextSlide,
   correctionPopinProps = {}
 ) => {
   const {hidden, endReview, position, action, validationResult, question, answer} = slidesState.get(
@@ -123,7 +124,7 @@ const buildSlide = (
           finishedSlides
           // current: finishedSlides.size === HIGHEST_INDEX && validationResult !== 'success'
         };
-        next.onClick({slidesPayload, stepItemsPayload});
+        loadNextSlide({slidesPayload, stepItemsPayload});
       },
       label: next && next.label,
       'data-name': `next-question-button-${slideNumber}`,
@@ -204,7 +205,8 @@ const SlidesReview = (
     stepItems,
     reviewStatus,
     congratsProps,
-    validateSlide
+    validateSlide,
+    loadNextSlide
   },
   context
 ) => {
@@ -237,14 +239,23 @@ const SlidesReview = (
           primarySkinColor,
           validate,
           validateSlide,
-          correctionPopinProps,
-          finishedSlides
+          finishedSlides,
+          loadNextSlide,
+          correctionPopinProps
         )
       );
     }
 
     return StackedSlides;
-  }, [slides, primarySkinColor, validate, validateSlide, correctionPopinProps, finishedSlides]);
+  }, [
+    slides,
+    primarySkinColor,
+    validate,
+    validateSlide,
+    correctionPopinProps,
+    finishedSlides,
+    loadNextSlide
+  ]);
 
   // ||-------> transform the step items state (Map structure) to an Array
   const stepItemsArray = useMemo(() => {

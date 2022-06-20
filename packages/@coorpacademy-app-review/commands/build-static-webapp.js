@@ -1,8 +1,8 @@
-import esbuild from 'esbuild';
-import svgrPlugin from 'esbuild-plugin-svgr';
-import cssModulesPlugin from 'esbuild-css-modules-plugin';
-import postcssValuesReplace from 'postcss-modules-values-replace';
-import dotenv from 'dotenv';
+const esbuild = require('esbuild');
+const svgrPlugin = require('esbuild-plugin-svgr');
+const cssModulesPlugin = require('esbuild-css-modules-plugin');
+const postcssValuesReplace = require('postcss-modules-values-replace');
+const dotenv = require('dotenv');
 
 // -----------------------------------------------------------------------------
 
@@ -13,7 +13,7 @@ dotenv.config();
 
 // -----------------------------------------------------------------------------
 
-export const build = () => {
+const build = () => {
   console.log('☢️  building', {entry});
 
   return esbuild.build({
@@ -54,3 +54,7 @@ if (isRunner()) {
     return process.exit(0);
   });
 }
+
+// -----------------------------------------------------------------------------
+
+module.exports = build;

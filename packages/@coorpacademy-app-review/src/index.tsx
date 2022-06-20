@@ -9,6 +9,7 @@ import {getCurrentViewName} from './reducers/navigation';
 import {SlidesViewProps} from './types/views';
 import {AppOptions} from './types/common';
 import {StoreState} from './types/store-state';
+import {congratsProps, correctionPopinProps} from './temp-fixture';
 
 // -----------------------------------------------------------------------------
 
@@ -35,7 +36,16 @@ const mapStateToProps = (state: StoreState): Props => ({
     slides: state.slides,
     validate: {
       label: '__validate'
-    }
+    },
+    finishedSlides: state.finishedSlides,
+    stepItems: state.stepItems,
+    reviewStatus: state.reviewStatus,
+    // eslint-disable-next-line no-console
+    validateSlide: () => console.log('HEY'),
+    correctionPopinProps,
+    congratsProps,
+    // eslint-disable-next-line no-console
+    loadNextSlide: () => console.log('HEY')
   }
 });
 

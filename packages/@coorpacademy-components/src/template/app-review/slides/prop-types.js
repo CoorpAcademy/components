@@ -26,9 +26,7 @@ export default {
     information: ReviewCorrectionPopin.propTypes.information,
     next: PropTypes.shape({
       label: PropTypes.string,
-      'aria-label': PropTypes.string,
-      // next on click uses the Dispatchers to update on next slide click
-      onClick: PropTypes.func
+      'aria-label': PropTypes.string
     }),
     successLabel: ReviewCorrectionPopin.propTypes.resultLabel,
     failureLabel: ReviewCorrectionPopin.propTypes.resultLabel
@@ -36,5 +34,7 @@ export default {
   congratsProps: PropTypes.shape(ReviewCongrats.propTypes),
   // ---------------
   // Dispatcher
-  validateSlide: PropTypes.func.isRequired
+  validateSlide: PropTypes.func.isRequired,
+  // next on click uses the Dispatchers to update on next slide click
+  loadNextSlide: PropTypes.func
 };
