@@ -82,36 +82,7 @@ const buildSlide = (
       const stepItemsPayload = {
         stepNumber: slideNumber
       };
-      // divide the payloads, stepItemsPayload pb not needed as it uses the slideNumber
       await validateSlide({slidesPayload, finishedSlidesPayload, stepItemsPayload});
-      // updateSlides([
-      //   slideNumber,
-      //   {
-      //     hidden,
-      //     position,
-      //     validationResult: result,
-      //     answer,
-      //     question,
-      //     nextSlide,
-      //     numberOfFinishedSlides: finishedSlides.size,
-      //     endReview: _endReview
-      //   }
-      // ]);
-      // on endReview, this gives some time for the slides to slide out && then launch
-      // the 'finished' logic as it would happen when normally finishing the review
-      // if (_endReview) {
-      //   updateReviewState('finished');
-      //   setTimeout(() => updateShouldMountSlides(false), 2000);
-      // }
-      // updateStepItems([
-      //   slideNumber,
-      //   {
-      //     icon: result === 'success' ? ICON_VALUES.right : ICON_VALUES.wrong,
-      //     finishedSlides
-      //   }
-      // ]);
-      // only stores successful slides
-      // if (result === 'success') updateFinishedSlides([slideNumber, true]);
     },
     'aria-label': validateLabel,
     label: validateLabel,
@@ -154,34 +125,6 @@ const buildSlide = (
         };
         next.onClick({slidesPayload, stepItemsPayload});
       },
-      // onClick: () => {
-      //   updateSlides([
-      //     slideNumber,
-      //     {
-      //       hidden: validationResult === 'success',
-      //       position: HIGHEST_INDEX - finishedSlides.size,
-      //       validationResult,
-      //       action: validationResult === 'success' ? 'unstack' : 'restack',
-      //       answer,
-      //       question,
-      //       numberOfFinishedSlides: finishedSlides.size,
-      //       endReview
-      //     }
-      //   ]);
-      //   updateStepItems([
-      //     slideNumber,
-      //     {
-      //       setNext: true,
-      //       finishedSlides,
-      //       current: finishedSlides.size === HIGHEST_INDEX && validationResult !== 'success'
-      //     }
-      //   ]);
-      //   // if slides are successfully reviewed, then trigger the 'finished' state
-      // if (finishedSlides.size === TOTAL_SLIDES_STACK) {
-      //   updateReviewState('finished');
-      //   setTimeout(() => updateShouldMountSlides(false), 2000);
-      // }
-      // },
       label: next && next.label,
       'data-name': `next-question-button-${slideNumber}`,
       'aria-label': next && next['aria-label']
@@ -268,14 +211,6 @@ const SlidesReview = (
   const {skin} = context;
   const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
 
-  // const [finishedSlides, updateFinishedSlides] = useReducer(finishedSlidesReducer, new Map());
-
-  // const [slidesState, updateSlides] = useReducer(slidesStateReducer, slidesInitialState);
-
-  // const [stepItemsState, updateStepItems] = useReducer(stepItemsReducer, stepItemsInitialState);
-
-  // const [reviewState, updateReviewState] = useState('ongoing');
-
   /*
     ||-------> the slides have an slightly longer lifespan than the "ongoing" review State,
     after reviewState changes to "finished" the slides don't have to unmount until the last
@@ -285,9 +220,6 @@ const SlidesReview = (
   const [shouldMountSlides, updateShouldMountSlides] = useState(true);
 
   useEffect(() => {
-    // enzyme does not handle well the state update after an async useEffect in tests
-    // to remove when the migration towards @testing-library/react is done
-    /* istanbul ignore next */
     if (reviewStatus === 'finished' || finishedSlides.size === TOTAL_SLIDES_STACK) {
       setTimeout(() => updateShouldMountSlides(false), 2000);
     }
