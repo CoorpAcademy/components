@@ -78,7 +78,7 @@ export const computeInitialStepForReview = (
   };
 
   if (isEmpty(availableContent)) return defaultSuccess;
-  const initialStep = computeNextStepForReview(config, null, availableContent);
+  const initialStep = computeNextStepForReview(config, null, availableContent, null);
   if (!initialStep) return defaultSuccess;
   const {instructions, nextContent} = initialStep;
 
@@ -154,7 +154,20 @@ export const computeNextStepAfterAnswerForReview = (
 
   const stepResult = computeNextStepForReview(config, state, availableContent, actionWithIsCorrect);
   if (!stepResult) {
-    return null;
+    return {
+      type: 'answer',
+      payload: {
+        answer: action.payload.answer,
+        content: action.payload.content,
+        godMode: action.payload.godMode,
+        nextContent: {
+          type: 'success',
+          ref: 'successExitNode'
+        },
+        isCorrect: answerIsCorrect,
+        instructions: null
+      }
+    };
   }
 
   const {nextContent, instructions, isCorrect} = stepResult;

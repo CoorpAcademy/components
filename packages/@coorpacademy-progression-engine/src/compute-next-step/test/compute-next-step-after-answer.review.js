@@ -55,6 +55,53 @@ test('should return the next slide when user has answered the first slide and th
   });
 });
 
+test('should return the exitNode when user has only one question correct and there is no available slide', t => {
+  const partialAction = {
+    type: 'answer',
+    payload: {
+      content: {
+        ref: '1.A1.1',
+        type: 'slide'
+      },
+      answer: ['foo', 'bar'],
+      godMode: false
+    }
+  };
+
+  const availableContent: AvailableContent = [
+    {
+      ref: 'skill_41BBqFKoS',
+      slides: [],
+      rules: null
+    }
+  ];
+
+  const nextStep = computeNextStepAfterAnswerForReview(
+    config,
+    firstState,
+    availableContent,
+    allSlides[0],
+    partialAction
+  );
+  t.deepEqual(nextStep, {
+    type: 'answer',
+    payload: {
+      answer: ['foo', 'bar'],
+      content: {
+        ref: '1.A1.1',
+        type: 'slide'
+      },
+      godMode: false,
+      nextContent: {
+        type: 'success',
+        ref: 'successExitNode'
+      },
+      isCorrect: true,
+      instructions: null
+    }
+  });
+});
+
 /*
 test('should return the exitNode when user has not finished the 5 slides, all are true and there is no available slide', t => {});
 
