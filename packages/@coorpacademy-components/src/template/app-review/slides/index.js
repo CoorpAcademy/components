@@ -1,10 +1,9 @@
-import React, {useState, useReducer, useMemo} from 'react';
+import React, {useState, useMemo, useEffect} from 'react';
 import classnames from 'classnames';
 import get from 'lodash/fp/get';
 import getOr from 'lodash/fp/getOr';
 import isNil from 'lodash/fp/isNil';
 import ReviewBackground from '../../../atom/review-background';
-import {ICON_VALUES} from '../../../atom/review-header-step-item';
 import ReviewCongrats from '../../../organism/review-congrats';
 import ReviewHeader from '../../../organism/review-header';
 import ReviewCorrectionPopin from '../../../molecule/review-correction-popin';
@@ -38,15 +37,10 @@ const getSlideAnimation = (action, position, hidden) => {
 const buildSlide = (
   slideNumber,
   slidesState,
-  updateSlides,
   primarySkinColor,
   validate,
   validateSlide,
-  updateStepItems,
   finishedSlides,
-  updateFinishedSlides,
-  updateReviewState,
-  updateShouldMountSlides,
   correctionPopinProps = {}
 ) => {
   const {hidden, endReview, position, action, validationResult, question, answer} = slidesState.get(
@@ -67,35 +61,57 @@ const buildSlide = (
       be handled on the next slide logic but the content will be carried from here.
     */
     onClick: async () => {
-      const {validationResult: result, nextSlide, endReview: _endReview} = await validateSlide();
-      updateSlides([
+      const slidesPayload = {
         slideNumber,
-        {
+        newSlideContent: {
           hidden,
-          position,
-          validationResult: result,
-          answer,
-          question,
-          nextSlide,
-          numberOfFinishedSlides: finishedSlides.size,
-          endReview: _endReview
-        }
-      ]);
+          position
+          // validationResult: 'success' | 'failure', // TO CHECK w/ the api
+          // endReview: boolean;
+          // questionText: string;
+          // answerUI: AnswerUI;
+          // nextSlide: Omit<Slide, 'endReview' | 'hidden' | 'position' | 'nextSlide'>;
+        },
+        numberOfFinishedSlides: finishedSlides.size
+        // nextSlide: WithRequired<Slide['nextSlide'], 'answerUI' | 'questionText'>
+      };
+      const finishedSlidesPayload = {
+        slideNumber,
+        value: true
+      };
+      const stepItemsPayload = {
+        stepNumber: slideNumber
+      };
+      // divide the payloads, stepItemsPayload pb not needed as it uses the slideNumber
+      await validateSlide({slidesPayload, finishedSlidesPayload, stepItemsPayload});
+      // updateSlides([
+      //   slideNumber,
+      //   {
+      //     hidden,
+      //     position,
+      //     validationResult: result,
+      //     answer,
+      //     question,
+      //     nextSlide,
+      //     numberOfFinishedSlides: finishedSlides.size,
+      //     endReview: _endReview
+      //   }
+      // ]);
       // on endReview, this gives some time for the slides to slide out && then launch
       // the 'finished' logic as it would happen when normally finishing the review
-      if (_endReview) {
-        updateReviewState('finished');
-        setTimeout(() => updateShouldMountSlides(false), 2000);
-      }
-      updateStepItems([
-        slideNumber,
-        {
-          icon: result === 'success' ? ICON_VALUES.right : ICON_VALUES.wrong,
-          finishedSlides
-        }
-      ]);
+      // if (_endReview) {
+      //   updateReviewState('finished');
+      //   setTimeout(() => updateShouldMountSlides(false), 2000);
+      // }
+      // updateStepItems([
+      //   slideNumber,
+      //   {
+      //     icon: result === 'success' ? ICON_VALUES.right : ICON_VALUES.wrong,
+      //     finishedSlides
+      //   }
+      // ]);
       // only stores successful slides
-      if (result === 'success') updateFinishedSlides([slideNumber, true]);
+      // if (result === 'success') updateFinishedSlides([slideNumber, true]);
     },
     'aria-label': validateLabel,
     label: validateLabel,
@@ -121,33 +137,51 @@ const buildSlide = (
         from the content carried from the validate action.
       */
       onClick: () => {
-        updateSlides([
+        const slidesPayload = {
           slideNumber,
-          {
-            hidden: validationResult === 'success',
-            position: HIGHEST_INDEX - finishedSlides.size,
-            validationResult,
-            action: validationResult === 'success' ? 'unstack' : 'restack',
-            answer,
-            question,
-            numberOfFinishedSlides: finishedSlides.size,
-            endReview
-          }
-        ]);
-        updateStepItems([
-          slideNumber,
-          {
-            setNext: true,
-            finishedSlides,
-            current: finishedSlides.size === HIGHEST_INDEX && validationResult !== 'success'
-          }
-        ]);
-        // if slides are successfully reviewed, then trigger the 'finished' state
-        if (finishedSlides.size === TOTAL_SLIDES_STACK) {
-          updateReviewState('finished');
-          setTimeout(() => updateShouldMountSlides(false), 2000);
-        }
+          newSlideContent: {
+            // hidden, // validationResult === 'success',
+            position: HIGHEST_INDEX - finishedSlides.size
+            // validationResult
+            // animationType: validationResult === 'success' ? 'unstack' : 'restack'
+          },
+          numberOfFinishedSlides: finishedSlides.size
+        };
+        const stepItemsPayload = {
+          stepNumber: slideNumber,
+          finishedSlides
+          // current: finishedSlides.size === HIGHEST_INDEX && validationResult !== 'success'
+        };
+        next.onClick({slidesPayload, stepItemsPayload});
       },
+      // onClick: () => {
+      //   updateSlides([
+      //     slideNumber,
+      //     {
+      //       hidden: validationResult === 'success',
+      //       position: HIGHEST_INDEX - finishedSlides.size,
+      //       validationResult,
+      //       action: validationResult === 'success' ? 'unstack' : 'restack',
+      //       answer,
+      //       question,
+      //       numberOfFinishedSlides: finishedSlides.size,
+      //       endReview
+      //     }
+      //   ]);
+      //   updateStepItems([
+      //     slideNumber,
+      //     {
+      //       setNext: true,
+      //       finishedSlides,
+      //       current: finishedSlides.size === HIGHEST_INDEX && validationResult !== 'success'
+      //     }
+      //   ]);
+      //   // if slides are successfully reviewed, then trigger the 'finished' state
+      // if (finishedSlides.size === TOTAL_SLIDES_STACK) {
+      //   updateReviewState('finished');
+      //   setTimeout(() => updateShouldMountSlides(false), 2000);
+      // }
+      // },
       label: next && next.label,
       'data-name': `next-question-button-${slideNumber}`,
       'aria-label': next && next['aria-label']
@@ -216,104 +250,6 @@ const buildSlide = (
   );
 };
 
-// ||-------> Handles the updates of a given slide (using the 'id' in the action),
-// & then updates de remaining slides if this given change should impact their content
-const slidesStateReducer = (state, action) => {
-  const [id, value] = action;
-  const _state = new Map();
-
-  const {nextSlide, numberOfFinishedSlides, ...newValue} = value;
-
-  // eslint-disable-next-line fp/no-loops
-  for (const [index, previousValue] of state) {
-    if (index === id) {
-      // update the given slide
-      if (nextSlide && numberOfFinishedSlides === HIGHEST_INDEX) {
-        _state.set(index, {
-          ...previousValue,
-          nextSlide,
-          position: newValue.position,
-          validationResult: newValue.validationResult
-        });
-      } else if (numberOfFinishedSlides === HIGHEST_INDEX && previousValue.nextSlide) {
-        _state.set(index, {...previousValue.nextSlide, position: previousValue.position});
-      } else _state.set(id, newValue);
-    } else {
-      // updates the rest of the slides here
-      const {hidden, position, answer, question} = previousValue;
-      if (nextSlide) {
-        _state.set(index, {...nextSlide, endReview: newValue.endReview, hidden, position});
-      } else {
-        _state.set(index, {
-          hidden,
-          position: position - 1,
-          answer,
-          question,
-          endReview: newValue.endReview
-        });
-      }
-    }
-  }
-
-  return _state;
-};
-
-// ||-------> aux function, finds the consecutive index to loop from 0 to HIGHEST_INDEX (4) & again to 0
-const getNextIndex = currentIndex => (currentIndex === HIGHEST_INDEX ? 0 : currentIndex + 1);
-
-// ||-------> calculates which should be the next step to visit (as there can be already answered slides &&
-// they have to be skipped)
-const calculateNextStepIndex = (currentSlideIndex, finishedSlides, lastVisitedIndex = null) => {
-  // only one slide remaining
-  if (lastVisitedIndex === currentSlideIndex) {
-    return currentSlideIndex;
-  }
-
-  const indexToVisit = getNextIndex(isNil(lastVisitedIndex) ? currentSlideIndex : lastVisitedIndex);
-
-  return finishedSlides.has(indexToVisit)
-    ? calculateNextStepIndex(currentSlideIndex, finishedSlides, indexToVisit)
-    : indexToVisit;
-};
-
-// ||-------> Handles the updates of a given step item (using the 'id' in the action),
-// & then updates de remaining step items if this given change should impact their content
-const stepItemsReducer = (state, action) => {
-  const [id, value] = action;
-  const {setNext, finishedSlides, ...rest} = value;
-  const _state = new Map();
-  const nextIndex = !rest.current && setNext ? calculateNextStepIndex(id, finishedSlides) : null;
-
-  // eslint-disable-next-line fp/no-loops
-  for (const [index, previousValue] of state) {
-    if (id === index)
-      _state.set(id, {
-        ...previousValue,
-        ...rest
-      });
-    else if (setNext && nextIndex === index) {
-      _state.set(index, {...previousValue, current: true});
-    } else _state.set(index, previousValue);
-  }
-
-  return _state;
-};
-
-// ||-------> Stores the correctly answered (finished) slides, the initial state is an empty Map
-const finishedSlidesReducer = (state, action) => {
-  const [id, value] = action;
-  const _state = new Map();
-
-  // eslint-disable-next-line fp/no-loops
-  for (const [index, previousValue] of state) {
-    _state.set(index, previousValue);
-  }
-
-  _state.set(id, value);
-
-  return _state;
-};
-
 const SlidesReview = (
   {
     headerProps,
@@ -321,6 +257,9 @@ const SlidesReview = (
     validate,
     correctionPopinProps,
     slides,
+    finishedSlides,
+    stepItems,
+    reviewStatus,
     congratsProps,
     validateSlide
   },
@@ -329,35 +268,13 @@ const SlidesReview = (
   const {skin} = context;
   const primarySkinColor = useMemo(() => getOr('#00B0FF', 'common.primary', skin), [skin]);
 
-  // ||-------> States init: build initial states && memoize them + reducers creation
-  const slidesInitialState = useMemo(() => {
-    const states = new Map();
-    const {answerUI: answer, questionText: question} = slides;
-    // eslint-disable-next-line fp/no-loops
-    for (let index = 0; index < TOTAL_SLIDES_STACK; index++) {
-      const content = index === 0 ? {answer, question} : {};
-      states.set(index, {...content, hidden: false, position: index});
-    }
-    return states;
-  }, [slides]);
+  // const [finishedSlides, updateFinishedSlides] = useReducer(finishedSlidesReducer, new Map());
 
-  const stepItemsInitialState = useMemo(() => {
-    const states = new Map();
-    // eslint-disable-next-line fp/no-loops
-    for (let index = 0; index < TOTAL_SLIDES_STACK; index++) {
-      const current = index === 0;
-      states.set(index, {current, value: `${index + 1}`, icon: null});
-    }
-    return states;
-  }, []);
+  // const [slidesState, updateSlides] = useReducer(slidesStateReducer, slidesInitialState);
 
-  const [finishedSlides, updateFinishedSlides] = useReducer(finishedSlidesReducer, new Map());
+  // const [stepItemsState, updateStepItems] = useReducer(stepItemsReducer, stepItemsInitialState);
 
-  const [slidesState, updateSlides] = useReducer(slidesStateReducer, slidesInitialState);
-
-  const [stepItemsState, updateStepItems] = useReducer(stepItemsReducer, stepItemsInitialState);
-
-  const [reviewState, updateReviewState] = useState('ongoing');
+  // const [reviewState, updateReviewState] = useState('ongoing');
 
   /*
     ||-------> the slides have an slightly longer lifespan than the "ongoing" review State,
@@ -367,6 +284,15 @@ const SlidesReview = (
   */
   const [shouldMountSlides, updateShouldMountSlides] = useState(true);
 
+  useEffect(() => {
+    // enzyme does not handle well the state update after an async useEffect in tests
+    // to remove when the migration towards @testing-library/react is done
+    /* istanbul ignore next */
+    if (reviewStatus === 'finished' || finishedSlides.size === TOTAL_SLIDES_STACK) {
+      setTimeout(() => updateShouldMountSlides(false), 2000);
+    }
+  }, [finishedSlides.size, reviewStatus]);
+
   // ||-------> build each slide, passing down the reducers that will act on validation & next clicks
   const builtStackedSlides = useMemo(() => {
     const StackedSlides = [];
@@ -375,42 +301,30 @@ const SlidesReview = (
       StackedSlides.push(
         buildSlide(
           slideNumber,
-          slidesState,
-          updateSlides,
+          slides,
           primarySkinColor,
           validate,
           validateSlide,
           correctionPopinProps,
-          updateStepItems,
-          finishedSlides,
-          updateFinishedSlides,
-          updateReviewState,
-          updateShouldMountSlides
+          finishedSlides
         )
       );
     }
 
     return StackedSlides;
-  }, [
-    slidesState,
-    primarySkinColor,
-    validate,
-    validateSlide,
-    correctionPopinProps,
-    finishedSlides
-  ]);
+  }, [slides, primarySkinColor, validate, validateSlide, correctionPopinProps, finishedSlides]);
 
   // ||-------> transform the step items state (Map structure) to an Array
   const stepItemsArray = useMemo(() => {
     // eslint-disable-next-line unicorn/prefer-spread
-    return Array.from(stepItemsState.values());
-  }, [stepItemsState]);
+    return Array.from(stepItems.values());
+  }, [stepItems]);
 
   const _headerProps = {
     ...headerProps,
     steps: stepItemsArray,
     key: 'review-header',
-    hiddenSteps: reviewState !== 'ongoing'
+    hiddenSteps: reviewStatus !== 'ongoing'
   };
 
   return (
@@ -442,7 +356,7 @@ const SlidesReview = (
         </div>
       ) : null}
 
-      {reviewState === 'finished' ? (
+      {reviewStatus === 'finished' ? (
         <div className={style.congrats}>
           <ReviewCongrats {...congratsProps} />
         </div>

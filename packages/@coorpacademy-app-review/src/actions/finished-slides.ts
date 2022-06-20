@@ -2,7 +2,7 @@ import {UpdateFinishedSlidesPayload} from '../types/finished-slides';
 
 // -----------------------------------------------------------------------------
 
-export const UPDATE_FINISHED_SLIDES = '@@slide/UPDATE_FINISHED_SLIDES';
+export const UPDATE_FINISHED_SLIDES = '@@finished-slides/UPDATE_FINISHED_SLIDES';
 
 // -----------------------------------------------------------------------------
 

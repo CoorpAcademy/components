@@ -1,10 +1,16 @@
-import {ICON_VALUES} from '@coorpacademy/components/es/atom/review-header-step-item';
 import {SlideNumber} from './slides';
 import {FinishedSlides} from './finished-slides';
 
+const ICON_VALUES = {
+  right: 'right',
+  wrong: 'wrong'
+} as const;
+
+type IconValue = keyof typeof ICON_VALUES;
+
 export type StepItem = {
   current: boolean;
-  icon: ICON_VALUES;
+  icon: IconValue;
   value: string;
 };
 
@@ -12,7 +18,7 @@ export type StepItems = Map<SlideNumber, StepItem>;
 
 export type UpdateStepItemsOnValidationClickPayload = {
   stepNumber: SlideNumber;
-  icon: ICON_VALUES;
+  icon: IconValue;
 };
 
 export type UpdateStepItemsOnNextClickPayload = {

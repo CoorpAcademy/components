@@ -5,8 +5,8 @@ import {
 
 // -----------------------------------------------------------------------------
 
-export const UPDATE_STEP_ITEMS_ON_VALIDATION = '@@slide/UPDATE_STEP_ITEMS_ON_VALIDATION';
-export const UPDATE_STEP_ITEMS_ON_NEXT = '@@slide/UPDATE_STEP_ITEMS_ON_NEXT';
+export const UPDATE_STEP_ITEMS_ON_VALIDATION = '@@step-items/UPDATE_STEP_ITEMS_ON_VALIDATION';
+export const UPDATE_STEP_ITEMS_ON_NEXT = '@@step-items/UPDATE_STEP_ITEMS_ON_NEXT';
 
 // -----------------------------------------------------------------------------
 
