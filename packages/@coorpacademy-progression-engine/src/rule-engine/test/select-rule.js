@@ -19,7 +19,8 @@ const createState = (nextContent): State => ({
   remainingLifeRequests: 0,
   allAnswers: [],
   hasViewedAResourceAtThisStep: false,
-  variables: {}
+  variables: {},
+  pendingSlides: []
 });
 
 test('should return null if no rules match', t => {
@@ -52,7 +53,8 @@ const defaultState: State = {
   variables: {},
   remainingLifeRequests: 0,
   allAnswers: [],
-  hasViewedAResourceAtThisStep: false
+  hasViewedAResourceAtThisStep: false,
+  pendingSlides: []
 };
 
 const chapterRules: Array<ChapterRule> = [

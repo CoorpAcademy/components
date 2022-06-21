@@ -287,7 +287,8 @@ const adaptiveState: State = {
   remainingLifeRequests: 1,
   hasViewedAResourceAtThisStep: false,
   allAnswers: [],
-  variables: {}
+  variables: {},
+  pendingSlides: []
 };
 
 test('should return a slide from the list of slides if the current chapter has no rules', t => {

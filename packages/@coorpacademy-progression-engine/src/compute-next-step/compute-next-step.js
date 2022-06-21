@@ -15,9 +15,7 @@ import {
   shuffle,
   includes,
   findIndex,
-  intersection,
-  findLast,
-  every
+  intersection
 } from 'lodash/fp';
 
 import type {
@@ -368,7 +366,6 @@ export const computeNextStepForReview = (
   const action = extendPartialAction(partialAction, _state);
   const isCorrect = !!action && action.type === 'answer' && !!action.payload.isCorrect;
   const state = !_state || !action ? _state : updateState(config, _state, [action]);
-  console.log(state);
 
   const correctAnswers = state ? filter(a => a.isCorrect, state.allAnswers) : [];
   if (correctAnswers.length === config.slidesToComplete) {
@@ -383,20 +380,18 @@ export const computeNextStepForReview = (
   }
 
   const nextSlide = get(['0', 'slides', '0'], availableContent);
+  // state is null during creation, and we can have the extreme case of creation without slide
+  if (!state && !nextSlide) {
+    return null;
+  }
+
   if (state && !nextSlide) {
     // if there is no more slides, two scenarios are possible
     const pendingSlide = head(state.pendingSlides);
 
     // all other questions have been already right answered, so we close the progression
     if (!pendingSlide) {
-      return {
-        nextContent: {
-          type: 'success',
-          ref: 'successExitNode'
-        },
-        instructions: null,
-        isCorrect
-      };
+      return null;
     }
 
     // or there are wrong question that should be reviewed again

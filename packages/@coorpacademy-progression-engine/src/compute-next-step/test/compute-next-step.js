@@ -171,7 +171,8 @@ test('nextSlidePool --> should handle next chapter when no present within availa
     remainingLifeRequests: 1,
     hasViewedAResourceAtThisStep: false,
     allAnswers: [],
-    variables: {}
+    variables: {},
+    pendingSlides: []
   });
 
   const result = nextSlidePool(config, availableContent, state);
@@ -206,7 +207,8 @@ test('computeNextStepForNewChapter --> should return null when computeNextStep r
     remainingLifeRequests: 1,
     hasViewedAResourceAtThisStep: false,
     allAnswers: [],
-    variables: {}
+    variables: {},
+    pendingSlides: []
   });
 
   const chapterRule = {
