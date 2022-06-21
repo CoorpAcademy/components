@@ -4,11 +4,11 @@ import type {AvailableContent, Config} from '../../types';
 import {getConfig} from '../../config';
 import {computeNextStepAfterAnswerForReview} from '..';
 import allSlides from './fixtures/slides';
-import {firstState} from './fixtures/states';
+import {firstStateReview, allRightAnswersBeforeLastStepStateReview} from './fixtures/states';
 
 const config: Config = getConfig({ref: 'review', version: '1'});
 
-test('should return the next slide when user has answered the first slide and there is an available slide', t => {
+/*test('should return the next slide when user has answered the first slide and there is an available slide', t => {
   const partialAction = {
     type: 'answer',
     payload: {
@@ -31,7 +31,7 @@ test('should return the next slide when user has answered the first slide and th
 
   const nextStep = computeNextStepAfterAnswerForReview(
     config,
-    firstState,
+    firstStateReview,
     availableContent,
     allSlides[0],
     partialAction
@@ -78,7 +78,7 @@ test('should return the exitNode when user has only one question correct and the
 
   const nextStep = computeNextStepAfterAnswerForReview(
     config,
-    firstState,
+    firstStateReview,
     availableContent,
     allSlides[0],
     partialAction
@@ -100,11 +100,57 @@ test('should return the exitNode when user has only one question correct and the
       instructions: null
     }
   });
+});*/
+
+test('should return the exitNode when user has not finished the 5 slides, all are true and there is no available slide', t => {
+  const partialAction = {
+    type: 'answer',
+    payload: {
+      content: {
+        ref: '1.A1.5',
+        type: 'slide'
+      },
+      answer: ['foo', 'bar'],
+      godMode: true
+    }
+  };
+
+  const availableContent: AvailableContent = [
+    {
+      ref: 'skill_41BBqFKoS',
+      slides: [],
+      rules: null
+    }
+  ];
+
+  const nextStep = computeNextStepAfterAnswerForReview(
+    config,
+    allRightAnswersBeforeLastStepStateReview,
+    availableContent,
+    allSlides[0],
+    partialAction
+  );
+
+  t.deepEqual(nextStep, {
+    type: 'answer',
+    payload: {
+      answer: ['foo', 'bar'],
+      content: {
+        ref: '1.A1.5',
+        type: 'slide'
+      },
+      godMode: true,
+      nextContent: {
+        type: 'success',
+        ref: 'successExitNode'
+      },
+      isCorrect: true,
+      instructions: null
+    }
+  });
 });
 
 /*
-test('should return the exitNode when user has not finished the 5 slides, all are true and there is no available slide', t => {});
-
 test('should return the successExitNode when user has finished the 5 slides', t => {});
 
 test('should return the next wrong slide when user has finished the 5 slides and has still remaining questions to validate', t => {});
