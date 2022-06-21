@@ -36,7 +36,8 @@ test('should create a state from a progression with no actions', t => {
     remainingLifeRequests: 1,
     hasViewedAResourceAtThisStep: false,
     allAnswers: [],
-    variables: {}
+    variables: {},
+    pendingSlides: []
   });
 });
 
@@ -71,6 +72,7 @@ test('should create a state from a progression with actions', t => {
     allAnswers: [],
     variables: {
       foo: 105
-    }
+    },
+    pendingSlides: []
   });
 });

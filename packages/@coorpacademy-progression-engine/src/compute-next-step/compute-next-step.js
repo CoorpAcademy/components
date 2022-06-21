@@ -359,11 +359,6 @@ export const computeNextStep = (
   return null;
 };
 
-const isSlideAlreadyAnswered = (answers: Array<AnswerRecord>, slideRef: string): boolean => {
-  const lastAnswer = findLast(a => a.slideRef, answers);
-  return !!lastAnswer && !!lastAnswer.isCorrect;
-};
-
 export const computeNextStepForReview = (
   config: Config,
   _state: State | null,
@@ -375,12 +370,25 @@ export const computeNextStepForReview = (
   const state = !_state || !action ? _state : updateState(config, _state, [action]);
   console.log(state);
 
-  if (state && state.step.current === 6) {
-    const slides = state.slides;
-    const answers = state.allAnswers;
-    const allSlidesCorrect = every(slideRef => isSlideAlreadyAnswered(answers, slideRef), slides);
+  const correctAnswers = state ? filter(a => a.isCorrect, state.allAnswers) : [];
+  if (correctAnswers.length === config.slidesToComplete) {
+    return {
+      nextContent: {
+        type: 'success',
+        ref: 'successExitNode'
+      },
+      instructions: null,
+      isCorrect
+    };
+  }
 
-    if (allSlidesCorrect) {
+  const nextSlide = get(['0', 'slides', '0'], availableContent);
+  if (state && !nextSlide) {
+    // if there is no more slides, two scenarios are possible
+    const pendingSlide = head(state.pendingSlides);
+
+    // all other questions have been already right answered, so we close the progression
+    if (!pendingSlide) {
       return {
         nextContent: {
           type: 'success',
@@ -390,11 +398,16 @@ export const computeNextStepForReview = (
         isCorrect
       };
     }
-  }
 
-  const nextSlide = get(['0', 'slides', '0'], availableContent);
-  if (!nextSlide) {
-    return null;
+    // or there are wrong question that should be reviewed again
+    return {
+      nextContent: {
+        type: 'slide',
+        ref: pendingSlide
+      },
+      instructions: null,
+      isCorrect
+    };
   }
 
   return {

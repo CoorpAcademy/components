@@ -140,8 +140,6 @@ export const computeNextStepAfterAnswerForReview = (
   const answerIsCorrect =
     action.payload.godMode || checkAnswer(config, currentSlide.question, action.payload.answer);
 
-  console.log('answerIsCorrect', answerIsCorrect);
-
   const actionWithIsCorrect: PartialAnswerActionWithIsCorrect = {
     type: 'answer',
     payload: {
