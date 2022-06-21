@@ -12,6 +12,7 @@
     "plugin:@coorpacademy/coorpacademy/es20XX",
     "plugin:@coorpacademy/coorpacademy/flowtype",
     "plugin:@coorpacademy/coorpacademy/lodash-fp",
+    "plugin:@coorpacademy/coorpacademy/react",
     "plugin:@coorpacademy/coorpacademy/prettier"
   ],
   "parser": "babel-eslint",
@@ -19,7 +20,7 @@
     "promise/no-native": "off",
     "default-param-last": "warn",
     "flowtype/define-flow-type": "error",
-    "flowtype-errors/enforce-min-coverage": ["error", 70],
+    "flowtype-errors/enforce-min-coverage": ["error", 50],
     "no-shadow": [
       "error",
       { "builtinGlobals": true, "allow": ["T", "location", "find", "name"]}
@@ -28,11 +29,25 @@
       "object": "Object",
       "property": "keys",
       "message": "IE doesn't support Object.keys with non-Object value. Use _.keys instead."
-    }]
+    }],
+    "node/no-unsupported-features/es-syntax": [
+      "error",
+      { "ignores": ["modules"] }
+    ],
+    "@coorpacademy/coorpacademy/no-overwriting-spread": "off",
+    "react/destructuring-assignment": "off",
+    "react/jsx-curly-newline": "off",
+    "react/jsx-max-depth": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/prop-types": "off",
+    "react/self-closing-comp": "off",
   },
   "settings": {
     "flowtype": {
       "onlyFilesWithFlowAnnotation": true
+    },
+    "react": {
+      "version": "detect"
     }
   },
   "overrides": [

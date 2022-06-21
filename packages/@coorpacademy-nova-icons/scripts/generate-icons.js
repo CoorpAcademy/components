@@ -131,7 +131,14 @@ const generateComponent = (
     icon: true,
     dimensions: false,
     native,
-    template: template(replaceColors)
+    template: template(replaceColors),
+    prettierConfig: {
+      singleQuote: true,
+      printWidth: 100,
+      bracketSpacing: false,
+      trailingComma: 'none',
+      arrowParens: 'avoid'
+    }
   };
   const extensionSuffix = (native && '.native') || '';
   const extendedFileName = fileName.replace('.svg', `${extensionSuffix}.js`);
@@ -260,9 +267,9 @@ fs.writeFileSync(
 
 import type {Icon} from './types';
 
-export type {Icon};
-
 ${componentsImports}
+
+export type {Icon};
 
 ${componentsExports}
 `

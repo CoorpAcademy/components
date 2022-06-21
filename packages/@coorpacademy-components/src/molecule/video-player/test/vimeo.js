@@ -1,6 +1,6 @@
 import EventEmitter from 'events'; // eslint-disable-line fp/no-events
-import browserEnv from 'browser-env';
 import test from 'ava';
+import browserEnv from 'browser-env';
 import React from 'react';
 import {mount, configure} from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';

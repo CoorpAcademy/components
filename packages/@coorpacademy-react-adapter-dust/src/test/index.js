@@ -4,20 +4,20 @@ import {createElement} from 'react';
 import {each} from 'lodash/fp';
 import toHelpers from '..';
 
-const macro = (t, {components, template, provider, data}, expected) => {
+const macro = test.macro((t, {components, template, provider, data}, expected) => {
   const helpers = toHelpers(components, provider);
   each(helper => helper(dust), helpers);
   const compiledTemplate = dust.compile(template, 'template');
   dust.loadSource(compiledTemplate);
 
-  return new Promise((resolve, reject) =>
+  return new Promise((resolve, reject) => {
     dust.render('template', data, (err, out) => {
       if (err) return reject(err);
       t.is(out, expected);
       resolve();
-    })
-  );
-};
+    });
+  });
+});
 
 test(
   'should attach helper',

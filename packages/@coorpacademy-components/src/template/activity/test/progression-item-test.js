@@ -1,5 +1,5 @@
-import browserEnv from 'browser-env';
 import test from 'ava';
+import browserEnv from 'browser-env';
 import React from 'react';
 import {omit} from 'lodash/fp';
 import {shallow, configure} from 'enzyme';

@@ -35,7 +35,9 @@
   "settings": {
     "flowtype": {
       "onlyFilesWithFlowAnnotation": true
-    }
+    },
+    "import/core-modules": ["ava"],
+    "node": {"allowModules": ["ava"]}
   },
   "overrides": [
     {

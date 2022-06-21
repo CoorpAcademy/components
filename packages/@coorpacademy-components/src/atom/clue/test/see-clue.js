@@ -1,5 +1,5 @@
-import browserEnv from 'browser-env';
 import test from 'ava';
+import browserEnv from 'browser-env';
 import React from 'react';
 import {fireEvent} from '@testing-library/react';
 import forEach from 'lodash/fp/forEach';

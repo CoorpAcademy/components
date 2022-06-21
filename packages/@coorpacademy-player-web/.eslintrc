@@ -29,7 +29,9 @@
     ]
   },
   "settings": {
-    "import/ignore": ["node_modules", "\\.css$"]
+    "import/ignore": ["node_modules", "\\.css$"],
+    "import/core-modules": ["ava"],
+    "node": {"allowModules": ["ava"]}
   },
   "overrides": [
     {
