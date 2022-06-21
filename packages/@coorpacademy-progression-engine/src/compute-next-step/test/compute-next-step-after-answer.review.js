@@ -7,7 +7,9 @@ import allSlides from './fixtures/slides';
 import {
   firstStateReview,
   allRightAnswersBeforeLastStepStateReview,
-  onWrongAnswersBeforeLastStepStateReview
+  wrongAnswersBeforeLastStepStateReview,
+  wrongAnswersAfterLastStepStateReview,
+  stillOneWrongAnswersAfterLastStepStateReview
 } from './fixtures/states';
 
 const config: Config = getConfig({ref: 'review', version: '1'});
@@ -177,7 +179,7 @@ test('should return the first pending slide when user has finished the 5 slides,
 
   const nextStep = computeNextStepAfterAnswerForReview(
     config,
-    onWrongAnswersBeforeLastStepStateReview,
+    wrongAnswersBeforeLastStepStateReview,
     availableContent,
     allSlides[4],
     partialAction
@@ -202,8 +204,146 @@ test('should return the first pending slide when user has finished the 5 slides,
   });
 });
 
-/*
-test('should return the successExitNode when user has finished the 5 slides', t => {});
+test('should return the next wrong slide when user has finished the 5 slides and has still remaining questions to validate', t => {
+  const partialAction = {
+    type: 'answer',
+    payload: {
+      content: {
+        ref: '1.A1.2',
+        type: 'slide'
+      },
+      answer: ['foo', 'bar'],
+      godMode: false
+    }
+  };
 
-test('should return the next wrong slide when user has finished the 5 slides and has still remaining questions to validate', t => {});
-*/
+  const availableContent: AvailableContent = [
+    {
+      ref: 'skill_41BBqFKoS',
+      slides: [],
+      rules: null
+    }
+  ];
+
+  const nextStep = computeNextStepAfterAnswerForReview(
+    config,
+    wrongAnswersAfterLastStepStateReview,
+    availableContent,
+    allSlides[1],
+    partialAction
+  );
+
+  t.deepEqual(nextStep, {
+    type: 'answer',
+    payload: {
+      answer: ['foo', 'bar'],
+      content: {
+        ref: '1.A1.2',
+        type: 'slide'
+      },
+      godMode: false,
+      nextContent: {
+        type: 'slide',
+        ref: '1.A1.4'
+      },
+      isCorrect: true,
+      instructions: null
+    }
+  });
+});
+
+test('should return the same slide when user has answered wrong, has finished the 5 slides and has still remaining one questions to validate', t => {
+  const partialAction = {
+    type: 'answer',
+    payload: {
+      content: {
+        ref: '1.A1.4',
+        type: 'slide'
+      },
+      answer: ['xxx'],
+      godMode: false
+    }
+  };
+
+  const availableContent: AvailableContent = [
+    {
+      ref: 'skill_41BBqFKoS',
+      slides: [],
+      rules: null
+    }
+  ];
+
+  const nextStep = computeNextStepAfterAnswerForReview(
+    config,
+    stillOneWrongAnswersAfterLastStepStateReview,
+    availableContent,
+    allSlides[4],
+    partialAction
+  );
+
+  t.deepEqual(nextStep, {
+    type: 'answer',
+    payload: {
+      answer: ['xxx'],
+      content: {
+        ref: '1.A1.4',
+        type: 'slide'
+      },
+      godMode: false,
+      nextContent: {
+        type: 'slide',
+        ref: '1.A1.4'
+      },
+      isCorrect: false,
+      instructions: null
+    }
+  });
+});
+
+test('should return the successExitNode when user has finished the 5 slides after several wrong attempts', t => {
+  const partialAction = {
+    type: 'answer',
+    payload: {
+      content: {
+        ref: '1.A1.4',
+        type: 'slide'
+      },
+      answer: ['xxx'],
+      godMode: true
+    }
+  };
+
+  const availableContent: AvailableContent = [
+    {
+      ref: 'skill_41BBqFKoS',
+      slides: [],
+      rules: null
+    }
+  ];
+
+  const nextStep = computeNextStepAfterAnswerForReview(
+    config,
+    stillOneWrongAnswersAfterLastStepStateReview,
+    availableContent,
+    allSlides[4],
+    partialAction
+  );
+
+  t.deepEqual(nextStep, {
+    type: 'answer',
+    payload: {
+      answer: ['xxx'],
+      content: {
+        ref: '1.A1.4',
+        type: 'slide'
+      },
+      godMode: true,
+      nextContent: {
+        type: 'success',
+        ref: 'successExitNode'
+      },
+      isCorrect: true,
+      instructions: null
+    }
+  });
+});

@@ -18,7 +18,7 @@ export default function pendingSlides(
         const slideRef = answerAction.payload.content.ref;
 
         const pendingSlideRefs = isCorrect
-          ? remove(slideRef, pendingSlidesToReview)
+          ? remove(s => s === slideRef, pendingSlidesToReview)
           : uniq(concat(pendingSlidesToReview, [answerAction.payload.content.ref]));
 
         return pendingSlideRefs;
