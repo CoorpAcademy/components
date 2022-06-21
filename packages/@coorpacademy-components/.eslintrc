@@ -17,11 +17,6 @@
     "plugin:@coorpacademy/coorpacademy/prettier"
   ],
   "parser": "babel-eslint",
-  "settings": {
-    "react": {
-      "version": "detect"
-    }
-  },
   "rules": {
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
@@ -73,6 +68,13 @@
         ".json": "never"
       }
     ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/core-modules": ["ava"],
+    "node": {"allowModules": ["ava"]}
   },
   "overrides": [
     {

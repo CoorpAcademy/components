@@ -1,6 +1,6 @@
+import test from 'ava';
 import browserEnv from 'browser-env';
 import React from 'react';
-import test from 'ava';
 import {mockTranslate} from '@coorpacademy/translate';
 import PropTypes from 'prop-types';
 import getOr from 'lodash/fp/getOr';

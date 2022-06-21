@@ -1,5 +1,5 @@
-import browserEnv from 'browser-env';
 import test from 'ava';
+import browserEnv from 'browser-env';
 import React from 'react';
 import {render, cleanup, fireEvent, waitFor} from '@testing-library/react';
 import ReviewCongrats, {setScroll} from '..';

@@ -1,5 +1,5 @@
-import browserEnv from 'browser-env';
 import test from 'ava';
+import browserEnv from 'browser-env';
 import {replace} from 'lodash/fp';
 import React from 'react';
 import {mount, configure} from 'enzyme';

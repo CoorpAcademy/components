@@ -6,8 +6,6 @@
 
 import type {Icon} from './types';
 
-export type {Icon};
-
 import _NovaCompositionCoorpacademy10secBack from './components/nova-composition/coorpacademy/10sec-back';
 import _NovaCompositionCoorpacademy10secForward from './components/nova-composition/coorpacademy/10sec-forward';
 import _NovaCompositionCoorpacademyAdaptive from './components/nova-composition/coorpacademy/adaptive';
@@ -209,6 +207,8 @@ import _PodcastPodcastHeartrounded from './components/podcast/podcast/heartround
 import _PodcastPodcastPause from './components/podcast/podcast/pause';
 import _PodcastPodcastPlayrounded from './components/podcast/podcast/playrounded';
 import _PodcastPodcastSettings2 from './components/podcast/podcast/settings2';
+
+export type {Icon};
 
 export const NovaCompositionCoorpacademy10secBack: Icon = _NovaCompositionCoorpacademy10secBack;
 export const NovaCompositionCoorpacademy10secForward: Icon = _NovaCompositionCoorpacademy10secForward;

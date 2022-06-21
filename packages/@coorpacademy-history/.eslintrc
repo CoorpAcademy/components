@@ -32,6 +32,10 @@
       { "ignores": ["modules"] }
     ]
   },
+  "settings": {
+    "import/core-modules": ["ava"],
+    "node": {"allowModules": ["ava"]}
+  },
   "overrides": [
     {
       "files": ["./ava.config.cjs", "./nyc.config.js"],
