@@ -233,23 +233,23 @@ test('should return the next wrong slide when user has finished the 5 slides and
     partialAction
   );
 
-  t.deepEqual(nextStep, {
-    type: 'answer',
-    payload: {
-      answer: ['foo', 'bar'],
-      content: {
-        ref: '1.A1.2',
-        type: 'slide'
-      },
-      godMode: false,
-      nextContent: {
-        type: 'slide',
-        ref: '1.A1.4'
-      },
-      isCorrect: true,
-      instructions: null
-    }
+  if (!nextStep) {
+    t.fail();
+    return;
+  }
+  t.is(nextStep.type, 'answer');
+  t.deepEqual(nextStep.payload.answer, ['foo', 'bar']);
+  t.deepEqual(nextStep.payload.content, {
+    ref: '1.A1.2',
+    type: 'slide'
   });
+  t.false(nextStep.payload.godMode);
+  t.true(nextStep.payload.isCorrect);
+  t.is(nextStep.payload.instructions, null);
+  t.is(nextStep.payload.nextContent.type, 'slide');
+  t.true(
+    wrongAnswersAfterLastStepStateReview.pendingSlides.includes(nextStep.payload.nextContent.ref)
+  );
 });
 
 test('should return the same slide when user has answered wrong, has finished the 5 slides and has still remaining one questions to validate', t => {

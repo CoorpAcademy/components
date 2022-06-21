@@ -12,6 +12,7 @@ import {
   sortBy,
   isEqual,
   isEmpty,
+  sample,
   shuffle,
   includes,
   findIndex,
@@ -385,10 +386,9 @@ export const computeNextStepForReview = (
     return null;
   }
 
+  // if there is no more slides, two scenarios are possible
   if (state && !nextSlide) {
-    // if there is no more slides, two scenarios are possible
-    const pendingSlide = head(state.pendingSlides);
-
+    const pendingSlide = sample(state.pendingSlides);
     // all other questions have been already right answered, so we close the progression
     if (!pendingSlide) {
       return null;
