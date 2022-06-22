@@ -21,7 +21,8 @@ export default async function configureStore(): Promise<
 
   const {composeWithDevTools} = isProd
     ? {composeWithDevTools: null}
-    : await import('redux-devtools-extension');
+    : // eslint-disable-next-line node/no-unsupported-features/es-syntax, import/dynamic-import-chunkname
+      await import('redux-devtools-extension');
   const _compose =
     !isProd && isExtensionEnabled
       ? composeWithDevTools({

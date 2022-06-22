@@ -1,4 +1,5 @@
 import {
+  ApiState,
   FinishedSlidesState,
   NavigationState,
   ReviewStatusState,
@@ -15,4 +16,5 @@ export type StoreState = {
   finishedSlides: FinishedSlidesState;
   reviewStatus: ReviewStatusState;
   token: TokenState;
+  api: ApiState;
 };

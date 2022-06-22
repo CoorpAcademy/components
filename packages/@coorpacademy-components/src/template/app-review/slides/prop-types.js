@@ -5,6 +5,7 @@ import ReviewCongrats from '../../../organism/review-congrats';
 import ReviewCorrectionPopin from '../../../molecule/review-correction-popin';
 import ReviewBackground from '../../../atom/review-background';
 import ReviewHeader from '../../../organism/review-header';
+import Answer from '../../../molecule/answer';
 
 export default {
   headerProps: PropTypes.shape(omit(['steps', ''], ReviewHeader.propTypes)),
@@ -33,8 +34,21 @@ export default {
   }),
   congratsProps: PropTypes.shape(ReviewCongrats.propTypes),
   // ---------------
-  // Dispatcher
+  // Dispatchers
   validateSlide: PropTypes.func.isRequired,
-  // next on click uses the Dispatchers to update on next slide click
-  loadNextSlide: PropTypes.func
+  updateSlidesOnValidation: PropTypes.func.isRequired,
+  updateSlidesOnNext: PropTypes.func.isRequired,
+  updateReviewStatus: PropTypes.func.isRequired,
+  updateStepItemsOnValidation: PropTypes.func.isRequired,
+  updateStepItemsOnNext: PropTypes.func.isRequired,
+  updateFinishedSlides: PropTypes.func.isRequired,
+  slideValidationResult: PropTypes.shape({
+    slideNumber: PropTypes.number,
+    result: PropTypes.oneOfType(['success', 'failure']),
+    exitNode: PropTypes.oneOfType(['successExitNode', 'failExitNode', undefined]),
+    nextSlide: PropTypes.shape({
+      questionText: PropTypes.string,
+      answerUI: PropTypes.shape(Answer.propTypes)
+    })
+  })
 };

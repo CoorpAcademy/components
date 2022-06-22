@@ -4,33 +4,40 @@ import AppReviewTemplate from '@coorpacademy/components/es/template/app-review';
 
 import configureStore from './configure-store';
 import {navigateTo, navigateBack, startApp} from './actions/navigation';
-import {validateSlide} from './actions/slides';
+import {updateSlidesOnNext, updateSlidesOnValidation} from './actions/slides';
 import {getCurrentViewName} from './reducers/navigation';
-import {SlidesViewProps} from './types/views';
+import {SlidesViewStaticProps} from './types/views';
 import {AppOptions} from './types/common';
 import {StoreState} from './types/store-state';
 import {congratsProps, correctionPopinProps} from './temp-fixture';
+import {updateFinishedSlides} from './actions/finished-slides';
+import {updateReviewStatus} from './actions/review-status';
+import {updateStepItemsOnValidation, updateStepItemsOnNext} from './actions/step-items';
+import {Dispatchers} from './types/dispatchers';
+import {validateSlide} from './actions/api/validate-slide';
 
 // -----------------------------------------------------------------------------
 
-type Dispatchers = {
-  navigateTo: typeof navigateTo;
-  navigateBack: typeof navigateBack;
-  validateSlide: typeof validateSlide;
-};
-
-type Props = {
+type StaticProps = {
   viewName: 'home' | 'onboarding' | 'slides';
-  slides: SlidesViewProps;
+  slides: SlidesViewStaticProps;
 };
-
-// type RootProps = Props & Dispatchers;
 
 // -----------------------------------------------------------------------------
 
-const mapDispatchToProps: Dispatchers = {navigateTo, navigateBack, validateSlide};
-
-const mapStateToProps = (state: StoreState): Props => ({
+const mapDispatchToProps: Dispatchers = {
+  navigateTo,
+  navigateBack,
+  validateSlide,
+  updateSlidesOnValidation,
+  updateSlidesOnNext,
+  updateReviewStatus,
+  updateStepItemsOnValidation,
+  updateStepItemsOnNext,
+  updateFinishedSlides
+};
+// StaticProps
+const mapStateToProps = (state: StoreState): StaticProps => ({
   viewName: getCurrentViewName(state),
   slides: {
     slides: state.slides,
@@ -40,14 +47,13 @@ const mapStateToProps = (state: StoreState): Props => ({
     finishedSlides: state.finishedSlides,
     stepItems: state.stepItems,
     reviewStatus: state.reviewStatus,
-    // eslint-disable-next-line no-console
-    validateSlide: () => console.log('HEY'),
     correctionPopinProps,
     congratsProps,
-    // eslint-disable-next-line no-console
-    loadNextSlide: () => console.log('HEY')
+    slideValidationResult: state.api.entities.slideValidationResult
   }
 });
+
+// Props = StaticProps && Dispatchers
 
 const App = connect(mapStateToProps, mapDispatchToProps)(AppReviewTemplate);
 

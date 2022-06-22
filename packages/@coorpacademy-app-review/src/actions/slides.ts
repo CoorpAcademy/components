@@ -3,7 +3,6 @@ import {Slide, UpdateSlidesOnNextPayload, UpdateSlidesOnValidationPayload} from 
 // -----------------------------------------------------------------------------
 
 export const STORE_FIRST_SLIDE = '@@slide/STORE_FIRST_SLIDE';
-export const VALIDATE_SLIDE = '@@slide/VALIDATE_SLIDE';
 export const UPDATE_SLIDES_ON_VALIDATION = '@@slide/UPDATE_SLIDES_ON_VALIDATION';
 export const UPDATE_SLIDES_ON_NEXT = '@@slide/UPDATE_SLIDES_ON_NEXT';
 
@@ -12,10 +11,6 @@ export const UPDATE_SLIDES_ON_NEXT = '@@slide/UPDATE_SLIDES_ON_NEXT';
 export type StoreFirstSlide = {
   type: typeof STORE_FIRST_SLIDE;
   payload: Slide;
-};
-
-export type ValidateSlide = {
-  type: typeof VALIDATE_SLIDE;
 };
 
 export type UpdateSlidesOnValidation = {
@@ -35,10 +30,6 @@ export type SlidesAction = StoreFirstSlide | UpdateSlidesOnValidation | UpdateSl
 export const storeFirstSlide = (slide: Slide): StoreFirstSlide => ({
   type: STORE_FIRST_SLIDE,
   payload: slide
-});
-
-export const validateSlide = (): ValidateSlide => ({
-  type: VALIDATE_SLIDE
 });
 
 export const updateSlidesOnValidation = (

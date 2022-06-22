@@ -1,47 +1,12 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import {ApiState} from './api';
+import {Dispatchers} from './dispatchers';
 import {FinishedSlides} from './finished-slides';
 import {ReviewStatus} from './review-status';
-import {SlideNumber, Slides} from './slides';
+import {Slides} from './slides';
 import {StepItems} from './step-items';
 
-type SlidesPayload = {
-  slideNumber: SlideNumber;
-  newSlideContent: {
-    hidden?: boolean;
-    position: SlideNumber;
-  };
-  numberOfFinishedSlides: number;
-};
-
-type FinishedSlidesPayload = {
-  slideNumber: SlideNumber;
-  value: true;
-};
-
-type StepItemsPayload = {
-  stepNumber: SlideNumber;
-  finishedSlides: FinishedSlides;
-};
-
-type OnSlideValidation = ({
-  slidesPayload,
-  finishedSlidesPayload,
-  stepItemsPayload
-}: {
-  slidesPayload: SlidesPayload;
-  finishedSlidesPayload: FinishedSlidesPayload;
-  stepItemsPayload: Omit<StepItemsPayload, 'finishedSlides'>;
-}) => void;
-
-type OnNextClick = ({
-  slidesPayload,
-  stepItemsPayload
-}: {
-  slidesPayload: SlidesPayload;
-  stepItemsPayload: StepItemsPayload;
-}) => void;
-
-type SlidesViewProps = {
+type SlidesViewStaticProps = {
   slides: Slides;
   finishedSlides: FinishedSlides;
   stepItems: StepItems;
@@ -86,9 +51,12 @@ type SlidesViewProps = {
     successLabel: string;
     failureLabel: string;
   };
-  validateSlide: OnSlideValidation;
   reviewBackgroundAriaLabel?: string;
-  loadNextSlide: OnNextClick;
+  slideValidationResult: ApiState['entities']['slideValidationResult'];
 };
 
-export {SlidesViewProps};
+type SlidesViewDispatcherProps = Omit<Dispatchers, 'navigateTo' | 'navigateBack'>;
+
+type SlidesViewProps = SlidesViewStaticProps & SlidesViewDispatcherProps;
+
+export {SlidesViewStaticProps, SlidesViewDispatcherProps, SlidesViewProps};

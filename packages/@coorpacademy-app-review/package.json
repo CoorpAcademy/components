@@ -10,6 +10,7 @@
     "start": "node commands/start.js",
     "static": "node commands/build-static-webapp.js",
     "poststatic": "cp -r public static",
+    "prepare": "npm run clean && npm run build --production",
     "build:commonjs": "tsc -p tsconfig.lib.json",
     "build:es": "tsc -p tsconfig.es.json",
     "build": "concurrently \"npm run build:commonjs\" \"npm run build:es\"",
