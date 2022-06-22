@@ -1,6 +1,6 @@
 import test from 'ava';
 import {fetchCourse as _fetchCourse} from './fetch-demo';
-import {okJSONResponse} from './fetch.mocks';
+import {okJSONResponse} from './tools/fetch.mocks';
 import type {CatalogHits} from './fetch-demo';
 
 test('should fetch a demo course', async t => {

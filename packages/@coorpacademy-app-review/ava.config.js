@@ -1,5 +1,6 @@
 module.exports = {
-  files: ['src/**/*.test.ts', 'src/**/*.test.tsx'],
-  extensions: ['ts', 'tsx'],
-  require: ['ts-node/register']
+  extensions: ['ts'],
+  files: ['src/**/*.test.ts'],
+  // https://github.com/avajs/ava/blob/main/docs/recipes/typescript.md#for-packages-without-type-module
+  require: ['ts-node/register/transpile-only']
 };
