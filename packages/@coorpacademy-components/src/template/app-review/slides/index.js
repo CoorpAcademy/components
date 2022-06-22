@@ -37,7 +37,7 @@ const getSlideAnimation = (action, position, hidden) => {
 
 const Slide = ({
   slideNumber,
-  slidesState,
+  slides,
   primarySkinColor,
   validate,
   validateSlide,
@@ -64,7 +64,7 @@ const Slide = ({
     validationResult,
     questionText,
     answerUI
-  } = slidesState.get(slideNumber);
+  } = slides.get(slideNumber);
 
   const {label: validateLabel} = validate;
 
