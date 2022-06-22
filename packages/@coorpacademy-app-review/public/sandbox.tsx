@@ -8,10 +8,10 @@ import pipe from 'lodash/fp/pipe';
 
 import AppReview from '../src';
 import type {AppOptions} from '../src/types/common';
-import {Slide} from '../src/types/slides';
 import {WithRequired} from '../src/types/utils';
+// import {Slide} from '../src/types/slides';
 // import freeText from './slides/free-text';
-import qcm from './slides/qcm';
+// import qcm from './slides/qcm';
 
 // -----------------------------------------------------------------------------
 
@@ -29,7 +29,7 @@ declare global {
 // -----------------------------------------------------------------------------
 
 // const selectedSlide: Slide = freeText;
-const selectedSlide: Slide = qcm;
+// const selectedSlide: Slide = qcm;
 
 // -----------------------------------------------------------------------------
 
@@ -47,8 +47,8 @@ const createSandbox = (options: SandboxOptions = {}): void => {
     // mode mobile/web
     // userId + skill --> create progression --> 1st slide
     const appOptions: AppOptions = {
-      token: process.env.API_TEST_TOKEN || '',
-      slide: selectedSlide
+      token: process.env.API_TEST_TOKEN || ''
+      // slide: selectedSlide
     };
 
     render(<AppReview options={appOptions} />, container);

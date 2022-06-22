@@ -1,4 +1,5 @@
 import {AnswerUI} from '../slides';
+import {State as SkillsState} from '../../reducers/skills';
 
 export type DataState = {
   isFetching?: boolean;
@@ -12,5 +13,6 @@ export type DataState = {
       answerUI?: AnswerUI;
     };
   };
+  skills: SkillsState;
   token?: string;
 };

@@ -6,7 +6,7 @@ import {NavigationState as State} from '../types/states';
 // -----------------------------------------------------------------------------
 
 // export type State = Array<string>;
-export const initialState: State = ['home'];
+export const initialState: State = [];
 
 // -----------------------------------------------------------------------------
 

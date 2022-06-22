@@ -1,16 +1,3 @@
-export type _Response = {
-  ok: boolean;
-  status: number;
-  statusText: string;
-  json: () => Promise<unknown>;
-  text: () => Promise<string>;
-};
-
-export type Fetch = (
-  url?: string,
-  options?: {headers: {authorization: string}}
-) => Promise<_Response>;
-
 export class ResponseError extends Error {
   public statusCode: number;
 
@@ -21,7 +8,7 @@ export class ResponseError extends Error {
   }
 }
 
-export const toJSON = async (response: _Response): Promise<unknown> => {
+export const toJSON = async (response: Response): Promise<unknown> => {
   if (!response.ok) {
     const body = await response.text();
     throw new ResponseError(response.status, response.statusText, body);
@@ -34,7 +21,7 @@ export const toJSON = async (response: _Response): Promise<unknown> => {
   }
 };
 
-export const toText = async (response: _Response): Promise<string> => {
+export const toText = async (response: Response): Promise<string> => {
   const body = await response.text();
 
   if (!response.ok) {
@@ -44,7 +31,7 @@ export const toText = async (response: _Response): Promise<string> => {
   return body;
 };
 
-export const toVoid = async (response: _Response): Promise<void> => {
+export const toVoid = async (response: Response): Promise<void> => {
   if (!response.ok) {
     const body = await response.text();
     throw new ResponseError(response.status, response.statusText, body);

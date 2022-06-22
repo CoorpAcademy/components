@@ -1,6 +1,6 @@
 import crossFetch from 'cross-fetch';
 import decode from 'jwt-decode';
-import {Fetch, toJSON} from './fetch-responses';
+import {Fetch, toJSON} from './tools/fetch-responses';
 
 // -----------------------------------------------------------------------------
 

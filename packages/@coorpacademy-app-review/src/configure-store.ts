@@ -2,12 +2,9 @@ import {AnyAction, applyMiddleware, compose, createStore, EmptyObject, Store} fr
 import thunk from 'redux-thunk';
 
 import rootReducer from './reducers';
-
 import onStartApp from './middlewares/on-start-app';
 
 import {StoreState} from './types/store-state';
-
-const preloadedState: unknown = undefined;
 
 // -----------------------------------------------------------------------------
 
@@ -23,7 +20,7 @@ export default function configureStore(): Store<EmptyObject & StoreState, AnyAct
     : compose;
 
   const enhancer = _compose(applyMiddleware(thunk, onStartApp));
-  const store = createStore(rootReducer, preloadedState, enhancer);
+  const store = createStore(rootReducer, undefined, enhancer);
 
   return store;
 }

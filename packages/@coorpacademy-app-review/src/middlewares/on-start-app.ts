@@ -1,13 +1,18 @@
 import type {Middleware} from 'redux';
 import {Dispatch} from 'redux';
+import decode from 'jwt-decode';
 
-import {Action} from '../actions';
 // import fetchCourse from '../services/fetch-demo';
 import {VIEWS} from '../common';
+
+import {Action} from '../actions';
 import {navigateTo, START_APP, ViewPath} from '../actions/navigation';
 import {storeToken} from '../actions/token';
+import {receivedSkills} from '../actions/skills';
 import {storeFirstSlide} from '../actions/slides';
-// import {receivedCourse} from '../actions/courses';
+import fetchSkills from '../services/fetch-skills';
+
+import {JWT} from '../types/common';
 import {StoreState} from '../types/store-state';
 
 const onStartApp: Middleware<{}, StoreState, Dispatch<Action>> =
@@ -15,16 +20,20 @@ const onStartApp: Middleware<{}, StoreState, Dispatch<Action>> =
   next =>
   (action: Action) => {
     if (action.type === START_APP) {
-      // eslint-disable-next-line no-warning-comments
-      // TODO: fetchProgression + fetchSlide à partir de la progression passée dans les options de l'app
-      const {slide} = action.payload;
+      const {slide, token} = action.payload;
+      const {user: userId}: JWT = decode(token);
+
+      dispatch(storeToken(token));
+
       if (slide) {
-        const {token} = action.payload;
-        dispatch(storeToken(token));
         dispatch(storeFirstSlide(slide));
+      } else {
+        fetchSkills(token).then(skills => {
+          dispatch(receivedSkills(skills));
+        });
       }
 
-      const initialView: ViewPath = slide ? VIEWS.slides : VIEWS.onboarding;
+      const initialView: ViewPath = slide ? VIEWS.slides : VIEWS.skills;
 
       dispatch(navigateTo(initialView));
 

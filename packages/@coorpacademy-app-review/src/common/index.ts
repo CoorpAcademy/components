@@ -2,11 +2,11 @@ export const TOTAL_SLIDES_STACK = 5;
 export const HIGHEST_INDEX = TOTAL_SLIDES_STACK - 1;
 
 export const VIEWS: {
-  readonly home: 'home';
+  readonly skills: 'skills';
   readonly onboarding: 'onboarding';
   readonly slides: 'slides';
 } = {
-  home: 'home',
+  skills: 'skills',
   onboarding: 'onboarding',
   slides: 'slides'
 };
